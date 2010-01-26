@@ -21,22 +21,24 @@ install: build
 	dh_installdirs
 
 binary-indep: install
+# Nothing here, move along.
+
+binary-arch: install
 	dh_testdir
 	dh_testroot
 	dh_install
 	dh_installchangelogs
 	dh_installdebconf
 	dh_lintian
-	dh_link
 	dh_compress
+	dh_link
+	dh_strip
 	dh_fixperms
 	dh_installdeb
+	dh_shlibdeps
 	dh_gencontrol
 	dh_md5sums
 	dh_builddeb
-
-binary-arch: install
-# We have nothing to do by default.
 
 binary: binary-indep binary-arch
 .PHONY: clean binary-indep binary-arch binary install
