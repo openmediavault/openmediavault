@@ -1,0 +1,14 @@
+Source: jsl
+Section: devel
+Priority: optional
+Maintainer: Volker Theile <votdev@gmx.de>
+Build-Depends: debhelper (>> 7 )
+Standards-Version: 3.6.10
+Homepage: http://www.javascriptlint.com
+
+Package: jsl
+Architecture: any
+Depends:
+Description: JavaScript Lint
+ With JavaScript Lint, you can check all your JavaScript source code for common
+ mistakes without actually running the script or opening the web page.

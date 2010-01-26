@@ -1,0 +1,42 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+
+clean:
+	dh_testdir
+	dh_testroot
+	find . -maxdepth 1 -not -iname "debian" -not -name ".*" -exec rm -r -v '{}' \;
+	dh_clean
+
+build: build-stamp
+build-stamp:
+	dh_testdir
+	$(MAKE) -C src -f Makefile.ref
+	touch build-stamp
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+
+binary-indep: install
+	dh_testdir
+	dh_testroot
+	dh_install
+	dh_installchangelogs
+	dh_installdebconf
+	dh_lintian
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-arch: install
+# We have nothing to do by default.
+
+binary: binary-indep binary-arch
+.PHONY: clean binary-indep binary-arch binary install
