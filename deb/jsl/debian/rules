@@ -8,7 +8,19 @@ clean:
 	find . -maxdepth 1 -not -iname "debian" -not -name ".*" -exec rm -r -v '{}' \;
 	dh_clean
 
-build: build-stamp
+extract: extract-stamp
+extract-stamp:
+	tar -xzvf $(CURDIR)/../sources/jsl-0.3.0-src.tar.gz
+	mv $(CURDIR)/jsl-0.3.0/* $(CURDIR)
+	rm -rf $(CURDIR)/jsl-0.3.0
+	touch extract-stamp
+
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+	touch configure-stamp
+
+build: extract configure build-stamp
 build-stamp:
 	dh_testdir
 	$(MAKE) -C src -f Makefile.ref
@@ -41,4 +53,4 @@ binary-arch: install
 	dh_builddeb
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install
+.PHONY: build clean binary-indep binary-arch binary install configure extract
