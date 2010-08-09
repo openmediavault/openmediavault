@@ -1,3 +1,9 @@
+libjs-extjs3 (3.2.1) stable; urgency=low
+
+  * New upstream release
+
+ -- vot <votdev@gmx.de>  Sun, 23 May 2010 00:33:53 +0200
+
 libjs-extjs3 (3.1.1) stable; urgency=low
 
   * New upstream release
