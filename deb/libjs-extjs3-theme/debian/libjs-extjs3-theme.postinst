@@ -1,8 +1,0 @@
-#!/bin/bash -e
-
-# Modify permissions
-chmod 755 /usr/share/javascript/extjs3/resources/css/xtheme-gray-extend.css
-chmod 755 /usr/share/javascript/extjs3/resources/images/gray-extend/*
-chown -R www-data:www-data /usr/share/javascript/extjs3/resources/images/gray-extend/*
-
-exit 0
