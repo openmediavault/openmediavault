@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 #export DH_VERBOSE=1
-EXTJSVERSION=3.2.1
+EXTJSVERSION=3.3.0
 
 clean:
 	dh_testdir
