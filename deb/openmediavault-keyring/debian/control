@@ -1,0 +1,13 @@
+Source: openmediavault-keyring
+Section: misc
+Maintainer: Volker Theile <votdev@gmx.de>
+Build-Depends: debhelper (>= 5), gnupg
+Standards-Version: 3.7.3
+
+Package: openmediavault-keyring
+Priority: important
+Architecture: all
+Depends: gnupg
+Description: GnuPG archive keys of the OpenMediaVault archive
+ The OpenMediaVault project digitally signs its Release files. This package
+ contains the archive keys used for that.
