@@ -1,6 +1,6 @@
-Format-Specification: http://svn.debian.org/wsvn/dep/web/deps/dep5.mdwn?op=file&rev=135
-Maintainer: votdev@gmx.de
-Source: http://www.sencha.com
+Format: http://dep.debian.net/deps/dep5
+Upstream-Contact: Volker Theile <votdev@gmx.de>
+Source: http://www.sencha.com/products/extjs/download/ext-js-3.4.0
 
 Copyright: Ext JS, LLC <licensing@extjs.com>
 License:
