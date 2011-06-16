@@ -1,0 +1,126 @@
+Index: php-json-schema/libs/JsonSchema.php
+===================================================================
+--- php-json-schema.orig/libs/JsonSchema.php	2011-06-16 11:45:25.237335292 +0200
++++ php-json-schema/libs/JsonSchema.php	2011-06-16 11:46:06.634708825 +0200
+@@ -26,6 +26,9 @@
+ );
+ * */
+ 
++class JsonSchemaUndefined {
++}
++
+ class JsonSchema {
+   
+   static $errors = array();
+@@ -426,100 +429,4 @@
+ 	return self::$errors;
+   }
+ }
+-
+-class Dbg {
+-	
+-  static public $quietMode = false;
+-  
+-  static function includeJqueryJs() {
+-    echo "<script type='text/javascript' src='/js/jquery.js'></script>";
+-  }
+-  
+-  static function func($print = true, $numStackSteps = 1) {
+-  	$ar = debug_backtrace();
+-  	$ret = '';
+-  	
+-  	for($a = $numStackSteps; $a >= 1; $a--) {
+-  	  $line = $ar[$a-1]['line'];
+-  	  $step = $ar[$a];
+-  	  $ret .= str_repeat('&nbsp;&nbsp;&nbsp;',$a).self::showStep($step,$print,$line);	
+-  	}
+-  	if($print && !self::$quietMode) echo $ret;
+-  	return $ret;
+-  }
+-  
+-  static function mark($title,$print = true) {
+-  	$ar = debug_backtrace();
+-  	$ret = '';
+-  	$line = $ar[0]['line'];
+-  	$ret = "[MARK]".$title.'(line '.$line.')<br/>';
+-  	if($print && !self::$quietMode) echo $ret;
+-  	return $ret;
+-  }
+-  
+-  static function object($object,$linkTitle = 'object',$varDump = false,$print = true) {
+-  	static $divCount = 0;
+-  	$divCount++;
+-  	$ar = debug_backtrace();
+-  	$ret = '';
+-  	$line = $ar[0]['line'];
+-  	$ret = '[OBJECT]<a href="javascript:void(0);" onclick="$(\'#div-obj-'.$divCount.'\').toggle()">'.$linkTitle.'</a>';
+-  	$ret .= '(line '.$line.')<br/>';
+-  	$ret .= '<div id=\'div-obj-'.$divCount.'\' style="display:none;">';
+-  	if($varDump) {
+-  	  ob_start();
+-  	  var_dump($object);
+-  	  $ret .= ob_get_clean();
+-  	}
+-  	else {
+-  	  $ret .= print_r($object,true); 
+-  	}
+-  	$ret .= '</div>';
+-  	if($print && !self::$quietMode) echo $ret;
+-  	return $ret;
+-  }
+-  
+-  static function showStep($step,$print,$line) {
+-  	static $divCount = 0;
+-    $ret = '[STEP]'.$step['class'] . $step['type'] . $step['function'];
+-  	if(count($step['args'])) {
+-  	  $ret .= '(';
+-  	  $comma = '';
+-  	  $exp = array();
+-  	  foreach($step['args'] as $num=>$arg) {
+-  	  	$divCount++;
+-  	  	if(in_array(gettype($arg),array('object','array'))) {
+-  	  	  if(is_object($arg)) {
+-  	  	    $type = get_class($arg);
+-  	  	  }
+-  	  	  else {
+-  	  	  	$type = gettype($arg);
+-  	  	  }
+-  	  	  $argVal = '<a href="javascript:void(0);" onclick="$(\'#div-step-'.$divCount.'\').toggle()">click to see</a>';
+-  	  	  $exp[] = 
+-  	  	    '<div id=\'div-step-'.$divCount.'\' style="display:none;">'
+-  	  	    .print_r($arg,true)
+-  	  	    .'</div>';
+-  	  	}
+-  	  	else {
+-  	  	  $type = gettype($arg);
+-  	  	  if($type == 'string') {
+-  	  	    $argVal = "'".$arg."'";
+-  	  	  }
+-  	  	  else {
+-  	  	  	$argVal = $arg;
+-  	  	  }
+-  	  	  $argVal = '<font style="color:#060">'.$argVal.'</font>';
+-  	  	}
+-  	  	$ret .= $comma.' <i>' . $type . "</i> " . $argVal;
+-  	  	$comma = ',';
+-  	  }
+-  	  $ret .= ')  (line '.$line.')<br/>';
+-  	  foreach($exp as $text) {
+-  	  	$ret .= '<pre>' . $text . '</pre>';
+-  	  }
+-  	}
+-  	return $ret;
+-  }
+-}
+-?>
+\ No newline at end of file
++?>
+Index: php-json-schema/libs/JsonSchemaUndefined.php
+===================================================================
+--- php-json-schema.orig/libs/JsonSchemaUndefined.php	2011-06-16 11:46:46.364027010 +0200
++++ /dev/null	1970-01-01 00:00:00.000000000 +0000
+@@ -1,3 +0,0 @@
+-<?php
+-class JsonSchemaUndefined {}
+-?>
+\ No newline at end of file

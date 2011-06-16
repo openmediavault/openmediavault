@@ -2,6 +2,9 @@
 
 #export DH_VERBOSE=1
 
+%:
+	dh $@ --with quilt
+
 clean:
 	dh_testdir
 	dh_testroot
@@ -10,16 +13,13 @@ clean:
 
 extract: extract-stamp
 extract-stamp:
-	unzip $(CURDIR)/../sources/json-schema-php_0.2.0.zip
+	tar -xzvf $(CURDIR)/../sources/php-json-schema.tar.gz
+	mv $(CURDIR)/justinrainbow-json-schema-5fe0224/* $(CURDIR)
+	rm -rf $(CURDIR)/justinrainbow-json-schema-5fe0224
 	touch extract-stamp
 
-configure: configure-stamp
-configure-stamp:
-	dh_testdir
-	touch configure-stamp
-
-build: extract configure build-stamp
-build-stamp:
+build: build-stamp
+build-stamp: extract-stamp patch
 	touch build-stamp
 
 install: build
@@ -45,4 +45,4 @@ binary-indep: install
 binary-arch: install
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure extract
+.PHONY: build clean binary-indep binary-arch binary install extract
