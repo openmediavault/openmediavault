@@ -2,14 +2,17 @@
 
 #export DH_VERBOSE=1
 
-%:
-	dh $@ --with quilt
-
 clean:
 	dh_testdir
 	dh_testroot
+	dh_quilt_unpatch
 	find . -maxdepth 1 -not -iname "debian" -not -name ".*" -exec rm -r -v '{}' \;
 	dh_clean
+
+patch: patch-stamp
+patch-stamp:
+	dh_quilt_patch
+	touch patch-stamp
 
 extract: extract-stamp
 extract-stamp:
@@ -18,11 +21,7 @@ extract-stamp:
 	rm -rf $(CURDIR)/justinrainbow-json-schema-5fe0224
 	touch extract-stamp
 
-build: build-stamp
-build-stamp: extract-stamp patch
-	touch build-stamp
-
-install: build
+install: extract-stamp patch-stamp
 	dh_testdir
 	dh_testroot
 	dh_prep
@@ -45,4 +44,4 @@ binary-indep: install
 binary-arch: install
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install extract
+.PHONY: clean binary-indep binary-arch binary install extract patch
