@@ -1,7 +1,6 @@
-This package was debianized by vot <votdev@gmx.de> on
-Fri, 12 Dec 2010 20:44:46 +0200.
+Format: http://dep.debian.net/deps/dep5
+Upstream-Contact: Volker Theile <votdev@gmx.de>
+Source: http://www.openmediavault.org
 
-The whole source of this package is copyrighty by Volker Theile.
-
-The Debian packaging is copyright 2010, vot <votdev@gmx.de> and
-is licensed under the GPL, see `/usr/share/common-licenses/GPL'.
+Copyright: 2009-2011 Volker Theile <votdev@gmx.de>
+License: GPL-3

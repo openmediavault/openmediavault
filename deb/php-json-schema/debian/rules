@@ -21,7 +21,7 @@ extract-stamp:
 	rm -rf $(CURDIR)/justinrainbow-json-schema-5fe0224
 	touch extract-stamp
 
-install: extract-stamp patch-stamp
+install: extract patch
 	dh_testdir
 	dh_testroot
 	dh_prep

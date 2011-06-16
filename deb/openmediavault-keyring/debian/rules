@@ -8,17 +8,13 @@ clean:
 	rm -f build-stamp
 	dh_clean
 
-build: build-stamp
-build-stamp:
-	touch build-stamp
-
-install: build
+install:
 	dh_testdir
 	dh_testroot
 	dh_prep
 	dh_installdirs
 
-binary-indep: build install
+binary-indep: install
 	dh_testdir
 	dh_testroot
 	dh_install
@@ -33,8 +29,8 @@ binary-indep: build install
 	dh_md5sums
 	dh_builddeb
 
-binary-arch: build install
+binary-arch: install
 # We have nothing to do by default.
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install
+.PHONY: clean binary-indep binary-arch binary install

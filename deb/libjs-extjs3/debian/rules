@@ -16,16 +16,7 @@ extract-stamp:
 	rm -rf $(CURDIR)/ext-$(EXTJSVERSION)
 	touch extract-stamp
 
-configure: configure-stamp
-configure-stamp:
-	dh_testdir
-	touch configure-stamp
-
-build: extract configure build-stamp
-build-stamp:
-	touch build-stamp
-
-install: build
+install: extract
 	dh_testdir
 	dh_testroot
 	dh_prep
@@ -48,4 +39,4 @@ binary-indep: install
 binary-arch: install
 
 binary: binary-indep binary-arch
-.PHONY: build clean binary-indep binary-arch binary install configure extract
+.PHONY: clean binary-indep binary-arch binary install extract
