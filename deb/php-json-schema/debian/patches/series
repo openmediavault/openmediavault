@@ -1,1 +1,4 @@
-001-Cleanup.patch
+01-enum.patch
+02-maxdecimal.patch
+03-cleanup.patch
+04-bugfix.patch

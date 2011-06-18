@@ -1,0 +1,22 @@
+Index: php-json-schema/php/JsonSchema.php
+===================================================================
+--- php-json-schema.orig/php/JsonSchema.php	2011-06-18 00:52:34.749918400 +0200
++++ php-json-schema/php/JsonSchema.php	2011-06-18 00:52:44.599918396 +0200
+@@ -245,7 +245,7 @@
+                             if (preg_match($pattern, $value)) {
+                                 $isVali = true;
+                             } else {
+-                                $this->addError(printf('"%s" does not match "%s"', $value, $pattern));
++                                $this->addError(sprintf('<%s> does not match <%s>', $value, $pattern));
+                             }
+                         } else {
+                             $this->addError('regex pattern is undefined.');
+@@ -473,7 +473,7 @@
+                                 || !isset($schemaProp[$key]['optional'])
+                                 || !$schemaProp[$key]['optional']
+                         ) {
+-                            $this->addError(sprintf('key: "%s" is not exist,And it\'s not a optional property.', $value));
++                            $this->addError(sprintf('%s does not exist, and it is not an optional property.', $key));
+                             break 2;
+                         }
+                     }

@@ -1,10 +1,4 @@
-php-json-schema (0.0.2) stable; urgency=low
-
-  * Switch to dpkg-source 3.0 (quilt) format
-
- -- vot <votdev@gmx.de>  Thu, 16 Jun 2011 17:06:34 +0200
-
-php-json-schema (0.0.1) stable; urgency=low
+php-json-schema (0.2.0) stable; urgency=low
 
   * Initial release
 

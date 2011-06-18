@@ -1,6 +1,6 @@
 Format: http://dep.debian.net/deps/dep5
 Upstream-Contact: Volker Theile <votdev@gmx.de>
-Source: https://github.com/justinrainbow/json-schema
+Source: http://code.google.com/p/json-schema-php
 
 Files: *
 Copyright: (c) 2011 Volker Theile <votdev@gmx.de>
@@ -8,6 +8,6 @@ License: GPL-3
 
 Files: JsonSchema.php
 Copyright: 
-  (c) 2008, Bruno Prieto Reis, Gradua Networks
-  (c) 2008-2011 Justin Rainbow
-License: BSD-3-clause
+  (c) MoXie <SysTem128@GMail.Com> 2010-12-11
+  (c) 2010-2010 Zoeey.Org
+License: LGPL-3
