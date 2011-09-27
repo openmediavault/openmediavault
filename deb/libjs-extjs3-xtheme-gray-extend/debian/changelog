@@ -2,10 +2,10 @@ libjs-extjs3-xtheme-gray-extend (3.0.3) stable; urgency=low
 
   * New upstream release
 
- -- vot <votdev@gmx.de>  Fri, 27 Nov 2009 20:26:21 +0100
+ -- Volker Theile <votdev@gmx.de>  Fri, 27 Nov 2009 20:26:21 +0100
 
 libjs-extjs3-xtheme-gray-extend (3.0.0) stable; urgency=low
 
   * Initial release
 
- -- vot <votdev@gmx.de>  Wed, 26 Aug 2009 21:50:06 +0200
+ -- Volker Theile <votdev@gmx.de>  Wed, 26 Aug 2009 21:50:06 +0200

@@ -108,7 +108,7 @@ Index: php-json-schema/php/JsonSchema.php
          // integer
          if (!is_integer($value)) {
 -            $this->addError(sprintf('value:"%s" is not a integer.', $value));
-+            $this->addError(sprintf('%s is not a integer.', $value));
++            $this->addError(sprintf('%s is not an integer.', $value));
              return false;
          }
          return $this->checkNumber($value, $schema);

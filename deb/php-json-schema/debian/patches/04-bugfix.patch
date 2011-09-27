@@ -1,26 +1,27 @@
 Index: php-json-schema/php/JsonSchema.php
 ===================================================================
---- php-json-schema.orig/php/JsonSchema.php	2011-06-25 22:59:36.834274993 +0200
-+++ php-json-schema/php/JsonSchema.php	2011-06-25 23:00:20.444274995 +0200
+--- php-json-schema.orig/php/JsonSchema.php	2011-06-28 20:16:33.614781997 +0200
++++ php-json-schema/php/JsonSchema.php	2011-06-28 20:17:06.144781999 +0200
 @@ -245,7 +245,7 @@
                              if (preg_match($pattern, $value)) {
                                  $isVali = true;
                              } else {
 -                                $this->addError(printf('"%s" does not match "%s"', $value, $pattern));
-+                                $this->addError(sprintf('<%s> does not match <%s>', $value, $pattern));
++                                $this->addError(sprintf("'%s' does not match '%s'", $value, $pattern));
                              }
                          } else {
                              $this->addError('regex pattern is undefined.');
-@@ -465,7 +465,7 @@
+@@ -465,7 +465,8 @@
                  $valueProp = get_object_vars($value);
                  $valueKeys = array_keys($valueProp);
                  $schemaKeys = array_keys($schemaProp);
 -                $diffKeys = array_diff($valueKeys, $schemaKeys);
-+                $diffKeys = array_diff($schemaKeys, $valueKeys);
++                $diffKeys = array_merge(array_diff($valueKeys, $schemaKeys),
++				  array_diff($schemaKeys, $valueKeys));
                  if (!empty($diffKeys)) {
                      foreach ($diffKeys as $key) {
                          // property not defined / not optional
-@@ -473,7 +473,7 @@
+@@ -473,7 +474,7 @@
                                  || !isset($schemaProp[$key]['optional'])
                                  || !$schemaProp[$key]['optional']
                          ) {
