@@ -1,0 +1,91 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+	configure)
+		########################################################################
+		# Set the default settings of the forked-daapd package to those
+		# expected by OpenMediaVault.
+		########################################################################
+		if [ -z "$2" ]; then
+			echo "Updating init script links and actions"
+			invoke-rc.d --force forked-daapd stop
+			update-rc.d forked-daapd disable &>/dev/null
+		fi
+
+		########################################################################
+		# Update file permissions.
+		########################################################################
+		echo "Updating permissions"
+		omv_install_fixperms
+
+		########################################################################
+		# Update the configuration.
+		# <config>
+		#   <services>
+		#     <daap>
+		#       <!--
+		#       <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+		#       -->
+		#       <enable>0</enable>
+		#       <libraryname>%h - iTunes/DAAP</libraryname>
+		#       <port>3689</port>
+		#       <sharedfolderref></sharedfolderref>
+		#       <passwordrequired>0</passwordrequired>
+		#       <password></password>
+		#       <adminpassword></adminpassword>
+		#     </daap>
+		#   </services>
+		# </config>
+		########################################################################
+		if ! omv_config_exists "//services/daap"; then
+			echo "Updating configuration"
+			object="<enable>0</enable>"
+			object="${object}<libraryname>%h - iTunes/DAAP</libraryname>"
+			object="${object}<port>3689</port>"
+			object="${object}<sharedfolderref></sharedfolderref>"
+			object="${object}<passwordrequired>0</passwordrequired>"
+			object="${object}<password></password>"
+			object="${object}<adminpassword>unused</adminpassword>"
+			omv_config_add_element "//services" "daap" "${object}" true
+		fi
+
+		########################################################################
+		# Import system user 'daapd' created by the forked-daapd package.
+		########################################################################
+		omv_config_import_user "daapd"
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

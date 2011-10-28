@@ -1,5 +1,5 @@
 Format: http://dep.debian.net/deps/dep5
-Upstream-Contact: Volker Theile <votdev@gmx.de>
+Upstream-Contact: Volker Theile <volker.theile@openmediavault.org>
 Source: http://www.sencha.com/products/extjs/download/ext-js-3.4.0
 
 Copyright: Ext JS, LLC <licensing@extjs.com>
@@ -38,5 +38,5 @@ License:
     * Open Source License Exception for Applications
     * Open Source License Exception for Development
  .
- The Debian packaging is copyright 2009, vot <votdev@gmx.de> and
+ The Debian packaging is copyright 2009, vot <volker.theile@openmediavault.org> and
  is licensed under the GPL, see `/usr/share/common-licenses/GPL'.

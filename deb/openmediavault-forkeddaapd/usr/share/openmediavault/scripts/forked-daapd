@@ -1,0 +1,102 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_FORKEDDAAPD_CONFIG=${OMV_FORKEDDAAPD_CONFIG:-"/etc/forked-daapd.conf"}
+OMV_FORKEDDAAPD_DEFAULT=${OMV_FORKEDDAAPD_DEFAULT:-"/etc/default/forked-daapd"}
+OMV_FORKEDDAAPD_DAEMONOPTS=${OMV_FORKEDDAAPD_DAEMONOPTS:-"-m"}
+OMV_FORKEDDAAPD_GENERAL_UID=${OMV_FORKEDDAAPD_GENERAL_UID:-"daapd"}
+OMV_FORKEDDAAPD_GENERAL_LOGFILE=${OMV_FORKEDDAAPD_GENERAL_LOGFILE:-"/var/log/forked-daapd.log"}
+OMV_FORKEDDAAPD_GENERAL_LOGLEVEL=${OMV_FORKEDDAAPD_GENERAL_LOGLEVEL:-"log"}
+OMV_FORKEDDAAPD_GENERAL_DBPATH=${OMV_FORKEDDAAPD_GENERAL_DBPATH:-"/var/cache/forked-daapd/songs3.db"}
+OMV_FORKEDDAAPD_LIBRARY_ITUNESOVERRIDES=${OMV_FORKEDDAAPD_LIBRARY_ITUNESOVERRIDES:-"false"}
+OMV_FORKEDDAAPD_AUDIO_NICKNAME=${OMV_FORKEDDAAPD_AUDIO_NICKNAME:-"Computer"}
+
+mkconf() {
+	# Create '/etc/default/forked-daapd' file
+	cat <<EOF > ${OMV_FORKEDDAAPD_DEFAULT}
+DAEMON_OPTS="${OMV_FORKEDDAAPD_DAEMONOPTS}"
+EOF
+
+	# Create '/etc/forked-daapd.conf' file
+	xmlstarlet sel -t -m "//services/daap" \
+	  -o "general {" -n \
+	  -o "    # Username" -n \
+	  -o "    uid = &quot;${OMV_FORKEDDAAPD_GENERAL_UID}&quot;" -n \
+	  -o "    logfile = &quot;${OMV_FORKEDDAAPD_GENERAL_LOGFILE}&quot;" -n \
+	  -o "    # Available levels: fatal, log, warning, info, debug, spam" -n \
+	  -o "    loglevel = &quot;${OMV_FORKEDDAAPD_GENERAL_LOGLEVEL}&quot;" -n \
+	  -o "    # Database location" -n \
+	  -o "    db_path = &quot;${OMV_FORKEDDAAPD_GENERAL_DBPATH}&quot;" -n \
+	  -o "    # Admin password for the non-existent web interface" -n \
+	  -v "concat('    admin_password = &quot;',adminpassword,'&quot;')" -n \
+	  -o "}" -n \
+	  -n \
+	  -o "# Library configuration" -n \
+	  -o "library {" -n \
+	  -o "    # Name of the library as displayed by the clients" -n \
+	  -o "    # %h: hostname, %v: version" -n \
+	  -v "concat('    name = &quot;',libraryname,'&quot;')" -n \
+	  -o "    # TCP port to listen on. Default port is 3689 (daap)" -n \
+	  -v "concat('    port = ',port)" -n \
+	  -i "passwordrequired[. = '1']" \
+		  -o "    # Password for the library. Optional." -n \
+		  -v "concat('    password = &quot;',password,'&quot;')" -n \
+	  -b \
+	  -o "    # Directories to index" -n \
+	  -o "    directories = " ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -n \
+	  -o "    # Directories containing compilations" -n \
+	  -o "    # Matches anywhere in the path (not a regexp, though)" -n \
+	  -o "#   compilations = { &quot;/compilations/&quot; }" -n \
+	  -o "    # Should iTunes metadata override ours?" -n \
+	  -o "    itunes_overrides = ${OMV_FORKEDDAAPD_LIBRARY_ITUNESOVERRIDES}" -n \
+	  -o "    # Formats: mp4a, mp4v, mpeg, alac, flac, mpc, ogg, wma, wmal, wmav, aif$" -n \
+	  -o "    # Formats that should never be transcoded" -n \
+	  -o "#   no_transcode = { &quot;alac&quot;, &quot;mp4a&quot; }" -n \
+	  -o "    # Formats that should always be transcoded" -n \
+	  -o "#   force_transcode = { &quot;ogg&quot;, &quot;flac&quot; }" -n \
+	  -o "}" -n \
+	  -n \
+	  -o "# Local audio output" -n \
+	  -o "#audio {" -n \
+	  -o "    # AirTunes name - used in the speaker list in Remote" -n \
+      -o "#   nickname = &quot;${OMV_FORKEDDAAPD_AUDIO_NICKNAME}&quot;" -n \
+	  -o "    # Audio device name for local audio output" -n \
+      -o "#   card = &quot;default&quot;" -n \
+	  -o "#}" -n \
+	  -n \
+	  -o "# Airport Express device" -n \
+	  -o "#apex &quot;ApEx&quot; {" -n \
+	  -o "    # AirTunes password" -n \
+	  -o "#   password = &quot;s1kr3t&quot;" -n \
+	  -o "#}" \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_FORKEDDAAPD_CONFIG}
+}
+
+case "$1" in
+	mkconf|*)
+		mkconf
+		;;
+esac

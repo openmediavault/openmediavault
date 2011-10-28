@@ -1,0 +1,53 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_NETATALK_MONIT=${OMV_NETATALK_MONIT:-"/etc/monit/conf.d/netatalk"}
+
+mkconf() {
+	cat <<EOF > ${OMV_NETATALK_MONIT}
+check process netatalk with pidfile /var/run/afpd.pid
+  start program = "/etc/init.d/netatalk start"
+  stop program = "/etc/init.d/netatalk stop"
+  if failed host 127.0.0.1 port 548 type TCP then restart
+  if 5 restarts within 5 cycles then timeout
+  mode active
+EOF
+}
+
+case "$1" in
+	remove)
+		rm -f ${OMV_NETATALK_MONIT}
+		;;
+
+	mkconf)
+		mkconf
+		;;
+
+	*)
+		echo "$(basename $0) called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac

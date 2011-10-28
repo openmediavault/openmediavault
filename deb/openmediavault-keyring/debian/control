@@ -1,6 +1,6 @@
 Source: openmediavault-keyring
 Section: misc
-Maintainer: Volker Theile <votdev@gmx.de>
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>= 5), gnupg
 Standards-Version: 3.7.3
 

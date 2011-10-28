@@ -1,7 +1,7 @@
 Source: php-json-schema
 Section: php
 Priority: optional
-Maintainer: Volker Theile <votdev@gmx.de>
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>= 7)
 Standards-Version: 3.8.4
 Homepage: http://code.google.com/p/json-schema-php

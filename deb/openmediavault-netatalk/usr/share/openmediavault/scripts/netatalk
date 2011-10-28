@@ -1,0 +1,195 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://tobias-bartel.de/howtos/time-capsule-nach-debian-art
+# http://www.nexenta.org/projects/site/wiki/AFP_with_TimeMachine
+# http://www.kremalicious.com/2008/06/ubuntu-as-mac-file-server-and-time-machine-volume
+# http://forum.ubuntuusers.de/topic/netatalk-2-0-5-time-machine-support
+# http://reh-anton.de/blog/2009/12/time-capsule-light-mit-netatalk-2-0-5
+# http://sidikahawa.blogspot.com/2010/03/setting-up-time-machine-server-on-my.html
+# http://www.ohnekontur.de/index.php/2010/03/23/netatalk-2-0-5-time-machine-support
+# http://developer.apple.com/mac/library/documentation/NetworkingInternetWeb/Conceptual/TimeMachineNetworkInterfaceSpecification/TimeMachineRequirements/TimeMachineRequirements.html#//apple_ref/doc/uid/TP40008951-CH100-SW1
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_NETATALK_DEFAULT=${OMV_NETATALK_DEFAULT:-"/etc/default/netatalk"}
+OMV_NETATALK_AFPD_CONFIG=${OMV_NETATALK_AFPD_CONFIG:-"/etc/netatalk/afpd.conf"}
+OMV_NETATALK_AVDEFAULT_CONFIG=${OMV_NETATALK_AVDEFAULT_CONFIG:-"/etc/netatalk/AppleVolumes.default"}
+OMV_NETATALK_AFPD_MAX_CLIENTS=${OMV_NETATALK_AFPD_MAX_CLIENTS:-"20"}
+OMV_NETATALK_ATALK_NAME=${OMV_NETATALK_ATALK_NAME:-"\`/bin/hostname --short\`"}
+OMV_NETATALK_ATALK_MAC_CHARSET=${OMV_NETATALK_ATALK_MAC_CHARSET:-"MAC_ROMAN"}
+OMV_NETATALK_ATALK_UNIX_CHARSET=${OMV_NETATALK_ATALK_UNIX_CHARSET:-"LOCALE"}
+OMV_NETATALK_AFPD_GUEST=${OMV_NETATALK_AFPD_GUEST:-"nobody"}
+OMV_NETATALK_ATALK_BGROUND=${OMV_NETATALK_ATALK_BGROUND:-"no"}
+OMV_NETATALK_ATALKD_RUN=${OMV_NETATALK_ATALKD_RUN:-"no"}
+OMV_NETATALK_PAPD_RUN=${OMV_NETATALK_PAPD_RUN:-"no"}
+OMV_NETATALK_TIMELORD_RUN=${OMV_NETATALK_TIMELORD_RUN:-"no"}
+OMV_NETATALK_A2BOOT_RUN=${OMV_NETATALK_A2BOOT_RUN:-"no"}
+OMV_NETATALK_CNID_METAD_RUN=${OMV_NETATALK_CNID_METAD_RUN:-"yes"}
+OMV_NETATALK_AFPD_RUN=${OMV_NETATALK_AFPD_RUN:-"yes"}
+OMV_NETATALK_AFPD_UAMLIST=${OMV_NETATALK_AFPD_UAMLIST:-"uams_clrtxt.so,uams_randum.so,uams_dhx.so,uams_dhx2.so"}
+
+mkconf() {
+	# Create '/etc/default/netatalk' file
+	cat <<EOF > ${OMV_NETATALK_DEFAULT}
+# Netatalk configuration
+# Change this to increase the maximum number of clients that can connect:
+AFPD_MAX_CLIENTS=${OMV_NETATALK_AFPD_MAX_CLIENTS}
+
+# Change this to set the machine's atalk name.
+ATALK_NAME=${OMV_NETATALK_ATALK_NAME}
+
+# specify the Mac and unix charsets to be used
+ATALK_MAC_CHARSET='${OMV_NETATALK_ATALK_MAC_CHARSET}'
+ATALK_UNIX_CHARSET='${OMV_NETATALK_ATALK_UNIX_CHARSET}'
+
+# Change this to set the id of the guest user
+AFPD_GUEST=${OMV_NETATALK_AFPD_GUEST}
+
+# Control whether the daemons are started in the background.
+# If it is dissatisfied that atalkd starts slowly, set "yes".
+ATALK_BGROUND=${OMV_NETATALK_ATALK_BGROUND}
+
+# Set which daemons to run.
+# If you need legacy AppleTalk, run atalkd.
+# papd, timelord and a2boot are dependent upon atalkd.
+# If you use "AFP over TCP" server only, run only cnid_metad and afpd.
+ATALKD_RUN=${OMV_NETATALK_ATALKD_RUN}
+PAPD_RUN=${OMV_NETATALK_PAPD_RUN}
+TIMELORD_RUN=${OMV_NETATALK_TIMELORD_RUN}
+A2BOOT_RUN=${OMV_NETATALK_A2BOOT_RUN}
+CNID_METAD_RUN=${OMV_NETATALK_CNID_METAD_RUN}
+AFPD_RUN=${OMV_NETATALK_AFPD_RUN}
+
+# export the charsets, read form ENV by apps
+export ATALK_MAC_CHARSET
+export ATALK_UNIX_CHARSET
+EOF
+
+	# Create the '/etc/netatalk/afpd.conf' file
+	xmlstarlet sel -t -m "//services/afp" \
+	  -o "- -tcp -nosavepassword -uamlist ${OMV_NETATALK_AFPD_UAMLIST}" \
+	  -i "allowguests[. = '1']" -o ",uams_guest.so" -b \
+	  -i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
+	  -n \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NETATALK_AFPD_CONFIG}
+
+	# Create the '/etc/netatalk/AppleVolumes.default' file
+	cat /dev/null > ${OMV_NETATALK_AVDEFAULT_CONFIG}
+	index=$(omv_config_get_count "//services/afp/shares/share")
+	while [ ${index} -gt 0 ]
+	do
+		# Get the shared folder reference and path
+		sfref=$(omv_config_get "//services/afp/shares/share[position()=${index}]/sharedfolderref")
+		sfpath=$(omv_get_sharedfolder_path "${sfref}")
+
+		# Process the share privileges. Users with '0 = no permission' are added
+		# to 'deny' (to deny access), users with '5 = read and execute'
+		# are added to the 'allow'.
+		allow=""
+		deny=""
+		readlist=""
+		writelist=""
+
+		# Get shared folder user privileges
+		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[userref]" \
+		  -v "concat(perms,'|',//system/usermanagement/users/user[uuid=current()/userref]/name)" -n \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+		for privilege in ${privileges}
+		do
+			perms=${privilege%|*}
+			name=${privilege#*|}
+			# Append user to list
+			case ${perms} in
+			0)	[ -n "${deny}" ] && deny="${deny},";
+				deny="${deny}${name}";;
+			5)
+				[ -n "${readlist}" ] && readlist="${readlist},";
+				readlist="${readlist}${name}";
+				[ -n "${allow}" ] && allow="${allow},";
+				allow="${allow}${name}";;
+			7)
+				[ -n "${writelist}" ] && writelist="${writelist},";
+				writelist="${writelist}${name}";
+				[ -n "${allow}" ] && allow="${allow},";
+				allow="${allow}${name}";;
+			esac
+		done
+
+		# Get shared folder group privileges
+		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[groupref]" \
+		  -v "concat(perms,'|',//system/usermanagement/groups/group[uuid=current()/groupref]/name)" -n \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+		for privilege in ${privileges}
+		do
+			perms=${privilege%|*}
+			name=${privilege#*|}
+			# Append group to list
+			case ${perms} in
+			0)	[ -n "${deny}" ] && deny="${deny},";
+				deny="${deny}@${name}";;
+			5)
+				[ -n "${readlist}" ] && readlist="${readlist},";
+				readlist="${readlist}@${name}";
+				[ -n "${allow}" ] && allow="${allow},";
+				allow="${allow}@${name}";;
+			7)
+				[ -n "${writelist}" ] && writelist="${writelist},";
+				writelist="${writelist}@${name}";
+				[ -n "${allow}" ] && allow="${allow},";
+				allow="${allow}@${name}";;
+			esac
+		done
+
+		accessrights=""
+		[ -n "${allow}" ] && accessrights="${accessrights} allow:${allow}"
+		[ -n "${deny}" ] && accessrights="${accessrights} deny:${deny}"
+		[ -n "${readlist}" ] && accessrights="${accessrights} rolist:${readlist}"
+		[ -n "${writelist}" ] && accessrights="${accessrights} rwlist:${writelist}"
+
+		xmlstarlet sel -t -m "//services/afp/shares/share[position()=${index}]" \
+		  -o "&quot;${sfpath}&quot;" \
+		  -i "string-length(comment) > 0" -v "concat(' &quot;',comment,'&quot;')" -b \
+		  -i "string-length(comment) = 0" -v "concat(' &quot;',name,'&quot;')" -b \
+		  -i "string-length(password) > 0" -v "concat(' password:',password)" -b \
+		  -i "not(casefold[. = 'none'])" -v "concat(' casefold:',casefold)" -b \
+		  -o " options:" \
+		  -m "options/*[. = '1']" \
+			  -i "position() != 1" -o "," -b \
+			  -v "local-name()" \
+		  -b \
+		  -o "${accessrights}" \
+		  -i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NETATALK_AVDEFAULT_CONFIG}
+
+		index=$(( ${index} - 1 ))
+	done
+}
+
+case "$1" in
+	mkconf|*)
+		mkconf
+		;;
+esac

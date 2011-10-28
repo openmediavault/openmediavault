@@ -1,0 +1,17 @@
+openmediavault-netatalk (0.2.1) stable; urgency=low
+
+  * Fix bug in configuration.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Oct 2011 19:54:45 +0200
+
+openmediavault-netatalk (0.2) stable; urgency=low
+
+  * Official release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Oct 2011 20:01:12 +0200
+
+openmediavault-netatalk (0.1) stable; urgency=low
+
+  * Internal release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 07 May 2011 19:50:08 +0200

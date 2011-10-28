@@ -1,0 +1,97 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+	configure)
+		########################################################################
+		# Set the default settings of the netatalk package to those expected
+		# by OpenMediaVault.
+		########################################################################
+		if [ -z "$2" ]; then
+			echo "Updating init script links and actions"
+			invoke-rc.d --force netatalk stop
+			update-rc.d netatalk disable &>/dev/null
+		fi
+
+		########################################################################
+		# Update file permissions.
+		########################################################################
+		echo "Updating permissions"
+		omv_install_fixperms
+
+		########################################################################
+		# Update the configuration.
+		# <config>
+		#   <services>
+		#     <afp>
+		#       <enable>0</enable>
+		#       <allowguests>0</allowguests>
+		#       <extraoptions></extraoptions>
+		#       <shares>
+		#       	<!--
+		#       	<share>
+		#       		<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+		#       		<sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+		#       		<name>xxx</name>
+		#       		<comment>xxx</comment>
+		#       		<password></password>
+		#       		<casefold>none|tolower|toupper|xlatelower|xlateupper</casefold>
+		#				<options>
+		#       			<ro>0</ro>
+		#       			<upriv>1</upriv>
+		#       			<usedots>1</usedots>
+		#       			<invisibledots>0</invisibledots>
+		#       			<tm>0</tm>
+		#       			<mswindows>0</mswindows>
+		#				</options>
+		#       		<extraoptions></extraoptions>
+		#       	</share>
+		#       	-->
+		#       </shares>
+		#     </afp>
+		#   </services>
+		# </config>
+		########################################################################
+		if ! omv_config_exists "//services/afp"; then
+			echo "Updating configuration"
+			object="<enable>0</enable>"
+			object="${object}<allowguests>0</allowguests>"
+			object="${object}<extraoptions></extraoptions>"
+			object="${object}<shares></shares>"
+			omv_config_add_element "//services" "afp" "${object}" true
+		fi
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

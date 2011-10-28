@@ -1,0 +1,16 @@
+Format: http://dep.debian.net/deps/dep5
+Upstream-Name: PHP JSON schema
+Upstream-Contact: Volker Theile <volker.theile@openmediavault.org>
+Source: http://www.openmediavault.org
+
+Copyright: 2009-2011 Volker Theile <volker.theile@openmediavault.org>
+License: GPL-3
+
+Files: *
+License: GPL-3
+Copyright: Volker Theile <volker.theile@openmediavault.org>
+
+Files: var/www/openmediavault/images/afp.png
+License: CC-BY-SA
+Copyright: Peter Burdette (http://aeriondesign.com)
+Comment: http://www.iconfinder.com/icondetails/63425/16

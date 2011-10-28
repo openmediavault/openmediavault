@@ -1,4 +1,4 @@
-This package was debianized by vot <votdev@gmx.de> on
+This package was debianized by vot <volker.theile@openmediavault.org> on
 Wed, 26 Aug 2009 21:50:06 +0200.
 
 It was downloaded from <url://example.com>
@@ -17,7 +17,7 @@ License:
 
     <Put the license of the package here indented by 4 spaces>
 
-The Debian packaging is copyright 2009, vot <votdev@gmx.de> and
+The Debian packaging is copyright 2009, vot <volker.theile@openmediavault.org> and
 is licensed under the GPL, see `/usr/share/common-licenses/GPL'.
 
 # Please also look if there are files or directories which have a

@@ -1,0 +1,111 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+	configure)
+		########################################################################
+		# Set the default settings of the transmission-daemon package to those
+		# expected by OpenMediaVault.
+		########################################################################
+		if [ -z "$2" ]; then
+			echo "Updating init script links and actions"
+			invoke-rc.d --force transmission-daemon stop
+			update-rc.d transmission-daemon disable &>/dev/null
+		fi
+
+		########################################################################
+		# Update file permissions.
+		########################################################################
+		echo "Updating permissions"
+		omv_install_fixperms
+
+		########################################################################
+		# Update the configuration.
+		# <config>
+		#   <services>
+		#     <transmissionbt>
+		#       <!--
+		#       <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx<sharedfolderref>
+		#       <encryption>0|1|2</encryption>
+		#       -->
+		#       <enable>0</enable>
+		#       <peerport>51413</peerport>
+		#       <sharedfolderref></sharedfolderref>
+		#       <portforwardingenabled>0</portforwardingenabled>
+		#       <pexenabled>1</pexenabled>
+		#       <dhtenabled>1</dhtenabled>
+		#       <encryption>1</encryption>
+		#       <rpcenabled>1</rpcenabled>
+		#       <rpcport>9091</rpcport>
+		#       <rpcauthenticationrequired>1</rpcauthenticationrequired>
+		#       <rpcusername>admin</rpcusername>
+		#       <rpcpassword>openmediavault</rpcpassword>
+		#       <blocklistenabled>0</blocklistenabled>
+		#       <blocklistsyncenabled>0</blocklistsyncenabled>
+		#       <blocklistsyncfrequency>daily</blocklistsyncfrequency>
+		#       <blocklisturl>http://update.transmissionbt.com/level1.gz</blocklisturl>
+		#     </transmissionbt>
+		#   </services>
+		# </config>
+		########################################################################
+		if ! omv_config_exists "//services/transmissionbt"; then
+			echo "Updating configuration"
+			object="<enable>0</enable>"
+			object="${object}<peerport>51413</peerport>"
+			object="${object}<portforwardingenabled>0</portforwardingenabled>"
+			object="${object}<sharedfolderref></sharedfolderref>"
+			object="${object}<pexenabled>1</pexenabled>"
+			object="${object}<dhtenabled>1</dhtenabled>"
+			object="${object}<encryption>1</encryption>"
+			object="${object}<rpcenabled>1</rpcenabled>"
+			object="${object}<rpcport>9091</rpcport>"
+			object="${object}<rpcauthenticationrequired>1</rpcauthenticationrequired>"
+			object="${object}<rpcusername>admin</rpcusername>"
+			object="${object}<rpcpassword>openmediavault</rpcpassword>"
+			object="${object}<blocklistenabled>0</blocklistenabled>"
+			object="${object}<blocklistsyncenabled>0</blocklistsyncenabled>"
+			object="${object}<blocklistsyncfrequency>daily</blocklistsyncfrequency>"
+			object="${object}<blocklisturl>http://update.transmissionbt.com/level1.gz</blocklisturl>"
+			omv_config_add_element "//services" "transmissionbt" "${object}" true
+		fi
+
+		########################################################################
+		# Import system group 'debian-transmission' created by the
+		# transmission-daemon package.
+		########################################################################
+		omv_config_import_group "debian-transmission"
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

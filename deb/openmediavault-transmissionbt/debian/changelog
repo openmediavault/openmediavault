@@ -1,0 +1,24 @@
+openmediavault-transmissionbt (0.2.2) stable; urgency=low
+
+  * Mantis 0000132: DHT is not disabled if selects as disabled in webgui
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Oct 2011 19:34:56 +0200
+
+openmediavault-transmissionbt (0.2.1) stable; urgency=low
+
+  * Allow customizing some variables like download-limit, upload-limit, ...
+    via environment variables.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 20 Oct 2011 21:26:18 +0200
+
+openmediavault-transmissionbt (0.2) stable; urgency=low
+
+  * Official release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Oct 2011 19:56:43 +0200
+
+openmediavault-transmissionbt (0.1) stable; urgency=low
+
+  * Internal release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 16 Mar 2010 21:53:15 +0100

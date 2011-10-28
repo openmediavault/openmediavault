@@ -1,0 +1,127 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_TRANSMISSIONBT_CONFIG=${OMV_TRANSMISSIONBT_CONFIG:-"/etc/transmission-daemon/settings.json"}
+OMV_TRANSMISSIONBT_DEFAULT=${OMV_TRANSMISSIONBT_DEFAULT:-"/etc/default/transmission-daemon"}
+OMV_TRANSMISSIONBT_RPCWHITELIST=${OMV_TRANSMISSIONBT_RPCWHITELIST:-"*.*.*.*"}
+OMV_TRANSMISSIONBT_RPCWHITELISTENABLED=${OMV_TRANSMISSIONBT_RPCWHITELISTENABLED:-"true"}
+OMV_TRANSMISSIONBT_UMASK=${OMV_TRANSMISSIONBT_UMASK:-"022"}
+OMV_TRANSMISSIONBT_DOWNLOADLIMIT=${OMV_TRANSMISSIONBT_DOWNLOADLIMIT:-"100"}
+OMV_TRANSMISSIONBT_DOWNLOADLIMITENABLED=${OMV_TRANSMISSIONBT_DOWNLOADLIMITENABLED:-"0"}
+OMV_TRANSMISSIONBT_MAXPEERSGLOBAL=${OMV_TRANSMISSIONBT_MAXPEERSGLOBAL:-"200"}
+OMV_TRANSMISSIONBT_UPLOADLIMIT=${OMV_TRANSMISSIONBT_UPLOADLIMIT:-"100"}
+OMV_TRANSMISSIONBT_UPLOADLIMITENABLED=${OMV_TRANSMISSIONBT_UPLOADLIMITENABLED:-"0"}
+
+# Create '/etc/default/transmission-daemon' file
+cat <<EOF > ${OMV_TRANSMISSIONBT_DEFAULT}
+# defaults for transmission-daemon
+# sourced by /etc/init.d/transmission-daemon
+
+EOF
+
+xmlstarlet sel -t -m "//services/transmissionbt" \
+  -v "concat('ENABLE_DAEMON=',enable)" -n \
+  -o "CONFIG_DIR=&quot;/var/lib/transmission-daemon/info&quot;" -n \
+  -o "OPTIONS=&quot;--config-dir \$CONFIG_DIR" \
+  -i "rpcauthenticationrequired[. = '1']" -o " --auth" -b \
+  -i "rpcauthenticationrequired[. = '0']" -o " --no-auth" -b \
+  -o "&quot;" \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_TRANSMISSIONBT_DEFAULT}
+
+# Create '/etc/transmission-daemon/settings.json' file
+xmlstarlet sel -t -m "//services/transmissionbt" \
+  -o "{" -n \
+  -o "&quot;blocklist-enabled&quot;: 0," -n \
+  -o "&quot;download-dir&quot;: &quot;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "&quot;," -n \
+  -o "&quot;download-limit&quot;: ${OMV_TRANSMISSIONBT_DOWNLOADLIMIT}," -n \
+  -o "&quot;download-limit-enabled&quot;: ${OMV_TRANSMISSIONBT_DOWNLOADLIMITENABLED}," -n \
+  -v "concat('&quot;encryption&quot;: ',encryption,',')" -n \
+  -o "&quot;max-peers-global&quot;: ${OMV_TRANSMISSIONBT_MAXPEERSGLOBAL}," -n \
+  -v "concat('&quot;peer-port&quot;: ',peerport,',')" -n \
+  -o "&quot;dht-enabled:&quot;: " \
+  -i "dhtenabled[. = '0']" -o "false" -b \
+  -i "dhtenabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -o "&quot;blocklist-enabled&quot;: " \
+  -i "blocklistenabled[. = '0']" -o "false" -b \
+  -i "blocklistenabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -o "&quot;pex-enabled&quot;: " \
+  -i "pexenabled[. = '0']" -o "false" -b \
+  -i "pexenabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -o "&quot;port-forwarding-enabled&quot;: " \
+  -i "portforwardingenabled[. = '0']" -o "false" -b \
+  -i "portforwardingenabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -o "&quot;rpc-authentication-required&quot;: " \
+  -i "rpcauthenticationrequired[. = '0']" -o "false" -b \
+  -i "rpcauthenticationrequired[. = '1']" -o "true" -b \
+  -o "," -n \
+  -v "concat('&quot;rpc-password&quot;: &quot;',rpcpassword,'&quot;,')" -n \
+  -v "concat('&quot;rpc-port&quot;: ',rpcport,',')" -n \
+  -v "concat('&quot;rpc-username&quot;: &quot;',rpcusername,'&quot;,')" -n \
+  -o "&quot;rpc-whitelist&quot;: &quot;${OMV_TRANSMISSIONBT_RPCWHITELIST}&quot;," -n \
+  -o "&quot;rpc-whitelist-enabled&quot;: ${OMV_TRANSMISSIONBT_RPCWHITELISTENABLED}," -n \
+  -o "&quot;upload-limit&quot;: ${OMV_TRANSMISSIONBT_UPLOADLIMIT}," -n \
+  -o "&quot;upload-limit-enabled&quot;: ${OMV_TRANSMISSIONBT_UPLOADLIMITENABLED}" -n \
+  -o "}" \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_TRANSMISSIONBT_CONFIG}
+
+# Create transmission cron file
+enable=$(omv_config_get "//services/transmissionbt/enable")
+blocklistsyncenabled=$(omv_config_get "//services/transmissionbt/blocklistsyncenabled")
+blocklistsyncfrequency=$(omv_config_get "//services/transmissionbt/blocklistsyncfrequency")
+cronfile="/etc/cron.${blocklistsyncfrequency}/transmissionbt"
+
+# Remove all previous cron files. Due we do not know if the frequency
+# have been modified we have to scan all /etc/cron.xxx directories.
+for crondir in $(ls -d /etc/cron.*ly)
+do
+	[ -e "${crondir}/transmissionbt" ] && rm "${crondir}/transmissionbt"
+done
+
+if [ 1 = ${enable} -a 1 = ${blocklistsyncenabled} ]; then
+	blocklisturl=$(omv_config_get "//services/transmissionbt/blocklisturl")
+	cat <<EOF > ${cronfile}
+#!/bin/sh
+#
+# cron script to update TransmissionBT blocklists
+# by Volker Theile <volker.theile@openmediavault.org>
+
+# Download blocklist archive
+cd /var/lib/transmission-daemon/info/blocklists
+if wget ${blocklisturl} 1>/dev/null 2>&1 ; then
+	rm -f level1 && gunzip level1.gz
+	omv_log -t transmission "Blocklist updated"
+else
+	omv_log -t transmission "Failed to update blocklist"
+fi
+# Restart transmission-daemon to use the latest blocklist
+invoke-rc.d transmission-daemon restart 1>/dev/null 2>&1 || true
+EOF
+	chmod 755 ${cronfile}
+fi

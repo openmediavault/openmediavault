@@ -1,7 +1,7 @@
 Source: libjs-extjs3-xtheme-slate
 Section: web
 Priority: optional
-Maintainer: Volker Theile <votdev@gmx.de>
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>> 7 )
 Standards-Version: 3.6.10
 Homepage: http://www.extjs.com
