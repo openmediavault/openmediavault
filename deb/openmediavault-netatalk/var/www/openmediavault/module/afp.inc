@@ -69,7 +69,7 @@ class AFPModule extends OMVModuleAbstract implements OMVINotifyListener,
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Create '/etc/samba/afp.conf' file
+		// Create configuration files
 		$cmd = "sudo omv-mkconf netatalk 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {

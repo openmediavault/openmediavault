@@ -31,8 +31,8 @@ mkconf() {
 check process netatalk with pidfile /var/run/afpd.pid
   start program = "/etc/init.d/netatalk start"
   stop program = "/etc/init.d/netatalk stop"
-  if failed host 127.0.0.1 port 548 type TCP then restart
-  if 5 restarts within 5 cycles then timeout
+#  if failed host 127.0.0.1 port 548 type TCP then restart
+#  if 5 restarts within 5 cycles then timeout
   mode active
 EOF
 }

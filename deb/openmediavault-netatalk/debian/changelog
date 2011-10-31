@@ -1,3 +1,9 @@
+openmediavault-netatalk (0.2.2) stable; urgency=low
+
+  * Mantis 0000189: Daemon is automatically killed.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 31 Oct 2011 16:41:11 +0100
+
 openmediavault-netatalk (0.2.1) stable; urgency=low
 
   * Fix bug in configuration.
