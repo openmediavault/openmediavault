@@ -1,0 +1,134 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://www.cyberciti.biz/tips/configuring-static-routes-in-debian-or-red-hat-linux-systems.html
+# http://www.itsyourip.com/networking/add-persistent-static-routes-in-debian-linux
+# http://wiki.debian.org/Bonding
+# http://www.thomas-krenn.com/de/wiki/NIC_Bonding_unter_Debian
+# http://www.linuxfoundation.org/collaborate/workgroups/networking/bonding
+# http://www.howtoforge.com/nic-bonding-on-debian-lenny
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_INTERFACES_CONFIG=${OMV_INTERFACES_CONFIG:-"/etc/network/interfaces"}
+OMV_INTERFACES_WOL_OPTION=${OMV_INTERFACES_WOL_OPTION:-"g"}
+
+xmlstarlet sel -t \
+  -o "# The loopback network interface" -n \
+  -o "auto lo" -n \
+  -o "iface lo inet loopback" -n \
+  -m "//system/network/interfaces/iface[method='dhcp']" \
+	-i "count(//system/network/interfaces//slaves[contains(.,current()/devicename)]) = 0" \
+	  -n \
+	  -v "concat('# ',devicename,' network interface')" -n \
+	  -v "concat('auto ',devicename)" -n \
+	  -v "concat('allow-hotplug ',devicename)" -n \
+	  -v "concat('iface ',devicename,' inet dhcp')" -n \
+	  -i "string-length(mtu) > 0" \
+		  -v "concat('    pre-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
+	  -b \
+	  -i "string-length(//system/network/dnsnameservers) > 0" \
+		  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
+	  -b \
+	  -i "wol = 1" \
+		  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
+	  -b \
+	-b \
+  -b \
+  -m "//system/network/interfaces/iface[method='static']" \
+	-i "count(//system/network/interfaces//slaves[contains(.,current()/devicename)]) = 0" \
+	  -n \
+	  -v "concat('# ',devicename,' network interface')" -n \
+	  -v "concat('auto ',devicename)" -n \
+	  -v "concat('allow-hotplug ',devicename)" -n \
+	  -v "concat('iface ',devicename,' inet static')" -n \
+	  -v "concat('    address ',address)" -n \
+	  -i "string-length(gateway) > 0" \
+		  -v "concat('    gateway ',gateway)" -n \
+	  -b \
+	  -v "concat('    netmask ',netmask)" -n \
+	  -i "string-length(mtu) > 0" \
+		  -v "concat('    mtu ',mtu)" -n \
+	  -b \
+	  -i "string-length(//system/network/dnsnameservers) > 0" \
+		  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
+	  -b \
+	  -i "wol = 1" \
+		  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
+	  -b \
+	-b \
+  -b \
+  -m "//system/network/interfaces/bondiface[method='dhcp']" \
+	-n \
+	-v "concat('# ',devicename,' network interface')" -n \
+	-v "concat('auto ',devicename)" -n \
+	-v "concat('iface ',devicename,' inet dhcp')" -n \
+	-i "string-length(mtu) > 0" \
+		-v "concat('    pre-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
+	-b \
+	-i "string-length(//system/network/dnsnameservers) > 0" \
+		-v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
+	-b \
+	-i "wol = 1" \
+		-o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
+	-b \
+	-v "concat('    slaves ',translate(slaves,',',' '))" -n \
+	-i "string-length(bondprimary) > 0" \
+		-v "concat('    bond_primary ',bondprimary)" -n \
+	-b \
+	-v "concat('    bond_mode ',bondmode)" -n \
+	-v "concat('    bond_miimon ',bondmiimon)" -n \
+	-v "concat('    bond_downdelay ',bonddowndelay)" -n \
+	-v "concat('    bond_updelay ',bondupdelay)" -n \
+  -b \
+  -m "//system/network/interfaces/bondiface[method='static']" \
+	-n \
+	-v "concat('# ',devicename,' network interface')" -n \
+	-v "concat('auto ',devicename)" -n \
+	-v "concat('iface ',devicename,' inet static')" -n \
+	-v "concat('    address ',address)" -n \
+	-i "string-length(gateway) > 0" \
+		-v "concat('    gateway ',gateway)" -n \
+	-b \
+	-v "concat('    netmask ',netmask)" -n \
+	-i "string-length(mtu) > 0" \
+		-v "concat('    mtu ',mtu)" -n \
+	-b \
+	-i "string-length(//system/network/dnsnameservers) > 0" \
+		-v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
+	-b \
+	-i "wol = 1" \
+		-o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
+	-b \
+	-v "concat('    slaves ',translate(slaves,',',' '))" -n \
+	-i "string-length(bondprimary) > 0" \
+		-v "concat('    bond_primary ',bondprimary)" -n \
+	-b \
+	-v "concat('    bond_mode ',bondmode)" -n \
+	-v "concat('    bond_miimon ',bondmiimon)" -n \
+	-v "concat('    bond_downdelay ',bonddowndelay)" -n \
+	-v "concat('    bond_updelay ',bondupdelay)" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_INTERFACES_CONFIG}

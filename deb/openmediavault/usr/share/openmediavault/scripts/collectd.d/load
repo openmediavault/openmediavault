@@ -1,0 +1,172 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_COLLECTD_CONFIG=${OMV_COLLECTD_CONFIG:-"/etc/collectd/collectd.conf"}
+OMV_COLLECTD_RRDTOOL_MKGRAPH=${OMV_COLLECTD_RRDTOOL_MKGRAPH:-"/usr/sbin/omv-mkgraph"}
+
+cat <<EOF >> ${OMV_COLLECTD_CONFIG}
+LoadPlugin load
+
+EOF
+
+cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
+# Plugin: load
+TITLE_LOAD="Load average"
+COLOR_LOAD_SHORTTERM="#00cc00" # green
+COLOR_LOAD_MIDTERM="#0000fd"   # blue
+COLOR_LOAD_LONGTERM="#ff0000"  # red
+rrdtool graph \${IMGDIR}/load-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${TITLE_LOAD}\${HOURTITLE}" --slope-mode --lower-limit 0 --units-exponent 0 \
+  DEF:savg=\${DATA}/load/load.rrd:shortterm:AVERAGE \
+  DEF:smin=\${DATA}/load/load.rrd:shortterm:MIN \
+  DEF:smax=\${DATA}/load/load.rrd:shortterm:MAX \
+  DEF:mavg=\${DATA}/load/load.rrd:midterm:AVERAGE \
+  DEF:mmin=\${DATA}/load/load.rrd:midterm:MIN \
+  DEF:mmax=\${DATA}/load/load.rrd:midterm:MAX \
+  DEF:lavg=\${DATA}/load/load.rrd:longterm:AVERAGE \
+  DEF:lmin=\${DATA}/load/load.rrd:longterm:MIN \
+  DEF:lmax=\${DATA}/load/load.rrd:longterm:MAX \
+  LINE1:savg\${COLOR_LOAD_SHORTTERM}:" 1 min" \
+  GPRINT:smin:MIN:"%4.2lf Min" \
+  GPRINT:savg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:smax:MAX:"%4.2lf Max" \
+  GPRINT:savg:LAST:"%4.2lf Last\l" \
+  LINE1:mavg\${COLOR_LOAD_MIDTERM}:" 5 min" \
+  GPRINT:mmin:MIN:"%4.2lf Min" \
+  GPRINT:mavg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:mmax:MAX:"%4.2lf Max" \
+  GPRINT:mavg:LAST:"%4.2lf Last\l" \
+  LINE1:lavg\${COLOR_LOAD_LONGTERM}:"15 min" \
+  GPRINT:lmin:MIN:"%4.2lf Min" \
+  GPRINT:lavg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:lmax:MAX:"%4.2lf Max" \
+  GPRINT:lavg:LAST:"%4.2lf Last\l" \
+  COMMENT:"\${LASTUPDATE}" >/dev/null
+rrdtool graph \${IMGDIR}/load-day.png --start \${DAYSTART} \${DEFAULTS} --title "\${TITLE_LOAD}\${DAYTITLE}" --slope-mode --lower-limit 0 --units-exponent 0 \
+  DEF:savg=\${DATA}/load/load.rrd:shortterm:AVERAGE \
+  DEF:smin=\${DATA}/load/load.rrd:shortterm:MIN \
+  DEF:smax=\${DATA}/load/load.rrd:shortterm:MAX \
+  DEF:mavg=\${DATA}/load/load.rrd:midterm:AVERAGE \
+  DEF:mmin=\${DATA}/load/load.rrd:midterm:MIN \
+  DEF:mmax=\${DATA}/load/load.rrd:midterm:MAX \
+  DEF:lavg=\${DATA}/load/load.rrd:longterm:AVERAGE \
+  DEF:lmin=\${DATA}/load/load.rrd:longterm:MIN \
+  DEF:lmax=\${DATA}/load/load.rrd:longterm:MAX \
+  LINE1:savg\${COLOR_LOAD_SHORTTERM}:" 1 min" \
+  GPRINT:smin:MIN:"%4.2lf Min" \
+  GPRINT:savg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:smax:MAX:"%4.2lf Max" \
+  GPRINT:savg:LAST:"%4.2lf Last\l" \
+  LINE1:mavg\${COLOR_LOAD_MIDTERM}:" 5 min" \
+  GPRINT:mmin:MIN:"%4.2lf Min" \
+  GPRINT:mavg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:mmax:MAX:"%4.2lf Max" \
+  GPRINT:mavg:LAST:"%4.2lf Last\l" \
+  LINE1:lavg\${COLOR_LOAD_LONGTERM}:"15 min" \
+  GPRINT:lmin:MIN:"%4.2lf Min" \
+  GPRINT:lavg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:lmax:MAX:"%4.2lf Max" \
+  GPRINT:lavg:LAST:"%4.2lf Last\l" \
+  COMMENT:"\${LASTUPDATE}" >/dev/null
+rrdtool graph \${IMGDIR}/load-week.png --start \${WEEKSTART} \${DEFAULTS} --title "\${TITLE_LOAD}\${WEEKTITLE}" --slope-mode --lower-limit 0 --units-exponent 0 \
+  DEF:savg=\${DATA}/load/load.rrd:shortterm:AVERAGE \
+  DEF:smin=\${DATA}/load/load.rrd:shortterm:MIN \
+  DEF:smax=\${DATA}/load/load.rrd:shortterm:MAX \
+  DEF:mavg=\${DATA}/load/load.rrd:midterm:AVERAGE \
+  DEF:mmin=\${DATA}/load/load.rrd:midterm:MIN \
+  DEF:mmax=\${DATA}/load/load.rrd:midterm:MAX \
+  DEF:lavg=\${DATA}/load/load.rrd:longterm:AVERAGE \
+  DEF:lmin=\${DATA}/load/load.rrd:longterm:MIN \
+  DEF:lmax=\${DATA}/load/load.rrd:longterm:MAX \
+  LINE1:savg\${COLOR_LOAD_SHORTTERM}:" 1 min" \
+  GPRINT:smin:MIN:"%4.2lf Min" \
+  GPRINT:savg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:smax:MAX:"%4.2lf Max" \
+  GPRINT:savg:LAST:"%4.2lf Last\l" \
+  LINE1:mavg\${COLOR_LOAD_MIDTERM}:" 5 min" \
+  GPRINT:mmin:MIN:"%4.2lf Min" \
+  GPRINT:mavg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:mmax:MAX:"%4.2lf Max" \
+  GPRINT:mavg:LAST:"%4.2lf Last\l" \
+  LINE1:lavg\${COLOR_LOAD_LONGTERM}:"15 min" \
+  GPRINT:lmin:MIN:"%4.2lf Min" \
+  GPRINT:lavg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:lmax:MAX:"%4.2lf Max" \
+  GPRINT:lavg:LAST:"%4.2lf Last\l" \
+  COMMENT:"\${LASTUPDATE}" >/dev/null
+rrdtool graph \${IMGDIR}/load-month.png --start \${MONTHSTART} \${DEFAULTS} --title "\${TITLE_LOAD}\${MONTHTITLE}" --slope-mode --lower-limit 0 --units-exponent 0 \
+  DEF:savg=\${DATA}/load/load.rrd:shortterm:AVERAGE \
+  DEF:smin=\${DATA}/load/load.rrd:shortterm:MIN \
+  DEF:smax=\${DATA}/load/load.rrd:shortterm:MAX \
+  DEF:mavg=\${DATA}/load/load.rrd:midterm:AVERAGE \
+  DEF:mmin=\${DATA}/load/load.rrd:midterm:MIN \
+  DEF:mmax=\${DATA}/load/load.rrd:midterm:MAX \
+  DEF:lavg=\${DATA}/load/load.rrd:longterm:AVERAGE \
+  DEF:lmin=\${DATA}/load/load.rrd:longterm:MIN \
+  DEF:lmax=\${DATA}/load/load.rrd:longterm:MAX \
+  LINE1:savg\${COLOR_LOAD_SHORTTERM}:" 1 min" \
+  GPRINT:smin:MIN:"%4.2lf Min" \
+  GPRINT:savg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:smax:MAX:"%4.2lf Max" \
+  GPRINT:savg:LAST:"%4.2lf Last\l" \
+  LINE1:mavg\${COLOR_LOAD_MIDTERM}:" 5 min" \
+  GPRINT:mmin:MIN:"%4.2lf Min" \
+  GPRINT:mavg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:mmax:MAX:"%4.2lf Max" \
+  GPRINT:mavg:LAST:"%4.2lf Last\l" \
+  LINE1:lavg\${COLOR_LOAD_LONGTERM}:"15 min" \
+  GPRINT:lmin:MIN:"%4.2lf Min" \
+  GPRINT:lavg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:lmax:MAX:"%4.2lf Max" \
+  GPRINT:lavg:LAST:"%4.2lf Last\l" \
+  COMMENT:"\${LASTUPDATE}" >/dev/null
+rrdtool graph \${IMGDIR}/load-year.png --start \${YEARSTART} \${DEFAULTS} --title "\${TITLE_LOAD}\${YEARTITLE}" --slope-mode --lower-limit 0 --units-exponent 0 \
+  DEF:savg=\${DATA}/load/load.rrd:shortterm:AVERAGE \
+  DEF:smin=\${DATA}/load/load.rrd:shortterm:MIN \
+  DEF:smax=\${DATA}/load/load.rrd:shortterm:MAX \
+  DEF:mavg=\${DATA}/load/load.rrd:midterm:AVERAGE \
+  DEF:mmin=\${DATA}/load/load.rrd:midterm:MIN \
+  DEF:mmax=\${DATA}/load/load.rrd:midterm:MAX \
+  DEF:lavg=\${DATA}/load/load.rrd:longterm:AVERAGE \
+  DEF:lmin=\${DATA}/load/load.rrd:longterm:MIN \
+  DEF:lmax=\${DATA}/load/load.rrd:longterm:MAX \
+  LINE1:savg\${COLOR_LOAD_SHORTTERM}:" 1 min" \
+  GPRINT:smin:MIN:"%4.2lf Min" \
+  GPRINT:savg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:smax:MAX:"%4.2lf Max" \
+  GPRINT:savg:LAST:"%4.2lf Last\l" \
+  LINE1:mavg\${COLOR_LOAD_MIDTERM}:" 5 min" \
+  GPRINT:mmin:MIN:"%4.2lf Min" \
+  GPRINT:mavg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:mmax:MAX:"%4.2lf Max" \
+  GPRINT:mavg:LAST:"%4.2lf Last\l" \
+  LINE1:lavg\${COLOR_LOAD_LONGTERM}:"15 min" \
+  GPRINT:lmin:MIN:"%4.2lf Min" \
+  GPRINT:lavg:AVERAGE:"%4.2lf Avg" \
+  GPRINT:lmax:MAX:"%4.2lf Max" \
+  GPRINT:lavg:LAST:"%4.2lf Last\l" \
+  COMMENT:"\${LASTUPDATE}" >/dev/null
+
+EOF

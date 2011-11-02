@@ -1,0 +1,90 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://www.ruzee.com/blog/2009/01/apache-virtual-hosts-a-clean-setup-for-php-developers 
+# http://phphints.wordpress.com/2009/01/10/improving-php-performance-with-apache2-mpm-worker-mod_fcgid-2 
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_APACHE2_SERVERNAME=${OMV_APACHE2_SERVERNAME:-"openmediavault-webgui"}
+OMV_APACHE2_SITE_OPENMEDIAVAULT_CONFIG=${OMV_APACHE2_SITE_OPENMEDIAVAULT_CONFIG:-"/etc/apache2/sites-available/openmediavault-webgui"}
+OMV_APACHE2_SITE_OPENMEDIAVAULT_LOGLEVEL=${OMV_APACHE2_SITE_OPENMEDIAVAULT_LOGLEVEL:-"warn"}
+OMV_APACHE2_PORTS_CONFIG=${OMV_APACHE2_PORTS_CONFIG:-"/etc/apache2/ports.conf"}
+
+# Create '/etc/apache2/sites-available/openmediavault-webgui' file
+xmlstarlet sel -t -m "//webadmin" \
+  -o "ServerName ${OMV_APACHE2_SERVERNAME}" -n \
+  -o "ServerSignature Off" -n \
+  -o "DocumentRoot ${OMV_DOCUMENTROOT_DIR}" -n \
+  -o "DirectoryIndex index.php" -n \
+  -o "SuexecUserGroup openmediavault openmediavault" -n \
+  -o "Alias /extjs/ /usr/share/javascript/extjs3/" -n \
+  -o "Alias /images/ ${OMV_DOCUMENTROOT_DIR}/images/" -n \
+  -o "# Set maximum HTTP request length to 25 MiB" -n \
+  -o "FcgidMaxRequestLen 26214400" -n \
+  -o "&lt;Directory ${OMV_DOCUMENTROOT_DIR}/&gt;" -n \
+  -o "    Options FollowSymLinks" -n \
+  -o "    &lt;FilesMatch \.php$&gt;" -n \
+  -o "        FcgidWrapper ${OMV_DOCUMENTROOT_DIR}/php-fcgi .php" -n \
+  -o "        SetHandler fcgid-script" -n \
+  -o "        Options +ExecCGI" -n \
+  -o "    &lt;/FilesMatch&gt;" -n \
+  -o "    Order Allow,Deny" -n \
+  -o "    Allow from All" -n \
+  -o "    AllowOverride None" -n \
+  -o "&lt;/Directory&gt;" -n \
+  -i "enablessl[. = '1']" \
+	  -v "concat('&lt;VirtualHost *:',sslport,'&gt;')" -n \
+	  -o "    SSLEngine on" -n \
+	  -v "concat('    SSLCertificateFile ${OMV_CERTIFICATE_DIR}/certs/',sslcertificateref,'.crt')" -n \
+	  -v "concat('    SSLCertificateKeyFile ${OMV_CERTIFICATE_DIR}/private/',sslcertificateref,'.key')" -n \
+	  -o "    LogLevel ${OMV_APACHE2_SITE_OPENMEDIAVAULT_LOGLEVEL}" -n \
+	  -o "    ErrorLog \${APACHE_LOG_DIR}/openmediavault-webgui_error.log" -n \
+	  -o "    CustomLog \${APACHE_LOG_DIR}/openmediavault-webgui_access.log combined" -n \
+	  -o "&lt;/Virtualhost&gt;" -n \
+  -b \
+  -i "enablessl[. = '0'] or forcesslonly[. = '0']" \
+	  -v "concat('&lt;VirtualHost *:',port,'&gt;')" -n \
+	  -o "    SSLEngine off" -n \
+	  -o "    LogLevel ${OMV_APACHE2_SITE_OPENMEDIAVAULT_LOGLEVEL}" -n \
+	  -o "    ErrorLog \${APACHE_LOG_DIR}/openmediavault-webgui_error.log" -n \
+	  -o "    CustomLog \${APACHE_LOG_DIR}/openmediavault-webgui_access.log combined" -n \
+	  -o "&lt;/Virtualhost&gt;" \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_APACHE2_SITE_OPENMEDIAVAULT_CONFIG}
+
+# Create '/etc/apache2/ports.conf' file
+xmlstarlet sel -t -m "//webadmin" \
+  -i "forcesslonly[. = '0']" \
+	  -v "concat('NameVirtualHost *:',port)" -n \
+	  -v "concat('Listen ',port)" -n \
+  -b \
+  -i "enablessl[. = '1']" \
+	-o "&lt;IfModule mod_ssl.c&gt;" -n \
+	-v "concat('NameVirtualHost *:',sslport)" -n \
+	-v "concat('Listen ',sslport)" -n \
+	-o "&lt;/IfModule&gt;" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_APACHE2_PORTS_CONFIG}

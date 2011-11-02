@@ -1,0 +1,27 @@
+Services that use monit to monitor their state and that should be able to be
+enabled or disbaled via WebGUI must fulfill the following rules:
+
+- The file must be located in /usr/share/openmediavault/scripts/monit.d
+- The name of the script must be the same as the service entry name from the
+  monitrc file
+
+If a service needs to run permanently you can put the services' monit file
+directly into the /etc/monit/conf.d directory.
+
+Example:
+--------
+
+The script which creates the monit configuration file:
+/usr/share/openmediavault/scripts/monit.d/mt-daapd
+
+The script code:
+check process mt-daapd with pidfile /var/run/mt-daapd.pid
+  start program = "/etc/init.d/mt-daapd start"
+  stop program = "/etc/init.d/mt-daapd stop"
+  mode active
+
+Note, the script name and the service entry name from the monitrc file are
+equal: 'mt-daapd'
+
+check process ==> mt-daapd <== with pidfile /var/run/mt-daapd.pid
+  ...

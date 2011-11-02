@@ -1,0 +1,154 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/AccessControls.html#id2611892
+# http://us5.samba.org/samba/docs/man/manpages-3/smb.conf.5.html
+# http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
+# http://oreilly.com/catalog/samba/chapter/book/ch06_02.html
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_SAMBA_CONFIG=${OMV_SAMBA_CONFIG:-"/etc/samba/smb.conf"}
+OMV_SAMBA_SHARE_RECYCLEREPOSITORY=${OMV_SAMBA_SHARE_RECYCLEREPOSITORY:-".recycle/%U"}
+OMV_SAMBA_SHARE_RECYCLEDIRECTORYMODE=${OMV_SAMBA_SHARE_RECYCLEDIRECTORYMODE:-"0777"}
+OMV_SAMBA_SHARE_RECYCLESUBDIRMODE=${OMV_SAMBA_SHARE_RECYCLESUBDIRMODE:-"0700"}
+OMV_SAMBA_SHARE_PRINTABLE=${OMV_SAMBA_SHARE_PRINTABLE:-"no"}
+
+echo "#======================= Share Definitions =======================" >> ${OMV_SAMBA_CONFIG}
+index=$(omv_config_get_count "//services/smb/shares/share")
+while [ ${index} -gt 0 ]
+do
+	# Get the shared folder reference and path
+	sfref=$(omv_config_get "//services/smb/shares/share[position()=${index}]/sharedfolderref")
+	sfpath=$(omv_get_sharedfolder_path "${sfref}")
+
+	xmlstarlet sel -t -m "//services/smb/shares/share[position()=${index}]" \
+	  -v "concat('[',name,']')" -n \
+	  -i "string-length(comment) > 0" -v "concat('comment = ',comment)" -n -b \
+	  -o "path = ${sfpath}" -n \
+	  -i "guestok[. = '0']" -o "guest ok = no" -n -b \
+	  -i "guestok[. = '1']" -o "guest ok = yes" -n -b \
+	  -i "readonly[. = '0']" -o "read only = no" -n -b \
+	  -i "readonly[. = '1']" -o "read only = yes" -n -b \
+	  -i "browseable[. = '0']" -o "browseable = no" -n -b \
+	  -i "browseable[. = '1']" -o "browseable = yes" -n -b \
+	  -i "inheritacls[. = '0']" -o "inherit acls = no" -n -b \
+	  -i "inheritacls[. = '1']" -o "inherit acls = yes" -n -b \
+	  -i "inheritpermissions[. = '0']" -o "inherit permissions = no" -n -b \
+	  -i "inheritpermissions[. = '1']" -o "inherit permissions = yes" -n -b \
+	  -i "easupport[. = '0']" -o "ea support = no" -n -b \
+	  -i "easupport[. = '1']" -o "ea support = yes" -n -b \
+	  -i "storedosattributes[. = '0']" -o "store dos attributes = no" -n -b \
+	  -i "storedosattributes[. = '1']" -o "store dos attributes = yes" -n -b \
+	  -i "recyclebin[. = '1']" \
+		  -o "vfs objects = recycle" -n \
+		  -o "recycle:repository = ${OMV_SAMBA_SHARE_RECYCLEREPOSITORY}" -n \
+		  -o "recycle:keeptree = yes" -n \
+		  -o "recycle:versions = yes" -n \
+		  -o "recycle:touch = yes" -n \
+		  -o "recycle:directory_mode = ${OMV_SAMBA_SHARE_RECYCLEDIRECTORYMODE}" -n \
+		  -o "recycle:subdir_mode = ${OMV_SAMBA_SHARE_RECYCLESUBDIRMODE}" -n \
+	  -b \
+	  -o "printable = ${OMV_SAMBA_SHARE_PRINTABLE}" -n \
+	  -i "string-length(hostsallow) > 0" -v "concat('hosts allow = ',hostsallow)" -n -b \
+	  -i "string-length(hostsdeny) > 0" -v "concat('hosts deny = ',hostsdeny)" -n -b \
+	  -i "hidedotfiles[. = '0']" -o "hide dot files = no" -b \
+	  -i "hidedotfiles[. = '1']" -o "hide dot files = yes" -b \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
+
+	# Process the share privileges. Users with '0 = no permission' are added
+	# to 'invalid users' (to deny access), users with '5 = read and execute'
+	# are added to the 'read list'.
+	validusers=""
+	invalidusers=""
+	readlist=""
+	writelist=""
+
+	# Get shared folder user privileges
+	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[userref]" \
+	  -v "concat(perms,'|',//system/usermanagement/users/user[uuid=current()/userref]/name)" -n \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+	for privilege in ${privileges}
+	do
+		perms=${privilege%|*}
+		name=${privilege#*|}
+		# Append user to list
+		case ${perms} in
+		0)	[ -n "${invalidusers}" ] && invalidusers="${invalidusers},";
+			invalidusers="${invalidusers}${name}";;
+		5)
+			[ -n "${readlist}" ] && readlist="${readlist},";
+			readlist="${readlist}${name}";
+			[ -n "${validusers}" ] && validusers="${validusers},";
+			validusers="${validusers}${name}";;
+		7)
+			[ -n "${writelist}" ] && writelist="${writelist},";
+			writelist="${writelist}${name}";
+			[ -n "${validusers}" ] && validusers="${validusers},";
+			validusers="${validusers}${name}";;
+		esac
+	done
+
+	# Get shared folder group privileges
+	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[groupref]" \
+	  -v "concat(perms,'|',//system/usermanagement/groups/group[uuid=current()/groupref]/name)" -n \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+	for privilege in ${privileges}
+	do
+		perms=${privilege%|*}
+		name=${privilege#*|}
+		# Append group to list
+		case ${perms} in
+		0)	[ -n "${invalidusers}" ] && invalidusers="${invalidusers},";
+			invalidusers="${invalidusers}@${name}";;
+		5)
+			[ -n "${readlist}" ] && readlist="${readlist},";
+			readlist="${readlist}@${name}";
+			[ -n "${validusers}" ] && validusers="${validusers},";
+			validusers="${validusers}@${name}";;
+		7)
+			[ -n "${writelist}" ] && writelist="${writelist},";
+			writelist="${writelist}${name}";
+			[ -n "${validusers}" ] && validusers="${validusers},";
+			validusers="${validusers}@${name}";;
+		esac
+	done
+
+	xmlstarlet sel -t -m "//services/smb/shares/share[position()=${index}]" \
+	  -o "valid users = ${validusers}" -n \
+	  -o "invalid users = ${invalidusers}" -n \
+	  -o "read list = ${readlist}" -n \
+	  -i "readonly[. = '0']" \
+		-o "write list = ${writelist}" -n \
+	  -b \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
+
+	# Add extra options
+	xmlstarlet sel -t -m "//services/smb/shares/share[position()=${index}]" \
+	  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
+
+	index=$(( ${index} - 1 ))
+done

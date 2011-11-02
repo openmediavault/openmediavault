@@ -1,0 +1,16 @@
+Source: openmediavault
+Section: web net
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>> 7 )
+Standards-Version: 3.6.10
+Homepage: http://www.openmediavault.org
+
+Package: openmediavault
+Architecture: all
+Depends: libjs-extjs3, apache2, apache2-suexec, libapache2-mod-fcgid, php5-cgi, php5-cli, php5-auth-pam, php-json-schema, sudo, ethtool, acl, ifenslave, resolvconf, iproute, xfsprogs, jfsutils, ntfs-3g, xmlstarlet, hdparm, sdparm, ifupdown, mdadm, postfix, libsasl2-modules, bsd-mailx, ntp, cpufrequtils, rsyslog, smartmontools, openssl, openssh-server, openssh-blacklist-extra, scponly, uuid, tzdata, nfs-kernel-server, proftpd-basic, wget, tftpd-hpa, samba, samba-common-bin, rsync, apt-utils, snmpd, avahi-daemon, iptables, monit, acpid, beep, parted, rrdtool, collectd, cron, anacron, cron-apt, quota, quotatool, whiptail, lvm2, watchdog
+Description: Open Network attached storage solution
+ OpenMediaVault is a small and simple to use network attached storage system with
+ a smart WebGUI.
+
+

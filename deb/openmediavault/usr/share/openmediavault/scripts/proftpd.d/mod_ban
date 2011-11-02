@@ -1,0 +1,51 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://wiki.ubuntuusers.de/ProFTPD
+# http://www.proftpd.de/HowTo-Server-Config.42.0.html
+# http://wiki.ubuntu-forum.de/index.php/ProFTPd
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_PROFTPD_CONFIG=${OMV_PROFTPD_CONFIG:-"/etc/proftpd/proftpd.conf"}
+OMV_PROFTPD_MODBAN_BANCONTROLSACLS=${OMV_PROFTPD_MODBAN_BANCONTROLSACLS:-"all allow user root"}
+OMV_PROFTPD_MODBAN_BANLOG=${OMV_PROFTPD_MODBAN_BANLOG:-"/var/log/proftpd/ban.log"}
+OMV_PROFTPD_MODBAN_BANMESSAGE=${OMV_PROFTPD_MODBAN_BANMESSAGE:-"Host %a has been banned"}
+OMV_PROFTPD_MODBAN_BANTABLE=${OMV_PROFTPD_MODBAN_BANTABLE:-"/var/run/proftpd/ban.tab"}
+
+xmlstarlet sel -t -m "//services/ftp" \
+	  -o "&lt;IfModule mod_ban.c&gt;" -n \
+	  -i "count(modules/mod_ban/rule) = 0" -o "  BanEngine off" -n -b \
+	  -i "count(modules/mod_ban/rule) > 0" -o "  BanEngine on" -n -b \
+	  -o "  BanControlsACLs ${OMV_PROFTPD_MODBAN_BANCONTROLSACLS}" -n \
+	  -o "  BanLog ${OMV_PROFTPD_MODBAN_BANLOG}" -n \
+	  -o "  BanMessage ${OMV_PROFTPD_MODBAN_BANMESSAGE}" -n \
+	  -m "modules/mod_ban/rule" \
+		  -v "concat('  BanOnEvent ',event,' ',occurrence,'/',timeinterval,' ',expire)" -n \
+	  -b \
+	  -o "  BanTable ${OMV_PROFTPD_MODBAN_BANTABLE}" -n \
+	  -o "&lt;/ifModule&gt;" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_PROFTPD_CONFIG}

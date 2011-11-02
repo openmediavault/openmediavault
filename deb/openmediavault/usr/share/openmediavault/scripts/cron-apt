@@ -1,0 +1,91 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_CRONAPT_CONFIG=${OMV_CRONAPT_CONFIG:-"/etc/cron-apt/config"}
+OMV_CRONAPT_MAILTO=${OMV_CRONAPT_MAILTO:-"root"}
+OMV_CRONAPT_MAILON=${OMV_CRONAPT_MAILON:-"upgrade"}
+OMV_CRONAPT_SYSLOGON=${OMV_CRONAPT_SYSLOGON:-"always"}
+OMV_CRONAPT_OPTIONS=${OMV_CRONAPT_OPTIONS:-"-o Acquire::http::Dl-Limit=25"}
+
+mkconf() {
+	# Create file
+	cat <<EOF > ${OMV_CRONAPT_CONFIG}
+# Configuration for cron-apt.
+# The cron config is located in /etc/cron.d/cron-apt
+
+# When to send email about the cron-apt results.
+# Value: error   (send mail on error runs)
+#        upgrade (when packages are upgraded)
+#        changes (mail when change in output from an action)
+#        output  (send mail when output is generated)
+#        always  (always send mail)
+#                (else never send mail)
+MAILON="${OMV_CRONAPT_MAILON}"
+
+# Value: error   (syslog on error runs)
+#        upgrade (when packages is upgraded)
+#        changes (syslog when change in output from an action)
+#        output  (syslog when output is generated)
+#        always  (always syslog)
+#                (else never syslog)
+SYSLOGON="${OMV_CRONAPT_SYSLOGON}"
+
+# Value: verbose (log everything)
+#        always  (always log)
+#        upgrade (when packages is upgraded)
+#        changes (log when change in output from an action)
+#        output  (log when output is generated)
+#        error   (log error runs only)
+#                (else log nothing)
+# DEBUG="output"
+
+# General apt options that will be passed to all APTCOMMAND calls.
+# Use "-o quiet" instead of "-q" for aptitude compatibility.
+#  OPTIONS="-o quiet=1"
+# You can for example add an additional sources.list file here.
+#  OPTIONS="-o quiet=1 -o Dir::Etc::SourceList=/etc/apt/security.sources.list"
+# You can also set an alternative sources.list file here.
+#  OPTIONS="-o quiet=1 -o Dir::Etc::SourceList=/etc/apt/security.sources.list -o Dir::Etc::SourceParts=\"/dev/null\""
+# If you want to allow unauthenticated and untrusted packages add the
+# following to your options directive.
+#  OPTIONS="-o quiet=1 -o APT::Get::AllowUnauthenticated=true -o aptitude::Cmdline::ignore-trust-violations=yes"
+# To limit the bandwidth used use the following line. This example limit the
+# bandwidth usage to 25 kB/s.
+OPTIONS="${OMV_CRONAPT_OPTIONS}"
+
+EOF
+
+xmlstarlet sel -t -m "//system/email" \
+  -i "enable[. != '1']" -o "#" -b \
+  -o "MAILTO=&quot;${OMV_CRONAPT_MAILTO}&quot;" -n \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_CRONAPT_CONFIG}
+}
+
+case "$1" in
+	mkconf|*)
+		mkconf
+		;;
+esac

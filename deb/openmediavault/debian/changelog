@@ -1,0 +1,157 @@
+openmediavault (0.2.4.8) stable; urgency=low
+
+  * Mantis 0000152: Apache dependency too restricted
+  * Mantis 0000171: DNS Server update in GUI blank interfaces
+  * Mantis 0000192: NTP server use results in collectd errors
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 28 Oct 2011 14:18:11 +0200
+
+openmediavault (0.2.4.7.1) stable; urgency=low
+
+  * Mantis 0000186: GUI no longer working.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 28 Oct 2011 00:56:25 +0200
+
+openmediavault (0.2.4.7) stable; urgency=low
+
+  * Mantis 0000169: Edit Ethernet Interface show "Add physical interface"
+  * Mantis 0000177: File /etc/host not well modified
+  * Mantis 0000179: Graphs fail to update when removing stale UUID graph data
+  * Mantis 0000180: Change order of SSL certificate fields
+  * Mantis 0000184: Delete existing NTFS Partition
+  * Mantis 0000185: Add FTP logs in WebGUI
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Oct 2011 19:30:02 +0200
+
+openmediavault (0.2.4.6) stable; urgency=low
+
+  * Increase HTTP timeout to 45 seconds.
+  * Improve user management. Users are automatically added to the group
+    'users'.
+  * Validate privileges before putting them. Also filter user 'admin' in
+    shared folder privileges dialog.
+  * Mantis 0000095: Add ability to hide [homes] in Samba
+  * Mantis 0000098: Hide Samba "Printer and Faxes" as shown in Windows
+  * Mantis 0000145: Error when setting privileges on a shared folder. Only
+    update the given shared folder privileges.
+  * Mantis 0000147: FTP SSL/TLS error when enabling certificate
+  * Mantis 0000154: Area Storage/Filesystem unlink error
+  * Mantis 0000158: Users without a valid shell cannot access FTP shares
+  * Mantis 0000165: System/Certificates/Add SSL Certificate/Reset only
+    deletes Comment-field
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 25 Oct 2011 14:55:21 +0200
+
+openmediavault (0.2.4.6) stable; urgency=low
+
+  * Mantis 0000140: snmpd shown as not running in system overview
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Oct 2011 22:23:16 +0200
+
+openmediavault (0.2.4.5) stable; urgency=low
+
+  * Mantis 0000114: NFS service does not advertise more than one shared folder
+    via avahi
+  * Mantis 0000126: omv-firstaid: error while configuring WebGUI
+  * Mantis 0000128: Update Manager no longer shows list of available updates.
+  * Mantis 0000131: FTP - Invalid Method Parameter when enabling SSL/TLS
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Oct 2011 19:37:44 +0200
+
+openmediavault (0.2.4.4) stable; urgency=low
+
+  * Add ability to delete a shared folder without removing its content recursively.
+  * Announce correct NFS share path (/export/<name>) via Zeroconf.
+  * Announce duplicate NFS shares only once via Zeroconf.
+  * Validate share names. Do not allow other characters than [a-zA-Z0-9].
+  * Mantis 0000101: Striping RAID issue
+  * Mantis 0000111: Login Screen - Cursor Start Position
+  * Mantis 0000112: Service Rsync is running but not shown on the list in
+    System Informations | Services | Overview
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 22 Oct 2011 12:58:47 +0200
+
+openmediavault (0.2.4.3) stable; urgency=low
+
+  * Mantis 0000061: home dirs are accessable by every user in samba
+  * Mantis 0000099: Changes on 'General Settings' page not working
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 22 Oct 2011 00:16:59 +0200
+
+openmediavault (0.2.4.2) stable; urgency=low
+
+  * Mantis 0000066: Error when modifying filesystem quota
+  * Mantis 0000069: Wrong english in error message
+  * Mantis 0000071: Rsync jobs generate incomplete command
+  * Mantis 0000073: Rsync Job setting minute value
+  * Mantis 0000075: The local package archive at /var/cache/openmediavault/archives
+    must have higher pin-priority
+  * Mantis 0000080: XenServer 6.0 - No hard disk in Storage | Physical Disk
+  * Mantis 0000082: DNS server tab not updating /etc/resolv.conf
+  * Mantis 0000090: Add support section under information
+  * Mantis 0000096: Add option to adjust the session timeout time
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 20 Oct 2011 18:34:33 +0200
+
+openmediavault (0.2.4.1) stable; urgency=low
+
+  * Validate RAID name. Only allow the characters [a-zA-Z0-9].
+  * Fix bug when setting up a syslog server.
+  * Use the entered UID when creating a new user.
+  * Mantis 0000039: Error while adding user or modifying folder privileges
+  * Mantis 0000040: Can't change server name
+  * Mantis 0000047: Change 'Shared Folder' into 'Shared Folders'
+  * Mantis 0000048: Wrong graph title under System Information->System->Interfaces
+  * Mantis 0000049: OpenMediaVault don`t recognize kvm virtio disks
+  * Mantis 0000051: raid10 level
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 19 Oct 2011 18:12:18 +0200
+
+openmediavault (0.2.4) stable; urgency=low
+
+  * Make gateway field in the interface configuration dialogs optional,
+    see Mantis 0000034.
+  * Fix bug in Apache2 configuration. Do not allow HTTP connections if
+    'Force SSL/TLS' is enabled.
+  * Fix various bugs.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 15 Oct 2011 21:27:28 +0200
+
+openmediavault (0.2.3) stable; urgency=low
+
+  * Fix various bugs.
+  * Start postfix if notification is enabled.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 07 Oct 2011 22:14:54 +0200
+
+openmediavault (0.2.2) stable; urgency=low
+
+  * Improve System-V style init script handling.
+  * Improve package upgrade. Use 'dist-upgrade' to allow installing
+    packages with modified dependencies which is not possible using
+    'upgrade'.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 07 Oct 2011 00:23:32 +0200
+
+openmediavault (0.2.1) stable; urgency=low
+
+  * Fix bug in Postfix configuration. Add libsasl2-modules to package
+    dependencies to get SMTP authentication working.
+  * Improve filesystem initialization. Filesystems being initialized are
+    displayed in the WebGUI now.
+  * Fix various bugs in filesystem management backend.
+  * Fix bug in WebGUI, see Mantis 0000028.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 01 Oct 2011 23:35:04 +0200
+
+openmediavault (0.2) stable; urgency=low
+
+  * New release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 22 Sep 2011 21:45:53 +0200
+
+openmediavault (0.1) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Aug 2009 21:50:06 +0200

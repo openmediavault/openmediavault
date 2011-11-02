@@ -1,0 +1,4 @@
+check process collectd with pidfile /var/run/collectd.pid
+  start program = "/etc/init.d/collectd start"
+  stop program = "/etc/init.d/collectd stop"
+  mode active

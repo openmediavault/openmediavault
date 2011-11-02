@@ -1,0 +1,88 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_SAMBA_CONFIG=${OMV_SAMBA_CONFIG:-"/etc/samba/smb.conf"}
+OMV_SAMBA_DNSPROXY=${OMV_SAMBA_DNSPROXY:-"no"}
+OMV_SAMBA_LOGFILE=${OMV_SAMBA_LOGFILE:-"/var/log/samba/log.%m"}
+OMV_SAMBA_MAXLOGSIZE=${OMV_SAMBA_MAXLOGSIZE:-"1000"}
+OMV_SAMBA_SYSLOG=${OMV_SAMBA_SYSLOG:-"0"}
+OMV_SAMBA_SYSLOGONLY=${OMV_SAMBA_SYSLOGONLY:-"yes"}
+OMV_SAMBA_PANICACTION=${OMV_SAMBA_PANICACTION:-"/usr/share/samba/panic-action %d"}
+OMV_SAMBA_ENCRYPTPASSWORDS=${OMV_SAMBA_ENCRYPTPASSWORDS:-"true"}
+OMV_SAMBA_PASSDBBACKEND=${OMV_SAMBA_PASSDBBACKEND:-"tdbsam"}
+OMV_SAMBA_OBEYPAMRESTRICTIONS=${OMV_SAMBA_OBEYPAMRESTRICTIONS:-"yes"}
+OMV_SAMBA_UNIXPASSWORDSYNC=${OMV_SAMBA_UNIXPASSWORDSYNC:-"no"}
+OMV_SAMBA_PASSWDPROGRAM=${OMV_SAMBA_PASSWDPROGRAM:-"/usr/bin/passwd %u"}
+OMV_SAMBA_PASSWDCHAT=${OMV_SAMBA_PASSWDCHAT:-"*Enter\snew\s*\spassword:* %n\n *Retype\snew\s*\spassword:* %n\n *password\supdated\ssuccessfully* ."}
+OMV_SAMBA_PAMPASSWORDCHANGE=${OMV_SAMBA_PAMPASSWORDCHANGE:-"yes"}
+OMV_SAMBA_SOCKETOPTIONS=${OMV_SAMBA_SOCKETOPTIONS:-"TCP_NODELAY"}
+OMV_SAMBA_MAPTOGUEST=${OMV_SAMBA_MAPTOGUEST:-"Bad User"}
+OMV_SAMBA_GUESTACCOUNT=${OMV_SAMBA_GUESTACCOUNT:-"nobody"}
+OMV_SAMBA_LOADPRINTERS=${OMV_SAMBA_LOADPRINTERS:-"no"}
+OMV_SAMBA_DISABLESPOOLSS=${OMV_SAMBA_DISABLESPOOLSS:-"yes"}
+OMV_SAMBA_PRINTING=${OMV_SAMBA_PRINTING:-"bsd"}
+OMV_SAMBA_PRINTCAPNAME=${OMV_SAMBA_PRINTCAPNAME:-"/dev/null"}
+
+xmlstarlet sel -t -m "//services/smb" \
+  -o "#======================= Global Settings =======================" -n \
+  -o "[global]" -n \
+  -v "concat('workgroup = ',workgroup)" -n \
+  -v "concat('server string = ',serverstring)" -n \
+  -o "include = /etc/samba/dhcp.conf" -n \
+  -o "dns proxy = ${OMV_SAMBA_DNSPROXY}" -n \
+  -v "concat('log level = ',loglevel)" -n \
+  -o "log file = ${OMV_SAMBA_LOGFILE}" -n \
+  -o "max log size = ${OMV_SAMBA_MAXLOGSIZE}" -n \
+  -o "syslog = ${OMV_SAMBA_SYSLOG}" -n \
+  -o "syslog only = ${OMV_SAMBA_SYSLOGONLY}" -n \
+  -o "panic action = ${OMV_SAMBA_PANICACTION}" -n \
+  -o "encrypt passwords = ${OMV_SAMBA_ENCRYPTPASSWORDS}" -n \
+  -o "passdb backend = ${OMV_SAMBA_PASSDBBACKEND}" -n \
+  -o "obey pam restrictions = ${OMV_SAMBA_OBEYPAMRESTRICTIONS}" -n \
+  -o "unix password sync = ${OMV_SAMBA_UNIXPASSWORDSYNC}" -n \
+  -o "passwd program = ${OMV_SAMBA_PASSWDPROGRAM}" -n \
+  -o "passwd chat = ${OMV_SAMBA_PASSWDCHAT}" -n \
+  -o "pam password change = ${OMV_SAMBA_PAMPASSWORDCHANGE}" -n \
+  -o "socket options = ${OMV_SAMBA_SOCKETOPTIONS}" -n \
+  -o "guest account = ${OMV_SAMBA_GUESTACCOUNT}" -n \
+  -o "load printers = ${OMV_SAMBA_LOADPRINTERS}" -n \
+  -o "disable spoolss = ${OMV_SAMBA_DISABLESPOOLSS}" -n \
+  -o "printing = ${OMV_SAMBA_PRINTING}" -n \
+  -o "printcap name = ${OMV_SAMBA_PRINTCAPNAME}" -n \
+  -i "count(shares/*[guestok = '1']) > 0" -o "map to guest = ${OMV_SAMBA_MAPTOGUEST}" -n -b \
+  -i "usesendfile[. = '1']" -o "use sendfile = yes" -n -b \
+  -i "usesendfile[. = '0']" -o "use sendfile = no" -n -b \
+  -i "nullpasswords[. = '1']" -o "null passwords = yes" -n -b \
+  -i "nullpasswords[. = '0']" -o "null passwords = no" -n -b \
+  -i "localmaster[. = '1']" -o "local master = yes" -n -b \
+  -i "localmaster[. = '0']" -o "local master = no" -n -b \
+  -i "timeserver[. = '1']" -o "time server = yes" -n -b \
+  -i "timeserver[. = '0']" -o "time server = no" -n -b \
+  -i "winssupport[. = '1']" -o "wins support = yes" -n -b \
+  -i "winssupport[. = '0']" -o "wins support = no" -n -b \
+  -i "string-length(winsserver) > 0" -v "concat('wins server = ',winsserver)" -n -b \
+  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}

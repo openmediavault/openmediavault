@@ -1,0 +1,4 @@
+check process apache2 with pidfile /var/run/apache2.pid
+  start program = "/etc/init.d/apache2 start"
+  stop program = "/etc/init.d/apache2 stop"
+  mode active

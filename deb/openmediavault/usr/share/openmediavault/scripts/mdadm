@@ -1,0 +1,106 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://scotgate.org/2006/07/03/growing-a-raid5-array-mdadm
+# http://de.opensuse.org/SW-RAID_und_LVM_(Grundlagen)
+# http://www.felipe1982.com/blog/2010/01/27/software-raid-5-on-gnulinux-using-mdadm-in-6-easy-steps
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_MDADM_DEFAULT=${OMV_MDADM_DEFAULT:-"/etc/default/mdadm"}
+OMV_MDADM_CONFIG=${OMV_MDADM_CONFIG:-"/etc/mdadm/mdadm.conf"}
+OMV_MDADM_AUTOSTART=${OMV_MDADM_AUTOSTART:-"true"}
+OMV_MDADM_AUTOCHECK=${OMV_MDADM_AUTOCHECK:-"true"}
+OMV_MDADM_STARTDAEMON=${OMV_MDADM_STARTDAEMON:-"true"}
+OMV_MDADM_DAEMONOPTIONS=${OMV_MDADM_DAEMONOPTIONS:-"--syslog"}
+OMV_MDADM_VERBOSE=${OMV_MDADM_VERBOSE:-"false"}
+
+# Create /etc/default/mdadm
+cat > ${OMV_MDADM_DEFAULT} <<EOF
+# INITRDSTART:
+#   list of arrays (or 'all') to start automatically when the initial ramdisk
+#   loads. This list *must* include the array holding your root filesystem. Use
+#   'none' to prevent any array from being started from the initial ramdisk.
+#INITRDSTART='none'
+
+# AUTOSTART:
+#   should mdadm start arrays listed in /etc/mdadm/mdadm.conf automatically
+#   during boot?
+AUTOSTART=${OMV_MDADM_AUTOSTART}
+
+# AUTOCHECK:
+#   should mdadm run periodic redundancy checks over your arrays? See
+#   /etc/cron.d/mdadm.
+AUTOCHECK=${OMV_MDADM_AUTOCHECK}
+
+# START_DAEMON:
+#   should mdadm start the MD monitoring daemon during boot?
+START_DAEMON=${OMV_MDADM_STARTDAEMON}
+
+# DAEMON_OPTIONS:
+#   additional options to pass to the daemon.
+DAEMON_OPTIONS="${OMV_MDADM_DAEMONOPTIONS}"
+
+# VERBOSE:
+#   if this variable is set to true, mdadm will be a little more verbose e.g.
+#   when creating the initramfs.
+VERBOSE=${OMV_MDADM_VERBOSE}
+EOF
+
+# Create /etc/mdadm/mdadm.conf
+cat > ${OMV_MDADM_CONFIG} <<EOF
+# mdadm.conf
+#
+# Please refer to mdadm.conf(5) for information about this file.
+#
+
+# by default, scan all partitions (/proc/partitions) for MD superblocks.
+# alternatively, specify devices to scan, using wildcards if desired.
+# Note, if no DEVICE line is present, then "DEVICE partitions" is assumed.
+# To avoid the auto-assembly of RAID devices a pattern that CAN'T match is
+# used if no RAID devices are configured.
+DEVICE partitions
+
+# auto-create devices with Debian standard permissions
+CREATE owner=root group=disk mode=0660 auto=yes
+
+# automatically tag new arrays as belonging to the local system
+HOMEHOST <system>
+
+# definitions of existing MD arrays
+EOF
+
+# Append definition of existing arrays
+mdadm --detail --scan >> ${OMV_MDADM_CONFIG}
+
+# Set email configuration
+xmlstarlet sel -t -m "//system/email" \
+  -i "enable[. = '1']" \
+	-n \
+	-o "# instruct the monitoring daemon where to send mail alerts" -n \
+	-v "concat('MAILADDR ',primaryemail)" -n \
+	-v "concat('MAILFROM ',sender)" \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MDADM_CONFIG}

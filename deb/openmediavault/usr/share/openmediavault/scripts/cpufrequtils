@@ -1,0 +1,51 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://technowizah.com/2007/01/debian-how-to-cpu-frequency-management.html
+# http://wiki.hetzner.de/index.php/Cool%27n%27Quiet
+# http://wiki.ubuntuusers.de/powernowd
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_CPUFREQUTILS_DEFAULT=${OMV_CPUFREQUTILS_DEFAULT:-"/etc/default/cpufrequtils"}
+OMV_CPUFREQUTILS_GOVERNOR=${OMV_CPUFREQUTILS_GOVERNOR:-"ondemand"}
+OMV_CPUFREQUTILS_MAXSPEED=${OMV_CPUFREQUTILS_MAXSPEED:-"0"}
+OMV_CPUFREQUTILS_MINSPEED=${OMV_CPUFREQUTILS_MINSPEED:-"0"}
+OMV_LOADCPUFREQ_DEFAULT=${OMV_LOADCPUFREQ_DEFAULT:-"/etc/default/loadcpufreq"}
+
+# Create '/etc/default/cpufrequtils' file
+xmlstarlet sel -t -m "//system/powermanagement" \
+  -i "cpufreq = 0" -o "ENABLE=&quot;false&quot;" -n -b \
+  -i "cpufreq = 1" -o "ENABLE=&quot;true&quot;" -n -b \
+  -o "GOVERNOR=&quot;${OMV_CPUFREQUTILS_GOVERNOR}&quot;" -n \
+  -o "MAX_SPEED=&quot;${OMV_CPUFREQUTILS_MAXSPEED}&quot;" -n \
+  -o "MIN_SPEED=&quot;${OMV_CPUFREQUTILS_MINSPEED}&quot;" \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CPUFREQUTILS_DEFAULT}
+
+# Create '/etc/default/loadcpufreq' file
+xmlstarlet sel -t -m "//system/powermanagement" \
+  -i "cpufreq = 0" -o "ENABLE=&quot;false&quot;" -b \
+  -i "cpufreq = 1" -o "ENABLE=&quot;true&quot;" -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_LOADCPUFREQ_DEFAULT}

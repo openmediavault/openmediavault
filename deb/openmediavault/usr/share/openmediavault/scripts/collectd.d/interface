@@ -1,0 +1,172 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_COLLECTD_CONFIG=${OMV_COLLECTD_CONFIG:-"/etc/collectd/collectd.conf"}
+OMV_COLLECTD_RRDTOOL_MKGRAPH=${OMV_COLLECTD_RRDTOOL_MKGRAPH:-"/usr/sbin/omv-mkgraph"}
+
+IFACE=$(xmlstarlet sel -t \
+  -m "//system/network/interfaces/iface" \
+	-i "count(//system/network/interfaces//slaves[contains(.,current()/devicename)]) = 0" \
+		-v "concat(devicename,' ')" \
+	-b \
+  -b \
+  -m "//system/network/interfaces/bondiface" \
+	-v "concat(devicename,' ')" \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+
+cat <<EOF >> ${OMV_COLLECTD_CONFIG}
+LoadPlugin interface
+<Plugin interface>
+EOF
+for devicename in ${IFACE}; do
+	echo "  Interface \"${devicename}\"" >> ${OMV_COLLECTD_CONFIG}
+done
+cat <<EOF >> ${OMV_COLLECTD_CONFIG}
+  IgnoreSelected false
+</Plugin>
+
+EOF
+
+cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
+# Plugin: interface
+COLOR_INTERFACE_INCOMING="#00cc00" # green
+COLOR_INTERFACE_OUTGOING="#ff0000" # red
+for devicename in ${IFACE}; do
+	[ ! -e "\${DATA}/interface/if_octets-\${devicename}.rrd" ] && continue
+	rrdtool graph \${IMGDIR}/interface-\${devicename}-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${devicename} traffic\${HOURTITLE}" --slope-mode --lower-limit 0 --vertical-label "Bits/s" \
+	  DEF:oavgraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:AVERAGE \
+	  DEF:ominraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:MIN \
+	  DEF:omaxraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:MAX \
+	  DEF:iavgraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:AVERAGE \
+	  DEF:iminraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:MIN \
+	  DEF:imaxraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:MAX \
+	  CDEF:oavg=oavgraw,8,* \
+	  CDEF:omin=ominraw,8,* \
+	  CDEF:omax=omaxraw,8,* \
+	  CDEF:iavg=iavgraw,8,* \
+	  CDEF:imin=iminraw,8,* \
+	  CDEF:imax=imaxraw,8,* \
+	  LINE1:oavg\${COLOR_INTERFACE_OUTGOING}:"Outgoing" \
+	  GPRINT:oavg:AVERAGE:"%5.1lf%s Avg" \
+	  GPRINT:omax:MAX:"%5.1lf%s Max" \
+	  GPRINT:oavg:LAST:"%5.1lf%s Last\l" \
+	  LINE1:iavg\${COLOR_INTERFACE_INCOMING}:"Incoming" \
+	  GPRINT:iavg:AVERAGE:"%5.1lf%s Avg" \
+	  GPRINT:imax:MAX:"%5.1lf%s Max" \
+	  GPRINT:iavg:LAST:"%5.1lf%s Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/interface-\${devicename}-day.png --start \${DAYSTART} \${DEFAULTS} --title "\${devicename} traffic\${DAYTITLE}" --slope-mode --lower-limit 0 --vertical-label "Bits/s" \
+	  DEF:oavgraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:AVERAGE \
+	  DEF:ominraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:MIN \
+	  DEF:omaxraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:MAX \
+	  DEF:iavgraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:AVERAGE \
+	  DEF:iminraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:MIN \
+	  DEF:imaxraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:MAX \
+	  CDEF:oavg=oavgraw,8,* \
+	  CDEF:omin=ominraw,8,* \
+	  CDEF:omax=omaxraw,8,* \
+	  CDEF:iavg=iavgraw,8,* \
+	  CDEF:imin=iminraw,8,* \
+	  CDEF:imax=imaxraw,8,* \
+	  LINE1:oavg\${COLOR_INTERFACE_OUTGOING}:"Outgoing" \
+	  GPRINT:oavg:AVERAGE:"%5.1lf%s Avg" \
+	  GPRINT:omax:MAX:"%5.1lf%s Max" \
+	  GPRINT:oavg:LAST:"%5.1lf%s Last\l" \
+	  LINE1:iavg\${COLOR_INTERFACE_INCOMING}:"Incoming" \
+	  GPRINT:iavg:AVERAGE:"%5.1lf%s Avg" \
+	  GPRINT:imax:MAX:"%5.1lf%s Max" \
+	  GPRINT:iavg:LAST:"%5.1lf%s Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/interface-\${devicename}-week.png --start \${WEEKSTART} \${DEFAULTS} --title "\${devicename} traffic\${WEEKTITLE}" --slope-mode --lower-limit 0 --vertical-label "Bits/s" \
+	  DEF:oavgraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:AVERAGE \
+	  DEF:ominraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:MIN \
+	  DEF:omaxraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:MAX \
+	  DEF:iavgraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:AVERAGE \
+	  DEF:iminraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:MIN \
+	  DEF:imaxraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:MAX \
+	  CDEF:oavg=oavgraw,8,* \
+	  CDEF:omin=ominraw,8,* \
+	  CDEF:omax=omaxraw,8,* \
+	  CDEF:iavg=iavgraw,8,* \
+	  CDEF:imin=iminraw,8,* \
+	  CDEF:imax=imaxraw,8,* \
+	  LINE1:oavg\${COLOR_INTERFACE_OUTGOING}:"Outgoing" \
+	  GPRINT:oavg:AVERAGE:"%5.1lf%s Avg" \
+	  GPRINT:omax:MAX:"%5.1lf%s Max" \
+	  GPRINT:oavg:LAST:"%5.1lf%s Last\l" \
+	  LINE1:iavg\${COLOR_INTERFACE_INCOMING}:"Incoming" \
+	  GPRINT:iavg:AVERAGE:"%5.1lf%s Avg" \
+	  GPRINT:imax:MAX:"%5.1lf%s Max" \
+	  GPRINT:iavg:LAST:"%5.1lf%s Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/interface-\${devicename}-month.png --start \${MONTHSTART} \${DEFAULTS} --title "\${devicename} traffic\${MONTHTITLE}" --slope-mode --lower-limit 0 --vertical-label "Bits/s" \
+	  DEF:oavgraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:AVERAGE \
+	  DEF:ominraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:MIN \
+	  DEF:omaxraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:MAX \
+	  DEF:iavgraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:AVERAGE \
+	  DEF:iminraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:MIN \
+	  DEF:imaxraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:MAX \
+	  CDEF:oavg=oavgraw,8,* \
+	  CDEF:omin=ominraw,8,* \
+	  CDEF:omax=omaxraw,8,* \
+	  CDEF:iavg=iavgraw,8,* \
+	  CDEF:imin=iminraw,8,* \
+	  CDEF:imax=imaxraw,8,* \
+	  LINE1:oavg\${COLOR_INTERFACE_OUTGOING}:"Outgoing" \
+	  GPRINT:oavg:AVERAGE:"%5.1lf%s Avg" \
+	  GPRINT:omax:MAX:"%5.1lf%s Max" \
+	  GPRINT:oavg:LAST:"%5.1lf%s Last\l" \
+	  LINE1:iavg\${COLOR_INTERFACE_INCOMING}:"Incoming" \
+	  GPRINT:iavg:AVERAGE:"%5.1lf%s Avg" \
+	  GPRINT:imax:MAX:"%5.1lf%s Max" \
+	  GPRINT:iavg:LAST:"%5.1lf%s Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/interface-\${devicename}-year.png --start \${YEARSTART} \${DEFAULTS} --title "\${devicename} traffic\${YEARTITLE}" --slope-mode --lower-limit 0 --vertical-label "Bits/s" \
+	  DEF:oavgraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:AVERAGE \
+	  DEF:ominraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:MIN \
+	  DEF:omaxraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:MAX \
+	  DEF:iavgraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:AVERAGE \
+	  DEF:iminraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:MIN \
+	  DEF:imaxraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:MAX \
+	  CDEF:oavg=oavgraw,8,* \
+	  CDEF:omin=ominraw,8,* \
+	  CDEF:omax=omaxraw,8,* \
+	  CDEF:iavg=iavgraw,8,* \
+	  CDEF:imin=iminraw,8,* \
+	  CDEF:imax=imaxraw,8,* \
+	  LINE1:oavg\${COLOR_INTERFACE_OUTGOING}:"Outgoing" \
+	  GPRINT:oavg:AVERAGE:"%5.1lf%s Avg" \
+	  GPRINT:omax:MAX:"%5.1lf%s Max" \
+	  GPRINT:oavg:LAST:"%5.1lf%s Last\l" \
+	  LINE1:iavg\${COLOR_INTERFACE_INCOMING}:"Incoming" \
+	  GPRINT:iavg:AVERAGE:"%5.1lf%s Avg" \
+	  GPRINT:imax:MAX:"%5.1lf%s Max" \
+	  GPRINT:iavg:LAST:"%5.1lf%s Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+done
+
+EOF

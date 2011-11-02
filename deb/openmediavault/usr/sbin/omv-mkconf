@@ -1,0 +1,99 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+# Display usage.
+usage() {
+	cat <<EOF
+Usage:
+  $(basename $0) [options] <basename> [extra parameters]
+
+  basename - The name of the script to be executed.
+
+Options:
+  -l  List available scripts
+  -q  Quiet mode, no error messages are generated
+  -h  Print a help text
+EOF
+}
+
+# Print the error message.
+printerror() {
+	msg=$*
+	basename=$(basename $0)
+	if test x${bequiet} = x ; then
+		echo ${basename}: "${*}" >&2
+	fi
+	omv_log "${basename}: ${*}"
+}
+
+# List available scripts.
+listscripts() {
+	find ${OMV_SCRIPTS_DIR} -maxdepth 1 -type f -executable \
+	  -printf %f\\n | sort
+}
+
+bequiet=
+
+while getopts 'lq?h' option
+do
+	case ${option} in
+	l)
+		listscripts
+		exit 0
+		;;
+	q)
+		bequiet=yes
+		;;
+	h|?)
+		usage >&2
+		exit 2
+		;;
+	esac
+done
+
+if test $# -eq 0 ; then
+  usage
+  exit 2
+fi
+
+shift $((OPTIND-1))
+scriptname=$1
+shift
+extraparams=$@
+
+# Test if the script exists.
+if test ! -f "${OMV_SCRIPTS_DIR}/${scriptname}" ; then
+	printerror "unknown script, ${OMV_SCRIPTS_DIR}/${scriptname} not found."
+	exit 100
+fi
+# Test if the script is executable.
+if test ! -x "${OMV_SCRIPTS_DIR}/${scriptname}" ; then
+	printerror "script ${OMV_SCRIPTS_DIR}/${scriptname} not executable."
+	exit 101
+fi
+# Execute the script.
+${OMV_SCRIPTS_DIR}/${scriptname} mkconf "${extraparams}" 2>&1 && exit 0
+exit $?

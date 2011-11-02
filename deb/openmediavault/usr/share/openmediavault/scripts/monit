@@ -1,0 +1,89 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://mmonit.com/monit/documentation/monit.html
+# http://mmonit.com/wiki/Monit/ConfigurationExamples
+# http://www.cyberciti.biz/tips/howto-monitor-and-restart-linux-unix-service.html
+# https://www.adminlife.net/allgemein/howto-monit-unter-debian-etch
+# http://www.howtoforge.com/server_monitoring_monit_munin
+# http://www.howtoforge.de/howto/server-uberwachung-mit-munin-und-monit
+# http://www.howtoforge.de/howto/wie-man-sich-mit-monit-per-sms-warnen-lasst-bei-einem-serverabsturz
+# http://www.musicinfo.org/node/81
+# http://www.cyberciti.biz/faq/tag/etcinitdmonit
+# http://www.tim-bormann.de/linux-dienste-berwachen-mit-monit
+# http://en.gentoo-wiki.com/wiki/Monit
+# http://www.debianadmin.com/monitoring-debian-servers-using-monit.html
+# http://www.uibk.ac.at/zid/systeme/linux/monit.html
+# http://wiki.ubuntuusers.de/Monit
+# http://viktorpetersson.com/2010/07/09/setting-up-monit-to-monitor-apache-and-postgresql-on-ubuntu
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_MONIT_CONFIG=${OMV_MONIT_CONFIG:-"/etc/monit/monitrc"}
+OMV_MONIT_DEFAULT=${OMV_MONIT_DEFAULT:-"/etc/default/monit"}
+OMV_MONIT_CHECK_INTERVAL=${OMV_MONIT_CHECK_INTERVAL:-"30"}
+OMV_MONIT_LOGFILE=${OMV_MONIT_LOGFILE:-"syslog facility log_daemon"}
+OMV_MONIT_PORT=${OMV_MONIT_PORT:-"2812"}
+OMV_MONIT_EVENTQUEUE_BASEDIR=${OMV_MONIT_EVENTQUEUE_BASEDIR:-"/var/spool/monit"}
+OMV_MONIT_EVENTQUEUE_SLOTS=${OMV_MONIT_EVENTQUEUE_SLOTS:-"100"}
+OMV_MONIT_EMAIL_ENABLE=${OMV_MONIT_EMAIL_ENABLE:-"yes"} 
+OMV_MONIT_EMAIL_ALERT_NOTEVENTS=${OMV_MONIT_EMAIL_ALERT_NOTEVENTS:-"instance"} 
+OMV_MONIT_EMAIL_TIMEOUT=${OMV_MONIT_EMAIL_TIMEOUT:-"5"}
+
+# Make sure used directories exists
+mkdir -p ${OMV_MONIT_EVENTQUEUE_BASEDIR}
+
+# /etc/default/monit
+cat > ${OMV_MONIT_DEFAULT} <<EOF
+# Defaults for monit initscript
+startup=1
+EOF
+
+# /etc/monit/monitrc
+cat > ${OMV_MONIT_CONFIG} <<EOF
+set daemon ${OMV_MONIT_CHECK_INTERVAL}
+set logfile ${OMV_MONIT_LOGFILE}
+set httpd port ${OMV_MONIT_PORT} and
+  use address localhost  # only accept connection from localhost
+  allow localhost        # allow localhost to connect to the server and
+# allow admin:monit      # require user 'admin' with password 'monit'
+set eventqueue
+  basedir ${OMV_MONIT_EVENTQUEUE_BASEDIR}
+  slots ${OMV_MONIT_EVENTQUEUE_SLOTS}
+
+include /etc/monit/conf.d/*
+EOF
+
+if omv_checkyesno ${OMV_MONIT_EMAIL_ENABLE}; then
+	xmlstarlet sel -t -m "//system/email" \
+	  -i "enable = '1'" \
+		-n \
+		-o "set mailserver 127.0.0.1" \
+		-o " with timeout ${OMV_MONIT_EMAIL_TIMEOUT} seconds" -n \
+		-v "concat('set mail-format { from: ',sender,' }')" -n \
+		-v "concat('set alert ',primaryemail,' but not on { ${OMV_MONIT_EMAIL_ALERT_NOTEVENTS} }')" -n \
+	  -b \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_CONFIG}
+fi

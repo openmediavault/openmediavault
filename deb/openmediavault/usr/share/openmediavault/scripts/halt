@@ -1,0 +1,54 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://www.vdr-wiki.de/wiki/index.php/Debian_-_WAKE_ON_LAN
+# http://www.brueck-computer.de/index2.php?modul=1404&link=1
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_HALT_DEFAULT=${OMV_HALT_DEFAULT:-"/etc/default/halt"}
+OMV_HALT_HALT=${OMV_HALT_HALT:-"poweroff"}
+OMV_HALT_NETDOWN=${OMV_HALT_NETDOWN:-"no"}
+
+mkconf() {
+	# Create '/etc/default/halt' file
+	cat <<EOF > ${OMV_HALT_DEFAULT}
+# Default behaviour of shutdown -h / halt. Set to "halt" or "poweroff".
+HALT=${OMV_HALT_HALT}
+EOF
+
+	xmlstarlet sel -t \
+	  -i "count(//system/network/interfaces//*[wol='1']) > 0" \
+		-n -o "# Do not shut down network interfaces, needed to use wake-on-lan" -n \
+		-o "NETDOWN=${OMV_HALT_NETDOWN}" -n \
+	  -b  \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_HALT_DEFAULT}
+}
+
+case "$1" in
+	mkconf|*)
+		mkconf
+		;;
+esac

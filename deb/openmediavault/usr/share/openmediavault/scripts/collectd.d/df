@@ -1,0 +1,165 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://www.korbinian-pauli.de/artikel/mit-lm-sensors-und-rrd-cpu-und-mb-temperatur-uberwachen
+# http://www.uvm.edu/~bcodding/ticker/archives/33
+# http://blog.stefan-betz.net/2009/1/6/collectd-und-rrdtool-im-einsatz
+# http://wiki.lugbz.de/HowTo/SelfMadeMonitoring
+# https://jeremy.visser.name/2010/02/23/enable-caching-in-collectd
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_COLLECTD_CONFIG=${OMV_COLLECTD_CONFIG:-"/etc/collectd/collectd.conf"}
+OMV_COLLECTD_RRDTOOL_MKGRAPH=${OMV_COLLECTD_RRDTOOL_MKGRAPH:-"/usr/sbin/omv-mkgraph"}
+
+xmlstarlet sel -t \
+  -o "LoadPlugin df" -n \
+  -o "&lt;Plugin df&gt;" -n \
+  -m "//system/fstab/mntent[not(contains(opts,'bind'))]" \
+	-v "concat('  MountPoint &quot;',dir,'&quot;')" -n \
+  -b \
+  -o "  IgnoreSelected false" -n \
+  -o "&lt;/Plugin&gt;" -n \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_COLLECTD_CONFIG}
+
+FILENAME=$(xmlstarlet sel -t -m "//system/fstab/mntent[not(contains(opts,'bind'))]" \
+  -v "concat('df',translate(dir,'/','-'),' ')" -b ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
+# Plugin: df
+TITLE_DF="Disk usage"
+COLOR_LINE_DF_FREE="#00cc00" # green
+COLOR_LINE_DF_USED="#ff0000" # red
+COLOR_AREA_DF_FREE="#b7efb7" # green
+COLOR_AREA_DF_USED="#f7b7b7" # red
+for filename in ${FILENAME}; do
+	[ ! -e "\${DATA}/df/\${filename}.rrd" ] && continue
+	rrdtool graph \${IMGDIR}/\${filename}-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${TITLE_DF}\${HOURTITLE}" --slope-mode --lower-limit 0 --vertical-label "Bytes" \
+	  DEF:favg=\${DATA}/df/\${filename}.rrd:free:AVERAGE \
+	  DEF:fmin=\${DATA}/df/\${filename}.rrd:free:MIN \
+	  DEF:fmax=\${DATA}/df/\${filename}.rrd:free:MAX \
+	  DEF:uavg=\${DATA}/df/\${filename}.rrd:used:AVERAGE \
+	  DEF:umin=\${DATA}/df/\${filename}.rrd:used:MIN \
+	  DEF:umax=\${DATA}/df/\${filename}.rrd:used:MAX \
+	  CDEF:sum=favg,uavg,+ \
+	  AREA:sum\${COLOR_AREA_DF_FREE} \
+	  AREA:uavg\${COLOR_AREA_DF_USED} \
+	  LINE1:sum\${COLOR_LINE_DF_FREE}:"Free" \
+	  GPRINT:fmin:MIN:"%5.1lf%sB Min" \
+	  GPRINT:favg:AVERAGE:"%5.1lf%sB Avg" \
+	  GPRINT:fmax:MAX:"%5.1lf%sB Max" \
+	  GPRINT:favg:LAST:"%5.1lf%sB Last\l" \
+	  LINE1:uavg\${COLOR_LINE_DF_USED}:"Used" \
+	  GPRINT:umin:MIN:"%5.1lf%sB Min" \
+	  GPRINT:uavg:AVERAGE:"%5.1lf%sB Avg" \
+	  GPRINT:umax:MAX:"%5.1lf%sB Max" \
+	  GPRINT:uavg:LAST:"%5.1lf%sB Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/\${filename}-day.png --start \${DAYSTART} \${DEFAULTS} --title "\${TITLE_DF}\${DAYTITLE}" --slope-mode --lower-limit 0 --vertical-label "Bytes" \
+	  DEF:favg=\${DATA}/df/\${filename}.rrd:free:AVERAGE \
+	  DEF:fmin=\${DATA}/df/\${filename}.rrd:free:MIN \
+	  DEF:fmax=\${DATA}/df/\${filename}.rrd:free:MAX \
+	  DEF:uavg=\${DATA}/df/\${filename}.rrd:used:AVERAGE \
+	  DEF:umin=\${DATA}/df/\${filename}.rrd:used:MIN \
+	  DEF:umax=\${DATA}/df/\${filename}.rrd:used:MAX \
+	  CDEF:sum=favg,uavg,+ \
+	  AREA:sum\${COLOR_AREA_DF_FREE} \
+	  AREA:uavg\${COLOR_AREA_DF_USED} \
+	  LINE1:sum\${COLOR_LINE_DF_FREE}:"Free" \
+	  GPRINT:fmin:MIN:"%5.1lf%sB Min" \
+	  GPRINT:favg:AVERAGE:"%5.1lf%sB Avg" \
+	  GPRINT:fmax:MAX:"%5.1lf%sB Max" \
+	  GPRINT:favg:LAST:"%5.1lf%sB Last\l" \
+	  LINE1:uavg\${COLOR_LINE_DF_USED}:"Used" \
+	  GPRINT:umin:MIN:"%5.1lf%sB Min" \
+	  GPRINT:uavg:AVERAGE:"%5.1lf%sB Avg" \
+	  GPRINT:umax:MAX:"%5.1lf%sB Max" \
+	  GPRINT:uavg:LAST:"%5.1lf%sB Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/\${filename}-week.png --start \${WEEKSTART} \${DEFAULTS} --title "\${TITLE_DF}\${WEEKTITLE}" --slope-mode --lower-limit 0 --vertical-label "Bytes" \
+	  DEF:favg=\${DATA}/df/\${filename}.rrd:free:AVERAGE \
+	  DEF:fmin=\${DATA}/df/\${filename}.rrd:free:MIN \
+	  DEF:fmax=\${DATA}/df/\${filename}.rrd:free:MAX \
+	  DEF:uavg=\${DATA}/df/\${filename}.rrd:used:AVERAGE \
+	  DEF:umin=\${DATA}/df/\${filename}.rrd:used:MIN \
+	  DEF:umax=\${DATA}/df/\${filename}.rrd:used:MAX \
+	  CDEF:sum=favg,uavg,+ \
+	  AREA:sum\${COLOR_AREA_DF_FREE} \
+	  AREA:uavg\${COLOR_AREA_DF_USED} \
+	  LINE1:sum\${COLOR_LINE_DF_FREE}:"Free" \
+	  GPRINT:fmin:MIN:"%5.1lf%sB Min" \
+	  GPRINT:favg:AVERAGE:"%5.1lf%sB Avg" \
+	  GPRINT:fmax:MAX:"%5.1lf%sB Max" \
+	  GPRINT:favg:LAST:"%5.1lf%sB Last\l" \
+	  LINE1:uavg\${COLOR_LINE_DF_USED}:"Used" \
+	  GPRINT:umin:MIN:"%5.1lf%sB Min" \
+	  GPRINT:uavg:AVERAGE:"%5.1lf%sB Avg" \
+	  GPRINT:umax:MAX:"%5.1lf%sB Max" \
+	  GPRINT:uavg:LAST:"%5.1lf%sB Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/\${filename}-month.png --start \${MONTHSTART} \${DEFAULTS} --title "\${TITLE_DF}\${MONTHTITLE}" --slope-mode --lower-limit 0 --vertical-label "Bytes" \
+	  DEF:favg=\${DATA}/df/\${filename}.rrd:free:AVERAGE \
+	  DEF:fmin=\${DATA}/df/\${filename}.rrd:free:MIN \
+	  DEF:fmax=\${DATA}/df/\${filename}.rrd:free:MAX \
+	  DEF:uavg=\${DATA}/df/\${filename}.rrd:used:AVERAGE \
+	  DEF:umin=\${DATA}/df/\${filename}.rrd:used:MIN \
+	  DEF:umax=\${DATA}/df/\${filename}.rrd:used:MAX \
+	  CDEF:sum=favg,uavg,+ \
+	  AREA:sum\${COLOR_AREA_DF_FREE} \
+	  AREA:uavg\${COLOR_AREA_DF_USED} \
+	  LINE1:sum\${COLOR_LINE_DF_FREE}:"Free" \
+	  GPRINT:fmin:MIN:"%5.1lf%sB Min" \
+	  GPRINT:favg:AVERAGE:"%5.1lf%sB Avg" \
+	  GPRINT:fmax:MAX:"%5.1lf%sB Max" \
+	  GPRINT:favg:LAST:"%5.1lf%sB Last\l" \
+	  LINE1:uavg\${COLOR_LINE_DF_USED}:"Used" \
+	  GPRINT:umin:MIN:"%5.1lf%sB Min" \
+	  GPRINT:uavg:AVERAGE:"%5.1lf%sB Avg" \
+	  GPRINT:umax:MAX:"%5.1lf%sB Max" \
+	  GPRINT:uavg:LAST:"%5.1lf%sB Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/\${filename}-year.png --start \${YEARSTART} \${DEFAULTS} --title "\${TITLE_DF}\${YEARTITLE}" --slope-mode --lower-limit 0 --vertical-label "Bytes" \
+	  DEF:favg=\${DATA}/df/\${filename}.rrd:free:AVERAGE \
+	  DEF:fmin=\${DATA}/df/\${filename}.rrd:free:MIN \
+	  DEF:fmax=\${DATA}/df/\${filename}.rrd:free:MAX \
+	  DEF:uavg=\${DATA}/df/\${filename}.rrd:used:AVERAGE \
+	  DEF:umin=\${DATA}/df/\${filename}.rrd:used:MIN \
+	  DEF:umax=\${DATA}/df/\${filename}.rrd:used:MAX \
+	  CDEF:sum=favg,uavg,+ \
+	  AREA:sum\${COLOR_AREA_DF_FREE} \
+	  AREA:uavg\${COLOR_AREA_DF_USED} \
+	  LINE1:sum\${COLOR_LINE_DF_FREE}:"Free" \
+	  GPRINT:fmin:MIN:"%5.1lf%sB Min" \
+	  GPRINT:favg:AVERAGE:"%5.1lf%sB Avg" \
+	  GPRINT:fmax:MAX:"%5.1lf%sB Max" \
+	  GPRINT:favg:LAST:"%5.1lf%sB Last\l" \
+	  LINE1:uavg\${COLOR_LINE_DF_USED}:"Used" \
+	  GPRINT:umin:MIN:"%5.1lf%sB Min" \
+	  GPRINT:uavg:AVERAGE:"%5.1lf%sB Avg" \
+	  GPRINT:umax:MAX:"%5.1lf%sB Max" \
+	  GPRINT:uavg:LAST:"%5.1lf%sB Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+done
+
+EOF

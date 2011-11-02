@@ -1,0 +1,97 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# https://help.ubuntu.com/community/HowToZeroconf
+# http://wiki.ubuntuusers.de/Avahi
+# http://www.kde4.de/?page_id=389
+# http://wiki.archlinux.org/index.php/Avahi
+# http://en.gentoo-wiki.com/wiki/Avahi
+# http://www.zaphu.com/2008/04/29/ubuntu-guide-configure-avahi-to-broadcast-services-via-bonjour-to-mac-os-x/
+# http://www.dns-sd.org/ServiceTypes.html
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_AVAHIDAEMON_CONFIG=${OMV_AVAHIDAEMON_CONFIG:-"/etc/avahi/avahi-daemon.conf"}
+OMV_AVAHIDAEMON_DEFAULT=${OMV_AVAHIDAEMON_DEFAULT:-"/etc/default/avahi-daemon"}
+OMV_AVAHIDAEMON_DETECTLOCAL=${OMV_AVAHIDAEMON_DETECTLOCAL:-"0"}
+OMV_AVAHIDAEMON_AVAHISERVICESDIR=${OMV_AVAHIDAEMON_AVAHISERVICESDIR:-"${OMV_SCRIPTS_DIR}/avahiservices.d"}
+OMV_AVAHIDAEMON_UPDATEAVAHISERVICES=${OMV_AVAHIDAEMON_UPDATEAVAHISERVICES:-"yes"}
+OMV_AVAHIDAEMON_DISABLEPUBLISHING=${OMV_AVAHIDAEMON_DISABLEPUBLISHING:-"yes"}
+
+[ "$(omv_config_get "//system/network/dnsservicediscovery/enable")" = "1" ] && OMV_AVAHIDAEMON_DISABLEPUBLISHING="no"
+
+# Create '/etc/default/avahi-daemon' file
+cat <<EOF > ${OMV_AVAHIDAEMON_DEFAULT}
+AVAHI_DAEMON_DETECT_LOCAL=${OMV_AVAHIDAEMON_DETECTLOCAL}
+EOF
+
+# Create '/etc/avahi/avahi-daemon.conf' file
+cat <<EOF > ${OMV_AVAHIDAEMON_CONFIG}
+[server]
+#host-name=foo
+#domain-name=local
+#browse-domains=0pointer.de, zeroconf.org
+use-ipv4=yes
+use-ipv6=yes
+#check-response-ttl=no
+#use-iff-running=no
+#enable-dbus=yes
+#disallow-other-stacks=no
+#allow-point-to-point=no
+
+[wide-area]
+enable-wide-area=yes
+
+[publish]
+disable-publishing=${OMV_AVAHIDAEMON_DISABLEPUBLISHING}
+#disable-user-service-publishing=no
+#add-service-cookie=no
+#publish-addresses=yes
+#publish-hinfo=yes
+#publish-workstation=yes
+#publish-domain=yes
+#publish-dns-servers=192.168.50.1, 192.168.50.2
+#publish-resolv-conf-dns-servers=yes
+#publish-aaaa-on-ipv4=yes
+#publish-a-on-ipv6=no
+
+[reflector]
+#enable-reflector=no
+#reflect-ipv=no
+
+[rlimits]
+#rlimit-as=
+rlimit-core=0
+rlimit-data=4194304
+rlimit-fsize=0
+rlimit-nofile=300
+rlimit-stack=4194304
+rlimit-nproc=3
+EOF
+
+# Create '/etc/avahi/services/*.service' files
+if [ "${OMV_AVAHIDAEMON_UPDATEAVAHISERVICES}" = "yes" ]; then
+	run-parts ${OMV_AVAHIDAEMON_AVAHISERVICESDIR}
+fi

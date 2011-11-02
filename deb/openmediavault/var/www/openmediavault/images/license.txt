@@ -1,0 +1,323 @@
+Image: ftp.png
+Designer: Hbons
+License: Creative Commons (Attribution-Share Alike 3.0 Unported)
+URL: http://www.iconfinder.net/icondetails/30481/16
+
+Image: ssh.png
+Designer: Everaldo Coelho
+License: LGPL
+URL: http://www.iconfinder.net/icondetails/18728/16
+
+Image: shutdown.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.gnu.org/licenses/lgpl.html)
+URL: http://www.iconfinder.net/icondetails/3226/16
+
+Image: network.png
+Designer: Marco Martin
+License: LGPL
+URL: http://www.iconfinder.net/icondetails/7891/16
+
+Image: harddisk.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.gnu.org/licenses/lgpl.html)
+URL: http://www.iconfinder.com/icondetails/18285/16
+
+Image: battery.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.everaldo.com/crystal/?action=license)
+URL: http://www.iconfinder.net/icondetails/17898/16
+
+Image: time.png
+Designer: Oxygen Team
+License: GPL
+URL: http://www.iconfinder.net/icondetails/9219/16
+
+Image: cron.png
+Designer: Oxygen Team (http://www.oxygen-icons.org)
+License: GPL (http://www.gnu.org/copyleft/gpl.html)
+URL: http://www.iconfinder.net/icondetails/8810/16
+
+Image: mail.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.everaldo.com/crystal/?action=license)
+URL: http://www.iconfinder.net/icondetails/18784/16
+
+Image: preferences.png
+Designer: Oxygen Team (http://www.oxygen-icons.org)
+License: GPL (http://www.gnu.org/copyleft/gpl.html)
+URL: http://www.iconfinder.net/icondetails/8844/16
+
+Image: logs.png
+Designer: FatCow Web Hosting
+License: Creative Commons (Attribution 3.0 United States)
+URL: http://www.iconfinder.net/icondetails/35739/16
+
+Image: monitor.png
+Designer: Various
+License: Public Domain
+URL: http://www.iconfinder.net/icondetails/15358/16
+
+Image: folder-remote.png
+Designer: Hbons
+License: Creative Commons (Attribution-Share Alike 3.0 Unported)
+URL: http://www.iconfinder.net/icondetails/30484/16
+
+Image: add.png
+Designer: Dat Nguyen (http://splashyfish.com)
+License: Free for commercial use
+URL: http://www.iconfinder.net/icondetails/14225/16
+
+Image: delete.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.everaldo.com/crystal/?action=license)
+URL: http://www.iconfinder.net/icondetails/18572/16
+
+Image: save.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.everaldo.com/crystal/?action=license)
+URL: http://www.iconfinder.net/icondetails/18268/16
+
+Image: trashcan.png
+Designer: Oxygen Team (http://www.oxygen-icons.org)
+License: GPL (http://www.gnu.org/copyleft/gpl.html)
+URL: http://www.iconfinder.net/icondetails/9268/16
+
+Image: harddisk-smart.png
+Designer: Oliver Scholtz (and others)
+License: GPL
+URL: http://www.iconfinder.net/icondetails/9268/16
+URL: http://schollidesign.deviantart.com/art/Human-O2-Iconset-105344123
+
+Image: bittorrent.png
+Designer: Oliver Scholtz (and others)
+License: GPL
+URL: http://www.iconfinder.net/icondetails/24363/16
+URL: http://schollidesign.deviantart.com/art/Human-O2-Iconset-105344123
+
+Image: tftp.png
+Designer: Various (Tango icon set)
+License: Public Domain
+URL: http://www.iconfinder.net/icondetails/15460/16
+
+Image: zeroconf.png
+Designer: Various (Tango icon set)
+License: Public Domain
+URL: http://www.iconfinder.net/icondetails/15389/16
+
+Image: smb.png
+Designer: David Vignoni
+License: LGPL (http://www.gnu.org/licenses/lgpl.html)
+URL: http://www.iconfinder.net/icondetails/1452/16
+
+Image: lock.png
+Designer: Alexander Moore
+License: LGPL (http://www.gnu.org/licenses/lgpl.html)
+URL: http://www.iconfinder.net/icondetails/1991/16
+URL: http://www.kde-look.org/content/show.php/nuoveXT+2?content=62630
+
+Image: user.png
+Designer:  Nathan Haug and the Lullabot Team
+License: GPL
+URL: http://www.iconfinder.net/icondetails/19835/16
+URL: http://www.lullabot.com/icons
+
+Image: group.png
+Designer:  Nathan Haug and the Lullabot Team
+License: GPL
+URL: http://www.iconfinder.net/icondetails/19835/16
+URL: http://www.lullabot.com/icons
+
+Image: about.png
+Designer: Yusuke Kamiyamane
+License: Creative Commons (Attribution 3.0 Unported)
+URL: http://www.iconfinder.net/icondetails/26923/16
+
+Image: rsync.png
+Designer:  Everaldo Coelho
+License: GPL
+URL: http://www.iconfinder.net/icondetails/770/16
+
+Image: run.png
+Designer: Gnome Project
+License: GPL
+URL: http://www.iconfinder.net/icondetails/20478/16
+
+Image: plugin.png
+Designer: FatCow Web Hosting
+License: Creative Commons (Attribution 3.0 United States)
+URL: http://www.iconfinder.net/icondetails/36351/16
+
+Image: upload.png
+Designer: Dat Nguyen
+License: Free for commercial use
+URL: http://www.iconfinder.net/icondetails/14667/16
+
+Image: reload.png
+Designer: Yusuke Kamiyamane
+License: Creative Commons (Attribution 3.0 Unported)
+URL: http://www.iconfinder.net/browse/iconset/fugue/#readme
+URL: http://www.iconfinder.net/icondetails/11450/16
+
+Image: no.png
+Designer: Dat Nguyen (http://splashyfish.com)
+License: Free for commercial use
+URL: http://www.iconfinder.net/icondetails/14635/16
+
+Image: yes.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.everaldo.com/crystal/?action=license)
+URL: http://www.iconfinder.net/icondetails/3207/16
+
+Image: system-software-update.png
+URL: http://www.gnome.org
+
+Image: arrow-up.png
+URL: http://www.gnome.org
+
+Image: arrow-down.png
+URL: http://www.gnome.org
+
+Image: snmp.png
+Designer: Tango (http://tango.freedesktop.org/Tango_Desktop_Project)
+License: Public Domain
+URL: http://www.iconfinder.net/icondetails/15436/16
+
+Image: commit.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.everaldo.com/crystal/?action=license)
+URL: http://www.iconfinder.com/icondetails/18608/16
+
+Image: error.png
+Designer: Alexander Moore (http://www.famfamfam.com)
+License: GPL
+URL: http://www.iconfinder.com/icondetails/39516/16
+
+Image: eye.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.gnu.org/licenses/lgpl.html)
+URL: http://www.iconfinder.com/icondetails/3793/16
+
+Image: logout.png
+Designer: Oxygen Team
+License: GPL
+
+Image: edit.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.gnu.org/licenses/lgpl.html)
+URL: http://www.iconfinder.com/icondetails/3218/16
+
+Image: info.png
+Designer: Oxygen Team
+License: GPL
+URL: http://www.iconfinder.com/icondetails/9346/16
+
+Image: raid.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.gnu.org/licenses/lgpl.html)
+URL: http://www.iconfinder.com/icondetails/3321/16
+
+Image: shutdown_64.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.gnu.org/licenses/lgpl.html)
+URL: http://www.iconfinder.com/icondetails/17902/64
+
+Image: raid-grow.png
+Designer: Volker Theile, based on Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.gnu.org/licenses/lgpl.html)
+URL: http://www.iconfinder.com/icondetails/3321/16
+
+Image: filesystem.png
+Designer: Oliver Scholtz (and others)
+License: GPL
+URL: http://www.iconfinder.net/icondetails/24564/16
+
+Image: detail.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.gnu.org/licenses/lgpl.html)
+URL: http://www.iconfinder.com/icondetails/3262/16
+
+Image: filesystem-resize.png
+Designer: Volker Theile, based on Oliver Scholtz (and others)
+License: GPL
+URL: http://www.iconfinder.net/icondetails/24564/16
+
+Image: filesystem-quota.png
+Designer: Volker Theile, based on Oliver Scholtz (and others)
+License: GPL
+URL: http://www.iconfinder.net/icondetails/24564/16
+
+Image: filesystem-mount.png
+Designer: Volker Theile, based on Oliver Scholtz (and others)
+License: GPL
+URL: http://www.iconfinder.net/icondetails/24564/16
+
+Image: filesystem-umount.png
+Designer: Volker Theile, based on Oliver Scholtz (and others)
+License: GPL
+URL: http://www.iconfinder.net/icondetails/24564/16
+
+Image: certificate.png
+Designer: Gasyoun (http://twitter.com/gasyoun or http://led24.de)
+License: Free for commercial use
+URL: http://www.iconfinder.com/icondetails/16420/16
+
+Image: reboot.png
+Designer: Oxygen Team
+License: GPL
+URL: n/a
+
+Image: switch_on.png
+Designer: Orman Clark
+License: Free for use in both personal and commercial projects
+URL: http://www.premiumpixels.com/freebies/onoff-switches-and-toggles-psd
+
+Image: switch_off.png
+Designer: Orman Clark
+License: Free for use in both personal and commercial projects
+URL: http://www.premiumpixels.com/freebies/onoff-switches-and-toggles-psd
+
+Image: switch_green.png
+Designer: Orman Clark
+License: Free for use in both personal and commercial projects
+URL: http://www.premiumpixels.com/freebies/onoff-switches-and-toggles-psd
+
+Image: switch_red.png
+Designer: Orman Clark
+License: Free for use in both personal and commercial projects
+URL: http://www.premiumpixels.com/freebies/onoff-switches-and-toggles-psd
+
+Image: led_green.png
+Designer: Volker Theile
+License: Free for commercial use
+URL: www.openmediavault.org
+
+Image: led_red.png
+Designer: Volker Theile
+License: Free for commercial use
+URL: www.openmediavault.org
+
+Image: donate.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.gnu.org/licenses/lgpl.html)
+URL: http://www.iconfinder.com/icondetails/3547/16
+
+Image: nfs.png
+Designer: David Vignoni (http://www.icon-king.com)
+License: LGPL (http://www.gnu.org/licenses/lgpl.html)
+URL: http://www.iconfinder.com/icondetails/1495/16
+
+Image: nic.png
+Designer: FatCow Web Hosting (http://www.fatcow.com)
+License: Creative Commons (Attribution 3.0 United States)
+URL: http://www.iconfinder.com/icondetails/64488/16
+
+Image: nic-add.png, nic-edit.png, nic-identify.png
+Designer: Volker Theile, based on FatCow Web Hosting (http://www.fatcow.com)
+License: Creative Commons (Attribution 3.0 United States)
+URL: http://www.iconfinder.com/icondetails/64488/16
+
+Image: support.png
+Designer: Gnome Project
+License: GPL
+URL: http://www.iconfinder.com/icondetails/20560/16

@@ -1,0 +1,100 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://www.postfix.org/postconf.5.html
+# http://www.gtkdb.de/index_7_727.html
+# http://irbs.net/internet/postfix/0503/2148.html
+
+# Testing:
+# echo "Test" | mail -s "Test subject" -a "From: xxx@yyy.zzz" root
+# hostname | mailx -s "root `hostname` `date`" root
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_POSTFIX_CONFIG=${OMV_POSTFIX_CONFIG:-"/etc/postfix/main.cf"}
+OMV_POSTFIX_MYDESTINATION=${OMV_POSTFIX_MYDESTINATION:-""}
+OMV_POSTFIX_INET_INTERFACES=${OMV_POSTFIX_INET_INTERFACES:-"loopback-only"}
+OMV_POSTFIX_SMTP_GENERIC_MAPS=${OMV_POSTFIX_SMTP_GENERIC_MAPS:-"/etc/postfix/generic"}
+OMV_POSTFIX_SENDER_CANONICAL_MAPS=${OMV_POSTFIX_SENDER_CANONICAL_MAPS:-"/etc/postfix/sender_canonical"}
+OMV_POSTFIX_SMTP_SASL_AUTH_ENABLE=${OMV_POSTFIX_SMTP_SASL_AUTH_ENABLE:-"yes"}
+OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS=${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS:-"/etc/postfix/sasl_passwd"}
+OMV_POSTFIX_SMTP_SASL_SECURITY_OPTIONS=${OMV_POSTFIX_INETINTERFACES:-"noanonymous"}
+OMV_POSTFIX_SMTP_SASL_MECHANISM_FILTER=${OMV_POSTFIX_SMTP_SASL_MECHANISM_FILTER:-""}
+
+# Create '/etc/postfix/main.cf' configuration file
+xmlstarlet sel -t -m "//system/email" \
+  -o "mydestination = ${OMV_POSTFIX_MYDESTINATION}" -n \
+  -o "inet_interfaces = ${OMV_POSTFIX_INET_INTERFACES}" -n \
+  -v "concat('relayhost = ',server,':',port)" -n \
+  -o "sender_canonical_maps = hash:${OMV_POSTFIX_SENDER_CANONICAL_MAPS}" -n \
+  -o "smtp_generic_maps = hash:${OMV_POSTFIX_SMTP_GENERIC_MAPS}" -n \
+  -i "authentication[enable = '1']" \
+    -o "smtp_sasl_auth_enable = ${OMV_POSTFIX_SMTP_SASL_AUTH_ENABLE}" -n \
+    -o "smtp_sasl_security_options = ${OMV_POSTFIX_SMTP_SASL_SECURITY_OPTIONS}" -n \
+    -o "smtp_sasl_password_maps = hash:${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}" -n \
+	-o "smtp_sasl_mechanism_filter = ${OMV_POSTFIX_SMTP_SASL_MECHANISM_FILTER}" -n \
+  -b \
+  -i "tls[. = '1']" \
+    -o "smtp_use_tls = yes" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_CONFIG}
+
+# Create '/etc/postfix/sasl_passwd' configuration file
+xmlstarlet sel -t -m "//system/email" \
+  -i "authentication[enable = '1']" \
+    -v "concat(server,':',port,' ',authentication/username,':',authentication/password)" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}
+chown root:root ${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}
+chmod 0600 ${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}
+postmap ${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}
+
+# Create '/etc/postfix/generic' configuration file
+xmlstarlet sel -t \
+  -i "//system/email/enable[. = '1']" \
+      -m "//system/email" \
+        -v "concat('root ',primaryemail)" -n \
+        -v "concat('openmediavault ',primaryemail)" -n \
+      -b \
+      -m "//system/usermanagement/users/user[email != '']" \
+        -v "concat(name,' ',email)" -n \
+      -b \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
+chown root:root ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
+chmod 0600 ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
+postmap ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
+
+# Create '/etc/postfix/sender_canonical' configuration file
+xmlstarlet sel -t \
+  -i "//system/email/enable[. = '1']" \
+      -m "//system/email" \
+        -v "concat('&quot;&quot; ',sender)" -n \
+      -b \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}
+chown root:root ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}
+chmod 0600 ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}
+postmap ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}

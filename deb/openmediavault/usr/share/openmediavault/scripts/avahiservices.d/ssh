@@ -1,0 +1,50 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_AVAHIDAEMON_SSHSERVICE=${OMV_AVAHIDAEMON_SSHSERVICE:-"/etc/avahi/services/ssh.service"}
+OMV_AVAHIDAEMON_SSHSERVICE_NAME=${OMV_AVAHIDAEMON_SSHSERVICE_NAME:-"%h - SSH"}
+
+# Is the service enabled?
+rm -f ${OMV_AVAHIDAEMON_SSHSERVICE}
+[ "$(omv_config_get "//services/ssh/enable")" = "0" ] && exit 0
+
+# Create '/etc/avahi/services/ssh.service' file.
+port=$(omv_config_get "//services/ssh/port")
+cat <<EOF > ${OMV_AVAHIDAEMON_SSHSERVICE}
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+  <name replace-wildcards="yes">${OMV_AVAHIDAEMON_SSHSERVICE_NAME}</name>
+  <service>
+    <type>_ssh._tcp</type>
+    <port>${port}</port>
+  </service>
+  <service>
+    <type>_sftp-ssh._tcp</type>
+    <port>${port}</port>
+  </service>
+</service-group>
+EOF

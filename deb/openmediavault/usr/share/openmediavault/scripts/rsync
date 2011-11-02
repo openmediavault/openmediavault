@@ -1,0 +1,98 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_RSYNC_CRONSCRIPT=${OMV_RSYNC_CRONSCRIPT:-"/etc/cron.d/openmediavault-rsync"}
+OMV_RSYNC_CRONSCRIPTSDIR=${OMV_RSYNC_CRONSCRIPTSDIR:-"/var/lib/openmediavault/cronscripts"}
+OMV_RSYNC_CRONUSER=${OMV_RSYNC_CRONUSER:-"root"}
+OMV_RSYNC_LOGFILE=${OMV_RSYNC_LOGFILE:-"/var/log/rsync.log"}
+
+# Remove all rsync cronjob scripts
+mkdir -p ${OMV_RSYNC_CRONSCRIPTSDIR}
+rm -f ${OMV_RSYNC_CRONSCRIPTSDIR}/rsync-*
+
+# Create rsync cron script
+cat <<EOF > ${OMV_RSYNC_CRONSCRIPT}
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+# m h dom mon dow user    command
+EOF
+chmod 644 ${OMV_RSYNC_CRONSCRIPT}
+
+index=$(omv_config_get_count "//services/rsync/jobs/job")
+while [ ${index} -gt 0 ]
+do
+	uuid=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/uuid")
+	type=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/type")
+	filename="${OMV_RSYNC_CRONSCRIPTSDIR}/rsync-${uuid}"
+	srcuri=""
+	desturi=""
+
+	case $type in
+	local)
+		srcsfref=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/src")
+		srcuri="$(omv_get_sharedfolder_path "${srcsfref}")/"
+		destsfref=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/dest")
+		desturi=$(omv_get_sharedfolder_path "${destsfref}")
+		;;
+	remote)
+		mode=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/mode")
+		case $mode in
+		push)
+			srcsfref=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/src")
+			srcuri="$(omv_get_sharedfolder_path "${srcsfref}")/"
+			desturi=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/dest")
+			;;
+		pull)
+			srcuri=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/src")
+			destsfref=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/dest")
+			desturi=$(omv_get_sharedfolder_path "${destsfref}")
+			;;
+		esac
+		;;
+	esac
+
+	xmlstarlet sel -t -m "//services/rsync/jobs/job[position()=${index}]" \
+	  -o "rsync --verbose --log-file=&quot;${OMV_RSYNC_LOGFILE}&quot;" \
+	  -i "recursive = '0'" -o " --recursive" -b \
+	  -i "times = '1'" -o " --times" -b \
+	  -i "compress = '1'" -o " --compress" -b \
+	  -i "archive = '1'" -o " --archive" -b \
+	  -i "delete = '1'" -o " --delete" -b \
+	  -i "quiet = '1'" -o " --quiet" -b \
+	  -i "perms = '1'" -o " --perms" -b \
+	  -i "acls = '1'" -o " --acls" -b \
+	  -i "xattrs = '1'" -o " --xattrs" -b \
+	  -i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
+	  -o " &quot;${srcuri}&quot; &quot;${desturi}&quot;" \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${filename}
+	chmod 700 ${filename}
+
+	xmlstarlet sel -t -m "//services/rsync/jobs/job[position()=${index}]" \
+	  -v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ${OMV_RSYNC_CRONUSER} ${filename}')" -n \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_RSYNC_CRONSCRIPT}
+
+	index=$(( ${index} - 1 ))
+done

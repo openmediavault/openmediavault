@@ -1,0 +1,5 @@
+// Get rid of unneeded files after each package installation
+DPkg
+{
+Post-Invoke {"if [ $(ps w -p $PPID | grep -c remove) != 1 ]; then rm -rf /usr/share/doc/* /usr/share/man/* /var/cache/man/*; else exit 0; fi";};
+};

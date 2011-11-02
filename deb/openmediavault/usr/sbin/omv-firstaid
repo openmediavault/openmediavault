@@ -1,0 +1,227 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://www.linuxjournal.com/article/2807
+# http://www.linuxjournal.com/article/2460
+# http://www.linuxquestions.org/questions/programming-9/basic-bash-how-to-use-eval-to-evaluate-variable-names-made-of-arbitrary-strings-775622/#post3791337
+# http://linuxgazette.net/101/sunil.html
+
+# Disable flag, otherwise script will exit immediatelly when 'No' is selected
+# in a 'yesno' box.
+#set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+configure_iface() {
+	local devicename method address netmask gateway
+	method="dhcp"
+	wol=false
+	# Get the network interface device.
+	cmd="whiptail --clear --menu 'Please select a network interface. Note, the existing network interface configuration will be deleted.' 15 53 5 "
+	for i in $(ls /sys/class/net | grep -v "lo"); do
+		cmd="${cmd} '${i}' '${i}'"
+	done
+	eval "${cmd} 2>$tempfile"
+	[ $? -ne 0 ] && return 1
+	devicename=$(cat $tempfile)
+	# Use DHCP?
+	whiptail --clear --yesno "Do you want to use DHCP for this interface?" 8 50
+	if [ $? -eq 1 ]; then
+		method="static"
+		# Get address
+		while [ -z ${address} ]; do
+			whiptail --clear --inputbox "Please enter the IPv4 address." \
+			  8 60 2>$tempfile
+			[ $? -ne 0 ] && return 1
+			address=$(cat $tempfile)
+			if [ -z ${address} ]; then
+				whiptail --clear --msgbox "The field must not be empty." 8 32
+				continue
+			fi
+			if ! omv_is_valid_ipv4address "${address}"; then
+				whiptail --clear --msgbox "Invalid IPv4 address." 8 26
+				address=""
+			fi
+		done
+		# Get netmask
+		while [ -z ${netmask} ]; do
+			whiptail --clear --inputbox "Please enter the netmask." \
+			  8 60 2>$tempfile
+			[ $? -ne 0 ] && return 1
+			netmask=$(cat $tempfile)
+			if [ -z ${netmask} ]; then
+				whiptail --clear --msgbox "The field must not be empty." 8 32
+				continue
+			fi
+			if ! omv_is_valid_ipv4netmask "${netmask}"; then
+				whiptail --clear --msgbox "Invalid netmask." 8 22
+				netmask=""
+			fi
+		done
+		# Get default gateway
+		while [ -z ${gateway} ]; do
+			whiptail --clear --inputbox "Please enter the default gateway." \
+			  8 60 2>$tempfile
+			[ $? -ne 0 ] && return 1
+			gateway=$(cat $tempfile)
+			if [ -n "${gateway}" ]; then
+				if ! omv_is_valid_ipv4gateway "${gateway}"; then
+					whiptail --clear --msgbox "Invalid gateway." 8 22
+					gateway=""
+				fi
+			else
+				break
+			fi
+		done
+	fi
+	whiptail --clear --defaultno --yesno \
+	  "Do you want to enable WOL for this interface?" 8 50
+	if [ $? -eq 0 ]; then
+		wol=true
+	fi
+	# Delete all existing network interface configuration objects
+	omv_config_delete "//system/network/interfaces/*"
+	# Insert a new network interface configuration object
+	omv-rpc "Network" "setIface" "{\"uuid\":\"undefined\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"mtu\":\"\",\"wol\":${wol}}" >/dev/null
+	return 0
+}
+
+configure_webgui() {
+	local port enablessl sslport forcesslonly sslcertificateref
+	enablessl=false
+	forcesslonly=false
+	while [ -z ${port} ]; do
+		whiptail --clear --inputbox \
+		  "Please enter the port to access the WebGUI via HTTP." \
+		  8 60 80 2>$tempfile
+		[ $? -ne 0 ] && return 1
+		port=$(cat $tempfile)
+		if [ -z ${port} ]; then
+			whiptail --clear --msgbox "The field must not be empty." 8 32
+		elif ! omv_isnumber ${port}; then
+			whiptail --clear --msgbox "Please enter a valid port." 8 32
+			port=""
+		elif [ ${port} -lt 1 -o ${port} -gt 65535 ]; then
+			whiptail --clear --msgbox "Please enter a valid port." 8 32
+			port=""
+		fi
+	done
+	# Before asking to enable HTTPS check if there are any SSL certificates
+	# available.
+	if [ $(omv_config_get_count "//system/certificates/sslcertificate") -gt 0 ]; then
+		whiptail --clear --yesno "Do you want to enable HTTPS?" 8 32
+		if [ $? -eq 0 ]; then
+			enablessl=true
+			# Get the port for HTTPS.
+			while [ -z ${sslport} ]; do
+				whiptail --clear --inputbox \
+				  "Please enter the port to access the WebGUI via HTTPS." \
+				  8 60 443 2>$tempfile
+				[ $? -ne 0 ] && return 1
+				sslport=$(cat $tempfile)
+				if [ -z ${sslport} ]; then
+					whiptail --clear --msgbox "The field must not be empty." 8 32
+				elif ! omv_isnumber ${sslport}; then
+					whiptail --clear --msgbox "Please enter a valid port." 8 32
+					port=""
+				elif [ ${sslport} -lt 1 -o ${sslport} -gt 65535 ]; then
+					whiptail --clear --msgbox "Please enter a valid port." 8 32
+					port=""
+				fi
+			done
+			# Display dialog to choose SSL certificate
+			xmlstarlet sel -t -m "//system/certificates/sslcertificate" \
+			-v "concat(position(),' ',uuid,' ',comment)" -i "position() != last()" -n -b \
+			${OMV_CONFIG_FILE} | xmlstarlet unesc | {
+				local cmd 
+				cmd="whiptail --clear --menu 'Please select an SSL certificate:' 12 70 4 "
+				while read position uuid comment; do
+					# To be posix compliant use fake arrays
+					certs="certs"
+					eval ${certs}${position}=${uuid}
+					# Append menu entry. Use 'position' as 'tag' and 'comment' as
+					# 'item' values.
+					cmd="${cmd} ${position} '${comment}'"
+				done
+				eval "${cmd} 2>$tempfile"
+				[ $? -ne 0 ] && return 1
+				choice=$(cat $tempfile)
+				echo $(eval echo \$$certs${choice}) >$tempfile
+			}
+			[ $? -ne 0 ] && return 1
+			sslcertificateref=$(cat $tempfile)
+			# Enable HTTPS only?
+			whiptail --clear --defaultno --yesno \
+			  "Do you want to enable HTTPS only?" 8 40
+			if [ $? -eq 0 ]; then
+				forcesslonly=true
+			fi
+		else
+			sslport=443
+		fi
+	else
+		sslport=443
+	fi
+	omv-rpc "System" "setWebUISettings" "{\"port\":${port},\"enablessl\":${enablessl},\"sslport\":${sslport},\"forcesslonly\":${forcesslonly},\"sslcertificateref\":\"${sslcertificateref}\",\"timeout\":5}" >/dev/null
+	return 0
+}
+
+reset_webgui_passwd() {
+	local passwd
+	while [ -z ${passwd} ]; do
+		whiptail --clear --passwordbox \
+		  "Please enter the WebGUI password for user 'admin'." 8 60 2>$tempfile
+		[ $? -ne 0 ] && return 1
+		passwd=$(cat $tempfile)
+		if [ -z ${passwd} ]; then
+			whiptail --clear --msgbox "The password must not be empty." 8 35
+		fi
+	done
+	omv-rpc "UserMgmt" "setUserPassword" "{\"name\":\"admin\",\"password\":\"${passwd}\"}" >/dev/null
+	return 0
+}
+
+tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/omv-setup$$
+trap "rm -f $tempfile" 0 1 2 5 15
+
+# Display the default menu
+whiptail --nocancel --clear --title "First aid" --menu "Please select a menu:" 12 65 4 \
+  "1" "Configure network interface" \
+  "2" "Configure WebGUI" \
+  "3" "Change WebGUI password" \
+  "4" "Exit" 2>$tempfile
+[ $? -ne 0 ] && return 1
+choice=$(cat $tempfile)
+case ${choice} in
+1)
+	configure_iface;
+	;;
+2)
+	configure_webgui;
+	;;
+3)
+	reset_webgui_passwd;
+	;;
+esac
+
+exit 0

@@ -1,0 +1,47 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://us5.samba.org/samba/docs/man/manpages-3/smb.conf.5.html
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_SAMBA_CONFIG=${OMV_SAMBA_CONFIG:-"/etc/samba/smb.conf"}
+OMV_SAMBA_HOMES_COMMENT=${OMV_SAMBA_HOMES_COMMENT:-"Home directories"}
+OMV_SAMBA_HOMES_WRITABLE=${OMV_SAMBA_HOMES_WRITABLE:-"yes"}
+OMV_SAMBA_HOMES_CREATEMODE=${OMV_SAMBA_HOMES_CREATEMODE:-"0700"}
+OMV_SAMBA_HOMES_VALIDUSERS=${OMV_SAMBA_HOMES_VALIDUSERS:-"%U"}
+
+xmlstarlet sel -t -m "//services/smb" \
+  -i "homesenable[. = '1']" \
+	  -o "#======================= Home Directories =======================" -n \
+	  -o "[homes]" -n \
+	  -o "comment = ${OMV_SAMBA_HOMES_COMMENT}" -n \
+	  -i "homesbrowseable[. = '0']" -o "browseable = no" -n -b \
+	  -i "homesbrowseable[. = '1']" -o "browseable = yes" -n -b \
+	  -o "writable = ${OMV_SAMBA_HOMES_WRITABLE}" -n \
+	  -o "create mode = ${OMV_SAMBA_HOMES_CREATEMODE}" -n \
+	  -o "valid users = ${OMV_SAMBA_HOMES_VALIDUSERS}" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}

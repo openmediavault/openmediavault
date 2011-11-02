@@ -1,0 +1,40 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_HDPARM_CONFIG=${OMV_HDPARM_CONFIG:-"/etc/hdparm.conf"}
+
+xmlstarlet sel -t \
+  -o "quiet" -n \
+  -m "//system/storage/hdparm" \
+	-v "concat(devicefile,' {')" -n \
+	-v "concat('    acoustic_management = ',aam)" -n \
+	-i "apm != 255" -v "concat('    apm = ',apm)" -n -b \
+	-i "spindowntime > 0" -v "concat('    spindown_time = ',spindowntime)" -n -b \
+	-i "writecache = 0" -o "    write_cache = off" -n -b \
+	-i "writecache = 1" -o "    write_cache = on" -n -b \
+	-o "}" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_HDPARM_CONFIG}

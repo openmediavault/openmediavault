@@ -1,0 +1,76 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_HOSTS_CONFIG=${OMV_HOSTS_CONFIG:-"/etc/hosts"}
+OMV_HOSTS_ALLOW_CONFIG=${OMV_HOSTS_ALLOW_CONFIG:-"/etc/hosts.allow"}
+OMV_HOSTS_DENY_CONFIG=${OMV_HOSTS_DENY_CONFIG:-"/etc/hosts.deny"}
+
+# If the hostname is a FQDN, then extract the hostname part and store it
+# in the alias variable.
+hostname=$(omv_config_get "//system/network/hostname")
+alias=""
+if [ $(echo ${hostname} | grep -E "^[^.]+\..+$") ]; then
+	alias=${hostname%%.*}
+fi
+
+# Create /etc/hosts file
+cat <<EOF > ${OMV_HOSTS_CONFIG}
+127.0.0.1 ${hostname} localhost ${alias}
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ${hostname} localhost ip6-localhost ip6-loopback ${alias}
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+
+EOF
+
+xmlstarlet sel -t -m "//system/network/interfaces/*" \
+  -v "concat(devicename,' ',method,' ',address)" \
+  -i "position() != last()" -n -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+  while read devicename method address; do
+	  if [ "${method}" = "dhcp" ]; then
+		  address=$(omv_get_ipaddr ${devicename})
+	  fi
+	  if [ -n "${alias}" ]; then
+		  echo "${address} ${hostname} ${alias}" >> ${OMV_HOSTS_CONFIG}
+	  else
+		  echo "${address} ${hostname}" >> ${OMV_HOSTS_CONFIG}
+	  fi
+  done
+
+# Create /etc/hosts.allow file
+xmlstarlet sel -t \
+  -v "//system/network/hostac/allow" -n \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_HOSTS_ALLOW_CONFIG}
+
+# Create /etc/hosts.deny file
+xmlstarlet sel -t \
+  -v "//system/network/hostac/deny" -n \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_HOSTS_DENY_CONFIG}

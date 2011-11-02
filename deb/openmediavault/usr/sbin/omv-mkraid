@@ -1,0 +1,91 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://linux-raid.osdl.org/index.php/RAID_setup
+
+set -e
+
+. /etc/default/openmediavault
+
+OMV_MKRAID_CMDARGS=${OMV_MKRAID_CMDARGS:-"--verbose --run --force"}
+
+usage() {
+	cat <<EOF
+Usage:
+  $(basename $0) <device> [options] <component-devices>
+
+  device - The name of the device to be created.
+
+Options:
+  -N  Set a name for the array
+  -l  Set raid level
+  -n  Specify the number of active devices in the array
+  -h  Print a help text
+EOF
+}
+
+name=
+level=
+device=
+devices=
+componentdevices=
+
+# Parse command line
+device=$1
+shift
+
+while getopts 'l:n:N:?h' option
+do
+	case ${option} in
+	l)
+		level="${OPTARG}"
+		;;
+	n)
+		devices="${OPTARG}"
+		;;
+	N)
+		name="${OPTARG}"
+		;;
+	h|?)
+		usage >&2;
+		exit 2
+		;;
+	esac
+done
+
+shift $((OPTIND-1))
+componentdevices=$@
+
+if [ -z "${device}" -o -z "${level}" -o -z "${devices}" -o -z "${componentdevices}" ]; then
+	usage >&2;
+	exit 2
+fi
+
+# Create the RAID device
+cmdargs="--create ${device} --level=${level} --raid-devices=${devices}"
+if [ -n "${name}" ]; then
+	cmdargs="${cmdargs} --name=${name}"
+fi
+mdadm ${cmdargs} ${OMV_MKRAID_CMDARGS} ${componentdevices} 2>&1
+mdadm --readwrite ${device} | true
+
+exit 0

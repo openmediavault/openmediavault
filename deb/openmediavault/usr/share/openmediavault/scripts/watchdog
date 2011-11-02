@@ -1,0 +1,63 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://www.kernel.org/doc/Documentation/watchdog/
+# http://www.gentoo-wiki.info/Watchdog
+# http://www.pc-freak.net/blog/how-to-automatically-reboot-restart-debian-gnu-lenny-linux-on-kernel-panic-some-general-cpu-overload-or-system-crash-2
+
+set -e
+
+. /etc/default/openmediavault
+
+OMV_WATCHDOG_CONFIG=${OMV_WATCHDOG_CONFIG:-"/etc/watchdog.conf"}
+OMV_WATCHDOG_DEFAULT=${OMV_WATCHDOG_DEFAULT:-"/etc/default/watchdog"}
+OMV_WATCHDOG_RUNWATCHDOG=${OMV_WATCHDOG_RUNWATCHDOG:-"1"}
+OMV_WATCHDOG_WATCHDOGOPTIONS=${OMV_WATCHDOG_WATCHDOGOPTIONS:-""}
+OMV_WATCHDOG_WATCHDOGMODULE=${OMV_WATCHDOG_WATCHDOGMODULE:-"softdog"}
+OMV_WATCHDOG_REALTIME=${OMV_WATCHDOG_REALTIME:-"yes"}
+OMV_WATCHDOG_PRIORITY=${OMV_WATCHDOG_PRIORITY:-"1"}
+OMV_WATCHDOG_WATCHDOGDEVICE=${OMV_WATCHDOG_WATCHDOGDEVICE:-"/dev/watchdog"}
+
+mkconf() {
+	cat <<EOF > ${OMV_WATCHDOG_CONFIG}
+watchdog-device = ${OMV_WATCHDOG_WATCHDOGDEVICE}
+# This greatly decreases the chance that watchdog won't be scheduled before
+# your machine is really loaded
+realtime = ${OMV_WATCHDOG_REALTIME}
+priority = ${OMV_WATCHDOG_PRIORITY}
+EOF
+
+	cat <<EOF > ${OMV_WATCHDOG_DEFAULT}
+# Start watchdog at boot time? 0 or 1
+run_watchdog=${OMV_WATCHDOG_RUNWATCHDOG}
+# Load module before starting watchdog
+watchdog_module="${OMV_WATCHDOG_WATCHDOGMODULE}"
+# Specify additional watchdog options here (see manpage).
+watchdog_options="${OMV_WATCHDOG_WATCHDOGOPTIONS}"
+EOF
+}
+
+case "$1" in
+	mkconf|*)
+		mkconf
+		;;
+esac

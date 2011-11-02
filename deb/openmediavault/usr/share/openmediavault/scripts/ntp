@@ -1,0 +1,50 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_NTP_CONFIG=${OMV_NTP_CONFIG:-"/etc/ntp.conf"}
+
+xmlstarlet sel -t \
+  -o "# /etc/ntp.conf, configuration for ntpd; see ntp.conf(5) for help" -n \
+  -n \
+  -o "driftfile /var/lib/ntp/ntp.drift" -n \
+  -n \
+  -o "statistics loopstats peerstats clockstats" -n \
+  -o "filegen loopstats file loopstats type day enable" -n \
+  -o "filegen peerstats file peerstats type day enable" -n \
+  -o "filegen clockstats file clockstats type day enable" -n \
+  -n \
+  -v "concat('server ',//system/time/ntp/timeservers,' iburst')" -n \
+  -n \
+  -o "# By default, exchange time with everybody, but do not allow configuration." -n \
+  -o "restrict -4 default kod notrap nomodify nopeer noquery" -n \
+  -o "restrict -6 default kod notrap nomodify nopeer noquery" -n \
+  -n \
+  -o "# Local users may interrogate the ntp server more closely." -n \
+  -o "restrict 127.0.0.1" -n \
+  -o "restrict ::1" \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NTP_CONFIG}
+
+chmod 644 ${OMV_NTP_CONFIG}

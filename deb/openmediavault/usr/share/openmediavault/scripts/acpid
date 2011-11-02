@@ -1,0 +1,62 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# https://wiki.archlinux.org/index.php/Shutting_system_down_by_pressing_the_power_button
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_ACPID_DEFAULT=${OMV_ACPID_DEFAULT:-"/etc/default/acpid"}
+OMV_ACPID_OPTIONS=${OMV_ACPID_OPTIONS:-""}
+OMV_ACPID_MODULES=${OMV_ACPID_MODULES:-"button"}
+OMV_ACPID_POWERBTN_SCRIPT=${OMV_ACPID_POWERBTN_SCRIPT:-"/etc/acpi/events/powerbtn"}
+OMV_ACPID_POWERBTN_ACTION=${OMV_ACPID_POWERBTN_ACTION:-"/sbin/shutdown -h now &quot;Power button pressed&quot;"}
+
+mkconf() {
+	# Create '/etc/default/acpid' file
+	cat <<EOF > ${OMV_ACPID_DEFAULT}
+# Options to pass to acpid
+#
+# OPTIONS are appended to the acpid command-line
+OPTIONS="${OMV_ACPID_OPTIONS}"
+
+# Linux kernel modules to load before starting acpid
+MODULES="${OMV_ACPID_MODULES}"
+EOF
+
+	# Create '/etc/acpi/events/powerbtn' file
+	xmlstarlet sel -t -m "//system/powermanagement" \
+	  -o "# /etc/acpi/events/powerbtn" -n \
+	  -o "# This is called when the user presses the power button" -n \
+	  -o "event=button[ /]power (PWR.||PBTN)" -n \
+	  -i "powerbtn = 0" -o "#" -b \
+	  -o "action=${OMV_ACPID_POWERBTN_ACTION}" \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_ACPID_POWERBTN_SCRIPT}
+}
+
+case "$1" in
+	mkconf|*)
+		mkconf
+		;;
+esac

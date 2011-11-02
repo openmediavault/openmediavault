@@ -1,0 +1,83 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_AVAHIDAEMON_NFSSERVICE=${OMV_AVAHIDAEMON_NFSSERVICE:-"/etc/avahi/services/nfs*.service"}
+OMV_AVAHIDAEMON_NFSSERVICE_NAME=${OMV_AVAHIDAEMON_NFSSERVICE_NAME:-"%h - NFS"}
+OMV_AVAHIDAEMON_NFSSERVICE_PORT=${OMV_AVAHIDAEMON_NFSSERVICE_PORT:-"2049"}
+
+# Is the service enabled?
+rm -f ${OMV_AVAHIDAEMON_NFSSERVICE}
+[ "$(omv_config_get "//services/nfs/enable")" = "0" ] && exit 0
+
+# Announce duplicate shares only once (emulate SQL 'DISTINCT' to filter
+# duplicates).
+xmlstarlet sel -t -m "//services/nfs/shares/share[not(sharedfolderref=preceding-sibling::*/sharedfolderref)]" \
+  -v sharedfolderref -i "position() != last()" -n -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+  while read sfref; do
+	  sfname=$(omv_get_sharedfolder_name ${sfref})
+	  filename="/etc/avahi/services/nfs-${sfname}.service"
+	  cat <<EOF > ${filename}
+<?xml version="1.0" standalone='no'?>
+<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+<service-group>
+  <name replace-wildcards="yes">${OMV_AVAHIDAEMON_NFSSERVICE_NAME} - ${sfname}</name>
+  <service>
+    <type>_nfs._tcp</type>
+    <port>${OMV_AVAHIDAEMON_NFSSERVICE_PORT}</port>
+    <txt-record>path=${OMV_NFSD_EXPORT_DIR}/${sfname}</txt-record>
+  </service>
+</service-group>
+EOF
+  done
+
+# Create '/etc/avahi/services/nfs.service' file.
+#cat <<EOF > ${OMV_AVAHIDAEMON_NFSSERVICE}
+#<?xml version="1.0" standalone='no'?>
+#<!DOCTYPE service-group SYSTEM "avahi-service.dtd">
+#<service-group>
+#  <name replace-wildcards="yes">${OMV_AVAHIDAEMON_NFSSERVICE_NAME}</name>
+#EOF
+
+# Announce duplicate shares only once (emulate SQL 'DISTINCT' to filter
+# duplicates).
+#xmlstarlet sel -t -m "//services/nfs/shares/share[not(sharedfolderref=preceding-sibling::*/sharedfolderref)]" \
+#  -v sharedfolderref -i "position() != last()" -n -b \
+#  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+#  while read sfref; do
+#	  sfname=$(omv_get_sharedfolder_name ${sfref})
+#cat <<EOF >> ${OMV_AVAHIDAEMON_NFSSERVICE}
+#  <service>
+#    <type>_nfs._tcp</type>
+#    <port>${OMV_AVAHIDAEMON_NFSSERVICE_PORT}</port>
+#    <txt-record>path=${OMV_NFSD_EXPORT_DIR}/${sfname}</txt-record>
+#  </service>
+#EOF
+#  done
+
+#cat <<EOF >> ${OMV_AVAHIDAEMON_NFSSERVICE}
+#</service-group>
+#EOF

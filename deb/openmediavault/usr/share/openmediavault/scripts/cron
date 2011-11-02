@@ -1,0 +1,49 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_CRONTAB_POWERMNGMT=${OMV_CRONTAB_POWERMNGMT:-"/etc/cron.d/openmediavault-powermngmt"}
+OMV_CRONTAB_USERDEFINED=${OMV_CRONTAB_USERDEFINED:-"/etc/cron.d/openmediavault-userdefined"}
+
+xmlstarlet sel -t \
+  -o "SHELL=/bin/sh" -n \
+  -o "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" -n \
+  -o "# m h dom mon dow user    command" -n \
+  -m "//system/crontab/job[type='reboot' or type='shutdown']" \
+	  -v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ',username,' ',command,' 2&gt;&amp;1')" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CRONTAB_POWERMNGMT}
+
+xmlstarlet sel -t \
+  -o "SHELL=/bin/sh" -n \
+  -o "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" -n \
+  -o "# m h dom mon dow user    command" -n \
+  -m "//system/crontab/job[type='userdefined']" \
+	  -v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ',username,' ',command,' 2&gt;&amp;1')" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CRONTAB_USERDEFINED}
+
+chmod 644 ${OMV_CRONTAB_POWERMNGMT}
+chmod 644 ${OMV_CRONTAB_USERDEFINED}

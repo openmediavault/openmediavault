@@ -1,0 +1,93 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://www.debianhelp.co.uk/snmp.htm
+# http://www.debuntu.org/how-to-monitor-your-servers-with-snmp-and-cacti
+# http://www.debian-administration.org/articles/366
+# http://edin.no-ip.com/content/snmp-rrdtool-cacti-debian-lenny-mini-howto
+# http://net-snmp.sourceforge.net/wiki/index.php/Vacm
+# http://www.linux-magazin.de/Heft-Abo/Ausgaben/2006/03/Fernsicht
+# http://www.net-snmp.org/tutorial/tutorial-5/demon/vacm
+# http://www.net-snmp.org/tutorial/tutorial-5/commands/snmptrap.html
+# http://ireasoning.com/mibbrowser.shtml
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_SNMPD_DEFAULT=${OMV_SNMPD_DEFAULT:-"/etc/default/snmpd"}
+OMV_SNMPD_CONFIG=${OMV_SNMPD_CONFIG:-"/etc/snmp/snmpd.conf"}
+OMV_SNMPD_SNMPDOPTS=${OMV_SNMPD_SNMPDOPTS:-"-Lsd -Lf /dev/null -u snmp -I -smux -p /var/run/snmpd.pid"}
+
+mkconf() {
+	sysname=$(hostname)
+
+	xmlstarlet sel -t -m "//services/snmp" \
+	  -o "# This file controls the activity of snmpd and snmptrapd" -n \
+	  -o "export MIBDIRS=/usr/share/snmp/mibs" -n \
+	  -o "SNMPDRUN=yes" -n \
+	  -o "SNMPDOPTS=&quot;${OMV_SNMPD_SNMPDOPTS}&quot;" -n \
+	  -o "TRAPDRUN=no" -n \
+	  -o "SNMPDCOMPAT=yes" -n \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_SNMPD_DEFAULT}
+
+	xmlstarlet sel -t -m "//services/snmp" \
+	  -i "version[. = '2c']" \
+		  -v "concat('com2sec readonly default ',community)" -n \
+		  -o "group MyROGroup v1 readonly" -n \
+		  -o "group MyROGroup v2c readonly" -n \
+	  -b \
+	  -i "version[. = '3']" \
+		  -v "concat('createUser ',username)" \
+		  -i "securitylevel[. = 'auth']" \
+			  -v "concat(' ',authtype,' ',authpassphrase)" \
+		  -b \
+		  -i "securitylevel[. = 'priv']" \
+			  -v "concat(' ',authtype,' ',authpassphrase,' ',privtype,' ',privpassphrase)" \
+		  -b \
+		  -n -v "concat('group MyROGroup usm ',username)" -n \
+	  -b \
+	  -o "view all included .1 80" -n \
+	  -i "version[. = '2c']" \
+		  -o "access MyROGroup &quot;&quot; any noauth exact all none none" -n \
+	  -b \
+	  -i "version[. = '3']" \
+		  -v "concat('access MyROGroup &quot;&quot; usm ',securitylevel,' exact all none none')" -n \
+	  -b \
+	  -o "sysName ${sysname}" -n \
+	  -v "concat('sysLocation ',syslocation)" -n \
+	  -v "concat('sysContact ',syscontact)" -n \
+	  -i "trap/enable[. = '1']" \
+		  -v "concat('trapcommunity ',trap/community)" -n \
+		  -v "concat('trapsink ',trap/host,' ',trap/community,' ',trap/port)" -n \
+		  -o "authtrapenable 1" -n \
+	  -b \
+	  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_SNMPD_CONFIG}
+}
+
+case "$1" in
+	mkconf|*)
+		mkconf
+		;;
+esac

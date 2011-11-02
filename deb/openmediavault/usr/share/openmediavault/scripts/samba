@@ -1,0 +1,44 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://wiki.samba.org/index.php/1.0._Configuring_Samba
+# http://www.tim-bormann.de/anleitung-installation-samba-server-als-dateiserver-unter-debian-linux
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+SAMBA_EXTENSIONSDIR=${SAMBA_EXTENSIONSDIR:-"${OMV_SCRIPTS_DIR}/samba.d"}
+SAMBA_DEFAULT=${SAMBA_DEFAULT:-"/etc/default/samba"}
+SAMBA_CONFIG=${SAMBA_CONFIG:-"/etc/samba/smb.conf"}
+
+# Create '/etc/default/samba' file
+cat <<EOF > ${SAMBA_DEFAULT}
+# Defaults for samba initscript
+# sourced by /etc/init.d/samba
+RUN_MODE="daemons"
+EOF
+
+# Add additional extensions to the configuration file
+cat /dev/null > ${SAMBA_CONFIG}
+run-parts ${SAMBA_EXTENSIONSDIR}

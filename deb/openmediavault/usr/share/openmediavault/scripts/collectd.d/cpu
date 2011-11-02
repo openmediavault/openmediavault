@@ -1,0 +1,137 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_COLLECTD_CONFIG=${OMV_COLLECTD_CONFIG:-"/etc/collectd/collectd.conf"}
+OMV_COLLECTD_RRDTOOL_MKGRAPH=${OMV_COLLECTD_RRDTOOL_MKGRAPH:-"/usr/sbin/omv-mkgraph"}
+
+cat <<EOF >> ${OMV_COLLECTD_CONFIG}
+LoadPlugin cpu
+
+EOF
+
+cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
+# Plugin: cpu
+TITLE_CPU="CPU usage"
+COLOR_CPU_IDLE="#e7e7e7"
+COLOR_CPU_NICE="#00df00"
+COLOR_CPU_USER="#0000fd"
+COLOR_CPU_WAITIO="#fdaf00"
+COLOR_CPU_SYSTEM="#fd0000"
+COLOR_CPU_SOFTIRQ="#fd00fd"
+COLOR_CPU_IRQ="#9f009f"
+COLOR_CPU_STEAL="#000000"
+rrdtool graph \${IMGDIR}/cpu-0-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${TITLE_CPU}\${HOURTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+  DEF:idle=\${DATA}/cpu-0/cpu-idle.rrd:value:AVERAGE \
+  DEF:nice=\${DATA}/cpu-0/cpu-nice.rrd:value:AVERAGE \
+  DEF:user=\${DATA}/cpu-0/cpu-user.rrd:value:AVERAGE \
+  DEF:waitio=\${DATA}/cpu-0/cpu-wait.rrd:value:AVERAGE \
+  DEF:system=\${DATA}/cpu-0/cpu-system.rrd:value:AVERAGE \
+  DEF:softirq=\${DATA}/cpu-0/cpu-softirq.rrd:value:AVERAGE \
+  DEF:interrupt=\${DATA}/cpu-0/cpu-interrupt.rrd:value:AVERAGE \
+  DEF:steal=\${DATA}/cpu-0/cpu-steal.rrd:value:AVERAGE \
+  AREA:steal\${COLOR_CPU_STEAL}:"Steal" \
+  AREA:system\${COLOR_CPU_SYSTEM}:"System":STACK \
+  AREA:waitio\${COLOR_CPU_WAITIO}:"Wait-IO":STACK \
+  AREA:nice\${COLOR_CPU_NICE}:"Nice":STACK \
+  AREA:user\${COLOR_CPU_USER}:"User":STACK \
+  AREA:softirq\${COLOR_CPU_SOFTIRQ}:"Soft-IRQ\c":STACK \
+  AREA:interrupt\${COLOR_CPU_IRQ}:"IRQ":STACK \
+  AREA:idle\${COLOR_CPU_IDLE}:"Idle\c":STACK \
+  COMMENT:"\${LASTUPDATE}" >/dev/null
+rrdtool graph \${IMGDIR}/cpu-0-day.png --start \${DAYSTART} \${DEFAULTS} --title "\${TITLE_CPU}\${DAYTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+  DEF:idle=\${DATA}/cpu-0/cpu-idle.rrd:value:AVERAGE \
+  DEF:nice=\${DATA}/cpu-0/cpu-nice.rrd:value:AVERAGE \
+  DEF:user=\${DATA}/cpu-0/cpu-user.rrd:value:AVERAGE \
+  DEF:waitio=\${DATA}/cpu-0/cpu-wait.rrd:value:AVERAGE \
+  DEF:system=\${DATA}/cpu-0/cpu-system.rrd:value:AVERAGE \
+  DEF:softirq=\${DATA}/cpu-0/cpu-softirq.rrd:value:AVERAGE \
+  DEF:interrupt=\${DATA}/cpu-0/cpu-interrupt.rrd:value:AVERAGE \
+  DEF:steal=\${DATA}/cpu-0/cpu-steal.rrd:value:AVERAGE \
+  AREA:steal\${COLOR_CPU_STEAL}:"Steal" \
+  AREA:system\${COLOR_CPU_SYSTEM}:"System":STACK \
+  AREA:waitio\${COLOR_CPU_WAITIO}:"Wait-IO":STACK \
+  AREA:nice\${COLOR_CPU_NICE}:"Nice":STACK \
+  AREA:user\${COLOR_CPU_USER}:"User":STACK \
+  AREA:softirq\${COLOR_CPU_SOFTIRQ}:"Soft-IRQ\c":STACK \
+  AREA:interrupt\${COLOR_CPU_IRQ}:"IRQ":STACK \
+  AREA:idle\${COLOR_CPU_IDLE}:"Idle\c":STACK \
+  COMMENT:"\${LASTUPDATE}" >/dev/null
+rrdtool graph \${IMGDIR}/cpu-0-week.png --start \${WEEKSTART} \${DEFAULTS} --title "\${TITLE_CPU}\${WEEKTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+  DEF:idle=\${DATA}/cpu-0/cpu-idle.rrd:value:AVERAGE \
+  DEF:nice=\${DATA}/cpu-0/cpu-nice.rrd:value:AVERAGE \
+  DEF:user=\${DATA}/cpu-0/cpu-user.rrd:value:AVERAGE \
+  DEF:waitio=\${DATA}/cpu-0/cpu-wait.rrd:value:AVERAGE \
+  DEF:system=\${DATA}/cpu-0/cpu-system.rrd:value:AVERAGE \
+  DEF:softirq=\${DATA}/cpu-0/cpu-softirq.rrd:value:AVERAGE \
+  DEF:interrupt=\${DATA}/cpu-0/cpu-interrupt.rrd:value:AVERAGE \
+  DEF:steal=\${DATA}/cpu-0/cpu-steal.rrd:value:AVERAGE \
+  AREA:steal\${COLOR_CPU_STEAL}:"Steal" \
+  AREA:system\${COLOR_CPU_SYSTEM}:"System":STACK \
+  AREA:waitio\${COLOR_CPU_WAITIO}:"Wait-IO":STACK \
+  AREA:nice\${COLOR_CPU_NICE}:"Nice":STACK \
+  AREA:user\${COLOR_CPU_USER}:"User":STACK \
+  AREA:softirq\${COLOR_CPU_SOFTIRQ}:"Soft-IRQ\c":STACK \
+  AREA:interrupt\${COLOR_CPU_IRQ}:"IRQ":STACK \
+  AREA:idle\${COLOR_CPU_IDLE}:"Idle\c":STACK \
+  COMMENT:"\${LASTUPDATE}" >/dev/null
+rrdtool graph \${IMGDIR}/cpu-0-month.png --start \${MONTHSTART} \${DEFAULTS} --title "\${TITLE_CPU}\${MONTHTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+  DEF:idle=\${DATA}/cpu-0/cpu-idle.rrd:value:AVERAGE \
+  DEF:nice=\${DATA}/cpu-0/cpu-nice.rrd:value:AVERAGE \
+  DEF:user=\${DATA}/cpu-0/cpu-user.rrd:value:AVERAGE \
+  DEF:waitio=\${DATA}/cpu-0/cpu-wait.rrd:value:AVERAGE \
+  DEF:system=\${DATA}/cpu-0/cpu-system.rrd:value:AVERAGE \
+  DEF:softirq=\${DATA}/cpu-0/cpu-softirq.rrd:value:AVERAGE \
+  DEF:interrupt=\${DATA}/cpu-0/cpu-interrupt.rrd:value:AVERAGE \
+  DEF:steal=\${DATA}/cpu-0/cpu-steal.rrd:value:AVERAGE \
+  AREA:steal\${COLOR_CPU_STEAL}:"Steal" \
+  AREA:system\${COLOR_CPU_SYSTEM}:"System":STACK \
+  AREA:waitio\${COLOR_CPU_WAITIO}:"Wait-IO":STACK \
+  AREA:nice\${COLOR_CPU_NICE}:"Nice":STACK \
+  AREA:user\${COLOR_CPU_USER}:"User":STACK \
+  AREA:softirq\${COLOR_CPU_SOFTIRQ}:"Soft-IRQ\c":STACK \
+  AREA:interrupt\${COLOR_CPU_IRQ}:"IRQ":STACK \
+  AREA:idle\${COLOR_CPU_IDLE}:"Idle\c":STACK \
+  COMMENT:"\${LASTUPDATE}" >/dev/null
+rrdtool graph \${IMGDIR}/cpu-0-year.png --start \${YEARSTART} \${DEFAULTS} --title "\${TITLE_CPU}\${YEARTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+  DEF:idle=\${DATA}/cpu-0/cpu-idle.rrd:value:AVERAGE \
+  DEF:nice=\${DATA}/cpu-0/cpu-nice.rrd:value:AVERAGE \
+  DEF:user=\${DATA}/cpu-0/cpu-user.rrd:value:AVERAGE \
+  DEF:waitio=\${DATA}/cpu-0/cpu-wait.rrd:value:AVERAGE \
+  DEF:system=\${DATA}/cpu-0/cpu-system.rrd:value:AVERAGE \
+  DEF:softirq=\${DATA}/cpu-0/cpu-softirq.rrd:value:AVERAGE \
+  DEF:interrupt=\${DATA}/cpu-0/cpu-interrupt.rrd:value:AVERAGE \
+  DEF:steal=\${DATA}/cpu-0/cpu-steal.rrd:value:AVERAGE \
+  AREA:steal\${COLOR_CPU_STEAL}:"Steal" \
+  AREA:system\${COLOR_CPU_SYSTEM}:"System":STACK \
+  AREA:waitio\${COLOR_CPU_WAITIO}:"Wait-IO":STACK \
+  AREA:nice\${COLOR_CPU_NICE}:"Nice":STACK \
+  AREA:user\${COLOR_CPU_USER}:"User":STACK \
+  AREA:softirq\${COLOR_CPU_SOFTIRQ}:"Soft-IRQ\c":STACK \
+  AREA:interrupt\${COLOR_CPU_IRQ}:"IRQ":STACK \
+  AREA:idle\${COLOR_CPU_IDLE}:"Idle\c":STACK \
+  COMMENT:"\${LASTUPDATE}" >/dev/null
+
+EOF

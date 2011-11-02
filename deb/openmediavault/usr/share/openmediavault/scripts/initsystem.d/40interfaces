@@ -1,0 +1,73 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_INTERFACES_CONFIG=${OMV_INTERFACES_CONFIG:-"/etc/network/interfaces"}
+
+# Configure network interfaces
+for iface in $(cat ${OMV_INTERFACES_CONFIG} | grep -e "^iface.*" | awk '{print $2}'); do
+	# Skip loopback interface
+	[ "lo" = "${iface}" ] && continue
+	# Init 'iface' configuration object
+	object="<uuid>$(uuid)</uuid><devicename>${iface}</devicename>"
+	# Is DHCP enabled?
+	if cat ${OMV_INTERFACES_CONFIG} | grep -e "${iface}.*dhcp" ; then
+		object="${object}<method>dhcp</method>"
+		object="${object}<wol>0</wol>"
+		object="${object}<address></address>"
+		object="${object}<netmask></netmask>"
+		object="${object}<gateway></gateway>"
+		object="${object}<mtu></mtu>"
+	else
+		# Get interface configuration
+		value=$(ip -4 -o addr show dev ${iface} | awk '{print $4}')
+		address=${value%/*}
+		netmask=$(omv_cidr2mask ${value#*/})
+		gateway=$(omv_get_gateway ${iface})
+		# Prepare 'iface' configuration object
+		object="${object}<method>static</method>"
+		object="${object}<wol>0</wol>"
+		object="${object}<address>${address}</address>"
+		object="${object}<netmask>${netmask}</netmask>"
+		object="${object}<gateway>${gateway}</gateway>"
+		object="${object}<mtu></mtu>"
+	fi
+	# Add interface if it does not already exist
+	if ! omv_config_exists "//system/network/interfaces/iface[devicename='${iface}']"; then
+		omv_config_add_element "//system/network/interfaces" "iface" \
+		  "${object}" true
+	fi
+done
+
+# Configure DNS servers
+dnsnameservers=""
+for dnsnameserver in $(cat ${OMV_INTERFACES_CONFIG} | grep -e "^\s*dns-nameservers.*$" | sed -e 's/\s*dns-nameservers \(.*\)/\1/g'); do
+	dnsnameservers=$(omv_trim "${dnsnameservers} ${dnsnameserver}")
+done
+if [ -n "${dnsnameservers}" ]; then
+	omv_config_update "//system/network/dnsnameservers" "${dnsnameservers}"
+fi
+
+exit 0

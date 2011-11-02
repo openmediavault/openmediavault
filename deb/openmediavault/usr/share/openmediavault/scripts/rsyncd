@@ -1,0 +1,130 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://www.linux-user.de/ausgabe/2006/04/090-rsync/
+# http://ubuntuforums.org/showthread.php?p=7865055
+# http://everythinglinux.org/rsync/
+# http://www.fredshack.com/docs/rsync.html
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_RSYNCD_DEFAULT=${OMV_RSYNCD_DEFAULT:-"/etc/default/rsync"}
+OMV_RSYNCD_CONFIG=${OMV_RSYNCD_CONFIG:-"/etc/rsyncd.conf"}
+OMV_RSYNCD_USECHROOT=${OMV_RSYNCD_USECHROOT:-"yes"}
+OMV_RSYNCD_SECRETSFILE=${OMV_RSYNCD_SECRETSFILE:-"/etc/rsyncd.secrets"}
+OMV_RSYNCD_UID=${OMV_RSYNCD_UID:-"nobody"}
+OMV_RSYNCD_GID=${OMV_RSYNCD_GID:-"nogroup"}
+
+mkconf() {
+	# Create '/etc/default/rsync' file
+	xmlstarlet sel -t -m "//services/rsync/server" \
+	  -o "# defaults file for rsync daemon mode" -n \
+	  -i "enable[. = '1']" -o "RSYNC_ENABLE=true" -n -b \
+	  -i "enable[. = '0']" -o "RSYNC_ENABLE=false" -n -b \
+	  -o "RSYNC_OPTS=&quot;" \
+	  -o "&quot;" -n \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_RSYNCD_DEFAULT}
+
+	# Create '/etc/rsyncd.conf' file
+	xmlstarlet sel -t -m "//services/rsync/server" \
+	  -v "concat('port = ',port)" -n \
+	  -o "use chroot = ${OMV_RSYNCD_USECHROOT}" -n \
+	  -o "secrets file = ${OMV_RSYNCD_SECRETSFILE}" -n \
+	  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
+	  -o "uid = ${OMV_RSYNCD_UID}" -n \
+	  -o "gid = ${OMV_RSYNCD_GID}" -n \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_RSYNCD_CONFIG}
+
+	index=$(omv_config_get_count "//services/rsync/server/modules/module")
+	while [ ${index} -gt 0 ]
+	do
+		# Get the shared folder reference and path
+		sfref=$(omv_config_get "//services/rsync/server/modules/module[position()=${index}]/sharedfolderref")
+		sfpath=$(omv_get_sharedfolder_path "${sfref}")
+		# Specify a dot-dir in the module's path to indicate the point where the chroot should occur
+		sfpath="${sfpath%/*}/./${sfpath##*/}"
+
+		# Generate authenticated users configuration. Grant access to all users except users with 'No access'.
+		# Rsync does not support a more detailed permission model.
+		authusers=""
+		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[userref]" \
+		  -v "concat(perms,'|',userref)" -n \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+		writeonly=$(omv_config_get "//services/rsync/server/modules/module[position()=${index}]/writeonly")
+		for privilege in ${privileges}
+		do
+			perms=${privilege%|*}
+			uuid=${privilege#*|}
+			# Get the name of the user
+			name=$(omv_config_get "//system/usermanagement/users/user[uuid='${uuid}']/name")
+			# Append user to list
+			case ${perms} in
+			5|7)
+				[ ${perms} -eq 5 -a ${writeonly} -eq 1 ] && continue;
+				[ -n "${authusers}" ] && authusers="${authusers},";
+				authusers="${authusers}${name}";;
+			esac
+		done
+
+		# Create module configuration
+		xmlstarlet sel -t -m "//services/rsync/server/modules/module[position()=${index}]" \
+		  -v "concat('[',name,']')" -n \
+		  -i "string-length(comment) > 0" -v "concat('comment = ',comment)" -n -b \
+		  -o "path = ${sfpath}" -n \
+		  -i "list[. = '0']" -o "list = no" -n -b \
+		  -i "list[. = '1']" -o "list = yes" -n -b \
+		  -i "readonly[. = '0']" -o "read only = no" -n -b \
+		  -i "readonly[. = '1']" -o "read only = yes" -n -b \
+		  -i "writeonly[. = '0']" -o "write only = no" -n -b \
+		  -i "writeonly[. = '1']" -o "write only = yes" -n -b \
+		  -i "maxconnections[. != '0']" -v "concat('max connections = ',maxconnections)" -n -b \
+		  -i "string-length(hostsallow) > 0" -v "concat('hosts allow = ',hostsallow)" -n -b \
+		  -i "string-length(hostsdeny) > 0" -v "concat('hosts deny = ',hostsdeny)" -n -b \
+		  -i "guestok[. = '0']" -o "auth users = ${authusers}" -n -b \
+		  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_RSYNCD_CONFIG}
+
+		index=$(( ${index} - 1 ))
+	done
+}
+
+mksecrets() {
+	# Create the secrets file containing the users passwords
+	xmlstarlet sel -t -m "//system/usermanagement/users/user" \
+	  -v "concat(name,':',password)" -n \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_RSYNCD_SECRETSFILE}
+	chmod 700 ${OMV_RSYNCD_SECRETSFILE}
+}
+
+case "$1" in
+	mksecrets)
+		mksecrets
+		;;
+
+	mkconf|*)
+		mkconf
+		mksecrets
+		;;
+esac

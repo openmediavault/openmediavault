@@ -1,0 +1,42 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean
+
+install:
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+
+binary-indep: install
+	dh_testdir
+	dh_testroot
+	dh_install
+
+	# Remove '.svn' directories
+	find $(CURDIR)/debian/openmediavault -name .svn -type d -print0 -prune | xargs -0 rm -rf
+
+	dh_installchangelogs
+	dh_installdebconf
+	dh_installinit -r --no-start --name=openmediavault
+	dh_installinit -r --no-start --name=openmediavault-beep
+	dh_installinit -r --no-start --name=openmediavault-configimport
+	dh_lintian
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-arch: install
+# We have nothing to do by default.
+
+binary: binary-indep binary-arch
+.PHONY: clean binary-indep binary-arch binary install

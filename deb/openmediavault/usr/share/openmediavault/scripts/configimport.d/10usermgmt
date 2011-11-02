@@ -1,0 +1,90 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+
+case "$1" in
+	configure)
+		# Delete all old users
+		xmlstarlet sel -t -m "//system/usermanagement/users/user[system=0]" \
+		  -v name -i "position() != last()" -n -b \
+		  ${OMV_CONFIG_FILE}.old | xmlstarlet unesc |
+		  while read name; do
+			  userdel --force ${name}
+		  done
+		# Delete all old groups
+		xmlstarlet sel -t -m "//system/usermanagement/groups/group[system=0]" \
+		  -v name -i "position() != last()" -n -b \
+		  ${OMV_CONFIG_FILE}.old | xmlstarlet unesc |
+		  while read name; do
+			  delgroup ${name}
+		  done
+		# Add new groups
+		xmlstarlet sel -t -m "//system/usermanagement/groups/group[system=0]" \
+		  -i "string-length(gid) > 0" -v "concat('-g ',gid,' ')" -b \
+		  -v name \
+		  -i "position() != last()" -n -b \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+		  while read cmdargs; do
+			  groupadd ${cmdargs}
+		  done
+		# Add new users (a little bit more complicated because password
+		# is unencrypted)
+		xmlstarlet sel -t -m "//system/usermanagement/users/user[system=0]" \
+		  -v "concat(uuid,' ',name)" -i "position() != last()" -n -b \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+		  while read uuid name; do
+			  password=$(xmlstarlet sel -t -m "//system/usermanagement/users/user[uuid='${uuid}']" \
+				-v password ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+			  cmdargs=$(xmlstarlet sel -t -m "//system/usermanagement/users/user[uuid='${uuid}']" \
+				-v "concat('--create-home --no-user-group --shell ',shell)" \
+				-i "string-length(comment) > 0" -v "concat(' --comment ',comment)" -b \
+				-i "string-length(useuid) > 0" -v "concat(' --uid ',useuid)" -b \
+				${OMV_CONFIG_FILE} | xmlstarlet unesc)
+			  confgroups=$(xmlstarlet sel -t -m "//system/usermanagement/users/user[uuid='${uuid}']" \
+				-v groups ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+			  if [ -n "${confgroups}" ]; then
+				  groups=""
+				  # Make sure the group exists
+				  for group in ${confgroups//,/ }; do
+					  if [ -z "$(getent group | grep -e '^${group}:')" ]; then
+						  echo "Error: Ignore nonexistent group <${group}>.'"
+						  continue
+					  fi
+					  [ -n "${groups}" ] && groups="${groups},"
+					  groups="${groups}${group}"
+				  done
+				  [ -n "${groups}" ] && cmdargs="${cmdargs} --groups ${groups}"
+			  fi
+			  useradd ${cmdargs} ${name}
+			  (echo ${password}; echo ${password}) | passwd ${name}
+		  done
+	;;
+
+	*)
+		echo "$(basename $0) called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

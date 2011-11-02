@@ -1,0 +1,78 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://linuxwiki.de/OpenSSH
+# https://help.ubuntu.com/community/SSH/OpenSSH/Configuring
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_SSHD_CONFIG=${OMV_SSHD_CONFIG:-"/etc/ssh/sshd_config"}
+OMV_SSHD_ALLOWGROUPS=${OMV_SSHD_ALLOWGROUPS:-"root ssh"}
+
+# Create sshd_config file.
+# /etc/ssh/sshd_config from the Debian ssh package has been used
+# as template.
+xmlstarlet sel -t \
+  -o "Protocol 2" -n \
+  -o "HostKey /etc/ssh/ssh_host_rsa_key" -n \
+  -o "HostKey /etc/ssh/ssh_host_dsa_key" -n \
+  -o "UsePrivilegeSeparation yes" -n \
+  -o "KeyRegenerationInterval 3600" -n \
+  -o "ServerKeyBits 768" -n \
+  -o "SyslogFacility AUTH" -n \
+  -o "LogLevel INFO" -n \
+  -o "LoginGraceTime 120" -n \
+  -o "StrictModes yes" -n \
+  -o "RSAAuthentication yes" -n \
+  -o "PubkeyAuthentication yes" -n \
+  -o "IgnoreRhosts yes" -n \
+  -o "RhostsRSAAuthentication no" -n \
+  -o "HostbasedAuthentication no" -n \
+  -o "PermitEmptyPasswords no" -n \
+  -o "ChallengeResponseAuthentication no" -n \
+  -o "X11Forwarding yes" -n \
+  -o "X11DisplayOffset 10" -n \
+  -o "PrintMotd no" -n \
+  -o "PrintLastLog yes" -n \
+  -o "TCPKeepAlive yes" -n \
+  -o "AcceptEnv LANG LC_*" -n \
+  -o "Subsystem sftp /usr/lib/openssh/sftp-server" -n \
+  -o "UsePAM yes" -n \
+  -o "AllowGroups ${OMV_SSHD_ALLOWGROUPS}" -n \
+  -m "//services/ssh" \
+	  -v "concat('Port ',port)" -n \
+	  -i "permitrootlogin = 0" -o "PermitRootLogin no" -n -b \
+	  -i "permitrootlogin = 1" -o "PermitRootLogin yes" -n -b \
+	  -i "tcpforwarding = 0" -o "AllowTcpForwarding no" -n -b \
+	  -i "tcpforwarding = 1" -o "AllowTcpForwarding yes" -n -b \
+	  -i "compression = 0" -o "Compression no" -n -b \
+	  -i "compression = 1" -o "Compression yes" -n -b \
+	  -i "passwordauthentication = 0" -o "PasswordAuthentication no" -n -b \
+	  -i "passwordauthentication = 1" -o "PasswordAuthentication yes" -n -b \
+	  -i "pubkeyauthentication = 0" -o "PubkeyAuthentication no" -n -b \
+	  -i "pubkeyauthentication = 1" -o "PubkeyAuthentication yes" -n -b \
+	  -i "string-length(extraoptions) > 0" -v "extraoptions" -n -b \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_SSHD_CONFIG}

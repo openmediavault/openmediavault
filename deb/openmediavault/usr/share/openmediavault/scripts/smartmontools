@@ -1,0 +1,100 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# https://help.ubuntu.com/community/Smartmontools
+# http://en.gentoo-wiki.com/wiki/Smartmontools
+# http://www.linux-user.de/ausgabe/2004/10/056-smartmontools
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_SMARTMONTOOLS_CONFIG=${OMV_SMARTMONTOOLS_CONFIG:-"/etc/smartd.conf"}
+OMV_SMARTMONTOOLS_DEFAULT=${OMV_SMARTMONTOOLS_DEFAULT:-"/etc/default/smartmontools"}
+OMV_SMARTMONTOOLS_DEFAULTDIRECTIVES=${OMV_SMARTMONTOOLS_DEFAULTDIRECTIVES:-"-a -o on -S on -T permissive"}
+
+# Create '/etc/default/smartmontools' file
+cat <<EOF > ${OMV_SMARTMONTOOLS_DEFAULT}
+# Defaults for smartmontools initscript (/etc/init.d/smartmontools)
+# This is a POSIX shell fragment
+
+EOF
+
+# Set option '--quit' to 'never' to allow starting the daemon even if there
+# are no devices to monitor. Note, due this smartd will also start if there
+# are errors in the confiuration file.
+# Manually execute 'smartd -d' to test new configurations during development.
+xmlstarlet sel -t -m "//services/smart" \
+  -i "enable[. = '1']" -o "start_smartd=yes" -n -b \
+  -i "enable[. = '0']" -o "#start_smartd=yes" -n -b \
+  -v "concat('smartd_opts=&quot;--quit=never --interval=',interval,'&quot;')" \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SMARTMONTOOLS_DEFAULT}
+
+# Create '/etc/smartd.conf' file
+cat <<EOF > ${OMV_SMARTMONTOOLS_CONFIG}
+# /etc/smartd.conf
+# Configuration file for smartd. Use "man smartd.conf" for more information.
+
+EOF
+
+xmlstarlet sel -t -m "//system/storage/hdparm[smart=1]" \
+  -v "devicefile" \
+  -i "position() != last()" -n -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+  while read devicefile; do
+	  xmlstarlet sel -t \
+		-m "//services/smart" \
+		  -o "${devicefile} ${OMV_SMARTMONTOOLS_DEFAULTDIRECTIVES}" \
+		  -v "concat(' -W ',tempdiff,',',tempinfo,',',tempcrit)" \
+		  -v "concat(' -n ',powermode,',q')" \
+		-b \
+		-m "//services/smart/scheduledtests/job[devicefile='${devicefile}']" \
+		  -i "position() = 1" -o " -s " -b \
+		  -i "last() > 1 and position() = 1" -o "(" -b \
+		  -i "position() > 1" -o "|" -b \
+		  -v type \
+		  -o "/" \
+		  -i "month = '*'" -o ".." -b \
+		  -i "month != '*'" -v month -b \
+		  -o "/" \
+		  -i "dayofmonth = '*'" -o ".." -b \
+		  -i "dayofmonth != '*'" -v dayofmonth -b \
+		  -o "/" \
+		  -i "dayofweek = '*'" -o "." -b \
+		  -i "dayofweek != '*'" -v dayofweek -b \
+		  -o "/" \
+		  -i "hour = '*'" -o ".." -b \
+		  -i "hour != '*'" -v hour -b \
+		  -i "last() > 1 and position() = last()" -o ")" -b \
+		-b \
+		-m "//system/email" \
+		  -i "enable = 1" \
+			-v "concat(' -m ',primaryemail)" \
+			-i "string-length(secondaryemail) > 0" \
+			  -v "concat(',',secondaryemail)" \
+			-b \
+			-o " -M exec /usr/share/smartmontools/smartd-runner" \
+		  -b \
+		-b \
+		${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SMARTMONTOOLS_CONFIG}
+  done

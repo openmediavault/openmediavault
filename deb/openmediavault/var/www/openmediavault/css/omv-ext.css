@@ -1,0 +1,147 @@
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2011 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+div#header {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	height: 80px;
+	background: #171717 url("/images/header_bg.png") top left no-repeat;
+}
+div#headerlogo {
+	float: left;
+	margin-left: 20px;
+	height: 100%;
+	width: 304px;
+	background: url("/images/header_logo.png") center left no-repeat;
+}
+div#headerrlogo {
+	float: right;
+	height: 100%;
+	width: 400px;
+	background-image: url("/images/header_rlogo.png");
+}
+div#headerrlogo .hostname {
+	font-size: 11px;
+	color: #FFFFFF;
+	text-align: right;
+	margin-top: 63px;
+	margin-right: 25px;
+}
+.x-text-center {
+	text-align: center;
+}
+.x-border-panel-header {
+	height: 80px;
+}
+.x-border-panel-footer {
+	height: 24px;
+}
+.x-form-textarea-default {
+	border: 0 none;
+	font-family: tahoma,arial,verdana,sans-serif;
+	font-size: 12px;
+}
+.x-form-textarea-monospaced {
+	border: 0 none;
+	font-family: monospace;
+	font-size: 11px;
+	padding: 0;
+}
+/* OMV.form.MultiSelect */
+.x-form-fieldset-multiselect {
+	padding: 0px;
+}
+.x-form-fieldset-multiselect-body {
+	background: white;
+}
+.x-list-multiselect-over {
+	background-color: #eee;
+}
+.x-list-multiselect-selected {
+	border-color: #b9b9b9 !important;
+	background-color: #e7e7e7;
+}
+/*
+Remove red corner in modified grid cells.
+See http://www.extjs.com/learn/Ext_FAQ_Grid#Dirty_Record_.2F_Red_Flag_.28modifying.2C_etc..29
+*/
+.x-grid3-without-dirty-cell .x-grid3-dirty-cell {
+	background: none;
+}
+/* Customize tabs */
+.x-tab-strip-usermngmt-user {
+	background-image: url("/images/user.png");
+}
+.x-tab-strip-usermngmt-group {
+	background-image: url("/images/group.gif");
+}
+.x-tab-strip-invalid-icon {
+	background-image: url("/images/error.png");
+}
+/* Customize tree node */
+.x-tree-node-collapsed .x-tree-node-icon, .x-tree-node-expanded .x-tree-node-icon, .x-tree-node-leaf .x-tree-node-icon {
+	height: 16px;
+	width: 16px;
+}
+/* Field info text */
+.x-form-fieldinfo {
+	font-size: 11px;
+	color: #333333;
+}
+/* Multi trigger field */
+.x-form-field-wrap .x-form-password-trigger {
+	cursor: pointer;
+	background-image: url("/images/password-trigger.png");
+}
+.x-form-field-wrap .x-form-add-trigger {
+    background-image: url("../images/add-trigger.gif");
+}
+/* About box */
+.x-box-aboutbox {
+	width: 95%;
+	margin-top: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: left;
+}
+.x-box-aboutbox a {
+	text-decoration: none !important;
+	font-style: italic;
+	color:#444444;
+}
+/* RRD graph panel */
+.x-panel-rrdgraph {
+	margin: 10px 10px 10px 10px;
+	text-align: center;
+}
+.x-panel-rrdgraph img {
+	border: 0 none;
+	font-size: 11px;
+	margin: 1px 1px 1px 1px;
+}
+/* Progress bar */
+.x-progress-bar {
+    background-color: #9cbfee;
+    background-image: url("/images/progress-bg.gif");
+    border-top-color: #d1e4fd;
+    border-bottom-color: #7fa9e4;
+    border-right-color: #7fa9e4;
+}

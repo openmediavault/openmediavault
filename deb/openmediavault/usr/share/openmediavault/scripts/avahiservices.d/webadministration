@@ -1,0 +1,54 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_AVAHIDAEMON_WEBSITESERVICE=${OMV_AVAHIDAEMON_WEBSITESERVICE:-"/etc/avahi/services/website.service"}
+OMV_AVAHIDAEMON_WEBSITESERVICE_NAME=${OMV_AVAHIDAEMON_WEBSITESERVICE_NAME:-"%h - Web administration"}
+
+# Create '/etc/avahi/services/http.service' file.
+xmlstarlet sel -t \
+  -o "&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;" -n \
+  -o "&lt;!DOCTYPE service-group SYSTEM &quot;avahi-service.dtd&quot;&gt;" -n \
+  -o "&lt;service-group&gt;" -n \
+  -o "  &lt;name replace-wildcards=&quot;yes&quot;&gt;${OMV_AVAHIDAEMON_WEBSITESERVICE_NAME}&lt;/name&gt;" -n \
+  -m "//webadmin" \
+	  -i "enablessl[. = '1']" \
+		  -o "  &lt;service&gt;" -n \
+		  -o "    &lt;type&gt;_https._tcp&lt;/type&gt;" -n \
+		  -v "concat('    &lt;port&gt;',sslport,'&lt;/port&gt;')" -n \
+		  -o "    &lt;txt-record&gt;path=/index.php&lt;/txt-record&gt;" -n \
+		  -o "  &lt;/service&gt;" \
+	  -b \
+	  -i "enablessl[. = '0'] or forcesslonly[. = '0']" \
+		  -i "enablessl[. = '1']" -n -b \
+		  -o "  &lt;service&gt;" -n \
+		  -o "    &lt;type&gt;_http._tcp&lt;/type&gt;" -n \
+		  -v "concat('    &lt;port&gt;',port,'&lt;/port&gt;')" -n \
+		  -o "    &lt;txt-record&gt;path=/index.php&lt;/txt-record&gt;" -n \
+		  -o "  &lt;/service&gt;" -n \
+	  -b \
+  -b \
+  -o "&lt;/service-group&gt;" \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_AVAHIDAEMON_WEBSITESERVICE}

@@ -1,0 +1,70 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://de.linwiki.org/wiki/Linuxfibel_-_Netzwerk_Server_-_NFS_Server
+# http://wiki.ubuntuusers.de/NFS
+# http://www.centos.org/docs/5/html/Deployment_Guide-en-US/s1-nfs-server-config-exports.html
+# https://help.ubuntu.com/community/NFSv4Howto
+# http://jkossen.nl/2009/05/12/simple-nfsv4-configuration-for-debian-and-ubuntu.html
+# http://doc.opensuse.org/products/opensuse/openSUSE/opensuse-reference/cha.nfs.html
+
+# Testing:
+# showmount -e <nfs-server>
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_NFSD_CONFIG=${OMV_NFSD_CONFIG:-"/etc/exports"}
+OMV_NFSD_EXPORT_DIR=${OMV_NFSD_EXPORT_DIR:-"/export"}
+OMV_NFSD_ENABLEV4=${OMV_NFSD_ENABLEV4:-"yes"}
+
+# Create /etc/exports file.
+cat <<EOF > ${OMV_NFSD_CONFIG}
+# /etc/exports: the access control list for filesystems which may be exported
+#               to NFS clients.  See exports(5).
+EOF
+
+xmlstarlet sel -t \
+  -m "//services/nfs/shares/share" \
+	-o "${OMV_NFSD_EXPORT_DIR}/" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} \
+	-v "concat(' ',client,'(',options)" \
+	-i "string-length(extraoptions) > 0" \
+	  -v "concat(',',extraoptions)" \
+	-b \
+	-o ")" \
+	-i "position() != last()" -n -b \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NFSD_CONFIG}
+
+if omv_checkyesno ${OMV_NFSD_ENABLEV4}; then
+	xmlstarlet sel -t \
+		-n \
+		-o "# NFSv4 - pseudo filesystem root" -n \
+		-m "//services/nfs/shares/share" \
+		  -v "concat('${OMV_NFSD_EXPORT_DIR} ',client,'(ro,fsid=0,root_squash,no_subtree_check,hide)')" \
+		  -i "position() != last()" -n -b \
+		-b \
+	  -b \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NFSD_CONFIG}
+fi

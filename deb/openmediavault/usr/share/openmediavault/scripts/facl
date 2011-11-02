@@ -1,0 +1,68 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://www.ibm.com/developerworks/linux/library/l-lpic1-v3-104-4/index.html
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+mkconf() {
+	xmlstarlet sel -t -m "//system/shares/sharedfolder" \
+	  -v "uuid" \
+	  -i "position() != last()" -n -b \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+	  while read uuid; do
+		  # Process only given shared folder?
+		  if [ -n "$1" -a "${uuid}" != "$1" ]; then
+			  continue
+		  fi
+		  # Build shared folder path.
+		  sfpath=$(omv_get_sharedfolder_path ${uuid})
+		  # Reset the shared folder ACL.
+		  setfacl --remove-all --recursive "${sfpath}" 2>&1
+		  # Update the shared folder default and access ACL.
+		  cmdargs=$(xmlstarlet sel -t \
+			-m "//system/shares/sharedfolder[uuid='${uuid}']/privileges" \
+			  -m "privilege[userref]" \
+				-i "position() > 1" -o "," -b \
+				-v "concat('d:u:',//system/usermanagement/users/user[uuid=current()/userref]/name,':',perms,',u:',//system/usermanagement/users/user[uuid=current()/userref]/name,':',perms)" \
+			  -b \
+			  -i "count(privilege[userref]) > 0 and count(privilege[groupref]) > 0" -o "," -b \
+			  -m "privilege[groupref]" \
+				-i "position() > 1" -o "," -b \
+				-v "concat('d:g:',//system/usermanagement/groups/group[uuid=current()/groupref]/name,':',perms,',g:',//system/usermanagement/groups/group[uuid=current()/groupref]/name,':',perms)" \
+			  -b \
+			-b \
+			${OMV_CONFIG_FILE} | xmlstarlet unesc)
+		  if [ -n "${cmdargs}" ]; then
+			  setfacl --recursive -m ${cmdargs} "${sfpath}" 2>&1
+		  fi
+	  done
+}
+
+case "$1" in
+	mkconf|*)
+		mkconf $2
+		;;
+esac
