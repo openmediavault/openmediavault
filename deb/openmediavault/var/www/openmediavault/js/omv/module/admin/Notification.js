@@ -104,7 +104,13 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 				name: "enable",
 				fieldLabel: "Enable",
 				checked: false,
-				inputValue: 1
+				inputValue: 1,
+				listeners: {
+					check: function(comp, checked) {
+						this._updateFormFields();
+					},
+					scope: this
+				}
 			}]
 		},{
 			xtype: "fieldset",

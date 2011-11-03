@@ -36,6 +36,7 @@ OMV_MDADM_AUTOCHECK=${OMV_MDADM_AUTOCHECK:-"true"}
 OMV_MDADM_STARTDAEMON=${OMV_MDADM_STARTDAEMON:-"true"}
 OMV_MDADM_DAEMONOPTIONS=${OMV_MDADM_DAEMONOPTIONS:-"--syslog"}
 OMV_MDADM_VERBOSE=${OMV_MDADM_VERBOSE:-"false"}
+OMV_MDADM_MAILADDR=${OMV_MDADM_MAILADDR:-"root"}
 
 # Create /etc/default/mdadm
 cat > ${OMV_MDADM_DEFAULT} <<EOF
@@ -100,7 +101,6 @@ xmlstarlet sel -t -m "//system/email" \
   -i "enable[. = '1']" \
 	-n \
 	-o "# instruct the monitoring daemon where to send mail alerts" -n \
-	-v "concat('MAILADDR ',primaryemail)" -n \
-	-v "concat('MAILFROM ',sender)" \
+	-o "MAILADDR ${OMV_MDADM_MAILADDR}" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MDADM_CONFIG}

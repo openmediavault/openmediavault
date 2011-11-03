@@ -191,7 +191,7 @@ $moduleMgr->registerModule(new FTPModule());
 // Register new logfile type
 OMVLogFile::registerType("proftpd", array(
   "filename" => "proftpd.log",
-  "filepath" => "/var/log/proftpd.log",
+  "filepath" => "/var/log/proftpd/proftpd.log",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\sproftpd\[\d+\]: (.*)$/",
   "columns" => array(
 	  "date" => 1,

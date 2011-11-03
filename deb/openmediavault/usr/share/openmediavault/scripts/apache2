@@ -77,7 +77,7 @@ xmlstarlet sel -t -m "//webadmin" \
 
 # Create '/etc/apache2/ports.conf' file
 xmlstarlet sel -t -m "//webadmin" \
-  -i "forcesslonly[. = '0']" \
+  -i "enablessl[. = '0'] or forcesslonly[. = '0']" \
 	  -v "concat('NameVirtualHost *:',port)" -n \
 	  -v "concat('Listen ',port)" -n \
   -b \
