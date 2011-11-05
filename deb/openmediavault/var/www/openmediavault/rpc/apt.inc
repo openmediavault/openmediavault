@@ -91,11 +91,12 @@ class AptRpc extends OMVRpc {
 		}
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Upgrade packages
+		// Upgrade packages.
+		// http://raphaelhertzog.com/2010/09/21/debian-conffile-configuration-file-managed-by-dpkg/
 		$outputFile = tempnam(sys_get_temp_dir(), "aptgetupgrade");
 		$cmd = sprintf("export LANG=C; sudo apt-get --yes --force-yes " .
 		  "--fix-missing --auto-remove --allow-unauthenticated " .
-		  "--show-upgraded --option DPkg::Options::=--force-confnew " .
+		  "--show-upgraded --option DPkg::Options::=\"--force-confnew\" " .
 		  "install %s >%s 2>&1 & echo $!", implode(" ", $pkgNames),
 		  $outputFile);
 		OMVUtil::exec($cmd, $output, $res);
