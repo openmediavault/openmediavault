@@ -127,7 +127,7 @@ class OMVSession extends OMVObject {
 		$timeout = 300;
 		$object = $xmlConfig->get("//webadmin");
 		if (!is_null($object) && array_key_exists("timeout", $object)) {
-			$timeout = $object['timeout'] * 60;
+			$timeout = intval($object['timeout']) * 60;
 		}
 		return ((time() - $_SESSION['lastaccess']) > $timeout) ? TRUE : FALSE;
 	}
