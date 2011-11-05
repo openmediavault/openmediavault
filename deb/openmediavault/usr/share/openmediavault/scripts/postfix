@@ -75,8 +75,8 @@ postmap ${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}
 xmlstarlet sel -t \
   -i "//system/email/enable[. = '1']" \
       -m "//system/email" \
-        -v "concat('root ',primaryemail)" -n \
-        -v "concat('openmediavault ',primaryemail)" -n \
+        -v "concat('root ',sender)" -n \
+        -v "concat('openmediavault ',sender)" -n \
       -b \
       -m "//system/usermanagement/users/user[email != '']" \
         -v "concat(name,' ',email)" -n \

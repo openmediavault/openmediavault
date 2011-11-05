@@ -30,10 +30,9 @@ xmlstarlet sel -t \
   -o "quiet" -n \
   -m "//system/storage/hdparm" \
 	-v "concat(devicefile,' {')" -n \
-	-v "concat('    acoustic_management = ',aam)" -n \
+	-i "aam > 0" -v "concat('    acoustic_management = ',aam)" -n -b \
 	-i "apm != 255" -v "concat('    apm = ',apm)" -n -b \
 	-i "spindowntime > 0" -v "concat('    spindown_time = ',spindowntime)" -n -b \
-	-i "writecache = 0" -o "    write_cache = off" -n -b \
 	-i "writecache = 1" -o "    write_cache = on" -n -b \
 	-o "}" -n \
   -b \

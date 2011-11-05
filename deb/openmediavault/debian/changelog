@@ -1,3 +1,14 @@
+openmediavault (0.2.4.9) stable; urgency=low
+
+  * Improve hdparm.conf creation. Write meaningful options only.
+  * Fix email notification for mdadm and cron-apt
+  * Improve WebGUI login authentication
+  * Mantis 0000220: CRON-APT Email From is Wrong
+  * Mantis 0000228: PHP upload_max_filesize setting prevents installing plugins
+    over 2MB from web gui. Changed to 25M.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 05 Nov 2011 16:25:19 +0100
+
 openmediavault (0.2.4.8) stable; urgency=low
 
   * Mantis 0000152: Apache dependency too restricted

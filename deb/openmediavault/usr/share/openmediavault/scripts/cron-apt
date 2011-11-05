@@ -79,8 +79,11 @@ OPTIONS="${OMV_CRONAPT_OPTIONS}"
 EOF
 
 xmlstarlet sel -t -m "//system/email" \
+  -o "# The email address to send mail to." -n \
   -i "enable[. != '1']" -o "#" -b \
-  -o "MAILTO=&quot;${OMV_CRONAPT_MAILTO}&quot;" -n \
+  -v "concat('MAILTO=&quot;',primaryemail)" \
+  -i "string-length(secondaryemail) > 0" -v "concat(' ',secondaryemail)" -b \
+  -o "&quot;" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_CRONAPT_CONFIG}
 }
 

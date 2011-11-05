@@ -75,6 +75,7 @@ class OMVSession extends OMVObject {
 		if (array_key_exists("HTTP_USER_AGENT", $_SERVER))
 			$_SESSION['useragent'] = $_SERVER['HTTP_USER_AGENT'];
 		$this->updateLastAccess();
+		return session_id();
 	}
 
 	/**
