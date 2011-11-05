@@ -1,3 +1,9 @@
+openmediavault-transmissionbt (0.2.3) stable; urgency=low
+
+  * Mantis 0000224: transmissionbt daily Cron
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 05 Nov 2011 16:59:34 +0100
+
 openmediavault-transmissionbt (0.2.2) stable; urgency=low
 
   * Mantis 0000132: DHT is not disabled if selects as disabled in webgui

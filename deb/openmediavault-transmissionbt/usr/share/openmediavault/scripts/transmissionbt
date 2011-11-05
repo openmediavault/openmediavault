@@ -112,6 +112,11 @@ if [ 1 = ${enable} -a 1 = ${blocklistsyncenabled} ]; then
 # cron script to update TransmissionBT blocklists
 # by Volker Theile <volker.theile@openmediavault.org>
 
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
 # Download blocklist archive
 cd /var/lib/transmission-daemon/info/blocklists
 if wget ${blocklisturl} 1>/dev/null 2>&1 ; then
