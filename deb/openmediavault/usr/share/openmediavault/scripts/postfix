@@ -38,10 +38,12 @@ OMV_POSTFIX_MYDESTINATION=${OMV_POSTFIX_MYDESTINATION:-""}
 OMV_POSTFIX_INET_INTERFACES=${OMV_POSTFIX_INET_INTERFACES:-"loopback-only"}
 OMV_POSTFIX_SMTP_GENERIC_MAPS=${OMV_POSTFIX_SMTP_GENERIC_MAPS:-"/etc/postfix/generic"}
 OMV_POSTFIX_SENDER_CANONICAL_MAPS=${OMV_POSTFIX_SENDER_CANONICAL_MAPS:-"/etc/postfix/sender_canonical"}
+OMV_POSTFIX_RECIPIENT_BCC_MAPS=${OMV_POSTFIX_RECIPIENT_BCC_MAPS:-"/etc/postfix/recipient_bcc"}
 OMV_POSTFIX_SMTP_SASL_AUTH_ENABLE=${OMV_POSTFIX_SMTP_SASL_AUTH_ENABLE:-"yes"}
 OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS=${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS:-"/etc/postfix/sasl_passwd"}
 OMV_POSTFIX_SMTP_SASL_SECURITY_OPTIONS=${OMV_POSTFIX_INETINTERFACES:-"noanonymous"}
 OMV_POSTFIX_SMTP_SASL_MECHANISM_FILTER=${OMV_POSTFIX_SMTP_SASL_MECHANISM_FILTER:-""}
+OMV_POSTFIX_SMTP_HEADER_CHECKS=${OMV_POSTFIX_SMTP_HEADER_CHECKS:-"/etc/postfix/smtp_header_checks"}
 
 # Create '/etc/postfix/main.cf' configuration file
 xmlstarlet sel -t -m "//system/email" \
@@ -49,6 +51,7 @@ xmlstarlet sel -t -m "//system/email" \
   -o "inet_interfaces = ${OMV_POSTFIX_INET_INTERFACES}" -n \
   -v "concat('relayhost = ',server,':',port)" -n \
   -o "sender_canonical_maps = hash:${OMV_POSTFIX_SENDER_CANONICAL_MAPS}" -n \
+  -o "recipient_bcc_maps = hash:${OMV_POSTFIX_RECIPIENT_BCC_MAPS}" -n \
   -o "smtp_generic_maps = hash:${OMV_POSTFIX_SMTP_GENERIC_MAPS}" -n \
   -i "authentication[enable = '1']" \
     -o "smtp_sasl_auth_enable = ${OMV_POSTFIX_SMTP_SASL_AUTH_ENABLE}" -n \
@@ -59,6 +62,7 @@ xmlstarlet sel -t -m "//system/email" \
   -i "tls[. = '1']" \
     -o "smtp_use_tls = yes" -n \
   -b \
+  -o "smtp_header_checks = regexp:${OMV_POSTFIX_SMTP_HEADER_CHECKS}" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_CONFIG}
 
 # Create '/etc/postfix/sasl_passwd' configuration file
@@ -74,13 +78,13 @@ postmap ${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}
 # Create '/etc/postfix/generic' configuration file
 xmlstarlet sel -t \
   -i "//system/email/enable[. = '1']" \
-      -m "//system/email" \
-        -v "concat('root ',sender)" -n \
-        -v "concat('openmediavault ',sender)" -n \
-      -b \
-      -m "//system/usermanagement/users/user[email != '']" \
-        -v "concat(name,' ',email)" -n \
-      -b \
+	-m "//system/email" \
+	  -v "concat('root ',sender)" -n \
+	  -v "concat('openmediavault ',sender)" -n \
+	-b \
+	-m "//system/usermanagement/users/user[email != '']" \
+	  -v "concat(name,' ',email)" -n \
+	-b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 chown root:root ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
@@ -90,11 +94,29 @@ postmap ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 # Create '/etc/postfix/sender_canonical' configuration file
 xmlstarlet sel -t \
   -i "//system/email/enable[. = '1']" \
-      -m "//system/email" \
-        -v "concat('&quot;&quot; ',sender)" -n \
-      -b \
+	-m "//system/email" \
+	  -v "concat('&quot;&quot; ',sender)" -n \
+	-b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}
 chown root:root ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}
 chmod 0600 ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}
 postmap ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}
+
+# Create '/etc/postfix/recipient_bcc' configuration file
+xmlstarlet sel -t -m "//system/email" \
+  -i "enable[. = '1'] and string-length(secondaryemail) > 0" \
+	  -v "concat(primaryemail,' ',secondaryemail)" \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_RECIPIENT_BCC_MAPS}
+chown root:root ${OMV_POSTFIX_RECIPIENT_BCC_MAPS}
+chmod 0600 ${OMV_POSTFIX_RECIPIENT_BCC_MAPS}
+postmap ${OMV_POSTFIX_RECIPIENT_BCC_MAPS}
+
+# Create '/etc/postfix/smtp_header_checks' configuration file
+cat <<EOF > ${OMV_POSTFIX_SMTP_HEADER_CHECKS}
+# Append the hostname to the email subject
+/^Subject: (.*)/ REPLACE Subject: \${1} [$(hostname)]
+EOF
+chown root:root ${OMV_POSTFIX_SMTP_HEADER_CHECKS}
+chmod 0600 ${OMV_POSTFIX_SMTP_HEADER_CHECKS}

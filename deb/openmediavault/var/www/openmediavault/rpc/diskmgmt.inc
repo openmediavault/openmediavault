@@ -74,16 +74,11 @@ class DiskMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
 			  "get list of hard disks devices");
 		}
-		// Get the root disk volume
-		$rootVolume = preg_replace("/\d+/", "", OMVSystem::getRootPartition());
 		// Prepare result
 		$objects = array();
 		foreach ($devs as $devk => $devv) {
 			$hdd = new OMVHardDiskDevice($devv);
 			if ($hdd->exists()) {
-				// Skip physical volume where the OS is installed
-				if ($rootVolume === $hdd->getDeviceFile())
-					continue;
 				$object = array(
 					"devicename" => $hdd->getDeviceName(),
 					"devicefile" => $hdd->getDeviceFile(),

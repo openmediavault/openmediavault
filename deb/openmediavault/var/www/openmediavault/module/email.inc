@@ -76,6 +76,10 @@ class EmailModule extends OMVModuleAbstract implements OMVINotifyListener {
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.usermanagement.users.user",
 		  array($this, "mkConf"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.network.hostname",
+		  array($this, "mkConf"));
     }
 }
 

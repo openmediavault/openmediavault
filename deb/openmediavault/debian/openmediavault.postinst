@@ -191,7 +191,9 @@ case "$1" in
 			omv_config_add_element "//services/smb" "homesenable" "0"
 			omv_config_add_element "//services/smb" "homesbrowseable" "1"
 		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.4.8"; then
+		if dpkg --compare-versions "$2" lt-nl "0.2.5"; then
+			omv-mkconf postfix
+			omv-mkconf cron-apt
 			omv-mkconf cpufrequtils
 			omv-mkconf mdadm
 		fi

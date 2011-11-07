@@ -1,3 +1,14 @@
+openmediavault (0.2.5) stable; urgency=low
+
+  * Show the device where the operation system is installed on in
+    'Storage | Physical Disks' and 'Storage | S.M.A.R.T.'
+  * Set 'valid users = %S' for SMB/CIFS home directories
+  * Use postfix to send email to secondary address via recipient_bcc_maps.
+  * Mantis 0000230: Include Hostname within Email Subjects
+  * Mantis 0000236: Allow more characters in share name
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 06 Nov 2011 01:30:59 +0100
+
 openmediavault (0.2.4.9.1) stable; urgency=low
 
   * Fix session timeout issue which prevents WebGUI login.

@@ -141,10 +141,10 @@ Ext.apply(Ext.form.VTypes, {
 	fslabelMask: /[a-zA-Z0-9]/,
 
 	sharename: function(v) {
-		return /^[a-zA-Z0-9]+$/.test(v);
+		return /^[a-zA-Z0-9\.\-_]+$/.test(v);
 	},
 	sharenameText: "Invalid share name",
-	sharenameMask: /[a-zA-Z0-9]/
+	sharenameMask: /[a-zA-Z0-9\.\-_]/
 });
 
 

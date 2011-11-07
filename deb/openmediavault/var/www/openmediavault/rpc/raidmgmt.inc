@@ -151,8 +151,10 @@ class RaidMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
 		}
 		$result = array();
-		// Prepare list of used devices
-		$usedDevs = array();
+		// Prepare list of used devices. Append device where the OS is
+		// installed on.
+		$rootVolume = preg_replace("/\d+/", "", OMVSystem::getRootPartition());
+		$usedDevs = array($rootVolume);
 		// Get all existing RAID devices
 		if (FALSE === ($devs = OMVRaidDevices::get())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
