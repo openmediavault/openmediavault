@@ -1,9 +1,14 @@
-openmediavault (0.2.5.1) stable; urgency=low
+openmediavault (0.2.5.2) stable; urgency=low
 
   * Display use of shared folder
   * Mantis 0000105: Add ability to set additional network interface settings
-  * Mantis 0000236: Allow more characters in share name
   * Mantis 0000240: Allow empty primary/secondary DNS server
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 Nov 2011 20:59:35 +0100
+
+openmediavault (0.2.5.1) stable; urgency=low
+
+  * Mantis 0000236: Allow more characters in share name
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Nov 2011 21:01:12 +0100
 
