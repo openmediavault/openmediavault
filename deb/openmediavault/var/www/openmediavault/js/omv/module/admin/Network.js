@@ -339,7 +339,7 @@ OMV.Module.System.Network.PhyIfacePropertyDialog = function(config) {
 		rpcGetMethod: "getIface",
 		rpcSetMethod: "setIface",
 		title: "Edit physical interface",
-		height: 255
+		autoHeight: true
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.System.Network.PhyIfacePropertyDialog.superclass.
@@ -353,6 +353,12 @@ Ext.extend(OMV.Module.System.Network.PhyIfacePropertyDialog,
 		this.on("load", this._updateFormFields, this);
 		this.methodCtrl.on("select", this._updateFormFields, this);
 		this.form.on("render", this._updateFormFields, this);
+	},
+
+	getFormConfig : function() {
+		return {
+			autoHeight: true
+		};
 	},
 
 	getFormItems : function() {
@@ -410,6 +416,15 @@ Ext.extend(OMV.Module.System.Network.PhyIfacePropertyDialog,
 			allowBlank: true,
 			allowDecimals: false,
 			allowNegative: false
+		},{
+			xtype: "textfield",
+			name: "options",
+			fieldLabel: "Options",
+			allowBlank: true,
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: "Additional device settings, e.g. 'autoneg off speed " +
+			  "100 duplex full'. See <a href='http://linux.die.net/man/8/ethtool' " +
+			  "target='_blank'>manual pages</a> for more details."
 		},{
 			xtype: "checkbox",
 			name: "wol",
@@ -735,6 +750,15 @@ Ext.extend(OMV.Module.System.Network.BondIfacePropertyDialog,
 			allowBlank: true,
 			allowDecimals: false,
 			allowNegative: false
+		},{
+			xtype: "textfield",
+			name: "options",
+			fieldLabel: "Options",
+			allowBlank: true,
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: "Additional device settings, e.g. 'autoneg off speed " +
+			  "100 duplex full'. See <a href='http://linux.die.net/man/8/ethtool' " +
+			  "target='_blank'>manual pages</a> for more details."
 		},{
 			xtype: "checkbox",
 			name: "wol",

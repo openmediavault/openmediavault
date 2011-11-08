@@ -55,6 +55,9 @@ xmlstarlet sel -t \
 	  -i "wol = 1" \
 		  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
 	  -b \
+	  -i "string-length(options) > 0" \
+		  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
+	  -b \
 	-b \
   -b \
   -m "//system/network/interfaces/iface[method='static']" \
@@ -78,6 +81,9 @@ xmlstarlet sel -t \
 	  -i "wol = 1" \
 		  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
 	  -b \
+	  -i "string-length(options) > 0" \
+		  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
+	  -b \
 	-b \
   -b \
   -m "//system/network/interfaces/bondiface[method='dhcp']" \
@@ -93,6 +99,9 @@ xmlstarlet sel -t \
 	-b \
 	-i "wol = 1" \
 		-o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
+	-b \
+	-i "string-length(options) > 0" \
+		-v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
 	-b \
 	-v "concat('    slaves ',translate(slaves,',',' '))" -n \
 	-i "string-length(bondprimary) > 0" \
@@ -121,6 +130,9 @@ xmlstarlet sel -t \
 	-b \
 	-i "wol = 1" \
 		-o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
+	-b \
+	-i "string-length(options) > 0" \
+		-v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
 	-b \
 	-v "concat('    slaves ',translate(slaves,',',' '))" -n \
 	-i "string-length(bondprimary) > 0" \

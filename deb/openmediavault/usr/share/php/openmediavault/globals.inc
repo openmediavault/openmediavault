@@ -77,11 +77,15 @@ $OMV_JSONSCHEMA_FILESYSTEM_ID = '"type":"string","format":"regex",'.
   '"pattern":"\/^[a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
   '[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16}|\\\/dev\\\/.+$\/i"';
 $OMV_JSONSCHEMA_SHARENAME ='"type":["string","null"],"format":"regex",'.
-  '"pattern":"\/^[a-zA-Z0-9]+$\/i"';
+  '"pattern":"\/^[a-zA-Z0-9._-]+$\/i"';
 $OMV_JSONSCHEMA_IPV4 = '"type":"string","format":"regex","pattern":'.
   '"\/^([1-9][0-9]{0,1}|1[013-9][0-9]|12[0-689]|2[01][0-9]|22[0-3])'.
   '([.]([1-9]{0,1}[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){2}[.]'.
   '([1-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-4])$\/i"';
+$OMV_JSONSCHEMA_IPV4_NONE = '"type":"string","format":"regex","pattern":'.
+  '"\/^([1-9][0-9]{0,1}|1[013-9][0-9]|12[0-689]|2[01][0-9]|22[0-3])'.
+  '([.]([1-9]{0,1}[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){2}[.]'.
+  '([1-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-4])|$\/i"';
 
 // Read the defaults file
 $lines = file($GLOBALS['OMV_DEFAULT_FILE']);

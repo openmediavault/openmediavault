@@ -27,6 +27,7 @@
 // require("js/omv/CfgObjectDialog.js")
 // require("js/omv/form/MultiSelect.js")
 // require("js/omv/form/plugins/FieldInfo.js")
+// require("js/omv/util/Format.js")
 
 Ext.ns("OMV.Module.Privileges");
 
@@ -61,6 +62,13 @@ OMV.Module.Privileges.SharedFolderGridPanel = function(config) {
 				sortable: true,
 				dataIndex: "volume",
 				id: "volume"
+			},{
+				header: "Used",
+				sortable: true,
+				dataIndex: "_used",
+				id: "_used",
+				renderer: OMV.util.Format.booleanRenderer(),
+				scope: this
 			}]
 		})
 	};

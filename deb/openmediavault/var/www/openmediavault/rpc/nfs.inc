@@ -233,30 +233,30 @@ class NFSRpc extends OMVRpc {
 			  $sfobject['name']);
 			// Try to get the mount point configuration object.
 			$xpath = sprintf("//system/fstab/mntent[dir='%s']", $dir);
-			$meObject = $xmlConfig->get($xpath);
-			if (is_null($meObject)) {
+			$meobject2 = $xmlConfig->get($xpath);
+			if (is_null($meobject2)) {
 				// Prepare fstab mount point entry configuration object to
 				// bind the shared folder directory into the NFS export
 				// directory.
-				$meObject = array(
+				$meobject2 = array(
 					"uuid" => OMVUtil::uuid(),
 					"fsname" => sprintf("%s/%s", $meobject['dir'],
-					  $sfobject['name']),
+					  $sfobject['reldirpath']),
 					"dir" => $dir,
 					"type" => "none",
 					"opts" => "bind",
 					"freq" => 0,
 					"passno" => 0
 				);
-				// Append assosiated fstab mount point entry configuration
+				// Append associated fstab mount point entry configuration
 				// object.
 				if (FALSE === $xmlConfig->set("//system/fstab", array(
-				  "mntent" => $meObject))) {
+				  "mntent" => $meobject2))) {
 					throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 				}
 			}
 			// Modify the share configuration object.
-			$object['mntentref'] = $meObject['uuid'];
+			$object['mntentref'] = $meobject2['uuid'];
 			// Append the share configuration object.
 			$success = $xmlConfig->set("//services/nfs/shares",
 			  array("share" => $object));
@@ -277,7 +277,7 @@ class NFSRpc extends OMVRpc {
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
 			$dispatcher->notify(OMV_NOTIFY_CREATE,
-			  "org.openmediavault.system.fstab.mntent", $meObject);
+			  "org.openmediavault.system.fstab.mntent", $meobject2);
 		}
 		$dispatcher->notify(($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,

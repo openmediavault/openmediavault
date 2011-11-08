@@ -59,6 +59,7 @@
 					<gateway>xxx.xxx.xxx.xxx</gateway>
 					<mtu></mtu>
 					<wol>0|1</wol>
+					<options></options>
 				</iface>
 				<bondiface>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
@@ -69,6 +70,7 @@
 					<gateway>xxx.xxx.xxx.xxx</gateway>
 					<mtu></mtu>
 					<wol>0|1</wol>
+					<options></options>
 					<slaves>((eth|wlan)\d+,)*(eth|wlan)\d+</slaves>
 					<bondprimary>(eth|wlan)\d+</bondprimary>
 					<bondmode>0|1|2|3|4|5|6</bondmode>

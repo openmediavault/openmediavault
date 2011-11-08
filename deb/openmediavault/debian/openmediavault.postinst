@@ -197,6 +197,9 @@ case "$1" in
 			omv-mkconf cpufrequtils
 			omv-mkconf mdadm
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.2.5.1"; then
+			omv_config_add_element "//system/network/interfaces/*" "options" ""
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

@@ -63,7 +63,8 @@ class NetworkRpc extends OMVRpc {
 					"netmask":{"type":"string"},
 					"gateway":{"type":"string"},
 					"mtu":{"type":["integer","string"]},
-					"wol":{"type":"boolean"}
+					"wol":{"type":"boolean"},
+					"options":{"type":"string"}
 				}
 			}'),
 			"deleteIface" => array(
@@ -88,6 +89,7 @@ class NetworkRpc extends OMVRpc {
 					"gateway":{"type":"string"},
 					"mtu":{"type":["integer","string"]},
 					"wol":{"type":"boolean"},
+					"options":{"type":"string"},
 					"slaves":{"type":"string","format":"regex","pattern":'.
 					  '"\/^((eth|wlan)\\\d+,)*(eth|wlan)\\\d+$\/i"},
 					"bondprimary":{"type":"string"},
@@ -110,8 +112,8 @@ class NetworkRpc extends OMVRpc {
 			"setDNSNameServers" => array('{
 				"type":"object",
 				"properties":{
-					"primarydns":{'.$GLOBALS['OMV_JSONSCHEMA_IPV4'].'},
-					"secondarydns":{'.$GLOBALS['OMV_JSONSCHEMA_IPV4'].'}
+					"primarydns":{'.$GLOBALS['OMV_JSONSCHEMA_IPV4_NONE'].'},
+					"secondarydns":{'.$GLOBALS['OMV_JSONSCHEMA_IPV4_NONE'].'}
 				}
 			}'),
 			"setDNSServiceDiscovery" => array('{
@@ -471,7 +473,8 @@ class NetworkRpc extends OMVRpc {
 			"netmask" => isset($data['netmask']) ? $data['netmask'] : "",
 			"gateway" => isset($data['gateway']) ? $data['gateway'] : "",
 			"mtu" => $data['mtu'],
-			"wol" => array_boolval($data, 'wol')
+			"wol" => array_boolval($data, 'wol'),
+			"options" => $data['options']
 		);
 		// Set configuration data
 		$success = FALSE;
@@ -668,6 +671,7 @@ class NetworkRpc extends OMVRpc {
 			"gateway" => isset($data['gateway']) ? $data['gateway'] : "",
 			"mtu" => $data['mtu'],
 			"wol" => array_boolval($data, 'wol'),
+			"options" => $data['options'],
 			"bondprimary" => $data['bondprimary'],
 			"bondmode" => $data['bondmode'],
 			"bondmiimon" => $data['bondmiimon'],
