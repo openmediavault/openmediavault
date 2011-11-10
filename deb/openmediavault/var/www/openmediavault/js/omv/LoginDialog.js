@@ -60,12 +60,14 @@ Ext.extend(OMV.LoginDialog, OMV.Window, {
 				xtype: "textfield",
 				fieldLabel: "Username",
 				name: "username",
-				blankText:"Enter your username"
+				blankText:"Enter your username",
+				autoComplete: true
 			},{
 				xtype: "passwordfield",
 				fieldLabel: "Password",
 				name: "password",
-				blankText: "Enter your password"
+				blankText: "Enter your password",
+				autoComplete: true
 			}]
 		});
 		Ext.apply(this, {

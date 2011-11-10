@@ -292,7 +292,7 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 				xtype: "textfield",
 				name: "masqueradeaddress",
 				fieldLabel: "Masquerade address",
-				vtype: "IPv4",
+				vtype: "hostnameIPv4",
 				allowBlank: true,
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: "If your host is acting as a NAT gateway or port " +
@@ -842,9 +842,9 @@ Ext.extend(OMV.Module.Services.FTPDiagPanel, OMV.DiagPanel, {
 OMV.preg("sysinfo", "service", OMV.Module.Services.FTPDiagPanel);
 
 /**
- * @class OMV.Module.Diagnostics.LogPlugin.SMART
+ * @class OMV.Module.Diagnostics.LogPlugin.FTP
  * @derived OMV.Module.Diagnostics.LogPlugin
- * Class that implements the 'S.M.A.R.T.' logfile diagnostics plugin
+ * Class that implements the 'FTP' log file diagnostics plugin
  */
 OMV.Module.Diagnostics.LogPlugin.FTP = function(config) {
 	var initialConfig = {

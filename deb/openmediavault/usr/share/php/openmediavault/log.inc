@@ -25,15 +25,15 @@ require_once("openmediavault/util.inc");
 
 /**
  * @class OMVLogFile
- * This class handles logfile access and modifications.
+ * This class handles log file access and modifications.
  */
 class OMVLogFile extends OMVObject {
 	/**
-	 * Preconfigured logfile types. A type has the following structure:
-	 * @param filename The name of the logfile. This will be used when
+	 * Preconfigured log file types. A type has the following structure:
+	 * @param filename The name of the log file. This will be used when
 	 * downloading the file via WebUI.
-	 * @param filepath The path of the logfile.
-	 * @param regex The regular expression used to parse the logfile.
+	 * @param filepath The path of the log file.
+	 * @param regex The regular expression used to parse the log file.
 	 * @param columns The column configuration.
 	 * Example:
 	 * $log = new OMVLog("syslog", "/var/log/syslog",
@@ -92,15 +92,15 @@ class OMVLogFile extends OMVObject {
 
 	/**
 	 * Constructor
-	 * @param id The identifier of the logfile configuration.
+	 * @param id The identifier of the log file configuration.
 	 */
 	function __construct($id) {
 		$this->id = $id;
 	}
 
 	/**
-	 * Register a new logfile type.
-	 * @param id The identifier of the logfile configuration, e.g.
+	 * Register a new log file type.
+	 * @param id The identifier of the log file configuration, e.g.
 	 * syslog or auth.
 	 * @param config The type configuration.
 	 * @return None
@@ -110,86 +110,45 @@ class OMVLogFile extends OMVObject {
 	}
 
 	/**
-	 * Get the parsed logfile content as array.
-	 * @param start The index where to start.
-	 * @param count The number of lines to process.
-	 * @param sortField The name of the column used to sort. See logfile
-	 * type configuration.
-	 * @param sortDir The sort direction, ASC or DESC.
-	 * @return An array containing the requested logfile lines. The
-	 * field \em total contains the total number of lines, \em data contains
-	 * the logfile lines as array with the configured columns. If an error
-	 * occurs FALSE is returned.
+	 * Checks if a log file type is registered.
+	 * @return TRUE if the log file type is registered, otherwise FALSE.
 	 */
-	function get($start, $count, $sortField, $sortDir) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		if (!array_key_exists($this->id, self::$types))
-			return FALSE;
-		$type = self::$types[$this->id];
-		// Get the logfile content
-		$cmd = sprintf("sudo cat %s", $type['filepath']);
-		OMVUtil::exec($cmd, $content);
-		// Process content
-		$data = array();
-		foreach ($content as $contentk => $contentv) {
-			// Skip invalid pattern matches
-			$result = preg_match($type['regex'], $contentv, $matches);
-			if ((FALSE === $result) || (0 == $result))
-				continue;
-			$record = array();
-			foreach ($type['columns'] as $columnk => $columnv) {
-				$record[$columnk] = $matches[$columnv];
-			}
-			$data[] = $record;
-		}
-		// Sort content
-		if (!is_null($sortField) && $sortField !== "date") {
-			array_sort_key($data, $sortField);
-		}
-		if (!is_null($sortDir) && $sortDir == "DESC") {
-			$data = array_reverse($data);
-		}
-		// Prepare result
-		$result = array(
-			"total" => count($content),
-			"data" => array_slice($data, $start, $count)
-		);
-		return $result;
+	public function isRegistered() {
+		return array_key_exists($this->id, self::$types);
 	}
 
- 	/**
-	 * Clear a logfile.
-	 * @return TRUE if successful, otherwise FALSE.
+	/**
+	 * Get the file name of the log file, e.g. 'syslog'.
+	 * @return The file name of the log file, otherwise FALSE.
 	 */
-	function clear() {
-		if (!array_key_exists($this->id, self::$types))
-			return FALSE;
+	public function getFileName() {
 		$type = self::$types[$this->id];
-		// Execute command
-		$cmd = sprintf("cat /dev/null | sudo tee %s", $type['filepath']);
-		OMVUtil::exec($cmd, $output, $res);
-		if ($res !== 0)
-			return FALSE;
-		return TRUE;
+		return $type['filename'];
 	}
 
- 	/**
-	 * Get the content of a logfile.
-	 * @return An array with the field \em filename which is the name of
-	 * the logfile and \em content which contains the logfile content. If an
-	 * error occurs FALSE is returned.
+	/**
+	 * Get the file path of the log file, e.g. '/var/log/syslog'.
+	 * @return The file path of the log file, otherwise FALSE.
 	 */
-	function getContent() {
-		if (!array_key_exists($this->id, self::$types))
-			return FALSE;
+	public function getFilePath() {
 		$type = self::$types[$this->id];
-		// Get the logfile content
-		$cmd = sprintf("sudo cat %s", $type['filepath']);
-		OMVUtil::exec($cmd, $content);
-		return array(
-			"filename" => $type['filename'],
-			"content" => implode("\r\n", $content)
-		);
+		return $type['filepath'];
+	}
+
+	/**
+	 * Get the regular expression used to parse a log file line.
+	 */
+	public function getRegex() {
+		$type = self::$types[$this->id];
+		return $type['regex'];
+	}
+
+	/**
+	 * Get the column configuration.
+	 */
+	public function getColumns() {
+		$type = self::$types[$this->id];
+		return $type['columns'];
 	}
 }
 ?>

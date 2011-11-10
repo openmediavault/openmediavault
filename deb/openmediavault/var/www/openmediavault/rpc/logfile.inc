@@ -46,7 +46,7 @@ class LogFileRpc extends OMVRpc {
 	/**
 	 * Helper method to parse a logfile.
 	 */
-	function getList($start, $count, $sortField, $sortDir, $type) {
+	function getList($start, $count, $sortField, $sortDir, $id) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Check permissions
 		$this->validateSession();
@@ -56,20 +56,42 @@ class LogFileRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get the parsed logfile content as array
-		$logfile = new OMVLogFile($type);
-		if (FALSE === ($result = $logfile->get($start, $count, $sortField,
-		  $sortDir))) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  gettext("Failed to get parsed logfile content"));
+		// Check if the given log file type if registered.
+		$logfile = new OMVLogFile($id);
+		if(FALSE === $logfile->isRegistered()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+			  gettext("Unknown log file type (id=%s)"), $id));
 		}
-		return $result;
+		// Read as much file content as possible.
+		$cmd = sprintf("sudo tail -c %s %s", ini_get("memory_limit"),
+		  $logfile->getFilePath());
+		OMVUtil::exec($cmd, $output, $result);
+		if($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		$objects = array();
+		foreach($output as $outputk => $outputv) {
+			// Skip invalid pattern matches.
+			$result = preg_match($logfile->getRegex(), $outputv, $matches);
+			if((FALSE === $result) || (0 == $result))
+				continue;
+			$object = array();
+			foreach($logfile->getColumns() as $columnk => $columnv) {
+				$object[$columnk] = $matches[$columnv];
+			}
+			$objects[] = $object;
+		}
+		// Filter result.
+		return $this->applyFilter($objects, $start, $count, $sortField,
+		  $sortDir);
 	}
 
  	/**
-	 * Helper method to clear a logfile.
+	 * Clear a log file.
+	 * @param id The identifier of the registered log file type.
 	 */
-	function clear($type) {
+	function clear($id) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Check permissions
 		$this->validateSession();
@@ -79,18 +101,29 @@ class LogFileRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
+		// Check if the given log file type if registered.
+		$logfile = new OMVLogFile($id);
+		if(FALSE === $logfile->isRegistered()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+			  gettext("Unknown log file type (id=%s)"), $id));
+		}
 		// Empty log file
-		$logfile = new OMVLogFile($type);
-		if (FALSE === $logfile->clear()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  gettext("Failed to clear logfile"));
+		$cmd = sprintf("cat /dev/null | sudo tee %s", $logfile->getFilePath());
+		OMVUtil::exec($cmd, $output, $result);
+		if($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
 		}
 	}
 
  	/**
-	 * Get the content of a logfile.
+	 * Get the content of a log file. Note, the RPC does not return the file
+	 * content itself, instead the file path is returned which is used by
+	 * generic download RPC mechanism to deliver the file content.
+	 * @param id The identifier of the registered log file type.
+	 * @return An object with the keys \em filename and \em filepath.
 	 */
-	function getContent($type) {
+	function getContent($id) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Check permissions
 		$this->validateSession();
@@ -100,13 +133,17 @@ class LogFileRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get log file content
-		$logfile = new OMVLogFile($type);
-		if (FALSE === ($result = $logfile->getContent())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  gettext("Failed to get logfile content"));
+		// Check if the given log file type if registered.
+		$logfile = new OMVLogFile($id);
+		if(FALSE === $logfile->isRegistered()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+			  gettext("Unknown log file type (id=%s)"), $id));
 		}
-		return $result;
+		// Return values required by generic download RPC implementation.
+		return array(
+			"filename" => $logfile->getFileName(),
+			"filepath" => $logfile->getFilePath()
+		);
 	}
 }
 ?>

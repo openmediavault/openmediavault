@@ -102,7 +102,17 @@ Ext.apply(Ext.form.VTypes, {
 		return /^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9]){0,1}([.][a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9]){0,1}){0,}$/.test(v);
 	},
 	hostnameText: "Invalid hostname",
-	hostnameMask: /[-.a-zA-Z0-9]/,
+	hostnameMask: /[a-z0-9\-\.]/i,
+
+	hostnameIPv4: function(v) {
+		if(Ext.form.VTypes.hostname(v))
+			return true;
+		if(Ext.form.VTypes.IPv4(v))
+			return true;
+		return false;
+	},
+	hostnameIPv4Text: "This field should be a hostname or an IPv4 address",
+	hostnameIPv4Mask: /[a-z0-9\-\.]/i,
 
 	groupname: function(v) {
 		return /^[a-zA-Z0-9\-\.]+$/.test(v);
@@ -146,7 +156,6 @@ Ext.apply(Ext.form.VTypes, {
 	sharenameText: "Invalid share name",
 	sharenameMask: /[a-zA-Z0-9\.\-_]/
 });
-
 
 ////////////////////////////////////////////////////////////////////////////////
 // Ext.form.BasicForm
@@ -197,6 +206,19 @@ Ext.apply(Ext.form.BasicForm.prototype, {
 ////////////////////////////////////////////////////////////////////////////////
 // Ext.form.Field
 ////////////////////////////////////////////////////////////////////////////////
+
+// Add 'autoComplete' config option.
+Ext.apply(Ext.form.Field.prototype, {
+	autoComplete: false,
+
+	getAutoCreate : function() {
+		var cfg = Ext.form.Field.superclass.getAutoCreate.call(this);
+		if(true === this.autoComplete) {
+			cfg.autocomplete = "on";
+		}
+		return cfg;
+	}
+});
 
 // Add 'setReadOnly' to Ext.form.Field
 Ext.override(Ext.form.Field, {

@@ -1,3 +1,11 @@
+openmediavault (0.2.5.3) stable; urgency=low
+
+  * Improve implementation of log file handling
+  * Mantis 0000005: PHP crashes when sorting bigger syslog files
+  * Mantis 0000249: FTP MasqueradeAddress does not accept FQDN
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 10 Nov 2011 19:36:05 +0100
+
 openmediavault (0.2.5.2) stable; urgency=low
 
   * Display use of shared folder

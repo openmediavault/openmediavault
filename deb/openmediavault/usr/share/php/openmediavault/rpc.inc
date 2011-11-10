@@ -192,14 +192,35 @@ class OMVDownloadRpcServer extends OMVJsonRpcServer {
 		return TRUE;
 	}
 
+	/**
+	 * The response contains the following fields:
+	 * - filename
+	 * - content or filepath
+	 * The field \em content contains the content to be returned, \em filepath
+	 * contains the name of the file which content should be returned.
+	 */
 	protected function handleResponse($response) {
-		$contentLength = strlen($response['content']);
 		header("Content-Type: text/plain");
+		header('Expires: 0');
 		header("Content-Disposition: attachment; " .
 		  "filename={$response['filename']}");
-		header("Content-Length: {$contentLength}");
-		header("Pragma: hack");
-		print($response['content']);
+		if(array_key_exists("content", $response)) {
+			$contentLength = strlen($response['content']);
+			header("Content-Length: {$contentLength}");
+			print($response['content']);
+		} else {
+			$cmd = sprintf("sudo cat %s", $response['filepath']);
+			$proc = proc_open($cmd, array(
+				0 => array("pipe", "r"), // stdin
+				1 => array("pipe", "w"), // stdout
+				2 => array("pipe", "w")  // stderr
+			  ), $pipes);
+			if(!is_resource($proc)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED, $cmd, "");
+			}
+			fpassthru($pipes[1]);
+			proc_close($proc);
+		}
 	}
 }
 
