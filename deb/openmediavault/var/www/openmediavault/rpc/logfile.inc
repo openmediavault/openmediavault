@@ -62,18 +62,20 @@ class LogFileRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  gettext("Unknown log file type (id=%s)"), $id));
 		}
-		// Read as much file content as possible.
-		$cmd = sprintf("sudo tail -c %s %s", ini_get("memory_limit"),
-		  $logfile->getFilePath());
-		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		// Read file content.
+		$cmd = sprintf("sudo cat %s", $logfile->getFilePath());
+		$proc = proc_open($cmd, array(
+			0 => array("pipe", "r"), // stdin
+			1 => array("pipe", "w"), // stdout
+			2 => array("pipe", "w")  // stderr
+		  ), $pipes);
+		if(!is_resource($proc)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED, $cmd, "");
 		}
 		$objects = array();
-		foreach($output as $outputk => $outputv) {
+		while(($line = fgets($pipes[1])) !== false) {
 			// Skip invalid pattern matches.
-			$result = preg_match($logfile->getRegex(), $outputv, $matches);
+			$result = preg_match($logfile->getRegex(), $line, $matches);
 			if((FALSE === $result) || (0 == $result))
 				continue;
 			$object = array();
@@ -82,6 +84,7 @@ class LogFileRpc extends OMVRpc {
 			}
 			$objects[] = $object;
 		}
+		proc_close($proc);
 		// Filter result.
 		return $this->applyFilter($objects, $start, $count, $sortField,
 		  $sortDir);
