@@ -43,6 +43,7 @@ $OMV_RRDGRAPH_DIR = "/var/lib/openmediavault/rrd";
 $OMV_DEBUG_PHP_LOGFILE = "/tmp/openmediavault_debug_php.log";
 $OMV_UUID_UNDEFINED = "undefined";
 $OMV_RSYNC_CRONSCRIPTSDIR = "/var/lib/openmediavault/cronscripts";
+$OMV_MAX_LOGFILE_LINES = "100000";
 
 $OMV_JSONSCHEMA_COUNTFIELD = '"type":["integer","null"]';
 $OMV_JSONSCHEMA_SORTFIELD = '"type":["string","null"]';

@@ -38,17 +38,18 @@ class UserMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 	public function addUser($object) {
 		global $xmlConfig;
 		// Prepare command arguments
-		$cmdparam = sprintf("--no-user-group --gid '%s' --password '%s' ".
-		  "--shell '%s'", $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'],
+		$cmdparam = sprintf("--no-user-group --gid %s --password %s ".
+		  "--shell %s", $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'],
 		  crypt($object['password']), $object['shell']);
 		if (!empty($object['comment'])) {
-			$cmdparam .= sprintf(" --comment '%s'", $object['comment']);
+			$cmdparam .= sprintf(" --comment '%s'", escapeshellarg(
+			  $object['comment']));
 		}
 		if (!empty($object['uid'])) {
 			$cmdparam .= sprintf(" --uid %d", intval($object['uid']));
 		}
 		if (!empty($object['groups'])) {
-			$cmdparam .= sprintf(" --groups '%s'", $object['groups']);
+			$cmdparam .= sprintf(" --groups %s", $object['groups']);
 		}
 		// If a shared folder is set then use this as home directory,
 		// otherwise let the system create a home directory as configured
@@ -73,12 +74,11 @@ class UserMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 			// Build the shared folder (home directory) path.
 			$dirpath = sprintf("%s/%s", $meobject['dir'],
 			  $sfobject['reldirpath']);
-			$cmdparam .= sprintf(" --home '%s'", $dirpath);
+			$cmdparam .= sprintf(" --home %s", escapeshellarg($dirpath));
 		} else {
 			$cmdparam .= " --create-home";
 		}
-		$cmd = sprintf("sudo useradd %s '%s' 2>&1", $cmdparam,
-		  $object['name']);
+		$cmd = sprintf("sudo useradd %s %s 2>&1", $cmdparam, $object['name']);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -92,10 +92,14 @@ class UserMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 	public function modifyUser($object) {
 		global $xmlConfig;
 		// Prepare command arguments
-		$cmdparam = sprintf("--password '%s' --shell '%s' --groups '%s'",
-		  crypt($object['password']), $object['shell'], $object['groups']);
+		$cmdparam = sprintf("--password %s --shell %s", crypt(
+		  $object['password']), $object['shell']);
+		if (!empty($object['groups'])) {
+			$cmdparam .= sprintf(" --groups %s", $object['groups']);
+		}
 		if (!empty($object['comment'])) {
-			$cmdparam .= sprintf(" --comment '%s'", $object['comment']);
+			$cmdparam .= sprintf(" --comment %s", escapeshellarg(
+			  $object['comment']));
 		}
 		if (!empty($object['sharedfolderref'])) {
 			// Get the shared folder object
@@ -117,15 +121,14 @@ class UserMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 			// Build the shared folder (home directory) path.
 			$dirpath = sprintf("%s/%s", $meobject['dir'],
 			  $sfobject['reldirpath']);
-			$cmdparam .= sprintf(" --home '%s'", $dirpath);
+			$cmdparam .= sprintf(" --home %s", escapeshellarg($dirpath));
 		} else {
 			// Set home directory to default value /home/<name>, the
 			// directory must not exist in this case (see 'useradd' man page).
-			$cmdparam .= sprintf(" --home '/home/%s'", $object['name']);
+			$cmdparam .= sprintf(" --home /home/%s", $object['name']);
 		}
 		// Modify user
-		$cmd = sprintf("sudo usermod %s '%s' 2>&1", $cmdparam,
-		  $object['name']);
+		$cmd = sprintf("sudo usermod %s %s 2>&1", $cmdparam, $object['name']);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -137,7 +140,7 @@ class UserMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 	 * Delete an user.
 	 */
 	public function deleteUser($object) {
-		$cmd = sprintf("sudo userdel --force '%s' 2>&1", $object['name']);
+		$cmd = sprintf("sudo userdel --force %s 2>&1", $object['name']);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

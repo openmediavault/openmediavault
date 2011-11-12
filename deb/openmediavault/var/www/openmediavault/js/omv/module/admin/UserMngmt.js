@@ -174,7 +174,8 @@ Ext.extend(OMV.Module.Privileges.UserPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "textfield",
 			name: "comment",
 			fieldLabel: "Comment",
-			maxLength: 65
+			maxLength: 65,
+			vtype: "comment"
 		},{
 			xtype: "textfield",
 			name: "email",
@@ -526,7 +527,8 @@ Ext.extend(OMV.Module.Privileges.GroupPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "textarea",
 			name: "comment",
 			fieldLabel: "Comment",
-			allowBlank: true
+			allowBlank: true,
+			vtype: "comment"
 		}];
 	},
 

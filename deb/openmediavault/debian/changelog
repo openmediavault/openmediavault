@@ -1,8 +1,11 @@
 openmediavault (0.2.5.3) stable; urgency=low
 
-  * Improve implementation of log file handling
+  * Change Avahi (Zeroconf) listening port for SMB service from 139 to 445.
+  * Improve implementation of log file handling. Output the last 100000 lines.
+    Limitation can be modified via OMV_MAX_LOGFILE_LINES environment variable.
   * Mantis 0000005: PHP crashes when sorting bigger syslog files
   * Mantis 0000249: FTP MasqueradeAddress does not accept FQDN
+  * Mantis 0000260: Using simple quote on comment give error
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 10 Nov 2011 19:36:05 +0100
 

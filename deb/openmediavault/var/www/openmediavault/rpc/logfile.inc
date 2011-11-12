@@ -63,7 +63,8 @@ class LogFileRpc extends OMVRpc {
 			  gettext("Unknown log file type (id=%s)"), $id));
 		}
 		// Read file content.
-		$cmd = sprintf("sudo cat %s", $logfile->getFilePath());
+		$cmd = sprintf("sudo tail -n %s %s", $GLOBALS['OMV_MAX_LOGFILE_LINES'],
+		  $logfile->getFilePath());
 		$proc = proc_open($cmd, array(
 			0 => array("pipe", "r"), // stdin
 			1 => array("pipe", "w"), // stdout
