@@ -50,8 +50,8 @@ class ShareMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 		// Build the absolute shared folder path.
 		$dirpath = sprintf("%s/%s", $meobject['dir'], $object['reldirpath']);
 		// Create the shared folder directory.
-		$cmd = sprintf("sudo mkdir -p --mode %s '%s' 2>&1", $object['umask'],
-		  $dirpath);
+		$cmd = sprintf("sudo mkdir -p --mode %s %s 2>&1", $object['umask'],
+		  escapeshellarg($dirpath));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -77,7 +77,8 @@ class ShareMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 		// Build the absolute shared folder path.
 		$dirpath = sprintf("%s/%s", $meobject['dir'], $object['reldirpath']);
 		// Update the shared folder permissions.
-		$cmd = sprintf("sudo chmod %s '%s' 2>&1", $object['umask'], $dirpath);
+		$cmd = sprintf("sudo chmod %s %s 2>&1", $object['umask'],
+		  escapeshellarg($dirpath));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -108,7 +109,7 @@ class ShareMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 		// Build the absolute shared folder path.
 		$dirpath = sprintf("%s/%s", $meobject['dir'], $object['reldirpath']);
 		// Delete the shared folder directory.
-		$cmd = sprintf("sudo rm -fr '%s' 2>&1", $dirpath);
+		$cmd = sprintf("sudo rm -fr %s 2>&1", escapeshellarg($dirpath));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

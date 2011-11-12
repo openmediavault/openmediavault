@@ -74,7 +74,7 @@ class PluginRpc extends OMVRpc {
 				continue;
 			// Get the package version
 			$cmd = sprintf("sudo apt-cache --no-all-versions show %s | " .
-			  "grep '^Version: .*$' | awk '{print $2}'", $matches[1]);
+			  "grep '^Version: .*$' | awk '{print \$2}'", $matches[1]);
 			$version = OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -170,8 +170,8 @@ class PluginRpc extends OMVRpc {
 		// Get the real file name
 		$fileName = $_FILES['file']['name'];
 		// Extract the package name
-		$cmd = sprintf("dpkg --field '%s' | grep 'Package: ' | " .
-		  "awk '{print $2}'", $_FILES['file']['tmp_name']);
+		$cmd = sprintf("dpkg --field %s | grep 'Package: ' | " .
+		  "awk '{print \$2}'", escapeshellarg($_FILES['file']['tmp_name']));
 		$packageName = OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

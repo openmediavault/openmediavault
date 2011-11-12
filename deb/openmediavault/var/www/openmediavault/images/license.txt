@@ -227,6 +227,11 @@ Designer: Volker Theile, based on Everaldo Coelho (http://www.everaldo.com)
 License: LGPL (http://www.gnu.org/licenses/lgpl.html)
 URL: http://www.iconfinder.com/icondetails/3321/16
 
+Image: raid-recover.png
+Designer: Volker Theile, based on Everaldo Coelho (http://www.everaldo.com)
+License: LGPL (http://www.gnu.org/licenses/lgpl.html)
+URL: http://www.iconfinder.com/icondetails/3321/16
+
 Image: filesystem.png
 Designer: Oliver Scholtz (and others)
 License: GPL

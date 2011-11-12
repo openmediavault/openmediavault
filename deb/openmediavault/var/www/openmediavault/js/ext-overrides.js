@@ -121,10 +121,11 @@ Ext.apply(Ext.form.VTypes, {
 	groupnameMask: /[a-zA-Z0-9\-\.]/,
 
 	username: function(v) {
-		return /^[a-zA-Z_][a-zA-Z0-9_\-]*[$]?$/.test(v);
+		// Taken from Debian adduser
+		return /^[_.A-Za-z0-9][-\@_.A-Za-z0-9]*\$?$/.test(v);
 	},
 	usernameText: "Invalid user name",
-	usernameMask: /[a-zA-Z0-9_\-]/,
+	usernameMask: /[-\@_.A-Za-z0-9]/,
 
 	comment: function(v) {
 		return !/[:]/.test(v);

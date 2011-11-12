@@ -144,13 +144,32 @@ class OMVSystem {
 	 * Get memory statistics.
 	 * @return The memory statistics as array or FALSE on failure.
 	 * array(
-	 *   total => xxx, (bytes)
-	 *   free => xxx, (bytes)
-	 *   used => xxx, (bytes)
-	 *   percent => xxx
+	 *   mem (
+	 *     total => xxx, (bytes)
+	 *     used => xxx, (bytes)
+	 *     free => xxx, (bytes)
+	 *     shared => xxx, (bytes)
+	 *     buffers => xxx, (bytes)
+	 *     cached => xxx, (bytes)
+	 *   )
+	 *   wobufferscache (
+	 *     used => xxx, (bytes)
+	 *     free => xxx, (bytes)
+	 *   )
+	 *   swap (
+	 *     total => xxx, (bytes)
+	 *     used => xxx, (bytes)
+	 *     free => xxx, (bytes)
+	 *   )
+	 *   total (
+	 *     total => xxx, (bytes)
+	 *     used => xxx, (bytes)
+	 *     free => xxx, (bytes)
+	 *   )
 	 * )
 	 */
 	public static function getMemoryStats() {
+/*
 		@OMVUtil::exec("cat /proc/meminfo", $output, $result);
 		if ($result !== 0) {
 			return FALSE;
@@ -172,6 +191,74 @@ class OMVSystem {
 		}
 		$result['used'] = $result['total'] - $result['free'];
 		$result['percent'] = round(($result['used'] * 100) / $result['total']);
+*/
+		@OMVUtil::exec("free -b", $output, $result);
+		if ($result !== 0) {
+			return FALSE;
+		}
+		$result = array(
+			"mem" => array(
+				"total" => 0,
+				"used" => 0,
+				"free" => 0,
+				"shared" => 0,
+				"buffers" => 0,
+				"cached" => 0
+			),
+			"wobufferscache" => array(
+				"used" => 0,
+				"free" => 0
+			),
+			"swap" => array(
+				"total" => 0,
+				"used" => 0,
+				"free" => 0
+			),
+			"total" => array(
+				"total" => 0,
+				"used" => 0,
+				"free" => 0
+			)
+		);
+		// Parse output:
+		//              total       used       free     shared    buffers     cached
+		// Mem:     526987264  195010560  331976704          0   28565504  120373248
+		// -/+ buffers/cache:   46071808  480915456
+		// Swap:    401596416          0  401596416
+		// Total:   928583680  195137536  733446144
+		foreach ($output as $outputk => $outputv) {
+			if (preg_match('/^Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/',
+			  $outputv, $matches)) {
+				$result['mem'] = array(
+					"total" => $matches[1],
+					"used" => $matches[2],
+					"free" => $matches[3],
+					"shared" => $matches[4],
+					"buffers" => $matches[5],
+					"cached" => $matches[6]
+				);
+			} else if (preg_match('/^-\/\+ buffers\/cache:\s+(\d+)\s+(\d+)$/',
+			  $outputv, $matches)) {
+				$result['wobufferscache'] = array(
+					"used" => $matches[1],
+					"free" => $matches[2]
+				);
+			} else if (preg_match('/^Swap:\s+(\d+)\s+(\d+)\s+(\d+)$/',
+			  $outputv, $matches)) {
+				$result['swap'] = array(
+					"total" => $matches[1],
+					"used" => $matches[2],
+					"free" => $matches[3]
+				);
+			} else if (preg_match('/^Total:\s+(\d+)\s+(\d+)\s+(\d+)$/',
+			  $outputv, $matches)) {
+				$result['swap'] = array(
+					"total" => $matches[1],
+					"used" => $matches[2],
+					"free" => $matches[3]
+				);
+			}
+		}
 		return $result;
 	}
 

@@ -42,7 +42,7 @@ class UserMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 		  "--shell %s", $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'],
 		  crypt($object['password']), $object['shell']);
 		if (!empty($object['comment'])) {
-			$cmdparam .= sprintf(" --comment '%s'", escapeshellarg(
+			$cmdparam .= sprintf(" --comment %s", escapeshellarg(
 			  $object['comment']));
 		}
 		if (!empty($object['uid'])) {

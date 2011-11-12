@@ -46,7 +46,7 @@ class UserMgmtRpc extends OMVRpc {
 					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
 					"uid":{"type":["integer","string"]},
 					"useuid":{"type":"boolean"},
-					"name":{"type":"string"},
+					"name":{'.$GLOBALS['OMV_JSONSCHEMA_USERNAME'].'},
 					"groups":{"type":"string"},
 					"shell":{"type":"string"},
 					"password":{"type":"string"},

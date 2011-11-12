@@ -418,6 +418,9 @@ class SystemRpc extends OMVRpc {
 		$prd = new OMVProduct();
 		$uname = posix_uname();
 		$memStats = OMVSystem::getMemoryStats();
+		$memStats['wobufferscache']['percentage'] = round(
+		  ($memStats['wobufferscache']['used'] * 100) /
+		  $memStats['mem']['total']);
 		$cpuStats = OMVSystem::getCPUStats();
 		if (FALSE === ($date = OMVSystem::date())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
@@ -473,9 +476,10 @@ class SystemRpc extends OMVRpc {
 			array(
 				"name" => gettext("Memory usage"),
 				"value" => array(
-					"text" => sprintf("%d%% of %s", $memStats['percent'],
-					  binary_format($memStats['total'])),
-					"value" => $memStats['percent']
+					"text" => sprintf("%d%% of %s",
+					  $memStats['wobufferscache']['percentage'],
+					  binary_format($memStats['mem']['total'])),
+					"value" => $memStats['wobufferscache']['percentage']
 				),
 				"type" => "progress",
 				"index" => $index++)

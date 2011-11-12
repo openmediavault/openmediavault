@@ -291,7 +291,7 @@ class CronRpc extends OMVRpc {
 		}
 		// Execute the cron command line
 		$outputFile = tempnam(sys_get_temp_dir(), "cronjob");
-		$cmd = sprintf("sudo -u '%s' %s >%s 2>&1 & echo $!",
+		$cmd = sprintf("sudo -u %s %s >%s 2>&1 & echo $!",
 		  $object['username'], $object['command'], $outputFile);
 		OMVUtil::exec($cmd, $output, $res);
 		if ($res !== 0) {

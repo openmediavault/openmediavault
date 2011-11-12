@@ -175,8 +175,18 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 			scope: this,
 			disabled: true
 		});
-		// Add 'Detail' button to top toolbar
+		// Add 'Recover' button to top toolbar
 		tbar.insert(3, {
+			id: this.getId() + "-recover",
+			xtype: "button",
+			text: "Recover",
+			icon: "images/raid-recover.png",
+			handler: this.cbRecoverBtnHdl,
+			scope: this,
+			disabled: true
+		});
+		// Add 'Detail' button to top toolbar
+		tbar.insert(4, {
 			id: this.getId() + "-detail",
 			xtype: "button",
 			text: "Detail",
@@ -192,17 +202,20 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 		OMV.Module.Storage.RAIDGridPanel.superclass.cbSelectionChangeHdl.
 		  apply(this, arguments);
 		// Process additional buttons
-		var tbarBtnName = [ "grow", "detail" ];
+		var tbarBtnName = [ "grow", "recover", "detail" ];
 		var tbarBtnDisabled = {
 			"grow": true,
+			"recover": true,
 			"detail": true
 		};
 		var records = model.getSelections();
 		if (records.length <= 0) {
 			tbarBtnDisabled["grow"] = true;
+			tbarBtnDisabled["recover"] = true;
 			tbarBtnDisabled["detail"] = true;
 		} else if (records.length == 1) {
 			tbarBtnDisabled["detail"] = false;
+			tbarBtnDisabled["recover"] = false;
 			// Only RAID level 1/4/5/6 are able to grow.
 			var level = records[0].get("level");
 			var state = records[0].get("state");
@@ -211,6 +224,7 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 			  ([ "clean", "active" ].indexOf(state) !== -1));
 		} else {
 			tbarBtnDisabled["grow"] = true;
+			tbarBtnDisabled["recover"] = true;
 			tbarBtnDisabled["detail"] = true;
 		}
 		for (var i = 0; i < tbarBtnName.length; i++) {
@@ -246,7 +260,9 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 	cbGrowBtnHdl : function() {
 		var selModel = this.getSelectionModel();
 		var record = selModel.getSelected();
-		var wnd = new OMV.Module.Storage.RAIDGrowDialog({
+		var wnd = new OMV.Module.Storage.RAIDAddDialog({
+			rpcSetMethod: "grow",
+			title: "Grow RAID device",
 			devicefile: record.get("devicefile"),
 			name: record.get("name"),
 			level: record.get("level"),
@@ -258,6 +274,18 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 				},
 				scope: this
 			}
+		});
+		wnd.show();
+	},
+
+	cbRecoverBtnHdl : function() {
+		var selModel = this.getSelectionModel();
+		var record = selModel.getSelected();
+		var wnd = new OMV.Module.Storage.RAIDAddDialog({
+			title: "Add hot spares / recover RAID device",
+			devicefile: record.get("devicefile"),
+			name: record.get("name"),
+			level: record.get("level")
 		});
 		wnd.show();
 	},
@@ -434,26 +462,29 @@ Ext.extend(OMV.Module.Storage.RAIDCreateDialog, OMV.FormPanelDialog, {
 });
 
 /**
- * @class OMV.Module.Storage.RAIDGrowDialog
+ * @class OMV.Module.Storage.RAIDAddDialog
  * @derived OMV.FormPanelDialog
+ * @config rpcSetMethod The name of the RPC method to be executed. Defaults
+ *  to 'add'.
  * @config devicefile The devicefile of the RAID to grow.
  * @config name The name of the array.
  * @config level The level of the array.
+ * @config title The dialog title.
  */
-OMV.Module.Storage.RAIDGrowDialog = function(config) {
+OMV.Module.Storage.RAIDAddDialog = function(config) {
 	var initialConfig = {
 		rpcService: "RaidMgmt",
-		rpcSetMethod: "grow",
-		title: "Grow RAID device",
+		rpcSetMethod: "add",
+		title: "Add devices to RAID device",
 		autoHeight: true,
 		hideReset: true,
 		width: 550
 	};
 	Ext.apply(initialConfig, config);
-	OMV.Module.Storage.RAIDGrowDialog.superclass.constructor.call(
+	OMV.Module.Storage.RAIDAddDialog.superclass.constructor.call(
 	  this, initialConfig);
 };
-Ext.extend(OMV.Module.Storage.RAIDGrowDialog, OMV.FormPanelDialog, {
+Ext.extend(OMV.Module.Storage.RAIDAddDialog, OMV.FormPanelDialog, {
 	getFormConfig : function() {
 		return {
 			autoHeight: true
@@ -546,12 +577,14 @@ Ext.extend(OMV.Module.Storage.RAIDGrowDialog, OMV.FormPanelDialog, {
 				forceFit: true
 			},
 			height: 130,
-			frame: true
+			frame: true,
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: "Select devices to be added to the RAID device"
 		}];
 	},
 
 	getValues : function() {
-		var values = OMV.Module.Storage.RAIDGrowDialog.superclass.
+		var values = OMV.Module.Storage.RAIDAddDialog.superclass.
 		  getValues.call(this, arguments);
 		return {
 			"devicefile": this.devicefile,

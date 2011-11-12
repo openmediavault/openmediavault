@@ -45,6 +45,8 @@ $OMV_UUID_UNDEFINED = "undefined";
 $OMV_RSYNC_CRONSCRIPTSDIR = "/var/lib/openmediavault/cronscripts";
 $OMV_MAX_LOGFILE_LINES = "100000";
 
+$OMV_JSONSCHEMA_USERNAME = '"type":"string","format":"regex","pattern":'.
+  '"\/^[_.A-Za-z0-9][-\\\@_.A-Za-z0-9]*\\\$?$\/i"';
 $OMV_JSONSCHEMA_COUNTFIELD = '"type":["integer","null"]';
 $OMV_JSONSCHEMA_SORTFIELD = '"type":["string","null"]';
 $OMV_JSONSCHEMA_SORTDIR ='"type":["string","null"],"format":"regex",'.

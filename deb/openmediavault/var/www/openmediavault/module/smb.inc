@@ -106,7 +106,7 @@ class SMBModule extends OMVModuleAbstract implements OMVINotifyListener,
 	public function addUser($object) {
 		if (in_array($object['name'], $this->invalidUsers))
 			return;
-		$cmd = sprintf("(echo '%s'; echo '%s') | sudo pdbedit -at '%s' 2>&1",
+		$cmd = sprintf("(echo '%s'; echo '%s') | sudo pdbedit -at %s 2>&1",
 		  $object['password'], $object['password'], $object['name']);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
@@ -123,7 +123,7 @@ class SMBModule extends OMVModuleAbstract implements OMVINotifyListener,
 		if (in_array($object['name'], $this->invalidUsers))
 			return;
 		$cmd = sprintf("(echo '%s'; echo '%s') | sudo smbpasswd -a -s ".
-		  "'%s' 2>&1", $object['password'], $object['password'],
+		  "%s 2>&1", $object['password'], $object['password'],
 		  $object['name']);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
@@ -139,7 +139,7 @@ class SMBModule extends OMVModuleAbstract implements OMVINotifyListener,
 	public function deleteUser($object) {
 		if (in_array($object['name'], $this->invalidUsers))
 			return;
-		$cmd = sprintf("sudo pdbedit -x '%s' 2>&1", $object['name']);
+		$cmd = sprintf("sudo pdbedit -x %s 2>&1", $object['name']);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

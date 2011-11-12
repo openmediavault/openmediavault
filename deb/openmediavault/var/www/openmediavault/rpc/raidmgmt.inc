@@ -53,6 +53,13 @@ class RaidMgmtRpc extends OMVRpc {
 					"devices":{"type":"string"}
 				}
 			}'),
+			"add" => array('{
+				"type":"object",
+				"properties":{
+					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
+					"devices":{"type":"string"}
+				}
+			}'),
 			"delete" => array(
 				'{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}'
 			),
@@ -215,16 +222,31 @@ class RaidMgmtRpc extends OMVRpc {
 		// Generate the RAID device name.
 		$deviceName = OMVSystem::getNextDevice("disk", "md");
 		$devices = preg_split("/[,;]/", $data['devices']);
-		// Notify configuration changes
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  "org.openmediavault.system.storage.raid.device", array(
+		// Create the notification object.
+		$object = array(
 			"name" => $data['name'],
 			"devicefile" => sprintf("/dev/%s", $deviceName),
 			"level" => $data['level'],
 			"numdevices" => count($devices),
-			"devices" => $devices)
-		  );
+			"devices" => $devices
+		);
+		// Create the RAID device.
+		$cmdArgs = sprintf("%s -l %s -n %d", $object['devicefile'],
+		  $object['level'], $object['numdevices']);
+		if (!empty($object['name'])) {
+			$cmdArgs .= sprintf(" -N %s", $object['name']);
+		}
+		$cmdArgs .= " " . implode(" ", $object['devices']);
+		$cmd = sprintf("sudo omv-mkraid %s 2>&1", $cmdArgs);
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Notify configuration changes
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher->notify(OMV_NOTIFY_CREATE,
+		  "org.openmediavault.system.storage.raid.device", $object);
 	}
 
 	/**
@@ -252,16 +274,82 @@ class RaidMgmtRpc extends OMVRpc {
 		// Calculate new number of devices.
 		$newDevices = explode(",", $data['devices']);
 		$numDevices += count($newDevices);
-		// Notify configuration changes
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.storage.raid.device", array(
+		// Add new devices to the RAID device.
+		$cmd = sprintf("sudo mdadm --manage %s --add %s 2>&1",
+		  $raid->getDeviceFile(), implode(" ", $newDevices));
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Now grow the RAID.
+		// See https://raid.wiki.kernel.org/index.php/Growing
+		$cmd = sprintf("sudo mdadm --grow --raid-devices=%d %s 2>&1",
+		  $numDevices, $raid->getDeviceFile());
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Create the notification object.
+		$object = array(
 			"name" => $raid->getName(),
 			"devicefile" => $raid->getDeviceFile(),
 			"level" => $raid->getLevel(),
 			"numdevices" => $numDevices,
-			"devices" => array_merge($devices, $newDevices))
-		  );
+			"devices" => array_merge($devices, $newDevices)
+		);
+		// Notify configuration changes.
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher->notify(OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.storage.raid.device", $object);
+	}
+
+	/**
+	 * Add devices to a RAID device.
+	 */
+	public function add($data) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Validate method parameters
+		$this->validateParams(__METHOD__, func_get_args());
+		// Get RAID device details to create notification message.
+		$raid = new OMVRaidDevice($data['devicefile']);
+		if (FALSE === $raid->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Device '%s' not found", $raid->getDeviceFile()));
+		}
+		$numDevices = $raid->getNumDevices();
+		$devices = $raid->getDevices();
+		// Calculate new number of devices.
+		$newDevices = explode(",", $data['devices']);
+		$numDevices += count($newDevices);
+		// Add new devices to the RAID device.
+		$cmd = sprintf("sudo mdadm --manage %s --add %s 2>&1",
+		  $raid->getDeviceFile(), implode(" ", $newDevices));
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Create the notification object.
+		$object = array(
+			"name" => $raid->getName(),
+			"devicefile" => $raid->getDeviceFile(),
+			"level" => $raid->getLevel(),
+			"numdevices" => $numDevices,
+			"devices" => array_merge($devices, $newDevices)
+		);
+		// Notify configuration changes.
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher->notify(OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.storage.raid.device", $object);
 	}
 
 	/**
@@ -278,16 +366,31 @@ class RaidMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Notify configuration changes
+		// Get RAID device details to create notification message.
+		$raid = new OMVRaidDevice($devicefile);
+		if (FALSE === $raid->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Device '%s' not found", $raid->getDeviceFile()));
+		}
+		// Create the notification object.
+		$object = array(
+			"name" => $raid->getName(),
+			"devicefile" => $raid->getDeviceFile(),
+			"level" => $raid->getLevel(),
+			"numdevices" => $raid->getNumDevices(),
+			"devices" => $raid->getDevices()
+		);
+		// Delete the RAID device.
+		$cmd = sprintf("sudo omv-rmraid %s", $raid->getDeviceFile());
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
-		  "org.openmediavault.system.storage.raid.device", array(
-			"devicefile" => $devicefile)
-		  );
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.storage.raid.device", array(
-			"devicefile" => $devicefile)
-		  );
+		  "org.openmediavault.system.storage.raid.device", $object);
 	}
 
 	/**
