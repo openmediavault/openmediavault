@@ -98,8 +98,8 @@ Ext.extend(OMV.grid.TBarGridPanel, OMV.grid.GridPanel, {
 			this.bbar = new Ext.PagingToolbar({
 				store: this.store,
 				displayInfo: true,
-				displayMsg: "Displaying topics {0} - {1} of {2}",
-				emptyMsg: "No topics to display"
+				displayMsg: "Displaying items {0} - {1} of {2}",
+				emptyMsg: "No items to display"
 			});
 		}
 		OMV.grid.TBarGridPanel.superclass.initComponent.apply(this,

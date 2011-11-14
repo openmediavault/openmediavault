@@ -46,6 +46,14 @@ OMV.Module.System.CronGridPanel = function(config) {
 		stateId: "a882a76d-6804-4632-b31b-8b48c0ea6dde",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
+				header: "Enabled",
+				sortable: true,
+				dataIndex: "enable",
+				id: "enable",
+				align: "center",
+				width: 60,
+				renderer: OMV.util.Format.booleanRenderer()
+			},{
 				header: "Minute",
 				sortable: true,
 				dataIndex: "minute",
@@ -109,6 +117,7 @@ Ext.extend(OMV.Module.System.CronGridPanel, OMV.grid.TBarGridPanel, {
 				root: "data",
 				fields: [
 					{ name: "uuid" },
+					{ name: "enable" },
 					{ name: "type" },
 					{ name: "minute" },
 					{ name: "hour" },
@@ -221,7 +230,7 @@ OMV.Module.System.CronPropertyDialog = function(config) {
 		rpcSetMethod: "set",
 		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
 		  " cron job",
-		height: 330
+		height: 355
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.System.CronPropertyDialog.superclass.constructor.call(
@@ -231,6 +240,12 @@ Ext.extend(OMV.Module.System.CronPropertyDialog,
 	OMV.CfgObjectDialog, {
 	getFormItems : function() {
 		return [{
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: "Enable",
+			checked: true,
+			inputValue: 1
+		},{
 			xtype: "combo",
 			name: "minute",
 			hiddenName: "minute",

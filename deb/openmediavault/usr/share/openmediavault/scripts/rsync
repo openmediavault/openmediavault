@@ -41,58 +41,59 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 EOF
 chmod 644 ${OMV_RSYNC_CRONSCRIPT}
 
-index=$(omv_config_get_count "//services/rsync/jobs/job")
-while [ ${index} -gt 0 ]
-do
-	uuid=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/uuid")
-	type=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/type")
-	filename="${OMV_RSYNC_CRONSCRIPTSDIR}/rsync-${uuid}"
-	srcuri=""
-	desturi=""
+xmlstarlet sel -t -m "//services/rsync/jobs/job[enable='1']" \
+  -v "uuid" \
+  -i "position() != last()" -n -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+  while read uuid; do
+	  type=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/type")
+	  filename="${OMV_RSYNC_CRONSCRIPTSDIR}/rsync-${uuid}"
+	  srcuri=""
+	  desturi=""
 
-	case $type in
-	local)
-		srcsfref=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/src")
-		srcuri="$(omv_get_sharedfolder_path "${srcsfref}")/"
-		destsfref=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/dest")
-		desturi=$(omv_get_sharedfolder_path "${destsfref}")
-		;;
-	remote)
-		mode=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/mode")
-		case $mode in
-		push)
-			srcsfref=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/src")
-			srcuri="$(omv_get_sharedfolder_path "${srcsfref}")/"
-			desturi=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/dest")
-			;;
-		pull)
-			srcuri=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/src")
-			destsfref=$(omv_config_get "//services/rsync/jobs/job[position()=${index}]/dest")
-			desturi=$(omv_get_sharedfolder_path "${destsfref}")
-			;;
-		esac
-		;;
-	esac
+	  case $type in
+	  local)
+		  srcsfref=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/src")
+		  srcuri="$(omv_get_sharedfolder_path "${srcsfref}")/"
+		  destsfref=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/dest")
+		  desturi=$(omv_get_sharedfolder_path "${destsfref}")
+		  ;;
+	  remote)
+		  mode=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/mode")
+		  case $mode in
+		  push)
+			  srcsfref=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/src")
+			  srcuri="$(omv_get_sharedfolder_path "${srcsfref}")/"
+			  desturi=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/dest")
+			  ;;
+		  pull)
+			  srcuri=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/src")
+			  destsfref=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/dest")
+			  desturi=$(omv_get_sharedfolder_path "${destsfref}")
+			  ;;
+		  esac
+		  ;;
+	  esac
 
-	xmlstarlet sel -t -m "//services/rsync/jobs/job[position()=${index}]" \
-	  -o "rsync --verbose --log-file=&quot;${OMV_RSYNC_LOGFILE}&quot;" \
-	  -i "recursive = '0'" -o " --recursive" -b \
-	  -i "times = '1'" -o " --times" -b \
-	  -i "compress = '1'" -o " --compress" -b \
-	  -i "archive = '1'" -o " --archive" -b \
-	  -i "delete = '1'" -o " --delete" -b \
-	  -i "quiet = '1'" -o " --quiet" -b \
-	  -i "perms = '1'" -o " --perms" -b \
-	  -i "acls = '1'" -o " --acls" -b \
-	  -i "xattrs = '1'" -o " --xattrs" -b \
-	  -i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
-	  -o " &quot;${srcuri}&quot; &quot;${desturi}&quot;" \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${filename}
-	chmod 700 ${filename}
+	  # Create the rsync script.
+	  xmlstarlet sel -t -m "//services/rsync/jobs/job[uuid='${uuid}']" \
+		-o "rsync --verbose --log-file=&quot;${OMV_RSYNC_LOGFILE}&quot;" \
+		-i "recursive = '0'" -o " --recursive" -b \
+		-i "times = '1'" -o " --times" -b \
+		-i "compress = '1'" -o " --compress" -b \
+		-i "archive = '1'" -o " --archive" -b \
+		-i "delete = '1'" -o " --delete" -b \
+		-i "quiet = '1'" -o " --quiet" -b \
+		-i "perms = '1'" -o " --perms" -b \
+		-i "acls = '1'" -o " --acls" -b \
+		-i "xattrs = '1'" -o " --xattrs" -b \
+		-i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
+		-o " &quot;${srcuri}&quot; &quot;${desturi}&quot;" \
+		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${filename}
+	  chmod 700 ${filename}
 
-	xmlstarlet sel -t -m "//services/rsync/jobs/job[position()=${index}]" \
-	  -v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ${OMV_RSYNC_CRONUSER} ${filename}')" -n \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_RSYNC_CRONSCRIPT}
-
-	index=$(( ${index} - 1 ))
-done
+	  # Append config to cron config script.
+	  xmlstarlet sel -t -m "//services/rsync/jobs/job[uuid='${uuid}']" \
+		-v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ${OMV_RSYNC_CRONUSER} ${filename}')" -n \
+		${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_RSYNC_CRONSCRIPT}
+  done

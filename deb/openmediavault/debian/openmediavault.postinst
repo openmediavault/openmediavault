@@ -200,6 +200,12 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.2.5.1"; then
 			omv_config_add_element "//system/network/interfaces/*" "options" ""
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.2.5.4"; then
+			omv_config_add_element "//system/crontab/job/*" "enable" "1"
+			omv_config_add_element "//services/rsync/jobs/job/*" "enable" "1"
+			omv-mkconf cron
+			omv-mkconf rsync
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

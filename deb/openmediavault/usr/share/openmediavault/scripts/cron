@@ -31,7 +31,7 @@ xmlstarlet sel -t \
   -o "SHELL=/bin/sh" -n \
   -o "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" -n \
   -o "# m h dom mon dow user    command" -n \
-  -m "//system/crontab/job[type='reboot' or type='shutdown']" \
+  -m "//system/crontab/job[type='reboot' or type='shutdown'][enable='1']" \
 	  -v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ',username,' ',command,' 2&gt;&amp;1')" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CRONTAB_POWERMNGMT}
@@ -40,7 +40,7 @@ xmlstarlet sel -t \
   -o "SHELL=/bin/sh" -n \
   -o "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" -n \
   -o "# m h dom mon dow user    command" -n \
-  -m "//system/crontab/job[type='userdefined']" \
+  -m "//system/crontab/job[enable='1' and type='userdefined']" \
 	  -v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ',username,' ',command,' 2&gt;&amp;1')" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CRONTAB_USERDEFINED}

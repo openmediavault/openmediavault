@@ -138,6 +138,7 @@
 			<!--
 			<job>
 				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+				<enable>0|1</enable>
 				<type>reboot|shutdown|userdefined</type>
 				<comment>xxx</comment>
 				<minute>[00-59|*]</minute>
@@ -432,6 +433,7 @@
 				<!--
 				<job>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<enable>0|1</enable>
 					<comment>xxx</comment>
 					<type>local|remote</type>
 					<src>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxx</src>

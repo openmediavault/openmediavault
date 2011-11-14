@@ -28,6 +28,7 @@
 // require("js/omv/form/SharedFolderComboBox.js")
 // require("js/omv/form/plugins/FieldInfo.js")
 // require("js/omv/module/admin/Logs.js")
+// require("js/omv/util/Format.js")
 
 Ext.ns("OMV.Module.Services");
 
@@ -363,6 +364,14 @@ OMV.Module.Services.RsyncJobsGridPanel = function(config) {
 		stateId: "31924bfb-8e25-4ada-82f4-99a3a5c9e9a5",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
+				header: "Enabled",
+				sortable: true,
+				dataIndex: "enable",
+				id: "enable",
+				align: "center",
+				width: 60,
+				renderer: OMV.util.Format.booleanRenderer()
+			},{
 				header: "Source",
 				sortable: true,
 				dataIndex: "srcname",
@@ -396,6 +405,7 @@ Ext.extend(OMV.Module.Services.RsyncJobsGridPanel, OMV.grid.TBarGridPanel, {
 				root: "data",
 				fields: [
 					{ name: "uuid" },
+					{ name: "enable" },
 					{ name: "srcname" },
 					{ name: "destname" },
 					{ name: "comment" }
@@ -531,6 +541,12 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 
 	getFormItems : function() {
 		return [{
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: "Enable",
+			checked: true,
+			inputValue: 1
+		},{
 			xtype: "textfield",
 			name: "comment",
 			fieldLabel: "Comment",

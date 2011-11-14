@@ -90,6 +90,14 @@ OMV.Module.System.PowerMgmt.ScheduleGridPanel = function(config) {
 		stateId: "7db7131c-a7ec-4048-88de-606fd587af8e",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
+				header: "Enabled",
+				sortable: true,
+				dataIndex: "enable",
+				id: "enable",
+				align: "center",
+				width: 60,
+				renderer: OMV.util.Format.booleanRenderer()
+			},{
 				header: "Type",
 				sortable: true,
 				dataIndex: "type",
@@ -153,6 +161,7 @@ Ext.extend(OMV.Module.System.PowerMgmt.ScheduleGridPanel,
 				root: "data",
 				fields: [
 					{ name: "uuid" },
+					{ name: "enable" },
 					{ name: "type" },
 					{ name: "minute" },
 					{ name: "hour" },
@@ -217,7 +226,7 @@ OMV.Module.System.PowerMgmt.CronJobPropertyDialog = function(config) {
 		rpcSetMethod: "setRebootShutdown",
 		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
 		  " cron job",
-		height: 310
+		height: 330
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.System.PowerMgmt.CronJobPropertyDialog.superclass.
@@ -227,6 +236,12 @@ Ext.extend(OMV.Module.System.PowerMgmt.CronJobPropertyDialog,
   OMV.CfgObjectDialog, {
 	getFormItems : function() {
 		return [{
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: "Enable",
+			checked: true,
+			inputValue: 1
+		},{
 			xtype: "combo",
 			name: "type",
 			hiddenName: "type",

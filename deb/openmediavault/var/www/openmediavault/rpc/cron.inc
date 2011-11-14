@@ -43,6 +43,7 @@ class CronRpc extends OMVRpc {
 				"type":"object",
 				"properties":{
 					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+					"enable":{"type":"boolean"},
 					"type":{"type":["string","null"],"format":"regex",'.
 					  '"pattern":"\/^reboot|shutdown|userdefined$\/i"},
 					"minute":{"type":"string","format":"regex",'.
@@ -65,6 +66,7 @@ class CronRpc extends OMVRpc {
 				"type":"object",
 				"properties":{
 					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+					"enable":{"type":"boolean"},
 					"type":{"type":["string","null"],"format":"regex",'.
 					  '"pattern":"\/^reboot|shutdown$\/i"},
 					"minute":{"type":"string","format":"regex",'.
@@ -119,6 +121,7 @@ class CronRpc extends OMVRpc {
 		$jobs = array();
 		foreach ($objects as $objectk => $objectv) {
 			if (in_array($objectv['type'], $types)) {
+				$objectv['enable'] = boolval($objectv['enable']);
 				$jobs[] = $objectv;
 			}
 		}
@@ -147,6 +150,8 @@ class CronRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
+		// Modify result data
+		$object['enable'] = boolval($object['enable']);
 		return $object;
 	}
 
@@ -168,6 +173,7 @@ class CronRpc extends OMVRpc {
 		$object = array(
 			"uuid" => ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $data['uuid'],
+			"enable" => array_boolval($data, 'enable'),
 			"type" => $data['type'],
 			"minute" => $data['minute'],
 			"hour" => $data['hour'],

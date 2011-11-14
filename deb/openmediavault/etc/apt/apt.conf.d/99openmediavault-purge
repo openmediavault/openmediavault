@@ -1,5 +1,5 @@
 // Get rid of unneeded files after each package installation
 DPkg
 {
-Post-Invoke {"if [ $(ps w -p $PPID | grep -c remove) != 1 ]; then rm -rf /usr/share/doc/* /usr/share/man/* /var/cache/man/*; else exit 0; fi";};
+Post-Invoke {". /etc/default/openmediavault; . /usr/share/openmediavault/scripts/helper-functions; if omv_checkyesno ${OMV_DPKG_POSTINVOKE_PURGE_MAN}; then if [ $(ps w -p $PPID | grep -c remove) != 1 ]; then echo 'Purging man pages ...'; rm -rf /usr/share/doc/* /usr/share/man/* /var/cache/man/*; else exit 0; fi; fi";};
 };

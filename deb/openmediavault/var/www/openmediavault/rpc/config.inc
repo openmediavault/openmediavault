@@ -37,12 +37,11 @@ class ConfigRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
 		}
 		$this->commitSession();
-		// Get configuration file content
-		$cmd = sprintf("sudo cat %s", $GLOBALS['OMV_CONFIG_FILE']);
-		OMVUtil::exec($cmd, $content);
+		// Get configuration file content.
 		return array(
-			"filename" => sprintf("config%s.xml", date("YmdHis", time())),
-			"content" => implode("\r\n", $content)
+			"filename" => sprintf("config_%s_%s.xml",
+			  OMVNetwork::getHostname("--fqdn"), date("YmdHis", time())),
+			"filepath" => $GLOBALS['OMV_CONFIG_FILE']
 		);
 	}
 

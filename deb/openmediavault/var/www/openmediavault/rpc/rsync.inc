@@ -43,6 +43,7 @@ class RsyncRpc extends OMVRpc {
 				"type":"object",
 				"properties":{
 					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+					"enable":{"type":"boolean"},
 					"comment":{"type":"string"},
 					"type":{"type":"string","enum":["local","remote"]},
 					"srcsharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].
@@ -145,6 +146,7 @@ class RsyncRpc extends OMVRpc {
 				break;
 			}
 			// Modify result data
+			$objectv['enable'] = boolval($objectv['enable']);
 			$objectv['recursive'] = boolval($objectv['recursive']);
 			$objectv['times'] = boolval($objectv['times']);
 			$objectv['compress'] = boolval($objectv['compress']);
@@ -199,6 +201,7 @@ class RsyncRpc extends OMVRpc {
 			break;
 		}
 		// Modify result data
+		$object['enable'] = boolval($object['enable']);
 		$object['recursive'] = boolval($object['recursive']);
 		$object['times'] = boolval($object['times']);
 		$object['compress'] = boolval($object['compress']);
@@ -229,6 +232,7 @@ class RsyncRpc extends OMVRpc {
 		$object = array(
 			"uuid" => ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $data['uuid'],
+			"enable" => array_boolval($data, 'enable'),
 			"comment" => $data['comment'],
 			"type" => $data['type'],
 			"src" => ($data['type'] === "local") ?
