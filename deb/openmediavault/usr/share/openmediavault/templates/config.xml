@@ -113,7 +113,7 @@
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 					<uid>xxx</uid>
 					<name>xxx</name>
-					<groups>xxx</groups>
+					<groups>xxx[,xxx]*</groups>
 					<shell>xxx</shell>
 					<password>xxx</password>
 					<email>xxx</email>

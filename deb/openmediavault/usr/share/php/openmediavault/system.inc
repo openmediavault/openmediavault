@@ -609,6 +609,33 @@ class OMVFilesystem extends OMVObject {
 	}
 
 	/**
+	 * Check if a filesystem is mounted.
+	 * @param mountpoint The mount point to be check.
+	 * @return TRUE if the filesystem is mounted, otherwise FALSE.
+	 */
+	public static function isMountedByMountPoint($mountpoint) {
+		OMVUtil::exec("export LANG=C; sudo mount", $output, $result);
+		if ($result !== 0) {
+			return FALSE;
+		}
+		$result = FALSE;
+		foreach ($output as $outputv) {
+			$regex = "/^(\S+) on (\S+) type (\S+) \((\S+)\)$/";
+			if (1 !== preg_match($regex, $outputv, $matches))
+				continue;
+			// Parse command output:
+			// tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+			// devpts on /dev/pts type devpts (rw,noexec,nosuid,gid=5,mode=620)
+			// /dev/sdf1 on /media/f4f01ecc-548b-4e96-8fc4-874c6fdc9be0 type jfs (rw)
+			if ($matches[2] === $mountpoint) {
+				$result = TRUE;
+				break;
+			}
+		}
+		return $result;
+	}
+
+	/**
 	 * Get the directory where the filesystem should be mounted to.
 	 * @param uuid The UUID of the filesystem.
 	 * @return The path where to mount the filesystem, e.g.

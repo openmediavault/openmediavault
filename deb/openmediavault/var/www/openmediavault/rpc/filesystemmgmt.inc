@@ -134,7 +134,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 			  array($fs->getDeviceFile())))) {
 				if (TRUE === $xmlConfig->exists("//mntentref[".
 				  "contains(.,'{$meObject['uuid']}')]")) {
-					$object['_used'] = true;
+					$object['_used'] = TRUE;
 				}
 			}
 			// If the filesystem is mounted then try to get more
@@ -240,8 +240,9 @@ class FileSystemMgmtRpc extends OMVRpc {
 	 * \em mountpoint, \em blocks, \em used, \em available, \em description,
 	 * \em mounted, \em percentage and \em status.
 	 * The field 'status' has the following meaning:
-	 * 1 - Initialized
+	 * 1 - Online
 	 * 2 - Initializing in progress
+	 * 3 - Missing
 	 */
 	public function getList($start, $count, $sortField, $sortDir) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -297,15 +298,52 @@ class FileSystemMgmtRpc extends OMVRpc {
 					"label" => $fsInfo['label'],
 					"type" => $fsInfo['type'],
 					"blocks" => "0", // as string
+					"mounted" => FALSE,
 					"mountpoint" => "",
 					"used" => gettext("n/a"),
 					"available" => gettext("n/a"),
 					"capacity" => gettext("n/a"),
 					"percentage" => -1,
 					"description" => "",
-					"status" => 2
+					"status" => 2,
+					"_used" => FALSE
 				);
 			}
+		}
+		// Add filesystems configured to be mounted but device does not
+		// exist anymore. This is necessary to be able remove mount
+		// configuration. Mark filesystem as missing.
+		$xpath = "//system/fstab/mntent[not(contains(opts,'bind'))]";
+		$mntents = $xmlConfig->getList($xpath);
+		if (is_null($mntents)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		foreach ($mntents as $mntentk => $mntentv) {
+			if (FALSE !== array_search_ex($mntentv['fsname'], $objects,
+			  "uuid"))
+				continue;
+			// Check if the mount point configuration object is referenced by
+			// any other object, e.g. by a shared folder configuration object.
+			$xpath = sprintf("//mntentref[contains(.,'%s')]",
+			  $mntentv['uuid']);
+			// Append as much informations as possible.
+			$objects[] = array(
+				"devicefile" => gettext("n/a"),
+				"uuid" => $mntentv['fsname'],
+				"label" => gettext("n/a"),
+				"type" => $mntentv['type'],
+				"blocks" => "0", // as string
+				"mounted" => TRUE,
+				"mountpoint" => $mntentv['dir'],
+				"used" => gettext("n/a"),
+				"available" => gettext("n/a"),
+				"capacity" => gettext("n/a"),
+				"percentage" => -1,
+				"description" => "",
+				"status" => 3,
+				"_used" => $xmlConfig->exists($xpath)
+			);
 		}
 		// Filter result
 		return $this->applyFilter($objects, $start, $count, $sortField,
@@ -636,11 +674,13 @@ class FileSystemMgmtRpc extends OMVRpc {
 			  $xpath);
 		}
 		// Umount the mount point.
-		$cmd = sprintf("sudo umount %s", $object['dir']);
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		if (TRUE === OMVFilesystem::isMountedByMountPoint($object['dir'])) {
+			$cmd = sprintf("sudo umount -f %s", $object['dir']);
+			OMVUtil::exec($cmd, $output, $result);
+			if ($result !== 0) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
 		}
 		// Delete the mount point configuration object.
 		OMVRpc::exec("FsTab", "delete", array($object['uuid']));

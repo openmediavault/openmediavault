@@ -264,7 +264,7 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 			}
 			// Finally disable buttons if a selected filesystem is
 			// initialized at the moment.
-			if (2 == records[0].get("status")) {
+			if ([ 2,3 ].indexOf(records[0].get("status")) !== -1) {
 				tbarBtnDisabled["resize"] = true;
 				tbarBtnDisabled["quota"] = true;
 				tbarBtnDisabled["delete"] = true;
@@ -410,6 +410,9 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 			break;
 		case 2:
 			val = "<img border='0' src='images/wait.gif'> Initializing";
+			break;
+		default:
+			val = "Missing";
 			break;
 		}
 		return val;

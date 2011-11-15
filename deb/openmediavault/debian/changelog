@@ -4,6 +4,7 @@ openmediavault (0.2.5.4) stable; urgency=low
   * Disable purging man pages in Dpkg Post-Invoke by default. This can be
     enabled via environment variable OMV_DPKG_POSTINVOKE_PURGE_MAN.
   * Mantis 0000263: Configuration backup file naming scheme
+  * Mantis 0000266: Unable to login after changing admin password
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 13 Nov 2011 03:05:47 +0100
 
