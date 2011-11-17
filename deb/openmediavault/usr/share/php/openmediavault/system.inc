@@ -587,33 +587,17 @@ class OMVFilesystem extends OMVObject {
 	public function isMounted() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		OMVUtil::exec("export LANG=C; sudo mount", $output, $result);
-		if ($result !== 0) {
-			return FALSE;
-		}
-		$result = FALSE;
-		foreach ($output as $outputv) {
-			$regex = "/^(\S+) on (\S+) type (\S+) \((\S+)\)$/";
-			if (1 !== preg_match($regex, $outputv, $matches))
-				continue;
-			// Parse command output:
-			// tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
-			// devpts on /dev/pts type devpts (rw,noexec,nosuid,gid=5,mode=620)
-			// /dev/sdf1 on /media/f4f01ecc-548b-4e96-8fc4-874c6fdc9be0 type jfs (rw)
-			if ($matches[1] === $this->deviceFile) {
-				$result = TRUE;
-				break;
-			}
-		}
-		return $result;
+		return self::isMountedEx("filesystem", $this->getDeviceFile());
 	}
 
 	/**
 	 * Check if a filesystem is mounted.
-	 * @param mountpoint The mount point to be check.
+	 * @param key The name of the attribute to search for. This can
+	 *  be 'filesystem' or 'mountpoint'.
+	 * @param value The value to be check for.
 	 * @return TRUE if the filesystem is mounted, otherwise FALSE.
 	 */
-	public static function isMountedByMountPoint($mountpoint) {
+	public static function isMountedEx($key, $value) {
 		OMVUtil::exec("export LANG=C; sudo mount", $output, $result);
 		if ($result !== 0) {
 			return FALSE;
@@ -627,10 +611,16 @@ class OMVFilesystem extends OMVObject {
 			// tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
 			// devpts on /dev/pts type devpts (rw,noexec,nosuid,gid=5,mode=620)
 			// /dev/sdf1 on /media/f4f01ecc-548b-4e96-8fc4-874c6fdc9be0 type jfs (rw)
-			if ($matches[2] === $mountpoint) {
-				$result = TRUE;
+			switch ($key) {
+			case "filesystem":
+				$result = ($matches[1] === $value);
+				break;
+			case "mountpoint":
+				$result = ($matches[2] === $value);
 				break;
 			}
+			if (TRUE === $result)
+				break;
 		}
 		return $result;
 	}

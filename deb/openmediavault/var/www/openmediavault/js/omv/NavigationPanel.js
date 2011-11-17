@@ -82,7 +82,9 @@ Ext.extend(OMV.NavigationPanel, Ext.tree.TreePanel, {
 		this.on("afterrender", function() {
 			// Select the 'About' menu entry per default
 			this.getRootNode().cascade(function(node) {
-				if (node.text === "About") {
+				if (node.attributes.categoryId === "diagnostics" &&
+				  node.attributes.menuId === "sysinfo" &&
+				  node.attributes.text === "System Information") {
 					node.select();
 					this.fireEvent("click", node);
 					return false;

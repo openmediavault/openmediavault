@@ -5,6 +5,7 @@ openmediavault (0.2.5.4) stable; urgency=low
     enabled via environment variable OMV_DPKG_POSTINVOKE_PURGE_MAN.
   * Mantis 0000263: Configuration backup file naming scheme
   * Mantis 0000266: Unable to login after changing admin password
+  * Mantis 0000267: Set system overview as default start page
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 13 Nov 2011 03:05:47 +0100
 

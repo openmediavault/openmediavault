@@ -106,9 +106,10 @@ class FileSystemMgmtRpc extends OMVRpc {
 			// filesystems do not have a valid UUID. Any idea why?
 			$fs = new OMVFilesystem($objectv['devicefile']);
 			if (!$fs->exists()) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf(gettext("Filesystem '%s' not found"),
-				  $objectv['devicefile']));
+//				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+//				  sprintf(gettext("Filesystem '%s' not found"),
+//				  $objectv['devicefile']));
+				continue;
 			}
 			// Set default values.
 			$object = array(
@@ -673,8 +674,9 @@ class FileSystemMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Umount the mount point.
-		if (TRUE === OMVFilesystem::isMountedByMountPoint($object['dir'])) {
+		// Unmount the filesystem if it is mounted.
+		if (TRUE === OMVFilesystem::isMountedEx("mountpoint",
+		  $object['dir'])) {
 			$cmd = sprintf("sudo umount -f %s", $object['dir']);
 			OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0) {
