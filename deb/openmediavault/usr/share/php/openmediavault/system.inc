@@ -657,18 +657,32 @@ class OMVFilesystem extends OMVObject {
  * Generic class for storage devices.
  */
 class OMVStorageDevice extends OMVObject {
-	protected $deviceFile = "";
-	protected $deviceName = "";
+	protected $deviceFile = FALSE;
+	protected $deviceFileById = FALSE;
 	protected $size = FALSE;
 
 	/**
 	 * Constructor
-	 * @param deviceFile The device file, e.g. /dev/sdb or /dev/md1.
+	 * @param deviceFile The device file, e.g. /dev/sdb or /dev/md1 or
+	 * /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6.
 	 */
 	public function __construct($deviceFile) {
-		$this->deviceFile = $deviceFile;
-		$this->deviceName = substr($this->deviceFile, strrpos(
-		  $this->deviceFile, "/") + 1);
+		if(preg_match("/^\/dev\/disk\/by-id\/.+$/", $deviceFile)) {
+			$this->deviceFileById = $deviceFile;
+		} else {
+			$this->deviceFile = $deviceFile;
+		}
+	}
+
+	/**
+	 * Checks if the device exists.
+	 * @return TRUE if the device exists, otherwise FALSE.
+	 */
+	public function exists() {
+		$cmd = sprintf("sudo test -b %s", escapeshellarg(!$this->deviceFile ?
+		  $this->deviceFileById : $this->deviceFile));
+		@OMVUtil::exec($cmd, $output, $result);
+		return ($result == 0) ? TRUE : FALSE;
 	}
 
 	/**
@@ -676,22 +690,44 @@ class OMVStorageDevice extends OMVObject {
 	 * @return The device path.
 	 */
 	public function getDeviceFile() {
+		if(!$this->deviceFile) {
+			$cmd = sprintf("export LANG=C; readlink -e %s",
+			  escapeshellarg($this->deviceFileById));
+			@OMVUtil::exec($cmd, $output, $result);
+			if($result !== 0)
+				return FALSE;
+			$this->deviceFile = $output[0];
+		}
 		return $this->deviceFile;
 	}
 
 	/**
 	 * Get device path, e.g. /dev/disk/by-id/wwn-0x5000cca211cc703c or
 	 * /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML.
-	 * @return The device path, otherwise FALSE.
+	 * @return The device path (/dev/disk/by-id/xxx) if available, otherwise
+	 * /dev/xxx will be returned. In case of an error FALSE will be returned.
 	 */
 	public function getDeviceFileById() {
-		$cmd = sprintf("export LANG=C; ls -og /dev/disk/by-id/ | " .
-		  "grep -e '/%s$' | awk '{print $7}'", $this->deviceName);
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			return FALSE;
+		if(!$this->deviceFileById) {
+			// Sort in reverse order, thus SCSI/SATA entries are listed
+			// on top.
+			$cmd = sprintf("export LANG=C; ls -ogr /dev/disk/by-id/ | " .
+			  "grep -e '/%s$' | awk '{print $7}'", $this->getDeviceName());
+			@OMVUtil::exec($cmd, $output, $result);
+			if($result !== 0)
+				return FALSE;
+			// Command output:
+			// ata-VMware_Virtual_IDE_Hard_Drive_00000000000000000001
+			// scsi-SATA_VMware_Virtual_00000000000000000001
+			if(empty($output)) {
+				$this->deviceFileById = $this->deviceFile;
+			} else {
+				// Use first found entry.
+				$this->deviceFileById = sprintf("/dev/disk/by-id/%s",
+				  $output[0]);
+			}
 		}
-		return $output[0];
+		return $this->deviceFileById;
 	}
 
 	/**
@@ -699,7 +735,8 @@ class OMVStorageDevice extends OMVObject {
 	 * @return The device name.
 	 */
 	public function getDeviceName() {
-		return $this->deviceName;
+		$deviceFile = $this->getDeviceFile();
+		return substr($deviceFile, strrpos($deviceFile, "/") + 1);
 	}
 
 	/**
@@ -733,7 +770,8 @@ class OMVStorageDevice extends OMVObject {
 	 */
 	public function isUsb() {
 		$cmd = sprintf("export LANG=C; sudo udevadm info --name=%s " .
-		  "--attribute-walk | grep 'SUBSYSTEMS==\"usb\"'", $this->deviceFile);
+		  "--attribute-walk | grep 'SUBSYSTEMS==\"usb\"'",
+		  $this->getDeviceFile());
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			return FALSE;
@@ -776,24 +814,6 @@ class OMVHardDiskDevice extends OMVStorageDevice {
 	protected $model = FALSE;
 	protected $identityInfo = FALSE;
 	protected $vendor = FALSE;
-
-	/**
-	 * Constructor
-	 * @param path The device file, e.g. /dev/sdb.
-	 */
-	public function __construct($deviceFile) {
-		$this->deviceFile = $deviceFile;
-		$this->deviceName = substr($this->deviceFile, strrpos(
-		  $this->deviceFile, "/") + 1);
-	}
-
-	/**
-	 * Checks if the device exists.
-	 * @return TRUE if the device exists, otherwise FALSE.
-	 */
-	public function exists() {
-		return ($this->getDeviceFile() !== FALSE);
-	}
 
 	/**
 	 * Get the size of the device in bytes.

@@ -742,7 +742,7 @@ OMV.Module.Storage.SMARTScheduledTestPropertyDialog = function(config) {
 		rpcSetMethod: "setScheduledTest",
 		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
 		  " scheduled test",
-		height: 310
+		height: 330
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.Storage.SMARTScheduledTestPropertyDialog.superclass.
@@ -764,16 +764,18 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestPropertyDialog,
 				remoteSort: false,
 				proxy: new OMV.data.DataProxy("DiskMgmt", "enumerateDevices"),
 				reader: new Ext.data.JsonReader({
-					idProperty: "devicefile",
+					idProperty: "devicefilebyid",
 					fields: [
-						{ name: "devicefile" },
+						{ name: "devicefilebyid" },
 						{ name: "description" }
 					]
 				})
 			}),
 			emptyText: "Select a device ...",
-			valueField: "devicefile",
-			displayField: "description"
+			valueField: "devicefilebyid",
+			displayField: "description",
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: "Note, S.M.A.R.T. monitoring must be activated for the selected device."
 		},{
 			xtype: "combo",
 			name: "type",

@@ -543,7 +543,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 	/**
 	 * Delete a filesystem.
 	 * The filesystem will be umounted and deleted.
-     * @param uuid The UUID or devicefile of the filesystem to delete.
+     * @param id The UUID or devicefile of the filesystem to delete.
 	 */
 	public function delete($id) {
 //		$this->debug(var_export(func_get_args(), TRUE));

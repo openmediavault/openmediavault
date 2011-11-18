@@ -196,11 +196,15 @@ class OMVDownloadRpcServer extends OMVJsonRpcServer {
 	 * The response contains the following fields:
 	 * - filename
 	 * - content or filepath
+	 * - contenttype (optional)
 	 * The field \em content contains the content to be returned, \em filepath
-	 * contains the name of the file which content should be returned.
+	 * contains the name of the file which content should be returned. The
+	 * field \em contenttype contains the 'Content-Type' header string if set,
+	 * otherwise it is set to 'text/plain'.
 	 */
 	protected function handleResponse($response) {
-		header("Content-Type: text/plain");
+		header("Content-Type: ". array_key_exists("contenttype", $response) ?
+		  $response['contenttype'] : "text/plain");
 		header('Expires: 0');
 		header("Content-Disposition: attachment; " .
 		  "filename={$response['filename']}");

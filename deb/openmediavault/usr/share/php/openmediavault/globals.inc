@@ -62,7 +62,7 @@ $OMV_JSONSCHEMA_UUID_LIST = '"type":"string","format":"regex","pattern":'.
   '"\/^([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}[,;])*'.
   '[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$\/i"';
 $OMV_JSONSCHEMA_DEVICEFILE = '"type":"string","format":"regex",'.
-  '"pattern":"\/^\\\/dev\\\/.+$\/i"';
+  '"pattern":"\/^\\\/dev(\\\/disk\\\/by-id)?\\\/.+$\/i"';
 $OMV_JSONSCHEMA_DEVICEFILE_LIST = '"type":"string","format":"regex",'.
   '"pattern":"\/^(.+[,;])*.+$\/i"';
 $OMV_JSONSCHEMA_EMAIL = '"type":"string","format":"regex","pattern":'.

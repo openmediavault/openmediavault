@@ -247,6 +247,7 @@ class SmartRpc extends OMVRpc {
 			if ($hdd->exists()) {
 				$objectv['volume'] = array(
 					"devicefile" => $hdd->getDeviceFile(),
+					"devicefilebyid" => $hdd->getDeviceFileById(),
 					"model" => $hdd->getModel(),
 					"size" => $hdd->getSize(),
 					"capacity" => $hdd->getCapacity()
@@ -296,11 +297,17 @@ class SmartRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
+		// Check if the given device exists.
+		$sd = new OMVStorageDevice($data['devicefile']);
+		if(!$sd->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf(gettext("Device '%s' not found"), $data['devicefile']));
+		}
 		// Prepare configuration data
 		$object = array(
 			"uuid" => ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $data['uuid'],
-			"devicefile" => $data['devicefile'],
+			"devicefile" => $sd->getDeviceFileById(),
 			"type" => $data['type'],
 			"month" => $data['month'],
 			"dayofmonth" => $data['dayofmonth'],

@@ -45,7 +45,7 @@ class DiskMgmtRpc extends OMVRpc {
 				"properties":{
 					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
 					"devicefile":{"type":["string","null"],"format":"regex",'.
-					  '"pattern":"#^/dev/.+$#i"},
+					  '"pattern":"#^/dev(/disk/by-id)?/.+$#i"},
 					"smart":{"type":"boolean"},
 					"apm":{"type":"integer","minimum":1,"maximum":255},
 					"aam":{"type":"integer","enum":[0,128,254]},
@@ -82,6 +82,7 @@ class DiskMgmtRpc extends OMVRpc {
 				$object = array(
 					"devicename" => $hdd->getDeviceName(),
 					"devicefile" => $hdd->getDeviceFile(),
+					"devicefilebyid" => $hdd->getDeviceFileById(),
 					"model" => $hdd->getModel(),
 					"size" => $hdd->getSize(),
 					"capacity" => $hdd->getCapacity(),
@@ -125,13 +126,20 @@ class DiskMgmtRpc extends OMVRpc {
 		$this->validateParams(__METHOD__, func_get_args());
 		// Enumerate all disk devices on the system.
 		$devs = OMVRpc::exec("DiskMgmt", "enumerateDevices");
-		foreach ($devs as $devk => &$devv) {
-			// Check if there exists a hard disk parameter configuration
-			// object for the given device.
+		foreach($devs as $devk => &$devv) {
+			// Check if there exists a hdparm configuration object for the
+			// given device. Note, we have to check for 'dev/xxx' and
+			// 'dev/disk/by-id/xxx' entries.
 			$xpath = sprintf("//system/storage/hdparm[devicefile='%s']/uuid",
-			  $devv['devicefile']);
+			  $devv['devicefilebyid']);
 			$uuid = $xmlConfig->get($xpath);
-			if (is_uuid($uuid)) {
+			if(!is_uuid($uuid)) {
+				$xpath = sprintf("//system/storage/hdparm[devicefile='%s']".
+				  "/uuid", $devv['devicefile']);
+				$uuid = $xmlConfig->get($xpath);
+			}
+			// If found, then finally get the hdparm configuration object.
+			if(is_uuid($uuid)) {
 				$devv['hdparm'] = OMVRpc::exec("DiskMgmt", "getHdParm",
 				  array($uuid));
 			}
@@ -184,11 +192,17 @@ class DiskMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
+		// Check if the given device exists.
+		$sd = new OMVStorageDevice($data['devicefile']);
+		if(!$sd->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf(gettext("Device '%s' not found"), $data['devicefile']));
+		}
 		// Prepare configuration data
 		$object = array(
 			"uuid" => ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $data['uuid'],
-			"devicefile" => $data['devicefile'],
+			"devicefile" => $sd->getDeviceFileById(),
 			"smart" => array_boolval($data, 'smart'),
 			"apm" => $data['apm'],
 			"aam" => $data['aam'],
