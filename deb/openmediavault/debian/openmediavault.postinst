@@ -206,6 +206,34 @@ case "$1" in
 			omv-mkconf cron
 			omv-mkconf rsync
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.2.5.5"; then
+			xmlstarlet sel -t -m "//system/storage/hdparm" \
+			  -v "uuid" \
+			  -i "position() != last()" -n -b \
+			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+			  while read uuid; do
+				  devicefile=$(omv_config_get "//system/storage/hdparm[uuid='${uuid}']/devicefile")
+				  devicefilebyid=$(ls -ogr /dev/disk/by-id/ | grep -e "/${devicefile##*/}$" | awk '{print $7}' | head -n 1)
+				  if [ -n "${devicefilebyid}" ]; then
+					  omv_config_update "//system/storage/hdparm[uuid='${uuid}']/devicefile" \
+						"/dev/disk/by-id/${devicefilebyid}"
+				  fi
+			  done
+			xmlstarlet sel -t -m "//services/smart/scheduledtests/job" \
+			  -v "uuid" \
+			  -i "position() != last()" -n -b \
+			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+			  while read uuid; do
+				  devicefile=$(omv_config_get "//services/smart/scheduledtests/job[uuid='${uuid}']/devicefile")
+				  devicefilebyid=$(ls -ogr /dev/disk/by-id/ | grep -e "/${devicefile##*/}$" | awk '{print $7}' | head -n 1)
+				  if [ -n "${devicefilebyid}" ]; then
+					  omv_config_update "//services/smart/scheduledtests/job[uuid='${uuid}']/devicefile" \
+						"/dev/disk/by-id/${devicefilebyid}" 
+				  fi
+			  done
+			omv-mkconf hdparm
+			omv-mkconf smartmontools
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

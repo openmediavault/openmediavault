@@ -87,7 +87,7 @@ class SystemRpc extends OMVRpc {
 			  "path. Where the fear has gone there will be nothing. Only I ".
 			  "will remain."
 		);
-		return $result[mt_rand(0, count($result))];
+		return $result[mt_rand(0, count($result) - 1)];
 	}
 
 	/**
