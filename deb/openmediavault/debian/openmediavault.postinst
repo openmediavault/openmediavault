@@ -237,8 +237,6 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.2.5.6"; then
 			update-rc.d collectd enable
 			update-rc.d apache2 enable
-			invoke-rc.d collectd restart
-			invoke-rc.d apache2 restart
 			omv-mkconf monit
 			monit reload
 			monit monitor all
