@@ -18,7 +18,7 @@ The script code:
 check process mt-daapd with pidfile /var/run/mt-daapd.pid
   start program = "/etc/init.d/mt-daapd start"
   stop program = "/etc/init.d/mt-daapd stop"
-  mode active
+  mode manual
 
 Note, the script name and the service entry name from the monitrc file are
 equal: 'mt-daapd'

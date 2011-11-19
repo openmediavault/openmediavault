@@ -26,44 +26,20 @@ require_once("openmediavault/error.inc");
 
 class OMVMonitService extends OMVObject {
 	private $name = "";
-	private $enable = FALSE;
 
 	/**
 	 * Constructor
 	 * @param name The name is a service entry name from the monitrc file.
-	 * @param enable TRUE to start the process.
 	 */
-	public function __construct($name, $enable = FALSE) {
+	public function __construct($name) {
 		$this->name = $name;
-		$this->enable = $enable;
-	}
-
-	public function exec() {
-		// Try to stop the service. Do not throw an exception in case of an
-		// error returned by monit.
-		$this->stop(TRUE);
-		// Remove or create the services monit configuration file and start
-		// the service if necessary.
-		switch ($this->enable) {
-		case FALSE:
-			$this->update(TRUE);
-			break;
-		case TRUE:
-			$this->update(FALSE);
-			// Delay 2 second to give monit enough time to reload its
-			// configuration, otherwise monit does not realize the start
-			// command for the given service.
-			usleep(2000000);
-			$this->start();
-			break;
-		}
 	}
 
 	/**
 	 * Start the named service and enable monitoring for it.
 	 */
-	public function start() {
-		$this->action("start");
+	public function start($quiet = FALSE) {
+		$this->action("start", $quiet);
 	}
 
 	/**
@@ -78,21 +54,22 @@ class OMVMonitService extends OMVObject {
 	/**
 	 * Restart the named service.
 	 */
-	public function restart() {
-		$this->action("restart");
+	public function restart($quiet = FALSE) {
+		$this->action("restart", $quiet);
 	}
 
 	/**
-	 * Reinitialize a running monit daemon, the daemon will reread its
-	 * configuration, close and reopen log files.
+	 * Enable monitoring of the named service.
 	 */
-	public function reload() {
-		$cmd = "sudo monit reload 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+	public function monitor($quiet = FALSE) {
+		$this->action("monitor", $quiet);
+	}
+
+	/**
+	 * Disable monitoring of the named service.
+	 */
+	public function unmonitor($quiet = FALSE) {
+		$this->action("unmonitor", $quiet);
 	}
 
 	/**
@@ -110,24 +87,24 @@ class OMVMonitService extends OMVObject {
 		}
 	}
 
-	private function update($remove) {
-		switch ($remove) {
-		case FALSE:
-			// Create the monit service configuration file
-			$cmd = sprintf("sudo omv-monit-service enable %s", $this->name);
-			break;
-		case TRUE:
-			// Remove the monit service configuration file
-			$cmd = sprintf("sudo omv-monit-service disable %s", $this->name);
-			break;
-		}
+	/**
+	 * Create the monit configuration and reinitialize monit.
+	 */
+	public function update() {
+		// Create monit and monitored services configuration files.
+		$cmd = "sudo omv-mkconf monit";
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		// Force monit to reload its configuration
-		$this->reload();
+		// Reinitialize monit.
+		$cmd = "sudo monit reload";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
 	}
 
 	/**

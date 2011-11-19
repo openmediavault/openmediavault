@@ -1,3 +1,9 @@
+openmediavault-netatalk (0.2.3) stable; urgency=low
+
+  * Improve monitoring feature.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 19 Nov 2011 22:22:26 +0100
+
 openmediavault-netatalk (0.2.2) stable; urgency=low
 
   * Mantis 0000189: Daemon is automatically killed.

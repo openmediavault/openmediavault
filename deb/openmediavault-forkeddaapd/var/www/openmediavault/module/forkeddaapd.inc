@@ -24,6 +24,7 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/monit.inc");
+require_once("openmediavault/initscript.inc");
 
 class ForkedDaapdModule extends OMVModuleAbstract implements OMVINotifyListener,
   OMVIModuleStatus {
@@ -46,38 +47,49 @@ class ForkedDaapdModule extends OMVModuleAbstract implements OMVINotifyListener,
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$monit = new OMVMonitService("forked-daapd");
+		$initd = new OMVSysVInitScript("forked-daapd");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("iTunes/DAAP"),
 			"enabled" => boolval($object['enable']),
-			"running" => ($monit->status() === "running")
+			"running" => ($initd->status() == 0)
 		);
 	}
 
 	/**
 	 * Update the service.
 	 */
-	public function updateService() {
-		global $xmlConfig;
-		// Get the configuration object
-		$xpath = "//services/daap";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Create '/etc/forked-daapd.conf' file
+	public function updateService($object) {
 		$cmd = "sudo omv-mkconf forked-daapd 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		// Update service
-		$monit = new OMVMonitService("forked-daapd", boolval(
-		  $object['enable']));
-		$monit->exec();
+		// Update service:
+		// - Start/Stop service
+		// - Activate/deactivate monitoring
+		$monit = new OMVMonitService("forked-daapd");
+		switch($object['enable']) {
+		case TRUE:
+			// Start the service.
+			$initd = new OMVSysVInitScript("forked-daapd", TRUE);
+			$initd->exec();
+			// Update monit configuration and start monitoring. Delay some
+			// time to give monit enough time to reload its configuration.
+			$monit->update();
+			usleep(2000000);
+			$monit->monitor();
+			break;
+		default:
+			// Stop monitoring and update monit configuration.
+			$monit->unmonitor(TRUE);
+			$monit->update();
+			// Stop the service.
+			$initd = new OMVSysVInitScript("forked-daapd", FALSE);
+			$initd->exec();
+			break;
+		}
 	}
 
 	/**

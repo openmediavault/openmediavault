@@ -30,9 +30,9 @@ case "$1" in
 		omv-mkconf forked-daapd
 		# Enable/disable service
 		if [ "$(omv_config_get "//services/daap/enable")" = "0" ]; then
-			omv-monit-service disable forked-daapd
+			update-rc.d forked-daapd disable
 		else
-			omv-monit-service enable forked-daapd
+			update-rc.d forked-daapd enable
 		fi
 	;;
 

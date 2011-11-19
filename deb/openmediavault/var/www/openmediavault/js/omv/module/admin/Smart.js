@@ -775,7 +775,7 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestPropertyDialog,
 			valueField: "devicefilebyid",
 			displayField: "description",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Note, S.M.A.R.T. monitoring must be activated for the selected device."
+			infoText: "S.M.A.R.T. monitoring must be activated for the selected device."
 		},{
 			xtype: "combo",
 			name: "type",

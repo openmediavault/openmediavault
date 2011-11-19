@@ -1,5 +1,6 @@
 openmediavault (0.2.5.5) stable; urgency=low
 
+  * Improve monitoring feature.
   * Mantis 0000269: hdparm - change config from "/dev/xxx" to "/dev/disk/by-id".
     The same applies to smartd.conf.
   * Mantis 0000272: Allow handleResponse in OMVDownloadRpcServer to accept

@@ -56,30 +56,26 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Updating init script links and actions"
-			invoke-rc.d ntp stop
-			update-rc.d ntp disable >/dev/null
-			invoke-rc.d smartmontools stop
-			update-rc.d smartmontools disable >/dev/null
-			invoke-rc.d tftpd-hpa stop
-			update-rc.d tftpd-hpa disable >/dev/null
-			invoke-rc.d rsync stop
-			update-rc.d rsync disable >/dev/null
-			invoke-rc.d ssh stop
-			update-rc.d ssh disable >/dev/null
-			invoke-rc.d snmpd stop
-			update-rc.d snmpd disable >/dev/null
-			invoke-rc.d apache2 stop
-			update-rc.d apache2 disable >/dev/null
-			invoke-rc.d collectd stop
-			update-rc.d collectd disable >/dev/null
-			invoke-rc.d proftpd stop
-			update-rc.d proftpd disable >/dev/null
-			invoke-rc.d nfs-kernel-server stop
-			update-rc.d nfs-kernel-server disable >/dev/null
-			invoke-rc.d samba stop
-			update-rc.d samba disable >/dev/null
-			invoke-rc.d postfix stop
-			update-rc.d postfix disable >/dev/null
+			invoke-rc.d --force ntp stop
+			update-rc.d ntp disable &>/dev/null
+			invoke-rc.d --force smartmontools stop
+			update-rc.d smartmontools disable &>/dev/null
+			invoke-rc.d --force tftpd-hpa stop
+			update-rc.d tftpd-hpa disable &>/dev/null
+			invoke-rc.d --force rsync stop
+			update-rc.d rsync disable &>/dev/null
+			invoke-rc.d --force ssh stop
+			update-rc.d ssh disable &>/dev/null
+			invoke-rc.d --force snmpd stop
+			update-rc.d snmpd disable &>/dev/null
+			invoke-rc.d --force proftpd stop
+			update-rc.d proftpd disable &>/dev/null
+			invoke-rc.d --force nfs-kernel-server stop
+			update-rc.d nfs-kernel-server disable &>/dev/null
+			invoke-rc.d --force samba stop
+			update-rc.d samba disable &>/dev/null
+			invoke-rc.d --force postfix stop
+			update-rc.d postfix disable &>/dev/null
 		fi
 
 		########################################################################
@@ -142,39 +138,43 @@ case "$1" in
 		#chattr +i ${OMV_DOCUMENTROOT_DIR}/php-fcgi
 		chmod 600 ${OMV_CONFIG_FILE}
 
-		########################################################################
-		# Setup apache configuration
-		########################################################################
-		# Documentation/Howto:
-		# http://www.howtoforge.com/how-to-set-up-apache2-with-mod_fcgid-and-php5-on-debian-lenny
-		# http://www.christophfischer.com/linux/12-apache/47-apache-server-mit-php-fastcgi-und-debian-50-lenny
-		# http://wiki.hetzner.de/index.php/Apache_PHP5_fcgi_und_SuExec
-		########################################################################
-		echo "Configuring web server"
-		a2enmod suexec
-		a2enmod fcgid
-		a2enmod ssl
-		a2dissite 000-default
-		a2ensite openmediavault-webgui
+		if [ -z "$2" ]; then
+			####################################################################
+			# Setup apache configuration
+			####################################################################
+			# Documentation/Howto:
+			# http://www.howtoforge.com/how-to-set-up-apache2-with-mod_fcgid-and-php5-on-debian-lenny
+			# http://www.christophfischer.com/linux/12-apache/47-apache-server-mit-php-fastcgi-und-debian-50-lenny
+			# http://wiki.hetzner.de/index.php/Apache_PHP5_fcgi_und_SuExec
+			####################################################################
+			echo "Configuring web server"
+			a2enmod suexec
+			a2enmod fcgid
+			a2enmod ssl
+			a2dissite 000-default
+			a2ensite openmediavault-webgui
 
-		########################################################################
-		# Generate configurations
-		########################################################################
-		omv-mkconf mdadm
-		omv-mkconf cpufrequtils
-		omv-mkconf collectd
-		omv-mkconf cron-apt
-		omv-mkconf watchdog
+			####################################################################
+			# Generate configurations
+			####################################################################
+			omv-mkconf mdadm
+			omv-mkconf cpufrequtils
+			omv-mkconf collectd
+			omv-mkconf cron-apt
+			omv-mkconf watchdog
+			omv-mkconf monit
 
-		########################################################################
-		# Restart services
-		########################################################################
-		echo "Restarting services"
-		invoke-rc.d monit stop
-		omv-mkconf monit
-		invoke-rc.d monit start
-		invoke-rc.d cron restart
-		invoke-rc.d watchdog restart
+			####################################################################
+			# Restart services
+			####################################################################
+			echo "Restarting services"
+			invoke-rc.d cron restart
+			invoke-rc.d watchdog restart
+			invoke-rc.d collectd restart
+			invoke-rc.d apache2 graceful
+			monit reload
+			monit monitor all
+		fi
 
 		########################################################################
 		# Action to be done depending on the previous version.
@@ -233,6 +233,15 @@ case "$1" in
 			  done
 			omv-mkconf hdparm
 			omv-mkconf smartmontools
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.2.5.6"; then
+			update-rc.d collectd enable
+			update-rc.d apache2 enable
+			invoke-rc.d collectd restart
+			invoke-rc.d apache2 restart
+			omv-mkconf monit
+			monit reload
+			monit monitor all
 		fi
 	;;
 

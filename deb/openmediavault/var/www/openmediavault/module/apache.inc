@@ -23,7 +23,7 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
-require_once("openmediavault/monit.inc");
+require_once("openmediavault/initscript.inc");
 
 class ApacheModule extends OMVModuleAbstract implements OMVINotifyListener {
 	/**
@@ -44,9 +44,9 @@ class ApacheModule extends OMVModuleAbstract implements OMVINotifyListener {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		// Restart service
-		$monit = new OMVMonitService("apache2", TRUE);
-		$monit->restart();
+		// Force Apache to reload its configuration.
+		$initd = new OMVSysVInitScript("apache2", TRUE);
+		$initd->invoke("graceful");
 	}
 
 	/**

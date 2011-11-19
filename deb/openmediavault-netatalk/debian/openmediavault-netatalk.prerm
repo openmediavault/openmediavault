@@ -21,10 +21,8 @@
 
 set -e
 
-# Stop monit service, remove the service configuration file and
-# reinitialize monit daemon
-monit stop netatalk || true
-omv-monit-service disable netatalk
+# Generate configuration files and reinitialize monit.
+omv-mkconf monit
 monit reload
 
 case "$1" in

@@ -26,28 +26,15 @@ set -e
 
 OMV_NETATALK_MONIT=${OMV_NETATALK_MONIT:-"/etc/monit/conf.d/netatalk"}
 
-mkconf() {
-	cat <<EOF > ${OMV_NETATALK_MONIT}
+# Is the service enabled?
+rm -f ${OMV_NETATALK_MONIT}
+[ "$(omv_config_get "//services/netatalk/enable")" = "0" ] && exit 0
+
+cat <<EOF > ${OMV_NETATALK_MONIT}
 check process netatalk with pidfile /var/run/afpd.pid
   start program = "/etc/init.d/netatalk start"
   stop program = "/etc/init.d/netatalk stop"
 #  if failed host 127.0.0.1 port 548 type TCP then restart
 #  if 5 restarts within 5 cycles then timeout
-  mode active
+  mode manual
 EOF
-}
-
-case "$1" in
-	remove)
-		rm -f ${OMV_NETATALK_MONIT}
-		;;
-
-	mkconf)
-		mkconf
-		;;
-
-	*)
-		echo "$(basename $0) called with unknown argument '$1'" >&2
-		exit 1
-	;;
-esac

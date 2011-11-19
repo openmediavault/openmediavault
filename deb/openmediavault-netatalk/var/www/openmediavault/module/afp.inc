@@ -24,6 +24,7 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/monit.inc");
+require_once("openmediavault/initscript.inc");
 
 class AFPModule extends OMVModuleAbstract implements OMVINotifyListener,
   OMVIModuleStatus {
@@ -60,25 +61,37 @@ class AFPModule extends OMVModuleAbstract implements OMVINotifyListener,
 	/**
 	 * Create the configuration file and update the service.
 	 */
-	public function updateService() {
-		global $xmlConfig;
-		// Get the configuration object
-		$xpath = "//services/afp";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Create configuration files
+	public function updateService($object) {
 		$cmd = "sudo omv-mkconf netatalk 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		// Update service
-		$monit = new OMVMonitService("netatalk", boolval($object['enable']));
-		$monit->exec();
+		// Update service:
+		// - Start/Stop service
+		// - Activate/deactivate monitoring
+		$monit = new OMVMonitService("netatalk");
+		switch($object['enable']) {
+		case TRUE:
+			// Start the service.
+			$initd = new OMVSysVInitScript("netatalk", TRUE);
+			$initd->exec();
+			// Update monit configuration and start monitoring. Delay some
+			// time to give monit enough time to reload its configuration.
+			$monit->update();
+			usleep(2000000);
+			$monit->monitor();
+			break;
+		default:
+			// Stop monitoring and update monit configuration.
+			$monit->unmonitor(TRUE);
+			$monit->update();
+			// Stop the service.
+			$initd = new OMVSysVInitScript("netatalk", FALSE);
+			$initd->exec();
+			break;
+		}
 	}
 
 	/**

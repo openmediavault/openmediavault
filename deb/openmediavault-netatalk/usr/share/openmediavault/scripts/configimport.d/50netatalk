@@ -30,9 +30,9 @@ case "$1" in
 		omv-mkconf netatalk
 		# Enable/disable service
 		if [ "$(omv_config_get "//services/netatalk/enable")" = "0" ]; then
-			omv-monit-service disable netatalk
+			update-rc.d netatalk disable
 		else
-			omv-monit-service enable netatalk
+			update-rc.d netatalk enable
 		fi
 	;;
 
