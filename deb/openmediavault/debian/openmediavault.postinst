@@ -27,35 +27,67 @@ set -e
 case "$1" in
 	configure)
 		########################################################################
-		# First time install:
-		# Create user 'openmediavault' which is used to run the web interface. Add user
-		# to sudoers to allow web server to be able to execute actions that require
-		# 'root' permissions.
-		########################################################################
-		if ! getent passwd openmediavault > /dev/null 2>&1; then
-			useradd --system --groups sudo,shadow --user-group openmediavault || :
-			echo "%openmediavault ALL=NOPASSWD: ALL" >> /etc/sudoers
-		fi
-
-		# Create user 'admin' which is used as the web interface administrator account.
-		# Default password is 'openmediavault'.
-		if ! getent passwd admin > /dev/null 2>&1; then
-			useradd --system --no-user-group --password '$1$PjiW4uIZ$agjyA0foLeAcHClwOuad1.' --shell '/usr/sbin/nologin' --comment 'WebGUI administrator' admin || :
-		fi
-
-		update-rc.d openmediavault start 15 S . &>/dev/null
-		update-rc.d openmediavault-beep defaults 99 1 &>/dev/null
-
-		########################################################################
-		# Update the local plugin packages archive
-		########################################################################
-		apt-ftparchive packages ${OMV_DPKGARCHIVE_DIR} > ${OMV_DPKGARCHIVE_DIR}/Packages
-
-		########################################################################
 		# Set the default settings to those expected by OpenMediaVault.
 		########################################################################
 		if [ -z "$2" ]; then
-			echo "Updating init script links and actions"
+			####################################################################
+			# First time install:
+			####################################################################
+			# Create user 'openmediavault' which is used to run the web
+			# interface. Add user to sudoers to allow web server to be able to
+			# execute actions that require 'root' permissions.
+			####################################################################
+			if ! getent passwd openmediavault > /dev/null 2>&1; then
+				useradd --system --groups sudo,shadow --user-group openmediavault || :
+				echo "%openmediavault ALL=NOPASSWD: ALL" >> /etc/sudoers
+			fi
+
+			####################################################################
+			# Create user 'admin' which is used as the web interface
+			# administrator account. Default password is 'openmediavault'.
+			####################################################################
+			if ! getent passwd admin > /dev/null 2>&1; then
+				useradd --system --no-user-group --password '$1$PjiW4uIZ$agjyA0foLeAcHClwOuad1.' \
+				  --shell '/usr/sbin/nologin' --comment 'WebGUI administrator' admin || :
+			fi
+			if ! omv_config_exists "//system/usermanagement/users/user[name='admin']"; then
+				usercfg=$(getent passwd | grep -e "^admin:")
+				uid=$(echo "${usercfg}" | awk -F ":" '{print $3}')
+				comment=$(echo "${usercfg}" | awk -F ":" '{print $5}')
+				shell=$(echo "${usercfg}" | awk -F ":" '{print $7}')
+				password="openmediavault"
+				object="<uuid>$(uuid)</uuid>"
+				object="${object}<uid>${uid}</uid>"
+				object="${object}<name>admin</name>"
+				object="${object}<groups></groups>"
+				object="${object}<shell>${shell}</shell>"
+				object="${object}<password>${password}</password>"
+				object="${object}<email></email>"
+				object="${object}<comment>${comment}</comment>"
+				object="${object}<disallowusermod>0</disallowusermod>"
+				object="${object}<mntentref></mntentref>"
+				omv_config_add_element "//system/usermanagement/users" "user" \
+				  "${object}" true
+			fi
+
+			####################################################################
+			# Install configuration file
+			####################################################################
+			if [ ! -e "${OMV_CONFIG_FILE}" ]; then
+				echo "Installing default configuration"
+				cp ${OMV_CONFIG_TEMPLATE_FILE} ${OMV_CONFIG_FILE}
+			fi
+
+			####################################################################
+			# Update the local plugin packages archive
+			####################################################################
+			echo "Updating local package archive ..."
+			apt-ftparchive packages ${OMV_DPKGARCHIVE_DIR} > ${OMV_DPKGARCHIVE_DIR}/Packages
+
+			####################################################################
+			# Setup services
+			####################################################################
+			echo "Updating init scripts actions ..."
 			invoke-rc.d --force ntp stop
 			update-rc.d ntp disable &>/dev/null
 			invoke-rc.d --force smartmontools stop
@@ -76,40 +108,15 @@ case "$1" in
 			update-rc.d samba disable &>/dev/null
 			invoke-rc.d --force postfix stop
 			update-rc.d postfix disable &>/dev/null
-		fi
 
-		########################################################################
-		# Install configuration file
-		########################################################################
-		if [ ! -e "${OMV_CONFIG_FILE}" ]; then
-			echo "Installing default configuration"
-			cp ${OMV_CONFIG_TEMPLATE_FILE} ${OMV_CONFIG_FILE}
+			update-rc.d openmediavault start 15 S . &>/dev/null
+			update-rc.d openmediavault-beep defaults 99 1 &>/dev/null
 		fi
 
 		########################################################################
 		# Update the configuration
 		########################################################################
-		echo "Updating configuration"
-		# Add user 'admin' to configuration
-		if ! omv_config_exists "//system/usermanagement/users/user[name='admin']"; then
-			usercfg=$(getent passwd | grep -e "^admin:")
-			uid=$(echo "${usercfg}" | awk -F ":" '{print $3}')
-			comment=$(echo "${usercfg}" | awk -F ":" '{print $5}')
-			shell=$(echo "${usercfg}" | awk -F ":" '{print $7}')
-			password="openmediavault"
-			object="<uuid>$(uuid)</uuid>"
-			object="${object}<uid>${uid}</uid>"
-			object="${object}<name>admin</name>"
-			object="${object}<groups></groups>"
-			object="${object}<shell>${shell}</shell>"
-			object="${object}<password>${password}</password>"
-			object="${object}<email></email>"
-			object="${object}<comment>${comment}</comment>"
-			object="${object}<disallowusermod>0</disallowusermod>"
-			object="${object}<mntentref></mntentref>"
-			omv_config_add_element "//system/usermanagement/users" "user" \
-			  "${object}" true
-		fi
+		echo "Updating configuration ..."
 		# Update the product information
 		version=$(dpkg-query -W -f='${Version}' openmediavault)
 		if [ -n "$version" ]; then
@@ -126,9 +133,10 @@ case "$1" in
 		# Documentation/Howto:
 		# http://www.christophfischer.com/linux/12-apache/47-apache-server-mit-php-fastcgi-und-debian-50-lenny
 		########################################################################
-		echo "Updating permissions"
+		echo "Updating permissions ..."
 		# These permissions are required by Apache
-		chown -R openmediavault:openmediavault /etc/openmediavault /var/cache/openmediavault ${OMV_DOCUMENTROOT_DIR}
+		chown -R openmediavault:openmediavault /etc/openmediavault \
+		  /var/cache/openmediavault ${OMV_DOCUMENTROOT_DIR}
 		chmod 755 /var/www
 		chmod 755 ${OMV_DOCUMENTROOT_DIR}
 		find ${OMV_DOCUMENTROOT_DIR}/* -type d -exec chmod 775 {} +
@@ -167,18 +175,18 @@ case "$1" in
 			####################################################################
 			# Restart services
 			####################################################################
-			echo "Restarting services"
+			echo "Restarting services ..."
 			invoke-rc.d cron restart
 			invoke-rc.d watchdog restart
 			invoke-rc.d collectd restart
 			invoke-rc.d apache2 graceful
-			monit reload
-			monit monitor all
+			invoke-rc.d monit restart
 		fi
 
 		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
+		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "0.2.4.2"; then
 			# Remove useless APT configuration
 			rm -rf /etc/apt/apt.conf.d/99openmediavault-postdpkg
@@ -213,7 +221,8 @@ case "$1" in
 			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
 			  while read uuid; do
 				  devicefile=$(omv_config_get "//system/storage/hdparm[uuid='${uuid}']/devicefile")
-				  devicefilebyid=$(ls -ogr /dev/disk/by-id/ | grep -e "/${devicefile##*/}$" | awk '{print $7}' | head -n 1)
+				  devicefilebyid=$(test -d "/dev/disk/by-id" && ls -ogr "/dev/disk/by-id/" | \
+					grep -e "/${devicefile##*/}$" | awk '{print $7}' | head -n 1)
 				  if [ -n "${devicefilebyid}" ]; then
 					  omv_config_update "//system/storage/hdparm[uuid='${uuid}']/devicefile" \
 						"/dev/disk/by-id/${devicefilebyid}"
@@ -225,7 +234,8 @@ case "$1" in
 			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
 			  while read uuid; do
 				  devicefile=$(omv_config_get "//services/smart/scheduledtests/job[uuid='${uuid}']/devicefile")
-				  devicefilebyid=$(ls -ogr /dev/disk/by-id/ | grep -e "/${devicefile##*/}$" | awk '{print $7}' | head -n 1)
+				  devicefilebyid=$(test -d "/dev/disk/by-id" && \ ls -ogr "/dev/disk/by-id/" | \
+					grep -e "/${devicefile##*/}$" | awk '{print $7}' | head -n 1)
 				  if [ -n "${devicefilebyid}" ]; then
 					  omv_config_update "//services/smart/scheduledtests/job[uuid='${uuid}']/devicefile" \
 						"/dev/disk/by-id/${devicefilebyid}" 
@@ -233,13 +243,12 @@ case "$1" in
 			  done
 			omv-mkconf hdparm
 			omv-mkconf smartmontools
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.5.6"; then
+			omv-mkconf monit
+			update-rc.d openmediavault remove
+			update-rc.d openmediavault start 15 S . &>/dev/null
 			update-rc.d collectd enable
 			update-rc.d apache2 enable
-			omv-mkconf monit
-			monit reload
-			monit monitor all
+			invoke-rc.d monit restart
 		fi
 	;;
 

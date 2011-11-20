@@ -2,15 +2,6 @@
 check file php-fcgi with path "/var/www/openmediavault/php-fcgi"
   if failed permission 700 then exec "/bin/chmod 700 /var/www/openmediavault/php-fcgi"
 
-#overall system health checks
-check system localhost
-  if loadavg (1min) > 5 for 3 cycles then alert
-  if loadavg (5min) > 2 for 3 cycles then alert
-  if memory usage > 90% then alert
-  if cpu usage (user) > 95% then alert
-  if cpu usage (system) > 95% then alert
-  if cpu usage (wait) > 95% then alert
-
 # Alert if disk space of root filesystem gets low
 check filesystem rootfs with path /
   if space usage > 80% for 5 times within 15 cycles 

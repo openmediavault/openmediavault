@@ -711,8 +711,9 @@ class OMVStorageDevice extends OMVObject {
 		if(!$this->deviceFileById) {
 			// Sort in reverse order, thus SCSI/SATA entries are listed
 			// on top.
-			$cmd = sprintf("export LANG=C; ls -ogr /dev/disk/by-id/ | " .
-			  "grep -e '/%s$' | awk '{print $7}'", $this->getDeviceName());
+			$cmd = sprintf("export LANG=C; test -d '/dev/disk/by-id' && ".
+			  "ls -ogr '/dev/disk/by-id/' | grep -e '/%s$' | ".
+			  "awk '{print $7}'", $this->getDeviceName());
 			@OMVUtil::exec($cmd, $output, $result);
 			if($result !== 0)
 				return FALSE;
