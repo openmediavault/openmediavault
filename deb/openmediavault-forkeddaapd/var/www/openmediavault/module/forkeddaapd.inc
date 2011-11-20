@@ -69,7 +69,7 @@ class ForkedDaapdModule extends OMVModuleAbstract implements OMVINotifyListener,
 		// Update service:
 		// - Start/Stop service
 		// - Activate/deactivate monitoring
-		$monit = new OMVMonitService("forked-daapd");
+		$monit = new OMVMonit();
 		switch($object['enable']) {
 		case TRUE:
 			// Start the service.
@@ -79,11 +79,11 @@ class ForkedDaapdModule extends OMVModuleAbstract implements OMVINotifyListener,
 			// time to give monit enough time to reload its configuration.
 			$monit->update();
 			usleep(2000000);
-			$monit->monitor();
+			$monit->monitor("forked-daapd");
 			break;
 		default:
 			// Stop monitoring and update monit configuration.
-			$monit->unmonitor(TRUE);
+			$monit->unmonitor("forked-daapd", TRUE);
 			$monit->update();
 			// Stop the service.
 			$initd = new OMVSysVInitScript("forked-daapd", FALSE);

@@ -43,7 +43,7 @@ case "$1" in
 			useradd --system --no-user-group --password '$1$PjiW4uIZ$agjyA0foLeAcHClwOuad1.' --shell '/usr/sbin/nologin' --comment 'WebGUI administrator' admin || :
 		fi
 
-		update-rc.d openmediavault defaults &>/dev/null
+		update-rc.d openmediavault start 15 S . &>/dev/null
 		update-rc.d openmediavault-beep defaults 99 1 &>/dev/null
 
 		########################################################################

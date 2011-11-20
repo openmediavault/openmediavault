@@ -45,8 +45,8 @@ class CollectdModule extends OMVModuleAbstract implements OMVINotifyListener {
 			  $cmd, implode("\n", $output));
 		}
 		// Restart service
-		$monit = new OMVMonitService("collectd", TRUE);
-		$monit->restart();
+		$monit = new OMVMonit();
+		$monit->restart("collectd");
 		// Generate RRD graph images as background job (rendering may take
 		// some time).
 		$cmd = "sudo omv-mkgraph 2>&1 &";

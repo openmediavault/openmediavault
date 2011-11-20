@@ -24,62 +24,66 @@ require_once("openmediavault/util.inc");
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 
-class OMVMonitService extends OMVObject {
-	private $name = "";
-
-	/**
-	 * Constructor
-	 * @param name The name is a service entry name from the monitrc file.
-	 */
-	public function __construct($name) {
-		$this->name = $name;
-	}
-
+class OMVMonit extends OMVObject {
 	/**
 	 * Start the named service and enable monitoring for it.
+	 * @param name The name of the service.
+	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
+	 * @return None
 	 */
-	public function start($quiet = FALSE) {
-		$this->action("start", $quiet);
+	public function start($name, $quiet = FALSE) {
+		$this->action("start", $name, $quiet);
 	}
 
 	/**
 	 * Stop the named service and disable its monitoring.
+	 * @param name The name of the service.
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
 	 * @return None
 	 */
-	public function stop($quiet = FALSE) {
-		$this->action("stop", $quiet);
+	public function stop($name, $quiet = FALSE) {
+		$this->action("stop", $name, $quiet);
 	}
 
 	/**
 	 * Restart the named service.
+	 * @param name The name of the service.
+	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
+	 * @return None
 	 */
-	public function restart($quiet = FALSE) {
-		$this->action("restart", $quiet);
+	public function restart($name, $quiet = FALSE) {
+		$this->action("restart", $name, $quiet);
 	}
 
 	/**
 	 * Enable monitoring of the named service.
+	 * @param name The name of the service.
+	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
+	 * @return None
 	 */
-	public function monitor($quiet = FALSE) {
-		$this->action("monitor", $quiet);
+	public function monitor($name, $quiet = FALSE) {
+		$this->action("monitor", $name, $quiet);
 	}
 
 	/**
 	 * Disable monitoring of the named service.
+	 * @param name The name of the service.
+	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
+	 * @return None
 	 */
-	public function unmonitor($quiet = FALSE) {
-		$this->action("unmonitor", $quiet);
+	public function unmonitor($name, $quiet = FALSE) {
+		$this->action("unmonitor", $name, $quiet);
 	}
 
 	/**
 	 * Execute the given action.
 	 * @param action The action to execute, e.g. start, stop, restart, ...
+	 * @param name The name of the service.
 	 * @param quiet Do not throw an error on failure. Defaults to FALSE.
 	 * @return None
 	 */
-	private function action($action, $quiet = FALSE) {
-		$cmd = sprintf("sudo monit %s %s 2>&1", $action, $this->name);
+	private function action($action, $name, $quiet = FALSE) {
+		$cmd = sprintf("sudo monit %s %s 2>&1", $action, $name);
 		OMVUtil::exec($cmd, $output, $result);
 		if (!$quiet && ($result !== 0)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -108,13 +112,13 @@ class OMVMonitService extends OMVObject {
 	}
 
 	/**
-	 * Get the status of the monitored process.
+	 * Get the status of a monitored process.
+	 * @param name The name of the service.
 	 * @return The status of the monitored service, e.g. 'running'.
 	 */
-	public function status() {
+	public function status($name) {
 		$cmd = sprintf("export LANG=C; sudo monit status | sed -e " .
-		  "'/^.*%s.*$/,/^$/!d' | grep -e '^\s*status' || true",
-		  $this->name);
+		  "'/^.*%s.*$/,/^$/!d' | grep -e '^\s*status' || true", $name);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

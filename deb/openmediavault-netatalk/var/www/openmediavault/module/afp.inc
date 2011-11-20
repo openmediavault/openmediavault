@@ -49,12 +49,12 @@ class AFPModule extends OMVModuleAbstract implements OMVINotifyListener,
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$monit = new OMVMonitService("netatalk");
+		$monit = new OMVMonit();
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("Apple Filing"),
 			"enabled" => boolval($object['enable']),
-			"running" => ($monit->status() === "running")
+			"running" => ($monit->status("netatalk") === "running")
 		);
 	}
 
@@ -71,7 +71,7 @@ class AFPModule extends OMVModuleAbstract implements OMVINotifyListener,
 		// Update service:
 		// - Start/Stop service
 		// - Activate/deactivate monitoring
-		$monit = new OMVMonitService("netatalk");
+		$monit = new OMVMonit();
 		switch($object['enable']) {
 		case TRUE:
 			// Start the service.
@@ -81,11 +81,11 @@ class AFPModule extends OMVModuleAbstract implements OMVINotifyListener,
 			// time to give monit enough time to reload its configuration.
 			$monit->update();
 			usleep(2000000);
-			$monit->monitor();
+			$monit->monitor("netatalk");
 			break;
 		default:
 			// Stop monitoring and update monit configuration.
-			$monit->unmonitor(TRUE);
+			$monit->unmonitor("netatalk", TRUE);
 			$monit->update();
 			// Stop the service.
 			$initd = new OMVSysVInitScript("netatalk", FALSE);
