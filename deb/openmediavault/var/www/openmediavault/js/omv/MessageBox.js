@@ -26,6 +26,8 @@ Ext.ns("OMV");
  */
 OMV.MessageBox = function() {
 	return {
+		YESCANCEL: { yes: true, cancel: true },
+
 		/**
 		 * Displays a new message box, or reinitializes an existing message
 		 * box, based on the config options passed in.

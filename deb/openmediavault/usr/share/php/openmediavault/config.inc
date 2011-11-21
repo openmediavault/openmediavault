@@ -95,7 +95,8 @@ class OMVConfigEngine extends OMVObject {
 	 */
 	public function load() {
 		$this->domdoc = new DOMDocument();
-		return $this->domdoc->load($this->filePath, LIBXML_NOBLANKS);
+		return $this->domdoc->load($this->filePath, LIBXML_NOBLANKS |
+		  LIBXML_NONET);
 	}
 
 	/**

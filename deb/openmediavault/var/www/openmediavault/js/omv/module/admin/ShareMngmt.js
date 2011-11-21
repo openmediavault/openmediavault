@@ -168,18 +168,43 @@ Ext.extend(OMV.Module.Privileges.SharedFolderGridPanel,
 	},
 
 	startDeletion: function(model, records) {
-		if (records.length <= 0)
+		if(records.length <= 0)
 			return;
-		var msg = "Do you want to remove the content of the shared " +
-		  "folder recursively?"
 		OMV.MessageBox.show({
-			title: "Confirmation",
-			msg: msg,
-			buttons: Ext.Msg.YESNO,
+			title: "Delete content",
+			msg: "Do you want to remove the content of the shared " +
+			  "folder recursively? Note, the data will be permanently " +
+			  "deleted then. Select 'No' to delete the shared folder only " +
+			  "or 'Cancel' to abort.",
+			buttons: Ext.Msg.YESNOCANCEL,
 			fn: function(answer) {
-				this.deleteRecursive = (answer === "yes");
-				OMV.Module.Privileges.SharedFolderGridPanel.superclass.
-				  startDeletion.call(this, model, records);
+				this.deleteRecursive = false;
+				switch(answer) {
+				case "yes":
+					OMV.MessageBox.show({
+						title: "Confirmation",
+						msg: "Do you really want to remove the shared " +
+						  "folder content?",
+						buttons: OMV.Msg.YESCANCEL,
+						fn: function(answer) {
+							if(answer === "yes") {
+								this.deleteRecursive = true;
+								OMV.Module.Privileges.SharedFolderGridPanel.
+								  superclass.startDeletion.call(this, model,
+								  records);
+							}
+						},
+						scope: this,
+						icon: Ext.Msg.QUESTION
+					});
+					break;
+				case "no":
+					OMV.Module.Privileges.SharedFolderGridPanel.superclass.
+					  startDeletion.call(this, model, records);
+					break;
+				case "cancel":
+					break;
+				}
 			},
 			scope: this,
 			icon: Ext.Msg.QUESTION
