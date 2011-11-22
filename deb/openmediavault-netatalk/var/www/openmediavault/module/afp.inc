@@ -59,15 +59,32 @@ class AFPModule extends OMVModuleAbstract implements OMVINotifyListener,
 	}
 
 	/**
-	 * Create the configuration file and update the service.
+	 * Update the configuration.
 	 */
-	public function updateService($object) {
+	public function mkConf() {
 		$cmd = "sudo omv-mkconf netatalk 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
+	}
+
+	/**
+	 * Create the configuration file and update the service.
+	 */
+	public function updateService() {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Get the configuration object
+		$xpath = "//services/afp";
+		$object = $xmlConfig->get($xpath);
+		if (is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Create configuration
+		$this->mkConf();
 		// Update service:
 		// - Start/Stop service
 		// - Activate/deactivate monitoring

@@ -251,7 +251,7 @@ Ext.extend(OMV.Module.Privileges.UserPropertyDialog, OMV.CfgObjectDialog, {
 			name: "uid",
 			fieldLabel: "UID",
 			allowBlank: true,
-			minValue: 1001,
+			minValue: 1000,
 			maxValue: 60000, // see /etc/login.defs
 			allowDecimals: false,
 			allowNegative: false,

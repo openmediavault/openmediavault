@@ -178,9 +178,6 @@ class NFSRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Prepare response data
-		$object['privilege'] = $object['options'];
-		unset($object['options']);
 		return $object;
 	}
 

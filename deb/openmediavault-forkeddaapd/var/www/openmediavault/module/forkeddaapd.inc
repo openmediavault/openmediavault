@@ -57,15 +57,24 @@ class ForkedDaapdModule extends OMVModuleAbstract implements OMVINotifyListener,
 	}
 
 	/**
-	 * Update the service.
+	 * Update the configuration.
 	 */
-	public function updateService($object) {
+	public function mkConf() {
 		$cmd = "sudo omv-mkconf forked-daapd 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
+	}
+
+	/**
+	 * Update the service.
+	 */
+	public function updateService($object) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		// Create configuration
+		$this->mkConf();
 		// Update service:
 		// - Start/Stop service
 		// - Activate/deactivate monitoring

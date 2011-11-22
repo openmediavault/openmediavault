@@ -8,6 +8,9 @@ openmediavault (0.2.5.5) stable; urgency=low
     a content-type
   * Mantis 0000275: RPC call to System::noop sometimes throws exception
   * Mantis 0000276: Configure monit load average based on detected CPU's
+  * Mantis 0000281: When editing NFS share which was set with read-write, the
+    menu drops back to read-only
+  * Mantis 0000283: Min UID/GID
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 18 Nov 2011 21:27:13 +0100
 
