@@ -48,6 +48,7 @@ xmlstarlet sel -t -m "//services/rsync/jobs/job[enable='1']" \
   while read uuid; do
 	  type=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/type")
 	  filename="${OMV_RSYNC_CRONSCRIPTSDIR}/rsync-${uuid}"
+	  runfile="/var/run/rsync-${uuid}"
 	  srcuri=""
 	  desturi=""
 
@@ -77,6 +78,10 @@ xmlstarlet sel -t -m "//services/rsync/jobs/job[enable='1']" \
 
 	  # Create the rsync script.
 	  xmlstarlet sel -t -m "//services/rsync/jobs/job[uuid='${uuid}']" \
+		-o "#!/bin/sh" -n \
+		-o "[ -e ${runfile} ] &amp;&amp; exit 0" -n \
+		-o "trap &quot;rm -f ${runfile}&quot; 0 1 2 5 15" -n \
+		-o "touch ${runfile}" -n \
 		-o "rsync --verbose --log-file=&quot;${OMV_RSYNC_LOGFILE}&quot;" \
 		-i "recursive = '0'" -o " --recursive" -b \
 		-i "times = '1'" -o " --times" -b \

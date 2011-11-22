@@ -1,3 +1,9 @@
+openmediavault (0.2.5.6) stable; urgency=low
+
+  * Make sure a rsync cron job is not executed while it is still running.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 22 Nov 2011 21:14:42 +0100
+
 openmediavault (0.2.5.5) stable; urgency=low
 
   * Improve monitoring feature.
