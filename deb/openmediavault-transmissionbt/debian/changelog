@@ -1,3 +1,10 @@
+openmediavault-transmissionbt (0.2.7.3) stable; urgency=low
+
+  * Keep Windows IE 7 compatibility.
+  * Fix bug in settings page.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 24 Nov 2011 21:41:15 +0100
+
 openmediavault-transmissionbt (0.2.7.2) stable; urgency=low
 
   * Removed old umask var
