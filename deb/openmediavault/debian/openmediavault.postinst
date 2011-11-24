@@ -31,8 +31,6 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			####################################################################
-			# First time install:
-			####################################################################
 			# Create user 'openmediavault' which is used to run the web
 			# interface. Add user to sudoers to allow web server to be able to
 			# execute actions that require 'root' permissions.
@@ -79,10 +77,11 @@ case "$1" in
 			fi
 
 			####################################################################
-			# Update the local plugin packages archive
+			# Update the local plugin packages archive. The 'packages' command
+			# should be run in the root of the tree.
 			####################################################################
 			echo "Updating local package archive ..."
-			apt-ftparchive packages ${OMV_DPKGARCHIVE_DIR} > ${OMV_DPKGARCHIVE_DIR}/Packages
+			cd ${OMV_DPKGARCHIVE_DIR} && apt-ftparchive packages . > Packages
 
 			####################################################################
 			# Setup services
@@ -111,6 +110,21 @@ case "$1" in
 
 			update-rc.d openmediavault start 15 S . &>/dev/null
 			update-rc.d openmediavault-beep defaults 99 1 &>/dev/null
+
+			####################################################################
+			# Setup apache configuration
+			####################################################################
+			# Documentation/Howto:
+			# http://www.howtoforge.com/how-to-set-up-apache2-with-mod_fcgid-and-php5-on-debian-lenny
+			# http://www.christophfischer.com/linux/12-apache/47-apache-server-mit-php-fastcgi-und-debian-50-lenny
+			# http://wiki.hetzner.de/index.php/Apache_PHP5_fcgi_und_SuExec
+			####################################################################
+			echo "Configuring web server"
+			a2enmod suexec
+			a2enmod fcgid
+			a2enmod ssl
+			a2dissite 000-default
+			a2ensite openmediavault-webgui
 		fi
 
 		########################################################################
@@ -146,35 +160,22 @@ case "$1" in
 		#chattr +i ${OMV_DOCUMENTROOT_DIR}/php-fcgi
 		chmod 600 ${OMV_CONFIG_FILE}
 
+		########################################################################
+		# Generate configurations
+		########################################################################
 		if [ -z "$2" ]; then
-			####################################################################
-			# Setup apache configuration
-			####################################################################
-			# Documentation/Howto:
-			# http://www.howtoforge.com/how-to-set-up-apache2-with-mod_fcgid-and-php5-on-debian-lenny
-			# http://www.christophfischer.com/linux/12-apache/47-apache-server-mit-php-fastcgi-und-debian-50-lenny
-			# http://wiki.hetzner.de/index.php/Apache_PHP5_fcgi_und_SuExec
-			####################################################################
-			echo "Configuring web server"
-			a2enmod suexec
-			a2enmod fcgid
-			a2enmod ssl
-			a2dissite 000-default
-			a2ensite openmediavault-webgui
-
-			####################################################################
-			# Generate configurations
-			####################################################################
 			omv-mkconf mdadm
 			omv-mkconf cpufrequtils
-			omv-mkconf collectd
 			omv-mkconf cron-apt
 			omv-mkconf watchdog
 			omv-mkconf monit
+		fi
+		omv-mkconf collectd
 
-			####################################################################
-			# Restart services
-			####################################################################
+		########################################################################
+		# Restart services
+		########################################################################
+		if [ -z "$2" ]; then
 			echo "Restarting services ..."
 			invoke-rc.d cron restart
 			invoke-rc.d watchdog restart

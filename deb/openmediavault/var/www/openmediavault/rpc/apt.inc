@@ -163,7 +163,8 @@ class AptRpc extends OMVRpc {
 		// Move file to local package archive
 		move_uploaded_file($_FILES['file']['tmp_name'],
 		  "{$GLOBALS['OMV_DPKGARCHIVE_DIR']}/{$fileName}");
-		// Create the 'Packages' file required by local APT archives
+		// Create the 'Packages' file required by local APT archives.
+		// The 'packages' command should be run in the root of the tree.
 		$cmd = sprintf("export LANG=C; cd %s && apt-ftparchive " .
 		  "packages . > Packages", $GLOBALS['OMV_DPKGARCHIVE_DIR']);
 		unset($output);

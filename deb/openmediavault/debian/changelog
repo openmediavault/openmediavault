@@ -1,6 +1,10 @@
 openmediavault (0.2.5.6) stable; urgency=low
 
   * Make sure a rsync cron job is not executed while it is still running.
+  * Mantis 0000272: Allow handleResponse in OMVDownloadRpcServer to accept
+    a content-type
+  * Mantis 0000287: After upgrade to 0.2.5.5, system graph are not refreshed
+    anymore
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 22 Nov 2011 21:14:42 +0100
 

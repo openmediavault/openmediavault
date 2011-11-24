@@ -203,8 +203,8 @@ class OMVDownloadRpcServer extends OMVJsonRpcServer {
 	 * otherwise it is set to 'text/plain'.
 	 */
 	protected function handleResponse($response) {
-		header("Content-Type: ". array_key_exists("contenttype", $response) ?
-		  $response['contenttype'] : "text/plain");
+		header("Content-Type: ". (array_key_exists("contenttype", $response) ?
+		  $response['contenttype'] : "text/plain"));
 		header('Expires: 0');
 		header("Content-Disposition: attachment; " .
 		  "filename={$response['filename']}");
