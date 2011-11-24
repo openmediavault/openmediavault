@@ -91,6 +91,123 @@ case "$1" in
 			object="${object}<blocklisturl>http://update.transmissionbt.com/level1.gz</blocklisturl>"
 			omv_config_add_element "//services" "transmissionbt" "${object}" true
 		fi
+		
+		if ! omv_config_exists "//services/transmissionbt/modules"; then
+			echo "Updateing Configuration"
+			echo "# Add modules section"
+			omv_config_add_element "//services/transmissionbt" "modules" "" true
+		fi
+		
+		if ! omv_config_exists "//services/transmissionbt/modules/locationsandfiles"; then
+			echo "Updateing Configuration"
+			echo "# Add modules/locationsandfiles section"
+			object="<download-dir></download-dir>"
+			object="${object}<incomplete-dir>incomplete</incomplete-dir>"
+			object="${object}<incomplete-dir-enabled>0</incomplete-dir-enabled>"
+			object="${object}<watch-dir>watch</watch-dir>"
+			object="${object}<watch-dir-enabled>0</watch-dir-enabled>"
+			object="${object}<preallocation>1</preallocation>"
+			object="${object}<rename-partial-files>1</rename-partial-files>"
+			object="${object}<start-added-torrents>1</start-added-torrents>"
+			object="${object}<trash-original-torrent-files>0</trash-original-torrent-files>"
+			omv_config_add_element "//services/transmissionbt/modules" "locationsandfiles" "${object}" true
+		fi
+		
+		if ! omv_config_exists "//services/transmissionbt/modules/bandwidth"; then
+			echo "Updateing Configuration"
+			echo "# Add modules/bandwidth section"
+			object="<speed-limit-down>100</speed-limit-down>"
+			object="${object}<speed-limit-down-enabled>0</speed-limit-down-enabled>"
+			object="${object}<speed-limit-up>100</speed-limit-up>"
+			object="${object}<speed-limit-up-enabled>0</speed-limit-up-enabled>"
+			object="${object}<upload-slots-per-torrent>14</upload-slots-per-torrent>"
+			object="${object}<alt-speed-enabled>0</alt-speed-enabled>"
+			object="${object}<alt-speed-up>50</alt-speed-up>"
+			object="${object}<alt-speed-down>50</alt-speed-down>"
+			omv_config_add_element "//services/transmissionbt/modules" "bandwidth" "${object}" true
+		fi
+		
+		if ! omv_config_exists "//services/transmissionbt/modules/queuing"; then
+			echo "Updateing Configuration"
+			echo "# Add modules/queuing section"
+			object="<queue-stalled-enabled>1</queue-stalled-enabled>"
+			object="${object}<queue-stalled-minutes>30</queue-stalled-minutes>"
+			object="${object}<download-queue-enabled>1</download-queue-enabled>"
+			object="${object}<download-queue-size>5</download-queue-size>"
+			object="${object}<seed-queue-enabled>0</seed-queue-enabled>"
+			object="${object}<seed-queue-size>10</seed-queue-size>"
+			omv_config_add_element "//services/transmissionbt/modules" "queuing" "${object}" true
+		fi
+		
+		if ! omv_config_exists "//services/transmissionbt/modules/peer"; then
+			echo "Updating configuration"
+			echo "# Add modules/peer section"
+			object="<bind-address-ipv4>0.0.0.0</bind-address-ipv4>"
+			object="${object}<bind-address-ipv6>::</bind-address-ipv6>"
+			object="${object}<peer-limit-global>240</peer-limit-global>"
+			object="${object}<peer-limit-per-torrent>60</peer-limit-per-torrent>"
+			object="${object}<peer-socket-tos>default</peer-socket-tos>"
+			if omv_config_exists "//services/transmissionbt/peerport"; then
+				echo "# Get peerport from old section"
+				peerport=`omv_config_get "//services/transmissionbt/peerport"`
+				echo "# Remove peerport from old section"
+				omv_config_delete "//services/transmissionbt/peerport"
+				object="${object}<peer-port>${peerport}</peer-port>"
+			else
+				object="${object}<peer-port>51413</peer-port>"
+			fi
+			object="${object}<peer-port-random-high>65535</peer-port-random-high>"
+			object="${object}<peer-port-random-low>1024</peer-port-random-low>"
+			object="${object}<peer-port-random-on-start>0</peer-port-random-on-start>"
+			if omv_config_exists "//services/transmissionbt/portforwardingenabled"; then
+				echo "# Get portforwardingenabled from old section"
+				portforwardingenabled=`omv_config_get "//services/transmissionbt/portforwardingenabled"`
+				echo "# Remove portforwardingenabled from old section"
+				omv_config_delete "//services/transmissionbt/portforwardingenabled"
+				object="${object}<port-forwarding-enabled>${portforwardingenabled}</port-forwarding-enabled>"
+			else
+				object="${object}<port-forwarding-enabled>1</port-forwarding-enabled>"
+			fi
+			omv_config_add_element "//services/transmissionbt/modules" "peer" "${object}" true
+		fi
+		
+		if ! omv_config_exists "//services/transmissionbt/lazy-bitfield-enabled"; then
+			omv_config_add_element "//services/transmissionbt" "lazy-bitfield-enabled" "1"
+		fi
+		
+		if ! omv_config_exists "//services/transmissionbt/lpd-enabled"; then
+			omv_config_add_element "//services/transmissionbt" "lpd-enabled" "0"
+		fi
+		
+		if ! omv_config_exists "//services/transmissionbt/scrape-paused-torrents-enabled"; then
+			omv_config_add_element "//services/transmissionbt" "scrape-paused-torrents-enabled" "1"
+		fi
+		
+		if ! omv_config_exists "//services/transmissionbt/utp-enabled"; then
+			omv_config_add_element "//services/transmissionbt" "utp-enabled" "1"
+		fi
+		
+		if ! omv_config_exists "//services/transmissionbt/message-level"; then
+			omv_config_add_element "//services/transmissionbt" "message-level" "2"
+		fi
+		
+		if ! omv_config_exists "//services/transmissionbt/modules/scheduling"; then
+			echo "Updateing Configuration"
+			echo "# Add modules/scheduling section"
+			object="<alt-speed-time-enabled>0</alt-speed-time-enabled>"
+			object="${object}<alt-speed-time-begin>540</alt-speed-time-begin>"
+			object="${object}<alt-speed-time-end>1020</alt-speed-time-end>"
+			object="${object}<alt-speed-time-day>127</alt-speed-time-day>"
+			object="${object}<idle-seeding-limit>30</idle-seeding-limit>"
+			object="${object}<idle-seeding-limit-enabled>0</idle-seeding-limit-enabled>"
+			object="${object}<ratio-limit>2.0</ratio-limit>"
+			object="${object}<ratio-limit-enabled>0</ratio-limit-enabled>"
+			omv_config_add_element "//services/transmissionbt/modules" "scheduling" "${object}" true
+		fi
+		
+		if ! omv_config_exists "//services/transmissionbt/umask"; then
+			omv_config_add_element "//services/transmissionbt" "umask" "18"
+		fi
 
 		########################################################################
 		# Import system group 'debian-transmission' created by the

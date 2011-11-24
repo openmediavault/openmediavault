@@ -2,9 +2,11 @@ Source: openmediavault-transmissionbt
 Section: net
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
+ Marcel Beck <marcel.beck@mbeck.org>
 Build-Depends: debhelper (>> 7)
 Standards-Version: 3.6.10
 Homepage: http://www.openmediavault.org
+ https://github.com/OMV-Plugins/openmediavault-transmissionbt
 
 Package: openmediavault-transmissionbt
 Architecture: all

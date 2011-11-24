@@ -4,6 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @author    Marcel Beck <marcel.beck@mbeck.org>
  * @copyright Copyright (c) 2009-2011 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
@@ -72,9 +73,10 @@ class TransmissionBTModule extends OMVModuleAbstract implements
 		// Currently transmission overwrites the settings.json configuration
 		// file on exit. This means transmission must be terminated before
 		// writing the new settings.json file.
-		$initd = new OMVSysVInitScript("transmission-daemon", boolval(
-		  $object['enable']));
-		$initd->stop();
+		$initd = new OMVSysVInitScript("transmission-daemon", boolval($object['enable']));
+		if (boolval($object['enable']) === false) {
+			$initd->stop();
+		}
 		// Create '/etc/transmission-daemon/settings.json' file
 		$cmd = "sudo omv-mkconf transmissionbt 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
@@ -83,7 +85,15 @@ class TransmissionBTModule extends OMVModuleAbstract implements
 			  $cmd, implode("\n", $output));
 		}
 		// Update service
-		$initd->exec();
+		$cmd = "sudo pkill -HUP transmission-da";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			// Start the Service, it is not running
+			if (boolval($object['enable']) === true) {
+				$initd->exec();
+			}
+			//throw new OMVException(OMVErrorMsg::E_EXEC_FAILED, $cmd, 'Result: '.$result. implode("\n", $output));
+		}
 	}
 
 	/**

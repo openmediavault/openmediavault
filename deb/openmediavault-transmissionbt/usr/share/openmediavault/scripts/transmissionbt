@@ -4,6 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
+# @author    Marcel Beck <marcel.beck@mbeck.org>
 # @copyright Copyright (c) 2009-2011 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
@@ -28,12 +29,6 @@ OMV_TRANSMISSIONBT_CONFIG=${OMV_TRANSMISSIONBT_CONFIG:-"/etc/transmission-daemon
 OMV_TRANSMISSIONBT_DEFAULT=${OMV_TRANSMISSIONBT_DEFAULT:-"/etc/default/transmission-daemon"}
 OMV_TRANSMISSIONBT_RPCWHITELIST=${OMV_TRANSMISSIONBT_RPCWHITELIST:-"*.*.*.*"}
 OMV_TRANSMISSIONBT_RPCWHITELISTENABLED=${OMV_TRANSMISSIONBT_RPCWHITELISTENABLED:-"true"}
-OMV_TRANSMISSIONBT_UMASK=${OMV_TRANSMISSIONBT_UMASK:-"022"}
-OMV_TRANSMISSIONBT_DOWNLOADLIMIT=${OMV_TRANSMISSIONBT_DOWNLOADLIMIT:-"100"}
-OMV_TRANSMISSIONBT_DOWNLOADLIMITENABLED=${OMV_TRANSMISSIONBT_DOWNLOADLIMITENABLED:-"0"}
-OMV_TRANSMISSIONBT_MAXPEERSGLOBAL=${OMV_TRANSMISSIONBT_MAXPEERSGLOBAL:-"200"}
-OMV_TRANSMISSIONBT_UPLOADLIMIT=${OMV_TRANSMISSIONBT_UPLOADLIMIT:-"100"}
-OMV_TRANSMISSIONBT_UPLOADLIMITENABLED=${OMV_TRANSMISSIONBT_UPLOADLIMITENABLED:-"0"}
 
 # Create '/etc/default/transmission-daemon' file
 cat <<EOF > ${OMV_TRANSMISSIONBT_DEFAULT}
@@ -54,13 +49,8 @@ xmlstarlet sel -t -m "//services/transmissionbt" \
 # Create '/etc/transmission-daemon/settings.json' file
 xmlstarlet sel -t -m "//services/transmissionbt" \
   -o "{" -n \
-  -o "&quot;blocklist-enabled&quot;: 0," -n \
-  -o "&quot;download-dir&quot;: &quot;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "&quot;," -n \
-  -o "&quot;download-limit&quot;: ${OMV_TRANSMISSIONBT_DOWNLOADLIMIT}," -n \
-  -o "&quot;download-limit-enabled&quot;: ${OMV_TRANSMISSIONBT_DOWNLOADLIMITENABLED}," -n \
+  -o "&quot;download-dir&quot;: &quot;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v modules/locationsandfiles/download-dir -o "&quot;," -n \
   -v "concat('&quot;encryption&quot;: ',encryption,',')" -n \
-  -o "&quot;max-peers-global&quot;: ${OMV_TRANSMISSIONBT_MAXPEERSGLOBAL}," -n \
-  -v "concat('&quot;peer-port&quot;: ',peerport,',')" -n \
   -o "&quot;dht-enabled:&quot;: " \
   -i "dhtenabled[. = '0']" -o "false" -b \
   -i "dhtenabled[. = '1']" -o "true" -b \
@@ -73,10 +63,24 @@ xmlstarlet sel -t -m "//services/transmissionbt" \
   -i "pexenabled[. = '0']" -o "false" -b \
   -i "pexenabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -o "&quot;port-forwarding-enabled&quot;: " \
-  -i "portforwardingenabled[. = '0']" -o "false" -b \
-  -i "portforwardingenabled[. = '1']" -o "true" -b \
+  -o "&quot;lazy-bitfield-enabled&quot;: " \
+  -i "lazy-bitfield-enabled[. = '0']" -o "false" -b \
+  -i "lazy-bitfield-enabled[. = '1']" -o "true" -b \
   -o "," -n \
+  -v "concat('&quot;umask&quot;: ',umask,',')" -n \
+  -o "&quot;lpd-enabled&quot;: " \
+  -i "lpd-enabled[. = '0']" -o "false" -b \
+  -i "lpd-enabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -o "&quot;scrape-paused-torrents-enabled&quot;: " \
+  -i "scrape-paused-torrents-enabled[. = '0']" -o "false" -b \
+  -i "scrape-paused-torrents-enabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -o "&quot;utp-enabled&quot;: " \
+  -i "utp-enabled[. = '0']" -o "false" -b \
+  -i "utp-enabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -v "concat('&quot;message-level&quot;: ',message-level,',')" -n \
   -o "&quot;rpc-authentication-required&quot;: " \
   -i "rpcauthenticationrequired[. = '0']" -o "false" -b \
   -i "rpcauthenticationrequired[. = '1']" -o "true" -b \
@@ -86,8 +90,93 @@ xmlstarlet sel -t -m "//services/transmissionbt" \
   -v "concat('&quot;rpc-username&quot;: &quot;',rpcusername,'&quot;,')" -n \
   -o "&quot;rpc-whitelist&quot;: &quot;${OMV_TRANSMISSIONBT_RPCWHITELIST}&quot;," -n \
   -o "&quot;rpc-whitelist-enabled&quot;: ${OMV_TRANSMISSIONBT_RPCWHITELISTENABLED}," -n \
-  -o "&quot;upload-limit&quot;: ${OMV_TRANSMISSIONBT_UPLOADLIMIT}," -n \
-  -o "&quot;upload-limit-enabled&quot;: ${OMV_TRANSMISSIONBT_UPLOADLIMITENABLED}" -n \
+  -o "&quot;incomplete-dir-enabled&quot;: " \
+  -i "modules/locationsandfiles/incomplete-dir-enabled[. = '0']" -o "false" -b \
+  -i "modules/locationsandfiles/incomplete-dir-enabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -o "&quot;incomplete-dir&quot;: &quot;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v modules/locationsandfiles/incomplete-dir -o "&quot;," -n \
+  -o "&quot;watch-dir-enabled&quot;: " \
+  -i "modules/locationsandfiles/watch-dir-enabled[. = '0']" -o "false" -b \
+  -i "modules/locationsandfiles/watch-dir-enabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -o "&quot;watch-dir&quot;: &quot;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v modules/locationsandfiles/watch-dir -o "&quot;," -n \
+  -v "concat('&quot;preallocation&quot;: ',modules/locationsandfiles/preallocation,',')" -n \
+  -o "&quot;rename-partial-files&quot;: " \
+  -i "modules/locationsandfiles/rename-partial-files[. = '0']" -o "false" -b \
+  -i "modules/locationsandfiles/rename-partial-files[. = '1']" -o "true" -b \
+  -o "," -n \
+  -o "&quot;start-added-torrents&quot;: " \
+  -i "modules/locationsandfiles/start-added-torrents[. = '0']" -o "false" -b \
+  -i "modules/locationsandfiles/start-added-torrents[. = '1']" -o "true" -b \
+  -o "," -n \
+  -o "&quot;trash-original-torrent-files&quot;: " \
+  -i "modules/locationsandfiles/trash-original-torrent-files[. = '0']" -o "false" -b \
+  -i "modules/locationsandfiles/trash-original-torrent-files[. = '1']" -o "true" -b \
+  -o "," -n \
+  -v "concat('&quot;speed-limit-down&quot;: ',modules/bandwidth/speed-limit-down,',')" -n \
+  -o "&quot;speed-limit-down-enabled&quot;: " \
+  -i "modules/bandwidth/speed-limit-down-enabled[. = '0']" -o "false" -b \
+  -i "modules/bandwidth/speed-limit-down-enabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -v "concat('&quot;speed-limit-up&quot;: ',modules/bandwidth/speed-limit-up,',')" -n \
+  -o "&quot;speed-limit-up-enabled&quot;: " \
+  -i "modules/bandwidth/speed-limit-up-enabled[. = '0']" -o "false" -b \
+  -i "modules/bandwidth/speed-limit-up-enabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -v "concat('&quot;upload-slots-per-torrent&quot;: ',modules/bandwidth/upload-slots-per-torrent,',')" -n \
+  -o "&quot;alt-speed-enabled&quot;: " \
+  -i "modules/bandwidth/alt-speed-enabled[. = '0']" -o "false" -b \
+  -i "modules/bandwidth/alt-speed-enabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -v "concat('&quot;alt-speed-up&quot;: ',modules/bandwidth/alt-speed-up,',')" -n \
+  -v "concat('&quot;alt-speed-down&quot;: ',modules/bandwidth/alt-speed-down,',')" -n \
+  -o "&quot;queue-stalled-enabled&quot;: " \
+  -i "modules/queuing/queue-stalled-enabled[. = '0']" -o "false" -b \
+  -i "modules/queuing/queue-stalled-enabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -v "concat('&quot;queue-stalled-minutes&quot;: ',modules/queuing/queue-stalled-minutes,',')" -n \
+  -o "&quot;download-queue-enabled&quot;: " \
+  -i "modules/queuing/download-queue-enabled[. = '0']" -o "false" -b \
+  -i "modules/queuing/download-queue-enabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -v "concat('&quot;download-queue-size&quot;: ',modules/queuing/download-queue-size,',')" -n \
+  -o "&quot;seed-queue-enabled&quot;: " \
+  -i "modules/queuing/seed-queue-enabled[. = '0']" -o "false" -b \
+  -i "modules/queuing/seed-queue-enabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -v "concat('&quot;seed-queue-size&quot;: ',modules/queuing/seed-queue-size,',')" -n \
+  -v "concat('&quot;bind-address-ipv4&quot;: &quot;',modules/peer/bind-address-ipv4,'&quot;,')" -n \
+  -v "concat('&quot;bind-address-ipv6&quot;: &quot;',modules/peer/bind-address-ipv6,'&quot;,')" -n \
+  -v "concat('&quot;peer-limit-global&quot;: ',modules/peer/peer-limit-global,',')" -n \
+  -v "concat('&quot;peer-limit-per-torrent&quot;: ',modules/peer/peer-limit-per-torrent,',')" -n \
+  -v "concat('&quot;peer-socket-tos&quot;: &quot;',modules/peer/peer-socket-tos,'&quot;,')" -n \
+  -v "concat('&quot;peer-port&quot;: ',modules/peer/peer-port,',')" -n \
+  -v "concat('&quot;peer-port-random-high&quot;: ',modules/peer/peer-port-random-high,',')" -n \
+  -v "concat('&quot;peer-port-random-low&quot;: ',modules/peer/peer-port-random-low,',')" -n \
+  -o "&quot;port-forwarding-enabled&quot;: " \
+  -i "modules/peer/port-forwarding-enabled[. = '0']" -o "false" -b \
+  -i "modules/peer/port-forwarding-enabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -o "&quot;peer-port-random-on-start&quot;: " \
+  -i "modules/peer/peer-port-random-on-start[. = '0']" -o "false" -b \
+  -i "modules/peer/peer-port-random-on-start[. = '1']" -o "true" -b \
+  -o "," -n \
+  -o "&quot;alt-speed-time-enabled&quot;: " \
+  -i "modules/scheduling/alt-speed-time-enabled[. = '0']" -o "false" -b \
+  -i "modules/scheduling/alt-speed-time-enabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -v "concat('&quot;alt-speed-time-begin&quot;: ',modules/scheduling/alt-speed-time-begin,',')" -n \
+  -v "concat('&quot;alt-speed-time-end&quot;: ',modules/scheduling/alt-speed-time-end,',')" -n \
+  -v "concat('&quot;alt-speed-time-day&quot;: ',modules/scheduling/alt-speed-time-day,',')" -n \
+  -v "concat('&quot;idle-seeding-limit&quot;: ',modules/scheduling/idle-seeding-limit,',')" -n \
+  -o "&quot;idle-seeding-limit-enabled&quot;: " \
+  -i "modules/scheduling/idle-seeding-limit-enabled[. = '0']" -o "false" -b \
+  -i "modules/scheduling/idle-seeding-limit-enabled[. = '1']" -o "true" -b \
+  -o "," -n \
+  -v "concat('&quot;ratio-limit&quot;: ',modules/scheduling/ratio-limit,',')" -n \
+  -o "&quot;ratio-limit-enabled&quot;: " \
+  -i "modules/scheduling/ratio-limit-enabled[. = '0']" -o "false" -b \
+  -i "modules/scheduling/ratio-limit-enabled[. = '1']" -o "true" -b \
   -o "}" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_TRANSMISSIONBT_CONFIG}
 

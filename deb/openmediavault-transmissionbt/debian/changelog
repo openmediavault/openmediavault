@@ -1,3 +1,52 @@
+openmediavault-transmissionbt (0.2.7.2) stable; urgency=low
+
+  * Removed old umask var
+  * Import SVN Changes
+  
+ -- Marcel Beck <marcel.beck@mbeck.org>  Tue, 22 Nov 2011 21:34:00 +0100
+
+openmediavault-transmissionbt (0.2.7.1) stable; urgency=low
+
+  * Github Issue #13 - umask Setting
+  
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 20 Nov 2011 15:53:45 +0100
+
+openmediavault-transmissionbt (0.2.7) stable; urgency=low
+
+  * Github Issue #2 - Add Scheduling Section
+  
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 20 Nov 2011 14:47:05 +0100
+
+openmediavault-transmissionbt (0.2.6.1) stable; urgency=low
+
+  * Github Issue #12 - Can't stop transmission
+  
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 20 Nov 2011 11:41:35 +0100
+
+openmediavault-transmissionbt (0.2.6) stable; urgency=low
+
+  * Github Issue #6 - Clean PHP Code, add correct type handling
+  * Github Issue #9 - Add Configuration Options to "General Settings"
+  * Github Issue #11 - Can't start transmission
+  
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sat, 19 Nov 2011 14:25:39 +0100
+
+openmediavault-transmissionbt (0.2.5) stable; urgency=low
+
+  * Github Issue #1 - Add Peers Section
+  * Github Issue #4 - Reload Config without restarting transmission
+  * Github Issue #7 - Switching checkbox/textbox in "Files & Location" and "Bandwidth" tab
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Fri, 18 Nov 2011 21:58:26 +0100
+
+openmediavault-transmissionbt (0.2.4) stable; urgency=low
+
+  * Added Files and Location
+  * Added Bandwidth
+  * Added Queuing
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Fri, 18 Nov 2011 13:55:36 +0100
+ 
 openmediavault-transmissionbt (0.2.3) stable; urgency=low
 
   * Mantis 0000224: transmissionbt daily Cron
