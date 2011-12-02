@@ -34,9 +34,12 @@ class OMVLogFile extends OMVObject {
 	 * downloading the file via WebUI.
 	 * @param filepath The path of the log file.
 	 * @param regex The regular expression used to parse the log file.
-	 * @param dateformat The format of the date/time column used to convert
-	 * into Unix timestamp.
-	 * @param columns The column configuration.
+	 * @param columns The column configuration. It contains key/value pairs,
+	 * the key is the name of the column, the value is the index of the
+	 * regex match. If the value is an array, then the field \em index
+	 * contains the index of the regex match and \em func contains an user
+	 * defined function that is called while processing. It can be used
+	 * to convert a time/date string to an Unix timestamp for example.
 	 */
 	static private $types = array(
 /* Example:
