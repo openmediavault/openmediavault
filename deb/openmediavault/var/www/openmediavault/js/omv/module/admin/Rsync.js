@@ -882,7 +882,8 @@ OMV.Module.Diagnostics.LogPlugin.Rsync = function(config) {
 			sortable: true,
 			dataIndex: "date",
 			id: "date",
-			width: 40
+			width: 35,
+			renderer: OMV.util.Format.localeTimeRenderer()
 		},{
 			header: "Event",
 			sortable: true,

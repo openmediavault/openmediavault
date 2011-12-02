@@ -1,3 +1,16 @@
+openmediavault (0.2.5.7) stable; urgency=low
+
+  * Add environment variable OMV_HTTPREQUEST_TIMEOUT to modify the WebGUI HTTP
+    request timeout. Defaults to 60000 milliseconds.
+  * Improve monitoring implementation (via monit)
+  * Mantis 0000294: creating two smb shares with the same name on two
+    shared folders
+  * Mantis 0000303: Samba log settings prevent non-error logging
+  * Mantis 0000306: Diagnostics - System logs do not display correct order
+    of column 'Date & Time'
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 28 Nov 2011 12:53:20 +0100
+
 openmediavault (0.2.5.6) stable; urgency=low
 
   * Make sure a rsync cron job is not executed while it is still running.

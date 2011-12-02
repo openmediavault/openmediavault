@@ -77,6 +77,14 @@ case "$1" in
 		# Import system user 'daapd' created by the forked-daapd package.
 		########################################################################
 		omv_config_import_user "daapd"
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "0.2.2"; then
+			rm -f /etc/monit/conf.d/forked-daapd
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

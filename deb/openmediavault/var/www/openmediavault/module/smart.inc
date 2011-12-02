@@ -88,7 +88,10 @@ OMVLogFile::registerType("smartd", array(
   "filepath" => "/var/log/smartd.log",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\ssmartd\[\d+\]: (.*)$/",
   "columns" => array(
-	  "date" => 1,
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+	  ),
 	  "event" => 3
   )));
 ?>

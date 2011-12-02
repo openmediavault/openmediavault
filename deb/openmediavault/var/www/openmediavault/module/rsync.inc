@@ -66,7 +66,10 @@ OMVLogFile::registerType("rsync", array(
   "filepath" => "/var/log/rsync.log",
   "regex" => "/^(\S+\s+\S+) \[\d+\] (.*)$/",
   "columns" => array(
-	  "date" => 1,
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+	  ),
 	  "event" => 2
   )));
 ?>

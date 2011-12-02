@@ -83,6 +83,14 @@ case "$1" in
 			object="${object}<shares></shares>"
 			omv_config_add_element "//services" "afp" "${object}" true
 		fi
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "0.2.3.1"; then
+			rm -f /etc/monit/conf.d/netatalk
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

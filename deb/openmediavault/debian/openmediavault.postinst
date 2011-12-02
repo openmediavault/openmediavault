@@ -31,6 +31,14 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			####################################################################
+			# Install configuration file
+			####################################################################
+			if [ ! -e "${OMV_CONFIG_FILE}" ]; then
+				echo "Installing default configuration"
+				cp ${OMV_CONFIG_TEMPLATE_FILE} ${OMV_CONFIG_FILE}
+			fi
+
+			####################################################################
 			# Create user 'openmediavault' which is used to run the web
 			# interface. Add user to sudoers to allow web server to be able to
 			# execute actions that require 'root' permissions.
@@ -66,14 +74,6 @@ case "$1" in
 				object="${object}<mntentref></mntentref>"
 				omv_config_add_element "//system/usermanagement/users" "user" \
 				  "${object}" true
-			fi
-
-			####################################################################
-			# Install configuration file
-			####################################################################
-			if [ ! -e "${OMV_CONFIG_FILE}" ]; then
-				echo "Installing default configuration"
-				cp ${OMV_CONFIG_TEMPLATE_FILE} ${OMV_CONFIG_FILE}
 			fi
 
 			####################################################################

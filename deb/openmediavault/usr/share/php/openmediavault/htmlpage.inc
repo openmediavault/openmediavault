@@ -167,8 +167,9 @@ class OMVWebGui extends OMVHtmlPage {
 
 	protected function getBody() {
 		$session = &OMVSession::getInstance();
-		$globalDefs = sprintf("OMV.UUID_UNDEFINED = '%s';",
-		  $GLOBALS['OMV_UUID_UNDEFINED']);
+		$globalDefs = sprintf("OMV.UUID_UNDEFINED = '%s'; ".
+		  "OMV.HTTPREQUEST_TIMEOUT = %s;", $GLOBALS['OMV_UUID_UNDEFINED'],
+		  $GLOBALS['OMV_HTTPREQUEST_TIMEOUT']);
 		$errorCodes = sprintf("OMV.E_SESSION_NOT_AUTHENTICATED = %d; " .
 		  "OMV.E_SESSION_TIMEOUT = %d;", OMVErrorMsg::E_SESSION_NOT_AUTHENTICATED,
 		  OMVErrorMsg::E_SESSION_TIMEOUT);

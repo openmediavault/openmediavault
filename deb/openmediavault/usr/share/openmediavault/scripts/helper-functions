@@ -264,12 +264,16 @@ omv_config_add_element() {
 	if omv_checkyesno ${xml}; then
 		# If the value contains XML data then special characters must be
 		# escaped for sed, otherwise they will be misinterpreted.
-		sed "s/${value}/$(echo "$3" | sed -e 's/\\/\\\\/g' \
-		  -e 's/\//\\\//g' -e 's/&/\\\&/g')/" "${tmpconfig}" | \
-		  tee "${OMV_CONFIG_FILE}" >/dev/null
-	else
-		cat "${tmpconfig}" | tee "${OMV_CONFIG_FILE}" >/dev/null
+		sed -i "s/${value}/$(echo "$3" | sed -e 's/\\/\\\\/g' \
+		  -e 's/\//\\\//g' -e 's/&/\\\&/g')/" "${tmpconfig}"
 	fi
+
+	# Copy temporary file content to config file. Note, the config file
+	# permissions must be kept.
+	cat "${tmpconfig}" | tee "${OMV_CONFIG_FILE}" >/dev/null
+
+	# Flush file system buffers.
+	sync
 
 	# Remove temporary file.
 	rm -f -- "${tmpconfig}"
@@ -305,12 +309,16 @@ omv_config_update() {
 	if omv_checkyesno ${xml}; then
 		# If the value contains XML data then special characters must be
 		# escaped for sed, otherwise they will be misinterpreted.
-		sed "s/${value}/$(echo "$2" | sed -e 's/\\/\\\\/g' \
-		  -e 's/\//\\\//g' -e 's/&/\\\&/g')/" "${tmpconfig}" | \
-		  tee "${OMV_CONFIG_FILE}" >/dev/null
-	else
-		cat "${tmpconfig}" | tee "${OMV_CONFIG_FILE}" >/dev/null
+		sed -i "s/${value}/$(echo "$2" | sed -e 's/\\/\\\\/g' \
+		  -e 's/\//\\\//g' -e 's/&/\\\&/g')/" "${tmpconfig}"
 	fi
+
+	# Copy temporary file content to config file. Note, the config file
+	# permissions must be kept.
+	cat "${tmpconfig}" | tee "${OMV_CONFIG_FILE}" >/dev/null
+
+	# Flush file system buffers.
+	sync
 
 	# Remove temporary file.
 	rm -f -- "${tmpconfig}"
@@ -332,8 +340,15 @@ omv_config_delete() {
 	# xmlstarlet ... file > file
 	xmlstarlet edit -d "${xpath}" "${OMV_CONFIG_FILE}" | \
 	  tee "${tmpconfig}" >/dev/null
-	# Take care about the file permissions
+
+	# Copy temporary file content to config file. Note, the config file
+	# permissions must be kept.
 	cat "${tmpconfig}" | tee "${OMV_CONFIG_FILE}" >/dev/null
+
+	# Flush file system buffers.
+	sync
+
+	# Remove temporary file.
 	rm -f -- "${tmpconfig}"
 }
 

@@ -334,7 +334,7 @@ class RsyncRpc extends OMVRpc {
 		// Execute the cron command line
 		$outputFile = tempnam(sys_get_temp_dir(), "rsyncjob");
 		$cmd = sprintf("sudo sh '%s/rsync-%s' >%s 2>&1 & echo $!",
-		  $GLOBALS['OMV_RSYNC_CRONSCRIPTSDIR'], $uuid, $outputFile);
+		  $GLOBALS['OMV_RSYNC_CRONSCRIPTS_DIR'], $uuid, $outputFile);
 		OMVUtil::exec($cmd, $output, $res);
 		if ($res !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

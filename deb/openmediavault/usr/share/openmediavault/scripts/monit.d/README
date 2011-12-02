@@ -1,10 +1,6 @@
 Services that use monit to monitor their state and that should be able to be
-enabled or disbaled via WebGUI must fulfill the following rules:
-
-- The file must be located in /usr/share/openmediavault/scripts/monit.d
-- The name of the script must be the same as the service entry name from the
-  monitrc file
-
+enabled or disabled via WebGUI must be stored in the /etc/monit/service.d
+directory.
 If a service needs to run permanently you can put the services' monit file
 directly into the /etc/monit/conf.d directory.
 

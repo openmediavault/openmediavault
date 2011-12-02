@@ -461,7 +461,9 @@ class FileSystemMgmtRpc extends OMVRpc {
 		// device then it has already a filesystem that is in usage.
 		if (FALSE !== OMVRpc::exec("FsTab", "getByFsName", array(
 		  $data['devicefile']))) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS);
+			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+			  sprintf(gettext("There already exists a mount point for %s"),
+			  $data['devicefile']));
 		}
 		// Create the filesysteme UUID.
 		$object = array(
@@ -595,7 +597,8 @@ class FileSystemMgmtRpc extends OMVRpc {
 		// Check for duplicates.
 		if (TRUE === $xmlConfig->exists("//system/fstab/mntent[" .
 		  "fsname='{$uuid}']")) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS);
+			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+			  gettext("A mount point already exists for the given filesystem"));
 		}
 		// Get the filesystem type.
 		$fs = new OMVFilesystem($uuid);

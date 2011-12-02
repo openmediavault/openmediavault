@@ -194,7 +194,10 @@ OMVLogFile::registerType("proftpd", array(
   "filepath" => "/var/log/proftpd/proftpd.log",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\sproftpd\[\d+\]: (.*)$/",
   "columns" => array(
-	  "date" => 1,
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+	  ),
 	  "event" => 3
   )));
 ?>

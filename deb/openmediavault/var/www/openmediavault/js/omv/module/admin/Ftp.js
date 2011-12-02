@@ -30,6 +30,7 @@
 // require("js/omv/form/CertificateComboBox.js")
 // require("js/omv/form/plugins/FieldInfo.js")
 // require("js/omv/module/admin/Logs.js")
+// require("js/omv/util/Format.js")
 
 Ext.ns("OMV.Module.Services");
 
@@ -855,7 +856,8 @@ OMV.Module.Diagnostics.LogPlugin.FTP = function(config) {
 			sortable: true,
 			dataIndex: "date",
 			id: "date",
-			width: 20
+			width: 35,
+			renderer: OMV.util.Format.localeTimeRenderer()
 		},{
 			header: "Event",
 			sortable: true,

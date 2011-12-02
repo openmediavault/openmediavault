@@ -245,7 +245,8 @@ class UserMgmtRpc extends OMVRpc {
 			$user = new OMVSystemUser($data['name']);
 			if ($user->exists() || (TRUE === $xmlConfig->exists(
 			  "//system/usermanagement/users/user[name='{$data['name']}']"))) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS);
+				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+				  gettext("An user with the given name already exists"));
 			}
 			// Append object to configuration
 			$success = $xmlConfig->set("//system/usermanagement/users",
@@ -500,7 +501,8 @@ class UserMgmtRpc extends OMVRpc {
 			// Check uniqueness
 			if (TRUE === $xmlConfig->exists("//system/usermanagement/groups/" .
 			  "group[name='{$data['name']}']")) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS);
+				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+				  gettext("A group with the given name already exists"));
 			}
 			// Append object to configuration
 			$success = $xmlConfig->set("//system/usermanagement/groups",

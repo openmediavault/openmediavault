@@ -359,4 +359,17 @@ function binary_convert($number, $fromPrefix, $toPrefix) {
 	return bcmul(strval($number), bcpow("2", strval($prefixes[$fromPrefix] -
 	  $prefixes[$toPrefix])), 0);
 }
+
+/**
+ * Convert any time/date into a Unix timestamp according to the specified
+ * format.
+ * @param date A date/time string to parse.
+ * @param format The format used in date.
+ * @return Returns a Unix timestamp on success, FALSE otherwise.
+ */
+function strpdate($date, $format) {
+	if(FALSE === ($dt = DateTime::createFromFormat($format, $date)))
+		return FALSE;
+	return $dt->getTimestamp();
+}
 ?>

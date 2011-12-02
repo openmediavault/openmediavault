@@ -81,7 +81,14 @@ class LogFileRpc extends OMVRpc {
 				continue;
 			$object = array();
 			foreach($logfile->getColumns() as $columnk => $columnv) {
-				$object[$columnk] = $matches[$columnv];
+				// Execute user defined function, e.g. to convert
+				// column content?
+				if(is_array($columnv)) {
+					$object[$columnk] = $columnv['func'](
+					  $matches[$columnv['index']]);
+				} else {
+					$object[$columnk] = $matches[$columnv];
+				}
 			}
 			$objects[] = $object;
 		}

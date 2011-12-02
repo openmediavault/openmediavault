@@ -249,7 +249,8 @@ class ShareMgmtRpc extends OMVRpc {
 			// Check uniqueness
 			if (TRUE === $xmlConfig->exists("//system/shares/sharedfolder[" .
 			  "name='{$data['name']}']")) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS);
+				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+				gettext("A shared folder with the given name already exists"));
 			}
 			// Add empty list of privileges per default
 			$object['privileges'] = array();

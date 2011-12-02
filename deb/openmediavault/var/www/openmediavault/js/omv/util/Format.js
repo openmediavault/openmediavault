@@ -97,7 +97,7 @@ OMV.util.Format = function() {
 			 * local time format.
 			 * @return The rendering function
 			 */
-			localeTimeRenderer : function(format) {
+			localeTimeRenderer : function() {
 				return function(value) {
 					var dt = Date.parseDate(value, "U");
 					return dt.toLocaleString();

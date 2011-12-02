@@ -25,13 +25,13 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_RSYNC_CRONSCRIPT=${OMV_RSYNC_CRONSCRIPT:-"/etc/cron.d/openmediavault-rsync"}
-OMV_RSYNC_CRONSCRIPTSDIR=${OMV_RSYNC_CRONSCRIPTSDIR:-"/var/lib/openmediavault/cronscripts"}
+OMV_RSYNC_CRONSCRIPTS_DIR=${OMV_RSYNC_CRONSCRIPTS_DIR:-"/var/lib/openmediavault/cronscripts"}
 OMV_RSYNC_CRONUSER=${OMV_RSYNC_CRONUSER:-"root"}
 OMV_RSYNC_LOGFILE=${OMV_RSYNC_LOGFILE:-"/var/log/rsync.log"}
 
 # Remove all rsync cronjob scripts
-mkdir -p ${OMV_RSYNC_CRONSCRIPTSDIR}
-rm -f ${OMV_RSYNC_CRONSCRIPTSDIR}/rsync-*
+mkdir -p ${OMV_RSYNC_CRONSCRIPTS_DIR}
+rm -f ${OMV_RSYNC_CRONSCRIPTS_DIR}/rsync-*
 
 # Create rsync cron script
 cat <<EOF > ${OMV_RSYNC_CRONSCRIPT}
@@ -47,7 +47,7 @@ xmlstarlet sel -t -m "//services/rsync/jobs/job[enable='1']" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid; do
 	  type=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/type")
-	  filename="${OMV_RSYNC_CRONSCRIPTSDIR}/rsync-${uuid}"
+	  filename="${OMV_RSYNC_CRONSCRIPTS_DIR}/rsync-${uuid}"
 	  runfile="/var/run/rsync-${uuid}"
 	  srcuri=""
 	  desturi=""

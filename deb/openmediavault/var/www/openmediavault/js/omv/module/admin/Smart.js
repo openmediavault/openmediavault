@@ -27,6 +27,7 @@
 // require("js/omv/FormPanelDialog.js")
 // require("js/omv/form/plugins/FieldInfo.js")
 // require("js/omv/module/admin/Logs.js")
+// require("js/omv/util/Format.js")
 
 Ext.ns("OMV.Module.Storage");
 
@@ -884,7 +885,8 @@ OMV.Module.Diagnostics.LogPlugin.SMART = function(config) {
 			sortable: true,
 			dataIndex: "date",
 			id: "date",
-			width: 20
+			width: 35,
+			renderer: OMV.util.Format.localeTimeRenderer()
 		},{
 			header: "Event",
 			sortable: true,

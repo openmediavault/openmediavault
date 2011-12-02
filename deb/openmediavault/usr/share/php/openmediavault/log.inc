@@ -34,60 +34,28 @@ class OMVLogFile extends OMVObject {
 	 * downloading the file via WebUI.
 	 * @param filepath The path of the log file.
 	 * @param regex The regular expression used to parse the log file.
+	 * @param dateformat The format of the date/time column used to convert
+	 * into Unix timestamp.
 	 * @param columns The column configuration.
-	 * Example:
-	 * $log = new OMVLog("syslog", "/var/log/syslog",
-	 *   "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/", array(
-	 *     "date" => 1,
-	 *     "user" => 2,
-	 *     "event" => 3
-	 *   )
-	 * );
-	 * $log->getList(...);
 	 */
-	static $types = array(
+	static private $types = array(
+/* Example:
 		"syslog" => array(
 			"filename" => "syslog",
 			"filepath" => "/var/log/syslog",
 			"regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
 			"columns" => array(
-				"date" => 1,
-				"user" => 2,
-				"event" => 3
-			)
-		),
-		"daemon" => array(
-			"filename" => "daemon.log",
-			"filepath" => "/var/log/daemon.log",
-			"regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
-			"columns" => array(
-				"date" => 1,
-				"user" => 2,
-				"event" => 3
-			)
-		),
-		"auth" => array(
-			"filename" => "auth.log",
-			"filepath" => "/var/log/auth.log",
-			"regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
-			"columns" => array(
-				"date" => 1,
-				"user" => 2,
-				"event" => 3
-			)
-		),
-		"messages" => array(
-			"filename" => "messages",
-			"filepath" => "/var/log/messages",
-			"regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
-			"columns" => array(
-				"date" => 1,
+				"date" => array(
+					"index" => 1,
+					"func" => create_function('$v',
+					  'return strpdate($v,"M j G:i:s");')
+				),
 				"user" => 2,
 				"event" => 3
 			)
 		)
+*/
 	);
-
 	private $id = null;
 
 	/**
@@ -151,4 +119,54 @@ class OMVLogFile extends OMVObject {
 		return $type['columns'];
 	}
 }
+
+// Register default logfile types
+OMVLogFile::registerType("syslog", array(
+  "filename" => "syslog",
+  "filepath" => "/var/log/syslog",
+  "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
+  "columns" => array(
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+	  ),
+	  "user" => 2,
+	  "event" => 3
+  )));
+OMVLogFile::registerType("daemon", array(
+  "filename" => "daemon.log",
+  "filepath" => "/var/log/daemon.log",
+  "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
+  "columns" => array(
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+	  ),
+	  "user" => 2,
+	  "event" => 3
+  )));
+OMVLogFile::registerType("auth", array(
+  "filename" => "auth.log",
+  "filepath" => "/var/log/auth.log",
+  "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
+  "columns" => array(
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+	  ),
+	  "user" => 2,
+	  "event" => 3
+  )));
+OMVLogFile::registerType("messages", array(
+  "filename" => "messages",
+  "filepath" => "/var/log/messages",
+  "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
+  "columns" => array(
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+	  ),
+	  "user" => 2,
+	  "event" => 3
+  )));
 ?>

@@ -77,7 +77,8 @@ OMV.Module.Diagnostics.LogPlugin.Syslog = function(config) {
 			sortable: true,
 			dataIndex: "date",
 			id: "date",
-			width: 20
+			width: 35,
+			renderer: OMV.util.Format.localeTimeRenderer()
 		},{
 			header: "User",
 			sortable: true,
@@ -121,7 +122,8 @@ OMV.Module.Diagnostics.LogPlugin.Daemon = function(config) {
 			sortable: true,
 			dataIndex: "date",
 			id: "date",
-			width: 20
+			width: 35,
+			renderer: OMV.util.Format.localeTimeRenderer()
 		},{
 			header: "User",
 			sortable: true,
@@ -164,7 +166,8 @@ OMV.Module.Diagnostics.LogPlugin.Auth = function(config) {
 			sortable: true,
 			dataIndex: "date",
 			id: "date",
-			width: 20
+			width: 35,
+			renderer: OMV.util.Format.localeTimeRenderer()
 		},{
 			header: "User",
 			sortable: true,
@@ -207,7 +210,8 @@ OMV.Module.Diagnostics.LogPlugin.Messages = function(config) {
 			sortable: true,
 			dataIndex: "date",
 			id: "date",
-			width: 20
+			width: 35,
+			renderer: OMV.util.Format.localeTimeRenderer()
 		},{
 			header: "User",
 			sortable: true,

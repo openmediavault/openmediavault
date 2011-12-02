@@ -280,6 +280,12 @@ class SMBRpc extends OMVRpc {
 		// Set configuration data
 		$success = FALSE;
 		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			// Check uniqueness
+			if (TRUE === $xmlConfig->exists("//services/smb/shares/share[" .
+			  "name='{$data['name']}']")) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+				  gettext("A share with the given name already exists"));
+			}
 			// Append object to configuration
 			$success = $xmlConfig->set("//services/smb/shares",
 			  array("share" => $object));

@@ -33,7 +33,7 @@ OMV.data.Connection.prototype = {
 	init : function(url) {
 		this.url = url;
 		this.connection = new Ext.data.Connection({
-			timeout: 45000 // 45 seconds
+			timeout: OMV.HTTPREQUEST_TIMEOUT
 		});
 		this.extraOptions = {}; // List of additional options per request
 	},

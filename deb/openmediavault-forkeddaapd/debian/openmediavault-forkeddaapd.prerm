@@ -21,10 +21,6 @@
 
 set -e
 
-# Generate configuration files and reinitialize monit.
-omv-mkconf monit
-monit reload
-
 case "$1" in
 	purge)
 	;;

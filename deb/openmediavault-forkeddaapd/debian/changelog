@@ -1,6 +1,12 @@
+openmediavault-forkeddaapd (0.2.2) stable; urgency=low
+
+  * Improve monitoring implementation (via monit)
+
+ -- vot <vot@Genesis>  Mon, 28 Nov 2011 15:10:40 +0100
+
 openmediavault-forkeddaapd (0.2.1) stable; urgency=low
 
-  * Improve monitoring feature.
+  * Improve monitoring implementation (via monit)
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 19 Nov 2011 21:38:55 +0100
 
