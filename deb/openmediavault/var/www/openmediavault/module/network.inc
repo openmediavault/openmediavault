@@ -64,10 +64,18 @@ class NetworkModule extends OMVModuleAbstract implements OMVINotifyListener {
 	public function updateInterface($object) {
 		// Create the '/etc/network/interfaces' configuration file.
 		$this->mkConf();
-		// Bring up the given interface.
+		// Bring down the given interface to allow reconfiguration
+		// if necessary, e.g. change bonding policy.
+		$cmd = sprintf("sudo ifdown --force %s 2>&1", $object['devicename']);
+		OMVUtil::exec($cmd, $output, $result);
+		if($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Bring up the given interface (again).
 		$cmd = sprintf("sudo ifup --force %s 2>&1", $object['devicename']);
 		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}

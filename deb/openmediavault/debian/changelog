@@ -5,6 +5,7 @@ openmediavault (0.2.5.7) stable; urgency=low
   * Improve monitoring implementation (via monit)
   * Mantis 0000294: creating two smb shares with the same name on two
     shared folders
+  * Mantis 0000300: Change bond mode fails and requires reboot
   * Mantis 0000303: Samba log settings prevent non-error logging
   * Mantis 0000306: Diagnostics - System logs do not display correct order
     of column 'Date & Time'
