@@ -1,8 +1,10 @@
 openmediavault (0.2.5.7) stable; urgency=low
 
+  * Fix bug in omv-firstaid when configuring the network interface.
   * Add environment variable OMV_HTTPREQUEST_TIMEOUT to modify the WebGUI HTTP
     request timeout. Defaults to 60000 milliseconds.
   * Improve monitoring implementation (via monit)
+  * Mantis 0000104: General Settings: Error while changing session timeout
   * Mantis 0000294: creating two smb shares with the same name on two
     shared folders
   * Mantis 0000300: Change bond mode fails and requires reboot

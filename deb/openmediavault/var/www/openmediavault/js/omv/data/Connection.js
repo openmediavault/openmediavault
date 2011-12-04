@@ -82,7 +82,10 @@ OMV.data.Connection.prototype = {
 	 */
 	cbRequestHdl : function(options, success, response) {
 		var transactionId = response.tId;
-		var responseData = {};
+		var responseData = {
+			response: null,
+			error: null
+		};
 
 		// Get the additional request options and remove them from the
 		// internal list.
@@ -94,10 +97,11 @@ OMV.data.Connection.prototype = {
 
 		if (success) {
 			try {
-				responseData = Ext.util.JSON.decode(response.responseText);
+				if(!Ext.isEmpty(response.responseText)) {
+					responseData = Ext.util.JSON.decode(response.responseText);
+				}
 			} catch(e) {
 				responseData = {
-					id: transactionId,
 					response: null,
 					error: {
 						code: null,
@@ -108,7 +112,6 @@ OMV.data.Connection.prototype = {
 			}
 		} else {
 			responseData = {
-				id: transactionId,
 				response: null,
 				error: {
 					code: null,
