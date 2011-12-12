@@ -6,6 +6,7 @@
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @author    Marcel Beck <marcel.beck@mbeck.org>
  * @copyright Copyright (c) 2009-2011 Volker Theile
+ * @copyright Copyright (c) 2011 Marcel Beck
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -92,7 +93,6 @@ class TransmissionBTModule extends OMVModuleAbstract implements
 			if (boolval($object['enable']) === true) {
 				$initd->exec();
 			}
-			//throw new OMVException(OMVErrorMsg::E_EXEC_FAILED, $cmd, 'Result: '.$result. implode("\n", $output));
 		}
 	}
 

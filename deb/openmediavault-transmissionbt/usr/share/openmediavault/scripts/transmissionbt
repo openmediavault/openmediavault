@@ -81,12 +81,15 @@ xmlstarlet sel -t -m "//services/transmissionbt" \
   -i "utp-enabled[. = '1']" -o "true" -b \
   -o "," -n \
   -v "concat('&quot;message-level&quot;: ',message-level,',')" -n \
+  -v "concat('&quot;cache-size-mb&quot;: ',cache-size-mb,',')" -n \
+  -v "concat('&quot;rpc-enabled&quot;: ','true',',')" -n \
   -o "&quot;rpc-authentication-required&quot;: " \
   -i "rpcauthenticationrequired[. = '0']" -o "false" -b \
   -i "rpcauthenticationrequired[. = '1']" -o "true" -b \
   -o "," -n \
   -v "concat('&quot;rpc-password&quot;: &quot;',rpcpassword,'&quot;,')" -n \
   -v "concat('&quot;rpc-port&quot;: ',rpcport,',')" -n \
+  -v "concat('&quot;rpc-url&quot;: &quot;',rpcurl,'&quot;,')" -n \
   -v "concat('&quot;rpc-username&quot;: &quot;',rpcusername,'&quot;,')" -n \
   -o "&quot;rpc-whitelist&quot;: &quot;${OMV_TRANSMISSIONBT_RPCWHITELIST}&quot;," -n \
   -o "&quot;rpc-whitelist-enabled&quot;: ${OMV_TRANSMISSIONBT_RPCWHITELISTENABLED}," -n \
@@ -180,8 +183,17 @@ xmlstarlet sel -t -m "//services/transmissionbt" \
   -o "}" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_TRANSMISSIONBT_CONFIG}
 
-# Create transmission cron file
+
 enable=$(omv_config_get "//services/transmissionbt/enable")
+
+watch_dir_enable=$(omv_config_get "//services/transmissionbt/modules/locationsandfiles/watch-dir-enabled")
+if [ 1 = ${enable} -a  1 = ${watch_dir_enable} ]; then
+	watch_dir=$(omv_config_get "//services/transmissionbt/modules/locationsandfiles/watch-dir")
+	watch_dir_full=`xmlstarlet sel -t -m "//services/transmissionbt" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v modules/locationsandfiles/watch-dir ${OMV_CONFIG_FILE}`
+	mkdir -p ${watch_dir_full}
+fi
+
+# Create transmission cron file
 blocklistsyncenabled=$(omv_config_get "//services/transmissionbt/blocklistsyncenabled")
 blocklistsyncfrequency=$(omv_config_get "//services/transmissionbt/blocklistsyncfrequency")
 cronfile="/etc/cron.${blocklistsyncfrequency}/transmissionbt"

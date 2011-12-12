@@ -4,7 +4,9 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
+# @author    Marcel Beck <marcel.beck@mbeck.org>
 # @copyright Copyright (c) 2009-2011 Volker Theile
+# @copyright Copyright (c) 2011 Marcel Beck
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -91,13 +93,13 @@ case "$1" in
 			object="${object}<blocklisturl>http://update.transmissionbt.com/level1.gz</blocklisturl>"
 			omv_config_add_element "//services" "transmissionbt" "${object}" true
 		fi
-		
+
 		if ! omv_config_exists "//services/transmissionbt/modules"; then
 			echo "Updateing Configuration"
 			echo "# Add modules section"
 			omv_config_add_element "//services/transmissionbt" "modules" "" true
 		fi
-		
+
 		if ! omv_config_exists "//services/transmissionbt/modules/locationsandfiles"; then
 			echo "Updateing Configuration"
 			echo "# Add modules/locationsandfiles section"
@@ -112,7 +114,7 @@ case "$1" in
 			object="${object}<trash-original-torrent-files>0</trash-original-torrent-files>"
 			omv_config_add_element "//services/transmissionbt/modules" "locationsandfiles" "${object}" true
 		fi
-		
+
 		if ! omv_config_exists "//services/transmissionbt/modules/bandwidth"; then
 			echo "Updateing Configuration"
 			echo "# Add modules/bandwidth section"
@@ -126,7 +128,7 @@ case "$1" in
 			object="${object}<alt-speed-down>50</alt-speed-down>"
 			omv_config_add_element "//services/transmissionbt/modules" "bandwidth" "${object}" true
 		fi
-		
+
 		if ! omv_config_exists "//services/transmissionbt/modules/queuing"; then
 			echo "Updateing Configuration"
 			echo "# Add modules/queuing section"
@@ -138,7 +140,7 @@ case "$1" in
 			object="${object}<seed-queue-size>10</seed-queue-size>"
 			omv_config_add_element "//services/transmissionbt/modules" "queuing" "${object}" true
 		fi
-		
+
 		if ! omv_config_exists "//services/transmissionbt/modules/peer"; then
 			echo "Updating configuration"
 			echo "# Add modules/peer section"
@@ -170,27 +172,27 @@ case "$1" in
 			fi
 			omv_config_add_element "//services/transmissionbt/modules" "peer" "${object}" true
 		fi
-		
+
 		if ! omv_config_exists "//services/transmissionbt/lazy-bitfield-enabled"; then
 			omv_config_add_element "//services/transmissionbt" "lazy-bitfield-enabled" "1"
 		fi
-		
+
 		if ! omv_config_exists "//services/transmissionbt/lpd-enabled"; then
 			omv_config_add_element "//services/transmissionbt" "lpd-enabled" "0"
 		fi
-		
+
 		if ! omv_config_exists "//services/transmissionbt/scrape-paused-torrents-enabled"; then
 			omv_config_add_element "//services/transmissionbt" "scrape-paused-torrents-enabled" "1"
 		fi
-		
+
 		if ! omv_config_exists "//services/transmissionbt/utp-enabled"; then
 			omv_config_add_element "//services/transmissionbt" "utp-enabled" "1"
 		fi
-		
+
 		if ! omv_config_exists "//services/transmissionbt/message-level"; then
 			omv_config_add_element "//services/transmissionbt" "message-level" "2"
 		fi
-		
+
 		if ! omv_config_exists "//services/transmissionbt/modules/scheduling"; then
 			echo "Updateing Configuration"
 			echo "# Add modules/scheduling section"
@@ -204,9 +206,21 @@ case "$1" in
 			object="${object}<ratio-limit-enabled>0</ratio-limit-enabled>"
 			omv_config_add_element "//services/transmissionbt/modules" "scheduling" "${object}" true
 		fi
-		
+
 		if ! omv_config_exists "//services/transmissionbt/umask"; then
 			omv_config_add_element "//services/transmissionbt" "umask" "18"
+		fi
+
+		if omv_config_exists "//services/transmissionbt/rpcenabled"; then
+			omv_config_delete "//services/transmissionbt/rpcenabled"
+		fi
+
+		if ! omv_config_exists "//services/transmissionbt/rpcurl"; then
+			omv_config_add_element "//services/transmissionbt" "rpcurl" "/transmission/"
+		fi
+
+		if ! omv_config_exists "//services/transmissionbt/cache-size-mb"; then
+			omv_config_add_element "//services/transmissionbt" "cache-size-mb" "4"
 		fi
 
 		########################################################################
@@ -214,6 +228,20 @@ case "$1" in
 		# transmission-daemon package.
 		########################################################################
 		omv_config_import_group "debian-transmission"
+
+		echo "Write Config"
+		omv-mkconf transmissionbt 2>&1
+
+		if [ "$(omv_config_get "//services/transmissionbt/enable")" = "0" ]; then
+			echo "Updating init script links and actions"
+			echo "Stopping transmission-daemon"
+			invoke-rc.d --force transmission-daemon stop
+			update-rc.d transmission-daemon disable &>/dev/null
+		else
+			echo "Updating init script links and actions"
+			echo "Reloading configuration"
+			invoke-rc.d --force transmission-daemon reload
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

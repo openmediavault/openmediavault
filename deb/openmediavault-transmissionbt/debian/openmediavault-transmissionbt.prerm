@@ -4,7 +4,9 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
+# @author    Marcel Beck <marcel.beck@mbeck.org>
 # @copyright Copyright (c) 2009-2011 Volker Theile
+# @copyright Copyright (c) 2011 Marcel Beck
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,14 +23,13 @@
 
 set -e
 
-# Stop service
-invoke-rc.d --quiet transmission-daemon stop
-
 case "$1" in
-	purge)
+	purge|remove|failed-upgrade|abort-install|abort-upgrade|disappear)
+		# Stop service
+		invoke-rc.d --quiet transmission-daemon stop
 	;;
-
-	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+	
+	upgrade)
 	;;
 
 	*)

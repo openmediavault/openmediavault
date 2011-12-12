@@ -1,3 +1,49 @@
+openmediavault-transmissionbt (0.2.8.5) stable; urgency=low
+
+  * Github Issue #30 - Error with jobs tab and autorefresh after update to 0.2.8.3
+  * Github Issue #31 - cache-size-mb configurable
+  * Github Issue #32 - Be able to set ratio with one decimal
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Mon, 05 Dec 2011 22:47:31 +0100
+
+openmediavault-transmissionbt (0.2.8.4) unstable; urgency=low
+
+  * Github Issue #27 - Be able to add torrents by URL
+  * Github Issue #28 - Disable "Manage", when transmissionbt is not enabled
+  * Github Issue #29 - Transmission Web UI still running even with the checkbox not ticked
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Wed, 30 Nov 2011 19:20:40 +0100
+
+openmediavault-transmissionbt (0.2.8.3) unstable; urgency=low
+
+  * Fixed Trap
+  * Just reload transmission-daemon
+  * Refactoring
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Mon, 28 Nov 2011 21:25:46 +0100
+
+openmediavault-transmissionbt (0.2.8.2) unstable; urgency=low
+
+  * Github Issue #26 - Upgrade Problem from <0.2.8 to >=0.2.8
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Mon, 28 Nov 2011 00:20:00 +0100
+
+openmediavault-transmissionbt (0.2.8.1) unstable; urgency=low
+
+  * Github Issue #22 - Dont restart transmission-daemon after update, only config update is needed
+  * Github Issue #23 - Add Queue Managment
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 27 Nov 2011 23:25:44 +0100
+
+openmediavault-transmissionbt (0.2.8) unstable; urgency=low
+
+  * Github Issue #3 - Possibility to mange Torrents inside OMV
+  * Github Issue #18 - Force new transmission-daemon
+  * Github Issue #19 - Bandwith - Turtle Mode Switch Upload/Download
+  * Github Issue #20 - Transmission Stops running after Upgrade
+
+ -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 27 Nov 2011 21:58:23 +0100
+
 openmediavault-transmissionbt (0.2.7.3) stable; urgency=low
 
   * Keep Windows IE 7 compatibility.
@@ -9,25 +55,25 @@ openmediavault-transmissionbt (0.2.7.2) stable; urgency=low
 
   * Removed old umask var
   * Import SVN Changes
-  
+
  -- Marcel Beck <marcel.beck@mbeck.org>  Tue, 22 Nov 2011 21:34:00 +0100
 
-openmediavault-transmissionbt (0.2.7.1) stable; urgency=low
+openmediavault-transmissionbt (0.2.7.1) unstable; urgency=low
 
   * Github Issue #13 - umask Setting
-  
+
  -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 20 Nov 2011 15:53:45 +0100
 
-openmediavault-transmissionbt (0.2.7) stable; urgency=low
+openmediavault-transmissionbt (0.2.7) unstable; urgency=low
 
   * Github Issue #2 - Add Scheduling Section
-  
+
  -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 20 Nov 2011 14:47:05 +0100
 
-openmediavault-transmissionbt (0.2.6.1) stable; urgency=low
+openmediavault-transmissionbt (0.2.6.1) unstable; urgency=low
 
   * Github Issue #12 - Can't stop transmission
-  
+
  -- Marcel Beck <marcel.beck@mbeck.org>  Sun, 20 Nov 2011 11:41:35 +0100
 
 openmediavault-transmissionbt (0.2.6) stable; urgency=low
@@ -35,7 +81,7 @@ openmediavault-transmissionbt (0.2.6) stable; urgency=low
   * Github Issue #6 - Clean PHP Code, add correct type handling
   * Github Issue #9 - Add Configuration Options to "General Settings"
   * Github Issue #11 - Can't start transmission
-  
+
  -- Marcel Beck <marcel.beck@mbeck.org>  Sat, 19 Nov 2011 14:25:39 +0100
 
 openmediavault-transmissionbt (0.2.5) stable; urgency=low
@@ -53,7 +99,7 @@ openmediavault-transmissionbt (0.2.4) stable; urgency=low
   * Added Queuing
 
  -- Marcel Beck <marcel.beck@mbeck.org>  Fri, 18 Nov 2011 13:55:36 +0100
- 
+
 openmediavault-transmissionbt (0.2.3) stable; urgency=low
 
   * Mantis 0000224: transmissionbt daily Cron

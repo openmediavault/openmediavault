@@ -19,5 +19,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 
-// require("js/omv/module/transmissionbt/admin.js")
-// require("js/omv/module/transmissionbt/user.js")
+// require("js/omv/module/transmissionbt/NavigationPanel.js")
+
+// require("js/omv/module/transmissionbt/manage/panel.js")

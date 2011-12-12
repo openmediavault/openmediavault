@@ -6,12 +6,13 @@ Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>> 7)
 Standards-Version: 3.6.10
 Homepage: http://www.openmediavault.org
+ http://packages.omv-plugins.org/
  https://github.com/OMV-Plugins/openmediavault-transmissionbt
 
 Package: openmediavault-transmissionbt
 Architecture: all
-Depends: openmediavault, transmission-daemon (>= 1.77)
+Depends: openmediavault, transmission-daemon (>= 2.42)
 Priority: optional
-Description: OpenMediaVault transmission-daemon (BitTorrent client) plugin
+Description: OpenMediaVault Transmission (BitTorrent client) plugin
  Transmission is a simple BitTorrent client that features a very simple and
  intuitive interface.

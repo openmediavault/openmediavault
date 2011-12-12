@@ -2,8 +2,9 @@
  * This file is part of OpenMediaVault.
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
  * @author    Marcel Beck <marcel.beck@mbeck.org>
- * @copyright Copyright (c) 2011 Marcel Beck
+ * @copyright Copyright (c) 2009-2011 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,5 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 
-// require("js/omv/module/transmissionbt/admin.js")
-// require("js/omv/module/transmissionbt/user.js")
+// require("js/omv/module/transmissionbt/NavigationPanel.js")
+
+// require("js/omv/module/transmissionbt/admin/panel.js")
