@@ -37,7 +37,7 @@ OMV.form.SharedFolderComboBox = function(config) {
 		noneText: "None",
 		editable: false,
 		triggerAction: "all",
-		displayField: "longdescription",
+		displayField: "description",
 		valueField: "uuid",
 		store: new OMV.data.Store({
 			remoteSort: false,
@@ -48,7 +48,7 @@ OMV.form.SharedFolderComboBox = function(config) {
 				root: "data",
 				fields: [
 					{ name: "uuid" },
-					{ name: "longdescription" },
+					{ name: "description" },
 					{ name: "name" },
 					{ name: "mntentref" }
 				]
@@ -60,7 +60,7 @@ OMV.form.SharedFolderComboBox = function(config) {
 					// Append the 'None' entry
 					store.insert(0, new store.recordType({
 						"uuid": "",
-						"longdescription": this.noneText
+						"description": this.noneText
 					  }));
 				},
 				scope: this

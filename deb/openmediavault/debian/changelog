@@ -1,3 +1,11 @@
+openmediavault (0.2.5.8) stable; urgency=low
+
+  * Fix bug in regex to parse date/time field in RSync logfile
+  * Mantis 0000312: Shared Folders - Show Label not only Volume
+  * Mantis 0000314: Can't add shared folder with same name on another volume
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 15 Dec 2011 21:41:01 +0100
+
 openmediavault (0.2.5.7) stable; urgency=low
 
   * Fix bug in omv-firstaid when configuring the network interface.

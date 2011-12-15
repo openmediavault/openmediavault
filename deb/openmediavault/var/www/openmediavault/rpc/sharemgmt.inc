@@ -112,18 +112,19 @@ class ShareMgmtRpc extends OMVRpc {
 			// Skip the filesystems that are not mounted at the moment.
 			if (FALSE === $fs->isMounted())
 				continue;
-			// Get the filesystem details.
+			// Get some filesystem details.
+			$devicefile = $fs->getDeviceFile();
+			$label = $fs->getLabel();
+			// Prepare result object.
 			$object = array(
 				"uuid" => $objectv['uuid'],
-				"devicefile" => $fs->getDeviceFile(),
-				"description" => $fs->getDeviceFile() // Default value
+				"devicefile" => $devicefile,
+				"description" => !empty($label) ? $label : $devicefile
 			);
 			// Get some more filesystem details if possible.
 			if (FALSE !== ($fsStats = $fs->getStatistics())) {
-				$label = $fs->getLabel();
 				$object['description'] = sprintf(
-				  gettext("%s (%s available)"), !empty($label) ?
-				  $label : $object['devicefile'],
+				  gettext("%s (%s available)"), $object['description'],
 				  binary_format($fsStats['available']));
 			}
 			$result[] = $object;
@@ -155,21 +156,25 @@ class ShareMgmtRpc extends OMVRpc {
 		// Add additional informations.
 		foreach ($objects as $objectk => &$objectv) {
 			$objectv['_used'] = false;
-			$objectv['longdescription'] = $objectv['name'];
+			$objectv['description'] = $objectv['name'];
 			$objectv['volume'] = gettext("n/a");
 			// Get the mount point configuration object to append additional
-			// informations, e.g. the devicefile or a modified long
-			// description, to the returned objects.
+			// informations to the returned objects, e.g. the devicefile or
+			// a modified description.
 			$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
 			  $objectv['mntentref']);
 			$meobject = $xmlConfig->get($xpath);
 			if (!is_null($meobject) && !empty($meobject)) {
 				$fs = new OMVFilesystem($meobject['fsname']);
 				if (TRUE === $fs->exists()) {
-					$objectv['volume'] = $fs->getDeviceFile();
-					$objectv['longdescription'] = sprintf(
-					  gettext("%s [on %s]"), $objectv['longdescription'],
-					  $fs->getDeviceFile());
+					// Get some filesystem details.
+					$devicefile = $fs->getDeviceFile();
+					$label = $fs->getLabel();
+					// Override default values.
+					$objectv['volume'] = !empty($label) ? $label : $devicefile;
+					$objectv['description'] = sprintf(
+					  gettext("%s [on %s]"), $objectv['description'],
+					  $objectv['volume']);
 				}
 			}
 			// Is the shared folder referenced by any object?
@@ -247,8 +252,9 @@ class ShareMgmtRpc extends OMVRpc {
 		$success = FALSE;
 		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
 			// Check uniqueness
-			if (TRUE === $xmlConfig->exists("//system/shares/sharedfolder[" .
-			  "name='{$data['name']}']")) {
+			$xpath = sprintf("//system/shares/sharedfolder[name='%s' and ".
+			  "mntentref='%s']", $data['name'], $data['mntentref']);
+			if (TRUE === $xmlConfig->exists($xpath)) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
 				gettext("A shared folder with the given name already exists"));
 			}

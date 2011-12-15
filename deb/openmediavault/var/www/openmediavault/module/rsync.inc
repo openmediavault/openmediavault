@@ -68,7 +68,7 @@ OMVLogFile::registerType("rsync", array(
   "columns" => array(
 	  "date" => array(
 		  "index" => 1,
-		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+		  "func" => create_function('$v', 'return strpdate($v,"Y/m/d G:i:s");')
 	  ),
 	  "event" => 2
   )));
