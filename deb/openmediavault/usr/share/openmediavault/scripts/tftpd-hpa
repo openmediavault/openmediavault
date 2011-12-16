@@ -32,7 +32,7 @@ OMV_TFTPD_MCASTTTL=${OMV_TFTPD_MCASTTTL:-"1"}
 OMV_TFTPD_MAXTHREAD=${OMV_TFTPD_MAXTHREAD:-"100"}
 OMV_TFTPD_VERBOSE=${OMV_TFTPD_VERBOSE:-"5"}
 OMV_TFTPD_USERNAME=${OMV_TFTPD_USERNAME:-"tftp"}
-OMV_TFTPD_OPTIONS=${OMV_TFTPD_OPTIONS:-"--permissive --secure"}
+OMV_TFTPD_OPTIONS=${OMV_TFTPD_OPTIONS:-"--secure"}
 
 # Create '/etc/default/tftpd-hpa' file
 xmlstarlet sel -t -m "//services/tftp" \

@@ -128,10 +128,9 @@ case "$1" in
 		fi
 
 		########################################################################
-		# Update the configuration
-		########################################################################
-		echo "Updating configuration ..."
 		# Update the product information
+		########################################################################
+		echo "Updating product information ..."
 		version=$(dpkg-query -W -f='${Version}' openmediavault)
 		if [ -n "$version" ]; then
 			tmpfile=$(tempfile)

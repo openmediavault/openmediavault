@@ -30,7 +30,8 @@ set -e
 OMV_SAMBA_CONFIG=${OMV_SAMBA_CONFIG:-"/etc/samba/smb.conf"}
 OMV_SAMBA_HOMES_COMMENT=${OMV_SAMBA_HOMES_COMMENT:-"Home directories"}
 OMV_SAMBA_HOMES_WRITABLE=${OMV_SAMBA_HOMES_WRITABLE:-"yes"}
-OMV_SAMBA_HOMES_CREATEMODE=${OMV_SAMBA_HOMES_CREATEMODE:-"0700"}
+OMV_SAMBA_HOMES_CREATEMASK=${OMV_SAMBA_HOMES_CREATEMASK:-"0640"}
+OMV_SAMBA_HOMES_DIRECTORYMASK=${OMV_SAMBA_HOMES_DIRECTORYMASK:-"0750"}
 OMV_SAMBA_HOMES_VALIDUSERS=${OMV_SAMBA_HOMES_VALIDUSERS:-"%S"}
 
 xmlstarlet sel -t -m "//services/smb" \
@@ -41,7 +42,8 @@ xmlstarlet sel -t -m "//services/smb" \
 	  -i "homesbrowseable[. = '0']" -o "browseable = no" -n -b \
 	  -i "homesbrowseable[. = '1']" -o "browseable = yes" -n -b \
 	  -o "writable = ${OMV_SAMBA_HOMES_WRITABLE}" -n \
-	  -o "create mode = ${OMV_SAMBA_HOMES_CREATEMODE}" -n \
+	  -o "create mask = ${OMV_SAMBA_HOMES_CREATEMASK}" -n \
+	  -o "directory mask = ${OMV_SAMBA_HOMES_DIRECTORYMASK}" -n \
 	  -o "valid users = ${OMV_SAMBA_HOMES_VALIDUSERS}" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}

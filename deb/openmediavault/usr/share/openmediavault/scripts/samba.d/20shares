@@ -24,6 +24,7 @@
 # http://us5.samba.org/samba/docs/man/manpages-3/smb.conf.5.html
 # http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
 # http://oreilly.com/catalog/samba/chapter/book/ch06_02.html
+# https://www.bsi.bund.de/ContentBSI/grundschutz/kataloge/m/m04/m04332.html
 
 set -e
 
@@ -35,6 +36,10 @@ OMV_SAMBA_SHARE_RECYCLEREPOSITORY=${OMV_SAMBA_SHARE_RECYCLEREPOSITORY:-".recycle
 OMV_SAMBA_SHARE_RECYCLEDIRECTORYMODE=${OMV_SAMBA_SHARE_RECYCLEDIRECTORYMODE:-"0777"}
 OMV_SAMBA_SHARE_RECYCLESUBDIRMODE=${OMV_SAMBA_SHARE_RECYCLESUBDIRMODE:-"0700"}
 OMV_SAMBA_SHARE_PRINTABLE=${OMV_SAMBA_SHARE_PRINTABLE:-"no"}
+OMV_SAMBA_SHARE_CREATEMASK=${OMV_SAMBA_SHARE_CREATEMASK:-"0755"}
+OMV_SAMBA_SHARE_FORCECREATEMODE=${OMV_SAMBA_SHARE_FORCECREATEMODE:-"0644"}
+OMV_SAMBA_SHARE_DIRECTORYMASK=${OMV_SAMBA_SHARE_DIRECTORYMASK:-"0755"}
+OMV_SAMBA_SHARE_FORCEDIRECTORYMODE=${OMV_SAMBA_SHARE_FORCEDIRECTORYMODE:-"0755"}
 
 echo "#======================= Share Definitions =======================" >> ${OMV_SAMBA_CONFIG}
 index=$(omv_config_get_count "//services/smb/shares/share")
@@ -72,6 +77,10 @@ do
 		  -o "recycle:subdir_mode = ${OMV_SAMBA_SHARE_RECYCLESUBDIRMODE}" -n \
 	  -b \
 	  -o "printable = ${OMV_SAMBA_SHARE_PRINTABLE}" -n \
+	  -o "create mask = ${OMV_SAMBA_SHARE_CREATEMASK}" -n \
+	  -o "force create mode = ${OMV_SAMBA_SHARE_FORCECREATEMODE}" -n \
+	  -o "directory mask = ${OMV_SAMBA_SHARE_DIRECTORYMASK}" -n \
+	  -o "force directory mode = ${OMV_SAMBA_SHARE_FORCEDIRECTORYMODE}" -n \
 	  -i "string-length(hostsallow) > 0" -v "concat('hosts allow = ',hostsallow)" -n -b \
 	  -i "string-length(hostsdeny) > 0" -v "concat('hosts deny = ',hostsdeny)" -n -b \
 	  -i "hidedotfiles[. = '0']" -o "hide dot files = no" -b \
