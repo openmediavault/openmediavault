@@ -19,6 +19,7 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/NavigationPanel.js")
+// require("js/omv/PluginMgr.js")
 // require("js/omv/FormPanelExt.js")
 // require("js/omv/form/plugins/FieldInfo.js")
 // require("js/omv/DiagPanel.js")

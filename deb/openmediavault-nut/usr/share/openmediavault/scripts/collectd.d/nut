@@ -28,6 +28,8 @@ OMV_COLLECTD_CONFIG=${OMV_COLLECTD_CONFIG:-"/etc/collectd/collectd.conf"}
 OMV_COLLECTD_RRDTOOL_MKGRAPH=${OMV_COLLECTD_RRDTOOL_MKGRAPH:-"/usr/sbin/omv-mkgraph"}
 OMV_NUT_UPSD_PORT=${OMV_NUT_UPSD_PORT:-"3493"}
 
+[ "$(omv_config_get "//services/nut/enable")" = "0" ] && exit 0
+
 xmlstarlet sel -t -m "//services/nut" \
   -o "LoadPlugin nut" -n \
   -o "&lt;Plugin nut&gt;" -n \
