@@ -1,0 +1,11 @@
+openmediavault-nut (0.1.1) stable; urgency=low
+
+  * Improve monitoring feature.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 16 Dec 2011 21:56:56 +0100
+
+openmediavault-nut (0.1) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 07 Apr 2011 18:45:43 +0200

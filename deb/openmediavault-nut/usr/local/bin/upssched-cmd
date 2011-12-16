@@ -1,0 +1,86 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2008-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/upssched-cmd
+
+OMV_NUT_UPSSCHEDCMD_SENDER=${OMV_NUT_UPSSCHEDCMD_SENDER:-""}
+OMV_NUT_UPSSCHEDCMD_RECIPIENTS=${OMV_NUT_UPSSCHEDCMD_RECIPIENTS:-""}
+OMV_NUT_UPSSCHEDCMD_SHUTDOWNTIMER=${OMV_NUT_UPSSCHEDCMD_SHUTDOWNTIMER:-"30"}
+OMV_NUT_UPSSCHEDCMD_FORCEDSHUTDOWNTIMER=${OMV_NUT_UPSSCHEDCMD_FORCEDSHUTDOWNTIMER:-"0"}
+OMV_NUT_UPSSCHEDCMD_EMAILSUBJECT=${OMV_NUT_UPSSCHEDCMD_EMAILSUBJECT:-"UPS notification from %h"}
+
+case "${NOTIFYTYPE}" in
+	ONLINE)
+		notifymessage="UPS ${UPSNAME} - Running on line power";;
+	ONBATT)
+		notifymessage="UPS ${UPSNAME} - Line Power Fail, system running on battery power";;
+	LOWBATT)
+		notifymessage="UPS ${UPSNAME} - Low battery power";;
+	FSD)
+		notifymessage="UPS ${UPSNAME}: - Forced shutdown in progress";;
+	COMMOK)
+		notifymessage="Communications with the UPS ${UPSNAME} are established";;
+	COMMBAD)
+		notifymessage="Communications with the UPS ${UPSNAME} are lost";;
+	SHUTDOWN)
+		notifymessage="Automatic logout and shutdown proceeding";;
+	REPLBATT)
+		notifymessage="UPS ${UPSNAME} - The battery needs to be replaced!";;
+	NOCOMM)
+		notifymessage="Communications with the UPS ${UPSNAME} cannot be established";;
+	NOPARENT)
+		notifymessage="upsmon parent process died - shutdown impossible";;
+esac
+
+case "${1}" in
+	shutdown-warning)
+		message="${notifymessage}. Shutdown imminent in ${OMV_NUT_UPSSCHEDCMD_SHUTDOWNTIMER} seconds.";;
+
+	shutdown)
+		message="${notifymessage}. System is being shutdown!";
+		upsmon -c fsd;;
+
+	resume)
+		message="${notifymessage}. Shutdown cancelled.";;
+
+	forced-shutdown)
+		message="${notifymessage}";
+		upsmon -c fsd;;
+
+	notify)
+		message="${notifymessage}";;
+
+	*)
+		message="Unknown command: ${1}";
+esac
+
+# Write message to syslog
+logger -t upssched-cmd "${message}"
+
+# Send notification email
+if [ -n "${OMV_NUT_UPSSCHEDCMD_RECIPIENTS}" ]; then
+	# Substitute special characters in subject.
+	subject=$(echo ${OMV_NUT_UPSSCHEDCMD_EMAILSUBJECT} | sed "s/%h/$(hostname)/" | sed "s/%d/$(date)/")
+	# Send email
+	echo ${message} | mail -s "${subject}" ${OMV_NUT_UPSSCHEDCMD_RECIPIENTS}
+fi

@@ -1,0 +1,198 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://blog.shadypixel.com/monitoring-a-ups-with-nut-on-debian-or-ubuntu-linux/
+# http://www.die-welt.net/2011/02/mustek-powemust-1000-usb-on-debian-squeeze/
+# http://beeznest.wordpress.com/2008/07/14/howto-setup-nut-network-ups-tools-on-debian/
+# http://kiserai.net/blog/2009/03/07/belkin-universal-ups-with-nut-debian
+# http://homepage.mac.com/pauljlucas/personal/macmini/ups.html
+# http://rogerprice.org/NUT.html
+# http://linuxman.wikispaces.com/NUT
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_NUT_NUT_DEFAULT=${OMV_NUT_NUT_DEFAULT:-"/etc/default/nut"}
+OMV_NUT_NUT_CONFIG=${OMV_NUT_NUT_CONFIG:-"/etc/nut/nut.conf"}
+OMV_NUT_UPS_CONFIG=${OMV_NUT_UPS_CONFIG:-"/etc/nut/ups.conf"}
+OMV_NUT_UPSD_CONFIG=${OMV_NUT_UPSD_CONFIG:-"/etc/nut/upsd.conf"}
+OMV_NUT_UPSD_MAXAGE=${OMV_NUT_UPSD_MAXAGE:-"15"}
+OMV_NUT_UPSD_MAXCONN=${OMV_NUT_UPSD_MAXCONN:-"1024"}
+OMV_NUT_UPSD_PORT=${OMV_NUT_UPSD_PORT:-"3493"}
+OMV_NUT_UPSDUSERS_CONFIG=${OMV_NUT_UPSDUSERS_CONFIG:-"/etc/nut/upsd.users"}
+OMV_NUT_UPSDUSERS_ACTIONS=${OMV_NUT_UPSDUSERS_ACTIONS:-"set"}
+OMV_NUT_UPSDUSERS_INSTCMDS=${OMV_NUT_UPSDUSERS_INSTCMDS:-"all"}
+OMV_NUT_UPSDUSERS_UPSMON=${OMV_NUT_UPSDUSERS_UPSMON:-"master"}
+OMV_NUT_UPSMON_CONFIG=${OMV_NUT_UPSMON_CONFIG:-"/etc/nut/upsmon.conf"}
+OMV_NUT_UPSMON_USER=${OMV_NUT_UPSMON_USER:-"admin"}
+OMV_NUT_UPSMON_MINSUPPLIES=${OMV_NUT_UPSMON_MINSUPPLIES:-"1"}
+OMV_NUT_UPSMON_SHUTDOWNCMD=${OMV_NUT_UPSMON_SHUTDOWNCMD:-"/sbin/shutdown -h +0"}
+OMV_NUT_UPSMON_NOTIFYCMD=${OMV_NUT_UPSMON_NOTIFYCMD:-"/sbin/upssched"}
+OMV_NUT_UPSMON_POLLFREQ=${OMV_NUT_UPSMON_POLLFREQ:-"5"}
+OMV_NUT_UPSMON_POLLFREQALERT=${OMV_NUT_UPSMON_POLLFREQALERT:-"5"}
+OMV_NUT_UPSMON_HOSTSYNC=${OMV_NUT_UPSMON_HOSTSYNC:-"15"}
+OMV_NUT_UPSMON_DEADTIME=${OMV_NUT_UPSMON_DEADTIME:-"15"}
+OMV_NUT_UPSMON_POWERDOWNFLAG=${OMV_NUT_UPSMON_POWERDOWNFLAG:-"/etc/killpower"}
+OMV_NUT_UPSMON_RBWARNTIME=${OMV_NUT_UPSMON_RBWARNTIME:-"43200"}
+OMV_NUT_UPSMON_NOCOMMWARNTIME=${OMV_NUT_UPSMON_NOCOMMWARNTIME:-"300"}
+OMV_NUT_UPSMON_FINALDELAY=${OMV_NUT_UPSMON_FINALDELAY:-"5"}
+OMV_NUT_UPSSCHED_CONFIG=${OMV_NUT_UPSSCHED_CONFIG:-"/etc/nut/upssched.conf"}
+
+mkconf() {
+	# Create '/etc/default/nut'
+	cat <<EOF > ${OMV_NUT_NUT_DEFAULT}
+UPSD_OPTIONS=""
+UPSMON_OPTIONS=""
+EOF
+
+	# Create '/etc/nut/nut.conf'
+	xmlstarlet sel -t -m "//services/nut" \
+	  -i "remotemonitor[. = '0']" -o "MODE=standalone" -b \
+	  -i "remotemonitor[. = '1']" -o "MODE=netserver" -b \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NUT_NUT_CONFIG}
+
+	# Create '/etc/nut/ups.conf'
+	xmlstarlet sel -t -m "//services/nut" \
+	  -v "concat('[',upsname,']')" -n \
+	  -v driverconf -n \
+	  -i "string-length(comment) > 0" -v "concat('desc = ',comment)" -b \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NUT_UPS_CONFIG}
+
+	# Create '/etc/nut/upsd.conf'
+	cat <<EOF > ${OMV_NUT_UPSD_CONFIG}
+MAXAGE ${OMV_NUT_UPSD_MAXAGE}
+MAXCONN ${OMV_NUT_UPSD_MAXCONN}
+LISTEN 127.0.0.1 ${OMV_NUT_UPSD_PORT}
+LISTEN ::1 ${OMV_NUT_UPSD_PORT}
+EOF
+	if [ "1" = $(omv_config_get "//services/nut/remotemonitor") ]; then
+		xmlstarlet sel -t -m "//system/network/interfaces/*" \
+		  -v devicename -i "position() != last()" -n -b \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+		  while read iface; do
+			  ipaddr=$(omv_get_ipaddr ${iface})
+			  echo "LISTEN ${ipaddr} ${OMV_NUT_UPSD_PORT}" >> ${OMV_NUT_UPSD_CONFIG}
+		  done
+	fi
+
+	# Create '/etc/nut/upsd.users'
+	xmlstarlet sel -t -m "//services/nut" \
+	  -o "[${OMV_NUT_UPSMON_USER}]" -n \
+	  -v "concat('password = ',//system/usermanagement/users/user[name='${OMV_NUT_UPSMON_USER}']/password)" -n \
+	  -o "actions = ${OMV_NUT_UPSDUSERS_ACTIONS}" -n \
+	  -o "instcmds = ${OMV_NUT_UPSDUSERS_INSTCMDS}" -n \
+	  -o "upsmon ${OMV_NUT_UPSDUSERS_UPSMON}" \
+	  -i "remotemonitor[. = '1']" \
+		-n -n \
+		-v "concat('[',remoteuser,']')" -n \
+		-v "concat('password = ',remotepassword)" \
+	  -b \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NUT_UPSDUSERS_CONFIG}
+
+	# Create '/etc/nut/upsmon.conf'
+	xmlstarlet sel -t -m "//services/nut" \
+	  -v "concat('MONITOR ',upsname,'@localhost 1 ${OMV_NUT_UPSMON_USER} ',//system/usermanagement/users/user[name='${OMV_NUT_UPSMON_USER}']/password,' master')" \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NUT_UPSMON_CONFIG}
+	cat <<EOF >> ${OMV_NUT_UPSMON_CONFIG}
+MINSUPPLIES ${OMV_NUT_UPSMON_MINSUPPLIES}
+SHUTDOWNCMD "${OMV_NUT_UPSMON_SHUTDOWNCMD}"
+NOTIFYCMD "${OMV_NUT_UPSMON_NOTIFYCMD}"
+POLLFREQ ${OMV_NUT_UPSMON_POLLFREQ}
+POLLFREQALERT ${OMV_NUT_UPSMON_POLLFREQALERT}
+HOSTSYNC ${OMV_NUT_UPSMON_HOSTSYNC}
+DEADTIME ${OMV_NUT_UPSMON_DEADTIME}
+POWERDOWNFLAG ${OMV_NUT_UPSMON_POWERDOWNFLAG}
+NOTIFYFLAG ONLINE SYSLOG+WALL+EXEC
+NOTIFYFLAG ONBATT SYSLOG+WALL+EXEC
+NOTIFYFLAG LOWBATT SYSLOG+WALL+EXEC
+NOTIFYFLAG COMMOK SYSLOG+WALL+EXEC
+NOTIFYFLAG COMMBAD SYSLOG+WALL+EXEC
+NOTIFYFLAG SHUTDOWN SYSLOG+WALL+EXEC
+NOTIFYFLAG REPLBATT SYSLOG+WALL+EXEC
+NOTIFYFLAG NOCOMM SYSLOG+WALL+EXEC
+NOTIFYFLAG FSD SYSLOG+WALL+EXEC
+RBWARNTIME ${OMV_NUT_UPSMON_RBWARNTIME}
+NOCOMMWARNTIME ${OMV_NUT_UPSMON_NOCOMMWARNTIME}
+FINALDELAY ${OMV_NUT_UPSMON_FINALDELAY}
+EOF
+
+	# Create '/etc/nut/upssched.conf'
+	cat <<EOF > ${OMV_NUT_UPSSCHED_CONFIG}
+CMDSCRIPT /usr/local/bin/upssched-cmd
+PIPEFN /var/run/nut/upssched.pipe
+LOCKFN /var/run/nut/upssched.lock
+AT COMMOK * EXECUTE notify
+AT COMMBAD * EXECUTE notify
+AT REPLBATT * EXECUTE notify
+AT NOCOMM * EXECUTE notify
+AT FSD * EXECUTE forced-shutdown
+AT NOPARENT * EXECUTE notify
+AT SHUTDOWN * EXECUTE notify
+EOF
+	if [ "onbatt" = $(omv_config_get "//services/nut/shutdownmode") ]; then
+		shutdowntimer=$(omv_config_get "//services/nut/shutdowntimer")
+		cat <<EOF >> ${OMV_NUT_UPSSCHED_CONFIG}
+AT ONLINE * CANCEL-TIMER shutdown
+AT ONLINE * EXECUTE resume
+AT ONBATT * START-TIMER shutdown ${shutdowntimer}
+AT ONBATT * EXECUTE shutdown-warning
+AT LOWBATT * START-TIMER shutdown
+AT LOWBATT * EXECUTE shutdown-warning
+EOF
+	else
+		cat <<EOF >> ${OMV_NUT_UPSSCHED_CONFIG}
+AT ONLINE * EXECUTE notify
+AT ONBATT * EXECUTE notify
+AT LOWBATT * EXECUTE notify
+EOF
+	fi
+
+	# Create '/etc/default/upssched-cmd'
+	# Using the defaults file is necessary because the script is executed as
+	# user 'nut' which does not have the privileges to read the OMV config.xml
+	# file to exreact necessary informations.
+	xmlstarlet sel -t \
+	  -o "# This file is auto-generated by OpenMediaVault." -n \
+	  -m "//system/email" \
+		-i "enable = '1'" \
+		  -v "concat('OMV_NUT_UPSSCHEDCMD_SENDER=&quot;',sender,'&quot;')" -n \
+		  -o "OMV_NUT_UPSSCHEDCMD_RECIPIENTS=&quot;" \
+		  -v primaryemail \
+		  -i "string-length(secondaryemail) > 0" -v "concat(' ',secondaryemail)" -b \
+		  -o "&quot;" -n \
+		-b \
+	  -m "//services/nut" \
+		-v "concat('OMV_NUT_UPSSCHEDCMD_SHUTDOWNTIMER=&quot;',shutdowntimer,'&quot;')" \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > /etc/default/upssched-cmd
+
+	# Modify file permissions
+	chown root:nut /etc/nut/*
+	chmod 640 /etc/nut/*
+}
+
+case "$1" in
+	mkconf|*)
+		mkconf
+		;;
+esac
