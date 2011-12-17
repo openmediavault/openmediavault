@@ -1,3 +1,10 @@
+openmediavault (0.2.5.9) stable; urgency=low
+
+  * Configure catch-all entry for hostname in /etc/postfix/generic. Thus all
+    emails send via mail command should use the configured sender address.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 17 Dec 2011 02:02:19 +0100
+
 openmediavault (0.2.5.8) stable; urgency=low
 
   * Fix bug in regex to parse date/time field in RSync logfile

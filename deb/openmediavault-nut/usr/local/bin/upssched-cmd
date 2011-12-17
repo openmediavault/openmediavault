@@ -22,12 +22,13 @@
 set -e
 
 . /etc/default/upssched-cmd
+. /usr/share/openmediavault/scripts/helper-functions
 
-OMV_NUT_UPSSCHEDCMD_SENDER=${OMV_NUT_UPSSCHEDCMD_SENDER:-""}
-OMV_NUT_UPSSCHEDCMD_RECIPIENTS=${OMV_NUT_UPSSCHEDCMD_RECIPIENTS:-""}
 OMV_NUT_UPSSCHEDCMD_SHUTDOWNTIMER=${OMV_NUT_UPSSCHEDCMD_SHUTDOWNTIMER:-"30"}
 OMV_NUT_UPSSCHEDCMD_FORCEDSHUTDOWNTIMER=${OMV_NUT_UPSSCHEDCMD_FORCEDSHUTDOWNTIMER:-"0"}
-OMV_NUT_UPSSCHEDCMD_EMAILSUBJECT=${OMV_NUT_UPSSCHEDCMD_EMAILSUBJECT:-"UPS notification from %h"}
+OMV_NUT_UPSSCHEDCMD_EMAIL_ENABLE=${OMV_NUT_UPSSCHEDCMD_EMAIL_ENABLE:-"no"}
+OMV_NUT_UPSSCHEDCMD_EMAIL_RECIPIENTS=${OMV_NUT_UPSSCHEDCMD_EMAIL_RECIPIENTS:-"root"}
+OMV_NUT_UPSSCHEDCMD_EMAIL_SUBJECT=${OMV_NUT_UPSSCHEDCMD_EMAIL_SUBJECT:-"UPS notification from %h"}
 
 case "${NOTIFYTYPE}" in
 	ONLINE)
@@ -78,9 +79,8 @@ esac
 logger -t upssched-cmd "${message}"
 
 # Send notification email
-if [ -n "${OMV_NUT_UPSSCHEDCMD_RECIPIENTS}" ]; then
-	# Substitute special characters in subject.
-	subject=$(echo ${OMV_NUT_UPSSCHEDCMD_EMAILSUBJECT} | sed "s/%h/$(hostname)/" | sed "s/%d/$(date)/")
-	# Send email
-	echo ${message} | mail -s "${subject}" ${OMV_NUT_UPSSCHEDCMD_RECIPIENTS}
+if omv_checkyesno ${OMV_NUT_UPSSCHEDCMD_EMAIL_ENABLE}; then
+	# Substitute special characters in subject
+	subject=$(echo ${OMV_NUT_UPSSCHEDCMD_EMAIL_SUBJECT} | sed "s/%h/$(hostname)/" | sed "s/%d/$(date)/")
+	echo ${message} | mail -s "${subject}" ${OMV_NUT_UPSSCHEDCMD_EMAIL_RECIPIENTS}
 fi

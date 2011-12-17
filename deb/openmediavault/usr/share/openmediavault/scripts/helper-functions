@@ -427,47 +427,6 @@ omv_config_delete_group() {
 	omv_config_delete "//system/usermanagement/groups/group[name='$1']"
 }
 
-# omv_mail [recipients] [subject] [message]
-# Send an email.
-# Return 0 if successful, nonzero otherwise.
-# $1 - Recipients
-# $2 - Subject
-# $2 - Message
-omv_mail() {
-	local recipients subject message rfcdate result
-
-	recipients=$1
-	subject=$2
-	message=$3
-	tmp=$(tempfile)
-
-	# Get date in RFC 2882 format.
-	rfcdate=`date "+%a, %d %b %Y %H:%M:%S %z"`
-
-	# Substitute special characters in subject.
-	subject=$(echo ${subject} | sed "s/%h/$(hostname)/" | sed "s/%d/$(date)/")
-
-	# Create message
-	echo ${recipients} | awk '{for (i=NF; i>0; --i) printf("To: %s\n", $i)}' > ${tmp}
-
-	xmlstarlet sel -t \
-	  -v "concat('From: ',//system/email/sender)" -n \
-	  -o "Subject: ${subject}" -n \
-	  -o "Date: ${rfcdate}" -n \
-	  -n \
-	  -o "${message}" \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${tmp}
-
-	# Now email the message to the user
-	msmtp -- ${recipients} < ${tmp} 1>/dev/null 2>&1
-	result=$?
-
-	# Cleanup
-	rm -f ${tmp} 1>/dev/null 2>&1
-
-	return ${result}
-}
-
 # omv_quotemeta [string]
 # Quote special characters (\/&) in the given string.
 # $1 - The string to quote

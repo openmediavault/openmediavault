@@ -76,15 +76,15 @@ chmod 0600 ${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}
 postmap ${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}
 
 # Create '/etc/postfix/generic' configuration file
+myhostname=$(postconf -h myhostname)
 xmlstarlet sel -t \
   -i "//system/email/enable[. = '1']" \
-	-m "//system/email" \
-	  -v "concat('root ',sender)" -n \
-	  -v "concat('openmediavault ',sender)" -n \
-	-b \
+	-v "concat('root ',//system/email/sender)" -n \
+	-v "concat('openmediavault ',//system/email/sender)" -n \
 	-m "//system/usermanagement/users/user[email != '']" \
 	  -v "concat(name,' ',email)" -n \
 	-b \
+	-v "concat('@${myhostname} ',//system/email/sender)" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 chown root:root ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
@@ -94,9 +94,7 @@ postmap ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 # Create '/etc/postfix/sender_canonical' configuration file
 xmlstarlet sel -t \
   -i "//system/email/enable[. = '1']" \
-	-m "//system/email" \
-	  -v "concat('&quot;&quot; ',sender)" -n \
-	-b \
+	-v "concat('&quot;&quot; ',//system/email/sender)" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}
 chown root:root ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}
