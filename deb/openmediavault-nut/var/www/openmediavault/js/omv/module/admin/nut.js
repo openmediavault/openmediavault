@@ -27,6 +27,15 @@
 
 Ext.ns("OMV.Module.Services");
 
+// Append vtypes
+Ext.apply(Ext.form.VTypes, {
+	upsname: function(v) {
+		return /^[a-zA-Z0-9_-]+$/.test(v);
+	},
+	upsnameText: "Invalid name",
+	upsnameMask: /[a-zA-Z0-9_-]/
+});
+
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("services", "nut", {
 	text: "UPS",
@@ -69,6 +78,7 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 				name: "upsname",
 				fieldLabel: "Identifier",
 				allowBlank: false,
+				vtype: "upsname",
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: "The name used to uniquely identify your UPS on this system."
 			},{
