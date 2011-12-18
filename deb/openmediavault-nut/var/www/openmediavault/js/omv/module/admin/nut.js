@@ -273,7 +273,7 @@ Ext.extend(OMV.Module.Services.NUTVariablesPanel, OMV.DiagPanel, {
 OMV.Module.Services.NUTChargeRrdGraphPanel = function(config) {
 	var initialConfig = {
 		title: "Charge",
-		rrdGraphName: "nut-ups-charge"
+		rrdGraphName: "nut-charge"
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.Services.NUTChargeRrdGraphPanel.superclass.constructor.call(
@@ -289,7 +289,7 @@ Ext.extend(OMV.Module.Services.NUTChargeRrdGraphPanel, OMV.RrdGraphPanel, {
 OMV.Module.Services.NUTLoadRrdGraphPanel = function(config) {
 	var initialConfig = {
 		title: "Load",
-		rrdGraphName: "nut-ups-load"
+		rrdGraphName: "nut-load"
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.Services.NUTLoadRrdGraphPanel.superclass.constructor.call(
@@ -305,7 +305,7 @@ Ext.extend(OMV.Module.Services.NUTLoadRrdGraphPanel, OMV.RrdGraphPanel, {
 OMV.Module.Services.NUTTemperatureRrdGraphPanel = function(config) {
 	var initialConfig = {
 		title: "Temperature",
-		rrdGraphName: "nut-ups-temperature"
+		rrdGraphName: "nut-temperature"
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.Services.NUTTemperatureRrdGraphPanel.superclass.constructor.
@@ -321,7 +321,7 @@ Ext.extend(OMV.Module.Services.NUTTemperatureRrdGraphPanel, OMV.RrdGraphPanel, {
 OMV.Module.Services.NUTVoltageRrdGraphPanel = function(config) {
 	var initialConfig = {
 		title: "Voltage",
-		rrdGraphName: "nut-ups-voltage"
+		rrdGraphName: "nut-voltage"
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.Services.NUTVoltageRrdGraphPanel.superclass.constructor.call(

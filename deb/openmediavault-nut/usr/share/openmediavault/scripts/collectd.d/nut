@@ -37,55 +37,57 @@ xmlstarlet sel -t -m "//services/nut" \
   -o "&lt;/Plugin&gt;" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_COLLECTD_CONFIG}
 
+upsname=$(omv_config_get "//services/nut/upsname")
+
 cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
 # Plugin: nut
 TITLE_NUT_CHARGE="UPS charge"
 COLOR_NUT_CHARGE="#0000fd" # blue
-if [ -e "\${DATA}/nut-ups/percent-charge.rrd" ]; then
-	rrdtool graph \${IMGDIR}/nut-ups-charge-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${TITLE_NUT_CHARGE}\${HOURTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
-	  DEF:avg=\${DATA}/nut-ups/percent-charge.rrd:percent:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/percent-charge.rrd:percent:MIN \
-	  DEF:max=\${DATA}/nut-ups/percent-charge.rrd:percent:MAX \
+if [ -e "\${DATA}/nut-${upsname}/percent-charge.rrd" ]; then
+	rrdtool graph \${IMGDIR}/nut-charge-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${TITLE_NUT_CHARGE}\${HOURTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+	  DEF:avg=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:MAX \
 	  LINE1:avg\${COLOR_NUT_CHARGE}:"Charge" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-charge-day.png --start \${DAYSTART} \${DEFAULTS} --title "\${TITLE_NUT_CHARGE}\${DAYTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
-	  DEF:avg=\${DATA}/nut-ups/percent-charge.rrd:percent:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/percent-charge.rrd:percent:MIN \
-	  DEF:max=\${DATA}/nut-ups/percent-charge.rrd:percent:MAX \
+	rrdtool graph \${IMGDIR}/nut-charge-day.png --start \${DAYSTART} \${DEFAULTS} --title "\${TITLE_NUT_CHARGE}\${DAYTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+	  DEF:avg=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:MAX \
 	  LINE1:avg\${COLOR_NUT_CHARGE}:"Charge" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-charge-week.png --start \${WEEKSTART} \${DEFAULTS} --title "\${TITLE_NUT_CHARGE}\${WEEKTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
-	  DEF:avg=\${DATA}/nut-ups/percent-charge.rrd:percent:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/percent-charge.rrd:percent:MIN \
-	  DEF:max=\${DATA}/nut-ups/percent-charge.rrd:percent:MAX \
+	rrdtool graph \${IMGDIR}/nut-charge-week.png --start \${WEEKSTART} \${DEFAULTS} --title "\${TITLE_NUT_CHARGE}\${WEEKTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+	  DEF:avg=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:MAX \
 	  LINE1:avg\${COLOR_NUT_CHARGE}:"Charge" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-charge-month.png --start \${MONTHSTART} \${DEFAULTS} --title "\${TITLE_NUT_CHARGE}\${MONTHTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
-	  DEF:avg=\${DATA}/nut-ups/percent-charge.rrd:percent:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/percent-charge.rrd:percent:MIN \
-	  DEF:max=\${DATA}/nut-ups/percent-charge.rrd:percent:MAX \
+	rrdtool graph \${IMGDIR}/nut-charge-month.png --start \${MONTHSTART} \${DEFAULTS} --title "\${TITLE_NUT_CHARGE}\${MONTHTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+	  DEF:avg=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:MAX \
 	  LINE1:avg\${COLOR_NUT_CHARGE}:"Charge" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-charge-year.png --start \${YEARSTART} \${DEFAULTS} --title "\${TITLE_NUT_CHARGE}\${YEARTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
-	  DEF:avg=\${DATA}/nut-ups/percent-charge.rrd:percent:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/percent-charge.rrd:percent:MIN \
-	  DEF:max=\${DATA}/nut-ups/percent-charge.rrd:percent:MAX \
+	rrdtool graph \${IMGDIR}/nut-charge-year.png --start \${YEARSTART} \${DEFAULTS} --title "\${TITLE_NUT_CHARGE}\${YEARTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+	  DEF:avg=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/percent-charge.rrd:percent:MAX \
 	  LINE1:avg\${COLOR_NUT_CHARGE}:"Charge" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
@@ -93,53 +95,53 @@ if [ -e "\${DATA}/nut-ups/percent-charge.rrd" ]; then
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
 fi
-if [ -e "\${DATA}/nut-ups/percent-load.rrd" ]; then
+if [ -e "\${DATA}/nut-${upsname}/percent-load.rrd" ]; then
 	TITLE_NUT_LOAD="UPS load"
 	COLOR_NUT_LOAD="#0000fd" # blue
-	rrdtool graph \${IMGDIR}/nut-ups-load-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${TITLE_NUT_LOAD}\${HOURTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
-	  DEF:avg=\${DATA}/nut-ups/percent-load.rrd:percent:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/percent-load.rrd:percent:MIN \
-	  DEF:max=\${DATA}/nut-ups/percent-load.rrd:percent:MAX \
+	rrdtool graph \${IMGDIR}/nut-load-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${TITLE_NUT_LOAD}\${HOURTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+	  DEF:avg=\${DATA}/nut-${upsname}/percent-load.rrd:percent:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/percent-load.rrd:percent:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/percent-load.rrd:percent:MAX \
 	  LINE1:avg\${COLOR_NUT_LOAD}:"Load" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-load-day.png --start \${DAYSTART} \${DEFAULTS} --title "\${TITLE_NUT_LOAD}\${DAYTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
-	  DEF:avg=\${DATA}/nut-ups/percent-load.rrd:percent:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/percent-load.rrd:percent:MIN \
-	  DEF:max=\${DATA}/nut-ups/percent-load.rrd:percent:MAX \
+	rrdtool graph \${IMGDIR}/nut-load-day.png --start \${DAYSTART} \${DEFAULTS} --title "\${TITLE_NUT_LOAD}\${DAYTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+	  DEF:avg=\${DATA}/nut-${upsname}/percent-load.rrd:percent:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/percent-load.rrd:percent:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/percent-load.rrd:percent:MAX \
 	  LINE1:avg\${COLOR_NUT_LOAD}:"Load" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-load-week.png --start \${WEEKSTART} \${DEFAULTS} --title "\${TITLE_NUT_LOAD}\${WEEKTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
-	  DEF:avg=\${DATA}/nut-ups/percent-load.rrd:percent:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/percent-load.rrd:percent:MIN \
-	  DEF:max=\${DATA}/nut-ups/percent-load.rrd:percent:MAX \
+	rrdtool graph \${IMGDIR}/nut-load-week.png --start \${WEEKSTART} \${DEFAULTS} --title "\${TITLE_NUT_LOAD}\${WEEKTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+	  DEF:avg=\${DATA}/nut-${upsname}/percent-load.rrd:percent:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/percent-load.rrd:percent:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/percent-load.rrd:percent:MAX \
 	  LINE1:avg\${COLOR_NUT_LOAD}:"Load" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-load-month.png --start \${MONTHSTART} \${DEFAULTS} --title "\${TITLE_NUT_LOAD}\${MONTHTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
-	  DEF:avg=\${DATA}/nut-ups/percent-load.rrd:percent:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/percent-load.rrd:percent:MIN \
-	  DEF:max=\${DATA}/nut-ups/percent-load.rrd:percent:MAX \
+	rrdtool graph \${IMGDIR}/nut-load-month.png --start \${MONTHSTART} \${DEFAULTS} --title "\${TITLE_NUT_LOAD}\${MONTHTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+	  DEF:avg=\${DATA}/nut-${upsname}/percent-load.rrd:percent:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/percent-load.rrd:percent:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/percent-load.rrd:percent:MAX \
 	  LINE1:avg\${COLOR_NUT_LOAD}:"Load" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-load-year.png --start \${YEARSTART} \${DEFAULTS} --title "\${TITLE_NUT_LOAD}\${YEARTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
-	  DEF:avg=\${DATA}/nut-ups/percent-load.rrd:percent:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/percent-load.rrd:percent:MIN \
-	  DEF:max=\${DATA}/nut-ups/percent-load.rrd:percent:MAX \
+	rrdtool graph \${IMGDIR}/nut-load-year.png --start \${YEARSTART} \${DEFAULTS} --title "\${TITLE_NUT_LOAD}\${YEARTITLE}" --slope-mode --upper-limit 100 --lower-limit 0 --rigid --vertical-label Percent \
+	  DEF:avg=\${DATA}/nut-${upsname}/percent-load.rrd:percent:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/percent-load.rrd:percent:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/percent-load.rrd:percent:MAX \
 	  LINE1:avg\${COLOR_NUT_LOAD}:"Load" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
@@ -147,53 +149,53 @@ if [ -e "\${DATA}/nut-ups/percent-load.rrd" ]; then
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
 fi
-if [ -e "\${DATA}/nut-ups/temperature-battery.rrd" ]; then
+if [ -e "\${DATA}/nut-${upsname}/temperature-battery.rrd" ]; then
 	TITLE_NUT_TEMPERATURE="UPS temperature"
 	COLOR_NUT_TEMPERATURE="#ff0000" # red
-	rrdtool graph \${IMGDIR}/nut-ups-temperature-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${HOURTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
-	  DEF:avg=\${DATA}/nut-ups/temperature-battery.rrd:value:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/temperature-battery.rrd:value:MIN \
-	  DEF:max=\${DATA}/nut-ups/temperature-battery.rrd:value:MAX \
+	rrdtool graph \${IMGDIR}/nut-temperature-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${HOURTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
+	  DEF:avg=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:MAX \
 	  LINE1:avg\${COLOR_NUT_TEMPERATURE}:"Temperature" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-temperature-day.png --start \${DAYSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${DAYTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
-	  DEF:avg=\${DATA}/nut-ups/temperature-battery.rrd:value:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/temperature-battery.rrd:value:MIN \
-	  DEF:max=\${DATA}/nut-ups/temperature-battery.rrd:value:MAX \
+	rrdtool graph \${IMGDIR}/nut-temperature-day.png --start \${DAYSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${DAYTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
+	  DEF:avg=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:MAX \
 	  LINE1:avg\${COLOR_NUT_TEMPERATURE}:"Temperature" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-temperature-week.png --start \${WEEKSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${WEEKTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
-	  DEF:avg=\${DATA}/nut-ups/temperature-battery.rrd:value:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/temperature-battery.rrd:value:MIN \
-	  DEF:max=\${DATA}/nut-ups/temperature-battery.rrd:value:MAX \
+	rrdtool graph \${IMGDIR}/nut-temperature-week.png --start \${WEEKSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${WEEKTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
+	  DEF:avg=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:MAX \
 	  LINE1:avg\${COLOR_NUT_TEMPERATURE}:"Temperature" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-temperature-month.png --start \${MONTHSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${MONTHTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
-	  DEF:avg=\${DATA}/nut-ups/temperature-battery.rrd:value:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/temperature-battery.rrd:value:MIN \
-	  DEF:max=\${DATA}/nut-ups/temperature-battery.rrd:value:MAX \
+	rrdtool graph \${IMGDIR}/nut-temperature-month.png --start \${MONTHSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${MONTHTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
+	  DEF:avg=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:MAX \
 	  LINE1:avg\${COLOR_NUT_TEMPERATURE}:"Temperature" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-temperature-year.png --start \${YEARSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${YEARTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
-	  DEF:avg=\${DATA}/nut-ups/temperature-battery.rrd:value:AVERAGE \
-	  DEF:min=\${DATA}/nut-ups/temperature-battery.rrd:value:MIN \
-	  DEF:max=\${DATA}/nut-ups/temperature-battery.rrd:value:MAX \
+	rrdtool graph \${IMGDIR}/nut-temperature-year.png --start \${YEARSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${YEARTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
+	  DEF:avg=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:MAX \
 	  LINE1:avg\${COLOR_NUT_TEMPERATURE}:"Temperature" \
 	  GPRINT:min:MIN:"%4.2lf Min" \
 	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
@@ -201,21 +203,21 @@ if [ -e "\${DATA}/nut-ups/temperature-battery.rrd" ]; then
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
 fi
-if [ -e "\${DATA}/nut-ups/voltage-battery.rrd" -a -e "\${DATA}/nut-ups/voltage-input.rrd" -a -e "\${DATA}/nut-ups/voltage-output.rrd" ]; then
+if [ -e "\${DATA}/nut-${upsname}/voltage-battery.rrd" -a -e "\${DATA}/nut-${upsname}/voltage-input.rrd" -a -e "\${DATA}/nut-${upsname}/voltage-output.rrd" ]; then
 	TITLE_NUT_VOLTAGE="UPS voltage"
 	COLOR_NUT_VOLTAGE_BATTERY="#0000fd" # blue
 	COLOR_NUT_VOLTAGE_INPUT="#00cc00"   # green
 	COLOR_NUT_VOLTAGE_OUTPUT="#ff0000"  # red
-	rrdtool graph \${IMGDIR}/nut-ups-voltage-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${HOURTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
-	  DEF:bavg=\${DATA}/nut-ups/voltage-battery.rrd:value:AVERAGE \
-	  DEF:bmin=\${DATA}/nut-ups/voltage-battery.rrd:value:MIN \
-	  DEF:bmax=\${DATA}/nut-ups/voltage-battery.rrd:value:MAX \
-	  DEF:iavg=\${DATA}/nut-ups/voltage-input.rrd:value:AVERAGE \
-	  DEF:imin=\${DATA}/nut-ups/voltage-input.rrd:value:MIN \
-	  DEF:imax=\${DATA}/nut-ups/voltage-input.rrd:value:MAX \
-	  DEF:oavg=\${DATA}/nut-ups/voltage-output.rrd:value:AVERAGE \
-	  DEF:omin=\${DATA}/nut-ups/voltage-output.rrd:value:MIN \
-	  DEF:omax=\${DATA}/nut-ups/voltage-output.rrd:value:MAX \
+	rrdtool graph \${IMGDIR}/nut-voltage-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${HOURTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
+	  DEF:bavg=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:AVERAGE \
+	  DEF:bmin=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MIN \
+	  DEF:bmax=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MAX \
+	  DEF:iavg=\${DATA}/nut-${upsname}/voltage-input.rrd:value:AVERAGE \
+	  DEF:imin=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MIN \
+	  DEF:imax=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MAX \
+	  DEF:oavg=\${DATA}/nut-${upsname}/voltage-output.rrd:value:AVERAGE \
+	  DEF:omin=\${DATA}/nut-${upsname}/voltage-output.rrd:value:MIN \
+	  DEF:omax=\${DATA}/nut-${upsname}/voltage-output.rrd:value:MAX \
 	  LINE1:bavg\${COLOR_NUT_VOLTAGE_BATTERY}:"Battery" \
 	  GPRINT:bmin:MIN:"%4.2lf Min" \
 	  GPRINT:bavg:AVERAGE:"%4.2lf Avg" \
@@ -232,16 +234,16 @@ if [ -e "\${DATA}/nut-ups/voltage-battery.rrd" -a -e "\${DATA}/nut-ups/voltage-i
 	  GPRINT:omax:MAX:"%4.2lf Max" \
 	  GPRINT:oavg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-voltage-day.png --start \${DAYSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${DAYTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
-	  DEF:bavg=\${DATA}/nut-ups/voltage-battery.rrd:value:AVERAGE \
-	  DEF:bmin=\${DATA}/nut-ups/voltage-battery.rrd:value:MIN \
-	  DEF:bmax=\${DATA}/nut-ups/voltage-battery.rrd:value:MAX \
-	  DEF:iavg=\${DATA}/nut-ups/voltage-input.rrd:value:AVERAGE \
-	  DEF:imin=\${DATA}/nut-ups/voltage-input.rrd:value:MIN \
-	  DEF:imax=\${DATA}/nut-ups/voltage-input.rrd:value:MAX \
-	  DEF:oavg=\${DATA}/nut-ups/voltage-output.rrd:value:AVERAGE \
-	  DEF:omin=\${DATA}/nut-ups/voltage-output.rrd:value:MIN \
-	  DEF:omax=\${DATA}/nut-ups/voltage-output.rrd:value:MAX \
+	rrdtool graph \${IMGDIR}/nut-voltage-day.png --start \${DAYSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${DAYTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
+	  DEF:bavg=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:AVERAGE \
+	  DEF:bmin=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MIN \
+	  DEF:bmax=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MAX \
+	  DEF:iavg=\${DATA}/nut-${upsname}/voltage-input.rrd:value:AVERAGE \
+	  DEF:imin=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MIN \
+	  DEF:imax=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MAX \
+	  DEF:oavg=\${DATA}/nut-${upsname}/voltage-output.rrd:value:AVERAGE \
+	  DEF:omin=\${DATA}/nut-${upsname}/voltage-output.rrd:value:MIN \
+	  DEF:omax=\${DATA}/nut-${upsname}/voltage-output.rrd:value:MAX \
 	  LINE1:bavg\${COLOR_NUT_VOLTAGE_BATTERY}:"Battery" \
 	  GPRINT:bmin:MIN:"%4.2lf Min" \
 	  GPRINT:bavg:AVERAGE:"%4.2lf Avg" \
@@ -258,16 +260,16 @@ if [ -e "\${DATA}/nut-ups/voltage-battery.rrd" -a -e "\${DATA}/nut-ups/voltage-i
 	  GPRINT:omax:MAX:"%4.2lf Max" \
 	  GPRINT:oavg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-voltage-week.png --start \${WEEKSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${WEEKTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
-	  DEF:bavg=\${DATA}/nut-ups/voltage-battery.rrd:value:AVERAGE \
-	  DEF:bmin=\${DATA}/nut-ups/voltage-battery.rrd:value:MIN \
-	  DEF:bmax=\${DATA}/nut-ups/voltage-battery.rrd:value:MAX \
-	  DEF:iavg=\${DATA}/nut-ups/voltage-input.rrd:value:AVERAGE \
-	  DEF:imin=\${DATA}/nut-ups/voltage-input.rrd:value:MIN \
-	  DEF:imax=\${DATA}/nut-ups/voltage-input.rrd:value:MAX \
-	  DEF:oavg=\${DATA}/nut-ups/voltage-output.rrd:value:AVERAGE \
-	  DEF:omin=\${DATA}/nut-ups/voltage-output.rrd:value:MIN \
-	  DEF:omax=\${DATA}/nut-ups/voltage-output.rrd:value:MAX \
+	rrdtool graph \${IMGDIR}/nut-voltage-week.png --start \${WEEKSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${WEEKTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
+	  DEF:bavg=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:AVERAGE \
+	  DEF:bmin=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MIN \
+	  DEF:bmax=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MAX \
+	  DEF:iavg=\${DATA}/nut-${upsname}/voltage-input.rrd:value:AVERAGE \
+	  DEF:imin=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MIN \
+	  DEF:imax=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MAX \
+	  DEF:oavg=\${DATA}/nut-${upsname}/voltage-output.rrd:value:AVERAGE \
+	  DEF:omin=\${DATA}/nut-${upsname}/voltage-output.rrd:value:MIN \
+	  DEF:omax=\${DATA}/nut-${upsname}/voltage-output.rrd:value:MAX \
 	  LINE1:bavg\${COLOR_NUT_VOLTAGE_BATTERY}:"Battery" \
 	  GPRINT:bmin:MIN:"%4.2lf Min" \
 	  GPRINT:bavg:AVERAGE:"%4.2lf Avg" \
@@ -284,16 +286,16 @@ if [ -e "\${DATA}/nut-ups/voltage-battery.rrd" -a -e "\${DATA}/nut-ups/voltage-i
 	  GPRINT:omax:MAX:"%4.2lf Max" \
 	  GPRINT:oavg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-voltage-month.png --start \${MONTHSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${MONTHTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
-	  DEF:bavg=\${DATA}/nut-ups/voltage-battery.rrd:value:AVERAGE \
-	  DEF:bmin=\${DATA}/nut-ups/voltage-battery.rrd:value:MIN \
-	  DEF:bmax=\${DATA}/nut-ups/voltage-battery.rrd:value:MAX \
-	  DEF:iavg=\${DATA}/nut-ups/voltage-input.rrd:value:AVERAGE \
-	  DEF:imin=\${DATA}/nut-ups/voltage-input.rrd:value:MIN \
-	  DEF:imax=\${DATA}/nut-ups/voltage-input.rrd:value:MAX \
-	  DEF:oavg=\${DATA}/nut-ups/voltage-output.rrd:value:AVERAGE \
-	  DEF:omin=\${DATA}/nut-ups/voltage-output.rrd:value:MIN \
-	  DEF:omax=\${DATA}/nut-ups/voltage-output.rrd:value:MAX \
+	rrdtool graph \${IMGDIR}/nut-voltage-month.png --start \${MONTHSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${MONTHTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
+	  DEF:bavg=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:AVERAGE \
+	  DEF:bmin=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MIN \
+	  DEF:bmax=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MAX \
+	  DEF:iavg=\${DATA}/nut-${upsname}/voltage-input.rrd:value:AVERAGE \
+	  DEF:imin=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MIN \
+	  DEF:imax=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MAX \
+	  DEF:oavg=\${DATA}/nut-${upsname}/voltage-output.rrd:value:AVERAGE \
+	  DEF:omin=\${DATA}/nut-${upsname}/voltage-output.rrd:value:MIN \
+	  DEF:omax=\${DATA}/nut-${upsname}/voltage-output.rrd:value:MAX \
 	  LINE1:bavg\${COLOR_NUT_VOLTAGE_BATTERY}:"Battery" \
 	  GPRINT:bmin:MIN:"%4.2lf Min" \
 	  GPRINT:bavg:AVERAGE:"%4.2lf Avg" \
@@ -310,16 +312,16 @@ if [ -e "\${DATA}/nut-ups/voltage-battery.rrd" -a -e "\${DATA}/nut-ups/voltage-i
 	  GPRINT:omax:MAX:"%4.2lf Max" \
 	  GPRINT:oavg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
-	rrdtool graph \${IMGDIR}/nut-ups-voltage-year.png --start \${YEARSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${YEARTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
-	  DEF:bavg=\${DATA}/nut-ups/voltage-battery.rrd:value:AVERAGE \
-	  DEF:bmin=\${DATA}/nut-ups/voltage-battery.rrd:value:MIN \
-	  DEF:bmax=\${DATA}/nut-ups/voltage-battery.rrd:value:MAX \
-	  DEF:iavg=\${DATA}/nut-ups/voltage-input.rrd:value:AVERAGE \
-	  DEF:imin=\${DATA}/nut-ups/voltage-input.rrd:value:MIN \
-	  DEF:imax=\${DATA}/nut-ups/voltage-input.rrd:value:MAX \
-	  DEF:oavg=\${DATA}/nut-ups/voltage-output.rrd:value:AVERAGE \
-	  DEF:omin=\${DATA}/nut-ups/voltage-output.rrd:value:MIN \
-	  DEF:omax=\${DATA}/nut-ups/voltage-output.rrd:value:MAX \
+	rrdtool graph \${IMGDIR}/nut-voltage-year.png --start \${YEARSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${YEARTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
+	  DEF:bavg=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:AVERAGE \
+	  DEF:bmin=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MIN \
+	  DEF:bmax=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MAX \
+	  DEF:iavg=\${DATA}/nut-${upsname}/voltage-input.rrd:value:AVERAGE \
+	  DEF:imin=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MIN \
+	  DEF:imax=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MAX \
+	  DEF:oavg=\${DATA}/nut-${upsname}/voltage-output.rrd:value:AVERAGE \
+	  DEF:omin=\${DATA}/nut-${upsname}/voltage-output.rrd:value:MIN \
+	  DEF:omax=\${DATA}/nut-${upsname}/voltage-output.rrd:value:MAX \
 	  LINE1:bavg\${COLOR_NUT_VOLTAGE_BATTERY}:"Battery" \
 	  GPRINT:bmin:MIN:"%4.2lf Min" \
 	  GPRINT:bavg:AVERAGE:"%4.2lf Avg" \

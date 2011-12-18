@@ -1,3 +1,9 @@
+openmediavault-nut (0.1.3) stable; urgency=low
+
+  * Mantis 0000321: NUT Plugin does not create any Graphs
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 18 Dec 2011 23:42:33 +0100
+
 openmediavault-nut (0.1.2) stable; urgency=low
 
   * Various improvements
