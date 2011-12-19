@@ -33,7 +33,7 @@ Ext.apply(Ext.form.VTypes, {
 		return /^[a-zA-Z0-9_-]+$/.test(v);
 	},
 	upsnameText: "Invalid name",
-	upsnameMask: /[a-zA-Z0-9_-]/
+	upsnameMask: /[a-z0-9_-]/i
 });
 
 // Register the menu.

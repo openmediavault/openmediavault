@@ -1,0 +1,2 @@
+# http://blog.shadypixel.com/monitoring-a-ups-with-nut-on-debian-or-ubuntu-linux
+KERNEL=="ttyS0", GROUP="nut"

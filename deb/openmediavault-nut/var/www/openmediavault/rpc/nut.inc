@@ -32,7 +32,8 @@ class NutRpc extends OMVRpc {
 				"type":"object",
 				"properties":{
 					"enable":{"type":"boolean"},
-					"upsname":{"type":"string"},
+					"upsname":{"type":"string","format":"regex","pattern":'.
+					  '"\/^[a-z0-9_-]+$\/i"},
 					"comment":{"type":"string"},
 					"driverconf":{"type":"string"},
 					"shutdownmode":{"type":"string","enum":["fsd","onbatt"]},
