@@ -94,6 +94,8 @@ if [ -e "\${DATA}/nut-${upsname}/percent-charge.rrd" ]; then
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
+else
+	omv_copy_error_rrd_graph_image "nut-charge"
 fi
 if [ -e "\${DATA}/nut-${upsname}/percent-load.rrd" ]; then
 	TITLE_NUT_LOAD="UPS load"
@@ -148,9 +150,15 @@ if [ -e "\${DATA}/nut-${upsname}/percent-load.rrd" ]; then
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
+else
+	omv_copy_error_rrd_graph_image "nut-load"
 fi
+# Note, if the UPS supports battery.temperature and ups.temperature, the
+# battery temperature will be used by default because it is the more important
+# value. Only one temperature can be displayed because the WebGUI does not
+# display multiple temperature informations.
 if [ -e "\${DATA}/nut-${upsname}/temperature-battery.rrd" ]; then
-	TITLE_NUT_TEMPERATURE="UPS temperature"
+	TITLE_NUT_TEMPERATURE="UPS battery temperature"
 	COLOR_NUT_TEMPERATURE="#ff0000" # red
 	rrdtool graph \${IMGDIR}/nut-temperature-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${HOURTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
 	  DEF:avg=\${DATA}/nut-${upsname}/temperature-battery.rrd:value:AVERAGE \
@@ -202,6 +210,61 @@ if [ -e "\${DATA}/nut-${upsname}/temperature-battery.rrd" ]; then
 	  GPRINT:max:MAX:"%4.2lf Max" \
 	  GPRINT:avg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
+elif [ -e "\${DATA}/nut-${upsname}/temperature-ups.rrd" ]; then
+	TITLE_NUT_TEMPERATURE="UPS temperature"
+	COLOR_NUT_TEMPERATURE="#ff0000" # red
+	rrdtool graph \${IMGDIR}/nut-temperature-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${HOURTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
+	  DEF:avg=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:MAX \
+	  LINE1:avg\${COLOR_NUT_TEMPERATURE}:"Temperature" \
+	  GPRINT:min:MIN:"%4.2lf Min" \
+	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:max:MAX:"%4.2lf Max" \
+	  GPRINT:avg:LAST:"%4.2lf Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/nut-temperature-day.png --start \${DAYSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${DAYTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
+	  DEF:avg=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:MAX \
+	  LINE1:avg\${COLOR_NUT_TEMPERATURE}:"Temperature" \
+	  GPRINT:min:MIN:"%4.2lf Min" \
+	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:max:MAX:"%4.2lf Max" \
+	  GPRINT:avg:LAST:"%4.2lf Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/nut-temperature-week.png --start \${WEEKSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${WEEKTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
+	  DEF:avg=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:MAX \
+	  LINE1:avg\${COLOR_NUT_TEMPERATURE}:"Temperature" \
+	  GPRINT:min:MIN:"%4.2lf Min" \
+	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:max:MAX:"%4.2lf Max" \
+	  GPRINT:avg:LAST:"%4.2lf Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/nut-temperature-month.png --start \${MONTHSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${MONTHTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
+	  DEF:avg=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:MAX \
+	  LINE1:avg\${COLOR_NUT_TEMPERATURE}:"Temperature" \
+	  GPRINT:min:MIN:"%4.2lf Min" \
+	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:max:MAX:"%4.2lf Max" \
+	  GPRINT:avg:LAST:"%4.2lf Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/nut-temperature-year.png --start \${YEARSTART} \${DEFAULTS} --title "\${TITLE_NUT_TEMPERATURE}\${YEARTITLE}" --slope-mode --lower-limit 0 --vertical-label Celsius \
+	  DEF:avg=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:AVERAGE \
+	  DEF:min=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:MIN \
+	  DEF:max=\${DATA}/nut-${upsname}/temperature-ups.rrd:value:MAX \
+	  LINE1:avg\${COLOR_NUT_TEMPERATURE}:"Temperature" \
+	  GPRINT:min:MIN:"%4.2lf Min" \
+	  GPRINT:avg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:max:MAX:"%4.2lf Max" \
+	  GPRINT:avg:LAST:"%4.2lf Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+else
+	omv_copy_error_rrd_graph_image "nut-temperature"
 fi
 if [ -e "\${DATA}/nut-${upsname}/voltage-battery.rrd" -a -e "\${DATA}/nut-${upsname}/voltage-input.rrd" -a -e "\${DATA}/nut-${upsname}/voltage-output.rrd" ]; then
 	TITLE_NUT_VOLTAGE="UPS voltage"
@@ -338,6 +401,8 @@ if [ -e "\${DATA}/nut-${upsname}/voltage-battery.rrd" -a -e "\${DATA}/nut-${upsn
 	  GPRINT:omax:MAX:"%4.2lf Max" \
 	  GPRINT:oavg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
+else
+	omv_copy_error_rrd_graph_image "nut-voltage"
 fi
 
 EOF

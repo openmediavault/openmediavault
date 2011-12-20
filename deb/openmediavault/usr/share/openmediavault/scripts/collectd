@@ -45,6 +45,7 @@ OMV_COLLECTD_RRDTOOL_GRAPH_WIDTH=${OMV_COLLECTD_RRDTOOL_GRAPH_WIDTH:-"400"}
 OMV_COLLECTD_RRDTOOL_GRAPH_HEIGHT=${OMV_COLLECTD_RRDTOOL_GRAPH_HEIGHT:-"120"}
 OMV_COLLECTD_RRDTOOL_GRAPH_IMGFORMAT=${OMV_COLLECTD_RRDTOOL_GRAPH_IMGFORMAT:-"PNG"}
 OMV_COLLECTD_RRDTOOL_GRAPH_IMGDIR=${OMV_COLLECTD_RRDTOOL_GRAPH_IMGDIR:-"/var/lib/openmediavault/rrd"}
+OMV_COLLECTD_RRDTOOL_GRAPH_ERRORIMG=${OMV_COLLECTD_RRDTOOL_GRAPH_ERRORIMG:-"/usr/share/openmediavault/icons/rrd_graph_error_64.png"}
 
 mkconf() {
 	# Create '/etc/collectd/collectd.conf' file
@@ -114,6 +115,14 @@ YEARSTART="-1y"
 YEARTITLE=" - by year"
 DEFAULTS="--imgformat ${OMV_COLLECTD_RRDTOOL_GRAPH_IMGFORMAT} --width ${OMV_COLLECTD_RRDTOOL_GRAPH_WIDTH} --height ${OMV_COLLECTD_RRDTOOL_GRAPH_HEIGHT} --alt-y-grid --interlaced --font TITLE:9:."
 LASTUPDATE="Last update\: \$(date | sed -e 's/:/\\\:/g')\r"
+
+# Helper function to copy the error graph image
+omv_copy_error_rrd_graph_image() {
+	for period in hour day week month year
+	do
+		cp ${OMV_COLLECTD_RRDTOOL_GRAPH_ERRORIMG} \${IMGDIR}/\$1-\${period}.png
+	done
+}
 
 # Create target graph directory
 mkdir -p \${IMGDIR}

@@ -1,6 +1,7 @@
 openmediavault-nut (0.1.4) stable; urgency=low
 
   * Fix bugs in form validation
+  * Mantis 0000328: NUT Plugin does not create Charge & Temp. Graphs
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 20 Dec 2011 00:21:21 +0100
 
