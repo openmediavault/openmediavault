@@ -76,7 +76,7 @@ case "$1" in
 		# </config>
 		########################################################################
 		if ! omv_config_exists "//services/afp"; then
-			echo "Updating configuration"
+			echo "Initialize configuration"
 			object="<enable>0</enable>"
 			object="${object}<allowguests>0</allowguests>"
 			object="${object}<extraoptions></extraoptions>"

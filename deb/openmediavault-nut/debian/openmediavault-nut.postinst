@@ -63,7 +63,7 @@ case "$1" in
 		# </config>
 		########################################################################
 		if ! omv_config_exists "//services/nut"; then
-			echo "Updating configuration"
+			echo "Initialize configuration"
 			object="<enable>0</enable>"
 			object="${object}<upsname>ups</upsname>"
 			object="${object}<comment></comment>"
@@ -79,6 +79,10 @@ case "$1" in
 		########################################################################
 		# Generate configurations
 		########################################################################
+		if [ -z "$2" ]; then
+			udevadm control --reload-rules
+			udevadm trigger
+		fi
 		omv-mkconf collectd
 
 		########################################################################
@@ -86,6 +90,15 @@ case "$1" in
 		########################################################################
 		echo "Restarting services ..."
 		monit restart collectd
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "0.1.4"; then
+			udevadm control --reload-rules
+			udevadm trigger
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

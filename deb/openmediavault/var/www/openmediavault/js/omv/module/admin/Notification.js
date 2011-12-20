@@ -199,25 +199,25 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 	 * Private function to update the states of various form fields.
 	 */
 	_updateFormFields : function() {
+		var enable = this.findFormField("enable").checked;
 		// Update authentication fields
+		var authenable = this.findFormField("authenable").checked;
 		var fields = [ "username", "password" ];
-		var c = this.findFormField("authenable");
-		var checked = c.checked;
 		for (var i = 0; i < fields.length; i++) {
-			c = this.findFormField(fields[i]);
-			c.setReadOnly(!checked);
-			if (c.xtype === "textfield") {
-				c.allowBlank = !checked;
+			var c = this.findFormField(fields[i]);
+			if (!Ext.isEmpty(c)) {
+				c.setReadOnly(!authenable);
+				c.allowBlank = !(enable && authenable);
 			}
 		}
 		// Update primary email field
 		fields = [ "primaryemail", "server", "sender" ];
-		c = this.findFormField("enable");
-		checked = c.checked;
 		for (var i = 0; i < fields.length; i++) {
-			c = this.findFormField(fields[i]);
-			if (c.xtype === "textfield") {
-				c.allowBlank = !checked;
+			var c = this.findFormField(fields[i]);
+			if (!Ext.isEmpty(c)) {
+				if (c.xtype === "textfield") {
+					c.allowBlank = !enable;
+				}
 			}
 		}
 	}

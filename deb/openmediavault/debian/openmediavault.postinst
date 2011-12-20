@@ -250,6 +250,10 @@ case "$1" in
 			update-rc.d apache2 enable
 			invoke-rc.d monit restart
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.2.6.0"; then
+			omv-mkconf postfix
+			invoke-rc.d postfix restart
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

@@ -32,7 +32,7 @@ Ext.apply(Ext.form.VTypes, {
 	upsname: function(v) {
 		return /^[a-zA-Z0-9_-]+$/.test(v);
 	},
-	upsnameText: "Invalid name",
+	upsnameText: "Invalid identifier",
 	upsnameMask: /[a-z0-9_-]/i
 });
 
@@ -72,7 +72,13 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 				name: "enable",
 				fieldLabel: "Enable",
 				checked: false,
-				inputValue: 1
+				inputValue: 1,
+				listeners: {
+					check: function(comp, checked) {
+						this._updateFormFields();
+					},
+					scope: this
+				}
 			},{
 				xtype: "textfield",
 				name: "upsname",
@@ -179,27 +185,26 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 	 * Private function to update the states of various form fields.
 	 */
 	_updateFormFields : function() {
+		var enable = this.findFormField("enable").checked;
 		// Update shutdown mode settings
-		var field = this.findFormField("shutdownmode");
-		var shutdownmode = field.getValue();
+		var shutdownmode = this.findFormField("shutdownmode").getValue();
 		var fields = [ "shutdowntimer" ];
 		for (i = 0; i < fields.length; i++) {
-			field = this.findFormField(fields[i]);
-			if (!Ext.isEmpty(field)) {
+			var c = this.findFormField(fields[i]);
+			if (!Ext.isEmpty(c)) {
 				var visible = (shutdownmode === "onbatt");
-				field.allowBlank = !visible;
-				field.setVisible(visible);
+				c.allowBlank = !visible;
+				c.setVisible(visible);
 			}
 		}
 		// Update remote monitoring settings
-		field = this.findFormField("remotemonitor");
-		var checked = field.checked;
+		var remotemonitor = this.findFormField("remotemonitor").checked;
 		fields = [ "remoteuser", "remotepassword" ];
 		for (var i = 0; i < fields.length; i++) {
-			field = this.findFormField(fields[i]);
-			if (!Ext.isEmpty(field)) {
-				field.allowBlank = !checked;
-				field.setReadOnly(!checked);
+			var c = this.findFormField(fields[i]);
+			if (!Ext.isEmpty(c)) {
+				c.allowBlank = !(enable && remotemonitor);
+				c.setReadOnly(!remotemonitor);
 			}
 		}
 	}

@@ -1,3 +1,9 @@
+openmediavault (0.2.6.0) stable; urgency=low
+
+  * Fix various bugs.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 19 Dec 2011 19:51:55 +0100
+
 openmediavault (0.2.5.9) stable; urgency=low
 
   * Configure catch-all entry for hostname in /etc/postfix/generic. Thus all
