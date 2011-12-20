@@ -1,0 +1,129 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+	configure)
+		########################################################################
+		# Set the default settings of the iscsitarget package to those expected
+		# by OpenMediaVault.
+		########################################################################
+		if [ -z "$2" ]; then
+			echo "Updating init script links and actions"
+			invoke-rc.d --force iscsitarget stop
+			update-rc.d iscsitarget disable &>/dev/null
+		fi
+
+		########################################################################
+		# Update file permissions.
+		########################################################################
+		echo "Updating permissions"
+		omv_install_fixperms
+
+		########################################################################
+		# Update the configuration.
+		# <config>
+		#   <services>
+		#     <iscsitarget>
+		#       <enable>0</enable>
+		#       <extraoptions></extraoptions>
+		#       <authentication>
+		#         <user>
+		#           <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+		#           <type>incoming|outgoing</type>
+		#           <username>xxx</username>
+		#           <password>xxx</password>
+		#         </user>
+		#       </authentication>
+		#       <targets>
+		#         <target>
+		#           <activation>jjjj-mm</activation>
+		#           <identifier>xxx</identifier>
+		#           <alias></alias>
+		#           <headerdigest>CRC32C|None</headerdigest>
+		#           <datadigest>CRC32C|None</datadigest>
+		#           <maxconnections>1</maxconnections>
+		#           <maxsessions>0</maxsessions>
+		#           <initialr2t>0|1</initialr2t>
+		#           <immediatedata>0|1</immediatedata>
+		#           <maxrecvdatasegmentlength>8192</maxrecvdatasegmentlength>
+		#           <maxxmitdatasegmentlength>8192</maxxmitdatasegmentlength>
+		#           <maxburstlength>262144</maxburstlength>
+		#           <firstburstlength>65536</firstburstlength>
+		#           <maxoutstandingr2t>1</maxoutstandingr2t>
+		#           <datapduinorder>0|1</datapduinorder>
+		#           <datasequenceinorder>0|1</datasequenceinorder>
+		#           <errorrecoverylevel>0</errorrecoverylevel>
+		#           <nopinterval>0</nopinterval>
+		#           <noptimeout>0</noptimeout>
+		#           <wthreads>8</wthreads>
+		#           <queuedcommands>32</queuedcommands>
+		#           <comment></comment>
+		#           <extraoptions></extraoptions>
+		#           <authentication>
+		#             <user>
+		#               <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+		#               <type>incoming|outgoing</type>
+		#               <username>xxx</username>
+		#               <password>xxx</password>
+		#             </user>
+		#           </authentication>
+		#           <luns>
+		#             <lun>
+		#               <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+		#               <id>[0...2^14-1]</id>
+		#               <type>fileio|blockio</type>
+		#               <iomode>wt|wb|ro</iomode>
+		#               <devicefile>/dev/xxx</devicefile>
+		#               <scsiid></scsiid>
+		#               <scsisn></scsisn>
+		#             </lun>
+		#           </luns>
+		#         </target>
+		#       </targets>
+		#     <iscsitarget>
+		#   </services>
+		# </config>
+		########################################################################
+		if ! omv_config_exists "//services/iscsitarget"; then
+			echo "Initialize configuration"
+			object="<enable>0</enable>"
+			object="${object}<authentication></authentication>"
+			object="${object}<extraoptions></extraoptions>"
+			object="${object}<targets></targets>"
+			omv_config_add_element "//services" "iscsitarget" "${object}" true
+		fi
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

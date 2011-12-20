@@ -1,0 +1,11 @@
+openmediavault-iscsitarget (0.1.1) stable; urgency=low
+
+  * Improve monitoring feature.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 19 Nov 2011 22:11:12 +0100
+
+openmediavault-iscsitarget (0.1) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 11 May 2010 21:34:37 +0200

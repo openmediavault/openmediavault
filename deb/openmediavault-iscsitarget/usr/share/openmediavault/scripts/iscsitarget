@@ -1,0 +1,115 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://wiki.debian.org/iSCSI/iscsitarget
+# http://www.pug.org/mediawiki/index.php/ISCSI_unter_Debian
+# http://www.howtoforge.com/using-iscsi-on-debian-lenny-initiator-and-target
+# http://www.novell.com/documentation/sles10/sles_admin/?page=/documentation/sles10/sles_admin/data/sec_inst_system_iscsi_target.html
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_ISCSITARGET_CONFIG=${OMV_ISCSITARGET_CONFIG:-"/etc/ietd.conf"}
+OMV_ISCSITARGET_DEFAULT=${OMV_ISCSITARGET_DEFAULT:-"/etc/default/iscsitarget"}
+
+mkconf() {
+	local hostname
+
+	cat <<EOF > ${OMV_ISCSITARGET_DEFAULT}
+ISCSITARGET_ENABLE=true
+EOF
+
+	# Get the reverse hostname
+	rhostname=$(hostname --fqdn | awk 'BEGIN{FS=".";ORS=""}{for(i=NF;i>0;i--){print tolower($i);if(i>1) print "."}}')
+
+	xmlstarlet sel -t -m "//services/iscsitarget" \
+	  -o "# This is the iscsitarget config file." -n \
+	  -o "# Global options" -n \
+	  -m "authentication/user[type='incoming']" \
+		-v "concat('IncomingUser ',username)" \
+		-i "string-length(password) > 0" -v "concat(' ',password)" -b \
+		-n \
+	  -b \
+	  -m "authentication/user[type='outgoing']" \
+		-v "concat('OutgoingUser ',username)" \
+		-i "string-length(password) > 0" -v "concat(' ',password)" -b \
+		-n \
+	  -b \
+	  -n -o "# Target options" -n \
+	  -m "targets/target" \
+		-v "concat('Target iqn.',activation,'${rhostname}:',identifier)" -n \
+		-m "authentication/user[type='incoming']" \
+		  -v "concat('IncomingUser ',username)" \
+		  -i "string-length(password) > 0" -v "concat(' ',password)" -b \
+		  -n \
+		-b \
+		-m "authentication/user[type='outgoing']" \
+		  -v "concat('OutgoingUser ',username)" \
+		  -i "string-length(password) > 0" -v "concat(' ',password)" -b \
+		  -n \
+		-b \
+		-m "luns/lun" -s A:N id \
+		  -v "concat('LUN ',id,' Path=',devicefile,',Type=',type)" \
+		  -i "string-length(scsiid) > 0" -v "concat(',ScsiId=',scsiid)" -b \
+		  -i "string-length(scsisn) > 0" -v "concat(',ScsiSN=',scsisn)" -b \
+		  -i "iomode[.!='wt']" -v "concat(',IOMode=',iomode)" -b \
+		  -n \
+		-b \
+		-i "string-length(alias) > 0" -v "concat('Alias ',alias)" -n -b \
+		-v "concat('HeaderDigest ',headerdigest)" -n \
+		-v "concat('DataDigest ',datadigest)" -n \
+		-v "concat('MaxConnections ',maxconnections)" -n \
+		-v "concat('MaxSessions ',maxsessions)" -n \
+		-o "InitialR2T " \
+		-i "initialr2t[. = '1']" -o "Yes" -n -b \
+		-i "initialr2t[. != '1']" -o "No" -n -b \
+		-o "ImmediateData " \
+		-i "immediatedata[. = '1']" -o "Yes" -n -b \
+		-i "immediatedata[. != '1']" -o "No" -n -b \
+		-v "concat('MaxRecvDataSegmentLength ',maxrecvdatasegmentlength)" -n \
+		-v "concat('MaxXmitDataSegmentLength ',maxxmitdatasegmentlength)" -n \
+		-v "concat('MaxBurstLength ',maxburstlength)" -n \
+		-v "concat('FirstBurstLength ',firstburstlength)" -n \
+		-v "concat('MaxOutstandingR2T ',maxoutstandingr2t)" -n \
+		-o "DataPDUInOrder " \
+		-i "datapduinorder[. = '1']" -o "Yes" -n -b \
+		-i "datapduinorder[. != '1']" -o "No" -n -b \
+		-o "DataSequenceInOrder " \
+		-i "datasequenceinorder[. = '1']" -o "Yes" -n -b \
+		-i "datasequenceinorder[. != '1']" -o "No" -n -b \
+		-v "concat('ErrorRecoveryLevel ',errorrecoverylevel)" -n \
+		-v "concat('NOPInterval ',nopinterval)" -n \
+		-v "concat('NOPTimeout ',noptimeout)" -n \
+		-v "concat('Wthreads ',wthreads)" -n \
+		-v "concat('QueuedCommands ',queuedcommands)" -n \
+		-i "string-length(extraoptions) > 0" -v extraoptions -n -b \
+	  -b \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_ISCSITARGET_CONFIG}
+}
+
+case "$1" in
+	mkconf|*)
+		mkconf
+		;;
+esac
