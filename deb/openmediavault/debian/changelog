@@ -1,3 +1,12 @@
+openmediavault (0.2.6.1) stable; urgency=low
+
+  * Execute the cron job command in a shell when pressing the 'Run' button
+    in the WebGUI.
+  * Fix bugs in omv-initfs script and RPC backend
+  * Mantis 0000325: All files deleted after deleting FTP share
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Dec 2011 16:22:25 +0100
+
 openmediavault (0.2.6.0) stable; urgency=low
 
   * Fix various bugs.

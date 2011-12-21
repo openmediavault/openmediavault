@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Documentation/Howto:
+# http://www.cyberciti.biz/faq/disable-the-mail-alert-by-crontab-command
+
 set -e
 
 . /etc/default/openmediavault
@@ -32,7 +35,7 @@ xmlstarlet sel -t \
   -o "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" -n \
   -o "# m h dom mon dow user    command" -n \
   -m "//system/crontab/job[type='reboot' or type='shutdown'][enable='1']" \
-	  -v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ',username,' ',command,' 2&gt;&amp;1')" -n \
+	  -v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ',username,' ',command,' &gt;/dev/null 2&gt;&amp;1')" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CRONTAB_POWERMNGMT}
 
@@ -41,7 +44,7 @@ xmlstarlet sel -t \
   -o "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" -n \
   -o "# m h dom mon dow user    command" -n \
   -m "//system/crontab/job[enable='1' and type='userdefined']" \
-	  -v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ',username,' ',command,' 2&gt;&amp;1')" -n \
+	  -v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ',username,' ',command,' &gt;/dev/null 2&gt;&amp;1')" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CRONTAB_USERDEFINED}
 

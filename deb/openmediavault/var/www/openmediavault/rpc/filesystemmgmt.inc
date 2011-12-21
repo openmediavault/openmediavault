@@ -483,10 +483,11 @@ class FileSystemMgmtRpc extends OMVRpc {
 		// - Check if a error log exists
 		// - Throw an exception if necessary to notify display an error
 		//   message in the WebGUI
-		sleep(1);
-		$fileName = sprintf("/var/lib/openmediavault/omv-initfs@%s.fail",
-		  $object['uuid']);
+		sleep(2);
+		$fileName = sprintf("/tmp/omv-initfs@%s.fail", $object['uuid']);
 		if (@file_exists($fileName)) {
+			$fileName = sprintf("%s/omv-initfs@%s.log", $GLOBALS['OMV_LOG_DIR'],
+			  $object['uuid']);
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  gettext("Failed to create filesystem. Please check the ".
 			  "syslog or '%s' for more details."), $fileName));

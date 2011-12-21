@@ -295,10 +295,20 @@ class CronRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 				$xpath);
 		}
-		// Execute the cron command line
+		// Execute the cron command line in a shell. The command must be
+		// escaped to ensure the command line is correctly intepreted as
+		// defined by the user. Arrrggg, what a command line.
+		// Test:
+		// Create a cron job with the command 'whoami' and run it from WebGUI.
 		$outputFile = tempnam(sys_get_temp_dir(), "cronjob");
-		$cmd = sprintf("sudo -u %s %s >%s 2>&1 & echo $!",
-		  $object['username'], $object['command'], $outputFile);
+//		$cmd = sprintf("sudo -- sudo -u %s -- %s >%s 2>&1 & echo $!",
+//		  $object['username'], $object['command'], $outputFile);
+//		$cmd = sprintf("sudo -- su %s sh -c %s >%s 2>&1 & echo $!",
+//		  $object['username'], escapeshellarg($object['command']),
+//		  $outputFile);
+		$cmd = sprintf("sudo -- sudo -u %s sh -c %s >%s 2>&1 & echo $!",
+		  $object['username'], escapeshellarg($object['command']),
+		  $outputFile);
 		OMVUtil::exec($cmd, $output, $res);
 		if ($res !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

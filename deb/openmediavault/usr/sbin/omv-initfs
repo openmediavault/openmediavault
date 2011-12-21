@@ -29,7 +29,6 @@ set -e
 
 # Defaults
 OMV_INITFS_PID_PATH=${OMV_INITFS_PID_PATH:-"/var/run/openmediavault"}
-OMV_INITFS_LIB_PATH=${OMV_INITFS_LIB_PATH:-"/var/lib/openmediavault"}
 OMV_INITFS_OWNGRP_PERM=${OMV_INITFS_OWNGRP_PERM:-"openmediavault:openmediavault"}
 OMV_INITFS_PARTED_ALIGN=${OMV_INITFS_PARTED_ALIGN:-"optimal"}
 OMV_INITFS_PARTED_MKPART_START=${OMV_INITFS_PARTED_MKPART_START:-"2048s"}
@@ -64,6 +63,7 @@ finalize() {
 
 		exitcode=255
 		touch "${failfile}"
+		rm -f "${buildfile}"
 		omv_log "Failed to build the filesystem on ${device}. Please see ${logfile} for more details."
 		;;
 	0)
@@ -124,12 +124,11 @@ fi
 
 pidfile="${OMV_INITFS_PID_PATH}/$(basename $0)@${uuid}.pid"
 logfile="${OMV_LOG_DIR}/$(basename $0)@${uuid}.log"
-failfile="${OMV_INITFS_LIB_PATH}/$(basename $0)@${uuid}.fail"
+failfile="/tmp/$(basename $0)@${uuid}.fail"
 buildfile="/tmp/$(basename $0)@${uuid}.build"
 
 # Ensure the necessary directories exists
 [ ! -d "${OMV_INITFS_PID_PATH}" ] && mkdir -p "${OMV_INITFS_PID_PATH}"
-[ ! -d "${OMV_INITFS_LIB_PATH}" ] && mkdir -p "${OMV_INITFS_LIB_PATH}"
 
 # Cleanup old data
 [ -e "${failfile}" ] && rm -f "${failfile}"

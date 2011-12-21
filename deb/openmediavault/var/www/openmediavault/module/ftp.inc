@@ -102,7 +102,7 @@ class FTPModule extends OMVModuleAbstract implements OMVINotifyListener,
 			  $xpath);
 		}
 		// Umount the subtree.
-		$cmd = sprintf("sudo umount -f %s 2>&1", $meObject['dir']);
+		$cmd = sprintf("sudo umount %s 2>&1", $meObject['dir']);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -151,7 +151,7 @@ class FTPModule extends OMVModuleAbstract implements OMVINotifyListener,
 		  "org.openmediavault.services.ftp.shares.share",
 		  array($this, "createShare"), 1);
 		$dispatcher->addListener(
-		  OMV_NOTIFY_DELETE,
+		  OMV_NOTIFY_PREDELETE,
 		  "org.openmediavault.services.ftp.shares.share",
 		  array($this, "deleteShare"), 1);
 		$dispatcher->addListener(
