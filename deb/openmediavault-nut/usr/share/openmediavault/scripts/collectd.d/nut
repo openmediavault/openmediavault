@@ -401,6 +401,100 @@ if [ -e "\${DATA}/nut-${upsname}/voltage-battery.rrd" -a -e "\${DATA}/nut-${upsn
 	  GPRINT:omax:MAX:"%4.2lf Max" \
 	  GPRINT:oavg:LAST:"%4.2lf Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
+elif [ -e "\${DATA}/nut-${upsname}/voltage-battery.rrd" -a -e "\${DATA}/nut-${upsname}/voltage-input.rrd" ]; then
+	TITLE_NUT_VOLTAGE="UPS voltage"
+	COLOR_NUT_VOLTAGE_BATTERY="#0000fd" # blue
+	COLOR_NUT_VOLTAGE_INPUT="#00cc00"   # green
+	rrdtool graph \${IMGDIR}/nut-voltage-hour.png --start \${HOURSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${HOURTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
+	  DEF:bavg=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:AVERAGE \
+	  DEF:bmin=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MIN \
+	  DEF:bmax=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MAX \
+	  DEF:iavg=\${DATA}/nut-${upsname}/voltage-input.rrd:value:AVERAGE \
+	  DEF:imin=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MIN \
+	  DEF:imax=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MAX \
+	  LINE1:bavg\${COLOR_NUT_VOLTAGE_BATTERY}:"Battery" \
+	  GPRINT:bmin:MIN:"%4.2lf Min" \
+	  GPRINT:bavg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:bmax:MAX:"%4.2lf Max" \
+	  GPRINT:bavg:LAST:"%4.2lf Last\l" \
+	  LINE1:iavg\${COLOR_NUT_VOLTAGE_INPUT}:"Input" \
+	  GPRINT:imin:MIN:"%4.2lf Min" \
+	  GPRINT:iavg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:imax:MAX:"%4.2lf Max" \
+	  GPRINT:iavg:LAST:"%4.2lf Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/nut-voltage-day.png --start \${DAYSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${DAYTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
+	  DEF:bavg=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:AVERAGE \
+	  DEF:bmin=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MIN \
+	  DEF:bmax=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MAX \
+	  DEF:iavg=\${DATA}/nut-${upsname}/voltage-input.rrd:value:AVERAGE \
+	  DEF:imin=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MIN \
+	  DEF:imax=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MAX \
+	  LINE1:bavg\${COLOR_NUT_VOLTAGE_BATTERY}:"Battery" \
+	  GPRINT:bmin:MIN:"%4.2lf Min" \
+	  GPRINT:bavg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:bmax:MAX:"%4.2lf Max" \
+	  GPRINT:bavg:LAST:"%4.2lf Last\l" \
+	  LINE1:iavg\${COLOR_NUT_VOLTAGE_INPUT}:"Input" \
+	  GPRINT:imin:MIN:"%4.2lf Min" \
+	  GPRINT:iavg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:imax:MAX:"%4.2lf Max" \
+	  GPRINT:iavg:LAST:"%4.2lf Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/nut-voltage-week.png --start \${WEEKSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${WEEKTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
+	  DEF:bavg=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:AVERAGE \
+	  DEF:bmin=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MIN \
+	  DEF:bmax=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MAX \
+	  DEF:iavg=\${DATA}/nut-${upsname}/voltage-input.rrd:value:AVERAGE \
+	  DEF:imin=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MIN \
+	  DEF:imax=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MAX \
+	  LINE1:bavg\${COLOR_NUT_VOLTAGE_BATTERY}:"Battery" \
+	  GPRINT:bmin:MIN:"%4.2lf Min" \
+	  GPRINT:bavg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:bmax:MAX:"%4.2lf Max" \
+	  GPRINT:bavg:LAST:"%4.2lf Last\l" \
+	  LINE1:iavg\${COLOR_NUT_VOLTAGE_INPUT}:"Input" \
+	  GPRINT:imin:MIN:"%4.2lf Min" \
+	  GPRINT:iavg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:imax:MAX:"%4.2lf Max" \
+	  GPRINT:iavg:LAST:"%4.2lf Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/nut-voltage-month.png --start \${MONTHSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${MONTHTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
+	  DEF:bavg=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:AVERAGE \
+	  DEF:bmin=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MIN \
+	  DEF:bmax=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MAX \
+	  DEF:iavg=\${DATA}/nut-${upsname}/voltage-input.rrd:value:AVERAGE \
+	  DEF:imin=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MIN \
+	  DEF:imax=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MAX \
+	  LINE1:bavg\${COLOR_NUT_VOLTAGE_BATTERY}:"Battery" \
+	  GPRINT:bmin:MIN:"%4.2lf Min" \
+	  GPRINT:bavg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:bmax:MAX:"%4.2lf Max" \
+	  GPRINT:bavg:LAST:"%4.2lf Last\l" \
+	  LINE1:iavg\${COLOR_NUT_VOLTAGE_INPUT}:"Input" \
+	  GPRINT:imin:MIN:"%4.2lf Min" \
+	  GPRINT:iavg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:imax:MAX:"%4.2lf Max" \
+	  GPRINT:iavg:LAST:"%4.2lf Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
+	rrdtool graph \${IMGDIR}/nut-voltage-year.png --start \${YEARSTART} \${DEFAULTS} --title "\${TITLE_NUT_VOLTAGE}\${YEARTITLE}" --slope-mode --lower-limit 0 --vertical-label Volt \
+	  DEF:bavg=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:AVERAGE \
+	  DEF:bmin=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MIN \
+	  DEF:bmax=\${DATA}/nut-${upsname}/voltage-battery.rrd:value:MAX \
+	  DEF:iavg=\${DATA}/nut-${upsname}/voltage-input.rrd:value:AVERAGE \
+	  DEF:imin=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MIN \
+	  DEF:imax=\${DATA}/nut-${upsname}/voltage-input.rrd:value:MAX \
+	  LINE1:bavg\${COLOR_NUT_VOLTAGE_BATTERY}:"Battery" \
+	  GPRINT:bmin:MIN:"%4.2lf Min" \
+	  GPRINT:bavg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:bmax:MAX:"%4.2lf Max" \
+	  GPRINT:bavg:LAST:"%4.2lf Last\l" \
+	  LINE1:iavg\${COLOR_NUT_VOLTAGE_INPUT}:"Input" \
+	  GPRINT:imin:MIN:"%4.2lf Min" \
+	  GPRINT:iavg:AVERAGE:"%4.2lf Avg" \
+	  GPRINT:imax:MAX:"%4.2lf Max" \
+	  GPRINT:iavg:LAST:"%4.2lf Last\l" \
+	  COMMENT:"\${LASTUPDATE}" >/dev/null
 else
 	omv_copy_error_rrd_graph_image "nut-voltage"
 fi
