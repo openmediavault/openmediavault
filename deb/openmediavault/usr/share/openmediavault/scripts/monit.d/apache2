@@ -1,0 +1,34 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+
+OMV_MONIT_CONFIG=${OMV_MONIT_CONFIG:-"/etc/monit/monitrc"}
+
+cat <<EOF >> ${OMV_MONIT_CONFIG}
+check process apache2 with pidfile /var/run/apache2.pid
+  start program = "/etc/init.d/apache2 start"
+  stop program = "/etc/init.d/apache2 stop"
+  mode manual
+
+EOF

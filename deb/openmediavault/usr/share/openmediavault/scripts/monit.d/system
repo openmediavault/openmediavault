@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2011 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+
+OMV_MONIT_CONFIG=${OMV_MONIT_CONFIG:-"/etc/monit/monitrc"}
+OMV_MONIT_SERVICE_SYSTEM_MEMORYUSAGE=${OMV_MONIT_SERVICE_SYSTEM_MEMORYUSAGE:-"90"}
+OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_USER=${OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_USER:-"95"}
+OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_SYSTEM=${OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_SYSTEM:-"95"}
+OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_WAIT=${OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_WAIT:-"95"}
+OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_MULT=${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_MULT:-"2"}
+OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_MULT=${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_MULT:-"1"}
+
+# Get the number of CPU's
+numcpu=$(grep -c processor /proc/cpuinfo)
+
+cat <<EOF >> ${OMV_MONIT_CONFIG}
+check system localhost
+  if loadavg (1min) > $(expr ${numcpu} \* ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_MULT}) for 3 cycles then alert
+  if loadavg (5min) > $(expr ${numcpu} \* ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_MULT}) for 3 cycles then alert
+  if memory usage > ${OMV_MONIT_SERVICE_SYSTEM_MEMORYUSAGE}% then alert
+  if cpu usage (user) > ${OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_USER}% then alert
+  if cpu usage (system) > ${OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_SYSTEM}% then alert
+  if cpu usage (wait) > ${OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_WAIT}% then alert
+
+EOF
