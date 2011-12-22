@@ -24,6 +24,7 @@
 // require("js/omv/CfgObjectDialog.js")
 // require("js/omv/grid/TBarGridPanel.js")
 // require("js/omv/form/MultiSelect.js")
+// require("js/omv/form/plugins/FieldInfo.js")
 // require("js/omv/util/Format.js")
 // require("js/omv/ExecCmdDialog.js")
 
@@ -230,7 +231,7 @@ OMV.Module.System.CronPropertyDialog = function(config) {
 		rpcSetMethod: "set",
 		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
 		  " cron job",
-		height: 355
+		height: 400
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.System.CronPropertyDialog.superclass.constructor.call(
@@ -355,6 +356,15 @@ Ext.extend(OMV.Module.System.CronPropertyDialog,
 			name: "comment",
 			fieldLabel: "Comment",
 			allowBlank: true
+		},{
+			xtype: "checkbox",
+			name: "sendemail",
+			fieldLabel: "Send email",
+			checked: false,
+			inputValue: 1,
+			boxLabel: "Send command output via email",
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: "An email messages with the command output (if any produced) is send to the user who performs the job."
 		},{
 			xtype: "hidden",
 			name: "type",

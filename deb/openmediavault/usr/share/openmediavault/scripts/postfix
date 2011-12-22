@@ -23,10 +23,16 @@
 # http://www.postfix.org/postconf.5.html
 # http://www.gtkdb.de/index_7_727.html
 # http://irbs.net/internet/postfix/0503/2148.html
+# http://gate.io/blogpost34
 
 # Testing:
 # echo "Test" | mail -s "Test subject" -a "From: xxx@yyy.zzz" root
 # hostname | mailx -s "root `hostname` `date`" root
+
+# Working with CA certificates:
+# - Add new CA certificate to /etc/ssl/certs
+# - Modify /etc/ca-certificates.conf
+# - Execute update-ca-certificates
 
 set -e
 
@@ -44,6 +50,8 @@ OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS=${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS:-"/etc
 OMV_POSTFIX_SMTP_SASL_SECURITY_OPTIONS=${OMV_POSTFIX_INETINTERFACES:-"noanonymous"}
 OMV_POSTFIX_SMTP_SASL_MECHANISM_FILTER=${OMV_POSTFIX_SMTP_SASL_MECHANISM_FILTER:-""}
 OMV_POSTFIX_SMTP_HEADER_CHECKS=${OMV_POSTFIX_SMTP_HEADER_CHECKS:-"/etc/postfix/smtp_header_checks"}
+OMV_POSTFIX_SMTP_TLS_CAFILE=${OMV_POSTFIX_SMTP_TLS_CAFILE:-"/etc/ssl/certs/ca-certificates.crt"}
+OMV_POSTFIX_SMTP_TLS_CAPATH=${OMV_POSTFIX_SMTP_TLS_CAPATH:-"/etc/ssl/certs"}
 
 # Create '/etc/postfix/main.cf' configuration file
 xmlstarlet sel -t -m "//system/email" \
@@ -61,6 +69,8 @@ xmlstarlet sel -t -m "//system/email" \
   -b \
   -i "tls[. = '1']" \
     -o "smtp_use_tls = yes" -n \
+	-o "smtp_tls_CAfile = ${OMV_POSTFIX_SMTP_TLS_CAFILE}" -n \
+    -o "smtp_tls_CApath = ${OMV_POSTFIX_SMTP_TLS_CAPATH}" -n \
   -b \
   -o "smtp_header_checks = regexp:${OMV_POSTFIX_SMTP_HEADER_CHECKS}" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_CONFIG}
@@ -75,25 +85,35 @@ chown root:root ${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}
 chmod 0600 ${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}
 postmap ${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}
 
-# Create '/etc/postfix/generic' configuration file
+# Create '/etc/postfix/generic' configuration file. Add a catch-all recipient,
+# thus all emails send to an user/address not existing will be redirected to
+# the configured primary recipient address.
 myhostname=$(postconf -h myhostname)
 xmlstarlet sel -t \
   -i "//system/email/enable[. = '1']" \
-	-v "concat('root ',//system/email/sender)" -n \
-	-v "concat('openmediavault ',//system/email/sender)" -n \
+	-v "concat('root ',//system/email/primaryemail)" -n \
+	-v "concat('openmediavault ',//system/email/primaryemail)" -n \
 	-m "//system/usermanagement/users/user[email != '']" \
 	  -v "concat(name,' ',email)" -n \
 	-b \
-	-v "concat('@${myhostname} ',//system/email/sender)" \
+	-v "concat('@${myhostname} ',//system/email/primaryemail)" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 chown root:root ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 chmod 0600 ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 postmap ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 
-# Create '/etc/postfix/sender_canonical' configuration file
+# Create '/etc/postfix/sender_canonical' configuration file. Rewrite all
+# outgoing emails with the configured sender address, otherwise the SMTP relay
+# will bounce them, e.g.
+# postfix/smtp[xxxxx]: XXXXXXXXXX: to=<abc@xyz.localdomain>,
+#   orig_to=<test>, relay=mail.gmx.net[x.x.x.x]:25, delay=1,
+#   delays=0.02/0.02/0.93/0.06, dsn=5.7.0, status=bounced (host
+#   mail.gmx.net[x.x.x.x] said: 550 5.7.0 Sender address does not belong to
+#   logged in user {mp030} (in reply to MAIL FROM command))
 xmlstarlet sel -t \
   -i "//system/email/enable[. = '1']" \
+	-v "concat('@${myhostname} ',//system/email/sender)" -n \
 	-v "concat('&quot;&quot; ',//system/email/sender)" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}

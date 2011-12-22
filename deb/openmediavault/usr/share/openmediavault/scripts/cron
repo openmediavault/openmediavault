@@ -21,14 +21,15 @@
 
 # Documentation/Howto:
 # http://www.cyberciti.biz/faq/disable-the-mail-alert-by-crontab-command
+# http://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses
 
 set -e
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_CRONTAB_POWERMNGMT=${OMV_CRONTAB_POWERMNGMT:-"/etc/cron.d/openmediavault-powermngmt"}
-OMV_CRONTAB_USERDEFINED=${OMV_CRONTAB_USERDEFINED:-"/etc/cron.d/openmediavault-userdefined"}
+OMV_CRONTAB_POWERMNGMT_CONFIG=${OMV_CRONTAB_POWERMNGMT_CONFIG:-"/etc/cron.d/openmediavault-powermngmt"}
+OMV_CRONTAB_USERDEFINED_CONFIG=${OMV_CRONTAB_USERDEFINED_CONFIG:-"/etc/cron.d/openmediavault-userdefined"}
 
 xmlstarlet sel -t \
   -o "SHELL=/bin/sh" -n \
@@ -37,16 +38,19 @@ xmlstarlet sel -t \
   -m "//system/crontab/job[type='reboot' or type='shutdown'][enable='1']" \
 	  -v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ',username,' ',command,' &gt;/dev/null 2&gt;&amp;1')" -n \
   -b \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CRONTAB_POWERMNGMT}
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CRONTAB_POWERMNGMT_CONFIG}
+chmod 644 ${OMV_CRONTAB_POWERMNGMT_CONFIG}
 
 xmlstarlet sel -t \
   -o "SHELL=/bin/sh" -n \
   -o "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" -n \
   -o "# m h dom mon dow user    command" -n \
   -m "//system/crontab/job[enable='1' and type='userdefined']" \
-	  -v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ',username,' ',command,' &gt;/dev/null 2&gt;&amp;1')" -n \
+	  -v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ',username,' ',command)" \
+	  -i "sendemail[. = '0']" \
+		  -o " &gt;/dev/null 2&gt;&amp;1" \
+	  -b \
+	  -n \
   -b \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CRONTAB_USERDEFINED}
-
-chmod 644 ${OMV_CRONTAB_POWERMNGMT}
-chmod 644 ${OMV_CRONTAB_USERDEFINED}
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CRONTAB_USERDEFINED_CONFIG}
+chmod 644 ${OMV_CRONTAB_USERDEFINED_CONFIG}

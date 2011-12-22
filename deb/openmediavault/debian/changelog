@@ -1,8 +1,18 @@
 openmediavault (0.2.6.1) stable; urgency=low
 
+  * Fix bug in postfix configuration. Emails where send to sender instead of
+    primary/secondary recipient.
   * Execute the cron job command in a shell when pressing the 'Run' button
     in the WebGUI.
   * Fix bugs in omv-initfs script and RPC backend
+  * Enable/disable sending email of cron job output to user
+  * Mantis 0000322: Have the option to set SSL certs path for email accounts
+    (eliminates the postfix error being logged). By default the file
+    /etc/ssl/certs/ca-certificates.crt which contains all trusted CA
+    certificates is used by postfix. Use update-ca-certificates when adding
+    a new CA certificate. The postfix configuration can be modified by the
+    environment variables OMV_POSTFIX_SMTP_TLS_CAFILE and
+    OMV_POSTFIX_SMTP_TLS_CAPATH.
   * Mantis 0000325: All files deleted after deleting FTP share
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Dec 2011 16:22:25 +0100

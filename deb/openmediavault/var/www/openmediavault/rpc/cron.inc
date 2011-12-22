@@ -44,6 +44,7 @@ class CronRpc extends OMVRpc {
 				"properties":{
 					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
 					"enable":{"type":"boolean"},
+					"sendemail":{"type":"boolean"},
 					"type":{"type":["string","null"],"format":"regex",'.
 					  '"pattern":"\/^reboot|shutdown|userdefined$\/i"},
 					"minute":{"type":"string","format":"regex",'.
@@ -121,7 +122,9 @@ class CronRpc extends OMVRpc {
 		$jobs = array();
 		foreach ($objects as $objectk => $objectv) {
 			if (in_array($objectv['type'], $types)) {
+				// Modify result data
 				$objectv['enable'] = boolval($objectv['enable']);
+				$objectv['sendemail'] = boolval($objectv['sendemail']);
 				$jobs[] = $objectv;
 			}
 		}
@@ -152,6 +155,7 @@ class CronRpc extends OMVRpc {
 		}
 		// Modify result data
 		$object['enable'] = boolval($object['enable']);
+		$object['sendemail'] = boolval($object['sendemail']);
 		return $object;
 	}
 
@@ -174,6 +178,7 @@ class CronRpc extends OMVRpc {
 			"uuid" => ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $data['uuid'],
 			"enable" => array_boolval($data, 'enable'),
+			"sendemail" => array_boolval($data, 'sendemail'),
 			"type" => $data['type'],
 			"minute" => $data['minute'],
 			"hour" => $data['hour'],
@@ -225,6 +230,7 @@ class CronRpc extends OMVRpc {
 		$this->validateParams(__METHOD__, func_get_args());
 		// Set missing //system/crontab/job config object fields
 		$data['username'] = "root";
+		$data['sendemail'] = FALSE;
 		switch ($data['type']) {
 		case "reboot":
 			$data['command'] = "shutdown -r now";
