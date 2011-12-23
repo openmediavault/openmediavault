@@ -23,7 +23,6 @@
 # http://wiki.debian.org/iSCSI/iscsitarget
 # http://www.pug.org/mediawiki/index.php/ISCSI_unter_Debian
 # http://www.howtoforge.com/using-iscsi-on-debian-lenny-initiator-and-target
-# http://www.novell.com/documentation/sles10/sles_admin/?page=/documentation/sles10/sles_admin/data/sec_inst_system_iscsi_target.html
 
 set -e
 
@@ -58,7 +57,7 @@ EOF
 	  -b \
 	  -n -o "# Target options" -n \
 	  -m "targets/target" \
-		-v "concat('Target iqn.',activation,'${rhostname}:',identifier)" -n \
+		-v "concat('Target iqn.',activation,'.${rhostname}:',identifier)" -n \
 		-m "authentication/user[type='incoming']" \
 		  -v "concat('IncomingUser ',username)" \
 		  -i "string-length(password) > 0" -v "concat(' ',password)" -b \

@@ -1,3 +1,9 @@
+openmediavault-iscsitarget (0.1.2) stable; urgency=low
+
+  * Fix bug in target definition
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 23 Dec 2011 21:53:44 +0100
+
 openmediavault-iscsitarget (0.1.1) stable; urgency=low
 
   * Improve monitoring feature.
