@@ -435,6 +435,7 @@
 				<job>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 					<enable>0|1</enable>
+					<sendemail>0|1<sendemail>
 					<comment>xxx</comment>
 					<type>local|remote</type>
 					<src>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxx</src>

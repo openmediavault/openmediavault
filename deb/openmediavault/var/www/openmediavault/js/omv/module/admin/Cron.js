@@ -352,11 +352,6 @@ Ext.extend(OMV.Module.System.CronPropertyDialog,
 			fieldLabel: "Command",
 			allowBlank: false
 		},{
-			xtype: "textarea",
-			name: "comment",
-			fieldLabel: "Comment",
-			allowBlank: true
-		},{
 			xtype: "checkbox",
 			name: "sendemail",
 			fieldLabel: "Send email",
@@ -365,6 +360,11 @@ Ext.extend(OMV.Module.System.CronPropertyDialog,
 			boxLabel: "Send command output via email",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "An email messages with the command output (if any produced) is send to the user who performs the job."
+		},{
+			xtype: "textarea",
+			name: "comment",
+			fieldLabel: "Comment",
+			allowBlank: true
 		},{
 			xtype: "hidden",
 			name: "type",

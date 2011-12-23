@@ -258,6 +258,12 @@ case "$1" in
 			omv_config_add_element "//system/crontab/job" "sendemail" "0"
 			omv-mkconf cron
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.2.6.2"; then
+			omv_config_add_element "//services/rsync/jobs/job" "sendemail" "0"
+			omv-mkconf cron
+			omv-mkconf rsync
+			rm -rf /var/lib/openmediavault/cronscripts
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

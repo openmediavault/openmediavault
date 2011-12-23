@@ -174,7 +174,7 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 				name: "requirevalidshell",
 				fieldLabel: "Require valid shell",
 				inputValue: 1,
-				boxLabel: "Deny logins which do not have a valid shell.",
+				boxLabel: "Deny logins which do not have a valid shell",
 				checked: true
 			},{
 				xtype: "checkbox",
@@ -423,7 +423,7 @@ Ext.extend(OMV.Module.Services.FTPModTLSPanel, OMV.FormPanelExt, {
 				fieldLabel: "Enable",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Enable SSL/TLS connections.",
+				boxLabel: "Enable SSL/TLS connections",
 				listeners: {
 					check: this._updateFormFields,
 					scope: this

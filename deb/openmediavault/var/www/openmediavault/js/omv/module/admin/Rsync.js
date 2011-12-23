@@ -276,14 +276,14 @@ Ext.extend(OMV.Module.Services.RsyncSrvModulePropertyDialog,
 			fieldLabel: "Public",
 			checked: false,
 			inputValue: 1,
-			boxLabel: "If enabled then no password is required to connect to the share."
+			boxLabel: "If enabled then no password is required to connect to the share"
 		},{
 			xtype: "checkbox",
 			name: "readonly",
 			fieldLabel: "Read only",
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Set read only.",
+			boxLabel: "Set read only",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "If this parameter is set, then any attempted uploads will fail."
 		},{
@@ -292,7 +292,7 @@ Ext.extend(OMV.Module.Services.RsyncSrvModulePropertyDialog,
 			fieldLabel: "Write only",
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Set write only.",
+			boxLabel: "Set write only",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "If this parameter is set, then any attempted downloads will fail."
 		},{
@@ -312,7 +312,7 @@ Ext.extend(OMV.Module.Services.RsyncSrvModulePropertyDialog,
 			fieldLabel: "List",
 			checked: true,
 			inputValue: 1,
-			boxLabel: "Enable module listing.",
+			boxLabel: "Enable module listing",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "This option determines if this module should be listed when the client asks for a listing of available modules."
 		},{
@@ -712,63 +712,72 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 			fieldLabel: "Recursive",
 			checked: true,
 			inputValue: 1,
-			boxLabel: "Recurse into directories."
+			boxLabel: "Recurse into directories"
 		},{
 			xtype: "checkbox",
 			name: "times",
 			fieldLabel: "Times",
 			checked: true,
 			inputValue: 1,
-			boxLabel: "Preserve modification times."
+			boxLabel: "Preserve modification times"
 		},{
 			xtype: "checkbox",
 			name: "compress",
 			fieldLabel: "Compress",
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Compress file data during the transfer."
+			boxLabel: "Compress file data during the transfer"
 		},{
 			xtype: "checkbox",
 			name: "archive",
 			fieldLabel: "Archive",
 			checked: true,
 			inputValue: 1,
-			boxLabel: "Enable archive mode."
+			boxLabel: "Enable archive mode"
 		},{
 			xtype: "checkbox",
 			name: "delete",
 			fieldLabel: "Delete",
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Delete files on the receiving side that don't exist on sender."
+			boxLabel: "Delete files on the receiving side that don't exist on sender"
 		},{
 			xtype: "checkbox",
 			name: "quiet",
 			fieldLabel: "Quiet",
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Suppress non-error messages."
+			boxLabel: "Suppress non-error messages"
 		},{
 			xtype: "checkbox",
 			name: "perms",
 			fieldLabel: "Preserve permissions",
 			checked: true,
 			inputValue: 1,
-			boxLabel: "Set the destination permissions to be the same as the source permissions."
+			boxLabel: "Set the destination permissions to be the same as the source permissions"
 		},{
 			xtype: "checkbox",
 			name: "acls",
 			fieldLabel: "Preserve ACLs",
 			checked: true,
 			inputValue: 1,
-			boxLabel: "Update the destination ACLs to be the same as the source ACLs."
+			boxLabel: "Update the destination ACLs to be the same as the source ACLs"
 		},{
 			xtype: "checkbox",
 			name: "xattrs",
 			fieldLabel: "Preserve extended attributes",
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Update the destination extended attributes to be the same as the local ones."
+			boxLabel: "Update the destination extended attributes to be the same as the local ones"
+		},{
+			xtype: "checkbox",
+			name: "sendemail",
+			fieldLabel: "Send email",
+			checked: false,
+			inputValue: 1,
+			boxLabel: "Send command output via email",
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: "An email messages with the command output (if any produced) is send to the user who performs the job."
 		},{
 			xtype: "textfield",
 			name: "extraoptions",

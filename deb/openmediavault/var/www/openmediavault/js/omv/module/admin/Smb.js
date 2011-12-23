@@ -89,14 +89,14 @@ Ext.extend(OMV.Module.Services.SMB.SettingsPanel, OMV.FormPanelExt, {
 				fieldLabel: "Local master browser",
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Allow this server to try and become a local master browser."
+				boxLabel: "Allow this server to try and become a local master browser"
 			},{
 				xtype: "checkbox",
 				name: "timeserver",
 				fieldLabel: "Time server",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Allow this server to advertise itself as a time server to Windows clients."
+				boxLabel: "Allow this server to advertise itself as a time server to Windows clients"
 			}]
 		},{
 			xtype: "fieldset",
@@ -111,14 +111,14 @@ Ext.extend(OMV.Module.Services.SMB.SettingsPanel, OMV.FormPanelExt, {
 				fieldLabel: "Enable",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Enable user home directories."
+				boxLabel: "Enable user home directories"
 			},{
 				xtype: "checkbox",
 				name: "homesbrowseable",
 				fieldLabel: "Browseable",
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Set browseable.",
+				boxLabel: "Set browseable",
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: "This controls whether this share is seen in the list of available shares in a net view and in the browse list."
 			}]
@@ -135,7 +135,7 @@ Ext.extend(OMV.Module.Services.SMB.SettingsPanel, OMV.FormPanelExt, {
 				fieldLabel: "WINS support",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Enable WINS server.",
+				boxLabel: "Enable WINS server",
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: "Act as a WINS server."
 			},{
@@ -182,14 +182,14 @@ Ext.extend(OMV.Module.Services.SMB.SettingsPanel, OMV.FormPanelExt, {
 				fieldLabel: "Null passwords",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Allow client access to accounts that have null passwords."
+				boxLabel: "Allow client access to accounts that have null passwords"
 			},{
 				xtype: "checkbox",
 				name: "usesendfile",
 				fieldLabel: "Use sendfile",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Use the more efficient sendfile system call for files that are exclusively oplocked.",
+				boxLabel: "Use the more efficient sendfile system call for files that are exclusively oplocked",
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: "This may make more efficient use of the system CPU's and cause Samba to be faster. Samba automatically turns this off for clients that use protocol levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
 			},{
@@ -385,7 +385,7 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 			fieldLabel: "Public",
 			checked: false,
 			inputValue: 1,
-			boxLabel: "If enabled then no password is required to connect to the share.",
+			boxLabel: "If enabled then no password is required to connect to the share",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "Make sure the user 'nobody' has the required permission for the shared folder."
 		},{
@@ -394,7 +394,7 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 			fieldLabel: "Read only",
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Set read only.",
+			boxLabel: "Set read only",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "If this parameter is set, then users may not create or modify files in the share."
 		},{
@@ -403,7 +403,7 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 			fieldLabel: "Browseable",
 			checked: true,
 			inputValue: 1,
-			boxLabel: "Set browseable.",
+			boxLabel: "Set browseable",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "This controls whether this share is seen in the list of available shares in a net view and in the browse list."
 		},{
@@ -412,7 +412,7 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 			fieldLabel: "Inherit ACLs",
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Honor existing ACLs.",
+			boxLabel: "Honor existing ACLs",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "This parameter can be used to ensure that if default acls exist on parent directories, they are always honored when creating a new file or subdirectory in these parent directories."
 		},{
@@ -421,7 +421,7 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 			fieldLabel: "Inherit permissions",
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Enable permission inheritance.",
+			boxLabel: "Enable permission inheritance",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "The permissions on new files and directories are normally governed by create mask and directory mask but the inherit permissions parameter overrides this. This can be particularly useful on systems with many users to allow a single share to be used flexibly by each user."
 		},{
@@ -430,7 +430,7 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 			fieldLabel: "Recycle bin",
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Enable recycle bin.",
+			boxLabel: "Enable recycle bin",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "This will create a recycle bin on the share."
 		},{
@@ -439,14 +439,14 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 			fieldLabel: "Hide dot files",
 			checked: true,
 			inputValue: 1,
-			boxLabel: "This parameter controls whether files starting with a dot appear as hidden files."
+			boxLabel: "This parameter controls whether files starting with a dot appear as hidden files"
 		},{
 			xtype: "checkbox",
 			name: "easupport",
 			fieldLabel: "Extended attributes",
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Enable extended attribute support.",
+			boxLabel: "Enable extended attribute support",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "Allow clients to attempt to store OS/2 style extended attributes on a share."
 		},{
@@ -455,7 +455,7 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 			fieldLabel: "Store DOS attributes",
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Enable store DOS attributes support.",
+			boxLabel: "Enable store DOS attributes support",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "If this parameter is set, Samba attempts to first read DOS attributes (SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute, before mapping DOS attributes to UNIX permission bits. When set, DOS attributes will be stored onto an extended attribute in the UNIX filesystem, associated with the file or directory."
 		},{
