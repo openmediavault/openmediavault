@@ -1,4 +1,3 @@
 usr/share/openmediavault/scripts/* usr/share/openmediavault/scripts
 usr/local/bin/* usr/local/bin
 var/www/openmediavault/* var/www/openmediavault
-etc/udev/rules.d/* etc/udev/rules.d

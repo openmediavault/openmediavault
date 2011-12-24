@@ -75,6 +75,21 @@ class NetworkUPSToolsModule extends OMVModuleAbstract
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Create configuration
 		$this->mkConf();
+		// Force udev to reload rules, regardless if a udev rule is generated
+		// for the UPS (with driver config 'port = /dev/xxx') or if it is
+		// connected via USB in which case no udev rule is generated.
+		$cmd = "sudo udevadm control --reload-rules 2>&1";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		$cmd = "sudo udevadm trigger 2>&1";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
 		// Update service:
 		// - Start/Stop service
 		// - Activate/deactivate monitoring

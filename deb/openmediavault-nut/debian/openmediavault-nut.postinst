@@ -99,6 +99,11 @@ case "$1" in
 			udevadm control --reload-rules
 			udevadm trigger
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.1.6"; then
+			omv-mkconf nut
+			udevadm control --reload-rules
+			udevadm trigger
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
