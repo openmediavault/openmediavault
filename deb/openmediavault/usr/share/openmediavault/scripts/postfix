@@ -24,6 +24,7 @@
 # http://www.gtkdb.de/index_7_727.html
 # http://irbs.net/internet/postfix/0503/2148.html
 # http://gate.io/blogpost34
+# http://www.cyberciti.biz/tips/howto-postfix-flush-mail-queue.html
 
 # Testing:
 # echo "Test" | mail -s "Test subject" -a "From: xxx@yyy.zzz" root
@@ -52,6 +53,7 @@ OMV_POSTFIX_SMTP_SASL_MECHANISM_FILTER=${OMV_POSTFIX_SMTP_SASL_MECHANISM_FILTER:
 OMV_POSTFIX_SMTP_HEADER_CHECKS=${OMV_POSTFIX_SMTP_HEADER_CHECKS:-"/etc/postfix/smtp_header_checks"}
 OMV_POSTFIX_SMTP_TLS_CAFILE=${OMV_POSTFIX_SMTP_TLS_CAFILE:-"/etc/ssl/certs/ca-certificates.crt"}
 OMV_POSTFIX_SMTP_TLS_CAPATH=${OMV_POSTFIX_SMTP_TLS_CAPATH:-"/etc/ssl/certs"}
+OMV_POSTFIX_CRON_CONFIG=${OMV_POSTFIX_CRON_CONFIG:-"/etc/cron.hourly/openmediavault-flushmailq"}
 
 # Create '/etc/postfix/main.cf' configuration file
 xmlstarlet sel -t -m "//system/email" \
@@ -138,3 +140,16 @@ cat <<EOF > ${OMV_POSTFIX_SMTP_HEADER_CHECKS}
 EOF
 chown root:root ${OMV_POSTFIX_SMTP_HEADER_CHECKS}
 chmod 0600 ${OMV_POSTFIX_SMTP_HEADER_CHECKS}
+
+# Create a hourly cron job that flushes the postfix mail queue if email
+# notification is disabled.
+if [ "$(omv_config_get "//system/email/enable")" = "0" ]; then
+	cat <<EOF > ${OMV_POSTFIX_CRON_CONFIG}
+#!/bin/sh
+# Flush the mail queue every hour if email notification is disabled.
+postsuper -d ALL
+EOF
+	chmod 755 ${OMV_POSTFIX_CRON_CONFIG}
+else
+	rm -f ${OMV_POSTFIX_CRON_CONFIG}
+fi

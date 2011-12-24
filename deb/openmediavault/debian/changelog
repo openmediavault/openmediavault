@@ -1,6 +1,7 @@
 openmediavault (0.2.6.2) stable; urgency=low
 
   * Enable/disable sending email to administrator with rsync cron job output
+  * Run a hourly cron job to flush mail queue if email notification is disabled
   * Mantis 0000330: Cron jobs are not executed
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 23 Dec 2011 01:57:19 +0100
