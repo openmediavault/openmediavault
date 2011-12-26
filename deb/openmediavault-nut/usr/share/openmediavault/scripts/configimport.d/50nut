@@ -33,6 +33,8 @@ case "$1" in
 			update-rc.d nut disable
 		else
 			update-rc.d nut enable
+			udevadm control --reload-rules
+			udevadm trigger
 		fi
 	;;
 
