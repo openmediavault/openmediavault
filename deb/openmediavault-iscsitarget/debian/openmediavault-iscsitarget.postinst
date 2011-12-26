@@ -115,6 +115,15 @@ case "$1" in
 			object="${object}<targets></targets>"
 			omv_config_add_element "//services" "iscsitarget" "${object}" true
 		fi
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "0.1.3"; then
+			rm -f /etc/ietd.conf
+			omv-mkconf iscsitarget
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

@@ -20,7 +20,7 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://wiki.debian.org/iSCSI/iscsitarget
+# http://wiki.debian.org/SAN/iSCSI/iscsitarget
 # http://www.pug.org/mediawiki/index.php/ISCSI_unter_Debian
 # http://www.howtoforge.com/using-iscsi-on-debian-lenny-initiator-and-target
 
@@ -29,7 +29,7 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_ISCSITARGET_CONFIG=${OMV_ISCSITARGET_CONFIG:-"/etc/ietd.conf"}
+OMV_ISCSITARGET_CONFIG=${OMV_ISCSITARGET_CONFIG:-"/etc/iet/ietd.conf"}
 OMV_ISCSITARGET_DEFAULT=${OMV_ISCSITARGET_DEFAULT:-"/etc/default/iscsitarget"}
 
 mkconf() {
