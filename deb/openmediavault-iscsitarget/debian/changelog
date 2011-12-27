@@ -1,3 +1,10 @@
+openmediavault-iscsitarget (0.1.4) stable; urgency=low
+
+  * Only support LUN BlockIO for the moment
+  * Mantis 0000333: Getting "Undefined index: id" error
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 27 Dec 2011 13:13:59 +0100
+
 openmediavault-iscsitarget (0.1.3) stable; urgency=low
 
   * Fix location of configuration file (thanks to Dominik Stumpf for the tip)

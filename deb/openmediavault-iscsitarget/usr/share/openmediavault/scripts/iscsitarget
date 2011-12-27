@@ -23,6 +23,7 @@
 # http://wiki.debian.org/SAN/iSCSI/iscsitarget
 # http://www.pug.org/mediawiki/index.php/ISCSI_unter_Debian
 # http://www.howtoforge.com/using-iscsi-on-debian-lenny-initiator-and-target
+# http://koschmider.de/frickelbude/?p=24
 
 set -e
 

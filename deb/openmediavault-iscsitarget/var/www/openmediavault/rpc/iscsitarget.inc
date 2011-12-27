@@ -249,7 +249,7 @@ class iSCSITargetRpc extends OMVRpc {
 			$objectv['noptimeout'] = intval($objectv['noptimeout']);
 			$objectv['wthreads'] = intval($objectv['wthreads']);
 			$objectv['queuedcommands'] = intval($objectv['queuedcommands']);
-			foreach ($objectv['luns'] as $lunk => &$lunv) {
+			foreach ($objectv['luns']['lun'] as $lunk => &$lunv) {
 				$lunv['id'] = intval($lunv['id']);
 			}
 		}
@@ -294,7 +294,7 @@ class iSCSITargetRpc extends OMVRpc {
 		$object['noptimeout'] = intval($object['noptimeout']);
 		$object['wthreads'] = intval($object['wthreads']);
 		$object['queuedcommands'] = intval($object['queuedcommands']);
-		foreach ($object['luns'] as $lunk => &$lunv) {
+		foreach ($object['luns']['lun'] as $lunk => &$lunv) {
 			$lunv['id'] = intval($lunv['id']);
 		}
 		return $object;

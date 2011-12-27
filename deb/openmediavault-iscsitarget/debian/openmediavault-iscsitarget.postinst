@@ -56,6 +56,9 @@ case "$1" in
 		#           <username>xxx</username>
 		#           <password>xxx</password>
 		#         </user>
+		#         <user>
+		#           ...
+		#         </user>
 		#       </authentication>
 		#       <targets>
 		#         <target>
@@ -89,6 +92,9 @@ case "$1" in
 		#               <username>xxx</username>
 		#               <password>xxx</password>
 		#             </user>
+		#             <user>
+		#               ...
+		#             </user>
 		#           </authentication>
 		#           <luns>
 		#             <lun>
@@ -99,6 +105,9 @@ case "$1" in
 		#               <devicefile>/dev/xxx</devicefile>
 		#               <scsiid></scsiid>
 		#               <scsisn></scsisn>
+		#             </lun>
+		#             <lun>
+		#               ...
 		#             </lun>
 		#           </luns>
 		#         </target>

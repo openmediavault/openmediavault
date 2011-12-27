@@ -667,6 +667,7 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetLUNGrid,
 
 /**
  * @class OMV.Module.Services.iSCSITgt.TargetLUNPropertyDialog
+ * @derived OMV.CfgObjectDialog
  */
 OMV.Module.Services.iSCSITgt.TargetLUNPropertyDialog = function(config) {
 	var initialConfig = {
@@ -681,7 +682,7 @@ OMV.Module.Services.iSCSITgt.TargetLUNPropertyDialog = function(config) {
 	  constructor.call(this, initialConfig);
 };
 Ext.extend(OMV.Module.Services.iSCSITgt.TargetLUNPropertyDialog,
-	OMV.CfgObjectDialog, {
+  OMV.CfgObjectDialog, {
 	getFormConfig : function() {
 		return {
 			autoHeight: true
@@ -692,6 +693,26 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetLUNPropertyDialog,
 		return [{
 			xtype: "hidden",
 			name: "id"
+		},{
+			xtype: "combo",
+			name: "type",
+			hiddenName: "type",
+			fieldLabel: "Transfer mode",
+			mode: "local",
+			store: new Ext.data.SimpleStore({
+				fields: [ "value","text" ],
+				data: [
+//					[ "fileio","File IO" ],
+					[ "blockio","Block IO" ]
+				]
+			}),
+			displayField: "text",
+			valueField: "value",
+			allowBlank: false,
+			editable: false,
+			readOnly: (this.uuid !== OMV.UUID_UNDEFINED),
+			triggerAction: "all",
+			value: "blockio"
 		},{
 			xtype: "combo",
 			name: "devicefile",
@@ -730,25 +751,6 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetLUNPropertyDialog,
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "Assign a unique serial number to the iSCSI volume optionally."
-		},{
-			xtype: "combo",
-			name: "type",
-			hiddenName: "type",
-			fieldLabel: "Transfer mode",
-			mode: "local",
-			store: new Ext.data.SimpleStore({
-				fields: [ "value","text" ],
-				data: [
-					[ "fileio","File IO" ],
-					[ "blockio","Block IO" ]
-				]
-			}),
-			displayField: "text",
-			valueField: "value",
-			allowBlank: false,
-			editable: false,
-			triggerAction: "all",
-			value: "fileio"
 		},{
 			xtype: "combo",
 			name: "iomode",
