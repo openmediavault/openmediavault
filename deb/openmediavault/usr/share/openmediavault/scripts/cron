@@ -47,7 +47,7 @@ chmod 644 ${OMV_CRONTAB_POWERMNGMT_CONFIG}
 # Create the user-defined cron jobs. Each job is configured in a seperate
 # script.
 mkdir -p ${OMV_CRONTAB_CRONSCRIPTS_DIR}
-rm -f ${OMV_RSYNC_CRONSCRIPTS_DIR}/userdefined-*
+rm -f ${OMV_CRONTAB_CRONSCRIPTS_DIR}/userdefined-*
 
 # Create the scripts
 xmlstarlet sel -t -m "//system/crontab/job[enable='1' and type='userdefined']" \

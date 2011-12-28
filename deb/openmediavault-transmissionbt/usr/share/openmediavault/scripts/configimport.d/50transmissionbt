@@ -30,9 +30,9 @@ case "$1" in
 		${OMV_SCRIPTS_DIR}/transmissionbt
 		# Enable/disable service
 		if [ "$(omv_config_get "//services/transmissionbt/enable")" = "0" ]; then
-			update-rc.d transmission-daemon disable
+			update-rc.d transmission-daemon disable 2>&1
 		else
-			update-rc.d transmission-daemon enable
+			update-rc.d transmission-daemon enable 2>&1
 		fi
 	;;
 

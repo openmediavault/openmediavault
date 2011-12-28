@@ -212,6 +212,13 @@ class DiskMgmtRpc extends OMVRpc {
 		// Set configuration data
 		$success = FALSE;
 		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			// Check uniqueness
+			$xpath = sprintf("//system/storage/hdparm[devicefile='%s']",
+			  $object['devicefile']);
+			if (TRUE === $xmlConfig->exists($xpath)) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+				  gettext("Settings already exist for the given device"));
+			}
 			// Append object to configuration
 			$success = $xmlConfig->set("//system/storage",
 			  array("hdparm" => $object));

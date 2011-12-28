@@ -99,7 +99,8 @@ Ext.extend(OMV.grid.TBarGridPanel, OMV.grid.GridPanel, {
 				store: this.store,
 				displayInfo: true,
 				displayMsg: "Displaying items {0} - {1} of {2}",
-				emptyMsg: "No items to display"
+				emptyMsg: "No items to display",
+				pageSize: 25
 			});
 		}
 		OMV.grid.TBarGridPanel.superclass.initComponent.apply(this,

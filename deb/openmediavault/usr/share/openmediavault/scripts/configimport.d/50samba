@@ -26,17 +26,32 @@ set -e
 
 case "$1" in
 	configure)
+		# Get some shadow password suite configurations
+		UID_MIN=$(awk '/^UID_MIN/ {print $2}' /etc/login.defs)
+		UID_MAX=$(awk '/^UID_MAX/ {print $2}' /etc/login.defs)
 		# Create the configuration files
 		omv-mkconf samba
 		# Update the user database
 		getent passwd | /usr/sbin/mksmbpasswd > /etc/samba/smbpasswd
 		pdbedit -i smbpasswd -e tdbsam
 		rm /etc/samba/smbpasswd
+		xmlstarlet sel -t -m "//system/usermanagement/users/user" \
+		  -v "concat(uuid,' ',name)" -i "position() != last()" -n -b \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+		  while read uuid name; do
+			  uid=$(id -u ${name})
+			  # Do not process system users
+			  if [ -n "${uid}" ]; then
+				  [ ${uid} -lt ${UID_MIN} -o ${uid} -gt ${UID_MAX} ] && continue
+			  fi
+			  password=$(omv_config_get "//system/usermanagement/users/user[uuid='${uuid}']/password")
+			  (echo ${password}; echo ${password}) | pdbedit -at ${name} 2>&1
+		  done
 		# Enable/disable service
-		if [ "$(omv_config_get "//services/snmp/enable")" = "0" ]; then
-			update-rc.d -f samba remove
+		if [ "$(omv_config_get "//services/smb/enable")" = "0" ]; then
+			update-rc.d samba disable 2>&1
 		else
-			update-rc.d samba start 20 2 3 4 5 . stop 19 0 1 6 .
+			update-rc.d samba enable 2>&1
 		fi
 	;;
 

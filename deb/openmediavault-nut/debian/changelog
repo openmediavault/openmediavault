@@ -1,3 +1,9 @@
+openmediavault-nut (0.1.7) stable; urgency=low
+
+  * Fix config import issues
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 28 Dec 2011 12:45:20 +0100
+
 openmediavault-nut (0.1.6) stable; urgency=low
 
   * Auto-generate udev rule for the serial port where the UPS is connected

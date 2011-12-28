@@ -30,9 +30,9 @@ case "$1" in
 		omv-mkconf proftpd
 		# Enable/disable service
 		if [ "$(omv_config_get "//services/ftp/enable")" = "0" ]; then
-			update-rc.d -f proftpd remove
+			update-rc.d proftpd disable 2>&1
 		else
-			update-rc.d proftpd start 50 2 3 4 5 . stop 50 0 1 6 .
+			update-rc.d proftpd enable 2>&1
 		fi
 	;;
 

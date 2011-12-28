@@ -30,9 +30,9 @@ case "$1" in
 		omv-mkconf ntp
 		# Enable/disable service
 		if [ "$(omv_config_get "//system/time/ntp/enable")" = "0" ]; then
-			update-rc.d -f ntp remove
+			update-rc.d ntp disable 2>&1
 		else
-			update-rc.d ntp start 23 2 3 4 5 . stop 23 0 1 6 .
+			update-rc.d ntp enable 2>&1
 		fi
 	;;
 

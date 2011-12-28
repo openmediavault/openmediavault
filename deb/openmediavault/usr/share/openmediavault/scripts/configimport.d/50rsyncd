@@ -30,9 +30,9 @@ case "$1" in
 		omv-mkconf rsyncd
 		# Enable/disable service
 		if [ "$(omv_config_get "//services/rsync/server/enable")" = "0" ]; then
-			update-rc.d -f rsync remove
+			update-rc.d rsync disable 2>&1
 		else
-			update-rc.d rsync start 20 2 3 4 5 . stop 20 0 1 6 .
+			update-rc.d rsync enable 2>&1
 		fi
 	;;
 

@@ -42,7 +42,6 @@ $OMV_DEFAULT_FILE = "/etc/default/openmediavault";
 $OMV_RRDGRAPH_DIR = "/var/lib/openmediavault/rrd";
 $OMV_DEBUG_PHP_LOGFILE = "/tmp/openmediavault_debug_php.log";
 $OMV_UUID_UNDEFINED = "undefined";
-$OMV_RSYNC_CRONSCRIPTS_DIR = "/var/lib/openmediavault/cronscripts";
 $OMV_MAX_LOGFILE_LINES = "100000";
 $OMV_HTTPREQUEST_TIMEOUT = "60000";
 

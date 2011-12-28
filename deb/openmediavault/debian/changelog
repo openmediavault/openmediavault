@@ -1,3 +1,11 @@
+openmediavault (0.2.6.3) stable; urgency=low
+
+  * Fix various bugs
+  * Fix config import issues (e.g. Mantis 0000143)
+  * Fix bug when running RSync job in WebGUI
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 28 Dec 2011 01:59:34 +0100
+
 openmediavault (0.2.6.2) stable; urgency=low
 
   * Enable/disable sending email to administrator with rsync cron job output

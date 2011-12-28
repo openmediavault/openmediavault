@@ -30,9 +30,9 @@ case "$1" in
 		omv-mkconf ssh
 		# Enable/disable service
 		if [ "$(omv_config_get "//services/ssh/enable")" = "0" ]; then
-			update-rc.d -f ssh remove
+			update-rc.d ssh disable 2>&1
 		else
-			update-rc.d ssh start 16 2 3 4 5 . stop 84 1 .
+			update-rc.d ssh enable 2>&1
 		fi
 	;;
 

@@ -30,9 +30,9 @@ case "$1" in
 		omv-mkconf smartmontools
 		# Enable/disable service
 		if [ "$(omv_config_get "//services/smart/enable")" = "0" ]; then
-			update-rc.d -f smartmontools remove
+			update-rc.d smartmontools disable 2>&1
 		else
-			update-rc.d smartmontools start 50 2 3 4 5 . stop 20 0 1 6 .
+			update-rc.d smartmontools enable 2>&1
 		fi
 	;;
 

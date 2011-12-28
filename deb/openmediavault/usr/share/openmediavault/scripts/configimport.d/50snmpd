@@ -30,9 +30,9 @@ case "$1" in
 		omv-mkconf snmpd
 		# Enable/disable service
 		if [ "$(omv_config_get "//services/snmp/enable")" = "0" ]; then
-			update-rc.d -f snmpd remove
+			update-rc.d snmpd disable 2>&1
 		else
-			update-rc.d snmpd start 20 2 3 4 5 . stop 20 0 1 6 .
+			update-rc.d snmpd enable 2>&1
 		fi
 	;;
 

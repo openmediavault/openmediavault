@@ -1,3 +1,9 @@
+openmediavault-transmissionbt (0.2.8.6) stable; urgency=low
+
+  * Fix config import issues
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 28 Dec 2011 12:44:17 +0100
+
 openmediavault-transmissionbt (0.2.8.5) stable; urgency=low
 
   * Github Issue #30 - Error with jobs tab and autorefresh after update to 0.2.8.3

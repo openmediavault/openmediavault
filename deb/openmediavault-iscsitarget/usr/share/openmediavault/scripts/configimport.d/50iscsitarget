@@ -30,9 +30,9 @@ case "$1" in
 		omv-mkconf iscsitarget
 		# Enable/disable service
 		if [ "$(omv_config_get "//services/iscsitarget/enable")" = "0" ]; then
-			update-rc.d iscsitarget disable
+			update-rc.d iscsitarget disable 2>&1
 		else
-			update-rc.d iscsitarget enable
+			update-rc.d iscsitarget enable 2>&1
 		fi
 	;;
 

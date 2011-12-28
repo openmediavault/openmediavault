@@ -30,9 +30,9 @@ case "$1" in
 		omv-mkconf nfsd
 		# Enable/disable service
 		if [ "$(omv_config_get "//services/nfs/enable")" = "0" ]; then
-			update-rc.d -f nfs-kernel-server remove
+			update-rc.d nfs-kernel-server disable 2>&1
 		else
-			update-rc.d nfs-kernel-server start 20 2 3 4 5 . stop 80 0 1 6 .
+			update-rc.d nfs-kernel-server enable 2>&1
 		fi
 	;;
 
