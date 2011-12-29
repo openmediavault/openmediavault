@@ -189,7 +189,7 @@ enable=$(omv_config_get "//services/transmissionbt/enable")
 watch_dir_enable=$(omv_config_get "//services/transmissionbt/modules/locationsandfiles/watch-dir-enabled")
 if [ 1 = ${enable} -a  1 = ${watch_dir_enable} ]; then
 	watch_dir=$(omv_config_get "//services/transmissionbt/modules/locationsandfiles/watch-dir")
-	watch_dir_full=`xmlstarlet sel -t -m "//services/transmissionbt" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v modules/locationsandfiles/watch-dir ${OMV_CONFIG_FILE}`
+	watch_dir_full=`xmlstarlet sel -t -m "//services/transmissionbt" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v "modules/locationsandfiles/watch-dir" ${OMV_CONFIG_FILE}`
 	mkdir -p ${watch_dir_full}
 fi
 
