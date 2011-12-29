@@ -24,23 +24,15 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-case "$1" in
-	configure)
-		# Create the shared folders whether they do not exist until now.
-		xmlstarlet sel -t -m "//system/shares/sharedfolder" \
-		  -v uuid -i "position() != last()" -n -b \
-		  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-		  while read uuid; do
-			  omv_mkdir_sharedfolder "${uuid}"
-		  done
-		# Update ACL settings.
-		omv-mkconf facl
-	;;
+# Create the shared folders whether they do not exist until now
+xmlstarlet sel -t -m "//system/shares/sharedfolder" \
+  -v uuid -i "position() != last()" -n -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+  while read uuid; do
+	  omv_mkdir_sharedfolder "${uuid}"
+  done
 
-	*)
-		echo "$(basename $0) called with unknown argument '$1'" >&2
-		exit 1
-	;;
-esac
+# Update ACL settings
+omv-mkconf facl
 
 exit 0

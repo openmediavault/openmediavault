@@ -24,16 +24,7 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-case "$1" in
-	configure)
-		# Create the configuration files
-		omv-mkconf fstab
-	;;
-
-	*)
-		echo "$(basename $0) called with unknown argument '$1'" >&2
-		exit 1
-	;;
-esac
+# Create the configuration files
+omv-mkconf fstab
 
 exit 0

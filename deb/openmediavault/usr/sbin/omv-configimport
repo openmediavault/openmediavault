@@ -23,4 +23,4 @@ set -e
 
 . /etc/default/openmediavault
 
-run-parts --report --arg=configure ${OMV_SCRIPTS_DIR}/configimport.d 2>&1 >${OMV_LOG_DIR}/configimport.log
+run-parts --report ${OMV_SCRIPTS_DIR}/configimport.d 2>&1 >${OMV_LOG_DIR}/configimport.log

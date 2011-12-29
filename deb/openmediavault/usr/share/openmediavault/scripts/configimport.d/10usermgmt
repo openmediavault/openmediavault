@@ -24,100 +24,94 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-case "$1" in
-	configure)
-		# Get some shadow password suite configurations
-		UID_MIN=$(awk '/^UID_MIN/ {print $2}' /etc/login.defs)
-		UID_MAX=$(awk '/^UID_MAX/ {print $2}' /etc/login.defs)
-		GID_MIN=$(awk '/^GID_MIN/ {print $2}' /etc/login.defs)
-		GID_MAX=$(awk '/^GID_MAX/ {print $2}' /etc/login.defs)
-		# Delete all old users
-		xmlstarlet sel -t -m "//system/usermanagement/users/user" \
-		  -v name -i "position() != last()" -n -b \
-		  ${OMV_CONFIG_FILE}.old | xmlstarlet unesc |
-		  while read name; do
-			  uid=$(id -u ${name})
-			  # Do not process system users
-			  if [ -n "${uid}" ]; then
-				  [ ${uid} -lt ${UID_MIN} -o ${uid} -gt ${UID_MAX} ] && continue
-			  fi
-			  userdel --force ${name}
-		  done
-		# Delete all old groups
-		xmlstarlet sel -t -m "//system/usermanagement/groups/group" \
-		  -v name -i "position() != last()" -n -b \
-		  ${OMV_CONFIG_FILE}.old | xmlstarlet unesc |
-		  while read name; do
-			  gid=$(getent group |  awk -F: '/^${name}:/ {print $3}')
-			  # Do not process system groups
-			  if [ -n "${gid}" ]; then
-				  [ ${gid} -lt ${GID_MIN} -o ${gid} -gt ${GID_MAX} ] && continue
-			  fi
-			  delgroup ${name}
-		  done
-		# Add new groups
-		xmlstarlet sel -t -m "//system/usermanagement/groups/group" \
-		  -i "string-length(gid) > 0" -v "concat('-g ',gid)" -b \
-		  -v "concat(' ',name)"
-		  -i "position() != last()" -n -b \
-		  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-		  while read cmdargs; do
-			  # Use -f to exit successfully if the group already exists, and
-			  # cancel -g  if the GID is already used.
-			  groupadd -f ${cmdargs}
-		  done
-		# Add new users (a little bit more complicated because password
-		# is unencrypted)
-		xmlstarlet sel -t -m "//system/usermanagement/users/user" \
-		  -v "concat(uuid,' ',name)" -i "position() != last()" -n -b \
-		  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-		  while read uuid name; do
-			  # Ensure not to create system users. If a uid is given this can
-			  # be used for validation, otherwise we can assume the user is no
-			  # system user.
-			  uid=$(omv_config_get "//system/usermanagement/users/user[uuid='${uuid}']/uid")
-			  if [ -n "${uid}" ]; then
-				  [ ${uid} -lt ${UID_MIN} -o ${uid} -gt ${UID_MAX} ] && continue
-			  fi
-			  cmdargs=$(xmlstarlet sel -t -m "//system/usermanagement/users/user[uuid='${uuid}']" \
-				-o "--create-home --no-user-group --gid ${OMV_USERMGMT_DEFAULT_GROUP}" \
-				-v "concat(' --shell ',shell)" \
-				-i "string-length(comment) > 0" -v "concat(' --comment &quot;',comment,'&quot;')" -b \
-				-i "string-length(uid) > 0" -v "concat(' --uid ',uid)" -b \
-				${OMV_CONFIG_FILE} | xmlstarlet unesc)
-			  confgroups=$(omv_config_get "translate(//system/usermanagement/users/user[uuid='${uuid}']/groups,',',' ')")
-			  if [ -n "${confgroups}" ]; then
-				  groups=""
-				  # Make sure the group exists
-				  for group in ${confgroups}; do
-					  if [ -z "$(getent group | grep -e '^${group}:')" ]; then
-						  echo "Error: Ignore nonexistent group <${group}>.'"
-						  continue
-					  fi
-					  [ -n "${groups}" ] && groups="${groups},"
-					  groups="${groups}${group}"
-				  done
-				  [ -n "${groups}" ] && cmdargs="${cmdargs} --groups ${groups}"
-			  fi
-			  useradd ${cmdargs} ${name}
-			  # Use 'passwd' command to ensure the password is encrypted with
-			  # the correct method (e.g. changed via /etc/login.defs). Also
-			  # PAM is supported.
-			  password=$(omv_config_get "//system/usermanagement/users/user[uuid='${uuid}']/password")
-			  (echo ${password}; echo ${password}) | passwd ${name}
-		  done
-		# Update admin password
-		# Use 'passwd' command to ensure the password is encrypted with the
-		# correct method (e.g. changed via /etc/login.defs). Also PAM is
-		# supported.
-		password=$(omv_config_get "//system/usermanagement/users/user[name='admin']/password")
-		(echo ${password}; echo ${password}) | passwd admin
-	;;
+# Get some shadow password suite configurations
+UID_MIN=$(awk '/^UID_MIN/ {print $2}' /etc/login.defs)
+UID_MAX=$(awk '/^UID_MAX/ {print $2}' /etc/login.defs)
+GID_MIN=$(awk '/^GID_MIN/ {print $2}' /etc/login.defs)
+GID_MAX=$(awk '/^GID_MAX/ {print $2}' /etc/login.defs)
 
-	*)
-		echo "$(basename $0) called with unknown argument '$1'" >&2
-		exit 1
-	;;
-esac
+# Delete all old users
+xmlstarlet sel -t -m "//system/usermanagement/users/user" \
+  -v name -i "position() != last()" -n -b \
+  ${OMV_CONFIG_FILE}.old | xmlstarlet unesc |
+  while read name; do
+	  uid=$(id -u ${name} || true)
+	  [ -z "${uid}" ] && continue
+	  # Do not delete system users
+	  [ ${uid} -lt ${UID_MIN} -o ${uid} -gt ${UID_MAX} ] && continue
+	  userdel --force ${name}
+  done
+
+# Delete all old groups
+xmlstarlet sel -t -m "//system/usermanagement/groups/group" \
+  -v name -i "position() != last()" -n -b \
+  ${OMV_CONFIG_FILE}.old | xmlstarlet unesc |
+  while read name; do
+	  gid=$(getent group |  awk -F: '/^${name}:/ {print $3}')
+	  [ -z "${gid}" ] && continue
+	  # Do not delete system groups
+	  [ ${gid} -lt ${GID_MIN} -o ${gid} -gt ${GID_MAX} ] && continue
+	  groupdel ${name}
+  done
+
+# Add new groups
+xmlstarlet sel -t -m "//system/usermanagement/groups/group" \
+  -i "string-length(gid) > 0" -v "concat('-g ',gid)" -b \
+  -v "concat(' ',name)" \
+  -i "position() != last()" -n -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+  while read cmdargs; do
+	  # Use -f to exit successfully if the group already exists, and
+	  # cancel -g  if the GID is already used.
+	  groupadd -f ${cmdargs}
+  done
+
+# Add new users (a little bit more complicated because password
+# is unencrypted)
+xmlstarlet sel -t -m "//system/usermanagement/users/user" \
+  -v "concat(uuid,' ',name)" -i "position() != last()" -n -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+  while read uuid name; do
+	  # Ensure not to create system users. If a uid is given this can
+	  # be used for validation, otherwise we can assume the user is no
+	  # system user.
+	  uid=$(omv_config_get "//system/usermanagement/users/user[uuid='${uuid}']/uid")
+	  if [ -n "${uid}" ]; then
+		  [ ${uid} -lt ${UID_MIN} -o ${uid} -gt ${UID_MAX} ] && continue
+	  fi
+	  cmdargs=$(xmlstarlet sel -t -m "//system/usermanagement/users/user[uuid='${uuid}']" \
+		-o "--create-home --no-user-group --gid ${OMV_USERMGMT_DEFAULT_GROUP}" \
+		-v "concat(' --shell ',shell)" \
+		-i "string-length(comment) > 0" -v "concat(' --comment &quot;',comment,'&quot;')" -b \
+		-i "string-length(uid) > 0" -v "concat(' --uid ',uid)" -b \
+		${OMV_CONFIG_FILE} | xmlstarlet unesc)
+	  confgroups=$(omv_config_get "translate(//system/usermanagement/users/user[uuid='${uuid}']/groups,',',' ')")
+	  if [ -n "${confgroups}" ]; then
+		  groups=""
+		  # Make sure the group exists
+		  for group in ${confgroups}; do
+			  if [ -z "$(getent group | grep -e '^${group}:')" ]; then
+				  echo "Error: Ignore nonexistent group <${group}>.'"
+				  continue
+			  fi
+			  [ -n "${groups}" ] && groups="${groups},"
+			  groups="${groups}${group}"
+		  done
+		  [ -n "${groups}" ] && cmdargs="${cmdargs} --groups ${groups}"
+	  fi
+	  useradd ${cmdargs} ${name}
+	  # Use 'passwd' command to ensure the password is encrypted with
+	  # the correct method (e.g. changed via /etc/login.defs). Also
+	  # PAM is supported.
+	  password=$(omv_config_get "//system/usermanagement/users/user[uuid='${uuid}']/password")
+	  (echo ${password}; echo ${password}) | passwd ${name}
+  done
+
+# Update admin password
+# Use 'passwd' command to ensure the password is encrypted with the
+# correct method (e.g. changed via /etc/login.defs). Also PAM is
+# supported.
+password=$(omv_config_get "//system/usermanagement/users/user[name='admin']/password")
+(echo ${password}; echo ${password}) | passwd admin
 
 exit 0

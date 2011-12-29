@@ -24,24 +24,16 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-case "$1" in
-	configure)
-		# Create the configuration files
-		omv-mkconf nut
-		# Enable/disable service
-		if [ "$(omv_config_get "//services/nut/enable")" = "0" ]; then
-			update-rc.d nut disable 2>&1
-		else
-			update-rc.d nut enable 2>&1
-			udevadm control --reload-rules
-			udevadm trigger
-		fi
-	;;
+# Create the configuration files
+omv-mkconf nut
 
-	*)
-		echo "$(basename $0) called with unknown argument '$1'" >&2
-		exit 1
-	;;
-esac
+# Enable/disable service
+if [ "$(omv_config_get "//services/nut/enable")" = "0" ]; then
+	update-rc.d nut disable 2>&1
+else
+	update-rc.d nut enable 2>&1
+	udevadm control --reload-rules
+	udevadm trigger
+fi
 
 exit 0
