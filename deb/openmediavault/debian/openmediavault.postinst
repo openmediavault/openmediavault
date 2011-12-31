@@ -120,6 +120,7 @@ case "$1" in
 			# http://wiki.hetzner.de/index.php/Apache_PHP5_fcgi_und_SuExec
 			####################################################################
 			echo "Configuring web server"
+			omv-mkconf apache2
 			a2enmod suexec
 			a2enmod fcgid
 			a2enmod ssl
@@ -263,6 +264,9 @@ case "$1" in
 			omv-mkconf cron
 			omv-mkconf rsync
 			rm -rf /var/lib/openmediavault/cronscripts
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.2.6.3"; then
+			omv-mkconf apache2
 		fi
 	;;
 
