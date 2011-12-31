@@ -49,6 +49,8 @@ OMV.form.CheckboxGrid = function(config) {
 		/**
 		 * @event selectionchange
 		 * Fires when the selection changes
+		 * @param this
+		 * @param value The new value
 		 */
 		"selectionchange",
 		/**

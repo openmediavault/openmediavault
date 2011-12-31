@@ -355,7 +355,32 @@ Ext.extend(OMV.Module.Storage.RAIDCreateDialog, OMV.FormPanelDialog, {
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
-			value: "raid5"
+			value: "raid5",
+			listeners: {
+				select: function(combo, record, index) {
+					var level = record.get(combo.valueField);
+					var devicesField = this.findFormField("devices");
+					switch (level) {
+					case "stripe":
+					case "linear":
+					case "mirror":
+						devicesField.minSelections = 2;
+						break;
+					case "raid5":
+						devicesField.minSelections = 3;
+						break;
+					case "raid6":
+					case "raid10":
+						devicesField.minSelections = 4;
+						break;
+					default:
+						devicesField.minSelections = 2;
+						break;
+					}
+					devicesField.validate();
+				},
+				scope: this
+			}
 		},{
 			xtype: "checkboxgrid",
 			name: "devices",
@@ -389,57 +414,9 @@ Ext.extend(OMV.Module.Storage.RAIDCreateDialog, OMV.FormPanelDialog, {
 			viewConfig: {
 				forceFit: true
 			},
-			height: 110
+			height: 110,
+			minSelections: 3 // Min. number of devices for RAID5
 		}];
-	},
-
-	isValid : function() {
-		var valid = OMV.Module.Storage.RAIDCreateDialog.
-		  superclass.isValid.apply(this, arguments);
-		if (!valid) {
-			return valid;
-		}
-		valid = false;
-		var level = this.findFormField("level").getValue();
-		var devices = this.findFormField("devices").getValue();
-		if (devices.length > 0) {
-			devices = devices.split(",");
-		}
-		var minNumDevices = -1;
-		// Does the number of selected devices match the minimum requirements
-		// of the selected RAID type?
-		switch (level) {
-		case "stripe":
-		case "linear":
-			minNumDevices = 2;
-			valid = (devices.length >= minNumDevices);
-			break;
-		case "mirror":
-			minNumDevices = 2;
-			valid = (devices.length == minNumDevices);
-			break;
-		case "raid10":
-			minNumDevices = 4;
-			valid = (devices.length >= minNumDevices);
-			break;
-		case "raid5":
-			minNumDevices = 3;
-			valid = (devices.length >= minNumDevices);
-			break;
-		case "raid6":
-			minNumDevices = 4;
-			valid = (devices.length >= minNumDevices);
-			break;
-		default:
-			valid = false;
-			break;
-		}
-		if (!valid) {
-			OMV.MessageBox.failure(null, String.format("Incorrect number " +
-			  "of selected devices. At least {0} devices are required.",
-			  minNumDevices));
-		}
-		return valid;
 	},
 
 	doSubmit : function() {
