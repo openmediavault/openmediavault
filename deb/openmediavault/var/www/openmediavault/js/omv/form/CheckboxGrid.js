@@ -21,26 +21,49 @@
 
 Ext.ns("OMV.form");
 
+/**
+ * @class OMV.form.CheckboxGrid
+ * @derived Ext.grid.GridPanel
+ * @param minSelections The number of minimal selections. Defaults to 0.
+ * @param maxSelections The number of max. selections. Defaults to
+ * Number.MAX_VALUE.
+ */
 OMV.form.CheckboxGrid = function(config) {
 	var initialConfig = {
+		cls: "x-checkboxgrid",
 		isFormField: true,
-		allowBlank: true,
 		minSelections: 0,
 		maxSelections: Number.MAX_VALUE,
-		blankText: Ext.form.TextField.prototype.blankText,
-		minSelectionsText: "Minimum {0} item(s) required",
-		maxSelectionsText: "Maximum {0} item(s) allowed",
+		minSelectionsText: "Minimum {0} selected item(s) required",
+		maxSelectionsText: "Maximum {0} selected item(s) allowed",
 		readOnly: false,
 		separator: ",",
-		loadMask: true
+		loadMask: true,
+		invalidClass: "x-checkboxgrid-invalid",
+		invalidText: "The value in this field is invalid",
+		msgTarget: "qtip"
 	};
 	Ext.apply(initialConfig, config);
 	OMV.form.CheckboxGrid.superclass.constructor.call(this, initialConfig);
 	this.addEvents(
 		/**
+		 * @event selectionchange
 		 * Fires when the selection changes
 		 */
-		"selectionchange"
+		"selectionchange",
+		/**
+		 * @event invalid
+		 * Fires after the field has been marked as invalid.
+		 * @param this
+		 * @param msg The validation message
+		 */
+		"invalid",
+		/**
+		 * @event valid
+		 * Fires after the field has been validated with no errors.
+		 * @param this
+		 */
+		"valid"
 	);
 };
 Ext.extend(OMV.form.CheckboxGrid, Ext.grid.GridPanel, {
@@ -58,15 +81,50 @@ Ext.extend(OMV.form.CheckboxGrid, Ext.grid.GridPanel, {
 		sm.on("beforerowselect", this.cbBeforeRowSelect, this);
 	},
 
+	afterRender : function(){
+		OMV.form.CheckboxGrid.superclass.afterRender.call(this);
+		this.initValue();
+	},
+
+	initValue : function(){
+		if (this.value !== undefined){
+			this.setValue(this.value);
+		} else if (!Ext.isEmpty(this.el.dom.value) &&
+		  this.el.dom.value != this.emptyText) {
+			this.setValue(this.el.dom.value);
+		}
+		this.originalValue = this.getValue();
+		if (this.hiddenField) {
+            this.hiddenField.value = Ext.value(Ext.isDefined(
+			  this.hiddenValue) ? this.hiddenValue : this.value, "");
+        }
+	},
+
+	clearValue : function() {
+		if (this.hiddenField) {
+			this.hiddenField.value = "";
+		}
+		this.setRawValue("");
+		this.value = "";
+	},
+
+	setRawValue : function(v) {
+		return this.rendered ? (this.el.dom.value = (Ext.isEmpty(v) ?
+		  "" : v)) : "";
+	},
+
 	setValue : function(values) {
 		if (Ext.isEmpty(this.store))
-			return;
+			return this;
 		if (!Ext.isArray(values)) {
-			values = values.split(this.separator);
+			if (Ext.isEmpty(values))
+				values = [];
+			else
+				values = values.split(this.separator);
 		}
 		this.value = values.join(this.separator);
 		if (this.hiddenField) {
-			this.hiddenField.value = Ext.value(this.value, '');
+			this.hiddenField.value = Ext.value(this.value, "");
 		}
 		// Sometimes the first load of a form loads a value into a control
 		// before that control's store has been populated.
@@ -77,7 +135,7 @@ Ext.extend(OMV.form.CheckboxGrid, Ext.grid.GridPanel, {
 			if (this.store.lastOptions === null) {
 				this.store.load();
 			}
-			return;
+			return this;
 		}
 		// Get the selection model
 		var sm = this.getSelectionModel();
@@ -88,8 +146,8 @@ Ext.extend(OMV.form.CheckboxGrid, Ext.grid.GridPanel, {
 		// Deny firing events
 		sm.suspendEvents();
 		// Clear selections
-		sm.clearSelections(true);
-		if (!Ext.isEmpty(values)) {
+		sm.clearSelections();
+		if (values.length > 0) {
 			var records = [];
 			for (var i = 0; i < values.length; i++) {
 				var index = this.store.findExact(this.valueField, values[i]);
@@ -97,7 +155,6 @@ Ext.extend(OMV.form.CheckboxGrid, Ext.grid.GridPanel, {
 					records.push(this.store.getAt(index));
 			}
 			sm.selectRecords(records);
-			this.validate();
 		}
 		// Allow firing events
 		sm.resumeEvents();
@@ -105,10 +162,16 @@ Ext.extend(OMV.form.CheckboxGrid, Ext.grid.GridPanel, {
 		if (locked === true) {
 			sm.lock();
 		}
+		this.validate();
+		return this;
 	},
 
 	getValue : function() {
-		return Ext.isDefined(this.value) ? this.value : '';
+		return Ext.isDefined(this.value) ? this.value : "";
+	},
+
+	getRawValue : function(){
+		return this.getValue();
 	},
 
 	/**
@@ -140,25 +203,75 @@ Ext.extend(OMV.form.CheckboxGrid, Ext.grid.GridPanel, {
 
 	cbSelectionChange : function(model) {
 		this.value = "";
-		var records = this.getSelectionModel().getSelections();
+		var records = model.getSelections();
 		if (records.length > 0) {
 			var result = [];
-			for (var i = 0; i < records.length; i++) {
-				result.push(records[i].get(this.valueField));
-			}
+			records.each(function(r) {
+				result.push(r.get(this.valueField));
+			}, this);
 			this.value = result.join(this.separator);
 		}
 		if (this.hiddenField) {
-			this.hiddenField.value = Ext.value(this.value, '');
+			this.hiddenField.value = Ext.value(this.value, "");
 		}
+		this.validate();
 		// Fire event to notify listeners.
 		this.fireEvent("selectionchange", this, this.value);
 	},
 
-	// Form field compatibility methods
-	clearInvalid : Ext.emptyFn,
+	setActiveError: function(msg, suppressEvent) {
+		this.activeError = msg;
+		if (suppressEvent !== true) this.fireEvent("invalid", this, msg);
+	},
 
-	markInvalid : Ext.emptyFn,
+	unsetActiveError: function(suppressEvent) {
+		delete this.activeError;
+		if (suppressEvent !== true) this.fireEvent("valid", this);
+	},
+
+	getMessageHandler : function() {
+		return Ext.form.MessageTargets[this.msgTarget];
+	},
+
+	clearInvalid : function() {
+		// Don't remove the error icon if we're not rendered or marking is
+		// prevented
+		if (this.rendered && !this.preventMark) {
+			this.el.removeClass(this.invalidClass);
+			var mt = this.getMessageHandler();
+			if (mt) {
+				mt.clear(this);
+			} else if (this.msgTarget) {
+				this.el.removeClass(this.invalidClass);
+				var t = Ext.getDom(this.msgTarget);
+				if (t) {
+					t.innerHTML = "";
+					t.style.display = "none";
+				}
+			}
+		}
+		this.unsetActiveError();
+	},
+
+	markInvalid : function(msg) {
+		// Don't set the error icon if we're not rendered or marking is
+		// prevented
+		if (this.rendered && !this.preventMark) {
+			msg = msg || this.invalidText;
+			var mt = this.getMessageHandler();
+			if (mt) {
+				mt.mark(this, msg);
+			} else if (this.msgTarget) {
+				this.el.addClass(this.invalidClass);
+				var t = Ext.getDom(this.msgTarget);
+				if (t) {
+					t.innerHTML = msg;
+					t.style.display = this.msgDisplay;
+				}
+			}
+		}
+		this.setActiveError(msg);
+	},
 
 	isDirty : function() {
 		if (this.disabled || !this.rendered) {
@@ -167,36 +280,65 @@ Ext.extend(OMV.form.CheckboxGrid, Ext.grid.GridPanel, {
 		return String(this.getValue()) !== String(this.originalValue);
 	},
 
-	validate : function() {
-		return true;
+	isValid : function(preventMark) {
+		if (this.disabled){
+			return true;
+		}
+		var restore = this.preventMark;
+		this.preventMark = preventMark === true;
+		var v = this.validateValue(this.processValue(this.getRawValue()));
+		this.preventMark = restore;
+		return v;
 	},
 
-	isValid : function() {
-		if (value.length < 1) { // if it has no value
-			if (this.allowBlank) {
-				this.clearInvalid();
-				return true;
-			} else {
-				this.markInvalid(this.blankText);
-				return false;
-			}
+	validate : function() {
+		if (this.disabled || this.validateValue(this.processValue(
+		  this.getRawValue()))){
+			this.clearInvalid();
+			return true;
+		}
+		return false;
+	},
+
+	processValue : function(value) {
+		return value;
+	},
+
+	validateValue : function(value) {
+		// Currently, we only show 1 error at a time for a field, so just use
+		// the first one
+		var error = this.getErrors(value)[0];
+		if (error == undefined) {
+			return true;
+		} else {
+			this.markInvalid(error);
+			return false;
+		}
+	},
+
+	getErrors : function(value) {
+		var errors = [];
+		if (!Ext.isArray(value)) {
+			if (Ext.isEmpty(value))
+				value = [];
+			else
+				value = value.split(this.separator);
 		}
 		if (value.length < this.minSelections) {
-			this.markInvalid(String.format(this.minSelectionsText,
+			errors.push(String.format(this.minSelectionsText,
 			  this.minSelections));
-			return false;
 		}
 		if (value.length > this.maxSelections) {
-			this.markInvalid(String.format(this.maxSelectionsText,
+			errors.push(String.format(this.maxSelectionsText,
 			  this.maxSelections));
-			return false;
 		}
-		return true;
+		return errors;
 	},
 
-    reset : function() {
-		this.setValue("");
-    },
+	reset : function() {
+		this.setValue(this.originalValue);
+		this.clearInvalid();
+	},
 
 	setReadOnly : function(readOnly) {
 		this.readOnly = readOnly;
@@ -219,7 +361,12 @@ Ext.extend(OMV.form.CheckboxGrid, Ext.grid.GridPanel, {
 	},
 
 	getName : function() {
-		return this.name || this.id || '';
+		return this.name || this.id || "";
+	},
+
+	onDestroy : function(){
+		Ext.destroyMembers(this, "hiddenField");
+		OMV.form.CheckboxGrid.superclass.onDestroy.call(this);
 	}
 });
 Ext.reg('checkboxgrid', OMV.form.CheckboxGrid);

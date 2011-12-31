@@ -21,6 +21,13 @@
 
 Ext.ns("OMV.form");
 
+/**
+ * @class OMV.form.MultiSelect
+ * @derived Ext.form.Field
+ * @param minSelections The number of minimal selections. Defaults to 0.
+ * @param maxSelections The number of max. selections. Defaults to
+ * Number.MAX_VALUE.
+ */
 OMV.form.MultiSelect = function(config) {
 	var initialConfig = {
 		appendOnly: false,

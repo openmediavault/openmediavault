@@ -529,7 +529,7 @@ OMV.Module.Storage.QuotaPropertyDialog = function(config) {
 	var initialConfig = {
 		title: "Edit quota",
 		width: 500,
-		height: 300,
+		height: 305,
 		layout: "fit",
 		modal: true,
 		border: false,

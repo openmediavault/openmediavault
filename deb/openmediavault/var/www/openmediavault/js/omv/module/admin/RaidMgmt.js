@@ -389,8 +389,7 @@ Ext.extend(OMV.Module.Storage.RAIDCreateDialog, OMV.FormPanelDialog, {
 			viewConfig: {
 				forceFit: true
 			},
-			height: 130,
-			frame: true
+			height: 110
 		}];
 	},
 
@@ -576,8 +575,7 @@ Ext.extend(OMV.Module.Storage.RAIDAddDialog, OMV.FormPanelDialog, {
 			viewConfig: {
 				forceFit: true
 			},
-			height: 130,
-			frame: true,
+			height: 110,
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "Select devices to be added to the RAID device"
 		}];

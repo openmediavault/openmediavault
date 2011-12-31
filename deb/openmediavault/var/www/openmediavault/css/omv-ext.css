@@ -139,9 +139,17 @@ See http://www.extjs.com/learn/Ext_FAQ_Grid#Dirty_Record_.2F_Red_Flag_.28modifyi
 }
 /* Progress bar */
 .x-progress-bar {
-    background-color: #9cbfee;
-    background-image: url("/images/progress-bg.gif");
-    border-top-color: #d1e4fd;
-    border-bottom-color: #7fa9e4;
-    border-right-color: #7fa9e4;
+	background-color: #9cbfee;
+	background-image: url("/images/progress-bg.gif");
+	border-top-color: #d1e4fd;
+	border-bottom-color: #7fa9e4;
+	border-right-color: #7fa9e4;
+}
+/* Checkbox Grid */
+.x-checkboxgrid {
+	border: 1px solid;
+	border-color: #C1C1C1;
+}
+.x-checkboxgrid-invalid {
+	border-color: #c30;
 }

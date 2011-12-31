@@ -680,8 +680,7 @@ Ext.extend(OMV.Module.System.Network.BondIfacePropertyDialog,
 			viewConfig: {
 				forceFit: true
 			},
-			height: 130,
-			frame: true,
+			height: 110,
 			listeners: {
 				selectionchange: function(comp, value) {
 					var slaves = value.split(comp.separator);

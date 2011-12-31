@@ -33,7 +33,6 @@ OMV.grid.EditorGridPanel = function(config) {
 		stripeRows: true,
 		columnLines: true,
 		layout: "fit",
-		border: false,
 		clicksToEdit: 1,
 		stateful: true,
 		viewConfig: {

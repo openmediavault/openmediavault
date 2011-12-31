@@ -155,7 +155,7 @@ OMV.Module.Privileges.UserPropertyDialog = function(config) {
 		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
 		  " user",
 		width: 420,
-		height: 500
+		height: 485
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.Privileges.UserPropertyDialog.superclass.constructor.call(
@@ -265,7 +265,7 @@ Ext.extend(OMV.Module.Privileges.UserPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "checkboxgrid",
 			name: "groups",
 			fieldLabel: "Groups",
-			height: 125,
+			height: 110,
 			store: new OMV.data.Store({
 				remoteSort: false,
 				proxy: new OMV.data.DataProxy("UserMgmt",
@@ -302,7 +302,6 @@ Ext.extend(OMV.Module.Privileges.UserPropertyDialog, OMV.CfgObjectDialog, {
 			viewConfig: {
 				forceFit: true
 			},
-			frame: true,
 			listeners: {
 				beforerender: function() {
 					this.store.load();
