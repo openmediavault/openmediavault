@@ -32,8 +32,9 @@ OMV_APACHE2_SERVERNAME=${OMV_APACHE2_SERVERNAME:-"openmediavault-webgui"}
 OMV_APACHE2_SITE_OPENMEDIAVAULT_CONFIG=${OMV_APACHE2_SITE_OPENMEDIAVAULT_CONFIG:-"/etc/apache2/sites-available/openmediavault-webgui"}
 OMV_APACHE2_SITE_OPENMEDIAVAULT_LOGLEVEL=${OMV_APACHE2_SITE_OPENMEDIAVAULT_LOGLEVEL:-"warn"}
 OMV_APACHE2_PORTS_CONFIG=${OMV_APACHE2_PORTS_CONFIG:-"/etc/apache2/ports.conf"}
+OMV_APACHE2_WEBGUI_CONFIG=${OMV_APACHE2_WEBGUI_CONFIG:-"/etc/apache2/openmediavault-webgui.conf"}
 
-# Create '/etc/apache2/sites-available/openmediavault-webgui' file
+# Create the generic openmediavault-webgui configuration file
 xmlstarlet sel -t -m "//webadmin" \
   -o "ServerName ${OMV_APACHE2_SERVERNAME}" -n \
   -o "ServerSignature Off" -n \
@@ -55,22 +56,25 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "    Allow from All" -n \
   -o "    AllowOverride None" -n \
   -o "&lt;/Directory&gt;" -n \
+  -o "LogLevel ${OMV_APACHE2_SITE_OPENMEDIAVAULT_LOGLEVEL}" -n \
+  -o "ErrorLog \${APACHE_LOG_DIR}/${OMV_APACHE2_SERVERNAME}_error.log" -n \
+  -o "CustomLog \${APACHE_LOG_DIR}/${OMV_APACHE2_SERVERNAME}_access.log combined" \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_APACHE2_WEBGUI_CONFIG}
+
+# Create '/etc/apache2/sites-available/openmediavault-webgui' file
+xmlstarlet sel -t -m "//webadmin" \
   -i "enablessl[. = '1']" \
 	  -v "concat('&lt;VirtualHost *:',sslport,'&gt;')" -n \
+	  -o "    Include ${OMV_APACHE2_WEBGUI_CONFIG}" -n \
 	  -o "    SSLEngine on" -n \
 	  -v "concat('    SSLCertificateFile ${OMV_CERTIFICATE_DIR}/certs/',sslcertificateref,'.crt')" -n \
 	  -v "concat('    SSLCertificateKeyFile ${OMV_CERTIFICATE_DIR}/private/',sslcertificateref,'.key')" -n \
-	  -o "    LogLevel ${OMV_APACHE2_SITE_OPENMEDIAVAULT_LOGLEVEL}" -n \
-	  -o "    ErrorLog \${APACHE_LOG_DIR}/openmediavault-webgui_error.log" -n \
-	  -o "    CustomLog \${APACHE_LOG_DIR}/openmediavault-webgui_access.log combined" -n \
 	  -o "&lt;/Virtualhost&gt;" -n \
   -b \
   -i "enablessl[. = '0'] or forcesslonly[. = '0']" \
 	  -v "concat('&lt;VirtualHost *:',port,'&gt;')" -n \
+	  -o "    Include ${OMV_APACHE2_WEBGUI_CONFIG}" -n \
 	  -o "    SSLEngine off" -n \
-	  -o "    LogLevel ${OMV_APACHE2_SITE_OPENMEDIAVAULT_LOGLEVEL}" -n \
-	  -o "    ErrorLog \${APACHE_LOG_DIR}/openmediavault-webgui_error.log" -n \
-	  -o "    CustomLog \${APACHE_LOG_DIR}/openmediavault-webgui_access.log combined" -n \
 	  -o "&lt;/Virtualhost&gt;" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_APACHE2_SITE_OPENMEDIAVAULT_CONFIG}

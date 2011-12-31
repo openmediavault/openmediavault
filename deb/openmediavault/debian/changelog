@@ -3,6 +3,7 @@ openmediavault (0.2.6.3) stable; urgency=low
   * Fix various bugs
   * Fix config import issues (e.g. Mantis 0000143)
   * Fix bug when running RSync job in WebGUI
+  * Mantis 0000340: Apache and SuExec used as Global
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 28 Dec 2011 01:59:34 +0100
 
