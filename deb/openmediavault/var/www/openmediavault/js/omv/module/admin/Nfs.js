@@ -248,7 +248,9 @@ Ext.extend(OMV.Module.Services.NFSSharePropertyDialog,
 			name: "extraoptions",
 			fieldLabel: "Extra options",
 			allowBlank: true,
-			value: "subtree_check,secure"
+			value: "subtree_check,secure",
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: "Please check the <a href='http://linux.die.net/man/5/exports' target='_blank'>manual page</a> for more details."
 		},{
 			xtype: "textfield",
 			name: "comment",

@@ -111,7 +111,7 @@ Ext.extend(OMV.Module.Services.SSH, OMV.FormPanelExt, {
 					cols: "65"
 				},
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Extra options to /etc/ssh/sshd_config (usually empty)."
+				infoText: "Please check the <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for more details."
 			}]
 		}];
 	}

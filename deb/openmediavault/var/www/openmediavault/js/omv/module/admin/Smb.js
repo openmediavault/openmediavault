@@ -202,7 +202,9 @@ Ext.extend(OMV.Module.Services.SMB.SettingsPanel, OMV.FormPanelExt, {
 					autocomplete: "off",
 					rows: "3",
 					cols: "65"
-				}
+				},
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: "Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details."
 			}]
 		}];
 	}
@@ -482,7 +484,9 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 				autocomplete: "off",
 				rows: "3",
 				cols: "65"
-			}
+			},
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: "Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details."
 		}];
 	}
 });

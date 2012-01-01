@@ -119,7 +119,9 @@ Ext.extend(OMV.Module.Services.RsyncSrvSettingsPanel, OMV.FormPanelExt, {
 					autocomplete: "off",
 					rows: "3",
 					cols: "65"
-				}
+				},
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> for more details."
 			}]
 		}];
 	}
@@ -339,7 +341,9 @@ Ext.extend(OMV.Module.Services.RsyncSrvModulePropertyDialog,
 				autocomplete: "off",
 				rows: "3",
 				cols: "65"
-			}
+			},
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> for more details."
 		}];
 	},
 
@@ -616,7 +620,7 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 			fieldLabel: "Source server",
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The source remote server, e.g. rsync://[USER@]HOST[:PORT]/DEST."
+			infoText: "The source remote server, e.g. rsync://[USER@]HOST[:PORT]/DEST. Please ensure that the public SSH key from user root has been imported on the source server to allow key based authentication."
 		},{
 			xtype: "sharedfoldercombo",
 			name: "destsharedfolderref",
@@ -630,7 +634,7 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 			fieldLabel: "Destination server",
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The destination remote server, e.g. rsync://[USER@]HOST[:PORT]/DEST."
+			infoText: "The destination remote server, e.g. rsync://[USER@]HOST[:PORT]/DEST. Please ensure that the public SSH key from user root has been imported on the destination server to allow key based authentication."
 		},{
 			xtype: "combo",
 			name: "minute",
@@ -759,7 +763,7 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "checkbox",
 			name: "acls",
 			fieldLabel: "Preserve ACLs",
-			checked: true,
+			checked: false,
 			inputValue: 1,
 			boxLabel: "Update the destination ACLs to be the same as the source ACLs"
 		},{
@@ -782,7 +786,9 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "textfield",
 			name: "extraoptions",
 			fieldLabel: "Extra options",
-			allowBlank: true
+			allowBlank: true,
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> for more details."
 		}];
 	},
 

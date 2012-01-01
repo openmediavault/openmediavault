@@ -350,8 +350,7 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 					cols: "65"
 				},
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "These parameters are added to proftpd.conf. " +
-				  "Please check the ProFTPd documentation."
+				infoText: "Please check the <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manual page</a> for more details."
 			}]
 		}];
 	},

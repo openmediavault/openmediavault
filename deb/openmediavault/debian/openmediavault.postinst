@@ -31,6 +31,13 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			####################################################################
+			# Create SSH public/private key pair for root
+			####################################################################
+			if [ ! -f "~/.ssh/id_rsa.pub" ]; then
+				ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+			fi
+
+			####################################################################
 			# Install configuration file
 			####################################################################
 			if [ ! -e "${OMV_CONFIG_FILE}" ]; then
@@ -266,6 +273,9 @@ case "$1" in
 			rm -rf /var/lib/openmediavault/cronscripts
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.2.6.3"; then
+			if [ ! -f "~/.ssh/id_rsa.pub" ]; then
+				ssh-keygen -t rsa -N "" -f ~/.ssh/id_rsa
+			fi
 			omv-mkconf apache2
 		fi
 	;;
