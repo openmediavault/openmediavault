@@ -3,7 +3,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2011 Volker Theile
+ * @copyright Copyright (c) 2009-2012 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -43,7 +43,7 @@ OMV.Module.Information.About = function(config) {
 };
 Ext.extend(OMV.Module.Information.About, Ext.Panel, {
 	initComponent : function() {
-		this.html = this.createBox("OpenMediaVault is Copyright © 2009-2011 by Volker Theile (volker.theile@openmediavault.org).<br/>" +
+		this.html = this.createBox("OpenMediaVault is Copyright © 2009-2012 by Volker Theile (volker.theile@openmediavault.org).<br/>" +
 		  "All rights reserved.<br/><br/>" +
 		  "OpenMediaVault is free software: you can redistribute it and/or modify " +
 		  "it under the terms of the GNU General Public License v3 as published by " +
