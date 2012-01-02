@@ -117,14 +117,13 @@ class FsTabRpc extends OMVRpc {
 		}
 		$result = FALSE;
 		foreach ($objects as $objectk => $objectv) {
-			$fs = new OMVFilesystem($objectv['fsname']);
 			if (is_devicefile($id)) {
-				if (FALSE !== strpos($fs->getDeviceFile(), $id)) {
+				if (FALSE !== strpos($objectv['fsname'], $id)) {
 					$result = $objectv;
 					break;
 				}
 			} else {
-				if ($id === $fs->getUuid()) {
+				if ($id === $objectv['fsname']) {
 					$result = $objectv;
 					break;
 				}

@@ -47,7 +47,7 @@ class FsTabModule extends OMVModuleAbstract implements OMVINotifyListener {
 	 * Create a mount point.
 	 */
 	public function create($object) {
-		$cmd = sprintf("sudo mkdir -p '%s' 2>&1", $object['dir']);
+		$cmd = sprintf("sudo mkdir -p %s 2>&1", escapeshellarg($object['dir']));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -60,8 +60,7 @@ class FsTabModule extends OMVModuleAbstract implements OMVINotifyListener {
 	 * Delete a mount point.
 	 */
 	public function delete($object) {
-		$cmd = sprintf("sudo rm -rf %s >/dev/null 2>&1", escapeshellarg(
-		  $object['dir']));
+		$cmd = sprintf("sudo rm -rf %s 2>&1", escapeshellarg($object['dir']));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

@@ -378,7 +378,7 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 	},
 
 	doDeletion : function(record) {
-		// Prefer filesystem UUID, but in some cases a file system does not
+		// Prefer the filesystem UUID, but in some cases a filesystem does not
 		// have a UUID, then use the devicefile instead.
 		var id = record.get("uuid");
 		if (Ext.isEmpty(id))
