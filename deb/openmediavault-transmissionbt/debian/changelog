@@ -1,3 +1,9 @@
+openmediavault-transmissionbt (0.2.8.6.1) stable; urgency=low
+
+  * Mantis 0000342: After upgrade to 0.2.6.3, webgui is not accessible anymore
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Jan 2012 15:55:21 +0100
+
 openmediavault-transmissionbt (0.2.8.6) stable; urgency=low
 
   * Fix config import issues
