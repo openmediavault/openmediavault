@@ -1,3 +1,9 @@
+openmediavault-iscsitarget (0.1.6) stable; urgency=low
+
+  * Mantis 0000345: iSCSI plugin throws error: "Uninitialized string offset: 0" when opening
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Jan 2012 23:46:53 +0100
+
 openmediavault-iscsitarget (0.1.5) stable; urgency=low
 
   * Fix config import issues

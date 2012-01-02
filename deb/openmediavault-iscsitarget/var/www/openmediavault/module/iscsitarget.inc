@@ -128,6 +128,10 @@ class iSCSITargetModule extends OMVModuleAbstract implements OMVINotifyListener,
 	}
 }
 
+// Add config enums (elements that must be handled as arrays)
+$xmlConfig->addEnum("lun");
+$xmlConfig->addEnum("target");
+
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new iSCSITargetModule());
