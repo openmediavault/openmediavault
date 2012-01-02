@@ -19,7 +19,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-class Transmission
+class Transmission_RPC
 {
   /**
    * User agent used in all http communication

@@ -6,7 +6,7 @@
  * @author    Volker Theile <volker.theile@openmediavault.org>
  * @author    Marcel Beck <marcel.beck@mbeck.org>
  * @copyright Copyright (c) 2009-2012 Volker Theile
- * @copyright Copyright (c) 2011 Marcel Beck
+ * @copyright Copyright (c) 2011-2012 Marcel Beck
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -27,7 +27,7 @@ require_once("openmediavault/util.inc");
 require_once("openmediavault/rpc.inc");
 require_once("openmediavault/notify.inc");
 
-require_once("openmediavault/transmission.inc");
+require_once("transmission/rpc.inc");
 
 class TransmissionBTRpc extends OMVRpc {
 	public function __construct() {
@@ -923,7 +923,7 @@ class TransmissionBTRpc extends OMVRpc {
 			  $xpath);
 		}
 
-		$transmissionbt_rpc = new Transmission();
+		$transmissionbt_rpc = new Transmission_RPC();
 
 		$transmissionbt_rpc->url = 'http://localhost:'.$object['rpcport'].$object['rpcurl'].'rpc';
 

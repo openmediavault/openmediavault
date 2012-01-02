@@ -551,7 +551,8 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		// Store selected records in a local variable
 		this.deleteActionInfo = {
 			records: records,
-			count: records.length
+			count: records.length,
+			delete_local_data: delete_local_data
 		};
 		// Get first record to be deleted
 		var record = this.deleteActionInfo.records.pop();
@@ -589,7 +590,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 				// Update progress dialog
 				this.updateDeleteProgress();
 				// Execute deletion function
-				this.doDelete(record);
+				this.doDelete(record, this.deleteActionInfo.delete_local_data);
 			} else {
 				// Remove temporary local variables
 				delete this.deleteActionInfo;
