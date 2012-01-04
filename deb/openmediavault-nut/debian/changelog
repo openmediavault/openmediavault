@@ -1,3 +1,9 @@
+openmediavault-nut (0.1.8) stable; urgency=low
+
+  * Mantis 0000334: after updating the nut 1.5 => 1.6 no longer run
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 04 Jan 2012 12:54:24 +0100
+
 openmediavault-nut (0.1.7) stable; urgency=low
 
   * Fix config import issues
