@@ -172,9 +172,9 @@ Ext.extend(OMV.Module.Privileges.SharedFolderGridPanel,
 		OMV.MessageBox.show({
 			title: "Delete content",
 			msg: "Do you want to remove the content of the shared " +
-			  "folder recursively? Note, the data will be permanently " +
-			  "deleted then. Select 'No' to delete the shared folder only " +
-			  "or 'Cancel' to abort.",
+			  "folder recursively? The content will be permanently removed " +
+			  "and cannot be recovered. Select 'No' to delete the shared " +
+			  "folder only or 'Cancel' to abort.",
 			buttons: Ext.Msg.YESNOCANCEL,
 			fn: function(answer) {
 				this.deleteRecursive = false;

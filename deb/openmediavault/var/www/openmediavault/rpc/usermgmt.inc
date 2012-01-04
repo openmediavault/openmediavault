@@ -101,6 +101,75 @@ class UserMgmtRpc extends OMVRpc {
 	}
 
 	/**
+	 * Enumerate all users.
+	 * @return An array containing user objects with following fields:
+	 * name, UID, GID, comment, home directory, and shell program,
+	 * last changed, minimum, maximum, warn, inactive, expire and reserved.
+	 */
+	public function enumerateUsers() {
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Get list of user names
+		$users = OMVSystemUsers::get();
+		// Get user informations
+		$objects = array();
+		foreach ($users as $userk => $userv) {
+			$user = new OMVSystemUser($userv);
+			if (!$user->exists())
+				continue;
+			$objects[] = array(
+				"name" => $user->getName(),
+				"uid" => $user->getUid(),
+				"gid" => $user->getGid(),
+				"gecos" => $user->getGecos(),
+				"dir" => $user->getHomeDirectory(),
+				"shell" => $user->getShell(),
+				"lastchanged" => $user->getLastChanged(),
+				"minimum" => $user->getMinimum(),
+				"maximum" => $user->getMaximum(),
+				"warn" => $user->getWarn(),
+				"inactive" => $user->getInactive(),
+				"expire" => $user->getExpire(),
+				"reserved" => $user->getReserved()
+			);
+		}
+		return $objects;
+	}
+
+	/**
+	 * Enumerate all groups.
+	 * @return An array containing user objects with following fields:
+	 * name, GID and group members (array of user names).
+	 */
+	public function enumerateGroups() {
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Get list of group names
+		$groups = OMVSystemGroups::get();
+		// Get group informations
+		$objects = array();
+		foreach ($groups as $groupk => $groupv) {
+			$group = new OMVSystemGroup($groupv);
+			if (!$group->exists())
+				continue;
+			$objects[] = array(
+				"name" => $group->getName(),
+				"gid" => $group->getGid(),
+				"members" => $group->getMembers()
+			);
+		}
+		return $objects;
+	}
+
+	/**
 	 * Get list of users
 	 */
 	function getUserList($start, $count, $sortField, $sortDir) {
@@ -418,7 +487,7 @@ class UserMgmtRpc extends OMVRpc {
 		$loginDefs = OMVSystem::getLoginDefs();
 		foreach ($objects as $objectk => &$objectv) {
 			$group = new OMVSystemGroup($objectv['name']);
-			$objectv['gid'] = $group->getId();
+			$objectv['gid'] = $group->getGid();
 			$objectv['_used'] = false;
 			$objectv['_readOnly'] = false;
 			// Mark groups as read-only if their gid is not in the range of
@@ -465,7 +534,7 @@ class UserMgmtRpc extends OMVRpc {
 		if (empty($object['gid'])) {
 			$object['usegid'] = 0;
 			$group = new OMVSystemGroup($object['name']);
-			$object['gid'] = $group->getId();
+			$object['gid'] = $group->getGid();
 		} else {
 			$object['usegid'] = 1;
 		}

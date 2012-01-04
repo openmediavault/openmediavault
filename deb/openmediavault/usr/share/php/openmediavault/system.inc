@@ -1569,8 +1569,8 @@ class OMVNetworkInterface extends OMVObject {
  */
 class OMVSystemGroups extends OMVObject {
 	/**
-	 * Get a list of system groups.
-	 * @return An array of system groups, otherwise FALSE.
+	 * Get a list of system group names.
+	 * @return An array of system group names, otherwise FALSE.
 	 */
 	public static function get() {
 		$cmd = "getent group";
@@ -1578,10 +1578,17 @@ class OMVSystemGroups extends OMVObject {
 		if ($result !== 0)
 			return FALSE;
 		$list = array();
+		// Parse output:
+		// shadow:x:42:openmediavault
+		// snmp:x:112:
+		// sambashare:x:113:
+		// openmediavault:x:999:
+		// nut:x:114:
 		foreach ($output as $outputv) {
-			if (1 !== preg_match("/^(\S+):x:(\d+):.*$/", $outputv, $matches))
+			$data = explode(":", $outputv);
+			if (empty($data))
 				continue;
-			$list[] = $matches[1];
+			$list[] = $data[0];
 		}
 		return $list;
 	}
@@ -1593,6 +1600,7 @@ class OMVSystemGroups extends OMVObject {
 class OMVSystemGroup extends OMVObject {
 	protected $name = "";
 	protected $gid = -1;
+	protected $members = array();
 
 	/**
 	 * Constructor
@@ -1610,13 +1618,16 @@ class OMVSystemGroup extends OMVObject {
 	private function getData() {
 		if ($this->gid !== -1)
 			return TRUE;
+		// http://www.cyberciti.biz/faq/understanding-etcgroup-file
 		$cmd = sprintf("getent group | grep '%s'", $this->getName());
 		@OMVUtil::exec($cmd, $output, $result);
 		if (($result !== 0) || empty($output[0]))
 			return FALSE;
-		if (1 !== preg_match("/^(\S+):x:(\d+):.*$/", $output[0], $matches))
+		if (1 !== preg_match("/^(\S+):x:(\d+):(.*)$/", $output[0], $matches))
 			return FALSE;
 		$this->gid = intval($matches[2]);
+		$this->members = empty($matches[3]) ? array() : explode(",",
+		  $matches[3]);
 		return TRUE;
 	}
 
@@ -1639,13 +1650,23 @@ class OMVSystemGroup extends OMVObject {
 	}
 
 	/**
-	 * Get the group id.
-	 * @return The group id, otherwise FALSE.
+	 * Get the group ID.
+	 * @return The group ID, otherwise FALSE.
 	 */
-	public function getId() {
+	public function getGid() {
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->gid;
+	}
+
+	/**
+	 * Get the user names who are members of the group.
+	 * @return The group members as array, otherwise FALSE.
+	 */
+	public function getMembers() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		return $this->members;
 	}
 
 	/**
@@ -1687,8 +1708,8 @@ class OMVSystemGroup extends OMVObject {
  */
 class OMVSystemUsers extends OMVObject {
 	/**
-	 * Get a list of system users.
-	 * @return An array of system users, otherwise FALSE.
+	 * Get a list of system user names.
+	 * @return An array of system user names, otherwise FALSE.
 	 */
 	public static function get() {
 		$cmd = "getent passwd";
@@ -1696,11 +1717,18 @@ class OMVSystemUsers extends OMVObject {
 		if ($result !== 0)
 			return FALSE;
 		$list = array();
+		// Parse output:
+		// proftpd:x:109:65534::/var/run/proftpd:/bin/false
+		// ftp:x:110:65534::/home/ftp:/bin/false
+		// openmediavault:x:999:999::/home/openmediavault:/bin/sh
+		// admin:x:998:100:WebGUI administrator:/home/admin:/usr/sbin/nologin
+		// nut:x:111:114::/var/lib/nut:/bin/false
+		// test:x:1001:100:sdfds:/home/test:/bin/dash
 		foreach ($output as $outputv) {
-			$passwd = explode(":", $outputv);
-			if (empty($passwd))
+			$data = explode(":", $outputv);
+			if (empty($data))
 				continue;
-			$list[] = $passwd[0];
+			$list[] = $data[0]; // User name
 		}
 		return $list;
 	}
@@ -1714,8 +1742,8 @@ class OMVSystemUser extends OMVObject {
 	protected $uid = -1;
 	protected $gid = -1;
 	protected $password = "";
-	protected $class = "";
-	protected $homedir = "";
+	protected $gecos = "";
+	protected $dir = "";
 	protected $shell = "";
 	protected $lastchanged = "";
 	protected $minimum = "";
@@ -1741,21 +1769,24 @@ class OMVSystemUser extends OMVObject {
 	private function getData() {
 		if ($this->uid !== -1)
 			return TRUE;
+		// http://www.cyberciti.biz/faq/understanding-etcshadow-file
 		$cmd = sprintf("getent shadow | grep -e '^%s:'", $this->getName());
 		@OMVUtil::exec($cmd, $output, $result);
 		if (($result !== 0) || empty($output[0]))
 			return FALSE;
 		$shadow = explode(":", $output[0]);
-		unset($output);
+		// http://www.cyberciti.biz/faq/understanding-etcpasswd-file-format
+		// http://en.wikipedia.org/wiki/Passwd_(file)
 		$cmd = sprintf("getent passwd | grep -e '^%s:'", $this->getName());
+		unset($output);
 		@OMVUtil::exec($cmd, $output, $result);
 		if (($result !== 0) || empty($output[0]))
 			return FALSE;
 		$passwd = explode(":", $output[0]);
 		$this->uid = intval($passwd[2]);
 		$this->gid = intval($passwd[3]);
-		$this->class = $passwd[4];
-		$this->homedir = $passwd[5];
+		$this->gecos = $passwd[4];
+		$this->dir = $passwd[5];
 		$this->shell = $passwd[6];
 		$this->password = $shadow[1];
 		$this->lastchanged = $shadow[2];
@@ -1787,8 +1818,8 @@ class OMVSystemUser extends OMVObject {
 	}
 
 	/**
-	 * Get the user id.
-	 * @return The user id, otherwise FALSE.
+	 * Get the user ID.
+	 * @return The user ID, otherwise FALSE.
 	 */
 	public function getUid() {
 		if ($this->getData() === FALSE)
@@ -1797,8 +1828,8 @@ class OMVSystemUser extends OMVObject {
 	}
 
 	/**
-	 * Get the users group id.
-	 * @return The user group id, otherwise FALSE.
+	 * Get the users group ID.
+	 * @return The user group ID, otherwise FALSE.
 	 */
 	public function getGid() {
 		if ($this->getData() === FALSE)
@@ -1806,20 +1837,24 @@ class OMVSystemUser extends OMVObject {
 		return $this->gid;
 	}
 
-	public function getClass() {
+	/**
+	 * Get the comment.
+	 * @return The comment, otherwise FALSE.
+	 */
+	public function getGecos() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		return $this->class;
+		return $this->gecos;
 	}
 
 	/**
 	 * Get the home directory.
 	 * @return The home directory, otherwise FALSE.
 	 */
-	public function getHomeDir() {
+	public function getHomeDirectory() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		return $this->homedir;
+		return $this->dir;
 	}
 
 	/**

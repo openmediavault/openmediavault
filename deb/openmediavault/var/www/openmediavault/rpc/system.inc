@@ -143,31 +143,6 @@ class SystemRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get a list of system users (from /etc/passwd)
-	 * @return The list of users.
-	 */
-	function getSystemUsers() {
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Get list of system users
-		$users = OMVSystemUsers::get();
-		foreach ($users as $userk => $userv) {
-			$data[] = array(
-				"name" => $userv
-			);
-		}
-		$result = array(
-			"total" => count($data),
-			"data" => $data
-		);
-		return $result;
-	}
-
-	/**
 	 * Reboot the system.
 	 */
 	function reboot() {

@@ -330,12 +330,9 @@ Ext.extend(OMV.Module.System.CronPropertyDialog,
 			triggerAction: "all",
 			store: new OMV.data.Store({
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("System", "getSystemUsers",
-				  null, false),
+				proxy: new OMV.data.DataProxy("UserMgmt", "enumerateUsers"),
 				reader: new Ext.data.JsonReader({
 					idProperty: "name",
-					totalProperty: "total",
-					root: "data",
 					fields: [
 						{ name: "name" }
 					]

@@ -217,7 +217,8 @@ class DiskMgmtRpc extends OMVRpc {
 			  $object['devicefile']);
 			if (TRUE === $xmlConfig->exists($xpath)) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				  gettext("Settings already exist for the given device"));
+				  sprintf(gettext("Settings already exist for device '%s'"),
+				  $object['devicefile']));
 			}
 			// Append object to configuration
 			$success = $xmlConfig->set("//system/storage",
