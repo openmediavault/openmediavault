@@ -1,6 +1,7 @@
 openmediavault (0.2.6.4) stable; urgency=low
 
   * Improve filesystem mount/umount RPC
+  * Mantis 0000349: Cron Job: Be able to select multiple min, hours, days, month
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Jan 2012 20:13:59 +0100
 

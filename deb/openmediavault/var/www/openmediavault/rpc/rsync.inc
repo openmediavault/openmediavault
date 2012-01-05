@@ -56,12 +56,15 @@ class RsyncRpc extends OMVRpc {
 					"minute":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|'.
 					  '5[0-9]|[*]$\/"},
+					"everynminute":{"type":"boolean"},
 					"hour":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[0-9]|1[0-9]|2[0-3]|[*]$\/"},
+					"everynhour":{"type":"boolean"},
 					"month":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[1-9]|1[0-2]|[*]$\/"},
 					"dayofmonth":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$\/"},
+					"everyndayofmonth":{"type":"boolean"},
 					"dayofweek":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[1-7]|[*]$\/"},
 					"recursive":{"type":"boolean"},
@@ -158,6 +161,9 @@ class RsyncRpc extends OMVRpc {
 			$objectv['perms'] = boolval($objectv['perms']);
 			$objectv['acls'] = boolval($objectv['acls']);
 			$objectv['xattrs'] = boolval($objectv['xattrs']);
+			$objectv['everynminute'] = boolval($objectv['everynminute']);
+			$objectv['everynhour'] = boolval($objectv['everynhour']);
+			$objectv['everyndayofmonth'] = boolval($objectv['everyndayofmonth']);
 		}
 		// Filter result
 		return $this->applyFilter($objects, $start, $count, $sortField,
@@ -214,6 +220,9 @@ class RsyncRpc extends OMVRpc {
 		$object['perms'] = boolval($object['perms']);
 		$object['acls'] = boolval($object['acls']);
 		$object['xattrs'] = boolval($object['xattrs']);
+		$object['everynminute'] = boolval($object['everynminute']);
+		$object['everynhour'] = boolval($object['everynhour']);
+		$object['everyndayofmonth'] = boolval($object['everyndayofmonth']);
 		return $object;
 	}
 
@@ -246,8 +255,11 @@ class RsyncRpc extends OMVRpc {
 			  $data['destsharedfolderref'] : (($data['mode'] === "push") ?
 				$data['desturi'] : $data['destsharedfolderref']),
 			"minute" => $data['minute'],
+			"everynminute" => array_boolval($data, 'everynminute'),
 			"hour" => $data['hour'],
+			"everynhour" => array_boolval($data, 'everynhour'),
 			"dayofmonth" => $data['dayofmonth'],
+			"everyndayofmonth" => array_boolval($data, 'everyndayofmonth'),
 			"month" => $data['month'],
 			"dayofweek" => $data['dayofweek'],
 			"recursive" => array_boolval($data, 'recursive'),

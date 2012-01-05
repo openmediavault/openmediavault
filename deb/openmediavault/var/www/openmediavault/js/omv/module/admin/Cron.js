@@ -57,19 +57,43 @@ OMV.Module.System.CronGridPanel = function(config) {
 				header: "Minute",
 				sortable: true,
 				dataIndex: "minute",
-				id: "minute"
+				id: "minute",
+				renderer: function(val, cell, record, row, col, store) {
+					var everynminute = record.get("everynminute");
+					if (everynminute == true) {
+						val = "*/" + val;
+					}
+					return val;
+				}
 			},{
 				header: "Hour",
 				sortable: true,
 				dataIndex: "hour",
 				id: "hour",
-				renderer: OMV.util.Format.arrayRenderer(Date.mapHour)
+				renderer: function(val, cell, record, row, col, store) {
+					var everynhour = record.get("everynhour");
+					var func = OMV.util.Format.arrayRenderer(Date.mapHour);
+					val = func(val);
+					if (everynhour == true) {
+						val = "*/" + val;
+					}
+					return val;
+				}
 			},{
 				header: "Day of month",
 				sortable: true,
 				dataIndex: "dayofmonth",
 				id: "dayofmonth",
-				renderer: OMV.util.Format.arrayRenderer(Date.mapDayOfMonth)
+				renderer: function(val, cell, record, row, col, store) {
+					var everyndayofmonth = record.get("everyndayofmonth");
+					var func = OMV.util.Format.arrayRenderer(
+					  Date.mapDayOfMonth);
+					val = func(val);
+					if (everyndayofmonth == true) {
+						val = "*/" + val;
+					}
+					return val;
+				}
 			},{
 				header: "Month",
 				sortable: true,
@@ -120,8 +144,11 @@ Ext.extend(OMV.Module.System.CronGridPanel, OMV.grid.TBarGridPanel, {
 					{ name: "enable" },
 					{ name: "type" },
 					{ name: "minute" },
+					{ name: "everynminute" },
 					{ name: "hour" },
+					{ name: "everynhour" },
 					{ name: "dayofmonth" },
+					{ name: "everyndayofmonth" },
 					{ name: "month" },
 					{ name: "dayofweek" },
 					{ name: "username" },
@@ -222,6 +249,7 @@ OMV.NavigationPanelMgr.registerPanel("system", "cronjobs", {
 
 /**
  * @class OMV.Module.System.CronPropertyDialog
+ * @derived OMV.CfgObjectDialog
  */
 OMV.Module.System.CronPropertyDialog = function(config) {
 	var initialConfig = {
@@ -236,8 +264,7 @@ OMV.Module.System.CronPropertyDialog = function(config) {
 	OMV.Module.System.CronPropertyDialog.superclass.constructor.call(
 	  this, initialConfig);
 };
-Ext.extend(OMV.Module.System.CronPropertyDialog,
-	OMV.CfgObjectDialog, {
+Ext.extend(OMV.Module.System.CronPropertyDialog, OMV.CfgObjectDialog, {
 	getFormItems : function() {
 		return [{
 			xtype: "checkbox",
@@ -246,48 +273,87 @@ Ext.extend(OMV.Module.System.CronPropertyDialog,
 			checked: true,
 			inputValue: 1
 		},{
-			xtype: "combo",
-			name: "minute",
-			hiddenName: "minute",
+			xtype: "compositefield",
 			fieldLabel: "Minute",
-			mode: "local",
-			store: Array.range(0, 59, 1, true).insert(0, "*"),
-			allowBlank: false,
-			editable: false,
-			triggerAction: "all",
-			value: new Date().format("i")
+			combineErrors: false,
+			items: [{
+				xtype: "combo",
+				name: "minute",
+				hiddenName: "minute",
+				mode: "local",
+				store: Array.range(0, 59, 1, true).insert(0, "*"),
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: new Date().format("i"),
+				flex: 1
+			},{
+				xtype: "checkbox",
+				name: "everynminute",
+				fieldLabel: "",
+				checked: false,
+				inputValue: 1,
+				boxLabel: "Every N minute",
+				width: 140
+			}]
 		},{
-			xtype: "combo",
-			name: "hour",
-			hiddenName: "hour",
+			xtype: "compositefield",
 			fieldLabel: "Hour",
-			mode: "local",
-			store: new Ext.data.SimpleStore({
-				fields: [ "value", "text" ],
-				data: Date.mapHour
-			}),
-			displayField: "text",
-			valueField: "value",
-			allowBlank: false,
-			editable: false,
-			triggerAction: "all",
-			value: new Date().format("H")
+			combineErrors: false,
+			items: [{
+				xtype: "combo",
+				name: "hour",
+				hiddenName: "hour",
+				mode: "local",
+				store: new Ext.data.SimpleStore({
+					fields: [ "value", "text" ],
+					data: Date.mapHour
+				}),
+				displayField: "text",
+				valueField: "value",
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: new Date().format("H"),
+				flex: 1
+			},{
+				xtype: "checkbox",
+				name: "everynhour",
+				fieldLabel: "",
+				checked: false,
+				inputValue: 1,
+				boxLabel: "Every N hour",
+				width: 140
+			}]
 		},{
-			xtype: "combo",
-			name: "dayofmonth",
-			hiddenName: "dayofmonth",
+			xtype: "compositefield",
 			fieldLabel: "Day of month",
-			mode: "local",
-			store: new Ext.data.SimpleStore({
-				fields: [ "value", "text" ],
-				data: Date.mapDayOfMonth
-			}),
-			displayField: "text",
-			valueField: "value",
-			allowBlank: false,
-			editable: false,
-			triggerAction: "all",
-			value: "*"
+			combineErrors: false,
+			items: [{
+				xtype: "combo",
+				name: "dayofmonth",
+				hiddenName: "dayofmonth",
+				mode: "local",
+				store: new Ext.data.SimpleStore({
+					fields: [ "value", "text" ],
+					data: Date.mapDayOfMonth
+				}),
+				displayField: "text",
+				valueField: "value",
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: "*",
+				flex: 1
+			},{
+				xtype: "checkbox",
+				name: "everyndayofmonth",
+				fieldLabel: "",
+				checked: false,
+				inputValue: 1,
+				boxLabel: "Every N day of month",
+				width: 140
+			}]
 		},{
 			xtype: "combo",
 			name: "month",
@@ -366,5 +432,24 @@ Ext.extend(OMV.Module.System.CronPropertyDialog,
 			name: "type",
 			value: "userdefined"
 		}];
+	},
+
+	isValid : function() {
+		var valid = OMV.Module.System.CronPropertyDialog.superclass.
+		  isValid.apply(this, arguments);
+		if (valid) {
+			// It is not allowed to select '*' if the everyxxx checkbox
+			// is checked.
+			[ "minute", "hour", "dayofmonth" ].each(function(fieldName) {
+				var field = this.findFormField(fieldName);
+				field.clearInvalid(); // combineErrors is false
+				if ((field.getValue() === "*") && (this.findFormField(
+				  "every" + fieldName).checked)) {
+					field.markInvalid("Ranges of numbers are allowed");
+					valid = false;
+				}
+			}, this);
+		}
+		return valid;
 	}
 });

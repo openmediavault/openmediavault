@@ -197,15 +197,22 @@ Ext.apply(Ext.form.BasicForm.prototype, {
 		}
 		// Note, unchecked checkboxes are not included, so it is necessary to
 		// loop over all form fields to get them also.
-		this.items.each(function(f) {
-			if (!f.disabled && f.submitValue && (f.xtype == "checkbox")) {
-				name = f.getName();
-				key = values[name];
-				if (!Ext.isDefined(key)) {
-					values[name] = f.getValue();
+		var func = function(f) {
+			if (f.isFormField) {
+				if (!f.disabled && f.submitValue && (f.xtype == "checkbox")) {
+					key = f.getName();
+					value = values[key];
+					if (!Ext.isDefined(value)) {
+						values[key] = f.getValue();
+					}
+				} else if (f.isComposite) {
+					return f.items.each(func);
+				} else if (f instanceof Ext.form.CheckboxGroup && f.rendered) {
+					return f.eachItem(func);
 				}
 			}
-		});
+		};
+		this.items.each(func);
 		return values;
 	}
 });

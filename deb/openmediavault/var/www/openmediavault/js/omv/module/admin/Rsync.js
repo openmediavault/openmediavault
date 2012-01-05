@@ -636,48 +636,87 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: "The destination remote server, e.g. rsync://[USER@]HOST[:PORT]/DEST. Please ensure that the public SSH key from user root has been imported on the destination server to allow key based authentication."
 		},{
-			xtype: "combo",
-			name: "minute",
-			hiddenName: "minute",
+			xtype: "compositefield",
 			fieldLabel: "Minute",
-			mode: "local",
-			store: Array.range(0, 59, 1, true).insert(0, "*"),
-			allowBlank: false,
-			editable: false,
-			triggerAction: "all",
-			value: new Date().format("i")
+			combineErrors: false,
+			items: [{
+				xtype: "combo",
+				name: "minute",
+				hiddenName: "minute",
+				mode: "local",
+				store: Array.range(0, 59, 1, true).insert(0, "*"),
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: new Date().format("i"),
+				flex: 1
+			},{
+				xtype: "checkbox",
+				name: "everynminute",
+				fieldLabel: "",
+				checked: false,
+				inputValue: 1,
+				boxLabel: "Every N minute",
+				width: 140
+			}]
 		},{
-			xtype: "combo",
-			name: "hour",
-			hiddenName: "hour",
+			xtype: "compositefield",
 			fieldLabel: "Hour",
-			mode: "local",
-			store: new Ext.data.SimpleStore({
-				fields: [ "value", "text" ],
-				data: Date.mapHour
-			}),
-			displayField: "text",
-			valueField: "value",
-			allowBlank: false,
-			editable: false,
-			triggerAction: "all",
-			value: new Date().format("H")
+			combineErrors: false,
+			items: [{
+				xtype: "combo",
+				name: "hour",
+				hiddenName: "hour",
+				mode: "local",
+				store: new Ext.data.SimpleStore({
+					fields: [ "value", "text" ],
+					data: Date.mapHour
+				}),
+				displayField: "text",
+				valueField: "value",
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: new Date().format("H"),
+				flex: 1
+			},{
+				xtype: "checkbox",
+				name: "everynhour",
+				fieldLabel: "",
+				checked: false,
+				inputValue: 1,
+				boxLabel: "Every N hour",
+				width: 140
+			}]
 		},{
-			xtype: "combo",
-			name: "dayofmonth",
-			hiddenName: "dayofmonth",
+			xtype: "compositefield",
 			fieldLabel: "Day of month",
-			mode: "local",
-			store: new Ext.data.SimpleStore({
-				fields: [ "value", "text" ],
-				data: Date.mapDayOfMonth
-			}),
-			displayField: "text",
-			valueField: "value",
-			allowBlank: false,
-			editable: false,
-			triggerAction: "all",
-			value: "*"
+			combineErrors: false,
+			items: [{
+				xtype: "combo",
+				name: "dayofmonth",
+				hiddenName: "dayofmonth",
+				mode: "local",
+				store: new Ext.data.SimpleStore({
+					fields: [ "value", "text" ],
+					data: Date.mapDayOfMonth
+				}),
+				displayField: "text",
+				valueField: "value",
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: "*",
+				flex: 1
+			},{
+				xtype: "checkbox",
+				name: "everyndayofmonth",
+				fieldLabel: "",
+				checked: false,
+				inputValue: 1,
+				boxLabel: "Every N day of month",
+				width: 140
+			}]
 		},{
 			xtype: "combo",
 			name: "month",
@@ -877,6 +916,16 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 				valid = false;
 			}
 		}
+		// It is not allowed to select '*' if the everyxxx checkbox is checked.
+		[ "minute", "hour", "dayofmonth" ].each(function(fieldName) {
+			var field = this.findFormField(fieldName);
+			field.clearInvalid(); // combineErrors is false
+			if ((field.getValue() === "*") && (this.findFormField(
+			  "every" + fieldName).checked)) {
+				field.markInvalid("Ranges of numbers are allowed");
+				valid = false;
+			}
+		}, this);
 		return valid;
 	}
 });

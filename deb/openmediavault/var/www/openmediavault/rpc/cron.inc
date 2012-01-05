@@ -50,12 +50,15 @@ class CronRpc extends OMVRpc {
 					"minute":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|'.
 					  '5[0-9]|[*]$\/"},
+					"everynminute":{"type":"boolean"},
 					"hour":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[0-9]|1[0-9]|2[0-3]|[*]$\/"},
+					"everynhour":{"type":"boolean"},
 					"month":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[1-9]|1[0-2]|[*]$\/"},
 					"dayofmonth":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$\/"},
+					"everyndayofmonth":{"type":"boolean"},
 					"dayofweek":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[1-7]|[*]$\/"},
 					"username":{"type":"string"},
@@ -73,12 +76,15 @@ class CronRpc extends OMVRpc {
 					"minute":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|'.
 					  '5[0-9]|[*]$\/"},
+					"everynminute":{"type":"boolean"},
 					"hour":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[0-9]|1[0-9]|2[0-3]|[*]$\/"},
+					"everynhour":{"type":"boolean"},
 					"month":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[1-9]|1[0-2]|[*]$\/"},
 					"dayofmonth":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$\/"},
+					"everyndayofmonth":{"type":"boolean"},
 					"dayofweek":{"type":"string","format":"regex",'.
 					  '"pattern":"\/^[1-7]|[*]$\/"},
 					"comment":{"type":"string"}
@@ -125,6 +131,10 @@ class CronRpc extends OMVRpc {
 				// Modify result data
 				$objectv['enable'] = boolval($objectv['enable']);
 				$objectv['sendemail'] = boolval($objectv['sendemail']);
+				$objectv['everynminute'] = boolval($objectv['everynminute']);
+				$objectv['everynhour'] = boolval($objectv['everynhour']);
+				$objectv['everyndayofmonth'] = boolval(
+				  $objectv['everyndayofmonth']);
 				$jobs[] = $objectv;
 			}
 		}
@@ -156,6 +166,9 @@ class CronRpc extends OMVRpc {
 		// Modify result data
 		$object['enable'] = boolval($object['enable']);
 		$object['sendemail'] = boolval($object['sendemail']);
+		$object['everynminute'] = boolval($object['everynminute']);
+		$object['everynhour'] = boolval($object['everynhour']);
+		$object['everyndayofmonth'] = boolval($object['everyndayofmonth']);
 		return $object;
 	}
 
@@ -181,8 +194,11 @@ class CronRpc extends OMVRpc {
 			"sendemail" => array_boolval($data, 'sendemail'),
 			"type" => $data['type'],
 			"minute" => $data['minute'],
+			"everynminute" => array_boolval($data, 'everynminute'),
 			"hour" => $data['hour'],
+			"everynhour" => array_boolval($data, 'everynhour'),
 			"dayofmonth" => $data['dayofmonth'],
+			"everyndayofmonth" => array_boolval($data, 'everyndayofmonth'),
 			"month" => $data['month'],
 			"dayofweek" => $data['dayofweek'],
 			"username" => $data['username'],

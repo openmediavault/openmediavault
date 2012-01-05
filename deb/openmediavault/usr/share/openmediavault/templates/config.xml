@@ -143,8 +143,11 @@
 				<type>reboot|shutdown|userdefined</type>
 				<comment>xxx</comment>
 				<minute>[00-59|*]</minute>
+				<everynminute>0|1</everynminute>
 				<hour>[00-23|*]</hour>
+				<everynhour>0|1</everynhour>
 				<dayofmonth>[01-31|*]</dayofmonth>
+				<everyndayofmonth>0|1</everyndayofmonth>
 				<month>[01-12|*]</month>
 				<dayofweek>[1-7|*]</dayofweek>
 				<username>xxx</username>
@@ -441,8 +444,11 @@
 					<src>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxx</src>
 					<dest>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxx</dest>
 					<minute>[00-59|*]</minute>
+					<everynminute>0|1</everynminute>
 					<hour>[00-23|*]</hour>
+					<everynhour>0|1</everynhour>
 					<dayofmonth>[01-31|*]</dayofmonth>
+					<everyndayofmonth>0|1</everyndayofmonth>
 					<month>[01-12|*]</month>
 					<dayofweek>[1-7|*]</dayofweek>
 					<recursive>1</recursive>

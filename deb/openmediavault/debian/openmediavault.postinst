@@ -272,6 +272,14 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.2.6.3"; then
 			omv-mkconf apache2
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.2.6.4"; then
+			omv_config_add_element "//system/crontab/job" "everynminute" "0"
+			omv_config_add_element "//system/crontab/job" "everynhour" "0"
+			omv_config_add_element "//system/crontab/job" "everyndayofmonth" "0"
+			omv_config_add_element "//services/rsync/jobs/job" "everynminute" "0"
+			omv_config_add_element "//services/rsync/jobs/job" "everynhour" "0"
+			omv_config_add_element "//services/rsync/jobs/job" "everyndayofmonth" "0"
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

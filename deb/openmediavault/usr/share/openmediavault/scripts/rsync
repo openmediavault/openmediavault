@@ -99,7 +99,13 @@ xmlstarlet sel -t \
   -o "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" -n \
   -o "# m h dom mon dow user    command" -n \
   -m "//services/rsync/jobs/job[enable='1']" \
-	  -v "concat(minute,' ',hour,' ',dayofmonth,' ',month,' ',dayofweek,' ${OMV_RSYNC_CRONUSER} ${OMV_RSYNC_CRONSCRIPTS_DIR}/rsync-',uuid)" \
+	  -i "everynminute[. = '1']" -v "concat('*/',minute,' ')" -b \
+	  -i "everynminute[. = '0']" -v "concat(minute,' ')" -b \
+	  -i "everynhour[. = '1']" -v "concat('*/',hour,' ')" -b \
+	  -i "everynhour[. = '0']" -v "concat(hour,' ')" -b \
+	  -i "everyndayofmonth[. = '1']" -v "concat('*/',dayofmonth,' ')" -b \
+	  -i "everyndayofmonth[. = '0']" -v "concat(dayofmonth,' ')" -b \
+	  -v "concat(month,' ',dayofweek,' ${OMV_RSYNC_CRONUSER} ${OMV_RSYNC_CRONSCRIPTS_DIR}/rsync-',uuid)" \
 	  -i "sendemail[. = '0']" \
 		  -o " &gt;/dev/null 2&gt;&amp;1" \
 	  -b \
