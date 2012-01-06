@@ -44,7 +44,6 @@ class FileSystemMgmtModule extends OMVModuleAbstract implements
 		if (!empty($object['label'])) {
 			$cmdargs .= sprintf(" -L %s", escapeshellarg($object['label']));
 		}
-		$cmdargs .= sprintf(" -U %s", escapeshellarg($object['uuid']));
 		$cmd = sprintf("sudo omv-initfs %s %s >/dev/null 2>&1 &", $cmdargs,
 		  escapeshellarg($object['devicefile']));
 		OMVUtil::exec($cmd, $output, $result);

@@ -1,7 +1,10 @@
 openmediavault (0.2.6.4) stable; urgency=low
 
+  * Many improvements and bug fixes
   * Improve filesystem mount/umount RPC
   * Mantis 0000349: Cron Job: Be able to select multiple min, hours, days, month
+  * Mantis 0000352: Error deleting a JFS filesystem direct after it was created
+    and initialized
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Jan 2012 20:13:59 +0100
 

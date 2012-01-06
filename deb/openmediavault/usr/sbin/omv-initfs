@@ -49,8 +49,6 @@ Options:
   -b  Build the filesystem
   -t  Specifies the type of filesystem to be built
   -L  Set the volume label of the filesystem
-  -U  Set the universally unique identifier (UUID) of the filesystem
-  -m  Mount the filesystem
   -h  Print a help text
 EOF
 }
@@ -80,32 +78,23 @@ finalize() {
 
 cmdargs=$@
 build=0
-mount=0
 success=1
-mountpoint=
 fstype=
 label=
-uuid=
 filesys=
 
 # Parse command line
-while getopts 'bmt:L:U:?h' option
+while getopts 'bt:L:?h' option
 do
 	case ${option} in
 	b)
 		build=1
-		;;
-	m)
-		mount=1
 		;;
 	t)
 		fstype="${OPTARG}"
 		;;
 	L)
 		label="${OPTARG}"
-		;;
-	U)
-		uuid="${OPTARG}"
 		;;
 	h|?)
 		usage >&2;
@@ -117,15 +106,19 @@ done
 shift $((OPTIND-1))
 device=$1
 
-if [ -z "${fstype}" -o -z "${device}" -o -z "${uuid}" ]; then
+if [ -z "${fstype}" -o -z "${device}" ]; then
 	usage >&2;
 	exit 2
 fi
 
-pidfile="${OMV_INITFS_PID_PATH}/$(basename $0)@${uuid}.pid"
-logfile="${OMV_LOG_DIR}/$(basename $0)@${uuid}.log"
-failfile="/tmp/$(basename $0)@${uuid}.fail"
-buildfile="/tmp/$(basename $0)@${uuid}.build"
+# Transform the device name to an id that can be used to name the following
+# log files
+deviceid=$(echo ${device} | tr "/" "_")
+# Generate the log file names
+pidfile="${OMV_INITFS_PID_PATH}/$(basename $0)@${deviceid}.pid"
+logfile="${OMV_LOG_DIR}/$(basename $0)@${deviceid}.log"
+failfile="/tmp/$(basename $0)@${deviceid}.fail"
+buildfile="/tmp/$(basename $0)@${deviceid}.build"
 
 # Ensure the necessary directories exists
 [ ! -d "${OMV_INITFS_PID_PATH}" ] && mkdir -p "${OMV_INITFS_PID_PATH}"
@@ -175,7 +168,7 @@ if [ 1 -eq ${build} ]; then
 	# is no other way to detect filesystems being initialized (blkid detects
 	# them after the initialization has been finished).
 	cat <<EOF > ${buildfile}
-{"devicefile":"${filesys}","uuid":"${uuid}","type":"${fstype}","label":"${label}"}
+{"devicefile":"${filesys}","type":"${fstype}","label":"${label}"}
 EOF
 	chown ${OMV_INITFS_OWNGRP_PERM} ${buildfile}
 
@@ -226,32 +219,6 @@ EOF
 	# Create the filesystem
 	mkfs -V -t ${fstype} ${fsoptions} ${filesys} 1>>${logfile} 2>&1
 	sleep 1
-fi
-
-# Update the UUID of the filesystem
-case ${fstype} in
-ext3|ext4)
-	tune2fs -U ${uuid} ${filesys} 1>>${logfile} 2>&1
-	;;
-xfs)
-	xfs_admin -U ${uuid} ${filesys} 1>>${logfile} 2>&1
-	;;
-jfs)
-	jfs_tune -U ${uuid} ${filesys} 1>>${logfile} 2>&1
-	;;
-esac
-
-# Mount the filesystem?
-if [ 1 -eq ${mount} ]; then
-	if ! omv_is_mounted ${uuid}; then
-		# Ensure mount point directory exists.
-		mountpoint="${OMV_MOUNT_DIR}/${uuid}"
-		[ ! -e "${mountpoint}" ] && mkdir -pv ${mountpoint} 1>>${logfile} 2>&1
-
-		# Mount the filesystem using its UUID.
-		mount -v -U ${uuid} 1>>${logfile} 2>&1
-		sleep 1
-	fi
 fi
 
 # Set success flag (to handle exit code correctly in trap)

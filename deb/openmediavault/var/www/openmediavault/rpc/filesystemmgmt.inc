@@ -267,7 +267,8 @@ class FileSystemMgmtRpc extends OMVRpc {
 				continue;
 			if ($file->isFile()) {
 				// Check if it is a file we are interested in. The filename
-				// must look like: omv-initfs@<UUID>.build
+				// must look like omv-initfs@<device>.build, e.g.
+				// omv-initfs@_dev_sdb.build
 				$regex = '/^omv-initfs@.+\.build$/i';
 				if (1 !== preg_match($regex, $file->getFilename()))
 					continue;
@@ -295,7 +296,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 				// Add the filesystem to the result list.
 				$objects[] = array(
 					"devicefile" => $fsInfo['devicefile'],
-					"uuid" => $fsInfo['uuid'],
+					"uuid" => "", // Not available
 					"label" => $fsInfo['label'],
 					"type" => $fsInfo['type'],
 					"blocks" => "0", // as string
@@ -472,7 +473,6 @@ class FileSystemMgmtRpc extends OMVRpc {
 		// Create the filesysteme UUID.
 		$object = array(
 			"devicefile" => $data['devicefile'],
-			"uuid" => OMVUtil::uuid(),
 			"type" => $data['type'],
 			"label" => $data['label']
 		);
@@ -488,13 +488,15 @@ class FileSystemMgmtRpc extends OMVRpc {
 		// - Throw an exception if necessary to notify display an error
 		//   message in the WebGUI
 		sleep(2);
-		$fileName = sprintf("/tmp/omv-initfs@%s.fail", $object['uuid']);
-		if (@file_exists($fileName)) {
-			$fileName = sprintf("%s/omv-initfs@%s.log", $GLOBALS['OMV_LOG_DIR'],
-			  $object['uuid']);
+		$fileName = sprintf("omv-initfs@%s", strtr($data['devicefile'],
+		  "/", "_"));
+		$filePath = sprintf("/tmp/%s.fail", $fileName);
+		if (@file_exists($filePath)) {
+			$filePath = sprintf("%s/%s.log", $GLOBALS['OMV_LOG_DIR'],
+			  $fileName);
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  gettext("Failed to create filesystem. Please check the ".
-			  "syslog or '%s' for more details."), $fileName));
+			  "syslog or '%s' for more details."), $filePath));
 		}
 	}
 
