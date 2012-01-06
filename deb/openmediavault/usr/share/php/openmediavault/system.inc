@@ -941,10 +941,21 @@ class OMVHardDiskDevice extends OMVStorageDevice {
 		//        IDENTIFY DEVICE structure
 		if (($result !== 0) && (($result & 0) || ($result & 1)))
 			return FALSE;
+		// Set default values
 		$attributes = array();
 		$selfTestLogs = array();
+		$information = $information = array(
+			"devicemodel" => gettext("n/a"),
+			"serialnumber" => gettext("n/a"),
+			"firmwareversion" => gettext("n/a")
+		);
+		// Process command output
 		foreach ($output as $outputv) {
+			// SMART Attributes Data Structure
 			// Parse command output:
+			// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+			//   1 Raw_Read_Error_Rate     0x000b   100   100   016    Pre-fail  Always       -       0
+			//   8 Seek_Time_Performance   0x0005   100   100   020    Pre-fail  Offline      -       0
 			// 194 Temperature_Celsius     0x0002   139   139   000    Old_age   Always       -       43 (Lifetime Min/Max 16/61)
 			$regex = "/^\s*(\d+)\s+(\S+)\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+" .
 			  "(\S+)\s+(\S+)\s+(\S+)\s+(.+)$/";
@@ -962,7 +973,10 @@ class OMVHardDiskDevice extends OMVStorageDevice {
 					"rawvalue" => $matches[10]
 				);
 			}
+			// SMART Self-test log structure
 			// Parse command output:
+			// Num  Test_Description    Status                  Remaining  LifeTime(hours)  LBA_of_first_error
+			// # 1  Extended offline    Completed: read failure       90%       670         57217755
 			// # 2  Short captive       Interrupted (host reset)      80%      1392         -
 			$regex = "/^# (\d+)\s+(Short offline|Extended offline|" .
 			  "Short captive|Extended captive)\s+(.+)\s+(\d+)%\s+(\d+)" .
@@ -978,9 +992,28 @@ class OMVHardDiskDevice extends OMVStorageDevice {
 				);
 			}
 		}
+		// INFORMATION SECTION
+		// Parse command output:
+		// === START OF INFORMATION SECTION ===
+		// Model Family:     Hitachi Deskstar T7K500
+		// Device Model:     Hitachi HDT725032VLA360
+		// Serial Number:    VFD200R2CWBTLL
+		// Firmware Version: V54OA52A
+		// User Capacity:    320.072.933.376 bytes
+		$output = implode("|", $output);
+		$regex = "/^.+\|Device Model:\s+(.+)\|Serial Number:\s+(.+)".
+		  "\|Firmware Version:\s+(.+)\|User Capacity:\s+(.+) bytes\|.+$/";
+		if (1 == preg_match($regex, $output, $matches)) {
+			$information = array(
+				"devicemodel" => $matches[1],
+				"serialnumber" => $matches[2],
+				"firmwareversion" => $matches[3]
+			);
+		}
 		return array(
 			"attributes" => $attributes,
-			"selftestlogs" => $selfTestLogs
+			"selftestlogs" => $selfTestLogs,
+			"information" => $information
 		);
 	}
 
@@ -995,24 +1028,10 @@ class OMVHardDiskDevice extends OMVStorageDevice {
 	 * )
 	 */
 	private function getIdentityInfo() {
-		if (!$this->exists())
-			return FALSE;
 		if ($this->identityInfo === FALSE) {
-			$cmd = sprintf("export LANG=C; sudo smartctl -i %s",
-			  $this->getDeviceFile());
-			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0)
+			if (FALSE === ($stats = $this->getSmartStats()))
 				return FALSE;
-			$output = implode("|", $output);
-			$regex = "/^.+\|Device Model:\s+(.+)\|Serial Number:\s+(.+)" .
-			  "\|Firmware Version:\s+(.+)\|User Capacity:\s+(.+) bytes\|.+$/";
-			if (0 >= preg_match($regex, $output, $matches))
-				return FALSE;
-			$this->identityInfo = array(
-				"devicemodel" => $matches[1],
-				"serialnumber" => $matches[2],
-				"firmwareversion" => $matches[3]
-			);
+			$this->identityInfo = $stats['information'];
 		}
 		return $this->identityInfo;
 	}
@@ -1993,7 +2012,7 @@ class OMVLogicalVolumes extends OMVObject {
 	 */
 	public static function get() {
 		$cmd = "export LANG=C; sudo lvdisplay --noheadings --separator '|' ".
-		  "-C -o vg_name,lv_name";
+		  "-C -o vg_name,lv_name 2>/dev/null";
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			return FALSE;
