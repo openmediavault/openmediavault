@@ -333,8 +333,9 @@ class FileSystemMgmtRpc extends OMVRpc {
 			// Append as much informations as possible.
 			$objects[] = array(
 				"devicefile" => is_devicefile($mntentv['fsname']) ?
-				  $mntentv['fsname'] : gettext("n/a"),
-				"uuid" => $mntentv['fsname'],
+				  $mntentv['fsname'] : "",
+				"uuid" => is_uuid($mntentv['fsname']) ?
+				  $mntentv['fsname'] : "",
 				"label" => gettext("n/a"),
 				"type" => $mntentv['type'],
 				"blocks" => "0", // as string

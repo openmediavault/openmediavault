@@ -131,6 +131,18 @@ OMV.util.Format = function() {
 				return function(value) {
 					return OMV.util.Format.whitespace(value, mode);
 				};
+			},
+
+			/**
+			 * @method emptyRenderer
+			 * Returns a rendering function that displays 'n/a' if the value
+			 * is empty.
+			 * @return The rendering function
+			 */
+			emptyRenderer : function() {
+				return function(value) {
+					return Ext.isEmpty(value) ? "n/a" : value;
+				};
 			}
 		};
 	}());

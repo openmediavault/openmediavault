@@ -95,7 +95,7 @@ class FileSystemMgmtModule extends OMVModuleAbstract implements
 		// fails, e.g.:
 		// wipefs: error: /dev/sdh1: appears to contain 'dos' partition table
 		$cmd = sprintf("sudo wipefs -a %s 2>&1", $fs->getDeviceFile());
-		if ($fs->getPartitionType() === "dos") {
+		if (in_array($fs->getPartitionType(), array("dos", "vfat"))) {
 			// http://en.wikipedia.org/wiki/Master_boot_record
 			$cmd = sprintf("sudo dd if=/dev/zero of=%s bs=512 count=1 ".
 			  "2>&1; %s", $fs->getDeviceFile(), $cmd);

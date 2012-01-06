@@ -56,7 +56,9 @@ OMV.Module.Storage.FileSystemGridPanel = function(config) {
 				sortable: true,
 				dataIndex: "devicefile",
 				id: "devicefile",
-				width: 50
+				width: 50,
+				renderer: OMV.util.Format.emptyRenderer(),
+				scope: this
 			},{
 				header: "Label",
 				sortable: true,
@@ -368,13 +370,18 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 	cbUmountBtnHdl : function() {
 		var selModel = this.getSelectionModel();
 		var record = selModel.getSelected();
+		// Prefer the filesystem UUID, but in some cases a filesystem does not
+		// have a UUID, then use the devicefile instead.
+		var id = record.get("uuid");
+		if (Ext.isEmpty(id))
+			id = record.get("devicefile");
 		OMV.Ajax.request(function(id, response, error) {
 			if (error === null) {
 				this.doReload();
 			} else {
 				OMV.MessageBox.error(null, error);
 			}
-		}, this, "FileSystemMgmt", "umount", [ record.get("uuid") ]);
+		}, this, "FileSystemMgmt", "umount", [ id ]);
 	},
 
 	doDeletion : function(record) {
