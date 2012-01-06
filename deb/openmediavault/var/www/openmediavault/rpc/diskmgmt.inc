@@ -79,22 +79,22 @@ class DiskMgmtRpc extends OMVRpc {
 		foreach ($devs as $devk => $devv) {
 			$hdd = new OMVHardDiskDevice($devv);
 			if ($hdd->exists()) {
-				$object = array(
+				// Try to get the device temperature via S.M.A.R.T.
+				$temperature = $hdd->getTemperature();
+				// Prepare device object
+				$objects[] = array(
 					"devicename" => $hdd->getDeviceName(),
 					"devicefile" => $hdd->getDeviceFile(),
 					"devicefilebyid" => $hdd->getDeviceFileById(),
 					"model" => $hdd->getModel(),
 					"size" => $hdd->getSize(),
 					"capacity" => $hdd->getCapacity(),
-					"temperature" => gettext("n/a"),
+					"temperature" => (FALSE === $temperature) ?
+					  gettext("n/a") : sprintf("%d°C", $temperature),
 					"description" => $hdd->getDescription(),
 					"vendor" => $hdd->getVendor(),
 					"serialnumber" => $hdd->getSerialNumber()
 				);
-				if (FALSE !== ($temperature = $hdd->getTemperature())) {
-					$object['temperature'] = sprintf("%d°C", $temperature);
-				}
-				$objects[] = $object;
 			}
 		}
 		return $objects;

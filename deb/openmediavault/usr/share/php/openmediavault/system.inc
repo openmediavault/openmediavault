@@ -1004,7 +1004,7 @@ class OMVHardDiskDevice extends OMVStorageDevice {
 		$regex = "/^.+\|Device Model:\s+(.+)\|Serial Number:\s+(.+)".
 		  "\|Firmware Version:\s+(.+)\|User Capacity:\s+(.+) bytes\|.+$/";
 		if (1 == preg_match($regex, $output, $matches)) {
-			$information = array(
+			$this->identityInfo = $information = array(
 				"devicemodel" => $matches[1],
 				"serialnumber" => $matches[2],
 				"firmwareversion" => $matches[3]
@@ -1028,10 +1028,24 @@ class OMVHardDiskDevice extends OMVStorageDevice {
 	 * )
 	 */
 	private function getIdentityInfo() {
+		if (!$this->exists())
+			return FALSE;
 		if ($this->identityInfo === FALSE) {
-			if (FALSE === ($stats = $this->getSmartStats()))
+			$cmd = sprintf("export LANG=C; sudo smartctl -i %s",
+			  $this->getDeviceFile());
+			@OMVUtil::exec($cmd, $output, $result);
+			if ($result !== 0)
 				return FALSE;
-			$this->identityInfo = $stats['information'];
+			$output = implode("|", $output);
+			$regex = "/^.+\|Device Model:\s+(.+)\|Serial Number:\s+(.+)" .
+			  "\|Firmware Version:\s+(.+)\|User Capacity:\s+(.+) bytes\|.+$/";
+			if (0 >= preg_match($regex, $output, $matches))
+				return FALSE;
+			$this->identityInfo = array(
+				"devicemodel" => $matches[1],
+				"serialnumber" => $matches[2],
+				"firmwareversion" => $matches[3]
+			);
 		}
 		return $this->identityInfo;
 	}
