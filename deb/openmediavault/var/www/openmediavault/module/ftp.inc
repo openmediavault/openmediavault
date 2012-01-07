@@ -25,6 +25,7 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
 require_once("openmediavault/log.inc");
+require_once("openmediavault/system.inc");
 
 class FTPModule extends OMVModuleAbstract implements OMVINotifyListener,
   OMVIModuleStatus {
@@ -101,12 +102,14 @@ class FTPModule extends OMVModuleAbstract implements OMVINotifyListener,
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Umount the subtree.
-		$cmd = sprintf("sudo umount %s 2>&1", $meObject['dir']);
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		// Umount the subtree (if still mounted)
+		if (OMVFilesystem::isMountedEx("mountpoint", $meObject['dir'])) {
+			$cmd = sprintf("sudo umount -f %s 2>&1", $meObject['dir']);
+			OMVUtil::exec($cmd, $output, $result);
+			if ($result !== 0) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
 		}
 		// Update the service
 		self::updateService();
