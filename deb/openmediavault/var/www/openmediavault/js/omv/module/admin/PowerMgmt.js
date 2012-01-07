@@ -419,8 +419,8 @@ Ext.extend(OMV.Module.System.PowerMgmt.CronJobPropertyDialog,
 				var field = this.findFormField(fieldName);
 				field.clearInvalid(); // combineErrors is false
 				if ((field.getValue() === "*") && (this.findFormField(
-				  "every" + fieldName).checked)) {
-					field.markInvalid("Ranges of numbers are allowed");
+				  "everyn" + fieldName).checked)) {
+					field.markInvalid("Ranges of numbers are not allowed");
 					valid = false;
 				}
 			}, this);
