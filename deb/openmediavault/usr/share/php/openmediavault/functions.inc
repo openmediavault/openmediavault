@@ -22,35 +22,6 @@
 require_once("php-json-schema/JsonSchema.php");
 
 /**
- * Search in a multidimensional array.
- */
-function array_search_ex($needle, $haystack, $key) {
-	if (!is_array($haystack))
-		return false;
-	foreach ($haystack as $haystackval => $value) {
-		$found = false;
-		if (is_array($needle) && is_array($key)) {
-			foreach ($needle as $n => $needlev) {
-				$found = ($value[$key[$n]] === $needlev);
-				if (false === $found) {
-					break;
-				}
-			}
-		} else {
-			if (true === is_array($value[$key])) {
-				$found = in_array($needle, $value[$key]);
-			} else {
-				$found = ($value[$key] === $needle);
-			}
-		}
-		if (true === $found) {
-			return $haystackval;
-		}
-	}
-	return false;
-}
-
-/**
  * Sort an array by values using a user-defined key.
  * @param array The array to sort
  * @param key The key used as sort criteria

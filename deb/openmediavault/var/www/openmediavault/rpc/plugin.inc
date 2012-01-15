@@ -103,17 +103,24 @@ class PluginRpc extends OMVRpc {
 				continue;
 			if (in_array($matches[1], $except))
 				continue;
-			if (FALSE !== ($cnid = array_search_ex($matches[1], $data,
-			  "name"))) {
-				$data[$cnid]['installed'] = true;
-				$data[$cnid]['_readOnly'] = false;
-			} else {
+			// Update existing package entry?
+			$found = FALSE;
+			foreach ($data as $datak => &$datav) {
+				if ($datav['name'] === $matches[1]) {
+					$datav['installed'] = TRUE;
+					$datav['_readOnly'] = FALSE;
+					$found = TRUE;
+					break;
+				}
+			}
+			// Append new package entry
+			if (FALSE === $found) {
 				$data[] = array(
 					"name" => $matches[1],
 					"version" => $matches[2],
 					"description" => $matches[3],
-					"installed" => true,
-					"_readOnly" => false
+					"installed" => TRUE,
+					"_readOnly" => FALSE
 				);
 			}
 		}
