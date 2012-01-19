@@ -192,7 +192,7 @@ class OMVConfigEngine extends OMVObject {
 	 * @return Returns the deleted nodes, otherwise FALSE.
 	 */
 	public function delete($xpath) {
-		if (FALSE === ($result = $this->get($xpath)))
+		if (is_null($result = $this->get($xpath)))
 			return FALSE;
 		$domxpath = new DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
