@@ -96,10 +96,10 @@ Ext.extend(OMV.Module.Information.About, Ext.Panel, {
 			name: "Postfix",
 			url: "http://www.postfix.org"
 		},{
-			name: "RSyslog",
+			name: "rsyslog",
 			url: "http://www.rsyslog.com"
 		},{
-			name: "Smartmontools",
+			name: "smartmontools",
 			url: "http://smartmontools.sourceforge.net"
 		},{
 			name: "OpenSSL",
@@ -117,7 +117,7 @@ Ext.extend(OMV.Module.Information.About, Ext.Panel, {
 			name: "Samba",
 			url: "http://www.samba.org"
 		},{
-			name: "RSync",
+			name: "rsync",
 			url: "http://rsync.samba.org"
 		},{
 			name: "snmpd",
@@ -135,7 +135,7 @@ Ext.extend(OMV.Module.Information.About, Ext.Panel, {
 			name: "RRDtool",
 			url: "http://oss.oetiker.ch/rrdtool"
 		},{
-			name: "Collectd",
+			name: "collectd",
 			url: "http://collectd.org"
 		},{
 			name: "Cron",
@@ -146,11 +146,22 @@ Ext.extend(OMV.Module.Information.About, Ext.Panel, {
 		},{
 			name: "Anacron",
 			url: "http://anacron.sourceforge.net"
+		},{
+			name: "OpenSSH",
+			url: "http://www.openssh.org"
+		},{
+			name: "ethtool",
+			url: "http://sourceforge.net/projects/gkernel"
 		}];
+		// Display as word cloud
 		packages.each(function(o) {
-			if (!Ext.isEmpty(html)) html += "<br/>";
-			html += String.format("<p>{0}<br/><a href='{1}' target='_blank'>" +
-			  "{2}<a></p>", o.name, o.url, o.url);
+			var fontSizeMin = 12, fontSizeMax = 28;
+			var fontSize = Math.floor((fontSizeMax - fontSizeMin + 1) *
+			  Math.random()) + fontSizeMin;
+			if (!Ext.isEmpty(html)) html += " ";
+			html += String.format("<a href='{0}' target='_blank' " +
+			  "style='font-size:{1}px;font-style:normal;'>{2}</a>",
+			  o.url, fontSize, o.name);
 		}, this);
 		return "OpenMediaVault is based upon various free software " +
 		  "like:<br/><br/>" + html + "...";
