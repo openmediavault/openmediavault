@@ -87,9 +87,6 @@ Ext.extend(OMV.Module.Information.About, Ext.Panel, {
 			name: "PHP",
 			url: "http://www.php.net"
 		},{
-			name: "PHP JSON Schema",
-			url: "http://code.google.com/p/json-schema-php"
-		},{
 			name: "Xmlstarlet",
 			url: "http://xmlstar.sourceforge.net"
 		},{
@@ -116,6 +113,9 @@ Ext.extend(OMV.Module.Information.About, Ext.Panel, {
 		},{
 			name: "Samba",
 			url: "http://www.samba.org"
+		},{
+			name: "PHP JSON schema",
+			url: "http://code.google.com/p/json-schema-php"
 		},{
 			name: "rsync",
 			url: "http://rsync.samba.org"
