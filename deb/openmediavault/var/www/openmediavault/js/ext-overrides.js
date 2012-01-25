@@ -43,16 +43,16 @@ Ext.apply(Ext.form.VTypes, {
 	IPv4NetCIDRMask: /[\d\.\/]/i,
 
 	IPv4Fw: function(v) {
-		ipv4RegEx = "([1-9][0-9]{0,1}|1[013-9][0-9]|12[0-689]|2[01][0-9]|22[0-3])([.]([1-9]{0,1}[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){2}[.]([1-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-4])";
+		ipv4RegEx = "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}";
 		if (v === "0/0")
 			return true;
-		if (RegExp("^!?"+ipv4RegEx+"$", "i").test(v))
+		// 172.16.76.4 or !192.168.178.87/24
+		if (RegExp("^(!)?("+ipv4RegEx+")(\/(3[0-2]|[0-2]?\\d))?$", "i").test(v))
 			return true;
-		if (RegExp("^!?"+ipv4RegEx+"\/(3[0-2]|[0-2]?[0-9])$", "i").test(v))
-			return true;
-		return RegExp("^!?(("+ipv4RegEx+")([-]("+ipv4RegEx+")){0,1})$", "i").test(v);
+		// 192.168.178.20-192.168.178.254
+		return RegExp("^(!)?(("+ipv4RegEx+")([-]("+ipv4RegEx+")){0,1})$", "i").test(v);
 	},
-	IPv4FwText: "This field should be either a IPv4 network address (with /mask), a IPv4 range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or 192.168.178.20 - 192.168.178.254)",
+	IPv4FwText: "This field should be either a IPv4 network address (with /mask), a IPv4 range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or 192.168.178.20-192.168.178.254)",
 	IPv4FwMask: /[\d\.\/\-:!]/i,
 
 	netmask: function(v) {
@@ -398,6 +398,23 @@ Ext.override(Ext.form.Radio, {
 			}, this);
 		}
 		return this;
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
+// Ext.form.Checkbox
+////////////////////////////////////////////////////////////////////////////////
+
+Ext.apply(Ext.form.Checkbox.prototype, {
+	msgTarget: "under"
+});
+Ext.override(Ext.form.Checkbox, {
+	markInvalid : function(msg) {
+		Ext.form.Checkbox.superclass.markInvalid.apply(this, arguments);
+	},
+
+	clearInvalid : function(){
+		Ext.form.Checkbox.superclass.clearInvalid.apply(this, arguments);
 	}
 });
 
