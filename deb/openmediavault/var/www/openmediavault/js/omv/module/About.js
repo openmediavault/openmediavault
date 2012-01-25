@@ -87,7 +87,7 @@ Ext.extend(OMV.Module.Information.About, Ext.Panel, {
 			name: "PHP",
 			url: "http://www.php.net"
 		},{
-			name: "Xmlstarlet",
+			name: "xmlstarlet",
 			url: "http://xmlstar.sourceforge.net"
 		},{
 			name: "Postfix",
@@ -152,17 +152,46 @@ Ext.extend(OMV.Module.Information.About, Ext.Panel, {
 		},{
 			name: "ethtool",
 			url: "http://sourceforge.net/projects/gkernel"
+		},{
+			name: "ntfs-3g",
+			url: "http://www.tuxera.com"
+		},{
+			name: "mdadm",
+			url: "http://neil.brown.name/blog/mdadm"
+		},{
+			name: "ntp",
+			url: "http://support.ntp.org"
+		},{
+			name: "scponly",
+			url: "http://sublimation.org/scponly"
+		},{
+			name: "uuid",
+			url: "http://www.ossp.org/pkg/lib/uuid"
+		},{
+			name: "wget",
+			url: "http://www.gnu.org/software/wget"
+		},{
+			name: "acpid",
+			url: "http://acpid.sourceforge.net"
+		},{
+			name: "quota",
+			url: "http://sourceforge.net/projects/linuxquota"
+		},{
+			name: "whiptail",
+			url: "https://fedorahosted.org/newt"
 		}];
-		// Display as word cloud
-		packages.each(function(o) {
-			var fontSizeMin = 12, fontSizeMax = 28;
+		// Shuffle list of packages
+		packages.sort(function() {return 0.5 - Math.random()});
+		// Display some packages
+		for (var i = 0; i < 25; i++) {
+			var fontSizeMin = 12, fontSizeMax = 26;
 			var fontSize = Math.floor((fontSizeMax - fontSizeMin + 1) *
 			  Math.random()) + fontSizeMin;
 			if (!Ext.isEmpty(html)) html += " ";
 			html += String.format("<a href='{0}' target='_blank' " +
 			  "style='font-size:{1}px;font-style:normal;'>{2}</a>",
-			  o.url, fontSize, o.name);
-		}, this);
+			  packages[i].url, fontSize, packages[i].name);
+		}
 		return "OpenMediaVault is based upon various free software " +
 		  "like:<br/><br/>" + html + "...";
 	},
