@@ -67,97 +67,6 @@ function array_filter_ex($array, $key, $value) {
 }
 
 /**
- * Remove duplicate values by user-defined key.
- * @param array The array to be processed
- * @param key The key used as filter criteria
- */
-function array_remove_duplicate($array, $key) {
-	$result = array();
-	if (!is_array($array))
-		return false;
-	$subarray = array();
-	foreach ($array as $value) {
-		$subarray[] = $value[$key];
-	}
-	foreach (array_unique($subarray) as $k => $value) {
-		$result[] = $array[$k];
-	}
-	return $result;
-}
-
-/**
- * Convert an object to an array.
- * @param object The object to convert into an array
- */
-function array_from_object($object) {
-	if (is_object($object)) {
-		$result = array();
-		foreach (get_object_vars($object) as $key => $val) {
-				$result[$key] = array_from_object($val);
-		}
-		// If result is empty then return a empty string instead
-		return (!empty($result) > 0) ? $result : "";
-	} else if (is_array($object)) {
-		$result = array();
-		foreach ($object as $key => $val) {
-			$result[$key] = array_from_object($val);
-		}
-		// If result is empty then return a empty string instead
-		return (!empty($result) > 0) ? $result : "";
-	} else {
-		return $object;
-	}
-}
-
-/**
- * Checks if the given keys or index exists in the array.
- * @param keys An array containing the keys to check
- * @param search An array with keys to check
- * @param missing Contains the missing keys if function fails
- * @return Returns TRUE on success or FALSE on failure.
- */
-function array_keys_exists($keys, $search, &$missing = NULL) {
-	$missing = array_diff($keys, array_keys($search));
-	return !(count($missing) > 0);
-}
-
-/**
- * Inserts an element in any position of the array.
- * @param array The array to be processed
- * @param value The value to be inserted
- * @param offset The position to insert the value
- * @return Returns the new number of elements in the array.
- */
-function array_insert(&$array, $value, $offset) {
-	if (is_array($array)) {
-		$array  = array_values($array);
-		$offset = intval($offset);
-		if (($offset < 0) || ($offset >= count($array))) {
-			array_push($array, $value);
-		} elseif ($offset == 0) {
-			array_unshift($array, $value);
-		} else {
-			$temp = array_slice($array, 0, $offset);
-			array_push($temp, $value);
-			$array = array_slice($array, $offset);
-			$array = array_merge($temp, $array);
-		}
-	} else {
-		$array = array($value);
-	}
-	return count($array);
-}
-
-/**
- * Get list of elements that are not unique.
- * @param array The array to be processed
- * @return Returns a list of elements that are not unique.
- */
-function array_not_unique($array = array()) {
-	return array_diff_key($array, array_unique($array));
-}
-
-/**
  * Convert an object to an array.
  * @param object The object instance.
  * @return Returns an associative array of defined object accessible
@@ -168,15 +77,6 @@ function toArray($object) {
 	  $object = get_object_vars($object);
 	}
 	return is_array($object) ? array_map(__FUNCTION__, $object) : $object;
-}
-
-/**
- * Convert the given data to an object.
- * @param data The data to convert to an object.
- * @return A object with the array fields as properties.
- */
-function toObject($data) {
-	return is_array($data) ? (object) array_map(__FUNCTION__, $data) : $data;
 }
 
 /**
