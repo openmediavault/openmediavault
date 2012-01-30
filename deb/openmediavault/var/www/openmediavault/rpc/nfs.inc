@@ -295,11 +295,21 @@ class NFSRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
+		// Get the object
+		$xpath = sprintf("//services/nfs/shares/share[uuid='{$uuid}']", $uuid);
+		$object = $xmlConfig->get($xpath);
+		if (is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Notify configuration changes
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
+		  "org.openmediavault.services.nfs.shares.share", $object);
 		// Delete the configuration object.
-		$xpath = "//services/nfs/shares/share[uuid='{$uuid}']";
 		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
-				$xpath);
+			  $xpath);
 		}
 		// Save the configuration.
 		if (FALSE === $xmlConfig->save()) {
@@ -307,27 +317,23 @@ class NFSRpc extends OMVRpc {
 			  $xmlConfig->getError());
 		}
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.nfs.shares.share", $object);
-		// Now check if it is necessary to delete the associated mount point.
-		if (FALSE === $xmlConfig->exists("//services/nfs/shares/share[".
-		  "mntentref='{$object['mntentref']}']")) {
-			$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
-			  $object['mntentref']);
-			if (FALSE === ($meObject = $xmlConfig->delete($xpath))) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
-				  $xpath);
-			}
-			// Save the configuration.
-			if (FALSE === $xmlConfig->save()) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-				  $xmlConfig->getError());
-			}
-			// Notify configuration changes.
-			$dispatcher->notify(OMV_NOTIFY_DELETE,
-			  "org.openmediavault.system.fstab.mntent", $meObject);
+		// Delete the associated fstab mount point entry.
+		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
+		  $object['mntentref']);
+		if (FALSE === ($meObject = $xmlConfig->delete($xpath))) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
+			  $xpath);
 		}
+		// Save the configuration.
+		if (FALSE === $xmlConfig->save()) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
+			  $xmlConfig->getError());
+		}
+		// Notify configuration changes.
+		$dispatcher->notify(OMV_NOTIFY_DELETE,
+		  "org.openmediavault.system.fstab.mntent", $meObject);
 	}
 }
 ?>

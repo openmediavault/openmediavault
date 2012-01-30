@@ -62,10 +62,6 @@ class FTPModule extends OMVModuleAbstract implements OMVINotifyListener,
 	 */
 	public function createShare($object) {
 		global $xmlConfig;
-		// Validate method parameter
-		if (empty($object)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PARAM);
-		}
 		// Get the associated mount point configuration object.
 		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
 		  $object['mntentref']);
@@ -90,10 +86,6 @@ class FTPModule extends OMVModuleAbstract implements OMVINotifyListener,
 	 */
 	public static function deleteShare($object) {
 		global $xmlConfig;
-		// Validate method parameter
-		if (empty($object)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PARAM);
-		}
 		// Get the associated mount point configuration object.
 		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
 		  $object['mntentref']);
@@ -104,15 +96,13 @@ class FTPModule extends OMVModuleAbstract implements OMVINotifyListener,
 		}
 		// Umount the subtree (if still mounted)
 		if (OMVFilesystem::isMountedEx("mountpoint", $meObject['dir'])) {
-			$cmd = sprintf("sudo umount -f %s 2>&1", $meObject['dir']);
+			$cmd = sprintf("sudo umount -fl %s 2>&1", $meObject['dir']);
 			OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
 		}
-		// Update the service
-		self::updateService();
 	}
 
 	/**
@@ -156,7 +146,11 @@ class FTPModule extends OMVModuleAbstract implements OMVINotifyListener,
 		$dispatcher->addListener(
 		  OMV_NOTIFY_PREDELETE,
 		  "org.openmediavault.services.ftp.shares.share",
-		  array($this, "deleteShare"), 1);
+		  array($this, "deleteShare"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_DELETE,
+		  "org.openmediavault.services.ftp.shares.share",
+		  array($this, "updateService"), 1);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ftp.modules.mod_ban.rule",

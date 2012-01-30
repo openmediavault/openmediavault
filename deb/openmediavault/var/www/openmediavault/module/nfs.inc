@@ -62,10 +62,6 @@ class NFSModule extends OMVModuleAbstract implements OMVINotifyListener,
 	public function createShare($object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
-		// Validate method parameter
-		if (empty($object)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PARAM);
-		}
 		// Get the associated mount point configuration object.
 		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
 		  $object['mntentref']);
@@ -91,10 +87,6 @@ class NFSModule extends OMVModuleAbstract implements OMVINotifyListener,
 	public function deleteShare($object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
-		// Validate method parameter
-		if (empty($object)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PARAM);
-		}
 		// Get the associated mount point configuration object.
 		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
 		  $object['mntentref']);
@@ -105,15 +97,13 @@ class NFSModule extends OMVModuleAbstract implements OMVINotifyListener,
 		}
 		// Umount the subtree (if still mounted)
 		if (OMVFilesystem::isMountedEx("mountpoint", $meObject['dir'])) {
-			$cmd = sprintf("sudo umount -f %s 2>&1", $meObject['dir']);
+			$cmd = sprintf("sudo umount -fl %s 2>&1", $meObject['dir']);
 			OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
 		}
-		// Update the service
-		self::updateService();
 	}
 
 	/**
@@ -155,9 +145,13 @@ class NFSModule extends OMVModuleAbstract implements OMVINotifyListener,
 		  "org.openmediavault.services.nfs.shares.share",
 		  array($this, "createShare"), 1);
 		$dispatcher->addListener(
+		  OMV_NOTIFY_PREDELETE,
+		  "org.openmediavault.services.nfs.shares.share",
+		  array($this, "deleteShare"));
+		$dispatcher->addListener(
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.nfs.shares.share",
-		  array($this, "deleteShare"), 1);
+		  array($this, "updateService"), 1);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nfs.shares.share",

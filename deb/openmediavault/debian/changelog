@@ -1,3 +1,9 @@
+openmediavault (0.2.6.6) stable; urgency=low
+
+  * Mantis 0000371: Remove NFS share deletes ALL data on share
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Jan 2012 19:41:59 +0100
+
 openmediavault (0.2.6.5) stable; urgency=low
 
   * Various improvements and bug fixes

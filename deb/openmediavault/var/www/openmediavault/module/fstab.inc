@@ -60,7 +60,9 @@ class FsTabModule extends OMVModuleAbstract implements OMVINotifyListener {
 	 * Delete a mount point.
 	 */
 	public function delete($object) {
-		$cmd = sprintf("sudo rm -rf %s 2>&1", escapeshellarg($object['dir']));
+		// Note, if the filesystem using this mount point has been unmounted,
+		// then the directory is empty and rmdir must succeed.
+		$cmd = sprintf("sudo rmdir %s 2>&1", escapeshellarg($object['dir']));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
