@@ -166,59 +166,9 @@ Ext.extend(OMV.Module.Privileges.SharedFolderGridPanel,
 		wnd.show();
 	},
 
-	startDeletion: function(model, records) {
-		if(records.length <= 0)
-			return;
-		OMV.MessageBox.show({
-			title: "Delete content",
-			msg: "Do you want to remove the content of the shared " +
-			  "folder recursively? The content will be permanently removed " +
-			  "and cannot be recovered. Select 'No' to delete the shared " +
-			  "folder only or 'Cancel' to abort.",
-			buttons: Ext.Msg.YESNOCANCEL,
-			fn: function(answer) {
-				this.deleteRecursive = false;
-				switch(answer) {
-				case "yes":
-					OMV.MessageBox.show({
-						title: "Confirmation",
-						msg: "Do you really want to remove the shared " +
-						  "folder content?",
-						buttons: OMV.Msg.YESCANCEL,
-						fn: function(answer) {
-							if(answer === "yes") {
-								this.deleteRecursive = true;
-								OMV.Module.Privileges.SharedFolderGridPanel.
-								  superclass.startDeletion.call(this, model,
-								  records);
-							}
-						},
-						scope: this,
-						icon: Ext.Msg.QUESTION
-					});
-					break;
-				case "no":
-					OMV.Module.Privileges.SharedFolderGridPanel.superclass.
-					  startDeletion.call(this, model, records);
-					break;
-				case "cancel":
-					break;
-				}
-			},
-			scope: this,
-			icon: Ext.Msg.QUESTION
-		});
-	},
-
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "ShareMgmt",
-		  "delete", [ record.get("uuid"), this.deleteRecursive ]);
-	},
-
-	afterDeletion : function() {
-		OMV.Module.Privileges.SharedFolderGridPanel.superclass.
-		  afterDeletion.apply(this, arguments);
-		delete this.deleteRecursive;
+		  "delete", [ record.get("uuid"), false ]);
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("privileges", "sharedfolder", {
