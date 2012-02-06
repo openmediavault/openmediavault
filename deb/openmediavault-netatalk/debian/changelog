@@ -1,3 +1,9 @@
+openmediavault-netatalk (0.2.5) stable; urgency=low
+
+  * Adapt package to new upstream version (netatalk 2.2.1)
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 06 Feb 2012 19:55:43 +0100
+
 openmediavault-netatalk (0.2.4) stable; urgency=low
 
   * Fix config import issues

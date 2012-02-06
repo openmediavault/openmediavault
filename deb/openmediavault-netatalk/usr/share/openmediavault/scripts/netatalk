@@ -91,6 +91,7 @@ EOF
 	# Create the '/etc/netatalk/afpd.conf' file
 	xmlstarlet sel -t -m "//services/afp" \
 	  -o "- -tcp -nosavepassword -uamlist ${OMV_NETATALK_AFPD_UAMLIST}" \
+	  -o " -nozeroconf" \
 	  -i "allowguests[. = '1']" -o ",uams_guest.so" -b \
 	  -i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
 	  -n \
@@ -114,8 +115,8 @@ EOF
 		writelist=""
 
 		# Get shared folder user privileges
-		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[userref]" \
-		  -v "concat(perms,'|',//system/usermanagement/users/user[uuid=current()/userref]/name)" -n \
+		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
+		  -v "concat(perms,'|',name)" -n \
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 		for privilege in ${privileges}
 		do
@@ -139,8 +140,8 @@ EOF
 		done
 
 		# Get shared folder group privileges
-		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[groupref]" \
-		  -v "concat(perms,'|',//system/usermanagement/groups/group[uuid=current()/groupref]/name)" -n \
+		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='group']" \
+		  -v "concat(perms,'|',name)" -n \
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 		for privilege in ${privileges}
 		do
