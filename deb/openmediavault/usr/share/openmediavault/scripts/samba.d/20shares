@@ -139,7 +139,7 @@ do
 			validusers="${validusers}@${name}";;
 		7)
 			[ -n "${writelist}" ] && writelist="${writelist},";
-			writelist="${writelist}${name}";
+			writelist="${writelist}@${name}";
 			[ -n "${validusers}" ] && validusers="${validusers},";
 			validusers="${validusers}@${name}";;
 		esac
