@@ -282,6 +282,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.2.6.7"; then
 			omv-mkconf samba
+			invoke-rc.d samba restart
 		fi
 	;;
 
