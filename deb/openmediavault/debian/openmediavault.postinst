@@ -280,6 +280,9 @@ case "$1" in
 			omv_config_add_element "//services/rsync/jobs/job" "everynhour" "0"
 			omv_config_add_element "//services/rsync/jobs/job" "everyndayofmonth" "0"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.2.6.7"; then
+			omv-mkconf samba
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
