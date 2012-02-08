@@ -3,6 +3,8 @@ openmediavault (0.2.6.7) stable; urgency=low
   * Remove the ability to unlink shared folder content recursively when
     deleting a shared folder.
   * Fix bug in SMB/CIFS configuration. Thanks to ReqX for the tip.
+  * Fix bug in FsTab RPC, now it is not possible to delete used file systems
+    anymore.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 05 Feb 2012 11:52:48 +0100
 

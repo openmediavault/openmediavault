@@ -93,9 +93,9 @@ class FsTabRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get a mount point configuration object by the given filesystem name,
-	 * e.g. its UUID or devicefile.
-	 * @param id The name of the filesystem, e.g. UUID or device file.
+	 * Get a mount point configuration object by the given file system name,
+	 * which may be a UUID or device file.
+	 * @param id The name of the file system, e.g. UUID or device file.
 	 * @return The mount point configuration object if exists, otherwise FALSE.
 	 */
 	public function getByFsName($id) {
@@ -115,19 +115,40 @@ class FsTabRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
+		// Add function parameter to search argument list.
+		$args = array();
+		$args[] = $id;
+		// If the function parameter is a device file, then try to get the
+		// file system UUID and add it to the search argument list. This is
+		// done to increase the probability to find the fstab config object.
+		if (is_devicefile($id)) {
+			$fs = new OMVFilesystem($id);
+			if ($fs->exists()) {
+				$args[] = $fs->getUuid();
+			}
+		}
+		// Try to find the configuration object matching the given search
+		// arguments. Note, the field 'fsname' may contain a device file
+		// or a file system UUID.
 		$result = FALSE;
 		foreach ($objects as $objectk => $objectv) {
-			if (is_devicefile($id)) {
-				if (FALSE !== strpos($objectv['fsname'], $id)) {
-					$result = $objectv;
-					break;
-				}
-			} else {
-				if ($id === $objectv['fsname']) {
-					$result = $objectv;
-					break;
+			foreach ($args as $argk => $argv) {
+				// Device files must be handled seperate because the device
+				// may contain partitions.
+				if (is_devicefile($argv)) {
+					if (FALSE !== strpos($objectv['fsname'], $argv)) {
+						$result = $objectv;
+						break;
+					}
+				} else {
+					if ($argv === $objectv['fsname']) {
+						$result = $objectv;
+						break;
+					}
 				}
 			}
+			if (TRUE === $result)
+				break;
 		}
 		return $result;
 	}
