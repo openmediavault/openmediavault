@@ -1,3 +1,10 @@
+openmediavault-netatalk (0.2.6) stable; urgency=low
+
+  * Mantis 0000374: mDNS/DNS-SD
+  * Fix bug in configuration files
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 08 Feb 2012 11:06:14 +0100
+
 openmediavault-netatalk (0.2.5) stable; urgency=low
 
   * Adapt package to new upstream version (netatalk 2.2.1)

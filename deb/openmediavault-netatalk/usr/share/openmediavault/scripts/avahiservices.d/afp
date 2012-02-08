@@ -48,12 +48,9 @@ xmlstarlet sel -t \
   -o "    &lt;port&gt;9&lt;/port&gt;" -n \
   -o "    &lt;txt-record&gt;sys=waMA=0,adVF=0x100&lt;/txt-record&gt;" -n \
   -m "//services/afp/shares/share" \
-	  -v "concat('    &lt;txt-record&gt;dk',position()-1,'=adVF=')" \
-	  -i "options/tm[. = '1']" -o "0x0081" -b \
-	  -i "options/tm[. != '1']" -o "0x0001" -b \
-	  -v "concat(',adVN=',name,',adVU=',uuid)" \
-	  -o "&lt;/txt-record&gt;" \
-	  -n \
+	-i "options/tm[. = '1']" \
+	  -v "concat('    &lt;txt-record&gt;dk',position()-1,'=adVN=',name,',adVF=0xa1,adVU=',uuid,'&lt;/txt-record&gt;')" -n \
+	-b \
   -b \
   -o "  &lt;/service&gt;" -n \
   -o "  &lt;service&gt;" -n \

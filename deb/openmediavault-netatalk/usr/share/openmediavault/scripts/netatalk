@@ -90,8 +90,7 @@ EOF
 
 	# Create the '/etc/netatalk/afpd.conf' file
 	xmlstarlet sel -t -m "//services/afp" \
-	  -o "- -tcp -nosavepassword -uamlist ${OMV_NETATALK_AFPD_UAMLIST}" \
-	  -o " -nozeroconf" \
+	  -o "- -tcp -nosavepassword -nozeroconf -uamlist ${OMV_NETATALK_AFPD_UAMLIST}" \
 	  -i "allowguests[. = '1']" -o ",uams_guest.so" -b \
 	  -i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
 	  -n \
