@@ -1,3 +1,9 @@
+openmediavault (0.2.6.8) stable; urgency=low
+
+  * Mantis 0000355: cant list Physical Disks; json_encode(): Invalid UTF-8 sequence in argument
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 09 Feb 2012 19:40:31 +0100
+
 openmediavault (0.2.6.7) stable; urgency=low
 
   * Remove the ability to unlink shared folder content recursively when
