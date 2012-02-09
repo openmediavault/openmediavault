@@ -143,6 +143,19 @@ OMV.util.Format = function() {
 				return function(value) {
 					return Ext.isEmpty(value) ? "n/a" : value;
 				};
+			},
+
+			/**
+			 * @method binaryUnitRenderer
+			 * Returns a rendering function that displays the value in the
+			 * highest possible binary unit.
+			 * @return The rendering function
+			 */
+			binaryUnitRenderer : function() {
+				return function(value) {
+					var v = parseInt(value);
+					return v.binaryFormat();
+				};
 			}
 		};
 	}());

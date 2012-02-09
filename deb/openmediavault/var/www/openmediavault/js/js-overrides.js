@@ -316,5 +316,44 @@ Ext.applyIf(Number.prototype, {
 		};
 		return this.toFixed(0) * Math.pow(2, prefixes[fromPrefix] -
 		  prefixes[toPrefix]);
+	},
+
+	/**
+	 * Convert a number into the highest possible binary unit.
+	 * @param options An array of additional options.
+	 * @return The converted string value including the unit or an indexed
+	 * array with the fields \em value and \em unit.
+	 */
+	binaryFormat : function(options) {
+		var prefixes = [ "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB",
+		  "ZiB", "YiB" ];
+		var curExp = 0;
+		var maxExp = prefixes.length;
+		var decimalPlaces = 2;
+		var indexed = false;
+
+		// Process additional function options.
+		if ("[object Object]" === Object.prototype.toString.call(options)) {
+			if (options.decimalPlaces !== undefined)
+				decimalPlaces = options.decimalPlaces;
+			if (options.indexed !== undefined)
+				indexed = options.indexed;
+		}
+
+		var number = this.toFixed(decimalPlaces);
+		while ((number > 1024) && (curExp < maxExp)) {
+			curExp++;
+			number = (number / 1024).toFixed(decimalPlaces);
+		}
+
+		result = {
+			"value": number,
+			"unit": prefixes[curExp]
+		};
+		if (false === indexed) {
+			result = number + " " + prefixes[curExp];
+		}
+
+		return result;
 	}
 });

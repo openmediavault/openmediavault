@@ -159,7 +159,7 @@ function json_validate($json, $schema, &$errors = NULL) {
 }
 
 /**
- * Converts a number of bytes into the highest possible unit.
+ * Convert a number into the highest possible binary unit.
  * @param value The value to convert.
  * @param options An array of additional options.
  * @return The converted string value including the unit or an indexed
