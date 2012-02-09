@@ -22,25 +22,14 @@
 
 class OMVUtil {
 	/**
-	* Create a UUID according to RFC 4122.
-	* @return A new UUID string.
+	* Create a UUID Version 4 (random).
+	* @return A new UUID string if successful, otherwise FALSE.
 	*/
 	public static function uuid() {
-		return sprintf("%04x%04x-%04x-%04x-%04x-%04x%04x%04x",
-			// 32 bits for "time_low"
-			mt_rand(0, 0xffff), mt_rand(0, 0xffff),
-			// 16 bits for "time_mid"
-			mt_rand(0, 0xffff),
-			// 16 bits for "time_hi_and_version",
-			// four most significant bits holds version number 4
-			mt_rand(0, 0x0fff) | 0x4000,
-			// 16 bits, 8 bits for "clk_seq_hi_res",
-			// 8 bits for "clk_seq_low",
-			// two most significant bits holds zero and one for variant DCE1.1
-			mt_rand(0, 0x3fff) | 0x8000,
-			// 48 bits for "node"
-			mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
-		);
+		self::exec("uuid -v 4 -F STR", $output, $result);
+		if ($result !== 0)
+			return FALSE;
+		return $output[0];
 	}
 
 	/**
@@ -49,48 +38,6 @@ class OMVUtil {
 	public static function exec($command, &$output = NULL, &$return_var = NULL) {
 		putenv("PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin");
 		return exec($command, $output, $return_var);
-	}
-
-	/**
-	* Generate a system log message.
-	* @param message The message to send.
-	* @param priority Is a combination of the facility and the level.
-	* @return Returns TRUE on success or FALSE on failure.
-	*/
-	public static function syslog($message, $priority = LOG_NOTICE) {
-		$res = syslog($priority, $message);
-		return $res;
-	}
-
-	/**
-	* Write a string to a file. The data will be written to a temporary file of
-	* the same name but ending with the pid of the current process. If successful,
-	* the temporary file will be renamed to the original one.
-	* @param[in] filename Path to the file where to write the data.
-	* @param[in] data The data to write.
-	* @param[in] binary Force binary mode writing.
-	* @return True if successful, otherwise false.
-	*/
-	public static function filePutContents($filename, $data, $binary = FALSE) {
-		$tmpfilename = sprintf("%s.%s", $filename, getmypid());
-		$mode = (TRUE === $binary) ? "wb" : "w";
-
-		if (!($fd = fopen($tmpfilename, $mode)))
-			return FALSE;
-
-		if (!fwrite($fd, $data)) {
-			fclose($fd);
-			return FALSE;
-		}
-
-		fclose($fd);
-
-		if (!rename($tmpfilename, $filename)) {
-			unlink($tmpfilename);
-			return FALSE;
-		}
-
-		return TRUE;
 	}
 
 	/**
@@ -122,20 +69,6 @@ class OMVUtil {
 
 		// Append debug output to log file
 		file_put_contents("/tmp/phpdebug.log", $msg, FILE_APPEND);
-	}
-
-	/**
-	 * Returns the target of a symbolic link. Canonicalize by following
-	 * every symlink in every component of the given name recursively,
-	 * all components must exist.
-	 * @param path The symbolic link path.
-	 * @return Returns the value of the symbolic link or FALSE on error.
-	 */
-	public static function readlink($path) {
-		@self::exec("readlink -e {$path}", $output, $result);
-		if ($result !== 0)
-			return FALSE;
-		return $output[0];
 	}
 
 	/**
