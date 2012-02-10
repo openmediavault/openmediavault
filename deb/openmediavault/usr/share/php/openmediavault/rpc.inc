@@ -273,15 +273,16 @@ class OMVRpc extends OMVObject {
 	protected function validateParams($method, $params) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Extract method name.
-		if (preg_match("/^\S+::(\S+)$/", $method, $matches))
+		if (preg_match("/^\S+::(\S+)$/", $method, $matches)) {
 			$method = $matches[1];
+		}
 		// Check if there is a schema defined for the given method.
 		if (!array_key_exists($method, $this->methodSchemata)) {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_SCHEMA_NOT_DEFINED,
 			  $method);
 		}
 		// Validate all parameters
-		if (!is_array($params)) {
+		if (!is_array($params) || empty($params)) {
 			$params = array($params);
 		}
 		foreach ($params as $paramk => $paramv) {

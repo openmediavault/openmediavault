@@ -20,8 +20,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/session.inc");
 require_once("openmediavault/config.inc"); // Must be included here
+require_once("openmediavault/session.inc");
 require_once("openmediavault/rpc.inc");
 require_once("openmediavault/module.inc");
 
@@ -89,7 +89,18 @@ if ($argc >= 4) {
 			$params[] = $argv[$i];
     }
 }
-$response = OMVRpc::exec($class, $method, $params);
+try {
+	$response = OMVRpc::exec($class, $method, $params);
+} catch(Exception $e) {
+	$response = array(
+		"response" => null,
+		"error" => array(
+			"code" => $e->getCode(),
+			"message" => $e->getMessage(),
+			"trace" => $e->__toString()
+		)
+	);
+}
 printf("%s\n", json_encode($response));
 
 // Destroy session. Note, session may already closed by RPC.
