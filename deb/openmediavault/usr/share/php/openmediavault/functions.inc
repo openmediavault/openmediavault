@@ -67,6 +67,18 @@ function array_filter_ex($array, $key, $value) {
 }
 
 /**
+ * Checks if the given keys or index exists in the array.
+ * @param keys An array containing the keys to check
+ * @param search An array with keys to check
+ * @param missing Contains the missing keys if function fails
+ * @return Returns TRUE on success or FALSE on failure.
+ */
+function array_keys_exists($keys, $search, &$missing = NULL) {
+	$missing = array_diff($keys, array_keys($search));
+	return !(count($missing) > 0);
+}
+
+/**
  * Convert an object to an array.
  * @param object The object instance.
  * @return Returns an associative array of defined object accessible
@@ -160,7 +172,7 @@ function json_validate($json, $schema, &$errors = NULL) {
 
 /**
  * Convert a number into the highest possible binary unit.
- * @param value The value to convert.
+ * @param value The number to convert (per default this is in Bytes).
  * @param options An array of additional options.
  * @return The converted string value including the unit or an indexed
  * array with the fields \em value and \em unit.
@@ -208,27 +220,33 @@ function binary_format($number, $options = NULL) {
  * @param fromPrefix The binary prefix name \em number is in, e.g. 'KiB'.
  * @param toPrefix The binary prefix name to convert \em number to, e.g.
  * 'TiB'.
- * @return The converted number or FALSE on failure.
+ * @param decimalPlaces The number of decimal places. Defaults to 0.
+ * @return The converted number as string or FALSE on failure.
  */
-function binary_convert($number, $fromPrefix, $toPrefix) {
-	$prefixes = array(
-		"B"   => 0,
-		"KiB" => 10,
-		"MiB" => 20,
-		"GiB" => 30,
-		"TiB" => 40,
-		"PiB" => 50,
-		"EiB" => 60,
-		"ZiB" => 70,
-		"YiB" => 80
-	);
+function binary_convert($number, $fromPrefix, $toPrefix, $decimalPlaces = 0) {
+	$prefixes = array("B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB",
+	  "ZiB", "YiB");
+	$fromIndex = array_search($fromPrefix, $prefixes);
+	$toIndex = array_search($toPrefix, $prefixes);
 
-	if (!array_key_exists($fromPrefix, $prefixes) ||
-	  !array_key_exists($toPrefix, $prefixes))
+	if ((FALSE === $fromIndex) || (FALSE === $toIndex))
 		return FALSE;
 
-	return bcmul(strval($number), bcpow("2", strval($prefixes[$fromPrefix] -
-	  $prefixes[$toPrefix])), 0);
+	// Convert number to string and ensure the correct number of decimal
+	// numbers is set (workaround for strange bcmul behaviour).
+	$number = bcadd(strval($number), "0", $decimalPlaces);
+	// Convert the given number into the requested binary unit.
+	$steps = ($toIndex > $fromIndex) ? $toIndex - $fromIndex :
+	  $fromIndex - $toIndex;
+	for ($i = 0; $i < $steps; $i++) {
+		if ($fromIndex < $toIndex) {
+			$number = bcdiv($number, "1024", $decimalPlaces);
+		} else {
+			$number = bcmul($number, "1024", $decimalPlaces);
+		}
+	}
+
+	return $number;
 }
 
 /**
