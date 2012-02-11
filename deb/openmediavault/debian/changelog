@@ -1,5 +1,6 @@
 openmediavault (0.2.6.8) stable; urgency=low
 
+  * Various improvements and bug fixes
   * Mantis 0000355: cant list Physical Disks; json_encode(): Invalid UTF-8 sequence in argument
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 09 Feb 2012 19:40:31 +0100
