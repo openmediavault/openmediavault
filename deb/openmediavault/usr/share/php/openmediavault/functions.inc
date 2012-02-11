@@ -171,6 +171,24 @@ function json_validate($json, $schema, &$errors = NULL) {
 }
 
 /**
+ * Returns the JSON representation of a value. All strings will be encoded
+ * to UTF-8 before, thus json_encode should not throw an exception like
+ * 'Invalid UTF-8 sequence in argument' (Mantis 0000355).
+ * @param value The value being encoded.
+ * @param options Bitmask, see PHP json_encode manual pages.
+ * @return Returns a string containing the JSON representation of \em value.
+ */
+function json_encode_safe($value, $options = 0) {
+	if (is_array($value)) {
+		array_walk_recursive($value, create_function('&$item, $key',
+		  'if (is_string($item)) { $item = utf8_encode($item); }'));
+	} else if (is_string($value)) {
+		$value = utf8_encode($value);
+	}
+	return json_encode($value, $options);
+}
+
+/**
  * Convert a number into the highest possible binary unit.
  * @param value The number to convert (per default this is in Bytes).
  * @param options An array of additional options.

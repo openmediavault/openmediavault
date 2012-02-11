@@ -50,7 +50,7 @@ try {
 	$server->handle();
 } catch(Exception $e) {
 	header("Content-Type: text/html");
-	print json_encode(array(
+	print json_encode_safe(array(
 		"success" => false, // required by ExtJS
 		"responseText" => $e->getMessage(), // required by ExtJS
 		"errors" => null, // required by ExtJS

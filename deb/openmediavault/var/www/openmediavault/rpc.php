@@ -43,7 +43,7 @@ try {
 	$server->handle();
 } catch(Exception $e) {
 	header("Content-Type: application/json");
-	print json_encode(array(
+	print json_encode_safe(array(
 		"response" => null,
 		"error" => array(
 			"code" => $e->getCode(),

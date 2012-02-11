@@ -75,8 +75,6 @@ class LogFileRpc extends OMVRpc {
 		}
 		$objects = array();
 		while(($line = fgets($pipes[1])) !== false) {
-			// Convert to UTF-8.
-			$line = utf8_encode($line);
 			// Skip invalid pattern matches.
 			$result = preg_match($logfile->getRegex(), $line, $matches);
 			if((FALSE === $result) || (0 == $result))

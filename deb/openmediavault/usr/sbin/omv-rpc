@@ -101,7 +101,7 @@ try {
 		)
 	);
 }
-printf("%s\n", json_encode($response));
+printf("%s\n", json_encode_safe($response));
 
 // Destroy session. Note, session may already closed by RPC.
 @$session->destroy();

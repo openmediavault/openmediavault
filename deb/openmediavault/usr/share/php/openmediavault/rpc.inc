@@ -118,8 +118,8 @@ class OMVJsonRpcServer extends OMVObject {
 	 * @return TRUE if valid, otherwise FALSE.
 	 */
 	protected function validate(&$errors) {
-		return json_validate(json_encode($this->params), $this->paramsSchema,
-		  $errors);
+		return json_validate(json_encode_safe($this->params),
+		  $this->paramsSchema, $errors);
 	}
 
 	/**
@@ -144,7 +144,7 @@ class OMVJsonRpcServer extends OMVObject {
 	 */
 	protected function handleResponse($response) {
 		header("Content-Type: application/json");
-		print json_encode(array(
+		print json_encode_safe(array(
 			"response" => $response,
 			"error" => null
 		));
@@ -169,7 +169,7 @@ class OMVUploadRpcServer extends OMVJsonRpcServer {
 	 */
 	protected function handleResponse($response) {
 		header("Content-Type: text/html");
-		print json_encode(array(
+		print json_encode_safe(array(
 			"success" => true, // required by ExtJS
 			"responseText" => $response // required by ExtJS
 		));
@@ -286,7 +286,7 @@ class OMVRpc extends OMVObject {
 			$params = array($params);
 		}
 		foreach ($params as $paramk => $paramv) {
-			if (FALSE === ($result = json_validate(json_encode($paramv),
+			if (FALSE === ($result = json_validate(json_encode_safe($paramv),
 			  $this->methodSchemata[$method][$paramk], $errors))) {
 				throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PARAM,
 				  implode("; ", $errors));
