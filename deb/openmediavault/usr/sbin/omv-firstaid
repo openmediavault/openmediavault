@@ -99,6 +99,7 @@ configure_iface() {
 	if [ $? -eq 0 ]; then
 		wol=true
 	fi
+	echo "Configuring network interface. Please wait ..."
 	# Delete all existing network interface configuration objects
 	omv_config_delete "//system/network/interfaces/*"
 	# Insert a new network interface configuration object
@@ -182,6 +183,7 @@ configure_webgui() {
 	else
 		sslport=443
 	fi
+	echo "Updating web administration settings. Please wait ..."
 	omv-rpc "System" "setWebUISettings" "{\"port\":${port},\"enablessl\":${enablessl},\"sslport\":${sslport},\"forcesslonly\":${forcesslonly},\"sslcertificateref\":\"${sslcertificateref}\",\"timeout\":5}" >/dev/null
 	return 0
 }
@@ -197,7 +199,7 @@ reset_webgui_passwd() {
 			whiptail --clear --msgbox "The password must not be empty." 8 35
 		fi
 	done
-	omv-rpc "UserMgmt" "setUserPassword" "{\"name\":\"admin\",\"password\":\"${passwd}\"}" >/dev/null
+	omv-rpc "WebGUI" "setPassword" "${passwd}" >/dev/null
 	return 0
 }
 
