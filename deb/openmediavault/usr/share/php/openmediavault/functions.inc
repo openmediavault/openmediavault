@@ -167,7 +167,8 @@ function json_validate($json, $schema, &$errors = NULL) {
 function json_encode_safe($value, $options = 0) {
 	if (is_array($value)) {
 		array_walk_recursive($value, create_function('&$item, $key',
-		  'if (is_string($item)) { $item = utf8_encode($item); }'));
+		  'if (is_string($item) && !mb_check_encoding($item, "UTF-8")) '.
+		  '{ $item = utf8_encode($item); }'));
 	} else if (is_string($value)) {
 		$value = utf8_encode($value);
 	}
