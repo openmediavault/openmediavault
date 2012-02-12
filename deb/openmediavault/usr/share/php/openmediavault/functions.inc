@@ -28,22 +28,8 @@ require_once("php-json-schema/JsonSchema.php");
  * @return Returns TRUE on success or FALSE on failure.
  */
 function array_sort_key(array &$array, $key) {
-	global $_key;
-
-	// Declare local compare function.
-	if (!function_exists("_array_sort_key_cmp")) {
-		function _array_sort_key_cmp($a, $b) {
-			global $_key;
-			return strnatcmp(strval($a[$_key]), strval($b[$_key])); 
-		}
-	}
-
-	// Sort array. Set key used my compare function. Finally unset useless global variable.
-	$_key = $key;
-	$result = uasort($array, "_array_sort_key_cmp");
-	unset($_key);
-
-	return $result;
+	return uasort($array, create_function('$a, $b',
+	  "return strnatcmp(strval(\$a['$key']), strval(\$b['$key']));"));
 }
 
 /**
