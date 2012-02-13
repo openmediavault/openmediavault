@@ -133,9 +133,9 @@ class ShareMgmtRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get list of shared folder configuration objects.
+	 * Enumerate all shared folder configuration objects.
 	 */
-	function getList($start, $count, $sortField, $sortDir) {
+	public function enumerateSharedFolders() {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -144,8 +144,6 @@ class ShareMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
 		}
 		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
 		// Get configuration object
 		$xpath = "//system/shares/sharedfolder";
 		$objects = $xmlConfig->getList($xpath);
@@ -183,6 +181,25 @@ class ShareMgmtRpc extends OMVRpc {
 				$objectv['_used'] = true;
 			}
 		}
+		return $objects;
+	}
+
+	/**
+	 * Get list of shared folder configuration objects.
+	 */
+	public function getList($start, $count, $sortField, $sortDir) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Validate method parameters
+		$this->validateParams(__METHOD__, func_get_args());
+		// Enumerate all shared folders.
+		$objects = OMVRpc::exec("ShareMgmt", "enumerateSharedFolders");
 		// Filter result
 		return $this->applyFilter($objects, $start, $count, $sortField,
 		  $sortDir);
@@ -191,7 +208,7 @@ class ShareMgmtRpc extends OMVRpc {
 	/**
 	 * Get a shared folder config object.
 	 */
-	function get($uuid) {
+	public function get($uuid) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -226,7 +243,7 @@ class ShareMgmtRpc extends OMVRpc {
 	/**
 	 * Set (add/update) a shared folder config object.
 	 */
-	function set($data) {
+	public function set($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -296,7 +313,7 @@ class ShareMgmtRpc extends OMVRpc {
 	 * @param uuid The UUID of the configuration object to delete.
 	 * @param recursive Remove the shared folder and its content recursively.
 	 */
-	function delete($uuid, $recursive) {
+	public function delete($uuid, $recursive) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -345,7 +362,7 @@ class ShareMgmtRpc extends OMVRpc {
 	 * @param uuid The UUID of the shared folder.
 	 * @return An array containing the requested privileges.
 	 */
-	function getPrivileges($uuid) {
+	public function getPrivileges($uuid) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -428,7 +445,7 @@ class ShareMgmtRpc extends OMVRpc {
 	 * \em uuid is the UUID of the shared folder and \em privileges an array
 	 * of privileges to set.
 	 */
-	function setPrivileges($data) {
+	public function setPrivileges($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
