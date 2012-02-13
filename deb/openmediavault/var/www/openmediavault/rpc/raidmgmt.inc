@@ -411,7 +411,7 @@ class RaidMgmtRpc extends OMVRpc {
 		$raid = new OMVRaidDevice($devicefile);
 		if (FALSE === $raid->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Device '%s' not found", $hdd->getDeviceFile()));
+			  sprintf("Device '%s' not found", $raid->getDeviceFile()));
 		}
 		return $raid->getDetail();
 	}
