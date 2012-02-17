@@ -22,6 +22,7 @@
 # Documentation/Howto:
 # http://www.ruzee.com/blog/2009/01/apache-virtual-hosts-a-clean-setup-for-php-developers 
 # http://phphints.wordpress.com/2009/01/10/improving-php-performance-with-apache2-mpm-worker-mod_fcgid-2 
+# http://blog.rvi-media.de/php/apache-sehr-extravertiert-signatur-verbergen-und-token-anpassen
 
 set -e
 
@@ -39,6 +40,8 @@ OMV_APACHE2_WEBGUI_DEFAULT_CONFIG=${OMV_APACHE2_WEBGUI_DEFAULT_CONFIG:-"${OMV_AP
 xmlstarlet sel -t -m "//webadmin" \
   -o "ServerName ${OMV_APACHE2_SERVERNAME}" -n \
   -o "ServerSignature Off" -n \
+  -o "ServerTokens Prod" -n \
+  -o "TraceEnable Off" -n \
   -o "DocumentRoot ${OMV_DOCUMENTROOT_DIR}" -n \
   -o "DirectoryIndex index.php" -n \
   -o "SuexecUserGroup openmediavault openmediavault" -n \

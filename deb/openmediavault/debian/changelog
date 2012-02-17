@@ -1,5 +1,6 @@
 openmediavault (0.2.6.9) stable; urgency=low
 
+  * Make the web server not so talkative
   * Mantis 0000376: Physical Disks Temperatures have weird character
   * Mantis 0000379: Recent update broke omv-rpc "ShareMgmt" "getList"
 
