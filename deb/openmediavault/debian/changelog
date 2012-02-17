@@ -1,3 +1,10 @@
+openmediavault (0.2.7.1) stable; urgency=low
+
+  * Mantis 0000383: Services | FTP | Ban list --> Time interval and Expire
+    value creating/editing issues
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 18 Feb 2012 00:50:00 +0100
+
 openmediavault (0.2.7) stable; urgency=low
 
   * Various bug fixes
