@@ -41,11 +41,10 @@ OMV.form.SharedFolderComboBox = function(config) {
 		valueField: "uuid",
 		store: new OMV.data.Store({
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("ShareMgmt", "getList"),
+			proxy: new OMV.data.DataProxy("ShareMgmt",
+			  "enumerateSharedFolders"),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
-				totalProperty: "total",
-				root: "data",
 				fields: [
 					{ name: "uuid" },
 					{ name: "description" },

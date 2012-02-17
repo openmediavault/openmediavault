@@ -296,7 +296,7 @@ class NFSRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get the object
-		$xpath = sprintf("//services/nfs/shares/share[uuid='{$uuid}']", $uuid);
+		$xpath = sprintf("//services/nfs/shares/share[uuid='%s']", $uuid);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
