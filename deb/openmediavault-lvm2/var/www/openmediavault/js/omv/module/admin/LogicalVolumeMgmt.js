@@ -460,7 +460,8 @@ Ext.extend(OMV.Module.Storage.LVM.CreateVolumeGroupDialog,
 			xtype: "textfield",
 			name: "name",
 			fieldLabel: "Name",
-			allowBlank: false
+			allowBlank: false,
+			vtype: "devname"
 		},{
 			xtype: "checkboxgrid",
 			name: "devices",
@@ -555,6 +556,7 @@ Ext.extend(OMV.Module.Storage.LVM.EditVolumeGroupDialog,
 			name: "name",
 			fieldLabel: "Name",
 			allowBlank: false,
+			vtype: "devname",
 			value: this.name
 		}];
 	}
@@ -598,6 +600,7 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendVolumeGroupDialog,
 			fieldLabel: "Name",
 			readOnly: true,
 			submitValue: false,
+			vtype: "devname",
 			value: this.name
 		},{
 			xtype: "checkboxgrid",
@@ -677,6 +680,7 @@ Ext.extend(OMV.Module.Storage.LVM.ReduceVolumeGroupDialog,
 			fieldLabel: "Name",
 			readOnly: true,
 			submitValue: false,
+			vtype: "devname",
 			value: this.name
 		},{
 			xtype: "checkboxgrid",
@@ -985,7 +989,8 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 			xtype: "textfield",
 			name: "name",
 			fieldLabel: "Name",
-			allowBlank: false
+			allowBlank: false,
+			vtype: "devname"
 		},{
 			xtype: "combo",
 			name: "vgname",
@@ -1118,6 +1123,7 @@ Ext.extend(OMV.Module.Storage.LVM.EditLogicalVolumeDialog,
 			name: "name",
 			fieldLabel: "Name",
 			allowBlank: false,
+			vtype: "devname",
 			value: this.name
 		}];
 	}
@@ -1181,7 +1187,8 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 			allowBlank: false,
 			readOnly: true,
 			submitValue: false,
-			value: this.name,
+			vtype: "devname",
+			value: this.name
 		},{
 			xtype: "combo",
 			name: "vgname",

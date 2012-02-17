@@ -139,29 +139,26 @@ Ext.apply(Ext.form.VTypes, {
 	passwordText: "The password contains invalid characters",
 	passwordMask: /[a-zA-Z0-9\.\-_]/,
 
-	rsaCertificate: function(v) {
-		return /^(-----BEGIN CERTIFICATE-----)\n.*\n(-----END CERTIFICATE-----)$/.test(v);
-	},
-	rsaCertificateText: "Invalid certificate in X.509 PEM format",
-	rsaCertificateMask: /[a-zA-Z0-9\+\-\/ ]/,
-
-	rsaPrivateKey: function(v) {
-		return /^(-----BEGIN RSA PRIVATE KEY-----)\n.*\n(-----END RSA PRIVATE KEY-----)$/.test(v);
-	},
-	rsaPrivateKeyText: "Invalid private key in X.509 PEM format",
-	rsaPrivateKeyMask: /[a-zA-Z0-9\+\-\/ ]/,
-
+	// String that are used as filesystem label
 	fslabel: function(v) {
 		return /^[a-zA-Z0-9]+$/.test(v);
 	},
 	fslabelText: "Invalid filesystem label",
 	fslabelMask: /[a-zA-Z0-9]/,
 
+	// Strings that are used as share names (e.g. SMB)
 	sharename: function(v) {
 		return /^[a-zA-Z0-9\.\-_]+$/.test(v);
 	},
 	sharenameText: "Invalid share name",
-	sharenameMask: /[a-zA-Z0-9\.\-_]/
+	sharenameMask: /[a-zA-Z0-9\.\-_]/,
+
+	// Strings that are used as part of a device name
+	devname: function(v) {
+		return /^[a-zA-Z0-9\.\-_]+$/.test(v);
+	},
+	devnameText: "Invalid name",
+	devnameMask: /[a-zA-Z0-9\.\-_]/
 });
 
 ////////////////////////////////////////////////////////////////////////////////
