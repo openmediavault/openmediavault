@@ -141,21 +141,22 @@ class CertificateMgmtRpc extends OMVRpc {
 		$this->validateParams(__METHOD__, func_get_args());
 		// Validate the certificate
 		if (!($certificate = openssl_x509_read($data['certificate']))) {
-			throw new ErrorMsgException(ErrorMsg::E_MISC_FAILURE,
-			  "Invalid certificate");
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Invalid certificate: %s", openssl_error_string()));
 		}
 		// Validate the private key
 		if (!($privatekey = openssl_pkey_get_private($data['privatekey']))) {
 			openssl_x509_free($certificate);
-			throw new ErrorMsgException(ErrorMsg::E_MISC_FAILURE,
-			  "Invalid private key");
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Invalid private key: %s", openssl_error_string()));
 		}
 		// Check if the private key corresponds to the certificate
 		if (!openssl_x509_check_private_key($certificate, $privatekey)) {
 			openssl_x509_free($certificate);
 			openssl_pkey_free($privatekey);
-			throw new ErrorMsgException(ErrorMsg::E_MISC_FAILURE,
-			  "Private key does not correspond to the certificate");
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Private key does not correspond to the certificate: %s",
+			  openssl_error_string()));
 		} 
 		openssl_x509_free($certificate);
 		openssl_pkey_free($privatekey); 
