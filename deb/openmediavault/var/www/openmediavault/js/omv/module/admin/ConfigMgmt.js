@@ -25,11 +25,13 @@
 Ext.ns("OMV.Module.System");
 
 // Register the menu.
+/*
 OMV.NavigationPanelMgr.registerMenu("system", "backuprestore", {
 	text: "Backup/Restore",
 	icon: "images/config.png",
 	position: 100
 });
+*/
 
 /**
  * @class OMV.Module.System.ConfigMgmt
@@ -120,6 +122,8 @@ Ext.extend(OMV.Module.System.ConfigMgmt, OMV.form.FormPanel, {
 		}
 	}
 });
+/*
 OMV.NavigationPanelMgr.registerPanel("system", "backuprestore", {
 	cls: OMV.Module.System.ConfigMgmt
 });
+*/
