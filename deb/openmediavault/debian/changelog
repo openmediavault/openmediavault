@@ -2,6 +2,7 @@ openmediavault (0.2.7.2) stable; urgency=low
 
   * Remove configuration backup/restore menu in WebGUI because it does
     not work and may corrupt existing installations
+  * Fix bug in WebGUI with Windows IE 7 and 8
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 18 Feb 2012 15:10:47 +0100
 

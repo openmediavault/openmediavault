@@ -333,10 +333,11 @@ Ext.applyIf(Number.prototype, {
 		var indexed = false;
 
 		// Process additional function options.
-		if ("[object Object]" === Object.prototype.toString.call(options)) {
-			if (options.decimalPlaces !== undefined)
+		if (!!options && ("[object Object]" === Object.prototype.toString.call(
+		  options))) {
+			if (typeof options.decimalPlaces !== 'undefined')
 				decimalPlaces = options.decimalPlaces;
-			if (options.indexed !== undefined)
+			if (typeof options.indexed !== 'undefined')
 				indexed = options.indexed;
 		}
 
