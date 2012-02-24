@@ -22,6 +22,7 @@
 // require("js/omv/data/DataProxy.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/CfgObjectDialog.js")
+// require("js/omv/ExecCmdDialog.js")
 // require("js/omv/util/Format.js")
 // require("js/omv/FormPanelExt.js")
 // require("js/omv/FormPanelDialog.js")

@@ -20,6 +20,7 @@
  */
 // require("js/omv/NavigationPanel.js")
 // require("js/omv/MessageBox.js")
+// require("js/omv/ExecCmdDialog.js")
 // require("js/omv/data/DataProxy.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/grid/TBarGridPanel.js")

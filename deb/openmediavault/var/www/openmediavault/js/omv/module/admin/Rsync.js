@@ -22,6 +22,7 @@
 // require("js/omv/PluginMgr.js")
 // require("js/omv/data/DataProxy.js")
 // require("js/omv/data/Store.js")
+// require("js/omv/ExecCmdDialog.js")
 // require("js/omv/FormPanelExt.js")
 // require("js/omv/grid/TBarGridPanel.js")
 // require("js/omv/CfgObjectDialog.js")
