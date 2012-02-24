@@ -305,7 +305,7 @@ OMV.Module.Privileges.PrivilegesPropertyDialog = function(config) {
 		height: 300,
 		layout: "fit",
 		modal: true,
-		border: false,
+		border: true,
 		buttonAlign: "center",
 		readOnly: false
 	};
@@ -322,7 +322,6 @@ OMV.Module.Privileges.PrivilegesPropertyDialog = function(config) {
 Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 	initComponent : function() {
 		this.grid = new OMV.grid.GridPanel({
-			border: true,
 			bodyCssClass: "x-grid3-without-dirty-cell",
 			stateId: "474eacf4-cadb-4ae4-b545-4f7f47d7aed9",
 			colModel: new Ext.grid.ColumnModel({
