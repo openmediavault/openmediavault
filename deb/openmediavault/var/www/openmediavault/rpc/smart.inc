@@ -56,6 +56,12 @@ class SmartRpc extends OMVRpc {
 			"getIdentityInfo" => array(
 				'{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}'
 			),
+			"getScheduleList" => array(
+				'{"type":"integer"}', // start
+				'{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'}', // count
+				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
+				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
+			),
 			"getScheduledTest" => array(
 				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
 			),
@@ -128,7 +134,6 @@ class SmartRpc extends OMVRpc {
 		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
 		}
-		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Enumerate all devices supporting S.M.A.R.T.
@@ -290,6 +295,8 @@ class SmartRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
 		}
 		$this->commitSession();
+		// Validate method parameters
+		$this->validateParams(__METHOD__, func_get_args());
 		// Get configuration object list
 		$xpath = "//services/smart/scheduledtests/job";
 		$objects = $xmlConfig->getList($xpath);
