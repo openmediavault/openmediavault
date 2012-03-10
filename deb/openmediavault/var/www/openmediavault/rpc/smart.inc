@@ -117,7 +117,7 @@ class SmartRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get all devices that support S.M.A.R.T.
+	 * Get all devices supporting S.M.A.R.T.
 	 * @param start The index where to start.
 	 * @param count The number of objects to process.
 	 * @param sortField The name of the column used to sort.
