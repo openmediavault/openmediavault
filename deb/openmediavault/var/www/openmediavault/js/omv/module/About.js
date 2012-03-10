@@ -58,7 +58,7 @@ Ext.extend(OMV.Module.Information.About, Ext.Panel, {
 		  "along with OpenMediaVault. If not, see &lt;<a href='http://www.gnu.org/licenses' " +
 		  "target='_blank'>http://www.gnu.org/licenses</a>&gt;.");
 		// Render list of used software and licenses
-		this.html += this.createBox(this.renderSoftware() + "<br/>" +
+		this.html += this.createBox(this.renderSoftware() + "<br/><br/>" +
 		  this.renderLicenses());
 		this.html += "<br/></form>";
 		OMV.Module.Information.About.superclass.initComponent.apply(this,
