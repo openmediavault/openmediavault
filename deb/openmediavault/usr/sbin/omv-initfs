@@ -155,6 +155,9 @@ case $(readlink -e "${device}") in
 	# Device mapper (LVM2)
 	filesys=${device}
 	;;
+\/dev\/cciss\/*)
+	filesys=${device}p1
+	;;
 *)
 	filesys=${device}1
 	;;

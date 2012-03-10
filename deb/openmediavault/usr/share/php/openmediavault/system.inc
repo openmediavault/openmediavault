@@ -732,12 +732,15 @@ class OMVStorageDevice extends OMVObject {
 	}
 
 	/**
-	 * Get the device name, e.g. sda or hdb.
+	 * Get the device name, e.g. sda, hdb or cciss!c0d0.
 	 * @return The device name.
 	 */
 	public function getDeviceName() {
-		$deviceFile = $this->getDeviceFile();
-		return substr($deviceFile, strrpos($deviceFile, "/") + 1);
+		// Get the device file and extract the name, e.g. /dev/sda => sda or
+		// /dev/cciss/c0d0 => cciss/c0d0.		
+		$deviceName = str_replace("/dev/", "", $this->getDeviceFile());
+		// Convert '/' characters to '!', e.g. cciss/c0d0 => cciss!c0d0.
+		return strtr($deviceName, "/", "!");
 	}
 
 	/**
@@ -797,7 +800,8 @@ class OMVHardDiskDevices extends OMVObject {
 		}
 		$list = array();
 		foreach ($output as $outputk => $outputv) {
-			$regex = "/^\s+(\d+)\s+(\d+)\s+(\d+)\s+((h|s|x?v)d[a-z]+)$/";
+			$regex = "/^\s+(\d+)\s+(\d+)\s+(\d+)\s+((h|s|x?v)d[a-z]+|".
+			  "cciss\/c[0-9]+d[0-9]+)$/";
 			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;
 			$list[] = sprintf("/dev/%s", $matches[4]);
