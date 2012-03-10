@@ -29,6 +29,12 @@ require_once("openmediavault/notify.inc");
 class SmartRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
+			"getList" => array(
+				'{"type":"integer"}', // start
+				'{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'}', // count
+				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
+				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
+			),
 			"setSettings" => array('{
 				"type":"object",
 				"properties":{
@@ -74,6 +80,62 @@ class SmartRpc extends OMVRpc {
 				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
 			)
 		);
+	}
+
+	/**
+	 * Enumerate all devices supporting S.M.A.R.T.
+	 * @return An array containing physical disk device objects with following
+	 * fields: devicename, devicefile, model, size, capacity, temperature,
+	 * description, vendor, serialnumber and temperature.
+	 */
+	public function enumerateDevices() {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Enumerate all disk devices on the system.
+		$objects = array();
+		$devs = OMVRpc::exec("DiskMgmt", "enumerateDevices");
+		foreach($devs as $devk => $devv) {
+			// Filter hardware RAID controllers at the moment.
+			$regex = "/^cciss.+$/";
+			if (1 == preg_match($regex, $devv['devicename'], $matches))
+				continue;
+			$objects[] = $devv;
+		}
+		return $objects;
+	}
+
+	/**
+	 * Get all devices that support S.M.A.R.T.
+	 * @param start The index where to start.
+	 * @param count The number of objects to process.
+	 * @param sortField The name of the column used to sort.
+	 * @param sortDir The sort direction, ASC or DESC.
+	 * @return An array containing the requested objects. The field \em total
+	 * contains the total number of objects, \em data contains the object
+	 * array. An exception will be thrown in case of an error.
+	 */
+	public function getList($start, $count, $sortField, $sortDir) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Validate method parameters
+		$this->validateParams(__METHOD__, func_get_args());
+		// Enumerate all devices supporting S.M.A.R.T.
+		$objects = OMVRpc::exec("Smart", "enumerateDevices");
+		// Filter result
+		return $this->applyFilter($objects, $start, $count, $sortField,
+		  $sortDir);
 	}
 
 	public function getSettings() {

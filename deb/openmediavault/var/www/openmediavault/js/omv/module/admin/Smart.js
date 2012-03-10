@@ -96,7 +96,7 @@ Ext.extend(OMV.Module.Storage.SMARTDevicesPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("DiskMgmt", "getList"),
+			proxy: new OMV.data.DataProxy("Smart", "getList"),
 			reader: new Ext.data.JsonReader({
 				idProperty: "devicefile",
 				totalProperty: "total",
@@ -763,7 +763,7 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestPropertyDialog,
 			store: new OMV.data.Store({
 				autoLoad: true,
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("DiskMgmt", "enumerateDevices"),
+				proxy: new OMV.data.DataProxy("Smart", "enumerateDevices"),
 				reader: new Ext.data.JsonReader({
 					idProperty: "devicefilebyid",
 					fields: [
