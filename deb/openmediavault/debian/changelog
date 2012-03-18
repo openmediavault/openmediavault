@@ -1,3 +1,10 @@
+openmediavault (0.2.7.3) stable; urgency=low
+
+  * Mantis 0000395: The Upgrade Manager does not show all Packages that
+    would be upgraded/installed
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 18 Mar 2012 23:01:08 +0100
+
 openmediavault (0.2.7.2) stable; urgency=low
 
   * Mantis 0000389: Support HP SmartArray controllers (cciss). Please note this

@@ -54,8 +54,14 @@ class AptRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
+		// Get the packages to be installed/updated.
 		$data = array();
-		$regex = "/^Inst (.+) \[(.+)\] \(([^ ]+) .+\)$/";
+		// Parse output:
+		// Inst libisccc60 [1:9.7.3.dfsg-1~squeeze3] (1:9.7.3.dfsg-1~squeeze4 Debian:6.0.4/stable, Debian-Security:6.0/stable [amd64])
+		// Inst file [5.04-5] (5.04-5+squeeze1 Debian-Security:6.0/stable [i386]) []
+		// Inst libxml2 [2.7.8.dfsg-2+squeeze2] (2.7.8.dfsg-2+squeeze3 Debian-Security:6.0/stable [i386])
+		// Inst libssl1.0.0 (1.0.0h-1 localhost [amd64])
+		$regex = "/^Inst\s+(\S+)\s+(\[(\S+)|\])?\s*\((\S+)\s+(.+)\s+\[(\S+)\]\).*$/";
 		foreach ($output as $row) {
 			if (1 !== preg_match($regex, $row, $matches))
 				continue;
@@ -67,11 +73,15 @@ class AptRpc extends OMVRpc {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
+			$description = substr($description, 13);
+			// Append package information
 			$data[] = array(
 				"name" => $matches[1],
-				"version" => $matches[2],
-				"newversion" => $matches[3],
-				"description" => substr($description, 13)
+				"version" => $matches[3],
+				"newversion" => $matches[4],
+				"repository" => $matches[5],
+				"architecture" => $matches[6],
+				"description" => $description ? $description : gettext("n/a")
 			);
 		}
 		return $data;
