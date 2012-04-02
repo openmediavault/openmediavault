@@ -32,7 +32,4 @@ xmlstarlet sel -t -m "//system/shares/sharedfolder" \
 	  omv_mkdir_sharedfolder "${uuid}"
   done
 
-# Update ACL settings
-omv-mkconf facl
-
 exit 0

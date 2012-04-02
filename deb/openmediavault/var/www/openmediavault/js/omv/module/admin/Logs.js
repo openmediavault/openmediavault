@@ -33,7 +33,7 @@ Ext.ns("OMV.Module.Diagnostics");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("diagnostics", "syslogs", {
-	text: "System Logs",
+	text: _("System Logs"),
 	icon: "images/logs.png"
 });
 
@@ -50,7 +50,7 @@ OMV.Module.Diagnostics.LogPlugin = function(config) {
 		rpcGetMethod: "getList",
 		rpcClearMethod: "clear",
 		rpcDownloadMethod: "getContent",
-		rpcArgs: null,
+		rpcArgs: undefined,
 		rpcFields: [],
 		rpcRemoteSort: true
 	};
@@ -70,29 +70,29 @@ Ext.extend(OMV.Module.Diagnostics.LogPlugin, Ext.util.Observable,  {
  */
 OMV.Module.Diagnostics.LogPlugin.Syslog = function(config) {
 	var initialConfig = {
-		title: "Syslog",
+		title: _("Syslog"),
 		stateId: "8779c5e8-cf69-441a-8c9f-93259362f2fb",
 		columns: [{
-			header: "Date & Time",
+			header: _("Date & Time"),
 			sortable: true,
 			dataIndex: "date",
 			id: "date",
 			width: 35,
 			renderer: OMV.util.Format.localeTimeRenderer()
 		},{
-			header: "User",
+			header: _("User"),
 			sortable: true,
 			dataIndex: "user",
 			id: "user",
 			width: 20
 		},{
-			header: "Event",
+			header: _("Event"),
 			sortable: true,
 			dataIndex: "event",
 			id: "event",
 			renderer: OMV.util.Format.whitespaceRenderer()
 		}],
-		rpcArgs: "syslog",
+		rpcArgs: { "id": "syslog" },
 		rpcFields: [
 			{ name: "date" },
 			{ name: "user" },
@@ -115,28 +115,28 @@ OMV.preg("log", "syslog", OMV.Module.Diagnostics.LogPlugin.Syslog);
  */
 OMV.Module.Diagnostics.LogPlugin.Daemon = function(config) {
 	var initialConfig = {
-		title: "Daemon",
+		title: _("Daemon"),
 		stateId: "b3f076a3-3a5a-4e4d-863c-cdec5dee5a07",
 		columns: [{
-			header: "Date & Time",
+			header: _("Date & Time"),
 			sortable: true,
 			dataIndex: "date",
 			id: "date",
 			width: 35,
 			renderer: OMV.util.Format.localeTimeRenderer()
 		},{
-			header: "User",
+			header: _("User"),
 			sortable: true,
 			dataIndex: "user",
 			id: "user",
 			width: 20
 		},{
-			header: "Event",
+			header: _("Event"),
 			sortable: true,
 			dataIndex: "event",
 			id: "event"
 		}],
-		rpcArgs: "daemon",
+		rpcArgs: { "id": "daemon" },
 		rpcFields: [
 			{ name: "date" },
 			{ name: "user" },
@@ -159,28 +159,28 @@ OMV.preg("log", "daemon", OMV.Module.Diagnostics.LogPlugin.Daemon);
  */
 OMV.Module.Diagnostics.LogPlugin.Auth = function(config) {
 	var initialConfig = {
-		title: "Authentication",
+		title: _("Authentication"),
 		stateId: "bd8370a3-fb43-42f4-b036-3e8aaa86d72e",
 		columns: [{
-			header: "Date & Time",
+			header: _("Date & Time"),
 			sortable: true,
 			dataIndex: "date",
 			id: "date",
 			width: 35,
 			renderer: OMV.util.Format.localeTimeRenderer()
 		},{
-			header: "User",
+			header: _("User"),
 			sortable: true,
 			dataIndex: "user",
 			id: "user",
 			width: 20
 		},{
-			header: "Event",
+			header: _("Event"),
 			sortable: true,
 			dataIndex: "event",
 			id: "event"
 		}],
-		rpcArgs: "auth",
+		rpcArgs: { "id": "auth" },
 		rpcFields: [
 			{ name: "date" },
 			{ name: "user" },
@@ -203,28 +203,28 @@ OMV.preg("log", "auth", OMV.Module.Diagnostics.LogPlugin.Auth);
  */
 OMV.Module.Diagnostics.LogPlugin.Messages = function(config) {
 	var initialConfig = {
-		title: "Messages",
+		title: _("Messages"),
 		stateId: "5c3900b7-7ab4-400c-94f0-db259cc94bed",
 		columns: [{
-			header: "Date & Time",
+			header: _("Date & Time"),
 			sortable: true,
 			dataIndex: "date",
 			id: "date",
 			width: 35,
 			renderer: OMV.util.Format.localeTimeRenderer()
 		},{
-			header: "User",
+			header: _("User"),
 			sortable: true,
 			dataIndex: "user",
 			id: "user",
 			width: 20
 		},{
-			header: "Event",
+			header: _("Event"),
 			sortable: true,
 			dataIndex: "event",
 			id: "event"
 		}],
-		rpcArgs: "messages",
+		rpcArgs: { "id": "messages" },
 		rpcFields: [
 			{ name: "date" },
 			{ name: "user" },
@@ -310,8 +310,11 @@ Ext.extend(OMV.Module.Diagnostics.LogGridPanel, OMV.grid.GridPanel, {
 				field: "date",
 				direction: "DESC"
 			},
-			proxy: new OMV.data.DataProxy(this.plugin.rpcService,
-			  this.plugin.rpcGetMethod, this.plugin.rpcArgs),
+			proxy: new OMV.data.DataProxy({
+				"service": this.plugin.rpcService,
+				"method": this.plugin.rpcGetMethod,
+				"extraParams": this.plugin.rpcArgs
+			}),
 			reader: new Ext.data.JsonReader({
 				totalProperty: "total",
 				root: "data",
@@ -325,14 +328,14 @@ Ext.extend(OMV.Module.Diagnostics.LogGridPanel, OMV.grid.GridPanel, {
 			{
 				id: "clear",
 				xtype: "button",
-				text: "Clear",
+				text: _("Clear"),
 				icon: "images/trashcan.png",
 				handler: this.cbClearBtnHdl,
 				scope: this
 			},{
 				id: "download",
 				xtype: "button",
-				text: "Download",
+				text: _("Download"),
 				icon: "images/save.png",
 				handler: this.cbDownloadBtnHdl,
 				scope: this
@@ -344,7 +347,7 @@ Ext.extend(OMV.Module.Diagnostics.LogGridPanel, OMV.grid.GridPanel, {
 			pageSize: 50,
 			displayInfo: true,
 			displayMsg: 'Displaying topics {0} - {1} of {2}',
-			emptyMsg: "No log entries to display"
+			emptyMsg: _("No log entries to display")
 		});
 		OMV.Module.Diagnostics.LogGridPanel.superclass.initComponent.apply(
 		  this, arguments);
@@ -364,9 +367,9 @@ Ext.extend(OMV.Module.Diagnostics.LogGridPanel, OMV.grid.GridPanel, {
 	 * is pressed.
 	 */
 	cbClearBtnHdl : function() {
-		var msg = "Do you really want to clear the log file?";
+		var msg = _("Do you really want to clear the log file?");
 		OMV.MessageBox.show({
-			title: "Confirmation",
+			title: _("Confirmation"),
 			msg: msg,
 			buttons: Ext.Msg.YESNO,
 			fn: function(answer) {
@@ -415,8 +418,11 @@ Ext.extend(OMV.Module.Diagnostics.LogGridPanel, OMV.grid.GridPanel, {
 				field: "date",
 				direction: "DESC"
 			},
-			proxy: new OMV.data.DataProxy(this.plugin.rpcService,
-			  this.plugin.rpcGetMethod, this.plugin.rpcArgs),
+			proxy: new OMV.data.DataProxy({
+				"service": this.plugin.rpcService,
+				"method": this.plugin.rpcGetMethod,
+				"extraParams": this.plugin.rpcArgs
+			}),
 			reader: new Ext.data.JsonReader({
 				totalProperty: "total",
 				root: "data",
@@ -432,7 +438,7 @@ Ext.extend(OMV.Module.Diagnostics.LogGridPanel, OMV.grid.GridPanel, {
 });
 OMV.NavigationPanelMgr.registerPanel("diagnostics", "syslogs", {
 	cls: OMV.Module.Diagnostics.LogGridPanel,
-	title: "Logs",
+	title: _("Logs"),
 	position: 10
 });
 
@@ -460,11 +466,11 @@ Ext.extend(OMV.Module.Diagnostics.LogSettingsPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "Remote syslog",
+			title: _("Remote syslog"),
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				listeners: {
 					check: this._updateFormFields.createDelegate(this)
@@ -472,14 +478,14 @@ Ext.extend(OMV.Module.Diagnostics.LogSettingsPanel, OMV.FormPanelExt, {
 			},{
 				xtype: "textfield",
 				name: "host",
-				fieldLabel: "Host",
+				fieldLabel: _("Host"),
 				allowBlank: true,
 				vtype: "IPv4",
 				value: ""
 			},{
 				xtype: "numberfield",
 				name: "port",
-				fieldLabel: "Port",
+				fieldLabel: _("Port"),
 				allowBlank: true,
 				vtype: "port",
 				value: 514
@@ -487,8 +493,8 @@ Ext.extend(OMV.Module.Diagnostics.LogSettingsPanel, OMV.FormPanelExt, {
 				xtype: "combo",
 				name: "protocol",
 				hiddenName: "protocol",
-				fieldLabel: "Protocol",
-				emptyText: "Select a protocol ...",
+				fieldLabel: _("Protocol"),
+				emptyText: _("Select a protocol ..."),
 				mode: "local",
 				store: new Ext.data.SimpleStore({
 					fields: [ "value","text" ],
@@ -528,6 +534,6 @@ Ext.extend(OMV.Module.Diagnostics.LogSettingsPanel, OMV.FormPanelExt, {
 });
 OMV.NavigationPanelMgr.registerPanel("diagnostics", "syslogs", {
 	cls: OMV.Module.Diagnostics.LogSettingsPanel,
-	title: "Settings",
+	title: _("Settings"),
 	position: 20
 });

@@ -1,0 +1,47 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# http://linux.koolsolutions.com/2009/01/30/installing-linux-on-usb-part-4-noatime-and-relatime-mount-options/
+# http://techgage.com/article/enabling_and_testing_ssd_trim_support_under_linux
+# https://wiki.archlinux.org/index.php/Solid_State_Drives
+# http://wiki.ubuntuusers.de/SSD/TRIM
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_FSTAB_MNTOPS_NONROTATIONAL=${OMV_FSTAB_MNTOPS_NONROTATIONAL:-"noatime,discard"}
+
+# Reload udev rules because we are now in a chroot environment. This is
+# necessary to load udev rules coming with OpenMediaVault.
+udevadm control --reload-rules
+udevadm trigger
+
+# Modify rootfs mount options for non-rotational devices
+devicefile=$(export LANG=C; mount | grep -ei 'on / ' | awk '{ print $1 }' | sed 's/[1-9]//')
+rotational=$(cat /sys/block/${devicefile##*/}/queue/rotational)
+if [ ${rotational} -eq 0 ]; then
+	options=$(grep -P '^\S+\s+/\s+\S+\s+\S+\s+\d+\s+\d+\s*$' /etc/fstab | awk '{ print $4 }')
+	sed -i -e "s/\/\s*\(\S*\)\s*${options}\s*0/\/\t\1\t${OMV_FSTAB_MNTOPS_NONROTATIONAL},${options}\t0/" /etc/fstab
+fi
+
+exit 0

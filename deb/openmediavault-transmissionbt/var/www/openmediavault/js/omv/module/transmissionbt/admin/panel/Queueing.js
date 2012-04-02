@@ -17,7 +17,7 @@ Ext.ns("OMV.Module.Services.TransmissionBT.Admin");
  */
 OMV.Module.Services.TransmissionBT.Admin.QueuingPanel = function(config) {
 	var initialConfig = {
-		title: "Queuing",
+		title: _("Queuing"),
 		rpcService: "TransmissionBT",
 		rpcGetMethod: "getQueuing",
 		rpcSetMethod: "setQueuing"
@@ -30,21 +30,21 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.QueuingPanel, OMV.FormPanelE
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General",
+			title: _("General"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
 			},
 			items: [{xtype: "checkbox",
 				name: "queue-stalled-enabled",
-				fieldLabel: "Queue Stalled",
+				fieldLabel: _("Queue Stalled"),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Torrents that have not shared data for queue-stalled-minutes are treated as 'stalled' and are not counted against the queue-download-size and seed-queue-size limits."
+				boxLabel: _("Torrents that have not shared data for queue-stalled-minutes are treated as 'stalled' and are not counted against the queue-download-size and seed-queue-size limits.")
 			},{
 				xtype: "numberfield",
 				name: "queue-stalled-minutes",
-				fieldLabel: "Stalled Minutes",
+				fieldLabel: _("Stalled Minutes"),
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
@@ -52,21 +52,21 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.QueuingPanel, OMV.FormPanelE
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Download Queue",
+			title: _("Download Queue"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
 			},
 			items: [{xtype: "checkbox",
 				name: "download-queue-enabled",
-				fieldLabel: "Download",
+				fieldLabel: _("Download"),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Transmission will only download download-queue-size non-stalled torrents at once."
+				boxLabel: _("Transmission will only download download-queue-size non-stalled torrents at once.")
 			},{
 				xtype: "numberfield",
 				name: "download-queue-size",
-				fieldLabel: "Size",
+				fieldLabel: _("Size"),
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
@@ -74,21 +74,21 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.QueuingPanel, OMV.FormPanelE
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Seed Queue",
+			title: _("Seed Queue"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
 			},
 			items: [{xtype: "checkbox",
 				name: "seed-queue-enabled",
-				fieldLabel: "Seed",
+				fieldLabel: _("Seed"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Transmission will only seed seed-queue-size non-stalled torrents at once."
+				boxLabel: _("Transmission will only seed seed-queue-size non-stalled torrents at once.")
 			},{
 				xtype: "numberfield",
 				name: "seed-queue-size",
-				fieldLabel: "Size",
+				fieldLabel: _("Size"),
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,

@@ -19,25 +19,25 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/NavigationPanel.js")
+// require("js/omv/FormPanelDialog.js")
+// require("js/omv/FormPanelExt.js")
 // require("js/omv/data/DataProxy.js")
 // require("js/omv/data/Store.js")
-// require("js/omv/CfgObjectDialog.js")
 // require("js/omv/grid/TBarGridPanel.js")
 // require("js/omv/form/CheckboxGrid.js")
 // require("js/omv/form/PasswordField.js")
 // require("js/omv/form/plugins/FieldInfo.js")
-// require("js/omv/form/SharedFolderComboBox.js")
 
 Ext.ns("OMV.Module.Privileges");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("privileges", "users", {
-	text: "User",
+	text: _("User"),
 	icon: "images/user.png",
 	position: 10
 });
 OMV.NavigationPanelMgr.registerMenu("privileges", "groups", {
-	text: "Group",
+	text: _("Group"),
 	icon: "images/group.png",
 	position: 20
 });
@@ -49,29 +49,32 @@ OMV.NavigationPanelMgr.registerMenu("privileges", "groups", {
 OMV.Module.Privileges.UserGridPanel = function(config) {
 	var initialConfig = {
 		hidePagingToolbar: false,
-		iconCls: "x-tab-strip-usermngmt-user",
 		stateId: "98d6fe31-8e12-407b-82f2-7e0acf4006c1",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Name",
+				header: _("Name"),
 				sortable: true,
 				dataIndex: "name",
 				id: "name"
 			},{
-				header: "Email",
+				header: _("Email"),
 				sortable: true,
 				dataIndex: "email",
 				id: "email"
 			},{
-				header: "Comment",
+				header: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
 				id: "comment"
 			},{
-				header: "Groups",
+				header: _("Groups"),
 				sortable: true,
 				dataIndex: "groups",
-				id: "groups"
+				id: "groups",
+				renderer: function(val, cell, record, row, col, store) {
+					return val.join(",");
+				},
+				scope: this
 			}]
 		})
 	};
@@ -84,18 +87,19 @@ Ext.extend(OMV.Module.Privileges.UserGridPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("UserMgmt", "getUserList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "UserMgmt",
+				"method": "getUserList"
+			}),
 			reader: new Ext.data.JsonReader({
-				idProperty: "uuid",
+				idProperty: "name",
 				totalProperty: "total",
 				root: "data",
 				fields: [
-					{ name: "uuid" },
 					{ name: "name" },
 					{ name: "email" },
 					{ name: "groups" },
 					{ name: "comment" },
-					{ name: "_readOnly" },
 					{ name: "_used" }
     			]
 			})
@@ -105,9 +109,44 @@ Ext.extend(OMV.Module.Privileges.UserGridPanel, OMV.grid.TBarGridPanel, {
 		this.on("activate", this.doReload, this);
 	},
 
-	cbAddBtnHdl : function() {
-		var wnd = new OMV.Module.Privileges.UserPropertyDialog({
-			uuid: OMV.UUID_UNDEFINED,
+	initToolbar : function() {
+		var tbar = OMV.Module.Privileges.UserGridPanel.superclass.
+		  initToolbar.apply(this, arguments);
+		// Replace the default 'Add' button
+		tbar.remove(0);
+		tbar.insert(0, new Ext.SplitButton({
+			text: _("Add"),
+			icon: "images/add.png",
+			handler: function() {
+				this.showMenu();
+			},
+			menu: new Ext.menu.Menu({
+				items: [
+					{ text: _("Add"), value: "add" },
+					{ text: _("Import"), value: "import" }
+				],
+				listeners: {
+					itemclick: function(item, e) {
+						this.cbAddBtnHdl(item.value);
+					},
+					scope: this
+				}
+			})
+		}));
+		return tbar;
+	},
+
+	cbAddBtnHdl : function(action) {
+		var cls;
+		switch (action) {
+		case "add":
+			cls = OMV.Module.Privileges.UserPropertyDialog;
+			break;
+		case "import":
+			cls = OMV.Module.Privileges.UserImportDialog;
+			break;
+		}
+		var wnd = new cls({
 			listeners: {
 				submit: function() {
 					this.doReload();
@@ -122,8 +161,8 @@ Ext.extend(OMV.Module.Privileges.UserGridPanel, OMV.grid.TBarGridPanel, {
 		var selModel = this.getSelectionModel();
 		var record = selModel.getSelected();
 		var wnd = new OMV.Module.Privileges.UserPropertyDialog({
-			uuid: record.get("uuid"),
-			readOnly: record.get("_readOnly"),
+			rpcGetMethod: "getUser",
+			rpcGetParams: { "name": record.get("name") },
 			listeners: {
 				submit: function() {
 					this.doReload();
@@ -136,84 +175,152 @@ Ext.extend(OMV.Module.Privileges.UserGridPanel, OMV.grid.TBarGridPanel, {
 
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "UserMgmt",
-		  "deleteUser", [ record.get("uuid") ]);
+		  "deleteUser", { "name": record.get("name") });
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("privileges", "users", {
-	cls: OMV.Module.Privileges.UserGridPanel
+	cls: OMV.Module.Privileges.UserGridPanel,
+	title: _("User"),
+	position: 10
+});
+
+/**
+ * @class OMV.Module.Privileges.UserSettings
+ * @derived OMV.FormPanelExt
+ */
+OMV.Module.Privileges.UserSettings = function(config) {
+	var initialConfig = {
+		rpcService: "UserMgmt",
+		rpcGetMethod: "getSettings",
+		rpcSetMethod: "setSettings",
+		onlySubmitIfDirty: true
+	};
+	Ext.apply(initialConfig, config);
+	OMV.Module.Privileges.UserSettings.superclass.constructor.call(
+	  this, initialConfig);
+};
+Ext.extend(OMV.Module.Privileges.UserSettings, OMV.FormPanelExt, {
+	initComponent : function() {
+		OMV.Module.Privileges.UserSettings.superclass.initComponent.apply(
+		  this, arguments);
+		this.on("load", this._updateFormFields, this);
+	},
+
+	getFormItems : function() {
+		return [{
+			xtype: "fieldset",
+			title: _("User home directory"),
+			defaults: {
+//				anchor: "100%",
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "checkbox",
+				name: "enable",
+				fieldLabel: _("Enable"),
+				checked: false,
+				inputValue: 1,
+				listeners: {
+					check: this._updateFormFields,
+					scope: this
+				}
+			},{
+				xtype: "sharedfoldercombo",
+				name: "sharedfolderref",
+				hiddenName: "sharedfolderref",
+				fieldLabel: _("Location"),
+				allowNone: true,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("The location of the user home directories.")
+			}]
+		}];
+	},
+
+	/**
+	 * Private function to update the states of various form fields.
+	 */
+	_updateFormFields : function() {
+		var field = this.findFormField("enable");
+		var checked = field.checked;
+		var fields = [ "sharedfolderref" ];
+		for (var i = 0; i < fields.length; i++) {
+			field = this.findFormField(fields[i]);
+			if (!Ext.isEmpty(field)) {
+				field.allowBlank = !checked;
+			}
+		}
+	}
+});
+OMV.NavigationPanelMgr.registerPanel("privileges", "users", {
+	cls: OMV.Module.Privileges.UserSettings,
+	title: _("Settings"),
+	position: 20
 });
 
 /**
  * @class OMV.Module.Privileges.UserPropertyDialog
- * @derived OMV.CfgObjectDialog
+ * @derived OMV.FormPanelDialog
  */
 OMV.Module.Privileges.UserPropertyDialog = function(config) {
 	var initialConfig = {
 		rpcService: "UserMgmt",
-		rpcGetMethod: "getUser",
 		rpcSetMethod: "setUser",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " user",
+		title: (!Ext.isDefined(config.rpcGetMethod)) ?
+		  _("Add user") : _("Edit user"),
 		width: 420,
-		height: 485
+		height: 385
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.Privileges.UserPropertyDialog.superclass.constructor.call(
 	  this, initialConfig);
 };
-Ext.extend(OMV.Module.Privileges.UserPropertyDialog, OMV.CfgObjectDialog, {
+Ext.extend(OMV.Module.Privileges.UserPropertyDialog, OMV.FormPanelDialog, {
 	getFormItems : function() {
 		return [{
 			xtype: "textfield",
 			name: "name",
-			fieldLabel: "Name",
+			fieldLabel: _("Name"),
 			allowBlank: false,
 			vtype: "username",
-			readOnly: (this.uuid !== OMV.UUID_UNDEFINED)
+			readOnly: Ext.isDefined(this.rpcGetMethod)
 		},{
 			xtype: "textfield",
 			name: "comment",
-			fieldLabel: "Comment",
+			fieldLabel: _("Comment"),
 			maxLength: 65,
 			vtype: "comment"
 		},{
 			xtype: "textfield",
 			name: "email",
-			fieldLabel: "Email",
+			fieldLabel: _("Email"),
 			allowBlank: true,
 			vtype: "email"
 		},{
 			xtype: "passwordfield",
 			name: "password",
-			fieldLabel: "Password",
-			allowBlank: false
+			fieldLabel: _("Password"),
+			allowBlank: Ext.isDefined(this.rpcGetMethod)
 		},{
 			xtype: "passwordfield",
 			name: "passwordconf",
-			fieldLabel: "Confirm password",
-			allowBlank: false,
+			fieldLabel: _("Confirm password"),
+			allowBlank: Ext.isDefined(this.rpcGetMethod),
 			submitValue: false
-		},{
-			xtype: "sharedfoldercombo",
-			name: "sharedfolderref",
-			hiddenName: "sharedfolderref",
-			fieldLabel: "Home directory",
-			allowBlank: true,
-			allowNone: true,
-			noneText: "Default",
-			value: ""
 		},{
 			xtype: "combo",
 			name: "shell",
 			hiddenName: "shell",
-			fieldLabel: "Shell",
+			fieldLabel: _("Shell"),
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
 			store: new OMV.data.Store({
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("System", "getShells",
-				  null, false),
+				proxy: new OMV.data.DataProxy({
+					"service": "System",
+					"method": "getShells",
+					"appendPagingParams": false
+				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "path",
 					totalProperty: "total",
@@ -221,65 +328,38 @@ Ext.extend(OMV.Module.Privileges.UserPropertyDialog, OMV.CfgObjectDialog, {
 					fields: [
 						{ name: "path" }
 					]
-				})
+				}),
+				sortInfo: {
+					field: "path",
+					direction: "ASC"
+				}
 			}),
-			emptyText: "Select a shell ...",
+			emptyText: _("Select a shell ..."),
 			valueField: "path",
 			displayField: "path",
-			value: "/bin/dash",
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The name of the users login shell. Note, you may lock out a user from various services when selecting no login shell."
-		},{
-			xtype: "checkbox",
-			name: "useuid",
-			fieldLabel: "Specify user ID manually",
-			inputValue: 1,
-			listeners: {
-				check: function(checkbox, checked) {
-					if (this.uuid == OMV.UUID_UNDEFINED) {
-						var field = this.findFormField("uid");
-						if (!Ext.isEmpty(field)) {
-							field.allowBlank = !checked;
-							field.setReadOnly(!checked);
-						}
-					}
-				},
-				scope: this
-			}
-		},{
-			xtype: "numberfield",
-			name: "uid",
-			fieldLabel: "UID",
-			allowBlank: true,
-			minValue: 1000,
-			maxValue: 60000, // see /etc/login.defs
-			allowDecimals: false,
-			allowNegative: false,
-			listeners: {
-				beforerender: function(comp) {
-					comp.setReadOnly(true);
-				},
-				scope: this
-			}
+			value: "/bin/dash"
 		},{
 			xtype: "checkboxgrid",
 			name: "groups",
-			fieldLabel: "Groups",
-			height: 110,
+			fieldLabel: _("Groups"),
+			height: 130,
 			store: new OMV.data.Store({
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("UserMgmt",
-					"getGroupList"),
+				proxy: new OMV.data.DataProxy({
+					"service": "UserMgmt",
+					"method": "enumerateAllGroups",
+					"appendPagingParams": false
+				}),
 				reader: new Ext.data.JsonReader({
-					idProperty: "uuid",
-					totalProperty: "total",
-					root: "data",
+					idProperty: "name",
 					fields: [
-						{ name: "uuid" },
-						{ name: "name" },
-						{ name: "comment" }
+						{ name: "name" }
 					]
-				})
+				}),
+				sortInfo: {
+					field: "name",
+					direction: "ASC"
+				}
 			}),
 			valueField: "name",
 			stateId: "c4689ae7-c8e6-4f3d-923f-6795fdf0ba45",
@@ -288,15 +368,10 @@ Ext.extend(OMV.Module.Privileges.UserPropertyDialog, OMV.CfgObjectDialog, {
 					sortable: true
 				},
 				columns: [{
-					header: "Group",
+					header: _("Name"),
 					sortable: true,
 					dataIndex: "name",
 					id: "name"
-				},{
-					header: "Comment",
-					sortable: true,
-					dataIndex: "comment",
-					id: "comment"
 				}]
 			}),
 			viewConfig: {
@@ -310,10 +385,10 @@ Ext.extend(OMV.Module.Privileges.UserPropertyDialog, OMV.CfgObjectDialog, {
 		},{
 			xtype: "checkbox",
 			name: "disallowusermod",
-			fieldLabel: "Modify account",
+			fieldLabel: _("Modify account"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Disallow the user to modify his account."
+			boxLabel: _("Disallow the user to modify his account.")
 		}];
 	},
 
@@ -325,7 +400,7 @@ Ext.extend(OMV.Module.Privileges.UserPropertyDialog, OMV.CfgObjectDialog, {
 			// Check the password
 			var field = this.findFormField("passwordconf");
 			if (values.password !== field.getValue()) {
-				var msg = "Passwords don't match";
+				var msg = _("Passwords don't match");
 				this.markInvalid([
 					{ id: "password", msg: msg },
 					{ id: "passwordconf", msg: msg }
@@ -334,6 +409,15 @@ Ext.extend(OMV.Module.Privileges.UserPropertyDialog, OMV.CfgObjectDialog, {
 			}
 		}
 		return valid;
+	},
+
+	getValues : function() {
+		var values = OMV.Module.Privileges.UserPropertyDialog.superclass.
+		  getValues.call(this);
+		// Convert 'groups' into an array
+		values.groups = !Ext.isEmpty(values.groups) ?
+		  values.groups.split(",") : [];
+		return values;
 	},
 
 	/**
@@ -374,22 +458,57 @@ Ext.extend(OMV.Module.Privileges.UserPropertyDialog, OMV.CfgObjectDialog, {
 });
 
 /**
+ * @class OMV.Module.Privileges.UserImportDialog
+ * @derived OMV.FormPanelDialog
+ */
+OMV.Module.Privileges.UserImportDialog = function(config) {
+	var initialConfig = {
+		rpcService: "UserMgmt",
+		rpcSetMethod: "importUsers",
+		title: _("Import users"),
+		width: 580,
+		height: 350
+	};
+	Ext.apply(initialConfig, config);
+	OMV.Module.Privileges.UserImportDialog.superclass.constructor.call(
+	  this, initialConfig);
+};
+Ext.extend(OMV.Module.Privileges.UserImportDialog, OMV.FormPanelDialog, {
+	getFormItems : function() {
+		return [{
+			xtype: "textarea",
+			name: "csv",
+			hideLabel: true,
+			allowBlank: false,
+			autoCreate: {
+				tag: "textarea",
+				autocomplete: "off",
+				rows: "8"
+			},
+			value: "# <name>;<uid>;<comment>;<email>;<password>;<group,group,...>;<disallowusermod>",
+			anchor: "100% -15",
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: _("Each line represents one user. Note, the password must be entered in plain text.")
+		}];
+	}
+});
+
+/**
  * @class OMV.Module.Privileges.GroupGridPanel
  * @derived OMV.grid.TBarGridPanel
  */
 OMV.Module.Privileges.GroupGridPanel = function(config) {
 	var initialConfig = {
 		hidePagingToolbar: false,
-		iconCls: "x-tab-strip-usermngmt-group",
 		stateId: "d7c66fd9-2ef5-4107-9a6f-562dcdc2643a",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Name",
+				header: _("Name"),
 				sortable: true,
 				dataIndex: "name",
 				id: "name"
 			},{
-				header: "Comment",
+				header: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
 				id: "comment"
@@ -405,17 +524,17 @@ Ext.extend(OMV.Module.Privileges.GroupGridPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("UserMgmt", "getGroupList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "UserMgmt",
+				"method": "getGroupList"
+			}),
 			reader: new Ext.data.JsonReader({
-				idProperty: "uuid",
+				idProperty: "name",
 				totalProperty: "total",
 				root: "data",
 				fields: [
-					{ name: "uuid" },
 					{ name: "name" },
-					{ name: "comment" },
-					{ name: "_readOnly" },
-					{ name: "_used" }
+					{ name: "comment" }
     			]
 			})
 		});
@@ -427,7 +546,6 @@ Ext.extend(OMV.Module.Privileges.GroupGridPanel, OMV.grid.TBarGridPanel, {
 
 	cbAddBtnHdl : function() {
 		var wnd = new OMV.Module.Privileges.GroupPropertyDialog({
-			uuid: OMV.UUID_UNDEFINED,
 			listeners: {
 				submit: function() {
 					this.doReload();
@@ -442,8 +560,8 @@ Ext.extend(OMV.Module.Privileges.GroupGridPanel, OMV.grid.TBarGridPanel, {
 		var selModel = this.getSelectionModel();
 		var record = selModel.getSelected();
 		var wnd = new OMV.Module.Privileges.GroupPropertyDialog({
-			uuid: record.get("uuid"),
-			readOnly: record.get("_readOnly"),
+			rpcGetMethod: "getGroup",
+			rpcGetParams: { "name": record.get("name") },
 			listeners: {
 				submit: function() {
 					this.doReload();
@@ -456,7 +574,7 @@ Ext.extend(OMV.Module.Privileges.GroupGridPanel, OMV.grid.TBarGridPanel, {
 
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "UserMgmt",
-		  "deleteGroup", [ record.get("uuid") ]);
+		  "deleteGroup", { "name": record.get("name") });
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("privileges", "groups", {
@@ -465,100 +583,88 @@ OMV.NavigationPanelMgr.registerPanel("privileges", "groups", {
 
 /**
  * @class OMV.Module.Privileges.GroupPropertyDialog
- * @derived OMV.CfgObjectDialog
+ * @derived OMV.FormPanelDialog
  */
 OMV.Module.Privileges.GroupPropertyDialog = function(config) {
 	var initialConfig = {
 		rpcService: "UserMgmt",
-		rpcGetMethod: "getGroup",
 		rpcSetMethod: "setGroup",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " group",
-		height: 243
+		title: (!Ext.isDefined(config.rpcGetMethod)) ?
+		  _("Add group") : _("Edit group"),
+		height: 305
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.Privileges.GroupPropertyDialog.superclass.constructor.call(
 	  this, initialConfig);
 };
-Ext.extend(OMV.Module.Privileges.GroupPropertyDialog, OMV.CfgObjectDialog, {
+Ext.extend(OMV.Module.Privileges.GroupPropertyDialog, OMV.FormPanelDialog, {
 	getFormItems : function() {
 		return [{
 			xtype: "textfield",
 			name: "name",
-			fieldLabel: "Name",
+			fieldLabel: _("Name"),
 			allowBlank: false,
 			vtype: "groupname",
-			readOnly: (this.uuid !== OMV.UUID_UNDEFINED)
-		},{
-			xtype: "checkbox",
-			name: "usegid",
-			fieldLabel: "Specify group ID manually",
-			readOnly: (this.uuid !== OMV.UUID_UNDEFINED),
-			inputValue: 1,
-			listeners: {
-				check: function(checkbox, checked) {
-					if (this.uuid == OMV.UUID_UNDEFINED) {
-						var field = this.findFormField("gid");
-						if (!Ext.isEmpty(field)) {
-							field.allowBlank = !checked;
-							field.setReadOnly(!checked);
-						}
-					}
-				},
-				scope: this
-			}
-		},{
-			xtype: "numberfield",
-			name: "gid",
-			fieldLabel: "GID",
-			allowBlank: true,
-			minValue: 1001,
-			maxValue: 60000, // see /etc/login.defs
-			allowDecimals: false,
-			allowNegative: false,
-			listeners: {
-				beforerender: function(comp) {
-					comp.setReadOnly(true);
-				},
-				scope: this
-			}
+			readOnly: Ext.isDefined(this.rpcGetMethod)
 		},{
 			xtype: "textarea",
 			name: "comment",
-			fieldLabel: "Comment",
+			fieldLabel: _("Comment"),
 			allowBlank: true,
 			vtype: "comment"
+		},{
+			xtype: "checkboxgrid",
+			name: "members",
+			fieldLabel: _("Members"),
+			height: 130,
+			store: new OMV.data.Store({
+				remoteSort: false,
+				proxy: new OMV.data.DataProxy({
+					"service": "UserMgmt",
+					"method": "enumerateUsers",
+					"appendPagingParams": false
+				}),
+				reader: new Ext.data.JsonReader({
+					idProperty: "name",
+					fields: [
+						{ name: "name" }
+					]
+				}),
+				sortInfo: {
+					field: "name",
+					direction: "ASC"
+				}
+			}),
+			valueField: "name",
+			stateId: "c4689ae7-c8e6-4f3d-923f-6795fdf0ba45",
+			colModel: new Ext.grid.ColumnModel({
+				defaults: {
+					sortable: true
+				},
+				columns: [{
+					header: _("Name"),
+					sortable: true,
+					dataIndex: "name",
+					id: "name"
+				}]
+			}),
+			viewConfig: {
+				forceFit: true
+			},
+			listeners: {
+				beforerender: function() {
+					this.store.load();
+				}
+			}
 		}];
 	},
 
-	/**
-	 * Set values for fields in this form in bulk.
-	 * @param values The values to set in the form of an object hash.
-	 * @return The basic form object.
-	 */
-	setValues : function(values) {
-		this._updateFormFields();
-		OMV.Module.Privileges.GroupPropertyDialog.superclass.setValues.call(
-		  this, values);
-	},
-
-	/**
-	 * Private function to update the states of various form fields.
-	 */
-	_updateFormFields : function() {
-		if (this.uuid == OMV.UUID_UNDEFINED)
-			return;
-		var fields = [ "usegid", "gid" ];
-		for (var i = 0; i < fields.length; i++) {
-			var field = this.findFormField(fields[i]);
-			if (!Ext.isEmpty(field)) {
-				field.allowBlank = true;
-				field.setReadOnly(true);
-				if ("numberfield" === field.getXType()) {
-					// Reset validation
-					field.minValue = Number.NEGATIVE_INFINITY;
-				}
-			}
-		}
+	getValues : function() {
+		var values = OMV.Module.Privileges.GroupPropertyDialog.superclass.
+		  getValues.call(this);
+		// Convert 'members' into an array
+		values.members = !Ext.isEmpty(values.members) ?
+		  values.members.split(",") : [];
+		return values;
 	}
 });

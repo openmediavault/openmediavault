@@ -42,7 +42,7 @@ Ext.extend(OMV.DiagPanel, Ext.Panel, {
 				items: [{
 					id: this.getId() + "-refresh",
 					xtype: "button",
-					text: "Refresh",
+					text: _("Refresh"),
 					icon: "images/reload.png",
 					handler:this.cbRefreshBtnHdl,
 					scope: this
@@ -59,6 +59,7 @@ Ext.extend(OMV.DiagPanel, Ext.Panel, {
 	 * Override this method to customize the default behaviour.
 	 */
 	doLoad : function() {
+		// Nothing to do here by default.
 	},
 
 	/**

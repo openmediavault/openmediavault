@@ -38,15 +38,21 @@ class RsyncdRpc extends OMVRpc {
 					"extraoptions":{"type":"string"}
 				}
 			}'),
-			"getModuleList" => array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
-			"getModule" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"getModuleList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
+			"getModule" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"setModule" => array('{
 				"type":"object",
 				"properties":{
@@ -54,19 +60,34 @@ class RsyncdRpc extends OMVRpc {
 					"sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
 					"name":{'.$GLOBALS['OMV_JSONSCHEMA_SHARENAME'].'},
 					"comment":{"type":"string"},
-					"guestok":{"type":"boolean"},
+					"uid":{"type":"string"},
+					"gid":{"type":"string"},
 					"readonly":{"type":"boolean"},
 					"writeonly":{"type":"boolean"},
 					"maxconnections":{"type":"integer","minimum":0},
 					"list":{"type":"boolean"},
 					"hostsallow":{"type":"string"},
 					"hostsdeny":{"type":"string"},
+					"authusers":{"type":"boolean"},
+					"users":{
+						"type":"array",
+						"items":{
+							"type":"object",
+							"properties":{
+								"name":{"type":"string"},
+								"password":{"type":"string"}
+							}
+						}
+					},
 					"extraoptions":{"type":"string"}
 				}
 			}'),
-			"deleteModule" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			)
+			"deleteModule" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}')
 		);
 	}
 
@@ -130,9 +151,17 @@ class RsyncdRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get list of module config objects.
+	 * Get list of module configuration objects.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	public function getModuleList($start, $count, $sortField, $sortDir) {
+	public function getModuleList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -154,10 +183,12 @@ class RsyncdRpc extends OMVRpc {
 		foreach ($objects as $objectk => &$objectv) {
 			$objectv['sharedfoldername'] = gettext("n/a");
 			// Modify result data
-			$objectv['guestok'] = boolval($objectv['guestok']);
 			$objectv['readonly'] = boolval($objectv['readonly']);
 			$objectv['writeonly'] = boolval($objectv['writeonly']);
 			$objectv['list'] = boolval($objectv['list']);
+			$objectv['authusers'] = boolval($objectv['authusers']);
+			$objectv['users'] = !is_array($objectv['users']) ?
+			  array() : $objectv['users']['user'];
 			// Get the shared folder configuration object
 			$sfobject = $xmlConfig->get("//system/shares/sharedfolder[" .
 			  "uuid='{$objectv['sharedfolderref']}']");
@@ -166,14 +197,17 @@ class RsyncdRpc extends OMVRpc {
 			}
 		}
 		// Filter result
-		return $this->applyFilter($objects, $start, $count, $sortField,
-		  $sortDir);
+		return $this->applyFilter($objects, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
-	 * Get a module config object.
+	 * Get a module configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return The requested configuration object.
 	 */
-	public function getModule($uuid) {
+	public function getModule($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -185,22 +219,25 @@ class RsyncdRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get configuration object
-		$xpath = "//services/rsync/server/modules/module[uuid='{$uuid}']";
+		$xpath = sprintf("//services/rsync/server/modules/module[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Modify result data
-		$object['guestok'] = boolval($object['guestok']);
 		$object['readonly'] = boolval($object['readonly']);
 		$object['writeonly'] = boolval($object['writeonly']);
 		$object['list'] = boolval($object['list']);
+		$object['authusers'] = boolval($object['authusers']);
+		$object['users'] = !is_array($object['users']) ?
+		  array() : $object['users']['user'];
 		return $object;
 	}
 
 	/**
-	 * Set a module config object.
+	 * Set a module configuration object.
 	 */
 	public function setModule($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -219,14 +256,18 @@ class RsyncdRpc extends OMVRpc {
 			  OMVUtil::uuid() : $data['uuid'],
 			"sharedfolderref" => $data['sharedfolderref'],
 			"name" => $data['name'],
+			"uid" => $data['uid'],
+			"gid" => $data['gid'],
 			"comment" => $data['comment'],
-			"guestok" => array_boolval($data, 'guestok'),
 			"readonly" => array_boolval($data, 'readonly'),
 			"writeonly" => array_boolval($data, 'writeonly'),
 			"maxconnections" => $data['maxconnections'],
 			"list" => array_boolval($data, 'list'),
 			"hostsallow" => $data['hostsallow'],
 			"hostsdeny" => $data['hostsdeny'],
+			"authusers" => array_boolval($data, 'authusers'),
+			"users" => !empty($data['users']) ?
+			  array("user" => $data['users']) : array(),
 			"extraoptions" => $data['extraoptions']
 		);
 		// Set configuration data
@@ -256,9 +297,12 @@ class RsyncdRpc extends OMVRpc {
 	}
 
 	/**
-	 * Delete a module config object.
+	 * Delete a module configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return None
 	 */
-	public function deleteModule($uuid) {
+	public function deleteModule($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -270,7 +314,8 @@ class RsyncdRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Delete configuration object
-		$xpath = "//services/rsync/server/modules/module[uuid='{$uuid}']";
+		$xpath = sprintf("//services/rsync/server/modules/module[uuid='%s']",
+		  $data['uuid']);
 		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
 			  $xpath);

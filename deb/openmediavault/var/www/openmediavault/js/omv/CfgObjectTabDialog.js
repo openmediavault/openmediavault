@@ -32,15 +32,15 @@ Ext.ns("OMV");
  * @param rpcGetMethod The RPC method to get request the data.
  * @param rpcSetMethod The RPC method to commit the data.
  * @param success The function that should be called in case of a successful
- * data commit.
+ *   data commit.
  * @param scope The scope to be used when callig the success function.
  * @param hideOk True to hide the 'OK' button. Defaults to false.
  * @param hideCancel True to hide the 'Cancel' button. Defaults to false.
  * @param hideClose True to hide the 'Close' button. Defaults to true.
  * @param hideReset True to hide the 'Reset' button. Defaults to true.
  * @param mode The mode how to retrieve the data displayed in the property
- * dialog. This can be 'local' or 'remote' which means the data is requested
- * via RPC. Defaults to 'remote'.
+ *   dialog. This can be 'local' or 'remote' which means the data is requested
+ *   via RPC. Defaults to 'remote'.
  */
 OMV.CfgObjectTabDialog = function(config) {
 	var initialConfig = {
@@ -75,25 +75,25 @@ Ext.extend(OMV.CfgObjectTabDialog, OMV.Window, {
 		Ext.apply(this, {
 			buttons: [{
 				id: this.getId() + "-ok",
-				text: "OK",
+				text: _("OK"),
 				hidden: this.hideOk,
 				handler: this.cbOkBtnHdl,
 				scope: this
 			},{
 				id: this.getId() + "-reset",
-				text: "Reset",
+				text: _("Reset"),
 				hidden: this.hideReset,
 				handler: this.cbResetBtnHdl,
 				scope: this
 			},{
 				id: this.getId() + "-cancel",
-				text: "Cancel",
+				text: _("Cancel"),
 				hidden: this.hideCancel,
 				handler: this.cbCancelBtnHdl,
 				scope: this
 			},{
 				id: this.getId() + "-close",
-				text: "Close",
+				text: _("Close"),
 				hidden: this.hideClose,
 				handler: this.cbCloseBtnHdl,
 				scope: this
@@ -107,7 +107,7 @@ Ext.extend(OMV.CfgObjectTabDialog, OMV.Window, {
 	},
 
 	/**
-	 * Initialize the property window tab panel.
+	 * Initialize the property window tab panel object.
 	 */
 	initTab : function() {
 		var config = Ext.apply({
@@ -120,7 +120,15 @@ Ext.extend(OMV.CfgObjectTabDialog, OMV.Window, {
 	},
 
 	/**
+	 * Returns the property window tab panel object.
+	 */
+	getTab : function() {
+		return this.tab;
+	},
+
+	/**
 	 * Returns additional tab configuration options.
+	 * This function can be overwritten by a derived class.
 	 */
 	getTabConfig : function() {
 		return {};
@@ -203,10 +211,10 @@ Ext.extend(OMV.CfgObjectTabDialog, OMV.Window, {
 
 	doLoad : function() {
 		// Display waiting dialog
-		OMV.MessageBox.wait(null, "Loading ...");
+		OMV.MessageBox.wait(null, _("Loading ..."));
 		// Execute RPC
 		OMV.Ajax.request(this.cbLoadHdl, this, this.rpcService,
-		  this.rpcGetMethod, [ this.uuid ]);
+		  this.rpcGetMethod, { "uuid": this.uuid });
 	},
 
 	cbLoadHdl : function(id, response, error) {
@@ -227,10 +235,10 @@ Ext.extend(OMV.CfgObjectTabDialog, OMV.Window, {
 		});
 		if (this.mode === "remote") {
 			// Display waiting dialog
-			OMV.MessageBox.wait(null, "Saving ...");
+			OMV.MessageBox.wait(null, _("Saving ..."));
 			// Execute RPC
 			OMV.Ajax.request(this.cbSubmitHdl, this, this.rpcService,
-			  this.rpcSetMethod, [ values ]);
+			  this.rpcSetMethod, values);
 		} else {
 			this.fireEvent("submit", this, values);
 			this.close();

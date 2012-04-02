@@ -53,7 +53,7 @@ OMV.MessageBox = function() {
 		*/
 		info : function(title, msg, fn, scope) {
 			return this.show({
-				title: title || "Information",
+				title: title || _("Information"),
 				msg: msg,
 				modal: true,
 				icon: Ext.Msg.INFO,
@@ -73,7 +73,7 @@ OMV.MessageBox = function() {
 		*/
 		warning : function(title, msg, fn, scope) {
 			return this.show({
-				title: title || "Warning",
+				title: title || _("Warning"),
 				msg: msg,
 				modal: true,
 				icon: Ext.Msg.WARNING,
@@ -93,8 +93,8 @@ OMV.MessageBox = function() {
 		*/
 		success : function(title, msg, fn, scope) {
 			return this.show({
-				title: title || "Success",
-				msg: msg || "The changes have been applied successfully.",
+				title: title || _("Success"),
+				msg: msg || _("The changes have been applied successfully."),
 				modal: true,
 				icon: Ext.Msg.INFO,
 				buttons: Ext.Msg.OK,
@@ -113,7 +113,7 @@ OMV.MessageBox = function() {
 		*/
 		failure : function(title, msg, fn, scope) {
 			return this.show({
-				title: title || "Error",
+				title: title || _("Error"),
 				msg: msg,
 				modal: true,
 				icon: Ext.Msg.ERROR,
@@ -137,7 +137,7 @@ OMV.MessageBox = function() {
 				autoCreate : true,
 				border: false,
 				hideBorders: true,
-				title: title || "Error",
+				title: title || _("Error"),
 				modal: true,
 				width: 400,
 				height: 150,
@@ -164,14 +164,14 @@ OMV.MessageBox = function() {
 						dlg.close();
 					}
 				},{
-					text: "Show details",
+					text: _("Show details"),
 					hidden: Ext.isEmpty(error.code) &&
 					  Ext.isEmpty(error.trace),
 					handler: function(c, e) {
 						if (Ext.isEmpty(dlg.detailCt)) {
 							var text = "";
 							if (!Ext.isEmpty(error.code))
-								text += "Error #" + error.code + ":\n";
+								text += _("Error #") + error.code + ":\n";
 							if (!Ext.isEmpty(error.trace))
 								text += error.trace;
 							dlg.detailCt = new Ext.Panel({
@@ -186,12 +186,12 @@ OMV.MessageBox = function() {
 						if (dlg.detailCt.isVisible()) {
 							dlg.detailCt.hide();
 							dlg.setHeight(150);
-							c.setText("Show details");
+							c.setText(_("Show details"));
 						} else {
 							dlg.detailCt.show();
 							var height = dlg.getHeight();
 							dlg.setHeight(height + 150);
-							c.setText("Hide details");
+							c.setText(_("Hide details"));
 						}
 						dlg.doLayout();
 					}
@@ -204,7 +204,7 @@ OMV.MessageBox = function() {
 					html: "<div class='ext-mb-icon ext-mb-error'></div>" +
 					  "<div class='ext-mb-content'>" +
 					  "<span class='ext-mb-text'>" + (Ext.isEmpty(
-						error.message) ? "An error has occured" :
+						error.message) ? _("An error has occured") :
 						Ext.util.Format.htmlEncode(error.message)) +
 					  "</span></div>"
 				}],
@@ -219,7 +219,7 @@ OMV.MessageBox = function() {
 		 * @param msg The message box body text
 		 */
 		wait : function(title, msg) {
-			return Ext.Msg.wait(msg, title || "Please wait ...");
+			return Ext.Msg.wait(msg, title || _("Please wait ..."));
 		},
 
 		/**
@@ -227,7 +227,8 @@ OMV.MessageBox = function() {
 		 * no buttons and is not closeable by the user.
 		 */
 		progress : function(title, msg, progressText) {
-			return Ext.Msg.progress(title || "Please wait ...", msg, progressText);
+			return Ext.Msg.progress(title || _("Please wait ..."), msg,
+			  progressText);
 		},
 
 		/**

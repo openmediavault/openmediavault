@@ -22,7 +22,7 @@
 // require("js/omv/MessageBox.js")
 // require("js/omv/data/DataProxy.js")
 // require("js/omv/data/Store.js")
-// require("js/omv/grid/GridPanel.js")
+// require("js/omv/grid/PrivilegesGridPanel.js")
 // require("js/omv/grid/TBarGridPanel.js")
 // require("js/omv/CfgObjectDialog.js")
 // require("js/omv/form/plugins/FieldInfo.js")
@@ -32,7 +32,7 @@ Ext.ns("OMV.Module.Privileges");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("privileges", "sharedfolder", {
-	text: "Shared Folders",
+	text: _("Shared Folders"),
 	icon: "images/folder-remote.png",
 	position: 30
 });
@@ -47,22 +47,22 @@ OMV.Module.Privileges.SharedFolderGridPanel = function(config) {
 		stateId: "9ab0d7f9-73e0-4815-8960-84157d4b85e5",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Name",
+				header: _("Name"),
 				sortable: true,
 				dataIndex: "name",
 				id: "name"
 			},{
-				header: "Comment",
+				header: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
 				id: "comment"
 			},{
-				header: "Volume",
+				header: _("Volume"),
 				sortable: true,
 				dataIndex: "volume",
 				id: "volume"
 			},{
-				header: "Used",
+				header: _("Used"),
 				sortable: true,
 				dataIndex: "_used",
 				id: "_used",
@@ -81,7 +81,10 @@ Ext.extend(OMV.Module.Privileges.SharedFolderGridPanel,
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("ShareMgmt", "getList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "ShareMgmt",
+				"method": "getList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				totalProperty: "total",
@@ -102,12 +105,24 @@ Ext.extend(OMV.Module.Privileges.SharedFolderGridPanel,
 	initToolbar : function() {
 		var tbar = OMV.Module.Privileges.SharedFolderGridPanel.superclass.
 		  initToolbar.apply(this);
+		// Add the 'Privileges' button.
 		tbar.insert(2, {
 			id: this.getId() + "-privileges",
 			xtype: "button",
-			text: "Privileges",
+			text: _("Privileges"),
 			icon: "images/privileges.gif",
-			handler: this.cbPrivilegesBtnHdl.createDelegate(this),
+			handler: this.cbPrivilegesBtnHdl,
+			scope: this,
+			disabled: true
+		});
+		// Add the 'ACL' button.
+		tbar.insert(3, {
+			id: this.getId() + "-acl",
+			xtype: "button",
+			text: _("ACL"),
+			icon: "images/acl.png",
+			handler: this.cbACLBtnHdl,
+			scope: this,
 			disabled: true
 		});
 		return tbar;
@@ -117,15 +132,32 @@ Ext.extend(OMV.Module.Privileges.SharedFolderGridPanel,
 		OMV.Module.Privileges.SharedFolderGridPanel.superclass.
 		  cbSelectionChangeHdl.apply(this, arguments);
 		// Process additional buttons
+		var tbarBtnName = [ "privileges", "acl" ];
+		var tbarBtnDisabled = {
+			"privileges": true,
+			"acl": true
+		};
 		var records = model.getSelections();
-		var tbarPrivilegesCtrl = this.getTopToolbar().findById(
-			this.getId() + "-privileges");
 		if (records.length <= 0) {
-			tbarPrivilegesCtrl.disable();
+			tbarBtnDisabled["privileges"] = true;
+			tbarBtnDisabled["acl"] = true;
 		} else if (records.length == 1) {
-			tbarPrivilegesCtrl.enable();
+			tbarBtnDisabled["privileges"] = false;
+			tbarBtnDisabled["acl"] = false;
 		} else {
-			tbarPrivilegesCtrl.disable();
+			tbarBtnDisabled["privileges"] = true;
+			tbarBtnDisabled["acl"] = true;
+		}
+		for (var i = 0; i < tbarBtnName.length; i++) {
+			var tbarBtnCtrl = this.getTopToolbar().findById(this.getId() +
+			  "-" + tbarBtnName[i]);
+			if (!Ext.isEmpty(tbarBtnCtrl)) {
+				if (true == tbarBtnDisabled[tbarBtnName[i]]) {
+					tbarBtnCtrl.disable();
+				} else {
+					tbarBtnCtrl.enable();
+				}
+			}
 		}
 	},
 
@@ -166,9 +198,19 @@ Ext.extend(OMV.Module.Privileges.SharedFolderGridPanel,
 		wnd.show();
 	},
 
+	cbACLBtnHdl : function() {
+		var selModel = this.getSelectionModel();
+		var record = selModel.getSelected();
+		var wnd = new OMV.Module.Privileges.SharedFolderACLDialog({
+			rootText: record.get("name"),
+			uuid: record.get("uuid")
+		});
+		wnd.show();
+	},
+
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "ShareMgmt",
-		  "delete", [ record.get("uuid"), false ]);
+		  "delete", { "uuid": record.get("uuid") });
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("privileges", "sharedfolder", {
@@ -184,9 +226,9 @@ OMV.Module.Privileges.SharedFolderPropertyDialog = function(config) {
 		rpcService: "ShareMgmt",
 		rpcGetMethod: "get",
 		rpcSetMethod: "set",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " shared folder",
-		width: 550,
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add shared folder") : _("Edit shared folder"),
+		width: 500,
 		autoHeight: true
 	};
 	Ext.apply(initialConfig, config);
@@ -212,15 +254,15 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 		return [{
 			xtype: "textfield",
 			name: "name",
-			fieldLabel: "Name",
+			fieldLabel: _("Name"),
 			allowBlank: false,
 			vtype: "sharename"
 		},{
 			xtype: "combo",
 			name: "mntentref",
 			hiddenName: "mntentref",
-			fieldLabel: "Volume",
-			emptyText: "Select a volume ...",
+			fieldLabel: _("Volume"),
+			emptyText: _("Select a volume ..."),
 			allowBlank: false,
 			allowNone: false,
 			editable: false,
@@ -229,8 +271,11 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 			valueField: "uuid",
 			store: new OMV.data.Store({
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("ShareMgmt",
-				  "getCandidates"),
+				proxy: new OMV.data.DataProxy({
+					"service": "ShareMgmt",
+					"method": "getCandidates",
+					"appendPagingParams": false
+				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "uuid",
 					fields: [
@@ -241,8 +286,8 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 			})
 		},{
 			xtype: "textfield",
-			name: "dirpath",
-			fieldLabel: "Directory",
+			name: "absdirpath",
+			fieldLabel: _("Directory"),
 			readOnly: true,
 			hidden: (this.uuid == OMV.UUID_UNDEFINED) ? true : false,
 			submitValue: false
@@ -250,14 +295,16 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 			xtype: "combo",
 			name: "umask",
 			hiddenName: "umask",
-			fieldLabel: "Permissions",
+			fieldLabel: _("Permissions"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ "700","Administrator: read/write, Users: no access" ],
-					[ "755","Administrator: read/write, Users: read-only" ],
-					[ "777","Everyone: read/write" ]
+					[ "700",_("Administrator: read/write, Users: no access, Others: no access") ],
+					[ "750",_("Administrator: read/write, Users: read-only, Others: no access") ],
+					[ "755",_("Administrator: read/write, Users: read-only, Others: read-only") ],
+					[ "775",_("Administrator: read/write, Users: read/write, Others: read-only") ],
+					[ "777",_("Everyone: read/write") ]
 				]
 			}),
 			displayField: "text",
@@ -265,13 +312,11 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
-			value: "777",
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The privileges can be defined more detailed later."
+			value: "775"
 		},{
 			xtype: "textarea",
 			name: "comment",
-			fieldLabel: "Comment",
+			fieldLabel: _("Comment"),
 			allowBlank: true
 		}];
 	},
@@ -294,13 +339,14 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 
 /**
  * @class OMV.Module.Privileges.PrivilegesPropertyDialog
+ * @derived Ext.Window
  * @config uuid The UUID of the shared folder to process.
  * @config readOnly TRUE to set the dialog to read-only.
  * Defaults to FALSE.
  */
 OMV.Module.Privileges.PrivilegesPropertyDialog = function(config) {
 	var initialConfig = {
-		title: "Edit shared folder privileges",
+		title: _("Edit shared folder privileges"),
 		width: 500,
 		height: 300,
 		layout: "fit",
@@ -321,57 +367,21 @@ OMV.Module.Privileges.PrivilegesPropertyDialog = function(config) {
 };
 Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 	initComponent : function() {
-		this.grid = new OMV.grid.GridPanel({
-			bodyCssClass: "x-grid3-without-dirty-cell",
+		this.grid = new OMV.grid.PrivilegesGridPanel({
 			stateId: "474eacf4-cadb-4ae4-b545-4f7f47d7aed9",
-			colModel: new Ext.grid.ColumnModel({
-				columns: [{
-					header: "Type",
-					sortable: true,
-					dataIndex: "type",
-					id: "type",
-					align: "center",
-					width: 50,
-					renderer: this.typeRenderer,
-					scope: this
-				},{
-					header: "Name",
-					sortable: true,
-					dataIndex: "name",
-					id: "name"
-				},{
-					header: "Read/Write",
-					dataIndex: "writeable",
-					id: "writeable",
-					align: "center",
-					renderer: this.checkBoxRenderer,
-					scope: this
-				},{
-					header: "Read-only",
-					dataIndex: "readonly",
-					id: "readonly",
-					align: "center",
-					renderer: this.checkBoxRenderer,
-					scope: this
-				},{
-					header: "No access",
-					dataIndex: "deny",
-					id: "deny",
-					align: "center",
-					renderer: this.checkBoxRenderer,
-					scope: this
-				}]
-			}),
 			store: new OMV.data.Store({
 				autoLoad: true,
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("ShareMgmt",
-				  "getPrivileges", this.uuid, false),
+				proxy: new OMV.data.DataProxy({
+					"service": "ShareMgmt",
+					"method": "getPrivileges",
+					"extraParams": { "uuid": this.uuid },
+					"appendPagingParams": false
+				}),
 				reader: new Ext.data.JsonReader({
-					idProperty: "uuid",
+					idProperty: "name",
 					fields: [
 						{ name: "type" },
-						{ name: "uuid" },
 						{ name: "name" },
 						{ name: "perms" }
 					]
@@ -404,12 +414,12 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 		});
 		Ext.apply(this, {
 			buttons: [{
-				text: "OK",
+				text: _("OK"),
 				handler: this.cbOkBtnHdl,
 				scope: this,
 				disabled: this.readOnly
 			},{
-				text: "Cancel",
+				text: _("Cancel"),
 				handler: this.cbCancelBtnHdl,
 				scope: this
 			}],
@@ -417,8 +427,6 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 		});
 		OMV.Module.Privileges.PrivilegesPropertyDialog.superclass.
 		  initComponent.apply(this, arguments);
-		// Register event handler
-		this.grid.on("cellclick", this.onCellClick, this);
 	},
 
 	/**
@@ -452,7 +460,7 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 
 	doSubmit : function() {
 		// Display waiting dialog
-		OMV.MessageBox.wait(null, "Saving ...");
+		OMV.MessageBox.wait(null, _("Saving ..."));
 		// Prepare RPC content
 		var records = this.grid.store.getRange();
 		var values = {
@@ -471,13 +479,13 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 					perms = 7;
 				values.privileges.push({
 					type: record.get("type"),
-					uuid: record.get("uuid"),
+					name: record.get("name"),
 					perms: perms
 				});
 			}
 		}
 		OMV.Ajax.request(this.cbSubmitHdl, this, "ShareMgmt",
-		  "setPrivileges", [ values ]);
+		  "setPrivileges", values);
 	},
 
 	cbSubmitHdl : function(id, response, error) {
@@ -489,53 +497,372 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 		} else {
 			OMV.MessageBox.error(null, error);
 		}
-	},
+	}
+});
 
-	/**
-	 * Handle grid cell clicks. Only process columns with a checkbox.
-	 */
-	onCellClick : function(grid, rowIndex, columnIndex, e) {
-		if (this.readOnly)
-			return;
-		var record = this.grid.store.getAt(rowIndex);
-		var dataIndex = this.grid.getColumnModel().getDataIndex(columnIndex);
-		var dataIndices = [ "readonly", "writeable", "deny" ];
-		if (-1 !== dataIndices.indexOf(dataIndex)) {
-			// Clear all selections
-			for (var i = 0; i < dataIndices.length; i++) {
-				// Skip current clicked record field, otherwise unselection
-				// of cells will not work
-				if (dataIndices[i] === dataIndex)
-					continue;
-				// Set to 'false' per default
-				record.set(dataIndices[i], false);
+/**
+ * @class OMV.Module.Privileges.SharedFolderACLDialog
+ * @derived Ext.Window
+ * @config uuid The UUID of the shared folder to process.
+ * @config rootText The name of the shared folder.
+ */
+OMV.Module.Privileges.SharedFolderACLDialog = function(config) {
+	var initialConfig = {
+		title: _("Modify shared folder ACL"),
+		width: 550,
+		height: 500,
+		layout: "border",
+		modal: true,
+		border: false,
+		buttonAlign: "center",
+		readOnly: false
+	};
+	Ext.apply(initialConfig, config);
+	OMV.Module.Privileges.SharedFolderACLDialog.superclass.
+	  constructor.call(this, initialConfig);
+};
+Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
+	initComponent : function() {
+		this.tree = new Ext.tree.TreePanel({
+			region: "west",
+			title: _("Directory"),
+			autoScroll: true,
+			border: true,
+			split: true,
+			width: 210,
+			collapsible: true,
+			loader: new Ext.tree.TreeLoader({
+				baseParams: {
+					"uuid": this.uuid
+				},
+				load: function(node, callback, scope) {
+					if (this.clearOnLoad) {
+						while (node.firstChild) {
+							node.removeChild(node.firstChild);
+						}
+					}
+					if (this.fireEvent("beforeload", this, node,
+					  callback) !== false) {
+						// Get the relative shared folder directory path
+						var dir = "/";
+						node.bubble(function(o) {
+							if (this.isRoot !== true) {
+								dir = "/" + this.text + dir;
+							}
+						});
+						// Build the RPC parameter
+						var params = Ext.apply({
+							"dir": dir
+						}, this.baseParams);
+						this.transId = OMV.Ajax.request(
+						  function(id, response, error) {
+							  // Prepare data as expected by the tree loader
+							  // implementation.
+							  var resp = {
+								  "responseData": null,
+								  "argument": {
+									  "callback": callback,
+									  "node": node,
+									  "scope": scope
+								  }
+							  };
+							  if (error === null) {
+								  resp.responseData = [];
+								  response.each(function(text) {
+									  // Create the node configuration objects.
+									  // The field 'dir' contains the relative
+									  // path to the directory within the
+									  // shared folder.
+									  resp.responseData.push({
+										  "text": text,
+										  "dir": dir + text
+									  })
+								  }, this);
+								  this.handleResponse(resp);
+							  } else {
+								  resp.responseData = error;
+								  this.handleFailure(resp);
+							  }
+						  }, this, "ShareMgmt", "lsDir", params);
+					} else {
+						this.runCallback(callback, scope || node, []);
+					}
+				},
+				listeners: {
+					"scope": this,
+					"loadexception": function(tree, node, response) {
+						OMV.MessageBox.error(null, response.responseData);
+					}
+				}
+			}),
+			rootVisible: true,
+			root: new Ext.tree.AsyncTreeNode({
+				"text": this.rootText,
+				"dir": "/",
+				"id": "0"
+			}),
+			listeners: {
+				"scope": this,
+				"click": function(node, e) {
+					// Display load mask.
+					this.grid.loadMask.show();
+					// Load the ACL list.
+					OMV.Ajax.request(function(id, response, error) {
+						  // Set the form field values.
+						  this.form.setValues(response);
+						  // Set the grid values.
+						  var data = [];
+						  ["user","group"].each(function(type) {
+							  response[type + "s"].each(function(r) {
+								  data.push({
+									  "type": type,
+									  "name": r.name,
+									  "perms": r.perms
+								  });
+							  }, this);
+						  }, this);
+						  this.grid.store.loadData(data);
+						  // Disable load mask.
+						  this.grid.loadMask.hide();
+					  }, this, "ShareMgmt", "getFileACL", { "uuid": this.uuid,
+					  "file": node.attributes.dir });
+				}
 			}
-			// Set new selection
-			record.set(dataIndex, !record.get(dataIndex));
-		}
+		});
+
+		this.grid = new OMV.grid.PrivilegesGridPanel({
+			title: _("User/Group permissions"),
+			border: true,
+			region: "center",
+			stateId: "7ae170d2-647d-11e1-b329-00221568ca88",
+			store: new OMV.data.Store({
+				autoLoad: false,
+				remoteSort: false,
+				reader: new Ext.data.JsonReader({
+					idProperty: "name",
+					fields: [
+						{ name: "type" },
+						{ name: "name" },
+						{ name: "perms" }
+					]
+				}),
+				listeners: {
+					"load": function(store, records, options) {
+						records.each(function(record) {
+							// Set default values
+							record.data.deny = false;
+							record.data.readonly = false;
+							record.data.writeable = false;
+							// Update values depending on the permissions
+							switch (record.get("perms")) {
+							case 0:
+								record.data.deny = true;
+								break;
+							case 5:
+								record.data.readonly = true;
+								break;
+							case 7:
+								record.data.writeable = true;
+								break;
+							}
+							record.commit();
+						}, this);
+					},
+					scope: this
+				}
+			})
+		});
+
+		this.form = new OMV.form.FormPanel({
+			title: _("Extra options"),
+			region: "south",
+			split: true,
+			collapsible: true,
+			frame: true,
+			border: false,
+			autoHeight: true,
+			defaults: {
+				anchor: "100%"
+			},
+			items: [{
+				xtype: "combo",
+				name: "user",
+				hiddenName: "user",
+				fieldLabel: _("Owner"),
+				mode: "local",
+				store: new Ext.data.SimpleStore({
+					fields: [ "value","text" ],
+					data: [
+						[ 0,_("No access") ],
+						[ 5,_("Read-only") ],
+						[ 7,_("Read/Write") ]
+					]
+				}),
+				displayField: "text",
+				valueField: "value",
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: 7,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("Permissions of owner.")
+			},{
+				xtype: "combo",
+				name: "group",
+				hiddenName: "group",
+				fieldLabel: _("Group"),
+				mode: "local",
+				store: new Ext.data.SimpleStore({
+					fields: [ "value","text" ],
+					data: [
+						[ 0,_("No access") ],
+						[ 5,_("Read-only") ],
+						[ 7,_("Read/Write") ]
+					]
+				}),
+				displayField: "text",
+				valueField: "value",
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: 5,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("Permissions of group.")
+			},{
+				xtype: "combo",
+				name: "other",
+				hiddenName: "other",
+				fieldLabel: _("Others"),
+				mode: "local",
+				store: new Ext.data.SimpleStore({
+					fields: [ "value","text" ],
+					data: [
+						[ 0,_("No access") ],
+						[ 5,_("Read-only") ],
+						[ 7,_("Read/Write") ]
+					]
+				}),
+				displayField: "text",
+				valueField: "value",
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: 0,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("Permissions of others (e.g. anonymous FTP users).")
+			},{
+				xtype: "checkbox",
+				name: "replace",
+				fieldLabel: _("Replace"),
+				checked: false,
+				inputValue: 1,
+				boxLabel: _("Replace all existing permissions")
+			},{
+				xtype: "checkbox",
+				name: "recursive",
+				fieldLabel: _("Recursive"),
+				checked: false,
+				inputValue: 1,
+				boxLabel: _("Apply permissions to files and subfolders")
+			}]
+		});
+
+		Ext.apply(this, {
+			buttons: [{
+				text: _("Apply"),
+				handler: this.cbApplyBtnHdl,
+				scope: this,
+				disabled: this.readOnly
+			},{
+				text: _("Close"),
+				handler: this.close,
+				scope: this
+			}],
+			items: [ this.tree, this.grid, this.form ]
+		});
+		OMV.Module.Privileges.SharedFolderACLDialog.superclass.
+		  initComponent.apply(this, arguments);
+		// Add event handler
+		this.on("afterrender", function() {
+			// Auto-select the root node and fire event to display the
+			// directory ACL settings.
+			var node = this.tree.getRootNode();
+			node.select();
+			this.tree.fireEvent("click", node);
+		}, this);
 	},
 
 	/**
-	 * Render a user/group icon in the given grid cell.
+	 * @method cbApplyBtnHdl
+	 * Method that is called when the 'Apply' button is pressed.
 	 */
-	typeRenderer : function(val, cell, record, row, col, store) {
-		switch (val) {
-		case "user":
-			val = "<img border='0' src='images/user.png'>";
-			break;
-		case "group":
-			val = "<img border='0' src='images/group.png'>";
-			break;
+	cbApplyBtnHdl : function() {
+		var node = this.tree.getSelectionModel().getSelectedNode();
+		var records = this.grid.store.getRange();
+		var options = this.form.getValues();
+		var users = [];
+		var groups = [];
+		for (var i = 0; i < records.length; i++) {
+			var record = records[i];
+			if ((true === record.get("deny")) ||
+			  (true === record.get("readonly")) ||
+			  (true === record.get("writeable"))) {
+				var object = {
+					"name": record.get("name"),
+					"perms": 0
+				}
+				if (true === record.get("readonly"))
+					object.perms = 5;
+				else if (true === record.get("writeable"))
+					object.perms = 7;
+				switch (record.get("type")) {
+				case "user":
+					users.push(object);
+					break;
+				case "group":
+					groups.push(object);
+					break;
+				}
+			}
 		}
-		return val;
-	},
-
-	/**
-	 * Render a checkbox in the given grid cell.
-	 */
-	checkBoxRenderer : function(val, cell, record, row, col, store) {
-		cell.css += " x-grid3-check-col-td";
-		return '<div class="x-grid3-check-col' + ((true === val) ? '-on' : '') +
-		  ' x-grid3-cc-' + this.id + '">&#160;</div>';
+		var dlg = new OMV.ExecCmdDialog({
+			title: _("Updating ACL settings"),
+			width: 350,
+			rpcService: "ShareMgmt",
+			rpcMethod: "setFileACL",
+			rpcArgs: {
+				"uuid": this.uuid,
+				"file": node.attributes.dir,
+				"recursive": options.recursive,
+				"replace": options.replace,
+				"user": options.user,
+				"group": options.group,
+				"other": options.other,
+				"users": users,
+				"groups": groups
+			},
+			hideStart: true,
+			hideStop: true,
+			hideClose: true,
+			progress: true,
+			listeners: {
+				start: function(c) {
+					c.show();
+				},
+				finish: function(c) {
+					var value = c.getValue();
+					c.close();
+					if (value.length > 0) {
+						OMV.MessageBox.error(null, value);
+					}
+				},
+				exception: function(c, error) {
+					c.close();
+					OMV.MessageBox.error(null, error);
+				},
+				scope: this
+			}
+		});
+		dlg.start();
 	}
 });

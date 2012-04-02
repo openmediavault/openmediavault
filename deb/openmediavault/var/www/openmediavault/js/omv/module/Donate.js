@@ -24,7 +24,7 @@ Ext.ns("OMV.Module.Information");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("information", "donate", {
-	text: "Donate",
+	text: _("Donate"),
 	icon: "images/donate.png",
 	position: 10
 });

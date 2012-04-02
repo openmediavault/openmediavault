@@ -36,7 +36,7 @@ Ext.ns("OMV.Module.Services");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("services", "ftp", {
-	text: "FTP",
+	text: _("FTP"),
 	icon: "images/ftp.png"
 });
 
@@ -64,7 +64,7 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -72,13 +72,13 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1
 			},{
 				xtype: "numberfield",
 				name: "port",
-				fieldLabel: "Port",
+				fieldLabel: _("Port"),
 				vtype: "port",
 				minValue: 1,
 				maxValue: 65535,
@@ -89,61 +89,58 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 			},{
 				xtype: "numberfield",
 				name: "maxclients",
-				fieldLabel: "Max. clients",
+				fieldLabel: _("Max. clients"),
 				minValue: 0,
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
 				value: 5,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Maximum number of simultaneous clients."
+				infoText: _("Maximum number of simultaneous clients.")
 			},{
 				xtype: "numberfield",
 				name: "maxconnectionsperhost",
-				fieldLabel: "Max. connections per host",
+				fieldLabel: _("Max. connections per host"),
 				minValue: 0,
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
 				value: 2,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Maximum number of connections per IP (0 = unlimited)."
+				infoText: _("Maximum number of connections per IP (0 = unlimited).")
 			},{
 				xtype: "numberfield",
 				name: "maxloginattempts",
-				fieldLabel: "Max. login attempts",
+				fieldLabel: _("Max. login attempts"),
 				minValue: 0,
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
 				value: 1,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Maximum number of allowed password attempts " +
-				  "before disconnection."
+				infoText: _("Maximum number of allowed password attempts before disconnection.")
 			},{
 				xtype: "numberfield",
 				name: "timeoutidle",
-				fieldLabel: "Timeout",
+				fieldLabel: _("Timeout"),
 				minValue: 0,
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
 				value: 1200,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Maximum idle time in seconds. Setting idle " +
-				  "timeout to 0 disables the idle timer completely (clients " +
-				  "can stay connected for ever, without sending data)."
+				infoText: _("Maximum idle time in seconds. Setting idle timeout to 0 disables the idle timer completely (clients can stay connected for ever, without sending data).")
 			},{
 				xtype: "checkbox",
 				name: "anonymous",
-				fieldLabel: "Anonymous FTP",
+				fieldLabel: _("Anonymous FTP"),
 				inputValue: 1,
-				boxLabel: "Enable anonymous FTP",
+				boxLabel: _("Enable anonymous FTP"),
 				checked: false
 			},{
 				xtype: "textfield",
 				name: "displaylogin",
-				fieldLabel: "Welcome message",
+				fieldLabel: _("Welcome message"),
 				allowBlank: true,
 				autoCreate: {
 					tag: "textarea",
@@ -152,12 +149,12 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 					cols: "65"
 				},
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "The welcome message which will be displayed to " +
-				  "the user when they initially login."
+				infoText: _("The welcome message which will be displayed to the user when they initially login."),
+				anchor: "100%"
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Advanced settings",
+			title: _("Advanced settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -165,23 +162,22 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "rootlogin",
-				fieldLabel: "Permit root login",
+				fieldLabel: _("Permit root login"),
 				inputValue: 1,
-				boxLabel: "Specifies whether it is allowed to login as " +
-				  "superuser directly"
+				boxLabel: _("Specifies whether it is allowed to login as superuser directly")
 			},{
 				xtype: "checkbox",
 				name: "requirevalidshell",
-				fieldLabel: "Require valid shell",
+				fieldLabel: _("Require valid shell"),
 				inputValue: 1,
-				boxLabel: "Deny logins which do not have a valid shell",
+				boxLabel: _("Deny logins which do not have a valid shell"),
 				checked: true
 			},{
 				xtype: "checkbox",
 				name: "limittransferrate",
-				fieldLabel: "Bandwidth restriction",
+				fieldLabel: _("Bandwidth restriction"),
 				inputValue: 1,
-				boxLabel: "Use the following bandwidth restriction:",
+				boxLabel: _("Use the following bandwidth restriction:"),
 				listeners: {
 					check: this._updateFormFields,
 					scope: this
@@ -202,26 +198,26 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 						items: [{
 							xtype: "numberfield",
 							name: "maxuptransferrate",
-							fieldLabel: "Maximum upload rate (KiB/s)",
+							fieldLabel: _("Maximum upload rate (KiB/s)"),
 							minValue: 0,
 							allowDecimals: false,
 							allowNegative: false,
 							allowBlank: true,
 							readOnly: true,
 							plugins: [ OMV.form.plugins.FieldInfo ],
-							infoText: "0 KiB/s means unlimited.",
+							infoText: _("0 KiB/s means unlimited."),
 							value: 0
 						},{
 							xtype: "numberfield",
 							name: "maxdowntransferrate",
-							fieldLabel: "Maximum download rate (KiB/s)",
+							fieldLabel: _("Maximum download rate (KiB/s)"),
 							minValue: 0,
 							allowDecimals: false,
 							allowNegative: false,
 							allowBlank: true,
 							readOnly: true,
 							plugins: [ OMV.form.plugins.FieldInfo ],
-							infoText: "0 KiB/s means unlimited.",
+							infoText: _("0 KiB/s means unlimited."),
 							value: 0
 						}]
 					}]
@@ -229,9 +225,9 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 			},{
 				xtype: "checkbox",
 				name: "usepassiveports",
-				fieldLabel: "Passive FTP",
+				fieldLabel: _("Passive FTP"),
 				inputValue: 1,
-				boxLabel: "Use the following port range:",
+				boxLabel: _("Use the following port range:"),
 				listeners: {
 					check: this._updateFormFields,
 					scope: this
@@ -277,71 +273,49 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 					}]
 				}],
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "In some cases you have to specify passive ports " +
-				  "range to by-pass firewall limitations. Passive ports " +
-				  "restricts the range of ports from which the server will " +
-				  "select when sent the PASV command from a client. The " +
-				  "server will randomly choose a number from within the " +
-				  "specified range until an open port is found. The port " +
-				  "range selected must be in the non-privileged range (eg. " +
-				  "greater than or equal to 1024). It is strongly " +
-				  "recommended that the chosen range be large enough to " +
-				  "handle many simultaneous passive connections (for " +
-				  "example, 49152-65534, the IANA-registered ephemeral port " +
-				  "range)."
+				infoText: _("In some cases you have to specify passive ports range to by-pass firewall limitations. Passive ports restricts the range of ports from which the server will select when sent the PASV command from a client. The server will randomly choose a number from within the specified range until an open port is found. The port range selected must be in the non-privileged range (eg. greater than or equal to 1024). It is strongly recommended that the chosen range be large enough to handle many simultaneous passive connections (for example, 49152-65534, the IANA-registered ephemeral port range).")
 			},{
 				xtype: "textfield",
 				name: "masqueradeaddress",
-				fieldLabel: "Masquerade address",
+				fieldLabel: _("Masquerade address"),
 				vtype: "hostnameIPv4",
 				allowBlank: true,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "If your host is acting as a NAT gateway or port " +
-				  "forwarder for the server, this option is useful in order " +
-				  "to allow passive tranfers to work. You have to use your " +
-				  "public address and opening the passive ports used on your " +
-				  "firewall as well."
+				infoText: _("If your host is acting as a NAT gateway or port forwarder for the server, this option is useful in order to allow passive tranfers to work. You have to use your public address and opening the passive ports used on your firewall as well.")
 			},{
 				xtype: "checkbox",
 				name: "allowforeignaddress",
-				fieldLabel: "FXP",
+				fieldLabel: _("FXP"),
 				inputValue: 1,
-				boxLabel: "Enable FXP protocol",
+				boxLabel: _("Enable FXP protocol"),
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "FXP allows transfers between two remote servers " +
-				  "without any file data going to the client asking for the " +
-				  "transfer."
+				infoText: _("FXP allows transfers between two remote servers without any file data going to the client asking for the transfer.")
 			},{
 				xtype: "checkbox",
 				name: "allowrestart",
-				fieldLabel: "Resume",
+				fieldLabel: _("Resume"),
 				inputValue: 1,
-				boxLabel: "Allow clients to resume interrupted uploads " +
-				  "and downloads"
+				boxLabel: _("Allow clients to resume interrupted uploads and downloads")
 			},{
 				xtype: "checkbox",
 				name: "identlookups",
-				fieldLabel: "Ident protocol",
+				fieldLabel: _("Ident protocol"),
 				inputValue: 1,
-				boxLabel: "Enable the ident protocol (RFC1413)",
+				boxLabel: _("Enable the ident protocol (RFC1413)"),
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "When a client initially connects to the server " +
-				  "the ident protocol is used to attempt to identify the " +
-				  "remote username."
+				infoText: _("When a client initially connects to the server the ident protocol is used to attempt to identify the remote username.")
 			},{
 				xtype: "checkbox",
 				name: "usereversedns",
-				fieldLabel: "Reverse DNS lookup",
+				fieldLabel: _("Reverse DNS lookup"),
 				inputValue: 1,
-				boxLabel: "Enable reverse DNS lookup",
+				boxLabel: _("Enable reverse DNS lookup"),
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Enable reverse DNS lookup performed on the " +
-				  "remote host's IP address for incoming active mode data " +
-				  "connections and outgoing passive mode data connections."
+				infoText: _("Enable reverse DNS lookup performed on the remote host's IP address for incoming active mode data connections and outgoing passive mode data connections.")
 			},{
 				xtype: "textfield",
 				name: "extraoptions",
-				fieldLabel: "Extra options",
+				fieldLabel: _("Extra options"),
 				allowBlank: true,
 				autoCreate: {
 					tag: "textarea",
@@ -350,7 +324,8 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 					cols: "65"
 				},
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Please check the <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manual page</a> for more details."
+				infoText: _("Please check the <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manual page</a> for more details."),
+				anchor: "100%"
 			}]
 		}];
 	},
@@ -383,7 +358,7 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 });
 OMV.NavigationPanelMgr.registerPanel("services", "ftp", {
 	cls: OMV.Module.Services.FTPSettingsPanel,
-	title: "Settings",
+	title: _("Settings"),
 	position: 10
 });
 
@@ -411,7 +386,7 @@ Ext.extend(OMV.Module.Services.FTPModTLSPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "Settings",
+			title: _("Settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -419,10 +394,10 @@ Ext.extend(OMV.Module.Services.FTPModTLSPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Enable SSL/TLS connections",
+				boxLabel: _("Enable SSL/TLS connections"),
 				listeners: {
 					check: this._updateFormFields,
 					scope: this
@@ -430,20 +405,33 @@ Ext.extend(OMV.Module.Services.FTPModTLSPanel, OMV.FormPanelExt, {
 			},{
 				xtype: "checkbox",
 				name: "required",
-				fieldLabel: "Required",
+				fieldLabel: _("Required"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Are clients required to use FTP over TLS when " +
-				  "talking to this server?"
+				boxLabel: _("Are clients required to use FTP over TLS when talking to this server?")
 			},{
 				xtype: "certificatecombo",
 				name: "sslcertificateref",
 				hiddenName: "sslcertificateref",
-				fieldLabel: "Certificate",
+				fieldLabel: _("Certificate"),
 				allowBlank: false,
 				allowNone: true,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "The SSL certificate."
+				infoText: _("The SSL certificate.")
+			},{
+				xtype: "textfield",
+				name: "extraoptions",
+				fieldLabel: _("Extra options"),
+				allowBlank: true,
+				autoCreate: {
+					tag: "textarea",
+					autocomplete: "off",
+					rows: "3",
+					cols: "65"
+				},
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manual page</a> for more details."),
+				anchor: "100%"
 			}]
 		}];
 	},
@@ -466,7 +454,7 @@ Ext.extend(OMV.Module.Services.FTPModTLSPanel, OMV.FormPanelExt, {
 });
 OMV.NavigationPanelMgr.registerPanel("services", "ftp", {
 	cls: OMV.Module.Services.FTPModTLSPanel,
-	title: "SSL/TLS",
+	title: _("SSL/TLS"),
 	position: 20
 });
 
@@ -480,12 +468,12 @@ OMV.Module.Services.FTPSharesGridPanel = function(config) {
 		stateId: "9889057b-b1c0-4c48-a4c1-8c8b4fb54d7b",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Shared folder",
+				header: _("Shared folder"),
 				sortable: true,
 				dataIndex: "sharedfoldername",
 				id: "sharedfoldername"
 			},{
-				header: "Comment",
+				header: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
 				id: "comment"
@@ -501,7 +489,10 @@ Ext.extend(OMV.Module.Services.FTPSharesGridPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("FTP", "getShareList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "FTP",
+				"method": "getShareList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				totalProperty: "total",
@@ -547,12 +538,12 @@ Ext.extend(OMV.Module.Services.FTPSharesGridPanel, OMV.grid.TBarGridPanel, {
 
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "FTP",
-			"deleteShare", [ record.get("uuid") ]);
+		  "deleteShare", { "uuid": record.get("uuid") });
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("services", "ftp", {
 	cls: OMV.Module.Services.FTPSharesGridPanel,
-	title: "Shares",
+	title: _("Shares"),
 	position: 40
 });
 
@@ -565,8 +556,8 @@ OMV.Module.Services.FTPSharePropertyDialog = function(config) {
 		rpcService: "FTP",
 		rpcGetMethod: "getShare",
 		rpcSetMethod: "setShare",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " share",
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add share") : _("Edit share"),
 		autoHeight: true
 	};
 	Ext.apply(initialConfig, config);
@@ -591,13 +582,13 @@ Ext.extend(OMV.Module.Services.FTPSharePropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",
 			hiddenName: "sharedfolderref",
-			fieldLabel: "Shared folder",
+			fieldLabel: _("Shared folder"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The location of the files to share."
+			infoText: _("The location of the files to share.")
 		},{
 			xtype: "textfield",
 			name: "comment",
-			fieldLabel: "Comment",
+			fieldLabel: _("Comment"),
 			allowBlank: true
 		},{
 			xtype: "hidden",
@@ -627,22 +618,22 @@ OMV.Module.Services.FTPModBanRuleGridPanel = function(config) {
 		stateId: "b145dd0c-8fe8-4570-947f-e4c0ee40b900",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Event",
+				header: _("Event"),
 				sortable: true,
 				dataIndex: "event",
 				id: "event"
 			},{
-				header: "Occurrence",
+				header: _("Occurrence"),
 				sortable: true,
 				dataIndex: "occurrence",
 				id: "occurrence"
 			},{
-				header: "Time interval",
+				header: _("Time interval"),
 				sortable: true,
 				dataIndex: "timeinterval",
 				id: "timeinterval"
 			},{
-				header: "Expire",
+				header: _("Expire"),
 				sortable: true,
 				dataIndex: "expire",
 				id: "expire"
@@ -659,7 +650,10 @@ Ext.extend(OMV.Module.Services.FTPModBanRuleGridPanel,
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("FTP", "getModBanRuleList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "FTP",
+				"method": "getModBanRuleList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				totalProperty: "total",
@@ -707,12 +701,12 @@ Ext.extend(OMV.Module.Services.FTPModBanRuleGridPanel,
 
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "FTP",
-			"deleteModBanRule", [ record.get("uuid") ]);
+		  "deleteModBanRule", { "uuid": record.get("uuid") });
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("services", "ftp", {
 	cls: OMV.Module.Services.FTPModBanRuleGridPanel,
-	title: "Ban list",
+	title: _("Ban list"),
 	position: 30
 });
 
@@ -725,8 +719,8 @@ OMV.Module.Services.FTPModBanRulePropertyDialog = function(config) {
 		rpcService: "FTP",
 		rpcGetMethod: "getModBanRule",
 		rpcSetMethod: "setModBanRule",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " rule",
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add rule") : _("Edit rule"),
 		autoHeight: true
 	};
 	Ext.apply(initialConfig, config);
@@ -746,7 +740,7 @@ Ext.extend(OMV.Module.Services.FTPModBanRulePropertyDialog,
 			xtype: "combo",
 			name: "event",
 			hiddenName: "event",
-			fieldLabel: "Event",
+			fieldLabel: _("Event"),
 			mode: "local",
 			store: [
 				"AnonRejectPasswords",
@@ -765,42 +759,42 @@ Ext.extend(OMV.Module.Services.FTPModBanRulePropertyDialog,
 			triggerAction: "all",
 			value: "MaxConnectionsPerHost",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "This rule is triggered whenever the selected event directive occurs."
+			infoText: _("This rule is triggered whenever the selected event directive occurs.")
 		},{
 			xtype: "numberfield",
 			name: "occurrence",
-			fieldLabel: "Occurrence",
+			fieldLabel: _("Occurrence"),
 			minValue: 1,
 			allowDecimals: false,
 			allowNegative: false,
 			allowBlank: false,
 			value: 2,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "This parameter says that if N occurrences of the event happen within the given time interval, then a ban is automatically added."
+			infoText: _("This parameter says that if N occurrences of the event happen within the given time interval, then a ban is automatically added.")
 		},{
 			xtype: "textfield",
 			name: "timeinterval",
-			fieldLabel: "Time interval",
+			fieldLabel: _("Time interval"),
 			allowBlank: false,
 			maskRe: /[\d:]/,
 			regex: /^\d{2}:\d{2}:\d{2}$/,
-			regexText: "This field must have the format hh:mm:ss",
+			regexText: _("This field must have the format hh:mm:ss"),
 			maxLength: 8,
 			value: "00:30:00",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Specifies the time interval in hh:mm:ss in which the given number of occurrences must happen to add the ban."
+			infoText: _("Specifies the time interval in hh:mm:ss in which the given number of occurrences must happen to add the ban.")
 		},{
 			xtype: "textfield",
 			name: "expire",
-			fieldLabel: "Expire",
+			fieldLabel: _("Expire"),
 			allowBlank: false,
 			maskRe: /[\d:]/,
 			regex: /^\d{2}:\d{2}:\d{2}$/,
-			regexText: "This field must have the format hh:mm:ss",
+			regexText: _("This field must have the format hh:mm:ss"),
 			maxLength: 8,
 			value: "00:10:00",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Specifies the time in hh:mm:ss after which the ban expires."
+			infoText: _("Specifies the time in hh:mm:ss after which the ban expires.")
 		}];
 	}
 });
@@ -812,7 +806,7 @@ Ext.extend(OMV.Module.Services.FTPModBanRulePropertyDialog,
  */
 OMV.Module.Services.FTPDiagPanel = function(config) {
 	var initialConfig = {
-		title: "FTP",
+		title: _("FTP"),
 		layout: "fit",
 		items: [{
 			id: this.getId() + "-content",
@@ -828,7 +822,7 @@ OMV.Module.Services.FTPDiagPanel = function(config) {
 };
 Ext.extend(OMV.Module.Services.FTPDiagPanel, OMV.DiagPanel, {
 	doLoad : function() {
-		OMV.MessageBox.wait(null, "Loading ...");
+		OMV.MessageBox.wait(null, _("Loading ..."));
 		OMV.Ajax.request(function(id, response, error) {
 			  OMV.MessageBox.updateProgress(1);
 			  OMV.MessageBox.hide();
@@ -852,22 +846,22 @@ OMV.preg("sysinfo", "service", OMV.Module.Services.FTPDiagPanel);
  */
 OMV.Module.Diagnostics.LogPlugin.FTP = function(config) {
 	var initialConfig = {
-		title: "FTP",
+		title: _("FTP"),
 		stateId: "c9d06952-00da-11e1-aa29-00221568ca88",
 		columns: [{
-			header: "Date & Time",
+			header: _("Date & Time"),
 			sortable: true,
 			dataIndex: "date",
 			id: "date",
 			width: 35,
 			renderer: OMV.util.Format.localeTimeRenderer()
 		},{
-			header: "Event",
+			header: _("Event"),
 			sortable: true,
 			dataIndex: "event",
 			id: "event"
 		}],
-		rpcArgs: "proftpd",
+		rpcArgs: { "id": "proftpd" },
 		rpcFields: [
 			{ name: "date" },
 			{ name: "event" }

@@ -33,8 +33,8 @@ Ext.ns("OMV.TransmissionBT");
 OMV.TransmissionBT.UploadDialog = function(config) {
 	var initialConfig = {
 		url: "upload.php",
-		title: "Upload file",
-		waitMsg: "Uploading file ...",
+		title: _("Upload file"),
+		waitMsg: _("Uploading file ..."),
 		width: 450,
 		autoHeight: true,
 		layout: "fit",
@@ -42,11 +42,11 @@ OMV.TransmissionBT.UploadDialog = function(config) {
 		border: false,
 		buttonAlign: "center",
 		buttons: [{
-			text: "OK",
+			text: _("OK"),
 			handler: this.cbOkBtnHdl.createDelegate(this),
 			scope: this
 		},{
-			text: "Cancel",
+			text: _("Cancel"),
 			handler: this.cbCancelBtnHdl.createDelegate(this),
 			scope: this
 		}]
@@ -87,7 +87,7 @@ Ext.extend(OMV.TransmissionBT.UploadDialog, OMV.Window, {
 			},{
 				xtype: "textfield",
 				name: "file",
-				fieldLabel: "File",
+				fieldLabel: _("File"),
 				allowBlank: false,
 				inputType: "file"
 			/*},{
@@ -95,7 +95,7 @@ Ext.extend(OMV.TransmissionBT.UploadDialog, OMV.Window, {
 			// @todo read Config
 				xtype: "checkbox",
 				name: "start-download",
-				fieldLabel: "Start download",
+				fieldLabel: _("Start download"),
 				checked: true,
 				inputValue: 1,*/
 			}]

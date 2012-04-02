@@ -44,14 +44,14 @@ mkconf() {
 		  # Update the shared folder default and access ACL.
 		  cmdargs=$(xmlstarlet sel -t \
 			-m "//system/shares/sharedfolder[uuid='${uuid}']/privileges" \
-			  -m "privilege[userref]" \
+			  -m "privilege[type='user']" \
 				-i "position() > 1" -o "," -b \
-				-v "concat('d:u:',//system/usermanagement/users/user[uuid=current()/userref]/name,':',perms,',u:',//system/usermanagement/users/user[uuid=current()/userref]/name,':',perms)" \
+				-v "concat('d:u:',name,':',perms,',u:',name,':',perms)" \
 			  -b \
-			  -i "count(privilege[userref]) > 0 and count(privilege[groupref]) > 0" -o "," -b \
-			  -m "privilege[groupref]" \
+			  -i "count(privilege[type='user']) > 0 and count(privilege[type='group']) > 0" -o "," -b \
+			  -m "privilege[type='group']" \
 				-i "position() > 1" -o "," -b \
-				-v "concat('d:g:',//system/usermanagement/groups/group[uuid=current()/groupref]/name,':',perms,',g:',//system/usermanagement/groups/group[uuid=current()/groupref]/name,':',perms)" \
+				-v "concat('d:g:',name,':',perms,',g:',name,':',perms)" \
 			  -b \
 			-b \
 			${OMV_CONFIG_FILE} | xmlstarlet unesc)

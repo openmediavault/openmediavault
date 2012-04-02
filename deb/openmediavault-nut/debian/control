@@ -2,13 +2,13 @@ Source: openmediavault-nut
 Section: admin
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
-Build-Depends: debhelper (>> 7)
+Build-Depends: debhelper (>> 7), gettext
 Standards-Version: 3.6.10
 Homepage: http://www.openmediavault.org
 
 Package: openmediavault-nut
 Architecture: all
-Depends: openmediavault (>= 0.2.6.3), nut
+Depends: openmediavault (>= 0.3), nut
 Priority: optional
 Description: OpenMediaVault Network UPS Tools (NUT) plugin
  Network UPS Tools (NUT) is a client/server monitoring system that

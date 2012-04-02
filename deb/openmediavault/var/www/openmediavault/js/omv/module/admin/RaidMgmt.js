@@ -32,7 +32,7 @@ Ext.ns("OMV.Module.Storage");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("storage", "raidmanagement", {
-	text: "RAID Management",
+	text: _("RAID Management"),
 	icon: "images/raid.png",
 	position: 20
 });
@@ -53,36 +53,37 @@ OMV.Module.Storage.RAIDGridPanel = function(config) {
 		stateId: "4ba1f909-9f57-4aab-87eb-638385c30f46",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Name",
+				header: _("Name"),
 				sortable: true,
 				dataIndex: "name",
 				id: "name"
 			},{
-				header: "Device",
+				header: _("Device"),
 				sortable: true,
 				dataIndex: "devicefile",
 				id: "devicefile",
 				width: 50
 			},{
-				header: "State",
+				header: _("State"),
 				sortable: true,
 				dataIndex: "state",
 				id: "state",
 				renderer: OMV.util.Format.whitespaceRenderer()
 			},{
-				header: "Level",
+				header: _("Level"),
 				sortable: true,
 				dataIndex: "level",
 				id: "level",
 				width: 30
 			},{
-				header: "Capacity",
+				header: _("Capacity"),
 				sortable: true,
-				dataIndex: "capacity",
-				id: "capacity",
-				width: 50
+				dataIndex: "size",
+				id: "size",
+				width: 50,
+				renderer: OMV.util.Format.binaryUnitRenderer()
 			},{
-				header: "Devices",
+				header: _("Devices"),
 				sortable: true,
 				dataIndex: "devices",
 				id: "devices",
@@ -102,7 +103,10 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("RaidMgmt", "getList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "RaidMgmt",
+				"method": "getList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "devicefile",
 				totalProperty: "total",
@@ -111,7 +115,7 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 					{ name: "_used" },
 					{ name: "name" },
 					{ name: "devicefile" },
-					{ name: "capacity" },
+					{ name: "size" },
 					{ name: "level" },
 					{ name: "devices" },
 					{ name: "state" }
@@ -159,7 +163,7 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(1, {
 			id: this.getId() + "-create",
 			xtype: "button",
-			text: "Create",
+			text: _("Create"),
 			icon: "images/raid.png",
 			handler: this.cbCreateBtnHdl,
 			scope: this,
@@ -169,7 +173,7 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(2, {
 			id: this.getId() + "-grow",
 			xtype: "button",
-			text: "Grow",
+			text: _("Grow"),
 			icon: "images/raid-grow.png",
 			handler: this.cbGrowBtnHdl,
 			scope: this,
@@ -179,7 +183,7 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(3, {
 			id: this.getId() + "-recover",
 			xtype: "button",
-			text: "Recover",
+			text: _("Recover"),
 			icon: "images/raid-recover.png",
 			handler: this.cbRecoverBtnHdl,
 			scope: this,
@@ -189,7 +193,7 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(4, {
 			id: this.getId() + "-detail",
 			xtype: "button",
-			text: "Detail",
+			text: _("Detail"),
 			icon: "images/detail.png",
 			handler: this.cbDetailBtnHdl,
 			scope: this,
@@ -242,7 +246,7 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "RaidMgmt",
-		  "delete", [ record.get("devicefile") ]);
+		  "delete", { "devicefile": record.get("devicefile") });
 	},
 
 	cbCreateBtnHdl : function() {
@@ -262,15 +266,14 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 		var record = selModel.getSelected();
 		var wnd = new OMV.Module.Storage.RAIDAddDialog({
 			rpcSetMethod: "grow",
-			title: "Grow RAID device",
+			title: _("Grow RAID device"),
 			devicefile: record.get("devicefile"),
 			name: record.get("name"),
 			level: record.get("level"),
 			listeners: {
 				submit: function() {
 					this.doReload();
-					OMV.MessageBox.info(null, "After the RAID has been " +
-					  "grown you can resize the containing filesystem.");
+					OMV.MessageBox.info(null, _("After the RAID has been grown you can resize the containing filesystem."));
 				},
 				scope: this
 			}
@@ -282,7 +285,7 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 		var selModel = this.getSelectionModel();
 		var record = selModel.getSelected();
 		var wnd = new OMV.Module.Storage.RAIDAddDialog({
-			title: "Add hot spares / recover RAID device",
+			title: _("Add hot spares / recover RAID device"),
 			devicefile: record.get("devicefile"),
 			name: record.get("name"),
 			level: record.get("level")
@@ -294,7 +297,7 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 		var selModel = this.getSelectionModel();
 		var record = selModel.getSelected();
 		var wnd = new OMV.Module.Storage.RAIDDetailDialog({
-			rpcGetParams: [ record.get("devicefile") ]
+			rpcGetParams: { "devicefile": record.get("devicefile") }
 		});
 		wnd.show();
 	}
@@ -311,7 +314,7 @@ OMV.Module.Storage.RAIDCreateDialog = function(config) {
 	var initialConfig = {
 		rpcService: "RaidMgmt",
 		rpcSetMethod: "create",
-		title: "Create RAID device",
+		title: _("Create RAID device"),
 		autoHeight: true,
 		hideReset: true,
 		width: 550
@@ -331,23 +334,23 @@ Ext.extend(OMV.Module.Storage.RAIDCreateDialog, OMV.FormPanelDialog, {
 		return [{
 			xtype: "textfield",
 			name: "name",
-			fieldLabel: "Name",
+			fieldLabel: _("Name"),
 			vtype: "fslabel"
 		},{
 			xtype: "combo",
 			name: "level",
 			hiddenName: "level",
-			fieldLabel: "Level",
+			fieldLabel: _("Level"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ "stripe","Stripe" ],
-					[ "mirror","Mirror" ],
-					[ "linear","Linear" ],
-					[ "raid10","RAID 10" ],
-					[ "raid5","RAID 5" ],
-					[ "raid6","RAID 6" ]
+					[ "stripe",_("Stripe") ],
+					[ "mirror",_("Mirror") ],
+					[ "linear",_("Linear") ],
+					[ "raid10",_("RAID 10") ],
+					[ "raid5",_("RAID 5") ],
+					[ "raid6",_("RAID 6") ]
 				]
 			}),
 			displayField: "text",
@@ -385,11 +388,15 @@ Ext.extend(OMV.Module.Storage.RAIDCreateDialog, OMV.FormPanelDialog, {
 			xtype: "checkboxgrid",
 			name: "devices",
 			hiddenName: "devices",
-			fieldLabel: "Devices",
+			fieldLabel: _("Devices"),
 			store: new OMV.data.Store({
 				autoLoad: true,
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("RaidMgmt", "getCandidates"),
+				proxy: new OMV.data.DataProxy({
+					"service": "RaidMgmt",
+					"method": "getCandidates",
+					"appendPagingParams": false
+				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "devicefile",
 					fields: [
@@ -405,7 +412,7 @@ Ext.extend(OMV.Module.Storage.RAIDCreateDialog, OMV.FormPanelDialog, {
 					sortable: true
 				},
 				columns: [{
-					header: "Description",
+					header: _("Description"),
 					sortable: true,
 					dataIndex: "description",
 					id: "description"
@@ -421,8 +428,8 @@ Ext.extend(OMV.Module.Storage.RAIDCreateDialog, OMV.FormPanelDialog, {
 
 	doSubmit : function() {
 		OMV.MessageBox.show({
-			title: "Confirmation",
-			msg: "Do you really want to create the RAID device?",
+			title: _("Confirmation"),
+			msg: _("Do you really want to create the RAID device?"),
 			buttons: Ext.Msg.YESNO,
 			fn: function(answer) {
 				if (answer === "no") {
@@ -451,7 +458,7 @@ OMV.Module.Storage.RAIDAddDialog = function(config) {
 	var initialConfig = {
 		rpcService: "RaidMgmt",
 		rpcSetMethod: "add",
-		title: "Add devices to RAID device",
+		title: _("Add devices to RAID device"),
 		autoHeight: true,
 		hideReset: true,
 		width: 550
@@ -471,25 +478,25 @@ Ext.extend(OMV.Module.Storage.RAIDAddDialog, OMV.FormPanelDialog, {
 		return [{
 			xtype: "textfield",
 			name: "name",
-			fieldLabel: "Name",
+			fieldLabel: _("Name"),
 			readOnly: true,
 			value: this.name
 		},{
 			xtype: "combo",
 			name: "level",
 			hiddenName: "level",
-			fieldLabel: "Level",
+			fieldLabel: _("Level"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ "stripe","Stripe" ],
-					[ "raid0","Stripe" ],
-					[ "mirror","Mirror" ],
-					[ "raid1","Mirror" ],
-					[ "linear","Linear" ],
-					[ "raid5","RAID 5" ],
-					[ "raid6","RAID 6" ]
+					[ "stripe",_("Stripe") ],
+					[ "raid0",_("Stripe") ],
+					[ "mirror",_("Mirror") ],
+					[ "raid1",_("Mirror") ],
+					[ "linear",_("Linear") ],
+					[ "raid5",_("RAID 5") ],
+					[ "raid6",_("RAID 6") ]
 				]
 			}),
 			displayField: "text",
@@ -503,11 +510,15 @@ Ext.extend(OMV.Module.Storage.RAIDAddDialog, OMV.FormPanelDialog, {
 			xtype: "checkboxgrid",
 			name: "devices",
 			hiddenName: "devices",
-			fieldLabel: "Devices",
+			fieldLabel: _("Devices"),
 			store: new OMV.data.Store({
 				autoLoad: true,
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("RaidMgmt", "getCandidates"),
+				proxy: new OMV.data.DataProxy({
+					"service": "RaidMgmt",
+					"method": "getCandidates",
+					"appendPagingParams": false
+				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "devicefile",
 					fields: [
@@ -525,25 +536,25 @@ Ext.extend(OMV.Module.Storage.RAIDAddDialog, OMV.FormPanelDialog, {
 					sortable: true
 				},
 				columns: [{
-					header: "Device",
+					header: _("Device"),
 					sortable: true,
 					dataIndex: "devicefile",
 					id: "devicefile",
 					width: 40
 				},{
-					header: "Capacity",
+					header: _("Capacity"),
 					sortable: true,
 					dataIndex: "capacity",
 					id: "capacity",
 					width: 50
 				},{
-					header: "Vendor",
+					header: _("Vendor"),
 					sortable: true,
 					dataIndex: "vendor",
 					id: "vendor",
 					width: 30
 				},{
-					header: "Serial Number",
+					header: _("Serial Number"),
 					sortable: true,
 					dataIndex: "serialnumber",
 					id: "serialnumber"
@@ -554,7 +565,7 @@ Ext.extend(OMV.Module.Storage.RAIDAddDialog, OMV.FormPanelDialog, {
 			},
 			height: 110,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Select devices to be added to the RAID device"
+			infoText: _("Select devices to be added to the RAID device")
 		}];
 	},
 
@@ -580,7 +591,7 @@ OMV.Module.Storage.RAIDDetailDialog = function(config) {
 		hideReset: true,
 		rpcService: "RaidMgmt",
 		rpcGetMethod: "getDetail",
-		title: "Array details",
+		title: _("Array details"),
 		width: 600,
 		height: 400
 	};

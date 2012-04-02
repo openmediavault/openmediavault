@@ -45,6 +45,12 @@ case "$1" in
 		omv_install_fixperms
 
 		########################################################################
+		# Install locale files.
+		########################################################################
+		echo "Install locale files ..."
+		omv_install_locale
+
+		########################################################################
 		# Update the configuration.
 		# <config>
 		#   <services>
@@ -80,7 +86,6 @@ case "$1" in
 		# Generate configurations
 		########################################################################
 		if [ -z "$2" ]; then
-			udevadm control --reload-rules
 			udevadm trigger
 		fi
 		omv-mkconf collectd
@@ -96,12 +101,10 @@ case "$1" in
 		########################################################################
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "0.1.4"; then
-			udevadm control --reload-rules
 			udevadm trigger
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.1.6"; then
 			omv-mkconf nut
-			udevadm control --reload-rules
 			udevadm trigger
 		fi
 	;;

@@ -31,7 +31,7 @@ Ext.ns("OMV.Module.System");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("system", "cronjobs", {
-	text: "Cron Jobs",
+	text: _("Cron Jobs"),
 	icon: "images/cron.png",
 	position: 70
 });
@@ -46,7 +46,7 @@ OMV.Module.System.CronGridPanel = function(config) {
 		stateId: "a882a76d-6804-4632-b31b-8b48c0ea6dde",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Enabled",
+				header: _("Enabled"),
 				sortable: true,
 				dataIndex: "enable",
 				id: "enable",
@@ -54,7 +54,7 @@ OMV.Module.System.CronGridPanel = function(config) {
 				width: 60,
 				renderer: OMV.util.Format.booleanRenderer()
 			},{
-				header: "Minute",
+				header: _("Minute"),
 				sortable: true,
 				dataIndex: "minute",
 				id: "minute",
@@ -66,7 +66,7 @@ OMV.Module.System.CronGridPanel = function(config) {
 					return val;
 				}
 			},{
-				header: "Hour",
+				header: _("Hour"),
 				sortable: true,
 				dataIndex: "hour",
 				id: "hour",
@@ -80,7 +80,7 @@ OMV.Module.System.CronGridPanel = function(config) {
 					return val;
 				}
 			},{
-				header: "Day of month",
+				header: _("Day of month"),
 				sortable: true,
 				dataIndex: "dayofmonth",
 				id: "dayofmonth",
@@ -95,29 +95,29 @@ OMV.Module.System.CronGridPanel = function(config) {
 					return val;
 				}
 			},{
-				header: "Month",
+				header: _("Month"),
 				sortable: true,
 				dataIndex: "month",
 				id: "month",
 				renderer: OMV.util.Format.arrayRenderer(Date.mapMonth)
 			},{
-				header: "Day of week",
+				header: _("Day of week"),
 				sortable: true,
 				dataIndex: "dayofweek",
 				id: "dayofweek",
 				renderer: OMV.util.Format.arrayRenderer(Date.mapDayOfWeek)
 			},{
-				header: "User",
+				header: _("User"),
 				sortable: true,
 				dataIndex: "username",
 				id: "username"
 			},{
-				header: "Command",
+				header: _("Command"),
 				sortable: true,
 				dataIndex: "command",
 				id: "command"
 			},{
-				header: "Comment",
+				header: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
 				id: "comment"
@@ -133,8 +133,11 @@ Ext.extend(OMV.Module.System.CronGridPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("Cron", "getListByType",
-				[ [ "userdefined" ] ]),
+			proxy: new OMV.data.DataProxy({
+				"service": "Cron",
+				"method": "getList",
+				"extraParams": { "type": [ "userdefined" ] }
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				totalProperty: "total",
@@ -168,7 +171,7 @@ Ext.extend(OMV.Module.System.CronGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(2, {
 			id: this.getId() + "-run",
 			xtype: "button",
-			text: "Run",
+			text: _("Run"),
 			icon: "images/run.png",
 			handler: this.cbRunBtnHdl,
 			scope: this,
@@ -222,17 +225,17 @@ Ext.extend(OMV.Module.System.CronGridPanel, OMV.grid.TBarGridPanel, {
 
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "Cron",
-		  "delete", [ record.get("uuid") ]);
+		  "delete", { "uuid": record.get("uuid") });
 	},
 
 	cbRunBtnHdl : function() {
 		var selModel = this.getSelectionModel();
 		var record = selModel.getSelected();
 		var wnd = new OMV.ExecCmdDialog({
-			title: "Execute cron job",
+			title: _("Execute cron job"),
 			rpcService: "Cron",
 			rpcMethod: "execute",
-			rpcArgs: record.get("uuid"),
+			rpcArgs: { "uuid": record.get("uuid") },
 			listeners: {
 				exception: function(wnd, error) {
 					OMV.MessageBox.error(null, error);
@@ -256,8 +259,8 @@ OMV.Module.System.CronPropertyDialog = function(config) {
 		rpcService: "Cron",
 		rpcGetMethod: "get",
 		rpcSetMethod: "set",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " cron job",
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add cron job") : _("Edit cron job"),
 		height: 400
 	};
 	Ext.apply(initialConfig, config);
@@ -269,12 +272,12 @@ Ext.extend(OMV.Module.System.CronPropertyDialog, OMV.CfgObjectDialog, {
 		return [{
 			xtype: "checkbox",
 			name: "enable",
-			fieldLabel: "Enable",
+			fieldLabel: _("Enable"),
 			checked: true,
 			inputValue: 1
 		},{
 			xtype: "compositefield",
-			fieldLabel: "Minute",
+			fieldLabel: _("Minute"),
 			combineErrors: false,
 			items: [{
 				xtype: "combo",
@@ -293,12 +296,12 @@ Ext.extend(OMV.Module.System.CronPropertyDialog, OMV.CfgObjectDialog, {
 				fieldLabel: "",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Every N minute",
+				boxLabel: _("Every N minute"),
 				width: 140
 			}]
 		},{
 			xtype: "compositefield",
-			fieldLabel: "Hour",
+			fieldLabel: _("Hour"),
 			combineErrors: false,
 			items: [{
 				xtype: "combo",
@@ -322,12 +325,12 @@ Ext.extend(OMV.Module.System.CronPropertyDialog, OMV.CfgObjectDialog, {
 				fieldLabel: "",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Every N hour",
+				boxLabel: _("Every N hour"),
 				width: 140
 			}]
 		},{
 			xtype: "compositefield",
-			fieldLabel: "Day of month",
+			fieldLabel: _("Day of month"),
 			combineErrors: false,
 			items: [{
 				xtype: "combo",
@@ -351,14 +354,14 @@ Ext.extend(OMV.Module.System.CronPropertyDialog, OMV.CfgObjectDialog, {
 				fieldLabel: "",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Every N day of month",
+				boxLabel: _("Every N day of month"),
 				width: 140
 			}]
 		},{
 			xtype: "combo",
 			name: "month",
 			hiddenName: "month",
-			fieldLabel: "Month",
+			fieldLabel: _("Month"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value", "text" ],
@@ -374,7 +377,7 @@ Ext.extend(OMV.Module.System.CronPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "combo",
 			name: "dayofweek",
 			hiddenName: "dayofweek",
-			fieldLabel: "Day of week",
+			fieldLabel: _("Day of week"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value", "text" ],
@@ -390,13 +393,17 @@ Ext.extend(OMV.Module.System.CronPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "combo",
 			name: "username",
 			hiddenName: "username",
-			fieldLabel: "User",
+			fieldLabel: _("User"),
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
 			store: new OMV.data.Store({
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("UserMgmt", "enumerateUsers"),
+				proxy: new OMV.data.DataProxy({
+					"service": "UserMgmt",
+					"method": "enumerateAllUsers",
+					"appendPagingParams": false
+				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "name",
 					fields: [
@@ -411,21 +418,21 @@ Ext.extend(OMV.Module.System.CronPropertyDialog, OMV.CfgObjectDialog, {
 		},{
 			xtype: "textfield",
 			name: "command",
-			fieldLabel: "Command",
+			fieldLabel: _("Command"),
 			allowBlank: false
 		},{
 			xtype: "checkbox",
 			name: "sendemail",
-			fieldLabel: "Send email",
+			fieldLabel: _("Send email"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Send command output via email",
+			boxLabel: _("Send command output via email"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "An email messages with the command output (if any produced) is send to the user who performs the job."
+			infoText: _("An email messages with the command output (if any produced) is send to the user who performs the job.")
 		},{
 			xtype: "textarea",
 			name: "comment",
-			fieldLabel: "Comment",
+			fieldLabel: _("Comment"),
 			allowBlank: true
 		},{
 			xtype: "hidden",
@@ -445,7 +452,7 @@ Ext.extend(OMV.Module.System.CronPropertyDialog, OMV.CfgObjectDialog, {
 				field.clearInvalid(); // combineErrors is false
 				if ((field.getValue() === "*") && (this.findFormField(
 				  "everyn" + fieldName).checked)) {
-					field.markInvalid("Ranges of numbers are not allowed");
+					field.markInvalid(_("Ranges of numbers are not allowed"));
 					valid = false;
 				}
 			}, this);

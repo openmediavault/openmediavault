@@ -25,6 +25,7 @@ require_once("openmediavault/notify.inc");
 
 /**
  * @class OMVModuleAbstract
+ * @extends OMVObject
  * The core module class.
  */
 abstract class OMVModuleAbstract extends OMVObject {
@@ -54,6 +55,7 @@ interface OMVIModuleStatus {
 
 /**
  * @class OMVModuleMgr
+ * @extends OMVObject
  */
 class OMVModuleMgr extends OMVObject {
 	private $map = array();

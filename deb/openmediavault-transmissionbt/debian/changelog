@@ -1,3 +1,9 @@
+openmediavault-transmissionbt (0.3) stable; urgency=low
+
+  * Adapt to openmediavault 0.3
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 07 Jan 2012 14:35:18 +0100
+
 openmediavault-transmissionbt (0.2.8.8) stable; urgency=high
 
   * Fixed Last Package (Official 0.2.8.6)

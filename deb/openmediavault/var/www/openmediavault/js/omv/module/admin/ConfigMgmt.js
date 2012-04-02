@@ -19,7 +19,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/NavigationPanel.js")
-// require("js/omv/data/DataProxy.js")
 // require("js/omv/form/FormPanel.js")
 
 Ext.ns("OMV.Module.System");
@@ -49,28 +48,28 @@ Ext.extend(OMV.Module.System.ConfigMgmt, OMV.form.FormPanel, {
 	initComponent : function() {
 		this.items = [{
 			xtype: "fieldset",
-			title: "Backup configuration",
+			title: _("Backup configuration"),
 			items: [{
 				xtype: "displayfield",
 				hideLabel: true,
-				value: "Click the 'Backup' button to download the current system configuration."
+				value: _("Click the 'Backup' button to download the current system configuration.")
 			},{
 				xtype: "button",
-				text: "Backup",
+				text: _("Backup"),
 				handler: function() {
 					OMV.Download.request("Config", "backup");
 				}
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Restore configuration",
+			title: _("Restore configuration"),
 			items: [{
 				xtype: "displayfield",
 				hideLabel: true,
-				value: "To restore a previously backed up configuration click the 'Restore' button. The system will reboot automatically after import has been finished successfully."
+				value: _("To restore a previously backed up configuration click the 'Restore' button. The system will reboot automatically after import has been finished successfully.")
 			},{
 				xtype: "button",
-				text: "Restore",
+				text: _("Restore"),
 				handler: this.cbRestoreBtnHdl,
 				scope: this
 			}]
@@ -81,15 +80,15 @@ Ext.extend(OMV.Module.System.ConfigMgmt, OMV.form.FormPanel, {
 
 	cbRestoreBtnHdl : function() {
 		new OMV.UploadDialog({
-			title: "Restore configuration",
+			title: _("Restore configuration"),
 			service: "Config",
 			method: "restore",
 			listeners: {
 				success: function(wnd, response) {
 					this.cmdId = response;
-					OMV.MessageBox.wait(null, "Restore configuration...");
+					OMV.MessageBox.wait(null, _("Restore configuration..."));
 					OMV.Ajax.request(this.cbIsRunningHdl, this, "Exec",
-					  "isRunning", [ this.cmdId ]);
+					  "isRunning", { "id": this.cmdId });
 				},
 				scope: this
 			}
@@ -105,7 +104,7 @@ Ext.extend(OMV.Module.System.ConfigMgmt, OMV.form.FormPanel, {
 			if (response === true) {
 				(function() {
 				  OMV.Ajax.request(this.cbIsRunningHdl, this, "Exec",
-					"isRunning", [ this.cmdId ]);
+					"isRunning", { "id": this.cmdId });
 				}).defer(1000, this);
 			} else {
 				delete this.cmdId;
@@ -115,7 +114,7 @@ Ext.extend(OMV.Module.System.ConfigMgmt, OMV.form.FormPanel, {
 						  OMV.MessageBox.error(null, error);
 					  } else {
 						  OMV.MessageBox.info(null,
-							"The system will reboot now.");
+							_("The system will reboot now."));
 					  }
 				  }, this, "System", "reboot");
 			}

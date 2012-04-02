@@ -32,7 +32,7 @@ OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_MULT=${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1M
 OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_MULT=${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_MULT:-"1"}
 
 # Get the number of CPU's
-numcpu=$(grep -c processor /proc/cpuinfo)
+numcpu=$(grep -ci processor /proc/cpuinfo)
 
 cat <<EOF >> ${OMV_MONIT_CONFIG}
 check system localhost

@@ -72,13 +72,41 @@ OMV.Viewport = function(config) {
 					},{
 						xtype: "tbfill"
 					},{
+						xtype: "combo",
+						mode: "local",
+						store: new Ext.data.SimpleStore({
+							fields: [ "value","text" ],
+							data: [
+								[ "en",_("English") ],
+								[ "de",_("German") ]
+							]
+						}),
+						displayField: "text",
+						valueField: "value",
+						allowBlank: false,
+						editable: false,
+						autoWidth: true,
+						triggerAction: "all",
+						listeners: {
+							select: function(combo, record, index) {
+								var locale = record.get(combo.valueField);
+								OMV.i18n.setLocale(locale);
+								OMV.confirmPageUnload = false;
+								document.location.reload();
+							},
+							scope: this
+						},
+						value: OMV.i18n.getLocale()
+					},{
+						xtype: "tbseparator"
+					},{
 						xtype: "tbbutton",
 						icon: "images/logout.png",
-						text: "Logout",
+						text: _("Logout"),
 						handler: function() {
 							Ext.MessageBox.show({
-								title: "Confirmation",
-								msg: "Do you really want to logout?",
+								title: _("Confirmation"),
+								msg: _("Do you really want to logout?"),
 								buttons: Ext.MessageBox.YESNO,
 								fn: function(answer) {
 									if (answer == "no")
@@ -99,33 +127,35 @@ OMV.Viewport = function(config) {
 						},
 						menu: new Ext.menu.Menu({
 							items: [{
-								text: "Reboot",
-								value: "reboot",
+								text: _("Reboot"),
+								action: "reboot",
+								msg: _("Do you really want to reboot the system?"),
 								icon: "images/reboot.png"
 							},{
-								text: "Shutdown",
-								value: "shutdown",
+								text: _("Shutdown"),
+								action: "shutdown",
+								msg: _("Do you really want to shutdown the system?"),
 								icon: "images/shutdown.png"
 							}],
 							listeners: {
 								itemclick: function(item, e) {
 									OMV.MessageBox.show({
-										title: "Confirmation",
-										msg: "Do you really want to " + item.value + " the system?",
+										title: _("Confirmation"),
+										msg: item.msg,
 										buttons: Ext.Msg.YESNO,
 										fn: function(answer) {
 											if (answer == "no")
 												return;
-											switch (item.value) {
+											switch (item.action) {
 											case "reboot":
 												OMV.Ajax.request(function(id, response, error) {
 													  if (error !== null) {
 														  OMV.MessageBox.error(null, error);
 													  } else {
 														  OMV.MessageBox.show({
-															  title: "Information",
+															  title: _("Information"),
 															  icon: Ext.Msg.INFO,
-															  msg: "The system will reboot now. This may take some time ...",
+															  msg: _("The system will reboot now. This may take some time ..."),
 															  wait: true,
 															  closable: false
 														  });
@@ -140,6 +170,7 @@ OMV.Viewport = function(config) {
 																	  this.waitingForResponse = false;
 																	  if (error == null) {
 																		  if (this.hasRebooted) {
+																			  OMV.confirmPageUnload = false;
 																			  document.location.reload();
 																		  }
 																	  } else {
@@ -158,6 +189,7 @@ OMV.Viewport = function(config) {
 													  if (error !== null) {
 														  OMV.MessageBox.error(null, error);
 													  } else {
+														  OMV.confirmPageUnload = false;
 														  document.location.replace("shutdown.php");
 													  }
 												  }, this, "System", "shutdown");
@@ -171,7 +203,7 @@ OMV.Viewport = function(config) {
 								scope: this
 							}
 						}),
-						text: "Shutdown"
+						text: _("Shutdown")
 					}]
 				})
 			})

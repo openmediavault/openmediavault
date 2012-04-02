@@ -30,7 +30,7 @@ Ext.ns("OMV.Module.System");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("system", "updatemanager", {
-	text: "Update Manager",
+	text: _("Update Manager"),
 	icon: "images/system-software-update.png",
 	position: 80
 });
@@ -48,18 +48,18 @@ OMV.Module.System.UpdateMgmtGridPanel = function(config) {
 		stateId: "1a2ca00e-37ac-4aa4-8cbe-290d8f95bd1b",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Name",
+				header: _("Name"),
 				sortable: true,
 				dataIndex: "name",
 				id: "name"
 			},{
-				header: "Version",
+				header: _("Version"),
 				sortable: false,
 				dataIndex: "newversion",
 				id: "newversion",
 				width: 140
 			},{
-				header: "Description",
+				header: _("Description"),
 				sortable: true,
 				dataIndex: "description",
 				id: "description",
@@ -81,7 +81,11 @@ Ext.extend(OMV.Module.System.UpdateMgmtGridPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("Apt", "getUpgraded"),
+			proxy: new OMV.data.DataProxy({
+				"service": "Apt",
+				"method": "getUpgraded",
+				"appendPagingParams": false
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "name",
 				fields: [
@@ -102,7 +106,7 @@ Ext.extend(OMV.Module.System.UpdateMgmtGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(0, {
 			id: this.getId() + "-check",
 			xtype: "button",
-			text: "Check",
+			text: _("Check"),
 			icon: "images/reload.png",
 			handler: this.cbCheckBtnHdl,
 			scope: this
@@ -110,7 +114,7 @@ Ext.extend(OMV.Module.System.UpdateMgmtGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(1, {
 			id: this.getId() + "-upload",
 			xtype: "button",
-			text: "Upload",
+			text: _("Upload"),
 			icon: "images/upload.png",
 			handler: this.cbUploadBtnHdl,
 			scope: this
@@ -118,7 +122,7 @@ Ext.extend(OMV.Module.System.UpdateMgmtGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(2, {
 			id: this.getId() + "-install",
 			xtype: "button",
-			text: "Install",
+			text: _("Install"),
 			icon: "images/yes.png",
 			handler: this.cbInstallBtnHdl,
 			scope: this,
@@ -149,16 +153,16 @@ Ext.extend(OMV.Module.System.UpdateMgmtGridPanel, OMV.grid.TBarGridPanel, {
 			packages.push(record.get("name"));
 		}
 		var wnd = new OMV.ExecCmdDialog({
-			title: "Install updates ...",
+			title: _("Install updates ..."),
 			rpcService: "Apt",
 			rpcMethod: "upgrade",
-			rpcArgs: packages,
+			rpcArgs: { "packages": packages },
 			hideStart: true,
 			hideStop: true,
 			killCmdBeforeDestroy: false,
 			listeners: {
 				finish: function(wnd, response) {
-					wnd.appendValue("\nDone ...");
+					wnd.appendValue("\n" + _("Done ..."));
 					wnd.setButtonDisabled("close", false);
 				},
 				exception: function(wnd, error) {
@@ -178,7 +182,7 @@ Ext.extend(OMV.Module.System.UpdateMgmtGridPanel, OMV.grid.TBarGridPanel, {
 
 	cbUploadBtnHdl : function() {
 		var wnd = new OMV.UploadDialog({
-			title: "Upload package",
+			title: _("Upload package"),
 			service: "Apt",
 			method: "upload",
 			listeners: {
@@ -194,7 +198,7 @@ Ext.extend(OMV.Module.System.UpdateMgmtGridPanel, OMV.grid.TBarGridPanel, {
 	},
 
 	cbCheckBtnHdl : function() {
-		OMV.MessageBox.wait(null, "Checking for new updates ...");
+		OMV.MessageBox.wait(null, _("Checking for new updates ..."));
 		OMV.Ajax.request(function(id, response, error) {
 			  if (error !== null) {
 				  OMV.MessageBox.hide();
@@ -202,7 +206,7 @@ Ext.extend(OMV.Module.System.UpdateMgmtGridPanel, OMV.grid.TBarGridPanel, {
 			  } else {
 				  this.cmdId = response;
 				  OMV.Ajax.request(this.cbIsRunningHdl, this, "Exec",
-					"isRunning", [ this.cmdId ]);
+					"isRunning", { "id": this.cmdId });
 			  }
 		  }, this, "Apt", "update");
 	},
@@ -216,7 +220,7 @@ Ext.extend(OMV.Module.System.UpdateMgmtGridPanel, OMV.grid.TBarGridPanel, {
 			if (response === true) {
 				(function() {
 				  OMV.Ajax.request(this.cbIsRunningHdl, this, "Exec",
-					"isRunning", [ this.cmdId ]);
+					"isRunning", { "id": this.cmdId });
 				}).defer(1000, this);
 			} else {
 				delete this.cmdId;

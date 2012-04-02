@@ -36,7 +36,8 @@ OMV.FormPanelExt = function(config) {
 		hideOK: false,
 		hideReset: false,
 		autoScroll: true,
-		buttonAlign: "left"
+		buttonAlign: "left",
+		trackResetOnLoad: true
 	};
 	Ext.apply(initialConfig, config);
 	OMV.FormPanelExt.superclass.constructor.call(this, initialConfig);
@@ -58,13 +59,13 @@ Ext.extend(OMV.FormPanelExt, OMV.form.FormPanel, {
 	getButtons : function() {
 		return [{
 			id: this.getId() + "-ok",
-			text: "OK",
+			text: _("OK"),
 			hidden: this.hideOK,
 			handler: this.cbOkBtnHdl,
 			scope: this
 		},{
 			id: this.getId() + "-reset",
-			text: "Reset",
+			text: _("Reset"),
 			hidden: this.hideReset,
 			handler: this.cbResetBtnHdl,
 			scope: this

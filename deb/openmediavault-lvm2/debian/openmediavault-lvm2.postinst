@@ -31,6 +31,12 @@ case "$1" in
 		########################################################################
 		echo "Updating permissions"
 		omv_install_fixperms
+
+		########################################################################
+		# Install locale files.
+		########################################################################
+		echo "Install locale files ..."
+		omv_install_locale
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

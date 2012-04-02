@@ -96,8 +96,8 @@ do
 	writelist=""
 
 	# Get shared folder user privileges
-	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[userref]" \
-	  -v "concat(perms,'|',//system/usermanagement/users/user[uuid=current()/userref]/name)" -n \
+	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
+	  -v "concat(perms,'|',name" -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 	for privilege in ${privileges}
 	do
@@ -121,8 +121,8 @@ do
 	done
 
 	# Get shared folder group privileges
-	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[groupref]" \
-	  -v "concat(perms,'|',//system/usermanagement/groups/group[uuid=current()/groupref]/name)" -n \
+	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='group']" \
+	  -v "concat(perms,'|',name)" -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 	for privilege in ${privileges}
 	do

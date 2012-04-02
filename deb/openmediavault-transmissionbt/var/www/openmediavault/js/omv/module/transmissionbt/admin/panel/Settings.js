@@ -19,7 +19,7 @@ Ext.ns("OMV.Module.Services.TransmissionBT.Admin");
  */
 OMV.Module.Services.TransmissionBT.Admin.SettingsPanel = function(config) {
 	var initialConfig = {
-		title: "Settings",
+		title: _("Settings"),
 		rpcService: "TransmissionBT",
 		rpcGetMethod: "getSettings",
 		rpcSetMethod: "setSettings"
@@ -38,7 +38,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SettingsPanel, OMV.FormPanel
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -46,7 +46,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SettingsPanel, OMV.FormPanel
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1,
 				listeners: {
@@ -57,42 +57,42 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SettingsPanel, OMV.FormPanel
 				xtype: "sharedfoldercombo",
 				name: "sharedfolderref",
 				hiddenName: "sharedfolderref",
-				fieldLabel: "Shared folder",
+				fieldLabel: _("Shared folder"),
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Make sure the group 'debian-transmission' has read/write access to the shared folder."
+				infoText: _("Make sure the group 'debian-transmission' has read/write access to the shared folder.")
 			},{
 				xtype: "checkbox",
 				name: "pexenabled",
-				fieldLabel: "Peer exchange",
+				fieldLabel: _("Peer exchange"),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Enable peer exchange (PEX)."
+				boxLabel: _("Enable peer exchange (PEX).")
 			},{
 				xtype: "checkbox",
 				name: "dhtenabled",
-				fieldLabel: "Distributed hash table (DHT).",
+				fieldLabel: _("Distributed hash table (DHT)."),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Enable distributed hash table."
+				boxLabel: _("Enable distributed hash table.")
 			},{
 				xtype: "checkbox",
 				name: "lpd-enabled",
-				fieldLabel: "Local Peer Discovery (LPD).",
+				fieldLabel: _("Local Peer Discovery (LPD)."),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Enable local peer discovery."
+				boxLabel: _("Enable local peer discovery.")
 			},{
 				xtype: "checkbox",
 				name: "utp-enabled",
-				fieldLabel: "Micro Transport Protocol (&micro;TP).",
+				fieldLabel: _("Micro Transport Protocol (&micro;TP)."),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Enable micro transport protocol."
+				boxLabel: _("Enable micro transport protocol.")
 			},{
 				xtype: "combo",
 				name: "encryption",
 				hiddenName: "encryption",
-				fieldLabel: "Encryption",
+				fieldLabel: _("Encryption"),
 				mode: "local",
 				store: new Ext.data.SimpleStore({
 					fields: [ "value","text" ],
@@ -109,20 +109,20 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SettingsPanel, OMV.FormPanel
 				triggerAction: "all",
 				value: 1,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "The peer connection encryption mode."
+				infoText: _("The peer connection encryption mode.")
 			},{
 				xtype: "combo",
 				name: "message-level",
 				hiddenName: "message-level",
-				fieldLabel: "Message Level",
+				fieldLabel: _("Message Level"),
 				mode: "local",
 				store: new Ext.data.SimpleStore({
 					fields: [ "value","text" ],
 					data: [
-						[ 0,"None" ],
-						[ 1,"Error" ],
-						[ 2,"Info" ],
-						[ 3,"Debug" ]
+						[ 0,_("None") ],
+						[ 1,_("Error") ],
+						[ 2,_("Info") ],
+						[ 3,_("Debug") ]
 					]
 				}),
 				displayField: "text",
@@ -132,52 +132,52 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SettingsPanel, OMV.FormPanel
 				triggerAction: "all",
 				value: 2,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Set verbosity of transmission messages."
+				infoText: _("Set verbosity of transmission messages.")
 			},{
 				xtype: "checkbox",
 				name: "lazy-bitfield-enabled",
-				fieldLabel: "Lazy Bitfield",
+				fieldLabel: _("Lazy Bitfield"),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "May help get around some ISP filtering."
+				boxLabel: _("May help get around some ISP filtering.")
 			},{
 				xtype: "checkbox",
 				name: "scrape-paused-torrents-enabled",
-				fieldLabel: "Scrape paused torrents.",
+				fieldLabel: _("Scrape paused torrents."),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Enable paused torrent scraping."
+				boxLabel: _("Enable paused torrent scraping.")
 			},{
 				xtype: "numberfield",
 				name: "umask",
-				fieldLabel: "Umask",
+				fieldLabel: _("Umask"),
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
-				value: 18,
+				value: 0,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Sets transmission's file mode creation mask."
+				infoText: _("Sets transmission's file mode creation mask.")
 			},{
 				xtype: "numberfield",
 				name: "cache-size-mb",
-				fieldLabel: "Cache Size",
+				fieldLabel: _("Cache Size"),
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
 				value: 4,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Cache size (in Mb) to reduce the number of disk reads and writes."
+				infoText: _("Cache size (in Mb) to reduce the number of disk reads and writes.")
 			}]
 		},{
 			xtype: "fieldset",
-			title: "RPC/WebUI Settings",
+			title: _("RPC/WebUI Settings"),
 			defaults: {
 				labelSeparator: ""
 			},
 			items: [{
 				xtype: "numberfield",
 				name: "rpcport",
-				fieldLabel: "Port",
+				fieldLabel: _("Port"),
 				vtype: "port",
 				minValue: 1024,
 				maxValue: 65535,
@@ -186,23 +186,23 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SettingsPanel, OMV.FormPanel
 				allowBlank: false,
 				value: 9091,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Port to open and listen for RPC/Web requests on."
+				infoText: _("Port to open and listen for RPC/Web requests on.")
 			},{
 				xtype: "textfield",
 				name: "rpcurl",
-				fieldLabel: "Uri",
+				fieldLabel: _("Uri"),
 				vtype: "transmissionbturi",
 				allowBlank: false,
 				value: 'transmission',
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Url to access RPC (http://localhost/&lt;URI&gt;/(rpc|web)."
+				infoText: _("Url to access RPC (http://localhost/&lt;URI&gt;/(rpc|web).")
 			},{
 				xtype: "checkbox",
 				name: "rpcauthenticationrequired",
-				fieldLabel: "Authentication",
+				fieldLabel: _("Authentication"),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Require clients to authenticate themselves.",
+				boxLabel: _("Require clients to authenticate themselves."),
 				listeners: {
 					check: this._updateFormFields,
 					scope: this
@@ -210,22 +210,22 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SettingsPanel, OMV.FormPanel
 			},{
 				xtype: "textfield",
 				name: "rpcusername",
-				fieldLabel: "Username",
+				fieldLabel: _("Username"),
 				allowBlank: false,
 				vtype: "username",
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Used for client authentication."
+				infoText: _("Used for client authentication.")
 			},{
 				xtype: "passwordfield",
 				name: "rpcpassword",
-				fieldLabel: "Password",
+				fieldLabel: _("Password"),
 				allowBlank: false,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Used for client authentication."
+				infoText: _("Used for client authentication.")
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Blocklists",
+			title: _("Blocklists"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -233,17 +233,17 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SettingsPanel, OMV.FormPanel
 			items: [{
 				xtype: "checkbox",
 				name: "blocklistenabled",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Use blocklists."
+				boxLabel: _("Use blocklists.")
 			},{
 				xtype: "checkbox",
 				name: "blocklistsyncenabled",
-				fieldLabel: "Auto sync",
+				fieldLabel: _("Auto sync"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Update blocklists automatically.",
+				boxLabel: _("Update blocklists automatically."),
 				listeners: {
 					check: this._updateFormFields,
 					scope: this
@@ -252,15 +252,15 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SettingsPanel, OMV.FormPanel
 				xtype: "combo",
 				name: "blocklistsyncfrequency",
 				hiddenName: "blocklistsyncfrequency",
-				fieldLabel: "Sync frequency",
+				fieldLabel: _("Sync frequency"),
 				mode: "local",
 				store: new Ext.data.SimpleStore({
 					fields: [ "value","text" ],
 					data: [
-						[ "hourly","Hourly" ],
-						[ "daily","Daily" ],
-						[ "weekly","Weekly" ],
-						[ "monthly","Monthly" ]
+						[ "hourly",_("Hourly") ],
+						[ "daily",_("Daily") ],
+						[ "weekly",_("Weekly") ],
+						[ "monthly",_("Monthly") ]
 					]
 				}),
 				displayField: "text",
@@ -272,12 +272,12 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SettingsPanel, OMV.FormPanel
 			},{
 				xtype: "textfield",
 				name: "blocklisturl",
-				fieldLabel: "URL",
+				fieldLabel: _("URL"),
 				allowBlank: true,
 				width: 300,
 				value: "http://update.transmissionbt.com/level1.gz",
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "The URL of the blocklist."
+				infoText: _("The URL of the blocklist.")
 			}]
 		}];
 	},

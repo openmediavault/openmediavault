@@ -33,7 +33,7 @@ Ext.ns("OMV.Module.Storage");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("storage", "smart", {
-	text: "S.M.A.R.T.",
+	text: _("S.M.A.R.T."),
 	icon: "images/harddisk-smart.png",
 	position: 40
 });
@@ -51,35 +51,36 @@ OMV.Module.Storage.SMARTDevicesPanel = function(config) {
 		stateId: "103a18fd-df1c-4934-b5fd-e90b3e08fa91",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Device",
+				header: _("Device"),
 				sortable: true,
 				dataIndex: "devicefile",
 				id: "devicefile",
 				width: 50
 			},{
-				header: "Model",
+				header: _("Model"),
 				sortable: true,
 				dataIndex: "model",
 				id: "model"
 			},{
-				header: "Vendor",
+				header: _("Vendor"),
 				sortable: true,
 				dataIndex: "vendor",
 				id: "vendor",
 				width: 30
 			},{
-				header: "Serial Number",
+				header: _("Serial Number"),
 				sortable: true,
 				dataIndex: "serialnumber",
 				id: "serialnumber"
 			},{
-				header: "Capacity",
+				header: _("Capacity"),
 				sortable: true,
-				dataIndex: "capacity",
-				id: "capacity",
-				width: 50
+				dataIndex: "size",
+				id: "size",
+				width: 50,
+				renderer: OMV.util.Format.binaryUnitRenderer()
 			},{
-				header: "Temperature",
+				header: _("Temperature"),
 				sortable: true,
 				dataIndex: "temperature",
 				id: "temperature",
@@ -96,7 +97,10 @@ Ext.extend(OMV.Module.Storage.SMARTDevicesPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("Smart", "getList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "Smart",
+				"method": "getList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "devicefile",
 				totalProperty: "total",
@@ -106,7 +110,7 @@ Ext.extend(OMV.Module.Storage.SMARTDevicesPanel, OMV.grid.TBarGridPanel, {
 					{ name: "model" },
 					{ name: "vendor" },
 					{ name: "serialnumber" },
-					{ name: "capacity" },
+					{ name: "size" },
 					{ name: "temperature" }
     			]
 			})
@@ -122,7 +126,7 @@ Ext.extend(OMV.Module.Storage.SMARTDevicesPanel, OMV.grid.TBarGridPanel, {
 		tbar.add({
 			id: this.getId() + "-detail",
 			xtype: "button",
-			text: "Detail",
+			text: _("Detail"),
 			icon: "images/detail.png",
 			handler: this.cbDetailBtnHdl,
 			scope: this,
@@ -130,7 +134,7 @@ Ext.extend(OMV.Module.Storage.SMARTDevicesPanel, OMV.grid.TBarGridPanel, {
 		},{
 			id: this.getId() + "-information",
 			xtype: "button",
-			text: "Information",
+			text: _("Information"),
 			icon: "images/info.png",
 			handler: this.cbInformationBtnHdl,
 			scope: this,
@@ -161,7 +165,7 @@ Ext.extend(OMV.Module.Storage.SMARTDevicesPanel, OMV.grid.TBarGridPanel, {
 		var selModel = this.getSelectionModel();
 		var record = selModel.getSelected();
 		var wnd = new OMV.Module.Storage.SMARTIdentPropertyDialog({
-			rpcGetParams: [ record.get("devicefile") ]
+			rpcGetParams: { "devicefile": record.get("devicefile") }
 		});
 		wnd.show();
 	},
@@ -177,7 +181,7 @@ Ext.extend(OMV.Module.Storage.SMARTDevicesPanel, OMV.grid.TBarGridPanel, {
 });
 OMV.NavigationPanelMgr.registerPanel("storage", "smart", {
 	cls: OMV.Module.Storage.SMARTDevicesPanel,
-	title: "Devices",
+	title: _("Devices"),
 	position: 20
 });
 
@@ -188,7 +192,7 @@ OMV.NavigationPanelMgr.registerPanel("storage", "smart", {
  */
 OMV.Module.Storage.SMARTInformationWindow = function(config) {
 	var initialConfig = {
-		title: "S.M.A.R.T. informations",
+		title: _("S.M.A.R.T. informations"),
 		width: 700,
 		height: 350,
 		layout: "fit",
@@ -196,7 +200,7 @@ OMV.Module.Storage.SMARTInformationWindow = function(config) {
 		border: false,
 		buttonAlign: "center",
 		buttons: [{
-			text: "Close",
+			text: _("Close"),
 			handler: this.close,
 			scope: this
 		}]
@@ -233,70 +237,70 @@ Ext.extend(OMV.Module.Storage.SMARTInformationWindow, Ext.Window, {
  */
 OMV.Module.Storage.SMARTAttributesPanel = function(config) {
 	var initialConfig = {
-		title: "Attributes",
+		title: _("Attributes"),
 		hideToolbar: true,
 		hidePagingToolbar: true,
 		stateId: "70556b35-44c5-49d6-8d2e-29c045a57f9c",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "ID",
+				header: _("ID"),
 				dataIndex: "id",
 				id: "id",
 				width: 30,
 				fixed: true,
 				align: "right"
 			},{
-				header: "Attribute name",
+				header: _("Attribute name"),
 				dataIndex: "attrname",
 				id: "attrname",
 				width: 150
 			},{
-				header: "Flag",
+				header: _("Flag"),
 				dataIndex: "flag",
 				id: "flag",
 				width: 60,
 				fixed: true,
 				align: "center"
 			},{
-				header: "Value",
+				header: _("Value"),
 				dataIndex: "value",
 				id: "value",
 				width: 55,
 				fixed: true,
 				align: "center"
 			},{
-				header: "Worst",
+				header: _("Worst"),
 				dataIndex: "worst",
 				id: "worst",
 				width: 55,
 				fixed: true,
 				align: "center"
 			},{
-				header: "Treshold",
+				header: _("Treshold"),
 				dataIndex: "treshold",
 				id: "treshold",
 				width: 55,
 				fixed: true,
 				align: "center"
 			},{
-				header: "Type",
+				header: _("Type"),
 				dataIndex: "type",
 				id: "type",
 				align: "center"
 			},{
-				header: "Updated",
+				header: _("Updated"),
 				dataIndex: "updated",
 				id: "updated",
 				width: 60,
 				fixed: true,
 				align: "center"
 			},{
-				header: "When failed",
+				header: _("When failed"),
 				dataIndex: "whenfailed",
 				id: "whenfailed",
 				align: "center"
 			},{
-				header: "Raw value",
+				header: _("Raw value"),
 				dataIndex: "rawvalue",
 				id: "rawvalue",
 				width: 150
@@ -312,8 +316,12 @@ Ext.extend(OMV.Module.Storage.SMARTAttributesPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("Smart", "getAttributes",
-			  this.devicefile, false),
+			proxy: new OMV.data.DataProxy({
+				"service": "Smart",
+				"method": "getAttributes",
+				"extraParams": { "devicefile": this.devicefile },
+				"appendPagingParams": false
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "id",
 				fields: [
@@ -341,31 +349,31 @@ Ext.extend(OMV.Module.Storage.SMARTAttributesPanel, OMV.grid.TBarGridPanel, {
  */
 OMV.Module.Storage.SMARTSelfTestLogsPanel = function(config) {
 	var initialConfig = {
-		title: "Self-test logs",
+		title: _("Self-test logs"),
 		hideToolbar: true,
 		hidePagingToolbar: true,
 		stateId: "ac2859c4-fb88-4757-870c-794e5919c221",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Num",
+				header: _("Num"),
 				dataIndex: "num",
 				id: "num",
 				width: 35,
 				fixed: true,
 				align: "right"
 			},{
-				header: "Test description",
+				header: _("Test description"),
 				dataIndex: "description",
 				id: "description",
 				width: 100,
 				fixed: true
 			},{
-				header: "Status",
+				header: _("Status"),
 				dataIndex: "status",
 				id: "status",
 				width: 200
 			},{
-				header: "Remaining",
+				header: _("Remaining"),
 				dataIndex: "remaining",
 				id: "remaining",
 				width: 60,
@@ -375,14 +383,14 @@ OMV.Module.Storage.SMARTSelfTestLogsPanel = function(config) {
 					return val + "%";
 				}
 			},{
-				header: "Lifetime",
+				header: _("Lifetime"),
 				dataIndex: "lifetime",
 				id: "lifetime",
 				width: 55,
 				fixed: true,
 				align: "center"
 			},{
-				header: "LBA of first error",
+				header: _("LBA of first error"),
 				dataIndex: "lbaoffirsterror",
 				id: "lbaoffirsterror",
 				width: 100,
@@ -399,8 +407,12 @@ Ext.extend(OMV.Module.Storage.SMARTSelfTestLogsPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("Smart", "getSelfTestLogs",
-			  this.devicefile, false),
+			proxy: new OMV.data.DataProxy({
+				"service": "Smart",
+				"method": "getSelfTestLogs",
+				"extraParams": { "devicefile": this.devicefile },
+				"appendPagingParams": false
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "id",
 				fields: [
@@ -429,7 +441,7 @@ OMV.Module.Storage.SMARTIdentPropertyDialog = function(config) {
 		hideReset: true,
 		rpcService: "Smart",
 		rpcGetMethod: "getIdentityInfo",
-		title: "Device identity information",
+		title: _("Device identity information"),
 		autoHeight: true
 	};
 	Ext.apply(initialConfig, config);
@@ -447,17 +459,17 @@ Ext.extend(OMV.Module.Storage.SMARTIdentPropertyDialog, OMV.FormPanelDialog, {
 		return [{
 			xtype: "textfield",
 			name: "devicemodel",
-			fieldLabel: "Device model",
+			fieldLabel: _("Device model"),
 			readOnly: true
 		},{
 			xtype: "textfield",
 			name: "serialnumber",
-			fieldLabel: "Serial number",
+			fieldLabel: _("Serial number"),
 			readOnly: true
 		},{
 			xtype: "textfield",
 			name: "firmwareversion",
-			fieldLabel: "Firmware version",
+			fieldLabel: _("Firmware version"),
 			readOnly: true
 		}];
 	},
@@ -494,7 +506,7 @@ Ext.extend(OMV.Module.Storage.SMARTSettingsPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -502,48 +514,42 @@ Ext.extend(OMV.Module.Storage.SMARTSettingsPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1
 			},{
 				xtype: "numberfield",
 				name: "interval",
-				fieldLabel: "Check interval",
+				fieldLabel: _("Check interval"),
 				minValue: 10,
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
 				value: 1800,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Sets the interval between disk checks to N seconds."
+				infoText: _("Sets the interval between disk checks to N seconds.")
 			},{
 				xtype: "combo",
 				name: "powermode",
 				hiddenName: "powermode",
-				fieldLabel: "Power mode",
+				fieldLabel: _("Power mode"),
 				mode: "local",
 				store: [
-					["never","Never"],
-					["sleep","Sleep"],
-					["standby","Standby"],
-					["idle","Idle"]
+					[ "never",_("Never") ],
+					[ "sleep",_("Sleep") ],
+					[ "standby",_("Standby") ],
+					[ "idle",_("Idle") ]
 				],
 				allowBlank: false,
 				editable: false,
 				triggerAction: "all",
 				value: "standby",
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Prevent a disk from being spun-up when it is periodically polled.<br/><br/>" +
-					"<ul>" +
-					"<li>Never - Poll (check) the device regardless of its power mode. This may cause a disk which is spun-down to be spun-up when it is checked.</li>" +
-					"<li>Sleep - Check the device unless it is in SLEEP mode.</li>" +
-					"<li>Standby - Check the device unless it is in SLEEP or STANDBY mode. In these modes most disks are not spinning, so if you want to prevent a disk from spinning up each poll, this is probably what you want.</li>" +
-					"<li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the IDLE state, most disks are still spinning, so this is probably not what you want.</li>" +
-					"</ul>"
+				infoText: _("Prevent a disk from being spun-up when it is periodically polled.<br/><br/><ul><li>Never - Poll (check) the device regardless of its power mode. This may cause a disk which is spun-down to be spun-up when it is checked.</li><li>Sleep - Check the device unless it is in SLEEP mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY mode. In these modes most disks are not spinning, so if you want to prevent a disk from spinning up each poll, this is probably what you want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the IDLE state, most disks are still spinning, so this is probably not what you want.</li></ul>")
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Temperature monitoring",
+			title: _("Temperature monitoring"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -551,7 +557,7 @@ Ext.extend(OMV.Module.Storage.SMARTSettingsPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "numberfield",
 				name: "tempdiff",
-				fieldLabel: "Difference",
+				fieldLabel: _("Difference"),
 				width: 40,
 				minValue: 0,
 				allowDecimals: false,
@@ -559,11 +565,11 @@ Ext.extend(OMV.Module.Storage.SMARTSettingsPanel, OMV.FormPanelExt, {
 				allowBlank: false,
 				value: 0,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Report if the temperature had changed by at least N degrees Celsius since last report. Set to 0 to disable this report."
+				infoText: _("Report if the temperature had changed by at least N degrees Celsius since last report. Set to 0 to disable this report.")
 			},{
 				xtype: "numberfield",
 				name: "tempinfo",
-				fieldLabel: "Informal",
+				fieldLabel: _("Informal"),
 				width: 40,
 				minValue: 0,
 				allowDecimals: false,
@@ -571,11 +577,11 @@ Ext.extend(OMV.Module.Storage.SMARTSettingsPanel, OMV.FormPanelExt, {
 				allowBlank: false,
 				value: 0,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report."
+				infoText: _("Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report.")
 			},{
 				xtype: "numberfield",
 				name: "tempcrit",
-				fieldLabel: "Critical",
+				fieldLabel: _("Critical"),
 				width: 40,
 				minValue: 0,
 				allowDecimals: false,
@@ -583,14 +589,14 @@ Ext.extend(OMV.Module.Storage.SMARTSettingsPanel, OMV.FormPanelExt, {
 				allowBlank: false,
 				value: 0,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report."
+				infoText: _("Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report.")
 			}]
 		}];
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("storage", "smart", {
 	cls: OMV.Module.Storage.SMARTSettingsPanel,
-	title: "Settings",
+	title: _("Settings"),
 	position: 10
 });
 
@@ -604,7 +610,7 @@ OMV.Module.Storage.SMARTScheduledTestsPanel = function(config) {
 		stateId: "ca86feba-53c1-42b4-8eea-5119f0244fb5",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Device",
+				header: _("Device"),
 				id: "device",
 				width: 200,
 				sortable: true,
@@ -616,43 +622,43 @@ OMV.Module.Storage.SMARTScheduledTestsPanel = function(config) {
 					return tpl.apply(record.data);
 				}
 			},{
-				header: "Type",
+				header: _("Type"),
 				sortable: true,
 				dataIndex: "type",
 				id: "type",
 				renderer: OMV.util.Format.arrayRenderer([
-					[ "S","Short self-test" ],
-					[ "L","Long self-test" ],
-					[ "C","Conveyance self-test" ],
-					[ "O","Offline immediate test" ]
+					[ "S",_("Short self-test") ],
+					[ "L",_("Long self-test") ],
+					[ "C",_("Conveyance self-test") ],
+					[ "O",_("Offline immediate test") ]
 				])
 			},{
-				header: "Hour",
+				header: _("Hour"),
 				sortable: true,
 				dataIndex: "hour",
 				id: "hour"
 			},{
-				header: "Day of month",
+				header: _("Day of month"),
 				sortable: true,
 				dataIndex: "dayofmonth",
 				id: "dayofmonth",
 				renderer: OMV.util.Format.arrayRenderer(
 				  Date.mapDayOfMonth2Digits)
 			},{
-				header: "Month",
+				header: _("Month"),
 				sortable: true,
 				dataIndex: "month",
 				id: "month",
 				renderer: OMV.util.Format.arrayRenderer(
 				  Date.mapMonth2Digits)
 			},{
-				header: "Day of week",
+				header: _("Day of week"),
 				sortable: true,
 				dataIndex: "dayofweek",
 				id: "dayofweek",
 				renderer: OMV.util.Format.arrayRenderer(Date.mapDayOfWeek)
 			},{
-				header: "Comment",
+				header: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
 				id: "comment"
@@ -669,7 +675,10 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestsPanel,
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("Smart", "getScheduleList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "Smart",
+				"method": "getScheduleList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				totalProperty: "total",
@@ -723,12 +732,12 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestsPanel,
 
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "Smart",
-		  "deleteScheduledTest", [ record.get("uuid") ]);
+		  "deleteScheduledTest", { "uuid": record.get("uuid") });
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("storage", "smart", {
 	cls: OMV.Module.Storage.SMARTScheduledTestsPanel,
-	title: "Scheduled tests",
+	title: _("Scheduled tests"),
 	position: 30
 });
 
@@ -741,8 +750,8 @@ OMV.Module.Storage.SMARTScheduledTestPropertyDialog = function(config) {
 		rpcService: "Smart",
 		rpcGetMethod: "getScheduledTest",
 		rpcSetMethod: "setScheduledTest",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " scheduled test",
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add scheduled test") : _("Edit scheduled test"),
 		height: 330
 	};
 	Ext.apply(initialConfig, config);
@@ -756,14 +765,18 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestPropertyDialog,
 			xtype: "combo",
 			name: "devicefile",
 			hiddenName: "devicefile",
-			fieldLabel: "Device",
+			fieldLabel: _("Device"),
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
 			store: new OMV.data.Store({
 				autoLoad: true,
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("Smart", "enumerateDevices"),
+				proxy: new OMV.data.DataProxy({
+					"service": "Smart",
+					"method": "enumerateDevices",
+					"appendPagingParams": false
+				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "devicefilebyid",
 					fields: [
@@ -772,24 +785,24 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestPropertyDialog,
 					]
 				})
 			}),
-			emptyText: "Select a device ...",
+			emptyText: _("Select a device ..."),
 			valueField: "devicefilebyid",
 			displayField: "description",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "S.M.A.R.T. monitoring must be activated for the selected device."
+			infoText: _("S.M.A.R.T. monitoring must be activated for the selected device.")
 		},{
 			xtype: "combo",
 			name: "type",
 			hiddenName: "type",
-			fieldLabel: "Type",
+			fieldLabel: _("Type"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ "S","Short self-test" ],
-					[ "L","Long self-test" ],
-					[ "C","Conveyance self-test" ],
-					[ "O","Offline immediate test" ]
+					[ "S",_("Short self-test") ],
+					[ "L",_("Long self-test") ],
+					[ "C",_("Conveyance self-test") ],
+					[ "O",_("Offline immediate test") ]
 				]
 			}),
 			displayField: "text",
@@ -802,7 +815,7 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestPropertyDialog,
 			xtype: "combo",
 			name: "hour",
 			hiddenName: "hour",
-			fieldLabel: "Hour",
+			fieldLabel: _("Hour"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value", "text" ],
@@ -818,7 +831,7 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestPropertyDialog,
 			xtype: "combo",
 			name: "dayofmonth",
 			hiddenName: "dayofmonth",
-			fieldLabel: "Day of month",
+			fieldLabel: _("Day of month"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value", "text" ],
@@ -834,7 +847,7 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestPropertyDialog,
 			xtype: "combo",
 			name: "month",
 			hiddenName: "month",
-			fieldLabel: "Month",
+			fieldLabel: _("Month"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value", "text" ],
@@ -850,7 +863,7 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestPropertyDialog,
 			xtype: "combo",
 			name: "dayofweek",
 			hiddenName: "dayofweek",
-			fieldLabel: "Day of week",
+			fieldLabel: _("Day of week"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value", "text" ],
@@ -865,7 +878,7 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestPropertyDialog,
 		},{
 			xtype: "textarea",
 			name: "comment",
-			fieldLabel: "Comment",
+			fieldLabel: _("Comment"),
 			allowBlank: true
 		}];
 	}
@@ -878,22 +891,22 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestPropertyDialog,
  */
 OMV.Module.Diagnostics.LogPlugin.SMART = function(config) {
 	var initialConfig = {
-		title: "S.M.A.R.T.",
+		title: _("S.M.A.R.T."),
 		stateId: "67659b68-3cb2-4434-a92e-f541236e12d0",
 		columns: [{
-			header: "Date & Time",
+			header: _("Date & Time"),
 			sortable: true,
 			dataIndex: "date",
 			id: "date",
 			width: 35,
 			renderer: OMV.util.Format.localeTimeRenderer()
 		},{
-			header: "Event",
+			header: _("Event"),
 			sortable: true,
 			dataIndex: "event",
 			id: "event"
 		}],
-		rpcArgs: "smartd",
+		rpcArgs: { "id": "smartd" },
 		rpcFields: [
 			{ name: "date" },
 			{ name: "event" }

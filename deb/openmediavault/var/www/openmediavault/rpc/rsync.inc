@@ -30,15 +30,21 @@ require_once("openmediavault/notify.inc");
 class RsyncRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
-			"getList" => array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
-			"get" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"getList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
+			"get" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"set" => array('{
 				"type":"object",
 				"properties":{
@@ -78,22 +84,37 @@ class RsyncRpc extends OMVRpc {
 					"xattrs":{"type":"boolean"},
 					"extraoptions":{"type":"string"},
 					"mode":{"type":"string","enum":["push","pull"],'.
-					  '"optional":true}
+					  '"optional":true},
+					"password":{"type":"string","optional":true}
 				}
 			}'),
-			"delete" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
-			"execute" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			)
+			"delete" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
+			"execute" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}')
 		);
 	}
 
 	/**
 	 * Get list of rsync job configuration objects.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	public function getList($start, $count, $sortField, $sortDir) {
+	public function getList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -166,14 +187,17 @@ class RsyncRpc extends OMVRpc {
 			$objectv['everyndayofmonth'] = boolval($objectv['everyndayofmonth']);
 		}
 		// Filter result
-		return $this->applyFilter($objects, $start, $count, $sortField,
-		  $sortDir);
+		return $this->applyFilter($objects, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
 	 * Get a rsync job configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return The requested configuration object.
 	 */
-	function get($uuid) {
+	function get($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -184,7 +208,7 @@ class RsyncRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get configuration object
-		$xpath = "//services/rsync/jobs/job[uuid='{$uuid}']";
+		$xpath = sprintf("//services/rsync/jobs/job[uuid='%s']", $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -272,7 +296,8 @@ class RsyncRpc extends OMVRpc {
 			"acls" => array_boolval($data, 'acls'),
 			"xattrs" => array_boolval($data, 'xattrs'),
 			"extraoptions" => $data['extraoptions'],
-			"mode" => isset($data['mode']) ? $data['mode'] : ""
+			"mode" => isset($data['mode']) ? $data['mode'] : "",
+			"password" => isset($data['password']) ? $data['password'] : ""
 		);
 		// Set configuration data
 		$success = FALSE;
@@ -302,8 +327,11 @@ class RsyncRpc extends OMVRpc {
 
 	/**
 	 * Delete a rsync job configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return None
 	 */
-	public function delete($uuid) {
+	public function delete($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -315,7 +343,7 @@ class RsyncRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Delete configuration object
-		$xpath = "//services/rsync/jobs/job[uuid='{$uuid}']";
+		$xpath = sprintf("//services/rsync/jobs/job[uuid='%s']", $data['uuid']);
 		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
 			  $xpath);
@@ -333,16 +361,17 @@ class RsyncRpc extends OMVRpc {
 
 	/**
 	 * Execute a rsync job.
-	 * @param uuid The UUID of the cron job to execute.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the cron job to execute.
 	 * @return The process id of the executed command. This is required by the
-	 * 'Exec' RPC for identification.
+	 *   'Exec' RPC for identification.
 	 */
-	public function execute($uuid) {
+	public function execute($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get the rsync job configuration object
-		$object = OMVRpc::exec("Rsync", "get", array($uuid));
+		$object = OMVRpc::exec("Rsync", "get", array("uuid" => $data['uuid']));
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 				$xpath);
@@ -350,7 +379,7 @@ class RsyncRpc extends OMVRpc {
 		// Execute the cron command line
 		$outputFile = tempnam(sys_get_temp_dir(), "rsyncjob");
 		$cmd = sprintf("sudo sh '%s/rsync-%s' >%s 2>&1 & echo $!",
-		  $GLOBALS['OMV_RSYNC_CRONSCRIPTS_DIR'], $uuid, $outputFile);
+		  $GLOBALS['OMV_RSYNC_CRONSCRIPTS_DIR'], $data['uuid'], $outputFile);
 		OMVUtil::exec($cmd, $output, $res);
 		if ($res !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

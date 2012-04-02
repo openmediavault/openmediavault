@@ -43,6 +43,12 @@ case "$1" in
 		omv_install_fixperms
 
 		########################################################################
+		# Install locale files.
+		########################################################################
+		echo "Install locale files ..."
+		omv_install_locale
+
+		########################################################################
 		# Update the configuration.
 		# <config>
 		#   <services>
@@ -74,16 +80,15 @@ case "$1" in
 		fi
 
 		########################################################################
-		# Import system user 'daapd' created by the forked-daapd package.
-		########################################################################
-		omv_config_import_user "daapd"
-
-		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "0.2.2"; then
 			rm -f /etc/monit/conf.d/forked-daapd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.2.4"; then
+			omv_config_delete "//*[userref=//system/usermanagement/users/user[name='daapd']/uuid]"
+			omv_config_delete_user "daapd"
 		fi
 	;;
 

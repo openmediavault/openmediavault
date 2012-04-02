@@ -87,12 +87,6 @@ See http://www.extjs.com/learn/Ext_FAQ_Grid#Dirty_Record_.2F_Red_Flag_.28modifyi
 	background: none;
 }
 /* Customize tabs */
-.x-tab-strip-usermngmt-user {
-	background-image: url("/images/user.png");
-}
-.x-tab-strip-usermngmt-group {
-	background-image: url("/images/group.gif");
-}
 .x-tab-strip-invalid-icon {
 	background-image: url("/images/error.png");
 }

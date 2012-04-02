@@ -46,6 +46,8 @@ OMV_SAMBA_PRINTING=${OMV_SAMBA_PRINTING:-"bsd"}
 OMV_SAMBA_PRINTCAPNAME=${OMV_SAMBA_PRINTCAPNAME:-"/dev/null"}
 OMV_SAMBA_UNIXEXTENSIONS=${OMV_SAMBA_UNIXEXTENSIONS:-"yes"}
 OMV_SAMBA_WIDELINKS=${OMV_SAMBA_WIDELINKS:-"no"}
+OMV_SAMBA_CREATEMASK=${OMV_SAMBA_CREATEMASK:-"0777"}
+OMV_SAMBA_DIRECTORYMASK=${OMV_SAMBA_DIRECTORYMASK:-"0777"}
 
 xmlstarlet sel -t -m "//services/smb" \
   -o "#======================= Global Settings =======================" -n \
@@ -75,6 +77,8 @@ xmlstarlet sel -t -m "//services/smb" \
   -o "printcap name = ${OMV_SAMBA_PRINTCAPNAME}" -n \
   -o "unix extensions = ${OMV_SAMBA_UNIXEXTENSIONS}" -n \
   -o "wide links = ${OMV_SAMBA_WIDELINKS}" -n \
+  -o "create mask = ${OMV_SAMBA_CREATEMASK}" -n \
+  -o "directory mask = ${OMV_SAMBA_DIRECTORYMASK}" -n \
   -i "count(shares/*[guestok = '1']) > 0" -o "map to guest = ${OMV_SAMBA_MAPTOGUEST}" -n -b \
   -i "usesendfile[. = '1']" -o "use sendfile = yes" -n -b \
   -i "usesendfile[. = '0']" -o "use sendfile = no" -n -b \

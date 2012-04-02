@@ -182,13 +182,13 @@ Ext.applyIf(Date, {
 
 	mapDayOfWeek : [
 		[ "*","*" ],
-		[ "1","Monday" ],
-		[ "2","Tuesday" ],
-		[ "3","Wednesday" ],
-		[ "4","Thursday" ],
-		[ "5","Friday" ],
-		[ "6","Saturday" ],
-		[ "7","Sunday" ]
+		[ "1",_("Monday") ],
+		[ "2",_("Tuesday") ],
+		[ "3",_("Wednesday") ],
+		[ "4",_("Thursday") ],
+		[ "5",_("Friday") ],
+		[ "6",_("Saturday") ],
+		[ "7",_("Sunday") ]
 	],
 
 	mapDayOfMonth : [
@@ -263,34 +263,34 @@ Ext.applyIf(Date, {
 
 	mapMonth : [
 		[ "*","*" ],
-		[ "1","January" ],
-		[ "2","February" ],
-		[ "3","March" ],
-		[ "4","April" ],
-		[ "5","May" ],
-		[ "6","June" ],
-		[ "7","July" ],
-		[ "8","August" ],
-		[ "9","September" ],
-		[ "10","October" ],
-		[ "11","November" ],
-		[ "12","December" ]
+		[ "1",_("January") ],
+		[ "2",_("February") ],
+		[ "3",_("March") ],
+		[ "4",_("April") ],
+		[ "5",_("May") ],
+		[ "6",_("June") ],
+		[ "7",_("July") ],
+		[ "8",_("August") ],
+		[ "9",_("September") ],
+		[ "10",_("October") ],
+		[ "11",_("November") ],
+		[ "12",_("December") ]
 	],
 
 	mapMonth2Digits : [
 		[ "*","*" ],
-		[ "01","January" ],
-		[ "02","February" ],
-		[ "03","March" ],
-		[ "04","April" ],
-		[ "05","May" ],
-		[ "06","June" ],
-		[ "07","July" ],
-		[ "08","August" ],
-		[ "09","September" ],
-		[ "10","October" ],
-		[ "11","November" ],
-		[ "12","December" ]
+		[ "01",_("January") ],
+		[ "02",_("February") ],
+		[ "03",_("March") ],
+		[ "04",_("April") ],
+		[ "05",_("May") ],
+		[ "06",_("June") ],
+		[ "07",_("July") ],
+		[ "08",_("August") ],
+		[ "09",_("September") ],
+		[ "10",_("October") ],
+		[ "11",_("November") ],
+		[ "12",_("December") ]
 	]
 });
 

@@ -27,13 +27,13 @@ set -e
 OMV_INTERFACES_CONFIG=${OMV_INTERFACES_CONFIG:-"/etc/network/interfaces"}
 
 # Configure network interfaces
-for iface in $(cat ${OMV_INTERFACES_CONFIG} | grep -e "^iface.*" | awk '{print $2}'); do
+for iface in $(cat ${OMV_INTERFACES_CONFIG} | grep -ei "^iface.*" | awk '{print $2}'); do
 	# Skip loopback interface
 	[ "lo" = "${iface}" ] && continue
 	# Init 'iface' configuration object
 	object="<uuid>$(uuid)</uuid><devicename>${iface}</devicename>"
 	# Is DHCP enabled?
-	if cat ${OMV_INTERFACES_CONFIG} | grep -e "${iface}.*dhcp" ; then
+	if cat ${OMV_INTERFACES_CONFIG} | grep -ei "${iface}.*dhcp" ; then
 		object="${object}<method>dhcp</method>"
 		object="${object}<wol>0</wol>"
 		object="${object}<address></address>"

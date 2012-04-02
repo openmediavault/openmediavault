@@ -30,7 +30,7 @@ Ext.ns("OMV.Module.System.PowerMgmt");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("system", "powermanagement", {
-	text: "Power Management",
+	text: _("Power Management"),
 	icon: "images/battery.png",
 	position: 50
 });
@@ -51,7 +51,7 @@ Ext.extend(OMV.Module.System.PowerMgmt.SettingsPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General Settings",
+			title: _("General Settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -59,24 +59,24 @@ Ext.extend(OMV.Module.System.PowerMgmt.SettingsPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "cpufreq",
-				fieldLabel: "Monitoring",
+				fieldLabel: _("Monitoring"),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Specifies whether to monitor the system status and select the most appropriate CPU level."
+				boxLabel: _("Specifies whether to monitor the system status and select the most appropriate CPU level.")
 			},{
 				xtype: "checkbox",
 				name: "powerbtn",
-				fieldLabel: "Power button",
+				fieldLabel: _("Power button"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Shutdown the system when pressing the power button."
+				boxLabel: _("Shutdown the system when pressing the power button.")
 			}]
 		}];
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("system", "powermanagement", {
 	cls: OMV.Module.System.PowerMgmt.SettingsPanel,
-	title: "Settings",
+	title: _("Settings"),
 	position: 10
 });
 
@@ -90,7 +90,7 @@ OMV.Module.System.PowerMgmt.ScheduleGridPanel = function(config) {
 		stateId: "7db7131c-a7ec-4048-88de-606fd587af8e",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Enabled",
+				header: _("Enabled"),
 				sortable: true,
 				dataIndex: "enable",
 				id: "enable",
@@ -98,16 +98,16 @@ OMV.Module.System.PowerMgmt.ScheduleGridPanel = function(config) {
 				width: 60,
 				renderer: OMV.util.Format.booleanRenderer()
 			},{
-				header: "Type",
+				header: _("Type"),
 				sortable: true,
 				dataIndex: "type",
 				id: "type",
 				renderer: OMV.util.Format.arrayRenderer([
-					[ "reboot","Reboot" ],
-					[ "shutdown","Shutdown" ]
+					[ "reboot",_("Reboot") ],
+					[ "shutdown",_("Shutdown") ]
 				])
 			},{
-				header: "Minute",
+				header: _("Minute"),
 				sortable: true,
 				dataIndex: "minute",
 				id: "minute",
@@ -119,7 +119,7 @@ OMV.Module.System.PowerMgmt.ScheduleGridPanel = function(config) {
 					return val;
 				}
 			},{
-				header: "Hour",
+				header: _("Hour"),
 				sortable: true,
 				dataIndex: "hour",
 				id: "hour",
@@ -133,7 +133,7 @@ OMV.Module.System.PowerMgmt.ScheduleGridPanel = function(config) {
 					return val;
 				}
 			},{
-				header: "Day of month",
+				header: _("Day of month"),
 				sortable: true,
 				dataIndex: "dayofmonth",
 				id: "dayofmonth",
@@ -148,19 +148,19 @@ OMV.Module.System.PowerMgmt.ScheduleGridPanel = function(config) {
 					return val;
 				}
 			},{
-				header: "Month",
+				header: _("Month"),
 				sortable: true,
 				dataIndex: "month",
 				id: "month",
 				renderer: OMV.util.Format.arrayRenderer(Date.mapMonth)
 			},{
-				header: "Day of week",
+				header: _("Day of week"),
 				sortable: true,
 				dataIndex: "dayofweek",
 				id: "dayofweek",
 				renderer: OMV.util.Format.arrayRenderer(Date.mapDayOfWeek)
 			},{
-				header: "Comment",
+				header: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
 				id: "comment"
@@ -177,8 +177,11 @@ Ext.extend(OMV.Module.System.PowerMgmt.ScheduleGridPanel,
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("Cron", "getListByType",
-			  [ [ "reboot","shutdown" ] ]),
+			proxy: new OMV.data.DataProxy({
+				"service": "Cron",
+				"method": "getList",
+				"extraParams": { "type": [ "reboot","shutdown" ] }
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				totalProperty: "total",
@@ -233,12 +236,12 @@ Ext.extend(OMV.Module.System.PowerMgmt.ScheduleGridPanel,
 
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "Cron",
-		  "delete", [ record.get("uuid") ]);
+		  "delete", { "uuid": record.get("uuid") });
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("system", "powermanagement", {
 	cls: OMV.Module.System.PowerMgmt.ScheduleGridPanel,
-	title: "Shutdown/Reboot schedule",
+	title: _("Shutdown/Reboot schedule"),
 	position: 20
 });
 
@@ -251,8 +254,8 @@ OMV.Module.System.PowerMgmt.CronJobPropertyDialog = function(config) {
 		rpcService: "Cron",
 		rpcGetMethod: "get",
 		rpcSetMethod: "setRebootShutdown",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " cron job",
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add cron job") : _("Edit cron job"),
 		height: 330
 	};
 	Ext.apply(initialConfig, config);
@@ -265,20 +268,20 @@ Ext.extend(OMV.Module.System.PowerMgmt.CronJobPropertyDialog,
 		return [{
 			xtype: "checkbox",
 			name: "enable",
-			fieldLabel: "Enable",
+			fieldLabel: _("Enable"),
 			checked: true,
 			inputValue: 1
 		},{
 			xtype: "combo",
 			name: "type",
 			hiddenName: "type",
-			fieldLabel: "Type",
+			fieldLabel: _("Type"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ "shutdown","Shutdown" ],
-					[ "reboot","Reboot" ]
+					[ "shutdown",_("Shutdown") ],
+					[ "reboot",_("Reboot") ]
 				]
 			}),
 			displayField: "text",
@@ -289,7 +292,7 @@ Ext.extend(OMV.Module.System.PowerMgmt.CronJobPropertyDialog,
 			value: "reboot"
 		},{
 			xtype: "compositefield",
-			fieldLabel: "Minute",
+			fieldLabel: _("Minute"),
 			combineErrors: false,
 			items: [{
 				xtype: "combo",
@@ -308,12 +311,12 @@ Ext.extend(OMV.Module.System.PowerMgmt.CronJobPropertyDialog,
 				fieldLabel: "",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Every N minute",
+				boxLabel: _("Every N minute"),
 				width: 140
 			}]
 		},{
 			xtype: "compositefield",
-			fieldLabel: "Hour",
+			fieldLabel: _("Hour"),
 			combineErrors: false,
 			items: [{
 				xtype: "combo",
@@ -337,12 +340,12 @@ Ext.extend(OMV.Module.System.PowerMgmt.CronJobPropertyDialog,
 				fieldLabel: "",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Every N hour",
+				boxLabel: _("Every N hour"),
 				width: 140
 			}]
 		},{
 			xtype: "compositefield",
-			fieldLabel: "Day of month",
+			fieldLabel: _("Day of month"),
 			combineErrors: false,
 			items: [{
 				xtype: "combo",
@@ -366,14 +369,14 @@ Ext.extend(OMV.Module.System.PowerMgmt.CronJobPropertyDialog,
 				fieldLabel: "",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Every N day of month",
+				boxLabel: _("Every N day of month"),
 				width: 140
 			}]
 		},{
 			xtype: "combo",
 			name: "month",
 			hiddenName: "month",
-			fieldLabel: "Month",
+			fieldLabel: _("Month"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value", "text" ],
@@ -389,7 +392,7 @@ Ext.extend(OMV.Module.System.PowerMgmt.CronJobPropertyDialog,
 			xtype: "combo",
 			name: "dayofweek",
 			hiddenName: "dayofweek",
-			fieldLabel: "Day of week",
+			fieldLabel: _("Day of week"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value", "text" ],
@@ -404,7 +407,7 @@ Ext.extend(OMV.Module.System.PowerMgmt.CronJobPropertyDialog,
 		},{
 			xtype: "textarea",
 			name: "comment",
-			fieldLabel: "Comment",
+			fieldLabel: _("Comment"),
 			allowBlank: true
 		}];
 	},
@@ -420,7 +423,7 @@ Ext.extend(OMV.Module.System.PowerMgmt.CronJobPropertyDialog,
 				field.clearInvalid(); // combineErrors is false
 				if ((field.getValue() === "*") && (this.findFormField(
 				  "everyn" + fieldName).checked)) {
-					field.markInvalid("Ranges of numbers are not allowed");
+					field.markInvalid(_("Ranges of numbers are not allowed"));
 					valid = false;
 				}
 			}, this);

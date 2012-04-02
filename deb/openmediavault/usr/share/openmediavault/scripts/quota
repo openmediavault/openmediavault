@@ -27,39 +27,33 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-# First turn off filesystem quotas.
-xmlstarlet sel -t -m "//system/storage/filesystem/quota" \
-  -v fsuuid \
-  -i "position() != last()" -n -b \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-  while read fsuuid; do
-	  # Get the device file from the given filesystem UUID.
-	  devicefile=$(blkid -U ${fsuuid})
-	  if [ $? -eq 0 ]; then
-		  # Turn filesystem quotas off.
-		  quotaoff -gu ${devicefile}
-	  fi
-  done
-
-# Finally configure filesystem quotas.
 xmlstarlet sel -t -m "//system/storage/filesystem/quota" \
   -v "concat(uuid,' ',fsuuid)" \
   -i "position() != last()" -n -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid fsuuid; do
 	  # Get the device file from the given filesystem UUID.
-	  devicefile=$(blkid -U ${fsuuid})
-	  if [ $? -eq 0 ]; then
+	  devicefile=$(blkid -U ${fsuuid}) || true
+	  if [ -n "${devicefile}" ]; then
+		  # Turn filesystem quotas off.
+		  quotaoff -gu ${devicefile}
+		  # Check if there exists any user or group quota, otherwise it is not
+		  # necessary to turn on quota for this filesystem.
+		  quotaon=$(xmlstarlet sel -t -m "//system/storage/filesystem/quota[uuid='${uuid}']" \
+			-i "count(usrquota) > 0 or count(grpquota) > 0" -o "1" -b \
+			-i "count(usrquota) = 0 and count(grpquota) = 0" -o "0" -b \
+			${OMV_CONFIG_FILE})
+		  [ ${quotaon} -eq 0 ] && continue;
 		  # Create the quota files.
 		  quotacheck -cugnv ${devicefile}
 		  # Set the user quotas.
 		  xmlstarlet sel -t -m "//system/storage/filesystem/quota[uuid='${uuid}']/usrquota" \
-			-v "concat(//system/usermanagement/users/user[uuid=current()/userref]/name,' ',bsoftlimit,' ',bhardlimit,' ',isoftlimit,' ',ihardlimit)" \
+			-v "concat(name,' ',bsoftlimit,' ',bhardlimit,' ',isoftlimit,' ',ihardlimit)" \
 			-i "position() != last()" -n -b \
 			${OMV_CONFIG_FILE} | xmlstarlet unesc | setquota -b -u ${devicefile}
 		  # Set the group quotas.
 		  xmlstarlet sel -t -m "//system/storage/filesystem/quota[uuid='${uuid}']/grpquota" \
-			-v "concat(//system/usermanagement/groups/group[uuid=current()/groupref]/name,' ',bsoftlimit,' ',bhardlimit,' ',isoftlimit,' ',ihardlimit)" \
+			-v "concat(name,' ',bsoftlimit,' ',bhardlimit,' ',isoftlimit,' ',ihardlimit)" \
 			-i "position() != last()" -n -b \
 			${OMV_CONFIG_FILE} | xmlstarlet unesc | setquota -b -g ${devicefile}
 		  # Turn filesystem quotas on.

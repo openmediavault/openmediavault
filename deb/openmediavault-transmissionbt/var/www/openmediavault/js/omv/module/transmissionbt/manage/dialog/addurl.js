@@ -33,8 +33,8 @@ Ext.ns("OMV.TransmissionBT");
 OMV.TransmissionBT.AddURLDialog = function(config) {
 	var initialConfig = {
 		url: this.url,
-		title: "Add Torrent by URL",
-		waitMsg: "Adding Torrent ...",
+		title: _("Add Torrent by URL"),
+		waitMsg: _("Adding Torrent ..."),
 		width: 450,
 		autoHeight: true,
 		layout: "fit",
@@ -42,11 +42,11 @@ OMV.TransmissionBT.AddURLDialog = function(config) {
 		border: false,
 		buttonAlign: "center",
 		buttons: [{
-			text: "OK",
+			text: _("OK"),
 			handler: this.cbOkBtnHdl.createDelegate(this),
 			scope: this
 		},{
-			text: "Cancel",
+			text: _("Cancel"),
 			handler: this.cbCancelBtnHdl.createDelegate(this),
 			scope: this
 		}]
@@ -89,12 +89,12 @@ Ext.extend(OMV.TransmissionBT.AddURLDialog, OMV.Window, {
 				xtype: "textfield",
 				name: "url",
 				id: "url",
-				fieldLabel: "URL"
+				fieldLabel: _("URL")
 			},{
 				xtype: "checkbox",
 				name: "start-download",
 				id: "start-download",
-				fieldLabel: "Start download",
+				fieldLabel: _("Start download"),
 				checked: true,
 				inputValue: 1
 			}]

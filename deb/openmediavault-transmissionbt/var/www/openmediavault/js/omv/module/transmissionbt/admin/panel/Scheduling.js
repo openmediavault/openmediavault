@@ -17,7 +17,7 @@ Ext.ns("OMV.Module.Services.TransmissionBT.Admin");
  */
 OMV.Module.Services.TransmissionBT.Admin.SchedulingPanel = function(config) {
 	var initialConfig = {
-		title: "Scheduling",
+		title: _("Scheduling"),
 		rpcService: "TransmissionBT",
 		rpcGetMethod: "getScheduling",
 		rpcSetMethod: "setScheduling"
@@ -29,26 +29,26 @@ OMV.Module.Services.TransmissionBT.Admin.SchedulingPanel = function(config) {
 Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SchedulingPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{xtype: "fieldset",
-			title: "General",
+			title: _("General"),
 			defaults: {
 				labelSeparator: ""
 			},
 			items: [{xtype: "checkbox",
 				name: "alt-speed-time-enabled",
-				fieldLabel: "Scheduling",
+				fieldLabel: _("Scheduling"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "When enabled, this will toggle the Turtle Mode."
+				boxLabel: _("When enabled, this will toggle the Turtle Mode.")
 			},{
 				xtype: "fieldset",
-				title: "Time",
+				title: _("Time"),
 				defaults: {
 					labelSeparator: ""
 				},
 				items: [{
 					xtype: "compositefield",
 					name: "begin-time",
-					fieldLabel: "Begin",
+					fieldLabel: _("Begin"),
 					width: 200,
 					items: [{
 						xtype: "combo",
@@ -79,7 +79,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SchedulingPanel, OMV.FormPan
 				},{
 					xtype: "compositefield",
 					name: "end-time",
-					fieldLabel: "End",
+					fieldLabel: _("End"),
 					width: 200,
 					items: [{
 						xtype: "combo",
@@ -110,69 +110,69 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SchedulingPanel, OMV.FormPan
 				}]
 			},{
 				xtype: "fieldset",
-				title: "Days",
+				title: _("Days"),
 				defaults: {
 					labelSeparator: ""
 				},
 				items: [{xtype: "checkbox",
 					name: "days-sunday",
-					fieldLabel: "Sunday",
+					fieldLabel: _("Sunday"),
 					checked: true,
 					inputValue: 1
 				},{
 					xtype: "checkbox",
 					name: "days-monday",
-					fieldLabel: "Monday",
+					fieldLabel: _("Monday"),
 					checked: true,
 					inputValue: 1
 				},{
 					xtype: "checkbox",
 					name: "days-tuesday",
-					fieldLabel: "Tuesday",
+					fieldLabel: _("Tuesday"),
 					checked: true,
 					inputValue: 1
 				},{
 					xtype: "checkbox",
 					name: "days-wednesday",
-					fieldLabel: "Wednesday",
+					fieldLabel: _("Wednesday"),
 					checked: true,
 					inputValue: 1
 				},{
 					xtype: "checkbox",
 					name: "days-thursday",
-					fieldLabel: "Thursday",
+					fieldLabel: _("Thursday"),
 					checked: true,
 					inputValue: 1
 				},{
 					xtype: "checkbox",
 					name: "days-friday",
-					fieldLabel: "Friday",
+					fieldLabel: _("Friday"),
 					checked: true,
 					inputValue: 1
 				},{
 					xtype: "checkbox",
 					name: "days-saturday",
-					fieldLabel: "Saturday",
+					fieldLabel: _("Saturday"),
 					checked: true,
 					inputValue: 1
 				}]
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Idle",
+			title: _("Idle"),
 			defaults: {
 				labelSeparator: ""
 			},
 			items: [{xtype: "checkbox",
 				name: "idle-seeding-limit-enabled",
-				fieldLabel: "Seeding Limit",
+				fieldLabel: _("Seeding Limit"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Stop seeding after being idle for N minutes."
+				boxLabel: _("Stop seeding after being idle for N minutes.")
 			},{
 				xtype: "numberfield",
 				name: "idle-seeding-limit",
-				fieldLabel: "Idle Minutes",
+				fieldLabel: _("Idle Minutes"),
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
@@ -180,20 +180,20 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.SchedulingPanel, OMV.FormPan
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Ratio",
+			title: _("Ratio"),
 			defaults: {
 				labelSeparator: ""
 			},
 			items: [{xtype: "checkbox",
 				name: "ratio-limit-enabled",
-				fieldLabel: "Ratio",
+				fieldLabel: _("Ratio"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Transmission will only seed until ratio limit is reached."
+				boxLabel: _("Transmission will only seed until ratio limit is reached.")
 			},{
 				xtype: "numberfield",
 				name: "ratio-limit",
-				fieldLabel: "Ratio Limit",
+				fieldLabel: _("Ratio Limit"),
 				allowDecimals: true,
 				allowNegative: false,
 				allowBlank: false,

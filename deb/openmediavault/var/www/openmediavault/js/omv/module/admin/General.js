@@ -21,33 +21,34 @@
 // require("js/omv/NavigationPanel.js")
 // require("js/omv/FormPanelExt.js")
 // require("js/omv/form/CertificateComboBox.js")
+// require("js/omv/form/PasswordField.js")
 
-Ext.ns("OMV.Module.System.GeneralSettings");
+Ext.ns("OMV.Module.System.WebGUI");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("system", "generalsettings", {
-	text: "General Settings",
+	text: _("General Settings"),
 	icon: "images/preferences.png",
 	position: 10
 });
 
 /**
- * @class OMV.Module.System.GeneralSettings.WebUI
+ * @class OMV.Module.System.WebGUI.Settings
  * @derived OMV.FormPanelExt
  */
-OMV.Module.System.GeneralSettings.WebUI = function(config) {
+OMV.Module.System.WebGUI.Settings = function(config) {
 	var initialConfig = {
-		rpcService: "System",
- 		rpcGetMethod: "getWebUISettings",
-		rpcSetMethod: "setWebUISettings"
+		rpcService: "WebGUI",
+ 		rpcGetMethod: "getSettings",
+		rpcSetMethod: "setSettings"
 	};
 	Ext.apply(initialConfig, config);
-	OMV.Module.System.GeneralSettings.WebUI.superclass.constructor.call(
+	OMV.Module.System.WebGUI.Settings.superclass.constructor.call(
 	  this, initialConfig);
 };
-Ext.extend(OMV.Module.System.GeneralSettings.WebUI, OMV.FormPanelExt, {
+Ext.extend(OMV.Module.System.WebGUI.Settings, OMV.FormPanelExt, {
 	initComponent : function() {
-		OMV.Module.System.GeneralSettings.WebUI.superclass.initComponent.
+		OMV.Module.System.WebGUI.Settings.superclass.initComponent.
 		  apply(this, arguments);
 		this.on("load", this._updateFormFields, this);
 	},
@@ -55,7 +56,7 @@ Ext.extend(OMV.Module.System.GeneralSettings.WebUI, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -63,7 +64,7 @@ Ext.extend(OMV.Module.System.GeneralSettings.WebUI, OMV.FormPanelExt, {
 			items: [{
 				xtype: "numberfield",
 				name: "port",
-				fieldLabel: "Port",
+				fieldLabel: _("Port"),
 				vtype: "port",
 				minValue: 1,
 				maxValue: 65535,
@@ -74,7 +75,7 @@ Ext.extend(OMV.Module.System.GeneralSettings.WebUI, OMV.FormPanelExt, {
 			},{
 				xtype: "numberfield",
 				name: "timeout",
-				fieldLabel: "Session timeout",
+				fieldLabel: _("Session timeout"),
 				minValue: 1,
 				maxValue: 30,
 				allowDecimals: false,
@@ -82,11 +83,11 @@ Ext.extend(OMV.Module.System.GeneralSettings.WebUI, OMV.FormPanelExt, {
 				allowBlank: false,
 				value: 5,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "The session timeout time in minutes."
+				infoText: _("The session timeout time in minutes.")
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Secure connection",
+			title: _("Secure connection"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -94,10 +95,10 @@ Ext.extend(OMV.Module.System.GeneralSettings.WebUI, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "enablessl",
-				fieldLabel: "Enable SSL/TLS",
+				fieldLabel: _("Enable SSL/TLS"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Enable secure connection.",
+				boxLabel: _("Enable secure connection."),
 				listeners: {
 					check: this._updateFormFields,
 					scope: this
@@ -105,7 +106,7 @@ Ext.extend(OMV.Module.System.GeneralSettings.WebUI, OMV.FormPanelExt, {
 			},{
 				xtype: "numberfield",
 				name: "sslport",
-				fieldLabel: "Port",
+				fieldLabel: _("Port"),
 				vtype: "port",
 				minValue: 1,
 				maxValue: 65535,
@@ -116,19 +117,19 @@ Ext.extend(OMV.Module.System.GeneralSettings.WebUI, OMV.FormPanelExt, {
 			},{
 				xtype: "checkbox",
 				name: "forcesslonly",
-				fieldLabel: "Force SSL/TLS",
+				fieldLabel: _("Force SSL/TLS"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Force secure connection only."
+				boxLabel: _("Force secure connection only.")
 			},{
 				xtype: "certificatecombo",
 				name: "sslcertificateref",
 				hiddenName: "sslcertificateref",
-				fieldLabel: "Certificate",
+				fieldLabel: _("Certificate"),
 				allowNone: true,
 				allowBlank: false,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "The SSL certificate."
+				infoText: _("The SSL certificate.")
 			}]
 		}];
 	},
@@ -150,7 +151,100 @@ Ext.extend(OMV.Module.System.GeneralSettings.WebUI, OMV.FormPanelExt, {
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("system", "generalsettings", {
-	cls: OMV.Module.System.GeneralSettings.WebUI,
-	title: "Web Administration",
+	cls: OMV.Module.System.WebGUI.Settings,
+	title: _("Web Administration"),
 	position: 10
+});
+
+/**
+ * @class OMV.Module.System.WebGUI.AdminPasswd
+ * @derived OMV.FormPanelExt
+ */
+OMV.Module.System.WebGUI.AdminPasswd = function(config) {
+	var initialConfig = {
+		rpcService: "WebGUI",
+		rpcSetMethod: "setPassword"
+	};
+	Ext.apply(initialConfig, config);
+	OMV.Module.System.WebGUI.AdminPasswd.superclass.constructor.call(
+	  this, initialConfig);
+};
+Ext.extend(OMV.Module.System.WebGUI.AdminPasswd, OMV.FormPanelExt, {
+	getFormItems : function() {
+		return [{
+			xtype: "fieldset",
+			title: _("Administrator password"),
+			defaults: {
+//				anchor: "100%",
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "passwordfield",
+				name: "password",
+				fieldLabel: _("Password"),
+				allowBlank: true
+			},{
+				xtype: "passwordfield",
+				name: "passwordconf",
+				fieldLabel: _("Confirm password"),
+				allowBlank: true,
+				submitValue: false
+			}]
+		}];
+	},
+
+	cbOkBtnHdl : function() {
+		// Only submit values if form values have been changed
+		if (!this.isDirty())
+			return;
+		OMV.Module.System.WebGUI.AdminPasswd.superclass.
+		  cbOkBtnHdl.call(this);
+	},
+
+	isValid : function() {
+		var valid = OMV.Module.System.WebGUI.AdminPasswd.superclass.
+		  isValid.call(this);
+		if (valid) {
+			var values = this.getValues();
+			// Check the password
+			var field = this.findFormField("passwordconf");
+			if (values.password !== field.getValue()) {
+				var msg = _("Passwords don't match");
+				this.markInvalid([
+					{ id: "password", msg: msg },
+					{ id: "passwordconf", msg: msg }
+				]);
+				valid = false;
+			}
+		}
+		return valid;
+	},
+
+	doLoad : function() {
+		// Empty form fields
+		this.setValues({
+			password: "",
+			passwordconf: ""
+		});
+	},
+
+	doSubmit : function() {
+		// Validate values
+		if (!this.isValid()) {
+			var basicForm = this.getForm();
+			basicForm.markInvalid();
+		} else {
+			var values = this.getValues();
+			// Display waiting dialog
+			OMV.MessageBox.wait(null, _("Saving ..."));
+			// Execute RPC
+			OMV.Ajax.request(this.cbSubmitHdl, this, this.rpcService,
+			  this.rpcSetMethod, { "password": values.password });
+		}
+	}
+});
+OMV.NavigationPanelMgr.registerPanel("system", "generalsettings", {
+	cls: OMV.Module.System.WebGUI.AdminPasswd,
+	title: _("Web Administrator Password"),
+	position: 20
 });

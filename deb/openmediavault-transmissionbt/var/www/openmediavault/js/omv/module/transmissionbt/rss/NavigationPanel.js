@@ -9,7 +9,7 @@
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("transmissionbt", "rss", {
-	text: "rss",
+	text: _("RSS"),
 	icon: "images/transmissionbt.png",
 	position: 20
 });

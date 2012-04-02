@@ -51,15 +51,21 @@ class iSCSITargetRpc extends OMVRpc {
 					}
 				}
 			}'),
-			"getTargetList" => array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
-			"getTarget" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"getTargetList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
+			"getTarget" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"setTarget" => array('{
 				"type":"object",
 				"properties":{
@@ -123,9 +129,12 @@ class iSCSITargetRpc extends OMVRpc {
 					}
 				}
 			}'),
-			"deleteTarget" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			)
+			"deleteTarget" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}')
 		);
 	}
 
@@ -204,9 +213,17 @@ class iSCSITargetRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get list of target config objects.
+	 * Get list of target configuration objects.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	public function getTargetList($start, $count, $sortField, $sortDir) {
+	public function getTargetList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -254,14 +271,17 @@ class iSCSITargetRpc extends OMVRpc {
 			}
 		}
 		// Filter result
-		return $this->applyFilter($objects, $start, $count, $sortField,
-		  $sortDir);
+		return $this->applyFilter($objects, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
-	 * Get a target config object.
+	 * Get a target configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return The requested configuration object.
 	 */
-	public function getTarget($uuid) {
+	public function getTarget($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -273,7 +293,8 @@ class iSCSITargetRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get configuration object
-		$xpath = "//services/iscsitarget/targets/target[uuid='{$uuid}']";
+		$xpath = sprintf("//services/iscsitarget/targets/target[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -301,7 +322,7 @@ class iSCSITargetRpc extends OMVRpc {
 	}
 
 	/**
-	 * Set a target config object.
+	 * Set a target configuration object.
 	 */
 	public function setTarget($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -393,9 +414,12 @@ class iSCSITargetRpc extends OMVRpc {
 	}
 
 	/**
-	 * Delete a target config object.
+	 * Delete a target configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return None
 	 */
-	public function deleteTarget($uuid) {
+	public function deleteTarget($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -407,7 +431,8 @@ class iSCSITargetRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Delete configuration object
-		$xpath = "//services/iscsitarget/targets/target[uuid='{$uuid}']";
+		$xpath = sprintf("//services/iscsitarget/targets/target[uuid='%s']",
+		  $data['uuid']);
 		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
 			  $xpath);

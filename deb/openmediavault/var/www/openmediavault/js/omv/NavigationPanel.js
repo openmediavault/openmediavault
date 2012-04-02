@@ -80,16 +80,27 @@ Ext.extend(OMV.NavigationPanel, Ext.tree.TreePanel, {
 		});
 		// Add event handler
 		this.on("afterrender", function() {
-			// Select the 'About' menu entry per default
+			// Select the 'About' or 'System Information' menu entry per
+			// default after login
+			var sysInfoNode, aboutNode;
 			this.getRootNode().cascade(function(node) {
 				if (node.attributes.categoryId === "diagnostics" &&
 				  node.attributes.menuId === "sysinfo" &&
-				  node.attributes.text === "System Information") {
-					node.select();
-					this.fireEvent("click", node);
-					return false;
+				  node.attributes.text === _("System Information")) {
+					sysInfoNode = node;
+				}
+				if (node.attributes.categoryId === "information" &&
+				  node.attributes.menuId === "about" &&
+				  node.attributes.text === _("About")) {
+					aboutNode = node;
 				}
 			}, this);
+			var node = Ext.isDefined(sysInfoNode) ? sysInfoNode :
+			  Ext.isDefined(aboutNode) ? aboutNode : undefined;
+			if (Ext.isDefined(node)) {
+				node.select();
+				this.fireEvent("click", node);
+			}
 		}, this);
 	}
 });
@@ -175,26 +186,26 @@ OMV.NavigationPanelMgr = function() {
 
 // Register default categories.
 OMV.NavigationPanelMgr.registerCategory("system", {
-	text: "System",
+	text: _("System"),
 	position: 10
 });
 OMV.NavigationPanelMgr.registerCategory("storage", {
-	text: "Storage",
+	text: _("Storage"),
 	position: 20
 });
 OMV.NavigationPanelMgr.registerCategory("privileges", {
-	text: "Access Right Management",
+	text: _("Access Right Management"),
 	position: 30
 });
 OMV.NavigationPanelMgr.registerCategory("services", {
-	text: "Services",
+	text: _("Services"),
 	position: 40
 });
 OMV.NavigationPanelMgr.registerCategory("diagnostics", {
-	text: "Diagnostics",
+	text: _("Diagnostics"),
 	position: 50
 });
 OMV.NavigationPanelMgr.registerCategory("information", {
-	text: "Information",
+	text: _("Information"),
 	position: 60
 });

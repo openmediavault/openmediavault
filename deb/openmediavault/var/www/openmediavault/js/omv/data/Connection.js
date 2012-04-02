@@ -23,6 +23,7 @@
 Ext.ns("OMV.data");
 
 /**
+ * @class OMV.data.Connection
  * The class encapsulates a connection to the page's originating domain,
  * allowing requests to be made either to a configured URL, or to a URL
  * specified at request time.
@@ -45,7 +46,7 @@ OMV.data.Connection.prototype = {
 	 * @param scope The scope in which to execute the callback.
 	 * @param service The name/class of the service to be executed.
 	 * @param method The method name to be executed.
-	 * @param params The parameters of the method to be executed as array.
+	 * @param params The parameters of the method to be executed as object.
 	 * @return The id of the server transaction.
 	 */
 	request : function(callback, scope, service, method, params) {
@@ -55,7 +56,7 @@ OMV.data.Connection.prototype = {
 			jsonData: {
 				service: service,
 				method: method,
-				params: params || []
+				params: params || null
 			},
 			callback: this.cbRequestHdl,
 			scope: this
@@ -124,20 +125,33 @@ OMV.data.Connection.prototype = {
 		// Handle errors
 		if (Ext.isObject(responseData.error)) {
 			var abort = false;
+			var reload = false;
+			// Translate various error messages and decide if RPC response
+			// delivery is aborted.
 			switch (responseData.error.code) {
 			case OMV.E_SESSION_NOT_AUTHENTICATED:
+				abort = true;
+				reload = true;
+				responseData.error.message = _("Session not authenticated");
+				break;
 			case OMV.E_SESSION_TIMEOUT:
 				abort = true;
+				reload = true;
+				responseData.error.message = _("Session timeout");
+				break;
+			}
+			// Reload page and display a message box?
+			if (true === reload) {
 				OMV.MessageBox.failure(null, responseData.error.message,
 				  function() {
+					  OMV.confirmPageUnload = false;
 					  // Force browser to reload document. The login
 					  // dialog will be displayed then.
 					  document.location.reload(true);
 				  });
-				break;
 			}
 			// Abort RPC response delivery?
-			if (abort === true) {
+			if (true === abort) {
 				return;
 			}
 		}
@@ -151,8 +165,8 @@ OMV.data.Connection.prototype = {
 				  responseData.error);
 			}
 		} catch(e) {
-			OMV.MessageBox.failure("RPC error", "Failed to call callback " +
-			  "function: " + e.message);
+			OMV.MessageBox.failure(_("RPC error"), _("Failed to call " +
+			  "callback function: ") + e.message);
 		}
 	}
 }

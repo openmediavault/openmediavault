@@ -17,7 +17,7 @@ Ext.ns("OMV.Module.Services.TransmissionBT.Admin");
  */
 OMV.Module.Services.TransmissionBT.Admin.PeerPanel = function(config) {
 	var initialConfig = {
-		title: "Peer",
+		title: _("Peer"),
 		rpcService: "TransmissionBT",
 		rpcGetMethod: "getPeer",
 		rpcSetMethod: "setPeer"
@@ -30,44 +30,44 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.PeerPanel, OMV.FormPanelExt,
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "Peers",
+			title: _("Peers"),
 			defaults: {
 				labelSeparator: ""
 			},
 			items: [{
 				xtype: "fieldset",
-				title: "Bindings",
+				title: _("Bindings"),
 				defaults: {
 					labelSeparator: ""
 				},
 				items: [{
 					xtype: "textfield",
 					name: "bind-address-ipv4",
-					fieldLabel: "IPv4",
+					fieldLabel: _("IPv4"),
 					vtype: "IPv4Net",
 					allowBlank: false,
 					value: "0.0.0.0",
 					plugins: [ OMV.form.plugins.FieldInfo ],
-					infoText: "IPv4 address to listen on. Use 0.0.0.0 for all host IPs."
+					infoText: _("IPv4 address to listen on. Use 0.0.0.0 for all host IPs.")
 				},{
 					xtype: "textfield",
 					name: "bind-address-ipv6",
-					fieldLabel: "IPv6",
+					fieldLabel: _("IPv6"),
 					allowBlank: false,
 					value: "::",
 					plugins: [ OMV.form.plugins.FieldInfo ],
-					infoText: "IPv6 address to listen on. Use :: for all host IPs."
+					infoText: _("IPv6 address to listen on. Use :: for all host IPs.")
 				}]
 			},{
 				xtype: "fieldset",
-				title: "Limits",
+				title: _("Limits"),
 				defaults: {
 					labelSeparator: ""
 				},
 				items: [{
 					xtype: "numberfield",
 					name: "peer-limit-global",
-					fieldLabel: "Global",
+					fieldLabel: _("Global"),
 					allowDecimals: false,
 					allowNegative: false,
 					allowBlank: false,
@@ -75,7 +75,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.PeerPanel, OMV.FormPanelExt,
 				},{
 					xtype: "numberfield",
 					name: "peer-limit-per-torrent",
-					fieldLabel: "Per torrent",
+					fieldLabel: _("Per torrent"),
 					allowDecimals: false,
 					allowNegative: false,
 					allowBlank: false,
@@ -84,16 +84,16 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.PeerPanel, OMV.FormPanelExt,
 					xtype: "combo",
 					name: "peer-socket-tos",
 					hiddenName: "peer-socket-tos",
-					fieldLabel: "Socket TOS",
+					fieldLabel: _("Socket TOS"),
 					mode: "local",
 					store: new Ext.data.SimpleStore({
 						fields: [ "value","text" ],
 						data: [
-							[ "default","default" ],
-							[ "lowcost","lowcost" ],
-							[ "throughput","throughput" ],
-							[ "lowdelay","lowdelay" ],
-							[ "reliability","reliability" ]
+							[ "default",_("default") ],
+							[ "lowcost",_("lowcost") ],
+							[ "throughput",_("throughput") ],
+							[ "lowdelay",_("lowdelay") ],
+							[ "reliability",_("reliability") ]
 						]
 					}),
 					displayField: "text",
@@ -106,14 +106,14 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.PeerPanel, OMV.FormPanelExt,
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Peer Ports",
+			title: _("Peer Ports"),
 			defaults: {
 				labelSeparator: ""
 			},
 			items: [{
 				xtype: "numberfield",
 				name: "peer-port",
-				fieldLabel: "Peer port",
+				fieldLabel: _("Peer port"),
 				vtype: "port",
 				minValue: 1024,
 				maxValue: 65535,
@@ -122,18 +122,18 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.PeerPanel, OMV.FormPanelExt,
 				allowBlank: false,
 				value: 51413,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Port to listen for incoming peer connections."
+				infoText: _("Port to listen for incoming peer connections.")
 			},{
 				xtype: "checkbox",
 				name: "peer-port-random-on-start",
-				fieldLabel: "Random Port",
+				fieldLabel: _("Random Port"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Random Port on start."
+				boxLabel: _("Random Port on start.")
 			},{
 				xtype: "numberfield",
 				name: "peer-port-random-low",
-				fieldLabel: "Random low",
+				fieldLabel: _("Random low"),
 				allowBlank: false,
 				vtype: "port",
 				minValue: 1024,
@@ -145,7 +145,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.PeerPanel, OMV.FormPanelExt,
 			},{
 				xtype: "numberfield",
 				name: "peer-port-random-high",
-				fieldLabel: "Random high",
+				fieldLabel: _("Random high"),
 				vtype: "port",
 				minValue: 1024,
 				maxValue: 65535,
@@ -156,10 +156,10 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.PeerPanel, OMV.FormPanelExt,
 			},{
 				xtype: "checkbox",
 				name: "port-forwarding-enabled",
-				fieldLabel: "Port forwarding",
+				fieldLabel: _("Port forwarding"),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Enable port forwarding via NAT-PMP or UPnP."
+				boxLabel: _("Enable port forwarding via NAT-PMP or UPnP.")
 			}]
 		}];
 	}

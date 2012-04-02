@@ -25,6 +25,7 @@ Ext.ns("OMV");
 
 /**
  * @class OMV.ExecCmdDialog
+ * @derived OMV.Window
  * Execute the given command asynchronously and display the command output
  * in the dialog. The command will be executed right after the dialog has
  * been rendered. By pressing the 'Stop' button a RPC will be send to stop
@@ -37,15 +38,15 @@ Ext.ns("OMV");
  * @config hideStop Hide the 'Edit' button. Defaults to FALSE.
  * @config hideClose Hide the 'Close' button. Defaults to FALSE.
  * @config progress TRUE to display a progress bar. This is useful when the
- * executed application does not have any output to be displayed in the content
- * area. If set to TRUE the content area will not be displayed and the dialog
- * will be set to autoHeight. Defaults to FALSE.
+ *   executed application does not have any output to be displayed in the
+ *   content area. If set to TRUE the content area will not be displayed and
+ *   the dialog will be set to autoHeight. Defaults to FALSE.
  * @config progressText The progress bar text. Defaults to 'Please wait ...".
  */
 OMV.ExecCmdDialog = function(config) {
 	var initialConfig = {
-		title: "Execute command",
-		width: 500,
+		title: _("Execute command"),
+		width: 600,
 		height: 380,
 		layout: "fit",
 		modal: true,
@@ -59,7 +60,7 @@ OMV.ExecCmdDialog = function(config) {
 		hideStop: false,
 		hideClose: false,
 		progress: false,
-		progressText: "Please wait ..."
+		progressText: _("Please wait ...")
 	};
 	Ext.apply(initialConfig, config);
 	OMV.ExecCmdDialog.superclass.constructor.call(this, initialConfig);
@@ -98,20 +99,20 @@ Ext.extend(OMV.ExecCmdDialog, OMV.Window, {
 			autoHeight: this.progress,
 			buttons: [{
 				id: this.getId() + "-start",
-				text: "Start",
+				text: _("Start"),
 				hidden: this.hideStart,
 				handler: this.start,
 				scope: this
 			},{
 				id: this.getId() + "-stop",
-				text: "Stop",
+				text: _("Stop"),
 				hidden: this.hideStop,
 				disabled: true,
 				handler: this.stop,
 				scope: this
 			},{
 				id: this.getId() + "-close",
-				text: "Close",
+				text: _("Close"),
 				hidden: this.hideClose,
 				handler: function() {
 					this.close();
@@ -154,7 +155,7 @@ Ext.extend(OMV.ExecCmdDialog, OMV.Window, {
 			  } else {
 				  this.fireEvent("exception", this, error);
 			  }
-		  }, this, this.rpcService, this.rpcMethod, [ this.rpcArgs ]);
+		  }, this, this.rpcService, this.rpcMethod, this.rpcArgs);
 	},
 
 	/**
@@ -175,7 +176,7 @@ Ext.extend(OMV.ExecCmdDialog, OMV.Window, {
 			  } else {
 				  this.fireEvent("exception", this, error);
 			  }
-		  }, this, "Exec", "stop", [ this.cmdId ]);
+		  }, this, "Exec", "stop", { "id": this.cmdId });
 	},
 
 	/**
@@ -193,8 +194,7 @@ Ext.extend(OMV.ExecCmdDialog, OMV.Window, {
 					  this.cmdContentPos = response.pos;
 					  this.cmdIsRunning = response.running;
 					  // Update the command content.
-					  this.appendValue(Ext.util.Format.htmlEncode(
-						response.output));
+					  this.appendValue(response.output);
 					  // If command is still running then do another RPC
 					  // request.
 					  if (this.cmdIsRunning === true) {
@@ -212,7 +212,8 @@ Ext.extend(OMV.ExecCmdDialog, OMV.Window, {
 				  } else {
 					  this.fireEvent("exception", this, error);
 				  }
-			  }, this, "Exec", "getOutput", [ this.cmdId, this.cmdContentPos ]);
+			  }, this, "Exec", "getOutput", { "id": this.cmdId,
+			  "pos": this.cmdContentPos });
 		}
 	},
 
@@ -236,7 +237,7 @@ Ext.extend(OMV.ExecCmdDialog, OMV.Window, {
 	 * Set the content displayed in the dialog.
 	 * @param value The value to be displayed in the dialog.
 	 * @scrollBottom TRUE to scroll to the end of the displayed content.
-	 * Defaults to TRUE.
+	 *   Defaults to TRUE.
 	 * @return None
 	 */
 	setValue : function(value, scrollBottom) {
@@ -260,7 +261,7 @@ Ext.extend(OMV.ExecCmdDialog, OMV.Window, {
 	 * Appends the given value to the displayed content.
 	 * @param value The value to be appended to the displayed content.
 	 * @scrollBottom TRUE to scroll to the end of the displayed content.
-	 * Defaults to TRUE.
+	 *   Defaults to TRUE.
 	 * @return None
 	 */
 	appendValue : function(value, scrollBottom) {
@@ -277,7 +278,7 @@ Ext.extend(OMV.ExecCmdDialog, OMV.Window, {
 	 * @method setButtonDisabled
 	 * Convenience function for setting the given button disabled/enabled.
 	 * @param name The name of the button which can be 'start', 'stop'
-	 * or 'close'.
+	 *   or 'close'.
 	 * @param disabled TRUE to disable the button, FALSE to enable.
 	 * @return The button component, otherwise FALSE.
 	 */
@@ -286,5 +287,20 @@ Ext.extend(OMV.ExecCmdDialog, OMV.Window, {
 		if (!Ext.isDefined(btnCtrl))
 			return false;
 		return btnCtrl.setDisabled(disabled);
+	},
+
+	/**
+	 * @method setButtonVisible
+	 * Convenience function to show or hide the given button.
+	 * @param name The name of the button which can be 'start', 'stop'
+	 *   or 'close'.
+	 * @param visible TRUE to show the button, FALSE to hide.
+	 * @return The button component, otherwise FALSE.
+	 */
+	setButtonVisible : function(name, visible) {
+		var btnCtrl = Ext.getCmp(this.getId() + "-" + name);
+		if (!Ext.isDefined(btnCtrl))
+			return false;
+		return btnCtrl.setVisible(visible);
 	}
 });

@@ -29,16 +29,23 @@ require_once("openmediavault/notify.inc");
 class CronRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
-			"getListByType" => array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}', // sortDir
-				'{"type":"array","items":{"type":"string"}}' // types
-			),
-			"get" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"getList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'},
+					"type":{"type":"array","items":{"type":"string",'.
+					  '"format":"regex","pattern":"\/^reboot|shutdown|userdefined$\/i"}}
+				}
+			}'),
+			"get" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"set" => array('{
 				"type":"object",
 				"properties":{
@@ -90,23 +97,35 @@ class CronRpc extends OMVRpc {
 					"comment":{"type":"string"}
 				}
 			}'),
-			"delete" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
-			"execute" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			)
+			"delete" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
+			"execute" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}')
 		);
 	}
 
 	/**
-	 * Get the cron jobs of the requested types.
-	 * @param types Array of cron jobs types which are reboot, shutdown
-	 * or userdefined.
-	 * @return An array of cron jobs of the requested types.
+	 * Get the cron jobs of the requested type.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 *   \em type Array of cron jobs types which are reboot, shutdown
+	 *   or userdefined.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	public function getListByType($start, $count, $sortField, $sortDir,
-	  $types) {
+	public function getList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -127,7 +146,7 @@ class CronRpc extends OMVRpc {
 		// Get cron jobs that match the given type
 		$jobs = array();
 		foreach ($objects as $objectk => $objectv) {
-			if (in_array($objectv['type'], $types)) {
+			if (in_array($objectv['type'], $data['type'])) {
 				// Modify result data
 				$objectv['enable'] = boolval($objectv['enable']);
 				$objectv['sendemail'] = boolval($objectv['sendemail']);
@@ -139,13 +158,17 @@ class CronRpc extends OMVRpc {
 			}
 		}
 		// Filter result
-		return $this->applyFilter($jobs, $start, $count, $sortField, $sortDir);
+		return $this->applyFilter($jobs, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
-	 * Get a cron job
+	 * Get a cron job configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return The requested configuration object.
 	 */
-	public function get($uuid) {
+	public function get($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -157,7 +180,7 @@ class CronRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get configuration object
-		$xpath = "//system/crontab/job[uuid='{$uuid}']";
+		$xpath = sprintf("//system/crontab/job[uuid='%s']", $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -260,9 +283,12 @@ class CronRpc extends OMVRpc {
 	}
 
 	/**
-	 * Delete a cron job
+	 * Delete a cron job configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return None
 	 */
-	public function delete($uuid) {
+	public function delete($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -274,7 +300,7 @@ class CronRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Delete configuration object
-		$xpath = "//system/crontab/job[uuid='{$uuid}']";
+		$xpath = sprintf("//system/crontab/job[uuid='%s']", $data['uuid']);
 		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
 			  $xpath);
@@ -292,11 +318,12 @@ class CronRpc extends OMVRpc {
 
 	/**
 	 * Execute a cron job.
-	 * @param uuid The UUID of the cron job to execute.
-	 * @return The process id of the executed command. This is required by the
-	 * 'Exec' RPC for identification.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return The process ID of the executed command. This is required by the
+	 *   'Exec' RPC for identification.
 	 */
-	public function execute($uuid) {
+	public function execute($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -307,7 +334,7 @@ class CronRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get the cron job object
-		$xpath = "//system/crontab/job[uuid='{$uuid}']";
+		$xpath = sprintf("//system/crontab/job[uuid='%s']", $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,

@@ -33,15 +33,19 @@ class NetworkRpc extends OMVRpc {
 			"setGeneralSettings" => array('{
 				"type":"object",
 				"properties":{
-					"hostname":{"type":"string"}
+					"hostname":{"type":"string","minLength":1},
+					"domainname":{"type":"string"}
 				}
 			}'),
-			"enumerateDevicesList" => array(
-				'{"type":"integer"}', // start
-				'{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
+			"enumerateDevicesList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
 			"identify" => array('{
 				"type":"object",
 				"properties":{
@@ -49,9 +53,12 @@ class NetworkRpc extends OMVRpc {
 					"seconds":{"type":"integer","minimum":1,"maximum":30}
 				}
 			}'),
-			"getIface" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"getIface" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"setIface" => array('{
 				"type":"object",
 				"properties":{
@@ -67,16 +74,25 @@ class NetworkRpc extends OMVRpc {
 					"options":{"type":"string"}
 				}
 			}'),
-			"deleteIface" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
-			"enumerateBondSlaves" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'}', // uuid
-				'{"type":"boolean","optional":true}' // notReferenced
-			),
-			"getBondIface" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"deleteIface" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
+			"enumerateBondSlaves" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+					"unused":{"type":"boolean"}
+				}
+			}'),
+			"getBondIface" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"setBondIface" => array('{
 				"type":"object",
 				"properties":{
@@ -99,9 +115,12 @@ class NetworkRpc extends OMVRpc {
 					"bondupdelay":{"type":"integer","minimum":0}
 				}
 			}'),
-			"deleteBondIface" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"deleteBondIface" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"setHostAccessControl" => array('{
 				"type":"object",
 				"properties":{
@@ -182,7 +201,8 @@ class NetworkRpc extends OMVRpc {
 			  $xpath);
 		}
 		return array(
-			"hostname" => $object['hostname']
+			"hostname" => $object['hostname'],
+			"domainname" => $object['domainname']
 		);
 	}
 
@@ -200,10 +220,18 @@ class NetworkRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Set network settings
-		$object = $data['hostname'];
-		// Set configuration object
-		$xpath = "//system/network/hostname";
+		// Get existing configuration object
+		$xpath = "//system/network";
+		$object = $xmlConfig->get($xpath);
+		if (is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Update configuration
+		$object = array_merge($object, array(
+			"hostname" => $data['hostname'],
+			"domainname" => $data['domainname']
+		));
 		if (FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
@@ -246,15 +274,16 @@ class NetworkRpc extends OMVRpc {
 
 	/**
 	 * Enumerate all network interface devices on the system, except loopback.
-	 * @param start The index where to start.
-	 * @param count The number of objects to process.
-	 * @param sortField The name of the column used to sort.
-	 * @param sortDir The sort direction, ASC or DESC.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
 	 * @return An array containing the requested objects. The field \em total
-	 * contains the total number of objects, \em data contains the object
-	 * array. An exception will be thrown in case of an error.
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	function enumerateDevicesList($start, $count, $sortField, $sortDir) {
+	function enumerateDevicesList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -341,9 +370,9 @@ class NetworkRpc extends OMVRpc {
 			// Append network interface device to result list.
 			$result[] = $devv;
 		}
-		// Filter result list.
-		return $this->applyFilter($result, $start, $count, $sortField,
-		  $sortDir);
+		// Filter result
+		return $this->applyFilter($result, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
@@ -362,7 +391,8 @@ class NetworkRpc extends OMVRpc {
 		$xpath = "//system/network/interfaces/iface/uuid";
 		$uuids = $xmlConfig->getList($xpath);
 		foreach ($uuids as $uuid) {
-			$object = OMVRpc::exec("Network", "getIface", array($uuid));
+			$object = OMVRpc::exec("Network", "getIface", array(
+			  "uuid" => $uuid));
 			// Check if it is used by a bonding interface.
 			if (FALSE === $xmlConfig->exists("//bondiface[" .
 			  "contains(slaves,'{$object['devicename']}')]")) {
@@ -374,7 +404,8 @@ class NetworkRpc extends OMVRpc {
 		$xpath = "//system/network/interfaces/bondiface/uuid";
 		$uuids = $xmlConfig->getList($xpath);
 		foreach ($uuids as $uuid) {
-			$object = OMVRpc::exec("Network", "getBondIface", array($uuid));
+			$object = OMVRpc::exec("Network", "getBondIface", array(
+			  "uuid" => $uuid));
 			$object['type'] = "bond";
 			$result[] = $object;
 		}
@@ -385,11 +416,12 @@ class NetworkRpc extends OMVRpc {
 	 * Initiate adapter-specific action intended to enable an operator to
 	 * easily identify the adapter by sight. Note, the communication to the
 	 * system is not possible during the given time.
-	 * @param devicename The name of the network interface device, e.g. eth1.
-	 * @param seconds Length of time in seconds to blink one or more LEDs
-	 * on the specific network interface device.
+	 * @param data An array containing the following fields:
+	 *   \em devicename The name of the network interface device, e.g. eth1.
+	 *   \em seconds Length of time in seconds to blink one or more LEDs
+	 *   on the specific network interface device.
 	 * @return The PID of the process started to identify the network
-	 * interface device.
+	 *   interface device.
 	 */
 	function identify($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -422,9 +454,12 @@ class NetworkRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get a physical network interface config object
+	 * Get a physical network interface configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return The requested configuration object.
 	 */
-	function getIface($uuid) {
+	function getIface($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -436,7 +471,8 @@ class NetworkRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get configuration object
-		$xpath = "//system/network/interfaces/iface[uuid='{$uuid}']";
+		$xpath = sprintf("//system/network/interfaces/iface[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -450,7 +486,7 @@ class NetworkRpc extends OMVRpc {
 	}
 
 	/**
-	 * Set (add/update) a physical network interface config object
+	 * Set (add/update) a physical network interface configuration object
 	 */
 	function setIface($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -505,9 +541,12 @@ class NetworkRpc extends OMVRpc {
 	}
 
 	/**
-	 * Delete a physical network interface config object
+	 * Delete a physical network interface configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return None
 	 */
-	function deleteIface($uuid) {
+	function deleteIface($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -519,7 +558,8 @@ class NetworkRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Delete configuration object
-		$xpath = "//system/network/interfaces/iface[uuid='{$uuid}']";
+		$xpath = sprintf("//system/network/interfaces/iface[uuid='%s']",
+		  $data['uuid']);
 		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
 			  $xpath);
@@ -537,16 +577,17 @@ class NetworkRpc extends OMVRpc {
 
 	/**
 	 * Enumerate all interfaces from a bonded interface object.
-	 * @param uuid The uuid of the bonded interface.
-	 * @param unused If TRUE then the physical network interfaces that are
-	 * not configured nor used will be appended to the result list.
-	 * Defaults to TRUE.
-	 * @return If uuid is set to OMV_UUID_UNDEFINED a list of available
-	 * physical network interfaces (iface class objects) is returned, otherwise
-	 * the bonded interface slaves plus the unreferenced physical network
-	 * interfaces are returned.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the bonded interface configuration object.
+	 *   \em unused If TRUE then the physical network interfaces that are
+	 *   not configured nor used will be appended to the result list.
+	 *   Defaults to TRUE.
+	 * @return If \em uuid is set to OMV_UUID_UNDEFINED a list of available
+	 *   physical network interfaces (iface class objects) is returned,
+	 *   otherwise the bonded interface slaves plus the unreferenced physical
+	 *   network interfaces are returned.
 	 */
-	public function enumerateBondSlaves($uuid, $unused = TRUE) {
+	public function enumerateBondSlaves($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -559,7 +600,7 @@ class NetworkRpc extends OMVRpc {
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get list of network interfaces.
 		$result = array();
-		if ($unused === TRUE) {
+		if (array_key_exists("unused", $data) && $data['unused'] === TRUE) {
 			// Enumerate all network interface devices on the system.
 			$devs = $this->enumerateDevices();
 			// Get a list of configured physical network interfaces that are
@@ -599,10 +640,11 @@ class NetworkRpc extends OMVRpc {
 				}
 			}
 		}
-		if ($uuid !== $GLOBALS['OMV_UUID_UNDEFINED']) {
+		if ($data['uuid'] !== $GLOBALS['OMV_UUID_UNDEFINED']) {
 			// Get network interfaces already assigned to the bonding
 			// interface device.
-			$xpath = "//system/network/interfaces/bondiface[uuid='{$uuid}']";
+			$xpath = sprintf("//system/network/interfaces/bondiface[uuid='%s']",
+			  $data['uuid']);
 			$object = $xmlConfig->get($xpath);
 			if (is_null($object)) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -616,9 +658,12 @@ class NetworkRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get a bonded interface config object
+	 * Get a bonded interface configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return The requested configuration object.
 	 */
-	function getBondIface($uuid) {
+	function getBondIface($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -630,7 +675,8 @@ class NetworkRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get configuration object
-		$xpath = "//system/network/interfaces/bondiface[uuid='{$uuid}']";
+		$xpath = sprintf("//system/network/interfaces/bondiface[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -710,9 +756,12 @@ class NetworkRpc extends OMVRpc {
 	}
 
 	/**
-	 * Delete a bonded interface config object
+	 * Delete a bonded interface configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return None
 	 */
-	function deleteBondIface($uuid) {
+	function deleteBondIface($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -724,7 +773,8 @@ class NetworkRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Delete configuration object
-		$xpath = "//system/network/interfaces/bondiface[uuid='{$uuid}']";
+		$xpath = sprintf("//system/network/interfaces/bondiface[uuid='%s']",
+		  $data['uuid']);
 		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
 			  $xpath);

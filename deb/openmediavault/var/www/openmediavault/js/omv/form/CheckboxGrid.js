@@ -26,7 +26,7 @@ Ext.ns("OMV.form");
  * @derived Ext.grid.GridPanel
  * @param minSelections The number of minimal selections. Defaults to 0.
  * @param maxSelections The number of max. selections. Defaults to
- * Number.MAX_VALUE.
+ *   Number.MAX_VALUE.
  */
 OMV.form.CheckboxGrid = function(config) {
 	var initialConfig = {
@@ -34,13 +34,13 @@ OMV.form.CheckboxGrid = function(config) {
 		isFormField: true,
 		minSelections: 0,
 		maxSelections: Number.MAX_VALUE,
-		minSelectionsText: "Minimum {0} selected item(s) required",
-		maxSelectionsText: "Maximum {0} selected item(s) allowed",
+		minSelectionsText: _("Minimum {0} selected item(s) required"),
+		maxSelectionsText: _("Maximum {0} selected item(s) allowed"),
 		readOnly: false,
 		separator: ",",
 		loadMask: true,
 		invalidClass: "x-checkboxgrid-invalid",
-		invalidText: "The value in this field is invalid",
+		invalidText: _("The value in this field is invalid"),
 		msgTarget: "qtip"
 	};
 	Ext.apply(initialConfig, config);

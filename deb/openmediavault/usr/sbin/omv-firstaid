@@ -38,7 +38,7 @@ configure_iface() {
 	wol=false
 	# Get the network interface device.
 	cmd="whiptail --clear --menu 'Please select a network interface. Note, the existing network interface configuration will be deleted.' 15 53 5 "
-	for i in $(ls /sys/class/net | grep -v "lo"); do
+	for i in $(ls /sys/class/net | grep -vi "lo"); do
 		cmd="${cmd} '${i}' '${i}'"
 	done
 	eval "${cmd} 2>$tempfile"
@@ -184,7 +184,7 @@ configure_webgui() {
 		sslport=443
 	fi
 	echo "Updating web administration settings. Please wait ..."
-	omv-rpc "System" "setWebUISettings" "{\"port\":${port},\"enablessl\":${enablessl},\"sslport\":${sslport},\"forcesslonly\":${forcesslonly},\"sslcertificateref\":\"${sslcertificateref}\",\"timeout\":5}" >/dev/null
+	omv-rpc "WebGUI" "setSettings" "{\"port\":${port},\"enablessl\":${enablessl},\"sslport\":${sslport},\"forcesslonly\":${forcesslonly},\"sslcertificateref\":\"${sslcertificateref}\",\"timeout\":5}" >/dev/null
 	return 0
 }
 
@@ -199,7 +199,7 @@ reset_webgui_passwd() {
 			whiptail --clear --msgbox "The password must not be empty." 8 35
 		fi
 	done
-	omv-rpc "UserMgmt" "setUserPassword" "{\"name\":\"admin\",\"password\":\"${passwd}\"}" >/dev/null
+	omv-rpc "WebGUI" "setPassword" "${passwd}" >/dev/null
 	return 0
 }
 

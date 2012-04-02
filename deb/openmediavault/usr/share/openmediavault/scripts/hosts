@@ -31,17 +31,20 @@ OMV_HOSTS_DENY_CONFIG=${OMV_HOSTS_DENY_CONFIG:-"/etc/hosts.deny"}
 # If the hostname is a FQDN, then extract the hostname part and store it
 # in the alias variable.
 hostname=$(omv_config_get "//system/network/hostname")
+domainname=$(omv_config_get "//system/network/domainname")
+fqdn="${hostname}"
 alias=""
-if [ $(echo ${hostname} | grep -E "^[^.]+\..+$") ]; then
-	alias=${hostname%%.*}
+if [ -n "${domainname}" ]; then
+	fqdn="${hostname}.${domainname}"
+	alias="${hostname}"
 fi
 
 # Create /etc/hosts file
 cat <<EOF > ${OMV_HOSTS_CONFIG}
-127.0.0.1 ${hostname} localhost ${alias}
+127.0.0.1 ${fqdn} localhost ${alias}
 
 # The following lines are desirable for IPv6 capable hosts
-::1     ${hostname} localhost ip6-localhost ip6-loopback ${alias}
+::1     ${fqdn} localhost ip6-localhost ip6-loopback ${alias}
 fe00::0 ip6-localnet
 ff00::0 ip6-mcastprefix
 ff02::1 ip6-allnodes
@@ -59,9 +62,9 @@ xmlstarlet sel -t -m "//system/network/interfaces/*" \
 		  address=$(omv_get_ipaddr ${devicename})
 	  fi
 	  if [ -n "${alias}" ]; then
-		  echo "${address} ${hostname} ${alias}" >> ${OMV_HOSTS_CONFIG}
+		  echo "${address} ${fqdn} ${alias}" >> ${OMV_HOSTS_CONFIG}
 	  else
-		  echo "${address} ${hostname}" >> ${OMV_HOSTS_CONFIG}
+		  echo "${address} ${fqdn}" >> ${OMV_HOSTS_CONFIG}
 	  fi
   done
 

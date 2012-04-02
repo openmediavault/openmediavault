@@ -32,8 +32,6 @@ case "$1" in
 	purge)
 		# Remove the configuration data
 		omv_config_delete "//services/daap"
-		# Delete user 'daapd'
-		omv_config_delete_user "daapd"
 	;;
 
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

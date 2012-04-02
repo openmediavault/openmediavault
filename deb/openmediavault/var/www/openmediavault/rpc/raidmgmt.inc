@@ -31,12 +31,15 @@ require_once("openmediavault/notify.inc");
 class RaidMgmtRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
-			"getList" => array(
-				'{"type":"integer"}', // start
-				'{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
+			"getList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
 			"create" => array('{
 				"type":"object",
 				"properties":{
@@ -60,20 +63,26 @@ class RaidMgmtRpc extends OMVRpc {
 					"devices":{"type":"string"}
 				}
 			}'),
-			"delete" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}'
-			),
-			"getDetail" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}'
-			)
+			"delete" => array('{
+				"type":"object",
+				"properties":{
+					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+				}
+			}'),
+			"getDetail" => array('{
+				"type":"object",
+				"properties":{
+					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+				}
+			}')
 		);
 	}
 
 	/**
 	 * Enumerate all RAID devices on the system.
 	 * @return An array containing RAID device objects with following fields:
-	 * name, devicefile, uuid, level, numdevices, devices, size, capacity,
-	 * state, description and _used.
+	 *   name, devicefile, uuid, level, numdevices, devices, size, capacity,
+	 *   state, description and _used.
 	 */
 	public function enumerateDevices() {
 		// Check permissions
@@ -82,10 +91,11 @@ class RaidMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
 		}
 		$this->commitSession();
-		// Get all existing RAID devices
-		if (FALSE === ($devs = OMVRaidDevices::get())) {
+		// Get all existing software RAID devices.
+		if (FALSE === ($devs = OMVStorageDevices::enumerate(
+		  OMVStorageDevices::SOFTWARERAID))) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
-			  "get list of RAID devices");
+			  "get list of software RAID devices");
 		}
 		// Get list of physical volumes to check whether a RAID device
 		// is used as a physical volume.
@@ -96,15 +106,15 @@ class RaidMgmtRpc extends OMVRpc {
 		// Prepare result
 		$result = array();
 		foreach ($devs as $devk => $devv) {
-			$raid = new OMVRaidDevice($devv);
+			$raid = new OMVSoftwareRaidDevice($devv);
 			if ($raid->exists()) {
 				$used = FALSE;
 				// Is this RAID device already used as a physical volume?
 				if (in_array($raid->getDeviceFile(), $pvs)) {
 					$used = TRUE;
-				// Does the device contain a filesystem which is in usage?
+				// Does the RAID device contain a filesystem and is it used?
 				} else if (FALSE !== OMVRpc::exec("FsTab", "getByFsName",
-				  array($raid->getDeviceFile()))) {
+				  array("id" => $raid->getDeviceFile()))) {
 					$used = TRUE;
 				}
 				$result[] = array(
@@ -127,8 +137,16 @@ class RaidMgmtRpc extends OMVRpc {
 
 	/**
 	 * Get list of available RAID devices.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	public function getList($start, $count, $sortField, $sortDir) {
+	public function getList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -142,7 +160,8 @@ class RaidMgmtRpc extends OMVRpc {
 		// Enumerate all RAID devices on the system.
 		$devs = OMVRpc::exec("RaidMgmt", "enumerateDevices");
 		// Filter result
-		return $this->applyFilter($devs, $start, $count, $sortField, $sortDir);
+		return $this->applyFilter($devs, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
@@ -162,13 +181,14 @@ class RaidMgmtRpc extends OMVRpc {
 		// installed on.
 		$rootVolume = preg_replace("/\d+/", "", OMVSystem::getRootPartition());
 		$usedDevs = array($rootVolume);
-		// Get all existing RAID devices
-		if (FALSE === ($devs = OMVRaidDevices::get())) {
+		// Get all existing software RAID devices.
+		if (FALSE === ($devs = OMVStorageDevices::enumerate(
+		  OMVStorageDevices::SOFTWARERAID))) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
-			  "get list of RAID devices");
+			  "get list of software RAID devices");
 		}
 		foreach ($devs as $devk => $devv) {
-			$raid = new OMVRaidDevice($devv);
+			$raid = new OMVSoftwareRaidDevice($devv);
 			if ($raid->exists()) {
 				$usedDevs = array_merge($usedDevs, $raid->getDevices());
 			}
@@ -193,7 +213,7 @@ class RaidMgmtRpc extends OMVRpc {
 			  "contains(.,'{$devv['devicefile']}')]"))
 				continue;
 			// Does this device already contain a filesystem?
-			if (TRUE === OMVFilesystem::hasFileSystem($devv['devicefile']))
+			if (FALSE !== OMVFilesystem::hasFileSystem($devv['devicefile']))
 				continue;
 			$result[] = array(
 				"devicefile" => $devv['devicefile'],
@@ -263,8 +283,8 @@ class RaidMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get RAID device details to create notification message.
-		$raid = new OMVRaidDevice($data['devicefile']);
+		// Get software RAID device details to create notification message.
+		$raid = new OMVSoftwareRaidDevice($data['devicefile']);
 		if (FALSE === $raid->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Device '%s' not found", $raid->getDeviceFile()));
@@ -319,8 +339,8 @@ class RaidMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get RAID device details to create notification message.
-		$raid = new OMVRaidDevice($data['devicefile']);
+		// Get software RAID device details to create notification message.
+		$raid = new OMVSoftwareRaidDevice($data['devicefile']);
 		if (FALSE === $raid->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Device '%s' not found", $raid->getDeviceFile()));
@@ -354,8 +374,11 @@ class RaidMgmtRpc extends OMVRpc {
 
 	/**
 	 * Delete a RAID device.
+	 * @param data An array containing the following fields:
+	 *   \em devicefile The RAID device file to be deleted.
+	 * @return None
 	 */
-	public function delete($devicefile) {
+	public function delete($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -366,8 +389,8 @@ class RaidMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get RAID device details to create notification message.
-		$raid = new OMVRaidDevice($devicefile);
+		// Get software RAID device details to create notification message.
+		$raid = new OMVSoftwareRaidDevice($data['devicefile']);
 		if (FALSE === $raid->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Device '%s' not found", $raid->getDeviceFile()));
@@ -394,9 +417,12 @@ class RaidMgmtRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get detail about a RAID device
+	 * Get detail about a RAID device.
+	 * @param data An array containing the following fields:
+	 *   \em devicefile The RAID device file to get details from.
+	 * @return An object with the requested details.
 	 */
-	public function getDetail($devicefile) {
+	public function getDetail($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -407,8 +433,8 @@ class RaidMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get RAID device details
-		$raid = new OMVRaidDevice($devicefile);
+		// Get software RAID device details.
+		$raid = new OMVSoftwareRaidDevice($data['devicefile']);
 		if (FALSE === $raid->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Device '%s' not found", $raid->getDeviceFile()));

@@ -29,7 +29,7 @@ function usage() {
     global $argv;
     $text = <<<EOF
 Usage:
-  %s [options] <class> <method> [param1 [param2] ...]
+  %s [options] <class> <method> [params]
 
 Options:
   -u --user  The name of the user
@@ -65,8 +65,8 @@ foreach ($options as $optionk => $optionv) {
         break;
     }
 }
-if ($argc < 3) {
-	print gettext("ERROR: Invalid number of arguments.\n");
+if (($argc < 2) || ($argc > 4)) {
+	print gettext("ERROR: Invalid number of arguments\n");
     usage();
     exit(1);
 }
@@ -80,15 +80,13 @@ $session->initialize($username, ($username === "admin") ?
 // Execute the RPC
 $class = $argv[1];
 $method = $argv[2];
-$params = array();
-if ($argc >= 4) {
-    for ($i = 3; $i < $argc; $i++) {
-		// Check if we have to decode JSON data
-		if (is_json($argv[$i]))
-			$params[] = json_decode($argv[$i], TRUE);
-		else
-			$params[] = $argv[$i];
-    }
+$params = null;
+if ($argc > 3) {
+	if (!is_json($argv[3])) {
+		print gettext("ERROR: The params argument is no valid JSON\n");
+		exit(1);
+	}
+	$params = json_decode($argv[3], TRUE);
 }
 try {
 	$response = OMVRpc::exec($class, $method, $params);

@@ -1,8 +1,14 @@
+openmediavault-lvm2 (0.3) stable; urgency=low
+
+  * Adapt to openmediavault 0.3
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Apr 2012 22:24:41 +0200
+
 openmediavault-lvm2 (0.2) stable; urgency=low
 
   * Disallow spaces in volume group and logical volume names.
 
- -- Volker Theile <volker.theile@funkwerk-ec.com>  Thu, 16 Feb 2012 07:31:32 +0000
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 16 Feb 2012 07:31:32 +0000
 
 openmediavault-lvm2 (0.1) stable; urgency=low
 

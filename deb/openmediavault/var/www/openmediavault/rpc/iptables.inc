@@ -49,9 +49,12 @@ class IptablesRpc extends OMVRpc {
 					}
 				}
 			}'),
-			"getRule" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"getRule" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"setRule" => array('{
 				"type":"object",
 				"properties":{
@@ -70,9 +73,12 @@ class IptablesRpc extends OMVRpc {
 					"comment":{"type":"string"}
 				}
 			}'),
-			"deleteRule" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			)
+			"deleteRule" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}')
 		);
 	}
 
@@ -158,9 +164,12 @@ class IptablesRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get an iptables rule.
+	 * Get an iptables rule configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return The requested configuration object.
 	 */
-	function getRule($uuid) {
+	function getRule($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -172,7 +181,8 @@ class IptablesRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get configuration object
-		$xpath = "//system/network/iptables/rule[uuid='{$uuid}']";
+		$xpath = sprintf("//system/network/iptables/rule[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -184,7 +194,7 @@ class IptablesRpc extends OMVRpc {
 	}
 
 	/**
-	 * Set an iptables rule.
+	 * Set an iptables rule configuration object.
 	 */
 	function setRule($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -239,9 +249,12 @@ class IptablesRpc extends OMVRpc {
 	}
 
 	/**
-	 * Delete an iptables rule.
+	 * Delete an iptables rule configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return None
 	 */
-	function deleteRule($uuid) {
+	function deleteRule($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -253,7 +266,8 @@ class IptablesRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get the object
-		$xpath = "//system/network/iptables/rule[uuid='{$uuid}']";
+		$xpath = sprintf("//system/network/iptables/rule[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,

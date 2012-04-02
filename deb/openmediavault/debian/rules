@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-#export DH_VERBOSE=1
+include ../openmediavault.mk
 
 clean:
 	dh_testdir
@@ -12,15 +12,11 @@ install:
 	dh_testroot
 	dh_prep
 	dh_installdirs
-
-binary-indep: install
-	dh_testdir
-	dh_testroot
 	dh_install
 
-	# Remove '.svn' directories
-	find $(CURDIR)/debian/openmediavault -name .svn -type d -print0 -prune | xargs -0 rm -rf
-
+binary-indep: install omv_clean_scm
+	dh_testdir
+	dh_testroot
 	dh_installchangelogs
 	dh_installdebconf
 	dh_installinit -r --no-start --name=openmediavault
@@ -35,7 +31,7 @@ binary-indep: install
 	dh_md5sums
 	dh_builddeb
 
-binary-arch: install
+binary-arch:
 # We have nothing to do by default.
 
 binary: binary-indep binary-arch

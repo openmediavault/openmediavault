@@ -34,7 +34,7 @@ Ext.ns("OMV.Module.Services.SMB");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("services", "smbcifs", {
-	text: "SMB/CIFS",
+	text: _("SMB/CIFS"),
 	icon: "images/smb.png"
 });
 
@@ -56,7 +56,7 @@ Ext.extend(OMV.Module.Services.SMB.SettingsPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -64,43 +64,43 @@ Ext.extend(OMV.Module.Services.SMB.SettingsPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1
 			},{
 				xtype: "textfield",
 				name: "workgroup",
-				fieldLabel: "Workgroup",
+				fieldLabel: _("Workgroup"),
 				allowBlank: false,
 				value: "WORKGROUP",
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "The workgroup the server will appear to be in when queried by clients."
+				infoText: _("The workgroup the server will appear to be in when queried by clients.")
 			},{
 				xtype: "textfield",
 				name: "serverstring",
-				fieldLabel: "Description",
+				fieldLabel: _("Description"),
 				allowBlank: false,
 				value: "%h server",
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "The NT description field."
+				infoText: _("The NT description field.")
 			},{
 				xtype: "checkbox",
 				name: "localmaster",
-				fieldLabel: "Local master browser",
+				fieldLabel: _("Local master browser"),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Allow this server to try and become a local master browser"
+				boxLabel: _("Allow this server to try and become a local master browser")
 			},{
 				xtype: "checkbox",
 				name: "timeserver",
-				fieldLabel: "Time server",
+				fieldLabel: _("Time server"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Allow this server to advertise itself as a time server to Windows clients"
+				boxLabel: _("Allow this server to advertise itself as a time server to Windows clients")
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Home directories",
+			title: _("Home directories"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -108,23 +108,23 @@ Ext.extend(OMV.Module.Services.SMB.SettingsPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "homesenable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Enable user home directories"
+				boxLabel: _("Enable user home directories")
 			},{
 				xtype: "checkbox",
 				name: "homesbrowseable",
-				fieldLabel: "Browseable",
+				fieldLabel: _("Browseable"),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Set browseable",
+				boxLabel: _("Set browseable"),
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "This controls whether this share is seen in the list of available shares in a net view and in the browse list."
+				infoText: _("This controls whether this share is seen in the list of available shares in a net view and in the browse list.")
 			}]
 		},{
 			xtype: "fieldset",
-			title: "WINS",
+			title: _("WINS"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -132,24 +132,24 @@ Ext.extend(OMV.Module.Services.SMB.SettingsPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "winssupport",
-				fieldLabel: "WINS support",
+				fieldLabel: _("WINS support"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Enable WINS server",
+				boxLabel: _("Enable WINS server"),
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Act as a WINS server."
+				infoText: _("Act as a WINS server.")
 			},{
 				xtype: "textfield",
 				name: "winsserver",
-				fieldLabel: "WINS server",
+				fieldLabel: _("WINS server"),
 				allowBlank: true,
 				value: "",
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Use the specified WINS server."
+				infoText: _("Use the specified WINS server.")
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Advanced settings",
+			title: _("Advanced settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -158,16 +158,16 @@ Ext.extend(OMV.Module.Services.SMB.SettingsPanel, OMV.FormPanelExt, {
 				xtype: "combo",
 				name: "loglevel",
 				hiddenName: "loglevel",
-				fieldLabel: "Log level",
+				fieldLabel: _("Log level"),
 				mode: "local",
 				store: new Ext.data.SimpleStore({
 					fields: [ "value","text" ],
 					data: [
-						[ 0,"None" ],
-						[ 1,"Minimum" ],
-						[ 2,"Normal" ],
-						[ 3,"Full" ],
-						[ 10,"Debug" ]
+						[ 0,_("None") ],
+						[ 1,_("Minimum") ],
+						[ 2,_("Normal") ],
+						[ 3,_("Full") ],
+						[ 10,_("Debug") ]
 					]
 				}),
 				displayField: "text",
@@ -179,23 +179,23 @@ Ext.extend(OMV.Module.Services.SMB.SettingsPanel, OMV.FormPanelExt, {
 			},{
 				xtype: "checkbox",
 				name: "nullpasswords",
-				fieldLabel: "Null passwords",
+				fieldLabel: _("Null passwords"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Allow client access to accounts that have null passwords"
+				boxLabel: _("Allow client access to accounts that have null passwords")
 			},{
 				xtype: "checkbox",
 				name: "usesendfile",
-				fieldLabel: "Use sendfile",
+				fieldLabel: _("Use sendfile"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Use the more efficient sendfile system call for files that are exclusively oplocked",
+				boxLabel: _("Use the more efficient sendfile system call for files that are exclusively oplocked"),
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "This may make more efficient use of the system CPU's and cause Samba to be faster. Samba automatically turns this off for clients that use protocol levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
+				infoText: _("This may make more efficient use of the system CPU's and cause Samba to be faster. Samba automatically turns this off for clients that use protocol levels lower than NT LM 0.12 and when it detects a client is Windows 9x.")
 			},{
 				xtype: "textfield",
 				name: "extraoptions",
-				fieldLabel: "Extra options",
+				fieldLabel: _("Extra options"),
 				allowBlank: true,
 				autoCreate: {
 					tag: "textarea",
@@ -204,14 +204,15 @@ Ext.extend(OMV.Module.Services.SMB.SettingsPanel, OMV.FormPanelExt, {
 					cols: "65"
 				},
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details."
+				infoText: _("Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details."),
+				anchor: "100%"
 			}]
 		}];
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("services", "smbcifs", {
 	cls: OMV.Module.Services.SMB.SettingsPanel,
-	title: "Settings",
+	title: _("Settings"),
 	position: 10
 });
 
@@ -225,34 +226,34 @@ OMV.Module.Services.SMB.SharesGridPanel = function(config) {
 		stateId: "e0bbeb12-8441-4b70-899e-800e2dab53ee",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Shared folder",
+				header: _("Shared folder"),
 				sortable: true,
 				dataIndex: "sharedfoldername",
 				id: "sharedfoldername"
 			},{
-				header: "Name",
+				header: _("Name"),
 				sortable: true,
 				dataIndex: "name",
 				id: "name"
 			},{
-				header: "Comment",
+				header: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
 				id: "comment"
 			},{
-				header: "Public",
+				header: _("Public"),
 				sortable: true,
 				dataIndex: "guestok",
 				id: "guestok",
 				renderer: OMV.util.Format.booleanRenderer()
 			},{
-				header: "Read only",
+				header: _("Read only"),
 				sortable: true,
 				dataIndex: "readonly",
 				id: "readonly",
 				renderer: OMV.util.Format.booleanRenderer()
 			},{
-				header: "Browseable",
+				header: _("Browseable"),
 				sortable: true,
 				dataIndex: "browseable",
 				id: "browseable",
@@ -269,7 +270,10 @@ Ext.extend(OMV.Module.Services.SMB.SharesGridPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("SMB", "getShareList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "SMB",
+				"method": "getShareList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				totalProperty: "total",
@@ -319,12 +323,12 @@ Ext.extend(OMV.Module.Services.SMB.SharesGridPanel, OMV.grid.TBarGridPanel, {
 
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "SMB", "deleteShare",
-		  [ record.get("uuid") ]);
+		  { "uuid": record.get("uuid") });
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("services", "smbcifs", {
 	cls: OMV.Module.Services.SMB.SharesGridPanel,
-	title: "Shares",
+	title: _("Shares"),
 	position: 20
 });
 
@@ -337,8 +341,8 @@ OMV.Module.Services.SMB.SharePropertyDialog = function(config) {
 		rpcService: "SMB",
 		rpcGetMethod: "getShare",
 		rpcSetMethod: "setShare",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " share",
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add share") : _("Edit share"),
 		width: 700,
 		height: 400
 	};
@@ -362,122 +366,120 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 		return [{
 			xtype: "textfield",
 			name: "name",
-			fieldLabel: "Name",
+			fieldLabel: _("Name"),
 			allowBlank: false,
 			vtype: "sharename",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The name of the share."
+			infoText: _("The name of the share.")
 		},{
 			xtype: "textfield",
 			name: "comment",
-			fieldLabel: "Comment",
+			fieldLabel: _("Comment"),
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "This is a text field that is seen next to a share when a client queries the server."
+			infoText: _("This is a text field that is seen next to a share when a client queries the server.")
 		},{
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",
 			hiddenName: "sharedfolderref",
-			fieldLabel: "Shared folder",
+			fieldLabel: _("Shared folder"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The location of the files to share."
+			infoText: _("The location of the files to share.")
 		},{
 			xtype: "checkbox",
 			name: "guestok",
-			fieldLabel: "Public",
+			fieldLabel: _("Public"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "If enabled then no password is required to connect to the share",
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Make sure the user 'nobody' has the required permission for the shared folder."
+			boxLabel: _("If enabled then no password is required to connect to the share")
 		},{
 			xtype: "checkbox",
 			name: "readonly",
-			fieldLabel: "Read only",
+			fieldLabel: _("Read only"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Set read only",
+			boxLabel: _("Set read only"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "If this parameter is set, then users may not create or modify files in the share."
+			infoText: _("If this parameter is set, then users may not create or modify files in the share.")
 		},{
 			xtype: "checkbox",
 			name: "browseable",
-			fieldLabel: "Browseable",
+			fieldLabel: _("Browseable"),
 			checked: true,
 			inputValue: 1,
-			boxLabel: "Set browseable",
+			boxLabel: _("Set browseable"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "This controls whether this share is seen in the list of available shares in a net view and in the browse list."
+			infoText: _("This controls whether this share is seen in the list of available shares in a net view and in the browse list.")
 		},{
 			xtype: "checkbox",
 			name: "inheritacls",
-			fieldLabel: "Inherit ACLs",
+			fieldLabel: _("Inherit ACLs"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Honor existing ACLs",
+			boxLabel: _("Honor existing ACLs"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "This parameter can be used to ensure that if default acls exist on parent directories, they are always honored when creating a new file or subdirectory in these parent directories."
+			infoText: _("This parameter can be used to ensure that if default acls exist on parent directories, they are always honored when creating a new file or subdirectory in these parent directories.")
 		},{
 			xtype: "checkbox",
 			name: "inheritpermissions",
-			fieldLabel: "Inherit permissions",
+			fieldLabel: _("Inherit permissions"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Enable permission inheritance",
+			boxLabel: _("Enable permission inheritance"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The permissions on new files and directories are normally governed by create mask and directory mask but the inherit permissions parameter overrides this. This can be particularly useful on systems with many users to allow a single share to be used flexibly by each user."
+			infoText: _("The permissions on new files and directories are normally governed by create mask and directory mask but the inherit permissions parameter overrides this. This can be particularly useful on systems with many users to allow a single share to be used flexibly by each user.")
 		},{
 			xtype: "checkbox",
 			name: "recyclebin",
-			fieldLabel: "Recycle bin",
+			fieldLabel: _("Recycle bin"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Enable recycle bin",
+			boxLabel: _("Enable recycle bin"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "This will create a recycle bin on the share."
+			infoText: _("This will create a recycle bin on the share.")
 		},{
 			xtype: "checkbox",
 			name: "hidedotfiles",
-			fieldLabel: "Hide dot files",
+			fieldLabel: _("Hide dot files"),
 			checked: true,
 			inputValue: 1,
-			boxLabel: "This parameter controls whether files starting with a dot appear as hidden files"
+			boxLabel: _("This parameter controls whether files starting with a dot appear as hidden files")
 		},{
 			xtype: "checkbox",
 			name: "easupport",
-			fieldLabel: "Extended attributes",
+			fieldLabel: _("Extended attributes"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Enable extended attribute support",
+			boxLabel: _("Enable extended attribute support"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Allow clients to attempt to store OS/2 style extended attributes on a share."
+			infoText: _("Allow clients to attempt to store OS/2 style extended attributes on a share.")
 		},{
 			xtype: "checkbox",
 			name: "storedosattributes",
-			fieldLabel: "Store DOS attributes",
+			fieldLabel: _("Store DOS attributes"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Enable store DOS attributes support",
+			boxLabel: _("Enable store DOS attributes support"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "If this parameter is set, Samba attempts to first read DOS attributes (SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute, before mapping DOS attributes to UNIX permission bits. When set, DOS attributes will be stored onto an extended attribute in the UNIX filesystem, associated with the file or directory."
+			infoText: _("If this parameter is set, Samba attempts to first read DOS attributes (SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute, before mapping DOS attributes to UNIX permission bits. When set, DOS attributes will be stored onto an extended attribute in the UNIX filesystem, associated with the file or directory.")
 		},{
 			xtype: "textfield",
 			name: "hostsallow",
-			fieldLabel: "Hosts allow",
+			fieldLabel: _("Hosts allow"),
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "This option is a comma, space, or tab delimited set of hosts which are permitted to access this share. You can specify the hosts by name or IP number. Leave this field empty to use default settings."
+			infoText: _("This option is a comma, space, or tab delimited set of hosts which are permitted to access this share. You can specify the hosts by name or IP number. Leave this field empty to use default settings.")
 		},{
 			xtype: "textfield",
 			name: "hostsdeny",
-			fieldLabel: "Hosts deny",
+			fieldLabel: _("Hosts deny"),
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "This option is a comma, space, or tab delimited set of host which are NOT permitted to access this share. Where the lists conflict, the allow list takes precedence. In the event that it is necessary to deny all by default, use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify to the hosts allow parameter those hosts that should be permitted access. Leave this field empty to use default settings."
+			infoText: _("This option is a comma, space, or tab delimited set of host which are NOT permitted to access this share. Where the lists conflict, the allow list takes precedence. In the event that it is necessary to deny all by default, use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify to the hosts allow parameter those hosts that should be permitted access. Leave this field empty to use default settings.")
 		},{
 			xtype: "textfield",
 			name: "extraoptions",
-			fieldLabel: "Extra options",
+			fieldLabel: _("Extra options"),
 			allowBlank: true,
 			autoCreate: {
 				tag: "textarea",
@@ -486,14 +488,14 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 				cols: "65"
 			},
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details."
+			infoText: _("Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details.")
 		}];
 	}
 });
 
 OMV.Module.Services.SMB.DiagPanel = function(config) {
 	var initialConfig = {
-		title: "SMB/CIFS",
+		title: _("SMB/CIFS"),
 		layout: "fit",
 		items: [{
 			id: this.getId() + "-content",
@@ -509,7 +511,7 @@ OMV.Module.Services.SMB.DiagPanel = function(config) {
 };
 Ext.extend(OMV.Module.Services.SMB.DiagPanel, OMV.DiagPanel, {
 	doLoad : function() {
-		OMV.MessageBox.wait(null, "Loading ...");
+		OMV.MessageBox.wait(null, _("Loading ..."));
 		OMV.Ajax.request(function(id, response, error) {
 			  OMV.MessageBox.updateProgress(1);
 			  OMV.MessageBox.hide();

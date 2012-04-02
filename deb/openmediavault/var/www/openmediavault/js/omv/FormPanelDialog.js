@@ -32,17 +32,19 @@ Ext.ns("OMV");
  * @param rpcGetParams The RPC method parameters.
  * @param rpcSetMethod The RPC method to commit the data.
  * @param success The function that should be called in case of a successful
- * data commit.
+ *   data commit.
  * @param scope The scope to be used when callig the success function.
- * @param hideOk True to hide the 'OK' button. Defaults to false.
- * @param hideCancel True to hide the 'Cancel' button. Defaults to false.
- * @param hideClose True to hide the 'Close' button. Defaults to true.
- * @param hideReset True to hide the 'Reset' button. Defaults to true.
- * @param mode The mode how to retrieve the data displayed in the property
- * dialog. This can be 'local' or 'remote' which means the data is requested
- * via RPC. Defaults to 'remote'.
- * @param readOnly True if the property values are read-only. The 'OK' and
- * 'Reset' buttons will be disabled in this case. Defaults to false.
+ * @param hideOk TRUE to hide the 'OK' button. Defaults to false.
+ * @param hideCancel TRUE to hide the 'Cancel' button. Defaults to false.
+ * @param hideClose TRUE to hide the 'Close' button. Defaults to TRUE.
+ * @param hideReset TRUE to hide the 'Reset' button. Defaults to TRUE.
+ * @param mode The mode how to retrieve the data displayed in the form panel
+ *   dialog. This can be 'local' or 'remote' which means the data is requested
+ *   via RPC. Defaults to 'remote'.
+ * @param readOnly TRUE if the form fields are read-only. The 'OK' and
+ *   'Reset' buttons will be disabled in this case. Defaults to false.
+ * @param closeIfNotDirty Close the dialog immediatelly after 'OK' has been
+ *   pressed and the form is not dirty. Defaults to TRUE.
  */
 OMV.FormPanelDialog = function(config) {
 	var initialConfig = {
@@ -57,7 +59,8 @@ OMV.FormPanelDialog = function(config) {
 		hideCancel: false, // Hide the 'Cancel' button
 		hideClose: true, // Hide the 'Close' button
 		buttonAlign: "center",
-		readOnly: false
+		readOnly: false,
+		closeIfNotDirty: true
 	};
 	Ext.apply(initialConfig, config);
 	OMV.FormPanelDialog.superclass.constructor.call(this, initialConfig);
@@ -79,27 +82,27 @@ Ext.extend(OMV.FormPanelDialog, OMV.Window, {
 		Ext.apply(this, {
 			buttons: [{
 				id: this.getId() + "-ok",
-				text: "OK",
+				text: _("OK"),
 				hidden: this.hideOk,
 				disabled: this.readOnly,
 				handler: this.cbOkBtnHdl,
 				scope: this
 			},{
 				id: this.getId() + "-reset",
-				text: "Reset",
+				text: _("Reset"),
 				hidden: this.hideReset,
 				disabled: this.readOnly,
 				handler: this.cbResetBtnHdl,
 				scope: this
 			},{
 				id: this.getId() + "-cancel",
-				text: "Cancel",
+				text: _("Cancel"),
 				hidden: this.hideCancel,
 				handler: this.cbCancelBtnHdl,
 				scope: this
 			},{
 				id: this.getId() + "-close",
-				text: "Close",
+				text: _("Close"),
 				hidden: this.hideClose,
 				handler: this.cbCloseBtnHdl,
 				scope: this
@@ -114,7 +117,7 @@ Ext.extend(OMV.FormPanelDialog, OMV.Window, {
 	},
 
 	/**
-	 * Initialize the property window form panel.
+	 * Initialize the window form panel.
 	 */
 	initForm : function() {
 		var config = Ext.applyEx({
@@ -139,7 +142,7 @@ Ext.extend(OMV.FormPanelDialog, OMV.Window, {
 	},
 
 	/**
-	 * Returns the items displayed in the property window form.
+	 * Returns the items displayed in the dialog form.
 	 * This function must be overwritten by every derived class.
 	 */
 	getFormItems : function() {
@@ -153,6 +156,18 @@ Ext.extend(OMV.FormPanelDialog, OMV.Window, {
 	isValid : function() {
 		var basicForm = this.form.getForm();
 		return basicForm.isValid();
+	},
+
+	/**
+	 * Mark fields in this form invalid in bulk.
+	 * @param errors Either an array in the form
+	 * [{id:'fieldId', msg:'The message'},...] or an object hash of
+	 * {id: msg, id2: msg2}
+	 * @return {BasicForm} this
+	 */
+	markInvalid : function(errors) {
+		var basicForm = this.form.getForm();
+		return basicForm.markInvalid(errors);
 	},
 
 	/**
@@ -201,7 +216,7 @@ Ext.extend(OMV.FormPanelDialog, OMV.Window, {
 
 	doLoad : function() {
 		// Display waiting dialog
-		OMV.MessageBox.wait(null, "Loading ...");
+		OMV.MessageBox.wait(null, _("Loading ..."));
 		// Execute RPC
 		OMV.Ajax.request(this.cbLoadHdl, this, this.rpcService,
 		  this.rpcGetMethod, this.rpcGetParams);
@@ -223,10 +238,10 @@ Ext.extend(OMV.FormPanelDialog, OMV.Window, {
 		var values = this.getValues();
 		if (this.mode === "remote") {
 			// Display waiting dialog
-			OMV.MessageBox.wait(null, "Saving ...");
+			OMV.MessageBox.wait(null, _("Saving ..."));
 			// Execute RPC
 			OMV.Ajax.request(this.cbSubmitHdl, this, this.rpcService,
-			  this.rpcSetMethod, [ values ]);
+			  this.rpcSetMethod, values);
 		} else {
 			this.fireEvent("submit", this, values);
 			this.close();
@@ -250,14 +265,14 @@ Ext.extend(OMV.FormPanelDialog, OMV.Window, {
 	 * Method that is called when the 'OK' button is pressed.
 	 */
 	cbOkBtnHdl : function() {
-		// Quit immediatelly if the property values have not been modified
-		if (!this.isDirty()) {
+		// Quit immediatelly if the form fields have not been modified
+		if (this.closeIfNotDirty && !this.isDirty()) {
 			this.close();
 			return;
 		}
 		// Validate values
 		if (!this.isValid()) {
-			// Do not close the property dialog. The invalid fields are marked
+			// Do not close the dialog. The invalid fields are marked
 			// automatically.
 		} else {
 			this.doSubmit();

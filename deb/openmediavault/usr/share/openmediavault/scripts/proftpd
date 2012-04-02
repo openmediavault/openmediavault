@@ -46,7 +46,7 @@ OMV_PROFTPD_DENYFILTER=${OMV_PROFTPD_DENYFILTER:-"\*.*/"}
 OMV_PROFTPD_AUTHORDER=${OMV_PROFTPD_AUTHORDER:-"mod_auth_pam.c* mod_auth_unix.c"}
 OMV_PROFTPD_USER=${OMV_PROFTPD_USER:-"proftpd"}
 OMV_PROFTPD_GROUP=${OMV_PROFTPD_GROUP:-"nogroup"}
-OMV_PROFTPD_UMASK=${OMV_PROFTPD_UMASK:-"022 022"}
+OMV_PROFTPD_UMASK=${OMV_PROFTPD_UMASK:-"000 000"}
 OMV_PROFTPD_USEFTPUSERS=${OMV_PROFTPD_USEFTPUSERS:-"off"}
 OMV_PROFTPD_TIMESGMT=${OMV_PROFTPD_TIMESGMT:-"off"}
 OMV_PROFTPD_DEFAULTTRANSFERMODE=${OMV_PROFTPD_DEFAULTTRANSFERMODE:-"ascii"}
@@ -223,8 +223,8 @@ do
 	sfpath="${OMV_PROFTPD_DEFAULTROOT}/${sfname}"
 
 	# Get shared folder user privileges
-	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[userref]" \
-	  -v "concat(perms,'|',//system/usermanagement/users/user[uuid=current()/userref]/name)" -n \
+	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
+	  -v "concat(perms,'|',name)" -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 	for privilege in ${privileges}
 	do
@@ -244,8 +244,8 @@ do
 	done
 
 	# Get shared folder group privileges
-	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[groupref]" \
-	  -v "concat(perms,'|',//system/usermanagement/groups/group[uuid=current()/groupref]/name)" -n \
+	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='group']" \
+	  -v "concat(perms,'|',name)" -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 	for privilege in ${privileges}
 	do

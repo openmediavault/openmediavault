@@ -2,13 +2,13 @@ Source: openmediavault-forkeddaapd
 Section: net
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
-Build-Depends: debhelper (>> 7)
+Build-Depends: debhelper (>> 7), gettext
 Standards-Version: 3.6.10
 Homepage: http://www.openmediavault.org
 
 Package: openmediavault-forkeddaapd
 Architecture: all
-Depends: openmediavault (>= 0.2.6.3), forked-daapd
+Depends: openmediavault (>= 0.3), forked-daapd
 Priority: optional
 Description: OpenMediaVault forked-daapd (DAAP server) plugin
  forked-daapd is an iTunes-compatible DAAP (Digital Audio Access Protocol)

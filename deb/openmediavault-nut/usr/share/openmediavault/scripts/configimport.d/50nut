@@ -32,7 +32,6 @@ if [ "$(omv_config_get "//services/nut/enable")" = "0" ]; then
 	update-rc.d nut disable 2>&1
 else
 	update-rc.d nut enable 2>&1
-	udevadm control --reload-rules
 	udevadm trigger
 fi
 

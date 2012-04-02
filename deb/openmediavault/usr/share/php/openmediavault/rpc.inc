@@ -257,10 +257,8 @@ class OMVRpc extends OMVObject {
 			  OMVErrorMsg::E_RPC_SERVICE_METHOD_NOT_FOUND, $method, $name);
 		}
 		// Now execute the RPC
-		if (!is_array($params))
-			$params = array($params);
 		return call_user_func_array(array($classObject, $method),
-          $params);
+		  array($params));
 	}
 
 	/**
@@ -314,7 +312,8 @@ class OMVRpc extends OMVObject {
 	 * access to the session data anymore. The session is blocked until
 	 * this function is called which means no other RPC's can be
 	 * executed in the meanwhile (this can result in a timeout of the
-	 * blocked RPC).
+	 * blocked RPC). Only use this function if you know that the RPC may
+	 * take some time to execute.
 	 */
 	protected function commitSession() {
 		$session = &OMVSession::getInstance();
@@ -339,7 +338,7 @@ class OMVRpc extends OMVObject {
 	 * filter arguments.
 	 * @param array The array of objects to filter.
 	 * @param start The index where to start.
-	 * @param count The number of elements to process.
+	 * @param limit The number of elements to process.
 	 * @param sortField The name of the column used to sort.
 	 * @param sortDir The sort direction, ASC or DESC.
 	 * @return An array containing the elements matching the given
@@ -347,7 +346,7 @@ class OMVRpc extends OMVObject {
 	 * \em data contains the elements as array. An exception will be thrown
 	 * in case of an error.
 	 */
-	protected function applyFilter($array, $start, $count, $sortField = NULL,
+	protected function applyFilter($array, $start, $limit, $sortField = NULL,
 	  $sortDir = NULL) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		$total = count($array);
@@ -358,8 +357,8 @@ class OMVRpc extends OMVObject {
 			if (!is_null($sortDir) && $sortDir === "DESC") {
 				$array = array_reverse($array);
 			}
-			if (($start >= 0) && ($count >= 0)) {
-				$array = array_slice($array, $start, $count);
+			if (($start >= 0) && ($limit >= 0)) {
+				$array = array_slice($array, $start, $limit);
 			}
 		}
 		return array(

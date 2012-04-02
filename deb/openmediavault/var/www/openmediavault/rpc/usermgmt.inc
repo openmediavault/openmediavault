@@ -31,30 +31,37 @@ require_once("openmediavault/notify.inc");
 class UserMgmtRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
-			"getUserList" => array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
-			"getUser" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"getUserList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
+			"getUser" => array('{
+				"type":"object",
+				"properties":{
+					"name":{"type":"string"}
+				}
+			}'),
 			"setUser" => array('{
 				"type":"object",
 				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-					"uid":{"type":["integer","string"]},
-					"useuid":{"type":"boolean"},
 					"name":{'.$GLOBALS['OMV_JSONSCHEMA_USERNAME'].'},
-					"groups":{"type":"string"},
+					"uid":{"type":"integer","optional":true},
+					"groups":{
+						"type":"array",
+						"items":{
+							"type":"string"
+						}
+					},
 					"shell":{"type":"string"},
 					"password":{"type":"string"},
 					"email":{'.$GLOBALS['OMV_JSONSCHEMA_EMAIL'].'},
 					"comment":{"type":"string"},
-					"disallowusermod":{"type":"boolean"},
-					"sharedfolderref":{'.
-					  $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'}
+					"disallowusermod":{"type":"boolean"}
 				}
 			}'),
 			"setSessionUser" => array('{
@@ -65,47 +72,132 @@ class UserMgmtRpc extends OMVRpc {
 					"comment":{"type":"string"}
 				}
 			}'),
-			"deleteUser" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
-			"getGroupList" => array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
-			"getGroup" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"deleteUser" => array('{
+				"type":"object",
+				"properties":{
+					"name":{"type":"string"}
+				}
+			}'),
+			"getGroupList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
+			"getGroup" => array('{
+				"type":"object",
+				"properties":{
+					"name":{"type":"string"}
+				}
+			}'),
 			"setGroup" => array('{
 				"type":"object",
 				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-					"gid":{"type":["integer","string"]},
-					"usegid":{"type":"boolean"},
 					"name":{"type":"string"},
-					"comment":{"type":"string"}
+					"gid":{"type":"integer","optional":true},
+					"comment":{"type":"string"},
+					"members":{
+						"type":"array",
+						"items":{
+							"type":"string"
+						}
+					}
 				}
 			}'),
-			"deleteGroup" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
-			"setUserPassword" => array('{
+			"deleteGroup" => array('{
 				"type":"object",
 				"properties":{
-					"name":{"type":"string"},
-					"password":{"type":"string"}
+					"name":{"type":"string"}
+				}
+			}'),
+			"importUsers" => array('{
+				"type":"object",
+				"properties":{
+					"csv":{"type":"string"}
+				}
+			}'),
+			"setSettings" => array('{
+				"type":"object",
+				"properties":{
+					"enable":{"type":"boolean"},
+					"sharedfolderref":{'.
+					  $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'}
 				}
 			}')
 		);
 	}
 
 	/**
-	 * Enumerate all users.
+	 * Enumerate users.
+	 * @param type The user type, e.g. system, normal or all.
 	 * @return An array containing user objects with following fields:
-	 * name, UID, GID, comment, home directory, and shell program,
-	 * last changed, minimum, maximum, warn, inactive, expire and reserved.
+	 *   name, UID, GID, comment, home directory, and shell program,
+	 *   last changed, minimum, maximum, warn, inactive, expire and reserved.
 	 */
+	private function enumerateUsersByType($type) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		// Get shadow password suite configuration
+		$loginDefs = OMVSystem::getLoginDefs();
+		// Get list of user names
+		$users = OMVSystemUsers::get();
+		// Iterate through all users to filter the requested ones
+		$objects = array();
+		foreach ($users as $userk => $userv) {
+			$user = new OMVSystemUser($userv);
+			if (!$user->exists())
+				continue;
+			// Check if the current user is requested
+			$append = FALSE;
+			$system = !(($user->getUid() >= $loginDefs['UID_MIN']) &&
+			  ($user->getUid() <= $loginDefs['UID_MAX']));
+			switch ($type) {
+			case "system":
+				$append = $system;
+				break;
+			case "normal":
+				$append = !$system;
+				break;
+			case "all":
+				$append = TRUE;
+				break;
+			}
+			if (TRUE === $append) {
+				$objects[] = array(
+					"name" => $user->getName(),
+					"uid" => $user->getUid(),
+					"gid" => $user->getGid(),
+					"comment" => $user->getGecos(),
+					"dir" => $user->getHomeDirectory(),
+					"shell" => $user->getShell(),
+					"lastchanged" => $user->getLastChanged(),
+					"minimum" => $user->getMinimum(),
+					"maximum" => $user->getMaximum(),
+					"warn" => $user->getWarn(),
+					"inactive" => $user->getInactive(),
+					"expire" => $user->getExpire(),
+					"reserved" => $user->getReserved(),
+					"groups" => $user->getGroups(),
+					"system" => $system
+				);
+			}
+		}
+		return $objects;
+	}
+
+	public function enumerateSystemUsers() {
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Get system users
+		return $this->enumerateUsersByType("system");
+	}
+
 	public function enumerateUsers() {
 		// Check permissions
 		$this->validateSession();
@@ -113,45 +205,31 @@ class UserMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
 		}
 		$this->commitSession();
-		// Get list of user names
-		$users = OMVSystemUsers::get();
-		// Get user informations
-		$objects = array();
-		foreach ($users as $userk => $userv) {
-			$user = new OMVSystemUser($userv);
-			if (!$user->exists())
-				continue;
-			$objects[] = array(
-				"name" => $user->getName(),
-				"uid" => $user->getUid(),
-				"gid" => $user->getGid(),
-				"gecos" => $user->getGecos(),
-				"dir" => $user->getHomeDirectory(),
-				"shell" => $user->getShell(),
-				"lastchanged" => $user->getLastChanged(),
-				"minimum" => $user->getMinimum(),
-				"maximum" => $user->getMaximum(),
-				"warn" => $user->getWarn(),
-				"inactive" => $user->getInactive(),
-				"expire" => $user->getExpire(),
-				"reserved" => $user->getReserved()
-			);
-		}
-		return $objects;
+		// Get non-system users
+		return $this->enumerateUsersByType("normal");
 	}
 
-	/**
-	 * Enumerate all groups.
-	 * @return An array containing user objects with following fields:
-	 * name, GID and group members (array of user names).
-	 */
-	public function enumerateGroups() {
+	public function enumerateAllUsers() {
 		// Check permissions
 		$this->validateSession();
 		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
 		}
 		$this->commitSession();
+		// Get all users
+		return $this->enumerateUsersByType("all");
+	}
+
+	/**
+	 * Enumerate groups.
+	 * @param type The group type, e.g. system, normal or all.
+	 * @return An array containing user objects with following fields:
+	 *   name, GID and group members (array of user names).
+	 */
+	public function enumerateGroupsByType($type) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		// Get shadow password suite configuration
+		$loginDefs = OMVSystem::getLoginDefs();
 		// Get list of group names
 		$groups = OMVSystemGroups::get();
 		// Get group informations
@@ -160,19 +238,78 @@ class UserMgmtRpc extends OMVRpc {
 			$group = new OMVSystemGroup($groupv);
 			if (!$group->exists())
 				continue;
-			$objects[] = array(
-				"name" => $group->getName(),
-				"gid" => $group->getGid(),
-				"members" => $group->getMembers()
-			);
+			// Check if the current group is requested
+			$append = FALSE;
+			$system = !(($group->getGid() >= $loginDefs['GID_MIN']) &&
+			  ($group->getGid() <= $loginDefs['GID_MAX']));
+			switch ($type) {
+			case "system":
+				$append = $system;
+				break;
+			case "normal":
+				$append = !$system;
+				break;
+			case "all":
+				$append = TRUE;
+				break;
+			}
+			if (TRUE === $append) {
+				$objects[] = array(
+					"name" => $group->getName(),
+					"gid" => $group->getGid(),
+					"members" => $group->getMembers(),
+					"system" => $system
+				);
+			}
 		}
 		return $objects;
 	}
 
+	public function enumerateSystemGroups() {
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Get system groups
+		return $this->enumerateGroupsByType("system");
+	}
+
+	public function enumerateGroups() {
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Get non-system groups
+		return $this->enumerateGroupsByType("normal");
+	}
+
+	public function enumerateAllGroups() {
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Get all groups
+		return $this->enumerateGroupsByType("all");
+	}
+
 	/**
-	 * Get list of users
+	 * Get list of users (except system users).
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	function getUserList($start, $count, $sortField, $sortDir) {
+	function getUserList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -183,47 +320,32 @@ class UserMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get configuration object
-		$xpath = "//system/usermanagement/users/user";
-		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Add additional informations
-		$loginDefs = OMVSystem::getLoginDefs();
-		foreach ($objects as $objectk => &$objectv) {
-			// Modify result data
-			$objectv['disallowusermod'] = boolval($objectv['disallowusermod']);
-			// Get user details
-			$user = new OMVSystemUser($objectv['name']);
-			$objectv['uid'] = $user->getUid();
-			$objectv['_readOnly'] = false;
-			$objectv['_used'] = false;
-			// Mark users as read-only if their uid is not in the range of
-			// [ UID_MIN ... UID_MAX ] (which is the case for system users
-			// for example).
-			if (($objectv['uid'] < $loginDefs['UID_MIN']) ||
-			  ($objectv['uid'] > $loginDefs['UID_MAX'])) {
-				$objectv['_readOnly'] = true;
-			}
-			// Protect user 'admin' from being deleted
-			if ($objectv['name'] === "admin") {
-				$objectv['_readOnly'] = false;
-				// Hijack the '_used' flag to mark this user as not deletable
-				$objectv['_used'] = true;
+		// Get users
+		$users = OMVRpc::exec("UserMgmt", "enumerateUsers");
+		// Process users and skip all system users except 'admin'
+		$objects = array();
+		foreach ($users as $userk => &$userv) {
+			// Get additional informations stored in database
+			$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
+			  $userv['name']);
+			$object = $xmlConfig->get($xpath);
+			if (!is_null($object)) {
+				$userv['email'] = $object['email'];
+				$userv['disallowusermod'] = boolval($object['disallowusermod']);
 			}
 		}
 		// Filter result
-		return $this->applyFilter($objects, $start, $count, $sortField,
-		  $sortDir);
+		return $this->applyFilter($users, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
 	 * Get an user configuration object.
-	 * @param uuid The UUID of the user configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em name The name of the user.
+	 * @return The requested configuration object.
 	 */
-	function getUser($uuid) {
+	function getUser($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -234,52 +356,69 @@ class UserMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get configuration object
-		$xpath = "//system/usermanagement/users/user[uuid='{$uuid}']";
+		// Get the user informations
+		$user = new OMVSystemUser($data['name']);
+		if (!$user->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf(gettext("User '%s' does not exist"), $data['name']));
+		}
+		$result = array(
+			"name" => $user->getName(),
+			"uid" => $user->getUid(),
+			"gid" => $user->getGid(),
+			"comment" => $user->getGecos(),
+			"dir" => $user->getHomeDirectory(),
+			"shell" => $user->getShell(),
+			"lastchanged" => $user->getLastChanged(),
+			"minimum" => $user->getMinimum(),
+			"maximum" => $user->getMaximum(),
+			"warn" => $user->getWarn(),
+			"inactive" => $user->getInactive(),
+			"expire" => $user->getExpire(),
+			"reserved" => $user->getReserved(),
+			"groups" => $user->getGroups(),
+			"email" => ""
+		);
+		// Get additional informations stored in database
+		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
+		  $result['name']);
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
+		if (!is_null($object)) {
+			$result['email'] = $object['email'];
+			$result['disallowusermod'] = boolval($object['disallowusermod']);
 		}
-		// Prepare response data
-		if (empty($object['uid'])) {
-			$object['useuid'] = 0;
-			$user = new OMVSystemUser($object['name']);
-			$object['uid'] = $user->getUid();
-		} else {
-			$object['useuid'] = 1;
-		}
-		// Modify result data
-		$object['disallowusermod'] = boolval($object['disallowusermod']);
-		return $object;
+		return $result;
 	}
 
 	/**
 	 * Get an user configuration object from the current session user
+	 * Note, it is not possible to use the UserMgmt::getUser RPC due
+	 * the limited permissions.
 	 */
 	function getSessionUser() {
 		global $xmlConfig;
 		// Check permissions
 		$this->validateSession();
-		// Get configuration object
+		// Get the user informations
+		$result = array(
+			"name" => OMVSession::getUsername(),
+			"email" => "",
+			"_readOnly" => FALSE
+		);
+		// Get additional informations stored in database
 		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
 		  OMVSession::getUsername());
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
+		if (!is_null($object)) {
+			$result['email'] = $object['email'];
+			// Hijack the '_readOnly' flag to set the form read-only
+			$result['_readOnly'] = boolval($object['disallowusermod']);
 		}
-		return array(
-			"name" => $object['name'],
-			"password" => $object['password'],
-			"email" => $object['email'],
-			"comment" => $object['comment'],
-			"_readOnly" => array_boolval($object, 'disallowusermod')
-		);
+		return $result;
 	}
 
 	/**
-	 * Set (add/update) an user configuration object
+	 * Set (add/update) an user
 	 */
 	function setUser($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -292,38 +431,28 @@ class UserMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Prepare configuration data
-		$object = array(
-			"uuid" => ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $data['uuid'],
-			"name" => $data['name'],
-			"shell" => $data['shell'],
-			"password" => $data['password'],
-			"uid" => (isset($data['uid']) && array_boolval($data, 'useuid')) ?
-			  $data['uid'] : "",
-			"groups" => $data['groups'],
-			"email" => $data['email'],
-			"comment" => $data['comment'],
-			"disallowusermod" => array_boolval($data, 'disallowusermod'),
-			"sharedfolderref" => $data['sharedfolderref'] // Home directory
-		);
-		// Set configuration data
+		// Get additional informations stored in database
+		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
+		  $data['name']);
+		$object = $xmlConfig->get($xpath);
+		// Set configuration object
 		$success = FALSE;
-		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Check uniqueness
-			$user = new OMVSystemUser($data['name']);
-			if ($user->exists() || (TRUE === $xmlConfig->exists(
-			  "//system/usermanagement/users/user[name='{$data['name']}']"))) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				  gettext("An user with the given name already exists"));
-			}
-			// Append object to configuration
+		if (is_null($object)) {
+			$object = array(
+				"uuid" => OMVUtil::uuid(),
+				"name" => $data['name'],
+				"email" => $data['email'],
+				"disallowusermod" => array_boolval($data, "disallowusermod")
+			);
+			// Append new configuration object
 			$success = $xmlConfig->set("//system/usermanagement/users",
 			  array("user" => $object));
 		} else {
+			$object['email'] = $data['email'];
+			$object['disallowusermod'] = array_boolval($data,
+			  "disallowusermod");
 			// Update existing configuration object
-			$success = $xmlConfig->replace("//system/usermanagement/users/" .
-			  "user[uuid='{$data['uuid']}']", $object);
+			$success = $xmlConfig->replace($xpath, $object);
 		}
 		if (FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
@@ -333,49 +462,22 @@ class UserMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
 			  $xmlConfig->getError());
 		}
+		// Append additional fields to configuration object for notification
+		$object = array_merge($object, array(
+			"shell" => $data['shell'],
+			"password" => $data['password'],
+			"groups" => $data['groups'],
+			"comment" => $data['comment']
+		));
+		if (isset($data['uid']))
+			$object['uid'] = $data['uid'];
+		// Get the user to find out if it still exists
+		$user = new OMVSystemUser($data['name']);
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+		$dispatcher->notify(!$user->exists() ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.usermanagement.users.user", $object);
-		// If a shared folder is selected to be used as home directory then
-		// ensure that the user has read/write permissions. If not, then set
-		// them.
-		if (!empty($object['sharedfolderref'])) {
-			$privileges = OMVRpc::exec("ShareMgmt", "getPrivileges",
-			  array($object['sharedfolderref']));
-			$update = FALSE;
-			foreach ($privileges as $privk => &$privv) {
-				// Do we process the privilege for the current user?
-				if (($privv['type'] === "user") &&
-				  ($privv['name'] === $object['name'])) {
-					// Check if the user has write or read-only access to its
-					// own home directory.
-					if (!in_array($privv['perms'], array(_PERMISSION_RWX,
-					  _PERMISSION_RX))) {
-						// The user doesn't have write or read-only permissions
-						// to the shared folder used as home directory, so
-						// give him write access permission to his own home
-						// directory per default.
-						$privv['perms'] = _PERMISSION_RWX;
-						$update = TRUE;
-					}
-					break;
-				}
-			}
-			if (TRUE === $update) {
-				// Remove useless fields from the privileges structure.
-				foreach ($privileges as $privk => &$privv)
-					unset($privv['name']);
-				// Update the shared folder privileges.
-				OMVRpc::exec("ShareMgmt", "setPrivileges", array(
-					array(
-						"uuid" => $object['sharedfolderref'],
-						"privileges" => $privileges
-					)
-				));
-			}
-		}
 	}
 
 	/**
@@ -388,26 +490,30 @@ class UserMgmtRpc extends OMVRpc {
 		$this->validateSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get configuration object
+		// Try to get existing configuration object
 		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
 		  OMVSession::getUsername());
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
+			$object = array(
+				"uuid" => OMVUtil::uuid(),
+				"name" => OMVSession::getUsername(),
+				"email" => $data['email'],
+				"disallowusermod" => FALSE
+			);
+			// Append new configuration object
+			$success = $xmlConfig->set("//system/usermanagement/users",
+			  array("user" => $object));
+		} else {
+			// Check if user is allowed to modify his account
+			if (boolval($object['disallowusermod']) === TRUE) {
+				throw new OMVException(OMVErrorMsg::E_MISC_OPERATION_DENIED);
+			}
+			$object['email'] = $data['email'];
+			// Update existing configuration object
+			$success = $xmlConfig->replace($xpath, $object);
 		}
-		if (array_boolval($object, 'disallowusermod') === true) {
-			throw new OMVException(OMVErrorMsg::E_MISC_OPERATION_DENIED);
-		}
-		// Update configuration data
-		$object = array_merge($object, array(
-			"password" => $data['password'],
-			"email" => $data['email'],
-			"comment" => $data['comment']
-		));
-		// Set configuration data
-		if (FALSE === $xmlConfig->replace("//system/usermanagement/users/" .
-		  "user[uuid='{$object['uuid']}']", $object)) {
+		if (FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Save configuration
@@ -415,6 +521,10 @@ class UserMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
 			  $xmlConfig->getError());
 		}
+		// Append additional fields to configuration object for notification
+		$object = array_merge($object, array(
+			"password" => $data['password']
+		));
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
@@ -423,9 +533,11 @@ class UserMgmtRpc extends OMVRpc {
 
 	/**
 	 * Delete a user.
-	 * @param uuid The UUID of the user configuration object to delete.
+	 * @param data An array containing the following fields:
+	 *   \em name The name of the user to delete.
+	 * @return None
 	 */
-	function deleteUser($uuid) {
+	function deleteUser($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -436,22 +548,17 @@ class UserMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get the object
-		$xpath = "//system/usermanagement/users/user[uuid='{$uuid}']";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		// Get the user configuration object
+		$object = OMVRpc::exec("UserMgmt", "getUser", array(
+		  "name" => $data['name']));
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
 		  "org.openmediavault.system.usermanagement.users.user", $object);
-		// Delete configuration object
-		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
-			  $xpath);
-		}
+		// Delete additional user informations stored in database
+		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
+		  $object['name']);
+		$xmlConfig->delete($xpath);
 		// Save configuration
 		if (FALSE === $xmlConfig->save()) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
@@ -463,9 +570,15 @@ class UserMgmtRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get list of groups
+	 * Import a list of users.
+	 * @param data An array containing the following fields:
+	 *   \em csv The user values, e.g.:
+	 *   test1;;comment;test1@xyz.com;foobarpwd1;adm;1
+	 *   test2;1200;comment2;test2@xyz.com;foobarpwd2;adm,audio,www-data;0
+	 *   test3;;comment3;test3@xyz.com;foobarpwd3;ssh;1
+	 * @return None
 	 */
-	function getGroupList($start, $count, $sortField, $sortDir) {
+	function importUsers($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -476,43 +589,102 @@ class UserMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get configuration object
-		$xpath = "//system/usermanagement/groups/group";
-		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Add additional informations
-		$loginDefs = OMVSystem::getLoginDefs();
-		foreach ($objects as $objectk => &$objectv) {
-			$group = new OMVSystemGroup($objectv['name']);
-			$objectv['gid'] = $group->getGid();
-			$objectv['_used'] = false;
-			$objectv['_readOnly'] = false;
-			// Mark groups as read-only if their gid is not in the range of
-			// [ GID_MIN ... GID_MAX ] (which is the case for system groups
-			// for example).
-			if (($objectv['gid'] < $loginDefs['GID_MIN']) ||
-			  ($objectv['gid'] > $loginDefs['GID_MAX'])) {
-				$objectv['_readOnly'] = true;
+		// Import users
+		$objects = array();
+		$csv = explode("\n", $data['csv']);
+		foreach ($csv as $linek => $linev) {
+			$linev = trim($linev);
+			if (empty($linev) || ($linev[0] === "#"))
+				continue;
+			if (1 !== preg_match("/^([^;]+);(\d*);([^;]+);([^;]+);([^;]+);".
+			  "([^;]+);(true|1|yes|y|on|false|0|no|n|off)$/i",
+			  $linev, $matches)) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf(gettext("Invalid line: %s"), $linev));
 			}
-			// Set '_used' flag if group is in usage
-			if (TRUE === $xmlConfig->exists("//system/usermanagement/" .
-			  "users/user[contains(groups,'{$objectv['name']}')]")) {
-				$objectv['_used'] = true;
+			$object = array(
+				"name" => $matches[1],
+				"comment" => $matches[3],
+				"email" => $matches[4],
+				"password" => $matches[5],
+				"groups" => explode(",", $matches[6]),
+				"disallowusermod" => boolval($matches[7]),
+				"shell" => "/bin/dash"
+			);
+			if (!empty($matches[2]) && is_numeric($matches[2]))
+				$object['uid'] = intval($matches[2]);
+			$objects[] = $object;
+		}
+		// Check if the users does not exist until now
+		foreach ($objects as $objectk => $objectv) {
+			// Check if an user with the given name already exists
+			$user = new OMVSystemUser($objectv['name']);
+			if ($user->exists()) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf(gettext("User '%s' already exist"),
+				  $objectv['name']));
+			}
+			// Check if an user with the given UID already exists
+			if (array_key_exists("uid", $object)) {
+				$user = new OMVSystemUser($objectv['uid']);
+				if ($user->exists()) {
+					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+					  sprintf(gettext("User ID '%d' already exist"),
+					  $objectv['uid']));
+				}
+			}
+		}
+		// Finally create the users
+		foreach ($objects as $objectk => $objectv) {
+			OMVRpc::exec("UserMgmt", "setUser", $objectv);
+		}
+	}
+
+	/**
+	 * Get list of groups (except system groups).
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
+	 */
+	function getGroupList($data) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Validate method parameters
+		$this->validateParams(__METHOD__, func_get_args());
+		// Get non-system groups
+		$groups = OMVRpc::exec("UserMgmt", "enumerateGroups");
+		foreach ($groups as $groupk => &$groupv) {
+			// Get additional informations stored in database
+			$xpath = sprintf("//system/usermanagement/groups/group[name='%s']",
+			  $groupv['name']);
+			$object = $xmlConfig->get($xpath);
+			if (!is_null($object)) {
+				$groupv['comment'] = $object['comment'];
 			}
 		}
 		// Filter result
-		return $this->applyFilter($objects, $start, $count, $sortField,
-		  $sortDir);
+		return $this->applyFilter($groups, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
 	 * Get a group
-	 * @param uuid The UUID of the group configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em name The name of the group.
+	 * @return The requested configuration object.
 	 */
-	function getGroup($uuid) {
+	function getGroup($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -523,22 +695,25 @@ class UserMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get configuration object
-		$xpath = "//system/usermanagement/groups/group[uuid='{$uuid}']";
+		// Get the group informations
+		$group = new OMVSystemGroup($data['name']);
+		if (!$group->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf(gettext("Group '%s' does not exist"), $data['name']));
+		}
+		$result = array(
+			"name" => $group->getName(),
+			"gid" => $group->getGid(),
+			"members" => $group->getMembers()
+		);
+		// Get additional informations stored in database
+		$xpath = sprintf("//system/usermanagement/groups/group[name='%s']",
+		  $result['name']);
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
+		if (!is_null($object)) {
+			$result['comment'] = $object['comment'];
 		}
-		// Prepare response data
-		if (empty($object['gid'])) {
-			$object['usegid'] = 0;
-			$group = new OMVSystemGroup($object['name']);
-			$object['gid'] = $group->getGid();
-		} else {
-			$object['usegid'] = 1;
-		}
-		return $object;
+		return $result;
 	}
 
 	/**
@@ -555,31 +730,26 @@ class UserMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Prepare configuration data
-		$object = array(
-			"uuid" => ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $data['uuid'],
-			"name" => $data['name'],
-			"gid" => (isset($data['gid']) && array_boolval($data, 'usegid')) ?
-			  $data['gid'] : "",
-			"comment" => $data['comment']
-		);
-		// Set configuration data
+		// Try to get existing configuration object
+		$xpath = sprintf("//system/usermanagement/groups/group[name='%s']",
+		  $data['name']);
+		$object = $xmlConfig->get($xpath);
+		// Set configuration object
 		$success = FALSE;
-		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Check uniqueness
-			if (TRUE === $xmlConfig->exists("//system/usermanagement/groups/" .
-			  "group[name='{$data['name']}']")) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				  gettext("A group with the given name already exists"));
-			}
+		if (is_null($object)) {
+			$object = array(
+				"uuid" => OMVUtil::uuid(),
+				"name" => $data['name'],
+				"comment" => $data['comment']
+			);
 			// Append object to configuration
 			$success = $xmlConfig->set("//system/usermanagement/groups",
 			  array("group" => $object));
 		} else {
+			$object['comment'] = $data['comment'];
 			// Update existing configuration object
-			$success = $xmlConfig->replace("//system/usermanagement/groups/" .
-			  "group[uuid='{$data['uuid']}']", $object);
+			$success = $xmlConfig->replace("//system/usermanagement/groups/".
+			  "group[name='{$data['name']}']", $object);
 		}
 		if (FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
@@ -589,18 +759,28 @@ class UserMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
 			  $xmlConfig->getError());
 		}
+		// Append additional fields to configuration object for notification
+		$object = array_merge($object, array(
+			"members" => $data['members']
+		));
+		if (isset($data['gid']))
+			$object['gid'] = $data['gid'];
+		// Get the group to find out if it still exists
+		$group = new OMVSystemGroup($data['name']);
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+		$dispatcher->notify(!$group->exists() ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.usermanagement.groups.group", $object);
 	}
 
 	/**
 	 * Delete a group.
-	 * @param uuid The UUID of the group configuration object to delete.
+	 * @param data An array containing the following fields:
+	 *   \em name The name of the group to delete.
+	 * @return None
 	 */
-	function deleteGroup($uuid) {
+	function deleteGroup($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -611,27 +791,17 @@ class UserMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get the object
-		$xpath = "//system/usermanagement/groups/group[uuid='{$uuid}']";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Check if the group is used somewhere
-		if (TRUE === $xmlConfig->exists("//system/usermanagement/" .
-		  "users/user[contains(groups,'{$object['name']}')]")) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INUSE);
-		}
+		// Get the group configuration object
+		$object = OMVRpc::exec("UserMgmt", "getGroup", array(
+		  "name" => $data['name']));
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
 		  "org.openmediavault.system.usermanagement.groups.group", $object);
 		// Delete configuration object
-		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
-			  $xpath);
-		}
+		$xpath = sprintf("//system/usermanagement/groups/group[name='%s']",
+		  $object['name']);
+		$xmlConfig->delete($xpath);
 		// Save configuration
 		if (FALSE === $xmlConfig->save()) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
@@ -643,9 +813,32 @@ class UserMgmtRpc extends OMVRpc {
 	}
 
 	/**
-	 * Set the password for the given user.
+	 * Get user management settings.
 	 */
-	function setUserPassword($data) {
+	function getSettings() {
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Get configuration object
+		$xpath = "//system/usermanagement/homedirectory";
+		$object = $xmlConfig->get($xpath);
+		if (is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Modify result data
+		$object['enable'] = boolval($object['enable']);
+		return $object;
+	}
+
+	/**
+	 * Set user management settings.
+	 */
+	public function setSettings($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -656,19 +849,13 @@ class UserMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get user configuration object
-		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
-		  $data['name']);
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Set new password
-		$object['password'] = $data['password'];
-		// Update configuration object
-		if (FALSE === $xmlConfig->replace("//system/usermanagement/users/" .
-		  "user[uuid='{$object['uuid']}']", $object)) {
+		// Update configuration
+		$xpath = "//system/usermanagement/homedirectory";
+		$object = array(
+			"enable" => array_boolval($data, 'enable'),
+			"sharedfolderref" => $data['sharedfolderref']
+		);
+		if (FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Save configuration
@@ -679,7 +866,7 @@ class UserMgmtRpc extends OMVRpc {
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.usermanagement.users.user", $object);
+		  "org.openmediavault.system.usermanagement.homedirectory", $object);
 	}
 }
 ?>

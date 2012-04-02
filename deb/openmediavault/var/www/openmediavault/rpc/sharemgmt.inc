@@ -31,15 +31,21 @@ require_once("openmediavault/notify.inc");
 class ShareMgmtRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
-			"getList" => array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
-			"get" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"getList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
+			"get" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"set" => array('{
 				"type":"object",
 				"properties":{
@@ -47,16 +53,28 @@ class ShareMgmtRpc extends OMVRpc {
 					"name":{'.$GLOBALS['OMV_JSONSCHEMA_SHARENAME'].'},
 					"comment":{"type":"string"},
 					"mntentref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-					"umask":{"type":"string","enum":["700","755","777"]}
+					"umask":{"type":"string","enum":["700","750","755",'.
+					  '"775","777"]}
 				}
 			}'),
-			"delete" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}', // uuid
-				'{"type":"boolean"}' // recursive
-			),
-			"getPrivileges" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"delete" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
+			"getPath" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
+			"getPrivileges" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"setPrivileges" => array('{
 				"type":"object",
 				"properties":{
@@ -66,9 +84,60 @@ class ShareMgmtRpc extends OMVRpc {
 						"items":{
 							"type":"object",
 							"properties":{
-								"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
+								"name":{"type":"string"},
 								"perms":{"type":"integer","enum":[0,5,7]},
 								"type":{"type":"string","enum":["user","group"]}
+							}
+						}
+					}
+				}
+			}'),
+			"lsDir" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
+					"dir":{"type":"string"}
+				}
+			}'),
+			"getFileACL" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
+					"file":{"type":"string"}
+				}
+			}'),
+			"setFileACL" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
+					"file":{"type":"string"},
+					"recursive":{"type":"boolean"},
+					"replace":{"type":"boolean"},
+					"user":{"type":"integer","enum":[0,1,2,3,4,5,6,7],'.
+					  '"optional":true},
+					"group":{"type":"integer","enum":[0,1,2,3,4,5,6,7],'.
+					  '"optional":true},
+					"other":{"type":"integer","enum":[0,1,2,3,4,5,6,7],'.
+					  '"optional":true},
+					"users":{
+						"type":"array",
+						"items":{
+							"type":"object",
+							"properties":{
+								"name":{"type":"string"},
+								"perms":{"type":"integer","enum":'.
+								  '[0,1,2,3,4,5,6,7]}
+							}
+						}
+					},
+					"groups":{
+						"type":"array",
+						"items":{
+							"type":"object",
+							"properties":{
+								"name":{"type":"string"},
+								"perms":{"type":"integer","enum":'.
+								  '[0,1,2,3,4,5,6,7]}
 							}
 						}
 					}
@@ -80,8 +149,8 @@ class ShareMgmtRpc extends OMVRpc {
 	/**
 	 * Get list of mount points that can be used for shared folders.
 	 * @return An array containing objects with the following fields:
-	 * \em uuid, \em devicefile and \em description.
-	 * The field \em uuid is the mount point configuration object UUID.
+	 *   \em uuid, \em devicefile and \em description.
+	 *   The field \em uuid is the mount point configuration object UUID.
 	 */
 	public function getCandidates() {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -186,8 +255,16 @@ class ShareMgmtRpc extends OMVRpc {
 
 	/**
 	 * Get list of shared folder configuration objects.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	public function getList($start, $count, $sortField, $sortDir) {
+	public function getList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -201,14 +278,17 @@ class ShareMgmtRpc extends OMVRpc {
 		// Enumerate all shared folders.
 		$objects = OMVRpc::exec("ShareMgmt", "enumerateSharedFolders");
 		// Filter result
-		return $this->applyFilter($objects, $start, $count, $sortField,
-		  $sortDir);
+		return $this->applyFilter($objects, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
-	 * Get a shared folder config object.
+	 * Get a shared folder configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return The requested configuration object.
 	 */
-	public function get($uuid) {
+	public function get($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -220,23 +300,16 @@ class ShareMgmtRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get configuration object
-		$xpath = "//system/shares/sharedfolder[uuid='{$uuid}']";
+		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Build the full path of the shared folder to display it in the
-		// WebGUI.
-		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
-		  $object['mntentref']);
-		$meobject = $xmlConfig->get($xpath);
-		if (is_null($meobject)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		$object['dirpath'] = sprintf("%s/%s", $meobject['dir'],
-		  $object['reldirpath']);
+		// Get the absolute shared folder path.
+		$object['absdirpath'] = OMVRpc::exec("ShareMgmt", "getPath", array(
+		  "uuid" => $data['uuid']));
 		return $object;
 	}
 
@@ -262,15 +335,16 @@ class ShareMgmtRpc extends OMVRpc {
 			"name" => $data['name'],
 			"comment" => $data['comment'],
 			"mntentref" => $data['mntentref'],
-			"reldirpath" => $data['name'],
-			"umask" => $data['umask']
+			"reldirpath" => $data['name']
 		);
 		// Set configuration data
 		$success = FALSE;
 		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Check uniqueness
-			$xpath = sprintf("//system/shares/sharedfolder[name='%s' and ".
-			  "mntentref='%s']", $data['name'], $data['mntentref']);
+			// Check uniqueness. The share name must be global unique because
+			// the name is also used when exporting a shared folder via NFS for
+			// example.
+			$xpath = sprintf("//system/shares/sharedfolder[name='%s']",
+			  $data['name']);
 			if (TRUE === $xmlConfig->exists($xpath)) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
 				gettext("A shared folder with the given name already exists"));
@@ -301,6 +375,8 @@ class ShareMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
 			  $xmlConfig->getError());
 		}
+		// Append the umask field to the notification object
+		$object['umask'] = $data['umask'];
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
@@ -309,11 +385,12 @@ class ShareMgmtRpc extends OMVRpc {
 	}
 
 	/**
-	 * Delete a shared folder config object.
-	 * @param uuid The UUID of the configuration object to delete.
-	 * @param recursive Remove the shared folder and its content recursively.
+	 * Delete a shared folder configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return None
 	 */
-	public function delete($uuid, $recursive) {
+	function delete($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -325,12 +402,13 @@ class ShareMgmtRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Check if the shared folder is used somewhere
-		if (TRUE === $xmlConfig->exists("//sharedfolderref[" .
-		  "contains(.,'{$uuid}')]")) {
+		$xpath = sprintf("//sharedfolderref[contains(.,'%s')]", $data['uuid']);
+		if (TRUE === $xmlConfig->exists($xpath)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INUSE);
 		}
 		// Get the configuration object
-		$xpath = "//system/shares/sharedfolder[uuid='{$uuid}']";
+		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -339,8 +417,7 @@ class ShareMgmtRpc extends OMVRpc {
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
-		  "org.openmediavault.system.shares.sharedfolder", $object,
-		  $recursive);
+		  "org.openmediavault.system.shares.sharedfolder", $object);
 		// Delete configuration object
 		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
@@ -353,16 +430,16 @@ class ShareMgmtRpc extends OMVRpc {
 		}
 		// Notify configuration changes
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.shares.sharedfolder", $object,
-		  $recursive);
+		  "org.openmediavault.system.shares.sharedfolder", $object);
 	}
 
 	/**
 	 * Get the shared folder privileges.
-	 * @param uuid The UUID of the shared folder.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the shared folder configuration object.
 	 * @return An array containing the requested privileges.
 	 */
-	public function getPrivileges($uuid) {
+	public function getPrivileges($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -374,64 +451,51 @@ class ShareMgmtRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get shared folder privileges configuration object
-		$xpath = "//system/shares/sharedfolder[uuid='{$uuid}']";
+		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
+		// Prepare result object.
 		$result = array();
-		// Get all user configuration objects
-		$xpath = "//system/usermanagement/users/user";
-		$users = $xmlConfig->getList($xpath);
-		if (is_null($users)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		// Process non-system users.
+		$users = OMVRpc::exec("UserMgmt", "enumerateUsers");
 		foreach ($users as $userk => $userv) {
-			//Skip various users.
-			if (in_array($userv['name'], array("admin")))
-				continue;
 			$privilege = array(
 				"type" => "user",
 				"name" => $userv['name'],
-				"uuid" => $userv['uuid'],
 				"perms" => NULL
 			);
 			// Check if there are any configured privileges for the given user
 			if (!empty($object['privileges']['privilege'])) {
-				foreach ($object['privileges']['privilege'] as $objprivilegev) {
-					if (!array_key_exists('userref', $objprivilegev) ||
-					  ($userv['uuid'] !== $objprivilegev['userref'])) {
-						continue;
+				foreach ($object['privileges']['privilege'] as $objectv) {
+					if (($objectv['type'] === $privilege['type']) &&
+					  ($objectv['name'] === $privilege['name'])) {
+						$privilege['perms'] = intval($objectv['perms']);
+						break;
 					}
-					$privilege['perms'] = intval($objprivilegev['perms']);
 				}
 			}
 			$result[] = $privilege;
 		}
-		// Get all group configuration objects
-		$xpath = "//system/usermanagement/groups/group";
-		$groups = $xmlConfig->getList($xpath);
-		if (is_null($groups)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		// Process non-system groups.
+		$groups = OMVRpc::exec("UserMgmt", "enumerateGroups");
 		foreach ($groups as $groupk => $groupv) {
 			$privilege = array(
 				"type" => "group",
 				"name" => $groupv['name'],
-				"uuid" => $groupv['uuid'],
 				"perms" => NULL
 			);
 			// Check if there are any configured privileges for the given user
 			if (!empty($object['privileges']['privilege'])) {
-				foreach ($object['privileges']['privilege'] as $objprivilegev) {
-					if (!array_key_exists('groupref', $objprivilegev) ||
-					  ($groupv['uuid'] !== $objprivilegev['groupref'])) {
-						continue;
+				foreach ($object['privileges']['privilege'] as $objectv) {
+					if (($objectv['type'] === $privilege['type']) &&
+					  ($objectv['name'] === $privilege['name'])) {
+						$privilege['perms'] = intval($objectv['perms']);
+						break;
 					}
-					$privilege['perms'] = intval($objprivilegev['perms']);
 				}
 			}
 			$result[] = $privilege;
@@ -471,45 +535,40 @@ class ShareMgmtRpc extends OMVRpc {
 			// by the JSON schema validation.
 			if (is_null($datav['perms']))
 				continue;
-			$privilege = array(
-				"perms" => $datav['perms']
-			);
-			// Privilege for an user or a group?
+			// Do some checks ...
 			switch ($datav['type']) {
 			case "user":
-				// Check if user exists.
-				$xpath = sprintf("//system/usermanagement/users/user".
-				  "[uuid='%s']", $datav['uuid']);
-				$userObj = $xmlConfig->get($xpath);
-				if (is_null($userObj)) {
+				// Check if user exists
+				$user = new OMVSystemUser($datav['name']);
+				if (!$user->exists()) {
 					throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INVALID,
 					  sprintf(gettext("The user '%s' does not exist"),
-					  $datav['uuid']));
+					  $user->getName()));
 				}
 				// Is user allowed? It does not make sense to give the WebGUI
 				// administrator permissions for a shared folder.
-				if (in_array($userObj['name'], array("admin"))) {
+				if (in_array($user->getName(), array("admin"))) {
 					throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INVALID,
 					  sprintf(gettext("The user '%s' is not allowed"),
-					  $userObj['name']));
+					  $user->getName()));
 				}
-				$privilege['userref'] = $datav['uuid'];
 				break;
 			case "group":
-				// Check if group exists.
-				$xpath = sprintf("//system/usermanagement/groups/group".
-				  "[uuid='%s']", $datav['uuid']);
-				$groupObj = $xmlConfig->get($xpath);
-				if (is_null($groupObj)) {
+				// Check if group exists
+				$group = new OMVSystemGroup($datav['name']);
+				if (!$group->exists()) {
 					throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INVALID,
 					  sprintf(gettext("The group '%s' does not exist"),
-					  $datav['uuid']));
+					  $group->getName()));
 				}
-				$privilege['groupref'] = $datav['uuid'];
 				break;
 			}
 			// Finally add privilege to shared folder privileges.
-			$object['privileges']['privilege'][] = $privilege;
+			$object['privileges']['privilege'][] = array(
+				"type" => $datav['type'],
+				"name" => $datav['name'],
+				"perms" => $datav['perms']
+			);
 		}
 		// Update existing configuration object.
 		$xpath = "//system/shares/sharedfolder[uuid='{$data['uuid']}']";
@@ -525,6 +584,295 @@ class ShareMgmtRpc extends OMVRpc {
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder.privileges", $object);
+	}
+
+	/**
+	 * List the contents of the given directory. Note, only directories are
+	 * listed.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the shared folder object.
+	 *   \em dir The relative directory path
+	 * @return The directory contents.
+	 */
+	public function lsDir($data) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Validate method parameters
+		$this->validateParams(__METHOD__, func_get_args());
+		// The field 'dir' may not contain the characters '..'.
+		if (1 == preg_match("/\.\./", $data['dir'])) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PARAM,
+			  sprintf(gettext("The field '%s' contains forbidden ".
+			  "two-dot symbols"), "dir"));
+		}
+		// Get the absolute shared folder path.
+		$sfpath = OMVRpc::exec("ShareMgmt", "getPath", array(
+		  "uuid" => $data['uuid']));
+		// List the directory contents.
+		$cmd = sprintf("sudo find %s -maxdepth 1 -type d -printf '%%f\n' 2>&1",
+		  escapeshellarg(sprintf("%s/%s", $sfpath, rtrim($data['dir'], "/"))));
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		array_shift($output);
+		return $output;
+	}
+
+	/**
+	 * Get the file access control lists.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the shared folder object.
+	 *   \em file The relative path to the file.
+	 * @return The requested file access control lists with the fields \em user,
+	 *   \em group and \em other. The fields \em users and \em groups contain
+	 *   the fields \em name and \em perms.
+	 */
+	public function getFileACL($data) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Validate method parameters
+		$this->validateParams(__METHOD__, func_get_args());
+		// The field 'file' may not contain the characters '..'.
+		if (1 == preg_match("/\.\./", $data['file'])) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PARAM,
+			  sprintf(gettext("The field '%s' contains forbidden ".
+			  "two-dot symbols"), "file"));
+		}
+		// Get the absolute shared folder path.
+		$sfpath = OMVRpc::exec("ShareMgmt", "getPath", array(
+		  "uuid" => $data['uuid']));
+		// Execute command to get the file access control lists.
+		$cmd = sprintf("export LANG=C; sudo getfacl --no-effective --access ".
+		  "--omit-header %s 2>&1", escapeshellarg(sprintf("%s/%s", $sfpath,
+		  $data['file'])));
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Prepare result object. Return only non-system users and groups.
+		$result = array(
+			"user" => NULL,
+			"group" => NULL,
+			"other" => NULL,
+			"users" => array(),
+			"groups" => array()
+		);
+		// Parse the command output:
+		// user::rwx
+		// user:test:rwx
+		// user:nobody:rwx
+		// group::rwx
+		// group:users:rwx
+		// mask::rwx
+		// other::r--
+		$object = array();
+		foreach ($output as $outputk => $outputv) {
+			$regex = '/^(user|group|other):(.*):(.+)$/';
+			if (1 !== preg_match($regex, $outputv, $matches))
+				continue;
+			// Convert permissions string into a number
+			$perms = 0;
+			$map = array("r" => 4, "w" => "2", "x" => 1, "-" => 0);
+			foreach (str_split($matches[3]) as $permk => $permv) {
+				if (!array_key_exists($permv, $map))
+					continue;
+				$perms += $map[$permv];
+			}
+			if (!empty($matches[2])) {
+				$result["{$matches[1]}s"][] = array(
+					"name" => $matches[2],
+					"perms" => $perms
+				);
+			} else {
+				$result[$matches[1]] = $perms;
+			}
+		}
+		// Process non-system users.
+		$users = OMVRpc::exec("UserMgmt", "enumerateUsers");
+		foreach ($users as $userk => $userv) {
+			$found = FALSE;
+			foreach ($result['users'] as $resultv) {
+				if ($resultv['name'] === $userv['name']) {
+					$found = TRUE;
+					break;
+				}
+			}
+			if (TRUE === $found)
+				continue;
+			$result['users'][] = array(
+				"name" => $userv['name'],
+				"perms" => NULL
+			);
+		}
+		// Process non-system groups.
+		$groups = OMVRpc::exec("UserMgmt", "enumerateGroups");
+		foreach ($groups as $groupk => $groupv) {
+			$found = FALSE;
+			foreach ($result['groups'] as $resultv) {
+				if ($resultv['name'] === $groupv['name']) {
+					$found = TRUE;
+					break;
+				}
+			}
+			if (TRUE === $found)
+				continue;
+			$result['groups'][] = array(
+				"name" => $groupv['name'],
+				"perms" => NULL
+			);
+		}
+		return $result;
+	}
+
+	/**
+	 * Set the local directory access control lists.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the shared folder object.
+	 *   \em file The relative path to the file.
+	 *   \em recursive Apply operations to all files and directories
+	 *   \em replace Replace all permissions.
+	 *     recursively.
+	 *   \em user The owner permissions as octal digit. This field is
+	 *     optional.
+	 *   \em group The group permissions as octal digit. This field is
+	 *     optional.
+	 *   \em other The other permissions as octal digit. This field is
+	 *     optional.
+	 *   \em users An array of arrays with the following fiels:
+	 *     \em name The user name.
+	 *     \em perms The permissions as octal digit.
+	 *   \em groups An array of arrays with the following fiels:
+	 *     \em name The group name.
+	 *     \em perms The permissions as octal digit.
+	 * @return The process ID of the 'setfacl' command.
+	 */
+	public function setFileACL($data) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		// Note, do not commit the session because the PID of the
+		// started process will be stored there.
+		//$this->commitSession();
+		// Validate method parameters
+		$this->validateParams(__METHOD__, func_get_args());
+		// The field 'file' may not contain the characters '..'.
+		if (1 == preg_match("/\.\./", $data['file'])) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PARAM,
+			  sprintf(gettext("The field '%s' contains forbidden ".
+			  "two-dot symbols"), "file"));
+		}
+		// Get the absolute shared folder path.
+		$sfpath = OMVRpc::exec("ShareMgmt", "getPath", array(
+		  "uuid" => $data['uuid']));
+		// Build the ACL specifications.
+		$aclspec = array();
+		// Set permissions of a named users and groups.
+		foreach (array("user", "group") as $typek => $typev) {
+			foreach ($data["{$typev}s"] as $entryk => $entryv) {
+				$aclspec[] = sprintf("default:%s:%s:%d,%s:%s:%d", $typev,
+				  $entryv['name'], $entryv['perms'], $typev,
+				  $entryv['name'], $entryv['perms']);
+			}
+		}
+		// Set owner permissions.
+		if (array_key_exists("user", $data)) {
+			$aclspec[] = sprintf("default:user::%s,user::%s", $data['user'],
+			  $data['user']);
+		}
+		// Set ownning group permissions.
+		if (array_key_exists("group", $data)) {
+			$aclspec[] = sprintf("default:group::%s,group::%s", $data['group'],
+			  $data['group']);
+		}
+		// Set permissions of others.
+		if (array_key_exists("other", $data)) {
+			$aclspec[] = sprintf("default:other::%s,other::%s", $data['other'],
+			  $data['other']);
+		}
+		// Build the command arguments.
+		$cmdargs = array();
+		if (TRUE === boolval($data['replace'])) {
+			$cmdargs[] = "--remove-all";
+		}
+		if (TRUE === boolval($data['recursive'])) {
+			$cmdargs[] = "--recursive";
+		}
+		if (!empty($aclspec)) {
+			$cmdargs[] = sprintf("-m %s", implode(",", $aclspec));
+		}
+		// Execute command to set the file access control lists.
+		$outputFile = tempnam(sys_get_temp_dir(), "setfacl");
+		$cmd = sprintf("export LANG=C; sudo setfacl %s %s >%s 2>&1 & echo $!",
+		  implode(" ", $cmdargs), escapeshellarg(sprintf("%s/%s", $sfpath,
+		  $data['file'])), $outputFile);
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Remember pid and content filename in session
+		$pid = intval($output[0]);
+		$_SESSION['execjob'][$pid] = array(
+			"pid" => $pid,
+			"outputFile" => $outputFile
+		);
+		return $pid;
+	}
+
+	/**
+	 * Get the absolute path of a shared folder.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the shared folder object.
+	 * @return The path of the shared folder.
+	 */
+	public function getPath($data) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		// Validate method parameters
+		$this->validateParams(__METHOD__, func_get_args());
+		// Get shared folder configuration object
+		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
+		  $data['uuid']);
+		$sfobject = $xmlConfig->get($xpath);
+		if (is_null($sfobject)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Get the mount point configuration object to build the absolute
+		// shared folder path.
+		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
+		  $sfobject['mntentref']);
+		$meobject = $xmlConfig->get($xpath);
+		if (is_null($meobject)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Return the absolute shared folder path.
+		return sprintf("%s/%s", $meobject['dir'], $sfobject['reldirpath']);
 	}
 }
 ?>

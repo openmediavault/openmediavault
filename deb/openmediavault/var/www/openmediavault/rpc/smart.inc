@@ -29,12 +29,15 @@ require_once("openmediavault/notify.inc");
 class SmartRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
-			"getList" => array(
-				'{"type":"integer"}', // start
-				'{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
+			"getList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
 			"setSettings" => array('{
 				"type":"object",
 				"properties":{
@@ -47,24 +50,39 @@ class SmartRpc extends OMVRpc {
 					"tempcrit":{"type":"integer","minimum":0}
 				}
 			}'),
-			"getAttributes" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}'
-			),
-			"getSelfTestLogs" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}'
-			),
-			"getIdentityInfo" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}'
-			),
-			"getScheduleList" => array(
-				'{"type":"integer"}', // start
-				'{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
-			"getScheduledTest" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"getAttributes" => array('{
+				"type":"object",
+				"properties":{
+					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+				}
+			}'),
+			"getSelfTestLogs" => array('{
+				"type":"object",
+				"properties":{
+					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+				}
+			}'),
+			"getIdentityInfo" => array('{
+				"type":"object",
+				"properties":{
+					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+				}
+			}'),
+			"getScheduleList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
+			"getScheduledTest" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"setScheduledTest" => array('{
 				"type":"object",
 				"properties":{
@@ -82,52 +100,72 @@ class SmartRpc extends OMVRpc {
 					"comment":{"type":"string"}
 				}
 			}'),
-			"deleteScheduledTest" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			)
+			"deleteScheduledTest" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}')
 		);
 	}
 
 	/**
 	 * Enumerate all devices supporting S.M.A.R.T.
 	 * @return An array containing physical disk device objects with following
-	 * fields: devicename, devicefile, model, size, capacity, temperature,
-	 * description, vendor, serialnumber and temperature.
+	 *   fields: devicename, devicefile, model, size, capacity, temperature,
+	 *   description, vendor and serialnumber.
 	 */
 	public function enumerateDevices() {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
 		// Check permissions
 		$this->validateSession();
 		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
 		}
 		$this->commitSession();
-		// Enumerate all disk devices on the system.
+		// Get all existing hard disks devices.
+		if (FALSE === ($devs = OMVStorageDevices::enumerate(
+		  OMVStorageDevices::HARDDISK))) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
+			  "get list of hard disks devices");
+		}
+		// Prepare result
 		$objects = array();
-		$devs = OMVRpc::exec("DiskMgmt", "enumerateDevices");
-		foreach($devs as $devk => $devv) {
-			// Filter hardware RAID controllers at the moment.
-			$regex = "/^cciss.+$/";
-			if (1 == preg_match($regex, $devv['devicename'], $matches))
-				continue;
-			$objects[] = $devv;
+		foreach ($devs as $devk => $devv) {
+			$hdd = new OMVHardDiskDevice($devv);
+			if ($hdd->exists()) {
+				// Try to get the device temperature via S.M.A.R.T.
+				$temperature = $hdd->getTemperature();
+				// Prepare device object
+				$objects[] = array(
+					"devicename" => $hdd->getDeviceName(),
+					"devicefile" => $hdd->getDeviceFile(),
+					"devicefilebyid" => $hdd->getDeviceFileById(),
+					"model" => $hdd->getModel(),
+					"size" => $hdd->getSize(),
+					"capacity" => $hdd->getCapacity(),
+					"temperature" => (FALSE === $temperature) ?
+					  gettext("n/a") : sprintf("%d°C", $temperature),
+					"description" => $hdd->getDescription(),
+					"vendor" => $hdd->getVendor(),
+					"serialnumber" => $hdd->getSerialNumber()
+				);
+			}
 		}
 		return $objects;
 	}
 
 	/**
 	 * Get all devices supporting S.M.A.R.T.
-	 * @param start The index where to start.
-	 * @param count The number of objects to process.
-	 * @param sortField The name of the column used to sort.
-	 * @param sortDir The sort direction, ASC or DESC.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
 	 * @return An array containing the requested objects. The field \em total
-	 * contains the total number of objects, \em data contains the object
-	 * array. An exception will be thrown in case of an error.
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	public function getList($start, $count, $sortField, $sortDir) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function getList($data) {
 		global $xmlConfig;
 		// Check permissions
 		$this->validateSession();
@@ -139,8 +177,8 @@ class SmartRpc extends OMVRpc {
 		// Enumerate all devices supporting S.M.A.R.T.
 		$objects = OMVRpc::exec("Smart", "enumerateDevices");
 		// Filter result
-		return $this->applyFilter($objects, $start, $count, $sortField,
-		  $sortDir);
+		return $this->applyFilter($objects, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	public function getSettings() {
@@ -210,9 +248,12 @@ class SmartRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get 'S.M.A.R.T. Attributes Data Structure' for the given volume.
+	 * Get 'S.M.A.R.T. Attributes Data Structure' for the given device.
+	 * @param data An array containing the following fields:
+	 *   \em devicefile The device file.
+	 * @return The requested S.M.A.R.T. attributes.
 	 */
-	public function getAttributes($devicefile) {
+	public function getAttributes($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -224,7 +265,11 @@ class SmartRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get S.M.A.R.T. statistics
-		$hdd = new OMVHardDiskDevice($devicefile);
+		$hdd = new OMVHardDiskDevice($data['devicefile']);
+		if (FALSE === $hdd->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Device '%s' not found", $hdd->getDeviceFile()));
+		}
 		if (FALSE === ($stats = $hdd->getSmartStats())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to get S.M.A.R.T. statistics (device=%s)",
@@ -235,8 +280,11 @@ class SmartRpc extends OMVRpc {
 
 	/**
 	 * Get 'SMART Self-test log structure' for the given device.
+	 * @param data An array containing the following fields:
+	 *   \em devicefile The device file.
+	 * @return The requested Self-test logs.
 	 */
-	public function getSelfTestLogs($devicefile) {
+	public function getSelfTestLogs($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -248,7 +296,11 @@ class SmartRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get S.M.A.R.T. statistics
-		$hdd = new OMVHardDiskDevice($devicefile);
+		$hdd = new OMVHardDiskDevice($data['devicefile']);
+		if (FALSE === $hdd->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Device '%s' not found", $hdd->getDeviceFile()));
+		}
 		if (FALSE === ($stats = $hdd->getSmartStats())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to get S.M.A.R.T. statistics (device=%s)",
@@ -258,9 +310,12 @@ class SmartRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get all S.M.A.R.T. identity information for the given device
+	 * Get all S.M.A.R.T. identity information for the given device.
+	 * @param data An array containing the following fields:
+	 *   \em devicefile The device file.
+	 * @return The requested S.M.A.R.T. identity information.
 	 */
-	public function getIdentityInfo($devicefile) {
+	public function getIdentityInfo($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -272,7 +327,7 @@ class SmartRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get S.M.A.R.T. identity informations
-		$hdd = new OMVHardDiskDevice($devicefile);
+		$hdd = new OMVHardDiskDevice($data['devicefile']);
 		if (FALSE === $hdd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Device '%s' not found", $hdd->getDeviceFile()));
@@ -285,9 +340,17 @@ class SmartRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get list of schedule config objects.
+	 * Get list of schedule configuration objects.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	public function getScheduleList($start, $count, $sortField, $sortDir) {
+	public function getScheduleList($data) {
 		global $xmlConfig;
 		// Check permissions
 		$this->validateSession();
@@ -324,14 +387,17 @@ class SmartRpc extends OMVRpc {
 			}
 		}
 		// Filter result
-		return $this->applyFilter($objects, $start, $count, $sortField,
-		  $sortDir);
+		return $this->applyFilter($objects, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
-	 * Get a scheduled test config object.
+	 * Get a scheduled test configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return The requested configuration object.
 	 */
-	public function getScheduledTest($uuid) {
+	public function getScheduledTest($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -343,7 +409,8 @@ class SmartRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get configuration object
-		$xpath = "//services/smart/scheduledtests/job[uuid='{$uuid}']";
+		$xpath = sprintf("//services/smart/scheduledtests/job[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -367,8 +434,8 @@ class SmartRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Check if the given device exists.
-		$sd = new OMVStorageDevice($data['devicefile']);
-		if(!$sd->exists()) {
+		$sd = OMVStorageDeviceFactory::get($data['devicefile']);
+		if (is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf(gettext("Device '%s' not found"), $data['devicefile']));
 		}
@@ -411,9 +478,12 @@ class SmartRpc extends OMVRpc {
 	}
 
 	/**
-	 * Delete a scheduled test config object.
+	 * Delete a scheduled test configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return None
 	 */
-	public function deleteScheduledTest($uuid) {
+	public function deleteScheduledTest($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -425,7 +495,8 @@ class SmartRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Delete configuration object
-		$xpath = "//services/smart/scheduledtests/job[uuid='{$uuid}']";
+		$xpath = sprintf("//services/smart/scheduledtests/job[uuid='%s']",
+		  $data['uuid']);
 		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
 			  $xpath);

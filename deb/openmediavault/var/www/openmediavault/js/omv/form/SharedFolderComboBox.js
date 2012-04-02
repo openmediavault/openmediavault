@@ -31,18 +31,20 @@ Ext.ns("OMV.form");
  */
 OMV.form.SharedFolderComboBox = function(config) {
 	var initialConfig = {
-		emptyText: "Select a shared folder ...",
+		emptyText: _("Select a shared folder ..."),
 		allowBlank: false,
 		allowNone: false,
-		noneText: "None",
+		noneText: _("None"),
 		editable: false,
 		triggerAction: "all",
 		displayField: "description",
 		valueField: "uuid",
 		store: new OMV.data.Store({
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("ShareMgmt",
-			  "enumerateSharedFolders"),
+			proxy: new OMV.data.DataProxy({
+				"service": "ShareMgmt",
+				"method": "enumerateSharedFolders"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				fields: [
@@ -86,13 +88,13 @@ Ext.extend(OMV.form.SharedFolderComboBox, Ext.form.ComboBox, {
 				tag: "img",
 				src: Ext.BLANK_IMAGE_URL,
 				cls: "x-form-trigger x-form-add-trigger",
-				"ext:qtip": "Add"
+				"ext:qtip": _("Add")
 			},{
 				tag: "img",
 				src: Ext.BLANK_IMAGE_URL,
 				alt: "",
 				cls: "x-form-trigger x-form-search-trigger",
-				"ext:qtip": "Show privileges"
+				"ext:qtip": _("Show privileges")
 			}]
 		};
 	},
@@ -145,8 +147,7 @@ Ext.extend(OMV.form.SharedFolderComboBox, Ext.form.ComboBox, {
 	getTriggerWidth : function() {
 		var tw = 0;
 		Ext.each (this.triggers, function(t, index) {
-			var triggerIndex = "Trigger" + (index + 1),
-				w = t.getWidth();
+			var triggerIndex = "Trigger" + (index + 1), w = t.getWidth();
 			if (w === 0 && !this["hidden" + triggerIndex]) {
 				tw += this.defaultTriggerWidth;
 			} else {

@@ -48,6 +48,7 @@
 		</certificates>
 		<network>
 			<hostname>OpenMediaVault</hostname>
+			<domainname></domainname>
 			<interfaces>
 				<!--
 				<iface>
@@ -107,19 +108,17 @@
 			</dnsservicediscovery>
 		</network>
 		<usermanagement>
+			<homedirectory>
+				<enable>0</enable>
+				<sharedfolderref></sharedfolderref>
+			</homedirectory>
 			<users>
 				<!--
 				<user>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-					<uid>xxx</uid>
 					<name>xxx</name>
-					<groups>xxx[,xxx]*</groups>
-					<shell>xxx</shell>
-					<password>xxx</password>
 					<email>xxx</email>
-					<comment>xxx</comment>
 					<disallowusermod>0</disallowusermod>
-					<mntentref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</mntentref>
 				</user>
 				-->
 			</users>
@@ -127,7 +126,6 @@
 				<!--
 				<group>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-					<gid>xxx</gid>
 					<name>xxx</name>
 					<comment>xxx</comment>
 				</group>
@@ -184,7 +182,7 @@
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 					<fsuuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxxx-xxxx</fsuuid>
 					<usrquota>
-						<userref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</userref>
+						<name>xxx</name>
 						<bsoftlimit>0</bsoftlimit>
 						<bhardlimit>xxx</bhardlimit>
 						<isoftlimit>0</isoftlimit>
@@ -194,7 +192,7 @@
 						...
 					</usrquota>
 					<grpquota>
-						<groupref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</groupref>
+						<name>xxx</name>
 						<bsoftlimit>0</bsoftlimit>
 						<bhardlimit>xxx</bhardlimit>
 						<isoftlimit>0</isoftlimit>
@@ -231,14 +229,10 @@
 				<comment>xxx</comment>
 				<mntentref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</mntentref>
 				<reldirpath>xxx</reldirpath>
-				<umask>700</umask>
 				<privileges>
 					<privilege>
-						<userref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</userref>
-						<perms>0 = no permission|5 = read and execute|7 = read, write and execute</perms>
-					</privilege>
-					<privilege>
-						<groupref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</groupref>
+						<type>user|group</type>
+						<name>xxx</name>
 						<perms>0 = no permission|5 = read and execute|7 = read, write and execute</perms>
 					</privilege>
 				</privileges>
@@ -268,6 +262,7 @@
 		</ssh>
 		<nfs>
 			<enable>0</enable>
+			<numproc>8</numproc>
 			<shares>
 				<!--
 				<share>
@@ -419,9 +414,10 @@
 					<module>
 						<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 						<sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+						<uid>xxx</uid>
+						<gid>xxx</gid>
 						<name>xxx</name>
 						<comment>xxx</comment>
-						<guestok>0</guestok>
 						<readonly>0</readonly>
 						<writeonly>0</writeonly>
 						<maxconnections>0</maxconnections>
@@ -429,6 +425,13 @@
 						<hostsallow></hostsallow>
 						<hostsdeny></hostsdeny>
 						<extraoptions></extraoptions>
+						<authusers>0|1</authusers>
+						<users>
+							<user>
+								<name>xxx</name>
+								<password>xxx</password>
+							<user>
+						<users>
 					</module>
 					-->
 				</modules>
@@ -463,6 +466,7 @@
 					<extraoptions></extraoptions>
 					// remote
 					<mode>push|pull</mode>
+					<password>xxx</password>
 				</job>
 				-->
 			</jobs>

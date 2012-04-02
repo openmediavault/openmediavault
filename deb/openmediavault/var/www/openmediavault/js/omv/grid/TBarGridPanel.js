@@ -36,16 +36,16 @@ Ext.ns("OMV.grid");
  * given interval.
  * @config hideToolbar TRUE to hide the whole toolbar. Defaults to FALSE.
  * @config hidePagingToolbar TRUE to hide the paging toolbar at the bottom of
- * the grid. Defaults to TRUE.
+ *   the grid. Defaults to TRUE.
  * @config hideAdd Hide the 'Add' button in the top toolbar. Defaults to FALSE.
  * @config hideEdit Hide the 'Edit' button in the top toolbar. Defaults to
- * FALSE.
+ *   FALSE.
  * @config hideDelete Hide the 'Delete' button in the top toolbar. Defaults
- * to FALSE.
+ *   to FALSE.
  * @config hideUp Hide the 'Up' button in the top toolbar. Defaults to TRUE.
  * @config hideDown Hide the 'Down' button in the top toolbar. Defaults to TRUE.
  * @config hideRefresh Hide the 'Refresh' button in the top toolbar. Defaults
- * to TRUE.
+ *   to TRUE.
  * @config addButtonText The 'Add' button text. Defaults to 'Add'.
  * @config editButtonText The 'Edit' button text. Defaults to 'Edit'.
  * @config deleteButtonText The 'Delete' button text. Defaults to 'Delete'.
@@ -53,15 +53,15 @@ Ext.ns("OMV.grid");
  * @config downButtonText The 'Down' button text. Defaults to 'Down'.
  * @config refreshButtonText The 'Refresh' button text. Defaults to 'Refresh'.
  * @config deletionConfirmRequired Set to TRUE to force the user to confirm
- * the deletion request. Defaults to TRUE.
+ *   the deletion request. Defaults to TRUE.
  * @config deletionWaitMsg The message displayed during the deletion process.
  * @config mode The mode how to retrieve the data displayed in the grid panel.
- * This can be 'local' or 'remote' which means the data is requested via RPC.
- * Defaults to 'remote'.
+ *   This can be 'local' or 'remote' which means the data is requested via RPC.
+ *   Defaults to 'remote'.
  * @config autoReload TRUE to reload the grid content automatically every n
- * milliseconds. Defaults to FALSE.
+ *   milliseconds. Defaults to FALSE.
  * @config reloadInterval The frequency in milliseconds with which the grid
- * content should be reloaded. Defaults to 10 seconds.
+ *   content should be reloaded. Defaults to 10 seconds.
  */
 OMV.grid.TBarGridPanel = function(config) {
 	var initialConfig = {
@@ -73,14 +73,14 @@ OMV.grid.TBarGridPanel = function(config) {
 		hideUp: true, // Hide the 'Up' button in the top toolbar
 		hideDown: true, // Hide the 'Down' button in the top toolbar
 		hideRefresh: true, // Hide the 'Refresh' button in the top toolbar
-		addButtonText: "Add",
-		editButtonText: "Edit",
-		deleteButtonText: "Delete",
-		upButtonText: "Up",
-		downButtonText: "Down",
-		refreshButtonText: "Refresh",
+		addButtonText: _("Add"),
+		editButtonText: _("Edit"),
+		deleteButtonText: _("Delete"),
+		upButtonText: _("Up"),
+		downButtonText: _("Down"),
+		refreshButtonText: _("Refresh"),
 		deletionConfirmRequired: true,
-		deletionWaitMsg: "Deleting selected item(s)",
+		deletionWaitMsg: _("Deleting selected item(s)"),
 		mode: "remote",
 		autoReload: false,
 		reloadInterval: 10000
@@ -98,8 +98,8 @@ Ext.extend(OMV.grid.TBarGridPanel, OMV.grid.GridPanel, {
 			this.bbar = new Ext.PagingToolbar({
 				store: this.store,
 				displayInfo: true,
-				displayMsg: "Displaying items {0} - {1} of {2}",
-				emptyMsg: "No items to display",
+				displayMsg: _("Displaying items {0} - {1} of {2}"),
+				emptyMsg: _("No items to display"),
 				pageSize: 25
 			});
 		}
@@ -385,10 +385,9 @@ Ext.extend(OMV.grid.TBarGridPanel, OMV.grid.GridPanel, {
 		var selModel = this.getSelectionModel();
 		var records = selModel.getSelections();
 		if (this.deletionConfirmRequired === true) {
-			var msg = "Do you really want to delete the selected " +
-			  (records.length == 1 ? "item" : "items") + "?";
+			var msg = _("Do you really want to delete the selected item(s)?");
 			OMV.MessageBox.show({
-				title: "Confirmation",
+				title: _("Confirmation"),
 				msg: msg,
 				buttons: Ext.Msg.YESNO,
 				fn: function(answer) {
@@ -479,7 +478,7 @@ Ext.extend(OMV.grid.TBarGridPanel, OMV.grid.GridPanel, {
 				// Remove temporary local variables
 				delete this.delActionInfo;
 				// Update and hide progress dialog
-				OMV.MessageBox.updateProgress(1, "100% completed ...");
+				OMV.MessageBox.updateProgress(1, _("100% completed ..."));
 				OMV.MessageBox.hide();
 				this.afterDeletion();
 			}
@@ -495,7 +494,7 @@ Ext.extend(OMV.grid.TBarGridPanel, OMV.grid.GridPanel, {
 		var p = (this.delActionInfo.count - this.delActionInfo.records.length) /
 		  this.delActionInfo.count;
 		// Create message text
-		var text = Math.round(100 * p) + "% completed ...";
+		var text = Math.round(100 * p) + _("% completed ...");
 		// Update progress dialog
 		OMV.MessageBox.updateProgress(p, text);
 	}

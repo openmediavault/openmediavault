@@ -29,7 +29,7 @@ Ext.ns("OMV.Module.Diagnostics.SysInfo");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("diagnostics", "sysinfo", {
-	text: "System Information",
+	text: _("System Information"),
 	icon: "images/info.png",
 	position: 100
 });
@@ -51,14 +51,14 @@ OMV.Module.Diagnostics.SysInfo.Overview = function(config) {
 		stateId: "eda034fd-aa2e-4a7a-9f75-e054d26bcd31",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Name",
+				header: _("Name"),
 				sortable: true,
 				dataIndex: "name",
 				id: "name",
 				width: 25,
 				css: "background-color: #FAFAFA;"
 			},{
-				header: "Value",
+				header: _("Value"),
 				sortable: true,
 				dataIndex: "value",
 				id: "value",
@@ -99,7 +99,11 @@ Ext.extend(OMV.Module.Diagnostics.SysInfo.Overview,
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("System", "getInformation"),
+			proxy: new OMV.data.DataProxy({
+				"service": "System",
+				"method": "getInformation",
+				"appendPagingParams": false
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "index",
 				totalProperty: "total",
@@ -122,7 +126,7 @@ Ext.extend(OMV.Module.Diagnostics.SysInfo.Overview,
 });
 OMV.NavigationPanelMgr.registerPanel("diagnostics", "sysinfo", {
 	cls: OMV.Module.Diagnostics.SysInfo.Overview,
-	title: "Overview",
+	title: _("Overview"),
 	position: 10
 });
 
@@ -156,7 +160,7 @@ Ext.extend(OMV.Module.Diagnostics.SysInfo.System, Ext.TabPanel, {
 });
 OMV.NavigationPanelMgr.registerPanel("diagnostics", "sysinfo", {
 	cls: OMV.Module.Diagnostics.SysInfo.System,
-	title: "System",
+	title: _("System"),
 	position: 20
 });
 
@@ -192,7 +196,7 @@ Ext.extend(OMV.Module.Diagnostics.SysInfo.Services, Ext.TabPanel, {
 });
 OMV.NavigationPanelMgr.registerPanel("diagnostics", "sysinfo", {
 	cls: OMV.Module.Diagnostics.SysInfo.Services,
-	title: "Services",
+	title: _("Services"),
 	position: 30
 });
 
@@ -203,7 +207,7 @@ OMV.NavigationPanelMgr.registerPanel("diagnostics", "sysinfo", {
  */
 OMV.Module.Diagnostics.SysInfo.ServicesOverview = function(config) {
 	var initialConfig = {
-		title: "Overview",
+		title: _("Overview"),
 		hideAdd: true,
 		hideEdit: true,
 		hideDelete: true,
@@ -213,12 +217,12 @@ OMV.Module.Diagnostics.SysInfo.ServicesOverview = function(config) {
 		stateId: "976130ef-a647-40e8-9b08-02ced906680a",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Service",
+				header: _("Service"),
 				sortable: true,
 				dataIndex: "title",
 				id: "title"
 			},{
-				header: "Enabled",
+				header: _("Enabled"),
 				sortable: true,
 				dataIndex: "enabled",
 				id: "enabled",
@@ -227,7 +231,7 @@ OMV.Module.Diagnostics.SysInfo.ServicesOverview = function(config) {
 				renderer: OMV.util.Format.booleanIconRenderer("switch_on.png",
 				  "switch_off.png")
 			},{
-				header: "Running",
+				header: _("Running"),
 				sortable: true,
 				dataIndex: "running",
 				id: "running",
@@ -248,7 +252,11 @@ Ext.extend(OMV.Module.Diagnostics.SysInfo.ServicesOverview,
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("Services", "getStatus"),
+			proxy: new OMV.data.DataProxy({
+				"service": "Services",
+				"method": "getStatus",
+				"appendPagingParams": false
+			}),
 			reader: new Ext.data.JsonReader({
 				totalProperty: "total",
 				root: "data",
@@ -271,7 +279,7 @@ Ext.extend(OMV.Module.Diagnostics.SysInfo.ServicesOverview,
  */
 OMV.Module.Diagnostics.SysInfo.Memory = function(config) {
 	var initialConfig = {
-		title: "Memory usage",
+		title: _("Memory usage"),
 		rrdGraphName: "memory"
 	};
 	Ext.apply(initialConfig, config);
@@ -288,7 +296,7 @@ OMV.preg("sysinfo", "system", OMV.Module.Diagnostics.SysInfo.Memory);
  */
 OMV.Module.Diagnostics.SysInfo.Load = function(config) {
 	var initialConfig = {
-		title: "Load average",
+		title: _("Load average"),
 		rrdGraphName: "load"
 	};
 	Ext.apply(initialConfig, config);
@@ -305,7 +313,7 @@ OMV.preg("sysinfo", "system", OMV.Module.Diagnostics.SysInfo.Load);
  */
 OMV.Module.Diagnostics.SysInfo.Cpu = function(config) {
 	var initialConfig = {
-		title: "CPU usage",
+		title: _("CPU usage"),
 		rrdGraphName: "cpu-0"
 	};
 	Ext.apply(initialConfig, config);
@@ -322,7 +330,7 @@ OMV.preg("sysinfo", "system", OMV.Module.Diagnostics.SysInfo.Cpu);
  */
 OMV.Module.Diagnostics.SysInfo.Ifaces = function(config) {
 	var initialConfig = {
-		title: "Interfaces",
+		title: _("Interfaces"),
 		border: false,
 		activeTab: 0,
 		layoutOnTabChange: true,
@@ -359,7 +367,7 @@ OMV.preg("sysinfo", "system", OMV.Module.Diagnostics.SysInfo.Ifaces);
  */
 OMV.Module.Diagnostics.SysInfo.DiskUsage = function(config) {
 	var initialConfig = {
-		title: "Disk usage",
+		title: _("Disk usage"),
 		border: false,
 		activeTab: 0,
 		layoutOnTabChange: true,

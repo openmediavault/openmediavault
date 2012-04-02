@@ -31,15 +31,21 @@ require_once("openmediavault/notify.inc");
 class CertificateMgmtRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
-			"getList" => array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
-			"get" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"getList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
+			"get" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"set" => array('{
 				"type":"object",
 				"properties":{
@@ -49,20 +55,47 @@ class CertificateMgmtRpc extends OMVRpc {
 					"comment":{"type":"string"}
 				}
 			}'),
-			"delete" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
-			"getDetail" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			)
+			"delete" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
+			"getDetail" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
+			"create" => array('{
+				"type":"object",
+				"properties":{
+					"size":{"type":"integer","enum":[512,1024,2048,4096]},
+					"days":{"type":"integer"},
+					"c":{"type":"string","maxLength":2},
+					"st":{"type":"string"},
+					"l":{"type":"string"},
+					"o":{"type":"string"},
+					"ou":{"type":"string"},
+					"cn":{"type":"string","minLength":1},
+					"email":{'.$GLOBALS['OMV_JSONSCHEMA_EMAIL'].'}
+				}
+			}')
 		);
 	}
 
 	/**
-	 * Get list of certificate config objects.
-	 * @return A list of certificates.
+	 * Get list of certificate configuration objects.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	public function getList($start, $count, $sortField, $sortDir) {
+	public function getList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -97,14 +130,17 @@ class CertificateMgmtRpc extends OMVRpc {
 			}
 		}
 		// Filter result
-		return $this->applyFilter($objects, $start, $count, $sortField,
-		  $sortDir);
+		return $this->applyFilter($objects, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
-	 * Get an certificate configuration object
+	 * Get an certificate configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return The requested configuration object.
 	 */
-	function get($uuid) {
+	function get($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -116,7 +152,8 @@ class CertificateMgmtRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get configuration object
-		$xpath = "//system/certificates/sslcertificate[uuid='{$uuid}']";
+		$xpath = sprintf("//system/certificates/sslcertificate[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -196,8 +233,11 @@ class CertificateMgmtRpc extends OMVRpc {
 
 	/**
 	 * Delete a certificate config object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return None
 	 */
-	public function delete($uuid) {
+	public function delete($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -209,12 +249,14 @@ class CertificateMgmtRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Check if the certificate is used somewhere
-		if (TRUE === $xmlConfig->exists("//sslcertificateref[" .
-		  "contains(.,'{$uuid}')]")) {
+		$xpath = sprintf("//sslcertificateref[contains(.,'%s')]",
+		  $data['uuid']);
+		if (TRUE === $xmlConfig->exists($xpath)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INUSE);
 		}
 		// Get the object
-		$xpath = "//system/certificates/sslcertificate[uuid='{$uuid}']";
+		$xpath = sprintf("//system/certificates/sslcertificate[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -240,9 +282,12 @@ class CertificateMgmtRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get detail about a certificate
+	 * Get detail about a certificate.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return A string containing the certificate details.
 	 */
-	public function getDetail($uuid) {
+	public function getDetail($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -255,7 +300,8 @@ class CertificateMgmtRpc extends OMVRpc {
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get certificate details
 		$cmd = sprintf("sudo openssl x509 -text -noout -in " .
-		  "%s/certs/%s.crt 2>&1", $GLOBALS['OMV_CERTIFICATE_DIR'], $uuid);
+		  "%s/certs/%s.crt 2>&1", $GLOBALS['OMV_CERTIFICATE_DIR'],
+		  $data['uuid']);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -263,5 +309,114 @@ class CertificateMgmtRpc extends OMVRpc {
 		}
 		return implode("\n", $output);
 	}
+
+	/**
+	 * Create a certificate.
+	 * @param data An array containing the following fields:
+	 *   \em size The size.
+	 *   \em days The number of days the certificate is valid for.
+	 *   \em c Country
+	 *   \em st State or province
+	 *   \em l Locality/city
+	 *   \em o Organization name
+	 *   \em ou Organization unit name
+	 *   \em cn Common name
+	 *   \em email Email address
+	 * @return None
+	 */
+	public function create($data) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Validate method parameters
+		$this->validateParams(__METHOD__, func_get_args());
+		// Generate the certificate subject string
+		$rdnfields = array("c", "st", "l", "o", "ou", "cn");
+		$subject = "";
+		foreach($rdnfields as $rdnfieldk => $rdnfieldv) {
+			if (empty($data[$rdnfieldv]))
+				continue;
+			// Escape RDN attribute value, see
+			// http://www-03.ibm.com/systems/i/software/ldap/underdn.html
+			// http://msdn.microsoft.com/en-us/library/windows/desktop/aa366101(v=vs.85).aspx
+			$replace = array();
+			foreach (array(',','+','<','>',';','\r','=','#','/') as $v) {
+				$replace[$v] = sprintf("\\%s", strtoupper(str_pad(dechex(
+				  ord($v)), 2, "0")));
+			}
+			$data[$rdnfieldv] = strtr($data[$rdnfieldv], $replace);
+			$data[$rdnfieldv] = addcslashes($data[$rdnfieldv], '"\\');
+			// Append to subject
+			switch ($rdnfieldv) {
+			case "cn":
+				// Append the email address
+				if (!empty($data['email'])) {
+					$data[$rdnfieldv] = sprintf("%s/emailAddress=%s",
+					  $data[$rdnfieldv], $data['email']);
+				}
+			default:
+				$subject .= sprintf("/%s=%s", strtoupper($rdnfieldv),
+				  $data[$rdnfieldv]);
+			}
+		}
+		// Create the requested certificate
+		// http://www.zytrax.com/tech/survival/ssl.html
+		$keyfile = tempnam(sys_get_temp_dir(), "");
+		$crtfile = tempnam(sys_get_temp_dir(), "");
+		$cmd = sprintf("export LANG=C; openssl req -x509 -nodes -days %d ".
+		  "-batch -newkey rsa:%d -keyout %s -out %s",
+		  $data['days'], $data['size'], $keyfile, $crtfile);
+		if (!empty($subject)) {
+			$cmd .= sprintf(" -subj '%s'", $subject);
+		}
+		$cmd .= " 2>&1";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			unlink($keyfile);
+			unlink($crtfile);
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Read certificate and key content, then unlink the temporary files
+		$keydata = file_get_contents($keyfile);
+		$crtdata = file_get_contents($crtfile);
+		unlink($keyfile);
+		unlink($crtfile);
+		// Finally import generated certificate
+		OMVRpc::exec("CertificateMgmt", "set", array(
+		  "uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
+		  "certificate" => $crtdata,
+		  "privatekey" => $keydata,
+		  "comment" => !empty($subject) ? $subject : gettext("n/a")));
+	}
 }
+?>
+
+
+
+<?php 
+function ldap_escape($str, $for_dn = false) 
+{ 
+    
+    // see: 
+    // RFC2254 
+    // http://msdn.microsoft.com/en-us/library/ms675768(VS.85).aspx 
+http://msdn.microsoft.com/en-us/library/windows/desktop/aa366101(v=vs.85).aspx
+    // http://www-03.ibm.com/systems/i/software/ldap/underdn.html        
+        
+    if  ($for_dn) 
+        $metaChars = array(',','=', '+', '<','>',';', '\\', '"', '#'); 
+    else 
+        $metaChars = array('*', '(', ')', '\\', chr(0)); 
+
+    $quotedMetaChars = array(); 
+    foreach ($metaChars as $key => $value) $quotedMetaChars[$key] = '\\'.str_pad(dechex(ord($value)), 2, '0');
+    $str=str_replace($metaChars,$quotedMetaChars,$str); //replace them 
+    return ($str); 
+} 
 ?>

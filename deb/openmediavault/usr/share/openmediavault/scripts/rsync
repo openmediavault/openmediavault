@@ -77,6 +77,7 @@ xmlstarlet sel -t -m "//services/rsync/jobs/job[enable='1']" \
 		-o "[ -e ${runfile} ] &amp;&amp; exit 0" -n \
 		-o "trap &quot;rm -f ${runfile}&quot; 0 1 2 5 15" -n \
 		-o "touch ${runfile}" -n \
+		-i "string-length(password) > 0" -v "concat('env RSYNC_PASSWORD=&quot;',password,'&quot; ')" -b \
 		-o "rsync --verbose --log-file=&quot;${OMV_RSYNC_LOGFILE}&quot;" \
 		-i "recursive = '0'" -o " --recursive" -b \
 		-i "times = '1'" -o " --times" -b \

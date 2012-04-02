@@ -24,6 +24,9 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/util.inc");
 
+/**
+ * @class OMVSystem
+ */
 class OMVSystem {
 	/**
 	 * Get the partition where '/' is installed on.
@@ -315,6 +318,8 @@ class OMVSystem {
 }
 
 /**
+ * @class OMVFilesystems
+ * @extends OMVObject
  * Generic class to handle RAID devices.
  */
 class OMVFilesystems extends OMVObject {
@@ -370,6 +375,8 @@ class OMVFilesystems extends OMVObject {
 }
 
 /**
+ * @class OMVFilesystem
+ * @extends OMVObject
  * Class to get detailed informations about a given filesystem.
  */
 class OMVFilesystem extends OMVObject {
@@ -383,7 +390,7 @@ class OMVFilesystem extends OMVObject {
 
 	/**
 	 * Constructor
-	 * @param uuid The UUID or device path of the filesystem, e.g.
+	 * @param id The UUID or device path of the filesystem, e.g.
 	 * /dev/sde1, 78b669c1-9183-4ca3-a32c-80a4e2c61e2d, 7A48-BA97 (DOS)
 	 * or 2ED43920D438EC29 (NTFS).
 	 */
@@ -598,25 +605,26 @@ class OMVFilesystem extends OMVObject {
 	 * @return TRUE if the filesystem is mounted, otherwise FALSE.
 	 */
 	public static function isMountedEx($key, $value) {
-		OMVUtil::exec("export LANG=C; sudo mount", $output, $result);
+		OMVUtil::exec("cat /proc/mounts", $output, $result);
 		if ($result !== 0) {
 			return FALSE;
 		}
 		$result = FALSE;
 		foreach ($output as $outputv) {
-			$regex = "/^(\S+) on (\S+) type (\S+) \((\S+)\)$/";
-			if (1 !== preg_match($regex, $outputv, $matches))
-				continue;
 			// Parse command output:
-			// tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
-			// devpts on /dev/pts type devpts (rw,noexec,nosuid,gid=5,mode=620)
-			// /dev/sdf1 on /media/f4f01ecc-548b-4e96-8fc4-874c6fdc9be0 type jfs (rw)
+			// rootfs / rootfs rw 0 0
+			// none /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
+			// none /proc proc rw,nosuid,nodev,noexec,relatime 0 0
+			// tmpfs /dev/shm tmpfs rw,nosuid,nodev,relatime 0 0
+			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
+			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
+			$matches = explode(" ", $outputv);
 			switch ($key) {
 			case "filesystem":
-				$result = ($matches[1] === $value);
+				$result = ($matches[0] === $value);
 				break;
 			case "mountpoint":
-				$result = ($matches[2] === $value);
+				$result = ($matches[1] === $value);
 				break;
 			}
 			if (TRUE === $result)
@@ -654,12 +662,118 @@ class OMVFilesystem extends OMVObject {
 }
 
 /**
- * Generic class for storage devices.
+ * @interface OMVIBlockDevice
+ * Class implementing generic block devices.
  */
-class OMVStorageDevice extends OMVObject {
+interface OMVIBlockDevice {
+	/**
+	 * Checks if the device exists.
+	 * @return TRUE if the device exists, otherwise FALSE.
+	 */
+	function exists();
+
+	/**
+	 * Get the device path, e.g. /dev/sda.
+	 * @return The device path.
+	 */
+	function getDeviceFile();
+
+	/**
+	 * Get the device name, e.g. sda or hdb.
+	 * @return The device name.
+	 */
+	function getDeviceName();
+
+	/**
+	 * Get the size of the device in bytes.
+	 * @return The size of the device in bytes, otherwise FALSE.
+	 */
+	function getSize();
+
+	/**
+	 * Get the capacity in the highest possible unit.
+	 * @return The capacity of the device, otherwise FALSE.
+	 */
+	function getCapacity();
+
+	/**
+	 * Get the description of the device.
+	 * @return The device description.
+	 */
+	function getDescription();
+}
+
+/**
+ * @class OMVBlockDeviceAbstract
+ * @extends OMVObject
+ * @implements OMVIBlockDevice
+ * Abstract class implementing generic block devices.
+ */
+abstract class OMVBlockDeviceAbstract extends OMVObject implements
+  OMVIBlockDevice {
 	protected $deviceFile = FALSE;
-	protected $deviceFileById = FALSE;
 	protected $size = FALSE;
+
+	/**
+	 * Constructor
+	 * @param deviceFile The device file.
+	 */
+	public function __construct($deviceFile) {
+		$this->deviceFile = $deviceFile;
+	}
+
+	/**
+	 * See interface definition.
+	 */
+	public function exists() {
+		$cmd = sprintf("sudo test -b %s", escapeshellarg(
+		  $this->getDeviceFile()));
+		@OMVUtil::exec($cmd, $output, $result);
+		return ($result == 0) ? TRUE : FALSE;
+	}
+
+	/**
+	 * See interface definition.
+	 */
+	public function getDeviceFile() {
+		return $this->deviceFile;
+	}
+
+	/**
+	 * See interface definition.
+	 */
+	public function getDeviceName() {
+		// Get the device file and extract the name, e.g. /dev/sda => sda.
+		$deviceName = str_replace("/dev/", "", $this->getDeviceFile());
+		return $deviceName;
+	}
+
+	/**
+	 * See interface definition.
+	 */
+	public function getSize() {
+		return $this->size;
+	}
+
+	/**
+	 * See interface definition.
+	 */
+	public function getCapacity() {
+		if (FALSE === ($size = $this->getSize()))
+			return FALSE;
+		return binary_format($size);
+	}
+}
+
+/**
+ * @class OMVStorageDeviceAbstract
+ * @extends OMVBlockDeviceAbstract
+ * Abstract class implementing generic storage devices.
+ */
+abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
+	protected $deviceFileById = FALSE;
+	protected $model = FALSE;
+	protected $vendor = FALSE;
 
 	/**
 	 * Constructor
@@ -675,8 +789,7 @@ class OMVStorageDevice extends OMVObject {
 	}
 
 	/**
-	 * Checks if the device exists.
-	 * @return TRUE if the device exists, otherwise FALSE.
+	 * See interface definition.
 	 */
 	public function exists() {
 		$cmd = sprintf("sudo test -b %s", escapeshellarg(!$this->deviceFile ?
@@ -686,8 +799,7 @@ class OMVStorageDevice extends OMVObject {
 	}
 
 	/**
-	 * Get the device path, e.g. /dev/sda.
-	 * @return The device path.
+	 * See interface definition.
 	 */
 	public function getDeviceFile() {
 		if(!$this->deviceFile) {
@@ -732,95 +844,6 @@ class OMVStorageDevice extends OMVObject {
 	}
 
 	/**
-	 * Get the device name, e.g. sda, hdb or cciss!c0d0.
-	 * @return The device name.
-	 */
-	public function getDeviceName() {
-		// Get the device file and extract the name, e.g. /dev/sda => sda or
-		// /dev/cciss/c0d0 => cciss/c0d0.		
-		$deviceName = str_replace("/dev/", "", $this->getDeviceFile());
-		// Convert '/' characters to '!', e.g. cciss/c0d0 => cciss!c0d0.
-		return strtr($deviceName, "/", "!");
-	}
-
-	/**
-	 * Get the size of the device in bytes.
-	 * @return The size of the device in bytes, otherwise FALSE.
-	 */
-	public function getSize() {
-		return $this->size;
-	}
-
-	/**
-	 * Get the capacity in the highest possible unit.
-	 * @return The capacity of the device, otherwise FALSE.
-	 */
-	public function getCapacity() {
-		if (FALSE === ($size = $this->getSize()))
-			return FALSE;
-		return binary_format($size);
-	}
-
-	/**
-	 * Get the description of the device.
-	 * @return The device description.
-	 */
-	public function getDescription() {
-		return "";
-	}
-
-	/**
-	 * Check if the given device is a USB device.
-	 */
-	public function isUsb() {
-		$cmd = sprintf("export LANG=C; sudo udevadm info --name=%s " .
-		  "--attribute-walk | grep 'SUBSYSTEMS==\"usb\"'",
-		  $this->getDeviceFile());
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			return FALSE;
-		}
-		return empty($result);
-	}
-}
-
-/**
- * Generic class to handle hard disks devices.
- */
-class OMVHardDiskDevices extends OMVObject {
-	/**
-	 * Get a list device paths from all hard disk devices.
-	 * @return A list of device files, otherwise FALSE.
-	 */
-	public static function get() {
-		$cmd = "sudo cat /proc/partitions";
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			return FALSE;
-		}
-		$list = array();
-		foreach ($output as $outputk => $outputv) {
-			$regex = "/^\s+(\d+)\s+(\d+)\s+(\d+)\s+((h|s|x?v)d[a-z]+|".
-			  "cciss\/c[0-9]+d[0-9]+)$/";
-			if (1 !== preg_match($regex, $outputv, $matches))
-				continue;
-			$list[] = sprintf("/dev/%s", $matches[4]);
-		}
-		return $list;
-	}
-}
-
-/**
- * Class to get detailed informations about a hard disk device. Try to use
- * sysfs only to get the required informations, otherwise the disk will
- * spin-up if it is in sleep mode.
- */
-class OMVHardDiskDevice extends OMVStorageDevice {
-	protected $model = FALSE;
-	protected $identityInfo = FALSE;
-	protected $vendor = FALSE;
-
-	/**
 	 * Get the size of the device in bytes.
 	 * @return The size (64bit) of the device in bytes as string.
 	 */
@@ -842,16 +865,12 @@ class OMVHardDiskDevice extends OMVStorageDevice {
 	 */
 	public function getModel() {
 		if ($this->model === FALSE) {
-			if (FALSE === ($ii = $this->getIdentityInfo())) {
-				$cmd = sprintf("sudo cat /sys/block/%s/device/model",
-				  $this->getDeviceName());
-				@OMVUtil::exec($cmd, $output, $result);
-				if ($result !== 0)
-					return FALSE;
-				$this->model = $output[0];
-			} else {
-				$this->model = $ii['devicemodel'];
-			}
+			$cmd = sprintf("sudo cat /sys/block/%s/device/model",
+			  $this->getDeviceName());
+			@OMVUtil::exec($cmd, $output, $result);
+			if ($result !== 0)
+				return FALSE;
+			$this->model = $output[0];
 		}
 		return $this->model;
 	}
@@ -873,13 +892,167 @@ class OMVHardDiskDevice extends OMVStorageDevice {
 	}
 
 	/**
-	 * Get the description of the device.
-	 * @return The device description.
+	 * Get the device serial number.
+	 * @return The device serial number.
+	 */
+	public function getSerialNumber() {
+		return gettext("n/a");
+	}
+
+	/**
+	 * See interface definition.
 	 */
 	public function getDescription() {
 		$model = $this->getModel();
 		return sprintf("%s [%s, %s]", !empty($model) ? $model : gettext("n/a"),
 		  $this->getDeviceFile(), $this->getCapacity());
+	}
+
+	/**
+	 * Check if the given device is a hardware/software RAID device.
+	 * @return TRUE if the device is a hardware/software RAID, otherwise FALSE.
+	 */
+	public function isRaid() {
+		return FALSE;
+	}
+
+	/**
+	 * Check if the given device is a USB device.
+	 * @return TRUE if the device is a connected via USB, otherwise FALSE.
+	 */
+	public function isUsb() {
+		$cmd = sprintf("export LANG=C; sudo udevadm info --name=%s " .
+		  "--attribute-walk | grep 'SUBSYSTEMS==\"usb\"'",
+		  $this->getDeviceFile());
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			return FALSE;
+		}
+		return empty($result);
+	}
+}
+
+/**
+ * @class OMVStorageDeviceFactory
+ * @extends OMVObject
+ * Factory to create objects of storage device classes.
+ */
+class OMVStorageDeviceFactory extends OMVObject {
+	/**
+	 * Get the object of the class implementing the given device type.
+	 * @param deviceFile The device file, e.g. /dev/sdb, /dev/md1,
+	 *   /dev/cciss/c0d0 or /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6.
+	 * @return The object of the class implementing the given device type,
+	 *   otherwise NULL.
+	 */
+	public static function get($deviceFile) {
+		$conf = array(
+			$GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'] => "OMVHardDiskDevice",
+			$GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'] => "OMVSoftwareRaidDevice",
+			$GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'] => "OMVHardwareRaidDevice"
+		);
+		$object = NULL;
+		// Store original function argument for later usage.
+		$arg = $deviceFile;
+		// If the device file looks like /dev/disk/by-id/xxx then it is
+		// necessary to get the /dev/xxx equivalent.
+		if(preg_match("/^\/dev\/disk\/by-id\/.+$/", $deviceFile)) {
+			$cmd = sprintf("export LANG=C; readlink -e %s", escapeshellarg(
+			  $deviceFile));
+			@OMVUtil::exec($cmd, $output, $result);
+			if($result !== 0)
+				return NULL;
+			$deviceFile = $output[0];
+		}
+		// Extract the device name, e.g.:
+		// - /dev/sdb => sdb
+		// - /dev/cciss/c0d0 => cciss/c0d0
+		$deviceName = str_replace("/dev/", "", $deviceFile);
+		foreach ($conf as $regex => $className) {
+			if (1 == preg_match("/^{$regex}$/i", $deviceName)) {
+				$object = new $className($arg);
+				break;
+			}
+		}
+		return $object;
+	}
+}
+
+/**
+ * @class OMVStorageDevices
+ * @extends OMVObject
+ * Helper class to handle with storage devices.
+ */
+class OMVStorageDevices extends OMVObject {
+	const HARDDISK = 0x1;
+	const SOFTWARERAID = 0x2;
+	const HARDWARERAID = 0x4;
+	const ALL = 0x7;
+
+	/**
+	 * Enumerate devices matching the given type.
+	 * @param type Defines the device type, e.g. hard disk, hard or software
+	 *   RAID. Defaults to ALL.
+	 * @return A list of devicefile names of the given type, otherwise FALSE.
+	 */
+	public static function enumerate($type = OMVStorageDevices::ALL) {
+		// Prepare regex. options.
+		$args = array();
+		if ($type & OMVStorageDevices::HARDDISK)
+			$args[] = $GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'];
+		if ($type & OMVStorageDevices::SOFTWARERAID)
+			$args[] = $GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'];
+		if ($type & OMVStorageDevices::HARDWARERAID)
+			$args[] = $GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'];
+		$regex = sprintf("/^\s+(\d+)\s+(\d+)\s+(\d+)\s+(%s)$/",
+		  implode("|", $args));
+		// List partitions detected by the kernel.
+		$cmd = "sudo cat /proc/partitions";
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			return FALSE;
+		}
+		// Process output.
+		$devs = array();
+		foreach ($output as $outputk => $outputv) {
+			if (1 !== preg_match($regex, $outputv, $matches))
+				continue;
+			$devs[] = sprintf("/dev/%s", $matches[4]);
+		}
+		return $devs;
+	}
+}
+
+/**
+ * @class OMVHardDiskDevice
+ * @extends OMVStorageDeviceAbstract
+ * Class implementing ATA/SATA and SCSI hard disk devices. Try to use sysfs
+ * only to get the required informations, otherwise the disk will spin-up if
+ * it is in sleep mode.
+ */
+class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
+	protected $identityInfo = FALSE;
+
+	/**
+	 * Get the device model.
+	 * @return The device model, otherwise FALSE.
+	 */
+	public function getModel() {
+		if ($this->model === FALSE) {
+			// Try to get the device model string via S.M.A.R.T., otherwise
+			// use the one available via sysfs.
+			if (FALSE === ($ii = $this->getIdentityInfo())) {
+				$cmd = sprintf("sudo cat /sys/block/%s/device/model",
+				  $this->getDeviceName());
+				@OMVUtil::exec($cmd, $output, $result);
+				if ($result !== 0)
+					return FALSE;
+				$this->model = $output[0];
+			} else {
+				$this->model = $ii['devicemodel'];
+			}
+		}
+		return $this->model;
 	}
 
 	/**
@@ -1056,34 +1229,38 @@ class OMVHardDiskDevice extends OMVStorageDevice {
 }
 
 /**
- * Generic class to handle RAID devices.
+ * @class OMVHardwareRaidDevice
+ * @extends OMVStorageDeviceAbstract
+ * Class implementing hardware RAID devices, e.g. HP's Smart Array hardware
+ * RAID controller.
  */
-class OMVRaidDevices extends OMVObject {
+class OMVHardwareRaidDevice extends OMVStorageDeviceAbstract {
+	protected $model = FALSE;
+	protected $vendor = FALSE;
+
 	/**
-	 * Get a list of RAID device paths from all RAID devices.
-	 * @return A list of device files, otherwise FALSE.
+	 * See interface definition.
 	 */
-	public static function get() {
-		$cmd = "sudo cat /proc/partitions";
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			return FALSE;
-		}
-		$list = array();
-		foreach ($output as $outputk => $outputv) {
-			$regex = "/^\s+(\d+)\s+(\d+)\s+(\d+)\s+(md\d+)$/";
-			if (1 !== preg_match($regex, $outputv, $matches))
-				continue;
-			$list[] = sprintf("/dev/%s", $matches[4]);
-		}
-		return $list;
+	public function getDeviceName() {
+		// Get the device name and convert '/' character to '!', e.g.
+		// cciss/c0d0 => cciss!c0d0.
+		return strtr(OMVStorageDeviceAbstract::getDeviceName(), "/", "!");
+	}
+
+	/**
+	 * See abstract class definition.
+	 */
+	public function isRaid() {
+		return TRUE;
 	}
 }
 
 /**
- * Class to get detailed informations about a RAID device.
+ * @class OMVSoftwareRaidDevice
+ * @extends OMVStorageDeviceAbstract
+ * Class implementing software RAID devices.
  */
-class OMVRaidDevice extends OMVStorageDevice {
+class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	protected $name = "";
 	protected $level = FALSE;
 	protected $devices = array();
@@ -1092,7 +1269,7 @@ class OMVRaidDevice extends OMVStorageDevice {
 	private $dataCached = FALSE;
 
 	/**
-	 * Get the RAID device detailed informations.
+	 * Get the software RAID device detailed informations.
 	 * @private
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
@@ -1147,29 +1324,12 @@ class OMVRaidDevice extends OMVStorageDevice {
 	}
 
 	/**
-	 * Checks if the device exists.
-	 * @return TRUE if the device exists, otherwise FALSE.
+	 * See interface definition.
 	 */
 	public function exists() {
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return ($this->level !== FALSE);
-	}
-
-	/**
-	 * Get the size of the device in bytes.
-	 * @return The size of the device in bytes.
-	 */
-	public function getSize() {
-		if ($this->size === FALSE) {
-			$cmd = sprintf("sudo blockdev --getsize64 %s",
-			  $this->getDeviceFile());
-			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0)
-				return FALSE;
-			$this->size = $output[0];
-		}
-		return $this->size;
 	}
 
 	/**
@@ -1210,6 +1370,13 @@ class OMVRaidDevice extends OMVStorageDevice {
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->uuid;
+	}
+
+	/**
+	 * See abstract class definition.
+	 */
+	public function getSerialNumber() {
+		return $this->getUuid();
 	}
 
 	/**
@@ -1280,16 +1447,26 @@ class OMVRaidDevice extends OMVStorageDevice {
 	}
 
 	/**
-	 * Get the description of the device.
-	 * @return The device description.
+	 * See interface definition.
 	 */
 	public function getDescription() {
 		return sprintf("Software RAID %s [%s, %s, %s]", $this->getName(),
 		  $this->getDeviceFile(), $this->getLevel(),
 		  $this->getCapacity());
 	}
+
+	/**
+	 * See abstract class definition.
+	 */
+	public function isRaid() {
+		return TRUE;
+	}
 }
 
+/**
+ * @class OMVNetwork
+ * @extends OMVObject
+ */
 class OMVNetwork extends OMVObject {
 	/**
 	 * Get the host name.
@@ -1319,6 +1496,10 @@ class OMVNetwork extends OMVObject {
 	}
 }
 
+/**
+ * @class OMVNetworkInterfaces
+ * @extends OMVObject
+ */
 class OMVNetworkInterfaces extends OMVObject {
 	/**
 	 * Get a list of all network interfaces.
@@ -1349,6 +1530,8 @@ class OMVNetworkInterfaces extends OMVObject {
 }
 
 /**
+ * @class OMVNetworkInterface
+ * @extends OMVObject
  * Network interfaces class.
  */
 class OMVNetworkInterface extends OMVObject {
@@ -1602,6 +1785,8 @@ class OMVNetworkInterface extends OMVObject {
 }
 
 /**
+ * @class OMVSystemGroups
+ * @extends OMVObject
  * System groups class.
  */
 class OMVSystemGroups extends OMVObject {
@@ -1632,19 +1817,24 @@ class OMVSystemGroups extends OMVObject {
 }
 
 /**
+ * @class OMVSystemGroup
+ * @extends OMVObject
  * System group class.
  */
 class OMVSystemGroup extends OMVObject {
-	protected $name = "";
-	protected $gid = -1;
-	protected $members = array();
+	protected $name = null;
+	protected $gid = null;
+	protected $members = null;
 
 	/**
 	 * Constructor
-	 * @param name The name of the system group.
+	 * @param id The name or GID of the system group.
 	 */
-	public function __construct($name) {
-		$this->name = $name;
+	public function __construct($id) {
+		if (is_int($id))
+			$this->gid = $id;
+		else
+			$this->name = $id;
 	}
 
 	/**
@@ -1653,15 +1843,17 @@ class OMVSystemGroup extends OMVObject {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	private function getData() {
-		if ($this->gid !== -1)
+		if (!is_null($this->members))
 			return TRUE;
 		// http://www.cyberciti.biz/faq/understanding-etcgroup-file
-		$cmd = sprintf("getent group | grep '%s'", $this->getName());
+		$cmd = sprintf("getent group %s", !is_null($this->gid) ? 
+		  strval($this->gid) : escapeshellarg($this->name));
 		@OMVUtil::exec($cmd, $output, $result);
 		if (($result !== 0) || empty($output[0]))
 			return FALSE;
 		if (1 !== preg_match("/^(\S+):x:(\d+):(.*)$/", $output[0], $matches))
 			return FALSE;
+		$this->name = $matches[1];
 		$this->gid = intval($matches[2]);
 		$this->members = empty($matches[3]) ? array() : explode(",",
 		  $matches[3]);
@@ -1675,7 +1867,7 @@ class OMVSystemGroup extends OMVObject {
 	public function exists() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		return ($this->gid !== -1);
+		return !is_null($this->members);
 	}
 
 	/**
@@ -1683,6 +1875,10 @@ class OMVSystemGroup extends OMVObject {
 	 * @return The group name.
 	 */
 	public function getName() {
+		if (!is_null($this->name))
+			return $this->name;
+		if ($this->getData() === FALSE)
+			return FALSE;
 		return $this->name;
 	}
 
@@ -1691,14 +1887,17 @@ class OMVSystemGroup extends OMVObject {
 	 * @return The group ID, otherwise FALSE.
 	 */
 	public function getGid() {
+		if (!is_null($this->gid))
+			return $this->gid;
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->gid;
 	}
 
 	/**
-	 * Get the user names who are members of the group.
-	 * @return The group members as array, otherwise FALSE.
+	 * Get the user names who are member of this group.
+	 * @return An array of user names that are member of this group,
+	 * otherwise FALSE.
 	 */
 	public function getMembers() {
 		if ($this->getData() === FALSE)
@@ -1741,6 +1940,8 @@ class OMVSystemGroup extends OMVObject {
 }
 
 /**
+ * @class OMVSystemUsers
+ * @extends OMVObject
  * System users class.
  */
 class OMVSystemUsers extends OMVObject {
@@ -1772,30 +1973,36 @@ class OMVSystemUsers extends OMVObject {
 }
 
 /**
+ * @class OMVSystemUser
+ * @extends OMVObject
  * System user class.
  */
 class OMVSystemUser extends OMVObject {
-	protected $name = "";
-	protected $uid = -1;
-	protected $gid = -1;
-	protected $password = "";
-	protected $gecos = "";
-	protected $dir = "";
-	protected $shell = "";
-	protected $lastchanged = "";
-	protected $minimum = "";
-	protected $maximum = "";
-	protected $warn = "";
-	protected $inactive = "";
-	protected $expire = "";
-	protected $reserved = "";
+	protected $name = null;
+	protected $uid = null;
+	protected $gid = null;
+	protected $password = null;
+	protected $gecos = null;
+	protected $dir = null;
+	protected $shell = null;
+	protected $lastchanged = null;
+	protected $minimum = null;
+	protected $maximum = null;
+	protected $warn = null;
+	protected $inactive = null;
+	protected $expire = null;
+	protected $reserved = null;
+	protected $groups = null;
 
 	/**
 	 * Constructor
-	 * @param name The name of the system group.
+	 * @param id The name or UID of the system user.
 	 */
-	public function __construct($name) {
-		$this->name = $name;
+	public function __construct($id) {
+		if (is_int($id))
+			$this->uid = $id;
+		else
+			$this->name = $id;
 	}
 
 	/**
@@ -1803,37 +2010,63 @@ class OMVSystemUser extends OMVObject {
 	 * @private
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
-	private function getData() {
-		if ($this->uid !== -1)
-			return TRUE;
-		// http://www.cyberciti.biz/faq/understanding-etcshadow-file
-		$cmd = sprintf("getent shadow | grep -e '^%s:'", $this->getName());
-		@OMVUtil::exec($cmd, $output, $result);
-		if (($result !== 0) || empty($output[0]))
-			return FALSE;
-		$shadow = explode(":", $output[0]);
-		// http://www.cyberciti.biz/faq/understanding-etcpasswd-file-format
-		// http://en.wikipedia.org/wiki/Passwd_(file)
-		$cmd = sprintf("getent passwd | grep -e '^%s:'", $this->getName());
-		unset($output);
-		@OMVUtil::exec($cmd, $output, $result);
-		if (($result !== 0) || empty($output[0]))
-			return FALSE;
-		$passwd = explode(":", $output[0]);
-		$this->uid = intval($passwd[2]);
-		$this->gid = intval($passwd[3]);
-		$this->gecos = $passwd[4];
-		$this->dir = $passwd[5];
-		$this->shell = $passwd[6];
-		$this->password = $shadow[1];
-		$this->lastchanged = $shadow[2];
-		$this->minimum = $shadow[3];
-		$this->maximum = $shadow[4];
-		$this->warn = $shadow[5];
-		$this->inactive = $shadow[6];
-		$this->expire = $shadow[7];
-		$this->reserved = $shadow[8];
-		return TRUE;
+	private function getData($type) {
+		$result = FALSE;
+		switch ($type) {
+		case "shadow":
+			if (!is_null($this->password))
+				return TRUE;
+			// http://www.cyberciti.biz/faq/understanding-etcshadow-file
+			$cmd = sprintf("getent shadow %s", escapeshellarg(
+			  $this->getName()));
+			@OMVUtil::exec($cmd, $output, $result);
+			if (($result !== 0) || empty($output[0]))
+				return FALSE;
+			$output = explode(":", $output[0]);
+			$this->password = $output[1];
+			$this->lastchanged = $output[2];
+			$this->minimum = $output[3];
+			$this->maximum = $output[4];
+			$this->warn = $output[5];
+			$this->inactive = $output[6];
+			$this->expire = $output[7];
+			$this->reserved = $output[8];
+			$result = TRUE;
+			break;
+		case "passwd":
+			if (!is_null($this->gid))
+				return TRUE;
+			// http://www.cyberciti.biz/faq/understanding-etcpasswd-file-format
+			// http://en.wikipedia.org/wiki/Passwd_(file)
+			$cmd = sprintf("getent passwd %s", !is_null($this->uid) ? 
+			  strval($this->uid) : escapeshellarg($this->name));
+			@OMVUtil::exec($cmd, $output, $result);
+			if (($result !== 0) || empty($output[0]))
+				return FALSE;
+			$output = explode(":", $output[0]);
+			$this->name = $output[0];
+			$this->uid = intval($output[2]);
+			$this->gid = intval($output[3]);
+			$this->gecos = $output[4];
+			$this->dir = $output[5];
+			$this->shell = $output[6];
+			$result = TRUE;
+			break;
+		case "groups":
+			if (!is_null($this->groups))
+				return TRUE;
+			// http://www.howtogeek.com/howto/ubuntu/see-which-groups-your-linux-user-belongs-to
+			$cmd = sprintf("groups %s | awk -F ' : ' '{print $2}'",
+			  escapeshellarg($this->getName()));
+			@OMVUtil::exec($cmd, $output, $result);
+			if (($result !== 0) || empty($output[0]))
+				return FALSE;
+			$this->groups = empty($output[0]) ? array() : explode(" ",
+			  $output[0]);
+			$result = TRUE;
+			break;
+		}
+		return $result;
 	}
 
 	/**
@@ -1841,9 +2074,9 @@ class OMVSystemUser extends OMVObject {
 	 * @return TRUE if the system user exists, otherwise FALSE.
 	 */
 	public function exists() {
-		if ($this->getData() === FALSE)
+		if ($this->getData("passwd") === FALSE)
 			return FALSE;
-		return ($this->gid !== -1);
+		return !is_null($this->gid);
 	}
 
 	/**
@@ -1851,6 +2084,10 @@ class OMVSystemUser extends OMVObject {
 	 * @return The group name.
 	 */
 	public function getName() {
+		if (!is_null($this->name))
+			return $this->name;
+		if ($this->getData("passwd") === FALSE)
+			return FALSE;
 		return $this->name;
 	}
 
@@ -1859,7 +2096,9 @@ class OMVSystemUser extends OMVObject {
 	 * @return The user ID, otherwise FALSE.
 	 */
 	public function getUid() {
-		if ($this->getData() === FALSE)
+		if (!is_null($this->uid))
+			return $this->uid;
+		if ($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->uid;
 	}
@@ -1869,7 +2108,7 @@ class OMVSystemUser extends OMVObject {
 	 * @return The user group ID, otherwise FALSE.
 	 */
 	public function getGid() {
-		if ($this->getData() === FALSE)
+		if ($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->gid;
 	}
@@ -1879,7 +2118,7 @@ class OMVSystemUser extends OMVObject {
 	 * @return The comment, otherwise FALSE.
 	 */
 	public function getGecos() {
-		if ($this->getData() === FALSE)
+		if ($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->gecos;
 	}
@@ -1889,7 +2128,7 @@ class OMVSystemUser extends OMVObject {
 	 * @return The home directory, otherwise FALSE.
 	 */
 	public function getHomeDirectory() {
-		if ($this->getData() === FALSE)
+		if ($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->dir;
 	}
@@ -1899,7 +2138,7 @@ class OMVSystemUser extends OMVObject {
 	 * @return The shell, otherwise FALSE.
 	 */
 	public function getShell() {
-		if ($this->getData() === FALSE)
+		if ($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->shell;
 	}
@@ -1909,51 +2148,61 @@ class OMVSystemUser extends OMVObject {
 	 * @return The encrypted password, otherwise FALSE.
 	 */
 	public function getPassword() {
-		if ($this->getData() === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->password;
 	}
 
 	public function getLastChanged() {
-		if ($this->getData() === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->lastchanged;
 	}
 
 	public function getMinimum() {
-		if ($this->getData() === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->minimum;
 	}
 
 	public function getMaximum() {
-		if ($this->getData() === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->maximum;
 	}
 
 	public function getWarn() {
-		if ($this->getData() === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->warn;
 	}
 
 	public function getInactive() {
-		if ($this->getData() === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->inactive;
 	}
 
 	public function getExpire() {
-		if ($this->getData() === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->expire;
 	}
 
 	public function getReserved() {
-		if ($this->getData() === FALSE)
+		if ($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->reserved;
+	}
+
+	/**
+	 * Get the groups the user is in.
+	 * @return An array of groups the user is in, otherwise FALSE.
+	 */
+	public function getGroups() {
+		if ($this->getData("groups") === FALSE)
+			return FALSE;
+		return $this->groups;
 	}
 
 	/**
@@ -1991,6 +2240,8 @@ class OMVSystemUser extends OMVObject {
 }
 
 /**
+ * @class OMVPhysicalVolumes
+ * @extends OMVObject
  * Class to handle physical volumes.
  */
 class OMVPhysicalVolumes extends OMVObject {
@@ -2017,6 +2268,8 @@ class OMVPhysicalVolumes extends OMVObject {
 }
 
 /**
+ * @class OMVLogicalVolumes
+ * @extends OMVObject
  * Class to handle logical volumes.
  */
 class OMVLogicalVolumes extends OMVObject {
@@ -2045,6 +2298,8 @@ class OMVLogicalVolumes extends OMVObject {
 }
 
 /**
+ * @class OMVLogicalVolume
+ * @extends OMVObject
  * Class to handle a logical volume.
  */
 class OMVLogicalVolume extends OMVObject {
@@ -2114,8 +2369,8 @@ class OMVLogicalVolume extends OMVObject {
 	}
 
 	/**
-	 * Checks if the device exists.
-	 * @return TRUE if the device exists, otherwise FALSE.
+	 * Checks if the logical volume exists.
+	 * @return TRUE if the logical volume exists, otherwise FALSE.
 	 */
 	public function exists() {
 		if ($this->getData() === FALSE)

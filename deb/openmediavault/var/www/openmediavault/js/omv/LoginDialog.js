@@ -27,7 +27,7 @@ Ext.ns("OMV");
 
 OMV.LoginDialog = function(config) {
 	var initialConfig = {
-		title: "Login",
+		title: _("Login"),
 		layout: "fit",
 		width: 320,
 		closable: false,
@@ -58,23 +58,23 @@ Ext.extend(OMV.LoginDialog, OMV.Window, {
 			},
 			items: [{
 				xtype: "textfield",
-				fieldLabel: "Username",
+				fieldLabel: _("Username"),
 				name: "username",
-				blankText:"Enter your username",
+				blankText: _("Enter your username"),
 				autoComplete: true
 			},{
 				xtype: "passwordfield",
-				fieldLabel: "Password",
+				fieldLabel: _("Password"),
 				name: "password",
-				blankText: "Enter your password",
+				blankText: _("Enter your password"),
 				autoComplete: true
 			}]
 		});
 		Ext.apply(this, {
 			buttons: [{
 				id: this.getId() + "-login",
-				text: "Login",
-				handler: this.cbLoginBtnHdl.createDelegate(this),
+				text: _("Login"),
+				handler: this.cbLoginBtnHdl,
 				scope: this
 			}],
 			items: this.form
@@ -117,6 +117,6 @@ Ext.extend(OMV.LoginDialog, OMV.Window, {
 			} else {
 				OMV.MessageBox.error(null, error);
 			}
-		}, this, "Authentication", "login", [ values ]);
+		}, this, "Authentication", "login", values);
 	}
 });

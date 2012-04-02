@@ -28,6 +28,7 @@
 # http://linuxman.wikispaces.com/NUT
 # http://ifireball.wordpress.com/2011/10/13/configuring-aviem-pro2100-ups-on-debian-6-0-stablesqueeze/
 # http://blog.shadypixel.com/monitoring-a-ups-with-nut-on-debian-or-ubuntu-linux
+# http://adi.roiban.ro/2011/11/10/monitor-the-ups-in-ubuntu-with-network-ups-tools
 
 set -e
 
@@ -42,11 +43,10 @@ OMV_NUT_UPSD_MAXAGE=${OMV_NUT_UPSD_MAXAGE:-"15"}
 OMV_NUT_UPSD_MAXCONN=${OMV_NUT_UPSD_MAXCONN:-"1024"}
 OMV_NUT_UPSD_PORT=${OMV_NUT_UPSD_PORT:-"3493"}
 OMV_NUT_UPSDUSERS_CONFIG=${OMV_NUT_UPSDUSERS_CONFIG:-"/etc/nut/upsd.users"}
-OMV_NUT_UPSDUSERS_ACTIONS=${OMV_NUT_UPSDUSERS_ACTIONS:-"set"}
-OMV_NUT_UPSDUSERS_INSTCMDS=${OMV_NUT_UPSDUSERS_INSTCMDS:-"all"}
 OMV_NUT_UPSDUSERS_UPSMON=${OMV_NUT_UPSDUSERS_UPSMON:-"master"}
 OMV_NUT_UPSMON_CONFIG=${OMV_NUT_UPSMON_CONFIG:-"/etc/nut/upsmon.conf"}
-OMV_NUT_UPSMON_USER=${OMV_NUT_UPSMON_USER:-"admin"}
+OMV_NUT_UPSMON_USER=${OMV_NUT_UPSMON_USER:-"monmaster"}
+OMV_NUT_UPSMON_PASSWORD=${OMV_NUT_UPSMON_PASSWORD:-"$(openssl rand -hex 16)"}
 OMV_NUT_UPSMON_MINSUPPLIES=${OMV_NUT_UPSMON_MINSUPPLIES:-"1"}
 OMV_NUT_UPSMON_SHUTDOWNCMD=${OMV_NUT_UPSMON_SHUTDOWNCMD:-"/sbin/shutdown -h +0"}
 OMV_NUT_UPSMON_NOTIFYCMD=${OMV_NUT_UPSMON_NOTIFYCMD:-"/sbin/upssched"}
@@ -98,12 +98,11 @@ EOF
 		  done
 	fi
 
-	# Create '/etc/nut/upsd.users'
+	# Create '/etc/nut/upsd.users'. Note, the password for OMV_NUT_UPSMON_USER
+	# is generated randomly each time the config is created.
 	xmlstarlet sel -t -m "//services/nut" \
 	  -o "[${OMV_NUT_UPSMON_USER}]" -n \
-	  -v "concat('password = ',//system/usermanagement/users/user[name='${OMV_NUT_UPSMON_USER}']/password)" -n \
-	  -o "actions = ${OMV_NUT_UPSDUSERS_ACTIONS}" -n \
-	  -o "instcmds = ${OMV_NUT_UPSDUSERS_INSTCMDS}" -n \
+	  -o "password = ${OMV_NUT_UPSMON_PASSWORD}" -n \
 	  -o "upsmon ${OMV_NUT_UPSDUSERS_UPSMON}" \
 	  -i "remotemonitor[. = '1']" \
 		-n -n \
@@ -114,7 +113,7 @@ EOF
 
 	# Create '/etc/nut/upsmon.conf'
 	xmlstarlet sel -t -m "//services/nut" \
-	  -v "concat('MONITOR ',upsname,'@localhost 1 ${OMV_NUT_UPSMON_USER} ',//system/usermanagement/users/user[name='${OMV_NUT_UPSMON_USER}']/password,' master')" \
+	  -v "concat('MONITOR ',upsname,'@localhost 1 ${OMV_NUT_UPSMON_USER} ${OMV_NUT_UPSMON_PASSWORD} master')" \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NUT_UPSMON_CONFIG}
 	cat <<EOF >> ${OMV_NUT_UPSMON_CONFIG}
 MINSUPPLIES ${OMV_NUT_UPSMON_MINSUPPLIES}

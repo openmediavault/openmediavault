@@ -37,7 +37,7 @@ OMV.util.Format = function() {
 			 * @return The formatted boolean string
 			 */
 			boolean : function(value) {
-				return ((true === value) || (1 == value)) ? "Yes" : "No";
+				return ((true === value) || (1 == value)) ? _("Yes") : _("No");
 			},
 
 			/**
@@ -141,7 +141,7 @@ OMV.util.Format = function() {
 			 */
 			emptyRenderer : function() {
 				return function(value) {
-					return Ext.isEmpty(value) ? "n/a" : value;
+					return Ext.isEmpty(value) ? _("n/a") : value;
 				};
 			},
 
@@ -154,7 +154,10 @@ OMV.util.Format = function() {
 			binaryUnitRenderer : function() {
 				return function(value) {
 					var v = parseInt(value);
-					return v.binaryFormat();
+					if (Ext.isNumber(v)) {
+						return v.binaryFormat();
+					}
+					return _("n/a");
 				};
 			}
 		};

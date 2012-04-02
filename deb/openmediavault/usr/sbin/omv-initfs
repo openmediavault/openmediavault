@@ -30,9 +30,6 @@ set -e
 # Defaults
 OMV_INITFS_PID_PATH=${OMV_INITFS_PID_PATH:-"/var/run/openmediavault"}
 OMV_INITFS_OWNGRP_PERM=${OMV_INITFS_OWNGRP_PERM:-"openmediavault:openmediavault"}
-OMV_INITFS_PARTED_ALIGN=${OMV_INITFS_PARTED_ALIGN:-"optimal"}
-OMV_INITFS_PARTED_MKPART_START=${OMV_INITFS_PARTED_MKPART_START:-"2048s"}
-OMV_INITFS_PARTED_MKPART_END=${OMV_INITFS_PARTED_MKPART_END:-"100%"}
 OMV_INITFS_OPTIONS_EXT3=${OMV_INITFS_OPTIONS_EXT3:-"-b 4096"}
 OMV_INITFS_OPTIONS_EXT4=${OMV_INITFS_OPTIONS_EXT4:-"-b 4096"}
 OMV_INITFS_OPTIONS_JFS=${OMV_INITFS_OPTIONS_JFS:-"-q"}
@@ -188,16 +185,11 @@ EOF
 		# No need to create a partition.
 		;;
 	*)
-		# Get size of the device.
-		size=$(blockdev --getsize64 ${device})
-		# Erase an existing partition table. Note, GPT stores a backup of the MBR
-		# at the end of the disk, so the last 512 bytes must be erased also.
-		# See http://en.wikipedia.org/wiki/GUID_Partition_Table.
-		dd if=/dev/zero of=${device} bs=512 count=4 1>>${logfile} 2>&1
-		dd if=/dev/zero of=${device} bs=512 count=2 seek=$(expr ${size} / 512 - 2) 1>>${logfile} 2>&1
+		# Wipe existing filesystems.
+		sgdisk --zap-all ${device} 1>>${logfile} 2>&1
 		# Use entire device.
-		parted --script --align ${OMV_INITFS_PARTED_ALIGN} -- ${device} mklabel gpt mkpart primary ${OMV_INITFS_PARTED_MKPART_START} ${OMV_INITFS_PARTED_MKPART_END} 1>>${logfile} 2>&1
-		sleep 1
+		sgdisk --new=1:0:0 --typecode=1:0700 --print ${device} 1>>${logfile} 2>&1
+		sleep 2
 		;;
 	esac
 

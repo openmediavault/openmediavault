@@ -28,7 +28,7 @@ Ext.ns("OMV.Module.Services");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("services", "ssh", {
-	text: "SSH",
+	text: _("SSH"),
 	icon: "images/ssh.png"
 });
 
@@ -48,7 +48,7 @@ Ext.extend(OMV.Module.Services.SSH, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -56,13 +56,13 @@ Ext.extend(OMV.Module.Services.SSH, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1
 			},{
 				xtype: "numberfield",
 				name: "port",
-				fieldLabel: "Port",
+				fieldLabel: _("Port"),
 				vtype: "port",
 				minValue: 0,
 				maxValue: 65535,
@@ -73,36 +73,36 @@ Ext.extend(OMV.Module.Services.SSH, OMV.FormPanelExt, {
 			},{
 				xtype: "checkbox",
 				name: "permitrootlogin",
-				fieldLabel: "Permit root login",
+				fieldLabel: _("Permit root login"),
 				checked: true,
 				inputValue: 1,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Specifies whether it is allowed to login as superuser."
+				infoText: _("Specifies whether it is allowed to login as superuser.")
 			},{
 				xtype: "checkbox",
 				name: "passwordauthentication",
-				fieldLabel: "Password authentication",
+				fieldLabel: _("Password authentication"),
 				checked: true,
 				inputValue: 1,
-				boxLabel: "Enable keyboard-interactive authentication"
+				boxLabel: _("Enable keyboard-interactive authentication")
 			},{
 				xtype: "checkbox",
 				name: "tcpforwarding",
-				fieldLabel: "TCP forwarding",
+				fieldLabel: _("TCP forwarding"),
 				inputValue: 1,
-				boxLabel: "Permit to do SSH tunneling"
+				boxLabel: _("Permit to do SSH tunneling")
 			},{
 				xtype: "checkbox",
 				name: "compression",
-				fieldLabel: "Compression",
+				fieldLabel: _("Compression"),
 				inputValue: 1,
-				boxLabel: "Enable compression",
+				boxLabel: _("Enable compression"),
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Compression is worth using if your connection is slow. The efficiency of the compression depends on the type of the file, and varies widely. Useful for internet transfer only."
+				infoText: _("Compression is worth using if your connection is slow. The efficiency of the compression depends on the type of the file, and varies widely. Useful for internet transfer only.")
 			},{
 				xtype: "textfield",
 				name: "extraoptions",
-				fieldLabel: "Extra options",
+				fieldLabel: _("Extra options"),
 				allowBlank: true,
 				autoCreate: {
 					tag: "textarea",
@@ -111,7 +111,8 @@ Ext.extend(OMV.Module.Services.SSH, OMV.FormPanelExt, {
 					cols: "65"
 				},
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Please check the <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for more details."
+				infoText: _("Please check the <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for more details."),
+				anchor: "100%"
 			}]
 		}];
 	}
@@ -122,7 +123,7 @@ OMV.NavigationPanelMgr.registerPanel("services", "ssh", {
 
 OMV.Module.Services.SSHDiagPanel = function(config) {
 	var initialConfig = {
-		title: "SSH",
+		title: _("SSH"),
 		layout: "fit",
 		items: [{
 			id: this.getId() + "-content",
@@ -138,7 +139,7 @@ OMV.Module.Services.SSHDiagPanel = function(config) {
 };
 Ext.extend(OMV.Module.Services.SSHDiagPanel, OMV.DiagPanel, {
 	doLoad : function() {
-		OMV.MessageBox.wait(null, "Loading ...");
+		OMV.MessageBox.wait(null, _("Loading ..."));
 		OMV.Ajax.request(function(id, response, error) {
 			  OMV.MessageBox.updateProgress(1);
 			  OMV.MessageBox.hide();

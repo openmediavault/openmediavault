@@ -326,3 +326,13 @@ Image: support.png
 Designer: Gnome Project
 License: GPL
 URL: http://www.iconfinder.com/icondetails/20560/16
+
+Image: acl.png
+Designer: Dat Nguyen (http://splashyfish.com)
+License: Free for commercial use
+URL: http://www.iconfinder.com/icondetails/14422/16
+
+Image: erase.png
+Designer: Oxygen Team
+License: GPL
+URL: http://www.iconfinder.com/icondetails/9269/16

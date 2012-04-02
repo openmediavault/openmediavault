@@ -38,7 +38,7 @@ Ext.apply(Ext.form.VTypes, {
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("services", "nut", {
-	text: "UPS",
+	text: _("UPS"),
 	icon: "images/nut.png"
 });
 
@@ -62,7 +62,7 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -70,7 +70,7 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1,
 				listeners: {
@@ -82,21 +82,21 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 			},{
 				xtype: "textfield",
 				name: "upsname",
-				fieldLabel: "Identifier",
+				fieldLabel: _("Identifier"),
 				allowBlank: false,
 				vtype: "upsname",
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "The name used to uniquely identify your UPS on this system."
+				infoText: _("The name used to uniquely identify your UPS on this system.")
 			},{
 				xtype: "textfield",
 				name: "comment",
-				fieldLabel: "Comment",
+				fieldLabel: _("Comment"),
 				allowBlank: true,
 				width: 400
 			},{
 				xtype: "textfield",
 				name: "driverconf",
-				fieldLabel: "Driver configuration directives",
+				fieldLabel: _("Driver configuration directives"),
 				allowBlank: false,
 				autoCreate: {
 					tag: "textarea",
@@ -105,18 +105,19 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 					cols: "65"
 				},
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "To get more information how to configure your UPS please check the Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentation</a>."
+				infoText: _("To get more information how to configure your UPS please check the Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentation</a>."),
+				anchor: "100%"
 			},{
 				xtype: "combo",
 				name: "shutdownmode",
 				hiddenName: "shutdownmode",
-				fieldLabel: "Shutdown mode",
+				fieldLabel: _("Shutdown mode"),
 				mode: "local",
 				store: new Ext.data.SimpleStore({
 					fields: [ "value","text" ],
 					data: [
-						[ "fsd","UPS reaches low battery" ],
-						[ "onbatt","UPS goes on battery" ]
+						[ "fsd",_("UPS reaches low battery") ],
+						[ "onbatt",_("UPS goes on battery") ]
 					]
 				}),
 				displayField: "text",
@@ -126,7 +127,7 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 				triggerAction: "all",
 				value: "onbatt",
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Defines when the shutdown is initiated.",
+				infoText: _("Defines when the shutdown is initiated."),
 				listeners: {
 					select: function(combo, record, index) {
 						this._updateFormFields();
@@ -136,18 +137,18 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 			},{
 				xtype: "numberfield",
 				name: "shutdowntimer",
-				fieldLabel: "Shutdown timer",
+				fieldLabel: _("Shutdown timer"),
 				minValue: 1,
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
 				value: 30,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "The time in seconds until shutdown is initiated. If the UPS happens to come back before the time is up the shutdown is canceled."
+				infoText: _("The time in seconds until shutdown is initiated. If the UPS happens to come back before the time is up the shutdown is canceled.")
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Remote monitoring",
+			title: _("Remote monitoring"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -155,10 +156,10 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "remotemonitor",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Enable remote monitoring of the local connected UPS.",
+				boxLabel: _("Enable remote monitoring of the local connected UPS."),
 				listeners: {
 					check: this._updateFormFields,
 					scope: this
@@ -166,17 +167,17 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 			},{
 				xtype: "textfield",
 				name: "remoteuser",
-				fieldLabel: "Username",
+				fieldLabel: _("Username"),
 				allowBlank: true,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Used for remote authentication."
+				infoText: _("Used for remote authentication.")
 			},{
 				xtype: "passwordfield",
 				name: "remotepassword",
-				fieldLabel: "Password",
+				fieldLabel: _("Password"),
 				allowBlank: true,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Used for remote authentication."
+				infoText: _("Used for remote authentication.")
 			}]
 		}];
 	},
@@ -219,7 +220,7 @@ OMV.NavigationPanelMgr.registerPanel("services", "nut", {
  */
 OMV.Module.Services.NUTDiagPanel = function(config) {
 	var initialConfig = {
-		title: "UPS",
+		title: _("UPS"),
 		border: false,
 		activeTab: 0,
 		layoutOnTabChange: true
@@ -249,7 +250,7 @@ OMV.preg("sysinfo", "service", OMV.Module.Services.NUTDiagPanel);
  */
 OMV.Module.Services.NUTVariablesPanel = function(config) {
 	var initialConfig = {
-		title: "Variables",
+		title: _("Variables"),
 		layout: "fit",
 		items: [{
 			id: this.getId() + "-content",
@@ -265,7 +266,7 @@ OMV.Module.Services.NUTVariablesPanel = function(config) {
 };
 Ext.extend(OMV.Module.Services.NUTVariablesPanel, OMV.DiagPanel, {
 	doLoad : function() {
-		OMV.MessageBox.wait(null, "Loading ...");
+		OMV.MessageBox.wait(null, _("Loading ..."));
 		OMV.Ajax.request(function(id, response, error) {
 			  OMV.MessageBox.updateProgress(1);
 			  OMV.MessageBox.hide();
@@ -287,7 +288,7 @@ Ext.extend(OMV.Module.Services.NUTVariablesPanel, OMV.DiagPanel, {
  */
 OMV.Module.Services.NUTChargeRrdGraphPanel = function(config) {
 	var initialConfig = {
-		title: "Charge",
+		title: _("Charge"),
 		rrdGraphName: "nut-charge"
 	};
 	Ext.apply(initialConfig, config);
@@ -303,7 +304,7 @@ Ext.extend(OMV.Module.Services.NUTChargeRrdGraphPanel, OMV.RrdGraphPanel, {
  */
 OMV.Module.Services.NUTLoadRrdGraphPanel = function(config) {
 	var initialConfig = {
-		title: "Load",
+		title: _("Load"),
 		rrdGraphName: "nut-load"
 	};
 	Ext.apply(initialConfig, config);
@@ -319,7 +320,7 @@ Ext.extend(OMV.Module.Services.NUTLoadRrdGraphPanel, OMV.RrdGraphPanel, {
  */
 OMV.Module.Services.NUTTemperatureRrdGraphPanel = function(config) {
 	var initialConfig = {
-		title: "Temperature",
+		title: _("Temperature"),
 		rrdGraphName: "nut-temperature"
 	};
 	Ext.apply(initialConfig, config);
@@ -335,7 +336,7 @@ Ext.extend(OMV.Module.Services.NUTTemperatureRrdGraphPanel, OMV.RrdGraphPanel, {
  */
 OMV.Module.Services.NUTVoltageRrdGraphPanel = function(config) {
 	var initialConfig = {
-		title: "Voltage",
+		title: _("Voltage"),
 		rrdGraphName: "nut-voltage"
 	};
 	Ext.apply(initialConfig, config);

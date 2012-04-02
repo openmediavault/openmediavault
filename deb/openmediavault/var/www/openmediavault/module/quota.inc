@@ -59,7 +59,7 @@ class QuotaModule extends OMVModuleAbstract implements OMVINotifyListener {
 		$qObject = $xmlConfig->get($xpath);
 		if (!is_null($qObject)) {
 			// Execute RPC to delete the configuration object.
-			OMVRpc::exec("Quota", "delete", array($qObject['uuid']));
+			OMVRpc::exec("Quota", "delete", array("uuid" => $qObject['uuid']));
 		}
 	}
 

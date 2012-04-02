@@ -49,7 +49,7 @@ Ext.extend(OMV.RrdGraphPanel, Ext.Panel, {
 				items: [{
 					id: this.getId() + "-refresh",
 					xtype: "button",
-					text: "Refresh",
+					text: _("Refresh"),
 					icon: "images/reload.png",
 					handler:this.cbRefreshBtnHdl,
 					scope: this
@@ -76,7 +76,7 @@ Ext.extend(OMV.RrdGraphPanel, Ext.Panel, {
 	 * is pressed. Override this method to customize the default behaviour.
 	 */
 	cbRefreshBtnHdl : function() {
-		OMV.MessageBox.wait(null, "Generating graphs ...");
+		OMV.MessageBox.wait(null, _("Generating graphs ..."));
 		OMV.Ajax.request(function(id, response, error) {
 			  if (error !== null) {
 				  OMV.MessageBox.hide();

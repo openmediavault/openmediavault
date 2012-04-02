@@ -36,8 +36,13 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_NFSD_CONFIG=${OMV_NFSD_CONFIG:-"/etc/exports"}
+OMV_NFSD_DEFAULT=${OMV_NFSD_DEFAULT:-"/etc/default/nfs-kernel-server"}
 OMV_NFSD_EXPORT_DIR=${OMV_NFSD_EXPORT_DIR:-"/export"}
 OMV_NFSD_ENABLEV4=${OMV_NFSD_ENABLEV4:-"yes"}
+OMV_NFSD_PRIORITY=${OMV_NFSD_PRIORITY:-"0"}
+OMV_NFSD_MOUNTDOPTS=${OMV_NFSD_MOUNTDOPTS:-"--manage-gids"}
+OMV_NFSD_NEEDSVCGSSD=${OMV_NFSD_NEEDSVCGSSD:-""}
+OMV_NFSD_SVCGSSDOPTS=${OMV_NFSD_SVCGSSDOPTS:-""}
 
 # Create /etc/exports file.
 cat <<EOF > ${OMV_NFSD_CONFIG}
@@ -68,3 +73,20 @@ if omv_checkyesno ${OMV_NFSD_ENABLEV4}; then
 	  -b \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NFSD_CONFIG}
 fi
+
+# Create /etc/default/nfs-kernel-server file.
+xmlstarlet sel -t \
+  -m "//services/nfs" \
+	-o "# Number of servers to start up" -n \
+	-v "concat('RPCNFSDCOUNT=',numproc)" -n \
+	-o "# Runtime priority of server (see nice(1))" -n \
+	-o "RPCNFSDPRIORITY=${OMV_NFSD_PRIORITY}" -n \
+	-o "# Options for rpc.mountd." -n \
+	-o "RPCMOUNTDOPTS=${OMV_NFSD_MOUNTDOPTS}" -n \
+	-o "# Do you want to start the svcgssd daemon? It is only required for Kerberos" -n \
+	-o "# exports." -n \
+	-o "NEED_SVCGSSD=${OMV_NFSD_NEEDSVCGSSD}" -n \
+	-o "# Options for rpc.svcgssd." -n \
+	-o "RPCSVCGSSDOPTS=${OMV_NFSD_SVCGSSDOPTS}" \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NFSD_DEFAULT}

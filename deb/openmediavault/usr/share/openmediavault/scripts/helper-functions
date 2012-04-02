@@ -45,7 +45,7 @@ omv_isnumber() {
 # Check if the given argument is an UUID v4.
 # Return 0 if it is a number, otherwise 1.
 omv_isuuid() {
-    if $(echo $1 | grep -Eq "^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"); then
+    if $(echo $1 | grep -Eqi "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"); then
         return 0
     fi
     return 1
@@ -57,7 +57,7 @@ omv_isuuid() {
 # ext[2-4]?|xfs|jfs - 5d06cb54-70ef-4bcc-bf99-fd22c27daac0
 # Return 0 if it is a number, otherwise 1.
 omv_isfsuuid() {
-    if $(echo $1 | grep -Eq "^[a-fA-F0-9]{4}-[a-fA-F0-9]{4}|[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$"); then
+    if $(echo $1 | grep -Eqi "^[a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"); then
         return 0
     fi
     return 1
@@ -136,7 +136,7 @@ omv_get_if() {
 # Get the IPv4 address from the given network interface.
 omv_get_ipaddr() {
   local _ipaddr
-  _ipaddr=$(export LANG=C; ip addr show $1 | grep "inet " | awk '{ split($2,a,"/"); print a[1] }')
+  _ipaddr=$(export LANG=C; ip addr show $1 | grep -i "inet " | awk '{ split($2,a,"/"); print a[1] }')
   echo ${_ipaddr}
 }
 
@@ -356,43 +356,18 @@ omv_config_delete() {
 # Import the given existing system user into the configuration.
 # @param username The name of the existing user to import
 # @result None
+# @deprecated
 omv_config_import_user() {
-	local username usercfg uid gid gname comment shell password object
-
-	username=$1
-
-	# Does the user exist?
-	usercfg=$(getent passwd | grep -e "^${username}:")
-	uid=$(echo ${usercfg} | awk -F ":" '{print $3}')
-	if [ -n "${uid}" ]; then
-		# Add the user to the configuration if it does not already exist.
-		if ! omv_config_exists "//system/usermanagement/users/user[name='${username}']"; then
-			gid=$(echo ${usercfg} | awk -F ":" '{print $4}')
-			gname=$(getent group | grep -e ":${gid}:" | awk -F ":" '{print $1}')
-			comment=$(echo "${usercfg}" | awk -F ":" '{print $5}')
-			[ -z "${comment}" ] && comment="System user"
-			shell=$(echo "${usercfg}" | awk -F ":" '{print $7}')
-			password="*"
-			object="<uuid>$(uuid)</uuid>"
-			object="${object}<uid>${uid}</uid>"
-			object="${object}<name>${username}</name>"
-			object="${object}<groups>${gname}</groups>"
-			object="${object}<shell>${shell}</shell>"
-			object="${object}<password>${password}</password>"
-			object="${object}<email></email>"
-			object="${object}<comment>${comment}</comment>"
-			object="${object}<disallowusermod>1</disallowusermod>"
-			object="${object}<mntentref></mntentref>"
-			omv_config_add_element "//system/usermanagement/users" "user" "${object}" true
-		fi
-	fi
+	echo "!!! DEPRECATED function omv_config_delete_user !!!"
 }
 
 # void omv_config_delete_user (char username)
 # Delete the given user in the configuration.
 # @param username The name of the user to delete
 # @result None
+# @deprecated
 omv_config_delete_user() {
+	echo "!!! DEPRECATED function omv_config_delete_user !!!"
 	omv_config_delete "//system/usermanagement/users/user[name='$1']"
 }
 
@@ -400,30 +375,18 @@ omv_config_delete_user() {
 # Import the given existing system group into the configuration.
 # @param groupname The name of the existing group to import
 # @result None
+# @deprecated
 omv_config_import_group() {
-	local groupname gid object
-
-	groupname=$1
-
-	# Does the group exist?
-	gid=$(getent group | grep -e "^${groupname}:" | awk -F ":" '{print $3}')
-	if [ -n "${gid}" ]; then
-		# Add the group to the configuration if it does not already exist.
-		if ! omv_config_exists "//system/usermanagement/groups/group[name='${groupname}']"; then
-			object="<uuid>$(uuid)</uuid>"
-			object="${object}<gid>${gid}</gid>"
-			object="${object}<name>${groupname}</name>"
-			object="${object}<comment>System group</comment>"
-			omv_config_add_element "//system/usermanagement/groups" "group" "${object}" true
-		fi
-	fi
+	echo "!!! DEPRECATED function omv_config_import_group !!!"
 }
 
 # void omv_config_delete_group (char groupname)
 # Delete the given group in the configuration.
 # @param username The name of the user to delete
 # @result None
+# @deprecated
 omv_config_delete_group() {
+	echo "!!! DEPRECATED function omv_config_delete_group !!!"
 	omv_config_delete "//system/usermanagement/groups/group[name='$1']"
 }
 
@@ -571,4 +534,10 @@ omv_install_fixperms() {
 	chmod 644 ${OMV_DOCUMENTROOT_DIR}/cgi/php.ini
 	chmod 700 ${OMV_DOCUMENTROOT_DIR}/php-fcgi
 	#chattr +i ${OMV_DOCUMENTROOT_DIR}/php-fcgi
+}
+
+# void omv_install_locale ()
+# Install locale files
+omv_install_locale() {
+	omv-mki18ndict
 }

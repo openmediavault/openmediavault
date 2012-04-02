@@ -28,7 +28,7 @@ Ext.ns("OMV.Module.System");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("system", "notification", {
-	text: "Notification",
+	text: _("Notification"),
 	icon: "images/mail.png",
 	position: 40
 });
@@ -61,7 +61,7 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 		// Add 'Send test email' button
 		result.push({
 			id: this.getId() + "-test",
-			text: "Send test email",
+			text: _("Send test email"),
 			disabled: true,
 			handler: function() {
 				// Is the form valid?
@@ -69,7 +69,7 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 					this.markInvalid();
 				} else {
 					// Display waiting dialog
-					OMV.MessageBox.wait(null, "Sending test email ...");
+					OMV.MessageBox.wait(null, _("Sending test email ..."));
 					// Get the form values
 					var values = this.getValues();
 					// Execute RPC
@@ -77,9 +77,7 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 						OMV.MessageBox.updateProgress(1);
 						OMV.MessageBox.hide();
 						if (error === null) {
-							OMV.MessageBox.success(null, "The test email " +
-							  "has been sent successfully. Please check " +
-							  "your mailbox.");
+							OMV.MessageBox.success(null, _("The test email has been sent successfully. Please check your mailbox."));
 						} else {
 							OMV.MessageBox.error(null, error);
 						}
@@ -94,7 +92,7 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -102,7 +100,7 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1,
 				listeners: {
@@ -114,7 +112,7 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 			}]
 		},{
 			xtype: "fieldset",
-			title: "SMTP settings",
+			title: _("SMTP settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -122,37 +120,37 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 			items: [{
 				xtype: "textfield",
 				name: "server",
-				fieldLabel: "SMTP server",
+				fieldLabel: _("SMTP server"),
 				allowBlank: false,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
+				infoText: _("Outgoing SMTP mail server address, e.g. smtp.mycorp.com.")
 			},{
 				xtype: "numberfield",
 				name: "port",
-				fieldLabel: "SMTP port",
+				fieldLabel: _("SMTP port"),
 				allowBlank: false,
 				allowDecimals: false,
 				allowNegative: false,
 				vtype: "port",
 				value: 25,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "The default SMTP mail server port, e.g. 25 or 587."
+				infoText: _("The default SMTP mail server port, e.g. 25 or 587.")
 			},{
 				xtype: "checkbox",
 				name: "tls",
-				fieldLabel: "Use SSL/TLS secure connection",
+				fieldLabel: _("Use SSL/TLS secure connection"),
 				checked: false,
 				inputValue: 1
 			},{
 				xtype: "textfield",
 				name: "sender",
-				fieldLabel: "Sender",
+				fieldLabel: _("Sender"),
 				allowBlank: false,
 				vtype: "email"
 			},{
 				xtype: "checkbox",
 				name: "authenable",
-				fieldLabel: "Authentication required",
+				fieldLabel: _("Authentication required"),
 				checked: false,
 				inputValue: 1,
 				listeners: {
@@ -164,17 +162,17 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 			},{
 				xtype: "textfield",
 				name: "username",
-				fieldLabel: "Username",
+				fieldLabel: _("Username"),
 				allowBlank: true
 			},{
 				xtype: "passwordfield",
 				name: "password",
-				fieldLabel: "Password",
+				fieldLabel: _("Password"),
 				allowBlank: true
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Recipient",
+			title: _("Recipient"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -182,13 +180,13 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 			items: [{
 				xtype: "textfield",
 				name: "primaryemail",
-				fieldLabel: "Primary email",
+				fieldLabel: _("Primary email"),
 				allowBlank: false,
 				vtype: "email"
 			},{
 				xtype: "textfield",
 				name: "secondaryemail",
-				fieldLabel: "Secondary email",
+				fieldLabel: _("Secondary email"),
 				allowBlank: true,
 				vtype: "email"
 			}]

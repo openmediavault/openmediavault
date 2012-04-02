@@ -132,13 +132,15 @@ class TransmissionBTRpc extends OMVRpc {
 					"ratio-limit-enabled":{"type":"boolean"}
 				}
 			}'),
-			"getList" => array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}', // sortDir
-				'{"type":"array","items":{"type":"string"}}' // types
-			),
+			"getList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
 			"delete" => array('{
 				"type":"object",
 				"properties":{
@@ -146,15 +148,18 @@ class TransmissionBTRpc extends OMVRpc {
 					"deleteLocalData":{"type":"boolean"}
 				}
 			}'),
-			"pause" => array(
-				'{"type":"integer", "minimum":0}'
-			),
-			"resume" => array(
-				'{"type":"integer", "minimum":0}'
-			),
-			"upload" => array(
-				'{"type":"boolean"}'
-			),
+			"pause" => array('{
+				"type":"object",
+				"properties":{
+					"id":{"type":"integer", "minimum":0}
+				}
+			}'),
+			"resume" => array('{
+				"type":"object",
+				"properties":{
+					"id":{"type":"integer", "minimum":0}
+				}
+			}'),
 			"queueMove" => array('{
 				"type":"object",
 				"properties":{
@@ -168,7 +173,7 @@ class TransmissionBTRpc extends OMVRpc {
 					"url":{"type":"string"},
 					"start_download":{"type":"boolean"}
 				}
-			}'),
+			}')
 		);
 	}
 
@@ -709,9 +714,17 @@ class TransmissionBTRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get list of torrents
+	 * Get list of torrents.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	public function getList($start, $count, $sortField, $sortDir, $types) {
+	public function getList($data) {
 		// Check permissions
 		$this->validateSession();
 		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
@@ -720,38 +733,33 @@ class TransmissionBTRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-
 		$transmissionbt_rpc = $this->factoryTransmission();
-
 		$torrents = $transmissionbt_rpc->get(array(), array(
-															'id',
-															'name',
-															'status',
-															'totalSize',
-															'haveValid',
-															'percentDone',
-															'eta',
-															'peersConnected',
-															'peersSendingToUs',
-															'rateDownload',
-															'rateUpload',
-															'addedDate',
-															'doneDate',
-															'uploadRatio',
-															'queuePosition',
-															)
+			'id',
+			'name',
+			'status',
+			'totalSize',
+			'haveValid',
+			'percentDone',
+			'eta',
+			'peersConnected',
+			'peersSendingToUs',
+			'rateDownload',
+			'rateUpload',
+			'addedDate',
+			'doneDate',
+			'uploadRatio',
+			'queuePosition')
 		);
-
 		$torrents = $torrents['arguments']['torrents'];
-
 		// Filter result
-		return $this->applyFilter($torrents, $start, $count, $sortField, $sortDir);
-
+		return $this->applyFilter($torrents, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
-	* Process uploaded torrent file
-	*/
+	 * Process uploaded torrent file
+	 */
 	function upload() {
 		// Check permissions
 		$this->validateSession();
@@ -765,15 +773,10 @@ class TransmissionBTRpc extends OMVRpc {
 			  "Invalid upload request");
 		}
 		//$this->validateParams(__METHOD__, func_get_args());
-
 		$transmissionbt_rpc = $this->factoryTransmission();
-
 		$file_path = sys_get_temp_dir() . '/' . $_FILES['file']['name'];
-
 		move_uploaded_file($_FILES['file']['tmp_name'], $file_path);
-
 		//$start_download = !array_boolval($data, 'start-download');
-
 		$torrent = $transmissionbt_rpc->add_file($file_path, ''/*, $start_download*/);
 		unlink($file_path);
 		return $torrent;
@@ -810,9 +813,9 @@ class TransmissionBTRpc extends OMVRpc {
 	}
 
 	/**
-	* Delete specific torrent
-	* Optional delete local data
-	*/
+	 * Delete specific torrent
+	 * Optional delete local data
+	 */
 	public function delete($data) {
 		// Check permissions
 		$this->validateSession();
@@ -831,9 +834,11 @@ class TransmissionBTRpc extends OMVRpc {
 	}
 
 	/**
-	* Resume specific torrent
-	*/
-	public function resume($id) {
+	 * Resume specific torrent.
+	 * @param data An array containing the following fields:
+	 *   \em id The ID of the torrent.
+	 */
+	public function resume($data) {
 		// Check permissions
 		$this->validateSession();
 		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
@@ -842,18 +847,17 @@ class TransmissionBTRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-
 		$transmissionbt_rpc = $this->factoryTransmission();
-
-		$transmissionbt_rpc->start($id);
-
+		$transmissionbt_rpc->start($data['id']);
 		return 'success';
 	}
 
 	/**
-	* Pause specific torrent
-	*/
-	public function pause($id) {
+	 * Pause specific torrent.
+	 * @param data An array containing the following fields:
+	 *   \em id The ID of the torrent.
+	 */
+	public function pause($data) {
 		// Check permissions
 		$this->validateSession();
 		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
@@ -862,11 +866,8 @@ class TransmissionBTRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-
 		$transmissionbt_rpc = $this->factoryTransmission();
-
-		$transmissionbt_rpc->stop($id);
-
+		$transmissionbt_rpc->stop($data['id']);
 		return 'success';
 	}
 

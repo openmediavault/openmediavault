@@ -19,7 +19,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/NavigationPanel.js")
-// require("js/omv/data/DataProxy.js")
 // require("js/omv/FormPanelExt.js")
 // require("js/omv/form/PasswordField.js")
 // require("js/omv/form/SharedFolderComboBox.js")
@@ -29,7 +28,7 @@ Ext.ns("OMV.Module.Services");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("services", "daapd", {
-	text: "iTunes/DAAP",
+	text: _("iTunes/DAAP"),
 	icon: "images/forkeddaapd.png"
 });
 
@@ -55,7 +54,7 @@ Ext.extend(OMV.Module.Services.ForkedDaapd, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -63,7 +62,7 @@ Ext.extend(OMV.Module.Services.ForkedDaapd, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1,
 				listeners: {
@@ -73,14 +72,14 @@ Ext.extend(OMV.Module.Services.ForkedDaapd, OMV.FormPanelExt, {
 			},{
 				xtype: "textfield",
 				name: "libraryname",
-				fieldLabel: "Library name",
+				fieldLabel: _("Library name"),
 				allowBlank: false,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "The name of the library as displayed by the clients."
+				infoText: _("The name of the library as displayed by the clients.")
 			},{
 				xtype: "numberfield",
 				name: "port",
-				fieldLabel: "Port",
+				fieldLabel: _("Port"),
 				vtype: "port",
 				minValue: 0,
 				maxValue: 65535,
@@ -89,22 +88,22 @@ Ext.extend(OMV.Module.Services.ForkedDaapd, OMV.FormPanelExt, {
 				allowBlank: false,
 				value: 3689,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Port to listen on."
+				infoText: _("Port to listen on.")
 			},{
 				xtype: "sharedfoldercombo",
 				name: "sharedfolderref",
 				hiddenName: "sharedfolderref",
-				fieldLabel: "Shared folder",
+				fieldLabel: _("Shared folder"),
 				allowNone: true,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "The location of the media files to share. Make sure the user 'daapd' has read permissions for the shared folder."
+				infoText: _("The location of the media files to share.")
 			},{
 				xtype: "checkbox",
 				name: "passwordrequired",
-				fieldLabel: "Authentication",
+				fieldLabel: _("Authentication"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "A password is required to access the library.",
+				boxLabel: _("A password is required to access the library."),
 				listeners: {
 					check: this._updateFormFields,
 					scope: this
@@ -112,7 +111,7 @@ Ext.extend(OMV.Module.Services.ForkedDaapd, OMV.FormPanelExt, {
 			},{
 				xtype: "passwordfield",
 				name: "password",
-				fieldLabel: "Password",
+				fieldLabel: _("Password"),
 				allowBlank: true
 			}]
 		}];

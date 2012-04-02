@@ -101,6 +101,8 @@ class OMVHtmlPage extends OMVObject {
 		<link rel="stylesheet" type="text/css" href="css/omv-ext.css"/>
 		<script type="text/javascript" src="/extjs/adapter/ext/{$extBaseFile}"></script>
 		<script type="text/javascript" src="/extjs/{$extAllFile}"></script>
+		<script type="text/javascript" src="js/omv/i18n.js"></script>
+		<script type="text/javascript" src="js/omv/i18nDict.js"></script>
 		<script type="text/javascript" src="js/ext-overrides.js"></script>
 		<script type="text/javascript" src="js/js-overrides.js"></script>
 
@@ -179,6 +181,14 @@ class OMVWebGui extends OMVHtmlPage {
 			{$globalDefs}
 			// RPC error codes
 			{$errorCodes}
+			// Request user confirmation before leaving page
+			OMV.confirmPageUnload = true;
+			window.onbeforeunload = function() {
+				if (true === OMV.confirmPageUnload) {
+					OMV.confirmPageUnload = false;
+					return _("Do you really want to leave the page?");
+				}
+			};
 			// Initialize default session data
 			Ext.apply(OMV.SessionMgr, {
 				username: "{$session->getUsername()}"

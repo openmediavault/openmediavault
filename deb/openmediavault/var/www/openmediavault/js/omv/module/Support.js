@@ -24,7 +24,7 @@ Ext.ns("OMV.Module.Information");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("information", "support", {
-	text: "Support",
+	text: _("Support"),
 	icon: "images/support.png",
 	position: 20
 });

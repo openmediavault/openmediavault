@@ -36,7 +36,7 @@ Ext.ns("OMV.Module.Services.iSCSITgt");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("services", "iscsitgt", {
-	text: "iSCSI Target",
+	text: _("iSCSI Target"),
 	icon: "images/iscsitarget.png"
 });
 
@@ -57,31 +57,32 @@ Ext.extend(OMV.Module.Services.iSCSITgt.SettingsPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 				labelSeparator: ""
 			},
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1
 			},{
 				xtype: "textfield",
 				name: "extraoptions",
-				fieldLabel: "Extra options",
+				fieldLabel: _("Extra options"),
 				allowBlank: true,
 				autoCreate: {
 					tag: "textarea",
 					autocomplete: "off",
 					rows: "3",
 					cols: "65"
-				}
+				},
+				anchor: "100%"
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Discovery authentication",
+			title: _("Discovery authentication"),
 			defaults: {
 				labelSeparator: ""
 			},
@@ -89,7 +90,7 @@ Ext.extend(OMV.Module.Services.iSCSITgt.SettingsPanel, OMV.FormPanelExt, {
 				xtype: "iscsitgtauthusergrid",
 				id: this.getId() + "-authentication",
 				name: "authentication",
-				fieldLabel: "Users",
+				fieldLabel: _("Users"),
 				height: 150
 			}]
 		}];
@@ -113,7 +114,7 @@ Ext.extend(OMV.Module.Services.iSCSITgt.SettingsPanel, OMV.FormPanelExt, {
 });
 OMV.NavigationPanelMgr.registerPanel("services", "iscsitgt", {
 	cls: OMV.Module.Services.iSCSITgt.SettingsPanel,
-	title: "Settings",
+	title: _("Settings"),
 	position: 10
 });
 
@@ -126,22 +127,22 @@ OMV.Module.Services.iSCSITgt.TargetsGridPanel = function(config) {
 		stateId: "15e18b72-c1e9-11e0-a91c-00221568ca88",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "IQN",
+				header: _("IQN"),
 				sortable: true,
 				dataIndex: "iqn",
 				id: "iqn"
 			},{
-				header: "Alias",
+				header: _("Alias"),
 				sortable: true,
 				dataIndex: "alias",
 				id: "alias"
 			},{
-				header: "Max. connections",
+				header: _("Max. connections"),
 				sortable: true,
 				dataIndex: "maxconnections",
 				id: "maxconnections"
 			},{
-				header: "Comment",
+				header: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
 				id: "comment"
@@ -158,7 +159,10 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetsGridPanel,
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("iSCSITarget", "getTargetList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "iSCSITarget",
+				"method": "getTargetList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				totalProperty: "total",
@@ -206,25 +210,26 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetsGridPanel,
 
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "iSCSITarget",
-		  "deleteTarget", [ record.get("uuid") ]);
+		  "deleteTarget", { "uuid": record.get("uuid") });
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("services", "iscsitgt", {
 	cls: OMV.Module.Services.iSCSITgt.TargetsGridPanel,
-	title: "Targets",
+	title: _("Targets"),
 	position: 20
 });
 
 /**
  * @class OMV.Module.Services.iSCSITgt.TargetPropertyDialog
+ * @derived OMV.CfgObjectTabDialog
  */
 OMV.Module.Services.iSCSITgt.TargetPropertyDialog = function(config) {
 	var initialConfig = {
 		rpcService: "iSCSITarget",
 		rpcGetMethod: "getTarget",
 		rpcSetMethod: "setTarget",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " target",
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add target") : _("Edit target"),
 		width: 600,
 		height: 450
 	};
@@ -245,10 +250,11 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetPropertyDialog,
 
 /**
  * @class OMV.Module.Services.iSCSITgt.TargetGeneralPanel
+ * @derived OMV.form.FormPanel
  */
 OMV.Module.Services.iSCSITgt.TargetGeneralPanel = function(config) {
 	var initialConfig = {
-		title: "General",
+		title: _("General"),
 		autoScroll: true,
 		trackResetOnLoad: true,
 		defaults: {
@@ -265,27 +271,27 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetGeneralPanel,
 		this.items = [{
 			xtype: "textfield",
 			name: "identifier",
-			fieldLabel: "Identifier",
+			fieldLabel: _("Identifier"),
 			allowBlank: false,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The identifier of the target."
+			infoText: _("The identifier of the target.")
 		},{
 			xtype: "textfield",
 			name: "alias",
-			fieldLabel: "Alias",
+			fieldLabel: _("Alias"),
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The optional alias of the target."
+			infoText: _("The optional alias of the target.")
 		},{
 			xtype: "combo",
 			name: "headerdigest",
 			hiddenName: "headerdigest",
-			fieldLabel: "Header digest",
+			fieldLabel: _("Header digest"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ "None","None" ],
+					[ "None",_("None") ],
 					[ "CRC32C","CRC32C" ]
 				]
 			}),
@@ -295,18 +301,18 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetGeneralPanel,
 			editable: false,
 			triggerAction: "all",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "If set to 'CRC32C' and the initiator is configured accordingly, the integrity of an iSCSI PDU's header segments will be protected by a CRC32C checksum.",
+			infoText: _("If set to 'CRC32C' and the initiator is configured accordingly, the integrity of an iSCSI PDU's header segments will be protected by a CRC32C checksum."),
 			value: "None"
 		},{
 			xtype: "combo",
 			name: "datadigest",
 			hiddenName: "datadigest",
-			fieldLabel: "Data digest",
+			fieldLabel: _("Data digest"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ "None","None" ],
+					[ "None",_("None") ],
 					[ "CRC32C","CRC32C" ]
 				]
 			}),
@@ -316,117 +322,117 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetGeneralPanel,
 			editable: false,
 			triggerAction: "all",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "If set to 'CRC32C' and the initiator is configured accordingly, the integrity of an iSCSI PDU's data segment will be protected by a CRC32C checksum.",
+			infoText: _("If set to 'CRC32C' and the initiator is configured accordingly, the integrity of an iSCSI PDU's data segment will be protected by a CRC32C checksum."),
 			value: "None"
 		},{
 			xtype: "numberfield",
 			name: "maxconnections",
-			fieldLabel: "Max. connections",
+			fieldLabel: _("Max. connections"),
 			minValue: 0,
 			allowDecimals: false,
 			allowNegative: false,
 			allowBlank: false,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The number of connections within a session.",
+			infoText: _("The number of connections within a session."),
 			value: 1
 		},{
 			xtype: "numberfield",
 			name: "maxsessions",
-			fieldLabel: "Max. sessions",
+			fieldLabel: _("Max. sessions"),
 			minValue: 0,
 			allowDecimals: false,
 			allowNegative: false,
 			allowBlank: false,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The maximum number of sessions for this target.",
+			infoText: _("The maximum number of sessions for this target."),
 			value: 0
 		},{
 			xtype: "checkbox",
 			name: "initialr2t",
-			fieldLabel: "Initial R2T",
+			fieldLabel: _("Initial R2T"),
 			checked: true,
 			inputValue: 1,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "If enabled, the initiator has to wait for the target to solicit SCSI data before sending it. Disabling it allows the initiator to send a burst of N bytes unsolicited right after and/or together with the command. Thus disabling it may improve performance."
+			infoText: _("If enabled, the initiator has to wait for the target to solicit SCSI data before sending it. Disabling it allows the initiator to send a burst of N bytes unsolicited right after and/or together with the command. Thus disabling it may improve performance.")
 		},{
 			xtype: "checkbox",
 			name: "immediatedata",
-			fieldLabel: "Immediate data",
+			fieldLabel: _("Immediate data"),
 			checked: false,
 			inputValue: 1,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "This allows the initiator to append unsolicited data to a command. To achieve better performance, this should be enabled."
+			infoText: _("This allows the initiator to append unsolicited data to a command. To achieve better performance, this should be enabled.")
 		},{
 			xtype: "numberfield",
 			name: "maxrecvdatasegmentlength",
-			fieldLabel: "Max. receive data segment length",
+			fieldLabel: _("Max. receive data segment length"),
 			minValue: 0,
 			allowDecimals: false,
 			allowNegative: false,
 			allowBlank: false,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Sets the maximum data segment length that can be received.",
+			infoText: _("Sets the maximum data segment length that can be received."),
 			value: 8192
 		},{
 			xtype: "numberfield",
 			name: "maxxmitdatasegmentlength",
-			fieldLabel: "Max. transmit data segment length",
+			fieldLabel: _("Max. transmit data segment length"),
 			minValue: 0,
 			allowDecimals: false,
 			allowNegative: false,
 			allowBlank: false,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Sets the maximum data segment length that can be sent.",
+			infoText: _("Sets the maximum data segment length that can be sent."),
 			value: 8192
 		},{
 			xtype: "numberfield",
 			name: "maxburstlength",
-			fieldLabel: "Max. burst length",
+			fieldLabel: _("Max. burst length"),
 			minValue: 0,
 			allowDecimals: false,
 			allowNegative: false,
 			allowBlank: false,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Sets the maximum amount of either unsolicited or solicited data the initiator may send in a single burst.",
+			infoText: _("Sets the maximum amount of either unsolicited or solicited data the initiator may send in a single burst."),
 			value: 262144
 		},{
 			xtype: "numberfield",
 			name: "firstburstlength",
-			fieldLabel: "First burst length",
+			fieldLabel: _("First burst length"),
 			minValue: 0,
 			allowDecimals: false,
 			allowNegative: false,
 			allowBlank: false,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Sets the amount of unsolicited data the initiator may transmit in the first burst of a transfer either with and/or right after the command.",
+			infoText: _("Sets the amount of unsolicited data the initiator may transmit in the first burst of a transfer either with and/or right after the command."),
 			value: 65536
 		},{
 			xtype: "numberfield",
 			name: "maxoutstandingr2t",
-			fieldLabel: "Max. outstanding R2T",
+			fieldLabel: _("Max. outstanding R2T"),
 			minValue: 0,
 			allowDecimals: false,
 			allowNegative: false,
 			allowBlank: false,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Controls the maximum number of data transfers the target may request at once.",
+			infoText: _("Controls the maximum number of data transfers the target may request at once."),
 			value: 1
 		},{
 			xtype: "checkbox",
 			name: "datapduinorder",
-			fieldLabel: "Data PDU in order",
+			fieldLabel: _("Data PDU in order"),
 			checked: true,
 			inputValue: 1
 		},{
 			xtype: "checkbox",
 			name: "datasequenceinorder",
-			fieldLabel: "Data sequence in order",
+			fieldLabel: _("Data sequence in order"),
 			checked: true,
 			inputValue: 1
 		},{
 			xtype: "numberfield",
 			name: "errorrecoverylevel",
-			fieldLabel: "Error recovery level",
+			fieldLabel: _("Error recovery level"),
 			minValue: 0,
 			allowDecimals: false,
 			allowNegative: false,
@@ -435,56 +441,56 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetGeneralPanel,
 		},{
 			xtype: "numberfield",
 			name: "nopinterval",
-			fieldLabel: "NOP interval",
+			fieldLabel: _("NOP interval"),
 			minValue: 0,
 			allowDecimals: false,
 			allowNegative: false,
 			allowBlank: false,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "If value is non-zero, the initiator will be 'ping'ed during phases of inactivity (i.e. no data transfers) every N seconds to verify the connection is still alive.",
+			infoText: _("If value is non-zero, the initiator will be 'ping'ed during phases of inactivity (i.e. no data transfers) every N seconds to verify the connection is still alive."),
 			value: 0
 		},{
 			xtype: "numberfield",
 			name: "noptimeout",
-			fieldLabel: "NOP timeout",
+			fieldLabel: _("NOP timeout"),
 			minValue: 0,
 			allowDecimals: false,
 			allowNegative: false,
 			allowBlank: false,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "If a non-zero 'NOP interval' is used to periodically 'ping' the initiator during phases of inactivity (i.e. no data transfers), the initiator must respond within N seconds, otherwise the connection will be closed.",
+			infoText: _("If a non-zero 'NOP interval' is used to periodically 'ping' the initiator during phases of inactivity (i.e. no data transfers), the initiator must respond within N seconds, otherwise the connection will be closed."),
 			value: 0
 		},{
 			xtype: "numberfield",
 			name: "wthreads",
-			fieldLabel: "IO threads",
+			fieldLabel: _("IO threads"),
 			minValue: 0,
 			allowDecimals: false,
 			allowNegative: false,
 			allowBlank: false,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The number of threads to perform block I/O to the device.",
+			infoText: _("The number of threads to perform block I/O to the device."),
 			value: 8
 		},{
 			xtype: "numberfield",
 			name: "queuedcommands",
-			fieldLabel: "Queued commands",
+			fieldLabel: _("Queued commands"),
 			minValue: 0,
 			allowDecimals: false,
 			allowNegative: false,
 			allowBlank: false,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The number of commands an initiator may send and that will be buffered by the target.",
+			infoText: _("The number of commands an initiator may send and that will be buffered by the target."),
 			value: 32
 		},{
 			xtype: "textfield",
 			name: "comment",
-			fieldLabel: "Comment",
+			fieldLabel: _("Comment"),
 			allowBlank: true
 		},{
 			xtype: "textfield",
 			name: "extraoptions",
-			fieldLabel: "Extra options",
+			fieldLabel: _("Extra options"),
 			allowBlank: true,
 			autoCreate: {
 				tag: "textarea",
@@ -507,48 +513,48 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetGeneralPanel,
  */
 OMV.Module.Services.iSCSITgt.TargetLUNGrid = function(config) {
 	var initialConfig = {
-		title: "LUN",
+		title: _("LUN"),
 		mode: "local",
 		stateId: "3107db90-c1e9-11e0-90c8-00221568ca88",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Id",
+				header: _("Id"),
 				sortable: true,
 				dataIndex: "id",
 				id: "id"
 			},{
-				header: "Device",
+				header: _("Device"),
 				sortable: true,
 				dataIndex: "devicefile",
 				id: "devicefile"
 			},{
-				header: "SCSI Id.",
+				header: _("SCSI Id."),
 				sortable: true,
 				dataIndex: "scsiid",
 				id: "scsiid"
 			},{
-				header: "SCSI serial no.",
+				header: _("SCSI serial no."),
 				sortable: true,
 				dataIndex: "scsisn",
 				id: "scsisn"
 			},{
-				header: "R/W mode",
+				header: _("R/W mode"),
 				sortable: true,
 				dataIndex: "iomode",
 				id: "iomode",
 				renderer: OMV.util.Format.arrayRenderer([
-					[ "wt","Write-through" ],
-					[ "wb","Write-back" ],
-					[ "ro","Read-only" ]
+					[ "wt",_("Write-through") ],
+					[ "wb",_("Write-back") ],
+					[ "ro",_("Read-only") ]
 				])
 			},{
-				header: "Transfer mode",
+				header: _("Transfer mode"),
 				sortable: true,
 				dataIndex: "type",
 				id: "type",
 				renderer: OMV.util.Format.arrayRenderer([
-					[ "fileio","File IO" ],
-					[ "blockio","Block IO" ]
+					[ "fileio",_("File IO") ],
+					[ "blockio",_("Block IO") ]
 				])
 			}]
 		})
@@ -672,8 +678,8 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetLUNGrid,
 OMV.Module.Services.iSCSITgt.TargetLUNPropertyDialog = function(config) {
 	var initialConfig = {
 		mode: "local",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " LUN",
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add LUN") : _("Edit LUN"),
 		width: 500,
 		autoHeight: true
 	};
@@ -697,13 +703,13 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetLUNPropertyDialog,
 			xtype: "combo",
 			name: "type",
 			hiddenName: "type",
-			fieldLabel: "Transfer mode",
+			fieldLabel: _("Transfer mode"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-//					[ "fileio","File IO" ],
-					[ "blockio","Block IO" ]
+//					[ "fileio",_("File IO") ],
+					[ "blockio",_("Block IO") ]
 				]
 			}),
 			displayField: "text",
@@ -717,12 +723,15 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetLUNPropertyDialog,
 			xtype: "combo",
 			name: "devicefile",
 			hiddenName: "devicefile",
-			fieldLabel: "Device",
-			emptyText: "Select an device ...",
+			fieldLabel: _("Device"),
+			emptyText: _("Select an device ..."),
 			store: new OMV.data.Store({
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("FileSystemMgmt",
-				  "getCandidates"),
+				proxy: new OMV.data.DataProxy({
+					"service": "FileSystemMgmt",
+					"method": "getCandidates",
+					"appendPagingParams": false
+				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "devicefile",
 					fields: [
@@ -740,29 +749,29 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetLUNPropertyDialog,
 		},{
 			xtype: "textfield",
 			name: "scsiid",
-			fieldLabel: "SCSI Id.",
+			fieldLabel: _("SCSI Id."),
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Assign a unique identifier to the iSCSI volume optionally."
+			infoText: _("Assign a unique identifier to the iSCSI volume optionally.")
 		},{
 			xtype: "textfield",
 			name: "scsisn",
-			fieldLabel: "SCSI serial no.",
+			fieldLabel: _("SCSI serial no."),
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Assign a unique serial number to the iSCSI volume optionally."
+			infoText: _("Assign a unique serial number to the iSCSI volume optionally.")
 		},{
 			xtype: "combo",
 			name: "iomode",
 			hiddenName: "iomode",
-			fieldLabel: "R/W mode",
+			fieldLabel: _("R/W mode"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ "wt","Write-through" ],
-					[ "wb","Write-back" ],
-					[ "ro","Read-only" ]
+					[ "wt",_("Write-through") ],
+					[ "wb",_("Write-back") ],
+					[ "ro",_("Read-only") ]
 				]
 			}),
 			displayField: "text",
@@ -781,21 +790,21 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetLUNPropertyDialog,
  */
 OMV.Module.Services.iSCSITgt.TargetAuthUserGrid = function(config) {
 	var initialConfig = {
-		title: "Authentication",
+		title: _("Authentication"),
 		mode: "local",
 		stateId: "53f13d90-c1e9-11e0-a6eb-00221568ca88",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Type",
+				header: _("Type"),
 				sortable: true,
 				dataIndex: "type",
 				id: "type",
 				renderer: OMV.util.Format.arrayRenderer([
-					[ "incoming","Incoming" ],
-					[ "outgoing","Outgoing" ]
+					[ "incoming",_("Incoming") ],
+					[ "outgoing",_("Outgoing") ]
 				])
 			},{
-				header: "Username",
+				header: _("Username"),
 				sortable: true,
 				dataIndex: "username",
 				id: "username"
@@ -834,8 +843,7 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetAuthUserGrid,
 					if (data.type === "outgoing") {
 						var collection = this.store.query("type", "outgoing");
 						if (collection.getCount() > 0) {
-							OMV.MessageBox.failure(null, "Only one outgoing " +
-							  "user per target is supported.");
+							OMV.MessageBox.failure(null, _("Only one outgoing user per target is supported."));
 							return;
 						}
 					}
@@ -891,12 +899,13 @@ Ext.extend(OMV.Module.Services.iSCSITgt.TargetAuthUserGrid,
 
 /**
  * @class OMV.Module.Services.iSCSITgt.AuthUserPropertyDialog
+ * @derived OMV.CfgObjectDialog
  */
 OMV.Module.Services.iSCSITgt.AuthUserPropertyDialog = function(config) {
 	var initialConfig = {
 		mode: "local",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " user",
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add user") : _("Edit user"),
 		width: 500,
 		autoHeight: true
 	};
@@ -905,7 +914,7 @@ OMV.Module.Services.iSCSITgt.AuthUserPropertyDialog = function(config) {
 	  constructor.call(this, initialConfig);
 };
 Ext.extend(OMV.Module.Services.iSCSITgt.AuthUserPropertyDialog,
-	OMV.CfgObjectDialog, {
+  OMV.CfgObjectDialog, {
 	getFormConfig : function() {
 		return {
 			autoHeight: true
@@ -917,13 +926,13 @@ Ext.extend(OMV.Module.Services.iSCSITgt.AuthUserPropertyDialog,
 			xtype: "combo",
 			name: "type",
 			hiddenName: "type",
-			fieldLabel: "Transfer mode",
+			fieldLabel: _("Transfer mode"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ "incoming","Incoming" ],
-					[ "outgoing","Outgoing" ]
+					[ "incoming",_("Incoming") ],
+					[ "outgoing",_("Outgoing") ]
 				]
 			}),
 			displayField: "text",
@@ -936,14 +945,14 @@ Ext.extend(OMV.Module.Services.iSCSITgt.AuthUserPropertyDialog,
 		},{
 			xtype: "textfield",
 			name: "username",
-			fieldLabel: "Username",
+			fieldLabel: _("Username"),
 			allowBlank: false,
 			vtype: "username",
 			readOnly: (this.uuid !== OMV.UUID_UNDEFINED)
 		},{
 			xtype: "passwordfield",
 			name: "password",
-			fieldLabel: "Password",
+			fieldLabel: _("Password"),
 			allowBlank: true
 		}];
 	}
@@ -958,16 +967,16 @@ OMV.Module.Services.iSCSITgt.AuthUserGrid = function(config) {
 		stateId: "54af0f59-ef4e-4c1f-a3c3-1efaa1ea02fd",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Type",
+				header: _("Type"),
 				sortable: true,
 				dataIndex: "type",
 				id: "type",
 				renderer: OMV.util.Format.arrayRenderer([
-					[ "incoming","Incoming" ],
-					[ "outgoing","Outgoing" ]
+					[ "incoming",_("Incoming") ],
+					[ "outgoing",_("Outgoing") ]
 				])
 			},{
-				header: "Username",
+				header: _("Username"),
 				sortable: true,
 				dataIndex: "username",
 				id: "username"
@@ -1005,8 +1014,7 @@ Ext.extend(OMV.Module.Services.iSCSITgt.AuthUserGrid, OMV.form.Grid, {
 					if (data.type === "outgoing") {
 						var collection = this.store.query("type", "outgoing");
 						if (collection.getCount() > 0) {
-							OMV.MessageBox.failure(null, "Only one outgoing " +
-							  "user per target is supported.");
+							OMV.MessageBox.failure(null, _("Only one outgoing user per target is supported."));
 							return;
 						}
 					}

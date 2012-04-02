@@ -95,7 +95,7 @@ class NFSModule extends OMVModuleAbstract implements OMVINotifyListener,
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Umount the subtree (if still mounted)
+		// Unmount the subtree (if still mounted)
 		if (OMVFilesystem::isMountedEx("mountpoint", $meObject['dir'])) {
 			$cmd = sprintf("sudo umount -fl %s 2>&1", $meObject['dir']);
 			OMVUtil::exec($cmd, $output, $result);

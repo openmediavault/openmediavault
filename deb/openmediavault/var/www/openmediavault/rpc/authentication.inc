@@ -37,37 +37,37 @@ class AuthenticationRpc extends OMVRpc {
 	}
 
 	/**
-	 * Login user
+	 * Login user.
+	 * @param data An array containing the following fields:
+	 *   \em username The name of the user.
+	 *   \em password The password.
+	 * @return An array containing the fields \em authenticated which is TRUE
+	 *   if authentication was successful, otherwise FALSE. The name of the
+	 *   user is in \em username.
 	 */
 	function login($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Validate username and password:
-		// 1. Check if user exists in configuration
-		// 2. Validate password via PAM
+		// Validate password via PAM
 		$authenticated = FALSE;
-		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
-		  $data['username']);
-		if (TRUE === $xmlConfig->exists($xpath)) {
-			if (pam_auth($data['username'], $data['password'])) {
-				$session = &OMVSession::getInstance();
-				if ($session->isAuthenticated()) {
-					// Is the current session registered to the user to be
-					// authenticated?
-					if ($session->getUsername() !== $data['username']) {
-						throw new OMVException(
-						  OMVErrorMsg::E_SESSION_ALREADY_AUTHENTICATED);
-					}
-				} else {
-					// Initialize session.
-					$role = ($data['username'] === "admin") ?
-					  OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER;
-					$session->initialize($data['username'], $role);
+		if (pam_auth($data['username'], $data['password'])) {
+			$session = &OMVSession::getInstance();
+			if ($session->isAuthenticated()) {
+				// Is the current session registered to the user to be
+				// authenticated?
+				if ($session->getUsername() !== $data['username']) {
+					throw new OMVException(
+					  OMVErrorMsg::E_SESSION_ALREADY_AUTHENTICATED);
 				}
-				$authenticated = $session->isAuthenticated();
+			} else {
+				// Initialize session.
+				$role = ($data['username'] === "admin") ?
+				  OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER;
+				$session->initialize($data['username'], $role);
 			}
+			$authenticated = $session->isAuthenticated();
 		}
 		if (FALSE === $authenticated) {
 			syslog(LOG_ALERT, sprintf("Unauthorized login attempt from %s ".
@@ -81,7 +81,7 @@ class AuthenticationRpc extends OMVRpc {
 	}
 
 	/**
-	 * Logout user
+	 * Logout user.
 	 */
 	function logout() {
 //		$this->debug(var_export(func_get_args(), TRUE));

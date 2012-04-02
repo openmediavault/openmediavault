@@ -21,20 +21,24 @@
 
 Ext.ns("OMV.form");
 
+/**
+ * @class OMV.form.PasswordField
+ * @derived Ext.form.TriggerField
+ */
 OMV.form.PasswordField = function(config) {
 	var initialConfig = {
 		defaultAutoCreate: {
-			tag: "input",
-			type: "password",
-			size: "20",
-			autocomplete: "off"
+			"tag": "input",
+			"type": "password",
+			"size": "20",
+			"autocomplete": "off"
 		},
 		triggerConfig: {
-			tag: "img",
-			src: Ext.BLANK_IMAGE_URL,
-			alt: "",
-			cls: "x-form-trigger x-form-password-trigger",
-			"ext:qtip": "Show password"
+			"tag": "img",
+			"src": Ext.BLANK_IMAGE_URL,
+			"alt": "",
+			"cls": "x-form-trigger x-form-password-trigger",
+			"ext:qtip": _("Show password")
 		}
 	};
 	Ext.apply(initialConfig, config);
@@ -47,7 +51,7 @@ Ext.extend(OMV.form.PasswordField, Ext.form.TriggerField, {
 		}
 		var el = this.getEl();
 		var newEl = document.createElement("input");
-		newEl.type = (el.dom.type == "text") ? "password" : "text";
+		newEl.type = (el.dom.type === "text") ? "password" : "text";
 		if (el.dom.value) newEl.value = el.dom.value;
 		if (el.dom.name) newEl.name = el.dom.name;
 		if (el.dom.id) newEl.id = el.dom.id;

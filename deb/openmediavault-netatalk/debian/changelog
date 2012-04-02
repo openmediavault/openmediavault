@@ -1,3 +1,9 @@
+openmediavault-netatalk (0.3) stable; urgency=low
+
+  * Adapt to openmediavault 0.3
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Apr 2012 22:25:29 +0200
+
 openmediavault-netatalk (0.2.6) stable; urgency=low
 
   * Mantis 0000374: mDNS/DNS-SD

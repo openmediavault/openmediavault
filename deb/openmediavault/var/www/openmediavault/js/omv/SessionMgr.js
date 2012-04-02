@@ -37,6 +37,7 @@ OMV.SessionMgr = function() {
 					// Reset the session data
 					this.username = null;
 					// Reload page
+					OMV.confirmPageUnload = false;
 					document.location.reload(true);
 				} else {
 					OMV.MessageBox.error(null, error);

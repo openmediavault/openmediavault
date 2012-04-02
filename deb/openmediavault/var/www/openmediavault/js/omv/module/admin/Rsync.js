@@ -26,69 +26,71 @@
 // require("js/omv/FormPanelExt.js")
 // require("js/omv/grid/TBarGridPanel.js")
 // require("js/omv/CfgObjectDialog.js")
+// require("js/omv/CfgObjectTabDialog.js")
+// require("js/omv/form/PasswordField.js")
 // require("js/omv/form/SharedFolderComboBox.js")
 // require("js/omv/form/plugins/FieldInfo.js")
 // require("js/omv/module/admin/Logs.js")
 // require("js/omv/util/Format.js")
 
-Ext.ns("OMV.Module.Services");
-
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("services", "rsync", {
-	text: "Rsync",
+	text: _("Rsync"),
 	icon: "images/rsync.png"
 });
 
+Ext.ns("OMV.Module.Services.Rsyncd");
+
 /**
- * @class OMV.Module.Services.RsyncSrvTabPanel
+ * @class OMV.Module.Services.Rsyncd.TabPanel
  * @derived Ext.TabPanel
  */
-OMV.Module.Services.RsyncSrvTabPanel = function(config) {
+OMV.Module.Services.Rsyncd.TabPanel = function(config) {
 	var initialConfig = {
 		border: false,
 		activeTab: 0,
 		layoutOnTabChange: true
 	};
 	Ext.apply(initialConfig, config);
-	OMV.Module.Services.RsyncSrvTabPanel.superclass.constructor.call(
+	OMV.Module.Services.Rsyncd.TabPanel.superclass.constructor.call(
 	  this, initialConfig);
 };
-Ext.extend(OMV.Module.Services.RsyncSrvTabPanel, Ext.TabPanel, {
+Ext.extend(OMV.Module.Services.Rsyncd.TabPanel, Ext.TabPanel, {
 	initComponent : function() {
 		this.items = [
-			new OMV.Module.Services.RsyncSrvSettingsPanel,
-			new OMV.Module.Services.RsyncSrvModuleGridPanel
+			new OMV.Module.Services.Rsyncd.SettingsPanel,
+			new OMV.Module.Services.Rsyncd.ModuleGridPanel
 		];
-		OMV.Module.Services.RsyncSrvTabPanel.superclass.initComponent.apply(
+		OMV.Module.Services.Rsyncd.TabPanel.superclass.initComponent.apply(
 		  this, arguments);
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("services", "rsync", {
-	cls: OMV.Module.Services.RsyncSrvTabPanel,
-	title: "Server",
+	cls: OMV.Module.Services.Rsyncd.TabPanel,
+	title: _("Server"),
 	position: 10
 });
 
 /**
- * @class OMV.Module.Services.RsyncSrvSettingsPanel
+ * @class OMV.Module.Services.Rsyncd.SettingsPanel
  * @derived OMV.FormPanelExt
  */
-OMV.Module.Services.RsyncSrvSettingsPanel = function(config) {
+OMV.Module.Services.Rsyncd.SettingsPanel = function(config) {
 	var initialConfig = {
-		title: "Settings",
+		title: _("Settings"),
 		rpcService: "Rsyncd",
 		rpcGetMethod: "getSettings",
 		rpcSetMethod: "setSettings"
 	};
 	Ext.apply(initialConfig, config);
-	OMV.Module.Services.RsyncSrvSettingsPanel.superclass.constructor.call(
+	OMV.Module.Services.Rsyncd.SettingsPanel.superclass.constructor.call(
 	  this, initialConfig);
 };
-Ext.extend(OMV.Module.Services.RsyncSrvSettingsPanel, OMV.FormPanelExt, {
+Ext.extend(OMV.Module.Services.Rsyncd.SettingsPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -96,13 +98,13 @@ Ext.extend(OMV.Module.Services.RsyncSrvSettingsPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1
 			},{
 				xtype: "numberfield",
 				name: "port",
-				fieldLabel: "Port",
+				fieldLabel: _("Port"),
 				vtype: "port",
 				minValue: 1,
 				maxValue: 65535,
@@ -113,7 +115,7 @@ Ext.extend(OMV.Module.Services.RsyncSrvSettingsPanel, OMV.FormPanelExt, {
 			},{
 				xtype: "textfield",
 				name: "extraoptions",
-				fieldLabel: "Extra options",
+				fieldLabel: _("Extra options"),
 				allowBlank: true,
 				autoCreate: {
 					tag: "textarea",
@@ -122,34 +124,35 @@ Ext.extend(OMV.Module.Services.RsyncSrvSettingsPanel, OMV.FormPanelExt, {
 					cols: "65"
 				},
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> for more details."
+				infoText: _("Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> for more details."),
+				anchor: "100%"
 			}]
 		}];
 	}
 });
 
 /**
- * @class OMV.Module.Services.RsyncSrvModuleGridPanel
+ * @class OMV.Module.Services.Rsyncd.ModuleGridPanel
  * @derived OMV.grid.TBarGridPanel
  */
-OMV.Module.Services.RsyncSrvModuleGridPanel = function(config) {
+OMV.Module.Services.Rsyncd.ModuleGridPanel = function(config) {
 	var initialConfig = {
-		title: "Modules",
+		title: _("Modules"),
 		hidePagingToolbar: false,
 		stateId: "72d6ab93-f08d-4d34-820b-fcbb832f723c",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Shared folder",
+				header: _("Shared folder"),
 				sortable: true,
 				dataIndex: "sharedfoldername",
 				id: "sharedfoldername"
 			},{
-				header: "Name",
+				header: _("Name"),
 				sortable: true,
 				dataIndex: "name",
 				id: "name"
 			},{
-				header: "Comment",
+				header: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
 				id: "comment"
@@ -157,16 +160,19 @@ OMV.Module.Services.RsyncSrvModuleGridPanel = function(config) {
 		})
 	};
 	Ext.apply(initialConfig, config);
-	OMV.Module.Services.RsyncSrvModuleGridPanel.superclass.constructor.call(
+	OMV.Module.Services.Rsyncd.ModuleGridPanel.superclass.constructor.call(
 	  this, initialConfig);
 };
-Ext.extend(OMV.Module.Services.RsyncSrvModuleGridPanel,
+Ext.extend(OMV.Module.Services.Rsyncd.ModuleGridPanel,
   OMV.grid.TBarGridPanel, {
 	initComponent : function() {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("Rsyncd", "getModuleList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "Rsyncd",
+				"method": "getModuleList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				totalProperty: "total",
@@ -179,12 +185,12 @@ Ext.extend(OMV.Module.Services.RsyncSrvModuleGridPanel,
     			]
 			})
 		});
-		OMV.Module.Services.RsyncSrvModuleGridPanel.superclass.initComponent.
+		OMV.Module.Services.Rsyncd.ModuleGridPanel.superclass.initComponent.
 		  apply(this, arguments);
 	},
 
 	cbAddBtnHdl : function() {
-		var wnd = new OMV.Module.Services.RsyncSrvModulePropertyDialog({
+		var wnd = new OMV.Module.Services.Rsyncd.ModulePropertyDialog({
 			uuid: OMV.UUID_UNDEFINED,
 			listeners: {
 				submit: function() {
@@ -199,7 +205,7 @@ Ext.extend(OMV.Module.Services.RsyncSrvModuleGridPanel,
 	cbEditBtnHdl : function() {
 		var selModel = this.getSelectionModel();
 		var record = selModel.getSelected();
-		var wnd = new OMV.Module.Services.RsyncSrvModulePropertyDialog({
+		var wnd = new OMV.Module.Services.Rsyncd.ModulePropertyDialog({
 			uuid: record.get("uuid"),
 			listeners: {
 				submit: function() {
@@ -213,129 +219,219 @@ Ext.extend(OMV.Module.Services.RsyncSrvModuleGridPanel,
 
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "Rsyncd",
-			"deleteModule", [ record.get("uuid") ]);
+		  "deleteModule", { "uuid": record.get("uuid") });
 	}
 });
 
 /**
- * @class OMV.Module.Services.RsyncSrvModulePropertyDialog
+ * @class OMV.Module.Services.Rsyncd.ModulePropertyDialog
+ * @derived OMV.CfgObjectTabDialog
  */
-OMV.Module.Services.RsyncSrvModulePropertyDialog = function(config) {
+OMV.Module.Services.Rsyncd.ModulePropertyDialog = function(config) {
 	var initialConfig = {
 		rpcService: "Rsyncd",
 		rpcGetMethod: "getModule",
 		rpcSetMethod: "setModule",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " module",
-		width: 700,
-		height: 400
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add module") : _("Edit module"),
+		width: 600,
+		height: 450
 	};
 	Ext.apply(initialConfig, config);
-	OMV.Module.Services.RsyncSrvModulePropertyDialog.superclass.constructor.call(
-	  this, initialConfig);
+	OMV.Module.Services.Rsyncd.ModulePropertyDialog.superclass.
+	  constructor.call(this, initialConfig);
 };
-Ext.extend(OMV.Module.Services.RsyncSrvModulePropertyDialog,
-	OMV.CfgObjectDialog, {
+Ext.extend(OMV.Module.Services.Rsyncd.ModulePropertyDialog,
+  OMV.CfgObjectTabDialog, {
+	getTabItems : function() {
+		return [
+			new OMV.Module.Services.Rsyncd.ModuleGeneralPanel({
+				"uuid": this.uuid
+			}),
+			new OMV.Module.Services.Rsyncd.ModuleAuthUsersGrid
+		];
+	},
+
+	isValid : function() {
+		var valid = OMV.Module.Services.Rsyncd.ModulePropertyDialog.
+		  superclass.isValid.call(this);
+		if (!valid)
+			return valid;
+		var values = this.getValues();
+		if ((values.authusers === true) && (values.users.length == 0)) {
+			var tab = this.getTab().find("title", _("General"));
+			var basicForm = tab[0].getForm();
+			basicForm.markInvalid([
+				{ id: "authusers", msg: _("No users defined") }
+			]);
+			this.markInvalid(tab[0]);
+			valid = false;
+		}
+		return valid;
+	}
+});
+
+/**
+ * @class OMV.Module.Services.Rsyncd.ModuleGeneralPanel
+ * @derived OMV.form.FormPanel
+ */
+OMV.Module.Services.Rsyncd.ModuleGeneralPanel = function(config) {
+	var initialConfig = {
+		title: _("General"),
+		autoScroll: true,
+		trackResetOnLoad: true,
+		defaults: {
+			anchor: "-" + Ext.getScrollBarWidth()
+		}
+	};
+	Ext.apply(initialConfig, config);
+	OMV.Module.Services.Rsyncd.ModuleGeneralPanel.superclass.
+	  constructor.call(this, initialConfig);
+};
+Ext.extend(OMV.Module.Services.Rsyncd.ModuleGeneralPanel, OMV.form.FormPanel, {
 	initComponent : function() {
-		OMV.Module.Services.RsyncSrvModulePropertyDialog.superclass.initComponent.apply(
-		  this, arguments);
-		this.on("load", this._updateFormFields, this);
-	},
-
-	getFormConfig : function() {
-		return {
-			autoScroll: true,
-			defaults: {
-				anchor: "-" + Ext.getScrollBarWidth(),
-				labelSeparator: ""
-			}
-		};
-	},
-
-	getFormItems : function() {
-		return [{
+		this.items = [{
 			xtype: "textfield",
 			name: "name",
-			fieldLabel: "Name",
+			fieldLabel: _("Name"),
 			allowBlank: false,
 			vtype: "sharename",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The name of the share."
+			infoText: _("The name of the share.")
 		},{
 			xtype: "textfield",
 			name: "comment",
-			fieldLabel: "Comment",
+			fieldLabel: _("Comment"),
 			allowBlank: true
 		},{
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",
 			hiddenName: "sharedfolderref",
-			fieldLabel: "Shared folder",
+			readOnly: (this.uuid !== OMV.UUID_UNDEFINED),
+			fieldLabel: _("Shared folder"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The location of the files to share. Make sure the user 'nobody' has the required permission for the shared folder."
+			infoText: _("The location of the files to share.")
+		},{
+			xtype: "combo",
+			name: "uid",
+			hiddenName: "uid",
+			fieldLabel: _("User"),
+			allowBlank: false,
+			editable: false,
+			triggerAction: "all",
+			store: new OMV.data.Store({
+				remoteSort: false,
+				proxy: new OMV.data.DataProxy({
+					"service": "UserMgmt",
+					"method": "enumerateAllUsers",
+					"appendPagingParams": false
+				}),
+				reader: new Ext.data.JsonReader({
+					idProperty: "name",
+					fields: [
+						{ name: "name" }
+					]
+				})
+			}),
+			emptyText: _("Select a user ..."),
+			valueField: "name",
+			displayField: "name",
+			value: "nobody",
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: _("This option specifies the user name that file transfers to and from that module should take place.")
+		},{
+			xtype: "combo",
+			name: "gid",
+			hiddenName: "gid",
+			fieldLabel: _("Group"),
+			allowBlank: false,
+			editable: false,
+			triggerAction: "all",
+			store: new OMV.data.Store({
+				remoteSort: false,
+				proxy: new OMV.data.DataProxy({
+					"service": "UserMgmt",
+					"method": "enumerateAllGroups",
+					"appendPagingParams": false
+				}),
+				reader: new Ext.data.JsonReader({
+					idProperty: "name",
+					fields: [
+						{ name: "name" }
+					]
+				})
+			}),
+			emptyText: _("Select a group ..."),
+			valueField: "name",
+			displayField: "name",
+			value: "users",
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: _("This option specifies the group name that file transfers to and from that module should take place.")
 		},{
 			xtype: "checkbox",
-			name: "guestok",
-			fieldLabel: "Public",
+			name: "authusers",
+			fieldLabel: _("Authenticate users"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "If enabled then no password is required to connect to the share"
+			boxLabel: _("Enable user authentication"),
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: _("If set then the client will be challenged to supply a username and password to connect to the module.")
 		},{
 			xtype: "checkbox",
 			name: "readonly",
-			fieldLabel: "Read only",
+			fieldLabel: _("Read only"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Set read only",
+			boxLabel: _("Set read only"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "If this parameter is set, then any attempted uploads will fail."
+			infoText: _("If this option is set, then any attempted uploads will fail.")
 		},{
 			xtype: "checkbox",
 			name: "writeonly",
-			fieldLabel: "Write only",
+			fieldLabel: _("Write only"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Set write only",
+			boxLabel: _("Set write only"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "If this parameter is set, then any attempted downloads will fail."
+			infoText: _("If this option is set, then any attempted downloads will fail.")
+		},{
+			xtype: "checkbox",
+			name: "list",
+			fieldLabel: _("List"),
+			checked: true,
+			inputValue: 1,
+			boxLabel: _("Enable module listing"),
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: _("This option determines if this module should be listed when the client asks for a listing of available modules.")
 		},{
 			xtype: "numberfield",
 			name: "maxconnections",
-			fieldLabel: "Max. connections",
+			fieldLabel: _("Max. connections"),
 			minValue: 0,
 			allowDecimals: false,
 			allowNegative: false,
 			allowBlank: false,
 			value: 0,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Specifies the maximum number of simultaneous connections. 0 means no limit."
-		},{
-			xtype: "checkbox",
-			name: "list",
-			fieldLabel: "List",
-			checked: true,
-			inputValue: 1,
-			boxLabel: "Enable module listing",
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "This option determines if this module should be listed when the client asks for a listing of available modules."
+			infoText: _("This option specifies the maximum number of simultaneous connections. 0 means no limit.")
 		},{
 			xtype: "textfield",
 			name: "hostsallow",
-			fieldLabel: "Hosts allow",
+			fieldLabel: _("Hosts allow"),
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "This option is a comma, space, or tab delimited set of hosts which are permitted to access this module. You can specify the hosts by name or IP number. Leave this field empty to use default settings."
+			infoText: _("This option is a comma, space, or tab delimited set of hosts which are permitted to access this module. You can specify the hosts by name or IP number. Leave this field empty to use default settings.")
 		},{
 			xtype: "textfield",
 			name: "hostsdeny",
-			fieldLabel: "Hosts deny",
+			fieldLabel: _("Hosts deny"),
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "This option is a comma, space, or tab delimited set of host which are NOT permitted to access this module. Where the lists conflict, the allow list takes precedence. In the event that it is necessary to deny all by default, use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify to the hosts allow parameter those hosts that should be permitted access. Leave this field empty to use default settings."
+			infoText: _("This option is a comma, space, or tab delimited set of host which are NOT permitted to access this module. Where the lists conflict, the allow list takes precedence. In the event that it is necessary to deny all by default, use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify to the hosts allow parameter those hosts that should be permitted access. Leave this field empty to use default settings.")
 		},{
 			xtype: "textfield",
 			name: "extraoptions",
-			fieldLabel: "Extra options",
+			fieldLabel: _("Extra options"),
 			allowBlank: true,
 			autoCreate: {
 				tag: "textarea",
@@ -344,32 +440,199 @@ Ext.extend(OMV.Module.Services.RsyncSrvModulePropertyDialog,
 				cols: "65"
 			},
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> for more details."
+			infoText: _("Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> for more details.")
 		}];
+		OMV.Module.Services.Rsyncd.ModuleGeneralPanel.superclass.
+		  initComponent.apply(this, arguments);
+		this.on("load", this._updateFormFields, this);
 	},
 
-	/**
-	 * Private function to update the states of various form fields.
-	 */
-	_updateFormFields : function() {
-		var field = this.findFormField("sharedfolderref");
-		if ((this.uuid !== OMV.UUID_UNDEFINED) && Ext.isDefined(field)) {
-			field.setReadOnly(true);
+	isValid : function() {
+		var valid = OMV.Module.Services.Rsyncd.ModuleGeneralPanel.
+		  superclass.isValid.call(this);
+		if (!valid)
+			return valid;
+		// Do additional checks
+		var values = this.getValues();
+		if (values.readonly && values.writeonly) {
+			var basicForm = this.getForm();
+			var msg = _("Fields must be exclusive");
+			basicForm.markInvalid([
+				{ id: "readonly", msg: msg },
+				{ id: "writeonly", msg: msg }
+			]);
+			valid = false;
 		}
+		return valid;
 	}
 });
 
 /**
- * @class OMV.Module.Services.RsyncJobsGridPanel
+ * @class OMV.Module.Services.Rsyncd.ModuleAuthUsersGrid
  * @derived OMV.grid.TBarGridPanel
  */
-OMV.Module.Services.RsyncJobsGridPanel = function(config) {
+OMV.Module.Services.Rsyncd.ModuleAuthUsersGrid = function(config) {
+	var initialConfig = {
+		title: _("Users"),
+		mode: "local",
+		stateId: "42a21c5a-3dc5-11e1-9f73-af7c01c6821f",
+		colModel: new Ext.grid.ColumnModel({
+			columns: [{
+				header: _("Name"),
+				sortable: true,
+				dataIndex: "name",
+				id: "name"
+			},{
+				header: _("Password"),
+				sortable: false,
+				dataIndex: "password",
+				id: "password",
+				renderer: function(val, cell, record, row, col, store) {
+					return val.replace(/./g, "*");
+				}
+			}]
+		})
+	};
+	Ext.apply(initialConfig, config);
+	OMV.Module.Services.Rsyncd.ModuleAuthUsersGrid.superclass.constructor.
+	  call(this, initialConfig);
+};
+Ext.extend(OMV.Module.Services.Rsyncd.ModuleAuthUsersGrid,
+  OMV.grid.TBarGridPanel, {
+	initComponent : function() {
+		this.store = new OMV.data.Store({
+			remoteSort: false,
+			reader: new Ext.data.JsonReader({
+				idProperty: "name",
+				fields: [
+					{ name: "name" },
+					{ name: "password" }
+    			]
+			})
+		});
+		OMV.Module.Services.Rsyncd.ModuleAuthUsersGrid.superclass.
+		  initComponent.apply(this, arguments);
+	},
+
+	cbAddBtnHdl : function() {
+		var wnd = new OMV.Module.Services.Rsyncd.ModuleAuthUserPropertyDialog({
+			title: _("Add user"),
+			listeners: {
+				submit: function(dlg, data) {
+					// Check if user already exists
+					if (this.store.findExact("name", data.name) != -1) {
+						OMV.MessageBox.failure(null, "User already exists.");
+						return;
+					}
+					// Add new record
+					var record = new this.store.recordType(data);
+					record.markDirty();
+					this.store.add(record);
+				},
+				scope: this
+			}
+		});
+		wnd.show();
+	},
+
+	cbEditBtnHdl : function() {
+		var selModel = this.getSelectionModel();
+		var record = selModel.getSelected();
+		var wnd = new OMV.Module.Services.Rsyncd.ModuleAuthUserPropertyDialog({
+			title: _("Edit user"),
+			listeners: {
+				submit: function(dlg, data) {
+					// Update the selected record
+					record.beginEdit();
+					for (var prop in data) {
+						record.set(prop, data[prop]);
+					}
+					record.endEdit();
+				},
+				scope: this
+			}
+		});
+		wnd.findFormField("name").setReadOnly(true);
+		wnd.setValues(record.data);
+		wnd.show();
+	},
+
+	/**
+	 * @method setValues
+	 * Load values into the grids store.
+	 * @param values The values to load into the grids store.
+	 */
+	setValues : function(values) {
+		OMV.Module.Services.Rsyncd.ModuleAuthUsersGrid.superclass.
+		  setValues.call(this, values.users);
+	},
+
+	/**
+	 * @method getValues
+	 * Returns the records of the grids store as object with key/value pairs.
+	 * @return The records of the grids store as key/value pairs.
+	 */
+	getValues : function() {
+		var users = OMV.Module.Services.Rsyncd.ModuleAuthUsersGrid.superclass.
+		  getValues.call(this);
+		var values = {
+			users: users
+		};
+		return values;
+	}
+});
+
+/**
+ * @class OMV.Module.Services.Rsyncd.ModuleAuthUserPropertyDialog
+ * @derived OMV.CfgObjectDialog
+ */
+OMV.Module.Services.Rsyncd.ModuleAuthUserPropertyDialog = function(config) {
+	var initialConfig = {
+		mode: "local",
+		hideReset: true,
+		width: 300,
+		autoHeight: true
+	};
+	Ext.apply(initialConfig, config);
+	OMV.Module.Services.Rsyncd.ModuleAuthUserPropertyDialog.superclass.
+	  constructor.call(this, initialConfig);
+};
+Ext.extend(OMV.Module.Services.Rsyncd.ModuleAuthUserPropertyDialog,
+  OMV.CfgObjectDialog, {
+	getFormConfig : function() {
+		return {
+			autoHeight: true
+		}
+	},
+
+	getFormItems : function() {
+		return [{
+			xtype: "textfield",
+			name: "name",
+			fieldLabel: _("Name"),
+			allowBlank: false
+		},{
+			xtype: "passwordfield",
+			name: "password",
+			fieldLabel: _("Password"),
+			allowBlank: false
+		}];
+	}
+});
+
+Ext.ns("OMV.Module.Services.Rsync");
+
+/**
+ * @class OMV.Module.Services.Rsync.JobsGridPanel
+ * @derived OMV.grid.TBarGridPanel
+ */
+OMV.Module.Services.Rsync.JobsGridPanel = function(config) {
 	var initialConfig = {
 		hidePagingToolbar: false,
 		stateId: "31924bfb-8e25-4ada-82f4-99a3a5c9e9a5",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Enabled",
+				header: _("Enabled"),
 				sortable: true,
 				dataIndex: "enable",
 				id: "enable",
@@ -377,17 +640,17 @@ OMV.Module.Services.RsyncJobsGridPanel = function(config) {
 				width: 60,
 				renderer: OMV.util.Format.booleanRenderer()
 			},{
-				header: "Source",
+				header: _("Source"),
 				sortable: true,
 				dataIndex: "srcname",
 				id: "srcname"
 			},{
-				header: "Destination",
+				header: _("Destination"),
 				sortable: true,
 				dataIndex: "destname",
 				id: "destname"
 			},{
-				header: "Comment",
+				header: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
 				id: "comment"
@@ -395,15 +658,18 @@ OMV.Module.Services.RsyncJobsGridPanel = function(config) {
 		})
 	};
 	Ext.apply(initialConfig, config);
-	OMV.Module.Services.RsyncJobsGridPanel.superclass.constructor.call(
+	OMV.Module.Services.Rsync.JobsGridPanel.superclass.constructor.call(
 	  this, initialConfig);
 };
-Ext.extend(OMV.Module.Services.RsyncJobsGridPanel, OMV.grid.TBarGridPanel, {
+Ext.extend(OMV.Module.Services.Rsync.JobsGridPanel, OMV.grid.TBarGridPanel, {
 	initComponent : function() {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("Rsync", "getList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "Rsync",
+				"method": "getList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				totalProperty: "total",
@@ -417,18 +683,18 @@ Ext.extend(OMV.Module.Services.RsyncJobsGridPanel, OMV.grid.TBarGridPanel, {
     			]
 			})
 		});
-		OMV.Module.Services.RsyncJobsGridPanel.superclass.initComponent.
+		OMV.Module.Services.Rsync.JobsGridPanel.superclass.initComponent.
 		  apply(this, arguments);
 	},
 
 	initToolbar : function() {
-		var tbar = OMV.Module.Services.RsyncJobsGridPanel.superclass.
+		var tbar = OMV.Module.Services.Rsync.JobsGridPanel.superclass.
 		  initToolbar.apply(this);
 		// Add 'Run' button to top toolbar
 		tbar.insert(2, {
 			id: this.getId() + "-run",
 			xtype: "button",
-			text: "Run",
+			text: _("Run"),
 			icon: "images/run.png",
 			handler: this.cbRunBtnHdl,
 			scope: this,
@@ -438,8 +704,8 @@ Ext.extend(OMV.Module.Services.RsyncJobsGridPanel, OMV.grid.TBarGridPanel, {
 	},
 
 	cbSelectionChangeHdl : function(model) {
-		OMV.Module.Services.RsyncJobsGridPanel.superclass.cbSelectionChangeHdl.apply(
-		  this, arguments);
+		OMV.Module.Services.Rsync.JobsGridPanel.superclass.
+		  cbSelectionChangeHdl.apply(this, arguments);
 		// Process additional buttons
 		var records = model.getSelections();
 		var tbarRunCtrl = this.getTopToolbar().findById(this.getId() + "-run");
@@ -453,7 +719,7 @@ Ext.extend(OMV.Module.Services.RsyncJobsGridPanel, OMV.grid.TBarGridPanel, {
 	},
 
 	cbAddBtnHdl : function() {
-		var wnd = new OMV.Module.Services.RsyncJobPropertyDialog({
+		var wnd = new OMV.Module.Services.Rsync.JobPropertyDialog({
 			uuid: OMV.UUID_UNDEFINED,
 			listeners: {
 				submit: function() {
@@ -468,7 +734,7 @@ Ext.extend(OMV.Module.Services.RsyncJobsGridPanel, OMV.grid.TBarGridPanel, {
 	cbEditBtnHdl : function() {
 		var selModel = this.getSelectionModel();
 		var record = selModel.getSelected();
-		var wnd = new OMV.Module.Services.RsyncJobPropertyDialog({
+		var wnd = new OMV.Module.Services.Rsync.JobPropertyDialog({
 			uuid: record.get("uuid"),
 			listeners: {
 				submit: function() {
@@ -482,17 +748,17 @@ Ext.extend(OMV.Module.Services.RsyncJobsGridPanel, OMV.grid.TBarGridPanel, {
 
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "Rsync",
-			"delete", [ record.get("uuid") ]);
+		  "delete", { "uuid": record.get("uuid") });
 	},
 
 	cbRunBtnHdl : function() {
 		var selModel = this.getSelectionModel();
 		var record = selModel.getSelected();
 		var wnd = new OMV.ExecCmdDialog({
-			title: "Execute rsync job",
+			title: _("Execute rsync job"),
 			rpcService: "Rsync",
 			rpcMethod: "execute",
-			rpcArgs: record.get("uuid"),
+			rpcArgs: { "uuid": record.get("uuid") },
 			listeners: {
 				exception: function(wnd, error) {
 					OMV.MessageBox.error(null, error);
@@ -504,32 +770,32 @@ Ext.extend(OMV.Module.Services.RsyncJobsGridPanel, OMV.grid.TBarGridPanel, {
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("services", "rsync", {
-	cls: OMV.Module.Services.RsyncJobsGridPanel,
-	title: "Jobs",
+	cls: OMV.Module.Services.Rsync.JobsGridPanel,
+	title: _("Jobs"),
 	position: 20
 });
 
 /**
- * @class OMV.Module.Services.RsyncJobPropertyDialog
+ * @class OMV.Module.Services.Rsync.JobPropertyDialog
  */
-OMV.Module.Services.RsyncJobPropertyDialog = function(config) {
+OMV.Module.Services.Rsync.JobPropertyDialog = function(config) {
 	var initialConfig = {
 		rpcService: "Rsync",
 		rpcGetMethod: "get",
 		rpcSetMethod: "set",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " rsync job",
-		width: 700,
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add rsync job") : _("Edit rsync job"),
+		width: 570,
 		height: 400
 	};
 	Ext.apply(initialConfig, config);
-	OMV.Module.Services.RsyncJobPropertyDialog.superclass.constructor.call(
-	  this, initialConfig);
+	OMV.Module.Services.Rsync.JobPropertyDialog.superclass.constructor.
+	  call(this, initialConfig);
 };
-Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
+Ext.extend(OMV.Module.Services.Rsync.JobPropertyDialog, OMV.CfgObjectDialog, {
 	initComponent : function() {
-		OMV.Module.Services.RsyncJobPropertyDialog.superclass.initComponent.apply(
-		  this, arguments);
+		OMV.Module.Services.Rsync.JobPropertyDialog.superclass.initComponent.
+		  apply(this, arguments);
 		this.on("load", this._updateFormFields, this);
 		this.on("show", this._updateFormFields, this);
 	},
@@ -548,25 +814,25 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 		return [{
 			xtype: "checkbox",
 			name: "enable",
-			fieldLabel: "Enable",
+			fieldLabel: _("Enable"),
 			checked: true,
 			inputValue: 1
 		},{
 			xtype: "textfield",
 			name: "comment",
-			fieldLabel: "Comment",
+			fieldLabel: _("Comment"),
 			allowBlank: true
 		},{
 			xtype: "combo",
 			name: "type",
 			hiddenName: "type",
-			fieldLabel: "Type",
+			fieldLabel: _("Type"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ "local","Local" ],
-					[ "remote","Remote" ]
+					[ "local",_("Local") ],
+					[ "remote",_("Remote") ]
 				]
 			}),
 			displayField: "text",
@@ -586,13 +852,13 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "combo",
 			name: "mode",
 			hiddenName: "mode",
-			fieldLabel: "Mode",
+			fieldLabel: _("Mode"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ "push","Push" ],
-					[ "pull","Pull" ]
+					[ "push",_("Push") ],
+					[ "pull",_("Pull") ]
 				]
 			}),
 			displayField: "text",
@@ -612,33 +878,43 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "sharedfoldercombo",
 			name: "srcsharedfolderref",
 			hiddenName: "srcsharedfolderref",
-			fieldLabel: "Source shared folder",
+			fieldLabel: _("Source shared folder"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The source shared folder."
+			infoText: _("The source shared folder.")
 		},{
 			xtype: "textfield",
 			name: "srcuri",
-			fieldLabel: "Source server",
+			fieldLabel: _("Source server"),
 			allowBlank: true,
+			hidden: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The source remote server, e.g. rsync://[USER@]HOST[:PORT]/DEST. Please ensure that the public SSH key from user root has been imported on the source server to allow key based authentication."
+			infoText: _("The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or rsync://[USER@]HOST[:PORT]/SRC.")
 		},{
 			xtype: "sharedfoldercombo",
 			name: "destsharedfolderref",
 			hiddenName: "destsharedfolderref",
-			fieldLabel: "Destination shared folder",
+			fieldLabel: _("Destination shared folder"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The source shared folder."
+			infoText: _("The source shared folder.")
 		},{
 			xtype: "textfield",
 			name: "desturi",
-			fieldLabel: "Destination server",
+			fieldLabel: _("Destination server"),
 			allowBlank: true,
+			hidden: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The destination remote server, e.g. rsync://[USER@]HOST[:PORT]/DEST. Please ensure that the public SSH key from user root has been imported on the destination server to allow key based authentication."
+			infoText: _("The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST.")
+		},{
+			xtype: "passwordfield",
+			name: "password",
+			fieldLabel: _("Password"),
+			allowBlank: true,
+			hidden: true,
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: _("The password that is used for access via rsync daemon. Note, this is not used for remote shell transport such as ssh.")
 		},{
 			xtype: "compositefield",
-			fieldLabel: "Minute",
+			fieldLabel: _("Minute"),
 			combineErrors: false,
 			items: [{
 				xtype: "combo",
@@ -657,12 +933,12 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 				fieldLabel: "",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Every N minute",
+				boxLabel: _("Every N minute"),
 				width: 140
 			}]
 		},{
 			xtype: "compositefield",
-			fieldLabel: "Hour",
+			fieldLabel: _("Hour"),
 			combineErrors: false,
 			items: [{
 				xtype: "combo",
@@ -686,12 +962,12 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 				fieldLabel: "",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Every N hour",
+				boxLabel: _("Every N hour"),
 				width: 140
 			}]
 		},{
 			xtype: "compositefield",
-			fieldLabel: "Day of month",
+			fieldLabel: _("Day of month"),
 			combineErrors: false,
 			items: [{
 				xtype: "combo",
@@ -715,14 +991,14 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 				fieldLabel: "",
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Every N day of month",
+				boxLabel: _("Every N day of month"),
 				width: 140
 			}]
 		},{
 			xtype: "combo",
 			name: "month",
 			hiddenName: "month",
-			fieldLabel: "Month",
+			fieldLabel: _("Month"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value", "text" ],
@@ -738,7 +1014,7 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "combo",
 			name: "dayofweek",
 			hiddenName: "dayofweek",
-			fieldLabel: "Day of week",
+			fieldLabel: _("Day of week"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value", "text" ],
@@ -753,82 +1029,82 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 		},{
 			xtype: "checkbox",
 			name: "recursive",
-			fieldLabel: "Recursive",
+			fieldLabel: _("Recursive"),
 			checked: true,
 			inputValue: 1,
-			boxLabel: "Recurse into directories"
+			boxLabel: _("Recurse into directories")
 		},{
 			xtype: "checkbox",
 			name: "times",
-			fieldLabel: "Times",
+			fieldLabel: _("Times"),
 			checked: true,
 			inputValue: 1,
-			boxLabel: "Preserve modification times"
+			boxLabel: _("Preserve modification times")
 		},{
 			xtype: "checkbox",
 			name: "compress",
-			fieldLabel: "Compress",
+			fieldLabel: _("Compress"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Compress file data during the transfer"
+			boxLabel: _("Compress file data during the transfer")
 		},{
 			xtype: "checkbox",
 			name: "archive",
-			fieldLabel: "Archive",
+			fieldLabel: _("Archive"),
 			checked: true,
 			inputValue: 1,
-			boxLabel: "Enable archive mode"
+			boxLabel: _("Enable archive mode")
 		},{
 			xtype: "checkbox",
 			name: "delete",
-			fieldLabel: "Delete",
+			fieldLabel: _("Delete"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Delete files on the receiving side that don't exist on sender"
+			boxLabel: _("Delete files on the receiving side that don't exist on sender")
 		},{
 			xtype: "checkbox",
 			name: "quiet",
-			fieldLabel: "Quiet",
+			fieldLabel: _("Quiet"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Suppress non-error messages"
+			boxLabel: _("Suppress non-error messages")
 		},{
 			xtype: "checkbox",
 			name: "perms",
-			fieldLabel: "Preserve permissions",
+			fieldLabel: _("Preserve permissions"),
 			checked: true,
 			inputValue: 1,
-			boxLabel: "Set the destination permissions to be the same as the source permissions"
+			boxLabel: _("Set the destination permissions to be the same as the source permissions")
 		},{
 			xtype: "checkbox",
 			name: "acls",
-			fieldLabel: "Preserve ACLs",
+			fieldLabel: _("Preserve ACLs"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Update the destination ACLs to be the same as the source ACLs"
+			boxLabel: _("Update the destination ACLs to be the same as the source ACLs")
 		},{
 			xtype: "checkbox",
 			name: "xattrs",
-			fieldLabel: "Preserve extended attributes",
+			fieldLabel: _("Preserve extended attributes"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Update the destination extended attributes to be the same as the local ones"
+			boxLabel: _("Update the destination extended attributes to be the same as the local ones")
 		},{
 			xtype: "checkbox",
 			name: "sendemail",
-			fieldLabel: "Send email",
+			fieldLabel: _("Send email"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Send command output via email",
+			boxLabel: _("Send command output via email"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "An email messages with the command output (if any produced) is send to the administrator."
+			infoText: _("An email messages with the command output (if any produced) is send to the administrator.")
 		},{
 			xtype: "textfield",
 			name: "extraoptions",
-			fieldLabel: "Extra options",
+			fieldLabel: _("Extra options"),
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> for more details."
+			infoText: _("Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> for more details.")
 		}];
 	},
 
@@ -857,9 +1133,11 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 				field.allowBlank = true;
 			}
 			this.findFormField("mode").hide();
+			this.findFormField("password").hide();
 			break;
 		case "remote":
 			this.findFormField("mode").show();
+			this.findFormField("password").show();
 			switch (values.mode) {
 			case "push":
 				var fields = [ "srcsharedfolderref", "desturi" ];
@@ -899,7 +1177,7 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 	},
 
 	isValid : function() {
-		var valid = OMV.Module.Services.RsyncJobPropertyDialog.superclass.
+		var valid = OMV.Module.Services.Rsync.JobPropertyDialog.superclass.
 		  isValid.call(this);
 		if (!valid) {
 			return valid;
@@ -909,7 +1187,7 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 		if (values.type === "local") {
 			if (values.srcsharedfolderref === values.destsharedfolderref) {
 				var basicForm = this.form.getForm();
-				var msg = "Shared folder must not be equal";
+				var msg = _("Shared folder must not be equal");
 				basicForm.markInvalid([
 					{ id: "srcsharedfolderref", msg: msg },
 					{ id: "destsharedfolderref", msg: msg }
@@ -923,7 +1201,7 @@ Ext.extend(OMV.Module.Services.RsyncJobPropertyDialog, OMV.CfgObjectDialog, {
 			field.clearInvalid(); // combineErrors is false
 			if ((field.getValue() === "*") && (this.findFormField(
 			  "everyn" + fieldName).checked)) {
-				field.markInvalid("Ranges of numbers are not allowed");
+				field.markInvalid(_("Ranges of numbers are not allowed"));
 				valid = false;
 			}
 		}, this);
@@ -940,22 +1218,22 @@ Ext.ns("OMV.Module.Diagnostics.LogPlugin");
  */
 OMV.Module.Diagnostics.LogPlugin.Rsync = function(config) {
 	var initialConfig = {
-		title: "Rsync",
+		title: _("Rsync"),
 		stateId: "835f3a32-bc7d-4102-b1cb-a598a0ae14ad",
 		columns: [{
-			header: "Date & Time",
+			header: _("Date & Time"),
 			sortable: true,
 			dataIndex: "date",
 			id: "date",
 			width: 35,
 			renderer: OMV.util.Format.localeTimeRenderer()
 		},{
-			header: "Event",
+			header: _("Event"),
 			sortable: true,
 			dataIndex: "event",
 			id: "event"
 		}],
-		rpcArgs: "rsync",
+		rpcArgs: { "id": "rpcArgs" },
 		rpcFields: [
 			{ name: "date" },
 			{ name: "event" }

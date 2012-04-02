@@ -43,6 +43,12 @@ case "$1" in
 		omv_install_fixperms
 
 		########################################################################
+		# Install locale files.
+		########################################################################
+		echo "Install locale files ..."
+		omv_install_locale
+
+		########################################################################
 		# Update the configuration.
 		# <config>
 		#   <services>

@@ -27,9 +27,12 @@ require_once("openmediavault/rpc.inc");
 class AptRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
-			"upgrade" => array(
-				'{"type":"array","items":{"type":"string"}}'
-			)
+			"upgrade" => array('{
+				"type":"object",
+				"properties":{
+					"packages":{"type":"array","items":{"type":"string"}}
+				}
+			}')
 		);
 	}
 
@@ -67,7 +70,7 @@ class AptRpc extends OMVRpc {
 				continue;
 			// Get the package description
 			$cmd = sprintf("export LANG=C; sudo apt-cache --no-all-versions " .
-			  "show %s | grep '^Description: .*$'", $matches[1]);
+			  "show %s | grep -i '^Description: .*$'", $matches[1]);
 			$description = OMVUtil::exec($cmd);
 			if ($result !== 0) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -81,7 +84,7 @@ class AptRpc extends OMVRpc {
 				"newversion" => $matches[4],
 				"repository" => $matches[5],
 				"architecture" => $matches[6],
-				"description" => $description ? $description : gettext("n/a")
+				"description" => $description ? $description : ""
 			);
 		}
 		return $data;
@@ -89,10 +92,11 @@ class AptRpc extends OMVRpc {
 
 	/**
 	 * Upgrade the given packages.
-	 * @param pkgNames Array of package names to upgrade.
+	 * @param data An array containing the following fields:
+	 *   \em packages An array of package names to upgrade.
 	 * @return The process id of the 'apt-get' command.
 	 */
-	function upgrade($pkgNames) {
+	function upgrade($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Check permissions
 		$this->validateSession();
@@ -107,7 +111,7 @@ class AptRpc extends OMVRpc {
 		$cmd = sprintf("export LANG=C; sudo apt-get --yes --force-yes " .
 		  "--fix-missing --auto-remove --allow-unauthenticated " .
 		  "--show-upgraded --option DPkg::Options::=\"--force-confnew\" " .
-		  "install %s >%s 2>&1 & echo $!", implode(" ", $pkgNames),
+		  "install %s >%s 2>&1 & echo $!", implode(" ", $data['packages']),
 		  $outputFile);
 		OMVUtil::exec($cmd, $output, $res);
 		if ($res !== 0) {

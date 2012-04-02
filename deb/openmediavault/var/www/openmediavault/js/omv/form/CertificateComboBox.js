@@ -31,17 +31,20 @@ Ext.ns("OMV.form");
  */
 OMV.form.CertificateComboBox = function(config) {
 	var initialConfig = {
-		emptyText: "Select a SSL certificate ...",
+		emptyText: _("Select a SSL certificate ..."),
 		allowBlank: false,
 		allowNone: false,
-		noneText: "None",
+		noneText: _("None"),
 		editable: false,
 		triggerAction: "all",
 		displayField: "comment",
 		valueField: "uuid",
 		store: new OMV.data.Store({
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("CertificateMgmt", "getList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "CertificateMgmt",
+				"method": "getList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				totalProperty: "total",
@@ -81,16 +84,16 @@ Ext.extend(OMV.form.CertificateComboBox, Ext.form.ComboBox, {
 			tag: "span",
 			cls: "x-form-twin-triggers",
 			cn: [{
-				tag: "img",
-				src: Ext.BLANK_IMAGE_URL,
-				alt: "",
-				cls: "x-form-trigger " + this.triggerClass
+				"tag": "img",
+				"src": Ext.BLANK_IMAGE_URL,
+				"alt": "",
+				"cls": "x-form-trigger " + this.triggerClass
 			},{
-				tag: "img",
-				src: Ext.BLANK_IMAGE_URL,
-				alt: "",
-				cls: "x-form-trigger x-form-search-trigger",
-				"ext:qtip": "Show certificate"
+				"tag": "img",
+				"src": Ext.BLANK_IMAGE_URL,
+				"alt": "",
+				"cls": "x-form-trigger x-form-search-trigger",
+				"ext:qtip": _("Show certificate")
 			}]
 		};
 	},
@@ -121,7 +124,7 @@ Ext.extend(OMV.form.CertificateComboBox, Ext.form.ComboBox, {
 				this["hidden" + triggerIndex] = true;
 			}
 			this.mon(t, "click", this["on" + triggerIndex + "Click"], this,
-				{ preventDefault: true });
+			  { preventDefault: true });
 			t.addClassOnOver("x-form-trigger-over");
 			t.addClassOnClick("x-form-trigger-click");
 		}, this);
@@ -143,8 +146,7 @@ Ext.extend(OMV.form.CertificateComboBox, Ext.form.ComboBox, {
 	getTriggerWidth : function() {
 		var tw = 0;
 		Ext.each (this.triggers, function(t, index) {
-			var triggerIndex = "Trigger" + (index + 1),
-				w = t.getWidth();
+			var triggerIndex = "Trigger" + (index + 1), w = t.getWidth();
 			if (w === 0 && !this["hidden" + triggerIndex]) {
 				tw += this.defaultTriggerWidth;
 			} else {

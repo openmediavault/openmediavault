@@ -1,2 +1,2 @@
-usr/share/openmediavault/scripts/* usr/share/openmediavault/scripts
+usr/share/openmediavault/* usr/share/openmediavault
 var/www/openmediavault/* var/www/openmediavault

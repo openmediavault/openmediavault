@@ -36,16 +36,25 @@ require_once("openmediavault/rpc.inc");
 class ExecRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
-			"stop" => array(
-				'{"type":"integer"}'
-			),
-			"getOutput" => array(
-				'{"type":"integer"}',
-				'{"type":"integer"}'
-			),
-			"isRunning" => array(
-				'{"type":"integer"}'
-			)
+			"stop" => array('{
+				"type":"object",
+				"properties":{
+					"id":{"type":"integer"}
+				}
+			}'),
+			"getOutput" => array('{
+				"type":"object",
+				"properties":{
+					"id":{"type":"integer"},
+					"pos":{"type":"integer"}
+				}
+			}'),
+			"isRunning" => array('{
+				"type":"object",
+				"properties":{
+					"id":{"type":"integer"}
+				}
+			}')
 		);
 	}
 
@@ -63,19 +72,20 @@ class ExecRpc extends OMVRpc {
 
 	/**
 	 * Stop the given command.
-	 * @param id The id of the execution job to stop.
+	 * @param data An array containing the following fields:
+	 *   \em id The ID of the job.
 	 * @return None
 	 */
-	public function stop($id) {
+	public function stop($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Check if the given job exists. Do not throw an exception if it
 		// does not exist. There are some situations where the command has
 		// been finished right before the stop RPC has been called.
-		if (array_key_exists($id, $_SESSION['execjob'])) {
+		if (array_key_exists($data['id'], $_SESSION['execjob'])) {
 			// Get the job informations stored in session
-			$execInfo = $_SESSION['execjob'][$id];
+			$execInfo = $_SESSION['execjob'][$data['id']];
 			// Stop the process
 			$cmd = "sudo kill {$execInfo['pid']}";
 			OMVUtil::exec($cmd, $output, $res);
@@ -84,22 +94,23 @@ class ExecRpc extends OMVRpc {
 				  $cmd, implode("\n", $output));
 			}
 			// Remove the output file and cleanup the session data
-			unset($_SESSION['execjob'][$id]);
+			unset($_SESSION['execjob'][$data['id']]);
 			unlink($execInfo['outputFile']);
 		}
 	}
 
 	/**
 	 * Get the output of the given command.
-	 * @param id The id of the execution job to get the command output.
-	 * @param pos The file position withing the command output file.
+	 * @param data An array containing the following fields:
+	 *   \em id The ID of the job.
+	 *   \em pos The file position withing the command output file.
 	 * @return An array with the fields \em running which indicates the
-	 * command execution state, \em output which contains the command output
-	 * and \em pos which is the current position within the output file (more
-	 * detailed it is the size of the output file or EOF position) will be
-	 * returned.
+	 *   command execution state, \em output which contains the command output
+	 *   and \em pos which is the current position within the output file (more
+	 *   detailed it is the size of the output file or EOF position) will be
+	 *   returned.
 	 */
-	public function getOutput($id, $pos) {
+	public function getOutput($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		$result = array(
 			"pos" => 0,
@@ -109,12 +120,15 @@ class ExecRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Check if the given job exists
-		if (!array_key_exists($id, $_SESSION['execjob'])) {
+		if (!array_key_exists($data['id'], $_SESSION['execjob'])) {
+			// If you reach this point you may have erroneously commited the
+			// session in your RPC. Please check if your RPC is calling the
+			// OMVRpc::commitSession() method.
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  "The job does not exist");
 		}
 		// Get the job informations stored in session
-		$execInfo = $_SESSION['execjob'][$id];
+		$execInfo = $_SESSION['execjob'][$data['id']];
 		// Check if process is still running
 		if (posix_access("/proc/{$execInfo['pid']}", POSIX_R_OK)) {
 			$result['running'] = true;
@@ -131,12 +145,12 @@ class ExecRpc extends OMVRpc {
 		$result['pos'] = strlen($output);
 		// Only return the output from the given position. This will reduce
 		// the size of data to transmit back.
-		$output = substr($output, $pos); // Note, result may be FALSE
+		$output = substr($output, $data['pos']); // Note, result may be FALSE
 		$result['output'] = $output ? $output : "";
 		// If process is not running anymore, then remove the output file
 		// and cleanup the session data.
 		if ($result['running'] === false) {
-			unset($_SESSION['execjob'][$id]);
+			unset($_SESSION['execjob'][$data['id']]);
 			unlink($execInfo['outputFile']);
 		}
 		return $result;
@@ -144,21 +158,22 @@ class ExecRpc extends OMVRpc {
 
 	/**
 	 * Check if the given command is still running.
-	 * @param id The id of the execution job to get the command output.
+	 * @param data An array containing the following fields:
+	 *   \em id The ID of the job.
 	 * @return TRUE if the command is still running, otherwise FALSE.
 	 */
-	public function isRunning($id) {
+	public function isRunning($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		$result = false;
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Check if the given job exists
-		if (!array_key_exists($id, $_SESSION['execjob'])) {
+		if (!array_key_exists($data['id'], $_SESSION['execjob'])) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  "The job does not exist");
 		}
 		// Get the job informations stored in session
-		$execInfo = $_SESSION['execjob'][$id];
+		$execInfo = $_SESSION['execjob'][$data['id']];
 		// Check if process is still running
 		if (posix_access("/proc/{$execInfo['pid']}", POSIX_R_OK)) {
 			$result = true;
@@ -166,7 +181,7 @@ class ExecRpc extends OMVRpc {
 		// If process is not running anymore, then remove the output file
 		// and cleanup the session data.
 		if ($result === false) {
-			unset($_SESSION['execjob'][$id]);
+			unset($_SESSION['execjob'][$data['id']]);
 			unlink($execInfo['outputFile']);
 		}
 		return $result;

@@ -58,15 +58,21 @@ class FTPRpc extends OMVRpc {
 					"extraoptions":{"type":"string"}
 				}
 			}'),
-			"getShareList" => array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
-			"getShare" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"getShareList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
+			"getShare" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"setShare" => array('{
 				"type":"object",
 				"properties":{
@@ -76,18 +82,27 @@ class FTPRpc extends OMVRpc {
 					"comment":{"type":"string"}
 				}
 			}'),
-			"deleteShare" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
-			"getModBanRuleList" => array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
-			"getModBanRule" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"deleteShare" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
+			"getModBanRuleList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
+			"getModBanRule" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"setModBanRule" => array('{
 				"type":"object",
 				"properties":{
@@ -104,21 +119,28 @@ class FTPRpc extends OMVRpc {
 					  '"pattern":"\/^[0-9]{2}:[0-9]{2}:[0-9]{2}$\/"}
 				}
 			}'),
-			"deleteModBanRule" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
+			"deleteModBanRule" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
 			"setModTLSSettings" => array('{
 				"type":"object",
 				"properties":{
 					"enable":{"type":"boolean"},
 					"required":{"type":"boolean"},
 					"sslcertificateref":{'.
-					  $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'}
+					  $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'},
+					"extraoptions":{"type":"string"}
 				}
 			}')
 		);
 	}
 
+	/**
+	 * Get the FTP configuration object.
+	 */
 	public function getSettings() {
 		global $xmlConfig;
 		// Check permissions
@@ -224,9 +246,17 @@ class FTPRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get list of share config objects.
+	 * Get list of share configuration objects.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	public function getShareList($start, $count, $sortField, $sortDir) {
+	public function getShareList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -255,14 +285,17 @@ class FTPRpc extends OMVRpc {
 			}
 		}
 		// Filter result
-		return $this->applyFilter($objects, $start, $count, $sortField,
-		  $sortDir);
+		return $this->applyFilter($objects, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
 	 * Get a share config object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return The requested configuration object.
 	 */
-	public function getShare($uuid) {
+	public function getShare($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -274,7 +307,8 @@ class FTPRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get configuration object
-		$xpath = sprintf("//services/ftp/shares/share[uuid='%s']", $uuid);
+		$xpath = sprintf("//services/ftp/shares/share[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -323,20 +357,14 @@ class FTPRpc extends OMVRpc {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 				  $xpath);
 			}
-			// Get the mount point configuration object.
-			$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
-			  $sfobject['mntentref']);
-			$meobject = $xmlConfig->get($xpath);
-			if (is_null($meobject)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				  $xpath);
-			}
+			// Get the absolute shared folder path.
+			$sfpath = OMVRpc::exec("ShareMgmt", "getPath", array(
+			  "uuid" => $data['sharedfolderref']));
 			// Prepare fstab mount point entry configuration object to bind
 			// the shared folder directory into the FTP users home directory.
-			$meObject = array(
+			$meobject = array(
 				"uuid" => OMVUtil::uuid(),
-				"fsname" => sprintf("%s/%s", $meobject['dir'],
-				  $sfobject['reldirpath']),
+				"fsname" => $sfpath,
 				"dir" => sprintf("/home/ftp/%s", $sfobject['name']),
 				"type" => "none",
 				"opts" => "bind",
@@ -344,13 +372,13 @@ class FTPRpc extends OMVRpc {
 				"passno" => 0
 			);
 			// Modify the configuration object.
-			$object['mntentref'] = $meObject['uuid'];
+			$object['mntentref'] = $meobject['uuid'];
 			// Append the configuration object.
 			$success = $xmlConfig->set("//services/ftp/shares",
 			  array("share" => $object));
 			// Append assosiated fstab mount point entry configuration object.
 			if (FALSE === $xmlConfig->set("//system/fstab", array(
-			  "mntent" => $meObject))) {
+			  "mntent" => $meobject))) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 			}
 		} else {
@@ -370,7 +398,7 @@ class FTPRpc extends OMVRpc {
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
 			$dispatcher->notify(OMV_NOTIFY_CREATE,
-			  "org.openmediavault.system.fstab.mntent", $meObject);
+			  "org.openmediavault.system.fstab.mntent", $meobject);
 		}
 		$dispatcher->notify(($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
@@ -378,9 +406,12 @@ class FTPRpc extends OMVRpc {
 	}
 
 	/**
-	 * Delete a share config object.
+	 * Delete a share configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return None
 	 */
-	public function deleteShare($uuid) {
+	public function deleteShare($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -392,7 +423,8 @@ class FTPRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get the object
-		$xpath = sprintf("//services/ftp/shares/share[uuid='%s']", $uuid);
+		$xpath = sprintf("//services/ftp/shares/share[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -418,7 +450,7 @@ class FTPRpc extends OMVRpc {
 		// Delete the associated fstab mount point entry.
 		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
 		  $object['mntentref']);
-		if (FALSE === ($meObject = $xmlConfig->delete($xpath))) {
+		if (FALSE === ($meobject = $xmlConfig->delete($xpath))) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
 			  $xpath);
 		}
@@ -429,13 +461,21 @@ class FTPRpc extends OMVRpc {
 		}
 		// Notify configuration changes
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.fstab.mntent", $meObject);
+		  "org.openmediavault.system.fstab.mntent", $meobject);
 	}
 
 	/**
 	 * Get list of mod_ban rule config objects.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	public function getModBanRuleList($start, $count, $sortField, $sortDir) {
+	public function getModBanRuleList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -458,14 +498,17 @@ class FTPRpc extends OMVRpc {
 			$objectv['occurrence'] = intval($objectv['occurrence']);
 		}
 		// Filter result
-		return $this->applyFilter($objects, $start, $count, $sortField,
-		  $sortDir);
+		return $this->applyFilter($objects, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
 	 * Get a mod_ban rule config object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return The requested configuration object.
 	 */
-	public function getModBanRule($uuid) {
+	public function getModBanRule($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -477,7 +520,8 @@ class FTPRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get configuration object
-		$xpath = "//services/ftp/modules/mod_ban/rule[uuid='{$uuid}']";
+		$xpath = sprintf("//services/ftp/modules/mod_ban/rule[uuid='%s']",
+		  $data['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -539,8 +583,11 @@ class FTPRpc extends OMVRpc {
 
 	/**
 	 * Delete a mod_ban rule config object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return None
 	 */
-	public function deleteModBanRule($uuid) {
+	public function deleteModBanRule($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -552,7 +599,8 @@ class FTPRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Delete configuration object
-		$xpath = "//services/ftp/modules/mod_ban/rule[uuid='{$uuid}']";
+		$xpath = sprintf("//services/ftp/modules/mod_ban/rule[uuid='%s']",
+		  $data['uuid']);
 		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
 			  $xpath);
@@ -604,7 +652,8 @@ class FTPRpc extends OMVRpc {
 		$object = array(
 			"enable" => array_boolval($data, 'enable'),
 			"required" => array_boolval($data, 'required'),
-			"sslcertificateref" => $data['sslcertificateref']
+			"sslcertificateref" => $data['sslcertificateref'],
+			"extraoptions" => $data['extraoptions']
 		);
 		$xpath = "//services/ftp/modules/mod_tls";
 		if (FALSE === $xmlConfig->replace($xpath, $object)) {

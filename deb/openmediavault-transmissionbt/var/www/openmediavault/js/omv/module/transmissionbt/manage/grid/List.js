@@ -11,7 +11,6 @@
 // require("js/omv/data/Store.js")
 // require("js/omv/CfgObjectDialog.js")
 // require("js/omv/grid/TBarGridPanel.js")
-// require("js/omv/form/MultiSelect.js")
 // require("js/omv/util/Format.js")
 // require("js/omv/ExecCmdDialog.js")
 
@@ -29,93 +28,93 @@ Ext.ns("OMV.Module.Services.TransmissionBT.Manage");
  */
 OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid = function(config) {
 	var initialConfig = {
-		title: "Torrent List",
+		title: _("Torrent List"),
 		autoReload: false,
 		reloadInterval: 10000,
 		hidePagingToolbar: true,
 		hideAdd: true,
 		hideEdit: true,
 		hideDelete: true,
-		resumeWaitMsg: "Resuming selected item(s)",
-		pauseWaitMsg: "Pausing selected item(s)",
-		deleteWaitMsg: "Deleting selected item(s)",
-		queueMoveWaitMsg: "Queue moving selcted item(s)",
+		resumeWaitMsg: _("Resuming selected item(s)"),
+		pauseWaitMsg: _("Pausing selected item(s)"),
+		deleteWaitMsg: _("Deleting selected item(s)"),
+		queueMoveWaitMsg: _("Queue moving selcted item(s)"),
 		stateId: "cb44cbf3-b1cb-b6ba-13548ab0dc7c246c",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "ID",
+				header: _("ID"),
 				sortable: true,
 				dataIndex: "id",
 				id: "id"
 			},{
-				header: "Name",
+				header: _("Name"),
 				sortable: true,
 				dataIndex: "name",
 				id: "name"
 			},{
-				header: "Status",
+				header: _("Status"),
 				sortable: true,
 				dataIndex: "status",
 				id: "status",
 				renderer: this.statusRenderer,
 				scope: this
 			},{
-				header: "Done",
+				header: _("Done"),
 				sortable: true,
 				dataIndex: "percentDone",
 				id: "percentDone",
 				renderer: this.doneRenderer,
 				scope: this
 			},{
-				header: "ETA",
+				header: _("ETA"),
 				sortable: true,
 				dataIndex: "eta",
 				id: "eta",
 				renderer: this.etaRenderer,
 				scope: this
 			},{
-				header: "Peers",
+				header: _("Peers"),
 				sortable: true,
 				id: "peers",
 				renderer: this.peersRenderer,
 				scope: this
 			},{
-				header: "DL-Rate",
+				header: _("DL-Rate"),
 				sortable: true,
 				dataIndex: "rateDownload",
 				id: "rateDownload",
 				renderer: this.rateRenderer,
 				scope: this
 			},{
-				header: "UL-Rate",
+				header: _("UL-Rate"),
 				sortable: true,
 				dataIndex: "rateUpload",
 				id: "rateUpload",
 				renderer: this.rateRenderer,
 				scope: this
 			},{
-				header: "Date Added",
+				header: _("Date Added"),
 				sortable: true,
 				dataIndex: "addedDate",
 				id: "addedDate",
 				renderer: this.timestampRenderer,
 				scope: this
 			},{
-				header: "Date Done",
+				header: _("Date Done"),
 				sortable: true,
 				dataIndex: "doneDate",
 				id: "doneDate",
 				renderer: this.timestampRenderer,
 				scope: this
 			},{
-				header: "Ratio",
+				header: _("Ratio"),
 				sortable: true,
 				dataIndex: "uploadRatio",
 				id: "uploadRatio",
 				renderer: this.ratioRenderer,
 				scope: this
 			},{
-				header: "Queue",
+				header: _("Queue"),
 				sortable: true,
 				dataIndex: "queuePosition",
 				id: "queuePosition"
@@ -131,8 +130,10 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		this.store = new OMV.data.Store({
 			autoLoad: false,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("TransmissionBT", "getList",
-				[ [ "userdefined" ] ]),
+			proxy: new OMV.data.DataProxy({
+				"service": "TransmissionBT",
+				"method": "getList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "id",
 				totalProperty: "total",
@@ -159,50 +160,49 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		this.contextMenu = new Ext.menu.Menu({
 			items: [{
 				id: this.getId() + "-menu-delete",
-				text: "Delete",
+				text: _("Delete"),
 				handler: this.cbDeleteBtnHdl,
 				scope: this
 			},{
 				id: this.getId() + "-menu-pause",
-				text: "Pause",
+				text: _("Pause"),
 				handler: this.cbPauseBtnHdl,
 				scope: this
 			},{
 				id: this.getId() + "-menu-resume",
-				text: "Resume",
+				text: _("Resume"),
 				handler: this.cbResumeBtnHdl,
 				scope: this
 			},{
 				id: this.getId() + "-menu-queue-top",
-				text: "Queue Move Top",
+				text: _("Queue Move Top"),
 				handler: this.cbQueueMoveMenuHdl,
 				scope: this,
 				action: 'top'
 			},{
 				id: this.getId() + "-menu-queue-up",
-				text: "Queue Move Up",
+				text: _("Queue Move Up"),
 				handler: this.cbQueueMoveMenuHdl,
 				scope: this,
 				action: 'up'
 			},{
 				id: this.getId() + "-menu-queue-down",
-				text: "Queue Move Down",
+				text: _("Queue Move Down"),
 				handler: this.cbQueueMoveMenuHdl,
 				scope: this,
 				action: 'down'
 			},{
 				id: this.getId() + "-menu-queue-bottom",
-				text: "Queue Move Bottom",
+				text: _("Queue Move Bottom"),
 				handler: this.cbQueueMoveMenuHdl,
 				scope: this,
 				action: 'bottom'
 			}]
 		});
-
-		OMV.Ajax.request(this.enableReload, this, "TransmissionBT", "getStatus");
-
-		OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid.superclass.initComponent.apply(this,
-		  arguments);
+		OMV.Ajax.request(this.enableReload, this, "TransmissionBT",
+		  "getStatus");
+		OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid.superclass.
+		  initComponent.apply(this, arguments);
 	},
 
 	enableReload : function(id, response, error) {
@@ -248,7 +248,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		tbar.insert(0, {
 			id: this.getId() + "-reload",
 			xtype: "button",
-			text: "Reload",
+			text: _("Reload"),
 			icon: "images/reload.png",
 			handler: this.cbReloadBtnHdl,
 			scope: this
@@ -256,7 +256,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		tbar.insert(1, {
 			id: this.getId() + "-upload",
 			xtype: "button",
-			text: "Upload",
+			text: _("Upload"),
 			icon: "images/upload.png",
 			handler: this.cbUploadBtnHdl,
 			scope: this
@@ -264,7 +264,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		tbar.insert(2, {
 			id: this.getId() + "-add-url",
 			xtype: "button",
-			text: "Add URL",
+			text: _("Add URL"),
 			icon: "images/add.png",
 			handler: this.cbAddURLBtnHdl,
 			scope: this
@@ -272,7 +272,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		tbar.insert(3, {
 			id: this.getId() + "-delete",
 			xtype: "button",
-			text: "Delete",
+			text: _("Delete"),
 			icon: "images/delete.png",
 			handler: this.cbDeleteBtnHdl,
 			scope: this,
@@ -281,7 +281,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		tbar.insert(4, {
 			id: this.getId() + "-pause",
 			xtype: "button",
-			text: "Pause",
+			text: _("Pause"),
 			icon: "images/transmissionbt_pause.png",
 			handler: this.cbPauseBtnHdl,
 			scope: this,
@@ -290,7 +290,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		tbar.insert(5, {
 			id: this.getId() + "-resume",
 			xtype: "button",
-			text: "Resume",
+			text: _("Resume"),
 			icon: "images/transmissionbt_resume.png",
 			handler: this.cbResumeBtnHdl,
 			scope: this,
@@ -476,7 +476,8 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 	 * Reload the grid content.
 	 */
 	doReload : function() {
-		OMV.Ajax.request(this.enableReload, this, "TransmissionBT", "getStatus");
+		OMV.Ajax.request(this.enableReload, this, "TransmissionBT",
+		  "getStatus");
 	},
 
 	cbReloadBtnHdl : function() {
@@ -485,7 +486,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 
 	cbUploadBtnHdl : function() {
 		var wnd = new OMV.TransmissionBT.UploadDialog({
-			title: "Upload torrent",
+			title: _("Upload torrent"),
 			service: "TransmissionBT",
 			method: "upload",
 			listeners: {
@@ -503,7 +504,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 	/* ADD URL HANDLER */
 	cbAddURLBtnHdl : function() {
 		var wnd = new OMV.TransmissionBT.AddURLDialog({
-			title: "Add Torrent by URL",
+			title: _("Add Torrent by URL"),
 			listeners: {
 				success: function(wnd, url, startDownload) {
 					this.doAddURL(url, startDownload);
@@ -514,7 +515,8 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		wnd.show();
 	},
 	doAddURL : function(url, startDownload) {
-		OMV.Ajax.request(this.cbAddURLHdl, this, "TransmissionBT", "addUrl", [{ url: String(url), start_download: Boolean(startDownload) }] );
+		OMV.Ajax.request(this.cbAddURLHdl, this, "TransmissionBT", "addUrl",
+		  { "url": String(url), "start_download": Boolean(startDownload) });
 	},
 	cbAddURLHdl : function(id, response, error) {
 		if (error !== null) {
@@ -532,7 +534,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		var selModel = this.getSelectionModel();
 		var records = selModel.getSelections();
 		var wnd = new OMV.TransmissionBT.DeleteDialog({
-			title: "Upload torrent",
+			title: _("Upload torrent"),
 			service: "TransmissionBT",
 			method: "upload",
 			listeners: {
@@ -563,9 +565,8 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		this.doDelete(record, delete_local_data);
 	},
 	doDelete : function(record, delete_local_data) {
-		OMV.Ajax.request(this.cbDeleteHdl, this, "TransmissionBT", "delete", [{ id:  record.get("id"), deleteLocalData: delete_local_data }] );
-
-
+		OMV.Ajax.request(this.cbDeleteHdl, this, "TransmissionBT", "delete",
+		  { "id": record.get("id"), "deleteLocalData": delete_local_data });
 	},
 	updateDeleteProgress : function() {
 		// Calculate percentage
@@ -627,8 +628,8 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		this.doResume(record);
 	},
 	doResume : function(record) {
-		OMV.Ajax.request(this.cbResumeHdl, this, "TransmissionBT", "resume", [ record.get("id") ]);
-		//cbResumeHdl(null, null, null);
+		OMV.Ajax.request(this.cbResumeHdl, this, "TransmissionBT", "resume",
+		  { "id": record.get("id") });
 	},
 	updateResumeProgress : function() {
 		// Calculate percentage
@@ -690,7 +691,8 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		this.doPause(record);
 	},
 	doPause : function(record) {
-		OMV.Ajax.request(this.cbPauseHdl, this, "TransmissionBT", "pause", [ record.get("id") ]);
+		OMV.Ajax.request(this.cbPauseHdl, this, "TransmissionBT", "pause",
+		  { "id": record.get("id") });
 	},
 	updatePauseProgress : function() {
 		// Calculate percentage
@@ -754,7 +756,8 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Manage.TorrentListGrid, OMV.grid.T
 		this.doQueueMove(record, action);
 	},
 	doQueueMove : function(record, action) {
-		OMV.Ajax.request(this.cbQueueMoveHdl, this, "TransmissionBT", "queueMove", [ { id : record.get("id"), action : action } ]);
+		OMV.Ajax.request(this.cbQueueMoveHdl, this, "TransmissionBT",
+		  "queueMove", { "id": record.get("id"), "action": action });
 	},
 	updateQueueMoveProgress : function() {
 		// Calculate percentage

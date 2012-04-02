@@ -34,7 +34,7 @@ Ext.ns("OMV.Module.System.Network");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("system", "network", {
-	text: "Network",
+	text: _("Network"),
 	icon: "images/network.png",
 	position: 30
 });
@@ -57,7 +57,7 @@ Ext.extend(OMV.Module.System.Network.General, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -65,9 +65,17 @@ Ext.extend(OMV.Module.System.Network.General, OMV.FormPanelExt, {
 			items: [{
 				xtype: "textfield",
 				name: "hostname",
-				fieldLabel: "Server name",
+				fieldLabel: _("Hostname"),
 				vtype: "hostname",
-				allowBlank: false
+				allowBlank: false,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("The hostname is a label that identifies the system to the network.")
+			},{
+				xtype: "textfield",
+				name: "domainname",
+				fieldLabel: _("Domain name"),
+				vtype: "domainname",
+				allowBlank: true
 			}]
 		}];
 	}
@@ -75,7 +83,7 @@ Ext.extend(OMV.Module.System.Network.General, OMV.FormPanelExt, {
 OMV.NavigationPanelMgr.registerPanel("system", "network", {
 	cls: OMV.Module.System.Network.General,
 	position: 10,
-	title: "General"
+	title: _("General")
 });
 
 /**
@@ -88,49 +96,49 @@ OMV.Module.System.Network.IfaceGridPanel = function(config) {
 		stateId: "85093f5d-9f9f-45bf-a46f-ead6bc36884a",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Name",
+				header: _("Name"),
 				sortable: true,
 				dataIndex: "devicename",
 				id: "devicename",
 				width: 45
 			},{
-				header: "Method",
+				header: _("Method"),
 				sortable: true,
 				dataIndex: "method",
 				id: "method",
 				renderer: OMV.util.Format.arrayRenderer([
-					[ "dhcp","DHCP" ],
-					[ "static","Static" ]
+					[ "dhcp",_("DHCP") ],
+					[ "static",_("Static") ]
 				]),
 				width: 45
 			},{
-				header: "Address",
+				header: _("Address"),
 				sortable: true,
 				dataIndex: "address",
 				id: "address"
 			},{
-				header: "Netmask",
+				header: _("Netmask"),
 				sortable: true,
 				dataIndex: "netmask",
 				id: "netmask"
 			},{
-				header: "Gateway",
+				header: _("Gateway"),
 				sortable: true,
 				dataIndex: "gateway",
 				id: "gateway"
 			},{
-				header: "MAC address",
+				header: _("MAC address"),
 				sortable: true,
 				dataIndex: "ether",
 				id: "ether"
 			},{
-				header: "MTU",
+				header: _("MTU"),
 				sortable: true,
 				dataIndex: "mtu",
 				id: "mtu",
 				width: 45
 			},{
-				header: "Link",
+				header: _("Link"),
 				sortable: true,
 				dataIndex: "link",
 				id: "link",
@@ -161,7 +169,10 @@ Ext.extend(OMV.Module.System.Network.IfaceGridPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("Network", "enumerateDevicesList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "Network",
+				"method": "enumerateDevicesList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "devicename",
 				totalProperty: "total",
@@ -200,7 +211,7 @@ Ext.extend(OMV.Module.System.Network.IfaceGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(2, {
 			id: this.getId() + "-identify",
 			xtype: "button",
-			text: "Identify",
+			text: _("Identify"),
 			icon: "images/nic-identify.png",
 			handler: this.cbIdentifyBtnHdl,
 			scope: this,
@@ -319,13 +330,13 @@ Ext.extend(OMV.Module.System.Network.IfaceGridPanel, OMV.grid.TBarGridPanel, {
 			break;
 		}
 		OMV.Ajax.request(this.cbDeletionHdl, this, "Network", rpcName,
-		  [ record.get("uuid") ]);
+		  { "uuid": record.get("uuid") });
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("system", "network", {
 	cls: OMV.Module.System.Network.IfaceGridPanel,
 	position: 20,
-	title: "Interfaces"
+	title: _("Interfaces")
 });
 
 /**
@@ -339,7 +350,7 @@ OMV.Module.System.Network.PhyIfacePropertyDialog = function(config) {
 		rpcService: "Network",
 		rpcGetMethod: "getIface",
 		rpcSetMethod: "setIface",
-		title: "Edit physical interface",
+		title: _("Edit physical interface"),
 		autoHeight: true
 	};
 	Ext.apply(initialConfig, config);
@@ -366,7 +377,7 @@ Ext.extend(OMV.Module.System.Network.PhyIfacePropertyDialog,
 		this.methodCtrl = new Ext.form.ComboBox({
 			name: "method",
 			hiddenName: "method",
-			fieldLabel: "Method",
+			fieldLabel: _("Method"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
@@ -385,51 +396,49 @@ Ext.extend(OMV.Module.System.Network.PhyIfacePropertyDialog,
 		return [{
 			xtype: "textfield",
 			name: "devicename",
-			fieldLabel: "Name",
+			fieldLabel: _("Name"),
 			readOnly: true,
 			allowBlank: true,
 			value: this.devicename
 		}, this.methodCtrl, {
 			xtype: "textfield",
 			name: "address",
-			fieldLabel: "Address",
+			fieldLabel: _("Address"),
 			vtype: "IPv4",
 			readOnly: true,
 			allowBlank: true
 		},{
 			xtype: "textfield",
 			name: "netmask",
-			fieldLabel: "Netmask",
+			fieldLabel: _("Netmask"),
 			vtype: "netmask",
 			readOnly: true,
 			allowBlank: true
 		},{
 			xtype: "textfield",
 			name: "gateway",
-			fieldLabel: "Gateway",
+			fieldLabel: _("Gateway"),
 			vtype: "IPv4",
 			readOnly: true,
 			allowBlank: true
 		},{
 			xtype: "numberfield",
 			name: "mtu",
-			fieldLabel: "MTU",
+			fieldLabel: _("MTU"),
 			allowBlank: true,
 			allowDecimals: false,
 			allowNegative: false
 		},{
 			xtype: "textfield",
 			name: "options",
-			fieldLabel: "Options",
+			fieldLabel: _("Options"),
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Additional device settings, e.g. 'autoneg off speed " +
-			  "100 duplex full'. See <a href='http://linux.die.net/man/8/ethtool' " +
-			  "target='_blank'>manual pages</a> for more details."
+			infoText: _("Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> for more details.")
 		},{
 			xtype: "checkbox",
 			name: "wol",
-			fieldLabel: "Wake-on-LAN",
+			fieldLabel: _("Wake-on-LAN"),
 			checked: false,
 			inputValue: 1
 		}];
@@ -470,7 +479,7 @@ Ext.extend(OMV.Module.System.Network.PhyIfacePropertyDialog,
  */
 OMV.Module.System.Network.PhyIfaceIdentifyDialog = function(config) {
 	var initialConfig = {
-		title: "Identify network interface device",
+		title: _("Identify network interface device"),
 		autoHeight: true,
 		hideReset: true,
 		mode: "local",
@@ -496,7 +505,7 @@ Ext.extend(OMV.Module.System.Network.PhyIfaceIdentifyDialog,
 		},{
 			xtype: "numberfield",
 			name: "seconds",
-			fieldLabel: "Seconds",
+			fieldLabel: _("Seconds"),
 			minValue: 1,
 			maxValue: 30,
 			allowDecimals: false,
@@ -504,15 +513,13 @@ Ext.extend(OMV.Module.System.Network.PhyIfaceIdentifyDialog,
 			allowBlank: false,
 			value: 10,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Length of time in seconds to blink one or more LEDs " +
-			  "on the specific ethernet port."
+			infoText: _("Length of time in seconds to blink one or more LEDs on the specific ethernet port.")
 		},{
 			xtype: "displayfield",
 			hideLabel: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "<img border='0' src='images/warn.png'> Please note " +
-			  "that no communication with the system is possible during " +
-			  "this test."
+			infoText: "<img border='0' src='images/warn.png'>" +
+			  _("Please note that no communication with the system is possible during this test.")
 		}];
 	},
 
@@ -561,8 +568,8 @@ OMV.Module.System.Network.BondIfacePropertyDialog = function(config) {
 		rpcService: "Network",
 		rpcGetMethod: "getBondIface",
 		rpcSetMethod: "setBondIface",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " bonded interface",
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add bonded interface") : _("Edit bonded interface"),
 		height: 400
 	};
 	Ext.apply(initialConfig, config);
@@ -592,13 +599,13 @@ Ext.extend(OMV.Module.System.Network.BondIfacePropertyDialog,
 		this.methodCtrl = new Ext.form.ComboBox({
 			name: "method",
 			hiddenName: "method",
-			fieldLabel: "Method",
+			fieldLabel: _("Method"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ "dhcp","DHCP" ],
-					[ "static","Static" ]
+					[ "dhcp",_("DHCP") ],
+					[ "static",_("Static") ]
 				]
 			}),
 			displayField: "text",
@@ -611,14 +618,18 @@ Ext.extend(OMV.Module.System.Network.BondIfacePropertyDialog,
 		this.bondPrimaryCtrl = new Ext.form.ComboBox({
 			name: "bondprimary",
 			hiddenName: "bondprimary",
-			fieldLabel: "Primary",
-			emptyText: "Select a primary device ...",
+			fieldLabel: _("Primary"),
+			emptyText: _("Select a primary device ..."),
 			mode: "local",
 			store: new OMV.data.Store({
 				autoLoad: true,
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("Network", "enumerateBondSlaves",
-				  [ this.uuid, false ], false),
+				proxy: new OMV.data.DataProxy({
+					"service": "Network",
+					"method": "enumerateBondSlaves",
+					"extraParams": { "uuid": this.uuid, "unused": false },
+					"appendPagingParams": false
+				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "devicename",
 					fields: [
@@ -636,18 +647,22 @@ Ext.extend(OMV.Module.System.Network.BondIfacePropertyDialog,
 			editable: false,
 			triggerAction: "all",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Specifies which slave is the primary device."
+			infoText: _("Specifies which slave is the primary device.")
 		});
 		this.bondslavesCtrl = new OMV.form.CheckboxGrid({
 			xtype: "checkboxgrid",
 			name: "slaves",
 			hiddenName: "slaves",
-			fieldLabel: "Slaves",
+			fieldLabel: _("Slaves"),
 			store: new OMV.data.Store({
 				autoLoad: true,
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("Network", "enumerateBondSlaves",
-				  [ this.uuid ], false),
+				proxy: new OMV.data.DataProxy({
+					"service": "Network",
+					"method": "enumerateBondSlaves",
+					"extraParams": { "uuid": this.uuid, "unused": true },
+					"appendPagingParams": false
+				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "devicename",
 					fields: [
@@ -667,12 +682,12 @@ Ext.extend(OMV.Module.System.Network.BondIfacePropertyDialog,
 					sortable: true
 				},
 				columns: [{
-					header: "Device",
+					header: _("Device"),
 					sortable: true,
 					dataIndex: "devicename",
 					id: "devicename"
 				},{
-					header: "MAC address",
+					header: _("MAC address"),
 					sortable: true,
 					dataIndex: "ether",
 					id: "ether"
@@ -715,7 +730,7 @@ Ext.extend(OMV.Module.System.Network.BondIfacePropertyDialog,
 		return [{
 			xtype: "textfield",
 			name: "devicename",
-			fieldLabel: "Name",
+			fieldLabel: _("Name"),
 			readOnly: true,
 			allowBlank: true,
 			hidden: (this.uuid == OMV.UUID_UNDEFINED),
@@ -726,49 +741,47 @@ Ext.extend(OMV.Module.System.Network.BondIfacePropertyDialog,
 		{
 			xtype: "textfield",
 			name: "address",
-			fieldLabel: "Address",
+			fieldLabel: _("Address"),
 			vtype: "IPv4",
 			readOnly: true,
 			allowBlank: true
 		},{
 			xtype: "textfield",
 			name: "netmask",
-			fieldLabel: "Netmask",
+			fieldLabel: _("Netmask"),
 			vtype: "netmask",
 			readOnly: true,
 			allowBlank: true
 		},{
 			xtype: "textfield",
 			name: "gateway",
-			fieldLabel: "Gateway",
+			fieldLabel: _("Gateway"),
 			vtype: "IPv4",
 			readOnly: true,
 			allowBlank: true
 		},{
 			xtype: "numberfield",
 			name: "mtu",
-			fieldLabel: "MTU",
+			fieldLabel: _("MTU"),
 			allowBlank: true,
 			allowDecimals: false,
 			allowNegative: false
 		},{
 			xtype: "textfield",
 			name: "options",
-			fieldLabel: "Options",
+			fieldLabel: _("Options"),
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Additional device settings, e.g. 'autoneg off speed " +
-			  "100 duplex full'. See <a href='http://linux.die.net/man/8/ethtool' " +
-			  "target='_blank'>manual pages</a> for more details."
+			infoText: _("Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> for more details.")
 		},{
 			xtype: "checkbox",
 			name: "wol",
-			fieldLabel: "Wake-on-LAN",
+			fieldLabel: _("Wake-on-LAN"),
 			checked: false,
 			inputValue: 1
 		},{
 			xtype: "fieldset",
-			title: "Bond options",
+			title: _("Bond options"),
 			defaults: {
 				anchor: "100%",
 				labelSeparator: ""
@@ -777,7 +790,7 @@ Ext.extend(OMV.Module.System.Network.BondIfacePropertyDialog,
 				xtype: "combo",
 				name: "bondmode",
 				hiddenName: "bondmode",
-				fieldLabel: "Mode",
+				fieldLabel: _("Mode"),
 				mode: "local",
 				store: new Ext.data.SimpleStore({
 					fields: [ "value","text" ],
@@ -798,42 +811,42 @@ Ext.extend(OMV.Module.System.Network.BondIfacePropertyDialog,
 				triggerAction: "all",
 				value: 1,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Specifies one of the bonding policies."
+				infoText: _("Specifies one of the bonding policies.")
 			},
 				this.bondPrimaryCtrl
 			,{
 				xtype: "numberfield",
 				name: "bondmiimon",
-				fieldLabel: "MII monitoring frequency",
+				fieldLabel: _("MII monitoring frequency"),
 				allowBlank: true,
 				allowDecimals: false,
 				allowNegative: false,
 				minValue: 0,
 				value: 100,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Specifies the MII link monitoring frequency in milliseconds."
+				infoText: _("Specifies the MII link monitoring frequency in milliseconds.")
 			},{
 				xtype: "numberfield",
 				name: "bonddowndelay",
-				fieldLabel: "Down delay",
+				fieldLabel: _("Down delay"),
 				allowBlank: true,
 				allowDecimals: false,
 				allowNegative: false,
 				minValue: 0,
 				value: 200,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Specifies the time, in milliseconds, to wait before disabling a slave after a link failure has been detected."
+				infoText: _("Specifies the time, in milliseconds, to wait before disabling a slave after a link failure has been detected.")
 			},{
 				xtype: "numberfield",
 				name: "bondupdelay",
-				fieldLabel: "Up delay",
+				fieldLabel: _("Up delay"),
 				allowBlank: true,
 				allowDecimals: false,
 				allowNegative: false,
 				minValue: 0,
 				value: 200,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Specifies the time, in milliseconds, to wait before enabling a slave after a link recovery has been detected."
+				infoText: _("Specifies the time, in milliseconds, to wait before enabling a slave after a link recovery has been detected.")
 			}]
 		}];
 	},
@@ -894,7 +907,7 @@ Ext.extend(OMV.Module.System.Network.HostsPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "Host access control",
+			title: _("Host access control"),
 			defaults: {
 				anchor: "100%",
 				labelSeparator: ""
@@ -902,7 +915,7 @@ Ext.extend(OMV.Module.System.Network.HostsPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "textarea",
 				name: "hostacallow",
-				fieldLabel: "Allow",
+				fieldLabel: _("Allow"),
 				allowBlank: true,
 				autoCreate: {
 					tag: "textarea",
@@ -912,7 +925,7 @@ Ext.extend(OMV.Module.System.Network.HostsPanel, OMV.FormPanelExt, {
 			},{
 				xtype: "textarea",
 				name: "hostacdeny",
-				fieldLabel: "Deny",
+				fieldLabel: _("Deny"),
 				allowBlank: true,
 				autoCreate: {
 					tag: "textarea",
@@ -926,7 +939,7 @@ Ext.extend(OMV.Module.System.Network.HostsPanel, OMV.FormPanelExt, {
 OMV.NavigationPanelMgr.registerPanel("system", "network", {
 	cls: OMV.Module.System.Network.HostsPanel,
 	position: 50,
-	title: "Hosts"
+	title: _("Hosts")
 });
 
 /**
@@ -946,7 +959,7 @@ Ext.extend(OMV.Module.System.Network.DNSNameServerPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "DNS server",
+			title: _("DNS server"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -954,13 +967,13 @@ Ext.extend(OMV.Module.System.Network.DNSNameServerPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "textfield",
 				name: "primarydns",
-				fieldLabel: "Primary",
+				fieldLabel: _("Primary"),
 				vtype: "IPv4",
 				allowBlank: true
 			},{
 				xtype: "textfield",
 				name: "secondarydns",
-				fieldLabel: "Secondary",
+				fieldLabel: _("Secondary"),
 				vtype: "IPv4",
 				allowBlank: true
 			}]
@@ -970,7 +983,7 @@ Ext.extend(OMV.Module.System.Network.DNSNameServerPanel, OMV.FormPanelExt, {
 OMV.NavigationPanelMgr.registerPanel("system", "network", {
 	cls: OMV.Module.System.Network.DNSNameServerPanel,
 	position: 30,
-	title: "DNS Server"
+	title: _("DNS Server")
 });
 
 /**
@@ -987,17 +1000,17 @@ OMV.Module.System.Network.FirewallGridPanel = function(config) {
 		stateId: "edb8c917-abd1-4b59-a67f-fc4ef3ab8a5f",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Direction",
+				header: _("Direction"),
 				sortable: false,
 				dataIndex: "chain",
 				id: "chain"
 			},{
-				header: "Action",
+				header: _("Action"),
 				sortable: false,
 				dataIndex: "action",
 				id: "action"
 			},{
-				header: "Source",
+				header: _("Source"),
 				sortable: false,
 				dataIndex: "source",
 				id: "source",
@@ -1007,7 +1020,7 @@ OMV.Module.System.Network.FirewallGridPanel = function(config) {
 					return val;
 				}
 			},{
-				header: "Port",
+				header: _("Port"),
 				sortable: false,
 				dataIndex: "sport",
 				id: "sport",
@@ -1017,7 +1030,7 @@ OMV.Module.System.Network.FirewallGridPanel = function(config) {
 					return val;
 				}
 			},{
-				header: "Destination",
+				header: _("Destination"),
 				sortable: false,
 				dataIndex: "destination",
 				id: "destination",
@@ -1027,7 +1040,7 @@ OMV.Module.System.Network.FirewallGridPanel = function(config) {
 					return val;
 				}
 			},{
-				header: "Port",
+				header: _("Port"),
 				sortable: false,
 				dataIndex: "dport",
 				id: "dport",
@@ -1037,7 +1050,7 @@ OMV.Module.System.Network.FirewallGridPanel = function(config) {
 					return val;
 				}
 			},{
-				header: "Protocol",
+				header: _("Protocol"),
 				sortable: false,
 				dataIndex: "protocol",
 				id: "protocol",
@@ -1051,7 +1064,7 @@ OMV.Module.System.Network.FirewallGridPanel = function(config) {
 					[ "!icmp","Not ICMP" ]
 				])
 			},{
-				header: "Comment",
+				header: _("Comment"),
 				sortable: false,
 				dataIndex: "comment",
 				id: "comment"
@@ -1072,7 +1085,10 @@ Ext.extend(OMV.Module.System.Network.FirewallGridPanel,
 				field: "rulenum",
 				direction: "ASC"
 			},
-			proxy: new OMV.data.DataProxy("Iptables", "getRules"),
+			proxy: new OMV.data.DataProxy({
+				"service": "Iptables",
+				"method": "getRules"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				fields: [
@@ -1124,7 +1140,7 @@ Ext.extend(OMV.Module.System.Network.FirewallGridPanel,
 		tbar.insert(5, {
 			id: this.getId() + "-commit",
 			xtype: "button",
-			text: "Commit",
+			text: _("Commit"),
 			icon: "images/commit.png",
 			handler: this.cbCommitBtnHdl,
 			scope: this,
@@ -1220,7 +1236,7 @@ Ext.extend(OMV.Module.System.Network.FirewallGridPanel,
 			  } else {
 				  OMV.MessageBox.error(null, error);
 			  }
-		  }, this, "Iptables", "setRules", [ values ]);
+		  }, this, "Iptables", "setRules", values);
 	},
 
 	_updateRuleNums : function() {
@@ -1235,7 +1251,7 @@ Ext.extend(OMV.Module.System.Network.FirewallGridPanel,
 OMV.NavigationPanelMgr.registerPanel("system", "network", {
 	cls: OMV.Module.System.Network.FirewallGridPanel,
 	position: 60,
-	title: "Firewall"
+	title: _("Firewall")
 });
 
 /**
@@ -1246,8 +1262,8 @@ OMV.NavigationPanelMgr.registerPanel("system", "network", {
 OMV.Module.System.Network.FirewallPropertyDialog = function(config) {
 	var initialConfig = {
 		mode: "local",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " firewall rule",
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add firewall rule") : _("Edit firewall rule"),
 		width: 500,
 		autoHeight: true
 	};
@@ -1272,7 +1288,7 @@ Ext.extend(OMV.Module.System.Network.FirewallPropertyDialog,
 			xtype: "combo",
 			name: "chain",
 			hiddenName: "chain",
-			fieldLabel: "Direction",
+			fieldLabel: _("Direction"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
@@ -1291,7 +1307,7 @@ Ext.extend(OMV.Module.System.Network.FirewallPropertyDialog,
 			xtype: "combo",
 			name: "action",
 			hiddenName: "action",
-			fieldLabel: "Action",
+			fieldLabel: _("Action"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
@@ -1311,40 +1327,40 @@ Ext.extend(OMV.Module.System.Network.FirewallPropertyDialog,
 		},{
 			xtype: "textfield",
 			name: "source",
-			fieldLabel: "Source",
+			fieldLabel: _("Source"),
 			vtype: "IPv4Fw",
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Source address can be either a network IP address (with /mask), a IP range or a plain IP address. A '!' argument before the address specification inverts the sense of the address."
+			infoText: _("Source address can be either a network IP address (with /mask), a IP range or a plain IP address. A '!' argument before the address specification inverts the sense of the address.")
 		},{
 			xtype: "textfield",
 			name: "sport",
-			fieldLabel: "Source port",
+			fieldLabel: _("Source port"),
 			vtype: "portFw",
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Match if the source port is one of the given ports. E.g. 21 or !443 or 1024-65535."
+			infoText: _("Match if the source port is one of the given ports. E.g. 21 or !443 or 1024-65535.")
 		},{
 			xtype: "textfield",
 			name: "destination",
-			fieldLabel: "Destination",
+			fieldLabel: _("Destination"),
 			vtype: "IPv4Fw",
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Destination address can be either a network IP address (with /mask), a IP range or a plain IP address. A '!' argument before the address specification inverts the sense of the address."
+			infoText: _("Destination address can be either a network IP address (with /mask), a IP range or a plain IP address. A '!' argument before the address specification inverts the sense of the address.")
 		},{
 			xtype: "textfield",
 			name: "dport",
-			fieldLabel: "Destination port",
+			fieldLabel: _("Destination port"),
 			vtype: "portFw",
 			allowBlank: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Match if the destination port is one of the given ports. E.g. 21 or !443 or 1024-65535."
+			infoText: _("Match if the destination port is one of the given ports. E.g. 21 or !443 or 1024-65535.")
 		},{
 			xtype: "combo",
 			name: "protocol",
 			hiddenName: "protocol",
-			fieldLabel: "Protocol",
+			fieldLabel: _("Protocol"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
@@ -1352,10 +1368,10 @@ Ext.extend(OMV.Module.System.Network.FirewallPropertyDialog,
 					[ "tcp","TCP" ],
 					[ "udp","UDP" ],
 					[ "icmp","ICMP" ],
-					[ "all","All" ],
-					[ "!tcp","Not TCP" ],
-					[ "!udp","Not UDP" ],
-					[ "!icmp","Not ICMP" ]
+					[ "all",_("All") ],
+					[ "!tcp",_("Not TCP") ],
+					[ "!udp",_("Not UDP") ],
+					[ "!icmp",_("Not ICMP") ]
 				]
 			}),
 			displayField: "text",
@@ -1367,12 +1383,12 @@ Ext.extend(OMV.Module.System.Network.FirewallPropertyDialog,
 		},{
 			xtype: "textfield",
 			name: "extraoptions",
-			fieldLabel: "Extra options",
+			fieldLabel: _("Extra options"),
 			allowBlank: true
 		},{
 			xtype: "textarea",
 			name: "comment",
-			fieldLabel: "Comment",
+			fieldLabel: _("Comment"),
 			allowBlank: true
 		}];
 	},
@@ -1387,13 +1403,13 @@ Ext.extend(OMV.Module.System.Network.FirewallPropertyDialog,
 		var values = this.getValues();
 		if (!Ext.isEmpty(values.sport) && (values.protocol == "all")) {
 			this.markInvalid([
-				{ id: "protocol", msg: "'All' is not allowed" }
+				{ id: "protocol", msg: _("'All' is not allowed") }
 			]);
 			valid = false;
 		}
 		if (!Ext.isEmpty(values.dport) && (values.protocol == "all")) {
 			this.markInvalid([
-				{ id: "protocol", msg: "'All' is not allowed" }
+				{ id: "protocol", msg: _("'All' is not allowed") }
 			]);
 			valid = false;
 		}
@@ -1419,7 +1435,7 @@ Ext.extend(OMV.Module.System.Network.DNSServiceDiscoveryPanel,
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "Zeroconf",
+			title: _("Zeroconf"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -1427,11 +1443,11 @@ Ext.extend(OMV.Module.System.Network.DNSServiceDiscoveryPanel,
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: true,
 				inputValue: 1,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Enable advertising of services via mDNS/DNS-SD."
+				infoText: _("Enable advertising of services via mDNS/DNS-SD.")
 			}]
 		}];
 	}
@@ -1439,5 +1455,5 @@ Ext.extend(OMV.Module.System.Network.DNSServiceDiscoveryPanel,
 OMV.NavigationPanelMgr.registerPanel("system", "network", {
 	cls: OMV.Module.System.Network.DNSServiceDiscoveryPanel,
 	position: 40,
-	title: "DNS Service Discovery"
+	title: _("DNS Service Discovery")
 });

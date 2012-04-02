@@ -29,30 +29,42 @@ require_once("openmediavault/notify.inc");
 class LogicalVolumeMgmtRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
-			"getPhysicalVolumesList" => array(
-				'{"type":"integer"}', // start
-				'{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
+			"getPhysicalVolumesList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
 			"createPhysicalVolume" => array('{
 				"type":"object",
 				"properties":{
 					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
 				}
 			}'),
-			"deletePhysicalVolume" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}'
-			),
-			"getVolumeGroupsList" => array(
-				'{"type":"integer"}', // start
-				'{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
-			"getVolumeGroupPhysicalVolumes" => array(
-				'{"type":"string"}'
-			),
+			"deletePhysicalVolume" => array('{
+				"type":"object",
+				"properties":{
+					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+				}
+			}'),
+			"getVolumeGroupsList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
+			"getVolumeGroupPhysicalVolumes" => array('{
+				"type":"object",
+				"properties":{
+					"name":{"type":"string"}
+				}
+			}'),
 			"createVolumeGroup" => array('{
 				"type":"object",
 				"properties":{
@@ -60,12 +72,18 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 					"devices":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE_LIST'].'}
 				}
 			}'),
-			"getVolumeGroup" => array(
-				'{"type":"string"}'
-			),
-			"deleteVolumeGroup" => array(
-				'{"type":"string"}'
-			),
+			"getVolumeGroup" => array('{
+				"type":"object",
+				"properties":{
+					"name":{"type":"string"}
+				}
+			}'),
+			"deleteVolumeGroup" => array('{
+				"type":"object",
+				"properties":{
+					"name":{"type":"string"}
+				}
+			}'),
 			"renameVolumeGroup" => array('{
 				"type":"object",
 				"properties":{
@@ -87,15 +105,21 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 					"devices":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE_LIST'].'}
 				}
 			}'),
-			"getLogicalVolumesList" => array(
-				'{"type":"integer"}', // start
-				'{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
-			"deleteLogicalVolume" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}'
-			),
+			"getLogicalVolumesList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
+			"deleteLogicalVolume" => array('{
+				"type":"object",
+				"properties":{
+					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+				}
+			}'),
 			"createLogicalVolume" => array('{
 				"type":"object",
 				"properties":{
@@ -126,8 +150,8 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 	/**
 	 * Enumerate all physical volumes on the system.
 	 * @return An array of objects. Each object represents a physical volume
-	 * with the following properties: devicename, free, used, size, vguuid,
-	 * vgname and description.
+	 *   with the following properties: devicename, free, used, size, vguuid,
+	 *   vgname and description.
 	 */
 	public function enumeratePhysicalVolumes() {
 		// Check permissions
@@ -160,15 +184,16 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 
 	/**
 	 * Get a list of physical volumes.
-	 * @param start The index where to start.
-	 * @param count The number of objects to process.
-	 * @param sortField The name of the column used to sort.
-	 * @param sortDir The sort direction, ASC or DESC.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
 	 * @return An array containing the requested objects. The field \em total
-	 * contains the total number of objects, \em data contains the object
-	 * array. An exception will be thrown in case of an error.
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	function getPhysicalVolumesList($start, $count, $sortField, $sortDir) {
+	function getPhysicalVolumesList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Check permissions
 		$this->validateSession();
@@ -183,14 +208,15 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 		foreach ($devs as $devk => &$devv) {
 			$devv['_used'] = !empty($devv['vgname']);
 		}
-		// Filter result list.
-		return $this->applyFilter($devs, $start, $count, $sortField, $sortDir);
+		// Filter result
+		return $this->applyFilter($devs, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
 	 * Get list of devices that can be used to create a physical volume.
 	 * @return An array containing objects with the following fields:
-	 * devicefile, size and description.
+	 *   devicefile, size and description.
 	 */
 	public function getPhysicalVolumeCandidates() {
 		global $xmlConfig;
@@ -209,13 +235,14 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 			  "get list of physical volumes");
 		}
 		$usedDevs = array_merge($usedDevs, $devs);
-		// Get all existing RAID devices
-		if (FALSE === ($devs = OMVRaidDevices::get())) {
+		// Get all existing software RAID devices.
+		if (FALSE === ($devs = OMVStorageDevices::enumerate(
+		  OMVStorageDevices::SOFTWARERAID))) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
-			  "get list of RAID devices");
+			  "get list of software RAID devices");
 		}
 		foreach ($devs as $devk => $devv) {
-			$raid = new OMVRaidDevice($devv);
+			$raid = new OMVSoftwareRaidDevice($devv);
 			if (!$raid->exists())
 				continue;
  			// Add the devices used by the RAID to the list of used devices.
@@ -281,8 +308,11 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 
 	/**
 	 * Delete a physical volume.
+	 * @param data An array containing the following fields:
+	 *   \em devicefile The devicefile of the physical volume.
+	 * @return None
 	 */
-	public function deletePhysicalVolume($devicefile) {
+	public function deletePhysicalVolume($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -297,15 +327,15 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.storage.lvm.physicalvolume", array(
-			  "devicefile" => $devicefile
+			  "devicefile" => $data['devicefile']
 		  ));
 	}
 
 	/**
 	 * Enumerate all volume groups on the system.
 	 * @return An array of objects. Each object represents a volume group
-	 * with the following properties: devicefile, uuid, name, free, size,
-	 * pvName and lvName.
+	 *   with the following properties: devicefile, uuid, name, free, size,
+	 *   pvName and lvName.
 	 */
 	public function enumerateVolumeGroups() {
 		// Check permissions
@@ -339,16 +369,16 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 
 	/**
 	 * Get a list of volume groups.
-	 * @param start The index where to start.
-	 * @param count The number of objects to process.
-	 * @param sortField The name of the column used to sort.
-	 * @param sortDir The sort direction, ASC or DESC.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
 	 * @return An array containing the requested objects. The field \em total
-	 * contains the total number of objects, \em data contains the object
-	 * array. An exception will be thrown in case of an error.
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	function getVolumeGroupsList($start, $count, $sortField,
-	  $sortDir) {
+	function getVolumeGroupsList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Check permissions
 		$this->validateSession();
@@ -363,14 +393,15 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 		foreach ($vgs as $vgk => &$vgv) {
 			$vgv['_used'] = !empty($vgv['lvName']);
 		}
-		// Filter result list.
-		return $this->applyFilter($vgs, $start, $count, $sortField, $sortDir);
+		// Filter result
+		return $this->applyFilter($vgs, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
 	 * Get list of physical volumes that can be used to create a volume group.
 	 * @return An array containing objects with the following fields:
-	 * devicefile, size and description.
+	 *   devicefile, size and description.
 	 */
 	public function getVolumeGroupCandidates() {
 		global $xmlConfig;
@@ -437,9 +468,11 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 
 	/**
 	 * Get volume group details.
-	 * @param name The name of the volume group, e.g. vg0 or /dev/vg1.
+	 * @param data An array containing the following fields:
+	 *   \em uuid name The name of the volume group, e.g. vg0 or /dev/vg1.
+	 * @return The volume group details.
 	 */
-	public function getVolumeGroup($name) {
+	public function getVolumeGroup($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -451,7 +484,7 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get the volume group details.
-		$vg = new OMVVolumeGroup($name);
+		$vg = new OMVVolumeGroup($data['name']);
 		if (FALSE === $vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Volume group '%s' not found", $vg->getName()));
@@ -470,9 +503,11 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 
 	/**
 	 * Delete a volume group.
-	 * @param name The name of the volume group, e.g. vg0 or /dev/vg1.
+	 * @param data An array containing the following fields:
+	 *   \em name The name of the volume group, e.g. vg0 or /dev/vg1.
+	 * @return None
 	 */
-	public function deleteVolumeGroup($name) {
+	public function deleteVolumeGroup($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -487,18 +522,19 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.storage.lvm.volumegroup", array(
-			  "name" => $name
+			  "name" => $data['name']
 		  ));
 	}
 
 	/**
 	 * Get the physical volumes assigned to a volume group.
-	 * @param name The name of the volume group, e.g. vg0 or /dev/vg1.
+	 * @param data An array containing the following fields:
+	 *   \em name The name of the volume group, e.g. vg0 or /dev/vg1.
 	 * @return An array containing the physical volumes assigned to the
-	 * given volume group. Each array item has the fields \em devicefile,
-	 * \em size, \em description and \em _used.
+	 *   given volume group. Each array item has the fields \em devicefile,
+	 *   \em size, \em description and \em _used.
 	 */
-	public function getVolumeGroupPhysicalVolumes($name) {
+	public function getVolumeGroupPhysicalVolumes($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -510,7 +546,7 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get the volume groups physical volumes.
-		$vg = new OMVVolumeGroup($name);
+		$vg = new OMVVolumeGroup($data['name']);
 		$result = array();
 		foreach ($vg->getPVName() as $pvk => $pvv) {
 			$pv = new OMVPhysicalVolume($pvv);
@@ -613,7 +649,8 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 	/**
 	 * Enumerate all logical volumes on the system.
 	 * @return An array of objects. Each object represents a logical volume
-	 * with the following properties: devicefile, uuid, name, size and vgname.
+	 *   with the following properties: devicefile, uuid, name, size and
+	 *   vgname.
 	 */
 	public function enumerateLogicalVolumes() {
 		// Check permissions
@@ -644,15 +681,16 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 
 	/**
 	 * Get a list of logical volumes.
-	 * @param start The index where to start.
-	 * @param count The number of objects to process.
-	 * @param sortField The name of the column used to sort.
-	 * @param sortDir The sort direction, ASC or DESC.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
 	 * @return An array containing the requested objects. The field \em total
-	 * contains the total number of objects, \em data contains the object
-	 * array. An exception will be thrown in case of an error.
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	function getLogicalVolumesList($start, $count, $sortField, $sortDir) {
+	function getLogicalVolumesList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Check permissions
 		$this->validateSession();
@@ -668,13 +706,14 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 			$used = FALSE;
 			// Does the logical volume contain a filesystem and is it used?
 			if (FALSE !== OMVRpc::exec("FsTab", "getByFsName", array(
-			  $lvv['devicefile']))) {
+			  "id" => $lvv['devicefile']))) {
 				$used = TRUE;
 			}
 			$lvv['_used'] = $used;
 		}
-		// Filter result list.
-		return $this->applyFilter($lvs, $start, $count, $sortField, $sortDir);
+		// Filter result
+		return $this->applyFilter($lvs, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
@@ -727,8 +766,11 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 
 	/**
 	 * Delete a logical volume.
+	 * @param data An array containing the following fields:
+	 *   \em devicefile The device file of the logical volume.
+	 * @return None
 	 */
-	public function deleteLogicalVolume($devicefile) {
+	public function deleteLogicalVolume($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -743,15 +785,17 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
-			  "devicefile" => $devicefile
+			  "devicefile" => $data['devicefile']
 		  ));
 	}
 
 	/**
 	 * Modify a logical volume.
-	 * @param data The field \em devicefile is the device file of the logical
-	 * volume to modify, \em size is the new absolute size and \em unit
-	 * the binary unit of the new volume size.
+	 * @param data An array containing the following fields:
+	 *   \em devicefile The device file of the logical volume to modify.
+	 *   \em size The new absolute size.
+	 *   \em unit The binary unit of the new volume size.
+	 * @return None
 	 */
 	public function modifyLogicalVolume($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));

@@ -33,8 +33,8 @@ Ext.ns("OMV.TransmissionBT");
 OMV.TransmissionBT.DeleteDialog = function(config) {
 	var initialConfig = {
 		url: this.url,
-		title: "Delete torrent",
-		waitMsg: "Deleting torrent ...",
+		title: _("Delete torrent"),
+		waitMsg: _("Deleting torrent ..."),
 		width: 450,
 		autoHeight: true,
 		layout: "fit",
@@ -42,11 +42,11 @@ OMV.TransmissionBT.DeleteDialog = function(config) {
 		border: false,
 		buttonAlign: "center",
 		buttons: [{
-			text: "OK",
+			text: _("OK"),
 			handler: this.cbOkBtnHdl.createDelegate(this),
 			scope: this
 		},{
-			text: "Cancel",
+			text: _("Cancel"),
 			handler: this.cbCancelBtnHdl.createDelegate(this),
 			scope: this
 		}]
@@ -89,7 +89,7 @@ Ext.extend(OMV.TransmissionBT.DeleteDialog, OMV.Window, {
 				xtype: "checkbox",
 				name: "delete-local-data",
 				id: "delete-local-data",
-				fieldLabel: "Delete Local Data",
+				fieldLabel: _("Delete Local Data"),
 				checked: false,
 				inputValue: 1
 			}]

@@ -34,7 +34,7 @@ Ext.ns("OMV.Module.Services.AFP");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("services", "afp", {
-	text: "Apple Filing",
+	text: _("Apple Filing"),
 	icon: "images/afp.png"
 });
 
@@ -56,7 +56,7 @@ Ext.extend(OMV.Module.Services.AFP.SettingsPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -64,19 +64,19 @@ Ext.extend(OMV.Module.Services.AFP.SettingsPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1
 			},{
 				xtype: "textfield",
 				name: "extraoptions",
-				fieldLabel: "Extra options",
+				fieldLabel: _("Extra options"),
 				allowBlank: true,
-				width: 400
+				anchor: "100%"
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Authentication",
+			title: _("Authentication"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -84,7 +84,7 @@ Ext.extend(OMV.Module.Services.AFP.SettingsPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "allowguests",
-				fieldLabel: "Allow guest logins",
+				fieldLabel: _("Allow guest logins"),
 				checked: false,
 				inputValue: 1
 			}]
@@ -93,7 +93,7 @@ Ext.extend(OMV.Module.Services.AFP.SettingsPanel, OMV.FormPanelExt, {
 });
 OMV.NavigationPanelMgr.registerPanel("services", "afp", {
 	cls: OMV.Module.Services.AFP.SettingsPanel,
-	title: "Settings",
+	title: _("Settings"),
 	position: 10
 });
 
@@ -107,22 +107,22 @@ OMV.Module.Services.AFP.SharesGridPanel = function(config) {
 		stateId: "b2878122-c1e7-11e0-9bbc-00221568ca88",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Shared folder",
+				header: _("Shared folder"),
 				sortable: true,
 				dataIndex: "sharedfoldername",
 				id: "sharedfoldername"
 			},{
-				header: "Name",
+				header: _("Name"),
 				sortable: true,
 				dataIndex: "name",
 				id: "name"
 			},{
-				header: "Comment",
+				header: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
 				id: "comment"
 			},{
-				header: "Read only",
+				header: _("Read only"),
 				sortable: true,
 				dataIndex: "readonly",
 				id: "readonly",
@@ -139,7 +139,10 @@ Ext.extend(OMV.Module.Services.AFP.SharesGridPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("AFP", "getShareList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "AFP",
+				"method": "getShareList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				totalProperty: "total",
@@ -187,12 +190,12 @@ Ext.extend(OMV.Module.Services.AFP.SharesGridPanel, OMV.grid.TBarGridPanel, {
 
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "AFP", "deleteShare",
-		  [ record.get("uuid") ]);
+		  { "uuid": record.get("uuid") });
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("services", "afp", {
 	cls: OMV.Module.Services.AFP.SharesGridPanel,
-	title: "Shares",
+	title: _("Shares"),
 	position: 20
 });
 
@@ -205,8 +208,8 @@ OMV.Module.Services.AFP.SharePropertyDialog = function(config) {
 		rpcService: "AFP",
 		rpcGetMethod: "getShare",
 		rpcSetMethod: "setShare",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ?
-		  "Add" : "Edit") + " share",
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add share") : _("Edit share"),
 		width: 700,
 		height: 400
 	};
@@ -229,91 +232,91 @@ Ext.extend(OMV.Module.Services.AFP.SharePropertyDialog, OMV.CfgObjectDialog, {
 		return [{
 			xtype: "textfield",
 			name: "name",
-			fieldLabel: "Name",
+			fieldLabel: _("Name"),
 			allowBlank: false,
 			vtype: "sharename",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The name of the share."
+			infoText: _("The name of the share.")
 		},{
 			xtype: "textfield",
 			name: "comment",
-			fieldLabel: "Comment",
+			fieldLabel: _("Comment"),
 			allowBlank: true
 		},{
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",
 			hiddenName: "sharedfolderref",
-			fieldLabel: "Shared folder",
+			fieldLabel: _("Shared folder"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The location of the files to share."
+			infoText: _("The location of the files to share.")
 		},{
 			xtype: "passwordfield",
 			name: "password",
-			fieldLabel: "Password",
+			fieldLabel: _("Password"),
 			allowBlank: true,
 			maxLength: 8,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "If this option is set, then a password is required to access the share."
+			infoText: _("If this option is set, then a password is required to access the share.")
 		},{
 			xtype: "checkbox",
 			name: "ro",
-			fieldLabel: "Read only",
+			fieldLabel: _("Read only"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Set read only.",
+			boxLabel: _("Set read only."),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "If this option is set, then users may not create or modify files in the share."
+			infoText: _("If this option is set, then users may not create or modify files in the share.")
 		},{
 			xtype: "checkbox",
 			name: "tm",
-			fieldLabel: "Time Machine support",
+			fieldLabel: _("Time Machine support"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Enable Time Machine support for this share."
+			boxLabel: _("Enable Time Machine support for this share.")
 		},{
 			xtype: "checkbox",
 			name: "upriv",
-			fieldLabel: "Unix privileges",
+			fieldLabel: _("Unix privileges"),
 			checked: true,
 			inputValue: 1,
-			boxLabel: "Use AFP3 unix privileges."
+			boxLabel: _("Use AFP3 unix privileges.")
 		},{
 			xtype: "checkbox",
 			name: "usedots",
-			fieldLabel: "Use dots",
+			fieldLabel: _("Use dots"),
 			checked: true,
 			inputValue: 1,
-			boxLabel: "Don't do :hex translation for dot files.",
+			boxLabel: _("Don't do :hex translation for dot files."),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "When this option gets set, certain file names become illegal. These are .Parent and anything that starts with .Apple."
+			infoText: _("When this option gets set, certain file names become illegal. These are .Parent and anything that starts with .Apple.")
 		},{
 			xtype: "checkbox",
 			name: "invisibledots",
-			fieldLabel: "Hide dot files",
+			fieldLabel: _("Hide dot files"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Make dot files invisible."
+			boxLabel: _("Make dot files invisible.")
 		},{
 			xtype: "checkbox",
 			name: "mswindows",
-			fieldLabel: "Forces filename restrictions",
+			fieldLabel: _("Forces filename restrictions"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "This forces filenames to be restricted to the character set used by Windows."
+			boxLabel: _("This forces filenames to be restricted to the character set used by Windows.")
 		},{
 			xtype: "combo",
 			name: "casefold",
 			hiddenName: "casefold",
-			fieldLabel: "Case folding",
+			fieldLabel: _("Case folding"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ "none","None" ],
-					[ "tolower","Lowercases names in both directions" ],
-					[ "toupper","Uppercases names in both directions" ],
-					[ "xlatelower","Client sees lowercase, server sees uppercase" ],
-					[ "xlateupper","Client sees uppercase, server sees lowercase" ]
+					[ "none",_("None") ],
+					[ "tolower",_("Lowercases names in both directions") ],
+					[ "toupper",_("Uppercases names in both directions") ],
+					[ "xlatelower",_("Client sees lowercase, server sees uppercase") ],
+					[ "xlateupper",_("Client sees uppercase, server sees lowercase") ]
 				]
 			}),
 			displayField: "text",
@@ -323,11 +326,11 @@ Ext.extend(OMV.Module.Services.AFP.SharePropertyDialog, OMV.CfgObjectDialog, {
 			triggerAction: "all",
 			value: "none",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "This option handles, if the case of filenames should be changed."
+			infoText: _("This option handles, if the case of filenames should be changed.")
 		},{
 			xtype: "textfield",
 			name: "extraoptions",
-			fieldLabel: "Extra options",
+			fieldLabel: _("Extra options"),
 			allowBlank: true
 		}];
 	}

@@ -32,6 +32,8 @@ Ext.ns("OMV.form");
  * @param rpcGetMethod The RPC method to get request the data.
  * @param rpcGetArgs Additional RPC arguments.
  * @param rpcSetMethod The RPC method to commit the data.
+ * @param onlySubmitIfDirty Only submit the form values if the form is marked
+ *   as dirty. Defaults to FALSE.
  */
 OMV.form.FormPanel = function(config) {
 	var initialConfig = {
@@ -40,7 +42,8 @@ OMV.form.FormPanel = function(config) {
 		layout: "form",
 		defaults: {
 			labelSeparator: ""
-		}
+		},
+		onlySubmitIfDirty: false
 	};
 	Ext.applyEx(initialConfig, config);
 	OMV.form.FormPanel.superclass.constructor.call(this, initialConfig);
@@ -62,7 +65,7 @@ OMV.form.FormPanel = function(config) {
 Ext.extend(OMV.form.FormPanel, Ext.form.FormPanel, {
 	doLoad : function() {
 		// Display waiting dialog
-		OMV.MessageBox.wait(null, "Loading ...");
+		OMV.MessageBox.wait(null, _("Loading ..."));
 		// Execute RPC
 		OMV.Ajax.request(this.cbLoadHdl, this, this.rpcService,
 		  this.rpcGetMethod || "get", this.rpcGetArgs || null);
@@ -89,6 +92,8 @@ Ext.extend(OMV.form.FormPanel, Ext.form.FormPanel, {
 	},
 
 	doSubmit : function() {
+		if (this.onlySubmitIfDirty && !this.isDirty())
+			return;
 		// Validate values
 		if (!this.isValid()) {
 			var basicForm = this.getForm();
@@ -97,10 +102,10 @@ Ext.extend(OMV.form.FormPanel, Ext.form.FormPanel, {
 			var values = this.getValues();
 			if (this.fireEvent("beforesubmit", this, values) !== false) {
 				// Display waiting dialog
-				OMV.MessageBox.wait(null, "Saving ...");
+				OMV.MessageBox.wait(null, _("Saving ..."));
 				// Execute RPC
 				OMV.Ajax.request(this.cbSubmitHdl, this, this.rpcService,
-				  this.rpcSetMethod || "set", [ values ]);
+				  this.rpcSetMethod || "set", values);
 			}
 		}
 	},
@@ -113,8 +118,8 @@ Ext.extend(OMV.form.FormPanel, Ext.form.FormPanel, {
 		OMV.MessageBox.hide();
 		if (error === null) {
 			this.fireEvent("submit", this);
-			OMV.MessageBox.success(null, "The changes have been applied " +
-			  "successfully.");
+			OMV.MessageBox.success(null, _("The changes have been applied " +
+			  "successfully."));
 		} else {
 			OMV.MessageBox.error(null, error);
 		}

@@ -27,19 +27,19 @@ Ext.apply(Ext.form.VTypes, {
 	IPv4: function(v) {
 		return /^([1-9][0-9]{0,1}|1[013-9][0-9]|12[0-689]|2[01][0-9]|22[0-3])([.]([1-9]{0,1}[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){2}[.]([1-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-4])$/.test(v);
 	},
-	IPv4Text: "This field should be an IPv4 address",
+	IPv4Text: _("This field should be an IPv4 address"),
 	IPv4Mask: /[\d\.]/i,
 
 	IPv4Net: function(v) {
 		return /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(v);
 	},
-	IPv4NetText: "This field should be a IPv4 network address",
+	IPv4NetText: _("This field should be a IPv4 network address"),
 	IPv4NetMask: /[\d\.\/]/i,
 
 	IPv4NetCIDR: function(v) {
 		return /^([0-9][0-9]{0,1}|1[013-9][0-9]|12[0-689]|2[01][0-9]|22[0-3])([.]([0-9]{0,1}[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){2}[.]([0-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-4])\/(3[0-2]|[0-2]?[0-9])$/.test(v);
 	},
-	IPv4NetCIDRText: "This field should be a IPv4 network address in CIDR notation",
+	IPv4NetCIDRText: _("This field should be a IPv4 network address in CIDR notation"),
 	IPv4NetCIDRMask: /[\d\.\/]/i,
 
 	IPv4Fw: function(v) {
@@ -52,57 +52,57 @@ Ext.apply(Ext.form.VTypes, {
 		// 192.168.178.20-192.168.178.254
 		return RegExp("^(!)?(("+ipv4RegEx+")([-]("+ipv4RegEx+")){0,1})$", "i").test(v);
 	},
-	IPv4FwText: "This field should be either a IPv4 network address (with /mask), a IPv4 range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or 192.168.178.20-192.168.178.254)",
+	IPv4FwText: _("This field should be either a IPv4 network address (with /mask), a IPv4 range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or 192.168.178.20-192.168.178.254)"),
 	IPv4FwMask: /[\d\.\/\-:!]/i,
 
 	netmask: function(v) {
 		return /^(128|192|224|24[08]|25[245].0.0.0)|(255.(0|128|192|224|24[08]|25[245]).0.0)|(255.255.(0|128|192|224|24[08]|25[245]).0)|(255.255.255.(0|128|192|224|24[08]|252))$/.test(v);
 	},
-	netmaskText: "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252",
+	netmaskText: _("This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"),
 	netmaskMask: /[.0-9]/,
 
 	port: function(v) {
 		return /^([1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$/.test(v);
 	},
-	portText: "This field should be a port in the range of 1 - 65535",
+	portText: _("This field should be a port in the range of 1 - 65535"),
 	portMask: /[0-9]/i,
 
 	portFw: function(v) {
 		var portRegEx = "[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]";
 		return RegExp("^!?(("+portRegEx+")([-:]("+portRegEx+")){0,1})$", "i").test(v);
 	},
-	portFwText: "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)",
+	portFwText: _("This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"),
 	portFwMask: /[0-9\-:!]/i,
 
 	num: function(v) {
 		return /^[0-9]+$/.test(v);
 	},
-	numText: "This field should only contain numbers",
+	numText: _("This field should only contain numbers"),
 	numMask: /[0-9]/i,
 
 	numList: function(v) {
 		return /^(\d+[,;])*\d+$/.test(v);
 	},
-	numListText: "This field should only contain numbers seperated by <,> or <;>",
+	numListText: _("This field should only contain numbers seperated by <,> or <;>"),
 	numListMask: /[\d,;]/i,
 
 	textList: function(v) {
 		return /^(\w+[,;])*\w+$/.test(v);
 	},
-	textListText: "This field should only contain strings seperated by <,> or <;>",
+	textListText: _("This field should only contain strings seperated by <,> or <;>"),
 	textListMask: /[\w,;]/i,
 
 	portList: function(v) {
 		return /^((0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])[,;])*(0|[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5])$/.test(v);
 	},
-	portListText: "This field should only contain ports (0 - 65535) seperated by <,> or <;>",
+	portListText: _("This field should only contain ports (0 - 65535) seperated by <,> or <;>"),
 	portListMask: /[\d,;]/i,
 
 	hostname: function(v) {
-		return /^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9]){0,1}([.][a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9]){0,1}){0,}$/.test(v);
+		return /^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9]){0,1}$/.test(v);
 	},
-	hostnameText: "Invalid hostname",
-	hostnameMask: /[a-z0-9\-\.]/i,
+	hostnameText: _("Invalid hostname"),
+	hostnameMask: /[a-z0-9\-]/i,
 
 	hostnameIPv4: function(v) {
 		if(Ext.form.VTypes.hostname(v))
@@ -111,54 +111,73 @@ Ext.apply(Ext.form.VTypes, {
 			return true;
 		return false;
 	},
-	hostnameIPv4Text: "This field should be a hostname or an IPv4 address",
+	hostnameIPv4Text: _("This field should be a hostname or an IPv4 address"),
 	hostnameIPv4Mask: /[a-z0-9\-\.]/i,
+
+	domainname: function(v) {
+		return /^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/.test(v);
+	},
+	domainnameText: _("Invalid domain name"),
+	domainnameMask: /[a-z0-9\-\.]/i,
 
 	groupname: function(v) {
 		return /^[a-zA-Z0-9\-\.]+$/.test(v);
 	},
-	groupnameText: "Invalid group name",
+	groupnameText: _("Invalid group name"),
 	groupnameMask: /[a-zA-Z0-9\-\.]/,
 
 	username: function(v) {
 		// Taken from Debian adduser
 		return /^[_.A-Za-z0-9][-\@_.A-Za-z0-9]*\$?$/.test(v);
 	},
-	usernameText: "Invalid user name",
+	usernameText: _("Invalid user name"),
 	usernameMask: /[-\@_.A-Za-z0-9]/,
 
 	comment: function(v) {
 		return !/[:]/.test(v);
 	},
-	commentText: "Invalid comment",
+	commentText: _("Invalid comment"),
 	commentMask: /[^:]/,
 
 	password: function(v) {
 		return !/[^a-zA-Z0-9\.\-_]/.test(v);
 	},
-	passwordText: "The password contains invalid characters",
+	passwordText: _("The password contains invalid characters"),
 	passwordMask: /[a-zA-Z0-9\.\-_]/,
 
 	// String that are used as filesystem label
 	fslabel: function(v) {
 		return /^[a-zA-Z0-9]+$/.test(v);
 	},
-	fslabelText: "Invalid filesystem label",
+	fslabelText: _("Invalid filesystem label"),
 	fslabelMask: /[a-zA-Z0-9]/,
 
 	// Strings that are used as share names (e.g. SMB)
 	sharename: function(v) {
 		return /^[a-zA-Z0-9\.\-_]+$/.test(v);
 	},
-	sharenameText: "Invalid share name",
+	sharenameText: _("Invalid share name"),
 	sharenameMask: /[a-zA-Z0-9\.\-_]/,
 
 	// Strings that are used as part of a device name
 	devname: function(v) {
 		return /^[a-zA-Z0-9\.\-_]+$/.test(v);
 	},
-	devnameText: "Invalid name",
+	devnameText: _("Invalid name"),
 	devnameMask: /[a-zA-Z0-9\.\-_]/
+});
+
+////////////////////////////////////////////////////////////////////////////////
+// Ext.MessageBox
+////////////////////////////////////////////////////////////////////////////////
+
+Ext.apply(Ext.MessageBox, {
+	buttonText: {
+		ok: _("OK"),
+		cancel: _("Cancel"),
+		yes: _("Yes"),
+		no: _("No")
+	}
 });
 
 ////////////////////////////////////////////////////////////////////////////////

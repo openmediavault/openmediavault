@@ -21,8 +21,10 @@
  */
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
+require_once("openmediavault/object.inc");
+require_once("openmediavault/util.inc");
 
-class OMVProduct {
+class OMVProduct extends OMVObject {
 	private $info = array();
 
 	/**
@@ -33,7 +35,8 @@ class OMVProduct {
 	 *   version => xxx,
 	 *   versionname => xxx,
 	 *   url => xxx,
-	 *   copyright => xxx
+	 *   copyright => xxx,
+	 *   packagename => xxx
 	 * )
 	 */
 	private function getData() {
@@ -63,7 +66,12 @@ class OMVProduct {
 	public function getVersion() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		return $this->info['version'];
+		$cmd = sprintf("sudo dpkg-query -W -f='\${Version}' %s",
+		  $this->getPackageName());
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0)
+			return FALSE;
+		return $output[0];
 	}
 
 	public function getVersionName() {
@@ -82,6 +90,12 @@ class OMVProduct {
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->info['copyright'];
+	}
+
+	public function getPackageName() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		return $this->info['packagename'];
 	}
 }
 ?>

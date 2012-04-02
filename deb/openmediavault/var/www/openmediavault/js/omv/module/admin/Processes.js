@@ -25,7 +25,7 @@ Ext.ns("OMV.Module.Diagnostics");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("diagnostics", "processes", {
-	text: "Processes",
+	text: _("Processes"),
 	icon: "images/monitor.png",
 	position: 30
 });
@@ -52,7 +52,7 @@ OMV.Module.Diagnostics.Processes = function(config) {
 };
 Ext.extend(OMV.Module.Diagnostics.Processes, OMV.DiagPanel, {
 	doLoad : function() {
-		OMV.MessageBox.wait(null, "Loading ...");
+		OMV.MessageBox.wait(null, _("Loading ..."));
 		OMV.Ajax.request(function(id, response, error) {
 			  OMV.MessageBox.updateProgress(1);
 			  OMV.MessageBox.hide();

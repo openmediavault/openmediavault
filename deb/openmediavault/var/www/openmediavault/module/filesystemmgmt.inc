@@ -54,7 +54,7 @@ class FileSystemMgmtModule extends OMVModuleAbstract implements
 	}
 
 	/**
-	 * Wipe the given filesystem. Umount the filesystem and delete the
+	 * Wipe the given filesystem. Unmount the filesystem and delete the
 	 * associated mount point and quota configuration if necessary.
 	 * @param object The filesystem object.
 	 */
@@ -87,7 +87,7 @@ class FileSystemMgmtModule extends OMVModuleAbstract implements
 		}
 		if (!is_null($meObject)) {
 			// A mount point configuration has been found, so delete it now.
-			OMVRpc::exec("FsTab", "delete", array($meObject['uuid']));
+			OMVRpc::exec("FsTab", "delete", array("uuid" => $meObject['uuid']));
 		}
 		// Finally erase the filesystem. Whether the partition type is 'dos'
 		// then it is necessary to erase the MBR before, otherwise 'wipefs'

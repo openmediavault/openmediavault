@@ -23,13 +23,15 @@
 // require("js/omv/data/Store.js")
 // require("js/omv/grid/TBarGridPanel.js")
 // require("js/omv/CfgObjectDialog.js")
+// require("js/omv/ExecCmdDialog.js")
 // require("js/omv/form/plugins/FieldInfo.js")
+// require("js/omv/util/Format.js")
 
 Ext.ns("OMV.Module.Storage");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("storage", "physicaldisks", {
-	text: "Physical Disks",
+	text: _("Physical Disks"),
 	icon: "images/harddisk.png",
 	position: 10
 });
@@ -47,39 +49,34 @@ OMV.Module.Storage.PhysicalDiskPanel = function(config) {
 		stateId: "5e5cc148-c1e7-11e0-99e1-00221568ca88",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Device",
+				header: _("Device"),
 				sortable: true,
 				dataIndex: "devicefile",
 				id: "device",
 				width: 50
 			},{
-				header: "Model",
+				header: _("Model"),
 				sortable: true,
 				dataIndex: "model",
 				id: "model"
 			},{
-				header: "Serial Number",
+				header: _("Serial Number"),
 				sortable: true,
 				dataIndex: "serialnumber",
 				id: "serialnumber"
 			},{
-				header: "Vendor",
+				header: _("Vendor"),
 				sortable: true,
 				dataIndex: "vendor",
 				id: "vendor",
 				width: 30
 			},{
-				header: "Capacity",
+				header: _("Capacity"),
 				sortable: true,
-				dataIndex: "capacity",
-				id: "capacity",
-				width: 50
-			},{
-				header: "Temperature",
-				sortable: true,
-				dataIndex: "temperature",
-				id: "temperature",
-				width: 45
+				dataIndex: "size",
+				id: "size",
+				width: 50,
+				renderer: OMV.util.Format.binaryUnitRenderer()
 			}]
 		})
 	};
@@ -92,7 +89,10 @@ Ext.extend(OMV.Module.Storage.PhysicalDiskPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("DiskMgmt", "getList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "DiskMgmt",
+				"method": "getList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "devicefile",
 				totalProperty: "total",
@@ -102,14 +102,62 @@ Ext.extend(OMV.Module.Storage.PhysicalDiskPanel, OMV.grid.TBarGridPanel, {
 					{ name: "model" },
 					{ name: "vendor" },
 					{ name: "serialnumber" },
-					{ name: "capacity" },
-					{ name: "temperature" },
-					{ name: "hdparm" }
+					{ name: "size" },
+					{ name: "hdparm" },
+					{ name: "israid" }
     			]
 			})
 		});
 		OMV.Module.Storage.PhysicalDiskPanel.superclass.initComponent.
 		  apply(this, arguments);
+	},
+
+	initToolbar : function() {
+		var tbar = OMV.Module.Storage.PhysicalDiskPanel.superclass.
+		  initToolbar.apply(this);
+		// Add 'Wipe' button to top toolbar
+		tbar.add({
+			id: this.getId() + "-wipe",
+			xtype: "button",
+			text: _("Wipe"),
+			icon: "images/erase.png",
+			handler: this.cbWipeBtnHdl,
+			scope: this,
+			disabled: true
+		});
+		return tbar;
+	},
+
+	cbSelectionChangeHdl : function(model) {
+		OMV.Module.Storage.PhysicalDiskPanel.superclass.cbSelectionChangeHdl.
+		  apply(this, arguments);
+		// Process additional buttons
+		var tbarBtnName = [ "edit", "wipe" ];
+		var tbarBtnDisabled = {
+			"edit": true,
+			"wipe": true
+		};
+		var records = model.getSelections();
+		// Enable/disable buttons depending on the number of selected rows.
+		if (records.length == 1) {
+			// If the selected device is a (hardware) RAID, then disable
+			// the 'Edit' button because such devices do not support
+			// this additional customizations.
+			tbarBtnDisabled["edit"] = records[0].get("israid");
+			tbarBtnDisabled["wipe"] = false;
+		}
+		// Update the button controls.
+		for (var i = 0; i < tbarBtnName.length; i++) {
+			var tbarBtnCtrl = this.getTopToolbar().findById(this.getId() +
+			  "-" + tbarBtnName[i]);
+			if (!Ext.isEmpty(tbarBtnCtrl)) {
+				if (true == tbarBtnDisabled[tbarBtnName[i]]) {
+					tbarBtnCtrl.disable();
+				} else {
+					tbarBtnCtrl.enable();
+				}
+			}
+		}
 	},
 
 	cbEditBtnHdl : function() {
@@ -127,6 +175,62 @@ Ext.extend(OMV.Module.Storage.PhysicalDiskPanel, OMV.grid.TBarGridPanel, {
 			}
 		});
 		wnd.show();
+	},
+
+	cbWipeBtnHdl : function() {
+		var selModel = this.getSelectionModel();
+		var record = selModel.getSelected();
+		OMV.MessageBox.show({
+			title: _("Confirmation"),
+			msg: _("Do you really want to wipe the selected device?"),
+			buttons: Ext.Msg.YESNO,
+			fn: function(answer) {
+				if (answer == "no")
+					return;
+				OMV.MessageBox.show({
+					title: _("Wiping device ..."),
+					msg: _("Do you want to secure wipe the device? Please note that this may take a long time. Press 'No' to fast wipe the device or 'Cancel' to abort."),
+					buttons: Ext.Msg.YESNOCANCEL,
+					fn: function(answer) {
+						if (answer == "cancel")
+							return;
+						var wnd = new OMV.ExecCmdDialog({
+							title: _("Wiping device ..."),
+							rpcService: "DiskMgmt",
+							rpcMethod: "wipe",
+							rpcArgs: {
+								"devicefile": record.get("devicefile"),
+								"secure": (answer === "yes") ? true : false
+							},
+							hideStart: true,
+							hideStop: false,
+							killCmdBeforeDestroy: true,
+							listeners: {
+								finish: function(wnd, response) {
+									wnd.appendValue("\n" + _("Done ..."));
+									wnd.setButtonVisible("stop", false);
+									wnd.setButtonDisabled("close", false);
+								},
+								exception: function(wnd, error) {
+									OMV.MessageBox.error(null, error);
+									wnd.setButtonDisabled("close", false);
+								},
+								close: function() {
+									this.doReload();
+								},
+								scope: this
+							}
+						});
+						wnd.show();
+						wnd.start();
+					},
+					scope: this,
+					icon: Ext.Msg.QUESTION
+				});
+			},
+			scope: this,
+			icon: Ext.Msg.QUESTION
+		});
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("storage", "physicaldisks", {
@@ -135,13 +239,14 @@ OMV.NavigationPanelMgr.registerPanel("storage", "physicaldisks", {
 
 /**
  * @class OMV.Module.Storage.HdParmPropertyDialog
+ * @derived OMV.CfgObjectDialog
  */
 OMV.Module.Storage.HdParmPropertyDialog = function(config) {
 	var initialConfig = {
 		rpcService: "DiskMgmt",
 		rpcGetMethod: "getHdParm",
 		rpcSetMethod: "setHdParm",
-		title: "Edit physical disk properties",
+		title: _("Edit physical disk properties"),
 		autoHeight: true,
 		width: 450
 	};
@@ -161,18 +266,18 @@ Ext.extend(OMV.Module.Storage.HdParmPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "combo",
 			name: "apm",
 			hiddenName: "apm",
-			fieldLabel: "Advanced Power Management",
+			fieldLabel: _("Advanced Power Management"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ 255,"Disabled" ],
-					[ 1,"1 - Minimum power usage with standby (spindown)" ],
-					[ 64,"64 - Intermediate power usage with standby" ],
-					[ 127,"127 - Intermediate power usage with standby" ],
-					[ 128,"128 - Minimum power usage without standby (no spindown)" ],
-					[ 192,"192 - Intermediate power usage without standby" ],
-					[ 254,"254 - Maximum performance, maximum power usage" ]
+					[ 255,_("Disabled") ],
+					[ 1,_("1 - Minimum power usage with standby (spindown)") ],
+					[ 64,_("64 - Intermediate power usage with standby") ],
+					[ 127,_("127 - Intermediate power usage with standby") ],
+					[ 128,_("128 - Minimum power usage without standby (no spindown)") ],
+					[ 192,_("192 - Intermediate power usage without standby") ],
+					[ 254,_("254 - Maximum performance, maximum power usage") ]
 				]
 			}),
 			displayField: "text",
@@ -185,14 +290,14 @@ Ext.extend(OMV.Module.Storage.HdParmPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "combo",
 			name: "aam",
 			hiddenName: "aam",
-			fieldLabel: "Automatic Acoustic Management",
+			fieldLabel: _("Automatic Acoustic Management"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ 0,"Disabled" ],
-					[ 128,"Minimum performance, Minimum acoustic output" ],
-					[ 254,"Maximum performance, maximum acoustic output" ]
+					[ 0,_("Disabled") ],
+					[ 128,_("Minimum performance, Minimum acoustic output") ],
+					[ 254,_("Maximum performance, maximum acoustic output") ]
 				]
 			}),
 			displayField: "text",
@@ -205,22 +310,22 @@ Ext.extend(OMV.Module.Storage.HdParmPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "combo",
 			name: "spindowntime",
 			hiddenName: "spindowntime",
-			fieldLabel: "Spindown time",
+			fieldLabel: _("Spindown time"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ 0,"Disabled" ],
-					[ 60,"5 minutes" ],
-					[ 120,"10 minutes" ],
-					[ 240,"20 minutes" ],
-					[ 241,"30 minutes" ],
-					[ 242,"60 minutes" ],
-					[ 244,"120 minutes" ],
-					[ 246,"180 minutes" ],
-					[ 248,"240 minutes" ],
-					[ 250,"300 minutes" ],
-					[ 252,"360 minutes" ]
+					[ 0,_("Disabled") ],
+					[ 60,_("5 minutes") ],
+					[ 120,_("10 minutes") ],
+					[ 240,_("20 minutes") ],
+					[ 241,_("30 minutes") ],
+					[ 242,_("60 minutes") ],
+					[ 244,_("120 minutes") ],
+					[ 246,_("180 minutes") ],
+					[ 248,_("240 minutes") ],
+					[ 250,_("300 minutes") ],
+					[ 252,_("360 minutes") ]
 				]
 			}),
 			displayField: "text",
@@ -232,20 +337,19 @@ Ext.extend(OMV.Module.Storage.HdParmPropertyDialog, OMV.CfgObjectDialog, {
 		},{
 			xtype: "checkbox",
 			name: "smart",
-			fieldLabel: "S.M.A.R.T.",
+			fieldLabel: _("S.M.A.R.T."),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Activate S.M.A.R.T. monitoring."
+			boxLabel: _("Activate S.M.A.R.T. monitoring.")
 		},{
 			xtype: "checkbox",
 			name: "writecache",
-			fieldLabel: "Write cache",
+			fieldLabel: _("Write cache"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: "Enable write-cache.",
+			boxLabel: _("Enable write-cache."),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "This function is effective only if the hard drive " +
-			  "supports it."
+			infoText: _("This function is effective only if the hard drive supports it.")
 		}];
 	},
 

@@ -26,7 +26,7 @@ Ext.ns("OMV.Module.Privileges");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("privileges", "user", {
-	text: "User",
+	text: _("User"),
 	icon: "images/user.png"
 });
 
@@ -49,37 +49,37 @@ Ext.extend(OMV.Module.Privileges.UserPropertyPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "User information",
+			title: _("User information"),
 			defaults: {
 				labelSeparator: ""
 			},
 			items: [{
 				xtype: "textfield",
 				name: "name",
-				fieldLabel: "Name",
+				fieldLabel: _("Name"),
 				readOnly: true,
 				submitValue: false
 			},{
 				xtype: "textfield",
 				name: "comment",
-				fieldLabel: "Comment",
+				fieldLabel: _("Comment"),
 				maxLength: 65
 			},{
 				xtype: "textfield",
 				name: "email",
-				fieldLabel: "Email",
+				fieldLabel: _("Email"),
 				allowBlank: true,
 				vtype: "email"
 			},{
 				xtype: "passwordfield",
 				name: "password",
-				fieldLabel: "Password",
-				allowBlank: false
+				fieldLabel: _("Password"),
+				allowBlank: true
 			},{
 				xtype: "passwordfield",
 				name: "passwordconf",
-				fieldLabel: "Confirm password",
-				allowBlank: false,
+				fieldLabel: _("Confirm password"),
+				allowBlank: true,
 				submitValue: false
 			}]
 		}];
@@ -93,7 +93,7 @@ Ext.extend(OMV.Module.Privileges.UserPropertyPanel, OMV.FormPanelExt, {
 			// Check the password
 			var field = this.findFormField("passwordconf");
 			if (values.password !== field.getValue()) {
-				var msg = "Passwords don't match";
+				var msg = _("Passwords don't match");
 				this.markInvalid([
 					{ id: "password", msg: msg },
 					{ id: "passwordconf", msg: msg }
@@ -111,9 +111,9 @@ Ext.extend(OMV.Module.Privileges.UserPropertyPanel, OMV.FormPanelExt, {
 	 */
 	setValues : function(values) {
 		var result = null;
-		// Duplicate 'password'
-		values.passwordconf = values.password;
-		// Set the form field values
+		// First clear all values
+		this.reset();
+		// Then set the form field values
 		result = OMV.Module.Privileges.UserPropertyPanel.superclass.
 		  setValues.call(this, values);
 		// Set form to read-only if user is not allowed to modify the user

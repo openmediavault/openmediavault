@@ -17,7 +17,7 @@ Ext.ns("OMV.Module.Services.TransmissionBT.Admin");
  */
 OMV.Module.Services.TransmissionBT.Admin.BandwidthPanel = function(config) {
 	var initialConfig = {
-		title: "Bandwidth",
+		title: _("Bandwidth"),
 		rpcService: "TransmissionBT",
 		rpcGetMethod: "getBandwidth",
 		rpcSetMethod: "setBandwidth"
@@ -30,7 +30,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.BandwidthPanel, OMV.FormPane
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "Speed",
+			title: _("Speed"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -38,41 +38,41 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.BandwidthPanel, OMV.FormPane
 			items: [{
 				xtype: "checkbox",
 				name: "speed-limit-down-enabled",
-				fieldLabel: "Limit Download",
+				fieldLabel: _("Limit Download"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Enable download limit."
+				boxLabel: _("Enable download limit.")
 			},{
 				xtype: "numberfield",
 				name: "speed-limit-down",
-				fieldLabel: "Download",
+				fieldLabel: _("Download"),
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
 				value: 100,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Limit download speed. Value is kb/s."
+				infoText: _("Limit download speed. Value is kb/s.")
 			},{
 				xtype: "checkbox",
 				name: "speed-limit-up-enabled",
-				fieldLabel: "Limit Upload",
+				fieldLabel: _("Limit Upload"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Enable upload limit."
+				boxLabel: _("Enable upload limit.")
 			},{
 				xtype: "numberfield",
 				name: "speed-limit-up",
-				fieldLabel: "Upload",
+				fieldLabel: _("Upload"),
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
 				value: 100,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Limit upload speed. Value is kb/s."
+				infoText: _("Limit upload speed. Value is kb/s.")
 			},{
 				xtype: "numberfield",
 				name: "upload-slots-per-torrent",
-				fieldLabel: "Upload slots",
+				fieldLabel: _("Upload slots"),
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
@@ -80,7 +80,7 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.BandwidthPanel, OMV.FormPane
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Turtle Mode",
+			title: _("Turtle Mode"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -88,30 +88,30 @@ Ext.extend(OMV.Module.Services.TransmissionBT.Admin.BandwidthPanel, OMV.FormPane
 			items: [{
 				xtype: "checkbox",
 				name: "alt-speed-enabled",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Enable Turtle Mode."
+				boxLabel: _("Enable Turtle Mode.")
 			},{
 				xtype: "numberfield",
 				name: "alt-speed-down",
-				fieldLabel: "Download",
+				fieldLabel: _("Download"),
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
 				value: 50,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Turtle Mode download speed. Value is kb/s."
+				infoText: _("Turtle Mode download speed. Value is kb/s.")
 			},{
 				xtype: "numberfield",
 				name: "alt-speed-up",
-				fieldLabel: "Upload",
+				fieldLabel: _("Upload"),
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
 				value: 50,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Turtle Mode upload speed. Value is kb/s."
+				infoText: _("Turtle Mode upload speed. Value is kb/s.")
 			}]
 		}];
 	}

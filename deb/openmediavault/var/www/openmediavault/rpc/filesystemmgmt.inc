@@ -31,12 +31,15 @@ require_once("openmediavault/notify.inc");
 class FileSystemMgmtRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
-			"getList" => array(
-				'{"type":"integer"}', // start
-				'{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
+			"getList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
 			"create" => array('{
 				"type":"object",
 				"properties":{
@@ -46,21 +49,36 @@ class FileSystemMgmtRpc extends OMVRpc {
 					"label":{"type":"string"}
 				}
 			}'),
-			"resize" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_UUID'].'}'
-			),
-			"delete" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_ID'].'}'
-			),
-			"mount" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_UUID'].'}'
-			),
-			"umount" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_ID'].'}'
-			),
-			"hasFilesystem" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}'
-			)
+			"resize" => array('{
+				"type":"object",
+				"properties":{
+					"id":{'.$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_UUID'].'}
+				}
+			}'),
+			"delete" => array('{
+				"type":"object",
+				"properties":{
+					"id":{'.$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_ID'].'}
+				}
+			}'),
+			"mount" => array('{
+				"type":"object",
+				"properties":{
+					"id":{'.$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_UUID'].'}
+				}
+			}'),
+			"umount" => array('{
+				"type":"object",
+				"properties":{
+					"id":{'.$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_ID'].'}
+				}
+			}'),
+			"hasFilesystem" => array('{
+				"type":"object",
+				"properties":{
+					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+				}
+			}')
 		);
 	}
 
@@ -68,9 +86,9 @@ class FileSystemMgmtRpc extends OMVRpc {
 	 * Enumerate all filesystems that have been detected, except the
 	 * filesystem containing the operation system.
 	 * @return An array of objects with the following fields: \em uuid,
-	 * \em devicefile, \em type, \em label, \em blocks, \em capacity,
-	 * \em mountpoint, \em blocks, \em used, \em available, \em description,
-	 * \em mounted and \em percentage.
+	 *   \em devicefile, \em type, \em label, \em blocks, \em capacity,
+	 *   \em mountpoint, \em blocks, \em used, \em available, \em description,
+	 *   \em mounted and \em percentage.
 	 */
 	public function enumerateFilesystems() {
 		global $xmlConfig;
@@ -132,7 +150,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 			// exists, then check if it is referenced by any other object,
 			// e.g. by a shared folder configuration object.
 			if (FALSE !== ($meObject = OMVRpc::exec("FsTab", "getByFsName",
-			  array($fs->getDeviceFile())))) {
+			  array("id" => $fs->getDeviceFile())))) {
 				if (TRUE === $xmlConfig->exists("//mntentref[".
 				  "contains(.,'{$meObject['uuid']}')]")) {
 					$object['_used'] = TRUE;
@@ -169,9 +187,9 @@ class FileSystemMgmtRpc extends OMVRpc {
 	 * Enumerate all filesystems that have a mount point configuration object,
 	 * except binds, and are actually mounted.
 	 * @return An array of objects with the following fields: \em uuid,
-	 * \em devicefile, \em type, \em label, \em blocks, \em capacity,
-	 * \em mountpoint, \em blocks, \em used, \em available, \em description,
-	 * and \em percentage.
+	 *   \em devicefile, \em type, \em label, \em blocks, \em capacity,
+	 *   \em mountpoint, \em blocks, \em used, \em available, \em description,
+	 *   and \em percentage.
 	 */
 	public function enumerateMountedFilesystems() {
 		global $xmlConfig;
@@ -236,16 +254,21 @@ class FileSystemMgmtRpc extends OMVRpc {
 	/**
 	 * Get the list of filesystems that have been detected, except the
 	 * filesystem containing the operation system.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
 	 * @return An array of objects with the following fields: \em uuid,
-	 * \em devicefile, \em type, \em label, \em blocks, \em capacity,
-	 * \em mountpoint, \em blocks, \em used, \em available, \em description,
-	 * \em mounted, \em percentage and \em status.
-	 * The field 'status' has the following meaning:
-	 * 1 - Online
-	 * 2 - Initializing in progress
-	 * 3 - Missing
+	 *   \em devicefile, \em type, \em label, \em blocks, \em capacity,
+	 *   \em mountpoint, \em blocks, \em used, \em available, \em description,
+	 *   \em mounted, \em percentage and \em status.
+	 *   The field 'status' has the following meaning:
+	 *   1 - Online
+	 *   2 - Initializing in progress
+	 *   3 - Missing
 	 */
-	public function getList($start, $count, $sortField, $sortDir) {
+	public function getList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -352,14 +375,14 @@ class FileSystemMgmtRpc extends OMVRpc {
 			);
 		}
 		// Filter result
-		return $this->applyFilter($objects, $start, $count, $sortField,
-		  $sortDir);
+		return $this->applyFilter($objects, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
 	 * Get list of devices that can be used to create a filesystem on.
 	 * @return An array containing objects with the following fields:
-	 * devicefile, size, capacity and description.
+	 *   devicefile, size, capacity and description.
 	 */
 	public function getCandidates() {
 		global $xmlConfig;
@@ -399,13 +422,14 @@ class FileSystemMgmtRpc extends OMVRpc {
 				"description" => $lv->getDescription()
 			);
 		}
-		// Get all existing RAID devices.
-		if (FALSE === ($devs = OMVRaidDevices::get())) {
+		// Get all existing software RAID devices.
+		if (FALSE === ($devs = OMVStorageDevices::enumerate(
+		  OMVStorageDevices::SOFTWARERAID))) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
-			  "get list of RAID devices");
+			  "get list of software RAID devices");
 		}
 		foreach ($devs as $devk => $devv) {
-			$raid = new OMVRaidDevice($devv);
+			$raid = new OMVSoftwareRaidDevice($devv);
 			if (!$raid->exists())
 				continue;
 			// Add the devices used by the RAID to the list of used devices.
@@ -436,7 +460,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 			  "contains(.,'{$devv['devicefile']}')]"))
 				continue;
 			// Does this device already contain a filesystem?
-			if (TRUE === OMVFilesystem::hasFileSystem($devv['devicefile']))
+			if (FALSE !== OMVFilesystem::hasFileSystem($devv['devicefile']))
 				continue;
 			$result[] = array(
 				"devicefile" => $devv['devicefile'],
@@ -465,7 +489,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 		// Check uniqueness. If there exists a mount point for the given
 		// device then it has already a filesystem that is in usage.
 		if (FALSE !== OMVRpc::exec("FsTab", "getByFsName", array(
-		  $data['devicefile']))) {
+		  "id" => $data['devicefile']))) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
 			  sprintf(gettext("There already exists a mount point for %s"),
 			  $data['devicefile']));
@@ -495,16 +519,18 @@ class FileSystemMgmtRpc extends OMVRpc {
 			$filePath = sprintf("%s/%s.log", $GLOBALS['OMV_LOG_DIR'],
 			  $fileName);
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Failed to create filesystem. Please check the ".
-			  "syslog or '%s' for more details."), $filePath));
+			  gettext("Failed to create filesystem. Please check the syslog or '%s' for more details."),
+			  $filePath));
 		}
 	}
 
 	/**
 	 * Resize a filesystem.
-     * @param uuid The UUID of the filesystem to resize.
+	 * @param data An array containing the following fields:
+	 *   \em id The UUID or block special device of the filesystem to resize.
+	 * @return None
 	 */
-	public function resize($uuid) {
+	public function resize($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -516,10 +542,10 @@ class FileSystemMgmtRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get filesystem informations.
-		$fs = new OMVFilesystem($uuid);
+		$fs = new OMVFilesystem($data['id']);
 		if (!$fs->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf(gettext("Filesystem '%s' not found"), $uuid));
+			  sprintf(gettext("Filesystem '%s' not found"), $data['id']));
 		}
 		// Grow the filesystem
 		switch (strtolower($fs->getType())) {
@@ -550,11 +576,12 @@ class FileSystemMgmtRpc extends OMVRpc {
 	}
 
 	/**
-	 * Delete a filesystem.
-	 * The filesystem will be umounted and deleted.
-     * @param id The UUID or devicefile of the filesystem to delete.
+	 * Delete a filesystem. The filesystem will be unmounted and deleted.
+	 * @param data An array containing the following fields:
+	 *   \em id The UUID or block special device of the filesystem to delete.
+	 * @return None
 	 */
-	public function delete($id) {
+	public function delete($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -566,10 +593,10 @@ class FileSystemMgmtRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get filesystem informations.
-		$fs = new OMVFilesystem($id);
+		$fs = new OMVFilesystem($data['id']);
 		if (!$fs->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf(gettext("Filesystem '%s' not found"), $id));
+			  sprintf(gettext("Filesystem '%s' not found"), $data['id']));
 		}
 		$fsObject = array(
 			"devicefile" => $fs->getDeviceFile(),
@@ -588,9 +615,11 @@ class FileSystemMgmtRpc extends OMVRpc {
 
 	/**
 	 * Mount a filesystem.
-     * @param uuid The UUID of the filesystem to mount.
+	 * @param data An array containing the following fields:
+	 *   \em id The UUID or block special device of the filesystem to mount.
+	 * @return None
 	 */
-	public function mount($uuid) {
+	public function mount($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -602,10 +631,10 @@ class FileSystemMgmtRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get the filesystem.
-		$fs = new OMVFilesystem($uuid);
+		$fs = new OMVFilesystem($data['id']);
 		if (!$fs->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf(gettext("Filesystem '%s' not found"), $uuid));
+			  sprintf(gettext("Filesystem '%s' not found"), $data['id']));
 		}
 		// Get mount options depending on the filesystem type.
 		switch ($fs->getType()) {
@@ -676,10 +705,12 @@ class FileSystemMgmtRpc extends OMVRpc {
 	}
 
 	/**
-	 * Umount a filesystem.
-     * @param id The UUID or devicefile of the filesystem to umount.
+	 * Unmount a filesystem.
+	 * @param data An array containing the following fields:
+	 *   \em id The UUID or block special device of the filesystem to unmount.
+	 * @return None
 	 */
-	public function umount($id) {
+	public function umount($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -691,9 +722,9 @@ class FileSystemMgmtRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get the configuration object.
-		if (is_devicefile($id)) {
+		if (is_devicefile($data['id'])) {
 			// Use the filesystem name to identify the object.
-			$xpath = sprintf("//system/fstab/mntent[fsname='%s']", $id);
+			$xpath = sprintf("//system/fstab/mntent[fsname='%s']", $data['id']);
 		} else {
 			// Use the filesystem UUID to identify the object by its mount
 			// point directory:
@@ -702,7 +733,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 			// /media/74A225C8A2258F (NTFS)
 			// /media/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
 			$xpath = sprintf("//system/fstab/mntent[dir='%s']",
-			  OMVFilesystem::buildMountPath($id));
+			  OMVFilesystem::buildMountPath($data['id']));
 		}
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
@@ -719,14 +750,16 @@ class FileSystemMgmtRpc extends OMVRpc {
 			}
 		}
 		// Delete the mount point configuration object.
-		OMVRpc::exec("FsTab", "delete", array($object['uuid']));
+		OMVRpc::exec("FsTab", "delete", array("uuid" => $object['uuid']));
 	}
 
 	/**
 	 * Check if the given device containes a filesystem that is registered.
-	 * @param devicefile The device file to check.
+	 * @param data An array containing the following fields:
+	 *   \em devicefile The device file to check.
+	 * @return None
 	 */
-	public function hasFilesystem($devicefile) {
+	public function hasFilesystem($data) {
 		global $xmlConfig;
 		// Check permissions
 		$this->validateSession();
@@ -737,7 +770,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Check if the given device file contains a file system.
-		return OMVFilesystem::hasFileSystem($devicefile);
+		return (FALSE !== OMVFilesystem::hasFileSystem($data['devicefile']));
 	}
 }
 ?>

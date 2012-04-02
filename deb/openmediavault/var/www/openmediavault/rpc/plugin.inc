@@ -23,29 +23,47 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/rpc.inc");
+require_once("openmediavault/product.inc");
 
 class PluginRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
-			"getList" => array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}' // sortDir
-			),
-			"remove" => array(
-				'{"type":"string"}'
-			),
-			"install" => array(
-				'{"type":"string"}'
-			)
+			"getList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+				}
+			}'),
+			"remove" => array('{
+				"type":"object",
+				"properties":{
+					"packages":{"type":"array","items":{"type":"string"}}
+				}
+			}'),
+			"install" => array('{
+				"type":"object",
+				"properties":{
+					"packages":{"type":"array","items":{"type":"string"}}
+				}
+			}')
 		);
 	}
 
 	/**
 	 * Get list of installed packages/plugins.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	function getList($start, $count, $sortField, $sortDir) {
+	function getList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Check permissions
 		$this->validateSession();
@@ -55,18 +73,20 @@ class PluginRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
+		// Get product informations
+		$prd = new OMVProduct();
 		// List of packages to ignore
-		$except = array("openmediavault-keyring");
+		$except = array(sprintf("%s-keyring", $prd->getPackageName()));
 		// Get list of available packages
-		$cmd = "sudo apt-cache search openmediavault-";
+		$cmd = sprintf("sudo apt-cache search %s-", $prd->getPackageName());
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		$data = array();
+		$objects = array();
 		$pkgAvail = array();
-		$regex = "/^(openmediavault-\S+) - (.+)$/";
+		$regex = sprintf("/^(%s-\S+) - (.+)$/", $prd->getPackageName());
 		foreach ($output as $row) {
 			if (1 !== preg_match($regex, $row, $matches))
 				continue;
@@ -74,13 +94,13 @@ class PluginRpc extends OMVRpc {
 				continue;
 			// Get the package version
 			$cmd = sprintf("sudo apt-cache --no-all-versions show %s | " .
-			  "grep '^Version: .*$' | awk '{print \$2}'", $matches[1]);
+			  "grep -i '^Version: .*$' | awk '{print \$2}'", $matches[1]);
 			$version = OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
-			$data[] = array(
+			$objects[] = array(
 				"name" => $matches[1],
 				"version" => $version,
 				"description" => $matches[2],
@@ -97,7 +117,8 @@ class PluginRpc extends OMVRpc {
 			  $cmd, implode("\n", $output));
 		}
 		$pkgInstalled = array();
-		$regex = "/^ii\s+(openmediavault-\S+)\s+(\S+)\s+(.+)$/";
+		$regex = sprintf("/^ii\s+(%s-\S+)\s+(\S+)\s+(.+)$/",
+		  $prd->getPackageName());
 		foreach ($output as $row) {
 			if (1 !== preg_match($regex, $row, $matches))
 				continue;
@@ -105,17 +126,17 @@ class PluginRpc extends OMVRpc {
 				continue;
 			// Update existing package entry?
 			$found = FALSE;
-			foreach ($data as $datak => &$datav) {
-				if ($datav['name'] === $matches[1]) {
-					$datav['installed'] = TRUE;
-					$datav['_readOnly'] = FALSE;
+			foreach ($objects as $objectk => &$objectv) {
+				if ($objectv['name'] === $matches[1]) {
+					$objectv['installed'] = TRUE;
+					$objectv['_readOnly'] = FALSE;
 					$found = TRUE;
 					break;
 				}
 			}
 			// Append new package entry
 			if (FALSE === $found) {
-				$data[] = array(
+				$objects[] = array(
 					"name" => $matches[1],
 					"version" => $matches[2],
 					"description" => $matches[3],
@@ -125,37 +146,54 @@ class PluginRpc extends OMVRpc {
 			}
 		}
 		// Filter result
-		return $this->applyFilter($data, $start, $count, $sortField, $sortDir);
+		return $this->applyFilter($objects, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
 	/**
-	 * Remove a package/plugin.
-	 * @param pkgName The name of the package/plugin to remove.
+	 * Remove a plugin.
+	 * @param data An array containing the following fields:
+	 *   \em packages An array of package names to remove.
+	 * @return None
 	 */
-	function remove($pkgName) {
+	function remove($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Check permissions
 		$this->validateSession();
 		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
 		}
-		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Validate package name
-		if (0 == preg_match("/^openmediavault-.+$/", $pkgName)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to remove package '%s'. The name of the " .
-			  "package does not match the plugin naming convention.",
-			  $pkgName));
+		// Get product informations
+		$prd = new OMVProduct();
+		// Validate package names
+		$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
+		foreach ($data['packages'] as $packagek => $packagev) {
+			if (0 == preg_match($regex, $packagev)) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("Failed to remove package '%s'. The name of the " .
+				  "package does not match the plugin naming convention.",
+				  $packagev));
+			}
 		}
+		// Remove the packages
+		$outputFile = tempnam(sys_get_temp_dir(), "aptgetremove");
 		$cmd = sprintf("sudo apt-get --yes --auto-remove --purge remove " .
-		  "%s 2>&1", $pkgName);
+		  "%s >%s 2>&1 & echo $!", implode(" ", $data['packages']),
+		  $outputFile);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
+		// Remember pid and content filename in session
+		$pid = intval($output[0]);
+		$_SESSION['execjob'][$pid] = array(
+			"pid" => $pid,
+			"outputFile" => $outputFile
+		);
+		return $pid;
 	}
 
 	/**
@@ -184,8 +222,11 @@ class PluginRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
+		// Get product informations
+		$prd = new OMVProduct();
 		// Validate package name
-		if (0 == preg_match("/^openmediavault-.+$/", $packageName)) {
+		$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
+		if (0 == preg_match($regex, $packageName)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to install package '%s'. The package name " .
 			  "does not match the plugin naming convention.", $fileName));
@@ -196,10 +237,11 @@ class PluginRpc extends OMVRpc {
 
 	/**
 	 * Install an package/plugin.
-	 * @param pkgName The name of the package/plugin to install.
-	 * @return The process id of the 'apt-get' command.
+	 * @param data An array containing the following fields:
+	 *   \em packages An array of package names to install.
+	 * @return The process ID of the 'apt-get' command.
 	 */
-	function install($pkgName) {
+	function install($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Check permissions
 		$this->validateSession();
@@ -208,18 +250,23 @@ class PluginRpc extends OMVRpc {
 		}
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Validate package name
-		if (0 == preg_match("/^openmediavault-.+$/", $pkgName)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to install package '%s'. The name of the " .
-			  "package does not match the plugin naming convention.",
-			  $pkgName));
+		// Get product informations
+		$prd = new OMVProduct();
+		// Validate package names
+		$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
+		foreach ($data['packages'] as $packagek => $packagev) {
+			if (0 == preg_match($regex, $packagev)) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("Failed to install package '%s'. The name of the " .
+				  "package does not match the plugin naming convention.",
+				  $packagev));
+			}
 		}
-		// Install package
+		// Install the packages
 		$outputFile = tempnam(sys_get_temp_dir(), "aptgetinstall");
 		$cmd = sprintf("sudo apt-get --yes --force-yes --fix-missing " .
 		  "--allow-unauthenticated --reinstall install %s >%s 2>&1 & echo $!",
-		  $pkgName, $outputFile);
+		  implode(" ", $data['packages']), $outputFile);
 		OMVUtil::exec($cmd, $output, $res);
 		if ($res !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

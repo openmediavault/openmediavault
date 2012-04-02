@@ -27,26 +27,44 @@ require_once("openmediavault/log.inc");
 class LogFileRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
-			"getList" => array(
-				'{"type":"integer"}', // start
-				'{"type":"integer"}', // count
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'}', // sortField
-				'{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}', // sortDir
-				'{"type":"string"}' // type
-			),
-			"clear" => array(
-				'{"type":"string"}'
-			),
-			"getContent" => array(
-				'{"type":"string"}'
-			)
+			"getList" => array('{
+				"type":"object",
+				"properties":{
+					"start":{"type":"integer"},
+					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'},
+					"id":{"type":"string"}
+				}
+			}'),
+			"get" => array('{
+				"type":"object",
+				"properties":{
+					"id":{"type":"string"}
+				}
+			}'),
+			"getContent" => array('{
+				"type":"object",
+				"properties":{
+					"id":{"type":"string"}
+				}
+			}')
 		);
 	}
 
 	/**
 	 * Helper method to parse a logfile.
+	 * @param data An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 *   \em id The identifier of the registered log file type.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
 	 */
-	function getList($start, $count, $sortField, $sortDir, $id) {
+	function getList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Check permissions
 		$this->validateSession();
@@ -57,10 +75,10 @@ class LogFileRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Check if the given log file type if registered.
-		$logfile = new OMVLogFile($id);
+		$logfile = new OMVLogFile($data['id']);
 		if(FALSE === $logfile->isRegistered()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Unknown log file type (id=%s)"), $id));
+			  gettext("Unknown log file type (id=%s)"), $data['id']));
 		}
 		// Read file content.
 		$cmd = sprintf("sudo tail -n %s %s", $GLOBALS['OMV_MAX_LOGFILE_LINES'],
@@ -93,16 +111,18 @@ class LogFileRpc extends OMVRpc {
 			$objects[] = $object;
 		}
 		proc_close($proc);
-		// Filter result.
-		return $this->applyFilter($objects, $start, $count, $sortField,
-		  $sortDir);
+		// Filter result
+		return $this->applyFilter($objects, $data['start'], $data['limit'],
+		  $data['sortfield'], $data['sortdir']);
 	}
 
  	/**
 	 * Clear a log file.
-	 * @param id The identifier of the registered log file type.
+	 * @param data An array containing the following fields:
+	 *   \em id The identifier of the registered log file type.
+	 * @return None
 	 */
-	function clear($id) {
+	function clear($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Check permissions
 		$this->validateSession();
@@ -113,10 +133,10 @@ class LogFileRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Check if the given log file type if registered.
-		$logfile = new OMVLogFile($id);
+		$logfile = new OMVLogFile($data['id']);
 		if(FALSE === $logfile->isRegistered()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Unknown log file type (id=%s)"), $id));
+			  gettext("Unknown log file type (id=%s)"), $data['id']));
 		}
 		// Empty log file
 		$cmd = sprintf("cat /dev/null | sudo tee %s", $logfile->getFilePath());
@@ -131,10 +151,11 @@ class LogFileRpc extends OMVRpc {
 	 * Get the content of a log file. Note, the RPC does not return the file
 	 * content itself, instead the file path is returned which is used by
 	 * generic download RPC mechanism to deliver the file content.
-	 * @param id The identifier of the registered log file type.
-	 * @return An object with the keys \em filename and \em filepath.
+	 * @param data An array containing the following fields:
+	 *   \em id The identifier of the registered log file type.
+	 * @return An array with the keys \em filename and \em filepath.
 	 */
-	function getContent($id) {
+	function getContent($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Check permissions
 		$this->validateSession();
@@ -145,10 +166,10 @@ class LogFileRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Check if the given log file type if registered.
-		$logfile = new OMVLogFile($id);
+		$logfile = new OMVLogFile($data['id']);
 		if(FALSE === $logfile->isRegistered()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Unknown log file type (id=%s)"), $id));
+			  gettext("Unknown log file type (id=%s)"), $data['id']));
 		}
 		// Return values required by generic download RPC implementation.
 		return array(

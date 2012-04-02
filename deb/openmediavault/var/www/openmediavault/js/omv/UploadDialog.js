@@ -33,8 +33,8 @@ Ext.ns("OMV");
 OMV.UploadDialog = function(config) {
 	var initialConfig = {
 		url: "upload.php",
-		title: "Upload file",
-		waitMsg: "Uploading file ...",
+		title: _("Upload file"),
+		waitMsg: _("Uploading file ..."),
 		width: 450,
 		autoHeight: true,
 		layout: "fit",
@@ -42,11 +42,11 @@ OMV.UploadDialog = function(config) {
 		border: false,
 		buttonAlign: "center",
 		buttons: [{
-			text: "OK",
+			text: _("OK"),
 			handler: this.cbOkBtnHdl.createDelegate(this),
 			scope: this
 		},{
-			text: "Cancel",
+			text: _("Cancel"),
 			handler: this.cbCancelBtnHdl.createDelegate(this),
 			scope: this
 		}]
@@ -87,7 +87,7 @@ Ext.extend(OMV.UploadDialog, OMV.Window, {
 			},{
 				xtype: "textfield",
 				name: "file",
-				fieldLabel: "File",
+				fieldLabel: _("File"),
 				allowBlank: false,
 				inputType: "file"
 			}]

@@ -31,7 +31,7 @@ Ext.ns("OMV.Module.Services");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("services", "nfs", {
-	text: "NFS",
+	text: _("NFS"),
 	icon: "images/nfs.png"
 });
 
@@ -53,7 +53,7 @@ Ext.extend(OMV.Module.Services.NFSSettingsPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -61,16 +61,28 @@ Ext.extend(OMV.Module.Services.NFSSettingsPanel, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1
+			},{
+				xtype: "numberfield",
+				name: "numproc",
+				fieldLabel: _("Number of servers"),
+				minValue: 1,
+				maxValue: 65535,
+				allowDecimals: false,
+				allowNegative: false,
+				allowBlank: false,
+				value: 8,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("Specifies how many server threads to create.")
 			}]
 		}];
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("services", "nfs", {
 	cls: OMV.Module.Services.NFSSettingsPanel,
-	title: "Settings",
+	title: _("Settings"),
 	position: 10
 });
 
@@ -84,22 +96,22 @@ OMV.Module.Services.NFSSharesGridPanel = function(config) {
 		stateId: "4da5f715-4381-4c6b-8c83-ab23d284d0e3",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Shared folder",
+				header: _("Shared folder"),
 				sortable: true,
 				dataIndex: "sharedfoldername",
 				id: "sharedfoldername"
 			},{
-				header: "Client",
+				header: _("Client"),
 				sortable: true,
 				dataIndex: "client",
 				id: "client"
 			},{
-				header: "Options",
+				header: _("Options"),
 				sortable: true,
 				id: "options",
 				renderer: this.optionsRenderer.createDelegate(this)
 			},{
-				header: "Comment",
+				header: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
 				id: "comment"
@@ -115,7 +127,10 @@ Ext.extend(OMV.Module.Services.NFSSharesGridPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("NFS", "getShareList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "NFS",
+				"method": "getShareList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				totalProperty: "total",
@@ -164,7 +179,7 @@ Ext.extend(OMV.Module.Services.NFSSharesGridPanel, OMV.grid.TBarGridPanel, {
 
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "NFS", "deleteShare",
-		  [ record.get("uuid") ]);
+		  { "uuid": record.get("uuid") });
 	},
 
 	optionsRenderer : function(val, cell, record, row, col, store) {
@@ -178,7 +193,7 @@ Ext.extend(OMV.Module.Services.NFSSharesGridPanel, OMV.grid.TBarGridPanel, {
 });
 OMV.NavigationPanelMgr.registerPanel("services", "nfs", {
 	cls: OMV.Module.Services.NFSSharesGridPanel,
-	title: "Shares",
+	title: _("Shares"),
 	position: 20
 });
 
@@ -191,8 +206,8 @@ OMV.Module.Services.NFSSharePropertyDialog = function(config) {
 		rpcService: "NFS",
 		rpcGetMethod: "getShare",
 		rpcSetMethod: "setShare",
-		title: ((config.uuid == OMV.UUID_UNDEFINED) ? "Add" : "Edit") +
-		  " share",
+		title: (config.uuid == OMV.UUID_UNDEFINED) ?
+		  _("Add share") : _("Edit share"),
 		autoHeight: true
 	};
 	Ext.apply(initialConfig, config);
@@ -219,25 +234,25 @@ Ext.extend(OMV.Module.Services.NFSSharePropertyDialog,
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",
 			hiddenName: "sharedfolderref",
-			fieldLabel: "Shared folder",
+			fieldLabel: _("Shared folder"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The location of the files to share. The share will be accessible at /export/<name>."
+			infoText: _("The location of the files to share. The share will be accessible at /export/<name>.")
 		},{
 			xtype: "textfield",
 			name: "client",
-			fieldLabel: "Client",
+			fieldLabel: _("Client"),
 			allowBlank: false,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
+			infoText: _("Clients allowed to mount the filesystem, e.g. 192.168.178.0/24.")
 		},{
 			xtype: "combo",
 			name: "options",
 			hiddenName: "options",
-			fieldLabel: "Privilege",
+			fieldLabel: _("Privilege"),
 			mode: "local",
 			store: [
-				["ro","Read only"],
-				["rw","Read/Write"]
+				[ "ro",_("Read only") ],
+				[ "rw",_("Read/Write") ]
 			],
 			allowBlank: false,
 			editable: false,
@@ -246,15 +261,15 @@ Ext.extend(OMV.Module.Services.NFSSharePropertyDialog,
 		},{
 			xtype: "textfield",
 			name: "extraoptions",
-			fieldLabel: "Extra options",
+			fieldLabel: _("Extra options"),
 			allowBlank: true,
 			value: "subtree_check,secure",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "Please check the <a href='http://linux.die.net/man/5/exports' target='_blank'>manual page</a> for more details."
+			infoText: _("Please check the <a href='http://linux.die.net/man/5/exports' target='_blank'>manual page</a> for more details.")
 		},{
 			xtype: "textfield",
 			name: "comment",
-			fieldLabel: "Comment",
+			fieldLabel: _("Comment"),
 			allowBlank: true
 		},{
 			xtype: "hidden",

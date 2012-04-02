@@ -39,19 +39,10 @@ class SystemRpc extends OMVRpc {
 					"ntptimeservers":{"type":"string"}
 				}
 			}'),
-			"setDate" => array(
-				'{"type":"integer"}'
-			),
-			"setWebUISettings" => array('{
+			"setDate" => array('{
 				"type":"object",
 				"properties":{
-					"port":{"type":"integer","minimum":1,"maximum":65535},
-					"enablessl":{"type":"boolean"},
-					"sslport":{"type":"integer","minimum":1,"maximum":65535},
-					"forcesslonly":{"type":"boolean"},
-					"sslcertificateref":{'.
-					  $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'},
-					"timeout":{"type":"integer","minimum":1,"maximum":30}
+					"timestamp":{"type":"integer"}
 				}
 			}')
 		);
@@ -130,7 +121,6 @@ class SystemRpc extends OMVRpc {
 			array("path" => "/bin/false"),
 			array("path" => "/usr/sbin/nologin")
 		);
-		sort($output);
 		foreach ($output as $path) {
 			$data[] = array(
 				"path" => $path
@@ -253,7 +243,9 @@ class SystemRpc extends OMVRpc {
 
 	/**
 	 * Set system date.
-	 * @param date The date to set as UNIX timestamp.
+	 * @param data An array containing the following fields:
+	 *   \em timestamp The date to set as UNIX timestamp.
+	 * @return None
 	 */
 	function setDate($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -267,7 +259,7 @@ class SystemRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Set the date
-		$cmd = sprintf("sudo date --set='@%d' 2>&1", $data);
+		$cmd = sprintf("sudo date --set='@%d' 2>&1", $data['timestamp']);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -318,72 +310,6 @@ class SystemRpc extends OMVRpc {
 			"total" => count($data),
 			"data" => $data
 		);
-	}
-
-	/**
-	 * Get WebUI settings.
-	 */
-	function getWebUISettings() {
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Get configuration object
-		$xpath = "//webadmin";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Modify result data
-		$object['port'] = intval($object['port']);
-		$object['enablessl'] = boolval($object['enablessl']);
-		$object['sslport'] = intval($object['sslport']);
-		$object['forcesslonly'] = boolval($object['forcesslonly']);
-		$object['timeout'] = intval($object['timeout']);
-		return $object;
-	}
-
-	/**
-	 * Set WebUI settings.
-	 */
-	function setWebUISettings($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Prepare configuration objects
-		$object = array(
-			"port" => $data['port'],
-			"enablessl" => array_boolval($data, 'enablessl'),
-			"sslport" => $data['sslport'],
-			"forcesslonly" => array_boolval($data, 'forcesslonly'),
-			"sslcertificateref" => $data['sslcertificateref'],
-			"timeout" => $data['timeout']
-		);
-		// Set configuration object
-		$xpath = "//webadmin";
-		if (FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.webadmin", $object);
 	}
 
 	/**

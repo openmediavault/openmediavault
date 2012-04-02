@@ -32,7 +32,7 @@ Ext.ns("OMV.Module.Storage");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("storage", "filesystems", {
-	text: "Filesystems",
+	text: _("Filesystems"),
 	icon: "images/filesystem.png",
 	position: 30
 });
@@ -52,7 +52,7 @@ OMV.Module.Storage.FileSystemGridPanel = function(config) {
 		stateId: "efea99a0-95d1-4bc9-8207-d21fe514f069",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Device",
+				header: _("Device"),
 				sortable: true,
 				dataIndex: "devicefile",
 				id: "devicefile",
@@ -60,36 +60,38 @@ OMV.Module.Storage.FileSystemGridPanel = function(config) {
 				renderer: OMV.util.Format.emptyRenderer(),
 				scope: this
 			},{
-				header: "Label",
+				header: _("Label"),
 				sortable: true,
 				dataIndex: "label",
 				id: "label"
 			},{
-				header: "Filesystem",
+				header: _("Filesystem"),
 				sortable: true,
 				dataIndex: "type",
 				id: "type"
 			},{
-				header: "Available",
+				header: _("Available"),
 				sortable: true,
-				dataIndex: "capacity",
-				id: "available"
+				dataIndex: "available",
+				id: "available",
+				width: 50,
+				renderer: OMV.util.Format.binaryUnitRenderer()
 			},{
-				header: "Used",
+				header: _("Used"),
 				sortable: true,
 				dataIndex: "used",
 				id: "used",
 				renderer: this.usedRenderer,
 				scope: this
 			},{
-				header: "Mounted",
+				header: _("Mounted"),
 				sortable: true,
 				dataIndex: "mounted",
 				id: "mounted",
 				renderer: OMV.util.Format.booleanRenderer(),
 				scope: this
 			},{
-				header: "Status",
+				header: _("Status"),
 				sortable: true,
 				dataIndex: "status",
 				id: "status",
@@ -107,7 +109,10 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("FileSystemMgmt", "getList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "FileSystemMgmt",
+				"method": "getList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
 				totalProperty: "total",
@@ -119,7 +124,6 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 					{ name: "type" },
 					{ name: "used" },
 					{ name: "available" },
-					{ name: "capacity" },
 					{ name: "status" },
 					{ name: "percentage" },
 					{ name: "mounted" },
@@ -168,7 +172,7 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(1, {
 			id: this.getId() + "-create",
 			xtype: "button",
-			text: "Create",
+			text: _("Create"),
 			icon: "images/filesystem.png",
 			handler: this.cbCreateBtnHdl,
 			scope: this,
@@ -178,7 +182,7 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(2, {
 			id: this.getId() + "-resize",
 			xtype: "button",
-			text: "Resize",
+			text: _("Resize"),
 			icon: "images/filesystem-resize.png",
 			handler: this.cbResizeBtnHdl,
 			scope: this,
@@ -188,7 +192,7 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(3, {
 			id: this.getId() + "-quota",
 			xtype: "button",
-			text: "Quota",
+			text: _("Quota"),
 			icon: "images/filesystem-quota.png",
 			handler: this.cbQuotaBtnHdl,
 			scope: this,
@@ -198,19 +202,19 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(4, {
 			id: this.getId() + "-mount",
 			xtype: "button",
-			text: "Mount",
+			text: _("Mount"),
 			icon: "images/filesystem-mount.png",
 			handler: this.cbMountBtnHdl,
 			scope: this,
 			disabled: true
 		});
-		// Add 'Umount' button to top toolbar
+		// Add 'Unmount' button to top toolbar
 		tbar.insert(5, {
-			id: this.getId() + "-umount",
+			id: this.getId() + "-unmount",
 			xtype: "button",
-			text: "Umount",
+			text: _("Unmount"),
 			icon: "images/filesystem-umount.png",
-			handler: this.cbUmountBtnHdl,
+			handler: this.cbUnmountBtnHdl,
 			scope: this,
 			disabled: true
 		});
@@ -221,13 +225,13 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 		OMV.Module.Storage.FileSystemGridPanel.superclass.
 		  cbSelectionChangeHdl.apply(this, arguments);
 		// Process additional buttons.
-		var tbarBtnName = [ "resize", "quota", "delete", "mount", "umount" ];
+		var tbarBtnName = [ "resize", "quota", "delete", "mount", "unmount" ];
 		var tbarBtnDisabled = {
 			"resize": true,
 			"quota": true,
 			"delete": false,
 			"mount": true,
-			"umount": true
+			"unmount": true
 		};
 		var records = model.getSelections();
 		if (records.length <= 0) {
@@ -235,13 +239,13 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 			tbarBtnDisabled["quota"] = true;
 			tbarBtnDisabled["delete"] = true;
 			tbarBtnDisabled["mount"] = true;
-			tbarBtnDisabled["umount"] = true;
+			tbarBtnDisabled["unmount"] = true;
 		} else if (records.length == 1) {
 			tbarBtnDisabled["resize"] = false;
 			tbarBtnDisabled["quota"] = false;
 			tbarBtnDisabled["delete"] = false;
 			tbarBtnDisabled["mount"] = true;
-			tbarBtnDisabled["umount"] = true;
+			tbarBtnDisabled["unmount"] = true;
 			// Disable the 'Resize' button if filesystem is not supported.
 			if ([ "ext","ext2","ext3","ext4","xfs","jfs" ].indexOf(
 			  records[0].get("type")) == -1) {
@@ -252,17 +256,17 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 			if (Ext.isEmpty(records[0].get("mountpoint"))) {
 				tbarBtnDisabled["quota"] = true;
 			}
-			// Disable/enable the mount/umount buttons depending on whether
+			// Disable/enable the mount/unmount buttons depending on whether
 			// the selected filesystem is mounted.
 			if (true === records[0].get("mounted")) {
-				tbarBtnDisabled["umount"] = false;
+				tbarBtnDisabled["unmount"] = false;
 			} else {
 				tbarBtnDisabled["mount"] = false;
 			}
-			// If the filesystem is in usage, then also disable the umount
+			// If the filesystem is in usage, then also disable the unmount
 			// button.
 			if (true === records[0].get("_used")) {
-				tbarBtnDisabled["umount"] = true;
+				tbarBtnDisabled["unmount"] = true;
 			}
 			// Finally disable buttons if a selected filesystem is
 			// initialized at the moment.
@@ -277,7 +281,7 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 			tbarBtnDisabled["quota"] = true;
 			tbarBtnDisabled["delete"] = false;
 			tbarBtnDisabled["mount"] = true;
-			tbarBtnDisabled["umount"] = true;
+			tbarBtnDisabled["unmount"] = true;
 			// Disable button if one of the selected filesystems is
 			// initialized at the moment.
 			for (var i = 0; i < records.length; i++) {
@@ -321,10 +325,9 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 	},
 
 	cbResizeBtnHdl : function() {
-		var msg = "Do you really want to resize the selected filesystem? " +
-		  "You have to do that after a RAID has been grown for example.";
+		var msg = _("Do you really want to resize the selected filesystem? You have to do that after a RAID has been grown for example.");
 		OMV.MessageBox.show({
-			title: "Confirmation",
+			title: _("Confirmation"),
 			msg: msg,
 			buttons: Ext.Msg.YESNO,
 			fn: function(answer) {
@@ -339,7 +342,8 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 					  } else {
 						  OMV.MessageBox.error(null, error);
 					  }
-				  }, this, "FileSystemMgmt", "resize", [ record.get("uuid") ]);
+				  }, this, "FileSystemMgmt", "resize",
+				  { "id": record.get("uuid") });
 			},
 			scope: this,
 			icon: Ext.Msg.QUESTION
@@ -364,10 +368,10 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 			} else {
 				OMV.MessageBox.error(null, error);
 			}
-		}, this, "FileSystemMgmt", "mount", [ record.get("uuid") ]);
+		}, this, "FileSystemMgmt", "mount", { "id": record.get("uuid") });
 	},
 
-	cbUmountBtnHdl : function() {
+	cbUnmountBtnHdl : function() {
 		var selModel = this.getSelectionModel();
 		var record = selModel.getSelected();
 		// Prefer the filesystem UUID, but in some cases a filesystem does not
@@ -381,7 +385,7 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 			} else {
 				OMV.MessageBox.error(null, error);
 			}
-		}, this, "FileSystemMgmt", "umount", [ id ]);
+		}, this, "FileSystemMgmt", "umount", { "id": id });
 	},
 
 	doDeletion : function(record) {
@@ -391,7 +395,7 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 		if (Ext.isEmpty(id))
 			id = record.get("devicefile");
 		OMV.Ajax.request(this.cbDeletionHdl, this, "FileSystemMgmt",
-		  "delete", [ id ]);
+		  "delete", { "id": id });
 	},
 
 	usedRenderer : function(val, cell, record, row, col, store) {
@@ -437,7 +441,7 @@ OMV.Module.Storage.FileSystemCreateDialog = function(config) {
 	var initialConfig = {
 		rpcService: "FileSystemMgmt",
 		rpcSetMethod: "create",
-		title: "Create filesystem",
+		title: _("Create filesystem"),
 		autoHeight: true,
 		hideReset: true,
 		width: 500
@@ -458,12 +462,14 @@ Ext.extend(OMV.Module.Storage.FileSystemCreateDialog, OMV.FormPanelDialog, {
 			xtype: "combo",
 			name: "devicefile",
 			hiddenName: "devicefile",
-			fieldLabel: "Device",
-			emptyText: "Select an device ...",
+			fieldLabel: _("Device"),
+			emptyText: _("Select an device ..."),
 			store: new OMV.data.Store({
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("FileSystemMgmt",
-				  "getCandidates"),
+				proxy: new OMV.data.DataProxy({
+					"service": "FileSystemMgmt",
+					"method": "getCandidates"
+				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "devicefile",
 					fields: [
@@ -480,18 +486,18 @@ Ext.extend(OMV.Module.Storage.FileSystemCreateDialog, OMV.FormPanelDialog, {
 		},{
 			xtype: "textfield",
 			name: "label",
-			fieldLabel: "Label",
+			fieldLabel: _("Label"),
 			allowBlank: true,
 			maxLength: 16,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "The volume label for the filesystem.",
+			infoText: _("The volume label for the filesystem."),
 			vtype: "fslabel"
 		},{
 			xtype: "combo",
 			name: "type",
 			hiddenName: "type",
-			fieldLabel: "Filesystem",
-			emptyText: "Select a filesystem ...",
+			fieldLabel: _("Filesystem"),
+			emptyText: _("Select a filesystem ..."),
 			mode: "local",
 			store: [
 				[ "ext3","EXT3" ],
@@ -508,10 +514,8 @@ Ext.extend(OMV.Module.Storage.FileSystemCreateDialog, OMV.FormPanelDialog, {
 
 	doSubmit : function() {
 		OMV.MessageBox.show({
-			title: "Confirmation",
-			msg: "Do you really want to format this device? All data " +
-			  "on it will be deleted. Please note that the filesystem " +
-			  "creation may take some time.",
+			title: _("Confirmation"),
+			msg: _("Do you really want to format this device? All data on it will be deleted. Please note that the filesystem creation may take some time."),
 			buttons: Ext.Msg.YESNO,
 			fn: function(answer) {
 				if (answer === "no") {
@@ -534,7 +538,7 @@ Ext.extend(OMV.Module.Storage.FileSystemCreateDialog, OMV.FormPanelDialog, {
  */
 OMV.Module.Storage.QuotaPropertyDialog = function(config) {
 	var initialConfig = {
-		title: "Edit quota",
+		title: _("Edit quota"),
 		width: 500,
 		height: 305,
 		layout: "fit",
@@ -561,7 +565,7 @@ Ext.extend(OMV.Module.Storage.QuotaPropertyDialog, Ext.Window, {
 			selModel: new Ext.grid.RowSelectionModel(),
 			colModel: new Ext.grid.ColumnModel({
 				columns: [{
-					header: "Type",
+					header: _("Type"),
 					sortable: true,
 					dataIndex: "type",
 					id: "type",
@@ -579,12 +583,12 @@ Ext.extend(OMV.Module.Storage.QuotaPropertyDialog, Ext.Window, {
 						return val;
 					}
 				},{
-					header: "Name",
+					header: _("Name"),
 					sortable: true,
 					dataIndex: "name",
 					id: "name"
 				},{
-					header: "Used capacity",
+					header: _("Used capacity"),
 					sortable: true,
 					dataIndex: "bused",
 					id: "bused",
@@ -595,7 +599,7 @@ Ext.extend(OMV.Module.Storage.QuotaPropertyDialog, Ext.Window, {
 						return val;
 					}
 				},{
-					header: "Quota",
+					header: _("Quota"),
 					sortable: true,
 					dataIndex: "bhardlimit",
 					id: "bhardlimit",
@@ -612,7 +616,7 @@ Ext.extend(OMV.Module.Storage.QuotaPropertyDialog, Ext.Window, {
 						return val;
 					}
 				},{
-					header: "Unit",
+					header: _("Unit"),
 					sortable: true,
 					dataIndex: "bunit",
 					id: "bunit",
@@ -630,13 +634,16 @@ Ext.extend(OMV.Module.Storage.QuotaPropertyDialog, Ext.Window, {
 			store: new OMV.data.Store({
 				autoLoad: true,
 				remoteSort: false,
-				proxy: new OMV.data.DataProxy("Quota", "get",
-				  this.uuid, false),
+				proxy: new OMV.data.DataProxy({
+					"service": "Quota",
+					"method": "get",
+					"extraParams": { "uuid": this.uuid },
+					"appendPagingParams": false
+				}),
 				reader: new Ext.data.JsonReader({
-					idProperty: "uuid",
+					idProperty: "name",
 					fields: [
 						{ name: "type" },
-						{ name: "uuid" },
 						{ name: "name" },
 						{ name: "bused" },
 						{ name: "bhardlimit" },
@@ -661,7 +668,7 @@ Ext.extend(OMV.Module.Storage.QuotaPropertyDialog, Ext.Window, {
 					var bhardlimit = e.record.get("bhardlimit");
 					switch (e.field) {
 					case "bhardlimit":
-						bhardlimit = e.value;
+						bhardlimit = !Ext.isEmpty(e.value) ? e.value : 0;
 						break;
 					case "bunit":
 						bunit = e.value;
@@ -670,8 +677,7 @@ Ext.extend(OMV.Module.Storage.QuotaPropertyDialog, Ext.Window, {
 					// Validate quota with max. possible value (4TiB).
 					bhardlimit = bhardlimit.binaryConvert(bunit, "B");
 					if (bhardlimit > 4 * Math.pow(2, 40)) {
-						OMV.MessageBox.failure(null, "The specified " +
-						  "quota exceeds the max. possible value of 4TiB.");
+						OMV.MessageBox.failure(null, _("The specified quota exceeds the max. possible value of 4TiB."));
 						return false;
 					}
 				}
@@ -679,12 +685,12 @@ Ext.extend(OMV.Module.Storage.QuotaPropertyDialog, Ext.Window, {
 		});
 		Ext.apply(this, {
 			buttons: [{
-				text: "OK",
+				text: _("OK"),
 				handler: this.cbOkBtnHdl,
 				scope: this,
 				disabled: this.readOnly
 			},{
-				text: "Cancel",
+				text: _("Cancel"),
 				handler: this.cbCancelBtnHdl,
 				scope: this
 			}],
@@ -720,7 +726,7 @@ Ext.extend(OMV.Module.Storage.QuotaPropertyDialog, Ext.Window, {
 
 	doSubmit : function() {
 		// Display waiting dialog
-		OMV.MessageBox.wait(null, "Saving ...");
+		OMV.MessageBox.wait(null, _("Saving ..."));
 		// Prepare RPC content
 		var records = this.grid.store.getRange();
 		var values = {
@@ -734,12 +740,12 @@ Ext.extend(OMV.Module.Storage.QuotaPropertyDialog, Ext.Window, {
 				continue;
 			values.quota.push({
 				"type": records[i].get("type"),
-				"uuid": records[i].get("uuid"),
+				"name": records[i].get("name"),
 				"bhardlimit": bhardlimit,
 				"bunit": records[i].get("bunit")
 			});
 		}
-		OMV.Ajax.request(this.cbSubmitHdl, this, "Quota", "set", [ values ]);
+		OMV.Ajax.request(this.cbSubmitHdl, this, "Quota", "set", values);
 	},
 
 	cbSubmitHdl : function(id, response, error) {

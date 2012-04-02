@@ -2,13 +2,13 @@ Source: openmediavault-lvm2
 Section: net
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
-Build-Depends: debhelper (>> 7)
+Build-Depends: debhelper (>> 7), gettext
 Standards-Version: 3.6.10
 Homepage: http://www.openmediavault.org
 
 Package: openmediavault-lvm2
 Architecture: all
-Depends: openmediavault (>= 0.2.7), lvm2
+Depends: openmediavault (>= 0.3), lvm2
 Priority: optional
 Description: OpenMediaVault Logical Volume Manager (LVM2) plugin
  LVM supports enterprise level volume management of disk and disk subsystems

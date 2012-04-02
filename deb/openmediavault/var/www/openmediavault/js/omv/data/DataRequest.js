@@ -21,6 +21,9 @@
 
 Ext.ns("OMV.data");
 
+/**
+ * @class OMV.data.DataRequest
+ */
 OMV.data.DataRequest = function() {
 };
 OMV.data.DataRequest.prototype = {

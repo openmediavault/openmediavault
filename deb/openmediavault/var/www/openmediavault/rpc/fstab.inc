@@ -28,19 +28,24 @@ require_once("openmediavault/functions.inc");
 class FsTabRpc extends OMVRpc {
 	public function __construct() {
 		$this->methodSchemata = array(
-			"delete" => array(
-				'{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}'
-			),
-			"getByFsName" => array(
-				'{"type":"string"}'
-			)
+			"delete" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
+			}'),
+			"getByFsName" => array('{
+				"type":"object",
+				"properties":{
+					"id":{"type":"string"}
+				}
+			}')
 		);
 	}
 
 	/**
 	 * Enumerate all fstab mount point entries.
-	 * @return An array of objects. Each object represents a mount point
-	 * entry.
+	 * @return An array of objects. Each object represents a mount point entry.
 	 */
 	public function enumerateEntries() {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -63,8 +68,11 @@ class FsTabRpc extends OMVRpc {
 
 	/**
 	 * Delete a mount point configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @return None
 	 */
-	public function delete($uuid) {
+	public function delete($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Check permissions
@@ -76,7 +84,7 @@ class FsTabRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Delete the configuration object
-		$xpath = "//system/fstab/mntent[uuid='{$uuid}']";
+		$xpath = sprintf("//system/fstab/mntent[uuid='%s']", $data['uuid']);
 		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
 			  $xpath);
@@ -94,11 +102,12 @@ class FsTabRpc extends OMVRpc {
 
 	/**
 	 * Get a mount point configuration object by the given file system name,
-	 * which may be a UUID or device file.
-	 * @param id The name of the file system, e.g. UUID or device file.
+	 * which may be a UUID or block special device.
+	 * @param data An array containing the following fields:
+	 *   \em id The file system identifier, e.g. UUID or block special device.
 	 * @return The mount point configuration object if exists, otherwise FALSE.
 	 */
-	public function getByFsName($id) {
+	public function getByFsName($data) {
 		global $xmlConfig;
 		// Check permissions
 		$this->validateSession();
@@ -117,12 +126,12 @@ class FsTabRpc extends OMVRpc {
 		}
 		// Add function parameter to search argument list.
 		$args = array();
-		$args[] = $id;
+		$args[] = $data['id'];
 		// If the function parameter is a device file, then try to get the
 		// file system UUID and add it to the search argument list. This is
 		// done to increase the probability to find the fstab config object.
-		if (is_devicefile($id)) {
-			$fs = new OMVFilesystem($id);
+		if (is_devicefile($data['id'])) {
+			$fs = new OMVFilesystem($data['id']);
 			if ($fs->exists()) {
 				$args[] = $fs->getUuid();
 			}

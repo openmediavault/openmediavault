@@ -56,25 +56,6 @@ case "$1" in
 				useradd --system --no-user-group --password '$1$PjiW4uIZ$agjyA0foLeAcHClwOuad1.' \
 				  --shell '/usr/sbin/nologin' --comment 'WebGUI administrator' admin || :
 			fi
-			if ! omv_config_exists "//system/usermanagement/users/user[name='admin']"; then
-				usercfg=$(getent passwd | grep -e "^admin:")
-				uid=$(echo "${usercfg}" | awk -F ":" '{print $3}')
-				comment=$(echo "${usercfg}" | awk -F ":" '{print $5}')
-				shell=$(echo "${usercfg}" | awk -F ":" '{print $7}')
-				password="openmediavault"
-				object="<uuid>$(uuid)</uuid>"
-				object="${object}<uid>${uid}</uid>"
-				object="${object}<name>admin</name>"
-				object="${object}<groups></groups>"
-				object="${object}<shell>${shell}</shell>"
-				object="${object}<password>${password}</password>"
-				object="${object}<email></email>"
-				object="${object}<comment>${comment}</comment>"
-				object="${object}<disallowusermod>0</disallowusermod>"
-				object="${object}<mntentref></mntentref>"
-				omv_config_add_element "//system/usermanagement/users" "user" \
-				  "${object}" true
-			fi
 
 			####################################################################
 			# Update the local plugin packages archive. The 'packages' command
@@ -133,19 +114,6 @@ case "$1" in
 		fi
 
 		########################################################################
-		# Update the product information
-		########################################################################
-		echo "Updating product information ..."
-		version=$(dpkg-query -W -f='${Version}' openmediavault)
-		if [ -n "$version" ]; then
-			tmpfile=$(tempfile)
-			xmlstarlet edit -P -u "//version" -v "${version}" \
-			  "${OMV_PRODUCTINFO_FILE}" | tee "${tmpfile}" >/dev/null
-			cp "${tmpfile}" "${OMV_PRODUCTINFO_FILE}"
-			rm -f "${tmpfile}"
-		fi
-
-		########################################################################
 		# Setup permissions
 		########################################################################
 		# Documentation/Howto:
@@ -163,6 +131,12 @@ case "$1" in
 		chmod 700 ${OMV_DOCUMENTROOT_DIR}/php-fcgi
 		#chattr +i ${OMV_DOCUMENTROOT_DIR}/php-fcgi
 		chmod 600 ${OMV_CONFIG_FILE}
+
+		########################################################################
+		# Install locale files.
+		########################################################################
+		echo "Install locale files ..."
+		omv_install_locale
 
 		########################################################################
 		# Generate configurations
@@ -243,7 +217,7 @@ case "$1" in
 					grep -e "/${devicefile##*/}$" | awk '{print $7}' | head -n 1)
 				  if [ -n "${devicefilebyid}" ]; then
 					  omv_config_update "//services/smart/scheduledtests/job[uuid='${uuid}']/devicefile" \
-						"/dev/disk/by-id/${devicefilebyid}" 
+						"/dev/disk/by-id/${devicefilebyid}"
 				  fi
 			  done
 			omv-mkconf hdparm
@@ -283,6 +257,83 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.2.6.7"; then
 			omv-mkconf samba
 			invoke-rc.d samba restart
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3"; then
+			# Add home directory service configuration
+			omv_config_add_element "//system/usermanagement" "homedirectory" ""
+			omv_config_add_element "//system/usermanagement/homedirectory" "enable" "0"
+			omv_config_add_element "//system/usermanagement/homedirectory" "sharedfolderref" ""
+			# Delete useless users/groups
+			omv_config_delete_user "admin"
+			omv_config_delete "//*[userref=//system/usermanagement/users/user[name='tftp']/uuid]"
+			omv_config_delete_user "tftp"
+			omv_config_delete "//*[userref=//system/usermanagement/users/user[name='nobody']/uuid]"
+			omv_config_delete_user "nobody"
+			omv_config_delete "//*[groupref=//system/usermanagement/groups/group[name='tftp']/uuid]"
+			omv_config_delete_group "tftp"
+			omv_config_delete "//*[groupref=//system/usermanagement/groups/group[name='ssh']/uuid]"
+			omv_config_delete_group "ssh"
+			omv_config_delete "//*[groupref=//system/usermanagement/groups/group[name='${OMV_USERMGMT_DEFAULT_GROUP}']/uuid]"
+			omv_config_delete_group "${OMV_USERMGMT_DEFAULT_GROUP}"
+			# Convert shared folder user privileges
+			xmlstarlet sel -t -m "//system/shares/sharedfolder/privileges/privilege[userref]" \
+			  -v "userref" \
+			  -i "position() != last()" -n -b \
+			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+			  while read userref; do
+				  name=$(omv_config_get "//system/usermanagement/users/user[uuid='${userref}']/name")
+				  omv_config_add_element "//system/shares/sharedfolder/privileges/privilege[userref][userref='${userref}']" "name" "${name}"
+				  omv_config_add_element "//system/shares/sharedfolder/privileges/privilege[userref][userref='${userref}']" "type" "user"
+			  done
+			omv_config_delete "//system/shares/sharedfolder/privileges/privilege[userref]/userref"
+			# Convert shared folder group privileges
+			xmlstarlet sel -t -m "//system/shares/sharedfolder/privileges/privilege[groupref]" \
+			  -v "groupref" \
+			  -i "position() != last()" -n -b \
+			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+			  while read groupref; do
+				  name=$(omv_config_get "//system/usermanagement/groups/group[uuid='${groupref}']/name")
+				  omv_config_add_element "//system/shares/sharedfolder/privileges/privilege[groupref][groupref='${groupref}']" "name" "${name}"
+				  omv_config_add_element "//system/shares/sharedfolder/privileges/privilege[groupref][groupref='${groupref}']" "type" "group"
+			  done
+			omv_config_delete "//system/shares/sharedfolder/privileges/privilege[groupref]/groupref"
+			# Delete shared folder umask
+			omv_config_delete "//system/shares/sharedfolder/umask"
+			# Convert user quota
+			xmlstarlet sel -t -m "//system/storage/filesystem/quota/usrquota" \
+			  -v "userref" \
+			  -i "position() != last()" -n -b \
+			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+			  while read userref; do
+				  name=$(omv_config_get "//system/usermanagement/users/user[uuid='${userref}']/name")
+				  omv_config_add_element "//system/storage/filesystem/quota/usrquota[userref='${userref}']" "name" "${name}"
+			  done
+			omv_config_delete "//system/storage/filesystem/quota/usrquota/userref"
+			# Convert group quota
+			xmlstarlet sel -t -m "//system/storage/filesystem/quota/grpquota" \
+			  -v "groupref" \
+			  -i "position() != last()" -n -b \
+			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+			  while read groupref; do
+				  name=$(omv_config_get "//system/usermanagement/users/user[uuid='${groupref}']/name")
+				  omv_config_add_element "//system/storage/filesystem/quota/grpquota[groupref='${groupref}']" "name" "${name}"
+			  done
+			omv_config_delete "//system/storage/filesystem/quota/grpquota/groupref"
+			# Modify rsync server module configuration
+			omv_config_add_element "//services/rsync/server/modules/module" "uid" "nobody"
+			omv_config_add_element "//services/rsync/server/modules/module" "gid" "${OMV_USERMGMT_DEFAULT_GROUP}"
+			omv_config_add_element "//services/rsync/server/modules/module" "authusers" "0"
+			omv_config_add_element "//services/rsync/server/modules/module" "users" ""
+			rm -rf /etc/rsyncd.secrets
+			# Modify rsync job configuration
+			omv_config_add_element "//services/rsync/jobs/job" "password" ""
+			# Modify FTP service configuration
+			omv_config_add_element "//services/ftp/mod_tls" "extraoptions" ""
+			# Add NFS options
+			omv_config_add_element "//services/nfs" "numproc" "8"
+			# Add domainname configuration field
+			omv_config_update "//system/network/hostname" "$(hostname --short)"
+			omv_config_add_element "//system/network" "domainname" "$(hostname --domain)"
 		fi
 	;;
 

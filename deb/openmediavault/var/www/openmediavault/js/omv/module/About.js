@@ -24,7 +24,7 @@ Ext.ns("OMV.Module.Information");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("information", "about", {
-	text: "About",
+	text: _("About"),
 	icon: "images/about.png",
 	position: 30
 });
@@ -58,7 +58,7 @@ Ext.extend(OMV.Module.Information.About, Ext.Panel, {
 		  "along with OpenMediaVault. If not, see &lt;<a href='http://www.gnu.org/licenses' " +
 		  "target='_blank'>http://www.gnu.org/licenses</a>&gt;.");
 		// Render list of used software and licenses
-		this.html += this.createBox(this.renderSoftware() + "<br/><br/>" +
+		this.html += this.createBox(this.renderSoftware() + "<br/>" +
 		  this.renderLicenses());
 		this.html += "<br/></form>";
 		OMV.Module.Information.About.superclass.initComponent.apply(this,
@@ -193,7 +193,7 @@ Ext.extend(OMV.Module.Information.About, Ext.Panel, {
 			  packages[i].url, fontSize, packages[i].name);
 		}
 		return "OpenMediaVault is based upon various free software " +
-		  "like:<br/><br/>" + html + "...";
+		  "like:<br/><br/><div id='wordcloud'>" + html + "...</div>";
 	},
 
 	renderLicenses : function() {

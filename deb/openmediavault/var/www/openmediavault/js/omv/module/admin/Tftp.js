@@ -19,7 +19,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/NavigationPanel.js")
-// require("js/omv/data/DataProxy.js")
 // require("js/omv/FormPanelExt.js")
 // require("js/omv/form/SharedFolderComboBox.js")
 // require("js/omv/form/plugins/FieldInfo.js")
@@ -28,7 +27,7 @@ Ext.ns("OMV.Module.Services");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("services", "tftp", {
-	text: "TFTP",
+	text: _("TFTP"),
 	icon: "images/tftp.png"
 });
 
@@ -53,7 +52,7 @@ Ext.extend(OMV.Module.Services.TFTP, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -61,7 +60,7 @@ Ext.extend(OMV.Module.Services.TFTP, OMV.FormPanelExt, {
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1,
 				listeners: {
@@ -71,7 +70,7 @@ Ext.extend(OMV.Module.Services.TFTP, OMV.FormPanelExt, {
 			},{
 				xtype: "numberfield",
 				name: "port",
-				fieldLabel: "Port",
+				fieldLabel: _("Port"),
 				vtype: "port",
 				minValue: 0,
 				maxValue: 65535,
@@ -80,22 +79,19 @@ Ext.extend(OMV.Module.Services.TFTP, OMV.FormPanelExt, {
 				allowBlank: false,
 				value: 69,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Port to listen on."
+				infoText: _("Port to listen on.")
 			},{
 				xtype: "sharedfoldercombo",
 				name: "sharedfolderref",
 				hiddenName: "sharedfolderref",
-				fieldLabel: "Shared folder",
+				fieldLabel: _("Shared folder"),
 				allowNone: true,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "The location of the files to share. Make sure " +
-				  "the user 'tftp' has the required permission for the " +
-				  "shared folder. Note, users must join the group 'tftp' " +
-				  "to access the files."
+				infoText: _("The location of the files to share.")
 			},{
 				xtype: "numberfield",
 				name: "blocksize",
-				fieldLabel: "Blocksize",
+				fieldLabel: _("Blocksize"),
 				minValue: 512,
 				maxValue: 65464,
 				allowDecimals: false,
@@ -103,32 +99,33 @@ Ext.extend(OMV.Module.Services.TFTP, OMV.FormPanelExt, {
 				allowBlank: true,
 				value: 512,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Specifies the maximum permitted block size. The permitted range for this parameter is from 512 to 65464."
+				infoText: _("Specifies the maximum permitted block size. The permitted range for this parameter is from 512 to 65464.")
 			},{
 				xtype: "numberfield",
 				name: "retransmit",
-				fieldLabel: "Retry timeout",
+				fieldLabel: _("Retry timeout"),
 				minValue: 0,
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
 				value: 1000000,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Determine the default timeout, in microseconds, before the first packet is retransmitted."
+				infoText: _("Determine the default timeout, in microseconds, before the first packet is retransmitted.")
 			},{
 				xtype: "checkbox",
 				name: "allownewfiles",
-				fieldLabel: "Allow new files",
+				fieldLabel: _("Allow new files"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: "Allow new files to be created.",
+				boxLabel: _("Allow new files to be created."),
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "By default, only files that already exist are allowed to be uploaded."
+				infoText: _("By default, only files that already exist are allowed to be uploaded.")
 			},{
 				xtype: "textfield",
 				name: "extraoptions",
-				fieldLabel: "Extra options",
-				allowBlank: true
+				fieldLabel: _("Extra options"),
+				allowBlank: true,
+				anchor: "100%"
 			}]
 		}];
 	},

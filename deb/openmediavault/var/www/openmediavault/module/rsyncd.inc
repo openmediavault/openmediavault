@@ -80,19 +80,6 @@ class RsyncdModule extends OMVModuleAbstract implements OMVINotifyListener,
 	}
 
 	/**
-	 * Update the secrets file.
-	 */
-	public function updateSecretsFile() {
-		// Create the secrets file
-		$cmd = "sudo omv-mkconf rsyncd mksecrets 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-	}
-
-	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
@@ -105,11 +92,6 @@ class RsyncdModule extends OMVModuleAbstract implements OMVINotifyListener,
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.rsync.server.modules.module",
 		  array($this, "updateService"), 1);
-		// Add/modify/delete users
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.usermanagement.users.user",
-		  array($this, "updateSecretsFile"));
 		// Modify share permissions
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,

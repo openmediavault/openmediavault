@@ -31,7 +31,7 @@ Ext.ns("OMV.Module.System");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("system", "plugins", {
-	text: "Plugins",
+	text: _("Plugins"),
 	icon: "images/plugin.png",
 	position: 90
 });
@@ -49,7 +49,7 @@ OMV.Module.System.PluginGridPanel = function(config) {
 		stateId: "2bd3835f-56c4-4047-942b-7d7b5163de2a",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: "Installed",
+				header: _("Installed"),
 				sortable: true,
 				dataIndex: "installed",
 				id: "installed",
@@ -59,19 +59,19 @@ OMV.Module.System.PluginGridPanel = function(config) {
 				width: 60,
 				align: "center"
 			},{
-				header: "Name",
+				header: _("Name"),
 				sortable: true,
 				dataIndex: "name",
 				id: "name"
 			},{
-				header: "Version",
+				header: _("Version"),
 				sortable: true,
 				dataIndex: "version",
 				id: "version",
 				fixed: true,
 				width: 140
 			},{
-				header: "Description",
+				header: _("Description"),
 				sortable: true,
 				dataIndex: "description",
 				id: "description",
@@ -88,7 +88,10 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
 			remoteSort: false,
-			proxy: new OMV.data.DataProxy("Plugin", "getList"),
+			proxy: new OMV.data.DataProxy({
+				"service": "Plugin",
+				"method": "getList"
+			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "name",
 				totalProperty: "total",
@@ -105,7 +108,8 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 		OMV.Module.System.PluginGridPanel.superclass.initComponent.apply(
 		  this, arguments);
 		// Change the 'Del' button text.
-		this.getTopToolbar().get(this.getId() + "-delete").text = "Uninstall";
+		this.getTopToolbar().get(this.getId() + "-delete").text =
+		  _("Uninstall");
 	},
 
 	initToolbar : function() {
@@ -114,7 +118,7 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(0, {
 			id: this.getId() + "-check",
 			xtype: "button",
-			text: "Check",
+			text: _("Check"),
 			icon: "images/reload.png",
 			handler: this.cbCheckBtnHdl,
 			scope: this
@@ -122,7 +126,7 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(1, {
 			id: this.getId() + "-upload",
 			xtype: "button",
-			text: "Upload",
+			text: _("Upload"),
 			icon: "images/upload.png",
 			handler: this.cbUploadBtnHdl,
 			scope: this
@@ -130,7 +134,7 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 		tbar.insert(2, {
 			id: this.getId() + "-install",
 			xtype: "button",
-			text: "Install",
+			text: _("Install"),
 			icon: "images/add.png",
 			handler: this.cbInstallBtnHdl,
 			scope: this,
@@ -147,15 +151,13 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 		  "-install");
 		if (records.length <= 0) {
 			tbarInstallCtrl.disable();
-		} else if (records.length == 1) {
-			tbarInstallCtrl.enable();
 		} else {
-			tbarInstallCtrl.disable();
+			tbarInstallCtrl.enable();
 		}
 	},
 
 	cbCheckBtnHdl : function() {
-		OMV.MessageBox.wait(null, "Checking for new plugins ...");
+		OMV.MessageBox.wait(null, _("Checking for new plugins ..."));
 		OMV.Ajax.request(function(id, response, error) {
 			  if (error !== null) {
 				  OMV.MessageBox.hide();
@@ -163,7 +165,7 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 			  } else {
 				  this.cmdId = response;
 				  OMV.Ajax.request(this.cbIsRunningHdl, this, "Exec",
-					"isRunning", [ this.cmdId ]);
+					"isRunning", { "id": this.cmdId });
 			  }
 		  }, this, "Apt", "update");
 	},
@@ -177,7 +179,7 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 			if (response === true) {
 				(function() {
 				  OMV.Ajax.request(this.cbIsRunningHdl, this, "Exec",
-					"isRunning", [ this.cmdId ]);
+					"isRunning", { "id": this.cmdId });
 				}).defer(500, this);
 			} else {
 				delete this.cmdId;
@@ -189,7 +191,7 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 
 	cbUploadBtnHdl : function() {
 		var wnd = new OMV.UploadDialog({
-			title: "Upload plugin",
+			title: _("Upload plugin"),
 			service: "Plugin",
 			method: "upload",
 			listeners: {
@@ -206,18 +208,23 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 
 	cbInstallBtnHdl : function() {
 		var selModel = this.getSelectionModel();
-		var record = selModel.getSelected();
+		var records = selModel.getSelections();
+		var packages = [];
+		for (var i = 0; i < records.length; i++) {
+			var record = records[i];
+			packages.push(record.get("name"));
+		}
 		var wnd = new OMV.ExecCmdDialog({
-			title: "Install plugins ...",
+			title: _("Install plugins ..."),
 			rpcService: "Plugin",
 			rpcMethod: "install",
-			rpcArgs: record.get("name"),
+			rpcArgs: { "packages": packages },
 			hideStart: true,
 			hideStop: true,
 			killCmdBeforeDestroy: false,
 			listeners: {
 				finish: function(wnd, response) {
-					wnd.appendValue("\nDone ...");
+					wnd.appendValue("\n" + _("Done ..."));
 					wnd.setButtonDisabled("close", false);
 				},
 				exception: function(wnd, error) {
@@ -226,8 +233,7 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 				},
 				close: function() {
 					this.doReload();
-					OMV.MessageBox.info(null, "Please reload the page to " +
-					  "let the changes take effect.");
+					OMV.MessageBox.info(null, _("Please reload the page to let the changes take effect."));
 				},
 				scope: this
 			}
@@ -237,25 +243,53 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 		wnd.start();
 	},
 
-	/**
-	 * @method doDeletion
-	 * Delete the selected plugin.
-	 */
-	doDeletion : function(record) {
-		OMV.Ajax.request(this.cbDeletionHdl, this, "Plugin", "remove",
-		  [ record.get("name") ]);
-	},
-
-	/**
-	 * @method afterDeletion
-	 * Reload the grid and display a message box to notify the user to
-	 * reload the page (otherwise the currently removed code is called
-	 * when activated).
-	 */
-	afterDeletion : function() {
-		this.doReload();
-		OMV.MessageBox.info(null, "Please reload the page to let the " +
-		  "changes take effect.");
+	cbDeleteBtnHdl : function() {
+		var selModel = this.getSelectionModel();
+		var records = selModel.getSelections();
+		var packages = [];
+		for (var i = 0; i < records.length; i++) {
+			var record = records[i];
+			packages.push(record.get("name"));
+		}
+		var msg = _("Do you really want to uninstall the selected plugin(s)?");
+		OMV.MessageBox.show({
+			title: _("Confirmation"),
+			msg: msg,
+			buttons: Ext.Msg.YESNO,
+			fn: function(answer) {
+				if (answer == "no")
+					return;
+				var wnd = new OMV.ExecCmdDialog({
+					title: _("Uninstall plugins ..."),
+					rpcService: "Plugin",
+					rpcMethod: "remove",
+					rpcArgs: { "packages": packages },
+					hideStart: true,
+					hideStop: true,
+					killCmdBeforeDestroy: false,
+					listeners: {
+						finish: function(wnd, response) {
+							wnd.appendValue("\n" + _("Done ..."));
+							wnd.setButtonDisabled("close", false);
+						},
+						exception: function(wnd, error) {
+							OMV.MessageBox.error(null, error);
+							wnd.setButtonDisabled("close", false);
+						},
+						close: function() {
+							this.doReload();
+							OMV.MessageBox.info(null, _("Please reload the page to let the changes take effect."));
+						},
+						scope: this
+					}
+				});
+				wnd.setButtonDisabled("close", true);
+				wnd.show();
+				wnd.start();
+			},
+			scope: this,
+			icon: Ext.Msg.QUESTION
+		});
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("system", "plugins", {

@@ -27,7 +27,7 @@ Ext.ns("OMV.Module.Services");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("services", "snmp", {
-	text: "SNMP",
+	text: _("SNMP"),
 	icon: "images/snmp.png"
 });
 
@@ -53,39 +53,39 @@ Ext.extend(OMV.Module.Services.SNMP, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: "General settings",
+			title: _("General settings"),
 			defaults: {
 				labelSeparator: ""
 			},
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1
 			},{
 				xtype: "textfield",
 				name: "syslocation",
-				fieldLabel: "Location",
+				fieldLabel: _("Location"),
 				allowBlank: false,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Location information, e.g. physical location of this system."
+				infoText: _("Location information, e.g. physical location of this system.")
 			},{
 				xtype: "textfield",
 				name: "syscontact",
-				fieldLabel: "Contact",
+				fieldLabel: _("Contact"),
 				allowBlank: false,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: "Contact information, e.g. name or email address of the person responsible for this system."
+				infoText: _("Contact information, e.g. name or email address of the person responsible for this system.")
 			},{
 				xtype: "combo",
 				name: "version",
 				hiddenName: "version",
-				fieldLabel: "Version",
+				fieldLabel: _("Version"),
 				mode: "local",
 				store: [
-					[ "2c","SNMP version 1/2c" ],
-					[ "3","SNMP version 3" ]
+					[ "2c",_("SNMP version 1/2c") ],
+					[ "3",_("SNMP version 3") ]
 				],
 				allowBlank: false,
 				editable: false,
@@ -100,25 +100,25 @@ Ext.extend(OMV.Module.Services.SNMP, OMV.FormPanelExt, {
 			},{
 				xtype: "textfield",
 				name: "community",
-				fieldLabel: "Community",
+				fieldLabel: _("Community"),
 				allowBlank: false,
 				value: "public"
 			},{
 				xtype: "textfield",
 				name: "username",
-				fieldLabel: "Username",
+				fieldLabel: _("Username"),
 				hidden: true,
 				allowBlank: true
 			},{
 				xtype: "combo",
 				name: "securitylevel",
 				hiddenName: "securitylevel",
-				fieldLabel: "Security level",
+				fieldLabel: _("Security level"),
 				mode: "local",
 				store: [
-					[ "noauth","No authentication and no privacy" ],
-					[ "auth","Authentication and no privacy" ],
-					[ "priv","Authentication and privacy" ]
+					[ "noauth",_("No authentication and no privacy") ],
+					[ "auth",_("Authentication and no privacy") ],
+					[ "priv",_("Authentication and privacy") ]
 				],
 				hidden: true,
 				allowBlank: false,
@@ -135,7 +135,7 @@ Ext.extend(OMV.Module.Services.SNMP, OMV.FormPanelExt, {
 				xtype: "combo",
 				name: "authtype",
 				hiddenName: "authtype",
-				fieldLabel: "Authentication type",
+				fieldLabel: _("Authentication type"),
 				mode: "local",
 				store: [
 					[ "MD5","MD5" ],
@@ -149,7 +149,7 @@ Ext.extend(OMV.Module.Services.SNMP, OMV.FormPanelExt, {
 			},{
 				xtype: "passwordfield",
 				name: "authpassphrase",
-				fieldLabel: "Authentication passphrase",
+				fieldLabel: _("Authentication passphrase"),
 				hidden: true,
 				allowBlank: true,
 				minLength: 8
@@ -157,7 +157,7 @@ Ext.extend(OMV.Module.Services.SNMP, OMV.FormPanelExt, {
 				xtype: "combo",
 				name: "privtype",
 				hiddenName: "privtype",
-				fieldLabel: "Privacy type",
+				fieldLabel: _("Privacy type"),
 				mode: "local",
 				store: [
 					[ "DES","DES" ],
@@ -171,39 +171,40 @@ Ext.extend(OMV.Module.Services.SNMP, OMV.FormPanelExt, {
 			},{
 				xtype: "passwordfield",
 				name: "privpassphrase",
-				fieldLabel: "Privacy passphrase",
+				fieldLabel: _("Privacy passphrase"),
 				hidden: true,
 				allowBlank: true,
 				minLength: 8
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Advanced settings",
+			title: _("Advanced settings"),
 			defaults: {
 				labelSeparator: ""
 			},
 			items: [{
 				xtype: "textfield",
 				name: "extraoptions",
-				fieldLabel: "Extra options",
+				fieldLabel: _("Extra options"),
 				allowBlank: true,
 				autoCreate: {
 					tag: "textarea",
 					autocomplete: "off",
 					rows: "3",
 					cols: "65"
-				}
+				},
+				anchor: "100%"
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Traps",
+			title: _("Traps"),
 			defaults: {
 				labelSeparator: ""
 			},
 			items: [{
 				xtype: "checkbox",
 				name: "trapenable",
-				fieldLabel: "Enable",
+				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1,
 				listeners: {
@@ -213,17 +214,17 @@ Ext.extend(OMV.Module.Services.SNMP, OMV.FormPanelExt, {
 			},{
 				xtype: "textfield",
 				name: "trapcommunity",
-				fieldLabel: "Community",
+				fieldLabel: _("Community"),
 				allowBlank: true
 			},{
 				xtype: "textfield",
 				name: "traphost",
-				fieldLabel: "Host",
+				fieldLabel: _("Host"),
 				allowBlank: true
 			},{
 				xtype: "numberfield",
 				name: "trapport",
-				fieldLabel: "Port",
+				fieldLabel: _("Port"),
 				allowBlank: true,
 				allowDecimals: false,
 				allowNegative: false,

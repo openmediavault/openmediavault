@@ -1,0 +1,55 @@
+#!/usr/bin/perl
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+use strict;
+use JSON;
+use Locale::PO;
+use File::Basename;
+
+sub usage {
+    printf "%s <input-files>\n", basename($0);
+}
+
+sub main {
+	if (scalar(@ARGV) < 1) {
+		usage;
+		exit 1;
+	}
+	my %dict = ();
+	foreach my $arg (@ARGV) {
+		my $po = Locale::PO->load_file_asarray($arg) or
+		  die "Can't load PO file $arg";
+		foreach my $pov (@$po) {
+			my $msgid = $pov->dequote($pov->msgid);
+            my $msgstr = $pov->dequote($pov->msgstr);
+			# Skip empty msgid entries.
+			next if !length($msgid);
+			# Skip empty msgstr entries.
+			next if !length($msgstr);
+			# Append to dictionary.
+			$dict{$msgid} = $msgstr;
+		}
+	}
+	my $json = new JSON;
+    print $json->pretty->encode(\%dict);
+}
+
+&main;

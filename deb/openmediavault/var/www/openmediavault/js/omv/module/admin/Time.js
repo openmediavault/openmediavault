@@ -27,7 +27,7 @@ Ext.ns("OMV.Module.System");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("system", "time", {
-	text: "Time",
+	text: _("Date & Time"),
 	icon: "images/time.png",
 	position: 20
 });
@@ -67,7 +67,7 @@ Ext.extend(OMV.Module.System.Time, OMV.FormPanelExt, {
 			items: [{
 				xtype: "displayfield",
 				name: "now",
-				fieldLabel: "Current time",
+				fieldLabel: _("Current time"),
 				reset: function() {
 					// Workaround to prevent this field from getting
 					// empty when pressing the 'Reset' button.
@@ -76,7 +76,7 @@ Ext.extend(OMV.Module.System.Time, OMV.FormPanelExt, {
 			}]
 		},{
 			xtype: "fieldset",
-			title: "Settings",
+			title: _("Settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -85,12 +85,16 @@ Ext.extend(OMV.Module.System.Time, OMV.FormPanelExt, {
 				xtype: "combo",
 				name: "timezone",
 				hiddenName: "timezone",
-				fieldLabel: "Time zone",
+				fieldLabel: _("Time zone"),
 				mode: "local",
 				store: new OMV.data.Store({
 					autoLoad: true,
 					remoteSort: false,
-					proxy: new OMV.data.DataProxy("System", "getTimeZoneList"),
+					proxy: new OMV.data.DataProxy({
+						"service": "System",
+						"method": "getTimeZoneList",
+						"appendPagingParams": false
+					}),
 					reader: new Ext.data.JsonReader({
 						idProperty: "value",
 						totalProperty: "total",
@@ -108,7 +112,7 @@ Ext.extend(OMV.Module.System.Time, OMV.FormPanelExt, {
 			},{
 				xtype: "checkbox",
 				name: "ntpenable",
-				fieldLabel: "Use NTP server",
+				fieldLabel: _("Use NTP server"),
 				checked: false,
 				inputValue: 1,
 				listeners: {
@@ -130,7 +134,7 @@ Ext.extend(OMV.Module.System.Time, OMV.FormPanelExt, {
 						items: [{
 							xtype: "textfield",
 							name: "ntptimeservers",
-							fieldLabel: "Time servers",
+							fieldLabel: _("Time servers"),
 							allowBlank: true,
 							readOnly: true,
 							value: "pool.ntp.org"
@@ -140,7 +144,7 @@ Ext.extend(OMV.Module.System.Time, OMV.FormPanelExt, {
 							id: this.getId() + "-ntpupdate",
 							hideLabel: true,
 							disabled: true,
-							text: "Update now",
+							text: _("Update now"),
 							scope: this,
 							handler: function() {
 								OMV.Ajax.request(function(id, response, error) {
@@ -157,7 +161,7 @@ Ext.extend(OMV.Module.System.Time, OMV.FormPanelExt, {
 				}]
 			},{
 				xtype: "container",
-				fieldLabel: "Manual",
+				fieldLabel: _("Manual"),
 				items: [{
 					layout: "column",
 					defaults: {
@@ -171,14 +175,14 @@ Ext.extend(OMV.Module.System.Time, OMV.FormPanelExt, {
 							xtype: "datefield",
 							name: "date",
 							hiddenName: "date",
-							fieldLabel: "Date",
+							fieldLabel: _("Date"),
 							width: 100,
 							value: dtNow,
 							submitValue: false
 						},{
 							xtype: "compositefield",
 							name: "manualtime",
-							fieldLabel: "Time",
+							fieldLabel: _("Time"),
 							width: 200,
 							items: [{
 								xtype: "combo",
@@ -236,7 +240,7 @@ Ext.extend(OMV.Module.System.Time, OMV.FormPanelExt, {
 							xtype: "button",
 							id: this.getId() + "-manualupdate",
 							hideLabel: true,
-							text: "Update now",
+							text: _("Update now"),
 							scope: this,
 							handler: function() {
 								var values = {};
@@ -255,7 +259,7 @@ Ext.extend(OMV.Module.System.Time, OMV.FormPanelExt, {
 										  this.doReload();
 									  }
 								  }, this, "System", "setDate",
-								  [ date.format("U") ]);
+								  { "timestamp": date.format("U") });
 							}
 						}]
 					}]

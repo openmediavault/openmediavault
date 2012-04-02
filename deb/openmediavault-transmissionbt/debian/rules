@@ -1,32 +1,23 @@
 #!/usr/bin/make -f
 
-#export DH_VERBOSE=1
+include ../openmediavault.mk
 
 clean:
 	dh_testdir
 	dh_testroot
-	rm -f build-stamp configure-stamp
 	dh_clean
 
 install:
 	dh_testdir
 	dh_testroot
-	dh_clean -k
+	dh_prep
 	dh_installdirs
-
-binary-indep: install
-	dh_testdir
-	dh_testroot
 	dh_install
-
-	# Remove '.svn' directories
-	find $(CURDIR)/debian/openmediavault-transmissionbt -name .svn -type d -print0 -prune | xargs -0 rm -rf
-	
-	# Remove '.git' directories
-	find $(CURDIR)/debian/openmediavault-transmissionbt -name .git -type d -print0 -prune | xargs -0 rm -rf
-	
 	chmod +x $(CURDIR)/debian/openmediavault-transmissionbt/usr/share/openmediavault/scripts/transmissionbt
 
+binary-indep: install omv_clean_scm
+	dh_testdir
+	dh_testroot
 	dh_installchangelogs
 	dh_installdebconf
 	dh_lintian
@@ -38,7 +29,7 @@ binary-indep: install
 	dh_md5sums
 	dh_builddeb
 
-binary-arch: install
+binary-arch:
 # We have nothing to do by default.
 
 binary: binary-indep binary-arch

@@ -1,3 +1,9 @@
+openmediavault-nut (0.3) stable; urgency=low
+
+  * Adapt to openmediavault 0.3
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Apr 2012 22:26:44 +0200
+
 openmediavault-nut (0.1.8) stable; urgency=low
 
   * Mantis 0000334: after updating the nut 1.5 => 1.6 no longer run

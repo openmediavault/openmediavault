@@ -124,7 +124,12 @@ class NetworkModule extends OMVModuleAbstract implements OMVINotifyListener {
 			  $cmd, implode("\n", $output));
 		}
 		// Set hostname
-		$cmd = "sudo hostname {$object['hostname']} 2>&1";
+		$fqdn = $object['hostname'];
+		if (!empty($object['domainname'])) {
+			$fqdn = sprintf("%s.%s", $object['hostname'],
+			  $object['domainname']);
+		}
+		$cmd = sprintf("sudo hostname %s 2>&1", $fqdn);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

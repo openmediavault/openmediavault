@@ -24,84 +24,45 @@
 Ext.ns("OMV.data");
 
 /**
- * Data proxy that submits the parameters 'start', 'limit', 'sort' and 'dir'
- * to the RPC function. It is also possible to submit additional parameters.
- * @param service The name of the RPC service class.
- * @param method The name of the RPC service class method.
- * @param extraParams An array of additional parameters.
- * @param appendDefaultParams Set to FALSE to do not append the default RPC
- * parameters 'start', 'limit', 'sort' and 'dir'. Defaults to TRUE.
- *
- * Example 1:
- * var store = new OMV.data.Store({
- *   autoLoad: true,
- *   remoteSort: false,
- *   proxy: new OMV.data.DataProxy("VolumeMgmt", "getPhysicalVolumeList"),
- *   reader: new Ext.data.JsonReader({
- *     totalProperty: "total",
- *     root: "data",
- *     fields: [
- *       { name: "uuid" },
- *       { name: "model" },
- *       { name: "capacity" },
- *       { name: "temperature" },
- *       { name: "status" },
- *       { name: "_used" }
- *     ]
- *   })
- * });
- * store.load({ params: { start: 0, limit: 50, sort: "model", dir: "DESC" } });
- *
- * Example 2:
- * var store = new OMV.data.Store({
- *   autoLoad: true,
- *   remoteSort: false,
- *   proxy: new OMV.data.DataProxy("Cron", "getListByType",
- *     [ [ "userdefined" ] ]),
- *   reader: new Ext.data.JsonReader({
- *     totalProperty: "total",
- *     root: "data",
- *     fields: [
- *       { name: "uuid" },
- *       { name: "type" },
- *       { name: "dayofweek" },
- *       { name: "hour" },
- *       { name: "minute" },
- *       { name: "username" },
- *       { name: "command" },
- *       { name: "comment" }
- *     ]
- *   })
- * });
+ * @class OMV.data.DataProxy
+ * Data proxy that submits the parameters 'start', 'limit', 'sortfield' and
+ * 'sortdir' to the RPC function. It is also possible to submit additional
+ * parameters.
+ * @param config An array containing the following fields:
+ *   \em service The name of the RPC service class.
+ *   \em method The name of the RPC service class method.
+ *   \em extraParams An object of additional parameters.
+ *   \em appendPagingParams Set to FALSE to do not append the parameters
+ *   'start', 'limit', 'sortfield' and 'sortdir'. Defaults to TRUE.
  */
-OMV.data.DataProxy = function(service, method, extraParams,
-  appendDefaultParams) {
+OMV.data.DataProxy = function(config) {
 	Ext.apply(this, {
-		service: service,
-		method: method,
-		extraParams: extraParams,
-		appendDefaultParams: Ext.isDefined(appendDefaultParams) ?
-		  appendDefaultParams : true
+		"service": config.service,
+		"method": config.method,
+		"extraParams": Ext.isDefined(config.extraParams) ?
+		  config.extraParams : undefined,
+		"appendPagingParams": Ext.isDefined(config.appendPagingParams) ?
+		  config.appendPagingParams : true
 	});
 	// Must define a dummy api with "read" action to satisfy
 	// DataProxy#doRequest and Ext.data.Api#prepare
 	var api = {};
 	api[Ext.data.Api.actions.read] = true;
 	OMV.data.DataProxy.superclass.constructor.call(this, {
-		api: api
+		"api": api
 	});
 };
 Ext.extend(OMV.data.DataProxy, Ext.data.DataProxy, {
 	doRequest : function(action, rs, params, reader, callback, scope, options) {
 		this.requestParams = {
-			params: params,
-			reader: reader,
-			callback: callback,
-			scope: scope,
-			options: options
+			"params": params,
+			"reader": reader,
+			"callback": callback,
+			"scope": scope,
+			"options": options
 		};
-		OMV.Ajax.request(this.createCallback(action, rs), this,
-			this.service, this.method, this.buildParams(params));
+		OMV.Ajax.request(this.createCallback(action, rs), this, this.service,
+		  this.method, this.buildParams(params));
 	},
 
 	/**
@@ -139,20 +100,19 @@ Ext.extend(OMV.data.DataProxy, Ext.data.DataProxy, {
 	 * @private
 	 */
 	buildParams : function(params) {
-		var result = [];
-		// Set default parameters. Note! Do not change the order of the
-		// array parameters.
-		if (this.appendDefaultParams === true) {
-			result = [
-				Ext.isNumber(params.start) ? params.start : 0,
-				Ext.isNumber(params.limit) ? params.limit : -1,
-				Ext.isString(params.sort) ? params.sort : null,
-				Ext.isString(params.dir) ? params.dir : null
-			];
+		var result = {};
+		// Set default parameters.
+		if (this.appendPagingParams === true) {
+			result = {
+				"start": Ext.isNumber(params.start) ? params.start : 0,
+				"limit": Ext.isNumber(params.limit) ? params.limit : -1,
+				"sortfield": Ext.isString(params.sort) ? params.sort : null,
+				"sortdir": Ext.isString(params.dir) ? params.dir : null
+			};
 		}
 		// Append additional parameters
-		if (this.extraParams) {
-			result = result.concat(this.extraParams);
+		if (Ext.isDefined(this.extraParams)) {
+			result = Ext.apply(result, this.extraParams);
 		}
 		return result;
 	}

@@ -30,6 +30,7 @@ set -e
 
 OMV_SSHD_CONFIG=${OMV_SSHD_CONFIG:-"/etc/ssh/sshd_config"}
 OMV_SSHD_ALLOWGROUPS=${OMV_SSHD_ALLOWGROUPS:-"root ssh"}
+OMV_SSHD_SUBSYSTEM_SFTP=${OMV_SSHD_SUBSYSTEM_SFTP:-"/usr/lib/openssh/sftp-server"}
 
 # Create sshd_config file.
 # /etc/ssh/sshd_config from the Debian ssh package has been used
@@ -58,7 +59,7 @@ xmlstarlet sel -t \
   -o "PrintLastLog yes" -n \
   -o "TCPKeepAlive yes" -n \
   -o "AcceptEnv LANG LC_*" -n \
-  -o "Subsystem sftp /usr/lib/openssh/sftp-server" -n \
+  -o "Subsystem sftp ${OMV_SSHD_SUBSYSTEM_SFTP}" -n \
   -o "UsePAM yes" -n \
   -o "AllowGroups ${OMV_SSHD_ALLOWGROUPS}" -n \
   -m "//services/ssh" \
