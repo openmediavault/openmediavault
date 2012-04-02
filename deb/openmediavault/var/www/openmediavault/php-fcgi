@@ -1,0 +1,5 @@
+#!/bin/sh
+export PHPRC="/var/www/openmediavault/cgi"
+export PHP_FCGI_CHILDREN=4
+export PHP_FCGI_MAX_REQUESTS=1000
+exec /usr/lib/cgi-bin/php5

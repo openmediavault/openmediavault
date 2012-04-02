@@ -1,0 +1,42 @@
+Format: http://dep.debian.net/deps/dep5
+Upstream-Contact: Volker Theile <volker.theile@openmediavault.org>
+Source: http://www.sencha.com/products/extjs/download/ext-js-3.4.0
+
+Copyright: Ext JS, LLC <licensing@extjs.com>
+License:
+
+ Commercial License
+ ------------------
+ .
+ http://www.extjs.com/products/license.php
+ .
+ This is the appropriate option if you are creating proprietary applications and you are not prepared to distribute and share the source code of your application under the GPL.
+ .
+    * Based on the "Quid Pro Quo" principle, if you wish to derive a commercial advantage by not releasing your application under an open source license, you must purchase an appropriate number of commercial licenses from Ext. By purchasing commercial licenses, you are no longer obligated to publish your source code.
+ .
+ Commercial licenses:
+ .
+    * Are on a per developer basis. Each person who directly or indirectly creates an application or user interface containing Ext components is considered a developer.
+    * Are perpetual and include upgrades to all minor revisions. For example: a 3.0 license includes all publicly 3.x releases including 3.0, 3.1, 3.3, etc.
+    * Do not include access to patch releases until they are rolled up into the next minor release. For example: the 3.0.3 patch release will be available to commercial licensees when 3.1 is released.
+    * Are royalty-free.
+    * Remove any obligations to release any source code under GPL.
+ .
+ Open Source License
+ -------------------
+ .
+ Ext JS is an avid supporter of open source software. This is the appropriate option if you are creating an open source application with a license compatible with the GNU GPL license v3.
+ .
+    * Open Source FAQ
+ .
+    * Please visit the Dual Licensing Model page for more details.
+ .
+    * View the license terms
+ .
+ For open source projects that are not distributed under the GPL v3 license, the following FLOSS exceptions are available:
+ .
+    * Open Source License Exception for Applications
+    * Open Source License Exception for Development
+ .
+ The Debian packaging is copyright 2009, vot <volker.theile@openmediavault.org> and
+ is licensed under the GPL, see `/usr/share/common-licenses/GPL'.

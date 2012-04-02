@@ -1,0 +1,25 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          openmediavault-beep
+# Required-Start:    $all
+# Required-Stop:     $all
+# Should-Start:      
+# Should-Stop:       
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Beeps after system start or before shutdown
+### END INIT INFO
+
+case "$1" in
+	start|"")
+		beep -f 3000 -l 100 -n -f 3500 -l 100 -r 2
+		;;
+	stop)
+		beep -f 3000 -l 100 -r 2 -n -f 2000 -l 150
+		;;
+	*)
+		echo "Usage: openmediavault-beep [start|stop]" >&2
+		exit 3
+		;;
+esac

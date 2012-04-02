@@ -1,0 +1,39 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          openmediavault
+# Required-Start:    $syslog $local_fs
+# Required-Stop:     $syslog $local_fs
+# Default-Start:     S
+# Default-Stop:
+# Short-Description: Basic initialization of the OpenMediaVault system
+### END INIT INFO
+
+. /etc/default/openmediavault
+. /lib/lsb/init-functions
+
+do_start() {
+	log_action_begin_msg "Cleaning up"
+	# Remove monit.state file
+	rm -f /var/lib/monit/monit.state
+	# Cleanup PHP session files
+	rm -f /var/lib/php5/*
+	log_action_end_msg "$?"
+}
+
+case "$1" in
+	start|"")
+		do_start
+		;;
+	restart|reload|force-reload)
+		echo "Error: argument '$1' not supported" >&2
+		exit 3
+		;;
+	stop)
+		# No-op
+		;;
+	*)
+		echo "Usage: openmediavault [start|stop|restart]" >&2
+		exit 3
+		;;
+esac

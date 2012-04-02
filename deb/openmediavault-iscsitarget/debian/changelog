@@ -1,0 +1,42 @@
+openmediavault-iscsitarget (0.1.6) stable; urgency=low
+
+  * Mantis 0000345: iSCSI plugin throws error: "Uninitialized string offset: 0" when opening
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Jan 2012 23:46:53 +0100
+
+openmediavault-iscsitarget (0.1.5) stable; urgency=low
+
+  * Fix config import issues
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 28 Dec 2011 12:47:54 +0100
+
+openmediavault-iscsitarget (0.1.4) stable; urgency=low
+
+  * Only support LUN BlockIO for the moment
+  * Mantis 0000333: Getting "Undefined index: id" error
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 27 Dec 2011 13:13:59 +0100
+
+openmediavault-iscsitarget (0.1.3) stable; urgency=low
+
+  * Fix location of configuration file (thanks to Dominik Stumpf for the tip)
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 26 Dec 2011 13:43:52 +0100
+
+openmediavault-iscsitarget (0.1.2) stable; urgency=low
+
+  * Fix bug in target definition
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 23 Dec 2011 21:53:44 +0100
+
+openmediavault-iscsitarget (0.1.1) stable; urgency=low
+
+  * Improve monitoring feature.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 19 Nov 2011 22:11:12 +0100
+
+openmediavault-iscsitarget (0.1) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 11 May 2010 21:34:37 +0200
