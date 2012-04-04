@@ -34,6 +34,7 @@ Ext.ns("OMV");
  * @config rpcMethod The name of the method to start the command asynchronously
  * @config rpcArgs The method arguments of the start RPC
  * @config rpcDelay The milliseconds to delay the RPC request. Default is 500.
+ * @config rpcIgnoreErrors Ignore RPC errors. Defaults to FALSE.
  * @config hideStart Hide the 'Start' button. Defaults to FALSE.
  * @config hideStop Hide the 'Edit' button. Defaults to FALSE.
  * @config hideClose Hide the 'Close' button. Defaults to FALSE.
@@ -54,6 +55,7 @@ OMV.ExecCmdDialog = function(config) {
 		buttonAlign: "center",
 		closable: false,
 		rpcDelay: 500,
+		rpcIgnoreErrors: false,
 		cmdIsRunning: false,
 		getContentAllowed: false,
 		hideStart: false,
@@ -210,7 +212,15 @@ Ext.extend(OMV.ExecCmdDialog, OMV.Window, {
 					  this.setButtonDisabled("stop", !this.cmdIsRunning);
 					  this.setButtonDisabled("close", this.cmdIsRunning);
 				  } else {
-					  this.fireEvent("exception", this, error);
+					  // Ignore RPC errors?
+					  if (this.rpcIgnoreErrors === true) {
+						  // Execute another RPC.
+						  this.doGetOutput.defer(this.rpcDelay, this);
+					  } else {
+						  // Fire exception to allow listeners to react
+						  // on errors.
+						  this.fireEvent("exception", this, error);
+					  }
 				  }
 			  }, this, "Exec", "getOutput", { "id": this.cmdId,
 			  "pos": this.cmdContentPos });

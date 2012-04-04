@@ -157,6 +157,7 @@ Ext.extend(OMV.Module.System.UpdateMgmtGridPanel, OMV.grid.TBarGridPanel, {
 			rpcService: "Apt",
 			rpcMethod: "upgrade",
 			rpcArgs: { "packages": packages },
+			rpcIgnoreErrors: true,
 			hideStart: true,
 			hideStop: true,
 			killCmdBeforeDestroy: false,

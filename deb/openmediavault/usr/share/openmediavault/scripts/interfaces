@@ -103,14 +103,14 @@ xmlstarlet sel -t \
 	-i "string-length(options) > 0" \
 		-v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
 	-b \
-	-v "concat('    slaves ',translate(slaves,',',' '))" -n \
+	-v "concat('    bond-slaves ',translate(slaves,',',' '))" -n \
 	-i "string-length(bondprimary) > 0" \
-		-v "concat('    bond_primary ',bondprimary)" -n \
+		-v "concat('    bond-primary ',bondprimary)" -n \
 	-b \
-	-v "concat('    bond_mode ',bondmode)" -n \
-	-v "concat('    bond_miimon ',bondmiimon)" -n \
-	-v "concat('    bond_downdelay ',bonddowndelay)" -n \
-	-v "concat('    bond_updelay ',bondupdelay)" -n \
+	-v "concat('    bond-mode ',bondmode)" -n \
+	-v "concat('    bond-miimon ',bondmiimon)" -n \
+	-v "concat('    bond-downdelay ',bonddowndelay)" -n \
+	-v "concat('    bond-updelay ',bondupdelay)" -n \
   -b \
   -m "//system/network/interfaces/bondiface[method='static']" \
 	-n \
@@ -134,13 +134,13 @@ xmlstarlet sel -t \
 	-i "string-length(options) > 0" \
 		-v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
 	-b \
-	-v "concat('    slaves ',translate(slaves,',',' '))" -n \
+	-v "concat('    bond-slaves ',translate(slaves,',',' '))" -n \
 	-i "string-length(bondprimary) > 0" \
-		-v "concat('    bond_primary ',bondprimary)" -n \
+		-v "concat('    bond-primary ',bondprimary)" -n \
 	-b \
-	-v "concat('    bond_mode ',bondmode)" -n \
-	-v "concat('    bond_miimon ',bondmiimon)" -n \
-	-v "concat('    bond_downdelay ',bonddowndelay)" -n \
-	-v "concat('    bond_updelay ',bondupdelay)" -n \
+	-v "concat('    bond-mode ',bondmode)" -n \
+	-v "concat('    bond-miimon ',bondmiimon)" -n \
+	-v "concat('    bond-downdelay ',bonddowndelay)" -n \
+	-v "concat('    bond-updelay ',bondupdelay)" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_INTERFACES_CONFIG}

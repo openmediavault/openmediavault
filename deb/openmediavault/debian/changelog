@@ -6,11 +6,13 @@ openmediavault (0.3) stable; urgency=low
   * Improve RSync services
   * Auto-detect non-rotational rootfs devices and set the additional mount
     options noatime,discard
+  * Add i18n support
   * Mantis 0000200: Domain field in general config
   * Mantis 0000380: Add the ability to "wipe" or format a disk
   * Mantis 0000385: Not able to install multiple plugins at once
   * Mantis 0000394: FTP: Not possible to set any directives for module mod_tls.c
   * Mantis 0000400: NFS performance options
+  * Mantis 0000406: growing online raid capacity
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 07 Jan 2012 14:30:55 +0100
 
