@@ -23,7 +23,14 @@ div#header {
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	height: 80px;
-	background: #171717 url("/images/header_bg.png") top left no-repeat;
+	background: #1A1A1A;
+	background-image: url("/images/carbon.png");
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 40%, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0))), url("/images/carbon.png");
+	background-image: -webkit-linear-gradient(0% 40%, from(rgba(255, 255, 255, 0.3)), rgba(255, 255, 255, 0) 100%), url("/images/carbon.png");
+	background-image: -moz-linear-gradient(0% 40% 90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3) 100%), url("/images/carbon.png");
+	background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 40%), url("/images/carbon.png");
+	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 40%), url("/images/carbon.png");
+	background-image: linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 40%), url("/images/carbon.png");
 }
 div#headerlogo {
 	float: left;
