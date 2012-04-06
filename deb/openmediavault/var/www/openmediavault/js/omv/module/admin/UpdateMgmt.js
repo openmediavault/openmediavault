@@ -57,7 +57,13 @@ OMV.Module.System.UpdateMgmtGridPanel = function(config) {
 				sortable: false,
 				dataIndex: "newversion",
 				id: "newversion",
-				width: 140
+				width: 80
+			},{
+				header: _("Repository"),
+				sortable: true,
+				dataIndex: "repository",
+				id: "repository",
+				width: 80
 			},{
 				header: _("Description"),
 				sortable: true,
@@ -92,6 +98,7 @@ Ext.extend(OMV.Module.System.UpdateMgmtGridPanel, OMV.grid.TBarGridPanel, {
 					{ name: "name" },
 					{ name: "version" },
 					{ name: "newversion" },
+					{ name: "repository" },
 					{ name: "description" }
     			]
 			})

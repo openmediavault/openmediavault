@@ -7,6 +7,7 @@ openmediavault (0.3) stable; urgency=low
   * Auto-detect non-rotational rootfs devices and set the additional mount
     options noatime,discard
   * Add i18n support
+  * Add column 'Repository' to update manager table.
   * Mantis 0000200: Domain field in general config
   * Mantis 0000380: Add the ability to "wipe" or format a disk
   * Mantis 0000385: Not able to install multiple plugins at once

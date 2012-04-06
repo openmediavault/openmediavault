@@ -38,6 +38,8 @@ class AptRpc extends OMVRpc {
 
 	/**
 	 * Get a list of all packages that are to be upgraded.
+	 * @return An array of objects containing the fields \em name, \em version,
+	 *   \em newversion, \em repository, \em architecture and \em description.
 	 */
 	function getUpgraded() {
 //		$this->debug(var_export(func_get_args(), TRUE));
