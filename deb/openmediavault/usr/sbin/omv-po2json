@@ -39,7 +39,7 @@ sub main {
 		  die "Can't load PO file $arg";
 		foreach my $pov (@$po) {
 			my $msgid = $pov->dequote($pov->msgid);
-            my $msgstr = $pov->dequote($pov->msgstr);
+			my $msgstr = $pov->dequote($pov->msgstr);
 			# Skip empty msgid entries.
 			next if !length($msgid);
 			# Skip empty msgstr entries.
@@ -49,7 +49,8 @@ sub main {
 		}
 	}
 	my $json = new JSON;
-    print $json->pretty->encode(\%dict);
+	print $json->pretty->encode(\%dict);
+	exit 0;
 }
 
 &main;
