@@ -1032,6 +1032,19 @@ class OMVStorageDevices extends OMVObject {
  */
 class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 	protected $identityInfo = FALSE;
+	protected $smartInfo = NULL;
+
+	/**
+	 * Refresh the cached informations.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function refresh() {
+		// Mark variables as dirty, thus the cached command output will be
+		// refreshed when the class method is called the next time.
+ 		$this->identityInfo = FALSE;
+		$this->smartInfo = NULL;
+		return TRUE;
+	}
 
 	/**
 	 * Get the device model.
@@ -1063,8 +1076,8 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 		if (FALSE === ($stats = $this->getSmartStats()))
 			return FALSE;
 		$temp = FALSE;
+		$found = FALSE;
 		foreach ($stats['attributes'] as $statv) {
-			$found = false;
 			switch ($statv['id']) {
 			case 194:
 			case 231:
@@ -1073,11 +1086,33 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 				if (1 !== preg_match($regex, $statv['rawvalue'], $matches))
 					continue;
 				$temp = $matches[1];
-				$found = true;
+				$found = TRUE;
 				break;
 			}
 			if ($found)
 				break;
+		}
+		// If the SMART attributes are not present then it may be an older
+		// SCSI device. Then the command output looks like:
+		// Device: SEAGATE  ST336605LSUN36G  Version: 0238
+		// Serial number: 3FP1J35V00007241EEC7
+		// Device type: disk
+		// Local Time is: Thu Apr  5 15:41:56 2012 CEST
+		// Device supports SMART and is Enabled
+		// Temperature Warning Enabled
+		// SMART Health Status: OK
+		//
+		// Current Drive Temperature:     34 C
+		// Drive Trip Temperature:        65 C
+		// ...
+		if (FALSE === $found) {
+			foreach ($this->smartInfo as $smartInfov) {
+				$regex = "/^Current Drive Temperature:\s+(\d+)\s+C$/";
+				if (1 == preg_match($regex, $smartInfov, $matches)) {
+					$temp = $matches[1];
+					break;
+				}
+			}
 		}
 		return $temp;
 	}
@@ -1110,14 +1145,18 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 	public function getSmartStats() {
 		if (!$this->exists())
 			return FALSE;
-		$cmd = sprintf("export LANG=C; sudo smartctl -a %s",
-		  $this->getDeviceFile());
-		@OMVUtil::exec($cmd, $output, $result);
-		// Bit 0: Command line did not parse
-		// Bit 1: Device open failed, or device did not return an
-		//        IDENTIFY DEVICE structure
-		if (($result !== 0) && (($result & 0) || ($result & 1)))
-			return FALSE;
+		// S.M.A.R.T. informations already cached?
+		if (is_null($this->smartInfo)) {
+			$cmd = sprintf("export LANG=C; sudo smartctl -a %s",
+			  $this->getDeviceFile());
+			@OMVUtil::exec($cmd, $output, $result);
+			// Bit 0: Command line did not parse
+			// Bit 1: Device open failed, or device did not return an
+			//        IDENTIFY DEVICE structure
+			if (($result !== 0) && (($result & 0) || ($result & 1)))
+				return FALSE;
+			$this->smartInfo = $output;
+		}
 		// Set default values
 		$attributes = array();
 		$selfTestLogs = array();
@@ -1127,7 +1166,7 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 			"firmwareversion" => gettext("n/a")
 		);
 		// Process command output
-		foreach ($output as $outputv) {
+		foreach ($this->smartInfo as $smartInfov) {
 			// SMART Attributes Data Structure
 			// Parse command output:
 			// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
@@ -1136,7 +1175,7 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 			// 194 Temperature_Celsius     0x0002   139   139   000    Old_age   Always       -       43 (Lifetime Min/Max 16/61)
 			$regex = "/^\s*(\d+)\s+(\S+)\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+" .
 			  "(\S+)\s+(\S+)\s+(\S+)\s+(.+)$/";
-			if (1 == preg_match($regex, $outputv, $matches)) {
+			if (1 == preg_match($regex, $smartInfov, $matches)) {
 				$attributes[] = array(
 					"id" => $matches[1],
 					"attrname" => $matches[2],
@@ -1158,7 +1197,7 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 			$regex = "/^# (\d+)\s+(Short offline|Extended offline|" .
 			  "Short captive|Extended captive)\s+(.+)\s+(\d+)%\s+(\d+)" .
 			  "\s+(.+)$/";
-			if (1 == preg_match($regex, $outputv, $matches)) {
+			if (1 == preg_match($regex, $smartInfov, $matches)) {
 				$selfTestLogs[] = array(
 					"num" => $matches[1],
 					"description" => $matches[2],
@@ -1177,7 +1216,7 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 		// Serial Number:    VFD200R2CWBTLL
 		// Firmware Version: V54OA52A
 		// User Capacity:    320.072.933.376 bytes
-		$output = implode("|", $output);
+		$output = implode("|", $this->smartInfo);
 		$regex = "/^.+\|Device Model:\s+(.+)\|Serial Number:\s+(.+)".
 		  "\|Firmware Version:\s+(.+)\|User Capacity:\s+(.+) bytes\|.+$/";
 		if (1 == preg_match($regex, $output, $matches)) {

@@ -14,6 +14,7 @@ openmediavault (0.3) stable; urgency=low
   * Mantis 0000394: FTP: Not possible to set any directives for module mod_tls.c
   * Mantis 0000400: NFS performance options
   * Mantis 0000406: growing online raid capacity
+  * Mantis 0000410: SMART informations are not displayed for SCSI disks
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 07 Jan 2012 14:30:55 +0100
 
