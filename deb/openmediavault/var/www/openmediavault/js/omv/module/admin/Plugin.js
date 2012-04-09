@@ -47,6 +47,10 @@ OMV.Module.System.PluginGridPanel = function(config) {
 		hideEdit: true,
 		deletionWaitMsg: "Uninstalling selected plugin",
 		stateId: "2bd3835f-56c4-4047-942b-7d7b5163de2a",
+		viewConfig: {
+			forceFit: false
+		},
+		autoExpandColumn: "info",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
 				header: _("Installed"),
@@ -59,23 +63,73 @@ OMV.Module.System.PluginGridPanel = function(config) {
 				width: 60,
 				align: "center"
 			},{
+				header: _("Package information"),
+				sortable: true,
+				dataIndex: "name",
+				id: "info",
+				renderer: function(val, cell, record, row, col, store) {
+					var tpl = new Ext.XTemplate(
+					  '<b>{name} {version}</b><br/>',
+					  '{description}<br/><br/>',
+					  '<tpl if="values.longdescription !== null && typeof values.longdescription == &quot;string&quot;">',
+					    '{[OMV.util.Format.whitespace(values.longdescription)]}<br/>',
+					  '</tpl>',
+					  'Size: {[OMV.util.Format.binaryUnit(values.size)]}<br/>',
+					  'Maintainer: {maintainer}<br/>',
+					  'Homepage: {homepage}<br/>');
+					return tpl.apply(record.data);
+				},
+				width: 500
+			},{
 				header: _("Name"),
 				sortable: true,
 				dataIndex: "name",
-				id: "name"
+				id: "name",
+				width: 180,
+				hidden: true
 			},{
 				header: _("Version"),
-				sortable: true,
+				sortable: false,
 				dataIndex: "version",
 				id: "version",
-				fixed: true,
-				width: 140
+				width: 120,
+				hidden: true
 			},{
 				header: _("Description"),
 				sortable: true,
 				dataIndex: "description",
 				id: "description",
-				renderer: OMV.util.Format.whitespaceRenderer()
+				renderer: function(val, cell, record, row, col, store) {
+					var longdescription = record.get("longdescription");
+					if (!Ext.isEmpty(longdescription)) {
+						val = "<b>" + val + "</b><br/>" + longdescription;
+					}
+					return OMV.util.Format.whitespace(val);
+				},
+				width: 340,
+				hidden: true
+			},{
+				header: _("Size"),
+				sortable: true,
+				dataIndex: "size",
+				id: "size",
+				renderer: OMV.util.Format.binaryUnitRenderer(),
+				width: 80,
+				hidden: true
+			},{
+				header: _("Maintainer"),
+				sortable: true,
+				dataIndex: "maintainer",
+				id: "maintainer",
+				width: 140,
+				hidden: true
+			},{
+				header: _("Homepage"),
+				sortable: true,
+				dataIndex: "homepage",
+				id: "homepage",
+				width: 140,
+				hidden: true
 			}]
 		})
 	};
@@ -101,7 +155,11 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 					{ name: "name" },
 					{ name: "version" },
 					{ name: "description" },
-					{ name: "installed" }
+					{ name: "longdescription" },
+					{ name: "homepage" },
+					{ name: "maintainer" },
+					{ name: "installed" },
+					{ name: "size" }
     			]
 			})
 		});

@@ -146,6 +146,19 @@ OMV.util.Format = function() {
 			},
 
 			/**
+			 * @method binaryUnit
+			 * Convert a value into the highest possible binary unit.
+			 * @param value The value to format.
+			 */
+			binaryUnit : function(value) {
+				var v = parseInt(value);
+				if (Ext.isNumber(v)) {
+					return v.binaryFormat();
+				}
+				return _("n/a");
+			},
+
+			/**
 			 * @method binaryUnitRenderer
 			 * Returns a rendering function that displays the value in the
 			 * highest possible binary unit.
@@ -153,11 +166,7 @@ OMV.util.Format = function() {
 			 */
 			binaryUnitRenderer : function() {
 				return function(value) {
-					var v = parseInt(value);
-					if (Ext.isNumber(v)) {
-						return v.binaryFormat();
-					}
-					return _("n/a");
+					return OMV.util.Format.binaryUnit(value);
 				};
 			}
 		};

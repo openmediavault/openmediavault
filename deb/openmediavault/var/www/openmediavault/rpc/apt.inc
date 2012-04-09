@@ -39,7 +39,11 @@ class AptRpc extends OMVRpc {
 	/**
 	 * Get a list of all packages that are to be upgraded.
 	 * @return An array of objects containing the fields \em name, \em version,
-	 *   \em newversion, \em repository, \em architecture and \em description.
+	 *   \em oldversion, \em repository, \em architecture, \em package,
+	 *   \em priority, \em section, \em installedsize, \em maintainer,
+	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
+	 *   \em description and \em homepage. The following fields are optional:
+	 *   \em longdescription, \em depends, \em replaces and \em conflicts.
 	 */
 	function getUpgraded() {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -60,36 +64,66 @@ class AptRpc extends OMVRpc {
 			  $cmd, implode("\n", $output));
 		}
 		// Get the packages to be installed/updated.
-		$data = array();
+		$objects = array();
 		// Parse output:
 		// Inst libisccc60 [1:9.7.3.dfsg-1~squeeze3] (1:9.7.3.dfsg-1~squeeze4 Debian:6.0.4/stable, Debian-Security:6.0/stable [amd64])
 		// Inst file [5.04-5] (5.04-5+squeeze1 Debian-Security:6.0/stable [i386]) []
 		// Inst libxml2 [2.7.8.dfsg-2+squeeze2] (2.7.8.dfsg-2+squeeze3 Debian-Security:6.0/stable [i386])
 		// Inst libssl1.0.0 (1.0.0h-1 localhost [amd64])
-		$regex = "/^Inst\s+(\S+)\s+(\[(\S+)|\])?\s*\((\S+)\s+(.+)\s+\[(\S+)\]\).*$/";
 		foreach ($output as $row) {
+			$regex = "/^Inst\s+(\S+)\s+(\[(\S+)|\])?\s*\((\S+)\s+(.+)\s+".
+			  "\[(\S+)\]\).*$/";
 			if (1 !== preg_match($regex, $row, $matches))
 				continue;
-			// Get the package description
-			$cmd = sprintf("export LANG=C; sudo apt-cache --no-all-versions " .
-			  "show %s | grep -i '^Description: .*$'", $matches[1]);
-			$description = OMVUtil::exec($cmd);
+			// Set default package informations.
+			$object = array(
+				"name" => $matches[1],
+				"oldversion" => $matches[3],
+				"version" => $matches[4],
+				"repository" => $matches[5],
+				"architecture" => $matches[6]
+			);
+			// Get additional package informations.
+			$cmd = sprintf("export LANG=C; sudo apt-cache --no-all-versions ".
+			  "show %s", $matches[1]);
+			OMVUtil::exec($cmd, $output2, $result);
 			if ($result !== 0) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
+				  $cmd, implode("\n", $output2));
 			}
-			$description = substr($description, 13);
-			// Append package information
-			$data[] = array(
-				"name" => $matches[1],
-				"version" => $matches[3],
-				"newversion" => $matches[4],
-				"repository" => $matches[5],
-				"architecture" => $matches[6],
-				"description" => $description ? $description : ""
-			);
+			// Parse output:
+			// Package: openmediavault-forkeddaapd
+			// Priority: optional
+			// ...
+			// <fieldname>: <fieldvalue>
+			$fieldname = $fieldvalue = "";
+			foreach ($output2 as $row) {
+				$regex = "/^(\S+): (.+)$/";
+				if (1 !== preg_match($regex, $row, $matches)) {
+					// Process folded/multiline fields. See
+					// http://www.debian.org/doc/debian-policy/ch-controlfields.html
+					switch ($fieldname) {
+					case "description":
+						$fieldname = "longdescription";
+						$object[$fieldname] = "";
+						break;
+					default:
+						break;
+					}
+					$fieldvalue = trim($row);
+					if ($fieldvalue === ".")
+						$fieldvalue = "\n";
+					$object[$fieldname] .= sprintf("%s\n", $fieldvalue);
+					continue;
+				}
+				$fieldname = strtolower(str_replace("-", "", $matches[1]));
+				$fieldvalue = trim($matches[2]);
+				$object[$fieldname] = $fieldvalue;
+			}
+			// Append package information object.
+			$objects[] = $object;
 		}
-		return $data;
+		return $objects;
 	}
 
 	/**

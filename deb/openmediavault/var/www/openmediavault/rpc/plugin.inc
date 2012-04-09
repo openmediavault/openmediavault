@@ -61,7 +61,13 @@ class PluginRpc extends OMVRpc {
 	 *   \em sortdir The sort direction, ASC or DESC.
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
-	 *   array. An exception will be thrown in case of an error.
+	 *   array. An object contains the following fields: \em name, \em version,
+	 *   \em oldversion, \em architecture, \em package, \em priority,
+	 *   \em section, \em installedsize, \em maintainer, \em filename, \em size,
+	 *   \em md5sum, \em sha1, \em sha256, \em description, \em homepage,
+	 *   \em installed and \em _readOnly. The following fields are optional:
+	 *   \em longdescription, \em depends, \em replaces and \em conflicts.
+	 *   An exception will be thrown in case of an error.
 	 */
 	function getList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -75,9 +81,9 @@ class PluginRpc extends OMVRpc {
 		$this->validateParams(__METHOD__, func_get_args());
 		// Get product informations
 		$prd = new OMVProduct();
-		// List of packages to ignore
+		// List of packages to ignore.
 		$except = array(sprintf("%s-keyring", $prd->getPackageName()));
-		// Get list of available packages
+		// Get list of available plugin packages.
 		$cmd = sprintf("sudo apt-cache search %s-", $prd->getPackageName());
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
@@ -85,64 +91,83 @@ class PluginRpc extends OMVRpc {
 			  $cmd, implode("\n", $output));
 		}
 		$objects = array();
-		$pkgAvail = array();
-		$regex = sprintf("/^(%s-\S+) - (.+)$/", $prd->getPackageName());
 		foreach ($output as $row) {
+			$regex = sprintf("/^(%s-\S+) - (.+)$/", $prd->getPackageName());
 			if (1 !== preg_match($regex, $row, $matches))
 				continue;
+			// Skip packages listed in the ignore list.
 			if (in_array($matches[1], $except))
 				continue;
-			// Get the package version
-			$cmd = sprintf("sudo apt-cache --no-all-versions show %s | " .
-			  "grep -i '^Version: .*$' | awk '{print \$2}'", $matches[1]);
-			$version = OMVUtil::exec($cmd, $output, $result);
+			// Set default package informations.
+			$object = array(
+				"name" => $matches[1],
+				"description" => $matches[2],
+				"installed" => FALSE,
+				"_readOnly" => TRUE
+			);
+			// Get additional package informations.
+			$cmd = sprintf("export LANG=C; sudo apt-cache --no-all-versions ".
+			  "show %s", $matches[1]);
+			OMVUtil::exec($cmd, $output2, $result);
 			if ($result !== 0) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
+				  $cmd, implode("\n", $output2));
 			}
-			$objects[] = array(
-				"name" => $matches[1],
-				"version" => $version,
-				"description" => $matches[2],
-				"installed" => false,
-				"_readOnly" => true
-			);
+			// Parse output:
+			// Package: openmediavault-forkeddaapd
+			// Priority: optional
+			// ...
+			// <fieldname>: <fieldvalue>
+			$fieldname = $fieldvalue = "";
+			foreach ($output2 as $row) {
+				$regex = "/^(\S+): (.+)$/";
+				if (1 !== preg_match($regex, $row, $matches)) {
+					// Process folded/multiline fields. See
+					// http://www.debian.org/doc/debian-policy/ch-controlfields.html
+					switch ($fieldname) {
+					case "description":
+						$fieldname = "longdescription";
+						$object[$fieldname] = "";
+						break;
+					default:
+						break;
+					}
+					$fieldvalue = trim($row);
+					if ($fieldvalue === ".")
+						$fieldvalue = "\n";
+					$object[$fieldname] .= sprintf("%s\n", $fieldvalue);
+					continue;
+				}
+				$fieldname = strtolower(str_replace("-", "", $matches[1]));
+				$fieldvalue = trim($matches[2]);
+				$object[$fieldname] = $fieldvalue;
+			}
+			// Append package information object.
+			$objects[] = $object;
 		}
-		// Get list of installed packages
-		$cmd = "sudo COLUMNS=200 dpkg -l";
+		// Get list of installed packages.
 		unset($output);
+		$cmd = sprintf("sudo dpkg-query --list %s-*", $prd->getPackageName());
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		$pkgInstalled = array();
-		$regex = sprintf("/^ii\s+(%s-\S+)\s+(\S+)\s+(.+)$/",
-		  $prd->getPackageName());
 		foreach ($output as $row) {
+			$regex = sprintf("/^ii\s+(%s-\S+)\s+(\S+)\s+(.+)$/",
+			  $prd->getPackageName());
 			if (1 !== preg_match($regex, $row, $matches))
 				continue;
+			// Skip packages listed in the ignore list.
 			if (in_array($matches[1], $except))
 				continue;
-			// Update existing package entry?
-			$found = FALSE;
+			// Mark plugin package as installed?
 			foreach ($objects as $objectk => &$objectv) {
 				if ($objectv['name'] === $matches[1]) {
 					$objectv['installed'] = TRUE;
 					$objectv['_readOnly'] = FALSE;
-					$found = TRUE;
 					break;
 				}
-			}
-			// Append new package entry
-			if (FALSE === $found) {
-				$objects[] = array(
-					"name" => $matches[1],
-					"version" => $matches[2],
-					"description" => $matches[3],
-					"installed" => TRUE,
-					"_readOnly" => FALSE
-				);
 			}
 		}
 		// Filter result
