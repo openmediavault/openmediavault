@@ -102,6 +102,13 @@ OMV.Module.System.PluginGridPanel = function(config) {
 				width: 120,
 				hidden: true
 			},{
+				header: _("Repository"),
+				sortable: true,
+				dataIndex: "repository",
+				id: "repository",
+				width: 160,
+				hidden: true
+			},{
 				header: _("Description"),
 				sortable: true,
 				dataIndex: "description",
