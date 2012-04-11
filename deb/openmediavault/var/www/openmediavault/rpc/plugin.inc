@@ -65,9 +65,9 @@ class PluginRpc extends OMVRpc {
 	 *   \em oldversion, \em architecture, \em package, \em priority,
 	 *   \em section, \em installedsize, \em maintainer, \em filename, \em size,
 	 *   \em md5sum, \em sha1, \em sha256, \em description, \em homepage,
-	 *   \em installed and \em _readOnly. The following fields are optional:
-	 *   \em longdescription, \em depends, \em replaces and \em conflicts.
-	 *   An exception will be thrown in case of an error.
+	 *   \em installed, \em repository and \em _readOnly. The following fields
+	 *   are optional: \em longdescription, \em depends, \em replaces and
+	 *   \em conflicts. An exception will be thrown in case of an error.
 	 */
 	function getList($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -84,7 +84,8 @@ class PluginRpc extends OMVRpc {
 		// List of packages to ignore.
 		$except = array(sprintf("%s-keyring", $prd->getPackageName()));
 		// Get list of available plugin packages.
-		$cmd = sprintf("sudo apt-cache search %s-", $prd->getPackageName());
+		$cmd = sprintf("export LANG=C; sudo apt-cache search %s-",
+		  $prd->getPackageName());
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -107,7 +108,7 @@ class PluginRpc extends OMVRpc {
 			);
 			// Get additional package informations.
 			$cmd = sprintf("export LANG=C; sudo apt-cache --no-all-versions ".
-			  "show %s", $matches[1]);
+			  "show %s", $object['name']);
 			OMVUtil::exec($cmd, $output2, $result);
 			if ($result !== 0) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -142,12 +143,36 @@ class PluginRpc extends OMVRpc {
 				$fieldvalue = trim($matches[2]);
 				$object[$fieldname] = $fieldvalue;
 			}
+			// Get the repository. Because parsing 'apt-cache' output seems
+			// to be too difficult, simply simulate the package installation.
+			// The 'apt-get' output includes the repository where the package
+			// comes from.
+			$cmd = sprintf("export LANG=C; sudo apt-get --simulate ".
+			  "--reinstall install %s 2>&1", $object['name']);
+			OMVUtil::exec($cmd, $output2, $result);
+			if ($result !== 0) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output2));
+			}
+			// Parse output:
+			// Inst libisccc60 [1:9.7.3.dfsg-1~squeeze3] (1:9.7.3.dfsg-1~squeeze4 Debian:6.0.4/stable, Debian-Security:6.0/stable [amd64])
+			// Inst file [5.04-5] (5.04-5+squeeze1 Debian-Security:6.0/stable [i386]) []
+			// Inst libxml2 [2.7.8.dfsg-2+squeeze2] (2.7.8.dfsg-2+squeeze3 Debian-Security:6.0/stable [i386])
+			// Inst libssl1.0.0 (1.0.0h-1 localhost [amd64])
+			foreach ($output2 as $row) {
+				$regex = "/^Inst\s+(\S+)\s+(\[(\S+)|\])?\s*\((\S+)\s+(.+)\s+".
+				  "\[(\S+)\]\).*$/";
+				if (1 !== preg_match($regex, $row, $matches))
+					continue;
+				$object['repository'] = $matches[5];
+			}
 			// Append package information object.
 			$objects[] = $object;
 		}
 		// Get list of installed packages.
 		unset($output);
-		$cmd = sprintf("sudo dpkg-query --list %s-*", $prd->getPackageName());
+		$cmd = sprintf("export LANG=C;sudo dpkg-query --list %s-*",
+		  $prd->getPackageName());
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -204,9 +229,9 @@ class PluginRpc extends OMVRpc {
 		}
 		// Remove the packages
 		$outputFile = tempnam(sys_get_temp_dir(), "aptgetremove");
-		$cmd = sprintf("sudo apt-get --yes --auto-remove --purge remove " .
-		  "%s >%s 2>&1 & echo $!", implode(" ", $data['packages']),
-		  $outputFile);
+		$cmd = sprintf("export LANG=C; sudo apt-get --yes --auto-remove ".
+		  "--purge remove %s >%s 2>&1 & echo $!", implode(" ",
+		  $data['packages']), $outputFile);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -240,7 +265,7 @@ class PluginRpc extends OMVRpc {
 		// Get the real file name
 		$fileName = $_FILES['file']['name'];
 		// Extract the package name
-		$cmd = sprintf("dpkg --field %s | grep 'Package: ' | " .
+		$cmd = sprintf("export LANG=C; dpkg --field %s | grep 'Package: ' | ".
 		  "awk '{print \$2}'", escapeshellarg($_FILES['file']['tmp_name']));
 		$packageName = OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
@@ -289,9 +314,9 @@ class PluginRpc extends OMVRpc {
 		}
 		// Install the packages
 		$outputFile = tempnam(sys_get_temp_dir(), "aptgetinstall");
-		$cmd = sprintf("sudo apt-get --yes --force-yes --fix-missing " .
-		  "--allow-unauthenticated --reinstall install %s >%s 2>&1 & echo $!",
-		  implode(" ", $data['packages']), $outputFile);
+		$cmd = sprintf("export LANG=C;sudo apt-get --yes --force-yes ".
+		  "--fix-missing --allow-unauthenticated --reinstall install %s >%s ".
+		  "2>&1 & echo $!", implode(" ", $data['packages']), $outputFile);
 		OMVUtil::exec($cmd, $output, $res);
 		if ($res !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

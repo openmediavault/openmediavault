@@ -74,9 +74,16 @@ OMV.Module.System.PluginGridPanel = function(config) {
 					  '<tpl if="values.longdescription !== null && typeof values.longdescription == &quot;string&quot;">',
 					    '{[OMV.util.Format.whitespace(values.longdescription)]}<br/>',
 					  '</tpl>',
-					  'Size: {[OMV.util.Format.binaryUnit(values.size)]}<br/>',
-					  'Maintainer: {maintainer}<br/>',
-					  'Homepage: {homepage}<br/>');
+					  _("Size") + ': {[OMV.util.Format.binaryUnit(values.size)]}<br/>',
+					  '<tpl if="values.maintainer !== null && typeof values.maintainer == &quot;string&quot;">',
+					    _("Maintainer") + ': {maintainer}<br/>',
+					  '</tpl>',
+					  '<tpl if="values.homepage !== null && typeof values.homepage == &quot;string&quot;">',
+					    _("Homepage") + ': {homepage}<br/>',
+					  '</tpl>',
+					  '<tpl if="values.repository !== null && typeof values.repository == &quot;string&quot;">',
+					    _("Repository") + ': {repository}<br/>',
+					  '</tpl>');
 					return tpl.apply(record.data);
 				},
 				width: 500
@@ -154,6 +161,7 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 					{ name: "_readOnly" },
 					{ name: "name" },
 					{ name: "version" },
+					{ name: "repository" },
 					{ name: "description" },
 					{ name: "longdescription" },
 					{ name: "homepage" },

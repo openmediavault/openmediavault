@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-27 22:08+0200\n"
+"POT-Creation-Date: 2012-04-09 20:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -182,6 +182,9 @@ msgid "ACL"
 msgstr ""
 
 msgid "About"
+msgstr ""
+
+msgid "Absolute path"
 msgstr ""
 
 msgid "Access Right Management"
@@ -1260,6 +1263,9 @@ msgstr ""
 msgid "Home directories"
 msgstr ""
 
+msgid "Homepage"
+msgstr ""
+
 msgid "Honduras"
 msgstr ""
 
@@ -1572,6 +1578,9 @@ msgid "Macedonia"
 msgstr ""
 
 msgid "Madagascar"
+msgstr ""
+
+msgid "Maintainer"
 msgstr ""
 
 msgid "Malawi"
@@ -1907,6 +1916,9 @@ msgstr ""
 msgid "Pacific Islands Trust Territory"
 msgstr ""
 
+msgid "Package information"
+msgstr ""
+
 msgid "Pakistan"
 msgstr ""
 
@@ -2156,6 +2168,9 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
+msgid "Relative path"
+msgstr ""
+
 msgid "Remaining"
 msgstr ""
 
@@ -2175,6 +2190,9 @@ msgid "Report if the temperature had changed by at least N degrees Celsius since
 msgstr ""
 
 msgid "Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report."
+msgstr ""
+
+msgid "Repository"
 msgstr ""
 
 msgid "Require valid shell"
@@ -2473,6 +2491,9 @@ msgid "Sierra Leone"
 msgstr ""
 
 msgid "Singapore"
+msgstr ""
+
+msgid "Size"
 msgstr ""
 
 msgid "Slaves"
