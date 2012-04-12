@@ -1223,10 +1223,12 @@ OMV.Module.Diagnostics.LogPlugin.Rsync = function(config) {
 		columns: [{
 			header: _("Date & Time"),
 			sortable: true,
-			dataIndex: "date",
+			dataIndex: "rownum",
 			id: "date",
 			width: 35,
-			renderer: OMV.util.Format.localeTimeRenderer()
+			renderer: function(val, cell, record, row, col, store) {
+				return OMV.util.Format.localeTime(record.get("date"));
+			}
 		},{
 			header: _("Event"),
 			sortable: true,
@@ -1235,6 +1237,7 @@ OMV.Module.Diagnostics.LogPlugin.Rsync = function(config) {
 		}],
 		rpcArgs: { "id": "rpcArgs" },
 		rpcFields: [
+			{ name: "rownum" },
 			{ name: "date" },
 			{ name: "event" }
 		]

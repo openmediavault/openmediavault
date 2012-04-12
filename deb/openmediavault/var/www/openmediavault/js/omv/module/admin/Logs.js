@@ -75,10 +75,12 @@ OMV.Module.Diagnostics.LogPlugin.Syslog = function(config) {
 		columns: [{
 			header: _("Date & Time"),
 			sortable: true,
-			dataIndex: "date",
+			dataIndex: "rownum",
 			id: "date",
 			width: 35,
-			renderer: OMV.util.Format.localeTimeRenderer()
+			renderer: function(val, cell, record, row, col, store) {
+				return OMV.util.Format.localeTime(record.get("date"));
+			}
 		},{
 			header: _("User"),
 			sortable: true,
@@ -94,6 +96,7 @@ OMV.Module.Diagnostics.LogPlugin.Syslog = function(config) {
 		}],
 		rpcArgs: { "id": "syslog" },
 		rpcFields: [
+			{ name: "rownum" },
 			{ name: "date" },
 			{ name: "user" },
 			{ name: "event" }
@@ -120,10 +123,12 @@ OMV.Module.Diagnostics.LogPlugin.Daemon = function(config) {
 		columns: [{
 			header: _("Date & Time"),
 			sortable: true,
-			dataIndex: "date",
+			dataIndex: "rownum",
 			id: "date",
 			width: 35,
-			renderer: OMV.util.Format.localeTimeRenderer()
+			renderer: function(val, cell, record, row, col, store) {
+				return OMV.util.Format.localeTime(record.get("date"));
+			}
 		},{
 			header: _("User"),
 			sortable: true,
@@ -138,6 +143,7 @@ OMV.Module.Diagnostics.LogPlugin.Daemon = function(config) {
 		}],
 		rpcArgs: { "id": "daemon" },
 		rpcFields: [
+			{ name: "rownum" },
 			{ name: "date" },
 			{ name: "user" },
 			{ name: "event" }
@@ -164,10 +170,12 @@ OMV.Module.Diagnostics.LogPlugin.Auth = function(config) {
 		columns: [{
 			header: _("Date & Time"),
 			sortable: true,
-			dataIndex: "date",
+			dataIndex: "rownum",
 			id: "date",
 			width: 35,
-			renderer: OMV.util.Format.localeTimeRenderer()
+			renderer: function(val, cell, record, row, col, store) {
+				return OMV.util.Format.localeTime(record.get("date"));
+			}
 		},{
 			header: _("User"),
 			sortable: true,
@@ -182,6 +190,7 @@ OMV.Module.Diagnostics.LogPlugin.Auth = function(config) {
 		}],
 		rpcArgs: { "id": "auth" },
 		rpcFields: [
+			{ name: "rownum" },
 			{ name: "date" },
 			{ name: "user" },
 			{ name: "event" }
@@ -208,10 +217,12 @@ OMV.Module.Diagnostics.LogPlugin.Messages = function(config) {
 		columns: [{
 			header: _("Date & Time"),
 			sortable: true,
-			dataIndex: "date",
+			dataIndex: "rownum",
 			id: "date",
 			width: 35,
-			renderer: OMV.util.Format.localeTimeRenderer()
+			renderer: function(val, cell, record, row, col, store) {
+				return OMV.util.Format.localeTime(record.get("date"));
+			}
 		},{
 			header: _("User"),
 			sortable: true,
@@ -226,6 +237,7 @@ OMV.Module.Diagnostics.LogPlugin.Messages = function(config) {
 		}],
 		rpcArgs: { "id": "messages" },
 		rpcFields: [
+			{ name: "rownum" },
 			{ name: "date" },
 			{ name: "user" },
 			{ name: "event" }
@@ -307,7 +319,7 @@ Ext.extend(OMV.Module.Diagnostics.LogGridPanel, OMV.grid.GridPanel, {
 			},
 			remoteSort: this.plugin.rpcRemoteSort,
 			sortInfo: {
-				field: "date",
+				field: "rownum",
 				direction: "DESC"
 			},
 			proxy: new OMV.data.DataProxy({
@@ -415,7 +427,7 @@ Ext.extend(OMV.Module.Diagnostics.LogGridPanel, OMV.grid.GridPanel, {
 			},
 			remoteSort: this.plugin.rpcRemoteSort,
 			sortInfo: {
-				field: "date",
+				field: "rownum",
 				direction: "DESC"
 			},
 			proxy: new OMV.data.DataProxy({

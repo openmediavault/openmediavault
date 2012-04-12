@@ -15,6 +15,7 @@ openmediavault (0.3) stable; urgency=low
   * Mantis 0000400: NFS performance options
   * Mantis 0000406: growing online raid capacity
   * Mantis 0000410: SMART informations are not displayed for SCSI disks
+  * Mantis 0000412: Log Viewer should display and sort logs in correct order
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 07 Jan 2012 14:30:55 +0100
 

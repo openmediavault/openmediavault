@@ -91,16 +91,27 @@ OMV.util.Format = function() {
 			},
 
 			/**
+			 * @method localeTime
+			 * Convert the given UNIX epoch timestamp to a string, using
+			 * locale conventions.
+			 * @param value The date as UNIX epoch timestamp.
+			 * @return The formatted date string.
+			 */
+			localeTime : function(value) {
+				var dt = Date.parseDate(value, "U");
+				return dt.toLocaleString();
+			},
+
+			/**
 			 * @method localeTimeRenderer
 			 * Returns a rendering function that displayes the given
-			 * unix epoch timestamp in human readable form using the
+			 * UNIX epoch timestamp in human readable form using the
 			 * local time format.
 			 * @return The rendering function
 			 */
 			localeTimeRenderer : function() {
 				return function(value) {
-					var dt = Date.parseDate(value, "U");
-					return dt.toLocaleString();
+					return OMV.util.Format.localeTime(value);
 				};
 			},
 

@@ -851,10 +851,12 @@ OMV.Module.Diagnostics.LogPlugin.FTP = function(config) {
 		columns: [{
 			header: _("Date & Time"),
 			sortable: true,
-			dataIndex: "date",
+			dataIndex: "rownum",
 			id: "date",
 			width: 35,
-			renderer: OMV.util.Format.localeTimeRenderer()
+			renderer: function(val, cell, record, row, col, store) {
+				return OMV.util.Format.localeTime(record.get("date"));
+			}
 		},{
 			header: _("Event"),
 			sortable: true,
@@ -863,6 +865,7 @@ OMV.Module.Diagnostics.LogPlugin.FTP = function(config) {
 		}],
 		rpcArgs: { "id": "proftpd" },
 		rpcFields: [
+			{ name: "rownum" },
 			{ name: "date" },
 			{ name: "event" }
 		]

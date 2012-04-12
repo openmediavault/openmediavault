@@ -164,7 +164,10 @@ class PluginRpc extends OMVRpc {
 				  "\[(\S+)\]\).*$/";
 				if (1 !== preg_match($regex, $row, $matches))
 					continue;
-				$object['repository'] = $matches[5];
+				if ($object['name'] === $matches[1]) {
+					$object['repository'] = $matches[5];
+					break;
+				}
 			}
 			// Append package information object.
 			$objects[] = $object;

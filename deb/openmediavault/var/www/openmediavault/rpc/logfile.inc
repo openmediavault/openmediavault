@@ -92,13 +92,16 @@ class LogFileRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED, $cmd, "");
 		}
 		$objects = array();
+		$rownum = 0;
 		while(($line = fgets($pipes[1])) !== false) {
 			// Skip invalid pattern matches.
 			$result = preg_match($logfile->getRegex(), $line, $matches);
 			if((FALSE === $result) || (0 == $result))
 				continue;
-			$object = array();
-			foreach($logfile->getColumns() as $columnk => $columnv) {
+			$object = array(
+				"rownum" => $rownum++
+			);
+			foreach($logfile->getColumns() as $columnk => $columnv) { 
 				// Execute user defined function, e.g. to convert
 				// column content?
 				if(is_array($columnv)) {
