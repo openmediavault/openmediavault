@@ -51,6 +51,7 @@ class ShareMgmtRpc extends OMVRpc {
 				"properties":{
 					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
 					"name":{'.$GLOBALS['OMV_JSONSCHEMA_SHARENAME'].'},
+					"reldirpath":{"type":"string"},
 					"comment":{"type":"string"},
 					"mntentref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
 					"umask":{"type":"string","enum":["700","750","755",'.
@@ -315,6 +316,14 @@ class ShareMgmtRpc extends OMVRpc {
 
 	/**
 	 * Set (add/update) a shared folder config object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the shared folder object.
+	 *   \em name The name of the shared folder.
+	 *   \em reldirpath The relative directory path.
+	 *   \em comment The comment.
+	 *   \em mntentref The UUID of the mount point configuration object wherein
+	 *   the shared folder is located.
+	 *   \em umask The umask of the shared folder directory.
 	 */
 	public function set($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -327,6 +336,14 @@ class ShareMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
+		// The field 'reldirpath' may not contain the characters '..'. This
+		// is because of security reasons: the given canonicalized absolute
+		// path MUST be below the given mount point.
+		if (1 == preg_match("/\.\./", $data['reldirpath'])) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PARAM,
+			  sprintf(gettext("The field '%s' contains forbidden ".
+			  "two-dot symbols"), "reldirpath"));
+		}
 		// Prepare configuration data. Use the name of the shared folder
 		// as the relative directory name of the share.
 		$object = array(
@@ -335,7 +352,7 @@ class ShareMgmtRpc extends OMVRpc {
 			"name" => $data['name'],
 			"comment" => $data['comment'],
 			"mntentref" => $data['mntentref'],
-			"reldirpath" => $data['name']
+			"reldirpath" => $data['reldirpath']
 		);
 		// Set configuration data
 		$success = FALSE;
@@ -591,7 +608,7 @@ class ShareMgmtRpc extends OMVRpc {
 	 * listed.
 	 * @param data An array containing the following fields:
 	 *   \em uuid The UUID of the shared folder object.
-	 *   \em dir The relative directory path
+	 *   \em dir The relative directory path.
 	 * @return The directory contents.
 	 */
 	public function lsDir($data) {
@@ -605,7 +622,9 @@ class ShareMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// The field 'dir' may not contain the characters '..'.
+		// The field 'dir' may not contain the characters '..'. This is
+		// because of security reasons: the given canonicalized absolute
+		// path MUST be below the given shared folder.
 		if (1 == preg_match("/\.\./", $data['dir'])) {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PARAM,
 			  sprintf(gettext("The field '%s' contains forbidden ".

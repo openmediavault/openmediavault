@@ -286,8 +286,13 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 			})
 		},{
 			xtype: "textfield",
+			name: "reldirpath",
+			fieldLabel: _("Relative path"),
+			allowBlank: false
+		},{
+			xtype: "textfield",
 			name: "absdirpath",
-			fieldLabel: _("Directory"),
+			fieldLabel: _("Absolute path"),
 			readOnly: true,
 			hidden: (this.uuid == OMV.UUID_UNDEFINED) ? true : false,
 			submitValue: false

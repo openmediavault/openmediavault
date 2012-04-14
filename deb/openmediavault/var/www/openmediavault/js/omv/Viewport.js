@@ -20,6 +20,7 @@
  */
 // require("js/omv/MessageBox.js")
 // require("js/omv/NavigationPanel.js")
+// require("js/omv/form/LanguageComboBox.js")
 
 Ext.ns("OMV");
 
@@ -72,31 +73,8 @@ OMV.Viewport = function(config) {
 					},{
 						xtype: "tbfill"
 					},{
-						xtype: "combo",
-						mode: "local",
-						store: new Ext.data.SimpleStore({
-							fields: [ "value","text" ],
-							data: [
-								[ "en",_("English") ],
-								[ "de",_("German") ]
-							]
-						}),
-						displayField: "text",
-						valueField: "value",
-						allowBlank: false,
-						editable: false,
-						autoWidth: true,
-						triggerAction: "all",
-						listeners: {
-							select: function(combo, record, index) {
-								var locale = record.get(combo.valueField);
-								OMV.i18n.setLocale(locale);
-								OMV.confirmPageUnload = false;
-								document.location.reload();
-							},
-							scope: this
-						},
-						value: OMV.i18n.getLocale()
+						xtype: "languagecombo",
+						autoWidth: true
 					},{
 						xtype: "tbseparator"
 					},{
