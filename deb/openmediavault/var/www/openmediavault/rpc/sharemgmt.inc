@@ -287,7 +287,8 @@ class ShareMgmtRpc extends OMVRpc {
 	 * Get a shared folder configuration object.
 	 * @param data An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
-	 * @return The requested configuration object.
+	 * @return The requested configuration object. The field \em mountpoint
+	 *   is the directory where the corresponding filesystem is mounted.
 	 */
 	public function get($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -308,9 +309,15 @@ class ShareMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Get the absolute shared folder path.
-		$object['absdirpath'] = OMVRpc::exec("ShareMgmt", "getPath", array(
-		  "uuid" => $data['uuid']));
+		// Get the mount point configuration object.
+		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
+		  $sfobject['mntentref']);
+		$meobject = $xmlConfig->get($xpath);
+		if (is_null($meobject)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		$object['mountpoint'] = $meobject['dir'];
 		return $object;
 	}
 

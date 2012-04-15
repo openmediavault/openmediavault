@@ -22,6 +22,7 @@
 // require("js/omv/MessageBox.js")
 // require("js/omv/data/Connection.js")
 // require("js/omv/form/PasswordField.js")
+// require("js/omv/form/LanguageComboBox.js")
 
 Ext.ns("OMV");
 
@@ -68,6 +69,10 @@ Ext.extend(OMV.LoginDialog, OMV.Window, {
 				name: "password",
 				blankText: _("Enter your password"),
 				autoComplete: true
+			},{
+				xtype: "languagecombo",
+				fieldLabel: _("Language"),
+				submitValue: false
 			}]
 		});
 		Ext.apply(this, {

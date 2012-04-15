@@ -287,15 +287,8 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 		},{
 			xtype: "textfield",
 			name: "reldirpath",
-			fieldLabel: _("Relative path"),
+			fieldLabel: _("Path"),
 			allowBlank: false
-		},{
-			xtype: "textfield",
-			name: "absdirpath",
-			fieldLabel: _("Absolute path"),
-			readOnly: true,
-			hidden: (this.uuid == OMV.UUID_UNDEFINED) ? true : false,
-			submitValue: false
 		},{
 			xtype: "combo",
 			name: "umask",
@@ -332,6 +325,7 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 	_updateFormFields : function() {
 		if (this.uuid == OMV.UUID_UNDEFINED)
 			return;
+		// Set various fields to read-only.
 		var fields = [ "name", "mntentref" ];
 		for (var i = 0; i < fields.length; i++) {
 			var field = this.findFormField(fields[i]);

@@ -35,7 +35,7 @@ OMV.form.LanguageComboBox = function(config) {
 		mode: "local",
 		store: new Ext.data.SimpleStore({
 			fields: [ "value","text" ],
-			data: [
+			data: [ // The supported languages are hardcoded
 				[ "en",_("English") ],
 				[ "de",_("German") ]
 			]
@@ -49,6 +49,7 @@ OMV.form.LanguageComboBox = function(config) {
 			select: function(combo, record, index) {
 				var locale = record.get(combo.valueField);
 				OMV.i18n.setLocale(locale);
+				// Force rendering of whole page with selected language.
 				OMV.confirmPageUnload = false;
 				document.location.reload();
 			},

@@ -24,6 +24,11 @@
 
 Ext.ns("OMV");
 
+/**
+ * @class OMV.Viewport
+ * @derived Ext.Viewport
+ * A specialized container representing the viewable application area.
+ */
 OMV.Viewport = function(config) {
 	var initialConfig = {
 		id: "viewport-component",
@@ -35,7 +40,10 @@ OMV.Viewport = function(config) {
 				cls: "x-border-panel-header",
 				autoEl: {
 					tag: "div",
-					html: "<div id='header'><a title='www.openmediavault.org' href='http://www.openmediavault.org' target='_blank'><div id='headerlogo'></div></a><div id='headerrlogo'></div></div>"
+					html: "<div id='header'><a title='" + OMV.PRODUCT_NAME +
+					  "' href='" + OMV.PRODUCT_URL + "' target='_blank'>" +
+					  "<div id='headerlogo'></div></a><div id='headerrlogo'>" +
+					  "</div></div>"
 				}
 			})
 		,{
