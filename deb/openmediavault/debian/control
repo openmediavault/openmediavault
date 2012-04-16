@@ -17,7 +17,7 @@ Depends: libjs-extjs3, apache2, apache2-suexec, libapache2-mod-fcgid, php5-cgi,
  samba, samba-common-bin, rsync, apt-utils, snmpd, avahi-daemon, libnss-mdns,
  iptables, monit, acpid, beep, gdisk, rrdtool, collectd, cron, anacron,
  cron-apt, quota, quotatool, whiptail, lvm2, watchdog, ca-certificates, perl,
- libjson-perl, liblocale-po-perl, coreutils
+ libjson-perl, liblocale-po-perl, libjavascript-minifier-perl, coreutils
 Description: Open network attached storage solution
  OpenMediaVault is a small and simple to use network attached storage system with
  a smart WebGUI.
