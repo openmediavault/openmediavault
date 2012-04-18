@@ -72,9 +72,10 @@ class DiskMgmtRpc extends OMVRpc {
 
 	/**
 	 * Enumerate all disk devices on the system.
-	 * @return An array containing physical disk device objects with following
-	 *   fields: devicename, devicefile, model, size, capacity, description,
-	 *   vendor, serialnumber and israid.
+	 * @return An array containing physical disk device objects with the
+	 *   fields \em devicename, \em devicefile, \em model, \em size,
+	 *   \em capacity, \em description, \em vendor, \em serialnumber,
+	 *   \em israid and \em isrootdevice.
 	 */
 	public function enumerateDevices() {
 		// Check permissions
@@ -83,6 +84,9 @@ class DiskMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
 		}
 		$this->commitSession();
+		// Get the device containing the operating system. Mark it as read-only
+		// to deny wiping this device.
+		$rootDevice = OMVSystem::getRootPartition();
 		// Get all existing devices except software RAID devices.
 		if (FALSE === ($devs = OMVStorageDevices::enumerate(
 		  OMVStorageDevices::ALL & ~OMVStorageDevices::SOFTWARERAID))) {
@@ -105,7 +109,9 @@ class DiskMgmtRpc extends OMVRpc {
 					"description" => $object->getDescription(),
 					"vendor" => $object->getVendor(),
 					"serialnumber" => $object->getSerialNumber(),
-					"israid" => $object->isRaid()
+					"israid" => $object->isRaid(),
+					"isrootdevice" => (0 === strpos($rootDevice,
+					  $object->getDeviceFile())) ? TRUE : FALSE
 				);
 			}
 		}

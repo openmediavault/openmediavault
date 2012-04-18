@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-09 20:02+0200\n"
+"POT-Creation-Date: 2012-04-16 21:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -182,9 +182,6 @@ msgid "ACL"
 msgstr ""
 
 msgid "About"
-msgstr ""
-
-msgid "Absolute path"
 msgstr ""
 
 msgid "Access Right Management"
@@ -1480,6 +1477,9 @@ msgstr ""
 msgid "Label"
 msgstr ""
 
+msgid "Language"
+msgstr ""
+
 msgid "Laos"
 msgstr ""
 
@@ -1958,6 +1958,9 @@ msgstr ""
 msgid "Paste an private RSA key in X.509 PEM format here."
 msgstr ""
 
+msgid "Path"
+msgstr ""
+
 msgid "People's Democratic Republic of Yemen"
 msgstr ""
 
@@ -2168,9 +2171,6 @@ msgstr ""
 msgid "Refresh"
 msgstr ""
 
-msgid "Relative path"
-msgstr ""
-
 msgid "Remaining"
 msgstr ""
 
@@ -2346,6 +2346,9 @@ msgid "Select a filesystem ..."
 msgstr ""
 
 msgid "Select a group ..."
+msgstr ""
+
+msgid "Select a language ..."
 msgstr ""
 
 msgid "Select a primary device ..."

@@ -104,7 +104,8 @@ Ext.extend(OMV.Module.Storage.PhysicalDiskPanel, OMV.grid.TBarGridPanel, {
 					{ name: "serialnumber" },
 					{ name: "size" },
 					{ name: "hdparm" },
-					{ name: "israid" }
+					{ name: "israid" },
+					{ name: "isrootdevice" }
     			]
 			})
 		});
@@ -144,7 +145,9 @@ Ext.extend(OMV.Module.Storage.PhysicalDiskPanel, OMV.grid.TBarGridPanel, {
 			// the 'Edit' button because such devices do not support
 			// this additional customizations.
 			tbarBtnDisabled["edit"] = records[0].get("israid");
-			tbarBtnDisabled["wipe"] = false;
+			// Disable the 'Wipe' button if the selected device contains the
+			// operating system.
+			tbarBtnDisabled["wipe"] = records[0].get("isrootdevice");
 		}
 		// Update the button controls.
 		for (var i = 0; i < tbarBtnName.length; i++) {
