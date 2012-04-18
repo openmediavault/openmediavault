@@ -1,6 +1,7 @@
 openmediavault (0.3.0.1) stable; urgency=low
 
   * Mantis 0000416: Remove possibility to wipe system disk
+  * Mantis 0000417: Undefined variable: sfobject
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 18 Apr 2012 20:06:43 +0200
 

@@ -311,7 +311,7 @@ class ShareMgmtRpc extends OMVRpc {
 		}
 		// Get the mount point configuration object.
 		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
-		  $sfobject['mntentref']);
+		  $object['mntentref']);
 		$meobject = $xmlConfig->get($xpath);
 		if (is_null($meobject)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,

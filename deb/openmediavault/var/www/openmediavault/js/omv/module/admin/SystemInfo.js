@@ -56,7 +56,10 @@ OMV.Module.Diagnostics.SysInfo.Overview = function(config) {
 				dataIndex: "name",
 				id: "name",
 				width: 25,
-				css: "background-color: #FAFAFA;"
+				css: "background-color: #FAFAFA;",
+				renderer: function(val, cell, record, row, col, store) {
+					return _(val);
+				}
 			},{
 				header: _("Value"),
 				sortable: true,
