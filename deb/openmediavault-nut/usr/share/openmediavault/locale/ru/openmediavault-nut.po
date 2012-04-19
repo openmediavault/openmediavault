@@ -1,0 +1,116 @@
+# This file is part of OpenMediaVault.
+# 
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+# 
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# Translators:
+#   <arturmon82@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:08+0100\n"
+"PO-Revision-Date: 2012-04-19 11:11+0000\n"
+"Last-Translator: arturmon82 <arturmon82@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.net/projects/p/openmediavault/language/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+msgid "Charge"
+msgstr "Заряд"
+
+msgid "Comment"
+msgstr ""
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Определяет, когда начинается отключение."
+
+msgid "Driver configuration directives"
+msgstr "Директивы конфигурации драйверов"
+
+msgid "Enable"
+msgstr "Включить"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr ""
+
+msgid "General settings"
+msgstr "Общие параметры"
+
+msgid "Identifier"
+msgstr "Идентификатор"
+
+msgid "Load"
+msgstr "Загрузка"
+
+msgid "Loading ..."
+msgstr "Загрузка ..."
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Remote monitoring"
+msgstr "Удаленный мониторинг"
+
+msgid "Service disabled"
+msgstr "Служба отключена"
+
+msgid "Shutdown mode"
+msgstr "Режим отключения"
+
+msgid "Shutdown timer"
+msgstr ""
+
+msgid "Temperature"
+msgstr "Температура"
+
+msgid "The name used to uniquely identify your UPS on this system."
+msgstr "Имя используемое для однозначной идентификации ИБП в этой системе."
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr ""
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr ""
+
+msgid "UPS"
+msgstr "ИБП"
+
+msgid "UPS goes on battery"
+msgstr "ИБП переходит на батареи"
+
+msgid "UPS reaches low battery"
+msgstr "ИБП достигает низкого заряда батареи"
+
+msgid "Used for remote authentication."
+msgstr "Используется для удаленной аутентификации."
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Variables"
+msgstr "Переменные"
+
+msgid "Voltage"
+msgstr "Напряжение"

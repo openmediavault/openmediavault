@@ -17,141 +17,140 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
-#   <votdev@gmx.de>, 2012.
-#   <warhog@gmx.de>, 2012.
+# Milan Toet <milantoet@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-15 20:07+0100\n"
-"PO-Revision-Date: 2012-04-19 11:15+0000\n"
-"Last-Translator: warhog <warhog@gmx.de>\n"
-"Language-Team: German (http://www.transifex.net/projects/p/openmediavault/language/de/)\n"
+"PO-Revision-Date: 2012-04-19 11:21+0000\n"
+"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.net/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
+"Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Add share"
-msgstr "Freigabe hinzufügen"
+msgstr "Voeg share toe"
 
 msgid "Allow guest logins"
-msgstr "Erlaube Gastlogin"
+msgstr "Toestaan van gast logins"
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
 
 msgid "Authentication"
-msgstr "Authentifizierung"
+msgstr "Authenticatie"
 
 msgid "Case folding"
-msgstr "Groß- / Kleinschreibung"
+msgstr "Omzetten van hoofdletters en kleine letters"
 
 msgid "Client sees lowercase, server sees uppercase"
-msgstr "Client sieht Kleinbuchstaben, Server sieht Großbuchstaben"
+msgstr "Cliënt ziet kleine letters, server ziet hoofdletters"
 
 msgid "Client sees uppercase, server sees lowercase"
-msgstr "Client sieht Großbuchstaben, Server sieht Kleinbuchstaben"
+msgstr "Cliënt ziet hoofdletters, server ziet kleine letters"
 
 msgid "Comment"
-msgstr "Kommentar"
+msgstr "Opmerking"
 
 msgid "Don't do :hex translation for dot files."
-msgstr "Keine :hex Übersetzung für Dotfiles."
+msgstr "Doe geen :hex vertaling voor punt bestanden."
 
 msgid "Edit share"
-msgstr "Freigabe ändern"
+msgstr "Share aanpassen"
 
 msgid "Enable"
-msgstr "Aktivieren"
+msgstr "Activeer"
 
 msgid "Enable Time Machine support for this share."
-msgstr "Time Machine Unterstützung für diese Freigabe aktivieren."
+msgstr "Activeer Time Machine ondersteuning voor deze share."
 
 msgid "Extra options"
-msgstr "Zusätzliche Optionen"
+msgstr "Extra opties"
 
 msgid "Forces filename restrictions"
-msgstr "Dateinamenbeschränkungen erzwingen"
+msgstr "Forceert bestandsnaam restricties"
 
 msgid "General settings"
-msgstr "Allgemeine Einstellungen"
+msgstr "Algemene instellingen"
 
 msgid "Hide dot files"
-msgstr "Dotfiles verstecken"
+msgstr "Verberg punt bestanden"
 
 msgid ""
 "If this option is set, then a password is required to access the share."
-msgstr "Falls diese Option gesetzt ist wird ein Passwort benötigt um die Freigabe einzubinden."
+msgstr "Als deze optie is ingesteld, dan is een paswoord vereist om toegang te krijgen tot de share."
 
 msgid ""
 "If this option is set, then users may not create or modify files in the "
 "share."
-msgstr "Falls diese Option gesetzt ist können Benutzer für diese Freigabe keine Dateien erstellen oder ändern."
+msgstr "Als deze optie is ingesteld, dan mogen gebruikers geen bestanden aanmaken of wijzigen in de share"
 
 msgid "Lowercases names in both directions"
-msgstr "Namen in Kleinbuchstaben für beide Richtungen"
+msgstr "Namen met kleine letters in beide richtingen"
 
 msgid "Make dot files invisible."
-msgstr "Dotfiles unsichtbar machen."
+msgstr "Maak punt bestanden onzichtbaar."
 
 msgid "Name"
-msgstr "Name"
+msgstr "Naam"
 
 msgid "None"
-msgstr "Keine"
+msgstr "Geen"
 
 msgid "Password"
-msgstr "Passwort"
+msgstr "Wachtwoord"
 
 msgid "Read only"
-msgstr "Nur lesen"
+msgstr "Alleen lezen"
 
 msgid "Set read only."
-msgstr "Nur lesen einstellen."
+msgstr "Stel alleen lezen in."
 
 msgid "Settings"
-msgstr "Einstellungen"
+msgstr "Instellingen"
 
 msgid "Shared folder"
-msgstr "Freigegebene Ordner"
+msgstr "Gedeelde map"
 
 msgid "Shares"
-msgstr "Freigaben"
+msgstr "Shares"
 
 msgid "The location of the files to share."
-msgstr "Der Speicherort freizugebender Dateien."
+msgstr "De locatie van bestanden om te delen."
 
 msgid "The name of the share."
-msgstr "Der Name der Freigabe."
+msgstr "De naam van de share."
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."
-msgstr "Diese Option erzwingt den Windows-Zeichensatz für Dateinamen."
+msgstr "Dit forceert de bestandsnamen om te worden beperkt tot de karakterset die door Windows wordt gebruikt."
 
 msgid "This option handles, if the case of filenames should be changed."
-msgstr "Diese Option legt fest ob die Groß- und Kleinschreibung in Dateinamen geändert werden soll."
+msgstr "Deze optie grijpt in, als de hoofd, of kleine letters van bestandsnamen moeten worden aangepast."
 
 msgid "Time Machine support"
-msgstr "Time Machine Unterstützung"
+msgstr "Time Machine ondersteuning"
 
 msgid "Unix privileges"
-msgstr "Unix Privilegien"
+msgstr "Unix privileges"
 
 msgid "Uppercases names in both directions"
-msgstr "Namen in Großbuchstaben für beide Richtungen"
+msgstr "Hoofdletter namen in beide richtingen"
 
 msgid "Use AFP3 unix privileges."
-msgstr "AFP3 Unix Privilegien benutzen."
+msgstr "Gebruik AFP3 unix privileges."
 
 msgid "Use dots"
-msgstr "Benutze Punkte"
+msgstr "Gebruik punten"
 
 msgid ""
 "When this option gets set, certain file names become illegal. These are "
 ".Parent and anything that starts with .Apple."
-msgstr "Wird diese Option gesetzt werden bestimmte Dateinamen für ungültig erklärt (.Parent und alle mit .Apple beginnenden). "
+msgstr "Als deze optie is ingesteld, dan worden bepaalde bestandsnamen illegaal. Dit betreft .Parent bestandsnamen en alles dat begint met .Apple."
 
 msgid "n/a"
-msgstr "N/V"
+msgstr "niet beschikbaar"

@@ -1,0 +1,290 @@
+# This file is part of OpenMediaVault.
+# 
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+# 
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# Translators:
+# Milan Toet <milantoet@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:05+0100\n"
+"PO-Revision-Date: 2012-04-19 11:58+0000\n"
+"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.net/projects/p/openmediavault/language/nl_NL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Add LUN"
+msgstr "Voeg LUN toe"
+
+msgid "Add target"
+msgstr "Voeg doel toe"
+
+msgid "Add user"
+msgstr "Voeg gebruiker toe"
+
+msgid "Alias"
+msgstr "Alias"
+
+msgid "Assign a unique identifier to the iSCSI volume optionally."
+msgstr "Wijs optioneel een unieke identificatiecode toe aan de iSCSI-volume."
+
+msgid "Assign a unique serial number to the iSCSI volume optionally."
+msgstr "Wijs optioneel een uniek serie nummer toe aan de iSCSI-volume."
+
+msgid "Authentication"
+msgstr "Authenticatie"
+
+msgid "Block IO"
+msgstr "Blokkeer IO"
+
+msgid "Comment"
+msgstr "Opmerking"
+
+msgid ""
+"Controls the maximum number of data transfers the target may request at "
+"once."
+msgstr "Regelt het maximum aantal data overdrachten die het doel tegelijk mag verzoeken."
+
+msgid "Data PDU in order"
+msgstr "Data PDU in orde"
+
+msgid "Data digest"
+msgstr "Data verslag"
+
+msgid "Data sequence in order"
+msgstr "Data reeks in orde"
+
+msgid "Device"
+msgstr "Apparaat"
+
+msgid "Discovery authentication"
+msgstr "Ontdekking authenticatie"
+
+msgid "Edit LUN"
+msgstr "Aanpassen LUN"
+
+msgid "Edit target"
+msgstr "Aanpassen doel"
+
+msgid "Edit user"
+msgstr "Aanpassen gebruiker"
+
+msgid "Enable"
+msgstr "Inschakelen"
+
+msgid "Error recovery level"
+msgstr "Error herstel niveau"
+
+msgid "Extra options"
+msgstr "Extra opties"
+
+msgid "File IO"
+msgstr "Bestand IO"
+
+msgid "First burst length"
+msgstr "Eerste burst lengte"
+
+msgid "General"
+msgstr "Algemeen"
+
+msgid "General settings"
+msgstr "Algemene instellingen"
+
+msgid "Header digest"
+msgstr "Header verslag"
+
+msgid "IO threads"
+msgstr "IO threads"
+
+msgid "IQN"
+msgstr "IQN"
+
+msgid "Id"
+msgstr "Id"
+
+msgid "Identifier"
+msgstr "Identificatiecode"
+
+msgid ""
+"If a non-zero 'NOP interval' is used to periodically 'ping' the initiator "
+"during phases of inactivity (i.e. no data transfers), the initiator must "
+"respond within N seconds, otherwise the connection will be closed."
+msgstr "Als een non-zero 'NOP interval' wordt gebruikt om periodiek te 'pingen' tijdens fasen van inactiviteit van de initiatiefnemer (dwz geen overdracht van gegevens), moet de initiatiefnemer binnen N seconden reageren, anders wordt de verbinding verbroken."
+
+msgid ""
+"If enabled, the initiator has to wait for the target to solicit SCSI data "
+"before sending it. Disabling it allows the initiator to send a burst of N "
+"bytes unsolicited right after and/or together with the command. Thus "
+"disabling it may improve performance."
+msgstr "Indien ingeschakeld, moet de initiatiefnemer wachten op het doel om SCSI-gegevens te vragen, voordat deze wordt verzonden. Uitschakelen staat de initiatiefnemer toe om ongevraagd een burst van N bytes direct na en / of samen met het commando te sturen. Zo kan het uitschakelen de prestatie verbeteren."
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's data segment will be protected by a CRC32C "
+"checksum."
+msgstr "Indien ingesteld op 'CRC32C' en de initiatiefnemer is overeenkomstig geconfigureerd, wordt de integriteit van een iSCSI-PDU's data-segment beschermd door een CRC32C checksum."
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's header segments will be protected by a CRC32C "
+"checksum."
+msgstr "Indien ingesteld op 'CRC32C' en de initiatiefnemer is overeenkomstig geconfigureerd, wordt de integriteit van een iSCSI-PDU's header-segment beschermd door een CRC32C checksum."
+
+msgid ""
+"If value is non-zero, the initiator will be 'ping'ed during phases of "
+"inactivity (i.e. no data transfers) every N seconds to verify the connection"
+" is still alive."
+msgstr "Indien de waarde non-zero is, zal de initiatiefnemer tijdens fasen van inactiviteit (dwz geen overdracht van gegevens) elke N seconden worden ge'ping'ed om te controleren of de verbinding nog intact is."
+
+msgid "Immediate data"
+msgstr "Directe data"
+
+msgid "Incoming"
+msgstr "Binnenkomende"
+
+msgid "Initial R2T"
+msgstr "Initiële R2T"
+
+msgid "LUN"
+msgstr "LUN"
+
+msgid "Max. burst length"
+msgstr "Max. burst lengte"
+
+msgid "Max. connections"
+msgstr "Max. connecties"
+
+msgid "Max. outstanding R2T"
+msgstr "Max. uitstaande R2T"
+
+msgid "Max. receive data segment length"
+msgstr "Max. te ontvangen data segment lengte"
+
+msgid "Max. sessions"
+msgstr "Max. sessies"
+
+msgid "Max. transmit data segment length"
+msgstr "Max. te verzenden data segment lengte"
+
+msgid "NOP interval"
+msgstr "NOP interval"
+
+msgid "NOP timeout"
+msgstr "NOP timeout"
+
+msgid "None"
+msgstr "Geen"
+
+msgid "Only one outgoing user per target is supported."
+msgstr "Maar één uitgaande gebruiker per doel is ondersteund."
+
+msgid "Outgoing"
+msgstr "Uitgaand"
+
+msgid "Password"
+msgstr "Wachtwoord"
+
+msgid "Queued commands"
+msgstr "In de wacht staande opdrachten"
+
+msgid "R/W mode"
+msgstr "R/W modus"
+
+msgid "Read-only"
+msgstr "Alleen lezen"
+
+msgid "SCSI Id."
+msgstr "SCSI Id."
+
+msgid "SCSI serial no."
+msgstr "SCSI serie nr."
+
+msgid "Select an device ..."
+msgstr "Selecteer een apparaat ..."
+
+msgid ""
+"Sets the amount of unsolicited data the initiator may transmit in the first "
+"burst of a transfer either with and/or right after the command."
+msgstr "Stelt de hoeveelheid ongevraagde de gegevens die de initiatiefnemer tijdens de eerste burst van een overdracht mag verzenden tegelijk met en / of direct na de opdracht."
+
+msgid ""
+"Sets the maximum amount of either unsolicited or solicited data the "
+"initiator may send in a single burst."
+msgstr "Hiermee stelt u de maximale hoeveelheid van ongevraagde of gevraagde gegevens die de initiatiefnemer mag versturen in een enkele burst."
+
+msgid "Sets the maximum data segment length that can be received."
+msgstr "Hiermee stelt u de maximum data segment lengte in die kan worden ontvangen."
+
+msgid "Sets the maximum data segment length that can be sent."
+msgstr "Hiermee stelt u de maximum data segment lengte in die kan worden verzonden."
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "Targets"
+msgstr "Doelen"
+
+msgid "The identifier of the target."
+msgstr "De identificatiecode van het doel."
+
+msgid "The maximum number of sessions for this target."
+msgstr "Het maximum aantal sessies voor dit doel."
+
+msgid ""
+"The number of commands an initiator may send and that will be buffered by "
+"the target."
+msgstr "Het aantal commando's dat een initiatiefnemer mag verzenden en zal worden gebufferd door het doel."
+
+msgid "The number of connections within a session."
+msgstr "Het aantal connecties binnen een sessie."
+
+msgid "The number of threads to perform block I/O to the device."
+msgstr "Het aantal threads data een block IO naar het apparaat uitvoert"
+
+msgid "The optional alias of the target."
+msgstr "De optionele alias van het doel."
+
+msgid ""
+"This allows the initiator to append unsolicited data to a command. To "
+"achieve better performance, this should be enabled."
+msgstr "Hierdoor kan de initiatiefnemer ongevraagd data toevoegen aan een opdracht. Om betere prestaties te behalen dient dit te worden ingeschakeld."
+
+msgid "Transfer mode"
+msgstr "Overdracht modus"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+msgid "Users"
+msgstr "Gebruiker"
+
+msgid "Write-back"
+msgstr "Write-back"
+
+msgid "Write-through"
+msgstr "Write-through"
+
+msgid "iSCSI Target"
+msgstr "iSCSI Doel"

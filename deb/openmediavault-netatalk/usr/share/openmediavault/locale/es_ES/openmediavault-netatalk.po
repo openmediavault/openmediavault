@@ -1,0 +1,150 @@
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-netatalk\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:07+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add share"
+msgstr ""
+
+msgid "Allow guest logins"
+msgstr ""
+
+msgid "Apple Filing"
+msgstr ""
+
+msgid "Authentication"
+msgstr ""
+
+msgid "Case folding"
+msgstr ""
+
+msgid "Client sees lowercase, server sees uppercase"
+msgstr ""
+
+msgid "Client sees uppercase, server sees lowercase"
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid "Don't do :hex translation for dot files."
+msgstr ""
+
+msgid "Edit share"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enable Time Machine support for this share."
+msgstr ""
+
+msgid "Extra options"
+msgstr ""
+
+msgid "Forces filename restrictions"
+msgstr ""
+
+msgid "General settings"
+msgstr ""
+
+msgid "Hide dot files"
+msgstr ""
+
+msgid "If this option is set, then a password is required to access the share."
+msgstr ""
+
+msgid "If this option is set, then users may not create or modify files in the share."
+msgstr ""
+
+msgid "Lowercases names in both directions"
+msgstr ""
+
+msgid "Make dot files invisible."
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Read only"
+msgstr ""
+
+msgid "Set read only."
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "Shares"
+msgstr ""
+
+msgid "The location of the files to share."
+msgstr ""
+
+msgid "The name of the share."
+msgstr ""
+
+msgid "This forces filenames to be restricted to the character set used by Windows."
+msgstr ""
+
+msgid "This option handles, if the case of filenames should be changed."
+msgstr ""
+
+msgid "Time Machine support"
+msgstr ""
+
+msgid "Unix privileges"
+msgstr ""
+
+msgid "Uppercases names in both directions"
+msgstr ""
+
+msgid "Use AFP3 unix privileges."
+msgstr ""
+
+msgid "Use dots"
+msgstr ""
+
+msgid "When this option gets set, certain file names become illegal. These are .Parent and anything that starts with .Apple."
+msgstr ""
+
+msgid "n/a"
+msgstr ""

@@ -1,0 +1,134 @@
+# This file is part of OpenMediaVault.
+# 
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+# 
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# Translators:
+#   <arturmon82@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:06+0100\n"
+"PO-Revision-Date: 2012-04-19 11:42+0000\n"
+"Last-Translator: arturmon82 <arturmon82@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.net/projects/p/openmediavault/language/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr "После того как логический том был расширен вы можете изменить размер файловой системы."
+
+msgid "Available"
+msgstr "Доступный"
+
+msgid "Capacity"
+msgstr "Емкость"
+
+msgid "Confirmation"
+msgstr "Подтверждение"
+
+msgid "Create logical volume"
+msgstr "Создание логического тома"
+
+msgid "Create physical volume"
+msgstr "Создание физического тома"
+
+msgid "Create volume group"
+msgstr "Создать группу томов"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Device"
+msgstr "Устройство"
+
+msgid "Devices"
+msgstr "Устройства"
+
+msgid "Do you really want to create the logical volume?"
+msgstr "Вы действительно хотите создать логический том?"
+
+msgid "Do you really want to create the physical volume?"
+msgstr "Вы действительно хотите создать физический том?"
+
+msgid "Do you really want to create the volume group?"
+msgstr "Вы действительно хотите создать группу томов?"
+
+msgid "Edit logical volume"
+msgstr "Редактирование логического тома"
+
+msgid "Edit volume group"
+msgstr "Редактировать группу томов"
+
+msgid "Extend"
+msgstr "Увеличить"
+
+msgid "Extend logical volume"
+msgstr "Увеличить логический том"
+
+msgid "Extend volume group"
+msgstr "Увеличить группу том"
+
+msgid "Free"
+msgstr "Свободно"
+
+msgid "Logical Volume Management"
+msgstr "Управление логическими томами"
+
+msgid "Logical volumes"
+msgstr "Логические тома"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "Physical volumes"
+msgstr "Физические тома"
+
+msgid "Reduce"
+msgstr "Уменьшить"
+
+msgid "Reduce volume group"
+msgstr "Уменьшить группу томов"
+
+msgid "Select a volume group ..."
+msgstr "Выберите группу томов ..."
+
+msgid "Select an device ..."
+msgstr "Выберите устройство ..."
+
+msgid "Size"
+msgstr "Объем"
+
+msgid "The maximum value for this field is {0}"
+msgstr "Максимальное значение этого поля {0}"
+
+msgid "The minimum value for this field is {0}"
+msgstr "Минимальное значение этого поля {0}"
+
+msgid "Used"
+msgstr "использованный"
+
+msgid "Volume group"
+msgstr "Объем группы"
+
+msgid "Volume groups"
+msgstr "Объем групп"

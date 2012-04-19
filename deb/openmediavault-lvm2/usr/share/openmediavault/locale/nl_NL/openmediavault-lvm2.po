@@ -1,0 +1,134 @@
+# This file is part of OpenMediaVault.
+# 
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+# 
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# Translators:
+# Milan Toet <milantoet@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:06+0100\n"
+"PO-Revision-Date: 2012-04-19 11:11+0000\n"
+"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.net/projects/p/openmediavault/language/nl_NL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr "Nadat het logische volume is uitgebreid, kunt u de grootte van het geïntegreerde bestandssysteem aanpassen"
+
+msgid "Available"
+msgstr "Beschikbaar"
+
+msgid "Capacity"
+msgstr "Capaciteit"
+
+msgid "Confirmation"
+msgstr "Bevestiging"
+
+msgid "Create logical volume"
+msgstr "Creëer logisch volume"
+
+msgid "Create physical volume"
+msgstr "Creëer fysieke lay-out "
+
+msgid "Create volume group"
+msgstr "Creëer volume groep"
+
+msgid "Description"
+msgstr "Beschrijving"
+
+msgid "Device"
+msgstr "Apparaat"
+
+msgid "Devices"
+msgstr "Apparaten"
+
+msgid "Do you really want to create the logical volume?"
+msgstr "Weet u zeker dat u een logisch volume wilt creëren?"
+
+msgid "Do you really want to create the physical volume?"
+msgstr "Weet u zeker dat u een fysiek volume wilt creëren?"
+
+msgid "Do you really want to create the volume group?"
+msgstr "Weet u zeker dat u een volume groep wilt creëren?"
+
+msgid "Edit logical volume"
+msgstr "Aanpassen logisch volume"
+
+msgid "Edit volume group"
+msgstr "Aanpassen volume groep"
+
+msgid "Extend"
+msgstr "Uitbreiden"
+
+msgid "Extend logical volume"
+msgstr "Uitbreiden logisch volume"
+
+msgid "Extend volume group"
+msgstr "Uitbreiden volume groep"
+
+msgid "Free"
+msgstr "Vrij"
+
+msgid "Logical Volume Management"
+msgstr "Logisch Volume Management"
+
+msgid "Logical volumes"
+msgstr "Logische volumes"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Physical volumes"
+msgstr "Fysieke volumes"
+
+msgid "Reduce"
+msgstr "Verkleinen"
+
+msgid "Reduce volume group"
+msgstr "Verklein volume groep"
+
+msgid "Select a volume group ..."
+msgstr "Selecteer een volume groep ..."
+
+msgid "Select an device ..."
+msgstr "Selecteer een apparaat ..."
+
+msgid "Size"
+msgstr "Grootte"
+
+msgid "The maximum value for this field is {0}"
+msgstr "De maximale waarde voor dit veld is {0}"
+
+msgid "The minimum value for this field is {0}"
+msgstr "De minimale waarde voor dit veld is {0}"
+
+msgid "Used"
+msgstr "Gebruikt"
+
+msgid "Volume group"
+msgstr "Volume groep"
+
+msgid "Volume groups"
+msgstr "Volume groepen"

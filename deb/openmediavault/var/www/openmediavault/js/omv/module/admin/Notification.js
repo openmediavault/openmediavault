@@ -81,7 +81,7 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 						} else {
 							OMV.MessageBox.error(null, error);
 						}
-					}, this, this.rpcService, "sendTestEmail", [ values ]);
+					}, this, this.rpcService, "sendTestEmail", values);
 				}
 			},
 			scope: this

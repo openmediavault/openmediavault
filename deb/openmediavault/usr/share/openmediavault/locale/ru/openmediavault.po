@@ -18,386 +18,385 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # 
 # Translators:
-#   <votdev@gmx.de>, 2012.
-#   <warhog@gmx.de>, 2012.
+#   <arturmon82@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-04-09 20:02+0200\n"
-"PO-Revision-Date: 2012-04-19 17:15+0000\n"
-"Last-Translator: warhog <warhog@gmx.de>\n"
-"Language-Team: German (http://www.transifex.net/projects/p/openmediavault/language/de/)\n"
+"PO-Revision-Date: 2012-04-19 15:39+0000\n"
+"Last-Translator: arturmon82 <arturmon82@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.net/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #, c-format
 msgid "% completed ..."
-msgstr "% abgeschlossen ..."
+msgstr "% выполнено ..."
 
 #, c-format
 msgid "%s (%s available)"
-msgstr "%s (%s verfügbar)"
+msgstr "%s (%s доступно)"
 
 #, c-format
 msgid "%s [on %s]"
-msgstr "%s [auf %s]"
+msgstr ""
 
 msgid "'All' is not allowed"
-msgstr "'Alle' ist nicht erlaubt"
+msgstr "'All' не допускается"
 
 msgid "0 KiB/s means unlimited."
-msgstr "0 KiB/s bedeutet unbegrenzt."
+msgstr "0 КБ/с означает неограниченную."
 
 msgid "1 - Minimum power usage with standby (spindown)"
-msgstr "1 - Minimaler Energieverbrauch mit Standby (Spindown)"
+msgstr "1 - минимальное энергопотребление в режиме ожидания (spindown)"
 
 msgid "1 day"
-msgstr "1 Tag"
+msgstr "1 день"
 
 msgid "1 month"
-msgstr "1 Monat"
+msgstr "1 месяц"
 
 msgid "1 week"
-msgstr "1 Woche"
+msgstr "1 неделя"
 
 msgid "1 year"
-msgstr "1 Jahr"
+msgstr " 1 год"
 
 msgid "10 minutes"
-msgstr "10 Minuten"
+msgstr "10 минут"
 
 msgid "10 years"
-msgstr "10 jahre"
+msgstr "10 лет"
 
 #, c-format
 msgid "100% completed ..."
-msgstr "100% abgeschlossen ..."
+msgstr "100% выполнено ..."
 
 msgid "120 minutes"
-msgstr "120 Minuten"
+msgstr "120 минут"
 
 msgid "127 - Intermediate power usage with standby"
-msgstr "127 - Durchschnittlicher Energieverbrauch mit Standby"
+msgstr "127 - Промежуточное энергопотребление с ожиданием"
 
 msgid "128 - Minimum power usage without standby (no spindown)"
-msgstr "128 - Minimaler Energieverbrauch ohne Standby (kein Spindown)"
+msgstr "128 - минимальное энергопотребление без ожидания (не spindown)"
 
 msgid "15 years"
-msgstr "15 Jahre"
+msgstr "15 лет"
 
 msgid "180 minutes"
-msgstr "180 Minuten"
+msgstr "180 минут"
 
 msgid "192 - Intermediate power usage without standby"
-msgstr "192 - Durchschnittlicher Energieverbrauch ohne Standby"
+msgstr "192 - Промежуточное энергопотребление без ожидания"
 
 msgid "2 days"
-msgstr "2 Tage"
+msgstr "2 дня"
 
 msgid "2 weeks"
-msgstr "2 Wochen"
+msgstr "2 недели"
 
 msgid "2 years"
-msgstr "2 Jahre"
+msgstr "2 года"
 
 msgid "20 minutes"
-msgstr "20 Minuten"
+msgstr "20 минут"
 
 msgid "20 years"
-msgstr "20 Jahre"
+msgstr "20 лет"
 
 msgid "240 minutes"
-msgstr "240 Minuten"
+msgstr "240 минут"
 
 msgid "25 years"
-msgstr "25 Jahre"
+msgstr "25 лет"
 
 msgid "254 - Maximum performance, maximum power usage"
-msgstr "254 - Maximale Leistung, maximaler Energieverbrauch"
+msgstr "254 - максимальная производительность, максимальное использование мощности"
 
 msgid "3 days"
-msgstr "3 Tage"
+msgstr "3 дня"
 
 msgid "3 months"
-msgstr "3 Monate"
+msgstr "3 месяца"
 
 msgid "3 weeks"
-msgstr "3 Wochen"
+msgstr "3 месяца"
 
 msgid "3 years"
-msgstr "3 Jahre"
+msgstr "3 года"
 
 msgid "30 minutes"
-msgstr "30 Minuten"
+msgstr "30 минут"
 
 msgid "300 minutes"
-msgstr "300 Minuten"
+msgstr "300 минут"
 
 msgid "360 minutes"
-msgstr "360 Minuten"
+msgstr "360 минут"
 
 msgid "4 days"
-msgstr "4 Tage"
+msgstr "4 дня"
 
 msgid "4 years"
-msgstr "4 Jahre"
+msgstr "4 года"
 
 msgid "5 days"
-msgstr "5 Tage"
+msgstr "5 дней"
 
 msgid "5 minutes"
-msgstr "5 Minuten"
+msgstr "5 минут"
 
 msgid "5 years"
-msgstr "5 Jahre"
+msgstr "5 лет"
 
 msgid "6 days"
-msgstr "6 Tage"
+msgstr "6 дней"
 
 msgid "6 months"
-msgstr "6 Monate"
+msgstr "6 месяцев"
 
 msgid "60 minutes"
-msgstr "60 Minuten"
+msgstr "60 минут"
 
 msgid "64 - Intermediate power usage with standby"
-msgstr "64 - Durchschnittlicher Energieverbrauch mit Standby"
+msgstr "64 - промежуточное энергопотребление с ожиданием"
 
 msgid "9 months"
-msgstr "9 Monate"
+msgstr "9 месяц"
 
 msgid "A mount point already exists for the given filesystem"
-msgstr "Ein Einhängepunkt existiert bereits für das angegebenen Dateisystem"
+msgstr "Точка монтирования уже существует для данной файловой системы"
 
 msgid "A share with the given name already exists"
-msgstr "Eine Freigabe mit dem angegebenen Namen existiert bereits"
+msgstr ""
 
 msgid "A shared folder with the given name already exists"
-msgstr "Ein freigegebener Ordner mit dem angegebenen Namen ist bereits vorhanden"
+msgstr ""
 
 msgid "ACL"
 msgstr "ACL"
 
 msgid "About"
-msgstr "Über"
+msgstr ""
 
 msgid "Absolute path"
-msgstr "Absoluter Pfad"
+msgstr ""
 
 msgid "Access Right Management"
-msgstr "Zugriffskontrolle"
+msgstr "Управление правами доступа"
 
 msgid "Act as a WINS server."
-msgstr "Arbeite als WINS Server."
+msgstr "Выступать в качестве сервера WINS."
 
 msgid "Action"
-msgstr "Aktion"
+msgstr ""
 
 msgid "Activate S.M.A.R.T. monitoring."
-msgstr "Aktivieren S.M.A.R.T. Überwachung"
+msgstr "Активировать S.M.A.R.T. мониторинг."
 
 msgid "Add"
-msgstr "Hinzufügen"
+msgstr "Добавить"
 
 msgid "Add bonded interface"
-msgstr "Bonded Interface hinzufügen"
+msgstr ""
 
 msgid "Add cron job"
-msgstr "Cron-Job hinzufügen"
+msgstr "Добавить задание cron"
 
 msgid "Add devices to RAID device"
-msgstr "Geräte zu RAID hinzufügen"
+msgstr "Добавить устройство в RAID устройство"
 
 msgid "Add firewall rule"
-msgstr "Firewall Regel hinzufügen"
+msgstr "Добавить правило в брандмауэр"
 
 msgid "Add group"
-msgstr "Gruppe hinzufügen"
+msgstr "Добавить группу"
 
 msgid "Add hot spares / recover RAID device"
 msgstr ""
 
 msgid "Add module"
-msgstr "Modul hinzufügen"
+msgstr "Добавить модуль"
 
 msgid "Add rsync job"
-msgstr "rsync Job hinzufügen"
+msgstr "Добавить Rsync задание"
 
 msgid "Add rule"
-msgstr "Regel hinzufügen"
+msgstr "Добавить правило"
 
 msgid "Add scheduled test"
-msgstr "Geplanten Test hinzufügen"
+msgstr "Добавить запланированный тест"
 
 msgid "Add share"
-msgstr "Freigabe hinzufügen"
+msgstr ""
 
 msgid "Add shared folder"
-msgstr "Freigegebenen Ordner hinzufügen"
+msgstr ""
 
 msgid "Add user"
-msgstr "Benutzer hinzufügen"
+msgstr "Добавить пользователя"
 
 msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
 " href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 "for more details."
-msgstr "Zusätzliche Geräteeinstellungen, Z.B. 'autoneg off speed 100 duplex full'. Siehe <a href='http://linux.die.net/man/8/ethtool' target='_blank'>Hilfeseiten</a> für weitere Details."
+msgstr ""
 
 msgid "Address"
-msgstr "Adresse"
+msgstr "Адрес"
 
 msgid "Administrator password"
-msgstr "Passwort des Administrators"
+msgstr "Пароль администратора"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
-msgstr "Administrator: lesen/schreiben, Benutzer: kein Zugriff, Andere: kein Zugriff"
+msgstr "Администратор: чтение / запись, Пользователи: нет доступа, Другие: нет доступа"
 
 msgid "Administrator: read/write, Users: read-only, Others: no access"
-msgstr "Administrator: lesen/schreiben, Benutzer: nur lesen, Andere: kein Zugriff"
+msgstr "Администратор: чтение / запись, Пользователи: только чтение, Другие: нет доступа"
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
-msgstr "Administrator: lesen/schreiben, Benutzer: nur lesen, Andere: nur lesen"
+msgstr "Администратор: чтение / запись, Пользователи: только чтение, Другие: только чтение"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr "Administrator: lesen/schreiben, Benutzer: lesen/schreiben, Andere: nur lesen"
+msgstr "Администратор: чтение / запись, Пользователи: чтение / запись, Другие: нет доступа"
 
 msgid "Advanced Power Management"
-msgstr "Advanced Power Management"
+msgstr "Расширенное управление питанием"
 
 msgid "Advanced settings"
-msgstr "Erweiterte Einstellungen"
+msgstr "Дополнительные настройки"
 
 msgid "Afghanistan"
-msgstr "Afghanistan"
+msgstr "Афганистан"
 
 msgid ""
 "After the RAID has been grown you can resize the containing filesystem."
-msgstr "Nachdem das RAID vergrößert wurde können Sie dies für das Dateisystems tun."
+msgstr "После того, как RAID был создан вы можете изменить размер файловой системы."
 
 msgid "Aland Islands"
-msgstr "Åland"
+msgstr "Аландские острова"
 
 msgid "Albania"
-msgstr "Albanien"
+msgstr "Албания"
 
 msgid "Algeria"
-msgstr "Algerien"
+msgstr "Алжир"
 
 msgid "All"
-msgstr "Alle"
+msgstr "Все"
 
 msgid "Allow"
-msgstr "Zulassen"
+msgstr "разрешить"
 
 msgid "Allow client access to accounts that have null passwords"
-msgstr "Erlaube Client Zugriff auf passwortlose Zugänge."
+msgstr "Разрешить клиенту доступ к аккаунтам, которые имеют нулевой пароль"
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
-msgstr "Erlaube Clients erweiterte OS/2 Attribute auf der Freigabe zu speichern."
+msgstr ""
 
 msgid "Allow clients to resume interrupted uploads and downloads"
-msgstr "Erlaube Clients unterbrochene Up- und Downloads fortzusetzen"
+msgstr "Разрешить клиентам возобновить прерванные закачки и скачивания"
 
 msgid "Allow new files"
-msgstr "Neue Dateien zulassen"
+msgstr "Разрешить новые файлы"
 
 msgid "Allow new files to be created."
-msgstr "Erlaube es neue Dateien anzulegen."
+msgstr "Разрешить создание новых файлов."
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
-msgstr "Erlaube diesem Server sich selbst als Zeitserver für Windows Clients bekannt zu machen"
+msgstr "Разрешить этому серверу, выступать в качестве сервера времени для Windows клиентов"
 
 msgid "Allow this server to try and become a local master browser"
-msgstr "Erlaube diesem Server der Local Master Browser zu werden"
+msgstr ""
 
 msgid "American Samoa"
-msgstr "Amerikanisch-Samoa"
+msgstr "Американское Самоа"
 
 msgid ""
 "An email messages with the command output (if any produced) is send to the "
 "administrator."
-msgstr "Eine E-Mail mit der Kommandoausgabe (falls existent) wird an den Administrator gesendet."
+msgstr ""
 
 msgid ""
 "An email messages with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr "Eine E-Mail mit der Kommandoausgabe (falls existent) wird an den ausführenden Benutzer gesendet."
+msgstr ""
 
 msgid "An error has occured"
-msgstr "Es trat ein Fehler auf"
+msgstr "Произошла ошибка"
 
 msgid "Andorra"
-msgstr "Andorra"
+msgstr "Андорра"
 
 msgid "Angola"
-msgstr "Angola"
+msgstr "Ангола"
 
 msgid "Anguilla"
-msgstr "Anguilla"
+msgstr "Ангилья"
 
 msgid "Anonymous FTP"
-msgstr "Anonymes FTP "
+msgstr "Анонимный FTP"
 
 msgid "Antarctica"
-msgstr "Antarktika"
+msgstr "Антарктида"
 
 msgid "Antigua and Barbuda"
-msgstr "Antigua und Barbuda"
+msgstr "Антигуа и Барбуда"
 
 msgid "Apply"
-msgstr "Anwenden"
+msgstr "Применить"
 
 msgid "Apply permissions to files and subfolders"
-msgstr "Berechtigungen auf Dateien und Unterordner anwenden"
+msgstr ""
 
 msgid "April"
-msgstr "April"
+msgstr "Апрель"
 
 msgid "Archive"
-msgstr "Archiv"
+msgstr "Архив"
 
 msgid "Are clients required to use FTP over TLS when talking to this server?"
-msgstr "Müssen die Clients FTP über TLS benutzen wenn sie mit diesem Server Daten austauschen?"
+msgstr ""
 
 msgid "Argentina"
-msgstr "Zugriffskontrolle"
+msgstr "Аргентина"
 
 msgid "Armenia"
-msgstr "Armenien"
+msgstr "Армения"
 
 msgid "Array details"
-msgstr "Array Details"
+msgstr ""
 
 msgid "Aruba"
-msgstr "Aruba"
+msgstr "Аруба"
 
 msgid "Attribute name"
-msgstr "Attributname"
+msgstr ""
 
 msgid "Attributes"
-msgstr "Attribute"
+msgstr "Атрибуты"
 
 msgid "August"
-msgstr "August"
+msgstr "Август"
 
 msgid "Australia"
-msgstr "Australien"
+msgstr "Австралия"
 
 msgid "Austria"
-msgstr "Österreich"
+msgstr "Австрия"
 
 msgid "Authenticate users"
-msgstr "Benutzer authentifizieren"
+msgstr "Аутентификация пользователей"
 
 msgid "Authentication"
-msgstr "Authentifizierung"
+msgstr "Идентификация"
 
 msgid "Authentication and no privacy"
 msgstr ""
@@ -406,705 +405,705 @@ msgid "Authentication and privacy"
 msgstr ""
 
 msgid "Authentication passphrase"
-msgstr "Passphrase für Authentifizierung"
+msgstr ""
 
 msgid "Authentication required"
-msgstr "Authentifizierung erforderlich"
+msgstr ""
 
 msgid "Authentication type"
-msgstr "Authentifizierungstyp"
+msgstr ""
 
 msgid "Automatic Acoustic Management"
-msgstr "Automatisches Akustikmanagement"
+msgstr ""
 
 msgid "Available"
-msgstr "Verfügbar"
+msgstr ""
 
 msgid "Azerbaijan"
-msgstr "Aserbaidschan"
+msgstr "Азербайджан"
 
 msgid "Backup"
-msgstr "Backup"
+msgstr "Резервное копирование"
 
 msgid "Backup configuration"
-msgstr "Backupkonfiguration"
+msgstr ""
 
 msgid "Bahamas"
-msgstr "Bahamas"
+msgstr "Багамские острова"
 
 msgid "Bahrain"
-msgstr "Bahrain"
+msgstr "Бахрейн"
 
 msgid "Ban list"
-msgstr "Ban Liste"
+msgstr "Бан лист"
 
 #, c-format
 msgid "Ban statistics:"
-msgstr "Ban Statistik:"
+msgstr "Бан статистика:"
 
 msgid "Bandwidth restriction"
-msgstr "Bandbreitenbeschränkung"
+msgstr "Ограничение полосы пропускания"
 
 msgid "Bangladesh"
-msgstr "Bangladesch"
+msgstr "Бангладеш"
 
 msgid "Barbados"
-msgstr "Barbados"
+msgstr "Барбарос"
 
 msgid "Belarus"
-msgstr "Weißrussland"
+msgstr "Беларусия"
 
 msgid "Belgium"
-msgstr "Belgien"
+msgstr "Бельгия"
 
 msgid "Belize"
-msgstr "Belize"
+msgstr "Белиз"
 
 msgid "Benin"
-msgstr "Benin"
+msgstr "Бенин"
 
 msgid "Bermuda"
-msgstr "Bermuda"
+msgstr "Бермудские острова"
 
 msgid "Bhutan"
-msgstr "Bhutan"
+msgstr "Бутан"
 
 msgid "Blocksize"
-msgstr "Blockgröße"
+msgstr "Размер блока"
 
 msgid "Bolivia"
-msgstr "Bolivien"
+msgstr "Боливия"
 
 msgid "Bond options"
-msgstr "Bond Optionen"
+msgstr ""
 
 msgid "Bosnia and Herzegovina"
-msgstr "Bosnien und Herzegowina"
+msgstr "Босния и Герцеговина"
 
 msgid "Botswana"
-msgstr "Botsuana"
+msgstr "Ботсвана"
 
 msgid "Bouvet Island"
-msgstr "Bouvetinsel"
+msgstr "Буве"
 
 msgid "Brazil"
-msgstr "Brasilien"
+msgstr "Бразилия"
 
 msgid "British Antarctic Territory"
-msgstr "Britisches Antarktis-Territorium"
+msgstr "Британская Антарктическая территория"
 
 msgid "British Indian Ocean Territory"
-msgstr "Britisches Territorium im Indischen Ozean"
+msgstr "Британская территория Индийского океана"
 
 msgid "British Virgin Islands"
-msgstr "Britische Jungferninseln"
+msgstr "Британские Виргинские острова"
 
 msgid "Browseable"
-msgstr "Durchsuchbar"
+msgstr "Просматриваться"
 
 msgid "Brunei"
-msgstr "Brunei"
+msgstr "Бруней"
 
 msgid "Bulgaria"
-msgstr "Bulgarien"
+msgstr "Болгария"
 
 msgid "Burkina Faso"
-msgstr "Burkina Faso"
+msgstr "Буркина-Фасо"
 
 msgid "Burundi"
-msgstr "Burundi"
+msgstr "Бурунди"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "Standardmäßig dürfen nur Dateien die schon existieren hochgeladen werden."
+msgstr ""
 
 msgid "CPU usage"
-msgstr "CPU Auslastung"
+msgstr "Использование процессора"
 
 msgid "Cambodia"
-msgstr "Kambodscha"
+msgstr "Камбоджа"
 
 msgid "Cameroon"
-msgstr "Kamerun"
+msgstr "Камерун"
 
 msgid "Canada"
-msgstr "Kanada"
+msgstr "Канада"
 
 msgid "Cancel"
-msgstr "Abbrechen"
+msgstr "Отмена"
 
 msgid "Canton and Enderbury Islands"
-msgstr "Phoenixinseln"
+msgstr "Кантон и острова Эндербери"
 
 msgid "Capacity"
-msgstr "Kapazität"
+msgstr "Мощность"
 
 msgid "Cape Verde"
-msgstr "Kap Verde"
+msgstr "Кабо-Верде"
 
 msgid "Cayman Islands"
-msgstr "Kaimaninseln"
+msgstr "Каймановы острова"
 
 msgid "Central African Republic"
-msgstr "Zentralafrikanische Republik"
+msgstr "Центрально-Африканская Республика"
 
 msgid "Certificate"
-msgstr "Zertifikat"
+msgstr "Сертификат"
 
 msgid "Certificate details"
-msgstr "Zertifikatdetails"
+msgstr "Сертификат детали"
 
 msgid "Certificates"
-msgstr "Zertifikate"
+msgstr "Сертификаты"
 
 msgid "Chad"
-msgstr "Tschad"
+msgstr "Чад"
 
 msgid "Check"
-msgstr "Prüfen"
+msgstr "Проверка"
 
 msgid "Check interval"
-msgstr "Prüfintervall"
+msgstr "Период проверки"
 
 msgid "Checking for new plugins ..."
-msgstr "Prüfe auf neue Erweiterungen ..."
+msgstr "Проверка новых плагинов ..."
 
 msgid "Checking for new updates ..."
-msgstr "Prüfe auf neue Aktualisierungen ..."
+msgstr "Проверка обновлений ..."
 
 msgid "Chile"
-msgstr "Chile"
+msgstr "Чили"
 
 msgid "China"
-msgstr "China"
+msgstr "Китай"
 
 msgid "Christmas Island"
-msgstr "Weihnachtsinsel (Australien)"
+msgstr "Остров Рождества"
 
 msgid "City"
-msgstr "Stadt"
+msgstr "Город"
 
 msgid "Clear"
-msgstr "Lösche"
+msgstr "Очистить"
 
 msgid ""
 "Click the 'Backup' button to download the current system configuration."
-msgstr "'Backup' Knopf drücken um die aktuelle Systemkonfiguration herunterzuladen."
+msgstr "Нажмите кнопку 'Backup', чтобы загрузить текущую конфигурацию системы."
 
 msgid "Client"
-msgstr "Client"
+msgstr "Клиент"
 
 msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr "Clients denen erlaubt ist das Dateisystem zu mounten, z.B. 192.168.178.0/24"
+msgstr ""
 
 msgid "Close"
-msgstr "Schliessen"
+msgstr ""
 
 msgid "Cocos (Keeling) Islands"
-msgstr "Kokosinseln"
+msgstr "Кокосовые (Килинг) острова"
 
 msgid "Colombia"
-msgstr "Kolumbien"
+msgstr "Колумбия"
 
 msgid "Command"
-msgstr "Kommando"
+msgstr ""
 
 msgid "Comment"
-msgstr "Kommentar"
+msgstr ""
 
 msgid "Commit"
-msgstr "Anwenden"
+msgstr ""
 
 msgid "Common Name"
-msgstr "Trivialname"
+msgstr ""
 
 msgid "Community"
-msgstr "Community"
+msgstr ""
 
 msgid "Comoros"
-msgstr "Komoren"
+msgstr "Коморские острова"
 
 msgid "Compress"
-msgstr "Komprimieren"
+msgstr ""
 
 msgid "Compress file data during the transfer"
-msgstr "Komprimiere Daten während der Übertragung"
+msgstr ""
 
 msgid "Compression"
-msgstr "Kompression"
+msgstr ""
 
 msgid ""
 "Compression is worth using if your connection is slow. The efficiency of the"
 " compression depends on the type of the file, and varies widely. Useful for "
 "internet transfer only."
-msgstr "Der Einsatz der Kompression lohnt sich bei langsamen Verbindungen. Die Effizienz der Kompression hängt vom Dateityp ab und variiert stark. Nur für Internetübertragungen nützlich."
+msgstr ""
 
 msgid "Confirm password"
-msgstr "Passwort bestätigen"
+msgstr ""
 
 msgid "Confirmation"
-msgstr "Bestätigung"
+msgstr ""
 
 msgid "Congo (Brazzaville)"
-msgstr "Kongo (Brazzaville)"
+msgstr "Конго (Браззавиль)"
 
 msgid "Congo (Kinshasa)"
-msgstr "Kongo (Kinshasa)"
+msgstr "Конго (Киншаса)"
 
 msgid "Contact"
-msgstr "Kontakt"
+msgstr ""
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
-msgstr "Kontaktdaten, z.B. Name oder E-Mail Adresse der für dieses System verantwortlichen Person."
+msgstr ""
 
 msgid "Conveyance self-test"
-msgstr "Conveyance Selbsttest"
+msgstr ""
 
 msgid "Cook Islands"
-msgstr "Cookinseln"
+msgstr "острова Кука"
 
 msgid "Costa Rica"
-msgstr "Costa Rica"
+msgstr "Коста-Рика"
 
 msgid "Country"
-msgstr "Land"
+msgstr "Страна"
 
 msgid "Create"
-msgstr "Erstellen"
+msgstr "Создать"
 
 msgid "Create RAID device"
-msgstr "RAID Datenträger erstellen"
+msgstr "Создать RAID устройство"
 
 msgid "Create filesystem"
-msgstr "Dateisystem erstellen"
+msgstr "Создать файловую систему"
 
 msgid "Create self-signed SSL certificate"
-msgstr "Ein Self-Signed SSL-Zertifikat erstellen"
+msgstr ""
 
 msgid "Critical"
-msgstr "Kritisch"
+msgstr ""
 
 msgid "Croatia"
-msgstr "Kroatien"
+msgstr "Хорватия"
 
 msgid "Cron Jobs"
-msgstr "Cron Jobs"
+msgstr ""
 
 msgid "Cuba"
-msgstr "Kuba"
+msgstr "Куба"
 
 msgid "Current time"
-msgstr "Aktuelle Zeit"
+msgstr "Текущее время"
 
 #, c-format
 msgid "Currently logged in users:"
-msgstr "Aktuell eingeloggte Benutzer:"
+msgstr "Настоящее время зарегистрированных пользователей:"
 
 msgid "Cyprus"
-msgstr "Zypern"
+msgstr "Кипр"
 
 msgid "Czech Republic"
-msgstr "Tschechische Republik"
+msgstr "Чешская республика"
 
 msgid "DHCP"
 msgstr "DHCP"
 
 msgid "DNS Server"
-msgstr "DNS Server"
+msgstr "DNS Сервер"
 
 msgid "DNS Service Discovery"
-msgstr "DNS Service Discovery"
+msgstr ""
 
 msgid "DNS server"
-msgstr "DNS Server"
+msgstr "DNS сервер"
 
 msgid "Daemon"
-msgstr "Daemon"
+msgstr "Демон"
 
 msgid "Date"
-msgstr "Datum"
+msgstr "Дата"
 
 msgid "Date & Time"
-msgstr "Datum & Zeit"
+msgstr "Дата и Время"
 
 msgid "Day of month"
-msgstr "Tag des Monats"
+msgstr "День месяца"
 
 msgid "Day of week"
-msgstr "Wochentag"
+msgstr "День недели"
 
 msgid "Debug"
-msgstr "Debug"
+msgstr "Отлаживать"
 
 msgid "December"
-msgstr "Dezember"
+msgstr "Декабрь"
 
 msgid "Delete"
-msgstr "Löschen"
+msgstr "Удалить"
 
 msgid "Delete files on the receiving side that don't exist on sender"
-msgstr "Lösche Dateien beim Empfänger die beim Sender nicht existieren"
+msgstr ""
 
 msgid "Deleting selected item(s)"
-msgstr "Lösche markierte Elemente"
+msgstr "Удалить выделенные элементы"
 
 msgid "Denmark"
-msgstr "Dänemark"
+msgstr "Дания"
 
 msgid "Deny"
-msgstr "Verbieten"
+msgstr "Отвергнуть"
 
 msgid "Deny logins which do not have a valid shell"
-msgstr "Verweigere Zugang ohne gültige Shell"
+msgstr ""
 
 msgid "Description"
-msgstr "Beschreibung"
+msgstr "Описание"
 
 msgid "Destination"
-msgstr "Ziel"
+msgstr "Назначение"
 
 msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A '!' argument before the address specification"
 " inverts the sense of the address."
-msgstr "Die Zieladresse kann entweder eine Netzwerk-Adresse (mit /Maske), ein IP-Bereich oder eine einfache IP-Adresse sein. Ein '!' vor der Adressangabe invertiert die Bedeutung der Adresse."
+msgstr ""
 
 msgid "Destination port"
-msgstr "Zielport"
+msgstr "Порт назначения"
 
 msgid "Destination server"
-msgstr "Zielserver"
+msgstr "Сервер назначения"
 
 msgid "Destination shared folder"
 msgstr ""
 
 msgid "Detail"
-msgstr "Detail"
+msgstr "Детили"
 
 msgid ""
 "Determine the default timeout, in microseconds, before the first packet is "
 "retransmitted."
-msgstr "Legt die Standard-Zeitüberschreitung fest bevor das erste Paket erneut gesendet wird."
+msgstr "Определить время ожидания по умолчанию, в микросекундах, прежде чем первый пакет передается повторно."
 
 msgid "Device"
-msgstr "Gerät"
+msgstr "Устройство"
 
 #, c-format
 msgid "Device '%s' not found"
-msgstr "Das Gerät '%s' wurde nicht gefunden"
+msgstr "Устройство '%s' не найдено"
 
 msgid "Device identity information"
-msgstr "Informationen über die Geräteidentifikation"
+msgstr "Информацию об устройстве"
 
 msgid "Device model"
-msgstr "Gerätemodell"
+msgstr "Модель устройства"
 
 msgid "Devices"
-msgstr "Geräte"
+msgstr "Устройства"
 
 msgid "Diagnostics"
-msgstr "Diagnose"
+msgstr "Диагностика"
 
 msgid "Difference"
-msgstr "Unterschied"
+msgstr "Разница"
 
 msgid "Direction"
-msgstr "Richtung"
+msgstr "Направление"
 
 msgid "Directory"
-msgstr "Verzeichnis"
+msgstr "Директория"
 
 msgid "Disabled"
-msgstr "Deaktiviert"
+msgstr "Выключено"
 
 msgid "Disallow the user to modify his account."
-msgstr "Der Benutzer darf sein Konto nicht ändern."
+msgstr "Запретить пользователю изменять его аккаунт."
 
 msgid "Disk usage"
-msgstr "Plattenbelegung"
+msgstr "Использование диска"
 
 msgid "Displaying items {0} - {1} of {2}"
-msgstr "{0} - {1} von {2} angezeigt"
+msgstr "Отображение пунктов {0} - {1} , {2}"
 
 msgid "Djibouti"
-msgstr "Dschibuti"
+msgstr "Джибути"
 
 msgid "Do you really want to clear the log file?"
-msgstr "Wollen Sie die Log-Datei wirklich leeren?"
+msgstr "Вы действительно хотите очистить лог файл?"
 
 msgid "Do you really want to create the RAID device?"
-msgstr "Wollen Sie den RAID Verbund wirklich anlegen?"
+msgstr "Вы действительно хотите создать RAID устройство?"
 
 msgid "Do you really want to delete the selected item(s)?"
-msgstr "Wollen Sie die ausgewählten Einträge wirklich löschen?"
+msgstr "Вы действительно хотите удалить выбранный элементы?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the filesystem creation may take some time."
-msgstr "Wollen Sie das Laufwerk wirklich löschen? Sämtliche Daten werden gelöscht. Bitte beachten Sie das die Erzeugung des Dateisystems einige Zeit in Anspruch nehmen kann."
+msgstr "Вы действительно хотите отформатировать это устройство? Все данные будут удалены. Пожалуйста, обратите внимание, что создание файловой системы может занять некоторое время."
 
 msgid "Do you really want to leave the page?"
-msgstr "Wollen Sie wirklich diese Seite verlassen?"
+msgstr "Вы действительно хотите покинуть страницу?"
 
 msgid "Do you really want to logout?"
-msgstr "Wollen Sie sich wirklich abmelden?"
+msgstr "Вы действительно хотите выйти?"
 
 msgid "Do you really want to reboot the system?"
-msgstr "Wollen Sie wirklich das System neu starten?"
+msgstr "Вы действительно хотите перезагрузить систему?"
 
 msgid ""
 "Do you really want to resize the selected filesystem? You have to do that "
 "after a RAID has been grown for example."
-msgstr "Wollen Sie die Größe des ausgewählten Dateisystems wirklich ändern? Dies ist z.B. nötig nachdem ein RAID Verbund vergrößert wurde."
+msgstr "Вы действительно хотите изменить выбранную файловую систему? Вы должны сделать это после того, как RAID был создан например."
 
 msgid "Do you really want to shutdown the system?"
-msgstr "Wollen Sie wirklich das System herunterfahren?"
+msgstr "Вы действительно хотите выключить систему?"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr "Wollen Sie wirklich die markierten Erweiterungen entfernen?"
+msgstr "Вы действительно хотите удалить выбранные дополнения?"
 
 msgid "Do you really want to wipe the selected device?"
-msgstr "Wollen Sie das gewählte Laufwerk wirklich löschen?"
+msgstr ""
 
 msgid ""
 "Do you want to secure wipe the device? Please note that this may take a long"
 " time. Press 'No' to fast wipe the device or 'Cancel' to abort."
-msgstr "Wollen Sie das Laufwerk sicher löschen? Dies kann sehr lange dauern. Drücken Sie 'Nein' für schnelleres (unsicheres) Löschen oder 'Abbrechen' zum Abbrechen."
-
-msgid "Domain name"
-msgstr "Domainname"
-
-msgid "Dominica"
-msgstr "Dominica"
-
-msgid "Dominican Republic"
-msgstr "Dominikanische Republik"
-
-msgid "Donate"
-msgstr "Spenden"
-
-msgid "Done ..."
-msgstr "Fertig ..."
-
-msgid "Down"
-msgstr "Runter"
-
-msgid "Down delay"
 msgstr ""
 
+msgid "Domain name"
+msgstr ""
+
+msgid "Dominica"
+msgstr "Доминикана"
+
+msgid "Dominican Republic"
+msgstr "Доминиканская республика"
+
+msgid "Donate"
+msgstr "Пожертвования"
+
+msgid "Done ..."
+msgstr "Выполнено ..."
+
+msgid "Down"
+msgstr "Вниз"
+
+msgid "Down delay"
+msgstr "Снизить задержки"
+
 msgid "Download"
-msgstr "Herunterladen"
+msgstr "Загрузка"
 
 msgid "Dronning Maud Land"
-msgstr "Königin-Maud-Land"
+msgstr "Земля Королевы Мод"
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
 "text."
-msgstr "Jede Zeile repräsentiert einen Benutzer. Hinweis: Das Passwort muss als Klartext eingegeben werden."
+msgstr "Каждая строка представляет один пользователь. Обратите внимание, что необходимо ввести пароль в незашифрованном виде."
 
 msgid "East Timor"
-msgstr "Osttimor"
+msgstr "Восточный Тимор"
 
 msgid "Ecuador"
-msgstr "Ecuador"
+msgstr "Эквадор"
 
 msgid "Edit"
-msgstr "Bearbeiten"
+msgstr "Редактировать"
 
 msgid "Edit SSL certificate"
-msgstr "SSL-Zertifikat bearbeiten"
+msgstr "Редактировать SSL сертификат"
 
 msgid "Edit bonded interface"
-msgstr "Bonded Interface ändern"
+msgstr "Редактировать совместный интерфейс"
 
 msgid "Edit cron job"
-msgstr "Cron-Job bearbeiten"
+msgstr "Редактировать задания cron"
 
 msgid "Edit firewall rule"
-msgstr "Firewall-Regel bearbeiten"
+msgstr "Изменить правила брандмауэра"
 
 msgid "Edit group"
-msgstr "Gruppe bearbeiten"
+msgstr "Редактировать группу"
 
 msgid "Edit module"
-msgstr "Modul bearbeiten"
+msgstr "Редактировать модуль"
 
 msgid "Edit physical disk properties"
-msgstr "Physikalische Platteneinstellungen ändern"
+msgstr "Редактировать свойства физического диска"
 
 msgid "Edit physical interface"
-msgstr "Physikalische Schnittstelle bearbeiten"
+msgstr "Редактировать физический интерфейс"
 
 msgid "Edit quota"
-msgstr "Quota bearbeiten"
+msgstr "Редактирование квот"
 
 msgid "Edit rsync job"
-msgstr "rsync Job ändern"
+msgstr "Редактировать Rsync задание"
 
 msgid "Edit rule"
-msgstr "Regel bearbeiten"
+msgstr "Редактировать правило"
 
 msgid "Edit scheduled test"
-msgstr "Geplanten Test bearbeiten"
+msgstr "Редактировать запланирован тест"
 
 msgid "Edit share"
-msgstr "Freigabe bearbeiten"
-
-msgid "Edit shared folder"
-msgstr "Freigegebenen Ordner bearbeiten"
-
-msgid "Edit shared folder privileges"
-msgstr "Bearbeite Privilegien des freigegebenen Ordners"
-
-msgid "Edit user"
-msgstr "Benutzer bearbeiten"
-
-msgid "Egypt"
-msgstr "Ägypten"
-
-msgid "El Salvador"
-msgstr "El Salvador"
-
-msgid "Email"
-msgstr "E-Mail"
-
-msgid "Enable"
-msgstr "Aktivieren"
-
-msgid "Enable FXP protocol"
-msgstr "FXP-Protokoll aktivieren"
-
-msgid "Enable SSL/TLS"
-msgstr "Aktiviere SSL/TLS"
-
-msgid "Enable SSL/TLS connections"
-msgstr "Aktiviere SSL/TLS Verbindungen"
-
-msgid "Enable WINS server"
-msgstr "WINS Server aktivieren"
-
-msgid "Enable advertising of services via mDNS/DNS-SD."
-msgstr "Bekanntmachen der Dienste mittels mDNS/DNS-SD aktivieren."
-
-msgid "Enable anonymous FTP"
-msgstr "Aktiviere anonymes FTP"
-
-msgid "Enable archive mode"
-msgstr "Archivmodus aktiveren"
-
-msgid "Enable compression"
-msgstr "Aktiviere Kompression"
-
-msgid "Enable extended attribute support"
-msgstr "Unterstützung für Attributerweiterungen aktiveren"
-
-msgid "Enable keyboard-interactive authentication"
 msgstr ""
 
+msgid "Edit shared folder"
+msgstr "Изменить общую папку"
+
+msgid "Edit shared folder privileges"
+msgstr "Изменить привилегии общей папки"
+
+msgid "Edit user"
+msgstr "Редактировать пользователя"
+
+msgid "Egypt"
+msgstr "Египет"
+
+msgid "El Salvador"
+msgstr "Сальвадор"
+
+msgid "Email"
+msgstr "Мыло"
+
+msgid "Enable"
+msgstr "Включить"
+
+msgid "Enable FXP protocol"
+msgstr "Включить FXP протокол"
+
+msgid "Enable SSL/TLS"
+msgstr "Включить SSL/TLS"
+
+msgid "Enable SSL/TLS connections"
+msgstr "Включить соединения SSL/TLS"
+
+msgid "Enable WINS server"
+msgstr "Включить WINS сервер"
+
+msgid "Enable advertising of services via mDNS/DNS-SD."
+msgstr ""
+
+msgid "Enable anonymous FTP"
+msgstr "Включить анонимный FTP"
+
+msgid "Enable archive mode"
+msgstr ""
+
+msgid "Enable compression"
+msgstr "Включить сжатие"
+
+msgid "Enable extended attribute support"
+msgstr "Включите поддержку расширенных атрибутов"
+
+msgid "Enable keyboard-interactive authentication"
+msgstr "Включение интерактивной аутентификации"
+
 msgid "Enable module listing"
-msgstr "Aktiviere Auflistung der Module"
+msgstr "Включить просмотр модулей"
 
 msgid "Enable permission inheritance"
-msgstr "Aktiviere Vererbung von Berechtigungen"
+msgstr "Включение наследования разрешений"
 
 msgid "Enable recycle bin"
-msgstr "Aktiviere Papierkorb"
+msgstr "Включить корзину"
 
 msgid "Enable reverse DNS lookup"
-msgstr "Aktiviere Reverse DNS Lookup"
+msgstr "Включение обратного просмотра DNS"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
 "connections."
-msgstr "Aktiviere Reverse DNS Lookup für eingehende Active-Mode und ausgehende Passive-Mode Datenverbindungen der IP-Adresse des entfernten Rechners."
+msgstr ""
 
 msgid "Enable secure connection."
-msgstr "Aktiviere sichere Verbindung."
+msgstr "Включить защищенное соединение"
 
 msgid "Enable store DOS attributes support"
-msgstr "Aktiviere Support für das Speichern von DOS Attributen"
+msgstr "Включить поддержку DOS  атрибутов"
 
 msgid "Enable the ident protocol (RFC1413)"
-msgstr "Aktivere Ident Protokoll (RFC1413)"
+msgstr ""
 
 msgid "Enable user authentication"
-msgstr "Aktiviere Benutzerauthentifizierung"
+msgstr "Включить авторизацию пользователей"
 
 msgid "Enable user home directories"
-msgstr "Aktiviere Heimatverzeichnisse für Benutzer"
+msgstr ""
 
 msgid "Enable write-cache."
-msgstr "Aktiviere Schreibcache."
+msgstr "Включить кэш записи"
 
 msgid "Enabled"
-msgstr "Aktiviert"
+msgstr "Включено"
 
 msgid "English"
-msgstr "Englisch"
+msgstr "Английский"
 
 msgid "Enter your password"
-msgstr "Geben Sie Ihr Passwort ein"
+msgstr "Введите свой пароль"
 
 msgid "Enter your username"
-msgstr "Geben Sie Ihren Namen ein"
+msgstr "Введите имя пользователя"
 
 msgid "Equatorial Guinea"
-msgstr "Äquatorialguinea"
+msgstr "Экваториальная Гвинея"
 
 msgid "Eritrea"
-msgstr "Eritrea"
+msgstr "Эритрея"
 
 msgid "Error"
-msgstr "Fehler"
+msgstr "Ошибка"
 
 msgid "Error #"
-msgstr "Fehler #"
+msgstr "Ошибка #"
 
 #, c-format
 msgid "Error #%d"
-msgstr "Fehler #%d"
+msgstr "Ошибка #%d"
 
 msgid "Estonia"
-msgstr "Estland"
+msgstr "Эстония"
 
 msgid "Ethiopia"
-msgstr "Äthiopien"
+msgstr "Эфиопия"
 
 msgid "Event"
-msgstr "Ereignis"
+msgstr "Событие"
 
 msgid "Every N day of month"
-msgstr "Jeden Nten Tag des Monats"
+msgstr "Каждый N день в месяце"
 
 msgid "Every N hour"
-msgstr "Jede Nte Stunde"
+msgstr "Каждый N час"
 
 msgid "Every N minute"
-msgstr "Jede Nte Minute"
+msgstr "Каждую N минуту"
 
 msgid "Everyone: read/write"
-msgstr "Jeder: lesen/schreiben"
+msgstr "Все: чтение / запись"
 
 msgid "Execute command"
-msgstr "Befehl ausführen"
+msgstr "Выполнить команду"
 
 msgid "Execute cron job"
-msgstr "Führe Cron Job aus"
+msgstr "Выполнение cron задания"
 
 msgid "Execute rsync job"
-msgstr "Führe rsync Job aus"
+msgstr ""
 
 msgid "Expire"
-msgstr "Verfall"
+msgstr ""
 
 msgid "Extended attributes"
-msgstr "Erweiterte Attribute"
+msgstr "Расширенные атрибуты"
 
 msgid "Extra options"
-msgstr "Erweiterte Optionen"
+msgstr "Дополнительные опции"
 
 msgid "FTP"
 msgstr "FTP"
@@ -1115,258 +1114,258 @@ msgstr "FXP"
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
-msgstr "FXP erlaubt Übertragungen zwischen zwei entfernten Servern ohne das dabei Daten über den anfragenden Client fließen."
+msgstr ""
 
 msgid "Failed to call "
-msgstr "Fehler beim Aufruf"
+msgstr ""
 
 #, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
-msgstr "Konnte Dateisystem nicht erzeugen. Bitte im Syslog nachsehen oder '%s' für weitere Details."
+msgstr ""
 
 msgid "Failed to get filesystems"
-msgstr "Konnte Dateisysteme nicht ermitteln"
+msgstr "Не удалось получить файловые системы"
 
 msgid "Failed to get system date and time"
-msgstr "Konnte Systemdatum und -zeit nicht ermitteln"
+msgstr "Не удалось получить системную дату и время"
 
 msgid "Falkland Islands"
-msgstr "Falklandinseln"
+msgstr "Фолклендские острова"
 
 msgid "Faroe Islands"
-msgstr "Färöer-Inseln"
+msgstr "Фарерские острова"
 
 msgid "Fatal error"
-msgstr "Fataler Fehler"
+msgstr "Фатальная ошибка"
 
 msgid "February"
-msgstr "Februar"
+msgstr "Февраль"
 
 msgid "Fields must be exclusive"
-msgstr "Felder müssen exklusiv sein"
+msgstr ""
 
 msgid "Fiji"
-msgstr "Fidschi"
+msgstr "Фиджи"
 
 msgid "File"
-msgstr "Datei"
+msgstr "Файл"
 
 msgid "Filesystem"
-msgstr "Dateisystem"
+msgstr "Файловая система"
 
 #, c-format
 msgid "Filesystem '%s' not found"
-msgstr "Das Dateisystem '%s' wurde nicht gefunden"
+msgstr "Файловая система '%s' не найдена"
 
 #, c-format
 msgid "Filesystem '%s' not supported"
-msgstr "Das Dateisystem '%s' wird nicht unterstützt"
+msgstr "Файловая система '%s' не поддерживается"
 
 msgid "Filesystems"
-msgstr "Dateisysteme"
+msgstr "Файловые системы"
 
 msgid "Finland"
-msgstr "Finnland"
+msgstr "Финляндия"
 
 msgid "Firewall"
-msgstr "Firewall"
+msgstr "Брандмауэр"
 
 msgid "Firmware version"
-msgstr "Firmware Version"
+msgstr "Версия прошивки"
 
 msgid "Flag"
-msgstr "Flag"
+msgstr "Флаг"
 
 msgid "Force SSL/TLS"
-msgstr "Erzwinge SSL/TLS"
+msgstr ""
 
 msgid "Force secure connection only."
-msgstr "Sichere Verbindung erzwingen."
+msgstr ""
 
 msgid "France"
-msgstr "Frankreich"
+msgstr "Франция"
 
 msgid "French Guiana"
-msgstr "Französisch-Guayana"
+msgstr "Французская Гвиана"
 
 msgid "French Polynesia"
-msgstr "Französisch-Polynesien"
+msgstr "Французская Полинезия"
 
 msgid "French Southern Territories"
-msgstr "Französische Südgebiete"
+msgstr "Французские южные территории"
 
 msgid "French Southern and Antarctic Territories"
-msgstr "Französische Süd- und Antarktisgebiete"
+msgstr "Французские Южные и Антарктические территории"
 
 msgid "Friday"
-msgstr "Freitag"
+msgstr "Пятница"
 
 msgid "Full"
-msgstr "Voll"
+msgstr "Полный"
 
 msgid "Gabon"
-msgstr "Gabun"
+msgstr "Габон"
 
 msgid "Gambia"
-msgstr "Gambia"
+msgstr "Гамбия"
 
 msgid "Gateway"
-msgstr "Gateway"
+msgstr "Шлюз"
 
 msgid "General"
-msgstr "Allgemein"
+msgstr "Общий"
 
 msgid "General Settings"
-msgstr "Allgemeine Einstellungen"
+msgstr "Общие  Настройки"
 
 msgid "General settings"
-msgstr "Allgemeine Einstellungen"
+msgstr "Общие  настройки"
 
 msgid "Generating graphs ..."
-msgstr "Generiere Diagramme ..."
+msgstr "Создание графики ..."
 
 msgid "Georgia"
-msgstr "Georgien"
+msgstr "Грузия"
 
 msgid "German"
-msgstr "Deutsch"
+msgstr "Немецкий"
 
 msgid "Germany"
-msgstr "Deutschland"
+msgstr "Германия"
 
 msgid "Ghana"
-msgstr "Ghana"
+msgstr "Гана"
 
 msgid "Gibraltar"
-msgstr "Gibraltar"
+msgstr "Гибралтар"
 
 msgid "Greece"
-msgstr "Griechenland"
+msgstr "Греция"
 
 msgid "Greenland"
-msgstr "Grönland"
+msgstr "Гренландия"
 
 msgid "Grenada"
-msgstr "Grenada"
+msgstr "Гренада"
 
 msgid "Group"
-msgstr "Gruppe"
+msgstr "Группа"
 
 #, c-format
 msgid "Group '%s' does not exist"
-msgstr "Die Gruppe '%s' existiert nicht"
+msgstr "Группа '%s' не существует"
 
 msgid "Groups"
-msgstr "Gruppen"
+msgstr "Группы"
 
 msgid "Grow"
-msgstr "Vergrößern"
+msgstr "Расширить"
 
 msgid "Grow RAID device"
-msgstr "Vergrößere RAID Laufwerk"
+msgstr "Расширить RAID устройство"
 
 msgid "Guadeloupe"
-msgstr "Guadeloupe"
+msgstr "Гваделупа"
 
 msgid "Guam"
-msgstr "Guam"
+msgstr "Гуам"
 
 msgid "Guatemala"
-msgstr "Guatemala"
+msgstr "Гватемала"
 
 msgid "Guinea"
-msgstr "Guinea"
+msgstr "Гвинея"
 
 msgid "Guinea-Bissau"
-msgstr "Guinea-Bissau"
+msgstr "Гвинея-Бисау"
 
 msgid "Guyana"
-msgstr "Guyana"
+msgstr "Гайана"
 
 msgid "Haiti"
-msgstr "Haiti"
+msgstr "Гаити"
 
 msgid "Heard Island and McDonald Islands"
-msgstr "Heard- und McDonaldinseln"
+msgstr "Остров Херд и острова Макдональд"
 
 msgid "Hide details"
-msgstr "Details verbergen"
+msgstr "Скрыть подробности"
 
 msgid "Hide dot files"
-msgstr "Verstecke Dotfiles"
+msgstr "Скрыть файлы с точкой"
 
 msgid "Home directories"
-msgstr "Heimatverzeichnisse"
+msgstr "Домашние каталоги"
 
 msgid "Homepage"
-msgstr "Homepage"
+msgstr "Домашняя страница"
 
 msgid "Honduras"
-msgstr "Honduras"
+msgstr "Гондурас"
 
 msgid "Hong Kong S.A.R., China"
-msgstr "Hongkong"
+msgstr "Гонконг S.A.R., Китай"
 
 msgid "Honor existing ACLs"
 msgstr ""
 
 msgid "Host"
-msgstr "Host"
+msgstr "Хост"
 
 msgid "Host access control"
-msgstr "Host-Zugriffskontrolle"
+msgstr ""
 
 msgid "Hostname"
-msgstr "Hostname"
+msgstr "Имя хоста"
 
 msgid "Hosts"
-msgstr "Hosts"
+msgstr "Хосты"
 
 msgid "Hosts allow"
-msgstr "Erlaubte Hosts"
+msgstr "Разрешенные хосты"
 
 msgid "Hosts deny"
-msgstr "Verweigerte Hosts"
+msgstr "Запрещенные хосты"
 
 msgid "Hour"
-msgstr "Stunde"
+msgstr "Час"
 
 msgid "Hungary"
-msgstr "Ungarn"
+msgstr "Венгрия"
 
 msgid "ID"
 msgstr "ID"
 
 msgid "Iceland"
-msgstr "Island"
+msgstr "Исландия"
 
 msgid "Ident protocol"
-msgstr "Ident Protokoll"
+msgstr ""
 
 msgid "Identify"
-msgstr "Identifizieren"
+msgstr "Идентифицировать"
 
 msgid "Identify network interface device"
-msgstr "Identifiziere Netzwerkinterface"
+msgstr "Определить сетевое устройство"
 
 msgid "Idle"
-msgstr "Leerlauf"
+msgstr "Бездействие"
 
 msgid "If enabled then no password is required to connect to the share"
-msgstr "Falls aktiviert wird kein Passwort benötigt um die Freigabe einzubinden"
+msgstr ""
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
 "to connect to the module."
-msgstr "Wenn gesetzt wird der Client aufgefordert einen Benutzernamen und ein Passwort anzugeben um sich mit diesem Modul zu verbinden."
+msgstr ""
 
 msgid "If this option is set, then any attempted downloads will fail."
-msgstr "Wenn diese Option aktiviert ist wird jeder Downloadversuch fehlschlagen."
+msgstr ""
 
 msgid "If this option is set, then any attempted uploads will fail."
-msgstr "Wenn diese Option aktiviert ist wird jeder Uploadversuch fehlschlagen."
+msgstr ""
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
@@ -1374,28 +1373,28 @@ msgid ""
 " before mapping DOS attributes to UNIX permission bits. When set, DOS "
 "attributes will be stored onto an extended attribute in the UNIX filesystem,"
 " associated with the file or directory."
-msgstr "Erzwinge SSL/TLS"
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
 "share."
-msgstr "Wenn dieser Parameter gesetzt ist können Anwender keine Dateien der Freigabe erstellen oder ändern."
+msgstr ""
 
 msgid ""
 "If your host is acting as a NAT gateway or port forwarder for the server, "
 "this option is useful in order to allow passive tranfers to work. You have "
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
-msgstr "Diese Option ist hilfreich um passive Transfers zu erlauben wenn Ihr Host als NAT-Gateway oder Port-Forwarder für den Server fungiert. Sie müssen Ihre öffentliche Adresse verwenden und die passiven Ports auf der Firewall öffnen."
+msgstr ""
 
 msgid "Import"
-msgstr "Importieren"
+msgstr "Импортировать"
 
 msgid "Import SSL certificate"
-msgstr "SSL-Zertifikat importieren"
+msgstr "Импортировать SSL сертификат"
 
 msgid "Import users"
-msgstr "Benutzer importieren"
+msgstr "Импортировать пользователей"
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1409,269 +1408,269 @@ msgid ""
 msgstr ""
 
 msgid "India"
-msgstr "Indien"
+msgstr "Индия"
 
 msgid "Indonesia"
-msgstr "Indonesien"
+msgstr "Индонезия"
 
 msgid "Informal"
-msgstr "Informell"
+msgstr "Неформальный"
 
 msgid "Information"
-msgstr "Information"
+msgstr "Информация"
 
 msgid "Inherit ACLs"
-msgstr "Erbe ACLs"
+msgstr "Наследование списков ACL"
 
 msgid "Inherit permissions"
-msgstr "Berechtigungen erben"
+msgstr "Наследование разрешений"
 
 msgid "Install"
-msgstr "Installieren"
+msgstr "Установка"
 
 msgid "Install plugins ..."
-msgstr "Installiere Erweiterungen ..."
+msgstr "Установка плагинов ..."
 
 msgid "Install updates ..."
-msgstr "Installiere Aktualisierungen ..."
+msgstr "Установка обновлений ..."
 
 msgid "Installed"
-msgstr "Installiert"
+msgstr "установленный"
 
 msgid "Interfaces"
-msgstr "Schnittstellen"
+msgstr "Интнрфейс"
 
 msgid "Invalid comment"
-msgstr "Ungültiger Kommentar"
+msgstr ""
 
 msgid "Invalid domain name"
-msgstr "Ungültiger Domainname"
+msgstr ""
 
 msgid "Invalid filesystem label"
-msgstr "Ungültiges Dateisystemlabel"
+msgstr ""
 
 msgid "Invalid group name"
-msgstr "Ungültiger Gruppenname"
+msgstr ""
 
 msgid "Invalid hostname"
-msgstr "Hostname ungültig"
+msgstr ""
 
 #, c-format
 msgid "Invalid line: %s"
-msgstr "Ungültige Zeile: %s"
+msgstr "Неверная строка:%s"
 
 msgid "Invalid name"
-msgstr "Name ungültig"
-
-msgid "Invalid share name"
-msgstr "Name der Freigabe ungültig"
-
-msgid "Invalid user name"
-msgstr "Benutzername ungültig"
-
-msgid "Iran"
-msgstr "Iran"
-
-msgid "Iraq"
-msgstr "Irak"
-
-msgid "Ireland"
-msgstr "Irland"
-
-msgid "Israel"
-msgstr "Israel"
-
-msgid "Italy"
-msgstr "Italien"
-
-msgid "Ivory Coast"
-msgstr "Elfenbeinküste"
-
-msgid "Jamaica"
-msgstr "Jamaika"
-
-msgid "January"
-msgstr "Januar"
-
-msgid "Japan"
-msgstr "Japan"
-
-msgid "Jobs"
-msgstr "Jobs"
-
-msgid "Johnston Island"
-msgstr "Johnston-Atoll"
-
-msgid "Jordan"
-msgstr "Jordanien"
-
-msgid "July"
-msgstr "Juli"
-
-msgid "June"
-msgstr "Juni"
-
-msgid "Kazakhstan"
-msgstr "Kasachstan"
-
-msgid "Kenya"
-msgstr "Kenia"
-
-msgid "Kernel"
-msgstr "Kernel"
-
-msgid "Key size"
-msgstr "Schlüssellänge"
-
-msgid "Kiribati"
-msgstr "Kiribati"
-
-msgid "Kuwait"
-msgstr "Kuwait"
-
-msgid "Kyrgyzstan"
-msgstr "Kirgisistan"
-
-msgid "LBA of first error"
 msgstr ""
 
+msgid "Invalid share name"
+msgstr ""
+
+msgid "Invalid user name"
+msgstr ""
+
+msgid "Iran"
+msgstr "Иран"
+
+msgid "Iraq"
+msgstr "Ирак"
+
+msgid "Ireland"
+msgstr "Ирландия"
+
+msgid "Israel"
+msgstr "Израиль"
+
+msgid "Italy"
+msgstr "Италия"
+
+msgid "Ivory Coast"
+msgstr "Берег Слоновой Кости"
+
+msgid "Jamaica"
+msgstr "Ямайка"
+
+msgid "January"
+msgstr "Январь"
+
+msgid "Japan"
+msgstr "Япония"
+
+msgid "Jobs"
+msgstr ""
+
+msgid "Johnston Island"
+msgstr ""
+
+msgid "Jordan"
+msgstr "Иордания"
+
+msgid "July"
+msgstr "Июль"
+
+msgid "June"
+msgstr "Июнь"
+
+msgid "Kazakhstan"
+msgstr "Казахстан"
+
+msgid "Kenya"
+msgstr "Кения"
+
+msgid "Kernel"
+msgstr "Ядро"
+
+msgid "Key size"
+msgstr ""
+
+msgid "Kiribati"
+msgstr "Кирибати"
+
+msgid "Kuwait"
+msgstr "Кувейт"
+
+msgid "Kyrgyzstan"
+msgstr "Киргистан"
+
+msgid "LBA of first error"
+msgstr "LBA первой ошибки"
+
 msgid "Label"
-msgstr "Label"
+msgstr "Метка"
 
 msgid "Laos"
-msgstr "Laos"
+msgstr "Лаос"
 
 msgid "Latvia"
-msgstr "Lettland"
+msgstr "Латвия"
 
 msgid "Lebanon"
-msgstr "Libanon"
+msgstr "Ливан"
 
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
 " port."
-msgstr "Zeitangabe in Sekunden für das Blinken einer oder mehrere LEDs des gewählten Ethernet Ports."
+msgstr "Продолжительность времени в секундах мигать один или несколькоми индикаторами на определенный порт Ethernet."
 
 msgid "Lesotho"
-msgstr "Lesotho"
+msgstr "Лесото"
 
 msgid "Level"
-msgstr "Level"
+msgstr "Уровень"
 
 msgid "Liberia"
-msgstr "Liberia"
+msgstr "Либерия"
 
 msgid "Libya"
-msgstr "Libyen"
+msgstr "Ливия"
 
 msgid "Liechtenstein"
-msgstr "Liechtenstein"
+msgstr "Лихтенштейн"
 
 msgid "Lifetime"
-msgstr "Lebensdauer"
+msgstr "Время работы"
 
 msgid "Linear"
-msgstr "Linear"
+msgstr "Линейный"
 
 msgid "Link"
-msgstr "Link"
+msgstr "Ссылка"
 
 msgid "List"
-msgstr "Liste"
+msgstr "Список"
 
 msgid "Lithuania"
-msgstr "Litauen"
+msgstr "Литва"
 
 msgid "Load average"
-msgstr "Durchschnittliche Last"
+msgstr "Средняя загрузка"
 
 msgid "Loading ..."
-msgstr "Lade ..."
+msgstr "Загрузка ..."
 
 msgid "Local"
-msgstr "Lokal"
+msgstr "Локальный"
 
 msgid "Local master browser"
-msgstr "Local Master Browser"
+msgstr "Локальный master browser"
 
 msgid "Location"
-msgstr "Speicherort"
+msgstr "Местоположение"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr "Standortinformation, z.B. physikalischer Standort dieses Systems"
+msgstr "Информация о местоположении, например, физическое расположение этой системы."
 
 msgid "Log level"
-msgstr "Log Level"
+msgstr "Уровень логов"
 
 #, c-format
 msgid "Logical volume %s [%s, %s]"
-msgstr "Logisches Volume %s [%s, %s]"
+msgstr ""
 
 msgid "Login"
-msgstr "Anmelden"
+msgstr "Логин"
 
 msgid "Logout"
-msgstr "Abmelden"
+msgstr "Выход"
 
 msgid "Logs"
-msgstr "Logs"
+msgstr ""
 
 msgid "Long self-test"
-msgstr "Ausführlicher Selbstest"
+msgstr ""
 
 msgid "Luxembourg"
-msgstr "Luxemburg"
+msgstr "Люксембург"
 
 msgid "MAC address"
-msgstr "MAC-Adresse"
+msgstr "MAC адрес"
 
 msgid "MII monitoring frequency"
-msgstr "MII Überwachungshäufigkeit"
+msgstr ""
 
 msgid "MTU"
 msgstr "MTU"
 
 msgid "Macao S.A.R., China"
-msgstr "Macao"
+msgstr "Макао S.A.R., Китай"
 
 msgid "Macedonia"
-msgstr "Mazedonien"
+msgstr "Македония"
 
 msgid "Madagascar"
-msgstr "Madagaskar"
+msgstr "Мадагаскар"
 
 msgid "Maintainer"
-msgstr "Betreuer"
+msgstr ""
 
 msgid "Malawi"
-msgstr "Malawi"
+msgstr "Малави"
 
 msgid "Malaysia"
-msgstr "Malaysia"
+msgstr "Малазия"
 
 msgid "Maldives"
-msgstr "Malediven"
+msgstr "Мальдивы"
 
 msgid "Mali"
-msgstr "Mali"
+msgstr "Мали"
 
 msgid "Malta"
-msgstr "Malta"
+msgstr "Мальта"
 
 msgid "Manual"
-msgstr "Manuell"
+msgstr "Руководство"
 
 msgid "March"
-msgstr "März"
+msgstr "Март"
 
 msgid "Marshall Islands"
-msgstr "Marshallinseln"
+msgstr "Маршалловы острова"
 
 msgid "Martinique"
-msgstr "Martinique"
+msgstr "Мартиника"
 
 msgid "Masquerade address"
-msgstr ""
+msgstr "Маскарад адреса"
 
 msgid ""
 "Match if the destination port is one of the given ports. E.g. 21 or !443 or "
@@ -1684,467 +1683,467 @@ msgid ""
 msgstr ""
 
 msgid "Mauritania"
-msgstr "Mauretanien"
+msgstr "Мавритания"
 
 msgid "Mauritius"
-msgstr "Mauritius"
+msgstr "Маврикий"
 
 msgid "Max. clients"
-msgstr "Max. Clients"
+msgstr "Максимум клиентов"
 
 msgid "Max. connections"
-msgstr "Max. Verbindungen"
+msgstr "Максимум соединений"
 
 msgid "Max. connections per host"
-msgstr "Max. Verbindungen pro Host"
+msgstr ""
 
 msgid "Max. login attempts"
-msgstr "Max. Loginversuche"
+msgstr ""
 
 msgid "Maximum download rate (KiB/s)"
-msgstr "Maximale Download-Rate (KiB/s)"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
 "timer completely (clients can stay connected for ever, without sending "
 "data)."
-msgstr "Maximale Leerlaufzeit in Sekunden. Wird der Wert auf 0 gesetzt ist der Leerlaufzähler deaktiviert (Clients können ohne Daten zu senden ständig verbunden bleiben)."
+msgstr ""
 
 msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "Maximale Anzahl erlaubter Passwortversuche bis die Verbindung getrennt wird."
+msgstr ""
 
 msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "Maximale Anzahl an Verbindungen pro IP (0 = unbegrenzt)."
+msgstr ""
 
 msgid "Maximum number of simultaneous clients."
-msgstr "Maximale Anzahl simultaner Clients."
+msgstr ""
 
 msgid "Maximum performance, maximum acoustic output"
-msgstr "Maximale Leistung, maximale akustische Geräuscherzeugung"
+msgstr ""
 
 msgid "Maximum upload rate (KiB/s)"
-msgstr "Maximale Upload-Rate (KiB/s)"
+msgstr ""
 
 msgid "Maximum {0} selected item(s) allowed"
-msgstr "Maximal {0} Einträge wählbar"
+msgstr ""
 
 msgid "May"
-msgstr "Mai"
+msgstr "Май"
 
 msgid "Mayotte"
-msgstr "Mayotte"
+msgstr ""
 
 msgid "Members"
-msgstr "Mitglieder"
+msgstr ""
 
 msgid "Memory usage"
-msgstr "Speicherverbrauch"
+msgstr ""
 
 msgid "Messages"
-msgstr "Nachrichten"
+msgstr "Сообщение"
 
 msgid "Method"
-msgstr "Methode"
+msgstr "Метод"
 
 msgid "Metropolitan France"
-msgstr "France métropolitaine"
+msgstr ""
 
 msgid "Mexico"
-msgstr "Mexiko"
+msgstr "Месика"
 
 msgid "Micronesia"
-msgstr "Mikronesien"
+msgstr ""
 
 msgid "Midway Islands"
-msgstr "Midwayinseln"
+msgstr "Мидуэй"
 
 msgid "Minimum"
-msgstr "Minimal"
+msgstr "Минимум"
 
 msgid "Minimum performance, Minimum acoustic output"
-msgstr "Minimale Leistung, minimale akustische Geräuscherzeugung"
+msgstr "Минимальная производительность, Минимальная акустическа"
 
 msgid "Minimum {0} selected item(s) required"
-msgstr "Mindestens {0} Einträge wählen"
+msgstr ""
 
 msgid "Minute"
-msgstr "Minute"
+msgstr "Минут"
 
 msgid "Mirror"
-msgstr "Mirror"
+msgstr "Зеркало"
 
 msgid "Mode"
-msgstr "Modus"
+msgstr "Режим"
 
 msgid "Model"
-msgstr "Modell"
+msgstr "Модель"
 
 msgid "Modify account"
-msgstr "Zugang ändern"
+msgstr "Изменение аккаунта"
 
 msgid "Modify shared folder ACL"
-msgstr "ACL freigegebener Ordner modifizieren"
+msgstr "Изменение общей папки ACL"
 
 msgid "Modules"
-msgstr "Module"
+msgstr "Модули"
 
 msgid "Moldova"
-msgstr "Moldawien"
+msgstr "Молдова"
 
 msgid "Monaco"
-msgstr "Monaco"
+msgstr "Монако"
 
 msgid "Monday"
-msgstr "Montag"
+msgstr "Понедельник"
 
 msgid "Mongolia"
-msgstr "Mongolei"
+msgstr "Монголия"
 
 msgid "Monitoring"
-msgstr "Überwachung"
+msgstr "Мониторинг"
 
 msgid "Month"
-msgstr "Monat"
+msgstr "Месяц"
 
 msgid "Montserrat"
-msgstr "Montserrat"
+msgstr "Монтсеррат"
 
 msgid "Morocco"
-msgstr "Marokko"
+msgstr "Морокко"
 
 msgid "Mount"
-msgstr "Verbinden"
+msgstr "Монтировать"
 
 msgid "Mounted"
-msgstr "Verbunden"
+msgstr "Смонтированный"
 
 msgid "Mozambique"
-msgstr "Mosambik"
+msgstr "Мозамбик"
 
 msgid "Myanmar"
-msgstr "Myanmar"
+msgstr "Мьянма"
 
 msgid "NFS"
 msgstr "NFS"
 
 msgid "Name"
-msgstr "Name"
+msgstr "Имя"
 
 msgid "Namibia"
-msgstr "Namibia"
+msgstr "Намибия"
 
 msgid "Nauru"
-msgstr "Nauru"
+msgstr "Науру"
 
 msgid "Nepal"
-msgstr "Nepal"
+msgstr "Непал"
 
 msgid "Netherlands"
-msgstr "Niederlande"
+msgstr "Нидерланды"
 
 msgid "Netherlands Antilles"
-msgstr "Niederländische Antillen"
+msgstr "Нидерландские Антильские острова"
 
 msgid "Netmask"
-msgstr "Netzmaske"
+msgstr "Сетевая маска"
 
 msgid "Network"
-msgstr "Netzwerk"
+msgstr "Сеть"
 
 msgid "Neutral Zone"
-msgstr "Neutrale Zone"
+msgstr "Нейтральная зона"
 
 msgid "Never"
-msgstr "Niemals"
+msgstr "Никогда"
 
 msgid "New Caledonia"
-msgstr "Neukaledonien"
+msgstr "Новая Каледония"
 
 msgid "New Zealand"
-msgstr "Neuseeland"
+msgstr "Новая Зеландия"
 
 msgid "Nicaragua"
-msgstr "Nicaragua"
+msgstr "Никарагуа"
 
 msgid "Niger"
-msgstr "Niger"
+msgstr "Нигер"
 
 msgid "Nigeria"
-msgstr "Nigeria"
+msgstr "Нигерия"
 
 msgid "Niue"
-msgstr "Niue"
+msgstr "Ниуэ"
 
 msgid "No"
-msgstr "Nein"
+msgstr "Нет"
 
 msgid "No access"
-msgstr "Kein Zugriff"
+msgstr "Нет доступа"
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Нет никакой аутентификации и конфиденциальности"
 
 msgid "No items to display"
-msgstr "Keine Einträge zum Anzeigen"
+msgstr "Нет объектов для отображения"
 
 msgid "No log entries to display"
-msgstr "Keine Logeinträge zum Anzeigen"
+msgstr "Без регистрации записи для отображения"
 
 msgid "No users connected"
-msgstr "Keine Benutzer angemeldet"
+msgstr "Нет подключенных пользователей"
 
 msgid "No users defined"
-msgstr "Keine Benutzer definiert"
+msgstr "Нет пользователей, определенных"
 
 msgid "None"
-msgstr "Keine"
+msgstr "никто"
 
 msgid "Norfolk Island"
-msgstr "Norfolkinsel"
+msgstr "Остров Норфолк"
 
 msgid "Normal"
-msgstr "Normal"
+msgstr "Нормальный"
 
 msgid "North Korea"
-msgstr "Nordkorea"
+msgstr "Северная Корея"
 
 msgid "North Vietnam"
-msgstr "Nordvietnam"
+msgstr "Северный Вьенам"
 
 msgid "Northern Mariana Islands"
-msgstr "Nördliche Marianen"
+msgstr "Северные Марианские острова"
 
 msgid "Norway"
-msgstr "Norwegen"
+msgstr "Норвегия"
 
 msgid "Not ICMP"
-msgstr "Nicht ICMP"
+msgstr "Не ICMP"
 
 msgid "Not TCP"
-msgstr "Nicht TCP"
+msgstr "Не TCP"
 
 msgid "Not UDP"
-msgstr "Nicht UDP"
+msgstr "Не UDP"
 
 msgid "Notification"
-msgstr "Benachrichtigung"
+msgstr "Уведомление"
 
 msgid "November"
-msgstr "November"
+msgstr "Ноябрь"
 
 msgid "Null passwords"
-msgstr ""
+msgstr "Нулевой пароль"
 
 msgid "Num"
 msgstr ""
 
 msgid "Number of servers"
-msgstr "Anzahl Server"
+msgstr ""
 
 msgid "OK"
-msgstr "OK"
+msgstr "ОК"
 
 msgid "Occurrence"
-msgstr "Vorkommen"
+msgstr "Событие"
 
 msgid "October"
-msgstr "Oktober"
+msgstr "Октябрь"
 
 msgid "Offline immediate test"
-msgstr "Offline immediate test"
+msgstr ""
 
 msgid "Oman"
-msgstr "Oman"
+msgstr "Оман"
 
 msgid "Options"
-msgstr "Optionen"
+msgstr "Опции"
 
 msgid "Organization Name"
-msgstr "Name der Organisation"
+msgstr "Название организации"
 
 msgid "Organizational Unit"
-msgstr "Organisation"
+msgstr "Подразделение"
 
 msgid "Others"
-msgstr "Andere"
+msgstr ""
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
-msgstr "Server Adresse SMTP ausgehend, z.B. smtp.meinefirma.com"
+msgstr "Исходящей SMTP-адрес, сервера почты. например smtp.mycorp.com."
 
 msgid "Outlying Oceania"
-msgstr "Outlying Oceania"
+msgstr ""
 
 msgid "Overview"
-msgstr "Übersicht"
+msgstr "Обзор"
 
 msgid "Owner"
-msgstr "Eigentümer"
+msgstr "Владелец"
 
 msgid "Pacific Islands Trust Territory"
-msgstr "Treuhandgebiet Pazifische Inseln"
+msgstr "Тихоокеанские острова подопечной территории"
 
 msgid "Package information"
-msgstr "Paketinformationen"
+msgstr ""
 
 msgid "Pakistan"
-msgstr "Pakistan"
+msgstr "Пакистан"
 
 msgid "Palau"
-msgstr "Palau"
+msgstr "Палау"
 
 msgid "Palestinian Territory"
-msgstr "Palästinensische Autonomiegebiete"
+msgstr "Палестинская территория"
 
 msgid "Panama"
-msgstr "Panama"
+msgstr "Панама"
 
 msgid "Panama Canal Zone"
-msgstr "Panamakanalzone"
+msgstr "Зона Панамского канала"
 
 msgid "Papua New Guinea"
-msgstr "Papua-Neuguinea"
+msgstr "Папуа-Новая Гвинея"
 
 msgid "Paraguay"
-msgstr "Paraguay"
+msgstr "Парагвай"
 
 msgid "Passive FTP"
-msgstr "Passives FTP"
+msgstr "Пассивный FTP"
 
 msgid "Password"
-msgstr "Passwort"
+msgstr "Пароль"
 
 msgid "Password authentication"
-msgstr "Authentifizierung mit Passwort"
+msgstr "Аутентификация по паролю"
 
 msgid "Passwords don't match"
-msgstr "Passwörter sind nicht gleich"
+msgstr "Пароли не совпадают"
 
 msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr "Hier ein RSA Zertifikat im X.509 PEM Format einfügen."
+msgstr "Вставить RSA сертификат X.509 в PEM формате здесь."
 
 msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr "Hier ein privates RSA Zertifikat im X.509 PEM Format einfügen."
+msgstr "Вставить приватный RSA ключ в формате X.509 PEM здесь."
 
 msgid "People's Democratic Republic of Yemen"
-msgstr "Volksdemokratische Republik Jemen"
+msgstr "Народно-Демократической Республики Йемен"
 
 msgid "Period of validity"
-msgstr "Gültigkeitsdauer"
+msgstr ""
 
 msgid "Permissions"
-msgstr "Zugriffsrechte"
+msgstr "Права доступа"
 
 msgid "Permissions of group."
-msgstr "Berechtigungen der Gruppe."
+msgstr "Права доступа к группе."
 
 msgid "Permissions of others (e.g. anonymous FTP users)."
-msgstr "Rechte anderer (z.B. anonyme FTP Benutzer)."
+msgstr "Права доступа к другим (например, скрытых пользователей FTP)."
 
 msgid "Permissions of owner."
-msgstr "Berechtigungen des Eigentümers."
+msgstr "Права доступа владельца."
 
 msgid "Permit root login"
-msgstr "Erlaube root Login"
+msgstr ""
 
 msgid "Permit to do SSH tunneling"
-msgstr "Erlaube SSH Tunneling"
+msgstr ""
 
 msgid "Peru"
-msgstr "Peru"
+msgstr ""
 
 msgid "Philippines"
-msgstr "Philippinen"
+msgstr "Филиппины"
 
 msgid "Physical Disks"
-msgstr "Reale Festplatten"
+msgstr "Физические диски"
 
 msgid "Pitcairn"
-msgstr "Pitcairninseln"
+msgstr "Питкэрн"
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Bitte das <a href='http://linux.die.net/man/5/exports' target='_blank'>Handbuch</a> für weitere Details lesen."
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://www.openbsd.org/cgi-"
 "bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
 " more details."
-msgstr "Bitte das <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>Handbuch</a> für weitere Details lesen."
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Bitte das <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>Handbuch</a> für weiter Details lesen."
+msgstr ""
 
 msgid ""
 "Please check the <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Bitte das <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>Handbuch</a> für weitere Details lesen."
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Bitte das <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>Handbuch</a> für weitere Details lesen."
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Bitte das <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>Handbuch</a> für weitere Details lesen."
+msgstr ""
 
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Bitte das <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>Handbuch</a> für weitere Details lesen."
+msgstr ""
 
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
-msgstr "Beachten Sie das währen dem Test keine Kommunikation mit dem System möglich ist."
+msgstr ""
 
 msgid "Please reload the page to let the changes take effect."
-msgstr "Laden Sie die Seite neu, damit die Änderungen wirksam werden."
+msgstr "Пожалуйста, перезагрузите страницу, чтобы изменения вступили в силу."
 
 msgid "Please wait ..."
-msgstr "Bitte warten ..."
+msgstr "Пожалуйста, подождите ..."
 
 msgid "Plugins"
-msgstr "Erweiterungen"
+msgstr "Плагины"
 
 msgid "Poland"
-msgstr "Polen"
+msgstr "Польша"
 
 msgid "Port"
-msgstr "Port"
+msgstr "Порт"
 
 msgid "Port to listen on."
-msgstr "Port auf dem gelauscht wird."
+msgstr "Порт для прослушивания."
 
 msgid "Portugal"
-msgstr "Portugal"
+msgstr "Португалия"
 
 msgid "Power Management"
-msgstr "Energieverwaltung"
+msgstr "Управление энергопотреблением"
 
 msgid "Power button"
-msgstr "Einschaltknopf"
+msgstr "Кнопка питания"
 
 msgid "Power mode"
-msgstr "Powermodus"
+msgstr ""
 
 msgid "Preserve ACLs"
-msgstr "Erhalte ACLs"
+msgstr "Сохранить ACLs"
 
 msgid "Preserve extended attributes"
-msgstr "Erhalte erweiterte Attribute"
+msgstr "Сохранить расширенные атрибуты"
 
 msgid "Preserve modification times"
-msgstr "Erhalte Änderungszeit"
+msgstr "Сохранить время модификации"
 
 msgid "Preserve permissions"
-msgstr "Erhalten der Berechtigungen"
+msgstr "Сохранение прав доступа"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
@@ -2160,10 +2159,10 @@ msgid ""
 msgstr ""
 
 msgid "Primary"
-msgstr "Primär"
+msgstr "Основной"
 
 msgid "Primary email"
-msgstr "Primäre E-Mail"
+msgstr "Основной e-mail"
 
 msgid "Privacy passphrase"
 msgstr ""
@@ -2175,40 +2174,40 @@ msgid "Private key"
 msgstr ""
 
 msgid "Privilege"
-msgstr "Privileg"
+msgstr ""
 
 msgid "Privileges"
-msgstr "Privilegien"
+msgstr ""
 
 msgid "Processes"
-msgstr "Prozesse"
+msgstr "Процесс"
 
 msgid "Processor"
-msgstr "Prozessor"
+msgstr "Процессор"
 
 msgid "Protocol"
-msgstr "Protokoll"
+msgstr "Протокол"
 
 msgid "Public"
-msgstr "Öffentlich"
+msgstr ""
 
 msgid "Puerto Rico"
-msgstr "Puerto Rico"
+msgstr "Пуэрто-Рико"
 
 msgid "Pull"
 msgstr ""
 
 msgid "Push"
-msgstr ""
+msgstr "Нажать"
 
 msgid "Qatar"
-msgstr "Katar"
+msgstr "Катар"
 
 msgid "Quiet"
-msgstr "Still"
+msgstr "Тихий"
 
 msgid "Quota"
-msgstr "Quota"
+msgstr "Квота"
 
 msgid "RAID 10"
 msgstr "RAID 10"
@@ -2220,161 +2219,161 @@ msgid "RAID 6"
 msgstr "RAID 6"
 
 msgid "RAID Management"
-msgstr "RAID Verwaltung"
+msgstr "Менеджер RAID"
 
 msgid "RPC error"
-msgstr "RPC Fehler"
+msgstr "Ошибка RPC"
 
 msgid "RSync server"
-msgstr "rsync Server"
+msgstr "RSync сервер"
 
 msgid "Ranges of numbers are not allowed"
-msgstr "Nummernbereiche sind nicht erlaubt"
+msgstr ""
 
 msgid "Raw value"
-msgstr "Rohwert"
+msgstr ""
 
 msgid "Read only"
-msgstr "Nur lesen"
+msgstr "Только чтение"
 
 msgid "Read-only"
-msgstr "Nur lesen"
+msgstr "Только-чтение"
 
 msgid "Read/Write"
-msgstr "Lesen/Schreiben"
+msgstr "Чтение/Запись"
 
 msgid "Reboot"
-msgstr "Neu starten"
+msgstr "Перезагрузка"
 
 msgid "Recipient"
-msgstr "Empfänger"
+msgstr ""
 
 msgid "Recover"
-msgstr "Wiederherstellung"
+msgstr "Восстанавливать"
 
 msgid "Recurse into directories"
-msgstr "Verzeichnisse rekursiv abarbeiten"
+msgstr ""
 
 msgid "Recursive"
-msgstr "Rekursiv"
+msgstr ""
 
 msgid "Recycle bin"
-msgstr "Mülleimer"
+msgstr "Корзина"
 
 msgid "Refresh"
-msgstr "Aktualisieren"
+msgstr "Обновление"
 
 msgid "Relative path"
-msgstr "Relativer Pfad"
+msgstr ""
 
 msgid "Remaining"
-msgstr "Verbleibend"
+msgstr ""
 
 msgid "Remote"
-msgstr "Entfernt"
+msgstr ""
 
 msgid "Remote syslog"
-msgstr "Entferntes syslog"
+msgstr ""
 
 msgid "Replace"
-msgstr "Ersetzen"
+msgstr ""
 
 msgid "Replace all existing permissions"
-msgstr "Alle vorhandenen Berechtigungen ersetzen"
+msgstr ""
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report. Set to 0 to disable this report."
-msgstr "Berichte wenn sich die Temperatur um mindestens N Grad Celsius seit dem letzten Bericht geändert hat. Auf 0 setzen um diesen Bericht zu deaktivieren."
+msgstr ""
 
 msgid ""
 "Report if the temperature is greater or equal than N degrees Celsius. Set to"
 " 0 to disable this report."
-msgstr "Berichte wenn die Temperatur größer oder gleich N Grad Celsius ist. Auf 0 setzen um diesen Bericht zu deaktivieren."
+msgstr ""
 
 msgid "Repository"
-msgstr "Quelle"
+msgstr ""
 
 msgid "Require valid shell"
-msgstr "Gültige Shell benötigt"
+msgstr ""
 
 msgid "Required"
-msgstr "Benötigt"
+msgstr ""
 
 msgid "Reset"
-msgstr "Zurücksetzen"
+msgstr ""
 
 msgid "Resize"
-msgstr "Größe ändern"
+msgstr ""
 
 msgid "Restore"
-msgstr "Wiederherstellen"
+msgstr "Восстановление"
 
 msgid "Restore configuration"
-msgstr "Konfiguration wiederherstellen"
+msgstr "Восстановление настроек"
 
 msgid "Restore configuration..."
-msgstr "Konfiguration wiederherstellen ..."
+msgstr "Восстановление настроек..."
 
 msgid "Resume"
-msgstr "Fortsetzen"
+msgstr ""
 
 msgid "Retry timeout"
-msgstr "Zeitspanne bis Neuversuch"
+msgstr ""
 
 msgid "Reunion"
-msgstr "Wiedervereinigung"
+msgstr ""
 
 msgid "Reverse DNS lookup"
-msgstr "Reverse DNS Lookup"
+msgstr ""
 
 msgid "Romania"
-msgstr "Rumänien"
+msgstr "Румыния"
 
 msgid "Rsync"
-msgstr "rsync"
+msgstr "Rsync"
 
 msgid "Run"
-msgstr "Ausführen"
+msgstr ""
 
 msgid "Running"
-msgstr "Läuft"
+msgstr ""
 
 msgid "Russia"
-msgstr "Russland"
+msgstr "Россия"
 
 msgid "Rwanda"
-msgstr "Ruanda"
+msgstr "Руанда"
 
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. informations"
-msgstr "S.M.A.R.T. Informationen"
+msgstr "Информация S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr "S.M.A.R.T. Überwachung muss für das ausgewählte Laufwerk aktiviert werden."
+msgstr "S.M.A.R.T. мониторинг должен быть включен для выбранного устройства."
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
 
 msgid "SMTP port"
-msgstr "SMTP Port"
+msgstr "SMTP порт"
 
 msgid "SMTP server"
-msgstr "SMTP Server"
+msgstr "SMTP сервер"
 
 msgid "SMTP settings"
-msgstr "SMTP Einstellungen"
+msgstr "SMTP настройки"
 
 msgid "SNMP"
 msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr "SNMP version 1/2c"
+msgstr "SNMP версия 1/2c"
 
 msgid "SNMP version 3"
-msgstr "SNMP version 3"
+msgstr "SNMPверсия 3"
 
 msgid "SSH"
 msgstr "SSH"
@@ -2383,442 +2382,442 @@ msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
 msgid "Saint Helena"
-msgstr "St. Helena"
+msgstr "Остров Святой Елены"
 
 msgid "Saint Kitts and Nevis"
-msgstr "St. Kitts und Nevis"
+msgstr "Сент-Китс и Невис"
 
 msgid "Saint Lucia"
-msgstr "St. Lucia"
+msgstr "Сент-Люсия"
 
 msgid "Saint Pierre and Miquelon"
-msgstr "St. Pierre und Miquelon"
+msgstr "Сен-Пьер и Микелон"
 
 msgid "Saint Vincent and the Grenadines"
-msgstr "St. Vincent und die Grenadinen"
+msgstr "Сент-Винсент и Гренадины"
 
 msgid "Samoa"
-msgstr "Samoa"
+msgstr "Самоа"
 
 msgid "San Marino"
-msgstr "San Marino"
+msgstr "Сан - Марино"
 
 msgid "Sao Tome and Principe"
-msgstr "Sao Tome und Principe"
+msgstr "Сан-Томе и Принсипи"
 
 msgid "Saturday"
-msgstr "Samstag"
+msgstr "Суббота"
 
 msgid "Saudi Arabia"
-msgstr "Saudi Arabien"
+msgstr "Саудовская Аравия"
 
 msgid "Saving ..."
-msgstr "Speichere ..."
+msgstr "Сохранение ..."
 
 msgid "Scheduled tests"
-msgstr "Planmäßige Tests"
+msgstr "Запланированные тесты"
 
 msgid "Secondary"
-msgstr "Sekundär"
+msgstr "Дополнительный"
 
 msgid "Secondary email"
-msgstr "Sekundäre E-Mail"
+msgstr "Дополнительный email"
 
 msgid "Seconds"
-msgstr "Sekunden"
+msgstr "Секунды"
 
 msgid "Secure connection"
-msgstr "Sichere Verbindung"
+msgstr "Безопасное соединение"
 
 msgid "Security level"
-msgstr "Sicherheitslevel"
+msgstr "Уровень безопасности"
 
 msgid "Select a SSL certificate ..."
-msgstr "Wähle ein SSL-Zertifikat"
+msgstr "Выбрать SSL сертификат ..."
 
 msgid "Select a country ..."
-msgstr "Wähle ein Land ..."
+msgstr "выбрать страну ..."
 
 msgid "Select a device ..."
-msgstr "Wähle ein Gerät ..."
+msgstr "Выбрать устройство .."
 
 msgid "Select a filesystem ..."
-msgstr "Wähle ein Dateisystem ..."
+msgstr "Выбрать файловую систему ..."
 
 msgid "Select a group ..."
-msgstr "Wähle eine Gruppe ..."
+msgstr "Выбрать группу .."
 
 msgid "Select a primary device ..."
-msgstr "Wähle ein primäres Gerät ..."
+msgstr "Выбрать основное устройство ..."
 
 msgid "Select a protocol ..."
-msgstr "Wähle ein Protokoll ..."
+msgstr "выбрать протокол ..."
 
 msgid "Select a shared folder ..."
-msgstr "Wähle einen freigegebenen Ordner ..."
+msgstr ""
 
 msgid "Select a shell ..."
-msgstr "Wähle eine Shell ..."
+msgstr ""
 
 msgid "Select a user ..."
-msgstr "Wähle einen Benutzer ..."
+msgstr "Выбрать пользователя ..."
 
 msgid "Select a volume ..."
-msgstr "Wähle einen Datenträger ..."
+msgstr ""
 
 msgid "Select an device ..."
-msgstr "Wähle ein Gerät ..."
+msgstr "Выбрать устройство ..."
 
 msgid "Select devices to be added to the RAID device"
-msgstr "Zum RAID Laufwerk hinzuzufügenden Laufwerke auswählen"
+msgstr "Выбрать устройство для добавления в RAID-устройство"
 
 msgid "Self-test logs"
-msgstr "Selbsttest Logs"
+msgstr ""
 
 msgid "Send command output via email"
-msgstr "Sende Kommandoausgabe per E-Mail"
+msgstr "Отправить вывода команды по электронной почте"
 
 msgid "Send email"
-msgstr "E-Mail senden"
+msgstr "Отправить email"
 
 msgid "Send test email"
-msgstr "Sende Test-E-Mail"
+msgstr "Отправить тестовое письмо"
 
 msgid "Sender"
-msgstr "Absender"
+msgstr "Отправитель"
 
 msgid "Sending test email ..."
-msgstr "Sende eine Test-Email ..."
+msgstr "Отправленное тестовое письмо ..."
 
 msgid "Senegal"
-msgstr "Senegal"
+msgstr "Сенегал"
 
 msgid "September"
-msgstr "September"
+msgstr "Сентябрь"
 
 msgid "Serbia And Montenegro"
-msgstr "Serbien und Montenegro"
+msgstr "Сербия и Черногория"
 
 msgid "Serial Number"
-msgstr "Seriennummer"
+msgstr "Серийный Номер"
 
 msgid "Serial number"
-msgstr "Seriennummer"
+msgstr "Серийный номер"
 
 msgid "Server"
-msgstr "Server"
+msgstr "Сервер"
 
 msgid "Service"
-msgstr "Service"
+msgstr "Сервис"
 
 msgid "Service disabled"
-msgstr "Service deaktiviert"
+msgstr "Сервис отключен"
 
 msgid "Services"
-msgstr "Dienste"
+msgstr "Сервисы"
 
 msgid "Session not authenticated"
-msgstr "Sitzung nicht authentifiziert"
+msgstr ""
 
 msgid "Session timeout"
-msgstr "Sitzungszeitlimit"
+msgstr "Время выхода из сессии"
 
 msgid "Set browseable"
-msgstr "Durchsuchbar setzen"
+msgstr "Установить просматриваемым"
 
 msgid "Set read only"
-msgstr "Nur lesen einstellen"
+msgstr "Установить только для чтения"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
 msgstr ""
 
 msgid "Set write only"
-msgstr "Nur schreiben einstellen"
+msgstr "Установить только для записи"
 
 msgid "Sets the interval between disk checks to N seconds."
-msgstr "Setzt den Intervall zwischen Plattenchecks auf N Sekunden."
+msgstr ""
 
 msgid "Settings"
-msgstr "Einstellungen"
+msgstr ""
 
 #, c-format
 msgid "Settings already exist for device '%s'"
-msgstr "Einstellungen für Gerät '%s' existieren bereits"
+msgstr ""
 
 msgid "Seychelles"
-msgstr "Seychellen"
+msgstr "Сейшельские острова"
 
 msgid "Shared Folders"
-msgstr "Freigegebene Ordner"
+msgstr ""
 
 msgid "Shared folder"
-msgstr "Freigegebener Ordner"
+msgstr ""
 
 msgid "Shared folder must not be equal"
-msgstr "Freigegebener Ordner darf nicht gleich sein"
+msgstr ""
 
 msgid "Shares"
-msgstr "Freigaben"
+msgstr ""
 
 msgid "Shell"
-msgstr "Shell"
+msgstr "Оболочка"
 
 msgid "Short self-test"
-msgstr "Kurzer Selbsttest"
+msgstr "Короткие самопроверки"
 
 msgid "Show certificate"
-msgstr "Zertifikat anzeigen"
+msgstr "Показать сертификат"
 
 msgid "Show details"
-msgstr "Details zeigen"
+msgstr "Показать детали"
 
 msgid "Show password"
-msgstr "Passwort anzeigen"
+msgstr "Показать пароль"
 
 msgid "Show privileges"
-msgstr "Privilegien anzeigen"
+msgstr "Показать привилегии"
 
 msgid "Shutdown"
-msgstr "Ausschalten"
+msgstr "Выключение"
 
 msgid "Shutdown the system when pressing the power button."
-msgstr "System herunterfahren wenn der Einschaltknopf gedrückt wird."
+msgstr "Завершение работы системы при нажатии на кнопку питания."
 
 msgid "Shutdown/Reboot schedule"
-msgstr "Zeitplan für Herunterfahren/Neustart"
+msgstr ""
 
 msgid "Sierra Leone"
-msgstr "Sierra Leone"
+msgstr "Сьерра-Леоне"
 
 msgid "Singapore"
-msgstr "Singapur"
+msgstr "Сингапур"
 
 msgid "Size"
-msgstr "Größe"
+msgstr ""
 
 msgid "Slaves"
-msgstr "Slaves"
+msgstr ""
 
 msgid "Sleep"
-msgstr "Schlafen"
+msgstr "Спать"
 
 msgid "Slovakia"
-msgstr "Slowakei"
+msgstr "Словакия"
 
 msgid "Slovenia"
-msgstr "Slowenien"
+msgstr "Словения"
 
 msgid "Solomon Islands"
-msgstr "Salomonen"
+msgstr "Соломоновы Острова"
 
 msgid "Somalia"
-msgstr "Somalia"
+msgstr "Сомали"
 
 msgid "Source"
-msgstr "Quelle"
+msgstr "Исходник"
 
 msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
 "or a plain IP address. A '!' argument before the address specification "
 "inverts the sense of the address."
-msgstr ""
+msgstr "Исходный адрес может быть IP-адрес сети (с /маской), IP-диапазон или просто IP-адрес.'!' Аргумент перед адресом инвертирует смысл адрес."
 
 msgid "Source port"
-msgstr "Quellport"
+msgstr "Исходный порт"
 
 msgid "Source server"
-msgstr "Quellserver"
+msgstr "Исходный сервер"
 
 msgid "Source shared folder"
 msgstr ""
 
 msgid "South Africa"
-msgstr "Südafrika"
+msgstr "ЮАР"
 
 msgid "South Georgia and the South Sandwich Islands"
-msgstr "Südgeorgien und die Südlichen Sandwichinseln"
+msgstr "Южная Джорджия и Южные Сандвичевы острова"
 
 msgid "South Korea"
-msgstr "Südkorea"
+msgstr "Южная Корея"
 
 msgid "Spain"
-msgstr "Spanien"
+msgstr "Испания"
 
 msgid "Specifies how many server threads to create."
-msgstr "Legt fest wie viele Server Threads generiert werden sollen."
+msgstr ""
 
 msgid "Specifies one of the bonding policies."
 msgstr ""
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
-msgstr "Legt die MII Link-Überwachungsfrequenz in Millisekunden fest."
+msgstr ""
 
 msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "
 "parameter is from 512 to 65464."
-msgstr "Legt die maximal zulässige Blocksize fest. Der zugelassene Bereich für diesen Parameter ist zwischen 512 und 65464."
+msgstr "Определяет максимально допустимый размер блока. Допустимый диапазон для этого параметра составляет от 512 до 65464."
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "Legt die Zeit in hh:mm:ss fest, nach welcher der Ban verfällt."
+msgstr "Определяет время в формате чч: мм: сс, после чего бан истекает."
 
 msgid ""
 "Specifies the time interval in hh:mm:ss in which the given number of "
 "occurrences must happen to add the ban."
-msgstr "Legt den Zeitintervall in hh:mm:ss fest in welcher die gegebene Anzahl von Vorkommnissen auftreten muss um einen Ban zu erlassen."
+msgstr "Задает интервал времени в формате чч: мм: сс, в котором данное количество вхождений должно произойти, чтобы добавить бан."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
 "a link failure has been detected."
-msgstr "Legt die Zeit in Millisekunden fest die gewartet wird bis der Slave deaktiviert wird falls ein Linkfehler auftritt."
+msgstr ""
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
-msgstr "Legt die Zeit in Millisekunden fest die gewartet wird bis der Slave wieder aktiviert wird falls der Link wiederhergestellt wurde."
+msgstr ""
 
 msgid "Specifies whether it is allowed to login as superuser directly"
-msgstr "Legt fest ob der direkte Login als Superuser erlaubt ist."
+msgstr "Указывает, будет ли ему позволено войти в систему как администратор непосредственно"
 
 msgid "Specifies whether it is allowed to login as superuser."
-msgstr "Legt fest ob ein Login als Superuser erlaubt ist."
+msgstr "Указывает, будет ли ему позволено войти в систему как администратор."
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
-msgstr "Legt fest ob der Systemstatus überwacht und der geeignete CPU Level gewählt wird."
+msgstr ""
 
 msgid "Specifies which slave is the primary device."
-msgstr "Legt fest welcher Slave das Primäre Laufwerk ist."
+msgstr ""
 
 msgid "Spindown time"
-msgstr "Spindown Zeit"
+msgstr ""
 
 msgid "Sri Lanka"
-msgstr "Sri Lanka"
+msgstr "Шри Ланка"
 
 msgid "Standby"
-msgstr "Bereitschaft"
+msgstr ""
 
 msgid "Start"
-msgstr "Start"
+msgstr "Старт"
 
 msgid "State"
-msgstr "Zustand"
+msgstr ""
 
 msgid "State/Province"
-msgstr "Staat/Provinz"
+msgstr ""
 
 msgid "Static"
-msgstr "Statisch"
+msgstr ""
 
 msgid "Status"
-msgstr "Status"
+msgstr "Статус"
 
 msgid "Stop"
-msgstr "Beenden"
+msgstr "Стоп"
 
 msgid "Storage"
-msgstr "Datenspeicher"
+msgstr ""
 
 msgid "Store DOS attributes"
-msgstr "DOS Attribute speichern"
+msgstr ""
 
 msgid "Stripe"
-msgstr "Stripe"
+msgstr ""
 
 msgid "Success"
-msgstr "Erfolg"
+msgstr ""
 
 msgid "Sudan"
-msgstr "Sudan"
+msgstr "Судан"
 
 msgid "Sunday"
-msgstr "Sonntag"
+msgstr ""
 
 msgid "Support"
-msgstr "Support"
+msgstr ""
 
 msgid "Suppress non-error messages"
-msgstr "Unterdrücke Nicht-Fehlermeldungen"
+msgstr ""
 
 msgid "Suriname"
-msgstr "Suriname"
+msgstr ""
 
 msgid "Svalbard and Jan Mayen"
-msgstr "Spitzbergen"
+msgstr ""
 
 msgid "Swaziland"
-msgstr "Swasiland"
+msgstr "Свазиленд"
 
 msgid "Sweden"
-msgstr "Schweden"
+msgstr "Швеция"
 
 msgid "Switzerland"
-msgstr "Schweiz"
+msgstr "Швейцария"
 
 msgid "Syria"
-msgstr "Syrien"
+msgstr "Сирия"
 
 msgid "Syslog"
-msgstr "Syslog"
+msgstr ""
 
 msgid "System"
-msgstr "System"
+msgstr ""
 
 msgid "System Information"
-msgstr "Systeminformationen"
+msgstr "Системная информация"
 
 msgid "System Logs"
-msgstr "Systemprotokolle"
+msgstr ""
 
 msgid "System time"
-msgstr "Systemzeit"
+msgstr ""
 
 msgid "TCP forwarding"
-msgstr "TCP Weiterleitung"
+msgstr ""
 
 msgid "TFTP"
 msgstr "TFTP"
 
 msgid "Taiwan"
-msgstr "Taiwan"
+msgstr "Тайвань"
 
 msgid "Tajikistan"
-msgstr "Tadschikistan"
+msgstr "Таджикистан"
 
 msgid "Tanzania"
-msgstr "Tansania"
+msgstr "Танзания"
 
 msgid "Temperature"
-msgstr "Temperatur"
+msgstr "Температура"
 
 msgid "Temperature monitoring"
-msgstr "Temperaturüberwachung"
+msgstr "Контроль температуры"
 
 msgid "Test description"
-msgstr "Testbeschreibung"
+msgstr ""
 
 msgid "Thailand"
-msgstr "Thailand"
+msgstr "Тайланд"
 
 msgid "The NT description field."
-msgstr "Feld für Beschreibung nach Windows NT."
+msgstr ""
 
 msgid "The RSA key length."
-msgstr "Die RSA Schlüssel-Länge."
+msgstr ""
 
 msgid "The SSL certificate."
-msgstr "Das SSL-Zertifikat."
+msgstr ""
 
 msgid "The changes have been applied "
-msgstr "Die Änderungen wurden angewendet"
+msgstr ""
 
 msgid "The changes have been applied successfully."
-msgstr "Die Änderungen wurden erfolgreich angewendet."
+msgstr ""
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "Der Standardport des SMTP Mail Servers, z.B. 25 oder 587."
+msgstr ""
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -2827,34 +2826,34 @@ msgstr ""
 
 #, c-format
 msgid "The field '%s' contains forbidden "
-msgstr "Das Feld '%s' enthält verbotene"
+msgstr ""
 
 #, c-format
 msgid "The group '%s' does not exist"
-msgstr "Die Gruppe '%s' existiert nicht."
+msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
-msgstr "Der Hostname identifiziert das System im Netzwerk."
+msgstr ""
 
 msgid "The location of the files to share."
-msgstr "Speicherort der freizugebenden Dateien."
+msgstr ""
 
 msgid ""
 "The location of the files to share. The share will be accessible at "
 "/export/<name>."
-msgstr "Speicherort der freizugebenden Dateien. Die Freigabe wird unter /export/<name> zugänglich sein."
+msgstr ""
 
 msgid "The location of the user home directories."
-msgstr "Der Speicherort der Heimatverzeichnisse der Benutzer."
+msgstr ""
 
 msgid "The name of the share."
-msgstr "Der Name der Freigabe."
+msgstr ""
 
 msgid "The number of days the certificate is valid for."
-msgstr "Anzahl Tage die das Zertifikat gültig ist."
+msgstr ""
 
 msgid "The password contains invalid characters"
-msgstr "Das Passwort enthält ungültige Zeichen"
+msgstr ""
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -2869,10 +2868,10 @@ msgid ""
 msgstr ""
 
 msgid "The session timeout time in minutes."
-msgstr "Das Sitzungszeitlimit in Minuten."
+msgstr ""
 
 msgid "The shared folder is already used by another share"
-msgstr "Der freigegebene Ordner wird bereits von einer anderen Freigabe verwendet."
+msgstr ""
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -2883,27 +2882,27 @@ msgid "The source shared folder."
 msgstr ""
 
 msgid "The specified quota exceeds the max. possible value of 4TiB."
-msgstr "Die angegebene Quota überschreitet den maximal möglichen Wert von 4TiB."
+msgstr ""
 
 msgid "The system will reboot now."
-msgstr "Das System startet jetzt neu."
+msgstr ""
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr "Das System wird neu gestartet. Dies kann einige Zait in Anspruch nehmen ..."
+msgstr ""
 
 msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr "Die Test E-Mail wurde erfolgreich versendet. Bitte überprüfen Sie Ihr Postfach."
+msgstr ""
 
 #, c-format
 msgid "The user '%s' does not exist"
-msgstr "Der Benutzer '%s' existiert nicht"
+msgstr ""
 
 #, c-format
 msgid "The user '%s' is not allowed"
-msgstr "Der Benutzer '%s' ist nicht erlaubt"
+msgstr ""
 
 msgid "The value in this field is invalid"
-msgstr "Der Wert dieses Feldes ist ungültig"
+msgstr ""
 
 msgid "The volume label for the filesystem."
 msgstr ""
@@ -2911,14 +2910,14 @@ msgstr ""
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
 "login."
-msgstr "Diese Willkommensnachricht wird Benutzern angezeigt wenn sie sich erstmals einloggen."
+msgstr ""
 
 msgid "The workgroup the server will appear to be in when queried by clients."
-msgstr "Die Arbeitsgruppe in welcher der Server auftaucht wenn ein Client ihn anfragt."
+msgstr ""
 
 #, c-format
 msgid "There already exists a mount point for %s"
-msgstr "Es gibt bereits einen Einhängepunkt für %s"
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -2926,57 +2925,57 @@ msgid ""
 msgstr ""
 
 msgid "This field must have the format hh:mm:ss"
-msgstr "Diese Feld muss das Format hh:mm:ss erfüllen"
+msgstr ""
 
 msgid "This field should be a IPv4 network address"
-msgstr "Dieses Feld sollte eine IPv4 Netzadresse enthalten"
+msgstr ""
 
 msgid "This field should be a IPv4 network address in CIDR notation"
-msgstr "Dieses Feld sollte eine IPv4 Netzadresse in CIDR Notation enthalten"
+msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
-msgstr "Dieses Feld sollte einen Hostnamen oder eine IPv4 Adresse enthalten"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
-msgstr "Dieses Feld sollte eine Netzmaske im Bereich 128.0.0.0 - 255.255.255.252 enthalten"
+msgstr ""
 
 msgid "This field should be a port in the range of 1 - 65535"
-msgstr "Dieses Feld sollte einen Port im Bereich 1 - 65535 enthalten"
+msgstr ""
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
-msgstr "Dieses Feld sollte einen Port oder einen Portbereich enthalten (z.B. 21 oder !443 oder 1024-65535)"
+msgstr ""
 
 msgid "This field should be an IPv4 address"
-msgstr "Dieses Feld sollte eine IPv4 Adresse enthalten"
+msgstr ""
 
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
 "range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
 "192.168.178.20-192.168.178.254)"
-msgstr "Dieses Feld sollte eine IPv4 Netzadresse (mit /Maske), einen IPv4 Bereich oder eine einfache IPv4 Adresse enthalten (z.B.172.16.76.4 oder !192.168.178.87/24 oder 192.168.178.20-192.168.178.254)"
+msgstr ""
 
 msgid "This field should only contain numbers"
-msgstr "Dieses Feld darf ausschließlich Nummern enthalten"
+msgstr ""
 
 msgid "This field should only contain numbers seperated by <,> or <;>"
-msgstr "Dieses Feld sollte ausschließlich Nummern separiert mit <,> oder <;>  enthalten"
+msgstr ""
 
 msgid ""
 "This field should only contain ports (0 - 65535) seperated by <,> or <;>"
-msgstr "Dieses Feld sollte ausschließlich Ports (0 - 65535) separiert mit <,> oder <;>  enthalten"
+msgstr ""
 
 msgid "This field should only contain strings seperated by <,> or <;>"
-msgstr "Dieses Feld sollte ausschließlich Strings separiert mit <,> oder <;>  enthalten"
+msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."
-msgstr "Diese Funktion wird nur aktiviert wenn sie von der Festplatte unterstützt wird."
+msgstr ""
 
 msgid ""
 "This is a text field that is seen next to a share when a client queries the "
 "server."
-msgstr "Dieses Textfeld wird neben einer Freigabe angezeigt wenn ein Client den Server anfragt."
+msgstr ""
 
 msgid ""
 "This may make more efficient use of the system CPU's and cause Samba to be "
@@ -3043,7 +3042,7 @@ msgstr ""
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
-msgstr "Dieser Parameter legt fest ob Dateien die mit einem Punkt beginnen als versteckte Dateien angezeigt werden."
+msgstr ""
 
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
@@ -3051,187 +3050,187 @@ msgid ""
 msgstr ""
 
 msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr "Diese Regel wird ausgelöst sobald das ausgewählte Ereignis auftritt."
+msgstr ""
 
 msgid "This will create a recycle bin on the share."
-msgstr "Diese Option erzeugt einen Papierkorb für die Freigabe."
+msgstr ""
 
 msgid "Thursday"
-msgstr "Donnerstag"
+msgstr "Четверг"
 
 msgid "Time"
-msgstr "Zeit"
+msgstr "Время"
 
 msgid "Time interval"
-msgstr "Zeitintervall"
+msgstr "Временной интервал"
 
 msgid "Time server"
-msgstr "Zeitserver"
+msgstr "Сервер времени"
 
 msgid "Time servers"
-msgstr "Zeitserver"
+msgstr "Серверы времени"
 
 msgid "Time zone"
-msgstr "Zeitzone"
+msgstr "Часовой пояс"
 
 msgid "Timeout"
-msgstr "Zeitüberschreitung"
+msgstr "Тайм-аут"
 
 msgid "Times"
-msgstr "Zeiten"
+msgstr "Время"
 
 msgid ""
 "To restore a previously backed up configuration click the 'Restore' button. "
 "The system will reboot automatically after import has been finished "
 "successfully."
-msgstr "Um eine zuvor gesicherte Konfiguration wiederherzustellen klicken Sie auf die Schaltfläche \"Wiederherstellen\". Das System startet automatisch nach dem erfolgreichen Import neu."
+msgstr ""
 
 msgid "Togo"
-msgstr "Togo"
+msgstr ""
 
 msgid "Tokelau"
-msgstr "Tokelau"
+msgstr "Токелау"
 
 msgid "Tonga"
-msgstr "Tonga"
+msgstr "Тонга"
 
 msgid "Traps"
-msgstr "Traps"
+msgstr ""
 
 msgid "Treshold"
-msgstr "Schwelle"
+msgstr ""
 
 msgid "Trinidad and Tobago"
-msgstr "Trinidad und Tobago"
+msgstr "Тринидад и Тобаго"
 
 msgid "Tuesday"
-msgstr "Dienstag"
+msgstr "Вторник"
 
 msgid "Tunisia"
-msgstr "Tunesien"
+msgstr "Тунис"
 
 msgid "Turkey"
-msgstr "Türkei"
+msgstr "Турция"
 
 msgid "Turkmenistan"
-msgstr "Turkmenistan"
+msgstr "Туркменистан"
 
 msgid "Turks and Caicos Islands"
-msgstr "Turks- und Caicosinseln"
+msgstr "Острова Теркс и Кайкос"
 
 msgid "Tuvalu"
-msgstr "Tuvalu"
+msgstr "Тувалу"
 
 msgid "Type"
-msgstr "Typ"
+msgstr ""
 
 msgid "U.S. Miscellaneous Pacific Islands"
-msgstr "U.S. Miscellaneous Pacific Islands"
+msgstr "США Разные островах Тихого океана"
 
 msgid "U.S. Virgin Islands"
-msgstr "Amerikanische Jungferninseln"
+msgstr "Американские Виргинские острова"
 
 msgid "Uganda"
-msgstr "Uganda"
+msgstr "Уганда"
 
 msgid "Ukraine"
-msgstr "Ukraine"
+msgstr "Украина"
 
 msgid "Uninstall"
-msgstr "Entfernen"
+msgstr "Удалить"
 
 msgid "Uninstall plugins ..."
-msgstr "Entferne Erweiterungen ..."
+msgstr "Удаление плагинов ..."
 
 msgid "Union of Soviet Socialist Republics"
-msgstr "Sowjetunion"
+msgstr "Союз Советских Социалистических Республик"
 
 msgid "Unit"
-msgstr "Einheit"
+msgstr "Блок"
 
 msgid "United Arab Emirates"
-msgstr "Vereinigte Arabische Emirate"
+msgstr "Объединенные Арабские Эмираты"
 
 msgid "United Kingdom"
-msgstr "Vereinigtes Königreich"
+msgstr "Великобритания"
 
 msgid "United States"
-msgstr "Vereinigte Staaten"
+msgstr "Соединенные Штаты"
 
 msgid "United States Minor Outlying Islands"
-msgstr "United States Minor Outlying Islands"
+msgstr "США Внешние малые острова"
 
 #, c-format
 msgid "Unknown filesystem '%s'"
-msgstr "Unbekanntes Dateisystem '%s'"
+msgstr "Неизвестная файловая система '%s'"
 
 #, c-format
 msgid "Unknown log file type (id=%s)"
-msgstr "Unbekannter Log-Dateityp (id=%s)"
+msgstr ""
 
 msgid "Unmount"
-msgstr "Unmount"
+msgstr ""
 
 msgid "Up"
-msgstr "Hoch"
+msgstr "Вверх"
 
 msgid "Up delay"
 msgstr ""
 
 msgid "Update Manager"
-msgstr "Aktualisierungsverwaltung"
+msgstr ""
 
 msgid "Update now"
-msgstr "Jetzt aktualisieren"
+msgstr "Обновить сейчас"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
-msgstr "Aktualisiere Ziel-ACLs mit Quell-ACLs"
+msgstr ""
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones"
 msgstr ""
 
 msgid "Updated"
-msgstr "Aktualisiert"
+msgstr ""
 
 msgid "Updating ACL settings"
-msgstr "ACL Einstellungen aktualisieren"
+msgstr ""
 
 msgid "Upload"
-msgstr "Hochladen"
+msgstr ""
 
 msgid "Upload file"
-msgstr "Datei hochladen"
+msgstr ""
 
 msgid "Upload package"
-msgstr "Paket hochladen"
+msgstr ""
 
 msgid "Upload plugin"
-msgstr "Erweiterung hochladen"
+msgstr ""
 
 msgid "Uploading file ..."
-msgstr "Lade Datei hoch ..."
+msgstr ""
 
 msgid "Uptime"
-msgstr "Laufzeit"
+msgstr ""
 
 msgid "Uruguay"
-msgstr "Uruguay"
+msgstr "Уругвай"
 
 msgid "Use NTP server"
-msgstr "NTP Server benutzen"
+msgstr "Использование сервера NTP"
 
 msgid "Use SSL/TLS secure connection"
-msgstr "Benutze sichere Verbindung über SSL/TLS"
+msgstr ""
 
 msgid "Use sendfile"
-msgstr "Sendfile benutzen"
+msgstr ""
 
 msgid "Use the following bandwidth restriction:"
-msgstr "Folgende Bandbreitenbeschränkung verwenden:"
+msgstr ""
 
 msgid "Use the following port range:"
-msgstr "Folgenden Portbereich verwenden:"
+msgstr ""
 
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
@@ -3239,70 +3238,70 @@ msgid ""
 msgstr ""
 
 msgid "Use the specified WINS server."
-msgstr "Angegebenen WINS Server benutzen"
+msgstr ""
 
 msgid "Used"
-msgstr "Verwendet"
+msgstr ""
 
 msgid "Used capacity"
-msgstr "Verwendete Kapazität"
+msgstr ""
 
 msgid "User"
-msgstr "Benutzer"
+msgstr ""
 
 #, c-format
 msgid "User '%s' already exist"
-msgstr "Benutzer '%s' existiert bereits"
+msgstr ""
 
 #, c-format
 msgid "User '%s' does not exist"
-msgstr "Benutzer '%s' existiert nicht"
+msgstr ""
 
 #, c-format
 msgid "User ID '%d' already exist"
-msgstr "Benutzer ID '%d' existiert bereits"
+msgstr ""
 
 msgid "User home directory"
-msgstr "Heimatverzeichnis des Benutzers"
+msgstr "Домашний каталог пользователя"
 
 msgid "User information"
-msgstr "Userinformationen"
+msgstr ""
 
 msgid "User/Group permissions"
-msgstr "Benutzer/Gruppe Berechtigungen"
+msgstr ""
 
 msgid "Username"
-msgstr "Benutzername"
+msgstr "Имя пользователя"
 
 msgid "Users"
-msgstr "Benutzer"
+msgstr "Пользователи"
 
 msgid "Uzbekistan"
-msgstr "Usbekistan"
+msgstr "Узбекистан"
 
 msgid "Valid to"
-msgstr "Gültig bis"
+msgstr "Действителен до"
 
 msgid "Value"
-msgstr "Wert"
+msgstr "Значение"
 
 msgid "Vanuatu"
-msgstr "Vanuatu"
+msgstr "Вануату"
 
 msgid "Vatican"
-msgstr "Vatikanstadt"
+msgstr "Ватикан"
 
 msgid "Vendor"
-msgstr "Hersteller"
+msgstr ""
 
 msgid "Venezuela"
-msgstr "Venezuela"
+msgstr "Венесуэла"
 
 msgid "Version"
-msgstr "Version"
+msgstr "Версия"
 
 msgid "Vietnam"
-msgstr "Vietnam"
+msgstr "Вьетнам"
 
 msgid "Volume"
 msgstr ""
@@ -3311,40 +3310,40 @@ msgid "WINS"
 msgstr "WINS"
 
 msgid "WINS server"
-msgstr "WINS Server"
+msgstr "WINS сервер"
 
 msgid "WINS support"
-msgstr "WINS Unterstützung"
+msgstr ""
 
 msgid "Wake Island"
-msgstr "Wake"
+msgstr ""
 
 msgid "Wake-on-LAN"
-msgstr "Wake-on-LAN"
+msgstr ""
 
 msgid "Wallis and Futuna"
-msgstr "Wallis und Futuna"
+msgstr "Уоллис и Футуна"
 
 msgid "Warning"
-msgstr "Warnung"
+msgstr "Предупреждение"
 
 msgid "Web Administration"
-msgstr "Web Administration"
+msgstr "Web Администратор"
 
 msgid "Web Administrator Password"
-msgstr "Web Administrator Passwort"
+msgstr "Пароль Web Администратора"
 
 msgid "Web administration interface"
-msgstr "Web Administrationsoberfläche"
+msgstr "Интерфейс Web Администратора"
 
 msgid "Wednesday"
-msgstr "Mittwoch"
+msgstr "Среда"
 
 msgid "Welcome message"
-msgstr "Willkommensnachricht"
+msgstr ""
 
 msgid "Western Sahara"
-msgstr "Westsahara"
+msgstr "Западная Сахара"
 
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
@@ -3355,59 +3354,59 @@ msgid "When failed"
 msgstr ""
 
 msgid "Wipe"
-msgstr "Löschen"
+msgstr ""
 
 msgid "Wiping device ..."
-msgstr "Lösche Laufwerk..."
+msgstr ""
 
 msgid "Workgroup"
-msgstr "Workgroup"
+msgstr "Рабочая группа"
 
 msgid "Worst"
 msgstr ""
 
 msgid "Write cache"
-msgstr "Schreibcache"
+msgstr ""
 
 msgid "Write only"
-msgstr "Nur schreiben"
+msgstr "Только запись"
 
 msgid "Yemen"
-msgstr "Jemen"
+msgstr "Йемен"
 
 msgid "Yes"
-msgstr "Ja"
+msgstr "Да"
 
 msgid "Zambia"
-msgstr "Sambia"
+msgstr "Замбия"
 
 msgid "Zeroconf"
-msgstr "Zeroconf"
+msgstr ""
 
 msgid "Zimbabwe"
-msgstr "Simbabwe"
+msgstr "Зимбабве"
 
 msgid "day"
-msgstr "Tag"
+msgstr "День"
 
 msgid "days"
-msgstr "Tage"
+msgstr "Дней"
 
 msgid "hour"
-msgstr "Stunde"
+msgstr "Час"
 
 msgid "hours"
-msgstr "Stunden"
+msgstr "Часов"
 
 msgid "minute"
-msgstr "Minute"
+msgstr "Минута"
 
 msgid "minutes"
-msgstr "Minuten"
+msgstr "Минут"
 
 #, c-format
 msgid "n/a"
-msgstr "N/V"
+msgstr ""
 
 msgid "seconds"
-msgstr "Sekunden"
+msgstr ""

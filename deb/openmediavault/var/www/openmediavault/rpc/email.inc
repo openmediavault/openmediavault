@@ -129,8 +129,9 @@ class EmailRpc extends OMVRpc {
 	 * Send a test email.
 	 */
 	function sendTestEmail($data) {
+//		$this->debug(var_export(func_get_args(), TRUE));
 		// Update configuration.
-		$this->set($data);
+		OMVRpc::exec("Email", "set", $data);
 		// Send email
 		$hostname = php_uname('n');
 		$to = $data['primaryemail'];
