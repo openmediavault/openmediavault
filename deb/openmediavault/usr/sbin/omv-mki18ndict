@@ -42,6 +42,9 @@ OMV.i18n.loadDictionary(OMV.i18nDict);
 EOF
 
 # Minify javascript code.
-cat ${OMV_I18N_JS_DICT_FILE} | omv-jsminify --out=${OMV_I18N_JS_DICT_FILE}
+tmpdict=$(tempfile)
+omv-jsminify --in=${OMV_I18N_JS_DICT_FILE} --out=${tmpdict}
+cp ${tmpdict} ${OMV_I18N_JS_DICT_FILE} # Copy, to keep file permissions
+rm -f ${tmpdict}
 
 exit 0

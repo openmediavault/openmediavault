@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-19 20:59+0200\n"
+"POT-Creation-Date: 2012-04-16 21:22+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -310,10 +310,10 @@ msgstr ""
 msgid "American Samoa"
 msgstr ""
 
-msgid "An email message with the command output (if any produced) is send to the administrator."
+msgid "An email messages with the command output (if any produced) is send to the administrator."
 msgstr ""
 
-msgid "An email message with the command output (if any produced) is send to the user who performs the job."
+msgid "An email messages with the command output (if any produced) is send to the user who performs the job."
 msgstr ""
 
 msgid "An error has occured"
@@ -868,9 +868,6 @@ msgstr ""
 msgid "Dronning Maud Land"
 msgstr ""
 
-msgid "Dutch"
-msgstr ""
-
 msgid "Each line represents one user. Note, the password must be entered in plain text."
 msgstr ""
 
@@ -1151,9 +1148,6 @@ msgstr ""
 msgid "France"
 msgstr ""
 
-msgid "French"
-msgstr ""
-
 msgid "French Guiana"
 msgstr ""
 
@@ -1209,9 +1203,6 @@ msgid "Gibraltar"
 msgstr ""
 
 msgid "Greece"
-msgstr ""
-
-msgid "Greek"
 msgstr ""
 
 msgid "Greenland"
@@ -1427,9 +1418,6 @@ msgid "Ireland"
 msgstr ""
 
 msgid "Israel"
-msgstr ""
-
-msgid "Italian"
 msgstr ""
 
 msgid "Italy"
@@ -2255,9 +2243,6 @@ msgstr ""
 msgid "Russia"
 msgstr ""
 
-msgid "Russian"
-msgstr ""
-
 msgid "Rwanda"
 msgstr ""
 
@@ -2557,9 +2542,6 @@ msgid "South Korea"
 msgstr ""
 
 msgid "Spain"
-msgstr ""
-
-msgid "Spanish"
 msgstr ""
 
 msgid "Specifies how many server threads to create."

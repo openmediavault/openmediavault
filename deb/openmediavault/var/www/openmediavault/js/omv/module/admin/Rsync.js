@@ -1097,7 +1097,7 @@ Ext.extend(OMV.Module.Services.Rsync.JobPropertyDialog, OMV.CfgObjectDialog, {
 			inputValue: 1,
 			boxLabel: _("Send command output via email"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("An email messages with the command output (if any produced) is send to the administrator.")
+			infoText: _("An email message with the command output (if any produced) is send to the administrator.")
 		},{
 			xtype: "textfield",
 			name: "extraoptions",
