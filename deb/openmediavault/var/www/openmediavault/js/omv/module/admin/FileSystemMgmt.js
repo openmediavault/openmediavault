@@ -463,7 +463,7 @@ Ext.extend(OMV.Module.Storage.FileSystemCreateDialog, OMV.FormPanelDialog, {
 			name: "devicefile",
 			hiddenName: "devicefile",
 			fieldLabel: _("Device"),
-			emptyText: _("Select an device ..."),
+			emptyText: _("Select a device ..."),
 			store: new OMV.data.Store({
 				remoteSort: false,
 				proxy: new OMV.data.DataProxy({

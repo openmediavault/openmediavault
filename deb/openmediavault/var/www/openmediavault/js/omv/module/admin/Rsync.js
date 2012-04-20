@@ -895,7 +895,7 @@ Ext.extend(OMV.Module.Services.Rsync.JobPropertyDialog, OMV.CfgObjectDialog, {
 			hiddenName: "destsharedfolderref",
 			fieldLabel: _("Destination shared folder"),
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("The source shared folder.")
+			infoText: _("The destination shared folder.")
 		},{
 			xtype: "textfield",
 			name: "desturi",

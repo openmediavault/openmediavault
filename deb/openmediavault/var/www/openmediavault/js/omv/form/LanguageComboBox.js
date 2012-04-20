@@ -40,10 +40,13 @@ OMV.form.LanguageComboBox = function(config) {
 				[ "de",_("German") ],
 				[ "ru",_("Russian") ],
 				[ "nl_NL",_("Dutch") ],
-				[ "fr_FR",_("French") ],
 				[ "it",_("Italian") ],
+				[ "el_GR",_("Greek") ],
+				[ "tr_TR",_("Turkish") ],
+				[ "fr_FR",_("French") ],
+				[ "pl_PL",_("Polish") ],
 				[ "es_ES",_("Spanish") ],
-				[ "el_GR",_("Greek") ]
+				[ "hu_HU",_("Hungarian") ]
 			]
 		}),
 		displayField: "text",

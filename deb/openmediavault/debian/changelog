@@ -1,6 +1,11 @@
 openmediavault (0.3.0.2) stable; urgency=low
 
   * Fix bug when sending a test email.
+  * Display loading text while comboboxes are loading their data.
+  * Mantis 0000418: Wrong text in rsync job configuration
+  * Mantis 0000419: Network interface method
+  * Mantis 0000424: No Device when editing a SMART test
+  * Mantis 0000425: User dialog/list don't show accented characters
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 19 Apr 2012 19:53:37 +0200
 

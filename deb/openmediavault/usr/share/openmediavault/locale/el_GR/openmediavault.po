@@ -1,41 +1,26 @@
-#
-# This file is part of OpenMediaVault.
-#
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
-#
-# OpenMediaVault is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-#
-# OpenMediaVault is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
-#
-#, fuzzy
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Kostas Moho <kgounaris@hotmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-16 21:22+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2012-04-20 21:41+0200\n"
+"PO-Revision-Date: 2012-04-20 19:42+0000\n"
+"Last-Translator: votdev <votdev@gmx.de>\n"
+"Language-Team: Greek (Greece) (http://www.transifex.net/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, c-format
 msgid "% completed ..."
-msgstr ""
+msgstr "% ολοκληρώθηκε ..."
 
 #, c-format
 msgid "%s (%s available)"
@@ -46,812 +31,839 @@ msgid "%s [on %s]"
 msgstr ""
 
 msgid "'All' is not allowed"
-msgstr ""
+msgstr "Το \"όλα\" δεν επιτρέπεται"
 
 msgid "0 KiB/s means unlimited."
-msgstr ""
+msgstr "0 KiB/s σημαίνει απεριόριστο."
 
 msgid "1 - Minimum power usage with standby (spindown)"
-msgstr ""
+msgstr "1 - Ελάχιστη κατανάλωση ενέργειας με στάση"
 
 msgid "1 day"
-msgstr ""
+msgstr "1 ημέρα"
 
 msgid "1 month"
-msgstr ""
+msgstr "1 μήνας"
 
 msgid "1 week"
-msgstr ""
+msgstr "1 εβδομάδα"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 έτος"
 
 msgid "10 minutes"
-msgstr ""
+msgstr "10 λεπτά"
 
 msgid "10 years"
-msgstr ""
+msgstr "10 έτη"
 
 #, c-format
 msgid "100% completed ..."
-msgstr ""
+msgstr "100% ολοκληρώθηκε ..."
 
 msgid "120 minutes"
-msgstr ""
+msgstr "120 λεπτά"
 
 msgid "127 - Intermediate power usage with standby"
-msgstr ""
+msgstr "127 - Μέτρια κατανάλωση ενέργειας με στάση"
 
 msgid "128 - Minimum power usage without standby (no spindown)"
-msgstr ""
+msgstr "128 - Ελάχιστη κατανάλωση ενέργειας χωρίς στάση"
 
 msgid "15 years"
-msgstr ""
+msgstr "15 έτη"
 
 msgid "180 minutes"
-msgstr ""
+msgstr "180 λεπτά"
 
 msgid "192 - Intermediate power usage without standby"
-msgstr ""
+msgstr "192 - Μέτρια κατανάλωση ενέργειας χωρίς στάση"
 
 msgid "2 days"
-msgstr ""
+msgstr "2 ημέρες"
 
 msgid "2 weeks"
-msgstr ""
+msgstr "2 εβδομάδες"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 έτη"
 
 msgid "20 minutes"
-msgstr ""
+msgstr "20 λεπτά"
 
 msgid "20 years"
-msgstr ""
+msgstr "20 έτη"
 
 msgid "240 minutes"
-msgstr ""
+msgstr "240 λεπτά"
 
 msgid "25 years"
-msgstr ""
+msgstr "25 έτη"
 
 msgid "254 - Maximum performance, maximum power usage"
-msgstr ""
+msgstr "254 - Μέγιστη επίδοση με μέγιστη κατανάλωση ενέργειας"
 
 msgid "3 days"
-msgstr ""
+msgstr "3 έτη"
 
 msgid "3 months"
-msgstr ""
+msgstr "3 μήνες"
 
 msgid "3 weeks"
-msgstr ""
+msgstr "3 εβδομάδες"
 
 msgid "3 years"
-msgstr ""
+msgstr "3 έτη"
 
 msgid "30 minutes"
-msgstr ""
+msgstr "30 λεπτά"
 
 msgid "300 minutes"
-msgstr ""
+msgstr "300 λεπτά"
 
 msgid "360 minutes"
-msgstr ""
+msgstr "360 λεπτά"
 
 msgid "4 days"
-msgstr ""
+msgstr "4 ημέρες"
 
 msgid "4 years"
-msgstr ""
+msgstr "4 έτη"
 
 msgid "5 days"
-msgstr ""
+msgstr "5 ημέρες"
 
 msgid "5 minutes"
-msgstr ""
+msgstr "5 λεπτά"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 έτη"
 
 msgid "6 days"
-msgstr ""
+msgstr "6 ημέρες"
 
 msgid "6 months"
-msgstr ""
+msgstr "6 μήνες"
 
 msgid "60 minutes"
-msgstr ""
+msgstr "60 λεπτά"
 
 msgid "64 - Intermediate power usage with standby"
-msgstr ""
+msgstr "64 - Μέτρια κατανάλωση ενέργειας με στάση"
 
 msgid "9 months"
-msgstr ""
+msgstr "9 μήνες"
 
 msgid "A mount point already exists for the given filesystem"
-msgstr ""
+msgstr "Υπάρχει ήδη σημείο προσάρτησης για αυτό το σύστημα αρχείων"
 
 msgid "A share with the given name already exists"
-msgstr ""
+msgstr "Υπάρχει ήδη κοινόχρηστο με το ίδιο όνομα"
 
 msgid "A shared folder with the given name already exists"
-msgstr ""
+msgstr "Υπάρχει ήδη κοινόχρηστος φάκελος με το ίδιο όνομα"
 
 msgid "ACL"
-msgstr ""
+msgstr "Λίστα Διαχείρισης Πρόσβασης"
 
 msgid "About"
-msgstr ""
+msgstr "Σχετικά"
 
 msgid "Access Right Management"
-msgstr ""
+msgstr "Διαχείριση Δικαιωμάτων Πρόσβασης"
 
 msgid "Act as a WINS server."
-msgstr ""
+msgstr "Λειτουργεία ως διακομιστής WINS"
 
 msgid "Action"
-msgstr ""
+msgstr "Ενέργεια"
 
 msgid "Activate S.M.A.R.T. monitoring."
-msgstr ""
+msgstr "Ενεργοποίηση επίβλεψης S.M.A.R.T."
 
 msgid "Add"
-msgstr ""
+msgstr "Προσθήκη"
 
 msgid "Add bonded interface"
-msgstr ""
+msgstr "Προσθήκη συνδιασμένης διεπαφής"
 
 msgid "Add cron job"
-msgstr ""
+msgstr "Προσθήκη προγραμματισμένης εργασίας"
 
 msgid "Add devices to RAID device"
-msgstr ""
+msgstr "Προσθήκη συσκευών σε συστοιχία RAID"
 
 msgid "Add firewall rule"
-msgstr ""
+msgstr "Προσθήκη κανόνα ασφαλείας"
 
 msgid "Add group"
-msgstr ""
+msgstr "Προσθήκη ομάδας"
 
 msgid "Add hot spares / recover RAID device"
-msgstr ""
+msgstr "Προσθήκη εφεδρείας / ανάρρωση συστοιχίας RAID"
 
 msgid "Add module"
-msgstr ""
+msgstr "Προσθήκη μονάδας"
 
 msgid "Add rsync job"
-msgstr ""
+msgstr "Προσθήκη εργασίας συγχρονισμού"
 
 msgid "Add rule"
-msgstr ""
+msgstr "Προσθήκη κανόνα"
 
 msgid "Add scheduled test"
-msgstr ""
+msgstr "Προσθήκη προγραμματισμένου ελέγχου"
 
 msgid "Add share"
-msgstr ""
+msgstr "Προσθήκη κοινόχρηστου"
 
 msgid "Add shared folder"
-msgstr ""
+msgstr "Προσθήκη κοινόχρηστου φακέλου"
 
 msgid "Add user"
-msgstr ""
+msgstr "Προσθήκη χρήστη"
 
-msgid "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> for more details."
-msgstr ""
+msgid ""
+"Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
+" href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
+"for more details."
+msgstr "Επιπρόσθετες ρυθμίσεις, π.χ. 'autoneg off speed 100 duplex full'. Δες στο <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> για περισσότερες λεπτομέρειες."
 
 msgid "Address"
-msgstr ""
+msgstr "Διεύθυνση"
 
 msgid "Administrator password"
-msgstr ""
+msgstr "Κωδικός διαχειριστή"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
-msgstr ""
+msgstr "Διαχειριστής : ανάγνωση & εγγραφή , Χρήστες : τίποτα , Λοιποί : τίποτα"
 
 msgid "Administrator: read/write, Users: read-only, Others: no access"
-msgstr ""
+msgstr "Διαχειριστής : ανάγνωση & εγγραφή , Χρήστες : ανάγνωση , Λοιποί : τίποτα"
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
-msgstr ""
+msgstr "Διαχειριστής : ανάγνωση/εγγραφή , Χρήστες : ανάγνωση , Λοιποί : ανάγνωση"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr ""
+msgstr "Διαχειριστής : ανάγνωση/εγγραφή , Χρήστες : ανάγνωση/εγγραφή , Λοιποί : ανάγνωση"
 
 msgid "Advanced Power Management"
-msgstr ""
+msgstr "Προηγμένη Διαχείριση Ενέργειας (APM)"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "Προχωρημένες ρυθμίσεις"
 
 msgid "Afghanistan"
-msgstr ""
+msgstr "Afghanistan"
 
-msgid "After the RAID has been grown you can resize the containing filesystem."
-msgstr ""
+msgid ""
+"After the RAID has been grown you can resize the containing filesystem."
+msgstr "Αφού μεγαλώσει το RAID, μπορεί να μεταβληθεί το μέγεθος του συστήματος αρχείων που περιέχει."
 
 msgid "Aland Islands"
-msgstr ""
+msgstr "Aland Islands"
 
 msgid "Albania"
-msgstr ""
+msgstr "Albania"
 
 msgid "Algeria"
-msgstr ""
+msgstr "Algeria"
 
 msgid "All"
-msgstr ""
+msgstr "Όλα"
 
 msgid "Allow"
-msgstr ""
+msgstr "Επιτρέπεται"
 
 msgid "Allow client access to accounts that have null passwords"
-msgstr ""
+msgstr "Επιτρέπεται πρόσβαση σε χρήστες χωρίς κωδικό"
 
-msgid "Allow clients to attempt to store OS/2 style extended attributes on a share."
-msgstr ""
+msgid ""
+"Allow clients to attempt to store OS/2 style extended attributes on a share."
+msgstr "Να επιτρέπεται στους πελάτες να αποθηκεύουν εκτεταμένες ιδιότητες OS/2 στα κοινόχρηστα"
 
 msgid "Allow clients to resume interrupted uploads and downloads"
-msgstr ""
+msgstr "Να επιτρέπεται στους πελάτες να συνεχίζουν μεταφορές που διακόπηκαν"
 
 msgid "Allow new files"
-msgstr ""
+msgstr "Επιτρέπονται νέα αρχεία"
 
 msgid "Allow new files to be created."
-msgstr ""
+msgstr "Επιτρέπεται η δημιουργία καινούργιων αρχείων"
 
-msgid "Allow this server to advertise itself as a time server to Windows clients"
-msgstr ""
+msgid ""
+"Allow this server to advertise itself as a time server to Windows clients"
+msgstr "Επιτρέπεται να διαφημίζεται ως ? σε πελάτες Windows"
 
 msgid "Allow this server to try and become a local master browser"
 msgstr ""
 
 msgid "American Samoa"
+msgstr "American Samoa"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
 msgstr ""
 
-msgid "An email messages with the command output (if any produced) is send to the administrator."
-msgstr ""
-
-msgid "An email messages with the command output (if any produced) is send to the user who performs the job."
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"user who performs the job."
 msgstr ""
 
 msgid "An error has occured"
-msgstr ""
+msgstr "Παρουσιάστηκε κάποιο σφάλμα"
 
 msgid "Andorra"
-msgstr ""
+msgstr "Andorra"
 
 msgid "Angola"
-msgstr ""
+msgstr "Angola"
 
 msgid "Anguilla"
-msgstr ""
+msgstr "Anguilla"
 
 msgid "Anonymous FTP"
-msgstr ""
+msgstr "Ανόνυμη πρόσβαση FTP"
 
 msgid "Antarctica"
-msgstr ""
+msgstr "Antarctica"
 
 msgid "Antigua and Barbuda"
-msgstr ""
+msgstr "Antigua and Barbuda"
 
 msgid "Apply"
-msgstr ""
+msgstr "Εφαρμογή"
 
 msgid "Apply permissions to files and subfolders"
-msgstr ""
+msgstr "Εφαρμογή δικαιωμάτων σε αρχεία και υποφακέλους"
 
 msgid "April"
-msgstr ""
+msgstr "Απρίλιος"
 
 msgid "Archive"
-msgstr ""
+msgstr "Αρχείο"
 
 msgid "Are clients required to use FTP over TLS when talking to this server?"
-msgstr ""
+msgstr "Απαιτείται από τους πελάτες να χρησιμοποιούν FTP μέσω TLS στις συνδέσεις με αυτόν τον διακομιστή;"
 
 msgid "Argentina"
-msgstr ""
+msgstr "Argentina"
 
 msgid "Armenia"
-msgstr ""
+msgstr "Armenia"
 
 msgid "Array details"
-msgstr ""
+msgstr "Λεπτομέρειες συστοιχίας"
 
 msgid "Aruba"
-msgstr ""
+msgstr "Aruba"
 
 msgid "Attribute name"
-msgstr ""
+msgstr "Απόδοση ονόματος"
 
 msgid "Attributes"
-msgstr ""
+msgstr "Χαρακτηριστικά"
 
 msgid "August"
-msgstr ""
+msgstr "Αύγουστος"
 
 msgid "Australia"
-msgstr ""
+msgstr "Australia"
 
 msgid "Austria"
-msgstr ""
+msgstr "Austria"
 
 msgid "Authenticate users"
-msgstr ""
+msgstr "Πιστοποίηση χρηστών"
 
 msgid "Authentication"
-msgstr ""
+msgstr "Πιστοποίηση"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Πιστοποίηση χωρίς ιδιωτικότητα"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Πιστοποίηση με ιδιωτικότητα"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "Κωδικός πιστοποίησης"
 
 msgid "Authentication required"
-msgstr ""
+msgstr "Απαιτείται πιστοποίηση"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "Τύπος πιστοποίησης"
 
 msgid "Automatic Acoustic Management"
-msgstr ""
+msgstr "Αυτόματη Ακουστική Διαχείριση"
 
 msgid "Available"
-msgstr ""
+msgstr "Διαθέσιμο"
 
 msgid "Azerbaijan"
-msgstr ""
+msgstr "Azerbaijan"
 
 msgid "Backup"
-msgstr ""
+msgstr "Αντίγραφα ασφαλείας"
 
 msgid "Backup configuration"
-msgstr ""
+msgstr "Ρυθμίσεις αντιγράφων ασφαλείας"
 
 msgid "Bahamas"
-msgstr ""
+msgstr "Bahamas"
 
 msgid "Bahrain"
-msgstr ""
+msgstr "Bahrain"
 
 msgid "Ban list"
-msgstr ""
+msgstr "Λίστα αποκλεισμού"
 
 #, c-format
 msgid "Ban statistics:"
-msgstr ""
+msgstr "Στατιστικά αποκλεισμών"
 
 msgid "Bandwidth restriction"
-msgstr ""
+msgstr "Περιορισμός διαμεταγωγής"
 
 msgid "Bangladesh"
-msgstr ""
+msgstr "Bangladesh"
 
 msgid "Barbados"
-msgstr ""
+msgstr "Barbados"
 
 msgid "Belarus"
-msgstr ""
+msgstr "Belarus"
 
 msgid "Belgium"
-msgstr ""
+msgstr "Belgium"
 
 msgid "Belize"
-msgstr ""
+msgstr "Belize"
 
 msgid "Benin"
-msgstr ""
+msgstr "Benin"
 
 msgid "Bermuda"
-msgstr ""
+msgstr "Bermuda"
 
 msgid "Bhutan"
-msgstr ""
+msgstr "Bhutan"
 
 msgid "Blocksize"
-msgstr ""
+msgstr "Μέγεθος τμήματος"
 
 msgid "Bolivia"
-msgstr ""
+msgstr "Bolivia"
 
 msgid "Bond options"
-msgstr ""
+msgstr "Επιλογές ζεύξης"
 
 msgid "Bosnia and Herzegovina"
-msgstr ""
+msgstr "Bosnia and Herzegovina"
 
 msgid "Botswana"
-msgstr ""
+msgstr "Botswana"
 
 msgid "Bouvet Island"
-msgstr ""
+msgstr "Bouvet Island"
 
 msgid "Brazil"
-msgstr ""
+msgstr "Brazil"
 
 msgid "British Antarctic Territory"
-msgstr ""
+msgstr "British Antarctic Territory"
 
 msgid "British Indian Ocean Territory"
-msgstr ""
+msgstr "British Indian Ocean Territory"
 
 msgid "British Virgin Islands"
-msgstr ""
+msgstr "British Virgin Islands"
 
 msgid "Browseable"
-msgstr ""
+msgstr "Περιηγήσιμο"
 
 msgid "Brunei"
-msgstr ""
+msgstr "Brunei"
 
 msgid "Bulgaria"
-msgstr ""
+msgstr "Bulgaria"
 
 msgid "Burkina Faso"
-msgstr ""
+msgstr "Burkina Faso"
 
 msgid "Burundi"
-msgstr ""
+msgstr "Burundi"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr ""
+msgstr "Εξ'ορισμού, επιτρέπεται να μεταφορτωθούν μόνο αρχεία που υπάρχουν ήδη"
 
 msgid "CPU usage"
-msgstr ""
+msgstr "Χρήση επεξεργαστή"
 
 msgid "Cambodia"
-msgstr ""
+msgstr "Cambodia"
 
 msgid "Cameroon"
-msgstr ""
+msgstr "Cameroon"
 
 msgid "Canada"
-msgstr ""
+msgstr "Canada"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Ακύρωση"
 
 msgid "Canton and Enderbury Islands"
-msgstr ""
+msgstr "Canton and Enderbury Islands"
 
 msgid "Capacity"
-msgstr ""
+msgstr "Χωρητικότητα"
 
 msgid "Cape Verde"
-msgstr ""
+msgstr "Cape Verde"
 
 msgid "Cayman Islands"
-msgstr ""
+msgstr "Cayman Islands"
 
 msgid "Central African Republic"
-msgstr ""
+msgstr "Central African Republic"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Πιστοποιητικό"
 
 msgid "Certificate details"
-msgstr ""
+msgstr "Λεπτομέρειες πιστοποιητικού"
 
 msgid "Certificates"
-msgstr ""
+msgstr "Πιστοποιητικά"
 
 msgid "Chad"
-msgstr ""
+msgstr "Chad"
 
 msgid "Check"
-msgstr ""
+msgstr "Έλεγχος"
 
 msgid "Check interval"
-msgstr ""
+msgstr "Συχνότητα ελέγχου"
 
 msgid "Checking for new plugins ..."
-msgstr ""
+msgstr "Έλεγχος για νέες προσθήκες ..."
 
 msgid "Checking for new updates ..."
-msgstr ""
+msgstr "Έλεγχος για νέες ενημερώσεις ..."
 
 msgid "Chile"
-msgstr ""
+msgstr "Chile"
 
 msgid "China"
-msgstr ""
+msgstr "China"
 
 msgid "Christmas Island"
-msgstr ""
+msgstr "Christmas Island"
 
 msgid "City"
-msgstr ""
+msgstr "Πόλη"
 
 msgid "Clear"
-msgstr ""
+msgstr "Καθαρισμός"
 
-msgid "Click the 'Backup' button to download the current system configuration."
-msgstr ""
+msgid ""
+"Click the 'Backup' button to download the current system configuration."
+msgstr "Πατήστε το κουμπί για να αποθηκεύσετε τις τρέχουσες ρυθμίσεις."
 
 msgid "Client"
-msgstr ""
+msgstr "Πελάτης"
 
 msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Πελάτες που επιτρέπεται να προσαρτίσουν το σύστημα αρχείων, π.χ. 192.168.178.0/24."
 
 msgid "Close"
-msgstr ""
+msgstr "Κλείσιμο"
 
 msgid "Cocos (Keeling) Islands"
-msgstr ""
+msgstr "Cocos (Keeling) Islands"
 
 msgid "Colombia"
-msgstr ""
+msgstr "Colombia"
 
 msgid "Command"
-msgstr ""
+msgstr "Εντολή"
 
 msgid "Comment"
-msgstr ""
+msgstr "Σχόλιο"
 
 msgid "Commit"
-msgstr ""
+msgstr "Εφαρμογή"
 
 msgid "Common Name"
-msgstr ""
+msgstr "Κοινό όνομα"
 
 msgid "Community"
-msgstr ""
+msgstr "Κοινότητα"
 
 msgid "Comoros"
-msgstr ""
+msgstr "Comoros"
 
 msgid "Compress"
-msgstr ""
+msgstr "Συμπίεση"
 
 msgid "Compress file data during the transfer"
-msgstr ""
+msgstr "Συμπίεση αρχείων κατά την μεταφορά"
 
 msgid "Compression"
-msgstr ""
+msgstr "Συμπίεση"
 
-msgid "Compression is worth using if your connection is slow. The efficiency of the compression depends on the type of the file, and varies widely. Useful for internet transfer only."
-msgstr ""
+msgid ""
+"Compression is worth using if your connection is slow. The efficiency of the"
+" compression depends on the type of the file, and varies widely. Useful for "
+"internet transfer only."
+msgstr "Η συμπίεση αξίζει τον κόπο όταν η σύνδεση είναι αργή. Η αποτελεσματικότητα της συμπίεσης εξαρτάται από το είδος του αρχείου και κυμαίνεται δραστικά. Χρήσιμό μόνο για διαδικτυακές μεταφορές."
 
 msgid "Confirm password"
-msgstr ""
+msgstr "Επιβεβαίωση κωδικού"
 
 msgid "Confirmation"
-msgstr ""
+msgstr "Επιβεβαίωση"
 
 msgid "Congo (Brazzaville)"
-msgstr ""
+msgstr "Congo (Brazzaville)"
 
 msgid "Congo (Kinshasa)"
-msgstr ""
+msgstr "Congo (Kinshasa)"
 
 msgid "Contact"
-msgstr ""
+msgstr "Επικοινωνία"
 
-msgid "Contact information, e.g. name or email address of the person responsible for this system."
-msgstr ""
+msgid ""
+"Contact information, e.g. name or email address of the person responsible "
+"for this system."
+msgstr "Στοιχεία επικοινωνίας, π.χ. όνομα ή διεύθυνση ηλεκτρονικού ταχυδρομείου για τον διαχειριστή αυτού του συστήματος."
 
 msgid "Conveyance self-test"
-msgstr ""
+msgstr "Έλεγχος μετάδοσης"
 
 msgid "Cook Islands"
-msgstr ""
+msgstr "Cook Islands"
 
 msgid "Costa Rica"
-msgstr ""
+msgstr "Costa Rica"
 
 msgid "Country"
-msgstr ""
+msgstr "Χώρα"
 
 msgid "Create"
-msgstr ""
+msgstr "Δημιουργία"
 
 msgid "Create RAID device"
-msgstr ""
+msgstr "Δημιουργία RAID "
 
 msgid "Create filesystem"
-msgstr ""
+msgstr "Δημιουργία συστήματος αρχείων"
 
 msgid "Create self-signed SSL certificate"
-msgstr ""
+msgstr "Δημιουργία πιστοποιητικού SSL"
 
 msgid "Critical"
-msgstr ""
+msgstr "Σημαντικό"
 
 msgid "Croatia"
-msgstr ""
+msgstr "Croatia"
 
 msgid "Cron Jobs"
-msgstr ""
+msgstr "Προγραμματισμένες εργασίες"
 
 msgid "Cuba"
-msgstr ""
+msgstr "Cuba"
 
 msgid "Current time"
-msgstr ""
+msgstr "Τρέχουσα ώρα"
 
 #, c-format
 msgid "Currently logged in users:"
-msgstr ""
+msgstr "Συνδεδεμένοι χρήστες :"
 
 msgid "Cyprus"
-msgstr ""
+msgstr "Cyprus"
 
 msgid "Czech Republic"
-msgstr ""
+msgstr "Czech Republic"
 
 msgid "DHCP"
-msgstr ""
+msgstr "DHCP"
 
 msgid "DNS Server"
-msgstr ""
+msgstr "Διακομιστής DNS"
 
 msgid "DNS Service Discovery"
-msgstr ""
+msgstr "Ανακάλυψη υπηρεσιών DNS"
 
 msgid "DNS server"
-msgstr ""
+msgstr "Διακομιστής DNS"
 
 msgid "Daemon"
-msgstr ""
+msgstr "Δαίμονας"
 
 msgid "Date"
-msgstr ""
+msgstr "Ημερομηνία"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Ημερομηνία και ώρα"
 
 msgid "Day of month"
-msgstr ""
+msgstr "Ημέρα του μήνα"
 
 msgid "Day of week"
-msgstr ""
+msgstr "Ημέρα της εβδομάδας"
 
 msgid "Debug"
-msgstr ""
+msgstr "Εντοπισμός σφαλμάτων"
 
 msgid "December"
-msgstr ""
+msgstr "Δεκέμβριος"
 
 msgid "Delete"
-msgstr ""
+msgstr "Διαγραφή"
 
 msgid "Delete files on the receiving side that don't exist on sender"
-msgstr ""
+msgstr "Διαγραφή αρχείων του λήπτη που δεν υπάρχουν στον αποστολέα"
 
 msgid "Deleting selected item(s)"
-msgstr ""
+msgstr "Διαγραφή επιλεγμένων"
 
 msgid "Denmark"
-msgstr ""
+msgstr "Denmark"
 
 msgid "Deny"
-msgstr ""
+msgstr "Απόρριψη"
 
 msgid "Deny logins which do not have a valid shell"
-msgstr ""
+msgstr "Απόρριψη συνδέσεων χωρίς κέλυφος"
 
 msgid "Description"
-msgstr ""
+msgstr "Περιγραφή"
 
 msgid "Destination"
-msgstr ""
+msgstr "Προορισμός"
 
-msgid "Destination address can be either a network IP address (with /mask), a IP range or a plain IP address. A '!' argument before the address specification inverts the sense of the address."
-msgstr ""
+msgid ""
+"Destination address can be either a network IP address (with /mask), a IP "
+"range or a plain IP address. A '!' argument before the address specification"
+" inverts the sense of the address."
+msgstr "Ο προορισμός μπορεί να είναι είτε ένα τμήμα δικτύου (διεύθυνση ΙΡ με /μάσκα), είτε ένα φάσμα διευθύνσεων (από-εώς), είτε μια μεμονομένη διεύθυνση ΙΡ. Με ένα \"!\" μπροστά από τον προορισμό, αντιστρέφεται η έννοιά του."
 
 msgid "Destination port"
-msgstr ""
+msgstr "Θύρα προορισμού"
 
 msgid "Destination server"
-msgstr ""
+msgstr "Διακομιστής προορισμού"
 
 msgid "Destination shared folder"
-msgstr ""
+msgstr "Kοινόχρηστος φάκελος προορισμού"
 
 msgid "Detail"
-msgstr ""
+msgstr "Λεπτομέρια"
 
-msgid "Determine the default timeout, in microseconds, before the first packet is retransmitted."
-msgstr ""
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr "Καθορισμός προθεσμίας, σε εκατομμυριοστά του δευτερολέπτου, πριν την επανάληψη αποστολής του πρώτου πακέτου."
 
 msgid "Device"
-msgstr ""
+msgstr "Συσκευή"
 
 #, c-format
 msgid "Device '%s' not found"
-msgstr ""
+msgstr "Η συσκευή '%s' δεν βρέθηκε"
 
 msgid "Device identity information"
-msgstr ""
+msgstr "Πληροφορίες ταυτότητας συσκευής"
 
 msgid "Device model"
-msgstr ""
+msgstr "Μοντέλο συσκευής"
 
 msgid "Devices"
-msgstr ""
+msgstr "Συσκευές"
 
 msgid "Diagnostics"
-msgstr ""
+msgstr "Διαγνωστικά"
 
 msgid "Difference"
-msgstr ""
+msgstr "Διαφορά"
 
 msgid "Direction"
-msgstr ""
+msgstr "Κατεύθυνση"
 
 msgid "Directory"
-msgstr ""
+msgstr "Ευρετήριο"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Ανενεργό"
 
 msgid "Disallow the user to modify his account."
-msgstr ""
+msgstr "Δεν επιτρέπεται στον χρήστη να τροποποιήσει τον λογαριασμό του."
 
 msgid "Disk usage"
-msgstr ""
+msgstr "Χρήση δίσκου"
 
 msgid "Displaying items {0} - {1} of {2}"
-msgstr ""
+msgstr "Εμφάνιση εγγραφών {0} - {1} από {2}"
 
 msgid "Djibouti"
-msgstr ""
+msgstr "Djibouti"
 
 msgid "Do you really want to clear the log file?"
-msgstr ""
+msgstr "Να καθαριστεί το αρχείο καταγραφής;"
 
 msgid "Do you really want to create the RAID device?"
-msgstr ""
+msgstr "Να δημιουργηθεί η συσκευή RAID;"
 
 msgid "Do you really want to delete the selected item(s)?"
-msgstr ""
+msgstr "Να διαγραφούν τα επιλεγμένα;"
 
-msgid "Do you really want to format this device? All data on it will be deleted. Please note that the filesystem creation may take some time."
-msgstr ""
+msgid ""
+"Do you really want to format this device? All data on it will be deleted. "
+"Please note that the filesystem creation may take some time."
+msgstr "Να διαμορφωθεί η συσκευή; Όλα τα δεδομένα θα χαθούν. Η διαδικασία μπορεί να διαρκέσει αρκετή ώρα."
 
 msgid "Do you really want to leave the page?"
-msgstr ""
+msgstr "Να γίνει έξοδος από την σελίδα;"
 
 msgid "Do you really want to logout?"
-msgstr ""
+msgstr "Να γίνει αποσύνδεση;"
 
 msgid "Do you really want to reboot the system?"
-msgstr ""
+msgstr "Να γίνει επανεκκίνηση του συστήματος;"
 
-msgid "Do you really want to resize the selected filesystem? You have to do that after a RAID has been grown for example."
-msgstr ""
+msgid ""
+"Do you really want to resize the selected filesystem? You have to do that "
+"after a RAID has been grown for example."
+msgstr "Να αλλαχθεί το μέγεθος του επιλεγμένου συστήματος αρχείων; Αυτό πρέπει να γίνει αν μεγαλώσει ένα RAID για παράδειγμα."
 
 msgid "Do you really want to shutdown the system?"
-msgstr ""
+msgstr "Να γίνει τερματισμός του συστήματος;"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr ""
+msgstr "Επιτρέπεται να διαφημίζεται ως ? σε πελάτες Windows"
 
 msgid "Do you really want to wipe the selected device?"
-msgstr ""
+msgstr "Εκκένωση της επιλεγμένης συσκευής;"
 
-msgid "Do you want to secure wipe the device? Please note that this may take a long time. Press 'No' to fast wipe the device or 'Cancel' to abort."
-msgstr ""
+msgid ""
+"Do you want to secure wipe the device? Please note that this may take a long"
+" time. Press 'No' to fast wipe the device or 'Cancel' to abort."
+msgstr "Ενδελεχής εκκένωση της συσκευής; Αυτό μπορεί να διαρκέσει πολύ ώρα. \"Όχι\" για γρήγορη εκκένωση ή \"Ακύρωση\" για εγκατάλειψη."
 
 msgid "Domain name"
-msgstr ""
+msgstr "Όνομα τομέα"
 
 msgid "Dominica"
-msgstr ""
+msgstr "Dominica"
 
 msgid "Dominican Republic"
-msgstr ""
+msgstr "Dominican Republic"
 
 msgid "Donate"
-msgstr ""
+msgstr "Δωρεά"
 
 msgid "Done ..."
 msgstr ""
@@ -863,317 +875,332 @@ msgid "Down delay"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "Λήψη"
 
 msgid "Dronning Maud Land"
-msgstr ""
+msgstr "Dronning Maud Land"
 
-msgid "Each line represents one user. Note, the password must be entered in plain text."
-msgstr ""
+msgid "Dutch"
+msgstr "Γερμανικά"
+
+msgid ""
+"Each line represents one user. Note, the password must be entered in plain "
+"text."
+msgstr "Κάθε γραμμή αντιπροσωπεύει έναν χρήστη. Οι κωδικοί πρέπει να δωθούν σε απλό κείμενο."
 
 msgid "East Timor"
-msgstr ""
+msgstr "East Timor"
 
 msgid "Ecuador"
-msgstr ""
+msgstr "Ecuador"
 
 msgid "Edit"
-msgstr ""
+msgstr "Αλλαγή"
 
 msgid "Edit SSL certificate"
-msgstr ""
+msgstr "Αλλαγή"
 
 msgid "Edit bonded interface"
 msgstr ""
 
 msgid "Edit cron job"
-msgstr ""
+msgstr "Επεξεργασία προγραμματισμένης εργασίας"
 
 msgid "Edit firewall rule"
-msgstr ""
+msgstr "Επεξεργασία κανονισμού ασφαλείας"
 
 msgid "Edit group"
-msgstr ""
+msgstr "Επεξεργασία ομάδας"
 
 msgid "Edit module"
-msgstr ""
+msgstr "Επεξεργασία μονάδας"
 
 msgid "Edit physical disk properties"
-msgstr ""
+msgstr "Μεταβολή ιδιοτήτων δίσκου"
 
 msgid "Edit physical interface"
-msgstr ""
+msgstr "Μεταβολή διεπαφής"
 
 msgid "Edit quota"
-msgstr ""
+msgstr "Μεταβολή ποσοστού"
 
 msgid "Edit rsync job"
-msgstr ""
+msgstr "Μεταβολή εργασίας συγχρονισμού (rsync)"
 
 msgid "Edit rule"
-msgstr ""
+msgstr "Μεταβολή κανόνα"
 
 msgid "Edit scheduled test"
-msgstr ""
+msgstr "Μεταβολή προγραμματισμένου ελέγχου"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Μεταβολή κοινόχρηστου"
 
 msgid "Edit shared folder"
-msgstr ""
+msgstr "Μεταβολή κοινόχρηστου φακέλου"
 
 msgid "Edit shared folder privileges"
-msgstr ""
+msgstr "Μεταβολή προνομίων κοινόχρηστου φακέλου"
 
 msgid "Edit user"
-msgstr ""
+msgstr "Μεταβολή χρήστη"
 
 msgid "Egypt"
-msgstr ""
+msgstr "Egypt"
 
 msgid "El Salvador"
-msgstr ""
+msgstr "El Salvador"
 
 msgid "Email"
-msgstr ""
+msgstr "Ηλεκτρονικό ταχυδρομείο"
 
 msgid "Enable"
-msgstr ""
+msgstr "Ενεργοποίηση"
 
 msgid "Enable FXP protocol"
-msgstr ""
+msgstr "Ενεργοποίηση προτοκόλου FXP"
 
 msgid "Enable SSL/TLS"
-msgstr ""
+msgstr "Ενεργοποίηση SSL/TLS"
 
 msgid "Enable SSL/TLS connections"
-msgstr ""
+msgstr "Ενεργοποίηση συνδέσεων SSL/TLS"
 
 msgid "Enable WINS server"
-msgstr ""
+msgstr "Ενεργοποίηση διακομιστή WINS"
 
 msgid "Enable advertising of services via mDNS/DNS-SD."
-msgstr ""
+msgstr "Διαφήμιση υπηρεσιών μέσω mDNS/DNS-SD"
 
 msgid "Enable anonymous FTP"
-msgstr ""
+msgstr "Ενεργοποίηση ανόνυμης πρόσβασης FTP"
 
 msgid "Enable archive mode"
-msgstr ""
+msgstr "Ενεργοποίηση αρχειοθέτησης"
 
 msgid "Enable compression"
-msgstr ""
+msgstr "Ενεργοποίηση συμπίεσης"
 
 msgid "Enable extended attribute support"
-msgstr ""
+msgstr "Υποστήριξη εκτεταμένων ιδιοτήτων"
 
 msgid "Enable keyboard-interactive authentication"
-msgstr ""
+msgstr "Ενεργοποίηση πιστοποίησης μέσω πληκτρολογίου"
 
 msgid "Enable module listing"
-msgstr ""
+msgstr "Ενεργοποίηση λίστας μονάδων"
 
 msgid "Enable permission inheritance"
-msgstr ""
+msgstr "Ενεργοποίηση μεταβίβασης δικαιωμάτων"
 
 msgid "Enable recycle bin"
-msgstr ""
+msgstr "Ενεργοποίηση κάδου ανακύκλωσης"
 
 msgid "Enable reverse DNS lookup"
-msgstr ""
+msgstr "Ενεργοποίηση ανάστροφης αναζήτησης DNS"
 
-msgid "Enable reverse DNS lookup performed on the remote host's IP address for incoming active mode data connections and outgoing passive mode data connections."
-msgstr ""
+msgid ""
+"Enable reverse DNS lookup performed on the remote host's IP address for "
+"incoming active mode data connections and outgoing passive mode data "
+"connections."
+msgstr "Ενεργοποίηση ανάστροφης αναζήτησης DNS στην δυεύθυνση ΙΡ του απομακρυσμένου χρήση για ενεργές εισερχόμενες και παθητικές εξερχόμενες συνδέσεις δεδομένων."
 
 msgid "Enable secure connection."
-msgstr ""
+msgstr "Ενεργοποίηση ασφαλούς σύνδεσης."
 
 msgid "Enable store DOS attributes support"
-msgstr ""
+msgstr "Ενεργοποίηση αποθήκευσης ιδιοτήτων DOS"
 
 msgid "Enable the ident protocol (RFC1413)"
-msgstr ""
+msgstr "Ενεργοποίηση προτοκόλου αναγνώρισης (ident RFC1413)"
 
 msgid "Enable user authentication"
-msgstr ""
+msgstr "Ενεργοποίηση πιστοποίησης χρηστών"
 
 msgid "Enable user home directories"
-msgstr ""
+msgstr "Ενεργοποίηση φακέλων χρηστών"
 
 msgid "Enable write-cache."
-msgstr ""
+msgstr "Ενεργοποίηση "
 
 msgid "Enabled"
-msgstr ""
+msgstr "Ενεργό"
 
 msgid "English"
-msgstr ""
+msgstr "Αγγλικά"
 
 msgid "Enter your password"
-msgstr ""
+msgstr "Εισάγωγή κωδικού"
 
 msgid "Enter your username"
-msgstr ""
+msgstr "Εισαγωγή ονόματος"
 
 msgid "Equatorial Guinea"
-msgstr ""
+msgstr "Equatorial Guinea"
 
 msgid "Eritrea"
-msgstr ""
+msgstr "Eritrea"
 
 msgid "Error"
-msgstr ""
+msgstr "Σφάλμα"
 
 msgid "Error #"
-msgstr ""
+msgstr "Σφάλμα #"
 
 #, c-format
 msgid "Error #%d"
-msgstr ""
+msgstr "Σφάλμα #%d"
 
 msgid "Estonia"
-msgstr ""
+msgstr "Estonia"
 
 msgid "Ethiopia"
-msgstr ""
+msgstr "Ethiopia"
 
 msgid "Event"
-msgstr ""
+msgstr "Συμβάν"
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "Κάθε Ν μέρα του μήνα"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "Κάθε Ν ώρα"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "Κάθε Ν λεπτό"
 
 msgid "Everyone: read/write"
-msgstr ""
+msgstr "Όλοι : ανάγνωση & εγγραφή"
 
 msgid "Execute command"
-msgstr ""
+msgstr "Εκτέλεση εντολής"
 
 msgid "Execute cron job"
-msgstr ""
+msgstr "Εκτέλεση προγραμματισμένης εργασίας"
 
 msgid "Execute rsync job"
-msgstr ""
+msgstr "Εκτέλεση εργασίας συγχρονισμού"
 
 msgid "Expire"
-msgstr ""
+msgstr "Λήξη"
 
 msgid "Extended attributes"
-msgstr ""
+msgstr "Εκτεταμένες ιδιότητες"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Επιπλέον ρυθμίσεις"
 
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 msgid "FXP"
-msgstr ""
+msgstr "FXP"
 
-msgid "FXP allows transfers between two remote servers without any file data going to the client asking for the transfer."
-msgstr ""
+msgid ""
+"FXP allows transfers between two remote servers without any file data going "
+"to the client asking for the transfer."
+msgstr "Το FXP επιτρέπει την μεταφορά αρχείων ανάμεσα σε δύο διακομιστές, χωρίς τα δεδομένα να περνάνε από τον πελάτη που ζήτησε την μεταφορά."
 
 msgid "Failed to call "
-msgstr ""
+msgstr "Αποτυχία κλήσης"
 
 #, c-format
-msgid "Failed to create filesystem. Please check the syslog or '%s' for more details."
+msgid ""
+"Failed to create filesystem. Please check the syslog or '%s' for more "
+"details."
 msgstr ""
 
 msgid "Failed to get filesystems"
-msgstr ""
+msgstr "Αποτυχία λήψης συστημάτων αρχείων"
 
 msgid "Failed to get system date and time"
-msgstr ""
+msgstr "Αποτυχία λήψης ημερομηνίας και ώρας συστήματος"
 
 msgid "Falkland Islands"
-msgstr ""
+msgstr "Falkland Islands"
 
 msgid "Faroe Islands"
-msgstr ""
+msgstr "Faroe Islands"
 
 msgid "Fatal error"
-msgstr ""
+msgstr "Σοβαρό σφάλμα"
 
 msgid "February"
-msgstr ""
+msgstr "Φεβρουάριος"
 
 msgid "Fields must be exclusive"
-msgstr ""
+msgstr "Τα πεδία πρέπει να είναι αποκλειστικά"
 
 msgid "Fiji"
-msgstr ""
+msgstr "Fiji"
 
 msgid "File"
-msgstr ""
+msgstr "Αρχείο"
 
 msgid "Filesystem"
-msgstr ""
+msgstr "Σύστημα αρχείων"
 
 #, c-format
 msgid "Filesystem '%s' not found"
-msgstr ""
+msgstr "Το σύστημα αρχείων '%s' δεν βρέθηκε"
 
 #, c-format
 msgid "Filesystem '%s' not supported"
-msgstr ""
+msgstr "Το σύστημα αρχείων '%s' δεν υποστηρίζεται"
 
 msgid "Filesystems"
-msgstr ""
+msgstr "Συστήματα αρχείων"
 
 msgid "Finland"
-msgstr ""
+msgstr "Finland"
 
 msgid "Firewall"
-msgstr ""
+msgstr "Κανόνες ασφαλείας"
 
 msgid "Firmware version"
-msgstr ""
+msgstr "Έκδοση λογισμικού"
 
 msgid "Flag"
 msgstr ""
 
 msgid "Force SSL/TLS"
-msgstr ""
+msgstr "Επιβολή SSL/TLS"
 
 msgid "Force secure connection only."
-msgstr ""
+msgstr "Να απαιτείται μόνο ασφαλής σύνδεση."
 
 msgid "France"
-msgstr ""
+msgstr "France"
+
+msgid "French"
+msgstr "Γαλλικά"
 
 msgid "French Guiana"
-msgstr ""
+msgstr "French Guiana"
 
 msgid "French Polynesia"
-msgstr ""
+msgstr "French Polynesia"
 
 msgid "French Southern Territories"
-msgstr ""
+msgstr "French Southern Territories"
 
 msgid "French Southern and Antarctic Territories"
-msgstr ""
+msgstr "French Southern and Antarctic Territories"
 
 msgid "Friday"
-msgstr ""
+msgstr "Παρασκευή"
 
 msgid "Full"
-msgstr ""
+msgstr "Πλήρες"
 
 msgid "Gabon"
-msgstr ""
+msgstr "Gabon"
 
 msgid "Gambia"
-msgstr ""
+msgstr "Gambia"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Πύλη πρόσβασης"
 
 msgid "General"
 msgstr ""
@@ -1205,6 +1232,9 @@ msgstr ""
 msgid "Greece"
 msgstr ""
 
+msgid "Greek"
+msgstr "Ελληνικά"
+
 msgid "Greenland"
 msgstr ""
 
@@ -1231,43 +1261,43 @@ msgid "Guadeloupe"
 msgstr ""
 
 msgid "Guam"
-msgstr ""
+msgstr "Guam"
 
 msgid "Guatemala"
-msgstr ""
+msgstr "Guatemala"
 
 msgid "Guinea"
-msgstr ""
+msgstr "Guinea"
 
 msgid "Guinea-Bissau"
-msgstr ""
+msgstr "Guinea-Bissau"
 
 msgid "Guyana"
-msgstr ""
+msgstr "Guyana"
 
 msgid "Haiti"
-msgstr ""
+msgstr "Haiti"
 
 msgid "Heard Island and McDonald Islands"
-msgstr ""
+msgstr "Heard Island and McDonald Islands"
 
 msgid "Hide details"
-msgstr ""
+msgstr "Απόκρυψη λεπτομερειών"
 
 msgid "Hide dot files"
-msgstr ""
+msgstr "Απόκρυψη αρχείων που αρχίζουν με τελεία"
 
 msgid "Home directories"
-msgstr ""
+msgstr "Φάκελοι χρηστών"
 
 msgid "Homepage"
-msgstr ""
+msgstr "Σελίδα"
 
 msgid "Honduras"
-msgstr ""
+msgstr "Honduras"
 
 msgid "Hong Kong S.A.R., China"
-msgstr ""
+msgstr "Hong Kong S.A.R., China"
 
 msgid "Honor existing ACLs"
 msgstr ""
@@ -1291,33 +1321,35 @@ msgid "Hosts deny"
 msgstr ""
 
 msgid "Hour"
-msgstr ""
+msgstr "Ώρα"
 
 msgid "Hungary"
-msgstr ""
+msgstr "Hungary"
 
 msgid "ID"
-msgstr ""
+msgstr "Αναγνωριστικό"
 
 msgid "Iceland"
-msgstr ""
+msgstr "Iceland"
 
 msgid "Ident protocol"
 msgstr ""
 
 msgid "Identify"
-msgstr ""
+msgstr "Αναγνώριση"
 
 msgid "Identify network interface device"
-msgstr ""
+msgstr "Αναγνώριση διεπαφής δικτύου"
 
 msgid "Idle"
-msgstr ""
+msgstr "Αδρανές"
 
 msgid "If enabled then no password is required to connect to the share"
 msgstr ""
 
-msgid "If set then the client will be challenged to supply a username and password to connect to the module."
+msgid ""
+"If set then the client will be challenged to supply a username and password "
+"to connect to the module."
 msgstr ""
 
 msgid "If this option is set, then any attempted downloads will fail."
@@ -1326,87 +1358,106 @@ msgstr ""
 msgid "If this option is set, then any attempted uploads will fail."
 msgstr ""
 
-msgid "If this parameter is set, Samba attempts to first read DOS attributes (SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute, before mapping DOS attributes to UNIX permission bits. When set, DOS attributes will be stored onto an extended attribute in the UNIX filesystem, associated with the file or directory."
+msgid ""
+"If this parameter is set, Samba attempts to first read DOS attributes "
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
+" before mapping DOS attributes to UNIX permission bits. When set, DOS "
+"attributes will be stored onto an extended attribute in the UNIX filesystem,"
+" associated with the file or directory."
 msgstr ""
 
-msgid "If this parameter is set, then users may not create or modify files in the share."
+msgid ""
+"If this parameter is set, then users may not create or modify files in the "
+"share."
 msgstr ""
 
-msgid "If your host is acting as a NAT gateway or port forwarder for the server, this option is useful in order to allow passive tranfers to work. You have to use your public address and opening the passive ports used on your firewall as well."
+msgid ""
+"If your host is acting as a NAT gateway or port forwarder for the server, "
+"this option is useful in order to allow passive tranfers to work. You have "
+"to use your public address and opening the passive ports used on your "
+"firewall as well."
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "Εισαγωγή"
 
 msgid "Import SSL certificate"
-msgstr ""
+msgstr "Εισαγωγή πιστοποιητικού SSL"
 
 msgid "Import users"
-msgstr ""
+msgstr "Εισαγωγή χρηστών"
 
-msgid "In some cases you have to specify passive ports range to by-pass firewall limitations. Passive ports restricts the range of ports from which the server will select when sent the PASV command from a client. The server will randomly choose a number from within the specified range until an open port is found. The port range selected must be in the non-privileged range (eg. greater than or equal to 1024). It is strongly recommended that the chosen range be large enough to handle many simultaneous passive connections (for example, 49152-65534, the IANA-registered ephemeral port range)."
+msgid ""
+"In some cases you have to specify passive ports range to by-pass firewall "
+"limitations. Passive ports restricts the range of ports from which the "
+"server will select when sent the PASV command from a client. The server will"
+" randomly choose a number from within the specified range until an open port"
+" is found. The port range selected must be in the non-privileged range (eg. "
+"greater than or equal to 1024). It is strongly recommended that the chosen "
+"range be large enough to handle many simultaneous passive connections (for "
+"example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr ""
 
 msgid "India"
-msgstr ""
+msgstr "India"
 
 msgid "Indonesia"
-msgstr ""
+msgstr "Indonesia"
 
 msgid "Informal"
-msgstr ""
+msgstr "Ανεπίσημο"
 
 msgid "Information"
-msgstr ""
+msgstr "Πληροφορίες"
 
 msgid "Inherit ACLs"
-msgstr ""
+msgstr "Μεταβίβαση λιστών πρόσβασης"
 
 msgid "Inherit permissions"
-msgstr ""
+msgstr "Μεταβίβαση δικαιωμάτων"
 
 msgid "Install"
-msgstr ""
+msgstr "Εγκατάσταση"
 
 msgid "Install plugins ..."
-msgstr ""
+msgstr "Εγκατάσταση προσθηκών ..."
 
 msgid "Install updates ..."
-msgstr ""
+msgstr "Εγκατάσταση ενημερώσεων ..."
 
 msgid "Installed"
-msgstr ""
+msgstr "Εγκατεστημένο"
 
 msgid "Interfaces"
-msgstr ""
+msgstr "Διεπαφές"
 
 msgid "Invalid comment"
-msgstr ""
+msgstr "Άκυρο σχόλιο"
 
 msgid "Invalid domain name"
-msgstr ""
+msgstr "Άκυρο όνομα τομέα"
 
 msgid "Invalid filesystem label"
-msgstr ""
+msgstr "Άκυρη ετικέτα συστήματος αρχείων"
 
 msgid "Invalid group name"
-msgstr ""
+msgstr "Άκυρη ονομασία ομάδας"
 
 msgid "Invalid hostname"
-msgstr ""
+msgstr "Άκυρο όνομα συστήματος"
 
 #, c-format
 msgid "Invalid line: %s"
 msgstr ""
 
 msgid "Invalid name"
-msgstr ""
+msgstr "Άκυρο όνομα"
 
 msgid "Invalid share name"
 msgstr ""
 
 msgid "Invalid user name"
-msgstr ""
+msgstr "Άκυρο όνομα χρήστη"
 
 msgid "Iran"
 msgstr ""
@@ -1419,6 +1470,9 @@ msgstr ""
 
 msgid "Israel"
 msgstr ""
+
+msgid "Italian"
+msgstr "Ιταλικά"
 
 msgid "Italy"
 msgstr ""
@@ -1439,128 +1493,130 @@ msgid "Jobs"
 msgstr ""
 
 msgid "Johnston Island"
-msgstr ""
+msgstr "Johnston Island"
 
 msgid "Jordan"
-msgstr ""
+msgstr "Jordan"
 
 msgid "July"
-msgstr ""
+msgstr "Ιούλιος"
 
 msgid "June"
-msgstr ""
+msgstr "Ιούνιος"
 
 msgid "Kazakhstan"
-msgstr ""
+msgstr "Kazakhstan"
 
 msgid "Kenya"
-msgstr ""
+msgstr "Kenya"
 
 msgid "Kernel"
-msgstr ""
+msgstr "Πηρύνας"
 
 msgid "Key size"
-msgstr ""
+msgstr "Μέγεθος κλειδιού"
 
 msgid "Kiribati"
-msgstr ""
+msgstr "Kiribati"
 
 msgid "Kuwait"
-msgstr ""
+msgstr "Kuwait"
 
 msgid "Kyrgyzstan"
-msgstr ""
+msgstr "Kyrgyzstan"
 
 msgid "LBA of first error"
-msgstr ""
+msgstr "Τοποθεσία πρώτου σφάλματος"
 
 msgid "Label"
-msgstr ""
+msgstr "Ετικέτα"
 
 msgid "Language"
-msgstr ""
+msgstr "Γλώσσα"
 
 msgid "Laos"
-msgstr ""
+msgstr "Laos"
 
 msgid "Latvia"
-msgstr ""
+msgstr "Latvia"
 
 msgid "Lebanon"
-msgstr ""
+msgstr "Lebanon"
 
-msgid "Length of time in seconds to blink one or more LEDs on the specific ethernet port."
-msgstr ""
+msgid ""
+"Length of time in seconds to blink one or more LEDs on the specific ethernet"
+" port."
+msgstr "Διάρκεια σε δευτερόλεπτα για αναβόσβημα της λυχνίας της συγκεκριμένης κάρτας δικτύου."
 
 msgid "Lesotho"
-msgstr ""
+msgstr "Lesotho"
 
 msgid "Level"
-msgstr ""
+msgstr "Επίπεδο"
 
 msgid "Liberia"
-msgstr ""
+msgstr "Liberia"
 
 msgid "Libya"
-msgstr ""
+msgstr "Libya"
 
 msgid "Liechtenstein"
-msgstr ""
+msgstr "Liechtenstein"
 
 msgid "Lifetime"
-msgstr ""
+msgstr "Διάρκεια ζωής"
 
 msgid "Linear"
-msgstr ""
+msgstr "Γραμμική"
 
 msgid "Link"
-msgstr ""
+msgstr "Ζεύξη"
 
 msgid "List"
-msgstr ""
+msgstr "Λίστα"
 
 msgid "Lithuania"
-msgstr ""
+msgstr "Lithuania"
 
 msgid "Load average"
-msgstr ""
+msgstr "Μέσος φόρτος"
 
 msgid "Loading ..."
-msgstr ""
+msgstr "Φόρτωση ..."
 
 msgid "Local"
-msgstr ""
+msgstr "Τοπικό"
 
 msgid "Local master browser"
 msgstr ""
 
 msgid "Location"
-msgstr ""
+msgstr "Τοποθεσία"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr ""
+msgstr "Πληροφορίες τοποθεσίας συστήματος"
 
 msgid "Log level"
-msgstr ""
+msgstr "Επίπεδο καταγραφής"
 
 #, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr ""
 
 msgid "Login"
-msgstr ""
+msgstr "Είσοδος"
 
 msgid "Logout"
-msgstr ""
+msgstr "Έξοδος"
 
 msgid "Logs"
-msgstr ""
+msgstr "Καταγραφή"
 
 msgid "Long self-test"
 msgstr ""
 
 msgid "Luxembourg"
-msgstr ""
+msgstr "Luxembourg"
 
 msgid "MAC address"
 msgstr ""
@@ -1572,85 +1628,92 @@ msgid "MTU"
 msgstr ""
 
 msgid "Macao S.A.R., China"
-msgstr ""
+msgstr "Macao S.A.R., China"
 
 msgid "Macedonia"
-msgstr ""
+msgstr "Macedonia"
 
 msgid "Madagascar"
-msgstr ""
+msgstr "Madagascar"
 
 msgid "Maintainer"
-msgstr ""
+msgstr "Συντηρητής"
 
 msgid "Malawi"
-msgstr ""
+msgstr "Malawi"
 
 msgid "Malaysia"
-msgstr ""
+msgstr "Malaysia"
 
 msgid "Maldives"
-msgstr ""
+msgstr "Maldives"
 
 msgid "Mali"
-msgstr ""
+msgstr "Mali"
 
 msgid "Malta"
-msgstr ""
+msgstr "Malta"
 
 msgid "Manual"
-msgstr ""
+msgstr "Χειροκίνητο"
 
 msgid "March"
-msgstr ""
+msgstr "Μάρτιος"
 
 msgid "Marshall Islands"
-msgstr ""
+msgstr "Marshall Islands"
 
 msgid "Martinique"
-msgstr ""
+msgstr "Martinique"
 
 msgid "Masquerade address"
-msgstr ""
+msgstr "Απόκρυψη διεύθυνσης"
 
-msgid "Match if the destination port is one of the given ports. E.g. 21 or !443 or 1024-65535."
-msgstr ""
+msgid ""
+"Match if the destination port is one of the given ports. E.g. 21 or !443 or "
+"1024-65535."
+msgstr "Ταίριασμα αν η θύρα προορισμού είναι κάποια από τις δοθείσες π.χ. 21 or !443 or 1024-65535."
 
-msgid "Match if the source port is one of the given ports. E.g. 21 or !443 or 1024-65535."
-msgstr ""
+msgid ""
+"Match if the source port is one of the given ports. E.g. 21 or !443 or "
+"1024-65535."
+msgstr "Ταίριασμα αν η θύρα προέλευσης είναι κάποια από τις δοθείσες π.χ. 21 or !443 or 1024-65535."
 
 msgid "Mauritania"
-msgstr ""
+msgstr "Mauritania"
 
 msgid "Mauritius"
-msgstr ""
+msgstr "Mauritius"
 
 msgid "Max. clients"
-msgstr ""
+msgstr "Μέγιστος αριθμός πελατών"
 
 msgid "Max. connections"
-msgstr ""
+msgstr "Μέγιστες συνδέσεις"
 
 msgid "Max. connections per host"
-msgstr ""
+msgstr "Μέγιστες συνδέσεις ανά χρήστη"
 
 msgid "Max. login attempts"
-msgstr ""
+msgstr "Μέγιστες απόπειρες εισόδου"
 
 msgid "Maximum download rate (KiB/s)"
-msgstr ""
+msgstr "Μέγιστη ταχύτητα κατεβάσματος (KiB/s)"
 
-msgid "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle timer completely (clients can stay connected for ever, without sending data)."
-msgstr ""
+msgid ""
+"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
+"timer completely (clients can stay connected for ever, without sending "
+"data)."
+msgstr "Μέγιστη διάρκεια αδράνειας σε δευτερόλεπτα. Με 0 απενεργοποιείται και οι πελάτες μπορούν να μένουν συνδεδεμένοι (χωρίς να στέλνουν δεδομένα)."
 
 msgid "Maximum number of allowed password attempts before disconnection."
-msgstr ""
+msgstr "Μέγιστες απόπειρες πιστοποίησης πριν την αποσύνδεση."
 
 msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr ""
+msgstr "Μέγιστος αριθμός συνδέσεων ανά διεύθυνση ΙΡ (0 = απεριόριστες)."
 
 msgid "Maximum number of simultaneous clients."
-msgstr ""
+msgstr "Μέγιστος αριθμός ταυτόχρονων πελατών."
 
 msgid "Maximum performance, maximum acoustic output"
 msgstr ""
@@ -1659,28 +1722,28 @@ msgid "Maximum upload rate (KiB/s)"
 msgstr ""
 
 msgid "Maximum {0} selected item(s) allowed"
-msgstr ""
+msgstr "Διεπαφές"
 
 msgid "May"
-msgstr ""
+msgstr "Μάιος"
 
 msgid "Mayotte"
-msgstr ""
+msgstr "Mayotte"
 
 msgid "Members"
-msgstr ""
+msgstr "Μέλη"
 
 msgid "Memory usage"
-msgstr ""
+msgstr "Χρήση μνήμης"
 
 msgid "Messages"
-msgstr ""
+msgstr "Μηνύματα"
 
 msgid "Method"
-msgstr ""
+msgstr "Μέθοδος"
 
 msgid "Metropolitan France"
-msgstr ""
+msgstr "Metropolitan France"
 
 msgid "Mexico"
 msgstr ""
@@ -1761,163 +1824,163 @@ msgid "NFS"
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgid "Namibia"
-msgstr ""
+msgstr "Namibia"
 
 msgid "Nauru"
-msgstr ""
+msgstr "Nauru"
 
 msgid "Nepal"
-msgstr ""
+msgstr "Nepal"
 
 msgid "Netherlands"
-msgstr ""
+msgstr "Netherlands"
 
 msgid "Netherlands Antilles"
-msgstr ""
+msgstr "Netherlands Antilles"
 
 msgid "Netmask"
-msgstr ""
+msgstr "Μάσκα δικτύου"
 
 msgid "Network"
-msgstr ""
+msgstr "Δίκτυο"
 
 msgid "Neutral Zone"
-msgstr ""
+msgstr "Ουδέτερη ζώνη"
 
 msgid "Never"
-msgstr ""
+msgstr "Ποτέ"
 
 msgid "New Caledonia"
-msgstr ""
+msgstr "New Caledonia"
 
 msgid "New Zealand"
-msgstr ""
+msgstr "New Zealand"
 
 msgid "Nicaragua"
-msgstr ""
+msgstr "Nicaragua"
 
 msgid "Niger"
-msgstr ""
+msgstr "Niger"
 
 msgid "Nigeria"
-msgstr ""
+msgstr "Nigeria"
 
 msgid "Niue"
-msgstr ""
+msgstr "Niue"
 
 msgid "No"
-msgstr ""
+msgstr "Όχι"
 
 msgid "No access"
-msgstr ""
+msgstr "Καμία πρόσβαση"
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Χωρίς πιστοποίηση και χωρίς ιδιοτικότητα"
 
 msgid "No items to display"
-msgstr ""
+msgstr "Δεν υπάρχει τίποτα προς εμφάνιση"
 
 msgid "No log entries to display"
-msgstr ""
+msgstr "Δεν υπάρχουν εγγραφές προς εμφάνιση"
 
 msgid "No users connected"
-msgstr ""
+msgstr "Δεν υπάρχουν συνδεδεμένοι χρήστες"
 
 msgid "No users defined"
-msgstr ""
+msgstr "Δεν έχουν οριστεί χρήστες"
 
 msgid "None"
-msgstr ""
+msgstr "Κανένας"
 
 msgid "Norfolk Island"
-msgstr ""
+msgstr "Norfolk Island"
 
 msgid "Normal"
-msgstr ""
+msgstr "Κανονικό"
 
 msgid "North Korea"
-msgstr ""
+msgstr "North Korea"
 
 msgid "North Vietnam"
-msgstr ""
+msgstr "North Vietnam"
 
 msgid "Northern Mariana Islands"
-msgstr ""
+msgstr "Northern Mariana Islands"
 
 msgid "Norway"
-msgstr ""
+msgstr "Norway"
 
 msgid "Not ICMP"
-msgstr ""
+msgstr "Όχι ICMP"
 
 msgid "Not TCP"
-msgstr ""
+msgstr "Όχι TCP"
 
 msgid "Not UDP"
-msgstr ""
+msgstr "Όχι UDP"
 
 msgid "Notification"
-msgstr ""
+msgstr "Ειδοποίηση"
 
 msgid "November"
-msgstr ""
+msgstr "Νοέμβριος"
 
 msgid "Null passwords"
-msgstr ""
+msgstr "Κενοί κωδικοί"
 
 msgid "Num"
 msgstr ""
 
 msgid "Number of servers"
-msgstr ""
+msgstr "Αριθμός διακομιστών"
 
 msgid "OK"
-msgstr ""
+msgstr "Εντάξει"
 
 msgid "Occurrence"
-msgstr ""
+msgstr "Εμφάνιση"
 
 msgid "October"
-msgstr ""
+msgstr "Οκτώβριος"
 
 msgid "Offline immediate test"
 msgstr ""
 
 msgid "Oman"
-msgstr ""
+msgstr "Oman"
 
 msgid "Options"
-msgstr ""
+msgstr "Επιλογές"
 
 msgid "Organization Name"
-msgstr ""
+msgstr "Όνομα οργανισμού"
 
 msgid "Organizational Unit"
-msgstr ""
+msgstr "Μονάδα οργάνωσης"
 
 msgid "Others"
-msgstr ""
+msgstr "Λοιποί"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr ""
 
 msgid "Outlying Oceania"
-msgstr ""
+msgstr "Outlying Oceania"
 
 msgid "Overview"
-msgstr ""
+msgstr "Επισκόπηση"
 
 msgid "Owner"
-msgstr ""
+msgstr "Ιδιοκτήτης"
 
 msgid "Pacific Islands Trust Territory"
 msgstr ""
 
 msgid "Package information"
-msgstr ""
+msgstr "Πληροφορίες πακέτου"
 
 msgid "Pakistan"
 msgstr ""
@@ -1959,13 +2022,13 @@ msgid "Paste an private RSA key in X.509 PEM format here."
 msgstr ""
 
 msgid "Path"
-msgstr ""
+msgstr "Διαδρομή"
 
 msgid "People's Democratic Republic of Yemen"
 msgstr ""
 
 msgid "Period of validity"
-msgstr ""
+msgstr "Περίοδος ισχύως"
 
 msgid "Permissions"
 msgstr ""
@@ -1997,28 +2060,47 @@ msgstr ""
 msgid "Pitcairn"
 msgstr ""
 
-msgid "Please check the <a href='http://linux.die.net/man/5/exports' target='_blank'>manual page</a> for more details."
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/exports' "
+"target='_blank'>manual page</a> for more details."
 msgstr ""
 
-msgid "Please check the <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for more details."
+msgid ""
+"Please check the <a href='http://www.openbsd.org/cgi-"
+"bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
+" more details."
 msgstr ""
 
-msgid "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manual page</a> for more details."
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Δες το <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manual page</a> για περισσότερες λεπτομέρειες."
+
+msgid ""
+"Please check the <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>manual page</a> for more details."
 msgstr ""
 
-msgid "Please check the <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manual page</a> for more details."
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
 msgstr ""
 
-msgid "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> for more details."
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
+"target='_blank'>manual page</a> for more details."
 msgstr ""
 
-msgid "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> for more details."
+msgid ""
+"Please check the <a "
+"href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
 msgstr ""
 
-msgid "Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details."
-msgstr ""
-
-msgid "Please note that no communication with the system is possible during this test."
+msgid ""
+"Please note that no communication with the system is possible during this "
+"test."
 msgstr ""
 
 msgid "Please reload the page to let the changes take effect."
@@ -2031,6 +2113,9 @@ msgid "Plugins"
 msgstr ""
 
 msgid "Poland"
+msgstr ""
+
+msgid "Polish"
 msgstr ""
 
 msgid "Port"
@@ -2063,71 +2148,81 @@ msgstr ""
 msgid "Preserve permissions"
 msgstr ""
 
-msgid "Prevent a disk from being spun-up when it is periodically polled.<br/><br/><ul><li>Never - Poll (check) the device regardless of its power mode. This may cause a disk which is spun-down to be spun-up when it is checked.</li><li>Sleep - Check the device unless it is in SLEEP mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY mode. In these modes most disks are not spinning, so if you want to prevent a disk from spinning up each poll, this is probably what you want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE mode. In the IDLE state, most disks are still spinning, so this is probably not what you want.</li></ul>"
+msgid ""
+"Prevent a disk from being spun-up when it is periodically "
+"polled.<br/><br/><ul><li>Never - Poll (check) the device regardless of its "
+"power mode. This may cause a disk which is spun-down to be spun-up when it "
+"is checked.</li><li>Sleep - Check the device unless it is in SLEEP "
+"mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY "
+"mode. In these modes most disks are not spinning, so if you want to prevent "
+"a disk from spinning up each poll, this is probably what you "
+"want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
+" mode. In the IDLE state, most disks are still spinning, so this is probably"
+" not what you want.</li></ul>"
 msgstr ""
 
 msgid "Primary"
-msgstr ""
+msgstr "Πρωτεύον"
 
 msgid "Primary email"
-msgstr ""
+msgstr "Κύρια διεύθυνση ηλεκτρονικού ταχυδρομείου"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Φράση-κλειδί"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "Τύπος ιδιοτικότητας"
 
 msgid "Private key"
-msgstr ""
+msgstr "Ιδιωτικό κλειδί"
 
 msgid "Privilege"
-msgstr ""
+msgstr "Προνόμιο"
 
 msgid "Privileges"
-msgstr ""
+msgstr "Προνόμια"
 
 msgid "Processes"
-msgstr ""
+msgstr "Διεργασίες"
 
 msgid "Processor"
-msgstr ""
+msgstr "Επεξεργαστης"
 
 msgid "Protocol"
-msgstr ""
+msgstr "Πρωτόκολο"
 
 msgid "Public"
-msgstr ""
+msgstr "Δημόσιο"
 
 msgid "Puerto Rico"
-msgstr ""
+msgstr "Puerto Rico"
 
 msgid "Pull"
-msgstr ""
+msgstr "Έλξη"
 
 msgid "Push"
-msgstr ""
+msgstr "Ώθηση"
 
 msgid "Qatar"
-msgstr ""
+msgstr "Qatar"
 
 msgid "Quiet"
-msgstr ""
+msgstr "Σιωπηλό"
 
 msgid "Quota"
-msgstr ""
+msgstr "Ποσοστό"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "RAID Management"
-msgstr ""
+msgstr "Διαχείριση RAID"
 
 msgid "RPC error"
 msgstr ""
@@ -2142,82 +2237,86 @@ msgid "Raw value"
 msgstr ""
 
 msgid "Read only"
-msgstr ""
+msgstr "Μόνο ανάγνωση"
 
 msgid "Read-only"
-msgstr ""
+msgstr "Μόνο για ανάγνωση"
 
 msgid "Read/Write"
-msgstr ""
+msgstr "Ανάγνωση & εγγραφή"
 
 msgid "Reboot"
-msgstr ""
+msgstr "Επανεκκίνηση"
 
 msgid "Recipient"
-msgstr ""
+msgstr "Παραλήπτης"
 
 msgid "Recover"
-msgstr ""
+msgstr "Ανάκτηση"
 
 msgid "Recurse into directories"
-msgstr ""
+msgstr "Αναδρομή μέσα σε φακέλους"
 
 msgid "Recursive"
-msgstr ""
+msgstr "Αναδρομικός"
 
 msgid "Recycle bin"
-msgstr ""
+msgstr "Κάδος ανακύκλωσης"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Ανανέωση"
 
 msgid "Remaining"
-msgstr ""
+msgstr "Απομένει"
 
 msgid "Remote"
-msgstr ""
+msgstr "Απομακρυσμένος"
 
 msgid "Remote syslog"
-msgstr ""
+msgstr "Απομακρυσμένη καταγραφη"
 
 msgid "Replace"
-msgstr ""
+msgstr "Αντικατάσταση"
 
 msgid "Replace all existing permissions"
+msgstr "Αντικατάσταση όλων των υπαρχόντων δικαιωμάτων"
+
+msgid ""
+"Report if the temperature had changed by at least N degrees Celsius since "
+"last report. Set to 0 to disable this report."
 msgstr ""
 
-msgid "Report if the temperature had changed by at least N degrees Celsius since last report. Set to 0 to disable this report."
-msgstr ""
-
-msgid "Report if the temperature is greater or equal than N degrees Celsius. Set to 0 to disable this report."
+msgid ""
+"Report if the temperature is greater or equal than N degrees Celsius. Set to"
+" 0 to disable this report."
 msgstr ""
 
 msgid "Repository"
-msgstr ""
+msgstr "Εναποθετήριο"
 
 msgid "Require valid shell"
 msgstr ""
 
 msgid "Required"
-msgstr ""
+msgstr "Απαιτούμενο"
 
 msgid "Reset"
-msgstr ""
+msgstr "Επαναφορά"
 
 msgid "Resize"
-msgstr ""
+msgstr "Προσαρμογή"
 
 msgid "Restore"
-msgstr ""
+msgstr "Αποκατάσταση"
 
 msgid "Restore configuration"
-msgstr ""
+msgstr "Αποκατάσταση ρυθμίσεων"
 
 msgid "Restore configuration..."
-msgstr ""
+msgstr "Αποκατάσταση ρυθμίσεων ..."
 
 msgid "Resume"
-msgstr ""
+msgstr "Συνέχιση"
 
 msgid "Retry timeout"
 msgstr ""
@@ -2241,82 +2340,85 @@ msgid "Running"
 msgstr ""
 
 msgid "Russia"
-msgstr ""
+msgstr "Russia"
+
+msgid "Russian"
+msgstr "Ρώσσικα"
 
 msgid "Rwanda"
-msgstr ""
+msgstr "Rwanda"
 
 msgid "S.M.A.R.T."
-msgstr ""
+msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. informations"
-msgstr ""
+msgstr "Πληροφορίες S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr ""
+msgstr "Η παρακολούθηση S.M.A.R.T. πρέπει να είναι ενεργοποιημένη για την επιλεγμένη συσκευή."
 
 msgid "SMB/CIFS"
-msgstr ""
+msgstr "SMB/CIFS"
 
 msgid "SMTP port"
-msgstr ""
+msgstr "Θύρα SMTP"
 
 msgid "SMTP server"
-msgstr ""
+msgstr "Διακομιστής SMTP"
 
 msgid "SMTP settings"
-msgstr ""
+msgstr "Ρυθμίσεις SMTP"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr ""
+msgstr "SNMP έκδοση 1/2c"
 
 msgid "SNMP version 3"
-msgstr ""
+msgstr "SNMP έκδοση 3"
 
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 msgid "SSL/TLS"
-msgstr ""
+msgstr "SSL/TLS"
 
 msgid "Saint Helena"
-msgstr ""
+msgstr "Saint Helena"
 
 msgid "Saint Kitts and Nevis"
-msgstr ""
+msgstr "Saint Kitts and Nevis"
 
 msgid "Saint Lucia"
-msgstr ""
+msgstr "Saint Lucia"
 
 msgid "Saint Pierre and Miquelon"
-msgstr ""
+msgstr "Saint Pierre and Miquelon"
 
 msgid "Saint Vincent and the Grenadines"
-msgstr ""
+msgstr "Saint Vincent and the Grenadines"
 
 msgid "Samoa"
-msgstr ""
+msgstr "Samoa"
 
 msgid "San Marino"
-msgstr ""
+msgstr "San Marino"
 
 msgid "Sao Tome and Principe"
-msgstr ""
+msgstr "Sao Tome and Principe"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Σάββατο"
 
 msgid "Saudi Arabia"
-msgstr ""
+msgstr "Saudi Arabia"
 
 msgid "Saving ..."
-msgstr ""
+msgstr "Αποθήκευση ..."
 
 msgid "Scheduled tests"
-msgstr ""
+msgstr "Προγραμματισμένοι έλεγχοι"
 
 msgid "Secondary"
 msgstr ""
@@ -2325,52 +2427,49 @@ msgid "Secondary email"
 msgstr ""
 
 msgid "Seconds"
-msgstr ""
+msgstr "Δευτερόλεπτα"
 
 msgid "Secure connection"
-msgstr ""
+msgstr "Ασφαλής σύνδεση"
 
 msgid "Security level"
-msgstr ""
+msgstr "Επίπεδο ασφάλειας"
 
 msgid "Select a SSL certificate ..."
-msgstr ""
+msgstr "Επιλογή πιστοποιητικού SSL ..."
 
 msgid "Select a country ..."
-msgstr ""
+msgstr "Επιλογή χώρας ..."
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Επιλογή συσκευής ..."
 
 msgid "Select a filesystem ..."
-msgstr ""
+msgstr "Επιλογή συστήματος αρχείων ..."
 
 msgid "Select a group ..."
-msgstr ""
+msgstr "Επιλογή ομάδας ..."
 
 msgid "Select a language ..."
-msgstr ""
+msgstr "Επιλογή γλώσσας ..."
 
 msgid "Select a primary device ..."
-msgstr ""
+msgstr "Επιλογή κύριας συσκευής ..."
 
 msgid "Select a protocol ..."
-msgstr ""
+msgstr "Επιλογή πρωτοκόλου ..."
 
 msgid "Select a shared folder ..."
-msgstr ""
+msgstr "Επιλογή κοινόχρηστου φακέλου ..."
 
 msgid "Select a shell ..."
 msgstr ""
 
 msgid "Select a user ..."
-msgstr ""
+msgstr "Επιλογή χρήστη ..."
 
 msgid "Select a volume ..."
-msgstr ""
-
-msgid "Select an device ..."
-msgstr ""
+msgstr "Επιλογή τόμου ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr ""
@@ -2421,7 +2520,7 @@ msgid "Services"
 msgstr ""
 
 msgid "Session not authenticated"
-msgstr ""
+msgstr "Η σύνδεση δεν έχει πιστοποιηθεί"
 
 msgid "Session timeout"
 msgstr ""
@@ -2432,7 +2531,8 @@ msgstr ""
 msgid "Set read only"
 msgstr ""
 
-msgid "Set the destination permissions to be the same as the source permissions"
+msgid ""
+"Set the destination permissions to be the same as the source permissions"
 msgstr ""
 
 msgid "Set write only"
@@ -2497,7 +2597,7 @@ msgid "Singapore"
 msgstr ""
 
 msgid "Size"
-msgstr ""
+msgstr "Μέγεθος"
 
 msgid "Slaves"
 msgstr ""
@@ -2506,7 +2606,7 @@ msgid "Sleep"
 msgstr ""
 
 msgid "Slovakia"
-msgstr ""
+msgstr "Συνέχιση"
 
 msgid "Slovenia"
 msgstr ""
@@ -2520,32 +2620,38 @@ msgstr ""
 msgid "Source"
 msgstr ""
 
-msgid "Source address can be either a network IP address (with /mask), a IP range or a plain IP address. A '!' argument before the address specification inverts the sense of the address."
+msgid ""
+"Source address can be either a network IP address (with /mask), a IP range "
+"or a plain IP address. A '!' argument before the address specification "
+"inverts the sense of the address."
 msgstr ""
 
 msgid "Source port"
-msgstr ""
+msgstr "Θύρα προέλευσης"
 
 msgid "Source server"
-msgstr ""
+msgstr "Διακομιστής προέλευσης"
 
 msgid "Source shared folder"
-msgstr ""
+msgstr "Source shared folder"
 
 msgid "South Africa"
-msgstr ""
+msgstr "South Africa"
 
 msgid "South Georgia and the South Sandwich Islands"
-msgstr ""
+msgstr "South Georgia and the South Sandwich Islands"
 
 msgid "South Korea"
-msgstr ""
+msgstr "South Korea"
 
 msgid "Spain"
 msgstr ""
 
+msgid "Spanish"
+msgstr "Ισπανικά"
+
 msgid "Specifies how many server threads to create."
-msgstr ""
+msgstr "Αριθμός νημάτων εξυπηρέτησης προς δημιουργία"
 
 msgid "Specifies one of the bonding policies."
 msgstr ""
@@ -2553,19 +2659,27 @@ msgstr ""
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr ""
 
-msgid "Specifies the maximum permitted block size. The permitted range for this parameter is from 512 to 65464."
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
 msgstr ""
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
 msgstr ""
 
-msgid "Specifies the time interval in hh:mm:ss in which the given number of occurrences must happen to add the ban."
+msgid ""
+"Specifies the time interval in hh:mm:ss in which the given number of "
+"occurrences must happen to add the ban."
 msgstr ""
 
-msgid "Specifies the time, in milliseconds, to wait before disabling a slave after a link failure has been detected."
+msgid ""
+"Specifies the time, in milliseconds, to wait before disabling a slave after "
+"a link failure has been detected."
 msgstr ""
 
-msgid "Specifies the time, in milliseconds, to wait before enabling a slave after a link recovery has been detected."
+msgid ""
+"Specifies the time, in milliseconds, to wait before enabling a slave after a"
+" link recovery has been detected."
 msgstr ""
 
 msgid "Specifies whether it is allowed to login as superuser directly"
@@ -2574,7 +2688,9 @@ msgstr ""
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr ""
 
-msgid "Specifies whether to monitor the system status and select the most appropriate CPU level."
+msgid ""
+"Specifies whether to monitor the system status and select the most "
+"appropriate CPU level."
 msgstr ""
 
 msgid "Specifies which slave is the primary device."
@@ -2584,31 +2700,31 @@ msgid "Spindown time"
 msgstr ""
 
 msgid "Sri Lanka"
-msgstr ""
+msgstr "Sri Lanka"
 
 msgid "Standby"
 msgstr ""
 
 msgid "Start"
-msgstr ""
+msgstr "Εκκίνηση"
 
 msgid "State"
-msgstr ""
+msgstr "Κατάσταση"
 
 msgid "State/Province"
-msgstr ""
+msgstr "Πολιτεία/Περιφέρεια"
 
 msgid "Static"
-msgstr ""
+msgstr "Στατικό"
 
 msgid "Status"
-msgstr ""
+msgstr "Κατάσταση"
 
 msgid "Stop"
 msgstr ""
 
 msgid "Storage"
-msgstr ""
+msgstr "Αποθήκευση"
 
 msgid "Store DOS attributes"
 msgstr ""
@@ -2620,13 +2736,13 @@ msgid "Success"
 msgstr ""
 
 msgid "Sudan"
-msgstr ""
+msgstr "Sudan"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Κυριακή"
 
 msgid "Support"
-msgstr ""
+msgstr "Υποστήριξη"
 
 msgid "Suppress non-error messages"
 msgstr ""
@@ -2635,43 +2751,43 @@ msgid "Suriname"
 msgstr ""
 
 msgid "Svalbard and Jan Mayen"
-msgstr ""
+msgstr "Svalbard and Jan Mayen"
 
 msgid "Swaziland"
-msgstr ""
+msgstr "Swaziland"
 
 msgid "Sweden"
-msgstr ""
+msgstr "Sweden"
 
 msgid "Switzerland"
-msgstr ""
+msgstr "Switzerland"
 
 msgid "Syria"
-msgstr ""
+msgstr "Syria"
 
 msgid "Syslog"
-msgstr ""
+msgstr "Syslog"
 
 msgid "System"
-msgstr ""
+msgstr "Σύστημα"
 
 msgid "System Information"
-msgstr ""
+msgstr "Πληροφορίες συστήματος"
 
 msgid "System Logs"
 msgstr ""
 
 msgid "System time"
-msgstr ""
+msgstr "Ώρα συστήματος"
 
 msgid "TCP forwarding"
-msgstr ""
+msgstr "Προώθηση TCP"
 
 msgid "TFTP"
-msgstr ""
+msgstr "TFTP"
 
 msgid "Taiwan"
-msgstr ""
+msgstr "Taiwan"
 
 msgid "Tajikistan"
 msgstr ""
@@ -2709,7 +2825,12 @@ msgstr ""
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr ""
 
-msgid "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST."
+msgid ""
+"The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
+"rsync://[USER@]HOST[:PORT]/DEST."
+msgstr ""
+
+msgid "The destination shared folder."
 msgstr ""
 
 #, c-format
@@ -2726,7 +2847,9 @@ msgstr ""
 msgid "The location of the files to share."
 msgstr ""
 
-msgid "The location of the files to share. The share will be accessible at /export/<name>."
+msgid ""
+"The location of the files to share. The share will be accessible at "
+"/export/<name>."
 msgstr ""
 
 msgid "The location of the user home directories."
@@ -2739,12 +2862,18 @@ msgid "The number of days the certificate is valid for."
 msgstr ""
 
 msgid "The password contains invalid characters"
+msgstr "Ο κωδικός περιέχει μή αποδεκτούς χαρακτήρες"
+
+msgid ""
+"The password that is used for access via rsync daemon. Note, this is not "
+"used for remote shell transport such as ssh."
 msgstr ""
 
-msgid "The password that is used for access via rsync daemon. Note, this is not used for remote shell transport such as ssh."
-msgstr ""
-
-msgid "The permissions on new files and directories are normally governed by create mask and directory mask but the inherit permissions parameter overrides this. This can be particularly useful on systems with many users to allow a single share to be used flexibly by each user."
+msgid ""
+"The permissions on new files and directories are normally governed by create"
+" mask and directory mask but the inherit permissions parameter overrides "
+"this. This can be particularly useful on systems with many users to allow a "
+"single share to be used flexibly by each user."
 msgstr ""
 
 msgid "The session timeout time in minutes."
@@ -2753,7 +2882,9 @@ msgstr ""
 msgid "The shared folder is already used by another share"
 msgstr ""
 
-msgid "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or rsync://[USER@]HOST[:PORT]/SRC."
+msgid ""
+"The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
+"rsync://[USER@]HOST[:PORT]/SRC."
 msgstr ""
 
 msgid "The source shared folder."
@@ -2785,7 +2916,9 @@ msgstr ""
 msgid "The volume label for the filesystem."
 msgstr ""
 
-msgid "The welcome message which will be displayed to the user when they initially login."
+msgid ""
+"The welcome message which will be displayed to the user when they initially "
+"login."
 msgstr ""
 
 msgid "The workgroup the server will appear to be in when queried by clients."
@@ -2795,88 +2928,134 @@ msgstr ""
 msgid "There already exists a mount point for %s"
 msgstr ""
 
-msgid "This controls whether this share is seen in the list of available shares in a net view and in the browse list."
+msgid ""
+"This controls whether this share is seen in the list of available shares in "
+"a net view and in the browse list."
 msgstr ""
 
 msgid "This field must have the format hh:mm:ss"
 msgstr ""
 
 msgid "This field should be a IPv4 network address"
-msgstr ""
+msgstr "Το πεδίο πρέπει να περιέχει διεύθυνση δικτύου IPv4"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
-msgstr ""
+msgstr "Το πεδίο πρέπει να περιέχει διεύθυνση δικτύου IPv4 σε συμβολισμό CIDR"
 
 msgid "This field should be a hostname or an IPv4 address"
-msgstr ""
+msgstr "Το πεδίο πρέπει να περιέχει όνομα συστήματος ή διεύθυνση IPv4"
 
-msgid "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
+msgid ""
+"This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
 msgstr ""
 
 msgid "This field should be a port in the range of 1 - 65535"
 msgstr ""
 
-msgid "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
+msgid ""
+"This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
 msgstr ""
 
 msgid "This field should be an IPv4 address"
 msgstr ""
 
-msgid "This field should be either a IPv4 network address (with /mask), a IPv4 range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or 192.168.178.20-192.168.178.254)"
+msgid ""
+"This field should be either a IPv4 network address (with /mask), a IPv4 "
+"range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
+"192.168.178.20-192.168.178.254)"
 msgstr ""
 
 msgid "This field should only contain numbers"
-msgstr ""
+msgstr "Το πεδίο πρέπει να περιέχει μόνο αριθμούς"
 
 msgid "This field should only contain numbers seperated by <,> or <;>"
-msgstr ""
+msgstr "Το πεδίο πρέπει να περιέχει μόνο αριθμούς χωρισμένους με <,> ή <;>"
 
-msgid "This field should only contain ports (0 - 65535) seperated by <,> or <;>"
-msgstr ""
+msgid ""
+"This field should only contain ports (0 - 65535) seperated by <,> or <;>"
+msgstr "Το πεδίο πρέπει να περιέχει μόνο θύρες (0 - 65535) χωρισμένες με <,> ή <;>"
 
 msgid "This field should only contain strings seperated by <,> or <;>"
-msgstr ""
+msgstr "Το πεδίο πρέπει να περιέχει μόνο λέξεις χωρισμένες με <,> ή <;>"
 
 msgid "This function is effective only if the hard drive supports it."
 msgstr ""
 
-msgid "This is a text field that is seen next to a share when a client queries the server."
+msgid ""
+"This is a text field that is seen next to a share when a client queries the "
+"server."
 msgstr ""
 
-msgid "This may make more efficient use of the system CPU's and cause Samba to be faster. Samba automatically turns this off for clients that use protocol levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
+msgid ""
+"This may make more efficient use of the system CPU's and cause Samba to be "
+"faster. Samba automatically turns this off for clients that use protocol "
+"levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
 msgstr ""
 
-msgid "This option determines if this module should be listed when the client asks for a listing of available modules."
+msgid ""
+"This option determines if this module should be listed when the client asks "
+"for a listing of available modules."
 msgstr ""
 
-msgid "This option is a comma, space, or tab delimited set of host which are NOT permitted to access this module. Where the lists conflict, the allow list takes precedence. In the event that it is necessary to deny all by default, use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify to the hosts allow parameter those hosts that should be permitted access. Leave this field empty to use default settings."
+msgid ""
+"This option is a comma, space, or tab delimited set of host which are NOT "
+"permitted to access this module. Where the lists conflict, the allow list "
+"takes precedence. In the event that it is necessary to deny all by default, "
+"use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
+"to the hosts allow parameter those hosts that should be permitted access. "
+"Leave this field empty to use default settings."
 msgstr ""
 
-msgid "This option is a comma, space, or tab delimited set of host which are NOT permitted to access this share. Where the lists conflict, the allow list takes precedence. In the event that it is necessary to deny all by default, use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify to the hosts allow parameter those hosts that should be permitted access. Leave this field empty to use default settings."
+msgid ""
+"This option is a comma, space, or tab delimited set of host which are NOT "
+"permitted to access this share. Where the lists conflict, the allow list "
+"takes precedence. In the event that it is necessary to deny all by default, "
+"use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
+"to the hosts allow parameter those hosts that should be permitted access. "
+"Leave this field empty to use default settings."
 msgstr ""
 
-msgid "This option is a comma, space, or tab delimited set of hosts which are permitted to access this module. You can specify the hosts by name or IP number. Leave this field empty to use default settings."
+msgid ""
+"This option is a comma, space, or tab delimited set of hosts which are "
+"permitted to access this module. You can specify the hosts by name or IP "
+"number. Leave this field empty to use default settings."
 msgstr ""
 
-msgid "This option is a comma, space, or tab delimited set of hosts which are permitted to access this share. You can specify the hosts by name or IP number. Leave this field empty to use default settings."
+msgid ""
+"This option is a comma, space, or tab delimited set of hosts which are "
+"permitted to access this share. You can specify the hosts by name or IP "
+"number. Leave this field empty to use default settings."
 msgstr ""
 
-msgid "This option specifies the group name that file transfers to and from that module should take place."
+msgid ""
+"This option specifies the group name that file transfers to and from that "
+"module should take place."
 msgstr ""
 
-msgid "This option specifies the maximum number of simultaneous connections. 0 means no limit."
+msgid ""
+"This option specifies the maximum number of simultaneous connections. 0 "
+"means no limit."
 msgstr ""
 
-msgid "This option specifies the user name that file transfers to and from that module should take place."
+msgid ""
+"This option specifies the user name that file transfers to and from that "
+"module should take place."
 msgstr ""
 
-msgid "This parameter can be used to ensure that if default acls exist on parent directories, they are always honored when creating a new file or subdirectory in these parent directories."
+msgid ""
+"This parameter can be used to ensure that if default acls exist on parent "
+"directories, they are always honored when creating a new file or "
+"subdirectory in these parent directories."
 msgstr ""
 
-msgid "This parameter controls whether files starting with a dot appear as hidden files"
+msgid ""
+"This parameter controls whether files starting with a dot appear as hidden "
+"files"
 msgstr ""
 
-msgid "This parameter says that if N occurrences of the event happen within the given time interval, then a ban is automatically added."
+msgid ""
+"This parameter says that if N occurrences of the event happen within the "
+"given time interval, then a ban is automatically added."
 msgstr ""
 
 msgid "This rule is triggered whenever the selected event directive occurs."
@@ -2909,7 +3088,10 @@ msgstr ""
 msgid "Times"
 msgstr ""
 
-msgid "To restore a previously backed up configuration click the 'Restore' button. The system will reboot automatically after import has been finished successfully."
+msgid ""
+"To restore a previously backed up configuration click the 'Restore' button. "
+"The system will reboot automatically after import has been finished "
+"successfully."
 msgstr ""
 
 msgid "Togo"
@@ -2939,6 +3121,9 @@ msgstr ""
 msgid "Turkey"
 msgstr ""
 
+msgid "Turkish"
+msgstr ""
+
 msgid "Turkmenistan"
 msgstr ""
 
@@ -2958,34 +3143,34 @@ msgid "U.S. Virgin Islands"
 msgstr ""
 
 msgid "Uganda"
-msgstr ""
+msgstr "Uganda"
 
 msgid "Ukraine"
-msgstr ""
+msgstr "Ukraine"
 
 msgid "Uninstall"
-msgstr ""
+msgstr "Απεγκατάσταση"
 
 msgid "Uninstall plugins ..."
-msgstr ""
+msgstr "Απεγκατάσταση προσθηκών..."
 
 msgid "Union of Soviet Socialist Republics"
-msgstr ""
+msgstr "Union of Soviet Socialist Republics"
 
 msgid "Unit"
-msgstr ""
+msgstr "Μονάδα"
 
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "United Arab Emirates"
 
 msgid "United Kingdom"
-msgstr ""
+msgstr "United Kingdom"
 
 msgid "United States"
-msgstr ""
+msgstr "United States"
 
 msgid "United States Minor Outlying Islands"
-msgstr ""
+msgstr "United States Minor Outlying Islands"
 
 #, c-format
 msgid "Unknown filesystem '%s'"
@@ -2996,7 +3181,7 @@ msgid "Unknown log file type (id=%s)"
 msgstr ""
 
 msgid "Unmount"
-msgstr ""
+msgstr "Απο"
 
 msgid "Up"
 msgstr ""
@@ -3005,19 +3190,20 @@ msgid "Up delay"
 msgstr ""
 
 msgid "Update Manager"
-msgstr ""
+msgstr "Διαχείριση ενημερώσεων"
 
 msgid "Update now"
-msgstr ""
+msgstr "Ενημέρωση τώρα"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
 msgstr ""
 
-msgid "Update the destination extended attributes to be the same as the local ones"
+msgid ""
+"Update the destination extended attributes to be the same as the local ones"
 msgstr ""
 
 msgid "Updated"
-msgstr ""
+msgstr "Ενημερωμένο"
 
 msgid "Updating ACL settings"
 msgstr ""
@@ -3056,9 +3242,11 @@ msgid "Use the following bandwidth restriction:"
 msgstr ""
 
 msgid "Use the following port range:"
-msgstr ""
+msgstr "Αριθμός νημάτων εξυπηρέτησης προς δημιουργία"
 
-msgid "Use the more efficient sendfile system call for files that are exclusively oplocked"
+msgid ""
+"Use the more efficient sendfile system call for files that are exclusively "
+"oplocked"
 msgstr ""
 
 msgid "Use the specified WINS server."
@@ -3119,73 +3307,75 @@ msgid "Vendor"
 msgstr ""
 
 msgid "Venezuela"
-msgstr ""
+msgstr "Venezuela"
 
 msgid "Version"
-msgstr ""
+msgstr "Έκδοση"
 
 msgid "Vietnam"
-msgstr ""
+msgstr "Vietnam"
 
 msgid "Volume"
-msgstr ""
+msgstr "Τόμος"
 
 msgid "WINS"
-msgstr ""
+msgstr "WINS"
 
 msgid "WINS server"
-msgstr ""
+msgstr "Διακομιστής WINS"
 
 msgid "WINS support"
-msgstr ""
+msgstr "Υποστήριξη WINS"
 
 msgid "Wake Island"
-msgstr ""
+msgstr "Wake Island"
 
 msgid "Wake-on-LAN"
 msgstr ""
 
 msgid "Wallis and Futuna"
-msgstr ""
+msgstr "Wallis and Futuna"
 
 msgid "Warning"
-msgstr ""
+msgstr "Προειδοποίηση"
 
 msgid "Web Administration"
-msgstr ""
+msgstr "Διαχείριση"
 
 msgid "Web Administrator Password"
-msgstr ""
+msgstr "Κωδικός διαχείρισης"
 
 msgid "Web administration interface"
-msgstr ""
+msgstr "Περιβάλλον διαχείρισης"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Τετάρτη"
 
 msgid "Welcome message"
-msgstr ""
+msgstr "Μήνυμα καλωσορίσματος"
 
 msgid "Western Sahara"
-msgstr ""
+msgstr "Western Sahara"
 
-msgid "When a client initially connects to the server the ident protocol is used to attempt to identify the remote username."
-msgstr ""
+msgid ""
+"When a client initially connects to the server the ident protocol is used to"
+" attempt to identify the remote username."
+msgstr "Όταν ένας πελάτης συνδέεται αρχικά, το πρωτόκολο ident χρησιμοποείται για να διαπιστωθεί το όνομά του."
 
 msgid "When failed"
-msgstr ""
+msgstr "Αποτυχία"
 
 msgid "Wipe"
-msgstr ""
+msgstr "Εκκένωση (διαγραφή)"
 
 msgid "Wiping device ..."
-msgstr ""
+msgstr "Εκκένωση συσκευής ..."
 
 msgid "Workgroup"
-msgstr ""
+msgstr "Ομάδα εργασίας"
 
 msgid "Worst"
-msgstr ""
+msgstr "Χειρότερο"
 
 msgid "Write cache"
 msgstr ""
@@ -3194,41 +3384,41 @@ msgid "Write only"
 msgstr ""
 
 msgid "Yemen"
-msgstr ""
+msgstr "Yemen"
 
 msgid "Yes"
-msgstr ""
+msgstr "Ναι"
 
 msgid "Zambia"
-msgstr ""
+msgstr "Zambia"
 
 msgid "Zeroconf"
 msgstr ""
 
 msgid "Zimbabwe"
-msgstr ""
+msgstr "Zimbabwe"
 
 msgid "day"
-msgstr ""
+msgstr "ημέρα"
 
 msgid "days"
-msgstr ""
+msgstr "ημέρες"
 
 msgid "hour"
-msgstr ""
+msgstr "ώρα"
 
 msgid "hours"
-msgstr ""
+msgstr "ώρες"
 
 msgid "minute"
-msgstr ""
+msgstr "λεπτό"
 
 msgid "minutes"
-msgstr ""
+msgstr "λεπτά"
 
 #, c-format
 msgid "n/a"
 msgstr ""
 
 msgid "seconds"
-msgstr ""
+msgstr "δευτερόλεπτα"

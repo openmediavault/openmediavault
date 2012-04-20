@@ -352,6 +352,8 @@ Ext.override(Ext.form.ComboBox, {
 		if(!Ext.isObject(this.store))
 			return;
 		if(this.mode == 'remote' && !Ext.isDefined(this.store.totalLength)){
+			// Display the loading text in the meanwhile ...
+			this.setRawValue(this.loadingText);
 			// Call this funtion again after store has been loaded
 			this.store.on('load', this.setValue.createDelegate(this, arguments),
 			  null, {single: true});

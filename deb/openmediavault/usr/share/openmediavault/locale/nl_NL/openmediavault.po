@@ -1,21 +1,6 @@
-# This file is part of OpenMediaVault.
-# 
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
-# 
-# OpenMediaVault is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-# 
-# OpenMediaVault is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
 # Milan Toet <milantoet@gmail.com>, 2012.
@@ -23,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-09 20:02+0200\n"
-"PO-Revision-Date: 2012-04-19 18:26+0000\n"
-"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
+"POT-Creation-Date: 2012-04-20 21:41+0200\n"
+"PO-Revision-Date: 2012-04-20 19:42+0000\n"
+"Last-Translator: votdev <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.net/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -184,9 +169,6 @@ msgstr "ACL"
 msgid "About"
 msgstr "Over"
 
-msgid "Absolute path"
-msgstr ""
-
 msgid "Access Right Management"
 msgstr "Toegangsmanagement"
 
@@ -320,14 +302,14 @@ msgid "American Samoa"
 msgstr "Amerikaans Samoa"
 
 msgid ""
-"An email messages with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr "Een e-mail met de uitvoer van de opdracht (indien geproduceerd) is naar de administrator verzonden."
+msgstr ""
 
 msgid ""
-"An email messages with the command output (if any produced) is send to the "
+"An email message with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr "Een e-mail met de uitvoer van de opdracht (indien geproduceerd) is naar de gebruiker die het commando uitvoert verzonden."
+msgstr ""
 
 msgid "An error has occured"
 msgstr "Er is een fout opgetreden"
@@ -898,6 +880,9 @@ msgstr "Download"
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
 
+msgid "Dutch"
+msgstr ""
+
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
 "text."
@@ -1187,6 +1172,9 @@ msgstr "Forceer alleen beveiligde verbindingen."
 msgid "France"
 msgstr "Frankrijk"
 
+msgid "French"
+msgstr ""
+
 msgid "French Guiana"
 msgstr "Frans Guinea"
 
@@ -1233,128 +1221,131 @@ msgid "German"
 msgstr "Duits"
 
 msgid "Germany"
-msgstr ""
+msgstr "Duitsland"
 
 msgid "Ghana"
-msgstr ""
+msgstr "Ghana"
 
 msgid "Gibraltar"
-msgstr ""
+msgstr "Gibraltar"
 
 msgid "Greece"
+msgstr "Griekenland"
+
+msgid "Greek"
 msgstr ""
 
 msgid "Greenland"
-msgstr ""
+msgstr "Groenland"
 
 msgid "Grenada"
-msgstr ""
+msgstr "Grenada"
 
 msgid "Group"
-msgstr ""
+msgstr "Groep"
 
 #, c-format
 msgid "Group '%s' does not exist"
-msgstr ""
+msgstr "De groep '%s' bestaat niet"
 
 msgid "Groups"
-msgstr ""
+msgstr "Groepen"
 
 msgid "Grow"
-msgstr ""
+msgstr "Groeien"
 
 msgid "Grow RAID device"
-msgstr ""
+msgstr "Groeien RAID apparaat"
 
 msgid "Guadeloupe"
-msgstr ""
+msgstr "Guadeloupe"
 
 msgid "Guam"
-msgstr ""
+msgstr "Guam"
 
 msgid "Guatemala"
-msgstr ""
+msgstr "Guatemala"
 
 msgid "Guinea"
-msgstr ""
+msgstr "Guinea"
 
 msgid "Guinea-Bissau"
-msgstr ""
+msgstr "Guinee-Bissau"
 
 msgid "Guyana"
-msgstr ""
+msgstr "Guyana "
 
 msgid "Haiti"
-msgstr ""
+msgstr "Haïti "
 
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard Eilanden en McDonald Eilanden"
 
 msgid "Hide details"
-msgstr ""
+msgstr "Details verbergen"
 
 msgid "Hide dot files"
-msgstr ""
+msgstr "Verberg punt bestanden"
 
 msgid "Home directories"
-msgstr ""
+msgstr "Thuis mappen"
 
 msgid "Homepage"
 msgstr ""
 
 msgid "Honduras"
-msgstr ""
+msgstr "Honduras"
 
 msgid "Hong Kong S.A.R., China"
-msgstr ""
+msgstr "Hong Kong S.A.R., China"
 
 msgid "Honor existing ACLs"
-msgstr ""
+msgstr "Eer de bestaande ACL's"
 
 msgid "Host"
-msgstr ""
+msgstr "Host"
 
 msgid "Host access control"
-msgstr ""
+msgstr "Host toegang controle"
 
 msgid "Hostname"
-msgstr ""
+msgstr "Hostnaam"
 
 msgid "Hosts"
-msgstr ""
+msgstr "Hosts"
 
 msgid "Hosts allow"
-msgstr ""
+msgstr "Hosts allow"
 
 msgid "Hosts deny"
-msgstr ""
+msgstr "Hosts deny"
 
 msgid "Hour"
-msgstr ""
+msgstr "Uur"
 
 msgid "Hungary"
-msgstr ""
+msgstr "Hongarije"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Iceland"
-msgstr ""
+msgstr "IJsland"
 
 msgid "Ident protocol"
-msgstr ""
+msgstr "Ident protocol"
 
 msgid "Identify"
-msgstr ""
+msgstr "Identificeer"
 
 msgid "Identify network interface device"
 msgstr "Identificeer netwerk interface"
 
 msgid "Idle"
-msgstr ""
+msgstr "Idle"
 
 msgid "If enabled then no password is required to connect to the share"
-msgstr ""
+msgstr "Indien ingeschakeld is er geen wachtwoord nodig om verbinding te maken met de share"
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1480,6 +1471,9 @@ msgstr "Ierland"
 msgid "Israel"
 msgstr "Israël"
 
+msgid "Italian"
+msgstr ""
+
 msgid "Italy"
 msgstr "Italië"
 
@@ -1537,6 +1531,9 @@ msgstr "LBA van de eerste fout"
 msgid "Label"
 msgstr "Label"
 
+msgid "Language"
+msgstr ""
+
 msgid "Laos"
 msgstr "Laos"
 
@@ -1555,37 +1552,37 @@ msgid "Lesotho"
 msgstr "Lesotho"
 
 msgid "Level"
-msgstr ""
+msgstr "Niveau"
 
 msgid "Liberia"
-msgstr ""
+msgstr "Liberia "
 
 msgid "Libya"
-msgstr ""
+msgstr "Libië "
 
 msgid "Liechtenstein"
-msgstr ""
+msgstr "Liechtenstein"
 
 msgid "Lifetime"
-msgstr ""
+msgstr "Levensduur"
 
 msgid "Linear"
-msgstr ""
+msgstr "Lineair"
 
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 msgid "List"
-msgstr ""
+msgstr "Lijst"
 
 msgid "Lithuania"
-msgstr ""
+msgstr "Litouwen"
 
 msgid "Load average"
-msgstr ""
+msgstr "Load gemiddelde"
 
 msgid "Loading ..."
-msgstr ""
+msgstr "Laden ..."
 
 msgid "Local"
 msgstr "Lokaal"
@@ -1631,7 +1628,7 @@ msgid "MTU"
 msgstr "MTU"
 
 msgid "Macao S.A.R., China"
-msgstr ""
+msgstr "Macao S.A.R., China"
 
 msgid "Macedonia"
 msgstr "Macedonië"
@@ -1643,13 +1640,13 @@ msgid "Maintainer"
 msgstr ""
 
 msgid "Malawi"
-msgstr ""
+msgstr "Malawi"
 
 msgid "Malaysia"
 msgstr "Maleisië "
 
 msgid "Maldives"
-msgstr ""
+msgstr "Maldiven"
 
 msgid "Mali"
 msgstr "Mali"
@@ -1725,7 +1722,7 @@ msgid "Maximum upload rate (KiB/s)"
 msgstr "Maximum upload snelheid (KiB/s)"
 
 msgid "Maximum {0} selected item(s) allowed"
-msgstr ""
+msgstr "Maximum {0} geselecteerde item(s) toegestaan"
 
 msgid "May"
 msgstr "Mei"
@@ -1737,184 +1734,184 @@ msgid "Members"
 msgstr "Leden"
 
 msgid "Memory usage"
-msgstr ""
+msgstr "Geheugengebruik"
 
 msgid "Messages"
-msgstr ""
+msgstr "Berichten"
 
 msgid "Method"
 msgstr "Methode"
 
 msgid "Metropolitan France"
-msgstr ""
+msgstr "Metropolitaans Frankrijk"
 
 msgid "Mexico"
 msgstr "Mexico"
 
 msgid "Micronesia"
-msgstr ""
+msgstr "Micronesië "
 
 msgid "Midway Islands"
 msgstr "Midway-eilanden"
 
 msgid "Minimum"
-msgstr ""
+msgstr "Minimum"
 
 msgid "Minimum performance, Minimum acoustic output"
-msgstr ""
+msgstr "Minimale prestatie, Minimaal akoestische output"
 
 msgid "Minimum {0} selected item(s) required"
-msgstr ""
+msgstr "Minimum {0} geselecteerde item(s) vereist"
 
 msgid "Minute"
-msgstr ""
+msgstr "Minuut"
 
 msgid "Mirror"
-msgstr ""
+msgstr "Spiegel"
 
 msgid "Mode"
-msgstr ""
+msgstr "Modus"
 
 msgid "Model"
-msgstr ""
+msgstr "Model"
 
 msgid "Modify account"
-msgstr ""
+msgstr "Aanpassen account"
 
 msgid "Modify shared folder ACL"
 msgstr "Aanpassen gedeelde map ACL"
 
 msgid "Modules"
-msgstr ""
+msgstr "Modulen"
 
 msgid "Moldova"
-msgstr ""
+msgstr "Moldavië "
 
 msgid "Monaco"
-msgstr ""
+msgstr "Monaco"
 
 msgid "Monday"
-msgstr ""
+msgstr "Maandag"
 
 msgid "Mongolia"
-msgstr ""
+msgstr "Mongolië "
 
 msgid "Monitoring"
-msgstr ""
+msgstr "Monitoren"
 
 msgid "Month"
-msgstr ""
+msgstr "Maand"
 
 msgid "Montserrat"
 msgstr ""
 
 msgid "Morocco"
-msgstr ""
+msgstr "Marokko"
 
 msgid "Mount"
-msgstr ""
+msgstr "Mounten"
 
 msgid "Mounted"
-msgstr ""
+msgstr "Gemount"
 
 msgid "Mozambique"
-msgstr ""
+msgstr "Mozambique"
 
 msgid "Myanmar"
-msgstr ""
+msgstr "Myanmar"
 
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
 msgid "Name"
-msgstr ""
+msgstr "Naam"
 
 msgid "Namibia"
-msgstr ""
+msgstr "Namibië "
 
 msgid "Nauru"
-msgstr ""
+msgstr "Nauru"
 
 msgid "Nepal"
-msgstr ""
+msgstr "Nepal"
 
 msgid "Netherlands"
-msgstr ""
+msgstr "Nederland"
 
 msgid "Netherlands Antilles"
-msgstr ""
+msgstr "Nederlandse Antillen"
 
 msgid "Netmask"
-msgstr ""
+msgstr "Netmask"
 
 msgid "Network"
-msgstr ""
+msgstr "Netwerk"
 
 msgid "Neutral Zone"
-msgstr ""
+msgstr "Neutrale Zone"
 
 msgid "Never"
-msgstr ""
+msgstr "Nooit"
 
 msgid "New Caledonia"
-msgstr ""
+msgstr "New Caledonia"
 
 msgid "New Zealand"
-msgstr ""
+msgstr "Nieuw Zeeland"
 
 msgid "Nicaragua"
-msgstr ""
+msgstr "Nicaragua"
 
 msgid "Niger"
-msgstr ""
+msgstr "Niger"
 
 msgid "Nigeria"
-msgstr ""
+msgstr "Nigeria"
 
 msgid "Niue"
-msgstr ""
+msgstr "Niue"
 
 msgid "No"
-msgstr ""
+msgstr "Nee"
 
 msgid "No access"
-msgstr ""
+msgstr "Geen toegang"
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Geen authenticatie en geen privacy"
 
 msgid "No items to display"
-msgstr ""
+msgstr "Geen items om weer te geven"
 
 msgid "No log entries to display"
-msgstr ""
+msgstr "Geen logs om weer te geven"
 
 msgid "No users connected"
-msgstr ""
+msgstr "Geen gebruikers verbonden"
 
 msgid "No users defined"
-msgstr ""
+msgstr "Geen gebruiker gedefinieerd"
 
 msgid "None"
-msgstr ""
+msgstr "Geen"
 
 msgid "Norfolk Island"
 msgstr "Norfolk-eilanden"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normaal"
 
 msgid "North Korea"
-msgstr ""
+msgstr "Noord Korea"
 
 msgid "North Vietnam"
-msgstr ""
+msgstr "Noord Vietnam"
 
 msgid "Northern Mariana Islands"
 msgstr "Noordelijke Marianen"
 
 msgid "Norway"
-msgstr ""
+msgstr "Noorwegen"
 
 msgid "Not ICMP"
 msgstr "Geen ICMP"
@@ -2024,6 +2021,9 @@ msgstr "Plak hier een RSA-certificaat in X.509 PEM-formaat."
 msgid "Paste an private RSA key in X.509 PEM format here."
 msgstr "Plak hier een RSA-sleutel in X.509 PEM-formaat."
 
+msgid "Path"
+msgstr ""
+
 msgid "People's Democratic Republic of Yemen"
 msgstr "Democratische Volksrepubliek Jemen"
 
@@ -2101,49 +2101,52 @@ msgstr "Raadpleeg de <a href='http://www.samba.org/samba/docs/man/manpages-3/smb
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
-msgstr ""
+msgstr "Houd er rekening mee dat er geen communicatie met het systeem mogelijk is tijdens deze test."
 
 msgid "Please reload the page to let the changes take effect."
-msgstr ""
+msgstr "Ververs de pagina zodat de wijzigingen van kracht worden."
 
 msgid "Please wait ..."
-msgstr ""
+msgstr "Even geduld ..."
 
 msgid "Plugins"
-msgstr ""
+msgstr "Extensies"
 
 msgid "Poland"
+msgstr "Polen"
+
+msgid "Polish"
 msgstr ""
 
 msgid "Port"
-msgstr ""
+msgstr "Poort"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "Poort om te beluisteren."
 
 msgid "Portugal"
-msgstr ""
+msgstr "Portugal"
 
 msgid "Power Management"
-msgstr ""
+msgstr "Power Management"
 
 msgid "Power button"
-msgstr ""
+msgstr "Power knop"
 
 msgid "Power mode"
-msgstr ""
+msgstr "Power modus"
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "Behouden ACL's"
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "Behouden uitgebreide kenmerken"
 
 msgid "Preserve modification times"
-msgstr ""
+msgstr "Behoud modificatie tijden"
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Behoud permissies"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
@@ -2156,115 +2159,112 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr ""
+msgstr "Voorkomen dat een schijf wordt opgestart wanneer er periodiek wordt  gecontroleerd. <br/><br/><ul><li> Nooit - Poll (controleren) van het apparaat, ongeacht van de power modus. Als dit is ingeschakeld, kan een schijf in spin-down toch worden opgestart</li><li> Slaap - Controleer het apparaat, tenzij het in de SLAAP stand staat </li><li> Stand-by - Controleer het apparaat, tenzij het in de SLAAP stand of STAND-BY-modus staat. In deze modi draaien de meeste schrijven niet, dus als je wilt voorkomen dat een ​​schijf bij elke poll opstart, is dit waarschijnlijk de modus die u wilt </li><li>Idle - Controleer het apparaat tenzij het ​​in SLAAP, STAND-BY of de IDLE-modus staat. In de IDLE modus, draaien de meeste schijven nog steeds, dus dit is waarschijnlijk niet wat u wilt.</li></ul>"
 
 msgid "Primary"
-msgstr ""
+msgstr "Primair"
 
 msgid "Primary email"
-msgstr ""
+msgstr "Primaire e-mail"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Privacy wachtwoord"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "Privacy type"
 
 msgid "Private key"
-msgstr ""
+msgstr "Privé-sleutel"
 
 msgid "Privilege"
-msgstr ""
+msgstr "Privilege"
 
 msgid "Privileges"
-msgstr ""
+msgstr "Privileges"
 
 msgid "Processes"
-msgstr ""
+msgstr "Processen"
 
 msgid "Processor"
-msgstr ""
+msgstr "Processor"
 
 msgid "Protocol"
-msgstr ""
+msgstr "Protocol"
 
 msgid "Public"
-msgstr ""
+msgstr "Publiek"
 
 msgid "Puerto Rico"
-msgstr ""
+msgstr "Puerto Rico"
 
 msgid "Pull"
-msgstr ""
+msgstr "Pull"
 
 msgid "Push"
-msgstr ""
+msgstr "Push"
 
 msgid "Qatar"
-msgstr ""
+msgstr "Qatar"
 
 msgid "Quiet"
-msgstr ""
+msgstr "Stil"
 
 msgid "Quota"
-msgstr ""
+msgstr "Quota"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "RAID Management"
-msgstr ""
+msgstr "RAID Beheer"
 
 msgid "RPC error"
-msgstr ""
+msgstr "RPC fout"
 
 msgid "RSync server"
-msgstr ""
+msgstr "RSync server"
 
 msgid "Ranges of numbers are not allowed"
-msgstr ""
+msgstr "Nummerreeksen zijn niet toegestaan"
 
 msgid "Raw value"
-msgstr ""
+msgstr "Ruwe waarde"
 
 msgid "Read only"
-msgstr ""
+msgstr "Alleen lezen"
 
 msgid "Read-only"
-msgstr ""
+msgstr "Alleen lezen"
 
 msgid "Read/Write"
-msgstr ""
+msgstr "Lezen/Schrijven"
 
 msgid "Reboot"
-msgstr ""
+msgstr "Reboot"
 
 msgid "Recipient"
-msgstr ""
+msgstr "Ontvanger"
 
 msgid "Recover"
-msgstr ""
+msgstr "Herstel"
 
 msgid "Recurse into directories"
-msgstr ""
+msgstr "Recursief in mappen"
 
 msgid "Recursive"
-msgstr ""
+msgstr "Recursief"
 
 msgid "Recycle bin"
-msgstr ""
+msgstr "Prullenbak"
 
 msgid "Refresh"
 msgstr "Vernieuw"
-
-msgid "Relative path"
-msgstr ""
 
 msgid "Remaining"
 msgstr "Overgebleven"
@@ -2342,6 +2342,9 @@ msgstr "Draait"
 msgid "Russia"
 msgstr "Rusland"
 
+msgid "Russian"
+msgstr ""
+
 msgid "Rwanda"
 msgstr "Rwanda"
 
@@ -2382,19 +2385,19 @@ msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
 msgid "Saint Helena"
-msgstr ""
+msgstr "Saint Helena"
 
 msgid "Saint Kitts and Nevis"
-msgstr ""
+msgstr "Saint Kitts en Nevis"
 
 msgid "Saint Lucia"
-msgstr ""
+msgstr "Saint Lucia"
 
 msgid "Saint Pierre and Miquelon"
-msgstr ""
+msgstr "Saint Pierre and Miquelon"
 
 msgid "Saint Vincent and the Grenadines"
-msgstr ""
+msgstr "Saint Vincent and the Grenadines"
 
 msgid "Samoa"
 msgstr "Samoa"
@@ -2403,7 +2406,7 @@ msgid "San Marino"
 msgstr "San Marino"
 
 msgid "Sao Tome and Principe"
-msgstr ""
+msgstr "Sao Tome and Principe"
 
 msgid "Saturday"
 msgstr "Zaterdag"
@@ -2421,52 +2424,52 @@ msgid "Secondary"
 msgstr "Secundair"
 
 msgid "Secondary email"
-msgstr ""
+msgstr "Secundair e-mail adres"
 
 msgid "Seconds"
-msgstr ""
+msgstr "Seconden"
 
 msgid "Secure connection"
-msgstr ""
+msgstr "Veilige verbinding"
 
 msgid "Security level"
-msgstr ""
+msgstr "Veiligheidsniveau"
 
 msgid "Select a SSL certificate ..."
 msgstr ""
 
 msgid "Select a country ..."
-msgstr ""
+msgstr "Selecteer een land ..."
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Selecteer een apparaat ..."
 
 msgid "Select a filesystem ..."
-msgstr ""
+msgstr "Selecteer een bestandssysteem"
 
 msgid "Select a group ..."
+msgstr "Selecteer een groep ..."
+
+msgid "Select a language ..."
 msgstr ""
 
 msgid "Select a primary device ..."
-msgstr ""
+msgstr "Selecteer een primair apparaat ..."
 
 msgid "Select a protocol ..."
-msgstr ""
+msgstr "Selecteer een protocol ..."
 
 msgid "Select a shared folder ..."
 msgstr "Selecteer een gedeelde map"
 
 msgid "Select a shell ..."
-msgstr ""
+msgstr "Selecteer een shell ..."
 
 msgid "Select a user ..."
-msgstr ""
+msgstr "Selecteer een gebruiker ..."
 
 msgid "Select a volume ..."
-msgstr ""
-
-msgid "Select an device ..."
-msgstr ""
+msgstr "Selecteer een volume ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr ""
@@ -2478,22 +2481,22 @@ msgid "Send command output via email"
 msgstr ""
 
 msgid "Send email"
-msgstr ""
+msgstr "Verstuur e-mail"
 
 msgid "Send test email"
-msgstr ""
+msgstr "Verstuur een test e-mail"
 
 msgid "Sender"
-msgstr ""
+msgstr "Afzender"
 
 msgid "Sending test email ..."
-msgstr ""
+msgstr "Versturen van test e-mail ..."
 
 msgid "Senegal"
 msgstr ""
 
 msgid "September"
-msgstr ""
+msgstr "September"
 
 msgid "Serbia And Montenegro"
 msgstr ""
@@ -2502,19 +2505,19 @@ msgid "Serial Number"
 msgstr ""
 
 msgid "Serial number"
-msgstr ""
+msgstr "Serienummer"
 
 msgid "Server"
-msgstr ""
+msgstr "Server"
 
 msgid "Service"
-msgstr ""
+msgstr "Dienst"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "Service uitgeschakeld"
 
 msgid "Services"
-msgstr ""
+msgstr "Diensten"
 
 msgid "Session not authenticated"
 msgstr ""
@@ -2643,6 +2646,9 @@ msgstr "Zuid Korea"
 
 msgid "Spain"
 msgstr "Spanje"
+
+msgid "Spanish"
+msgstr ""
 
 msgid "Specifies how many server threads to create."
 msgstr ""
@@ -2822,6 +2828,9 @@ msgstr ""
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
 "rsync://[USER@]HOST[:PORT]/DEST."
+msgstr ""
+
+msgid "The destination shared folder."
 msgstr ""
 
 #, c-format
@@ -3110,6 +3119,9 @@ msgid "Tunisia"
 msgstr "Tunesië "
 
 msgid "Turkey"
+msgstr ""
+
+msgid "Turkish"
 msgstr ""
 
 msgid "Turkmenistan"

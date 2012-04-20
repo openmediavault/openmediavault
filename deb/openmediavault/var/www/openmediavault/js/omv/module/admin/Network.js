@@ -382,8 +382,8 @@ Ext.extend(OMV.Module.System.Network.PhyIfacePropertyDialog,
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ "dhcp","DHCP" ],
-					[ "static","Static" ]
+					[ "dhcp",_("DHCP") ],
+					[ "static",_("Static") ]
 				]
 			}),
 			displayField: "text",
