@@ -304,8 +304,8 @@ class RaidMgmtRpc extends OMVRpc {
 		}
 		// Now grow the RAID.
 		// See https://raid.wiki.kernel.org/index.php/Growing
-		$cmd = sprintf("sudo mdadm --grow --size=%s --raid-devices=%d %s 2>&1",
-		  "max", $numDevices, $raid->getDeviceFile());
+		$cmd = sprintf("sudo mdadm --grow --raid-devices=%d %s 2>&1",
+		  $numDevices, $raid->getDeviceFile());
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

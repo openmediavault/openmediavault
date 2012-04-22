@@ -77,7 +77,7 @@ class OMVErrorMsg {
 		self::E_EXEC_FAILED => "Failed to execute command '%s': %s",
 		self::E_EXEC_MISC => "%s",
 		self::E_SESSION_NOT_AUTHENTICATED => "Session not authenticated",
-		self::E_SESSION_TIMEOUT => "Session timeout",
+		self::E_SESSION_TIMEOUT => "Session expired",
 		self::E_SESSION_INVALID_IPADDRESS => "Invalid IP address",
 		self::E_SESSION_INVALID_USERAGENT => "Invalid User-Agent",
 		self::E_SESSION_INVALID_USER => "Invalid user",

@@ -288,7 +288,9 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 			xtype: "textfield",
 			name: "reldirpath",
 			fieldLabel: _("Path"),
-			allowBlank: false
+			allowBlank: false,
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: _("The path of the folder to share. The specified folder will be created if it does not already exist.")
 		},{
 			xtype: "combo",
 			name: "umask",

@@ -123,7 +123,7 @@ class OMVSession extends OMVObject {
 		global $xmlConfig;
 		if (!isset($_SESSION['lastaccess']))
 			return FALSE;
-		// Get session timeout time from configuration.
+		// Get session timeout from configuration.
 		$timeout = 300;
 		$object = $xmlConfig->get("//webadmin");
 		if (!is_null($object) && array_key_exists("timeout", $object)) {

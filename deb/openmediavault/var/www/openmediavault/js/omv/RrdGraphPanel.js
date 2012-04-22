@@ -84,7 +84,7 @@ Ext.extend(OMV.RrdGraphPanel, Ext.Panel, {
 			  } else {
 				  this.cmdId = response;
 				  OMV.Ajax.request(this.cbIsRunningHdl, this, "Exec",
-					"isRunning", [ this.cmdId ]);
+					"isRunning", { "id": this.cmdId });
 			  }
 		  }, this, "Rrd", "generate");
 	},
@@ -98,7 +98,7 @@ Ext.extend(OMV.RrdGraphPanel, Ext.Panel, {
 			if (response === true) {
 				(function() {
 				  OMV.Ajax.request(this.cbIsRunningHdl, this, "Exec",
-					"isRunning", [ this.cmdId ]);
+					"isRunning", { "id": this.cmdId });
 				}).defer(1000, this);
 			} else {
 				delete this.cmdId;

@@ -137,7 +137,7 @@ OMV.data.Connection.prototype = {
 			case OMV.E_SESSION_TIMEOUT:
 				abort = true;
 				reload = true;
-				responseData.error.message = _("Session timeout");
+				responseData.error.message = _("Session expired");
 				break;
 			}
 			// Reload page and display a message box?

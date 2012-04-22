@@ -1,3 +1,9 @@
+openmediavault (0.3.0.3) stable; urgency=low
+
+  * Fix bug when refreshing graphs.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 21 Apr 2012 20:29:17 +0200
+
 openmediavault (0.3.0.2) stable; urgency=low
 
   * Fix bug when sending a test email.
@@ -31,7 +37,6 @@ openmediavault (0.3) stable; urgency=low
   * Mantis 0000385: Not able to install multiple plugins at once
   * Mantis 0000394: FTP: Not possible to set any directives for module mod_tls.c
   * Mantis 0000400: NFS performance options
-  * Mantis 0000406: growing online raid capacity
   * Mantis 0000410: SMART informations are not displayed for SCSI disks
   * Mantis 0000412: Log Viewer should display and sort logs in correct order
 
