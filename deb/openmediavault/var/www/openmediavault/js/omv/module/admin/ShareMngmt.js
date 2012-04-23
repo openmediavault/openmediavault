@@ -285,12 +285,33 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 				})
 			})
 		},{
-			xtype: "textfield",
+			xtype: "trigger",
 			name: "reldirpath",
 			fieldLabel: _("Path"),
 			allowBlank: false,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("The path of the folder to share. The specified folder will be created if it does not already exist.")
+			infoText: _("The path of the folder to share. The specified folder will be created if it does not already exist."),
+			onTriggerClick: function() {
+				// Get the UUID of the selected volume.
+				var field = this.ownerCt.ownerCt.findFormField("mntentref");
+				var value = field.getValue();
+				if (Ext.isUUID(value)) {
+					var wnd = new OMV.Module.Privileges.
+					  SharedFolderDirChooserDialog({
+						uuid: value,
+						listeners: {
+							select: function(dlg, value) {
+								// Set the selected path.
+								this.setValue(value);
+							},
+							scope: this
+						}
+					});
+					wnd.show();
+				} else {
+					OMV.MessageBox.info(null, _("Please first select a volume."));
+				}
+			}
 		},{
 			xtype: "combo",
 			name: "umask",
@@ -534,7 +555,8 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 			collapsible: true,
 			loader: new Ext.tree.TreeLoader({
 				baseParams: {
-					"uuid": this.uuid
+					"uuid": this.uuid,
+					"type": "sharedfolder"
 				},
 				load: function(node, callback, scope) {
 					if (this.clearOnLoad) {
@@ -544,7 +566,7 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 					}
 					if (this.fireEvent("beforeload", this, node,
 					  callback) !== false) {
-						// Get the relative shared folder directory path
+						// Get the relative directory path.
 						var dir = "/";
 						node.bubble(function(o) {
 							if (this.isRoot !== true) {
@@ -555,8 +577,7 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 						var params = Ext.apply({
 							"dir": dir
 						}, this.baseParams);
-						this.transId = OMV.Ajax.request(
-						  function(id, response, error) {
+						OMV.Ajax.request(function(id, response, error) {
 							  // Prepare data as expected by the tree loader
 							  // implementation.
 							  var resp = {
@@ -584,7 +605,7 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 								  resp.responseData = error;
 								  this.handleFailure(resp);
 							  }
-						  }, this, "ShareMgmt", "lsDir", params);
+						  }, this, "DirBrowser", "get", params);
 					} else {
 						this.runCallback(callback, scope || node, []);
 					}
@@ -865,5 +886,141 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 			}
 		});
 		dlg.start();
+	}
+});
+
+/**
+ * @class OMV.Module.Privileges.SharedFolderDirChooserDialog
+ * @derived Ext.Window
+ * @config uuid The UUID of the volume to process.
+ */
+OMV.Module.Privileges.SharedFolderDirChooserDialog = function(config) {
+	var initialConfig = {
+		title: _("Select a directory"),
+		width: 300,
+		height: 400,
+		layout: "fit",
+		modal: true,
+		border: true,
+		buttonAlign: "center",
+		readOnly: false
+	};
+	Ext.apply(initialConfig, config);
+	OMV.Module.Privileges.SharedFolderDirChooserDialog.superclass.
+	  constructor.call(this, initialConfig);
+	this.addEvents(
+		/**
+		 * Fires after the dialog has been closed by pressing the 'OK' button.
+		 */
+		"select"
+	);
+};
+Ext.extend(OMV.Module.Privileges.SharedFolderDirChooserDialog, Ext.Window, {
+	initComponent : function() {
+		this.tree = new Ext.tree.TreePanel({
+			autoScroll: true,
+			border: false,
+			loader: new Ext.tree.TreeLoader({
+				baseParams: {
+					"uuid": this.uuid,
+					"type": "mntent"
+				},
+				load: function(node, callback, scope) {
+					if (this.clearOnLoad) {
+						while (node.firstChild) {
+							node.removeChild(node.firstChild);
+						}
+					}
+					if (this.fireEvent("beforeload", this, node,
+					  callback) !== false) {
+						// Get the relative directory path.
+						var dir = "";
+						node.bubble(function(o) {
+							if (this.isRoot !== true) {
+								dir = this.text + "/" + dir;
+							}
+						});
+						// Build the RPC parameter
+						var params = Ext.apply({
+							"dir": dir
+						}, this.baseParams);
+						OMV.Ajax.request(function(id, response, error) {
+							  // Prepare data as expected by the tree loader
+							  // implementation.
+							  var resp = {
+								  "responseData": null,
+								  "argument": {
+									  "callback": callback,
+									  "node": node,
+									  "scope": scope
+								  }
+							  };
+							  if (error === null) {
+								  resp.responseData = [];
+								  response.each(function(text) {
+									  // Create the node configuration objects.
+									  // The field 'dir' contains the relative
+									  // path to the directory within the
+									  // shared folder.
+									  resp.responseData.push({
+										  "text": text,
+										  "dir": dir + text + "/"
+									  })
+								  }, this);
+								  this.handleResponse(resp);
+							  } else {
+								  resp.responseData = error;
+								  this.handleFailure(resp);
+							  }
+						  }, this, "DirBrowser", "get", params);
+					} else {
+						this.runCallback(callback, scope || node, []);
+					}
+				},
+				listeners: {
+					"scope": this,
+					"loadexception": function(tree, node, response) {
+						OMV.MessageBox.error(null, response.responseData);
+					}
+				}
+			}),
+			rootVisible: false,
+			root: new Ext.tree.AsyncTreeNode(),
+			listeners: {
+				"scope": this,
+				"click": function(node, e) {
+					var btnCtrl = Ext.getCmp(this.getId() + "-ok");
+					btnCtrl.setDisabled(node.isSelected());
+				}
+			}
+		});
+		Ext.apply(this, {
+			buttons: [{
+				id: this.getId() + "-ok",
+				text: _("OK"),
+				disabled: true,
+				handler: this.cbOkBtnHdl,
+				scope: this
+			},{
+				text: _("Cancel"),
+				handler: function() {
+					this.close();
+				},
+				scope: this
+			}],
+			items: [ this.tree ]
+		});
+		OMV.Module.Privileges.SharedFolderDirChooserDialog.superclass.
+		  initComponent.apply(this, arguments);
+	},
+
+	/**
+	 * @method cbOkBtnHdl
+	 * Method that is called when the 'OK' button is pressed.
+	 */
+	cbOkBtnHdl : function() {
+		var node = this.tree.getSelectionModel().getSelectedNode();
+		this.fireEvent("select", this, node.attributes.dir);
+		this.close();
 	}
 });

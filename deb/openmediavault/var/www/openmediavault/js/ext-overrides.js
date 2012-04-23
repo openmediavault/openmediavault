@@ -152,12 +152,20 @@ Ext.apply(Ext.form.VTypes, {
 	fslabelText: _("Invalid filesystem label"),
 	fslabelMask: /[a-zA-Z0-9]/,
 
-	// Strings that are used as share names (e.g. SMB)
 	sharename: function(v) {
-		return /^[a-zA-Z0-9\.\-_]+$/.test(v);
+		// We are using the SMB/CIFS file/directory naming convention for this:
+		// All characters are legal in the basename and extension except the
+		// space character (0x20) and:
+		// "./\[]:+|<>=;,*?
+		// A share name or server or workstation name SHOULD not begin with a
+		// period (“.”) nor should it include two adjacent periods (“..”).
+		// References:
+		// http://tools.ietf.org/html/draft-leach-cifs-v1-spec-01
+		// http://msdn.microsoft.com/en-us/library/aa365247%28VS.85%29.aspx
+		return /^[^.]([^"/\\\[\]:+|<>=;,*?. ]+){0,1}([.][^"/\\\[\]:+|<>=;,*?. ]+){0,}$/.test(v);
 	},
-	sharenameText: _("Invalid share name"),
-	sharenameMask: /[a-zA-Z0-9\.\-_]/,
+	sharenameText: "This field contains invalid characters, e.g. space character or \"/\[]:+|<>=;,*?",
+	sharenameMask: /[^"/\\\[\]:+|<>=;,*? ]/,
 
 	// Strings that are used as part of a device name
 	devname: function(v) {
@@ -546,5 +554,16 @@ Ext.applyIf(Ext, {
 			} else c[i] = o[i]
 		}
 		return c;
+	},
+
+	/**
+	 * Finds out whether a variable is an UUID v4.
+	 * @param v The variable being evaluated.
+	 * @return TRUE if variable is a UUID, otherwise FALSE.
+	 */
+	isUUID: function(v) {
+		if (!Ext.isString(v))
+			return false;
+		return /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(v);
 	}
 });

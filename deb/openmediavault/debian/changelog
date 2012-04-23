@@ -1,6 +1,9 @@
 openmediavault (0.3.0.3) stable; urgency=low
 
   * Fix bug when refreshing graphs.
+  * Add directory browser to select the shared folder path interactively.
+  * Mantis 0000428: Allow more characters in share names. The SMB/CIFS
+    file/directory naming convention is used for this.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 21 Apr 2012 20:29:17 +0200
 

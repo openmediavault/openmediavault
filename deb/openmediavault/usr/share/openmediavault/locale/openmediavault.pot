@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-22 02:18+0200\n"
+"POT-Creation-Date: 2012-04-23 21:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1398,9 +1398,6 @@ msgstr ""
 msgid "Invalid name"
 msgstr ""
 
-msgid "Invalid share name"
-msgstr ""
-
 msgid "Invalid user name"
 msgstr ""
 
@@ -2017,6 +2014,9 @@ msgstr ""
 msgid "Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details."
 msgstr ""
 
+msgid "Please first select a volume."
+msgstr ""
+
 msgid "Please note that no communication with the system is possible during this test."
 msgstr ""
 
@@ -2345,6 +2345,9 @@ msgid "Select a country ..."
 msgstr ""
 
 msgid "Select a device ..."
+msgstr ""
+
+msgid "Select a directory"
 msgstr ""
 
 msgid "Select a filesystem ..."
