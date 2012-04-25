@@ -97,7 +97,7 @@ do
 
 	# Get shared folder user privileges
 	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
-	  -v "concat(perms,'|',name" -n \
+	  -v "concat(perms,'|',name)" -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 	for privilege in ${privileges}
 	do

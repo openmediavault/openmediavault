@@ -48,6 +48,12 @@ class LogFileRpc extends OMVRpc {
 				"properties":{
 					"id":{"type":"string"}
 				}
+			}'),
+			"clear" => array('{
+				"type":"object",
+				"properties":{
+					"id":{"type":"string"}
+				}
 			}')
 		);
 	}

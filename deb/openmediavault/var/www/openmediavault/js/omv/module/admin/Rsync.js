@@ -1235,7 +1235,7 @@ OMV.Module.Diagnostics.LogPlugin.Rsync = function(config) {
 			dataIndex: "event",
 			id: "event"
 		}],
-		rpcArgs: { "id": "rpcArgs" },
+		rpcArgs: { "id": "rsync" },
 		rpcFields: [
 			{ name: "rownum" },
 			{ name: "date" },

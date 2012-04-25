@@ -45,6 +45,23 @@ $OMV_UUID_UNDEFINED = "undefined";
 $OMV_MAX_LOGFILE_LINES = "100000";
 $OMV_HTTPREQUEST_TIMEOUT = "60000";
 
+/**
+ * Use the following table as reference when defining a regex:
+ *  " => \"
+ * \w => \\\w
+ * \d => \\\d
+ *  / => \\\/
+ *  \ => \\\\
+ *  [ => \\\[
+ *  ] => \\\]
+ *  $ => \\\?
+ *  + => \\\+
+ *  * => \\\*
+ *  . => \\\.
+ *  | => \\\|
+ *  ? => \\\?
+ *  : => \\\:
+ */
 $OMV_JSONSCHEMA_USERNAME = '"type":"string","format":"regex","pattern":'.
   '"\/^[_.A-Za-z0-9][-\\\@_.A-Za-z0-9]*\\\$?$\/i"';
 $OMV_JSONSCHEMA_COUNTFIELD = '"type":["integer","null"]';
@@ -80,7 +97,9 @@ $OMV_JSONSCHEMA_FILESYSTEM_ID = '"type":"string","format":"regex",'.
   '"pattern":"\/^[a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
   '[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16}|\\\/dev\\\/.+$\/i"';
 $OMV_JSONSCHEMA_SHARENAME ='"type":["string","null"],"format":"regex",'.
-  '"pattern":"\/^[a-z0-9._-]+$\/i"';
+  '"pattern":"\/^[^\\\.]([^\"\\\/\\\\\\\[\\\]\\\:\\\+\\\|\\\<\\\>=;,\\\*'.
+  '\\\?\\\. ]+){0,1}([.][^\"\\\/\\\\\\\[\\\]\\\:\\\+\\\|\\\<\\\>=;,\\\*'.
+  '\\\?\\\. ]+){0,}$\/i"';
 $OMV_JSONSCHEMA_IPV4 = '"type":"string","format":"regex","pattern":'.
   '"\/^([1-9][0-9]{0,1}|1[013-9][0-9]|12[0-689]|2[01][0-9]|22[0-3])'.
   '([.]([1-9]{0,1}[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){2}[.]'.

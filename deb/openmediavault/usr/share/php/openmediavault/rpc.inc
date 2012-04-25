@@ -186,8 +186,8 @@ class OMVDownloadRpcServer extends OMVJsonRpcServer {
 			return FALSE;
 		// Decode params field
 		if (!empty($this->params['params'])) {
-			$this->params['params'] = json_decode(
-              htmlspecialchars_decode($this->params['params']));
+			$this->params['params'] = json_decode(htmlspecialchars_decode(
+			  $this->params['params']), TRUE);
 		}
 		return TRUE;
 	}

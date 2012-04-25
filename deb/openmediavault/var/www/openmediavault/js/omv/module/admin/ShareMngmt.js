@@ -323,6 +323,7 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 				data: [
 					[ "700",_("Administrator: read/write, Users: no access, Others: no access") ],
 					[ "750",_("Administrator: read/write, Users: read-only, Others: no access") ],
+					[ "770",_("Administrator: read/write, Users: read/write, Others: no access") ],
 					[ "755",_("Administrator: read/write, Users: read-only, Others: read-only") ],
 					[ "775",_("Administrator: read/write, Users: read/write, Others: read-only") ],
 					[ "777",_("Everyone: read/write") ]
@@ -401,7 +402,6 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 					"appendPagingParams": false
 				}),
 				reader: new Ext.data.JsonReader({
-					idProperty: "name",
 					fields: [
 						{ name: "type" },
 						{ name: "name" },
@@ -661,7 +661,6 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 				autoLoad: false,
 				remoteSort: false,
 				reader: new Ext.data.JsonReader({
-					idProperty: "name",
 					fields: [
 						{ name: "type" },
 						{ name: "name" },

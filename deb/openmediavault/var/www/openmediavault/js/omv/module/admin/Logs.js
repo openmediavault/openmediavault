@@ -387,8 +387,14 @@ Ext.extend(OMV.Module.Diagnostics.LogGridPanel, OMV.grid.GridPanel, {
 			fn: function(answer) {
 				if (answer == "no")
 					return;
-				OMV.Ajax.request(this.doReload, this, this.plugin.rpcService,
-				  this.plugin.rpcClearMethod, this.plugin.rpcArgs);
+				OMV.Ajax.request(function(id, response, error) {
+					if (error === null) {
+						this.doReload();
+					} else {
+						OMV.MessageBox.error(null, error);
+					}
+				}, this, this.plugin.rpcService, this.plugin.rpcClearMethod,
+				this.plugin.rpcArgs);
 			},
 			scope: this,
 			icon: Ext.Msg.QUESTION

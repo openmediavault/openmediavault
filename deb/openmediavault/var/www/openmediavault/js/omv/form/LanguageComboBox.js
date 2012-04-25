@@ -37,16 +37,17 @@ OMV.form.LanguageComboBox = function(config) {
 			fields: [ "value","text" ],
 			data: [ // The supported languages are hardcoded
 				[ "en",_("English") ],
-				[ "de",_("German") ],
-				[ "ru",_("Russian") ],
+				[ "de_DE",_("German") ],
+				[ "ru_RU",_("Russian") ],
 				[ "nl_NL",_("Dutch") ],
-				[ "it",_("Italian") ],
+				[ "it_IT",_("Italian") ],
 				[ "el_GR",_("Greek") ],
 				[ "tr_TR",_("Turkish") ],
 				[ "fr_FR",_("French") ],
 				[ "pl_PL",_("Polish") ],
 				[ "es_ES",_("Spanish") ],
-				[ "hu_HU",_("Hungarian") ]
+				[ "hu_HU",_("Hungarian") ],
+				[ "da_DA",_("Danish") ]
 			]
 		}),
 		displayField: "text",
