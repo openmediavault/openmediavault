@@ -1,3 +1,9 @@
+openmediavault-iscsitarget (0.3.0.1) stable; urgency=low
+
+  * Update locales
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 26 Apr 2012 22:41:25 +0200
+
 openmediavault-iscsitarget (0.3) stable; urgency=low
 
   * Adapt to openmediavault 0.3
