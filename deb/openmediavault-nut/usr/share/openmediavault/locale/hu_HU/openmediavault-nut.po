@@ -1,0 +1,116 @@
+# This file is part of OpenMediaVault.
+# 
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+# 
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# Translators:
+#   <mersaint@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:08+0100\n"
+"PO-Revision-Date: 2012-04-20 16:53+0000\n"
+"Last-Translator: mersaint <mersaint@gmail.com>\n"
+"Language-Team: Hungarian (Hungary) (http://www.transifex.net/projects/p/openmediavault/language/hu_HU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Charge"
+msgstr "Töltés"
+
+msgid "Comment"
+msgstr "Megjegyzés"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Leállítási szabályok."
+
+msgid "Driver configuration directives"
+msgstr "Illesztőprogram beállítási"
+
+msgid "Enable"
+msgstr "Bekapcsol"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "A helyileg csatlakoztatott UPS távfelügyeletének bekapcsolása"
+
+msgid "General settings"
+msgstr "Általános beállítások"
+
+msgid "Identifier"
+msgstr "Azonosító"
+
+msgid "Load"
+msgstr "Terhelés"
+
+msgid "Loading ..."
+msgstr "Betöltés ..."
+
+msgid "Password"
+msgstr "Jelszó"
+
+msgid "Remote monitoring"
+msgstr "Távfelügyelet"
+
+msgid "Service disabled"
+msgstr "Szolgáltatás kikapcsolva"
+
+msgid "Shutdown mode"
+msgstr "Kikapcsolási üzemmód"
+
+msgid "Shutdown timer"
+msgstr "Kikapcsolási időzítő"
+
+msgid "Temperature"
+msgstr "Hőmérséklet"
+
+msgid "The name used to uniquely identify your UPS on this system."
+msgstr "Az UPS neve egyedi azonosításhoz ezen a rendszeren."
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "A leállásig hátralévő idő másodpercben. Ha az idő lejárta előtt az UPS online lesz ismét, a leállás elmarad."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "További információért az UPS-ed beállításáról, nézd meg a Hálózati UPS Eszközök <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>dokumentumot</a>."
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "UPS goes on battery"
+msgstr "Akkumulátoros üzemmód"
+
+msgid "UPS reaches low battery"
+msgstr "Alacsony töltés"
+
+msgid "Used for remote authentication."
+msgstr "Távoli belépéshez."
+
+msgid "Username"
+msgstr "Felhasználónév"
+
+msgid "Variables"
+msgstr "Változók"
+
+msgid "Voltage"
+msgstr "Feszültség"

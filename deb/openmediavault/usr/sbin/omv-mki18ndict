@@ -31,6 +31,9 @@ OMV.i18nDict = {};
 EOF
 
 for language in $(find ${OMV_I18N_LOCALE_DIR} -maxdepth 1 -type d ! -iname ".*" -printf "%P\n"); do
+	# Skip empty directories.
+	[ $(find ${OMV_I18N_LOCALE_DIR}/${language} -iname \*.po | wc -l) = 0 ] && continue
+	# Convert .po files into JSON.
 	json=$(find ${OMV_I18N_LOCALE_DIR}/${language} -iname \*.po -type f -print0 | xargs -0 omv-po2json)
 	cat <<EOF >> ${OMV_I18N_JS_DICT_FILE}
 OMV.i18nDict["${language}"] = ${json}

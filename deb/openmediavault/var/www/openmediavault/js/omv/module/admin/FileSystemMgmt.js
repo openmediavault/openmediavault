@@ -623,7 +623,17 @@ Ext.extend(OMV.Module.Storage.QuotaPropertyDialog, Ext.Window, {
 					width: 60,
 					editor: new Ext.form.ComboBox({
 						mode: "local",
-						store: [ "KiB", "MiB", "GiB", "TiB" ],
+						store: new Ext.data.SimpleStore({
+							fields: [ "value","text" ],
+							data: [
+								[ "KiB",_("KiB") ],
+								[ "MiB",_("MiB") ],
+								[ "GiB",_("GiB") ],
+								[ "TiB",_("TiB") ]
+							]
+						}),
+						displayField: "text",
+						valueField: "value",
 						allowBlank: false,
 						triggerAction: "all",
 						editable: false,

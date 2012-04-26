@@ -1,0 +1,290 @@
+# This file is part of OpenMediaVault.
+# 
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+# 
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# Translators:
+# Serhat SUT <serhat.sut@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:05+0100\n"
+"PO-Revision-Date: 2012-04-25 20:24+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.net/projects/p/openmediavault/language/tr_TR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: tr_TR\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid "Add LUN"
+msgstr "LUN ekle"
+
+msgid "Add target"
+msgstr "Hedef ekle"
+
+msgid "Add user"
+msgstr "Kullanıcı ekle"
+
+msgid "Alias"
+msgstr "Takma ad"
+
+msgid "Assign a unique identifier to the iSCSI volume optionally."
+msgstr "iSCSI birimine benzersiz bir tanımlayıcı atayınız."
+
+msgid "Assign a unique serial number to the iSCSI volume optionally."
+msgstr "iSCSI birimine benzersiz bir seri no atayınız."
+
+msgid "Authentication"
+msgstr "Doğrulama"
+
+msgid "Block IO"
+msgstr "Blok IO"
+
+msgid "Comment"
+msgstr "Açıklama"
+
+msgid ""
+"Controls the maximum number of data transfers the target may request at "
+"once."
+msgstr "Hedefin bir seferde isteyebileceği en fazla data transfer sayısını kontrol eder."
+
+msgid "Data PDU in order"
+msgstr "Sıralı data PDU su"
+
+msgid "Data digest"
+msgstr "Data tasnifi"
+
+msgid "Data sequence in order"
+msgstr "Sıralı data dizisi"
+
+msgid "Device"
+msgstr "Aygıt"
+
+msgid "Discovery authentication"
+msgstr "Keşif kimlik denetimi"
+
+msgid "Edit LUN"
+msgstr "LUN düzenle"
+
+msgid "Edit target"
+msgstr "Hedef düzenle"
+
+msgid "Edit user"
+msgstr "Kullanıcı düzenle"
+
+msgid "Enable"
+msgstr "Aktif"
+
+msgid "Error recovery level"
+msgstr "Hata kurtarma seviyesi"
+
+msgid "Extra options"
+msgstr "Ekstra seçenekler"
+
+msgid "File IO"
+msgstr "Dosya IO"
+
+msgid "First burst length"
+msgstr "İlk anlık yük uzunluğu"
+
+msgid "General"
+msgstr "Genel"
+
+msgid "General settings"
+msgstr "Genel ayarlar"
+
+msgid "Header digest"
+msgstr "Başlık tasnifi"
+
+msgid "IO threads"
+msgstr "IO iş parçacıkları"
+
+msgid "IQN"
+msgstr "IQN"
+
+msgid "Id"
+msgstr "Kimlik"
+
+msgid "Identifier"
+msgstr "Tanımlayıcı"
+
+msgid ""
+"If a non-zero 'NOP interval' is used to periodically 'ping' the initiator "
+"during phases of inactivity (i.e. no data transfers), the initiator must "
+"respond within N seconds, otherwise the connection will be closed."
+msgstr "Eğer, başlatıcıyı çalışılmayan zamanlarda (örn. bilgi aktarımı olmadığında) düzenli olarak 'ping' lemek için sıfır olmayan bir 'NOP zaman aralığı' kullanılıyor ise, başlatıcı N saniye içerisinde yanıt vermelidir, aksi taktirde bağlantı kesilecektir."
+
+msgid ""
+"If enabled, the initiator has to wait for the target to solicit SCSI data "
+"before sending it. Disabling it allows the initiator to send a burst of N "
+"bytes unsolicited right after and/or together with the command. Thus "
+"disabling it may improve performance."
+msgstr "Eğer aktive edilir ise, başlatıcı gönderim yapmadan önce hedeften talep edilmiş SCSI bilgisinin gelmesini bekler. Bu seçeneğin kapatılması halinde başlatıcı N byte büyüklüğünde talep edilmemiş bilgiyi komut ile ve / veya komuttan hemen sonra gönderebilir. Bu nedenle bu secenegin kapatılması performansı arttırabilir."
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's data segment will be protected by a CRC32C "
+"checksum."
+msgstr "Şayet 'CRC32C' olarak ayarlanır ve başlatıcı da buna uygun olarak konfigüre edilir ise iSCSI PDU nun bilgi bölüm güvenilirliği CRC32C doğrulaması ile korunmuş olacaktır."
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's header segments will be protected by a CRC32C "
+"checksum."
+msgstr "Şayet 'CRC32C' olarak ayarlanır ve başlatıcı da buna uygun olarak konfigüre edilir ise iSCSI PDU nun başlık bölüm güvenilirliği CRC32C doğrulaması ile korunmuş olacaktır."
+
+msgid ""
+"If value is non-zero, the initiator will be 'ping'ed during phases of "
+"inactivity (i.e. no data transfers) every N seconds to verify the connection"
+" is still alive."
+msgstr "Eğer değer sıfırdan farklı ise, başlatıcı herhangi bir aktivitenin olmadığı zamanlarda (örn. data aktarımı yoksa) her N saniyede bir bağlantının hala çalışır olduğunu anlamak için 'ping' lenecektir."
+
+msgid "Immediate data"
+msgstr "Anlık veri"
+
+msgid "Incoming"
+msgstr "Alınan"
+
+msgid "Initial R2T"
+msgstr "İlk R2T"
+
+msgid "LUN"
+msgstr "LUN"
+
+msgid "Max. burst length"
+msgstr "Maksimum anlık uzunluk"
+
+msgid "Max. connections"
+msgstr "En fazla bağlantı"
+
+msgid "Max. outstanding R2T"
+msgstr "En farklı R2T"
+
+msgid "Max. receive data segment length"
+msgstr "Maksimum alınan data parçacık uzunluğu"
+
+msgid "Max. sessions"
+msgstr "En fazla oturum"
+
+msgid "Max. transmit data segment length"
+msgstr "Maksimum gönderilen data parçacık uzunluğu"
+
+msgid "NOP interval"
+msgstr "NOP aralığı"
+
+msgid "NOP timeout"
+msgstr "NOP zaman aşımı"
+
+msgid "None"
+msgstr "Yok"
+
+msgid "Only one outgoing user per target is supported."
+msgstr "Her hedef için sadece bir çıkış yapan kullanıcı desteklenmektedir."
+
+msgid "Outgoing"
+msgstr "Giden"
+
+msgid "Password"
+msgstr "Şifre"
+
+msgid "Queued commands"
+msgstr "Sıralanmış komutlar"
+
+msgid "R/W mode"
+msgstr "Okuma/Yazma modu"
+
+msgid "Read-only"
+msgstr "Sadece okunabilir"
+
+msgid "SCSI Id."
+msgstr "SCSI Id."
+
+msgid "SCSI serial no."
+msgstr "SCSı seri no"
+
+msgid "Select an device ..."
+msgstr "Aygıt seçiniz ..."
+
+msgid ""
+"Sets the amount of unsolicited data the initiator may transmit in the first "
+"burst of a transfer either with and/or right after the command."
+msgstr "Başlatıcının komutla birlikte ya da komuttan hemen sonra transferin ilk serisi olarak iletebileceği istenmeyen veri miktarını belirler."
+
+msgid ""
+"Sets the maximum amount of either unsolicited or solicited data the "
+"initiator may send in a single burst."
+msgstr "Başlatıcının bir seferde gönderebileceği istenen ya da istenmeyen maksimum  veri miktarını belirler."
+
+msgid "Sets the maximum data segment length that can be received."
+msgstr "Alınabilecek en büyük bilgi parça uzunluğunu ayarlar."
+
+msgid "Sets the maximum data segment length that can be sent."
+msgstr "Gönderilebilecek en büyük bilgi parça uzunluğunu ayarlar."
+
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgid "Targets"
+msgstr "Hedefler"
+
+msgid "The identifier of the target."
+msgstr "Hedef tanımlayıcısı"
+
+msgid "The maximum number of sessions for this target."
+msgstr "Bu hedef için en fazla oturum sayısı."
+
+msgid ""
+"The number of commands an initiator may send and that will be buffered by "
+"the target."
+msgstr "Başlatıcı tarafından gönderilebilecek ve hedef tarafından tamponlanan komut sayısı."
+
+msgid "The number of connections within a session."
+msgstr "Oturum içerisindeki en fazla bağlantı sayısı."
+
+msgid "The number of threads to perform block I/O to the device."
+msgstr "Aygıtta blok I/O oluşturacak iş parçacığı sayısı."
+
+msgid "The optional alias of the target."
+msgstr "Hedefin opsiyonel takma adı."
+
+msgid ""
+"This allows the initiator to append unsolicited data to a command. To "
+"achieve better performance, this should be enabled."
+msgstr "Bu, başlatıcının ilgili komuta talep edilmemiş bilgileri de ekleyebilmesini sağlar. Daya yüksek bir performans için bu seçenek aktive edilmelidir."
+
+msgid "Transfer mode"
+msgstr "Aktarım modu"
+
+msgid "Type"
+msgstr "Tip"
+
+msgid "Username"
+msgstr "Kullanıcı adı"
+
+msgid "Users"
+msgstr "Kullanıcılar"
+
+msgid "Write-back"
+msgstr "Sonradan yazma"
+
+msgid "Write-through"
+msgstr "Doğrudan yazma"
+
+msgid "iSCSI Target"
+msgstr "iSCSI Hedefi"

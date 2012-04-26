@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-20 21:41+0200\n"
-"PO-Revision-Date: 2012-04-20 19:42+0000\n"
-"Last-Translator: votdev <votdev@gmx.de>\n"
+"POT-Creation-Date: 2012-04-22 02:18+0200\n"
+"PO-Revision-Date: 2012-04-25 21:30+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.net/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -188,10 +188,10 @@ msgid "Add bonded interface"
 msgstr "Birleştirilmiş arabirim ekle"
 
 msgid "Add cron job"
-msgstr ""
+msgstr "Cron görevi ekle"
 
 msgid "Add devices to RAID device"
-msgstr ""
+msgstr "RAID aygıtına ekle"
 
 msgid "Add firewall rule"
 msgstr "Güvenlik duvarı kuralı ekle"
@@ -200,7 +200,7 @@ msgid "Add group"
 msgstr "Grup ekle"
 
 msgid "Add hot spares / recover RAID device"
-msgstr ""
+msgstr "RAID aygıtına yedek ekle / kurtar"
 
 msgid "Add module"
 msgstr "Modül ekle"
@@ -227,7 +227,7 @@ msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
 " href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 "for more details."
-msgstr ""
+msgstr "Ek aygıt ayarları, örn.  'autoneg off speed 100 duplex full'. Daha fazla bilgi için lütfen <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> adresini ziyaret ediniz."
 
 msgid "Address"
 msgstr "Adres"
@@ -258,10 +258,10 @@ msgstr "Afganistan"
 
 msgid ""
 "After the RAID has been grown you can resize the containing filesystem."
-msgstr ""
+msgstr "RAID aygıtı büyütüldükten sonra taşıdığı dosya sistemini yeniden boyutlandırabilirsiniz."
 
 msgid "Aland Islands"
-msgstr ""
+msgstr "Aland Adaları"
 
 msgid "Albania"
 msgstr "Arnavutluk"
@@ -296,7 +296,7 @@ msgid ""
 msgstr "Sunucunun Windows kullanıcılarına kendisini bir zaman sunucusu olarak tanıtmasına izin ver"
 
 msgid "Allow this server to try and become a local master browser"
-msgstr ""
+msgstr "Bu sunucunun yerel birincil tarayıcı olmasına izin ver"
 
 msgid "American Samoa"
 msgstr "Amerikan Samoa"
@@ -304,12 +304,12 @@ msgstr "Amerikan Samoa"
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Komut çıktısını (eğer üretildi ise) içeren bir e-posta yöneticiye gönderildi."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr ""
+msgstr "Komut çıktısını (eğer üretildi ise) içeren bir e-posta komutu çalıştıran kullanıcıya gönderildi."
 
 msgid "An error has occured"
 msgstr "Bir hata oluştu"
@@ -321,7 +321,7 @@ msgid "Angola"
 msgstr "Angola"
 
 msgid "Anguilla"
-msgstr ""
+msgstr "Anguilla"
 
 msgid "Anonymous FTP"
 msgstr "Anonim FTP"
@@ -330,7 +330,7 @@ msgid "Antarctica"
 msgstr "Antartika"
 
 msgid "Antigua and Barbuda"
-msgstr ""
+msgstr "Antigua ve Barbuda"
 
 msgid "Apply"
 msgstr "Uygula"
@@ -381,10 +381,10 @@ msgid "Authentication"
 msgstr "Onaylama"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Kimlik denetimi ve gizlilik olmaması"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Kimlik denetimi ve gizlilik"
 
 msgid "Authentication passphrase"
 msgstr "Onaylama parolası"
@@ -496,7 +496,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr ""
+msgstr "Standart olarak, sadece şu anda mevcut olan dosyalar yüklenebilir."
 
 msgid "CPU usage"
 msgstr "CPU kullanımı"
@@ -514,13 +514,13 @@ msgid "Cancel"
 msgstr "İptal"
 
 msgid "Canton and Enderbury Islands"
-msgstr ""
+msgstr "Canton ve Enderbury Adaları"
 
 msgid "Capacity"
 msgstr "Kapasite"
 
 msgid "Cape Verde"
-msgstr ""
+msgstr "Cape Verde"
 
 msgid "Cayman Islands"
 msgstr "Kayman Adaları"
@@ -575,13 +575,13 @@ msgid "Client"
 msgstr "Kullanıcı"
 
 msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Dosya sistemine bağlanma izni olan kullanıcılar, örn. 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Kapat"
 
 msgid "Cocos (Keeling) Islands"
-msgstr ""
+msgstr "Cocos (Keeling) Adaları"
 
 msgid "Colombia"
 msgstr "Kolombiya"
@@ -602,7 +602,7 @@ msgid "Community"
 msgstr "Topluluk"
 
 msgid "Comoros"
-msgstr ""
+msgstr "Comoros"
 
 msgid "Compress"
 msgstr "Sıkıştır"
@@ -626,10 +626,10 @@ msgid "Confirmation"
 msgstr "Onay"
 
 msgid "Congo (Brazzaville)"
-msgstr ""
+msgstr "Kongo (Brazzaville)"
 
 msgid "Congo (Kinshasa)"
-msgstr ""
+msgstr "Kongo (Kinsaşa)"
 
 msgid "Contact"
 msgstr "İletişim"
@@ -640,7 +640,7 @@ msgid ""
 msgstr "İletişim bilgisi, örn. sistem sorumlusunun adı ve e-mail adresi."
 
 msgid "Conveyance self-test"
-msgstr ""
+msgstr "Geri bildirimli iç kontrol"
 
 msgid "Cook Islands"
 msgstr "Cook Adaları"
@@ -661,7 +661,7 @@ msgid "Create filesystem"
 msgstr "Dosya sistemi yarat"
 
 msgid "Create self-signed SSL certificate"
-msgstr ""
+msgstr "Kendiliğinden onaylı SSL sertifikası oluştur"
 
 msgid "Critical"
 msgstr "Kritik"
@@ -670,7 +670,7 @@ msgid "Croatia"
 msgstr "Hırvatistan"
 
 msgid "Cron Jobs"
-msgstr ""
+msgstr "Cron görevleri"
 
 msgid "Cuba"
 msgstr "Küba"
@@ -701,7 +701,7 @@ msgid "DNS server"
 msgstr "DNS Sunucu"
 
 msgid "Daemon"
-msgstr ""
+msgstr "Program"
 
 msgid "Date"
 msgstr "Tarih"
@@ -716,7 +716,7 @@ msgid "Day of week"
 msgstr "Haftanın günü"
 
 msgid "Debug"
-msgstr ""
+msgstr "Hata ayıklama"
 
 msgid "December"
 msgstr "Aralık"
@@ -725,7 +725,7 @@ msgid "Delete"
 msgstr "Sil"
 
 msgid "Delete files on the receiving side that don't exist on sender"
-msgstr ""
+msgstr "Göndericide bulunmayan dosyaları kaydedilen taraftan sil"
 
 msgid "Deleting selected item(s)"
 msgstr "Seçili öge(leri) sil"
@@ -737,7 +737,7 @@ msgid "Deny"
 msgstr "Yasak"
 
 msgid "Deny logins which do not have a valid shell"
-msgstr ""
+msgstr "Geçerli bir kabuk içermeyen oturum açılışlarını engelle"
 
 msgid "Description"
 msgstr "Açıklama"
@@ -749,7 +749,7 @@ msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A '!' argument before the address specification"
 " inverts the sense of the address."
-msgstr ""
+msgstr "Hedef adresi bir network IP adresi (/maske ile), bir IP aralığı ya da normal bir IP adresi olabilir. Girilen değerin önüne '!' değeri getirilir ise değer tam tersi anlama çevrilmiş olur."
 
 msgid "Destination port"
 msgstr "Hedef port"
@@ -766,7 +766,7 @@ msgstr "Detay"
 msgid ""
 "Determine the default timeout, in microseconds, before the first packet is "
 "retransmitted."
-msgstr ""
+msgstr "Birinci paketin tekrar gönderilmesinden önce geçerli zaman aşımını milisaniye cinsinden tanımlayınız."
 
 msgid "Device"
 msgstr "Aygıt"
@@ -785,7 +785,7 @@ msgid "Devices"
 msgstr "Aygıtlar"
 
 msgid "Diagnostics"
-msgstr ""
+msgstr "Sistem Testleri"
 
 msgid "Difference"
 msgstr "Farklılık"
@@ -794,28 +794,28 @@ msgid "Direction"
 msgstr "Yön"
 
 msgid "Directory"
-msgstr ""
+msgstr "Klasör"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Kapatılmış"
 
 msgid "Disallow the user to modify his account."
-msgstr ""
+msgstr "Kullanıcıların bu hesabı değiştirmesini engelle."
 
 msgid "Disk usage"
 msgstr "Disk kullanımı"
 
 msgid "Displaying items {0} - {1} of {2}"
-msgstr ""
+msgstr "Ögeler gösteriliyor {0} - {1} / {2}"
 
 msgid "Djibouti"
-msgstr ""
+msgstr "Cibuti"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Log dosyasını gerçekten temizlemek istiyor musunuz?"
 
 msgid "Do you really want to create the RAID device?"
-msgstr ""
+msgstr "Bir RAID dizisi oluşturmak istediğnize emin misiniz?"
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Seçilmiş öge(leri) gerçekten silmek istiyor musunuz? "
@@ -851,7 +851,7 @@ msgstr "Seçili aygıtı silmek istediğinizden emin misiniz?"
 msgid ""
 "Do you want to secure wipe the device? Please note that this may take a long"
 " time. Press 'No' to fast wipe the device or 'Cancel' to abort."
-msgstr ""
+msgstr "Aygıtı güvenli olarak silmek istediğinize emin misiniz? Lütfen bu işlemin uzun zaman alabileceğini göz önünde bulundurun. Hızlı silme için 'Hayır' a veya iptal etmek için 'İptal' e basınız."
 
 msgid "Domain name"
 msgstr "Alan adı"
@@ -869,27 +869,27 @@ msgid "Done ..."
 msgstr "Tamamlandı..."
 
 msgid "Down"
-msgstr ""
+msgstr "Çalışmıyor"
 
 msgid "Down delay"
-msgstr ""
+msgstr "Kapanma zaman aşımı"
 
 msgid "Download"
 msgstr "İndirme"
 
 msgid "Dronning Maud Land"
-msgstr ""
+msgstr "Dronning Maud Bölgesi"
 
 msgid "Dutch"
-msgstr ""
+msgstr "Flemenkçe"
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
 "text."
-msgstr ""
+msgstr "Herbir satır bir kullanıcıyı temsil eder. Şifrenin düz yazı olarak girilmesi gerektiğini unutmayınız."
 
 msgid "East Timor"
-msgstr ""
+msgstr "Doğu Timor"
 
 msgid "Ecuador"
 msgstr "Ekvator"
@@ -904,7 +904,7 @@ msgid "Edit bonded interface"
 msgstr "Birleştirilmiş arabirimi düzenle"
 
 msgid "Edit cron job"
-msgstr ""
+msgstr "Cron görevi düzenle"
 
 msgid "Edit firewall rule"
 msgstr "Güvenlik duvarı kuralını düzenle"
@@ -970,7 +970,7 @@ msgid "Enable WINS server"
 msgstr "WINS sunucusu aç"
 
 msgid "Enable advertising of services via mDNS/DNS-SD."
-msgstr ""
+msgstr "mDNS/DNS-SD kullanılarak servislerin önerilmesine izin ver."
 
 msgid "Enable anonymous FTP"
 msgstr "Anonim FTP aç"
@@ -982,49 +982,49 @@ msgid "Enable compression"
 msgstr "Sıkıştırmayı aç"
 
 msgid "Enable extended attribute support"
-msgstr ""
+msgstr "Genişletilmiş öznitelik desteğine izin ver"
 
 msgid "Enable keyboard-interactive authentication"
-msgstr ""
+msgstr "Klavye kullanılarak doğrulama yapılabilsin"
 
 msgid "Enable module listing"
-msgstr ""
+msgstr "Modül listelemesine izin ver"
 
 msgid "Enable permission inheritance"
-msgstr ""
+msgstr "Yetkilerin alttaki seviyelere aktarımına izin ver"
 
 msgid "Enable recycle bin"
-msgstr ""
+msgstr "Geri dönüşüm kutusunu aktive et"
 
 msgid "Enable reverse DNS lookup"
-msgstr ""
+msgstr "Tersten DNS araştırmasını aktive et"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
 "connections."
-msgstr ""
+msgstr "Gelen aktif  ve giden pasif moddaki data bağlantılarında uzak bilgisayar IP adresi için ters DNS sorgulaması yapılmasına izin ver."
 
 msgid "Enable secure connection."
-msgstr ""
+msgstr "Güvenli bağlantıyı aktive et."
 
 msgid "Enable store DOS attributes support"
-msgstr ""
+msgstr "DOS özniteliklerinin korunması desteğine izin ver"
 
 msgid "Enable the ident protocol (RFC1413)"
-msgstr ""
+msgstr "Ident protokolüne (RFC1413) izin ver"
 
 msgid "Enable user authentication"
 msgstr "Kullanıcı doğrulamasını etkinleştir"
 
 msgid "Enable user home directories"
-msgstr ""
+msgstr "Kullanıcı ana dizinlerine izin ver"
 
 msgid "Enable write-cache."
 msgstr "Yazna önbelleğini etkinleştir"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Aktif"
 
 msgid "English"
 msgstr "İngilizce"
@@ -1036,10 +1036,10 @@ msgid "Enter your username"
 msgstr "Kullanıcı adınızı giriniz"
 
 msgid "Equatorial Guinea"
-msgstr ""
+msgstr "Ekvator Ginesi"
 
 msgid "Eritrea"
-msgstr ""
+msgstr "Eritre"
 
 msgid "Error"
 msgstr "Hata"
@@ -1058,7 +1058,7 @@ msgid "Ethiopia"
 msgstr "Etiyopya"
 
 msgid "Event"
-msgstr ""
+msgstr "Olay"
 
 msgid "Every N day of month"
 msgstr "Ayın her N günü"
@@ -1070,25 +1070,25 @@ msgid "Every N minute"
 msgstr "Her N dakika"
 
 msgid "Everyone: read/write"
-msgstr ""
+msgstr "Herkes:oku/yaz"
 
 msgid "Execute command"
 msgstr "Komutu çalıştır"
 
 msgid "Execute cron job"
-msgstr ""
+msgstr "Cron görevi çalıştır"
 
 msgid "Execute rsync job"
-msgstr ""
+msgstr "Rsync görevi çalıştır"
 
 msgid "Expire"
-msgstr ""
+msgstr "Zaman aşımı"
 
 msgid "Extended attributes"
-msgstr ""
+msgstr "Genişletilmiş öznitelikler"
 
 msgid "Extra options"
-msgstr ""
+msgstr "İlave seçenekler"
 
 msgid "FTP"
 msgstr "FTP"
@@ -1099,10 +1099,10 @@ msgstr "FXP"
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
-msgstr ""
+msgstr "FXP kullanıcı tarafına herhangi bir dosya bilgisi aktarımı olmaksızın iki uzak sunucu arasında aktarıma imkan tanır."
 
 msgid "Failed to call "
-msgstr ""
+msgstr "Hatalı işlem"
 
 #, c-format
 msgid ""
@@ -1111,25 +1111,25 @@ msgid ""
 msgstr "Dosya sistemi yaratılamadı. Daha fazla bilgi için lütfen sistem kayıtlarını ya da '%s' i kontrol ediniz."
 
 msgid "Failed to get filesystems"
-msgstr ""
+msgstr "Dosya sistemin algılamasında hata"
 
 msgid "Failed to get system date and time"
-msgstr ""
+msgstr "Sistem tarih ve zaman algılamasında hata"
 
 msgid "Falkland Islands"
-msgstr ""
+msgstr "Falkland Adaları"
 
 msgid "Faroe Islands"
-msgstr ""
+msgstr "Faroe Adaları"
 
 msgid "Fatal error"
-msgstr ""
+msgstr "Çok önemli hata"
 
 msgid "February"
 msgstr "Şubat"
 
 msgid "Fields must be exclusive"
-msgstr ""
+msgstr "Alanlar özel olmalı"
 
 msgid "Fiji"
 msgstr "Fiji"
@@ -1158,16 +1158,16 @@ msgid "Firewall"
 msgstr "Güvenlik duvarı"
 
 msgid "Firmware version"
-msgstr ""
+msgstr "Gömülü yazılım sürümü"
 
 msgid "Flag"
-msgstr ""
+msgstr "Flama"
 
 msgid "Force SSL/TLS"
-msgstr ""
+msgstr "SSL/TLS i zorunlu kıl"
 
 msgid "Force secure connection only."
-msgstr ""
+msgstr "Sadece güvenli bağlatıyı zorunlu kıl"
 
 msgid "France"
 msgstr "Fransa"
@@ -1182,10 +1182,10 @@ msgid "French Polynesia"
 msgstr "Fransız Polinezyası"
 
 msgid "French Southern Territories"
-msgstr ""
+msgstr "Fransız Güney Bölgesi"
 
 msgid "French Southern and Antarctic Territories"
-msgstr ""
+msgstr "Fransız Güney ve Antartik Bölgesi"
 
 msgid "Friday"
 msgstr "Cuma"
@@ -1227,7 +1227,7 @@ msgid "Ghana"
 msgstr "Gana"
 
 msgid "Gibraltar"
-msgstr ""
+msgstr "Cebelitarık"
 
 msgid "Greece"
 msgstr "Yunanistan"
@@ -1239,7 +1239,7 @@ msgid "Greenland"
 msgstr "Grönland"
 
 msgid "Grenada"
-msgstr ""
+msgstr "Grenada"
 
 msgid "Group"
 msgstr "Grup"
@@ -1252,13 +1252,13 @@ msgid "Groups"
 msgstr "Gruplar"
 
 msgid "Grow"
-msgstr ""
+msgstr "Büyült"
 
 msgid "Grow RAID device"
-msgstr ""
+msgstr "RAID aygıtını büyüt"
 
 msgid "Guadeloupe"
-msgstr ""
+msgstr "Guandloupe"
 
 msgid "Guam"
 msgstr "Guam"
@@ -1270,7 +1270,7 @@ msgid "Guinea"
 msgstr "Gine"
 
 msgid "Guinea-Bissau"
-msgstr ""
+msgstr "Gine-Bissau"
 
 msgid "Guyana"
 msgstr "Guyana"
@@ -1279,7 +1279,7 @@ msgid "Haiti"
 msgstr "Haiti"
 
 msgid "Heard Island and McDonald Islands"
-msgstr ""
+msgstr "Heard Adası ve McDonal Adası"
 
 msgid "Hide details"
 msgstr "Detayları gizle"
@@ -1288,7 +1288,7 @@ msgid "Hide dot files"
 msgstr "Noktalı dosyaları gizle"
 
 msgid "Home directories"
-msgstr ""
+msgstr "Ana dizinler"
 
 msgid "Homepage"
 msgstr "Anasayfa"
@@ -1297,46 +1297,49 @@ msgid "Honduras"
 msgstr "Honduras"
 
 msgid "Hong Kong S.A.R., China"
-msgstr ""
+msgstr "Hong Kong, Çin"
 
 msgid "Honor existing ACLs"
-msgstr ""
+msgstr "Mevcut ACL lere başvur"
 
 msgid "Host"
-msgstr ""
+msgstr "Sistem"
 
 msgid "Host access control"
-msgstr ""
+msgstr "Sistem erişim kontrolü"
 
 msgid "Hostname"
-msgstr ""
+msgstr "Sistem adı"
 
 msgid "Hosts"
-msgstr ""
+msgstr "Sistemler"
 
 msgid "Hosts allow"
-msgstr ""
+msgstr "İzin verilen sistemler"
 
 msgid "Hosts deny"
-msgstr ""
+msgstr "Yasaklanan sistemler"
 
 msgid "Hour"
 msgstr "Saat"
+
+msgid "Hungarian"
+msgstr "Macar"
 
 msgid "Hungary"
 msgstr "Macaristan"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Iceland"
 msgstr "İzlanda"
 
 msgid "Ident protocol"
-msgstr ""
+msgstr "Ident iletişim kuralı"
 
 msgid "Identify"
-msgstr ""
+msgstr "Belirle"
 
 msgid "Identify network interface device"
 msgstr "Ağ arabirim aygıtını tanımla"
@@ -1345,18 +1348,18 @@ msgid "Idle"
 msgstr "Boş"
 
 msgid "If enabled then no password is required to connect to the share"
-msgstr ""
+msgstr "Bu seçenek aktive edilir ise paylaşıma bağlanmak için herhangi bir şifre kullanma ihtiyacı olmayacaktır."
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
 "to connect to the module."
-msgstr ""
+msgstr "Bu seçenek aktive edilir ise kullanıcılar modüle bağlanabilme için kullanıcı adı ve şifre kullanmak zorunda kalacaktır."
 
 msgid "If this option is set, then any attempted downloads will fail."
-msgstr ""
+msgstr "Bu seçenek aktive edilir ise tüm indirme girişimler hata alacaktır."
 
 msgid "If this option is set, then any attempted uploads will fail."
-msgstr ""
+msgstr "Bu seçenek aktive edilir ise tüm yükleme girişimleri hata alacaktır."
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
@@ -1364,28 +1367,28 @@ msgid ""
 " before mapping DOS attributes to UNIX permission bits. When set, DOS "
 "attributes will be stored onto an extended attribute in the UNIX filesystem,"
 " associated with the file or directory."
-msgstr ""
+msgstr "Bu değişken seçilir ise, Samba, DOS özniteliklerini UNIX yetki bitlerine bağlamadan önce DOS özniteliklerini (SİSTEM, GİZLİ, ARŞİV veya SADECE-OKUNUR) dosya sistemi genişletilmiş özniteliklerinden okur. Seçildiğinde DOS öznitelikleri ilgili dosya ve klasörlerle ilişkili UNIX dosya sistemi genişletilmiş özniteliklerinde saklanır."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
 "share."
-msgstr ""
+msgstr "Bu seçenek ektive edilir ise kullanıcılar paylaşıma bulunan dosyaları değiştiremeyebilir ya da yeni dosya oluşturamayabilirler."
 
 msgid ""
 "If your host is acting as a NAT gateway or port forwarder for the server, "
 "this option is useful in order to allow passive tranfers to work. You have "
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
-msgstr ""
+msgstr "Eğer makinanız sunucu çin NAT ag geçidi ya da port yönlendirici olarak çalışıyor ise, bu seçenek çalışmak için pasif transferlere izin verdiğinden oldukça kullanışlıdır."
 
 msgid "Import"
-msgstr ""
+msgstr "İçeri aktarmak"
 
 msgid "Import SSL certificate"
-msgstr ""
+msgstr "SSl sertifikasını içeri aktar"
 
 msgid "Import users"
-msgstr ""
+msgstr "Kullanıcıları içeri aktar"
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1396,7 +1399,7 @@ msgid ""
 "greater than or equal to 1024). It is strongly recommended that the chosen "
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr ""
+msgstr "Bazı durumlarda güvenlik duvarını devre dışı bırakabilmek için pasif port aralığı tanımlamak zorunda kalırsınız. Pasif portlar kullanıcı tarafından PASV komutu geldiğinde sunucunun seçebileceği port aralığını sınırlar. Sunucu belirlenmiş aralıktan açık bir port bulana kadar rastgele port numaraları dener. Port aralığı mutlaka özelleştirilmemiş bir aralıktan (örn. 1024 ya da daha büyük) seçilmelidir. Seçilen aralığın olabilecek en fazla sayıdaki pasif bağlantıyı karşılayabilecek kadar geniş olarak ayarlanması şiddetle önerilir (örneğin, IANA - kayıtlı geçici port aralığı olan 49152-65534 şeklinde)."
 
 msgid "India"
 msgstr "Hindistan"
@@ -1405,25 +1408,25 @@ msgid "Indonesia"
 msgstr "Endonezya"
 
 msgid "Informal"
-msgstr ""
+msgstr "Resmi olmayan"
 
 msgid "Information"
 msgstr "Bilgi"
 
 msgid "Inherit ACLs"
-msgstr ""
+msgstr "ACL leri alt dizinlere aktar"
 
 msgid "Inherit permissions"
-msgstr ""
+msgstr "Yetkileri alt dizinlere aktar"
 
 msgid "Install"
 msgstr "Kur"
 
 msgid "Install plugins ..."
-msgstr ""
+msgstr "Ekleri kur ..."
 
 msgid "Install updates ..."
-msgstr ""
+msgstr "Güncelleştirmeleri kur ..."
 
 msgid "Installed"
 msgstr "Kuruldu"
@@ -1444,11 +1447,11 @@ msgid "Invalid group name"
 msgstr "Geçersiz grup adı"
 
 msgid "Invalid hostname"
-msgstr ""
+msgstr "Geçersiz cihaz adı"
 
 #, c-format
 msgid "Invalid line: %s"
-msgstr ""
+msgstr "Geçersiz satır : %s"
 
 msgid "Invalid name"
 msgstr "Geçersiz ad"
@@ -1478,7 +1481,7 @@ msgid "Italy"
 msgstr "İtalya"
 
 msgid "Ivory Coast"
-msgstr ""
+msgstr "Ivory Coast"
 
 msgid "Jamaica"
 msgstr "Jamaika"
@@ -1490,10 +1493,10 @@ msgid "Japan"
 msgstr "Japonya"
 
 msgid "Jobs"
-msgstr ""
+msgstr "Görevler"
 
 msgid "Johnston Island"
-msgstr ""
+msgstr "Johnston Adası"
 
 msgid "Jordan"
 msgstr "Ürdün"
@@ -1517,7 +1520,7 @@ msgid "Key size"
 msgstr "Anahtar boyutu"
 
 msgid "Kiribati"
-msgstr ""
+msgstr "Kiribati"
 
 msgid "Kuwait"
 msgstr "Kuveyt"
@@ -1538,7 +1541,7 @@ msgid "Laos"
 msgstr "Laos"
 
 msgid "Latvia"
-msgstr ""
+msgstr "Letonya"
 
 msgid "Lebanon"
 msgstr "Lübnan"
@@ -1546,10 +1549,10 @@ msgstr "Lübnan"
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
 " port."
-msgstr ""
+msgstr "Belirli iletişim portunda bir ya da daha fazla LED in saniye cinsinden yanıp sönme süresi. "
 
 msgid "Lesotho"
-msgstr ""
+msgstr "Lesotho"
 
 msgid "Level"
 msgstr "Seviye"
@@ -1561,13 +1564,13 @@ msgid "Libya"
 msgstr "Libya"
 
 msgid "Liechtenstein"
-msgstr ""
+msgstr "Lihtenştayn"
 
 msgid "Lifetime"
-msgstr ""
+msgstr "Yaşam süresi"
 
 msgid "Linear"
-msgstr ""
+msgstr "Çizgisel"
 
 msgid "Link"
 msgstr "Link"
@@ -1576,7 +1579,7 @@ msgid "List"
 msgstr "Liste"
 
 msgid "Lithuania"
-msgstr ""
+msgstr "Litvanya"
 
 msgid "Load average"
 msgstr "Yük ortalaması"
@@ -1588,7 +1591,7 @@ msgid "Local"
 msgstr "Lokal"
 
 msgid "Local master browser"
-msgstr ""
+msgstr "Yerel ana tarayıcı"
 
 msgid "Location"
 msgstr "Yerleşim"
@@ -1601,7 +1604,7 @@ msgstr "Kayıt seviyesi"
 
 #, c-format
 msgid "Logical volume %s [%s, %s]"
-msgstr ""
+msgstr "Matıksal birim %s [%s, %s]"
 
 msgid "Login"
 msgstr "Giriş"
@@ -1613,7 +1616,7 @@ msgid "Logs"
 msgstr "Kayıtlar"
 
 msgid "Long self-test"
-msgstr ""
+msgstr "uzun otomatik test"
 
 msgid "Luxembourg"
 msgstr "Lüksemburg"
@@ -1622,13 +1625,13 @@ msgid "MAC address"
 msgstr "MAC adresi"
 
 msgid "MII monitoring frequency"
-msgstr ""
+msgstr "MII izleme sıklığı"
 
 msgid "MTU"
 msgstr "MTU"
 
 msgid "Macao S.A.R., China"
-msgstr ""
+msgstr "Macao, Çin"
 
 msgid "Macedonia"
 msgstr "Makedonya"
@@ -1637,10 +1640,10 @@ msgid "Madagascar"
 msgstr "Madagaskar"
 
 msgid "Maintainer"
-msgstr ""
+msgstr "Bakımcı"
 
 msgid "Malawi"
-msgstr ""
+msgstr "Malavi"
 
 msgid "Malaysia"
 msgstr "Malezya"
@@ -1661,29 +1664,29 @@ msgid "March"
 msgstr "Mart"
 
 msgid "Marshall Islands"
-msgstr ""
+msgstr "Marshall Adaları"
 
 msgid "Martinique"
 msgstr "Martinik"
 
 msgid "Masquerade address"
-msgstr ""
+msgstr "Gizlenmiş adres"
 
 msgid ""
 "Match if the destination port is one of the given ports. E.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "Hedef portun verilmiş portlarla aynı olduğunu kontrol et. Örneğin 21 veya !443 ya da 1024-65535."
 
 msgid ""
 "Match if the source port is one of the given ports. E.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "Kaynakf portun verilmiş portlarla aynı olduğunu kontrol et. Örneğin 21 veya !443 ya da 1024-65535."
 
 msgid "Mauritania"
-msgstr ""
+msgstr "Moritanya"
 
 msgid "Mauritius"
-msgstr ""
+msgstr "Mauritius"
 
 msgid "Max. clients"
 msgstr "Maksimum kullanıcı"
@@ -1692,7 +1695,7 @@ msgid "Max. connections"
 msgstr "Maksimum bağlantı"
 
 msgid "Max. connections per host"
-msgstr ""
+msgstr "Herbir makina için maksimum bağlantı sayısı"
 
 msgid "Max. login attempts"
 msgstr "Maksimum giriş denemesi"
@@ -1704,7 +1707,7 @@ msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
 "timer completely (clients can stay connected for ever, without sending "
 "data)."
-msgstr ""
+msgstr "Maksimum boşta bekleme süresi. Boşta bekleme zaman aşım süresini 0 olarak ayarlamanız durumunda ilgili sayaç tamamen kapatılacaktır (kullanıcılar hiçbir bilgi göndermeden sonsuza kadar bağlı kalabilirler)."
 
 msgid "Maximum number of allowed password attempts before disconnection."
 msgstr "Bağlantı kesilmeden önce izin verilen maksimum şifre deneme sayısı."
@@ -1713,7 +1716,7 @@ msgid "Maximum number of connections per IP (0 = unlimited)."
 msgstr "IP başına maksimum bağlantı sayısı (0 = sınırsız)"
 
 msgid "Maximum number of simultaneous clients."
-msgstr ""
+msgstr "Aynı anda bağlanabilecek maksimum kullanıcı sayısı."
 
 msgid "Maximum performance, maximum acoustic output"
 msgstr "Maksimum performans, maksimum akustik seviye"
@@ -1722,13 +1725,13 @@ msgid "Maximum upload rate (KiB/s)"
 msgstr "Maksimum yükleme hızı (KiB/s)"
 
 msgid "Maximum {0} selected item(s) allowed"
-msgstr ""
+msgstr "En fazla {0} nesne seçilebilir."
 
 msgid "May"
 msgstr "Mayıs"
 
 msgid "Mayotte"
-msgstr ""
+msgstr "Mayotte"
 
 msgid "Members"
 msgstr "Üyeler"
@@ -1743,16 +1746,16 @@ msgid "Method"
 msgstr "Metod"
 
 msgid "Metropolitan France"
-msgstr ""
+msgstr "Fransa Şehiriçi"
 
 msgid "Mexico"
 msgstr "Meksiko"
 
 msgid "Micronesia"
-msgstr ""
+msgstr "Mikronezya"
 
 msgid "Midway Islands"
-msgstr ""
+msgstr "Midway Adaları"
 
 msgid "Minimum"
 msgstr "Minimum"
@@ -1761,13 +1764,13 @@ msgid "Minimum performance, Minimum acoustic output"
 msgstr "Minimum performans, minimum akustik seviye"
 
 msgid "Minimum {0} selected item(s) required"
-msgstr ""
+msgstr "En az {0} ögenin seçilmesi gereklidir"
 
 msgid "Minute"
 msgstr "Dakika"
 
 msgid "Mirror"
-msgstr ""
+msgstr "Yansı"
 
 msgid "Mode"
 msgstr "Mod"
@@ -1803,22 +1806,22 @@ msgid "Month"
 msgstr "Ay"
 
 msgid "Montserrat"
-msgstr ""
+msgstr "Montserrat"
 
 msgid "Morocco"
-msgstr ""
+msgstr "Fas"
 
 msgid "Mount"
-msgstr ""
+msgstr "Bağla"
 
 msgid "Mounted"
-msgstr ""
+msgstr "Bağlanmış"
 
 msgid "Mozambique"
 msgstr "Mozambik"
 
 msgid "Myanmar"
-msgstr ""
+msgstr "Mynamar"
 
 msgid "NFS"
 msgstr "NFS"
@@ -1830,7 +1833,7 @@ msgid "Namibia"
 msgstr "Nabiya"
 
 msgid "Nauru"
-msgstr ""
+msgstr "Nauru"
 
 msgid "Nepal"
 msgstr "Nepal"
@@ -1848,13 +1851,13 @@ msgid "Network"
 msgstr "Ağ"
 
 msgid "Neutral Zone"
-msgstr ""
+msgstr "Tarafsız Bölge"
 
 msgid "Never"
 msgstr "Asla"
 
 msgid "New Caledonia"
-msgstr ""
+msgstr "Yeni Kaledonya"
 
 msgid "New Zealand"
 msgstr "Yeni Zellanda"
@@ -1869,7 +1872,7 @@ msgid "Nigeria"
 msgstr "Nijerya"
 
 msgid "Niue"
-msgstr ""
+msgstr "Niue"
 
 msgid "No"
 msgstr "Hayır"
@@ -1878,13 +1881,13 @@ msgid "No access"
 msgstr "Erişim yok"
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Kimlik doğrulama ve gizlilik yok"
 
 msgid "No items to display"
-msgstr ""
+msgstr "Gösterilecek herhangi bir öge yok"
 
 msgid "No log entries to display"
-msgstr ""
+msgstr "Gösterilecek herhangi bir kayıt girişi yok"
 
 msgid "No users connected"
 msgstr "Herhangi bir kullanıcı bağlı değil"
@@ -1908,7 +1911,7 @@ msgid "North Vietnam"
 msgstr "Kuzey Vietnam"
 
 msgid "Northern Mariana Islands"
-msgstr ""
+msgstr "Kuzey Mariana Adaları"
 
 msgid "Norway"
 msgstr "Norveç"
@@ -1932,7 +1935,7 @@ msgid "Null passwords"
 msgstr "Boş şifreler"
 
 msgid "Num"
-msgstr ""
+msgstr "Rakam"
 
 msgid "Number of servers"
 msgstr "Sunucu sayısı"
@@ -1941,13 +1944,13 @@ msgid "OK"
 msgstr "Tamam"
 
 msgid "Occurrence"
-msgstr ""
+msgstr "Olay"
 
 msgid "October"
 msgstr "Ekim"
 
 msgid "Offline immediate test"
-msgstr ""
+msgstr "Çevrimdışı anlık test"
 
 msgid "Oman"
 msgstr "Amman"
@@ -1959,25 +1962,25 @@ msgid "Organization Name"
 msgstr "Organizasyon Adı"
 
 msgid "Organizational Unit"
-msgstr ""
+msgstr "Organizasyonal Birim"
 
 msgid "Others"
 msgstr "Diğerleri"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
-msgstr ""
+msgstr "Giden SMTP posta sunucu adresi, örn. smtp.mycorp.com."
 
 msgid "Outlying Oceania"
-msgstr ""
+msgstr "Dış Okyanusya"
 
 msgid "Overview"
 msgstr "Genel bakış"
 
 msgid "Owner"
-msgstr ""
+msgstr "Malik"
 
 msgid "Pacific Islands Trust Territory"
-msgstr ""
+msgstr "Pasifik Adaları Ortaklığı Bölgesi"
 
 msgid "Package information"
 msgstr "Paket bilgisi"
@@ -1986,7 +1989,7 @@ msgid "Pakistan"
 msgstr "Pakistan"
 
 msgid "Palau"
-msgstr ""
+msgstr "Palau"
 
 msgid "Palestinian Territory"
 msgstr "Filistin Bölgesi"
@@ -2022,7 +2025,7 @@ msgid "Paste an private RSA key in X.509 PEM format here."
 msgstr " X.509 PEM formatındaki özel RSA sertifikasını buraya yapıştırın."
 
 msgid "Path"
-msgstr ""
+msgstr "Yol"
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "Yemek Demoktarik Halk Cumhuriyeti"
@@ -2040,13 +2043,13 @@ msgid "Permissions of others (e.g. anonymous FTP users)."
 msgstr "Diğerlenin yetkisi (örn. anonim FTP kullanıcıları)"
 
 msgid "Permissions of owner."
-msgstr ""
+msgstr "Malikin hakları."
 
 msgid "Permit root login"
-msgstr ""
+msgstr "Root girişine izin ver"
 
 msgid "Permit to do SSH tunneling"
-msgstr ""
+msgstr "SSH tuneline izin ver."
 
 msgid "Peru"
 msgstr "Peru"
@@ -2058,7 +2061,7 @@ msgid "Physical Disks"
 msgstr "Fiziksel Disk"
 
 msgid "Pitcairn"
-msgstr ""
+msgstr "Pitcairn"
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
@@ -2104,19 +2107,19 @@ msgid ""
 msgstr " Bu test sırasında sistemle iletişim kurmak mümkün olmayacaktır."
 
 msgid "Please reload the page to let the changes take effect."
-msgstr ""
+msgstr "Değişikliklerin etkili olabilmesi için lütfen sayfayı yeniden yükleyiniz."
 
 msgid "Please wait ..."
 msgstr "Lütfen bekleyiniz..."
 
 msgid "Plugins"
-msgstr ""
+msgstr "İlaveler"
 
 msgid "Poland"
 msgstr "Polonya"
 
 msgid "Polish"
-msgstr ""
+msgstr "Lehçe"
 
 msgid "Port"
 msgstr "Port"
@@ -2140,13 +2143,13 @@ msgid "Preserve ACLs"
 msgstr "ACL leri koru"
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "Genişletilmiş öznitelikleri koru"
 
 msgid "Preserve modification times"
-msgstr ""
+msgstr "Değiştirilme zamanlarını koru"
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Yetkileri koru"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
@@ -2159,28 +2162,28 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr ""
+msgstr "Düzenli konttroller sırasında diskin tekrar dönmesini önler.<br/><br/><ul><li>Asla - Aygıtı güç durumuna bakmaksızın kontrol eder. Bu dönmesi durdurulmuş bir diskin tekrar dönmeye başlamasına neden olabilir.</li><li>Uyku - Aygıtı UYKU durumu dışında ise kontrol eder.</li><li>Bekleme - Aygıtı UYKU veya BEKLEME durumları dışında ise kontrol eder. Bu modlarda pek çok disk dönmemektedir, yani her kontrolde disklerin tekrar dönmeye başlamasını istemiyor iseniz, bu size en uygun seçenektir.</li><li>Hazır - Aygıtı UYKU, BEKLEME yada HAZIR modlarında kontrol eder. HAZIR durumunda pek çok disk hala dönmektedir, yani bu muhtemelen sizin isteğinize uygun değildir.</li><ul>"
 
 msgid "Primary"
-msgstr ""
+msgstr "Birincil"
 
 msgid "Primary email"
-msgstr ""
+msgstr "Birincil e-posta"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Gizlilik parolası"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "Gizlilik tipi"
 
 msgid "Private key"
-msgstr ""
+msgstr "Gizli anahtar"
 
 msgid "Privilege"
-msgstr ""
+msgstr "İzin"
 
 msgid "Privileges"
-msgstr ""
+msgstr "İzinler"
 
 msgid "Processes"
 msgstr "İşlemler"
@@ -2192,22 +2195,22 @@ msgid "Protocol"
 msgstr "Protokol"
 
 msgid "Public"
-msgstr ""
+msgstr "Herkese açık"
 
 msgid "Puerto Rico"
 msgstr "Porto Riko"
 
 msgid "Pull"
-msgstr ""
+msgstr "Almak"
 
 msgid "Push"
-msgstr ""
+msgstr "Göndermek"
 
 msgid "Qatar"
 msgstr "Katar"
 
 msgid "Quiet"
-msgstr ""
+msgstr "Durgun"
 
 msgid "Quota"
 msgstr "Kota"
@@ -2231,10 +2234,10 @@ msgid "RSync server"
 msgstr "Rsync sunucu"
 
 msgid "Ranges of numbers are not allowed"
-msgstr ""
+msgstr "Rakam aralıkları kullanılamaz"
 
 msgid "Raw value"
-msgstr ""
+msgstr "İşlem görmemiş değer"
 
 msgid "Read only"
 msgstr "Sadece okunabilir"
@@ -2249,53 +2252,53 @@ msgid "Reboot"
 msgstr "Yeniden başlat"
 
 msgid "Recipient"
-msgstr ""
+msgstr "Alıcı"
 
 msgid "Recover"
-msgstr ""
+msgstr "Kurtarma"
 
 msgid "Recurse into directories"
-msgstr ""
+msgstr "Dizinlere yinele"
 
 msgid "Recursive"
-msgstr ""
+msgstr "Tekrarlanan"
 
 msgid "Recycle bin"
 msgstr "Gerş dönüşüm kutusu"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Yenile"
 
 msgid "Remaining"
-msgstr ""
+msgstr "Kalan"
 
 msgid "Remote"
-msgstr ""
+msgstr "Uzak"
 
 msgid "Remote syslog"
-msgstr ""
+msgstr "Uzak sistem kaydı"
 
 msgid "Replace"
-msgstr ""
+msgstr "Değiştir"
 
 msgid "Replace all existing permissions"
-msgstr ""
+msgstr "Mevcut tüm yetkileri değiştir"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report. Set to 0 to disable this report."
-msgstr ""
+msgstr "Son raporlamadan bu yana sıcaklık en azından N derece değişmiş ise ropor ver. Bu alana 0 değeri girilmesi raporlamayı kapatır."
 
 msgid ""
 "Report if the temperature is greater or equal than N degrees Celsius. Set to"
 " 0 to disable this report."
-msgstr ""
+msgstr "Sıcaklık N dereceye ya da üstünde ise rapor ver. Bu alana 0 değeri girilmesi raporlamayı kapatır."
 
 msgid "Repository"
-msgstr ""
+msgstr "Depo"
 
 msgid "Require valid shell"
-msgstr ""
+msgstr "Geçerli bir kabul gereklidir"
 
 msgid "Required"
 msgstr "Gerekli"
@@ -2319,13 +2322,13 @@ msgid "Resume"
 msgstr "Devam et"
 
 msgid "Retry timeout"
-msgstr ""
+msgstr "Tekrar deneme zaman aşımı"
 
 msgid "Reunion"
-msgstr ""
+msgstr "Birleşmek"
 
 msgid "Reverse DNS lookup"
-msgstr ""
+msgstr "Ters DNS sorgulaması"
 
 msgid "Romania"
 msgstr "Romanya"
@@ -2334,10 +2337,10 @@ msgid "Rsync"
 msgstr "Rsync"
 
 msgid "Run"
-msgstr ""
+msgstr "Çalıştır"
 
 msgid "Running"
-msgstr ""
+msgstr "Çalışıyor"
 
 msgid "Russia"
 msgstr "Rusya"
@@ -2385,19 +2388,19 @@ msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
 msgid "Saint Helena"
-msgstr ""
+msgstr "Saint Helena"
 
 msgid "Saint Kitts and Nevis"
-msgstr ""
+msgstr "Saint Kitts ve Nevis"
 
 msgid "Saint Lucia"
-msgstr ""
+msgstr "Saint Lucia"
 
 msgid "Saint Pierre and Miquelon"
-msgstr ""
+msgstr "Saint Pierre ve Miquelon"
 
 msgid "Saint Vincent and the Grenadines"
-msgstr ""
+msgstr "Saint Vincent ve Grenadinler"
 
 msgid "Samoa"
 msgstr "Samoa"
@@ -2406,7 +2409,7 @@ msgid "San Marino"
 msgstr "San Marino"
 
 msgid "Sao Tome and Principe"
-msgstr ""
+msgstr "Sao Tome ve Principe"
 
 msgid "Saturday"
 msgstr "Cumartesi"
@@ -2421,10 +2424,10 @@ msgid "Scheduled tests"
 msgstr "Zamanlanmış testler"
 
 msgid "Secondary"
-msgstr ""
+msgstr "İkincil"
 
 msgid "Secondary email"
-msgstr ""
+msgstr "İkincil e-posta"
 
 msgid "Seconds"
 msgstr "Saniye"
@@ -2454,31 +2457,31 @@ msgid "Select a language ..."
 msgstr "Bir dil seçiniz ..."
 
 msgid "Select a primary device ..."
-msgstr ""
+msgstr "Birincil bir cihaz seçin ..."
 
 msgid "Select a protocol ..."
-msgstr ""
+msgstr "Bir iletişim kuralı seçin ..."
 
 msgid "Select a shared folder ..."
-msgstr ""
+msgstr "Paylaşılmış bir klasör seçin ..."
 
 msgid "Select a shell ..."
-msgstr ""
+msgstr "Bir kabuk seçin ..."
 
 msgid "Select a user ..."
 msgstr "Kullanıcı seçiniz ..."
 
 msgid "Select a volume ..."
-msgstr ""
+msgstr "Bir birim seçiniz ..."
 
 msgid "Select devices to be added to the RAID device"
-msgstr ""
+msgstr "RAID e eklemecek yeni aygıtları seçiniz"
 
 msgid "Self-test logs"
-msgstr ""
+msgstr "İç kontrol kayıtları"
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "Komut çıktısını e-posta ile gönder"
 
 msgid "Send email"
 msgstr "E-mail yolla"
@@ -2499,7 +2502,7 @@ msgid "September"
 msgstr "Eylül"
 
 msgid "Serbia And Montenegro"
-msgstr ""
+msgstr "Sırbistan Karadağ"
 
 msgid "Serial Number"
 msgstr "Seri No"
@@ -2514,19 +2517,22 @@ msgid "Service"
 msgstr "Servis"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "Hizmet kapatıldı"
 
 msgid "Services"
 msgstr "Servisler"
 
+msgid "Session expired"
+msgstr "Oturum zaman aşımına uğradı"
+
 msgid "Session not authenticated"
-msgstr ""
+msgstr "Oturum onaylanmadı"
 
 msgid "Session timeout"
 msgstr "Oturum zamanaşımı"
 
 msgid "Set browseable"
-msgstr ""
+msgstr "Taranabilir yap"
 
 msgid "Set read only"
 msgstr "Sadece okunabilir ayarla"
@@ -2549,7 +2555,7 @@ msgid "Settings already exist for device '%s'"
 msgstr "'%s' aygıtı için ayarlar mevcut"
 
 msgid "Seychelles"
-msgstr ""
+msgstr "Seyşeller"
 
 msgid "Shared Folders"
 msgstr "Paylaşılmış Klasörler"
@@ -2558,19 +2564,19 @@ msgid "Shared folder"
 msgstr "Paylaşılmış klasör"
 
 msgid "Shared folder must not be equal"
-msgstr ""
+msgstr "Paylaşılan klasör eşit olmamalıdır"
 
 msgid "Shares"
 msgstr "Paylaşımlar"
 
 msgid "Shell"
-msgstr ""
+msgstr "Kabuk"
 
 msgid "Short self-test"
-msgstr ""
+msgstr "Kısa iç kontrol"
 
 msgid "Show certificate"
-msgstr ""
+msgstr "Sertifikayı göster"
 
 msgid "Show details"
 msgstr "Detayları göster"
@@ -2579,10 +2585,10 @@ msgid "Show password"
 msgstr "Şifreyi göster"
 
 msgid "Show privileges"
-msgstr ""
+msgstr "Yetkileri göster"
 
 msgid "Shutdown"
-msgstr "Kapanma"
+msgstr "Kapat"
 
 msgid "Shutdown the system when pressing the power button."
 msgstr "Güç düğmesine basıldığında sistemi kapat."
@@ -2600,7 +2606,7 @@ msgid "Size"
 msgstr "Ebat"
 
 msgid "Slaves"
-msgstr ""
+msgstr "Yedekler"
 
 msgid "Sleep"
 msgstr "Uyku"
@@ -2624,7 +2630,7 @@ msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
 "or a plain IP address. A '!' argument before the address specification "
 "inverts the sense of the address."
-msgstr ""
+msgstr "Kaynak adresi bir network IP adresi (/mask ile), bir IP aralığı veya normal IP adresi olabilir. Adresin önüne getirilecek '!' işareti, anlamı tam tersine çevirir."
 
 msgid "Source port"
 msgstr "Kaynak portu"
@@ -2633,13 +2639,13 @@ msgid "Source server"
 msgstr "Kaynak sunucu"
 
 msgid "Source shared folder"
-msgstr ""
+msgstr "Kaynak paylaım klasörü"
 
 msgid "South Africa"
 msgstr "Güney Afrika"
 
 msgid "South Georgia and the South Sandwich Islands"
-msgstr ""
+msgstr "Güney Georgia ve Güney Sandwich Adaları"
 
 msgid "South Korea"
 msgstr "Güney Kore"
@@ -2651,71 +2657,71 @@ msgid "Spanish"
 msgstr "İspanyolca"
 
 msgid "Specifies how many server threads to create."
-msgstr ""
+msgstr "Kaç tane sunucu iş parçacığı oluşturulacağını belirler."
 
 msgid "Specifies one of the bonding policies."
-msgstr ""
+msgstr "Birleştirme kurallarından birini belirler."
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
-msgstr ""
+msgstr "Milisaniye cinsinden MII bağlantı izleme frekansını belirler."
 
 msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "
 "parameter is from 512 to 65464."
-msgstr ""
+msgstr "İzin verilen en büyük blok büyüklüğünü belirler. Bu değişken için kullanılabiliecek değerler 512 ila 65464 arasındadır."
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr ""
+msgstr "Yasaklamanın kalkacağı zamanı SS:dd:ss cinsinden tanımlar."
 
 msgid ""
 "Specifies the time interval in hh:mm:ss in which the given number of "
 "occurrences must happen to add the ban."
-msgstr ""
+msgstr "Yasaklama yapılabilmesi için belirtilen sayıda olayın gerçekleşceği zaman aralığını SS:dd:ss cinsinden belirtir."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
 "a link failure has been detected."
-msgstr ""
+msgstr "İkincil bağlantıda hata tespit edildiğinde bağlantı kapatılmadan önce beklenecek süreyi milisaniye cinsinden belirtir."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
-msgstr ""
+msgstr "İkincil bağlantı yeniden kurulduğunda bağlantıyı yenilemeden önce beklenecek süreyi milisaniye sindinden belirtir."
 
 msgid "Specifies whether it is allowed to login as superuser directly"
-msgstr ""
+msgstr "Superuser ın sisteme direkt giriş yapıp yapamayacağını belirler"
 
 msgid "Specifies whether it is allowed to login as superuser."
-msgstr ""
+msgstr "Superuser olarak sisteme giriş yapılıp yapılamayacağını belirler."
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
-msgstr ""
+msgstr "Sistem durumunu izlemeyi ve buna en uygun işlemci düzeyinin seçileceğini belirler."
 
 msgid "Specifies which slave is the primary device."
-msgstr ""
+msgstr "Hangi yedeğin birincil aygıt olacağını belirler."
 
 msgid "Spindown time"
-msgstr ""
+msgstr "Dönüş durma zamanı"
 
 msgid "Sri Lanka"
 msgstr "Sri Lanka"
 
 msgid "Standby"
-msgstr ""
+msgstr "Bekleme"
 
 msgid "Start"
-msgstr ""
+msgstr "Başla"
 
 msgid "State"
-msgstr ""
+msgstr "Durum"
 
 msgid "State/Province"
-msgstr ""
+msgstr "Eyalet/Bölge"
 
 msgid "Static"
-msgstr ""
+msgstr "Statik"
 
 msgid "Status"
 msgstr "Durum"
@@ -2751,10 +2757,10 @@ msgid "Suriname"
 msgstr "Surinam"
 
 msgid "Svalbard and Jan Mayen"
-msgstr ""
+msgstr "Svalbard ve Jan Mayen"
 
 msgid "Swaziland"
-msgstr ""
+msgstr "Swaziland"
 
 msgid "Sweden"
 msgstr "İsveç"
@@ -2766,7 +2772,7 @@ msgid "Syria"
 msgstr "Suriye"
 
 msgid "Syslog"
-msgstr ""
+msgstr "Sistem kaydı"
 
 msgid "System"
 msgstr "Sistem"
@@ -2823,26 +2829,26 @@ msgid "The changes have been applied successfully."
 msgstr "Değişiklikler başarılı bir şekilde uygulandı."
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr ""
+msgstr "Varsayılan SMTP posta sunucusu portu, örn. 25 veya 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
 "rsync://[USER@]HOST[:PORT]/DEST."
-msgstr ""
+msgstr "Hedef uzak sunucu, örn. [USER@]HOST:DEST, [USER@]HOST::DEST veya rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid "The destination shared folder."
-msgstr ""
+msgstr "Hedef paylaşım klasörü."
 
 #, c-format
 msgid "The field '%s' contains forbidden "
-msgstr ""
+msgstr "'%s' alanı erişilemez"
 
 #, c-format
 msgid "The group '%s' does not exist"
 msgstr "'%s' grubu mevut değil"
 
 msgid "The hostname is a label that identifies the system to the network."
-msgstr ""
+msgstr "Sistem adı, ağ üzerindeki bir sistemi belirleyen bir etikettir."
 
 msgid "The location of the files to share."
 msgstr "Paylaşılacak dosyaların yeri."
@@ -2853,7 +2859,7 @@ msgid ""
 msgstr "Paylaşılacak dosyaların yeri. Paylaşıma şuradan ulaşılabilir : /export <name>."
 
 msgid "The location of the user home directories."
-msgstr ""
+msgstr "Kullanıcı ana dizinlerinin yeri"
 
 msgid "The name of the share."
 msgstr "Paylaşımın adı."
@@ -2867,40 +2873,45 @@ msgstr "Şifre geçersiz karakter içeriyor"
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
 "used for remote shell transport such as ssh."
-msgstr ""
+msgstr "Bu parola rsync programı aracılığı ile erişim için kullanılır. Ancak bu SSH gibi uzaktan kabuk aktarımı amacaıyla kullanılamaz."
+
+msgid ""
+"The path of the folder to share. The specified folder will be created if it "
+"does not already exist."
+msgstr "Paylaşılacak klasörün yeri. Eğer halihazırda böyle bir klasör yok ise yaratılacaktır."
 
 msgid ""
 "The permissions on new files and directories are normally governed by create"
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
-msgstr ""
+msgstr "Yeni dosya ve klasörler üzerindeki yetkiler normalde oluşturma kalıbı ve klasör kalıbı ile düzenlenir fakat aktarılan yetkiler bu parametreleri geçersiz kılar. Bu özellikle çok kullanıcılı sistemlerde her bir kullanıcının tek bir paylaşımı rahatça kullanabilmesine imkan sağlar."
 
 msgid "The session timeout time in minutes."
 msgstr "Dakika olarak oturum zaman aşımı."
 
 msgid "The shared folder is already used by another share"
-msgstr ""
+msgstr "Bu paylaşılmış klasör zaten başka bir paylaşımda kullanılıyor"
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
-msgstr ""
+msgstr "Kaynak uzak sunucu, örn. [USER@]HOST:SRC, [USER@]HOST::SRC veya rsync://[USER@]HOST[:PORT]/SRC."
 
 msgid "The source shared folder."
-msgstr ""
+msgstr "Kaynak paylaşım klasörü."
 
 msgid "The specified quota exceeds the max. possible value of 4TiB."
-msgstr ""
+msgstr "Belirlenen kota 4 TiB lık olabilecek en yüksek değere ulaştığında biter."
 
 msgid "The system will reboot now."
-msgstr ""
+msgstr "Sistem şimdi yeniden başlatılacak."
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr ""
+msgstr "Sistem yeniden başlatılıyor. Bu işlem vakit alabilir ..."
 
 msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr ""
+msgstr "Test e-postası başarıyla gönderildi. Lütfen posta kutunuzu kontrol ediniz."
 
 #, c-format
 msgid "The user '%s' does not exist"
@@ -2911,30 +2922,30 @@ msgid "The user '%s' is not allowed"
 msgstr "Kullanıcı '%s' yetkili değil"
 
 msgid "The value in this field is invalid"
-msgstr ""
+msgstr "Bu alandaki değer geçersizdir"
 
 msgid "The volume label for the filesystem."
-msgstr ""
+msgstr "Dosya sistemi için birim etiketi."
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
 "login."
-msgstr ""
+msgstr "Hoşgeldiniz mesajı kullanıcılara giriş yaptıklarında gösterilir."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
-msgstr ""
+msgstr "Çalışma grubu, kullanıcılar tarafından sorgulandığında sunucunun bulunacağı yerdir."
 
 #, c-format
 msgid "There already exists a mount point for %s"
-msgstr ""
+msgstr "%s için zaten bir bağlantı noktası mevcut"
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
-msgstr ""
+msgstr "Bu parametre, paylaşımın ağ görüntüleme ve araştırma listesindeki mevcut paylaşımların içinde yer alıp almayacağını kontrol eder."
 
 msgid "This field must have the format hh:mm:ss"
-msgstr ""
+msgstr "Bu alan SS:dd:ss şeklinde olmalıdır"
 
 msgid "This field should be a IPv4 network address"
 msgstr "Bu alan IPv4 network adresi olmalıdır"
@@ -2943,7 +2954,7 @@ msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Bu alan SIDR notasyonu ile yazılmış IPv4 network adresi olmalıdır"
 
 msgid "This field should be a hostname or an IPv4 address"
-msgstr ""
+msgstr "Bu alan sistem adı veya IPv4 adresi olmalıdır"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -2979,23 +2990,23 @@ msgid "This field should only contain strings seperated by <,> or <;>"
 msgstr "Bu alan sadece <,> veya <;> ile ayrılmış değer içerebilir"
 
 msgid "This function is effective only if the hard drive supports it."
-msgstr ""
+msgstr "Bu fonksiyon sadece sabit disk destekliyor ise çalışır."
 
 msgid ""
 "This is a text field that is seen next to a share when a client queries the "
 "server."
-msgstr ""
+msgstr "Bu, kullanıcı sunucuyu sorguladığında paylaşımın yanında gösterilecek açıklama alanıdır."
 
 msgid ""
 "This may make more efficient use of the system CPU's and cause Samba to be "
 "faster. Samba automatically turns this off for clients that use protocol "
 "levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
-msgstr ""
+msgstr "Bu, sistem işlemcisinin daha etkin olarak çalıştırılmasını ve Samda nın da daha hızlı çalışmasını sağlayabilir.Samba, iletişim kuralı seviyesi NT LM 0.12 den düşük ya da Windows 9x ile çalışan bir istemci tesbit ettiğinde bunu kapatır."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
-msgstr ""
+msgstr "Bu seçenek kullanıcı kullanılabilir modülleri listelediğinde bu modülün gösterilip gösterilmeyeceğini belirler."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3004,7 +3015,7 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr ""
+msgstr "Bu seçenek, bu modüle erişim hakkı bulunmayan, virgül, boşluk veya tab ile ayrılmış kullanıcı listesidir. Listede bir uyuşmazlık olur ise izin verilmiş listesi öncelik kazanacaktır. Varsayılan olarak herkesi engellemek istiyor iseniz ALL anahtar kelimesini (veya 0.0.0.0/0 ağ maskesini) kullanınız ve erişimine izin vermek istediğiniz kullanıcıları erişim izinli olarak belirtiniz. Varsayılan ayarları kullanmak için bu alanı boş bırakınız."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3013,107 +3024,107 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr ""
+msgstr "Bu seçenek, bu paylaşıma erişim hakkı bulunmayan, virgül, boşluk veya tab ile ayrılmış kullanıcı listesidir. Listede bir uyuşmazlık olur ise izin verilmiş listesi öncelik kazanacaktır. Varsayılan olarak herkesi engellemek istiyor iseniz ALL anahtar kelimesini (veya 0.0.0.0/0 ağ maskesini) kullanınız ve erişimine izin vermek istediğiniz kullanıcıları erişim izinli olarak belirtiniz. Varsayılan ayarları kullanmak için bu alanı boş bırakınız."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this module. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr ""
+msgstr "Bu seçenek, bu modüle erişim hakkı bulunan, virgül, boşluk veya tab ile ayrılmış kullanıcı listesidir. Kullanıcıları isim veya IP numarası ile belirleyebilirsiniz. Varsayılan ayarları kullanmak için bu alanı boş bırakınız."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this share. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr ""
+msgstr "Bu seçenek, bu paylaşıma erişim hakkı bulunan, virgül, boşluk veya tab ile ayrılmış kullanıcı listesidir. Kullanıcıları isim veya IP numarası ile belirleyebilirsiniz. Varsayılan ayarları kullanmak için bu alanı boş bırakınız."
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
-msgstr ""
+msgstr "Bu seçenek yer alacağı modülden ya da modüle dosya transferleri sırasında kullanılacak grup adını belirler."
 
 msgid ""
 "This option specifies the maximum number of simultaneous connections. 0 "
 "means no limit."
-msgstr ""
+msgstr "Bu seçenek aynı anda kurulabilecek bağlantı sayısını belirler. 0 bir sınırlama olmadığı anlamına gelir."
 
 msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
-msgstr ""
+msgstr "Bu seçenek yer alacağı modülden ya da modüle dosya transferleri sırasında kullanılacak kullanıcı adını belirler."
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr ""
+msgstr "Bu parametre varsayılan acl lerin ana dizinde yer aldığından emin olamk için kullanılabilir. Bu değerler ana dizinlerde yeni dosya ya da alt dizinler  oluşturulurken daima kullanılırlar. "
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
-msgstr ""
+msgstr "Bu parametre isimleri nokta ile başlayan dosyaların gizli dosya olup olmayacaklarını belirler"
 
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
 "given time interval, then a ban is automatically added."
-msgstr ""
+msgstr "Bu parametre ile belirlenmiş zaman diliminde N sayıda olay olduğunda otomatik olarak yasaklama getirilmesini sağlar."
 
 msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr ""
+msgstr "Bu kural, seçili olay talimatları gerçekleştiğinde tetiklenir."
 
 msgid "This will create a recycle bin on the share."
-msgstr ""
+msgstr "Bu seçenek paylaşımda bir geri dönüşüm kutusu yaratır."
 
 msgid "Thursday"
-msgstr ""
+msgstr "Perşembe"
 
 msgid "Time"
-msgstr ""
+msgstr "Zaman"
 
 msgid "Time interval"
-msgstr ""
+msgstr "Zaman aralığı"
 
 msgid "Time server"
-msgstr ""
+msgstr "Zaman sunucusu"
 
 msgid "Time servers"
-msgstr ""
+msgstr "Zaman sunucuları"
 
 msgid "Time zone"
-msgstr ""
+msgstr "Saat dilimi"
 
 msgid "Timeout"
-msgstr ""
+msgstr "Zaman aşımı"
 
 msgid "Times"
-msgstr ""
+msgstr "Kere"
 
 msgid ""
 "To restore a previously backed up configuration click the 'Restore' button. "
 "The system will reboot automatically after import has been finished "
 "successfully."
-msgstr ""
+msgstr "Daha önceden yedeklenmiş ayarları yüklemek için 'Geri Yükle' düğmesine basınız. Sistem işlem tamamlandıkatan sonra otomatik olarak yeniden başlatılacaktır."
 
 msgid "Togo"
-msgstr ""
+msgstr "togo"
 
 msgid "Tokelau"
-msgstr ""
+msgstr "Tokelau"
 
 msgid "Tonga"
-msgstr ""
+msgstr "Tonga"
 
 msgid "Traps"
-msgstr ""
+msgstr "Kapan"
 
 msgid "Treshold"
-msgstr ""
+msgstr "Eşik değer"
 
 msgid "Trinidad and Tobago"
-msgstr ""
+msgstr "Tinidad ve Tobago"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Salı"
 
 msgid "Tunisia"
 msgstr "Tunus"
@@ -3122,25 +3133,25 @@ msgid "Turkey"
 msgstr "Türkiye"
 
 msgid "Turkish"
-msgstr ""
+msgstr "Türkçe"
 
 msgid "Turkmenistan"
 msgstr "Türkmenistan"
 
 msgid "Turks and Caicos Islands"
-msgstr ""
+msgstr "Turks ve Caicos Adaları"
 
 msgid "Tuvalu"
-msgstr ""
+msgstr "Tuvalu"
 
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 msgid "U.S. Miscellaneous Pacific Islands"
-msgstr ""
+msgstr "ABD Çeşitli Pasifik Adaları"
 
 msgid "U.S. Virgin Islands"
-msgstr ""
+msgstr "Virgin Adaları"
 
 msgid "Uganda"
 msgstr "Uganda"
@@ -3170,7 +3181,7 @@ msgid "United States"
 msgstr "Birleşik Devletler"
 
 msgid "United States Minor Outlying Islands"
-msgstr ""
+msgstr "ABD Küçük Dış Adaları"
 
 #, c-format
 msgid "Unknown filesystem '%s'"
@@ -3181,13 +3192,13 @@ msgid "Unknown log file type (id=%s)"
 msgstr "Bilinmeyen kayıt dosyası tipi (id=%s)"
 
 msgid "Unmount"
-msgstr ""
+msgstr "Çıkart"
 
 msgid "Up"
-msgstr ""
+msgstr "Çalışıyor"
 
 msgid "Up delay"
-msgstr ""
+msgstr "Çalışma gecikmesi"
 
 msgid "Update Manager"
 msgstr "Güncelleme Yöneticisi"
@@ -3196,11 +3207,11 @@ msgid "Update now"
 msgstr "Şimdi güncelle"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
-msgstr ""
+msgstr "Hedef ACL lerini kaynak ACL leri ile aynı olacak biçimde güncelleştir."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones"
-msgstr ""
+msgstr "Hedefteki genişletilmiş öznitelikleri yerel olanlarla aynı olacak şekilde güncelleştir."
 
 msgid "Updated"
 msgstr "Güncellendi"
@@ -3218,13 +3229,13 @@ msgid "Upload package"
 msgstr "Paket yükle"
 
 msgid "Upload plugin"
-msgstr ""
+msgstr "Eklenti yükle"
 
 msgid "Uploading file ..."
 msgstr "Dosya yükleniyor ..."
 
 msgid "Uptime"
-msgstr ""
+msgstr "Çalışma süresi"
 
 msgid "Uruguay"
 msgstr "Uruguay"
@@ -3236,7 +3247,7 @@ msgid "Use SSL/TLS secure connection"
 msgstr "SSl/TLS güvenli bağlantı kullan"
 
 msgid "Use sendfile"
-msgstr ""
+msgstr "Sendfile kullan"
 
 msgid "Use the following bandwidth restriction:"
 msgstr "Şu bant genişliği sınırlamasını kullan :"
@@ -3247,94 +3258,94 @@ msgstr "Şu port aralığını kullan :"
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked"
-msgstr ""
+msgstr "Özellikle kilitlenmiş dosyalar için daha etkili dosya gönderim sistem çağrısını kullanınız"
 
 msgid "Use the specified WINS server."
-msgstr ""
+msgstr "Belirtilmiş WINS sunucusunu kullan."
 
 msgid "Used"
-msgstr ""
+msgstr "Kullanılmış"
 
 msgid "Used capacity"
-msgstr ""
+msgstr "Kullanılmış kapasite"
 
 msgid "User"
-msgstr ""
+msgstr "Kullanıcı"
 
 #, c-format
 msgid "User '%s' already exist"
-msgstr ""
+msgstr "Kullanıcı '%s' zaten var"
 
 #, c-format
 msgid "User '%s' does not exist"
-msgstr ""
+msgstr "Kullanıcı '%s' mevcut değil"
 
 #, c-format
 msgid "User ID '%d' already exist"
-msgstr ""
+msgstr "Kullanıcı ID '%d' zaten var "
 
 msgid "User home directory"
-msgstr ""
+msgstr "Kullanıcı ana dizini"
 
 msgid "User information"
-msgstr ""
+msgstr "Kullanıcı bilgisi"
 
 msgid "User/Group permissions"
-msgstr ""
+msgstr "Kullanıcı/Grup yetkileri"
 
 msgid "Username"
-msgstr ""
+msgstr "Kullanıcı adı"
 
 msgid "Users"
-msgstr ""
+msgstr "Kullanıcılar"
 
 msgid "Uzbekistan"
-msgstr ""
+msgstr "Özbekistan"
 
 msgid "Valid to"
-msgstr ""
+msgstr "Geçerlilik süresi"
 
 msgid "Value"
-msgstr ""
+msgstr "Değer"
 
 msgid "Vanuatu"
-msgstr ""
+msgstr "Vanuatu"
 
 msgid "Vatican"
-msgstr ""
+msgstr "Vatikan"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Üretici"
 
 msgid "Venezuela"
-msgstr ""
+msgstr "Venezuella"
 
 msgid "Version"
-msgstr ""
+msgstr "Sürüm"
 
 msgid "Vietnam"
-msgstr ""
+msgstr "Vietnam"
 
 msgid "Volume"
-msgstr ""
+msgstr "Birim"
 
 msgid "WINS"
-msgstr ""
+msgstr "WINS"
 
 msgid "WINS server"
-msgstr ""
+msgstr "WINS sunucu"
 
 msgid "WINS support"
-msgstr ""
+msgstr "WINS desteği"
 
 msgid "Wake Island"
-msgstr ""
+msgstr "Wake Adası"
 
 msgid "Wake-on-LAN"
-msgstr ""
+msgstr "Yerel ağ üzerinden uyanma"
 
 msgid "Wallis and Futuna"
-msgstr ""
+msgstr "Wallis ve Futuna"
 
 msgid "Warning"
 msgstr "Uyarı"
@@ -3360,7 +3371,7 @@ msgstr "Batı Sahara"
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote username."
-msgstr ""
+msgstr "Kullanıcı sunucuya ilk bağlandığında ident protokolü uzak kullanıcı adını tespit etmeye çalışır."
 
 msgid "When failed"
 msgstr "Hata oluşunca"
@@ -3375,7 +3386,7 @@ msgid "Workgroup"
 msgstr "Çalışma grubu"
 
 msgid "Worst"
-msgstr ""
+msgstr "En kötü"
 
 msgid "Write cache"
 msgstr "Yazma arabelleği"
@@ -3393,7 +3404,7 @@ msgid "Zambia"
 msgstr "Zambiya"
 
 msgid "Zeroconf"
-msgstr ""
+msgstr "Sıfır ayarlama"
 
 msgid "Zimbabwe"
 msgstr "Zimbabve"
@@ -3418,7 +3429,7 @@ msgstr "dakika"
 
 #, c-format
 msgid "n/a"
-msgstr ""
+msgstr "yok"
 
 msgid "seconds"
 msgstr "saniye"

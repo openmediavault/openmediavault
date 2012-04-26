@@ -18,13 +18,14 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
 #   <arturmon82@gmail.com>, 2012.
+#   <ffrants@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-15 20:07+0100\n"
-"PO-Revision-Date: 2012-04-20 04:14+0000\n"
-"Last-Translator: arturmon82 <arturmon82@gmail.com>\n"
+"PO-Revision-Date: 2012-04-26 09:35+0000\n"
+"Last-Translator: mictian <ffrants@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.net/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,52 +34,52 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 msgid "Add share"
-msgstr ""
+msgstr "Добавить общий ресурс"
 
 msgid "Allow guest logins"
 msgstr "Разрешить гостевой вход"
 
 msgid "Apple Filing"
-msgstr ""
+msgstr "Apple Filing"
 
 msgid "Authentication"
-msgstr ""
+msgstr "Аутентификация"
 
 msgid "Case folding"
-msgstr ""
+msgstr "Замена регистра"
 
 msgid "Client sees lowercase, server sees uppercase"
-msgstr ""
+msgstr "Клиент видит в нижнем регистре, сервер видит заглавными"
 
 msgid "Client sees uppercase, server sees lowercase"
-msgstr ""
+msgstr "Клиент видит в верхнем регистре, сервер видит строчными"
 
 msgid "Comment"
-msgstr ""
+msgstr "Коментарий"
 
 msgid "Don't do :hex translation for dot files."
-msgstr ""
+msgstr "Не переводить файлы с точкой в :hex."
 
 msgid "Edit share"
-msgstr ""
+msgstr "Редактировать общий ресурс"
 
 msgid "Enable"
 msgstr "Включить"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "Включить поддержку Time Machine для этого общего ресурса."
 
 msgid "Extra options"
 msgstr "Дополнительные опции"
 
 msgid "Forces filename restrictions"
-msgstr ""
+msgstr "Усиленные ограничения на имени файла"
 
 msgid "General settings"
 msgstr "Общие параметры"
 
 msgid "Hide dot files"
-msgstr ""
+msgstr "Скрыть файлы с точкой"
 
 msgid ""
 "If this option is set, then a password is required to access the share."
@@ -90,16 +91,16 @@ msgid ""
 msgstr "Если эта опция включена, то пользователи не могут создавать или изменять файлы в общей папке."
 
 msgid "Lowercases names in both directions"
-msgstr ""
+msgstr "Нижний регистр имени в обоих направлениях"
 
 msgid "Make dot files invisible."
-msgstr ""
+msgstr "Сделать файлы с точкой невидимыми."
 
 msgid "Name"
 msgstr "Имя"
 
 msgid "None"
-msgstr ""
+msgstr "Нет"
 
 msgid "Password"
 msgstr "Пароль"
@@ -108,49 +109,49 @@ msgid "Read only"
 msgstr "Только чтение"
 
 msgid "Set read only."
-msgstr "Установите только для чтения."
+msgstr "Установить только для чтения."
 
 msgid "Settings"
 msgstr "Настройки"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Общая папка"
 
 msgid "Shares"
-msgstr ""
+msgstr "Общие ресурсы"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "Расположение файлов для общего доступа."
 
 msgid "The name of the share."
-msgstr ""
+msgstr "Название общей папки."
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."
-msgstr ""
+msgstr "Вынуждает имена файлов быть ограниченными набору символов, используемому в Windows."
 
 msgid "This option handles, if the case of filenames should be changed."
-msgstr ""
+msgstr "Эта опция указывает, должен ли меняться регистр имён файлов."
 
 msgid "Time Machine support"
 msgstr "Поддержка Time Machine"
 
 msgid "Unix privileges"
-msgstr "Unix привилегий"
+msgstr "Права доступа Unix"
 
 msgid "Uppercases names in both directions"
-msgstr ""
+msgstr "Верхний регистр имени в обоих направлениях"
 
 msgid "Use AFP3 unix privileges."
-msgstr ""
+msgstr "Использовать права доступа AFP3 Unix."
 
 msgid "Use dots"
-msgstr ""
+msgstr "Использовать точки"
 
 msgid ""
 "When this option gets set, certain file names become illegal. These are "
 ".Parent and anything that starts with .Apple."
-msgstr ""
+msgstr "Когда эта опция включена, определенные имена файла становятся недопустимыми. Это \".Родительский\" и всё, что начинается с \".Apple\"."
 
 msgid "n/a"
-msgstr ""
+msgstr "н/д"

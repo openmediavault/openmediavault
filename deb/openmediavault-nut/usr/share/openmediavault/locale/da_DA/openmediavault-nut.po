@@ -1,0 +1,116 @@
+# This file is part of OpenMediaVault.
+# 
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+# 
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:08+0100\n"
+"PO-Revision-Date: 2012-04-25 18:58+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"Language-Team: Danish (http://www.transifex.net/projects/p/openmediavault/language/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Charge"
+msgstr "Ladning"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Definerer hvornår nedlukning påbegyndes."
+
+msgid "Driver configuration directives"
+msgstr "Driver konfiguration direktiver"
+
+msgid "Enable"
+msgstr "Aktiver"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Aktiver fjernovervågning af den lokal forbundet UPS."
+
+msgid "General settings"
+msgstr "Generelle indstillinger"
+
+msgid "Identifier"
+msgstr "Identifier"
+
+msgid "Load"
+msgstr "Indlæs"
+
+msgid "Loading ..."
+msgstr "Indlæser ..."
+
+msgid "Password"
+msgstr "Kodeord"
+
+msgid "Remote monitoring"
+msgstr "Fjernovervågning"
+
+msgid "Service disabled"
+msgstr "Service deaktiveret"
+
+msgid "Shutdown mode"
+msgstr "Nedluknings modus"
+
+msgid "Shutdown timer"
+msgstr "Nedluknings timer"
+
+msgid "Temperature"
+msgstr "Temperatur"
+
+msgid "The name used to uniquely identify your UPS on this system."
+msgstr "Navnet der anvendes til entydigt at identificere dine UPS på dette system."
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "Tiden i sekunder, inden nedlukning påbegyndes. Hvis UPS'en skulle komme tilbage inden tiden udløber bliver nedlukningen annulleret."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "For at få flere oplysninger om hvordan du konfigurerer dine UPS så kontroller venligst Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'> dokumentation </ a >."
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "UPS goes on battery"
+msgstr "UPS går på batteri"
+
+msgid "UPS reaches low battery"
+msgstr "UPS når lavt batteriniveau"
+
+msgid "Used for remote authentication."
+msgstr "Bruges til fjerngodkendelse"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid "Variables"
+msgstr "Variabler"
+
+msgid "Voltage"
+msgstr "Spænding"

@@ -1,132 +1,134 @@
-#
 # This file is part of OpenMediaVault.
-#
+# 
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @copyright Copyright (c) 2009-2012 Volker Theile
-#
+# 
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # any later version.
-#
+# 
 # OpenMediaVault is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-#
+# 
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
-#, fuzzy
+# Translators:
+# Kostas Moho <kgounaris@hotmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: openmediavault-lvm2\n"
+"Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-15 20:06+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2012-04-20 05:21+0000\n"
+"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
+"Language-Team: Greek (Greece) (http://www.transifex.net/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-msgid "After the logical volume has been extended you can resize the containing filesystem."
-msgstr ""
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr "Μετά την επέκταση του λογικού τόμου, μπορεί να προσαρμοστεί το σύστημα αρχείων που περιέχεται."
 
 msgid "Available"
-msgstr ""
+msgstr "Διαθέσιμο"
 
 msgid "Capacity"
-msgstr ""
+msgstr "Χωρητικότητα"
 
 msgid "Confirmation"
-msgstr ""
+msgstr "Επιβεβαίωση"
 
 msgid "Create logical volume"
-msgstr ""
+msgstr "Δημιουργία λογικού τόμου"
 
 msgid "Create physical volume"
-msgstr ""
+msgstr "Δημιουργία φυσικού τόμου"
 
 msgid "Create volume group"
-msgstr ""
+msgstr "Δημιουργία ομάδας τόμων"
 
 msgid "Description"
-msgstr ""
+msgstr "Περιγραφή"
 
 msgid "Device"
-msgstr ""
+msgstr "Συσκευή"
 
 msgid "Devices"
-msgstr ""
+msgstr "Συσκευές"
 
 msgid "Do you really want to create the logical volume?"
-msgstr ""
+msgstr "Δημιουργία του λογικού τόμου;"
 
 msgid "Do you really want to create the physical volume?"
-msgstr ""
+msgstr "Δημιουργία του φυσικού τόμου;"
 
 msgid "Do you really want to create the volume group?"
-msgstr ""
+msgstr "Δημιουργία ομάδας τόμων;"
 
 msgid "Edit logical volume"
-msgstr ""
+msgstr "Μεταβολή λογικού τόμου"
 
 msgid "Edit volume group"
-msgstr ""
+msgstr "Μεταβολή ομάδας τόμων"
 
 msgid "Extend"
-msgstr ""
+msgstr "Επέκταση"
 
 msgid "Extend logical volume"
-msgstr ""
+msgstr "Επέκταση λογικού τόμου"
 
 msgid "Extend volume group"
-msgstr ""
+msgstr "Επέκταση ομάδας τόμων"
 
 msgid "Free"
-msgstr ""
+msgstr "Διαθέσιμο"
 
 msgid "Logical Volume Management"
-msgstr ""
+msgstr "Διαχείριση Λογικών Τόμων"
 
 msgid "Logical volumes"
-msgstr ""
+msgstr "Λογικοί τόμοι"
 
 msgid "Name"
-msgstr ""
+msgstr "Όνομα"
 
 msgid "Physical volumes"
-msgstr ""
+msgstr "Φυσικοί τόμοι"
 
 msgid "Reduce"
-msgstr ""
+msgstr "Μείωση"
 
 msgid "Reduce volume group"
-msgstr ""
+msgstr "Μείωση ομάδας τόμων"
 
 msgid "Select a volume group ..."
-msgstr ""
+msgstr "Επιλογή ομάδας τόμων ..."
 
 msgid "Select an device ..."
-msgstr ""
+msgstr "Επιλογή συσκευής ..."
 
 msgid "Size"
-msgstr ""
+msgstr "Μέγεθος"
 
 msgid "The maximum value for this field is {0}"
-msgstr ""
+msgstr "Η μέγιστη τιμή για αυτό το πεδίο είναι {0}"
 
 msgid "The minimum value for this field is {0}"
-msgstr ""
+msgstr "Η ελάχιστη τιμή για αυτό το πεδίο είναι {0}"
 
 msgid "Used"
-msgstr ""
+msgstr "Χρησιμοποιημένο"
 
 msgid "Volume group"
-msgstr ""
+msgstr "Ομάδα τόμων"
 
 msgid "Volume groups"
-msgstr ""
+msgstr "Ομάδες τόμων"

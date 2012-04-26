@@ -1,111 +1,116 @@
-#
 # This file is part of OpenMediaVault.
-#
+# 
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @copyright Copyright (c) 2009-2012 Volker Theile
-#
+# 
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # any later version.
-#
+# 
 # OpenMediaVault is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-#
+# 
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
-#, fuzzy
+# Translators:
+#   <mauro.rulli@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: openmediavault-nut\n"
+"Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-15 20:08+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2012-04-20 10:04+0000\n"
+"Last-Translator: maurorulli <mauro.rulli@gmail.com>\n"
+"Language-Team: Italian (http://www.transifex.net/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Charge"
-msgstr ""
+msgstr "Carica"
 
 msgid "Comment"
-msgstr ""
+msgstr "Commento"
 
 msgid "Defines when the shutdown is initiated."
-msgstr ""
+msgstr "Definisce quando lo shutdown viene avviato."
 
 msgid "Driver configuration directives"
-msgstr ""
+msgstr "Direttive di configurazione del driver"
 
 msgid "Enable"
-msgstr ""
+msgstr "Abilita"
 
 msgid "Enable remote monitoring of the local connected UPS."
-msgstr ""
+msgstr "Abilita monitoraggio remoto dell'UPS collegato localmente."
 
 msgid "General settings"
-msgstr ""
+msgstr "Impostazioni generali"
 
 msgid "Identifier"
-msgstr ""
+msgstr "Identificativo"
 
 msgid "Load"
-msgstr ""
+msgstr "Carica"
 
 msgid "Loading ..."
-msgstr ""
+msgstr "Caricamento ..."
 
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 msgid "Remote monitoring"
-msgstr ""
+msgstr "Monitoraggio remoto"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "Servizio disabilitato"
 
 msgid "Shutdown mode"
-msgstr ""
+msgstr "Modalità di shutdown"
 
 msgid "Shutdown timer"
-msgstr ""
+msgstr "Timer di shutdown"
 
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatura"
 
 msgid "The name used to uniquely identify your UPS on this system."
-msgstr ""
+msgstr "Il nome usato per identificare univocamente il tuo UPS nel sistema."
 
-msgid "The time in seconds until shutdown is initiated. If the UPS happens to come back before the time is up the shutdown is canceled."
-msgstr ""
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "Tempo in secondi all'avvio dello shutdown. Se l'UPS viene ripristinato prima che il tempo sia trascorso allora lo shutdown verrà annullato."
 
-msgid "To get more information how to configure your UPS please check the Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentation</a>."
-msgstr ""
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "Per ottenere maggiori informazioni su come configurare il tuo UPS consulta la <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentazione</a> Network UPS Tools."
 
 msgid "UPS"
-msgstr ""
+msgstr "UPS"
 
 msgid "UPS goes on battery"
-msgstr ""
+msgstr "L'UPS lavora a batteria"
 
 msgid "UPS reaches low battery"
-msgstr ""
+msgstr "Batteria dell'UPS scarica"
 
 msgid "Used for remote authentication."
-msgstr ""
+msgstr "Usato per autenticazione remota."
 
 msgid "Username"
-msgstr ""
+msgstr "Nome utente"
 
 msgid "Variables"
-msgstr ""
+msgstr "Variabili"
 
 msgid "Voltage"
-msgstr ""
+msgstr "Voltaggio"

@@ -1,150 +1,156 @@
-#
 # This file is part of OpenMediaVault.
-#
+# 
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @copyright Copyright (c) 2009-2012 Volker Theile
-#
+# 
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # any later version.
-#
+# 
 # OpenMediaVault is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-#
+# 
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
-#, fuzzy
+# Translators:
+#   <mauro.rulli@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: openmediavault-netatalk\n"
+"Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-15 20:07+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2012-04-20 10:06+0000\n"
+"Last-Translator: maurorulli <mauro.rulli@gmail.com>\n"
+"Language-Team: Italian (http://www.transifex.net/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Add share"
-msgstr ""
+msgstr "Aggiungi condivisione"
 
 msgid "Allow guest logins"
-msgstr ""
+msgstr "Consenti login di guest"
 
 msgid "Apple Filing"
-msgstr ""
+msgstr "Apple Filing"
 
 msgid "Authentication"
-msgstr ""
+msgstr "Autenticazione"
 
 msgid "Case folding"
-msgstr ""
+msgstr "Case folding"
 
 msgid "Client sees lowercase, server sees uppercase"
-msgstr ""
+msgstr "I client vedono caratteri minuscoli, il server caratteri maiuscoli"
 
 msgid "Client sees uppercase, server sees lowercase"
-msgstr ""
+msgstr "I client vedono caratteri maiuscoli, il server caratteri minuscoli"
 
 msgid "Comment"
-msgstr ""
+msgstr "Commento"
 
 msgid "Don't do :hex translation for dot files."
-msgstr ""
+msgstr "Non applicare la traduzione :hex per i file puntati."
 
 msgid "Edit share"
-msgstr ""
+msgstr "Modifica condivisione"
 
 msgid "Enable"
-msgstr ""
+msgstr "Abilita"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "Abilita il supporto Time Machine per questa condivisione"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Opzioni extra"
 
 msgid "Forces filename restrictions"
-msgstr ""
+msgstr "Forza restrizioni sul nome del file"
 
 msgid "General settings"
-msgstr ""
+msgstr "Impostazioni generali"
 
 msgid "Hide dot files"
-msgstr ""
+msgstr "Nascondi file puntati"
 
-msgid "If this option is set, then a password is required to access the share."
-msgstr ""
+msgid ""
+"If this option is set, then a password is required to access the share."
+msgstr "Se attiva la condivisione viene protetta da password."
 
-msgid "If this option is set, then users may not create or modify files in the share."
-msgstr ""
+msgid ""
+"If this option is set, then users may not create or modify files in the "
+"share."
+msgstr "Se attiva gli utenti non potranno creare o modificare file nella condivisione."
 
 msgid "Lowercases names in both directions"
-msgstr ""
+msgstr "Caratteri minuscoli in entrambe le direzioni"
 
 msgid "Make dot files invisible."
-msgstr ""
+msgstr "Rendi i file puntati invisibili."
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "None"
-msgstr ""
+msgstr "Nessuno"
 
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 msgid "Read only"
-msgstr ""
+msgstr "Sola lettura"
 
 msgid "Set read only."
-msgstr ""
+msgstr "Imposta sola lettura."
 
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Cartella condivisa"
 
 msgid "Shares"
-msgstr ""
+msgstr "Condivisioni"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "Il percorso dei file da condividere."
 
 msgid "The name of the share."
-msgstr ""
+msgstr "Il nome della condivisione."
 
-msgid "This forces filenames to be restricted to the character set used by Windows."
-msgstr ""
+msgid ""
+"This forces filenames to be restricted to the character set used by Windows."
+msgstr "Questo forza i nomi dei file ad essere ristretti ai soli caratteri usati dal set di caratteri di windows."
 
 msgid "This option handles, if the case of filenames should be changed."
-msgstr ""
+msgstr "Gestisce se le maiuscole/minuscole dei nomi dei file devono essere modificate."
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Supporto alla Time Machine"
 
 msgid "Unix privileges"
-msgstr ""
+msgstr "Privilegi in stile Unix"
 
 msgid "Uppercases names in both directions"
-msgstr ""
+msgstr "Caratteri maiuscoli in entrambe le direzioni"
 
 msgid "Use AFP3 unix privileges."
-msgstr ""
+msgstr "Usa privilegi unix AFP3"
 
 msgid "Use dots"
-msgstr ""
+msgstr "Usa punti"
 
-msgid "When this option gets set, certain file names become illegal. These are .Parent and anything that starts with .Apple."
-msgstr ""
+msgid ""
+"When this option gets set, certain file names become illegal. These are "
+".Parent and anything that starts with .Apple."
+msgstr "Se attiva alcuni nomi di file diventano illegali. Questi sono .Parent e tutti quelli che iniziano per .Apple."
 
 msgid "n/a"
-msgstr ""
+msgstr "n/c"

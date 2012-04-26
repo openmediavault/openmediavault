@@ -1,10 +1,12 @@
 openmediavault (0.3.0.4) stable; urgency=low
 
+  * Add ability to import groups via CSV.
   * Fix bugs related to system messages WebGUI.
   * Mantis 0000428: Allow more characters in share names. The SMB/CIFS
     file/directory naming convention is used for this.
   * Mantis 0000429: share priviledges only works for groups (samba)
   * Mantis 0000434: Add one permission case in Share Folder create/edit dialog
+  * Mantis 0000440: Multiple translation units and messages
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 25 Apr 2012 19:38:45 +0200
 

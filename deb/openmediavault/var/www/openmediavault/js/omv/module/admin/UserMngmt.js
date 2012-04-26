@@ -544,8 +544,44 @@ Ext.extend(OMV.Module.Privileges.GroupGridPanel, OMV.grid.TBarGridPanel, {
 		this.on("activate", this.doReload, this);
 	},
 
-	cbAddBtnHdl : function() {
-		var wnd = new OMV.Module.Privileges.GroupPropertyDialog({
+	initToolbar : function() {
+		var tbar = OMV.Module.Privileges.GroupGridPanel.superclass.
+		  initToolbar.apply(this, arguments);
+		// Replace the default 'Add' button
+		tbar.remove(0);
+		tbar.insert(0, new Ext.SplitButton({
+			text: _("Add"),
+			icon: "images/add.png",
+			handler: function() {
+				this.showMenu();
+			},
+			menu: new Ext.menu.Menu({
+				items: [
+					{ text: _("Add"), value: "add" },
+					{ text: _("Import"), value: "import" }
+				],
+				listeners: {
+					itemclick: function(item, e) {
+						this.cbAddBtnHdl(item.value);
+					},
+					scope: this
+				}
+			})
+		}));
+		return tbar;
+	},
+
+	cbAddBtnHdl : function(action) {
+		var cls;
+		switch (action) {
+		case "add":
+			cls = OMV.Module.Privileges.GroupPropertyDialog;
+			break;
+		case "import":
+			cls = OMV.Module.Privileges.GroupImportDialog;
+			break;
+		}
+		var wnd = new cls({
 			listeners: {
 				submit: function() {
 					this.doReload();
@@ -578,7 +614,9 @@ Ext.extend(OMV.Module.Privileges.GroupGridPanel, OMV.grid.TBarGridPanel, {
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("privileges", "groups", {
-	cls: OMV.Module.Privileges.GroupGridPanel
+	cls: OMV.Module.Privileges.GroupGridPanel,
+	title: _("Group"),
+	position: 10
 });
 
 /**
@@ -666,5 +704,41 @@ Ext.extend(OMV.Module.Privileges.GroupPropertyDialog, OMV.FormPanelDialog, {
 		values.members = !Ext.isEmpty(values.members) ?
 		  values.members.split(",") : [];
 		return values;
+	}
+});
+
+/**
+ * @class OMV.Module.Privileges.GroupImportDialog
+ * @derived OMV.FormPanelDialog
+ */
+OMV.Module.Privileges.GroupImportDialog = function(config) {
+	var initialConfig = {
+		rpcService: "UserMgmt",
+		rpcSetMethod: "importGroups",
+		title: _("Import groups"),
+		width: 580,
+		height: 350
+	};
+	Ext.apply(initialConfig, config);
+	OMV.Module.Privileges.GroupImportDialog.superclass.constructor.call(
+	  this, initialConfig);
+};
+Ext.extend(OMV.Module.Privileges.GroupImportDialog, OMV.FormPanelDialog, {
+	getFormItems : function() {
+		return [{
+			xtype: "textarea",
+			name: "csv",
+			hideLabel: true,
+			allowBlank: false,
+			autoCreate: {
+				tag: "textarea",
+				autocomplete: "off",
+				rows: "8"
+			},
+			value: "# <name>;<gid>;<comment>",
+			anchor: "100% -15",
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: _("Each line represents one group.")
+		}];
 	}
 });

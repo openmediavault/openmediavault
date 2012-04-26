@@ -119,6 +119,12 @@ class UserMgmtRpc extends OMVRpc {
 					"csv":{"type":"string"}
 				}
 			}'),
+			"importGroups" => array('{
+				"type":"object",
+				"properties":{
+					"csv":{"type":"string"}
+				}
+			}'),
 			"setSettings" => array('{
 				"type":"object",
 				"properties":{
@@ -418,7 +424,19 @@ class UserMgmtRpc extends OMVRpc {
 	}
 
 	/**
-	 * Set (add/update) an user
+	 * Set (add/update) an user.
+	 * @param data An array containing the following fields:
+	 *   \em name The name of the user.
+	 *   \em uid The user ID. This field is optional.
+	 *   \em groups A list of groups which the user is a member of as an
+	 *   array of strings.
+	 *   \em shell The name of the users login shell.
+	 *   \em password The plain password to use.
+	 *   \em email The users email address.
+	 *   \em comment Any text string.
+	 *   \em disallowusermod Set to FALSE to disallow the user to modify his
+	 *   account.
+	 * @return None
 	 */
 	function setUser($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -573,6 +591,7 @@ class UserMgmtRpc extends OMVRpc {
 	 * Import a list of users.
 	 * @param data An array containing the following fields:
 	 *   \em csv The user values, e.g.:
+	 *   name;uid;comment;email;password;group,group,...;disallowusermod
 	 *   test1;;comment;test1@xyz.com;foobarpwd1;adm;1
 	 *   test2;1200;comment2;test2@xyz.com;foobarpwd2;adm,audio,www-data;0
 	 *   test3;;comment3;test3@xyz.com;foobarpwd3;ssh;1
@@ -594,8 +613,10 @@ class UserMgmtRpc extends OMVRpc {
 		$csv = explode("\n", $data['csv']);
 		foreach ($csv as $linek => $linev) {
 			$linev = trim($linev);
+			# Skip comments.
 			if (empty($linev) || ($linev[0] === "#"))
 				continue;
+			# Parse line.
 			if (1 !== preg_match("/^([^;]+);(\d*);([^;]+);([^;]+);([^;]+);".
 			  "([^;]+);(true|1|yes|y|on|false|0|no|n|off)$/i",
 			  $linev, $matches)) {
@@ -717,7 +738,13 @@ class UserMgmtRpc extends OMVRpc {
 	}
 
 	/**
-	 * Set (add/update) a group
+	 * Set (add/update) a group.
+	 * @param data An array containing the following fields:
+	 *   \em name The name of the group.
+	 *   \em gid The group ID. This field is optional.
+	 *   \em comment Any text string.
+	 *   \em members The group members as an array of user names.
+	 * @return None
 	 */
 	function setGroup($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -810,6 +837,74 @@ class UserMgmtRpc extends OMVRpc {
 		// Notify configuration changes
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.usermanagement.groups.group", $object);
+	}
+
+	/**
+	 * Import a list of groups.
+	 * @param data An array containing the following fields:
+	 *   \em csv The group values, e.g.:
+	 *   name;gid;comment
+	 *   grp1;;comment1
+	 *   grp2;1200;comment2
+	 * @return None
+	 */
+	function importGroups($data) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Validate method parameters
+		$this->validateParams(__METHOD__, func_get_args());
+		// Import users
+		$objects = array();
+		$csv = explode("\n", $data['csv']);
+		foreach ($csv as $linek => $linev) {
+			$linev = trim($linev);
+			# Skip comments.
+			if (empty($linev) || ($linev[0] === "#"))
+				continue;
+			# Parse line.
+			if (1 !== preg_match("/^([^;]+);(\d*);([^;]+)$/i", $linev,
+			  $matches)) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf(gettext("Invalid line: %s"), $linev));
+			}
+			$object = array(
+				"name" => $matches[1],
+				"comment" => $matches[3],
+				"members" => array()
+			);
+			if (!empty($matches[2]) && is_numeric($matches[2]))
+				$object['gid'] = intval($matches[2]);
+			$objects[] = $object;
+		}
+		// Check if the users does not exist until now
+		foreach ($objects as $objectk => $objectv) {
+			// Check if an group with the given name already exists
+			$group = new OMVSystemGroup($objectv['name']);
+			if ($group->exists()) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf(gettext("Group '%s' already exist"),
+				  $objectv['name']));
+			}
+			// Check if an group with the given GID already exists
+			if (array_key_exists("gid", $object)) {
+				$group = new OMVSystemGroup($objectv['gid']);
+				if ($group->exists()) {
+					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+					  sprintf(gettext("Group ID '%d' already exist"),
+					  $objectv['gid']));
+				}
+			}
+		}
+		// Finally create the groups
+		foreach ($objects as $objectk => $objectv) {
+			OMVRpc::exec("UserMgmt", "setGroup", $objectv);
+		}
 	}
 
 	/**

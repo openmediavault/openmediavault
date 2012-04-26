@@ -1,264 +1,290 @@
-#
 # This file is part of OpenMediaVault.
-#
+# 
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
 # @copyright Copyright (c) 2009-2012 Volker Theile
-#
+# 
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
 # any later version.
-#
+# 
 # OpenMediaVault is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
-#
+# 
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
-#, fuzzy
+# Translators:
+#   <mauro.rulli@gmail.com>, 2012.
 msgid ""
 msgstr ""
-"Project-Id-Version: openmediavault-iscsitarget\n"
+"Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-15 20:05+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2012-04-20 09:56+0000\n"
+"Last-Translator: maurorulli <mauro.rulli@gmail.com>\n"
+"Language-Team: Italian (http://www.transifex.net/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: it\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Add LUN"
-msgstr ""
+msgstr "Aggiungi LUN"
 
 msgid "Add target"
-msgstr ""
+msgstr "Aggiungi destinazione"
 
 msgid "Add user"
-msgstr ""
+msgstr "Aggiungi utente"
 
 msgid "Alias"
-msgstr ""
+msgstr "Alias"
 
 msgid "Assign a unique identifier to the iSCSI volume optionally."
-msgstr ""
+msgstr "Assegna un identificativo univoco al volume iSCSI facoltativo."
 
 msgid "Assign a unique serial number to the iSCSI volume optionally."
-msgstr ""
+msgstr "Assegna un numero seriale univoco al volume iSCSI facoltativo."
 
 msgid "Authentication"
-msgstr ""
+msgstr "Autenticazione"
 
 msgid "Block IO"
-msgstr ""
+msgstr "Blocca IO"
 
 msgid "Comment"
-msgstr ""
+msgstr "Commento"
 
-msgid "Controls the maximum number of data transfers the target may request at once."
-msgstr ""
+msgid ""
+"Controls the maximum number of data transfers the target may request at "
+"once."
+msgstr "Controlla il numero massimo di trasferimenti dati contemporanei che la destinazione può richiedere."
 
 msgid "Data PDU in order"
-msgstr ""
+msgstr "Dati PDU in ordine"
 
 msgid "Data digest"
-msgstr ""
+msgstr "Dati digest"
 
 msgid "Data sequence in order"
-msgstr ""
+msgstr "Sequenza dati in ordine"
 
 msgid "Device"
-msgstr ""
+msgstr "Dispositivo"
 
 msgid "Discovery authentication"
-msgstr ""
+msgstr "Scopri autenticazione"
 
 msgid "Edit LUN"
-msgstr ""
+msgstr "Modifica LUN"
 
 msgid "Edit target"
-msgstr ""
+msgstr "Modifica destinazione"
 
 msgid "Edit user"
-msgstr ""
+msgstr "Modifica utente"
 
 msgid "Enable"
-msgstr ""
+msgstr "Abilita"
 
 msgid "Error recovery level"
-msgstr ""
+msgstr "Livello di ripristino errore"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Opzioni extra"
 
 msgid "File IO"
-msgstr ""
+msgstr "File IO"
 
 msgid "First burst length"
-msgstr ""
+msgstr "Lunghezza del primo burst"
 
 msgid "General"
-msgstr ""
+msgstr "Generale"
 
 msgid "General settings"
-msgstr ""
+msgstr "Impostazioni generali"
 
 msgid "Header digest"
-msgstr ""
+msgstr "Header digest"
 
 msgid "IO threads"
-msgstr ""
+msgstr "IO threads"
 
 msgid "IQN"
-msgstr ""
+msgstr "IQN"
 
 msgid "Id"
-msgstr ""
+msgstr "Id"
 
 msgid "Identifier"
-msgstr ""
+msgstr "Identificatore"
 
-msgid "If a non-zero 'NOP interval' is used to periodically 'ping' the initiator during phases of inactivity (i.e. no data transfers), the initiator must respond within N seconds, otherwise the connection will be closed."
-msgstr ""
+msgid ""
+"If a non-zero 'NOP interval' is used to periodically 'ping' the initiator "
+"during phases of inactivity (i.e. no data transfers), the initiator must "
+"respond within N seconds, otherwise the connection will be closed."
+msgstr "Se viene utilizzato un 'intervallo NOP' diverso da zero per 'ping'are periodicamente l'initiator durante la fase di inattività (es. nessun trasferimento dati), l'initiator deve rispondere entro N secondi, altrimenti la connessione verrà chiusa."
 
-msgid "If enabled, the initiator has to wait for the target to solicit SCSI data before sending it. Disabling it allows the initiator to send a burst of N bytes unsolicited right after and/or together with the command. Thus disabling it may improve performance."
-msgstr ""
+msgid ""
+"If enabled, the initiator has to wait for the target to solicit SCSI data "
+"before sending it. Disabling it allows the initiator to send a burst of N "
+"bytes unsolicited right after and/or together with the command. Thus "
+"disabling it may improve performance."
+msgstr "Se abilitato l'initiator deve attendere che la destinazione solleciti i dati SCSI prima di inviarli. Se disabilitato consente all'initiator di inviare un burst di N byte non sollecitati di seguito e/o insieme al comando. Quindi disabilitando si possono ottenere dei miglioramenti di performance."
 
-msgid "If set to 'CRC32C' and the initiator is configured accordingly, the integrity of an iSCSI PDU's data segment will be protected by a CRC32C checksum."
-msgstr ""
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's data segment will be protected by a CRC32C "
+"checksum."
+msgstr "Se impostato a 'CRC32C' e l'initiator è configurato opportunamento, l'integrità dei dati dei segmenti di un PDU iSCSI verrà protetta con il CRC32C checksum."
 
-msgid "If set to 'CRC32C' and the initiator is configured accordingly, the integrity of an iSCSI PDU's header segments will be protected by a CRC32C checksum."
-msgstr ""
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's header segments will be protected by a CRC32C "
+"checksum."
+msgstr "Se impostato a 'CRC32C' e l'initiator è configurato opportunamento, l'integrità dei segmenti di header di un PDU iSCSI verrà protetta con il CRC32C checksum."
 
-msgid "If value is non-zero, the initiator will be 'ping'ed during phases of inactivity (i.e. no data transfers) every N seconds to verify the connection is still alive."
-msgstr ""
+msgid ""
+"If value is non-zero, the initiator will be 'ping'ed during phases of "
+"inactivity (i.e. no data transfers) every N seconds to verify the connection"
+" is still alive."
+msgstr "Se il valore è diverso da zero, l'initiator verrà 'ping'ato durante le fasi di inattività (es. nessun trasferimento dati) ogni N secondi per verificare che la connessione sia ancora attiva."
 
 msgid "Immediate data"
-msgstr ""
+msgstr "Dati immediati"
 
 msgid "Incoming"
-msgstr ""
+msgstr "In entrata"
 
 msgid "Initial R2T"
-msgstr ""
+msgstr "R2T iniziale"
 
 msgid "LUN"
-msgstr ""
+msgstr "LUN"
 
 msgid "Max. burst length"
-msgstr ""
+msgstr "Max. lunghezza del burst"
 
 msgid "Max. connections"
-msgstr ""
+msgstr "Max. connessioni"
 
 msgid "Max. outstanding R2T"
-msgstr ""
+msgstr "Max. R2T in uscita"
 
 msgid "Max. receive data segment length"
-msgstr ""
+msgstr "Max. lunghezza segmento dati ricevuta"
 
 msgid "Max. sessions"
-msgstr ""
+msgstr "Max. sessioni"
 
 msgid "Max. transmit data segment length"
-msgstr ""
+msgstr "Max. lunghezza segmento dati trasmessa"
 
 msgid "NOP interval"
-msgstr ""
+msgstr "Intervallo NOP"
 
 msgid "NOP timeout"
-msgstr ""
+msgstr "Timeout NOP"
 
 msgid "None"
-msgstr ""
+msgstr "Nessuno"
 
 msgid "Only one outgoing user per target is supported."
-msgstr ""
+msgstr "E supportato solo un utente in uscita per destinazione."
 
 msgid "Outgoing"
-msgstr ""
+msgstr "In uscita"
 
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 msgid "Queued commands"
-msgstr ""
+msgstr "Comandi accodati"
 
 msgid "R/W mode"
-msgstr ""
+msgstr "Modalità Lettura/Scrittura"
 
 msgid "Read-only"
-msgstr ""
+msgstr "Sola lettura"
 
 msgid "SCSI Id."
-msgstr ""
+msgstr "SCSI Id."
 
 msgid "SCSI serial no."
-msgstr ""
+msgstr "SCSI num. seriale"
 
 msgid "Select an device ..."
-msgstr ""
+msgstr "Seleziona un dispositivo ..."
 
-msgid "Sets the amount of unsolicited data the initiator may transmit in the first burst of a transfer either with and/or right after the command."
-msgstr ""
+msgid ""
+"Sets the amount of unsolicited data the initiator may transmit in the first "
+"burst of a transfer either with and/or right after the command."
+msgstr "Imposta la quantità di dati non sollecitati che l'initiator può trasmettere nel primo burst di un trasferimento insieme e/o subito dopo ad un comando."
 
-msgid "Sets the maximum amount of either unsolicited or solicited data the initiator may send in a single burst."
-msgstr ""
+msgid ""
+"Sets the maximum amount of either unsolicited or solicited data the "
+"initiator may send in a single burst."
+msgstr "Imposta la quantità massima dei dati sia sollecitati che non sollecitati che l'initiator può inviare in un singolo burst."
 
 msgid "Sets the maximum data segment length that can be received."
-msgstr ""
+msgstr "Imposta la massima lunghezza del segmento dati che può essere ricevuto."
 
 msgid "Sets the maximum data segment length that can be sent."
-msgstr ""
+msgstr "Imposta la massima lunghezza del segmento dati che può essere inviato."
 
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 msgid "Targets"
-msgstr ""
+msgstr "Destinazioni"
 
 msgid "The identifier of the target."
-msgstr ""
+msgstr "L'identificativo della destinazione."
 
 msgid "The maximum number of sessions for this target."
-msgstr ""
+msgstr "Il numero massimo di sessioni per questo dispositivo."
 
-msgid "The number of commands an initiator may send and that will be buffered by the target."
-msgstr ""
+msgid ""
+"The number of commands an initiator may send and that will be buffered by "
+"the target."
+msgstr "Il numero di commandi che un initiator può inviare e che verranno bufferizzati dalla destinazione."
 
 msgid "The number of connections within a session."
-msgstr ""
+msgstr "Il numero di connessioni all'interno di una sessione."
 
 msgid "The number of threads to perform block I/O to the device."
-msgstr ""
+msgstr "Il numero di thread che eseguono blocchi I/O sul dispositivo."
 
 msgid "The optional alias of the target."
-msgstr ""
+msgstr "L'alias facoltativo del dispositivo."
 
-msgid "This allows the initiator to append unsolicited data to a command. To achieve better performance, this should be enabled."
-msgstr ""
+msgid ""
+"This allows the initiator to append unsolicited data to a command. To "
+"achieve better performance, this should be enabled."
+msgstr "Questo consente all'initiator di accodate dati non sollecitati ad un comando. Per ottenere migliori performance dovrebbe essere abilitato."
 
 msgid "Transfer mode"
-msgstr ""
+msgstr "Modalità di trasferimento"
 
 msgid "Type"
-msgstr ""
+msgstr "Tipo"
 
 msgid "Username"
-msgstr ""
+msgstr "Nome utente"
 
 msgid "Users"
-msgstr ""
+msgstr "Utenti"
 
 msgid "Write-back"
-msgstr ""
+msgstr "Write-back"
 
 msgid "Write-through"
-msgstr ""
+msgstr "Write-through"
 
 msgid "iSCSI Target"
-msgstr ""
+msgstr "Destinazione iSCSI"

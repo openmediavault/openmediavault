@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-20 21:41+0200\n"
-"PO-Revision-Date: 2012-04-20 19:42+0000\n"
-"Last-Translator: votdev <votdev@gmx.de>\n"
+"POT-Creation-Date: 2012-04-22 02:18+0200\n"
+"PO-Revision-Date: 2012-04-23 12:11+0000\n"
+"Last-Translator: arturmon82 <arturmon82@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.net/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -168,7 +168,7 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "About"
-msgstr "О "
+msgstr "О нас"
 
 msgid "Access Right Management"
 msgstr "Управление правами доступа"
@@ -177,7 +177,7 @@ msgid "Act as a WINS server."
 msgstr "Выступать в качестве сервера WINS."
 
 msgid "Action"
-msgstr ""
+msgstr "Действие"
 
 msgid "Activate S.M.A.R.T. monitoring."
 msgstr "Активировать S.M.A.R.T. мониторинг."
@@ -274,7 +274,7 @@ msgid "All"
 msgstr "Все"
 
 msgid "Allow"
-msgstr "разрешить"
+msgstr "Разрешенные"
 
 msgid "Allow client access to accounts that have null passwords"
 msgstr "Разрешить клиенту доступ к аккаунтам, которые имеют нулевой пароль"
@@ -310,7 +310,7 @@ msgstr ""
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr ""
+msgstr "Электронное письмо с выводом команды (если было сделано), отправляют пользователю, который выполняет задание."
 
 msgid "An error has occured"
 msgstr "Произошла ошибка"
@@ -346,7 +346,7 @@ msgid "Archive"
 msgstr "Архив"
 
 msgid "Are clients required to use FTP over TLS when talking to this server?"
-msgstr ""
+msgstr "Требовать, чтобы клиентский FTP использовал TLS когда общается с этим сервером?"
 
 msgid "Argentina"
 msgstr "Аргентина"
@@ -391,16 +391,16 @@ msgid "Authentication passphrase"
 msgstr ""
 
 msgid "Authentication required"
-msgstr ""
+msgstr "Требуется аутентификация"
 
 msgid "Authentication type"
 msgstr "Тип аутентификации"
 
 msgid "Automatic Acoustic Management"
-msgstr ""
+msgstr "Автоматическое акустическое управление"
 
 msgid "Available"
-msgstr "Доступный"
+msgstr "Доступное"
 
 msgid "Azerbaijan"
 msgstr "Азербайджан"
@@ -482,7 +482,7 @@ msgid "British Virgin Islands"
 msgstr "Британские Виргинские острова"
 
 msgid "Browseable"
-msgstr "Просматриваться"
+msgstr "Просматривается"
 
 msgid "Brunei"
 msgstr "Бруней"
@@ -671,7 +671,7 @@ msgid "Croatia"
 msgstr "Хорватия"
 
 msgid "Cron Jobs"
-msgstr ""
+msgstr "Задания Cron"
 
 msgid "Cuba"
 msgstr "Куба"
@@ -735,7 +735,7 @@ msgid "Denmark"
 msgstr "Дания"
 
 msgid "Deny"
-msgstr "Отвергнуть"
+msgstr "Запрещенные"
 
 msgid "Deny logins which do not have a valid shell"
 msgstr "Отклонять входы в систему, у которых нет допустимой оболочки"
@@ -1062,7 +1062,7 @@ msgid "Event"
 msgstr "Событие"
 
 msgid "Every N day of month"
-msgstr "Каждый N день в месяце"
+msgstr "Каждый N день"
 
 msgid "Every N hour"
 msgstr "Каждый N час"
@@ -1165,10 +1165,10 @@ msgid "Flag"
 msgstr "Флаг"
 
 msgid "Force SSL/TLS"
-msgstr ""
+msgstr "Принудительно SSL/TLS"
 
 msgid "Force secure connection only."
-msgstr ""
+msgstr "Принудительно защищенное соединение"
 
 msgid "France"
 msgstr "Франция"
@@ -1243,7 +1243,7 @@ msgid "Grenada"
 msgstr "Гренада"
 
 msgid "Group"
-msgstr "Группа"
+msgstr "Группы"
 
 #, c-format
 msgid "Group '%s' does not exist"
@@ -1307,7 +1307,7 @@ msgid "Host"
 msgstr "Хост"
 
 msgid "Host access control"
-msgstr ""
+msgstr "Контроль доступа хостов"
 
 msgid "Hostname"
 msgstr "Имя хоста"
@@ -1323,6 +1323,9 @@ msgstr "Запрещенные хосты"
 
 msgid "Hour"
 msgstr "Час"
+
+msgid "Hungarian"
+msgstr ""
 
 msgid "Hungary"
 msgstr "Венгрия"
@@ -1346,7 +1349,7 @@ msgid "Idle"
 msgstr "Бездействие"
 
 msgid "If enabled then no password is required to connect to the share"
-msgstr ""
+msgstr "Если включен, то пароль не требуется для подключения к шаре"
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1377,7 +1380,7 @@ msgid ""
 "this option is useful in order to allow passive tranfers to work. You have "
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
-msgstr ""
+msgstr "Если узел действует как шлюз NAT или средство передачи порта для сервера, эта опция полезна, чтобы позволить пассивному tranfers работать. Должны использовать общедоступный адрес и открытые пассивные порты, используемые на брандмауэре."
 
 msgid "Import"
 msgstr "Импортировать"
@@ -1418,7 +1421,7 @@ msgid "Inherit permissions"
 msgstr "Наследование разрешений"
 
 msgid "Install"
-msgstr "Установка"
+msgstr "Установить"
 
 msgid "Install plugins ..."
 msgstr "Установка плагинов ..."
@@ -1430,7 +1433,7 @@ msgid "Installed"
 msgstr "установленный"
 
 msgid "Interfaces"
-msgstr "Интнрфейс"
+msgstr "Интерфейс"
 
 msgid "Invalid comment"
 msgstr "Недопустимый комментарий"
@@ -1568,10 +1571,10 @@ msgid "Lifetime"
 msgstr "Время работы"
 
 msgid "Linear"
-msgstr "Линейный"
+msgstr "Линейное"
 
 msgid "Link"
-msgstr "Ссылка"
+msgstr "Линк"
 
 msgid "List"
 msgstr "Список"
@@ -1589,7 +1592,7 @@ msgid "Local"
 msgstr "Локальный"
 
 msgid "Local master browser"
-msgstr "Локальный master browser"
+msgstr "Локальный главным браузером"
 
 msgid "Location"
 msgstr "Местоположение"
@@ -1656,7 +1659,7 @@ msgid "Malta"
 msgstr "Мальта"
 
 msgid "Manual"
-msgstr "Руководство"
+msgstr "Ручные установки"
 
 msgid "March"
 msgstr "Март"
@@ -1768,7 +1771,7 @@ msgid "Minute"
 msgstr "Минут"
 
 msgid "Mirror"
-msgstr "Зеркало"
+msgstr "Зеркалирование"
 
 msgid "Mode"
 msgstr "Режим"
@@ -1894,7 +1897,7 @@ msgid "No users defined"
 msgstr "Нет пользователей, определенных"
 
 msgid "None"
-msgstr "никто"
+msgstr "нигде"
 
 msgid "Norfolk Island"
 msgstr "Остров Норфолк"
@@ -1936,7 +1939,7 @@ msgid "Num"
 msgstr "Номер"
 
 msgid "Number of servers"
-msgstr "Количество серверов"
+msgstr "Чисто серверов"
 
 msgid "OK"
 msgstr "ОК"
@@ -2117,7 +2120,7 @@ msgid "Poland"
 msgstr "Польша"
 
 msgid "Polish"
-msgstr ""
+msgstr "Польский"
 
 msgid "Port"
 msgstr "Порт"
@@ -2184,7 +2187,7 @@ msgid "Privileges"
 msgstr "Привилегии"
 
 msgid "Processes"
-msgstr "Процесс"
+msgstr "Процессы"
 
 msgid "Processor"
 msgstr "Процессор"
@@ -2250,7 +2253,7 @@ msgid "Reboot"
 msgstr "Перезагрузка"
 
 msgid "Recipient"
-msgstr ""
+msgstr "Получатель"
 
 msgid "Recover"
 msgstr "Восстанавливать"
@@ -2323,10 +2326,10 @@ msgid "Retry timeout"
 msgstr ""
 
 msgid "Reunion"
-msgstr ""
+msgstr "Воссоединение"
 
 msgid "Reverse DNS lookup"
-msgstr ""
+msgstr "Обратный поиск DNS"
 
 msgid "Romania"
 msgstr "Румыния"
@@ -2461,7 +2464,7 @@ msgid "Select a protocol ..."
 msgstr "выбрать протокол ..."
 
 msgid "Select a shared folder ..."
-msgstr ""
+msgstr "Выберите совместно используемую папку..."
 
 msgid "Select a shell ..."
 msgstr "Выбрать оболочку ..."
@@ -2479,7 +2482,7 @@ msgid "Self-test logs"
 msgstr "Журналы самопроверки"
 
 msgid "Send command output via email"
-msgstr "Отправить вывода команды по электронной почте"
+msgstr "Отправить вывод команды по электронной почте"
 
 msgid "Send email"
 msgstr "Отправить email"
@@ -2520,11 +2523,14 @@ msgstr "Сервис отключен"
 msgid "Services"
 msgstr "Сервисы"
 
+msgid "Session expired"
+msgstr ""
+
 msgid "Session not authenticated"
 msgstr "Сессия не прошла проверку подлинности"
 
 msgid "Session timeout"
-msgstr "Время выхода из сессии"
+msgstr "Закончелось время, выход из сессии"
 
 msgid "Set browseable"
 msgstr "Установить просматриваемым"
@@ -2534,7 +2540,7 @@ msgstr "Установить только для чтения"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
-msgstr ""
+msgstr "Установите целевые полномочия, чтобы быть тем же самым как исходные полномочия "
 
 msgid "Set write only"
 msgstr "Установить только для записи"
@@ -2553,7 +2559,7 @@ msgid "Seychelles"
 msgstr "Сейшельские острова"
 
 msgid "Shared Folders"
-msgstr "Совместно используемые папки"
+msgstr "Расшаренные папки"
 
 msgid "Shared folder"
 msgstr "Совместно используемая папка"
@@ -2619,7 +2625,7 @@ msgid "Somalia"
 msgstr "Сомали"
 
 msgid "Source"
-msgstr "Исходник"
+msgstr "Исходный"
 
 msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
@@ -2652,13 +2658,13 @@ msgid "Spanish"
 msgstr "Испанский"
 
 msgid "Specifies how many server threads to create."
-msgstr ""
+msgstr "Определяет, сколько сервер распараллеливает, чтобы создать."
 
 msgid "Specifies one of the bonding policies."
 msgstr "Определяет одну из политик связывания."
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
-msgstr ""
+msgstr "Определяет контрольную частоту ссылки MII в миллисекундах."
 
 msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "
@@ -2698,13 +2704,13 @@ msgid "Specifies which slave is the primary device."
 msgstr "Определяет с  каким ведомым устройством будет работать основное устройство."
 
 msgid "Spindown time"
-msgstr ""
+msgstr "Время остановки шпинделя"
 
 msgid "Sri Lanka"
 msgstr "Шри Ланка"
 
 msgid "Standby"
-msgstr ""
+msgstr "Остановка шпинделя"
 
 msgid "Start"
 msgstr "Старт"
@@ -2731,7 +2737,7 @@ msgid "Store DOS attributes"
 msgstr "Хранить DOS атрибуты"
 
 msgid "Stripe"
-msgstr "Чередовать"
+msgstr "Чередование"
 
 msgid "Success"
 msgstr "Успех"
@@ -2746,7 +2752,7 @@ msgid "Support"
 msgstr "Поддержка"
 
 msgid "Suppress non-error messages"
-msgstr ""
+msgstr "Подавлять сообщения без ошибок"
 
 msgid "Suriname"
 msgstr ""
@@ -2779,7 +2785,7 @@ msgid "System Logs"
 msgstr "Системные журналы"
 
 msgid "System time"
-msgstr "истемное время"
+msgstr "Системное время"
 
 msgid "TCP forwarding"
 msgstr "Передача TCP"
@@ -2809,7 +2815,7 @@ msgid "Thailand"
 msgstr "Тайланд"
 
 msgid "The NT description field."
-msgstr ""
+msgstr "Поле описания NT."
 
 msgid "The RSA key length."
 msgstr "Длинна RSA ключа"
@@ -2843,7 +2849,7 @@ msgid "The group '%s' does not exist"
 msgstr "Группа '%s' не существует"
 
 msgid "The hostname is a label that identifies the system to the network."
-msgstr "Имя узла - метка, которая идентифицирует систему для сети."
+msgstr "Имя узла - идентификатор системы в сети."
 
 msgid "The location of the files to share."
 msgstr "Расположение файлов, для совместно использовать."
@@ -2851,16 +2857,16 @@ msgstr "Расположение файлов, для совместно исп�
 msgid ""
 "The location of the files to share. The share will be accessible at "
 "/export/<name>."
-msgstr ""
+msgstr "Расположение файлов, чтобы совместно использовать. Шара будет доступна в /export/<name>."
 
 msgid "The location of the user home directories."
 msgstr "Размещение домашних каталогов пользователей."
 
 msgid "The name of the share."
-msgstr ""
+msgstr "Имя шары."
 
 msgid "The number of days the certificate is valid for."
-msgstr ""
+msgstr "Число дней сертификат допустим для."
 
 msgid "The password contains invalid characters"
 msgstr "Пароль содержит недопустимые символы"
@@ -2871,11 +2877,16 @@ msgid ""
 msgstr "Пароль, который используется для доступа через Rsync демона. Заметим, что не используется для удаленной оболочки, такие как SSH."
 
 msgid ""
+"The path of the folder to share. The specified folder will be created if it "
+"does not already exist."
+msgstr ""
+
+msgid ""
 "The permissions on new files and directories are normally governed by create"
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
-msgstr ""
+msgstr "Разрешения на новые файлы и каталоги, как правило, регулируются созданием маски и маски каталогов, но этот параметр отменяет наследование разрешения. Это может быть особенно полезна в системах с большим количеством пользователей, чтобы на единую шару, чтобы гибко использовать для каждого пользователя."
 
 msgid "The session timeout time in minutes."
 msgstr "Время тайм-аута сеанса в минутах."
@@ -2923,7 +2934,7 @@ msgid ""
 msgstr "Приветственное сообщение, которое будет отображаться  пользователю, когда он войдет."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
-msgstr ""
+msgstr "Рабочая группа сервера в которой окажется при запросе клиентов."
 
 #, c-format
 msgid "There already exists a mount point for %s"
@@ -2932,7 +2943,7 @@ msgstr "Точка монтирования уже существует  для 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
-msgstr ""
+msgstr "Управляет, виден ли этот сетевой ресурс в списке доступных  в сетевых ресурсов и в списке просмотра."
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Это поле должно быть в формате hh:mm:ss"
@@ -3031,7 +3042,7 @@ msgstr ""
 msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
-msgstr ""
+msgstr "Эта опция определяет название группы, для передачи файлов к и от того модуля."
 
 msgid ""
 "This option specifies the maximum number of simultaneous connections. 0 "
@@ -3041,13 +3052,13 @@ msgstr "Эта опция определяет максимальное коли
 msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
-msgstr ""
+msgstr "Эта опция определяет имя пользователя, для передачи файлов к и от того модуля."
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr ""
+msgstr "Этот параметр может быть использован для того, чтобы списки ACL по умолчанию  существуют на родительские каталоги, они всегда выполнялись при создании нового файла или подкаталога в этом родительском каталоге."
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
@@ -3078,7 +3089,7 @@ msgid "Time server"
 msgstr "Сервер времени"
 
 msgid "Time servers"
-msgstr "Серверы времени"
+msgstr "Сервер времени"
 
 msgid "Time zone"
 msgstr "Часовой пояс"
@@ -3123,7 +3134,7 @@ msgid "Turkey"
 msgstr "Турция"
 
 msgid "Turkish"
-msgstr ""
+msgstr "Турецкий"
 
 msgid "Turkmenistan"
 msgstr "Туркменистан"
@@ -3135,7 +3146,7 @@ msgid "Tuvalu"
 msgstr "Тувалу"
 
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 msgid "U.S. Miscellaneous Pacific Islands"
 msgstr "США Разные островах Тихого океана"
@@ -3234,10 +3245,10 @@ msgid "Use NTP server"
 msgstr "Использование сервера NTP"
 
 msgid "Use SSL/TLS secure connection"
-msgstr "Используйте SSL/TLS безопасное соединение"
+msgstr "Использовать SSL/TLS для безопасного соединения"
 
 msgid "Use sendfile"
-msgstr ""
+msgstr "Использовать senfile"
 
 msgid "Use the following bandwidth restriction:"
 msgstr "Используйте следующее ограничение пропускной способности:"
@@ -3248,19 +3259,19 @@ msgstr "Используйте следующий диапазон порта:"
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked"
-msgstr ""
+msgstr "Использование более эффективного вызова системы SendFile  для файлов, которые исключительно oplocked"
 
 msgid "Use the specified WINS server."
 msgstr "Используйте указанный сервер WINS."
 
 msgid "Used"
-msgstr "Использованный"
+msgstr "Использованное"
 
 msgid "Used capacity"
-msgstr ""
+msgstr "Использованно емкости"
 
 msgid "User"
-msgstr "Пользователь"
+msgstr "Пользователи"
 
 #, c-format
 msgid "User '%s' already exist"
@@ -3367,10 +3378,10 @@ msgid "When failed"
 msgstr "Когда отказавший"
 
 msgid "Wipe"
-msgstr "Затерать"
+msgstr "Затереть"
 
 msgid "Wiping device ..."
-msgstr "Затерать устройство ..."
+msgstr "Затереть устройство ..."
 
 msgid "Workgroup"
 msgstr "Рабочая группа"

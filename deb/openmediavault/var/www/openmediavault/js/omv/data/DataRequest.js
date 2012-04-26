@@ -29,7 +29,7 @@ OMV.data.DataRequest = function() {
 OMV.data.DataRequest.prototype = {
 	init : function(url) {
 		this.url = url;
-		this.method = "post";
+		this.method = "POST";
 	},
 
 	request : function(service, method, params) {

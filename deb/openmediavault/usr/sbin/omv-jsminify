@@ -42,15 +42,22 @@ sub main {
 	}
 	# Use input file or stdin?
 	if ($infile) {
-		open INFILE, "<$infile" or die $!;
+		open INFILE, "<$infile" or die "Can't open '$infile': $!";
 	}
 	# Use output file or stdout?
 	if ($outfile) {
-		open OUTFILE, ">$outfile" or die $!;
+		open OUTFILE, ">$outfile" or die "Can't open '$outfile': $!";
 	}
 	# Minify javascript code.
 	minify(input => $infile ? *INFILE : *STDIN, outfile => $outfile ?
 	  *OUTFILE : *STDOUT);
+	# Close file handles.
+	if ($infile) {
+		close INFILE;
+	}
+	if ($outfile) {
+		close OUTFILE;
+	}
 	exit 0;
 }
 

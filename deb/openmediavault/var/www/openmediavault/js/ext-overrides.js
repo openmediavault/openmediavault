@@ -179,6 +179,14 @@ Ext.apply(Ext.form.VTypes, {
 // Ext.MessageBox
 ////////////////////////////////////////////////////////////////////////////////
 
+Ext.apply(Ext.LoadMask.prototype, {
+	msg: _("Loading ...")
+});
+
+////////////////////////////////////////////////////////////////////////////////
+// Ext.MessageBox
+////////////////////////////////////////////////////////////////////////////////
+
 Ext.apply(Ext.MessageBox, {
 	buttonText: {
 		ok: _("OK"),
@@ -349,7 +357,8 @@ Ext.sequence(Ext.form.TriggerField.prototype, "setReadOnly",
 
 // Restrict the selected value to one of the values in the list per default.
 Ext.apply(Ext.form.ComboBox.prototype, {
-	forceSelection: true
+	forceSelection: true,
+	loadingText: _("Loading ...")
 });
 
 // Sometimes the first load of a form loads a value into a ComboBox before

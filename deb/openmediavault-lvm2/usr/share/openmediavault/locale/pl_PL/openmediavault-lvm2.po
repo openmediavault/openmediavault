@@ -1,0 +1,135 @@
+# This file is part of OpenMediaVault.
+# 
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+# 
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# Translators:
+# Cyryl Sochacki <>, 2012.
+# Jacek Niedziółka <>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:06+0100\n"
+"PO-Revision-Date: 2012-04-23 08:55+0000\n"
+"Last-Translator: Jacek Niedziółka <>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.net/projects/p/openmediavault/language/pl_PL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr "Po rozszerzeniu logicznego woluminu możesz zmieniać zawarty system plików."
+
+msgid "Available"
+msgstr "Dostępność"
+
+msgid "Capacity"
+msgstr "Pojemność"
+
+msgid "Confirmation"
+msgstr "Potwierdzenie"
+
+msgid "Create logical volume"
+msgstr "Stwórz logiczny wolumin"
+
+msgid "Create physical volume"
+msgstr "Stwórz fizyczny wolumin"
+
+msgid "Create volume group"
+msgstr "Stwórz grupę woluminów"
+
+msgid "Description"
+msgstr "Opis"
+
+msgid "Device"
+msgstr "Urządzenie"
+
+msgid "Devices"
+msgstr "Urządzenia"
+
+msgid "Do you really want to create the logical volume?"
+msgstr "Czy na pewno chcesz utworzyć logiczny wolumin?"
+
+msgid "Do you really want to create the physical volume?"
+msgstr "Czy na pewno chcesz utworzyć fizyczny wolumin?"
+
+msgid "Do you really want to create the volume group?"
+msgstr "Czy na pewno chcesz utworzyć grupę woluminów?"
+
+msgid "Edit logical volume"
+msgstr "Edycja woluminu logicznego"
+
+msgid "Edit volume group"
+msgstr "Edycja grupy woluminów"
+
+msgid "Extend"
+msgstr "Rozszerz"
+
+msgid "Extend logical volume"
+msgstr "Rozszerz wolumin logiczny"
+
+msgid "Extend volume group"
+msgstr "Rozszerz grupę woluminów"
+
+msgid "Free"
+msgstr "Wolne"
+
+msgid "Logical Volume Management"
+msgstr "Zarządzanie logicznym woluminem"
+
+msgid "Logical volumes"
+msgstr "Logiczne woluminy"
+
+msgid "Name"
+msgstr "Nazwa"
+
+msgid "Physical volumes"
+msgstr "Fizyczne woluminy"
+
+msgid "Reduce"
+msgstr "Ogranicz"
+
+msgid "Reduce volume group"
+msgstr "Ogranicz grupę woluminów"
+
+msgid "Select a volume group ..."
+msgstr "Wybierz grupę woluminu..."
+
+msgid "Select an device ..."
+msgstr "Wybierz urządzenie..."
+
+msgid "Size"
+msgstr "Rozmiar"
+
+msgid "The maximum value for this field is {0}"
+msgstr "Maksymalna wartość tego pola to {0}"
+
+msgid "The minimum value for this field is {0}"
+msgstr "Minimalna wartość tego pola to {0}"
+
+msgid "Used"
+msgstr "Użyte"
+
+msgid "Volume group"
+msgstr "Grupa woluminu"
+
+msgid "Volume groups"
+msgstr "Grupy woluminu"
