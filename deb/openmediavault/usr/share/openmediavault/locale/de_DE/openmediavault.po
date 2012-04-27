@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-22 02:18+0200\n"
-"PO-Revision-Date: 2012-04-24 07:43+0000\n"
-"Last-Translator: warhog <warhog@gmx.de>\n"
+"POT-Creation-Date: 2012-04-26 23:21+0200\n"
+"PO-Revision-Date: 2012-04-27 14:56+0000\n"
+"Last-Translator: votdev <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -246,6 +246,9 @@ msgstr "Administrator: lesen/schreiben, Benutzer: nur lesen, Andere: kein Zugrif
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
 msgstr "Administrator: lesen/schreiben, Benutzer: nur lesen, Andere: nur lesen"
+
+msgid "Administrator: read/write, Users: read/write, Others: no access"
+msgstr "Administrator: lesen/schreiben, Benutzer: lesen/schreiben, Andere: kein Zugriff"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Administrator: lesen/schreiben, Benutzer: lesen/schreiben, Andere: nur lesen"
@@ -706,6 +709,9 @@ msgstr "DNS Server"
 msgid "Daemon"
 msgstr "Daemon"
 
+msgid "Danish"
+msgstr "Dänisch"
+
 msgid "Date"
 msgstr "Datum"
 
@@ -885,6 +891,9 @@ msgstr "Königin-Maud-Land"
 
 msgid "Dutch"
 msgstr "Niederländisch"
+
+msgid "Each line represents one group."
+msgstr "Jede Zeile repräsentiert eine Gruppe."
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
@@ -1229,6 +1238,9 @@ msgstr "Deutschland"
 msgid "Ghana"
 msgstr "Ghana"
 
+msgid "GiB"
+msgstr "GiB"
+
 msgid "Gibraltar"
 msgstr "Gibraltar"
 
@@ -1248,8 +1260,16 @@ msgid "Group"
 msgstr "Gruppe"
 
 #, c-format
+msgid "Group '%s' already exist"
+msgstr "Die Gruppe '%s' existiert bereits"
+
+#, c-format
 msgid "Group '%s' does not exist"
 msgstr "Die Gruppe '%s' existiert nicht"
+
+#, c-format
+msgid "Group ID '%d' already exist"
+msgstr "Die Gruppen-ID '%d' existiert bereits"
 
 msgid "Groups"
 msgstr "Gruppen"
@@ -1390,6 +1410,9 @@ msgstr "Importieren"
 msgid "Import SSL certificate"
 msgstr "SSL-Zertifikat importieren"
 
+msgid "Import groups"
+msgstr "Gruppen importieren"
+
 msgid "Import users"
 msgstr "Benutzer importieren"
 
@@ -1459,9 +1482,6 @@ msgstr "Ungültige Zeile: %s"
 msgid "Invalid name"
 msgstr "Name ungültig"
 
-msgid "Invalid share name"
-msgstr "Name der Freigabe ungültig"
-
 msgid "Invalid user name"
 msgstr "Benutzername ungültig"
 
@@ -1521,6 +1541,9 @@ msgstr "Kernel"
 
 msgid "Key size"
 msgstr "Schlüssellänge"
+
+msgid "KiB"
+msgstr "KiB"
 
 msgid "Kiribati"
 msgstr "Kiribati"
@@ -1753,6 +1776,9 @@ msgstr "France métropolitaine"
 
 msgid "Mexico"
 msgstr "Mexiko"
+
+msgid "MiB"
+msgstr "MiB"
 
 msgid "Micronesia"
 msgstr "Mikronesien"
@@ -2069,40 +2095,43 @@ msgstr "Pitcairninseln"
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Bitte das <a href='http://linux.die.net/man/5/exports' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
+msgstr "Bitte die <a href='http://linux.die.net/man/5/exports' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
 
 msgid ""
 "Please check the <a href='http://www.openbsd.org/cgi-"
 "bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
 " more details."
-msgstr "Bitte das <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
+msgstr "Bitte die <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Bitte das <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>Hilfeseiten</a> für weiter Details lesen."
+msgstr "Bitte die <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>Hilfeseiten</a> für weiter Details lesen."
 
 msgid ""
 "Please check the <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Bitte das <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
+msgstr "Bitte die <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Bitte das <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
+msgstr "Bitte die <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Bitte das <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
+msgstr "Bitte die <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
 
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Bitte das <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
+msgstr "Bitte die <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
+
+msgid "Please first select a volume."
+msgstr "Bitte wählen Sie zuerst ein Volume."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2449,6 +2478,9 @@ msgstr "Wähle ein Land ..."
 
 msgid "Select a device ..."
 msgstr "Wählen Sie ein Laufwerk aus ..."
+
+msgid "Select a directory"
+msgstr "Wählen Sie ein Verzeichnis"
 
 msgid "Select a filesystem ..."
 msgstr "Wähle ein Dateisystem ..."
@@ -3080,6 +3112,9 @@ msgstr "Diese Option erzeugt einen Papierkorb für die Freigabe."
 
 msgid "Thursday"
 msgstr "Donnerstag"
+
+msgid "TiB"
+msgstr "TiB"
 
 msgid "Time"
 msgstr "Zeit"
