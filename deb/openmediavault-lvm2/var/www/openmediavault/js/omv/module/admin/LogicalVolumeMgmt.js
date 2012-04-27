@@ -1070,7 +1070,16 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 				name: "unit",
 				width: 60,
 				mode: "local",
-				store: [ "MiB", "GiB", "TiB" ],
+				store: new Ext.data.SimpleStore({
+					fields: [ "value","text" ],
+					data: [
+						[ "MiB",_("MiB") ],
+						[ "GiB",_("GiB") ],
+						[ "TiB",_("TiB") ]
+					]
+				}),
+				displayField: "text",
+				valueField: "value",
 				allowBlank: false,
 				triggerAction: "all",
 				editable: false,
@@ -1263,7 +1272,16 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 				name: "unit",
 				width: 60,
 				mode: "local",
-				store: [ "MiB", "GiB", "TiB" ],
+				store: new Ext.data.SimpleStore({
+					fields: [ "value","text" ],
+					data: [
+						[ "MiB",_("MiB") ],
+						[ "GiB",_("GiB") ],
+						[ "TiB",_("TiB") ]
+					]
+				}),
+				displayField: "text",
+				valueField: "value",
 				allowBlank: false,
 				triggerAction: "all",
 				editable: false,
