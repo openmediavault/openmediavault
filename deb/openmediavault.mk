@@ -19,9 +19,12 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-OMV_PACKAGE := $(shell pwd |sed 's|.*/||')
+OMV_PACKAGE := $(shell pwd | sed 's|.*/||')
 OMV_POT_DIR := $(CURDIR)/usr/share/openmediavault/locale
 OMV_POT_FILE := $(OMV_PACKAGE).pot
+
+omv_pull_po:
+	tx --root="$(CURDIR)/../" pull --all
 
 omv_build_pot:
 	dh_testdir

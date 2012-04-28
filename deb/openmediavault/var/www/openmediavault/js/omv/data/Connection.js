@@ -40,7 +40,7 @@ OMV.data.Connection.prototype = {
 	},
 
 	/**
-	 * Sends an request to a remote server.
+	 * Sends a request to a remote server.
 	 * @param callback The function to be called upon receipt of the HTTP
 	 * response.
 	 * @param scope The scope in which to execute the callback.

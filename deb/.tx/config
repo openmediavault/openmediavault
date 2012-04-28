@@ -1,0 +1,34 @@
+[main]
+host = https://www.transifex.net
+lang_map = de: de_DE, it: it_IT, ru: ru_RU, uk: uk_UK, da: da_DA
+type = PO
+
+[openmediavault.openmediavault]
+file_filter = usr/share/openmediavault/locale/<lang>/openmediavault-transmissionbt.po
+source_file = usr/share/openmediavault/locale/openmediavault-transmissionbt.pot
+source_lang = en
+
+[openmediavault.openmediavault-forkeddaapd]
+file_filter = usr/share/openmediavault/locale/<lang>/openmediavault-forkeddaapd.po
+source_file = usr/share/openmediavault/locale/openmediavault-forkeddaapd.pot
+source_lang = en
+
+[openmediavault.openmediavault-iscsitarget]
+file_filter = usr/share/openmediavault/locale/<lang>/openmediavault-iscsitarget.po
+source_file = usr/share/openmediavault/locale/openmediavault-iscsitarget.pot
+source_lang = en
+
+[openmediavault.openmediavault-lvm2]
+file_filter = usr/share/openmediavault/locale/<lang>/openmediavault-lvm2.po
+source_file = usr/share/openmediavault/locale/openmediavault-lvm2.pot
+source_lang = en
+
+[openmediavault.openmediavault-netatalk]
+file_filter = usr/share/openmediavault/locale/<lang>/openmediavault-netatalk.po
+source_file = usr/share/openmediavault/locale/openmediavault-netatalk.pot
+source_lang = en
+
+[openmediavault.openmediavault-nut]
+file_filter = usr/share/openmediavault/locale/<lang>/openmediavault-nut.po
+source_file = usr/share/openmediavault/locale/openmediavault-nut.pot
+source_lang = en

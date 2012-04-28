@@ -19,39 +19,58 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-try {
-	function exception_error_handler($errno, $errstr, $errfile, $errline) {
-		switch ($errno) {
-		case E_STRICT:
-			break;
-		default:
-			throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
-			break;
+require_once("openmediavault/functions.inc");
+
+if (array_keys_exists(array("service", "method"), $_POST)) {
+	try {
+		function exception_error_handler($errno, $errstr, $errfile,
+		  $errline) {
+			switch ($errno) {
+			case E_STRICT:
+				break;
+			default:
+				throw new ErrorException($errstr, 0, $errno, $errfile,
+				  $errline);
+				break;
+			}
 		}
+		set_error_handler("exception_error_handler");
+
+		require_once("openmediavault/config.inc"); // Must be included here
+		require_once("openmediavault/session.inc");
+		require_once("openmediavault/rpc.inc");
+		require_once("openmediavault/module.inc");
+
+		$session = &OMVSession::getInstance();
+		$session->start();
+
+		if ($session->isAuthenticated()) {
+			$session->validate();
+			// Do not update last access time
+			//$session->updateLastAccess();
+		} else {
+			throw new OMVException(OMVErrorMsg::E_SESSION_NOT_AUTHENTICATED);
+		}
+
+		$server = new OMVDownloadRpcServer();
+		$server->handle();
+	} catch(Exception $e) {
+		header("Content-Type: text/html");
+		printf("Error #".$e->getCode().":<br/>%s", str_replace("\n", "<br/>",
+		  $e->__toString()));
 	}
-	set_error_handler("exception_error_handler");
-
-	require_once("openmediavault/config.inc"); // Must be included here
-	require_once("openmediavault/session.inc");
-	require_once("openmediavault/rpc.inc");
-	require_once("openmediavault/module.inc");
-
-	$session = &OMVSession::getInstance();
-	$session->start();
-
-	if ($session->isAuthenticated()) {
-		$session->validate();
-		// Do not update last access time
-		//$session->updateLastAccess();
-	} else {
-		throw new OMVException(OMVErrorMsg::E_SESSION_NOT_AUTHENTICATED);
-	}
-
-	$server = new OMVDownloadRpcServer();
-	$server->handle();
-} catch(Exception $e) {
-	header("Content-Type: text/html");
-	printf("Error #".$e->getCode().":<br/>%s", str_replace("\n", "<br/>",
-	  $e->__toString()));
+} else {
+	// Return the HTML code of the form containing the fields required
+	// to process the download request.
+	print <<<EOF
+<html>
+	<head></head>
+	<form method="post">
+		<input type="hidden" name="service" value=""/>
+		<input type="hidden" name="method" value=""/>
+		<input type="hidden" name="params" value=""/>
+	</form>
+</html>
+EOF;
 }
 ?>

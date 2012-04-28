@@ -27,40 +27,37 @@ Ext.ns("OMV.data");
 OMV.data.DataRequest = function() {
 };
 OMV.data.DataRequest.prototype = {
+	/**
+	 * Initialize the hidden IFrame used to handle download
+	 * requests.
+	 * @param url The URL of the download script.
+	 */
 	init : function(url) {
-		this.url = url;
-		this.method = "POST";
+		this.iframe = Ext.getBody().createChild({
+			tag: "iframe",
+			src: url
+		});
+		this.iframe.setStyle("visibility", "hidden");
+		this.iframe.setStyle("display", "none");
 	},
 
+	/**
+	 * Sends a download request to a remote server.
+	 * @param service The name/class of the service to be executed.
+	 * @param method The method name to be executed.
+	 * @param params The parameters of the method to be executed as object.
+	 * @return None
+	 */
 	request : function(service, method, params) {
-		var body = Ext.getBody();
-		var form = body.createChild({
-			tag: "form",
-			cls: "x-hidden",
-			action: this.url,
-			method: this.method
-		});
-		form.createChild({
-			tag: "input",
-			name: "service",
-			value: service
-		});
-		form.createChild({
-			tag: "input",
-			name: "method",
-			value: method
-		});
+		var form = this.iframe.dom.contentDocument.forms[0];
+		form.service.setAttribute("value", service);
+		form.method.setAttribute("value", method);
 		// Additional parameters must be encoded as string because they are
 		// submitted as POST parameters. They will be decoded by the RPC
 		// implementation automatically.
-		form.createChild({
-			tag: "input",
-			name: "params",
-			value: Ext.util.JSON.encode(params).htmlspecialchars()
-		});
-		form.dom.submit();
+		form.params.setAttribute("value", Ext.util.JSON.encode(params).
+		  htmlspecialchars());
+		// Submit form to send download request.
+		form.submit();
 	}
 }
-
-OMV.Download = new OMV.data.DataRequest();
-OMV.Download.init("download.php");

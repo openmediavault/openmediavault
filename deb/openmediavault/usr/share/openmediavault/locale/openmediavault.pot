@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-23 21:00+0200\n"
+"POT-Creation-Date: 2012-04-26 23:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -238,6 +238,9 @@ msgid "Administrator: read/write, Users: read-only, Others: no access"
 msgstr ""
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
+msgstr ""
+
+msgid "Administrator: read/write, Users: read/write, Others: no access"
 msgstr ""
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
@@ -686,6 +689,9 @@ msgstr ""
 msgid "Daemon"
 msgstr ""
 
+msgid "Danish"
+msgstr ""
+
 msgid "Date"
 msgstr ""
 
@@ -853,6 +859,9 @@ msgid "Dronning Maud Land"
 msgstr ""
 
 msgid "Dutch"
+msgstr ""
+
+msgid "Each line represents one group."
 msgstr ""
 
 msgid "Each line represents one user. Note, the password must be entered in plain text."
@@ -1189,6 +1198,9 @@ msgstr ""
 msgid "Ghana"
 msgstr ""
 
+msgid "GiB"
+msgstr ""
+
 msgid "Gibraltar"
 msgstr ""
 
@@ -1208,7 +1220,15 @@ msgid "Group"
 msgstr ""
 
 #, c-format
+msgid "Group '%s' already exist"
+msgstr ""
+
+#, c-format
 msgid "Group '%s' does not exist"
+msgstr ""
+
+#, c-format
+msgid "Group ID '%d' already exist"
 msgstr ""
 
 msgid "Groups"
@@ -1337,6 +1357,9 @@ msgstr ""
 msgid "Import SSL certificate"
 msgstr ""
 
+msgid "Import groups"
+msgstr ""
+
 msgid "Import users"
 msgstr ""
 
@@ -1456,6 +1479,9 @@ msgid "Kernel"
 msgstr ""
 
 msgid "Key size"
+msgstr ""
+
+msgid "KiB"
 msgstr ""
 
 msgid "Kiribati"
@@ -1679,6 +1705,9 @@ msgid "Metropolitan France"
 msgstr ""
 
 msgid "Mexico"
+msgstr ""
+
+msgid "MiB"
 msgstr ""
 
 msgid "Micronesia"
@@ -2903,6 +2932,9 @@ msgid "This will create a recycle bin on the share."
 msgstr ""
 
 msgid "Thursday"
+msgstr ""
+
+msgid "TiB"
 msgstr ""
 
 msgid "Time"

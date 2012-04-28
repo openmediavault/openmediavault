@@ -17,13 +17,14 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
+#   <warhog@gmx.de>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-15 20:06+0100\n"
-"PO-Revision-Date: 2012-03-17 01:49+0000\n"
-"Last-Translator: votdev <votdev@gmx.de>\n"
+"PO-Revision-Date: 2012-04-20 08:57+0000\n"
+"Last-Translator: warhog <warhog@gmx.de>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,100 +35,100 @@ msgstr ""
 msgid ""
 "After the logical volume has been extended you can resize the containing "
 "filesystem."
-msgstr ""
+msgstr "Nachdem das logical Volume erweitert wurde können Sie die Größe des darin enthaltenen Dateisystems ändern."
 
 msgid "Available"
-msgstr ""
+msgstr "Verfügbar"
 
 msgid "Capacity"
-msgstr ""
+msgstr "Kapazität"
 
 msgid "Confirmation"
-msgstr ""
+msgstr "Bestätigung"
 
 msgid "Create logical volume"
-msgstr ""
+msgstr "Logical Volume erstellen"
 
 msgid "Create physical volume"
-msgstr ""
+msgstr "Physical Volume erstellen"
 
 msgid "Create volume group"
-msgstr ""
+msgstr "Volumegruppe erstellen"
 
 msgid "Description"
-msgstr ""
+msgstr "Beschreibung"
 
 msgid "Device"
-msgstr ""
+msgstr "Laufwerk"
 
 msgid "Devices"
-msgstr ""
+msgstr "Laufwerke"
 
 msgid "Do you really want to create the logical volume?"
-msgstr ""
+msgstr "Wollen Sie das logical Volume wirklich erzeugen?"
 
 msgid "Do you really want to create the physical volume?"
-msgstr ""
+msgstr "Wollen Sie das physical Volume wirklich erzeugen?"
 
 msgid "Do you really want to create the volume group?"
-msgstr ""
+msgstr "Wollen Sie die Volumegruppe wirklich erzeugen?"
 
 msgid "Edit logical volume"
-msgstr ""
+msgstr "Logical Volume ändern"
 
 msgid "Edit volume group"
-msgstr ""
+msgstr "Volumegruppe ändern"
 
 msgid "Extend"
-msgstr ""
+msgstr "Erweitern"
 
 msgid "Extend logical volume"
-msgstr ""
+msgstr "Logical Volume erweitern"
 
 msgid "Extend volume group"
-msgstr ""
+msgstr "Volumegruppe erweitern"
 
 msgid "Free"
-msgstr ""
+msgstr "Frei"
 
 msgid "Logical Volume Management"
-msgstr ""
+msgstr "Logical Volume Management"
 
 msgid "Logical volumes"
-msgstr ""
+msgstr "Logical Volumes"
 
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 msgid "Physical volumes"
-msgstr ""
+msgstr "Physical Volumes"
 
 msgid "Reduce"
-msgstr ""
+msgstr "Reduzieren"
 
 msgid "Reduce volume group"
-msgstr ""
+msgstr "Volumegruppe reduzieren"
 
 msgid "Select a volume group ..."
-msgstr ""
+msgstr "Volumegruppe auswählen ..."
 
 msgid "Select an device ..."
-msgstr ""
+msgstr "Laufwerk auswählen ..."
 
 msgid "Size"
-msgstr ""
+msgstr "Größe"
 
 msgid "The maximum value for this field is {0}"
-msgstr ""
+msgstr "Der Maximalwert dieses Feldes ist {0}"
 
 msgid "The minimum value for this field is {0}"
-msgstr ""
+msgstr "Der Minimalwert dieses Feldes ist {0}"
 
 msgid "Used"
-msgstr ""
+msgstr "Benutzt"
 
 msgid "Volume group"
-msgstr ""
+msgstr "Volumegruppe"
 
 msgid "Volume groups"
-msgstr ""
+msgstr "Volumegruppen"

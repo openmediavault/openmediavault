@@ -115,7 +115,7 @@ Ext.extend(OMV.Module.Storage.LVM.PhysicalVolumeGridPanel,
 		  initToolbar.apply(this);
 		// Override 'Add' button in top toolbar
 		var item = tbar.get(0);
-		item.setText("Create");
+		item.setText(_("Create"));
 		item.setIcon("images/lvm-create.png");
 		return tbar;
 	},
@@ -305,7 +305,7 @@ Ext.extend(OMV.Module.Storage.LVM.VolumeGroupGridPanel,
 		  initToolbar.apply(this);
 		// Override 'Add' button in top toolbar
 		var item = tbar.get(0);
-		item.setText("Create");
+		item.setText(_("Create"));
 		item.setIcon("images/lvm-create.png");
 		// Override 'Edit' button in top toolbar
 		item = tbar.get(1);
@@ -821,7 +821,7 @@ Ext.extend(OMV.Module.Storage.LVM.LogicalVolumeGridPanel,
 		  initToolbar.apply(this);
 		// Override 'Add' button in top toolbar
 		var item = tbar.get(0);
-		item.setText("Create");
+		item.setText(_("Create"));
 		item.setIcon("images/lvm-create.png");
 		// Override 'Edit' button in top toolbar
 		item = tbar.get(1);
