@@ -24,6 +24,7 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
+require_once("openmediavault/log.inc");
 
 class RsyncdModule extends OMVModuleAbstract implements OMVINotifyListener,
   OMVIModuleStatus {
@@ -109,4 +110,18 @@ class RsyncdModule extends OMVModuleAbstract implements OMVINotifyListener,
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new RsyncdModule());
+
+// Register new logfile type
+OMVLogFile::registerType("rsyncd", array(
+  "filename" => "rsyncd",
+  "filepath" => "/var/log/rsyncd.log",
+  "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+rsyncd\[\d+\]:\s+(.*)$/",
+  "columns" => array(
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+	  ),
+	  "user" => 2,
+	  "event" => 3
+  )));
 ?>

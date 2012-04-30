@@ -1218,7 +1218,7 @@ Ext.ns("OMV.Module.Diagnostics.LogPlugin");
  */
 OMV.Module.Diagnostics.LogPlugin.Rsync = function(config) {
 	var initialConfig = {
-		title: _("Rsync"),
+		title: _("Rsync - Jobs"),
 		stateId: "835f3a32-bc7d-4102-b1cb-a598a0ae14ad",
 		columns: [{
 			header: _("Date & Time"),
@@ -1250,3 +1250,44 @@ Ext.extend(OMV.Module.Diagnostics.LogPlugin.Rsync,
   OMV.Module.Diagnostics.LogPlugin, {
 });
 OMV.preg("log", "rsync", OMV.Module.Diagnostics.LogPlugin.Rsync);
+
+/**
+ * @class OMV.Module.Diagnostics.LogPlugin.Rsyncd
+ * @derived OMV.Module.Diagnostics.LogPlugin
+ * Class that implements the 'Rsyncd' logfile diagnostics plugin
+ */
+OMV.Module.Diagnostics.LogPlugin.Rsyncd = function(config) {
+	var initialConfig = {
+		title: _("Rsync - Server"),
+		stateId: "f209a2a4-930a-11e1-9ff3-00221568ca88",
+		columns: [{
+			header: _("Date & Time"),
+			sortable: true,
+			dataIndex: "rownum",
+			id: "date",
+			width: 35,
+			renderer: function(val, cell, record, row, col, store) {
+				return OMV.util.Format.localeTime(record.get("date"));
+			}
+		},{
+			header: _("Event"),
+			sortable: true,
+			dataIndex: "event",
+			id: "event",
+			renderer: OMV.util.Format.whitespaceRenderer()
+		}],
+		rpcArgs: { "id": "rsyncd" },
+		rpcFields: [
+			{ name: "rownum" },
+			{ name: "date" },
+			{ name: "event" }
+		]
+	};
+	Ext.apply(initialConfig, config);
+	OMV.Module.Diagnostics.LogPlugin.Rsyncd.superclass.constructor.call(
+	  this, initialConfig);
+};
+Ext.extend(OMV.Module.Diagnostics.LogPlugin.Rsyncd,
+  OMV.Module.Diagnostics.LogPlugin, {
+});
+OMV.preg("log", "rsyncd", OMV.Module.Diagnostics.LogPlugin.Rsyncd);

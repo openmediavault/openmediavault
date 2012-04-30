@@ -77,9 +77,8 @@ class ConfigRpc extends OMVRpc {
 		// Execute init script after system reboot. It will execute
 		// configuration import scripts which require various prerequisites,
 		// e.g. mounted filesystems to access the shared folders.
-		$initd = new OMVSysVInitScript("openmediavault-configimport", TRUE,
-		  TRUE, "start 99 2 3 4 5 .");
-		$initd->exec();
+		$initd = new OMVSysVInitScript("openmediavault-configimport");
+		$initd->enable();
 		// Remember pid and content filename in session
 		$pid = intval($output[0]);
 		$_SESSION['execjob'][$pid] = array(

@@ -89,8 +89,8 @@ case "$1" in
 			invoke-rc.d --force postfix stop
 			update-rc.d postfix disable &>/dev/null
 
-			update-rc.d openmediavault start 15 S . &>/dev/null
-			update-rc.d openmediavault-beep defaults 99 1 &>/dev/null
+			update-rc.d openmediavault defaults &>/dev/null
+			update-rc.d openmediavault-beep defaults &>/dev/null
 
 			####################################################################
 			# Setup apache configuration

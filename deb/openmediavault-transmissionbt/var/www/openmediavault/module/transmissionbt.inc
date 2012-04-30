@@ -74,7 +74,8 @@ class TransmissionBTModule extends OMVModuleAbstract implements
 		// Currently transmission overwrites the settings.json configuration
 		// file on exit. This means transmission must be terminated before
 		// writing the new settings.json file.
-		$initd = new OMVSysVInitScript("transmission-daemon", boolval($object['enable']));
+		$initd = new OMVSysVInitScript("transmission-daemon", boolval(
+		  $object['enable']));
 		if (boolval($object['enable']) === false) {
 			$initd->stop();
 		}

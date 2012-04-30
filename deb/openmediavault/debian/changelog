@@ -1,3 +1,13 @@
+openmediavault (0.3.0.5) stable; urgency=low
+
+  * Redirect rsyncd syslog messages to rsyncd.log.
+  * Add ability to view rsyncd logs via WebGUI.
+  * Add missing logrotate configurations for various services.
+  * Do not display a request dialog when downloading files via WebGUI
+    (e.g. syslog files).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Apr 2012 23:34:20 +0200
+
 openmediavault (0.3.0.4) stable; urgency=low
 
   * Add ability to import groups via CSV.

@@ -667,6 +667,10 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 						{ name: "perms" }
 					]
 				}),
+				sortInfo: {
+					field: "name",
+					direction: "ASC"
+				},
 				listeners: {
 					"load": function(store, records, options) {
 						records.each(function(record) {

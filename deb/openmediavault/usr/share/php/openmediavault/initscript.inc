@@ -25,7 +25,6 @@ require_once("openmediavault/object.inc");
 class OMVSysVInitScript extends OMVObject {
 	private $name = "";
 	private $enable = FALSE;
-	private $cmdargs = "";
 	private $update = TRUE;
 	private $delay = 1000000; // 1 second
 
@@ -34,13 +33,10 @@ class OMVSysVInitScript extends OMVObject {
 	 * @param name The name of the init script.
 	 * @param enable TRUE to start the process. Defaults to FALSE.
 	 * @param update TRUE to call the update-rc.d script. Defaults to TRUE.
-	 * @param cmdargs Additional command arguments. Defaults to "".
 	 */
-	public function __construct($name, $enable = FALSE, $update = TRUE,
-	  $cmdargs = "") {
+	public function __construct($name, $enable = FALSE, $update = TRUE) {
 		$this->name = $name;
 		$this->enable = $enable;
-		$this->cmdargs = $cmdargs;
 		$this->update = $update;
 	}
 
@@ -65,23 +61,53 @@ class OMVSysVInitScript extends OMVObject {
 	}
 
 	/**
-	 * @private
-	 * Call the 'update-rc.d' to install and disable System-V style init
-	 * script links.
+	 * Enable or remove a system init script.
+	 * @param disable Set TRUE to remove the system init script.
+	 * @return None
 	 */
 	private function update($disable) {
 		if (!$this->update)
 			return;
+		$cmdargs = array();
 		switch ($disable) {
 		case FALSE:
-			$cmdparam = sprintf("%s %s", $this->name,
-			  !empty($this->cmdargs) ? $this->cmdargs : "enable");
+			$cmdargs[] = escapeshellarg($this->name);
+			$cmdargs[] = "enable";
 			break;
 		case TRUE:
-			$cmdparam = sprintf("%s disable", $this->name);
+			$cmdargs[] = escapeshellarg($this->name);
+			$cmdargs[] = "disable";
 			break;
 		}
-		$cmd = sprintf("sudo update-rc.d %s 2>&1", $cmdparam);
+		$cmd = sprintf("export LANG=C; sudo update-rc.d %s 2>&1", implode(
+		  " ", $cmdargs));
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+	}
+
+	/**
+	 * Enable the system init script.
+	 */
+	public function enable() {
+		$this->update(FALSE);
+	}
+
+	/**
+	 * Disable the system init script.
+	 */
+	public function disable() {
+		$this->update(TRUE);
+	}
+
+	/**
+	 * Remove the system init script from all runlevels.
+	 */
+	public function remove() {
+		$cmd = sprintf("export LANG=C; sudo update-rc.d --force %s ".
+		  "remove 2>&1", escapeshellarg($this->name));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -115,7 +141,8 @@ class OMVSysVInitScript extends OMVObject {
 	 * of an error.
 	 */
 	public function invoke($action) {
-		$cmd = sprintf("sudo invoke-rc.d %s %s 2>&1", $this->name, $action);
+		$cmd = sprintf("export LANG=C; sudo invoke-rc.d %s %s 2>&1",
+		  escapeshellarg($this->name), $action);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -138,7 +165,8 @@ class OMVSysVInitScript extends OMVObject {
 	 * See http://refspecs.freestandards.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/iniscrptact.html
 	 */
 	public function status() {
-		$cmd = sprintf("sudo invoke-rc.d %s status 2>&1", $this->name);
+		$cmd = sprintf("export LANG=C; sudo invoke-rc.d %s status 2>&1",
+		  escapeshellarg($this->name));
 		OMVUtil::exec($cmd, $output, $result);
 		return $result;
 	}

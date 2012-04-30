@@ -60,7 +60,7 @@ class EmailModule extends OMVModuleAbstract implements OMVINotifyListener {
         $this->mkConf();
 		// Update service
 		$initd = new OMVSysVInitScript("postfix", boolval(
-          $object['enable']));
+		  $object['enable']));
 		$initd->exec();
 	}
 
