@@ -78,7 +78,7 @@ class ConfigRpc extends OMVRpc {
 		// configuration import scripts which require various prerequisites,
 		// e.g. mounted filesystems to access the shared folders.
 		$initd = new OMVSysVInitScript("openmediavault-configimport");
-		$initd->enable();
+		$initd->defaults();
 		// Remember pid and content filename in session
 		$pid = intval($output[0]);
 		$_SESSION['execjob'][$pid] = array(

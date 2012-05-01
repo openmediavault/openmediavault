@@ -43,8 +43,8 @@ class OMVSysVInitScript extends OMVObject {
 	/**
 	 * Depending on the given constriuctor parameter do the following:
 	 * 1. Stop the init script
-	 * 2. If service is enabled, then install and start init script, otherwise
-	 *    remove init script.
+	 * 2. If service is enabled, then install and start init script,
+	 *    otherwise remove init script.
 	 */
 	public function exec() {
 		$this->stop();
@@ -100,6 +100,19 @@ class OMVSysVInitScript extends OMVObject {
 	 */
 	public function disable() {
 		$this->update(TRUE);
+	}
+
+	/**
+	 * Make links to start and stop the service in the defined runlevels.
+	 */
+	public function defaults() {
+		$cmd = sprintf("export LANG=C; sudo update-rc.d %s defaults 2>&1",
+		  escapeshellarg($this->name));
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
 	}
 
 	/**

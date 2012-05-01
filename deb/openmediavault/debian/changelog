@@ -5,6 +5,7 @@ openmediavault (0.3.0.5) stable; urgency=low
   * Add missing logrotate configurations for various services.
   * Do not display a request dialog when downloading files via WebGUI
     (e.g. syslog files).
+  * Mantis 0000438: [Network/interfaces] Method data is missing.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Apr 2012 23:34:20 +0200
 

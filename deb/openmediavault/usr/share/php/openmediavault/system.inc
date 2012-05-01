@@ -34,7 +34,7 @@ class OMVSystem {
 	 * or FALSE on failure.
 	 */
 	public static function getRootPartition() {
-		$cmd = "export LANG=C; mount | grep -e 'on / '";
+		$cmd = "export LANG=C; mount | grep -i 'on / '";
 		$data = @OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			return FALSE;
@@ -52,7 +52,7 @@ class OMVSystem {
 		// Extract the lines that are not commented out. Use 'awk' to convert
 		// them to 'xxx=yyy' to use explode to extract the key/value pairs
 		// instead of another regex.
-		$cmd = 'cat /etc/login.defs | grep -e \'^[^#].\{1,\}$\' | '.
+		$cmd = 'grep \'^[^#].\{1,\}$\' /etc/login.defs | '.
 		  'awk \'{printf("%s=%s\n",$1,$2)}\'';
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
@@ -79,7 +79,7 @@ class OMVSystem {
 			"disk" => "cat /proc/partitions | awk '{print $4}'",
 			"iface" => "netstat -i"
 		);
-		$cmd = sprintf("sudo %s | grep -e '^%s[0-9]\{1,\}$' | sort -r | " .
+		$cmd = sprintf("sudo %s | grep '^%s[0-9]\{1,\}$' | sort -r | " .
 		  "head -n 1", $cmdList[$type], $name);
 		$deviceName = @OMVUtil::exec($cmd, $output);
 		$deviceName = strrev($deviceName);
@@ -824,7 +824,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			// Sort in reverse order, thus SCSI/SATA entries are listed
 			// on top.
 			$cmd = sprintf("export LANG=C; test -d '/dev/disk/by-id' && ".
-			  "ls -ogr '/dev/disk/by-id/' | grep -e '/%s$' | ".
+			  "ls -ogr '/dev/disk/by-id/' | grep '/%s$' | ".
 			  "awk '{print $7}'", $this->getDeviceName());
 			@OMVUtil::exec($cmd, $output, $result);
 			if($result !== 0)
@@ -850,7 +850,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	public function getSize() {
 		if ($this->size === FALSE) {
 			$cmd = sprintf("sudo blockdev --getsize64 %s",
-			  $this->getDeviceFile());
+			  escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0)
 				return FALSE;
@@ -923,7 +923,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	public function isUsb() {
 		$cmd = sprintf("export LANG=C; sudo udevadm info --name=%s " .
 		  "--attribute-walk | grep 'SUBSYSTEMS==\"usb\"'",
-		  $this->getDeviceFile());
+		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			return FALSE;
@@ -1148,7 +1148,7 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 		// S.M.A.R.T. informations already cached?
 		if (is_null($this->smartInfo)) {
 			$cmd = sprintf("export LANG=C; sudo smartctl -a %s",
-			  $this->getDeviceFile());
+			  escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
 			// Bit 0: Command line did not parse
 			// Bit 1: Device open failed, or device did not return an
@@ -1248,7 +1248,7 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 			return FALSE;
 		if ($this->identityInfo === FALSE) {
 			$cmd = sprintf("export LANG=C; sudo smartctl -i %s",
-			  $this->getDeviceFile());
+			  escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0)
 				return FALSE;
@@ -1319,7 +1319,7 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 		// ARRAY /dev/md0 level=raid5 num-devices=3 metadata=1.2 name=xxxx:0 UUID=a4266bf7:c671b343:c3d6e535:ca455e37
 		//    devices=/dev/sdb,/dev/sdc,/dev/sdd
 		$cmd = sprintf("export LANG=C; sudo mdadm --detail --brief " .
-		  "--verbose %s", $this->getDeviceFile());
+		  "--verbose %s", escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0)
 			return FALSE;
@@ -1434,7 +1434,7 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 */
 	public function getState() {
 		$cmd = sprintf("export LANG=C; sudo mdadm --detail %s | " .
-		  "grep -e 'State :'", $this->getDeviceFile());
+		  "grep 'State :'", escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0)
 			return FALSE;
@@ -1477,7 +1477,7 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 */
 	public function getDetail() {
 		$cmd = sprintf("export LANG=C; sudo mdadm --detail %s",
-		  $this->getDeviceFile());
+		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0)
 			return FALSE;
@@ -1559,7 +1559,8 @@ class OMVNetworkInterfaces extends OMVObject {
 	 * @return A list of network interfaces, otherwise FALSE.
 	 */
 	public static function getByType($type) {
-		$cmd = sprintf("sudo ls /sys/class/net | grep %s", $type);
+		$cmd = sprintf("sudo ls /sys/class/net | grep %s", escapeshellarg(
+		  $type));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			return FALSE;
@@ -1734,7 +1735,7 @@ class OMVNetworkInterface extends OMVObject {
 		// Build the regex to search the default gateway for the
 		// given interface
 		$regex = sprintf("^0\.0\.0\.0.*%s$", $this->getDeviceName());
-		$cmd = sprintf("export LANG=C; sudo route -ne | grep -e '%s' | " .
+		$cmd = sprintf("export LANG=C; sudo route -ne | grep '%s' | " .
 		  "awk '{print $2}'", $regex);
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0)
@@ -2375,7 +2376,7 @@ class OMVLogicalVolume extends OMVObject {
 		$cmd = sprintf("export LANG=C; sudo lvdisplay --noheadings ".
 		  "--separator '|' -C -o lv_uuid,lv_name,vg_name,lv_size,lv_attr,".
 		  "lv_kernel_major,lv_kernel_minor --unit b %s",
-		  $this->getDeviceFile());
+		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0)
 			return FALSE;

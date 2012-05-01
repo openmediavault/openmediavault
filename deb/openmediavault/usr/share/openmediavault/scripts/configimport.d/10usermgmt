@@ -90,7 +90,7 @@ xmlstarlet sel -t -m "//system/usermanagement/users/user" \
 		  groups=""
 		  # Make sure the group exists
 		  for group in ${confgroups}; do
-			  if [ -z "$(getent group | grep -e '^${group}:')" ]; then
+			  if [ -z "$(getent group | grep '^${group}:')" ]; then
 				  echo "Error: Ignore nonexistent group <${group}>.'"
 				  continue
 			  fi

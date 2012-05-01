@@ -118,7 +118,7 @@ class OMVMonit extends OMVObject {
 	 */
 	public function status($name) {
 		$cmd = sprintf("export LANG=C; sudo monit status | sed -e " .
-		  "'/^.*%s.*$/,/^$/!d' | grep -e '^\s*status' || true", $name);
+		  "'/^.*%s.*$/,/^$/!d' | grep '^\s*status' || true", $name);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
