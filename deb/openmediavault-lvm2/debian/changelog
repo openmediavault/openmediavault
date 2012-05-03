@@ -1,6 +1,7 @@
 openmediavault-lvm2 (0.3.0.2) stable; urgency=low
 
   * Translate various strings.
+  * Update locales
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Apr 2012 16:07:41 +0200
 

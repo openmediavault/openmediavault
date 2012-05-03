@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-22 02:18+0200\n"
-"PO-Revision-Date: 2012-04-25 21:30+0000\n"
-"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
+"POT-Creation-Date: 2012-04-26 23:21+0200\n"
+"PO-Revision-Date: 2012-04-26 21:23+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.net/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -243,6 +243,9 @@ msgstr "Yönetici:oku/yaz, Kullanıcılar:sadece okunabilir, Diğerleri:erişim 
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
 msgstr "Yönetici:oku/yaz, Kullanıcılar:sadece opkunabilir, Diğerleri:sadece okunabilir"
+
+msgid "Administrator: read/write, Users: read/write, Others: no access"
+msgstr ""
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Yönetici:oku/yaz, Kullanıcılar:oku/yaz, Diğerleri:sadece okunabilir"
@@ -703,6 +706,9 @@ msgstr "DNS Sunucu"
 msgid "Daemon"
 msgstr "Program"
 
+msgid "Danish"
+msgstr ""
+
 msgid "Date"
 msgstr "Tarih"
 
@@ -882,6 +888,9 @@ msgstr "Dronning Maud Bölgesi"
 
 msgid "Dutch"
 msgstr "Flemenkçe"
+
+msgid "Each line represents one group."
+msgstr ""
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
@@ -1226,6 +1235,9 @@ msgstr "Almanya"
 msgid "Ghana"
 msgstr "Gana"
 
+msgid "GiB"
+msgstr ""
+
 msgid "Gibraltar"
 msgstr "Cebelitarık"
 
@@ -1245,8 +1257,16 @@ msgid "Group"
 msgstr "Grup"
 
 #, c-format
+msgid "Group '%s' already exist"
+msgstr ""
+
+#, c-format
 msgid "Group '%s' does not exist"
 msgstr "Grup '%s' mevcut değil"
+
+#, c-format
+msgid "Group ID '%d' already exist"
+msgstr ""
 
 msgid "Groups"
 msgstr "Gruplar"
@@ -1387,6 +1407,9 @@ msgstr "İçeri aktarmak"
 msgid "Import SSL certificate"
 msgstr "SSl sertifikasını içeri aktar"
 
+msgid "Import groups"
+msgstr ""
+
 msgid "Import users"
 msgstr "Kullanıcıları içeri aktar"
 
@@ -1456,9 +1479,6 @@ msgstr "Geçersiz satır : %s"
 msgid "Invalid name"
 msgstr "Geçersiz ad"
 
-msgid "Invalid share name"
-msgstr "Geçersiz paylaşım adı"
-
 msgid "Invalid user name"
 msgstr "Geçersiz kullanıcı adı"
 
@@ -1518,6 +1538,9 @@ msgstr "Çekirdek"
 
 msgid "Key size"
 msgstr "Anahtar boyutu"
+
+msgid "KiB"
+msgstr ""
 
 msgid "Kiribati"
 msgstr "Kiribati"
@@ -1750,6 +1773,9 @@ msgstr "Fransa Şehiriçi"
 
 msgid "Mexico"
 msgstr "Meksiko"
+
+msgid "MiB"
+msgstr ""
 
 msgid "Micronesia"
 msgstr "Mikronezya"
@@ -2101,6 +2127,9 @@ msgid ""
 "target='_blank'>manual page</a> for more details."
 msgstr "Daha fazla bilgi için lütfen <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> adresini ziyaret ediniz."
 
+msgid "Please first select a volume."
+msgstr ""
+
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
@@ -2446,6 +2475,9 @@ msgstr "Ülke seçiniz ..."
 
 msgid "Select a device ..."
 msgstr "Aygıt seçiniz ..."
+
+msgid "Select a directory"
+msgstr ""
 
 msgid "Select a filesystem ..."
 msgstr "Dosya sistemi seçiniz ..."
@@ -3077,6 +3109,9 @@ msgstr "Bu seçenek paylaşımda bir geri dönüşüm kutusu yaratır."
 
 msgid "Thursday"
 msgstr "Perşembe"
+
+msgid "TiB"
+msgstr ""
 
 msgid "Time"
 msgstr "Zaman"

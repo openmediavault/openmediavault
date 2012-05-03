@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Nahir Mohamed <nahirmoha@gmail.com>, 2012.
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-22 02:18+0200\n"
-"PO-Revision-Date: 2012-04-26 15:45+0000\n"
+"POT-Creation-Date: 2012-04-26 23:21+0200\n"
+"PO-Revision-Date: 2012-05-03 08:42+0000\n"
 "Last-Translator: Stéphane BOCQUET <sbocquet4772@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.net/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +32,7 @@ msgid "%s [on %s]"
 msgstr "%s [sur %s]"
 
 msgid "'All' is not allowed"
-msgstr "'Tous' n'est pas authorisé"
+msgstr "'Tous' n'est pas autorisé"
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s correspond à illimité."
@@ -200,7 +201,7 @@ msgid "Add group"
 msgstr "Ajouter un groupe"
 
 msgid "Add hot spares / recover RAID device"
-msgstr "Ajouter un disque de secour / Reconstruire le périphérique RAID"
+msgstr "Ajouter un disque de secours / Reconstruire le périphérique RAID"
 
 msgid "Add module"
 msgstr "Ajouter un module"
@@ -221,7 +222,7 @@ msgid "Add shared folder"
 msgstr "Ajouter un dossier partagé"
 
 msgid "Add user"
-msgstr "Ajouter un utilsateur"
+msgstr "Ajouter un utilisateur"
 
 msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
@@ -244,11 +245,14 @@ msgstr "Administrateur: lect./écrit., Utilisateur: lect. seule, Autres: pas d'a
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
 msgstr "Administrateur: lect./écrit., Utilisateur: lect. seule, Autres: lect. seule"
 
+msgid "Administrator: read/write, Users: read/write, Others: no access"
+msgstr "Administrateur: lect./écrit., Utilisateur: lect./écrit., Autres: pas d'accès"
+
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Administrateur: lect./écrit., Utilisateur: lect./écrit., Autres: lect. seule"
 
 msgid "Advanced Power Management"
-msgstr "Gestion avancé de l'énergie"
+msgstr "Gestion avancée de l'énergie"
 
 msgid "Advanced settings"
 msgstr "Paramètres avancés"
@@ -296,7 +300,7 @@ msgid ""
 msgstr "Autoriser ce serveur à se faire connaître comme un serveur de temps pour les clients Windows"
 
 msgid "Allow this server to try and become a local master browser"
-msgstr "Autoriser ce serveur à essayer de devenir un explorateur local maître."
+msgstr "Autoriser ce serveur à essayer de devenir un explorateur maître local"
 
 msgid "American Samoa"
 msgstr "Îles Samoa"
@@ -304,12 +308,12 @@ msgstr "Îles Samoa"
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr "Un message mail contenant les traces de la commande (si disponible) est envoyé à l'administrateur."
+msgstr "Un mail contenant les traces de la commande (si disponible) est envoyé à l'administrateur."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr "Un message par mail contenant les traces de la commande (si disponible) est envoyé à l'utilisateur."
+msgstr "Un mail contenant les traces de la commande (si disponible) est envoyé à l'utilisateur."
 
 msgid "An error has occured"
 msgstr "Une erreur est survenue"
@@ -336,7 +340,7 @@ msgid "Apply"
 msgstr "Appliquer"
 
 msgid "Apply permissions to files and subfolders"
-msgstr "Applique les permissions aux fichiers et sous-répertoires"
+msgstr "Appliquer les permissions aux fichiers et sous-répertoires"
 
 msgid "April"
 msgstr "Avril"
@@ -345,7 +349,7 @@ msgid "Archive"
 msgstr "Archiver"
 
 msgid "Are clients required to use FTP over TLS when talking to this server?"
-msgstr "Les clients sont-ils autorisés a utiliser FTP avec TLS quand ils sont connectés avec ce serveur?"
+msgstr "Les clients sont-ils obligés d'utiliser FTP avec TLS pour se connecter au serveur?"
 
 msgid "Argentina"
 msgstr "Argentine"
@@ -378,7 +382,7 @@ msgid "Authenticate users"
 msgstr "Utilisateurs authentifiés"
 
 msgid "Authentication"
-msgstr "Authentication"
+msgstr "Authentification"
 
 msgid "Authentication and no privacy"
 msgstr "Authentification sans secret"
@@ -390,7 +394,7 @@ msgid "Authentication passphrase"
 msgstr "Mot de passe d'authentification"
 
 msgid "Authentication required"
-msgstr "Authentification"
+msgstr "Authentification requise"
 
 msgid "Authentication type"
 msgstr "Type d'authentification"
@@ -481,7 +485,7 @@ msgid "British Virgin Islands"
 msgstr "Îles vierges Britanniques"
 
 msgid "Browseable"
-msgstr "Navigable"
+msgstr "Naviguable"
 
 msgid "Brunei"
 msgstr "Brunei"
@@ -496,10 +500,10 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "Par défaut, seuls les fichiers qui existent déjà sont autorisé à être téléchargés."
+msgstr "Par défaut, seuls les fichiers existant sont autorisés à être téléchargés."
 
 msgid "CPU usage"
-msgstr "Utilisation processeur"
+msgstr "Utilisation du processeur"
 
 msgid "Cambodia"
 msgstr "Cambodge"
@@ -608,7 +612,7 @@ msgid "Compress"
 msgstr "Compresser"
 
 msgid "Compress file data during the transfer"
-msgstr "Compresser les données de fichiers lors du transfert"
+msgstr "Compresser les données des fichiers lors du transfert"
 
 msgid "Compression"
 msgstr "Compression"
@@ -617,7 +621,7 @@ msgid ""
 "Compression is worth using if your connection is slow. The efficiency of the"
 " compression depends on the type of the file, and varies widely. Useful for "
 "internet transfer only."
-msgstr "La compression est intéressant à utiliser si votre connexion est lente. L'efficacité de la compression dépend du type du fichier, et varie largement. Seulement utile pour les transferts via Internet."
+msgstr "La compression est intéressante si vous avez une connexion lente. Son efficacité dépend du type du fichier et varie largement. Cette option n'est seulement utile que pour les transferts via Internet."
 
 msgid "Confirm password"
 msgstr "Confirmer"
@@ -701,7 +705,10 @@ msgid "DNS server"
 msgstr "Serveur DNS"
 
 msgid "Daemon"
-msgstr "Démon"
+msgstr "Daemon"
+
+msgid "Danish"
+msgstr "Danois"
 
 msgid "Date"
 msgstr "Date"
@@ -725,7 +732,7 @@ msgid "Delete"
 msgstr "Supprimer"
 
 msgid "Delete files on the receiving side that don't exist on sender"
-msgstr "Supprime les fichiers du côté réception qui n'existent pas sur l'expéditeur"
+msgstr "Supprime les fichiers de destination qui n'existent pas à la source"
 
 msgid "Deleting selected item(s)"
 msgstr "Suppression de(s) élément(s) sélectionné(s)"
@@ -875,13 +882,16 @@ msgid "Down delay"
 msgstr "Délai d'arrêt"
 
 msgid "Download"
-msgstr "Télécharger"
+msgstr "Vitesse max."
 
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
 
 msgid "Dutch"
 msgstr "Néerlandais"
+
+msgid "Each line represents one group."
+msgstr "Chaque ligne représente un groupe."
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
@@ -985,7 +995,7 @@ msgid "Enable extended attribute support"
 msgstr "Activer le support des attributs étandus"
 
 msgid "Enable keyboard-interactive authentication"
-msgstr "Activer l'authentification clavier interactive"
+msgstr "Activer l'authentification clavier"
 
 msgid "Enable module listing"
 msgstr "Activer la liste des modules"
@@ -1018,7 +1028,7 @@ msgid "Enable user authentication"
 msgstr "Activer l'authentification des utilisateurs"
 
 msgid "Enable user home directories"
-msgstr "Activer les répertoires personnels"
+msgstr "Activer le partage des répertoires personnels"
 
 msgid "Enable write-cache."
 msgstr "Activer l'écriture avec cache."
@@ -1061,7 +1071,7 @@ msgid "Event"
 msgstr "Evénement"
 
 msgid "Every N day of month"
-msgstr "Tous les N j. du mois"
+msgstr "Tous les N jours"
 
 msgid "Every N hour"
 msgstr "Toutes les N heures"
@@ -1226,6 +1236,9 @@ msgstr "Allemagne"
 msgid "Ghana"
 msgstr "Ghana"
 
+msgid "GiB"
+msgstr "Go"
+
 msgid "Gibraltar"
 msgstr "Gibraltar"
 
@@ -1245,8 +1258,16 @@ msgid "Group"
 msgstr "Groupe"
 
 #, c-format
+msgid "Group '%s' already exist"
+msgstr "Le groupe '%s' existe déjà"
+
+#, c-format
 msgid "Group '%s' does not exist"
 msgstr "le group '%s' n'existe pas"
+
+#, c-format
+msgid "Group ID '%d' already exist"
+msgstr "L'ID du groupe '%d' existe déjà"
 
 msgid "Groups"
 msgstr "Groupes"
@@ -1353,13 +1374,13 @@ msgstr "Si activé alors aucun mot de passe ne sera requis pour se connecter au 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
 "to connect to the module."
-msgstr "Si cette option est activée, le client sera obligé de fournir un nom d'utilisateur et un mot de passe pour se connecter au module."
+msgstr "Indique que le client sera obligé de fournir un nom d'utilisateur et un mot de passe pour se connecter au module."
 
 msgid "If this option is set, then any attempted downloads will fail."
-msgstr "Si cette option est activée, toutes les tentatives de réception échoueront."
+msgstr "Si cette option est activée, toutes les tentatives de réception de données échoueront."
 
 msgid "If this option is set, then any attempted uploads will fail."
-msgstr "Si cette option est activée, toutes les tentatives d'envois échoueront."
+msgstr "Si cette option est activée, toutes les tentatives d'envois de données échoueront."
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
@@ -1372,7 +1393,7 @@ msgstr "Si ce paramètre est positionné, Samba tente de lire d'abord les attrib
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
 "share."
-msgstr "Si cette option est activée, les utilisateurs ne pourront créer ou modifier les fichiers dans le partage."
+msgstr "Si cette option est activée, les utilisateurs ne pourront pas créer ou modifier les fichiers dans le partage."
 
 msgid ""
 "If your host is acting as a NAT gateway or port forwarder for the server, "
@@ -1386,6 +1407,9 @@ msgstr "Importer"
 
 msgid "Import SSL certificate"
 msgstr "Importer un certificat SSL"
+
+msgid "Import groups"
+msgstr "Importer des groupes"
 
 msgid "Import users"
 msgstr "Importer des comptes utilisateurs"
@@ -1456,9 +1480,6 @@ msgstr "Ligne invalide: %s"
 msgid "Invalid name"
 msgstr "Nom invalide"
 
-msgid "Invalid share name"
-msgstr "Nom du partage invalide"
-
 msgid "Invalid user name"
 msgstr "Nom de l'utilisateur invalide"
 
@@ -1518,6 +1539,9 @@ msgstr "Noyau"
 
 msgid "Key size"
 msgstr "Taille de la clé"
+
+msgid "KiB"
+msgstr "Ko"
 
 msgid "Kiribati"
 msgstr "Kiribati"
@@ -1591,7 +1615,7 @@ msgid "Local"
 msgstr "Local"
 
 msgid "Local master browser"
-msgstr "Local master browser"
+msgstr "Explorateur maître local"
 
 msgid "Location"
 msgstr "Emplacement"
@@ -1610,7 +1634,7 @@ msgid "Login"
 msgstr "Connexion"
 
 msgid "Logout"
-msgstr "Déconnexion"
+msgstr "Se déconnecter"
 
 msgid "Logs"
 msgstr "Journaux"
@@ -1670,7 +1694,7 @@ msgid "Martinique"
 msgstr "Martinique"
 
 msgid "Masquerade address"
-msgstr "Masquerade address"
+msgstr "Adresse mascarade"
 
 msgid ""
 "Match if the destination port is one of the given ports. E.g. 21 or !443 or "
@@ -1750,6 +1774,9 @@ msgstr "France métropolitaine"
 
 msgid "Mexico"
 msgstr "Méxique"
+
+msgid "MiB"
+msgstr "Mo"
 
 msgid "Micronesia"
 msgstr "Micronésie"
@@ -2049,7 +2076,7 @@ msgid "Permit root login"
 msgstr "Connexion root"
 
 msgid "Permit to do SSH tunneling"
-msgstr "Permettre les tunnels SSH"
+msgstr "Permettre les tunnels via SSH"
 
 msgid "Peru"
 msgstr "Pérou"
@@ -2101,6 +2128,9 @@ msgid ""
 "target='_blank'>manual page</a> for more details."
 msgstr "Voir la <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>page d'aide</a> pour plus de détails."
 
+msgid "Please first select a volume."
+msgstr "Sélectionnez un volume en premier."
+
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
@@ -2140,7 +2170,7 @@ msgid "Power mode"
 msgstr "Mode d'alimentation"
 
 msgid "Preserve ACLs"
-msgstr "Conserver les listes de contrôle d'accès"
+msgstr "Conserver les ACL"
 
 msgid "Preserve extended attributes"
 msgstr "Conserver les attributs étendus"
@@ -2304,7 +2334,7 @@ msgid "Required"
 msgstr "Requis"
 
 msgid "Reset"
-msgstr "Redémarrer"
+msgstr "Réinitialiser"
 
 msgid "Resize"
 msgstr "Redimensionner"
@@ -2447,6 +2477,9 @@ msgstr "Sélectionnez un pays ..."
 msgid "Select a device ..."
 msgstr "Sélectionnez un périphérique ..."
 
+msgid "Select a directory"
+msgstr "Sélectionnez un dictionnaire"
+
 msgid "Select a filesystem ..."
 msgstr "Sélectionnez un système de fichiers ..."
 
@@ -2481,7 +2514,7 @@ msgid "Self-test logs"
 msgstr "Journal des tests"
 
 msgid "Send command output via email"
-msgstr "Envois par mail de la trace de la commande"
+msgstr "Envois par mail des traces de la commande"
 
 msgid "Send email"
 msgstr "Envoyer un mail"
@@ -2532,14 +2565,14 @@ msgid "Session timeout"
 msgstr "Délai d'inactivité"
 
 msgid "Set browseable"
-msgstr "Set browseable"
+msgstr "Activer la navigation"
 
 msgid "Set read only"
 msgstr "Définir en lecture seule"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
-msgstr "Définir les autorisations de destination pour être les mêmes que les autorisations de la source"
+msgstr "Définir les autorisations de destination à l'identique de celles de la source"
 
 msgid "Set write only"
 msgstr "Définir en écriture seule"
@@ -2588,7 +2621,7 @@ msgid "Show privileges"
 msgstr "Voir les privilèges"
 
 msgid "Shutdown"
-msgstr "Arrêt"
+msgstr "Arrêter"
 
 msgid "Shutdown the system when pressing the power button."
 msgstr "Arrêter le système en appuyant sur le bouton d'alimentation."
@@ -2657,10 +2690,10 @@ msgid "Spanish"
 msgstr "Espagnol"
 
 msgid "Specifies how many server threads to create."
-msgstr "Indique le nombre de threads serveur à créer."
+msgstr "Indique le nombre de threads à créer."
 
 msgid "Specifies one of the bonding policies."
-msgstr "Spécifie l'une des politiques de liaison."
+msgstr "Indique une des politiques de liaison."
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "Indique la fréquence de surveillance du lien MII en millisecondes."
@@ -2772,16 +2805,16 @@ msgid "Syria"
 msgstr "Syrie"
 
 msgid "Syslog"
-msgstr "Journal système"
+msgstr "Syslog"
 
 msgid "System"
 msgstr "Système"
 
 msgid "System Information"
-msgstr "Informations du système"
+msgstr "Informations système"
 
 msgid "System Logs"
-msgstr "Journaux du système"
+msgstr "Journaux système"
 
 msgid "System time"
 msgstr "Date système"
@@ -2856,7 +2889,7 @@ msgstr "L'emplacement des fichiers à partager."
 msgid ""
 "The location of the files to share. The share will be accessible at "
 "/export/<name>."
-msgstr "L'emplacement des fichiers à partager. Le partage sera accessible dans /export/<nom>."
+msgstr "L'emplacement des fichiers à partager."
 
 msgid "The location of the user home directories."
 msgstr "L'emplacement des répertoires des utilisateurs."
@@ -2942,7 +2975,7 @@ msgstr "Un point de montage existe déjà pour '%s'"
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
-msgstr "This controls whether this share is seen in the list of available shares in a net view and in the browse list."
+msgstr "Indique si le partage peut-être vu dans la liste des partages dans une vue ou liste réseau."
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Ce champ doit avoir le format hh:mm:ss"
@@ -3001,12 +3034,12 @@ msgid ""
 "This may make more efficient use of the system CPU's and cause Samba to be "
 "faster. Samba automatically turns this off for clients that use protocol "
 "levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
-msgstr "This may make more efficient use of the system CPU's and cause Samba to be faster. Samba automatically turns this off for clients that use protocol levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
+msgstr "Cette option peut rendre plus efficace l'usage du processeur du système et rendre Samba plus rapide. Samba arrêtera automatiquement cette option pour les clients qui utilisent une version du protocole NTLM inférieure à 0.12 ou quand il détecte un client Windows 9x."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
-msgstr "This option determines if this module should be listed when the client asks for a listing of available modules."
+msgstr "Indique si ce module doit être listé quand le client demande la liste de modules disponibles."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3015,7 +3048,7 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "This option is a comma, space, or tab delimited set of host which are NOT permitted to access this module. Where the lists conflict, the allow list takes precedence. In the event that it is necessary to deny all by default, use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify to the hosts allow parameter those hosts that should be permitted access. Leave this field empty to use default settings."
+msgstr "Cette option est un ensemble, délimité par une virgule, un espace ou des tabulations, d'hôtes qui sont PAS autorisés à accéder à ce module. Lorsque les listes sont en conflit, la liste des autorisations a la priorité. Dans le cas où il est nécessaire de refuser tous les hôtes par défaut, utilisez le mot clé ALL (ou le masque de réseau 0.0.0.0/0), puis spécifiez explicitement les hôtes autorisés dans la liste prévue à cet effet. Laissez ce champ vide pour utiliser les paramètres par défaut."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3024,24 +3057,24 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "This option is a comma, space, or tab delimited set of host which are NOT permitted to access this share. Where the lists conflict, the allow list takes precedence. In the event that it is necessary to deny all by default, use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify to the hosts allow parameter those hosts that should be permitted access. Leave this field empty to use default settings."
+msgstr "Cette option est un ensemble, délimité par une virgule, un espace ou des tabulations, d'hôtes qui sont PAS autorisés à accéder à ce partage. Lorsque les listes sont en conflit, la liste des autorisations a la priorité. Dans le cas où il est nécessaire de refuser tous les hôtes par défaut, utilisez le mot clé ALL (ou le masque de réseau 0.0.0.0/0), puis spécifiez explicitement les hôtes autorisés dans la liste prévue à cet effet. Laissez ce champ vide pour utiliser les paramètres par défaut."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this module. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr "This option is a comma, space, or tab delimited set of hosts which are permitted to access this module. You can specify the hosts by name or IP number. Leave this field empty to use default settings."
+msgstr "Cette option est un ensemble, délimité par une virgule, un espace ou des tabulations, d'hôtes qui sont autorisés à accéder à ce module. Vous pouvez spécifier les hôtes par leurs noms ou leurs adresses IP. Laissez ce champ vide pour utiliser les paramètres par défaut."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this share. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr "This option is a comma, space, or tab delimited set of hosts which are permitted to access this share. You can specify the hosts by name or IP number. Leave this field empty to use default settings."
+msgstr "Cette option est un ensemble, délimité par une virgule, un espace ou des tabulations, d'hôtes qui sont autorisés à accéder à ce partage. Vous pouvez spécifier les hôtes par leurs noms ou leurs adresses IP. Laissez ce champ vide pour utiliser les paramètres par défaut."
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
-msgstr "This option specifies the group name that file transfers to and from that module should take place."
+msgstr "Indique le nom de groupe que les transferts de fichiers auront à partir et vers ce module."
 
 msgid ""
 "This option specifies the maximum number of simultaneous connections. 0 "
@@ -3051,7 +3084,7 @@ msgstr "Cette option spécifie le nombre maximum de connections simultannées (0
 msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
-msgstr "This option specifies the user name that file transfers to and from that module should take place."
+msgstr "Indique le nom d'utilisateur que les transferts de fichiers auront à partir et vers ce module."
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
@@ -3078,6 +3111,9 @@ msgstr "Cela créera une poubelle dans le partage."
 msgid "Thursday"
 msgstr "Jeudi"
 
+msgid "TiB"
+msgstr "To"
+
 msgid "Time"
 msgstr "Heure"
 
@@ -3097,7 +3133,7 @@ msgid "Timeout"
 msgstr "Inactivité"
 
 msgid "Times"
-msgstr "Heures"
+msgstr "Dates"
 
 msgid ""
 "To restore a previously backed up configuration click the 'Restore' button. "
@@ -3207,11 +3243,11 @@ msgid "Update now"
 msgstr "Mise à jour en cours"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
-msgstr "Mets à jour les restrictions ACL pour qu'elles soient les mêmes que celles de la source"
+msgstr "Mets à jour les restrictions ACL à l'identique de celles de la source"
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones"
-msgstr "Mets à jour les attributs étendus pour qu'ils soient les mêmes que les locaux"
+msgstr "Mets à jour les attributs étendus à l'identique des attributs locaux"
 
 msgid "Updated"
 msgstr "Mis à jour"
@@ -3220,7 +3256,7 @@ msgid "Updating ACL settings"
 msgstr "Mets à jour les paramètres ACL"
 
 msgid "Upload"
-msgstr "Télécharger"
+msgstr "Vitesse max."
 
 msgid "Upload file"
 msgstr "Envoi de fichier"
@@ -3261,7 +3297,7 @@ msgid ""
 msgstr "Use the more efficient sendfile system call for files that are exclusively oplocked"
 
 msgid "Use the specified WINS server."
-msgstr "Utiliser le serveur WINS spécifié"
+msgstr "Utiliser le serveur WINS spécifié."
 
 msgid "Used"
 msgstr "Utilisé"
@@ -3285,7 +3321,7 @@ msgid "User ID '%d' already exist"
 msgstr "L'identifiant utilisateur '%d' existe déjà"
 
 msgid "User home directory"
-msgstr "Répertoire personnel de l'utilisateur"
+msgstr "Répertoires personnels des utilisateurs"
 
 msgid "User information"
 msgstr "Information de l'utilisateur"

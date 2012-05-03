@@ -4,14 +4,15 @@
 # 
 # Translators:
 #   <arturmon82@gmail.com>, 2012.
+#   <ffrants@gmail.com>, 2012.
 # Ichi  <ichiperm@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-22 02:18+0200\n"
-"PO-Revision-Date: 2012-04-23 12:11+0000\n"
-"Last-Translator: arturmon82 <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2012-04-26 23:21+0200\n"
+"PO-Revision-Date: 2012-05-02 11:53+0000\n"
+"Last-Translator: mictian <ffrants@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.net/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -159,7 +160,7 @@ msgid "A mount point already exists for the given filesystem"
 msgstr "Точка монтирования уже существует для данной файловой системы"
 
 msgid "A share with the given name already exists"
-msgstr ""
+msgstr "Общий ресурс с таким именем уже существует"
 
 msgid "A shared folder with the given name already exists"
 msgstr "Совместно используемая папка с таким именем уже существует"
@@ -244,6 +245,9 @@ msgstr "Администратор: чтение / запись, Пользов�
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
 msgstr "Администратор: чтение / запись, Пользователи: только чтение, Другие: только чтение"
+
+msgid "Administrator: read/write, Users: read/write, Others: no access"
+msgstr "Администратор: чтение/запись, Пользователи: чтение/запись, Остальные: нет доступа"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Администратор: чтение / запись, Пользователи: чтение / запись, Другие: нет доступа"
@@ -704,6 +708,9 @@ msgstr "DNS сервер"
 msgid "Daemon"
 msgstr "Демон"
 
+msgid "Danish"
+msgstr "Датский"
+
 msgid "Date"
 msgstr "Дата"
 
@@ -883,6 +890,9 @@ msgstr "Земля Королевы Мод"
 
 msgid "Dutch"
 msgstr "Голландкий"
+
+msgid "Each line represents one group."
+msgstr ""
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
@@ -1080,7 +1090,7 @@ msgid "Execute cron job"
 msgstr "Выполнение cron задания"
 
 msgid "Execute rsync job"
-msgstr ""
+msgstr "Выполнить задание rsync"
 
 msgid "Expire"
 msgstr "Истекать"
@@ -1227,6 +1237,9 @@ msgstr "Германия"
 msgid "Ghana"
 msgstr "Гана"
 
+msgid "GiB"
+msgstr "GiB"
+
 msgid "Gibraltar"
 msgstr "Гибралтар"
 
@@ -1246,8 +1259,16 @@ msgid "Group"
 msgstr "Группы"
 
 #, c-format
+msgid "Group '%s' already exist"
+msgstr "Группа '%s' уже существует"
+
+#, c-format
 msgid "Group '%s' does not exist"
 msgstr "Группа '%s' не существует"
+
+#, c-format
+msgid "Group ID '%d' already exist"
+msgstr "Группа с ID '%d' уже существует"
 
 msgid "Groups"
 msgstr "Группы"
@@ -1325,7 +1346,7 @@ msgid "Hour"
 msgstr "Час"
 
 msgid "Hungarian"
-msgstr ""
+msgstr "Венгерский"
 
 msgid "Hungary"
 msgstr "Венгрия"
@@ -1387,6 +1408,9 @@ msgstr "Импортировать"
 
 msgid "Import SSL certificate"
 msgstr "Импортировать SSL сертификат"
+
+msgid "Import groups"
+msgstr "Импортировать группы"
 
 msgid "Import users"
 msgstr "Импортировать пользователей"
@@ -1457,9 +1481,6 @@ msgstr "Неверная строка:%s"
 msgid "Invalid name"
 msgstr "Недопустимое имя"
 
-msgid "Invalid share name"
-msgstr ""
-
 msgid "Invalid user name"
 msgstr "Недопустимое имя пользователя"
 
@@ -1519,6 +1540,9 @@ msgstr "Ядро"
 
 msgid "Key size"
 msgstr "Размер ключа"
+
+msgid "KiB"
+msgstr "KiB"
 
 msgid "Kiribati"
 msgstr "Кирибати"
@@ -1751,6 +1775,9 @@ msgstr "Столичная Франция"
 
 msgid "Mexico"
 msgstr "Месика"
+
+msgid "MiB"
+msgstr "MiB"
 
 msgid "Micronesia"
 msgstr "Микронезия"
@@ -2102,6 +2129,9 @@ msgid ""
 "target='_blank'>manual page</a> for more details."
 msgstr "Пожалуйста, ознакомьтесь с <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> для более подробной информации."
 
+msgid "Please first select a volume."
+msgstr "Пожалуйста, с начала выберете раздел."
+
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
@@ -2448,6 +2478,9 @@ msgstr "выбрать страну ..."
 msgid "Select a device ..."
 msgstr "Выбрать устройство .."
 
+msgid "Select a directory"
+msgstr "Выберете папку"
+
 msgid "Select a filesystem ..."
 msgstr "Выбрать файловую систему ..."
 
@@ -2524,7 +2557,7 @@ msgid "Services"
 msgstr "Сервисы"
 
 msgid "Session expired"
-msgstr ""
+msgstr "Сессия истекла"
 
 msgid "Session not authenticated"
 msgstr "Сессия не прошла проверку подлинности"
@@ -2755,7 +2788,7 @@ msgid "Suppress non-error messages"
 msgstr "Подавлять сообщения без ошибок"
 
 msgid "Suriname"
-msgstr ""
+msgstr "Суринам"
 
 msgid "Svalbard and Jan Mayen"
 msgstr "Шпицберген и Ян-Майен"
@@ -2838,7 +2871,7 @@ msgid ""
 msgstr "Целевой удаленный сервер, например. [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid "The destination shared folder."
-msgstr ""
+msgstr "Общая папка назначения."
 
 #, c-format
 msgid "The field '%s' contains forbidden "
@@ -2892,7 +2925,7 @@ msgid "The session timeout time in minutes."
 msgstr "Время тайм-аута сеанса в минутах."
 
 msgid "The shared folder is already used by another share"
-msgstr ""
+msgstr "Эта общая папка уже используется другим общим ресурсом"
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3074,10 +3107,13 @@ msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "Максимум соединенМаксимум соединений на узел"
 
 msgid "This will create a recycle bin on the share."
-msgstr ""
+msgstr "Это создаст мусорную корзину на этом общем ресурсе."
 
 msgid "Thursday"
 msgstr "Четверг"
+
+msgid "TiB"
+msgstr "TiB"
 
 msgid "Time"
 msgstr "Время"

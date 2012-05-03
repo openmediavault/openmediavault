@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-22 02:18+0200\n"
-"PO-Revision-Date: 2012-04-25 16:37+0000\n"
-"Last-Translator: jmcainzos <jmcainzos@vodafone.es>\n"
+"POT-Creation-Date: 2012-04-26 23:21+0200\n"
+"PO-Revision-Date: 2012-04-27 13:55+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.net/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -244,6 +244,9 @@ msgstr "Administrador: Lectura/Escritura, Usuarios: Solo lectura, Otros: Sin acc
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
 msgstr "Administrador: Lectura/Escritura, Usuarios:Solo lectura, Otros: Solo lectura"
+
+msgid "Administrator: read/write, Users: read/write, Others: no access"
+msgstr "Administrador: Lectura/Escritura, Usuarios:Lectura/Escritura, Otros:Sin acceso"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Administrador: Lectura/Escritura, Usuarios:Lectura/Escritura, Otros: Solo lectura"
@@ -542,7 +545,7 @@ msgid "Chad"
 msgstr "Chad"
 
 msgid "Check"
-msgstr "Validar"
+msgstr "Refrescar"
 
 msgid "Check interval"
 msgstr "Validar intervalo"
@@ -638,7 +641,7 @@ msgstr "Contacto"
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
-msgstr "Información de contacto, p.ej: nombre o e-mail del responsable de este sistema"
+msgstr "Información de contacto, p.ej: nombre o e-mail del responsable de este sistema."
 
 msgid "Conveyance self-test"
 msgstr "Auto prueba de transferencia"
@@ -703,6 +706,9 @@ msgstr "Servidor DNS"
 
 msgid "Daemon"
 msgstr "Demonio"
+
+msgid "Danish"
+msgstr "Danés"
 
 msgid "Date"
 msgstr "Fecha"
@@ -883,6 +889,9 @@ msgstr "Tierra de la Reina Maud (Noruega)"
 
 msgid "Dutch"
 msgstr "Holandés"
+
+msgid "Each line represents one group."
+msgstr "Cada linea representa un grupo"
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
@@ -1227,6 +1236,9 @@ msgstr "Alemania"
 msgid "Ghana"
 msgstr "Ghana"
 
+msgid "GiB"
+msgstr "GiB"
+
 msgid "Gibraltar"
 msgstr "Gibraltar"
 
@@ -1246,8 +1258,16 @@ msgid "Group"
 msgstr "Grupo"
 
 #, c-format
+msgid "Group '%s' already exist"
+msgstr "El grupo '%s' ya existe"
+
+#, c-format
 msgid "Group '%s' does not exist"
 msgstr "El grupo '%s' no existe"
+
+#, c-format
+msgid "Group ID '%d' already exist"
+msgstr "ID de grupo '%d' existente"
 
 msgid "Groups"
 msgstr "Grupos"
@@ -1388,6 +1408,9 @@ msgstr "Importar"
 msgid "Import SSL certificate"
 msgstr "Importar certificado SSL"
 
+msgid "Import groups"
+msgstr "Importar grupos"
+
 msgid "Import users"
 msgstr "Importar usuarios"
 
@@ -1457,9 +1480,6 @@ msgstr "Línea inválida: %s"
 msgid "Invalid name"
 msgstr "Nombre inválido"
 
-msgid "Invalid share name"
-msgstr "Nombre compartido inválido"
-
 msgid "Invalid user name"
 msgstr "Nombre de Usuario inválido"
 
@@ -1519,6 +1539,9 @@ msgstr "Kernel"
 
 msgid "Key size"
 msgstr "Tamaño de la clave"
+
+msgid "KiB"
+msgstr "KiB"
 
 msgid "Kiribati"
 msgstr "República de Kiribati"
@@ -1751,6 +1774,9 @@ msgstr "Francia Metropolitana"
 
 msgid "Mexico"
 msgstr "Mexico"
+
+msgid "MiB"
+msgstr "MiB"
 
 msgid "Micronesia"
 msgstr "Micronesia"
@@ -2102,6 +2128,9 @@ msgid ""
 "target='_blank'>manual page</a> for more details."
 msgstr "Por favor vea: <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>página del manual</a> para más detalles."
 
+msgid "Please first select a volume."
+msgstr "Seleccione primero un volumen"
+
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
@@ -2448,6 +2477,9 @@ msgstr "Seleccionar un pais ..."
 msgid "Select a device ..."
 msgstr "Seleccionar un dispositivo ..."
 
+msgid "Select a directory"
+msgstr "Seleccione un directorio"
+
 msgid "Select a filesystem ..."
 msgstr "Seleccionar un sistema de ficheros ..."
 
@@ -2530,10 +2562,10 @@ msgid "Session not authenticated"
 msgstr "Sesión no autenticada"
 
 msgid "Session timeout"
-msgstr "Sesión caducada"
+msgstr "Caducidad de la sesión"
 
 msgid "Set browseable"
-msgstr "Establecer navegable"
+msgstr "Establecer como navegable"
 
 msgid "Set read only"
 msgstr "Establecer Solo Lectura"
@@ -2779,7 +2811,7 @@ msgid "System"
 msgstr "Sistema"
 
 msgid "System Information"
-msgstr "nformación del sistema"
+msgstr "Información del sistema"
 
 msgid "System Logs"
 msgstr "Logs del sistema"
@@ -3078,6 +3110,9 @@ msgstr "Creará una papelera de reciclaje en la compartición."
 
 msgid "Thursday"
 msgstr "Jueves"
+
+msgid "TiB"
+msgstr "TiB"
 
 msgid "Time"
 msgstr "Hora"

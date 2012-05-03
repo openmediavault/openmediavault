@@ -47,7 +47,8 @@ OMV.form.LanguageComboBox = function(config) {
 				[ "pl_PL",_("Polish") ],
 				[ "es_ES",_("Spanish") ],
 				[ "hu_HU",_("Hungarian") ],
-				[ "da_DA",_("Danish") ]
+				[ "da_DA",_("Danish") ],
+				[ "uk_UK",_("Ukrainian") ]
 			]
 		}),
 		displayField: "text",

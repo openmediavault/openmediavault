@@ -17,13 +17,14 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
+#   <votdev@gmx.de>, 2012.
 #   <warhog@gmx.de>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 20:07+0100\n"
-"PO-Revision-Date: 2012-04-19 11:15+0000\n"
+"POT-Creation-Date: 2012-03-15 20:04+0100\n"
+"PO-Revision-Date: 2012-04-19 10:53+0000\n"
 "Last-Translator: warhog <warhog@gmx.de>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -32,125 +33,38 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
-msgid "Add share"
-msgstr "Freigabe hinzufügen"
-
-msgid "Allow guest logins"
-msgstr "Erlaube Gastlogin"
-
-msgid "Apple Filing"
-msgstr "Apple Filing"
+msgid "A password is required to access the library."
+msgstr "Für den Zugriff auf diese Bibliothek wird ein Passwort benötigt."
 
 msgid "Authentication"
 msgstr "Authentifizierung"
 
-msgid "Case folding"
-msgstr "Groß- / Kleinschreibung"
-
-msgid "Client sees lowercase, server sees uppercase"
-msgstr "Client sieht Kleinbuchstaben, Server sieht Großbuchstaben"
-
-msgid "Client sees uppercase, server sees lowercase"
-msgstr "Client sieht Großbuchstaben, Server sieht Kleinbuchstaben"
-
-msgid "Comment"
-msgstr "Kommentar"
-
-msgid "Don't do :hex translation for dot files."
-msgstr "Keine :hex Übersetzung für Dotfiles."
-
-msgid "Edit share"
-msgstr "Freigabe ändern"
-
 msgid "Enable"
 msgstr "Aktivieren"
-
-msgid "Enable Time Machine support for this share."
-msgstr "Time Machine Unterstützung für diese Freigabe aktivieren."
-
-msgid "Extra options"
-msgstr "Zusätzliche Optionen"
-
-msgid "Forces filename restrictions"
-msgstr "Dateinamenbeschränkungen erzwingen"
 
 msgid "General settings"
 msgstr "Allgemeine Einstellungen"
 
-msgid "Hide dot files"
-msgstr "Dotfiles verstecken"
-
-msgid ""
-"If this option is set, then a password is required to access the share."
-msgstr "Falls diese Option gesetzt ist wird ein Passwort benötigt um die Freigabe einzubinden."
-
-msgid ""
-"If this option is set, then users may not create or modify files in the "
-"share."
-msgstr "Falls diese Option gesetzt ist können Benutzer für diese Freigabe keine Dateien erstellen oder ändern."
-
-msgid "Lowercases names in both directions"
-msgstr "Namen in Kleinbuchstaben für beide Richtungen"
-
-msgid "Make dot files invisible."
-msgstr "Dotfiles unsichtbar machen."
-
-msgid "Name"
-msgstr "Name"
-
-msgid "None"
-msgstr "Keine"
+msgid "Library name"
+msgstr "Bibliotheksname"
 
 msgid "Password"
 msgstr "Passwort"
 
-msgid "Read only"
-msgstr "Nur lesen"
+msgid "Port"
+msgstr "Port"
 
-msgid "Set read only."
-msgstr "Nur lesen einstellen."
-
-msgid "Settings"
-msgstr "Einstellungen"
+msgid "Port to listen on."
+msgstr "Port auf welchem der Server lauscht."
 
 msgid "Shared folder"
-msgstr "Freigegebene Ordner"
+msgstr "Freigegebener Ordner"
 
-msgid "Shares"
-msgstr "Freigaben"
+msgid "The location of the media files to share."
+msgstr "Der Ort für die zu teilenden Mediendateien."
 
-msgid "The location of the files to share."
-msgstr "Der Speicherort freizugebender Dateien."
+msgid "The name of the library as displayed by the clients."
+msgstr "Name der Bibliothek die den Clients angezeigt werden soll."
 
-msgid "The name of the share."
-msgstr "Der Name der Freigabe."
-
-msgid ""
-"This forces filenames to be restricted to the character set used by Windows."
-msgstr "Diese Option erzwingt den Windows-Zeichensatz für Dateinamen."
-
-msgid "This option handles, if the case of filenames should be changed."
-msgstr "Diese Option legt fest ob die Groß- und Kleinschreibung in Dateinamen geändert werden soll."
-
-msgid "Time Machine support"
-msgstr "Time Machine Unterstützung"
-
-msgid "Unix privileges"
-msgstr "Unix Privilegien"
-
-msgid "Uppercases names in both directions"
-msgstr "Namen in Großbuchstaben für beide Richtungen"
-
-msgid "Use AFP3 unix privileges."
-msgstr "AFP3 Unix Privilegien benutzen."
-
-msgid "Use dots"
-msgstr "Benutze Punkte"
-
-msgid ""
-"When this option gets set, certain file names become illegal. These are "
-".Parent and anything that starts with .Apple."
-msgstr "Wird diese Option gesetzt werden bestimmte Dateinamen für ungültig erklärt (.Parent und alle mit .Apple beginnenden). "
-
-msgid "n/a"
-msgstr "N/V"
+msgid "iTunes/DAAP"
+msgstr "iTunes/DAAP"

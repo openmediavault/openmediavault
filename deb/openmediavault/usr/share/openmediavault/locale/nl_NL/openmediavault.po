@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-22 02:18+0200\n"
-"PO-Revision-Date: 2012-04-25 09:28+0000\n"
-"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
+"POT-Creation-Date: 2012-04-26 23:21+0200\n"
+"PO-Revision-Date: 2012-04-27 08:56+0000\n"
+"Last-Translator: sebak <seba.kerckhof@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.net/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -245,6 +245,9 @@ msgstr "Administrator: lezen/schrijven, Gebruikers: alleen lezen, Anderen: geen 
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
 msgstr "Administrator: lezen/schrijven, Gebruikers: alleen lezen, Anderen: alleen lezen."
+
+msgid "Administrator: read/write, Users: read/write, Others: no access"
+msgstr "Administrator: lezen/schrijven, Gebruikers: lezen/schrijven, Andere: geen toegang"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Administrator: lezen/schrijven, Gebruikers: lezen/schrijven, Anderen: alleen lezen."
@@ -705,6 +708,9 @@ msgstr "DNS server"
 msgid "Daemon"
 msgstr "Daemon"
 
+msgid "Danish"
+msgstr "Deens"
+
 msgid "Date"
 msgstr "Datum"
 
@@ -884,6 +890,9 @@ msgstr "Dronning Maud Land"
 
 msgid "Dutch"
 msgstr "Nederlands"
+
+msgid "Each line represents one group."
+msgstr "Elke lijn vertegenwoordigt een groep."
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
@@ -1228,6 +1237,9 @@ msgstr "Duitsland"
 msgid "Ghana"
 msgstr "Ghana"
 
+msgid "GiB"
+msgstr "GiB"
+
 msgid "Gibraltar"
 msgstr "Gibraltar"
 
@@ -1247,8 +1259,16 @@ msgid "Group"
 msgstr "Groep"
 
 #, c-format
+msgid "Group '%s' already exist"
+msgstr "Er bestaat reeds een groep met naam '%s'"
+
+#, c-format
 msgid "Group '%s' does not exist"
 msgstr "De groep '%s' bestaat niet"
+
+#, c-format
+msgid "Group ID '%d' already exist"
+msgstr "Er bestaat reeds een groep met ID '%d'"
 
 msgid "Groups"
 msgstr "Groepen"
@@ -1389,6 +1409,9 @@ msgstr "Importeren"
 msgid "Import SSL certificate"
 msgstr "SSL certificaat importeren"
 
+msgid "Import groups"
+msgstr "Groepen importeren."
+
 msgid "Import users"
 msgstr "Gebruikers importeren"
 
@@ -1458,9 +1481,6 @@ msgstr "Ongeldige regel: %s"
 msgid "Invalid name"
 msgstr "Ongeldige naam"
 
-msgid "Invalid share name"
-msgstr "Ongeldige naam van de gedeelde map"
-
 msgid "Invalid user name"
 msgstr "Ongeldige gebruikers naam"
 
@@ -1520,6 +1540,9 @@ msgstr "Kernel"
 
 msgid "Key size"
 msgstr "Sleutel grootte"
+
+msgid "KiB"
+msgstr "KiB"
 
 msgid "Kiribati"
 msgstr "Kiribati"
@@ -1752,6 +1775,9 @@ msgstr "Metropolitaans Frankrijk"
 
 msgid "Mexico"
 msgstr "Mexico"
+
+msgid "MiB"
+msgstr "MiB"
 
 msgid "Micronesia"
 msgstr "Micronesië "
@@ -2103,6 +2129,9 @@ msgid ""
 "target='_blank'>manual page</a> for more details."
 msgstr "Raadpleeg de <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>handleiding</a> voor meer details."
 
+msgid "Please first select a volume."
+msgstr "Gelieve eerst een volume te selecteren."
+
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
@@ -2448,6 +2477,9 @@ msgstr "Selecteer een land ..."
 
 msgid "Select a device ..."
 msgstr "Selecteer een apparaat ..."
+
+msgid "Select a directory"
+msgstr "Selecteer een map"
 
 msgid "Select a filesystem ..."
 msgstr "Selecteer een bestandssysteem"
@@ -3079,6 +3111,9 @@ msgstr "Deze instelling maakt een prullenbak op de gedeelde map."
 
 msgid "Thursday"
 msgstr "Donderdag"
+
+msgid "TiB"
+msgstr "TiB"
 
 msgid "Time"
 msgstr "Tijd"

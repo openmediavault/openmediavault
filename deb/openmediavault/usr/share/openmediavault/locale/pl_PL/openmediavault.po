@@ -5,14 +5,15 @@
 # Translators:
 # Cyryl Sochacki <>, 2012.
 # Jacek Niedziółka <>, 2012.
+#   <jacnie@wp.pl>, 2012.
 # Jakub Górny <jakub@world.pl>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-22 02:18+0200\n"
-"PO-Revision-Date: 2012-04-23 18:53+0000\n"
-"Last-Translator: Jacek Niedziółka <>\n"
+"POT-Creation-Date: 2012-04-26 23:21+0200\n"
+"PO-Revision-Date: 2012-04-30 12:54+0000\n"
+"Last-Translator: jacekniedziolka71 <jacnie@wp.pl>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.net/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -70,7 +71,7 @@ msgid "127 - Intermediate power usage with standby"
 msgstr "127 - Średnie zużycie energii w trybie czuwania"
 
 msgid "128 - Minimum power usage without standby (no spindown)"
-msgstr ""
+msgstr "128 - Minimalne zużycie energii bez czuwania (bez zwalniania wirowania)"
 
 msgid "15 years"
 msgstr "15 lat"
@@ -79,7 +80,7 @@ msgid "180 minutes"
 msgstr "180 minut"
 
 msgid "192 - Intermediate power usage without standby"
-msgstr ""
+msgstr "192 - Średnie zużycie energii bez czuwania "
 
 msgid "2 days"
 msgstr "2 dni"
@@ -103,7 +104,7 @@ msgid "25 years"
 msgstr "25 lat"
 
 msgid "254 - Maximum performance, maximum power usage"
-msgstr ""
+msgstr "254 - Maksymalna wydajność - maksymalne zużycie energii"
 
 msgid "3 days"
 msgstr "3 dni"
@@ -151,7 +152,7 @@ msgid "60 minutes"
 msgstr "60 minut"
 
 msgid "64 - Intermediate power usage with standby"
-msgstr ""
+msgstr "64 - 64 - Średnie zużycie energii z czuwaniem"
 
 msgid "9 months"
 msgstr "9 miesięcy"
@@ -187,7 +188,7 @@ msgid "Add"
 msgstr "Dodaj"
 
 msgid "Add bonded interface"
-msgstr ""
+msgstr "Dodaj powiązany interfejs"
 
 msgid "Add cron job"
 msgstr "Dodaj zadanie crona"
@@ -229,7 +230,7 @@ msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
 " href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 "for more details."
-msgstr ""
+msgstr " Dodatkowe ustawienia urządzenia, np 'autoneg off speed 100 duplex full'', szczegóły na <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 
 msgid "Address"
 msgstr "Adres"
@@ -245,6 +246,9 @@ msgstr "Administrator: odczyt/zapis,Użytkownik: tylko odczyt, Inni: brak dostę
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
 msgstr "Administrator: odczyt/zapis, Użytkownicy: tylko odczyt, Inni: tylko odczyt"
+
+msgid "Administrator: read/write, Users: read/write, Others: no access"
+msgstr ""
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Administrator: odczyt/zapis,Użytkownik: odczyt/zapis, Inni: tylko odczyt"
@@ -282,7 +286,7 @@ msgstr "Zezwalaj na dostęp klientów do kont, które mają puste hasła"
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
-msgstr ""
+msgstr "Zezwól klientom na próby zapisu rozszerzonych atrybutów typu OS/2 na zasobie."
 
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Zezwól klientom dokończyć przerwane transfery"
@@ -295,10 +299,10 @@ msgstr "Pozwala tworzyć nowe pliki"
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
-msgstr ""
+msgstr "Zezwalaj temu serwerowi przedstawiać się klientom Windows jako serwer czasu "
 
 msgid "Allow this server to try and become a local master browser"
-msgstr ""
+msgstr "Zezwalaj temu serwerowi na ustawienie się jako główna przeglądarka lokalna"
 
 msgid "American Samoa"
 msgstr "American Samoa"
@@ -383,10 +387,10 @@ msgid "Authentication"
 msgstr "Uwierzytelnienie"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Uwierzytelnianie i brak prywatności"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Uwierzytelnianie i prywatność"
 
 msgid "Authentication passphrase"
 msgstr ""
@@ -398,7 +402,7 @@ msgid "Authentication type"
 msgstr "Typ uwierzytelniania"
 
 msgid "Automatic Acoustic Management"
-msgstr ""
+msgstr "Automatyczne zarządzanie akustyką"
 
 msgid "Available"
 msgstr "Dostępne"
@@ -459,7 +463,7 @@ msgid "Bolivia"
 msgstr "Bolivia"
 
 msgid "Bond options"
-msgstr ""
+msgstr "Opcje powiązania"
 
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnia and Herzegovina"
@@ -483,7 +487,7 @@ msgid "British Virgin Islands"
 msgstr "British Virgin Islands"
 
 msgid "Browseable"
-msgstr ""
+msgstr "Do przeglądania"
 
 msgid "Brunei"
 msgstr "Brunei"
@@ -498,7 +502,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr ""
+msgstr "Domyślnie, tylko pliki już istniejące mają zezwolenie na to, by je wysyłać."
 
 msgid "CPU usage"
 msgstr "użycie GPU"
@@ -705,6 +709,9 @@ msgstr "serwer DNS"
 msgid "Daemon"
 msgstr "Demon"
 
+msgid "Danish"
+msgstr ""
+
 msgid "Date"
 msgstr "Data"
 
@@ -718,7 +725,7 @@ msgid "Day of week"
 msgstr "Dni w tygodniu"
 
 msgid "Debug"
-msgstr ""
+msgstr "Debug"
 
 msgid "December"
 msgstr "Grudzień"
@@ -727,10 +734,10 @@ msgid "Delete"
 msgstr "Usuń"
 
 msgid "Delete files on the receiving side that don't exist on sender"
-msgstr ""
+msgstr "Kasuj pliki po stronie odbiorczej, nie istniejące po stronie nadawczej"
 
 msgid "Deleting selected item(s)"
-msgstr ""
+msgstr "Kasowanie wybranego elementu(ów)"
 
 msgid "Denmark"
 msgstr "Denmark"
@@ -739,7 +746,7 @@ msgid "Deny"
 msgstr "Deny"
 
 msgid "Deny logins which do not have a valid shell"
-msgstr ""
+msgstr "Odrzuć użytkowników nie posiadających odpowiedniej powłoki"
 
 msgid "Description"
 msgstr "Opis"
@@ -751,7 +758,7 @@ msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A '!' argument before the address specification"
 " inverts the sense of the address."
-msgstr ""
+msgstr "Adres docelowy może być adresem IP (z maską / ), zakresem adresów IP lub czystym adresem IP. Argument '!' przed adresem odwraca adres."
 
 msgid "Destination port"
 msgstr "Docelowy port"
@@ -808,7 +815,7 @@ msgid "Disk usage"
 msgstr "Użycie dysku"
 
 msgid "Displaying items {0} - {1} of {2}"
-msgstr ""
+msgstr "Wyświetla elementy {0} - {1} z {2}"
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -839,7 +846,7 @@ msgstr "Czy na pewno chcesz zrestartować system?"
 msgid ""
 "Do you really want to resize the selected filesystem? You have to do that "
 "after a RAID has been grown for example."
-msgstr ""
+msgstr "Czy na pewno chcesz zmienić rozmiar wybranego systemu plików? Musisz to zrobić np po zwiększeniu RAID."
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Czy na pewno chcesz wyłączyć system?"
@@ -874,7 +881,7 @@ msgid "Down"
 msgstr "W dół"
 
 msgid "Down delay"
-msgstr ""
+msgstr "Opóźnienie zwolnienia"
 
 msgid "Download"
 msgstr "Pobierz"
@@ -884,6 +891,9 @@ msgstr ""
 
 msgid "Dutch"
 msgstr "Duński"
+
+msgid "Each line represents one group."
+msgstr ""
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
@@ -903,7 +913,7 @@ msgid "Edit SSL certificate"
 msgstr "Edytuj certyfikat SSL"
 
 msgid "Edit bonded interface"
-msgstr ""
+msgstr "Edycja powiązanego interfejsu"
 
 msgid "Edit cron job"
 msgstr "Edytuj zadanie cron-a"
@@ -993,28 +1003,28 @@ msgid "Enable module listing"
 msgstr "Włącz listing modułu"
 
 msgid "Enable permission inheritance"
-msgstr ""
+msgstr "Włącz dziedziczenie uprawnień"
 
 msgid "Enable recycle bin"
 msgstr "Włącz kosz"
 
 msgid "Enable reverse DNS lookup"
-msgstr ""
+msgstr "Włącz wyszukiwanie odwrotnych DNS'ów"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
 "connections."
-msgstr ""
+msgstr "Włącz wyszukiwanie odwrotnych DNS'ów przygotowanych na zdalnych adresach IP dla przychodzących połączeń w trybie aktywnym i wychodzących w trybie pasywnym."
 
 msgid "Enable secure connection."
 msgstr "Włącz połączenie bezpieczne."
 
 msgid "Enable store DOS attributes support"
-msgstr ""
+msgstr "Włącz obsługę zapisu atrybutów DOS"
 
 msgid "Enable the ident protocol (RFC1413)"
-msgstr ""
+msgstr "Włącz protokół identyfikacji (RFC1413)"
 
 msgid "Enable user authentication"
 msgstr "Włącz uwierzytelnianie użytkownika"
@@ -1144,11 +1154,11 @@ msgstr "System plików"
 
 #, c-format
 msgid "Filesystem '%s' not found"
-msgstr ""
+msgstr "System plików '%s' nie znaleziony"
 
 #, c-format
 msgid "Filesystem '%s' not supported"
-msgstr ""
+msgstr "System plików '%s' nie obsługiwany"
 
 msgid "Filesystems"
 msgstr "Systemy plików"
@@ -1163,13 +1173,13 @@ msgid "Firmware version"
 msgstr "Wersja Firmware"
 
 msgid "Flag"
-msgstr ""
+msgstr "Flaga"
 
 msgid "Force SSL/TLS"
-msgstr ""
+msgstr "Wymuś SSL/TLS"
 
 msgid "Force secure connection only."
-msgstr ""
+msgstr "Wymuś połączenie bezpieczne."
 
 msgid "France"
 msgstr "France"
@@ -1193,22 +1203,22 @@ msgid "Friday"
 msgstr "Piątek"
 
 msgid "Full"
-msgstr ""
+msgstr "Pełny"
 
 msgid "Gabon"
-msgstr ""
+msgstr "Gabon"
 
 msgid "Gambia"
 msgstr "Gambia"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Brama"
 
 msgid "General"
-msgstr ""
+msgstr "Ogólne"
 
 msgid "General Settings"
-msgstr ""
+msgstr "Ustawienia ogólne"
 
 msgid "General settings"
 msgstr "Ustawienia ogólne"
@@ -1227,6 +1237,9 @@ msgstr "Germany"
 
 msgid "Ghana"
 msgstr "Ghana"
+
+msgid "GiB"
+msgstr ""
 
 msgid "Gibraltar"
 msgstr "Gibraltar"
@@ -1247,8 +1260,16 @@ msgid "Group"
 msgstr "Grupa"
 
 #, c-format
+msgid "Group '%s' already exist"
+msgstr ""
+
+#, c-format
 msgid "Group '%s' does not exist"
 msgstr "Grupa '%s' nie istnieje"
+
+#, c-format
+msgid "Group ID '%d' already exist"
+msgstr ""
 
 msgid "Groups"
 msgstr "Grupy"
@@ -1389,6 +1410,9 @@ msgstr "Import"
 msgid "Import SSL certificate"
 msgstr "Importuj certyfikat SSL"
 
+msgid "Import groups"
+msgstr ""
+
 msgid "Import users"
 msgstr "Importuj użytkowników"
 
@@ -1458,9 +1482,6 @@ msgstr "Nieprawidłowa linia: %s"
 msgid "Invalid name"
 msgstr "Nieprawidłowa nazwa"
 
-msgid "Invalid share name"
-msgstr "Nieprawidłowa nazwa zasobu"
-
 msgid "Invalid user name"
 msgstr "Nieprawidłowa nazwa użytkownika"
 
@@ -1520,6 +1541,9 @@ msgstr "Jądro"
 
 msgid "Key size"
 msgstr "Rozmiar klucza"
+
+msgid "KiB"
+msgstr ""
 
 msgid "Kiribati"
 msgstr "Kiribati"
@@ -1753,6 +1777,9 @@ msgstr ""
 msgid "Mexico"
 msgstr "Mexico"
 
+msgid "MiB"
+msgstr ""
+
 msgid "Micronesia"
 msgstr "Micronesia"
 
@@ -1892,10 +1919,10 @@ msgid "No log entries to display"
 msgstr ""
 
 msgid "No users connected"
-msgstr ""
+msgstr "Brak podłączonych użytkowników"
 
 msgid "No users defined"
-msgstr ""
+msgstr "Brak zdefiniowanych użytkowników"
 
 msgid "None"
 msgstr "Żadny"
@@ -1928,7 +1955,7 @@ msgid "Not UDP"
 msgstr "Bez UDP"
 
 msgid "Notification"
-msgstr ""
+msgstr "Powiadomienie"
 
 msgid "November"
 msgstr "Listopad"
@@ -1952,7 +1979,7 @@ msgid "October"
 msgstr "Październik"
 
 msgid "Offline immediate test"
-msgstr ""
+msgstr "Natychmiastowy test offline"
 
 msgid "Oman"
 msgstr "Oman"
@@ -1967,16 +1994,16 @@ msgid "Organizational Unit"
 msgstr ""
 
 msgid "Others"
-msgstr ""
+msgstr "Inni"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
-msgstr ""
+msgstr "Adres SMTP poczty wychodzącej, np: smtp.mycorp.com."
 
 msgid "Outlying Oceania"
 msgstr ""
 
 msgid "Overview"
-msgstr ""
+msgstr "Przegląd"
 
 msgid "Owner"
 msgstr "Właściciel"
@@ -2068,13 +2095,13 @@ msgstr ""
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Więcej informacji w instrukcji <a href='http://linux.die.net/man/5/exports' target='_blank'>manual page</a>."
 
 msgid ""
 "Please check the <a href='http://www.openbsd.org/cgi-"
 "bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
 " more details."
-msgstr ""
+msgstr "Więcej informacji na <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a>."
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
@@ -2085,31 +2112,34 @@ msgid ""
 "Please check the <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Więcej informacji na <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manual page</a>."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Więcej informacji na <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a>."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Więcej informacji na <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a>."
 
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
+msgstr "Więcej informacji na <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a>."
+
+msgid "Please first select a volume."
 msgstr ""
 
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
-msgstr ""
+msgstr "Proszę zwrócić uwagę na to, że podczas testu nie ma komunikacji z systemem."
 
 msgid "Please reload the page to let the changes take effect."
-msgstr ""
+msgstr "Proszę przeładować stronę, aby zmiany przyniosły efekt."
 
 msgid "Please wait ..."
 msgstr "Proszę czekać ..."
@@ -2142,7 +2172,7 @@ msgid "Power mode"
 msgstr "Opcje zasilania"
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "Chroń ACL"
 
 msgid "Preserve extended attributes"
 msgstr "Chroń rozszerzone atrybuty"
@@ -2164,7 +2194,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr ""
+msgstr "Zapobiegaj przed obracaniem dysku, kiedy jest okresowo sprawdzany.<br/><br/><ul><li>Nigdy - (sprawdź) w zależności czy urządzenie jest w trybie zasilania. To może spowodować, że urządzenie zostanie uruchomione podczas sprawdzania.</li><li>Uśpienie - Sprawdzaj urządzenie do momentu kiedy jest w trybie uśpienia.</li><li>Czuwanie - Sprawdzaj urządzenie do momentu kiedy jest w trybie uśpienia lub czuwania. W tych trybach większość dysków nie obracają się, więc jeśli chcesz zapobiec obracaniu się dysku przy każdym odpytywaniu, jest to tryb, którego potrzebujesz.</li><li>Bezczynny - Sprawdzaj urządzenie do momentu kiedy jest w trybie uśpienia, czuwania lub bezczynności. W tym stanie większość dysków obraca się ciągle, więc prawdopodobnie to nie jest to, czego potrzebujesz.</li></ul>"
 
 msgid "Primary"
 msgstr "Podstawowy"
@@ -2257,7 +2287,7 @@ msgid "Recipient"
 msgstr "Odbiorca"
 
 msgid "Recover"
-msgstr ""
+msgstr "Przywróć"
 
 msgid "Recurse into directories"
 msgstr ""
@@ -2289,42 +2319,42 @@ msgstr "Usuń wszystkie istniejące uprawnienia"
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report. Set to 0 to disable this report."
-msgstr ""
+msgstr "Raportuj jeśli temperatura zmieniła się o N stopni Celsjusza od ostatniego raportu. Ustaw 0 aby wyłączyć raporty."
 
 msgid ""
 "Report if the temperature is greater or equal than N degrees Celsius. Set to"
 " 0 to disable this report."
-msgstr ""
+msgstr "Raportuj jeśli temperatura jest większa bądź równa N stopni Celsjusza. Ustaw 0, aby wyłączyć raporty."
 
 msgid "Repository"
 msgstr "Repozytorium"
 
 msgid "Require valid shell"
-msgstr ""
+msgstr "Wymagana odpowiednia powłoka."
 
 msgid "Required"
-msgstr ""
+msgstr "Wymagane"
 
 msgid "Reset"
 msgstr "Reset"
 
 msgid "Resize"
-msgstr ""
+msgstr "Zmień rozmiar"
 
 msgid "Restore"
-msgstr ""
+msgstr "Przywróć"
 
 msgid "Restore configuration"
-msgstr ""
+msgstr "Przywróć konfigurację"
 
 msgid "Restore configuration..."
-msgstr ""
+msgstr "Przywróć konfigurację..."
 
 msgid "Resume"
-msgstr ""
+msgstr "Dokończ"
 
 msgid "Retry timeout"
-msgstr ""
+msgstr "Limit czasu powtórzeń"
 
 msgid "Reunion"
 msgstr ""
@@ -2448,6 +2478,9 @@ msgstr "Wybierz państwo ..."
 
 msgid "Select a device ..."
 msgstr "Wybierz urządzenie ..."
+
+msgid "Select a directory"
+msgstr ""
 
 msgid "Select a filesystem ..."
 msgstr "Wybierz system plików ..."
@@ -3079,6 +3112,9 @@ msgstr ""
 
 msgid "Thursday"
 msgstr "Wtorek"
+
+msgid "TiB"
+msgstr ""
 
 msgid "Time"
 msgstr "Czas"
