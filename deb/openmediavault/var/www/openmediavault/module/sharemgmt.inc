@@ -49,9 +49,18 @@ class ShareMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 		}
 		// Build the absolute shared folder path.
 		$dirpath = sprintf("%s/%s", $meobject['dir'], $object['reldirpath']);
-		// Create the shared folder directory.
+		// Create the shared folder directory with the given mask.
 		$cmd = sprintf("sudo mkdir -p --mode %s %s 2>&1", $object['umask'],
 		  escapeshellarg($dirpath));
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Change group owner of directory to configured default group,
+		// e.g. 'users'.
+		$cmd = sprintf("sudo chown :%s %s 2>&1",
+		  $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'], escapeshellarg($dirpath));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

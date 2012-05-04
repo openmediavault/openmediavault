@@ -504,6 +504,7 @@ omv_mkdir_sharedfolder() {
 		  -v umask ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 		mkdir -p --mode ${mode} ${path}
 		result=$?
+		chown :${OMV_USERMGMT_DEFAULT_GROUP} ${path}
 		omv_debug "omv_mkdir_sharedfolder: path=<${path}> mode=<${mode}> cmd=<${result}>"
 	else
 		omv_debug "omv_mkdir_sharedfolder: path=<${path}> already exists"

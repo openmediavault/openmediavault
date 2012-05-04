@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-26 23:21+0200\n"
-"PO-Revision-Date: 2012-04-26 21:23+0000\n"
+"POT-Creation-Date: 2012-05-04 23:37+0200\n"
+"PO-Revision-Date: 2012-05-04 21:37+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.net/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -1442,6 +1442,9 @@ msgstr "ACL leri alt dizinlere aktar"
 msgid "Inherit permissions"
 msgstr "Yetkileri alt dizinlere aktar"
 
+msgid "Initializing"
+msgstr ""
+
 msgid "Install"
 msgstr "Kur"
 
@@ -1798,6 +1801,9 @@ msgstr "Dakika"
 msgid "Mirror"
 msgstr "Yansı"
 
+msgid "Missing"
+msgstr ""
+
 msgid "Mode"
 msgstr "Mod"
 
@@ -1980,6 +1986,9 @@ msgstr "Çevrimdışı anlık test"
 
 msgid "Oman"
 msgstr "Amman"
+
+msgid "Online"
+msgstr ""
 
 msgid "Options"
 msgstr "Seçenekler"
@@ -2364,6 +2373,12 @@ msgstr "Romanya"
 
 msgid "Rsync"
 msgstr "Rsync"
+
+msgid "Rsync - Jobs"
+msgstr ""
+
+msgid "Rsync - Server"
+msgstr ""
 
 msgid "Run"
 msgstr "Çalıştır"
@@ -3193,6 +3208,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukrayna"
+
+msgid "Ukrainian"
+msgstr ""
 
 msgid "Uninstall"
 msgstr "Kaldır"

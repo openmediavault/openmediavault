@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-26 23:21+0200\n"
-"PO-Revision-Date: 2012-05-02 11:53+0000\n"
-"Last-Translator: mictian <ffrants@gmail.com>\n"
+"POT-Creation-Date: 2012-05-04 23:37+0200\n"
+"PO-Revision-Date: 2012-05-04 21:37+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.net/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1444,6 +1444,9 @@ msgstr "Наследование списков ACL"
 msgid "Inherit permissions"
 msgstr "Наследование разрешений"
 
+msgid "Initializing"
+msgstr ""
+
 msgid "Install"
 msgstr "Установить"
 
@@ -1800,6 +1803,9 @@ msgstr "Минут"
 msgid "Mirror"
 msgstr "Зеркалирование"
 
+msgid "Missing"
+msgstr ""
+
 msgid "Mode"
 msgstr "Режим"
 
@@ -1982,6 +1988,9 @@ msgstr "Оффлайновый непосредственный тест"
 
 msgid "Oman"
 msgstr "Оман"
+
+msgid "Online"
+msgstr ""
 
 msgid "Options"
 msgstr "Опции"
@@ -2366,6 +2375,12 @@ msgstr "Румыния"
 
 msgid "Rsync"
 msgstr "Rsync"
+
+msgid "Rsync - Jobs"
+msgstr ""
+
+msgid "Rsync - Server"
+msgstr ""
 
 msgid "Run"
 msgstr "Запуск"
@@ -3195,6 +3210,9 @@ msgstr "Уганда"
 
 msgid "Ukraine"
 msgstr "Украина"
+
+msgid "Ukrainian"
+msgstr ""
 
 msgid "Uninstall"
 msgstr "Удалить"

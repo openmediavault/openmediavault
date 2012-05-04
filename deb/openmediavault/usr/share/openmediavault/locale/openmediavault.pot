@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-26 23:21+0200\n"
+"POT-Creation-Date: 2012-05-04 23:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1384,6 +1384,9 @@ msgstr ""
 msgid "Inherit permissions"
 msgstr ""
 
+msgid "Initializing"
+msgstr ""
+
 msgid "Install"
 msgstr ""
 
@@ -1731,6 +1734,9 @@ msgstr ""
 msgid "Mirror"
 msgstr ""
 
+msgid "Missing"
+msgstr ""
+
 msgid "Mode"
 msgstr ""
 
@@ -1912,6 +1918,9 @@ msgid "Offline immediate test"
 msgstr ""
 
 msgid "Oman"
+msgstr ""
+
+msgid "Online"
 msgstr ""
 
 msgid "Options"
@@ -2263,6 +2272,12 @@ msgid "Romania"
 msgstr ""
 
 msgid "Rsync"
+msgstr ""
+
+msgid "Rsync - Jobs"
+msgstr ""
+
+msgid "Rsync - Server"
 msgstr ""
 
 msgid "Run"
@@ -3013,6 +3028,9 @@ msgid "Uganda"
 msgstr ""
 
 msgid "Ukraine"
+msgstr ""
+
+msgid "Ukrainian"
 msgstr ""
 
 msgid "Uninstall"

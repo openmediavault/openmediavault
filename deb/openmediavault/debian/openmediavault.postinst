@@ -335,6 +335,18 @@ case "$1" in
 			omv_config_update "//system/network/hostname" "$(hostname --short)"
 			omv_config_add_element "//system/network" "domainname" "$(hostname --domain)"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.5"; then
+			# Change group owner of shared folder directory to configured
+			# default group, e.g. 'users'.
+			xmlstarlet sel -t -m "//system/shares/sharedfolder" \
+			  -v "uuid" \
+			  -i "position() != last()" -n -b \
+			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+			  while read uuid; do
+				  sfpath=$(omv_get_sharedfolder_path "${uuid}")
+				  chown :${OMV_USERMGMT_DEFAULT_GROUP} ${sfpath}
+			  done
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

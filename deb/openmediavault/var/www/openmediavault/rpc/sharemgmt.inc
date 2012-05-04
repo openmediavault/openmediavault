@@ -55,7 +55,7 @@ class ShareMgmtRpc extends OMVRpc {
 					"comment":{"type":"string"},
 					"mntentref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
 					"umask":{"type":"string","enum":["700","750","755",'.
-					  '"775","777"]}
+					  '"770","775","777"]}
 				}
 			}'),
 			"delete" => array('{

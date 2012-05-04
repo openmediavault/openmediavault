@@ -5,14 +5,15 @@
 # Translators:
 # Marcel Beck <fo3nik5@gmail.com>, 2012.
 #   <mattjes04@googlemail.com>, 2012.
+# Volker  <votdev@gmx.de>, 2012.
 #   <votdev@gmx.de>, 2012.
 #   <warhog@gmx.de>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-26 23:21+0200\n"
-"PO-Revision-Date: 2012-04-27 14:56+0000\n"
+"POT-Creation-Date: 2012-05-04 23:37+0200\n"
+"PO-Revision-Date: 2012-05-04 21:43+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1445,6 +1446,9 @@ msgstr "Erbe ACLs"
 msgid "Inherit permissions"
 msgstr "Berechtigungen erben"
 
+msgid "Initializing"
+msgstr "Initialisierend"
+
 msgid "Install"
 msgstr "Installieren"
 
@@ -1801,6 +1805,9 @@ msgstr "Minute"
 msgid "Mirror"
 msgstr "Mirror"
 
+msgid "Missing"
+msgstr "Fehlend"
+
 msgid "Mode"
 msgstr "Modus"
 
@@ -1983,6 +1990,9 @@ msgstr "Offline immediate test"
 
 msgid "Oman"
 msgstr "Oman"
+
+msgid "Online"
+msgstr "Online"
 
 msgid "Options"
 msgstr "Optionen"
@@ -2367,6 +2377,12 @@ msgstr "Rumänien"
 
 msgid "Rsync"
 msgstr "rsync"
+
+msgid "Rsync - Jobs"
+msgstr "Rsync - Jobs"
+
+msgid "Rsync - Server"
+msgstr "Rsync - Server"
 
 msgid "Run"
 msgstr "Ausführen"
@@ -3196,6 +3212,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukraine"
+
+msgid "Ukrainian"
+msgstr "Ukrainisch"
 
 msgid "Uninstall"
 msgstr "Entfernen"

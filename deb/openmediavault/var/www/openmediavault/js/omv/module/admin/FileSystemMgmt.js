@@ -401,7 +401,7 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 	usedRenderer : function(val, cell, record, row, col, store) {
 		var percentage = parseInt(record.get("percentage"));
 		if (-1 == percentage) {
-			return val;
+			return _("n/a");
 		}
 		var id = Ext.id();
 		(function(){
@@ -417,13 +417,14 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 	statusRenderer : function(val, cell, record, row, col, store) {
 		switch (val) {
 		case 1:
-			val = "Online";
+			val = _("Online");
 			break;
 		case 2:
-			val = "<img border='0' src='images/wait.gif'> Initializing";
+			val = "<img border='0' src='images/wait.gif'> " +
+			  _("Initializing");
 			break;
 		default:
-			val = "Missing";
+			val = _("Missing");
 			break;
 		}
 		return val;

@@ -28,6 +28,10 @@ omv_pull_po:
 	tx --root="$(CURDIR)/../" pull --all \
 	  --resource=$(OMV_TRANSIFEX_PROJECT_SLUG).$(OMV_PACKAGE)
 
+omv_push_pot:
+	tx --root="$(CURDIR)/../" push --source \
+	  --resource=$(OMV_TRANSIFEX_PROJECT_SLUG).$(OMV_PACKAGE)
+
 omv_build_pot:
 	dh_testdir
 	echo "Building PO template file ..." >&2
