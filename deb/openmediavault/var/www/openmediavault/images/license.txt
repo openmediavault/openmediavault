@@ -336,3 +336,8 @@ Image: erase.png
 Designer: Oxygen Team
 License: GPL
 URL: http://www.iconfinder.com/icondetails/9269/16
+
+Image: folder-trigger.png
+Designer: Volker Theile, based on Gnome Project and ExtJS trigger template
+License: GPL
+URL: http://www.iconfinder.com/icondetails/21114/16

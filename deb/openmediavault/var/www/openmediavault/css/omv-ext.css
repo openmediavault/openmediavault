@@ -113,7 +113,10 @@ See http://www.extjs.com/learn/Ext_FAQ_Grid#Dirty_Record_.2F_Red_Flag_.28modifyi
 	background-image: url("/images/password-trigger.png");
 }
 .x-form-field-wrap .x-form-add-trigger {
-    background-image: url("../images/add-trigger.gif");
+    background-image: url("../images/add-trigger.png");
+}
+.x-form-field-wrap .x-form-folder-trigger {
+    background-image: url("../images/folder-trigger.png");
 }
 /* About box */
 .x-box-aboutbox {

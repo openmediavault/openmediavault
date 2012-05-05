@@ -289,6 +289,7 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 			name: "reldirpath",
 			fieldLabel: _("Path"),
 			allowBlank: false,
+			triggerClass: "x-form-folder-trigger",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: _("The path of the folder to share. The specified folder will be created if it does not already exist."),
 			onTriggerClick: function() {
