@@ -1,6 +1,7 @@
 openmediavault (0.3.0.6) stable; urgency=low
 
-  * Misc issues.
+  * Misc issues
+  * Update locales
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 05 May 2012 02:56:33 +0200
 
