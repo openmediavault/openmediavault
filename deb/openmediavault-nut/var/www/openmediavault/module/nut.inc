@@ -114,7 +114,7 @@ class NetworkUPSToolsModule extends OMVModuleAbstract
 	 * the service must not be updated if remote monitoring is disabled.
 	 * @param object The network interface configuration object.
 	 */
-	private function updateInterface($object) {
+	public function updateInterface($object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Get the configuration object.
