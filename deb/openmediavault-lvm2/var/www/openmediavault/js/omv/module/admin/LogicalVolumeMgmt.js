@@ -1311,6 +1311,7 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 			} else {
 				OMV.MessageBox.error(null, error);
 			}
-		}, this, "LogicalVolumeMgmt", "getVolumeGroup", [ this.vgname ]);
+		}, this, "LogicalVolumeMgmt", "getVolumeGroup",
+		{ "name": this.vgname });
 	}
 });
