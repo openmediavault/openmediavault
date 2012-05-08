@@ -1,12 +1,19 @@
+openmediavault-nut (0.3.0.3) stable; urgency=low
+
+  * Mantis 0000445: Update upsd.conf after a network interface has been
+    modified. This is only necessary if remote monitoring is enabled.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2012 20:41:38 +0200
+
 openmediavault-nut (0.3.0.2) stable; urgency=low
 
-  * Update locales
+  * Update locales.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 03 May 2012 21:12:00 +0200
 
 openmediavault-nut (0.3.0.1) stable; urgency=low
 
-  * Update locales
+  * Update locales.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 26 Apr 2012 22:43:35 +0200
 

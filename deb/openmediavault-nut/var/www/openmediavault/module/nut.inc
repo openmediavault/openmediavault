@@ -70,6 +70,7 @@ class NetworkUPSToolsModule extends OMVModuleAbstract
 
 	/**
 	 * Update the service.
+	 * @param object The plugin configuration object.
 	 */
 	public function updateService($object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -109,6 +110,28 @@ class NetworkUPSToolsModule extends OMVModuleAbstract
 	}
 
 	/**
+	 * Update service if a network interface has been modified. Note,
+	 * the service must not be updated if remote monitoring is disabled.
+	 * @param object The network interface configuration object.
+	 */
+	private function updateInterface($object) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Get the configuration object.
+		$xpath = "//services/nut";
+		$object = $xmlConfig->get($xpath);
+		if (is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Is remote monitoring enabled?
+		if (TRUE === boolval($object['remotemonitor'])) {
+			// Update the configuration.
+			$this->updateService($object);
+		}
+	}
+
+	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
@@ -117,6 +140,15 @@ class NetworkUPSToolsModule extends OMVModuleAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nut",
 		  array($this, "updateService"), 1);
+		// Update service if a interface has been modified
+		$dispatcher->addListener(
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+		  "org.openmediavault.system.network.interfaces.iface",
+		  array($this, "updateInterface"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+		  "org.openmediavault.system.network.interfaces.bondiface",
+		  array($this, "updateInterface"));
 		// Update config file if notification/email configuration has been
 		// modified
 		$dispatcher->addListener(
