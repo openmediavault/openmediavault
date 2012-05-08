@@ -287,33 +287,44 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 			var record = records[i];
 			packages.push(record.get("name"));
 		}
-		var wnd = new OMV.ExecCmdDialog({
-			title: _("Install plugins ..."),
-			rpcService: "Plugin",
-			rpcMethod: "install",
-			rpcArgs: { "packages": packages },
-			hideStart: true,
-			hideStop: true,
-			killCmdBeforeDestroy: false,
-			listeners: {
-				finish: function(wnd, response) {
-					wnd.appendValue("\n" + _("Done ..."));
-					wnd.setButtonDisabled("close", false);
-				},
-				exception: function(wnd, error) {
-					OMV.MessageBox.error(null, error);
-					wnd.setButtonDisabled("close", false);
-				},
-				close: function() {
-					this.doReload();
-					OMV.MessageBox.info(null, _("Please reload the page to let the changes take effect."));
-				},
-				scope: this
-			}
+		OMV.MessageBox.show({
+			title: _("Confirmation"),
+			msg: _("Do you really want to install the selected plugin(s)?"),
+			buttons: Ext.Msg.YESNO,
+			fn: function(answer) {
+				if (answer == "no")
+					return;
+				var wnd = new OMV.ExecCmdDialog({
+					title: _("Install plugins ..."),
+					rpcService: "Plugin",
+					rpcMethod: "install",
+					rpcArgs: { "packages": packages },
+					hideStart: true,
+					hideStop: true,
+					killCmdBeforeDestroy: false,
+					listeners: {
+						finish: function(wnd, response) {
+							wnd.appendValue("\n" + _("Done ..."));
+							wnd.setButtonDisabled("close", false);
+						},
+						exception: function(wnd, error) {
+							OMV.MessageBox.error(null, error);
+							wnd.setButtonDisabled("close", false);
+						},
+						close: function() {
+							this.doReload();
+							OMV.MessageBox.info(null, _("Please reload the page to let the changes take effect."));
+						},
+						scope: this
+					}
+				});
+				wnd.setButtonDisabled("close", true);
+				wnd.show();
+				wnd.start();
+			},
+			scope: this,
+			icon: Ext.Msg.QUESTION
 		});
-		wnd.setButtonDisabled("close", true);
-		wnd.show();
-		wnd.start();
 	},
 
 	cbDeleteBtnHdl : function() {
@@ -324,10 +335,9 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 			var record = records[i];
 			packages.push(record.get("name"));
 		}
-		var msg = _("Do you really want to uninstall the selected plugin(s)?");
 		OMV.MessageBox.show({
 			title: _("Confirmation"),
-			msg: msg,
+			msg: _("Do you really want to uninstall the selected plugin(s)?"),
 			buttons: Ext.Msg.YESNO,
 			fn: function(answer) {
 				if (answer == "no")

@@ -58,21 +58,23 @@ Ext.extend(OMV.LoginDialog, OMV.Window, {
 				labelSeparator: ""
 			},
 			items: [{
+				xtype: "languagecombo",
+				fieldLabel: _("Language"),
+				submitValue: false
+			},{
+				id: "username",
 				xtype: "textfield",
 				fieldLabel: _("Username"),
 				name: "username",
 				blankText: _("Enter your username"),
-				autoComplete: true
+				autoComplete: false
 			},{
+				id: "password",
 				xtype: "passwordfield",
 				fieldLabel: _("Password"),
 				name: "password",
 				blankText: _("Enter your password"),
-				autoComplete: true
-			},{
-				xtype: "languagecombo",
-				fieldLabel: _("Language"),
-				submitValue: false
+				autoComplete: false
 			}]
 		});
 		Ext.apply(this, {

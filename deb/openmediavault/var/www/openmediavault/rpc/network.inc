@@ -515,6 +515,14 @@ class NetworkRpc extends OMVRpc {
 		// Set configuration data
 		$success = FALSE;
 		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			// Check uniqueness
+			$xpath = sprintf("//system/network/interfaces/iface[".
+			  "devicename='%s']", $data['devicename']);
+			if (TRUE === $xmlConfig->exists($xpath)) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+				  sprintf(gettext("Network interface '%s' already exists"),
+				  $object['devicename']));
+			}
 			// Append object to configuration
 			$success = $xmlConfig->set("//system/network/interfaces",
 			  array("iface" => $object));

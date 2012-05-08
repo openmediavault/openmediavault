@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-04 23:37+0200\n"
-"PO-Revision-Date: 2012-05-04 21:37+0000\n"
+"POT-Creation-Date: 2012-05-08 20:20+0200\n"
+"PO-Revision-Date: 2012-05-08 18:21+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.net/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -351,7 +351,7 @@ msgid "Archive"
 msgstr "Archiwum"
 
 msgid "Are clients required to use FTP over TLS when talking to this server?"
-msgstr ""
+msgstr "Czy klienci wymagają do korzystania z FTP poprzez TLS podczas połączenia z tym serwerem?"
 
 msgid "Argentina"
 msgstr "Argentyna"
@@ -393,7 +393,7 @@ msgid "Authentication and privacy"
 msgstr "Uwierzytelnianie i prywatność"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "Hasło uwierzytelniające"
 
 msgid "Authentication required"
 msgstr "Wymagane uwierzytelnianie"
@@ -646,7 +646,7 @@ msgid ""
 msgstr "Informacje kontaktowe, np imię lub adres elektroniczny osoby odpowiedzialnej za system."
 
 msgid "Conveyance self-test"
-msgstr ""
+msgstr "Przemieszczenie auto-testu"
 
 msgid "Cook Islands"
 msgstr "Cook Islands"
@@ -701,7 +701,7 @@ msgid "DNS Server"
 msgstr "Serwer DNS"
 
 msgid "DNS Service Discovery"
-msgstr ""
+msgstr "Odnajdywanie usług DNS"
 
 msgid "DNS server"
 msgstr "serwer DNS"
@@ -834,6 +834,9 @@ msgid ""
 "Please note that the filesystem creation may take some time."
 msgstr "Czy na pewno chcesz sformatować te urządzenie? Wszystkie dane na nim zostaną usunięte. Należy pamiętać, że tworzenie systemu plików może zająć trochę czasu."
 
+msgid "Do you really want to install the selected plugin(s)?"
+msgstr ""
+
 msgid "Do you really want to leave the page?"
 msgstr "Czy na pewno chcesz opuścić stronę?"
 
@@ -887,7 +890,7 @@ msgid "Download"
 msgstr "Pobierz"
 
 msgid "Dronning Maud Land"
-msgstr ""
+msgstr "Dronning Maud Land"
 
 msgid "Dutch"
 msgstr "Duński"
@@ -1033,7 +1036,7 @@ msgid "Enable user home directories"
 msgstr "Włącz katalogi domowe użytkowników"
 
 msgid "Enable write-cache."
-msgstr ""
+msgstr "Włącz zapis-cache"
 
 msgid "Enabled"
 msgstr "Właczone"
@@ -1129,10 +1132,10 @@ msgid "Failed to get system date and time"
 msgstr "Błąd przy pobieraniu daty i godziny systemowej"
 
 msgid "Falkland Islands"
-msgstr ""
+msgstr "Falkland Islands"
 
 msgid "Faroe Islands"
-msgstr ""
+msgstr "Faroe Islands"
 
 msgid "Fatal error"
 msgstr "Błąd krytyczny"
@@ -1323,7 +1326,7 @@ msgid "Hong Kong S.A.R., China"
 msgstr "Hong Kong S.A.R., China"
 
 msgid "Honor existing ACLs"
-msgstr ""
+msgstr "Honoruj istniejące ACL-ele"
 
 msgid "Host"
 msgstr "Host"
@@ -1359,7 +1362,7 @@ msgid "Iceland"
 msgstr "Iceland"
 
 msgid "Ident protocol"
-msgstr ""
+msgstr "Protokół jednostkowy"
 
 msgid "Identify"
 msgstr "Identyfikuj"
@@ -1434,16 +1437,16 @@ msgid "Indonesia"
 msgstr "Indonesia"
 
 msgid "Informal"
-msgstr ""
+msgstr "Nieformalny"
 
 msgid "Information"
 msgstr "Informacja"
 
 msgid "Inherit ACLs"
-msgstr ""
+msgstr "Dziedzicz ACL-y"
 
 msgid "Inherit permissions"
-msgstr ""
+msgstr "Dziedzicz uprawnienia"
 
 msgid "Initializing"
 msgstr ""
@@ -1558,7 +1561,7 @@ msgid "Kyrgyzstan"
 msgstr "Kyrgyzstan"
 
 msgid "LBA of first error"
-msgstr ""
+msgstr "LBA z pierwszym błędem"
 
 msgid "Label"
 msgstr "Etykieta"
@@ -1596,10 +1599,10 @@ msgid "Liechtenstein"
 msgstr "Liechtenstein"
 
 msgid "Lifetime"
-msgstr ""
+msgstr "Czas życia"
 
 msgid "Linear"
-msgstr ""
+msgstr "Liniowy"
 
 msgid "Link"
 msgstr "Link"
@@ -1620,7 +1623,7 @@ msgid "Local"
 msgstr "Lokalny"
 
 msgid "Local master browser"
-msgstr ""
+msgstr "Głowna lokalna przegladarka"
 
 msgid "Location"
 msgstr "Lokalizacja"
@@ -1687,7 +1690,7 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Manual"
-msgstr ""
+msgstr "Ręcznie"
 
 msgid "March"
 msgstr "Marzec"
@@ -1712,7 +1715,7 @@ msgid ""
 msgstr ""
 
 msgid "Mauritania"
-msgstr ""
+msgstr "Mauritania"
 
 msgid "Mauritius"
 msgstr "Mauritius"
@@ -1739,7 +1742,7 @@ msgid ""
 msgstr ""
 
 msgid "Maximum number of allowed password attempts before disconnection."
-msgstr ""
+msgstr "Maksymalna liczba prób podania prawidłowego hasła przed odłączeniem."
 
 msgid "Maximum number of connections per IP (0 = unlimited)."
 msgstr "Maksymalna ilość połączeń na jeden adres IP (0 = bez ograniczeń)."
@@ -1748,34 +1751,34 @@ msgid "Maximum number of simultaneous clients."
 msgstr "Maksymalna ilość jednocześnie podłązonych klientów."
 
 msgid "Maximum performance, maximum acoustic output"
-msgstr ""
+msgstr "Maksymalna wydajność, maksymalna moc akustyczna"
 
 msgid "Maximum upload rate (KiB/s)"
-msgstr ""
+msgstr "Maksymalna szybkość wysyłania (KiB/s)"
 
 msgid "Maximum {0} selected item(s) allowed"
-msgstr ""
+msgstr "Maksymalnie {0} wybrane dozwolone pozycje"
 
 msgid "May"
 msgstr "Maj"
 
 msgid "Mayotte"
-msgstr ""
+msgstr "Mayotte"
 
 msgid "Members"
-msgstr ""
+msgstr "Użytkownicy"
 
 msgid "Memory usage"
-msgstr ""
+msgstr "Użycie pamięci"
 
 msgid "Messages"
-msgstr ""
+msgstr "Wiadomości"
 
 msgid "Method"
-msgstr ""
+msgstr "Metoda"
 
 msgid "Metropolitan France"
-msgstr ""
+msgstr "Metropolitan France"
 
 msgid "Mexico"
 msgstr "Mexico"
@@ -1793,10 +1796,10 @@ msgid "Minimum"
 msgstr "Minimum"
 
 msgid "Minimum performance, Minimum acoustic output"
-msgstr ""
+msgstr "Minimalna wydajność, Minimalna moc akustyczna"
 
 msgid "Minimum {0} selected item(s) required"
-msgstr ""
+msgstr "Maksymalnie {0} wybrane wymagane pozycje"
 
 msgid "Minute"
 msgstr "Minuta"
@@ -1919,10 +1922,10 @@ msgid "No authentication and no privacy"
 msgstr ""
 
 msgid "No items to display"
-msgstr ""
+msgstr "Brak elementów do wyświetlenia"
 
 msgid "No log entries to display"
-msgstr ""
+msgstr "Brak wpisów dziennika do wyświetlenia"
 
 msgid "No users connected"
 msgstr "Brak podłączonych użytkowników"
@@ -1970,7 +1973,7 @@ msgid "Null passwords"
 msgstr "Puste hasło"
 
 msgid "Num"
-msgstr ""
+msgstr "Num"
 
 msgid "Number of servers"
 msgstr "Ilość serwerów"
@@ -2212,7 +2215,7 @@ msgid "Primary email"
 msgstr "Podstawowy email"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Prywatne hasło"
 
 msgid "Privacy type"
 msgstr "Typ prywatności"
@@ -2221,10 +2224,10 @@ msgid "Private key"
 msgstr "Klucz prywatny"
 
 msgid "Privilege"
-msgstr ""
+msgstr "Przywilej"
 
 msgid "Privileges"
-msgstr ""
+msgstr "Przywileje"
 
 msgid "Processes"
 msgstr "Procesy"
@@ -2242,10 +2245,10 @@ msgid "Puerto Rico"
 msgstr "Puerto Rico"
 
 msgid "Pull"
-msgstr ""
+msgstr "Pobrać"
 
 msgid "Push"
-msgstr ""
+msgstr "Wysłać"
 
 msgid "Qatar"
 msgstr "Katar"
@@ -2269,7 +2272,7 @@ msgid "RAID Management"
 msgstr "Zarządzanie RAID"
 
 msgid "RPC error"
-msgstr ""
+msgstr "Błąd RPC"
 
 msgid "RSync server"
 msgstr "Serwer RSync"
@@ -2372,7 +2375,7 @@ msgid "Reverse DNS lookup"
 msgstr ""
 
 msgid "Romania"
-msgstr ""
+msgstr "Romania"
 
 msgid "Rsync"
 msgstr "Rsync"
@@ -2396,7 +2399,7 @@ msgid "Russian"
 msgstr "Rosja"
 
 msgid "Rwanda"
-msgstr ""
+msgstr "Rwanda"
 
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
@@ -2405,7 +2408,7 @@ msgid "S.M.A.R.T. informations"
 msgstr " Informacje S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr ""
+msgstr "Monitoring S.M.A.R.T. musi być aktywny dla wybranego urządzenia"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2468,22 +2471,22 @@ msgid "Saving ..."
 msgstr "Zapisuje ..."
 
 msgid "Scheduled tests"
-msgstr ""
+msgstr "Zaplanowane testy"
 
 msgid "Secondary"
-msgstr ""
+msgstr "Pomocniczy"
 
 msgid "Secondary email"
 msgstr "Drugi email"
 
 msgid "Seconds"
-msgstr ""
+msgstr "Sekund"
 
 msgid "Secure connection"
 msgstr "Bezpieczne połączenie"
 
 msgid "Security level"
-msgstr ""
+msgstr "Poziom bezpieczeństwa"
 
 msgid "Select a SSL certificate ..."
 msgstr "Wybierz certyfikat SSL ..."
@@ -2582,7 +2585,7 @@ msgid "Session timeout"
 msgstr "Sesja wygasła"
 
 msgid "Set browseable"
-msgstr ""
+msgstr "Ustaw możliwość przeglądania"
 
 msgid "Set read only"
 msgstr "Ustaw tylko do odczytu"
@@ -2605,7 +2608,7 @@ msgid "Settings already exist for device '%s'"
 msgstr "Ustawienia już istnieją dla urządzenia '%s'"
 
 msgid "Seychelles"
-msgstr ""
+msgstr "Seychelles"
 
 msgid "Shared Folders"
 msgstr "Katalogi współdzielone"
@@ -2656,7 +2659,7 @@ msgid "Size"
 msgstr "Rozmiar"
 
 msgid "Slaves"
-msgstr ""
+msgstr "Niewolnicy"
 
 msgid "Sleep"
 msgstr "Uśpij"
@@ -2695,7 +2698,7 @@ msgid "South Africa"
 msgstr "South Africa"
 
 msgid "South Georgia and the South Sandwich Islands"
-msgstr ""
+msgstr "South Georgia and the South Sandwich Islands"
 
 msgid "South Korea"
 msgstr "South Korea"

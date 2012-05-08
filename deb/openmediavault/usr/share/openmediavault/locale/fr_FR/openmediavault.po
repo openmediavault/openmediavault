@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-04 23:37+0200\n"
-"PO-Revision-Date: 2012-05-04 21:37+0000\n"
+"POT-Creation-Date: 2012-05-08 20:20+0200\n"
+"PO-Revision-Date: 2012-05-08 18:20+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.net/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -237,7 +237,7 @@ msgid "Administrator password"
 msgstr "Mot de passe de l'adminitrateur"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
-msgstr "Administrateur: lect./écrit., Utilisateur: aucun accès, Autres: pas d'accès"
+msgstr "Administrateur: lect./écrit., Utilisateur: pas d'accès, Autres: pas d'accès"
 
 msgid "Administrator: read/write, Users: read-only, Others: no access"
 msgstr "Administrateur: lect./écrit., Utilisateur: lect. seule, Autres: pas d'accès"
@@ -831,6 +831,9 @@ msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the filesystem creation may take some time."
 msgstr "Voulez-vous vraiment formater ce disque? Toutes les données seront supprimé. Notez que la création du système de fichiers peut prendre un certain temps."
+
+msgid "Do you really want to install the selected plugin(s)?"
+msgstr ""
 
 msgid "Do you really want to leave the page?"
 msgstr "Voulez-vous vraiment quitter la page?"
@@ -1444,7 +1447,7 @@ msgid "Inherit permissions"
 msgstr "Hériter des autorisations"
 
 msgid "Initializing"
-msgstr ""
+msgstr "Initialisation"
 
 msgid "Install"
 msgstr "Installer"
@@ -1453,7 +1456,7 @@ msgid "Install plugins ..."
 msgstr "Installation des plugins en cours ..."
 
 msgid "Install updates ..."
-msgstr "Installation en cours des mises à jour ..."
+msgstr "Installation des mises à jour en cours ..."
 
 msgid "Installed"
 msgstr "Installé"
@@ -1803,7 +1806,7 @@ msgid "Mirror"
 msgstr "Mirroir"
 
 msgid "Missing"
-msgstr ""
+msgstr "Manquant"
 
 msgid "Mode"
 msgstr "Mode"
@@ -1989,7 +1992,7 @@ msgid "Oman"
 msgstr "Oman"
 
 msgid "Online"
-msgstr ""
+msgstr "En ligne"
 
 msgid "Options"
 msgstr "Options"
@@ -2376,10 +2379,10 @@ msgid "Rsync"
 msgstr "Rsync"
 
 msgid "Rsync - Jobs"
-msgstr ""
+msgstr "Rsync - Travaux"
 
 msgid "Rsync - Server"
-msgstr ""
+msgstr "Rsync - Serveur"
 
 msgid "Run"
 msgstr "Exécuter"
@@ -3211,7 +3214,7 @@ msgid "Ukraine"
 msgstr "Ukraine"
 
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukrainien"
 
 msgid "Uninstall"
 msgstr "Désinstallation"

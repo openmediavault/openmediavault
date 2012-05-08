@@ -1,7 +1,18 @@
+openmediavault (0.3.0.7) stable; urgency=low
+
+  * Update locales.
+  * Request confirmation from the user before installing new plugins.
+  * Disable autocompletion in login dialog.
+  * Check for duplicates before storing network interface configuration
+    object.
+  * Mantis 0000447: Reorder login dialog fields.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2012 19:56:09 +0200
+
 openmediavault (0.3.0.6) stable; urgency=low
 
-  * Misc issues
-  * Update locales
+  * Misc issues.
+  * Update locales.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 05 May 2012 02:56:33 +0200
 
