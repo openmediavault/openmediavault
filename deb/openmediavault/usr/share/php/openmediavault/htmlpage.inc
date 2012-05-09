@@ -162,6 +162,7 @@ class OMVWebGui extends OMVHtmlPage {
 		$incList = array();
 		$this->scanFiles("js/omv/SessionMgr.js", $incList);
 		$this->scanFiles("js/omv/Viewport.js", $incList);
+		$this->scanFiles("js/omv/data/DataRequest.js", $incList);
 		$this->scanDir("js/omv/module", $incList, FALSE);
 		$this->scanDir("js/omv/module/{$this->mode}", $incList, TRUE);
 		return $incList;

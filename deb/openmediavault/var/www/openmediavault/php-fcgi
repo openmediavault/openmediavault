@@ -19,10 +19,14 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# References:
+# http://www.dev-smart.com/archives/54
+# http://wherethebitsroam.com/blogs/jeffw/apache-php-fastcgi-and-phpfcgichildren
+
 . /etc/default/locale
 
 export PHPRC="/var/www/openmediavault/cgi"
-export PHP_FCGI_CHILDREN=4
+#export PHP_FCGI_CHILDREN=4
 export PHP_FCGI_MAX_REQUESTS=1000
 export LANG
 

@@ -89,9 +89,13 @@ class OMVSystem {
 
 	/**
 	 * Tell how long the system has been running.
-	 * @return The uptime as formated string or FALSE on failure.
+	 * @param indexed Set to FALSE to get the uptime as string, otherwise an
+	 *   indexed array with the fields \em seconds, \em minutes, \em hours
+	 *   and \em days will be returned. Defaults to FALSE.
+	 * @return The uptime as formated string, indexed array or FALSE on
+	 *   failure.
 	 */
-	public static function uptime() {
+	public static function uptime($indexed = FALSE) {
 		@OMVUtil::exec("cat /proc/uptime", $output, $result);
 		if ($result !== 0) {
 			return FALSE;
@@ -101,11 +105,19 @@ class OMVSystem {
 		$hours = intval(($uptime[0] / 3600) % 24);
 		$mins = intval(($uptime[0] / 60) % 60);
 		$secs = intval($uptime[0] % 60);
-		return sprintf("%d %s %d %s %d %s %d %s",
-		  $days, ($days == 1) ? gettext("day") : gettext("days"),
-		  $hours, ($hours == 1) ? gettext("hour") : gettext("hours"),
-		  $mins, ($mins == 1) ? gettext("minute") : gettext("minutes"),
-		  $secs, gettext("seconds"));
+		if (FALSE === $indexed)
+			return sprintf("%d %s %d %s %d %s %d %s",
+			  $days, ($days == 1) ? gettext("day") : gettext("days"),
+			  $hours, ($hours == 1) ? gettext("hour") : gettext("hours"),
+			  $mins, ($mins == 1) ? gettext("minute") : gettext("minutes"),
+			  $secs, gettext("seconds"));
+		else
+			return array(
+				"seconds" => $secs,
+				"minutes" => $mins,
+				"hours" => $hours,
+				"days" => $days
+			  );
 	}
 
 	/**

@@ -1,3 +1,10 @@
+openmediavault (0.3.0.8) stable; urgency=low
+
+  * Fix broken user WebGUI.
+  * Do not use PHP_FCGI_CHILDREN.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 May 2012 15:42:30 +0200
+
 openmediavault (0.3.0.7) stable; urgency=low
 
   * Update locales.
