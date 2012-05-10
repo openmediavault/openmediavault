@@ -386,7 +386,7 @@ Ext.extend(OMV.Module.Services.FTPModTLSPanel, OMV.FormPanelExt, {
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
-			title: _("Settings"),
+			title: _("General settings"),
 			defaults: {
 //				anchor: "100%",
 				labelSeparator: ""
@@ -403,13 +403,6 @@ Ext.extend(OMV.Module.Services.FTPModTLSPanel, OMV.FormPanelExt, {
 					scope: this
 				}
 			},{
-				xtype: "checkbox",
-				name: "required",
-				fieldLabel: _("Required"),
-				checked: false,
-				inputValue: 1,
-				boxLabel: _("Are clients required to use FTP over TLS when talking to this server?")
-			},{
 				xtype: "certificatecombo",
 				name: "sslcertificateref",
 				hiddenName: "sslcertificateref",
@@ -418,6 +411,42 @@ Ext.extend(OMV.Module.Services.FTPModTLSPanel, OMV.FormPanelExt, {
 				allowNone: true,
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: _("The SSL certificate.")
+			}]
+		},{
+			xtype: "fieldset",
+			title: _("Advanced settings"),
+			defaults: {
+//				anchor: "100%",
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "checkbox",
+				name: "required",
+				fieldLabel: _("Required"),
+				checked: false,
+				inputValue: 1,
+				boxLabel: _("This option requires clients to use FTP over TLS when talking to this server.")
+			},{
+				xtype: "checkbox",
+				name: "nocertrequest",
+				fieldLabel: _("No certificate request"),
+				checked: false,
+				inputValue: 1,
+				boxLabel: _("This option causes the server to not send a certificate request during a SSL handshake.")
+			},{
+				xtype: "checkbox",
+				name: "nosessionreuserequired",
+				fieldLabel: _("No session reuse required"),
+				checked: false,
+				inputValue: 1,
+				boxLabel: _("The requirement that the SSL session from the control connection is reused for data connections is not required.")
+			},{
+				xtype: "checkbox",
+				name: "useimplicitssl",
+				fieldLabel: _("Implicit SSL"),
+				checked: false,
+				inputValue: 1,
+				boxLabel: _("This option will handle all connections as if they are SSL connections implicitly.")
 			},{
 				xtype: "textfield",
 				name: "extraoptions",

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-08 20:20+0200\n"
-"PO-Revision-Date: 2012-05-08 18:21+0000\n"
+"POT-Creation-Date: 2012-05-10 21:39+0200\n"
+"PO-Revision-Date: 2012-05-10 19:39+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.net/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -346,9 +346,6 @@ msgstr "Nisan"
 
 msgid "Archive"
 msgstr "Arşiv"
-
-msgid "Are clients required to use FTP over TLS when talking to this server?"
-msgstr "Kullanıcıların bu sunucu ile iletişim için FTP üzerinden TLS gerekli midir? "
 
 msgid "Argentina"
 msgstr "Arjantin"
@@ -1404,6 +1401,9 @@ msgid ""
 "firewall as well."
 msgstr "Eğer makinanız sunucu çin NAT ag geçidi ya da port yönlendirici olarak çalışıyor ise, bu seçenek çalışmak için pasif transferlere izin verdiğinden oldukça kullanışlıdır."
 
+msgid "Implicit SSL"
+msgstr ""
+
 msgid "Import"
 msgstr "İçeri aktarmak"
 
@@ -1885,6 +1885,10 @@ msgstr "Ağ maskesi"
 msgid "Network"
 msgstr "Ağ"
 
+#, c-format
+msgid "Network interface '%s' already exists"
+msgstr ""
+
 msgid "Neutral Zone"
 msgstr "Tarafsız Bölge"
 
@@ -1918,11 +1922,17 @@ msgstr "Erişim yok"
 msgid "No authentication and no privacy"
 msgstr "Kimlik doğrulama ve gizlilik yok"
 
+msgid "No certificate request"
+msgstr ""
+
 msgid "No items to display"
 msgstr "Gösterilecek herhangi bir öge yok"
 
 msgid "No log entries to display"
 msgstr "Gösterilecek herhangi bir kayıt girişi yok"
+
+msgid "No session reuse required"
+msgstr ""
 
 msgid "No users connected"
 msgstr "Herhangi bir kullanıcı bağlı değil"
@@ -2937,6 +2947,11 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr "Yeni dosya ve klasörler üzerindeki yetkiler normalde oluşturma kalıbı ve klasör kalıbı ile düzenlenir fakat aktarılan yetkiler bu parametreleri geçersiz kılar. Bu özellikle çok kullanıcılı sistemlerde her bir kullanıcının tek bir paylaşımı rahatça kullanabilmesine imkan sağlar."
 
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr ""
+
 msgid "The session timeout time in minutes."
 msgstr "Dakika olarak oturum zaman aşımı."
 
@@ -3054,6 +3069,11 @@ msgid ""
 msgstr "Bu, sistem işlemcisinin daha etkin olarak çalıştırılmasını ve Samda nın da daha hızlı çalışmasını sağlayabilir.Samba, iletişim kuralı seviyesi NT LM 0.12 den düşük ya da Windows 9x ile çalışan bir istemci tesbit ettiğinde bunu kapatır."
 
 msgid ""
+"This option causes the server to not send a certificate request during a SSL"
+" handshake."
+msgstr ""
+
+msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
 msgstr "Bu seçenek kullanıcı kullanılabilir modülleri listelediğinde bu modülün gösterilip gösterilmeyeceğini belirler."
@@ -3089,6 +3109,11 @@ msgid ""
 msgstr "Bu seçenek, bu paylaşıma erişim hakkı bulunan, virgül, boşluk veya tab ile ayrılmış kullanıcı listesidir. Kullanıcıları isim veya IP numarası ile belirleyebilirsiniz. Varsayılan ayarları kullanmak için bu alanı boş bırakınız."
 
 msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr ""
+
+msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "Bu seçenek yer alacağı modülden ya da modüle dosya transferleri sırasında kullanılacak grup adını belirler."
@@ -3102,6 +3127,11 @@ msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
 msgstr "Bu seçenek yer alacağı modülden ya da modüle dosya transferleri sırasında kullanılacak kullanıcı adını belirler."
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr ""
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "

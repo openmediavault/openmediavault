@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-08 20:20+0200\n"
-"PO-Revision-Date: 2012-05-08 18:21+0000\n"
+"POT-Creation-Date: 2012-05-10 21:39+0200\n"
+"PO-Revision-Date: 2012-05-10 19:39+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.net/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -349,9 +349,6 @@ msgstr "Kwiecień"
 
 msgid "Archive"
 msgstr "Archiwum"
-
-msgid "Are clients required to use FTP over TLS when talking to this server?"
-msgstr "Czy klienci wymagają do korzystania z FTP poprzez TLS podczas połączenia z tym serwerem?"
 
 msgid "Argentina"
 msgstr "Argentyna"
@@ -1407,6 +1404,9 @@ msgid ""
 "firewall as well."
 msgstr ""
 
+msgid "Implicit SSL"
+msgstr ""
+
 msgid "Import"
 msgstr "Import"
 
@@ -1888,6 +1888,10 @@ msgstr "Maska sieci"
 msgid "Network"
 msgstr "Sieć"
 
+#, c-format
+msgid "Network interface '%s' already exists"
+msgstr ""
+
 msgid "Neutral Zone"
 msgstr "Neutral Zone"
 
@@ -1921,11 +1925,17 @@ msgstr "Brak dostępu"
 msgid "No authentication and no privacy"
 msgstr ""
 
+msgid "No certificate request"
+msgstr ""
+
 msgid "No items to display"
 msgstr "Brak elementów do wyświetlenia"
 
 msgid "No log entries to display"
 msgstr "Brak wpisów dziennika do wyświetlenia"
+
+msgid "No session reuse required"
+msgstr ""
 
 msgid "No users connected"
 msgstr "Brak podłączonych użytkowników"
@@ -2940,6 +2950,11 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr ""
 
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr ""
+
 msgid "The session timeout time in minutes."
 msgstr "Czas trwania sesji w minutach."
 
@@ -3057,6 +3072,11 @@ msgid ""
 msgstr ""
 
 msgid ""
+"This option causes the server to not send a certificate request during a SSL"
+" handshake."
+msgstr ""
+
+msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
 msgstr ""
@@ -3092,6 +3112,11 @@ msgid ""
 msgstr ""
 
 msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr ""
+
+msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr ""
@@ -3104,6 +3129,11 @@ msgstr ""
 msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
+msgstr ""
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
 msgstr ""
 
 msgid ""

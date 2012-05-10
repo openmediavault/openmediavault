@@ -188,7 +188,7 @@ EOF
 		# Wipe existing filesystems.
 		sgdisk --zap-all ${device} 1>>${logfile} 2>&1
 		# Use entire device.
-		sgdisk --new=1:0:0 --typecode=1:0700 --print ${device} 1>>${logfile} 2>&1
+		sgdisk --new=1:0:0 --typecode=1:8300 --print ${device} 1>>${logfile} 2>&1
 		sleep 2
 		;;
 	esac

@@ -328,7 +328,7 @@ case "$1" in
 			# Modify rsync job configuration
 			omv_config_add_element "//services/rsync/jobs/job" "password" ""
 			# Modify FTP service configuration
-			omv_config_add_element "//services/ftp/mod_tls" "extraoptions" ""
+			omv_config_add_element "//services/ftp/modules/mod_tls" "extraoptions" ""
 			# Add NFS options
 			omv_config_add_element "//services/nfs" "numproc" "8"
 			# Add domainname configuration field
@@ -346,6 +346,11 @@ case "$1" in
 				  sfpath=$(omv_get_sharedfolder_path "${uuid}")
 				  chown :${OMV_USERMGMT_DEFAULT_GROUP} ${sfpath}
 			  done
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.8"; then
+			omv_config_add_element "//services/ftp/modules/mod_tls" "nocertrequest" "0"
+			omv_config_add_element "//services/ftp/modules/mod_tls" "nosessionreuserequired" "0"
+			omv_config_add_element "//services/ftp/modules/mod_tls" "useimplicitssl" "0"
 		fi
 	;;
 

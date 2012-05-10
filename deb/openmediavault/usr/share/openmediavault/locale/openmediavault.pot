@@ -1,29 +1,14 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# This file is part of OpenMediaVault.
-#
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
-#
-# OpenMediaVault is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-#
-# OpenMediaVault is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-08 20:20+0200\n"
+"POT-Creation-Date: 2012-05-10 21:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -349,9 +334,6 @@ msgid "April"
 msgstr ""
 
 msgid "Archive"
-msgstr ""
-
-msgid "Are clients required to use FTP over TLS when talking to this server?"
 msgstr ""
 
 msgid "Argentina"
@@ -1369,6 +1351,9 @@ msgstr ""
 msgid "If your host is acting as a NAT gateway or port forwarder for the server, this option is useful in order to allow passive tranfers to work. You have to use your public address and opening the passive ports used on your firewall as well."
 msgstr ""
 
+msgid "Implicit SSL"
+msgstr ""
+
 msgid "Import"
 msgstr ""
 
@@ -1833,6 +1818,10 @@ msgstr ""
 msgid "Network"
 msgstr ""
 
+#, c-format
+msgid "Network interface '%s' already exists"
+msgstr ""
+
 msgid "Neutral Zone"
 msgstr ""
 
@@ -1866,10 +1855,16 @@ msgstr ""
 msgid "No authentication and no privacy"
 msgstr ""
 
+msgid "No certificate request"
+msgstr ""
+
 msgid "No items to display"
 msgstr ""
 
 msgid "No log entries to display"
+msgstr ""
+
+msgid "No session reuse required"
 msgstr ""
 
 msgid "No users connected"
@@ -2826,6 +2821,9 @@ msgstr ""
 msgid "The permissions on new files and directories are normally governed by create mask and directory mask but the inherit permissions parameter overrides this. This can be particularly useful on systems with many users to allow a single share to be used flexibly by each user."
 msgstr ""
 
+msgid "The requirement that the SSL session from the control connection is reused for data connections is not required."
+msgstr ""
+
 msgid "The session timeout time in minutes."
 msgstr ""
 
@@ -2925,6 +2923,9 @@ msgstr ""
 msgid "This may make more efficient use of the system CPU's and cause Samba to be faster. Samba automatically turns this off for clients that use protocol levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
 msgstr ""
 
+msgid "This option causes the server to not send a certificate request during a SSL handshake."
+msgstr ""
+
 msgid "This option determines if this module should be listed when the client asks for a listing of available modules."
 msgstr ""
 
@@ -2940,6 +2941,9 @@ msgstr ""
 msgid "This option is a comma, space, or tab delimited set of hosts which are permitted to access this share. You can specify the hosts by name or IP number. Leave this field empty to use default settings."
 msgstr ""
 
+msgid "This option requires clients to use FTP over TLS when talking to this server."
+msgstr ""
+
 msgid "This option specifies the group name that file transfers to and from that module should take place."
 msgstr ""
 
@@ -2947,6 +2951,9 @@ msgid "This option specifies the maximum number of simultaneous connections. 0 m
 msgstr ""
 
 msgid "This option specifies the user name that file transfers to and from that module should take place."
+msgstr ""
+
+msgid "This option will handle all connections as if they are SSL connections implicitly."
 msgstr ""
 
 msgid "This parameter can be used to ensure that if default acls exist on parent directories, they are always honored when creating a new file or subdirectory in these parent directories."

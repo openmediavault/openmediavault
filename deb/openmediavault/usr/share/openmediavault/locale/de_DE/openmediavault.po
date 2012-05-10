@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-08 20:20+0200\n"
-"PO-Revision-Date: 2012-05-08 18:21+0000\n"
+"POT-Creation-Date: 2012-05-10 21:39+0200\n"
+"PO-Revision-Date: 2012-05-10 19:39+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -350,9 +350,6 @@ msgstr "April"
 
 msgid "Archive"
 msgstr "Archiv"
-
-msgid "Are clients required to use FTP over TLS when talking to this server?"
-msgstr "Müssen die Clients FTP über TLS benutzen wenn sie mit diesem Server Daten austauschen?"
 
 msgid "Argentina"
 msgstr "Zugriffskontrolle"
@@ -1408,6 +1405,9 @@ msgid ""
 "firewall as well."
 msgstr "Diese Option ist hilfreich um passive Transfers zu erlauben wenn Ihr Host als NAT-Gateway oder Port-Forwarder für den Server fungiert. Sie müssen Ihre öffentliche Adresse verwenden und die passiven Ports auf der Firewall öffnen."
 
+msgid "Implicit SSL"
+msgstr ""
+
 msgid "Import"
 msgstr "Importieren"
 
@@ -1889,6 +1889,10 @@ msgstr "Netzmaske"
 msgid "Network"
 msgstr "Netzwerk"
 
+#, c-format
+msgid "Network interface '%s' already exists"
+msgstr ""
+
 msgid "Neutral Zone"
 msgstr "Neutrale Zone"
 
@@ -1922,11 +1926,17 @@ msgstr "Kein Zugriff"
 msgid "No authentication and no privacy"
 msgstr "Keine Authentifizierung und keine Verschlüsselung"
 
+msgid "No certificate request"
+msgstr ""
+
 msgid "No items to display"
 msgstr "Keine Einträge zum Anzeigen"
 
 msgid "No log entries to display"
 msgstr "Keine Logeinträge zum Anzeigen"
+
+msgid "No session reuse required"
+msgstr ""
 
 msgid "No users connected"
 msgstr "Keine Benutzer angemeldet"
@@ -2941,6 +2951,11 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr "Die Zugriffsrechte neuer Dateien und Verzeichnisse sind normalerweise durch die Create- und Directory-Maske geregelt aber der Berechtigungen erben Parameter überschreibt dies. Das kann besonders auf Systemen mit vielen Benutzern nützlich sein um eine einzelne Freigabe flexibel von jedem Benutzer benutzbar zu machen."
 
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr ""
+
 msgid "The session timeout time in minutes."
 msgstr "Das Sitzungszeitlimit in Minuten."
 
@@ -3058,6 +3073,11 @@ msgid ""
 msgstr "Diese Option kann durch effizienteres Nutzen der System CPU Samba beschleunigen. Wird von Samba automatisch ausgeschaltet falls das vom Client verwendete Protokoll kleiner als NT LM 0.12 ist oder der Client Windows 9x benutzt."
 
 msgid ""
+"This option causes the server to not send a certificate request during a SSL"
+" handshake."
+msgstr ""
+
+msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
 msgstr "Legt fest ob das Modul aufgelistet wird wenn der Client nach einer Liste der verfügbaren Module fragt."
@@ -3093,6 +3113,11 @@ msgid ""
 msgstr "Eine mit Komma, Leerzeichen oder Tabulator getrennte Auflistung von Hosts, welche auf die Freigabe zugreifen dürfen. Sie können die Hosts anhand der IP Adresse oder des Hostnamens festlegen. Lassen Sie das Feld leer um die Standardwerte zu verwenden."
 
 msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr ""
+
+msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "Diese Option legt den Gruppenname fest mit dem Übertragungen an und von diesem Modul stattfinden."
@@ -3106,6 +3131,11 @@ msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
 msgstr "Diese Option legt den Benutzername fest mit dem Übertragungen an und von diesem Modul stattfinden."
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr ""
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "

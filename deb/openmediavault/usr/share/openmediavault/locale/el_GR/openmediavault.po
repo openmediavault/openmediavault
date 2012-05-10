@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-08 20:20+0200\n"
-"PO-Revision-Date: 2012-05-08 18:21+0000\n"
+"POT-Creation-Date: 2012-05-10 21:39+0200\n"
+"PO-Revision-Date: 2012-05-10 19:39+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.net/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -346,9 +346,6 @@ msgstr "Απρίλιος"
 
 msgid "Archive"
 msgstr "Αρχείο"
-
-msgid "Are clients required to use FTP over TLS when talking to this server?"
-msgstr "Απαιτείται από τους πελάτες να χρησιμοποιούν FTP μέσω TLS στις συνδέσεις με αυτόν τον διακομιστή;"
 
 msgid "Argentina"
 msgstr "Argentina"
@@ -1404,6 +1401,9 @@ msgid ""
 "firewall as well."
 msgstr "Αν το σύστημα λειτουργεί ως πύλη πρόσβασης ΝΑΤ ή προώθησης θυρών για τον διακομιστή, αυτή η ρύθμιση χρησιμεύει στο να λειτουργούν οι παθητικές μεταφορές. Θα πρέπει επιπροσθέτως να χρησιμοποιηθεί η δημόσια διεύθυνση και να ανοιχτούν οι χρησιμοποιούμενες παθητικές θύρες στο σύστημα ασφαλείας."
 
+msgid "Implicit SSL"
+msgstr ""
+
 msgid "Import"
 msgstr "Εισαγωγή"
 
@@ -1885,6 +1885,10 @@ msgstr "Μάσκα δικτύου"
 msgid "Network"
 msgstr "Δίκτυο"
 
+#, c-format
+msgid "Network interface '%s' already exists"
+msgstr ""
+
 msgid "Neutral Zone"
 msgstr "Ουδέτερη ζώνη"
 
@@ -1918,11 +1922,17 @@ msgstr "Καμία πρόσβαση"
 msgid "No authentication and no privacy"
 msgstr "Χωρίς πιστοποίηση και χωρίς ιδιοτικότητα"
 
+msgid "No certificate request"
+msgstr ""
+
 msgid "No items to display"
 msgstr "Δεν υπάρχει τίποτα προς εμφάνιση"
 
 msgid "No log entries to display"
 msgstr "Δεν υπάρχουν εγγραφές προς εμφάνιση"
+
+msgid "No session reuse required"
+msgstr ""
 
 msgid "No users connected"
 msgstr "Δεν υπάρχουν συνδεδεμένοι χρήστες"
@@ -2937,6 +2947,11 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr "Οι άδειες σε καινούργια αρχεία και φακέλους ρυθμίζονται κανονικά από την μάσκα δημιουργίας και φακέλου, αλλά η κληρονομικότητα το παρακάμπτει αυτό. Ιδιαίτερα χρήσιμο σε συστήματα με πολλούς χρήστες, καθώς τους προσφέρει ευελιξία."
 
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr ""
+
 msgid "The session timeout time in minutes."
 msgstr "Το χρονικό περιθώριο σε λεπτά."
 
@@ -3054,6 +3069,11 @@ msgid ""
 msgstr "Αυτό μπορεί να βελτιώσει την απόδοση του επεξεργαστή του συστήματος και να κάνει την Samba να λειτουργεί ταχύτερα. Η Samba το απενεργοποιεί αυτόματα για πελάτες που χρησιμοποιούν πρωτόκολο χαμηλότερο από ΝΤ LM 0.12 και πελάτες τύπου Windows 9x."
 
 msgid ""
+"This option causes the server to not send a certificate request during a SSL"
+" handshake."
+msgstr ""
+
+msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
 msgstr "Εδώ ορίζεται αν αυτή η μονάδα θα εμφανίζεται όταν ο πελάτης ζητάει λίστα των διαθέσιμων μονάδων."
@@ -3089,6 +3109,11 @@ msgid ""
 msgstr "Αυτό είναι το σύνολο των χρηστών (ορισμένων με όνομα ή διεύθυνση ΙΡ και χωρισμένων με κόμμα, κενό ή διάκενο) που έχουν πρόσβαση στο κοινόχρηστο. Αν μείνει κενό θα χρησιμοποιηθούν οι εξ'όρισμού ρυθμίσεις."
 
 msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr ""
+
+msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "Εδώ ορίζεται το όνομα της ομάδας με το οποίο θα τελούνται οι μεταφορές από και προς αυτή τη μονάδα."
@@ -3102,6 +3127,11 @@ msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
 msgstr "Εδώ ορίζεται το όνομα του χρήστη με το οποίο θα τελούνται οι μεταφορές από και προς αυτή τη μονάδα."
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr ""
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "

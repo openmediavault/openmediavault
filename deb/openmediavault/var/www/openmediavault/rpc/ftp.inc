@@ -132,6 +132,9 @@ class FTPRpc extends OMVRpc {
 					"required":{"type":"boolean"},
 					"sslcertificateref":{'.
 					  $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'},
+					"nocertrequest":{"type":"boolean"},
+					"nosessionreuserequired":{"type":"boolean"},
+					"useimplicitssl":{"type":"boolean"},
 					"extraoptions":{"type":"string"}
 				}
 			}')
@@ -634,6 +637,10 @@ class FTPRpc extends OMVRpc {
 		// Modify result data
 		$object['enable'] = boolval($object['enable']);
 		$object['required'] = boolval($object['required']);
+		$object['nocertrequest'] = boolval($object['nocertrequest']);
+		$object['nosessionreuserequired'] = boolval(
+		  $object['nosessionreuserequired']);
+		$object['useimplicitssl'] = boolval($object['useimplicitssl']);
 		return $object;
 	}
 
@@ -653,6 +660,10 @@ class FTPRpc extends OMVRpc {
 			"enable" => array_boolval($data, 'enable'),
 			"required" => array_boolval($data, 'required'),
 			"sslcertificateref" => $data['sslcertificateref'],
+			"nocertrequest" => array_boolval($data, 'nocertrequest'),
+			"nosessionreuserequired" => array_boolval($data,
+			  'nosessionreuserequired'),
+			"useimplicitssl" => array_boolval($data, 'useimplicitssl'),
 			"extraoptions" => $data['extraoptions']
 		);
 		$xpath = "//services/ftp/modules/mod_tls";

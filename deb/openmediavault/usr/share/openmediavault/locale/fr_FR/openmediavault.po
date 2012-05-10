@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-08 20:20+0200\n"
-"PO-Revision-Date: 2012-05-08 18:20+0000\n"
+"POT-Creation-Date: 2012-05-10 21:39+0200\n"
+"PO-Revision-Date: 2012-05-10 19:39+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.net/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -347,9 +347,6 @@ msgstr "Avril"
 
 msgid "Archive"
 msgstr "Archiver"
-
-msgid "Are clients required to use FTP over TLS when talking to this server?"
-msgstr "Les clients sont-ils obligés d'utiliser FTP avec TLS pour se connecter au serveur?"
 
 msgid "Argentina"
 msgstr "Argentine"
@@ -833,7 +830,7 @@ msgid ""
 msgstr "Voulez-vous vraiment formater ce disque? Toutes les données seront supprimé. Notez que la création du système de fichiers peut prendre un certain temps."
 
 msgid "Do you really want to install the selected plugin(s)?"
-msgstr ""
+msgstr "Voulez-vous vraiment installer le(s) plugin(s) sélectionné(s)?"
 
 msgid "Do you really want to leave the page?"
 msgstr "Voulez-vous vraiment quitter la page?"
@@ -885,7 +882,7 @@ msgid "Down delay"
 msgstr "Délai d'arrêt"
 
 msgid "Download"
-msgstr "Vitesse max."
+msgstr "Télécharger"
 
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
@@ -1405,6 +1402,9 @@ msgid ""
 "firewall as well."
 msgstr "Si votre hôte agit comme une passerelle NAT ou un transfert de port pour le serveur, cette option est utile afin de permettre les transferts passifs. Vous devez utiliser votre adresse publique et ouvrir dans votre pare-feu les ports passifs utilisés."
 
+msgid "Implicit SSL"
+msgstr ""
+
 msgid "Import"
 msgstr "Importer"
 
@@ -1886,6 +1886,10 @@ msgstr "Masque réseau"
 msgid "Network"
 msgstr "Réseau"
 
+#, c-format
+msgid "Network interface '%s' already exists"
+msgstr ""
+
 msgid "Neutral Zone"
 msgstr "Zone neutre"
 
@@ -1919,11 +1923,17 @@ msgstr "Pas d'accès"
 msgid "No authentication and no privacy"
 msgstr "Aucune authentification"
 
+msgid "No certificate request"
+msgstr ""
+
 msgid "No items to display"
 msgstr "Aucun élément à afficher"
 
 msgid "No log entries to display"
 msgstr "Aucune entrée de journal à afficher"
+
+msgid "No session reuse required"
+msgstr ""
 
 msgid "No users connected"
 msgstr "Aucun utilisateur connecté"
@@ -2938,6 +2948,11 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr "The permissions on new files and directories are normally governed by create mask and directory mask but the inherit permissions parameter overrides this. This can be particularly useful on systems with many users to allow a single share to be used flexibly by each user."
 
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr ""
+
 msgid "The session timeout time in minutes."
 msgstr "Le temps d'expiration de la session en minutes."
 
@@ -3055,6 +3070,11 @@ msgid ""
 msgstr "Cette option peut rendre plus efficace l'usage du processeur du système et rendre Samba plus rapide. Samba arrêtera automatiquement cette option pour les clients qui utilisent une version du protocole NTLM inférieure à 0.12 ou quand il détecte un client Windows 9x."
 
 msgid ""
+"This option causes the server to not send a certificate request during a SSL"
+" handshake."
+msgstr ""
+
+msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
 msgstr "Indique si ce module doit être listé quand le client demande la liste de modules disponibles."
@@ -3090,6 +3110,11 @@ msgid ""
 msgstr "Cette option est un ensemble, délimité par une virgule, un espace ou des tabulations, d'hôtes qui sont autorisés à accéder à ce partage. Vous pouvez spécifier les hôtes par leurs noms ou leurs adresses IP. Laissez ce champ vide pour utiliser les paramètres par défaut."
 
 msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr ""
+
+msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "Indique le nom de groupe que les transferts de fichiers auront à partir et vers ce module."
@@ -3103,6 +3128,11 @@ msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
 msgstr "Indique le nom d'utilisateur que les transferts de fichiers auront à partir et vers ce module."
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr ""
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
@@ -3277,10 +3307,10 @@ msgid "Updating ACL settings"
 msgstr "Mets à jour les paramètres ACL"
 
 msgid "Upload"
-msgstr "Vitesse max."
+msgstr "Télécharger"
 
 msgid "Upload file"
-msgstr "Envoi de fichier"
+msgstr "Envoi du fichier"
 
 msgid "Upload package"
 msgstr "Téléchargement d'un paquet"

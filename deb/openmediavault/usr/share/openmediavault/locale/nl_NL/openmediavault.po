@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-08 20:20+0200\n"
-"PO-Revision-Date: 2012-05-08 18:20+0000\n"
+"POT-Creation-Date: 2012-05-10 21:39+0200\n"
+"PO-Revision-Date: 2012-05-10 19:39+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.net/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -348,9 +348,6 @@ msgstr "April"
 
 msgid "Archive"
 msgstr "Archiveren"
-
-msgid "Are clients required to use FTP over TLS when talking to this server?"
-msgstr "Zijn cliënten vereist om FTP over TLS te gebruiken wanneer zij met de server praten?"
 
 msgid "Argentina"
 msgstr "Argentinië"
@@ -834,7 +831,7 @@ msgid ""
 msgstr "Weet u zeker dat u dit apparaat wil formatteren? Alle gegevens zullen worden verwijderd. Gelieve rekening te houden dat het creëren van een bestandssysteem enige tijd kan duren."
 
 msgid "Do you really want to install the selected plugin(s)?"
-msgstr ""
+msgstr "Weet u zeker dat u de geselecteerde plugin(s) wilt installeren?"
 
 msgid "Do you really want to leave the page?"
 msgstr "Weet u zeker dat u de pagina wil verlaten?"
@@ -1406,6 +1403,9 @@ msgid ""
 "firewall as well."
 msgstr "Als uw host fungeert als een NAT-gateway of -poort forwarder voor de server, is deze optie handig om passieve transfers te laten functioneren. U moet hiervoor uw publieke adres en de passieve poorten die u op uw firewall heeft ingesteld, gebruiken."
 
+msgid "Implicit SSL"
+msgstr ""
+
 msgid "Import"
 msgstr "Importeren"
 
@@ -1887,6 +1887,10 @@ msgstr "Netmask"
 msgid "Network"
 msgstr "Netwerk"
 
+#, c-format
+msgid "Network interface '%s' already exists"
+msgstr ""
+
 msgid "Neutral Zone"
 msgstr "Neutrale Zone"
 
@@ -1920,11 +1924,17 @@ msgstr "Geen toegang"
 msgid "No authentication and no privacy"
 msgstr "Geen authenticatie en geen privacy"
 
+msgid "No certificate request"
+msgstr ""
+
 msgid "No items to display"
 msgstr "Geen items om weer te geven"
 
 msgid "No log entries to display"
 msgstr "Geen logs om weer te geven"
+
+msgid "No session reuse required"
+msgstr ""
 
 msgid "No users connected"
 msgstr "Geen verbonden gebruikers"
@@ -2939,6 +2949,11 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr "De rechten op nieuwe bestanden en mappen worden normaal toegekend door het aanmaak- en map masker, maar de parameter voor het erven van rechten overschrijft dit. Dit is in het bijzonder handig voor het flexibel gebruik van een share op een systeem met veel gebruikers."
 
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr ""
+
 msgid "The session timeout time in minutes."
 msgstr "Het aantal minuten zonder activiteit alvorens de sessie verloopt."
 
@@ -3056,6 +3071,11 @@ msgid ""
 msgstr "Deze functie kan ervoor zorgen dat het systeem efficiënter gebruik maakt van de CPU's en dat Samba betere prestaties levert. Samba sluit deze functie automatisch voor cliënten die protocol niveau's onder NT LM 0.12 en wanneer het cliënten van Windows 9x herkent."
 
 msgid ""
+"This option causes the server to not send a certificate request during a SSL"
+" handshake."
+msgstr ""
+
+msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
 msgstr "Deze optie bepaald of deze module zichtbaar is wanneer een gebruiker een lijst met beschikbare modules opvraagt."
@@ -3091,6 +3111,11 @@ msgid ""
 msgstr "Hier kunt u een door komma's, spatie's, of tabs gescheiden lijst van hosts opgeven die toegang hebben tot deze gedeelde map. Je kunt de hosts opgeven via naam of IP adres. Laat dit veld leeg om de standaard instellingen te gebruiken."
 
 msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr ""
+
+msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "Deze optie specificeert de groepsnaam die bestandsoverdrachten naar en van de module zal laten plaatsvinden."
@@ -3104,6 +3129,11 @@ msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
 msgstr "Deze optie specificeert de gebruikersnaam die bestandsoverdrachten naar en van de module zal laten plaatsvinden."
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr ""
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "

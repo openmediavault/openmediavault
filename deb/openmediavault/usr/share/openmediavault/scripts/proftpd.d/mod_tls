@@ -32,7 +32,6 @@ set -e
 OMV_PROFTPD_MODTLS_CONFIG=${OMV_PROFTPD_MODTLS_CONFIG:-"/etc/proftpd/tls.conf"}
 OMV_PROFTPD_MODTLS_TLSLOG=${OMV_PROFTPD_MODTLS_TLSLOG:-"/var/log/proftpd/tls.log"}
 OMV_PROFTPD_MODTLS_TLSPROTOCOL=${OMV_PROFTPD_MODTLS_TLSPROTOCOL:-"SSLv23"}
-OMV_PROFTPD_MODTLS_TLSOPTIONS=${OMV_PROFTPD_MODTLS_TLSOPTIONS:-"NoCertRequest"}
 OMV_PROFTPD_MODTLS_TLSVERIFYCLIENT=${OMV_PROFTPD_MODTLS_TLSVERIFYCLIENT:-"off"}
 OMV_PROFTPD_MODTLS_TLSRENEGOTIATE=${OMV_PROFTPD_MODTLS_TLSRENEGOTIATE:-"required off"}
 
@@ -45,7 +44,13 @@ xmlstarlet sel -t -m "//services/ftp/modules/mod_tls" \
   -i "enable[. = '1']" -o "  TLSEngine on" -n -b \
   -o "  TLSLog ${OMV_PROFTPD_MODTLS_TLSLOG}" -n \
   -o "  TLSProtocol ${OMV_PROFTPD_MODTLS_TLSPROTOCOL}" -n \
-  -o "  TLSOptions ${OMV_PROFTPD_MODTLS_TLSOPTIONS}" -n \
+  -i "nocertrequest[. = '1'] | nosessionreuserequired[. = '1'] | useimplicitssl[. = '1']" \
+	  -o "  TLSOptions " \
+	  -i "nocertrequest[. = '1']" -o "NoCertRequest " -b \
+	  -i "nosessionreuserequired[. = '1']" -o "NoSessionReuseRequired " -b \
+	  -i "useimplicitssl[. = '1']" -o "UseImplicitSSL " -b \
+	  -n \
+  -b \
   -v "concat('  TLSRSACertificateFile ${OMV_CERTIFICATE_DIR}/certs/',sslcertificateref,'.crt')" -n \
   -v "concat('  TLSRSACertificateKeyFile ${OMV_CERTIFICATE_DIR}/private/',sslcertificateref,'.key')" -n \
   -o "  TLSVerifyClient ${OMV_PROFTPD_MODTLS_TLSVERIFYCLIENT}" -n \

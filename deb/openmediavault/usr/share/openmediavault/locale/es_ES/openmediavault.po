@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-08 20:20+0200\n"
-"PO-Revision-Date: 2012-05-08 18:20+0000\n"
+"POT-Creation-Date: 2012-05-10 21:39+0200\n"
+"PO-Revision-Date: 2012-05-10 19:39+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.net/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -262,7 +262,7 @@ msgstr "Afganistán"
 
 msgid ""
 "After the RAID has been grown you can resize the containing filesystem."
-msgstr "Después de que el RAID haya crecido, puede redimensionar el sistema de ficheros."
+msgstr "Después de que el RAID haya crecido, puede redimensionar el sistema de archivos."
 
 msgid "Aland Islands"
 msgstr " Islas Aland"
@@ -290,10 +290,10 @@ msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Permitir reanudar subidas/bajadas interrumpidas"
 
 msgid "Allow new files"
-msgstr "Permitir nuevos ficheros"
+msgstr "Permitir nuevos archivos"
 
 msgid "Allow new files to be created."
-msgstr "Permitir la creación de nuevos ficheros"
+msgstr "Permitir la creación de nuevos archivos"
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
@@ -347,9 +347,6 @@ msgstr "Abril"
 
 msgid "Archive"
 msgstr "Archivo"
-
-msgid "Are clients required to use FTP over TLS when talking to this server?"
-msgstr "¿Se requiere que los clientes se comuniquen con FTP sobre TLS con este servidor?"
 
 msgid "Argentina"
 msgstr "Argentina"
@@ -579,7 +576,7 @@ msgid "Client"
 msgstr "Cliente"
 
 msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr "Clientes a los que se permite montar el sistema de ficheros, p.ej: 192.168.178.0/24"
+msgstr "Clientes a los que se permite montar el sistema de archivos, p.ej: 192.168.178.0/24"
 
 msgid "Close"
 msgstr "Cerrar"
@@ -621,7 +618,7 @@ msgid ""
 "Compression is worth using if your connection is slow. The efficiency of the"
 " compression depends on the type of the file, and varies widely. Useful for "
 "internet transfer only."
-msgstr "La compresión merece la pena si su conexión es lenta. La eficiencia de la compresión depende del tipo del fichero y varía ampliamente. Útil solo para transferencias por Internet."
+msgstr "La compresión merece la pena si su conexión es lenta. La eficiencia de la compresión depende del tipo de archivo y varía ampliamente. Útil solo para transferencias por Internet."
 
 msgid "Confirm password"
 msgstr "Confirmar contraseña"
@@ -662,7 +659,7 @@ msgid "Create RAID device"
 msgstr "Crear un RAID"
 
 msgid "Create filesystem"
-msgstr "Crear un sistema de ficheros"
+msgstr "Crear un sistema de archivos"
 
 msgid "Create self-signed SSL certificate"
 msgstr "Crear un certificado SSL autofirmado"
@@ -819,7 +816,7 @@ msgid "Djibouti"
 msgstr "Djibouti"
 
 msgid "Do you really want to clear the log file?"
-msgstr "¿Realmente desea borrar el fichero de log?"
+msgstr "¿Realmente desea borrar el archivo de log?"
 
 msgid "Do you really want to create the RAID device?"
 msgstr "¿Realmente desea crear un RAID?"
@@ -830,10 +827,10 @@ msgstr "¿Realmente desea borrar los elementos seleccionados?"
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the filesystem creation may take some time."
-msgstr "¿Realmente desea formatear el dispositivo?. Se borrarán todos los datos. Recuerde que la creacción del sistema de ficheros puede tardar bastante tiempo."
+msgstr "¿Realmente desea formatear el dispositivo?. Se borrarán todos los datos. Recuerde que la creacción del sistema de archivos puede tardar bastante tiempo."
 
 msgid "Do you really want to install the selected plugin(s)?"
-msgstr ""
+msgstr "¿Realmente desea instalar el plugin selecionado?"
 
 msgid "Do you really want to leave the page?"
 msgstr "¿Realmente desea abandonar la página?"
@@ -847,13 +844,13 @@ msgstr "¿Realmente desea reiniciar el sistema?"
 msgid ""
 "Do you really want to resize the selected filesystem? You have to do that "
 "after a RAID has been grown for example."
-msgstr "¿Realmente desea redimensionar el sistema de ficheros?\nDebe hacerlo después de haber crecido el RAID que lo contiene"
+msgstr "¿Realmente desea redimensionar el sistema de archivos?\nDebe hacerlo después de haber crecido el RAID que lo contiene"
 
 msgid "Do you really want to shutdown the system?"
 msgstr "¿Realmente desea apagar el equipo?"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr "¿Realmente desea desistalar el plugin selecionado?"
+msgstr "¿Realmente desea desinstalar el plugin selecionado?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "¿Realmente quiere limpiar el dispositivo seleccionado?"
@@ -1112,7 +1109,7 @@ msgstr "FXP"
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
-msgstr "FXP permite transferencias entre dos servidores remotos sin pasar por el cliente que ejecuta la transferencia."
+msgstr "FXP permite transferencias de archivos entre dos servidores remotos sin pasar por el cliente que ejecuta la transferencia."
 
 msgid "Failed to call "
 msgstr "Falló al llamar"
@@ -1121,10 +1118,10 @@ msgstr "Falló al llamar"
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
-msgstr "No se puedo crear el sistema de ficheros. Por favor, revise el syslog o '%s' para más detalles."
+msgstr "No se puedo crear el sistema de archivos. Por favor, revise el syslog o '%s' para más detalles."
 
 msgid "Failed to get filesystems"
-msgstr "Falló al obtener los sistemas de ficheros"
+msgstr "Falló al obtener los sistemas de archivos"
 
 msgid "Failed to get system date and time"
 msgstr "Falló al obtener la fecha y hora del sistema"
@@ -1148,21 +1145,21 @@ msgid "Fiji"
 msgstr "Fidji"
 
 msgid "File"
-msgstr "Fichero"
+msgstr "Archivo"
 
 msgid "Filesystem"
-msgstr "Sistema de ficheros"
+msgstr "Sistema de archivos"
 
 #, c-format
 msgid "Filesystem '%s' not found"
-msgstr "Sistema de ficheros '%s' no encontrado"
+msgstr "Sistema de archivos '%s' no encontrado"
 
 #, c-format
 msgid "Filesystem '%s' not supported"
-msgstr "Sistema de ficheros '%s' no soportado"
+msgstr "Sistema de archivos '%s' no soportado"
 
 msgid "Filesystems"
-msgstr "Sistemas de ficheros"
+msgstr "Sistemas de archivos"
 
 msgid "Finland"
 msgstr "Finlandia"
@@ -1391,7 +1388,7 @@ msgid ""
 " before mapping DOS attributes to UNIX permission bits. When set, DOS "
 "attributes will be stored onto an extended attribute in the UNIX filesystem,"
 " associated with the file or directory."
-msgstr "Si se activa este parámetro, Samba intenta primero leer los atributos DOS (SYSTEM, HIDDEN, ARCHIVE o READ-ONLY) desde un atributo extendido del sistema de ficheros, antes de traducir los atributos DOS a patrón de bits UNIX. Si está activo, los atributos DOS se almacenarán en un atributo extendido del sistema de ficheros UNIX, asociándolos a la carpeta o archivo."
+msgstr "Si se activa este parámetro, Samba intenta primero leer los atributos DOS (SYSTEM, HIDDEN, ARCHIVE o READ-ONLY) desde un atributo extendido del sistema de archivos, antes de traducir los atributos DOS a patrón de bits UNIX. Si está activo, los atributos DOS se almacenarán en un atributo extendido del sistema de archivos UNIX, asociándolos a la carpeta o archivo."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1404,6 +1401,9 @@ msgid ""
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
 msgstr "Si su equipo actúa como una pasarela NAT o reenviador de puertos para el servidor, esta opción será útil para permitir que funcionen las transferencias pasivas. También tendrá que usar su dirección pública y abrir los puertos pasivos en su firewall."
+
+msgid "Implicit SSL"
+msgstr ""
 
 msgid "Import"
 msgstr "Importar"
@@ -1471,7 +1471,7 @@ msgid "Invalid domain name"
 msgstr "Nombre de dominio inválido"
 
 msgid "Invalid filesystem label"
-msgstr "Etiqueta de sistema de ficheros inválida."
+msgstr "Etiqueta de sistema de archivos inválida."
 
 msgid "Invalid group name"
 msgstr "Nombre de grupo inválido"
@@ -1886,6 +1886,10 @@ msgstr "Mascara de Red"
 msgid "Network"
 msgstr "Red"
 
+#, c-format
+msgid "Network interface '%s' already exists"
+msgstr ""
+
 msgid "Neutral Zone"
 msgstr "Zona neutra"
 
@@ -1919,11 +1923,17 @@ msgstr "Sin acceso"
 msgid "No authentication and no privacy"
 msgstr "Sin autenticación y sin privacidad"
 
+msgid "No certificate request"
+msgstr ""
+
 msgid "No items to display"
 msgstr "Nada que mostrar"
 
 msgid "No log entries to display"
 msgstr "No hay entradas del registro para mostrar"
+
+msgid "No session reuse required"
+msgstr ""
 
 msgid "No users connected"
 msgstr "No hay usuarios conectados"
@@ -2499,7 +2509,7 @@ msgid "Select a directory"
 msgstr "Seleccione un directorio"
 
 msgid "Select a filesystem ..."
-msgstr "Seleccionar un sistema de ficheros ..."
+msgstr "Seleccionar un sistema de archivos ..."
 
 msgid "Select a group ..."
 msgstr "Seleccionar un grupo ..."
@@ -2907,7 +2917,7 @@ msgstr "La ubicación de los archivos a compartir."
 msgid ""
 "The location of the files to share. The share will be accessible at "
 "/export/<name>."
-msgstr "La ubicación de los ficheros a compartir. El compartido será accesible en /export/<name>."
+msgstr "La ubicación de los archivos a compartir. El compartido será accesible en /export/<name>."
 
 msgid "The location of the user home directories."
 msgstr "La ubicación de los directorios home de los usuarios"
@@ -2936,7 +2946,12 @@ msgid ""
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
-msgstr "Los permisos sobre los nuevos ficheros y directorios se establecen por la máscara de creación y la máscara de directorio, pero el parámetro de herencia de permisos prevalece. Puede ser útil especialmente en sistemas con muchos usuarios para permitir una utilización de una misma compartición de una forma flexible para cada usuario."
+msgstr "Los permisos sobre los nuevos archivos y directorios se establecen por la máscara de creación y la máscara de directorio, pero el parámetro de herencia de permisos prevalece. Puede ser útil especialmente en sistemas con muchos usuarios para permitir una utilización de una misma compartición de una forma flexible para cada usuario."
+
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr ""
 
 msgid "The session timeout time in minutes."
 msgstr "El tiempo límite de sesión en minutos."
@@ -2976,7 +2991,7 @@ msgid "The value in this field is invalid"
 msgstr "El valor de este campo es inválido"
 
 msgid "The volume label for the filesystem."
-msgstr "Etiqueta del volumen para el sistema de ficheros."
+msgstr "Etiqueta del volumen para el sistema de archivos."
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3055,6 +3070,11 @@ msgid ""
 msgstr "Puede hacer un uso más eficiente de la CPU del sistema y que Samba sea más rápido. Samba automáticamente deshabilita esta opción para clientes que utilicen un nivel de protocolo NTLM por debajo de 0.12 y cuando detecta un cliente Windows 9x."
 
 msgid ""
+"This option causes the server to not send a certificate request during a SSL"
+" handshake."
+msgstr ""
+
+msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
 msgstr "Determina si un módule será listado cuando los clientes pidan una lista de módulos disponibles."
@@ -3090,6 +3110,11 @@ msgid ""
 msgstr "Una lista separada por coma, espacio o tabulador de hosts a los que se permite el acceso a esta compartición. Puede indicar los hosts por nombre o dirección IP. Deje este campo en blanco para utilizar la configuración por defecto."
 
 msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr ""
+
+msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
 msgstr "Especifica el nombre de grupo que utilizarán las transferencias a/desde este módulo."
@@ -3105,15 +3130,20 @@ msgid ""
 msgstr "Especifica el nombre de usuario que utilizarán las transferencias a/desde este módulo."
 
 msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr ""
+
+msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr "Asegura que, si existen acls por defecto en los directorios padre, serán respetadas cuando se creen nuevos ficheros o subdirectorios."
+msgstr "Asegura que, si existen acls por defecto en los directorios padre, serán respetadas cuando se creen nuevos archivos o subdirectorios."
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
-msgstr "Este parámetro indica si los ficheros que empiecen por \".\" serán tratados como ficheros ocultos."
+msgstr "Este parámetro indica si los archivos que empiecen por \".\" serán tratados como archivos ocultos."
 
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
@@ -3242,7 +3272,7 @@ msgstr "Islas Ultramarinas de Estados Unidos"
 
 #, c-format
 msgid "Unknown filesystem '%s'"
-msgstr "Sistema de ficheros '%s' desconocido"
+msgstr "Sistema de archivos '%s' desconocido"
 
 #, c-format
 msgid "Unknown log file type (id=%s)"
@@ -3277,19 +3307,19 @@ msgid "Updating ACL settings"
 msgstr "Actualizando configuración de las ACL"
 
 msgid "Upload"
-msgstr "Enviar"
+msgstr "Cargar"
 
 msgid "Upload file"
-msgstr "Enviar fichero"
+msgstr "Cargar archivo"
 
 msgid "Upload package"
-msgstr "Enviar paquete"
+msgstr "Cargar paquete"
 
 msgid "Upload plugin"
-msgstr "Enviar plugin"
+msgstr "Cargar plugin"
 
 msgid "Uploading file ..."
-msgstr "Enviando fichero ..."
+msgstr "Cargando archivo ..."
 
 msgid "Uptime"
 msgstr "Tiempo en funcionamiento"
