@@ -187,8 +187,13 @@ EOF
 	*)
 		# Wipe existing filesystems.
 		sgdisk --zap-all ${device} 1>>${logfile} 2>&1
-		# Use entire device.
-		sgdisk --new=1:0:0 --typecode=1:8300 --print ${device} 1>>${logfile} 2>&1
+		# Use entire device. Get the start and end sectors of the largest
+		# block. This is necessary to workaround a bug in sgdisk, otherwise
+		# partitions with only 700GiB will be created on a 3TiB device.
+		# sgdisk --new=1:0:0 --typecode=1:8300 --print ${device}
+		start=$(sgdisk --first-aligned-in-largest ${device} | tail -n 1)
+		end=$(sgdisk --end-of-largest ${device} | tail -n 1)
+		sgdisk --new=1:${start}:${end} --typecode=1:8300 --print ${device} 1>>${logfile} 2>&1
 		sleep 2
 		;;
 	esac

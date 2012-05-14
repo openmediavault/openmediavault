@@ -1,7 +1,15 @@
+openmediavault (0.3.0.9) stable; urgency=low
+
+  * Mantis 0000449/0000455: 3TB Seagate Barracuda st3000dm001 can not be
+    partitioned properly.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 May 2012 18:10:39 +0200
+
 openmediavault (0.3.0.8) stable; urgency=low
 
   * Fix broken user WebGUI.
-  * Do not use PHP_FCGI_CHILDREN.
+  * Do not use PHP_FCGI_CHILDREN. As a result this reduces the number of PHP
+    processes.
   * Mantis 0000394: Add more FTP SSL/TLS options.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 May 2012 15:42:30 +0200
