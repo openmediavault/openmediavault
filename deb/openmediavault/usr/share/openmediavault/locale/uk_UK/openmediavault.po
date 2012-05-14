@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Andrey Chapalda <ansilent@gmail.com>, 2012.
+# Андрей Чапалда <ansilent@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-10 21:39+0200\n"
-"PO-Revision-Date: 2012-05-10 19:39+0000\n"
+"POT-Creation-Date: 2012-05-14 21:02+0200\n"
+"PO-Revision-Date: 2012-05-14 19:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.net/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -390,13 +391,13 @@ msgid "Authentication passphrase"
 msgstr ""
 
 msgid "Authentication required"
-msgstr ""
+msgstr "Потрібна аутентифікація"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "Тип аутентифікації"
 
 msgid "Automatic Acoustic Management"
-msgstr ""
+msgstr "Автоматичний акустичний контроль"
 
 msgid "Available"
 msgstr "Доступний"
@@ -496,7 +497,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr ""
+msgstr "За замовчуванням відображаються лише файли, які вже існують та доступні для завантаження."
 
 msgid "CPU usage"
 msgstr "Завантаження ЦП"
@@ -575,7 +576,7 @@ msgid "Client"
 msgstr "Клієнт"
 
 msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Клієнти дозволено монтувати файлову систему, наприклад 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Закрити"
@@ -617,7 +618,7 @@ msgid ""
 "Compression is worth using if your connection is slow. The efficiency of the"
 " compression depends on the type of the file, and varies widely. Useful for "
 "internet transfer only."
-msgstr ""
+msgstr "Стиснення варто використовувати, якщо ваше з'єднання йде повільно. Ефективність стиснення залежить від типу файлу, і коливається в широких межах. "
 
 msgid "Confirm password"
 msgstr "Підтвердити пароль"
@@ -752,7 +753,7 @@ msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A '!' argument before the address specification"
 " inverts the sense of the address."
-msgstr ""
+msgstr "Адреса призначення може бути IP адресою мережі (з /маскою), діапазон IP адрес, або просто IP-адресу. Аргумент '!' перед специфікацією адреси означає заперечення (не)."
 
 msgid "Destination port"
 msgstr "Порт призначення"
@@ -769,7 +770,7 @@ msgstr "Деталі"
 msgid ""
 "Determine the default timeout, in microseconds, before the first packet is "
 "retransmitted."
-msgstr ""
+msgstr "Визначити час очікування за замовчуванням, в мікросекундах, перш ніж перший пакет передається повторно."
 
 msgid "Device"
 msgstr "Пристрій"
@@ -809,7 +810,7 @@ msgid "Disk usage"
 msgstr "Використання диску"
 
 msgid "Displaying items {0} - {1} of {2}"
-msgstr ""
+msgstr "Показати значення {0} - {1} of {2}"
 
 msgid "Djibouti"
 msgstr "Djibouti"
@@ -895,7 +896,7 @@ msgstr ""
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
 "text."
-msgstr ""
+msgstr "Кожен рядок представляє одиного користувача. Зверніть увагу, що необхідно ввести пароль в незашифрованому вигляді."
 
 msgid "East Timor"
 msgstr "East Timor"
@@ -1006,7 +1007,7 @@ msgid "Enable recycle bin"
 msgstr "Використовувати корзину"
 
 msgid "Enable reverse DNS lookup"
-msgstr ""
+msgstr "Enable reverse DNS lookup"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
@@ -2935,6 +2936,9 @@ msgid ""
 "used for remote shell transport such as ssh."
 msgstr ""
 
+msgid "The path of the folder to share."
+msgstr ""
+
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
 "does not already exist."
@@ -3002,6 +3006,11 @@ msgstr ""
 
 #, c-format
 msgid "There already exists a mount point for %s"
+msgstr ""
+
+msgid ""
+"These settings are used by the services to configure the user access rights."
+" Please note that these settings do no affect the file system permissions."
 msgstr ""
 
 msgid ""

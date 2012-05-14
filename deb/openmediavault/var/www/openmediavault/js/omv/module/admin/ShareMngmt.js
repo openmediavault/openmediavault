@@ -291,7 +291,9 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 			allowBlank: false,
 			triggerClass: "x-form-folder-trigger",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("The path of the folder to share. The specified folder will be created if it does not already exist."),
+			infoText: (this.uuid !== OMV.UUID_UNDEFINED) ?
+			  _("The path of the folder to share.") :
+			  _("The path of the folder to share. The specified folder will be created if it does not already exist."),
 			onTriggerClick: function() {
 				// Get the UUID of the selected volume.
 				var field = this.ownerCt.ownerCt.findFormField("mntentref");
@@ -446,7 +448,23 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 				handler: this.cbCancelBtnHdl,
 				scope: this
 			}],
-			items: [ this.grid ]
+			items: [ this.grid ],
+			bbar: {
+				xtype: "toolbar",
+				items: [{
+					xtype: "tbitem",
+					autoEl: { tag: "img", src: "images/info.png" },
+					style: {
+						margin: "1px"
+					}
+				},{
+					xtype: "tbtext",
+					style: {
+						"white-space": "normal"
+					},
+					text: _("These settings are used by the services to configure the user access rights. Please note that these settings do no affect the file system permissions.")
+				}]
+			}
 		});
 		OMV.Module.Privileges.PrivilegesPropertyDialog.superclass.
 		  initComponent.apply(this, arguments);

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-10 21:39+0200\n"
-"PO-Revision-Date: 2012-05-10 19:39+0000\n"
+"POT-Creation-Date: 2012-05-14 21:02+0200\n"
+"PO-Revision-Date: 2012-05-14 19:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.net/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -1404,7 +1404,7 @@ msgid ""
 msgstr "Если узел действует как шлюз NAT или средство передачи порта для сервера, эта опция полезна, чтобы позволить пассивному tranfers работать. Должны использовать общедоступный адрес и открытые пассивные порты, используемые на брандмауэре."
 
 msgid "Implicit SSL"
-msgstr ""
+msgstr "Неявные SSL"
 
 msgid "Import"
 msgstr "Импортировать"
@@ -1889,7 +1889,7 @@ msgstr "Сеть"
 
 #, c-format
 msgid "Network interface '%s' already exists"
-msgstr ""
+msgstr "'%s' Сетевой интерфейс уже существует"
 
 msgid "Neutral Zone"
 msgstr "Нейтральная зона"
@@ -1925,7 +1925,7 @@ msgid "No authentication and no privacy"
 msgstr "Нет никакой аутентификации и конфиденциальности"
 
 msgid "No certificate request"
-msgstr ""
+msgstr "Нет запроса на сертификат"
 
 msgid "No items to display"
 msgstr "Нет объектов для отображения"
@@ -1934,7 +1934,7 @@ msgid "No log entries to display"
 msgstr "Без регистрации записи для отображения"
 
 msgid "No session reuse required"
-msgstr ""
+msgstr "Нет необходимости повторного использования сессии"
 
 msgid "No users connected"
 msgstr "Нет подключенных пользователей"
@@ -2534,7 +2534,7 @@ msgid "Select a user ..."
 msgstr "Выбрать пользователя ..."
 
 msgid "Select a volume ..."
-msgstr "Выбрать том..."
+msgstr "Выбрать том ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Выбрать устройство для добавления в RAID-устройство"
@@ -2937,6 +2937,9 @@ msgid ""
 "used for remote shell transport such as ssh."
 msgstr "Пароль, который используется для доступа через Rsync демона. Заметим, что не используется для удаленной оболочки, такие как SSH."
 
+msgid "The path of the folder to share."
+msgstr ""
+
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
 "does not already exist."
@@ -3007,6 +3010,11 @@ msgid "There already exists a mount point for %s"
 msgstr "Точка монтирования уже существует  для %s"
 
 msgid ""
+"These settings are used by the services to configure the user access rights."
+" Please note that these settings do no affect the file system permissions."
+msgstr ""
+
+msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
 msgstr "Управляет, виден ли этот сетевой ресурс в списке доступных  в сетевых ресурсов и в списке просмотра."
@@ -3073,7 +3081,7 @@ msgstr "Это может сделать более эффективное ис�
 msgid ""
 "This option causes the server to not send a certificate request during a SSL"
 " handshake."
-msgstr ""
+msgstr "Эта опция заставляет сервер не отправляет запрос сертификата во время SSL приветствия."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -3113,7 +3121,7 @@ msgstr "Этот опция - запятая, пробел, или табуля�
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
 "server."
-msgstr ""
+msgstr "Эта опция требует от клиентов использовать FTP через TLS при общении с этим сервером."
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
@@ -3133,7 +3141,7 @@ msgstr "Эта опция определяет имя пользователя, 
 msgid ""
 "This option will handle all connections as if they are SSL connections "
 "implicitly."
-msgstr ""
+msgstr "Эта опция будет обрабатывать все соединения, как будто они неявно SSL соединения."
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "

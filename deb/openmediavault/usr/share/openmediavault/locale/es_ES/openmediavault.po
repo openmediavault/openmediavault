@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-10 21:39+0200\n"
-"PO-Revision-Date: 2012-05-10 19:39+0000\n"
+"POT-Creation-Date: 2012-05-14 21:02+0200\n"
+"PO-Revision-Date: 2012-05-14 19:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.net/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -1403,7 +1403,7 @@ msgid ""
 msgstr "Si su equipo actúa como una pasarela NAT o reenviador de puertos para el servidor, esta opción será útil para permitir que funcionen las transferencias pasivas. También tendrá que usar su dirección pública y abrir los puertos pasivos en su firewall."
 
 msgid "Implicit SSL"
-msgstr ""
+msgstr "SSL Implicito"
 
 msgid "Import"
 msgstr "Importar"
@@ -1888,7 +1888,7 @@ msgstr "Red"
 
 #, c-format
 msgid "Network interface '%s' already exists"
-msgstr ""
+msgstr "El interfaz de red '%s' ya existe"
 
 msgid "Neutral Zone"
 msgstr "Zona neutra"
@@ -1924,7 +1924,7 @@ msgid "No authentication and no privacy"
 msgstr "Sin autenticación y sin privacidad"
 
 msgid "No certificate request"
-msgstr ""
+msgstr "No se pide certificado"
 
 msgid "No items to display"
 msgstr "Nada que mostrar"
@@ -1933,7 +1933,7 @@ msgid "No log entries to display"
 msgstr "No hay entradas del registro para mostrar"
 
 msgid "No session reuse required"
-msgstr ""
+msgstr "no se requiere reutilizar la sesión"
 
 msgid "No users connected"
 msgstr "No hay usuarios conectados"
@@ -2936,6 +2936,9 @@ msgid ""
 "used for remote shell transport such as ssh."
 msgstr "La contraseña para el acceso al demonio rsync. Nota: no se utiliza para la shell remota (como ssh)."
 
+msgid "The path of the folder to share."
+msgstr ""
+
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
 "does not already exist."
@@ -2951,7 +2954,7 @@ msgstr "Los permisos sobre los nuevos archivos y directorios se establecen por l
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
 "for data connections is not required."
-msgstr ""
+msgstr "Los requerimientos de la sesión SSL no son necesarios para la conexión de datos"
 
 msgid "The session timeout time in minutes."
 msgstr "El tiempo límite de sesión en minutos."
@@ -3004,6 +3007,11 @@ msgstr "El grupo de trabajo en el que aparecerá el servidor cuando lo examinen 
 #, c-format
 msgid "There already exists a mount point for %s"
 msgstr "Debe existir un punto de montaje para %s"
+
+msgid ""
+"These settings are used by the services to configure the user access rights."
+" Please note that these settings do no affect the file system permissions."
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3072,7 +3080,7 @@ msgstr "Puede hacer un uso más eficiente de la CPU del sistema y que Samba sea 
 msgid ""
 "This option causes the server to not send a certificate request during a SSL"
 " handshake."
-msgstr ""
+msgstr "Esta opción hace que el servidor no haga una petición de certificado durante la negociación SSL"
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -3112,7 +3120,7 @@ msgstr "Una lista separada por coma, espacio o tabulador de hosts a los que se p
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
 "server."
-msgstr ""
+msgstr "Esta opción requiere que el cliente use FTP sobre TLS cuando hable con este servidor."
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
@@ -3132,7 +3140,7 @@ msgstr "Especifica el nombre de usuario que utilizarán las transferencias a/des
 msgid ""
 "This option will handle all connections as if they are SSL connections "
 "implicitly."
-msgstr ""
+msgstr "Esta opción hace que todas las conexiones se traten como conexiones SSL"
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "

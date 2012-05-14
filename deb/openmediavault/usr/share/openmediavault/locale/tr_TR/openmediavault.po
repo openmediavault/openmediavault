@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-10 21:39+0200\n"
-"PO-Revision-Date: 2012-05-10 19:39+0000\n"
+"POT-Creation-Date: 2012-05-14 21:02+0200\n"
+"PO-Revision-Date: 2012-05-14 19:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.net/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -2935,6 +2935,9 @@ msgid ""
 "used for remote shell transport such as ssh."
 msgstr "Bu parola rsync programı aracılığı ile erişim için kullanılır. Ancak bu SSH gibi uzaktan kabuk aktarımı amacaıyla kullanılamaz."
 
+msgid "The path of the folder to share."
+msgstr ""
+
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
 "does not already exist."
@@ -3003,6 +3006,11 @@ msgstr "Çalışma grubu, kullanıcılar tarafından sorgulandığında sunucunu
 #, c-format
 msgid "There already exists a mount point for %s"
 msgstr "%s için zaten bir bağlantı noktası mevcut"
+
+msgid ""
+"These settings are used by the services to configure the user access rights."
+" Please note that these settings do no affect the file system permissions."
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "

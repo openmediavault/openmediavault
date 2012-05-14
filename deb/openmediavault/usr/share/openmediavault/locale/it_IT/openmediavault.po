@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-10 21:39+0200\n"
-"PO-Revision-Date: 2012-05-10 19:39+0000\n"
+"POT-Creation-Date: 2012-05-14 21:02+0200\n"
+"PO-Revision-Date: 2012-05-14 19:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.net/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -1404,7 +1404,7 @@ msgid ""
 msgstr "Se il tuo host sta agendo come un gateway che fa NAT o come port forwarder per il server, questa opzione è utile per permettere il funzionamento dei trasferimenti passivi. Devi utilizzare il tuo indirizzo IP pubblico e aprire sul tuo firewall le rispettive porte passive utilizzate."
 
 msgid "Implicit SSL"
-msgstr ""
+msgstr "SSL implicito"
 
 msgid "Import"
 msgstr "Importa"
@@ -1889,7 +1889,7 @@ msgstr "Rete"
 
 #, c-format
 msgid "Network interface '%s' already exists"
-msgstr ""
+msgstr "L'interfaccia di rete '%s' esiste già"
 
 msgid "Neutral Zone"
 msgstr "Zona Neutrale"
@@ -1925,7 +1925,7 @@ msgid "No authentication and no privacy"
 msgstr "Nessuna autenticazione e nessuna privacy"
 
 msgid "No certificate request"
-msgstr ""
+msgstr "Richiesta senza certificato"
 
 msgid "No items to display"
 msgstr "Nessun oggetto da visualizzare"
@@ -1934,7 +1934,7 @@ msgid "No log entries to display"
 msgstr "Nessun log da visualizzare"
 
 msgid "No session reuse required"
-msgstr ""
+msgstr "Riuso della sessione non obbligatorio"
 
 msgid "No users connected"
 msgstr "Non ci sono utenti connessi"
@@ -2937,6 +2937,9 @@ msgid ""
 "used for remote shell transport such as ssh."
 msgstr "La password usata per gli accessi via rsync. Nota bene, questa password non è usata per accessi alla shell come ad esempio ssh."
 
+msgid "The path of the folder to share."
+msgstr ""
+
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
 "does not already exist."
@@ -2952,7 +2955,7 @@ msgstr "I permessi sui nuovi file e directory sono normalmente impostati dal cre
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
 "for data connections is not required."
-msgstr ""
+msgstr "Il requisito che la sessione SSL venga riutilizzata per le connessioni dati dal controllo connessione non è obbligatorio."
 
 msgid "The session timeout time in minutes."
 msgstr "Timeout per la sessione in minuti."
@@ -3005,6 +3008,11 @@ msgstr "Il gruppo nel quale apparirà il server quando i client lo interrogheran
 #, c-format
 msgid "There already exists a mount point for %s"
 msgstr "Esiste già un mount point per %s"
+
+msgid ""
+"These settings are used by the services to configure the user access rights."
+" Please note that these settings do no affect the file system permissions."
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3073,7 +3081,7 @@ msgstr "Questa opzione può rendere più efficiente l'uso delle CPU del sistema 
 msgid ""
 "This option causes the server to not send a certificate request during a SSL"
 " handshake."
-msgstr ""
+msgstr "Questa opzione fa sì che il server non invii una richiesta di certificato durante un handshake SLL."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -3113,7 +3121,7 @@ msgstr "Questa opzione è un elenco di host separati da punti, spazi o tabulazio
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
 "server."
-msgstr ""
+msgstr "Questa opzione richiede ai client di utilizzare FTP over TLS quando comunicano con questo server."
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
@@ -3133,7 +3141,7 @@ msgstr "Questa opzione specifica il nome utente che assumeranno i file trasferit
 msgid ""
 "This option will handle all connections as if they are SSL connections "
 "implicitly."
-msgstr ""
+msgstr "Questa opzione gestirà tutte le connessioni come se fossero implicitamente connessioni SSL."
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "

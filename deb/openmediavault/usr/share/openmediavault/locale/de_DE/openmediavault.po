@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-10 21:39+0200\n"
-"PO-Revision-Date: 2012-05-10 19:39+0000\n"
+"POT-Creation-Date: 2012-05-14 21:02+0200\n"
+"PO-Revision-Date: 2012-05-14 19:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -2939,6 +2939,9 @@ msgid ""
 "used for remote shell transport such as ssh."
 msgstr "Passwort das für den Zugriff per rsync Daemon verwendet wird. Hinweis: Wird nicht benutzt für Remote Shell Transport wie SSH."
 
+msgid "The path of the folder to share."
+msgstr ""
+
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
 "does not already exist."
@@ -3007,6 +3010,11 @@ msgstr "Die Arbeitsgruppe in welcher der Server auftaucht wenn ein Client ihn an
 #, c-format
 msgid "There already exists a mount point for %s"
 msgstr "Es gibt bereits einen Einhängepunkt für %s"
+
+msgid ""
+"These settings are used by the services to configure the user access rights."
+" Please note that these settings do no affect the file system permissions."
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "

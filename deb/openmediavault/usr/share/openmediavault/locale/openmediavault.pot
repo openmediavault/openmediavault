@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-10 21:39+0200\n"
+"POT-Creation-Date: 2012-05-14 21:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2815,6 +2815,9 @@ msgstr ""
 msgid "The password that is used for access via rsync daemon. Note, this is not used for remote shell transport such as ssh."
 msgstr ""
 
+msgid "The path of the folder to share."
+msgstr ""
+
 msgid "The path of the folder to share. The specified folder will be created if it does not already exist."
 msgstr ""
 
@@ -2870,6 +2873,9 @@ msgstr ""
 
 #, c-format
 msgid "There already exists a mount point for %s"
+msgstr ""
+
+msgid "These settings are used by the services to configure the user access rights. Please note that these settings do no affect the file system permissions."
 msgstr ""
 
 msgid "This controls whether this share is seen in the list of available shares in a net view and in the browse list."

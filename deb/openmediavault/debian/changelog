@@ -1,5 +1,7 @@
 openmediavault (0.3.0.9) stable; urgency=low
 
+  * Update locales.
+  * Add help informations in WebGUI to various form fields.
   * Mantis 0000449/0000455: 3TB Seagate Barracuda st3000dm001 can not be
     partitioned properly.
 
