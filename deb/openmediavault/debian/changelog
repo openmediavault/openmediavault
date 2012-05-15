@@ -4,6 +4,8 @@ openmediavault (0.3.0.9) stable; urgency=low
   * Add help informations in WebGUI to various form fields.
   * Mantis 0000449/0000455: 3TB Seagate Barracuda st3000dm001 can not be
     partitioned properly.
+  * Mantis 0000459: Service FTP shares have wrong access privileges in
+    proftpd.conf
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 May 2012 18:10:39 +0200
 

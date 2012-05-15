@@ -344,7 +344,7 @@ case "$1" in
 			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
 			  while read uuid; do
 				  sfpath=$(omv_get_sharedfolder_path "${uuid}")
-				  chown :${OMV_USERMGMT_DEFAULT_GROUP} ${sfpath}
+				  chown :${OMV_USERMGMT_DEFAULT_GROUP} ${sfpath} || true
 			  done
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.8"; then

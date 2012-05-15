@@ -268,17 +268,17 @@ do
 <Directory ${sfpath}>
   <Limit ALL>
 EOF
-	[ -n "${limitall_allowuser}" ] && echo "    AllowUser ${limitall_allowuser}" >> ${OMV_PROFTPD_CONFIG}
-	[ -n "${limitall_allowgroup}" ] && echo "    AllowGroup ${limitall_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
+	[ -n "${limitall_allowuser}" ] && echo "    AllowUser OR ${limitall_allowuser}" >> ${OMV_PROFTPD_CONFIG}
+	[ -n "${limitall_allowgroup}" ] && echo "    AllowGroup OR ${limitall_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
 	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
     DenyAll
   </Limit>
   <Limit READ DIRS>
 EOF
-	[ -n "${limitall_allowuser}" ] && echo "    AllowUser ${limitall_allowuser}" >> ${OMV_PROFTPD_CONFIG}
-	[ -n "${limitall_allowgroup}" ] && echo "    AllowGroup ${limitall_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
-	[ -n "${limitread_allowuser}" ] && echo "    AllowUser ${limitread_allowuser}" >> ${OMV_PROFTPD_CONFIG}
-	[ -n "${limitread_allowgroup}" ] && echo "    AllowGroup ${limitread_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
+	[ -n "${limitall_allowuser}" ] && echo "    AllowUser OR ${limitall_allowuser}" >> ${OMV_PROFTPD_CONFIG}
+	[ -n "${limitall_allowgroup}" ] && echo "    AllowGroup OR ${limitall_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
+	[ -n "${limitread_allowuser}" ] && echo "    AllowUser OR ${limitread_allowuser}" >> ${OMV_PROFTPD_CONFIG}
+	[ -n "${limitread_allowgroup}" ] && echo "    AllowGroup OR ${limitread_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
 	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
     DenyAll
   </Limit>
