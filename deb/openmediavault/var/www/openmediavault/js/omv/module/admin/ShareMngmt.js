@@ -405,38 +405,34 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 					"appendPagingParams": false
 				}),
 				reader: new Ext.data.JsonReader({
-					fields: [
-						{ name: "type" },
-						{ name: "name" },
-						{ name: "perms" }
-					]
+					fields: [{
+						name: "type"
+					},{
+						name: "name"
+					},{
+						name: "deny",
+						convert: function(v, record) {
+							return (0 === record.perms);
+						}
+					},{
+						name: "readonly",
+						convert: function(v, record) {
+							return (5 === record.perms);
+						}
+					},{
+						name: "writeable",
+						convert: function(v, record) {
+							return (7 === record.perms);
+						}
+					}]
 				}),
-				listeners: {
-					"load": function(store, records, options) {
-						records.each(function(record) {
-							// Set default values
-							record.data.deny = false;
-							record.data.readonly = false;
-							record.data.writeable = false;
-							// Update values depending on the permissions
-							switch (record.get("perms")) {
-							case 0:
-								record.data.deny = true;
-								break;
-							case 5:
-								record.data.readonly = true;
-								break;
-							case 7:
-								record.data.writeable = true;
-								break;
-							}
-							record.commit();
-						}, this);
-					},
-					scope: this
+				sortInfo: {
+					field: "name",
+					direction: "ASC"
 				}
 			})
 		});
+
 		Ext.apply(this, {
 			buttons: [{
 				text: _("OK"),
@@ -491,14 +487,6 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 		this.close();
 	},
 
-	/**
-	 * @method doLoad
-	 * Load the grid content.
-	 */
-	doLoad : function() {
-		this.grid.store.load();
-	},
-
 	doSubmit : function() {
 		// Display waiting dialog
 		OMV.MessageBox.wait(null, _("Saving ..."));
@@ -550,7 +538,7 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 OMV.Module.Privileges.SharedFolderACLDialog = function(config) {
 	var initialConfig = {
 		title: _("Modify shared folder ACL"),
-		width: 550,
+		width: 580,
 		height: 500,
 		layout: "border",
 		modal: true,
@@ -680,39 +668,30 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 				autoLoad: false,
 				remoteSort: false,
 				reader: new Ext.data.JsonReader({
-					fields: [
-						{ name: "type" },
-						{ name: "name" },
-						{ name: "perms" }
-					]
+					fields: [{
+						name: "type"
+					},{
+						name: "name"
+					},{
+						name: "deny",
+						convert: function(v, record) {
+							return (0 === record.perms);
+						}
+					},{
+						name: "readonly",
+						convert: function(v, record) {
+							return (5 === record.perms);
+						}
+					},{
+						name: "writeable",
+						convert: function(v, record) {
+							return (7 === record.perms);
+						}
+					}]
 				}),
 				sortInfo: {
 					field: "name",
 					direction: "ASC"
-				},
-				listeners: {
-					"load": function(store, records, options) {
-						records.each(function(record) {
-							// Set default values
-							record.data.deny = false;
-							record.data.readonly = false;
-							record.data.writeable = false;
-							// Update values depending on the permissions
-							switch (record.get("perms")) {
-							case 0:
-								record.data.deny = true;
-								break;
-							case 5:
-								record.data.readonly = true;
-								break;
-							case 7:
-								record.data.writeable = true;
-								break;
-							}
-							record.commit();
-						}, this);
-					},
-					scope: this
 				}
 			})
 		});
