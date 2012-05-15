@@ -1,3 +1,10 @@
+openmediavault (0.2.7.4) stable; urgency=low
+
+  * Mantis 0000459: Service FTP shares have wrong access privileges in
+    proftpd.conf
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 15 May 2012 20:50:33 +0200
+
 openmediavault (0.2.7.3) stable; urgency=low
 
   * Mantis 0000395: The Upgrade Manager does not show all Packages that
