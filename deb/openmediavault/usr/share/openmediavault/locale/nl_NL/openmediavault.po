@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-14 21:02+0200\n"
-"PO-Revision-Date: 2012-05-14 19:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2012-05-16 15:11+0000\n"
+"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.net/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1404,7 +1404,7 @@ msgid ""
 msgstr "Als uw host fungeert als een NAT-gateway of -poort forwarder voor de server, is deze optie handig om passieve transfers te laten functioneren. U moet hiervoor uw publieke adres en de passieve poorten die u op uw firewall heeft ingesteld, gebruiken."
 
 msgid "Implicit SSL"
-msgstr ""
+msgstr "Stilzwijgend SSL"
 
 msgid "Import"
 msgstr "Importeren"
@@ -1889,7 +1889,7 @@ msgstr "Netwerk"
 
 #, c-format
 msgid "Network interface '%s' already exists"
-msgstr ""
+msgstr "Netwerk interface '%s' bestaat al"
 
 msgid "Neutral Zone"
 msgstr "Neutrale Zone"
@@ -1925,7 +1925,7 @@ msgid "No authentication and no privacy"
 msgstr "Geen authenticatie en geen privacy"
 
 msgid "No certificate request"
-msgstr ""
+msgstr "Geen certificaat vereist"
 
 msgid "No items to display"
 msgstr "Geen items om weer te geven"
@@ -1934,7 +1934,7 @@ msgid "No log entries to display"
 msgstr "Geen logs om weer te geven"
 
 msgid "No session reuse required"
-msgstr ""
+msgstr "Geen sessie hergebruik vereist"
 
 msgid "No users connected"
 msgstr "Geen verbonden gebruikers"
@@ -2938,7 +2938,7 @@ msgid ""
 msgstr "Het wachtwoord dat is gebruikt voor toegang via de rsync daemon. Notitie, dit wachtwoord is niet gebruikt voor extern shell transport, zoals via ssh."
 
 msgid "The path of the folder to share."
-msgstr ""
+msgstr "Het pad van de te delen map."
 
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
@@ -2955,7 +2955,7 @@ msgstr "De rechten op nieuwe bestanden en mappen worden normaal toegekend door h
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
 "for data connections is not required."
-msgstr ""
+msgstr "De eis dat de SSL-sessie van de control verbinding wordt hergebruikt voor data-verbindingen is niet verplicht."
 
 msgid "The session timeout time in minutes."
 msgstr "Het aantal minuten zonder activiteit alvorens de sessie verloopt."
@@ -3012,7 +3012,7 @@ msgstr "Er bestaat al een koppelpunt voor %s"
 msgid ""
 "These settings are used by the services to configure the user access rights."
 " Please note that these settings do no affect the file system permissions."
-msgstr ""
+msgstr "Deze instellingen zijn gebruikt door de diensten van de gebruiker toegangsrechten te configureren. Houd er rekening mee dat deze instellingen geen invloed hebben op de bestandssysteem permissies."
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3141,7 +3141,7 @@ msgstr "Deze optie specificeert de gebruikersnaam die bestandsoverdrachten naar 
 msgid ""
 "This option will handle all connections as if they are SSL connections "
 "implicitly."
-msgstr ""
+msgstr "Deze optie zal alle verbindingen behandelen alsof het stilzwijgende SSL-verbindingen betreft."
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "

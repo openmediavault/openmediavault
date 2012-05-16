@@ -637,22 +637,32 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 					this.grid.loadMask.show();
 					// Load the ACL list.
 					OMV.Ajax.request(function(id, response, error) {
-						  // Set the form field values.
-						  this.form.setValues(response);
-						  // Set the grid values.
-						  var data = [];
-						  ["user","group"].each(function(type) {
-							  response[type + "s"].each(function(r) {
-								  data.push({
-									  "type": type,
-									  "name": r.name,
-									  "perms": r.perms
-								  });
+						  if (error !== null) {
+							  this.grid.loadMask.hide();
+							  OMV.MessageBox.error(null, error);
+						  } else {
+							  // Set the form field values.
+							  this.form.setValues({
+								  "user": response.acl.user,
+								  "group": response.acl.group,
+								  "other": response.acl.other
+							  });
+							  // Set the grid values.
+							  var data = [];
+							  ["user","group"].each(function(type) {
+								  response["acl"][type + "s"].each(
+									function(r) {
+									  data.push({
+										  "type": type,
+										  "name": r.name,
+										  "perms": r.perms
+									  });
+								  }, this);
 							  }, this);
-						  }, this);
-						  this.grid.store.loadData(data);
-						  // Disable load mask.
-						  this.grid.loadMask.hide();
+							  this.grid.store.loadData(data);
+							  // Disable load mask.
+							  this.grid.loadMask.hide();
+						  }
 					  }, this, "ShareMgmt", "getFileACL", { "uuid": this.uuid,
 					  "file": node.attributes.dir });
 				}

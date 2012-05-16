@@ -43,7 +43,7 @@ omv_isnumber() {
 
 # omv_isuuid value
 # Check if the given argument is an UUID v4.
-# Return 0 if it is a number, otherwise 1.
+# Return 0 if it is a UUID, otherwise 1.
 omv_isuuid() {
     if $(echo $1 | grep -Eqi "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"); then
         return 0
@@ -55,7 +55,7 @@ omv_isuuid() {
 # Check if the given argument is a filesystem UUID. They may look like:
 # vfat - 7A48-BA97
 # ext[2-4]?|xfs|jfs - 5d06cb54-70ef-4bcc-bf99-fd22c27daac0
-# Return 0 if it is a number, otherwise 1.
+# Return 0 if it is a file system UUID, otherwise 1.
 omv_isfsuuid() {
     if $(echo $1 | grep -Eqi "^[a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"); then
         return 0

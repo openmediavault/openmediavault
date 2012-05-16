@@ -608,9 +608,10 @@ class ShareMgmtRpc extends OMVRpc {
 	 * @param data An array containing the following fields:
 	 *   \em uuid The UUID of the shared folder object.
 	 *   \em file The relative path to the file.
-	 * @return The requested file access control lists with the fields \em user,
-	 *   \em group and \em other. The fields \em users and \em groups contain
-	 *   the fields \em name and \em perms.
+	 * @return An object containing the fields \em file, \em owner, \em group
+	 *   and the object \em acl with the fields \em user, \em group and
+	 *   \em other. The fields \em users and \em groups contain the fields
+	 *   \em name and \em perms.
 	 */
 	public function getFileACL($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -633,23 +634,31 @@ class ShareMgmtRpc extends OMVRpc {
 		$sfpath = OMVRpc::exec("ShareMgmt", "getPath", array(
 		  "uuid" => $data['uuid']));
 		// Execute command to get the file access control lists.
-		$cmd = sprintf("export LANG=C; sudo getfacl --no-effective --access ".
-		  "--omit-header %s 2>&1", escapeshellarg(sprintf("%s/%s", $sfpath,
+		$cmd = sprintf("export LANG=C; sudo getfacl --no-effective ".
+		  "--access %s 2>&1", escapeshellarg(sprintf("%s/%s", $sfpath,
 		  $data['file'])));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		// Prepare result object. Return only non-system users and groups.
+		// Prepare result object.
 		$result = array(
-			"user" => NULL,
+			"file" => NULL,
+			"owner" => NULL,
 			"group" => NULL,
-			"other" => NULL,
-			"users" => array(),
-			"groups" => array()
+			"acl" => array(
+				"user" => NULL,
+				"group" => NULL,
+				"other" => NULL,
+				"users" => array(),
+				"groups" => array()
+			)
 		);
 		// Parse the command output:
+		// # file: test
+		// # owner: root
+		// # group: users
 		// user::rwx
 		// user:test:rwx
 		// user:nobody:rwx
@@ -658,6 +667,14 @@ class ShareMgmtRpc extends OMVRpc {
 		// mask::rwx
 		// other::r--
 		$object = array();
+		// Get the owner and owning group.
+		foreach ($output as $outputk => $outputv) {
+			$regex = '/^# (file|owner|group): (.+)$/';
+			if (1 !== preg_match($regex, $outputv, $matches))
+				continue;
+			$result[$matches[1]] = $matches[2];
+		}
+		// Get the user, group and other file mode permission bits.
 		foreach ($output as $outputk => $outputv) {
 			$regex = '/^(user|group|other):(.*):(.+)$/';
 			if (1 !== preg_match($regex, $outputv, $matches))
@@ -671,19 +688,19 @@ class ShareMgmtRpc extends OMVRpc {
 				$perms += $map[$permv];
 			}
 			if (!empty($matches[2])) {
-				$result["{$matches[1]}s"][] = array(
+				$result['acl']["{$matches[1]}s"][] = array(
 					"name" => $matches[2],
 					"perms" => $perms
 				);
 			} else {
-				$result[$matches[1]] = $perms;
+				$result['acl'][$matches[1]] = $perms;
 			}
 		}
-		// Process non-system users.
-		$users = OMVRpc::exec("UserMgmt", "enumerateUsers");
+		// Add missing users.
+		$users = OMVRpc::exec("UserMgmt", "enumerateAllUsers");
 		foreach ($users as $userk => $userv) {
 			$found = FALSE;
-			foreach ($result['users'] as $resultv) {
+			foreach ($result['acl']['users'] as $resultv) {
 				if ($resultv['name'] === $userv['name']) {
 					$found = TRUE;
 					break;
@@ -691,16 +708,16 @@ class ShareMgmtRpc extends OMVRpc {
 			}
 			if (TRUE === $found)
 				continue;
-			$result['users'][] = array(
+			$result['acl']['users'][] = array(
 				"name" => $userv['name'],
 				"perms" => NULL
 			);
 		}
-		// Process non-system groups.
-		$groups = OMVRpc::exec("UserMgmt", "enumerateGroups");
+		// Add missing groups.
+		$groups = OMVRpc::exec("UserMgmt", "enumerateAllGroups");
 		foreach ($groups as $groupk => $groupv) {
 			$found = FALSE;
-			foreach ($result['groups'] as $resultv) {
+			foreach ($result['acl']['groups'] as $resultv) {
 				if ($resultv['name'] === $groupv['name']) {
 					$found = TRUE;
 					break;
@@ -708,7 +725,7 @@ class ShareMgmtRpc extends OMVRpc {
 			}
 			if (TRUE === $found)
 				continue;
-			$result['groups'][] = array(
+			$result['acl']['groups'][] = array(
 				"name" => $groupv['name'],
 				"perms" => NULL
 			);

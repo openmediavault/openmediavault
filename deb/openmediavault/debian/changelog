@@ -6,6 +6,7 @@ openmediavault (0.3.0.9) stable; urgency=low
     partitioned properly.
   * Mantis 0000459: Service FTP shares have wrong access privileges in
     proftpd.conf
+  * Mantis 0000462: NFS options are incorrectly written to /etc/exports.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 May 2012 18:10:39 +0200
 

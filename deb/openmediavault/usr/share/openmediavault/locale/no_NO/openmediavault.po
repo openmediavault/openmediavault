@@ -3,41 +3,41 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012.
+#   <runesudden@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-14 21:02+0200\n"
-"PO-Revision-Date: 2012-05-14 22:48+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
-"Language-Team: Danish (http://www.transifex.net/projects/p/openmediavault/language/da/)\n"
+"PO-Revision-Date: 2012-05-16 16:03+0000\n"
+"Last-Translator: runesudden <runesudden@gmail.com>\n"
+"Language-Team: Norwegian (http://www.transifex.net/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: da\n"
+"Language: no\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, c-format
 msgid "% completed ..."
-msgstr "% gennemført ..."
+msgstr "% ferdig ..."
 
 #, c-format
 msgid "%s (%s available)"
-msgstr "%s (%s tilgængelig)"
+msgstr "%s (%s tilgjengelig)"
 
 #, c-format
 msgid "%s [on %s]"
 msgstr "%s [på %s]"
 
 msgid "'All' is not allowed"
-msgstr "'Alle' er ikke tilladt"
+msgstr "'Alle' er ikke tillatt"
 
 msgid "0 KiB/s means unlimited."
-msgstr "0 KiB/s betyder ubegrænset."
+msgstr "0 KiB/s betyr ubegrenset"
 
 msgid "1 - Minimum power usage with standby (spindown)"
-msgstr "1 - Minimum strømforbrug med standby (spindown)"
+msgstr "Minste strømforbruk "
 
 msgid "1 day"
 msgstr "1 dag"
@@ -46,7 +46,7 @@ msgid "1 month"
 msgstr "1 måned"
 
 msgid "1 week"
-msgstr "1 uge"
+msgstr "1 uke"
 
 msgid "1 year"
 msgstr "1 år"
@@ -59,16 +59,16 @@ msgstr "10 år"
 
 #, c-format
 msgid "100% completed ..."
-msgstr "100% gennemført ..."
+msgstr "100% ferdig ..."
 
 msgid "120 minutes"
 msgstr "120 minutter"
 
 msgid "127 - Intermediate power usage with standby"
-msgstr "127 - Mellemliggende strømforbrug med standby"
+msgstr "127 - Gjennomsnittlig strømforbruk med standby"
 
 msgid "128 - Minimum power usage without standby (no spindown)"
-msgstr "128 - Minimum strømforbrug uden standby (ingen spindown)"
+msgstr "128 - Minste strømforbruk uten standby (ingen spindown)"
 
 msgid "15 years"
 msgstr "15 år"
@@ -77,13 +77,13 @@ msgid "180 minutes"
 msgstr "180 minutter"
 
 msgid "192 - Intermediate power usage without standby"
-msgstr "192 - Mellemliggende strømforbrug uden standby"
+msgstr "192 - Gjennomsnittlig strømforbruk uten standby"
 
 msgid "2 days"
-msgstr "2 dage"
+msgstr "2 dager"
 
 msgid "2 weeks"
-msgstr "2 uge"
+msgstr "2 uker"
 
 msgid "2 years"
 msgstr "2 år"
@@ -101,16 +101,16 @@ msgid "25 years"
 msgstr "25 år"
 
 msgid "254 - Maximum performance, maximum power usage"
-msgstr "254 - Maksimal ydeevne, maksimal strømforbrug"
+msgstr "254 - Maksimal ytelse, maksimalt strømforbruk"
 
 msgid "3 days"
-msgstr "3 dage"
+msgstr "3 dager"
 
 msgid "3 months"
 msgstr "3 måneder"
 
 msgid "3 weeks"
-msgstr "3 uger"
+msgstr "3 uker"
 
 msgid "3 years"
 msgstr "3 år"
@@ -119,19 +119,19 @@ msgid "30 minutes"
 msgstr "30 minutter"
 
 msgid "300 minutes"
-msgstr "300 minutter"
+msgstr "200 minutter"
 
 msgid "360 minutes"
 msgstr "360 minutter"
 
 msgid "4 days"
-msgstr "4 dage"
+msgstr "4 dager"
 
 msgid "4 years"
 msgstr "4 år"
 
 msgid "5 days"
-msgstr "5 dage"
+msgstr "5 dager"
 
 msgid "5 minutes"
 msgstr "5 minutter"
@@ -140,28 +140,28 @@ msgid "5 years"
 msgstr "5 år"
 
 msgid "6 days"
-msgstr "6 dage"
+msgstr "6 dager"
 
 msgid "6 months"
-msgstr "6 månder"
+msgstr "6 måneder"
 
 msgid "60 minutes"
 msgstr "60 minutter"
 
 msgid "64 - Intermediate power usage with standby"
-msgstr "64 - Mellemliggende strømforbrug med standby"
+msgstr "64 - Gjennomsnittlig strømforbruk med standby"
 
 msgid "9 months"
-msgstr "9 månder"
+msgstr "9 måneder"
 
 msgid "A mount point already exists for the given filesystem"
-msgstr "Et mount punkt findes allerede for den givne filsystem"
+msgstr "Et monteringspunkt finnes allerede for dette filsystem"
 
 msgid "A share with the given name already exists"
-msgstr "En mappe med det givne navn findes allerede"
+msgstr "En mappe med det gitte filnavnet eksisterer allerede"
 
 msgid "A shared folder with the given name already exists"
-msgstr "En delt mappe med det givne navn findes allerede"
+msgstr "En delt mappe med det gitte navnet eksisterer allerede"
 
 msgid "ACL"
 msgstr "ACL"
@@ -170,58 +170,58 @@ msgid "About"
 msgstr "Om"
 
 msgid "Access Right Management"
-msgstr "Adgangs Ret Styring"
+msgstr "Adgangsrettigheter"
 
 msgid "Act as a WINS server."
-msgstr ""
+msgstr "Funger som WINS server"
 
 msgid "Action"
-msgstr ""
+msgstr "Handling"
 
 msgid "Activate S.M.A.R.T. monitoring."
-msgstr "Aktiver S.M.A.R.T. overvågning."
+msgstr "Aktiver S.M.A.R.T. overvåkning"
 
 msgid "Add"
-msgstr "Tilføj"
+msgstr "Legg til"
 
 msgid "Add bonded interface"
 msgstr ""
 
 msgid "Add cron job"
-msgstr "Tilføj cron job"
+msgstr "Legg til cron jobb"
 
 msgid "Add devices to RAID device"
-msgstr "Tilføj enhed til RAID enhed"
+msgstr "Leggt til enhet til RAID enhet"
 
 msgid "Add firewall rule"
-msgstr "Tilføj firewall regl"
+msgstr "Legg til brannmur-regel"
 
 msgid "Add group"
-msgstr "Tilføj gruppe"
+msgstr "Legg til gruppe"
 
 msgid "Add hot spares / recover RAID device"
 msgstr ""
 
 msgid "Add module"
-msgstr "Tilføj modul"
+msgstr ""
 
 msgid "Add rsync job"
-msgstr "Tilføj rsync job"
+msgstr ""
 
 msgid "Add rule"
-msgstr "Tilføj regl"
+msgstr ""
 
 msgid "Add scheduled test"
-msgstr "Tilføj planlagt test"
+msgstr ""
 
 msgid "Add share"
-msgstr "Tilføj mappe"
+msgstr ""
 
 msgid "Add shared folder"
-msgstr "Tilføj delt mappe"
+msgstr ""
 
 msgid "Add user"
-msgstr "Tilføj bruger"
+msgstr ""
 
 msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
@@ -230,10 +230,10 @@ msgid ""
 msgstr ""
 
 msgid "Address"
-msgstr "Adresse"
+msgstr ""
 
 msgid "Administrator password"
-msgstr "Administrator adgangskode"
+msgstr ""
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr ""
@@ -273,10 +273,10 @@ msgid "Algeria"
 msgstr ""
 
 msgid "All"
-msgstr "Alle"
+msgstr ""
 
 msgid "Allow"
-msgstr "Tillad"
+msgstr ""
 
 msgid "Allow client access to accounts that have null passwords"
 msgstr ""
@@ -289,7 +289,7 @@ msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr ""
 
 msgid "Allow new files"
-msgstr "Tillad nye filer"
+msgstr ""
 
 msgid "Allow new files to be created."
 msgstr ""
@@ -336,7 +336,7 @@ msgid "Antigua and Barbuda"
 msgstr ""
 
 msgid "Apply"
-msgstr "Anvend"
+msgstr ""
 
 msgid "Apply permissions to files and subfolders"
 msgstr ""

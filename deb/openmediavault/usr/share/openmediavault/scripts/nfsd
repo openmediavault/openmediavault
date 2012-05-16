@@ -53,7 +53,7 @@ EOF
 xmlstarlet sel -t \
   -m "//services/nfs/shares/share" \
 	-o "${OMV_NFSD_EXPORT_DIR}/" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} \
-	-v "concat(' ',client,'(',options)" \
+	-v "concat(' ',normalize-space(client),'(',options)" \
 	-i "string-length(extraoptions) > 0" \
 	  -v "concat(',',extraoptions)" \
 	-b \
@@ -67,7 +67,7 @@ if omv_checkyesno ${OMV_NFSD_ENABLEV4}; then
 		-n \
 		-o "# NFSv4 - pseudo filesystem root" -n \
 		-m "//services/nfs/shares/share" \
-		  -v "concat('${OMV_NFSD_EXPORT_DIR} ',client,'(ro,fsid=0,root_squash,no_subtree_check,hide)')" \
+		  -v "concat('${OMV_NFSD_EXPORT_DIR} ',normalize-space(client),'(ro,fsid=0,root_squash,no_subtree_check,hide)')" \
 		  -i "position() != last()" -n -b \
 		-b \
 	  -b \
