@@ -54,8 +54,8 @@ class ShareMgmtRpc extends OMVRpc {
 					"reldirpath":{"type":"string"},
 					"comment":{"type":"string"},
 					"mntentref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-					"umask":{"type":"string","enum":["700","750","755",'.
-					  '"770","775","777"]}
+					"mode":{"type":"string","enum":["700","750","755",'.
+					  '"770","775","777"],"optional":true}
 				}
 			}'),
 			"delete" => array('{
@@ -323,7 +323,8 @@ class ShareMgmtRpc extends OMVRpc {
 	 *   \em comment The comment.
 	 *   \em mntentref The UUID of the mount point configuration object wherein
 	 *   the shared folder is located.
-	 *   \em umask The umask of the shared folder directory.
+	 *   \em mode The file mode of the shared folder directory. This field
+	 *   is optional.
 	 */
 	public function set($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -392,8 +393,10 @@ class ShareMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
 			  $xmlConfig->getError());
 		}
-		// Append the umask field to the notification object
-		$object['umask'] = $data['umask'];
+		// Append the file mode field to the notification object if set.
+		if (array_key_exists("mode", $data)) {
+			$object['mode'] = $data['mode'];
+		}
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?

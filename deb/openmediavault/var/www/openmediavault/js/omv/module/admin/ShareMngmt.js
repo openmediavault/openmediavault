@@ -317,8 +317,8 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 			}
 		},{
 			xtype: "combo",
-			name: "umask",
-			hiddenName: "umask",
+			name: "mode",
+			hiddenName: "mode",
 			fieldLabel: _("Permissions"),
 			mode: "local",
 			store: new Ext.data.SimpleStore({
@@ -337,7 +337,11 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
-			value: "775"
+			hidden: (this.uuid !== OMV.UUID_UNDEFINED),
+			submitValue: (this.uuid == OMV.UUID_UNDEFINED),
+			value: "775",
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: _("The file mode of the shared folder path.")
 		},{
 			xtype: "textarea",
 			name: "comment",
@@ -643,9 +647,11 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 						  } else {
 							  // Set the form field values.
 							  this.form.setValues({
-								  "user": response.acl.user,
-								  "group": response.acl.group,
-								  "other": response.acl.other
+								  "owner": response.owner,
+								  "group": response.group,
+								  "userperms": response.acl.user,
+								  "groupperms": response.acl.group,
+								  "otherperms": response.acl.other
 							  });
 							  // Set the grid values.
 							  var data = [];
@@ -718,53 +724,75 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 				anchor: "100%"
 			},
 			items: [{
-				xtype: "combo",
-				name: "user",
-				hiddenName: "user",
+				xtype: "compositefield",
 				fieldLabel: _("Owner"),
-				mode: "local",
-				store: new Ext.data.SimpleStore({
-					fields: [ "value","text" ],
-					data: [
-						[ 0,_("No access") ],
-						[ 5,_("Read-only") ],
-						[ 7,_("Read/Write") ]
-					]
-				}),
-				displayField: "text",
-				valueField: "value",
-				allowBlank: false,
-				editable: false,
-				triggerAction: "all",
-				value: 7,
+				items: [{
+					xtype: "textfield",
+					name: "owner",
+					readOnly: true,
+					submitValue: false,
+					flex: 1,
+					value: _("n/a")
+				},{
+					xtype: "combo",
+					name: "userperms",
+					hiddenName: "userperms",
+					mode: "local",
+					store: new Ext.data.SimpleStore({
+						fields: [ "value","text" ],
+						data: [
+							[ 0,_("No access") ],
+							[ 5,_("Read-only") ],
+							[ 7,_("Read/Write") ]
+						]
+					}),
+					displayField: "text",
+					valueField: "value",
+					allowBlank: false,
+					editable: false,
+					triggerAction: "all",
+					flex: 1,
+					value: 7
+				}],
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: _("Permissions of owner.")
 			},{
-				xtype: "combo",
-				name: "group",
-				hiddenName: "group",
+				xtype: "compositefield",
 				fieldLabel: _("Group"),
-				mode: "local",
-				store: new Ext.data.SimpleStore({
-					fields: [ "value","text" ],
-					data: [
-						[ 0,_("No access") ],
-						[ 5,_("Read-only") ],
-						[ 7,_("Read/Write") ]
-					]
-				}),
-				displayField: "text",
-				valueField: "value",
-				allowBlank: false,
-				editable: false,
-				triggerAction: "all",
-				value: 5,
+				items: [{
+					xtype: "textfield",
+					name: "group",
+					readOnly: true,
+					submitValue: false,
+					flex: 1,
+					value: _("n/a")
+				},{
+					xtype: "combo",
+					name: "groupperms",
+					hiddenName: "groupperms",
+					mode: "local",
+					store: new Ext.data.SimpleStore({
+						fields: [ "value","text" ],
+						data: [
+							[ 0,_("No access") ],
+							[ 5,_("Read-only") ],
+							[ 7,_("Read/Write") ]
+						]
+					}),
+					displayField: "text",
+					valueField: "value",
+					allowBlank: false,
+					editable: false,
+					triggerAction: "all",
+					flex: 1,
+					value: 7
+				}],
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: _("Permissions of group.")
 			},{
 				xtype: "combo",
-				name: "other",
-				hiddenName: "other",
+				name: "otherperms",
+				hiddenName: "otherperms",
 				fieldLabel: _("Others"),
 				mode: "local",
 				store: new Ext.data.SimpleStore({
@@ -868,9 +896,9 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 				"file": node.attributes.dir,
 				"recursive": options.recursive,
 				"replace": options.replace,
-				"user": options.user,
-				"group": options.group,
-				"other": options.other,
+				"user": options.userperms,
+				"group": options.groupperms,
+				"other": options.otherperms,
 				"users": users,
 				"groups": groups
 			},

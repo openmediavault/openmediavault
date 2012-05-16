@@ -49,9 +49,14 @@ class ShareMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 		}
 		// Build the absolute shared folder path.
 		$dirpath = sprintf("%s/%s", $meobject['dir'], $object['reldirpath']);
-		// Create the shared folder directory with the given mask.
-		$cmd = sprintf("sudo mkdir -p --mode %s %s 2>&1", $object['umask'],
-		  escapeshellarg($dirpath));
+		// Create the command line arguments.
+		$cmdargs = array("-p");
+		if (array_key_exists("mode", $object)) {
+			$cmdargs[] = sprintf("--mode %s", $object['mode']);
+		}
+		// Create the shared folder directory.
+		$cmd = sprintf("export LANG=C; sudo mkdir %s %s 2>&1", implode(" ",
+		  $cmdargs), escapeshellarg($dirpath));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
