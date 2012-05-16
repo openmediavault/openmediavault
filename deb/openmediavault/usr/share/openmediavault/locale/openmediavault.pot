@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-14 21:02+0200\n"
+"POT-Creation-Date: 2012-05-16 23:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -686,9 +686,6 @@ msgstr ""
 msgid "Daemon"
 msgstr ""
 
-msgid "Danish"
-msgstr ""
-
 msgid "Date"
 msgstr ""
 
@@ -858,9 +855,6 @@ msgstr ""
 msgid "Dronning Maud Land"
 msgstr ""
 
-msgid "Dutch"
-msgstr ""
-
 msgid "Each line represents one group."
 msgstr ""
 
@@ -1002,9 +996,6 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-msgid "English"
-msgstr ""
-
 msgid "Enter your password"
 msgstr ""
 
@@ -1144,9 +1135,6 @@ msgstr ""
 msgid "France"
 msgstr ""
 
-msgid "French"
-msgstr ""
-
 msgid "French Guiana"
 msgstr ""
 
@@ -1189,9 +1177,6 @@ msgstr ""
 msgid "Georgia"
 msgstr ""
 
-msgid "German"
-msgstr ""
-
 msgid "Germany"
 msgstr ""
 
@@ -1205,9 +1190,6 @@ msgid "Gibraltar"
 msgstr ""
 
 msgid "Greece"
-msgstr ""
-
-msgid "Greek"
 msgstr ""
 
 msgid "Greenland"
@@ -1304,9 +1286,6 @@ msgid "Hosts deny"
 msgstr ""
 
 msgid "Hour"
-msgstr ""
-
-msgid "Hungarian"
 msgstr ""
 
 msgid "Hungary"
@@ -1440,9 +1419,6 @@ msgid "Ireland"
 msgstr ""
 
 msgid "Israel"
-msgstr ""
-
-msgid "Italian"
 msgstr ""
 
 msgid "Italy"
@@ -2083,9 +2059,6 @@ msgstr ""
 msgid "Poland"
 msgstr ""
 
-msgid "Polish"
-msgstr ""
-
 msgid "Port"
 msgstr ""
 
@@ -2300,9 +2273,6 @@ msgid "Running"
 msgstr ""
 
 msgid "Russia"
-msgstr ""
-
-msgid "Russian"
 msgstr ""
 
 msgid "Rwanda"
@@ -2609,9 +2579,6 @@ msgstr ""
 msgid "Spain"
 msgstr ""
 
-msgid "Spanish"
-msgstr ""
-
 msgid "Specifies how many server threads to create."
 msgstr ""
 
@@ -2785,6 +2752,9 @@ msgstr ""
 
 #, c-format
 msgid "The field '%s' contains forbidden "
+msgstr ""
+
+msgid "The file mode of the shared folder path."
 msgstr ""
 
 #, c-format
@@ -3034,9 +3004,6 @@ msgstr ""
 msgid "Turkey"
 msgstr ""
 
-msgid "Turkish"
-msgstr ""
-
 msgid "Turkmenistan"
 msgstr ""
 
@@ -3059,9 +3026,6 @@ msgid "Uganda"
 msgstr ""
 
 msgid "Ukraine"
-msgstr ""
-
-msgid "Ukrainian"
 msgstr ""
 
 msgid "Uninstall"

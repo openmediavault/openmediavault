@@ -47,6 +47,7 @@ OMV.grid.PrivilegesGridPanel = function(config) {
 			},{
 				header: _("Read/Write"),
 				sortable: true,
+				groupable: false,
 				dataIndex: "writeable",
 				id: "writeable",
 				align: "center",
@@ -55,6 +56,7 @@ OMV.grid.PrivilegesGridPanel = function(config) {
 			},{
 				header: _("Read-only"),
 				sortable: true,
+				groupable: false,
 				dataIndex: "readonly",
 				id: "readonly",
 				align: "center",
@@ -63,6 +65,7 @@ OMV.grid.PrivilegesGridPanel = function(config) {
 			},{
 				header: _("No access"),
 				sortable: true,
+				groupable: false,
 				dataIndex: "deny",
 				id: "deny",
 				align: "center",

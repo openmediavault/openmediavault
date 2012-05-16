@@ -1,3 +1,9 @@
+openmediavault (0.3.0.10) stable; urgency=low
+
+  * Add ability to group privileges grid.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 17 May 2012 00:28:53 +0200
+
 openmediavault (0.3.0.9) stable; urgency=low
 
   * Update locales.

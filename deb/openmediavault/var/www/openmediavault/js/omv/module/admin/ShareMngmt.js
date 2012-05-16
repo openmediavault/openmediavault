@@ -22,6 +22,7 @@
 // require("js/omv/MessageBox.js")
 // require("js/omv/data/DataProxy.js")
 // require("js/omv/data/Store.js")
+// require("js/omv/data/GroupingStore.js")
 // require("js/omv/grid/PrivilegesGridPanel.js")
 // require("js/omv/grid/TBarGridPanel.js")
 // require("js/omv/CfgObjectDialog.js")
@@ -399,7 +400,7 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 	initComponent : function() {
 		this.grid = new OMV.grid.PrivilegesGridPanel({
 			stateId: "474eacf4-cadb-4ae4-b545-4f7f47d7aed9",
-			store: new OMV.data.Store({
+			store: new OMV.data.GroupingStore({
 				autoLoad: true,
 				remoteSort: false,
 				proxy: new OMV.data.DataProxy({
@@ -434,6 +435,9 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 					field: "name",
 					direction: "ASC"
 				}
+			}),
+			view: new Ext.grid.GroupingView({
+				forceFit: true
 			})
 		});
 
@@ -680,7 +684,7 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 			border: true,
 			region: "center",
 			stateId: "7ae170d2-647d-11e1-b329-00221568ca88",
-			store: new OMV.data.Store({
+			store: new OMV.data.GroupingStore({
 				autoLoad: false,
 				remoteSort: false,
 				reader: new Ext.data.JsonReader({
@@ -709,6 +713,9 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 					field: "name",
 					direction: "ASC"
 				}
+			}),
+			view: new Ext.grid.GroupingView({
+				forceFit: true
 			})
 		});
 
