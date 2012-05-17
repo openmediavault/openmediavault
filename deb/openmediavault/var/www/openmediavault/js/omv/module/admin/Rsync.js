@@ -29,6 +29,8 @@
 // require("js/omv/CfgObjectTabDialog.js")
 // require("js/omv/form/PasswordField.js")
 // require("js/omv/form/SharedFolderComboBox.js")
+// require("js/omv/form/UserComboBox.js")
+// require("js/omv/form/GroupComboBox.js")
 // require("js/omv/form/plugins/FieldInfo.js")
 // require("js/omv/module/admin/Logs.js")
 // require("js/omv/util/Format.js")
@@ -312,58 +314,18 @@ Ext.extend(OMV.Module.Services.Rsyncd.ModuleGeneralPanel, OMV.form.FormPanel, {
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: _("The location of the files to share.")
 		},{
-			xtype: "combo",
+			xtype: "usercombo",
 			name: "uid",
 			hiddenName: "uid",
 			fieldLabel: _("User"),
-			allowBlank: false,
-			editable: false,
-			triggerAction: "all",
-			store: new OMV.data.Store({
-				remoteSort: false,
-				proxy: new OMV.data.DataProxy({
-					"service": "UserMgmt",
-					"method": "enumerateAllUsers",
-					"appendPagingParams": false
-				}),
-				reader: new Ext.data.JsonReader({
-					idProperty: "name",
-					fields: [
-						{ name: "name" }
-					]
-				})
-			}),
-			emptyText: _("Select a user ..."),
-			valueField: "name",
-			displayField: "name",
 			value: "nobody",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: _("This option specifies the user name that file transfers to and from that module should take place.")
 		},{
-			xtype: "combo",
+			xtype: "groupcombo",
 			name: "gid",
 			hiddenName: "gid",
 			fieldLabel: _("Group"),
-			allowBlank: false,
-			editable: false,
-			triggerAction: "all",
-			store: new OMV.data.Store({
-				remoteSort: false,
-				proxy: new OMV.data.DataProxy({
-					"service": "UserMgmt",
-					"method": "enumerateAllGroups",
-					"appendPagingParams": false
-				}),
-				reader: new Ext.data.JsonReader({
-					idProperty: "name",
-					fields: [
-						{ name: "name" }
-					]
-				})
-			}),
-			emptyText: _("Select a group ..."),
-			valueField: "name",
-			displayField: "name",
 			value: "users",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: _("This option specifies the group name that file transfers to and from that module should take place.")
@@ -590,7 +552,7 @@ OMV.Module.Services.Rsyncd.ModuleAuthUserPropertyDialog = function(config) {
 	var initialConfig = {
 		mode: "local",
 		hideReset: true,
-		width: 300,
+		width: 330,
 		autoHeight: true
 	};
 	Ext.apply(initialConfig, config);
@@ -607,10 +569,13 @@ Ext.extend(OMV.Module.Services.Rsyncd.ModuleAuthUserPropertyDialog,
 
 	getFormItems : function() {
 		return [{
-			xtype: "textfield",
+			xtype: "usercombo",
 			name: "name",
 			fieldLabel: _("Name"),
-			allowBlank: false
+			allowBlank: false,
+			forceSelection: false,
+			userType: "normal",
+			emptyText: _("Select or enter a user name ...")
 		},{
 			xtype: "passwordfield",
 			name: "password",

@@ -614,7 +614,7 @@ class ShareMgmtRpc extends OMVRpc {
 	 * @return An object containing the fields \em file, \em owner, \em group
 	 *   and the object \em acl with the fields \em user, \em group and
 	 *   \em other. The fields \em users and \em groups contain the fields
-	 *   \em name and \em perms.
+	 *   \em name, \em uid or \em gid, \em system and \em perms.
 	 */
 	public function getFileACL($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -703,8 +703,14 @@ class ShareMgmtRpc extends OMVRpc {
 		$users = OMVRpc::exec("UserMgmt", "enumerateAllUsers");
 		foreach ($users as $userk => $userv) {
 			$found = FALSE;
-			foreach ($result['acl']['users'] as $resultv) {
+			foreach ($result['acl']['users'] as &$resultv) {
 				if ($resultv['name'] === $userv['name']) {
+					// Append additional user details, e.g. uid and the
+					// information if it is a system user.
+					$resultv = array_merge($resultv, array(
+						"uid" => $userv['uid'],
+						"system" => $userv['system']
+					));
 					$found = TRUE;
 					break;
 				}
@@ -713,15 +719,23 @@ class ShareMgmtRpc extends OMVRpc {
 				continue;
 			$result['acl']['users'][] = array(
 				"name" => $userv['name'],
-				"perms" => NULL
+				"perms" => NULL,
+				"uid" => $userv['uid'],
+				"system" => $userv['system']
 			);
 		}
 		// Add missing groups.
 		$groups = OMVRpc::exec("UserMgmt", "enumerateAllGroups");
 		foreach ($groups as $groupk => $groupv) {
 			$found = FALSE;
-			foreach ($result['acl']['groups'] as $resultv) {
+			foreach ($result['acl']['groups'] as &$resultv) {
 				if ($resultv['name'] === $groupv['name']) {
+					// Append additional group details, e.g. gid and the
+					// information if it is a system group.
+					$resultv = array_merge($resultv, array(
+						"gid" => $groupv['gid'],
+						"system" => $groupv['system']
+					));
 					$found = TRUE;
 					break;
 				}
@@ -730,7 +744,9 @@ class ShareMgmtRpc extends OMVRpc {
 				continue;
 			$result['acl']['groups'][] = array(
 				"name" => $groupv['name'],
-				"perms" => NULL
+				"perms" => NULL,
+				"gid" => $groupv['gid'],
+				"system" => $groupv['system']
 			);
 		}
 		return $result;

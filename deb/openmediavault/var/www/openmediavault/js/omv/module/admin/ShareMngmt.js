@@ -378,8 +378,8 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 OMV.Module.Privileges.PrivilegesPropertyDialog = function(config) {
 	var initialConfig = {
 		title: _("Edit shared folder privileges"),
-		width: 500,
-		height: 300,
+		width: 550,
+		height: 350,
 		layout: "fit",
 		modal: true,
 		border: true,
@@ -546,8 +546,8 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 OMV.Module.Privileges.SharedFolderACLDialog = function(config) {
 	var initialConfig = {
 		title: _("Modify shared folder ACL"),
-		width: 580,
-		height: 500,
+		width: 600,
+		height: 520,
 		layout: "border",
 		modal: true,
 		border: false,
@@ -665,7 +665,8 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 									  data.push({
 										  "type": type,
 										  "name": r.name,
-										  "perms": r.perms
+										  "perms": r.perms,
+										  "system": r.system
 									  });
 								  }, this);
 							  }, this);
@@ -707,16 +708,30 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 						convert: function(v, record) {
 							return (7 === record.perms);
 						}
+					},{
+						name: "system"
 					}]
 				}),
 				sortInfo: {
 					field: "name",
 					direction: "ASC"
-				}
+				},
+				groupField: "system"
 			}),
 			view: new Ext.grid.GroupingView({
 				forceFit: true
-			})
+			}),
+			extraColumns: [{
+				header: _("System user/group"),
+				sortable: true,
+				groupable: true,
+				hidden: true,
+				dataIndex: "system",
+				id: "system",
+				align: "center",
+				renderer: OMV.util.Format.booleanRenderer(),
+				scope: this
+			}]
 		});
 
 		this.form = new OMV.form.FormPanel({

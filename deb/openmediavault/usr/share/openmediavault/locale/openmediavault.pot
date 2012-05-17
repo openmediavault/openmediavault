@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-16 23:31+0200\n"
+"POT-Creation-Date: 2012-05-17 20:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2383,6 +2383,9 @@ msgstr ""
 msgid "Select a group ..."
 msgstr ""
 
+msgid "Select a group name..."
+msgstr ""
+
 msgid "Select a language ..."
 msgstr ""
 
@@ -2401,10 +2404,16 @@ msgstr ""
 msgid "Select a user ..."
 msgstr ""
 
+msgid "Select a user name..."
+msgstr ""
+
 msgid "Select a volume ..."
 msgstr ""
 
 msgid "Select devices to be added to the RAID device"
+msgstr ""
+
+msgid "Select or enter a user name ..."
 msgstr ""
 
 msgid "Self-test logs"

@@ -23,6 +23,7 @@
 // require("js/omv/data/Store.js")
 // require("js/omv/CfgObjectDialog.js")
 // require("js/omv/grid/TBarGridPanel.js")
+// require("js/omv/form/UserComboBox.js")
 // require("js/omv/form/plugins/FieldInfo.js")
 // require("js/omv/util/Format.js")
 // require("js/omv/ExecCmdDialog.js")
@@ -390,30 +391,10 @@ Ext.extend(OMV.Module.System.CronPropertyDialog, OMV.CfgObjectDialog, {
 			triggerAction: "all",
 			value: "*"
 		},{
-			xtype: "combo",
+			xtype: "usercombo",
 			name: "username",
 			hiddenName: "username",
 			fieldLabel: _("User"),
-			allowBlank: false,
-			editable: false,
-			triggerAction: "all",
-			store: new OMV.data.Store({
-				remoteSort: false,
-				proxy: new OMV.data.DataProxy({
-					"service": "UserMgmt",
-					"method": "enumerateAllUsers",
-					"appendPagingParams": false
-				}),
-				reader: new Ext.data.JsonReader({
-					idProperty: "name",
-					fields: [
-						{ name: "name" }
-					]
-				})
-			}),
-			emptyText: "Select a user ...",
-			valueField: "name",
-			displayField: "name",
 			value: "root"
 		},{
 			xtype: "textfield",

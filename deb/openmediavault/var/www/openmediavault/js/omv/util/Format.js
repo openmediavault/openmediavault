@@ -34,7 +34,7 @@ OMV.util.Format = function() {
 			 * @method boolean
 			 * Format a boolean value in a string representation.
 			 * @param value The boolean value to format
-			 * @return The formatted boolean string
+			 * @return The formatted boolean string.
 			 */
 			boolean : function(value) {
 				return ((true === value) || (1 == value)) ? _("Yes") : _("No");
@@ -43,7 +43,7 @@ OMV.util.Format = function() {
 			/**
 			 * @method booleanRenderer
 			 * Returns a boolean rendering function
-			 * @return The boolean rendering function
+			 * @return The boolean rendering function.
 			 */
 			booleanRenderer : function() {
 				return function(value) {
@@ -56,7 +56,7 @@ OMV.util.Format = function() {
 			 * Returns a boolean rendering function which renders an image
 			 * @param trueIcon The icon to use, defaults to 'yes.png'
 			 * @param falseIcon The icon to use, defaults to 'no.png'
-			 * @return The boolean rendering function
+			 * @return The boolean rendering function.
 			 */
 			booleanIconRenderer : function(trueIcon, falseIcon) {
 				trueIcon = trueIcon || "yes.png";
@@ -75,8 +75,8 @@ OMV.util.Format = function() {
 			 * @method arrayRenderer
 			 * Returns an array rendering function
 			 * @param data The array containing the key/value pairs used to
-			 * map the value to be rendered
-			 * @return The rendering function
+			 *   map the value to be rendered
+			 * @return The rendering function.
 			 */
 			arrayRenderer : function(data) {
 				return function(value) {
@@ -107,7 +107,7 @@ OMV.util.Format = function() {
 			 * Returns a rendering function that displayes the given
 			 * UNIX epoch timestamp in human readable form using the
 			 * local time format.
-			 * @return The rendering function
+			 * @return The rendering function.
 			 */
 			localeTimeRenderer : function() {
 				return function(value) {
@@ -120,9 +120,9 @@ OMV.util.Format = function() {
 			 * Format the given value using the defined white-space mode.
 			 * @param value The value to format.
 			 * @param mode The mode to use. This can be: normal, nowrap, pre,
-			 * pre-line, pre-wrap or inherit. Defaults to 'normal'.
+			 *   pre-line, pre-wrap or inherit. Defaults to 'normal'.
 			 * @return The HTML code to display the given text using the
-			 * given white-space mode.
+			 *   given white-space mode.
 			 */
 			whitespace : function(value, mode) {
 				mode = mode || "normal";
@@ -136,7 +136,7 @@ OMV.util.Format = function() {
 			 * defined white-space mode.
 			 * @param mode The mode to use. This can be: normal, nowrap, pre,
 			 * pre-line, pre-wrap or inherit. Defaults to 'normal'.
-			 * @return The rendering function
+			 * @return The rendering function.
 			 */
 			whitespaceRenderer : function(mode) {
 				return function(value) {
@@ -148,7 +148,7 @@ OMV.util.Format = function() {
 			 * @method emptyRenderer
 			 * Returns a rendering function that displays 'n/a' if the value
 			 * is empty.
-			 * @return The rendering function
+			 * @return The rendering function.
 			 */
 			emptyRenderer : function() {
 				return function(value) {
@@ -173,12 +173,27 @@ OMV.util.Format = function() {
 			 * @method binaryUnitRenderer
 			 * Returns a rendering function that displays the value in the
 			 * highest possible binary unit.
-			 * @return The rendering function
+			 * @return The rendering function.
 			 */
 			binaryUnitRenderer : function() {
 				return function(value) {
 					return OMV.util.Format.binaryUnit(value);
 				};
+			},
+
+			/**
+			 * @method gridCheckBoxRenderer
+			 * Returns a rendering function that displays a checkbox in a
+			 * grid panel.
+			 * @return The rendering function.
+			 */
+			gridCheckBoxRenderer : function() {
+				return function(val, cell, record, row, col, store) {
+					cell.css += " x-grid3-check-col-td";
+					return '<div class="x-grid3-cell-inner ' +
+					  'x-grid3-check-col' + ((true == val) ? '-on' : '') +
+					  '">&#160;</div>';
+				}
 			}
 		};
 	}());

@@ -19,61 +19,66 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/grid/GridPanel.js")
+// require("js/omv/util/Format.js")
 
 Ext.ns("OMV.form");
 
 /**
  * @class OMV.grid.PrivilegesGridPanel
  * @derived OMV.grid.GridPanel
+ * @config extraColumns An array of additional columns to be displayed.
  */
 OMV.grid.PrivilegesGridPanel = function(config) {
 	var initialConfig = {
 		bodyCssClass: "x-grid3-without-dirty-cell",
-		colModel: new Ext.grid.ColumnModel({
-			columns: [{
-				header: _("Type"),
-				sortable: true,
-				dataIndex: "type",
-				id: "type",
-				align: "center",
-				width: 50,
-				renderer: this.typeRenderer,
-				scope: this
-			},{
-				header: _("Name"),
-				sortable: true,
-				dataIndex: "name",
-				id: "name"
-			},{
-				header: _("Read/Write"),
-				sortable: true,
-				groupable: false,
-				dataIndex: "writeable",
-				id: "writeable",
-				align: "center",
-				renderer: this.checkBoxRenderer,
-				scope: this
-			},{
-				header: _("Read-only"),
-				sortable: true,
-				groupable: false,
-				dataIndex: "readonly",
-				id: "readonly",
-				align: "center",
-				renderer: this.checkBoxRenderer,
-				scope: this
-			},{
-				header: _("No access"),
-				sortable: true,
-				groupable: false,
-				dataIndex: "deny",
-				id: "deny",
-				align: "center",
-				renderer: this.checkBoxRenderer,
-				scope: this
-			}]
-		})
+		columns: [{
+			header: _("Type"),
+			sortable: true,
+			dataIndex: "type",
+			id: "type",
+			align: "center",
+			width: 50,
+			renderer: this.typeRenderer,
+			scope: this
+		},{
+			header: _("Name"),
+			sortable: true,
+			dataIndex: "name",
+			id: "name"
+		},{
+			header: _("Read/Write"),
+			sortable: true,
+			groupable: false,
+			dataIndex: "writeable",
+			id: "writeable",
+			align: "center",
+			renderer: OMV.util.Format.gridCheckBoxRenderer(),
+			scope: this
+		},{
+			header: _("Read-only"),
+			sortable: true,
+			groupable: false,
+			dataIndex: "readonly",
+			id: "readonly",
+			align: "center",
+			renderer: OMV.util.Format.gridCheckBoxRenderer(),
+			scope: this
+		},{
+			header: _("No access"),
+			sortable: true,
+			groupable: false,
+			dataIndex: "deny",
+			id: "deny",
+			align: "center",
+			renderer: OMV.util.Format.gridCheckBoxRenderer(),
+			scope: this
+		}]
 	};
+	if (Ext.isDefined(config.extraColumns)) {
+		initialConfig.columns = initialConfig.columns.concat(
+		  config.extraColumns);
+		delete config.extraColumns;
+	}
 	Ext.apply(initialConfig, config);
 	OMV.grid.PrivilegesGridPanel.superclass.constructor.call(this,
 	  initialConfig);
@@ -125,15 +130,6 @@ Ext.extend(OMV.grid.PrivilegesGridPanel, OMV.grid.GridPanel, {
 			break;
 		}
 		return val;
-	},
-
-	/**
-	 * Render a checkbox in the given grid cell.
-	 */
-	checkBoxRenderer : function(val, cell, record, row, col, store) {
-		cell.css += " x-grid3-check-col-td";
-		return '<div class="x-grid3-check-col' + ((true === val) ? '-on' : '') +
-		  ' x-grid3-cc-' + this.id + '">&#160;</div>';
 	}
 });
 Ext.reg("privilegesgrid", OMV.grid.PrivilegesGridPanel);
