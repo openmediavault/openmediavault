@@ -1,5 +1,7 @@
 openmediavault (0.3.0.10) stable; urgency=low
 
+  * Add ability to reset WebGUI states, e.g. grid column order, which are
+    stored in a browser cookie.
   * Add ability to group privileges grid.
   * Improve workflow, e.g. add typeahead to user/group comboboxes.
   * Mantis 0000469: Shared Folders: ACL - Filter on/off system users/groups.

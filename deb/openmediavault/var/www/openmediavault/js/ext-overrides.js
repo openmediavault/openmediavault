@@ -527,6 +527,27 @@ Ext.override(Ext.TabPanel, {
 });
 
 ////////////////////////////////////////////////////////////////////////////////
+// Ext.state.CookieProvider
+////////////////////////////////////////////////////////////////////////////////
+
+Ext.apply(Ext.state.CookieProvider.prototype, {
+	/**
+	 * Clear all states.
+	 */
+	clearCookies : function() {
+		var cookie = document.cookie + ";";
+		var re = /\s?(.*?)=(.*?);/g;
+		var matches;
+		while (null != (matches = re.exec(cookie))) {
+			var name = matches[1];
+			if (name && name.substring(0,3) == "ys-") {
+				this.clear(name.substr(3));
+			}
+		}
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
 // Additional helper functions
 ////////////////////////////////////////////////////////////////////////////////
 

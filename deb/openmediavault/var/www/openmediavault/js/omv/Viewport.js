@@ -125,6 +125,8 @@ OMV.Viewport = function(config) {
 							}],
 							listeners: {
 								itemclick: function(item, e) {
+									if (!Ext.isDefined(item.action))
+										return;
 									OMV.MessageBox.show({
 										title: _("Confirmation"),
 										msg: item.msg,
@@ -190,6 +192,41 @@ OMV.Viewport = function(config) {
 							}
 						}),
 						text: _("Shutdown")
+					},{
+						xtype: "splitbutton",
+						icon: "images/preferences.png",
+						handler: function() {
+							this.showMenu();
+						},
+						menu: new Ext.menu.Menu({
+							items: [{
+								text: _("Reset WebGUI state"),
+								action: "resetstate",
+								msg: _("Do you really want to reset WebGUI state, e.g. grid column order?")
+							}],
+							listeners: {
+								itemclick: function(item, e) {
+									if (!Ext.isDefined(item.action))
+										return;
+									OMV.MessageBox.show({
+										title: _("Confirmation"),
+										msg: item.msg,
+										buttons: Ext.Msg.YESNO,
+										fn: function(answer) {
+											if (answer == "no")
+												return;
+											switch (item.action) {
+											case "resetstate":
+												Ext.state.Manager.getProvider().clearCookies();
+											}
+										},
+										scope: this,
+										icon: Ext.Msg.QUESTION
+									});
+								},
+								scope: this
+							}
+						})
 					}]
 				})
 			})

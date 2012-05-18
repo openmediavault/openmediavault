@@ -35,25 +35,7 @@ OMV.form.LanguageComboBox = function(config) {
 		mode: "local",
 		store: new Ext.data.SimpleStore({
 			fields: [ "value","text" ],
-			data: [
-				// The supported languages are hardcoded and are not
-				// translated.
-				[ "en","English" ], // English
-				[ "de_DE","Deutsch" ], // German
-				[ "ru_RU","русский" ], // Russian
-				[ "nl_NL","Nederlands" ], // Dutch
-				[ "it_IT","Italiano" ], // Italian
-				[ "el_GR","ελληνικά" ], // Greek
-				[ "tr_TR","Türk" ], // Turkish
-				[ "fr_FR","Français" ], // French
-				[ "pl_PL","Polski" ], // Polish
-				[ "es_ES","Español" ], // Spanish
-				[ "hu_HU","Magyar" ], // Hungarian
-				[ "da_DA","Dansk" ], // Danish
-				[ "uk_UK","Український" ], // Ukrainian
-				[ "no_NO","Norske" ], // Norwegian
-				[ "sv_SV","Svenskt" ] // Swedish
-			]
+			data: OMV.languages
 		}),
 		displayField: "text",
 		valueField: "value",

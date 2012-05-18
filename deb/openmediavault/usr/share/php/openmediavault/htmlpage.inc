@@ -105,6 +105,7 @@ class OMVHtmlPage extends OMVObject {
 		<script type="text/javascript" src="js/omv/i18nDict.js"></script>
 		<script type="text/javascript" src="js/ext-overrides.js"></script>
 		<script type="text/javascript" src="js/js-overrides.js"></script>
+		<script type="text/javascript" src="js/omv/globals.js"></script>
 
 EOF;
 
