@@ -269,7 +269,11 @@ Ext.extend(OMV.Module.Diagnostics.SysInfo.ServicesOverview,
 					{ name: "enabled" },
 					{ name: "running" }
     			]
-			})
+			}),
+			sortInfo: {
+				field: "name",
+				direction: "ASC"
+			}
 		});
 		OMV.Module.Diagnostics.SysInfo.ServicesOverview.superclass.
 		  initComponent.apply(this, arguments);

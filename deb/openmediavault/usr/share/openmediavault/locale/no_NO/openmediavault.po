@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-14 21:02+0200\n"
-"PO-Revision-Date: 2012-05-16 16:03+0000\n"
+"POT-Creation-Date: 2012-05-17 20:46+0200\n"
+"PO-Revision-Date: 2012-05-18 22:07+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>\n"
 "Language-Team: Norwegian (http://www.transifex.net/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -185,7 +185,7 @@ msgid "Add"
 msgstr "Legg til"
 
 msgid "Add bonded interface"
-msgstr ""
+msgstr "Legg til knyttet nettverksgrensesnitt"
 
 msgid "Add cron job"
 msgstr "Legg til cron jobb"
@@ -200,109 +200,109 @@ msgid "Add group"
 msgstr "Legg til gruppe"
 
 msgid "Add hot spares / recover RAID device"
-msgstr ""
+msgstr "Legg til hot spares / gjenoppbygg RAID enheten"
 
 msgid "Add module"
-msgstr ""
+msgstr "Legg til modul"
 
 msgid "Add rsync job"
-msgstr ""
+msgstr "Legg til rsync jobb"
 
 msgid "Add rule"
-msgstr ""
+msgstr "Legg til regel"
 
 msgid "Add scheduled test"
-msgstr ""
+msgstr "Legg til planlagt test"
 
 msgid "Add share"
-msgstr ""
+msgstr "Legg til delt område"
 
 msgid "Add shared folder"
-msgstr ""
+msgstr "Legg til delt mappe"
 
 msgid "Add user"
-msgstr ""
+msgstr "Legg til bruker"
 
 msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
 " href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 "for more details."
-msgstr ""
+msgstr "Ytterligere enhetsinstillinger, f.eks.. 'autoneg off speed 100 duplex full'. Se <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> for ytterligere detaljer."
 
 msgid "Address"
-msgstr ""
+msgstr "Adresse"
 
 msgid "Administrator password"
-msgstr ""
+msgstr "Administrator passord"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
-msgstr ""
+msgstr "Administrator: lese/skrive, Brukere: ingen tilgang, Andre: ingen tilgang"
 
 msgid "Administrator: read/write, Users: read-only, Others: no access"
-msgstr ""
+msgstr "Administrator: lese/skrive, Brukere: lese, Andre: ingen tilgang"
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
-msgstr ""
+msgstr "Administrator: lese/skrive, Brukere: lese, Andre: lese"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
 msgstr ""
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr ""
+msgstr "Administrator: lese/skrive, Brukere: lese/skrive, Andre: lese"
 
 msgid "Advanced Power Management"
-msgstr ""
+msgstr "Avansert strømstyring"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "Avanserte innstillinger"
 
 msgid "Afghanistan"
-msgstr ""
+msgstr "Afghanistan"
 
 msgid ""
 "After the RAID has been grown you can resize the containing filesystem."
-msgstr ""
+msgstr "Etter at RAID har vokst kan du gi ny størrelse til filsystemet"
 
 msgid "Aland Islands"
-msgstr ""
+msgstr "Åland"
 
 msgid "Albania"
-msgstr ""
+msgstr "Albania"
 
 msgid "Algeria"
-msgstr ""
+msgstr "Algeri"
 
 msgid "All"
-msgstr ""
+msgstr "Alle"
 
 msgid "Allow"
-msgstr ""
+msgstr "Tillat"
 
 msgid "Allow client access to accounts that have null passwords"
-msgstr ""
+msgstr "Tillat klienttilang til kontoer uten passord"
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
-msgstr ""
+msgstr "Tillat klienter å forsøke å lagre OS/2 stilede attributter på et delt område."
 
 msgid "Allow clients to resume interrupted uploads and downloads"
-msgstr ""
+msgstr "Tillat klienter å gjenopta avbrutte ned- og opplastninger"
 
 msgid "Allow new files"
-msgstr ""
+msgstr "Tillat nye filer"
 
 msgid "Allow new files to be created."
-msgstr ""
+msgstr "Tillat at nye filer blir opprettet."
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
-msgstr ""
+msgstr "Tillat denne serveren å gjøre seg kjent som en tidserver overfor Windows klienter"
 
 msgid "Allow this server to try and become a local master browser"
-msgstr ""
+msgstr "Tillat denne serveren å forsøke å bli den lokale Master Browser"
 
 msgid "American Samoa"
-msgstr ""
+msgstr "Amerikansk Samoa"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -315,579 +315,573 @@ msgid ""
 msgstr ""
 
 msgid "An error has occured"
-msgstr ""
+msgstr "En feil har oppstått"
 
 msgid "Andorra"
-msgstr ""
+msgstr "Andorra"
 
 msgid "Angola"
-msgstr ""
+msgstr "Angola"
 
 msgid "Anguilla"
-msgstr ""
+msgstr "Anguilla"
 
 msgid "Anonymous FTP"
-msgstr ""
+msgstr "Anonym FTP"
 
 msgid "Antarctica"
-msgstr ""
+msgstr "Antarktika"
 
 msgid "Antigua and Barbuda"
-msgstr ""
+msgstr "Antigua og Barbuda"
 
 msgid "Apply"
-msgstr ""
+msgstr "Bruk"
 
 msgid "Apply permissions to files and subfolders"
-msgstr ""
+msgstr "Bruk rettighetene på filer og undermapper"
 
 msgid "April"
-msgstr ""
+msgstr "April"
 
 msgid "Archive"
-msgstr ""
+msgstr "Arkiv"
 
 msgid "Argentina"
-msgstr ""
+msgstr "Argentina"
 
 msgid "Armenia"
-msgstr ""
+msgstr "Armenia"
 
 msgid "Array details"
-msgstr ""
+msgstr "Matrisedetaljer"
 
 msgid "Aruba"
-msgstr ""
+msgstr "Aruba"
 
 msgid "Attribute name"
-msgstr ""
+msgstr "Attributtnavn"
 
 msgid "Attributes"
-msgstr ""
+msgstr "Attributter"
 
 msgid "August"
-msgstr ""
+msgstr "August"
 
 msgid "Australia"
-msgstr ""
+msgstr "Australia"
 
 msgid "Austria"
-msgstr ""
+msgstr "Østerike"
 
 msgid "Authenticate users"
-msgstr ""
+msgstr "Godkjente brukere"
 
 msgid "Authentication"
-msgstr ""
+msgstr "Godkjenning"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Autentisering og ingen kryptering"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Autentisering og kryptering"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "Godkjenningspassord"
 
 msgid "Authentication required"
-msgstr ""
+msgstr "Autentisering kreves"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "Autentiseringstype"
 
 msgid "Automatic Acoustic Management"
-msgstr ""
+msgstr "Automatsik Akustikkstyring"
 
 msgid "Available"
-msgstr ""
+msgstr "Tilgjengelig"
 
 msgid "Azerbaijan"
-msgstr ""
+msgstr "Aserbajdsjan"
 
 msgid "Backup"
-msgstr ""
+msgstr "Sikkerhetskopi"
 
 msgid "Backup configuration"
-msgstr ""
+msgstr "Konfigurasjon av sikkerhetskopi"
 
 msgid "Bahamas"
-msgstr ""
+msgstr "Bahamas"
 
 msgid "Bahrain"
-msgstr ""
+msgstr "Bahrain"
 
 msgid "Ban list"
-msgstr ""
+msgstr "Blokkeringsliste"
 
 #, c-format
 msgid "Ban statistics:"
-msgstr ""
+msgstr "Blokkeringsstatistikk"
 
 msgid "Bandwidth restriction"
-msgstr ""
+msgstr "Båndbreddebegrensning"
 
 msgid "Bangladesh"
-msgstr ""
+msgstr "Bangladesh"
 
 msgid "Barbados"
-msgstr ""
+msgstr "Barbados"
 
 msgid "Belarus"
-msgstr ""
+msgstr "Hviterussland"
 
 msgid "Belgium"
-msgstr ""
+msgstr "Belgia"
 
 msgid "Belize"
-msgstr ""
+msgstr "Belize"
 
 msgid "Benin"
-msgstr ""
+msgstr "Belize"
 
 msgid "Bermuda"
-msgstr ""
+msgstr "Bermuda"
 
 msgid "Bhutan"
-msgstr ""
+msgstr "Bhutan"
 
 msgid "Blocksize"
-msgstr ""
+msgstr "Blokkstørrelse"
 
 msgid "Bolivia"
-msgstr ""
+msgstr "Bolivia"
 
 msgid "Bond options"
-msgstr ""
+msgstr "Bond alternativer"
 
 msgid "Bosnia and Herzegovina"
-msgstr ""
+msgstr "Bosnia-Hercegovina"
 
 msgid "Botswana"
-msgstr ""
+msgstr "Botswana"
 
 msgid "Bouvet Island"
-msgstr ""
+msgstr "Bouvetøya"
 
 msgid "Brazil"
-msgstr ""
+msgstr "Brasil"
 
 msgid "British Antarctic Territory"
-msgstr ""
+msgstr "Britisk Antarktis"
 
 msgid "British Indian Ocean Territory"
-msgstr ""
+msgstr "Britiske territoriet i Indiahavet"
 
 msgid "British Virgin Islands"
-msgstr ""
+msgstr "De Britiske Jomfuøyene"
 
 msgid "Browseable"
-msgstr ""
+msgstr "Søkbar"
 
 msgid "Brunei"
-msgstr ""
+msgstr "Brunei"
 
 msgid "Bulgaria"
-msgstr ""
+msgstr "Bugaria"
 
 msgid "Burkina Faso"
-msgstr ""
+msgstr "Burkina Faso"
 
 msgid "Burundi"
-msgstr ""
+msgstr "Burundi"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr ""
+msgstr "Som standard er kun filer som allerede eksisterer tillatt å laste opp."
 
 msgid "CPU usage"
-msgstr ""
+msgstr "CPU belastning"
 
 msgid "Cambodia"
-msgstr ""
+msgstr "Kambodsja"
 
 msgid "Cameroon"
-msgstr ""
+msgstr "Kamerun"
 
 msgid "Canada"
-msgstr ""
+msgstr "Canada"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Avbryt"
 
 msgid "Canton and Enderbury Islands"
-msgstr ""
+msgstr "Canton- og Enderburyøyene"
 
 msgid "Capacity"
-msgstr ""
+msgstr "Kapasitet"
 
 msgid "Cape Verde"
-msgstr ""
+msgstr "Kapp Verde"
 
 msgid "Cayman Islands"
-msgstr ""
+msgstr "Caymanøyene"
 
 msgid "Central African Republic"
-msgstr ""
+msgstr "Den sentralafrikanske republikk"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Sertifikat"
 
 msgid "Certificate details"
-msgstr ""
+msgstr "Sertifikatdetaljer"
 
 msgid "Certificates"
-msgstr ""
+msgstr "Sertifikat"
 
 msgid "Chad"
-msgstr ""
+msgstr "Tsjad"
 
 msgid "Check"
-msgstr ""
+msgstr "Sjekk"
 
 msgid "Check interval"
-msgstr ""
+msgstr "Kontrollintervall"
 
 msgid "Checking for new plugins ..."
-msgstr ""
+msgstr "Kontrollerer nye plugins"
 
 msgid "Checking for new updates ..."
-msgstr ""
+msgstr "Kontrollerer nye oppdateringer"
 
 msgid "Chile"
-msgstr ""
+msgstr "Chile"
 
 msgid "China"
-msgstr ""
+msgstr "Kina"
 
 msgid "Christmas Island"
-msgstr ""
+msgstr "Christmasøya"
 
 msgid "City"
-msgstr ""
+msgstr "By"
 
 msgid "Clear"
-msgstr ""
+msgstr "Tøm"
 
 msgid ""
 "Click the 'Backup' button to download the current system configuration."
-msgstr ""
+msgstr "Trykk 'Backup' for å laste ned gjeldende systemkonfigurasjon."
 
 msgid "Client"
-msgstr ""
+msgstr "Klient"
 
 msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Klienter tillatt å montere filsystemet, for eksempel 192.168.178.0/24."
 
 msgid "Close"
-msgstr ""
+msgstr "Lukk"
 
 msgid "Cocos (Keeling) Islands"
-msgstr ""
+msgstr "Kokosøya"
 
 msgid "Colombia"
-msgstr ""
+msgstr "Columbia"
 
 msgid "Command"
-msgstr ""
+msgstr "Kommando"
 
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 msgid "Commit"
-msgstr ""
+msgstr "Benytt"
 
 msgid "Common Name"
-msgstr ""
+msgstr "Fellesnavn"
 
 msgid "Community"
-msgstr ""
+msgstr "Community"
 
 msgid "Comoros"
-msgstr ""
+msgstr "Komorene"
 
 msgid "Compress"
-msgstr ""
+msgstr "Komprimer"
 
 msgid "Compress file data during the transfer"
-msgstr ""
+msgstr "Komprimer data under overføring"
 
 msgid "Compression"
-msgstr ""
+msgstr "Komprimering"
 
 msgid ""
 "Compression is worth using if your connection is slow. The efficiency of the"
 " compression depends on the type of the file, and varies widely. Useful for "
 "internet transfer only."
-msgstr ""
+msgstr "Komprimering bør brukes hvis din tilkobling er treg. Effektiviteten av komprimeringen avhenger av filtype og kan variere. Kun nyttig ved internettoverføring. "
 
 msgid "Confirm password"
-msgstr ""
+msgstr "Bekreft passord"
 
 msgid "Confirmation"
-msgstr ""
+msgstr "Bekreftelse"
 
 msgid "Congo (Brazzaville)"
-msgstr ""
+msgstr "Republikken Kongo"
 
 msgid "Congo (Kinshasa)"
-msgstr ""
+msgstr "Den demokratiske republikken Kongo"
 
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
-msgstr ""
+msgstr "Kontaktinformasjon, f.eks. navn eller epostadresse til personen ansvarlig for dette systemet."
 
 msgid "Conveyance self-test"
-msgstr ""
+msgstr "Conveyance selvtest"
 
 msgid "Cook Islands"
-msgstr ""
+msgstr "Cookøyene"
 
 msgid "Costa Rica"
-msgstr ""
+msgstr "Costa Rica"
 
 msgid "Country"
-msgstr ""
+msgstr "Land"
 
 msgid "Create"
-msgstr ""
+msgstr "Opprett"
 
 msgid "Create RAID device"
-msgstr ""
+msgstr "Opprett RAID enhet"
 
 msgid "Create filesystem"
-msgstr ""
+msgstr "Lag filsystem"
 
 msgid "Create self-signed SSL certificate"
-msgstr ""
+msgstr "Lag selvsignert SSL sertifikat"
 
 msgid "Critical"
-msgstr ""
+msgstr "Kritisk"
 
 msgid "Croatia"
-msgstr ""
+msgstr "Kroatia"
 
 msgid "Cron Jobs"
-msgstr ""
+msgstr "Cron Jobber"
 
 msgid "Cuba"
-msgstr ""
+msgstr "Kuba"
 
 msgid "Current time"
-msgstr ""
+msgstr "Gjeldende tid"
 
 #, c-format
 msgid "Currently logged in users:"
-msgstr ""
+msgstr "Inloggede brukere:"
 
 msgid "Cyprus"
-msgstr ""
+msgstr "Kypros"
 
 msgid "Czech Republic"
-msgstr ""
+msgstr "Tsjekkiske Republikk"
 
 msgid "DHCP"
-msgstr ""
+msgstr "DHCP"
 
 msgid "DNS Server"
-msgstr ""
+msgstr "DNS Server"
 
 msgid "DNS Service Discovery"
-msgstr ""
+msgstr "DNS Service Discovery"
 
 msgid "DNS server"
-msgstr ""
+msgstr "DNS server"
 
 msgid "Daemon"
-msgstr ""
-
-msgid "Danish"
-msgstr ""
+msgstr "Deamon"
 
 msgid "Date"
-msgstr ""
+msgstr "Dato"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Dato & Tid"
 
 msgid "Day of month"
-msgstr ""
+msgstr "Dag i måneden"
 
 msgid "Day of week"
-msgstr ""
+msgstr "Ukedag"
 
 msgid "Debug"
-msgstr ""
+msgstr "Feilsøke"
 
 msgid "December"
-msgstr ""
+msgstr "Desember"
 
 msgid "Delete"
-msgstr ""
+msgstr "Slett"
 
 msgid "Delete files on the receiving side that don't exist on sender"
-msgstr ""
+msgstr "Slett filer på den mottagende side som ikke eksisterer hos sender"
 
 msgid "Deleting selected item(s)"
-msgstr ""
+msgstr "Slett valgte element(er)"
 
 msgid "Denmark"
-msgstr ""
+msgstr "Danmark"
 
 msgid "Deny"
-msgstr ""
+msgstr "Forby"
 
 msgid "Deny logins which do not have a valid shell"
-msgstr ""
+msgstr "Nekt tilgang uten gyldig shell"
 
 msgid "Description"
-msgstr ""
+msgstr "Beskrivelse"
 
 msgid "Destination"
-msgstr ""
+msgstr "Mål"
 
 msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A '!' argument before the address specification"
 " inverts the sense of the address."
-msgstr ""
+msgstr "Måladressen kan enten være en nettverks IP addresse (med /maske), en IP range eller en enkelt IP adresse. Et '!' argument før adressen inverterer betydningen av adressen."
 
 msgid "Destination port"
-msgstr ""
+msgstr "Målport"
 
 msgid "Destination server"
-msgstr ""
+msgstr "Målserver"
 
 msgid "Destination shared folder"
-msgstr ""
+msgstr "Målmappe"
 
 msgid "Detail"
-msgstr ""
+msgstr "Detaljer"
 
 msgid ""
 "Determine the default timeout, in microseconds, before the first packet is "
 "retransmitted."
-msgstr ""
+msgstr "Sett standard timeout i millisekunder, før den første pakken er sendt på nytt."
 
 msgid "Device"
-msgstr ""
+msgstr "Enhet"
 
 #, c-format
 msgid "Device '%s' not found"
-msgstr ""
+msgstr "Enhet '%s' ble ikke funnet"
 
 msgid "Device identity information"
-msgstr ""
+msgstr "Informasjon om enhetsidentiteten"
 
 msgid "Device model"
-msgstr ""
+msgstr "Enhetsmodell"
 
 msgid "Devices"
-msgstr ""
+msgstr "Enheter"
 
 msgid "Diagnostics"
-msgstr ""
+msgstr "Diagnostikk"
 
 msgid "Difference"
-msgstr ""
+msgstr "Forskjell"
 
 msgid "Direction"
-msgstr ""
+msgstr "Retning"
 
 msgid "Directory"
-msgstr ""
+msgstr "Katalog"
 
 msgid "Disabled"
-msgstr ""
+msgstr "Deaktivert"
 
 msgid "Disallow the user to modify his account."
-msgstr ""
+msgstr "Nekt brukeren å endre sin konto"
 
 msgid "Disk usage"
-msgstr ""
+msgstr "Diskbruk"
 
 msgid "Displaying items {0} - {1} of {2}"
-msgstr ""
+msgstr "Viser {0} - {1} av {2}"
 
 msgid "Djibouti"
-msgstr ""
+msgstr "Djibouti"
 
 msgid "Do you really want to clear the log file?"
-msgstr ""
+msgstr "Ønsker du virkelig å slette loggfilen ?"
 
 msgid "Do you really want to create the RAID device?"
-msgstr ""
+msgstr "Ønsker du virkelig å bygge en RAID enhet ?"
 
 msgid "Do you really want to delete the selected item(s)?"
-msgstr ""
+msgstr "Ønsker du virkelig å slette utvalget ?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the filesystem creation may take some time."
-msgstr ""
+msgstr "Ønsker du virkelig å formatere enheten ? All data vil bli slettet. Vennligst merk det at byggingen av filsystemet kan ta no tid."
 
 msgid "Do you really want to install the selected plugin(s)?"
-msgstr ""
+msgstr "Ønsker du virkelig å installere valgte utvidelse(r)?"
 
 msgid "Do you really want to leave the page?"
-msgstr ""
+msgstr "Ønsker du virkelig å forlate denne siden ?"
 
 msgid "Do you really want to logout?"
-msgstr ""
+msgstr "Ønsker du å logge ut ?"
 
 msgid "Do you really want to reboot the system?"
-msgstr ""
+msgstr "Vil du virkelig foreta en omstart ?"
 
 msgid ""
 "Do you really want to resize the selected filesystem? You have to do that "
 "after a RAID has been grown for example."
-msgstr ""
+msgstr "Ønsker du virkelig å endre filsystemets størrelse ? Dette må du for eksempel gjøre etter at RAID enheten har vokst."
 
 msgid "Do you really want to shutdown the system?"
-msgstr ""
+msgstr "Ønsker du virkelig å slå av systemet ?"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr ""
+msgstr "Ønsker du å avinstallere valgte plugin(s) ?"
 
 msgid "Do you really want to wipe the selected device?"
-msgstr ""
+msgstr "Vil du virkelig slette den valgte enheten?"
 
 msgid ""
 "Do you want to secure wipe the device? Please note that this may take a long"
 " time. Press 'No' to fast wipe the device or 'Cancel' to abort."
-msgstr ""
+msgstr "Vil du foreta en sikker sletting av enheten? Dette kan ta lang tid. Trykk 'Nei' for raskere (utrygg) sletting eller 'Avbryt' for å avbryte."
 
 msgid "Domain name"
-msgstr ""
+msgstr "Domenenavn"
 
 msgid "Dominica"
-msgstr ""
+msgstr "Dominica"
 
 msgid "Dominican Republic"
-msgstr ""
+msgstr "Dominikanske Republikk"
 
 msgid "Donate"
-msgstr ""
+msgstr "Doner"
 
 msgid "Done ..."
-msgstr ""
+msgstr "Ferdig ..."
 
 msgid "Down"
-msgstr ""
+msgstr "Nede"
 
 msgid "Down delay"
-msgstr ""
+msgstr "Tid til deaktivering"
 
 msgid "Download"
-msgstr ""
+msgstr "Last ned"
 
 msgid "Dronning Maud Land"
-msgstr ""
-
-msgid "Dutch"
-msgstr ""
+msgstr "Dronning Mauds Land"
 
 msgid "Each line represents one group."
 msgstr ""
@@ -895,366 +889,354 @@ msgstr ""
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
 "text."
-msgstr ""
+msgstr "Hver linje representerer en bruker. Merk at passordet må skrives inn i ren tekst."
 
 msgid "East Timor"
-msgstr ""
+msgstr "Øst-Timor"
 
 msgid "Ecuador"
-msgstr ""
+msgstr "Ecuador"
 
 msgid "Edit"
-msgstr ""
+msgstr "Rediger"
 
 msgid "Edit SSL certificate"
-msgstr ""
+msgstr "Rediger SSL-sertifikat"
 
 msgid "Edit bonded interface"
-msgstr ""
+msgstr "Rediger knyttet nettverksgrensesnitt"
 
 msgid "Edit cron job"
-msgstr ""
+msgstr "Rediger cron jobb"
 
 msgid "Edit firewall rule"
-msgstr ""
+msgstr "Rediger brannmurregel"
 
 msgid "Edit group"
-msgstr ""
+msgstr "Rediger gruppe"
 
 msgid "Edit module"
-msgstr ""
+msgstr "Rediger modul"
 
 msgid "Edit physical disk properties"
-msgstr ""
+msgstr "Rediger fysiske diskinstillinger"
 
 msgid "Edit physical interface"
-msgstr ""
+msgstr "Rediger fysisk grensesnitt"
 
 msgid "Edit quota"
-msgstr ""
+msgstr "Rediger quota"
 
 msgid "Edit rsync job"
-msgstr ""
+msgstr "Rediger rsync jobb"
 
 msgid "Edit rule"
-msgstr ""
+msgstr "Rediger regel"
 
 msgid "Edit scheduled test"
-msgstr ""
+msgstr "Rediger planlagt test"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Rediger delt område"
 
 msgid "Edit shared folder"
-msgstr ""
+msgstr "Rediger delt mappe"
 
 msgid "Edit shared folder privileges"
-msgstr ""
+msgstr "Rediger delt mappe privilegier"
 
 msgid "Edit user"
-msgstr ""
+msgstr "Rediger bruker"
 
 msgid "Egypt"
-msgstr ""
+msgstr "Egypt"
 
 msgid "El Salvador"
-msgstr ""
+msgstr "El Salvador"
 
 msgid "Email"
-msgstr ""
+msgstr "Epost"
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktiver"
 
 msgid "Enable FXP protocol"
-msgstr ""
+msgstr "Aktiver FSP protokoll"
 
 msgid "Enable SSL/TLS"
-msgstr ""
+msgstr "Aktiver SSL/TLS"
 
 msgid "Enable SSL/TLS connections"
-msgstr ""
+msgstr "Aktiver SSL/TLS tilkoblinger"
 
 msgid "Enable WINS server"
-msgstr ""
+msgstr "Aktiver WINS server"
 
 msgid "Enable advertising of services via mDNS/DNS-SD."
-msgstr ""
+msgstr "Aktiver bekjenntgjøring av tjenester gjennom mDNS/DNS-SD"
 
 msgid "Enable anonymous FTP"
-msgstr ""
+msgstr "Aktiver anonym FTP"
 
 msgid "Enable archive mode"
-msgstr ""
+msgstr "Aktiver arkivmodus"
 
 msgid "Enable compression"
-msgstr ""
+msgstr "Aktiver kompimering"
 
 msgid "Enable extended attribute support"
-msgstr ""
+msgstr "Aktiver utvidet støtte for attributter"
 
 msgid "Enable keyboard-interactive authentication"
-msgstr ""
+msgstr "Aktiver passordautentisering"
 
 msgid "Enable module listing"
-msgstr ""
+msgstr "Aktiver opplisting av moduler"
 
 msgid "Enable permission inheritance"
-msgstr ""
+msgstr "Aktiver arving av rettigheter"
 
 msgid "Enable recycle bin"
-msgstr ""
+msgstr "Aktiver papirkurv"
 
 msgid "Enable reverse DNS lookup"
-msgstr ""
+msgstr "Aktiver reverse DNS lookup"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
 "connections."
-msgstr ""
+msgstr "Aktiver omvendt DNS-oppslag utført på den eksterne vertens IP-adresse for innkommende aktive mode datatilkoblinger og utgående passiv mode datatilkoblinger."
 
 msgid "Enable secure connection."
-msgstr ""
+msgstr "Aktiver sikker tilkobling"
 
 msgid "Enable store DOS attributes support"
-msgstr ""
+msgstr "Aktiver støtte for lagring av DOS attributter"
 
 msgid "Enable the ident protocol (RFC1413)"
-msgstr ""
+msgstr "Aktiver ident protokoll (RFC1413)"
 
 msgid "Enable user authentication"
-msgstr ""
+msgstr "Aktiver brukerautentisering"
 
 msgid "Enable user home directories"
-msgstr ""
+msgstr "Aktiver hjemmeområde for brukeren"
 
 msgid "Enable write-cache."
-msgstr ""
+msgstr "Aktiver skrivecache"
 
 msgid "Enabled"
-msgstr ""
-
-msgid "English"
-msgstr ""
+msgstr "Aktivert"
 
 msgid "Enter your password"
-msgstr ""
+msgstr "Oppgi ditt passord"
 
 msgid "Enter your username"
-msgstr ""
+msgstr "Oppgi ditt brukernavn"
 
 msgid "Equatorial Guinea"
-msgstr ""
+msgstr "Ekvatorial-Guinea"
 
 msgid "Eritrea"
-msgstr ""
+msgstr "Eritrea"
 
 msgid "Error"
-msgstr ""
+msgstr "Feil"
 
 msgid "Error #"
-msgstr ""
+msgstr "Feil #"
 
 #, c-format
 msgid "Error #%d"
-msgstr ""
+msgstr "Feil #%d"
 
 msgid "Estonia"
-msgstr ""
+msgstr "Estland"
 
 msgid "Ethiopia"
-msgstr ""
+msgstr "Etiopia"
 
 msgid "Event"
-msgstr ""
+msgstr "Hendelse"
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "Hver N dag i måneden"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "Hver N time"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "Hvert N minutt"
 
 msgid "Everyone: read/write"
-msgstr ""
+msgstr "Alle: les/skriv"
 
 msgid "Execute command"
-msgstr ""
+msgstr "Utfør kommando"
 
 msgid "Execute cron job"
-msgstr ""
+msgstr "Utfør cron jobb"
 
 msgid "Execute rsync job"
-msgstr ""
+msgstr "Utfør rsync jobb"
 
 msgid "Expire"
-msgstr ""
+msgstr "Utløp"
 
 msgid "Extended attributes"
-msgstr ""
+msgstr "Utvidede attributter"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Avanserte alternativer"
 
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 msgid "FXP"
-msgstr ""
+msgstr "FXP"
 
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
-msgstr ""
+msgstr "FXP muliggjør overføring mellom to destinasjonsservere uten at fildata går via klienten som ber om overføringen."
 
 msgid "Failed to call "
-msgstr ""
+msgstr "Oppkall feilet"
 
 #, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
-msgstr ""
+msgstr "Kunne ikke opprette filsystem. Vennligst sjekk syslog eller '%s' for flere detaljer."
 
 msgid "Failed to get filesystems"
-msgstr ""
+msgstr "Kunne ikke finne filsystemer"
 
 msgid "Failed to get system date and time"
-msgstr ""
+msgstr "Systemet kunne ikke bestemme dato og tid"
 
 msgid "Falkland Islands"
-msgstr ""
+msgstr "Falklandsøyene"
 
 msgid "Faroe Islands"
-msgstr ""
+msgstr "Færøyene"
 
 msgid "Fatal error"
-msgstr ""
+msgstr "Fatal feil"
 
 msgid "February"
-msgstr ""
+msgstr "Februar"
 
 msgid "Fields must be exclusive"
-msgstr ""
+msgstr "Feltene må være eksklusive"
 
 msgid "Fiji"
-msgstr ""
+msgstr "Fiji"
 
 msgid "File"
-msgstr ""
+msgstr "Fil"
 
 msgid "Filesystem"
-msgstr ""
+msgstr "Filsystem"
 
 #, c-format
 msgid "Filesystem '%s' not found"
-msgstr ""
+msgstr "Filsystem '%s' ble ikke funnet"
 
 #, c-format
 msgid "Filesystem '%s' not supported"
-msgstr ""
+msgstr "Filsystem '%s' er ikke støttet"
 
 msgid "Filesystems"
-msgstr ""
+msgstr "Filsystemer"
 
 msgid "Finland"
-msgstr ""
+msgstr "Finnland"
 
 msgid "Firewall"
-msgstr ""
+msgstr "Brannmur"
 
 msgid "Firmware version"
-msgstr ""
+msgstr "Firmware versjon"
 
 msgid "Flag"
-msgstr ""
+msgstr "Flag"
 
 msgid "Force SSL/TLS"
-msgstr ""
+msgstr "Tving SSL/TLS"
 
 msgid "Force secure connection only."
-msgstr ""
+msgstr "Tving sikre tilkoblinger."
 
 msgid "France"
-msgstr ""
-
-msgid "French"
-msgstr ""
+msgstr "Frankrike"
 
 msgid "French Guiana"
-msgstr ""
+msgstr "Fransk Guyana"
 
 msgid "French Polynesia"
-msgstr ""
+msgstr "Fransk Polynesia"
 
 msgid "French Southern Territories"
-msgstr ""
+msgstr "French Southern Territories"
 
 msgid "French Southern and Antarctic Territories"
-msgstr ""
+msgstr "French Southern and Antarctic Territories"
 
 msgid "Friday"
-msgstr ""
+msgstr "Fredag"
 
 msgid "Full"
-msgstr ""
+msgstr "Fullt"
 
 msgid "Gabon"
-msgstr ""
+msgstr "Gabon"
 
 msgid "Gambia"
-msgstr ""
+msgstr "Gambia"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Gateway"
 
 msgid "General"
-msgstr ""
+msgstr "Generelt"
 
 msgid "General Settings"
-msgstr ""
+msgstr "Generelle Innstillinger"
 
 msgid "General settings"
-msgstr ""
+msgstr "Generelle innstillinger"
 
 msgid "Generating graphs ..."
-msgstr ""
+msgstr "Genererer grafer ..."
 
 msgid "Georgia"
-msgstr ""
-
-msgid "German"
-msgstr ""
+msgstr "Georgia"
 
 msgid "Germany"
-msgstr ""
+msgstr "Tyskland"
 
 msgid "Ghana"
-msgstr ""
+msgstr "Ghana"
 
 msgid "GiB"
 msgstr ""
 
 msgid "Gibraltar"
-msgstr ""
+msgstr "GIbraltar"
 
 msgid "Greece"
-msgstr ""
-
-msgid "Greek"
-msgstr ""
+msgstr "Hellas"
 
 msgid "Greenland"
-msgstr ""
+msgstr "Grønland"
 
 msgid "Grenada"
-msgstr ""
+msgstr "Grenada"
 
 msgid "Group"
-msgstr ""
+msgstr "Gruppe"
 
 #, c-format
 msgid "Group '%s' already exist"
@@ -1262,124 +1244,121 @@ msgstr ""
 
 #, c-format
 msgid "Group '%s' does not exist"
-msgstr ""
+msgstr "Gruppen '%s' finnes ikke"
 
 #, c-format
 msgid "Group ID '%d' already exist"
 msgstr ""
 
 msgid "Groups"
-msgstr ""
+msgstr "Grupper"
 
 msgid "Grow"
-msgstr ""
+msgstr "Vokse"
 
 msgid "Grow RAID device"
-msgstr ""
+msgstr "Vokse RAID enhet"
 
 msgid "Guadeloupe"
-msgstr ""
+msgstr "Guadeloupe"
 
 msgid "Guam"
-msgstr ""
+msgstr "Guam"
 
 msgid "Guatemala"
-msgstr ""
+msgstr "Guatemala"
 
 msgid "Guinea"
-msgstr ""
+msgstr "Guinea"
 
 msgid "Guinea-Bissau"
-msgstr ""
+msgstr "Guinea-Bissau"
 
 msgid "Guyana"
-msgstr ""
+msgstr "Guyana"
 
 msgid "Haiti"
-msgstr ""
+msgstr "Haiti"
 
 msgid "Heard Island and McDonald Islands"
-msgstr ""
+msgstr "Heard- og McDonaldøyene"
 
 msgid "Hide details"
-msgstr ""
+msgstr "Skjul detaljene"
 
 msgid "Hide dot files"
-msgstr ""
+msgstr "Skjul dot filer"
 
 msgid "Home directories"
-msgstr ""
+msgstr "Hjemmeområder"
 
 msgid "Homepage"
-msgstr ""
+msgstr "Hjemmeside"
 
 msgid "Honduras"
-msgstr ""
+msgstr "Honduras"
 
 msgid "Hong Kong S.A.R., China"
-msgstr ""
+msgstr "Hongkong"
 
 msgid "Honor existing ACLs"
-msgstr ""
+msgstr "Hensynta eksisterende ACLs"
 
 msgid "Host"
-msgstr ""
+msgstr "Vert"
 
 msgid "Host access control"
-msgstr ""
+msgstr "Vert adgangskontroll"
 
 msgid "Hostname"
-msgstr ""
+msgstr "Vertsnavn"
 
 msgid "Hosts"
-msgstr ""
+msgstr "Verter"
 
 msgid "Hosts allow"
-msgstr ""
+msgstr "Verter tillatt"
 
 msgid "Hosts deny"
-msgstr ""
+msgstr "Nektede verter"
 
 msgid "Hour"
-msgstr ""
-
-msgid "Hungarian"
-msgstr ""
+msgstr "Time"
 
 msgid "Hungary"
-msgstr ""
+msgstr "Ungarn"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Iceland"
-msgstr ""
+msgstr "Island"
 
 msgid "Ident protocol"
-msgstr ""
+msgstr "Ident protocol"
 
 msgid "Identify"
-msgstr ""
+msgstr "Identifiser"
 
 msgid "Identify network interface device"
-msgstr ""
+msgstr "Identifiser nettverksinterface"
 
 msgid "Idle"
-msgstr ""
+msgstr "Nøytral"
 
 msgid "If enabled then no password is required to connect to the share"
-msgstr ""
+msgstr "Hvis aktivert vil det ikke være nødvendig med passord for å koble til området"
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
 "to connect to the module."
-msgstr ""
+msgstr "Hvis aktivert vil klienten bli bedt om å oppgi brukernavn og passord for å koble til modulen."
 
 msgid "If this option is set, then any attempted downloads will fail."
-msgstr ""
+msgstr "Hvis dette valget er aktivert, vil ethvert nedlastningsforsøk mislykkes."
 
 msgid "If this option is set, then any attempted uploads will fail."
-msgstr ""
+msgstr "Hvis dette valget er aktivert, vil ethvert opplastningsforsøk mislykkes."
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
@@ -1387,34 +1366,34 @@ msgid ""
 " before mapping DOS attributes to UNIX permission bits. When set, DOS "
 "attributes will be stored onto an extended attribute in the UNIX filesystem,"
 " associated with the file or directory."
-msgstr ""
+msgstr "Hvis denne parameteren er satt, vil Samba først lese DOS atributter (SYSTEM, HIDDEN, ARCHIVE eller READ-ONLY) fra filsystemets utvidede attributter, før mapping av DOS attributter til UNIX permission bits. Når valgt, vil DOS attributter bli lagret på en utvidet attributt i UNIX filsystemet, assosiert med filen eller mappen."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
 "share."
-msgstr ""
+msgstr "Hvis denne parameteren er satt, så kan ikke brukere opprette eller endre filer på det delte området."
 
 msgid ""
 "If your host is acting as a NAT gateway or port forwarder for the server, "
 "this option is useful in order to allow passive tranfers to work. You have "
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
-msgstr ""
+msgstr "Hvis din vert opptrer som NAT-gateway eller port forwarder for serveren, er dette alternativet nyttig for å tillate passive tranfers å fungere. Du må bruke din offentlige adresse og åpne de passive portene som brukes på brannmuren din også."
 
 msgid "Implicit SSL"
-msgstr ""
+msgstr "Implisitt SSL"
 
 msgid "Import"
-msgstr ""
+msgstr "Importer"
 
 msgid "Import SSL certificate"
-msgstr ""
+msgstr "Importer SSL sertifikat"
 
 msgid "Import groups"
 msgstr ""
 
 msgid "Import users"
-msgstr ""
+msgstr "Importer brukere"
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1425,729 +1404,726 @@ msgid ""
 "greater than or equal to 1024). It is strongly recommended that the chosen "
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr ""
+msgstr "I noen tilfeller må du spesifisere passiv portområde for å omgå brannmur begrensninger. Passive porter begrenser portområdet serveren vil velge når PASV kommando fra en klient er mottatt. Serveren vil tilfeldig velge et nummer innenfor det angitte området inntil en åpen port blir funnet. Portområdet som er valgt må være i ikke-privilegerte område (dvs. større enn eller lik 1024). Det anbefales sterkt at den valgte området være stort nok til å håndtere mange samtidige passive tilkoblinger (for eksempel 49152-65534, altså det IANA-registrerte flyktige portområdet)."
 
 msgid "India"
-msgstr ""
+msgstr "India"
 
 msgid "Indonesia"
-msgstr ""
+msgstr "Indonesia"
 
 msgid "Informal"
-msgstr ""
+msgstr "Uformell"
 
 msgid "Information"
-msgstr ""
+msgstr "Informasjon"
 
 msgid "Inherit ACLs"
-msgstr ""
+msgstr "Arv ACL"
 
 msgid "Inherit permissions"
-msgstr ""
+msgstr "Arv tillatelser"
 
 msgid "Initializing"
-msgstr ""
+msgstr "Initialiserer"
 
 msgid "Install"
-msgstr ""
+msgstr "Installer"
 
 msgid "Install plugins ..."
-msgstr ""
+msgstr "Installer programtillegg ..."
 
 msgid "Install updates ..."
-msgstr ""
+msgstr "Installer oppdateringer ..."
 
 msgid "Installed"
-msgstr ""
+msgstr "Installert"
 
 msgid "Interfaces"
-msgstr ""
+msgstr "Grensesnitt"
 
 msgid "Invalid comment"
-msgstr ""
+msgstr "Ugyldig kommentar"
 
 msgid "Invalid domain name"
-msgstr ""
+msgstr "Ugyldig domenenavn"
 
 msgid "Invalid filesystem label"
-msgstr ""
+msgstr "Ugyldig filsystemetikett"
 
 msgid "Invalid group name"
-msgstr ""
+msgstr "Ugyldig gruppenavn"
 
 msgid "Invalid hostname"
-msgstr ""
+msgstr "Ugyldig vertsnavn"
 
 #, c-format
 msgid "Invalid line: %s"
-msgstr ""
+msgstr "Ugyldig linje: %s"
 
 msgid "Invalid name"
-msgstr ""
+msgstr "Ugyldig navn"
 
 msgid "Invalid user name"
-msgstr ""
+msgstr "Ugyldig brukernavn"
 
 msgid "Iran"
-msgstr ""
+msgstr "Iran"
 
 msgid "Iraq"
-msgstr ""
+msgstr "Irak"
 
 msgid "Ireland"
-msgstr ""
+msgstr "Irland"
 
 msgid "Israel"
-msgstr ""
-
-msgid "Italian"
-msgstr ""
+msgstr "Israel"
 
 msgid "Italy"
-msgstr ""
+msgstr "Italia"
 
 msgid "Ivory Coast"
-msgstr ""
+msgstr "Elfenbenkysten"
 
 msgid "Jamaica"
-msgstr ""
+msgstr "Jamaica"
 
 msgid "January"
-msgstr ""
+msgstr "Januar"
 
 msgid "Japan"
-msgstr ""
+msgstr "Japan"
 
 msgid "Jobs"
-msgstr ""
+msgstr "Jobber"
 
 msgid "Johnston Island"
-msgstr ""
+msgstr "Johnston Atoll"
 
 msgid "Jordan"
-msgstr ""
+msgstr "Jordan"
 
 msgid "July"
-msgstr ""
+msgstr "Juli"
 
 msgid "June"
-msgstr ""
+msgstr "Juni"
 
 msgid "Kazakhstan"
-msgstr ""
+msgstr "Kasakhstan"
 
 msgid "Kenya"
-msgstr ""
+msgstr "Kenya"
 
 msgid "Kernel"
-msgstr ""
+msgstr "Kernel"
 
 msgid "Key size"
-msgstr ""
+msgstr "Nøkkellengde"
 
 msgid "KiB"
 msgstr ""
 
 msgid "Kiribati"
-msgstr ""
+msgstr "Kiribati"
 
 msgid "Kuwait"
-msgstr ""
+msgstr "Kuwait"
 
 msgid "Kyrgyzstan"
-msgstr ""
+msgstr "Kirgisistan"
 
 msgid "LBA of first error"
-msgstr ""
+msgstr "LBA av første feil"
 
 msgid "Label"
-msgstr ""
+msgstr "Volumnavn"
 
 msgid "Language"
 msgstr ""
 
 msgid "Laos"
-msgstr ""
+msgstr "Laos"
 
 msgid "Latvia"
-msgstr ""
+msgstr "Latvia"
 
 msgid "Lebanon"
-msgstr ""
+msgstr "Libanon"
 
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
 " port."
-msgstr ""
+msgstr "Lengde av tid i sekunder til ett eller flere blinkende lysdioder på angitt nettverksport."
 
 msgid "Lesotho"
-msgstr ""
+msgstr "Lesotho"
 
 msgid "Level"
-msgstr ""
+msgstr "Nivå"
 
 msgid "Liberia"
-msgstr ""
+msgstr "Liberia"
 
 msgid "Libya"
-msgstr ""
+msgstr "Libya"
 
 msgid "Liechtenstein"
-msgstr ""
+msgstr "Lichtenstein"
 
 msgid "Lifetime"
-msgstr ""
+msgstr "Lifstid"
 
 msgid "Linear"
-msgstr ""
+msgstr "Lineær"
 
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 msgid "List"
-msgstr ""
+msgstr "Liste"
 
 msgid "Lithuania"
-msgstr ""
+msgstr "Lithauen"
 
 msgid "Load average"
-msgstr ""
+msgstr "Snittlast"
 
 msgid "Loading ..."
-msgstr ""
+msgstr "Laster ..."
 
 msgid "Local"
-msgstr ""
+msgstr "Lokal"
 
 msgid "Local master browser"
-msgstr ""
+msgstr "Lokal Master Browser"
 
 msgid "Location"
-msgstr ""
+msgstr "Plassering"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr ""
+msgstr "Plasseringsinformasjon, f.eks. den fysiske plasseringen av dette systemet."
 
 msgid "Log level"
-msgstr ""
+msgstr "Loggnivået"
 
 #, c-format
 msgid "Logical volume %s [%s, %s]"
-msgstr ""
+msgstr "Logiske volum %s [%s, %s]"
 
 msgid "Login"
-msgstr ""
+msgstr "Logg inn"
 
 msgid "Logout"
-msgstr ""
+msgstr "Logg ut"
 
 msgid "Logs"
-msgstr ""
+msgstr "Logger"
 
 msgid "Long self-test"
-msgstr ""
+msgstr "Lang selvtest"
 
 msgid "Luxembourg"
-msgstr ""
+msgstr "Luxembourg"
 
 msgid "MAC address"
-msgstr ""
+msgstr "MAC adresse"
 
 msgid "MII monitoring frequency"
-msgstr ""
+msgstr "MII overvåkningsfrekvens"
 
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 msgid "Macao S.A.R., China"
-msgstr ""
+msgstr "Macao"
 
 msgid "Macedonia"
-msgstr ""
+msgstr "Republikken Makedonia"
 
 msgid "Madagascar"
-msgstr ""
+msgstr "Madagaskar"
 
 msgid "Maintainer"
-msgstr ""
+msgstr "Vedlikeholder"
 
 msgid "Malawi"
-msgstr ""
+msgstr "Malawi"
 
 msgid "Malaysia"
-msgstr ""
+msgstr "Malaysia"
 
 msgid "Maldives"
-msgstr ""
+msgstr "Maldivene"
 
 msgid "Mali"
-msgstr ""
+msgstr "Mali"
 
 msgid "Malta"
-msgstr ""
+msgstr "Malta"
 
 msgid "Manual"
-msgstr ""
+msgstr "Manuell"
 
 msgid "March"
-msgstr ""
+msgstr "Mars"
 
 msgid "Marshall Islands"
-msgstr ""
+msgstr "Marshalløyene"
 
 msgid "Martinique"
-msgstr ""
+msgstr "Martinique"
 
 msgid "Masquerade address"
-msgstr ""
+msgstr "Masquerade addresse"
 
 msgid ""
 "Match if the destination port is one of the given ports. E.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "Sammenligner om destinasjonsporten er en av de gitte porter. F. eks. 21 eller !443 eller 1024-65535-"
 
 msgid ""
 "Match if the source port is one of the given ports. E.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "Sammenligner om kildeporten er en av de gitte porter. F. eks. 21 eller !443 eller 1024-65535-"
 
 msgid "Mauritania"
-msgstr ""
+msgstr "Mauritania"
 
 msgid "Mauritius"
-msgstr ""
+msgstr "Mauritius"
 
 msgid "Max. clients"
-msgstr ""
+msgstr "Maks. klienter"
 
 msgid "Max. connections"
-msgstr ""
+msgstr "Maks. tilkoblinger"
 
 msgid "Max. connections per host"
-msgstr ""
+msgstr "Max. tilkoblinger pr. vert"
 
 msgid "Max. login attempts"
-msgstr ""
+msgstr "Max. innloggingsforsøk"
 
 msgid "Maximum download rate (KiB/s)"
-msgstr ""
+msgstr "Maximal nedlastningshastighet (KiB/s)"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
 "timer completely (clients can stay connected for ever, without sending "
 "data)."
-msgstr ""
+msgstr "Maximal inaktiv tid i sekunder. Å sette inaktiv tid til 0 deaktiver inaktiv timeren fullstendig (clienter kan stå tilkoblet for alltid, uten å sende data)."
 
 msgid "Maximum number of allowed password attempts before disconnection."
-msgstr ""
+msgstr "Maximalt antall tillatte passordforsøk før frakobling."
 
 msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr ""
+msgstr "Maximalt antall tilkoblinger pr. IP (0 = ubegrenset)."
 
 msgid "Maximum number of simultaneous clients."
-msgstr ""
+msgstr "Maximalt antall samtidige tilkoblinger"
 
 msgid "Maximum performance, maximum acoustic output"
-msgstr ""
+msgstr "Maksimal ytelse, maksimalt akustisk effekt"
 
 msgid "Maximum upload rate (KiB/s)"
-msgstr ""
+msgstr "Maksimal opplastningshastighet (KiB/s)"
 
 msgid "Maximum {0} selected item(s) allowed"
-msgstr ""
+msgstr "Maksimalt {0} valgte enhet(er) tillatt"
 
 msgid "May"
-msgstr ""
+msgstr "Mai"
 
 msgid "Mayotte"
-msgstr ""
+msgstr "Mayotte"
 
 msgid "Members"
-msgstr ""
+msgstr "Medlemmer"
 
 msgid "Memory usage"
-msgstr ""
+msgstr "Minnebruk"
 
 msgid "Messages"
-msgstr ""
+msgstr "Meldinger"
 
 msgid "Method"
-msgstr ""
+msgstr "Metode"
 
 msgid "Metropolitan France"
-msgstr ""
+msgstr "France métropolitaine"
 
 msgid "Mexico"
-msgstr ""
+msgstr "Mexico"
 
 msgid "MiB"
 msgstr ""
 
 msgid "Micronesia"
-msgstr ""
+msgstr "Mikronesia"
 
 msgid "Midway Islands"
-msgstr ""
+msgstr "Midwayøyene"
 
 msgid "Minimum"
-msgstr ""
+msgstr "Minimum"
 
 msgid "Minimum performance, Minimum acoustic output"
-msgstr ""
+msgstr "Minimum ytelse, Minimum akustisk effekt"
 
 msgid "Minimum {0} selected item(s) required"
-msgstr ""
+msgstr "Minimum {0} valgte enhet(er) påkrevd"
 
 msgid "Minute"
-msgstr ""
+msgstr "Minutt"
 
 msgid "Mirror"
-msgstr ""
+msgstr "Mirror"
 
 msgid "Missing"
-msgstr ""
+msgstr "Mangler"
 
 msgid "Mode"
-msgstr ""
+msgstr "Modus"
 
 msgid "Model"
-msgstr ""
+msgstr "Modell"
 
 msgid "Modify account"
-msgstr ""
+msgstr "Endre konto"
 
 msgid "Modify shared folder ACL"
-msgstr ""
+msgstr "Endre delt mappes ACL"
 
 msgid "Modules"
-msgstr ""
+msgstr "Moduler"
 
 msgid "Moldova"
-msgstr ""
+msgstr "Moldova"
 
 msgid "Monaco"
-msgstr ""
+msgstr "Monaco"
 
 msgid "Monday"
-msgstr ""
+msgstr "Mandag"
 
 msgid "Mongolia"
-msgstr ""
+msgstr "Mongolia"
 
 msgid "Monitoring"
-msgstr ""
+msgstr "Overvåkning"
 
 msgid "Month"
-msgstr ""
+msgstr "Måned"
 
 msgid "Montserrat"
-msgstr ""
+msgstr "Montserrat"
 
 msgid "Morocco"
-msgstr ""
+msgstr "Marokko"
 
 msgid "Mount"
-msgstr ""
+msgstr "Montere"
 
 msgid "Mounted"
-msgstr ""
+msgstr "Montert"
 
 msgid "Mozambique"
-msgstr ""
+msgstr "Mosambik"
 
 msgid "Myanmar"
-msgstr ""
+msgstr "Myanmar"
 
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
 msgid "Name"
-msgstr ""
+msgstr "Navn"
 
 msgid "Namibia"
-msgstr ""
+msgstr "Namibia"
 
 msgid "Nauru"
-msgstr ""
+msgstr "Nauru"
 
 msgid "Nepal"
-msgstr ""
+msgstr "Nepal"
 
 msgid "Netherlands"
-msgstr ""
+msgstr "Nederland"
 
 msgid "Netherlands Antilles"
-msgstr ""
+msgstr "De nederlandske Antillene"
 
 msgid "Netmask"
-msgstr ""
+msgstr "Nettmaske"
 
 msgid "Network"
-msgstr ""
+msgstr "Nettverk"
 
 #, c-format
 msgid "Network interface '%s' already exists"
-msgstr ""
+msgstr "Nettverksgrensesnitt '%s' finnes allerede"
 
 msgid "Neutral Zone"
-msgstr ""
+msgstr "Nøytral sone"
 
 msgid "Never"
-msgstr ""
+msgstr "Aldri"
 
 msgid "New Caledonia"
-msgstr ""
+msgstr "Ny-Caledonia"
 
 msgid "New Zealand"
-msgstr ""
+msgstr "New Zealand"
 
 msgid "Nicaragua"
-msgstr ""
+msgstr "Nicaragua"
 
 msgid "Niger"
-msgstr ""
+msgstr "Niger"
 
 msgid "Nigeria"
-msgstr ""
+msgstr "Nigeria"
 
 msgid "Niue"
-msgstr ""
+msgstr "Niue"
 
 msgid "No"
-msgstr ""
+msgstr "Nei"
 
 msgid "No access"
-msgstr ""
+msgstr "Ingen tilgang"
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Ingen autentisering og ingen kryptering"
 
 msgid "No certificate request"
-msgstr ""
+msgstr "Sertifikat kreves ikke"
 
 msgid "No items to display"
-msgstr ""
+msgstr "Ingen elementer å vise"
 
 msgid "No log entries to display"
-msgstr ""
+msgstr "Ingen loggoppføringer å vise"
 
 msgid "No session reuse required"
-msgstr ""
+msgstr "Gjenbruk av session kreves ikke"
 
 msgid "No users connected"
-msgstr ""
+msgstr "Ingen brukere tilkoblet"
 
 msgid "No users defined"
-msgstr ""
+msgstr "Ingen brukere definert"
 
 msgid "None"
-msgstr ""
+msgstr "Ingen"
 
 msgid "Norfolk Island"
-msgstr ""
+msgstr "Norfolkøya"
 
 msgid "Normal"
-msgstr ""
+msgstr "Normal"
 
 msgid "North Korea"
-msgstr ""
+msgstr "Nord-Korea"
 
 msgid "North Vietnam"
-msgstr ""
+msgstr "Nord-Vietnam"
 
 msgid "Northern Mariana Islands"
-msgstr ""
+msgstr "Nord-Marianene"
 
 msgid "Norway"
-msgstr ""
+msgstr "Norge"
 
 msgid "Not ICMP"
-msgstr ""
+msgstr "Ikke ICMP"
 
 msgid "Not TCP"
-msgstr ""
+msgstr "Ikke TCP"
 
 msgid "Not UDP"
-msgstr ""
+msgstr "Ikke UDP"
 
 msgid "Notification"
-msgstr ""
+msgstr "Varsling"
 
 msgid "November"
-msgstr ""
+msgstr "November"
 
 msgid "Null passwords"
-msgstr ""
+msgstr "Ingen passord"
 
 msgid "Num"
-msgstr ""
+msgstr "Num"
 
 msgid "Number of servers"
-msgstr ""
+msgstr "Antall servere"
 
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 msgid "Occurrence"
-msgstr ""
+msgstr "Forekomst"
 
 msgid "October"
-msgstr ""
+msgstr "Oktober"
 
 msgid "Offline immediate test"
-msgstr ""
+msgstr "Offline umiddelbar test"
 
 msgid "Oman"
-msgstr ""
+msgstr "Oman"
 
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 msgid "Options"
-msgstr ""
+msgstr "Alternativer"
 
 msgid "Organization Name"
-msgstr ""
+msgstr "Organisasjonsnavn"
 
 msgid "Organizational Unit"
-msgstr ""
+msgstr "Organisasjonsenhet"
 
 msgid "Others"
-msgstr ""
+msgstr "Andre"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
-msgstr ""
+msgstr "Utgående SMTP epostserver adresse, f.eks. smtp.mycorp.com."
 
 msgid "Outlying Oceania"
-msgstr ""
+msgstr "Outlying Oceania"
 
 msgid "Overview"
-msgstr ""
+msgstr "Oversikt"
 
 msgid "Owner"
-msgstr ""
+msgstr "Eier"
 
 msgid "Pacific Islands Trust Territory"
-msgstr ""
+msgstr "USAs stillehavsprotektorat"
 
 msgid "Package information"
-msgstr ""
+msgstr "Pakkeinformasjon"
 
 msgid "Pakistan"
-msgstr ""
+msgstr "Pakistan"
 
 msgid "Palau"
-msgstr ""
+msgstr "Palau"
 
 msgid "Palestinian Territory"
-msgstr ""
+msgstr "De palestinske territoriene"
 
 msgid "Panama"
-msgstr ""
+msgstr "Panama"
 
 msgid "Panama Canal Zone"
-msgstr ""
+msgstr "Panamakanalsonen"
 
 msgid "Papua New Guinea"
-msgstr ""
+msgstr "Papua Ny-Guinea"
 
 msgid "Paraguay"
-msgstr ""
+msgstr "Paraguay"
 
 msgid "Passive FTP"
-msgstr ""
+msgstr "Passiv FTP"
 
 msgid "Password"
-msgstr ""
+msgstr "Passord"
 
 msgid "Password authentication"
-msgstr ""
+msgstr "Autentisering med passord"
 
 msgid "Passwords don't match"
-msgstr ""
+msgstr "Passordet stemmer ikke"
 
 msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr ""
+msgstr "Lim inn et RSA sertifikat i X.509 PEM format her."
 
 msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr ""
+msgstr "Lim inn en privat RSA nøkkel i X.509 PEM format her."
 
 msgid "Path"
 msgstr ""
 
 msgid "People's Democratic Republic of Yemen"
-msgstr ""
+msgstr "Sør-Jemen"
 
 msgid "Period of validity"
-msgstr ""
+msgstr "Gyldighetsperiode"
 
 msgid "Permissions"
-msgstr ""
+msgstr "Rettigheter"
 
 msgid "Permissions of group."
-msgstr ""
+msgstr "Grupperettigheter"
 
 msgid "Permissions of others (e.g. anonymous FTP users)."
-msgstr ""
+msgstr "Andre sine rettigheter (f.eks. anonyme FTP brukere)."
 
 msgid "Permissions of owner."
-msgstr ""
+msgstr "Eiers tillatelser."
 
 msgid "Permit root login"
-msgstr ""
+msgstr "Tillat root innlogging"
 
 msgid "Permit to do SSH tunneling"
-msgstr ""
+msgstr "Tillat å gjøre SSH tunnelering"
 
 msgid "Peru"
-msgstr ""
+msgstr "Peru"
 
 msgid "Philippines"
-msgstr ""
+msgstr "Filippinene"
 
 msgid "Physical Disks"
-msgstr ""
+msgstr "Fysiske disker"
 
 msgid "Pitcairn"
-msgstr ""
+msgstr "Pitcairnøyene"
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Vennligst sjekk <a href='http://linux.die.net/man/5/exports' target='_blank'> brukermanual</ a> for flere detaljer."
 
 msgid ""
 "Please check the <a href='http://www.openbsd.org/cgi-"
 "bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
 " more details."
-msgstr ""
+msgstr "Vennligst sjekk <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'> brukermanual</ a> for flere detaljer."
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Vennligst sjekk <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'> manualen </ a> for flere detaljer."
 
 msgid ""
 "Please check the <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Vennligst sjekk <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'> brukermanual</ a> for flere detaljer."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Vennligst sjekk <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'> brukermanualen</ a> for flere detaljer."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Vennligst sjekk <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'> brukermanualen</ a> for flere detaljer."
 
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Vennligst sjekk <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>brukermanualen</ a> for flere detaljer."
 
 msgid "Please first select a volume."
 msgstr ""
@@ -2155,52 +2131,49 @@ msgstr ""
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
-msgstr ""
+msgstr "Vær oppmerksom på at ingen kommunikasjon med systemet er mulig under denne testen."
 
 msgid "Please reload the page to let the changes take effect."
-msgstr ""
+msgstr "Vennligst oppdater siden for å la endringene tre i kraft."
 
 msgid "Please wait ..."
-msgstr ""
+msgstr "Vennligst vent ..."
 
 msgid "Plugins"
-msgstr ""
+msgstr "TIllegg"
 
 msgid "Poland"
-msgstr ""
-
-msgid "Polish"
-msgstr ""
+msgstr "Polen"
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "Port å lytte på."
 
 msgid "Portugal"
-msgstr ""
+msgstr "Portugal"
 
 msgid "Power Management"
-msgstr ""
+msgstr "Strømadministrasjon"
 
 msgid "Power button"
-msgstr ""
+msgstr "Strømknapp"
 
 msgid "Power mode"
-msgstr ""
+msgstr "Strømmodus"
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "Bevar ACLs"
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "Bevar utvidede attributter"
 
 msgid "Preserve modification times"
-msgstr ""
+msgstr "Bevar endringstider"
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Bevar rettigheter"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
@@ -2213,659 +2186,662 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr ""
+msgstr "Hindre en disk fra å bli spunnet opp når S.M.A.R.T. periodisk kontrollerer <br/><br><ul><li>Aldri - sjekk enheten uavhengig av dens strømmodus. Dette kan føre til en disk som er spunnet ned blir spunnet opp når det sjekkes.</li><li>Sleep - Kontroller enheten med mindre den er i SLEEP modus.</li><li>Standby - Sjekk enheten med mindre den er i SLEEP eller STANDBY modus. I disse modusene unngår de fleste disker å spinne, så hvis du ønsker å hindre en disk fra å spinne opp hver avstemning, er dette sannsynligvis det du vil.</li><li>Idle - Kontroller enheten med mindre den er i SLEEP, STANDBY eller IDLE modus. I IDLE modus spinner de fleste disker fortsatt, så dette er sannsynligvis ikke dee det du ønsker.</li></ul>"
 
 msgid "Primary"
-msgstr ""
+msgstr "Primær"
 
 msgid "Primary email"
-msgstr ""
+msgstr "Primær epost"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "Passord for kryptering"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "Krypteringstype"
 
 msgid "Private key"
-msgstr ""
+msgstr "Privat nøkkel"
 
 msgid "Privilege"
-msgstr ""
+msgstr "Priviliegie"
 
 msgid "Privileges"
-msgstr ""
+msgstr "Privilegier"
 
 msgid "Processes"
-msgstr ""
+msgstr "Prosesser"
 
 msgid "Processor"
-msgstr ""
+msgstr "Prosessor"
 
 msgid "Protocol"
-msgstr ""
+msgstr "Protokoll"
 
 msgid "Public"
-msgstr ""
+msgstr "Offentlig"
 
 msgid "Puerto Rico"
-msgstr ""
+msgstr "Puerto Rico"
 
 msgid "Pull"
-msgstr ""
+msgstr "Pull"
 
 msgid "Push"
-msgstr ""
+msgstr "Push"
 
 msgid "Qatar"
-msgstr ""
+msgstr "Qatar"
 
 msgid "Quiet"
-msgstr ""
+msgstr "Stille"
 
 msgid "Quota"
-msgstr ""
+msgstr "Kvote"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "RAID Management"
-msgstr ""
+msgstr "RAID Administrasjon"
 
 msgid "RPC error"
-msgstr ""
+msgstr "RPC feil"
 
 msgid "RSync server"
-msgstr ""
+msgstr "RSync server"
 
 msgid "Ranges of numbers are not allowed"
-msgstr ""
+msgstr "Nummerserier er ikke tillatt"
 
 msgid "Raw value"
-msgstr ""
+msgstr "Raw verdi"
 
 msgid "Read only"
-msgstr ""
+msgstr "Kun lesing"
 
 msgid "Read-only"
-msgstr ""
+msgstr "Kun lesing"
 
 msgid "Read/Write"
-msgstr ""
+msgstr "Les/skriv"
 
 msgid "Reboot"
-msgstr ""
+msgstr "Omstart"
 
 msgid "Recipient"
-msgstr ""
+msgstr "Mottager"
 
 msgid "Recover"
-msgstr ""
+msgstr "Gjenopprett"
 
 msgid "Recurse into directories"
-msgstr ""
+msgstr "Utfør mappene rekursivt"
 
 msgid "Recursive"
-msgstr ""
+msgstr "Rekursivt"
 
 msgid "Recycle bin"
-msgstr ""
+msgstr "Papirkurv"
 
 msgid "Refresh"
-msgstr ""
+msgstr "Oppdater"
 
 msgid "Remaining"
-msgstr ""
+msgstr "Gjenstår"
 
 msgid "Remote"
-msgstr ""
+msgstr "Ekstern"
 
 msgid "Remote syslog"
-msgstr ""
+msgstr "Ekstern systemlogg"
 
 msgid "Replace"
-msgstr ""
+msgstr "Erstatt"
 
 msgid "Replace all existing permissions"
-msgstr ""
+msgstr "Erstatt alle eksisterende rettigheter"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report. Set to 0 to disable this report."
-msgstr ""
+msgstr "Rapporter hvis temperaturen har endret seg med minst N grader Celsius siden sist rapport. Sett til 0 for å deaktivere denne rapporten."
 
 msgid ""
 "Report if the temperature is greater or equal than N degrees Celsius. Set to"
 " 0 to disable this report."
-msgstr ""
+msgstr "Rapporter hvis temperaturen er større enn eller lik N grader Celsius. Sett til 0 for å deaktivere denne rapporten."
 
 msgid "Repository"
-msgstr ""
+msgstr "Kilde"
 
 msgid "Require valid shell"
-msgstr ""
+msgstr "Krev gyldig shell"
 
 msgid "Required"
-msgstr ""
+msgstr "Påkrevd"
 
 msgid "Reset"
-msgstr ""
+msgstr "Tilbakestill"
 
 msgid "Resize"
-msgstr ""
+msgstr "Endre størrelse"
 
 msgid "Restore"
-msgstr ""
+msgstr "Gjenopprette"
 
 msgid "Restore configuration"
-msgstr ""
+msgstr "Gjenopprett konfigurasjon"
 
 msgid "Restore configuration..."
-msgstr ""
+msgstr "Gjenopprett konfigurasjon..."
 
 msgid "Resume"
-msgstr ""
+msgstr "Gjenopta"
 
 msgid "Retry timeout"
-msgstr ""
+msgstr "Forsøk tidsavbrudd på nytt"
 
 msgid "Reunion"
-msgstr ""
+msgstr "Gjenforening"
 
 msgid "Reverse DNS lookup"
-msgstr ""
+msgstr "Reverse DNS lookup"
 
 msgid "Romania"
-msgstr ""
+msgstr "Romania"
 
 msgid "Rsync"
-msgstr ""
+msgstr "Rsync"
 
 msgid "Rsync - Jobs"
-msgstr ""
+msgstr "Rsync - Jobber"
 
 msgid "Rsync - Server"
-msgstr ""
+msgstr "Rsync - Server"
 
 msgid "Run"
-msgstr ""
+msgstr "Kjør"
 
 msgid "Running"
-msgstr ""
+msgstr "Kjører"
 
 msgid "Russia"
-msgstr ""
-
-msgid "Russian"
-msgstr ""
+msgstr "Russland"
 
 msgid "Rwanda"
-msgstr ""
+msgstr "Rwanda"
 
 msgid "S.M.A.R.T."
-msgstr ""
+msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. informations"
-msgstr ""
+msgstr "S.M.A.R.T. information"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr ""
+msgstr "S.M.A.R.T. overvåkning må aktiveres for den gjeldende enheten."
 
 msgid "SMB/CIFS"
-msgstr ""
+msgstr "SMB/CIFS"
 
 msgid "SMTP port"
-msgstr ""
+msgstr "SMTP port"
 
 msgid "SMTP server"
-msgstr ""
+msgstr "SMTP server"
 
 msgid "SMTP settings"
-msgstr ""
+msgstr "SMTP instillinger"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr ""
+msgstr "SNMP versjon 1/2c"
 
 msgid "SNMP version 3"
-msgstr ""
+msgstr "SNMP versjon 3"
 
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 msgid "SSL/TLS"
-msgstr ""
+msgstr "SSL/TLS"
 
 msgid "Saint Helena"
-msgstr ""
+msgstr "St. Helena"
 
 msgid "Saint Kitts and Nevis"
-msgstr ""
+msgstr "Saint Kitts og Nevis"
 
 msgid "Saint Lucia"
-msgstr ""
+msgstr "Saint Lucia"
 
 msgid "Saint Pierre and Miquelon"
-msgstr ""
+msgstr "Saint-Pierre og Miquelons"
 
 msgid "Saint Vincent and the Grenadines"
-msgstr ""
+msgstr "Saint Vincent og Grenadinene"
 
 msgid "Samoa"
-msgstr ""
+msgstr "Samoa"
 
 msgid "San Marino"
-msgstr ""
+msgstr "San Marino"
 
 msgid "Sao Tome and Principe"
-msgstr ""
+msgstr "São Tomé og Príncipe"
 
 msgid "Saturday"
-msgstr ""
+msgstr "Lørdag"
 
 msgid "Saudi Arabia"
-msgstr ""
+msgstr "Saudi-Arabia"
 
 msgid "Saving ..."
-msgstr ""
+msgstr "Lagrer ..."
 
 msgid "Scheduled tests"
-msgstr ""
+msgstr "Planlagte tester"
 
 msgid "Secondary"
-msgstr ""
+msgstr "Sekundær"
 
 msgid "Secondary email"
-msgstr ""
+msgstr "Sekundær epsot"
 
 msgid "Seconds"
-msgstr ""
+msgstr "Sekunder"
 
 msgid "Secure connection"
-msgstr ""
+msgstr "Sikker tikobling"
 
 msgid "Security level"
-msgstr ""
+msgstr "Sikkerhetsnivå"
 
 msgid "Select a SSL certificate ..."
-msgstr ""
+msgstr "Velg ett SSL sertifikat"
 
 msgid "Select a country ..."
-msgstr ""
+msgstr "Velg et land ..."
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Velg en enhet ..."
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Velg en mappe"
 
 msgid "Select a filesystem ..."
-msgstr ""
+msgstr "Velg ett filsystem ..."
 
 msgid "Select a group ..."
+msgstr "Velg en gruppe ..."
+
+msgid "Select a group name..."
 msgstr ""
 
 msgid "Select a language ..."
 msgstr ""
 
 msgid "Select a primary device ..."
-msgstr ""
+msgstr "Velg en primærenhet ..."
 
 msgid "Select a protocol ..."
-msgstr ""
+msgstr "Velg en protokoll ..."
 
 msgid "Select a shared folder ..."
-msgstr ""
+msgstr "Velg en delt mappe ..."
 
 msgid "Select a shell ..."
-msgstr ""
+msgstr "Velg et shell ..."
 
 msgid "Select a user ..."
+msgstr "Velg en bruker ..."
+
+msgid "Select a user name..."
 msgstr ""
 
 msgid "Select a volume ..."
-msgstr ""
+msgstr "Velg et volum ..."
 
 msgid "Select devices to be added to the RAID device"
+msgstr "Velg en enhet som skal bli lagt til RAID enheten"
+
+msgid "Select or enter a user name ..."
 msgstr ""
 
 msgid "Self-test logs"
-msgstr ""
+msgstr "Selvtest logger"
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "Send kommandoens utput via epost"
 
 msgid "Send email"
-msgstr ""
+msgstr "Send epost"
 
 msgid "Send test email"
-msgstr ""
+msgstr "Send test epost"
 
 msgid "Sender"
-msgstr ""
+msgstr "Sender"
 
 msgid "Sending test email ..."
-msgstr ""
+msgstr "Sender test epost ..."
 
 msgid "Senegal"
-msgstr ""
+msgstr "Senegal"
 
 msgid "September"
-msgstr ""
+msgstr "September"
 
 msgid "Serbia And Montenegro"
-msgstr ""
+msgstr "Serbia og Montenegro"
 
 msgid "Serial Number"
-msgstr ""
+msgstr "Serienummer"
 
 msgid "Serial number"
-msgstr ""
+msgstr "Serienummer"
 
 msgid "Server"
-msgstr ""
+msgstr "Server"
 
 msgid "Service"
-msgstr ""
+msgstr "Tjeneste"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "Tjeneste deaktivert"
 
 msgid "Services"
-msgstr ""
+msgstr "Tjenester"
 
 msgid "Session expired"
 msgstr ""
 
 msgid "Session not authenticated"
-msgstr ""
+msgstr "Sesjon ikke autentisert"
 
 msgid "Session timeout"
 msgstr ""
 
 msgid "Set browseable"
-msgstr ""
+msgstr "Sett søkbar"
 
 msgid "Set read only"
-msgstr ""
+msgstr "Sett skrivebeskyttet"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
-msgstr ""
+msgstr "Sett destinasjonsrettighetene til å være de samme som kilderettighetene"
 
 msgid "Set write only"
-msgstr ""
+msgstr "Sett kun skrivbar"
 
 msgid "Sets the interval between disk checks to N seconds."
-msgstr ""
+msgstr "Setter tidsintervallet mellom diskkontroll til N sekunder."
 
 msgid "Settings"
-msgstr ""
+msgstr "Instillinger"
 
 #, c-format
 msgid "Settings already exist for device '%s'"
-msgstr ""
+msgstr "Instillinger finnes allerede for enhet '%s'"
 
 msgid "Seychelles"
-msgstr ""
+msgstr "Seychellene"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "Delte Mapper"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Delt mappe"
 
 msgid "Shared folder must not be equal"
-msgstr ""
+msgstr "Delt mappe kan ikke være lik"
 
 msgid "Shares"
-msgstr ""
+msgstr "Delt område"
 
 msgid "Shell"
-msgstr ""
+msgstr "Shell"
 
 msgid "Short self-test"
-msgstr ""
+msgstr "Kort selvtest"
 
 msgid "Show certificate"
-msgstr ""
+msgstr "Vis sertifikat"
 
 msgid "Show details"
-msgstr ""
+msgstr "Vis detaljer"
 
 msgid "Show password"
-msgstr ""
+msgstr "Vis passord"
 
 msgid "Show privileges"
-msgstr ""
+msgstr "Vis privilegier"
 
 msgid "Shutdown"
-msgstr ""
+msgstr "Slå av"
 
 msgid "Shutdown the system when pressing the power button."
-msgstr ""
+msgstr "Slå av systemet når du trykker på strømknappen."
 
 msgid "Shutdown/Reboot schedule"
-msgstr ""
+msgstr "Tidsplan for omstart av systemet"
 
 msgid "Sierra Leone"
-msgstr ""
+msgstr "Sierra Leone"
 
 msgid "Singapore"
-msgstr ""
+msgstr "Singapor"
 
 msgid "Size"
 msgstr ""
 
 msgid "Slaves"
-msgstr ""
+msgstr "Slaver"
 
 msgid "Sleep"
-msgstr ""
+msgstr "Dvale"
 
 msgid "Slovakia"
-msgstr ""
+msgstr "Slovakia"
 
 msgid "Slovenia"
-msgstr ""
+msgstr "Slovenia"
 
 msgid "Solomon Islands"
-msgstr ""
+msgstr "Salomonøyene"
 
 msgid "Somalia"
-msgstr ""
+msgstr "Somalia"
 
 msgid "Source"
-msgstr ""
+msgstr "Kilde"
 
 msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
 "or a plain IP address. A '!' argument before the address specification "
 "inverts the sense of the address."
-msgstr ""
+msgstr "Måladressen kan enten være en nettverks IP addresse (med /maske), en IP range eller en enkelt IP adresse. Et '!' argument før adressen inverterer betydningen av adressen."
 
 msgid "Source port"
-msgstr ""
+msgstr "Kildeport"
 
 msgid "Source server"
-msgstr ""
+msgstr "Kildeserver"
 
 msgid "Source shared folder"
-msgstr ""
+msgstr "Delt kildemappe"
 
 msgid "South Africa"
-msgstr ""
+msgstr "Sør-Afrika"
 
 msgid "South Georgia and the South Sandwich Islands"
-msgstr ""
+msgstr "Sør-Georgia og Sør-Sandwichøyene"
 
 msgid "South Korea"
-msgstr ""
+msgstr "Sør-Korea"
 
 msgid "Spain"
-msgstr ""
-
-msgid "Spanish"
-msgstr ""
+msgstr "Spania"
 
 msgid "Specifies how many server threads to create."
-msgstr ""
+msgstr "Angir hvor mange server tråder som skal opprettes."
 
 msgid "Specifies one of the bonding policies."
-msgstr ""
+msgstr "Angir en av bonding policyene."
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
-msgstr ""
+msgstr "Angir MII link overvåkningsfrekvens i millisekunder."
 
 msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "
 "parameter is from 512 to 65464."
-msgstr ""
+msgstr "Angir maksimalt tillat blokk størrelse. Det tillatte området for denne parameteren er fra 512 til 65464."
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr ""
+msgstr "Angir tiden i tt:mm:ss hvoretter forbudet utløper."
 
 msgid ""
 "Specifies the time interval in hh:mm:ss in which the given number of "
 "occurrences must happen to add the ban."
-msgstr ""
+msgstr "Angir tidsintervallet i tt:mm:ss der gitt antall forekomster må skje for å legge til forbudet."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
 "a link failure has been detected."
-msgstr ""
+msgstr "Angir tiden, i millisekunder, å vente før en slave blir deaktivert etter at en koblingsfeil har blitt oppdaget."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
-msgstr ""
+msgstr "Angir tiden, i millisekunder, å vente før en slave blir reaktivert etter at en kobling har blitt gjenopprettet."
 
 msgid "Specifies whether it is allowed to login as superuser directly"
-msgstr ""
+msgstr "Angir om det er tillatt å logge direkte inn som superbruker"
 
 msgid "Specifies whether it is allowed to login as superuser."
-msgstr ""
+msgstr "Angir om det er tillatt å logge inn som superbruker."
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
-msgstr ""
+msgstr "Angir om systemets status skal overvåkes og velge passende CPU nivå"
 
 msgid "Specifies which slave is the primary device."
-msgstr ""
+msgstr "Angir hvilken slave som er primærenhet."
 
 msgid "Spindown time"
-msgstr ""
+msgstr "Spindown tid"
 
 msgid "Sri Lanka"
-msgstr ""
+msgstr "Sri Lanka"
 
 msgid "Standby"
-msgstr ""
+msgstr "Ventemodus"
 
 msgid "Start"
-msgstr ""
+msgstr "Start"
 
 msgid "State"
-msgstr ""
+msgstr "Tilstand"
 
 msgid "State/Province"
-msgstr ""
+msgstr "Stat/Provins"
 
 msgid "Static"
-msgstr ""
+msgstr "Statisk"
 
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 msgid "Stop"
-msgstr ""
+msgstr "Stopp"
 
 msgid "Storage"
-msgstr ""
+msgstr "Lagring"
 
 msgid "Store DOS attributes"
-msgstr ""
+msgstr "Lagre DOS attributter"
 
 msgid "Stripe"
-msgstr ""
+msgstr "Stripe"
 
 msgid "Success"
-msgstr ""
+msgstr "Suksess"
 
 msgid "Sudan"
-msgstr ""
+msgstr "Sudan"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Søndag"
 
 msgid "Support"
-msgstr ""
+msgstr "Support"
 
 msgid "Suppress non-error messages"
-msgstr ""
+msgstr "Undertrykk ikke-feilmeldinger"
 
 msgid "Suriname"
-msgstr ""
+msgstr "Surinam"
 
 msgid "Svalbard and Jan Mayen"
-msgstr ""
+msgstr "Svalbard og Jan Mayen"
 
 msgid "Swaziland"
-msgstr ""
+msgstr "Swasiland"
 
 msgid "Sweden"
-msgstr ""
+msgstr "Sverige"
 
 msgid "Switzerland"
-msgstr ""
+msgstr "Sveits"
 
 msgid "Syria"
-msgstr ""
+msgstr "Syria"
 
 msgid "Syslog"
-msgstr ""
+msgstr "Syslog"
 
 msgid "System"
-msgstr ""
+msgstr "System"
 
 msgid "System Information"
-msgstr ""
+msgstr "System informasjon"
 
 msgid "System Logs"
-msgstr ""
+msgstr "Systemlogger"
 
 msgid "System time"
-msgstr ""
+msgstr "Systemtid"
 
 msgid "TCP forwarding"
-msgstr ""
+msgstr "TCP videresending"
 
 msgid "TFTP"
-msgstr ""
+msgstr "TFTP"
 
 msgid "Taiwan"
-msgstr ""
+msgstr "Taiwan"
 
 msgid "Tajikistan"
-msgstr ""
+msgstr "Tadsjikistan"
 
 msgid "Tanzania"
-msgstr ""
+msgstr "Tansania"
 
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatur"
 
 msgid "Temperature monitoring"
-msgstr ""
+msgstr "Temperaturovervåkning"
 
 msgid "Test description"
 msgstr ""
@@ -2903,12 +2879,15 @@ msgstr ""
 msgid "The field '%s' contains forbidden "
 msgstr ""
 
+msgid "The file mode of the shared folder path."
+msgstr ""
+
 #, c-format
 msgid "The group '%s' does not exist"
 msgstr ""
 
 msgid "The hostname is a label that identifies the system to the network."
-msgstr ""
+msgstr "Vertsnavnet er en etikett som identifiserer systemet på nettverket."
 
 msgid "The location of the files to share."
 msgstr ""
@@ -2928,7 +2907,7 @@ msgid "The number of days the certificate is valid for."
 msgstr ""
 
 msgid "The password contains invalid characters"
-msgstr ""
+msgstr "Passordet inneholder ugyldige tegn"
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
@@ -2936,7 +2915,7 @@ msgid ""
 msgstr ""
 
 msgid "The path of the folder to share."
-msgstr ""
+msgstr "Banen til mappen å dele."
 
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
@@ -2948,64 +2927,64 @@ msgid ""
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
-msgstr ""
+msgstr "Tillatelsene på nye filer og kataloger er normalt styrt av Opprett maske og Mappemaske men parameteren  Arv tillatelser overstyrer denne. Dette kan være spesielt nyttig på systemer med mange brukere for å tillate et enkelt område å bli brukt fleksibelt av alle brukere."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
 "for data connections is not required."
-msgstr ""
+msgstr "Kravet om at SSL-økt fra kontrolltilkobling gjenbrukes for datatilkoblinger er ikke nødvendig."
 
 msgid "The session timeout time in minutes."
-msgstr ""
+msgstr "Øktens tidsavbrudd i minutter."
 
 msgid "The shared folder is already used by another share"
-msgstr ""
+msgstr "Den delte mappen er allerede i bruk av et annet delt område"
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
-msgstr ""
+msgstr "Ekstern kildeserver, f.eks. [USER@]HOST:SRC, [USER@]HOST::SRC eller rsync://[USER@]HOST[:PORT]/SRC."
 
 msgid "The source shared folder."
-msgstr ""
+msgstr "Kildens delte mappe."
 
 msgid "The specified quota exceeds the max. possible value of 4TiB."
-msgstr ""
+msgstr "Den angitte kvote overstiger maks. mulig verdi på 4TiB."
 
 msgid "The system will reboot now."
-msgstr ""
+msgstr "Systemet starter nå på nytt."
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr ""
+msgstr "Systemet starter nå på nytt. Dette kan ta litt tid ... "
 
 msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr ""
+msgstr "Test eposten er sendt. Vennligst sjekk postkassen."
 
 #, c-format
 msgid "The user '%s' does not exist"
-msgstr ""
+msgstr "Brukeren '%s' eksisterer ikke"
 
 #, c-format
 msgid "The user '%s' is not allowed"
-msgstr ""
+msgstr "Brukeren '%s' er ikke tillatt"
 
 msgid "The value in this field is invalid"
-msgstr ""
+msgstr "Verdien i dette feltet er ugyldig."
 
 msgid "The volume label for the filesystem."
-msgstr ""
+msgstr "Volumetiketten for filsystemet."
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
 "login."
-msgstr ""
+msgstr "Velkomstmeldingen som vil bli vist til brukere når de logger inn for første gang."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
-msgstr ""
+msgstr "Arbeidsgruppen serveren vil se ut til å være i når den blir spurt av klienter."
 
 #, c-format
 msgid "There already exists a mount point for %s"
-msgstr ""
+msgstr "Det eksisterer allerede et monteringspunkt for %s"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
@@ -3015,76 +2994,76 @@ msgstr ""
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
-msgstr ""
+msgstr "Angir om det delte området er tilgjengelig i listen over delte områder på nettverket og i søkelisten."
 
 msgid "This field must have the format hh:mm:ss"
-msgstr ""
+msgstr "Dette feltet må ha formatet tt:mm:ss"
 
 msgid "This field should be a IPv4 network address"
-msgstr ""
+msgstr "Dette feltet bør inneholde en IPv4 nettverskadresse"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
-msgstr ""
+msgstr "Dette feltet bør være en IPv4 nettverk adresse i CIDR"
 
 msgid "This field should be a hostname or an IPv4 address"
-msgstr ""
+msgstr "Dette feltet bør være et vertsnavn eller en IPv4-adresse"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
-msgstr ""
+msgstr "Dette feltet bør være en nettmaske innenfor området 128.0.0.0 - 255.255.255.252"
 
 msgid "This field should be a port in the range of 1 - 65535"
-msgstr ""
+msgstr "Dette feltet skal være en port i området 1-65535"
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
-msgstr ""
+msgstr "Dette feltet skal være en port eller et portområdet (e.g. 21 or !443 or 1024-65535)"
 
 msgid "This field should be an IPv4 address"
-msgstr ""
+msgstr "Dette feltet bør være en IPv4-adresse"
 
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
 "range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
 "192.168.178.20-192.168.178.254)"
-msgstr ""
+msgstr "Dette feltet skal være enten en IPv4 nettverk adresse (med / maske), et IPv4 område eller en vanlig IPv4-adresse (f.eks 172.16.76.4 eller !192.168.178.87/24 eller 192.168.178.20-192.168.178.254)"
 
 msgid "This field should only contain numbers"
-msgstr ""
+msgstr "Dette feltet skal kun inneholde tall"
 
 msgid "This field should only contain numbers seperated by <,> or <;>"
-msgstr ""
+msgstr "Dette feltet skal kun inneholde tall adskilt med <,> or <;>"
 
 msgid ""
 "This field should only contain ports (0 - 65535) seperated by <,> or <;>"
-msgstr ""
+msgstr "Dette feltet skal kun inneholde porter (0 - 65535) adskilt med <,> eller <;>"
 
 msgid "This field should only contain strings seperated by <,> or <;>"
-msgstr ""
+msgstr "Dette feltet skal kun inneholde strenger adskilt av <,> eller <;>"
 
 msgid "This function is effective only if the hard drive supports it."
-msgstr ""
+msgstr "Denne funksjonen fungerer bare hvis harddisken støtter det."
 
 msgid ""
 "This is a text field that is seen next to a share when a client queries the "
 "server."
-msgstr ""
+msgstr "Dette er et tekstfelt som er sett ved siden av et delt område når en klient spør serveren."
 
 msgid ""
 "This may make more efficient use of the system CPU's and cause Samba to be "
 "faster. Samba automatically turns this off for clients that use protocol "
 "levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
-msgstr ""
+msgstr "Dette kan gjøre mer effektiv bruk av systemets CPU og føre til at Samba er raskere. Samba slår automatisk av denne funksjonen for klienter som bruker protokollnivåer lavere enn NT LM 0.12 og når den oppdager at en klient er Windows 9x."
 
 msgid ""
 "This option causes the server to not send a certificate request during a SSL"
 " handshake."
-msgstr ""
+msgstr "Dette alternativet gjør at serveren ikke sender en sertifikatforespørsel under et SSL-håndtrykk."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
-msgstr ""
+msgstr "Dette valget avgjør om denne modulen skal vises når klienten ber om en liste over tilgjengelige moduler."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3093,7 +3072,7 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr ""
+msgstr "Dette alternativet er et komma, mellomrom, eller tabulatordelt sett av verter som IKKE er tillatt å bruke denne modulen. Der listen er i konflikten, tar tillate listen forrang. I tilfelle det er nødvendig å nekte alle adgang som standard, bruke nøkkelordet ALL (eller nettmasken 0.0.0.0 / 0) og deretter eksplisitt angi tillatte verter som bør tillates tilgang. La dette feltet stå tomt for å bruke standardinnstillingene."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3102,128 +3081,125 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr ""
+msgstr "Dette alternativet er et komma, mellomrom, eller tabulatordelt sett av verter som IKKE er tillatt å bruke denne modulen. Der listen er i konflikten, tar tillate listen forrang. I tilfelle det er nødvendig å nekte alle adgang som standard, bruke nøkkelordet ALL (eller nettmasken 0.0.0.0 / 0) og deretter eksplisitt angi tillatte verter som bør tillates tilgang. La dette feltet stå tomt for å bruke standardinnstillingene."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this module. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr ""
+msgstr "Dette alternativet er et komma, mellomrom, eller tabulatordelt sett av verter som har tilgang til denne modulen. Du kan spesifisere vertene etter navn eller IP nummer. La dette feltet stå tomt for å bruke standardinnstillingene."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this share. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr ""
+msgstr "Dette alternativet er et komma, mellomrom, eller tabulatordelt sett av verter som har tilgang til det delte området. Du kan spesifisere vertene etter navn eller IP nummer. La dette feltet stå tomt for å bruke standardinnstillingene."
 
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
 "server."
-msgstr ""
+msgstr "Dette alternativet krever at klienter bruker FTP over TLS ved kommunikasjon med denne serveren."
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
-msgstr ""
+msgstr "Dette alternativet angir gruppenavnet som filoverføringer til og fra den modulen skal foregå."
 
 msgid ""
 "This option specifies the maximum number of simultaneous connections. 0 "
 "means no limit."
-msgstr ""
+msgstr "Dette alternativet angir det maksimale antall samtidige tilkoblinger. 0 betyr ubegrenset."
 
 msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
-msgstr ""
+msgstr "Dette alternativet angir brukernavnet som filoverføringer til og fra den modulen skal foregå."
 
 msgid ""
 "This option will handle all connections as if they are SSL connections "
 "implicitly."
-msgstr ""
+msgstr "Dette alternativet vil håndtere alle tilkoblinger som om de implisitt er SSL-tilkoblinger."
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr ""
+msgstr "Denne parameteren kan brukes til å sikre at hvis standard ACL eksisterer på overordnede kataloger, blir de benyttet når du oppretter en ny fil eller underkatalog i disse overordnede katalogene."
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
-msgstr ""
+msgstr "Denne parameteren styrer om filer som starter med dot vises som skjulte filer"
 
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
 "given time interval, then a ban is automatically added."
-msgstr ""
+msgstr "Denne parameteren sier at hvis N forekomster av hendelsen skjer innenfor gitt tidsintervall, så vil et forbud automatisk bli lagt til."
 
 msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr ""
+msgstr "Denne regelen blir utløst når det valgte hendelsesdirektivet inntreffer."
 
 msgid "This will create a recycle bin on the share."
-msgstr ""
+msgstr "Dette vil lage en papirkurv på det delte området."
 
 msgid "Thursday"
-msgstr ""
+msgstr "Torsdag"
 
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 msgid "Time"
-msgstr ""
+msgstr "Tid"
 
 msgid "Time interval"
-msgstr ""
+msgstr "TIdsintervall"
 
 msgid "Time server"
-msgstr ""
+msgstr "Tidsserver"
 
 msgid "Time servers"
-msgstr ""
+msgstr "Tidsservere"
 
 msgid "Time zone"
-msgstr ""
+msgstr "Tidssone"
 
 msgid "Timeout"
-msgstr ""
+msgstr "Tidsavbrudd"
 
 msgid "Times"
-msgstr ""
+msgstr "Tider"
 
 msgid ""
 "To restore a previously backed up configuration click the 'Restore' button. "
 "The system will reboot automatically after import has been finished "
 "successfully."
-msgstr ""
+msgstr "For å gjenoprrette en tidHvis du vil gjenopprette en tidligere sikkerhetskopiert konfigurasjon klikker du på Gjenopprett-knappen. Systemet vil starte på nytt automatisk etter import er fullført."
 
 msgid "Togo"
-msgstr ""
+msgstr "Togo"
 
 msgid "Tokelau"
-msgstr ""
+msgstr "Tokelau"
 
 msgid "Tonga"
-msgstr ""
+msgstr "Tonga"
 
 msgid "Traps"
-msgstr ""
+msgstr "Traps"
 
 msgid "Treshold"
-msgstr ""
+msgstr "Terskel"
 
 msgid "Trinidad and Tobago"
-msgstr ""
+msgstr "Trinidad og Tobago"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "Tirsdag"
 
 msgid "Tunisia"
 msgstr ""
 
 msgid "Turkey"
-msgstr ""
-
-msgid "Turkish"
 msgstr ""
 
 msgid "Turkmenistan"
@@ -3248,9 +3224,6 @@ msgid "Uganda"
 msgstr ""
 
 msgid "Ukraine"
-msgstr ""
-
-msgid "Ukrainian"
 msgstr ""
 
 msgid "Uninstall"
@@ -3286,7 +3259,7 @@ msgid "Unknown log file type (id=%s)"
 msgstr ""
 
 msgid "Unmount"
-msgstr ""
+msgstr "Avmonter"
 
 msgid "Up"
 msgstr ""
@@ -3326,204 +3299,204 @@ msgid "Upload plugin"
 msgstr ""
 
 msgid "Uploading file ..."
-msgstr ""
+msgstr "Laster opp fil ..."
 
 msgid "Uptime"
-msgstr ""
+msgstr "Oppetid"
 
 msgid "Uruguay"
-msgstr ""
+msgstr "Uruguay"
 
 msgid "Use NTP server"
-msgstr ""
+msgstr "Benytt NTP-server"
 
 msgid "Use SSL/TLS secure connection"
-msgstr ""
+msgstr "Bruk sikker tilkobling over SSL/TLS "
 
 msgid "Use sendfile"
-msgstr ""
+msgstr "Benytt sendfile"
 
 msgid "Use the following bandwidth restriction:"
-msgstr ""
+msgstr "Bruk følgende båndbredde begrensning:"
 
 msgid "Use the following port range:"
-msgstr ""
+msgstr "Bruk følgende portområde:"
 
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked"
-msgstr ""
+msgstr "Bruk det mer effektive sendfile system kall for filer som er utelukkende oplocked"
 
 msgid "Use the specified WINS server."
-msgstr ""
+msgstr "Bruk den angitte WINS-serveren."
 
 msgid "Used"
-msgstr ""
+msgstr "Brukt"
 
 msgid "Used capacity"
-msgstr ""
+msgstr "Brukt kapasitet"
 
 msgid "User"
-msgstr ""
+msgstr "Bruker"
 
 #, c-format
 msgid "User '%s' already exist"
-msgstr ""
+msgstr "Bruker '%s' finnes allerede"
 
 #, c-format
 msgid "User '%s' does not exist"
-msgstr ""
+msgstr "Bruker '%s' finnes ikke"
 
 #, c-format
 msgid "User ID '%d' already exist"
-msgstr ""
+msgstr "Bruker ID '%d' finnes allerede"
 
 msgid "User home directory"
-msgstr ""
+msgstr "Brukerens hjemmeområde"
 
 msgid "User information"
-msgstr ""
+msgstr "Brukerinformasjon"
 
 msgid "User/Group permissions"
-msgstr ""
+msgstr "Bruker/Gruppe rettigheter"
 
 msgid "Username"
-msgstr ""
+msgstr "Brukernavn"
 
 msgid "Users"
-msgstr ""
+msgstr "Brukere"
 
 msgid "Uzbekistan"
-msgstr ""
+msgstr "Usbekistan"
 
 msgid "Valid to"
-msgstr ""
+msgstr "Gyldig til"
 
 msgid "Value"
-msgstr ""
+msgstr "Verdi"
 
 msgid "Vanuatu"
-msgstr ""
+msgstr "Vanuatu"
 
 msgid "Vatican"
-msgstr ""
+msgstr "Vatikanstaten"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Leverandør"
 
 msgid "Venezuela"
-msgstr ""
+msgstr "Venezuela"
 
 msgid "Version"
-msgstr ""
+msgstr "Versjon"
 
 msgid "Vietnam"
-msgstr ""
+msgstr "Vietnam"
 
 msgid "Volume"
-msgstr ""
+msgstr "Volum"
 
 msgid "WINS"
-msgstr ""
+msgstr "WINS"
 
 msgid "WINS server"
-msgstr ""
+msgstr "WINS server"
 
 msgid "WINS support"
-msgstr ""
+msgstr "WINS støtte"
 
 msgid "Wake Island"
-msgstr ""
+msgstr "Wake Island"
 
 msgid "Wake-on-LAN"
-msgstr ""
+msgstr "Wake-on-LAN"
 
 msgid "Wallis and Futuna"
-msgstr ""
+msgstr "Wallis- og Futunaøyene"
 
 msgid "Warning"
-msgstr ""
+msgstr "Advarsel"
 
 msgid "Web Administration"
-msgstr ""
+msgstr "Web Administrasjon"
 
 msgid "Web Administrator Password"
-msgstr ""
+msgstr "Web Administrator Passord"
 
 msgid "Web administration interface"
-msgstr ""
+msgstr "Web administrasjonsgrensesnitt"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "Onsdag"
 
 msgid "Welcome message"
-msgstr ""
+msgstr "Velkomstmelding"
 
 msgid "Western Sahara"
-msgstr ""
+msgstr "Vest-Sahara"
 
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote username."
-msgstr ""
+msgstr "Når en klient først kobles til serveren blir ident protokollen brukt til å forsøke å identifisere det eksterne brukernavnet."
 
 msgid "When failed"
-msgstr ""
+msgstr "Når mislyktes"
 
 msgid "Wipe"
-msgstr ""
+msgstr "Slett"
 
 msgid "Wiping device ..."
-msgstr ""
+msgstr "Sletter enhet"
 
 msgid "Workgroup"
-msgstr ""
+msgstr "Arbeidsgruppe"
 
 msgid "Worst"
-msgstr ""
+msgstr "Dårligste"
 
 msgid "Write cache"
-msgstr ""
+msgstr "Skrivecache"
 
 msgid "Write only"
-msgstr ""
+msgstr "Kun skrive"
 
 msgid "Yemen"
-msgstr ""
+msgstr "Jemen"
 
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 msgid "Zambia"
-msgstr ""
+msgstr "Sambia"
 
 msgid "Zeroconf"
-msgstr ""
+msgstr "Zeroconf"
 
 msgid "Zimbabwe"
-msgstr ""
+msgstr "Zimbabwe"
 
 msgid "day"
-msgstr ""
+msgstr "dag"
 
 msgid "days"
-msgstr ""
+msgstr "dager"
 
 msgid "hour"
-msgstr ""
+msgstr "time"
 
 msgid "hours"
-msgstr ""
+msgstr "timer"
 
 msgid "minute"
-msgstr ""
+msgstr "minutt"
 
 msgid "minutes"
-msgstr ""
+msgstr "minutter"
 
 #, c-format
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 msgid "seconds"
-msgstr ""
+msgstr "sekunder"

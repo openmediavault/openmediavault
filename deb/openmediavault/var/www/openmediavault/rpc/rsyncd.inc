@@ -136,7 +136,7 @@ class RsyncdRpc extends OMVRpc {
 			"modules" => isset($oldObject['modules']) ?
 				$oldObject['modules'] : array()
 		);
-		if (FALSE === $xmlConfig->replace("//services/rsync/server", $object)) {
+		if (FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Save configuration

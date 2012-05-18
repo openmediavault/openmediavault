@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-14 21:02+0200\n"
-"PO-Revision-Date: 2012-05-14 19:03+0000\n"
+"POT-Creation-Date: 2012-05-17 20:46+0200\n"
+"PO-Revision-Date: 2012-05-17 18:46+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.net/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -703,9 +703,6 @@ msgstr "Διακομιστής DNS"
 msgid "Daemon"
 msgstr "Δαίμονας"
 
-msgid "Danish"
-msgstr "Danish"
-
 msgid "Date"
 msgstr "Ημερομηνία"
 
@@ -886,9 +883,6 @@ msgstr "Λήψη"
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
 
-msgid "Dutch"
-msgstr "Γερμανικά"
-
 msgid "Each line represents one group."
 msgstr "Κάθε γραμμή αντιπροσωπεύει μία ομάδα."
 
@@ -1035,9 +1029,6 @@ msgstr "Ενεργοποίηση "
 msgid "Enabled"
 msgstr "Ενεργό"
 
-msgid "English"
-msgstr "Αγγλικά"
-
 msgid "Enter your password"
 msgstr "Εισάγωγή κωδικού"
 
@@ -1181,9 +1172,6 @@ msgstr "Να απαιτείται μόνο ασφαλής σύνδεση."
 msgid "France"
 msgstr "France"
 
-msgid "French"
-msgstr "Γαλλικά"
-
 msgid "French Guiana"
 msgstr "French Guiana"
 
@@ -1226,9 +1214,6 @@ msgstr "Δημιουργία γραφημάτων ..."
 msgid "Georgia"
 msgstr "Georgia"
 
-msgid "German"
-msgstr "German"
-
 msgid "Germany"
 msgstr "Germany"
 
@@ -1243,9 +1228,6 @@ msgstr "Gibraltar"
 
 msgid "Greece"
 msgstr "Greece"
-
-msgid "Greek"
-msgstr "Ελληνικά"
 
 msgid "Greenland"
 msgstr "Greenland"
@@ -1342,9 +1324,6 @@ msgstr "Αποκλεισμένα συστήματα"
 
 msgid "Hour"
 msgstr "Ώρα"
-
-msgid "Hungarian"
-msgstr "Hungarian"
 
 msgid "Hungary"
 msgstr "Hungary"
@@ -1499,9 +1478,6 @@ msgstr "Ireland"
 
 msgid "Israel"
 msgstr "Israel"
-
-msgid "Italian"
-msgstr "Ιταλικά"
 
 msgid "Italy"
 msgstr "Italy"
@@ -2169,9 +2145,6 @@ msgstr "Πρόσθετα"
 msgid "Poland"
 msgstr "Poland"
 
-msgid "Polish"
-msgstr "Polish"
-
 msgid "Port"
 msgstr "Θύρα"
 
@@ -2402,9 +2375,6 @@ msgstr "Εκτελείται"
 msgid "Russia"
 msgstr "Russia"
 
-msgid "Russian"
-msgstr "Ρώσσικα"
-
 msgid "Rwanda"
 msgstr "Rwanda"
 
@@ -2513,6 +2483,9 @@ msgstr "Επιλογή συστήματος αρχείων ..."
 msgid "Select a group ..."
 msgstr "Επιλογή ομάδας ..."
 
+msgid "Select a group name..."
+msgstr ""
+
 msgid "Select a language ..."
 msgstr "Επιλογή γλώσσας ..."
 
@@ -2531,11 +2504,17 @@ msgstr "Επιλογή κελύφους ..."
 msgid "Select a user ..."
 msgstr "Επιλογή χρήστη ..."
 
+msgid "Select a user name..."
+msgstr ""
+
 msgid "Select a volume ..."
 msgstr "Επιλογή τόμου ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Επιλογή συσκευών για προσθήκη σε συσκευή RAID"
+
+msgid "Select or enter a user name ..."
+msgstr ""
 
 msgid "Self-test logs"
 msgstr "Καταγραφές αυτοελέγχων"
@@ -2712,9 +2691,6 @@ msgstr "South Korea"
 
 msgid "Spain"
 msgstr "Spain"
-
-msgid "Spanish"
-msgstr "Ισπανικά"
 
 msgid "Specifies how many server threads to create."
 msgstr "Αριθμός νημάτων εξυπηρέτησης προς δημιουργία"
@@ -2902,6 +2878,9 @@ msgstr "Ο κοινόχρηστος φάκελος προορισμού."
 #, c-format
 msgid "The field '%s' contains forbidden "
 msgstr "Το πεδίο '%s' περιέχει απαγορευμένο"
+
+msgid "The file mode of the shared folder path."
+msgstr ""
 
 #, c-format
 msgid "The group '%s' does not exist"
@@ -3223,9 +3202,6 @@ msgstr "Tunisia"
 msgid "Turkey"
 msgstr "Turkey"
 
-msgid "Turkish"
-msgstr "Turkish"
-
 msgid "Turkmenistan"
 msgstr "Turkmenistan"
 
@@ -3249,9 +3225,6 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukraine"
-
-msgid "Ukrainian"
-msgstr "Ukrainian"
 
 msgid "Uninstall"
 msgstr "Απεγκατάσταση"

@@ -742,6 +742,7 @@ OMV.NavigationPanelMgr.registerPanel("services", "rsync", {
 
 /**
  * @class OMV.Module.Services.Rsync.JobPropertyDialog
+ * @derived OMV.CfgObjectDialog
  */
 OMV.Module.Services.Rsync.JobPropertyDialog = function(config) {
 	var initialConfig = {

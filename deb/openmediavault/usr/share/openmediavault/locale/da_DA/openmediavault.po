@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-14 21:02+0200\n"
-"PO-Revision-Date: 2012-05-14 22:48+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"POT-Creation-Date: 2012-05-17 20:46+0200\n"
+"PO-Revision-Date: 2012-05-17 18:46+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.net/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -703,9 +703,6 @@ msgstr ""
 msgid "Daemon"
 msgstr ""
 
-msgid "Danish"
-msgstr ""
-
 msgid "Date"
 msgstr ""
 
@@ -886,9 +883,6 @@ msgstr ""
 msgid "Dronning Maud Land"
 msgstr ""
 
-msgid "Dutch"
-msgstr ""
-
 msgid "Each line represents one group."
 msgstr ""
 
@@ -1035,9 +1029,6 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-msgid "English"
-msgstr ""
-
 msgid "Enter your password"
 msgstr ""
 
@@ -1181,9 +1172,6 @@ msgstr ""
 msgid "France"
 msgstr ""
 
-msgid "French"
-msgstr ""
-
 msgid "French Guiana"
 msgstr ""
 
@@ -1226,9 +1214,6 @@ msgstr ""
 msgid "Georgia"
 msgstr ""
 
-msgid "German"
-msgstr ""
-
 msgid "Germany"
 msgstr ""
 
@@ -1242,9 +1227,6 @@ msgid "Gibraltar"
 msgstr ""
 
 msgid "Greece"
-msgstr ""
-
-msgid "Greek"
 msgstr ""
 
 msgid "Greenland"
@@ -1341,9 +1323,6 @@ msgid "Hosts deny"
 msgstr ""
 
 msgid "Hour"
-msgstr ""
-
-msgid "Hungarian"
 msgstr ""
 
 msgid "Hungary"
@@ -1498,9 +1477,6 @@ msgid "Ireland"
 msgstr ""
 
 msgid "Israel"
-msgstr ""
-
-msgid "Italian"
 msgstr ""
 
 msgid "Italy"
@@ -2169,9 +2145,6 @@ msgstr ""
 msgid "Poland"
 msgstr ""
 
-msgid "Polish"
-msgstr ""
-
 msgid "Port"
 msgstr ""
 
@@ -2402,9 +2375,6 @@ msgstr ""
 msgid "Russia"
 msgstr ""
 
-msgid "Russian"
-msgstr ""
-
 msgid "Rwanda"
 msgstr ""
 
@@ -2513,6 +2483,9 @@ msgstr ""
 msgid "Select a group ..."
 msgstr ""
 
+msgid "Select a group name..."
+msgstr ""
+
 msgid "Select a language ..."
 msgstr ""
 
@@ -2531,10 +2504,16 @@ msgstr ""
 msgid "Select a user ..."
 msgstr ""
 
+msgid "Select a user name..."
+msgstr ""
+
 msgid "Select a volume ..."
 msgstr ""
 
 msgid "Select devices to be added to the RAID device"
+msgstr ""
+
+msgid "Select or enter a user name ..."
 msgstr ""
 
 msgid "Self-test logs"
@@ -2711,9 +2690,6 @@ msgid "South Korea"
 msgstr ""
 
 msgid "Spain"
-msgstr ""
-
-msgid "Spanish"
 msgstr ""
 
 msgid "Specifies how many server threads to create."
@@ -2901,6 +2877,9 @@ msgstr ""
 
 #, c-format
 msgid "The field '%s' contains forbidden "
+msgstr ""
+
+msgid "The file mode of the shared folder path."
 msgstr ""
 
 #, c-format
@@ -3223,9 +3202,6 @@ msgstr ""
 msgid "Turkey"
 msgstr ""
 
-msgid "Turkish"
-msgstr ""
-
 msgid "Turkmenistan"
 msgstr ""
 
@@ -3248,9 +3224,6 @@ msgid "Uganda"
 msgstr ""
 
 msgid "Ukraine"
-msgstr ""
-
-msgid "Ukrainian"
 msgstr ""
 
 msgid "Uninstall"

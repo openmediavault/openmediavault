@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-17 20:46+0200\n"
+"POT-Creation-Date: 2012-05-19 00:08+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -811,6 +811,9 @@ msgid "Do you really want to logout?"
 msgstr ""
 
 msgid "Do you really want to reboot the system?"
+msgstr ""
+
+msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr ""
 
 msgid "Do you really want to resize the selected filesystem? You have to do that after a RAID has been grown for example."
@@ -2230,6 +2233,9 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
+msgid "Reset WebGUI state"
+msgstr ""
+
 msgid "Resize"
 msgstr ""
 
@@ -2706,6 +2712,9 @@ msgid "System Logs"
 msgstr ""
 
 msgid "System time"
+msgstr ""
+
+msgid "System user/group"
 msgstr ""
 
 msgid "TCP forwarding"

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-14 21:02+0200\n"
-"PO-Revision-Date: 2012-05-14 19:03+0000\n"
+"POT-Creation-Date: 2012-05-17 20:46+0200\n"
+"PO-Revision-Date: 2012-05-17 18:46+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -707,9 +707,6 @@ msgstr "DNS Server"
 msgid "Daemon"
 msgstr "Daemon"
 
-msgid "Danish"
-msgstr "Dänisch"
-
 msgid "Date"
 msgstr "Datum"
 
@@ -890,9 +887,6 @@ msgstr "Herunterladen"
 msgid "Dronning Maud Land"
 msgstr "Königin-Maud-Land"
 
-msgid "Dutch"
-msgstr "Niederländisch"
-
 msgid "Each line represents one group."
 msgstr "Jede Zeile repräsentiert eine Gruppe."
 
@@ -1039,9 +1033,6 @@ msgstr "Aktiviere Schreibcache."
 msgid "Enabled"
 msgstr "Aktiviert"
 
-msgid "English"
-msgstr "Englisch"
-
 msgid "Enter your password"
 msgstr "Geben Sie Ihr Passwort ein"
 
@@ -1185,9 +1176,6 @@ msgstr "Sichere Verbindung erzwingen."
 msgid "France"
 msgstr "Frankreich"
 
-msgid "French"
-msgstr "Französisch"
-
 msgid "French Guiana"
 msgstr "Französisch-Guayana"
 
@@ -1230,9 +1218,6 @@ msgstr "Generiere Diagramme ..."
 msgid "Georgia"
 msgstr "Georgien"
 
-msgid "German"
-msgstr "Deutsch"
-
 msgid "Germany"
 msgstr "Deutschland"
 
@@ -1247,9 +1232,6 @@ msgstr "Gibraltar"
 
 msgid "Greece"
 msgstr "Griechenland"
-
-msgid "Greek"
-msgstr "Griechisch"
 
 msgid "Greenland"
 msgstr "Grönland"
@@ -1346,9 +1328,6 @@ msgstr "Verweigerte Hosts"
 
 msgid "Hour"
 msgstr "Stunde"
-
-msgid "Hungarian"
-msgstr "Ungarisch"
 
 msgid "Hungary"
 msgstr "Ungarn"
@@ -1503,9 +1482,6 @@ msgstr "Irland"
 
 msgid "Israel"
 msgstr "Israel"
-
-msgid "Italian"
-msgstr "Italienisch"
 
 msgid "Italy"
 msgstr "Italien"
@@ -1891,7 +1867,7 @@ msgstr "Netzwerk"
 
 #, c-format
 msgid "Network interface '%s' already exists"
-msgstr ""
+msgstr "Netzwerk-Interface '%s' existiert bereits"
 
 msgid "Neutral Zone"
 msgstr "Neutrale Zone"
@@ -2173,9 +2149,6 @@ msgstr "Erweiterungen"
 msgid "Poland"
 msgstr "Polen"
 
-msgid "Polish"
-msgstr "Polnisch"
-
 msgid "Port"
 msgstr "Port"
 
@@ -2406,9 +2379,6 @@ msgstr "Läuft"
 msgid "Russia"
 msgstr "Russland"
 
-msgid "Russian"
-msgstr "Russisch"
-
 msgid "Rwanda"
 msgstr "Ruanda"
 
@@ -2517,6 +2487,9 @@ msgstr "Wähle ein Dateisystem ..."
 msgid "Select a group ..."
 msgstr "Wähle eine Gruppe ..."
 
+msgid "Select a group name..."
+msgstr ""
+
 msgid "Select a language ..."
 msgstr "Wähle eine Sprache ..."
 
@@ -2535,11 +2508,17 @@ msgstr "Wähle eine Shell ..."
 msgid "Select a user ..."
 msgstr "Wähle einen Benutzer ..."
 
+msgid "Select a user name..."
+msgstr ""
+
 msgid "Select a volume ..."
 msgstr "Wähle einen Datenträger ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Zum RAID Laufwerk hinzuzufügenden Laufwerke auswählen"
+
+msgid "Select or enter a user name ..."
+msgstr ""
 
 msgid "Self-test logs"
 msgstr "Selbsttest Logs"
@@ -2716,9 +2695,6 @@ msgstr "Südkorea"
 
 msgid "Spain"
 msgstr "Spanien"
-
-msgid "Spanish"
-msgstr "Spanisch"
 
 msgid "Specifies how many server threads to create."
 msgstr "Legt fest wie viele Server Threads generiert werden sollen."
@@ -2906,6 +2882,9 @@ msgstr "Der freigegebene Zielordner."
 #, c-format
 msgid "The field '%s' contains forbidden "
 msgstr "Das Feld '%s' enthält verbotene"
+
+msgid "The file mode of the shared folder path."
+msgstr ""
 
 #, c-format
 msgid "The group '%s' does not exist"
@@ -3227,9 +3206,6 @@ msgstr "Tunesien"
 msgid "Turkey"
 msgstr "Türkei"
 
-msgid "Turkish"
-msgstr "Türkisch"
-
 msgid "Turkmenistan"
 msgstr "Turkmenistan"
 
@@ -3253,9 +3229,6 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukraine"
-
-msgid "Ukrainian"
-msgstr "Ukrainisch"
 
 msgid "Uninstall"
 msgstr "Entfernen"

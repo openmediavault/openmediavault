@@ -1,5 +1,6 @@
 openmediavault (0.3.0.10) stable; urgency=low
 
+  * Update locales.
   * Add ability to reset WebGUI states, e.g. grid column order, which are
     stored in a browser cookie.
   * Add ability to group privileges grid.
