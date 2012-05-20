@@ -86,33 +86,24 @@ OMV.Viewport = function(config) {
 					},{
 						xtype: "tbseparator"
 					},{
-						xtype: "tbbutton",
-						icon: "images/logout.png",
-						text: _("Logout"),
-						handler: function() {
-							Ext.MessageBox.show({
-								title: _("Confirmation"),
-								msg: _("Do you really want to logout?"),
-								buttons: Ext.MessageBox.YESNO,
-								fn: function(answer) {
-									if (answer == "no")
-										return;
-									OMV.SessionMgr.logout();
-								},
-								scope: this,
-								icon: Ext.MessageBox.QUESTION
-							});
-						}
-					},{
-						xtype: "tbseparator"
-					},{
 						xtype: "splitbutton",
-						icon: "images/shutdown.png",
+						icon: "images/wheel.png",
 						handler: function() {
 							this.showMenu();
 						},
 						menu: new Ext.menu.Menu({
 							items: [{
+								text: _("Reset WebGUI state"),
+								action: "resetstate",
+								msg: _("Do you really want to reset WebGUI state, e.g. grid column order?")
+							},{
+								xtype: "menuseparator"
+							},{
+								text: _("Logout"),
+								action: "logout",
+								msg: _("Do you really want to logout?"),
+								icon: "images/logout.png"
+							},{
 								text: _("Reboot"),
 								action: "reboot",
 								msg: _("Do you really want to reboot the system?"),
@@ -135,6 +126,12 @@ OMV.Viewport = function(config) {
 											if (answer == "no")
 												return;
 											switch (item.action) {
+											case "resetstate":
+												Ext.state.Manager.getProvider().clearCookies();
+												break;
+											case "logout":
+												OMV.SessionMgr.logout();
+												break;
 											case "reboot":
 												OMV.Ajax.request(function(id, response, error) {
 													  if (error !== null) {
@@ -182,42 +179,6 @@ OMV.Viewport = function(config) {
 													  }
 												  }, this, "System", "shutdown");
 												break;
-											}
-										},
-										scope: this,
-										icon: Ext.Msg.QUESTION
-									});
-								},
-								scope: this
-							}
-						}),
-						text: _("Shutdown")
-					},{
-						xtype: "splitbutton",
-						icon: "images/preferences.png",
-						handler: function() {
-							this.showMenu();
-						},
-						menu: new Ext.menu.Menu({
-							items: [{
-								text: _("Reset WebGUI state"),
-								action: "resetstate",
-								msg: _("Do you really want to reset WebGUI state, e.g. grid column order?")
-							}],
-							listeners: {
-								itemclick: function(item, e) {
-									if (!Ext.isDefined(item.action))
-										return;
-									OMV.MessageBox.show({
-										title: _("Confirmation"),
-										msg: item.msg,
-										buttons: Ext.Msg.YESNO,
-										fn: function(answer) {
-											if (answer == "no")
-												return;
-											switch (item.action) {
-											case "resetstate":
-												Ext.state.Manager.getProvider().clearCookies();
 											}
 										},
 										scope: this,

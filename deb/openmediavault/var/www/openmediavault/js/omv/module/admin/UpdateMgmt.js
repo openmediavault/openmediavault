@@ -41,6 +41,7 @@ OMV.NavigationPanelMgr.registerMenu("system", "updatemanager", {
  */
 OMV.Module.System.UpdateMgmtGridPanel = function(config) {
 	var initialConfig = {
+		modalLoadMask: true,
 		hidePagingToolbar: true,
 		hideAdd: true,
 		hideEdit: true,

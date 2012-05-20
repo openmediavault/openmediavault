@@ -497,6 +497,21 @@ Ext.extend(OMV.grid.TBarGridPanel, OMV.grid.GridPanel, {
 		var text = Math.round(100 * p) + _("% completed ...");
 		// Update progress dialog
 		OMV.MessageBox.updateProgress(p, text);
+	},
+
+	/**
+	 * @method setToolbarButtonDisabled
+	 * Convenience function for setting the given toolbar button
+	 * disabled/enabled.
+	 * @param name The name of the toolbar button.
+	 * @param disabled TRUE to disable the button, FALSE to enable.
+	 * @return The button component, otherwise FALSE.
+	 */
+	setToolbarButtonDisabled : function(name, disabled) {
+		var btnCtrl = Ext.getCmp(this.getId() + "-" + name);
+		if (!Ext.isDefined(btnCtrl))
+			return false;
+		return btnCtrl.setDisabled(disabled);
 	}
 });
 Ext.reg("tbargrid", OMV.grid.TBarGridPanel);

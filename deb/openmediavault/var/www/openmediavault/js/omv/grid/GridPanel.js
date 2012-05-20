@@ -26,11 +26,14 @@ Ext.ns("OMV.grid");
  * @derived Ext.grid.GridPanel
  * Generic grid panel implementation.
  * @config disableLoadMaskOnLoad TRUE to disable the load mask after the first
- * load has been done.
+ *   load has been done.
+ * @config modalLoadMask TRUE to mask everything while loading data. Defaults
+ *   to FALSE.
  */
 OMV.grid.GridPanel = function(config) {
 	var initialConfig = {
 		loadMask: true,
+		modalLoadMask: false,
 		disableLoadMaskOnLoad: false,
 		autoScroll: true,
 		stripeRows: true,
@@ -47,6 +50,13 @@ OMV.grid.GridPanel = function(config) {
 };
 Ext.extend(OMV.grid.GridPanel, Ext.grid.GridPanel, {
 	initComponent : function() {
+		// Mask everything? Create loadMask only if 'modalLoadMask' is also
+		// TRUE, otherwise let ExtJS create the loadMask object if necessary.
+		if ((true === this.loadMask) && (true === this.modalLoadMask)) {
+			this.loadMask = new Ext.LoadMask(OMV.viewport.el,
+			  Ext.apply({store:this.store}, this.loadMask));
+		}
+		// Disable mask after data has been loaded the first time?
 		this.store.on("load", function(store, records, options) {
 			if (this.disableLoadMaskOnLoad && Ext.isObject(this.loadMask)) {
 				this.loadMask.disable();

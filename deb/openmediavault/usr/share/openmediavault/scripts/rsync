@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Documentation/Howto:
+# http://wiki.dreamhost.com/index.php/Crontab
+
 set -e
 
 . /etc/default/openmediavault

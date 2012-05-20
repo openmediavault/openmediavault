@@ -242,6 +242,7 @@ Ext.extend(OMV.Module.Services.NFSSharePropertyDialog,
 			name: "client",
 			fieldLabel: _("Client"),
 			allowBlank: false,
+			vtype: "noBlank",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: _("Clients allowed to mount the filesystem, e.g. 192.168.178.0/24.")
 		},{

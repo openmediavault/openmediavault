@@ -22,6 +22,7 @@
 # Documentation/Howto:
 # http://www.cyberciti.biz/faq/disable-the-mail-alert-by-crontab-command
 # http://www.cyberciti.biz/faq/how-do-i-add-jobs-to-cron-under-linux-or-unix-oses
+# http://wiki.dreamhost.com/index.php/Crontab
 
 set -e
 

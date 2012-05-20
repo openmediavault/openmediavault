@@ -172,7 +172,13 @@ Ext.apply(Ext.form.VTypes, {
 		return /^[a-zA-Z0-9\.\-_]+$/.test(v);
 	},
 	devnameText: _("Invalid name"),
-	devnameMask: /[a-zA-Z0-9\.\-_]/
+	devnameMask: /[a-zA-Z0-9\.\-_]/,
+
+	noBlank: function(v) {
+		return !/[ ]+/.test(v);
+	},
+	noBlankText: _("This field does not allow blanks"),
+	noBlankMask: /[^ ]/i,
 });
 
 ////////////////////////////////////////////////////////////////////////////////

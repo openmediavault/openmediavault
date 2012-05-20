@@ -64,9 +64,9 @@ License: Creative Commons (Attribution-Share Alike 3.0 Unported)
 URL: http://www.iconfinder.net/icondetails/30484/16
 
 Image: add.png
-Designer: Dat Nguyen (http://splashyfish.com)
-License: Free for commercial use
-URL: http://www.iconfinder.net/icondetails/14225/16
+Designer: PC (http://pc.de/icons)
+License: CC BY 3.0
+URL: http://www.iconfinder.com/icondetails/59189/16
 
 Image: delete.png
 Designer: Everaldo Coelho (http://www.everaldo.com)
@@ -117,16 +117,14 @@ URL: http://www.iconfinder.net/icondetails/1991/16
 URL: http://www.kde-look.org/content/show.php/nuoveXT+2?content=62630
 
 Image: user.png
-Designer:  Nathan Haug and the Lullabot Team
-License: GPL
-URL: http://www.iconfinder.net/icondetails/19835/16
-URL: http://www.lullabot.com/icons
+Designer: PC (http://pc.de/icons)
+License: CC BY 3.0
+URL: http://www.iconfinder.com/icondetails/59215/16
 
 Image: group.png
-Designer:  Nathan Haug and the Lullabot Team
-License: GPL
-URL: http://www.iconfinder.net/icondetails/19835/16
-URL: http://www.lullabot.com/icons
+Designer: PC (http://pc.de/icons)
+License: CC BY 3.0
+URL: http://www.iconfinder.com/icondetails/59142/16
 
 Image: about.png
 Designer: Yusuke Kamiyamane
@@ -203,9 +201,9 @@ Designer: Oxygen Team
 License: GPL
 
 Image: edit.png
-Designer: Everaldo Coelho (http://www.everaldo.com)
-License: LGPL (http://www.gnu.org/licenses/lgpl.html)
-URL: http://www.iconfinder.com/icondetails/3218/16
+Designer: PC (http://pc.de/icons)
+License: CC BY 3.0
+URL: http://www.iconfinder.com/icondetails/59135/16
 
 Image: info.png
 Designer: Oxygen Team
@@ -341,3 +339,13 @@ Image: folder-trigger.png
 Designer: Volker Theile, based on Gnome Project and ExtJS trigger template
 License: GPL
 URL: http://www.iconfinder.com/icondetails/21114/16
+
+Image: wheel.png
+Designer: PC (http://pc.de/icons)
+License: CC BY 3.0
+URL: http://www.iconfinder.com/icondetails/59200/16
+
+Image: wrench.png
+Designer: PC (http://pc.de/icons)
+License: CC BY 3.0
+URL: http://www.iconfinder.com/icondetails/59135/16

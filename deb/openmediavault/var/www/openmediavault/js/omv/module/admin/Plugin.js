@@ -42,6 +42,7 @@ OMV.NavigationPanelMgr.registerMenu("system", "plugins", {
  */
 OMV.Module.System.PluginGridPanel = function(config) {
 	var initialConfig = {
+		modalLoadMask: true,
 		hidePagingToolbar: true,
 		hideAdd: true,
 		hideEdit: true,

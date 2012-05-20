@@ -205,7 +205,7 @@ class OMVWebGui extends OMVHtmlPage {
 				expires: new Date(new Date().getTime() + (1000*60*60*24*365))
 			}));
 			Ext.onReady(function() {
-				var viewport = new OMV.Viewport({
+				OMV.viewport = new OMV.Viewport({
 					listeners: {
 						beforerender: function(c) {
 							OMV.Download = new OMV.data.DataRequest();
