@@ -1,6 +1,6 @@
 [main]
 host = https://www.transifex.net
-lang_map = de: de_DE, it: it_IT, ru: ru_RU, uk: uk_UK, da: da_DA
+lang_map = de: de_DE, it: it_IT, ru: ru_RU, uk: uk_UK, da: da_DA, no: no_NO, sv: sv_SV
 type = PO
 
 [openmediavault.openmediavault]
@@ -31,4 +31,9 @@ source_lang = en
 [openmediavault.openmediavault-nut]
 file_filter = openmediavault-nut/usr/share/openmediavault/locale/<lang>/openmediavault-nut.po
 source_file = openmediavault-nut/usr/share/openmediavault/locale/openmediavault-nut.pot
+source_lang = en
+
+[openmediavault.openmediavault-clamav]
+file_filter = openmediavault-clamav/usr/share/openmediavault/locale/<lang>/openmediavault-clamav.po
+source_file = openmediavault-clamav/usr/share/openmediavault/locale/openmediavault-clamav.pot
 source_lang = en

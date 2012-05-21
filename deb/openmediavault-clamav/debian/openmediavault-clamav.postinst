@@ -1,0 +1,118 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+	configure)
+		########################################################################
+		# Set the default settings of the clamav package to those expected by
+		# OpenMediaVault.
+		########################################################################
+		if [ -z "$2" ]; then
+			echo "Updating init script links and actions"
+			invoke-rc.d --force clamav-freshclam stop
+			update-rc.d clamav-freshclam disable &>/dev/null
+			invoke-rc.d --force clamav-daemon stop
+			update-rc.d clamav-daemon disable &>/dev/null
+		fi
+
+		########################################################################
+		# Update file permissions.
+		########################################################################
+		echo "Updating permissions ..."
+		omv_install_fixperms
+
+		########################################################################
+		# Install locale files.
+		########################################################################
+		echo "Installing locale files ..."
+		omv_install_locale
+
+		########################################################################
+		# Update the configuration.
+		# <config>
+		#   <services>
+		#     <clamav>
+		#       <enable>0</enable>
+		#       <clamd>
+		#           <extraoptions></extraoptions>
+		#       </clamd>
+		#       <freshclam>
+		#         <!--
+		#         <enable>0|1</enable>
+		#         <checks>0 = disable, 1..50</checks>
+		#         -->
+		#         <enable>1</enable>
+		#         <databasemirror>db.local.clamav.net<databasemirror>
+		#         <checks>24</checks>
+		#       </freshclam>
+		#       <jobs>
+		#         <!--
+		#         <job>
+		#           <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+		#           <enable>0|1</enable>
+		#           <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+		#           <minute>[00-59|*]</minute>
+		#           <everynminute>0|1</everynminute>
+		#           <hour>[00-23|*]</hour>
+		#           <everynhour>0|1</everynhour>
+		#           <dayofmonth>[01-31|*]</dayofmonth>
+		#           <everyndayofmonth>0|1</everyndayofmonth>
+		#           <month>[01-12|*]</month>
+		#           <dayofweek>[1-7|*]</dayofweek>
+		#           <sendemail>0|1</sendemail>
+		#           <onaccess>0|1</onaccess>
+		#           <comment></comment>
+		#         </job>
+		#         -->
+		#       </jobs>
+		#     </clamav>
+		#   </services>
+		# </config>
+		########################################################################
+		if ! omv_config_exists "//services/clamav"; then
+			echo "Initialize configuration"
+			object="<enable>0</enable>"
+			object="${object}<clamd><extraoptions></extraoptions></clamd>"
+			object="${object}<freshclam>"
+			object="${object}<enable>1</enable>"
+			object="${object}<databasemirror>db.local.clamav.net</databasemirror>"
+			object="${object}<checks>24</checks>"
+			object="${object}</freshclam>"
+			object="${object}<jobs></jobs>"
+			omv_config_add_element "//services" "clamav" "${object}" true
+		fi
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

@@ -1,0 +1,235 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://wiki.dreamhost.com/index.php/Crontab
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_CLAMAV_CLAMD_CONFIG=${OMV_CLAMAV_CLAMD_CONFIG:-"/etc/clamav/clamd.conf"}
+OMV_CLAMAV_CLAMD_LOCALSOCKET=${OMV_CLAMAV_CLAMD_LOCALSOCKET:-"/var/run/clamav/clamd.ctl"}
+OMV_CLAMAV_CLAMD_LOCALSOCKETGROUP=${OMV_CLAMAV_CLAMD_LOCALSOCKETGROUP:-"clamav"}
+OMV_CLAMAV_CLAMD_LOCALSOCKETMODE=${OMV_CLAMAV_CLAMD_LOCALSOCKETMODE:-"666"}
+OMV_CLAMAV_CLAMD_USER=${OMV_CLAMAV_CLAMD_USER:-"clamav"}
+OMV_CLAMAV_CLAMD_MAXDIRECTORYRECURSION=${OMV_CLAMAV_CLAMD_MAXDIRECTORYRECURSION:-"15"}
+OMV_CLAMAV_CLAMD_READTIMEOUT=${OMV_CLAMAV_CLAMD_READTIMEOUT:-"180"}
+OMV_CLAMAV_CLAMD_MAXTHREADS=${OMV_CLAMAV_CLAMD_MAXTHREADS:-"12"}
+OMV_CLAMAV_CLAMD_MAXCONNECTIONQUEUELENGTH=${OMV_CLAMAV_CLAMD_MAXCONNECTIONQUEUELENGTH:-"15"}
+OMV_CLAMAV_CLAMD_SELFCHECK=${OMV_CLAMAV_CLAMD_SELFCHECK:-"3600"}
+OMV_CLAMAV_CLAMD_LOGSYSLOG=${OMV_CLAMAV_CLAMD_LOGSYSLOG:-"false"}
+OMV_CLAMAV_CLAMD_LOGFACILITY=${OMV_CLAMAV_CLAMD_LOGFACILITY:-"LOG_LOCAL6"}
+OMV_CLAMAV_CLAMD_LOGVERBOSE=${OMV_CLAMAV_CLAMD_LOGVERBOSE:-"false"}
+OMV_CLAMAV_CLAMD_LOGCLEAN=${OMV_CLAMAV_CLAMD_LOGCLEAN:-"true"}
+OMV_CLAMAV_CLAMD_DATABASEDIRECTORY=${OMV_CLAMAV_CLAMD_DATABASEDIRECTORY:-"/var/lib/clamav"}
+OMV_CLAMAV_CLAMD_IDLETIMEOUT=${OMV_CLAMAV_CLAMD_IDLETIMEOUT:-"30"}
+OMV_CLAMAV_CLAMD_STREAMMAXLENGTH=${OMV_CLAMAV_CLAMD_STREAMMAXLENGTH:-"25M"}
+OMV_CLAMAV_CLAMD_LOGFILE=${OMV_CLAMAV_CLAMD_LOGFILE:-"/var/log/clamav/clamav.log"}
+OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG=${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG:-"/etc/logrotate.d/clamav-daemon"}
+OMV_CLAMAV_FRESHCLAM_CONFIG=${OMV_CLAMAV_FRESHCLAM_CONFIG:-"/etc/clamav/freshclam.conf"}
+OMV_CLAMAV_FRESHCLAM_COMPRESSLOCALDATABASE=${OMV_CLAMAV_FRESHCLAM_COMPRESSLOCALDATABASE:-"no"}
+OMV_CLAMAV_FRESHCLAM_DATABASEOWNER=${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER:-"clamav"}
+OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE=${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE:-"/var/log/clamav/clamav.log"}
+OMV_CLAMAV_FRESHCLAM_LOGSYSLOG=${OMV_CLAMAV_FRESHCLAM_LOGSYSLOG:-"false"}
+OMV_CLAMAV_FRESHCLAM_LOGVERBOSE=${OMV_CLAMAV_FRESHCLAM_LOGVERBOSE:-"false"}
+OMV_CLAMAV_FRESHCLAM_LOGFACILITY=${OMV_CLAMAV_FRESHCLAM_LOGFACILITY:-"LOG_LOCAL6"}
+OMV_CLAMAV_FRESHCLAM_DATABASEDIRECTORY=${OMV_CLAMAV_FRESHCLAM_DATABASEDIRECTORY:-"/var/lib/clamav"}
+OMV_CLAMAV_FRESHCLAM_DNSDATABASEINFO=${OMV_CLAMAV_FRESHCLAM_DNSDATABASEINFO:-"current.cvd.clamav.net"}
+OMV_CLAMAV_FRESHCLAM_NOTIFYCLAMD=${OMV_CLAMAV_FRESHCLAM_NOTIFYCLAMD:-"/etc/clamav/clamd.conf"}
+OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG=${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG:-"/etc/logrotate.d/clamav-freshclam"}
+OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT=${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT:-"/etc/cron.d/openmediavault-clamdscan"}
+OMV_CLAMAV_CLAMDSCAN_CRONSCRIPTS_MASK=${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPTS_MASK:-"755"}
+
+# Create '/etc/clamav/clamd.conf' configuration file.
+xmlstarlet sel -t -m "//services/clamav/clamd" \
+  -o "LocalSocket ${OMV_CLAMAV_CLAMD_LOCALSOCKET}" -n \
+  -o "FixStaleSocket true" -n \
+  -o "LocalSocketGroup ${OMV_CLAMAV_CLAMD_LOCALSOCKETGROUP}" -n \
+  -o "LocalSocketMode ${OMV_CLAMAV_CLAMD_LOCALSOCKETMODE}" -n \
+  -o "User ${OMV_CLAMAV_CLAMD_USER}" -n \
+  -o "AllowSupplementaryGroups true" -n \
+  -o "ScanMail false" -n \
+  -o "ScanArchive true" -n \
+  -o "ArchiveBlockEncrypted false" -n \
+  -o "MaxDirectoryRecursion ${OMV_CLAMAV_CLAMD_MAXDIRECTORYRECURSION}" -n \
+  -o "FollowDirectorySymlinks false" -n \
+  -o "FollowFileSymlinks false" -n \
+  -o "ReadTimeout ${OMV_CLAMAV_CLAMD_READTIMEOUT}" -n \
+  -o "MaxThreads ${OMV_CLAMAV_CLAMD_MAXTHREADS}" -n \
+  -o "MaxConnectionQueueLength ${OMV_CLAMAV_CLAMD_MAXCONNECTIONQUEUELENGTH}" -n \
+  -o "LogSyslog ${OMV_CLAMAV_CLAMD_LOGSYSLOG}" -n \
+  -o "LogFacility ${OMV_CLAMAV_CLAMD_LOGFACILITY}" -n \
+  -o "LogClean ${OMV_CLAMAV_CLAMD_LOGCLEAN}" -n \
+  -o "LogVerbose ${OMV_CLAMAV_CLAMD_LOGVERBOSE}" -n \
+  -o "PidFile /var/run/clamav/clamd.pid" -n \
+  -o "DatabaseDirectory ${OMV_CLAMAV_CLAMD_DATABASEDIRECTORY}" -n \
+  -o "SelfCheck ${OMV_CLAMAV_CLAMD_SELFCHECK}" -n \
+  -o "Foreground false" -n \
+  -o "Debug false" -n \
+  -o "ScanPE true" -n \
+  -o "ScanOLE2 true" -n \
+  -o "ScanHTML true" -n \
+  -o "DetectBrokenExecutables false" -n \
+  -o "ExitOnOOM false" -n \
+  -o "LeaveTemporaryFiles false" -n \
+  -o "AlgorithmicDetection true" -n \
+  -o "ScanELF true" -n \
+  -o "IdleTimeout ${OMV_CLAMAV_CLAMD_IDLETIMEOUT}" -n \
+  -o "PhishingSignatures true" -n \
+  -o "PhishingScanURLs true" -n \
+  -o "PhishingAlwaysBlockSSLMismatch false" -n \
+  -o "PhishingAlwaysBlockCloak false" -n \
+  -o "DetectPUA false" -n \
+  -o "ScanPartialMessages false" -n \
+  -o "HeuristicScanPrecedence false" -n \
+  -o "StructuredDataDetection false" -n \
+  -o "CommandReadTimeout 5" -n \
+  -o "SendBufTimeout 200" -n \
+  -o "MaxQueue 100" -n \
+  -o "ExtendedDetectionInfo true" -n \
+  -o "OLE2BlockMacros false" -n \
+  -o "StreamMaxLength ${OMV_CLAMAV_CLAMD_STREAMMAXLENGTH}" -n \
+  -o "LogFile ${OMV_CLAMAV_CLAMD_LOGFILE}" -n \
+  -o "LogTime true" -n \
+  -o "LogFileUnlock false" -n \
+  -o "LogFileMaxSize 0" -n \
+  -o "Bytecode true" -n \
+  -o "BytecodeSecurity TrustSigned" -n \
+  -o "BytecodeTimeout 60000" -n \
+  -o "OfficialDatabaseOnly false" -n \
+  -o "CrossFilesystems true" -n \
+  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CLAMAV_CLAMD_CONFIG}
+
+# Create '/etc/clamav/freshclam.conf' configuration file.
+xmlstarlet sel -t -m "//services/clamav/freshclam" \
+  -o "DatabaseOwner ${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER}" -n \
+  -o "UpdateLogFile ${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE}" -n \
+  -o "LogVerbose ${OMV_CLAMAV_FRESHCLAM_LOGVERBOSE}" -n \
+  -o "LogSyslog ${OMV_CLAMAV_FRESHCLAM_LOGSYSLOG}" -n \
+  -o "LogFacility ${OMV_CLAMAV_FRESHCLAM_LOGFACILITY}" -n \
+  -o "LogFileMaxSize 0" -n \
+  -o "LogTime true" -n \
+  -o "Foreground false" -n \
+  -o "Debug false" -n \
+  -o "MaxAttempts 5" -n \
+  -o "DatabaseDirectory ${OMV_CLAMAV_FRESHCLAM_DATABASEDIRECTORY}" -n \
+  -o "DNSDatabaseInfo ${OMV_CLAMAV_FRESHCLAM_DNSDATABASEINFO}" -n \
+  -o "AllowSupplementaryGroups false" -n \
+  -o "PidFile /var/run/clamav/freshclam.pid" -n \
+  -o "ConnectTimeout 30" -n \
+  -o "ReceiveTimeout 30" -n \
+  -o "TestDatabases yes" -n \
+  -o "ScriptedUpdates yes" -n \
+  -o "CompressLocalDatabase ${OMV_CLAMAV_FRESHCLAM_COMPRESSLOCALDATABASE}" -n \
+  -o "Bytecode true" -n \
+  -o "NotifyClamd ${OMV_CLAMAV_FRESHCLAM_NOTIFYCLAMD}" -n \
+  -v "concat('Checks ',checks)" -n \
+  -v "concat('DatabaseMirror ',databasemirror)" -n \
+  -o "DatabaseMirror database.clamav.net" -n \
+  -o "#HTTPProxyServer proxy" -n \
+  -o "#HTTPProxyPort port" -n \
+  -o "#HTTPProxyUsername username" -n \
+  -o "#HTTPProxyPassword password" \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CLAMAV_FRESHCLAM_CONFIG}
+
+# Create the cron jobs.
+rm -f ${OMV_CRONSCRIPTS_DIR}/clamdscan-*
+xmlstarlet sel -t -m "//services/clamav/jobs/job[enable='1']" \
+  -v "uuid" -i "position() != last()" -n -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+  while read uuid; do
+	  filename="${OMV_CRONSCRIPTS_DIR}/clamdscan-${uuid}"
+	  runfile="/var/run/clamdscan-${uuid}"
+
+	  xmlstarlet sel -t -m "//services/clamav/jobs/job[uuid='${uuid}']" \
+		-o "#!/bin/sh" -n \
+		-o "# This configuration file is auto-generated." -n \
+		-o "# WARNING: Do not edit this file, your changes will be lost." -n \
+		-o "[ -e ${runfile} ] &amp;&amp; exit 0" -n \
+		-o "trap &quot;rm -f ${runfile}&quot; 0 1 2 5 15" -n \
+		-o "touch ${runfile}" -n \
+		-o "echo &quot;Scanning shared folder &lt;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -o "&gt; ...\n&quot;" -n \
+		-o "clamdscan --verbose --stdout" \
+		-o " " ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} \
+		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${filename}
+	  chmod ${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPTS_MASK} ${filename}
+  done
+xmlstarlet sel -t \
+  -o "SHELL=/bin/sh" -n \
+  -o "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" -n \
+  -o "# m h dom mon dow user    command" -n \
+  -m "//services/clamav[enable='1']" \
+	  -m "//services/clamav/jobs/job[enable='1']" \
+		  -i "everynminute[. = '1']" -v "concat('*/',minute,' ')" -b \
+		  -i "everynminute[. = '0']" -v "concat(minute,' ')" -b \
+		  -i "everynhour[. = '1']" -v "concat('*/',hour,' ')" -b \
+		  -i "everynhour[. = '0']" -v "concat(hour,' ')" -b \
+		  -i "everyndayofmonth[. = '1']" -v "concat('*/',dayofmonth,' ')" -b \
+		  -i "everyndayofmonth[. = '0']" -v "concat(dayofmonth,' ')" -b \
+		  -v "concat(month,' ',dayofweek,' root ${OMV_CRONSCRIPTS_DIR}/clamdscan-',uuid)" \
+		  -i "sendemail[. = '0']" \
+			  -o " &gt;/dev/null 2&gt;&amp;1" \
+		  -b \
+		  -n \
+	-b \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT}
+chmod 644 ${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT}
+
+# Create logrotate configuration files.
+cat <<EOF > ${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}
+${OMV_CLAMAV_CLAMD_LOGFILE} {
+	rotate 12
+	weekly
+	compress
+	delaycompress
+	create 640 ${OMV_CLAMAV_CLAMD_USER} adm
+	postrotate
+	/etc/init.d/clamav-daemon reload-log > /dev/null
+	endscript
+}
+EOF
+chown ${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER}:adm "${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}"
+chmod 0640 "${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}"
+
+# Only write a seperate logrotate configuration file for clamav-freshclam if
+# it does not use the same logfile as clamd.
+rm -f ${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}
+if [ ${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE} != ${OMV_CLAMAV_CLAMD_LOGFILE} ]; then
+	cat <<EOF > ${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}
+${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE} {
+	rotate 12
+	weekly
+	compress
+	delaycompress
+	missingok
+	create 640 ${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER} adm
+	postrotate
+	/etc/init.d/clamav-freshclam reload-log > /dev/null
+	endscript
+}
+EOF
+	chown ${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER}:adm "${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}"
+	chmod 0640 "${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}"
+fi

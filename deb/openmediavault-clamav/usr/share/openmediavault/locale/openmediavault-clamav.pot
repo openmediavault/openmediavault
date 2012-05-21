@@ -1,0 +1,117 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault-clamav\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-05-19 00:03+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Add job"
+msgstr ""
+
+msgid "An email message with the command output (if any produced) is send to the administrator."
+msgstr ""
+
+msgid "Antivirus"
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid "Database checks"
+msgstr ""
+
+msgid "Database mirror"
+msgstr ""
+
+msgid "Date & Time"
+msgstr ""
+
+msgid "Day of month"
+msgstr ""
+
+msgid "Day of week"
+msgstr ""
+
+msgid "Edit job"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Event"
+msgstr ""
+
+msgid "Every N day of month"
+msgstr ""
+
+msgid "Every N hour"
+msgstr ""
+
+msgid "Every N minute"
+msgstr ""
+
+msgid "Execute job"
+msgstr ""
+
+msgid "Extra options"
+msgstr ""
+
+msgid "General settings"
+msgstr ""
+
+msgid "Hour"
+msgstr ""
+
+msgid "Jobs"
+msgstr ""
+
+msgid "Minute"
+msgstr ""
+
+msgid "Month"
+msgstr ""
+
+msgid "Number of database checks per day."
+msgstr ""
+
+msgid "Please check the <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid "Run"
+msgstr ""
+
+msgid "Send command output via email"
+msgstr ""
+
+msgid "Send email"
+msgstr ""
+
+msgid "Server name where database updates are downloaded from."
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "The location of the files to scan."
+msgstr ""
+
+msgid "n/a"
+msgstr ""
