@@ -1,5 +1,6 @@
 openmediavault (0.3.0.11) stable; urgency=low
 
+  * Allow numbers as first character in a domain name.
   * Fix typo in language combobox. Thanks to Simon Jonsson.
   * Mantis 0000476: Mask whole webgui during loading Debian package lists.
     This will prevent user from clicking the 'Check' button twice while APT

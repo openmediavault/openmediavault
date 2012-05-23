@@ -115,7 +115,8 @@ Ext.apply(Ext.form.VTypes, {
 	hostnameIPv4Mask: /[a-z0-9\-\.]/i,
 
 	domainname: function(v) {
-		return /^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?([.][a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?)*$/.test(v);
+		// See http://shauninman.com/archive/2006/05/08/validating_domain_names
+		return /^[a-zA-Z0-9]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?([.][a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9])?)*$/.test(v);
 	},
 	domainnameText: _("Invalid domain name"),
 	domainnameMask: /[a-z0-9\-\.]/i,
