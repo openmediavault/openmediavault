@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <mauro.rulli@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-19 00:03+0200\n"
-"PO-Revision-Date: 2012-05-18 22:06+0000\n"
+"POT-Creation-Date: 2012-05-25 22:50+0200\n"
+"PO-Revision-Date: 2012-05-25 20:51+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.net/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -18,104 +19,182 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Add job"
+msgstr "Aggiungi job"
+
+msgid "Algorithmic detection"
 msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Un'email con l'output del comando (se prodotto) viene inviata all'amministratore."
 
 msgid "Antivirus"
-msgstr ""
+msgstr "Antivirus"
 
 msgid "Comment"
-msgstr ""
+msgstr "Commento"
 
 msgid "Database checks"
-msgstr ""
+msgstr "Verifiche del database"
 
 msgid "Database mirror"
-msgstr ""
+msgstr "Mirror del database"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Data & Ora"
 
 msgid "Day of month"
-msgstr ""
+msgstr "Giorno del mese"
 
 msgid "Day of week"
+msgstr "Giorno della settimana"
+
+msgid "Detect PUA"
+msgstr ""
+
+msgid "Detect broken executables"
+msgstr ""
+
+msgid "Detect possibly unwanted applications."
 msgstr ""
 
 msgid "Edit job"
-msgstr ""
+msgstr "Modifica job"
 
 msgid "Enable"
+msgstr "Abilita"
+
+msgid "Enable archive scanning."
+msgstr ""
+
+msgid "Enable on-access virus scanning"
 msgstr ""
 
 msgid "Enabled"
+msgstr "Abilitato"
+
+msgid "Enables HTML detection and normalisation."
 msgstr ""
 
 msgid "Event"
-msgstr ""
+msgstr "Evento"
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "Ogni N giorni del mese"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "Ogni N ore"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "Ogni N minuti"
 
 msgid "Execute job"
-msgstr ""
+msgstr "Esegui job"
 
 msgid "Extra options"
+msgstr "Opzioni extra"
+
+msgid "Follow directory symlinks"
+msgstr ""
+
+msgid "Follow file symlinks"
 msgstr ""
 
 msgid "General settings"
-msgstr ""
+msgstr "Impostazioni generali"
 
 msgid "Hour"
-msgstr ""
+msgstr "Ora"
 
 msgid "Jobs"
-msgstr ""
+msgstr "Job"
 
 msgid "Minute"
+msgstr "Minuto"
+
+msgid "Monitor the shared folder and scan new or modified files."
 msgstr ""
 
 msgid "Month"
+msgstr "Mese"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr ""
 
-msgid "Number of database checks per day."
+msgid "On-access"
 msgstr ""
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Per favore consulta la <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>pagina del manuale</a> per ulteriori dettagli."
 
 msgid "Run"
+msgstr "Esegui"
+
+msgid "Scan ELF"
+msgstr ""
+
+msgid "Scan HTML"
+msgstr ""
+
+msgid "Scan OLE2"
+msgstr ""
+
+msgid "Scan PDF"
+msgstr ""
+
+msgid "Scan Portable Executable"
+msgstr ""
+
+msgid "Scan archives"
 msgstr ""
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "Invia l'output del comando via email"
 
 msgid "Send email"
-msgstr ""
+msgstr "Invia email"
 
 msgid "Server name where database updates are downloaded from."
-msgstr ""
+msgstr "Il nome del server da cui verranno scaricati gli aggiornamenti del database."
 
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Cartella condivisa"
 
 msgid "The location of the files to scan."
+msgstr "Il percorso dei file da controllare."
+
+msgid "This option allows to follow directory symlinks."
+msgstr ""
+
+msgid "This option allows to follow regular file symlinks."
+msgstr ""
+
+msgid "This option allows to perform a deeper analysis of executable files."
+msgstr ""
+
+msgid "This option enables scanning of ELF files."
+msgstr ""
+
+msgid ""
+"This option enables scanning of OLE2 files, such as Microsoft Office "
+"documents and .msi files."
+msgstr ""
+
+msgid "This option enables scanning within PDF files."
+msgstr ""
+
+msgid "This option enables the algorithmic detection."
+msgstr ""
+
+msgid ""
+"This option enables the detection of broken executables (both PE and ELF)."
 msgstr ""
 
 msgid "n/a"
-msgstr ""
+msgstr "n/c"

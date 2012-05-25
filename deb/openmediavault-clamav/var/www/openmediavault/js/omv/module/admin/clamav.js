@@ -71,6 +71,7 @@ Ext.extend(OMV.Module.Services.ClamAV.SettingsPanel, OMV.FormPanelExt, {
 				name: "databasemirror",
 				fieldLabel: _("Database mirror"),
 				allowBlank: false,
+				value: "db.local.clamav.net",
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: _("Server name where database updates are downloaded from.")
 			},{
@@ -85,6 +86,83 @@ Ext.extend(OMV.Module.Services.ClamAV.SettingsPanel, OMV.FormPanelExt, {
 				value: 24,
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: _("Number of database update checks per day. Set to 0 to disable.")
+			},{
+				xtype: "checkbox",
+				name: "scanpe",
+				fieldLabel: _("Scan Portable Executable"),
+				boxLabel: _("This option allows to perform a deeper analysis of executable files."),
+				checked: true,
+				inputValue: 1
+			},{
+				xtype: "checkbox",
+				name: "scanole2",
+				fieldLabel: _("Scan OLE2"),
+				boxLabel: _("This option enables scanning of OLE2 files, such as Microsoft Office documents and .msi files."),
+				checked: true,
+				inputValue: 1
+			},{
+				xtype: "checkbox",
+				name: "scanhtml",
+				fieldLabel: _("Scan HTML"),
+				boxLabel: _("Enables HTML detection and normalisation."),
+				checked: true,
+				inputValue: 1
+			},{
+				xtype: "checkbox",
+				name: "scanpdf",
+				fieldLabel: _("Scan PDF"),
+				boxLabel: _("This option enables scanning within PDF files."),
+				checked: true,
+				inputValue: 1
+			},{
+				xtype: "checkbox",
+				name: "scanelf",
+				fieldLabel: _("Scan ELF"),
+				boxLabel: _("This option enables scanning of ELF files."),
+				checked: true,
+				inputValue: 1
+			},{
+				xtype: "checkbox",
+				name: "scanarchive",
+				fieldLabel: _("Scan archives"),
+				boxLabel: _("Enable archive scanning."),
+				checked: true,
+				inputValue: 1
+			},{
+				xtype: "checkbox",
+				name: "detectbrokenexecutables",
+				fieldLabel: _("Detect broken executables"),
+				boxLabel: _("This option enables the detection of broken executables (both PE and ELF)."),
+				checked: false,
+				inputValue: 1
+			},{
+				xtype: "checkbox",
+				name: "detectpua",
+				fieldLabel: _("Detect PUA"),
+				boxLabel: _("Detect possibly unwanted applications."),
+				checked: false,
+				inputValue: 1
+			},{
+				xtype: "checkbox",
+				name: "algorithmicdetection",
+				fieldLabel: _("Algorithmic detection"),
+				boxLabel: _("This option enables the algorithmic detection."),
+				checked: true,
+				inputValue: 1
+			},{
+				xtype: "checkbox",
+				name: "followdirectorysymlinks",
+				fieldLabel: _("Follow directory symlinks"),
+		   		boxLabel: _("This option allows to follow directory symlinks."),
+				checked: false,
+				inputValue: 1
+			},{
+				xtype: "checkbox",
+				name: "followfilesymlinks",
+				fieldLabel: _("Follow file symlinks"),
+				boxLabel: _("This option allows to follow regular file symlinks."),
+				checked: false,
+				inputValue: 1
 			},{
 				xtype: "textfield",
 				name: "extraoptions",

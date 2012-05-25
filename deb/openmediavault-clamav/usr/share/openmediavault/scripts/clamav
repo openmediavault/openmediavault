@@ -46,6 +46,25 @@ OMV_CLAMAV_CLAMD_IDLETIMEOUT=${OMV_CLAMAV_CLAMD_IDLETIMEOUT:-"30"}
 OMV_CLAMAV_CLAMD_STREAMMAXLENGTH=${OMV_CLAMAV_CLAMD_STREAMMAXLENGTH:-"25M"}
 OMV_CLAMAV_CLAMD_LOGFILE=${OMV_CLAMAV_CLAMD_LOGFILE:-"/var/log/clamav/clamav.log"}
 OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG=${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG:-"/etc/logrotate.d/clamav-daemon"}
+OMV_CLAMAV_CLAMD_EXITONOOM=${OMV_CLAMAV_CLAMD_EXITONOOM:-"false"}
+OMV_CLAMAV_CLAMD_PHISHINGSCANURLS=${OMV_CLAMAV_CLAMD_PHISHINGSCANURLS:-"false"}
+OMV_CLAMAV_CLAMD_PHISHINGALWAYSBLOCKSSLMISMATCH=${OMV_CLAMAV_CLAMD_PHISHINGALWAYSBLOCKSSLMISMATCH:-"false"}
+OMV_CLAMAV_CLAMD_PHISHINGALWAYSBLOCKCLOAK=${OMV_CLAMAV_CLAMD_PHISHINGALWAYSBLOCKCLOAK:-"false"}
+OMV_CLAMAV_CLAMD_SCANPARTIALMESSAGES=${OMV_CLAMAV_CLAMD_SCANPARTIALMESSAGES:-"false"}
+OMV_CLAMAV_CLAMD_HEURISTICSCANPRECEDENCE=${OMV_CLAMAV_CLAMD_HEURISTICSCANPRECEDENCE:-"false"}
+OMV_CLAMAV_CLAMD_STRUCTUREDDATADETECTION=${OMV_CLAMAV_CLAMD_STRUCTUREDDATADETECTION:-"false"}
+OMV_CLAMAV_CLAMD_EXTENDEDDETECTIONINFO=${OMV_CLAMAV_CLAMD_EXTENDEDDETECTIONINFO:-"true"}
+OMV_CLAMAV_CLAMD_SCANMAIL=${OMV_CLAMAV_CLAMD_SCANMAIL:-"false"}
+OMV_CLAMAV_CLAMD_DEBUG=${OMV_CLAMAV_CLAMD_DEBUG:-"false"}
+OMV_CLAMAV_CLAMD_ARCHIVEBLOCKENCRYPTED=${OMV_CLAMAV_CLAMD_ARCHIVEBLOCKENCRYPTED:-"false"}
+OMV_CLAMAV_CLAMD_COMMANDREADTIMEOUT=${OMV_CLAMAV_CLAMD_COMMANDREADTIMEOUT:-"5"}
+OMV_CLAMAV_CLAMD_SENDBUFTIMEOUT=${OMV_CLAMAV_CLAMD_SENDBUFTIMEOUT:-"200"}
+OMV_CLAMAV_CLAMD_MAXQUEUE=${OMV_CLAMAV_CLAMD_MAXQUEUE:-"100"}
+OMV_CLAMAV_CLAMD_OFFICIALDATABASEONLY=${OMV_CLAMAV_CLAMD_OFFICIALDATABASEONLY:-"false"}
+OMV_CLAMAV_CLAMD_CROSSFILESYSTEMS=${OMV_CLAMAV_CLAMD_CROSSFILESYSTEMS:-"true"}
+OMV_CLAMAV_CLAMD_LEAVETEMPORARYFILES=${OMV_CLAMAV_CLAMD_LEAVETEMPORARYFILES:-"false"}
+OMV_CLAMAV_CLAMD_PHISHINGSIGNATURES=${OMV_CLAMAV_CLAMD_PHISHINGSIGNATURES:-"true"}
+OMV_CLAMAV_CLAMD_OLE2BLOCKMACROS=${OMV_CLAMAV_CLAMD_OLE2BLOCKMACROS:-"false"}
 OMV_CLAMAV_FRESHCLAM_CONFIG=${OMV_CLAMAV_FRESHCLAM_CONFIG:-"/etc/clamav/freshclam.conf"}
 OMV_CLAMAV_FRESHCLAM_COMPRESSLOCALDATABASE=${OMV_CLAMAV_FRESHCLAM_COMPRESSLOCALDATABASE:-"no"}
 OMV_CLAMAV_FRESHCLAM_DATABASEOWNER=${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER:-"clamav"}
@@ -68,12 +87,10 @@ xmlstarlet sel -t -m "//services/clamav/clamd" \
   -o "LocalSocketMode ${OMV_CLAMAV_CLAMD_LOCALSOCKETMODE}" -n \
   -o "User ${OMV_CLAMAV_CLAMD_USER}" -n \
   -o "AllowSupplementaryGroups true" -n \
-  -o "ScanMail false" -n \
-  -o "ScanArchive true" -n \
-  -o "ArchiveBlockEncrypted false" -n \
+  -o "ArchiveBlockEncrypted ${OMV_CLAMAV_CLAMD_ARCHIVEBLOCKENCRYPTED}" -n \
   -o "MaxDirectoryRecursion ${OMV_CLAMAV_CLAMD_MAXDIRECTORYRECURSION}" -n \
-  -o "FollowDirectorySymlinks false" -n \
-  -o "FollowFileSymlinks false" -n \
+  -v "concat('FollowDirectorySymlinks ',followdirectorysymlinks)" -n \
+  -v "concat('FollowFileSymlinks ',followfilesymlinks)" -n \
   -o "ReadTimeout ${OMV_CLAMAV_CLAMD_READTIMEOUT}" -n \
   -o "MaxThreads ${OMV_CLAMAV_CLAMD_MAXTHREADS}" -n \
   -o "MaxConnectionQueueLength ${OMV_CLAMAV_CLAMD_MAXCONNECTIONQUEUELENGTH}" -n \
@@ -85,29 +102,32 @@ xmlstarlet sel -t -m "//services/clamav/clamd" \
   -o "DatabaseDirectory ${OMV_CLAMAV_CLAMD_DATABASEDIRECTORY}" -n \
   -o "SelfCheck ${OMV_CLAMAV_CLAMD_SELFCHECK}" -n \
   -o "Foreground false" -n \
-  -o "Debug false" -n \
-  -o "ScanPE true" -n \
-  -o "ScanOLE2 true" -n \
-  -o "ScanHTML true" -n \
-  -o "DetectBrokenExecutables false" -n \
-  -o "ExitOnOOM false" -n \
-  -o "LeaveTemporaryFiles false" -n \
-  -o "AlgorithmicDetection true" -n \
-  -o "ScanELF true" -n \
+  -o "Debug ${OMV_CLAMAV_CLAMD_DEBUG}" -n \
+  -v "concat('ScanPE ',scanpe)" -n \
+  -v "concat('ScanOLE2 ',scanole2)" -n \
+  -v "concat('ScanPDF ',scanpdf)" -n \
+  -v "concat('ScanHTML ',scanhtml)" -n \
+  -v "concat('ScanELF ',scanelf)" -n \
+  -v "concat('ScanArchive ',scanarchive)" -n \
+  -o "ScanMail ${OMV_CLAMAV_CLAMD_SCANMAIL}" -n \
+  -v "concat('DetectBrokenExecutables ',detectbrokenexecutables)" -n \
+  -o "ExitOnOOM ${OMV_CLAMAV_CLAMD_EXITONOOM}" -n \
+  -o "LeaveTemporaryFiles ${OMV_CLAMAV_CLAMD_LEAVETEMPORARYFILES}" -n \
+  -v "concat('AlgorithmicDetection ',algorithmicdetection)" -n \
   -o "IdleTimeout ${OMV_CLAMAV_CLAMD_IDLETIMEOUT}" -n \
-  -o "PhishingSignatures true" -n \
-  -o "PhishingScanURLs true" -n \
-  -o "PhishingAlwaysBlockSSLMismatch false" -n \
-  -o "PhishingAlwaysBlockCloak false" -n \
-  -o "DetectPUA false" -n \
-  -o "ScanPartialMessages false" -n \
-  -o "HeuristicScanPrecedence false" -n \
-  -o "StructuredDataDetection false" -n \
-  -o "CommandReadTimeout 5" -n \
-  -o "SendBufTimeout 200" -n \
-  -o "MaxQueue 100" -n \
-  -o "ExtendedDetectionInfo true" -n \
-  -o "OLE2BlockMacros false" -n \
+  -o "PhishingSignatures ${OMV_CLAMAV_CLAMD_PHISHINGSIGNATURES}" -n \
+  -o "PhishingScanURLs ${OMV_CLAMAV_CLAMD_PHISHINGSCANURLS}" -n \
+  -o "PhishingAlwaysBlockSSLMismatch ${OMV_CLAMAV_CLAMD_PHISHINGALWAYSBLOCKSSLMISMATCH}" -n \
+  -o "PhishingAlwaysBlockCloak ${OMV_CLAMAV_CLAMD_PHISHINGALWAYSBLOCKCLOAK}" -n \
+  -v "concat('DetectPUA ',detectpua)" -n \
+  -o "ScanPartialMessages ${OMV_CLAMAV_CLAMD_SCANPARTIALMESSAGES}" -n \
+  -o "HeuristicScanPrecedence ${OMV_CLAMAV_CLAMD_HEURISTICSCANPRECEDENCE}" -n \
+  -o "StructuredDataDetection ${OMV_CLAMAV_CLAMD_STRUCTUREDDATADETECTION}" -n \
+  -o "CommandReadTimeout ${OMV_CLAMAV_CLAMD_COMMANDREADTIMEOUT}" -n \
+  -o "SendBufTimeout ${OMV_CLAMAV_CLAMD_SENDBUFTIMEOUT}" -n \
+  -o "MaxQueue ${OMV_CLAMAV_CLAMD_MAXQUEUE}" -n \
+  -o "ExtendedDetectionInfo ${OMV_CLAMAV_CLAMD_EXTENDEDDETECTIONINFO}" -n \
+  -o "OLE2BlockMacros ${OMV_CLAMAV_CLAMD_OLE2BLOCKMACROS}" -n \
   -o "StreamMaxLength ${OMV_CLAMAV_CLAMD_STREAMMAXLENGTH}" -n \
   -o "LogFile ${OMV_CLAMAV_CLAMD_LOGFILE}" -n \
   -o "LogTime true" -n \
@@ -116,8 +136,8 @@ xmlstarlet sel -t -m "//services/clamav/clamd" \
   -o "Bytecode true" -n \
   -o "BytecodeSecurity TrustSigned" -n \
   -o "BytecodeTimeout 60000" -n \
-  -o "OfficialDatabaseOnly false" -n \
-  -o "CrossFilesystems true" -n \
+  -o "OfficialDatabaseOnly ${OMV_CLAMAV_CLAMD_OFFICIALDATABASEONLY}" -n \
+  -o "CrossFilesystems ${OMV_CLAMAV_CLAMD_CROSSFILESYSTEMS}" -n \
   -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CLAMAV_CLAMD_CONFIG}
 

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-19 00:03+0200\n"
-"PO-Revision-Date: 2012-05-18 22:06+0000\n"
+"POT-Creation-Date: 2012-05-25 22:50+0200\n"
+"PO-Revision-Date: 2012-05-25 20:51+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Add job"
+msgstr ""
+
+msgid "Algorithmic detection"
 msgstr ""
 
 msgid ""
@@ -46,13 +49,31 @@ msgstr ""
 msgid "Day of week"
 msgstr ""
 
+msgid "Detect PUA"
+msgstr ""
+
+msgid "Detect broken executables"
+msgstr ""
+
+msgid "Detect possibly unwanted applications."
+msgstr ""
+
 msgid "Edit job"
 msgstr ""
 
 msgid "Enable"
 msgstr ""
 
+msgid "Enable archive scanning."
+msgstr ""
+
+msgid "Enable on-access virus scanning"
+msgstr ""
+
 msgid "Enabled"
+msgstr ""
+
+msgid "Enables HTML detection and normalisation."
 msgstr ""
 
 msgid "Event"
@@ -73,6 +94,12 @@ msgstr ""
 msgid "Extra options"
 msgstr ""
 
+msgid "Follow directory symlinks"
+msgstr ""
+
+msgid "Follow file symlinks"
+msgstr ""
+
 msgid "General settings"
 msgstr ""
 
@@ -85,10 +112,16 @@ msgstr ""
 msgid "Minute"
 msgstr ""
 
+msgid "Monitor the shared folder and scan new or modified files."
+msgstr ""
+
 msgid "Month"
 msgstr ""
 
-msgid "Number of database checks per day."
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr ""
+
+msgid "On-access"
 msgstr ""
 
 msgid ""
@@ -97,6 +130,24 @@ msgid ""
 msgstr ""
 
 msgid "Run"
+msgstr ""
+
+msgid "Scan ELF"
+msgstr ""
+
+msgid "Scan HTML"
+msgstr ""
+
+msgid "Scan OLE2"
+msgstr ""
+
+msgid "Scan PDF"
+msgstr ""
+
+msgid "Scan Portable Executable"
+msgstr ""
+
+msgid "Scan archives"
 msgstr ""
 
 msgid "Send command output via email"
@@ -115,6 +166,33 @@ msgid "Shared folder"
 msgstr ""
 
 msgid "The location of the files to scan."
+msgstr ""
+
+msgid "This option allows to follow directory symlinks."
+msgstr ""
+
+msgid "This option allows to follow regular file symlinks."
+msgstr ""
+
+msgid "This option allows to perform a deeper analysis of executable files."
+msgstr ""
+
+msgid "This option enables scanning of ELF files."
+msgstr ""
+
+msgid ""
+"This option enables scanning of OLE2 files, such as Microsoft Office "
+"documents and .msi files."
+msgstr ""
+
+msgid "This option enables scanning within PDF files."
+msgstr ""
+
+msgid "This option enables the algorithmic detection."
+msgstr ""
+
+msgid ""
+"This option enables the detection of broken executables (both PE and ELF)."
 msgstr ""
 
 msgid "n/a"

@@ -57,7 +57,18 @@ case "$1" in
 		#     <clamav>
 		#       <enable>0</enable>
 		#       <clamd>
-		#           <extraoptions></extraoptions>
+		#         <scanpe>1</scanpe>
+		#         <scanole2>1</scanole2>
+		#         <scanhtml>1</scanhtml>
+		#         <scanpdf>1</scanpdf>
+		#         <scanelf>1</scanelf>
+		#         <scanarchive>1</scanarchive>
+		#         <detectbrokenexecutables>0</detectbrokenexecutables>
+		#         <algorithmicdetection>1</algorithmicdetection>
+		#         <followdirectorysymlinks>0</followdirectorysymlinks>
+		#         <followfilesymlinks>0</followfilesymlinks>
+		#         <detectpua>0</detectpua>
+		#         <extraoptions></extraoptions>
 		#       </clamd>
 		#       <freshclam>
 		#         <!--
@@ -95,7 +106,20 @@ case "$1" in
 		if ! omv_config_exists "//services/clamav"; then
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
-			object="${object}<clamd><extraoptions></extraoptions></clamd>"
+			object="${object}<clamd>"
+			object="${object}<scanpe>1</scanpe>"
+			object="${object}<scanole2>1</scanole2>"
+			object="${object}<scanhtml>1</scanhtml>"
+			object="${object}<scanpdf>1</scanpdf>"
+			object="${object}<scanelf>1</scanelf>"
+			object="${object}<scanarchive>1</scanarchive>"
+			object="${object}<detectbrokenexecutables>0</detectbrokenexecutables>"
+			object="${object}<algorithmicdetection>1</algorithmicdetection>"
+			object="${object}<followdirectorysymlinks>0</followdirectorysymlinks>"
+			object="${object}<followfilesymlinks>0</followfilesymlinks>"
+			object="${object}<detectpua>0</detectpua>"
+			object="${object}<extraoptions></extraoptions>"
+			object="${object}</clamd>"
 			object="${object}<freshclam>"
 			object="${object}<enable>1</enable>"
 			object="${object}<databasemirror>db.local.clamav.net</databasemirror>"

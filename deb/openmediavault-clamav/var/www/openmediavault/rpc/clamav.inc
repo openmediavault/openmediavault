@@ -34,6 +34,17 @@ class ClamAVRpc extends OMVRpc {
 					"enable":{"type":"boolean"},
 					"databasemirror":{"type":"string"},
 					"checks":{"type":"integer","minimum":0,"maximum":50},
+					"scanpe":{"type":"boolean"},
+					"scanole2":{"type":"boolean"},
+					"scanhtml":{"type":"boolean"},
+					"scanpdf":{"type":"boolean"},
+					"scanelf":{"type":"boolean"},
+					"scanarchive":{"type":"boolean"},
+					"detectbrokenexecutables":{"type":"boolean"},
+					"algorithmicdetection":{"type":"boolean"},
+					"followdirectorysymlinks":{"type":"boolean"},
+					"followfilesymlinks":{"type":"boolean"},
+					"detectpua":{"type":"boolean"},
 					"extraoptions":{"type":"string"}
 				}
 			}'),
@@ -116,6 +127,21 @@ class ClamAVRpc extends OMVRpc {
 			"enable" => boolval($object['enable']),
 			"checks" => intval($object['freshclam']['checks']),
 			"databasemirror" => $object['freshclam']['databasemirror'],
+			"scanpe" => boolval($object['clamd']['scanpe']),
+			"scanole2" => boolval($object['clamd']['scanole2']),
+			"scanhtml" => boolval($object['clamd']['scanhtml']),
+			"scanpdf" => boolval($object['clamd']['scanpdf']),
+			"scanelf" => boolval($object['clamd']['scanelf']),
+			"scanarchive" => boolval($object['clamd']['scanarchive']),
+			"detectbrokenexecutables" => boolval(
+			  $object['clamd']['detectbrokenexecutables']),
+			"algorithmicdetection" => boolval(
+			  $object['clamd']['algorithmicdetection']),
+			"followdirectorysymlinks" => boolval(
+			  $object['clamd']['followdirectorysymlinks']),
+			"followfilesymlinks" => boolval(
+			  $object['clamd']['followfilesymlinks']),
+			"detectpua" => boolval($object['clamd']['detectpua']),
 			"extraoptions" => $object['clamd']['extraoptions']
 		);
 	}
@@ -146,6 +172,17 @@ class ClamAVRpc extends OMVRpc {
 		$object = array_merge($object, array(
 			"enable" => array_boolval($data, 'enable'),
 			"clamd" => array(
+				"scanpe" => $data['scanpe'],
+				"scanole2" => $data['scanole2'],
+				"scanhtml" => $data['scanhtml'],
+				"scanpdf" => $data['scanpdf'],
+				"scanelf" => $data['scanelf'],
+				"scanarchive" => $data['scanarchive'],
+				"detectbrokenexecutables" => $data['detectbrokenexecutables'],
+				"algorithmicdetection" => $data['algorithmicdetection'],
+				"followdirectorysymlinks" => $data['followdirectorysymlinks'],
+				"followfilesymlinks" => $data['followfilesymlinks'],
+				"detectpua" => $data['detectpua'],
 				"extraoptions" => $data['extraoptions']
 			),
 			"freshclam" => array(
