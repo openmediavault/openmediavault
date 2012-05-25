@@ -34,6 +34,7 @@ omv_push_pot:
 
 omv_build_pot:
 	dh_testdir
+	dh_clean
 	echo "Building PO template file ..." >&2
 	mkdir -p $(OMV_POT_DIR)
 	find $(CURDIR) \( -iname *.js -o -iname *.php -o -iname *.inc \) \
