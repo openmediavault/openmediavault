@@ -5,6 +5,7 @@ openmediavault (0.3.0.11) stable; urgency=low
   * Mantis 0000476: Mask whole webgui during loading Debian package lists.
     This will prevent user from clicking the 'Check' button twice while APT
     database is locked.
+  * Mantis 0000480: Hosts Datei und fqdn mit IP 127.0.0.1
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 19 May 2012 22:45:12 +0200
 
