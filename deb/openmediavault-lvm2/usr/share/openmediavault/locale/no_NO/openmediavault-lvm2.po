@@ -1,0 +1,134 @@
+# This file is part of OpenMediaVault.
+# 
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+# 
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# Translators:
+#   <runesudden@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:06+0100\n"
+"PO-Revision-Date: 2012-05-18 22:59+0000\n"
+"Last-Translator: runesudden <runesudden@gmail.com>\n"
+"Language-Team: Norwegian (http://www.transifex.net/projects/p/openmediavault/language/no/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: no\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr "Etter at det logiske volumet har blitt skapt kan du gi filsystemet ny størrelse."
+
+msgid "Available"
+msgstr "Tilgjengelig"
+
+msgid "Capacity"
+msgstr "Kapasitet"
+
+msgid "Confirmation"
+msgstr "Bekreftelse"
+
+msgid "Create logical volume"
+msgstr "Lag logisk volum"
+
+msgid "Create physical volume"
+msgstr "Lag fysisk volum"
+
+msgid "Create volume group"
+msgstr "Lag volumgruppe"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Device"
+msgstr "Enhet"
+
+msgid "Devices"
+msgstr "Enheter"
+
+msgid "Do you really want to create the logical volume?"
+msgstr "Ønsker du virkelig å lage det logiske volumet?"
+
+msgid "Do you really want to create the physical volume?"
+msgstr "Ønsker du virkelig å lage det fysiske volumet?"
+
+msgid "Do you really want to create the volume group?"
+msgstr "Ønsker du virkelig å lage volumgruppen?"
+
+msgid "Edit logical volume"
+msgstr "Rediger logisk volum"
+
+msgid "Edit volume group"
+msgstr "Rediger volumgruppen"
+
+msgid "Extend"
+msgstr "Utvid"
+
+msgid "Extend logical volume"
+msgstr "Utvid logisk volum"
+
+msgid "Extend volume group"
+msgstr "Utvid volumgruppen"
+
+msgid "Free"
+msgstr "Ledig"
+
+msgid "Logical Volume Management"
+msgstr "Logisk Volum Administrasjon"
+
+msgid "Logical volumes"
+msgstr "Logiske Volum"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "Physical volumes"
+msgstr "Fysiske volum"
+
+msgid "Reduce"
+msgstr "Reduser"
+
+msgid "Reduce volume group"
+msgstr "Reduser volumgruppe"
+
+msgid "Select a volume group ..."
+msgstr "Velg en volumgruppe ..."
+
+msgid "Select an device ..."
+msgstr "Velg en enhet ..."
+
+msgid "Size"
+msgstr "Størrelse"
+
+msgid "The maximum value for this field is {0}"
+msgstr "Den maximale verdien for dette feltet er {0}"
+
+msgid "The minimum value for this field is {0}"
+msgstr "Den minste verdien for dette feltet er {0}"
+
+msgid "Used"
+msgstr "Brukt"
+
+msgid "Volume group"
+msgstr "Volumgruppe"
+
+msgid "Volume groups"
+msgstr "Volumgrupper"

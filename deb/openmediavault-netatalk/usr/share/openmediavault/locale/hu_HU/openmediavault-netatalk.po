@@ -17,14 +17,15 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
+# Ádám Balajti <balajtiadam@gmail.com>, 2012.
 #   <mersaint@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-15 20:07+0100\n"
-"PO-Revision-Date: 2012-04-20 18:28+0000\n"
-"Last-Translator: mersaint <mersaint@gmail.com>\n"
+"PO-Revision-Date: 2012-05-22 16:13+0000\n"
+"Last-Translator: Ádám Balajti <balajtiadam@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.net/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -36,64 +37,64 @@ msgid "Add share"
 msgstr "Megosztás hozzáadása"
 
 msgid "Allow guest logins"
-msgstr "Vendégbelépések engedélyezése"
+msgstr "Vendég belépések engedélyezése"
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
 
 msgid "Authentication"
-msgstr "Azonosítás"
+msgstr "Hitelesítés"
 
 msgid "Case folding"
-msgstr ""
+msgstr "Doboz összecsukása"
 
 msgid "Client sees lowercase, server sees uppercase"
-msgstr "Kilens kisbetűsnek, szerver nagybetűsnek látja"
+msgstr "A kliens kisbetűsnek, szerver nagybetűsnek látja"
 
 msgid "Client sees uppercase, server sees lowercase"
-msgstr "Kilens nagybetűsnek, szerver kisbetűsnek látja"
+msgstr "A kliens nagybetűsnek, szerver kisbetűsnek látja"
 
 msgid "Comment"
 msgstr "Megjegyzés"
 
 msgid "Don't do :hex translation for dot files."
-msgstr "Ne csináld :hex fordítás dot fileokhoz."
+msgstr "Ne tedd :hex fordítás pont kezdetű fájlokhoz."
 
 msgid "Edit share"
 msgstr "Megosztás szerkesztése"
 
 msgid "Enable"
-msgstr "Bekapcsolás"
+msgstr "Engedélyezés"
 
 msgid "Enable Time Machine support for this share."
-msgstr "Időgép támogatás bekapcsolása ehhez a megosztáshoz."
+msgstr "Time Machine támogatás bekapcsolása ehhez a megosztáshoz."
 
 msgid "Extra options"
 msgstr "Extra beállítások"
 
 msgid "Forces filename restrictions"
-msgstr "Filenév szabályok kényszerítése"
+msgstr "Fájlnév korlátozások kényszerítése"
 
 msgid "General settings"
 msgstr "Általános beállítások"
 
 msgid "Hide dot files"
-msgstr "Dot fileok elrejtése."
+msgstr "Pont kezdetű fájlok elrejtése."
 
 msgid ""
 "If this option is set, then a password is required to access the share."
-msgstr "Ha itt pipa van, jelszó szükséges a megosztás eléréséhez."
+msgstr "Ha be van pipálva, akkor jelszó megadása szükséges a megosztás eléréséhez."
 
 msgid ""
 "If this option is set, then users may not create or modify files in the "
 "share."
-msgstr ""
+msgstr "Ha be van pipálva, akkor a felhasználók nem hozhatnak létre vagy nem módosíthatnak fájlokat a megosztásban. "
 
 msgid "Lowercases names in both directions"
-msgstr ""
+msgstr "Mindkét utasításba kisbetűs nevek kellenek."
 
 msgid "Make dot files invisible."
-msgstr "Dot fileok elrejtése."
+msgstr "Pont kezdetű fájlok elrejtése."
 
 msgid "Name"
 msgstr "Név"
@@ -120,37 +121,37 @@ msgid "Shares"
 msgstr "Megosztások"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "A megosztani kívánt fájlok helye."
 
 msgid "The name of the share."
-msgstr ""
+msgstr "A megosztás neve"
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."
-msgstr ""
+msgstr "A fájlnevek a Windows által használt karakterekre korlátozódnak le."
 
 msgid "This option handles, if the case of filenames should be changed."
-msgstr ""
+msgstr "Ez az opció kezeli azt az esetet, ha a fájlneveket meg kell változtatni."
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Time Machine támogatás"
 
 msgid "Unix privileges"
-msgstr ""
+msgstr "Unix jogosultságok"
 
 msgid "Uppercases names in both directions"
-msgstr ""
+msgstr "Mindkét utasításba nagybetűs nevek kellenek."
 
 msgid "Use AFP3 unix privileges."
-msgstr ""
+msgstr "Használd az AFP3 unix jogosultságokat."
 
 msgid "Use dots"
-msgstr ""
+msgstr "Használjon pont kezdést"
 
 msgid ""
 "When this option gets set, certain file names become illegal. These are "
 ".Parent and anything that starts with .Apple."
-msgstr ""
+msgstr "Mikor ez az opció be van állítva, bizonyos fájlnevek illegálissá válnak. Ilyenek a .Parent és más egyéb .Apple kezdetűek."
 
 msgid "n/a"
 msgstr "n/a"

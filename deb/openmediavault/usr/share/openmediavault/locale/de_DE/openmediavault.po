@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-17 20:46+0200\n"
-"PO-Revision-Date: 2012-05-17 18:46+0000\n"
+"POT-Creation-Date: 2012-05-19 00:08+0200\n"
+"PO-Revision-Date: 2012-05-18 22:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -840,6 +840,9 @@ msgstr "Wollen Sie sich wirklich abmelden?"
 
 msgid "Do you really want to reboot the system?"
 msgstr "Wollen Sie wirklich das System neu starten?"
+
+msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
+msgstr ""
 
 msgid ""
 "Do you really want to resize the selected filesystem? You have to do that "
@@ -2334,6 +2337,9 @@ msgstr "Benötigt"
 msgid "Reset"
 msgstr "Zurücksetzen"
 
+msgid "Reset WebGUI state"
+msgstr ""
+
 msgid "Resize"
 msgstr "Größe ändern"
 
@@ -2825,6 +2831,9 @@ msgstr "Systemprotokolle"
 
 msgid "System time"
 msgstr "Systemzeit"
+
+msgid "System user/group"
+msgstr ""
 
 msgid "TCP forwarding"
 msgstr "TCP Weiterleitung"

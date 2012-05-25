@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-19 00:08+0200\n"
+"POT-Creation-Date: 2012-05-25 21:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2386,9 +2386,6 @@ msgstr ""
 msgid "Select a filesystem ..."
 msgstr ""
 
-msgid "Select a group ..."
-msgstr ""
-
 msgid "Select a group name..."
 msgstr ""
 
@@ -2405,9 +2402,6 @@ msgid "Select a shared folder ..."
 msgstr ""
 
 msgid "Select a shell ..."
-msgstr ""
-
-msgid "Select a user ..."
 msgstr ""
 
 msgid "Select a user name..."
@@ -2867,6 +2861,9 @@ msgid "These settings are used by the services to configure the user access righ
 msgstr ""
 
 msgid "This controls whether this share is seen in the list of available shares in a net view and in the browse list."
+msgstr ""
+
+msgid "This field does not allow blanks"
 msgstr ""
 
 msgid "This field must have the format hh:mm:ss"

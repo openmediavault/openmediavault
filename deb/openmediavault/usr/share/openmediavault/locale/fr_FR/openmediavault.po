@@ -5,13 +5,14 @@
 # Translators:
 # Nahir Mohamed <nahirmoha@gmail.com>, 2012.
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012.
+# Stéphane BOCQUET <stephane_bocquet@hotmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-17 20:46+0200\n"
-"PO-Revision-Date: 2012-05-17 18:46+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2012-05-19 00:08+0200\n"
+"PO-Revision-Date: 2012-05-25 14:40+0000\n"
+"Last-Translator: Stéphane BOCQUET <stephane_bocquet@hotmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.net/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -280,7 +281,7 @@ msgid "Allow"
 msgstr "Autoriser"
 
 msgid "Allow client access to accounts that have null passwords"
-msgstr "Autoriser l'accès aux clients aux comptes sans mot de passe"
+msgstr "Autoriser l'accès aux clients sans mot de passe"
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
@@ -340,7 +341,7 @@ msgid "Apply"
 msgstr "Appliquer"
 
 msgid "Apply permissions to files and subfolders"
-msgstr "Appliquer les permissions aux fichiers et sous-répertoires"
+msgstr "Appliquer les permissions aux sous-répertoires et fichiers"
 
 msgid "April"
 msgstr "Avril"
@@ -500,7 +501,7 @@ msgid "By default, only files that already exist are allowed to be uploaded."
 msgstr "Par défaut, seuls les fichiers existant sont autorisés à être téléchargés."
 
 msgid "CPU usage"
-msgstr "Utilisation du processeur"
+msgstr "Processeur"
 
 msgid "Cambodia"
 msgstr "Cambodge"
@@ -638,7 +639,7 @@ msgstr "Contact"
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
-msgstr "Information du contact (ex: nom ou adresse mail de la personne responsable du système)."
+msgstr "Informations du contact (ex: nom ou adresse mail de la personne responsable du système)."
 
 msgid "Conveyance self-test"
 msgstr "Conveyance self-test"
@@ -777,7 +778,7 @@ msgid "Device '%s' not found"
 msgstr "Périphérique '%s' non trouvé"
 
 msgid "Device identity information"
-msgstr "Information sur l'identité du périphérique"
+msgstr "Informations sur l'identité du périphérique"
 
 msgid "Device model"
 msgstr "Modèle de périphérique"
@@ -804,7 +805,7 @@ msgid "Disallow the user to modify his account."
 msgstr "Interdire à l'utilisateur de modifier son compte."
 
 msgid "Disk usage"
-msgstr "Utilisation disque"
+msgstr "Disques"
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr "Afficher les éléments {0} - {1} de {2}"
@@ -837,6 +838,9 @@ msgstr "Voulez-vous vraiment vous déconnecter?"
 
 msgid "Do you really want to reboot the system?"
 msgstr "Voulez-vous vraiment redémarrer le système?"
+
+msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
+msgstr "Voulez-vous vraiment réinitialiser l'interface Web (ex: l'ordre des colonnes)?"
 
 msgid ""
 "Do you really want to resize the selected filesystem? You have to do that "
@@ -956,7 +960,7 @@ msgid "El Salvador"
 msgstr "Salvador"
 
 msgid "Email"
-msgstr "Mail"
+msgstr "Adresse mail"
 
 msgid "Enable"
 msgstr "Activer"
@@ -1603,7 +1607,7 @@ msgid "Location"
 msgstr "Emplacement"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr "Information de localisation (ex: implantation physique du système)."
+msgstr "Informations de localisation (ex: implantation physique du système)."
 
 msgid "Log level"
 msgstr "Niveau de journal"
@@ -1743,7 +1747,7 @@ msgid "Members"
 msgstr "Membres"
 
 msgid "Memory usage"
-msgstr "Utilisation mémoire"
+msgstr "Mémoire"
 
 msgid "Messages"
 msgstr "Messages"
@@ -1870,7 +1874,7 @@ msgid "Neutral Zone"
 msgstr "Zone neutre"
 
 msgid "Never"
-msgstr "Jamais"
+msgstr "Never"
 
 msgid "New Caledonia"
 msgstr "Nouvelle-Calédonie"
@@ -1954,7 +1958,7 @@ msgid "November"
 msgstr "Novembre"
 
 msgid "Null passwords"
-msgstr "Mots de passe Null"
+msgstr "Sans mots de passe"
 
 msgid "Num"
 msgstr "Num"
@@ -1999,7 +2003,7 @@ msgid "Outlying Oceania"
 msgstr "Océanie"
 
 msgid "Overview"
-msgstr "Panorama"
+msgstr "Vue d'ensemble"
 
 msgid "Owner"
 msgstr "Propriétaire"
@@ -2008,7 +2012,7 @@ msgid "Pacific Islands Trust Territory"
 msgstr "Territoire sous tutelle des îles du Pacifique"
 
 msgid "Package information"
-msgstr "Information sur le paquet"
+msgstr "Informations sur le paquet"
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2056,7 +2060,7 @@ msgid "People's Democratic Republic of Yemen"
 msgstr "Yémen"
 
 msgid "Period of validity"
-msgstr "Période de validité"
+msgstr "Validité"
 
 msgid "Permissions"
 msgstr "Permissions"
@@ -2187,7 +2191,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr "Empêcher un disque d'être réveillé lorsqu'il est régulièrement vérifié.<br/><br/><ul><li>Jamais - Vérifie le périphérique quel que soit son état de mise en veille. Cela peut entraîner le réveil du disque lorsqu'il est en mode veille.</li><li>Sleep - Vérifie le périphérique sauf s'il est en mode SLEEP.</li><li>Standby- Vérifie le périphérique sauf s'il est en mode SLEEP ou STANDBY. Dans ces modes, la plupart des disques ne tournent pas, donc si vous voulez éviter qu'un disque ne se réveille à chaque vérification, ce mode est probablement celui qu'il vous faut.</li><li>Idle - Vérifie le périphérique sauf s'il est en mode SLEEP, STANDBY ou IDLE. Dans l'état IDLE, la plupart des disques sont toujours en rotation, donc ce n'est probablement pas celui qu'il vous faut.</li></ul>"
+msgstr "Empêcher un disque d'être réveillé lorsqu'il est régulièrement vérifié.<br/><br/><ul><li>Never - Vérifie le périphérique quel que soit son état de mise en veille. Cela peut entraîner le réveil du disque lorsqu'il est en mode veille.</li><li>Sleep - Vérifie le périphérique sauf s'il est en mode SLEEP.</li><li>Standby- Vérifie le périphérique sauf s'il est en mode SLEEP ou STANDBY. Dans ces modes, la plupart des disques ne tournent pas, donc si vous voulez éviter qu'un disque ne se réveille à chaque vérification, ce mode est probablement celui qu'il vous faut.</li><li>Idle - Vérifie le périphérique sauf s'il est en mode SLEEP, STANDBY ou IDLE. Dans l'état IDLE, la plupart des disques sont toujours en rotation, donc ce n'est probablement pas celui qu'il vous faut.</li></ul>"
 
 msgid "Primary"
 msgstr "Primaire"
@@ -2331,6 +2335,9 @@ msgstr "Requis"
 msgid "Reset"
 msgstr "Réinitialiser"
 
+msgid "Reset WebGUI state"
+msgstr "Réinitialiser l'interface Web"
+
 msgid "Resize"
 msgstr "Redimensionner"
 
@@ -2362,7 +2369,7 @@ msgid "Rsync"
 msgstr "Rsync"
 
 msgid "Rsync - Jobs"
-msgstr "Rsync - Travaux"
+msgstr "Rsync - Tâches"
 
 msgid "Rsync - Server"
 msgstr "Rsync - Serveur"
@@ -2485,7 +2492,7 @@ msgid "Select a group ..."
 msgstr "Sélectionnez un groupe ..."
 
 msgid "Select a group name..."
-msgstr ""
+msgstr "Sélectionnez un nom de groupe ..."
 
 msgid "Select a language ..."
 msgstr "Choisir une langue ..."
@@ -2506,7 +2513,7 @@ msgid "Select a user ..."
 msgstr "Sélectionnez un utilisateur ..."
 
 msgid "Select a user name..."
-msgstr ""
+msgstr "Sélectionnez un nom d'utilisateur ..."
 
 msgid "Select a volume ..."
 msgstr "Sélectionnez un volume ..."
@@ -2515,7 +2522,7 @@ msgid "Select devices to be added to the RAID device"
 msgstr "Sélectionnez le périphérique à ajouter au groupment RAID"
 
 msgid "Select or enter a user name ..."
-msgstr ""
+msgstr "Sélectionnez ou saisissez un nom d'utilisateur ..."
 
 msgid "Self-test logs"
 msgstr "Journal des tests"
@@ -2823,6 +2830,9 @@ msgstr "Journaux système"
 msgid "System time"
 msgstr "Date système"
 
+msgid "System user/group"
+msgstr "Utilisateur/Groupe système"
+
 msgid "TCP forwarding"
 msgstr "Transmission TCP"
 
@@ -2881,7 +2891,7 @@ msgid "The field '%s' contains forbidden "
 msgstr "Le champs '%s' contient des caractères interdits"
 
 msgid "The file mode of the shared folder path."
-msgstr ""
+msgstr "The file mode of the shared folder path."
 
 #, c-format
 msgid "The group '%s' does not exist"
@@ -2905,7 +2915,7 @@ msgid "The name of the share."
 msgstr "Le nom du partage."
 
 msgid "The number of days the certificate is valid for."
-msgstr "Le nombre de jours de validité du certificat."
+msgstr "La durée de validité du certificat."
 
 msgid "The password contains invalid characters"
 msgstr "Le mot de passe contient des caractères non valident"
@@ -2928,7 +2938,7 @@ msgid ""
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
-msgstr "The permissions on new files and directories are normally governed by create mask and directory mask but the inherit permissions parameter overrides this. This can be particularly useful on systems with many users to allow a single share to be used flexibly by each user."
+msgstr "Les permissions sur les nouveaux fichiers et répertoires sont normalement régis par le masque de création de fichier et le masque de répertoire, mais le paramètre d'héritage des autorisations les écrase. Cela peut être utile sur les systèmes avec de nombreux utilisateurs afin de permettre à un dossier partagé d'être utilisée avec souplesse par chaque utilisateur."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
@@ -2990,7 +3000,7 @@ msgstr "Un point de montage existe déjà pour '%s'"
 msgid ""
 "These settings are used by the services to configure the user access rights."
 " Please note that these settings do no affect the file system permissions."
-msgstr "Ces paramètres sont utilisés par les services pour configurer les droits d'accès des utilisateurs. Remarque ces paramètres n'affectent pas les permissions du système de fichiers."
+msgstr "Ces paramètres sont utilisés par les services pour configurer les droits d'accès des utilisateurs. Ces paramètres n'affectent pas les permissions du système de fichiers."
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3125,17 +3135,17 @@ msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr "This parameter can be used to ensure that if default acls exist on parent directories, they are always honored when creating a new file or subdirectory in these parent directories."
+msgstr "Ce paramètre peut être utilisé pour s'assurer que si des ACL par défaut existent sur les répertoires parents, elles seront toujours honorées lors de la création d'un nouveau fichier ou répertoire dans ces répertoires parents."
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
-msgstr "This parameter controls whether files starting with a dot appear as hidden files"
+msgstr "Ce paramètre détermine si les fichiers commençant par un point apparaissent comme des fichiers cachés"
 
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
 "given time interval, then a ban is automatically added."
-msgstr "This parameter says that if N occurrences of the event happen within the given time interval, then a ban is automatically added."
+msgstr "Ce paramètre indique que si N occurrences de l'événement se produisent dans l'intervalle de temps donné, une interdiction sera automatiquement ajoutée."
 
 msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "This rule is triggered whenever the selected event directive occurs."
@@ -3315,7 +3325,7 @@ msgid "Use SSL/TLS secure connection"
 msgstr "Utiliser SSL/TLS"
 
 msgid "Use sendfile"
-msgstr "Use sendfile"
+msgstr "Utiliser sendfile"
 
 msgid "Use the following bandwidth restriction:"
 msgstr "Utiliser les restrictions de bande passante suivante:"
@@ -3326,7 +3336,7 @@ msgstr "Utiliser la plage de port suivant:"
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked"
-msgstr "Use the more efficient sendfile system call for files that are exclusively oplocked"
+msgstr "Utilisez les appels systèmes sendfile plus efficace pour les fichiers qui sont verrouillés exclusivement"
 
 msgid "Use the specified WINS server."
 msgstr "Utiliser le serveur WINS spécifié."
@@ -3356,10 +3366,10 @@ msgid "User home directory"
 msgstr "Répertoires personnels des utilisateurs"
 
 msgid "User information"
-msgstr "Information de l'utilisateur"
+msgstr "Informations de l'utilisateur"
 
 msgid "User/Group permissions"
-msgstr "Permissions Utilisateur/Groupe"
+msgstr "Permissions des Utilisateur/Groupe"
 
 msgid "Username"
 msgstr "Nom d'utilisateur"

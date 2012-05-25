@@ -1,0 +1,290 @@
+# This file is part of OpenMediaVault.
+# 
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+# 
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# Translators:
+#   <runesudden@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:05+0100\n"
+"PO-Revision-Date: 2012-05-18 23:45+0000\n"
+"Last-Translator: runesudden <runesudden@gmail.com>\n"
+"Language-Team: Norwegian (http://www.transifex.net/projects/p/openmediavault/language/no/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: no\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Add LUN"
+msgstr "Legg til LUN"
+
+msgid "Add target"
+msgstr "Legg til mål"
+
+msgid "Add user"
+msgstr "Legg til bruker"
+
+msgid "Alias"
+msgstr "Alias"
+
+msgid "Assign a unique identifier to the iSCSI volume optionally."
+msgstr "Tilordne valgfritt en unik identifikator til iSCSI volumet."
+
+msgid "Assign a unique serial number to the iSCSI volume optionally."
+msgstr "Tildel valgfritt et serienummer til iSCSI volumet."
+
+msgid "Authentication"
+msgstr "Autentisering"
+
+msgid "Block IO"
+msgstr "Block IO"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid ""
+"Controls the maximum number of data transfers the target may request at "
+"once."
+msgstr "Styrer maksimalt antall dataoverføringer målet kan be om på en gang."
+
+msgid "Data PDU in order"
+msgstr "Data-PDU i rekkefølge"
+
+msgid "Data digest"
+msgstr "Data digest"
+
+msgid "Data sequence in order"
+msgstr "Datasekvens i rekkefølge"
+
+msgid "Device"
+msgstr "Enhet"
+
+msgid "Discovery authentication"
+msgstr "Godkjenningsinnstillinger"
+
+msgid "Edit LUN"
+msgstr "Rediger LUN"
+
+msgid "Edit target"
+msgstr "Rediger mål"
+
+msgid "Edit user"
+msgstr "Rediger bruker"
+
+msgid "Enable"
+msgstr "Aktiver"
+
+msgid "Error recovery level"
+msgstr "Feilrettingsnivå"
+
+msgid "Extra options"
+msgstr "Ekstra alternativer"
+
+msgid "File IO"
+msgstr "File IO"
+
+msgid "First burst length"
+msgstr "Lengde på første burst"
+
+msgid "General"
+msgstr "Generelt"
+
+msgid "General settings"
+msgstr "Generelle innstillinger"
+
+msgid "Header digest"
+msgstr "Header digest"
+
+msgid "IO threads"
+msgstr "IO tråder"
+
+msgid "IQN"
+msgstr "IQN"
+
+msgid "Id"
+msgstr "Id"
+
+msgid "Identifier"
+msgstr "Identifikator"
+
+msgid ""
+"If a non-zero 'NOP interval' is used to periodically 'ping' the initiator "
+"during phases of inactivity (i.e. no data transfers), the initiator must "
+"respond within N seconds, otherwise the connection will be closed."
+msgstr "Hvis et ikke-null 'NOP intervall' brukes til periodisk 'ping' vil initiator under faser av inaktivitet (dvs. ingen dataoverføring), må initiator svare innen N sekunder, ellers vil tilkoblingen vil bli lukket."
+
+msgid ""
+"If enabled, the initiator has to wait for the target to solicit SCSI data "
+"before sending it. Disabling it allows the initiator to send a burst of N "
+"bytes unsolicited right after and/or together with the command. Thus "
+"disabling it may improve performance."
+msgstr "Hvis aktivert, må initiator vente på at målet skal innhente SCSI data før den blir sendt. Deaktivering tillater initiator å sende en serie av N bytes uoppfordret rett etter og/eller sammen med kommandoen. Deaktivering kan dermed forbedre ytelsen."
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's data segment will be protected by a CRC32C "
+"checksum."
+msgstr "Hvis satt til 'CRC32C' og initiator er konfigurert tilsvarende, vil integriteten til en iSCSI PDU data segment være beskyttet av en CRC32C kontrollsum."
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's header segments will be protected by a CRC32C "
+"checksum."
+msgstr "Hvis satt til 'CRC32C' og initiator er konfigurert tilsvarende, vil integriteten til en iSCSI PDU header segment være beskyttet av en CRC32C kontrollsum."
+
+msgid ""
+"If value is non-zero, the initiator will be 'ping'ed during phases of "
+"inactivity (i.e. no data transfers) every N seconds to verify the connection"
+" is still alive."
+msgstr "Hvis verdien ikke er null, vil initiator bli 'ping'et under faser av inaktivitet (dvs. ingen dataoverføring) hvert N sekund for å verifisere at forbindelsen fortsatt er i live."
+
+msgid "Immediate data"
+msgstr "Umiddelbare data"
+
+msgid "Incoming"
+msgstr "Inkommende"
+
+msgid "Initial R2T"
+msgstr "Initiell R2T"
+
+msgid "LUN"
+msgstr "LUN"
+
+msgid "Max. burst length"
+msgstr "Max. burst lengde"
+
+msgid "Max. connections"
+msgstr "Max. tilkoblinger"
+
+msgid "Max. outstanding R2T"
+msgstr "Max. utestående R2T"
+
+msgid "Max. receive data segment length"
+msgstr "Max. mottatt datasegmentlengde"
+
+msgid "Max. sessions"
+msgstr "Max. sesjoner"
+
+msgid "Max. transmit data segment length"
+msgstr "Max. overført datasegmentlengde"
+
+msgid "NOP interval"
+msgstr "NOP intervall"
+
+msgid "NOP timeout"
+msgstr "NOP tidsutkobling"
+
+msgid "None"
+msgstr "Ingen"
+
+msgid "Only one outgoing user per target is supported."
+msgstr "Kun en utgående bruker pr. mål er støttet."
+
+msgid "Outgoing"
+msgstr "Utgående"
+
+msgid "Password"
+msgstr "Passord"
+
+msgid "Queued commands"
+msgstr "Køkommandoer"
+
+msgid "R/W mode"
+msgstr "R/W modus"
+
+msgid "Read-only"
+msgstr "Kun lesing"
+
+msgid "SCSI Id."
+msgstr "SCSI Id."
+
+msgid "SCSI serial no."
+msgstr "SCSI serienummer."
+
+msgid "Select an device ..."
+msgstr "Velg en enhet ..."
+
+msgid ""
+"Sets the amount of unsolicited data the initiator may transmit in the first "
+"burst of a transfer either with and/or right after the command."
+msgstr "Angir mengden av uoppfordret data initiator kan overføre i første utbrudd av en overføring enten med og/eller rett etter kommandoen."
+
+msgid ""
+"Sets the maximum amount of either unsolicited or solicited data the "
+"initiator may send in a single burst."
+msgstr "Angir den maksimale enten uoppfordret eller ønsket data initiator kan sende i ett enkelt burst."
+
+msgid "Sets the maximum data segment length that can be received."
+msgstr "Angir maksimalt datasegmentetlengde som kan mottas."
+
+msgid "Sets the maximum data segment length that can be sent."
+msgstr "Angir maksimalt datasegmentetlengde som kan sendes."
+
+msgid "Settings"
+msgstr "Innstillinger"
+
+msgid "Targets"
+msgstr "Mål"
+
+msgid "The identifier of the target."
+msgstr "Målets identifikator."
+
+msgid "The maximum number of sessions for this target."
+msgstr "Det maksimale antall sesjoner for dette målet."
+
+msgid ""
+"The number of commands an initiator may send and that will be buffered by "
+"the target."
+msgstr "Antallet kommandoer en initiator kan sende og som vil bli mellomlagret ved målet."
+
+msgid "The number of connections within a session."
+msgstr "Antallet forbindelser innenfor en sesjon."
+
+msgid "The number of threads to perform block I/O to the device."
+msgstr "Antall tråder som utfører block I/O til enheten."
+
+msgid "The optional alias of the target."
+msgstr "De valgfrie alias til målet."
+
+msgid ""
+"This allows the initiator to append unsolicited data to a command. To "
+"achieve better performance, this should be enabled."
+msgstr "Dette tillater initiatoren å føye uoppfordrede data til en kommando. For å oppnå bedre ytelse, bør dette være aktivert."
+
+msgid "Transfer mode"
+msgstr "Overføringsmodus"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Username"
+msgstr "Brukernavn"
+
+msgid "Users"
+msgstr "Brukere"
+
+msgid "Write-back"
+msgstr "Write-back"
+
+msgid "Write-through"
+msgstr "Write-through"
+
+msgid "iSCSI Target"
+msgstr "iSCSI mål"

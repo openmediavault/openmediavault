@@ -1,3 +1,9 @@
+openmediavault-nut (0.3.0.4) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 25 May 2012 21:45:16 +0200
+
 openmediavault-nut (0.3.0.3) stable; urgency=low
 
   * Mantis 0000445: Update upsd.conf after a network interface has been

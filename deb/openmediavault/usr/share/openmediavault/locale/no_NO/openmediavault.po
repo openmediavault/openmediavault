@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-17 20:46+0200\n"
-"PO-Revision-Date: 2012-05-18 22:07+0000\n"
+"POT-Creation-Date: 2012-05-19 00:08+0200\n"
+"PO-Revision-Date: 2012-05-21 18:56+0000\n"
 "Last-Translator: runesudden <runesudden@gmail.com>\n"
 "Language-Team: Norwegian (http://www.transifex.net/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +37,7 @@ msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s betyr ubegrenset"
 
 msgid "1 - Minimum power usage with standby (spindown)"
-msgstr "Minste strømforbruk "
+msgstr "1 - Minste strømforbruk uten standby (spindown)"
 
 msgid "1 day"
 msgstr "1 dag"
@@ -158,7 +158,7 @@ msgid "A mount point already exists for the given filesystem"
 msgstr "Et monteringspunkt finnes allerede for dette filsystem"
 
 msgid "A share with the given name already exists"
-msgstr "En mappe med det gitte filnavnet eksisterer allerede"
+msgstr "En delt område med det gitte filnavnet eksisterer allerede"
 
 msgid "A shared folder with the given name already exists"
 msgstr "En delt mappe med det gitte navnet eksisterer allerede"
@@ -188,52 +188,52 @@ msgid "Add bonded interface"
 msgstr "Legg til knyttet nettverksgrensesnitt"
 
 msgid "Add cron job"
-msgstr "Legg til cron jobb"
+msgstr "Ny cron jobb"
 
 msgid "Add devices to RAID device"
-msgstr "Leggt til enhet til RAID enhet"
+msgstr "Legg til enhet til RAID enheten"
 
 msgid "Add firewall rule"
-msgstr "Legg til brannmur-regel"
+msgstr "Ny brannmurregel"
 
 msgid "Add group"
-msgstr "Legg til gruppe"
+msgstr "Ny gruppe"
 
 msgid "Add hot spares / recover RAID device"
 msgstr "Legg til hot spares / gjenoppbygg RAID enheten"
 
 msgid "Add module"
-msgstr "Legg til modul"
+msgstr "Ny modul"
 
 msgid "Add rsync job"
-msgstr "Legg til rsync jobb"
+msgstr "Ny rsync jobb"
 
 msgid "Add rule"
-msgstr "Legg til regel"
+msgstr "Ny regel"
 
 msgid "Add scheduled test"
-msgstr "Legg til planlagt test"
+msgstr "Ny planlagt test"
 
 msgid "Add share"
-msgstr "Legg til delt område"
+msgstr "Nytt delt område"
 
 msgid "Add shared folder"
-msgstr "Legg til delt mappe"
+msgstr "Ny delt mappe"
 
 msgid "Add user"
-msgstr "Legg til bruker"
+msgstr "Ny bruker"
 
 msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
 " href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 "for more details."
-msgstr "Ytterligere enhetsinstillinger, f.eks.. 'autoneg off speed 100 duplex full'. Se <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> for ytterligere detaljer."
+msgstr "Ytterligere enhetsinstillinger, f.eks.. 'autoneg off speed 100 duplex full'. Se <a href='http://linux.die.net/man/8/ethtool' target='_blank'>brukermanual</a> for ytterligere detaljer."
 
 msgid "Address"
 msgstr "Adresse"
 
 msgid "Administrator password"
-msgstr "Administrator passord"
+msgstr "Administratorpassord"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
 msgstr "Administrator: lese/skrive, Brukere: ingen tilgang, Andre: ingen tilgang"
@@ -245,7 +245,7 @@ msgid "Administrator: read/write, Users: read-only, Others: read-only"
 msgstr "Administrator: lese/skrive, Brukere: lese, Andre: lese"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
-msgstr ""
+msgstr "Administrator: lese/skrive, Brukere: lese/skrive, Andre: ingen tilgang"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Administrator: lese/skrive, Brukere: lese/skrive, Andre: lese"
@@ -261,7 +261,7 @@ msgstr "Afghanistan"
 
 msgid ""
 "After the RAID has been grown you can resize the containing filesystem."
-msgstr "Etter at RAID har vokst kan du gi ny størrelse til filsystemet"
+msgstr "Etter at RAID enheten har vokst kan du gi ny størrelse til filsystemet"
 
 msgid "Aland Islands"
 msgstr "Åland"
@@ -299,7 +299,7 @@ msgid ""
 msgstr "Tillat denne serveren å gjøre seg kjent som en tidserver overfor Windows klienter"
 
 msgid "Allow this server to try and become a local master browser"
-msgstr "Tillat denne serveren å forsøke å bli den lokale Master Browser"
+msgstr "Tillat denne serveren å forsøke å bli en lokale Master Browser"
 
 msgid "American Samoa"
 msgstr "Amerikansk Samoa"
@@ -307,12 +307,12 @@ msgstr "Amerikansk Samoa"
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "En e-postmelding med kommandoens produksjon (hvis noe ble produsert) er sendt til administrator."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr ""
+msgstr "En e-postmelding med kommandoens produksjon (hvis noe ble produsert) er sendt brukeren som utførte jobben."
 
 msgid "An error has occured"
 msgstr "En feil har oppstått"
@@ -405,10 +405,10 @@ msgid "Azerbaijan"
 msgstr "Aserbajdsjan"
 
 msgid "Backup"
-msgstr "Sikkerhetskopi"
+msgstr "Sikkerhetskopiering"
 
 msgid "Backup configuration"
-msgstr "Konfigurasjon av sikkerhetskopi"
+msgstr "Konfigurasjon av sikkerhetskopiering"
 
 msgid "Bahamas"
 msgstr "Bahamas"
@@ -421,7 +421,7 @@ msgstr "Blokkeringsliste"
 
 #, c-format
 msgid "Ban statistics:"
-msgstr "Blokkeringsstatistikk"
+msgstr "Blokkeringsstatistikk:"
 
 msgid "Bandwidth restriction"
 msgstr "Båndbreddebegrensning"
@@ -457,7 +457,7 @@ msgid "Bolivia"
 msgstr "Bolivia"
 
 msgid "Bond options"
-msgstr "Bond alternativer"
+msgstr "Knytningsalternativer"
 
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnia-Hercegovina"
@@ -496,7 +496,7 @@ msgid "Burundi"
 msgstr "Burundi"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "Som standard er kun filer som allerede eksisterer tillatt å laste opp."
+msgstr "Som standard kan kun filer som allerede eksisterer laste opp."
 
 msgid "CPU usage"
 msgstr "CPU belastning"
@@ -550,7 +550,7 @@ msgid "Checking for new plugins ..."
 msgstr "Kontrollerer nye plugins"
 
 msgid "Checking for new updates ..."
-msgstr "Kontrollerer nye oppdateringer"
+msgstr "Kontrollerer nye oppdateringer ..."
 
 msgid "Chile"
 msgstr "Chile"
@@ -575,7 +575,7 @@ msgid "Client"
 msgstr "Klient"
 
 msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr "Klienter tillatt å montere filsystemet, for eksempel 192.168.178.0/24."
+msgstr "Klienter tillatt å montere filsystemet, f.eks. 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Lukk"
@@ -629,7 +629,7 @@ msgid "Congo (Brazzaville)"
 msgstr "Republikken Kongo"
 
 msgid "Congo (Kinshasa)"
-msgstr "Den demokratiske republikken Kongo"
+msgstr "Kongo"
 
 msgid "Contact"
 msgstr "Kontakt"
@@ -655,7 +655,7 @@ msgid "Create"
 msgstr "Opprett"
 
 msgid "Create RAID device"
-msgstr "Opprett RAID enhet"
+msgstr "Lag ny RAID enhet"
 
 msgid "Create filesystem"
 msgstr "Lag filsystem"
@@ -716,19 +716,19 @@ msgid "Day of week"
 msgstr "Ukedag"
 
 msgid "Debug"
-msgstr "Feilsøke"
+msgstr "Feilsøk"
 
 msgid "December"
 msgstr "Desember"
 
 msgid "Delete"
-msgstr "Slett"
+msgstr "Fjern"
 
 msgid "Delete files on the receiving side that don't exist on sender"
-msgstr "Slett filer på den mottagende side som ikke eksisterer hos sender"
+msgstr "Fjern filer på mottagende side som ikke eksisterer hos sender"
 
 msgid "Deleting selected item(s)"
-msgstr "Slett valgte element(er)"
+msgstr "Sletter valgte element(er)"
 
 msgid "Denmark"
 msgstr "Danmark"
@@ -749,7 +749,7 @@ msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A '!' argument before the address specification"
 " inverts the sense of the address."
-msgstr "Måladressen kan enten være en nettverks IP addresse (med /maske), en IP range eller en enkelt IP adresse. Et '!' argument før adressen inverterer betydningen av adressen."
+msgstr "Måladressen kan enten være en IP nettverksaddresse (med /maske), en IP range eller en enkelt IP adresse. Et '!' argument før adressen inverterer betydningen av adressen."
 
 msgid "Destination port"
 msgstr "Målport"
@@ -800,7 +800,7 @@ msgid "Disabled"
 msgstr "Deaktivert"
 
 msgid "Disallow the user to modify his account."
-msgstr "Nekt brukeren å endre sin konto"
+msgstr "Hindre brukeren fra å endre kontoen"
 
 msgid "Disk usage"
 msgstr "Diskbruk"
@@ -812,41 +812,44 @@ msgid "Djibouti"
 msgstr "Djibouti"
 
 msgid "Do you really want to clear the log file?"
-msgstr "Ønsker du virkelig å slette loggfilen ?"
+msgstr "Ønsker du virkelig å slette loggfilen?"
 
 msgid "Do you really want to create the RAID device?"
-msgstr "Ønsker du virkelig å bygge en RAID enhet ?"
+msgstr "Ønsker du virkelig å opprette en RAID enhet?"
 
 msgid "Do you really want to delete the selected item(s)?"
-msgstr "Ønsker du virkelig å slette utvalget ?"
+msgstr "Ønsker du virkelig å slette utvalget?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the filesystem creation may take some time."
-msgstr "Ønsker du virkelig å formatere enheten ? All data vil bli slettet. Vennligst merk det at byggingen av filsystemet kan ta no tid."
+msgstr "Ønsker du virkelig å formatere enheten? All data vil bli slettet. Vennligst merk at opprettelse av filsystemet kan ta tid."
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Ønsker du virkelig å installere valgte utvidelse(r)?"
 
 msgid "Do you really want to leave the page?"
-msgstr "Ønsker du virkelig å forlate denne siden ?"
+msgstr "Ønsker du virkelig å forlate siden?"
 
 msgid "Do you really want to logout?"
-msgstr "Ønsker du å logge ut ?"
+msgstr "Vil du virkelig å logge ut?"
 
 msgid "Do you really want to reboot the system?"
-msgstr "Vil du virkelig foreta en omstart ?"
+msgstr "Vil du virkelig foreta en omstart?"
+
+msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
+msgstr "Vil du virkelig tilbakestille WebGUI tilstand, f.eks grid kolonnerekkefølge?"
 
 msgid ""
 "Do you really want to resize the selected filesystem? You have to do that "
 "after a RAID has been grown for example."
-msgstr "Ønsker du virkelig å endre filsystemets størrelse ? Dette må du for eksempel gjøre etter at RAID enheten har vokst."
+msgstr "Vil du virkelig endre filsystemets størrelse? Det må du for eksempel gjøre etter at RAID enheten har vokst."
 
 msgid "Do you really want to shutdown the system?"
-msgstr "Ønsker du virkelig å slå av systemet ?"
+msgstr "Vil du virkelig å slå av systemet?"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr "Ønsker du å avinstallere valgte plugin(s) ?"
+msgstr "Vil du avinstallere valgte plugin?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Vil du virkelig slette den valgte enheten?"
@@ -884,7 +887,7 @@ msgid "Dronning Maud Land"
 msgstr "Dronning Mauds Land"
 
 msgid "Each line represents one group."
-msgstr ""
+msgstr "Hver linje representerer en gruppe."
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
@@ -898,55 +901,55 @@ msgid "Ecuador"
 msgstr "Ecuador"
 
 msgid "Edit"
-msgstr "Rediger"
+msgstr "Endre"
 
 msgid "Edit SSL certificate"
-msgstr "Rediger SSL-sertifikat"
+msgstr "Endre SSL-sertifikat"
 
 msgid "Edit bonded interface"
-msgstr "Rediger knyttet nettverksgrensesnitt"
+msgstr "Endre knyttet nettverksgrensesnitt"
 
 msgid "Edit cron job"
-msgstr "Rediger cron jobb"
+msgstr "Endre cron jobb"
 
 msgid "Edit firewall rule"
-msgstr "Rediger brannmurregel"
+msgstr "Endre brannmurregel"
 
 msgid "Edit group"
-msgstr "Rediger gruppe"
+msgstr "Endre gruppe"
 
 msgid "Edit module"
-msgstr "Rediger modul"
+msgstr "Endre modul"
 
 msgid "Edit physical disk properties"
-msgstr "Rediger fysiske diskinstillinger"
+msgstr "Endre fysiske diskinstillinger"
 
 msgid "Edit physical interface"
-msgstr "Rediger fysisk grensesnitt"
+msgstr "Endre fysisk grensesnitt"
 
 msgid "Edit quota"
-msgstr "Rediger quota"
+msgstr "Endre quota"
 
 msgid "Edit rsync job"
-msgstr "Rediger rsync jobb"
+msgstr "Endre rsync jobb"
 
 msgid "Edit rule"
-msgstr "Rediger regel"
+msgstr "Endre regel"
 
 msgid "Edit scheduled test"
-msgstr "Rediger planlagt test"
+msgstr "Endre planlagt test"
 
 msgid "Edit share"
-msgstr "Rediger delt område"
+msgstr "Endre delt område"
 
 msgid "Edit shared folder"
-msgstr "Rediger delt mappe"
+msgstr "Endre delt mappe"
 
 msgid "Edit shared folder privileges"
-msgstr "Rediger delt mappe privilegier"
+msgstr "Endre delt mappeprivilegier"
 
 msgid "Edit user"
-msgstr "Rediger bruker"
+msgstr "Endre bruker"
 
 msgid "Egypt"
 msgstr "Egypt"
@@ -961,7 +964,7 @@ msgid "Enable"
 msgstr "Aktiver"
 
 msgid "Enable FXP protocol"
-msgstr "Aktiver FSP protokoll"
+msgstr "Aktiver FXP protokoll"
 
 msgid "Enable SSL/TLS"
 msgstr "Aktiver SSL/TLS"
@@ -973,7 +976,7 @@ msgid "Enable WINS server"
 msgstr "Aktiver WINS server"
 
 msgid "Enable advertising of services via mDNS/DNS-SD."
-msgstr "Aktiver bekjenntgjøring av tjenester gjennom mDNS/DNS-SD"
+msgstr "Aktiver annonsering av tjenester gjennom mDNS/DNS-SD"
 
 msgid "Enable anonymous FTP"
 msgstr "Aktiver anonym FTP"
@@ -1000,13 +1003,13 @@ msgid "Enable recycle bin"
 msgstr "Aktiver papirkurv"
 
 msgid "Enable reverse DNS lookup"
-msgstr "Aktiver reverse DNS lookup"
+msgstr "Aktiver reverse DNS oppslag"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
 "connections."
-msgstr "Aktiver omvendt DNS-oppslag utført på den eksterne vertens IP-adresse for innkommende aktive mode datatilkoblinger og utgående passiv mode datatilkoblinger."
+msgstr "Aktiver omvendt DNS-oppslag utført på den eksterne vertens IP-adresse for innkommende aktive modus datatilkoblinger og utgående passiv modus datatilkoblinger."
 
 msgid "Enable secure connection."
 msgstr "Aktiver sikker tilkobling"
@@ -1158,10 +1161,10 @@ msgid "Firewall"
 msgstr "Brannmur"
 
 msgid "Firmware version"
-msgstr "Firmware versjon"
+msgstr "Firmwareversjon"
 
 msgid "Flag"
-msgstr "Flag"
+msgstr "Flagg"
 
 msgid "Force SSL/TLS"
 msgstr "Tving SSL/TLS"
@@ -1209,7 +1212,7 @@ msgid "General settings"
 msgstr "Generelle innstillinger"
 
 msgid "Generating graphs ..."
-msgstr "Genererer grafer ..."
+msgstr "Grafer genereres ..."
 
 msgid "Georgia"
 msgstr "Georgia"
@@ -1221,16 +1224,16 @@ msgid "Ghana"
 msgstr "Ghana"
 
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 msgid "Gibraltar"
-msgstr "GIbraltar"
+msgstr "Gibraltar"
 
 msgid "Greece"
 msgstr "Hellas"
 
 msgid "Greenland"
-msgstr "Grønland"
+msgstr "Grønnland"
 
 msgid "Grenada"
 msgstr "Grenada"
@@ -1240,7 +1243,7 @@ msgstr "Gruppe"
 
 #, c-format
 msgid "Group '%s' already exist"
-msgstr ""
+msgstr "Gruppen '%s' finnes allerede"
 
 #, c-format
 msgid "Group '%s' does not exist"
@@ -1248,7 +1251,7 @@ msgstr "Gruppen '%s' finnes ikke"
 
 #, c-format
 msgid "Group ID '%d' already exist"
-msgstr ""
+msgstr "Gruppe ID '%d' finnes allerede"
 
 msgid "Groups"
 msgstr "Grupper"
@@ -1284,13 +1287,13 @@ msgid "Heard Island and McDonald Islands"
 msgstr "Heard- og McDonaldøyene"
 
 msgid "Hide details"
-msgstr "Skjul detaljene"
+msgstr "Skjul detaljer"
 
 msgid "Hide dot files"
 msgstr "Skjul dot filer"
 
 msgid "Home directories"
-msgstr "Hjemmeområder"
+msgstr "HjemmeområderI"
 
 msgid "Homepage"
 msgstr "Hjemmeside"
@@ -1390,7 +1393,7 @@ msgid "Import SSL certificate"
 msgstr "Importer SSL sertifikat"
 
 msgid "Import groups"
-msgstr ""
+msgstr "Importer grupper"
 
 msgid "Import users"
 msgstr "Importer brukere"
@@ -1404,7 +1407,7 @@ msgid ""
 "greater than or equal to 1024). It is strongly recommended that the chosen "
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "I noen tilfeller må du spesifisere passiv portområde for å omgå brannmur begrensninger. Passive porter begrenser portområdet serveren vil velge når PASV kommando fra en klient er mottatt. Serveren vil tilfeldig velge et nummer innenfor det angitte området inntil en åpen port blir funnet. Portområdet som er valgt må være i ikke-privilegerte område (dvs. større enn eller lik 1024). Det anbefales sterkt at den valgte området være stort nok til å håndtere mange samtidige passive tilkoblinger (for eksempel 49152-65534, altså det IANA-registrerte flyktige portområdet)."
+msgstr "I noen tilfeller må du spesifisere passiv portområde for å omgå begrensninger i brannmuren. Passive porter begrenser portområdet serveren vil velge når PASV kommando fra en klient er mottatt. Serveren vil tilfeldig velge et nummer innenfor det angitte området inntil en åpen port blir funnet. Portområdet som er valgt må være i ikke-privilegerte område (dvs. større enn eller lik 1024). Det anbefales sterkt at det valgte området er stort nok til å håndtere mange samtidige passive tilkoblinger (for eksempel 49152-65534, altså det IANA-registrerte flyktige portområdet)."
 
 msgid "India"
 msgstr "India"
@@ -1516,13 +1519,13 @@ msgid "Kenya"
 msgstr "Kenya"
 
 msgid "Kernel"
-msgstr "Kernel"
+msgstr "Kjerne"
 
 msgid "Key size"
-msgstr "Nøkkellengde"
+msgstr "Nøkkellengde."
 
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 msgid "Kiribati"
 msgstr "Kiribati"
@@ -1540,7 +1543,7 @@ msgid "Label"
 msgstr "Volumnavn"
 
 msgid "Language"
-msgstr ""
+msgstr "Språk"
 
 msgid "Laos"
 msgstr "Laos"
@@ -1554,7 +1557,7 @@ msgstr "Libanon"
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
 " port."
-msgstr "Lengde av tid i sekunder til ett eller flere blinkende lysdioder på angitt nettverksport."
+msgstr "Tid i sekunder ett eller flere lysdioder på angitt nettverksport skal blinke."
 
 msgid "Lesotho"
 msgstr "Lesotho"
@@ -1596,7 +1599,7 @@ msgid "Local"
 msgstr "Lokal"
 
 msgid "Local master browser"
-msgstr "Lokal Master Browser"
+msgstr "Lokal master browser"
 
 msgid "Location"
 msgstr "Plassering"
@@ -1757,7 +1760,7 @@ msgid "Mexico"
 msgstr "Mexico"
 
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 msgid "Micronesia"
 msgstr "Mikronesia"
@@ -2049,7 +2052,7 @@ msgid "Paste an private RSA key in X.509 PEM format here."
 msgstr "Lim inn en privat RSA nøkkel i X.509 PEM format her."
 
 msgid "Path"
-msgstr ""
+msgstr "Bane"
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "Sør-Jemen"
@@ -2090,43 +2093,43 @@ msgstr "Pitcairnøyene"
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Vennligst sjekk <a href='http://linux.die.net/man/5/exports' target='_blank'> brukermanual</ a> for flere detaljer."
+msgstr "Vennligst sjekk <a href='http://linux.die.net/man/5/exports' target='_blank'> brukermanual</a> for flere detaljer."
 
 msgid ""
 "Please check the <a href='http://www.openbsd.org/cgi-"
 "bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
 " more details."
-msgstr "Vennligst sjekk <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'> brukermanual</ a> for flere detaljer."
+msgstr "Vennligst sjekk <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'> brukermanual</a> for flere detaljer."
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Vennligst sjekk <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'> manualen </ a> for flere detaljer."
+msgstr "Vennligst sjekk <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'> manualen </a> for flere detaljer."
 
 msgid ""
 "Please check the <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Vennligst sjekk <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'> brukermanual</ a> for flere detaljer."
+msgstr "Vennligst sjekk <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'> brukermanual</a> for flere detaljer."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Vennligst sjekk <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'> brukermanualen</ a> for flere detaljer."
+msgstr "Vennligst sjekk <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'> brukermanualen</a> for flere detaljer."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Vennligst sjekk <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'> brukermanualen</ a> for flere detaljer."
+msgstr "Vennligst sjekk <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'> brukermanualen</a> for flere detaljer."
 
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Vennligst sjekk <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>brukermanualen</ a> for flere detaljer."
+msgstr "Vennligst sjekk <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>brukermanualen</a> for flere detaljer."
 
 msgid "Please first select a volume."
-msgstr ""
+msgstr "Velg først et volum."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2330,6 +2333,9 @@ msgstr "Påkrevd"
 msgid "Reset"
 msgstr "Tilbakestill"
 
+msgid "Reset WebGUI state"
+msgstr "Tilbakestill WebGUI tilstand"
+
 msgid "Resize"
 msgstr "Endre størrelse"
 
@@ -2484,10 +2490,10 @@ msgid "Select a group ..."
 msgstr "Velg en gruppe ..."
 
 msgid "Select a group name..."
-msgstr ""
+msgstr "Velg et gruppenavn..."
 
 msgid "Select a language ..."
-msgstr ""
+msgstr "Velg et språk ..."
 
 msgid "Select a primary device ..."
 msgstr "Velg en primærenhet ..."
@@ -2505,7 +2511,7 @@ msgid "Select a user ..."
 msgstr "Velg en bruker ..."
 
 msgid "Select a user name..."
-msgstr ""
+msgstr "Velg ett brukernavn..."
 
 msgid "Select a volume ..."
 msgstr "Velg et volum ..."
@@ -2514,7 +2520,7 @@ msgid "Select devices to be added to the RAID device"
 msgstr "Velg en enhet som skal bli lagt til RAID enheten"
 
 msgid "Select or enter a user name ..."
-msgstr ""
+msgstr "Velg eller skriv inn ett brukernavn ..."
 
 msgid "Self-test logs"
 msgstr "Selvtest logger"
@@ -2562,13 +2568,13 @@ msgid "Services"
 msgstr "Tjenester"
 
 msgid "Session expired"
-msgstr ""
+msgstr "Sesjon utløpt"
 
 msgid "Session not authenticated"
 msgstr "Sesjon ikke autentisert"
 
 msgid "Session timeout"
-msgstr ""
+msgstr "Tidsavbrudd for sesjonen"
 
 msgid "Set browseable"
 msgstr "Sett søkbar"
@@ -2642,7 +2648,7 @@ msgid "Singapore"
 msgstr "Singapor"
 
 msgid "Size"
-msgstr ""
+msgstr "Størrelse"
 
 msgid "Slaves"
 msgstr "Slaver"
@@ -2693,7 +2699,7 @@ msgid "Spain"
 msgstr "Spania"
 
 msgid "Specifies how many server threads to create."
-msgstr "Angir hvor mange server tråder som skal opprettes."
+msgstr "Angir hvor mange servertråder som skal opprettes."
 
 msgid "Specifies one of the bonding policies."
 msgstr "Angir en av bonding policyene."
@@ -2822,6 +2828,9 @@ msgstr "Systemlogger"
 msgid "System time"
 msgstr "Systemtid"
 
+msgid "System user/group"
+msgstr "System bruker/gruppe"
+
 msgid "TCP forwarding"
 msgstr "TCP videresending"
 
@@ -2844,67 +2853,67 @@ msgid "Temperature monitoring"
 msgstr "Temperaturovervåkning"
 
 msgid "Test description"
-msgstr ""
+msgstr "Test beskrivelse"
 
 msgid "Thailand"
-msgstr ""
+msgstr "Tailand"
 
 msgid "The NT description field."
-msgstr ""
+msgstr "NT beskrivelsesfelt"
 
 msgid "The RSA key length."
-msgstr ""
+msgstr "RSA nøkkellengde"
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "SSL Sertifikatet som skal benyttes"
 
 msgid "The changes have been applied "
-msgstr ""
+msgstr "Endringene har blitt anvendt"
 
 msgid "The changes have been applied successfully."
-msgstr ""
+msgstr "Endringene har blitt brukt med hell."
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr ""
+msgstr "Standard SMTP epostserver port, f.eks 25 eller 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
 "rsync://[USER@]HOST[:PORT]/DEST."
-msgstr ""
+msgstr "Den eksterne mål server, for eksempel [USER@]HOST:DEST, [USER@]HOST::DEST or rsync://[USER@]HOST[:PORT]/DEST."
 
 msgid "The destination shared folder."
-msgstr ""
+msgstr "Den delte målmappen"
 
 #, c-format
 msgid "The field '%s' contains forbidden "
-msgstr ""
+msgstr "Feltet '%s' inneholder ulovlig"
 
 msgid "The file mode of the shared folder path."
-msgstr ""
+msgstr "Filmodus i den delte mappens bane."
 
 #, c-format
 msgid "The group '%s' does not exist"
-msgstr ""
+msgstr "Gruppen '%s' eksisterer ikke"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Vertsnavnet er en etikett som identifiserer systemet på nettverket."
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "Plassering av de delte filene."
 
 msgid ""
 "The location of the files to share. The share will be accessible at "
 "/export/<name>."
-msgstr ""
+msgstr "Plasseringen av filene som skal deles. Området vil være tilgjengelig på /export/<name>."
 
 msgid "The location of the user home directories."
-msgstr ""
+msgstr "Plasseringen av brukerens hjemmeområder."
 
 msgid "The name of the share."
-msgstr ""
+msgstr "Navnet på det delte området."
 
 msgid "The number of days the certificate is valid for."
-msgstr ""
+msgstr "Antallet dager sertifikatet er gyldig."
 
 msgid "The password contains invalid characters"
 msgstr "Passordet inneholder ugyldige tegn"
@@ -2912,7 +2921,7 @@ msgstr "Passordet inneholder ugyldige tegn"
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
 "used for remote shell transport such as ssh."
-msgstr ""
+msgstr "Passordet som er benyttet for tilgang via rsync deamon. Bemerk at dette ikke er i bruk for ekstern shell overføring som f.eks. via SSH."
 
 msgid "The path of the folder to share."
 msgstr "Banen til mappen å dele."
@@ -2920,7 +2929,7 @@ msgstr "Banen til mappen å dele."
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
 "does not already exist."
-msgstr ""
+msgstr "Banen til mappen som skal deles. Hvis mappen ikke finnes blir den opprettet."
 
 msgid ""
 "The permissions on new files and directories are normally governed by create"
@@ -2989,7 +2998,7 @@ msgstr "Det eksisterer allerede et monteringspunkt for %s"
 msgid ""
 "These settings are used by the services to configure the user access rights."
 " Please note that these settings do no affect the file system permissions."
-msgstr ""
+msgstr "Disse innstillingene brukes av tjenestene for å konfigurere tilgangsrettigheter for brukere. Vær oppmerksom på at disse innstillingene ikke har innvirkning på filsystemtillatelsene."
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3173,7 +3182,7 @@ msgid ""
 "To restore a previously backed up configuration click the 'Restore' button. "
 "The system will reboot automatically after import has been finished "
 "successfully."
-msgstr "For å gjenoprrette en tidHvis du vil gjenopprette en tidligere sikkerhetskopiert konfigurasjon klikker du på Gjenopprett-knappen. Systemet vil starte på nytt automatisk etter import er fullført."
+msgstr "Hvis du vil gjenopprette en tidligere sikkerhetskopiert konfigurasjon klikker du på 'Gjenopprett' knappen. Systemet vil starte på nytt automatisk etter at import er fullført."
 
 msgid "Togo"
 msgstr "Togo"
@@ -3197,106 +3206,106 @@ msgid "Tuesday"
 msgstr "Tirsdag"
 
 msgid "Tunisia"
-msgstr ""
+msgstr "Tunisia"
 
 msgid "Turkey"
-msgstr ""
+msgstr "Tyrkia"
 
 msgid "Turkmenistan"
-msgstr ""
+msgstr "Turkmenistan"
 
 msgid "Turks and Caicos Islands"
-msgstr ""
+msgstr "Turks- og Caicosøyene"
 
 msgid "Tuvalu"
-msgstr ""
+msgstr "Tuvalu"
 
 msgid "Type"
-msgstr ""
+msgstr "Skriv inn"
 
 msgid "U.S. Miscellaneous Pacific Islands"
-msgstr ""
+msgstr "USAs stillehavsøyer"
 
 msgid "U.S. Virgin Islands"
-msgstr ""
+msgstr "De amerikanske Jomfruøyene"
 
 msgid "Uganda"
-msgstr ""
+msgstr "Uganda"
 
 msgid "Ukraine"
-msgstr ""
+msgstr "Ukraina"
 
 msgid "Uninstall"
-msgstr ""
+msgstr "Avinstaller"
 
 msgid "Uninstall plugins ..."
-msgstr ""
+msgstr "Fjern programtillegg ..."
 
 msgid "Union of Soviet Socialist Republics"
-msgstr ""
+msgstr "Sovjetunionen"
 
 msgid "Unit"
-msgstr ""
+msgstr "Enhet"
 
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "De forente arabiske emirater"
 
 msgid "United Kingdom"
-msgstr ""
+msgstr "Storbritannia"
 
 msgid "United States"
-msgstr ""
+msgstr "USA"
 
 msgid "United States Minor Outlying Islands"
-msgstr ""
+msgstr "USAs ytre småøyer"
 
 #, c-format
 msgid "Unknown filesystem '%s'"
-msgstr ""
+msgstr "Ukjent filsystem '%s'"
 
 #, c-format
 msgid "Unknown log file type (id=%s)"
-msgstr ""
+msgstr "Ukjent loggfiltype (id=%s)"
 
 msgid "Unmount"
 msgstr "Avmonter"
 
 msgid "Up"
-msgstr ""
+msgstr "Up"
 
 msgid "Up delay"
-msgstr ""
+msgstr "Tid til gjenopprettelse"
 
 msgid "Update Manager"
-msgstr ""
+msgstr "Oppdateringstjeneste"
 
 msgid "Update now"
-msgstr ""
+msgstr "Oppdater nå"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
-msgstr ""
+msgstr "Oppdater destinasjonens ACL til å være det samme som kildens ACL"
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones"
-msgstr ""
+msgstr "Oppdater destinasjonens utvidede attributter til å være de samme som de lokale"
 
 msgid "Updated"
-msgstr ""
+msgstr "Oppdatert"
 
 msgid "Updating ACL settings"
-msgstr ""
+msgstr "Oppdaterer ACL instillinger"
 
 msgid "Upload"
-msgstr ""
+msgstr "Last opp"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Last opp fil"
 
 msgid "Upload package"
-msgstr ""
+msgstr "Last opp pakke"
 
 msgid "Upload plugin"
-msgstr ""
+msgstr "Last opp programtillegg"
 
 msgid "Uploading file ..."
 msgstr "Laster opp fil ..."
