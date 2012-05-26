@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-clamav\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-25 22:50+0200\n"
+"POT-Creation-Date: 2012-05-25 23:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -53,13 +53,13 @@ msgstr ""
 msgid "Detect broken executables"
 msgstr ""
 
-msgid "Detect possibly unwanted applications."
-msgstr ""
-
 msgid "Edit job"
 msgstr ""
 
 msgid "Enable"
+msgstr ""
+
+msgid "Enable HTML detection and normalisation."
 msgstr ""
 
 msgid "Enable archive scanning."
@@ -68,10 +68,25 @@ msgstr ""
 msgid "Enable on-access virus scanning"
 msgstr ""
 
-msgid "Enabled"
+msgid "Enable scanning of ELF files."
 msgstr ""
 
-msgid "Enables HTML detection and normalisation."
+msgid "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi files."
+msgstr ""
+
+msgid "Enable scanning within PDF files."
+msgstr ""
+
+msgid "Enable the algorithmic detection."
+msgstr ""
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr ""
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr ""
+
+msgid "Enabled"
 msgstr ""
 
 msgid "Event"
@@ -95,7 +110,13 @@ msgstr ""
 msgid "Follow directory symlinks"
 msgstr ""
 
+msgid "Follow directory symlinks."
+msgstr ""
+
 msgid "Follow file symlinks"
+msgstr ""
+
+msgid "Follow regular file symlinks."
 msgstr ""
 
 msgid "General settings"
@@ -120,6 +141,9 @@ msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr ""
 
 msgid "On-access"
+msgstr ""
+
+msgid "Perform a deeper analysis of executable files."
 msgstr ""
 
 msgid "Please check the <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manual page</a> for more details."
@@ -162,30 +186,6 @@ msgid "Shared folder"
 msgstr ""
 
 msgid "The location of the files to scan."
-msgstr ""
-
-msgid "This option allows to follow directory symlinks."
-msgstr ""
-
-msgid "This option allows to follow regular file symlinks."
-msgstr ""
-
-msgid "This option allows to perform a deeper analysis of executable files."
-msgstr ""
-
-msgid "This option enables scanning of ELF files."
-msgstr ""
-
-msgid "This option enables scanning of OLE2 files, such as Microsoft Office documents and .msi files."
-msgstr ""
-
-msgid "This option enables scanning within PDF files."
-msgstr ""
-
-msgid "This option enables the algorithmic detection."
-msgstr ""
-
-msgid "This option enables the detection of broken executables (both PE and ELF)."
 msgstr ""
 
 msgid "n/a"
