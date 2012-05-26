@@ -19,18 +19,17 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# NOTE:
+# If the email notification service is disabled the mailq might become
+# full because various services still try to submit emails (e.g. cron).
+# Because of that the mailq will be flushed once a day if the notification
+# service is disabled.
+
 set -e
 
 . /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
 
-OMV_CLAMAV_CLAMD_VIRUSEVENT_RECIPIENT=${OMV_CLAMAV_CLAMD_VIRUSEVENT_RECIPIENT:-"root"}
-
-# Send mail if /usr/bin/mail exists
-[ -x /usr/bin/mail ] || (echo "Your system does not have /usr/bin/mail." ; exit 0)
-
-/usr/bin/mail -s "VIRUS ALERT: ${CLAM_VIRUSEVENT_VIRUSNAME}" ${OMV_CLAMAV_CLAMD_VIRUSEVENT_RECIPIENT} <<EOF
-A virus has been detected: ${CLAM_VIRUSEVENT_FILENAME}
-
-Your faithful employee,
-ClamAV
-EOF
+if [ "$(omv_config_get "//system/email/enable")" = "0" ]; then
+	postsuper -d ALL
+fi

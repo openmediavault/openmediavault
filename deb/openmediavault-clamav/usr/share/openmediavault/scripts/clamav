@@ -192,8 +192,9 @@ xmlstarlet sel -t -m "//services/clamav/jobs/job[enable='1']" \
 		-o "[ -e ${runfile} ] &amp;&amp; exit 0" -n \
 		-o "trap &quot;rm -f ${runfile}&quot; 0 1 2 5 15" -n \
 		-o "touch ${runfile}" -n \
-		-o "echo &quot;Scanning shared folder &lt;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -o "&gt; ...\n&quot;" -n \
+		-o "echo &quot;Please wait, scanning shared folder &lt;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -o "&gt; ...\n&quot;" -n \
 		-o "clamdscan ${OMV_CLAMAV_CLAMDSCAN_CMDARGS}" \
+		-i "remove[. = '1']" -o " --remove" -b \
 		-o " " ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} \
 		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${filename}
 	  chmod ${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPTS_MASK} ${filename}

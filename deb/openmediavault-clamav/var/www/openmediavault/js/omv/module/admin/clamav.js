@@ -509,6 +509,13 @@ Ext.extend(OMV.Module.Services.ClamAV.JobPropertyDialog,
 			infoText: _("Monitor the shared folder and scan new or modified files.")
 		},{
 			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Remove"),
+			boxLabel: _("Remove infected files."),
+			checked: false,
+			inputValue: 1
+		},{
+			xtype: "checkbox",
 			name: "sendemail",
 			fieldLabel: _("Send email"),
 			checked: false,

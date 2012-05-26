@@ -95,6 +95,7 @@ case "$1" in
 		#           <dayofweek>[1-7|*]</dayofweek>
 		#           <sendemail>0|1</sendemail>
 		#           <onaccess>0|1</onaccess>
+		#           <remove>0|1</remove>
 		#           <comment></comment>
 		#         </job>
 		#         -->

@@ -85,6 +85,7 @@ class ClamAVRpc extends OMVRpc {
 					  '"pattern":"\/^[1-7]|[*]$\/"},
 					"sendemail":{"type":"boolean"},
 					"onaccess":{"type":"boolean"},
+					"remove":{"type":"boolean"},
 					"comment":{"type":"string"}
 				}
 			}'),
@@ -251,6 +252,7 @@ class ClamAVRpc extends OMVRpc {
 			$objectv['everyndayofmonth'] = boolval($objectv['everyndayofmonth']);
 			$objectv['sendemail'] = boolval($objectv['sendemail']);
 			$objectv['onaccess'] = boolval($objectv['onaccess']);
+			$objectv['remove'] = boolval($objectv['remove']);
 		}
 		// Filter result
 		return $this->applyFilter($objects, $data['start'], $data['limit'],
@@ -288,6 +290,7 @@ class ClamAVRpc extends OMVRpc {
 		$object['everyndayofmonth'] = boolval($object['everyndayofmonth']);
 		$object['sendemail'] = boolval($object['sendemail']);
 		$object['onaccess'] = boolval($object['onaccess']);
+		$object['remove'] = boolval($object['remove']);
 		return $object;
 	}
 
@@ -321,6 +324,7 @@ class ClamAVRpc extends OMVRpc {
 			"dayofweek" => $data['dayofweek'],
 			"sendemail" => array_boolval($data, 'sendemail'),
 			"onaccess" => array_boolval($data, 'onaccess'),
+			"remove" => array_boolval($data, 'remove'),
 			"comment" => $data['comment']
 		);
 		// Set configuration data

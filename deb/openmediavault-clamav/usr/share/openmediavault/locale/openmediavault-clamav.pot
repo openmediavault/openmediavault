@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-clamav\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-25 23:34+0200\n"
+"POT-Creation-Date: 2012-05-26 19:23+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -147,6 +147,12 @@ msgid "Perform a deeper analysis of executable files."
 msgstr ""
 
 msgid "Please check the <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid "Remove"
+msgstr ""
+
+msgid "Remove infected files."
 msgstr ""
 
 msgid "Run"

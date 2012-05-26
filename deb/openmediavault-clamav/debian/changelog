@@ -1,6 +1,7 @@
 openmediavault-clamav (0.3.0.1) stable; urgency=low
 
   * Send a warning email if a virus has been detected.
+  * Add option to remove infected files to scan job configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 26 May 2012 02:42:34 +0200
 
