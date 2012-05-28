@@ -129,6 +129,14 @@ case "$1" in
 			object="${object}<jobs></jobs>"
 			omv_config_add_element "//services" "clamav" "${object}" true
 		fi
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.1"; then
+			omv_config_add_element "//services/clamav/jobs/job" "remove" "0"
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

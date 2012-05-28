@@ -346,7 +346,7 @@ OMV.Module.Services.ClamAV.JobPropertyDialog = function(config) {
 		title: (config.uuid == OMV.UUID_UNDEFINED) ?
 		  _("Add job") : _("Edit job"),
 		width: 540,
-		height: 350
+		height: 375
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.Services.ClamAV.JobPropertyDialog.superclass.constructor.
@@ -509,7 +509,7 @@ Ext.extend(OMV.Module.Services.ClamAV.JobPropertyDialog,
 			infoText: _("Monitor the shared folder and scan new or modified files.")
 		},{
 			xtype: "checkbox",
-			name: "enable",
+			name: "remove",
 			fieldLabel: _("Remove"),
 			boxLabel: _("Remove infected files."),
 			checked: false,

@@ -234,7 +234,7 @@ ${OMV_CLAMAV_CLAMD_LOGFILE} {
 	endscript
 }
 EOF
-chown ${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER}:adm "${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}"
+chown ${OMV_CLAMAV_CLAMD_USER}:adm "${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}"
 chmod 0640 "${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}"
 
 # Only write a seperate logrotate configuration file for clamav-freshclam if
