@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-25 22:50+0200\n"
-"PO-Revision-Date: 2012-05-25 20:51+0000\n"
+"POT-Creation-Date: 2012-05-26 19:23+0200\n"
+"PO-Revision-Date: 2012-05-26 17:23+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.net/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgid "Add job"
 msgstr "Feladat hozzáadása"
 
 msgid "Algorithmic detection"
-msgstr ""
+msgstr "Algoritmikus észlelés"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -51,13 +51,10 @@ msgid "Day of week"
 msgstr "Hét napjain"
 
 msgid "Detect PUA"
-msgstr ""
+msgstr "PUA észlelése"
 
 msgid "Detect broken executables"
-msgstr ""
-
-msgid "Detect possibly unwanted applications."
-msgstr ""
+msgstr "Hibás futtatható fájlok észlelése"
 
 msgid "Edit job"
 msgstr "Feladat szerkesztése"
@@ -65,17 +62,37 @@ msgstr "Feladat szerkesztése"
 msgid "Enable"
 msgstr "Engedélyezés"
 
+msgid "Enable HTML detection and normalisation."
+msgstr "HTML felismerés és normalizálás engedélyezése."
+
 msgid "Enable archive scanning."
-msgstr ""
+msgstr "Archívum átvizsgálás engedélyezése."
 
 msgid "Enable on-access virus scanning"
-msgstr ""
+msgstr "Vírus hozzáférés átvizsgálásának engedélyezése"
+
+msgid "Enable scanning of ELF files."
+msgstr "ELF fájlok átvizsgálásának engedélyezése."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "OLE2 fájlok átvizsgálásának engedélyezése, ilyenek a Microsoft Office dokumentumok és a .msi fájlok."
+
+msgid "Enable scanning within PDF files."
+msgstr "PDF fájlok átvizsgálásának engedélyezése."
+
+msgid "Enable the algorithmic detection."
+msgstr "Algoritmikus észlelés engedélyezése."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Hibás futtatható fájl észlelés engedélyezése (mindkét PE és ELF)."
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Nem kívánt alkalmazások felismerésének engedélyezése."
 
 msgid "Enabled"
 msgstr "Engedélyezve"
-
-msgid "Enables HTML detection and normalisation."
-msgstr ""
 
 msgid "Event"
 msgstr "Esemény"
@@ -96,10 +113,16 @@ msgid "Extra options"
 msgstr "Extra beállítások"
 
 msgid "Follow directory symlinks"
-msgstr ""
+msgstr "Könyvtár szimbolikus linkjeinek követése"
+
+msgid "Follow directory symlinks."
+msgstr "Könyvtár szimbolikus linkjeinek követése."
 
 msgid "Follow file symlinks"
-msgstr ""
+msgstr "Fájl szimbolikus linkjeinek követése"
+
+msgid "Follow regular file symlinks."
+msgstr "Szokásos fájl szimbolikus linkjeinek követése."
 
 msgid "General settings"
 msgstr "Általános beállítások"
@@ -114,42 +137,51 @@ msgid "Minute"
 msgstr "Perc"
 
 msgid "Monitor the shared folder and scan new or modified files."
-msgstr ""
+msgstr "Megosztott mappa ellenőrzése és az új vagy módosított fájlok átvizsgálása."
 
 msgid "Month"
 msgstr "Hónap"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr ""
+msgstr "Az adatbázis frissítés ellenőrzésének száma naponta. A 0 beállítás tiltja a funkciót."
 
 msgid "On-access"
-msgstr ""
+msgstr "Hozzáférés"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Mélyre ható elemzés elvégzése futtatható fájlok esetén."
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Kérlek tekintsd meg a <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>kézikönyvet</a> a további részletekért."
 
+msgid "Remove"
+msgstr ""
+
+msgid "Remove infected files."
+msgstr ""
+
 msgid "Run"
 msgstr "Futtatás"
 
 msgid "Scan ELF"
-msgstr ""
+msgstr "ELF fájl átvizsgálás"
 
 msgid "Scan HTML"
-msgstr ""
+msgstr "HTML fájl átvizsgálás"
 
 msgid "Scan OLE2"
-msgstr ""
+msgstr "OLE2 fájl átvizsgálás"
 
 msgid "Scan PDF"
-msgstr ""
+msgstr "PDF fájl átvizsgálás"
 
 msgid "Scan Portable Executable"
-msgstr ""
+msgstr "Hordozható futtatható fájlok átvizsgálása"
 
 msgid "Scan archives"
-msgstr ""
+msgstr "Archívumok átvizsgálása"
 
 msgid "Send command output via email"
 msgstr "Parancssori kimenet küldése emailben"
@@ -168,33 +200,6 @@ msgstr "Megosztott mappa"
 
 msgid "The location of the files to scan."
 msgstr "A fájlok helye az átvizsgáláshoz."
-
-msgid "This option allows to follow directory symlinks."
-msgstr ""
-
-msgid "This option allows to follow regular file symlinks."
-msgstr ""
-
-msgid "This option allows to perform a deeper analysis of executable files."
-msgstr ""
-
-msgid "This option enables scanning of ELF files."
-msgstr ""
-
-msgid ""
-"This option enables scanning of OLE2 files, such as Microsoft Office "
-"documents and .msi files."
-msgstr ""
-
-msgid "This option enables scanning within PDF files."
-msgstr ""
-
-msgid "This option enables the algorithmic detection."
-msgstr ""
-
-msgid ""
-"This option enables the detection of broken executables (both PE and ELF)."
-msgstr ""
 
 msgid "n/a"
 msgstr "n/a"

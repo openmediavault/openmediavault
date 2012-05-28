@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-25 22:50+0200\n"
-"PO-Revision-Date: 2012-05-25 20:51+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2012-05-26 19:23+0200\n"
+"PO-Revision-Date: 2012-05-27 21:50+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.net/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgid "Add job"
 msgstr "Añadir trabajo"
 
 msgid "Algorithmic detection"
-msgstr ""
+msgstr "Detección Algoritmica"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -51,13 +51,10 @@ msgid "Day of week"
 msgstr "Día de la semana"
 
 msgid "Detect PUA"
-msgstr ""
+msgstr "Detectar PUA"
 
 msgid "Detect broken executables"
-msgstr ""
-
-msgid "Detect possibly unwanted applications."
-msgstr ""
+msgstr "Detectar ejecutables rotos"
 
 msgid "Edit job"
 msgstr "Editar trabajo"
@@ -65,17 +62,37 @@ msgstr "Editar trabajo"
 msgid "Enable"
 msgstr "Habilitar"
 
+msgid "Enable HTML detection and normalisation."
+msgstr "Habilitar detección HTML y normalización."
+
 msgid "Enable archive scanning."
-msgstr ""
+msgstr "Habilitar escaneo de archivos"
 
 msgid "Enable on-access virus scanning"
-msgstr ""
+msgstr "Habilitar escaneo de virus al acceder"
+
+msgid "Enable scanning of ELF files."
+msgstr "Habilita escaneado de archivos ELF."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Habilita escaneado de archivos OLE2, como los documentos de Microsoft Office y los archivos *.msi."
+
+msgid "Enable scanning within PDF files."
+msgstr "Habilita escaneado de archivos PDF."
+
+msgid "Enable the algorithmic detection."
+msgstr "Habilitar detección algoritmica."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Habilita escaneado de archivos ejecutables (PE y ELF)"
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Habilitar detección de aplicaciones sospechosas."
 
 msgid "Enabled"
 msgstr "Habilitado"
-
-msgid "Enables HTML detection and normalisation."
-msgstr ""
 
 msgid "Event"
 msgstr "Evento"
@@ -96,10 +113,16 @@ msgid "Extra options"
 msgstr "Opciones extras"
 
 msgid "Follow directory symlinks"
-msgstr ""
+msgstr "Seguir enlaces de directorios simbolicos"
+
+msgid "Follow directory symlinks."
+msgstr "Seguir los enlaces simbolicos de directorios."
 
 msgid "Follow file symlinks"
-msgstr ""
+msgstr "Seguir enlaces de archivos simbolicos"
+
+msgid "Follow regular file symlinks."
+msgstr "Seguir los enlaces simbolicos de archivos."
 
 msgid "General settings"
 msgstr "Opción general"
@@ -114,42 +137,51 @@ msgid "Minute"
 msgstr "Minuto"
 
 msgid "Monitor the shared folder and scan new or modified files."
-msgstr ""
+msgstr "Monitorizar la carpeta compartida y escanear en caso de archivos nuevos o modificados."
 
 msgid "Month"
 msgstr "Mes"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr ""
+msgstr "Numero de consultas de actualización de la BBDD por día. 0 para deshabilitarlo."
 
 msgid "On-access"
-msgstr ""
+msgstr "Al acceder"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Ejecutar un analisis en profundidad de los ejecutables"
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Por favor compruebe <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manual page</a> para más detalles."
 
+msgid "Remove"
+msgstr "Eliminar"
+
+msgid "Remove infected files."
+msgstr "Eliminar archivos infectados."
+
 msgid "Run"
 msgstr "Ejecutar"
 
 msgid "Scan ELF"
-msgstr ""
+msgstr "Escanear ELF"
 
 msgid "Scan HTML"
-msgstr ""
+msgstr "Escanear HTML"
 
 msgid "Scan OLE2"
-msgstr ""
+msgstr "Escanear OLE32"
 
 msgid "Scan PDF"
-msgstr ""
+msgstr "Escanear PDF"
 
 msgid "Scan Portable Executable"
-msgstr ""
+msgstr "Escanera auto-ejecutables"
 
 msgid "Scan archives"
-msgstr ""
+msgstr "Escanear archivos"
 
 msgid "Send command output via email"
 msgstr "Enviar resultado del comando via e-mail"
@@ -168,33 +200,6 @@ msgstr "Carpeta compartida"
 
 msgid "The location of the files to scan."
 msgstr "Ubicación de los archivos a comprobar"
-
-msgid "This option allows to follow directory symlinks."
-msgstr ""
-
-msgid "This option allows to follow regular file symlinks."
-msgstr ""
-
-msgid "This option allows to perform a deeper analysis of executable files."
-msgstr ""
-
-msgid "This option enables scanning of ELF files."
-msgstr ""
-
-msgid ""
-"This option enables scanning of OLE2 files, such as Microsoft Office "
-"documents and .msi files."
-msgstr ""
-
-msgid "This option enables scanning within PDF files."
-msgstr ""
-
-msgid "This option enables the algorithmic detection."
-msgstr ""
-
-msgid ""
-"This option enables the detection of broken executables (both PE and ELF)."
-msgstr ""
 
 msgid "n/a"
 msgstr "n/a"

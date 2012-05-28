@@ -1,5 +1,6 @@
 openmediavault-clamav (0.3.0.1) stable; urgency=low
 
+  * Update locales.
   * Send a warning email if a virus has been detected.
   * Add option to remove infected files to scan job configuration.
 

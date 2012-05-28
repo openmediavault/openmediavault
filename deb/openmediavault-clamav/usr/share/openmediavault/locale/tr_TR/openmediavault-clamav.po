@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Serhat SUT <serhat.sut@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-25 22:50+0200\n"
-"PO-Revision-Date: 2012-05-25 20:51+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2012-05-26 19:23+0200\n"
+"PO-Revision-Date: 2012-05-28 00:00+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.net/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,182 +19,187 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0\n"
 
 msgid "Add job"
-msgstr ""
+msgstr "Görev ekle"
 
 msgid "Algorithmic detection"
-msgstr ""
+msgstr "Algoritmik saptama"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Komut çıktılarının (eğer oluşturuldu ise) ekli olduğu bir email mesajı yöneticiye gönderildi."
 
 msgid "Antivirus"
-msgstr ""
+msgstr "Antivirus"
 
 msgid "Comment"
-msgstr ""
+msgstr "Açıklama"
 
 msgid "Database checks"
-msgstr ""
+msgstr "Veritabanı kontrolleri"
 
 msgid "Database mirror"
-msgstr ""
+msgstr "Veritabanı aynalaması"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Tarih & Zaman"
 
 msgid "Day of month"
-msgstr ""
+msgstr "Ayın günü"
 
 msgid "Day of week"
-msgstr ""
+msgstr "Haftanın günü"
 
 msgid "Detect PUA"
-msgstr ""
+msgstr "PUA bul"
 
 msgid "Detect broken executables"
-msgstr ""
-
-msgid "Detect possibly unwanted applications."
-msgstr ""
+msgstr "Bozuk çalışabilir dosyaları tespit et"
 
 msgid "Edit job"
-msgstr ""
+msgstr "Görev düzenle"
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktif"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "HTML tesbit ve normalizasyonunu aktifleştir. "
 
 msgid "Enable archive scanning."
-msgstr ""
+msgstr "Arşiv taramayı etkinleştir."
 
 msgid "Enable on-access virus scanning"
-msgstr ""
+msgstr "Erişim anında virus taramayı etkinleştir"
+
+msgid "Enable scanning of ELF files."
+msgstr "ELF dosyalarının taranmasını etkinleştir."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Microsoft ofis dökümanları ve .msi dosyaları gibi OLE2 doslarının taramayı etkinleştir."
+
+msgid "Enable scanning within PDF files."
+msgstr "PDF dosyalarının içeriğini taramayı etkinleştir."
+
+msgid "Enable the algorithmic detection."
+msgstr "Algoritmik tespiti etkinleştir."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Bozulmuş çalıştırılabilir dosya tespitini (PE ve ELF) etkinleştir."
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Muhtemel istenmeyen uygulamalar için tespiti etkinleştir."
 
 msgid "Enabled"
-msgstr ""
-
-msgid "Enables HTML detection and normalisation."
-msgstr ""
+msgstr "Aktif"
 
 msgid "Event"
-msgstr ""
+msgstr "Olay"
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "Ayın her N günü"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "Her N saat"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "Her N dakika"
 
 msgid "Execute job"
-msgstr ""
+msgstr "Görevi başlat"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Ekstra seçenekler"
 
 msgid "Follow directory symlinks"
-msgstr ""
+msgstr "Klasör linklerini takip et"
+
+msgid "Follow directory symlinks."
+msgstr "Klasör linklerini takip et."
 
 msgid "Follow file symlinks"
-msgstr ""
+msgstr "Symlink leri takip et"
+
+msgid "Follow regular file symlinks."
+msgstr "Normal dosya symlinklerini takip et."
 
 msgid "General settings"
-msgstr ""
+msgstr "Genel ayarlar"
 
 msgid "Hour"
-msgstr ""
+msgstr "Saat"
 
 msgid "Jobs"
-msgstr ""
+msgstr "Görevler"
 
 msgid "Minute"
-msgstr ""
+msgstr "Dakika"
 
 msgid "Monitor the shared folder and scan new or modified files."
-msgstr ""
+msgstr "Paylaşılmış klasörleri izle ve yei ya da değiştirilmiş dosyaları tara."
 
 msgid "Month"
-msgstr ""
+msgstr "Ay"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr ""
+msgstr "Günlük veritabanı güncelleştirme kontrol adedi. İptal etmek için 0 giriniz."
 
 msgid "On-access"
-msgstr ""
+msgstr "Erişim anında"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Çalıştırılabilir dosyalarda derinlemesine analiz yap."
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Lütfen daha fazla bilgi için <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manual page</a> adresini ziyaret ediniz."
+
+msgid "Remove"
+msgstr "Kaldır"
+
+msgid "Remove infected files."
+msgstr "Enfekte dosyaları kaldır."
 
 msgid "Run"
-msgstr ""
+msgstr "Çalıştır"
 
 msgid "Scan ELF"
-msgstr ""
+msgstr "ELF tara"
 
 msgid "Scan HTML"
-msgstr ""
+msgstr "HTML tara"
 
 msgid "Scan OLE2"
-msgstr ""
+msgstr "OLE2 tara"
 
 msgid "Scan PDF"
-msgstr ""
+msgstr "PDF tara"
 
 msgid "Scan Portable Executable"
-msgstr ""
+msgstr "Taşınabilir çalışabilir dosya tara"
 
 msgid "Scan archives"
-msgstr ""
+msgstr "Arşiv tara"
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "Komut çıktısını e*mail ile yolla"
 
 msgid "Send email"
-msgstr ""
+msgstr "E-mail yolla"
 
 msgid "Server name where database updates are downloaded from."
-msgstr ""
+msgstr "Veritabanı güncelleştirmelerinin indirileceği sunucu adı."
 
 msgid "Settings"
-msgstr ""
+msgstr "Ayarlar"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Paylaşılmış klasör"
 
 msgid "The location of the files to scan."
-msgstr ""
-
-msgid "This option allows to follow directory symlinks."
-msgstr ""
-
-msgid "This option allows to follow regular file symlinks."
-msgstr ""
-
-msgid "This option allows to perform a deeper analysis of executable files."
-msgstr ""
-
-msgid "This option enables scanning of ELF files."
-msgstr ""
-
-msgid ""
-"This option enables scanning of OLE2 files, such as Microsoft Office "
-"documents and .msi files."
-msgstr ""
-
-msgid "This option enables scanning within PDF files."
-msgstr ""
-
-msgid "This option enables the algorithmic detection."
-msgstr ""
-
-msgid ""
-"This option enables the detection of broken executables (both PE and ELF)."
-msgstr ""
+msgstr "Taranacak dosyaların yeri."
 
 msgid "n/a"
-msgstr ""
+msgstr "mevcut değil"

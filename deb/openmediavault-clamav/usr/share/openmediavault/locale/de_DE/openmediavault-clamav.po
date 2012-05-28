@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Volker  <votdev@gmx.de>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-25 22:50+0200\n"
-"PO-Revision-Date: 2012-05-25 20:51+0000\n"
+"POT-Creation-Date: 2012-05-26 19:23+0200\n"
+"PO-Revision-Date: 2012-05-28 00:32+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.net/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Add job"
-msgstr ""
+msgstr "Aufgabe hinzufügen"
 
 msgid "Algorithmic detection"
 msgstr ""
@@ -32,7 +33,7 @@ msgid "Antivirus"
 msgstr ""
 
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 msgid "Database checks"
 msgstr ""
@@ -41,10 +42,10 @@ msgid "Database mirror"
 msgstr ""
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum &amp; Zeit"
 
 msgid "Day of month"
-msgstr ""
+msgstr "Tag des Monats"
 
 msgid "Day of week"
 msgstr ""
@@ -55,13 +56,13 @@ msgstr ""
 msgid "Detect broken executables"
 msgstr ""
 
-msgid "Detect possibly unwanted applications."
-msgstr ""
-
 msgid "Edit job"
-msgstr ""
+msgstr "Aufgabe bearbeiten"
 
 msgid "Enable"
+msgstr "Aktivieren"
+
+msgid "Enable HTML detection and normalisation."
 msgstr ""
 
 msgid "Enable archive scanning."
@@ -70,14 +71,31 @@ msgstr ""
 msgid "Enable on-access virus scanning"
 msgstr ""
 
-msgid "Enabled"
+msgid "Enable scanning of ELF files."
 msgstr ""
 
-msgid "Enables HTML detection and normalisation."
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
 msgstr ""
+
+msgid "Enable scanning within PDF files."
+msgstr ""
+
+msgid "Enable the algorithmic detection."
+msgstr ""
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr ""
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr ""
+
+msgid "Enabled"
+msgstr "Aktiviert"
 
 msgid "Event"
-msgstr ""
+msgstr "Ereignis"
 
 msgid "Every N day of month"
 msgstr ""
@@ -89,25 +107,31 @@ msgid "Every N minute"
 msgstr ""
 
 msgid "Execute job"
-msgstr ""
+msgstr "Aufgabe ausführen"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Erweiterte Optionen"
 
 msgid "Follow directory symlinks"
+msgstr ""
+
+msgid "Follow directory symlinks."
 msgstr ""
 
 msgid "Follow file symlinks"
 msgstr ""
 
-msgid "General settings"
+msgid "Follow regular file symlinks."
 msgstr ""
+
+msgid "General settings"
+msgstr "Allgemeine Einstellungen"
 
 msgid "Hour"
 msgstr ""
 
 msgid "Jobs"
-msgstr ""
+msgstr "Aufgaben"
 
 msgid "Minute"
 msgstr ""
@@ -124,13 +148,22 @@ msgstr ""
 msgid "On-access"
 msgstr ""
 
+msgid "Perform a deeper analysis of executable files."
+msgstr ""
+
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
 "target='_blank'>manual page</a> for more details."
 msgstr ""
 
-msgid "Run"
+msgid "Remove"
 msgstr ""
+
+msgid "Remove infected files."
+msgstr ""
+
+msgid "Run"
+msgstr "Ausführen"
 
 msgid "Scan ELF"
 msgstr ""
@@ -160,40 +193,13 @@ msgid "Server name where database updates are downloaded from."
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Freigegebene Ordner"
 
 msgid "The location of the files to scan."
 msgstr ""
 
-msgid "This option allows to follow directory symlinks."
-msgstr ""
-
-msgid "This option allows to follow regular file symlinks."
-msgstr ""
-
-msgid "This option allows to perform a deeper analysis of executable files."
-msgstr ""
-
-msgid "This option enables scanning of ELF files."
-msgstr ""
-
-msgid ""
-"This option enables scanning of OLE2 files, such as Microsoft Office "
-"documents and .msi files."
-msgstr ""
-
-msgid "This option enables scanning within PDF files."
-msgstr ""
-
-msgid "This option enables the algorithmic detection."
-msgstr ""
-
-msgid ""
-"This option enables the detection of broken executables (both PE and ELF)."
-msgstr ""
-
 msgid "n/a"
-msgstr ""
+msgstr "N/V"

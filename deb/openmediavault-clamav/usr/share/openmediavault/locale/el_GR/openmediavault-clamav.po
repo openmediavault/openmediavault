@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Kostas Moho <kgounaris@hotmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-25 22:50+0200\n"
-"PO-Revision-Date: 2012-05-25 20:51+0000\n"
+"POT-Creation-Date: 2012-05-26 19:23+0200\n"
+"PO-Revision-Date: 2012-05-26 17:23+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.net/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,182 +19,187 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 msgid "Add job"
-msgstr ""
+msgstr "Προσθήκη εργασίας"
 
 msgid "Algorithmic detection"
-msgstr ""
+msgstr "Αλγοριθμική ανίχνευση"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Αποστολή μηνύματος με το αποτέλεσμα (εφόσον υπάρχει) της εντολής στον διαχειριστή."
 
 msgid "Antivirus"
-msgstr ""
+msgstr "Αντιβιωτικό"
 
 msgid "Comment"
-msgstr ""
+msgstr "Σχόλιο"
 
 msgid "Database checks"
-msgstr ""
+msgstr "Έλεγχος βάσης δεδομένων"
 
 msgid "Database mirror"
-msgstr ""
+msgstr "Αντιγραφή βάσης δεδομένων"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Ημερομηνία & Ώρα"
 
 msgid "Day of month"
-msgstr ""
+msgstr "Ημέρα του μήνα"
 
 msgid "Day of week"
-msgstr ""
+msgstr "Ημέρα της εβδομάδας"
 
 msgid "Detect PUA"
-msgstr ""
+msgstr "Ανίχνευση PUA"
 
 msgid "Detect broken executables"
-msgstr ""
-
-msgid "Detect possibly unwanted applications."
-msgstr ""
+msgstr "Ανίχνευση χαμασμένων εκτελέσιμων"
 
 msgid "Edit job"
-msgstr ""
+msgstr "Επεξεργασία εργασίας"
 
 msgid "Enable"
-msgstr ""
+msgstr "Ενεργοποίηση"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "Ανίχνευση και ρύθμιση HTML."
 
 msgid "Enable archive scanning."
-msgstr ""
+msgstr "Ανίχνευση συμπιεσμένων αρχείων ενεργή."
 
 msgid "Enable on-access virus scanning"
-msgstr ""
+msgstr "Ενεργοποίηση ελέγχου κατά την πρόσβαση"
+
+msgid "Enable scanning of ELF files."
+msgstr "Ενεργοποίηση ελέγχου σε αρχεία ELF."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Ενεργοποίηση ελέγχου μέσα σε αρχεία OLE2."
+
+msgid "Enable scanning within PDF files."
+msgstr "Ενεργοποίηση ελέγχου μέσα σε αρχεία PDF."
+
+msgid "Enable the algorithmic detection."
+msgstr "Ενεργοποίηση αλγοριθμικής ανίχνευσης."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Ενεργοποίηση ανίχνευσης ελλατωματικών εκτελέσιμων (PE και ELF)."
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Ενεργοποίηση ελέγχου για πιθανές ανεπιθύμητες εφαρμογές."
 
 msgid "Enabled"
-msgstr ""
-
-msgid "Enables HTML detection and normalisation."
-msgstr ""
+msgstr "Ενεργό"
 
 msgid "Event"
-msgstr ""
+msgstr "Συμβάν"
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "Κάθε Ν ημέρα του μήνα"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "Κάθε Ν ώρα"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "Κάθε Ν λεπτό"
 
 msgid "Execute job"
-msgstr ""
+msgstr "Εκτέλεση εργασίας"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Πρόσθετες επιλογές"
 
 msgid "Follow directory symlinks"
-msgstr ""
+msgstr "Ακολούθηση συμβολικών συνδέσμων σε αρχεία"
+
+msgid "Follow directory symlinks."
+msgstr "Να ακολουθούνται οι συμβολικοί σύνδεσμοι των φακέλων."
 
 msgid "Follow file symlinks"
-msgstr ""
+msgstr "Ακολούθηση συμβολικών συνδέσμων σε φακέλους"
+
+msgid "Follow regular file symlinks."
+msgstr "Να ακολουθούνται οι συμβολικοί σύνδεσμοι των αρχείων."
 
 msgid "General settings"
-msgstr ""
+msgstr "Γενικές ρυθμίσεις"
 
 msgid "Hour"
-msgstr ""
+msgstr "Ώρα"
 
 msgid "Jobs"
-msgstr ""
+msgstr "Εργασίες"
 
 msgid "Minute"
-msgstr ""
+msgstr "Λεπτό"
 
 msgid "Monitor the shared folder and scan new or modified files."
-msgstr ""
+msgstr "Παρακολούθηση κοινόχρηστου φακέλου και έλεγχος νέων ή αλλαγμένων αρχείων."
 
 msgid "Month"
-msgstr ""
+msgstr "Μήνας"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr ""
+msgstr "Αριθμός ελέγχου ενημερώσεων ημερησίως. 0 για καμία."
 
 msgid "On-access"
-msgstr ""
+msgstr "Έλεγχος κατά την πρόσβαση"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Να γίνεται ενδελεχής ανάλυση των εκτελέσιμων αρχείων."
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
 "target='_blank'>manual page</a> for more details."
+msgstr "Περισσότερες λεπτομέρειες <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>εδώ</a>."
+
+msgid "Remove"
+msgstr ""
+
+msgid "Remove infected files."
 msgstr ""
 
 msgid "Run"
-msgstr ""
+msgstr "Εκτέλεση"
 
 msgid "Scan ELF"
-msgstr ""
+msgstr "Ανίχνευση σε ELF"
 
 msgid "Scan HTML"
-msgstr ""
+msgstr "Ανίχνευση σε HTML"
 
 msgid "Scan OLE2"
-msgstr ""
+msgstr "Ανίχνευση σε OLE2"
 
 msgid "Scan PDF"
-msgstr ""
+msgstr "Ανίχνευση σε PDF"
 
 msgid "Scan Portable Executable"
-msgstr ""
+msgstr "Έλεγχος Φορητού Εκτελέσιμου"
 
 msgid "Scan archives"
-msgstr ""
+msgstr "Έλεγχος συμπιεσμένων αρχείων"
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "Αποστολή αποτελέσματος εντολής με μήνυμα"
 
 msgid "Send email"
-msgstr ""
+msgstr "Αποστολή μηνύματος"
 
 msgid "Server name where database updates are downloaded from."
-msgstr ""
+msgstr "Διακομιστής για λήψη ενημερώσεων της βάσης δεδομένων."
 
 msgid "Settings"
-msgstr ""
+msgstr "Ρυθμίσεις"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Κοινόχρηστος φάκελος"
 
 msgid "The location of the files to scan."
-msgstr ""
-
-msgid "This option allows to follow directory symlinks."
-msgstr ""
-
-msgid "This option allows to follow regular file symlinks."
-msgstr ""
-
-msgid "This option allows to perform a deeper analysis of executable files."
-msgstr ""
-
-msgid "This option enables scanning of ELF files."
-msgstr ""
-
-msgid ""
-"This option enables scanning of OLE2 files, such as Microsoft Office "
-"documents and .msi files."
-msgstr ""
-
-msgid "This option enables scanning within PDF files."
-msgstr ""
-
-msgid "This option enables the algorithmic detection."
-msgstr ""
-
-msgid ""
-"This option enables the detection of broken executables (both PE and ELF)."
-msgstr ""
+msgstr "Η τοποθεσία των αρχείων προς έλεγχο."
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
