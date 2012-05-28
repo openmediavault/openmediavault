@@ -53,15 +53,20 @@ OMV.Module.Privileges.SharedFolderGridPanel = function(config) {
 				dataIndex: "name",
 				id: "name"
 			},{
-				header: _("Comment"),
-				sortable: true,
-				dataIndex: "comment",
-				id: "comment"
-			},{
 				header: _("Volume"),
 				sortable: true,
 				dataIndex: "volume",
 				id: "volume"
+			},{
+				header: _("Path"),
+				sortable: true,
+				dataIndex: "reldirpath",
+				id: "reldirpath"
+			},{
+				header: _("Comment"),
+				sortable: true,
+				dataIndex: "comment",
+				id: "comment"
 			},{
 				header: _("Used"),
 				sortable: true,
@@ -93,6 +98,7 @@ Ext.extend(OMV.Module.Privileges.SharedFolderGridPanel,
 				fields: [
 					{ name: "uuid" },
 					{ name: "name" },
+					{ name: "reldirpath" },
 					{ name: "comment" },
 					{ name: "volume" },
 					{ name: "_used" }
