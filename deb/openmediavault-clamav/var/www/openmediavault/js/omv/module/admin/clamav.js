@@ -210,6 +210,59 @@ OMV.Module.Services.ClamAV.JobGridPanel = function(config) {
 				dataIndex: "sharedfoldername",
 				id: "sharedfoldername"
 			},{
+				header: _("Minute"),
+				sortable: true,
+				dataIndex: "minute",
+				id: "minute",
+				renderer: function(val, cell, record, row, col, store) {
+					var everynminute = record.get("everynminute");
+					if (everynminute == true) {
+						val = "*/" + val;
+					}
+					return val;
+				}
+			},{
+				header: _("Hour"),
+				sortable: true,
+				dataIndex: "hour",
+				id: "hour",
+				renderer: function(val, cell, record, row, col, store) {
+					var everynhour = record.get("everynhour");
+					var func = OMV.util.Format.arrayRenderer(Date.mapHour);
+					val = func(val);
+					if (everynhour == true) {
+						val = "*/" + val;
+					}
+					return val;
+				}
+			},{
+				header: _("Day of month"),
+				sortable: true,
+				dataIndex: "dayofmonth",
+				id: "dayofmonth",
+				renderer: function(val, cell, record, row, col, store) {
+					var everyndayofmonth = record.get("everyndayofmonth");
+					var func = OMV.util.Format.arrayRenderer(
+					  Date.mapDayOfMonth);
+					val = func(val);
+					if (everyndayofmonth == true) {
+						val = "*/" + val;
+					}
+					return val;
+				}
+			},{
+				header: _("Month"),
+				sortable: true,
+				dataIndex: "month",
+				id: "month",
+				renderer: OMV.util.Format.arrayRenderer(Date.mapMonth)
+			},{
+				header: _("Day of week"),
+				sortable: true,
+				dataIndex: "dayofweek",
+				id: "dayofweek",
+				renderer: OMV.util.Format.arrayRenderer(Date.mapDayOfWeek)
+			},{
 				header: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
@@ -238,6 +291,14 @@ Ext.extend(OMV.Module.Services.ClamAV.JobGridPanel, OMV.grid.TBarGridPanel, {
 					{ name: "uuid" },
 					{ name: "enable" },
 					{ name: "sharedfoldername" },
+					{ name: "minute" },
+					{ name: "everynminute" },
+					{ name: "hour" },
+					{ name: "everynhour" },
+					{ name: "dayofmonth" },
+					{ name: "everyndayofmonth" },
+					{ name: "month" },
+					{ name: "dayofweek" },
 					{ name: "comment" }
     			]
 			})

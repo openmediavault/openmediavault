@@ -1,5 +1,6 @@
 openmediavault-clamav (0.3.0.2) stable; urgency=low
 
+  * Display more informations about scheduled scan jobs in grid.
   * Mantis 0000488: Display icon in "Enabled" columns.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 29 May 2012 19:22:44 +0200
