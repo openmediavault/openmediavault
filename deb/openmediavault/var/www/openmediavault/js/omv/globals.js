@@ -36,6 +36,6 @@ OMV.languages = [
 	[ "hu_HU","Magyar" ], // Hungarian
 	[ "da_DA","Dansk" ], // Danish
 	[ "uk_UK","Український" ], // Ukrainian
-	[ "no_NO","Norske" ], // Norwegian
+	[ "no_NO","Norsk" ], // Norwegian
 	[ "sv_SV","Svenska" ] // Swedish
 ];

@@ -86,16 +86,37 @@ class AptRpc extends OMVRpc {
 			// Get additional package informations.
 			$cmd = sprintf("export LANG=C; sudo apt-cache --no-all-versions ".
 			  "show %s", $matches[1]);
+			unset($output2);
 			OMVUtil::exec($cmd, $output2, $result);
 			if ($result !== 0) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output2));
 			}
 			// Parse output:
-			// Package: openmediavault-forkeddaapd
-			// Priority: optional
-			// ...
 			// <fieldname>: <fieldvalue>
+			//
+			// Package: sudo
+			// Version: 1.7.4p4-2.squeeze.3
+			// Installed-Size: 920
+			// Maintainer: Bdale Garbee <bdale@gag.com>
+			// Architecture: i386
+			// Replaces: sudo-ldap
+			// Depends: libc6 (>= 2.11), libpam0g (>= 0.99.7.1), libpam-modules
+			// Conflicts: sudo-ldap
+			// Description-en: Provide limited super user privileges to specific users
+			//  Sudo is a program designed to allow a sysadmin to give limited root
+			//  privileges to users and log root activity.  The basic philosophy is to give
+			//  as few privileges as possible but still allow people to get their work done.
+			//  .
+			//  This version is built with minimal shared library dependencies, use the
+			//  sudo-ldap package instead if you need LDAP support for sudoers.
+			// Section: admin
+			// Priority: optional
+			// Filename: pool/updates/main/s/sudo/sudo_1.7.4p4-2.squeeze.3_i386.deb
+			// Size: 593224
+			// MD5sum: d60e6f516e63b8542d9ee205b83d4295
+			// SHA1: c134fa071ff9ca9203dabafe9c0737865e47e737
+			// SHA256: 7b5df56299ca8c1e56bb74482f202034eaa40134499baa33a8535ccc366e21e8
 			$fieldname = $fieldvalue = "";
 			foreach ($output2 as $row) {
 				$regex = "/^(\S+): (.+)$/";
@@ -115,8 +136,19 @@ class AptRpc extends OMVRpc {
 						$fieldvalue = "\n";
 					$object[$fieldname] .= sprintf("%s\n", $fieldvalue);
 					continue;
+				} else {
+					$fieldname = strtolower($matches[1]);
+					// Map various field names.
+					switch ($fieldname) {
+					case "description-en":
+						$fieldname = "description";
+						break;
+					default:
+						break;
+					}
+					// Remove '-' character in field name.
+					$fieldname = str_replace("-", "", $fieldname);
 				}
-				$fieldname = strtolower(str_replace("-", "", $matches[1]));
 				$fieldvalue = trim($matches[2]);
 				$object[$fieldname] = $fieldvalue;
 			}

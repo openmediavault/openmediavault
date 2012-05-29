@@ -53,7 +53,7 @@ OMV.Module.System.CronGridPanel = function(config) {
 				id: "enable",
 				align: "center",
 				width: 60,
-				renderer: OMV.util.Format.booleanRenderer()
+				renderer: OMV.util.Format.booleanIconRenderer()
 			},{
 				header: _("Minute"),
 				sortable: true,

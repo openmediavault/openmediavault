@@ -1,6 +1,8 @@
 openmediavault (0.3.0.12) stable; urgency=low
 
   * Flush mailq once a day if email notification service is disabled.
+  * Fix bug in Apt::getUpgraded RPC.
+  * Mantis 0000488: Display icon in "Enabled" columns.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 26 May 2012 19:12:08 +0200
 

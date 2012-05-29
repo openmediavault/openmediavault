@@ -203,7 +203,7 @@ OMV.Module.Services.ClamAV.JobGridPanel = function(config) {
 				id: "enable",
 				align: "center",
 				width: 60,
-				renderer: OMV.util.Format.booleanRenderer()
+				renderer: OMV.util.Format.booleanIconRenderer()
 			},{
 				header: _("Shared folder"),
 				sortable: true,
