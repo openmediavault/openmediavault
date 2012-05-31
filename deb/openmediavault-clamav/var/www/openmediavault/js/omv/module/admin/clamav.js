@@ -577,6 +577,20 @@ Ext.extend(OMV.Module.Services.ClamAV.JobPropertyDialog,
 			inputValue: 1
 		},{
 			xtype: "checkbox",
+			name: "multiscan",
+			fieldLabel: _("Multiscan"),
+			boxLabel: _("Scan the directory contents in parallel using available threads."),
+			checked: false,
+			inputValue: 1
+		},{
+			xtype: "checkbox",
+			name: "verbose",
+			fieldLabel: _("Verbose"),
+			boxLabel: _("Be verbose."),
+			checked: false,
+			inputValue: 1
+		},{
+			xtype: "checkbox",
 			name: "sendemail",
 			fieldLabel: _("Send email"),
 			checked: false,

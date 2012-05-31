@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-26 19:23+0200\n"
-"PO-Revision-Date: 2012-05-26 17:23+0000\n"
+"POT-Creation-Date: 2012-05-31 19:04+0200\n"
+"PO-Revision-Date: 2012-05-31 17:04+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.net/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,9 @@ msgstr "En email med kommando output (hvis der lavet nogle) er sendt til adminis
 
 msgid "Antivirus"
 msgstr "Antivirus"
+
+msgid "Be verbose."
+msgstr ""
 
 msgid "Comment"
 msgstr "Kommentar"
@@ -142,6 +145,9 @@ msgstr ""
 msgid "Month"
 msgstr "Måned"
 
+msgid "Multiscan"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr ""
 
@@ -183,6 +189,9 @@ msgstr ""
 msgid "Scan archives"
 msgstr ""
 
+msgid "Scan the directory contents in parallel using available threads."
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Send kommando output via email"
 
@@ -200,6 +209,9 @@ msgstr "Delt mappe"
 
 msgid "The location of the files to scan."
 msgstr "Placeringen af de filer der skal skannes."
+
+msgid "Verbose"
+msgstr ""
 
 msgid "n/a"
 msgstr "n/a"

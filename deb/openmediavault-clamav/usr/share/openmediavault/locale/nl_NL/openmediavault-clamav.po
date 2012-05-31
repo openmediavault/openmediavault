@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Milan Toet <milantoet@gmail.com>, 2012.
+#   <seba.kerckhof@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-26 19:23+0200\n"
-"PO-Revision-Date: 2012-05-26 17:23+0000\n"
+"POT-Creation-Date: 2012-05-31 19:04+0200\n"
+"PO-Revision-Date: 2012-05-31 17:04+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.net/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +23,7 @@ msgid "Add job"
 msgstr "Voeg taak toe"
 
 msgid "Algorithmic detection"
-msgstr ""
+msgstr "Algoritmische detectie"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -31,6 +32,9 @@ msgstr "Een e-mail met de uitvoer van het commando (als dit is geproduceerd), is
 
 msgid "Antivirus"
 msgstr "Antivirus"
+
+msgid "Be verbose."
+msgstr ""
 
 msgid "Comment"
 msgstr "Opmerking"
@@ -54,7 +58,7 @@ msgid "Detect PUA"
 msgstr ""
 
 msgid "Detect broken executables"
-msgstr ""
+msgstr "Gebroken uitvoerbare bestanden detecteren"
 
 msgid "Edit job"
 msgstr "Pas taak aan"
@@ -63,33 +67,33 @@ msgid "Enable"
 msgstr "Enable"
 
 msgid "Enable HTML detection and normalisation."
-msgstr ""
+msgstr "HTML detectie en normalisatie inschakelen"
 
 msgid "Enable archive scanning."
-msgstr ""
+msgstr "Archieven scannen."
 
 msgid "Enable on-access virus scanning"
 msgstr ""
 
 msgid "Enable scanning of ELF files."
-msgstr ""
+msgstr "ELF-bestanden scannen."
 
 msgid ""
 "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
 "files."
-msgstr ""
+msgstr "OLE2-bestanden, zoals Microsoft Office documenten en .msi bestanden, scannen."
 
 msgid "Enable scanning within PDF files."
-msgstr ""
+msgstr "Inhoud van PDF documenten scannen."
 
 msgid "Enable the algorithmic detection."
-msgstr ""
+msgstr "Algoritmische detectie inschakelen"
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
-msgstr ""
+msgstr "Detecteren van mogelijke ongewenste programma's inschakelen."
 
 msgid "Enabled"
 msgstr "Ingeschakeld"
@@ -137,10 +141,13 @@ msgid "Minute"
 msgstr "Minuut"
 
 msgid "Monitor the shared folder and scan new or modified files."
-msgstr ""
+msgstr "De gedeelde map controlen en nieuwe of gewijzigde bestanden scannen."
 
 msgid "Month"
 msgstr "Maand"
+
+msgid "Multiscan"
+msgstr ""
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr ""
@@ -149,7 +156,7 @@ msgid "On-access"
 msgstr ""
 
 msgid "Perform a deeper analysis of executable files."
-msgstr ""
+msgstr "Uitvoerbare bestanden grondiger analyseren"
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
@@ -157,30 +164,33 @@ msgid ""
 msgstr "Ga naar <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manual page</a> voor verdere details."
 
 msgid "Remove"
-msgstr ""
+msgstr "Verwijderen"
 
 msgid "Remove infected files."
-msgstr ""
+msgstr "Verwijder de geïnfecteerde bestanden"
 
 msgid "Run"
 msgstr "Uitvoeren"
 
 msgid "Scan ELF"
-msgstr ""
+msgstr "ELF scannen"
 
 msgid "Scan HTML"
-msgstr ""
+msgstr "HTML scannen"
 
 msgid "Scan OLE2"
-msgstr ""
+msgstr "OLE2 scannen"
 
 msgid "Scan PDF"
-msgstr ""
+msgstr "PDF scannen"
 
 msgid "Scan Portable Executable"
 msgstr ""
 
 msgid "Scan archives"
+msgstr "Archieven scannen"
+
+msgid "Scan the directory contents in parallel using available threads."
 msgstr ""
 
 msgid "Send command output via email"
@@ -200,6 +210,9 @@ msgstr "Gedeelde map"
 
 msgid "The location of the files to scan."
 msgstr "De locatie van de bestanden om te scannen"
+
+msgid "Verbose"
+msgstr ""
 
 msgid "n/a"
 msgstr "niet beschikbaar"

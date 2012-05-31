@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-clamav\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-26 19:23+0200\n"
+"POT-Creation-Date: 2012-05-31 19:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,6 +27,9 @@ msgid "An email message with the command output (if any produced) is send to the
 msgstr ""
 
 msgid "Antivirus"
+msgstr ""
+
+msgid "Be verbose."
 msgstr ""
 
 msgid "Comment"
@@ -137,6 +140,9 @@ msgstr ""
 msgid "Month"
 msgstr ""
 
+msgid "Multiscan"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr ""
 
@@ -176,6 +182,9 @@ msgstr ""
 msgid "Scan archives"
 msgstr ""
 
+msgid "Scan the directory contents in parallel using available threads."
+msgstr ""
+
 msgid "Send command output via email"
 msgstr ""
 
@@ -192,6 +201,9 @@ msgid "Shared folder"
 msgstr ""
 
 msgid "The location of the files to scan."
+msgstr ""
+
+msgid "Verbose"
 msgstr ""
 
 msgid "n/a"

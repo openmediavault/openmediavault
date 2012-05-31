@@ -86,6 +86,8 @@ class ClamAVRpc extends OMVRpc {
 					"sendemail":{"type":"boolean"},
 					"onaccess":{"type":"boolean"},
 					"remove":{"type":"boolean"},
+					"multiscan":{"type":"boolean"},
+					"verbose":{"type":"boolean"},
 					"comment":{"type":"string"}
 				}
 			}'),
@@ -253,6 +255,8 @@ class ClamAVRpc extends OMVRpc {
 			$objectv['sendemail'] = boolval($objectv['sendemail']);
 			$objectv['onaccess'] = boolval($objectv['onaccess']);
 			$objectv['remove'] = boolval($objectv['remove']);
+			$objectv['multiscan'] = boolval($objectv['multiscan']);
+			$objectv['verbose'] = boolval($objectv['verbose']);
 		}
 		// Filter result
 		return $this->applyFilter($objects, $data['start'], $data['limit'],
@@ -291,6 +295,8 @@ class ClamAVRpc extends OMVRpc {
 		$object['sendemail'] = boolval($object['sendemail']);
 		$object['onaccess'] = boolval($object['onaccess']);
 		$object['remove'] = boolval($object['remove']);
+		$object['multiscan'] = boolval($object['multiscan']);
+		$object['verbose'] = boolval($object['verbose']);
 		return $object;
 	}
 
@@ -325,6 +331,8 @@ class ClamAVRpc extends OMVRpc {
 			"sendemail" => array_boolval($data, 'sendemail'),
 			"onaccess" => array_boolval($data, 'onaccess'),
 			"remove" => array_boolval($data, 'remove'),
+			"multiscan" => array_boolval($data, 'multiscan'),
+			"verbose" => array_boolval($data, 'verbose'),
 			"comment" => $data['comment']
 		);
 		// Set configuration data

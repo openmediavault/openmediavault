@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-26 19:23+0200\n"
-"PO-Revision-Date: 2012-05-27 09:47+0000\n"
-"Last-Translator: arturmon82 <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2012-05-31 19:04+0200\n"
+"PO-Revision-Date: 2012-05-31 17:04+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.net/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,6 +32,9 @@ msgstr "Электронное письмо с выводом команды (е
 
 msgid "Antivirus"
 msgstr "Антивирус"
+
+msgid "Be verbose."
+msgstr ""
 
 msgid "Comment"
 msgstr "Комментарий"
@@ -143,6 +146,9 @@ msgstr "Контролировать общую папку и сканирова
 msgid "Month"
 msgstr "Месяц"
 
+msgid "Multiscan"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Количество проверок обновлений базы данных в день. Установите в 0 для отключения."
 
@@ -184,6 +190,9 @@ msgstr "Сканировать переносимые исполняемые п�
 msgid "Scan archives"
 msgstr "Сканировать архивы"
 
+msgid "Scan the directory contents in parallel using available threads."
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Отправить вывод комманды по электронной почте"
 
@@ -201,6 +210,9 @@ msgstr "Общая папка"
 
 msgid "The location of the files to scan."
 msgstr "Расположение файлов для сканирования."
+
+msgid "Verbose"
+msgstr ""
 
 msgid "n/a"
 msgstr "н/д"

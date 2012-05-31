@@ -79,7 +79,7 @@ OMV_CLAMAV_FRESHCLAM_NOTIFYCLAMD=${OMV_CLAMAV_FRESHCLAM_NOTIFYCLAMD:-"/etc/clama
 OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG=${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG:-"/etc/logrotate.d/clamav-freshclam"}
 OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT=${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT:-"/etc/cron.d/openmediavault-clamdscan"}
 OMV_CLAMAV_CLAMDSCAN_CRONSCRIPTS_MASK=${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPTS_MASK:-"755"}
-OMV_CLAMAV_CLAMDSCAN_CMDARGS=${OMV_CLAMAV_CLAMDSCAN_CMDARGS:-"--verbose --stdout --multiscan"}
+OMV_CLAMAV_CLAMDSCAN_CMDARGS=${OMV_CLAMAV_CLAMDSCAN_CMDARGS:-"--stdout"}
 
 # Create '/etc/clamav/clamd.conf' configuration file.
 xmlstarlet sel -t -m "//services/clamav/clamd" \
@@ -195,6 +195,8 @@ xmlstarlet sel -t -m "//services/clamav/jobs/job[enable='1']" \
 		-o "echo &quot;Please wait, scanning shared folder &lt;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -o "&gt; ...\n&quot;" -n \
 		-o "clamdscan ${OMV_CLAMAV_CLAMDSCAN_CMDARGS}" \
 		-i "remove[. = '1']" -o " --remove" -b \
+		-i "multiscan[. = '1']" -o " --multiscan" -b \
+		-i "verbose[. = '1']" -o " --verbose" -b \
 		-o " " ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} \
 		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${filename}
 	  chmod ${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPTS_MASK} ${filename}

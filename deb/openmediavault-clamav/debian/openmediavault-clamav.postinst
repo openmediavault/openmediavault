@@ -96,6 +96,8 @@ case "$1" in
 		#           <sendemail>0|1</sendemail>
 		#           <onaccess>0|1</onaccess>
 		#           <remove>0|1</remove>
+		#           <verbose>0|1</verbose>
+		#           <multiscan>0|1</multiscan>
 		#           <comment></comment>
 		#         </job>
 		#         -->
@@ -136,6 +138,11 @@ case "$1" in
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.1"; then
 			omv_config_add_element "//services/clamav/jobs/job" "remove" "0"
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.2"; then
+			omv_config_add_element "//services/clamav/jobs/job" "verbose" "0"
+			omv_config_add_element "//services/clamav/jobs/job" "multiscan" "0"
+			omv-mkconf clamav
 		fi
 	;;
 

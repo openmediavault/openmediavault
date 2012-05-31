@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-26 19:23+0200\n"
-"PO-Revision-Date: 2012-05-27 17:46+0000\n"
-"Last-Translator: maurorulli <mauro.rulli@gmail.com>\n"
+"POT-Creation-Date: 2012-05-31 19:04+0200\n"
+"PO-Revision-Date: 2012-05-31 17:04+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.net/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,6 +31,9 @@ msgstr "Un'email con l'output del comando (se prodotto) viene inviata all'ammini
 
 msgid "Antivirus"
 msgstr "Antivirus"
+
+msgid "Be verbose."
+msgstr ""
 
 msgid "Comment"
 msgstr "Commento"
@@ -142,6 +145,9 @@ msgstr "Monitorizza le cartelle condivise e scansione i file nuovi o modificati.
 msgid "Month"
 msgstr "Mese"
 
+msgid "Multiscan"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Numero di controlli di aggiornamenti del database giornalieri. Impostare a 0 per disabilitarli."
 
@@ -183,6 +189,9 @@ msgstr "Scan Portable Executable"
 msgid "Scan archives"
 msgstr "Scan archivi"
 
+msgid "Scan the directory contents in parallel using available threads."
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Invia l'output del comando via email"
 
@@ -200,6 +209,9 @@ msgstr "Cartella condivisa"
 
 msgid "The location of the files to scan."
 msgstr "Il percorso dei file da controllare."
+
+msgid "Verbose"
+msgstr ""
 
 msgid "n/a"
 msgstr "n/c"

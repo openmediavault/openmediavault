@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-26 19:23+0200\n"
-"PO-Revision-Date: 2012-05-26 17:23+0000\n"
+"POT-Creation-Date: 2012-05-31 19:04+0200\n"
+"PO-Revision-Date: 2012-05-31 17:04+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.net/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,9 @@ msgstr "Αποστολή μηνύματος με το αποτέλεσμα (εφ
 
 msgid "Antivirus"
 msgstr "Αντιβιωτικό"
+
+msgid "Be verbose."
+msgstr ""
 
 msgid "Comment"
 msgstr "Σχόλιο"
@@ -142,6 +145,9 @@ msgstr "Παρακολούθηση κοινόχρηστου φακέλου κα�
 msgid "Month"
 msgstr "Μήνας"
 
+msgid "Multiscan"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Αριθμός ελέγχου ενημερώσεων ημερησίως. 0 για καμία."
 
@@ -157,10 +163,10 @@ msgid ""
 msgstr "Περισσότερες λεπτομέρειες <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>εδώ</a>."
 
 msgid "Remove"
-msgstr ""
+msgstr "Αφαίρεση"
 
 msgid "Remove infected files."
-msgstr ""
+msgstr "Αφαίρεση μολυσμένων αρχείων."
 
 msgid "Run"
 msgstr "Εκτέλεση"
@@ -183,6 +189,9 @@ msgstr "Έλεγχος Φορητού Εκτελέσιμου"
 msgid "Scan archives"
 msgstr "Έλεγχος συμπιεσμένων αρχείων"
 
+msgid "Scan the directory contents in parallel using available threads."
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Αποστολή αποτελέσματος εντολής με μήνυμα"
 
@@ -200,6 +209,9 @@ msgstr "Κοινόχρηστος φάκελος"
 
 msgid "The location of the files to scan."
 msgstr "Η τοποθεσία των αρχείων προς έλεγχο."
+
+msgid "Verbose"
+msgstr ""
 
 msgid "n/a"
 msgstr "n/a"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-26 19:23+0200\n"
-"PO-Revision-Date: 2012-05-26 17:23+0000\n"
+"POT-Creation-Date: 2012-05-31 19:04+0200\n"
+"PO-Revision-Date: 2012-05-31 17:04+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.net/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -31,6 +31,9 @@ msgstr "Egy email üzenet, benne a parancsssori kimenettel (ha elő lett állít
 
 msgid "Antivirus"
 msgstr "Antivírus"
+
+msgid "Be verbose."
+msgstr ""
 
 msgid "Comment"
 msgstr "Megjegyzés"
@@ -142,6 +145,9 @@ msgstr "Megosztott mappa ellenőrzése és az új vagy módosított fájlok átv
 msgid "Month"
 msgstr "Hónap"
 
+msgid "Multiscan"
+msgstr ""
+
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Az adatbázis frissítés ellenőrzésének száma naponta. A 0 beállítás tiltja a funkciót."
 
@@ -157,10 +163,10 @@ msgid ""
 msgstr "Kérlek tekintsd meg a <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>kézikönyvet</a> a további részletekért."
 
 msgid "Remove"
-msgstr ""
+msgstr "Eltávolítás"
 
 msgid "Remove infected files."
-msgstr ""
+msgstr "Fertőzött fájlok eltávolítása."
 
 msgid "Run"
 msgstr "Futtatás"
@@ -183,6 +189,9 @@ msgstr "Hordozható futtatható fájlok átvizsgálása"
 msgid "Scan archives"
 msgstr "Archívumok átvizsgálása"
 
+msgid "Scan the directory contents in parallel using available threads."
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Parancssori kimenet küldése emailben"
 
@@ -200,6 +209,9 @@ msgstr "Megosztott mappa"
 
 msgid "The location of the files to scan."
 msgstr "A fájlok helye az átvizsgáláshoz."
+
+msgid "Verbose"
+msgstr ""
 
 msgid "n/a"
 msgstr "n/a"
