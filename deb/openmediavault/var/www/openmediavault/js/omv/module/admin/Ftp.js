@@ -278,7 +278,7 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 				xtype: "textfield",
 				name: "masqueradeaddress",
 				fieldLabel: _("Masquerade address"),
-				vtype: "hostnameIPv4",
+				vtype: "domainnameIPv4",
 				allowBlank: true,
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: _("If your host is acting as a NAT gateway or port forwarder for the server, this option is useful in order to allow passive tranfers to work. You have to use your public address and opening the passive ports used on your firewall as well.")

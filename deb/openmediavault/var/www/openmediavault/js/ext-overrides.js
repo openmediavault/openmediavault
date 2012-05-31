@@ -121,6 +121,16 @@ Ext.apply(Ext.form.VTypes, {
 	domainnameText: _("Invalid domain name"),
 	domainnameMask: /[a-z0-9\-\.]/i,
 
+	domainnameIPv4: function(v) {
+		if(Ext.form.VTypes.domainname(v))
+			return true;
+		if(Ext.form.VTypes.IPv4(v))
+			return true;
+		return false;
+	},
+	domainnameIPv4Text: _("This field should be a domainname or an IPv4 address"),
+	domainnameIPv4Mask: /[a-z0-9\-\.]/i,
+
 	groupname: function(v) {
 		return /^[a-zA-Z0-9\-\.]+$/.test(v);
 	},
