@@ -5,6 +5,7 @@ openmediavault (0.3.0.12) stable; urgency=low
   * Mantis 0000488: Display icon in "Enabled" columns.
   * Mantis 0000490: Cannot set DNS hostname in Masquerade address field of
     FTP service.
+  * Mantis 0000492: NTFS disk names jumping around
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 26 May 2012 19:12:08 +0200
 

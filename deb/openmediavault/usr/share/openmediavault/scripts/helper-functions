@@ -53,11 +53,13 @@ omv_isuuid() {
 
 # omv_isfsuuid value
 # Check if the given argument is a filesystem UUID. They may look like:
-# vfat - 7A48-BA97
-# ext[2-4]?|xfs|jfs - 5d06cb54-70ef-4bcc-bf99-fd22c27daac0
+# EXT(2|3|4)/JFS/XFS: 7725c816-00d8-11e1-ad4c-00221568ca88
+# DOS: 7A48-BA97
+# NTFS: 2ED43920D438EC29
 # Return 0 if it is a file system UUID, otherwise 1.
 omv_isfsuuid() {
-    if $(echo $1 | grep -Eqi "^[a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"); then
+	# See /usr/share/php/openmediavault/globals.inc
+    if $(echo $1 | grep -Eqi "^[a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16}$"); then
         return 0
     fi
     return 1
