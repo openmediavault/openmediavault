@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Christophe Lherieau <skimpax@gmail.com>, 2012.
 # Nahir Mohamed <nahirmoha@gmail.com>, 2012.
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012.
 # Stéphane BOCQUET <stephane_bocquet@hotmail.com>, 2012.
@@ -10,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-19 00:08+0200\n"
-"PO-Revision-Date: 2012-05-25 14:40+0000\n"
-"Last-Translator: Stéphane BOCQUET <stephane_bocquet@hotmail.com>\n"
+"POT-Creation-Date: 2012-06-04 18:58+0200\n"
+"PO-Revision-Date: 2012-06-04 16:59+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.net/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -423,7 +424,7 @@ msgstr "Liste d'interdiction"
 
 #, c-format
 msgid "Ban statistics:"
-msgstr "Statistiques d'interdiction:"
+msgstr "Statistiques d'interdiction :"
 
 msgid "Bandwidth restriction"
 msgstr "Restriction de bande passante"
@@ -682,7 +683,7 @@ msgstr "Date actuelle"
 
 #, c-format
 msgid "Currently logged in users:"
-msgstr "Utilisateurs actuellement connectés:"
+msgstr "Utilisateurs actuellement connectés :"
 
 msgid "Cyprus"
 msgstr "Chypre"
@@ -725,6 +726,9 @@ msgstr "Décembre"
 
 msgid "Delete"
 msgstr "Supprimer"
+
+msgid "Delete content"
+msgstr ""
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Supprime les fichiers de destination qui n'existent pas à la source"
@@ -814,52 +818,62 @@ msgid "Djibouti"
 msgstr "Djibouti"
 
 msgid "Do you really want to clear the log file?"
-msgstr "Voulez-vous vraiment effacer le fichier journal?"
+msgstr "Voulez-vous vraiment effacer le fichier journal ?"
 
 msgid "Do you really want to create the RAID device?"
-msgstr "Voulez-vous vraiment de créer le périphérique RAID?"
+msgstr "Voulez-vous vraiment de créer le périphérique RAID ?"
 
 msgid "Do you really want to delete the selected item(s)?"
-msgstr "Voulez-vous vraiment supprimer l(es) élément(s) sélectionné(s)?"
+msgstr "Voulez-vous vraiment supprimer l(es) élément(s) sélectionné(s) ?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the filesystem creation may take some time."
-msgstr "Voulez-vous vraiment formater ce disque? Toutes les données seront supprimé. Notez que la création du système de fichiers peut prendre un certain temps."
+msgstr "Voulez-vous vraiment formater ce disque ? Toutes les données seront supprimées. Notez que la création du système de fichiers peut prendre un certain temps."
 
 msgid "Do you really want to install the selected plugin(s)?"
-msgstr "Voulez-vous vraiment installer le(s) plugin(s) sélectionné(s)?"
+msgstr "Voulez-vous vraiment installer le(s) plugin(s) sélectionné(s) ?"
 
 msgid "Do you really want to leave the page?"
-msgstr "Voulez-vous vraiment quitter la page?"
+msgstr "Voulez-vous vraiment quitter la page ?"
 
 msgid "Do you really want to logout?"
-msgstr "Voulez-vous vraiment vous déconnecter?"
+msgstr "Voulez-vous vraiment vous déconnecter ?"
 
 msgid "Do you really want to reboot the system?"
-msgstr "Voulez-vous vraiment redémarrer le système?"
+msgstr "Voulez-vous vraiment redémarrer le système ?"
+
+msgid "Do you really want to remove the shared folder content?"
+msgstr ""
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
-msgstr "Voulez-vous vraiment réinitialiser l'interface Web (ex: l'ordre des colonnes)?"
+msgstr "Voulez-vous vraiment réinitialiser l'interface Web (ex: l'ordre des colonnes) ?"
 
 msgid ""
 "Do you really want to resize the selected filesystem? You have to do that "
 "after a RAID has been grown for example."
-msgstr "Voulez-vous vraiment redimensionner le système de fichiers choisi?"
+msgstr "Voulez-vous vraiment redimensionner le système de fichiers sélectionné ?"
 
 msgid "Do you really want to shutdown the system?"
-msgstr "Voulez-vous vraiment arrêter le système?"
+msgstr "Voulez-vous vraiment arrêter le système ?"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr "Voulez-vous vraiment désintaller le(s) plugin(s) sélectionné(s)?"
+msgstr "Voulez-vous vraiment désintaller le(s) plugin(s) sélectionné(s) ?"
 
 msgid "Do you really want to wipe the selected device?"
-msgstr "Voulez-vous vraiment effacer le périphérique sélectionné?"
+msgstr "Voulez-vous vraiment effacer le périphérique sélectionné ?"
+
+msgid ""
+"Do you want to remove the content of the shared folder recursively? The "
+"shared folder content will be permanently removed and cannot be recovered. "
+"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
+"abort."
+msgstr ""
 
 msgid ""
 "Do you want to secure wipe the device? Please note that this may take a long"
 " time. Press 'No' to fast wipe the device or 'Cancel' to abort."
-msgstr "Voulez-vous effacer le périphérique de manière sécurisée? Notez que cela peut prendre un certain temps. Cliquez sur 'Non' pour effacer le périphérique rapidement ou sur 'Annuler' pour annuler."
+msgstr "Voulez-vous effacer le périphérique de manière sécurisée ? Notez que cela peut prendre un certain temps. Cliquez sur 'Non' pour effacer le périphérique rapidement ou sur 'Annuler' pour annuler."
 
 msgid "Domain name"
 msgstr "Nom de domaine"
@@ -894,7 +908,7 @@ msgstr "Chaque ligne représente un groupe."
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
 "text."
-msgstr "Chaque ligne représente un utilisateur (remarque: le mot de passe doit être saisi en texte clair)."
+msgstr "Chaque ligne représente un utilisateur (remarque : le mot de passe doit être saisi en texte clair)."
 
 msgid "East Timor"
 msgstr "Timor-Oriental"
@@ -1014,7 +1028,7 @@ msgid ""
 msgstr "Activer la recherche DNS inversée sur l'adresse IP de l'hôte distant pour les connexions entrantes actives et connexions sortantes passives."
 
 msgid "Enable secure connection."
-msgstr "Activer la connexion sécurisée."
+msgstr "Active la connexion sécurisée."
 
 msgid "Enable store DOS attributes support"
 msgstr "Activer le support des attributs DOS"
@@ -1075,7 +1089,7 @@ msgid "Every N minute"
 msgstr "Toutes les N minutes"
 
 msgid "Everyone: read/write"
-msgstr "Tous: lecture/écriture"
+msgstr "Tous : lecture/écriture"
 
 msgid "Execute command"
 msgstr "Exécute la commande"
@@ -1172,7 +1186,7 @@ msgid "Force SSL/TLS"
 msgstr "Forcer SSL/TLS"
 
 msgid "Force secure connection only."
-msgstr "Forcer les connections sécurisées."
+msgstr "Force les connections sécurisées."
 
 msgid "France"
 msgstr "France"
@@ -1464,7 +1478,7 @@ msgstr "Nom d'hôte invalide"
 
 #, c-format
 msgid "Invalid line: %s"
-msgstr "Ligne invalide: %s"
+msgstr "Ligne invalide : %s"
 
 msgid "Invalid name"
 msgstr "Nom invalide"
@@ -2488,9 +2502,6 @@ msgstr "Sélectionnez un dictionnaire"
 msgid "Select a filesystem ..."
 msgstr "Sélectionnez un système de fichiers ..."
 
-msgid "Select a group ..."
-msgstr "Sélectionnez un groupe ..."
-
 msgid "Select a group name..."
 msgstr "Sélectionnez un nom de groupe ..."
 
@@ -2509,9 +2520,6 @@ msgstr "Sélectionnez un dossier partagé ..."
 msgid "Select a shell ..."
 msgstr "Sélectionnez un shell ..."
 
-msgid "Select a user ..."
-msgstr "Sélectionnez un utilisateur ..."
-
 msgid "Select a user name..."
 msgstr "Sélectionnez un nom d'utilisateur ..."
 
@@ -2528,7 +2536,7 @@ msgid "Self-test logs"
 msgstr "Journal des tests"
 
 msgid "Send command output via email"
-msgstr "Envois par mail des traces de la commande"
+msgstr "Envoi par mail des traces de la commande"
 
 msgid "Send email"
 msgstr "Envoyer un mail"
@@ -2540,7 +2548,7 @@ msgid "Sender"
 msgstr "Expéditeur"
 
 msgid "Sending test email ..."
-msgstr "Envois d'un mail de test ..."
+msgstr "Envoi d'un mail de test ..."
 
 msgid "Senegal"
 msgstr "Sénégal"
@@ -2741,7 +2749,7 @@ msgstr "Se connecter en tant que superutilisateur."
 msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
-msgstr "Surveiller l'état ​​du système et sélectionner le niveau d'utilisation le plus approprié du processeur."
+msgstr "Surveille l'état ​​du système et sélectionne le niveau d'utilisation du processeur le plus approprié."
 
 msgid "Specifies which slave is the primary device."
 msgstr "Indique quel esclave est le premier périphérique."
@@ -3007,6 +3015,9 @@ msgid ""
 "a net view and in the browse list."
 msgstr "Indique si le partage peut-être vu dans la liste des partages dans une vue ou liste réseau."
 
+msgid "This field does not allow blanks"
+msgstr "Ce champ n'accepte pas de blancs"
+
 msgid "This field must have the format hh:mm:ss"
 msgstr "Ce champ doit avoir le format hh:mm:ss"
 
@@ -3015,6 +3026,9 @@ msgstr "Ce champs doit être une adresse réseau IPv4"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Ce champ doit être une adresse réseau IPv4 en notation CIDR"
+
+msgid "This field should be a domainname or an IPv4 address"
+msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Ce champ doit être un nom d'hôte ou une adresse réseau IPv4"
@@ -3166,10 +3180,10 @@ msgid "Time interval"
 msgstr "Intervalle de temps"
 
 msgid "Time server"
-msgstr "Server de temps"
+msgstr "Serveur de temps"
 
 msgid "Time servers"
-msgstr "Servers de temps"
+msgstr "Serveurs de temps"
 
 msgid "Time zone"
 msgstr "Fuseau horaire"
@@ -3282,7 +3296,7 @@ msgid "Update Manager"
 msgstr "Gestionnaire de mises à jour"
 
 msgid "Update now"
-msgstr "Mise à jour en cours"
+msgstr "Mettre à jour"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
 msgstr "Mets à jour les restrictions ACL à l'identique de celles de la source"
@@ -3319,7 +3333,7 @@ msgid "Uruguay"
 msgstr "Uruguay"
 
 msgid "Use NTP server"
-msgstr "Utiliser serveur NTP"
+msgstr "Utiliser NTP"
 
 msgid "Use SSL/TLS secure connection"
 msgstr "Utiliser SSL/TLS"
@@ -3328,10 +3342,10 @@ msgid "Use sendfile"
 msgstr "Utiliser sendfile"
 
 msgid "Use the following bandwidth restriction:"
-msgstr "Utiliser les restrictions de bande passante suivante:"
+msgstr "Utiliser les restrictions de bande passante suivantes :"
 
 msgid "Use the following port range:"
-msgstr "Utiliser la plage de port suivant:"
+msgstr "Utiliser la plage de port suivant :"
 
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "

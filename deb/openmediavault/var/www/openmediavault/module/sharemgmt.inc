@@ -74,6 +74,37 @@ class ShareMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 	}
 
 	/**
+	 * Delete a shared folder.
+	 * @param object The shared folder configuration object.
+	 * @param recursive Remove the shared folder and its content recursively.
+	 */
+	public function deleteFolder($object, $recursive) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Remove the shared folder and its content recursively? 
+		if (!isset($recursive) || ($recursive === FALSE))
+			return;
+		// Get the mount point configuration object to build the absolute
+		// shared folder path.
+		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
+		  $object['mntentref']);
+		$meobject = $xmlConfig->get($xpath);
+		if (is_null($meobject)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Build the absolute shared folder path.
+		$dirpath = sprintf("%s/%s", $meobject['dir'], $object['reldirpath']);
+		// Delete the shared folder directory.
+		$cmd = sprintf("sudo rm -fr %s 2>&1", escapeshellarg($dirpath));
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+	}
+
+	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
@@ -82,6 +113,10 @@ class ShareMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 		  OMV_NOTIFY_CREATE,
 		  "org.openmediavault.system.shares.sharedfolder",
 		  array($this, "createFolder"), 1);
+		$dispatcher->addListener(
+		  OMV_NOTIFY_PREDELETE,
+		  "org.openmediavault.system.shares.sharedfolder",
+		  array($this, "deleteFolder"));
 	}
 }
 

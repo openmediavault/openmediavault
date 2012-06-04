@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-19 00:08+0200\n"
-"PO-Revision-Date: 2012-05-25 10:39+0000\n"
-"Last-Translator: mictian <ffrants@gmail.com>\n"
+"POT-Creation-Date: 2012-06-04 18:58+0200\n"
+"PO-Revision-Date: 2012-06-04 16:59+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.net/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -727,6 +727,9 @@ msgstr "Декабрь"
 msgid "Delete"
 msgstr "Удалить"
 
+msgid "Delete content"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Удалять файлы на стороне получения, которые не существуют у отправителя"
 
@@ -840,6 +843,9 @@ msgstr "Вы действительно хотите выйти?"
 msgid "Do you really want to reboot the system?"
 msgstr "Вы действительно хотите перезагрузить систему?"
 
+msgid "Do you really want to remove the shared folder content?"
+msgstr ""
+
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Вы действительно хотите сбросить WebGUI состояние, например, порядок столбцов сетки?"
 
@@ -856,6 +862,13 @@ msgstr "Вы действительно хотите удалить выбран
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Вы действительно хотите удалить выбранное устройство?"
+
+msgid ""
+"Do you want to remove the content of the shared folder recursively? The "
+"shared folder content will be permanently removed and cannot be recovered. "
+"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
+"abort."
+msgstr ""
 
 msgid ""
 "Do you want to secure wipe the device? Please note that this may take a long"
@@ -2489,9 +2502,6 @@ msgstr "Выберете папку"
 msgid "Select a filesystem ..."
 msgstr "Выбрать файловую систему ..."
 
-msgid "Select a group ..."
-msgstr "Выбрать группу .."
-
 msgid "Select a group name..."
 msgstr "Выберите имя группы ..."
 
@@ -2509,9 +2519,6 @@ msgstr "Выберите совместно используемую папку.
 
 msgid "Select a shell ..."
 msgstr "Выбрать оболочку ..."
-
-msgid "Select a user ..."
-msgstr "Выбрать пользователя ..."
 
 msgid "Select a user name..."
 msgstr "Выберите имя пользователя ..."
@@ -2944,7 +2951,7 @@ msgstr "Разрешения на новые файлы и каталоги, к�
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
 "for data connections is not required."
-msgstr ""
+msgstr "Требование о том, что SSL сессия управляющего соединение используется для передачи данных, не требуется."
 
 msgid "The session timeout time in minutes."
 msgstr "Время тайм-аута сеанса в минутах."
@@ -3008,6 +3015,9 @@ msgid ""
 "a net view and in the browse list."
 msgstr "Управляет, виден ли этот сетевой ресурс в списке доступных  в сетевых ресурсов и в списке просмотра."
 
+msgid "This field does not allow blanks"
+msgstr "Это поле не позволяет пробелы"
+
 msgid "This field must have the format hh:mm:ss"
 msgstr "Это поле должно быть в формате hh:mm:ss"
 
@@ -3016,6 +3026,9 @@ msgstr "Это поле должно содержать адрес IPv4 сети
 
 msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Это поле должно быть адресом сети IPv4 в нотации CIDR"
+
+msgid "This field should be a domainname or an IPv4 address"
+msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Это поле должно иметь имя или адрес IPv4"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-25 21:36+0200\n"
+"POT-Creation-Date: 2012-06-04 18:58+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -707,6 +707,9 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+msgid "Delete content"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr ""
 
@@ -813,6 +816,9 @@ msgstr ""
 msgid "Do you really want to reboot the system?"
 msgstr ""
 
+msgid "Do you really want to remove the shared folder content?"
+msgstr ""
+
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr ""
 
@@ -826,6 +832,9 @@ msgid "Do you really want to uninstall the selected plugin(s)?"
 msgstr ""
 
 msgid "Do you really want to wipe the selected device?"
+msgstr ""
+
+msgid "Do you want to remove the content of the shared folder recursively? The shared folder content will be permanently removed and cannot be recovered. Select 'No' to delete the shared folder configuration only or 'Cancel' to abort."
 msgstr ""
 
 msgid "Do you want to secure wipe the device? Please note that this may take a long time. Press 'No' to fast wipe the device or 'Cancel' to abort."
@@ -2873,6 +2882,9 @@ msgid "This field should be a IPv4 network address"
 msgstr ""
 
 msgid "This field should be a IPv4 network address in CIDR notation"
+msgstr ""
+
+msgid "This field should be a domainname or an IPv4 address"
 msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"

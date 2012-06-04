@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-19 00:08+0200\n"
-"PO-Revision-Date: 2012-05-23 06:38+0000\n"
-"Last-Translator: Cyryl Sochacki <>\n"
+"POT-Creation-Date: 2012-06-04 18:58+0200\n"
+"PO-Revision-Date: 2012-06-04 16:59+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.net/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -727,6 +727,9 @@ msgstr "Grudzień"
 msgid "Delete"
 msgstr "Usuń"
 
+msgid "Delete content"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Kasuj pliki po stronie odbiorczej, nie istniejące po stronie nadawczej"
 
@@ -829,7 +832,7 @@ msgid ""
 msgstr "Czy na pewno chcesz sformatować te urządzenie? Wszystkie dane na nim zostaną usunięte. Należy pamiętać, że tworzenie systemu plików może zająć trochę czasu."
 
 msgid "Do you really want to install the selected plugin(s)?"
-msgstr ""
+msgstr "Czy na pewno chcesz zainstalować wybrany/e plugin(y)?"
 
 msgid "Do you really want to leave the page?"
 msgstr "Czy na pewno chcesz opuścić stronę?"
@@ -839,6 +842,9 @@ msgstr "Czy na pewno chcesz się wylogować?"
 
 msgid "Do you really want to reboot the system?"
 msgstr "Czy na pewno chcesz zrestartować system?"
+
+msgid "Do you really want to remove the shared folder content?"
+msgstr ""
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr ""
@@ -856,6 +862,13 @@ msgstr "Czy na pewno chcesz odinstalować wybrany(e) plugin(y)?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Czy na pewno chcesz wyczyścić wybrane urządzenie?"
+
+msgid ""
+"Do you want to remove the content of the shared folder recursively? The "
+"shared folder content will be permanently removed and cannot be recovered. "
+"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
+"abort."
+msgstr ""
 
 msgid ""
 "Do you want to secure wipe the device? Please note that this may take a long"
@@ -979,7 +992,7 @@ msgid "Enable WINS server"
 msgstr "Włącz serwer WINS"
 
 msgid "Enable advertising of services via mDNS/DNS-SD."
-msgstr ""
+msgstr "Włącz rozgłaszanie usług za pośrednictwem mDNS/DNS-SD."
 
 msgid "Enable anonymous FTP"
 msgstr "Włącz anonimowy FTP"
@@ -1227,7 +1240,7 @@ msgid "Ghana"
 msgstr "Ghana"
 
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 msgid "Gibraltar"
 msgstr "Gibraltar"
@@ -1246,7 +1259,7 @@ msgstr "Grupa"
 
 #, c-format
 msgid "Group '%s' already exist"
-msgstr ""
+msgstr "Grupa '%s' już istnieje"
 
 #, c-format
 msgid "Group '%s' does not exist"
@@ -1254,7 +1267,7 @@ msgstr "Grupa '%s' nie istnieje"
 
 #, c-format
 msgid "Group ID '%d' already exist"
-msgstr ""
+msgstr "ID grupy '%d' już istnieje"
 
 msgid "Groups"
 msgstr "Grupy"
@@ -1387,7 +1400,7 @@ msgid ""
 msgstr ""
 
 msgid "Implicit SSL"
-msgstr ""
+msgstr "Niejawny SSL"
 
 msgid "Import"
 msgstr "Import"
@@ -1396,7 +1409,7 @@ msgid "Import SSL certificate"
 msgstr "Importuj certyfikat SSL"
 
 msgid "Import groups"
-msgstr ""
+msgstr "Importuj grupy"
 
 msgid "Import users"
 msgstr "Importuj użytkowników"
@@ -1431,7 +1444,7 @@ msgid "Inherit permissions"
 msgstr "Dziedzicz uprawnienia"
 
 msgid "Initializing"
-msgstr ""
+msgstr "Inicjowanie"
 
 msgid "Install"
 msgstr "Instaluj"
@@ -1528,7 +1541,7 @@ msgid "Key size"
 msgstr "Rozmiar klucza"
 
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 msgid "Kiribati"
 msgstr "Kiribati"
@@ -1611,7 +1624,7 @@ msgid "Location information, e.g. physical location of this system."
 msgstr ""
 
 msgid "Log level"
-msgstr ""
+msgstr "Poziom logów"
 
 #, c-format
 msgid "Logical volume %s [%s, %s]"
@@ -1636,7 +1649,7 @@ msgid "MAC address"
 msgstr "Adres MAC"
 
 msgid "MII monitoring frequency"
-msgstr ""
+msgstr "Monitorowanie częstotliwości MII"
 
 msgid "MTU"
 msgstr "MTU"
@@ -1763,7 +1776,7 @@ msgid "Mexico"
 msgstr "Mexico"
 
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 msgid "Micronesia"
 msgstr "Micronesia"
@@ -1787,7 +1800,7 @@ msgid "Mirror"
 msgstr "Lustro"
 
 msgid "Missing"
-msgstr ""
+msgstr "Brak"
 
 msgid "Mode"
 msgstr "Opcja"
@@ -1799,7 +1812,7 @@ msgid "Modify account"
 msgstr "Modyfikuj konto"
 
 msgid "Modify shared folder ACL"
-msgstr ""
+msgstr "Modyfikowanie listy ACL folderu udostępnionego"
 
 msgid "Modules"
 msgstr "Moduły"
@@ -1869,7 +1882,7 @@ msgstr "Sieć"
 
 #, c-format
 msgid "Network interface '%s' already exists"
-msgstr ""
+msgstr "Interfejs sieciowy '%s' już istnieje"
 
 msgid "Neutral Zone"
 msgstr "Neutral Zone"
@@ -1902,10 +1915,10 @@ msgid "No access"
 msgstr "Brak dostępu"
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Brak uwierzytelniania i prywatności"
 
 msgid "No certificate request"
-msgstr ""
+msgstr "Brak żądania certyfikatu"
 
 msgid "No items to display"
 msgstr "Brak elementów do wyświetlenia"
@@ -1914,7 +1927,7 @@ msgid "No log entries to display"
 msgstr "Brak wpisów dziennika do wyświetlenia"
 
 msgid "No session reuse required"
-msgstr ""
+msgstr "Brak wymagania ponownego użycia sesji"
 
 msgid "No users connected"
 msgstr "Brak podłączonych użytkowników"
@@ -1971,7 +1984,7 @@ msgid "OK"
 msgstr "OK"
 
 msgid "Occurrence"
-msgstr ""
+msgstr "Występowanie"
 
 msgid "October"
 msgstr "Październik"
@@ -1983,7 +1996,7 @@ msgid "Oman"
 msgstr "Oman"
 
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 msgid "Options"
 msgstr "Opcje"
@@ -1992,7 +2005,7 @@ msgid "Organization Name"
 msgstr "Nazwa organizacji"
 
 msgid "Organizational Unit"
-msgstr ""
+msgstr "Jednostka organizacyjna"
 
 msgid "Others"
 msgstr "Inni"
@@ -2001,7 +2014,7 @@ msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Adres SMTP poczty wychodzącej, np: smtp.mycorp.com."
 
 msgid "Outlying Oceania"
-msgstr ""
+msgstr "Outlying Oceania"
 
 msgid "Overview"
 msgstr "Przegląd"
@@ -2058,7 +2071,7 @@ msgid "Path"
 msgstr "Ścieżka"
 
 msgid "People's Democratic Republic of Yemen"
-msgstr ""
+msgstr "People's Democratic Republic of Yemen"
 
 msgid "Period of validity"
 msgstr "Okres ważnośći"
@@ -2091,7 +2104,7 @@ msgid "Physical Disks"
 msgstr "Dyski fizyczne"
 
 msgid "Pitcairn"
-msgstr ""
+msgstr "Pitcairn"
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
@@ -2132,7 +2145,7 @@ msgid ""
 msgstr "Więcej informacji na <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a>."
 
 msgid "Please first select a volume."
-msgstr ""
+msgstr "Proszę najpierw wybrać wolumin."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2240,7 +2253,7 @@ msgid "Qatar"
 msgstr "Katar"
 
 msgid "Quiet"
-msgstr ""
+msgstr "Cichy"
 
 msgid "Quota"
 msgstr ""
@@ -2264,10 +2277,10 @@ msgid "RSync server"
 msgstr "Serwer RSync"
 
 msgid "Ranges of numbers are not allowed"
-msgstr ""
+msgstr "Zakresy liczb są niedozwolone"
 
 msgid "Raw value"
-msgstr ""
+msgstr "Nieprzetworzona wartość"
 
 msgid "Read only"
 msgstr "Tylko do odczytu"
@@ -2288,10 +2301,10 @@ msgid "Recover"
 msgstr "Przywróć"
 
 msgid "Recurse into directories"
-msgstr ""
+msgstr "Przejście do katalogów"
 
 msgid "Recursive"
-msgstr ""
+msgstr "Cykliczne"
 
 msgid "Recycle bin"
 msgstr "Kosz"
@@ -2303,10 +2316,10 @@ msgid "Remaining"
 msgstr "Pozostaje"
 
 msgid "Remote"
-msgstr ""
+msgstr "Zdalny"
 
 msgid "Remote syslog"
-msgstr ""
+msgstr "Zdalny syslog"
 
 msgid "Replace"
 msgstr "Zastąp"
@@ -2358,10 +2371,10 @@ msgid "Retry timeout"
 msgstr "Limit czasu powtórzeń"
 
 msgid "Reunion"
-msgstr ""
+msgstr "Reunion"
 
 msgid "Reverse DNS lookup"
-msgstr ""
+msgstr "Odwrotne wyszukiwanie DNS"
 
 msgid "Romania"
 msgstr "Romania"
@@ -2370,13 +2383,13 @@ msgid "Rsync"
 msgstr "Rsync"
 
 msgid "Rsync - Jobs"
-msgstr ""
+msgstr "Zadania - Rsync"
 
 msgid "Rsync - Server"
-msgstr ""
+msgstr "Serwer - Rsync"
 
 msgid "Run"
-msgstr ""
+msgstr "Uruchom"
 
 msgid "Running"
 msgstr "Uruchomiony"
@@ -2484,16 +2497,13 @@ msgid "Select a device ..."
 msgstr "Wybierz urządzenie ..."
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Wybierz katalog"
 
 msgid "Select a filesystem ..."
 msgstr "Wybierz system plików ..."
 
-msgid "Select a group ..."
-msgstr "Wybierz grupę ..."
-
 msgid "Select a group name..."
-msgstr ""
+msgstr "Wybierz nazwę grupy..."
 
 msgid "Select a language ..."
 msgstr "Wybierz język"
@@ -2510,11 +2520,8 @@ msgstr "Wybierz folder współdzielony ..."
 msgid "Select a shell ..."
 msgstr "Wybierz powłokę ..."
 
-msgid "Select a user ..."
-msgstr "Wybierz użytkownika"
-
 msgid "Select a user name..."
-msgstr ""
+msgstr "Wybierz nazwę użytkownika..."
 
 msgid "Select a volume ..."
 msgstr "Wybierz wolumen ..."
@@ -2523,13 +2530,13 @@ msgid "Select devices to be added to the RAID device"
 msgstr "Wybierz urządzenia, które mają być dodane do urządzenia RAID"
 
 msgid "Select or enter a user name ..."
-msgstr ""
+msgstr "Wybierz lub wprowadź nazwę użytkownika..."
 
 msgid "Self-test logs"
 msgstr ""
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "Wyślij wynik polecenia przez e-mail"
 
 msgid "Send email"
 msgstr "Wyślij email"
@@ -3008,6 +3015,9 @@ msgid ""
 "a net view and in the browse list."
 msgstr ""
 
+msgid "This field does not allow blanks"
+msgstr ""
+
 msgid "This field must have the format hh:mm:ss"
 msgstr "To pole musi mieć format gg:mm:ss"
 
@@ -3016,6 +3026,9 @@ msgstr "To pole powinno być adresem IPv4"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "To pole powinno być adresem IPv4 w zapisie CIDR"
+
+msgid "This field should be a domainname or an IPv4 address"
+msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "To pole powinno być nazwą hosta lub adresem IPv4"
@@ -3158,7 +3171,7 @@ msgid "Thursday"
 msgstr "Wtorek"
 
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 msgid "Time"
 msgstr "Czas"
@@ -3385,7 +3398,7 @@ msgid "Valid to"
 msgstr ""
 
 msgid "Value"
-msgstr ""
+msgstr "Wartość"
 
 msgid "Vanuatu"
 msgstr ""
@@ -3409,16 +3422,16 @@ msgid "Volume"
 msgstr ""
 
 msgid "WINS"
-msgstr ""
+msgstr "WINS"
 
 msgid "WINS server"
-msgstr ""
+msgstr "Serwer WINS"
 
 msgid "WINS support"
-msgstr ""
+msgstr "Wsparcie WINS"
 
 msgid "Wake Island"
-msgstr ""
+msgstr "Wake Island"
 
 msgid "Wake-on-LAN"
 msgstr "Wake-on-LAN"
@@ -3471,7 +3484,7 @@ msgid "Write cache"
 msgstr ""
 
 msgid "Write only"
-msgstr ""
+msgstr "Tyko zapis"
 
 msgid "Yemen"
 msgstr "Yemen"

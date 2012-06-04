@@ -61,7 +61,8 @@ class ShareMgmtRpc extends OMVRpc {
 			"delete" => array('{
 				"type":"object",
 				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
+					"recursive":{"type":"boolean"}
 				}
 			}'),
 			"getPath" => array('{
@@ -408,6 +409,7 @@ class ShareMgmtRpc extends OMVRpc {
 	 * Delete a shared folder configuration object.
 	 * @param data An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
+	 *   \em recursive Remove the shared folder and its content recursively.
 	 * @return None
 	 */
 	function delete($data) {
@@ -434,10 +436,13 @@ class ShareMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
+		// Delete shared folder content recursively?
+		$recursive = boolval($data['recursive']);
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
-		  "org.openmediavault.system.shares.sharedfolder", $object);
+		  "org.openmediavault.system.shares.sharedfolder", $object,
+		  $recursive);
 		// Delete configuration object
 		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
@@ -450,7 +455,8 @@ class ShareMgmtRpc extends OMVRpc {
 		}
 		// Notify configuration changes
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.shares.sharedfolder", $object);
+		  "org.openmediavault.system.shares.sharedfolder", $object,
+		  $recursive);
 	}
 
 	/**

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-19 00:08+0200\n"
-"PO-Revision-Date: 2012-05-18 22:14+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"POT-Creation-Date: 2012-06-04 18:58+0200\n"
+"PO-Revision-Date: 2012-06-04 16:59+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.net/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -725,6 +725,9 @@ msgstr "Diciembre"
 msgid "Delete"
 msgstr "Borrar"
 
+msgid "Delete content"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Borrar archivos en la parte receptora que no existan en la parte emisora."
 
@@ -838,6 +841,9 @@ msgstr "¿Realmente desea salir del sistema?"
 msgid "Do you really want to reboot the system?"
 msgstr "¿Realmente desea reiniciar el sistema?"
 
+msgid "Do you really want to remove the shared folder content?"
+msgstr ""
+
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "¿Seguro que desea reiniciar la WebGUI?, Ej: el orden de las columnas"
 
@@ -854,6 +860,13 @@ msgstr "¿Realmente desea desinstalar el plugin selecionado?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "¿Realmente quiere limpiar el dispositivo seleccionado?"
+
+msgid ""
+"Do you want to remove the content of the shared folder recursively? The "
+"shared folder content will be permanently removed and cannot be recovered. "
+"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
+"abort."
+msgstr ""
 
 msgid ""
 "Do you want to secure wipe the device? Please note that this may take a long"
@@ -2487,9 +2500,6 @@ msgstr "Seleccione un directorio"
 msgid "Select a filesystem ..."
 msgstr "Seleccionar un sistema de archivos ..."
 
-msgid "Select a group ..."
-msgstr "Seleccionar un grupo ..."
-
 msgid "Select a group name..."
 msgstr "Seleccione un nombre de grupo ..."
 
@@ -2507,9 +2517,6 @@ msgstr "Seleccionar una carpeta compartida ..."
 
 msgid "Select a shell ..."
 msgstr "Seleccionar una Shell ..."
-
-msgid "Select a user ..."
-msgstr "Serleccionar un usuario ..."
 
 msgid "Select a user name..."
 msgstr "eccione un nombre de usuario ..."
@@ -3006,6 +3013,9 @@ msgid ""
 "a net view and in the browse list."
 msgstr "Controla si la compartición será visible en la lista de comparticiones disponibles en la vista de red de la lista de navegación."
 
+msgid "This field does not allow blanks"
+msgstr "Este campo no admite espacios"
+
 msgid "This field must have the format hh:mm:ss"
 msgstr "Este campo debe estar en formato: hh:mm:ss"
 
@@ -3014,6 +3024,9 @@ msgstr "Este campo debe ser una dirección IP válida"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Debería ser una dirección de red IPv4 en notación CIDR."
+
+msgid "This field should be a domainname or an IPv4 address"
+msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Debería ser un nombre de host o una dirección IPv4."

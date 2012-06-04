@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-19 00:08+0200\n"
-"PO-Revision-Date: 2012-05-18 22:08+0000\n"
+"POT-Creation-Date: 2012-06-04 18:58+0200\n"
+"PO-Revision-Date: 2012-06-04 16:59+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.net/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -245,7 +245,7 @@ msgid "Administrator: read/write, Users: read-only, Others: read-only"
 msgstr "Yönetici:oku/yaz, Kullanıcılar:sadece opkunabilir, Diğerleri:sadece okunabilir"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
-msgstr ""
+msgstr "Yönetici:oku/yaz, Kullanıcılar:oku/yaz, Diğerleri:erişim yok"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Yönetici:oku/yaz, Kullanıcılar:oku/yaz, Diğerleri:sadece okunabilir"
@@ -724,6 +724,9 @@ msgstr "Aralık"
 msgid "Delete"
 msgstr "Sil"
 
+msgid "Delete content"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Göndericide bulunmayan dosyaları kaydedilen taraftan sil"
 
@@ -826,7 +829,7 @@ msgid ""
 msgstr "Bu aygıtı geröekten formatlamak istiyor musunuz? Tüm bilgiler silinecektir. Dosya sistemi kurulumunun süre alabileceğini göz önünde bulundurunuz."
 
 msgid "Do you really want to install the selected plugin(s)?"
-msgstr ""
+msgstr "Seçilmiş eklenti(ler)i kurak istediğinize emin misiniz?"
 
 msgid "Do you really want to leave the page?"
 msgstr "Bu sayfadan ayrıllam istediğinize emin misiniz?"
@@ -837,8 +840,11 @@ msgstr "Çıkış yapmak istediğinize emin misiniz?"
 msgid "Do you really want to reboot the system?"
 msgstr "Sistemi yeniden başlatmak istediğinize emin misiniz?"
 
-msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
+msgid "Do you really want to remove the shared folder content?"
 msgstr ""
+
+msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
+msgstr "WebGUI durumunu, örneğin sıralı kolon sıralaması şeklinde, sıfırlamak istediğinize emin misiniz?"
 
 msgid ""
 "Do you really want to resize the selected filesystem? You have to do that "
@@ -853,6 +859,13 @@ msgstr "Seçili ilave(leri) kaldırmak istediğinizden emin misiniz?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Seçili aygıtı silmek istediğinizden emin misiniz?"
+
+msgid ""
+"Do you want to remove the content of the shared folder recursively? The "
+"shared folder content will be permanently removed and cannot be recovered. "
+"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
+"abort."
+msgstr ""
 
 msgid ""
 "Do you want to secure wipe the device? Please note that this may take a long"
@@ -887,7 +900,7 @@ msgid "Dronning Maud Land"
 msgstr "Dronning Maud Bölgesi"
 
 msgid "Each line represents one group."
-msgstr ""
+msgstr "Her satır bir grubu temsil eder."
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
@@ -1224,7 +1237,7 @@ msgid "Ghana"
 msgstr "Gana"
 
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 msgid "Gibraltar"
 msgstr "Cebelitarık"
@@ -1243,7 +1256,7 @@ msgstr "Grup"
 
 #, c-format
 msgid "Group '%s' already exist"
-msgstr ""
+msgstr "Grup '%s' zaten var"
 
 #, c-format
 msgid "Group '%s' does not exist"
@@ -1251,7 +1264,7 @@ msgstr "Grup '%s' mevcut değil"
 
 #, c-format
 msgid "Group ID '%d' already exist"
-msgstr ""
+msgstr "Grup ID '%d' zaten var"
 
 msgid "Groups"
 msgstr "Gruplar"
@@ -1384,7 +1397,7 @@ msgid ""
 msgstr "Eğer makinanız sunucu çin NAT ag geçidi ya da port yönlendirici olarak çalışıyor ise, bu seçenek çalışmak için pasif transferlere izin verdiğinden oldukça kullanışlıdır."
 
 msgid "Implicit SSL"
-msgstr ""
+msgstr "Kesin SSL"
 
 msgid "Import"
 msgstr "İçeri aktarmak"
@@ -1393,7 +1406,7 @@ msgid "Import SSL certificate"
 msgstr "SSl sertifikasını içeri aktar"
 
 msgid "Import groups"
-msgstr ""
+msgstr "Grupları aktar"
 
 msgid "Import users"
 msgstr "Kullanıcıları içeri aktar"
@@ -1428,7 +1441,7 @@ msgid "Inherit permissions"
 msgstr "Yetkileri alt dizinlere aktar"
 
 msgid "Initializing"
-msgstr ""
+msgstr "Başlatılıyor"
 
 msgid "Install"
 msgstr "Kur"
@@ -1525,7 +1538,7 @@ msgid "Key size"
 msgstr "Anahtar boyutu"
 
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 msgid "Kiribati"
 msgstr "Kiribati"
@@ -1760,7 +1773,7 @@ msgid "Mexico"
 msgstr "Meksiko"
 
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 msgid "Micronesia"
 msgstr "Mikronezya"
@@ -1784,7 +1797,7 @@ msgid "Mirror"
 msgstr "Yansı"
 
 msgid "Missing"
-msgstr ""
+msgstr "Kayıp"
 
 msgid "Mode"
 msgstr "Mod"
@@ -1866,7 +1879,7 @@ msgstr "Ağ"
 
 #, c-format
 msgid "Network interface '%s' already exists"
-msgstr ""
+msgstr "Ağ arabirimi '%s' zaten mevcut"
 
 msgid "Neutral Zone"
 msgstr "Tarafsız Bölge"
@@ -1902,7 +1915,7 @@ msgid "No authentication and no privacy"
 msgstr "Kimlik doğrulama ve gizlilik yok"
 
 msgid "No certificate request"
-msgstr ""
+msgstr "Sertifika talebi yok"
 
 msgid "No items to display"
 msgstr "Gösterilecek herhangi bir öge yok"
@@ -1911,7 +1924,7 @@ msgid "No log entries to display"
 msgstr "Gösterilecek herhangi bir kayıt girişi yok"
 
 msgid "No session reuse required"
-msgstr ""
+msgstr "Oturum tekrar kullanımı gerekli değil"
 
 msgid "No users connected"
 msgstr "Herhangi bir kullanıcı bağlı değil"
@@ -1980,7 +1993,7 @@ msgid "Oman"
 msgstr "Amman"
 
 msgid "Online"
-msgstr ""
+msgstr "Çalışır"
 
 msgid "Options"
 msgstr "Seçenekler"
@@ -2129,7 +2142,7 @@ msgid ""
 msgstr "Daha fazla bilgi için lütfen <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> adresini ziyaret ediniz."
 
 msgid "Please first select a volume."
-msgstr ""
+msgstr "Lütfen önce bir volüm seçiniz."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2334,7 +2347,7 @@ msgid "Reset"
 msgstr "Reset"
 
 msgid "Reset WebGUI state"
-msgstr ""
+msgstr "WebGUI durumunu sıfırla"
 
 msgid "Resize"
 msgstr "Yeniden boyutlandır"
@@ -2367,10 +2380,10 @@ msgid "Rsync"
 msgstr "Rsync"
 
 msgid "Rsync - Jobs"
-msgstr ""
+msgstr "Rsync - Görevler"
 
 msgid "Rsync - Server"
-msgstr ""
+msgstr "Rsync - Sunucu"
 
 msgid "Run"
 msgstr "Çalıştır"
@@ -2481,16 +2494,13 @@ msgid "Select a device ..."
 msgstr "Aygıt seçiniz ..."
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Klasör seç"
 
 msgid "Select a filesystem ..."
 msgstr "Dosya sistemi seçiniz ..."
 
-msgid "Select a group ..."
-msgstr "Grup seçiniz ..."
-
 msgid "Select a group name..."
-msgstr ""
+msgstr "Bir grup adı seçiniz..."
 
 msgid "Select a language ..."
 msgstr "Bir dil seçiniz ..."
@@ -2507,11 +2517,8 @@ msgstr "Paylaşılmış bir klasör seçin ..."
 msgid "Select a shell ..."
 msgstr "Bir kabuk seçin ..."
 
-msgid "Select a user ..."
-msgstr "Kullanıcı seçiniz ..."
-
 msgid "Select a user name..."
-msgstr ""
+msgstr "Bir kullanıcı adı seçiniz..."
 
 msgid "Select a volume ..."
 msgstr "Bir birim seçiniz ..."
@@ -2520,7 +2527,7 @@ msgid "Select devices to be added to the RAID device"
 msgstr "RAID e eklemecek yeni aygıtları seçiniz"
 
 msgid "Select or enter a user name ..."
-msgstr ""
+msgstr "Bir kullanıcı adı seçiniz ya da giriniz..."
 
 msgid "Self-test logs"
 msgstr "İç kontrol kayıtları"
@@ -2829,7 +2836,7 @@ msgid "System time"
 msgstr "Sistem zamanı"
 
 msgid "System user/group"
-msgstr ""
+msgstr "Sistem kullanıcı/grup"
 
 msgid "TCP forwarding"
 msgstr "TCP yönlendirme"
@@ -2889,7 +2896,7 @@ msgid "The field '%s' contains forbidden "
 msgstr "'%s' alanı erişilemez"
 
 msgid "The file mode of the shared folder path."
-msgstr ""
+msgstr "Paylaşılmış klasör adresinin dosya modu."
 
 #, c-format
 msgid "The group '%s' does not exist"
@@ -2924,7 +2931,7 @@ msgid ""
 msgstr "Bu parola rsync programı aracılığı ile erişim için kullanılır. Ancak bu SSH gibi uzaktan kabuk aktarımı amacaıyla kullanılamaz."
 
 msgid "The path of the folder to share."
-msgstr ""
+msgstr "Paylaşılacak klasörün yolu"
 
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
@@ -2941,7 +2948,7 @@ msgstr "Yeni dosya ve klasörler üzerindeki yetkiler normalde oluşturma kalıb
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
 "for data connections is not required."
-msgstr ""
+msgstr "Kontrol bağlantılarındaki SSL oturumlarının data bağlantılarında yeniden kullanılması gerekli değildir."
 
 msgid "The session timeout time in minutes."
 msgstr "Dakika olarak oturum zaman aşımı."
@@ -2998,12 +3005,15 @@ msgstr "%s için zaten bir bağlantı noktası mevcut"
 msgid ""
 "These settings are used by the services to configure the user access rights."
 " Please note that these settings do no affect the file system permissions."
-msgstr ""
+msgstr "Bu ayarlar kullanıcı erişim haklarını düzenleyen servisler tarafından kullanılır.\nLütfen bu ayarların dosya sistemi yetkileri ile ilgili olmadıklarını dikkate alınız."
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
 msgstr "Bu parametre, paylaşımın ağ görüntüleme ve araştırma listesindeki mevcut paylaşımların içinde yer alıp almayacağını kontrol eder."
+
+msgid "This field does not allow blanks"
+msgstr "Bu alan boş bırakılamaz"
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Bu alan SS:dd:ss şeklinde olmalıdır"
@@ -3013,6 +3023,9 @@ msgstr "Bu alan IPv4 network adresi olmalıdır"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Bu alan SIDR notasyonu ile yazılmış IPv4 network adresi olmalıdır"
+
+msgid "This field should be a domainname or an IPv4 address"
+msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Bu alan sistem adı veya IPv4 adresi olmalıdır"
@@ -3067,7 +3080,7 @@ msgstr "Bu, sistem işlemcisinin daha etkin olarak çalıştırılmasını ve Sa
 msgid ""
 "This option causes the server to not send a certificate request during a SSL"
 " handshake."
-msgstr ""
+msgstr "Bu seçenek, sunucunun SSL buluşması esnasında sertifika isteği yollamamasına neden olur."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -3107,7 +3120,7 @@ msgstr "Bu seçenek, bu paylaşıma erişim hakkı bulunan, virgül, boşluk vey
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
 "server."
-msgstr ""
+msgstr "Bu seçenek, kullanıcıların sunucu ile iletişimde TLS üzerinden FTP kullanmalarını gerektirir."
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
@@ -3127,7 +3140,7 @@ msgstr "Bu seçenek yer alacağı modülden ya da modüle dosya transferleri sı
 msgid ""
 "This option will handle all connections as if they are SSL connections "
 "implicitly."
-msgstr ""
+msgstr "Bu seçenek, kesin olarak SSL bağlantı tipinde olan tüm bağlantıları yönetir."
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
@@ -3155,7 +3168,7 @@ msgid "Thursday"
 msgstr "Perşembe"
 
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 msgid "Time"
 msgstr "Zaman"
