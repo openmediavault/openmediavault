@@ -352,6 +352,9 @@ case "$1" in
 			omv_config_add_element "//services/ftp/modules/mod_tls" "nosessionreuserequired" "0"
 			omv_config_add_element "//services/ftp/modules/mod_tls" "useimplicitssl" "0"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.12"; then
+			echo 'send host-name "<hostname>";' >> /etc/dhcp/dhclient.conf
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

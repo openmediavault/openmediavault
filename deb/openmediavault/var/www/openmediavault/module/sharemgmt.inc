@@ -74,6 +74,52 @@ class ShareMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 	}
 
 	/**
+	 * Do some checks before a shared folder is deleted.
+	 * @param object The shared folder configuration object.
+	 * @param recursive Remove the shared folder and its content recursively.
+	 */
+	public function preDeleteFolder($object, $recursive) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Remove the shared folder and its content recursively? 
+		if (!isset($recursive) || ($recursive === FALSE))
+			return;
+		// Get the mount point configuration object to build the absolute
+		// shared folder path.
+		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
+		  $object['mntentref']);
+		$meobject = $xmlConfig->get($xpath);
+		if (is_null($meobject)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Build the absolute shared folder path.
+		$dirpath = sprintf("%s/%s", $meobject['dir'], $object['reldirpath']);
+		// Do not delete the shared folder content if a sub-directory is
+		// part of another shared folder.
+		$xpath = sprintf("//system/shares/sharedfolder[mntentref='%s']",
+		  $object['mntentref']);
+		$sfobjects = $xmlConfig->getList($xpath);
+		if (!is_null($sfobjects)) {
+			foreach ($sfobjects as $sfobjectk => $sfobjectv) {
+				// Skip current processed shared folder configuration object.
+				if ($sfobjectv['uuid'] === $object['uuid'])
+					continue;
+				// Check if the shared folder to be deleted is a top folder
+				// of another shared folder configuration object. In this
+				// case throw an exception because unlinking the content
+				// recursively will delete the content of another shared
+				// folder.
+				if (0 === stripos(trim($object['reldirpath'], "/"), trim(
+				  $object['reldirpath'], "/"))) {
+					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+					  gettext("Cannot unlink shared folder content because another shared folder is referencing a subdirectory"));
+				}
+			}
+		}
+	}
+
+	/**
 	 * Delete a shared folder.
 	 * @param object The shared folder configuration object.
 	 * @param recursive Remove the shared folder and its content recursively.
@@ -115,6 +161,10 @@ class ShareMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 		  array($this, "createFolder"), 1);
 		$dispatcher->addListener(
 		  OMV_NOTIFY_PREDELETE,
+		  "org.openmediavault.system.shares.sharedfolder",
+		  array($this, "preDeleteFolder"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.shares.sharedfolder",
 		  array($this, "deleteFolder"));
 	}

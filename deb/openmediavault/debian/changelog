@@ -2,6 +2,7 @@ openmediavault (0.3.0.12) stable; urgency=low
 
   * Flush mailq once a day if email notification service is disabled.
   * Fix bug in Apt::getUpgraded RPC.
+  * Send hostname to DHCP server.
   * Mantis 0000488: Display icon in "Enabled" columns.
   * Mantis 0000490: Cannot set DNS hostname in Masquerade address field of
     FTP service.
