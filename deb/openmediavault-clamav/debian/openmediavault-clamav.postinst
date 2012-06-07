@@ -144,6 +144,12 @@ case "$1" in
 			omv_config_add_element "//services/clamav/jobs/job" "multiscan" "0"
 			omv-mkconf clamav
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.3"; then
+			omv-mkconf clamav
+			if [ "$(omv_config_get "//services/clamav/enable")" != "0" ]; then
+				invoke-rc.d clamav-freshclam restart
+			fi
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
