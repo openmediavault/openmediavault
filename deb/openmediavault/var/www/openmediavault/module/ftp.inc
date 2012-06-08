@@ -82,9 +82,9 @@ class FTPModule extends OMVModuleAbstract implements OMVINotifyListener,
 	}
 
 	/**
-	 * Delete share.
+	 * Unmount /home/ftp/<xxx> directory before the share is deleted.
 	 */
-	public static function deleteShare($object) {
+	public static function preDeleteShare($object) {
 		global $xmlConfig;
 		// Get the associated mount point configuration object.
 		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
@@ -146,7 +146,7 @@ class FTPModule extends OMVModuleAbstract implements OMVINotifyListener,
 		$dispatcher->addListener(
 		  OMV_NOTIFY_PREDELETE,
 		  "org.openmediavault.services.ftp.shares.share",
-		  array($this, "deleteShare"));
+		  array($this, "preDeleteShare"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.ftp.shares.share",

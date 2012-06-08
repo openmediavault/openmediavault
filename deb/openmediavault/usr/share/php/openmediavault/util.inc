@@ -96,5 +96,21 @@ EOD;
 
 	  return mail($to, $subject, $message, $headers);
 	}
+
+	/**
+	 * Returns the target of a symbolic link. Canonicalize by following
+	 * every symlink in every component of the given name recursively,
+	 * without requirements on components existence.
+	 * @param path The symbolic link path.
+	 * @return Returns the value of the symbolic link or FALSE on error.
+	 */
+	public static function readlink($path) {
+		$cmd = sprintf("export LANG=C; sudo readlink -mn %s", escapeshellarg(
+		  $path));
+		@self::exec($cmd, $output, $result);
+		if ($result !== 0)
+			return FALSE;
+		return $output[0];
+	}
 }
 ?>

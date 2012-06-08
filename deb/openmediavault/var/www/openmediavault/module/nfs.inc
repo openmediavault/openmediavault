@@ -82,9 +82,9 @@ class NFSModule extends OMVModuleAbstract implements OMVINotifyListener,
 	}
 
 	/**
-	 * Delete share.
+	 * Unmount /export/<xxx> directory before the share is deleted.
 	 */
-	public function deleteShare($object) {
+	public function preDeleteShare($object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
 		// Get the associated mount point configuration object.
@@ -147,7 +147,7 @@ class NFSModule extends OMVModuleAbstract implements OMVINotifyListener,
 		$dispatcher->addListener(
 		  OMV_NOTIFY_PREDELETE,
 		  "org.openmediavault.services.nfs.shares.share",
-		  array($this, "deleteShare"));
+		  array($this, "preDeleteShare"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.nfs.shares.share",

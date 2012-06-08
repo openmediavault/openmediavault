@@ -84,34 +84,47 @@ class ShareMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 		// Remove the shared folder and its content recursively? 
 		if (!isset($recursive) || ($recursive === FALSE))
 			return;
-		// Get the mount point configuration object to build the absolute
-		// shared folder path.
-		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
-		  $object['mntentref']);
-		$meobject = $xmlConfig->get($xpath);
-		if (is_null($meobject)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Build the absolute shared folder path.
-		$dirpath = sprintf("%s/%s", $meobject['dir'], $object['reldirpath']);
 		// Do not delete the shared folder content if a sub-directory is
 		// part of another shared folder.
 		$xpath = sprintf("//system/shares/sharedfolder[mntentref='%s']",
 		  $object['mntentref']);
 		$sfobjects = $xmlConfig->getList($xpath);
 		if (!is_null($sfobjects)) {
+			// Get the mount point configuration object to build the absolute
+			// shared folder path.
+			$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
+			  $object['mntentref']);
+			$meobject = $xmlConfig->get($xpath);
+			if (is_null($meobject)) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+				  $xpath);
+			}
+			// Build the absolute shared folder path.
+			$absDirPath = OMVUtil::readlink(sprintf("%s/%s", $meobject['dir'],
+			  $object['reldirpath']));
 			foreach ($sfobjects as $sfobjectk => $sfobjectv) {
 				// Skip current processed shared folder configuration object.
 				if ($sfobjectv['uuid'] === $object['uuid'])
 					continue;
-				// Check if the shared folder to be deleted is a top folder
-				// of another shared folder configuration object. In this
-				// case throw an exception because unlinking the content
-				// recursively will delete the content of another shared
-				// folder.
-				if (0 === stripos(trim($object['reldirpath'], "/"), trim(
-				  $object['reldirpath'], "/"))) {
+				// Check if the shared folder to be deleted is a top
+				// directory of another shared folder configuration object.
+				// In this case throw an exception because unlinking the
+				// content recursively will delete the content of another
+				// shared folder.
+				//
+				// Example:
+				// <volume>
+				//  |-dir1
+				//  |-dir2
+				//  |  |-dir2.1
+				//  |  '-dir2.x
+				//  .
+				//
+				// Deleting dir2 recursively will be forbidden when dir2.1
+				// is used by another shared folder.
+				$sfAbsDirPath = OMVUtil::readlink(sprintf("%s/%s",
+				  $meobject['dir'], $sfobjectv['reldirpath']));
+				if (0 === stripos($sfAbsDirPath, $absDirPath)) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  gettext("Cannot unlink shared folder content because another shared folder is referencing a subdirectory"));
 				}

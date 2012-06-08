@@ -1,3 +1,9 @@
+openmediavault (0.3.0.13) stable; urgency=low
+
+  * Mantis 0000497: Various errors after last update to shared folders.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 09 Jun 2012 01:16:46 +0200
+
 openmediavault (0.3.0.12) stable; urgency=low
 
   * Flush mailq once a day if email notification service is disabled.
