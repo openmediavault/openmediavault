@@ -1,3 +1,10 @@
+openmediavault-lvm2 (0.3.0.5) stable; urgency=low
+
+  * Mantis 0000503: Volume groups containing the character '-' are not
+    processed correctly in association with logical volumes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Jun 2012 02:56:06 +0200
+
 openmediavault-lvm2 (0.3.0.4) stable; urgency=low
 
   * Update locales.

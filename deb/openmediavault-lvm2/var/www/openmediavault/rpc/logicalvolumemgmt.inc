@@ -668,13 +668,15 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 		foreach ($lvs as $lvk => $lvv) {
 			// Get the physical volume details.
 			$lv = new OMVLogicalVolume($lvv);
-			$result[] = array(
-				"devicefile" => $lv->getDeviceFile(),
-				"uuid" => $lv->getUuid(),
-				"name" => $lv->getName(),
-				"size" => $lv->getSize(),
-				"vgname" => $lv->getVGName()
-			);
+			if ($lv->exists()) {
+				$result[] = array(
+					"devicefile" => $lv->getDeviceFile(),
+					"uuid" => $lv->getUuid(),
+					"name" => $lv->getName(),
+					"size" => $lv->getSize(),
+					"vgname" => $lv->getVGName()
+				);
+			}
 		}
 		return $result;
 	}
