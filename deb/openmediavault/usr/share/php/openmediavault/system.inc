@@ -2346,6 +2346,8 @@ class OMVLogicalVolumes extends OMVObject {
 			// Replace '-' with '--' in volume group name.
 			$list[] = sprintf("/dev/mapper/%s-%s", str_replace("-", "--",
 			  $outputv[0]), $outputv[1]);
+			// Alternative device path: /dev/<vg_name>/<lv_name>
+			//$list[] = sprintf("/dev/%s/%s", $outputv[0], $outputv[1]);
 		}
 		return $list;
 	}

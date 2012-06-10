@@ -355,6 +355,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.12"; then
 			echo 'send host-name "<hostname>";' >> /etc/dhcp/dhclient.conf
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.13"; then
+			omv-mkconf fstab
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

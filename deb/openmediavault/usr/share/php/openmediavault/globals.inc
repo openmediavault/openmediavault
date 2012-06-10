@@ -89,13 +89,13 @@ $OMV_JSONSCHEMA_EMAIL = '"type":"string","format":"regex","pattern":'.
 // DOS: 7A48-BA97
 // NTFS: 2ED43920D438EC29
 $OMV_JSONSCHEMA_FILESYSTEM_UUID = '"type":"string","format":"regex",'.
-  '"pattern":"\/^[a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
-  '[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16}$\/i"';
+  '"pattern":"\/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
+  '[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16})$\/i"';
 // JSON schema describing a file system identifier. This can be a UUID or
 // the devicefile of the file system.
 $OMV_JSONSCHEMA_FILESYSTEM_ID = '"type":"string","format":"regex",'.
-  '"pattern":"\/^[a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
-  '[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16}|\\\/dev\\\/.+$\/i"';
+  '"pattern":"\/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
+  '[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16}|\\\/dev\\\/.+)$\/i"';
 $OMV_JSONSCHEMA_SHARENAME ='"type":["string","null"],"format":"regex",'.
   '"pattern":"\/^[^\\\.]([^\"\\\/\\\\\\\[\\\]\\\:\\\+\\\|\\\<\\\>=;,\\\*'.
   '\\\?\\\. ]+){0,1}([.][^\"\\\/\\\\\\\[\\\]\\\:\\\+\\\|\\\<\\\>=;,\\\*'.

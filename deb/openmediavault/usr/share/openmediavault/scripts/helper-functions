@@ -59,7 +59,7 @@ omv_isuuid() {
 # Return 0 if it is a file system UUID, otherwise 1.
 omv_isfsuuid() {
 	# See /usr/share/php/openmediavault/globals.inc
-    if $(echo $1 | grep -Eqi "^[a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16}$"); then
+    if $(echo $1 | grep -Eqi "^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16})$"); then
         return 0
     fi
     return 1
