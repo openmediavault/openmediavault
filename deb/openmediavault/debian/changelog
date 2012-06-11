@@ -1,5 +1,6 @@
 openmediavault (0.3.0.13) stable; urgency=low
 
+  * Update locales.
   * Mantis 0000497: Various errors after last update to shared folders.
   * Mantis 0000501: Permanent mount error for the FTP folders.
   * Mantis 0000503: Volume groups containing the character '-' are not

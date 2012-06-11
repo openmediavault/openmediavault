@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-04 18:58+0200\n"
+"POT-Creation-Date: 2012-06-11 20:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -500,6 +500,9 @@ msgid "Canada"
 msgstr ""
 
 msgid "Cancel"
+msgstr ""
+
+msgid "Cannot unlink shared folder content because another shared folder is referencing a subdirectory"
 msgstr ""
 
 msgid "Canton and Enderbury Islands"
@@ -2804,9 +2807,6 @@ msgid "The password contains invalid characters"
 msgstr ""
 
 msgid "The password that is used for access via rsync daemon. Note, this is not used for remote shell transport such as ssh."
-msgstr ""
-
-msgid "The path of the folder to share."
 msgstr ""
 
 msgid "The path of the folder to share. The specified folder will be created if it does not already exist."

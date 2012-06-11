@@ -1,5 +1,6 @@
 openmediavault-clamav (0.3.0.3) stable; urgency=low
 
+  * Update locales.
   * Use same logfile as clamd.
   * Mantis 0000499: Pid file permission denied.
 
