@@ -64,13 +64,15 @@ class FileSystemMgmtRpc extends OMVRpc {
 			"mount" => array('{
 				"type":"object",
 				"properties":{
-					"id":{'.$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_UUID'].'}
+					"id":{'.$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_UUID'].'},
+					"fstab":{"type":"boolean"}
 				}
 			}'),
 			"umount" => array('{
 				"type":"object",
 				"properties":{
-					"id":{'.$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_ID'].'}
+					"id":{'.$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_ID'].'},
+					"fstab":{"type":"boolean"}
 				}
 			}'),
 			"hasFilesystem" => array('{
@@ -617,6 +619,8 @@ class FileSystemMgmtRpc extends OMVRpc {
 	 * Mount a filesystem.
 	 * @param data An array containing the following fields:
 	 *   \em id The UUID or block special device of the filesystem to mount.
+	 *   \em fstab If set to FALSE, no fstab entry will be created, thus the
+	 *   given filesystem is mounted only.
 	 * @return None
 	 */
 	public function mount($data) {
@@ -664,36 +668,39 @@ class FileSystemMgmtRpc extends OMVRpc {
 			  gettext("Filesystem '%s' not supported"), $type));
 			break;
 		}
-		// Check for duplicates.
-		$xpath = sprintf("//system/fstab/mntent[fsname='%s']", $fsName);
-		if (TRUE === $xmlConfig->exists($xpath)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-			  gettext("A mount point already exists for the given filesystem"));
+		// Create fstab entry?
+		if (TRUE === boolval($data['fstab'])) {
+			// Check for duplicates.
+			$xpath = sprintf("//system/fstab/mntent[fsname='%s']", $fsName);
+			if (TRUE === $xmlConfig->exists($xpath)) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+				  gettext("A mount point already exists for the given filesystem"));
+			}
+			// Prepare fstab mount point entry configuration object.
+			$object = array(
+				"uuid" => OMVUtil::uuid(),
+				"fsname" => $fsName,
+				"dir" => OMVFilesystem::buildMountPath($fs->getUuid()),
+				"type" => $fs->getType(),
+				"opts" => $opts,
+				"freq" => 0,
+				"passno" => 2
+			);
+			// Append objects to configuration.
+			if (FALSE === $xmlConfig->set("//system/fstab", array(
+			  "mntent" => $object))) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+			}
+			// Save the configuration.
+			if (FALSE === $xmlConfig->save()) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
+				  $xmlConfig->getError());
+			}
+			// Notify configuration changes.
+			$dispatcher = &OMVNotifyDispatcher::getInstance();
+			$dispatcher->notify(OMV_NOTIFY_CREATE,
+			  "org.openmediavault.system.fstab.mntent", $object);
 		}
-		// Prepare fstab mount point entry configuration object.
-		$object = array(
-			"uuid" => OMVUtil::uuid(),
-			"fsname" => $fsName,
-			"dir" => OMVFilesystem::buildMountPath($fs->getUuid()),
-			"type" => $fs->getType(),
-			"opts" => $opts,
-			"freq" => 0,
-			"passno" => 2
-		);
-		// Append objects to configuration.
-		if (FALSE === $xmlConfig->set("//system/fstab", array(
-		  "mntent" => $object))) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
-		// Save the configuration.
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  "org.openmediavault.system.fstab.mntent", $object);
 		// Mount the filesystem.
 		$cmd = sprintf("sudo mount %s", is_uuid($fsName) ? "-U {$fsName}" :
 		  $fsName);
@@ -708,6 +715,8 @@ class FileSystemMgmtRpc extends OMVRpc {
 	 * Unmount a filesystem.
 	 * @param data An array containing the following fields:
 	 *   \em id The UUID or block special device of the filesystem to unmount.
+	 *   \em fstab If set to FALSE, the fstab entry will not be removed (if
+	 *   existing), thus the given filesystem is unmounted only.
 	 * @return None
 	 */
 	public function umount($data) {
@@ -721,36 +730,59 @@ class FileSystemMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Get the configuration object.
-		if (is_devicefile($data['id'])) {
-			// Use the filesystem name to identify the object.
-			$xpath = sprintf("//system/fstab/mntent[fsname='%s']", $data['id']);
+		// Remove fstab entry?
+		if (TRUE === boolval($data['fstab'])) {
+			// Get the configuration object.
+			if (is_devicefile($data['id'])) {
+				// Use the filesystem name to identify the object.
+				$xpath = sprintf("//system/fstab/mntent[fsname='%s']",
+				  $data['id']);
+			} else {
+				// Use the filesystem UUID to identify the object by its mount
+				// point directory:
+				// /media/<fsuuid>
+				// /media/D81A-F053 (VFAT)
+				// /media/74A225C8A2258F (NTFS)
+				// /media/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
+				$xpath = sprintf("//system/fstab/mntent[dir='%s']",
+				  OMVFilesystem::buildMountPath($data['id']));
+			}
+			$object = $xmlConfig->get($xpath);
+			if (is_null($object)) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+				  $xpath);
+			}
+			// Unmount the filesystem if it is mounted.
+			if (TRUE === OMVFilesystem::isMountedEx("mountpoint",
+			  $object['dir'])) {
+				$cmd = sprintf("sudo umount -f %s", escapeshellarg(
+				  $object['dir']));
+				OMVUtil::exec($cmd, $output, $result);
+				if ($result !== 0) {
+					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+					  $cmd, implode("\n", $output));
+				}
+			}
+			// Delete the mount point configuration object.
+			OMVRpc::exec("FsTab", "delete", array("uuid" => $object['uuid']));
 		} else {
-			// Use the filesystem UUID to identify the object by its mount
-			// point directory:
-			// /media/<fsuuid>
-			// /media/D81A-F053 (VFAT)
-			// /media/74A225C8A2258F (NTFS)
-			// /media/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
-			$xpath = sprintf("//system/fstab/mntent[dir='%s']",
-			  OMVFilesystem::buildMountPath($data['id']));
-		}
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Unmount the filesystem if it is mounted.
-		if (TRUE === OMVFilesystem::isMountedEx("mountpoint", $object['dir'])) {
-			$cmd = sprintf("sudo umount -f %s", $object['dir']);
-			OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
+			// Get the filesystem.
+			$fs = new OMVFilesystem($data['id']);
+			if (!$fs->exists()) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf(gettext("Filesystem '%s' not found"), $data['id']));
+			}
+			// Unmount the filesystem if it is mounted.
+			if (TRUE === OMVFilesystem::isMountedEx("filesystem",
+			  $fs->getDeviceFile())) {
+				$cmd = sprintf("sudo umount -f %s", $fs->getDeviceFile());
+				OMVUtil::exec($cmd, $output, $result);
+				if ($result !== 0) {
+					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+					  $cmd, implode("\n", $output));
+				}
 			}
 		}
-		// Delete the mount point configuration object.
-		OMVRpc::exec("FsTab", "delete", array("uuid" => $object['uuid']));
 	}
 
 	/**

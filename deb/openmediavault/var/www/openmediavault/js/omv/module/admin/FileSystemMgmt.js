@@ -368,7 +368,8 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 			} else {
 				OMV.MessageBox.error(null, error);
 			}
-		}, this, "FileSystemMgmt", "mount", { "id": record.get("uuid") });
+		}, this, "FileSystemMgmt", "mount", { "id": record.get("uuid"),
+		"fstab": true });
 	},
 
 	cbUnmountBtnHdl : function() {
@@ -385,7 +386,7 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 			} else {
 				OMV.MessageBox.error(null, error);
 			}
-		}, this, "FileSystemMgmt", "umount", { "id": id });
+		}, this, "FileSystemMgmt", "umount", { "id": id, "fstab": true });
 	},
 
 	doDeletion : function(record) {
