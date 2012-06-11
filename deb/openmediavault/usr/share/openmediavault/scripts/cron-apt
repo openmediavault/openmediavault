@@ -25,7 +25,6 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_CRONAPT_CONFIG=${OMV_CRONAPT_CONFIG:-"/etc/cron-apt/config"}
-OMV_CRONAPT_MAILTO=${OMV_CRONAPT_MAILTO:-"root"}
 OMV_CRONAPT_MAILON=${OMV_CRONAPT_MAILON:-"upgrade"}
 OMV_CRONAPT_SYSLOGON=${OMV_CRONAPT_SYSLOGON:-"always"}
 OMV_CRONAPT_OPTIONS=${OMV_CRONAPT_OPTIONS:-"-o Acquire::http::Dl-Limit=25"}
