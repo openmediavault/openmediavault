@@ -346,9 +346,7 @@ Ext.extend(OMV.Module.Privileges.SharedFolderPropertyDialog,
 			allowBlank: false,
 			triggerClass: "x-form-folder-trigger",
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: (this.uuid !== OMV.UUID_UNDEFINED) ?
-			  _("The path of the folder to share.") :
-			  _("The path of the folder to share. The specified folder will be created if it does not already exist."),
+			infoText: _("The path of the folder to share. The specified folder will be created if it does not already exist."),
 			onTriggerClick: function() {
 				// Get the UUID of the selected volume.
 				var field = this.ownerCt.ownerCt.findFormField("mntentref");

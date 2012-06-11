@@ -49,18 +49,23 @@ class ShareMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 		}
 		// Build the absolute shared folder path.
 		$dirpath = sprintf("%s/%s", $meobject['dir'], $object['reldirpath']);
-		// Create the command line arguments.
-		$cmdargs = array("-p");
-		if (array_key_exists("mode", $object)) {
-			$cmdargs[] = sprintf("--mode %s", $object['mode']);
-		}
 		// Create the shared folder directory.
-		$cmd = sprintf("export LANG=C; sudo mkdir %s %s 2>&1", implode(" ",
-		  $cmdargs), escapeshellarg($dirpath));
+		$cmd = sprintf("export LANG=C; sudo mkdir -p %s 2>&1",
+		  escapeshellarg($dirpath));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
+		}
+		// Change directory permissions.
+		if (array_key_exists("mode", $object)) {
+			$cmd = sprintf("export LANG=C; sudo chmod %s %s 2>&1",
+			  $object['mode'], escapeshellarg($dirpath));
+			OMVUtil::exec($cmd, $output, $result);
+			if ($result !== 0) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
 		}
 		// Change group owner of directory to configured default group,
 		// e.g. 'users'.
@@ -169,7 +174,7 @@ class ShareMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		// Create/update shared folder if configuration has been modified
 		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE,
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder",
 		  array($this, "createFolder"), 1);
 		$dispatcher->addListener(
