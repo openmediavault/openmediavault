@@ -1193,7 +1193,7 @@ OMV.Module.Diagnostics.LogPlugin.Rsync = function(config) {
 			id: "date",
 			width: 35,
 			renderer: function(val, cell, record, row, col, store) {
-				return OMV.util.Format.localeTime(record.get("date"));
+				return record.get("date");
 			}
 		},{
 			header: _("Event"),
@@ -1204,6 +1204,7 @@ OMV.Module.Diagnostics.LogPlugin.Rsync = function(config) {
 		rpcArgs: { "id": "rsync" },
 		rpcFields: [
 			{ name: "rownum" },
+			{ name: "ts" },
 			{ name: "date" },
 			{ name: "event" }
 		]
@@ -1233,7 +1234,7 @@ OMV.Module.Diagnostics.LogPlugin.Rsyncd = function(config) {
 			id: "date",
 			width: 35,
 			renderer: function(val, cell, record, row, col, store) {
-				return OMV.util.Format.localeTime(record.get("date"));
+				return record.get("date");
 			}
 		},{
 			header: _("Event"),
@@ -1245,6 +1246,7 @@ OMV.Module.Diagnostics.LogPlugin.Rsyncd = function(config) {
 		rpcArgs: { "id": "rsyncd" },
 		rpcFields: [
 			{ name: "rownum" },
+			{ name: "ts" },
 			{ name: "date" },
 			{ name: "event" }
 		]

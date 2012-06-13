@@ -20,6 +20,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/env.inc");
 require_once("openmediavault/product.inc");
 
 $prd = new OMVProduct();

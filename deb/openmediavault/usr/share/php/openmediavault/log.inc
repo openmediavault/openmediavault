@@ -129,9 +129,14 @@ OMVLogFile::registerType("syslog", array(
   "filepath" => "/var/log/syslog",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
   "columns" => array(
-	  "date" => array(
+	  "ts" => array(
 		  "index" => 1,
 		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+	  ),
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v',
+			'return strftime("%c", strpdate($v,"M j G:i:s"));')
 	  ),
 	  "user" => 2,
 	  "event" => 3
@@ -141,9 +146,14 @@ OMVLogFile::registerType("daemon", array(
   "filepath" => "/var/log/daemon.log",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
   "columns" => array(
-	  "date" => array(
+	  "ts" => array(
 		  "index" => 1,
 		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+	  ),
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v',
+			'return strftime("%c", strpdate($v,"M j G:i:s"));')
 	  ),
 	  "user" => 2,
 	  "event" => 3
@@ -153,9 +163,14 @@ OMVLogFile::registerType("auth", array(
   "filepath" => "/var/log/auth.log",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
   "columns" => array(
-	  "date" => array(
+	  "ts" => array(
 		  "index" => 1,
 		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+	  ),
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v',
+			'return strftime("%c", strpdate($v,"M j G:i:s"));')
 	  ),
 	  "user" => 2,
 	  "event" => 3
@@ -165,9 +180,14 @@ OMVLogFile::registerType("messages", array(
   "filepath" => "/var/log/messages",
   "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\s+(.*)$/",
   "columns" => array(
-	  "date" => array(
+	  "ts" => array(
 		  "index" => 1,
 		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+	  ),
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v',
+			'return strftime("%c", strpdate($v,"M j G:i:s"));')
 	  ),
 	  "user" => 2,
 	  "event" => 3

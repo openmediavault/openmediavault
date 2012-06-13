@@ -19,6 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/env.inc");
 require_once("openmediavault/functions.inc");
 
 if (array_keys_exists(array("service", "method"), $_POST)) {

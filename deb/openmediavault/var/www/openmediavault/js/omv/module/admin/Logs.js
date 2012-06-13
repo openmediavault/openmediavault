@@ -79,7 +79,7 @@ OMV.Module.Diagnostics.LogPlugin.Syslog = function(config) {
 			id: "date",
 			width: 35,
 			renderer: function(val, cell, record, row, col, store) {
-				return OMV.util.Format.localeTime(record.get("date"));
+				return record.get("date");
 			}
 		},{
 			header: _("User"),
@@ -97,6 +97,7 @@ OMV.Module.Diagnostics.LogPlugin.Syslog = function(config) {
 		rpcArgs: { "id": "syslog" },
 		rpcFields: [
 			{ name: "rownum" },
+			{ name: "ts" },
 			{ name: "date" },
 			{ name: "user" },
 			{ name: "event" }
@@ -127,7 +128,7 @@ OMV.Module.Diagnostics.LogPlugin.Daemon = function(config) {
 			id: "date",
 			width: 35,
 			renderer: function(val, cell, record, row, col, store) {
-				return OMV.util.Format.localeTime(record.get("date"));
+				return record.get("date");
 			}
 		},{
 			header: _("User"),
@@ -144,6 +145,7 @@ OMV.Module.Diagnostics.LogPlugin.Daemon = function(config) {
 		rpcArgs: { "id": "daemon" },
 		rpcFields: [
 			{ name: "rownum" },
+			{ name: "ts" },
 			{ name: "date" },
 			{ name: "user" },
 			{ name: "event" }
@@ -174,7 +176,7 @@ OMV.Module.Diagnostics.LogPlugin.Auth = function(config) {
 			id: "date",
 			width: 35,
 			renderer: function(val, cell, record, row, col, store) {
-				return OMV.util.Format.localeTime(record.get("date"));
+				return record.get("date");
 			}
 		},{
 			header: _("User"),
@@ -191,6 +193,7 @@ OMV.Module.Diagnostics.LogPlugin.Auth = function(config) {
 		rpcArgs: { "id": "auth" },
 		rpcFields: [
 			{ name: "rownum" },
+			{ name: "ts" },
 			{ name: "date" },
 			{ name: "user" },
 			{ name: "event" }
@@ -221,7 +224,7 @@ OMV.Module.Diagnostics.LogPlugin.Messages = function(config) {
 			id: "date",
 			width: 35,
 			renderer: function(val, cell, record, row, col, store) {
-				return OMV.util.Format.localeTime(record.get("date"));
+				return record.get("date");
 			}
 		},{
 			header: _("User"),
@@ -238,6 +241,7 @@ OMV.Module.Diagnostics.LogPlugin.Messages = function(config) {
 		rpcArgs: { "id": "messages" },
 		rpcFields: [
 			{ name: "rownum" },
+			{ name: "ts" },
 			{ name: "date" },
 			{ name: "user" },
 			{ name: "event" }

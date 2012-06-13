@@ -19,7 +19,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-
 function exception_error_handler($errno, $errstr, $errfile, $errline) {
 	switch ($errno) {
 	case E_STRICT:
@@ -31,6 +30,7 @@ function exception_error_handler($errno, $errstr, $errfile, $errline) {
 }
 set_error_handler("exception_error_handler");
 
+require_once("openmediavault/env.inc");
 require_once("openmediavault/globals.inc");
 require_once("openmediavault/config.inc"); // Must be included here
 require_once("openmediavault/session.inc");

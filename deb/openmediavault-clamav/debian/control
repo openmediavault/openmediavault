@@ -8,7 +8,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-clamav
 Architecture: all
-Depends: openmediavault (>= 0.3.0.10), clamav-daemon, clamav-freshclam
+Depends: openmediavault (>= 0.3.0.14), clamav-daemon, clamav-freshclam
 Priority: optional
 Description: OpenMediaVault ClamAV plugin
  Clam AntiVirus is an anti-virus toolkit for Unix.

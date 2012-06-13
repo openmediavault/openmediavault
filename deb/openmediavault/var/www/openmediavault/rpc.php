@@ -31,6 +31,7 @@ try {
 	}
 	set_error_handler("exception_error_handler");
 
+	require_once("openmediavault/env.inc");
 	require_once("openmediavault/config.inc"); // Must be included here
 	require_once("openmediavault/session.inc");
 	require_once("openmediavault/rpc.inc");
