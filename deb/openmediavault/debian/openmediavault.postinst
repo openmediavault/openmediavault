@@ -358,6 +358,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.13"; then
 			omv-mkconf fstab
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.14"; then
+			omv-mkconf postfix
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

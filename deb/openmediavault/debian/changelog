@@ -3,6 +3,7 @@ openmediavault (0.3.0.14) stable; urgency=low
   * Mantis 0000387: Cannot delete NFS-Share. Please delete all existing
     NFS shares and recreate them, it is not possible to recover them
     automatically.
+  * Mantis 0000514: cron-apt email FROM is wrong.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 12 Jun 2012 09:39:11 +0200
 

@@ -93,8 +93,8 @@ postmap ${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}
 myhostname=$(postconf -h myhostname)
 xmlstarlet sel -t \
   -i "//system/email/enable[. = '1']" \
-	-v "concat('root ',//system/email/primaryemail)" -n \
-	-v "concat('openmediavault ',//system/email/primaryemail)" -n \
+	-v "concat('root ',//system/email/sender)" -n \
+	-v "concat('openmediavault ',//system/email/sender)" -n \
 	-m "//system/usermanagement/users/user[email != '']" \
 	  -v "concat(name,' ',email)" -n \
 	-b \
