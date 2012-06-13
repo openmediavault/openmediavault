@@ -224,6 +224,7 @@ class NFSRpc extends OMVRpc {
 			"uuid" => ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $data['uuid'],
 			"sharedfolderref" => $data['sharedfolderref'],
+			"mntentref" => $data['mntentref'],
 			"client" => $data['client'],
 			"options" => $data['options'],
 			"extraoptions" => $data['extraoptions'],
