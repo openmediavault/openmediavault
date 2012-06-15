@@ -19,6 +19,18 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/config.inc");
+
 // Set locale information.
 setlocale(LC_ALL, "");
+// Set timezone.
+$object = $xmlConfig->get("//system/time");
+if (!is_null($object)) {
+	if (in_array($object['timezone'], timezone_identifiers_list())) {
+		date_default_timezone_set($object['timezone']);
+	} else {
+		syslog(LOG_ERR, sprintf("Unknown or unsupported timezone [tz=%s]",
+		  $object['timezone']));
+	}
+}
 ?>

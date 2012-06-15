@@ -1,9 +1,11 @@
-openmediavault (0.3.0.14ubuntu1) quantal; urgency=low
+openmediavault (0.3.0.15) stable; urgency=low
 
   * Mantis 0000507: Allow setting multiple secondary DNS servers. The input
     field in the WebGUI accept a list of comma-seperated IP addresses.
+  * Mantis 0000510: Timestamps on system logs are displayed incorrectly on
+    web interface for non-DST time zones.
 
- -- vot <vot@genesis>  Fri, 15 Jun 2012 22:26:24 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 15 Jun 2012 22:26:24 +0200
 
 openmediavault (0.3.0.14) stable; urgency=low
 
