@@ -131,8 +131,12 @@ class NetworkRpc extends OMVRpc {
 			"setDNSNameServers" => array('{
 				"type":"object",
 				"properties":{
-					"primarydns":{'.$GLOBALS['OMV_JSONSCHEMA_IPV4_NONE'].'},
-					"secondarydns":{'.$GLOBALS['OMV_JSONSCHEMA_IPV4_NONE'].'}
+					"dnsnameservers":{
+						"type":"array",
+						"items":{
+							'.$GLOBALS['OMV_JSONSCHEMA_IPV4'].'
+						}
+					}
 				}
 			}'),
 			"setDNSServiceDiscovery" => array('{
@@ -856,7 +860,8 @@ class NetworkRpc extends OMVRpc {
 	}
 
 	/**
-	 * Get the DNS name server configuration
+	 * Get the DNS name server configuration.
+	 * @return An array containing the configured DNS name servers.
 	 */
 	function getDNSNameServers() {
 		global $xmlConfig;
@@ -873,17 +878,15 @@ class NetworkRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Explode the DNS nameservers string. Note, only the first two
-		// addresses are used.
-		$object = explode(" ", $object['dnsnameservers']);
-		return array(
-			"primarydns" => isset($object[0]) ? $object[0] : "",
-			"secondarydns" => isset($object[1]) ? $object[1] : ""
-		);
+		// Explode the DNS nameservers string.
+		return explode(" ", $object['dnsnameservers']);
 	}
 
 	/**
-	 * Set the DNS name server configuration
+	 * Set the DNS name server configuration.
+	 * @param data An array containing the following fields:
+	 *   \em dnsnameservers An array containing the DNS name servers.
+	 * @return None
 	 */
 	function setDNSNameServers($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -897,7 +900,7 @@ class NetworkRpc extends OMVRpc {
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
 		// Prepare configuration data
-		$object = trim("{$data['primarydns']} {$data['secondarydns']}");
+		$object = implode(" ", $data['dnsnameservers']);
 		$success = $xmlConfig->replace("//system/network/dnsnameservers",
 		  $object);
 		if (FALSE === $success) {

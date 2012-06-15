@@ -974,10 +974,40 @@ Ext.extend(OMV.Module.System.Network.DNSNameServerPanel, OMV.FormPanelExt, {
 				xtype: "textfield",
 				name: "secondarydns",
 				fieldLabel: _("Secondary"),
-				vtype: "IPv4",
+				vtype: "IPv4List",
 				allowBlank: true
 			}]
 		}];
+	},
+
+	/**
+	 * Set values for fields in this form in bulk.
+	 * @param values The values to set in the form of an object hash.
+	 * @return The basic form object.
+	 */
+	setValues : function(values) {
+		return OMV.Module.System.Network.DNSNameServerPanel.superclass.
+		  setValues.call(this, {
+			"primarydns": values.shift(),
+			"secondarydns": values.join(",")
+		});
+	},
+
+	/**
+	 * Returns the fields in this form as an object with key/value pairs.
+	 */
+	getValues : function() {
+		var values = OMV.Module.System.Network.DNSNameServerPanel.
+		  superclass.getValues.call(this);
+		var dnsnameservers = [];
+		if (!Ext.isEmpty(values.primarydns))
+			dnsnameservers.push(values.primarydns);
+		if (!Ext.isEmpty(values.secondarydns))
+			dnsnameservers = dnsnameservers.concat(
+			  values.secondarydns.split(/[,;]/));
+		return {
+			"dnsnameservers": dnsnameservers
+		};
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("system", "network", {

@@ -30,6 +30,21 @@ Ext.apply(Ext.form.VTypes, {
 	IPv4Text: _("This field should be an IPv4 address"),
 	IPv4Mask: /[\d\.]/i,
 
+	IPv4List:  function(v) {
+		var valid = true;
+		// Split string into several IPv4 addresses.
+		Ext.each(v.split(/[,;]/), function(ip) {
+			// Is it a valid IPv4 address?
+			if (!Ext.form.VTypes.IPv4(ip)) {
+				valid = false;
+				return false;
+			}
+		});
+		return valid;
+	},
+	IPv4ListText: "This field should be a list of IPv4 addresses",
+	IPv4ListMask: /[\d\.,;]/i,
+
 	IPv4Net: function(v) {
 		return /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(v);
 	},

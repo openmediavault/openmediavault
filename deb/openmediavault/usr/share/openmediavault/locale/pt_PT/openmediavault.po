@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Nelson Rosado <nelsontrosado@gmail.com>, 2012.
 #   <nelsontrosado@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-11 20:26+0200\n"
-"PO-Revision-Date: 2012-06-11 18:26+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2012-06-12 11:18+0000\n"
+"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.net/projects/p/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -516,7 +517,7 @@ msgstr "Cancelar"
 msgid ""
 "Cannot unlink shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "Não é possível desvincular o conteúdo da pasta partilhada, porque outra pasta partilhada está a referenciar um subdiretório"
 
 msgid "Canton and Enderbury Islands"
 msgstr "Canton and Enderbury Islands"
