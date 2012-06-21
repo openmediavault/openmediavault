@@ -73,7 +73,7 @@ Ext.extend(OMV.Module.Services.ClamAV.SettingsPanel, OMV.FormPanelExt, {
 				allowBlank: false,
 				value: "db.local.clamav.net",
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: _("Server name where database updates are downloaded from.")
+				infoText: _("Server name where database updates are downloaded from. Get a complete list of database mirrors <a href='http://www.clamav.net/mirrors.html' target='_blank'>here</a>.")
 			},{
 				xtype: "numberfield",
 				name: "checks",
@@ -620,7 +620,7 @@ OMV.Module.Diagnostics.LogPlugin.ClamAV = function(config) {
 			id: "date",
 			width: 35,
 			renderer: function(val, cell, record, row, col, store) {
-				return record.get("date");
+				return OMV.util.Format.localeTime(record.get("date"));
 			}
 		},{
 			header: _("Event"),
@@ -631,7 +631,6 @@ OMV.Module.Diagnostics.LogPlugin.ClamAV = function(config) {
 		rpcArgs: { "id": "clamav" },
 		rpcFields: [
 			{ name: "rownum" },
-			{ name: "ts" },
 			{ name: "date" },
 			{ name: "event" }
 		]
