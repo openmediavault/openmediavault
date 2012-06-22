@@ -1,5 +1,7 @@
 openmediavault (0.3.0.15) stable; urgency=low
 
+  * Replace php5-auth-pam with php5-pam package because it has been dropped
+    in Wheezy.
   * Mantis 0000507: Allow setting multiple secondary DNS servers. The input
     field in the WebGUI accept a list of comma-seperated IP addresses.
   * Mantis 0000510: Timestamps on system logs are displayed incorrectly on

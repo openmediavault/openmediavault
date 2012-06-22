@@ -559,7 +559,8 @@ class OMVFilesystem extends OMVObject {
 	public function getBlockSize() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		$cmd = sprintf("sudo blockdev --getbsz %s ", $this->deviceFile);
+		$cmd = sprintf("export LANG=C; sudo blockdev --getbsz %s ",
+		  $this->deviceFile);
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0)
 			return FALSE;
@@ -861,7 +862,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 */
 	public function getSize() {
 		if ($this->size === FALSE) {
-			$cmd = sprintf("sudo blockdev --getsize64 %s",
+			$cmd = sprintf("export LANG=C; sudo blockdev --getsize64 %s",
 			  escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0)
@@ -1847,7 +1848,7 @@ class OMVSystemGroups extends OMVObject {
 	 * @return An array of system group names, otherwise FALSE.
 	 */
 	public static function get() {
-		$cmd = "getent group";
+		$cmd = "export LANG=C; getent group";
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0)
 			return FALSE;
@@ -1898,8 +1899,8 @@ class OMVSystemGroup extends OMVObject {
 		if (!is_null($this->members))
 			return TRUE;
 		// http://www.cyberciti.biz/faq/understanding-etcgroup-file
-		$cmd = sprintf("getent group %s", !is_null($this->gid) ? 
-		  strval($this->gid) : escapeshellarg($this->name));
+		$cmd = sprintf("export LANG=C; getent group %s", !is_null(
+		  $this->gid) ? strval($this->gid) : escapeshellarg($this->name));
 		@OMVUtil::exec($cmd, $output, $result);
 		if (($result !== 0) || empty($output[0]))
 			return FALSE;
@@ -2002,7 +2003,7 @@ class OMVSystemUsers extends OMVObject {
 	 * @return An array of system user names, otherwise FALSE.
 	 */
 	public static function get() {
-		$cmd = "getent passwd";
+		$cmd = "export LANG=C; getent passwd";
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0)
 			return FALSE;
@@ -2069,7 +2070,7 @@ class OMVSystemUser extends OMVObject {
 			if (!is_null($this->password))
 				return TRUE;
 			// http://www.cyberciti.biz/faq/understanding-etcshadow-file
-			$cmd = sprintf("getent shadow %s", escapeshellarg(
+			$cmd = sprintf("export LANG=C; getent shadow %s", escapeshellarg(
 			  $this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if (($result !== 0) || empty($output[0]))
@@ -2090,8 +2091,8 @@ class OMVSystemUser extends OMVObject {
 				return TRUE;
 			// http://www.cyberciti.biz/faq/understanding-etcpasswd-file-format
 			// http://en.wikipedia.org/wiki/Passwd_(file)
-			$cmd = sprintf("getent passwd %s", !is_null($this->uid) ? 
-			  strval($this->uid) : escapeshellarg($this->name));
+			$cmd = sprintf("export LANG=C; getent passwd %s", !is_null(
+			  $this->uid) ? strval($this->uid) : escapeshellarg($this->name));
 			@OMVUtil::exec($cmd, $output, $result);
 			if (($result !== 0) || empty($output[0]))
 				return FALSE;
@@ -2108,8 +2109,8 @@ class OMVSystemUser extends OMVObject {
 			if (!is_null($this->groups))
 				return TRUE;
 			// http://www.howtogeek.com/howto/ubuntu/see-which-groups-your-linux-user-belongs-to
-			$cmd = sprintf("groups %s | awk -F ' : ' '{print $2}'",
-			  escapeshellarg($this->getName()));
+			$cmd = sprintf("export LANG=C; groups %s | ".
+			  "awk -F ' : ' '{print $2}'", escapeshellarg($this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if (($result !== 0) || empty($output[0]))
 				return FALSE;

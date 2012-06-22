@@ -26,7 +26,7 @@ class OMVUtil {
 	* @return A new UUID string if successful, otherwise FALSE.
 	*/
 	public static function uuid() {
-		@OMVUtil::exec("uuid -v 4 -F STR", $output, $result);
+		@OMVUtil::exec("export LANG=C; uuid -v 4 -F STR", $output, $result);
 		if ($result !== 0)
 			return FALSE;
 		return $output[0];
