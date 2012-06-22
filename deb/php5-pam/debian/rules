@@ -1,0 +1,144 @@
+#!/usr/bin/make -f
+# template debian/rules provided by dh-make-php.
+# GNU copyright 2005 by Uwe Steinmann.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+# This has to be exported to make some magic below work.
+export DH_OPTIONS
+
+CFLAGS = -O2 -Wall
+CFLAGS += -D_LARGEFILE64_SOURCE -D_FILE_OFFSET_BITS=64
+ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
+	CFLAGS += -g
+	DEBUG := --enable-debug
+else
+	DEBUG := --disable-debug
+endif
+
+TAR=tar
+PECL_PKG_NAME=pam
+PECL_PKG_REALNAME=pam
+PECL_PKG_VERSION=1.0.3
+PACKAGE_NAME=php-pam
+BIN_PACKAGE_NAME=php$*-pam
+PHPIZE=/usr/bin/phpize
+PHPCONFIG=/usr/bin/php-config
+EXT_DIR=$(shell $(PHPCONFIG)$* --extension-dir)
+SOURCE_DIR=$(shell ls -d $(PECL_PKG_REALNAME)-*)
+BINARYTARGETS=binary-arch-v5 
+BUILDTARGETS=build-v5 
+CLEANTARGETS=clean-v5 
+
+# Sarge doesn't support --phpapi option (Bug #365667)
+phpapiver4=$(shell /usr/bin/php-config4 --phpapi)
+#phpapiver4=$(/usr/bin/php-config4 --extension-dir | xargs basename)
+phpapiver5=$(shell /usr/bin/php-config5 --phpapi)
+
+configure-v4 configure-v5: configure-v%: configure-stamp-v%
+configure-stamp-v4 configure-stamp-v5: configure-stamp-v%:
+	dh_testdir
+	# Add here commands to configure the package.
+	(cd $(SOURCE_DIR); \
+	$(PHPIZE)$*; \
+	./configure --with-php-config=$(PHPCONFIG)$* --prefix=/usr)
+#	rm -f configure-stamp-v*
+	touch $@
+
+build: $(BUILDTARGETS)
+
+build-v4 build-v5: build-v%: build-stamp-v%
+
+build-stamp:
+#	xsltproc --nonet --novalid debian/changelog.xsl package.xml > debian/Changelog
+	$(shell /usr/share/dh-make-php/phppkginfo . changelog > debian/Changelog)
+	touch build-stamp
+
+build-stamp-v4 build-stamp-v5: build-stamp-v%: build-stamp configure-stamp-v%
+	dh_testdir
+
+	# Add here commands to compile the package.
+	(cd $(SOURCE_DIR); $(MAKE); mkdir -p ../tmp/modules$*; cp modules/* ../tmp/modules$*; $(MAKE) clean)
+#	rm -f build-stamp-v*
+	touch $@
+
+clean: $(CLEANTARGETS)
+	dh_clean
+
+clean-v4 clean-v5: clean-v%:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp* configure-stamp*
+
+	# Add here commands to clean up after the build process.
+	(cd $(SOURCE_DIR); \
+	$(MAKE) clean; \
+	$(PHPIZE)$* --clean)
+	rm -rf tmp/modules$*
+
+install-v4 install-v5: install-v%: build-v%
+	dh_testdir
+	dh_testroot
+	# can't dh_clean here without specifically excluding the possibly existing installed dirs
+	# for other version.
+	#dh_clean -k
+	dh_installdirs
+#	dh_pecl
+
+	# Add here commands to install the package into debian/$(PACKAGE_NAME).
+#	$(MAKE) INSTALL_ROOT=$(CURDIR)/debian/$(PACKAGE_NAME) install
+#	sh -c 'VERSION=`egrep "#define ZEND_MODULE_API_NO" \
+#		/usr/include/php4/Zend/zend_modules.h \
+#		| sed "s/#define ZEND_MODULE_API_NO //"`; \
+#		chmod 644 debian/$(PACKAGE_NAME)/usr/lib/php4/$$VERSION/*.so'
+	mkdir -p debian/$(BIN_PACKAGE_NAME)/$(EXT_DIR)
+	install -m 644 -o root -g root tmp/modules$*/$(PECL_PKG_NAME).so debian/$(BIN_PACKAGE_NAME)/$(EXT_DIR)/$(PECL_PKG_NAME).so
+	if [ -f "debian/$(PECL_PKG_NAME).ini" ]; then \
+		mkdir -p debian/$(BIN_PACKAGE_NAME)/etc/php$*/conf.d; \
+		cp debian/$(PECL_PKG_NAME).ini debian/$(BIN_PACKAGE_NAME)/etc/php$*/conf.d; \
+	fi
+
+# Build architecture-independent files here.
+binary-indep:
+# We have nothing to do by default.
+
+# Build architecture-dependent files here.
+
+binary-arch-v4 binary-arch-v5: binary-arch-v%: install-v%
+	echo "php:Depends=phpapi-$(phpapiver$*)" >> debian/$(BIN_PACKAGE_NAME).substvars
+
+binary-arch: $(BINARYTARGETS)
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs debian/Changelog
+	dh_installdocs
+	dh_installexamples
+#	dh_install --sourcedir=debian/$(BIN_PACKAGE_NAME)
+#	dh_installmenu
+	dh_installdebconf	
+#	dh_installlogrotate
+#	dh_installemacsen
+#	dh_installpam
+#	dh_installmime
+#	dh_installinit
+#	dh_installcron
+#	dh_installinfo
+#	dh_installman
+#	dh_link
+ifeq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
+	dh_strip
+endif
+	dh_compress
+	dh_fixperms
+#	dh_perl
+#	dh_python
+#	dh_makeshlibs
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build build-v4 build-v5 clean clean-v4 clean-v5 binary-indep binary-arch binary-arch-v4 binary-arch-v5 binary install-v4 install-v5 configure-v4 configure-v5
