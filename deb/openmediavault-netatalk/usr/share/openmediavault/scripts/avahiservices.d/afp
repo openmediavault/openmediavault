@@ -25,20 +25,19 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_AVAHIDAEMON_AFPSERVICE=${OMV_AVAHIDAEMON_AFPSERVICE:-"/etc/avahi/services/afp.service"}
-OMV_AVAHIDAEMON_AFPSERVICE_NAME=${OMV_AVAHIDAEMON_AFPSERVICE_NAME:-"%h - AFP"}
 OMV_AVAHIDAEMON_AFPSERVICE_PORT=${OMV_AVAHIDAEMON_AFPSERVICE_PORT:-"548"}
 OMV_AVAHIDAEMON_AFPSERVICE_FINDERICON=${OMV_AVAHIDAEMON_AFPSERVICE_FINDERICON:-"RackMac"}
 
-# Is the service enabled?
+# Is the service enabled? Announce this service via DNS-SD?
 rm -f ${OMV_AVAHIDAEMON_AFPSERVICE}
-[ "$(omv_config_get "//services/afp/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//services/afp/enable")" = "0" -o "$(omv_config_get "//services/afp/dnssd/enable")" = "0" ] && exit 0
 
 # Create '/etc/avahi/services/smb.service' file.
 xmlstarlet sel -t \
   -o "&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;" -n \
   -o "&lt;!DOCTYPE service-group SYSTEM &quot;avahi-service.dtd&quot;&gt;" -n \
   -o "&lt;service-group&gt;" -n \
-  -o "  &lt;name replace-wildcards=&quot;yes&quot;&gt;${OMV_AVAHIDAEMON_AFPSERVICE_NAME}&lt;/name&gt;" -n \
+  -v "concat('  &lt;name replace-wildcards=&quot;yes&quot;&gt;',//services/afp/dnssd/name,'&lt;/name&gt;')" -n \
   -o "  &lt;service&gt;" -n \
   -o "    &lt;type&gt;_afpovertcp._tcp&lt;/type&gt;" -n \
   -o "    &lt;port&gt;${OMV_AVAHIDAEMON_AFPSERVICE_PORT}&lt;/port&gt;" -n \

@@ -1,29 +1,14 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# This file is part of OpenMediaVault.
-#
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
-#
-# OpenMediaVault is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-#
-# OpenMediaVault is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-netatalk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 20:07+0100\n"
+"POT-Creation-Date: 2012-06-27 20:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -33,6 +18,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Add share"
+msgstr ""
+
+msgid "Advertise this service via mDNS/DNS-SD."
 msgstr ""
 
 msgid "Allow guest logins"
@@ -54,6 +42,9 @@ msgid "Client sees uppercase, server sees lowercase"
 msgstr ""
 
 msgid "Comment"
+msgstr ""
+
+msgid "DNS Service Discovery"
 msgstr ""
 
 msgid "Don't do :hex translation for dot files."
@@ -120,6 +111,9 @@ msgid "The location of the files to share."
 msgstr ""
 
 msgid "The name of the share."
+msgstr ""
+
+msgid "The service name."
 msgstr ""
 
 msgid "This forces filenames to be restricted to the character set used by Windows."

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-11 20:26+0200\n"
+"POT-Creation-Date: 2012-06-27 20:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -250,6 +250,9 @@ msgid "Advanced Power Management"
 msgstr ""
 
 msgid "Advanced settings"
+msgstr ""
+
+msgid "Advertise this service via mDNS/DNS-SD."
 msgstr ""
 
 msgid "Afghanistan"
@@ -955,9 +958,6 @@ msgid "Enable SSL/TLS connections"
 msgstr ""
 
 msgid "Enable WINS server"
-msgstr ""
-
-msgid "Enable advertising of services via mDNS/DNS-SD."
 msgstr ""
 
 msgid "Enable anonymous FTP"
@@ -2818,6 +2818,9 @@ msgstr ""
 msgid "The requirement that the SSL session from the control connection is reused for data connections is not required."
 msgstr ""
 
+msgid "The service name."
+msgstr ""
+
 msgid "The session timeout time in minutes."
 msgstr ""
 
@@ -3292,9 +3295,6 @@ msgid "Yes"
 msgstr ""
 
 msgid "Zambia"
-msgstr ""
-
-msgid "Zeroconf"
 msgstr ""
 
 msgid "Zimbabwe"

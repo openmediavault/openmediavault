@@ -8,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-11 20:26+0200\n"
-"PO-Revision-Date: 2012-06-11 18:26+0000\n"
+"POT-Creation-Date: 2012-06-27 20:39+0200\n"
+"PO-Revision-Date: 2012-06-27 18:40+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: Swedish (http://www.transifex.net/projects/p/openmediavault/language/sv/)\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -255,6 +255,9 @@ msgstr "Avancerad hantering för strömförsörjning"
 
 msgid "Advanced settings"
 msgstr "Avancerade inställningar"
+
+msgid "Advertise this service via mDNS/DNS-SD."
+msgstr ""
 
 msgid "Afghanistan"
 msgstr "Afghanistan"
@@ -516,7 +519,7 @@ msgstr "Avbryt"
 msgid ""
 "Cannot unlink shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "Kan inte koppla bort den delade mappens innehåll eftersom en annan delad mapp refererar en underkatalog"
 
 msgid "Canton and Enderbury Islands"
 msgstr "Canton och Enderburyöarna"
@@ -598,7 +601,7 @@ msgid "Comment"
 msgstr "Kommentar"
 
 msgid "Commit"
-msgstr "Skicka"
+msgstr "Utför"
 
 msgid "Common Name"
 msgstr "Vanligt namn"
@@ -769,7 +772,7 @@ msgid "Destination shared folder"
 msgstr "Destination för delad mapp"
 
 msgid "Detail"
-msgstr "Detalj"
+msgstr "Detaljer"
 
 msgid ""
 "Determine the default timeout, in microseconds, before the first packet is "
@@ -992,9 +995,6 @@ msgstr "Aktivera SSL/TLS anslutningar"
 
 msgid "Enable WINS server"
 msgstr "Aktivera WINS-server"
-
-msgid "Enable advertising of services via mDNS/DNS-SD."
-msgstr "Aktivera annonsering för tjänster via mDNS/DNS-SD."
 
 msgid "Enable anonymous FTP"
 msgstr "Aktivera anonym FTP"
@@ -1272,7 +1272,7 @@ msgid "Group ID '%d' already exist"
 msgstr "Grupp-ID '%d' existerar redan"
 
 msgid "Groups"
-msgstr "Redigera kvot"
+msgstr "Grupper"
 
 msgid "Grow"
 msgstr "Utöka"
@@ -1365,7 +1365,7 @@ msgid "Identify network interface device"
 msgstr "Identifiera enhet för nätverksgränssnitt"
 
 msgid "Idle"
-msgstr "Vilar"
+msgstr "Tomgångsläge"
 
 msgid "If enabled then no password is required to connect to the share"
 msgstr "Om aktiverad så krävs inget lösenord för att ansluta till delningen"
@@ -1684,7 +1684,7 @@ msgid "Malta"
 msgstr "Malta"
 
 msgid "Manual"
-msgstr "Manual"
+msgstr "Manuell"
 
 msgid "March"
 msgstr "Mars"
@@ -1769,7 +1769,7 @@ msgid "Messages"
 msgstr "Meddelanden"
 
 msgid "Method"
-msgstr "Metod"
+msgstr "Läge"
 
 msgid "Metropolitan France"
 msgstr "Frankrikes huvudstad"
@@ -2355,7 +2355,7 @@ msgid "Reset WebGUI state"
 msgstr "Återställ WebGUI-tillståndet"
 
 msgid "Resize"
-msgstr "Storleksändra"
+msgstr "Ändra storlek"
 
 msgid "Restore"
 msgstr "Återställ"
@@ -2666,7 +2666,7 @@ msgid "Slaves"
 msgstr "Slavar"
 
 msgid "Sleep"
-msgstr "Sova"
+msgstr "Viloläge"
 
 msgid "Slovakia"
 msgstr "Slovakien"
@@ -2751,7 +2751,7 @@ msgstr "Anger om det är tillåtet att logga in som superanvändare."
 msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
-msgstr "Anger om övervakning av systemets status och välja den mest lämpliga CPU-nivån."
+msgstr "Välj om du vill övervaka systemets status för att bestämma den mest lämpade CPU-nivån."
 
 msgid "Specifies which slave is the primary device."
 msgstr "Anger vilken slav som är den primära enheten."
@@ -2763,7 +2763,7 @@ msgid "Sri Lanka"
 msgstr "Sri Lanka"
 
 msgid "Standby"
-msgstr "Tomgång"
+msgstr "Vänteläge"
 
 msgid "Start"
 msgstr "Start"
@@ -2951,6 +2951,9 @@ msgid ""
 "The requirement that the SSL session from the control connection is reused "
 "for data connections is not required."
 msgstr "Kravet på att SSL-sessionen från kontrollanslutningen återanvänds för dataanslutningar krävs inte."
+
+msgid "The service name."
+msgstr ""
 
 msgid "The session timeout time in minutes."
 msgstr "Sessionens timeout i minuter."
@@ -3493,9 +3496,6 @@ msgstr "Yes"
 
 msgid "Zambia"
 msgstr "Zambia"
-
-msgid "Zeroconf"
-msgstr "Nollkonf"
 
 msgid "Zimbabwe"
 msgstr "Zimbabwe"

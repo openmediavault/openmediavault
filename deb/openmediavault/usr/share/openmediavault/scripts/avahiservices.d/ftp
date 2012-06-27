@@ -25,19 +25,19 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_AVAHIDAEMON_FTPSERVICE=${OMV_AVAHIDAEMON_FTPSERVICE:-"/etc/avahi/services/ftp.service"}
-OMV_AVAHIDAEMON_FTPSERVICE_NAME=${OMV_AVAHIDAEMON_FTPSERVICE_NAME:-"%h - FTP"}
 
-# Is the service enabled?
+# Is the service enabled? Announce this service via DNS-SD?
 rm -f ${OMV_AVAHIDAEMON_FTPSERVICE}
-[ "$(omv_config_get "//services/ftp/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//services/ftp/enable")" = "0" -o "$(omv_config_get "//services/ftp/dnssd/enable")" = "0" ] && exit 0
 
 # Create '/etc/avahi/services/ftp.service' file.
 port=$(omv_config_get "//services/ftp/port")
+name=$(omv_config_get "//services/ftp/dnssd/name")
 cat <<EOF > ${OMV_AVAHIDAEMON_FTPSERVICE}
 <?xml version="1.0" standalone='no'?>
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
-  <name replace-wildcards="yes">${OMV_AVAHIDAEMON_FTPSERVICE_NAME}</name>
+  <name replace-wildcards="yes">${name}</name>
   <service>
     <type>_ftp._tcp</type>
     <port>${port}</port>

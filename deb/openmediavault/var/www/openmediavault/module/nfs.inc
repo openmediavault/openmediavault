@@ -156,7 +156,7 @@ class NFSModule extends OMVModuleAbstract implements OMVINotifyListener,
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nfs.shares.share",
 		  array($this, "updateService"), 1);
-		// Update Zeroconfig if configuration has been modified
+		// Update Zeroconf if configuration has been modified
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,

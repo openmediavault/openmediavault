@@ -77,6 +77,30 @@ Ext.extend(OMV.Module.Services.NFSSettingsPanel, OMV.FormPanelExt, {
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: _("Specifies how many server threads to create.")
 			}]
+		},{
+			xtype: "fieldset",
+			title: _("DNS Service Discovery"),
+			defaults: {
+//				anchor: "100%",
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "checkbox",
+				name: "dnssdenable",
+				fieldLabel: _("Enable"),
+				checked: true,
+				inputValue: 1,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("Advertise this service via mDNS/DNS-SD.")
+			},{
+				xtype: "textfield",
+				name: "dnssdname",
+				fieldLabel: _("Name"),
+				allowBlank: false,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("The service name."),
+				value: "%h - NFS"
+			}]
 		}];
 	}
 });

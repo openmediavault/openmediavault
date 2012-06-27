@@ -11,10 +11,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-11 20:26+0200\n"
-"PO-Revision-Date: 2012-06-11 18:26+0000\n"
+"POT-Creation-Date: 2012-06-27 20:39+0200\n"
+"PO-Revision-Date: 2012-06-27 18:39+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: Polish (Poland) (http://www.transifex.net/projects/p/openmediavault/language/pl_PL/)\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -258,6 +258,9 @@ msgstr "Zaawansowane zarządzanie energią"
 
 msgid "Advanced settings"
 msgstr "Zaawansowana konfiguracja"
+
+msgid "Advertise this service via mDNS/DNS-SD."
+msgstr ""
 
 msgid "Afghanistan"
 msgstr "Afghanistan"
@@ -995,9 +998,6 @@ msgstr "Włącz połączenia SSL/TLS"
 
 msgid "Enable WINS server"
 msgstr "Włącz serwer WINS"
-
-msgid "Enable advertising of services via mDNS/DNS-SD."
-msgstr "Włącz rozgłaszanie usług za pośrednictwem mDNS/DNS-SD."
 
 msgid "Enable anonymous FTP"
 msgstr "Włącz anonimowy FTP"
@@ -2355,7 +2355,7 @@ msgid "Reset"
 msgstr "Reset"
 
 msgid "Reset WebGUI state"
-msgstr ""
+msgstr "Resetuj stan WebGUI"
 
 msgid "Resize"
 msgstr "Zmień rozmiar"
@@ -2844,7 +2844,7 @@ msgid "System time"
 msgstr "Czas systemowy"
 
 msgid "System user/group"
-msgstr ""
+msgstr "System użytkownik/grupa"
 
 msgid "TCP forwarding"
 msgstr ""
@@ -2955,6 +2955,9 @@ msgid ""
 "for data connections is not required."
 msgstr ""
 
+msgid "The service name."
+msgstr ""
+
 msgid "The session timeout time in minutes."
 msgstr "Czas trwania sesji w minutach."
 
@@ -3018,7 +3021,7 @@ msgid ""
 msgstr ""
 
 msgid "This field does not allow blanks"
-msgstr ""
+msgstr "To pole nie może być puste"
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "To pole musi mieć format gg:mm:ss"
@@ -3496,9 +3499,6 @@ msgstr "Tak"
 
 msgid "Zambia"
 msgstr "Zambia"
-
-msgid "Zeroconf"
-msgstr ""
 
 msgid "Zimbabwe"
 msgstr "Zimbabwe"

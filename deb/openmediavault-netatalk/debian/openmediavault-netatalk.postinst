@@ -65,18 +65,22 @@ case "$1" in
 		#       		<comment>xxx</comment>
 		#       		<password></password>
 		#       		<casefold>none|tolower|toupper|xlatelower|xlateupper</casefold>
-		#				<options>
+		#       		<options>
 		#       			<ro>0</ro>
 		#       			<upriv>1</upriv>
 		#       			<usedots>1</usedots>
 		#       			<invisibledots>0</invisibledots>
 		#       			<tm>0</tm>
 		#       			<mswindows>0</mswindows>
-		#				</options>
+		#       		</options>
 		#       		<extraoptions></extraoptions>
 		#       	</share>
 		#       	-->
 		#       </shares>
+		#       <dnssd>
+		#       	<enable>1</enable>
+		#       	<name>%h - AFP</name>
+		#       </dnssd>
 		#     </afp>
 		#   </services>
 		# </config>
@@ -87,6 +91,10 @@ case "$1" in
 			object="${object}<allowguests>0</allowguests>"
 			object="${object}<extraoptions></extraoptions>"
 			object="${object}<shares></shares>"
+			object="${object}<dnssd>"
+			object="${object}<enable>1</enable>"
+			object="${object}<name>%h - AFP</name>"
+			object="${object}</dnssd>"
 			omv_config_add_element "//services" "afp" "${object}" true
 		fi
 
@@ -96,6 +104,11 @@ case "$1" in
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "0.2.3.1"; then
 			rm -f /etc/monit/conf.d/netatalk
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.4"; then
+			omv_config_add_element "//services/afp" "dnssd" ""
+			omv_config_add_element "//services/afp/dnssd" "enable" "1"
+			omv_config_add_element "//services/afp/dnssd" "name" "%h - AFP"
 		fi
 	;;
 

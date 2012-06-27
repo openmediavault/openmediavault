@@ -25,15 +25,15 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_AVAHIDAEMON_NFSSERVICE=${OMV_AVAHIDAEMON_NFSSERVICE:-"/etc/avahi/services/nfs*.service"}
-OMV_AVAHIDAEMON_NFSSERVICE_NAME=${OMV_AVAHIDAEMON_NFSSERVICE_NAME:-"%h - NFS"}
 OMV_AVAHIDAEMON_NFSSERVICE_PORT=${OMV_AVAHIDAEMON_NFSSERVICE_PORT:-"2049"}
 
-# Is the service enabled?
+# Is the service enabled? Announce this service via DNS-SD?
 rm -f ${OMV_AVAHIDAEMON_NFSSERVICE}
-[ "$(omv_config_get "//services/nfs/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//services/nfs/enable")" = "0" -o "$(omv_config_get "//services/nfs/dnssd/enable")" = "0" ] && exit 0
 
 # Announce duplicate shares only once (emulate SQL 'DISTINCT' to filter
 # duplicates).
+name=$(omv_config_get "//services/nfs/dnssd/name")
 xmlstarlet sel -t -m "//services/nfs/shares/share[not(sharedfolderref=preceding-sibling::*/sharedfolderref)]" \
   -v sharedfolderref -i "position() != last()" -n -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
@@ -44,7 +44,7 @@ xmlstarlet sel -t -m "//services/nfs/shares/share[not(sharedfolderref=preceding-
 <?xml version="1.0" standalone='no'?>
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">
 <service-group>
-  <name replace-wildcards="yes">${OMV_AVAHIDAEMON_NFSSERVICE_NAME} - ${sfname}</name>
+  <name replace-wildcards="yes">${name} - ${sfname}</name>
   <service>
     <type>_nfs._tcp</type>
     <port>${OMV_AVAHIDAEMON_NFSSERVICE_PORT}</port>

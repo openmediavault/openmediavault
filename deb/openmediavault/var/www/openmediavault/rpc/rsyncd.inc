@@ -35,7 +35,9 @@ class RsyncdRpc extends OMVRpc {
 				"properties":{
 					"enable":{"type":"boolean"},
 					"port":{"type":"integer","minimum":1,"maximum":65535},
-					"extraoptions":{"type":"string"}
+					"extraoptions":{"type":"string"},
+					"dnssdenable":{"type":"boolean"},
+					"dnssdname":{"type":"string"}
 				}
 			}'),
 			"getModuleList" => array('{
@@ -106,7 +108,12 @@ class RsyncdRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
+		// Modify result data
+		$object['dnssdenable'] = boolval($object['dnssd']['enable']);
+		$object['dnssdname'] = $object['dnssd']['name'];
+		// Remove useless data
 		unset($object['modules']);
+		unset($object['dnssd']);
 		return $object;
 	}
 
@@ -134,7 +141,11 @@ class RsyncdRpc extends OMVRpc {
 			"port" => $data['port'],
 			"extraoptions" => $data['extraoptions'],
 			"modules" => isset($oldObject['modules']) ?
-				$oldObject['modules'] : array()
+			  $oldObject['modules'] : array(),
+			"dnssd" => array(
+				"enable" => array_boolval($data, 'dnssdenable'),
+				"name" => $data['dnssdname']
+			)
 		);
 		if (FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);

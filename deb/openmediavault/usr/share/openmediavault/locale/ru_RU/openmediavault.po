@@ -11,10 +11,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-11 20:26+0200\n"
-"PO-Revision-Date: 2012-06-13 11:13+0000\n"
-"Last-Translator: arturmon82 <arturmon82@gmail.com>\n"
-"Language-Team: Russian (http://www.transifex.net/projects/p/openmediavault/language/ru/)\n"
+"POT-Creation-Date: 2012-06-27 20:39+0200\n"
+"PO-Revision-Date: 2012-06-27 18:39+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -258,6 +258,9 @@ msgstr "Расширенное управление питанием"
 
 msgid "Advanced settings"
 msgstr "Дополнительные настройки"
+
+msgid "Advertise this service via mDNS/DNS-SD."
+msgstr ""
 
 msgid "Afghanistan"
 msgstr "Афганистан"
@@ -995,9 +998,6 @@ msgstr "Включить соединения SSL/TLS"
 
 msgid "Enable WINS server"
 msgstr "Включить WINS сервер"
-
-msgid "Enable advertising of services via mDNS/DNS-SD."
-msgstr "Включает обнаружение служб через mDNS/DNS-SD."
 
 msgid "Enable anonymous FTP"
 msgstr "Включить анонимный FTP"
@@ -2955,6 +2955,9 @@ msgid ""
 "for data connections is not required."
 msgstr "Требование о том, что SSL сессия управляющего соединение используется для передачи данных, не требуется."
 
+msgid "The service name."
+msgstr ""
+
 msgid "The session timeout time in minutes."
 msgstr "Время тайм-аута сеанса в минутах."
 
@@ -3409,7 +3412,7 @@ msgid "Vatican"
 msgstr "Ватикан"
 
 msgid "Vendor"
-msgstr "Продавец"
+msgstr "Интерфейс"
 
 msgid "Venezuela"
 msgstr "Венесуэла"
@@ -3496,9 +3499,6 @@ msgstr "Да"
 
 msgid "Zambia"
 msgstr "Замбия"
-
-msgid "Zeroconf"
-msgstr "Zeroconf"
 
 msgid "Zimbabwe"
 msgstr "Зимбабве"

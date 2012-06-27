@@ -103,9 +103,6 @@
 				</rule>
 				-->
 			</iptables>
-			<dnsservicediscovery>
-				<enable>1</enable>
-			</dnsservicediscovery>
 		</network>
 		<usermanagement>
 			<homedirectory>
@@ -248,6 +245,10 @@
 		<forcesslonly>0</forcesslonly>
 		<sslcertificateref></sslcertificateref>
 		<timeout>5</timeout>
+		<dnssd>
+			<enable>1</enable>
+			<name>%h - Web administration</name>
+		</dnssd>
 	</webadmin>
 	<!-- Plugin configuration area -->
 	<services>
@@ -259,6 +260,10 @@
 			<permitrootlogin>1</permitrootlogin>
 			<tcpforwarding>0</tcpforwarding>
 			<compression>0</compression>
+			<dnssd>
+				<enable>1</enable>
+				<name>%h - SSH</name>
+			</dnssd>
 		</ssh>
 		<nfs>
 			<enable>0</enable>
@@ -276,6 +281,10 @@
 				</share>
 				-->
 			</shares>
+			<dnssd>
+				<enable>1</enable>
+				<name>%h - NFS</name>
+			</dnssd>
 		</nfs>
 		<ftp>
 			<enable>0</enable>
@@ -332,6 +341,10 @@
 					<extraoptions></extraoptions>
 				</mod_tls>
 			</modules>
+			<dnssd>
+				<enable>1</enable>
+				<name>%h - FTP</name>
+			</dnssd>
 		</ftp>
 		<smart>
 			<!--
@@ -370,6 +383,10 @@
 			<allownewfiles>0</allownewfiles>
 			<sharedfolderref></sharedfolderref>
 			<extraoptions></extraoptions>
+			<dnssd>
+				<enable>1</enable>
+				<name>%h - TFTP</name>
+			</dnssd>
 		</tftp>
 		<smb>
 			<enable>0</enable>
@@ -407,6 +424,10 @@
 				</share>
 				-->
 			</shares>
+			<dnssd>
+				<enable>1</enable>
+				<name>%h - SMB/CIFS</name>
+			</dnssd>
 		</smb>
 		<rsync>
 			<server>
@@ -439,6 +460,10 @@
 					</module>
 					-->
 				</modules>
+				<dnssd>
+					<enable>1</enable>
+					<name>%h - Rsync</name>
+				</dnssd>
 			</server>
 			<jobs>
 				<!--

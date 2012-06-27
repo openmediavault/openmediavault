@@ -38,7 +38,9 @@ class TFTPRpc extends OMVRpc {
 					"allownewfiles":{"type":"boolean"},
 					"sharedfolderref":{'.
 					  $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'},
-					"extraoptions":{"type":"string"}
+					"extraoptions":{"type":"string"},
+					"dnssdenable":{"type":"boolean"},
+					"dnssdname":{"type":"string"}
 				}
 			}')
 		);
@@ -68,6 +70,10 @@ class TFTPRpc extends OMVRpc {
 		$object['blocksize'] = intval($object['blocksize']);
 		$object['retransmit'] = intval($object['retransmit']);
 		$object['allownewfiles'] = boolval($object['allownewfiles']);
+		$object['dnssdenable'] = boolval($object['dnssd']['enable']);
+		$object['dnssdname'] = $object['dnssd']['name'];
+		// Remove useless data
+		unset($object['dnssd']);
 		return $object;
 	}
 
@@ -93,7 +99,11 @@ class TFTPRpc extends OMVRpc {
 			"blocksize" => $data['blocksize'],
 			"allownewfiles" => array_boolval($data, 'allownewfiles'),
 			"sharedfolderref" => $data['sharedfolderref'],
-			"extraoptions" => $data['extraoptions']
+			"extraoptions" => $data['extraoptions'],
+			"dnssd" => array(
+				"enable" => array_boolval($data, 'dnssdenable'),
+				"name" => $data['dnssdname']
+			)
 		);
 		// Set configuration object
 		$xpath = "//services/tftp";

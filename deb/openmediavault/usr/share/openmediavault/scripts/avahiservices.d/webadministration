@@ -25,15 +25,18 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_AVAHIDAEMON_WEBSITESERVICE=${OMV_AVAHIDAEMON_WEBSITESERVICE:-"/etc/avahi/services/website.service"}
-OMV_AVAHIDAEMON_WEBSITESERVICE_NAME=${OMV_AVAHIDAEMON_WEBSITESERVICE_NAME:-"%h - Web administration"}
+
+# Announce this service via DNS-SD?
+rm -f ${OMV_AVAHIDAEMON_WEBSITESERVICE}
+[ "$(omv_config_get "//webadmin/dnssd/enable")" = "0" ] && exit 0
 
 # Create '/etc/avahi/services/http.service' file.
 xmlstarlet sel -t \
   -o "&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;" -n \
   -o "&lt;!DOCTYPE service-group SYSTEM &quot;avahi-service.dtd&quot;&gt;" -n \
   -o "&lt;service-group&gt;" -n \
-  -o "  &lt;name replace-wildcards=&quot;yes&quot;&gt;${OMV_AVAHIDAEMON_WEBSITESERVICE_NAME}&lt;/name&gt;" -n \
   -m "//webadmin" \
+	  -v "concat('  &lt;name replace-wildcards=&quot;yes&quot;&gt;',dnssd/name,'&lt;/name&gt;')" -n \
 	  -i "enablessl[. = '1']" \
 		  -o "  &lt;service&gt;" -n \
 		  -o "    &lt;type&gt;_https._tcp&lt;/type&gt;" -n \

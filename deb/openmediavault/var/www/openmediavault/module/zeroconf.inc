@@ -70,10 +70,6 @@ class ZeroconfModule extends OMVModuleAbstract implements OMVINotifyListener {
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.hostname",
 		  array($this, "updateService"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.dnsservicediscovery",
-		  array($this, "updateService"));
 	}
 }
 

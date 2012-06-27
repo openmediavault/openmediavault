@@ -1,31 +1,17 @@
-# This file is part of OpenMediaVault.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
-# 
-# OpenMediaVault is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-# 
-# OpenMediaVault is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
 # Stefan Thrane Overby <stoverby@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 20:07+0100\n"
-"PO-Revision-Date: 2012-05-23 14:10+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
-"Language-Team: Danish (http://www.transifex.net/projects/p/openmediavault/language/da/)\n"
+"POT-Creation-Date: 2012-06-27 20:39+0200\n"
+"PO-Revision-Date: 2012-06-27 18:39+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,6 +20,9 @@ msgstr ""
 
 msgid "Add share"
 msgstr "Tilføj delt mappe"
+
+msgid "Advertise this service via mDNS/DNS-SD."
+msgstr ""
 
 msgid "Allow guest logins"
 msgstr "Tillad gæste log ind"
@@ -55,6 +44,9 @@ msgstr "Klienter ser store bogstaver, server ser små bogstaver"
 
 msgid "Comment"
 msgstr "Kommentar"
+
+msgid "DNS Service Discovery"
+msgstr ""
 
 msgid "Don't do :hex translation for dot files."
 msgstr "Lav ikke :hex oversættelser for punktum filer."
@@ -124,6 +116,9 @@ msgstr "Placeringen af filer der skal deles."
 
 msgid "The name of the share."
 msgstr "Navn på delt mappe."
+
+msgid "The service name."
+msgstr ""
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."

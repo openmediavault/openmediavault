@@ -12,10 +12,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-11 20:26+0200\n"
-"PO-Revision-Date: 2012-06-11 18:26+0000\n"
+"POT-Creation-Date: 2012-06-27 20:39+0200\n"
+"PO-Revision-Date: 2012-06-27 18:39+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: German (http://www.transifex.net/projects/p/openmediavault/language/de/)\n"
+"Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -259,6 +259,9 @@ msgstr "Advanced Power Management"
 
 msgid "Advanced settings"
 msgstr "Erweiterte Einstellungen"
+
+msgid "Advertise this service via mDNS/DNS-SD."
+msgstr ""
 
 msgid "Afghanistan"
 msgstr "Afghanistan"
@@ -520,7 +523,7 @@ msgstr "Abbrechen"
 msgid ""
 "Cannot unlink shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "Der freigegebene Ordner kann nicht gelöscht werden weil ein anderer freigegebener Ordner auf ein Unterverzeichnis referenziert."
 
 msgid "Canton and Enderbury Islands"
 msgstr "Phoenixinseln"
@@ -734,7 +737,7 @@ msgid "Delete"
 msgstr "Löschen"
 
 msgid "Delete content"
-msgstr ""
+msgstr "Lösche Inhalt"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Lösche Dateien beim Empfänger die beim Sender nicht existieren"
@@ -850,10 +853,10 @@ msgid "Do you really want to reboot the system?"
 msgstr "Wollen Sie wirklich das System neu starten?"
 
 msgid "Do you really want to remove the shared folder content?"
-msgstr ""
+msgstr "Soll der Inhalt des freigegebenen Ordners wirklich gelöscht werden?"
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
-msgstr ""
+msgstr "Soll das WebGUI (z.B. Spaltenanordnung) wirklich zurückgesetzt werden?"
 
 msgid ""
 "Do you really want to resize the selected filesystem? You have to do that "
@@ -874,7 +877,7 @@ msgid ""
 "shared folder content will be permanently removed and cannot be recovered. "
 "Select 'No' to delete the shared folder configuration only or 'Cancel' to "
 "abort."
-msgstr ""
+msgstr "Soll der Inhalt des freigegebenen Ordners wirklich rekursiv gelöscht werden? Der Inhalt des freigegebenen Ordners wird unwiederbringlich gelöscht und kann nicht wiederhergestellt werden. Wählen Sie 'Nein' um nur die freigegebene Ordner-Konfiguration zu löschen und 'Abbrechen' zum Abbruch."
 
 msgid ""
 "Do you want to secure wipe the device? Please note that this may take a long"
@@ -996,9 +999,6 @@ msgstr "Aktiviere SSL/TLS Verbindungen"
 
 msgid "Enable WINS server"
 msgstr "WINS Server aktivieren"
-
-msgid "Enable advertising of services via mDNS/DNS-SD."
-msgstr "Bekanntmachen der Dienste mittels mDNS/DNS-SD aktivieren."
 
 msgid "Enable anonymous FTP"
 msgstr "Aktiviere anonymes FTP"
@@ -1924,7 +1924,7 @@ msgid "No authentication and no privacy"
 msgstr "Keine Authentifizierung und keine Verschlüsselung"
 
 msgid "No certificate request"
-msgstr ""
+msgstr "Keine Zertifikat-Anforderung"
 
 msgid "No items to display"
 msgstr "Keine Einträge zum Anzeigen"
@@ -1933,7 +1933,7 @@ msgid "No log entries to display"
 msgstr "Keine Logeinträge zum Anzeigen"
 
 msgid "No session reuse required"
-msgstr ""
+msgstr "Keine Session-Wiederverwendung benötigt"
 
 msgid "No users connected"
 msgstr "Keine Benutzer angemeldet"
@@ -2356,7 +2356,7 @@ msgid "Reset"
 msgstr "Zurücksetzen"
 
 msgid "Reset WebGUI state"
-msgstr ""
+msgstr "WebGUI Zurücksetzten"
 
 msgid "Resize"
 msgstr "Größe ändern"
@@ -2845,7 +2845,7 @@ msgid "System time"
 msgstr "Systemzeit"
 
 msgid "System user/group"
-msgstr ""
+msgstr "System Benutzer/Gruppe"
 
 msgid "TCP forwarding"
 msgstr "TCP Weiterleitung"
@@ -2905,7 +2905,7 @@ msgid "The field '%s' contains forbidden "
 msgstr "Das Feld '%s' enthält verbotene"
 
 msgid "The file mode of the shared folder path."
-msgstr ""
+msgstr "Der Dateimodus des freigegebenen Ordner Pfades."
 
 #, c-format
 msgid "The group '%s' does not exist"
@@ -2954,6 +2954,9 @@ msgstr "Die Zugriffsrechte neuer Dateien und Verzeichnisse sind normalerweise du
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
 "for data connections is not required."
+msgstr "Es ist keine Voraussetzung das die Kontrollverbindung einer SSL-Session für die Datenverbindung wiederverwendet wird."
+
+msgid "The service name."
 msgstr ""
 
 msgid "The session timeout time in minutes."
@@ -3011,7 +3014,7 @@ msgstr "Es gibt bereits einen Einhängepunkt für %s"
 msgid ""
 "These settings are used by the services to configure the user access rights."
 " Please note that these settings do no affect the file system permissions."
-msgstr ""
+msgstr "Diese Einstellungen werden von den Services benutzt um die Benutzer-Zugriffs-Rechte zu konfigurieren. Bitte beachten Sie das diese Einstellungen nicht die Dateisystem-Berechtigungen betreffen."
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3019,7 +3022,7 @@ msgid ""
 msgstr "Definiert, ob diese Freigabe in der Liste der verfügbaren Freigaben einer Netzwerkansicht und in der Suchliste angezeigt wird."
 
 msgid "This field does not allow blanks"
-msgstr ""
+msgstr "In diesem Feld sind keine Leerzeichen erlaubt"
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Diese Feld muss das Format hh:mm:ss erfüllen"
@@ -3031,7 +3034,7 @@ msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Dieses Feld sollte eine IPv4 Netzadresse in CIDR Notation enthalten"
 
 msgid "This field should be a domainname or an IPv4 address"
-msgstr ""
+msgstr "Dieses Feld erwartet einen Domainnamen oder eine IPv4-Adresse."
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Dieses Feld sollte einen Hostnamen oder eine IPv4 Adresse enthalten"
@@ -3086,7 +3089,7 @@ msgstr "Diese Option kann durch effizienteres Nutzen der System CPU Samba beschl
 msgid ""
 "This option causes the server to not send a certificate request during a SSL"
 " handshake."
-msgstr ""
+msgstr "Diese Einstellung veranlasst den Server kein Zertifikat während einem SSL-Handshake anzufordern."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
@@ -3126,7 +3129,7 @@ msgstr "Eine mit Komma, Leerzeichen oder Tabulator getrennte Auflistung von Host
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
 "server."
-msgstr ""
+msgstr "Durch diese Einstellung müssen Clients FTP über TLS benutzen um mit diesem Server zu kommunizieren."
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
@@ -3497,9 +3500,6 @@ msgstr "Ja"
 
 msgid "Zambia"
 msgstr "Sambia"
-
-msgid "Zeroconf"
-msgstr "Zeroconf"
 
 msgid "Zimbabwe"
 msgstr "Simbabwe"

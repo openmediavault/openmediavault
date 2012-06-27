@@ -34,7 +34,9 @@ class AFPRpc extends OMVRpc {
 				"properties":{
 					"enable":{"type":"boolean"},
 					"allowguests":{"type":"boolean"},
-					"extraoptions":{"type":"string"}
+					"extraoptions":{"type":"string"},
+					"dnssdenable":{"type":"boolean"},
+					"dnssdname":{"type":"string"}
 				}
 			}'),
 			"getShareList" => array('{
@@ -95,10 +97,14 @@ class AFPRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		unset($object['shares']);
 		// Modify result data
 		$object['enable'] = boolval($object['enable']);
 		$object['allowguests'] = boolval($object['allowguests']);
+		$object['dnssdenable'] = boolval($object['dnssd']['enable']);
+		$object['dnssdname'] = $object['dnssd']['name'];
+		// Remove useless data
+		unset($object['shares']);
+		unset($object['dnssd']);
 		return $object;
 	}
 
@@ -126,7 +132,11 @@ class AFPRpc extends OMVRpc {
 			"allowguests" => array_boolval($data, 'allowguests'),
 			"extraoptions" => $data['extraoptions'],
 			"shares" => isset($oldObject['shares']) ?
-			  $oldObject['shares'] : array()
+			  $oldObject['shares'] : array(),
+			"dnssd" => array(
+				"enable" => array_boolval($data, 'dnssdenable'),
+				"name" => $data['dnssdname']
+			)
 		);
 		if (FALSE === $xmlConfig->replace("//services/afp", $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);

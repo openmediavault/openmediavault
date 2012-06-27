@@ -131,6 +131,31 @@ Ext.extend(OMV.Module.System.WebGUI.Settings, OMV.FormPanelExt, {
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: _("The SSL certificate.")
 			}]
+		},{
+			xtype: "fieldset",
+			title: _("DNS Service Discovery"),
+			defaults: {
+//				anchor: "100%",
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "checkbox",
+				name: "dnssdenable",
+				fieldLabel: _("Enable"),
+				checked: true,
+				inputValue: 1,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("Advertise this service via mDNS/DNS-SD.")
+			},{
+				xtype: "textfield",
+				name: "dnssdname",
+				fieldLabel: _("Name"),
+				allowBlank: false,
+				width: 180,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("The service name."),
+				value: "%h - Web administration"
+			}]
 		}];
 	},
 

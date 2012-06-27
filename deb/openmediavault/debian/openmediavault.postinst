@@ -361,6 +361,30 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.14"; then
 			omv-mkconf postfix
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.15"; then
+			omv_config_add_element "//webadmin" "dnssd" ""
+			omv_config_add_element "//webadmin/dnssd" "enable" "1"
+			omv_config_add_element "//webadmin/dnssd" "name" "%h - Web administration"
+			omv_config_add_element "//services/ssh" "dnssd" ""
+			omv_config_add_element "//services/ssh/dnssd" "enable" "1"
+			omv_config_add_element "//services/ssh/dnssd" "name" "%h - SSH"
+			omv_config_add_element "//services/nfs" "dnssd" ""
+			omv_config_add_element "//services/nfs/dnssd" "enable" "1"
+			omv_config_add_element "//services/nfs/dnssd" "name" "%h - NFS"
+			omv_config_add_element "//services/ftp" "dnssd" ""
+			omv_config_add_element "//services/ftp/dnssd" "enable" "1"
+			omv_config_add_element "//services/ftp/dnssd" "name" "%h - FTP"
+			omv_config_add_element "//services/tftp" "dnssd" ""
+			omv_config_add_element "//services/tftp/dnssd" "enable" "1"
+			omv_config_add_element "//services/tftp/dnssd" "name" "%h - TFTP"
+			omv_config_add_element "//services/smb" "dnssd" ""
+			omv_config_add_element "//services/smb/dnssd" "enable" "1"
+			omv_config_add_element "//services/smb/dnssd" "name" "%h - SMB/CIFS"
+			omv_config_add_element "//services/rsync/server" "dnssd" ""
+			omv_config_add_element "//services/rsync/server/dnssd" "enable" "1"
+			omv_config_add_element "//services/rsync/server/dnssd" "name" "%h - Rsync"
+			omv-mkconf avahi-daemon
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

@@ -1,3 +1,10 @@
+openmediavault-netatalk (0.3.0.4) stable; urgency=low
+
+  * Update locales.
+  * Mantis 0000522: Improve DNS Service Discovery management.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 18 Jun 2012 19:18:24 +0200
+
 openmediavault-netatalk (0.3.0.3) stable; urgency=low
 
   * Update locales.

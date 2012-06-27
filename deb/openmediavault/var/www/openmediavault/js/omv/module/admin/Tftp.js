@@ -127,6 +127,30 @@ Ext.extend(OMV.Module.Services.TFTP, OMV.FormPanelExt, {
 				allowBlank: true,
 				anchor: "100%"
 			}]
+		},{
+			xtype: "fieldset",
+			title: _("DNS Service Discovery"),
+			defaults: {
+//				anchor: "100%",
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "checkbox",
+				name: "dnssdenable",
+				fieldLabel: _("Enable"),
+				checked: true,
+				inputValue: 1,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("Advertise this service via mDNS/DNS-SD.")
+			},{
+				xtype: "textfield",
+				name: "dnssdname",
+				fieldLabel: _("Name"),
+				allowBlank: false,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("The service name."),
+				value: "%h - TFTP"
+			}]
 		}];
 	},
 

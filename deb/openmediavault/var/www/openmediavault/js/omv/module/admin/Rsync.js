@@ -129,6 +129,30 @@ Ext.extend(OMV.Module.Services.Rsyncd.SettingsPanel, OMV.FormPanelExt, {
 				infoText: _("Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> for more details."),
 				anchor: "100%"
 			}]
+		},{
+			xtype: "fieldset",
+			title: _("DNS Service Discovery"),
+			defaults: {
+//				anchor: "100%",
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "checkbox",
+				name: "dnssdenable",
+				fieldLabel: _("Enable"),
+				checked: true,
+				inputValue: 1,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("Advertise this service via mDNS/DNS-SD.")
+			},{
+				xtype: "textfield",
+				name: "dnssdname",
+				fieldLabel: _("Name"),
+				allowBlank: false,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("The service name."),
+				value: "%h - Rsync"
+			}]
 		}];
 	}
 });

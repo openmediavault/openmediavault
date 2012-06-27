@@ -55,7 +55,9 @@ class FTPRpc extends OMVRpc {
 					"maxdowntransferrate":{"type":"integer","minimum":0},
 					"anonymous":{"type":"boolean"},
 					"requirevalidshell":{"type":"boolean"},
-					"extraoptions":{"type":"string"}
+					"extraoptions":{"type":"string"},
+					"dnssdenable":{"type":"boolean"},
+					"dnssdname":{"type":"string"}
 				}
 			}'),
 			"getShareList" => array('{
@@ -159,8 +161,6 @@ class FTPRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		unset($object['shares']);
-		unset($object['modules']);
 		// Modify result data
 		$object['enable'] = boolval($object['enable']);
 		$object['port'] = intval($object['port']);
@@ -183,6 +183,12 @@ class FTPRpc extends OMVRpc {
 		$object['maxdowntransferrate'] = intval($object['maxdowntransferrate']);
 		$object['anonymous'] = boolval($object['anonymous']);
 		$object['requirevalidshell'] = boolval($object['requirevalidshell']);
+		$object['dnssdenable'] = boolval($object['dnssd']['enable']);
+		$object['dnssdname'] = $object['dnssd']['name'];
+		// Remove useless data
+		unset($object['shares']);
+		unset($object['modules']);
+		unset($object['dnssd']);
 		return $object;
 	}
 
@@ -232,7 +238,11 @@ class FTPRpc extends OMVRpc {
 			"shares" => isset($oldObject['shares']) ?
 			  $oldObject['shares'] : array(),
 			"modules" => isset($oldObject['modules']) ?
-			  $oldObject['modules'] : array()
+			  $oldObject['modules'] : array(),
+			"dnssd" => array(
+				"enable" => array_boolval($data, 'dnssdenable'),
+				"name" => $data['dnssdname']
+			)
 		);
 		if (FALSE === $xmlConfig->replace("//services/ftp", $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);

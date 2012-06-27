@@ -138,12 +138,6 @@ class NetworkRpc extends OMVRpc {
 						}
 					}
 				}
-			}'),
-			"setDNSServiceDiscovery" => array('{
-				"type":"object",
-				"properties":{
-					"enable":{"type":"boolean"}
-				}
 			}')
 		);
 	}
@@ -915,60 +909,6 @@ class NetworkRpc extends OMVRpc {
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.dnsnameservers", $object);
-	}
-
-	/**
-	 * Get the DNS service discovery configuration
-	 */
-	function getDNSServiceDiscovery() {
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Get configuration object
-		$xpath = "//system/network/dnsservicediscovery";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		return $object;
-	}
-
-	/**
-	 * Set the DNS service discovery configuration
-	 */
-	function setDNSServiceDiscovery($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Update configuration
-		$xpath = "//system/network/dnsservicediscovery";
-		$object = array(
-			"enable" => array_boolval($data, 'enable')
-		);
-		if (FALSE === $xmlConfig->replace($xpath, $object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.dnsservicediscovery", $object);
 	}
 }
 ?>

@@ -327,6 +327,30 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 				infoText: _("Please check the <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manual page</a> for more details."),
 				anchor: "100%"
 			}]
+		},{
+			xtype: "fieldset",
+			title: _("DNS Service Discovery"),
+			defaults: {
+//				anchor: "100%",
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "checkbox",
+				name: "dnssdenable",
+				fieldLabel: _("Enable"),
+				checked: true,
+				inputValue: 1,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("Advertise this service via mDNS/DNS-SD.")
+			},{
+				xtype: "textfield",
+				name: "dnssdname",
+				fieldLabel: _("Name"),
+				allowBlank: false,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("The service name."),
+				value: "%h - FTP"
+			}]
 		}];
 	},
 

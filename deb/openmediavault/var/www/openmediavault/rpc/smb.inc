@@ -44,7 +44,9 @@ class SMBRpc extends OMVRpc {
 					"winsserver":{"type":"string"},
 					"homesenable":{"type":"boolean"},
 					"homesbrowseable":{"type":"boolean"},
-					"extraoptions":{"type":"string"}
+					"extraoptions":{"type":"string"},
+					"dnssdenable":{"type":"boolean"},
+					"dnssdname":{"type":"string"}
 				}
 			}'),
 			"getShareList" => array('{
@@ -117,6 +119,10 @@ class SMBRpc extends OMVRpc {
 		$object['winssupport'] = boolval($object['winssupport']);
 		$object['homesenable'] = boolval($object['homesenable']);
 		$object['homesbrowseable'] = boolval($object['homesbrowseable']);
+		$object['dnssdenable'] = boolval($object['dnssd']['enable']);
+		$object['dnssdname'] = $object['dnssd']['name'];
+		// Remove useless data
+		unset($object['dnssd']);
 		return $object;
 	}
 
@@ -154,7 +160,11 @@ class SMBRpc extends OMVRpc {
 			"homesbrowseable" => array_boolval($data, 'homesbrowseable'),
 			"extraoptions" => $data['extraoptions'],
 			"shares" => isset($oldObject['shares']) ?
-			  $oldObject['shares'] : array()
+			  $oldObject['shares'] : array(),
+			"dnssd" => array(
+				"enable" => array_boolval($data, 'dnssdenable'),
+				"name" => $data['dnssdname']
+			)
 		);
 		if (FALSE === $xmlConfig->replace("//services/smb", $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);

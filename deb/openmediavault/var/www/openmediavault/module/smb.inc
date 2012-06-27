@@ -179,7 +179,7 @@ class SMBModule extends OMVModuleAbstract implements OMVINotifyListener,
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder.privileges",
 		  array($this, "updateService"));
-		// Update Zeroconfig if configuration has been modified
+		// Update Zeroconf if configuration has been modified
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,

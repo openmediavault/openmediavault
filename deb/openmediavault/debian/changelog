@@ -1,11 +1,13 @@
 openmediavault (0.3.0.15) stable; urgency=low
 
-  * Replace php5-auth-pam with php5-pam package because it has been dropped
-    in Wheezy.
+  * Update locales.
   * Mantis 0000507: Allow setting multiple secondary DNS servers. The input
     field in the WebGUI accept a list of comma-seperated IP addresses.
   * Mantis 0000510: Timestamps on system logs are displayed incorrectly on
     web interface for non-DST time zones.
+  * Mantis 0000521: Replace php5-auth-pam with php5-pam package because it
+    has been dropped in Debian Wheezy.
+  * Mantis 0000522: Improve DNS Service Discovery management.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 15 Jun 2012 22:26:24 +0200
 

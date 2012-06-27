@@ -40,7 +40,9 @@ class WebGUIRpc extends OMVRpc {
 					"forcesslonly":{"type":"boolean"},
 					"sslcertificateref":{'.
 					  $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'},
-					"timeout":{"type":"integer","minimum":1,"maximum":30}
+					"timeout":{"type":"integer","minimum":1,"maximum":30},
+					"dnssdenable":{"type":"boolean"},
+					"dnssdname":{"type":"string"}
 				}
 			}'),
 			"setPassword" => array('{
@@ -76,6 +78,10 @@ class WebGUIRpc extends OMVRpc {
 		$object['sslport'] = intval($object['sslport']);
 		$object['forcesslonly'] = boolval($object['forcesslonly']);
 		$object['timeout'] = intval($object['timeout']);
+		$object['dnssdenable'] = boolval($object['dnssd']['enable']);
+		$object['dnssdname'] = $object['dnssd']['name'];
+		// Remove useless data
+		unset($object['dnssd']);
 		return $object;
 	}
 
@@ -100,7 +106,11 @@ class WebGUIRpc extends OMVRpc {
 			"sslport" => $data['sslport'],
 			"forcesslonly" => array_boolval($data, 'forcesslonly'),
 			"sslcertificateref" => $data['sslcertificateref'],
-			"timeout" => $data['timeout']
+			"timeout" => $data['timeout'],
+			"dnssd" => array(
+				"enable" => array_boolval($data, 'dnssdenable'),
+				"name" => $data['dnssdname']
+			)
 		);
 		// Set configuration object
 		$xpath = "//webadmin";
