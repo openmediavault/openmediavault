@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-27 20:39+0200\n"
-"PO-Revision-Date: 2012-06-27 18:39+0000\n"
+"POT-Creation-Date: 2012-06-29 21:49+0200\n"
+"PO-Revision-Date: 2012-06-29 19:49+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -257,7 +257,7 @@ msgid "Advanced settings"
 msgstr "Προχωρημένες ρυθμίσεις"
 
 msgid "Advertise this service via mDNS/DNS-SD."
-msgstr ""
+msgstr "Διαφήμιση αυτής της υπηρεσίας μέσω mDNS/DNS-SD."
 
 msgid "Afghanistan"
 msgstr "Afghanistan"
@@ -2471,6 +2471,12 @@ msgstr "Saudi Arabia"
 msgid "Saving ..."
 msgstr "Αποθήκευση ..."
 
+msgid "Scan"
+msgstr ""
+
+msgid "Scanning for new devices ..."
+msgstr ""
+
 msgid "Scheduled tests"
 msgstr "Προγραμματισμένοι έλεγχοι"
 
@@ -2953,7 +2959,7 @@ msgid ""
 msgstr "Δεν θα είναι απαραίτητο να χρησιμοποιείται για την σύνδεση δεδομένων η συνεδρία SSL της σύνδεσης ελέγχου."
 
 msgid "The service name."
-msgstr ""
+msgstr "Το όνομα της υπηρεσίας."
 
 msgid "The session timeout time in minutes."
 msgstr "Το χρονικό περιθώριο σε λεπτά."

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-27 20:39+0200\n"
-"PO-Revision-Date: 2012-06-27 18:39+0000\n"
+"POT-Creation-Date: 2012-06-29 21:49+0200\n"
+"PO-Revision-Date: 2012-06-29 19:49+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -2472,6 +2472,12 @@ msgstr "Saoedi-Arabië"
 
 msgid "Saving ..."
 msgstr "Opslaan ..."
+
+msgid "Scan"
+msgstr ""
+
+msgid "Scanning for new devices ..."
+msgstr ""
 
 msgid "Scheduled tests"
 msgstr "Geplande tests"

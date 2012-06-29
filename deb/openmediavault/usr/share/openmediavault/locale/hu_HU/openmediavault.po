@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-27 20:39+0200\n"
-"PO-Revision-Date: 2012-06-27 18:40+0000\n"
+"POT-Creation-Date: 2012-06-29 21:49+0200\n"
+"PO-Revision-Date: 2012-06-29 19:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -257,7 +257,7 @@ msgid "Advanced settings"
 msgstr "Haladó beállítások"
 
 msgid "Advertise this service via mDNS/DNS-SD."
-msgstr ""
+msgstr "Szolgáltatás közzététele mDNS/DNS-SD-n keresztül."
 
 msgid "Afghanistan"
 msgstr "Afghanistan"
@@ -2471,6 +2471,12 @@ msgstr "Saudi Arabia"
 msgid "Saving ..."
 msgstr "Mentés ..."
 
+msgid "Scan"
+msgstr ""
+
+msgid "Scanning for new devices ..."
+msgstr ""
+
 msgid "Scheduled tests"
 msgstr "Ütemezett tesztek"
 
@@ -2953,7 +2959,7 @@ msgid ""
 msgstr "Annak a követelménye, hogy az SSL munkamenettől a vezérlő kapcsolat újra használatához nincs szükség adat kapcsolatokra."
 
 msgid "The service name."
-msgstr ""
+msgstr "A szolgáltatás neve."
 
 msgid "The session timeout time in minutes."
 msgstr "A munkamenet túllépésének ideje percben."

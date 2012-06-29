@@ -306,5 +306,26 @@ class DiskMgmtRpc extends OMVRpc {
 		);
 		return $pid;
 	}
+
+	/**
+	 * Rescan SCSI bus.
+	 */
+	public function rescan() {
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Execute shell script to rescan SCSI bus.
+		$cmd = "[ -x /sys/class/scsi_host ] && for hostdir in ".
+		  "/sys/class/scsi_host/host*; do echo \"- - -\" | ".
+		  "sudo tee \${hostdir}/scan >/dev/null; done";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+	}
 }
 ?>

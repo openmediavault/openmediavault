@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-27 20:39+0200\n"
-"PO-Revision-Date: 2012-06-27 18:39+0000\n"
+"POT-Creation-Date: 2012-06-29 21:49+0200\n"
+"PO-Revision-Date: 2012-06-29 19:49+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -2474,6 +2474,12 @@ msgstr "Саудовская Аравия"
 msgid "Saving ..."
 msgstr "Сохранение ..."
 
+msgid "Scan"
+msgstr ""
+
+msgid "Scanning for new devices ..."
+msgstr ""
+
 msgid "Scheduled tests"
 msgstr "Запланированные тесты"
 
@@ -2956,7 +2962,7 @@ msgid ""
 msgstr "Требование о том, что SSL сессия управляющего соединение используется для передачи данных, не требуется."
 
 msgid "The service name."
-msgstr ""
+msgstr "Имя службы."
 
 msgid "The session timeout time in minutes."
 msgstr "Время тайм-аута сеанса в минутах."

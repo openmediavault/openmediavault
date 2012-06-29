@@ -349,3 +349,8 @@ Image: wrench.png
 Designer: PC (http://pc.de/icons)
 License: CC BY 3.0
 URL: http://www.iconfinder.com/icondetails/59135/16
+
+Image: search.png
+Designer: Everaldo Coelho (http://www.everaldo.com)
+License: GPL (http://www.gnu.org/copyleft/gpl.html)
+URL: http://www.iconfinder.com/icondetails/712/16

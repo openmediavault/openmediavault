@@ -126,6 +126,15 @@ Ext.extend(OMV.Module.Storage.PhysicalDiskPanel, OMV.grid.TBarGridPanel, {
 			scope: this,
 			disabled: true
 		});
+		// Add 'Scan' button to top toolbar
+		tbar.add({
+			id: this.getId() + "-scan",
+			xtype: "button",
+			text: _("Scan"),
+			icon: "images/search.png",
+			handler: this.cbScanBtnHdl,
+			scope: this
+		});
 		return tbar;
 	},
 
@@ -234,6 +243,22 @@ Ext.extend(OMV.Module.Storage.PhysicalDiskPanel, OMV.grid.TBarGridPanel, {
 			scope: this,
 			icon: Ext.Msg.QUESTION
 		});
+	},
+
+	cbScanBtnHdl : function() {
+		OMV.MessageBox.wait(null, _("Scanning for new devices ..."));
+		// Force a rescan of the SCSI bus.
+		OMV.Ajax.request(function(id, response, error) {
+			  if (error === null) {
+				  // Delay some time ...
+				  (function() {
+					  OMV.MessageBox.hide();
+					  this.doReload();
+				  }).defer(2000);
+			  } else {
+				  OMV.MessageBox.error(null, error);
+			  }
+		  }, this, "DiskMgmt", "rescan", null);
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("storage", "physicaldisks", {

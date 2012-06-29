@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-27 20:39+0200\n"
-"PO-Revision-Date: 2012-06-27 18:40+0000\n"
+"POT-Creation-Date: 2012-06-29 21:49+0200\n"
+"PO-Revision-Date: 2012-06-29 19:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -258,7 +258,7 @@ msgid "Advanced settings"
 msgstr "Definições avançadas"
 
 msgid "Advertise this service via mDNS/DNS-SD."
-msgstr ""
+msgstr "Anuncie este serviço via mDNS / DNS-SD."
 
 msgid "Afghanistan"
 msgstr "Afganistão"
@@ -2472,6 +2472,12 @@ msgstr "Arábia Saudita"
 msgid "Saving ..."
 msgstr "Guardar..."
 
+msgid "Scan"
+msgstr ""
+
+msgid "Scanning for new devices ..."
+msgstr ""
+
 msgid "Scheduled tests"
 msgstr "Testes agendados"
 
@@ -2954,7 +2960,7 @@ msgid ""
 msgstr "O requisito de que a sessão SSL a partir da ligação de controle que é reutilizado para conexões de dados não é necessário."
 
 msgid "The service name."
-msgstr ""
+msgstr "O nome do serviço."
 
 msgid "The session timeout time in minutes."
 msgstr "O tempo limite de sessão em minutos."
