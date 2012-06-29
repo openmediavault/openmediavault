@@ -732,6 +732,12 @@ Ext.extend(OMV.Module.Privileges.SharedFolderACLDialog, Ext.Window, {
 			}
 		});
 
+		// Add tree sorter.
+		new Ext.tree.TreeSorter(this.tree, {
+			folderSort: true,
+			dir: "asc"
+		});
+
 		this.grid = new OMV.grid.PrivilegesGridPanel({
 			title: _("User/Group permissions"),
 			border: true,
