@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Volker  <votdev@gmx.de>, 2012.
+#   <warhog@gmx.de>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-21 22:48+0200\n"
-"PO-Revision-Date: 2012-06-21 20:49+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: German (http://www.transifex.net/projects/p/openmediavault/language/de/)\n"
+"PO-Revision-Date: 2012-06-23 13:06+0000\n"
+"Last-Translator: warhog <warhog@gmx.de>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,27 +23,27 @@ msgid "Add job"
 msgstr "Aufgabe hinzufügen"
 
 msgid "Algorithmic detection"
-msgstr ""
+msgstr "Algorithmische Erkennung"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Eine E-Mail mit den Kommando-Ausgaben (falls vorhanden) wird an den Administrator gesendet."
 
 msgid "Antivirus"
 msgstr "Antivirus"
 
 msgid "Be verbose."
-msgstr ""
+msgstr "Sei wortreich."
 
 msgid "Comment"
 msgstr "Kommentar"
 
 msgid "Database checks"
-msgstr ""
+msgstr "Datenbank Prüfungen"
 
 msgid "Database mirror"
-msgstr ""
+msgstr "Datenbank-Spiegel"
 
 msgid "Date & Time"
 msgstr "Datum &amp; Zeit"
@@ -51,13 +52,13 @@ msgid "Day of month"
 msgstr "Tag des Monats"
 
 msgid "Day of week"
-msgstr ""
+msgstr "Wochentag"
 
 msgid "Detect PUA"
-msgstr ""
+msgstr "Erkenne PUA"
 
 msgid "Detect broken executables"
-msgstr ""
+msgstr "Erkenne defekte ausführbare Dateien"
 
 msgid "Edit job"
 msgstr "Aufgabe bearbeiten"
@@ -66,33 +67,33 @@ msgid "Enable"
 msgstr "Aktivieren"
 
 msgid "Enable HTML detection and normalisation."
-msgstr ""
+msgstr "Aktiviere HTML-Erkennung und -Normalisierung."
 
 msgid "Enable archive scanning."
-msgstr ""
+msgstr "Aktiviere Scannen von Archiven."
 
 msgid "Enable on-access virus scanning"
-msgstr ""
+msgstr "Aktiviere On-Access-Virenscanner"
 
 msgid "Enable scanning of ELF files."
-msgstr ""
+msgstr "Aktiviere Scannen von ELF-Dateien."
 
 msgid ""
 "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
 "files."
-msgstr ""
+msgstr "Aktiviere Scannen von OLE2-Dateien, wie Microsoft Office Dokumente und .msi Dateien."
 
 msgid "Enable scanning within PDF files."
-msgstr ""
+msgstr "Aktiviere Scannen innerhalb von PDF-Dateien."
 
 msgid "Enable the algorithmic detection."
-msgstr ""
+msgstr "Aktiviere die algorithmische Erkennung."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
-msgstr ""
+msgstr "Aktiviere die Erkennung von defekten ausführbaren Dateien (PE und ELF)."
 
 msgid "Enable the detection of possibly unwanted applications."
-msgstr ""
+msgstr "Aktiviere die Erkennung von \"possibly unwanted applications\"."
 
 msgid "Enabled"
 msgstr "Aktiviert"
@@ -101,13 +102,13 @@ msgid "Event"
 msgstr "Ereignis"
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "Jeden N. Tag des Monats"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "Jede N. Stunde"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "Jede N. Minute"
 
 msgid "Execute job"
 msgstr "Aufgabe ausführen"
@@ -116,93 +117,93 @@ msgid "Extra options"
 msgstr "Erweiterte Optionen"
 
 msgid "Follow directory symlinks"
-msgstr ""
+msgstr "Folge Verzeichnis-Symlinks"
 
 msgid "Follow directory symlinks."
-msgstr ""
+msgstr "Folge Verzeichnis-Symlinks."
 
 msgid "Follow file symlinks"
-msgstr ""
+msgstr "Folge Datei-Symlinks"
 
 msgid "Follow regular file symlinks."
-msgstr ""
+msgstr "Folge normalen Datei-Symlinks."
 
 msgid "General settings"
 msgstr "Allgemeine Einstellungen"
 
 msgid "Hour"
-msgstr ""
+msgstr "Stunde"
 
 msgid "Jobs"
 msgstr "Aufgaben"
 
 msgid "Minute"
-msgstr ""
+msgstr "Minute"
 
 msgid "Monitor the shared folder and scan new or modified files."
-msgstr ""
+msgstr "Überwache diesen freigegebenen Ordner und scanne neue oder modifizierte Dateien."
 
 msgid "Month"
-msgstr ""
+msgstr "Monat"
 
 msgid "Multiscan"
-msgstr ""
+msgstr "Multiscan"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr ""
+msgstr "Anzahl der Datenbank-Update-Prüfungen pro Tag. Auf 0 setzen zum deaktivieren."
 
 msgid "On-access"
-msgstr ""
+msgstr "On-Access"
 
 msgid "Perform a deeper analysis of executable files."
-msgstr ""
+msgstr "Führe eine tiefergehende Analyse von ausführbaren Dateien durch."
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Bitte <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>Manual Seiten</a> für mehr Details prüfen."
 
 msgid "Remove"
-msgstr ""
+msgstr "Entferne"
 
 msgid "Remove infected files."
-msgstr ""
+msgstr "Entferne infizierte Dateien."
 
 msgid "Run"
 msgstr "Ausführen"
 
 msgid "Scan ELF"
-msgstr ""
+msgstr "Scanne ELF"
 
 msgid "Scan HTML"
-msgstr ""
+msgstr "Scanne HTML"
 
 msgid "Scan OLE2"
-msgstr ""
+msgstr "Scanne OLE2"
 
 msgid "Scan PDF"
-msgstr ""
+msgstr "Scanne PDF"
 
 msgid "Scan Portable Executable"
-msgstr ""
+msgstr "Scanne portable ausführbare Dateien"
 
 msgid "Scan archives"
-msgstr ""
+msgstr "Scanne Archive"
 
 msgid "Scan the directory contents in parallel using available threads."
-msgstr ""
+msgstr "Scanne die Verzeichnis-Inhalte parallel mithilfe der verfügbaren Threads."
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "Sende Kommando-Ausgabe via E-Mail"
 
 msgid "Send email"
-msgstr ""
+msgstr "Sende E-Mail"
 
 msgid ""
 "Server name where database updates are downloaded from. Get a complete list "
 "of database mirrors <a href='http://www.clamav.net/mirrors.html' "
 "target='_blank'>here</a>."
-msgstr ""
+msgstr "Servername von dem die Datenbank-Updates heruntergeladen werden. Eine komplette Liste der Spiegel ist <a href='http://www.clamav.net/mirrors.html' target='_blank'>hier</a> zu finden."
 
 msgid "Settings"
 msgstr "Einstellungen"
@@ -211,10 +212,10 @@ msgid "Shared folder"
 msgstr "Freigegebene Ordner"
 
 msgid "The location of the files to scan."
-msgstr ""
+msgstr "Der Ort der zu scannenden Dateien."
 
 msgid "Verbose"
-msgstr ""
+msgstr "Wortreich"
 
 msgid "n/a"
 msgstr "N/V"

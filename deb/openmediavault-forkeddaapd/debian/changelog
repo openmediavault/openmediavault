@@ -1,3 +1,9 @@
+openmediavault-forkeddaapd (0.3.0.4) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 29 Jun 2012 22:21:33 +0200
+
 openmediavault-forkeddaapd (0.3.0.3) stable; urgency=low
 
   * Update locales.

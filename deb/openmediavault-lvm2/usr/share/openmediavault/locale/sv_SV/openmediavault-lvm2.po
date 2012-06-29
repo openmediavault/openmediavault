@@ -17,14 +17,15 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
+# Henrik Sandström <henrik.sandstroem@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-15 20:06+0100\n"
-"PO-Revision-Date: 2012-03-17 01:49+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Swedish (http://www.transifex.net/projects/p/openmediavault/language/sv/)\n"
+"PO-Revision-Date: 2012-06-06 19:20+0000\n"
+"Last-Translator: Henrik Sandström <henrik.sandstroem@gmail.com>\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,100 +35,100 @@ msgstr ""
 msgid ""
 "After the logical volume has been extended you can resize the containing "
 "filesystem."
-msgstr ""
+msgstr "Efter den logiska volymen har utökats kan du ändra storlek på filsystemets innehåll."
 
 msgid "Available"
-msgstr ""
+msgstr "Tillgänglig"
 
 msgid "Capacity"
-msgstr ""
+msgstr "Kapacitet"
 
 msgid "Confirmation"
-msgstr ""
+msgstr "Bekräftelse"
 
 msgid "Create logical volume"
-msgstr ""
+msgstr "Skapa logisk volym"
 
 msgid "Create physical volume"
-msgstr ""
+msgstr "Skapa fysisk volym"
 
 msgid "Create volume group"
-msgstr ""
+msgstr "Skapa volymgrupp"
 
 msgid "Description"
-msgstr ""
+msgstr "Beskrivning"
 
 msgid "Device"
-msgstr ""
+msgstr "Enhet"
 
 msgid "Devices"
-msgstr ""
+msgstr "Enheter"
 
 msgid "Do you really want to create the logical volume?"
-msgstr ""
+msgstr "Vill du verkligen skapa den logiska volymen?"
 
 msgid "Do you really want to create the physical volume?"
-msgstr ""
+msgstr "Vill du verkligen skapa den fysiska volymen?"
 
 msgid "Do you really want to create the volume group?"
-msgstr ""
+msgstr "Vill du verkligen skapa volymgruppen?"
 
 msgid "Edit logical volume"
-msgstr ""
+msgstr "Redigera logisk volym"
 
 msgid "Edit volume group"
-msgstr ""
+msgstr "Redigera volymgrupp"
 
 msgid "Extend"
-msgstr ""
+msgstr "Utöka"
 
 msgid "Extend logical volume"
-msgstr ""
+msgstr "Utöka logisk volym"
 
 msgid "Extend volume group"
-msgstr ""
+msgstr "Utöka volymgrupp"
 
 msgid "Free"
-msgstr ""
+msgstr "Ledigt"
 
 msgid "Logical Volume Management"
-msgstr ""
+msgstr "Logisk volymhantering"
 
 msgid "Logical volumes"
-msgstr ""
+msgstr "Logiska volymer"
 
 msgid "Name"
-msgstr ""
+msgstr "Namn"
 
 msgid "Physical volumes"
-msgstr ""
+msgstr "Fysiska volymer"
 
 msgid "Reduce"
-msgstr ""
+msgstr "Minska"
 
 msgid "Reduce volume group"
-msgstr ""
+msgstr "Minska volymgrupp"
 
 msgid "Select a volume group ..."
-msgstr ""
+msgstr "Välj en volymgrupp ..."
 
 msgid "Select an device ..."
-msgstr ""
+msgstr "Välj en enhet ..."
 
 msgid "Size"
-msgstr ""
+msgstr "Storlek"
 
 msgid "The maximum value for this field is {0}"
-msgstr ""
+msgstr "Det maximala värdet för detta fält är {0}"
 
 msgid "The minimum value for this field is {0}"
-msgstr ""
+msgstr "Det minimala värdet för detta fält är {0}"
 
 msgid "Used"
-msgstr ""
+msgstr "Använt"
 
 msgid "Volume group"
-msgstr ""
+msgstr "Volymgrupp"
 
 msgid "Volume groups"
-msgstr ""
+msgstr "Volymgrupper"
