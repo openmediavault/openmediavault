@@ -620,7 +620,7 @@ OMV.Module.Diagnostics.LogPlugin.ClamAV = function(config) {
 			id: "date",
 			width: 35,
 			renderer: function(val, cell, record, row, col, store) {
-				return OMV.util.Format.localeTime(record.get("date"));
+				return record.get("date");
 			}
 		},{
 			header: _("Event"),

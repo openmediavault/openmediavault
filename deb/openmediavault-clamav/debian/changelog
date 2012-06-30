@@ -1,3 +1,9 @@
+openmediavault-clamav (0.3.0.6) stable; urgency=low
+
+  * Fix bug when showing the log file.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 30 Jun 2012 23:16:43 +0200
+
 openmediavault-clamav (0.3.0.5) stable; urgency=low
 
   * Update locales.
