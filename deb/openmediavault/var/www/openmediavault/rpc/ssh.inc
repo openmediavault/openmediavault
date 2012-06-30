@@ -39,7 +39,9 @@ class SSHRpc extends OMVRpc {
 					"permitrootlogin":{"type":"boolean"},
 					"tcpforwarding":{"type":"boolean"},
 					"compression":{"type":"boolean"},
-					"extraoptions":{"type":"string"}
+					"extraoptions":{"type":"string"},
+					"dnssdenable":{"type":"boolean"},
+					"dnssdname":{"type":"string"}
 				}
 			}')
 		);
@@ -68,6 +70,10 @@ class SSHRpc extends OMVRpc {
 		$object['permitrootlogin'] = boolval($object['permitrootlogin']);
 		$object['tcpforwarding'] = boolval($object['tcpforwarding']);
 		$object['compression'] = boolval($object['compression']);
+		$object['dnssdenable'] = boolval($object['dnssd']['enable']);
+		$object['dnssdname'] = $object['dnssd']['name'];
+		// Remove useless data
+		unset($object['dnssd']);
 		return $object;
 	}
 
@@ -92,7 +98,11 @@ class SSHRpc extends OMVRpc {
 			  'passwordauthentication'),
 			"permitrootlogin" => array_boolval($data, 'permitrootlogin'),
 			"tcpforwarding" => array_boolval($data, 'tcpforwarding'),
-			"compression" => array_boolval($data, 'compression')
+			"compression" => array_boolval($data, 'compression'),
+			"dnssd" => array(
+				"enable" => array_boolval($data, 'dnssdenable'),
+				"name" => $data['dnssdname']
+			)
 		);
 		if (FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);

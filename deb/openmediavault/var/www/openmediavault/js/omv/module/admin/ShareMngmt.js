@@ -1113,6 +1113,11 @@ Ext.extend(OMV.Module.Privileges.SharedFolderDirChooserDialog, Ext.Window, {
 				}
 			}
 		});
+		// Add tree sorter.
+		new Ext.tree.TreeSorter(this.tree, {
+			folderSort: true,
+			dir: "asc"
+		});
 		Ext.apply(this, {
 			buttons: [{
 				id: this.getId() + "-ok",
