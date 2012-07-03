@@ -1,8 +1,14 @@
+openmediavault (0.3.0.17) stable; urgency=low
+
+  * Mantis 0000532: PHP Warning after exchange from php5-auth-pam to php5-pam.
+
+ -- Volker <volker.theile@openmediavault.org>  Tue, 03 Jul 2012 23:21:22 +0200
+
 openmediavault (0.3.0.16) stable; urgency=low
 
   * Update locales.
   * Sort directory list in shared folder ACL and directoty chooser dialog.
-  * Fix bug. Add missing DNS-SD implementation to the SSH service RPC.
+  * Mantis 0000528: Add missing DNS-SD implementation to the SSH service RPC.
 
  -- Volker <volker.theile@openmediavault.org>  Fri, 29 Jun 2012 23:34:34 +0200
 

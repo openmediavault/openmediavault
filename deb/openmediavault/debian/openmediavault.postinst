@@ -385,6 +385,10 @@ case "$1" in
 			omv_config_add_element "//services/rsync/server/dnssd" "name" "%h - Rsync"
 			omv-mkconf avahi-daemon
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.17"; then
+			rm -f /etc/php5/conf.d/pam_auth.ini
+			invoke-rc.d apache2 graceful
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
