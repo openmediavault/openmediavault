@@ -257,7 +257,7 @@ Ext.extend(OMV.Module.Storage.PhysicalDiskPanel, OMV.grid.TBarGridPanel, {
 				  (function() {
 					  OMV.MessageBox.hide();
 					  this.doReload();
-				  }).defer(10000); // 10 seconds
+				  }).defer(5000, this); // 5 seconds
 			  } else {
 				  OMV.MessageBox.error(null, error);
 			  }
