@@ -250,11 +250,14 @@ Ext.extend(OMV.Module.Storage.PhysicalDiskPanel, OMV.grid.TBarGridPanel, {
 		// Force a rescan of the SCSI bus.
 		OMV.Ajax.request(function(id, response, error) {
 			  if (error === null) {
-				  // Delay some time ...
+				  // Delay some time ... Note, it is difficult to choose a
+				  // correct delay time because every system is different,
+				  // thus we can only guess a proper value that hopefully
+				  // works on most systems.
 				  (function() {
 					  OMV.MessageBox.hide();
 					  this.doReload();
-				  }).defer(2000);
+				  }).defer(10000); // 10 seconds
 			  } else {
 				  OMV.MessageBox.error(null, error);
 			  }

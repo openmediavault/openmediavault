@@ -1,6 +1,8 @@
 openmediavault (0.3.0.17) stable; urgency=low
 
   * Mantis 0000532: PHP Warning after exchange from php5-auth-pam to php5-pam.
+  * Mantis 0000534: Scan for new disks doesn't update web inteface immediatly
+    after scan.
 
  -- Volker <volker.theile@openmediavault.org>  Tue, 03 Jul 2012 23:21:22 +0200
 
