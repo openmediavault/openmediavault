@@ -48,8 +48,8 @@ if ($session->isAuthenticated()) {
 
 $filename = sprintf("%s/%s", $GLOBALS['OMV_RRDGRAPH_DIR'], $_GET['name']);
 if (!file_exists($filename)) {
-	throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-	  sprintf("Graph <%s> not found", $_GET['name']));
+	// Display error image.
+	$filename = $GLOBALS['OMV_RRDGRAPH_ERROR_IMAGE'];
 }
 $fd = fopen($filename, "r");
 header("Content-type: image/png");

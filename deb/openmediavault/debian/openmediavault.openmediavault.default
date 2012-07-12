@@ -37,6 +37,8 @@ OMV_FSTAB_MNTOPS_EXT4="defaults,acl,user_xattr,noexec,usrjquota=aquota.user,grpj
 OMV_FSTAB_MNTOPS_JFS="defaults,noexec,usrquota,grpquota"
 OMV_FSTAB_MNTOPS_XFS="defaults,noexec,usrquota,grpquota"
 OMV_USERMGMT_DEFAULT_GROUP="users"
+OMV_RRDGRAPH_DIR="/var/lib/openmediavault/rrd"
+OMV_RRDGRAPH_ERROR_IMAGE="/usr/share/openmediavault/icons/rrd_graph_error_64.png"
 OMV_DEBUG_SCRIPT="NO"
 OMV_DEBUG_PHP="NO"
 OMV_DEBUG_EXTJS="NO"
