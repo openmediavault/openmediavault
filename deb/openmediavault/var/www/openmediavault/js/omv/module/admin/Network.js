@@ -518,7 +518,7 @@ Ext.extend(OMV.Module.System.Network.PhyIfaceIdentifyDialog,
 			xtype: "displayfield",
 			hideLabel: true,
 			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: "<img border='0' src='images/warn.png'>" +
+			infoText: "<img border='0' src='images/warn.png'> " +
 			  _("Please note that no communication with the system is possible during this test.")
 		}];
 	},

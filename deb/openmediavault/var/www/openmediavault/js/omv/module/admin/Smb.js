@@ -220,8 +220,7 @@ Ext.extend(OMV.Module.Services.SMB.SettingsPanel, OMV.FormPanelExt, {
 				fieldLabel: _("Enable"),
 				checked: true,
 				inputValue: 1,
-				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: _("Advertise this service via mDNS/DNS-SD.")
+				boxLabel: _("Advertise this service via mDNS/DNS-SD.")
 			},{
 				xtype: "textfield",
 				name: "dnssdname",

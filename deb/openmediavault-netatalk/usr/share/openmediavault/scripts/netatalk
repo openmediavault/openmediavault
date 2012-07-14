@@ -49,7 +49,7 @@ OMV_NETATALK_TIMELORD_RUN=${OMV_NETATALK_TIMELORD_RUN:-"no"}
 OMV_NETATALK_A2BOOT_RUN=${OMV_NETATALK_A2BOOT_RUN:-"no"}
 OMV_NETATALK_CNID_METAD_RUN=${OMV_NETATALK_CNID_METAD_RUN:-"yes"}
 OMV_NETATALK_AFPD_RUN=${OMV_NETATALK_AFPD_RUN:-"yes"}
-OMV_NETATALK_AFPD_UAMLIST=${OMV_NETATALK_AFPD_UAMLIST:-"uams_clrtxt.so,uams_randum.so,uams_dhx.so,uams_dhx2.so"}
+OMV_NETATALK_AFPD_UAMLIST=${OMV_NETATALK_AFPD_UAMLIST:-"uams_dhx.so,uams_dhx2.so"}
 
 mkconf() {
 	# Create '/etc/default/netatalk' file
@@ -92,6 +92,7 @@ EOF
 	xmlstarlet sel -t -m "//services/afp" \
 	  -o "- -tcp -nosavepassword -nozeroconf -uamlist ${OMV_NETATALK_AFPD_UAMLIST}" \
 	  -i "allowguests[. = '1']" -o ",uams_guest.so" -b \
+	  -i "allowclrtxt[. = '1']" -o ",uams_clrtxt.so" -b \
 	  -i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
 	  -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NETATALK_AFPD_CONFIG}

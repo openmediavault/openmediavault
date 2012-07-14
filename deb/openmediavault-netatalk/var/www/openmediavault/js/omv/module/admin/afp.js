@@ -87,6 +87,13 @@ Ext.extend(OMV.Module.Services.AFP.SettingsPanel, OMV.FormPanelExt, {
 				fieldLabel: _("Allow guest logins"),
 				checked: false,
 				inputValue: 1
+			},{
+				xtype: "checkbox",
+				name: "allowclrtxt",
+				fieldLabel: _("Allow plain passwords"),
+				checked: false,
+				inputValue: 1,
+				boxLabel: _("Allow logins with passwords transmitted in the clear.")
 			}]
 		},{
 			xtype: "fieldset",
@@ -101,8 +108,7 @@ Ext.extend(OMV.Module.Services.AFP.SettingsPanel, OMV.FormPanelExt, {
 				fieldLabel: _("Enable"),
 				checked: true,
 				inputValue: 1,
-				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: _("Advertise this service via mDNS/DNS-SD.")
+				boxLabel: _("Advertise this service via mDNS/DNS-SD.")
 			},{
 				xtype: "textfield",
 				name: "dnssdname",

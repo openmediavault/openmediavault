@@ -55,6 +55,7 @@ case "$1" in
 		#     <afp>
 		#       <enable>0</enable>
 		#       <allowguests>0</allowguests>
+		#       <allowclrtxt>0</allowclrtxt>
 		#       <extraoptions></extraoptions>
 		#       <shares>
 		#       	<!--
@@ -89,6 +90,7 @@ case "$1" in
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
 			object="${object}<allowguests>0</allowguests>"
+			object="${object}<allowclrtxt>0</allowclrtxt>"
 			object="${object}<extraoptions></extraoptions>"
 			object="${object}<shares></shares>"
 			object="${object}<dnssd>"
@@ -109,6 +111,10 @@ case "$1" in
 			omv_config_add_element "//services/afp" "dnssd" ""
 			omv_config_add_element "//services/afp/dnssd" "enable" "1"
 			omv_config_add_element "//services/afp/dnssd" "name" "%h - AFP"
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.5"; then
+			omv_config_add_element "//services/afp" "allowclrtxt" "0"
+			omv-mkconf netatalk
 		fi
 	;;
 

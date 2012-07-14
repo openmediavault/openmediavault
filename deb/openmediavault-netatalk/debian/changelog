@@ -1,3 +1,9 @@
+openmediavault-netatalk (0.3.0.5) stable; urgency=low
+
+  * Add 'Allow plain passwords' option.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 14 Jul 2012 01:45:51 +0200
+
 openmediavault-netatalk (0.3.0.4) stable; urgency=low
 
   * Update locales.

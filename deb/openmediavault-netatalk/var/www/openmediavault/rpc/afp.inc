@@ -34,6 +34,7 @@ class AFPRpc extends OMVRpc {
 				"properties":{
 					"enable":{"type":"boolean"},
 					"allowguests":{"type":"boolean"},
+					"allowclrtxt":{"type":"boolean"},
 					"extraoptions":{"type":"string"},
 					"dnssdenable":{"type":"boolean"},
 					"dnssdname":{"type":"string"}
@@ -100,6 +101,7 @@ class AFPRpc extends OMVRpc {
 		// Modify result data
 		$object['enable'] = boolval($object['enable']);
 		$object['allowguests'] = boolval($object['allowguests']);
+		$object['allowclrtxt'] = boolval($object['allowclrtxt']);
 		$object['dnssdenable'] = boolval($object['dnssd']['enable']);
 		$object['dnssdname'] = $object['dnssd']['name'];
 		// Remove useless data
@@ -130,6 +132,7 @@ class AFPRpc extends OMVRpc {
 		$object = array(
 			"enable" => array_boolval($data, 'enable'),
 			"allowguests" => array_boolval($data, 'allowguests'),
+			"allowclrtxt" => array_boolval($data, 'allowclrtxt'),
 			"extraoptions" => $data['extraoptions'],
 			"shares" => isset($oldObject['shares']) ?
 			  $oldObject['shares'] : array(),
