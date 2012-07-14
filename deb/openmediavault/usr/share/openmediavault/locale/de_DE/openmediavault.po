@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-29 21:49+0200\n"
-"PO-Revision-Date: 2012-06-29 19:49+0000\n"
+"PO-Revision-Date: 2012-07-13 14:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -261,7 +261,7 @@ msgid "Advanced settings"
 msgstr "Erweiterte Einstellungen"
 
 msgid "Advertise this service via mDNS/DNS-SD."
-msgstr ""
+msgstr "Diesen Dienst über mDNS/DNS-SD annoncieren."
 
 msgid "Afghanistan"
 msgstr "Afghanistan"
@@ -1406,7 +1406,7 @@ msgid ""
 msgstr "Diese Option ist hilfreich um passive Transfers zu erlauben wenn Ihr Host als NAT-Gateway oder Port-Forwarder für den Server fungiert. Sie müssen Ihre öffentliche Adresse verwenden und die passiven Ports auf der Firewall öffnen."
 
 msgid "Implicit SSL"
-msgstr ""
+msgstr "Impliziertes SSL"
 
 msgid "Import"
 msgstr "Importieren"
@@ -2476,10 +2476,10 @@ msgid "Saving ..."
 msgstr "Speichere ..."
 
 msgid "Scan"
-msgstr ""
+msgstr "Suchen"
 
 msgid "Scanning for new devices ..."
-msgstr ""
+msgstr "Suche nach neuen Geräten ..."
 
 msgid "Scheduled tests"
 msgstr "Planmäßige Tests"
@@ -2963,7 +2963,7 @@ msgid ""
 msgstr "Es ist keine Voraussetzung das die Kontrollverbindung einer SSL-Session für die Datenverbindung wiederverwendet wird."
 
 msgid "The service name."
-msgstr ""
+msgstr "Der Name des Dienstes."
 
 msgid "The session timeout time in minutes."
 msgstr "Das Sitzungszeitlimit in Minuten."
@@ -3155,7 +3155,7 @@ msgstr "Diese Option legt den Benutzername fest mit dem Übertragungen an und vo
 msgid ""
 "This option will handle all connections as if they are SSL connections "
 "implicitly."
-msgstr ""
+msgstr "Diese Option behandelt alle Verbindungen als ob sie implizierte SSL-Verbindungen sind."
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "

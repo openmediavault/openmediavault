@@ -295,19 +295,24 @@ Ext.extend(OMV.Module.System.Network.IfaceGridPanel, OMV.grid.TBarGridPanel, {
 		case "bond":
 			dlgClass = OMV.Module.System.Network.BondIfacePropertyDialog;
 			break;
+		default:
+			OMV.MessageBox.error(null, _("Unknown network interface type."));
+			break;
 		}
-		var wnd = new dlgClass({
-			uuid: record.get("uuid"),
-			devicename: record.get("devicename"),
-			readOnly: record.get("_readOnly"),
-			listeners: {
-				submit: function() {
-					this.doReload();
-				},
-				scope: this
-			}
-		});
-		wnd.show();
+		if (dlgClass) {
+			var wnd = new dlgClass({
+				uuid: record.get("uuid"),
+				devicename: record.get("devicename"),
+				readOnly: record.get("_readOnly"),
+				listeners: {
+					submit: function() {
+						this.doReload();
+					},
+					scope: this
+				}
+			});
+			wnd.show();
+		}
 	},
 
 	cbIdentifyBtnHdl : function() {

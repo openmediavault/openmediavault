@@ -320,6 +320,7 @@ class NetworkRpc extends OMVRpc {
 				  "devicename='%s']", $devv['devicename']);
 				break;
 			case "eth":
+			case "wlan":
 				$devv['type'] = "physical";
 				$xpath = sprintf("//system/network/interfaces/iface[".
 				  "devicename='%s']", $devv['devicename']);

@@ -1,6 +1,8 @@
 openmediavault (0.3.0.18) stable; urgency=low
 
+  * Update locales.
   * Display error image if requested RRD graph image is not available.
+  * Fix issues with wlan interfaces.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 12 Jul 2012 20:13:33 +0200
 
