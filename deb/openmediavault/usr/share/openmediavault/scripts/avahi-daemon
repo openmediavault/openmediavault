@@ -38,9 +38,6 @@ OMV_AVAHIDAEMON_DEFAULT=${OMV_AVAHIDAEMON_DEFAULT:-"/etc/default/avahi-daemon"}
 OMV_AVAHIDAEMON_DETECTLOCAL=${OMV_AVAHIDAEMON_DETECTLOCAL:-"0"}
 OMV_AVAHIDAEMON_AVAHISERVICESDIR=${OMV_AVAHIDAEMON_AVAHISERVICESDIR:-"${OMV_SCRIPTS_DIR}/avahiservices.d"}
 OMV_AVAHIDAEMON_UPDATEAVAHISERVICES=${OMV_AVAHIDAEMON_UPDATEAVAHISERVICES:-"yes"}
-OMV_AVAHIDAEMON_DISABLEPUBLISHING=${OMV_AVAHIDAEMON_DISABLEPUBLISHING:-"yes"}
-
-[ "$(omv_config_get "//system/network/dnsservicediscovery/enable")" = "1" ] && OMV_AVAHIDAEMON_DISABLEPUBLISHING="no"
 
 # Create '/etc/default/avahi-daemon' file
 cat <<EOF > ${OMV_AVAHIDAEMON_DEFAULT}
@@ -65,7 +62,7 @@ use-ipv6=yes
 enable-wide-area=yes
 
 [publish]
-disable-publishing=${OMV_AVAHIDAEMON_DISABLEPUBLISHING}
+#disable-publishing=no
 #disable-user-service-publishing=no
 #add-service-cookie=no
 #publish-addresses=yes
