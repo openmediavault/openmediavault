@@ -25,6 +25,7 @@
 # http://irbs.net/internet/postfix/0503/2148.html
 # http://gate.io/blogpost34
 # http://www.cyberciti.biz/tips/howto-postfix-flush-mail-queue.html
+# http://www.tuxfutter.de/wiki/Einrichten_eines_Mailservers_mit_Postfix
 
 # Testing:
 # echo "Test" | mail -s "Test subject" -a "From: xxx@yyy.zzz" root

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-29 21:49+0200\n"
-"PO-Revision-Date: 2012-06-29 19:50+0000\n"
+"POT-Creation-Date: 2012-07-14 12:27+0200\n"
+"PO-Revision-Date: 2012-07-14 10:31+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -3289,6 +3289,9 @@ msgstr ""
 
 #, c-format
 msgid "Unknown log file type (id=%s)"
+msgstr ""
+
+msgid "Unknown network interface type."
 msgstr ""
 
 msgid "Unmount"

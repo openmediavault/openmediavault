@@ -1105,13 +1105,15 @@ Ext.extend(OMV.Module.Privileges.SharedFolderDirChooserDialog, Ext.Window, {
 			}),
 			rootVisible: false,
 			root: new Ext.tree.AsyncTreeNode(),
-			listeners: {
-				"scope": this,
-				"click": function(node, e) {
-					var btnCtrl = Ext.getCmp(this.getId() + "-ok");
-					btnCtrl.setDisabled(node.isSelected());
+			selModel: new Ext.tree.DefaultSelectionModel({
+				listeners: {
+					"scope": this,
+					"selectionchange": function(model, node) {
+						var btnCtrl = Ext.getCmp(this.getId() + "-ok");
+						btnCtrl.setDisabled(!node.isSelected());
+					}
 				}
-			}
+			})
 		});
 		// Add tree sorter.
 		new Ext.tree.TreeSorter(this.tree, {
