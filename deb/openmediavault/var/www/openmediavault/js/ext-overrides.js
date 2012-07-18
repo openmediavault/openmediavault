@@ -204,7 +204,7 @@ Ext.apply(Ext.form.VTypes, {
 		return !/[ ]+/.test(v);
 	},
 	noBlankText: _("This field does not allow blanks"),
-	noBlankMask: /[^ ]/i,
+	noBlankMask: /[^ ]/i
 });
 
 ////////////////////////////////////////////////////////////////////////////////
