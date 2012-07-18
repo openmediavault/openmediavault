@@ -97,6 +97,21 @@ Ext.extend(OMV.Module.Services.AFP.SettingsPanel, OMV.FormPanelExt, {
 			}]
 		},{
 			xtype: "fieldset",
+			title: _("Home directories"),
+			defaults: {
+//				anchor: "100%",
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "checkbox",
+				name: "homesenable",
+				fieldLabel: _("Enable"),
+				checked: false,
+				inputValue: 1,
+				boxLabel: _("Enable user home directories")
+			}]
+		},{
+			xtype: "fieldset",
 			title: _("DNS Service Discovery"),
 			defaults: {
 //				anchor: "100%",

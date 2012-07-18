@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-27 20:39+0200\n"
-"PO-Revision-Date: 2012-06-27 18:39+0000\n"
+"POT-Creation-Date: 2012-07-18 21:52+0200\n"
+"PO-Revision-Date: 2012-07-18 19:52+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -26,6 +26,12 @@ msgstr ""
 
 msgid "Allow guest logins"
 msgstr "Misafir girişine izin ver"
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr ""
+
+msgid "Allow plain passwords"
+msgstr ""
 
 msgid "Apple Filing"
 msgstr "Apple dosyalaması"
@@ -60,6 +66,9 @@ msgstr "Çalışabilir"
 msgid "Enable Time Machine support for this share."
 msgstr "Bu paylaşım için Zaman Makinası desteğini çalıştır."
 
+msgid "Enable user home directories"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Ekstra seçenekler"
 
@@ -71,6 +80,9 @@ msgstr "Genel ayarlar"
 
 msgid "Hide dot files"
 msgstr "Noktalı dosyaları gizle"
+
+msgid "Home directories"
+msgstr ""
 
 msgid ""
 "If this option is set, then a password is required to access the share."

@@ -56,6 +56,7 @@ case "$1" in
 		#       <enable>0</enable>
 		#       <allowguests>0</allowguests>
 		#       <allowclrtxt>0</allowclrtxt>
+		#       <homesenable>0</homesenable>
 		#       <extraoptions></extraoptions>
 		#       <shares>
 		#       	<!--
@@ -91,6 +92,7 @@ case "$1" in
 			object="<enable>0</enable>"
 			object="${object}<allowguests>0</allowguests>"
 			object="${object}<allowclrtxt>0</allowclrtxt>"
+			object="${object}<homesenable>0</homesenable>"
 			object="${object}<extraoptions></extraoptions>"
 			object="${object}<shares></shares>"
 			object="${object}<dnssd>"
@@ -114,6 +116,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.5"; then
 			omv_config_add_element "//services/afp" "allowclrtxt" "0"
+			omv_config_add_element "//services/afp" "homesenable" "0"
 			omv-mkconf netatalk
 		fi
 	;;

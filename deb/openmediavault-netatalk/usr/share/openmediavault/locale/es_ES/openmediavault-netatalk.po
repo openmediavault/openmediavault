@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-27 20:39+0200\n"
-"PO-Revision-Date: 2012-06-28 16:27+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"POT-Creation-Date: 2012-07-18 21:52+0200\n"
+"PO-Revision-Date: 2012-07-18 19:52+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,6 +27,12 @@ msgstr "visar de este servicio via mDNS/DNS-SD."
 
 msgid "Allow guest logins"
 msgstr "Permitir acceso de invitado"
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr "Permitir Login con contraseñas en claro"
+
+msgid "Allow plain passwords"
+msgstr "Permitir contraseñas simples"
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
@@ -61,6 +67,9 @@ msgstr "Habilitar"
 msgid "Enable Time Machine support for this share."
 msgstr "Habilitar soporte Time Machine para este compartido"
 
+msgid "Enable user home directories"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Opciones Extra"
 
@@ -72,6 +81,9 @@ msgstr "Opciones generales"
 
 msgid "Hide dot files"
 msgstr "Ocultar archivos con punto \".\""
+
+msgid "Home directories"
+msgstr ""
 
 msgid ""
 "If this option is set, then a password is required to access the share."

@@ -4,13 +4,14 @@
 # 
 # Translators:
 #   <mattjes04@googlemail.com>, 2012.
+# Volker  <votdev@gmx.de>, 2012.
 #   <warhog@gmx.de>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-27 20:39+0200\n"
-"PO-Revision-Date: 2012-06-27 18:39+0000\n"
+"POT-Creation-Date: 2012-07-18 21:52+0200\n"
+"PO-Revision-Date: 2012-07-18 19:52+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -23,10 +24,16 @@ msgid "Add share"
 msgstr "Freigabe hinzufügen"
 
 msgid "Advertise this service via mDNS/DNS-SD."
-msgstr ""
+msgstr "Diesen Dienst mittels mDNS/DNS-SD annoncieren."
 
 msgid "Allow guest logins"
 msgstr "Erlaube Gastlogin"
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr "Erlaube Anmeldungen mit Passwörtern welche im Klartext übertragen werden."
+
+msgid "Allow plain passwords"
+msgstr "Erlaube Passwörter im Klartext"
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
@@ -47,7 +54,7 @@ msgid "Comment"
 msgstr "Kommentar"
 
 msgid "DNS Service Discovery"
-msgstr ""
+msgstr "DNS Service Discovery"
 
 msgid "Don't do :hex translation for dot files."
 msgstr "Keine :hex Übersetzung für Dotfiles."
@@ -61,6 +68,9 @@ msgstr "Aktivieren"
 msgid "Enable Time Machine support for this share."
 msgstr "Time Machine Unterstützung für diese Freigabe aktivieren."
 
+msgid "Enable user home directories"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Zusätzliche Optionen"
 
@@ -72,6 +82,9 @@ msgstr "Allgemeine Einstellungen"
 
 msgid "Hide dot files"
 msgstr "Dotfiles verstecken"
+
+msgid "Home directories"
+msgstr ""
 
 msgid ""
 "If this option is set, then a password is required to access the share."
@@ -119,7 +132,7 @@ msgid "The name of the share."
 msgstr "Der Name der Freigabe."
 
 msgid "The service name."
-msgstr ""
+msgstr "Der Name des Dienstes."
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-27 20:39+0200\n"
-"PO-Revision-Date: 2012-06-27 18:39+0000\n"
+"POT-Creation-Date: 2012-07-18 21:52+0200\n"
+"PO-Revision-Date: 2012-07-18 19:52+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -26,6 +26,12 @@ msgstr ""
 
 msgid "Allow guest logins"
 msgstr "Tillat gjesteinnlogging"
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr ""
+
+msgid "Allow plain passwords"
+msgstr ""
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
@@ -60,6 +66,9 @@ msgstr "Aktver"
 msgid "Enable Time Machine support for this share."
 msgstr "Aktiver Time Machine støtte for dette delte området."
 
+msgid "Enable user home directories"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Ekstra alternativer"
 
@@ -71,6 +80,9 @@ msgstr "Generelle innstillinger"
 
 msgid "Hide dot files"
 msgstr "Skjul dot filer"
+
+msgid "Home directories"
+msgstr ""
 
 msgid ""
 "If this option is set, then a password is required to access the share."

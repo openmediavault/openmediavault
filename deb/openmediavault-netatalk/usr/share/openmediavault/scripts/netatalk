@@ -37,6 +37,7 @@ set -e
 OMV_NETATALK_DEFAULT=${OMV_NETATALK_DEFAULT:-"/etc/default/netatalk"}
 OMV_NETATALK_AFPD_CONFIG=${OMV_NETATALK_AFPD_CONFIG:-"/etc/netatalk/afpd.conf"}
 OMV_NETATALK_AVDEFAULT_CONFIG=${OMV_NETATALK_AVDEFAULT_CONFIG:-"/etc/netatalk/AppleVolumes.default"}
+OMV_NETATALK_AVDEFAULT_HOMEDIR_OPTIONS=${OMV_NETATALK_AVDEFAULT_HOMEDIR_OPTIONS:-"&quot;\$u&quot; deny:nobody"}
 OMV_NETATALK_AFPD_MAX_CLIENTS=${OMV_NETATALK_AFPD_MAX_CLIENTS:-"20"}
 OMV_NETATALK_ATALK_NAME=${OMV_NETATALK_ATALK_NAME:-"\`/bin/hostname --short\`"}
 OMV_NETATALK_ATALK_MAC_CHARSET=${OMV_NETATALK_ATALK_MAC_CHARSET:-"MAC_ROMAN"}
@@ -187,6 +188,12 @@ EOF
 
 		index=$(( ${index} - 1 ))
 	done
+	xmlstarlet sel -t -m "//services/afp" \
+	  -i "homesenable[. = '1']" \
+		  -n \
+		  -o "~ ${OMV_NETATALK_AVDEFAULT_HOMEDIR_OPTIONS}" \
+	  -b \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NETATALK_AVDEFAULT_CONFIG}
 }
 
 case "$1" in

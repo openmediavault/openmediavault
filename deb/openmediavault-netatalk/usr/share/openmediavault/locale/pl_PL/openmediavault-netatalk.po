@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-27 20:39+0200\n"
-"PO-Revision-Date: 2012-06-27 18:39+0000\n"
+"POT-Creation-Date: 2012-07-18 21:52+0200\n"
+"PO-Revision-Date: 2012-07-18 19:52+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -23,10 +23,16 @@ msgid "Add share"
 msgstr "Dodaj udział"
 
 msgid "Advertise this service via mDNS/DNS-SD."
-msgstr ""
+msgstr "Anonsowanie tej usługi za pośrednictwem mDNS/DNS-SD."
 
 msgid "Allow guest logins"
 msgstr "Pozwól na dostęp gościom"
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr ""
+
+msgid "Allow plain passwords"
+msgstr ""
 
 msgid "Apple Filing"
 msgstr "Zgłoszenia Apple"
@@ -47,7 +53,7 @@ msgid "Comment"
 msgstr "Komentarz"
 
 msgid "DNS Service Discovery"
-msgstr ""
+msgstr "Odnajdywanie usługi DNS"
 
 msgid "Don't do :hex translation for dot files."
 msgstr "Nie wykonuj tłumaczenia :hex dla plików dot."
@@ -61,6 +67,9 @@ msgstr "Włączone"
 msgid "Enable Time Machine support for this share."
 msgstr "Włącz obsługę Time Machine dla tego zasobu."
 
+msgid "Enable user home directories"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Dodatkowe opcje"
 
@@ -72,6 +81,9 @@ msgstr "Ustawienia"
 
 msgid "Hide dot files"
 msgstr "Ukryj pliki dot"
+
+msgid "Home directories"
+msgstr ""
 
 msgid ""
 "If this option is set, then a password is required to access the share."
@@ -119,7 +131,7 @@ msgid "The name of the share."
 msgstr "Nazwa zasobu."
 
 msgid "The service name."
-msgstr ""
+msgstr "Nazwa usługi."
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."

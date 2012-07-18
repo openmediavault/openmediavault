@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-netatalk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-27 20:39+0200\n"
+"POT-Creation-Date: 2012-07-18 21:52+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,6 +24,12 @@ msgid "Advertise this service via mDNS/DNS-SD."
 msgstr ""
 
 msgid "Allow guest logins"
+msgstr ""
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr ""
+
+msgid "Allow plain passwords"
 msgstr ""
 
 msgid "Apple Filing"
@@ -59,6 +65,9 @@ msgstr ""
 msgid "Enable Time Machine support for this share."
 msgstr ""
 
+msgid "Enable user home directories"
+msgstr ""
+
 msgid "Extra options"
 msgstr ""
 
@@ -69,6 +78,9 @@ msgid "General settings"
 msgstr ""
 
 msgid "Hide dot files"
+msgstr ""
+
+msgid "Home directories"
 msgstr ""
 
 msgid "If this option is set, then a password is required to access the share."
