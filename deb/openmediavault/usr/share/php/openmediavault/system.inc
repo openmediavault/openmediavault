@@ -601,10 +601,10 @@ class OMVFilesystem extends OMVObject {
 	}
 
 	/**
-	 * Does the filesystem support ACL.
-	 * @return TRUE if the filesystem supports ACL, otherwise FALSE.
+	 * Does the filesystem support POSIX ACL.
+	 * @return TRUE if the filesystem supports POSIX ACL, otherwise FALSE.
 	 */
-	public function hasAclSupport() {
+	public function hasPosixAclSupport() {
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return in_array(strtolower($this->getType()), array("ext2", "ext3",

@@ -80,6 +80,12 @@ class FileSystemMgmtRpc extends OMVRpc {
 				"properties":{
 					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
 				}
+			}'),
+			"hasPosixAclSupport" => array('{
+				"type":"object",
+				"properties":{
+					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+				}
 			}')
 		);
 	}
@@ -789,7 +795,8 @@ class FileSystemMgmtRpc extends OMVRpc {
 	 * Check if the given device containes a filesystem that is registered.
 	 * @param data An array containing the following fields:
 	 *   \em devicefile The device file to check.
-	 * @return None
+	 * @return TRUE if a filesystem exists on the given device, otherwise
+	 *   FALSE.
 	 */
 	public function hasFilesystem($data) {
 		global $xmlConfig;
@@ -803,6 +810,32 @@ class FileSystemMgmtRpc extends OMVRpc {
 		$this->validateParams(__METHOD__, func_get_args());
 		// Check if the given device file contains a file system.
 		return (FALSE !== OMVFilesystem::hasFileSystem($data['devicefile']));
+	}
+
+	/**
+	 * Check if the given device has a filesystem that supports POSIX ACL.
+	 * @param data An array containing the following fields:
+	 *   \em devicefile The device file to check.
+	 * @return TRUE if the filesystem supports POSIX ACL, otherwise FALSE.
+	 */
+	public function hasPosixAclSupport($data) {
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Validate method parameters
+		$this->validateParams(__METHOD__, func_get_args());
+		// Get the filesystem.
+		$fs = new OMVFilesystem($data['devicefile']);
+		if (!$fs->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf(gettext("Filesystem '%s' not found"),
+			  $data['devicefile']));
+		}
+		return (FALSE !== $fs->hasPosixAclSupport($data['devicefile']));
 	}
 }
 ?>

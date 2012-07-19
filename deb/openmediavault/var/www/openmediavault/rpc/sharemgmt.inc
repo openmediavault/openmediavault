@@ -220,6 +220,7 @@ class ShareMgmtRpc extends OMVRpc {
 			$objectv['_used'] = false;
 			$objectv['description'] = $objectv['name'];
 			$objectv['volume'] = gettext("n/a");
+			$objectv['devicefile'] = "";
 			// Get the mount point configuration object to append additional
 			// informations to the returned objects, e.g. the devicefile or
 			// a modified description.
@@ -233,6 +234,7 @@ class ShareMgmtRpc extends OMVRpc {
 					$devicefile = $fs->getDeviceFile();
 					$label = $fs->getLabel();
 					// Override default values.
+					$objectv['devicefile'] = $devicefile;
 					$objectv['volume'] = !empty($label) ? $label : $devicefile;
 					$objectv['description'] = sprintf(
 					  gettext("%s [on %s]"), $objectv['description'],

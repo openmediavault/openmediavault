@@ -101,6 +101,7 @@ Ext.extend(OMV.Module.Privileges.SharedFolderGridPanel,
 					{ name: "reldirpath" },
 					{ name: "comment" },
 					{ name: "volume" },
+					{ name: "devicefile" },
 					{ name: "_used" }
     			]
 			})
@@ -208,11 +209,26 @@ Ext.extend(OMV.Module.Privileges.SharedFolderGridPanel,
 	cbACLBtnHdl : function() {
 		var selModel = this.getSelectionModel();
 		var record = selModel.getSelected();
-		var wnd = new OMV.Module.Privileges.SharedFolderACLDialog({
-			rootText: record.get("name"),
-			uuid: record.get("uuid")
-		});
-		wnd.show();
+		// Before displaying the ACL dialog, check whether the filesystem
+		// of the selected shared folder supports POSIX ACLs.
+		OMV.Ajax.request(function(id, response, error) {
+			  if (error === null) {
+				  if (response === true) {
+					  // Display the ACL dialog.
+					  var wnd = new OMV.Module.Privileges.
+						SharedFolderACLDialog({
+						  rootText: record.get("name"),
+						  uuid: record.get("uuid")
+					  });
+					  wnd.show();
+				  } else {
+					  OMV.MessageBox.error(null, _("The file system does not support POSIX ACLs"));
+				  }
+			  } else {
+				  OMV.MessageBox.error(null, error);
+			  }
+		  }, this, "FileSystemMgmt", "hasPosixAclSupport", {
+		  "devicefile": record.get("devicefile") });
 	},
 
 	startDeletion: function(model, records) {
