@@ -601,6 +601,17 @@ class OMVFilesystem extends OMVObject {
 	}
 
 	/**
+	 * Does the filesystem support ACL.
+	 * @return TRUE if the filesystem supports ACL, otherwise FALSE.
+	 */
+	public function hasAclSupport() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		return in_array(strtolower($this->getType()), array("ext2", "ext3",
+		  "ext4", "xfs", "jfs"));
+	}
+
+	/**
 	 * Check if a filesystem is mounted.
 	 * @return TRUE if the filesystem is mounted, otherwise FALSE.
 	 */
