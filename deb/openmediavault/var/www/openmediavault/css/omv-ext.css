@@ -72,20 +72,6 @@ div#headerrlogo .hostname {
 	font-size: 11px;
 	padding: 0;
 }
-/* OMV.form.MultiSelect */
-.x-form-fieldset-multiselect {
-	padding: 0px;
-}
-.x-form-fieldset-multiselect-body {
-	background: white;
-}
-.x-list-multiselect-over {
-	background-color: #eee;
-}
-.x-list-multiselect-selected {
-	border-color: #b9b9b9 !important;
-	background-color: #e7e7e7;
-}
 /*
 Remove red corner in modified grid cells.
 See http://www.extjs.com/learn/Ext_FAQ_Grid#Dirty_Record_.2F_Red_Flag_.28modifying.2C_etc..29

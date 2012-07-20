@@ -96,7 +96,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 	 * @return An array of objects with the following fields: \em uuid,
 	 *   \em devicefile, \em type, \em label, \em blocks, \em capacity,
 	 *   \em mountpoint, \em blocks, \em used, \em available, \em description,
-	 *   \em mounted and \em percentage.
+	 *   \em posixacl, \em mounted and \em percentage.
 	 */
 	public function enumerateFilesystems() {
 		global $xmlConfig;
@@ -151,6 +151,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 				"capacity" => gettext("n/a"),
 				"percentage" => -1,
 				"description" => "",
+				"posixacl" => $fs->hasPosixAclSupport(),
 				"_used" => FALSE
 			);
 			// Check if the filesystem is used. First try to get the
@@ -835,7 +836,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 			  sprintf(gettext("Filesystem '%s' not found"),
 			  $data['devicefile']));
 		}
-		return (FALSE !== $fs->hasPosixAclSupport($data['devicefile']));
+		return (FALSE !== $fs->hasPosixAclSupport());
 	}
 }
 ?>

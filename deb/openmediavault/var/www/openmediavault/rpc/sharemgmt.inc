@@ -219,8 +219,13 @@ class ShareMgmtRpc extends OMVRpc {
 		foreach ($objects as $objectk => &$objectv) {
 			$objectv['_used'] = false;
 			$objectv['description'] = $objectv['name'];
-			$objectv['volume'] = gettext("n/a");
-			$objectv['devicefile'] = "";
+			$objectv['mntent'] = array(
+				"devicefile" => NULL,
+				"fsname" => NULL,
+				"dir" => NULL,
+				"type" => NULL,
+				"posixacl" => NULL
+			);
 			// Get the mount point configuration object to append additional
 			// informations to the returned objects, e.g. the devicefile or
 			// a modified description.
@@ -228,13 +233,23 @@ class ShareMgmtRpc extends OMVRpc {
 			  $objectv['mntentref']);
 			$meobject = $xmlConfig->get($xpath);
 			if (!is_null($meobject) && !empty($meobject)) {
+				// Add mount point informations.
+				$objectv['mntent'] = array(
+					"fsname" => $meobject['fsname'],
+					"dir" => $meobject['dir'],
+					"type" => $meobject['type']
+				);
 				$fs = new OMVFilesystem($meobject['fsname']);
 				if (TRUE === $fs->exists()) {
-					// Get some filesystem details.
 					$devicefile = $fs->getDeviceFile();
 					$label = $fs->getLabel();
+					// Add some filesystem details.
+					$objectv['mntent'] = array_merge($objectv['mntent'],
+					  array(
+						  "devicefile" => $devicefile,
+						  "posixacl" => $fs->hasPosixAclSupport()
+					  ));
 					// Override default values.
-					$objectv['devicefile'] = $devicefile;
 					$objectv['volume'] = !empty($label) ? $label : $devicefile;
 					$objectv['description'] = sprintf(
 					  gettext("%s [on %s]"), $objectv['description'],
