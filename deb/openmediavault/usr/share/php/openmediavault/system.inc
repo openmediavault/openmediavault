@@ -607,11 +607,7 @@ class OMVFilesystem extends OMVObject {
 	public function hasPosixAclSupport() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		// The list of POSIX ACL supporting filesystems. See:
-		// - http://de.wikipedia.org/wiki/Access_Control_List
-		// - http://www.suse.de/~agruen/acl/linux-acls/online
-		return in_array(strtolower($this->getType()), array("ext2", "ext3",
-		  "ext4", "xfs", "jfs", "reiserfs"));
+		return self::hasPosixAclSupportByType($this->getType());
 	}
 
 	/**
@@ -685,7 +681,20 @@ class OMVFilesystem extends OMVObject {
 		if ($result !== 0)
 			return FALSE;
 		return TRUE;
-	} 
+	}
+
+	/**
+	 * Does the filesystem support POSIX ACL.
+	 * @param type The type of the filesystem, e.g. ext3, msdos.
+	 * @return TRUE if the filesystem supports POSIX ACL, otherwise FALSE.
+	 */
+	public static function hasPosixAclSupportByType($type) {
+		// The list of POSIX ACL supporting filesystems. See:
+		// - http://de.wikipedia.org/wiki/Access_Control_List
+		// - http://www.suse.de/~agruen/acl/linux-acls/online
+		return in_array(strtolower($type), array("ext2", "ext3",
+		  "ext4", "xfs", "jfs", "reiserfs"));
+	}
 }
 
 /**
