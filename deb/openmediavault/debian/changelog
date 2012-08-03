@@ -2,6 +2,8 @@ openmediavault (0.3.0.19) stable; urgency=low
 
   * Do not display shared folder ACL dialog if the filesystem containing the
     shared folder does not support POSIX ACLs.
+  * Disable 'Mount' button if the selected filesystem does not provide a
+    UUID.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 19 Jul 2012 19:56:55 +0200
 

@@ -108,7 +108,7 @@ Ext.extend(OMV.Module.Services.AFP.SettingsPanel, OMV.FormPanelExt, {
 				fieldLabel: _("Enable"),
 				checked: false,
 				inputValue: 1,
-				boxLabel: _("Enable user home directories")
+				boxLabel: _("Enable user home directories.")
 			}]
 		},{
 			xtype: "fieldset",

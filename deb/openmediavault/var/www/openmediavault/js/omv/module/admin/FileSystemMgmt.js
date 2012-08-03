@@ -262,6 +262,11 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 				tbarBtnDisabled["unmount"] = false;
 			} else {
 				tbarBtnDisabled["mount"] = false;
+				// Disable the 'Mount' button if the filesystem does not
+				// provide a UUID.
+				if (Ext.isEmpty(records[0].get("uuid"))) {
+					tbarBtnDisabled["mount"] = true;
+				}
 			}
 			// If the filesystem is in usage, then also disable the unmount
 			// button.
