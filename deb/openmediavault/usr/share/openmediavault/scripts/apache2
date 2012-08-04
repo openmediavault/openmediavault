@@ -36,6 +36,7 @@ OMV_APACHE2_PORTS_CONFIG=${OMV_APACHE2_PORTS_CONFIG:-"/etc/apache2/ports.conf"}
 OMV_APACHE2_WEBGUI_CONFIG_DIR=${OMV_APACHE2_WEBGUI_CONFIG_DIR:-"/etc/apache2/openmediavault-webgui.d"}
 OMV_APACHE2_WEBGUI_DEFAULT_CONFIG=${OMV_APACHE2_WEBGUI_DEFAULT_CONFIG:-"${OMV_APACHE2_WEBGUI_CONFIG_DIR}/default.conf"}
 OMV_APACHE2_SECURITY_CONFIG=${OMV_APACHE2_SECURITY_CONFIG:-"/etc/apache2/conf.d/security"}
+OMV_APACHE2_FCGIDIOTIMEOUT=${OMV_APACHE2_FCGIDIOTIMEOUT:-"40"}
 
 cat <<EOF > ${OMV_APACHE2_SECURITY_CONFIG}
 ServerTokens Prod
@@ -53,6 +54,7 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "Alias /images/ ${OMV_DOCUMENTROOT_DIR}/images/" -n \
   -o "# Set maximum HTTP request length to 25 MiB" -n \
   -o "FcgidMaxRequestLen 26214400" -n \
+  -o "FcgidIOTimeout ${OMV_APACHE2_FCGIDIOTIMEOUT}" -n \
   -o "&lt;Directory ${OMV_DOCUMENTROOT_DIR}/&gt;" -n \
   -o "    Options FollowSymLinks" -n \
   -o "    &lt;FilesMatch \.php$&gt;" -n \
