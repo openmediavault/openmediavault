@@ -137,6 +137,12 @@ class ShareMgmtRpc extends OMVRpc {
 						}
 					}
 				}
+			}'),
+			"getReferencers" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
 			}')
 		);
 	}
@@ -909,6 +915,32 @@ class ShareMgmtRpc extends OMVRpc {
 		}
 		// Return the absolute shared folder path.
 		return sprintf("%s/%s", $meobject['dir'], $sfobject['reldirpath']);
+	}
+
+	/**
+	 * Get the XPath location path to the configuration objects referencing
+	 * a shared folder configuration object.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the shared folder configuration object.
+	 * @return An array containing the XPath location path of the referencing
+	 *   configuration objects.
+	 */
+	public function getReferencers($data) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Validate method parameters
+		$this->validateParams(__METHOD__, func_get_args());
+		// Get a list of XPath's to the configuration objects referencing the
+		// given shared folder.
+		$objects = $xmlConfig->getXPathList("//sharedfolderref[contains(.,".
+		  "'{$data['uuid']}')]/..");
+		return $objects;
 	}
 }
 ?>

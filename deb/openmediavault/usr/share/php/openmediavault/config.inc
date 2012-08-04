@@ -151,9 +151,26 @@ class OMVConfigEngine extends OMVObject {
 	}
 
 	/**
+	 * Get the XPath location path of the objects addressed by the given
+	 * XPath as a list.
+	 * @param xpath The XPath of the requested configuration object(s).
+	 * @return An array containing the XPath to the objects, otherwise an
+	 * empty array.
+	 */
+	public function getXPathList($xpath) {
+		$domxpath = new DOMXPath($this->domdoc);
+		$nodeList = $domxpath->query($xpath);
+		$result = array();
+		foreach ($nodeList as $nodek => $nodev) {
+			$result[] = $nodev->getNodePath();
+		}
+		return $result;
+	}
+
+	/**
 	 * Set the data at the given XPath.
-	 * @param xpath The path to the configuration data
-	 * @param data The data to set at the given XPath position
+	 * @param xpath The path to the configuration data.
+	 * @param data The data to set at the given XPath position.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function set($xpath, $data) {
@@ -170,8 +187,8 @@ class OMVConfigEngine extends OMVObject {
 	/**
 	 * Replace the data at the given XPath. If the given XPath does not
 	 * exist the method will exit immediatelly.
-	 * @param xpath The path to the configuration data
-	 * @param data The data to set at the given XPath position
+	 * @param xpath The path to the configuration data.
+	 * @param data The data to set at the given XPath position.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function replace($xpath, $data) {
