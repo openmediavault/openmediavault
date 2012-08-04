@@ -297,7 +297,7 @@ class NetworkRpc extends OMVRpc {
 		$result = array();
 		foreach ($devs as $devk => &$devv) {
 			// Skip loopback network interface.
-			if ($devv['devicename'] === "lo")
+			if ($devv['devicename'] == "lo")
 				continue;
 			// Set defaults.
 			$devv['uuid'] = $GLOBALS['OMV_UUID_UNDEFINED'];
@@ -614,7 +614,7 @@ class NetworkRpc extends OMVRpc {
 			// not used by any other config object.
 			foreach ($devs as $devk => $devv) {
 				// Skip loopback network interface.
-				if ($devv['devicename'] === "lo")
+				if ($devv['devicename'] == "lo")
 					continue;
 				// Get network interface type.
 				if (1 !== preg_match("/^([a-z]+)\d+$/i", $devv['devicename'],

@@ -27,13 +27,9 @@ set -e
 OMV_FSTAB_CONFIG=${OMV_FSTAB_CONFIG:-"/etc/fstab"}
 OMV_FSTAB_SECTIONNAME=${OMV_FSTAB_SECTIONNAME:-"openmediavault"}
 
-# Remove previous entries
-sed -i -e "/# >>> \[${OMV_FSTAB_SECTIONNAME}\]/,/# <<< \[${OMV_FSTAB_SECTIONNAME}\]/ d" ${OMV_FSTAB_CONFIG}
-
-# Create new entries. Take care about the order of lines, binds must be
-# located at the end.
-echo "# >>> [${OMV_FSTAB_SECTIONNAME}]" >> ${OMV_FSTAB_CONFIG}
-xmlstarlet sel -t \
+# Create list of mount entries stored in database. Take care about the order
+# of lines, binds must be located at the end.
+mntent=$(echo -n "# >>> [${OMV_FSTAB_SECTIONNAME}]\\\n"; xmlstarlet sel -t \
   -m "//system/fstab/mntent[not(contains(opts,'bind'))]" \
 	-v "concat(fsname,' ',dir,' ',type,' ',opts,' ',freq,' ',passno)" \
 	-i "position() != last()" -n -b \
@@ -49,6 +45,12 @@ xmlstarlet sel -t \
 	  if omv_isfsuuid ${fsname}; then
 		  fsname="UUID=${fsname}"
 	  fi
-	  echo "${fsname} ${dir} ${type} ${opts} ${freq} ${passno}" >> ${OMV_FSTAB_CONFIG}
-  done
-echo "# <<< [${OMV_FSTAB_SECTIONNAME}]" >> ${OMV_FSTAB_CONFIG}
+	  echo -n "${fsname} ${dir} ${type} ${opts} ${freq} ${passno}\\\n"
+  done; echo -n "# <<< [${OMV_FSTAB_SECTIONNAME}]")
+
+# Append mount entries if not still present or replace existing entries.
+if ! grep -E "^# >>> \[${OMV_FSTAB_SECTIONNAME}\]$" ${OMV_FSTAB_CONFIG} >/dev/null; then
+	echo "${mntent}" >> ${OMV_FSTAB_CONFIG}
+else
+	sed -i "/# >>> \[${OMV_FSTAB_SECTIONNAME}\]/,/# <<< \[${OMV_FSTAB_SECTIONNAME}\]/ c ${mntent}" ${OMV_FSTAB_CONFIG}
+fi

@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-07-14 12:27+0200\n"
-"PO-Revision-Date: 2012-07-14 10:31+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2012-07-31 17:14+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -245,7 +245,7 @@ msgid "Administrator: read/write, Users: read-only, Others: read-only"
 msgstr "Administrator: læse/skrive, Brugere: skrivebeskyttet, Andre: skrivebeskyttet"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
-msgstr ""
+msgstr "Administrator: læse/skrive, Bruger: læse/skrive, Andre: ingen adgang"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Administrator: læse/skrive, Brugere: læse/skrive, Andre: skrivebeskyttet"
@@ -257,7 +257,7 @@ msgid "Advanced settings"
 msgstr "Avanceret indstillinger"
 
 msgid "Advertise this service via mDNS/DNS-SD."
-msgstr ""
+msgstr "Annoncer denne tjenste via mDNS/DNS-SD."
 
 msgid "Afghanistan"
 msgstr "Afghanistan"
@@ -733,7 +733,7 @@ msgid "Delete"
 msgstr "Slet"
 
 msgid "Delete content"
-msgstr ""
+msgstr "Slet indhold"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Slet filer på den modtagende side, der ikke eksisterer på afsender"
@@ -837,7 +837,7 @@ msgid ""
 msgstr "Er du sikker på at du vil formatere denne enhed? Alle data på den vil blive slettet. Vær opmærksom på at filsystems opretningen kan tage noget tid."
 
 msgid "Do you really want to install the selected plugin(s)?"
-msgstr ""
+msgstr "Er du sikker på at du vil installer det/de valgte plugin(s)?"
 
 msgid "Do you really want to leave the page?"
 msgstr "Er du sikker på at du vil forlade siden?"
@@ -866,7 +866,7 @@ msgid "Do you really want to uninstall the selected plugin(s)?"
 msgstr "Er du sikker på at du vil afinstallere det/de valgte plugin(s)?"
 
 msgid "Do you really want to wipe the selected device?"
-msgstr ""
+msgstr "Er du sikker på at du vil rydde den valgte enhed?"
 
 msgid ""
 "Do you want to remove the content of the shared folder recursively? The "
@@ -881,7 +881,7 @@ msgid ""
 msgstr ""
 
 msgid "Domain name"
-msgstr ""
+msgstr "Domæne navn"
 
 msgid "Dominica"
 msgstr "Dominica"
@@ -908,7 +908,7 @@ msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
 
 msgid "Each line represents one group."
-msgstr ""
+msgstr "Hver linie repræsenterer en gruppe."
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
@@ -1242,7 +1242,7 @@ msgid "Ghana"
 msgstr "Ghana"
 
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 msgid "Gibraltar"
 msgstr "Gibraltar"
@@ -1261,7 +1261,7 @@ msgstr "Gruppe"
 
 #, c-format
 msgid "Group '%s' already exist"
-msgstr ""
+msgstr "Gruppen '%s' findes allerede"
 
 #, c-format
 msgid "Group '%s' does not exist"
@@ -1269,7 +1269,7 @@ msgstr "Gruppe '%s' eksisterer ikke"
 
 #, c-format
 msgid "Group ID '%d' already exist"
-msgstr ""
+msgstr "Gruppe ID '%d' findes allerede"
 
 msgid "Groups"
 msgstr "Grupper"
@@ -1314,7 +1314,7 @@ msgid "Home directories"
 msgstr "Hjemme biblioteker"
 
 msgid "Homepage"
-msgstr ""
+msgstr "Hjemmside"
 
 msgid "Honduras"
 msgstr "Honduras"
@@ -1411,7 +1411,7 @@ msgid "Import SSL certificate"
 msgstr "Importer SSL certifikat"
 
 msgid "Import groups"
-msgstr ""
+msgstr "Importer grupper"
 
 msgid "Import users"
 msgstr "Importer brugere"
@@ -1446,7 +1446,7 @@ msgid "Inherit permissions"
 msgstr "Nedarv tilladelser"
 
 msgid "Initializing"
-msgstr ""
+msgstr "Initialiserer"
 
 msgid "Install"
 msgstr "Installer"
@@ -1467,7 +1467,7 @@ msgid "Invalid comment"
 msgstr ""
 
 msgid "Invalid domain name"
-msgstr ""
+msgstr "Ugyldig domæne navn"
 
 msgid "Invalid filesystem label"
 msgstr ""
@@ -1543,7 +1543,7 @@ msgid "Key size"
 msgstr "Nøgle størrelse"
 
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 msgid "Kiribati"
 msgstr "Kiribati"
@@ -1561,7 +1561,7 @@ msgid "Label"
 msgstr "Etiket"
 
 msgid "Language"
-msgstr ""
+msgstr "Sprog"
 
 msgid "Laos"
 msgstr "Laos"
@@ -1666,7 +1666,7 @@ msgid "Madagascar"
 msgstr "Madagascar"
 
 msgid "Maintainer"
-msgstr ""
+msgstr "Vedligeholder"
 
 msgid "Malawi"
 msgstr "Malawi"
@@ -1778,7 +1778,7 @@ msgid "Mexico"
 msgstr "Mexico"
 
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 msgid "Micronesia"
 msgstr "Micronesia"
@@ -1802,7 +1802,7 @@ msgid "Mirror"
 msgstr "Spejl"
 
 msgid "Missing"
-msgstr ""
+msgstr "Mangler"
 
 msgid "Mode"
 msgstr "Modus"
@@ -1884,7 +1884,7 @@ msgstr "Netværk"
 
 #, c-format
 msgid "Network interface '%s' already exists"
-msgstr ""
+msgstr "Netværks interface '%s' findes allerede"
 
 msgid "Neutral Zone"
 msgstr "Neutral Zone"
@@ -1920,7 +1920,7 @@ msgid "No authentication and no privacy"
 msgstr "Ingen godkendelse og ingen privatliv"
 
 msgid "No certificate request"
-msgstr ""
+msgstr "Ingen certifikat forespørgsel"
 
 msgid "No items to display"
 msgstr "Ingen emner til visning"
@@ -1929,7 +1929,7 @@ msgid "No log entries to display"
 msgstr "Ingen log poster til visning"
 
 msgid "No session reuse required"
-msgstr ""
+msgstr "Intet session genbrug nødvendig"
 
 msgid "No users connected"
 msgstr "Ingen bruger forbundet"
@@ -1980,7 +1980,7 @@ msgid "Num"
 msgstr "Num"
 
 msgid "Number of servers"
-msgstr ""
+msgstr "Antal servere"
 
 msgid "OK"
 msgstr "OK"
@@ -1998,7 +1998,7 @@ msgid "Oman"
 msgstr "Oman"
 
 msgid "Online"
-msgstr ""
+msgstr "Online"
 
 msgid "Options"
 msgstr "Valgmuligheder"
@@ -2028,7 +2028,7 @@ msgid "Pacific Islands Trust Territory"
 msgstr "Pacific Islands Trust Territory"
 
 msgid "Package information"
-msgstr ""
+msgstr "Pakke oplysninger"
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2070,7 +2070,7 @@ msgid "Paste an private RSA key in X.509 PEM format here."
 msgstr "Indsæt en privat RSA nøgle i X.509 PEM format her."
 
 msgid "Path"
-msgstr ""
+msgstr "Sti"
 
 msgid "People's Democratic Republic of Yemen"
 msgstr "People's Democratic Republic of Yemen"
@@ -2147,7 +2147,7 @@ msgid ""
 msgstr "Kontroller venligst <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for flere detaljer."
 
 msgid "Please first select a volume."
-msgstr ""
+msgstr "Vælg venligst først et drev."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2207,7 +2207,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr ""
+msgstr "Forhindre en disk i at blive spundet op, når den periodisk bliver adspurgt.<br/><ul><li>Aldrig - Spørg (kontroller) enheden uanset dens strøm tilstand. Dette kan medføre en disk, der er spundet ned i at blive spundet op, når den kontrolleres.</li><li>Dvale - Kontroller enheden medmindre den er i DVALE tilstand.</li><li>Standby - Kontroller enheden medmindre den er i DVALE eller STANDBY tilstand. I disse tilstande spinder de fleste diske ikke, så hvis du ønsker at forhindre en disk i at spinde op ved hver adspørgelse, er det nok det du vil.</li><li>Tomgang - Kontroller enheden medmindre den er i DVALE, STANDBY eller TOMGANG tilstand. I TOMGANG tilstand, spinder de fleste diske stadig, så det er sandsynligvis nok ikke det du vil.</li></ul>"
 
 msgid "Primary"
 msgstr "Primær"
@@ -2340,7 +2340,7 @@ msgid ""
 msgstr "Rapport, hvis temperaturen er større end eller lig med N grader Celsius. Sæt til 0 for at deaktivere denne rapport."
 
 msgid "Repository"
-msgstr ""
+msgstr "Arkiv"
 
 msgid "Require valid shell"
 msgstr "Kræv gyldig shell"
@@ -2385,10 +2385,10 @@ msgid "Rsync"
 msgstr "Rsync"
 
 msgid "Rsync - Jobs"
-msgstr ""
+msgstr "Rsync - Jobs"
 
 msgid "Rsync - Server"
-msgstr ""
+msgstr "Rsync - Server"
 
 msgid "Run"
 msgstr "Kør"
@@ -2472,10 +2472,10 @@ msgid "Saving ..."
 msgstr "Gemmer ..."
 
 msgid "Scan"
-msgstr ""
+msgstr "Scan"
 
 msgid "Scanning for new devices ..."
-msgstr ""
+msgstr "Scanner efter nye enheder ..."
 
 msgid "Scheduled tests"
 msgstr "Planlagte tests"
@@ -2505,16 +2505,16 @@ msgid "Select a device ..."
 msgstr "Vælg en enhed ..."
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Vælg et bibliotek"
 
 msgid "Select a filesystem ..."
 msgstr "Vælg et filsystem ..."
 
 msgid "Select a group name..."
-msgstr ""
+msgstr "Vælg et gruppenavn ..."
 
 msgid "Select a language ..."
-msgstr ""
+msgstr "Vælg et sprog ..."
 
 msgid "Select a primary device ..."
 msgstr "Vælg en primær enhed ..."
@@ -2529,7 +2529,7 @@ msgid "Select a shell ..."
 msgstr "Vælg en shell ..."
 
 msgid "Select a user name..."
-msgstr ""
+msgstr "Vælg et brugernavn ..."
 
 msgid "Select a volume ..."
 msgstr "Vælg et drev ..."
@@ -2538,7 +2538,7 @@ msgid "Select devices to be added to the RAID device"
 msgstr "Vælg enheder der skal tilføjes til RAID enheden"
 
 msgid "Select or enter a user name ..."
-msgstr ""
+msgstr "Vælg eller indtast et brugenavn ..."
 
 msgid "Self-test logs"
 msgstr "Selvtest logs"
@@ -2586,10 +2586,10 @@ msgid "Services"
 msgstr "Tjenester"
 
 msgid "Session expired"
-msgstr ""
+msgstr "Session udløbet"
 
 msgid "Session not authenticated"
-msgstr ""
+msgstr "Session ikke godkendt"
 
 msgid "Session timeout"
 msgstr "Session timeout"
@@ -2608,119 +2608,119 @@ msgid "Set write only"
 msgstr "Sæt kun skrivning"
 
 msgid "Sets the interval between disk checks to N seconds."
-msgstr ""
+msgstr "Indstiller intervallet mellem disk kontrol til N sekunder."
 
 msgid "Settings"
 msgstr "Indstillinger"
 
 #, c-format
 msgid "Settings already exist for device '%s'"
-msgstr ""
+msgstr "Indstillingen eksisterer allerede for enhed '%s'"
 
 msgid "Seychelles"
 msgstr "Seychelles"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "Delte Mapper"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Delt mappe"
 
 msgid "Shared folder must not be equal"
-msgstr ""
+msgstr "Delt mappe må ikke stemme overens"
 
 msgid "Shares"
-msgstr ""
+msgstr "Delte mapper"
 
 msgid "Shell"
-msgstr ""
+msgstr "Skal"
 
 msgid "Short self-test"
-msgstr ""
+msgstr "Kort selv-test"
 
 msgid "Show certificate"
-msgstr ""
+msgstr "Vis certifikat"
 
 msgid "Show details"
-msgstr ""
+msgstr "Vis detajler"
 
 msgid "Show password"
-msgstr ""
+msgstr "Vis adgangskode"
 
 msgid "Show privileges"
-msgstr ""
+msgstr "Vis rettigheder"
 
 msgid "Shutdown"
-msgstr ""
+msgstr "Luk ned"
 
 msgid "Shutdown the system when pressing the power button."
-msgstr ""
+msgstr "Luk systemet ned når slukknappen bliver trykket."
 
 msgid "Shutdown/Reboot schedule"
-msgstr ""
+msgstr "Luk ned/Genstart planlægning"
 
 msgid "Sierra Leone"
-msgstr ""
+msgstr "Sierra Leone"
 
 msgid "Singapore"
-msgstr ""
+msgstr "Singapore"
 
 msgid "Size"
-msgstr ""
+msgstr "Størrelse"
 
 msgid "Slaves"
-msgstr ""
+msgstr "Slaver"
 
 msgid "Sleep"
-msgstr ""
+msgstr "Dvale"
 
 msgid "Slovakia"
-msgstr ""
+msgstr "Slovakia"
 
 msgid "Slovenia"
-msgstr ""
+msgstr "Slovenia"
 
 msgid "Solomon Islands"
-msgstr ""
+msgstr "Solomon Islands"
 
 msgid "Somalia"
-msgstr ""
+msgstr "Somalia"
 
 msgid "Source"
-msgstr ""
+msgstr "Kilde"
 
 msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
 "or a plain IP address. A '!' argument before the address specification "
 "inverts the sense of the address."
-msgstr ""
+msgstr "Kildeadresse kan enten være en IP-adresse (med /maske), et IP-område eller en almindelig IP-adresse. Et '!' argument før adresse specifikationen vender meningen af ​​adressen."
 
 msgid "Source port"
-msgstr ""
+msgstr "Kilde port"
 
 msgid "Source server"
-msgstr ""
+msgstr "Kilde server"
 
 msgid "Source shared folder"
-msgstr ""
+msgstr "Kilde delt mappe"
 
 msgid "South Africa"
-msgstr ""
+msgstr "South Africa"
 
 msgid "South Georgia and the South Sandwich Islands"
-msgstr ""
+msgstr "South Georgia and the South Sandwich Islands"
 
 msgid "South Korea"
-msgstr ""
+msgstr "South Korea"
 
 msgid "Spain"
-msgstr ""
+msgstr "Spain"
 
 msgid "Specifies how many server threads to create."
 msgstr ""
 
 msgid "Specifies one of the bonding policies."
-msgstr ""
+msgstr "Angiver en af ​​binding politikkerne."
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr ""
@@ -2766,19 +2766,19 @@ msgid "Spindown time"
 msgstr ""
 
 msgid "Sri Lanka"
-msgstr ""
+msgstr "Sri Lanka"
 
 msgid "Standby"
-msgstr ""
+msgstr "Standby"
 
 msgid "Start"
-msgstr ""
+msgstr "Start"
 
 msgid "State"
-msgstr ""
+msgstr "Stat"
 
 msgid "State/Province"
-msgstr ""
+msgstr "Stat/Provins"
 
 msgid "Static"
 msgstr ""
@@ -2847,7 +2847,7 @@ msgid "System time"
 msgstr ""
 
 msgid "System user/group"
-msgstr ""
+msgstr "Systenbruger/gruppe"
 
 msgid "TCP forwarding"
 msgstr ""
@@ -2889,10 +2889,10 @@ msgid "The changes have been applied "
 msgstr ""
 
 msgid "The changes have been applied successfully."
-msgstr ""
+msgstr "Ændringerne er blevet tilføjet med succes."
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr ""
+msgstr "Standard SMTP mail server port, f.eks 25 eller 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -2904,34 +2904,34 @@ msgstr ""
 
 #, c-format
 msgid "The field '%s' contains forbidden "
-msgstr ""
+msgstr "Feltet '%s' indeholder forbudte"
 
 msgid "The file mode of the shared folder path."
 msgstr ""
 
 #, c-format
 msgid "The group '%s' does not exist"
-msgstr ""
+msgstr "Gruppen '%s' findes ikke"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr ""
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "Placeringen af filerne der skal deles."
 
 msgid ""
 "The location of the files to share. The share will be accessible at "
 "/export/<name>."
-msgstr ""
+msgstr "Placeringen af filerne der skal deles. Delt mappe vil være tilgængelig på /export/<navn>."
 
 msgid "The location of the user home directories."
-msgstr ""
+msgstr "Placering af bruger hjemme biblioteker."
 
 msgid "The name of the share."
-msgstr ""
+msgstr "Navnet på delt mappe."
 
 msgid "The number of days the certificate is valid for."
-msgstr ""
+msgstr "Antal dage certifikatet er gyldig i."
 
 msgid "The password contains invalid characters"
 msgstr ""
@@ -2939,7 +2939,7 @@ msgstr ""
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
 "used for remote shell transport such as ssh."
-msgstr ""
+msgstr "Adgangskoden der bliver brugt til adgang via rsync dæmon. Vær opmærksom på at den ikke bliver brugt til ekstern skal transport såsom ssh."
 
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
@@ -2959,47 +2959,47 @@ msgid ""
 msgstr ""
 
 msgid "The service name."
-msgstr ""
+msgstr "Tjeneste navn."
 
 msgid "The session timeout time in minutes."
 msgstr ""
 
 msgid "The shared folder is already used by another share"
-msgstr ""
+msgstr "Den delte mappe bliver allerede brugt af en anden delt mappe"
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
-msgstr ""
+msgstr "Ekstern kilde server, f.eks. [USER@]HOST:SRC, [USER@]HOST::SRC eller rsync://[USER@]HOST[:PORT]/SRC."
 
 msgid "The source shared folder."
-msgstr ""
+msgstr "Delt mappe kilde"
 
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr ""
 
 msgid "The system will reboot now."
-msgstr ""
+msgstr "Systemet vil genstarte nu."
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr ""
+msgstr "Systemet vil genstarte nu. Dette kan tage noget tid ..."
 
 msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr ""
+msgstr "Test mailen er sendt med succes. Kontroller venligst din mailboks."
 
 #, c-format
 msgid "The user '%s' does not exist"
-msgstr ""
+msgstr "Brugeren '%s' findes ikke"
 
 #, c-format
 msgid "The user '%s' is not allowed"
-msgstr ""
+msgstr "Brugeren '%s' er ikke tilladt"
 
 msgid "The value in this field is invalid"
-msgstr ""
+msgstr "Værdien i dette felt er ugyldig"
 
 msgid "The volume label for the filesystem."
-msgstr ""
+msgstr "Drevnavn til dette filsystem."
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3011,7 +3011,7 @@ msgstr ""
 
 #, c-format
 msgid "There already exists a mount point for %s"
-msgstr ""
+msgstr "Der findes allerede et monterings punkt for %s"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
@@ -3027,7 +3027,7 @@ msgid "This field does not allow blanks"
 msgstr ""
 
 msgid "This field must have the format hh:mm:ss"
-msgstr ""
+msgstr "Dette felt skal have formatet hh:mm:ss"
 
 msgid "This field should be a IPv4 network address"
 msgstr ""
@@ -3075,7 +3075,7 @@ msgid "This field should only contain strings seperated by <,> or <;>"
 msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."
-msgstr ""
+msgstr "Denne funktion er kun effektiv hvis harddisken understøtter det."
 
 msgid ""
 "This is a text field that is seen next to a share when a client queries the "
@@ -3173,25 +3173,25 @@ msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr ""
 
 msgid "This will create a recycle bin on the share."
-msgstr ""
+msgstr "Dette vil oprette en skraldespand på den delte mappe."
 
 msgid "Thursday"
-msgstr ""
+msgstr "Torsdag"
 
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 msgid "Time"
-msgstr ""
+msgstr "Tid"
 
 msgid "Time interval"
-msgstr ""
+msgstr "Tids interval"
 
 msgid "Time server"
-msgstr ""
+msgstr "Tids server"
 
 msgid "Time servers"
-msgstr ""
+msgstr "Tids servere"
 
 msgid "Time zone"
 msgstr ""
@@ -3285,29 +3285,29 @@ msgstr ""
 
 #, c-format
 msgid "Unknown filesystem '%s'"
-msgstr ""
+msgstr "Ukendt filsystem '%s'"
 
 #, c-format
 msgid "Unknown log file type (id=%s)"
-msgstr ""
+msgstr "Ukendt log filtype (id=%s)"
 
 msgid "Unknown network interface type."
-msgstr ""
+msgstr "Ukendt netværks interface type."
 
 msgid "Unmount"
-msgstr ""
+msgstr "Afmonter"
 
 msgid "Up"
-msgstr ""
+msgstr "Oppe"
 
 msgid "Up delay"
-msgstr ""
+msgstr "Oppe forsinkelse"
 
 msgid "Update Manager"
-msgstr ""
+msgstr "Opdaterings Manager"
 
 msgid "Update now"
-msgstr ""
+msgstr "Opdater nu"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
 msgstr ""
@@ -3317,40 +3317,40 @@ msgid ""
 msgstr ""
 
 msgid "Updated"
-msgstr ""
+msgstr "Opdateret"
 
 msgid "Updating ACL settings"
-msgstr ""
+msgstr "Opdater ACL indstillinger"
 
 msgid "Upload"
-msgstr ""
+msgstr "Upload"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Upload fil"
 
 msgid "Upload package"
-msgstr ""
+msgstr "Upload pakke"
 
 msgid "Upload plugin"
-msgstr ""
+msgstr "Upload plugin"
 
 msgid "Uploading file ..."
-msgstr ""
+msgstr "Uploader fil ..."
 
 msgid "Uptime"
-msgstr ""
+msgstr "Oppetid"
 
 msgid "Uruguay"
-msgstr ""
+msgstr "Uruguay"
 
 msgid "Use NTP server"
-msgstr ""
+msgstr "Brug NTP server"
 
 msgid "Use SSL/TLS secure connection"
-msgstr ""
+msgstr "Brug SSL/TLS sikker forbindelse"
 
 msgid "Use sendfile"
-msgstr ""
+msgstr "Brug sendfil"
 
 msgid "Use the following bandwidth restriction:"
 msgstr ""
@@ -3367,85 +3367,85 @@ msgid "Use the specified WINS server."
 msgstr ""
 
 msgid "Used"
-msgstr ""
+msgstr "Brugt"
 
 msgid "Used capacity"
-msgstr ""
+msgstr "Brugt kapacitet"
 
 msgid "User"
-msgstr ""
+msgstr "Bruger"
 
 #, c-format
 msgid "User '%s' already exist"
-msgstr ""
+msgstr "Bruger '%s' findes allerede"
 
 #, c-format
 msgid "User '%s' does not exist"
-msgstr ""
+msgstr "Bruger '%s' findes ikke"
 
 #, c-format
 msgid "User ID '%d' already exist"
-msgstr ""
+msgstr "Bruger ID '%d' findes allerede"
 
 msgid "User home directory"
-msgstr ""
+msgstr "Bruger hjemme bibliotek"
 
 msgid "User information"
-msgstr ""
+msgstr "Bruger oplysninger"
 
 msgid "User/Group permissions"
-msgstr ""
+msgstr "Bruger/Gruppe rettigheder"
 
 msgid "Username"
-msgstr ""
+msgstr "Brugernavn"
 
 msgid "Users"
-msgstr ""
+msgstr "Brugere"
 
 msgid "Uzbekistan"
-msgstr ""
+msgstr "Uzbekistan"
 
 msgid "Valid to"
-msgstr ""
+msgstr "Gyldig til"
 
 msgid "Value"
-msgstr ""
+msgstr "Værdi"
 
 msgid "Vanuatu"
-msgstr ""
+msgstr "Vanuatu"
 
 msgid "Vatican"
-msgstr ""
+msgstr "Vatican"
 
 msgid "Vendor"
-msgstr ""
+msgstr "Producent"
 
 msgid "Venezuela"
-msgstr ""
+msgstr "Venezuela"
 
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 msgid "Vietnam"
-msgstr ""
+msgstr "Vietnam"
 
 msgid "Volume"
-msgstr ""
+msgstr "Drev"
 
 msgid "WINS"
-msgstr ""
+msgstr "WINS"
 
 msgid "WINS server"
-msgstr ""
+msgstr "WINS server"
 
 msgid "WINS support"
-msgstr ""
+msgstr "WINS understøttelse"
 
 msgid "Wake Island"
-msgstr ""
+msgstr "Wake Island"
 
 msgid "Wake-on-LAN"
-msgstr ""
+msgstr "Wake-on-LAN"
 
 msgid "Wallis and Futuna"
 msgstr ""
@@ -3480,10 +3480,10 @@ msgid "When failed"
 msgstr ""
 
 msgid "Wipe"
-msgstr ""
+msgstr "Ryd"
 
 msgid "Wiping device ..."
-msgstr ""
+msgstr "Rydder enhed ..."
 
 msgid "Workgroup"
 msgstr ""
