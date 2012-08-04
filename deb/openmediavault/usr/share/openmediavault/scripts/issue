@@ -28,7 +28,8 @@ OMV_ISSUE_CONFIG=${OMV_ISSUE_CONFIG:-"/etc/issue"}
 
 mkconf() {
 	prdname=$(xmlstarlet sel -t -v //name ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
-	version=$(xmlstarlet sel -t -v //version ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+	packagename=$(xmlstarlet sel -t -v //packagename ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+	version=$(dpkg-query -W -f='${Version}' ${packagename})
 	versionname=$(xmlstarlet sel -t -v //versionname ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
 	copyright=$(xmlstarlet sel -t -v //copyright ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
 	url=$(xmlstarlet sel -t -v //url ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
