@@ -104,6 +104,7 @@ class SMBModule extends OMVModuleAbstract implements OMVINotifyListener,
 	 * Add an user.
 	 */
 	public function addUser($object) {
+//		$this->debug(var_export(func_get_args(), TRUE));
 		if (in_array($object['name'], $this->invalidUsers))
 			return;
 		$cmd = sprintf("(echo '%s'; echo '%s') | sudo pdbedit -at %s 2>&1",
@@ -119,9 +120,17 @@ class SMBModule extends OMVModuleAbstract implements OMVINotifyListener,
 	/**
 	 * Modify an user.
 	 */
-	public function modifyUser($object) {
+	public function modifyUser($object, $oldObject) {
+//		$this->debug(var_export(func_get_args(), TRUE));
 		if (in_array($object['name'], $this->invalidUsers))
 			return;
+		// Check whether the password has been changed and update it if
+		// necessary, otherwise no action is required.
+		if (crypt($object['password'], $oldObject['password']) ==
+		  $oldObject['password']) {
+			return;
+		}
+		// Modify user's SMB password.
 		$cmd = sprintf("(echo '%s'; echo '%s') | sudo smbpasswd -a -s ".
 		  "%s 2>&1", $object['password'], $object['password'],
 		  $object['name']);
@@ -137,6 +146,7 @@ class SMBModule extends OMVModuleAbstract implements OMVINotifyListener,
 	 * Delete an user.
 	 */
 	public function deleteUser($object) {
+//		$this->debug(var_export(func_get_args(), TRUE));
 		if (in_array($object['name'], $this->invalidUsers))
 			return;
 		$cmd = sprintf("sudo pdbedit -x %s 2>&1", $object['name']);

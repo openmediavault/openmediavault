@@ -452,7 +452,7 @@ class UserMgmtRpc extends OMVRpc {
 		// Get additional informations stored in database
 		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
 		  $data['name']);
-		$object = $xmlConfig->get($xpath);
+		$object = $oldObject = $xmlConfig->get($xpath);
 		// Set configuration object
 		$success = FALSE;
 		if (is_null($object)) {
@@ -480,22 +480,41 @@ class UserMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
 			  $xmlConfig->getError());
 		}
-		// Append additional fields to configuration object for notification
+		// Append additional fields to configuration object for notification.
 		$object = array_merge($object, array(
 			"shell" => $data['shell'],
 			"password" => $data['password'],
 			"groups" => $data['groups'],
 			"comment" => $data['comment']
 		));
-		if (isset($data['uid']))
+		if (isset($data['uid'])) {
 			$object['uid'] = $data['uid'];
-		// Get the user to find out if it still exists
+		}
+		// Get the user to find out if it still exists and to get additional
+		// informations.
 		$user = new OMVSystemUser($data['name']);
+		if ($user->exists()) {
+			// Append some informations about the user to the old
+			// configuration object.
+			$oldObject = array_merge($oldObject, array(
+				"disallowusermod" => boolval($oldObject['disallowusermod']),
+				"shell" => $user->getShell(),
+				"password" => $user->getPassword(),
+				"groups" => $user->getGroups(),
+				"comment" => $user->getGecos(),
+				"uid" => $user->getUid()
+			));
+		}
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(!$user->exists() ?
-		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.usermanagement.users.user", $object);
+		if (!$user->exists()) {
+			$dispatcher->notify(OMV_NOTIFY_CREATE,
+			  "org.openmediavault.system.usermanagement.users.user", $object);
+		} else {
+			$dispatcher->notify(OMV_NOTIFY_MODIFY,
+			  "org.openmediavault.system.usermanagement.users.user", $object,
+			  $oldObject);
+		}
 	}
 
 	/**
