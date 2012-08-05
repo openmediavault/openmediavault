@@ -8,6 +8,9 @@ openmediavault (0.3.0.19) stable; urgency=low
   * Fix bug in logon message script.
   * Mantis 0000556: fstab updating script always adds openmediavault section
     to the end of file.
+  * Mantis 0000558: Apache timeout. The Apache FCGI parameter FcgidIOTimeout
+    is set to 300 seconds by default, but it can be modified by the
+    OMV_APACHE2_FCGIDIOTIMEOUT environment variable.
   * Mantis 0000559: Modifying user details "breaks" SMB/CIFS access. Changing
     unnecessary user informations, e.g. comment or groups, results in a
     restart of the SMB service which is only required if the password has
