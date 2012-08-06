@@ -5,12 +5,13 @@
 # Translators:
 #   <jmcainzos@vodafone.es>, 2012.
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2012.
+# Volker  <votdev@gmx.de>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-18 21:52+0200\n"
-"PO-Revision-Date: 2012-07-18 19:52+0000\n"
+"POT-Creation-Date: 2012-07-19 19:26+0200\n"
+"PO-Revision-Date: 2012-08-06 15:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +24,7 @@ msgid "Add share"
 msgstr "Añadir compartido"
 
 msgid "Advertise this service via mDNS/DNS-SD."
-msgstr "visar de este servicio via mDNS/DNS-SD."
+msgstr "Anunciar este servicio vía mDNS/DNS-SD."
 
 msgid "Allow guest logins"
 msgstr "Permitir acceso de invitado"
@@ -67,8 +68,8 @@ msgstr "Habilitar"
 msgid "Enable Time Machine support for this share."
 msgstr "Habilitar soporte Time Machine para este compartido"
 
-msgid "Enable user home directories"
-msgstr ""
+msgid "Enable user home directories."
+msgstr "Habilitar Directorios Home de Usuario."
 
 msgid "Extra options"
 msgstr "Opciones Extra"
@@ -83,7 +84,7 @@ msgid "Hide dot files"
 msgstr "Ocultar archivos con punto \".\""
 
 msgid "Home directories"
-msgstr ""
+msgstr "Directorios Home"
 
 msgid ""
 "If this option is set, then a password is required to access the share."
