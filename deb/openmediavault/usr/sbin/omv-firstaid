@@ -199,7 +199,7 @@ reset_webgui_passwd() {
 			whiptail --clear --msgbox "The password must not be empty." 8 35
 		fi
 	done
-	omv-rpc "WebGUI" "setPassword" "${passwd}" >/dev/null
+	omv-rpc "WebGUI" "setPassword" "{\"password\":\"${passwd}\"}" >/dev/null
 	return 0
 }
 

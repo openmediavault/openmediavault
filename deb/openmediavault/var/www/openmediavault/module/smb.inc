@@ -124,10 +124,11 @@ class SMBModule extends OMVModuleAbstract implements OMVINotifyListener,
 //		$this->debug(var_export(func_get_args(), TRUE));
 		if (in_array($object['name'], $this->invalidUsers))
 			return;
-		// Check whether the password has been changed and update it if
-		// necessary, otherwise no action is required.
-		if (crypt($object['password'], $oldObject['password']) ==
-		  $oldObject['password']) {
+		// Check whether the password has been changed (in this case it is
+		// not empty) and update it if necessary, otherwise no action is
+		// required.
+		if (empty($object['password']) || (crypt($object['password'],
+		  $oldObject['password']) == $oldObject['password'])) {
 			return;
 		}
 		// Modify user's SMB password.

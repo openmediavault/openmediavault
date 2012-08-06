@@ -1,3 +1,11 @@
+openmediavault (0.3.0.20) stable; urgency=low
+
+  * Fix bug in omv-firstaid. Setting password for WebGUI user 'admin' does
+    not work.
+  * Mantis 0000559: Modifying user details "breaks" SMB/CIFS access.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 06 Aug 2012 17:53:38 +0200
+
 openmediavault (0.3.0.19) stable; urgency=low
 
   * Update locales.
