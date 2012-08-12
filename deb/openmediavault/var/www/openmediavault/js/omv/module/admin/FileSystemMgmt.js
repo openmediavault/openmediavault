@@ -523,7 +523,24 @@ Ext.extend(OMV.Module.Storage.FileSystemCreateDialog, OMV.FormPanelDialog, {
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
-			value: "ext4"
+			value: "ext4",
+			listeners: {
+				scope: this,
+				select: function(combo, record, index) {
+					// Update the max. length of the filesystem label
+					// depending on the selected filesystem type.
+					var type = record.get(combo.valueField);
+					var labelField = this.findFormField("label");
+					switch(type) {
+					case "xfs":
+						labelField.maxLength = 12;
+						break;
+					default:
+						labelField.maxLength = 16;
+						break;
+					}
+				}
+			}
 		}];
 	},
 

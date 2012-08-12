@@ -1,6 +1,8 @@
 openmediavault (0.3.0.21) stable; urgency=low
 
   * Add 'Total' column in filesystem panel.
+  * Update the max. length of the filesystem label depending on the
+    selected filesystem type.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 06 Aug 2012 20:22:13 +0200
 
