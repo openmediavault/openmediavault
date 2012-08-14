@@ -283,6 +283,17 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: _("If your host is acting as a NAT gateway or port forwarder for the server, this option is useful in order to allow passive tranfers to work. You have to use your public address and opening the passive ports used on your firewall as well.")
 			},{
+				xtype: "numberfield",
+				name: "dynmasqrefresh",
+				fieldLabel: _(" "),
+				minValue: 0,
+				allowDecimals: false,
+				allowNegative: false,
+				allowBlank: true,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("Specifies the amount of time, in seconds, between checking and updating the masquerade address by resolving the IP address. Set to 0 disables this option."),
+				value: 0
+			},{
 				xtype: "checkbox",
 				name: "allowforeignaddress",
 				fieldLabel: _("FXP"),

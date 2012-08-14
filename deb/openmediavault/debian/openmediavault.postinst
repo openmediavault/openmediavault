@@ -389,6 +389,9 @@ case "$1" in
 			rm -f /etc/php5/conf.d/pam_auth.ini
 			invoke-rc.d apache2 graceful
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.21"; then
+			omv_config_add_element "//services/ftp" "dynmasqrefresh" "0"
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

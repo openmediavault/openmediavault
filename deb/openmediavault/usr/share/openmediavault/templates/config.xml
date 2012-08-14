@@ -300,6 +300,7 @@
 			<usereversedns>0</usereversedns>
 			<rootlogin>0</rootlogin>
 			<masqueradeaddress></masqueradeaddress>
+			<dynmasqrefresh>0</dynmasqrefresh>
 			<usepassiveports>0</usepassiveports>
 			<minpassiveports>49152</minpassiveports>
 			<maxpassiveports>65534</maxpassiveports>

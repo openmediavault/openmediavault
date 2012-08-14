@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-14 12:27+0200\n"
+"POT-Creation-Date: 2012-08-14 19:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+msgid " "
+msgstr ""
 
 #, c-format
 msgid "% completed ..."
@@ -2615,6 +2618,9 @@ msgstr ""
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr ""
 
+msgid "Specifies the amount of time, in seconds, between checking and updating the masquerade address by resolving the IP address. Set to 0 disables this option."
+msgstr ""
+
 msgid "Specifies the maximum permitted block size. The permitted range for this parameter is from 512 to 65464."
 msgstr ""
 
@@ -3020,6 +3026,9 @@ msgid "Tokelau"
 msgstr ""
 
 msgid "Tonga"
+msgstr ""
+
+msgid "Total"
 msgstr ""
 
 msgid "Traps"

@@ -45,6 +45,7 @@ class FTPRpc extends OMVRpc {
 					"usereversedns":{"type":"boolean"},
 					"rootlogin":{"type":"boolean"},
 					"masqueradeaddress":{"type":"string"},
+					"dynmasqrefresh":{"type":"integer","minimum":0},
 					"usepassiveports":{"type":"boolean"},
 					"minpassiveports":{"type":"integer","minimum":1025,'.
 					  '"maximum":65535},
@@ -185,6 +186,7 @@ class FTPRpc extends OMVRpc {
 		$object['requirevalidshell'] = boolval($object['requirevalidshell']);
 		$object['dnssdenable'] = boolval($object['dnssd']['enable']);
 		$object['dnssdname'] = $object['dnssd']['name'];
+		$object['dynmasqrefresh'] = intval($object['dynmasqrefresh']);
 		// Remove useless data
 		unset($object['shares']);
 		unset($object['modules']);
@@ -226,6 +228,7 @@ class FTPRpc extends OMVRpc {
 			"usereversedns" => array_boolval($data, 'usereversedns'),
 			"rootlogin" => array_boolval($data, 'rootlogin'),
 			"masqueradeaddress" => $data['masqueradeaddress'],
+			"dynmasqrefresh" => $data['dynmasqrefresh'],
 			"usepassiveports" => array_boolval($data, 'usepassiveports'),
 			"minpassiveports" => $data['minpassiveports'],
 			"maxpassiveports" => $data['maxpassiveports'],

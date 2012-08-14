@@ -160,7 +160,14 @@ xmlstarlet sel -t \
 	  -o "TimeoutNoTransfer ${OMV_PROFTPD_TIMEOUTNOTRANSFER}" -n \
 	  -o "TimeoutStalled ${OMV_PROFTPD_TIMEOUTSTALLED}" -n \
 	  -i "usepassiveports[. = '1']" -v "concat('PassivePorts ',minpassiveports,' ',maxpassiveports)" -n -b \
-	  -i "string-length(masqueradeaddress) > 0" -v "concat('MasqueradeAddress ',masqueradeaddress)" -n -b \
+	  -i "string-length(masqueradeaddress) > 0" \
+		  -v "concat('MasqueradeAddress ',masqueradeaddress)" -n \
+		  -i "dynmasqrefresh[. > '0']" \
+			  -o "&lt;IfModule mod_dynmasq.c&gt;" -n \
+			  -v "concat('  DynMasqRefresh ',dynmasqrefresh)" -n \
+			  -o "&lt;/ifModule&gt;" -n \
+		  -b \
+	  -b \
 	  -i "limittransferrate[. = '1']" \
 		  -i "maxuptransferrate[. > '0']" -v "concat('TransferRate STOR ',maxuptransferrate)" -n -b \
 		  -i "maxdowntransferrate[. > '0']" -v "concat('TransferRate RETR ',maxdowntransferrate)" -n -b \
