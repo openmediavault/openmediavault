@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-14 19:47+0200\n"
+"POT-Creation-Date: 2012-08-14 20:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,9 +16,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-
-msgid " "
-msgstr ""
 
 #, c-format
 msgid "% completed ..."
@@ -3026,9 +3023,6 @@ msgid "Tokelau"
 msgstr ""
 
 msgid "Tonga"
-msgstr ""
-
-msgid "Total"
 msgstr ""
 
 msgid "Traps"

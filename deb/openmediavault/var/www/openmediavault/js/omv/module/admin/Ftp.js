@@ -285,7 +285,7 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 			},{
 				xtype: "numberfield",
 				name: "dynmasqrefresh",
-				fieldLabel: _(" "),
+				fieldLabel: " ",
 				minValue: 0,
 				allowDecimals: false,
 				allowNegative: false,

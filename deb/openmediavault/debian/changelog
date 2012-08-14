@@ -1,5 +1,6 @@
 openmediavault (0.3.0.21) stable; urgency=low
 
+  * Update locales.
   * Add 'Total' column in filesystem panel.
   * Update the max. length of the filesystem label depending on the
     selected filesystem type.

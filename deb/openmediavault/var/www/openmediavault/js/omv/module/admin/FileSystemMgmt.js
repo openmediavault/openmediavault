@@ -70,7 +70,7 @@ OMV.Module.Storage.FileSystemGridPanel = function(config) {
 				dataIndex: "type",
 				id: "type"
 			},{
-				header: _("Total"),
+				header: _("Capacity"),
 				sortable: true,
 				dataIndex: "blocks",
 				id: "total",

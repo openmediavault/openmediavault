@@ -163,7 +163,7 @@ OMV.util.Format = function() {
 			 */
 			binaryUnit : function(value) {
 				var v = parseInt(value);
-				if (Ext.isNumber(v)) {
+				if (Ext.isNumber(v) && (v >= 0)) {
 					return v.binaryFormat();
 				}
 				return _("n/a");
