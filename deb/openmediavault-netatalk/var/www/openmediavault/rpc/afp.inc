@@ -72,6 +72,7 @@ class AFPRpc extends OMVRpc {
 					"invisibledots":{"type":"boolean"},
 					"tm":{"type":"boolean"},
 					"mswindows":{"type":"boolean"},
+					"volsizelimit":{"type":"integer","minimum":0},
 					"extraoptions":{"type":"string"}
 				}
 			}'),
@@ -232,6 +233,7 @@ class AFPRpc extends OMVRpc {
 			  $xpath);
 		}
 		// Modify result data
+		$object['volsizelimit'] = intval($object['volsizelimit']);
 		foreach ($object['options'] as $optionk => $optionv) {
 			$object[$optionk] = boolval($optionv);
 		}
@@ -262,6 +264,7 @@ class AFPRpc extends OMVRpc {
 			"comment" => $data['comment'],
 			"password" => $data['password'],
 			"casefold" => $data['casefold'],
+			"volsizelimit" => $data['volsizelimit'],
 			"options" => array(
 				"ro" => array_boolval($data, 'ro'),
 				"upriv" => array_boolval($data, 'upriv'),

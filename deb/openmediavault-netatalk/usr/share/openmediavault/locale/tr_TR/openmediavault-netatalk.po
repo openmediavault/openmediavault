@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-19 19:26+0200\n"
-"PO-Revision-Date: 2012-07-19 17:26+0000\n"
+"POT-Creation-Date: 2012-08-16 19:00+0200\n"
+"PO-Revision-Date: 2012-08-16 17:00+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -22,16 +22,16 @@ msgid "Add share"
 msgstr "Paylaşım ekle"
 
 msgid "Advertise this service via mDNS/DNS-SD."
-msgstr ""
+msgstr "Bu servisi mDNS/DNS-SD ile duyur."
 
 msgid "Allow guest logins"
 msgstr "Misafir girişine izin ver"
 
 msgid "Allow logins with passwords transmitted in the clear."
-msgstr ""
+msgstr "Temiz yollanan şifreler ile girişe izin ver."
 
 msgid "Allow plain passwords"
-msgstr ""
+msgstr "Yalın şifrelere izin ver"
 
 msgid "Apple Filing"
 msgstr "Apple dosyalaması"
@@ -52,7 +52,7 @@ msgid "Comment"
 msgstr "Açıklama"
 
 msgid "DNS Service Discovery"
-msgstr ""
+msgstr "DNS Servis Keşfi"
 
 msgid "Don't do :hex translation for dot files."
 msgstr "Yapmayın : noktalı dosyaların hex formatına dönüştürülmesi."
@@ -67,7 +67,7 @@ msgid "Enable Time Machine support for this share."
 msgstr "Bu paylaşım için Zaman Makinası desteğini çalıştır."
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "Kullanıcı ana klasörlerine izin ver."
 
 msgid "Extra options"
 msgstr "Ekstra seçenekler"
@@ -82,7 +82,7 @@ msgid "Hide dot files"
 msgstr "Noktalı dosyaları gizle"
 
 msgid "Home directories"
-msgstr ""
+msgstr "Ana klasörler"
 
 msgid ""
 "If this option is set, then a password is required to access the share."
@@ -92,6 +92,12 @@ msgid ""
 "If this option is set, then users may not create or modify files in the "
 "share."
 msgstr "Bu seçenek kullanılır ise kullanıcılar bu paylaşımda dosya oluşturamayabilir ya da dosyaları değiştiremeyebilirler."
+
+msgid ""
+"Limit the reported volume size to the given value in MiB, thus preventing TM"
+" from using the whole disk space for backup. Set this value to 0 to disable "
+"this option."
+msgstr ""
 
 msgid "Lowercases names in both directions"
 msgstr "Her iki yönde de isimleri küçük harfe çevirir"
@@ -107,6 +113,9 @@ msgstr "Hiç"
 
 msgid "Password"
 msgstr "Şifre"
+
+msgid "Quota"
+msgstr ""
 
 msgid "Read only"
 msgstr "Sadece okunabilir"
@@ -130,7 +139,7 @@ msgid "The name of the share."
 msgstr "Paylaşımın adı."
 
 msgid "The service name."
-msgstr ""
+msgstr "Servis adı."
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-19 19:26+0200\n"
-"PO-Revision-Date: 2012-07-19 17:26+0000\n"
+"POT-Creation-Date: 2012-08-16 19:00+0200\n"
+"PO-Revision-Date: 2012-08-16 17:00+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -95,6 +95,12 @@ msgid ""
 "share."
 msgstr "Falls diese Option gesetzt ist, können Benutzer für diese Freigabe keine Dateien erstellen oder ändern."
 
+msgid ""
+"Limit the reported volume size to the given value in MiB, thus preventing TM"
+" from using the whole disk space for backup. Set this value to 0 to disable "
+"this option."
+msgstr ""
+
 msgid "Lowercases names in both directions"
 msgstr "Namen in Kleinbuchstaben für beide Richtungen"
 
@@ -109,6 +115,9 @@ msgstr "Keine"
 
 msgid "Password"
 msgstr "Passwort"
+
+msgid "Quota"
+msgstr ""
 
 msgid "Read only"
 msgstr "Nur lesen"

@@ -176,6 +176,7 @@ EOF
 		  -i "string-length(comment) > 0" -v "concat(' &quot;',comment,'&quot;')" -b \
 		  -i "string-length(comment) = 0" -v "concat(' &quot;',name,'&quot;')" -b \
 		  -i "string-length(password) > 0" -v "concat(' password:',password)" -b \
+		  -i "volsizelimit > 0" -v "concat(' volsizelimit:',volsizelimit)" -b \
 		  -i "not(casefold[. = 'none'])" -v "concat(' casefold:',casefold)" -b \
 		  -o " options:" \
 		  -m "options/*[. = '1']" \

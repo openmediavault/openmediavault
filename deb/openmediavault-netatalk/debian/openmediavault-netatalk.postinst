@@ -67,6 +67,7 @@ case "$1" in
 		#       		<comment>xxx</comment>
 		#       		<password></password>
 		#       		<casefold>none|tolower|toupper|xlatelower|xlateupper</casefold>
+		#       		<volsizelimit>0</volsizelimit>
 		#       		<options>
 		#       			<ro>0</ro>
 		#       			<upriv>1</upriv>
@@ -118,6 +119,9 @@ case "$1" in
 			omv_config_add_element "//services/afp" "allowclrtxt" "0"
 			omv_config_add_element "//services/afp" "homesenable" "0"
 			omv-mkconf netatalk
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.7"; then
+			omv_config_add_element "//services/afp/shares/share" "volsizelimit" "0"
 		fi
 	;;
 

@@ -1,3 +1,10 @@
+openmediavault-netatalk (0.3.0.7) stable; urgency=low
+
+  * Update locales.
+  * Mantis 0000564: Quota setting at the the shared folder.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 16 Aug 2012 18:59:28 +0200
+
 openmediavault-netatalk (0.3.0.6) stable; urgency=low
 
   * Update locales.

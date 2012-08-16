@@ -373,6 +373,17 @@ Ext.extend(OMV.Module.Services.AFP.SharePropertyDialog, OMV.CfgObjectDialog, {
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: _("This option handles, if the case of filenames should be changed.")
 		},{
+			xtype: "numberfield",
+			name: "volsizelimit",
+			fieldLabel: _("Quota"),
+			minValue: 0,
+			allowDecimals: false,
+			allowNegative: false,
+			allowBlank: false,
+			value: 0,
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: _("Limit the reported volume size to the given value in MiB, thus preventing TM from using the whole disk space for backup. Set this value to 0 to disable this option.")
+		},{
 			xtype: "textfield",
 			name: "extraoptions",
 			fieldLabel: _("Extra options"),
