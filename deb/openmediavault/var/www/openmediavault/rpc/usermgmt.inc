@@ -480,7 +480,8 @@ class UserMgmtRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
 			  $xmlConfig->getError());
 		}
-		// Append additional fields to configuration object for notification.
+		// Append additional fields to configuration object for
+		// notification.
 		$object = array_merge($object, array(
 			"shell" => $data['shell'],
 			"password" => $data['password'],
@@ -496,14 +497,16 @@ class UserMgmtRpc extends OMVRpc {
 		if ($user->exists()) {
 			// Append some informations about the user to the old
 			// configuration object.
-			$oldObject = array_merge($oldObject, array(
-				"disallowusermod" => boolval($oldObject['disallowusermod']),
-				"shell" => $user->getShell(),
-				"password" => $user->getPassword(),
-				"groups" => $user->getGroups(),
-				"comment" => $user->getGecos(),
-				"uid" => $user->getUid()
-			));
+			$oldObject = array_merge(is_array($oldObject) ?
+			  $oldObject : array(), array(
+				  "disallowusermod" => boolval(
+					$oldObject['disallowusermod']),
+				  "shell" => $user->getShell(),
+				  "password" => $user->getPassword(),
+				  "groups" => $user->getGroups(),
+				  "comment" => $user->getGecos(),
+				  "uid" => $user->getUid()
+			  ));
 		}
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();

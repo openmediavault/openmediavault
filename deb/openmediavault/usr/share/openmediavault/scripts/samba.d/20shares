@@ -41,6 +41,8 @@ OMV_SAMBA_SHARE_FORCECREATEMODE=${OMV_SAMBA_SHARE_FORCECREATEMODE:-"0644"}
 OMV_SAMBA_SHARE_DIRECTORYMASK=${OMV_SAMBA_SHARE_DIRECTORYMASK:-"0755"}
 OMV_SAMBA_SHARE_FORCEDIRECTORYMODE=${OMV_SAMBA_SHARE_FORCEDIRECTORYMODE:-"0755"}
 
+[ "$(omv_config_get "//services/smb/enable")" = "0" ] && exit 0
+
 echo "#======================= Share Definitions =======================" >> ${OMV_SAMBA_CONFIG}
 index=$(omv_config_get_count "//services/smb/shares/share")
 while [ ${index} -gt 0 ]

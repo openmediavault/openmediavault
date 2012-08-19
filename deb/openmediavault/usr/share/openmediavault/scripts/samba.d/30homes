@@ -34,6 +34,8 @@ OMV_SAMBA_HOMES_CREATEMASK=${OMV_SAMBA_HOMES_CREATEMASK:-"0640"}
 OMV_SAMBA_HOMES_DIRECTORYMASK=${OMV_SAMBA_HOMES_DIRECTORYMASK:-"0750"}
 OMV_SAMBA_HOMES_VALIDUSERS=${OMV_SAMBA_HOMES_VALIDUSERS:-"%S"}
 
+[ "$(omv_config_get "//services/smb/enable")" = "0" ] && exit 0
+
 xmlstarlet sel -t -m "//services/smb" \
   -i "homesenable[. = '1']" \
 	  -o "#======================= Home Directories =======================" -n \

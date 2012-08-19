@@ -28,7 +28,7 @@ Ext.ns("OMV.Module.System");
 
 // Register the menu.
 OMV.NavigationPanelMgr.registerMenu("system", "notification", {
-	text: _("Notification"),
+	text: _("Mail Notification"),
 	icon: "images/mail.png",
 	position: 40
 });

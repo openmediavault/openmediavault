@@ -291,7 +291,7 @@ Ext.extend(OMV.Module.Services.FTPSettingsPanel, OMV.FormPanelExt, {
 				allowNegative: false,
 				allowBlank: true,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: _("Specifies the amount of time, in seconds, between checking and updating the masquerade address by resolving the IP address. Set to 0 disables this option."),
+				infoText: _("Specifies the amount of time, in seconds, between checking and updating the masquerade address by resolving the IP address. Set this value to 0 to disable this option."),
 				value: 0
 			},{
 				xtype: "checkbox",

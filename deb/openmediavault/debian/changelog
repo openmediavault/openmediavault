@@ -4,6 +4,7 @@ openmediavault (0.3.0.21) stable; urgency=low
   * Add 'Total' column in filesystem panel.
   * Update the max. length of the filesystem label depending on the
     selected filesystem type.
+  * Set ProFTPD option 'PersistentPasswd' to 'off' to work properly with NSS.
   * Mantis 0000540: Add possibility to set refresh timer for MasqueradeAddress
     in FTP service when domain is set.
 

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-14 20:05+0200\n"
-"PO-Revision-Date: 2012-08-14 18:05+0000\n"
+"POT-Creation-Date: 2012-08-17 00:02+0200\n"
+"PO-Revision-Date: 2012-08-19 01:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1669,6 +1669,9 @@ msgstr "Mazedonien"
 msgid "Madagascar"
 msgstr "Madagaskar"
 
+msgid "Mail Notification"
+msgstr "Email Benachrichtigung"
+
 msgid "Maintainer"
 msgstr "Betreuer"
 
@@ -1970,9 +1973,6 @@ msgstr "Nicht TCP"
 
 msgid "Not UDP"
 msgstr "Nicht UDP"
-
-msgid "Notification"
-msgstr "Benachrichtigung"
 
 msgid "November"
 msgstr "November"
@@ -2731,9 +2731,9 @@ msgstr "Legt die MII Link-Überwachungsfrequenz in Millisekunden fest."
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
-"masquerade address by resolving the IP address. Set to 0 disables this "
-"option."
-msgstr ""
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
+msgstr "Gibt die Zeit in Sekunden an zwischen dem Prüfen und Aktualisieren der Masquerade Adresse durch Auflösen der IP-Adresse. Setzen Sie diesen Wert auf 0, um diese Option zu deaktivieren."
 
 msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "

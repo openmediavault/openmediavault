@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-14 20:05+0200\n"
-"PO-Revision-Date: 2012-08-14 18:05+0000\n"
+"POT-Creation-Date: 2012-08-17 00:02+0200\n"
+"PO-Revision-Date: 2012-08-16 22:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -1667,6 +1667,9 @@ msgstr "Macedonia"
 msgid "Madagascar"
 msgstr "Madagascar"
 
+msgid "Mail Notification"
+msgstr ""
+
 msgid "Maintainer"
 msgstr "Mantenedor"
 
@@ -1968,9 +1971,6 @@ msgstr "No TCP"
 
 msgid "Not UDP"
 msgstr "No UDP"
-
-msgid "Notification"
-msgstr "Notificación"
 
 msgid "November"
 msgstr "Noviembre"
@@ -2729,8 +2729,8 @@ msgstr "Especifica la frecuencia de monitorización del enlace MII en milisegund
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
-"masquerade address by resolving the IP address. Set to 0 disables this "
-"option."
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
 msgstr ""
 
 msgid ""

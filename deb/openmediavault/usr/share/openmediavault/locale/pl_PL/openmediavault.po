@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-14 20:05+0200\n"
-"PO-Revision-Date: 2012-08-14 18:05+0000\n"
+"POT-Creation-Date: 2012-08-17 00:02+0200\n"
+"PO-Revision-Date: 2012-08-16 22:03+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -1668,6 +1668,9 @@ msgstr "Macedonia"
 msgid "Madagascar"
 msgstr "Madagascar"
 
+msgid "Mail Notification"
+msgstr ""
+
 msgid "Maintainer"
 msgstr ""
 
@@ -1969,9 +1972,6 @@ msgstr "Bez TCP"
 
 msgid "Not UDP"
 msgstr "Bez UDP"
-
-msgid "Notification"
-msgstr "Powiadomienie"
 
 msgid "November"
 msgstr "Listopad"
@@ -2730,8 +2730,8 @@ msgstr ""
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
-"masquerade address by resolving the IP address. Set to 0 disables this "
-"option."
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
 msgstr ""
 
 msgid ""
