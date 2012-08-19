@@ -1,0 +1,80 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Testing:
+# apt-get install ldap-utils
+# ldapsearch -x -b "dc=xxx" "(objectclass=*)"
+# ldapsearch -x -b "dc=xxx" -x uid=xxx
+
+# Documentation/Howto:
+# http://serverfault.com/questions/338614/openldap-authentication-ssh
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_LDAP_CONFIG=${OMV_LDAP_CONFIG:-"/etc/ldap/ldap.conf"}
+OMV_LDAP_LDAPVERSION=${OMV_LDAP_LDAPVERSION:-"3"}
+OMV_LDAP_LIBNSS_CONFIG=${OMV_LDAP_LIBNSS_CONFIG:-"/etc/libnss-ldap.conf"}
+OMV_LDAP_LIBNSS_SECRET=${OMV_LDAP_LIBNSS_SECRET:-"/etc/libnss-ldap.secret"}
+OMV_LDAP_LIBNSS_BINDPOLICY=${OMV_LDAP_LIBNSS_BINDPOLICY:-"soft"}
+OMV_LDAP_PAM_CONFIG=${OMV_LDAP_PAM_CONFIG:-"/etc/pam_ldap.conf"}
+
+xmlstarlet sel -t \
+  -m "//services/ldap" \
+	-v "concat('base ',base)" -n \
+	-v "concat('uri ldap://',host)" -n \
+	-o "ldap_version ${OMV_LDAP_LDAPVERSION}" -n \
+	-v "concat('binddn ',rootbinddn)" -n \
+	-v "concat('bindpw ',rootbindpw)" -n \
+	-o "pam_password crypt" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_LDAP_PAM_CONFIG}
+
+
+xmlstarlet sel -t \
+  -m "//services/ldap" \
+	-v "concat('BASE ',base)" -n \
+	-v "concat('URI ldap://',host)" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_LDAP_CONFIG}
+
+xmlstarlet sel -t \
+  -m "//services/ldap" \
+	-v "concat('base ',base)" -n \
+	-v "concat('uri ldap://',host)" -n \
+	-o "ldap_version ${OMV_LDAP_LDAPVERSION}" -n \
+	-v "concat('rootbinddn ',rootbinddn)" -n \
+	-o "bind_policy ${OMV_LDAP_LIBNSS_BINDPOLICY}" -n \
+	-v "concat('nss_base_passwd ',usersuffix,',',base)" -n \
+	-v "concat('nss_base_shadow ',usersuffix,',',base)" -n \
+	-v "concat('nss_base_group ',groupsuffix,',',base)" -n \
+	-i "string-length(extraoptions) > 0" -v "extraoptions" -n -b \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_LDAP_LIBNSS_CONFIG}
+
+xmlstarlet sel -t \
+  -m "//services/ldap" \
+	-v "rootbindpw" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_LDAP_LIBNSS_SECRET}
+chmod 600 ${OMV_LDAP_LIBNSS_SECRET}

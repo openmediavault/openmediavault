@@ -37,3 +37,8 @@ source_lang = en
 file_filter = openmediavault-clamav/usr/share/openmediavault/locale/<lang>/openmediavault-clamav.po
 source_file = openmediavault-clamav/usr/share/openmediavault/locale/openmediavault-clamav.pot
 source_lang = en
+
+[openmediavault.openmediavault-ldap]
+file_filter = openmediavault-ldap/usr/share/openmediavault/locale/<lang>/openmediavault-ldap.po
+source_file = openmediavault-ldap/usr/share/openmediavault/locale/openmediavault-ldap.pot
+source_lang = en

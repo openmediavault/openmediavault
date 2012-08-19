@@ -1,0 +1,95 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+	configure)
+		########################################################################
+		# Set the default settings of the LDAP package to those expected by
+		# OpenMediaVault.
+		########################################################################
+		if [ -z "$2" ]; then
+			echo "Updating system environment ..."
+			pam-auth-update --force --package --remove ldap
+		fi
+
+		########################################################################
+		# Update file permissions.
+		########################################################################
+		echo "Updating permissions ..."
+		omv_install_fixperms
+
+		########################################################################
+		# Install locale files.
+		########################################################################
+		echo "Installing locale files ..."
+		omv_install_locale
+
+		########################################################################
+		# Update the configuration.
+		# <config>
+		#   <services>
+		#     <ldap>
+		#       <enable>0</enable>
+		#       <host></host>
+		#       <base></base>
+		#       <rootbinddn></rootbinddn>
+		#       <rootbindpw></rootbindpw>
+		#       <usersuffix></usersuffix>
+		#       <groupsuffix></groupsuffix>
+		#       <extraoptions></extraoptions>
+		#     </ldap>
+		#   </services>
+		# </config>
+		########################################################################
+		if ! omv_config_exists "//services/ldap"; then
+			echo "Initialize configuration"
+			object="<enable>0</enable>"
+			object="${object}<host></host>"
+			object="${object}<base></base>"
+			object="${object}<rootbinddn></rootbinddn>"
+			object="${object}<rootbindpw></rootbindpw>"
+			object="${object}<usersuffix></usersuffix>"
+			object="${object}<groupsuffix></groupsuffix>"
+			object="${object}<extraoptions></extraoptions>"
+			omv_config_add_element "//services" "ldap" "${object}" true
+		fi
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		echo "Updating configuration ..."
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0
