@@ -46,6 +46,12 @@ class LDAPRpc extends OMVRpc {
 		);
 	}
 
+	/**
+	 * Get the LDAP configuration settings.
+	 * @return An JSON object containing the fields \em enable, \em host,
+	 *   \em base, \em rootbinddn, \em rootbindpw, \em usersuffix,
+	 *   \em groupsuffix and \em extraoptions.
+	 */
 	function getSettings() {
 		global $xmlConfig;
 		// Check permissions.
@@ -66,6 +72,19 @@ class LDAPRpc extends OMVRpc {
 		return $object;
 	}
 
+	/**
+	 * Set the LDAP configuration settings.
+	 * @param data An array containing the following fields:
+	 *   \em enable Boolean value indicating wether the service is enabled.
+	 *   \em host The FQDN or IP address of the LDAP server.
+	 *   \em base The base DN.
+	 *   \em rootbinddn The root bind DN.
+	 *   \em rootbindpw The password used to bind to the LDAP server.
+	 *   \em usersuffix The group suffix, e.g. ou=Users.
+	 *   \em groupsuffix The group suffix, e.g. ou=Groups.
+	 *   \em extraoptions The extra libnss.conf options.
+	 * @return None
+	 */
 	function setSettings($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
