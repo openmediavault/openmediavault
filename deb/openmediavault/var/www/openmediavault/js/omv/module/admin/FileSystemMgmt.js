@@ -72,10 +72,9 @@ OMV.Module.Storage.FileSystemGridPanel = function(config) {
 			},{
 				header: _("Capacity"),
 				sortable: true,
-				dataIndex: "blocks",
-				id: "total",
-				width: 50,
-				renderer: OMV.util.Format.binaryUnitRenderer()
+				dataIndex: "capacity",
+				id: "capacity",
+				width: 50
 			},{
 				header: _("Available"),
 				sortable: true,
