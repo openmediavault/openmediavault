@@ -26,6 +26,9 @@
 
 # Documentation/Howto:
 # http://serverfault.com/questions/338614/openldap-authentication-ssh
+# http://linux.die.net/man/5/ldap.conf
+# http://linux.die.net/man/5/nss_ldap
+# http://linux.die.net/man/5/pam_ldap
 
 set -e
 

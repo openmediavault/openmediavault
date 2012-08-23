@@ -122,6 +122,8 @@ Ext.extend(OMV.Module.Privileges.DirectoryService.Settings,
 					rows: "7",
 					cols: "65"
 				},
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("Please check the <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>manual page</a> for more details."),
 				anchor: "100%"
 			}]
 		}];
