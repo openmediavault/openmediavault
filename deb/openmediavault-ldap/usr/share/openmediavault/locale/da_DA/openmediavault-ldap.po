@@ -1,0 +1,74 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-19 16:20+0200\n"
+"PO-Revision-Date: 2012-08-19 16:35+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "Base DN"
+msgstr "Base DN"
+
+msgid "Directory Service"
+msgstr "Biblioteks Tjeneste"
+
+msgid "Enable"
+msgstr "Aktiver"
+
+msgid "Extra options"
+msgstr "Ekstra valgmuligheder"
+
+msgid "General settings"
+msgstr "Generelle indstillinger"
+
+msgid "Groups suffix"
+msgstr "Gruppe endelse"
+
+msgid "Host"
+msgstr "Vært"
+
+msgid "LDAP"
+msgstr "LDAP"
+
+msgid "Password"
+msgstr "Adgangskode"
+
+msgid "Root Bind DN"
+msgstr "Rod Bind DN"
+
+msgid ""
+"Specifies the base distinguished name (DN) to use as search base, e.g. "
+"'dc=example,dc=net'."
+msgstr "Angiver basens særskilte navn (DN)  der skal bruges som søgebase, fx 'dc=eksempel,dc=net'."
+
+msgid "Specifies the credentials with which to bind."
+msgstr "Angiver legitimationsoplysningerne der skal bindes med."
+
+msgid ""
+"Specifies the distinguished name (DN) with which to bind to the directory "
+"server for lookups, e.g. 'cn=manager,dc=example,dc=net'."
+msgstr "Angiver det særskilte navn (DN) der skal bindes med til biblioteks serveren for opslag, f.eks 'cn=manager,dc=eksempel,dc=net'."
+
+msgid "Specifies the group suffix, e.g. 'ou=Groups'."
+msgstr "Angiver gruppens endelse, f.eks. 'ou=Grupper'."
+
+msgid "Specifies the user suffix, e.g. 'ou=Users'."
+msgstr "Angiver brugerens endelse, f.eks. 'ou=Brugere'."
+
+msgid "The FQDN or IP address of the server."
+msgstr "FQDNén eller IP adressen på serveren"
+
+msgid "Users suffix"
+msgstr "Brugers endelse"
