@@ -81,8 +81,8 @@ class RaidMgmtRpc extends OMVRpc {
 	/**
 	 * Enumerate all RAID devices on the system.
 	 * @return An array containing RAID device objects with following fields:
-	 *   name, devicefile, uuid, level, numdevices, devices, size, capacity,
-	 *   state, description and _used.
+	 *   name, devicefile, uuid, level, numdevices, devices, size, state,
+	 *   description and _used.
 	 */
 	public function enumerateDevices() {
 		// Check permissions
@@ -126,7 +126,6 @@ class RaidMgmtRpc extends OMVRpc {
 					"numdevices" => $raid->getNumDevices(),
 					"devices" => $raid->getDevices(),
 					"size" => $raid->getSize(),
-					"capacity" => $raid->getCapacity(),
 					"state" => $raid->getState(),
 					"description" => $raid->getDescription()
 				);
@@ -167,7 +166,7 @@ class RaidMgmtRpc extends OMVRpc {
 	/**
 	 * Get list of devices that can be used to create a RAID.
 	 * @return An array containing objects with the following fields:
-	 * devicefile, size, capacity and description.
+	 * devicefile, size and description.
 	 */
 	public function getCandidates() {
 		global $xmlConfig;
@@ -218,7 +217,6 @@ class RaidMgmtRpc extends OMVRpc {
 			$result[] = array(
 				"devicefile" => $devv['devicefile'],
 				"size" => $devv['size'],
-				"capacity" => $devv['capacity'],
 				"description" => $devv['description']
 			);
 		}

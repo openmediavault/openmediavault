@@ -571,9 +571,9 @@ class OMVFilesystem extends OMVObject {
 	 * Get filesystem statistics.
 	 * @return The filesystem statistics if successful, otherwise FALSE. The
 	 * following fields are included: \em devicefile, \em type, \em blocks,
-	 * \em used, \em available, \em percentage and \em mountpoint. Please
-	 * note, the fields \em used and \em available are strings and their unit
-	 * is 'B' (bytes).
+	 * \em size, \em used, \em available, \em percentage and \em mountpoint.
+	 * Please note, the fields \em size, \em used and \em available are
+	 * strings and their unit is 'B' (bytes).
 	 */
 	public function getStatistics() {
 		if ($this->getData() === FALSE)
@@ -592,6 +592,7 @@ class OMVFilesystem extends OMVObject {
 			"devicefile" => $this->deviceFile,
 			"type" => $this->deviceFile,
 			"blocks" => $matches[1],
+			"size" => bcmul($matches[1], "1024", 0),
 			"used" => binary_convert($matches[2], "KiB", "B"),
 			"available" => binary_convert($matches[3], "KiB", "B"),
 			"percentage" => intval(trim($matches[4], "%")),
@@ -727,12 +728,6 @@ interface OMVIBlockDevice {
 	function getSize();
 
 	/**
-	 * Get the capacity in the highest possible unit.
-	 * @return The capacity of the device, otherwise FALSE.
-	 */
-	function getCapacity();
-
-	/**
 	 * Get the description of the device.
 	 * @return The device description.
 	 */
@@ -789,15 +784,6 @@ abstract class OMVBlockDeviceAbstract extends OMVObject implements
 	 */
 	public function getSize() {
 		return $this->size;
-	}
-
-	/**
-	 * See interface definition.
-	 */
-	public function getCapacity() {
-		if (FALSE === ($size = $this->getSize()))
-			return FALSE;
-		return binary_format($size);
 	}
 }
 
@@ -941,7 +927,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	public function getDescription() {
 		$model = $this->getModel();
 		return sprintf("%s [%s, %s]", !empty($model) ? $model : gettext("n/a"),
-		  $this->getDeviceFile(), $this->getCapacity());
+		  $this->getDeviceFile(), binary_format($this->getSize()));
 	}
 
 	/**
@@ -1527,7 +1513,7 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	public function getDescription() {
 		return sprintf("Software RAID %s [%s, %s, %s]", $this->getName(),
 		  $this->getDeviceFile(), $this->getLevel(),
-		  $this->getCapacity());
+		  binary_format($this->getSize()));
 	}
 
 	/**
@@ -2509,16 +2495,6 @@ class OMVLogicalVolume extends OMVObject {
 	}
 
 	/**
-	 * Get the capacity in the highest possible unit.
-	 * @return The capacity of the logical volume, otherwise FALSE.
-	 */
-	public function getCapacity() {
-		if (FALSE === ($size = $this->getSize()))
-			return FALSE;
-		return binary_format($size);
-	}
-
-	/**
 	 * Get the UUID of the array.
 	 * @return The UUID of the array, FALSE on failure.
 	 */
@@ -2547,7 +2523,8 @@ class OMVLogicalVolume extends OMVObject {
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return sprintf(gettext("Logical volume %s [%s, %s]"),
-		  $this->getName(), $this->getDeviceFile(), $this->getCapacity());
+		  $this->getName(), $this->getDeviceFile(),
+		  binary_format($this->getSize()));
 	}
 }
 ?>

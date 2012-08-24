@@ -111,8 +111,8 @@ class SmartRpc extends OMVRpc {
 
 	/**
 	 * Enumerate all devices supporting S.M.A.R.T.
-	 * @return An array containing physical disk device objects with following
-	 *   fields: devicename, devicefile, model, size, capacity, temperature,
+	 * @return An array containing physical disk device objects with
+	 *   following fields: devicename, devicefile, model, size, temperature,
 	 *   description, vendor and serialnumber.
 	 */
 	public function enumerateDevices() {
@@ -142,7 +142,6 @@ class SmartRpc extends OMVRpc {
 					"devicefilebyid" => $hdd->getDeviceFileById(),
 					"model" => $hdd->getModel(),
 					"size" => $hdd->getSize(),
-					"capacity" => $hdd->getCapacity(),
 					"temperature" => (FALSE === $temperature) ?
 					  gettext("n/a") : sprintf("%d°C", $temperature),
 					"description" => $hdd->getDescription(),
@@ -372,8 +371,7 @@ class SmartRpc extends OMVRpc {
 			$objectv['volume'] = array(
 				"devicefile" => gettext("n/a"),
 				"model" => gettext("n/a"),
-				"size" => gettext("n/a"),
-				"capacity" => gettext("n/a")
+				"size" => "-1" // as string
 			);
 			$hdd = new OMVHardDiskDevice($objectv['devicefile']);
 			if ($hdd->exists()) {
@@ -381,8 +379,7 @@ class SmartRpc extends OMVRpc {
 					"devicefile" => $hdd->getDeviceFile(),
 					"devicefilebyid" => $hdd->getDeviceFileById(),
 					"model" => $hdd->getModel(),
-					"size" => $hdd->getSize(),
-					"capacity" => $hdd->getCapacity()
+					"size" => $hdd->getSize()
 				);
 			}
 		}

@@ -1,5 +1,7 @@
 openmediavault (0.3.0.22) stable; urgency=low
 
+  * Update locales.
+  * Code cleanup.
   * Mantis 0000572: Wrong unit in 'Storage' - 'FIle system' - 'capacity' row.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Aug 2012 22:06:26 +0200

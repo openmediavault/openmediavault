@@ -618,7 +618,7 @@ OMV.Module.Storage.SMARTScheduledTestsPanel = function(config) {
 					var tpl = new Ext.XTemplate(
 					  '<b>Model:</b> {volumemodel}<br/>',
 					  '<b>Device:</b> {volumedevicefile}<br/>',
-					  '<b>Capacity:</b> {volumecapacity}');
+					  '<b>Capacity:</b> {[OMV.util.Format.binaryUnit(values.volumesize)]}');
 					return tpl.apply(record.data);
 				}
 			},{
@@ -688,7 +688,6 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestsPanel,
 					{ name: "volumedevicefile", mapping: "volume.devicefile" },
 					{ name: "volumemodel", mapping: "volume.model" },
 					{ name: "volumesize", mapping: "volume.size" },
-					{ name: "volumecapacity", mapping: "volume.capacity" },
 					{ name: "type" },
 					{ name: "hour" },
 					{ name: "dayofmonth" },

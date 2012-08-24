@@ -88,7 +88,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 	 * Enumerate all filesystems that have been detected, except the
 	 * filesystem containing the operation system.
 	 * @return An array of objects with the following fields: \em uuid,
-	 *   \em devicefile, \em type, \em label, \em blocks, \em capacity,
+	 *   \em devicefile, \em type, \em label, \em blocks, \em size,
 	 *   \em mountpoint, \em blocks, \em used, \em available, \em description,
 	 *   \em posixacl, \em mounted and \em percentage.
 	 */
@@ -142,7 +142,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 				"mountpoint" => "",
 				"used" => "-1", // as string
 				"available" => "-1", // as string
-				"capacity" => "-1", // as string
+				"size" => "-1", // as string
 				"percentage" => -1,
 				"description" => "",
 				"posixacl" => $fs->hasPosixAclSupport(),
@@ -173,12 +173,12 @@ class FileSystemMgmtRpc extends OMVRpc {
 					$object['percentage'] = $fsStats['percentage'];
 					$object['blocks'] = $fsStats['blocks'];
 					$object['mountpoint'] = $fsStats['mountpoint'];
-					$object['capacity'] = binary_format(
-					  $fsStats['available']);
+					$object['size'] = $fsStats['size'];
 					$object['description'] = sprintf(
 					  gettext("%s (%s available)"),
 					  !empty($object['label']) ? $object['label'] :
-					  $object['devicefile'], $object['capacity']);
+					  $object['devicefile'], binary_format(
+					  $object['available']));
 				}
 			}
 			$result[] = $object;
@@ -190,7 +190,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 	 * Enumerate all filesystems that have a mount point configuration object,
 	 * except binds, and are actually mounted.
 	 * @return An array of objects with the following fields: \em uuid,
-	 *   \em devicefile, \em type, \em label, \em blocks, \em capacity,
+	 *   \em devicefile, \em type, \em label, \em blocks, \em size,
 	 *   \em mountpoint, \em blocks, \em used, \em available, \em description,
 	 *   and \em percentage.
 	 */
@@ -232,7 +232,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 				"mountpoint" => "",
 				"used" => "-1", // as string
 				"available" => "-1", // as string
-				"capacity" => "-1", // as string
+				"size" => "-1", // as string
 				"percentage" => -1,
 				"description" => "",
 				"posixacl" => $fs->hasPosixAclSupport()
@@ -244,11 +244,11 @@ class FileSystemMgmtRpc extends OMVRpc {
 				$object['percentage'] = $fsStats['percentage'];
 				$object['blocks'] = $fsStats['blocks'];
 				$object['mountpoint'] = $fsStats['mountpoint'];
-				$object['capacity'] = binary_format($fsStats['available']);
+				$object['size'] = $fsStats['size'];
 				$object['description'] = sprintf(
 				  gettext("%s (%s available)"), !empty($object['label']) ?
-				  $object['label'] : $object['devicefile'],
-				  $object['capacity']);
+				  $object['label'] : $object['devicefile'], binary_format(
+				  $object['available']));
 			}
 			$result[] = $object;
 		}
@@ -264,7 +264,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
 	 * @return An array of objects with the following fields: \em uuid,
-	 *   \em devicefile, \em type, \em label, \em blocks, \em capacity,
+	 *   \em devicefile, \em type, \em label, \em blocks, \em size,
 	 *   \em mountpoint, \em blocks, \em used, \em available, \em description,
 	 *   \em mounted, \em percentage and \em status.
 	 *   The field 'status' has the following meaning:
@@ -331,7 +331,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 					"mountpoint" => "",
 					"used" => "-1", // as string
 					"available" => "-1", // as string
-					"capacity" => "-1", // as string
+					"size" => "-1", // as string
 					"percentage" => -1,
 					"description" => "",
 					"status" => 2,
@@ -371,7 +371,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 				"mountpoint" => $mntentv['dir'],
 				"used" => "-1", // as string
 				"available" => "-1", // as string
-				"capacity" => "-1", // as string
+				"size" => "-1", // as string
 				"percentage" => -1,
 				"description" => "",
 				"status" => 3,
@@ -386,7 +386,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 	/**
 	 * Get list of devices that can be used to create a filesystem on.
 	 * @return An array containing objects with the following fields:
-	 *   devicefile, size, capacity and description.
+	 *   devicefile, size and description.
 	 */
 	public function getCandidates() {
 		global $xmlConfig;
@@ -422,7 +422,6 @@ class FileSystemMgmtRpc extends OMVRpc {
 			$result[] = array(
 				"devicefile" => $lv->getDeviceFile(),
 				"size" => $lv->getSize(),
-				"capacity" => $lv->getCapacity(),
 				"description" => $lv->getDescription()
 			);
 		}
@@ -447,7 +446,6 @@ class FileSystemMgmtRpc extends OMVRpc {
 			$result[] = array(
 				"devicefile" => $raid->getDeviceFile(),
 				"size" => $raid->getSize(),
-				"capacity" => $raid->getCapacity(),
 				"description" => $raid->getDescription()
 			);
 		}
@@ -469,7 +467,6 @@ class FileSystemMgmtRpc extends OMVRpc {
 			$result[] = array(
 				"devicefile" => $devv['devicefile'],
 				"size" => $devv['size'],
-				"capacity" => $devv['capacity'],
 				"description" => $devv['description']
 			);
 		}

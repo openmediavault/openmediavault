@@ -401,7 +401,9 @@ Ext.extend(OMV.Module.Storage.RAIDCreateDialog, OMV.FormPanelDialog, {
 					idProperty: "devicefile",
 					fields: [
 						{ name: "devicefile" },
-						{ name: "description" }
+						{ name: "size" },
+						{ name: "vendor" },
+						{ name: "serialnumber" }
 					]
 				})
 			}),
@@ -412,10 +414,29 @@ Ext.extend(OMV.Module.Storage.RAIDCreateDialog, OMV.FormPanelDialog, {
 					sortable: true
 				},
 				columns: [{
-					header: _("Description"),
+					header: _("Device"),
 					sortable: true,
-					dataIndex: "description",
-					id: "description"
+					dataIndex: "devicefile",
+					id: "devicefile",
+					width: 40
+				},{
+					header: _("Capacity"),
+					sortable: true,
+					dataIndex: "size",
+					id: "size",
+					width: 50,
+					renderer: OMV.util.Format.binaryUnitRenderer()
+				},{
+					header: _("Vendor"),
+					sortable: true,
+					dataIndex: "vendor",
+					id: "vendor",
+					width: 30
+				},{
+					header: _("Serial Number"),
+					sortable: true,
+					dataIndex: "serialnumber",
+					id: "serialnumber"
 				}]
 			}),
 			viewConfig: {
@@ -523,7 +544,7 @@ Ext.extend(OMV.Module.Storage.RAIDAddDialog, OMV.FormPanelDialog, {
 					idProperty: "devicefile",
 					fields: [
 						{ name: "devicefile" },
-						{ name: "capacity" },
+						{ name: "size" },
 						{ name: "vendor" },
 						{ name: "serialnumber" }
 					]
@@ -544,9 +565,10 @@ Ext.extend(OMV.Module.Storage.RAIDAddDialog, OMV.FormPanelDialog, {
 				},{
 					header: _("Capacity"),
 					sortable: true,
-					dataIndex: "capacity",
-					id: "capacity",
-					width: 50
+					dataIndex: "size",
+					id: "size",
+					width: 50,
+					renderer: OMV.util.Format.binaryUnitRenderer()
 				},{
 					header: _("Vendor"),
 					sortable: true,

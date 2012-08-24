@@ -72,9 +72,10 @@ OMV.Module.Storage.FileSystemGridPanel = function(config) {
 			},{
 				header: _("Capacity"),
 				sortable: true,
-				dataIndex: "capacity",
-				id: "capacity",
-				width: 50
+				dataIndex: "size",
+				id: "size",
+				width: 50,
+				renderer: OMV.util.Format.binaryUnitRenderer()
 			},{
 				header: _("Available"),
 				sortable: true,
@@ -131,6 +132,7 @@ Ext.extend(OMV.Module.Storage.FileSystemGridPanel, OMV.grid.TBarGridPanel, {
 					{ name: "blocks" },
 					{ name: "used" },
 					{ name: "available" },
+					{ name: "size" },
 					{ name: "status" },
 					{ name: "percentage" },
 					{ name: "mounted" },

@@ -74,8 +74,8 @@ class DiskMgmtRpc extends OMVRpc {
 	 * Enumerate all disk devices on the system.
 	 * @return An array containing physical disk device objects with the
 	 *   fields \em devicename, \em devicefile, \em model, \em size,
-	 *   \em capacity, \em description, \em vendor, \em serialnumber,
-	 *   \em israid and \em isrootdevice.
+	 *   \em description, \em vendor, \em serialnumber, \em israid and
+	 *   \em isrootdevice.
 	 */
 	public function enumerateDevices() {
 		// Check permissions
@@ -105,7 +105,6 @@ class DiskMgmtRpc extends OMVRpc {
 					"devicefilebyid" => $object->getDeviceFileById(),
 					"model" => $object->getModel(),
 					"size" => $object->getSize(),
-					"capacity" => $object->getCapacity(),
 					"description" => $object->getDescription(),
 					"vendor" => $object->getVendor(),
 					"serialnumber" => $object->getSerialNumber(),
