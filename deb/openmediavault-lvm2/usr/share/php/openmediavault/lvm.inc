@@ -131,16 +131,6 @@ class OMVPhysicalVolume extends OMVObject {
 	}
 
 	/**
-	 * Get the capacity in the highest possible unit.
-	 * @return The capacity of the physical volume, otherwise FALSE.
-	 */
-	public function getCapacity() {
-		if (FALSE === ($size = $this->getSize()))
-			return FALSE;
-		return binary_format($size);
-	}
-
-	/**
 	 * Get the total amount of unallocated space.
 	 * @return The total amount of unallocated space in bytes as string or
 	 * FALSE on failure.
@@ -201,7 +191,7 @@ class OMVPhysicalVolume extends OMVObject {
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return sprintf("Physical Volume [%s, %s]", $this->getDeviceFile(),
-		  $this->getCapacity());
+		  binary_format($this->getSize()));
 	}
 }
 
@@ -378,16 +368,6 @@ class OMVVolumeGroup extends OMVObject {
 	}
 
 	/**
-	 * Get the capacity in the highest possible unit.
-	 * @return The capacity of the volume group, otherwise FALSE.
-	 */
-	public function getCapacity() {
-		if (FALSE === ($size = $this->getSize()))
-			return FALSE;
-		return binary_format($size);
-	}
-
-	/**
 	 * Get the total amount of unallocated space.
 	 * @return The total amount of unallocated space in bytes as string
 	 * or FALSE on failure.
@@ -447,8 +427,8 @@ class OMVVolumeGroup extends OMVObject {
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return sprintf("Volume Group [%s, %s, %s free]",
-		  $this->getDeviceFile(), $this->getCapacity(), binary_format(
-		  $this->getFree()));
+		  $this->getDeviceFile(), binary_format($this->getSize()),
+		  binary_format($this->getFree()));
 	}
 }
 ?>
