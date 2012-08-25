@@ -20,10 +20,10 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/object.inc");
-require_once("openmediavault/config.inc");
 require_once("openmediavault/session.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/product.inc");
+require_once("openmediavault/system.inc");
 
 class OMVHtmlPage extends OMVObject {
 	/**
@@ -78,12 +78,10 @@ class OMVHtmlPage extends OMVObject {
 	 * Renders the HTML page
 	 */
 	public function render() {
-		$prd = new OMVProduct();
-		$title = sprintf("%s - %s", $prd->getName(),
-		  gettext("Web administration interface"));
-
+		$title = $this->getTitle();
 		$extBaseFile = "ext-base.js";
 		$extAllFile = "ext-all.js";
+
 		if (boolval($GLOBALS['OMV_DEBUG_EXTJS']) === TRUE) {
 			$extBaseFile = "ext-base-debug.js";
 			$extAllFile = "ext-all-debug.js";
@@ -123,6 +121,17 @@ EOF;
 	<body>{$body}</body>
 </html>
 EOF;
+	}
+
+	/**
+	 * Get the title of the HTML page.
+	 * @return The page title string.
+	 */
+	protected function getTitle() {
+		$prd = new OMVProduct();
+		return sprintf("%s %s - %s", $prd->getName(),
+		  gettext("web administration interface"),
+		  OMVNetwork::getHostname("--fqdn"));
 	}
 
 	/**

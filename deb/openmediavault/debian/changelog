@@ -1,3 +1,9 @@
+openmediavault (0.3.0.23) stable; urgency=low
+
+  * Display hostname in page title.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 25 Aug 2012 14:31:47 +0200
+
 openmediavault (0.3.0.22) stable; urgency=low
 
   * Update locales.

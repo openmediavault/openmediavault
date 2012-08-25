@@ -1534,7 +1534,7 @@ class OMVNetwork extends OMVObject {
 	 * @param options Additional command parameters
 	 * @return The host name if successful, otherwise FALSE.
 	 */
-	function getHostname($options) {
+	public static function getHostname($options) {
 		$cmd = sprintf("export LANG=C; sudo hostname %s", $options);
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
@@ -1547,7 +1547,7 @@ class OMVNetwork extends OMVObject {
 	 * Get the domain.
 	 * @return The domain if successful, otherwise FALSE.
 	 */
-	function getDomain() {
+	public static function getDomain() {
 		$cmd = "export LANG=C; sudo hostname -d";
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
