@@ -1,6 +1,10 @@
 openmediavault (0.3.0.23) stable; urgency=low
 
   * Display hostname in page title.
+  * Fix bug in OMVConfigEngine class.
+  * Mantis 0000581: Add deb-triggers 'update-locale' and 'update-fileperms'
+    to replace omv_install_locale and omv_install_fixperms in postinst
+    scripts.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 25 Aug 2012 14:31:47 +0200
 

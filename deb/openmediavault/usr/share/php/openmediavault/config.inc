@@ -309,6 +309,7 @@ class OMVConfigEngine extends OMVObject {
 					if ($childv->nodeName == '#comment')
 						continue;
  					if ($childv->nodeName !== '#text') {
+						if (!is_array($result)) $result = array();
 						$childElem = $domNode->getElementsByTagName(
 						  $childv->nodeName);
 						$numElements = 0;

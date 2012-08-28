@@ -26,17 +26,6 @@ set -e
 
 case "$1" in
 	configure)
-		########################################################################
-		# Update file permissions.
-		########################################################################
-		echo "Updating permissions ..."
-		omv_install_fixperms
-
-		########################################################################
-		# Install locale files.
-		########################################################################
-		echo "Installing locale files ..."
-		omv_install_locale
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

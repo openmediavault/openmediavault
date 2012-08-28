@@ -1,3 +1,11 @@
+openmediavault-clamav (0.3.0.7) stable; urgency=low
+
+  * Mantis 0000581: Add deb-triggers 'update-locale' and 'update-fileperms'
+    to replace omv_install_locale and omv_install_fixperms in postinst
+    scripts.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Aug 2012 21:01:32 +0200
+
 openmediavault-clamav (0.3.0.6) stable; urgency=low
 
   * Fix bug when showing the log file.
