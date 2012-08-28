@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-17 00:02+0200\n"
-"PO-Revision-Date: 2012-08-16 22:03+0000\n"
+"POT-Creation-Date: 2012-08-27 19:49+0200\n"
+"PO-Revision-Date: 2012-08-27 17:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -257,7 +257,7 @@ msgid "Advanced settings"
 msgstr "Avancerade inställningar"
 
 msgid "Advertise this service via mDNS/DNS-SD."
-msgstr ""
+msgstr "Annonsera denna tjänst via mDNS/DNS-SD."
 
 msgid "Afghanistan"
 msgstr "Afghanistan"
@@ -1257,7 +1257,7 @@ msgid "Grenada"
 msgstr "Grenada"
 
 msgid "Group"
-msgstr "Grupp"
+msgstr "Grupper"
 
 #, c-format
 msgid "Group '%s' already exist"
@@ -1666,7 +1666,7 @@ msgid "Madagascar"
 msgstr "Madagaskar"
 
 msgid "Mail Notification"
-msgstr ""
+msgstr "Notifieringar"
 
 msgid "Maintainer"
 msgstr "Upprätthållaren"
@@ -2213,7 +2213,7 @@ msgid "Primary"
 msgstr "Primär"
 
 msgid "Primary email"
-msgstr "Primär e-mail"
+msgstr "Primär e-post"
 
 msgid "Privacy passphrase"
 msgstr "Lösenordsintegritet"
@@ -2472,10 +2472,10 @@ msgid "Saving ..."
 msgstr "Sparar ..."
 
 msgid "Scan"
-msgstr ""
+msgstr "Skanna"
 
 msgid "Scanning for new devices ..."
-msgstr ""
+msgstr "Skannar efter nya enheter ..."
 
 msgid "Scheduled tests"
 msgstr "Schemalagda tester"
@@ -2729,7 +2729,7 @@ msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
 "masquerade address by resolving the IP address. Set this value to 0 to "
 "disable this option."
-msgstr ""
+msgstr "Anger tid, i sekunder, mellan kontroll och uppdatering av maskerade adresser genom att slå på IP-adressen. Sätt detta värde till 0 för att inaktivera detta alternativ."
 
 msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "
@@ -2965,7 +2965,7 @@ msgid ""
 msgstr "Kravet på att SSL-sessionen från kontrollanslutningen återanvänds för dataanslutningar krävs inte."
 
 msgid "The service name."
-msgstr ""
+msgstr "Tjänstens namn."
 
 msgid "The session timeout time in minutes."
 msgstr "Sessionens timeout i minuter."
@@ -3298,7 +3298,7 @@ msgid "Unknown log file type (id=%s)"
 msgstr "Okänd loggfilstyp (id=%s)"
 
 msgid "Unknown network interface type."
-msgstr ""
+msgstr "Okänt nätverksgränsnitt."
 
 msgid "Unmount"
 msgstr "Avmontera"
@@ -3310,7 +3310,7 @@ msgid "Up delay"
 msgstr "Fördröjningstiden för på"
 
 msgid "Update Manager"
-msgstr "Uppdateringshanterare"
+msgstr "Uppdateringar"
 
 msgid "Update now"
 msgstr "Uppdatera nu"
@@ -3373,7 +3373,7 @@ msgid "Use the specified WINS server."
 msgstr "Använd den angivna WINS-servern."
 
 msgid "Used"
-msgstr "Använd"
+msgstr "Använt"
 
 msgid "Used capacity"
 msgstr "Använd kapacitet"
@@ -3507,7 +3507,7 @@ msgid "Yemen"
 msgstr "Yemen"
 
 msgid "Yes"
-msgstr "Yes"
+msgstr "Ja"
 
 msgid "Zambia"
 msgstr "Zambia"
@@ -3539,3 +3539,6 @@ msgstr "n/a"
 
 msgid "seconds"
 msgstr "sekunder"
+
+msgid "web administration interface"
+msgstr ""
