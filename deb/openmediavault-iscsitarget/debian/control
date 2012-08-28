@@ -8,7 +8,9 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-iscsitarget
 Architecture: all
-Depends: openmediavault (>= 0.3), iscsitarget, iscsitarget-dkms, linux-headers-2.6.32-5-all, patch
+Depends: openmediavault (>= 0.3), iscsitarget, patch [!armel],
+ iscsitarget-dkms [!armel] | iscsitarget-module [armel],
+ linux-headers-2.6.32-5-all [!armel]
 Priority: optional
 Description: OpenMediaVault iSCSI Enterprise Target plugin
  iSCSI Enterprise Target is for building an iSCSI storage system on Linux.

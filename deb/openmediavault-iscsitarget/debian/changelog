@@ -1,3 +1,9 @@
+openmediavault-iscsitarget (0.3.0.5) stable; urgency=low
+
+  * Mantis 0000580: Modify package dependencies to support the ARM platform.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Aug 2012 20:53:54 +0200
+
 openmediavault-iscsitarget (0.3.0.4) stable; urgency=low
 
   * Update locales.
