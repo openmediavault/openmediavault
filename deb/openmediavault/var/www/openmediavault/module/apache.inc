@@ -25,7 +25,8 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
 
-class ApacheModule extends OMVModuleAbstract implements OMVINotifyListener {
+class OMVApacheModule extends OMVModuleAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
@@ -62,5 +63,5 @@ class ApacheModule extends OMVModuleAbstract implements OMVINotifyListener {
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new ApacheModule());
+$moduleMgr->registerModule(new OMVApacheModule());
 ?>

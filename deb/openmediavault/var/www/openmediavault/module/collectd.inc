@@ -25,7 +25,8 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/monit.inc");
 
-class CollectdModule extends OMVModuleAbstract implements OMVINotifyListener {
+class OMVCollectdModule extends OMVModuleAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
@@ -81,5 +82,5 @@ class CollectdModule extends OMVModuleAbstract implements OMVINotifyListener {
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new CollectdModule());
+$moduleMgr->registerModule(new OMVCollectdModule());
 ?>

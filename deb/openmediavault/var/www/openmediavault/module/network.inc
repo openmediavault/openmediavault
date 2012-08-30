@@ -25,7 +25,8 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
 
-class NetworkModule extends OMVModuleAbstract implements OMVINotifyListener {
+class OMVNetworkModule extends OMVModuleAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
@@ -234,5 +235,5 @@ class NetworkModule extends OMVModuleAbstract implements OMVINotifyListener {
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new NetworkModule());
+$moduleMgr->registerModule(new OMVNetworkModule());
 ?>

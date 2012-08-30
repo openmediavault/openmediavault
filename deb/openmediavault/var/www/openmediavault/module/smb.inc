@@ -25,8 +25,8 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
 
-class SMBModule extends OMVModuleAbstract implements OMVINotifyListener,
-  OMVIModuleStatus {
+class OMVSMBModule extends OMVModuleAbstract
+  implements OMVINotifyListener, OMVIModuleStatus {
 	private $invalidUsers = array("admin");
 
 	/**
@@ -201,5 +201,5 @@ class SMBModule extends OMVModuleAbstract implements OMVINotifyListener,
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new SMBModule());
+$moduleMgr->registerModule(new OMVSMBModule());
 ?>

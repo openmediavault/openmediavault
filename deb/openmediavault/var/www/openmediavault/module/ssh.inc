@@ -25,8 +25,8 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
 
-class SSHModule extends OMVModuleAbstract implements OMVINotifyListener,
-  OMVIModuleStatus {
+class OMVSSHModule extends OMVModuleAbstract
+  implements OMVINotifyListener, OMVIModuleStatus {
 	/**
 	 * Get the module name.
 	 */
@@ -99,5 +99,5 @@ class SSHModule extends OMVModuleAbstract implements OMVINotifyListener,
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new SSHModule());
+$moduleMgr->registerModule(new OMVSSHModule());
 ?>

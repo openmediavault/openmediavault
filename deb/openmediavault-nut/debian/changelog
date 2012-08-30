@@ -1,5 +1,6 @@
 openmediavault-nut (0.3.0.6) stable; urgency=low
 
+  * Code was modified to meet the coding guidelines.
   * Mantis 0000581: Add deb-triggers 'update-locale' and 'update-fileperms'
     to replace omv_install_locale and omv_install_fixperms in postinst
     scripts.

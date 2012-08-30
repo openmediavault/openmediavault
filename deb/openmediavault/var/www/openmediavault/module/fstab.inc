@@ -23,7 +23,8 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 
-class FsTabModule extends OMVModuleAbstract implements OMVINotifyListener {
+class OMVFsTabModule extends OMVModuleAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
@@ -88,5 +89,5 @@ class FsTabModule extends OMVModuleAbstract implements OMVINotifyListener {
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new FsTabModule());
+$moduleMgr->registerModule(new OMVFsTabModule());
 ?>

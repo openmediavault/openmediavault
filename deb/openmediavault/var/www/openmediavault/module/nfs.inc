@@ -26,8 +26,8 @@ require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
 require_once("openmediavault/system.inc");
 
-class NFSModule extends OMVModuleAbstract implements OMVINotifyListener,
-  OMVIModuleStatus {
+class OMVNFSModule extends OMVModuleAbstract
+  implements OMVINotifyListener, OMVIModuleStatus {
 	/**
 	 * Get the module name.
 	 */
@@ -167,5 +167,5 @@ class NFSModule extends OMVModuleAbstract implements OMVINotifyListener,
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new NFSModule());
+$moduleMgr->registerModule(new OMVNFSModule());
 ?>

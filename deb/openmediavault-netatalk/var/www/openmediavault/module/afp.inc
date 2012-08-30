@@ -26,8 +26,8 @@ require_once("openmediavault/util.inc");
 require_once("openmediavault/monit.inc");
 require_once("openmediavault/initscript.inc");
 
-class AFPModule extends OMVModuleAbstract implements OMVINotifyListener,
-  OMVIModuleStatus {
+class OMVAFPModule extends OMVModuleAbstract
+  implements OMVINotifyListener, OMVIModuleStatus {
 	private $invalidUsers = array("admin");
 
 	/**
@@ -140,5 +140,5 @@ class AFPModule extends OMVModuleAbstract implements OMVINotifyListener,
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new AFPModule());
+$moduleMgr->registerModule(new OMVAFPModule());
 ?>

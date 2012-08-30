@@ -25,8 +25,8 @@ require_once("openmediavault/system.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 
-class FileSystemMgmtModule extends OMVModuleAbstract implements
-  OMVINotifyListener {
+class OMVFileSystemMgmtModule extends OMVModuleAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
@@ -123,5 +123,5 @@ class FileSystemMgmtModule extends OMVModuleAbstract implements
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new FileSystemMgmtModule());
+$moduleMgr->registerModule(new OMVFileSystemMgmtModule());
 ?>

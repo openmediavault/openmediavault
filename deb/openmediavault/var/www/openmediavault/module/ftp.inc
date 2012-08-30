@@ -27,8 +27,8 @@ require_once("openmediavault/initscript.inc");
 require_once("openmediavault/log.inc");
 require_once("openmediavault/system.inc");
 
-class FTPModule extends OMVModuleAbstract implements OMVINotifyListener,
-  OMVIModuleStatus {
+class OMVFTPModule extends OMVModuleAbstract
+  implements OMVINotifyListener, OMVIModuleStatus {
 	/**
 	 * Get the module name.
 	 */
@@ -183,7 +183,7 @@ class FTPModule extends OMVModuleAbstract implements OMVINotifyListener,
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new FTPModule());
+$moduleMgr->registerModule(new OMVFTPModule());
 
 // Register new logfile type
 OMVLogFile::registerType("proftpd", array(

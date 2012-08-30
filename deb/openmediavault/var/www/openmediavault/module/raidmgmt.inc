@@ -23,8 +23,8 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 
-class RaidMgmtModule extends OMVModuleAbstract implements
-  OMVINotifyListener {
+class OMVRaidMgmtModule extends OMVModuleAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
@@ -63,5 +63,5 @@ class RaidMgmtModule extends OMVModuleAbstract implements
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new RaidMgmtModule());
+$moduleMgr->registerModule(new OMVRaidMgmtModule());
 ?>

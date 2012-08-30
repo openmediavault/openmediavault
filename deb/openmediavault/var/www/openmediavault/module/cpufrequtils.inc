@@ -25,7 +25,7 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
 
-class CPUFreqUtilsModule extends OMVModuleAbstract
+class OMVCPUFreqUtilsModule extends OMVModuleAbstract
   implements OMVINotifyListener {
 	/**
 	 * Get the module name.
@@ -76,5 +76,5 @@ class CPUFreqUtilsModule extends OMVModuleAbstract
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new CPUFreqUtilsModule());
+$moduleMgr->registerModule(new OMVCPUFreqUtilsModule());
 ?>

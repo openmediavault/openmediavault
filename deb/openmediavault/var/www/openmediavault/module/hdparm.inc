@@ -24,7 +24,8 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 
-class HdParmModule extends OMVModuleAbstract implements OMVINotifyListener {
+class OMVHdParmModule extends OMVModuleAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
@@ -57,5 +58,5 @@ class HdParmModule extends OMVModuleAbstract implements OMVINotifyListener {
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new HdParmModule());
+$moduleMgr->registerModule(new OMVHdParmModule());
 ?>

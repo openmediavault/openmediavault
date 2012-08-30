@@ -26,8 +26,8 @@ require_once("openmediavault/util.inc");
 require_once("openmediavault/monit.inc");
 require_once("openmediavault/initscript.inc");
 
-class iSCSITargetModule extends OMVModuleAbstract implements OMVINotifyListener,
-  OMVIModuleStatus {
+class OMViSCSITargetModule extends OMVModuleAbstract
+  implements OMVINotifyListener, OMVIModuleStatus {
 	/**
 	 * Get the module name.
 	 */
@@ -134,5 +134,5 @@ $xmlConfig->addEnum("target");
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new iSCSITargetModule());
+$moduleMgr->registerModule(new OMViSCSITargetModule());
 ?>

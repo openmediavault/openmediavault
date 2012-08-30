@@ -26,7 +26,7 @@ require_once("openmediavault/util.inc");
 require_once("openmediavault/monit.inc");
 require_once("openmediavault/initscript.inc");
 
-class NetworkUPSToolsModule extends OMVModuleAbstract
+class OMVNetworkUPSToolsModule extends OMVModuleAbstract
   implements OMVINotifyListener, OMVIModuleStatus {
 	/**
 	 * Get the module name.
@@ -166,5 +166,5 @@ class NetworkUPSToolsModule extends OMVModuleAbstract
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new NetworkUPSToolsModule());
+$moduleMgr->registerModule(new OMVNetworkUPSToolsModule());
 ?>

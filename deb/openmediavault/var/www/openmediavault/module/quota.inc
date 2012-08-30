@@ -25,7 +25,8 @@ require_once("openmediavault/system.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 
-class QuotaModule extends OMVModuleAbstract implements OMVINotifyListener {
+class OMVQuotaModule extends OMVModuleAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
@@ -80,5 +81,5 @@ class QuotaModule extends OMVModuleAbstract implements OMVINotifyListener {
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new QuotaModule());
+$moduleMgr->registerModule(new OMVQuotaModule());
 ?>

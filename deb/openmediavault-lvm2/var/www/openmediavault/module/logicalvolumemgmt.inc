@@ -25,8 +25,8 @@ require_once("openmediavault/functions.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/lvm.inc");
 
-class LogicalVolumeMgmtModule extends OMVModuleAbstract implements
-  OMVINotifyListener {
+class OMVLogicalVolumeMgmtModule extends OMVModuleAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
@@ -267,5 +267,5 @@ class LogicalVolumeMgmtModule extends OMVModuleAbstract implements
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new LogicalVolumeMgmtModule());
+$moduleMgr->registerModule(new OMVLogicalVolumeMgmtModule());
 ?>

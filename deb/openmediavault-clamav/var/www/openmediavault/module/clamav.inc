@@ -25,8 +25,8 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/log.inc");
 
-class ClamAVModule extends OMVModuleAbstract implements OMVINotifyListener,
-  OMVIModuleStatus {
+class OMVClamAVModule extends OMVModuleAbstract
+  implements OMVINotifyListener, OMVIModuleStatus {
 	/**
 	 * Get the module name.
 	 */
@@ -101,7 +101,7 @@ class ClamAVModule extends OMVModuleAbstract implements OMVINotifyListener,
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new ClamAVModule());
+$moduleMgr->registerModule(new OMVClamAVModule());
 
 // Register new logfile type
 OMVLogFile::registerType("clamav", array(

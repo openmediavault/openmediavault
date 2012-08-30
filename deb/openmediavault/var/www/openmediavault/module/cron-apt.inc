@@ -22,7 +22,8 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
 
-class CronAptModule extends OMVModuleAbstract implements OMVINotifyListener {
+class OMVCronAptModule extends OMVModuleAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
@@ -57,5 +58,5 @@ class CronAptModule extends OMVModuleAbstract implements OMVINotifyListener {
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new CronAptModule());
+$moduleMgr->registerModule(new OMVCronAptModule());
 ?>

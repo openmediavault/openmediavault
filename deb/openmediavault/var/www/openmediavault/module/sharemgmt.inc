@@ -24,7 +24,8 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 
-class ShareMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
+class OMVShareMgmtModule extends OMVModuleAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
@@ -190,5 +191,5 @@ class ShareMgmtModule extends OMVModuleAbstract implements OMVINotifyListener {
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new ShareMgmtModule());
+$moduleMgr->registerModule(new OMVShareMgmtModule());
 ?>

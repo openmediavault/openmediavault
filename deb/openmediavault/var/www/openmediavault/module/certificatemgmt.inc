@@ -24,7 +24,7 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 
-class CertificateMgmtModule extends OMVModuleAbstract
+class OMVCertificateMgmtModule extends OMVModuleAbstract
   implements OMVINotifyListener {
 	/**
 	 * Get the module name.
@@ -85,5 +85,5 @@ class CertificateMgmtModule extends OMVModuleAbstract
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new CertificateMgmtModule());
+$moduleMgr->registerModule(new OMVCertificateMgmtModule());
 ?>

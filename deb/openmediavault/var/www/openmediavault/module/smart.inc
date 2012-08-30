@@ -26,7 +26,8 @@ require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
 require_once("openmediavault/log.inc");
 
-class SMARTModule extends OMVModuleAbstract implements OMVINotifyListener {
+class OMVSMARTModule extends OMVModuleAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
@@ -80,7 +81,7 @@ class SMARTModule extends OMVModuleAbstract implements OMVINotifyListener {
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new SMARTModule());
+$moduleMgr->registerModule(new OMVSMARTModule());
 
 // Register new logfile type
 OMVLogFile::registerType("smartd", array(

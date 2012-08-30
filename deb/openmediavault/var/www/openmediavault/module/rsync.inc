@@ -25,7 +25,8 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/log.inc");
 
-class RsyncModule extends OMVModuleAbstract implements OMVINotifyListener {
+class OMVRsyncModule extends OMVModuleAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
@@ -58,7 +59,7 @@ class RsyncModule extends OMVModuleAbstract implements OMVINotifyListener {
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new RsyncModule());
+$moduleMgr->registerModule(new OMVRsyncModule());
 
 // Register new logfile type
 OMVLogFile::registerType("rsync", array(

@@ -24,8 +24,8 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 
-class LDAPModule extends OMVModuleAbstract implements
-  OMVINotifyListener {
+class OMVLDAPModule extends OMVModuleAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
@@ -67,5 +67,5 @@ class LDAPModule extends OMVModuleAbstract implements
 
 // Register module
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new LDAPModule());
+$moduleMgr->registerModule(new OMVLDAPModule());
 ?>
