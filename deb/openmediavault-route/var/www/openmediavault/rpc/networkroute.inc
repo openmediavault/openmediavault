@@ -159,10 +159,19 @@ class NetworkRouteRpc extends OMVRpc {
 		);
 		$success = FALSE;
 		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Append object to configuration.
+			// Perform some checks. These could be improved somewhen, e.g.
+			// checking if a network fits into an already configured route.
+			if (TRUE === $xmlConfig->exists("//services/staticroutes/route[" .
+			  "network='{$data['network']}']")) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+				  gettext("A route with the network already exists"));
+			}
 			$success = $xmlConfig->set("//services/staticroutes",
 			  array("route" => $object));
 		} else {
+			// Usually some checks should be performed here too, but
+			// the 'Edit' button is disabled in the WebGUI to make it
+			// easier.
 			// Update existing configuration object.
 			$success = $xmlConfig->replace($xpath, $object);
 		}

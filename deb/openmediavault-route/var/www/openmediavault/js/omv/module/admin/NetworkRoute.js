@@ -35,6 +35,7 @@ Ext.ns("OMV.Module.System.Network");
 OMV.Module.System.Network.RouteGridPanel = function(config) {
 	var initialConfig = {
 		hidePagingToolbar: false,
+		hideEdit: true, // Simplifies duplicate checks
 		stateId: "a6faec48-f389-11e1-8b67-00221568ca88",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
