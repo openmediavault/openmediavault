@@ -46,11 +46,12 @@ class OMVNetworkRouteModule extends OMVModuleAbstract
 	}
 
 	/**
-	 * Modify a static route.
+	 * Add a static route.
 	 */
-	public function modify($object, $oldObject = NULL) {
+	public function add($object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		// Add the static route.
+		// Add the static route. Throw an exception if adding the route
+		// fails, thus we ensure we do not store an invalid route.
 		$cmd = sprintf("sudo ip route add %s via %s 2>&1",
 		  $object['network'], $object['gateway']);
 		OMVUtil::exec($cmd, $output, $result);
@@ -71,12 +72,11 @@ class OMVNetworkRouteModule extends OMVModuleAbstract
 		$cmd = sprintf("sudo ip route delete %s via %s 2>&1",
 		  $object['network'], $object['gateway']);
 		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-		// Update the script that is executed when a interface comes up.
-		$this->mkConf();
+// Ignore errors
+//		if ($result !== 0) {
+//			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+//			  $cmd, implode("\n", $output));
+//		}
 	}
 
 	/**
@@ -84,13 +84,17 @@ class OMVNetworkRouteModule extends OMVModuleAbstract
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
+		  OMV_NOTIFY_PRECREATE,
 		  "org.openmediavault.services.staticroutes.route",
-		  array($this, "modify"));
+		  array($this, "add"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_PREDELETE,
 		  "org.openmediavault.services.staticroutes.route",
 		  array($this, "delete"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
+		  "org.openmediavault.services.staticroutes.route",
+		  array($this, "mkConf"));
     }
 }
 

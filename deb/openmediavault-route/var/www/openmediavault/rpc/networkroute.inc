@@ -178,13 +178,22 @@ class NetworkRouteRpc extends OMVRpc {
 		if (FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
+		// Notify configuration changes.
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			$dispatcher->notify(OMV_NOTIFY_PRECREATE,
+			  "org.openmediavault.services.staticroutes.route", $object);
+		} else {
+			$dispatcher->notify(OMV_NOTIFY_PREMODIFY,
+			  "org.openmediavault.services.staticroutes.route", $object,
+			  $oldObject);
+		}
 		// Save configuration.
 		if (FALSE === $xmlConfig->save()) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
 			  $xmlConfig->getError());
 		}
 		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
 			$dispatcher->notify(OMV_NOTIFY_CREATE,
 			  "org.openmediavault.services.staticroutes.route", $object);
