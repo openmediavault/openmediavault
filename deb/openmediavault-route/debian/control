@@ -1,0 +1,14 @@
+Source: openmediavault-route
+Section: net
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>> 7), gettext
+Standards-Version: 3.6.10
+Homepage: http://www.openmediavault.org
+
+Package: openmediavault-route
+Architecture: all
+Depends: openmediavault (>= 0.3.0.22)
+Priority: optional
+Description: OpenMediaVault IP routing table plugin
+ Adds the ability to manipulate the IP routing table via the WebGUI.

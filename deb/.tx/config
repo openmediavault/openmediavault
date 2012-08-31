@@ -42,3 +42,8 @@ source_lang = en
 file_filter = openmediavault-ldap/usr/share/openmediavault/locale/<lang>/openmediavault-ldap.po
 source_file = openmediavault-ldap/usr/share/openmediavault/locale/openmediavault-ldap.pot
 source_lang = en
+
+[openmediavault.openmediavault-route]
+file_filter = openmediavault-route/usr/share/openmediavault/locale/<lang>/openmediavault-route.po
+source_file = openmediavault-route/usr/share/openmediavault/locale/openmediavault-route.pot
+source_lang = en
