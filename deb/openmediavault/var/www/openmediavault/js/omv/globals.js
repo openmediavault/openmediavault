@@ -25,7 +25,7 @@ OMV.languages = [
 	// The supported languages are hardcoded and are not translated.
 	[ "en","English" ], // English
 	[ "de_DE","Deutsch" ], // German
-	[ "ru_RU","русский" ], // Russian
+	[ "ru_RU","Русский" ], // Russian
 	[ "nl_NL","Nederlands" ], // Dutch
 	[ "it_IT","Italiano" ], // Italian
 	[ "el_GR","ελληνικά" ], // Greek
