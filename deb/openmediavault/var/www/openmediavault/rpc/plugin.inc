@@ -151,6 +151,11 @@ class PluginRpc extends OMVRpc {
 			  "--reinstall install %s 2>&1", $object['name']);
 			OMVUtil::exec($cmd, $output2, $result);
 			if ($result !== 0) {
+				// Skip packages that fail, e.g. because of unmet
+				// dependencies.
+				if ($result == 100)
+					continue;
+				// Throw an exception for all other errors.
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output2));
 			}
