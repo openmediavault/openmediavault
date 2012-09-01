@@ -57,12 +57,31 @@ class OMVProduct extends OMVObject {
 		return TRUE;
 	}
 
+	/**
+	 * Refresh the cached informations.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function refresh() {
+		$this->info = array();
+		if ($this->getData() === FALSE)
+			return FALSE;
+		return TRUE;
+	}
+
+	/**
+	 * Get the product name.
+	 * @return The product name string, otherwise FALSE.
+	 */
 	public function getName() {
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->info['name'];
 	}
 
+	/**
+	 * Get the product version.
+	 * @return The product version as string, otherwise FALSE.
+	 */
 	public function getVersion() {
 		if ($this->getData() === FALSE)
 			return FALSE;
@@ -74,24 +93,40 @@ class OMVProduct extends OMVObject {
 		return $output[0];
 	}
 
+	/**
+	 * Get the product version/release name.
+	 * @return The release name as string, otherwise FALSE.
+	 */
 	public function getVersionName() {
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->info['versionname'];
 	}
 
+	/**
+	 * Get the URL to the product homepage.
+	 * @return The URL, otherwise FALSE.
+	 */
 	public function getURL() {
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->info['url'];
 	}
 
+	/**
+	 * Get the copyright text.
+	 * @return The copyright text, otherwise FALSE.
+	 */
 	public function getCopyright() {
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->info['copyright'];
 	}
 
+	/**
+	 * Get the Debian package name.
+	 * @return The package name, otherwise FALSE.
+	 */
 	public function getPackageName() {
 		if ($this->getData() === FALSE)
 			return FALSE;

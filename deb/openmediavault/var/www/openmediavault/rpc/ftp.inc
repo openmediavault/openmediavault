@@ -363,7 +363,7 @@ class FTPRpc extends OMVRpc {
 			if (TRUE === $xmlConfig->exists("//services/ftp/shares/share[" .
 			  "sharedfolderref='{$data['sharedfolderref']}']")) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				gettext("The shared folder is already used by another share"));
+				  gettext("The shared folder is already used by another share"));
 			}
 			// Get the shared folder object.
 			$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",

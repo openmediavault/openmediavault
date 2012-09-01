@@ -390,6 +390,7 @@ Ext.sequence(Ext.form.TriggerField.prototype, "setReadOnly",
 // Restrict the selected value to one of the values in the list per default.
 Ext.apply(Ext.form.ComboBox.prototype, {
 	forceSelection: true,
+	showItemTooltip: false,
 	loadingText: _("Loading ...")
 });
 
@@ -438,7 +439,10 @@ Ext.intercept(Ext.form.ComboBox.prototype, "initList", function() {
 		if (!this.tpl) {
 			var cls = 'x-combo-list';
 			this.tpl = new Ext.XTemplate(
-			  '<tpl for="."><div class="'+cls+'-item">',
+			  '<tpl for="."><div class="'+cls+'-item"',
+			  this.showItemTooltip ?
+				'ext:qtip="{[Ext.util.Format.htmlEncode(values.'+this.displayField+')]}">' :
+				'>',
 			  '{[Ext.util.Format.htmlEncode(values.'+this.displayField+')]}',
 			  '</div></tpl>');
 		}
