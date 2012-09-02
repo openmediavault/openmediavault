@@ -61,17 +61,17 @@ OMV.Module.System.UpdateMgmtGridPanel = function(config) {
 					var tpl = new Ext.XTemplate(
 					  '<b>{name} {version}</b><br/>',
 					  '{description}<br/><br/>',
-					  '<tpl if="values.longdescription !== null && typeof values.longdescription == &quot;string&quot;">',
+					  '<tpl if="!Ext.isEmpty(values.longdescription)">',
 					    '{[OMV.util.Format.whitespace(values.longdescription)]}<br/>',
 					  '</tpl>',
 					  _("Size") + ': {[OMV.util.Format.binaryUnit(values.size)]}<br/>',
-					  '<tpl if="values.maintainer !== null && typeof values.maintainer == &quot;string&quot;">',
+					  '<tpl if="!Ext.isEmpty(values.maintainer)">',
 					    _("Maintainer") + ': {maintainer}<br/>',
 					  '</tpl>',
-					  '<tpl if="values.homepage !== null && typeof values.homepage == &quot;string&quot;">',
+					  '<tpl if="!Ext.isEmpty(values.homepage)">',
 					    _("Homepage") + ': {homepage}<br/>',
 					  '</tpl>',
-					  '<tpl if="values.repository !== null && typeof values.repository == &quot;string&quot;">',
+					  '<tpl if="!Ext.isEmpty(values.repository)">',
 					    _("Repository") + ': {repository}<br/>',
 					  '</tpl>');
 					return tpl.apply(record.data);

@@ -72,17 +72,17 @@ OMV.Module.System.PluginGridPanel = function(config) {
 					var tpl = new Ext.XTemplate(
 					  '<b>{name} {version}</b><br/>',
 					  '{description}<br/><br/>',
-					  '<tpl if="values.longdescription !== null && typeof values.longdescription == &quot;string&quot;">',
+					  '<tpl if="!Ext.isEmpty(values.longdescription)">',
 					    '{[OMV.util.Format.whitespace(values.longdescription)]}<br/>',
 					  '</tpl>',
 					  _("Size") + ': {[OMV.util.Format.binaryUnit(values.size)]}<br/>',
-					  '<tpl if="values.maintainer !== null && typeof values.maintainer == &quot;string&quot;">',
+					  '<tpl if="!Ext.isEmpty(values.maintainer)">',
 					    _("Maintainer") + ': {maintainer}<br/>',
 					  '</tpl>',
-					  '<tpl if="values.homepage !== null && typeof values.homepage == &quot;string&quot;">',
+					  '<tpl if="!Ext.isEmpty(values.homepage)">',
 					    _("Homepage") + ': {homepage}<br/>',
 					  '</tpl>',
-					  '<tpl if="values.repository !== null && typeof values.repository == &quot;string&quot;">',
+					  '<tpl if="!Ext.isEmpty(values.repository)">',
 					    _("Repository") + ': {repository}<br/>',
 					  '</tpl>');
 					return tpl.apply(record.data);
@@ -220,13 +220,35 @@ Ext.extend(OMV.Module.System.PluginGridPanel, OMV.grid.TBarGridPanel, {
 	cbSelectionChangeHdl : function(model) {
 		OMV.Module.System.PluginGridPanel.superclass.cbSelectionChangeHdl.apply(
 		  this, arguments);
+		var tbarBtnName = [ "install" ];
+		var tbarBtnDisabled = {
+			"install": true
+		};
 		var records = model.getSelections();
-		var tbarInstallCtrl = this.getTopToolbar().findById(this.getId() +
-		  "-install");
 		if (records.length <= 0) {
-			tbarInstallCtrl.disable();
+			tbarBtnDisabled["install"] = true;
 		} else {
-			tbarInstallCtrl.enable();
+			tbarBtnDisabled["install"] = false;
+			// Do not enable the 'Install' button if a plugin is already
+			// installed.
+			for (var i = 0; i < records.length; i++) {
+				if (true === records[i].get("installed")) {
+					tbarBtnDisabled["install"] = true;
+				}
+			}
+			
+		}
+		// Update the button states.
+		for (var i = 0; i < tbarBtnName.length; i++) {
+			var tbarBtnCtrl = this.getTopToolbar().findById(this.getId() +
+			  "-" + tbarBtnName[i]);
+			if (!Ext.isEmpty(tbarBtnCtrl)) {
+				if (true == tbarBtnDisabled[tbarBtnName[i]]) {
+					tbarBtnCtrl.disable();
+				} else {
+					tbarBtnCtrl.enable();
+				}
+			}
 		}
 	},
 
