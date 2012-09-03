@@ -24,6 +24,7 @@ require_once("openmediavault/util.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/session.inc");
+require_once("openmediavault/notify.inc");
 
 /**
  * Autoloading of RPC classes.
@@ -193,14 +194,14 @@ class OMVDownloadRpcServer extends OMVJsonRpcServer {
 	}
 
 	/**
-	 * The response contains the following fields:
-	 * - filename
-	 * - content or filepath
-	 * - contenttype (optional)
-	 * The field \em content contains the content to be returned, \em filepath
-	 * contains the name of the file which content should be returned. The
-	 * field \em contenttype contains the 'Content-Type' header string if set,
-	 * otherwise it is set to 'text/plain'.
+	 * @param response The response contains the following fields
+	 *   \em filename, \em content or \em filepath and \em contenttype which
+	 *   is optional. The field \em content contains the content to be
+	 *   returned, \em filepath contains the name of the file which content
+	 *   should be returned. The fields \em content and \em filepath exclude
+	 *   each other. Only The field \em contenttype contains the
+	 *   'Content-Type' header string if set, otherwise it is set to
+	 *   'text/plain'.
 	 */
 	protected function handleResponse($response) {
 		header("Content-Type: ". (array_key_exists("contenttype", $response) ?
@@ -239,7 +240,7 @@ class OMVRpc extends OMVObject {
 	 * @param name The name of the RPC class.
 	 * @param method The name of the method to call.
 	 * @param params The parameters to be passed to the method, as
-	 * an indexed array.
+	 *   an indexed array.
 	 * @return The RPC response.
 	 */
 	public static function exec($name, $method, $params = array()) {
@@ -264,7 +265,7 @@ class OMVRpc extends OMVObject {
 	/**
 	 * Validate the given RPC parameters using JSON schema.
 	 * @param method The name of the RPC method. This is used as index to
-	 * identify the JSON schema definition to use for validation.
+	 *   identify the JSON schema definition to use for validation.
 	 * @param param The RPC parameters to validate.
 	 * @return None. Throws an exception if validation fails.
 	 */
@@ -297,6 +298,7 @@ class OMVRpc extends OMVObject {
 	 * there are RPCs available that do not need or must work regardless if
 	 * there is no valid session. An exception will be thrown in case of an
 	 * error.
+	 * @return None.
 	 */
 	protected function validateSession() {
 		$session = &OMVSession::getInstance();
@@ -314,6 +316,7 @@ class OMVRpc extends OMVObject {
 	 * executed in the meanwhile (this can result in a timeout of the
 	 * blocked RPC). Only use this function if you know that the RPC may
 	 * take some time to execute.
+	 * @return None.
 	 */
 	protected function commitSession() {
 		$session = &OMVSession::getInstance();
@@ -342,9 +345,9 @@ class OMVRpc extends OMVObject {
 	 * @param sortField The name of the column used to sort.
 	 * @param sortDir The sort direction, ASC or DESC.
 	 * @return An array containing the elements matching the given
-	 * restrictions. The field \em total contains the total number of elements,
-	 * \em data contains the elements as array. An exception will be thrown
-	 * in case of an error.
+	 *   restrictions. The field \em total contains the total number of
+	 *   elements, \em data contains the elements as array. An exception
+	 *   will be thrown in case of an error.
 	 */
 	protected function applyFilter($array, $start, $limit, $sortField = NULL,
 	  $sortDir = NULL) {
@@ -365,6 +368,42 @@ class OMVRpc extends OMVObject {
 			"total" => $total,
 			"data" => $array
 		);
+	}
+
+	/**
+	 * Helper function to delete an configuration object matching the
+	 * given XPath expression. The notification types OMV_NOTIFY_PREDELETE
+	 * and OMV_NOTIFY_DELETE will be submitted to its subscribers.
+	 * @param xpath The XPath expression of the object to delete.
+	 * @param message The message of the notification to be submitted.
+	 * @return The deleted configuration object.
+	 */
+	protected function deleteConfigObjectByPath($xpath, $message) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
+		// Get the configuration object.
+		$object = $xmlConfig->get($xpath);
+		if (is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Notify configuration changes.
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher->notify(OMV_NOTIFY_PREDELETE, $message, $object);
+		// Delete configuration object.
+		unset($object);
+		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
+			  $xpath);
+		}
+		// Save configuration.
+		if (FALSE === $xmlConfig->save()) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
+			  $xmlConfig->getError());
+		}
+		// Notify configuration changes.
+		$dispatcher->notify(OMV_NOTIFY_DELETE, $message, $object);
+		return $object;
 	}
 }
 ?>

@@ -45,10 +45,10 @@ interface OMVIModuleStatus {
 	/**
 	 * Get the module status.
 	 * @return An array containing the field following fields:
-	 * name (string) The name of the module
-	 * title (string) A title displayed in the WebGUI
-	 * enabled (boolean) Is the implemented service enabled?
-	 * running (boolean) Is the implemented service running?
+	 *   \em name (string) The name of the module
+	 *   \em title (string) A title displayed in the WebGUI
+	 *   \em enabled (boolean) Is the implemented service enabled?
+	 *   \em running (boolean) Is the implemented service running?
 	 */
 	function getStatus();
 }

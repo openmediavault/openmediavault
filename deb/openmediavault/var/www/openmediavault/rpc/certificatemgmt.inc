@@ -240,45 +240,25 @@ class CertificateMgmtRpc extends OMVRpc {
 	public function delete($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
-		// Check permissions
+		// Check permissions.
 		$this->validateSession();
 		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
 		}
 		$this->commitSession();
-		// Validate method parameters
+		// Validate method parameters.
 		$this->validateParams(__METHOD__, func_get_args());
-		// Check if the certificate is used somewhere
+		// Check if the certificate is used somewhere.
 		$xpath = sprintf("//sslcertificateref[contains(.,'%s')]",
 		  $data['uuid']);
 		if (TRUE === $xmlConfig->exists($xpath)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INUSE);
 		}
-		// Get the object
+		// Delete the configuration object.
 		$xpath = sprintf("//system/certificates/sslcertificate[uuid='%s']",
 		  $data['uuid']);
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Notify configuration changes
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
-		  "org.openmediavault.system.certificates.sslcertificate", $object);
-		// Delete configuration object
-		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
-			  $xpath);
-		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes
-		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.certificates.sslcertificate", $object);
+		$this->deleteConfigObject($xpath,
+		  "org.openmediavault.system.certificates.sslcertificate");
 	}
 
 	/**

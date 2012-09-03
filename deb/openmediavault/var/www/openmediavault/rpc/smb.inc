@@ -348,31 +348,19 @@ class SMBRpc extends OMVRpc {
 	 */
 	public function deleteShare($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
+		// Check permissions.
 		$this->validateSession();
 		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
 		}
 		$this->commitSession();
-		// Validate method parameters
+		// Validate method parameters.
 		$this->validateParams(__METHOD__, func_get_args());
-		// Delete configuration object
+		// Delete the configuration object.
 		$xpath = sprintf("//services/smb/shares/share[uuid='%s']",
 		  $data['uuid']);
-		if (FALSE === ($object = $xmlConfig->delete($xpath))) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
-			  $xpath);
-		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.services.smb.shares.share", $object);
+		$this->deleteConfigObjectByPath($xpath,
+		  "org.openmediavault.services.smb.shares.share");
 	}
 
 	/**

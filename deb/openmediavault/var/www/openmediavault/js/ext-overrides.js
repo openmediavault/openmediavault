@@ -327,19 +327,6 @@ Ext.override(Ext.form.Field, {
 	}
 });
 
-// Add tooltips to Ext.form.Field
-Ext.sequence(Ext.form.Field.prototype, "afterRender", function() {
-	if (this.qtip) {
-		Ext.QuickTips.register({
-			target:  this,
-			title: "",
-			text: this.qtip,
-			enabled: true,
-			showDelay: 0
-		});
-	}
-});
-
 // Show or hide the form field label when show() or hide() is called
 Ext.override(Ext.form.Field, {
 	onHide : function() {

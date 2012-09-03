@@ -73,11 +73,11 @@ class OMVNotifyDispatcher extends OMVObject {
 	}
 
 	/**
-	 * Add a listener to a given event name.
-	 * @param arg1 The event mask, e.g. OMV_NOTIFY_CREATE. OMV_NOTIFY_MODIFY,
+	 * Add a listener to a given event message.
+	 * @param arg1 The event type, e.g. OMV_NOTIFY_CREATE. OMV_NOTIFY_MODIFY,
 	 * OMV_NOTIFY_PREDELETE, OMV_NOTIFY_DELETE or
 	 * OMV_NOTIFY_MODIFY|OMV_NOTIFY_DELETE.
-	 * @param arg2 The event name that should be monitored.
+	 * @param arg2 The event message that should be monitored.
 	 * @param arg3 The callback function.
 	 * @param arg4 The sequence number of the called function. Default is 20.
 	 * If you want a function to be execute as the first one then set it to 1.
@@ -87,12 +87,12 @@ class OMVNotifyDispatcher extends OMVObject {
 			return $arg1->bindListeners($this);
 		}
 		// Add listerer
-//		$this->debug(sprintf("Add listener (mask=%s, name=%s, " .
+//		$this->debug(sprintf("Add listener (type=%s, message=%s, " .
 //		  "callback=%s::%s, seqnum=%s", $arg1, $arg2, get_class($arg3[0]),
 //		  $arg3[1], $arg4));
 		$this->listeners[] = array(
-			"mask" => $arg1,
-			"name" => $arg2,
+			"type" => $arg1,
+			"message" => $arg2,
 			"callback" => $arg3,
 			"seqnum" => $arg4
 		);
@@ -100,23 +100,23 @@ class OMVNotifyDispatcher extends OMVObject {
 
 	/**
 	 * Notify all registered listeners.
-	 * @param eventMask The event that should be announced.
-	 * @param eventName The event name.
+	 * @param type The event type that should be announced.
+	 * @param message The event message.
 	 * @param argX The parameters to be passed.
 	 */
-	function notify($mask, $name /* [, $arg1 [, $... ]] */) {
+	function notify($type, $message /* [, $arg1 [, $... ]] */) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Filter list of registered listeners
-		$listeners = array_filter_ex($this->listeners, "name", $name);
+		$listeners = array_filter_ex($this->listeners, "message", $message);
 		// Sort list of registered listeners
 		array_sort_key($listeners, "seqnum");
 		// Call registered listeners
 		if (!empty($listeners)) {
 			foreach ($listeners as $listenerk => $listenerv) {
-				if ($listenerv['mask'] & $mask) {
-//					$this->debug(sprintf("Notify listener (mask=%s, " .
-//					  "name=%s, callback=%s::%s, seqnum=%s",
-//					  $listenerv['mask'], $listenerv['name'],
+				if ($listenerv['type'] & $type) {
+//					$this->debug(sprintf("Notify listener (type=%s, " .
+//					  "message=%s, callback=%s::%s, seqnum=%s",
+//					  $listenerv['type'], $listenerv['message'],
 //					  get_class($listenerv['callback'][0]),
 //					  $listenerv['callback'][1], $listenerv['seqnum']));
 					$args = array_slice(func_get_args(), 2);
@@ -127,17 +127,17 @@ class OMVNotifyDispatcher extends OMVObject {
 	}
 
 	/**
-	 * Dump all registered listeners sorted by their event name.
-	 * @param name The event name that should be monitored.
+	 * Dump all registered listeners sorted by their event message.
+	 * @param message The event message that should be monitored.
 	 */
-	function dumpListeners($name = "") {
+	function dumpListeners($message = "") {
 		$listeners = $this->listeners;
 		// Filter list of registered listeners
-		if (!empty($name)) {
-			$listeners = array_filter_ex($listeners, "name", $name);
+		if (!empty($message)) {
+			$listeners = array_filter_ex($listeners, "message", $message);
 		}
 		// Sort list of registered listeners
-		array_sort_key($listeners, "name");
+		array_sort_key($listeners, "message");
 		// Dump registered listeners
 		$this->debug($listeners);
 	}

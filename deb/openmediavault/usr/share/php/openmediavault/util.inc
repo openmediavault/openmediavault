@@ -75,10 +75,10 @@ class OMVUtil {
 	 * Send an email.
 	 * @param from The sender email address.
 	 * @param to The receiver email address(es), e.g. 'test@xzy.com' or
-	 * 'xzy@123.org,test@xzy.com'. Use the character , or ; as seperator.
+	 *   'xzy@123.org,test@xzy.com'. Use the character , or ; as seperator.
 	 * @param subject The subject.
 	 * @param message The message.
-	 * Return TRUE if successful, otherwise FALSE.
+	 * @return Return TRUE if successful, otherwise FALSE.
 	 */
 	public static function mail($from, $to, $subject, $message) {
 		// Get date in RFC 2882 format
