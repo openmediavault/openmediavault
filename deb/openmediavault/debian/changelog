@@ -11,6 +11,7 @@ openmediavault (0.3.0.23) stable; urgency=low
   * Mantis 0000583: Live CPU load display doesn't work on ARM. Thanks to
     Stefan Seidel for the patch.
   * Mantis 0000585: Russian translation error.
+  * Mantis 0000593: Broken links on the support page.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 25 Aug 2012 14:31:47 +0200
 

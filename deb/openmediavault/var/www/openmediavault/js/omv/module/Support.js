@@ -49,9 +49,8 @@ Ext.extend(OMV.Module.Information.Support, Ext.Panel, {
 		  "FAQ<br/><a href='http://www.openmediavault.org/faq.html' target='_blank'>http://www.openmediavault.org/faq.html</a><br/><br/>" +
 		  "Wiki<br/><a href='http://wiki.openmediavault.org' target='_blank'>http://wiki.openmediavault.org</a><br/><br/>" +
 		  "Forums<br/><a href='http://forums.openmediavault.org' target='_blank'>http://forums.openmediavault.org</a><br/><br/>" +
-		  "Mailing lists<br/><a href='http://lists.openmediavault.org' target='_blank'>http://lists.openmediavault.org</a><br/><br/>" +
 		  "Bugtracker<br/><a href='http://bugtracker.openmediavault.org' target='_blank'>http://bugtracker.openmediavault.org</a><br/><br/>" +
-		  "Contributors<br/><a href='http://sourceforge.net/apps/mediawiki/openmediavault/index.php?title=Contributors' target='_blank'>http://sourceforge.net/apps/mediawiki/openmediavault/index.php?title=Contributors</a><br/><br/>");
+		  "Contributors<br/><a href='http://wiki.openmediavault.org/index.php?title=Contributors' target='_blank'>http://wiki.openmediavault.org/index.php?title=Contributors</a><br/><br/>");
 		this.html += "<br/></form>";
 		OMV.Module.Information.Support.superclass.initComponent.apply(this,
 		  arguments);
