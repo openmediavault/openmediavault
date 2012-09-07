@@ -3,40 +3,41 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Cyryl Sochacki <>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-31 20:03+0200\n"
-"PO-Revision-Date: 2012-08-31 18:46+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2012-09-03 06:25+0000\n"
+"Last-Translator: Cyryl Sochacki <>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pl_PL\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "Add static route"
-msgstr ""
+msgstr "Dodaj trasę statyczną"
 
 msgid "Comment"
-msgstr ""
+msgstr "Komentarz"
 
 msgid "Edit static route"
-msgstr ""
+msgstr "Edytuj trasę statyczną"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Brama"
 
 msgid "Gateway used to reach the above network address."
-msgstr ""
+msgstr "Brama pozwala osiągnąć powyższy adres sieci."
 
 msgid "IP or network address."
-msgstr ""
+msgstr "Adres IP lub sieci."
 
 msgid "Network"
-msgstr ""
+msgstr "Sieć"
 
 msgid "Static Routes"
-msgstr ""
+msgstr "Trasy statyczne"

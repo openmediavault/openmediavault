@@ -3,40 +3,41 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-31 20:03+0200\n"
-"PO-Revision-Date: 2012-08-31 18:46+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2012-09-05 07:44+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: da\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add static route"
-msgstr ""
+msgstr "Tilføj statisk route"
 
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 msgid "Edit static route"
-msgstr ""
+msgstr "Rediger statisk route"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Gateway"
 
 msgid "Gateway used to reach the above network address."
-msgstr ""
+msgstr "Gateway, der bliver brugt til at tilgå ovennævnte adresse"
 
 msgid "IP or network address."
-msgstr ""
+msgstr "IP eller netværks adresse"
 
 msgid "Network"
-msgstr ""
+msgstr "Netværk"
 
 msgid "Static Routes"
-msgstr ""
+msgstr "Statisk Router"

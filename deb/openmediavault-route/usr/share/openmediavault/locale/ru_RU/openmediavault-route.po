@@ -3,40 +3,41 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <arturmon82@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-31 20:03+0200\n"
-"PO-Revision-Date: 2012-08-31 18:46+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2012-09-01 06:07+0000\n"
+"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ru\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "Add static route"
-msgstr ""
+msgstr "Добавить статический маршрут"
 
 msgid "Comment"
-msgstr ""
+msgstr "Коментарий"
 
 msgid "Edit static route"
-msgstr ""
+msgstr "Редактировать статический маршрут"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Шлюз"
 
 msgid "Gateway used to reach the above network address."
-msgstr ""
+msgstr "Использовать этот шлюз для достижения вышеуказанных сетевых адресов."
 
 msgid "IP or network address."
-msgstr ""
+msgstr "IP-адрес или сетевой адрес."
 
 msgid "Network"
-msgstr ""
+msgstr "Сеть"
 
 msgid "Static Routes"
-msgstr ""
+msgstr "Статический маршрут"

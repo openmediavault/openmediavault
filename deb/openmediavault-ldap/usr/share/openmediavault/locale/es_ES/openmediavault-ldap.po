@@ -3,71 +3,72 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-19 16:20+0200\n"
-"PO-Revision-Date: 2012-08-19 14:21+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2012-08-26 07:57+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es_ES\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Base DN"
-msgstr ""
+msgstr "Base DN"
 
 msgid "Directory Service"
-msgstr ""
+msgstr "Servicio de Directorio"
 
 msgid "Enable"
-msgstr ""
+msgstr "Habilitar"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Opciones Extra"
 
 msgid "General settings"
-msgstr ""
+msgstr "Opciones Generales"
 
 msgid "Groups suffix"
-msgstr ""
+msgstr "Sufijo de grupo"
 
 msgid "Host"
-msgstr ""
+msgstr "Host"
 
 msgid "LDAP"
-msgstr ""
+msgstr "LDAP"
 
 msgid "Password"
-msgstr ""
+msgstr "Contraseña"
 
 msgid "Root Bind DN"
-msgstr ""
+msgstr "Root Bind DN"
 
 msgid ""
 "Specifies the base distinguished name (DN) to use as search base, e.g. "
 "'dc=example,dc=net'."
-msgstr ""
+msgstr "Especifica la base del DN a usar como base de busqueda, Ej: 'dc=example,dc=net'."
 
 msgid "Specifies the credentials with which to bind."
-msgstr ""
+msgstr "Especifica las credenciales con las que unirse."
 
 msgid ""
 "Specifies the distinguished name (DN) with which to bind to the directory "
 "server for lookups, e.g. 'cn=manager,dc=example,dc=net'."
-msgstr ""
+msgstr "Especifica el Nombre Distinguido (DN) con el que se unirá al servidor de directorios para busquedas, Ej: 'cn=manager,dc=example,dc=net'."
 
 msgid "Specifies the group suffix, e.g. 'ou=Groups'."
-msgstr ""
+msgstr "Especifica el sufijo de grupo. Ej:  'ou=Groups'."
 
 msgid "Specifies the user suffix, e.g. 'ou=Users'."
-msgstr ""
+msgstr "Especifica el sufijo de usuario, Ej: 'ou=Users'."
 
 msgid "The FQDN or IP address of the server."
-msgstr ""
+msgstr "La dirección FQDN o la IP del servidor"
 
 msgid "Users suffix"
-msgstr ""
+msgstr "ufijo de usuario"

@@ -1,5 +1,6 @@
 openmediavault-iscsitarget (0.3.0.5) stable; urgency=low
 
+  * Update locales.
   * Code was modified to meet the coding guidelines.
   * Mantis 0000580: Modify package dependencies to support the ARM platform.
   * Mantis 0000581: Add deb-triggers 'update-locale' and 'update-fileperms'

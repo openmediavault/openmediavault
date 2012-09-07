@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Nelson Rosado <nelsontrosado@gmail.com>, 2012.
+#   <nelsontrosado@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-16 19:00+0200\n"
+"PO-Revision-Date: 2012-08-16 17:00+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add share"
+msgstr "Adicionar partilha"
+
+msgid "Advertise this service via mDNS/DNS-SD."
+msgstr "Anuncie este serviço via mDNS / DNS-SD."
+
+msgid "Allow guest logins"
+msgstr "Permitir convidados"
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr "Permitir logins com senhas transmitidas em claro."
+
+msgid "Allow plain passwords"
+msgstr "Permitir senhas simples"
+
+msgid "Apple Filing"
+msgstr "Apple Filing"
+
+msgid "Authentication"
+msgstr "Autenticação"
+
+msgid "Case folding"
+msgstr "Case folding"
+
+msgid "Client sees lowercase, server sees uppercase"
+msgstr "Cliente vê minúsculas, servidor vê maiúsculas"
+
+msgid "Client sees uppercase, server sees lowercase"
+msgstr "Cliente vê maiúsculas, servidor vê minúsculas"
+
+msgid "Comment"
+msgstr "Comentário"
+
+msgid "DNS Service Discovery"
+msgstr "DNS serviço de pesquisa"
+
+msgid "Don't do :hex translation for dot files."
+msgstr "Não faça: tradução hexadecimal para arquivos de pontos."
+
+msgid "Edit share"
+msgstr "Editar partilha"
+
+msgid "Enable"
+msgstr "Ativo"
+
+msgid "Enable Time Machine support for this share."
+msgstr "Ativar o suporte do Time Machine para esta partilha."
+
+msgid "Enable user home directories."
+msgstr "Habilitar diretórios home dos usuários."
+
+msgid "Extra options"
+msgstr "Opções extra"
+
+msgid "Forces filename restrictions"
+msgstr "Forçar restrição de ficheiros"
+
+msgid "General settings"
+msgstr "Definições gerais"
+
+msgid "Hide dot files"
+msgstr "Esconder ficheiros dot"
+
+msgid "Home directories"
+msgstr "Directório"
+
+msgid ""
+"If this option is set, then a password is required to access the share."
+msgstr "Se esta opção estiver selecionada, a senha de acesso será necessária para esta partilha."
+
+msgid ""
+"If this option is set, then users may not create or modify files in the "
+"share."
+msgstr "Se esta opção estiver selecionada, os utilizadores não podem criar ou modificar os ficheiros na partilha."
+
+msgid ""
+"Limit the reported volume size to the given value in MiB, thus preventing TM"
+" from using the whole disk space for backup. Set this value to 0 to disable "
+"this option."
+msgstr ""
+
+msgid "Lowercases names in both directions"
+msgstr "Nomes em minúsculas em ambas as direções."
+
+msgid "Make dot files invisible."
+msgstr "Tornar ficheiros dot invisiveis."
+
+msgid "Name"
+msgstr "Nome"
+
+msgid "None"
+msgstr "Nada"
+
+msgid "Password"
+msgstr "Senha de acesso"
+
+msgid "Quota"
+msgstr ""
+
+msgid "Read only"
+msgstr "Ler apenas"
+
+msgid "Set read only."
+msgstr "Definir só de leitura."
+
+msgid "Settings"
+msgstr "Definições"
+
+msgid "Shared folder"
+msgstr "Pasta partilhada"
+
+msgid "Shares"
+msgstr "Partilhas"
+
+msgid "The location of the files to share."
+msgstr "A localização do ficheiro para partilha."
+
+msgid "The name of the share."
+msgstr "O nome da partilha."
+
+msgid "The service name."
+msgstr "O nome do serviço."
+
+msgid ""
+"This forces filenames to be restricted to the character set used by Windows."
+msgstr "Isto força os nomes dos ficheiros para se restringirem ao conjunto de caráteres usados pelo Windows."
+
+msgid "This option handles, if the case of filenames should be changed."
+msgstr "Esta opção trata, no caso dos nomes de arquivos devam ser alterados."
+
+msgid "Time Machine support"
+msgstr "Suporte para Time Machine"
+
+msgid "Unix privileges"
+msgstr "Privilégios UNIX"
+
+msgid "Uppercases names in both directions"
+msgstr "Nomes em maiúsculas nas duas direções."
+
+msgid "Use AFP3 unix privileges."
+msgstr "Usar previlégios AFP3 Unix"
+
+msgid "Use dots"
+msgstr "Usar dots"
+
+msgid ""
+"When this option gets set, certain file names become illegal. These are "
+".Parent and anything that starts with .Apple."
+msgstr "Quando esta opção está ativa, alguns nome passam a estar ilegais. Eles são .Parent e qualquer coisa que comece por .Apple"
+
+msgid "n/a"
+msgstr "n/a"
