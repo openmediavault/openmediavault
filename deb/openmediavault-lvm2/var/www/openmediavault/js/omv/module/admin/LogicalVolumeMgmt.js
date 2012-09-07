@@ -1031,10 +1031,14 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 					// group capacity to setup the slider.
 					var result = free.binaryFormat({
 						indexed: true,
-						maxUnit: "TiB"
+						maxUnit: "PiB"
 					});
 					// Update the 'Size' slider control.
 					field = this.findFormField("size");
+					field.slider.on("change", function(c, newValue) {
+						var field = this.findFormField("selsize");
+						field.setValue(newValue.binaryFormat());
+					}, this);
 					field.setIncrement(result.divisor);
 					field.setMaxValue(free);
 					field.setValue(free);
@@ -1042,15 +1046,26 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 				}
 			}
 		},{
-			xtype: "sliderfield",
-			name: "size",
+			xtype: "compositefield",
 			fieldLabel: _("Size"),
-			minValue: 1,
-			useTips: true,
-			disabled: true,
-			tipText: function(thumb) {
-				return String.format('{0}', thumb.value.binaryFormat());
-			}
+			combineErrors: false,
+			items: [{
+				xtype: "sliderfield",
+				name: "size",
+				minValue: 1,
+				useTips: true,
+				disabled: true,
+				flex: 1,
+				tipText: function(thumb) {
+					return String.format('{0}', thumb.value.binaryFormat());
+				}
+			},{
+				xtype: "textfield",
+				name: "selsize",
+				width: 90,
+				readOnly: true,
+				submitValue: false
+			}]
 		}];
 	},
 
@@ -1200,15 +1215,25 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 			submitValue: false,
 			value: this.vgname
 		},{
-			xtype: "sliderfield",
-			name: "size",
+			xtype: "compositefield",
 			fieldLabel: _("Size"),
-			minValue: this.size,
-			useTips: true,
-			tipText: function(thumb) {
-				return String.format('{0}', thumb.value.binaryFormat());
-			},
-			value: this.size
+			combineErrors: false,
+			items: [{
+				xtype: "sliderfield",
+				name: "size",
+				minValue: this.size,
+				useTips: true,
+				flex: 1,
+				tipText: function(thumb) {
+					return String.format('{0}', thumb.value.binaryFormat());
+				}
+			},{
+				xtype: "textfield",
+				name: "selsize",
+				width: 90,
+				readOnly: true,
+				submitValue: false
+			}]
 		}];
 	},
 
@@ -1218,12 +1243,25 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 		OMV.Ajax.request(function(id, response, error) {
 			if (error === null) {
 				var free = parseInt(response.free);
-				// Update the slider control.
-				var field = this.findFormField("size");
-				field.setMaxValue(this.size + free);
+				var maxSize = this.size + free;
 				// Finally show the dialog.
-				return OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog.
+				OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog.
 				  superclass.show.call(this, arguments);
+				// Get the highest possible binary unit of the volume
+				// group capacity to setup the slider.
+				var result = maxSize.binaryFormat({
+					indexed: true,
+					maxUnit: "PiB"
+				});
+				// Update the 'Size' slider control.
+				var field = this.findFormField("size");
+				field.slider.on("change", function(c, newValue) {
+					var field = this.findFormField("selsize");
+					field.setValue(newValue.binaryFormat());
+				}, this);
+				field.setIncrement(result.divisor);
+				field.setMaxValue(maxSize);
+				field.setValue(this.size);
 			} else {
 				OMV.MessageBox.error(null, error);
 			}
