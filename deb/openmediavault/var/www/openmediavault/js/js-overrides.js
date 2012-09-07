@@ -319,8 +319,12 @@ Ext.applyIf(Number.prototype, {
 	},
 
 	/**
-	 * Convert a number into the highest possible binary unit.
-	 * @param options An array of additional options.
+	 * Convert a number of bytes into the highest possible binary unit.
+	 * @param options An array of additional options. These can be
+	 *   \em decimalPlaces the number of decimal places, \em indexed
+	 *   to return the value as indexed array when set to TRUE and
+	 *   \em maxUnit to limit the highest possible binary unit
+	 *   to the given unit.
 	 * @return The converted string value including the unit or an indexed
 	 * array with the fields \em value and \em unit.
 	 */
@@ -339,6 +343,9 @@ Ext.applyIf(Number.prototype, {
 				decimalPlaces = options.decimalPlaces;
 			if (typeof options.indexed !== 'undefined')
 				indexed = options.indexed;
+			if (typeof options.maxUnit !== 'undefined') {
+				maxExp = prefixes.indexOf(options.maxUnit);
+			}
 		}
 
 		var number = this.toFixed(decimalPlaces);
@@ -349,7 +356,9 @@ Ext.applyIf(Number.prototype, {
 
 		result = {
 			"value": number,
-			"unit": prefixes[curExp]
+			"unit": prefixes[curExp],
+			"exponent": curExp,
+			"divisor": Math.pow(1024, curExp)
 		};
 		if (false === indexed) {
 			result = number + " " + prefixes[curExp];

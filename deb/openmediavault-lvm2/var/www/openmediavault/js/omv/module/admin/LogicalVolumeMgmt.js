@@ -990,17 +990,6 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 	},
 
 	getFormItems : function() {
-		var fn = function(c, value) {
-			var maxSize = this.vgFree;
-			var unit = this.findFormField("unit").getValue();
-			var bytes = value.binaryConvert(unit, "B");
-			c.maxValue = maxSize.binaryConvert("B", unit);
-			c.clearInvalid();
-			if (bytes > maxSize) {
-				var msg = String.format(_("The maximum value for this field is {0}"), c.maxValue);
-				c.markInvalid(msg);
-			}
-		}
 		return [{
 			xtype: "textfield",
 			name: "name",
@@ -1038,62 +1027,42 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 				scope: this,
 				select: function(combo, record, index) {
 					var free = parseInt(record.get("free"));
-					var value = free.binaryConvert("B", "MiB");
-					this.vgFree = free;
-					this.findFormField("unit").setValue("MiB");
-					this.findFormField("size").setValue(value);
+					// Get the highest possible binary unit of the volume
+					// group capacity to setup the slider.
+					var result = free.binaryFormat({
+						indexed: true,
+						maxUnit: "TiB"
+					});
+					// Update the 'Size' slider control.
+					field = this.findFormField("size");
+					field.setIncrement(result.divisor);
+					field.setMaxValue(free);
+					field.setValue(free);
+					field.setDisabled(false);
 				}
 			}
 		},{
-			xtype: "compositefield",
+			xtype: "sliderfield",
+			name: "size",
 			fieldLabel: _("Size"),
-			combineErrors: false,
-			items: [{
-				xtype: "numberfield",
-				name: "size",
-				minValue: 1,
-				allowDecimals: false,
-				allowNegative: false,
-				allowBlank: false,
-				flex: 1,
-				listeners: {
-					scope: this,
-					blur: function(c) {
-						fn.call(this, c, c.getValue());
-					},
-					change: function(c, newValue, oldValue) {
-						fn.call(this, c, newValue);
-					}
-				}
-			},{
-				xtype: "combo",
-				name: "unit",
-				width: 60,
-				mode: "local",
-				store: new Ext.data.SimpleStore({
-					fields: [ "value","text" ],
-					data: [
-						[ "MiB",_("MiB") ],
-						[ "GiB",_("GiB") ],
-						[ "TiB",_("TiB") ]
-					]
-				}),
-				displayField: "text",
-				valueField: "value",
-				allowBlank: false,
-				triggerAction: "all",
-				editable: false,
-				forceSelection: true,
-				value: "MiB",
-				listeners: {
-					scope: this,
-					select: function(c, record, index) {
-						var field = this.findFormField("size");
-						fn.call(this, field, field.getValue());
-					}
-				}
-			}]
+			minValue: 1,
+			useTips: true,
+			disabled: true,
+			tipText: function(thumb) {
+				return String.format('{0}', thumb.value.binaryFormat());
+			}
 		}];
+	},
+
+	getValues : function() {
+		var values = OMV.Module.Storage.LVM.CreateLogicalVolumeDialog.
+		  superclass.getValues.call(this, arguments);
+		var result = values.size.binaryFormat({
+			indexed: true
+		});
+		values.size = parseInt(result.value);
+		values.unit = result.unit;
+		return values;
 	},
 
 	doSubmit : function() {
@@ -1187,21 +1156,6 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 	},
 
 	getFormItems : function() {
-		var si = this.size.binaryFormat({ indexed: true });
-		var fn = function(c, value) {
-			var maxSize = this.size + this.vgFree;
-			var unit = this.findFormField("unit").getValue();
-			var bytes = value.binaryConvert(unit, "B");
-			c.maxValue = maxSize.binaryConvert("B", unit);
-			c.clearInvalid();
-			if (bytes > maxSize) {
-				var msg = String.format(_("The maximum value for this field is {0}"), c.maxValue);
-				c.markInvalid(msg);
-			} else if (bytes < this.size) {
-				var msg = String.format(_("The minimum value for this field is {0}"), this.size.binaryConvert("B", unit));
-				c.markInvalid(msg);
-			}
-		}
 		return [{
 			xtype: "hidden",
 			name: "devicefile",
@@ -1246,55 +1200,15 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 			submitValue: false,
 			value: this.vgname
 		},{
-			xtype: "compositefield",
+			xtype: "sliderfield",
+			name: "size",
 			fieldLabel: _("Size"),
-			combineErrors: false,
-			items: [{
-				xtype: "numberfield",
-				name: "size",
-				minValue: 1,
-				value: si.value,
-				allowDecimals: false,
-				allowNegative: false,
-				allowBlank: false,
-				flex: 1,
-				listeners: {
-					scope: this,
-					blur: function(c) {
-						fn.call(this, c, c.getValue());
-					},
-					change: function(c, newValue, oldValue) {
-						fn.call(this, c, newValue);
-					}
-				}
-			},{
-				xtype: "combo",
-				name: "unit",
-				width: 60,
-				mode: "local",
-				store: new Ext.data.SimpleStore({
-					fields: [ "value","text" ],
-					data: [
-						[ "MiB",_("MiB") ],
-						[ "GiB",_("GiB") ],
-						[ "TiB",_("TiB") ]
-					]
-				}),
-				displayField: "text",
-				valueField: "value",
-				allowBlank: false,
-				triggerAction: "all",
-				editable: false,
-				forceSelection: true,
-				value: si.unit,
-				listeners: {
-					scope: this,
-					select: function(c, record, index) {
-						var field = this.findFormField("size");
-						fn.call(this, field, field.getValue());
-					}
-				}
-			}]
+			minValue: this.size,
+			useTips: true,
+			tipText: function(thumb) {
+				return String.format('{0}', thumb.value.binaryFormat());
+			},
+			value: this.size
 		}];
 	},
 
@@ -1303,8 +1217,10 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 		// some details about the underlaying volume group.
 		OMV.Ajax.request(function(id, response, error) {
 			if (error === null) {
-				// Get the free capacity of the volume group.
-				this.vgFree = parseInt(response.free);
+				var free = parseInt(response.free);
+				// Update the slider control.
+				var field = this.findFormField("size");
+				field.setMaxValue(this.size + free);
 				// Finally show the dialog.
 				return OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog.
 				  superclass.show.call(this, arguments);
@@ -1313,5 +1229,16 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 			}
 		}, this, "LogicalVolumeMgmt", "getVolumeGroup",
 		{ "name": this.vgname });
+	},
+
+	getValues : function() {
+		var values = OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog.
+		  superclass.getValues.call(this, arguments);
+		var result = values.size.binaryFormat({
+			indexed: true
+		});
+		values.size = parseInt(result.value);
+		values.unit = result.unit;
+		return values;
 	}
 });

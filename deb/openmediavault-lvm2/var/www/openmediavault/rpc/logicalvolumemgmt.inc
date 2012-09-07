@@ -125,7 +125,7 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 				"properties":{
 					"name":{"type":"string"},
 					"size":{"type":"number"},
-					"unit":{"type":"string","enum":["MiB","GiB","TiB"]},
+					"unit":{"type":"string","enum":["MiB","GiB","TiB","PiB"]},
 					"vgname":{"type":"string"}
 				}
 			}'),
@@ -141,7 +141,7 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 				"properties":{
 					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
 					"size":{"type":"number"},
-					"unit":{"type":"string","enum":["MiB","GiB","TiB"]}
+					"unit":{"type":"string","enum":["MiB","GiB","TiB","PiB"]}
 				}
 			}')
 		);
