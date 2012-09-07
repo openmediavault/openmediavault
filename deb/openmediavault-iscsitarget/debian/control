@@ -7,7 +7,7 @@ Standards-Version: 3.6.10
 Homepage: http://www.openmediavault.org
 
 Package: openmediavault-iscsitarget
-Architecture: any
+Architecture: all
 Depends: openmediavault (>= 0.3.0.23), iscsitarget, patch [!armel],
  iscsitarget-dkms [!armel] | iscsitarget-module [armel],
  linux-headers-2.6.32-5-all [!armel]
