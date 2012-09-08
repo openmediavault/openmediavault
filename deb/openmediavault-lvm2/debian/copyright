@@ -1,0 +1,34 @@
+Format: http://dep.debian.net/deps/dep5
+Upstream-Contact: Volker Theile <volker.theile@openmediavault.org>
+Source: http://www.openmediavault.org
+
+Copyright: 2009-2012 Volker Theile <volker.theile@openmediavault.org>
+License: GPL-3
+
+Files: var/www/openmediavault/images/lvm.png
+License: LGPL
+Copyright: Everaldo Coelho (http://www.everaldo.com)
+Comment: http://www.iconfinder.com/icondetails/3321/16
+
+Files: var/www/openmediavault/images/lvm-extend.png
+License: LGPL
+Copyright: Everaldo Coelho (http://www.everaldo.com)
+ Volker Theile
+Comment: http://www.iconfinder.com/icondetails/3321/16
+
+Files: var/www/openmediavault/images/lvm-create.png
+License: LGPL
+Copyright: Everaldo Coelho (http://www.everaldo.com)
+Comment: http://www.iconfinder.com/icondetails/3321/16
+
+Files: var/www/openmediavault/images/lvm-edit.png
+License: LGPL
+Copyright: Everaldo Coelho (http://www.everaldo.com)
+ Volker Theile
+Comment: http://www.iconfinder.com/icondetails/3321/16
+
+Files: var/www/openmediavault/images/lvm-reduce.png
+License: LGPL
+Copyright: Everaldo Coelho (http://www.everaldo.com)
+ Volker Theile
+Comment: http://www.iconfinder.com/icondetails/3321/16

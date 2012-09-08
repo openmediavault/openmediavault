@@ -1,0 +1,222 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Alexander Savchenko <>, 2012.
+#   <arturmon82@gmail.com>, 2012.
+#   <ffrants@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-21 22:48+0200\n"
+"PO-Revision-Date: 2012-06-22 10:27+0000\n"
+"Last-Translator: mictian <ffrants@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Add job"
+msgstr "Добавить задание"
+
+msgid "Algorithmic detection"
+msgstr "Алгоритмическое обнаружение"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "Электронное письмо с выводом команды (если таковые имеются), посылается администратору."
+
+msgid "Antivirus"
+msgstr "Антивирус"
+
+msgid "Be verbose."
+msgstr "Подробный вывод."
+
+msgid "Comment"
+msgstr "Комментарий"
+
+msgid "Database checks"
+msgstr "Проверки базы данных"
+
+msgid "Database mirror"
+msgstr "Зеркало базы данных"
+
+msgid "Date & Time"
+msgstr "Дата и время"
+
+msgid "Day of month"
+msgstr "День месяца"
+
+msgid "Day of week"
+msgstr "День недели"
+
+msgid "Detect PUA"
+msgstr "Обнаружение PUA"
+
+msgid "Detect broken executables"
+msgstr "Обнаружение повреждённых исполняемых файлов"
+
+msgid "Edit job"
+msgstr "Редактировать задание"
+
+msgid "Enable"
+msgstr "Включить"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "Включить обнаружение HTML и нормализацию."
+
+msgid "Enable archive scanning."
+msgstr "Включить сканирование архивов."
+
+msgid "Enable on-access virus scanning"
+msgstr "Включить сканирование при обращении к файлу"
+
+msgid "Enable scanning of ELF files."
+msgstr "Включить сканирование ELF файлов."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Включить сканирование OLE2 файлов, таких как документы Microsoft Office и файлы .msi."
+
+msgid "Enable scanning within PDF files."
+msgstr "Включить сканирование в PDF файлах."
+
+msgid "Enable the algorithmic detection."
+msgstr "Включить алгоритмическое обнаружение."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Включить обнаружение повреждённых исполняемых файлов (и PE и ELF)."
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Включить обнаружение возможно нежелательных приложений."
+
+msgid "Enabled"
+msgstr "Включено"
+
+msgid "Event"
+msgstr "Событие"
+
+msgid "Every N day of month"
+msgstr "Каждый N день месяца"
+
+msgid "Every N hour"
+msgstr "Каждый N час"
+
+msgid "Every N minute"
+msgstr "Каждую N минуту"
+
+msgid "Execute job"
+msgstr "Выполнить задание"
+
+msgid "Extra options"
+msgstr "Дополнительные опции"
+
+msgid "Follow directory symlinks"
+msgstr "Следовать по символьными ссылками каталога"
+
+msgid "Follow directory symlinks."
+msgstr "Следовать по символьными ссылками каталога."
+
+msgid "Follow file symlinks"
+msgstr "Следовать по символьными ссылками файла"
+
+msgid "Follow regular file symlinks."
+msgstr "Следовать по регулярными символьными ссылками файла."
+
+msgid "General settings"
+msgstr "Общие настройки"
+
+msgid "Hour"
+msgstr "Час"
+
+msgid "Jobs"
+msgstr "Задания"
+
+msgid "Minute"
+msgstr "Минут"
+
+msgid "Monitor the shared folder and scan new or modified files."
+msgstr "Контролировать общую папку и сканировать новые или измененные файлы."
+
+msgid "Month"
+msgstr "Месяц"
+
+msgid "Multiscan"
+msgstr "Мультисканирование"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "Количество проверок обновлений базы данных в день. Установите в 0 для отключения."
+
+msgid "On-access"
+msgstr "При обращении"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Выполнить более глубокий анализ исполняемых файлов."
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Пожалуйста, проверьте <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>страницу руководства</a> для более подробной информации."
+
+msgid "Remove"
+msgstr "Удалить"
+
+msgid "Remove infected files."
+msgstr "Удалить зараженные файлы."
+
+msgid "Run"
+msgstr "Запуск"
+
+msgid "Scan ELF"
+msgstr "Сканировать ELF"
+
+msgid "Scan HTML"
+msgstr "Сканировать HTML"
+
+msgid "Scan OLE2"
+msgstr "Сканировать OLE2"
+
+msgid "Scan PDF"
+msgstr "Сканировать PDF"
+
+msgid "Scan Portable Executable"
+msgstr "Сканировать переносимые исполняемые программы"
+
+msgid "Scan archives"
+msgstr "Сканировать архивы"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr "Сканировать содержимое каталога параллельно, используя доступные потоки."
+
+msgid "Send command output via email"
+msgstr "Отправить вывод комманды по электронной почте"
+
+msgid "Send email"
+msgstr "Отпавить электронное письмо"
+
+msgid ""
+"Server name where database updates are downloaded from. Get a complete list "
+"of database mirrors <a href='http://www.clamav.net/mirrors.html' "
+"target='_blank'>here</a>."
+msgstr "Имя сервера, с которого будут загружаться обновления баз. Полный список зеркал: <a href='http://www.clamav.net/mirrors.html' target='_blank'>here</a>."
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Shared folder"
+msgstr "Общая папка"
+
+msgid "The location of the files to scan."
+msgstr "Расположение файлов для сканирования."
+
+msgid "Verbose"
+msgstr "Отладка"
+
+msgid "n/a"
+msgstr "н/д"

@@ -1,0 +1,70 @@
+# This file is part of OpenMediaVault.
+# 
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+# 
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# Translators:
+#   <arturmon82@gmail.com>, 2012.
+#   <ffrants@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:04+0100\n"
+"PO-Revision-Date: 2012-04-26 09:31+0000\n"
+"Last-Translator: mictian <ffrants@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "A password is required to access the library."
+msgstr "Требуется пароль для доступа к библиотеке."
+
+msgid "Authentication"
+msgstr "Идентификация"
+
+msgid "Enable"
+msgstr "Включить"
+
+msgid "General settings"
+msgstr "Общие параметры"
+
+msgid "Library name"
+msgstr "Имя библиотеки"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Port"
+msgstr "Порт"
+
+msgid "Port to listen on."
+msgstr "Порт для прослушивания."
+
+msgid "Shared folder"
+msgstr "Общая папка"
+
+msgid "The location of the media files to share."
+msgstr "Расположение мультимедиа файлов для общего доступа."
+
+msgid "The name of the library as displayed by the clients."
+msgstr "Название библиотеки, которое будет отображаться на клиентах."
+
+msgid "iTunes/DAAP"
+msgstr "iTunes/DAAP"

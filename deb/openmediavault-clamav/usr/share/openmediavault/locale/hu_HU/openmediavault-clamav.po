@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Ádám Balajti <balajtiadam@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-21 22:48+0200\n"
+"PO-Revision-Date: 2012-06-24 17:43+0000\n"
+"Last-Translator: Ádám Balajti <balajtiadam@gmail.com>\n"
+"Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add job"
+msgstr "Feladat hozzáadása"
+
+msgid "Algorithmic detection"
+msgstr "Algoritmikus észlelés"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "Egy email üzenet, benne a parancsssori kimenettel (ha elő lett állítva) elküldve az adminisztrátornak."
+
+msgid "Antivirus"
+msgstr "Antivírus"
+
+msgid "Be verbose."
+msgstr "Legyen beszédes."
+
+msgid "Comment"
+msgstr "Megjegyzés"
+
+msgid "Database checks"
+msgstr "Adatbázis ellenőrzés"
+
+msgid "Database mirror"
+msgstr "Adatbázis tükör"
+
+msgid "Date & Time"
+msgstr "Dátum & Idő"
+
+msgid "Day of month"
+msgstr "Hónap napjain"
+
+msgid "Day of week"
+msgstr "Hét napjain"
+
+msgid "Detect PUA"
+msgstr "PUA észlelése"
+
+msgid "Detect broken executables"
+msgstr "Hibás futtatható fájlok észlelése"
+
+msgid "Edit job"
+msgstr "Feladat szerkesztése"
+
+msgid "Enable"
+msgstr "Engedélyezés"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "HTML felismerés és normalizálás engedélyezése."
+
+msgid "Enable archive scanning."
+msgstr "Archívum átvizsgálás engedélyezése."
+
+msgid "Enable on-access virus scanning"
+msgstr "Vírus hozzáférés átvizsgálásának engedélyezése"
+
+msgid "Enable scanning of ELF files."
+msgstr "ELF fájlok átvizsgálásának engedélyezése."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "OLE2 fájlok átvizsgálásának engedélyezése, ilyenek a Microsoft Office dokumentumok és a .msi fájlok."
+
+msgid "Enable scanning within PDF files."
+msgstr "PDF fájlok átvizsgálásának engedélyezése."
+
+msgid "Enable the algorithmic detection."
+msgstr "Algoritmikus észlelés engedélyezése."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Hibás futtatható fájl észlelés engedélyezése (mindkét PE és ELF)."
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Nem kívánt alkalmazások felismerésének engedélyezése."
+
+msgid "Enabled"
+msgstr "Engedélyezve"
+
+msgid "Event"
+msgstr "Esemény"
+
+msgid "Every N day of month"
+msgstr "Minden N nap a hónapban"
+
+msgid "Every N hour"
+msgstr "Minden N órában"
+
+msgid "Every N minute"
+msgstr "Minden N percben"
+
+msgid "Execute job"
+msgstr "Feladat végrehajtása"
+
+msgid "Extra options"
+msgstr "Extra beállítások"
+
+msgid "Follow directory symlinks"
+msgstr "Könyvtár szimbolikus linkjeinek követése"
+
+msgid "Follow directory symlinks."
+msgstr "Könyvtár szimbolikus linkjeinek követése."
+
+msgid "Follow file symlinks"
+msgstr "Fájl szimbolikus linkjeinek követése"
+
+msgid "Follow regular file symlinks."
+msgstr "Szokásos fájl szimbolikus linkjeinek követése."
+
+msgid "General settings"
+msgstr "Általános beállítások"
+
+msgid "Hour"
+msgstr "Óra"
+
+msgid "Jobs"
+msgstr "Feladatok"
+
+msgid "Minute"
+msgstr "Perc"
+
+msgid "Monitor the shared folder and scan new or modified files."
+msgstr "Megosztott mappa ellenőrzése és az új vagy módosított fájlok átvizsgálása."
+
+msgid "Month"
+msgstr "Hónap"
+
+msgid "Multiscan"
+msgstr "Bővebb vizsgálat"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "Az adatbázis frissítés ellenőrzésének száma naponta. A 0 beállítás tiltja a funkciót."
+
+msgid "On-access"
+msgstr "Hozzáférés"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Mélyre ható elemzés elvégzése futtatható fájlok esetén."
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Kérlek tekintsd meg a <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>kézikönyvet</a> a további részletekért."
+
+msgid "Remove"
+msgstr "Eltávolítás"
+
+msgid "Remove infected files."
+msgstr "Fertőzött fájlok eltávolítása."
+
+msgid "Run"
+msgstr "Futtatás"
+
+msgid "Scan ELF"
+msgstr "ELF fájl átvizsgálás"
+
+msgid "Scan HTML"
+msgstr "HTML fájl átvizsgálás"
+
+msgid "Scan OLE2"
+msgstr "OLE2 fájl átvizsgálás"
+
+msgid "Scan PDF"
+msgstr "PDF fájl átvizsgálás"
+
+msgid "Scan Portable Executable"
+msgstr "Hordozható futtatható fájlok átvizsgálása"
+
+msgid "Scan archives"
+msgstr "Archívumok átvizsgálása"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr "Könyvtár tartalmának vizsgálata az elérhető szálak párhuzamos használatával."
+
+msgid "Send command output via email"
+msgstr "Parancssori kimenet küldése emailben"
+
+msgid "Send email"
+msgstr "Email küldése"
+
+msgid ""
+"Server name where database updates are downloaded from. Get a complete list "
+"of database mirrors <a href='http://www.clamav.net/mirrors.html' "
+"target='_blank'>here</a>."
+msgstr "Szerver neve, ahonnan az adatbázis frissítések letölthetőek. Az adatbázis tükrök teljes listája elérhető <a href='http://www.clamav.net/mirrors.html' target='_blank'>itt</a>."
+
+msgid "Settings"
+msgstr "Beállítások"
+
+msgid "Shared folder"
+msgstr "Megosztott mappa"
+
+msgid "The location of the files to scan."
+msgstr "A fájlok helye az átvizsgáláshoz."
+
+msgid "Verbose"
+msgstr "Beszédes"
+
+msgid "n/a"
+msgstr "n/a"

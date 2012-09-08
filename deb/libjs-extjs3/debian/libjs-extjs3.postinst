@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+	configure)
+		chmod 755 /usr/share/javascript/extjs3/*
+		chown -R www-data:www-data /usr/share/javascript/extjs3/*
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

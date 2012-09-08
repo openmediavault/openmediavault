@@ -1,0 +1,24 @@
+This package was debianized by vot <volker.theile@openmediavault.org> on
+Tue, 17 Aug 2010 22:14:39 +0200.
+
+It was downloaded from <url://example.com>
+
+Upstream Author(s):
+
+    <put author's name and email here>
+    <likewise for another author>
+
+Copyright:
+
+    <Copyright (C) YYYY Name OfAuthor>
+    <likewise for another author>
+
+License:
+
+    <Put the license of the package here indented by 4 spaces>
+
+The Debian packaging is copyright 2009, vot <volker.theile@openmediavault.org> and
+is licensed under the GPL, see `/usr/share/common-licenses/GPL'.
+
+# Please also look if there are files or directories which have a
+# different copyright/license attached and list them here.

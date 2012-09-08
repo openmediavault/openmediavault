@@ -1,0 +1,3545 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Andrey Chapalda <ansilent@gmail.com>, 2012.
+# Андрей Чапалда <ansilent@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-27 19:49+0200\n"
+"PO-Revision-Date: 2012-08-27 17:50+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+#, c-format
+msgid "% completed ..."
+msgstr "% виконано ..."
+
+#, c-format
+msgid "%s (%s available)"
+msgstr "%s (%s доступно)"
+
+#, c-format
+msgid "%s [on %s]"
+msgstr "%s [із %s]"
+
+msgid "'All' is not allowed"
+msgstr "'All' не дозволено"
+
+msgid "0 KiB/s means unlimited."
+msgstr "0 KiB/s - необмежено."
+
+msgid "1 - Minimum power usage with standby (spindown)"
+msgstr "1 - Мінімальне енергоспоживання в режимі очікування (spindown)"
+
+msgid "1 day"
+msgstr "1 день"
+
+msgid "1 month"
+msgstr " 1 місяць"
+
+msgid "1 week"
+msgstr "1 тиждень"
+
+msgid "1 year"
+msgstr "1 рік"
+
+msgid "10 minutes"
+msgstr "10 хвилин"
+
+msgid "10 years"
+msgstr "10 років"
+
+#, c-format
+msgid "100% completed ..."
+msgstr "100% виконано"
+
+msgid "120 minutes"
+msgstr "120 хвилин"
+
+msgid "127 - Intermediate power usage with standby"
+msgstr ""
+
+msgid "128 - Minimum power usage without standby (no spindown)"
+msgstr "128 - Мінімальне енергоспоживання без режиму очікування (no spindown)"
+
+msgid "15 years"
+msgstr "15 років"
+
+msgid "180 minutes"
+msgstr "180 хвилин"
+
+msgid "192 - Intermediate power usage without standby"
+msgstr ""
+
+msgid "2 days"
+msgstr "2 дні"
+
+msgid "2 weeks"
+msgstr "2 тижні"
+
+msgid "2 years"
+msgstr "2 роки"
+
+msgid "20 minutes"
+msgstr "20 хвилин"
+
+msgid "20 years"
+msgstr "20 років"
+
+msgid "240 minutes"
+msgstr "240 хвилин"
+
+msgid "25 years"
+msgstr "25 років"
+
+msgid "254 - Maximum performance, maximum power usage"
+msgstr "254 - Максимальна продуктивність, максимальне енергоспоживання"
+
+msgid "3 days"
+msgstr "3 дні"
+
+msgid "3 months"
+msgstr "3 місяці"
+
+msgid "3 weeks"
+msgstr "3 тижні"
+
+msgid "3 years"
+msgstr "3 роки"
+
+msgid "30 minutes"
+msgstr "30 хвилин"
+
+msgid "300 minutes"
+msgstr "300 хвилин"
+
+msgid "360 minutes"
+msgstr "360 хвилин"
+
+msgid "4 days"
+msgstr "4 дні"
+
+msgid "4 years"
+msgstr "4 роки"
+
+msgid "5 days"
+msgstr "5 днів"
+
+msgid "5 minutes"
+msgstr "5 хвилин"
+
+msgid "5 years"
+msgstr "5 років"
+
+msgid "6 days"
+msgstr "6 днів"
+
+msgid "6 months"
+msgstr "6 місяців"
+
+msgid "60 minutes"
+msgstr "60 хвилин"
+
+msgid "64 - Intermediate power usage with standby"
+msgstr ""
+
+msgid "9 months"
+msgstr "9 місяців"
+
+msgid "A mount point already exists for the given filesystem"
+msgstr "Ця точка монтування вже існує в данній файловій системі "
+
+msgid "A share with the given name already exists"
+msgstr "Шара з данним ім'ям вже існує"
+
+msgid "A shared folder with the given name already exists"
+msgstr "Загальна папка з данним ім'ям вже існує"
+
+msgid "ACL"
+msgstr "Список контролю доступа"
+
+msgid "About"
+msgstr "Про"
+
+msgid "Access Right Management"
+msgstr "Менеджер прав доступу"
+
+msgid "Act as a WINS server."
+msgstr "Виступати в якості WINS сервера."
+
+msgid "Action"
+msgstr "Дія"
+
+msgid "Activate S.M.A.R.T. monitoring."
+msgstr "Активація S.M.A.R.T. моніторингу"
+
+msgid "Add"
+msgstr "Додати"
+
+msgid "Add bonded interface"
+msgstr "Додати пов'язаний інтерфейс"
+
+msgid "Add cron job"
+msgstr "Додати завдання Cron"
+
+msgid "Add devices to RAID device"
+msgstr "Додати диск до RAID"
+
+msgid "Add firewall rule"
+msgstr "Додати правило брандмауера"
+
+msgid "Add group"
+msgstr "Додати групу"
+
+msgid "Add hot spares / recover RAID device"
+msgstr ""
+
+msgid "Add module"
+msgstr "Додати модуль"
+
+msgid "Add rsync job"
+msgstr "Додати завдання rsync"
+
+msgid "Add rule"
+msgstr "Додати правило"
+
+msgid "Add scheduled test"
+msgstr "Додати запланований тест"
+
+msgid "Add share"
+msgstr "Додати шару"
+
+msgid "Add shared folder"
+msgstr "Додати загальну папку"
+
+msgid "Add user"
+msgstr "одати користувача"
+
+msgid ""
+"Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
+" href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
+"for more details."
+msgstr "Додаткові настройки пристрою, наприклад 'autoneg off speed 100 duplex full'. Дивитись<a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a>"
+
+msgid "Address"
+msgstr "Адреса"
+
+msgid "Administrator password"
+msgstr "Пароль Адміністратора"
+
+msgid "Administrator: read/write, Users: no access, Others: no access"
+msgstr "Адміністратор: читання/запис, Користувачі: без доступу, Інші: без доступу"
+
+msgid "Administrator: read/write, Users: read-only, Others: no access"
+msgstr "Адміністратор: читання/запис, Користувачі: тільки читання, Інші: без доступу"
+
+msgid "Administrator: read/write, Users: read-only, Others: read-only"
+msgstr "Адміністратор: читання/запис, Користувачі: тільки читання, Інші: тільки читання"
+
+msgid "Administrator: read/write, Users: read/write, Others: no access"
+msgstr ""
+
+msgid "Administrator: read/write, Users: read/write, Others: read-only"
+msgstr "Адміністратор: читання/запис, Користувачі: читання/запис, Інші: тільки читання"
+
+msgid "Advanced Power Management"
+msgstr "Розширенний менеджер енергоспоживання"
+
+msgid "Advanced settings"
+msgstr "Розширенні налаштування"
+
+msgid "Advertise this service via mDNS/DNS-SD."
+msgstr ""
+
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+msgid ""
+"After the RAID has been grown you can resize the containing filesystem."
+msgstr ""
+
+msgid "Aland Islands"
+msgstr "Aland Islands"
+
+msgid "Albania"
+msgstr "Albania"
+
+msgid "Algeria"
+msgstr "Algeria"
+
+msgid "All"
+msgstr "Всі"
+
+msgid "Allow"
+msgstr "Дозволити"
+
+msgid "Allow client access to accounts that have null passwords"
+msgstr "Дозволити клієнтам доступ до аккаунта з нульовим паролем"
+
+msgid ""
+"Allow clients to attempt to store OS/2 style extended attributes on a share."
+msgstr ""
+
+msgid "Allow clients to resume interrupted uploads and downloads"
+msgstr "Дозволити клієнтам відновити перервані закачування та скачування"
+
+msgid "Allow new files"
+msgstr "Дозволити нові файли"
+
+msgid "Allow new files to be created."
+msgstr "Дозволити створювати нові файли"
+
+msgid ""
+"Allow this server to advertise itself as a time server to Windows clients"
+msgstr "Дозволити цьому серверу видавати себе в якості сервера часу для Windows клієнтів"
+
+msgid "Allow this server to try and become a local master browser"
+msgstr ""
+
+msgid "American Samoa"
+msgstr "American Samoa"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr ""
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"user who performs the job."
+msgstr ""
+
+msgid "An error has occured"
+msgstr "Сталася помилка"
+
+msgid "Andorra"
+msgstr "Andorra"
+
+msgid "Angola"
+msgstr "Angola"
+
+msgid "Anguilla"
+msgstr "Anguilla"
+
+msgid "Anonymous FTP"
+msgstr "Anonymous FTP"
+
+msgid "Antarctica"
+msgstr "Antarctica"
+
+msgid "Antigua and Barbuda"
+msgstr "Antigua and Barbuda"
+
+msgid "Apply"
+msgstr "Застосувати"
+
+msgid "Apply permissions to files and subfolders"
+msgstr "Застосувати права до файлів і підкаталогів"
+
+msgid "April"
+msgstr "Квітень"
+
+msgid "Archive"
+msgstr "Архів"
+
+msgid "Argentina"
+msgstr "Argentina"
+
+msgid "Armenia"
+msgstr "Armenia"
+
+msgid "Array details"
+msgstr "Деталі масиву"
+
+msgid "Aruba"
+msgstr "Aruba"
+
+msgid "Attribute name"
+msgstr "Назва атрибуту"
+
+msgid "Attributes"
+msgstr "Атрибути"
+
+msgid "August"
+msgstr "Серпень"
+
+msgid "Australia"
+msgstr "Australia"
+
+msgid "Austria"
+msgstr "Austria"
+
+msgid "Authenticate users"
+msgstr "Аутентифікація користувачів"
+
+msgid "Authentication"
+msgstr "Аутентифікація"
+
+msgid "Authentication and no privacy"
+msgstr ""
+
+msgid "Authentication and privacy"
+msgstr ""
+
+msgid "Authentication passphrase"
+msgstr ""
+
+msgid "Authentication required"
+msgstr "Потрібна аутентифікація"
+
+msgid "Authentication type"
+msgstr "Тип аутентифікації"
+
+msgid "Automatic Acoustic Management"
+msgstr "Автоматичний акустичний контроль"
+
+msgid "Available"
+msgstr "Доступний"
+
+msgid "Azerbaijan"
+msgstr "Azerbaijan"
+
+msgid "Backup"
+msgstr "Backup"
+
+msgid "Backup configuration"
+msgstr "Конфігурація резервного копіювання"
+
+msgid "Bahamas"
+msgstr "Bahamas"
+
+msgid "Bahrain"
+msgstr "Bahrain"
+
+msgid "Ban list"
+msgstr "Список банів "
+
+#, c-format
+msgid "Ban statistics:"
+msgstr "Статистика банів:"
+
+msgid "Bandwidth restriction"
+msgstr "Обмеження смуги пропускання"
+
+msgid "Bangladesh"
+msgstr "Bangladesh"
+
+msgid "Barbados"
+msgstr "Barbados"
+
+msgid "Belarus"
+msgstr "Belarus"
+
+msgid "Belgium"
+msgstr "Belgium"
+
+msgid "Belize"
+msgstr "Belize"
+
+msgid "Benin"
+msgstr "Benin"
+
+msgid "Bermuda"
+msgstr "Bermuda"
+
+msgid "Bhutan"
+msgstr "Bhutan"
+
+msgid "Blocksize"
+msgstr "Розмір блоку"
+
+msgid "Bolivia"
+msgstr "Bolivia"
+
+msgid "Bond options"
+msgstr ""
+
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnia and Herzegovina"
+
+msgid "Botswana"
+msgstr "Botswana"
+
+msgid "Bouvet Island"
+msgstr "Bouvet Island"
+
+msgid "Brazil"
+msgstr "Brazil"
+
+msgid "British Antarctic Territory"
+msgstr "British Antarctic Territory"
+
+msgid "British Indian Ocean Territory"
+msgstr "British Indian Ocean Territory"
+
+msgid "British Virgin Islands"
+msgstr "British Virgin Islands"
+
+msgid "Browseable"
+msgstr "Доступний для перегляду"
+
+msgid "Brunei"
+msgstr "Brunei"
+
+msgid "Bulgaria"
+msgstr "Bulgaria"
+
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+msgid "Burundi"
+msgstr "Burundi"
+
+msgid "By default, only files that already exist are allowed to be uploaded."
+msgstr "За замовчуванням відображаються лише файли, які вже існують та доступні для завантаження."
+
+msgid "CPU usage"
+msgstr "Завантаження ЦП"
+
+msgid "Cambodia"
+msgstr "Cambodia"
+
+msgid "Cameroon"
+msgstr "Cameroon"
+
+msgid "Canada"
+msgstr "Canada"
+
+msgid "Cancel"
+msgstr "Закрити"
+
+msgid ""
+"Cannot unlink shared folder content because another shared folder is "
+"referencing a subdirectory"
+msgstr ""
+
+msgid "Canton and Enderbury Islands"
+msgstr "Canton and Enderbury Islands"
+
+msgid "Capacity"
+msgstr "Місткість"
+
+msgid "Cape Verde"
+msgstr "Cape Verde"
+
+msgid "Cayman Islands"
+msgstr "Cayman Islands"
+
+msgid "Central African Republic"
+msgstr "Central African Republic"
+
+msgid "Certificate"
+msgstr "Cертифікат"
+
+msgid "Certificate details"
+msgstr "Інформація про сертифікат"
+
+msgid "Certificates"
+msgstr "Сертифікати"
+
+msgid "Chad"
+msgstr "Chad"
+
+msgid "Check"
+msgstr "Перевірка"
+
+msgid "Check interval"
+msgstr "Інтервал перевірки"
+
+msgid "Checking for new plugins ..."
+msgstr "Перевірка нових плагінів..."
+
+msgid "Checking for new updates ..."
+msgstr "Перевірка оновлень..."
+
+msgid "Chile"
+msgstr "Chile"
+
+msgid "China"
+msgstr "China"
+
+msgid "Christmas Island"
+msgstr "Christmas Island"
+
+msgid "City"
+msgstr "Місто"
+
+msgid "Clear"
+msgstr "Очистити"
+
+msgid ""
+"Click the 'Backup' button to download the current system configuration."
+msgstr "Натисніть кнопку 'Backup' для збереження поточної конфігурації системи."
+
+msgid "Client"
+msgstr "Клієнт"
+
+msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
+msgstr "Клієнти дозволено монтувати файлову систему, наприклад 192.168.178.0/24."
+
+msgid "Close"
+msgstr "Закрити"
+
+msgid "Cocos (Keeling) Islands"
+msgstr "Cocos (Keeling) Islands"
+
+msgid "Colombia"
+msgstr "Colombia"
+
+msgid "Command"
+msgstr "Команда"
+
+msgid "Comment"
+msgstr "Коментар"
+
+msgid "Commit"
+msgstr ""
+
+msgid "Common Name"
+msgstr "Загальне ім'я"
+
+msgid "Community"
+msgstr "Спільнота"
+
+msgid "Comoros"
+msgstr "Comoros"
+
+msgid "Compress"
+msgstr "Стискати"
+
+msgid "Compress file data during the transfer"
+msgstr "Стискати файл під час передачі"
+
+msgid "Compression"
+msgstr "Стискання"
+
+msgid ""
+"Compression is worth using if your connection is slow. The efficiency of the"
+" compression depends on the type of the file, and varies widely. Useful for "
+"internet transfer only."
+msgstr "Стиснення варто використовувати, якщо ваше з'єднання йде повільно. Ефективність стиснення залежить від типу файлу, і коливається в широких межах. "
+
+msgid "Confirm password"
+msgstr "Підтвердити пароль"
+
+msgid "Confirmation"
+msgstr "Підтвердження"
+
+msgid "Congo (Brazzaville)"
+msgstr "Congo (Brazzaville)"
+
+msgid "Congo (Kinshasa)"
+msgstr "Congo (Kinshasa)"
+
+msgid "Contact"
+msgstr "Контакт"
+
+msgid ""
+"Contact information, e.g. name or email address of the person responsible "
+"for this system."
+msgstr "Контактна інформація, наприклад, ім'я або адресу електронної пошти особи, відповідальної за цю систему."
+
+msgid "Conveyance self-test"
+msgstr ""
+
+msgid "Cook Islands"
+msgstr "Cook Islands"
+
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+msgid "Country"
+msgstr "Країна"
+
+msgid "Create"
+msgstr "Створити"
+
+msgid "Create RAID device"
+msgstr "Створити RAID"
+
+msgid "Create filesystem"
+msgstr "Створити файлову систему"
+
+msgid "Create self-signed SSL certificate"
+msgstr "Створити самоподпісанний SSL сертифікат"
+
+msgid "Critical"
+msgstr ""
+
+msgid "Croatia"
+msgstr "Croatia"
+
+msgid "Cron Jobs"
+msgstr "Завдання Cron"
+
+msgid "Cuba"
+msgstr "Cuba"
+
+msgid "Current time"
+msgstr "Поточний час"
+
+#, c-format
+msgid "Currently logged in users:"
+msgstr "Поточні користувачі в системі:"
+
+msgid "Cyprus"
+msgstr "Cyprus"
+
+msgid "Czech Republic"
+msgstr "Czech Republic"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "DNS Server"
+msgstr "DNS Server"
+
+msgid "DNS Service Discovery"
+msgstr "DNS Service Discovery"
+
+msgid "DNS server"
+msgstr "DNS server"
+
+msgid "Daemon"
+msgstr "Daemon"
+
+msgid "Date"
+msgstr "Дата"
+
+msgid "Date & Time"
+msgstr "Дата і час"
+
+msgid "Day of month"
+msgstr "День місяця "
+
+msgid "Day of week"
+msgstr "День тижня"
+
+msgid "Debug"
+msgstr "Debug"
+
+msgid "December"
+msgstr "Грудень"
+
+msgid "Delete"
+msgstr "Видалити"
+
+msgid "Delete content"
+msgstr ""
+
+msgid "Delete files on the receiving side that don't exist on sender"
+msgstr "Видалити файли на стороні отримувача, які не існують у відправника"
+
+msgid "Deleting selected item(s)"
+msgstr "Видалення вибраних елементів"
+
+msgid "Denmark"
+msgstr "Denmark"
+
+msgid "Deny"
+msgstr "Заборонити"
+
+msgid "Deny logins which do not have a valid shell"
+msgstr ""
+
+msgid "Description"
+msgstr "Опис"
+
+msgid "Destination"
+msgstr "Призначення"
+
+msgid ""
+"Destination address can be either a network IP address (with /mask), a IP "
+"range or a plain IP address. A '!' argument before the address specification"
+" inverts the sense of the address."
+msgstr "Адреса призначення може бути IP адресою мережі (з /маскою), діапазон IP адрес, або просто IP-адресу. Аргумент '!' перед специфікацією адреси означає заперечення (не)."
+
+msgid "Destination port"
+msgstr "Порт призначення"
+
+msgid "Destination server"
+msgstr "Сервер призначення"
+
+msgid "Destination shared folder"
+msgstr "Розташування загальної паки"
+
+msgid "Detail"
+msgstr "Деталі"
+
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr "Визначити час очікування за замовчуванням, в мікросекундах, перш ніж перший пакет передається повторно."
+
+msgid "Device"
+msgstr "Пристрій"
+
+#, c-format
+msgid "Device '%s' not found"
+msgstr "Пристрій '%s' не знайдено"
+
+msgid "Device identity information"
+msgstr "Інформацію про пристрій "
+
+msgid "Device model"
+msgstr "Модель пристрою"
+
+msgid "Devices"
+msgstr "Пристрої"
+
+msgid "Diagnostics"
+msgstr "Діагностування"
+
+msgid "Difference"
+msgstr "Різниця"
+
+msgid "Direction"
+msgstr "Директива"
+
+msgid "Directory"
+msgstr "Каталог"
+
+msgid "Disabled"
+msgstr "Вимкнено"
+
+msgid "Disallow the user to modify his account."
+msgstr "Заборонити користувачу редагувати аккаунт"
+
+msgid "Disk usage"
+msgstr "Використання диску"
+
+msgid "Displaying items {0} - {1} of {2}"
+msgstr "Показати значення {0} - {1} of {2}"
+
+msgid "Djibouti"
+msgstr "Djibouti"
+
+msgid "Do you really want to clear the log file?"
+msgstr "Ви дійсно хочете очистити log файл?"
+
+msgid "Do you really want to create the RAID device?"
+msgstr "Ви дійсно хочете створити RAID?"
+
+msgid "Do you really want to delete the selected item(s)?"
+msgstr "Ви дійсно хочете видалити виділені об'єкти?"
+
+msgid ""
+"Do you really want to format this device? All data on it will be deleted. "
+"Please note that the filesystem creation may take some time."
+msgstr "Ви дійсно хочете відформатувати диск? Усі данні буде знищено. Ця операція може зайняти певний час."
+
+msgid "Do you really want to install the selected plugin(s)?"
+msgstr ""
+
+msgid "Do you really want to leave the page?"
+msgstr "Ви дійсно хочете залишити цю сторінку?"
+
+msgid "Do you really want to logout?"
+msgstr "Ви дійсно хочете вийти?"
+
+msgid "Do you really want to reboot the system?"
+msgstr "Ви дійсно хочете перезавантажити систему?"
+
+msgid "Do you really want to remove the shared folder content?"
+msgstr ""
+
+msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
+msgstr ""
+
+msgid ""
+"Do you really want to resize the selected filesystem? You have to do that "
+"after a RAID has been grown for example."
+msgstr ""
+
+msgid "Do you really want to shutdown the system?"
+msgstr "Ви дійсно хочете завершити роботу системи?"
+
+msgid "Do you really want to uninstall the selected plugin(s)?"
+msgstr "Ви дійсно хочете деінсталювати обрані плагіни?"
+
+msgid "Do you really want to wipe the selected device?"
+msgstr "Ви дійсно хочете зтерти?"
+
+msgid ""
+"Do you want to remove the content of the shared folder recursively? The "
+"shared folder content will be permanently removed and cannot be recovered. "
+"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
+"abort."
+msgstr ""
+
+msgid ""
+"Do you want to secure wipe the device? Please note that this may take a long"
+" time. Press 'No' to fast wipe the device or 'Cancel' to abort."
+msgstr ""
+
+msgid "Domain name"
+msgstr "Назва домену"
+
+msgid "Dominica"
+msgstr "Dominica"
+
+msgid "Dominican Republic"
+msgstr "Dominican Republic"
+
+msgid "Donate"
+msgstr "Пожертвувати"
+
+msgid "Done ..."
+msgstr "Готово..."
+
+msgid "Down"
+msgstr ""
+
+msgid "Down delay"
+msgstr ""
+
+msgid "Download"
+msgstr "Завантажити"
+
+msgid "Dronning Maud Land"
+msgstr "Dronning Maud Land"
+
+msgid "Each line represents one group."
+msgstr ""
+
+msgid ""
+"Each line represents one user. Note, the password must be entered in plain "
+"text."
+msgstr "Кожен рядок представляє одиного користувача. Зверніть увагу, що необхідно ввести пароль в незашифрованому вигляді."
+
+msgid "East Timor"
+msgstr "East Timor"
+
+msgid "Ecuador"
+msgstr "Ecuador"
+
+msgid "Edit"
+msgstr "Редагувати"
+
+msgid "Edit SSL certificate"
+msgstr "Редагувати SSL сертифікат"
+
+msgid "Edit bonded interface"
+msgstr ""
+
+msgid "Edit cron job"
+msgstr "Редагувати завдання Cron"
+
+msgid "Edit firewall rule"
+msgstr "Редагувати правило брандмауера"
+
+msgid "Edit group"
+msgstr "Редагувати групу"
+
+msgid "Edit module"
+msgstr "Редагувати модуль"
+
+msgid "Edit physical disk properties"
+msgstr "Редагувати властивості фізичного диску"
+
+msgid "Edit physical interface"
+msgstr "Редагувати фізичний інтерфейс"
+
+msgid "Edit quota"
+msgstr "Редагувати квоту"
+
+msgid "Edit rsync job"
+msgstr "Редагувати завдання rsync"
+
+msgid "Edit rule"
+msgstr "Редагувати правило"
+
+msgid "Edit scheduled test"
+msgstr "Редагувати запланований тест"
+
+msgid "Edit share"
+msgstr "Редагувати шару"
+
+msgid "Edit shared folder"
+msgstr "Редагувати спільний каталог"
+
+msgid "Edit shared folder privileges"
+msgstr "Редагувати привілеїв спільного каталогу"
+
+msgid "Edit user"
+msgstr "Редагувати користувача"
+
+msgid "Egypt"
+msgstr "Egypt"
+
+msgid "El Salvador"
+msgstr "El Salvador"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Enable"
+msgstr "Дозволити"
+
+msgid "Enable FXP protocol"
+msgstr "Дозволити FXP протокол"
+
+msgid "Enable SSL/TLS"
+msgstr "Увімкнути SSL/TLS"
+
+msgid "Enable SSL/TLS connections"
+msgstr "Увімкнути SSL/TLS з'єднання"
+
+msgid "Enable WINS server"
+msgstr "Увімкнути WINS сервер"
+
+msgid "Enable anonymous FTP"
+msgstr "Увімкнути anonymous FTP"
+
+msgid "Enable archive mode"
+msgstr "Увімкнути режим архівування"
+
+msgid "Enable compression"
+msgstr "Увімкнути стиснення"
+
+msgid "Enable extended attribute support"
+msgstr "Увімкнути підтримку розширених атрибутів"
+
+msgid "Enable keyboard-interactive authentication"
+msgstr "Увімкнути клавіатурну інтерактивну аутентифікація"
+
+msgid "Enable module listing"
+msgstr "Увімкнути перегляд модулів"
+
+msgid "Enable permission inheritance"
+msgstr "Увімкнути успадкування прав доступу"
+
+msgid "Enable recycle bin"
+msgstr "Використовувати корзину"
+
+msgid "Enable reverse DNS lookup"
+msgstr "Enable reverse DNS lookup"
+
+msgid ""
+"Enable reverse DNS lookup performed on the remote host's IP address for "
+"incoming active mode data connections and outgoing passive mode data "
+"connections."
+msgstr ""
+
+msgid "Enable secure connection."
+msgstr "Увімкнути захищене з'єднання."
+
+msgid "Enable store DOS attributes support"
+msgstr ""
+
+msgid "Enable the ident protocol (RFC1413)"
+msgstr "Увімкнути ідентифікаційний протокол (RFC1413)"
+
+msgid "Enable user authentication"
+msgstr "Увімкнути аутентифікацію користувача"
+
+msgid "Enable user home directories"
+msgstr "Увімкнути домашній каталог користувача"
+
+msgid "Enable write-cache."
+msgstr "Увімкнути запис кешу"
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Enter your password"
+msgstr "Введіть Ваш пароль"
+
+msgid "Enter your username"
+msgstr "Введіть Ваш логін"
+
+msgid "Equatorial Guinea"
+msgstr "Equatorial Guinea"
+
+msgid "Eritrea"
+msgstr "Eritrea"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Error #"
+msgstr "Error #"
+
+#, c-format
+msgid "Error #%d"
+msgstr "Error #%d"
+
+msgid "Estonia"
+msgstr "Estonia"
+
+msgid "Ethiopia"
+msgstr "Ethiopia"
+
+msgid "Event"
+msgstr "Подія"
+
+msgid "Every N day of month"
+msgstr "Кожен N день місяця"
+
+msgid "Every N hour"
+msgstr "Кожну N годину"
+
+msgid "Every N minute"
+msgstr "Кожну N хвилину"
+
+msgid "Everyone: read/write"
+msgstr "Всі: читання/запис"
+
+msgid "Execute command"
+msgstr "Виконати команду"
+
+msgid "Execute cron job"
+msgstr "Виконати завдання Cron"
+
+msgid "Execute rsync job"
+msgstr "Виконати завдання Rsync"
+
+msgid "Expire"
+msgstr "Спливає"
+
+msgid "Extended attributes"
+msgstr "Розширенні атрибути"
+
+msgid "Extra options"
+msgstr "Додаткові опції"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "FXP"
+msgstr "FXP"
+
+msgid ""
+"FXP allows transfers between two remote servers without any file data going "
+"to the client asking for the transfer."
+msgstr ""
+
+msgid "Failed to call "
+msgstr ""
+
+#, c-format
+msgid ""
+"Failed to create filesystem. Please check the syslog or '%s' for more "
+"details."
+msgstr ""
+
+msgid "Failed to get filesystems"
+msgstr "Не вдалося отримати файлові системи"
+
+msgid "Failed to get system date and time"
+msgstr "Не вдалоса отримати дату та час системи"
+
+msgid "Falkland Islands"
+msgstr "Falkland Islands"
+
+msgid "Faroe Islands"
+msgstr "Faroe Islands"
+
+msgid "Fatal error"
+msgstr "Фатальна помилка"
+
+msgid "February"
+msgstr "Лютий"
+
+msgid "Fields must be exclusive"
+msgstr ""
+
+msgid "Fiji"
+msgstr "Fiji"
+
+msgid "File"
+msgstr "Файл"
+
+msgid "Filesystem"
+msgstr "Файлова система"
+
+#, c-format
+msgid "Filesystem '%s' not found"
+msgstr "Файлова система '%s' не знайдена"
+
+#, c-format
+msgid "Filesystem '%s' not supported"
+msgstr "Файлова система '%s' не підтримується"
+
+msgid "Filesystems"
+msgstr "Файлові системи"
+
+msgid "Finland"
+msgstr "Finland"
+
+msgid "Firewall"
+msgstr "Брандмауер"
+
+msgid "Firmware version"
+msgstr "Версія прошивки"
+
+msgid "Flag"
+msgstr "Флаг"
+
+msgid "Force SSL/TLS"
+msgstr "Примусово SSL/TLS"
+
+msgid "Force secure connection only."
+msgstr "Тільки захищене з'єднання."
+
+msgid "France"
+msgstr "France"
+
+msgid "French Guiana"
+msgstr "French Guiana"
+
+msgid "French Polynesia"
+msgstr "French Polynesia"
+
+msgid "French Southern Territories"
+msgstr "French Southern Territories"
+
+msgid "French Southern and Antarctic Territories"
+msgstr "French Southern and Antarctic Territories"
+
+msgid "Friday"
+msgstr "П'ятниця"
+
+msgid "Full"
+msgstr "Повний"
+
+msgid "Gabon"
+msgstr "Gabon"
+
+msgid "Gambia"
+msgstr "Gambia"
+
+msgid "Gateway"
+msgstr "Шлюз"
+
+msgid "General"
+msgstr "Загальне"
+
+msgid "General Settings"
+msgstr "Загальні Налаштування"
+
+msgid "General settings"
+msgstr "Загальні налаштування"
+
+msgid "Generating graphs ..."
+msgstr "Генерація графів..."
+
+msgid "Georgia"
+msgstr "Georgia"
+
+msgid "Germany"
+msgstr "Germany"
+
+msgid "Ghana"
+msgstr "Ghana"
+
+msgid "GiB"
+msgstr ""
+
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+msgid "Greece"
+msgstr "Greece"
+
+msgid "Greenland"
+msgstr "Greenland"
+
+msgid "Grenada"
+msgstr "Grenada"
+
+msgid "Group"
+msgstr "Група"
+
+#, c-format
+msgid "Group '%s' already exist"
+msgstr ""
+
+#, c-format
+msgid "Group '%s' does not exist"
+msgstr "Група '%s' не існує"
+
+#, c-format
+msgid "Group ID '%d' already exist"
+msgstr ""
+
+msgid "Groups"
+msgstr "Групи"
+
+msgid "Grow"
+msgstr ""
+
+msgid "Grow RAID device"
+msgstr ""
+
+msgid "Guadeloupe"
+msgstr "Guadeloupe"
+
+msgid "Guam"
+msgstr "Guam"
+
+msgid "Guatemala"
+msgstr "Guatemala"
+
+msgid "Guinea"
+msgstr "Guinea"
+
+msgid "Guinea-Bissau"
+msgstr "Guinea-Bissau"
+
+msgid "Guyana"
+msgstr "Guyana"
+
+msgid "Haiti"
+msgstr "Haiti"
+
+msgid "Heard Island and McDonald Islands"
+msgstr "Heard Island and McDonald Islands"
+
+msgid "Hide details"
+msgstr "Приховати подробиці"
+
+msgid "Hide dot files"
+msgstr "Приховати dot файли"
+
+msgid "Home directories"
+msgstr "Домашній каталог"
+
+msgid "Homepage"
+msgstr "Домашня сторінка"
+
+msgid "Honduras"
+msgstr "Honduras"
+
+msgid "Hong Kong S.A.R., China"
+msgstr "Hong Kong S.A.R., China"
+
+msgid "Honor existing ACLs"
+msgstr ""
+
+msgid "Host"
+msgstr "Host"
+
+msgid "Host access control"
+msgstr "Host контроль доступу"
+
+msgid "Hostname"
+msgstr "Hostname"
+
+msgid "Hosts"
+msgstr "Hosts"
+
+msgid "Hosts allow"
+msgstr "Hosts allow"
+
+msgid "Hosts deny"
+msgstr "Hosts deny"
+
+msgid "Hour"
+msgstr "Година"
+
+msgid "Hungary"
+msgstr "Hungary"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Iceland"
+msgstr "Iceland"
+
+msgid "Ident protocol"
+msgstr "Ідентифікаційний протокол"
+
+msgid "Identify"
+msgstr "Ідентифікувати"
+
+msgid "Identify network interface device"
+msgstr "Ідентифікувати мережевий пристрій"
+
+msgid "Idle"
+msgstr "Бездіяльність"
+
+msgid "If enabled then no password is required to connect to the share"
+msgstr ""
+
+msgid ""
+"If set then the client will be challenged to supply a username and password "
+"to connect to the module."
+msgstr ""
+
+msgid "If this option is set, then any attempted downloads will fail."
+msgstr ""
+
+msgid "If this option is set, then any attempted uploads will fail."
+msgstr ""
+
+msgid ""
+"If this parameter is set, Samba attempts to first read DOS attributes "
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
+" before mapping DOS attributes to UNIX permission bits. When set, DOS "
+"attributes will be stored onto an extended attribute in the UNIX filesystem,"
+" associated with the file or directory."
+msgstr ""
+
+msgid ""
+"If this parameter is set, then users may not create or modify files in the "
+"share."
+msgstr ""
+
+msgid ""
+"If your host is acting as a NAT gateway or port forwarder for the server, "
+"this option is useful in order to allow passive tranfers to work. You have "
+"to use your public address and opening the passive ports used on your "
+"firewall as well."
+msgstr ""
+
+msgid "Implicit SSL"
+msgstr ""
+
+msgid "Import"
+msgstr "Імпорт"
+
+msgid "Import SSL certificate"
+msgstr "Імпортувати SSL-сертифікат"
+
+msgid "Import groups"
+msgstr ""
+
+msgid "Import users"
+msgstr "Імпортувати користувачів"
+
+msgid ""
+"In some cases you have to specify passive ports range to by-pass firewall "
+"limitations. Passive ports restricts the range of ports from which the "
+"server will select when sent the PASV command from a client. The server will"
+" randomly choose a number from within the specified range until an open port"
+" is found. The port range selected must be in the non-privileged range (eg. "
+"greater than or equal to 1024). It is strongly recommended that the chosen "
+"range be large enough to handle many simultaneous passive connections (for "
+"example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr ""
+
+msgid "India"
+msgstr "India"
+
+msgid "Indonesia"
+msgstr "Indonesia"
+
+msgid "Informal"
+msgstr ""
+
+msgid "Information"
+msgstr "Інформація"
+
+msgid "Inherit ACLs"
+msgstr ""
+
+msgid "Inherit permissions"
+msgstr "Спадкування прав доступу"
+
+msgid "Initializing"
+msgstr ""
+
+msgid "Install"
+msgstr "Встановити"
+
+msgid "Install plugins ..."
+msgstr "Встановлення плагінів..."
+
+msgid "Install updates ..."
+msgstr "Встановлення оновлень..."
+
+msgid "Installed"
+msgstr "Встановлено"
+
+msgid "Interfaces"
+msgstr "Інтерфейси"
+
+msgid "Invalid comment"
+msgstr ""
+
+msgid "Invalid domain name"
+msgstr "Невірна назва домену"
+
+msgid "Invalid filesystem label"
+msgstr "Невірна мітка тома"
+
+msgid "Invalid group name"
+msgstr "Невірна назва групи"
+
+msgid "Invalid hostname"
+msgstr "Невірна назва хоста"
+
+#, c-format
+msgid "Invalid line: %s"
+msgstr ""
+
+msgid "Invalid name"
+msgstr "Невірна назва"
+
+msgid "Invalid user name"
+msgstr "Невірне ім'я користувача"
+
+msgid "Iran"
+msgstr "Iran"
+
+msgid "Iraq"
+msgstr "Iraq"
+
+msgid "Ireland"
+msgstr "Ireland"
+
+msgid "Israel"
+msgstr "Israel"
+
+msgid "Italy"
+msgstr "Italy"
+
+msgid "Ivory Coast"
+msgstr "Ivory Coast"
+
+msgid "Jamaica"
+msgstr "Jamaica"
+
+msgid "January"
+msgstr "Січень"
+
+msgid "Japan"
+msgstr "Japan"
+
+msgid "Jobs"
+msgstr "Завдання"
+
+msgid "Johnston Island"
+msgstr "Johnston Island"
+
+msgid "Jordan"
+msgstr "Jordan"
+
+msgid "July"
+msgstr "Липень"
+
+msgid "June"
+msgstr "Червень"
+
+msgid "Kazakhstan"
+msgstr "Kazakhstan"
+
+msgid "Kenya"
+msgstr "Kenya"
+
+msgid "Kernel"
+msgstr "Ядро"
+
+msgid "Key size"
+msgstr "Розмір ключа"
+
+msgid "KiB"
+msgstr ""
+
+msgid "Kiribati"
+msgstr "Kiribati"
+
+msgid "Kuwait"
+msgstr "Kuwait"
+
+msgid "Kyrgyzstan"
+msgstr "Kyrgyzstan"
+
+msgid "LBA of first error"
+msgstr ""
+
+msgid "Label"
+msgstr "Позначка"
+
+msgid "Language"
+msgstr "Мова"
+
+msgid "Laos"
+msgstr "Laos"
+
+msgid "Latvia"
+msgstr "Latvia"
+
+msgid "Lebanon"
+msgstr "Lebanon"
+
+msgid ""
+"Length of time in seconds to blink one or more LEDs on the specific ethernet"
+" port."
+msgstr ""
+
+msgid "Lesotho"
+msgstr "Lesotho"
+
+msgid "Level"
+msgstr "Рівень"
+
+msgid "Liberia"
+msgstr "Liberia"
+
+msgid "Libya"
+msgstr "Libya"
+
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+msgid "Lifetime"
+msgstr "Час життя"
+
+msgid "Linear"
+msgstr "Лінійний"
+
+msgid "Link"
+msgstr "Посилання"
+
+msgid "List"
+msgstr "Список"
+
+msgid "Lithuania"
+msgstr "Lithuania"
+
+msgid "Load average"
+msgstr "Середнє завантаження"
+
+msgid "Loading ..."
+msgstr "Завантаження..."
+
+msgid "Local"
+msgstr "Local"
+
+msgid "Local master browser"
+msgstr "Local master browser"
+
+msgid "Location"
+msgstr "Розташування"
+
+msgid "Location information, e.g. physical location of this system."
+msgstr ""
+
+msgid "Log level"
+msgstr "Log level"
+
+#, c-format
+msgid "Logical volume %s [%s, %s]"
+msgstr "Логічні розділи %s [%s, %s]"
+
+msgid "Login"
+msgstr "Логін"
+
+msgid "Logout"
+msgstr "Вихід"
+
+msgid "Logs"
+msgstr "Логи"
+
+msgid "Long self-test"
+msgstr "Довга самоперевірка"
+
+msgid "Luxembourg"
+msgstr "Luxembourg"
+
+msgid "MAC address"
+msgstr "MAC address"
+
+msgid "MII monitoring frequency"
+msgstr "MII monitoring frequency"
+
+msgid "MTU"
+msgstr "MTU"
+
+msgid "Macao S.A.R., China"
+msgstr "Macao S.A.R., China"
+
+msgid "Macedonia"
+msgstr "Macedonia"
+
+msgid "Madagascar"
+msgstr "Madagascar"
+
+msgid "Mail Notification"
+msgstr ""
+
+msgid "Maintainer"
+msgstr ""
+
+msgid "Malawi"
+msgstr "Malawi"
+
+msgid "Malaysia"
+msgstr "Malaysia"
+
+msgid "Maldives"
+msgstr "Maldives"
+
+msgid "Mali"
+msgstr "Mali"
+
+msgid "Malta"
+msgstr "Malta"
+
+msgid "Manual"
+msgstr "Вручну"
+
+msgid "March"
+msgstr "Березень"
+
+msgid "Marshall Islands"
+msgstr ""
+
+msgid "Martinique"
+msgstr ""
+
+msgid "Masquerade address"
+msgstr ""
+
+msgid ""
+"Match if the destination port is one of the given ports. E.g. 21 or !443 or "
+"1024-65535."
+msgstr ""
+
+msgid ""
+"Match if the source port is one of the given ports. E.g. 21 or !443 or "
+"1024-65535."
+msgstr ""
+
+msgid "Mauritania"
+msgstr "Mauritania"
+
+msgid "Mauritius"
+msgstr "Mauritius"
+
+msgid "Max. clients"
+msgstr "Максимум клієнтів"
+
+msgid "Max. connections"
+msgstr "Максимум з'єднать"
+
+msgid "Max. connections per host"
+msgstr "Максимум з'єднать на хост"
+
+msgid "Max. login attempts"
+msgstr "Максимум спроб для входу"
+
+msgid "Maximum download rate (KiB/s)"
+msgstr "Максимальна швидкість завантаження (KiB/s)"
+
+msgid ""
+"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
+"timer completely (clients can stay connected for ever, without sending "
+"data)."
+msgstr ""
+
+msgid "Maximum number of allowed password attempts before disconnection."
+msgstr ""
+
+msgid "Maximum number of connections per IP (0 = unlimited)."
+msgstr ""
+
+msgid "Maximum number of simultaneous clients."
+msgstr ""
+
+msgid "Maximum performance, maximum acoustic output"
+msgstr ""
+
+msgid "Maximum upload rate (KiB/s)"
+msgstr "Максимальна швидкість віддачі  (KiB/s)"
+
+msgid "Maximum {0} selected item(s) allowed"
+msgstr ""
+
+msgid "May"
+msgstr "Травень"
+
+msgid "Mayotte"
+msgstr "Mayotte"
+
+msgid "Members"
+msgstr "Користувачі"
+
+msgid "Memory usage"
+msgstr "Використання пам'яті"
+
+msgid "Messages"
+msgstr "Повідомлення"
+
+msgid "Method"
+msgstr "Метод"
+
+msgid "Metropolitan France"
+msgstr "Metropolitan France"
+
+msgid "Mexico"
+msgstr "Mexico"
+
+msgid "MiB"
+msgstr ""
+
+msgid "Micronesia"
+msgstr "Micronesia"
+
+msgid "Midway Islands"
+msgstr "Midway Islands"
+
+msgid "Minimum"
+msgstr ""
+
+msgid "Minimum performance, Minimum acoustic output"
+msgstr ""
+
+msgid "Minimum {0} selected item(s) required"
+msgstr ""
+
+msgid "Minute"
+msgstr "Хвилина"
+
+msgid "Mirror"
+msgstr "Зеркало"
+
+msgid "Missing"
+msgstr ""
+
+msgid "Mode"
+msgstr "Режим"
+
+msgid "Model"
+msgstr "Модель"
+
+msgid "Modify account"
+msgstr "Змінити аккаунт"
+
+msgid "Modify shared folder ACL"
+msgstr ""
+
+msgid "Modules"
+msgstr "Модулі"
+
+msgid "Moldova"
+msgstr "Moldova"
+
+msgid "Monaco"
+msgstr "Monaco"
+
+msgid "Monday"
+msgstr "Понеділок"
+
+msgid "Mongolia"
+msgstr "Mongolia"
+
+msgid "Monitoring"
+msgstr "Моніторинг"
+
+msgid "Month"
+msgstr "Місяць"
+
+msgid "Montserrat"
+msgstr "Montserrat"
+
+msgid "Morocco"
+msgstr "Morocco"
+
+msgid "Mount"
+msgstr "Монтувати"
+
+msgid "Mounted"
+msgstr "Змонтований"
+
+msgid "Mozambique"
+msgstr "Mozambique"
+
+msgid "Myanmar"
+msgstr "Myanmar"
+
+msgid "NFS"
+msgstr "NFS"
+
+msgid "Name"
+msgstr "Ім'я"
+
+msgid "Namibia"
+msgstr "Namibia"
+
+msgid "Nauru"
+msgstr "Nauru"
+
+msgid "Nepal"
+msgstr "Nepal"
+
+msgid "Netherlands"
+msgstr "Netherlands"
+
+msgid "Netherlands Antilles"
+msgstr "Netherlands Antilles"
+
+msgid "Netmask"
+msgstr "Маска мережі"
+
+msgid "Network"
+msgstr "Мережа"
+
+#, c-format
+msgid "Network interface '%s' already exists"
+msgstr ""
+
+msgid "Neutral Zone"
+msgstr "Нейтральна зона"
+
+msgid "Never"
+msgstr "Ніколи"
+
+msgid "New Caledonia"
+msgstr "New Caledonia"
+
+msgid "New Zealand"
+msgstr "New Zealand"
+
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+msgid "Niger"
+msgstr "Niger"
+
+msgid "Nigeria"
+msgstr "Nigeria"
+
+msgid "Niue"
+msgstr "Niue"
+
+msgid "No"
+msgstr "Ні"
+
+msgid "No access"
+msgstr ""
+
+msgid "No authentication and no privacy"
+msgstr ""
+
+msgid "No certificate request"
+msgstr ""
+
+msgid "No items to display"
+msgstr "Елементи для показу відсутні"
+
+msgid "No log entries to display"
+msgstr "Немає лог-записів для відображення"
+
+msgid "No session reuse required"
+msgstr ""
+
+msgid "No users connected"
+msgstr "Підключених користувачів немає"
+
+msgid "No users defined"
+msgstr "Визначених користувачів немає"
+
+msgid "None"
+msgstr ""
+
+msgid "Norfolk Island"
+msgstr "Norfolk Island"
+
+msgid "Normal"
+msgstr "Нормаль"
+
+msgid "North Korea"
+msgstr "North Korea"
+
+msgid "North Vietnam"
+msgstr ""
+
+msgid "Northern Mariana Islands"
+msgstr ""
+
+msgid "Norway"
+msgstr ""
+
+msgid "Not ICMP"
+msgstr ""
+
+msgid "Not TCP"
+msgstr ""
+
+msgid "Not UDP"
+msgstr ""
+
+msgid "November"
+msgstr ""
+
+msgid "Null passwords"
+msgstr ""
+
+msgid "Num"
+msgstr ""
+
+msgid "Number of servers"
+msgstr "Кількість серверів"
+
+msgid "OK"
+msgstr ""
+
+msgid "Occurrence"
+msgstr ""
+
+msgid "October"
+msgstr "Жовтень"
+
+msgid "Offline immediate test"
+msgstr ""
+
+msgid "Oman"
+msgstr "Oman"
+
+msgid "Online"
+msgstr ""
+
+msgid "Options"
+msgstr "Опції"
+
+msgid "Organization Name"
+msgstr "Назва організації"
+
+msgid "Organizational Unit"
+msgstr "Підрозділ"
+
+msgid "Others"
+msgstr "Інше"
+
+msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
+msgstr ""
+
+msgid "Outlying Oceania"
+msgstr "Outlying Oceania"
+
+msgid "Overview"
+msgstr "Загальне"
+
+msgid "Owner"
+msgstr "Власник"
+
+msgid "Pacific Islands Trust Territory"
+msgstr "Pacific Islands Trust Territory"
+
+msgid "Package information"
+msgstr "Інформація про пакет"
+
+msgid "Pakistan"
+msgstr "Pakistan"
+
+msgid "Palau"
+msgstr "Palau"
+
+msgid "Palestinian Territory"
+msgstr "Palestinian Territory"
+
+msgid "Panama"
+msgstr "Panama"
+
+msgid "Panama Canal Zone"
+msgstr "Panama Canal Zone"
+
+msgid "Papua New Guinea"
+msgstr "Papua New Guinea"
+
+msgid "Paraguay"
+msgstr "Paraguay"
+
+msgid "Passive FTP"
+msgstr "Пасивний режим FTP"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Password authentication"
+msgstr "Аутентифікація за паролем"
+
+msgid "Passwords don't match"
+msgstr "Паролі не співпадають"
+
+msgid "Paste a RSA certificate in X.509 PEM format here."
+msgstr ""
+
+msgid "Paste an private RSA key in X.509 PEM format here."
+msgstr ""
+
+msgid "Path"
+msgstr ""
+
+msgid "People's Democratic Republic of Yemen"
+msgstr "People's Democratic Republic of Yemen"
+
+msgid "Period of validity"
+msgstr ""
+
+msgid "Permissions"
+msgstr "Права доступу"
+
+msgid "Permissions of group."
+msgstr "Права доступу групи."
+
+msgid "Permissions of others (e.g. anonymous FTP users)."
+msgstr "Права доступу для інших (anonymous FTP та ін.)."
+
+msgid "Permissions of owner."
+msgstr "Права доступу власника."
+
+msgid "Permit root login"
+msgstr "Дозволити вхід адміністратора"
+
+msgid "Permit to do SSH tunneling"
+msgstr "Дозволити SSH-тунелювання"
+
+msgid "Peru"
+msgstr "Peru"
+
+msgid "Philippines"
+msgstr "Philippines"
+
+msgid "Physical Disks"
+msgstr "Фізичні диски"
+
+msgid "Pitcairn"
+msgstr "Pitcairn"
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/exports' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid ""
+"Please check the <a href='http://www.openbsd.org/cgi-"
+"bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
+" more details."
+msgstr ""
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid ""
+"Please check the <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid ""
+"Please check the <a "
+"href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid "Please first select a volume."
+msgstr ""
+
+msgid ""
+"Please note that no communication with the system is possible during this "
+"test."
+msgstr ""
+
+msgid "Please reload the page to let the changes take effect."
+msgstr ""
+
+msgid "Please wait ..."
+msgstr "Зачекайте..."
+
+msgid "Plugins"
+msgstr "Плагіни"
+
+msgid "Poland"
+msgstr "Poland"
+
+msgid "Port"
+msgstr "Порт"
+
+msgid "Port to listen on."
+msgstr ""
+
+msgid "Portugal"
+msgstr "Portugal"
+
+msgid "Power Management"
+msgstr "Менеджер енергоспоживання"
+
+msgid "Power button"
+msgstr "Кнопка виключення"
+
+msgid "Power mode"
+msgstr ""
+
+msgid "Preserve ACLs"
+msgstr ""
+
+msgid "Preserve extended attributes"
+msgstr "Зберегти розширені атрибути"
+
+msgid "Preserve modification times"
+msgstr "Зберигти модифіковані пункти"
+
+msgid "Preserve permissions"
+msgstr "Зберегти права доступу"
+
+msgid ""
+"Prevent a disk from being spun-up when it is periodically "
+"polled.<br/><br/><ul><li>Never - Poll (check) the device regardless of its "
+"power mode. This may cause a disk which is spun-down to be spun-up when it "
+"is checked.</li><li>Sleep - Check the device unless it is in SLEEP "
+"mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY "
+"mode. In these modes most disks are not spinning, so if you want to prevent "
+"a disk from spinning up each poll, this is probably what you "
+"want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
+" mode. In the IDLE state, most disks are still spinning, so this is probably"
+" not what you want.</li></ul>"
+msgstr ""
+
+msgid "Primary"
+msgstr "Первинний"
+
+msgid "Primary email"
+msgstr "Первинний email"
+
+msgid "Privacy passphrase"
+msgstr ""
+
+msgid "Privacy type"
+msgstr ""
+
+msgid "Private key"
+msgstr ""
+
+msgid "Privilege"
+msgstr ""
+
+msgid "Privileges"
+msgstr ""
+
+msgid "Processes"
+msgstr ""
+
+msgid "Processor"
+msgstr ""
+
+msgid "Protocol"
+msgstr ""
+
+msgid "Public"
+msgstr ""
+
+msgid "Puerto Rico"
+msgstr ""
+
+msgid "Pull"
+msgstr ""
+
+msgid "Push"
+msgstr ""
+
+msgid "Qatar"
+msgstr ""
+
+msgid "Quiet"
+msgstr ""
+
+msgid "Quota"
+msgstr ""
+
+msgid "RAID 10"
+msgstr ""
+
+msgid "RAID 5"
+msgstr ""
+
+msgid "RAID 6"
+msgstr ""
+
+msgid "RAID Management"
+msgstr ""
+
+msgid "RPC error"
+msgstr ""
+
+msgid "RSync server"
+msgstr ""
+
+msgid "Ranges of numbers are not allowed"
+msgstr ""
+
+msgid "Raw value"
+msgstr ""
+
+msgid "Read only"
+msgstr ""
+
+msgid "Read-only"
+msgstr ""
+
+msgid "Read/Write"
+msgstr ""
+
+msgid "Reboot"
+msgstr ""
+
+msgid "Recipient"
+msgstr ""
+
+msgid "Recover"
+msgstr ""
+
+msgid "Recurse into directories"
+msgstr ""
+
+msgid "Recursive"
+msgstr ""
+
+msgid "Recycle bin"
+msgstr ""
+
+msgid "Refresh"
+msgstr ""
+
+msgid "Remaining"
+msgstr ""
+
+msgid "Remote"
+msgstr "Віддалений"
+
+msgid "Remote syslog"
+msgstr "Віддалений системний лог"
+
+msgid "Replace"
+msgstr ""
+
+msgid "Replace all existing permissions"
+msgstr ""
+
+msgid ""
+"Report if the temperature had changed by at least N degrees Celsius since "
+"last report. Set to 0 to disable this report."
+msgstr ""
+
+msgid ""
+"Report if the temperature is greater or equal than N degrees Celsius. Set to"
+" 0 to disable this report."
+msgstr ""
+
+msgid "Repository"
+msgstr "Репозиторій"
+
+msgid "Require valid shell"
+msgstr ""
+
+msgid "Required"
+msgstr ""
+
+msgid "Reset"
+msgstr ""
+
+msgid "Reset WebGUI state"
+msgstr ""
+
+msgid "Resize"
+msgstr "Зміна розміру"
+
+msgid "Restore"
+msgstr "Відновити"
+
+msgid "Restore configuration"
+msgstr "Відновити конфігурацію"
+
+msgid "Restore configuration..."
+msgstr "Відновлення конфігурації..."
+
+msgid "Resume"
+msgstr "Підсумок"
+
+msgid "Retry timeout"
+msgstr "Retry timeout"
+
+msgid "Reunion"
+msgstr ""
+
+msgid "Reverse DNS lookup"
+msgstr ""
+
+msgid "Romania"
+msgstr "Romania"
+
+msgid "Rsync"
+msgstr "Rsync"
+
+msgid "Rsync - Jobs"
+msgstr ""
+
+msgid "Rsync - Server"
+msgstr ""
+
+msgid "Run"
+msgstr "Запустити"
+
+msgid "Running"
+msgstr "Запущені"
+
+msgid "Russia"
+msgstr "Russia"
+
+msgid "Rwanda"
+msgstr "Rwanda"
+
+msgid "S.M.A.R.T."
+msgstr "S.M.A.R.T."
+
+msgid "S.M.A.R.T. informations"
+msgstr "Інформація S.M.A.R.T."
+
+msgid "S.M.A.R.T. monitoring must be activated for the selected device."
+msgstr ""
+
+msgid "SMB/CIFS"
+msgstr "SMB/CIFS"
+
+msgid "SMTP port"
+msgstr "SMTP порт"
+
+msgid "SMTP server"
+msgstr "SMTP сервер"
+
+msgid "SMTP settings"
+msgstr "Налаштування SMTP"
+
+msgid "SNMP"
+msgstr "SNMP"
+
+msgid "SNMP version 1/2c"
+msgstr "SNMP version 1/2c"
+
+msgid "SNMP version 3"
+msgstr "SNMP version 3"
+
+msgid "SSH"
+msgstr "SSH"
+
+msgid "SSL/TLS"
+msgstr "SSL/TLS"
+
+msgid "Saint Helena"
+msgstr "Saint Helena"
+
+msgid "Saint Kitts and Nevis"
+msgstr "Saint Kitts and Nevis"
+
+msgid "Saint Lucia"
+msgstr "Saint Lucia"
+
+msgid "Saint Pierre and Miquelon"
+msgstr "Saint Pierre and Miquelon"
+
+msgid "Saint Vincent and the Grenadines"
+msgstr "Saint Vincent and the Grenadines"
+
+msgid "Samoa"
+msgstr "Samoa"
+
+msgid "San Marino"
+msgstr "San Marino"
+
+msgid "Sao Tome and Principe"
+msgstr "Sao Tome and Principe"
+
+msgid "Saturday"
+msgstr "Субота"
+
+msgid "Saudi Arabia"
+msgstr "Saudi Arabia"
+
+msgid "Saving ..."
+msgstr "Збереження ..."
+
+msgid "Scan"
+msgstr ""
+
+msgid "Scanning for new devices ..."
+msgstr ""
+
+msgid "Scheduled tests"
+msgstr "Заплановані тестування"
+
+msgid "Secondary"
+msgstr "Вторинний"
+
+msgid "Secondary email"
+msgstr "Вторинний email"
+
+msgid "Seconds"
+msgstr ""
+
+msgid "Secure connection"
+msgstr ""
+
+msgid "Security level"
+msgstr ""
+
+msgid "Select a SSL certificate ..."
+msgstr ""
+
+msgid "Select a country ..."
+msgstr ""
+
+msgid "Select a device ..."
+msgstr ""
+
+msgid "Select a directory"
+msgstr ""
+
+msgid "Select a filesystem ..."
+msgstr ""
+
+msgid "Select a group name..."
+msgstr ""
+
+msgid "Select a language ..."
+msgstr "Вибір мови..."
+
+msgid "Select a primary device ..."
+msgstr ""
+
+msgid "Select a protocol ..."
+msgstr ""
+
+msgid "Select a shared folder ..."
+msgstr ""
+
+msgid "Select a shell ..."
+msgstr ""
+
+msgid "Select a user name..."
+msgstr ""
+
+msgid "Select a volume ..."
+msgstr ""
+
+msgid "Select devices to be added to the RAID device"
+msgstr ""
+
+msgid "Select or enter a user name ..."
+msgstr ""
+
+msgid "Self-test logs"
+msgstr ""
+
+msgid "Send command output via email"
+msgstr ""
+
+msgid "Send email"
+msgstr ""
+
+msgid "Send test email"
+msgstr ""
+
+msgid "Sender"
+msgstr ""
+
+msgid "Sending test email ..."
+msgstr ""
+
+msgid "Senegal"
+msgstr ""
+
+msgid "September"
+msgstr ""
+
+msgid "Serbia And Montenegro"
+msgstr ""
+
+msgid "Serial Number"
+msgstr ""
+
+msgid "Serial number"
+msgstr ""
+
+msgid "Server"
+msgstr ""
+
+msgid "Service"
+msgstr ""
+
+msgid "Service disabled"
+msgstr ""
+
+msgid "Services"
+msgstr ""
+
+msgid "Session expired"
+msgstr ""
+
+msgid "Session not authenticated"
+msgstr ""
+
+msgid "Session timeout"
+msgstr ""
+
+msgid "Set browseable"
+msgstr ""
+
+msgid "Set read only"
+msgstr ""
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions"
+msgstr ""
+
+msgid "Set write only"
+msgstr ""
+
+msgid "Sets the interval between disk checks to N seconds."
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+#, c-format
+msgid "Settings already exist for device '%s'"
+msgstr ""
+
+msgid "Seychelles"
+msgstr ""
+
+msgid "Shared Folders"
+msgstr "Загальнф папки"
+
+msgid "Shared folder"
+msgstr "Загальна папка"
+
+msgid "Shared folder must not be equal"
+msgstr "Загальні папки не повинні бути рівні"
+
+msgid "Shares"
+msgstr "Шари"
+
+msgid "Shell"
+msgstr "Shell"
+
+msgid "Short self-test"
+msgstr "Коротке самотестування"
+
+msgid "Show certificate"
+msgstr "Показати сертифікат"
+
+msgid "Show details"
+msgstr "Показати деталі"
+
+msgid "Show password"
+msgstr "Показати пароль"
+
+msgid "Show privileges"
+msgstr "Показати привілеїв"
+
+msgid "Shutdown"
+msgstr "Вимкнення"
+
+msgid "Shutdown the system when pressing the power button."
+msgstr "Завершення роботи системи при натисканні на кнопку живлення."
+
+msgid "Shutdown/Reboot schedule"
+msgstr "Розклат Вимкнення/Перезавантаження"
+
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+msgid "Singapore"
+msgstr "Singapore"
+
+msgid "Size"
+msgstr "Розмір"
+
+msgid "Slaves"
+msgstr ""
+
+msgid "Sleep"
+msgstr "Сон"
+
+msgid "Slovakia"
+msgstr "Slovakia"
+
+msgid "Slovenia"
+msgstr "Slovenia"
+
+msgid "Solomon Islands"
+msgstr "Solomon Islands"
+
+msgid "Somalia"
+msgstr "Somalia"
+
+msgid "Source"
+msgstr "Джерело"
+
+msgid ""
+"Source address can be either a network IP address (with /mask), a IP range "
+"or a plain IP address. A '!' argument before the address specification "
+"inverts the sense of the address."
+msgstr ""
+
+msgid "Source port"
+msgstr "Порт джерела"
+
+msgid "Source server"
+msgstr "Сервер джерела"
+
+msgid "Source shared folder"
+msgstr "Загальна папка джерела"
+
+msgid "South Africa"
+msgstr "South Africa"
+
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "South Georgia and the South Sandwich Islands"
+
+msgid "South Korea"
+msgstr "South Korea"
+
+msgid "Spain"
+msgstr "Spain"
+
+msgid "Specifies how many server threads to create."
+msgstr ""
+
+msgid "Specifies one of the bonding policies."
+msgstr ""
+
+msgid "Specifies the MII link monitoring frequency in milliseconds."
+msgstr ""
+
+msgid ""
+"Specifies the amount of time, in seconds, between checking and updating the "
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
+msgstr ""
+
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
+msgstr ""
+
+msgid "Specifies the time in hh:mm:ss after which the ban expires."
+msgstr ""
+
+msgid ""
+"Specifies the time interval in hh:mm:ss in which the given number of "
+"occurrences must happen to add the ban."
+msgstr ""
+
+msgid ""
+"Specifies the time, in milliseconds, to wait before disabling a slave after "
+"a link failure has been detected."
+msgstr ""
+
+msgid ""
+"Specifies the time, in milliseconds, to wait before enabling a slave after a"
+" link recovery has been detected."
+msgstr ""
+
+msgid "Specifies whether it is allowed to login as superuser directly"
+msgstr ""
+
+msgid "Specifies whether it is allowed to login as superuser."
+msgstr ""
+
+msgid ""
+"Specifies whether to monitor the system status and select the most "
+"appropriate CPU level."
+msgstr ""
+
+msgid "Specifies which slave is the primary device."
+msgstr ""
+
+msgid "Spindown time"
+msgstr "Spindown time"
+
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+msgid "Standby"
+msgstr ""
+
+msgid "Start"
+msgstr "Старт"
+
+msgid "State"
+msgstr "Штат"
+
+msgid "State/Province"
+msgstr "Штат/Повінція"
+
+msgid "Static"
+msgstr "Статичний"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "Stop"
+msgstr "Стоп"
+
+msgid "Storage"
+msgstr ""
+
+msgid "Store DOS attributes"
+msgstr ""
+
+msgid "Stripe"
+msgstr ""
+
+msgid "Success"
+msgstr ""
+
+msgid "Sudan"
+msgstr ""
+
+msgid "Sunday"
+msgstr ""
+
+msgid "Support"
+msgstr ""
+
+msgid "Suppress non-error messages"
+msgstr ""
+
+msgid "Suriname"
+msgstr ""
+
+msgid "Svalbard and Jan Mayen"
+msgstr ""
+
+msgid "Swaziland"
+msgstr ""
+
+msgid "Sweden"
+msgstr ""
+
+msgid "Switzerland"
+msgstr ""
+
+msgid "Syria"
+msgstr ""
+
+msgid "Syslog"
+msgstr ""
+
+msgid "System"
+msgstr ""
+
+msgid "System Information"
+msgstr ""
+
+msgid "System Logs"
+msgstr ""
+
+msgid "System time"
+msgstr ""
+
+msgid "System user/group"
+msgstr ""
+
+msgid "TCP forwarding"
+msgstr ""
+
+msgid "TFTP"
+msgstr ""
+
+msgid "Taiwan"
+msgstr ""
+
+msgid "Tajikistan"
+msgstr ""
+
+msgid "Tanzania"
+msgstr ""
+
+msgid "Temperature"
+msgstr ""
+
+msgid "Temperature monitoring"
+msgstr ""
+
+msgid "Test description"
+msgstr ""
+
+msgid "Thailand"
+msgstr ""
+
+msgid "The NT description field."
+msgstr ""
+
+msgid "The RSA key length."
+msgstr ""
+
+msgid "The SSL certificate."
+msgstr ""
+
+msgid "The changes have been applied "
+msgstr ""
+
+msgid "The changes have been applied successfully."
+msgstr ""
+
+msgid "The default SMTP mail server port, e.g. 25 or 587."
+msgstr ""
+
+msgid ""
+"The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
+"rsync://[USER@]HOST[:PORT]/DEST."
+msgstr ""
+
+msgid "The destination shared folder."
+msgstr ""
+
+#, c-format
+msgid "The field '%s' contains forbidden "
+msgstr ""
+
+msgid "The file mode of the shared folder path."
+msgstr ""
+
+#, c-format
+msgid "The group '%s' does not exist"
+msgstr "Група '%s' не існує"
+
+msgid "The hostname is a label that identifies the system to the network."
+msgstr ""
+
+msgid "The location of the files to share."
+msgstr "Розташування файлів для загального доступу."
+
+msgid ""
+"The location of the files to share. The share will be accessible at "
+"/export/<name>."
+msgstr ""
+
+msgid "The location of the user home directories."
+msgstr "Розташування домашнього каталога користувача"
+
+msgid "The name of the share."
+msgstr "Назва шари"
+
+msgid "The number of days the certificate is valid for."
+msgstr ""
+
+msgid "The password contains invalid characters"
+msgstr "Пароль містить неприпустимі символи"
+
+msgid ""
+"The password that is used for access via rsync daemon. Note, this is not "
+"used for remote shell transport such as ssh."
+msgstr ""
+
+msgid ""
+"The path of the folder to share. The specified folder will be created if it "
+"does not already exist."
+msgstr ""
+
+msgid ""
+"The permissions on new files and directories are normally governed by create"
+" mask and directory mask but the inherit permissions parameter overrides "
+"this. This can be particularly useful on systems with many users to allow a "
+"single share to be used flexibly by each user."
+msgstr ""
+
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr ""
+
+msgid "The service name."
+msgstr ""
+
+msgid "The session timeout time in minutes."
+msgstr ""
+
+msgid "The shared folder is already used by another share"
+msgstr ""
+
+msgid ""
+"The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
+"rsync://[USER@]HOST[:PORT]/SRC."
+msgstr ""
+
+msgid "The source shared folder."
+msgstr ""
+
+msgid "The specified quota exceeds the max. possible value of 4TiB."
+msgstr ""
+
+msgid "The system will reboot now."
+msgstr "Зараз система буде перезавантажена."
+
+msgid "The system will reboot now. This may take some time ..."
+msgstr "Зараз система буде перезавантажена. Це може зайняти деякий час..."
+
+msgid "The test email has been sent successfully. Please check your mailbox."
+msgstr ""
+
+#, c-format
+msgid "The user '%s' does not exist"
+msgstr "Користувач '%s' не існує"
+
+#, c-format
+msgid "The user '%s' is not allowed"
+msgstr "Недопустимий користувач '%s' "
+
+msgid "The value in this field is invalid"
+msgstr "Хибне значення поля"
+
+msgid "The volume label for the filesystem."
+msgstr "Мітка тому для цієї файлової системи"
+
+msgid ""
+"The welcome message which will be displayed to the user when they initially "
+"login."
+msgstr ""
+
+msgid "The workgroup the server will appear to be in when queried by clients."
+msgstr ""
+
+#, c-format
+msgid "There already exists a mount point for %s"
+msgstr ""
+
+msgid ""
+"These settings are used by the services to configure the user access rights."
+" Please note that these settings do no affect the file system permissions."
+msgstr ""
+
+msgid ""
+"This controls whether this share is seen in the list of available shares in "
+"a net view and in the browse list."
+msgstr ""
+
+msgid "This field does not allow blanks"
+msgstr ""
+
+msgid "This field must have the format hh:mm:ss"
+msgstr ""
+
+msgid "This field should be a IPv4 network address"
+msgstr "Це поле повинно містити IPv4 адресу мережі"
+
+msgid "This field should be a IPv4 network address in CIDR notation"
+msgstr ""
+
+msgid "This field should be a domainname or an IPv4 address"
+msgstr ""
+
+msgid "This field should be a hostname or an IPv4 address"
+msgstr "Це поле повинно містити назву хоста, або IPv4 адресу"
+
+msgid ""
+"This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
+msgstr ""
+
+msgid "This field should be a port in the range of 1 - 65535"
+msgstr ""
+
+msgid ""
+"This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
+msgstr ""
+
+msgid "This field should be an IPv4 address"
+msgstr "Це поле повинно містити IPv4 адресу"
+
+msgid ""
+"This field should be either a IPv4 network address (with /mask), a IPv4 "
+"range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
+"192.168.178.20-192.168.178.254)"
+msgstr ""
+
+msgid "This field should only contain numbers"
+msgstr "Це поле повинно містити тільки числа"
+
+msgid "This field should only contain numbers seperated by <,> or <;>"
+msgstr ""
+
+msgid ""
+"This field should only contain ports (0 - 65535) seperated by <,> or <;>"
+msgstr ""
+
+msgid "This field should only contain strings seperated by <,> or <;>"
+msgstr ""
+
+msgid "This function is effective only if the hard drive supports it."
+msgstr ""
+
+msgid ""
+"This is a text field that is seen next to a share when a client queries the "
+"server."
+msgstr ""
+
+msgid ""
+"This may make more efficient use of the system CPU's and cause Samba to be "
+"faster. Samba automatically turns this off for clients that use protocol "
+"levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
+msgstr ""
+
+msgid ""
+"This option causes the server to not send a certificate request during a SSL"
+" handshake."
+msgstr ""
+
+msgid ""
+"This option determines if this module should be listed when the client asks "
+"for a listing of available modules."
+msgstr ""
+
+msgid ""
+"This option is a comma, space, or tab delimited set of host which are NOT "
+"permitted to access this module. Where the lists conflict, the allow list "
+"takes precedence. In the event that it is necessary to deny all by default, "
+"use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
+"to the hosts allow parameter those hosts that should be permitted access. "
+"Leave this field empty to use default settings."
+msgstr ""
+
+msgid ""
+"This option is a comma, space, or tab delimited set of host which are NOT "
+"permitted to access this share. Where the lists conflict, the allow list "
+"takes precedence. In the event that it is necessary to deny all by default, "
+"use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
+"to the hosts allow parameter those hosts that should be permitted access. "
+"Leave this field empty to use default settings."
+msgstr ""
+
+msgid ""
+"This option is a comma, space, or tab delimited set of hosts which are "
+"permitted to access this module. You can specify the hosts by name or IP "
+"number. Leave this field empty to use default settings."
+msgstr ""
+
+msgid ""
+"This option is a comma, space, or tab delimited set of hosts which are "
+"permitted to access this share. You can specify the hosts by name or IP "
+"number. Leave this field empty to use default settings."
+msgstr ""
+
+msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr ""
+
+msgid ""
+"This option specifies the group name that file transfers to and from that "
+"module should take place."
+msgstr ""
+
+msgid ""
+"This option specifies the maximum number of simultaneous connections. 0 "
+"means no limit."
+msgstr ""
+
+msgid ""
+"This option specifies the user name that file transfers to and from that "
+"module should take place."
+msgstr ""
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr ""
+
+msgid ""
+"This parameter can be used to ensure that if default acls exist on parent "
+"directories, they are always honored when creating a new file or "
+"subdirectory in these parent directories."
+msgstr ""
+
+msgid ""
+"This parameter controls whether files starting with a dot appear as hidden "
+"files"
+msgstr ""
+
+msgid ""
+"This parameter says that if N occurrences of the event happen within the "
+"given time interval, then a ban is automatically added."
+msgstr ""
+
+msgid "This rule is triggered whenever the selected event directive occurs."
+msgstr ""
+
+msgid "This will create a recycle bin on the share."
+msgstr ""
+
+msgid "Thursday"
+msgstr "Четвер"
+
+msgid "TiB"
+msgstr ""
+
+msgid "Time"
+msgstr "Час"
+
+msgid "Time interval"
+msgstr "Інтервал часу"
+
+msgid "Time server"
+msgstr "Сервер часу"
+
+msgid "Time servers"
+msgstr "Сервери часу"
+
+msgid "Time zone"
+msgstr "Чаова зона"
+
+msgid "Timeout"
+msgstr "Тайм-аут"
+
+msgid "Times"
+msgstr ""
+
+msgid ""
+"To restore a previously backed up configuration click the 'Restore' button. "
+"The system will reboot automatically after import has been finished "
+"successfully."
+msgstr ""
+
+msgid "Togo"
+msgstr ""
+
+msgid "Tokelau"
+msgstr ""
+
+msgid "Tonga"
+msgstr ""
+
+msgid "Traps"
+msgstr ""
+
+msgid "Treshold"
+msgstr ""
+
+msgid "Trinidad and Tobago"
+msgstr ""
+
+msgid "Tuesday"
+msgstr ""
+
+msgid "Tunisia"
+msgstr ""
+
+msgid "Turkey"
+msgstr ""
+
+msgid "Turkmenistan"
+msgstr ""
+
+msgid "Turks and Caicos Islands"
+msgstr ""
+
+msgid "Tuvalu"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "U.S. Miscellaneous Pacific Islands"
+msgstr ""
+
+msgid "U.S. Virgin Islands"
+msgstr ""
+
+msgid "Uganda"
+msgstr ""
+
+msgid "Ukraine"
+msgstr ""
+
+msgid "Uninstall"
+msgstr "Деінсталювати"
+
+msgid "Uninstall plugins ..."
+msgstr "Деінсталяція плагінів..."
+
+msgid "Union of Soviet Socialist Republics"
+msgstr "Union of Soviet Socialist Republics"
+
+msgid "Unit"
+msgstr ""
+
+msgid "United Arab Emirates"
+msgstr "United Arab Emirates"
+
+msgid "United Kingdom"
+msgstr "United Kingdom"
+
+msgid "United States"
+msgstr "United States"
+
+msgid "United States Minor Outlying Islands"
+msgstr "United States Minor Outlying Islands"
+
+#, c-format
+msgid "Unknown filesystem '%s'"
+msgstr "Невідома файлова система '%s'"
+
+#, c-format
+msgid "Unknown log file type (id=%s)"
+msgstr "Невідомий тип log-файлу (id=%s)"
+
+msgid "Unknown network interface type."
+msgstr ""
+
+msgid "Unmount"
+msgstr "Розмонтувати"
+
+msgid "Up"
+msgstr ""
+
+msgid "Up delay"
+msgstr ""
+
+msgid "Update Manager"
+msgstr "Менеджер оновлень"
+
+msgid "Update now"
+msgstr "Оновити зараз"
+
+msgid "Update the destination ACLs to be the same as the source ACLs"
+msgstr ""
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones"
+msgstr ""
+
+msgid "Updated"
+msgstr "Оновлено"
+
+msgid "Updating ACL settings"
+msgstr ""
+
+msgid "Upload"
+msgstr "Завантажити"
+
+msgid "Upload file"
+msgstr "Завантажити файл"
+
+msgid "Upload package"
+msgstr "Завантажити пакет"
+
+msgid "Upload plugin"
+msgstr "Завантажити плагін"
+
+msgid "Uploading file ..."
+msgstr "Завантаження файлу..."
+
+msgid "Uptime"
+msgstr ""
+
+msgid "Uruguay"
+msgstr "Uruguay"
+
+msgid "Use NTP server"
+msgstr "Використовувати NTP сервер"
+
+msgid "Use SSL/TLS secure connection"
+msgstr "Використовувати SSL/TLS захищене з'єднання"
+
+msgid "Use sendfile"
+msgstr ""
+
+msgid "Use the following bandwidth restriction:"
+msgstr "Використовувати наступні обмеження пропускної здатності:"
+
+msgid "Use the following port range:"
+msgstr "Використовувати наступний діапазон портів:"
+
+msgid ""
+"Use the more efficient sendfile system call for files that are exclusively "
+"oplocked"
+msgstr ""
+
+msgid "Use the specified WINS server."
+msgstr ""
+
+msgid "Used"
+msgstr ""
+
+msgid "Used capacity"
+msgstr ""
+
+msgid "User"
+msgstr "Користувач"
+
+#, c-format
+msgid "User '%s' already exist"
+msgstr "Користувач '%s' вже існує"
+
+#, c-format
+msgid "User '%s' does not exist"
+msgstr "Користувач '%s' не існує"
+
+#, c-format
+msgid "User ID '%d' already exist"
+msgstr "ID  '%d' користувача вже існує"
+
+msgid "User home directory"
+msgstr "Домашній каталог користувача"
+
+msgid "User information"
+msgstr "Інформація про користувача"
+
+msgid "User/Group permissions"
+msgstr "Права доступу Користувача/Групи"
+
+msgid "Username"
+msgstr "Ім'я користувача"
+
+msgid "Users"
+msgstr "Користувачі"
+
+msgid "Uzbekistan"
+msgstr "Uzbekistan"
+
+msgid "Valid to"
+msgstr "Дійсний до"
+
+msgid "Value"
+msgstr "Значення"
+
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+msgid "Vatican"
+msgstr "Vatican"
+
+msgid "Vendor"
+msgstr "Виробник"
+
+msgid "Venezuela"
+msgstr "Venezuela"
+
+msgid "Version"
+msgstr ""
+
+msgid "Vietnam"
+msgstr ""
+
+msgid "Volume"
+msgstr ""
+
+msgid "WINS"
+msgstr ""
+
+msgid "WINS server"
+msgstr ""
+
+msgid "WINS support"
+msgstr ""
+
+msgid "Wake Island"
+msgstr ""
+
+msgid "Wake-on-LAN"
+msgstr ""
+
+msgid "Wallis and Futuna"
+msgstr ""
+
+msgid "Warning"
+msgstr ""
+
+msgid "Web Administration"
+msgstr ""
+
+msgid "Web Administrator Password"
+msgstr ""
+
+msgid "Web administration interface"
+msgstr ""
+
+msgid "Wednesday"
+msgstr ""
+
+msgid "Welcome message"
+msgstr ""
+
+msgid "Western Sahara"
+msgstr ""
+
+msgid ""
+"When a client initially connects to the server the ident protocol is used to"
+" attempt to identify the remote username."
+msgstr ""
+
+msgid "When failed"
+msgstr ""
+
+msgid "Wipe"
+msgstr "Зтерти"
+
+msgid "Wiping device ..."
+msgstr "Зтирання..."
+
+msgid "Workgroup"
+msgstr ""
+
+msgid "Worst"
+msgstr ""
+
+msgid "Write cache"
+msgstr ""
+
+msgid "Write only"
+msgstr ""
+
+msgid "Yemen"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "Zambia"
+msgstr ""
+
+msgid "Zimbabwe"
+msgstr ""
+
+msgid "day"
+msgstr ""
+
+msgid "days"
+msgstr ""
+
+msgid "hour"
+msgstr ""
+
+msgid "hours"
+msgstr ""
+
+msgid "minute"
+msgstr ""
+
+msgid "minutes"
+msgstr ""
+
+#, c-format
+msgid "n/a"
+msgstr ""
+
+msgid "seconds"
+msgstr ""
+
+msgid "web administration interface"
+msgstr ""

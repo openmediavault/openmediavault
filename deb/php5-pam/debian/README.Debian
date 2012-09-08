@@ -1,0 +1,7 @@
+php-pam for Debian
+--------------------------
+
+This extension has been created with dh-make-pecl which is part
+of dh-make-php.
+
+ -- Volker Theile <volker.theile@openmediavault.org>, Fri, 22 Jun 2012 12:05:26 +0000

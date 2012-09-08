@@ -1,0 +1,120 @@
+API
+
+  bool pam_auth(string $username, string $password [, string &$error [ $checkacctmgmt = true ] ])
+  bool pam_chpass(string $username, string $oldpassword, string $newpassword [, string &$error ])
+
+ The parameters are
+ 
+   username			- Username to check
+   password			- User supplied password
+   error			- Output parameter to put any error messages in
+   checkacctmgmt	- Call pam_acct_mgmt() to check account expiration and access hours (requires root access!)
+   oldpassword		- Current password on account
+   newpassword		- Password to change to
+
+INSTALLATION
+
+  For pam_auth to work, pam must know about the php service.
+
+  For the module itself, the only real configuration is the servicename. By
+  default, this is set to php. It can be changed by adding the following to your
+  php.ini:
+
+  pam.servicename = "php";
+
+  Next, you'll need to create a pam service file for php. If you are on linux,
+  you'll need to create the file /etc/pam.d/php. You can copy another one to work
+  off of (/etc/pam.d/login is a good choice).
+
+  Some examples that should work:
+
+  on linux:
+
+# /etc/pam.d/php
+#
+# note: both an auth and account entry are required
+
+auth	sufficient	/lib/security/pam_pwdb.so shadow nodelay
+account	sufficient	/lib/security/pam_pwdb.so
+
+  on solaris:
+
+# add to /etc/pam.conf
+
+php	auth	requisite	/usr/lib/security/pam_authtok_get.so.1
+php	auth	required	/usr/lib/security/pam_unix_auth.so.1
+php	account	required	/usr/lib/security/pam_unix_account.so.1
+
+  These would authenticate out of the unix password and shadow file. However 
+  please checking other /etc/pam.d/ entries, as the libraries these examples
+  point to may not be correct.
+  
+  
+FAQ
+
+ * What is PAM?
+ 
+ PAM stands for Pluggable Authentication Module. It is a system that abstracts
+ user authentication to allow arbitrary modules to handle the real work. In this
+ way, pam enabled services can use a variety of complex authentication schemes
+ without modifying the applications. For more Information, and available
+ modules, see http://www.kernel.org/pub/linux/libs/pam/.
+ 
+ 
+ * Why would I want to use PAM from PHP?
+ 
+ PAM gives you very flexible control over authentication. As an example, there
+ are PAM modules that will authenticate against a local shadow or password file,
+ a Windows NT domain, an SQL database, LDAP, Kerberos, Radius, and more. In
+ addition, pam modules can give you the ability to have restrictions on the
+ authentication, such as the pam_tally module which limits the number of login
+ attempts, and the pam_listfile which let's you restrict access to a list of
+ users. Please note, using pam does not mean you can securely authenticate
+ users, it simply gives you the ability to do so with proper configuration and
+ planning.
+ 
+ 
+ * How can I get pam?
+ 
+ If you are running linux or solaris, you already have it! Linux and Solaris
+ both natively use pam for all authentication, so you're are all set. If you are
+ on other systems, well, you're on your own. I have no idea what PAM has been
+ ported too...
+ 
+ 
+ * I'm getting an Authentication Failure error, why?
+ 
+ Try setting the $checkacctmgmt parameter to false to skip the pam_acct_mgmt() 
+ call, note that this only checks the password and skips performing account 
+ validation such as account expiration and access. Otherwise see below.
+ 
+ The most likely reason for this is that you are trying to authenticate via a
+ local shadow file and you do not have permission to do so. The PAM modules
+ handling shadow authentication (used on Linux and Solaris) require that the
+ application have permission to read the shadow file (makes sense, eh?). If you
+ are running php as a cgi or as a webserver module, it is executed as your
+ webservers user and group. 
+ 
+ By default, most Linux and Solaris systems are configured to only allow the root
+ user to read the shadow file. The recommended
+ way around this is to change permissions on the shadow file so that it is group
+ readable, and chgrp the file to the a group that the webserver is in. Before
+ doing this, you should give it some serious thought as allowing your webserver
+ to read the shadow file gives hackers another way to crack away at your system.
+ 
+ If you decide to enable this, I stronly suggest usage of the pam_tally module
+ to limit failed logins to a reasonable number of attempts, and one of the other
+ modules which will allow you to block root and other system users.
+ 
+ 
+ * The pam_auth function doesn't return anything, whattup?
+ 
+ Did you remember to create an entry in the pam configuration for the php
+ service?
+ 
+ 
+ * Logs indicate pam authenticated the user, but the function doesn't return 
+ true, what gives?
+ 
+ Make sure your pam configuration has an entry for both auth and account, if you
+ do not have both, it will not work. 

@@ -1,0 +1,50 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_NSSWITCH_CONFIG=${OMV_NSSWITCH_CONFIG:-"/etc/nsswitch.conf"}
+
+xmlstarlet sel -t \
+  -i "//services/ldap/enable = '0'" \
+	-o "passwd:         compat" -n \
+	-o "group:          compat" -n \
+	-o "shadow:         compat" -n \
+  -b \
+  -i "//services/ldap/enable = '1'" \
+	-o "passwd:         files ldap" -n \
+	-o "group:          files ldap" -n \
+	-o "shadow:         files ldap" -n \
+  -b \
+  -n \
+  -o "hosts:          files mdns4_minimal [NOTFOUND=return] dns mdns4" -n \
+  -o "networks:       files" -n \
+  -n \
+  -o "protocols:      db files" -n \
+  -o "services:       db files" -n \
+  -o "ethers:         db files" -n \
+  -o "rpc:            db files" -n \
+  -n \
+  -o "netgroup:       nis" \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NSSWITCH_CONFIG}

@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Henrik Sandström <henrik.sandstroem@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-16 19:00+0200\n"
+"PO-Revision-Date: 2012-08-26 09:02+0000\n"
+"Last-Translator: Henrik Sandström <henrik.sandstroem@gmail.com>\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add share"
+msgstr "Lägg till utdelning"
+
+msgid "Advertise this service via mDNS/DNS-SD."
+msgstr "Annonsera den här tjänsten via mDNS/DNS-SD."
+
+msgid "Allow guest logins"
+msgstr "Tillåt gästinloggningar"
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr "Tillåt inloggningar med lösenord som skickas okrypterat."
+
+msgid "Allow plain passwords"
+msgstr "Tillåt enkla lösenord"
+
+msgid "Apple Filing"
+msgstr "Apple Filing"
+
+msgid "Authentication"
+msgstr "Autentisering"
+
+msgid "Case folding"
+msgstr "Versal/gemen-hantering"
+
+msgid "Client sees lowercase, server sees uppercase"
+msgstr "Klient ser gemen, server ser versal"
+
+msgid "Client sees uppercase, server sees lowercase"
+msgstr "Klient ser versal, server ser gemen"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "DNS Service Discovery"
+msgstr "DNS Service Discovery"
+
+msgid "Don't do :hex translation for dot files."
+msgstr "Utför ingen :hex-översättning för .dot-filer."
+
+msgid "Edit share"
+msgstr "Redigera utdelning"
+
+msgid "Enable"
+msgstr "Aktivera"
+
+msgid "Enable Time Machine support for this share."
+msgstr "Aktivera stöd för 'Time Machine' på denna utdelning."
+
+msgid "Enable user home directories."
+msgstr "Aktivera hemkataloger för användare."
+
+msgid "Extra options"
+msgstr "Extra inställningar"
+
+msgid "Forces filename restrictions"
+msgstr "Tvinga filnamnsbegränsningar"
+
+msgid "General settings"
+msgstr "Allmänna inställningar"
+
+msgid "Hide dot files"
+msgstr "Dölj .dot-filer"
+
+msgid "Home directories"
+msgstr "Hemkataloger"
+
+msgid ""
+"If this option is set, then a password is required to access the share."
+msgstr "Om detta val är angett kommer ett lösenord att krävas för att ansluta till den utdelade resursen."
+
+msgid ""
+"If this option is set, then users may not create or modify files in the "
+"share."
+msgstr "Om detta val är angett kommer användare inte att tillåtas skapa eller ändra filer i den utdelade resursen."
+
+msgid ""
+"Limit the reported volume size to the given value in MiB, thus preventing TM"
+" from using the whole disk space for backup. Set this value to 0 to disable "
+"this option."
+msgstr "Begränsa den rapporterade volymstorleken till värdet angivet i MiB, detta begränsar TM från att använda hela diskutrymmet för säkerhetskopiering. Sätt detta värde till 0 för att inaktivera detta val."
+
+msgid "Lowercases names in both directions"
+msgstr "Gemener-namn i båda riktningar"
+
+msgid "Make dot files invisible."
+msgstr "Gör .dot-filer osynliga."
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "None"
+msgstr "Ingen"
+
+msgid "Password"
+msgstr "Lösenord"
+
+msgid "Quota"
+msgstr "Kvot"
+
+msgid "Read only"
+msgstr "Skrivskydd"
+
+msgid "Set read only."
+msgstr "Sätt skrivskydd."
+
+msgid "Settings"
+msgstr "Inställningar"
+
+msgid "Shared folder"
+msgstr "Utdelad mapp"
+
+msgid "Shares"
+msgstr "Utdelningar"
+
+msgid "The location of the files to share."
+msgstr "Placeringen av filerna att dela."
+
+msgid "The name of the share."
+msgstr "Namnet på utdelningen."
+
+msgid "The service name."
+msgstr "Tjänstens namn."
+
+msgid ""
+"This forces filenames to be restricted to the character set used by Windows."
+msgstr "Detta tvingar filnamn att begränsas till den teckenuppsättning som används av Windows."
+
+msgid "This option handles, if the case of filenames should be changed."
+msgstr "Detta alternativ hanterar om det rör sig om filnamn som bör ändras."
+
+msgid "Time Machine support"
+msgstr "Stöd för Time Machine"
+
+msgid "Unix privileges"
+msgstr "Unix-privilegier"
+
+msgid "Uppercases names in both directions"
+msgstr "Versal-namn i båda riktningarna"
+
+msgid "Use AFP3 unix privileges."
+msgstr "Använd AFP3 Unix-privilegier"
+
+msgid "Use dots"
+msgstr "Använd 'dots'"
+
+msgid ""
+"When this option gets set, certain file names become illegal. These are "
+".Parent and anything that starts with .Apple."
+msgstr "När det här alternativet väljs, blir vissa filnamn olagliga. Dessa är .Parent och alla som börjar med .Apple."
+
+msgid "n/a"
+msgstr "n/a"

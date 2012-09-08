@@ -1,0 +1,49 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+
+clean:
+	dh_testdir
+	dh_testroot
+	find . -maxdepth 1 -not -iname "debian" -not -iname "*.zip" -not -name ".*" -exec rm -r '{}' \;
+	dh_clean
+
+extract: extract-stamp
+extract-stamp:
+	unzip $(CURDIR)/../sources/xtheme-azenis-0.5.zip
+	touch extract-stamp
+
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+	touch configure-stamp
+
+build: extract configure build-stamp
+build-stamp:
+	touch build-stamp
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+
+binary-indep: install
+	dh_testdir
+	dh_testroot
+	dh_install
+	dh_installchangelogs
+	dh_installdebconf
+	dh_lintian
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-arch: install
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install configure extract

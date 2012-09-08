@@ -1,0 +1,20 @@
+Source: php-pam
+Section: web
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 7), po-debconf, xsltproc , php5-dev, libpam-dev
+Standards-Version: 3.8.1
+
+Package: php5-pam
+Architecture: any
+Depends: ${shlibs:Depends}, ${php:Depends}, ${misc:Depends}
+Description: pam module for PHP 5
+ PAM integration
+ .
+ This extension provides PAM (Pluggable Authentication Modules)
+ integration. PAM is a system of libraries that handle the
+ authentication tasks of applications and services. The library
+ provides a stable API for applications to defer to for authentication
+ tasks.
+
+

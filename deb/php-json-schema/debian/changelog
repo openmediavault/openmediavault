@@ -1,0 +1,5 @@
+php-json-schema (0.2.0) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 06 May 2011 09:57:40 +0200

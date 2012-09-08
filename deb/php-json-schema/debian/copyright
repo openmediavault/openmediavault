@@ -1,0 +1,13 @@
+Format: http://dep.debian.net/deps/dep5
+Upstream-Contact: Volker Theile <volker.theile@openmediavault.org>
+Source: http://code.google.com/p/json-schema-php
+
+Files: *
+Copyright: (c) 2011 Volker Theile <volker.theile@openmediavault.org>
+License: GPL-3
+
+Files: JsonSchema.php
+Copyright: 
+  (c) MoXie <SysTem128@GMail.Com> 2010-12-11
+  (c) 2010-2010 Zoeey.Org
+License: LGPL-3

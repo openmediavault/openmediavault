@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Serhat SUT <serhat.sut@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-16 19:00+0200\n"
+"PO-Revision-Date: 2012-08-20 08:23+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
+"Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: tr_TR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Add share"
+msgstr "Paylaşım ekle"
+
+msgid "Advertise this service via mDNS/DNS-SD."
+msgstr "Bu servisi mDNS/DNS-SD ile duyur."
+
+msgid "Allow guest logins"
+msgstr "Misafir girişine izin ver"
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr "Temiz yollanan şifreler ile girişe izin ver."
+
+msgid "Allow plain passwords"
+msgstr "Yalın şifrelere izin ver"
+
+msgid "Apple Filing"
+msgstr "Apple dosyalaması"
+
+msgid "Authentication"
+msgstr "Onaylama"
+
+msgid "Case folding"
+msgstr "Harf küçültme"
+
+msgid "Client sees lowercase, server sees uppercase"
+msgstr "İstemci küçük harf görür, sunucu büyük harf görür"
+
+msgid "Client sees uppercase, server sees lowercase"
+msgstr "İstenci büyük harf görür, sunucu küçük harf görür"
+
+msgid "Comment"
+msgstr "Açıklama"
+
+msgid "DNS Service Discovery"
+msgstr "DNS Servis Keşfi"
+
+msgid "Don't do :hex translation for dot files."
+msgstr "Yapmayın : noktalı dosyaların hex formatına dönüştürülmesi."
+
+msgid "Edit share"
+msgstr "Paylaşım düzenle"
+
+msgid "Enable"
+msgstr "Çalışabilir"
+
+msgid "Enable Time Machine support for this share."
+msgstr "Bu paylaşım için Zaman Makinası desteğini çalıştır."
+
+msgid "Enable user home directories."
+msgstr "Kullanıcı ana klasörlerine izin ver."
+
+msgid "Extra options"
+msgstr "Ekstra seçenekler"
+
+msgid "Forces filename restrictions"
+msgstr "Dosya adı sınırlamalarını uygula"
+
+msgid "General settings"
+msgstr "Genel ayarlar"
+
+msgid "Hide dot files"
+msgstr "Noktalı dosyaları gizle"
+
+msgid "Home directories"
+msgstr "Ana klasörler"
+
+msgid ""
+"If this option is set, then a password is required to access the share."
+msgstr "Bu seçenek kullanılır ise paylaşıma ulaşabilmek için şifre gerekli olacaktır."
+
+msgid ""
+"If this option is set, then users may not create or modify files in the "
+"share."
+msgstr "Bu seçenek kullanılır ise kullanıcılar bu paylaşımda dosya oluşturamayabilir ya da dosyaları değiştiremeyebilirler."
+
+msgid ""
+"Limit the reported volume size to the given value in MiB, thus preventing TM"
+" from using the whole disk space for backup. Set this value to 0 to disable "
+"this option."
+msgstr "Raporlanan bölüm büyüklüğünü girilen MiB cinsinden değer ile sınırlar. Böylece TM nin tüm disk alanını yedekleme için kullanmasını önler. Bu opsiyonu kapatmak için 0 değerini giriniz."
+
+msgid "Lowercases names in both directions"
+msgstr "Her iki yönde de isimleri küçük harfe çevirir"
+
+msgid "Make dot files invisible."
+msgstr "Noktalı dosyaları görünmez yap."
+
+msgid "Name"
+msgstr "İsim"
+
+msgid "None"
+msgstr "Hiç"
+
+msgid "Password"
+msgstr "Şifre"
+
+msgid "Quota"
+msgstr "Kota"
+
+msgid "Read only"
+msgstr "Sadece okunabilir"
+
+msgid "Set read only."
+msgstr "Sadece okunabilir olarak ayarla."
+
+msgid "Settings"
+msgstr "Ayarlar"
+
+msgid "Shared folder"
+msgstr "Paylaşılmış klasör"
+
+msgid "Shares"
+msgstr "Paylaşımlar"
+
+msgid "The location of the files to share."
+msgstr "Paylaşılan dosyaların yeri."
+
+msgid "The name of the share."
+msgstr "Paylaşımın adı."
+
+msgid "The service name."
+msgstr "Servis adı."
+
+msgid ""
+"This forces filenames to be restricted to the character set used by Windows."
+msgstr "Bu, dosya isimlerinde Windows tarafından kullanılan karakter setini zorunlu kılar."
+
+msgid "This option handles, if the case of filenames should be changed."
+msgstr "Bu seçenek, dosya isimlerinin değiştirilmesi gerektiği durumda çalışır."
+
+msgid "Time Machine support"
+msgstr "Zaman makinası desteği"
+
+msgid "Unix privileges"
+msgstr "Unix yetkileri"
+
+msgid "Uppercases names in both directions"
+msgstr "Her iki yönde de isimleri büyük harfe çevirir"
+
+msgid "Use AFP3 unix privileges."
+msgstr "AFP3 unix haklarını kullan."
+
+msgid "Use dots"
+msgstr "Noktaları kullan"
+
+msgid ""
+"When this option gets set, certain file names become illegal. These are "
+".Parent and anything that starts with .Apple."
+msgstr "Bu seçenek ayarlandığında belirli dosya isimleri geçersiz olacaktır. Bunlar .Parent ve .Apple ile başlayan herşeydir."
+
+msgid "n/a"
+msgstr "yok"

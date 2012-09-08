@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# https://wiki.ubuntu.com/PAMConfigFrameworkSpec
+# http://www.debian.org/security/pam-auth.de.html
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+# PAM profiles are stored below /usr/share/pam-configs
+if [ "$(omv_config_get "//services/ldap/enable")" = "1" ]; then
+	pam-auth-update --force --package ldap
+else
+	pam-auth-update --force --package --remove ldap
+fi
