@@ -1,3 +1,9 @@
+openmediavault-netatalk (0.4) stable; urgency=low
+
+  * Upgrade to xmlstarlet 1.3.1.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 09 Sep 2012 01:29:33 +0200
+
 openmediavault-netatalk (0.3.0.9) stable; urgency=low
 
   * Rename deb-trigger 'update-fileperms' to 'update-fixperms'.
