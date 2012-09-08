@@ -1,3 +1,9 @@
+openmediavault-netatalk (0.3.0.9) stable; urgency=low
+
+  * Rename deb-trigger 'update-fileperms' to 'update-fixperms'.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Sep 2012 17:54:32 +0200
+
 openmediavault-netatalk (0.3.0.8) stable; urgency=low
 
   * Update locales.

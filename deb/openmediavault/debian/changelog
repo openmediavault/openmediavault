@@ -1,5 +1,6 @@
 openmediavault (0.3.0.24) stable; urgency=low
 
+  * Rename deb-trigger 'update-fileperms' to 'update-fixperms'.
   * Mantis 0000594: TFTP service doesn't work on kernels without IPv6.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Sep 2012 15:46:10 +0200

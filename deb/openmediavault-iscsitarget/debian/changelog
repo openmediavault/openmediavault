@@ -1,3 +1,10 @@
+openmediavault-iscsitarget (0.3.0.6) stable; urgency=low
+
+  * Rename deb-trigger 'update-fileperms' to 'update-fixperms'.
+  * Fix package dependencies.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Sep 2012 17:53:54 +0200
+
 openmediavault-iscsitarget (0.3.0.5) stable; urgency=low
 
   * Update locales.

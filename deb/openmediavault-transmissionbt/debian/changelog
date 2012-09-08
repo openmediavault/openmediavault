@@ -1,3 +1,9 @@
+openmediavault-transmissionbt (0.3.0.2) stable; urgency=low
+
+  * Rename deb-trigger 'update-fileperms' to 'update-fixperms'.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Sep 2012 17:55:13 +0200
+
 openmediavault-transmissionbt (0.3.0.1) stable; urgency=low
 
   * Code was modified to meet the coding guidelines.

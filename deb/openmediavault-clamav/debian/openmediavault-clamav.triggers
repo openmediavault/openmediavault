@@ -1,2 +1,2 @@
 activate update-locale
-activate update-fileperms
+activate update-fixperms
