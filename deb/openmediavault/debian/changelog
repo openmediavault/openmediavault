@@ -1,3 +1,9 @@
+openmediavault (0.3.0.24) stable; urgency=low
+
+  * Mantis 0000594: TFTP service doesn't work on kernels without IPv6.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Sep 2012 15:46:10 +0200
+
 openmediavault (0.3.0.23) stable; urgency=low
 
   * Update locales.
