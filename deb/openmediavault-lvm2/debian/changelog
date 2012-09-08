@@ -1,12 +1,7 @@
-openmediavault-lvm2 (0.3.0.10) stable; urgency=low
-
-  * Rename deb-trigger 'update-fileperms' to 'update-fixperms'.
-
- -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Sep 2012 17:54:23 +0200
-
 openmediavault-lvm2 (0.3.0.9) stable; urgency=low
 
   * Improve create/extend logical volume dialogs.
+  * Rename deb-trigger 'update-fileperms' to 'update-fixperms'.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Sep 2012 01:33:35 +0200
 
