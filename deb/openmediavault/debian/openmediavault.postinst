@@ -124,7 +124,7 @@ case "$1" in
 		  /var/cache/openmediavault ${OMV_DOCUMENTROOT_DIR}
 		chmod 755 /var/www
 		chmod 600 ${OMV_CONFIG_FILE}
-		dpkg-trigger update-fileperms || omv_install_fixperms
+		dpkg-trigger update-fixperms || omv_install_fixperms
 
 		########################################################################
 		# Install locale files.

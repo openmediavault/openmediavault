@@ -2,7 +2,7 @@ Source: openmediavault
 Section: web net
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
-Build-Depends: debhelper (>> 7 ), gettext
+Build-Depends: debhelper (>> 7), gettext
 Standards-Version: 3.6.10
 Homepage: http://www.openmediavault.org
 
