@@ -46,7 +46,7 @@ mkconf() {
 	  -o "# This file controls the activity of snmpd and snmptrapd" -n \
 	  -o "export MIBDIRS=/usr/share/snmp/mibs" -n \
 	  -o "SNMPDRUN=yes" -n \
-	  -o "SNMPDOPTS=&quot;${OMV_SNMPD_SNMPDOPTS}&quot;" -n \
+	  -o "SNMPDOPTS=\"${OMV_SNMPD_SNMPDOPTS}\"" -n \
 	  -o "TRAPDRUN=no" -n \
 	  -o "SNMPDCOMPAT=yes" -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_SNMPD_DEFAULT}
@@ -69,10 +69,10 @@ mkconf() {
 	  -b \
 	  -o "view all included .1 80" -n \
 	  -i "version[. = '2c']" \
-		  -o "access MyROGroup &quot;&quot; any noauth exact all none none" -n \
+		  -o "access MyROGroup \"\" any noauth exact all none none" -n \
 	  -b \
 	  -i "version[. = '3']" \
-		  -v "concat('access MyROGroup &quot;&quot; usm ',securitylevel,' exact all none none')" -n \
+		  -v "concat('access MyROGroup \"\" usm ',securitylevel,' exact all none none')" -n \
 	  -b \
 	  -o "sysName ${sysname}" -n \
 	  -v "concat('sysLocation ',syslocation)" -n \

@@ -55,17 +55,17 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "# Set maximum HTTP request length to 25 MiB" -n \
   -o "FcgidMaxRequestLen 26214400" -n \
   -o "FcgidIOTimeout ${OMV_APACHE2_FCGIDIOTIMEOUT}" -n \
-  -o "&lt;Directory ${OMV_DOCUMENTROOT_DIR}/&gt;" -n \
+  -o "<Directory ${OMV_DOCUMENTROOT_DIR}/>" -n \
   -o "    Options FollowSymLinks" -n \
-  -o "    &lt;FilesMatch \.php$&gt;" -n \
+  -o "    <FilesMatch \.php$>" -n \
   -o "        FcgidWrapper ${OMV_DOCUMENTROOT_DIR}/php-fcgi .php" -n \
   -o "        SetHandler fcgid-script" -n \
   -o "        Options +ExecCGI" -n \
-  -o "    &lt;/FilesMatch&gt;" -n \
+  -o "    </FilesMatch>" -n \
   -o "    Order Allow,Deny" -n \
   -o "    Allow from All" -n \
   -o "    AllowOverride None" -n \
-  -o "&lt;/Directory&gt;" -n \
+  -o "</Directory>" -n \
   -o "LogLevel ${OMV_APACHE2_SITE_OPENMEDIAVAULT_LOGLEVEL}" -n \
   -o "ErrorLog \${APACHE_LOG_DIR}/${OMV_APACHE2_SERVERNAME}_error.log" -n \
   -o "CustomLog \${APACHE_LOG_DIR}/${OMV_APACHE2_SERVERNAME}_access.log combined" \
@@ -74,18 +74,18 @@ xmlstarlet sel -t -m "//webadmin" \
 # Create '/etc/apache2/sites-available/openmediavault-webgui' file
 xmlstarlet sel -t -m "//webadmin" \
   -i "enablessl[. = '1']" \
-	  -v "concat('&lt;VirtualHost *:',sslport,'&gt;')" -n \
+	  -v "concat('<VirtualHost *:',sslport,'>')" -n \
 	  -o "    Include ${OMV_APACHE2_WEBGUI_CONFIG_DIR}/*.conf" -n \
 	  -o "    SSLEngine on" -n \
 	  -v "concat('    SSLCertificateFile ${OMV_CERTIFICATE_DIR}/certs/',sslcertificateref,'.crt')" -n \
 	  -v "concat('    SSLCertificateKeyFile ${OMV_CERTIFICATE_DIR}/private/',sslcertificateref,'.key')" -n \
-	  -o "&lt;/Virtualhost&gt;" -n \
+	  -o "</Virtualhost>" -n \
   -b \
   -i "enablessl[. = '0'] or forcesslonly[. = '0']" \
-	  -v "concat('&lt;VirtualHost *:',port,'&gt;')" -n \
+	  -v "concat('<VirtualHost *:',port,'>')" -n \
 	  -o "    Include ${OMV_APACHE2_WEBGUI_CONFIG_DIR}/*.conf" -n \
 	  -o "    SSLEngine off" -n \
-	  -o "&lt;/Virtualhost&gt;" \
+	  -o "</Virtualhost>" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_APACHE2_SITE_OPENMEDIAVAULT_CONFIG}
 
@@ -96,9 +96,9 @@ xmlstarlet sel -t -m "//webadmin" \
 	  -v "concat('Listen ',port)" -n \
   -b \
   -i "enablessl[. = '1']" \
-	-o "&lt;IfModule mod_ssl.c&gt;" -n \
+	-o "<IfModule mod_ssl.c>" -n \
 	-v "concat('NameVirtualHost *:',sslport)" -n \
 	-v "concat('Listen ',sslport)" -n \
-	-o "&lt;/IfModule&gt;" -n \
+	-o "</IfModule>" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_APACHE2_PORTS_CONFIG}

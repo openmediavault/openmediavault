@@ -44,53 +44,53 @@ EOF
 	xmlstarlet sel -t -m "//services/daap" \
 	  -o "general {" -n \
 	  -o "    # Username" -n \
-	  -o "    uid = &quot;${OMV_FORKEDDAAPD_GENERAL_UID}&quot;" -n \
-	  -o "    logfile = &quot;${OMV_FORKEDDAAPD_GENERAL_LOGFILE}&quot;" -n \
+	  -o "    uid = \"${OMV_FORKEDDAAPD_GENERAL_UID}\"" -n \
+	  -o "    logfile = \"${OMV_FORKEDDAAPD_GENERAL_LOGFILE}\"" -n \
 	  -o "    # Available levels: fatal, log, warning, info, debug, spam" -n \
-	  -o "    loglevel = &quot;${OMV_FORKEDDAAPD_GENERAL_LOGLEVEL}&quot;" -n \
+	  -o "    loglevel = \"${OMV_FORKEDDAAPD_GENERAL_LOGLEVEL}\"" -n \
 	  -o "    # Database location" -n \
-	  -o "    db_path = &quot;${OMV_FORKEDDAAPD_GENERAL_DBPATH}&quot;" -n \
+	  -o "    db_path = \"${OMV_FORKEDDAAPD_GENERAL_DBPATH}\"" -n \
 	  -o "    # Admin password for the non-existent web interface" -n \
-	  -v "concat('    admin_password = &quot;',adminpassword,'&quot;')" -n \
+	  -v "concat('    admin_password = \"',adminpassword,'\"')" -n \
 	  -o "}" -n \
 	  -n \
 	  -o "# Library configuration" -n \
 	  -o "library {" -n \
 	  -o "    # Name of the library as displayed by the clients" -n \
 	  -o "    # %h: hostname, %v: version" -n \
-	  -v "concat('    name = &quot;',libraryname,'&quot;')" -n \
+	  -v "concat('    name = \"',libraryname,'\"')" -n \
 	  -o "    # TCP port to listen on. Default port is 3689 (daap)" -n \
 	  -v "concat('    port = ',port)" -n \
 	  -i "passwordrequired[. = '1']" \
 		  -o "    # Password for the library. Optional." -n \
-		  -v "concat('    password = &quot;',password,'&quot;')" -n \
+		  -v "concat('    password = \"',password,'\"')" -n \
 	  -b \
 	  -o "    # Directories to index" -n \
 	  -o "    directories = " ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -n \
 	  -o "    # Directories containing compilations" -n \
 	  -o "    # Matches anywhere in the path (not a regexp, though)" -n \
-	  -o "#   compilations = { &quot;/compilations/&quot; }" -n \
+	  -o "#   compilations = { \"/compilations/\" }" -n \
 	  -o "    # Should iTunes metadata override ours?" -n \
 	  -o "    itunes_overrides = ${OMV_FORKEDDAAPD_LIBRARY_ITUNESOVERRIDES}" -n \
 	  -o "    # Formats: mp4a, mp4v, mpeg, alac, flac, mpc, ogg, wma, wmal, wmav, aif$" -n \
 	  -o "    # Formats that should never be transcoded" -n \
-	  -o "#   no_transcode = { &quot;alac&quot;, &quot;mp4a&quot; }" -n \
+	  -o "#   no_transcode = { \"alac\", \"mp4a\" }" -n \
 	  -o "    # Formats that should always be transcoded" -n \
-	  -o "#   force_transcode = { &quot;ogg&quot;, &quot;flac&quot; }" -n \
+	  -o "#   force_transcode = { \"ogg\", \"flac\" }" -n \
 	  -o "}" -n \
 	  -n \
 	  -o "# Local audio output" -n \
 	  -o "#audio {" -n \
 	  -o "    # AirTunes name - used in the speaker list in Remote" -n \
-      -o "#   nickname = &quot;${OMV_FORKEDDAAPD_AUDIO_NICKNAME}&quot;" -n \
+      -o "#   nickname = \"${OMV_FORKEDDAAPD_AUDIO_NICKNAME}\"" -n \
 	  -o "    # Audio device name for local audio output" -n \
-      -o "#   card = &quot;default&quot;" -n \
+      -o "#   card = \"default\"" -n \
 	  -o "#}" -n \
 	  -n \
 	  -o "# Airport Express device" -n \
-	  -o "#apex &quot;ApEx&quot; {" -n \
+	  -o "#apex \"ApEx\" {" -n \
 	  -o "    # AirTunes password" -n \
-	  -o "#   password = &quot;s1kr3t&quot;" -n \
+	  -o "#   password = \"s1kr3t\"" -n \
 	  -o "#}" \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_FORKEDDAAPD_CONFIG}
 }

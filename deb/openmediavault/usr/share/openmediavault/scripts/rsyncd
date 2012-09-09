@@ -40,8 +40,7 @@ xmlstarlet sel -t -m "//services/rsync/server" \
   -o "# defaults file for rsync daemon mode" -n \
   -i "enable[. = '1']" -o "RSYNC_ENABLE=true" -n -b \
   -i "enable[. = '0']" -o "RSYNC_ENABLE=false" -n -b \
-  -o "RSYNC_OPTS=&quot;" \
-  -o "&quot;" -n \
+  -o "RSYNC_OPTS=\"\"" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_RSYNCD_DEFAULT}
 
 # Create '/etc/rsyncd.conf' file

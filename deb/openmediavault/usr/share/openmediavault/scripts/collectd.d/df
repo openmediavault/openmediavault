@@ -36,12 +36,12 @@ OMV_COLLECTD_RRDTOOL_MKGRAPH=${OMV_COLLECTD_RRDTOOL_MKGRAPH:-"/usr/sbin/omv-mkgr
 
 xmlstarlet sel -t \
   -o "LoadPlugin df" -n \
-  -o "&lt;Plugin df&gt;" -n \
+  -o "<Plugin df>" -n \
   -m "//system/fstab/mntent[not(contains(opts,'bind'))]" \
-	-v "concat('  MountPoint &quot;',dir,'&quot;')" -n \
+	-v "concat('  MountPoint \"',dir,'\"')" -n \
   -b \
   -o "  IgnoreSelected false" -n \
-  -o "&lt;/Plugin&gt;" -n \
+  -o "</Plugin>" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_COLLECTD_CONFIG}
 
 FILENAME=$(xmlstarlet sel -t -m "//system/fstab/mntent[not(contains(opts,'bind'))]" \

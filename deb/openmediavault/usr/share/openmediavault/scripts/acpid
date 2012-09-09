@@ -31,7 +31,7 @@ OMV_ACPID_DEFAULT=${OMV_ACPID_DEFAULT:-"/etc/default/acpid"}
 OMV_ACPID_OPTIONS=${OMV_ACPID_OPTIONS:-""}
 OMV_ACPID_MODULES=${OMV_ACPID_MODULES:-"button"}
 OMV_ACPID_POWERBTN_SCRIPT=${OMV_ACPID_POWERBTN_SCRIPT:-"/etc/acpi/events/powerbtn"}
-OMV_ACPID_POWERBTN_ACTION=${OMV_ACPID_POWERBTN_ACTION:-"/sbin/shutdown -h now &quot;Power button pressed&quot;"}
+OMV_ACPID_POWERBTN_ACTION=${OMV_ACPID_POWERBTN_ACTION:-"/sbin/shutdown -h now \"Power button pressed\""}
 
 mkconf() {
 	# Create '/etc/default/acpid' file

@@ -40,145 +40,145 @@ EOF
 
 xmlstarlet sel -t -m "//services/transmissionbt" \
   -v "concat('ENABLE_DAEMON=',enable)" -n \
-  -o "CONFIG_DIR=&quot;/var/lib/transmission-daemon/info&quot;" -n \
-  -o "OPTIONS=&quot;--config-dir \$CONFIG_DIR" \
+  -o "CONFIG_DIR=\"/var/lib/transmission-daemon/info\"" -n \
+  -o "OPTIONS=\"--config-dir \$CONFIG_DIR" \
   -i "rpcauthenticationrequired[. = '1']" -o " --auth" -b \
   -i "rpcauthenticationrequired[. = '0']" -o " --no-auth" -b \
-  -o "&quot;" \
+  -o "\"" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_TRANSMISSIONBT_DEFAULT}
 
 # Create '/etc/transmission-daemon/settings.json' file
 xmlstarlet sel -t -m "//services/transmissionbt" \
   -o "{" -n \
-  -o "&quot;download-dir&quot;: &quot;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v modules/locationsandfiles/download-dir -o "&quot;," -n \
-  -v "concat('&quot;encryption&quot;: ',encryption,',')" -n \
-  -o "&quot;dht-enabled:&quot;: " \
+  -o "\"download-dir\": \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v modules/locationsandfiles/download-dir -o "\"," -n \
+  -v "concat('\"encryption\": ',encryption,',')" -n \
+  -o "\"dht-enabled:\": " \
   -i "dhtenabled[. = '0']" -o "false" -b \
   -i "dhtenabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -o "&quot;blocklist-enabled&quot;: " \
+  -o "\"blocklist-enabled\": " \
   -i "blocklistenabled[. = '0']" -o "false" -b \
   -i "blocklistenabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -o "&quot;pex-enabled&quot;: " \
+  -o "\"pex-enabled\": " \
   -i "pexenabled[. = '0']" -o "false" -b \
   -i "pexenabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -o "&quot;lazy-bitfield-enabled&quot;: " \
+  -o "\"lazy-bitfield-enabled\": " \
   -i "lazy-bitfield-enabled[. = '0']" -o "false" -b \
   -i "lazy-bitfield-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -v "concat('&quot;umask&quot;: ',umask,',')" -n \
-  -o "&quot;lpd-enabled&quot;: " \
+  -v "concat('\"umask\": ',umask,',')" -n \
+  -o "\"lpd-enabled\": " \
   -i "lpd-enabled[. = '0']" -o "false" -b \
   -i "lpd-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -o "&quot;scrape-paused-torrents-enabled&quot;: " \
+  -o "\"scrape-paused-torrents-enabled\": " \
   -i "scrape-paused-torrents-enabled[. = '0']" -o "false" -b \
   -i "scrape-paused-torrents-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -o "&quot;utp-enabled&quot;: " \
+  -o "\"utp-enabled\": " \
   -i "utp-enabled[. = '0']" -o "false" -b \
   -i "utp-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -v "concat('&quot;message-level&quot;: ',message-level,',')" -n \
-  -v "concat('&quot;cache-size-mb&quot;: ',cache-size-mb,',')" -n \
-  -v "concat('&quot;rpc-enabled&quot;: ','true',',')" -n \
-  -o "&quot;rpc-authentication-required&quot;: " \
+  -v "concat('\"message-level\": ',message-level,',')" -n \
+  -v "concat('\"cache-size-mb\": ',cache-size-mb,',')" -n \
+  -v "concat('\"rpc-enabled\": ','true',',')" -n \
+  -o "\"rpc-authentication-required\": " \
   -i "rpcauthenticationrequired[. = '0']" -o "false" -b \
   -i "rpcauthenticationrequired[. = '1']" -o "true" -b \
   -o "," -n \
-  -v "concat('&quot;rpc-password&quot;: &quot;',rpcpassword,'&quot;,')" -n \
-  -v "concat('&quot;rpc-port&quot;: ',rpcport,',')" -n \
-  -v "concat('&quot;rpc-url&quot;: &quot;',rpcurl,'&quot;,')" -n \
-  -v "concat('&quot;rpc-username&quot;: &quot;',rpcusername,'&quot;,')" -n \
-  -o "&quot;rpc-whitelist&quot;: &quot;${OMV_TRANSMISSIONBT_RPCWHITELIST}&quot;," -n \
-  -o "&quot;rpc-whitelist-enabled&quot;: ${OMV_TRANSMISSIONBT_RPCWHITELISTENABLED}," -n \
-  -o "&quot;incomplete-dir-enabled&quot;: " \
+  -v "concat('\"rpc-password\": \"',rpcpassword,'\",')" -n \
+  -v "concat('\"rpc-port\": ',rpcport,',')" -n \
+  -v "concat('\"rpc-url\": \"',rpcurl,'\",')" -n \
+  -v "concat('\"rpc-username\": \"',rpcusername,'\",')" -n \
+  -o "\"rpc-whitelist\": \"${OMV_TRANSMISSIONBT_RPCWHITELIST}\"," -n \
+  -o "\"rpc-whitelist-enabled\": ${OMV_TRANSMISSIONBT_RPCWHITELISTENABLED}," -n \
+  -o "\"incomplete-dir-enabled\": " \
   -i "modules/locationsandfiles/incomplete-dir-enabled[. = '0']" -o "false" -b \
   -i "modules/locationsandfiles/incomplete-dir-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -o "&quot;incomplete-dir&quot;: &quot;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v modules/locationsandfiles/incomplete-dir -o "&quot;," -n \
-  -o "&quot;watch-dir-enabled&quot;: " \
+  -o "\"incomplete-dir\": \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v modules/locationsandfiles/incomplete-dir -o "\"," -n \
+  -o "\"watch-dir-enabled\": " \
   -i "modules/locationsandfiles/watch-dir-enabled[. = '0']" -o "false" -b \
   -i "modules/locationsandfiles/watch-dir-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -o "&quot;watch-dir&quot;: &quot;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v modules/locationsandfiles/watch-dir -o "&quot;," -n \
-  -v "concat('&quot;preallocation&quot;: ',modules/locationsandfiles/preallocation,',')" -n \
-  -o "&quot;rename-partial-files&quot;: " \
+  -o "\"watch-dir\": \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/" -v modules/locationsandfiles/watch-dir -o "\"," -n \
+  -v "concat('\"preallocation\": ',modules/locationsandfiles/preallocation,',')" -n \
+  -o "\"rename-partial-files\": " \
   -i "modules/locationsandfiles/rename-partial-files[. = '0']" -o "false" -b \
   -i "modules/locationsandfiles/rename-partial-files[. = '1']" -o "true" -b \
   -o "," -n \
-  -o "&quot;start-added-torrents&quot;: " \
+  -o "\"start-added-torrents\": " \
   -i "modules/locationsandfiles/start-added-torrents[. = '0']" -o "false" -b \
   -i "modules/locationsandfiles/start-added-torrents[. = '1']" -o "true" -b \
   -o "," -n \
-  -o "&quot;trash-original-torrent-files&quot;: " \
+  -o "\"trash-original-torrent-files\": " \
   -i "modules/locationsandfiles/trash-original-torrent-files[. = '0']" -o "false" -b \
   -i "modules/locationsandfiles/trash-original-torrent-files[. = '1']" -o "true" -b \
   -o "," -n \
-  -v "concat('&quot;speed-limit-down&quot;: ',modules/bandwidth/speed-limit-down,',')" -n \
-  -o "&quot;speed-limit-down-enabled&quot;: " \
+  -v "concat('\"speed-limit-down\": ',modules/bandwidth/speed-limit-down,',')" -n \
+  -o "\"speed-limit-down-enabled\": " \
   -i "modules/bandwidth/speed-limit-down-enabled[. = '0']" -o "false" -b \
   -i "modules/bandwidth/speed-limit-down-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -v "concat('&quot;speed-limit-up&quot;: ',modules/bandwidth/speed-limit-up,',')" -n \
-  -o "&quot;speed-limit-up-enabled&quot;: " \
+  -v "concat('\"speed-limit-up\": ',modules/bandwidth/speed-limit-up,',')" -n \
+  -o "\"speed-limit-up-enabled\": " \
   -i "modules/bandwidth/speed-limit-up-enabled[. = '0']" -o "false" -b \
   -i "modules/bandwidth/speed-limit-up-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -v "concat('&quot;upload-slots-per-torrent&quot;: ',modules/bandwidth/upload-slots-per-torrent,',')" -n \
-  -o "&quot;alt-speed-enabled&quot;: " \
+  -v "concat('\"upload-slots-per-torrent\": ',modules/bandwidth/upload-slots-per-torrent,',')" -n \
+  -o "\"alt-speed-enabled\": " \
   -i "modules/bandwidth/alt-speed-enabled[. = '0']" -o "false" -b \
   -i "modules/bandwidth/alt-speed-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -v "concat('&quot;alt-speed-up&quot;: ',modules/bandwidth/alt-speed-up,',')" -n \
-  -v "concat('&quot;alt-speed-down&quot;: ',modules/bandwidth/alt-speed-down,',')" -n \
-  -o "&quot;queue-stalled-enabled&quot;: " \
+  -v "concat('\"alt-speed-up\": ',modules/bandwidth/alt-speed-up,',')" -n \
+  -v "concat('\"alt-speed-down\": ',modules/bandwidth/alt-speed-down,',')" -n \
+  -o "\"queue-stalled-enabled\": " \
   -i "modules/queuing/queue-stalled-enabled[. = '0']" -o "false" -b \
   -i "modules/queuing/queue-stalled-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -v "concat('&quot;queue-stalled-minutes&quot;: ',modules/queuing/queue-stalled-minutes,',')" -n \
-  -o "&quot;download-queue-enabled&quot;: " \
+  -v "concat('\"queue-stalled-minutes\": ',modules/queuing/queue-stalled-minutes,',')" -n \
+  -o "\"download-queue-enabled\": " \
   -i "modules/queuing/download-queue-enabled[. = '0']" -o "false" -b \
   -i "modules/queuing/download-queue-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -v "concat('&quot;download-queue-size&quot;: ',modules/queuing/download-queue-size,',')" -n \
-  -o "&quot;seed-queue-enabled&quot;: " \
+  -v "concat('\"download-queue-size\": ',modules/queuing/download-queue-size,',')" -n \
+  -o "\"seed-queue-enabled\": " \
   -i "modules/queuing/seed-queue-enabled[. = '0']" -o "false" -b \
   -i "modules/queuing/seed-queue-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -v "concat('&quot;seed-queue-size&quot;: ',modules/queuing/seed-queue-size,',')" -n \
-  -v "concat('&quot;bind-address-ipv4&quot;: &quot;',modules/peer/bind-address-ipv4,'&quot;,')" -n \
-  -v "concat('&quot;bind-address-ipv6&quot;: &quot;',modules/peer/bind-address-ipv6,'&quot;,')" -n \
-  -v "concat('&quot;peer-limit-global&quot;: ',modules/peer/peer-limit-global,',')" -n \
-  -v "concat('&quot;peer-limit-per-torrent&quot;: ',modules/peer/peer-limit-per-torrent,',')" -n \
-  -v "concat('&quot;peer-socket-tos&quot;: &quot;',modules/peer/peer-socket-tos,'&quot;,')" -n \
-  -v "concat('&quot;peer-port&quot;: ',modules/peer/peer-port,',')" -n \
-  -v "concat('&quot;peer-port-random-high&quot;: ',modules/peer/peer-port-random-high,',')" -n \
-  -v "concat('&quot;peer-port-random-low&quot;: ',modules/peer/peer-port-random-low,',')" -n \
-  -o "&quot;port-forwarding-enabled&quot;: " \
+  -v "concat('\"seed-queue-size\": ',modules/queuing/seed-queue-size,',')" -n \
+  -v "concat('\"bind-address-ipv4\": \"',modules/peer/bind-address-ipv4,'\",')" -n \
+  -v "concat('\"bind-address-ipv6\": \"',modules/peer/bind-address-ipv6,'\",')" -n \
+  -v "concat('\"peer-limit-global\": ',modules/peer/peer-limit-global,',')" -n \
+  -v "concat('\"peer-limit-per-torrent\": ',modules/peer/peer-limit-per-torrent,',')" -n \
+  -v "concat('\"peer-socket-tos\": \"',modules/peer/peer-socket-tos,'\",')" -n \
+  -v "concat('\"peer-port\": ',modules/peer/peer-port,',')" -n \
+  -v "concat('\"peer-port-random-high\": ',modules/peer/peer-port-random-high,',')" -n \
+  -v "concat('\"peer-port-random-low\": ',modules/peer/peer-port-random-low,',')" -n \
+  -o "\"port-forwarding-enabled\": " \
   -i "modules/peer/port-forwarding-enabled[. = '0']" -o "false" -b \
   -i "modules/peer/port-forwarding-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -o "&quot;peer-port-random-on-start&quot;: " \
+  -o "\"peer-port-random-on-start\": " \
   -i "modules/peer/peer-port-random-on-start[. = '0']" -o "false" -b \
   -i "modules/peer/peer-port-random-on-start[. = '1']" -o "true" -b \
   -o "," -n \
-  -o "&quot;alt-speed-time-enabled&quot;: " \
+  -o "\"alt-speed-time-enabled\": " \
   -i "modules/scheduling/alt-speed-time-enabled[. = '0']" -o "false" -b \
   -i "modules/scheduling/alt-speed-time-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -v "concat('&quot;alt-speed-time-begin&quot;: ',modules/scheduling/alt-speed-time-begin,',')" -n \
-  -v "concat('&quot;alt-speed-time-end&quot;: ',modules/scheduling/alt-speed-time-end,',')" -n \
-  -v "concat('&quot;alt-speed-time-day&quot;: ',modules/scheduling/alt-speed-time-day,',')" -n \
-  -v "concat('&quot;idle-seeding-limit&quot;: ',modules/scheduling/idle-seeding-limit,',')" -n \
-  -o "&quot;idle-seeding-limit-enabled&quot;: " \
+  -v "concat('\"alt-speed-time-begin\": ',modules/scheduling/alt-speed-time-begin,',')" -n \
+  -v "concat('\"alt-speed-time-end\": ',modules/scheduling/alt-speed-time-end,',')" -n \
+  -v "concat('\"alt-speed-time-day\": ',modules/scheduling/alt-speed-time-day,',')" -n \
+  -v "concat('\"idle-seeding-limit\": ',modules/scheduling/idle-seeding-limit,',')" -n \
+  -o "\"idle-seeding-limit-enabled\": " \
   -i "modules/scheduling/idle-seeding-limit-enabled[. = '0']" -o "false" -b \
   -i "modules/scheduling/idle-seeding-limit-enabled[. = '1']" -o "true" -b \
   -o "," -n \
-  -v "concat('&quot;ratio-limit&quot;: ',modules/scheduling/ratio-limit,',')" -n \
-  -o "&quot;ratio-limit-enabled&quot;: " \
+  -v "concat('\"ratio-limit\": ',modules/scheduling/ratio-limit,',')" -n \
+  -o "\"ratio-limit-enabled\": " \
   -i "modules/scheduling/ratio-limit-enabled[. = '0']" -o "false" -b \
   -i "modules/scheduling/ratio-limit-enabled[. = '1']" -o "true" -b \
   -o "}" \

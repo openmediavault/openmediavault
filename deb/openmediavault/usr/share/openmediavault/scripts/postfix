@@ -117,7 +117,7 @@ postmap ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 xmlstarlet sel -t \
   -i "//system/email/enable[. = '1']" \
 	-v "concat('@${myhostname} ',//system/email/sender)" -n \
-	-v "concat('&quot;&quot; ',//system/email/sender)" \
+	-v "concat('\"\" ',//system/email/sender)" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}
 chown root:root ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}

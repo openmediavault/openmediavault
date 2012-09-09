@@ -36,7 +36,7 @@ OMV_PROFTPD_MODBAN_BANMESSAGE=${OMV_PROFTPD_MODBAN_BANMESSAGE:-"Host %a has been
 OMV_PROFTPD_MODBAN_BANTABLE=${OMV_PROFTPD_MODBAN_BANTABLE:-"/var/run/proftpd/ban.tab"}
 
 xmlstarlet sel -t -m "//services/ftp" \
-	  -o "&lt;IfModule mod_ban.c&gt;" -n \
+	  -o "<IfModule mod_ban.c>" -n \
 	  -i "count(modules/mod_ban/rule) = 0" -o "  BanEngine off" -n -b \
 	  -i "count(modules/mod_ban/rule) > 0" -o "  BanEngine on" -n -b \
 	  -o "  BanControlsACLs ${OMV_PROFTPD_MODBAN_BANCONTROLSACLS}" -n \
@@ -46,6 +46,6 @@ xmlstarlet sel -t -m "//services/ftp" \
 		  -v "concat('  BanOnEvent ',event,' ',occurrence,'/',timeinterval,' ',expire)" -n \
 	  -b \
 	  -o "  BanTable ${OMV_PROFTPD_MODBAN_BANTABLE}" -n \
-	  -o "&lt;/ifModule&gt;" -n \
+	  -o "</ifModule>" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_PROFTPD_CONFIG}

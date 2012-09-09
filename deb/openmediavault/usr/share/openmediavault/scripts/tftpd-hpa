@@ -41,13 +41,13 @@ fi
 
 # Create '/etc/default/tftpd-hpa' file
 xmlstarlet sel -t -m "//services/tftp" \
-  -o "TFTP_OPTIONS=&quot;${OMV_TFTPD_OPTIONS}" \
+  -o "TFTP_OPTIONS=\"${OMV_TFTPD_OPTIONS}" \
   -v "concat(' --retransmit ',retransmit)" \
   -i "allownewfiles[. = '1']" -o " --create" -b \
   -i "string-length(blocksize) > 0" -v "concat(' --blocksize ',blocksize)" -b \
   -i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
-  -o "&quot;" -n \
-  -o "TFTP_USERNAME=&quot;${OMV_TFTPD_USERNAME}&quot;" -n \
-  -o "TFTP_DIRECTORY=&quot;" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "&quot;" -n \
-  -v "concat('TFTP_ADDRESS=&quot;0.0.0.0:',port,'&quot;')" \
+  -o "\"" -n \
+  -o "TFTP_USERNAME=\"${OMV_TFTPD_USERNAME}\"" -n \
+  -o "TFTP_DIRECTORY=\"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -n \
+  -v "concat('TFTP_ADDRESS=\"0.0.0.0:',port,'\"')" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_TFTPD_DEFAULT}

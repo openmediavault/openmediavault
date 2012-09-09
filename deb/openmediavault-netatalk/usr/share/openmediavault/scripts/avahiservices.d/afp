@@ -34,28 +34,28 @@ rm -f ${OMV_AVAHIDAEMON_AFPSERVICE}
 
 # Create '/etc/avahi/services/smb.service' file.
 xmlstarlet sel -t \
-  -o "&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;" -n \
-  -o "&lt;!DOCTYPE service-group SYSTEM &quot;avahi-service.dtd&quot;&gt;" -n \
-  -o "&lt;service-group&gt;" -n \
-  -v "concat('  &lt;name replace-wildcards=&quot;yes&quot;&gt;',//services/afp/dnssd/name,'&lt;/name&gt;')" -n \
-  -o "  &lt;service&gt;" -n \
-  -o "    &lt;type&gt;_afpovertcp._tcp&lt;/type&gt;" -n \
-  -o "    &lt;port&gt;${OMV_AVAHIDAEMON_AFPSERVICE_PORT}&lt;/port&gt;" -n \
-  -o "  &lt;/service&gt;" -n \
-  -o "  &lt;service&gt;" -n \
-  -o "    &lt;type&gt;_adisk._tcp&lt;/type&gt;" -n \
-  -o "    &lt;port&gt;9&lt;/port&gt;" -n \
-  -o "    &lt;txt-record&gt;sys=waMA=0,adVF=0x100&lt;/txt-record&gt;" -n \
+  -o "<?xml version=\"1.0\" standalone=\"no\"?>" -n \
+  -o "<!DOCTYPE service-group SYSTEM \"avahi-service.dtd\">" -n \
+  -o "<service-group>" -n \
+  -v "concat('  <name replace-wildcards=\"yes\">',//services/afp/dnssd/name,'</name>')" -n \
+  -o "  <service>" -n \
+  -o "    <type>_afpovertcp._tcp</type>" -n \
+  -o "    <port>${OMV_AVAHIDAEMON_AFPSERVICE_PORT}</port>" -n \
+  -o "  </service>" -n \
+  -o "  <service>" -n \
+  -o "    <type>_adisk._tcp</type>" -n \
+  -o "    <port>9</port>" -n \
+  -o "    <txt-record>sys=waMA=0,adVF=0x100</txt-record>" -n \
   -m "//services/afp/shares/share" \
 	-i "options/tm[. = '1']" \
-	  -v "concat('    &lt;txt-record&gt;dk',position()-1,'=adVN=',name,',adVF=0xa1,adVU=',uuid,'&lt;/txt-record&gt;')" -n \
+	  -v "concat('    <txt-record>dk',position()-1,'=adVN=',name,',adVF=0xa1,adVU=',uuid,'</txt-record>')" -n \
 	-b \
   -b \
-  -o "  &lt;/service&gt;" -n \
-  -o "  &lt;service&gt;" -n \
-  -o "    &lt;type&gt;_device-info._tcp&lt;/type&gt;" -n \
-  -o "    &lt;port&gt;0&lt;/port&gt;" -n \
-  -o "    &lt;txt-record&gt;model=${OMV_AVAHIDAEMON_AFPSERVICE_FINDERICON}&lt;/txt-record&gt;" -n \
-  -o "  &lt;/service&gt;" -n \
-  -o "&lt;/service-group&gt;" \
+  -o "  </service>" -n \
+  -o "  <service>" -n \
+  -o "    <type>_device-info._tcp</type>" -n \
+  -o "    <port>0</port>" -n \
+  -o "    <txt-record>model=${OMV_AVAHIDAEMON_AFPSERVICE_FINDERICON}</txt-record>" -n \
+  -o "  </service>" -n \
+  -o "</service-group>" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_AVAHIDAEMON_AFPSERVICE}

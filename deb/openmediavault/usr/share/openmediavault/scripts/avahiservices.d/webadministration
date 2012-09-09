@@ -32,26 +32,26 @@ rm -f ${OMV_AVAHIDAEMON_WEBSITESERVICE}
 
 # Create '/etc/avahi/services/http.service' file.
 xmlstarlet sel -t \
-  -o "&lt;?xml version=&quot;1.0&quot; standalone=&quot;no&quot;?&gt;" -n \
-  -o "&lt;!DOCTYPE service-group SYSTEM &quot;avahi-service.dtd&quot;&gt;" -n \
-  -o "&lt;service-group&gt;" -n \
+  -o "<?xml version=\"1.0\" standalone=\"no\"?>" -n \
+  -o "<!DOCTYPE service-group SYSTEM \"avahi-service.dtd\">" -n \
+  -o "<service-group>" -n \
   -m "//webadmin" \
-	  -v "concat('  &lt;name replace-wildcards=&quot;yes&quot;&gt;',dnssd/name,'&lt;/name&gt;')" -n \
+	  -v "concat('  <name replace-wildcards=\"yes\">',dnssd/name,'</name>')" -n \
 	  -i "enablessl[. = '1']" \
-		  -o "  &lt;service&gt;" -n \
-		  -o "    &lt;type&gt;_https._tcp&lt;/type&gt;" -n \
-		  -v "concat('    &lt;port&gt;',sslport,'&lt;/port&gt;')" -n \
-		  -o "    &lt;txt-record&gt;path=/index.php&lt;/txt-record&gt;" -n \
-		  -o "  &lt;/service&gt;" \
+		  -o "  <service>" -n \
+		  -o "    <type>_https._tcp</type>" -n \
+		  -v "concat('    <port>',sslport,'</port>')" -n \
+		  -o "    <txt-record>path=/index.php</txt-record>" -n \
+		  -o "  </service>" \
 	  -b \
 	  -i "enablessl[. = '0'] or forcesslonly[. = '0']" \
 		  -i "enablessl[. = '1']" -n -b \
-		  -o "  &lt;service&gt;" -n \
-		  -o "    &lt;type&gt;_http._tcp&lt;/type&gt;" -n \
-		  -v "concat('    &lt;port&gt;',port,'&lt;/port&gt;')" -n \
-		  -o "    &lt;txt-record&gt;path=/index.php&lt;/txt-record&gt;" -n \
-		  -o "  &lt;/service&gt;" -n \
+		  -o "  <service>" -n \
+		  -o "    <type>_http._tcp</type>" -n \
+		  -v "concat('    <port>',port,'</port>')" -n \
+		  -o "    <txt-record>path=/index.php</txt-record>" -n \
+		  -o "  </service>" -n \
 	  -b \
   -b \
-  -o "&lt;/service-group&gt;" \
+  -o "</service-group>" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_AVAHIDAEMON_WEBSITESERVICE}

@@ -32,9 +32,9 @@ OMV_NUT_UPSD_PORT=${OMV_NUT_UPSD_PORT:-"3493"}
 
 xmlstarlet sel -t -m "//services/nut" \
   -o "LoadPlugin nut" -n \
-  -o "&lt;Plugin nut&gt;" -n \
-  -v "concat('UPS &quot;',upsname,'@localhost:${OMV_NUT_UPSD_PORT}&quot;')" -n \
-  -o "&lt;/Plugin&gt;" -n \
+  -o "<Plugin nut>" -n \
+  -v "concat('UPS \"',upsname,'@localhost:${OMV_NUT_UPSD_PORT}\"')" -n \
+  -o "</Plugin>" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_COLLECTD_CONFIG}
 
 upsname=$(omv_config_get "//services/nut/upsname")

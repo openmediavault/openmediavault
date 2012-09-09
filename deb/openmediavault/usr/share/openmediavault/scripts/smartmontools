@@ -47,7 +47,7 @@ EOF
 xmlstarlet sel -t -m "//services/smart" \
   -i "enable[. = '1']" -o "start_smartd=yes" -n -b \
   -i "enable[. = '0']" -o "#start_smartd=yes" -n -b \
-  -v "concat('smartd_opts=&quot;--quit=never --interval=',interval,'&quot;')" \
+  -v "concat('smartd_opts=\"--quit=never --interval=',interval,'\"')" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SMARTMONTOOLS_DEFAULT}
 
 # Create '/etc/smartd.conf' file

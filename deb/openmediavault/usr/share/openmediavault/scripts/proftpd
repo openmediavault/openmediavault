@@ -92,7 +92,7 @@ fi
 xmlstarlet sel -t \
   -o "Include /etc/proftpd/modules.conf" -n \
   -o "UseIPv6 ${OMV_PROFTPD_USEIPV6}" -n \
-  -v "concat('ServerName &quot;',//system/network/hostname,'&quot;')" -n \
+  -v "concat('ServerName \"',//system/network/hostname,'\"')" -n \
   -o "ServerType standalone" -n \
   -o "DeferWelcome ${OMV_PROFTPD_DEFERWELCOME}" -n \
   -o "MultilineRFC2228 ${OMV_PROFTPD_MULTILINERFC2228}" -n \
@@ -100,7 +100,7 @@ xmlstarlet sel -t \
   -o "ShowSymlinks ${OMV_PROFTPD_SHOWSYMLINKS}" -n \
   -o "DisplayLogin ${OMV_PROFTPD_DISPLAYLOGIN}" -n \
   -o "DisplayChdir .message true" -n \
-  -o "ListOptions &quot;${OMV_PROFTPD_LISTOPTIONS}&quot;" -n \
+  -o "ListOptions \"${OMV_PROFTPD_LISTOPTIONS}\"" -n \
   -o "MaxInstances ${OMV_PROFTPD_MAXINSTANCES}" -n \
   -o "DenyFilter ${OMV_PROFTPD_DENYFILTER}" -n \
   -o "AuthPAMConfig ${OMV_PROFTPD_AUTHPAMCONFIG}" -n \
@@ -116,30 +116,30 @@ xmlstarlet sel -t \
   -o "DefaultTransferMode ${OMV_PROFTPD_DEFAULTTRANSFERMODE}" -n \
   -o "#TransferLog /var/log/proftpd/xferlog" -n \
   -o "#SystemLog /var/log/proftpd/proftpd.log" -n \
-  -o "&lt;IfModule mod_facl.c&gt;" -n \
+  -o "<IfModule mod_facl.c>" -n \
   -o "  FACLEngine ${OMV_PROFTPD_MODFACL_FACLENGINE}" -n \
-  -o "&lt;/IfModule&gt;" -n \
-  -o "&lt;IfModule mod_quotatab.c&gt;" -n \
+  -o "</IfModule>" -n \
+  -o "<IfModule mod_quotatab.c>" -n \
   -o "  QuotaEngine ${OMV_PROFTPD_MODQUOTATAB_QUOTAENGINE}" -n \
-  -o "&lt;/IfModule&gt;" -n \
-  -o "&lt;IfModule mod_ratio.c&gt;" -n \
+  -o "</IfModule>" -n \
+  -o "<IfModule mod_ratio.c>" -n \
   -o "  Ratios ${OMV_PROFTPD_MODRATIO_RATIOS}" -n \
-  -o "&lt;/IfModule&gt;" -n \
-  -o "&lt;IfModule mod_delay.c&gt;" -n \
+  -o "</IfModule>" -n \
+  -o "<IfModule mod_delay.c>" -n \
   -o "  DelayEngine ${OMV_PROFTPD_MODDELAY_DELAYENGINE}" -n \
-  -o "&lt;/IfModule&gt;" -n \
-  -o "&lt;IfModule mod_ctrls.c&gt;" -n \
+  -o "</IfModule>" -n \
+  -o "<IfModule mod_ctrls.c>" -n \
   -o "  ControlsEngine ${OMV_PROFTPD_MODCTRLS_CONTROLSENGINE}" -n \
   -o "  ControlsMaxClients ${OMV_PROFTPD_MODCTRLS_CONTROLSMAXCLIENTS}" -n \
   -o "  ControlsLog ${OMV_PROFTPD_MODCTRLS_CONTROLSLOG}" -n \
   -o "  ControlsInterval ${OMV_PROFTPD_MODCTRLS_CONTROLSINTERVAL}" -n \
   -o "  ControlsSocket ${OMV_PROFTPD_MODCTRLS_CONTROLSSOCKET}" -n \
-  -o "&lt;/IfModule&gt;" -n \
-  -o "&lt;IfModule mod_ctrls_admin.c&gt;" -n \
+  -o "</IfModule>" -n \
+  -o "<IfModule mod_ctrls_admin.c>" -n \
   -o "  AdminControlsEngine ${OMV_PROFTPD_MODCTRLSADMIN_ADMINCONTROLSENGINE}" -n \
-  -o "&lt;/IfModule&gt;" -n \
+  -o "</IfModule>" -n \
   -m "//services/ftp" \
-	  -o "&lt;IfModule mod_ban.c&gt;" -n \
+	  -o "<IfModule mod_ban.c>" -n \
 	  -i "count(modules/mod_ban/rule) = 0" -o "  BanEngine off" -n -b \
 	  -i "count(modules/mod_ban/rule) > 0" -o "  BanEngine on" -n -b \
 	  -o "  BanControlsACLs ${OMV_PROFTPD_MODBAN_BANCONTROLSACLS}" -n \
@@ -149,7 +149,7 @@ xmlstarlet sel -t \
 		  -v "concat('  BanOnEvent ',event,' ',occurrence,'/',timeinterval,' ',expire)" -n \
 	  -b \
 	  -o "  BanTable ${OMV_PROFTPD_MODBAN_BANTABLE}" -n \
-	  -o "&lt;/ifModule&gt;" -n \
+	  -o "</ifModule>" -n \
 	  -i "modules/mod_tls/enable[. = '1']" \
 		  -o "Include ${OMV_PROFTPD_MODTLS_CONFIG}" -n \
 	  -b \
@@ -167,9 +167,9 @@ xmlstarlet sel -t \
 	  -i "string-length(masqueradeaddress) > 0" \
 		  -v "concat('MasqueradeAddress ',masqueradeaddress)" -n \
 		  -i "dynmasqrefresh[. > '0']" \
-			  -o "&lt;IfModule mod_dynmasq.c&gt;" -n \
+			  -o "<IfModule mod_dynmasq.c>" -n \
 			  -v "concat('  DynMasqRefresh ',dynmasqrefresh)" -n \
-			  -o "&lt;/ifModule&gt;" -n \
+			  -o "</ifModule>" -n \
 		  -b \
 	  -b \
 	  -i "limittransferrate[. = '1']" \
@@ -187,25 +187,25 @@ xmlstarlet sel -t \
 	  -i "maxconnectionsperhost[. > '0']" -v "concat('MaxConnectionsPerHost ',maxconnectionsperhost)" -n -b \
 	  -i "maxloginattempts[. > '0']" -v "concat('MaxLoginAttempts ',maxloginattempts )" -n -b \
 	  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
-	  -o "&lt;Directory ${OMV_PROFTPD_DEFAULTROOT}&gt;" -n \
+	  -o "<Directory ${OMV_PROFTPD_DEFAULTROOT}>" -n \
 	  -o "  HideFiles (welcome.msg)" -n \
-	  -o "&lt;/Directory&gt;" -n \
+	  -o "</Directory>" -n \
 	  -i "anonymous[. = '1']" \
-		  -o "&lt;Anonymous ~ftp&gt;" -n \
+		  -o "<Anonymous ~ftp>" -n \
 		  -o "  User ftp" -n \
 		  -o "  Group nogroup" -n \
 		  -o "  UserAlias anonymous ftp" -n \
 		  -o "  DirFakeUser on ftp" -n \
 		  -o "  DirFakeGroup on ftp" -n \
 		  -o "  RequireValidShell off" -n \
-		  -o "  &lt;Directory *&gt;" -n \
+		  -o "  <Directory *>" -n \
 		  -o "    HideFiles (welcome.msg)" -n \
 		  -o "    HideNoAccess on" -n \
-		  -o "    &lt;Limit WRITE&gt;" -n \
+		  -o "    <Limit WRITE>" -n \
 		  -o "      DenyAll" -n \
-		  -o "    &lt;/Limit&gt;" -n \
-		  -o "  &lt;/Directory&gt;" -n \
-		  -o "&lt;/Anonymous&gt;" -n \
+		  -o "    </Limit>" -n \
+		  -o "  </Directory>" -n \
+		  -o "</Anonymous>" -n \
 	  -b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_PROFTPD_CONFIG}

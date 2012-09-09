@@ -37,7 +37,7 @@ set -e
 OMV_NETATALK_DEFAULT=${OMV_NETATALK_DEFAULT:-"/etc/default/netatalk"}
 OMV_NETATALK_AFPD_CONFIG=${OMV_NETATALK_AFPD_CONFIG:-"/etc/netatalk/afpd.conf"}
 OMV_NETATALK_AVDEFAULT_CONFIG=${OMV_NETATALK_AVDEFAULT_CONFIG:-"/etc/netatalk/AppleVolumes.default"}
-OMV_NETATALK_AVDEFAULT_HOMEDIR_OPTIONS=${OMV_NETATALK_AVDEFAULT_HOMEDIR_OPTIONS:-"&quot;\$u&quot; deny:nobody"}
+OMV_NETATALK_AVDEFAULT_HOMEDIR_OPTIONS=${OMV_NETATALK_AVDEFAULT_HOMEDIR_OPTIONS:-"\"\$u\" deny:nobody"}
 OMV_NETATALK_AFPD_MAX_CLIENTS=${OMV_NETATALK_AFPD_MAX_CLIENTS:-"20"}
 OMV_NETATALK_ATALK_NAME=${OMV_NETATALK_ATALK_NAME:-"\`/bin/hostname --short\`"}
 OMV_NETATALK_ATALK_MAC_CHARSET=${OMV_NETATALK_ATALK_MAC_CHARSET:-"MAC_ROMAN"}
@@ -172,9 +172,9 @@ EOF
 		[ -n "${writelist}" ] && accessrights="${accessrights} rwlist:${writelist}"
 
 		xmlstarlet sel -t -m "//services/afp/shares/share[position()=${index}]" \
-		  -o "&quot;${sfpath}&quot;" \
-		  -i "string-length(comment) > 0" -v "concat(' &quot;',comment,'&quot;')" -b \
-		  -i "string-length(comment) = 0" -v "concat(' &quot;',name,'&quot;')" -b \
+		  -o "\"${sfpath}\"" \
+		  -i "string-length(comment) > 0" -v "concat(' \"',comment,'\"')" -b \
+		  -i "string-length(comment) = 0" -v "concat(' \"',name,'\"')" -b \
 		  -i "string-length(password) > 0" -v "concat(' password:',password)" -b \
 		  -i "volsizelimit > 0" -v "concat(' volsizelimit:',volsizelimit)" -b \
 		  -i "not(casefold[. = 'none'])" -v "concat(' casefold:',casefold)" -b \

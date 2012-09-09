@@ -37,15 +37,15 @@ OMV_LOADCPUFREQ_DEFAULT=${OMV_LOADCPUFREQ_DEFAULT:-"/etc/default/loadcpufreq"}
 
 # Create '/etc/default/cpufrequtils' file
 xmlstarlet sel -t -m "//system/powermanagement" \
-  -i "cpufreq = 0" -o "ENABLE=&quot;false&quot;" -n -b \
-  -i "cpufreq = 1" -o "ENABLE=&quot;true&quot;" -n -b \
-  -o "GOVERNOR=&quot;${OMV_CPUFREQUTILS_GOVERNOR}&quot;" -n \
-  -o "MAX_SPEED=&quot;${OMV_CPUFREQUTILS_MAXSPEED}&quot;" -n \
-  -o "MIN_SPEED=&quot;${OMV_CPUFREQUTILS_MINSPEED}&quot;" \
+  -i "cpufreq = 0" -o "ENABLE=\"false\"" -n -b \
+  -i "cpufreq = 1" -o "ENABLE=\"true\"" -n -b \
+  -o "GOVERNOR=\"${OMV_CPUFREQUTILS_GOVERNOR}\"" -n \
+  -o "MAX_SPEED=\"${OMV_CPUFREQUTILS_MAXSPEED}\"" -n \
+  -o "MIN_SPEED=\"${OMV_CPUFREQUTILS_MINSPEED}\"" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CPUFREQUTILS_DEFAULT}
 
 # Create '/etc/default/loadcpufreq' file
 xmlstarlet sel -t -m "//system/powermanagement" \
-  -i "cpufreq = 0" -o "ENABLE=&quot;false&quot;" -b \
-  -i "cpufreq = 1" -o "ENABLE=&quot;true&quot;" -b \
+  -i "cpufreq = 0" -o "ENABLE=\"false\"" -b \
+  -i "cpufreq = 1" -o "ENABLE=\"true\"" -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_LOADCPUFREQ_DEFAULT}

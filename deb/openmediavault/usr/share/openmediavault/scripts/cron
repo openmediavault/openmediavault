@@ -46,7 +46,7 @@ xmlstarlet sel -t \
 	  -i "everynhour[. = '0']" -v "concat(hour,' ')" -b \
 	  -i "everyndayofmonth[. = '1']" -v "concat('*/',dayofmonth,' ')" -b \
 	  -i "everyndayofmonth[. = '0']" -v "concat(dayofmonth,' ')" -b \
-	  -v "concat(month,' ',dayofweek,' ',username,' ',command,' &gt;/dev/null 2&gt;&amp;1')" -n \
+	  -v "concat(month,' ',dayofweek,' ',username,' ',command,' >/dev/null 2>&1')" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CRONTAB_POWERMNGMT_CONFIG}
 chmod 644 ${OMV_CRONTAB_POWERMNGMT_CONFIG}
@@ -86,7 +86,7 @@ xmlstarlet sel -t \
 	  -i "everyndayofmonth[. = '0']" -v "concat(dayofmonth,' ')" -b \
 	  -v "concat(month,' ',dayofweek,' ',username,' ${OMV_CRONTAB_CRONSCRIPTS_DIR}/userdefined-',uuid)" \
 	  -i "sendemail[. = '0']" \
-		  -o " &gt;/dev/null 2&gt;&amp;1" \
+		  -o " >/dev/null 2>&1" \
 	  -b \
 	  -n \
   -b \
