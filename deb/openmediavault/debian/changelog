@@ -7,6 +7,8 @@ openmediavault (0.4) stable; urgency=low
 openmediavault (0.3.0.25) stable; urgency=low
 
   * Fix trigger issue.
+  * Improve 'Send test email' implementation.
+  * Mantis 0000595: Relayhost should be encapsulated in square brackets.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 09 Sep 2012 00:53:39 +0200
 

@@ -126,22 +126,47 @@ class EmailRpc extends OMVRpc {
 	}
 
 	/**
-	 * Send a test email.
+	 * Send a test email. The email notification service must already be
+	 * configured.
 	 */
-	function sendTestEmail($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Update configuration.
-		OMVRpc::exec("Email", "set", $data);
-		// Send email
+	function sendTestEmail() {
+		global $xmlConfig;
+		// Check permissions
+		$this->validateSession();
+		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		}
+		$this->commitSession();
+		// Get configuration object.
+		$xpath = "//system/email";
+		$object = $xmlConfig->get($xpath);
+		if (is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Do some generic tests to find out if email notification is
+		// already configured.
+		if (!boolval($object['enable'])) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  "Email notification service is disabled.");
+		}
+		foreach (array("server", "port", "sender", "primaryemail") as
+		  $keyk => $keyv) {
+			if (empty($object[$keyv])) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+				  "Email notification service is not configured.");
+			}
+		}
+		// Send a test email.
 		$hostname = php_uname('n');
-		$to = $data['primaryemail'];
-		if (!empty($data['secondaryemail'])) {
-			$to += ",{$data['secondaryemail']}";
+		$to = $object['primaryemail'];
+		if (!empty($object['secondaryemail'])) {
+			$to += ",{$object['secondaryemail']}";
 		}
 		$subject = "Test message from {$hostname}";
 		$message = "This is an automatically generated mail message from " .
 		  "the system notification service running on {$hostname}.";
-		if (!OMVUtil::mail($data['sender'], $to, $subject, $message)) {
+		if (!OMVUtil::mail($object['sender'], $to, $subject, $message)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to send email. Please check the logs.");
 		}

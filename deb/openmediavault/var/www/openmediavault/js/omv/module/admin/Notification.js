@@ -50,7 +50,9 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 		OMV.Module.System.Notification.superclass.initComponent.apply(
 		  this, arguments);
 		this.on("load", function(c, values) {
+			// Update the 'Send test email' button.
 			this.setButtonDisabled("test", !values.enable);
+			// Update the form fields.
 			this._updateFormFields();
 		}, this);
 	},
@@ -70,8 +72,6 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 				} else {
 					// Display waiting dialog
 					OMV.MessageBox.wait(null, _("Sending test email ..."));
-					// Get the form values
-					var values = this.getValues();
 					// Execute RPC
 					OMV.Ajax.request(function(id, response, error) {
 						OMV.MessageBox.updateProgress(1);
@@ -81,7 +81,7 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 						} else {
 							OMV.MessageBox.error(null, error);
 						}
-					}, this, this.rpcService, "sendTestEmail", values);
+					}, this, this.rpcService, "sendTestEmail");
 				}
 			},
 			scope: this
