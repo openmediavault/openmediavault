@@ -1027,21 +1027,19 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 				scope: this,
 				select: function(combo, record, index) {
 					var free = parseInt(record.get("free"));
-					// Get the highest possible binary unit of the volume
-					// group capacity to setup the slider.
-					var result = free.binaryFormat({
-						indexed: true,
-						maxUnit: "PiB"
-					});
 					// Update the 'Size' slider control.
-					field = this.findFormField("size");
+					field = this.findFormField("sizeslider");
 					field.slider.on("change", function(c, newValue) {
-						var field = this.findFormField("selsize");
-						field.setValue(newValue.binaryFormat());
+						var bytes = (free / 100) * newValue;
+						// Update the hidden field storing the real size.
+						var field = this.findFormField("size");
+						field.setValue(bytes);
+						// Display value in highest possible binary unit in
+						// the textfield right beside the slider control.
+						field = this.findFormField("sizetext");
+						field.setValue(bytes.binaryFormat());
 					}, this);
-					field.setIncrement(result.divisor);
-					field.setMaxValue(free);
-					field.setValue(free);
+					field.setValue(100); // Set to 100% by default.
 					field.setDisabled(false);
 				}
 			}
@@ -1050,18 +1048,24 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 			fieldLabel: _("Size"),
 			combineErrors: false,
 			items: [{
+				xtype: "hidden",
+				name: "size"
+			},{
 				xtype: "sliderfield",
-				name: "size",
+				name: "sizeslider",
 				minValue: 1,
+				maxValue: 100,
+				decimalPrecision: 0,
 				useTips: true,
 				disabled: true,
 				flex: 1,
 				tipText: function(thumb) {
-					return String.format('{0}', thumb.value.binaryFormat());
-				}
+					return String.format('{0}%', thumb.value);
+				},
+				submitValue: false
 			},{
 				xtype: "textfield",
-				name: "selsize",
+				name: "sizetext",
 				width: 90,
 				readOnly: true,
 				submitValue: false
@@ -1072,7 +1076,8 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 	getValues : function() {
 		var values = OMV.Module.Storage.LVM.CreateLogicalVolumeDialog.
 		  superclass.getValues.call(this, arguments);
-		var result = values.size.binaryFormat({
+		// Modify values to fulfill the RPC requirements.
+		var result = parseInt(values.size).binaryFormat({
 			indexed: true
 		});
 		values.size = parseInt(result.value);
@@ -1219,17 +1224,23 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 			fieldLabel: _("Size"),
 			combineErrors: false,
 			items: [{
+				xtype: "hidden",
+				name: "size"
+			},{
 				xtype: "sliderfield",
-				name: "size",
-				minValue: this.size,
+				name: "sizeslider",
+				minValue: 1,
+				maxValue: 100,
+				decimalPrecision: 0,
 				useTips: true,
 				flex: 1,
 				tipText: function(thumb) {
-					return String.format('{0}', thumb.value.binaryFormat());
-				}
+					return String.format('{0}%', thumb.value);
+				},
+				submitValue: false
 			},{
 				xtype: "textfield",
-				name: "selsize",
+				name: "sizetext",
 				width: 90,
 				readOnly: true,
 				submitValue: false
@@ -1243,25 +1254,23 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 		OMV.Ajax.request(function(id, response, error) {
 			if (error === null) {
 				var free = parseInt(response.free);
-				var maxSize = this.size + free;
+				var currentSize = this.size;
 				// Finally show the dialog.
 				OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog.
 				  superclass.show.call(this, arguments);
-				// Get the highest possible binary unit of the volume
-				// group capacity to setup the slider.
-				var result = maxSize.binaryFormat({
-					indexed: true,
-					maxUnit: "PiB"
-				});
 				// Update the 'Size' slider control.
-				var field = this.findFormField("size");
+				var field = this.findFormField("sizeslider");
 				field.slider.on("change", function(c, newValue) {
-					var field = this.findFormField("selsize");
-					field.setValue(newValue.binaryFormat());
+					var bytes = currentSize + (free / 100) * newValue;
+					// Update the hidden field storing the real size.
+					var field = this.findFormField("size");
+					field.setValue(bytes);
+					// Display value in highest possible binary unit in
+					// the textfield right beside the slider control.
+					field = this.findFormField("sizetext");
+					field.setValue(bytes.binaryFormat());
 				}, this);
-				field.setIncrement(result.divisor);
-				field.setMaxValue(maxSize);
-				field.setValue(this.size);
+				field.setValue(100); // Set to 100% by default.
 			} else {
 				OMV.MessageBox.error(null, error);
 			}
@@ -1272,7 +1281,8 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 	getValues : function() {
 		var values = OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog.
 		  superclass.getValues.call(this, arguments);
-		var result = values.size.binaryFormat({
+		// Modify values to fulfill the RPC requirements.
+		var result = parseInt(values.size).binaryFormat({
 			indexed: true
 		});
 		values.size = parseInt(result.value);
