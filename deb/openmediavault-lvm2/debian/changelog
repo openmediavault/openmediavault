@@ -4,6 +4,12 @@ openmediavault-lvm2 (0.4) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 09 Sep 2012 01:29:13 +0200
 
+openmediavault-lvm2 (0.3.0.10) stable; urgency=low
+
+  * Mantis 0000600: Improve the create/extend logical volume dialogs.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 13 Sep 2012 10:43:29 +0200
+
 openmediavault-lvm2 (0.3.0.9) stable; urgency=low
 
   * Improve create/extend logical volume dialogs.
