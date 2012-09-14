@@ -159,8 +159,9 @@ class OMVLogicalVolumeMgmtModule extends OMVModuleAbstract
 	 */
 	public function createLogicalVolume($object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		$cmd = sprintf("sudo lvcreate -L %d%s -n %s %s 2>&1", $object['size'],
-		  $object['unit'], $object['name'], $object['vgname']);
+		// Convert to KiB to ensure size is a multiple of 512.
+		$cmd = sprintf("sudo lvcreate -L %sKiB -n %s %s 2>&1", binary_convert(
+		  $object['size'], "B", "KiB"), $object['name'], $object['vgname']);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -191,24 +192,29 @@ class OMVLogicalVolumeMgmtModule extends OMVModuleAbstract
 		$lv = new OMVLogicalVolume($object['devicefile']);
 		// If the 'size' and 'unit' fields are set, then extend or reduce the
 		// logical volume.
-		if (TRUE === array_keys_exists(array("size", "unit"), $object)) {
-			$size = binary_convert($lv->getSize(), "B", $object['unit']);
-			if ($size < $object['size']) {
-				$cmd = sprintf("sudo lvextend -L %d%s %s 2>&1",
-				  $object['size'], $object['unit'], $object['devicefile']);
+		if (TRUE === array_key_exists("size", $object)) {
+			// Convert to KiB to ensure size is a multiple of 512.
+			$size = binary_convert($object['size'], "B", "KiB");
+			// Extend or reduce volume size?
+			switch (bccomp($lv->getSize(), $object['size'])) {
+			case -1: // Extend
+				$cmd = sprintf("sudo lvextend -L %sKiB %s 2>&1", $size,
+				  $object['devicefile']);
 				OMVUtil::exec($cmd, $output, $result);
 				if ($result !== 0) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 					  $cmd, implode("\n", $output));
 				}
-			} else if ($size > $object['size']) {
-				$cmd = sprintf("sudo lvreduce -L %d%s %s 2>&1",
-				  $object['size'], $object['unit'], $object['devicefile']);
+				break;
+			case 1: // Reduce
+				$cmd = sprintf("sudo lvreduce -L %sKiB %s 2>&1", $size,
+				  $object['devicefile']);
 				OMVUtil::exec($cmd, $output, $result);
 				if ($result !== 0) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 					  $cmd, implode("\n", $output));
 				}
+				break;
 			}
 		}
 		// Check if the 'name' field is set and whether it is different to

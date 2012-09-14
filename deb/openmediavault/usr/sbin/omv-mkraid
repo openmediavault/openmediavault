@@ -86,6 +86,7 @@ if [ -n "${name}" ]; then
 	cmdargs="${cmdargs} --name=${name}"
 fi
 mdadm ${cmdargs} ${OMV_MKRAID_CMDARGS} ${componentdevices} 2>&1
+sleep 2
 mdadm --readwrite ${device} | true
 
 exit 0

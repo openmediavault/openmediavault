@@ -20,8 +20,9 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://scotgate.org/2006/07/03/growing-a-raid5-array-mdadm
-# http://de.opensuse.org/SW-RAID_und_LVM_(Grundlagen)
+# https://raid.wiki.kernel.org/index.php/RAID_setup
+# http://en.wikipedia.org/wiki/Mdadm
+# http://old-de.opensuse.org/SW-RAID_und_LVM_(Grundlagen)
 # http://www.felipe1982.com/blog/2010/01/27/software-raid-5-on-gnulinux-using-mdadm-in-6-easy-steps
 
 set -e
@@ -95,6 +96,7 @@ EOF
 
 # Append definition of existing arrays
 mdadm --detail --scan >> ${OMV_MDADM_CONFIG}
+#update-initramfs -u
 
 # Set email configuration
 xmlstarlet sel -t -m "//system/email" \
