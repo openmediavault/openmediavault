@@ -124,7 +124,7 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 				"type":"object",
 				"properties":{
 					"name":{"type":"string"},
-					"size":{"type":"string"},
+					"numextents":{"type":"string"},
 					"vgname":{"type":"string"}
 				}
 			}'),
@@ -139,7 +139,7 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 				"type":"object",
 				"properties":{
 					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
-					"size":{"type":"string"}
+					"numextents":{"type":"string"}
 				}
 			}')
 		);
@@ -332,8 +332,9 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 	/**
 	 * Enumerate all volume groups on the system.
 	 * @return An array of objects. Each object represents a volume group
-	 *   with the following properties: devicefile, uuid, name, free, size,
-	 *   pvName and lvName.
+	 *   with the following properties: \em devicefile, \em uuid, \em name,
+	 *   \em free, \em size, \em pvname, \em lvname, \em extentsize,
+	 *   \em numextents, \em numfreeextents and \em description.
 	 */
 	public function enumerateVolumeGroups() {
 		// Check permissions
@@ -357,8 +358,11 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 				"name" => $vg->getName(),
 				"free" => $vg->getFree(),
 				"size" => $vg->getSize(),
-				"pvName" => $vg->getPVName(),
-				"lvName" => $vg->getLVName(),
+				"pvname" => $vg->getPVName(),
+				"lvname" => $vg->getLVName(),
+				"extentsize" => $vg->getExtentSize(),
+				"numextents" => $vg->getNumExtents(),
+				"numfreeextents" => $vg->getNumFreeExtents(),
 				"description" => $vg->getDescription()
 			);
 		}
@@ -389,7 +393,7 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 		// Enumerate all volume groups on the system.
 		$vgs = $this->enumerateVolumeGroups();
 		foreach ($vgs as $vgk => &$vgv) {
-			$vgv['_used'] = !empty($vgv['lvName']);
+			$vgv['_used'] = !empty($vgv['lvname']);
 		}
 		// Filter result
 		return $this->applyFilter($vgs, $data['start'], $data['limit'],
@@ -468,7 +472,10 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 	 * Get volume group details.
 	 * @param data An array containing the following fields:
 	 *   \em uuid name The name of the volume group, e.g. vg0 or /dev/vg1.
-	 * @return The volume group details.
+	 * @return The volume group details containing the fields \em devicefile,
+	 *   \em uuid, \em name, \em free, \em size, \em pvname, \em lvname,
+	 *   \em extentsize, \em numextents, \em numfreeextents and
+	 *   \em description.
 	 */
 	public function getVolumeGroup($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
@@ -493,8 +500,11 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 			"name" => $vg->getName(),
 			"free" => $vg->getFree(),
 			"size" => $vg->getSize(),
-			"pvName" => $vg->getPVName(),
-			"lvName" => $vg->getLVName(),
+			"pvname" => $vg->getPVName(),
+			"lvname" => $vg->getLVName(),
+			"extentsize" => $vg->getExtentSize(),
+			"numextents" => $vg->getNumExtents(),
+			"numfreeextents" => $vg->getNumFreeExtents(),
 			"description" => $vg->getDescription()
 		);
 	}
@@ -720,8 +730,9 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 	 * Create a logical volume.
 	 * @param data An array containing the following fields:
 	 *   \em name The name of the logical volume, e.g. lv0.
-	 *   \em size The size of the logical volume in bytes. This is a string
-	 *      to support volumes > 2GiB on 32bit systems.
+	 *   \em numextents The number of physical extents to use for the logical
+	 *      volume. This is a string to support volumes > 2GiB on 32bit
+	 *      systems.
 	 *   \em vgname The name of the volume group, e.g. /dev/vg0.
 	 * @return None
 	 */
@@ -741,7 +752,7 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
 		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
 			  "name" => $data['name'],
-			  "size" => $data['size'],
+			  "numextents" => $data['numextents'],
 			  "vgname" => $data['vgname']
 		  ));
 	}
@@ -798,8 +809,9 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 	 * Modify a logical volume.
 	 * @param data An array containing the following fields:
 	 *   \em devicefile The device file of the logical volume to modify.
-	 *   \em size The new absolute size of the logical volume in bytes. This
-	 *     is a string to support volumes > 2GiB on 32bit systems.
+	 *   \em numextents The new number of physical extents to use for the
+	 *      logical volume. This is a string to support volumes > 2GiB on
+	 *      32bit systems.
 	 * @return None
 	 */
 	public function modifyLogicalVolume($data) {
@@ -818,7 +830,7 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
 			  "devicefile" => $data['devicefile'],
-			  "size" => $data['size']
+			  "numextents" => $data['numextents']
 		  ));
 	}
 }

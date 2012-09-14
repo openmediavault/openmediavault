@@ -249,20 +249,20 @@ OMV.Module.Storage.LVM.VolumeGroupGridPanel = function(config) {
 			},{
 				header: _("Physical volumes"),
 				sortable: true,
-				dataIndex: "pvName",
-				id: "pvName",
+				dataIndex: "pvname",
+				id: "pvname",
 				renderer: function(val, cell, record, row, col, store) {
 					var tpl = new Ext.XTemplate('<tpl for=".">{.}<br/></tpl>');
-					return tpl.apply(record.get("pvName"));
+					return tpl.apply(record.get("pvname"));
 				}
 			},{
 				header: _("Logical volumes"),
 				sortable: true,
-				dataIndex: "lvName",
-				id: "lvName",
+				dataIndex: "lvname",
+				id: "lvname",
 				renderer: function(val, cell, record, row, col, store) {
 					var tpl = new Ext.XTemplate('<tpl for=".">{.}<br/></tpl>');
-					return tpl.apply(record.get("lvName"));
+					return tpl.apply(record.get("lvname"));
 				}
 			}]
 		})
@@ -290,8 +290,8 @@ Ext.extend(OMV.Module.Storage.LVM.VolumeGroupGridPanel,
 					{ name: "name" },
 					{ name: "free" },
 					{ name: "size" },
-					{ name: "pvName" },
-					{ name: "lvName" },
+					{ name: "pvname" },
+					{ name: "lvname" },
 					{ name: "_used" }
     			]
 			})
@@ -1014,7 +1014,8 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 					fields: [
 						{ name: "devicefile" },
 						{ name: "description" },
-						{ name: "free" }
+						{ name: "extentsize" },
+						{ name: "numfreeextents" }
 					]
 				})
 			}),
@@ -1026,21 +1027,31 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 			listeners: {
 				scope: this,
 				select: function(combo, record, index) {
-					var free = parseInt(record.get("free"));
+					var disabled = false;
+					var extentSize = parseInt(record.get("extentsize"));
+					var numFreeExtents = parseInt(record.get("numfreeextents"));
 					// Update the 'Size' slider control.
-					field = this.findFormField("sizeslider");
-					field.slider.on("change", function(c, newValue) {
-						var bytes = Math.floor((free / 100) * newValue);
-						// Update the hidden field storing the real size.
-						var field = this.findFormField("size");
-						field.setValue(bytes);
-						// Display value in highest possible binary unit in
-						// the textfield right beside the slider control.
-						field = this.findFormField("sizetext");
-						field.setValue(bytes.binaryFormat());
-					}, this);
-					field.setValue(100); // Set to 100% by default.
-					field.setDisabled(false);
+					field = this.findFormField("numextentslider");
+					if (0 == numFreeExtents) {
+						disabled = true;
+						OMV.MessageBox.info(null, _("No free space available to create the logical volume."));
+					} else {
+						field.slider.on("change", function(c, newValue) {
+							// Update the hidden field storing the number of
+							// extents to use.
+							var field = this.findFormField("numextents");
+							field.setValue(newValue);
+							// Display value in highest possible binary unit
+							// in the textfield right beside the slider
+							// control.
+							var bytes = extentSize * newValue;
+							field = this.findFormField("size");
+							field.setValue(bytes.binaryFormat());
+						}, this);
+					}
+					field.setMaxValue(numFreeExtents);
+					field.setValue(numFreeExtents);
+					field.setDisabled(disabled);
 				}
 			}
 		},{
@@ -1049,23 +1060,19 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 			combineErrors: false,
 			items: [{
 				xtype: "hidden",
-				name: "size"
+				name: "numextents"
 			},{
 				xtype: "sliderfield",
-				name: "sizeslider",
+				name: "numextentslider",
 				minValue: 1,
-				maxValue: 100,
 				decimalPrecision: 0,
-				useTips: true,
+				useTips: false,
 				disabled: true,
 				flex: 1,
-				tipText: function(thumb) {
-					return String.format('{0}%', thumb.value);
-				},
 				submitValue: false
 			},{
 				xtype: "textfield",
-				name: "sizetext",
+				name: "size",
 				width: 90,
 				readOnly: true,
 				submitValue: false
@@ -1213,22 +1220,18 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 			combineErrors: false,
 			items: [{
 				xtype: "hidden",
-				name: "size"
+				name: "numextents"
 			},{
 				xtype: "sliderfield",
-				name: "sizeslider",
-				minValue: 1,
-				maxValue: 100,
+				name: "numextentslider",
+				minValue: 0,
 				decimalPrecision: 0,
-				useTips: true,
+				useTips: false,
 				flex: 1,
-				tipText: function(thumb) {
-					return String.format('{0}%', thumb.value);
-				},
 				submitValue: false
 			},{
 				xtype: "textfield",
-				name: "sizetext",
+				name: "size",
 				width: 90,
 				readOnly: true,
 				submitValue: false
@@ -1241,27 +1244,38 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 		// some details about the underlaying volume group.
 		OMV.Ajax.request(function(id, response, error) {
 			if (error === null) {
-				var free = parseInt(response.free);
-				var currentSize = this.size;
-				// Finally show the dialog.
-				OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog.
-				  superclass.show.call(this, arguments);
-				// Update the 'Size' slider control.
-				var field = this.findFormField("sizeslider");
-				field.slider.on("change", function(c, newValue) {
-					var bytes = currentSize + Math.floor((free / 100) *
-					  newValue);
-					// Update the hidden field storing the real size.
-					var field = this.findFormField("size");
-					field.setValue(bytes);
-					// Display value in highest possible binary unit in
-					// the textfield right beside the slider control.
-					field = this.findFormField("sizetext");
-					field.setValue(bytes.binaryFormat());
-				}, this);
-				field.setValue(100); // Set to 100% by default.
+				var extentSize = parseInt(response.extentsize);
+				var numExtents = parseInt(response.numextents);
+				var numFreeExtents = parseInt(response.numfreeextents);
+				var numUsedExtents = numExtents - numFreeExtents;
+				// Display a info message if no free space is available
+				// and close the dialog.
+				if (0 >= numFreeExtents) {
+					OMV.MessageBox.info(null, _("No free space available to extent the logical volume."));
+					this.close();
+				} else {
+					// Finally show the dialog.
+					OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog.
+					  superclass.show.call(this, arguments);
+					// Update the 'Size' slider control.
+					var field = this.findFormField("numextentslider");
+					field.slider.on("change", function(c, newValue) {
+						// Update the hidden field storing the number of
+						// extents to use.
+						var field = this.findFormField("numextents");
+						field.setValue(numUsedExtents + newValue);
+						// Display value in highest possible binary unit in
+						// the textfield right beside the slider control.
+						var bytes = extentSize * (numUsedExtents + newValue);
+						field = this.findFormField("size");
+						field.setValue(bytes.binaryFormat());
+					}, this);
+					field.setMaxValue(numFreeExtents);
+					field.setValue(numFreeExtents);
+				}
 			} else {
 				OMV.MessageBox.error(null, error);
+				this.close();
 			}
 		}, this, "LogicalVolumeMgmt", "getVolumeGroup",
 		{ "name": this.vgname });
