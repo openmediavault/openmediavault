@@ -1030,7 +1030,7 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 					// Update the 'Size' slider control.
 					field = this.findFormField("sizeslider");
 					field.slider.on("change", function(c, newValue) {
-						var bytes = (free / 100) * newValue;
+						var bytes = Math.floor((free / 100) * newValue);
 						// Update the hidden field storing the real size.
 						var field = this.findFormField("size");
 						field.setValue(bytes);
@@ -1071,18 +1071,6 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 				submitValue: false
 			}]
 		}];
-	},
-
-	getValues : function() {
-		var values = OMV.Module.Storage.LVM.CreateLogicalVolumeDialog.
-		  superclass.getValues.call(this, arguments);
-		// Modify values to fulfill the RPC requirements.
-		var result = parseInt(values.size).binaryFormat({
-			indexed: true
-		});
-		values.size = parseInt(result.value);
-		values.unit = result.unit;
-		return values;
 	},
 
 	doSubmit : function() {
@@ -1261,7 +1249,8 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 				// Update the 'Size' slider control.
 				var field = this.findFormField("sizeslider");
 				field.slider.on("change", function(c, newValue) {
-					var bytes = currentSize + (free / 100) * newValue;
+					var bytes = currentSize + Math.floor((free / 100) *
+					  newValue);
 					// Update the hidden field storing the real size.
 					var field = this.findFormField("size");
 					field.setValue(bytes);
@@ -1276,17 +1265,5 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 			}
 		}, this, "LogicalVolumeMgmt", "getVolumeGroup",
 		{ "name": this.vgname });
-	},
-
-	getValues : function() {
-		var values = OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog.
-		  superclass.getValues.call(this, arguments);
-		// Modify values to fulfill the RPC requirements.
-		var result = parseInt(values.size).binaryFormat({
-			indexed: true
-		});
-		values.size = parseInt(result.value);
-		values.unit = result.unit;
-		return values;
 	}
 });
