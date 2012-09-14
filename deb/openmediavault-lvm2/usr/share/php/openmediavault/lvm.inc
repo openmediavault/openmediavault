@@ -234,6 +234,9 @@ class OMVVolumeGroup extends OMVObject {
 	protected $lvCount = 0;
 	protected $pvName = array();
 	protected $lvName = array();
+	protected $extentSize = "";
+	protected $extentCount = "";
+	protected $freeCount = "";
 	private $dataCached = FALSE;
 
 	/**
@@ -257,7 +260,8 @@ class OMVVolumeGroup extends OMVObject {
 		// gHikbD-106X-xVOQ-7wtr-Q6PO-Pn3Q-UTmNls|vg0|8585740288B|8552185856B|1|2
 		$cmd = sprintf("export LANG=C; sudo vgdisplay --noheadings ".
 		  "--separator '|' -C -o vg_uuid,vg_name,vg_size,vg_free,pv_count,".
-		  "lv_count --unit b %s", $this->getName());
+		  "lv_count,vg_extent_size,vg_extent_count,vg_free_count --unit b %s",
+		  $this->getName());
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0)
 			return FALSE;
@@ -270,6 +274,9 @@ class OMVVolumeGroup extends OMVObject {
 		$this->free = substr($output[3], 0, -1);
 		$this->pvCount = intval($output[4]);
 		$this->lvCount = intval($output[5]);
+		$this->extentSize = substr($output[6], 0, -1);
+		$this->extentCount = $output[7];
+		$this->freeCount = $output[8];
 
 		// Get the names of the physical volumes.
 		$this->pvName = array();
@@ -417,6 +424,38 @@ class OMVVolumeGroup extends OMVObject {
 		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->lvName;
+	}
+
+	/**
+	 * Get the size of physical extents in bytes.
+	 * @return The size of physical extents in bytes as string or FALSE
+	 *   on failure.
+	 */
+	public function getExtentSize() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		return $this->extentSize;
+	}
+
+	/**
+	 * Get the total number of physical extents.
+	 * @return the total number of physical extents or FALSE on failure.
+	 */
+	public function getNumExtents() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		return $this->extentCount;
+	}
+
+	/**
+	 * Get the total number of unallocated physical extents.
+	 * @return The total number of unallocated physical extents as string
+	 *   or FALSE on failure.
+	 */
+	public function getNumFreeExtents() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		return $this->freeCount;
 	}
 
 	/**

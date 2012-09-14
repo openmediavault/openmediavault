@@ -160,8 +160,8 @@ class OMVLogicalVolumeMgmtModule extends OMVModuleAbstract
 	public function createLogicalVolume($object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Convert to KiB to ensure size is a multiple of 512.
-		$cmd = sprintf("sudo lvcreate -L %sKiB -n %s %s 2>&1", binary_convert(
-		  $object['size'], "B", "KiB"), $object['name'], $object['vgname']);
+		$cmd = sprintf("sudo lvcreate --extents %s -n %s %s 2>&1",
+		  $object['numextents'], $object['name'], $object['vgname']);
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -192,14 +192,20 @@ class OMVLogicalVolumeMgmtModule extends OMVModuleAbstract
 		$lv = new OMVLogicalVolume($object['devicefile']);
 		// If the 'size' and 'unit' fields are set, then extend or reduce the
 		// logical volume.
-		if (TRUE === array_key_exists("size", $object)) {
-			// Convert to KiB to ensure size is a multiple of 512.
-			$size = binary_convert($object['size'], "B", "KiB");
+		if (TRUE === array_key_exists("numextents", $object)) {
+			// Calculate the new size of the logical volume to decide
+			// whether it must be extended or reduced.
+			$vg = new OMVVolumeGroup($lv->getVGName());
+			if (FALSE === $vg->exists()) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("Volume group '%s' not found", $lv->getVGName()));
+			}
+			$size = bcmul($object['numextents'], $vg->getExtentSize());
 			// Extend or reduce volume size?
-			switch (bccomp($lv->getSize(), $object['size'])) {
+			switch (bccomp($lv->getSize(), $size)) {
 			case -1: // Extend
-				$cmd = sprintf("sudo lvextend -L %sKiB %s 2>&1", $size,
-				  $object['devicefile']);
+				$cmd = sprintf("sudo lvextend --extents %s %s 2>&1",
+				  $object['numextents'], $object['devicefile']);
 				OMVUtil::exec($cmd, $output, $result);
 				if ($result !== 0) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -207,8 +213,8 @@ class OMVLogicalVolumeMgmtModule extends OMVModuleAbstract
 				}
 				break;
 			case 1: // Reduce
-				$cmd = sprintf("sudo lvreduce -L %sKiB %s 2>&1", $size,
-				  $object['devicefile']);
+				$cmd = sprintf("sudo lvreduce --extents %s %s 2>&1",
+				  $object['numextents'], $object['devicefile']);
 				OMVUtil::exec($cmd, $output, $result);
 				if ($result !== 0) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
