@@ -1,30 +1,17 @@
-# This file is part of OpenMediaVault.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
-# 
-# OpenMediaVault is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-# 
-# OpenMediaVault is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
+# Volker  <votdev@gmx.de>, 2012.
 #   <warhog@gmx.de>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 20:06+0100\n"
-"PO-Revision-Date: 2012-04-20 08:57+0000\n"
-"Last-Translator: warhog <warhog@gmx.de>\n"
+"POT-Creation-Date: 2012-09-14 22:51+0200\n"
+"PO-Revision-Date: 2012-09-14 20:53+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,7 +22,7 @@ msgstr ""
 msgid ""
 "After the logical volume has been extended you can resize the containing "
 "filesystem."
-msgstr "Nachdem das logical Volume erweitert wurde können Sie die Größe des darin enthaltenen Dateisystems ändern."
+msgstr "Nachdem das Logical Volume erweitert wurde können Sie die Größe des darin enthaltenen Dateisystems ändern."
 
 msgid "Available"
 msgstr "Verfügbar"
@@ -45,6 +32,9 @@ msgstr "Kapazität"
 
 msgid "Confirmation"
 msgstr "Bestätigung"
+
+msgid "Create"
+msgstr "Erstellen"
 
 msgid "Create logical volume"
 msgstr "Logical Volume erstellen"
@@ -65,10 +55,10 @@ msgid "Devices"
 msgstr "Laufwerke"
 
 msgid "Do you really want to create the logical volume?"
-msgstr "Wollen Sie das logical Volume wirklich erzeugen?"
+msgstr "Wollen Sie das Logical Volume wirklich erzeugen?"
 
 msgid "Do you really want to create the physical volume?"
-msgstr "Wollen Sie das physical Volume wirklich erzeugen?"
+msgstr "Wollen Sie das Physical Volume wirklich erzeugen?"
 
 msgid "Do you really want to create the volume group?"
 msgstr "Wollen Sie die Volumegruppe wirklich erzeugen?"
@@ -100,6 +90,12 @@ msgstr "Logical Volumes"
 msgid "Name"
 msgstr "Name"
 
+msgid "No free space available to create the logical volume."
+msgstr "Kein freier Speicherplatz zur Verfügung um das Logical Volume zu erstellen."
+
+msgid "No free space available to extend the logical volume."
+msgstr "Kein freier Speicherplatz zur Verfügung um das Logical Volume zu erweitern."
+
 msgid "Physical volumes"
 msgstr "Physical Volumes"
 
@@ -117,12 +113,6 @@ msgstr "Laufwerk auswählen ..."
 
 msgid "Size"
 msgstr "Größe"
-
-msgid "The maximum value for this field is {0}"
-msgstr "Der Maximalwert dieses Feldes ist {0}"
-
-msgid "The minimum value for this field is {0}"
-msgstr "Der Minimalwert dieses Feldes ist {0}"
 
 msgid "Used"
 msgstr "Benutzt"

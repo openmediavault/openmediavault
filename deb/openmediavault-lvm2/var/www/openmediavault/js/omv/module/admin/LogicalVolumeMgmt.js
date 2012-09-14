@@ -1251,7 +1251,7 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 				// Display a info message if no free space is available
 				// and close the dialog.
 				if (0 >= numFreeExtents) {
-					OMV.MessageBox.info(null, _("No free space available to extent the logical volume."));
+					OMV.MessageBox.info(null, _("No free space available to extend the logical volume."));
 					this.close();
 				} else {
 					// Finally show the dialog.

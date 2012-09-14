@@ -1,21 +1,7 @@
-# This file is part of OpenMediaVault.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
-# 
-# OpenMediaVault is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-# 
-# OpenMediaVault is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012.
 #   <mersaint@gmail.com>, 2012.
@@ -23,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 20:06+0100\n"
-"PO-Revision-Date: 2012-06-17 13:13+0000\n"
-"Last-Translator: Ádám Balajti <balajtiadam@gmail.com>\n"
+"POT-Creation-Date: 2012-09-14 22:51+0200\n"
+"PO-Revision-Date: 2012-09-14 20:51+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -46,6 +32,9 @@ msgstr "Kapacitás"
 
 msgid "Confirmation"
 msgstr "Megerősítés"
+
+msgid "Create"
+msgstr ""
 
 msgid "Create logical volume"
 msgstr "Logikai kötet létrehozása"
@@ -101,6 +90,12 @@ msgstr "Logikai kötetek"
 msgid "Name"
 msgstr "Név"
 
+msgid "No free space available to create the logical volume."
+msgstr ""
+
+msgid "No free space available to extend the logical volume."
+msgstr ""
+
 msgid "Physical volumes"
 msgstr "Fizikai kötetek"
 
@@ -118,12 +113,6 @@ msgstr "Válassz ki egy meghajtót ..."
 
 msgid "Size"
 msgstr "Méret"
-
-msgid "The maximum value for this field is {0}"
-msgstr "A mező maximális értéke {0}"
-
-msgid "The minimum value for this field is {0}"
-msgstr "A mező minimális értéke {0}"
 
 msgid "Used"
 msgstr "Foglalt"
