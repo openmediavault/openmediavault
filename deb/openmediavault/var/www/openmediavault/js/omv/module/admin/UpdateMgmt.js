@@ -222,9 +222,16 @@ Ext.extend(OMV.Module.System.UpdateMgmtGridPanel, OMV.grid.TBarGridPanel, {
 		var selModel = this.getSelectionModel();
 		var records = selModel.getSelections();
 		var packages = [];
+		var showMessageBox = false;
 		for (var i = 0; i < records.length; i++) {
 			var record = records[i];
-			packages.push(record.get("name"));
+			var name = record.get("name");
+			packages.push(name);
+			// Is it a plugin?
+			if (RegExp("^"+OMV.PRODUCT_PACKAGENAME+"(-\S+)?$", "i").test(
+			  name)) {
+				showMessageBox = true;
+			}
 		}
 		var wnd = new OMV.ExecCmdDialog({
 			title: _("Install updates ..."),
@@ -246,6 +253,13 @@ Ext.extend(OMV.Module.System.UpdateMgmtGridPanel, OMV.grid.TBarGridPanel, {
 				},
 				close: function() {
 					this.doReload();
+					// Display a message box if plugins have been updated to
+					// notify the user to reload the page. This is necessary
+					// to let potentially new WebGUI Javascript code take
+					// effect.
+					if (true === showMessageBox) {
+						OMV.MessageBox.info(null, _("Please reload the page to let the changes take effect."));
+					}
 				},
 				scope: this
 			}
