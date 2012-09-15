@@ -1034,7 +1034,7 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 					field = this.findFormField("numextentslider");
 					if (0 == numFreeExtents) {
 						disabled = true;
-						OMV.MessageBox.info(null, _("No free space available to create the logical volume."));
+						OMV.MessageBox.info(null, _("No free space available to create a logical volume."));
 					} else {
 						field.slider.on("change", function(c, newValue) {
 							// Update the hidden field storing the number of

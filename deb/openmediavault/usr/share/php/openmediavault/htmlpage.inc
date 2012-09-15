@@ -183,10 +183,14 @@ class OMVWebGui extends OMVHtmlPage {
 		$session = &OMVSession::getInstance();
 		// Define global constants.
 		$globalDefs = sprintf("OMV.UUID_UNDEFINED = '%s'; ".
-		  "OMV.HTTPREQUEST_TIMEOUT = %s; OMV.PRODUCT_NAME = '%s'; ".
-		  "OMV.PRODUCT_URL = '%s'; OMV.PRODUCT_COPYRIGHT = '%s';",
+		  "OMV.HTTPREQUEST_TIMEOUT = %s; ".
+		  "OMV.PRODUCT_NAME = '%s'; ".
+		  "OMV.PRODUCT_URL = '%s'; ".
+		  "OMV.PRODUCT_COPYRIGHT = '%s'; ".
+		  "OMV.PRODUCT_PACKAGENAME = '%s';",
 		  $GLOBALS['OMV_UUID_UNDEFINED'], $GLOBALS['OMV_HTTPREQUEST_TIMEOUT'],
-		  $prd->getName(), $prd->getURL(), $prd->getCopyright());
+		  $prd->getName(), $prd->getURL(), $prd->getCopyright(),
+		  $prd->getPackageName());
 		$errorCodes = sprintf("OMV.E_SESSION_NOT_AUTHENTICATED = %d; ".
 		  "OMV.E_SESSION_TIMEOUT = %d;",
 		  OMVErrorMsg::E_SESSION_NOT_AUTHENTICATED,
