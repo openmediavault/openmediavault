@@ -124,7 +124,7 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 				"type":"object",
 				"properties":{
 					"name":{"type":"string"},
-					"numextents":{"type":"string"},
+					"size":{"type":"string"},
 					"vgname":{"type":"string"}
 				}
 			}'),
@@ -139,7 +139,7 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 				"type":"object",
 				"properties":{
 					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
-					"numextents":{"type":"string"}
+					"size":{"type":"string"}
 				}
 			}')
 		);
@@ -730,9 +730,8 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 	 * Create a logical volume.
 	 * @param data An array containing the following fields:
 	 *   \em name The name of the logical volume, e.g. lv0.
-	 *   \em numextents The number of physical extents to use for the logical
-	 *      volume. This is a string to support volumes > 2GiB on 32bit
-	 *      systems.
+	 *   \em size The size of the logical volume in bytes. This is a string to
+	 *      support volumes > 2GiB on 32bit systems.
 	 *   \em vgname The name of the volume group, e.g. /dev/vg0.
 	 * @return None
 	 */
@@ -752,7 +751,7 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
 		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
 			  "name" => $data['name'],
-			  "numextents" => $data['numextents'],
+			  "size" => $data['size'],
 			  "vgname" => $data['vgname']
 		  ));
 	}
@@ -809,9 +808,8 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 	 * Modify a logical volume.
 	 * @param data An array containing the following fields:
 	 *   \em devicefile The device file of the logical volume to modify.
-	 *   \em numextents The new number of physical extents to use for the
-	 *      logical volume. This is a string to support volumes > 2GiB on
-	 *      32bit systems.
+	 *   \em size The new size of the logical volume in bytes. This is a string
+	 *      to support volumes > 2GiB on 32bit systems.
 	 * @return None
 	 */
 	public function modifyLogicalVolume($data) {
@@ -830,7 +828,7 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
 			  "devicefile" => $data['devicefile'],
-			  "numextents" => $data['numextents']
+			  "size" => $data['size']
 		  ));
 	}
 }
