@@ -4,12 +4,18 @@ openmediavault-lvm2 (0.4) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 09 Sep 2012 01:29:13 +0200
 
+openmediavault-lvm2 (0.3.0.12) stable; urgency=low
+
+  * Mantis 0000605: Cannot resize LVM Logical Volume.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 19 Sep 2012 13:09:37 +0200
+
 openmediavault-lvm2 (0.3.0.11) stable; urgency=low
 
   * Update locales.
   * Modify RPC to create/extend a logical volume.
 
- -- vot <vot@genesis>  Fri, 14 Sep 2012 13:34:52 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 14 Sep 2012 13:34:52 +0200
 
 openmediavault-lvm2 (0.3.0.10) stable; urgency=low
 
