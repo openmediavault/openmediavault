@@ -1,5 +1,6 @@
 openmediavault-lvm2 (0.3.0.12) stable; urgency=low
 
+  * Update locales.
   * Mantis 0000605: Cannot resize LVM Logical Volume.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 19 Sep 2012 13:09:37 +0200

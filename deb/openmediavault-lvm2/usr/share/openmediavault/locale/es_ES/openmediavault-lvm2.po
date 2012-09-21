@@ -5,13 +5,14 @@
 # Translators:
 # Antonio Pelaez Redondo <antorayman@gmail.com>, 2012.
 #   <jmcainzos@vodafone.es>, 2012.
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-15 12:28+0200\n"
-"PO-Revision-Date: 2012-09-15 10:29+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2012-09-16 18:11+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +35,7 @@ msgid "Confirmation"
 msgstr "Confirmación"
 
 msgid "Create"
-msgstr ""
+msgstr "Crear"
 
 msgid "Create logical volume"
 msgstr "Cear volumen lógico"
@@ -91,10 +92,10 @@ msgid "Name"
 msgstr "Nombre"
 
 msgid "No free space available to create a logical volume."
-msgstr ""
+msgstr "No hay suficiente espacio libre para crear un volumen lógico."
 
 msgid "No free space available to extend the logical volume."
-msgstr ""
+msgstr "No hay suficiente espacio libre para extender el volumen lógico."
 
 msgid "Physical volumes"
 msgstr "Volúmenes físicos"
