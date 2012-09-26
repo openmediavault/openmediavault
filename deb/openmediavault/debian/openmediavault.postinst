@@ -380,10 +380,18 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.17"; then
 			rm -f /etc/php5/conf.d/pam_auth.ini
-			invoke-rc.d apache2 graceful
+			service apache2 graceful
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.21"; then
 			omv_config_add_element "//services/ftp" "dynmasqrefresh" "0"
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.0.26"; then
+			omv-mkconf postfix
+			service postfix restart
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.0.1"; then
+			omv-mkconf postfix
+			service postfix restart
 		fi
 	;;
 
