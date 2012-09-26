@@ -60,7 +60,7 @@ OMV_POSTFIX_CRON_CONFIG=${OMV_POSTFIX_CRON_CONFIG:-"/etc/cron.hourly/openmediava
 xmlstarlet sel -t -m "//system/email" \
   -o "mydestination = ${OMV_POSTFIX_MYDESTINATION}" -n \
   -o "inet_interfaces = ${OMV_POSTFIX_INET_INTERFACES}" -n \
-  -v "concat('relayhost = [',server,']:',port)" -n \
+  -v "concat('relayhost = ',server,':',port)" -n \
   -o "sender_canonical_maps = hash:${OMV_POSTFIX_SENDER_CANONICAL_MAPS}" -n \
   -o "recipient_bcc_maps = hash:${OMV_POSTFIX_RECIPIENT_BCC_MAPS}" -n \
   -o "smtp_generic_maps = hash:${OMV_POSTFIX_SMTP_GENERIC_MAPS}" -n \

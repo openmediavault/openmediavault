@@ -5,6 +5,7 @@ openmediavault (0.3.0.26) stable; urgency=low
   * Display a notification to reload the page after plugins have been
     updated via the update manager in the WebGUI.
   * Rename PHP session name.
+  * Mantis 0000595: Revert previous changes.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 14 Sep 2012 20:46:54 +0200
 
