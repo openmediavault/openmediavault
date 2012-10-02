@@ -1,3 +1,9 @@
+openmediavault-iscsitarget (0.4.1) stable; urgency=low
+
+  * Fix xmlstarlet issue.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 02 Oct 2012 18:00:03 +0200
+
 openmediavault-iscsitarget (0.4) stable; urgency=low
 
   * Upgrade to xmlstarlet 1.3.1.

@@ -27,7 +27,7 @@ require_once("openmediavault/rpc.inc");
 class RrdRpc extends OMVRpc {
 	/**
 	 * Generate the RRD graphs.
-	 * @return The process id of the 'apt-get' command.
+	 * @return The process id of the 'omv-mkgraph' command.
 	 */
 	function generate() {
 		// Check permissions

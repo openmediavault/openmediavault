@@ -224,6 +224,9 @@ class OMVDownloadRpcServer extends OMVJsonRpcServer {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED, $cmd, "");
 			}
 			fpassthru($pipes[1]);
+			foreach($pipes as $pipek => $pipev) {
+				fclose($pipev);
+			}
 			proc_close($proc);
 		}
 	}

@@ -69,7 +69,7 @@ EOF
 		  -i "string-length(password) > 0" -v "concat(' ',password)" -b \
 		  -n \
 		-b \
-		-m "luns/lun" -s A:N id \
+		-m "luns/lun" -s A:N:L id \
 		  -v "concat('LUN ',id,' Path=',devicefile,',Type=',type)" \
 		  -i "string-length(scsiid) > 0" -v "concat(',ScsiId=',scsiid)" -b \
 		  -i "string-length(scsisn) > 0" -v "concat(',ScsiSN=',scsisn)" -b \

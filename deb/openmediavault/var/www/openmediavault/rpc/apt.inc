@@ -240,9 +240,17 @@ class AptRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  "Invalid upload request");
 		}
-		// Get the real file name
+		// Get the real file name.
 		$fileName = $_FILES['file']['name'];
-		// Move file to local package archive
+		// Check the file type.
+		$finfo = new finfo(FILEINFO_NONE);
+		$fileType = $finfo->file($_FILES['file']['tmp_name']);
+		if(0 == preg_match("/^Debian binary package.+$/", $fileType)) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to upload file '%s'. The file is " .
+			  "no Debian binary package.", $fileName));
+		}
+		// Move file to local package archive.
 		move_uploaded_file($_FILES['file']['tmp_name'],
 		  "{$GLOBALS['OMV_DPKGARCHIVE_DIR']}/{$fileName}");
 		// Create the 'Packages' file required by local APT archives.

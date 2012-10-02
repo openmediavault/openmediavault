@@ -328,10 +328,6 @@ class CronRpc extends OMVRpc {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				$xpath);
-		}
 		// Execute the cron command line in a shell. The command must be
 		// escaped to ensure the command line is correctly intepreted as
 		// defined by the user. Arrrggg, what a command line.
