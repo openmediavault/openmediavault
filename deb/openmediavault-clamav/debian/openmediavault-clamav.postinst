@@ -45,6 +45,7 @@ case "$1" in
 		#     <clamav>
 		#       <enable>0</enable>
 		#       <clamd>
+		#         <logclean>0</logclean>
 		#         <scanpe>1</scanpe>
 		#         <scanole2>1</scanole2>
 		#         <scanhtml>1</scanhtml>
@@ -98,6 +99,7 @@ case "$1" in
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
 			object="${object}<clamd>"
+			object="${object}<logclean>0</logclean>"
 			object="${object}<scanpe>1</scanpe>"
 			object="${object}<scanole2>1</scanole2>"
 			object="${object}<scanhtml>1</scanhtml>"
@@ -137,6 +139,9 @@ case "$1" in
 			if [ "$(omv_config_get "//services/clamav/enable")" != "0" ]; then
 				invoke-rc.d clamav-freshclam restart
 			fi
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.1"; then
+			omv_config_add_element "//services/clamav/clamd" "logclean" "0"
 		fi
 	;;
 

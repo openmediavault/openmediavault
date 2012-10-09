@@ -88,6 +88,13 @@ Ext.extend(OMV.Module.Services.ClamAV.SettingsPanel, OMV.FormPanelExt, {
 				infoText: _("Number of database update checks per day. Set to 0 to disable.")
 			},{
 				xtype: "checkbox",
+				name: "logclean",
+				fieldLabel: _("Log clean files"),
+				boxLabel: _("Log clean files. This drastically increases the log size."),
+				checked: false,
+				inputValue: 1
+			},{
+				xtype: "checkbox",
 				name: "scanpe",
 				fieldLabel: _("Scan Portable Executable"),
 				boxLabel: _("Perform a deeper analysis of executable files."),

@@ -1,3 +1,9 @@
+openmediavault-clamav (0.4.1) stable; urgency=low
+
+  * Mantis 0000612: Add option to log (or not) clean files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 10 Oct 2012 01:29:49 +0200
+
 openmediavault-clamav (0.4) stable; urgency=low
 
   * Upgrade to xmlstarlet 1.3.1.
