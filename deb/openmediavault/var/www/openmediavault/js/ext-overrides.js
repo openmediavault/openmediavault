@@ -288,11 +288,15 @@ Ext.apply(Ext.form.BasicForm.prototype, {
 // Add 'autoComplete' config option.
 Ext.apply(Ext.form.Field.prototype, {
 	autoComplete: false,
+	autoCapitalize: undefined,
 
 	getAutoCreate : function() {
 		var cfg = Ext.form.Field.superclass.getAutoCreate.call(this);
 		if(true === this.autoComplete) {
 			cfg.autocomplete = "on";
+		}
+		if(undefined !== this.autoCapitalize) {
+			cfg.autocapitalize = (true === this.autoCapitalize) ? "on" : "off";
 		}
 		return cfg;
 	}

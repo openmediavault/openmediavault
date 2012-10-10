@@ -67,7 +67,8 @@ Ext.extend(OMV.LoginDialog, OMV.Window, {
 				fieldLabel: _("Username"),
 				name: "username",
 				blankText: _("Enter your username"),
-				autoComplete: false
+				autoComplete: false,
+				autoCapitalize: false
 			},{
 				id: "password",
 				xtype: "passwordfield",
