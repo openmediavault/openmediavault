@@ -2,6 +2,7 @@ openmediavault (0.4.1) stable; urgency=low
 
   * Mantis 0000613: First letter in username automatically gets capitalized
     at log in.
+  * Mantis 0000614: Firewall is not working. Caused by xmlstarlet issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 10 Oct 2012 11:58:17 +0200
 

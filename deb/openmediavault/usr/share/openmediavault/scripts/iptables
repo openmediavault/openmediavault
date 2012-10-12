@@ -40,7 +40,7 @@ iptables -t filter -F
 EOF
 
 xmlstarlet sel -t \
-  -m "//system/network/iptables/rule" -s A:N rulenum \
+  -m "//system/network/iptables/rule" -s A:N:L rulenum \
 	-o "iptables" \
 	-v "concat(' -A ',chain)" \
 	-i "starts-with(protocol,'!')" \
