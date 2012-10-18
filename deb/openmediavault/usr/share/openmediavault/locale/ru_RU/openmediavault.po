@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Alexander Savchenko <>, 2012.
+# Alexandr <phg.azlk@gmail.com>, 2012.
 #   <arturmon82@gmail.com>, 2012.
 #   <ffrants@gmail.com>, 2012.
 # Ichi  <ichiperm@gmail.com>, 2012.
@@ -12,8 +13,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-27 19:49+0200\n"
-"PO-Revision-Date: 2012-09-01 11:01+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"PO-Revision-Date: 2012-10-14 03:23+0000\n"
+"Last-Translator: Александр <phg.azlk@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +24,7 @@ msgstr ""
 
 #, c-format
 msgid "% completed ..."
-msgstr "% выполнено ..."
+msgstr "% выполнено..."
 
 #, c-format
 msgid "%s (%s available)"
@@ -62,7 +63,7 @@ msgstr "10 лет"
 
 #, c-format
 msgid "100% completed ..."
-msgstr "100% выполнено ..."
+msgstr "100% выполнено..."
 
 msgid "120 minutes"
 msgstr "120 минут"
@@ -164,7 +165,7 @@ msgid "A share with the given name already exists"
 msgstr "Общий ресурс с таким именем уже существует"
 
 msgid "A shared folder with the given name already exists"
-msgstr "Совместно используемая папка с таким именем уже существует"
+msgstr "Общий ресурс с таким именем уже существует"
 
 msgid "ACL"
 msgstr "ACL"
@@ -182,7 +183,7 @@ msgid "Action"
 msgstr "Действие"
 
 msgid "Activate S.M.A.R.T. monitoring."
-msgstr "Активировать S.M.A.R.T. мониторинг."
+msgstr "Активировать мониторинг S.M.A.R.T."
 
 msgid "Add"
 msgstr "Добавить"
@@ -203,13 +204,13 @@ msgid "Add group"
 msgstr "Добавить группу"
 
 msgid "Add hot spares / recover RAID device"
-msgstr "Добавить устройство резервирования / восстанавления  в RAID массив"
+msgstr "Добавить устройство резервирования/восстанавления в RAID массив"
 
 msgid "Add module"
 msgstr "Добавить модуль"
 
 msgid "Add rsync job"
-msgstr "Добавить Rsync задание"
+msgstr "Добавить задание Rsync"
 
 msgid "Add rule"
 msgstr "Добавить правило"
@@ -230,7 +231,7 @@ msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
 " href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 "for more details."
-msgstr "Дополнительные настройки устройства, например, 'autoneg off speed 100 duplex full'. See <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> для более подробной информации."
+msgstr "Дополнительные настройки устройства, например, 'autoneg off speed 100 duplex full'. Дополнительно смотрите <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a>."
 
 msgid "Address"
 msgstr "Адрес"
@@ -248,7 +249,7 @@ msgid "Administrator: read/write, Users: read-only, Others: read-only"
 msgstr "Администратор: чтение / запись, Пользователи: только чтение, Другие: только чтение"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
-msgstr "Администратор: чтение/запись, Пользователи: чтение/запись, Остальные: нет доступа"
+msgstr "Администратор: чтение/запись, Пользователи: чтение/запись, Другие: нет доступа"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr "Администратор: чтение / запись, Пользователи: чтение / запись, Другие: нет доступа"
@@ -267,7 +268,7 @@ msgstr "Афганистан"
 
 msgid ""
 "After the RAID has been grown you can resize the containing filesystem."
-msgstr "После того, как RAID был создан вы можете изменить размер файловой системы."
+msgstr "После того, как RAID был создан, Вы можете изменить размер файловой системы."
 
 msgid "Aland Islands"
 msgstr "Аландские острова"
@@ -289,10 +290,10 @@ msgstr "Разрешить клиенту доступ к аккаунтам, к
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
-msgstr "Разрешить клиентам пытаться сохранить расширенные атрибуты ОС/2 на папку."
+msgstr "Разрешить клиентам пытаться сохранить расширенные атрибуты ОS/2 на папку."
 
 msgid "Allow clients to resume interrupted uploads and downloads"
-msgstr "Разрешить клиентам возобновить прерванные закачки и скачивания"
+msgstr "Разрешить клиентам возобновлять прерванные закачки"
 
 msgid "Allow new files"
 msgstr "Разрешить новые файлы"
@@ -302,10 +303,10 @@ msgstr "Разрешить создание новых файлов."
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
-msgstr "Разрешить этому серверу, выступать в качестве сервера времени для Windows клиентов"
+msgstr "Разрешить этому серверу выступать в качестве сервера времени для Windows клиентов"
 
 msgid "Allow this server to try and become a local master browser"
-msgstr "Разрешить этому серверу пытаться стать локальным главным браузером"
+msgstr "Разрешить этому серверу стать локальным мастером списков"
 
 msgid "American Samoa"
 msgstr "Американское Самоа"
@@ -313,12 +314,12 @@ msgstr "Американское Самоа"
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr "Электронное письмо с выводом команды (если таковые имеются), посылается администратору."
+msgstr "Электронное письмо с выводом команды (если таковой имеется), отправлено администратору."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr "Электронное письмо с выводом команды (если было сделано), отправляют пользователю, который выполняет задание."
+msgstr "Электронное письмо с выводом команды (если таковой имеется), отправлено пользователю, выполняющему задание."
 
 msgid "An error has occured"
 msgstr "Произошла ошибка"
@@ -345,7 +346,7 @@ msgid "Apply"
 msgstr "Применить"
 
 msgid "Apply permissions to files and subfolders"
-msgstr "Применение разрешений на файлы и подпапки"
+msgstr "Применить разрешения к файлам и подкаталогам"
 
 msgid "April"
 msgstr "Апрель"
@@ -384,10 +385,10 @@ msgid "Authenticate users"
 msgstr "Аутентификация пользователей"
 
 msgid "Authentication"
-msgstr "Идентификация"
+msgstr "Аутентификация"
 
 msgid "Authentication and no privacy"
-msgstr "Аутентификация и нет конфиденциальности"
+msgstr "Аутентификация без конфиденциальности"
 
 msgid "Authentication and privacy"
 msgstr "Аутентификация и конфиденциальность"
@@ -402,7 +403,7 @@ msgid "Authentication type"
 msgstr "Тип аутентификации"
 
 msgid "Automatic Acoustic Management"
-msgstr "Автоматическое акустическое управление"
+msgstr "Автоматическое управление уровнем шума"
 
 msgid "Available"
 msgstr "Доступное"
@@ -427,7 +428,7 @@ msgstr "Бан лист"
 
 #, c-format
 msgid "Ban statistics:"
-msgstr "Бан статистика:"
+msgstr "Статистика банов:"
 
 msgid "Bandwidth restriction"
 msgstr "Ограничение полосы пропускания"
@@ -487,7 +488,7 @@ msgid "British Virgin Islands"
 msgstr "Британские Виргинские острова"
 
 msgid "Browseable"
-msgstr "Просматривается"
+msgstr "Видимый"
 
 msgid "Brunei"
 msgstr "Бруней"
@@ -502,7 +503,7 @@ msgid "Burundi"
 msgstr "Бурунди"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "По умолчанию только файлам, которые уже существуют, позволено быть загруженными."
+msgstr "По умолчанию разрешено загружать только те файлы, которые уже существуют."
 
 msgid "CPU usage"
 msgstr "Использование процессора"
@@ -522,7 +523,7 @@ msgstr "Отмена"
 msgid ""
 "Cannot unlink shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "Не удается разъединить содержимое папки общего доступа, так как другая общая папка ссылается на подкаталог"
+msgstr "Не удается удалить ссылку на содержимое папки общего доступа, так как другая общая папка ссылается на подкаталог"
 
 msgid "Canton and Enderbury Islands"
 msgstr "Кантон и острова Эндербери"
@@ -543,7 +544,7 @@ msgid "Certificate"
 msgstr "Сертификат"
 
 msgid "Certificate details"
-msgstr "Сертификат детали"
+msgstr "Детали сертификата"
 
 msgid "Certificates"
 msgstr "Сертификаты"
@@ -558,10 +559,10 @@ msgid "Check interval"
 msgstr "Период проверки"
 
 msgid "Checking for new plugins ..."
-msgstr "Проверка новых плагинов ..."
+msgstr "Проверка новых плагинов..."
 
 msgid "Checking for new updates ..."
-msgstr "Проверка обновлений ..."
+msgstr "Проверка обновлений..."
 
 msgid "Chile"
 msgstr "Чили"
@@ -580,13 +581,13 @@ msgstr "Очистить"
 
 msgid ""
 "Click the 'Backup' button to download the current system configuration."
-msgstr "Нажмите кнопку 'Backup', чтобы загрузить текущую конфигурацию системы."
+msgstr "Нажмите кнопку 'Backup', чтобы скачать текущую конфигурацию системы."
 
 msgid "Client"
 msgstr "Клиент"
 
 msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr "Клиентам позволено смонтировать файловую систему, например, 192.168.178.0/24."
+msgstr "Клиентам разрешено монтировать файловую систему, например, 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Закрыть"
@@ -628,7 +629,7 @@ msgid ""
 "Compression is worth using if your connection is slow. The efficiency of the"
 " compression depends on the type of the file, and varies widely. Useful for "
 "internet transfer only."
-msgstr "Сжатие стоит использовать, если ваше соединение  медленное. Эффективность сжатия зависит от типа файла, и колеблется в широких пределах. Полезное для интернет передачи только."
+msgstr "Сжатие стоит использовать, если у Вас медленное соединение. Эффективность сжатия зависит от типа файла и колеблется в широких пределах. Полезно только для соединений через интернет."
 
 msgid "Confirm password"
 msgstr "Подтвердите пароль"
@@ -637,7 +638,7 @@ msgid "Confirmation"
 msgstr "Подтверждение"
 
 msgid "Congo (Brazzaville)"
-msgstr "Конго (Браззавиль)"
+msgstr "Конго (Бразавиль)"
 
 msgid "Congo (Kinshasa)"
 msgstr "Конго (Киншаса)"
@@ -666,7 +667,7 @@ msgid "Create"
 msgstr "Создать"
 
 msgid "Create RAID device"
-msgstr "Создать RAID устройство"
+msgstr "Создать массив RAID"
 
 msgid "Create filesystem"
 msgstr "Создать файловую систему"
@@ -691,7 +692,7 @@ msgstr "Текущее время"
 
 #, c-format
 msgid "Currently logged in users:"
-msgstr "Настоящее время зарегистрированных пользователей:"
+msgstr "Зарегистрированные пользователи:"
 
 msgid "Cyprus"
 msgstr "Кипр"
@@ -703,22 +704,22 @@ msgid "DHCP"
 msgstr "DHCP"
 
 msgid "DNS Server"
-msgstr "DNS Сервер"
+msgstr "DNS сервер"
 
 msgid "DNS Service Discovery"
-msgstr "DNS Обнаружение Служб"
+msgstr "DNS обнаружение служб"
 
 msgid "DNS server"
 msgstr "DNS сервер"
 
 msgid "Daemon"
-msgstr "Демон"
+msgstr "Сервис"
 
 msgid "Date"
 msgstr "Дата"
 
 msgid "Date & Time"
-msgstr "Дата и Время"
+msgstr "Дата и время"
 
 msgid "Day of month"
 msgstr "День месяца"
@@ -727,7 +728,7 @@ msgid "Day of week"
 msgstr "День недели"
 
 msgid "Debug"
-msgstr "Отлаживать"
+msgstr "Отладка"
 
 msgid "December"
 msgstr "Декабрь"
@@ -739,7 +740,7 @@ msgid "Delete content"
 msgstr "Удалить содержимое"
 
 msgid "Delete files on the receiving side that don't exist on sender"
-msgstr "Удалять файлы на стороне получения, которые не существуют у отправителя"
+msgstr "Удалять файлы на стороне получателя, которые не существуют у отправителя"
 
 msgid "Deleting selected item(s)"
 msgstr "Удалить выделенные элементы"
@@ -751,7 +752,7 @@ msgid "Deny"
 msgstr "Запрещенные"
 
 msgid "Deny logins which do not have a valid shell"
-msgstr "Отклонять входы в систему, у которых нет допустимой оболочки"
+msgstr "Отклонять вход в систему для пользователей, у которых нет допустимой оболочки"
 
 msgid "Description"
 msgstr "Описание"
@@ -763,7 +764,7 @@ msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A '!' argument before the address specification"
 " inverts the sense of the address."
-msgstr "Адрес назначения может быть любым сетевым IP-адресом (с / маской), диапазон IP или простой IP-адрес.'!' параметр перед адресом инвертирует смысл адреса."
+msgstr "Адрес назначения может быть любым сетевым IP-адресом (с /маской), диапазон IP или простой IP-адрес. Параметр '!' перед адресом запрещает его."
 
 msgid "Destination port"
 msgstr "Порт назначения"
@@ -775,12 +776,12 @@ msgid "Destination shared folder"
 msgstr "Назначить совместно используемую папку"
 
 msgid "Detail"
-msgstr "Детили"
+msgstr "Детали"
 
 msgid ""
 "Determine the default timeout, in microseconds, before the first packet is "
 "retransmitted."
-msgstr "Определить время ожидания по умолчанию, в микросекундах, прежде чем первый пакет передается повторно."
+msgstr "Определить время ожидания по умолчанию в микросекундах перед повторной передачей первого пакета."
 
 msgid "Device"
 msgstr "Устройство"
@@ -790,7 +791,7 @@ msgid "Device '%s' not found"
 msgstr "Устройство '%s' не найдено"
 
 msgid "Device identity information"
-msgstr "Информацию об устройстве"
+msgstr "Информация об устройстве"
 
 msgid "Device model"
 msgstr "Модель устройства"
@@ -808,13 +809,13 @@ msgid "Direction"
 msgstr "Направление"
 
 msgid "Directory"
-msgstr "Директория"
+msgstr "Каталог"
 
 msgid "Disabled"
 msgstr "Выключено"
 
 msgid "Disallow the user to modify his account."
-msgstr "Запретить пользователю изменять его аккаунт."
+msgstr "Запретить пользователю изменять аккаунт."
 
 msgid "Disk usage"
 msgstr "Использование диска"
@@ -829,15 +830,15 @@ msgid "Do you really want to clear the log file?"
 msgstr "Вы действительно хотите очистить лог файл?"
 
 msgid "Do you really want to create the RAID device?"
-msgstr "Вы действительно хотите создать RAID устройство?"
+msgstr "Вы действительно хотите создать массив RAID?"
 
 msgid "Do you really want to delete the selected item(s)?"
-msgstr "Вы действительно хотите удалить выбранный элементы?"
+msgstr "Вы действительно хотите удалить выбранные элементы?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the filesystem creation may take some time."
-msgstr "Вы действительно хотите отформатировать это устройство? Все данные будут удалены. Пожалуйста, обратите внимание, что создание файловой системы может занять некоторое время."
+msgstr "Вы действительно хотите отформатировать это устройство? Все данные будут удалены. Обратите внимание, что создание файловой системы может занять некоторое время."
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Вы действительно хотите установить выбранный(е) плагин(ы)?"
@@ -855,12 +856,12 @@ msgid "Do you really want to remove the shared folder content?"
 msgstr "Вы действительно хотите удалить содержимое общей папки?"
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
-msgstr "Вы действительно хотите сбросить WebGUI состояние, например, порядок столбцов сетки?"
+msgstr "Вы действительно хотите сбросить состояние WebGUI, например, порядок столбцов?"
 
 msgid ""
 "Do you really want to resize the selected filesystem? You have to do that "
 "after a RAID has been grown for example."
-msgstr "Вы действительно хотите изменить выбранную файловую систему? Вы должны сделать это после того, как RAID был создан например."
+msgstr "Вы действительно хотите изменить размер выбранной файловой системы? Это необходимо делать только после изменения размера RAID (например)."
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Вы действительно хотите выключить систему?"
@@ -876,12 +877,12 @@ msgid ""
 "shared folder content will be permanently removed and cannot be recovered. "
 "Select 'No' to delete the shared folder configuration only or 'Cancel' to "
 "abort."
-msgstr "Вы хотите удалить содержимое общей папки рекурсивно? Содержимое общей папки будет безвозвратно удалено и не сможет быть восстановлено. Выберите 'Нет', чтобы удалить только конфигурацию общей папки или 'Отменить', чтобы прервать операцию."
+msgstr "Вы хотите рекурсивно удалить содержимое общей папки? Содержимое папки будет безвозвратно удалено и не сможет быть восстановлено. Выберите 'Нет', чтобы удалить только конфигурацию общей папки или 'Отменить', чтобы прервать операцию."
 
 msgid ""
 "Do you want to secure wipe the device? Please note that this may take a long"
 " time. Press 'No' to fast wipe the device or 'Cancel' to abort."
-msgstr "Вы хотите безопасно, затереть устройство? Обратите внимание на то, что это может занять много времени. Нажмите 'Нет', чтобы быстро затереть устройство или 'Отмену', чтобы прерваться."
+msgstr "Вы хотите безопасно затереть устройство? Обратите внимание, что это может занять много времени. Нажмите 'Нет' для быстрой очистки устройства или 'Отмена', чтобы прервать."
 
 msgid "Domain name"
 msgstr "Доменное имя"
@@ -896,13 +897,13 @@ msgid "Donate"
 msgstr "Пожертвования"
 
 msgid "Done ..."
-msgstr "Выполнено ..."
+msgstr "Выполнено..."
 
 msgid "Down"
 msgstr "Вниз"
 
 msgid "Down delay"
-msgstr "Снизить задержки"
+msgstr "Снизить задержку"
 
 msgid "Download"
 msgstr "Загрузка"
@@ -916,7 +917,7 @@ msgstr "Каждая строка представляет одну группу
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
 "text."
-msgstr "Каждая строка представляет один пользователь. Обратите внимание, что необходимо ввести пароль в незашифрованном виде."
+msgstr "Каждая строка представляет одного пользователя. Обратите внимание, что пароль необходимо ввести в незашифрованном виде."
 
 msgid "East Timor"
 msgstr "Восточный Тимор"
@@ -931,7 +932,7 @@ msgid "Edit SSL certificate"
 msgstr "Редактировать SSL сертификат"
 
 msgid "Edit bonded interface"
-msgstr "Редактировать совместный интерфейс"
+msgstr "Редактировать связанный интерфейс"
 
 msgid "Edit cron job"
 msgstr "Редактировать задания cron"
@@ -955,13 +956,13 @@ msgid "Edit quota"
 msgstr "Редактирование квот"
 
 msgid "Edit rsync job"
-msgstr "Редактировать Rsync задание"
+msgstr "Редактировать задание Rsync"
 
 msgid "Edit rule"
 msgstr "Редактировать правило"
 
 msgid "Edit scheduled test"
-msgstr "Редактировать запланирован тест"
+msgstr "Редактировать запланированный тест"
 
 msgid "Edit share"
 msgstr "Редактировать общий ресурс"
@@ -982,7 +983,7 @@ msgid "El Salvador"
 msgstr "Сальвадор"
 
 msgid "Email"
-msgstr "Мыло"
+msgstr "Эл. почта"
 
 msgid "Enable"
 msgstr "Включить"
@@ -1009,22 +1010,22 @@ msgid "Enable compression"
 msgstr "Включить сжатие"
 
 msgid "Enable extended attribute support"
-msgstr "Включите поддержку расширенных атрибутов"
+msgstr "Включить поддержку расширенных атрибутов"
 
 msgid "Enable keyboard-interactive authentication"
-msgstr "Включение интерактивной аутентификации"
+msgstr "Включить интерактивную аутентификацию"
 
 msgid "Enable module listing"
 msgstr "Включить просмотр модулей"
 
 msgid "Enable permission inheritance"
-msgstr "Включение наследования разрешений"
+msgstr "Включить наследование разрешений"
 
 msgid "Enable recycle bin"
 msgstr "Включить корзину"
 
 msgid "Enable reverse DNS lookup"
-msgstr "Включение обратного просмотра DNS"
+msgstr "Включить обратный просмотр DNS"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
@@ -1036,10 +1037,10 @@ msgid "Enable secure connection."
 msgstr "Включить защищенное соединение"
 
 msgid "Enable store DOS attributes support"
-msgstr "Включить поддержку DOS  атрибутов"
+msgstr "Включить поддержку DOS атрибутов"
 
 msgid "Enable the ident protocol (RFC1413)"
-msgstr "Включите идентификационный протокол (RFC1413)"
+msgstr "Включить идентификационный протокол (RFC1413)"
 
 msgid "Enable user authentication"
 msgstr "Включить авторизацию пользователей"
@@ -1094,19 +1095,19 @@ msgid "Every N minute"
 msgstr "Каждую N минуту"
 
 msgid "Everyone: read/write"
-msgstr "Все: чтение / запись"
+msgstr "Все: чтение/запись"
 
 msgid "Execute command"
 msgstr "Выполнить команду"
 
 msgid "Execute cron job"
-msgstr "Выполнение cron задания"
+msgstr "Выполнение задание cron"
 
 msgid "Execute rsync job"
 msgstr "Выполнить задание rsync"
 
 msgid "Expire"
-msgstr "Истекать"
+msgstr "Истекает"
 
 msgid "Extended attributes"
 msgstr "Расширенные атрибуты"
@@ -1123,7 +1124,7 @@ msgstr "FXP"
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
-msgstr "FXP позволяет передавать между двумя удаленными серверами без любых данных о файле, идущего к клиенту, просящему передачу."
+msgstr "FXP позволяет передавать данные между двумя серверами без запроса передачи данных к клиенту."
 
 msgid "Failed to call "
 msgstr "Не удалось вызвать"
@@ -1132,13 +1133,13 @@ msgstr "Не удалось вызвать"
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
-msgstr "Не удавалось создать файловую систему. Проверьте syslog или '%s' для получения дополнительной информации."
+msgstr "Не удалось создать файловую систему. Проверьте syslog или '%s' для получения дополнительной информации."
 
 msgid "Failed to get filesystems"
-msgstr "Не удалось получить файловые системы"
+msgstr "Не удалось определить файловые системы"
 
 msgid "Failed to get system date and time"
-msgstr "Не удалось получить системную дату и время"
+msgstr "Не удалось определить системные дату и время"
 
 msgid "Falkland Islands"
 msgstr "Фолклендские острова"
@@ -1153,7 +1154,7 @@ msgid "February"
 msgstr "Февраль"
 
 msgid "Fields must be exclusive"
-msgstr "Поля должны быть монопольными"
+msgstr "Поля должны быть уникальными"
 
 msgid "Fiji"
 msgstr "Фиджи"
@@ -1191,7 +1192,7 @@ msgid "Force SSL/TLS"
 msgstr "Принудительно SSL/TLS"
 
 msgid "Force secure connection only."
-msgstr "Принудительно защищенное соединение"
+msgstr "Принудительно только защищенное соединение"
 
 msgid "France"
 msgstr "Франция"
@@ -1227,13 +1228,13 @@ msgid "General"
 msgstr "Общий"
 
 msgid "General Settings"
-msgstr "Общие  Настройки"
+msgstr "Общие настройки"
 
 msgid "General settings"
-msgstr "Общие  настройки"
+msgstr "Общие настройки"
 
 msgid "Generating graphs ..."
-msgstr "Создание графики ..."
+msgstr "Создание графики..."
 
 msgid "Georgia"
 msgstr "Грузия"
@@ -1281,7 +1282,7 @@ msgid "Grow"
 msgstr "Расширить"
 
 msgid "Grow RAID device"
-msgstr "Расширить RAID устройство"
+msgstr "Расширить RAID"
 
 msgid "Guadeloupe"
 msgstr "Гваделупа"
@@ -1326,7 +1327,7 @@ msgid "Hong Kong S.A.R., China"
 msgstr "Гонконг S.A.R., Китай"
 
 msgid "Honor existing ACLs"
-msgstr "Соблюдать существующий ACLs"
+msgstr "Соблюдать существующие ACLs"
 
 msgid "Host"
 msgstr "Хост"
@@ -1365,24 +1366,24 @@ msgid "Identify"
 msgstr "Идентифицировать"
 
 msgid "Identify network interface device"
-msgstr "Определить сетевое устройство"
+msgstr "Определить сетевой интерфейс"
 
 msgid "Idle"
 msgstr "Бездействие"
 
 msgid "If enabled then no password is required to connect to the share"
-msgstr "Если включен, то пароль не требуется для подключения к шаре"
+msgstr "Если включено, то для подключения к общему ресурсу пароль не требуется"
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
 "to connect to the module."
-msgstr "Если установлено тогда клиенту обязан  предоставить имя пользователя и пароль, чтобы соединиться с модулем."
+msgstr "Если установлено, для подключения к модулю клиенту необходимо ввести имя пользователя и пароль."
 
 msgid "If this option is set, then any attempted downloads will fail."
-msgstr "Если этот параметр установлен, то любая попытка загрузки не удастся."
+msgstr "Если этот параметр установлен, любые попытки скачивания будут отклонены."
 
 msgid "If this option is set, then any attempted uploads will fail."
-msgstr "Если эта опция установлена, то любые попытки добавления не удастся."
+msgstr "Если этот параметр установлен, любые попытки загрузки будут отклонены."
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
@@ -1390,22 +1391,22 @@ msgid ""
 " before mapping DOS attributes to UNIX permission bits. When set, DOS "
 "attributes will be stored onto an extended attribute in the UNIX filesystem,"
 " associated with the file or directory."
-msgstr "Если этот параметр установлен, Самба пытается сначала прочитать DOS атрибуты (СИСТЕМНЫЙ, СКРЫТЫЙ, АРХИВ или ТОЛЬКО ДЛЯ ЧТЕНИЯ) из расширенных атрибутов файловой системы, до сопоставления DOS атрибутов с битами прав UNIX. Когда установлено, DOS атрибуты будут сохранены в расширенных атрибутах файловой системы UNIX, связанных с файлом или папкой."
+msgstr "Если этот параметр установлен, Samba пытается сначала прочитать DOS атрибуты (СИСТЕМНЫЙ, СКРЫТЫЙ, АРХИВНЫЙ или ТОЛЬКО ДЛЯ ЧТЕНИЯ) из расширенных атрибутов файловой системы перед сопоставлением DOS атрибутов с разрешениями UNIX. Если установлено, DOS атрибуты будут сохранены в расширенных атрибутах файловой системы UNIX, связанных с файлом или каталогом."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
 "share."
-msgstr "Если этот параметр установлен, то пользователи не могут создавать или изменять файлы в общей папке."
+msgstr "Если этот параметр установлен, пользователи не смогут создавать или изменять файлы на общем ресурсе."
 
 msgid ""
 "If your host is acting as a NAT gateway or port forwarder for the server, "
 "this option is useful in order to allow passive tranfers to work. You have "
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
-msgstr "Если узел действует как шлюз NAT или средство передачи порта для сервера, эта опция полезна, чтобы позволить пассивному tranfers работать. Должны использовать общедоступный адрес и открытые пассивные порты, используемые на брандмауэре."
+msgstr "Если узел действует как шлюз NAT или средство передачи порта для сервера, эта опция полезна, чтобы разрешить пассивные соединения. В этом случае необходимо использовать внешний публичный адрес и открыть пассивные порты в брандмауэре."
 
 msgid "Implicit SSL"
-msgstr "Неявные SSL"
+msgstr "Неявный SSL"
 
 msgid "Import"
 msgstr "Импортировать"
@@ -1428,7 +1429,7 @@ msgid ""
 "greater than or equal to 1024). It is strongly recommended that the chosen "
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "В некоторых случаях должны определить пассивный диапазон портов, чтобы обойти ограничения брандмауэра. Пассивные порты ограничивают диапазон портов, из которых сервер выберет когда отправлено команду PASV от клиента. Сервер в произвольном порядке выберет число из указанного диапазона, пока открытый порт не будет найден. Выбранный диапазон портов должен быть в непривилегированном диапазоне (например, больше, чем или равный 1024). Строго рекомендуется, чтобы выбранный диапазон был достаточно большим, чтобы обработать много одновременных пассивных соединений (например, 49152-65534, ЗАРЕГИСТРИРОВАННЫЙ В IANA эфемерный диапазон порта)."
+msgstr "В некоторых случаях необходимо определить пассивный диапазон портов, чтобы обойти ограничения брандмауэра. При получении от клиента команды PASV, сервер в произвольном порядке выбирает из заданного диапазона пассивных портов, пока не будет найден открытый порт. Выбранный диапазон портов должен быть в непривилегированном диапазоне (например, больше или равным 1024). Строго рекомендуется, чтобы выбранный диапазон был достаточно большим, чтобы обработать много одновременных пассивных соединений (например, 49152-65534, зарегистрированный В IANA эфемерный диапазон портов)."
 
 msgid "India"
 msgstr "Индия"
@@ -1455,16 +1456,16 @@ msgid "Install"
 msgstr "Установить"
 
 msgid "Install plugins ..."
-msgstr "Установка плагинов ..."
+msgstr "Установка плагинов..."
 
 msgid "Install updates ..."
-msgstr "Установка обновлений ..."
+msgstr "Установка обновлений..."
 
 msgid "Installed"
 msgstr "установленный"
 
 msgid "Interfaces"
-msgstr "Интерфейс"
+msgstr "Интерфейсы"
 
 msgid "Invalid comment"
 msgstr "Недопустимый комментарий"
@@ -1483,7 +1484,7 @@ msgstr "Недопустимое имя узла"
 
 #, c-format
 msgid "Invalid line: %s"
-msgstr "Неверная строка:%s"
+msgstr "Неверная строка: %s"
 
 msgid "Invalid name"
 msgstr "Недопустимое имя"
@@ -1519,7 +1520,7 @@ msgid "Japan"
 msgstr "Япония"
 
 msgid "Jobs"
-msgstr "Очередь"
+msgstr "Задания"
 
 msgid "Johnston Island"
 msgstr "Остров Джонстон"
@@ -1578,7 +1579,7 @@ msgstr "Ливан"
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
 " port."
-msgstr "Продолжительность времени в секундах мигать один или несколькоми индикаторами на определенный порт Ethernet."
+msgstr "Длительность мигания одним или несколькими светодиодами на определенном сетевом интерфейсе в секундах."
 
 msgid "Lesotho"
 msgstr "Лесото"
@@ -1620,7 +1621,7 @@ msgid "Local"
 msgstr "Локальный"
 
 msgid "Local master browser"
-msgstr "Локальный главным браузером"
+msgstr "Локальный главный браузер"
 
 msgid "Location"
 msgstr "Местоположение"
@@ -1629,7 +1630,7 @@ msgid "Location information, e.g. physical location of this system."
 msgstr "Информация о местоположении, например, физическое расположение этой системы."
 
 msgid "Log level"
-msgstr "Уровень логов"
+msgstr "Уровень журналирования"
 
 #, c-format
 msgid "Logical volume %s [%s, %s]"
@@ -1645,7 +1646,7 @@ msgid "Logs"
 msgstr "Журналы"
 
 msgid "Long self-test"
-msgstr "Длинная самопроверка"
+msgstr "Длительная самопроверка"
 
 msgid "Luxembourg"
 msgstr "Люксембург"
@@ -1654,7 +1655,7 @@ msgid "MAC address"
 msgstr "MAC адрес"
 
 msgid "MII monitoring frequency"
-msgstr "MII мониторинг частоты"
+msgstr "Частота мониторинга MII"
 
 msgid "MTU"
 msgstr "MTU"
@@ -1707,12 +1708,12 @@ msgstr "Маскарад адреса"
 msgid ""
 "Match if the destination port is one of the given ports. E.g. 21 or !443 or "
 "1024-65535."
-msgstr "Соответствует, если порт назначения является одним из данного порта. Например 21 или! 443 или 1024-65535."
+msgstr "Соответствует, если порт назначения является одним из указанных портов. Например 21 или !443 или 1024-65535."
 
 msgid ""
 "Match if the source port is one of the given ports. E.g. 21 or !443 or "
 "1024-65535."
-msgstr "Соответствует, если исходный порт является одним из данного порта. Например 21 или! 443 или 1024-65535."
+msgstr "Соответствует, если исходный порт является одним из указанных портов. Например 21 или !443 или 1024-65535."
 
 msgid "Mauritania"
 msgstr "Мавритания"
@@ -1739,7 +1740,7 @@ msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
 "timer completely (clients can stay connected for ever, without sending "
 "data)."
-msgstr "Максимальное время простоя в секундах. Установка тайм-аут простоя в 0 отключает таймер простоя полностью (клиенты могут оставаться на связи всегда, без передачи данных)."
+msgstr "Максимальное время простоя в секундах. Установка таймаута в 0 отключает таймер простоя полностью (клиенты могут оставаться на связи всегда, без передачи данных)."
 
 msgid "Maximum number of allowed password attempts before disconnection."
 msgstr "Максимально допустимое количество попыток ввода пароля до отключения."
@@ -1751,13 +1752,13 @@ msgid "Maximum number of simultaneous clients."
 msgstr "Максимальное число одновременных клиентов."
 
 msgid "Maximum performance, maximum acoustic output"
-msgstr "Максимальная производительность, максимальная акустическа"
+msgstr "Максимальная производительность, самый шумный режим"
 
 msgid "Maximum upload rate (KiB/s)"
 msgstr "Максимальная скорость отдачи (КБ/с)"
 
 msgid "Maximum {0} selected item(s) allowed"
-msgstr "Максимум {0} выбранный пункт (ы) позволен"
+msgstr " Максимальное разрешенное число выбранных пунктов: {0}"
 
 msgid "May"
 msgstr "Май"
@@ -1766,13 +1767,13 @@ msgid "Mayotte"
 msgstr "Майотта"
 
 msgid "Members"
-msgstr "Члены"
+msgstr "Участники"
 
 msgid "Memory usage"
 msgstr "Использование памяти"
 
 msgid "Messages"
-msgstr "Сообщение"
+msgstr "Сообщения"
 
 msgid "Method"
 msgstr "Метод"
@@ -1781,7 +1782,7 @@ msgid "Metropolitan France"
 msgstr "Столичная Франция"
 
 msgid "Mexico"
-msgstr "Месика"
+msgstr "Мексика"
 
 msgid "MiB"
 msgstr "MiB"
@@ -1796,10 +1797,10 @@ msgid "Minimum"
 msgstr "Минимум"
 
 msgid "Minimum performance, Minimum acoustic output"
-msgstr "Минимальная производительность, Минимальная акустическа"
+msgstr "Минимальная производительность, самый тихий режим"
 
 msgid "Minimum {0} selected item(s) required"
-msgstr "Минимум {0} выбранный пункт (ы) требуется"
+msgstr "Минимальное число требуемых пунктов {0}"
 
 msgid "Minute"
 msgstr "Минут"
@@ -1820,7 +1821,7 @@ msgid "Modify account"
 msgstr "Изменение аккаунта"
 
 msgid "Modify shared folder ACL"
-msgstr "Изменение общей папки ACL"
+msgstr "Изменение ACL общего ресурса"
 
 msgid "Modules"
 msgstr "Модули"
@@ -1890,7 +1891,7 @@ msgstr "Сеть"
 
 #, c-format
 msgid "Network interface '%s' already exists"
-msgstr "'%s' Сетевой интерфейс уже существует"
+msgstr "Сетевой интерфейс '%s' уже существует"
 
 msgid "Neutral Zone"
 msgstr "Нейтральная зона"
@@ -1923,7 +1924,7 @@ msgid "No access"
 msgstr "Нет доступа"
 
 msgid "No authentication and no privacy"
-msgstr "Нет никакой аутентификации и конфиденциальности"
+msgstr "Без аутентификации и конфиденциальности"
 
 msgid "No certificate request"
 msgstr "Нет запроса на сертификат"
@@ -1932,7 +1933,7 @@ msgid "No items to display"
 msgstr "Нет объектов для отображения"
 
 msgid "No log entries to display"
-msgstr "Без регистрации записи для отображения"
+msgstr "Нет записей журнала для отображения"
 
 msgid "No session reuse required"
 msgstr "Нет необходимости повторного использования сессии"
@@ -1941,10 +1942,10 @@ msgid "No users connected"
 msgstr "Нет подключенных пользователей"
 
 msgid "No users defined"
-msgstr "Нет пользователей, определенных"
+msgstr "Пользователи не определены"
 
 msgid "None"
-msgstr "нигде"
+msgstr "ничего"
 
 msgid "Norfolk Island"
 msgstr "Остров Норфолк"
@@ -1977,13 +1978,13 @@ msgid "November"
 msgstr "Ноябрь"
 
 msgid "Null passwords"
-msgstr "Нулевой пароль"
+msgstr "Нулевые пароли"
 
 msgid "Num"
 msgstr "Номер"
 
 msgid "Number of servers"
-msgstr "Чисто серверов"
+msgstr "Число серверов"
 
 msgid "OK"
 msgstr "ОК"
@@ -1995,7 +1996,7 @@ msgid "October"
 msgstr "Октябрь"
 
 msgid "Offline immediate test"
-msgstr "Оффлайновый непосредственный тест"
+msgstr "Оффлайновый немедленный тест"
 
 msgid "Oman"
 msgstr "Оман"
@@ -2016,7 +2017,7 @@ msgid "Others"
 msgstr "Другие"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
-msgstr "Исходящей SMTP-адрес, сервера почты. например smtp.mycorp.com."
+msgstr "Адрес почтового сервера SMTP, например, smtp.mycorp.com."
 
 msgid "Outlying Oceania"
 msgstr "Отдаленная Океания"
@@ -2067,10 +2068,10 @@ msgid "Passwords don't match"
 msgstr "Пароли не совпадают"
 
 msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr "Вставить RSA сертификат X.509 в PEM формате здесь."
+msgstr "Вставить сюда RSA сертификат X.509 в PEM формате."
 
 msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr "Вставить приватный RSA ключ в формате X.509 PEM здесь."
+msgstr "Вставить сюда приватный RSA ключ в формате X.509 PEM."
 
 msgid "Path"
 msgstr "Путь"
@@ -2085,10 +2086,10 @@ msgid "Permissions"
 msgstr "Права доступа"
 
 msgid "Permissions of group."
-msgstr "Права доступа к группе."
+msgstr "Права доступа группы."
 
 msgid "Permissions of others (e.g. anonymous FTP users)."
-msgstr "Права доступа к другим (например, скрытых пользователей FTP)."
+msgstr "Права доступа других (например, анонимных пользователей FTP)."
 
 msgid "Permissions of owner."
 msgstr "Права доступа владельца."
@@ -2097,7 +2098,7 @@ msgid "Permit root login"
 msgstr "Разрешить вход root"
 
 msgid "Permit to do SSH tunneling"
-msgstr "Разрешение делать SSH туннелирование"
+msgstr "Разрешить создание SSH-туннелей"
 
 msgid "Peru"
 msgstr "Перу"
@@ -2114,54 +2115,54 @@ msgstr "Питкэрн"
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Пожалуйста, ознакомьтесь с <a href='http://linux.die.net/man/5/exports' target='_blank'>manual page</ A> для более подробной информации."
+msgstr "Ознакомьтесь со <a href='http://linux.die.net/man/5/exports' target='_blank'>страницей описания</ A> для более подробной информации."
 
 msgid ""
 "Please check the <a href='http://www.openbsd.org/cgi-"
 "bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
 " more details."
-msgstr "Пожалуйста, ознакомьтесь с <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> для более подробной информации."
+msgstr "Ознакомьтесь со <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>страницей описания</a> для более подробной информации."
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Пожалуйста, ознакомьтесь с <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manual page</a> для более подробной информации."
+msgstr "Ознакомьтесь со <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>страницей описания</a> для более подробной информации."
 
 msgid ""
 "Please check the <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Пожалуйста, ознакомьтесь с <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manual page</a>для более подробной информации."
+msgstr "Ознакомьтесь со <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>страницей описания</a>для более подробной информации."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Пожалуйста, ознакомьтесь с <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> для более подробной информации."
+msgstr "Ознакомьтесь со <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>страницей описания</a> для более подробной информации."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Пожалуйста, ознакомьтесь с <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> для более подробной информации."
+msgstr "Ознакомьтесь со <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>страницей описания</a> для более подробной информации."
 
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Пожалуйста, ознакомьтесь с <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> для более подробной информации."
+msgstr "Ознакомьтесь со <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>страницей описания</a> для более подробной информации."
 
 msgid "Please first select a volume."
-msgstr "Пожалуйста, с начала выберете раздел."
+msgstr "Пожалуйста, сначала выберите раздел."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
-msgstr "Обратите внимание, что связь будет потеряна с системой в течение этого теста."
+msgstr "Обратите внимание, что во время этого теста связь с системой будет потеряна."
 
 msgid "Please reload the page to let the changes take effect."
 msgstr "Пожалуйста, перезагрузите страницу, чтобы изменения вступили в силу."
 
 msgid "Please wait ..."
-msgstr "Пожалуйста, подождите ..."
+msgstr "Пожалуйста, подождите..."
 
 msgid "Plugins"
 msgstr "Плагины"
@@ -2197,7 +2198,7 @@ msgid "Preserve modification times"
 msgstr "Сохранить время модификации"
 
 msgid "Preserve permissions"
-msgstr "Сохранение прав доступа"
+msgstr "Сохранить права доступа"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
@@ -2210,7 +2211,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr "Предотвращает диск от раскручивания при периодических запросах.<br/><br/><ul><li>Никогда - Опрашивать (проверять) устройство независимо от режима питания. Это может привести к тому, что остановленный диск будет вновь раскручен, когда будет проверен.</li><li>Сон - Проверять устройство, если оно не находится в режиме СОН.</li><li>Ожидание - Проверять устройство, если оно не находится в режиме СОН или ОЖИДАНИЕ.В этих режимах большинство дисков не раскручиваются, так что если вы хотите предотвратить раскручивание диска при каждом запросе, скорее всего это тот режим, который вам нужен.</li><li>Неактивный - Проверять устройство, если оно не находится в режиме СОН, ОЖИДАНИЕ или НЕАКТИВНЫЙ. В режиме НЕАКТИВНЫЙ большинство дисков продолжают раскручиваться, так что скорее всего это не тот режим, который вам нужен.</li></ul>"
+msgstr "Предотвращает диск от раскручивания при периодических запросах.<br/><br/><ul><li>Никогда - Опрашивать (проверять) устройство независимо от режима питания. Это может привести к тому, что остановленный диск будет вновь раскручен, когда будет проверен.</li><li>Сон - Проверять устройство, если оно не находится в режиме СОН.</li><li>Ожидание - Проверять устройство, если оно не находится в режиме СОН или ОЖИДАНИЕ. В этих режимах большинство дисков не раскручиваются, так что если Вы хотите предотвратить раскручивание диска при каждом запросе, скорее всего это тот режим, который Вам нужен.</li><li>Неактивный - Проверять устройство, если оно не находится в режиме СОН, ОЖИДАНИЕ или НЕАКТИВНЫЙ. В режиме НЕАКТИВНЫЙ большинство дисков продолжают раскручиваться, так что скорее всего это не тот режим, который Вам нужен.</li></ul>"
 
 msgid "Primary"
 msgstr "Основной"
@@ -2222,7 +2223,7 @@ msgid "Privacy passphrase"
 msgstr "Защита пароля"
 
 msgid "Privacy type"
-msgstr "Конфиденциальность типа"
+msgstr "Тип конфиденциальности"
 
 msgid "Private key"
 msgstr "Секретный ключ"
@@ -2279,19 +2280,19 @@ msgid "RPC error"
 msgstr "Ошибка RPC"
 
 msgid "RSync server"
-msgstr "RSync сервер"
+msgstr "Сервер RSync"
 
 msgid "Ranges of numbers are not allowed"
-msgstr "Диапазоны чисел не позволены"
+msgstr "Диапазоны чисел не разрешены"
 
 msgid "Raw value"
 msgstr "Необработанное значение"
 
 msgid "Read only"
-msgstr "Только чтение"
+msgstr "Только для чтения"
 
 msgid "Read-only"
-msgstr "Только-чтение"
+msgstr "Только для чтения"
 
 msgid "Read/Write"
 msgstr "Чтение/Запись"
@@ -2306,7 +2307,7 @@ msgid "Recover"
 msgstr "Восстанавливать"
 
 msgid "Recurse into directories"
-msgstr "Рекурсивно вызовите в каталоги"
+msgstr "Рекурсивно по каталогам"
 
 msgid "Recursive"
 msgstr "Рекурсивный"
@@ -2330,12 +2331,12 @@ msgid "Replace"
 msgstr "Заменить"
 
 msgid "Replace all existing permissions"
-msgstr "Замените все существующие разрешения"
+msgstr "Заменить все существующие разрешения"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report. Set to 0 to disable this report."
-msgstr "Сообщать, если температура изменилась, по крайней мере на N градусов Цельсия начиная с последнего отчета. Установите 0 для отключения этого отчёта."
+msgstr "Сообщать, если температура изменилась, по крайней мере, на N градусов Цельсия, начиная с последнего отчета. Установите 0 для отключения этого отчёта."
 
 msgid ""
 "Report if the temperature is greater or equal than N degrees Celsius. Set to"
@@ -2346,7 +2347,7 @@ msgid "Repository"
 msgstr "Хранилище"
 
 msgid "Require valid shell"
-msgstr "Требовать допустимой оболочки"
+msgstr "Требовать допустимую оболочку"
 
 msgid "Required"
 msgstr "Обязательно"
@@ -2391,7 +2392,7 @@ msgid "Rsync - Jobs"
 msgstr "Rsync - задания"
 
 msgid "Rsync - Server"
-msgstr "Rsync - Сервер"
+msgstr "Rsync - сервер"
 
 msgid "Run"
 msgstr "Запуск"
@@ -2412,19 +2413,19 @@ msgid "S.M.A.R.T. informations"
 msgstr "Информация S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr "S.M.A.R.T. мониторинг должен быть включен для выбранного устройства."
+msgstr "S.M.A.R.T. должен быть включен для выбранного устройства."
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
 
 msgid "SMTP port"
-msgstr "SMTP порт"
+msgstr "Порт SMTP"
 
 msgid "SMTP server"
-msgstr "SMTP сервер"
+msgstr "Сервер SMTP"
 
 msgid "SMTP settings"
-msgstr "SMTP настройки"
+msgstr "Настройки SMTP"
 
 msgid "SNMP"
 msgstr "SNMP"
@@ -2433,7 +2434,7 @@ msgid "SNMP version 1/2c"
 msgstr "SNMP версия 1/2c"
 
 msgid "SNMP version 3"
-msgstr "SNMPверсия 3"
+msgstr "SNMP версия 3"
 
 msgid "SSH"
 msgstr "SSH"
@@ -2472,13 +2473,13 @@ msgid "Saudi Arabia"
 msgstr "Саудовская Аравия"
 
 msgid "Saving ..."
-msgstr "Сохранение ..."
+msgstr "Сохранение..."
 
 msgid "Scan"
 msgstr "Сканирование"
 
 msgid "Scanning for new devices ..."
-msgstr "Сканирование новых устройств ..."
+msgstr "Сканирование новых устройств..."
 
 msgid "Scheduled tests"
 msgstr "Запланированные тесты"
@@ -2499,49 +2500,49 @@ msgid "Security level"
 msgstr "Уровень безопасности"
 
 msgid "Select a SSL certificate ..."
-msgstr "Выбрать SSL сертификат ..."
+msgstr "Выберите SSL сертификат..."
 
 msgid "Select a country ..."
-msgstr "выбрать страну ..."
+msgstr "Выберите страну..."
 
 msgid "Select a device ..."
-msgstr "Выбрать устройство .."
+msgstr "Выберите устройство..."
 
 msgid "Select a directory"
-msgstr "Выберете папку"
+msgstr "Выберите каталог"
 
 msgid "Select a filesystem ..."
-msgstr "Выбрать файловую систему ..."
+msgstr "Выберите файловую систему..."
 
 msgid "Select a group name..."
-msgstr "Выберите имя группы ..."
+msgstr "Выберите имя группы..."
 
 msgid "Select a language ..."
-msgstr "Выбрать язык ..."
+msgstr "Выберите язык..."
 
 msgid "Select a primary device ..."
-msgstr "Выбрать основное устройство ..."
+msgstr "Выберите основное устройство..."
 
 msgid "Select a protocol ..."
-msgstr "выбрать протокол ..."
+msgstr "Выберите протокол..."
 
 msgid "Select a shared folder ..."
 msgstr "Выберите совместно используемую папку..."
 
 msgid "Select a shell ..."
-msgstr "Выбрать оболочку ..."
+msgstr "Выбрать оболочку..."
 
 msgid "Select a user name..."
-msgstr "Выберите имя пользователя ..."
+msgstr "Выберите имя пользователя..."
 
 msgid "Select a volume ..."
-msgstr "Выбрать том ..."
+msgstr "Выберите том..."
 
 msgid "Select devices to be added to the RAID device"
-msgstr "Выбрать устройство для добавления в RAID-устройство"
+msgstr "Выберите устройства для добавления в RAID"
 
 msgid "Select or enter a user name ..."
-msgstr "Выберите или введите имя пользователя ..."
+msgstr "Выберите или введите имя пользователя..."
 
 msgid "Self-test logs"
 msgstr "Журналы самопроверки"
@@ -2559,7 +2560,7 @@ msgid "Sender"
 msgstr "Отправитель"
 
 msgid "Sending test email ..."
-msgstr "Отправленное тестовое письмо ..."
+msgstr "Отправление тестового письма..."
 
 msgid "Senegal"
 msgstr "Сенегал"
@@ -2571,7 +2572,7 @@ msgid "Serbia And Montenegro"
 msgstr "Сербия и Черногория"
 
 msgid "Serial Number"
-msgstr "Серийный Номер"
+msgstr "Серийный номер"
 
 msgid "Serial number"
 msgstr "Серийный номер"
@@ -2595,23 +2596,23 @@ msgid "Session not authenticated"
 msgstr "Сессия не прошла проверку подлинности"
 
 msgid "Session timeout"
-msgstr "Закончелось время, выход из сессии"
+msgstr "Закончилось время сессии"
 
 msgid "Set browseable"
-msgstr "Установить просматриваемым"
+msgstr "Разрешить просматривать"
 
 msgid "Set read only"
 msgstr "Установить только для чтения"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
-msgstr "Установите целевые полномочия, чтобы быть тем же самым как исходные полномочия "
+msgstr "Установить целевые полномочия такими же, как исходные"
 
 msgid "Set write only"
 msgstr "Установить только для записи"
 
 msgid "Sets the interval between disk checks to N seconds."
-msgstr "Устанавливает интервал между проверкой диска N секунд."
+msgstr "Устанавливает интервал между проверками диска в N секунд."
 
 msgid "Settings"
 msgstr "Настройки"
@@ -2624,22 +2625,22 @@ msgid "Seychelles"
 msgstr "Сейшельские острова"
 
 msgid "Shared Folders"
-msgstr "Расшаренные папки"
+msgstr "Общие каталоги"
 
 msgid "Shared folder"
-msgstr "Совместно используемая папка"
+msgstr "Общий каталог"
 
 msgid "Shared folder must not be equal"
-msgstr "Совместно используемая папка не должна быть равной"
+msgstr "Общий каталог не должен быть равным"
 
 msgid "Shares"
-msgstr "Акции"
+msgstr "Общие ресурсы"
 
 msgid "Shell"
 msgstr "Оболочка"
 
 msgid "Short self-test"
-msgstr "Короткие самопроверки"
+msgstr "Короткая самопроверка"
 
 msgid "Show certificate"
 msgstr "Показать сертификат"
@@ -2660,7 +2661,7 @@ msgid "Shutdown the system when pressing the power button."
 msgstr "Завершение работы системы при нажатии на кнопку питания."
 
 msgid "Shutdown/Reboot schedule"
-msgstr "Расписание завершения работы/Перезагрузки"
+msgstr "Расписание завершения работы/перезагрузки"
 
 msgid "Sierra Leone"
 msgstr "Сьерра-Леоне"
@@ -2696,7 +2697,7 @@ msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
 "or a plain IP address. A '!' argument before the address specification "
 "inverts the sense of the address."
-msgstr "Исходный адрес может быть IP-адрес сети (с /маской), IP-диапазон или просто IP-адрес.'!' Аргумент перед адресом инвертирует смысл адрес."
+msgstr "Исходный адрес может быть IP-адрес сети (с /маской), IP-диапазон или просто IP-адрес. Аргумент '!' перед адресом инвертирует адрес."
 
 msgid "Source port"
 msgstr "Исходный порт"
@@ -2705,7 +2706,7 @@ msgid "Source server"
 msgstr "Исходный сервер"
 
 msgid "Source shared folder"
-msgstr "Исходно совместно используемая папка"
+msgstr "Исходный общий ресурс"
 
 msgid "South Africa"
 msgstr "ЮАР"
@@ -2720,7 +2721,7 @@ msgid "Spain"
 msgstr "Испания"
 
 msgid "Specifies how many server threads to create."
-msgstr "Определяет, сколько сервер распараллеливает, чтобы создать."
+msgstr "Определяет, сколько серверных потоков создавать."
 
 msgid "Specifies one of the bonding policies."
 msgstr "Определяет одну из политик связывания."
@@ -2732,7 +2733,7 @@ msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
 "masquerade address by resolving the IP address. Set this value to 0 to "
 "disable this option."
-msgstr "Определяет количество времени в секундах, между проверкой и обновлением адреса подмены, разрешая IP-адрес. Установите значение 0, чтобы отключить эту опцию."
+msgstr "Определяет количество времени в секундах между проверкой и обновлением адреса подмены, разрешая IP-адрес. Установите значение 0, чтобы отключить эту опцию."
 
 msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "
@@ -2740,36 +2741,36 @@ msgid ""
 msgstr "Определяет максимально допустимый размер блока. Допустимый диапазон для этого параметра составляет от 512 до 65464."
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "Определяет время в формате чч: мм: сс, после чего бан истекает."
+msgstr "Определяет время действия бана в формате чч:мм:сс."
 
 msgid ""
 "Specifies the time interval in hh:mm:ss in which the given number of "
 "occurrences must happen to add the ban."
-msgstr "Задает интервал времени в формате чч: мм: сс, в котором данное количество вхождений должно произойти, чтобы добавить бан."
+msgstr "Задает интервал времени в формате чч:мм:сс, в течение которого заданное количество событий добавляет бан."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
 "a link failure has been detected."
-msgstr "определяет время, в милисекундах, до отключения ведомого устройства после того, как был обнаружен обрыв линии"
+msgstr "Задает время в милисекундах до отключения ведомого устройства после обнаружения обрыва линии."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
-msgstr "Определяет время, в миллисекундах, до включения ведомого устройства после того, как восстановление связи было обнаружено."
+msgstr "Задает время в миллисекундах до включения ведомого устройства после обнаружения восстановления связи."
 
 msgid "Specifies whether it is allowed to login as superuser directly"
-msgstr "Указывает, будет ли ему позволено войти в систему как администратор непосредственно"
+msgstr "Определяет, разрешен ли вход в систему, как администратор"
 
 msgid "Specifies whether it is allowed to login as superuser."
-msgstr "Указывает, будет ли ему позволено войти в систему как администратор."
+msgstr "Определяет, разрешен ли вход в систему, как администратор."
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
-msgstr "Определяет, контролировать ли системное состояние и выбирает самый оптимальный уровень ЦП."
+msgstr "Определяет, контролировать ли состояние системы и выбирает самый оптимальный уровень ЦП."
 
 msgid "Specifies which slave is the primary device."
-msgstr "Определяет с  каким ведомым устройством будет работать основное устройство."
+msgstr "Определяет, какое ведомое устройство является основным."
 
 msgid "Spindown time"
 msgstr "Время остановки шпинделя"
@@ -2859,7 +2860,7 @@ msgid "System user/group"
 msgstr "Системный пользователь/группа"
 
 msgid "TCP forwarding"
-msgstr "Передача TCP"
+msgstr "Перенаправление TCP"
 
 msgid "TFTP"
 msgstr "TFTP"
@@ -2889,19 +2890,19 @@ msgid "The NT description field."
 msgstr "Поле описания NT."
 
 msgid "The RSA key length."
-msgstr "Длинна RSA ключа"
+msgstr "Длина RSA ключа"
 
 msgid "The SSL certificate."
-msgstr "SSL-сертификат."
+msgstr "Сертификат SSL."
 
 msgid "The changes have been applied "
-msgstr "Изменения были применены"
+msgstr "Изменения применены"
 
 msgid "The changes have been applied successfully."
-msgstr "Изменения были применены успешно."
+msgstr "Изменения успешно применены."
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "SMTP порт сервера по умолчанию, 25 или 587."
+msgstr "SMTP порт сервера по умолчанию, например 25 или 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
@@ -2916,7 +2917,7 @@ msgid "The field '%s' contains forbidden "
 msgstr " Поле '%s' содержит запрещенные"
 
 msgid "The file mode of the shared folder path."
-msgstr "Права доступа для общего ресурса."
+msgstr "Разрешения файлов для общего ресурса."
 
 #, c-format
 msgid "The group '%s' does not exist"
@@ -2926,21 +2927,21 @@ msgid "The hostname is a label that identifies the system to the network."
 msgstr "Имя узла - идентификатор системы в сети."
 
 msgid "The location of the files to share."
-msgstr "Расположение файлов, для совместно использовать."
+msgstr "Расположение файлов общего доступа."
 
 msgid ""
 "The location of the files to share. The share will be accessible at "
 "/export/<name>."
-msgstr "Расположение файлов, чтобы совместно использовать. Шара будет доступна в /export/<name>."
+msgstr "Расположение файлов общего доступа. Ресурс будет доступен по адресу /export/<name>."
 
 msgid "The location of the user home directories."
 msgstr "Размещение домашних каталогов пользователей."
 
 msgid "The name of the share."
-msgstr "Имя шары."
+msgstr "Имя общего ресурса."
 
 msgid "The number of days the certificate is valid for."
-msgstr "Число дней сертификат допустим для."
+msgstr "Число дней действия сертификата."
 
 msgid "The password contains invalid characters"
 msgstr "Пароль содержит недопустимые символы"
@@ -2948,7 +2949,7 @@ msgstr "Пароль содержит недопустимые символы"
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
 "used for remote shell transport such as ssh."
-msgstr "Пароль, который используется для доступа через Rsync демона. Заметим, что не используется для удаленной оболочки, такие как SSH."
+msgstr "Пароль для доступа через службу Rsync. Внимание, это не пароль удаленной оболочки, как SSH."
 
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
@@ -2960,18 +2961,18 @@ msgid ""
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
-msgstr "Разрешения на новые файлы и каталоги, как правило, регулируются созданием маски и маски каталогов, но этот параметр отменяет наследование разрешения. Это может быть особенно полезна в системах с большим количеством пользователей, чтобы на единую шару, чтобы гибко использовать для каждого пользователя."
+msgstr "Разрешения на новые файлы и каталоги обычно регулируются маской, но параметр наследования имеет более высокий приоритет. Это позволяет гибко организовать совместное использование многими пользователями одного общего ресурса."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
 "for data connections is not required."
-msgstr "Требование о том, что SSL сессия управляющего соединение используется для передачи данных, не требуется."
+msgstr "Установка повторного использования сессии SSL управляющего соединения для передачи данных."
 
 msgid "The service name."
-msgstr "Имя службы."
+msgstr "Имя сервиса."
 
 msgid "The session timeout time in minutes."
-msgstr "Время тайм-аута сеанса в минутах."
+msgstr "Время таймаута сеанса в минутах."
 
 msgid "The shared folder is already used by another share"
 msgstr "Эта общая папка уже используется другим общим ресурсом"
@@ -2982,7 +2983,7 @@ msgid ""
 msgstr "Исходный удаленный сервер, например,[USER@]HOST:SRC, [USER@]HOST::SRC or rsync://[USER@]HOST[:PORT]/SRC."
 
 msgid "The source shared folder."
-msgstr "Источник общей папки."
+msgstr "Исходный общий ресурс."
 
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "Указанная квота превышает максимальное возможное значение 4 TiB."
@@ -2991,21 +2992,21 @@ msgid "The system will reboot now."
 msgstr "Система будет перезагружена сейчас."
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr "Система будет перезагружена сейчас. Это может занять некоторое время ..."
+msgstr "Система будет перезагружена сейчас. Это может занять некоторое время..."
 
 msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr "Тестовое электронное письмо было послано успешно. Проверьте почтовый ящик."
+msgstr "Тестовое электронное письмо было успешно отправлено. Проверьте почтовый ящик."
 
 #, c-format
 msgid "The user '%s' does not exist"
-msgstr "Пользователь '%s'  не существует"
+msgstr "Пользователь '%s' не существует"
 
 #, c-format
 msgid "The user '%s' is not allowed"
-msgstr "Пользователь '%s'  не разрешено"
+msgstr "Пользователь '%s' не разрешен"
 
 msgid "The value in this field is invalid"
-msgstr "Значение этого поля является недействительным"
+msgstr "Значение этого поля неверное"
 
 msgid "The volume label for the filesystem."
 msgstr "Метка тома для файловой системы."
@@ -3013,14 +3014,14 @@ msgstr "Метка тома для файловой системы."
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
 "login."
-msgstr "Приветственное сообщение, которое будет отображаться  пользователю, когда он войдет."
+msgstr "Приветственное сообщение, которое будет отображаться пользователю при входе."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
-msgstr "Рабочая группа сервера в которой окажется при запросе клиентов."
+msgstr "Рабочая группа, в которой отображается сервер при запросе клиентами."
 
 #, c-format
 msgid "There already exists a mount point for %s"
-msgstr "Точка монтирования уже существует  для %s"
+msgstr "Точка монтирования уже существует для %s"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
@@ -3030,10 +3031,10 @@ msgstr "Эти параметры используются службами дл
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
-msgstr "Управляет, виден ли этот сетевой ресурс в списке доступных  в сетевых ресурсов и в списке просмотра."
+msgstr "Задает, виден ли этот сетевой ресурс в списке доступных сетевых ресурсов и в списке просмотра."
 
 msgid "This field does not allow blanks"
-msgstr "Это поле не позволяет пробелы"
+msgstr "Это поле не допускает пробелы"
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Это поле должно быть в формате hh:mm:ss"
@@ -3042,24 +3043,24 @@ msgid "This field should be a IPv4 network address"
 msgstr "Это поле должно содержать адрес IPv4 сети"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
-msgstr "Это поле должно быть адресом сети IPv4 в нотации CIDR"
+msgstr "В этом поле должен быть адрес сети IPv4 в нотации CIDR"
 
 msgid "This field should be a domainname or an IPv4 address"
 msgstr "В этом поле должно быть доменное имя или IPv4 адрес"
 
 msgid "This field should be a hostname or an IPv4 address"
-msgstr "Это поле должно иметь имя или адрес IPv4"
+msgstr "Это поле должно содержать имя комьютера или его адрес IPv4"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
-msgstr "Это поле должно быть сетевой маской в диапазоне 128.0.0.0 - 255.255.255.252"
+msgstr "Это поле должно содержать сетевую маску в диапазоне 128.0.0.0 - 255.255.255.252"
 
 msgid "This field should be a port in the range of 1 - 65535"
-msgstr "Это поле должно быть портом в диапазоне 1 - 65535"
+msgstr "Это поле должно содержать порт в диапазоне 1 - 65535"
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
-msgstr "Это поле должно быть портом или диапазоном порта (например, 21 или! 443 или 1024-65535)"
+msgstr "Это поле должно содержать порт или диапазон портов (например, 21 или !443 или 1024-65535)"
 
 msgid "This field should be an IPv4 address"
 msgstr "Это поле должно содержать адрес IPv4"
@@ -3068,17 +3069,17 @@ msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
 "range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
 "192.168.178.20-192.168.178.254)"
-msgstr "Это поле должно быть любым адресом сети IPv4 (с / маской), диапазон IPv4 или простой адрес IPv4 (например, 172.16.76.4 или! 192.168.178.87/24 или 192.168.178.20-192.168.178.254)"
+msgstr "Это поле должно содержать адрес сети в виде IPv4/маска, диапазон IPv4 или простой адрес IPv4 (например, 172.16.76.4 или! 192.168.178.87/24 или 192.168.178.20-192.168.178.254)"
 
 msgid "This field should only contain numbers"
 msgstr "Это поле должно содержать только цифры"
 
 msgid "This field should only contain numbers seperated by <,> or <;>"
-msgstr "Это поле должно содержать только цифры разделяется <,> или <;>"
+msgstr "Это поле должно содержать только цифры, разделенные <,> или <;>"
 
 msgid ""
 "This field should only contain ports (0 - 65535) seperated by <,> or <;>"
-msgstr "Это поле должно содержать только порты (0 - 65535) разделяемые <,> или <;>"
+msgstr "Это поле должно содержать только порты (0 - 65535), разделенные <,> или <;>"
 
 msgid "This field should only contain strings seperated by <,> or <;>"
 msgstr "Это поле должно только содержать строки, разделенные <,> или <;>"
@@ -3089,23 +3090,23 @@ msgstr "Эта функция эффективна только в том слу
 msgid ""
 "This is a text field that is seen next to a share when a client queries the "
 "server."
-msgstr "Это - текст, который будет отображаться, когда клиент обращается к серверу."
+msgstr "Это текстовое поле, который отображается рядом с именем общего ресурса, когда клиент обращается к серверу."
 
 msgid ""
 "This may make more efficient use of the system CPU's and cause Samba to be "
 "faster. Samba automatically turns this off for clients that use protocol "
 "levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
-msgstr "Это может сделать более эффективное использование системного ЦП и заставить Samba быть быстрее. Samba автоматически выключает это для клиентов, которые используют уровни протокола ниже, чем NT LM 0.12 и когда обнаруживает клиента, Windows 9x."
+msgstr "Увеличивает эффективность использования ЦП и ускоряет работу Samba. Samba автоматически выключает этот параметр для клиентов, использующих уровни протокола ниже, чем NT LM 0.12, и когда обнаруживает клиент Windows 9x."
 
 msgid ""
 "This option causes the server to not send a certificate request during a SSL"
 " handshake."
-msgstr "Эта опция заставляет сервер не отправляет запрос сертификата во время SSL приветствия."
+msgstr "Этот параметр указывает серверу не отправлять запрос сертификата во время SSL приветствия."
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
-msgstr "Эта опция определяет, должен ли этот модуль быть перечислен, когда клиент просит перечисление доступных модулей."
+msgstr "Этот параметр определяет, показывать ли этот модуль, когда клиент запрашивает список доступных модулей."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3114,7 +3115,7 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "Этот опция - запятая, пробел, или табуляция, как разграничитель хостов, которым НЕ разрешается получить доступ к этому модулю. Когда списки находятся в противоречии, список разрешений имеет приоритет. Когда необходимо запрещать все по умолчанию, используйте ключевое слово ALL (или сетевую маску 0.0.0.0/0) и затем явно определите хосты, которым нужно разрешить доступ. Оставьте эту область пустой, чтобы использовать настройки по умолчанию."
+msgstr "Разделенный запятой, пробелом, или символом табуляции список хостов, которым НЕ разрешен доступ к этому модулю. При конфликте список разрешений имеет более высокий приоритет. При необходимости запретить все по умолчанию, используйте ключевое слово ALL (или сетевую маску 0.0.0.0/0) и затем явно определите хосты, которым нужно разрешить доступ. Оставьте эту область пустой, чтобы использовать настройки по умолчанию."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3123,66 +3124,66 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "Этот опция - запятая, пробел, или табуляция, как разграничитель хостов, которым НЕ разрешается получить доступ к этой общей папке. Когда списки находятся в противоречии, список разрешений имеет приоритет. Когда необходимо запрещать все по умолчанию, используйте ключевое слово ALL (или сетевую маску 0.0.0.0/0) и затем явно определите хосты, которым нужно разрешить доступ. Оставьте эту область пустой, чтобы использовать настройки по умолчанию."
+msgstr "Разделенный запятой, пробелом, или символом табуляции список хостов, которым НЕ разрешен доступ к этому общему ресурсу. При конфликте список разрешений имеет более высокий приоритет. При необходимости запретить все по умолчанию, используйте ключевое слово ALL (или сетевую маску 0.0.0.0/0) и затем явно определите хосты, которым нужно разрешить доступ. Оставьте эту область пустой, чтобы использовать настройки по умолчанию."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this module. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr "Этот опция - запятая, пробел, или табуляция, как разграничитель хостов, которым разрешается получить доступ к этому модулю. Вы можете определить хосты по имени или по IP-адресу. Оставьте эту область пустой, чтобы использовать настройки по умолчанию."
+msgstr "Разделенный запятой, пробелом, или символом табуляции список хостов, которым разрешен доступ к этому модулю. Вы можете определить хосты по имени или по IP-адресу. Оставьте эту область пустой, чтобы использовать настройки по умолчанию."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this share. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr "Этот опция - запятая, пробел, или табуляция, как разграничитель хостов, которым разрешается получить доступ к этому общему ресурсу. Вы можете определить хосты по имени или по IP-адресу. Оставьте эту область пустой, чтобы использовать настройки по умолчанию."
+msgstr "Разделенный запятой, пробелом, или символом табуляции список хостов, которым разрешен доступ к этому общему ресурсу. Вы можете определить хосты по имени или по IP-адресу. Оставьте эту область пустой, чтобы использовать настройки по умолчанию."
 
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
 "server."
-msgstr "Эта опция требует от клиентов использовать FTP через TLS при общении с этим сервером."
+msgstr "Эта опция требует от клиентов использовать FTP через TLS при обращении к этому серверу."
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
-msgstr "Эта опция определяет название группы, для передачи файлов к и от того модуля."
+msgstr "Эта опция определяет название группы, от имени которой передаются файлы к модулю и от него."
 
 msgid ""
 "This option specifies the maximum number of simultaneous connections. 0 "
 "means no limit."
-msgstr "Эта опция определяет максимальное количество одновременных соединений. 0 бесконечно."
+msgstr "Эта опция определяет максимальное количество одновременных соединений. Значение '0' снимает все ограничения."
 
 msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
-msgstr "Эта опция определяет имя пользователя, для передачи файлов к и от того модуля."
+msgstr "Эта опция определяет имя пользователя, от имени которого происходит передача файлов к модулю и от него."
 
 msgid ""
 "This option will handle all connections as if they are SSL connections "
 "implicitly."
-msgstr "Эта опция будет обрабатывать все соединения, как будто они неявно SSL соединения."
+msgstr "Эта опция будет неявно обрабатывать все соединения, как SSL соединения."
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr "Этот параметр может быть использован для того, чтобы списки ACL по умолчанию  существуют на родительские каталоги, они всегда выполнялись при создании нового файла или подкаталога в этом родительском каталоге."
+msgstr "Если существуют списки ACL по умолчанию на родительские каталоги, они всегда будут применяться при создании нового файла или подкаталога в этом родительском каталоге."
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
-msgstr "Этот параметр определяет, будут ли файлы, начинающиеся с точки отображаться в виде скрытых файлов"
+msgstr "Этот параметр определяет, будут ли файлы, начинающиеся с точки, отображаться в виде скрытых файлов"
 
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
 "given time interval, then a ban is automatically added."
-msgstr "Этот параметр говорит что, если возникновения N события происходят в данном временном интервале, то бан автоматически добавлен."
+msgstr "Этот параметр определяет, что при наступлении в заданном временном интервале N событий происходит автоматическое добавление бана."
 
 msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr "Максимум соединенМаксимум соединений на узел"
+msgstr "Это правило выполняется, если происходит выбранное событие."
 
 msgid "This will create a recycle bin on the share."
-msgstr "Это создаст мусорную корзину на этом общем ресурсе."
+msgstr "Это создает корзину на общем ресурсе."
 
 msgid "Thursday"
 msgstr "Четверг"
@@ -3200,13 +3201,13 @@ msgid "Time server"
 msgstr "Сервер времени"
 
 msgid "Time servers"
-msgstr "Сервер времени"
+msgstr "Серверы времени"
 
 msgid "Time zone"
 msgstr "Часовой пояс"
 
 msgid "Timeout"
-msgstr "Тайм-аут"
+msgstr "Таймаут"
 
 msgid "Times"
 msgstr "Время"
@@ -3215,7 +3216,7 @@ msgid ""
 "To restore a previously backed up configuration click the 'Restore' button. "
 "The system will reboot automatically after import has been finished "
 "successfully."
-msgstr "Для восстановления резервной копии прежней конфигурации нажмите кнопку \"Восстановление\".Система перезагрузится автоматически после того, как импорт был успешно завершен."
+msgstr "Для восстановления резервной копии прежней конфигурации нажмите кнопку \"Восстановление\". Система перезагрузится автоматически после успешного завершения."
 
 msgid "Togo"
 msgstr "Того"
@@ -3272,7 +3273,7 @@ msgid "Uninstall"
 msgstr "Удалить"
 
 msgid "Uninstall plugins ..."
-msgstr "Удаление плагинов ..."
+msgstr "Удаление плагинов..."
 
 msgid "Union of Soviet Socialist Republics"
 msgstr "Союз Советских Социалистических Республик"
@@ -3319,11 +3320,11 @@ msgid "Update now"
 msgstr "Обновить сейчас"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
-msgstr "Обновите целевой ACLs, чтобы совпасть с источником ACLs"
+msgstr "Обновляет целевые ACLs для синхронизации с исходными ACLs"
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones"
-msgstr "Обновление назначения расширенных атрибутов, чтобы быть таким же, как локальные"
+msgstr "Обновляет целевые расширенные атрибуты для синхронизации с локальными"
 
 msgid "Updated"
 msgstr "Обновленный"
@@ -3344,7 +3345,7 @@ msgid "Upload plugin"
 msgstr "Загрузить плагин"
 
 msgid "Uploading file ..."
-msgstr "Загрузка файла ..."
+msgstr "Загрузка файла..."
 
 msgid "Uptime"
 msgstr "Время работы"
@@ -3359,30 +3360,30 @@ msgid "Use SSL/TLS secure connection"
 msgstr "Использовать SSL/TLS для безопасного соединения"
 
 msgid "Use sendfile"
-msgstr "Использовать senfile"
+msgstr "Использовать sendfile"
 
 msgid "Use the following bandwidth restriction:"
-msgstr "Используйте следующее ограничение пропускной способности:"
+msgstr "Использовать следующее ограничение пропускной способности:"
 
 msgid "Use the following port range:"
-msgstr "Используйте следующий диапазон порта:"
+msgstr "Использовать следующий диапазон портов:"
 
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked"
-msgstr "Использование более эффективного вызова системы SendFile  для файлов, которые исключительно oplocked"
+msgstr "Использование более эффективный системный вызов sendfile для заблокированных файлов"
 
 msgid "Use the specified WINS server."
-msgstr "Используйте указанный сервер WINS."
+msgstr "Использовать указанный сервер WINS."
 
 msgid "Used"
 msgstr "Использованное"
 
 msgid "Used capacity"
-msgstr "Использованно емкости"
+msgstr "Занятое место"
 
 msgid "User"
-msgstr "Пользователи"
+msgstr "Пользователь"
 
 #, c-format
 msgid "User '%s' already exist"
@@ -3403,7 +3404,7 @@ msgid "User information"
 msgstr "Информация о пользователе"
 
 msgid "User/Group permissions"
-msgstr "Полномочия пользователя/Группы"
+msgstr "Полномочия пользователя/группы"
 
 msgid "Username"
 msgstr "Имя пользователя"
@@ -3427,7 +3428,7 @@ msgid "Vatican"
 msgstr "Ватикан"
 
 msgid "Vendor"
-msgstr "Интерфейс"
+msgstr "Производитель"
 
 msgid "Venezuela"
 msgstr "Венесуэла"
@@ -3445,10 +3446,10 @@ msgid "WINS"
 msgstr "WINS"
 
 msgid "WINS server"
-msgstr "WINS сервер"
+msgstr "Сервер WINS"
 
 msgid "WINS support"
-msgstr "WINS-поддержка"
+msgstr "Поддержка WINS"
 
 msgid "Wake Island"
 msgstr "Атолл Уэйк"
@@ -3475,7 +3476,7 @@ msgid "Wednesday"
 msgstr "Среда"
 
 msgid "Welcome message"
-msgstr "Приветсвенное сообщение"
+msgstr "Приветственное сообщение"
 
 msgid "Western Sahara"
 msgstr "Западная Сахара"
@@ -3486,13 +3487,13 @@ msgid ""
 msgstr "Когда клиент первоначально соединяется с сервером, ident протокол используется, чтобы попытаться идентифицировать удаленное имя пользователя."
 
 msgid "When failed"
-msgstr "Когда отказавший"
+msgstr "При отказе"
 
 msgid "Wipe"
-msgstr "Затереть"
+msgstr "Очистить"
 
 msgid "Wiping device ..."
-msgstr "Затереть устройство ..."
+msgstr "Очистка устройства..."
 
 msgid "Workgroup"
 msgstr "Рабочая группа"
@@ -3501,7 +3502,7 @@ msgid "Worst"
 msgstr "Худший"
 
 msgid "Write cache"
-msgstr "Кэш записи"
+msgstr "Кэширование записи"
 
 msgid "Write only"
 msgstr "Только запись"
@@ -3519,29 +3520,29 @@ msgid "Zimbabwe"
 msgstr "Зимбабве"
 
 msgid "day"
-msgstr "День"
+msgstr "день"
 
 msgid "days"
-msgstr "Дней"
+msgstr "дней"
 
 msgid "hour"
-msgstr "Час"
+msgstr "час"
 
 msgid "hours"
-msgstr "Часов"
+msgstr "часов"
 
 msgid "minute"
-msgstr "Минута"
+msgstr "минута"
 
 msgid "minutes"
-msgstr "Минут"
+msgstr "минут"
 
 #, c-format
 msgid "n/a"
 msgstr "n/a"
 
 msgid "seconds"
-msgstr "Секунды"
+msgstr "секунды"
 
 msgid "web administration interface"
-msgstr "веб-интерфейс администрирования"
+msgstr "веб интерфейс администратора"
