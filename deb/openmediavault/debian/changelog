@@ -1,3 +1,11 @@
+openmediavault (0.3.2) stable; urgency=low
+
+  * Fix bug in OMVStorageDeviceAbstract::getDeviceFileById() method.
+  * Mantis 0000618: Disable temperature logging if temperature checks are
+    disabled under SMART.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 18 Oct 2012 18:20:50 +0200
+
 openmediavault (0.3.1) stable; urgency=low
 
   * Update locales.
