@@ -1,3 +1,11 @@
+openmediavault (0.4.2) stable; urgency=low
+
+  * Fix bug in OMVStorageDeviceAbstract::getDeviceFileById() method.
+  * Mantis 0000618: Disable temperature logging if temperature checks are
+    disabled under SMART.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 18 Oct 2012 17:50:54 +0200
+
 openmediavault (0.4.1) stable; urgency=low
 
   * Mantis 0000613: First letter in username automatically gets capitalized

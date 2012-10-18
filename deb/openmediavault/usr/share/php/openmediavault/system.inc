@@ -849,12 +849,10 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			  "ls -ogr '/dev/disk/by-id/' | grep '/%s$' | ".
 			  "awk '{print $7}'", $this->getDeviceName());
 			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0)
-				return FALSE;
 			// Command output:
 			// ata-VMware_Virtual_IDE_Hard_Drive_00000000000000000001
 			// scsi-SATA_VMware_Virtual_00000000000000000001
-			if(empty($output)) {
+			if(($result !== 0) || empty($output)) {
 				$this->deviceFileById = $this->deviceFile;
 			} else {
 				// Use first found entry.

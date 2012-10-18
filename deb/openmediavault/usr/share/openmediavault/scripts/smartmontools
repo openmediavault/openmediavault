@@ -66,6 +66,7 @@ xmlstarlet sel -t -m "//system/storage/hdparm[smart=1]" \
 		-m "//services/smart" \
 		  -o "${devicefile} ${OMV_SMARTMONTOOLS_DEFAULTDIRECTIVES}" \
 		  -v "concat(' -W ',tempdiff,',',tempinfo,',',tempcrit)" \
+		  -i "tempdiff = '0' and tempinfo = '0' and tempcrit = '0'" -o " -I 194 -I 231" -b \
 		  -v "concat(' -n ',powermode,',q')" \
 		-b \
 		-m "//services/smart/scheduledtests/job[devicefile='${devicefile}']" \
