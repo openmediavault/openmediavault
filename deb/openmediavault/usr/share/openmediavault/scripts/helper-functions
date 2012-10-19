@@ -354,44 +354,6 @@ omv_config_delete() {
 	rm -f -- "${tmpconfig}"
 }
 
-# void omv_config_import_user (char username)
-# Import the given existing system user into the configuration.
-# @param username The name of the existing user to import
-# @result None
-# @deprecated
-omv_config_import_user() {
-	echo "!!! DEPRECATED function omv_config_delete_user !!!"
-}
-
-# void omv_config_delete_user (char username)
-# Delete the given user in the configuration.
-# @param username The name of the user to delete
-# @result None
-# @deprecated
-omv_config_delete_user() {
-	echo "!!! DEPRECATED function omv_config_delete_user !!!"
-	omv_config_delete "//system/usermanagement/users/user[name='$1']"
-}
-
-# void omv_config_import_group (char groupname)
-# Import the given existing system group into the configuration.
-# @param groupname The name of the existing group to import
-# @result None
-# @deprecated
-omv_config_import_group() {
-	echo "!!! DEPRECATED function omv_config_import_group !!!"
-}
-
-# void omv_config_delete_group (char groupname)
-# Delete the given group in the configuration.
-# @param username The name of the user to delete
-# @result None
-# @deprecated
-omv_config_delete_group() {
-	echo "!!! DEPRECATED function omv_config_delete_group !!!"
-	omv_config_delete "//system/usermanagement/groups/group[name='$1']"
-}
-
 # omv_quotemeta [string]
 # Quote special characters (\/&) in the given string.
 # $1 - The string to quote
