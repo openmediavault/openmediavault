@@ -3,6 +3,8 @@ openmediavault (0.4.2) stable; urgency=low
   * Update locales.
   * Fix various bugs in WebGUI.
   * Fix bug in OMVStorageDeviceAbstract::getDeviceFileById() method.
+  * Add 'Trial run' checkbox for RSync jobs to perform a trial run with no
+    changes made.
   * Mantis 0000618: Disable temperature logging if temperature checks are
     disabled under SMART.
   * Mantis 0000628: Enable and view boot log messages.

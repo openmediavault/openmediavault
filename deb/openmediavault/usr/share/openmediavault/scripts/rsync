@@ -91,6 +91,7 @@ xmlstarlet sel -t -m "//services/rsync/jobs/job[enable='1']" \
 		-i "perms = '1'" -o " --perms" -b \
 		-i "acls = '1'" -o " --acls" -b \
 		-i "xattrs = '1'" -o " --xattrs" -b \
+		-i "dryrun = '1'" -o " --dry-run" -b \
 		-i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
 		-o " \"${srcuri}\" \"${desturi}\"" \
 		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${filename}

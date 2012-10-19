@@ -1017,6 +1017,13 @@ Ext.extend(OMV.Module.Services.Rsync.JobPropertyDialog, OMV.CfgObjectDialog, {
 			value: "*"
 		},{
 			xtype: "checkbox",
+			name: "dryrun",
+			fieldLabel: _("Trial run"),
+			checked: false,
+			inputValue: 1,
+			boxLabel: _("Perform a trial run with no changes made")
+		},{
+			xtype: "checkbox",
 			name: "recursive",
 			fieldLabel: _("Recursive"),
 			checked: true,

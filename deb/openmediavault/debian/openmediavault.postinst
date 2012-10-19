@@ -394,6 +394,7 @@ case "$1" in
 			invoke-rc.d postfix restart
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.4.2"; then
+			omv_config_add_element "//services/rsync/jobs/job" "dryrun" "0"
 			sed -i -e "s/BOOTLOGD_ENABLE=.*/BOOTLOGD_ENABLE=Yes/" /etc/default/bootlogd
 		fi
 	;;
