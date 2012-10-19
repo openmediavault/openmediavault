@@ -257,6 +257,46 @@ Ext.extend(OMV.Module.Diagnostics.LogPlugin.Messages,
 OMV.preg("log", "messages", OMV.Module.Diagnostics.LogPlugin.Messages);
 
 /**
+ * @class OMV.Module.Diagnostics.LogPlugin.Boot
+ * @derived OMV.Module.Diagnostics.LogPlugin
+ * Class that implements the 'Boot' logfile diagnostics plugin
+ */
+OMV.Module.Diagnostics.LogPlugin.Boot = function(config) {
+	var initialConfig = {
+		title: _("Boot"),
+		stateId: "3ad5e9ac-1998-11e2-a3cb-00221568ca88",
+		columns: [{
+			header: _("Date & Time"),
+			sortable: true,
+			dataIndex: "rownum",
+			id: "date",
+			width: 35,
+			renderer: function(val, cell, record, row, col, store) {
+				return record.get("date");
+			}
+		},{
+			header: _("Event"),
+			sortable: true,
+			dataIndex: "event",
+			id: "event"
+		}],
+		rpcArgs: { "id": "boot" },
+		rpcFields: [
+			{ name: "rownum" },
+			{ name: "date" },
+			{ name: "event" }
+		]
+	};
+	Ext.apply(initialConfig, config);
+	OMV.Module.Diagnostics.LogPlugin.Boot.superclass.constructor.call(
+	  this, initialConfig);
+};
+Ext.extend(OMV.Module.Diagnostics.LogPlugin.Boot,
+  OMV.Module.Diagnostics.LogPlugin, {
+});
+OMV.preg("log", "boot", OMV.Module.Diagnostics.LogPlugin.Boot);
+
+/**
  * @class OMV.Module.Diagnostics.LogGridPanel
  * @derived OMV.grid.GridPanel
  */

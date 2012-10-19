@@ -303,7 +303,7 @@ Ext.extend(OMV.Module.System.PowerMgmt.CronJobPropertyDialog,
 				allowBlank: false,
 				editable: false,
 				triggerAction: "all",
-				value: new Date().format("i"),
+				value: String(new Date().getMinutes()),
 				flex: 1
 			},{
 				xtype: "checkbox",
@@ -332,7 +332,7 @@ Ext.extend(OMV.Module.System.PowerMgmt.CronJobPropertyDialog,
 				allowBlank: false,
 				editable: false,
 				triggerAction: "all",
-				value: new Date().format("H"),
+				value: String(new Date().getHours()),
 				flex: 1
 			},{
 				xtype: "checkbox",
