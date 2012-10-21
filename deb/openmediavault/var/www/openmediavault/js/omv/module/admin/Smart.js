@@ -825,7 +825,7 @@ Ext.extend(OMV.Module.Storage.SMARTScheduledTestPropertyDialog,
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
-			value: new Date().format("H")
+			value: String(new Date().format("H"))
 		},{
 			xtype: "combo",
 			name: "dayofmonth",
