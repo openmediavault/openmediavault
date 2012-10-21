@@ -1,3 +1,9 @@
+openmediavault (0.3.3) stable; urgency=low
+
+  * Fix various bugs in WebGUI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 19 Oct 2012 03:57:18 +0200
+
 openmediavault (0.3.2) stable; urgency=low
 
   * Update locales.
