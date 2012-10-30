@@ -530,14 +530,21 @@ class UserMgmtRpc extends OMVRpc {
 		$this->validateSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
+		// Check if user exists.
+		$user = new OMVSystemUser(OMVSession::getUsername());
+		if(!$user->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf(gettext("User '%s' does not exist"),
+			  OMVSession::getUsername()));
+		}
 		// Try to get existing configuration object
 		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
-		  OMVSession::getUsername());
-		$object = $xmlConfig->get($xpath);
+		  $user->getName());
+		$object = $oldObject = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			$object = array(
 				"uuid" => OMVUtil::uuid(),
-				"name" => OMVSession::getUsername(),
+				"name" => $user->getName(),
 				"email" => $data['email'],
 				"disallowusermod" => FALSE
 			);
@@ -563,12 +570,23 @@ class UserMgmtRpc extends OMVRpc {
 		}
 		// Append additional fields to configuration object for notification
 		$object = array_merge($object, array(
-			"password" => $data['password']
-		));
+			  "password" => $data['password']
+		  ));
+		$oldObject = array_merge(is_array($oldObject) ?
+		  $oldObject : array(), array(
+			  "disallowusermod" => boolval(
+				$oldObject['disallowusermod']),
+			  "shell" => $user->getShell(),
+			  "password" => $user->getPassword(),
+			  "groups" => $user->getGroups(),
+			  "comment" => $user->getGecos(),
+			  "uid" => $user->getUid()
+		  ));
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.usermanagement.users.user", $object);
+		  "org.openmediavault.system.usermanagement.users.user", $object,
+		  $oldObject);
 	}
 
 	/**
