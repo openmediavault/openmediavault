@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-27 19:49+0200\n"
-"PO-Revision-Date: 2012-10-14 03:23+0000\n"
-"Last-Translator: Александр <phg.azlk@gmail.com>\n"
+"POT-Creation-Date: 2012-11-04 16:23+0100\n"
+"PO-Revision-Date: 2012-11-04 15:24+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -466,6 +466,9 @@ msgstr "Боливия"
 msgid "Bond options"
 msgstr "Настройки связанного интерфейса"
 
+msgid "Boot"
+msgstr ""
+
 msgid "Bosnia and Herzegovina"
 msgstr "Босния и Герцеговина"
 
@@ -878,11 +881,6 @@ msgid ""
 "Select 'No' to delete the shared folder configuration only or 'Cancel' to "
 "abort."
 msgstr "Вы хотите рекурсивно удалить содержимое общей папки? Содержимое папки будет безвозвратно удалено и не сможет быть восстановлено. Выберите 'Нет', чтобы удалить только конфигурацию общей папки или 'Отменить', чтобы прервать операцию."
-
-msgid ""
-"Do you want to secure wipe the device? Please note that this may take a long"
-" time. Press 'No' to fast wipe the device or 'Cancel' to abort."
-msgstr "Вы хотите безопасно затереть устройство? Обратите внимание, что это может занять много времени. Нажмите 'Нет' для быстрой очистки устройства или 'Отмена', чтобы прервать."
 
 msgid "Domain name"
 msgstr "Доменное имя"
@@ -2079,6 +2077,9 @@ msgstr "Путь"
 msgid "People's Democratic Republic of Yemen"
 msgstr "Народно-Демократической Республики Йемен"
 
+msgid "Perform a trial run with no changes made"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Срок действия"
 
@@ -2149,6 +2150,9 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Ознакомьтесь со <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>страницей описания</a> для более подробной информации."
+
+msgid "Please choose the method to wipe the device or 'Cancel' to abort."
+msgstr ""
 
 msgid "Please first select a volume."
 msgstr "Пожалуйста, сначала выберите раздел."
@@ -2257,6 +2261,9 @@ msgstr "Нажать"
 
 msgid "Qatar"
 msgstr "Катар"
+
+msgid "Quick"
+msgstr ""
 
 msgid "Quiet"
 msgstr "Тихий"
@@ -2492,6 +2499,9 @@ msgstr "Дополнительный email"
 
 msgid "Seconds"
 msgstr "Секунды"
+
+msgid "Secure"
+msgstr ""
 
 msgid "Secure connection"
 msgstr "Безопасное соединение"
@@ -3232,6 +3242,9 @@ msgstr "Ловушки"
 
 msgid "Treshold"
 msgstr "Порог"
+
+msgid "Trial run"
+msgstr ""
 
 msgid "Trinidad and Tobago"
 msgstr "Тринидад и Тобаго"

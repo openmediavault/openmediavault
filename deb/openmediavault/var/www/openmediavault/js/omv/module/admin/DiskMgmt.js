@@ -201,8 +201,12 @@ Ext.extend(OMV.Module.Storage.PhysicalDiskPanel, OMV.grid.TBarGridPanel, {
 					return;
 				OMV.MessageBox.show({
 					title: _("Wiping device ..."),
-					msg: _("Do you want to secure wipe the device? Please note that this may take a long time. Press 'No' to fast wipe the device or 'Cancel' to abort."),
-					buttons: Ext.Msg.YESNOCANCEL,
+					msg: _("Please choose the method to wipe the device or 'Cancel' to abort."),
+					buttons: {
+						yes: _("Secure"),
+						no: _("Quick"),
+						cancel: _("Cancel")
+					},
 					fn: function(answer) {
 						if (answer == "cancel")
 							return;

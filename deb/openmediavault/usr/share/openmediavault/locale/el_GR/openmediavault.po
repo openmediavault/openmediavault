@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-27 19:49+0200\n"
-"PO-Revision-Date: 2012-09-17 07:46+0000\n"
-"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
+"POT-Creation-Date: 2012-11-04 16:23+0100\n"
+"PO-Revision-Date: 2012-11-04 15:24+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -462,6 +462,9 @@ msgstr "Bolivia"
 msgid "Bond options"
 msgstr "Επιλογές ζεύξης"
 
+msgid "Boot"
+msgstr ""
+
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnia and Herzegovina"
 
@@ -874,11 +877,6 @@ msgid ""
 "Select 'No' to delete the shared folder configuration only or 'Cancel' to "
 "abort."
 msgstr "Να διαγραφούν όλα τα περιεχόμενα του κοινόχρηστου φακέλου; Ο φάκελος και όλα τα περιεχόμενά του θα διαγραφούν οριστικά και αμετάκλητα! Επιλέγοντας \"Όχι\" θα διαγραφούν μόνο οι ρυθμίσεις του κοινόχρηστου φακέλου. Με \"Άκυρο\" εγκαταλείπεται."
-
-msgid ""
-"Do you want to secure wipe the device? Please note that this may take a long"
-" time. Press 'No' to fast wipe the device or 'Cancel' to abort."
-msgstr "Ενδελεχής εκκένωση της συσκευής; Αυτό μπορεί να διαρκέσει πολύ ώρα. \"Όχι\" για γρήγορη εκκένωση ή \"Ακύρωση\" για εγκατάλειψη."
 
 msgid "Domain name"
 msgstr "Όνομα τομέα"
@@ -2075,6 +2073,9 @@ msgstr "Διαδρομή"
 msgid "People's Democratic Republic of Yemen"
 msgstr "People's Democratic Republic of Yemen"
 
+msgid "Perform a trial run with no changes made"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Περίοδος ισχύως"
 
@@ -2145,6 +2146,9 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details."
+
+msgid "Please choose the method to wipe the device or 'Cancel' to abort."
+msgstr ""
 
 msgid "Please first select a volume."
 msgstr "Πρώτα πρέπει να επιλεχθεί ένας τόμος."
@@ -2253,6 +2257,9 @@ msgstr "Ώθηση"
 
 msgid "Qatar"
 msgstr "Qatar"
+
+msgid "Quick"
+msgstr ""
 
 msgid "Quiet"
 msgstr "Σιωπηλό"
@@ -2488,6 +2495,9 @@ msgstr "Εφεδρικό"
 
 msgid "Seconds"
 msgstr "Δευτερόλεπτα"
+
+msgid "Secure"
+msgstr ""
 
 msgid "Secure connection"
 msgstr "Ασφαλής σύνδεση"
@@ -3228,6 +3238,9 @@ msgstr "Διεγέρσεις"
 
 msgid "Treshold"
 msgstr "Κατώφλι"
+
+msgid "Trial run"
+msgstr ""
 
 msgid "Trinidad and Tobago"
 msgstr "Trinidad and Tobago"

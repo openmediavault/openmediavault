@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-27 19:49+0200\n"
-"PO-Revision-Date: 2012-08-27 17:50+0000\n"
+"POT-Creation-Date: 2012-11-04 16:23+0100\n"
+"PO-Revision-Date: 2012-11-04 15:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -257,7 +257,7 @@ msgid "Advanced settings"
 msgstr "Avanserte innstillinger"
 
 msgid "Advertise this service via mDNS/DNS-SD."
-msgstr ""
+msgstr "Annonser denne tjenesten via MDNS/DNS-SD."
 
 msgid "Afghanistan"
 msgstr "Afghanistan"
@@ -462,6 +462,9 @@ msgstr "Bolivia"
 msgid "Bond options"
 msgstr "Knytningsalternativer"
 
+msgid "Boot"
+msgstr ""
+
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnia-Hercegovina"
 
@@ -519,7 +522,7 @@ msgstr "Avbryt"
 msgid ""
 "Cannot unlink shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "Kan ikke fjerne delt mappe link fordi en annen delt mappe refererer til en undermappe"
 
 msgid "Canton and Enderbury Islands"
 msgstr "Canton- og Enderburyøyene"
@@ -873,12 +876,7 @@ msgid ""
 "shared folder content will be permanently removed and cannot be recovered. "
 "Select 'No' to delete the shared folder configuration only or 'Cancel' to "
 "abort."
-msgstr ""
-
-msgid ""
-"Do you want to secure wipe the device? Please note that this may take a long"
-" time. Press 'No' to fast wipe the device or 'Cancel' to abort."
-msgstr "Vil du foreta en sikker sletting av enheten? Dette kan ta lang tid. Trykk 'Nei' for raskere (utrygg) sletting eller 'Avbryt' for å avbryte."
+msgstr "Ønsker du rekursivt å fjerne innholdet i den delte mappen? Den delte mappen vil bli permanent fjernet og kan ikke gjenopprettes. Velg 'Nei' for kun å slette den delte mappekonfigurasjonen eller 'Avbryt' for å avbryte."
 
 msgid "Domain name"
 msgstr "Domenenavn"
@@ -1666,7 +1664,7 @@ msgid "Madagascar"
 msgstr "Madagaskar"
 
 msgid "Mail Notification"
-msgstr ""
+msgstr "Epostvarsling"
 
 msgid "Maintainer"
 msgstr "Vedlikeholder"
@@ -2075,6 +2073,9 @@ msgstr "Bane"
 msgid "People's Democratic Republic of Yemen"
 msgstr "Sør-Jemen"
 
+msgid "Perform a trial run with no changes made"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Gyldighetsperiode"
 
@@ -2145,6 +2146,9 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Vennligst sjekk <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>brukermanualen</a> for flere detaljer."
+
+msgid "Please choose the method to wipe the device or 'Cancel' to abort."
+msgstr ""
 
 msgid "Please first select a volume."
 msgstr "Velg først et volum."
@@ -2253,6 +2257,9 @@ msgstr "Push"
 
 msgid "Qatar"
 msgstr "Qatar"
+
+msgid "Quick"
+msgstr ""
 
 msgid "Quiet"
 msgstr "Stille"
@@ -2472,10 +2479,10 @@ msgid "Saving ..."
 msgstr "Lagrer ..."
 
 msgid "Scan"
-msgstr ""
+msgstr "Skanne"
 
 msgid "Scanning for new devices ..."
-msgstr ""
+msgstr "Skanner etter nye enheter ..."
 
 msgid "Scheduled tests"
 msgstr "Planlagte tester"
@@ -2488,6 +2495,9 @@ msgstr "Sekundær epsot"
 
 msgid "Seconds"
 msgstr "Sekunder"
+
+msgid "Secure"
+msgstr ""
 
 msgid "Secure connection"
 msgstr "Sikker tikobling"
@@ -2729,7 +2739,7 @@ msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
 "masquerade address by resolving the IP address. Set this value to 0 to "
 "disable this option."
-msgstr ""
+msgstr "Spesifiser tiden, i sekunder, mellom kontroll og oppdatering av masquerade adresse ved å løse IP adressen. Sett verdien til 0 for å slå av denne funksjonen."
 
 msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "
@@ -2965,7 +2975,7 @@ msgid ""
 msgstr "Kravet om at SSL-økt fra kontrolltilkobling gjenbrukes for datatilkoblinger er ikke nødvendig."
 
 msgid "The service name."
-msgstr ""
+msgstr "Tjenestenavnet"
 
 msgid "The session timeout time in minutes."
 msgstr "Øktens tidsavbrudd i minutter."
@@ -3042,7 +3052,7 @@ msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Dette feltet bør være en IPv4 nettverk adresse i CIDR"
 
 msgid "This field should be a domainname or an IPv4 address"
-msgstr ""
+msgstr "Dette feltet burde være et domenenavn eller en IPv4 adresse"
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Dette feltet bør være et vertsnavn eller en IPv4-adresse"
@@ -3229,6 +3239,9 @@ msgstr "Traps"
 msgid "Treshold"
 msgstr "Terskel"
 
+msgid "Trial run"
+msgstr ""
+
 msgid "Trinidad and Tobago"
 msgstr "Trinidad og Tobago"
 
@@ -3298,7 +3311,7 @@ msgid "Unknown log file type (id=%s)"
 msgstr "Ukjent loggfiltype (id=%s)"
 
 msgid "Unknown network interface type."
-msgstr ""
+msgstr "Ukjent type nettverksgrensesnitt"
 
 msgid "Unmount"
 msgstr "Avmonter"
@@ -3541,4 +3554,4 @@ msgid "seconds"
 msgstr "sekunder"
 
 msgid "web administration interface"
-msgstr ""
+msgstr "web administrasjonsgrensesnitt"

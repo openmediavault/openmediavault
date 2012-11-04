@@ -1,6 +1,8 @@
 openmediavault (0.4.3) stable; urgency=low
 
+  * Update locales.
   * Fix bug in user portal. It was not possible to change the password.
+  * Simplify dialog to wipe a device.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 30 Oct 2012 18:03:53 +0100
 

@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-27 19:49+0200\n"
-"PO-Revision-Date: 2012-10-17 15:50+0000\n"
+"POT-Creation-Date: 2012-11-04 16:23+0100\n"
+"PO-Revision-Date: 2012-11-04 15:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -466,6 +466,9 @@ msgstr "Bolivien"
 msgid "Bond options"
 msgstr "Bond Optionen"
 
+msgid "Boot"
+msgstr ""
+
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnien und Herzegowina"
 
@@ -878,11 +881,6 @@ msgid ""
 "Select 'No' to delete the shared folder configuration only or 'Cancel' to "
 "abort."
 msgstr "Soll der Inhalt des freigegebenen Ordners wirklich rekursiv gelöscht werden? Der Inhalt des freigegebenen Ordners wird unwiederbringlich gelöscht und kann nicht wiederhergestellt werden. Wählen Sie 'Nein' um nur die freigegebene Ordner-Konfiguration zu löschen und 'Abbrechen' zum Abbruch."
-
-msgid ""
-"Do you want to secure wipe the device? Please note that this may take a long"
-" time. Press 'No' to fast wipe the device or 'Cancel' to abort."
-msgstr "Wollen Sie das Laufwerk sicher löschen? Dies kann sehr lange dauern. Drücken Sie 'Nein' für schnelleres (unsicheres) Löschen oder 'Abbrechen' zum Abbrechen."
 
 msgid "Domain name"
 msgstr "Domainname"
@@ -2079,6 +2077,9 @@ msgstr "Pfad"
 msgid "People's Democratic Republic of Yemen"
 msgstr "Volksdemokratische Republik Jemen"
 
+msgid "Perform a trial run with no changes made"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Gültigkeitsdauer"
 
@@ -2149,6 +2150,9 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Bitte die <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
+
+msgid "Please choose the method to wipe the device or 'Cancel' to abort."
+msgstr ""
 
 msgid "Please first select a volume."
 msgstr "Bitte wählen Sie zuerst ein Volume."
@@ -2257,6 +2261,9 @@ msgstr "Push"
 
 msgid "Qatar"
 msgstr "Katar"
+
+msgid "Quick"
+msgstr ""
 
 msgid "Quiet"
 msgstr "Still"
@@ -2492,6 +2499,9 @@ msgstr "Sekundäre E-Mail"
 
 msgid "Seconds"
 msgstr "Sekunden"
+
+msgid "Secure"
+msgstr ""
 
 msgid "Secure connection"
 msgstr "Sichere Verbindung"
@@ -3232,6 +3242,9 @@ msgstr "Traps"
 
 msgid "Treshold"
 msgstr "Schwelle"
+
+msgid "Trial run"
+msgstr ""
 
 msgid "Trinidad and Tobago"
 msgstr "Trinidad und Tobago"

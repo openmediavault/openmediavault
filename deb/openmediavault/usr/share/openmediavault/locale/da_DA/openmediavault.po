@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-27 19:49+0200\n"
-"PO-Revision-Date: 2012-09-05 06:50+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"POT-Creation-Date: 2012-11-04 16:23+0100\n"
+"PO-Revision-Date: 2012-11-04 15:24+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -462,6 +462,9 @@ msgstr "Bolivia"
 msgid "Bond options"
 msgstr "Bånd valgmuligheder"
 
+msgid "Boot"
+msgstr ""
+
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnia og Herzegovina"
 
@@ -874,11 +877,6 @@ msgid ""
 "Select 'No' to delete the shared folder configuration only or 'Cancel' to "
 "abort."
 msgstr "Vil du fjerne indholdet af den delte mappe rekursivt? Den delte mappes indhold vil blive fjernet permanent og kan ikke gendannes. Vælg 'Nej' for kun at slette den delte mappes konfiguration eller 'Annuller' for at afbryde."
-
-msgid ""
-"Do you want to secure wipe the device? Please note that this may take a long"
-" time. Press 'No' to fast wipe the device or 'Cancel' to abort."
-msgstr "Vil du slette enheden sikkert? Bemærk, at dette kan tage lang tid. Tryk 'Nej' for at hurtigt slette enheden eller 'Annuller' for at afbryde."
 
 msgid "Domain name"
 msgstr "Domæne navn"
@@ -2075,6 +2073,9 @@ msgstr "Sti"
 msgid "People's Democratic Republic of Yemen"
 msgstr "People's Democratic Republic of Yemen"
 
+msgid "Perform a trial run with no changes made"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Gyldighedsperiode"
 
@@ -2145,6 +2146,9 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Kontroller venligst <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for flere detaljer."
+
+msgid "Please choose the method to wipe the device or 'Cancel' to abort."
+msgstr ""
 
 msgid "Please first select a volume."
 msgstr "Vælg venligst først et drev."
@@ -2253,6 +2257,9 @@ msgstr "Skub"
 
 msgid "Qatar"
 msgstr "Qatar"
+
+msgid "Quick"
+msgstr ""
 
 msgid "Quiet"
 msgstr "Stille"
@@ -2488,6 +2495,9 @@ msgstr "Sekundær email"
 
 msgid "Seconds"
 msgstr "Sekunder"
+
+msgid "Secure"
+msgstr ""
 
 msgid "Secure connection"
 msgstr "Sikker forbindelse"
@@ -3228,6 +3238,9 @@ msgstr "Fælder"
 
 msgid "Treshold"
 msgstr "Tærskel"
+
+msgid "Trial run"
+msgstr ""
 
 msgid "Trinidad and Tobago"
 msgstr "Trinidad and Tobago"

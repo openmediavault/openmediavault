@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-27 19:49+0200\n"
-"PO-Revision-Date: 2012-08-27 17:50+0000\n"
+"POT-Creation-Date: 2012-11-04 16:23+0100\n"
+"PO-Revision-Date: 2012-11-04 15:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -464,6 +464,9 @@ msgstr "Bolivia"
 msgid "Bond options"
 msgstr "Opzioni di aggregazione"
 
+msgid "Boot"
+msgstr ""
+
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnia ed Erzegovina"
 
@@ -876,11 +879,6 @@ msgid ""
 "Select 'No' to delete the shared folder configuration only or 'Cancel' to "
 "abort."
 msgstr "Vuoi eliminare il contenuto della cartella condivisa e di tutte le sottocartelle? Il contenuto della cartella condivisa verrà cancellato in maniera permanente e non potrà essere ripristinato. Scegli 'No' per eliminare solo la configurazione di cartella condivisa oppure scegli 'Annulla' per interrompere l'operazione."
-
-msgid ""
-"Do you want to secure wipe the device? Please note that this may take a long"
-" time. Press 'No' to fast wipe the device or 'Cancel' to abort."
-msgstr "Sei sicuro di voler ripristinare i dati di fabbrica sul dispositivo? Si fa presente che questa operazione può richiedere tempi lunghi. Premere 'No' per un ripristino rapido del dispositivo o 'Annulla' per annullare l'operazione."
 
 msgid "Domain name"
 msgstr "Nome del dominio"
@@ -2077,6 +2075,9 @@ msgstr "Percorso"
 msgid "People's Democratic Republic of Yemen"
 msgstr "Repubblica Democratica Popolare dello Yemen (Yemen del Sud)"
 
+msgid "Perform a trial run with no changes made"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Periodo di validità"
 
@@ -2147,6 +2148,9 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Si prega di verificare la <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>pagina del manuale</a> per maggiori dettagli."
+
+msgid "Please choose the method to wipe the device or 'Cancel' to abort."
+msgstr ""
 
 msgid "Please first select a volume."
 msgstr "Per favore seleziona prima un volume."
@@ -2255,6 +2259,9 @@ msgstr "Push"
 
 msgid "Qatar"
 msgstr "Qatar"
+
+msgid "Quick"
+msgstr ""
 
 msgid "Quiet"
 msgstr "Silenzioso"
@@ -2490,6 +2497,9 @@ msgstr "Email secondaria"
 
 msgid "Seconds"
 msgstr "Secondi"
+
+msgid "Secure"
+msgstr ""
 
 msgid "Secure connection"
 msgstr "Connessione sicura"
@@ -3230,6 +3240,9 @@ msgstr "Trappole"
 
 msgid "Treshold"
 msgstr "Soglia"
+
+msgid "Trial run"
+msgstr ""
 
 msgid "Trinidad and Tobago"
 msgstr "Trinidad e Tobago"

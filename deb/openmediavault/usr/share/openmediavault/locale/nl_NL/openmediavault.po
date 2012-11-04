@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-27 19:49+0200\n"
-"PO-Revision-Date: 2012-08-27 17:50+0000\n"
+"POT-Creation-Date: 2012-11-04 16:23+0100\n"
+"PO-Revision-Date: 2012-11-04 15:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -464,6 +464,9 @@ msgstr "Bolivia"
 msgid "Bond options"
 msgstr "Gebonden opties"
 
+msgid "Boot"
+msgstr ""
+
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnië-Herzegovina"
 
@@ -876,11 +879,6 @@ msgid ""
 "Select 'No' to delete the shared folder configuration only or 'Cancel' to "
 "abort."
 msgstr "Wil je de inhoud van de gedeelde map recursief verwijderen? De inhoud zal permament verwijdert worden en kan niet worden teruggevonden. Kies 'Nee' om enkel de configuratie van de gedeelde map te verwijderen, of 'Annuleren' om geen actie te ondernemen."
-
-msgid ""
-"Do you want to secure wipe the device? Please note that this may take a long"
-" time. Press 'No' to fast wipe the device or 'Cancel' to abort."
-msgstr "Wilt U de schijf veilig wissen? Houdt er rekening mee dat dit een lange tijd kan duren. Druk op 'No' om de schijf snel te wissen of op 'Cancel' om af te breken."
 
 msgid "Domain name"
 msgstr "Domein naam"
@@ -2077,6 +2075,9 @@ msgstr "Bestands pad"
 msgid "People's Democratic Republic of Yemen"
 msgstr "Democratische Volksrepubliek Jemen"
 
+msgid "Perform a trial run with no changes made"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Geldigheidsperiode"
 
@@ -2147,6 +2148,9 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Raadpleeg de <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>handleiding</a> voor meer details."
+
+msgid "Please choose the method to wipe the device or 'Cancel' to abort."
+msgstr ""
 
 msgid "Please first select a volume."
 msgstr "Gelieve eerst een volume te selecteren."
@@ -2255,6 +2259,9 @@ msgstr "Push"
 
 msgid "Qatar"
 msgstr "Qatar"
+
+msgid "Quick"
+msgstr ""
 
 msgid "Quiet"
 msgstr "Stil"
@@ -2490,6 +2497,9 @@ msgstr "Secundair e-mail adres"
 
 msgid "Seconds"
 msgstr "Seconden"
+
+msgid "Secure"
+msgstr ""
 
 msgid "Secure connection"
 msgstr "Veilige verbinding"
@@ -3230,6 +3240,9 @@ msgstr "Valluiken"
 
 msgid "Treshold"
 msgstr "Grens"
+
+msgid "Trial run"
+msgstr ""
 
 msgid "Trinidad and Tobago"
 msgstr "Trinidad en Tobago"

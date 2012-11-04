@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-27 19:49+0200\n"
-"PO-Revision-Date: 2012-08-27 17:50+0000\n"
+"POT-Creation-Date: 2012-11-04 16:23+0100\n"
+"PO-Revision-Date: 2012-11-04 15:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -463,6 +463,9 @@ msgstr "Bolivia"
 msgid "Bond options"
 msgstr ""
 
+msgid "Boot"
+msgstr ""
+
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnia and Herzegovina"
 
@@ -874,11 +877,6 @@ msgid ""
 "shared folder content will be permanently removed and cannot be recovered. "
 "Select 'No' to delete the shared folder configuration only or 'Cancel' to "
 "abort."
-msgstr ""
-
-msgid ""
-"Do you want to secure wipe the device? Please note that this may take a long"
-" time. Press 'No' to fast wipe the device or 'Cancel' to abort."
 msgstr ""
 
 msgid "Domain name"
@@ -2076,6 +2074,9 @@ msgstr ""
 msgid "People's Democratic Republic of Yemen"
 msgstr "People's Democratic Republic of Yemen"
 
+msgid "Perform a trial run with no changes made"
+msgstr ""
+
 msgid "Period of validity"
 msgstr ""
 
@@ -2145,6 +2146,9 @@ msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr ""
 
 msgid "Please first select a volume."
@@ -2253,6 +2257,9 @@ msgid "Push"
 msgstr ""
 
 msgid "Qatar"
+msgstr ""
+
+msgid "Quick"
 msgstr ""
 
 msgid "Quiet"
@@ -2488,6 +2495,9 @@ msgid "Secondary email"
 msgstr "Вторинний email"
 
 msgid "Seconds"
+msgstr ""
+
+msgid "Secure"
 msgstr ""
 
 msgid "Secure connection"
@@ -3228,6 +3238,9 @@ msgid "Traps"
 msgstr ""
 
 msgid "Treshold"
+msgstr ""
+
+msgid "Trial run"
 msgstr ""
 
 msgid "Trinidad and Tobago"

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-27 19:49+0200\n"
-"PO-Revision-Date: 2012-10-09 17:10+0000\n"
-"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
+"POT-Creation-Date: 2012-11-04 16:23+0100\n"
+"PO-Revision-Date: 2012-11-04 15:24+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -462,6 +462,9 @@ msgstr "Bolivya"
 msgid "Bond options"
 msgstr "Birleştirme opsiyonları"
 
+msgid "Boot"
+msgstr ""
+
 msgid "Bosnia and Herzegovina"
 msgstr "Bosna Hersek"
 
@@ -874,11 +877,6 @@ msgid ""
 "Select 'No' to delete the shared folder configuration only or 'Cancel' to "
 "abort."
 msgstr "Paylaşılmış klasör içeriğini silmek mi istiyorsunuz? Paylaşılmış klasör içeriği tamamen silinecek ve geri kurtarmak mümkün olmayacaktır. Paylaşılmış klasör ayarlarını silmek için 'Hayır' a ya da vazgeçmek için 'İptal' tuşuna basınız."
-
-msgid ""
-"Do you want to secure wipe the device? Please note that this may take a long"
-" time. Press 'No' to fast wipe the device or 'Cancel' to abort."
-msgstr "Aygıtı güvenli olarak silmek istediğinize emin misiniz? Lütfen bu işlemin uzun zaman alabileceğini göz önünde bulundurun. Hızlı silme için 'Hayır' a veya iptal etmek için 'İptal' e basınız."
 
 msgid "Domain name"
 msgstr "Alan adı"
@@ -2075,6 +2073,9 @@ msgstr "Yol"
 msgid "People's Democratic Republic of Yemen"
 msgstr "Yemek Demoktarik Halk Cumhuriyeti"
 
+msgid "Perform a trial run with no changes made"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Geçerlilik süresi"
 
@@ -2145,6 +2146,9 @@ msgid ""
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Daha fazla bilgi için lütfen <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> adresini ziyaret ediniz."
+
+msgid "Please choose the method to wipe the device or 'Cancel' to abort."
+msgstr ""
 
 msgid "Please first select a volume."
 msgstr "Lütfen önce bir volüm seçiniz."
@@ -2253,6 +2257,9 @@ msgstr "Göndermek"
 
 msgid "Qatar"
 msgstr "Katar"
+
+msgid "Quick"
+msgstr ""
 
 msgid "Quiet"
 msgstr "Durgun"
@@ -2488,6 +2495,9 @@ msgstr "İkincil e-posta"
 
 msgid "Seconds"
 msgstr "Saniye"
+
+msgid "Secure"
+msgstr ""
 
 msgid "Secure connection"
 msgstr "Güvenli bağlantı"
@@ -3228,6 +3238,9 @@ msgstr "Kapan"
 
 msgid "Treshold"
 msgstr "Eşik değer"
+
+msgid "Trial run"
+msgstr ""
 
 msgid "Trinidad and Tobago"
 msgstr "Tinidad ve Tobago"
