@@ -1,5 +1,6 @@
 openmediavault (0.3.4) stable; urgency=low
 
+  * Update locales.
   * Fix bug in user portal. It was not possible to change the password.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 30 Oct 2012 18:14:51 +0100
