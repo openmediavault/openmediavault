@@ -38,10 +38,12 @@ udevadm trigger
 
 # Modify rootfs mount options for non-rotational devices
 devicefile=$(export LANG=C; mount | grep -i 'on / ' | awk '{ print $1 }' | sed 's/[1-9]//')
-rotational=$(cat /sys/block/${devicefile##*/}/queue/rotational)
-if [ ${rotational} -eq 0 ]; then
-	options=$(grep -P '^\S+\s+/\s+\S+\s+\S+\s+\d+\s+\d+\s*$' /etc/fstab | awk '{ print $4 }')
-	sed -i -e "s/\/\s*\(\S*\)\s*${options}\s*0/\/\t\1\t${OMV_FSTAB_MNTOPS_NONROTATIONAL},${options}\t0/" /etc/fstab
+filepath="/sys/block/${devicefile##*/}/queue/rotational"
+if [ -f ${filepath} ]; then
+	if [ $(cat ${filepath}) -eq 0 ]; then
+		options=$(grep -P '^\S+\s+/\s+\S+\s+\S+\s+\d+\s+\d+\s*$' /etc/fstab | awk '{ print $4 }')
+		sed -i -e "s/\/\s*\(\S*\)\s*${options}\s*0/\/\t\1\t${OMV_FSTAB_MNTOPS_NONROTATIONAL},${options}\t0/" /etc/fstab
+	fi
 fi
 
 exit 0
