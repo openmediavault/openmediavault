@@ -108,6 +108,12 @@ class OMVShareMgmtModule extends OMVModuleAbstract
 			// Build the absolute shared folder path.
 			$absDirPath = OMVUtil::readlink(sprintf("%s/%s", $meobject['dir'],
 			  $object['reldirpath']));
+			// Ensure the path ends with an slash, otherwise comparison may be
+			// false positive.
+			// Example:
+			// To delete = /media/4ee04694-e849-4b97-b31a-a928cc084e8f/test/
+			// To check  = /media/4ee04694-e849-4b97-b31a-a928cc084e8f/test_folder
+			$absDirPath = rtrim($absDirPath, "/")."/";
 			foreach ($sfobjects as $sfobjectk => $sfobjectv) {
 				// Skip current processed shared folder configuration object.
 				if ($sfobjectv['uuid'] === $object['uuid'])

@@ -47,5 +47,4 @@ request subnet-mask, broadcast-address, time-offset, routers,
         rfc3442-classless-static-routes, ntp-servers;
 
 send host-name "${fqdn}";
-
 EOF
