@@ -397,6 +397,9 @@ case "$1" in
 			omv_config_add_element "//services/rsync/jobs/job" "dryrun" "0"
 			sed -i -e "s/BOOTLOGD_ENABLE=.*/BOOTLOGD_ENABLE=Yes/" /etc/default/bootlogd
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.4"; then
+			omv-mkconf dhclient
+		fi
 	;;
 
 	triggered)

@@ -20,7 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
@@ -109,14 +108,6 @@ class OMVNetworkModule extends OMVModuleAbstract
 	 * Update the system hostname.
 	 */
 	public function updateHostname() {
-		global $xmlConfig;
-		// Get the configuration object
-		$xpath = "//system/network";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
 		// Create '/etc/hostname' file
 		$cmd = "sudo omv-mkconf hostname 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
@@ -124,13 +115,8 @@ class OMVNetworkModule extends OMVModuleAbstract
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		// Set hostname
-		$fqdn = $object['hostname'];
-		if (!empty($object['domainname'])) {
-			$fqdn = sprintf("%s.%s", $object['hostname'],
-			  $object['domainname']);
-		}
-		$cmd = sprintf("sudo hostname %s 2>&1", $fqdn);
+		// Set the hostname
+		$cmd = "sudo hostname --file /etc/hostname 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
