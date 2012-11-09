@@ -1,5 +1,6 @@
 openmediavault (0.4.4) stable; urgency=low
 
+  * Update locales.
   * Improve code to assign hostname.
   * Fix bug in the configuration init/sync script.
   * Fix bug when deleting a shared folder recursively. The check to prevent
