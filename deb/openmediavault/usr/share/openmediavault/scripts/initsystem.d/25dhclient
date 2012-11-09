@@ -21,6 +21,11 @@
 
 set -e
 
-echo 'send host-name "<hostname>";' >> /etc/dhcp/dhclient.conf
+# Note, the config script requires the already imported hostname.
+omv-mkconf dhclient
+
+# In Debian Wheezy this can be replaced by the following config option.
+# See http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=151820 for more details.
+#echo 'send host-name = gethostname();' >> /etc/dhcp/dhclient.conf
 
 exit 0

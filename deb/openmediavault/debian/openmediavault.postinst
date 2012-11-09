@@ -389,6 +389,9 @@ case "$1" in
 			omv-mkconf postfix
 			invoke-rc.d postfix restart
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.3.5"; then
+			omv-mkconf dhclient
+		fi
 	;;
 
 	triggered)
