@@ -32,9 +32,9 @@ OMV_DHCLIENT_CONFIG=${OMV_DHCLIENT_CONFIG:-"/etc/dhcp/dhclient.conf"}
 # Get the hostname/domainname from the configuration and build the FQDN.
 hostname=$(omv_config_get "//system/network/hostname")
 domainname=$(omv_config_get "//system/network/domainname")
-fqdn="${hostname}"
+sendargs="host-name \"${hostname}\""
 if [ -n "${domainname}" ]; then
-	fqdn="${hostname}.${domainname}"
+	sendargs="fqdn.fqdn \"${hostname}.${domainname}\""
 fi
 
 # Create the /etc/dhcp/dhclient.conf file
@@ -46,5 +46,5 @@ request subnet-mask, broadcast-address, time-offset, routers,
         netbios-name-servers, netbios-scope, interface-mtu,
         rfc3442-classless-static-routes, ntp-servers;
 
-send host-name "${fqdn}";
+send ${sendargs};
 EOF
