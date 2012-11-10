@@ -1,3 +1,9 @@
+openmediavault (0.3.5.1) stable; urgency=low
+
+  * Mantis 0000644: Hostname is not updated.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 10 Nov 2012 10:56:15 +0100
+
 openmediavault (0.3.5) stable; urgency=low
 
   * Improve code to assign hostname.
