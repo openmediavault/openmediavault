@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-04 16:23+0100\n"
-"PO-Revision-Date: 2012-11-04 15:24+0000\n"
+"POT-Creation-Date: 2012-11-19 20:12+0100\n"
+"PO-Revision-Date: 2012-11-19 19:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -463,7 +463,7 @@ msgid "Bond options"
 msgstr "Bånd valgmuligheder"
 
 msgid "Boot"
-msgstr ""
+msgstr "Boot"
 
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnia og Herzegovina"
@@ -1036,6 +1036,11 @@ msgstr "Aktiver gem DOS attributter understøttelse"
 msgid "Enable the ident protocol (RFC1413)"
 msgstr "Aktiver ident protokollen (RFC1413)"
 
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr "Aktiver bruger godkendelse"
 
@@ -1530,6 +1535,9 @@ msgstr "Juni"
 
 msgid "Kazakhstan"
 msgstr "Kazakhstan"
+
+msgid "Keep partially transferred files"
+msgstr ""
 
 msgid "Kenya"
 msgstr "Kenya"
@@ -2074,7 +2082,7 @@ msgid "People's Democratic Republic of Yemen"
 msgstr "People's Democratic Republic of Yemen"
 
 msgid "Perform a trial run with no changes made"
-msgstr ""
+msgstr "Udfør en test uden at tilføje ændringer"
 
 msgid "Period of validity"
 msgstr "Gyldighedsperiode"
@@ -2148,7 +2156,7 @@ msgid ""
 msgstr "Kontroller venligst <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for flere detaljer."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr ""
+msgstr "Vælg en metode til sletning af enheden eller tryk 'Annuller' for at afbryde."
 
 msgid "Please first select a volume."
 msgstr "Vælg venligst først et drev."
@@ -2259,7 +2267,7 @@ msgid "Qatar"
 msgstr "Qatar"
 
 msgid "Quick"
-msgstr ""
+msgstr "Hurtig"
 
 msgid "Quiet"
 msgstr "Stille"
@@ -2497,7 +2505,7 @@ msgid "Seconds"
 msgstr "Sekunder"
 
 msgid "Secure"
-msgstr ""
+msgstr "Sikkert"
 
 msgid "Secure connection"
 msgstr "Sikker forbindelse"
@@ -3240,7 +3248,7 @@ msgid "Treshold"
 msgstr "Tærskel"
 
 msgid "Trial run"
-msgstr ""
+msgstr "Test"
 
 msgid "Trinidad and Tobago"
 msgstr "Trinidad and Tobago"

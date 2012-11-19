@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-04 16:23+0100\n"
-"PO-Revision-Date: 2012-11-04 15:24+0000\n"
+"POT-Creation-Date: 2012-11-19 20:12+0100\n"
+"PO-Revision-Date: 2012-11-19 19:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -1037,6 +1037,11 @@ msgstr "Enable store DOS attributes support"
 msgid "Enable the ident protocol (RFC1413)"
 msgstr "Ative o protocolo identificação (RFC1413)"
 
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr "Ativar autenticação de utilizador"
 
@@ -1531,6 +1536,9 @@ msgstr "Junho"
 
 msgid "Kazakhstan"
 msgstr "Cazaquistão"
+
+msgid "Keep partially transferred files"
+msgstr ""
 
 msgid "Kenya"
 msgstr "Quénia"

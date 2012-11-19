@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-04 16:23+0100\n"
-"PO-Revision-Date: 2012-11-04 15:24+0000\n"
+"POT-Creation-Date: 2012-11-19 20:12+0100\n"
+"PO-Revision-Date: 2012-11-19 19:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -1038,6 +1038,11 @@ msgstr "Ondersteuning voor het opslaan van DOS kenmerken inschakelen"
 msgid "Enable the ident protocol (RFC1413)"
 msgstr "Het ident protocol (RFC1413) inschakelen"
 
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr "Gebruikers authenticatie inschakelen"
 
@@ -1532,6 +1537,9 @@ msgstr "Juni"
 
 msgid "Kazakhstan"
 msgstr "Kazachstan"
+
+msgid "Keep partially transferred files"
+msgstr ""
 
 msgid "Kenya"
 msgstr "Kenia"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-04 16:23+0100\n"
+"POT-Creation-Date: 2012-11-19 20:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -999,6 +999,9 @@ msgstr ""
 msgid "Enable the ident protocol (RFC1413)"
 msgstr ""
 
+msgid "Enable this option to keep partially transferred files, otherwise they will be deleted if the transfer is interrupted."
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr ""
 
@@ -1467,6 +1470,9 @@ msgid "June"
 msgstr ""
 
 msgid "Kazakhstan"
+msgstr ""
+
+msgid "Keep partially transferred files"
 msgstr ""
 
 msgid "Kenya"

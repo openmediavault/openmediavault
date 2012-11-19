@@ -8,12 +8,13 @@
 #   <arturmon82@gmail.com>, 2012.
 #   <ffrants@gmail.com>, 2012.
 # Ichi  <ichiperm@gmail.com>, 2012.
+# артур Мудрых <arturmon82@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-04 16:23+0100\n"
-"PO-Revision-Date: 2012-11-04 15:24+0000\n"
+"POT-Creation-Date: 2012-11-19 20:12+0100\n"
+"PO-Revision-Date: 2012-11-19 19:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -467,7 +468,7 @@ msgid "Bond options"
 msgstr "Настройки связанного интерфейса"
 
 msgid "Boot"
-msgstr ""
+msgstr "Загрузка"
 
 msgid "Bosnia and Herzegovina"
 msgstr "Босния и Герцеговина"
@@ -1040,6 +1041,11 @@ msgstr "Включить поддержку DOS атрибутов"
 msgid "Enable the ident protocol (RFC1413)"
 msgstr "Включить идентификационный протокол (RFC1413)"
 
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr "Включить авторизацию пользователей"
 
@@ -1534,6 +1540,9 @@ msgstr "Июнь"
 
 msgid "Kazakhstan"
 msgstr "Казахстан"
+
+msgid "Keep partially transferred files"
+msgstr ""
 
 msgid "Kenya"
 msgstr "Кения"
@@ -2078,7 +2087,7 @@ msgid "People's Democratic Republic of Yemen"
 msgstr "Народно-Демократической Республики Йемен"
 
 msgid "Perform a trial run with no changes made"
-msgstr ""
+msgstr "Выполнить пробный запуск без каких-либо изменений"
 
 msgid "Period of validity"
 msgstr "Срок действия"
@@ -2152,7 +2161,7 @@ msgid ""
 msgstr "Ознакомьтесь со <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>страницей описания</a> для более подробной информации."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr ""
+msgstr "Пожалуйста, выберите стереть устройство или \"Отмена\" для отмены."
 
 msgid "Please first select a volume."
 msgstr "Пожалуйста, сначала выберите раздел."
@@ -2263,7 +2272,7 @@ msgid "Qatar"
 msgstr "Катар"
 
 msgid "Quick"
-msgstr ""
+msgstr "Быстро"
 
 msgid "Quiet"
 msgstr "Тихий"
@@ -2501,7 +2510,7 @@ msgid "Seconds"
 msgstr "Секунды"
 
 msgid "Secure"
-msgstr ""
+msgstr "Безопасный"
 
 msgid "Secure connection"
 msgstr "Безопасное соединение"
@@ -3244,7 +3253,7 @@ msgid "Treshold"
 msgstr "Порог"
 
 msgid "Trial run"
-msgstr ""
+msgstr "Пробный запуск"
 
 msgid "Trinidad and Tobago"
 msgstr "Тринидад и Тобаго"

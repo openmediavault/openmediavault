@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-04 16:23+0100\n"
-"PO-Revision-Date: 2012-11-04 15:24+0000\n"
+"POT-Creation-Date: 2012-11-19 20:12+0100\n"
+"PO-Revision-Date: 2012-11-19 19:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -463,7 +463,7 @@ msgid "Bond options"
 msgstr "Επιλογές ζεύξης"
 
 msgid "Boot"
-msgstr ""
+msgstr "Εκκίνηση συστήματος"
 
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnia and Herzegovina"
@@ -1036,6 +1036,11 @@ msgstr "Ενεργοποίηση αποθήκευσης ιδιοτήτων DOS"
 msgid "Enable the ident protocol (RFC1413)"
 msgstr "Ενεργοποίηση προτοκόλου αναγνώρισης (ident RFC1413)"
 
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr "Ενεργοποίηση πιστοποίησης χρηστών"
 
@@ -1530,6 +1535,9 @@ msgstr "Ιούνιος"
 
 msgid "Kazakhstan"
 msgstr "Kazakhstan"
+
+msgid "Keep partially transferred files"
+msgstr ""
 
 msgid "Kenya"
 msgstr "Kenya"
@@ -2074,7 +2082,7 @@ msgid "People's Democratic Republic of Yemen"
 msgstr "People's Democratic Republic of Yemen"
 
 msgid "Perform a trial run with no changes made"
-msgstr ""
+msgstr "Δοκιμαστική εκτέλεση χωρίς έλευση αλλαγών"
 
 msgid "Period of validity"
 msgstr "Περίοδος ισχύως"
@@ -2148,7 +2156,7 @@ msgid ""
 msgstr "Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr ""
+msgstr "Επιλογή μεθόδου εκκένωσης της συσκευής η 'Ακύρωση' για έξοδο."
 
 msgid "Please first select a volume."
 msgstr "Πρώτα πρέπει να επιλεχθεί ένας τόμος."
@@ -2259,7 +2267,7 @@ msgid "Qatar"
 msgstr "Qatar"
 
 msgid "Quick"
-msgstr ""
+msgstr "Σύντομη"
 
 msgid "Quiet"
 msgstr "Σιωπηλό"
@@ -2497,7 +2505,7 @@ msgid "Seconds"
 msgstr "Δευτερόλεπτα"
 
 msgid "Secure"
-msgstr ""
+msgstr "Ασφαλής"
 
 msgid "Secure connection"
 msgstr "Ασφαλής σύνδεση"
@@ -3240,7 +3248,7 @@ msgid "Treshold"
 msgstr "Κατώφλι"
 
 msgid "Trial run"
-msgstr ""
+msgstr "Δοκιμαστική εκτέλεση"
 
 msgid "Trinidad and Tobago"
 msgstr "Trinidad and Tobago"
