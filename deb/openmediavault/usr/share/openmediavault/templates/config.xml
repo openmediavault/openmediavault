@@ -494,6 +494,7 @@
 					<acls>1</acls>
 					<xattrs>0</xattrs>
 					<dryrun>0</dryrun>
+					<partial>0</partial>
 					<extraoptions></extraoptions>
 					// remote
 					<mode>push|pull</mode>

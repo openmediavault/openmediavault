@@ -400,6 +400,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.4.4"; then
 			omv-mkconf dhclient
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.5"; then
+			omv_config_add_element "//services/rsync/jobs/job" "partial" "0"
+		fi
 	;;
 
 	triggered)

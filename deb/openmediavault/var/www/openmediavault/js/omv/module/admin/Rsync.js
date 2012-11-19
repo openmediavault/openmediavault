@@ -1087,6 +1087,13 @@ Ext.extend(OMV.Module.Services.Rsync.JobPropertyDialog, OMV.CfgObjectDialog, {
 			boxLabel: _("Update the destination extended attributes to be the same as the local ones")
 		},{
 			xtype: "checkbox",
+			name: "partial",
+			fieldLabel: _("Keep partially transferred files"),
+			checked: false,
+			inputValue: 1,
+			boxLabel: _("Enable this option to keep partially transferred files, otherwise they will be deleted if the transfer is interrupted.")
+		},{
+			xtype: "checkbox",
 			name: "sendemail",
 			fieldLabel: _("Send email"),
 			checked: false,

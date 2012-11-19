@@ -83,6 +83,7 @@ class RsyncRpc extends OMVRpc {
 					"acls":{"type":"boolean"},
 					"xattrs":{"type":"boolean"},
 					"dryrun":{"type":"boolean"},
+					"partial":{"type":"boolean"},
 					"extraoptions":{"type":"string"},
 					"mode":{"type":"string","enum":["push","pull"],'.
 					  '"optional":true},
@@ -246,6 +247,7 @@ class RsyncRpc extends OMVRpc {
 		$object['acls'] = boolval($object['acls']);
 		$object['xattrs'] = boolval($object['xattrs']);
 		$object['dryrun'] = boolval($object['dryrun']);
+		$object['partial'] = boolval($object['partial']);
 		$object['everynminute'] = boolval($object['everynminute']);
 		$object['everynhour'] = boolval($object['everynhour']);
 		$object['everyndayofmonth'] = boolval($object['everyndayofmonth']);
@@ -298,6 +300,7 @@ class RsyncRpc extends OMVRpc {
 			"acls" => array_boolval($data, 'acls'),
 			"xattrs" => array_boolval($data, 'xattrs'),
 			"dryrun" => array_boolval($data, 'dryrun'),
+			"partial" => array_boolval($data, 'partial'),
 			"extraoptions" => $data['extraoptions'],
 			"mode" => isset($data['mode']) ? $data['mode'] : "",
 			"password" => isset($data['password']) ? $data['password'] : ""

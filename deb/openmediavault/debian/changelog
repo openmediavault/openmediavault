@@ -3,6 +3,7 @@ openmediavault (0.4.5) stable; urgency=low
   * Mantis 0000651: Rsync job recursive parameter not working correctly.
   * Mantis 0000652: Rsync job that is disabled can't be run although it
     looks as if it can.
+  * Mantis 0000653: Add partial parameter to rsync job options.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 19 Nov 2012 19:23:42 +0100
 
