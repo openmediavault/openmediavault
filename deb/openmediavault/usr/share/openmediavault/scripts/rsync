@@ -37,8 +37,8 @@ OMV_RSYNC_LOGFILE=${OMV_RSYNC_LOGFILE:-"/var/log/rsync.log"}
 mkdir -p ${OMV_RSYNC_CRONSCRIPTS_DIR}
 rm -f ${OMV_RSYNC_CRONSCRIPTS_DIR}/rsync-*
 
-# Create the scripts
-xmlstarlet sel -t -m "//services/rsync/jobs/job[enable='1']" \
+# Create the scripts regardless if enabled or disabled.
+xmlstarlet sel -t -m "//services/rsync/jobs/job" \
   -v "uuid" \
   -i "position() != last()" -n -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
@@ -82,7 +82,7 @@ xmlstarlet sel -t -m "//services/rsync/jobs/job[enable='1']" \
 		-o "touch ${runfile}" -n \
 		-i "string-length(password) > 0" -v "concat('env RSYNC_PASSWORD=\"',password,'\" ')" -b \
 		-o "rsync --verbose --log-file=\"${OMV_RSYNC_LOGFILE}\"" \
-		-i "recursive = '0'" -o " --recursive" -b \
+		-i "recursive = '1'" -o " --recursive" -b \
 		-i "times = '1'" -o " --times" -b \
 		-i "compress = '1'" -o " --compress" -b \
 		-i "archive = '1'" -o " --archive" -b \
@@ -98,7 +98,7 @@ xmlstarlet sel -t -m "//services/rsync/jobs/job[enable='1']" \
 	  chmod ${OMV_RSYNC_CRONSCRIPTS_MASK} ${filename}
   done
 
-# Create the cron script itself
+# Create the cron script itself.
 xmlstarlet sel -t \
   -o "SHELL=/bin/sh" -n \
   -o "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" -n \
