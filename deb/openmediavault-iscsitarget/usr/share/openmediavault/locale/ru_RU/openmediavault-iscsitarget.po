@@ -1,0 +1,292 @@
+# This file is part of OpenMediaVault.
+# 
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+# 
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# Translators:
+#   <arturmon82@gmail.com>, 2012.
+#   <ffrants@gmail.com>, 2012.
+# Ichi  <ichiperm@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:05+0100\n"
+"PO-Revision-Date: 2012-04-27 11:59+0000\n"
+"Last-Translator: mictian <ffrants@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Add LUN"
+msgstr "Добавить LUN"
+
+msgid "Add target"
+msgstr "Добавить цель"
+
+msgid "Add user"
+msgstr "Добавить пользователя"
+
+msgid "Alias"
+msgstr "Псевдоним"
+
+msgid "Assign a unique identifier to the iSCSI volume optionally."
+msgstr "Назначить уникальный идентификатор для iSCSI (необязательно)."
+
+msgid "Assign a unique serial number to the iSCSI volume optionally."
+msgstr "Назначить уникальный серийный номер для iSCSI (необязательно)"
+
+msgid "Authentication"
+msgstr "Аутентификация"
+
+msgid "Block IO"
+msgstr "Блок IO"
+
+msgid "Comment"
+msgstr "Комментарий"
+
+msgid ""
+"Controls the maximum number of data transfers the target may request at "
+"once."
+msgstr "Управляет максимальным количеством передачи данных, которую цель может запросить сразу."
+
+msgid "Data PDU in order"
+msgstr "PDU данных в порядке"
+
+msgid "Data digest"
+msgstr "Обзор данных"
+
+msgid "Data sequence in order"
+msgstr "Последовательность данных в порядке"
+
+msgid "Device"
+msgstr "Устройство"
+
+msgid "Discovery authentication"
+msgstr "Обнаружение, аутентификация"
+
+msgid "Edit LUN"
+msgstr "Редактировать LUN"
+
+msgid "Edit target"
+msgstr "Редактировать цель"
+
+msgid "Edit user"
+msgstr "Редактировать пользователя"
+
+msgid "Enable"
+msgstr "Включить"
+
+msgid "Error recovery level"
+msgstr "Уровень восстановления после ошибки"
+
+msgid "Extra options"
+msgstr "Специальные опции"
+
+msgid "File IO"
+msgstr "Файл IO"
+
+msgid "First burst length"
+msgstr "Длина первого пакета"
+
+msgid "General"
+msgstr "Общий"
+
+msgid "General settings"
+msgstr "Общие настройки"
+
+msgid "Header digest"
+msgstr "Обзор заголовка"
+
+msgid "IO threads"
+msgstr "Потоки IO"
+
+msgid "IQN"
+msgstr "IQN"
+
+msgid "Id"
+msgstr "Id"
+
+msgid "Identifier"
+msgstr "Идентификатор"
+
+msgid ""
+"If a non-zero 'NOP interval' is used to periodically 'ping' the initiator "
+"during phases of inactivity (i.e. no data transfers), the initiator must "
+"respond within N seconds, otherwise the connection will be closed."
+msgstr "Если ненулевое 'ТОЛЬКО ДЛЯ УКАЗАННЫХ ЦЕЛЕЙ интервал' используется, чтобы периодически 'проверить с помощью ping-запросов' инициатора во время фаз неактивности (т.е. никакая передача данных), инициатор должен ответить в течение секунд N, в противном случае соединение будет закрыто."
+
+msgid ""
+"If enabled, the initiator has to wait for the target to solicit SCSI data "
+"before sending it. Disabling it allows the initiator to send a burst of N "
+"bytes unsolicited right after and/or together with the command. Thus "
+"disabling it may improve performance."
+msgstr "Если включено, инициатор должен ожидать цели, чтобы требовать данных SCSI прежде, чем отправить его. Отключение его позволяет инициатору отправлять пакет байтов N не запрашивать права после и/или вместе с командой. Таким образом отключение его может улучшить производительность."
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's data segment will be protected by a CRC32C "
+"checksum."
+msgstr "Если установлено в 'CRC32C' и инициатор сконфигурирован соответственно, целостность сегмента данных PDU iSCSI будет защищена контрольной суммой CRC32C."
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's header segments will be protected by a CRC32C "
+"checksum."
+msgstr "Если установлено в 'CRC32C' и инициатор сконфигурирован соответственно, целостность iSCSI, сегменты заголовка PDU будут защищены контрольной суммой CRC32C."
+
+msgid ""
+"If value is non-zero, the initiator will be 'ping'ed during phases of "
+"inactivity (i.e. no data transfers) every N seconds to verify the connection"
+" is still alive."
+msgstr "Если значение будет ненулевым, то инициатор будет 'ping'ed во время фаз неактивности (т.е. никакая передача данных) каждый секунды N, чтобы проверить, что соединение все еще живо."
+
+msgid "Immediate data"
+msgstr "Непосредственные данные"
+
+msgid "Incoming"
+msgstr "Входящий"
+
+msgid "Initial R2T"
+msgstr "Начальный R2T"
+
+msgid "LUN"
+msgstr "LUN"
+
+msgid "Max. burst length"
+msgstr "Максимальная длина пакета"
+
+msgid "Max. connections"
+msgstr "Максимум соединений"
+
+msgid "Max. outstanding R2T"
+msgstr "Максимум нерешенных R2T"
+
+msgid "Max. receive data segment length"
+msgstr "Максимальная длина приемника сегмента данных "
+
+msgid "Max. sessions"
+msgstr "Максимум сессий"
+
+msgid "Max. transmit data segment length"
+msgstr "Максимальная длина передатчика сегмента данных "
+
+msgid "NOP interval"
+msgstr "NOP интервал"
+
+msgid "NOP timeout"
+msgstr "NOP задержка"
+
+msgid "None"
+msgstr "Нет"
+
+msgid "Only one outgoing user per target is supported."
+msgstr "Поддерживается только один исходящий пользователь для назначения."
+
+msgid "Outgoing"
+msgstr "Исходящий"
+
+msgid "Password"
+msgstr "Пароль"
+
+msgid "Queued commands"
+msgstr "Команды с очередями"
+
+msgid "R/W mode"
+msgstr "Режим R/W"
+
+msgid "Read-only"
+msgstr "Только чтение"
+
+msgid "SCSI Id."
+msgstr "SCSI ид."
+
+msgid "SCSI serial no."
+msgstr "SCSI серийный номер"
+
+msgid "Select an device ..."
+msgstr "Выбранное устройство ..."
+
+msgid ""
+"Sets the amount of unsolicited data the initiator may transmit in the first "
+"burst of a transfer either with and/or right after the command."
+msgstr "Устанавливает количество не затребованных данных, которые инициатор может передать в первом пакете или сразу после команды."
+
+msgid ""
+"Sets the maximum amount of either unsolicited or solicited data the "
+"initiator may send in a single burst."
+msgstr "Устанавливает максимальное количество не затребованных или затребованных данных, которые инициатор может передать в одном пакете."
+
+msgid "Sets the maximum data segment length that can be received."
+msgstr "Назначает максимальную длину сегмента данных, которая может быть получена."
+
+msgid "Sets the maximum data segment length that can be sent."
+msgstr "Назначает максимальную длину сегмента данных, которая может быть отправлена."
+
+msgid "Settings"
+msgstr "Параметры"
+
+msgid "Targets"
+msgstr "Цели"
+
+msgid "The identifier of the target."
+msgstr "Идентификатор назначения."
+
+msgid "The maximum number of sessions for this target."
+msgstr "Максимальное количество сеансов для этой цели."
+
+msgid ""
+"The number of commands an initiator may send and that will be buffered by "
+"the target."
+msgstr "Количество команд, которые инициатор может отправить и которые будут буферизованы целью."
+
+msgid "The number of connections within a session."
+msgstr "Число соединений в сеансе."
+
+msgid "The number of threads to perform block I/O to the device."
+msgstr "Количество потоков для выполнения блока ввода/вывода на устройство."
+
+msgid "The optional alias of the target."
+msgstr "Необязательный псевдоним назначения."
+
+msgid ""
+"This allows the initiator to append unsolicited data to a command. To "
+"achieve better performance, this should be enabled."
+msgstr "Позволяет идентификатору добавлять не затребованные данные к команде. Для лучшей производительности должно быть включено. "
+
+msgid "Transfer mode"
+msgstr "Режим передачи"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Username"
+msgstr "Имя пользователя"
+
+msgid "Users"
+msgstr "Пользователь"
+
+msgid "Write-back"
+msgstr "Отложенная запись"
+
+msgid "Write-through"
+msgstr "Прямая запись"
+
+msgid "iSCSI Target"
+msgstr "iSCSI Цель"

@@ -1,0 +1,14 @@
+Source: openmediavault-netatalk
+Section: net
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>> 7), gettext
+Standards-Version: 3.6.10
+Homepage: http://www.openmediavault.org
+
+Package: openmediavault-netatalk
+Architecture: all
+Depends: openmediavault (>= 0.4), netatalk (>= 2.2.1)
+Priority: optional
+Description: OpenMediaVault netatalk (AppleTalk Protocol Suite) plugin
+ Netatalk is an implementation of the AppleTalk Protocol Suite.

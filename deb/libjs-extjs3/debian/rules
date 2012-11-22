@@ -1,0 +1,42 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+EXTJSVERSION=3.4.0
+
+clean:
+	dh_testdir
+	dh_testroot
+	find . -maxdepth 1 -not -iname "debian" -not -name ".*" -exec rm -r -v '{}' \;
+	dh_clean
+
+extract: extract-stamp
+extract-stamp:
+	unzip $(CURDIR)/../sources/ext-$(EXTJSVERSION).zip
+	mv $(CURDIR)/ext-$(EXTJSVERSION)/* $(CURDIR)
+	rm -rf $(CURDIR)/ext-$(EXTJSVERSION)
+	touch extract-stamp
+
+install: extract
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+
+binary-indep: install
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_installdocs
+	dh_install
+	dh_installdebconf
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-arch: install
+
+binary: binary-indep binary-arch
+.PHONY: clean binary-indep binary-arch binary install extract

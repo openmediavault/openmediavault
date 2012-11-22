@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <runesudden@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-16 19:00+0200\n"
+"PO-Revision-Date: 2012-08-16 17:00+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: no\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add share"
+msgstr "Legg til delt område"
+
+msgid "Advertise this service via mDNS/DNS-SD."
+msgstr ""
+
+msgid "Allow guest logins"
+msgstr "Tillat gjesteinnlogging"
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr ""
+
+msgid "Allow plain passwords"
+msgstr ""
+
+msgid "Apple Filing"
+msgstr "Apple Filing"
+
+msgid "Authentication"
+msgstr "Autentisering"
+
+msgid "Case folding"
+msgstr "Case folding"
+
+msgid "Client sees lowercase, server sees uppercase"
+msgstr "Klient ser små bokstaver, server ser store bokstaver"
+
+msgid "Client sees uppercase, server sees lowercase"
+msgstr "Klient ser store bokstaver, server ser små bokstaver"
+
+msgid "Comment"
+msgstr "Kommenter"
+
+msgid "DNS Service Discovery"
+msgstr ""
+
+msgid "Don't do :hex translation for dot files."
+msgstr "Ikke gjør :hex oversetninger for dot filer"
+
+msgid "Edit share"
+msgstr "Rediger delt ressurs"
+
+msgid "Enable"
+msgstr "Aktver"
+
+msgid "Enable Time Machine support for this share."
+msgstr "Aktiver Time Machine støtte for dette delte området."
+
+msgid "Enable user home directories."
+msgstr ""
+
+msgid "Extra options"
+msgstr "Ekstra alternativer"
+
+msgid "Forces filename restrictions"
+msgstr "Påtving restriksjoner i filnavn"
+
+msgid "General settings"
+msgstr "Generelle innstillinger"
+
+msgid "Hide dot files"
+msgstr "Skjul dot filer"
+
+msgid "Home directories"
+msgstr ""
+
+msgid ""
+"If this option is set, then a password is required to access the share."
+msgstr "Hvis dette valget er satt, vil et passord være påkrevd for å få tilgang til det delte området. "
+
+msgid ""
+"If this option is set, then users may not create or modify files in the "
+"share."
+msgstr "Hvis dette valget er satt, kan ikke brukere opprette eller endre filer på det delte området. "
+
+msgid ""
+"Limit the reported volume size to the given value in MiB, thus preventing TM"
+" from using the whole disk space for backup. Set this value to 0 to disable "
+"this option."
+msgstr ""
+
+msgid "Lowercases names in both directions"
+msgstr "Små bokstaver i begge retninger"
+
+msgid "Make dot files invisible."
+msgstr "Gjør dot filer usynlige"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "None"
+msgstr "Ingen"
+
+msgid "Password"
+msgstr "Passord"
+
+msgid "Quota"
+msgstr ""
+
+msgid "Read only"
+msgstr "Kun lesning"
+
+msgid "Set read only."
+msgstr "Sett kun lesning"
+
+msgid "Settings"
+msgstr "Innstillinger"
+
+msgid "Shared folder"
+msgstr "Delt mappe"
+
+msgid "Shares"
+msgstr "Delte områder"
+
+msgid "The location of the files to share."
+msgstr "Plasseringen av filsystemet som skal deles."
+
+msgid "The name of the share."
+msgstr "Det delte områdets navn"
+
+msgid "The service name."
+msgstr ""
+
+msgid ""
+"This forces filenames to be restricted to the character set used by Windows."
+msgstr "Dette tvinger filnavn til å bruke tegn kun brukt av Windows. "
+
+msgid "This option handles, if the case of filenames should be changed."
+msgstr "Dette alternativet håndterer om case nivået av filnavnet bør endres."
+
+msgid "Time Machine support"
+msgstr "Tidsmaskin støtte."
+
+msgid "Unix privileges"
+msgstr "Unix privilegier"
+
+msgid "Uppercases names in both directions"
+msgstr "Store bokstaver i begge retninger"
+
+msgid "Use AFP3 unix privileges."
+msgstr "Bruk AFP3 unix privilegier."
+
+msgid "Use dots"
+msgstr "Bruk dots"
+
+msgid ""
+"When this option gets set, certain file names become illegal. These are "
+".Parent and anything that starts with .Apple."
+msgstr "Når dette alternativet er satt, vil enkelte filnavn bli ulovlige. Dette er .Parent og alt som begynner med .Apple."
+
+msgid "n/a"
+msgstr "n/a"

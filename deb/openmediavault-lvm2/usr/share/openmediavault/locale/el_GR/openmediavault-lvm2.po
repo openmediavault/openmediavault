@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Kostas Moho <kgounaris@hotmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-15 12:28+0200\n"
+"PO-Revision-Date: 2012-09-17 07:48+0000\n"
+"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
+"Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr "Μετά την επέκταση του λογικού τόμου, μπορεί να προσαρμοστεί το σύστημα αρχείων που περιέχεται."
+
+msgid "Available"
+msgstr "Διαθέσιμο"
+
+msgid "Capacity"
+msgstr "Χωρητικότητα"
+
+msgid "Confirmation"
+msgstr "Επιβεβαίωση"
+
+msgid "Create"
+msgstr "Δημιουργία"
+
+msgid "Create logical volume"
+msgstr "Δημιουργία λογικού τόμου"
+
+msgid "Create physical volume"
+msgstr "Δημιουργία φυσικού τόμου"
+
+msgid "Create volume group"
+msgstr "Δημιουργία ομάδας τόμων"
+
+msgid "Description"
+msgstr "Περιγραφή"
+
+msgid "Device"
+msgstr "Συσκευή"
+
+msgid "Devices"
+msgstr "Συσκευές"
+
+msgid "Do you really want to create the logical volume?"
+msgstr "Δημιουργία του λογικού τόμου;"
+
+msgid "Do you really want to create the physical volume?"
+msgstr "Δημιουργία του φυσικού τόμου;"
+
+msgid "Do you really want to create the volume group?"
+msgstr "Δημιουργία ομάδας τόμων;"
+
+msgid "Edit logical volume"
+msgstr "Μεταβολή λογικού τόμου"
+
+msgid "Edit volume group"
+msgstr "Μεταβολή ομάδας τόμων"
+
+msgid "Extend"
+msgstr "Επέκταση"
+
+msgid "Extend logical volume"
+msgstr "Επέκταση λογικού τόμου"
+
+msgid "Extend volume group"
+msgstr "Επέκταση ομάδας τόμων"
+
+msgid "Free"
+msgstr "Διαθέσιμο"
+
+msgid "Logical Volume Management"
+msgstr "Διαχείριση Λογικών Τόμων"
+
+msgid "Logical volumes"
+msgstr "Λογικοί τόμοι"
+
+msgid "Name"
+msgstr "Όνομα"
+
+msgid "No free space available to create a logical volume."
+msgstr "Δεν περισεύει χώρος για την δημιουργία του λογικού τόμου."
+
+msgid "No free space available to extend the logical volume."
+msgstr "Δεν περισεύει χώρος για την επέκταση του λογικού τόμου."
+
+msgid "Physical volumes"
+msgstr "Φυσικοί τόμοι"
+
+msgid "Reduce"
+msgstr "Μείωση"
+
+msgid "Reduce volume group"
+msgstr "Μείωση ομάδας τόμων"
+
+msgid "Select a volume group ..."
+msgstr "Επιλογή ομάδας τόμων ..."
+
+msgid "Select an device ..."
+msgstr "Επιλογή συσκευής ..."
+
+msgid "Size"
+msgstr "Μέγεθος"
+
+msgid "Used"
+msgstr "Χρησιμοποιημένο"
+
+msgid "Volume group"
+msgstr "Ομάδα τόμων"
+
+msgid "Volume groups"
+msgstr "Ομάδες τόμων"

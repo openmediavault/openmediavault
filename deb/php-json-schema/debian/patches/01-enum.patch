@@ -1,0 +1,55 @@
+Index: php-json-schema/php/JsonSchema.php
+===================================================================
+--- php-json-schema.orig/php/JsonSchema.php	2011-04-02 14:02:56.000000000 +0200
++++ php-json-schema/php/JsonSchema.php	2011-06-17 08:53:26.416257067 +0200
+@@ -324,7 +324,19 @@
+                 }
+                 break;
+             }
+-
++			if (isset($schema['enum'])) {
++				$found = false;
++				foreach ($schema['enum'] as $enumv) {
++					if ($enumv == $value) {
++						$found = true;
++						break;
++					}
++				}
++				if (!$found) {
++					$this->addError(sprintf('%s not found in enumeration [%s].', strval($value), implode(",",$schema['enum'])));
++					break;
++				}
++			}
+             $isVali = true;
+         } while (false);
+         return $isVali;
+@@ -370,6 +382,19 @@
+                     break;
+                 }
+             }
++			if (isset($schema['enum'])) {
++				$found = false;
++				foreach ($schema['enum'] as $enumv) {
++					if ($enumv == $value) {
++						$found = true;
++						break;
++					}
++				}
++				if (!$found) {
++					$this->addError(sprintf('%s not found in enumeration [%s].', strval($value), implode(",",$schema['enum'])));
++					break;
++				}
++			}
+             $isVali = true;
+         } while (false);
+ 
+@@ -543,9 +568,6 @@
+                     case 'object':
+                         $isVali = $this->checkObject($value, $schema);
+                         break;
+-                    case 'enum':
+-                        $isVali = is_null($value);
+-                        break;
+                     case 'null':
+                         $isVali = is_null($value);
+                         break;

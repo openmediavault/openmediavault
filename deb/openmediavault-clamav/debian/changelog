@@ -1,0 +1,84 @@
+openmediavault-clamav (0.4.2) stable; urgency=low
+
+  * Change file permissions of logrotate config file.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 18 Oct 2012 11:51:58 +0200
+
+openmediavault-clamav (0.4.1) stable; urgency=low
+
+  * Mantis 0000612: Add option to log (or not) clean files.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 10 Oct 2012 01:29:49 +0200
+
+openmediavault-clamav (0.4) stable; urgency=low
+
+  * Upgrade to xmlstarlet 1.3.1.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 09 Sep 2012 01:26:51 +0200
+
+openmediavault-clamav (0.3.0.8) stable; urgency=low
+
+  * Rename deb-trigger 'update-fileperms' to 'update-fixperms'.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Sep 2012 17:53:26 +0200
+
+openmediavault-clamav (0.3.0.7) stable; urgency=low
+
+  * Update locales.
+  * Code was modified to meet the coding guidelines.
+  * Mantis 0000581: Add deb-triggers 'update-locale' and 'update-fileperms'
+    to replace omv_install_locale and omv_install_fixperms in postinst
+    scripts.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Aug 2012 21:01:32 +0200
+
+openmediavault-clamav (0.3.0.6) stable; urgency=low
+
+  * Fix bug when showing the log file.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 30 Jun 2012 23:16:43 +0200
+
+openmediavault-clamav (0.3.0.5) stable; urgency=low
+
+  * Update locales.
+  * Modify help text.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 21 Jun 2012 22:48:04 +0200
+
+openmediavault-clamav (0.3.0.4) stable; urgency=low
+
+  * Mantis 0000510: Timestamps on system logs are displayed incorrectly on
+    web interface for non-DST time zones.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 13 Jun 2012 19:27:54 +0200
+
+openmediavault-clamav (0.3.0.3) stable; urgency=low
+
+  * Update locales.
+  * Use same logfile as clamd.
+  * Mantis 0000499: Pid file permission denied.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 07 Jun 2012 23:34:00 +0200
+
+openmediavault-clamav (0.3.0.2) stable; urgency=low
+
+  * Update locales.
+  * Display more informations about scheduled scan jobs in grid.
+  * Add 'verbose' and 'multiscan' options to scan jobs.
+  * Mantis 0000488: Display icon in "Enabled" columns.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 29 May 2012 19:22:44 +0200
+
+openmediavault-clamav (0.3.0.1) stable; urgency=low
+
+  * Update locales.
+  * Send a warning email if a virus has been detected.
+  * Add option to remove infected files to scan job configuration.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 26 May 2012 02:42:34 +0200
+
+openmediavault-clamav (0.3) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 18 May 2012 18:04:53 +0200

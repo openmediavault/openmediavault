@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Kostas Moho <kgounaris@hotmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-21 22:48+0200\n"
+"PO-Revision-Date: 2012-06-23 10:08+0000\n"
+"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
+"Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add job"
+msgstr "Προσθήκη εργασίας"
+
+msgid "Algorithmic detection"
+msgstr "Αλγοριθμική ανίχνευση"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "Αποστολή μηνύματος με το αποτέλεσμα (εφόσον υπάρχει) της εντολής στον διαχειριστή."
+
+msgid "Antivirus"
+msgstr "Αντιβιωτικό"
+
+msgid "Be verbose."
+msgstr "Αναλυτική παράθεση."
+
+msgid "Comment"
+msgstr "Σχόλιο"
+
+msgid "Database checks"
+msgstr "Έλεγχος βάσης δεδομένων"
+
+msgid "Database mirror"
+msgstr "Αντιγραφή βάσης δεδομένων"
+
+msgid "Date & Time"
+msgstr "Ημερομηνία & Ώρα"
+
+msgid "Day of month"
+msgstr "Ημέρα του μήνα"
+
+msgid "Day of week"
+msgstr "Ημέρα της εβδομάδας"
+
+msgid "Detect PUA"
+msgstr "Ανίχνευση PUA"
+
+msgid "Detect broken executables"
+msgstr "Ανίχνευση χαμασμένων εκτελέσιμων"
+
+msgid "Edit job"
+msgstr "Επεξεργασία εργασίας"
+
+msgid "Enable"
+msgstr "Ενεργοποίηση"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "Ανίχνευση και ρύθμιση HTML."
+
+msgid "Enable archive scanning."
+msgstr "Ανίχνευση συμπιεσμένων αρχείων ενεργή."
+
+msgid "Enable on-access virus scanning"
+msgstr "Ενεργοποίηση ελέγχου κατά την πρόσβαση"
+
+msgid "Enable scanning of ELF files."
+msgstr "Ενεργοποίηση ελέγχου σε αρχεία ELF."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Ενεργοποίηση ελέγχου μέσα σε αρχεία OLE2."
+
+msgid "Enable scanning within PDF files."
+msgstr "Ενεργοποίηση ελέγχου μέσα σε αρχεία PDF."
+
+msgid "Enable the algorithmic detection."
+msgstr "Ενεργοποίηση αλγοριθμικής ανίχνευσης."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Ενεργοποίηση ανίχνευσης ελλατωματικών εκτελέσιμων (PE και ELF)."
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Ενεργοποίηση ελέγχου για πιθανές ανεπιθύμητες εφαρμογές."
+
+msgid "Enabled"
+msgstr "Ενεργό"
+
+msgid "Event"
+msgstr "Συμβάν"
+
+msgid "Every N day of month"
+msgstr "Κάθε Ν ημέρα του μήνα"
+
+msgid "Every N hour"
+msgstr "Κάθε Ν ώρα"
+
+msgid "Every N minute"
+msgstr "Κάθε Ν λεπτό"
+
+msgid "Execute job"
+msgstr "Εκτέλεση εργασίας"
+
+msgid "Extra options"
+msgstr "Πρόσθετες επιλογές"
+
+msgid "Follow directory symlinks"
+msgstr "Ακολούθηση συμβολικών συνδέσμων σε αρχεία"
+
+msgid "Follow directory symlinks."
+msgstr "Να ακολουθούνται οι συμβολικοί σύνδεσμοι των φακέλων."
+
+msgid "Follow file symlinks"
+msgstr "Ακολούθηση συμβολικών συνδέσμων σε φακέλους"
+
+msgid "Follow regular file symlinks."
+msgstr "Να ακολουθούνται οι συμβολικοί σύνδεσμοι των αρχείων."
+
+msgid "General settings"
+msgstr "Γενικές ρυθμίσεις"
+
+msgid "Hour"
+msgstr "Ώρα"
+
+msgid "Jobs"
+msgstr "Εργασίες"
+
+msgid "Minute"
+msgstr "Λεπτό"
+
+msgid "Monitor the shared folder and scan new or modified files."
+msgstr "Παρακολούθηση κοινόχρηστου φακέλου και έλεγχος νέων ή αλλαγμένων αρχείων."
+
+msgid "Month"
+msgstr "Μήνας"
+
+msgid "Multiscan"
+msgstr "Πολλαπλή ανίχνευση"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "Αριθμός ελέγχου ενημερώσεων ημερησίως. 0 για καμία."
+
+msgid "On-access"
+msgstr "Έλεγχος κατά την πρόσβαση"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Να γίνεται ενδελεχής ανάλυση των εκτελέσιμων αρχείων."
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Περισσότερες λεπτομέρειες <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>εδώ</a>."
+
+msgid "Remove"
+msgstr "Αφαίρεση"
+
+msgid "Remove infected files."
+msgstr "Αφαίρεση μολυσμένων αρχείων."
+
+msgid "Run"
+msgstr "Εκτέλεση"
+
+msgid "Scan ELF"
+msgstr "Ανίχνευση σε ELF"
+
+msgid "Scan HTML"
+msgstr "Ανίχνευση σε HTML"
+
+msgid "Scan OLE2"
+msgstr "Ανίχνευση σε OLE2"
+
+msgid "Scan PDF"
+msgstr "Ανίχνευση σε PDF"
+
+msgid "Scan Portable Executable"
+msgstr "Έλεγχος Φορητού Εκτελέσιμου"
+
+msgid "Scan archives"
+msgstr "Έλεγχος συμπιεσμένων αρχείων"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr "Ανίχνευση των περιεχομένων των φακέλων με χρήση παράλληλων διαθέσιμων νημάτων διεργασίας."
+
+msgid "Send command output via email"
+msgstr "Αποστολή αποτελέσματος εντολής με μήνυμα"
+
+msgid "Send email"
+msgstr "Αποστολή μηνύματος"
+
+msgid ""
+"Server name where database updates are downloaded from. Get a complete list "
+"of database mirrors <a href='http://www.clamav.net/mirrors.html' "
+"target='_blank'>here</a>."
+msgstr "Ο διακομιστής από τον οποίο θα λαμβάνονται οι ενημερώσεις της βάσης δεδομένων. Πλήρης λίστα <a href='http://www.clamav.net/mirrors.html' target='_blank'>εδώ</a>."
+
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+msgid "Shared folder"
+msgstr "Κοινόχρηστος φάκελος"
+
+msgid "The location of the files to scan."
+msgstr "Η τοποθεσία των αρχείων προς έλεγχο."
+
+msgid "Verbose"
+msgstr "Αναλυτικότητα"
+
+msgid "n/a"
+msgstr "n/a"

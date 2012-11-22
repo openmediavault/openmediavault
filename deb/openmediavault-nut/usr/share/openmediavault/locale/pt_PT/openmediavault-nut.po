@@ -1,0 +1,116 @@
+# This file is part of OpenMediaVault.
+# 
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+# 
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# Translators:
+#   <nelsontrosado@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:08+0100\n"
+"PO-Revision-Date: 2012-06-11 13:50+0000\n"
+"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>\n"
+"Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pt_PT\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Charge"
+msgstr "Carga"
+
+msgid "Comment"
+msgstr "Comentário"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "Definir quando se inicia o desligar."
+
+msgid "Driver configuration directives"
+msgstr "Directivas de configuração do driver"
+
+msgid "Enable"
+msgstr "Ativo"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "Permitir a monitorização remota das UPS locais ligadas."
+
+msgid "General settings"
+msgstr "Definições Gerais"
+
+msgid "Identifier"
+msgstr "Identificador"
+
+msgid "Load"
+msgstr "Carregar"
+
+msgid "Loading ..."
+msgstr "A carregar..."
+
+msgid "Password"
+msgstr "Senha de acesso"
+
+msgid "Remote monitoring"
+msgstr "Monitorização remota"
+
+msgid "Service disabled"
+msgstr "Serviço desativo"
+
+msgid "Shutdown mode"
+msgstr "Modo de encerramento"
+
+msgid "Shutdown timer"
+msgstr "Encerramento temporizado"
+
+msgid "Temperature"
+msgstr "Temperatura"
+
+msgid "The name used to uniquely identify your UPS on this system."
+msgstr "O nome usado para identificar unicamente as UPS neste sistema."
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "O tempo em segundos até o encerramento se iniciar. Se acontecer a UPS voltar a ter carga antes do tempo de encerramento, este é cancelado."
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "Para obter mais informações sobre a configuração das UPS por favor verifique Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentation</a>."
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "UPS goes on battery"
+msgstr "UPS usa a carga das baterias"
+
+msgid "UPS reaches low battery"
+msgstr "UPS tem pouca carga"
+
+msgid "Used for remote authentication."
+msgstr "Utilizador para autenticação remota."
+
+msgid "Username"
+msgstr "Utilizador"
+
+msgid "Variables"
+msgstr "Variáveis"
+
+msgid "Voltage"
+msgstr "Voltagem"

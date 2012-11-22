@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <runesudden@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-21 22:48+0200\n"
+"PO-Revision-Date: 2012-06-21 20:49+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: no\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add job"
+msgstr "Legg til jobb"
+
+msgid "Algorithmic detection"
+msgstr "Algorytmisk oppdaging"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "En e-postmelding med kommandoens produksjon (hvis noen ble produsert) er sendt til administrator."
+
+msgid "Antivirus"
+msgstr "Antivirus"
+
+msgid "Be verbose."
+msgstr ""
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Database checks"
+msgstr "Databasekontroll"
+
+msgid "Database mirror"
+msgstr "Databasespeil"
+
+msgid "Date & Time"
+msgstr "Dato & Tid"
+
+msgid "Day of month"
+msgstr "Dag i måneden"
+
+msgid "Day of week"
+msgstr "Dag i uken"
+
+msgid "Detect PUA"
+msgstr "Oppdag PUAAlgorithmic detection"
+
+msgid "Detect broken executables"
+msgstr "Oppdag ødelagte kjørbare filer"
+
+msgid "Edit job"
+msgstr "Rediger jobb"
+
+msgid "Enable"
+msgstr "Aktiver"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "Aktiver HTML deteksjon og normalisering."
+
+msgid "Enable archive scanning."
+msgstr "Aktiver arikv skanning."
+
+msgid "Enable on-access virus scanning"
+msgstr "Aktiver løpende virus scanning"
+
+msgid "Enable scanning of ELF files."
+msgstr "Aktiver skanning av ELF filer."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Aktiver skanning av OLE2 filer, for eksempel Microsoft Office-dokumenter og. MSI-filer."
+
+msgid "Enable scanning within PDF files."
+msgstr "Aktiver skanning av PDF filer."
+
+msgid "Enable the algorithmic detection."
+msgstr "Aktiver algoritmisk deteksjon."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Aktiver gjenkjenning av ødelagte kjørbare filer (både PE og ELF)."
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Aktiver gjenkjenning av potensielt uønskede programmer."
+
+msgid "Enabled"
+msgstr "Aktivert"
+
+msgid "Event"
+msgstr "Hendelse"
+
+msgid "Every N day of month"
+msgstr "Hver N dag i måneden"
+
+msgid "Every N hour"
+msgstr "Hver N time"
+
+msgid "Every N minute"
+msgstr "Hvert N minutt"
+
+msgid "Execute job"
+msgstr "Utfør jobb"
+
+msgid "Extra options"
+msgstr "Ekstra alternativer"
+
+msgid "Follow directory symlinks"
+msgstr "Følg katalog symbolske lenker"
+
+msgid "Follow directory symlinks."
+msgstr "Følg katalogens symbolske linker."
+
+msgid "Follow file symlinks"
+msgstr "Følg filers symbolske lenker"
+
+msgid "Follow regular file symlinks."
+msgstr "Følg vanlige filers symbolske lenker."
+
+msgid "General settings"
+msgstr "Generelle instillinger"
+
+msgid "Hour"
+msgstr "Time"
+
+msgid "Jobs"
+msgstr "Jobber"
+
+msgid "Minute"
+msgstr "Minutt"
+
+msgid "Monitor the shared folder and scan new or modified files."
+msgstr "Overvåk delt mappe og skann nye eller endrede filer."
+
+msgid "Month"
+msgstr "Måned"
+
+msgid "Multiscan"
+msgstr ""
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "Antall databaseoppdateringer pr. dag. Sett til 0 for å deaktivere."
+
+msgid "On-access"
+msgstr "Løpende"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Utføre en dypere analyse av kjørbare filer."
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Vennligst sjekk <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>brukermanual</a> for flere detaljer."
+
+msgid "Remove"
+msgstr "Fjern"
+
+msgid "Remove infected files."
+msgstr "Fjern infiserte filer."
+
+msgid "Run"
+msgstr "Kjør"
+
+msgid "Scan ELF"
+msgstr "Skann ELF"
+
+msgid "Scan HTML"
+msgstr "Skann HTML"
+
+msgid "Scan OLE2"
+msgstr "Skann OLE2"
+
+msgid "Scan PDF"
+msgstr "Skann PDF"
+
+msgid "Scan Portable Executable"
+msgstr "Skann portable kjørbare filer"
+
+msgid "Scan archives"
+msgstr "Skann arkiver"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr ""
+
+msgid "Send command output via email"
+msgstr "Send kommandoproduksjon via epost"
+
+msgid "Send email"
+msgstr "Send epost"
+
+msgid ""
+"Server name where database updates are downloaded from. Get a complete list "
+"of database mirrors <a href='http://www.clamav.net/mirrors.html' "
+"target='_blank'>here</a>."
+msgstr ""
+
+msgid "Settings"
+msgstr "Innstillinger"
+
+msgid "Shared folder"
+msgstr "Delt mappe"
+
+msgid "The location of the files to scan."
+msgstr "Plasseringern av filene som skal scannes"
+
+msgid "Verbose"
+msgstr ""
+
+msgid "n/a"
+msgstr "n/a"

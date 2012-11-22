@@ -1,0 +1,126 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <arturmon82@gmail.com>, 2012.
+#   <ffrants@gmail.com>, 2012.
+# Ichi  <ichiperm@gmail.com>, 2012.
+# артур Мудрых <arturmon82@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-15 12:28+0200\n"
+"PO-Revision-Date: 2012-09-15 19:55+0000\n"
+"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr "После того как логический том был расширен вы можете изменить размер файловой системы."
+
+msgid "Available"
+msgstr "Доступно"
+
+msgid "Capacity"
+msgstr "Емкость"
+
+msgid "Confirmation"
+msgstr "Подтверждение"
+
+msgid "Create"
+msgstr "Создать"
+
+msgid "Create logical volume"
+msgstr "Создание логического тома"
+
+msgid "Create physical volume"
+msgstr "Создание физического тома"
+
+msgid "Create volume group"
+msgstr "Создать группу томов"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Device"
+msgstr "Устройство"
+
+msgid "Devices"
+msgstr "Устройства"
+
+msgid "Do you really want to create the logical volume?"
+msgstr "Вы действительно хотите создать логический том?"
+
+msgid "Do you really want to create the physical volume?"
+msgstr "Вы действительно хотите создать физический том?"
+
+msgid "Do you really want to create the volume group?"
+msgstr "Вы действительно хотите создать группу томов?"
+
+msgid "Edit logical volume"
+msgstr "Редактирование логического тома"
+
+msgid "Edit volume group"
+msgstr "Редактировать группу томов"
+
+msgid "Extend"
+msgstr "Увеличить"
+
+msgid "Extend logical volume"
+msgstr "Увеличить логический том"
+
+msgid "Extend volume group"
+msgstr "Увеличить группу томов"
+
+msgid "Free"
+msgstr "Свободно"
+
+msgid "Logical Volume Management"
+msgstr "Управление логическими томами"
+
+msgid "Logical volumes"
+msgstr "Логические тома"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "No free space available to create a logical volume."
+msgstr "Нет свободного места для создания логический томов."
+
+msgid "No free space available to extend the logical volume."
+msgstr "Нет свободного места, чтобы расширить логический том."
+
+msgid "Physical volumes"
+msgstr "Физические тома"
+
+msgid "Reduce"
+msgstr "Уменьшить"
+
+msgid "Reduce volume group"
+msgstr "Уменьшить группу томов"
+
+msgid "Select a volume group ..."
+msgstr "Выберите группу томов ..."
+
+msgid "Select an device ..."
+msgstr "Выберите устройство ..."
+
+msgid "Size"
+msgstr "Размер"
+
+msgid "Used"
+msgstr "Использованно"
+
+msgid "Volume group"
+msgstr "Группа томов"
+
+msgid "Volume groups"
+msgstr "Группы томов"

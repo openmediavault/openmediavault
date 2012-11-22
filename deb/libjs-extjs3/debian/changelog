@@ -1,0 +1,47 @@
+libjs-extjs3 (3.4.0) stable; urgency=low
+
+  * New upstream release
+
+ -- Volker Theile <vot@Genesis>  Thu, 09 Jun 2011 18:07:08 +0200
+
+libjs-extjs3 (3.3.2) stable; urgency=low
+
+  * New upstream release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 15 Apr 2011 21:15:30 +0200
+
+libjs-extjs3 (3.3.1) stable; urgency=low
+
+  * New upstream release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 03 Dec 2010 21:10:12 +0200
+
+libjs-extjs3 (3.3.0) stable; urgency=low
+
+  * New upstream release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 16 Oct 2010 07:19:42 +0200
+
+libjs-extjs3 (3.2.1) stable; urgency=low
+
+  * New upstream release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 23 May 2010 00:33:53 +0200
+
+libjs-extjs3 (3.1.1) stable; urgency=low
+
+  * New upstream release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Mar 2010 00:52:43 +0100
+
+libjs-extjs3 (3.0.3) stable; urgency=low
+
+  * New upstream release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 25 Nov 2009 18:21:07 +0100
+
+libjs-extjs3 (3.0.0) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Aug 2009 21:50:06 +0200

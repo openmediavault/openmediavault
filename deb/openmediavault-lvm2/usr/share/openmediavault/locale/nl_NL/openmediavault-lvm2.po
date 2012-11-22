@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Milan Toet <milantoet@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-15 12:28+0200\n"
+"PO-Revision-Date: 2012-09-15 10:29+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr "Nadat het logische volume is uitgebreid, kunt u de grootte van het geïntegreerde bestandssysteem aanpassen"
+
+msgid "Available"
+msgstr "Beschikbaar"
+
+msgid "Capacity"
+msgstr "Capaciteit"
+
+msgid "Confirmation"
+msgstr "Bevestiging"
+
+msgid "Create"
+msgstr ""
+
+msgid "Create logical volume"
+msgstr "Creëer logisch volume"
+
+msgid "Create physical volume"
+msgstr "Creëer fysieke lay-out "
+
+msgid "Create volume group"
+msgstr "Creëer volume groep"
+
+msgid "Description"
+msgstr "Beschrijving"
+
+msgid "Device"
+msgstr "Apparaat"
+
+msgid "Devices"
+msgstr "Apparaten"
+
+msgid "Do you really want to create the logical volume?"
+msgstr "Weet u zeker dat u een logisch volume wilt creëren?"
+
+msgid "Do you really want to create the physical volume?"
+msgstr "Weet u zeker dat u een fysiek volume wilt creëren?"
+
+msgid "Do you really want to create the volume group?"
+msgstr "Weet u zeker dat u een volume groep wilt creëren?"
+
+msgid "Edit logical volume"
+msgstr "Aanpassen logisch volume"
+
+msgid "Edit volume group"
+msgstr "Aanpassen volume groep"
+
+msgid "Extend"
+msgstr "Uitbreiden"
+
+msgid "Extend logical volume"
+msgstr "Uitbreiden logisch volume"
+
+msgid "Extend volume group"
+msgstr "Uitbreiden volume groep"
+
+msgid "Free"
+msgstr "Vrij"
+
+msgid "Logical Volume Management"
+msgstr "Logisch Volume Management"
+
+msgid "Logical volumes"
+msgstr "Logische volumes"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "No free space available to create a logical volume."
+msgstr ""
+
+msgid "No free space available to extend the logical volume."
+msgstr ""
+
+msgid "Physical volumes"
+msgstr "Fysieke volumes"
+
+msgid "Reduce"
+msgstr "Verkleinen"
+
+msgid "Reduce volume group"
+msgstr "Verklein volume groep"
+
+msgid "Select a volume group ..."
+msgstr "Selecteer een volume groep ..."
+
+msgid "Select an device ..."
+msgstr "Selecteer een apparaat ..."
+
+msgid "Size"
+msgstr "Grootte"
+
+msgid "Used"
+msgstr "Gebruikt"
+
+msgid "Volume group"
+msgstr "Volume groep"
+
+msgid "Volume groups"
+msgstr "Volume groepen"

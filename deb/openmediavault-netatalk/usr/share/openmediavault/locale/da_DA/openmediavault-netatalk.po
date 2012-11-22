@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-16 19:00+0200\n"
+"PO-Revision-Date: 2012-08-20 12:38+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add share"
+msgstr "Tilføj delt mappe"
+
+msgid "Advertise this service via mDNS/DNS-SD."
+msgstr "Annoncer denne tjeneste over mDNS/DNS-SD."
+
+msgid "Allow guest logins"
+msgstr "Tillad gæste log ind"
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr "Tillad at logins med adgangskode bliver overført åbent. "
+
+msgid "Allow plain passwords"
+msgstr "Tillad simpel adgangskoder"
+
+msgid "Apple Filing"
+msgstr "Apple Filing"
+
+msgid "Authentication"
+msgstr "Godkendelse"
+
+msgid "Case folding"
+msgstr "Forbogstav bytning"
+
+msgid "Client sees lowercase, server sees uppercase"
+msgstr "Klienter ser små bogstaver, server ser store bogstaver"
+
+msgid "Client sees uppercase, server sees lowercase"
+msgstr "Klienter ser store bogstaver, server ser små bogstaver"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "DNS Service Discovery"
+msgstr "DNS Tjeneste Opdagelse"
+
+msgid "Don't do :hex translation for dot files."
+msgstr "Lav ikke :hex oversættelser for punktum filer."
+
+msgid "Edit share"
+msgstr "Rediger delt mappe"
+
+msgid "Enable"
+msgstr "Aktiver"
+
+msgid "Enable Time Machine support for this share."
+msgstr "Aktiver Time Machine understøttelse for denne delte mappe."
+
+msgid "Enable user home directories."
+msgstr "Aktiver bruger hjemme biblioteker."
+
+msgid "Extra options"
+msgstr "Ekstra valgmuligheder"
+
+msgid "Forces filename restrictions"
+msgstr "Tvinger filnavns begrænsninger"
+
+msgid "General settings"
+msgstr "Generelle indstillinger"
+
+msgid "Hide dot files"
+msgstr "Gem dot filer"
+
+msgid "Home directories"
+msgstr "Hjemme biblioteker"
+
+msgid ""
+"If this option is set, then a password is required to access the share."
+msgstr "Hvis denne valgmulighed er sat, kræves der en adgangskode for at tilgå den delte mappe."
+
+msgid ""
+"If this option is set, then users may not create or modify files in the "
+"share."
+msgstr "Hvis denne mulighed sat, så kan brugere ikke oprette eller ændre filer i mappen."
+
+msgid ""
+"Limit the reported volume size to the given value in MiB, thus preventing TM"
+" from using the whole disk space for backup. Set this value to 0 to disable "
+"this option."
+msgstr "Begræns rapporterede drev størrelse til den givne værdi i MiB, hvilket forhindrer TM i at anvende hele diskpladsen til backup. Sæt denne værdi til 0 for at deaktivere denne valgmulighed."
+
+msgid "Lowercases names in both directions"
+msgstr "Små bogstavs navne i begge retninger"
+
+msgid "Make dot files invisible."
+msgstr "Vis ikke dot filer"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "None"
+msgstr "Ingen"
+
+msgid "Password"
+msgstr "Adgangskode"
+
+msgid "Quota"
+msgstr "Kvote"
+
+msgid "Read only"
+msgstr "Skrivebeskyttet"
+
+msgid "Set read only."
+msgstr "Sæt skrivebeskyttet."
+
+msgid "Settings"
+msgstr "Indstillinger"
+
+msgid "Shared folder"
+msgstr "Delte mapper"
+
+msgid "Shares"
+msgstr "Delt mappe"
+
+msgid "The location of the files to share."
+msgstr "Placeringen af filer der skal deles."
+
+msgid "The name of the share."
+msgstr "Navn på delt mappe."
+
+msgid "The service name."
+msgstr "Tjenestens navn."
+
+msgid ""
+"This forces filenames to be restricted to the character set used by Windows."
+msgstr "Dette tvinger filnavne at være begrænset til det tegnsæt der bruges af Windows."
+
+msgid "This option handles, if the case of filenames should be changed."
+msgstr "Denne valgmulighed håndtere, hvis forbogstavet af filnavne skal ændres."
+
+msgid "Time Machine support"
+msgstr "Time Machine understøttelse"
+
+msgid "Unix privileges"
+msgstr "Unix rettigheder"
+
+msgid "Uppercases names in both directions"
+msgstr "Store bogstavs navne i begge retninger"
+
+msgid "Use AFP3 unix privileges."
+msgstr "Brug AFP3 unix rettigheder."
+
+msgid "Use dots"
+msgstr "Brug punktum"
+
+msgid ""
+"When this option gets set, certain file names become illegal. These are "
+".Parent and anything that starts with .Apple."
+msgstr "Når denne valgmulighed bliver sat, bliver visse filnavne bliver ulovlige. Disse er .Parent og alt, der begynder med .Apple."
+
+msgid "n/a"
+msgstr "n/a"

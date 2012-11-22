@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Henrik Sandström <henrik.sandstroem@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-15 12:28+0200\n"
+"PO-Revision-Date: 2012-09-15 10:29+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr "Efter den logiska volymen har utökats kan du ändra storlek på filsystemets innehåll."
+
+msgid "Available"
+msgstr "Tillgänglig"
+
+msgid "Capacity"
+msgstr "Kapacitet"
+
+msgid "Confirmation"
+msgstr "Bekräftelse"
+
+msgid "Create"
+msgstr ""
+
+msgid "Create logical volume"
+msgstr "Skapa logisk volym"
+
+msgid "Create physical volume"
+msgstr "Skapa fysisk volym"
+
+msgid "Create volume group"
+msgstr "Skapa volymgrupp"
+
+msgid "Description"
+msgstr "Beskrivning"
+
+msgid "Device"
+msgstr "Enhet"
+
+msgid "Devices"
+msgstr "Enheter"
+
+msgid "Do you really want to create the logical volume?"
+msgstr "Vill du verkligen skapa den logiska volymen?"
+
+msgid "Do you really want to create the physical volume?"
+msgstr "Vill du verkligen skapa den fysiska volymen?"
+
+msgid "Do you really want to create the volume group?"
+msgstr "Vill du verkligen skapa volymgruppen?"
+
+msgid "Edit logical volume"
+msgstr "Redigera logisk volym"
+
+msgid "Edit volume group"
+msgstr "Redigera volymgrupp"
+
+msgid "Extend"
+msgstr "Utöka"
+
+msgid "Extend logical volume"
+msgstr "Utöka logisk volym"
+
+msgid "Extend volume group"
+msgstr "Utöka volymgrupp"
+
+msgid "Free"
+msgstr "Ledigt"
+
+msgid "Logical Volume Management"
+msgstr "Logisk volymhantering"
+
+msgid "Logical volumes"
+msgstr "Logiska volymer"
+
+msgid "Name"
+msgstr "Namn"
+
+msgid "No free space available to create a logical volume."
+msgstr ""
+
+msgid "No free space available to extend the logical volume."
+msgstr ""
+
+msgid "Physical volumes"
+msgstr "Fysiska volymer"
+
+msgid "Reduce"
+msgstr "Minska"
+
+msgid "Reduce volume group"
+msgstr "Minska volymgrupp"
+
+msgid "Select a volume group ..."
+msgstr "Välj en volymgrupp ..."
+
+msgid "Select an device ..."
+msgstr "Välj en enhet ..."
+
+msgid "Size"
+msgstr "Storlek"
+
+msgid "Used"
+msgstr "Använt"
+
+msgid "Volume group"
+msgstr "Volymgrupp"
+
+msgid "Volume groups"
+msgstr "Volymgrupper"

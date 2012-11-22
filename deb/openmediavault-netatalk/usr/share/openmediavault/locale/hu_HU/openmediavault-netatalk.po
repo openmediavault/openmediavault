@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Ádám Balajti <balajtiadam@gmail.com>, 2012.
+#   <mersaint@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-16 19:00+0200\n"
+"PO-Revision-Date: 2012-08-26 18:05+0000\n"
+"Last-Translator: Ádám Balajti <balajtiadam@gmail.com>\n"
+"Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add share"
+msgstr "Megosztás hozzáadása"
+
+msgid "Advertise this service via mDNS/DNS-SD."
+msgstr "Szolgáltatás közzététele mDNS/DNS-SD-n keresztül."
+
+msgid "Allow guest logins"
+msgstr "Vendég hozzáférés engedélyezése"
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr "Jelszóval való bejelentkezés kódolatlan formában történő továbbításának engedélyezése."
+
+msgid "Allow plain passwords"
+msgstr "Egyszerű jelszavak engedélyezése"
+
+msgid "Apple Filing"
+msgstr "Apple Filing"
+
+msgid "Authentication"
+msgstr "Hitelesítés"
+
+msgid "Case folding"
+msgstr "Eset összehasonlítása"
+
+msgid "Client sees lowercase, server sees uppercase"
+msgstr "A kliens kisbetűsnek, szerver nagybetűsnek látja"
+
+msgid "Client sees uppercase, server sees lowercase"
+msgstr "A kliens nagybetűsnek, szerver kisbetűsnek látja"
+
+msgid "Comment"
+msgstr "Megjegyzés"
+
+msgid "DNS Service Discovery"
+msgstr "DNS Szolgáltatás Felderítése"
+
+msgid "Don't do :hex translation for dot files."
+msgstr "Ne tegyen :hex lefordítást pont kezdetű fájlokhoz."
+
+msgid "Edit share"
+msgstr "Megosztás szerkesztése"
+
+msgid "Enable"
+msgstr "Engedélyezés"
+
+msgid "Enable Time Machine support for this share."
+msgstr "Time Machine támogatás bekapcsolása ehhez a megosztáshoz."
+
+msgid "Enable user home directories."
+msgstr "Felhasználói saját könyvtárak engedélyezése."
+
+msgid "Extra options"
+msgstr "Extra beállítások"
+
+msgid "Forces filename restrictions"
+msgstr "Fájlnév korlátozások kényszerítése"
+
+msgid "General settings"
+msgstr "Általános beállítások"
+
+msgid "Hide dot files"
+msgstr "Pont kezdetű fájlok elrejtése."
+
+msgid "Home directories"
+msgstr "Saját könyvtárak"
+
+msgid ""
+"If this option is set, then a password is required to access the share."
+msgstr "Ha be van pipálva, akkor jelszó megadása szükséges a megosztás eléréséhez."
+
+msgid ""
+"If this option is set, then users may not create or modify files in the "
+"share."
+msgstr "Ha be van pipálva, akkor a felhasználók nem hozhatnak létre vagy nem módosíthatnak fájlokat a megosztásban. "
+
+msgid ""
+"Limit the reported volume size to the given value in MiB, thus preventing TM"
+" from using the whole disk space for backup. Set this value to 0 to disable "
+"this option."
+msgstr "A jelentett kötet méretének korlátozása MiB-ben, így megakadályozza a TM használatát a teljes lemezterületen a biztonsági mentés számára. A 0 beállítás letiltja az opciót."
+
+msgid "Lowercases names in both directions"
+msgstr "Mindkét utasításba kisbetűs nevek kellenek."
+
+msgid "Make dot files invisible."
+msgstr "Pont kezdetű fájlok elrejtése."
+
+msgid "Name"
+msgstr "Név"
+
+msgid "None"
+msgstr "Egyik sem"
+
+msgid "Password"
+msgstr "Jelszó"
+
+msgid "Quota"
+msgstr "Kvóta"
+
+msgid "Read only"
+msgstr "Csak olvasható"
+
+msgid "Set read only."
+msgstr "Csak olvasható legyen."
+
+msgid "Settings"
+msgstr "Beállítások"
+
+msgid "Shared folder"
+msgstr "Megosztott mappa"
+
+msgid "Shares"
+msgstr "Megosztások"
+
+msgid "The location of the files to share."
+msgstr "A megosztani kívánt fájlok helye."
+
+msgid "The name of the share."
+msgstr "A megosztás neve"
+
+msgid "The service name."
+msgstr "A szolgáltatás neve."
+
+msgid ""
+"This forces filenames to be restricted to the character set used by Windows."
+msgstr "A fájlnevek a Windows által használt karakterekre korlátozódnak le."
+
+msgid "This option handles, if the case of filenames should be changed."
+msgstr "Ez az opció kezeli azt az esetet, ha a fájlneveket meg kell változtatni."
+
+msgid "Time Machine support"
+msgstr "Time Machine támogatás"
+
+msgid "Unix privileges"
+msgstr "Unix jogosultságok"
+
+msgid "Uppercases names in both directions"
+msgstr "Mindkét utasításba nagybetűs nevek kellenek."
+
+msgid "Use AFP3 unix privileges."
+msgstr "AFP3 unix jogosultság használata."
+
+msgid "Use dots"
+msgstr "Használjon pont kezdést"
+
+msgid ""
+"When this option gets set, certain file names become illegal. These are "
+".Parent and anything that starts with .Apple."
+msgstr "Mikor ez az opció be van állítva, bizonyos fájlnevek illegálissá válnak. Ilyenek a .Parent és más egyéb .Apple kezdetűek."
+
+msgid "n/a"
+msgstr "n/a"

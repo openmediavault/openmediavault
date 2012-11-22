@@ -1,0 +1,174 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#   <mattjes04@googlemail.com>, 2012.
+# Volker  <votdev@gmx.de>, 2012.
+#   <warhog@gmx.de>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-08-16 19:00+0200\n"
+"PO-Revision-Date: 2012-08-19 01:08+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add share"
+msgstr "Freigabe hinzufügen"
+
+msgid "Advertise this service via mDNS/DNS-SD."
+msgstr "Diesen Dienst mittels mDNS/DNS-SD annoncieren."
+
+msgid "Allow guest logins"
+msgstr "Erlaube Gastlogin"
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr "Erlaube Anmeldungen mit Passwörtern welche im Klartext übertragen werden."
+
+msgid "Allow plain passwords"
+msgstr "Erlaube Passwörter im Klartext"
+
+msgid "Apple Filing"
+msgstr "Apple Filing"
+
+msgid "Authentication"
+msgstr "Authentifizierung"
+
+msgid "Case folding"
+msgstr "Groß- / Kleinschreibung"
+
+msgid "Client sees lowercase, server sees uppercase"
+msgstr "Client sieht Kleinbuchstaben, Server sieht Großbuchstaben"
+
+msgid "Client sees uppercase, server sees lowercase"
+msgstr "Client sieht Großbuchstaben, Server sieht Kleinbuchstaben"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "DNS Service Discovery"
+msgstr "DNS Service Discovery"
+
+msgid "Don't do :hex translation for dot files."
+msgstr "Keine :hex Übersetzung für Dotfiles."
+
+msgid "Edit share"
+msgstr "Freigabe ändern"
+
+msgid "Enable"
+msgstr "Aktivieren"
+
+msgid "Enable Time Machine support for this share."
+msgstr "Time Machine Unterstützung für diese Freigabe aktivieren."
+
+msgid "Enable user home directories."
+msgstr "Aktiviere Heimatverzeichnisse für Benutzer."
+
+msgid "Extra options"
+msgstr "Zusätzliche Optionen"
+
+msgid "Forces filename restrictions"
+msgstr "Dateinamenbeschränkungen erzwingen"
+
+msgid "General settings"
+msgstr "Allgemeine Einstellungen"
+
+msgid "Hide dot files"
+msgstr "Dotfiles verstecken"
+
+msgid "Home directories"
+msgstr "Heimatverzeichnisse"
+
+msgid ""
+"If this option is set, then a password is required to access the share."
+msgstr "Falls diese Option gesetzt ist, wird ein Passwort benötigt um die Freigabe einzubinden."
+
+msgid ""
+"If this option is set, then users may not create or modify files in the "
+"share."
+msgstr "Falls diese Option gesetzt ist, können Benutzer für diese Freigabe keine Dateien erstellen oder ändern."
+
+msgid ""
+"Limit the reported volume size to the given value in MiB, thus preventing TM"
+" from using the whole disk space for backup. Set this value to 0 to disable "
+"this option."
+msgstr "Begrenzt die gemeldete Volume-Größe auf den angegebenen Wert in MiB und verhindert somit TM von der Nutzung des gesamten Speicherplatz zum Backup. Setzen Sie diesen Wert auf 0, um diese Option zu deaktivieren."
+
+msgid "Lowercases names in both directions"
+msgstr "Namen in Kleinbuchstaben für beide Richtungen"
+
+msgid "Make dot files invisible."
+msgstr "Dotfiles unsichtbar machen."
+
+msgid "Name"
+msgstr "Name"
+
+msgid "None"
+msgstr "Keine"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Quota"
+msgstr "Quota"
+
+msgid "Read only"
+msgstr "Nur lesen"
+
+msgid "Set read only."
+msgstr "Nur lesen einstellen."
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Shared folder"
+msgstr "Freigegebene Ordner"
+
+msgid "Shares"
+msgstr "Freigaben"
+
+msgid "The location of the files to share."
+msgstr "Der Speicherort freizugebender Dateien."
+
+msgid "The name of the share."
+msgstr "Der Name der Freigabe."
+
+msgid "The service name."
+msgstr "Der Name des Dienstes."
+
+msgid ""
+"This forces filenames to be restricted to the character set used by Windows."
+msgstr "Diese Option erzwingt den Windows-Zeichensatz für Dateinamen."
+
+msgid "This option handles, if the case of filenames should be changed."
+msgstr "Diese Option legt fest ob die Groß- und Kleinschreibung in Dateinamen geändert werden soll."
+
+msgid "Time Machine support"
+msgstr "Time Machine Unterstützung"
+
+msgid "Unix privileges"
+msgstr "Unix Privilegien"
+
+msgid "Uppercases names in both directions"
+msgstr "Namen in Großbuchstaben für beide Richtungen"
+
+msgid "Use AFP3 unix privileges."
+msgstr "AFP3 Unix Privilegien benutzen."
+
+msgid "Use dots"
+msgstr "Benutze Punkte"
+
+msgid ""
+"When this option gets set, certain file names become illegal. These are "
+".Parent and anything that starts with .Apple."
+msgstr "Wird diese Option gesetzt, werden bestimmte Dateinamen für ungültig erklärt (.Parent und alle mit .Apple beginnenden). "
+
+msgid "n/a"
+msgstr "N/V"

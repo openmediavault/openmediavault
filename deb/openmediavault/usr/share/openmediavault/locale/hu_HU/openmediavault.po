@@ -1,0 +1,3565 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Ádám Balajti <balajtiadam@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-19 20:12+0100\n"
+"PO-Revision-Date: 2012-11-19 19:12+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: hu_HU\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, c-format
+msgid "% completed ..."
+msgstr "% kész ..."
+
+#, c-format
+msgid "%s (%s available)"
+msgstr "%s (%s elérhető)"
+
+#, c-format
+msgid "%s [on %s]"
+msgstr "%s [%s -n]"
+
+msgid "'All' is not allowed"
+msgstr "'Összes' nem megengedett"
+
+msgid "0 KiB/s means unlimited."
+msgstr "0 KiB/s korlátlan."
+
+msgid "1 - Minimum power usage with standby (spindown)"
+msgstr "1 - Minimális energia használat készenléti állapotban (leállítás)"
+
+msgid "1 day"
+msgstr "1 nap"
+
+msgid "1 month"
+msgstr "1 hónap"
+
+msgid "1 week"
+msgstr "1 hét"
+
+msgid "1 year"
+msgstr "1 év"
+
+msgid "10 minutes"
+msgstr "10 perc"
+
+msgid "10 years"
+msgstr "10 év"
+
+#, c-format
+msgid "100% completed ..."
+msgstr "100% kész ..."
+
+msgid "120 minutes"
+msgstr "120 perc"
+
+msgid "127 - Intermediate power usage with standby"
+msgstr "127 - Közepes energia használat készenléti állapotban"
+
+msgid "128 - Minimum power usage without standby (no spindown)"
+msgstr "128 - Minimális energia használat készenléti állapot nélkül (nincs leállítás)"
+
+msgid "15 years"
+msgstr "15 év"
+
+msgid "180 minutes"
+msgstr "180 perc"
+
+msgid "192 - Intermediate power usage without standby"
+msgstr "192 - Közepes energia használat készenléti állapot nélkül"
+
+msgid "2 days"
+msgstr "2 nap"
+
+msgid "2 weeks"
+msgstr "2 hét"
+
+msgid "2 years"
+msgstr "2 év"
+
+msgid "20 minutes"
+msgstr "20 perc"
+
+msgid "20 years"
+msgstr "20 év"
+
+msgid "240 minutes"
+msgstr "240 perc"
+
+msgid "25 years"
+msgstr "25 év"
+
+msgid "254 - Maximum performance, maximum power usage"
+msgstr "254 - Maximális teljesítmény, teljes energia használat"
+
+msgid "3 days"
+msgstr "3 nap"
+
+msgid "3 months"
+msgstr "3 hónap"
+
+msgid "3 weeks"
+msgstr "3 hét"
+
+msgid "3 years"
+msgstr "3 év"
+
+msgid "30 minutes"
+msgstr "30 perc"
+
+msgid "300 minutes"
+msgstr "300 perc"
+
+msgid "360 minutes"
+msgstr "360 perc"
+
+msgid "4 days"
+msgstr "4 nap"
+
+msgid "4 years"
+msgstr "4 év"
+
+msgid "5 days"
+msgstr "5 nap"
+
+msgid "5 minutes"
+msgstr "5 perc"
+
+msgid "5 years"
+msgstr "5 év"
+
+msgid "6 days"
+msgstr "6 nap"
+
+msgid "6 months"
+msgstr "6 hónap"
+
+msgid "60 minutes"
+msgstr "60 perc"
+
+msgid "64 - Intermediate power usage with standby"
+msgstr "64 - Közepes energia használat készenléti állapotban"
+
+msgid "9 months"
+msgstr "9 hónap"
+
+msgid "A mount point already exists for the given filesystem"
+msgstr "A csatolási pont már létezik a megadott fájlrendszeren"
+
+msgid "A share with the given name already exists"
+msgstr "Egy megosztás már létezik a megadott névvel"
+
+msgid "A shared folder with the given name already exists"
+msgstr "Egy megosztott mappa már létezik a megadott névvel"
+
+msgid "ACL"
+msgstr "ACL"
+
+msgid "About"
+msgstr "Névjegy"
+
+msgid "Access Right Management"
+msgstr "Hozzáférési Jogok Kezelése"
+
+msgid "Act as a WINS server."
+msgstr "WINS szerverként való viselkedés"
+
+msgid "Action"
+msgstr "Művelet"
+
+msgid "Activate S.M.A.R.T. monitoring."
+msgstr "S.M.A.R.T. ellenőrzés aktiválása."
+
+msgid "Add"
+msgstr "Hozzáadás"
+
+msgid "Add bonded interface"
+msgstr "Összekötött interfész hozzáadása"
+
+msgid "Add cron job"
+msgstr "Cron feladat hozzáadása"
+
+msgid "Add devices to RAID device"
+msgstr "Meghajtó hozzáadása a RAID tömbhöz"
+
+msgid "Add firewall rule"
+msgstr "Tűzfal szabály hozzáadása"
+
+msgid "Add group"
+msgstr "Csoport hozzáadása"
+
+msgid "Add hot spares / recover RAID device"
+msgstr "Tartalék kapacitás hozzáadása / RAID tömb helyreállítása"
+
+msgid "Add module"
+msgstr "Modul hozzáadása"
+
+msgid "Add rsync job"
+msgstr "Rsync feladat hozzáadása"
+
+msgid "Add rule"
+msgstr "Szabály hozzáadása"
+
+msgid "Add scheduled test"
+msgstr "Ütemezett teszt hozzáadása"
+
+msgid "Add share"
+msgstr "Megosztás hozzáadása"
+
+msgid "Add shared folder"
+msgstr "Megosztott mappa hozzáadása"
+
+msgid "Add user"
+msgstr "Felhasználó hozzáadása"
+
+msgid ""
+"Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
+" href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
+"for more details."
+msgstr "További eszköz beállítások. Lásd a <a href='http://linux.die.net/man/8/ethtool' target='_blank'>kézikönyvben</a> a további részleteket."
+
+msgid "Address"
+msgstr "Cím"
+
+msgid "Administrator password"
+msgstr "Adminisztrátor jelszó"
+
+msgid "Administrator: read/write, Users: no access, Others: no access"
+msgstr "Adminisztrátor: olvasás/írás, Felhasználó: nincs hozzáférés, Mások: nincs hozzáférés"
+
+msgid "Administrator: read/write, Users: read-only, Others: no access"
+msgstr "Szelet"
+
+msgid "Administrator: read/write, Users: read-only, Others: read-only"
+msgstr "Adminisztrátor: olvasás/írás, Felhasználó: csak olvasás, Mások: csak olvasás"
+
+msgid "Administrator: read/write, Users: read/write, Others: no access"
+msgstr "Adminisztrátor: olvasás/írás, Felhasználók: olvasás/írás, Mások: nincs hozzáférés"
+
+msgid "Administrator: read/write, Users: read/write, Others: read-only"
+msgstr "Adminisztrátor: olvasás/írás, Felhasználó: olvasás/írás, Mások: csak olvasás"
+
+msgid "Advanced Power Management"
+msgstr "Fejlett Energia Gazdálkodás"
+
+msgid "Advanced settings"
+msgstr "Haladó beállítások"
+
+msgid "Advertise this service via mDNS/DNS-SD."
+msgstr "Szolgáltatás közzététele mDNS/DNS-SD-n keresztül."
+
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+msgid ""
+"After the RAID has been grown you can resize the containing filesystem."
+msgstr "A RAID tömb növelése után tudod újraméretezni a rajta levő fájlrendszert."
+
+msgid "Aland Islands"
+msgstr "Aland Islands"
+
+msgid "Albania"
+msgstr "Albania"
+
+msgid "Algeria"
+msgstr "Algeria"
+
+msgid "All"
+msgstr "Összes"
+
+msgid "Allow"
+msgstr "Engedélyezve"
+
+msgid "Allow client access to accounts that have null passwords"
+msgstr "Kliens hozzáférés engedélyezése felhasználói fiókkal, jelszó megadása nélkül"
+
+msgid ""
+"Allow clients to attempt to store OS/2 style extended attributes on a share."
+msgstr "Az engedélyezett kliensek megpróbálják tárolni az OS/2 stílusú kiterjesztett attribútumokat a megosztásban."
+
+msgid "Allow clients to resume interrupted uploads and downloads"
+msgstr "Megszakadt feltöltések és letöltések folytatásának engedélyezése a kliensek számára"
+
+msgid "Allow new files"
+msgstr "Új fájlok engedélyezése"
+
+msgid "Allow new files to be created."
+msgstr "Új fájlok létrehozásának engedélyezése."
+
+msgid ""
+"Allow this server to advertise itself as a time server to Windows clients"
+msgstr "Szerver közzétételének engedélyezése mint idő szerver, Windows klienseken"
+
+msgid "Allow this server to try and become a local master browser"
+msgstr "Helyi főtallózó használatának engedélyezése a szerver számára"
+
+msgid "American Samoa"
+msgstr "American Samoa"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "Egy email üzenet elküldése az adminisztrátornak a parancs kimenettel (ha van ilyen)."
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"user who performs the job."
+msgstr "Egy email üzenet elküldése a felhasználónak a parancs kimenettel (ha van ilyen), aki végrehajtja a munkát."
+
+msgid "An error has occured"
+msgstr "Hiba történt"
+
+msgid "Andorra"
+msgstr "Andorra"
+
+msgid "Angola"
+msgstr "Angola"
+
+msgid "Anguilla"
+msgstr "Anguilla"
+
+msgid "Anonymous FTP"
+msgstr "Anonymous FTP"
+
+msgid "Antarctica"
+msgstr "Antarctica"
+
+msgid "Antigua and Barbuda"
+msgstr "Antigua and Barbuda"
+
+msgid "Apply"
+msgstr "Alkalmaz"
+
+msgid "Apply permissions to files and subfolders"
+msgstr "Jogosultságok alkalmazása fájlokra és almappákra"
+
+msgid "April"
+msgstr "Április"
+
+msgid "Archive"
+msgstr "Archívum"
+
+msgid "Argentina"
+msgstr "Argentina"
+
+msgid "Armenia"
+msgstr "Armenia"
+
+msgid "Array details"
+msgstr "Tömb részletek"
+
+msgid "Aruba"
+msgstr "Aruba"
+
+msgid "Attribute name"
+msgstr "Attribútum név"
+
+msgid "Attributes"
+msgstr "Attribútumok"
+
+msgid "August"
+msgstr "Augusztus"
+
+msgid "Australia"
+msgstr "Australia"
+
+msgid "Austria"
+msgstr "Austria"
+
+msgid "Authenticate users"
+msgstr "Felhasználók hitelesítése"
+
+msgid "Authentication"
+msgstr "Hitelesítés"
+
+msgid "Authentication and no privacy"
+msgstr "Hitelesítés és nincs titkosítás"
+
+msgid "Authentication and privacy"
+msgstr "Hitelesítés és titkosítás"
+
+msgid "Authentication passphrase"
+msgstr "Hitelesítés jelszó"
+
+msgid "Authentication required"
+msgstr "Hitelesítés szükséges"
+
+msgid "Authentication type"
+msgstr "Hitelesítés típus"
+
+msgid "Automatic Acoustic Management"
+msgstr "Automatikus Zajszint Kezelés"
+
+msgid "Available"
+msgstr "Elérhető"
+
+msgid "Azerbaijan"
+msgstr "Azerbaijan"
+
+msgid "Backup"
+msgstr "Biztonsági mentés"
+
+msgid "Backup configuration"
+msgstr "Biztonsági mentés konfigurálás"
+
+msgid "Bahamas"
+msgstr "Bahamas"
+
+msgid "Bahrain"
+msgstr "Bahrain"
+
+msgid "Ban list"
+msgstr "Tiltó lista"
+
+#, c-format
+msgid "Ban statistics:"
+msgstr "Kitiltás statisztika:"
+
+msgid "Bandwidth restriction"
+msgstr "Sávszélesség korlátozás"
+
+msgid "Bangladesh"
+msgstr "Banglades"
+
+msgid "Barbados"
+msgstr "Barbados"
+
+msgid "Belarus"
+msgstr "Belarus"
+
+msgid "Belgium"
+msgstr "Belgium"
+
+msgid "Belize"
+msgstr "Belize"
+
+msgid "Benin"
+msgstr "Benin"
+
+msgid "Bermuda"
+msgstr "Bermuda"
+
+msgid "Bhutan"
+msgstr "Bhutan"
+
+msgid "Blocksize"
+msgstr "Blokkméret"
+
+msgid "Bolivia"
+msgstr "Bolivia"
+
+msgid "Bond options"
+msgstr "Kötési opciók"
+
+msgid "Boot"
+msgstr ""
+
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnia - Hercegovina"
+
+msgid "Botswana"
+msgstr "Botswana"
+
+msgid "Bouvet Island"
+msgstr "Bouvet Island"
+
+msgid "Brazil"
+msgstr "Brazil"
+
+msgid "British Antarctic Territory"
+msgstr "British Antarctic Territory"
+
+msgid "British Indian Ocean Territory"
+msgstr "British Indian Ocean Territory"
+
+msgid "British Virgin Islands"
+msgstr "British Virgin Islands"
+
+msgid "Browseable"
+msgstr "Böngészhető"
+
+msgid "Brunei"
+msgstr "Brunei"
+
+msgid "Bulgaria"
+msgstr "Bulgaria"
+
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+msgid "Burundi"
+msgstr "Burundi"
+
+msgid "By default, only files that already exist are allowed to be uploaded."
+msgstr "Alapértelmezésként csak azok a fájlok kerülnek feltöltésre, melyek már engedélyezve vannak."
+
+msgid "CPU usage"
+msgstr "CPU használat"
+
+msgid "Cambodia"
+msgstr "Cambodia"
+
+msgid "Cameroon"
+msgstr "Cameroon"
+
+msgid "Canada"
+msgstr "Canada"
+
+msgid "Cancel"
+msgstr "Mégse"
+
+msgid ""
+"Cannot unlink shared folder content because another shared folder is "
+"referencing a subdirectory"
+msgstr "Nem lehet megszüntetni a megosztott mappa tartalmát, mert egy másik megosztott mappa hivatkozik egy alkönyvtárra."
+
+msgid "Canton and Enderbury Islands"
+msgstr "Canton and Enderbury Islands"
+
+msgid "Capacity"
+msgstr "Kapacitás"
+
+msgid "Cape Verde"
+msgstr "Cape Verde"
+
+msgid "Cayman Islands"
+msgstr "Cayman Islands"
+
+msgid "Central African Republic"
+msgstr "Central African Republic"
+
+msgid "Certificate"
+msgstr "Tanúsítvány"
+
+msgid "Certificate details"
+msgstr "Tanúsítvány részletek"
+
+msgid "Certificates"
+msgstr "Tanúsítványok"
+
+msgid "Chad"
+msgstr "Chad"
+
+msgid "Check"
+msgstr "Frissítés"
+
+msgid "Check interval"
+msgstr "Intervallum ellenőrzése"
+
+msgid "Checking for new plugins ..."
+msgstr "Új bővítmények keresése ..."
+
+msgid "Checking for new updates ..."
+msgstr "Új frissítések keresése ..."
+
+msgid "Chile"
+msgstr "Chile"
+
+msgid "China"
+msgstr "China"
+
+msgid "Christmas Island"
+msgstr "Christmas Island"
+
+msgid "City"
+msgstr "Város"
+
+msgid "Clear"
+msgstr "Törlés"
+
+msgid ""
+"Click the 'Backup' button to download the current system configuration."
+msgstr "Kattints a 'Biztonsági mentés' gombra a jelenlegi rendszer beállítás letöltéséhez."
+
+msgid "Client"
+msgstr "Kliens"
+
+msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
+msgstr "Kliensek engedélyezése fájlrendszer felcsatoláshoz, pl. 192.168.178.0/24."
+
+msgid "Close"
+msgstr "Bezárás"
+
+msgid "Cocos (Keeling) Islands"
+msgstr "Cocos (Keeling) Islands"
+
+msgid "Colombia"
+msgstr "Colombia"
+
+msgid "Command"
+msgstr "Parancs"
+
+msgid "Comment"
+msgstr "Megjegyzés"
+
+msgid "Commit"
+msgstr "Futtatás"
+
+msgid "Common Name"
+msgstr "Általános Név"
+
+msgid "Community"
+msgstr "Közösség"
+
+msgid "Comoros"
+msgstr "Comoros"
+
+msgid "Compress"
+msgstr "Tömörítés"
+
+msgid "Compress file data during the transfer"
+msgstr "Fájl adat tömörítése az átvitel során"
+
+msgid "Compression"
+msgstr "Tömörítés"
+
+msgid ""
+"Compression is worth using if your connection is slow. The efficiency of the"
+" compression depends on the type of the file, and varies widely. Useful for "
+"internet transfer only."
+msgstr "Érdemes használni a tömörítést ha a kapcsolatod lassú. A tömörítés hatékonysága attól függ milyen típusú a fájl, és mennyire változó. Csak internetes átvitelnél hasznos."
+
+msgid "Confirm password"
+msgstr "Jelszó megerősítése"
+
+msgid "Confirmation"
+msgstr "Megerősítés"
+
+msgid "Congo (Brazzaville)"
+msgstr "Congo (Brazzaville)"
+
+msgid "Congo (Kinshasa)"
+msgstr "Congo (Kinshasa)"
+
+msgid "Contact"
+msgstr "Kapcsolat"
+
+msgid ""
+"Contact information, e.g. name or email address of the person responsible "
+"for this system."
+msgstr "Információs kapcsolattartás, pl. a rendszerért felelős személy neve vagy email címe. "
+
+msgid "Conveyance self-test"
+msgstr "Önteszt továbbítása"
+
+msgid "Cook Islands"
+msgstr "Cook Islands"
+
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+msgid "Country"
+msgstr "Ország"
+
+msgid "Create"
+msgstr "Létrehozás"
+
+msgid "Create RAID device"
+msgstr "RAID tömb létrehozás"
+
+msgid "Create filesystem"
+msgstr "Fájlrendszer létrehozása"
+
+msgid "Create self-signed SSL certificate"
+msgstr "Önmaga aláírt SSL tanúsítvány létrehozása"
+
+msgid "Critical"
+msgstr "Kritikus"
+
+msgid "Croatia"
+msgstr "Croatia"
+
+msgid "Cron Jobs"
+msgstr "Cron Feladatok"
+
+msgid "Cuba"
+msgstr "Cuba"
+
+msgid "Current time"
+msgstr "Jelenlegi idő"
+
+#, c-format
+msgid "Currently logged in users:"
+msgstr "Jelenleg bejelentkezett felhasználók:"
+
+msgid "Cyprus"
+msgstr "Cyprus"
+
+msgid "Czech Republic"
+msgstr "Czech Republic"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "DNS Server"
+msgstr "DNS Szerver"
+
+msgid "DNS Service Discovery"
+msgstr "DNS Szolgáltatás Felderítése"
+
+msgid "DNS server"
+msgstr "DNS szerver"
+
+msgid "Daemon"
+msgstr "Démon"
+
+msgid "Date"
+msgstr "Dátum"
+
+msgid "Date & Time"
+msgstr "Dátum & Idő"
+
+msgid "Day of month"
+msgstr "Hónap napján"
+
+msgid "Day of week"
+msgstr "Hét napján"
+
+msgid "Debug"
+msgstr "Hibakeresés"
+
+msgid "December"
+msgstr "December"
+
+msgid "Delete"
+msgstr "Törlés"
+
+msgid "Delete content"
+msgstr "Tartalom törlése"
+
+msgid "Delete files on the receiving side that don't exist on sender"
+msgstr "Fájlok törlése a fogadó oldalon, ha a feladó nem létezik"
+
+msgid "Deleting selected item(s)"
+msgstr "Kiválasztott tétel(ek) törlése"
+
+msgid "Denmark"
+msgstr "Denmark"
+
+msgid "Deny"
+msgstr "Megtagadva"
+
+msgid "Deny logins which do not have a valid shell"
+msgstr "Bejelentkezések tiltása, melyek nem rendelkeznek érvényes héjjal"
+
+msgid "Description"
+msgstr "Leírás"
+
+msgid "Destination"
+msgstr "Célállomás"
+
+msgid ""
+"Destination address can be either a network IP address (with /mask), a IP "
+"range or a plain IP address. A '!' argument before the address specification"
+" inverts the sense of the address."
+msgstr "Célállomás címe lehet egy hálózati IP cím (/mask-al ellátva), egy IP tartomány vagy egy egyszerű IP cím. A címe előtti \"!\" argumentum megfordítja ennek a címnek a jelentését."
+
+msgid "Destination port"
+msgstr "Célállomás portja"
+
+msgid "Destination server"
+msgstr "Célállomás szerver"
+
+msgid "Destination shared folder"
+msgstr "Cél mappa"
+
+msgid "Detail"
+msgstr "Részlet"
+
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr "Alapértelmezett időtúllépés meghatározása, mikroszekundumban, mielőtt újraküldi az első csomagot."
+
+msgid "Device"
+msgstr "Meghajtó"
+
+#, c-format
+msgid "Device '%s' not found"
+msgstr "'%s' meghajtó nem található"
+
+msgid "Device identity information"
+msgstr "Meghajtó azonosítási információ"
+
+msgid "Device model"
+msgstr "Meghajtó modell"
+
+msgid "Devices"
+msgstr "Meghajtók"
+
+msgid "Diagnostics"
+msgstr "Diagnosztika"
+
+msgid "Difference"
+msgstr "Különbség"
+
+msgid "Direction"
+msgstr "Utasítás"
+
+msgid "Directory"
+msgstr "Könyvtár"
+
+msgid "Disabled"
+msgstr "Letiltva"
+
+msgid "Disallow the user to modify his account."
+msgstr "Felhasználói fiók módosításának tiltása"
+
+msgid "Disk usage"
+msgstr "Lemez használat"
+
+msgid "Displaying items {0} - {1} of {2}"
+msgstr "Tételek megjelenítése {0} - {1} közül {2}"
+
+msgid "Djibouti"
+msgstr "Djibouti"
+
+msgid "Do you really want to clear the log file?"
+msgstr "Valóban törölni szeretnéd a napló fájlt?"
+
+msgid "Do you really want to create the RAID device?"
+msgstr "Valóban létre szeretnéd hozni a RAID tömböt?"
+
+msgid "Do you really want to delete the selected item(s)?"
+msgstr "Valóban törölni szeretnéd a kiválasztott tétel(eke)t?"
+
+msgid ""
+"Do you really want to format this device? All data on it will be deleted. "
+"Please note that the filesystem creation may take some time."
+msgstr "Valóban szeretnéd formázni az eszközt? Az összes adat törlésre kerül. Kérlek vedd figyelembe, hogy a fájlrendszer létrehozása eltarthat egy ideig."
+
+msgid "Do you really want to install the selected plugin(s)?"
+msgstr "Valóban telepíteni szeretnéd a kiválasztott bővítmény(eke)t?"
+
+msgid "Do you really want to leave the page?"
+msgstr "Valóban el szeretnéd hagyni az oldalt?"
+
+msgid "Do you really want to logout?"
+msgstr "Valóban ki szeretnél jelentkezni?"
+
+msgid "Do you really want to reboot the system?"
+msgstr "Valóban újra szeretnéd indítani a rendszert?"
+
+msgid "Do you really want to remove the shared folder content?"
+msgstr "Valóban el szeretnéd távolítani a megosztott mappa tartalmát?"
+
+msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
+msgstr "Valóban vissza szeretnéd állítani a WebGUI állapotot, mint például rács oszlop sorrend?"
+
+msgid ""
+"Do you really want to resize the selected filesystem? You have to do that "
+"after a RAID has been grown for example."
+msgstr "Valóban újra szeretnéd méretezni a kiválasztott fájlrendszert? Ezt megteheted például egy RAID tömb növelés után."
+
+msgid "Do you really want to shutdown the system?"
+msgstr "Valóban le szeretnéd állítani a rendszert?"
+
+msgid "Do you really want to uninstall the selected plugin(s)?"
+msgstr "Valóban le szeretnéd törölni a kiválasztott bővítmény(eke)t?"
+
+msgid "Do you really want to wipe the selected device?"
+msgstr "Valóban formázni szeretnéd  kiválasztott meghajtót?"
+
+msgid ""
+"Do you want to remove the content of the shared folder recursively? The "
+"shared folder content will be permanently removed and cannot be recovered. "
+"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
+"abort."
+msgstr "El szeretnéd távolítani a rekurzívan megosztott mappa tartalmát? A megosztott mappa tartalma véglegesen el lesz távolítva és nem lehet azt visszaállítani. Válaszd a 'Nem'-et, ha csak a megosztott mappa konfigurációját akarod törölni vagy a 'Mégsem'-et a megszakításhoz."
+
+msgid "Domain name"
+msgstr "Domain név"
+
+msgid "Dominica"
+msgstr "Dominica"
+
+msgid "Dominican Republic"
+msgstr "Dominican Republic"
+
+msgid "Donate"
+msgstr "Támogatás"
+
+msgid "Done ..."
+msgstr "Kész"
+
+msgid "Down"
+msgstr "Le"
+
+msgid "Down delay"
+msgstr "Tiltás késleltetése"
+
+msgid "Download"
+msgstr "Letöltés"
+
+msgid "Dronning Maud Land"
+msgstr "Dronning Maud Land"
+
+msgid "Each line represents one group."
+msgstr "Minden sor egy csoportot jelöl."
+
+msgid ""
+"Each line represents one user. Note, the password must be entered in plain "
+"text."
+msgstr "Minden sor egy felhasználót jelöl. Megjegyzés, a jelszót, mint egyszerű szöveget kell beírni."
+
+msgid "East Timor"
+msgstr "East Timor"
+
+msgid "Ecuador"
+msgstr "Ecuador"
+
+msgid "Edit"
+msgstr "Szerkesztés"
+
+msgid "Edit SSL certificate"
+msgstr "SSL tanúsítvány szerkesztése"
+
+msgid "Edit bonded interface"
+msgstr "Összekötött interfész szerkesztése"
+
+msgid "Edit cron job"
+msgstr "Cron feladat szerkesztése"
+
+msgid "Edit firewall rule"
+msgstr "Tűzfal szabály szerkesztése"
+
+msgid "Edit group"
+msgstr "Csoport szerkesztése"
+
+msgid "Edit module"
+msgstr "Modul szerkesztése"
+
+msgid "Edit physical disk properties"
+msgstr "Fizikai lemez tulajdonságainak szerkesztése"
+
+msgid "Edit physical interface"
+msgstr "Fizikai interfész szerkesztése"
+
+msgid "Edit quota"
+msgstr "Kvóta szerkesztése"
+
+msgid "Edit rsync job"
+msgstr "Rsync feladat szerkesztése"
+
+msgid "Edit rule"
+msgstr "Szabály szerkesztése"
+
+msgid "Edit scheduled test"
+msgstr "Ütemezett teszt szerkesztése"
+
+msgid "Edit share"
+msgstr "Megosztás szerkesztése"
+
+msgid "Edit shared folder"
+msgstr "Megosztott mappa szerkesztése"
+
+msgid "Edit shared folder privileges"
+msgstr "Megosztott mappa jogosultságainak szerkesztése"
+
+msgid "Edit user"
+msgstr "Felhasználó szerkesztése"
+
+msgid "Egypt"
+msgstr "Egypt"
+
+msgid "El Salvador"
+msgstr "El Salvador"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Enable"
+msgstr "Engedélyezés"
+
+msgid "Enable FXP protocol"
+msgstr "FXP protokoll engedélyezése"
+
+msgid "Enable SSL/TLS"
+msgstr "SSL/TLS engedélyezése"
+
+msgid "Enable SSL/TLS connections"
+msgstr "SSL/TLS kapcsolatok engedélyezése"
+
+msgid "Enable WINS server"
+msgstr "WINS szerver engedélyezése"
+
+msgid "Enable anonymous FTP"
+msgstr "Anonymous FTP engedélyezése"
+
+msgid "Enable archive mode"
+msgstr "Archiváló mód engedélyezése"
+
+msgid "Enable compression"
+msgstr "Tömörítés engedélyezése"
+
+msgid "Enable extended attribute support"
+msgstr "Kiterjesztett attribútum támogatás engedélyezése"
+
+msgid "Enable keyboard-interactive authentication"
+msgstr "Interaktív billentyűzet hitelesítés engedélyezése"
+
+msgid "Enable module listing"
+msgstr "Modul listázás engedélyezése"
+
+msgid "Enable permission inheritance"
+msgstr "Jogosultság öröklésének engedélyezése"
+
+msgid "Enable recycle bin"
+msgstr "Lomtár engedélyezése"
+
+msgid "Enable reverse DNS lookup"
+msgstr "Fordított DNS figyelés engedélyezése"
+
+msgid ""
+"Enable reverse DNS lookup performed on the remote host's IP address for "
+"incoming active mode data connections and outgoing passive mode data "
+"connections."
+msgstr "Fordított DNS lekérdezés végrehajtásának engedélyezése a távoli hoszt IP címének a bejövő aktív módú adatkapcsolataira és kimenő passzív módú adatkapcsolataira."
+
+msgid "Enable secure connection."
+msgstr "Biztonságos kapcsolat engedélyezése."
+
+msgid "Enable store DOS attributes support"
+msgstr "Tárolt DOS attribútumok támogatásának engedélyezése"
+
+msgid "Enable the ident protocol (RFC1413)"
+msgstr "Az ident protokoll engedélyezése (RFC1413)"
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr ""
+
+msgid "Enable user authentication"
+msgstr "Felhasználó hitelesítés engedélyezése"
+
+msgid "Enable user home directories"
+msgstr "Felhasználói saját könyvtárak engedélyezése"
+
+msgid "Enable write-cache."
+msgstr "Gyorsítótár engedélyezése"
+
+msgid "Enabled"
+msgstr "Engedélyezve"
+
+msgid "Enter your password"
+msgstr "Írd be a jelszavad"
+
+msgid "Enter your username"
+msgstr "Írd be a felhasználóneved"
+
+msgid "Equatorial Guinea"
+msgstr "Equatorial Guinea"
+
+msgid "Eritrea"
+msgstr "Eritrea"
+
+msgid "Error"
+msgstr "Hiba"
+
+msgid "Error #"
+msgstr "Hiba #"
+
+#, c-format
+msgid "Error #%d"
+msgstr "Hiba #%d"
+
+msgid "Estonia"
+msgstr "Estonia"
+
+msgid "Ethiopia"
+msgstr "Ethiopia"
+
+msgid "Event"
+msgstr "Esemény"
+
+msgid "Every N day of month"
+msgstr "Minden N napon a hónapban"
+
+msgid "Every N hour"
+msgstr "Minden N órában"
+
+msgid "Every N minute"
+msgstr "Minden N percben"
+
+msgid "Everyone: read/write"
+msgstr "Mindenki: olvasás/írás"
+
+msgid "Execute command"
+msgstr "Parancs végrehajtása"
+
+msgid "Execute cron job"
+msgstr "Cron feladat végrehajtása"
+
+msgid "Execute rsync job"
+msgstr "Rsync feladat végrehajtása"
+
+msgid "Expire"
+msgstr "Lejárat"
+
+msgid "Extended attributes"
+msgstr "Kiterjesztett attribútumok"
+
+msgid "Extra options"
+msgstr "Extra opciók"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "FXP"
+msgstr "FXP"
+
+msgid ""
+"FXP allows transfers between two remote servers without any file data going "
+"to the client asking for the transfer."
+msgstr "FXP lehetővé teszi az átvitelt két távoli szerver között anélkül, hogy az adatfájl átvitelét a kliensnek is kérnie kellene."
+
+msgid "Failed to call "
+msgstr "Sikertelen hívás"
+
+#, c-format
+msgid ""
+"Failed to create filesystem. Please check the syslog or '%s' for more "
+"details."
+msgstr "A fájlrendszer létrehozása sikertelen. Kérlek tekintsd meg a rendszernaplót vagy a '%s' a további részletekért."
+
+msgid "Failed to get filesystems"
+msgstr "Nem sikerült lekérni a fájlrendszereket"
+
+msgid "Failed to get system date and time"
+msgstr "Nem sikerült lekérni a rendszer dátumot és időt"
+
+msgid "Falkland Islands"
+msgstr "Falkland Islands"
+
+msgid "Faroe Islands"
+msgstr "Faroe Islands"
+
+msgid "Fatal error"
+msgstr "Végzetes hiba"
+
+msgid "February"
+msgstr "Február"
+
+msgid "Fields must be exclusive"
+msgstr "Mezőknek különlegesnek kell lennie"
+
+msgid "Fiji"
+msgstr "Fiji"
+
+msgid "File"
+msgstr "Fájl"
+
+msgid "Filesystem"
+msgstr "Fájlrendszer"
+
+#, c-format
+msgid "Filesystem '%s' not found"
+msgstr "Fájlrendszer '%s' nem található"
+
+#, c-format
+msgid "Filesystem '%s' not supported"
+msgstr "Fájlrendszer '%s' nem támogatott"
+
+msgid "Filesystems"
+msgstr "Fájlrendszerek"
+
+msgid "Finland"
+msgstr "Finland"
+
+msgid "Firewall"
+msgstr "Tűzfal"
+
+msgid "Firmware version"
+msgstr "Firmware verzió"
+
+msgid "Flag"
+msgstr "Zászló"
+
+msgid "Force SSL/TLS"
+msgstr "SSL/TLS kényszerítés"
+
+msgid "Force secure connection only."
+msgstr "Csak biztonságos kapcsolat kényszerítése"
+
+msgid "France"
+msgstr "France"
+
+msgid "French Guiana"
+msgstr "French Guiana"
+
+msgid "French Polynesia"
+msgstr "French Polynesia"
+
+msgid "French Southern Territories"
+msgstr "French Southern Territories"
+
+msgid "French Southern and Antarctic Territories"
+msgstr "French Southern and Antarctic Territories"
+
+msgid "Friday"
+msgstr "Péntek"
+
+msgid "Full"
+msgstr "Teljes"
+
+msgid "Gabon"
+msgstr "Gabon"
+
+msgid "Gambia"
+msgstr "Gambia"
+
+msgid "Gateway"
+msgstr "Átjáró"
+
+msgid "General"
+msgstr "Általános"
+
+msgid "General Settings"
+msgstr "Általános Beállítások"
+
+msgid "General settings"
+msgstr "Általános beállítások"
+
+msgid "Generating graphs ..."
+msgstr "Grafikonok generálása ..."
+
+msgid "Georgia"
+msgstr "Georgia"
+
+msgid "Germany"
+msgstr "Germany"
+
+msgid "Ghana"
+msgstr "Ghana"
+
+msgid "GiB"
+msgstr "GiB"
+
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+msgid "Greece"
+msgstr "Greece"
+
+msgid "Greenland"
+msgstr "Greenland"
+
+msgid "Grenada"
+msgstr "Grenada"
+
+msgid "Group"
+msgstr "Csoport"
+
+#, c-format
+msgid "Group '%s' already exist"
+msgstr "'%s' csoport már létezik"
+
+#, c-format
+msgid "Group '%s' does not exist"
+msgstr "'%s' csoport nem létezik"
+
+#, c-format
+msgid "Group ID '%d' already exist"
+msgstr "Csoport ID '%d' már létezik"
+
+msgid "Groups"
+msgstr "Csoportok"
+
+msgid "Grow"
+msgstr "Növelés"
+
+msgid "Grow RAID device"
+msgstr "RAID tömb növelése"
+
+msgid "Guadeloupe"
+msgstr "Guadeloupe"
+
+msgid "Guam"
+msgstr "Guam"
+
+msgid "Guatemala"
+msgstr "Guatemala"
+
+msgid "Guinea"
+msgstr "Guinea"
+
+msgid "Guinea-Bissau"
+msgstr "Guinea-Bissau"
+
+msgid "Guyana"
+msgstr "Guyana"
+
+msgid "Haiti"
+msgstr "Haiti"
+
+msgid "Heard Island and McDonald Islands"
+msgstr "Heard Island and McDonald Islands"
+
+msgid "Hide details"
+msgstr "Részletek elrejtése"
+
+msgid "Hide dot files"
+msgstr "Pont kezdetű fájlok elrejtése"
+
+msgid "Home directories"
+msgstr "Saját könyvtárak"
+
+msgid "Homepage"
+msgstr "Főoldal"
+
+msgid "Honduras"
+msgstr "Honduras"
+
+msgid "Hong Kong S.A.R., China"
+msgstr "Hong Kong S.A.R., Kína"
+
+msgid "Honor existing ACLs"
+msgstr "Létező ACL-ek megtartása"
+
+msgid "Host"
+msgstr "Hoszt"
+
+msgid "Host access control"
+msgstr "Hoszt hozzáférés vezérlése"
+
+msgid "Hostname"
+msgstr "Hosztnév"
+
+msgid "Hosts"
+msgstr "Hosztok"
+
+msgid "Hosts allow"
+msgstr "Hosztok engedélyezése"
+
+msgid "Hosts deny"
+msgstr "Hosztok tiltása"
+
+msgid "Hour"
+msgstr "Óra"
+
+msgid "Hungary"
+msgstr "Magyarország"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "Iceland"
+msgstr "Iceland"
+
+msgid "Ident protocol"
+msgstr "Azonosító protokoll"
+
+msgid "Identify"
+msgstr "Azonosítás"
+
+msgid "Identify network interface device"
+msgstr "Hálózati interfész eszköz azonosítása"
+
+msgid "Idle"
+msgstr "Tétlen"
+
+msgid "If enabled then no password is required to connect to the share"
+msgstr "Ha engedélyezve van, akkor jelszó megadása nélkül kapcsolódhatnak a megosztáshoz"
+
+msgid ""
+"If set then the client will be challenged to supply a username and password "
+"to connect to the module."
+msgstr "Ha ez be van állítva, akkor a kliensnek meg kell adnia egy felhasználónevet és egy jelszót, hogy csatlakozni tudjon a modulhoz."
+
+msgid "If this option is set, then any attempted downloads will fail."
+msgstr "Ha ez az opció aktív, akkor minden letöltési kísérlet hibás lesz."
+
+msgid "If this option is set, then any attempted uploads will fail."
+msgstr "Ha ez az opció aktív, akkor minden feltöltési kísérlet hibás lesz."
+
+msgid ""
+"If this parameter is set, Samba attempts to first read DOS attributes "
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
+" before mapping DOS attributes to UNIX permission bits. When set, DOS "
+"attributes will be stored onto an extended attribute in the UNIX filesystem,"
+" associated with the file or directory."
+msgstr "Ha ez a paraméter be van állítva, a Samba megpróbálja először a DOS attribútumokat elolvasni (RENDSZER, REJTETT, ARCHÍV vagy CSAK OLVASHATÓ) egy kiterjesztett fájlrendszer attribútumról, mielőtt feltérképezné a DOS attribútumokat a UNIX engedélyezési biteknek. Ha be van állítva, a DOS attribútumok egy kiterjesztett attribútumon fogják tárolni a UNIX fájlrendszerben,a társított fájl vagy könyvtárral együtt."
+
+msgid ""
+"If this parameter is set, then users may not create or modify files in the "
+"share."
+msgstr "Ha ez a paraméter aktív, akkor a felhasználók nem hozhatnak létre vagy nem módosíthatnak fájlokat a megosztásban. "
+
+msgid ""
+"If your host is acting as a NAT gateway or port forwarder for the server, "
+"this option is useful in order to allow passive tranfers to work. You have "
+"to use your public address and opening the passive ports used on your "
+"firewall as well."
+msgstr "Ha a hoszt úgy működik mint egy NAT átjáró vagy port áteresztő a szerveren, akkor ez az az opció, ami hasznos, hogy a megengedett passzív átvitelek jól működjenek. Ehhez használnod kell a nyilvános címedet és passzív portokat nyitni rajta, hogy jól használható legyen tűzfalon keresztül is."
+
+msgid "Implicit SSL"
+msgstr "Közvetett SSL"
+
+msgid "Import"
+msgstr "Importálás"
+
+msgid "Import SSL certificate"
+msgstr "SSL tanúsítvány importálása"
+
+msgid "Import groups"
+msgstr "Csoportok importálása"
+
+msgid "Import users"
+msgstr "Felhasználók importálása"
+
+msgid ""
+"In some cases you have to specify passive ports range to by-pass firewall "
+"limitations. Passive ports restricts the range of ports from which the "
+"server will select when sent the PASV command from a client. The server will"
+" randomly choose a number from within the specified range until an open port"
+" is found. The port range selected must be in the non-privileged range (eg. "
+"greater than or equal to 1024). It is strongly recommended that the chosen "
+"range be large enough to handle many simultaneous passive connections (for "
+"example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr "Egyes esetekben meg kell adnod passzív port tartományokat a tűzfal korlátozások kikerüléséhez A passzív portok korlátozhatják a portok tartományát, melyből a szerver válogathat, mikor a kliens elküldi a PASV parancsot. A szerver véletlenszerűen választ egy portot a tartományból addig, amíg nyitott portot nem talál. A kiválasztott port tartománynak nem privilegizált tartománynak kell lennie (pl. nagyobb vagy egyenlő mint 1024). Erősen ajánlott olyan nagy tartomány választása, mely elég nagy több passzív kapcsolat egyidejű használatához (például: 49152-65534, az IANA-regisztrált rövid idejű port tartomány)."
+
+msgid "India"
+msgstr "India"
+
+msgid "Indonesia"
+msgstr "Indonesia"
+
+msgid "Informal"
+msgstr "Megfelelő"
+
+msgid "Information"
+msgstr "Információ"
+
+msgid "Inherit ACLs"
+msgstr "ACL-ek öröklése"
+
+msgid "Inherit permissions"
+msgstr "Jogosultságok öröklése"
+
+msgid "Initializing"
+msgstr "Inicializálás"
+
+msgid "Install"
+msgstr "Telepítés"
+
+msgid "Install plugins ..."
+msgstr "Bővítmények telepítése ..."
+
+msgid "Install updates ..."
+msgstr "Frissítések telepítése ..."
+
+msgid "Installed"
+msgstr "Telepítve"
+
+msgid "Interfaces"
+msgstr "Interfészek"
+
+msgid "Invalid comment"
+msgstr "Érvénytelen megjegyzés"
+
+msgid "Invalid domain name"
+msgstr "Érvénytelen domain név"
+
+msgid "Invalid filesystem label"
+msgstr "Érvénytelen fájlrendszer címke"
+
+msgid "Invalid group name"
+msgstr "Érvénytelen csoport név"
+
+msgid "Invalid hostname"
+msgstr "Érvénytelen hosztnév"
+
+#, c-format
+msgid "Invalid line: %s"
+msgstr "Érvénytelen sor: %s"
+
+msgid "Invalid name"
+msgstr "Érvénytelen név"
+
+msgid "Invalid user name"
+msgstr "Érvénytelen felhasználónév"
+
+msgid "Iran"
+msgstr "Irán"
+
+msgid "Iraq"
+msgstr "Iraq"
+
+msgid "Ireland"
+msgstr "Ireland"
+
+msgid "Israel"
+msgstr "Izrael"
+
+msgid "Italy"
+msgstr "Italy"
+
+msgid "Ivory Coast"
+msgstr "Ivory Coast"
+
+msgid "Jamaica"
+msgstr "Jamaica"
+
+msgid "January"
+msgstr "Január"
+
+msgid "Japan"
+msgstr "Japan"
+
+msgid "Jobs"
+msgstr "Feladatok"
+
+msgid "Johnston Island"
+msgstr "Johnston Island"
+
+msgid "Jordan"
+msgstr "Jordan"
+
+msgid "July"
+msgstr "Július"
+
+msgid "June"
+msgstr "Június"
+
+msgid "Kazakhstan"
+msgstr "Kazakhstan"
+
+msgid "Keep partially transferred files"
+msgstr ""
+
+msgid "Kenya"
+msgstr "Kenya"
+
+msgid "Kernel"
+msgstr "Rendszermag"
+
+msgid "Key size"
+msgstr "Kulcs méret"
+
+msgid "KiB"
+msgstr "KiB"
+
+msgid "Kiribati"
+msgstr "Kiribati"
+
+msgid "Kuwait"
+msgstr "Kuwait"
+
+msgid "Kyrgyzstan"
+msgstr "Kyrgyzstan"
+
+msgid "LBA of first error"
+msgstr "Első LBA hiba"
+
+msgid "Label"
+msgstr "Címke"
+
+msgid "Language"
+msgstr "Nyelv"
+
+msgid "Laos"
+msgstr "Laos"
+
+msgid "Latvia"
+msgstr "Latvia"
+
+msgid "Lebanon"
+msgstr "Lebanon"
+
+msgid ""
+"Length of time in seconds to blink one or more LEDs on the specific ethernet"
+" port."
+msgstr "A különleges ethernet port LEDjeinek egyszeri vagy többszöri villogásának ideje másodpercben megadva."
+
+msgid "Lesotho"
+msgstr "Lesotho"
+
+msgid "Level"
+msgstr "Szint"
+
+msgid "Liberia"
+msgstr "Liberia"
+
+msgid "Libya"
+msgstr "Libya"
+
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+msgid "Lifetime"
+msgstr "Élettartam"
+
+msgid "Linear"
+msgstr "Lineáris"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "List"
+msgstr "Jegyzék"
+
+msgid "Lithuania"
+msgstr "Lithuania"
+
+msgid "Load average"
+msgstr "Terhelési átlag"
+
+msgid "Loading ..."
+msgstr "Betöltés ..."
+
+msgid "Local"
+msgstr "Helyi"
+
+msgid "Local master browser"
+msgstr "Helyi főtallózó"
+
+msgid "Location"
+msgstr "Terület"
+
+msgid "Location information, e.g. physical location of this system."
+msgstr "Területi információ, pl. a rendszer fizikai elhelyezkedése."
+
+msgid "Log level"
+msgstr "Naplózó szint"
+
+#, c-format
+msgid "Logical volume %s [%s, %s]"
+msgstr "Logikai kötet %s [%s, %s]"
+
+msgid "Login"
+msgstr "Bejelentkezés"
+
+msgid "Logout"
+msgstr "Kijelentkezés"
+
+msgid "Logs"
+msgstr "Naplók"
+
+msgid "Long self-test"
+msgstr "Hosszú önteszt"
+
+msgid "Luxembourg"
+msgstr "Luxembourg"
+
+msgid "MAC address"
+msgstr "MAC cím"
+
+msgid "MII monitoring frequency"
+msgstr "MII ellenőrzési gyakorisága"
+
+msgid "MTU"
+msgstr "MTU"
+
+msgid "Macao S.A.R., China"
+msgstr "Macao S.A.R., China"
+
+msgid "Macedonia"
+msgstr "Macedonia"
+
+msgid "Madagascar"
+msgstr "Madagascar"
+
+msgid "Mail Notification"
+msgstr "E-mail Értesítés"
+
+msgid "Maintainer"
+msgstr "Karbantartó"
+
+msgid "Malawi"
+msgstr "Malawi"
+
+msgid "Malaysia"
+msgstr "Malaysia"
+
+msgid "Maldives"
+msgstr "Maldives"
+
+msgid "Mali"
+msgstr "Mali"
+
+msgid "Malta"
+msgstr "Malta"
+
+msgid "Manual"
+msgstr "Kézi"
+
+msgid "March"
+msgstr "Március"
+
+msgid "Marshall Islands"
+msgstr "Marshall Islands"
+
+msgid "Martinique"
+msgstr "Martinique"
+
+msgid "Masquerade address"
+msgstr "Álcím"
+
+msgid ""
+"Match if the destination port is one of the given ports. E.g. 21 or !443 or "
+"1024-65535."
+msgstr "Megfelelő, ha a cél portja ezek közül az egyiket kapta. Pl. 21 vagy !443 vagy 1024-65535."
+
+msgid ""
+"Match if the source port is one of the given ports. E.g. 21 or !443 or "
+"1024-65535."
+msgstr "Megfelelő, ha a forrás portja ezek közül az egyiket kapta. Pl. 21 vagy !443 vagy 1024-65535."
+
+msgid "Mauritania"
+msgstr "Mauritania"
+
+msgid "Mauritius"
+msgstr "Mauritius"
+
+msgid "Max. clients"
+msgstr "Max. kliensek"
+
+msgid "Max. connections"
+msgstr "Max. kapcsolatok"
+
+msgid "Max. connections per host"
+msgstr "Max. kapcsolatok hosztonként"
+
+msgid "Max. login attempts"
+msgstr "Max. bejelentkezési kísérletek"
+
+msgid "Maximum download rate (KiB/s)"
+msgstr "Maximum letöltési sebesség (KiB/s)"
+
+msgid ""
+"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
+"timer completely (clients can stay connected for ever, without sending "
+"data)."
+msgstr "Maximális készenléti idő másodpercben. A 0 beállítás teljesen leállítja a készenléti időmérőt (a kliensek bármeddig kapcsolódva lehetnek anélkül , hogy adatot küldenének)."
+
+msgid "Maximum number of allowed password attempts before disconnection."
+msgstr "Jelszavas kísérletek maximális számának engedélyezése szétkapcsolás előtt."
+
+msgid "Maximum number of connections per IP (0 = unlimited)."
+msgstr "Kapcsolatok/IP maximális száma (0 = végtelen)."
+
+msgid "Maximum number of simultaneous clients."
+msgstr "Egyidejűleg belépett kliensek maximális száma."
+
+msgid "Maximum performance, maximum acoustic output"
+msgstr "Maximális teljesítmény, Maximális zajszint"
+
+msgid "Maximum upload rate (KiB/s)"
+msgstr "Maximum feltöltési sebesség (KiB/s)"
+
+msgid "Maximum {0} selected item(s) allowed"
+msgstr "Maximum {0} kiválasztott tétel engedélyezett"
+
+msgid "May"
+msgstr "Május"
+
+msgid "Mayotte"
+msgstr "Mayotte"
+
+msgid "Members"
+msgstr "Tagok"
+
+msgid "Memory usage"
+msgstr "Memória használat"
+
+msgid "Messages"
+msgstr "Üzenetek"
+
+msgid "Method"
+msgstr "Típus"
+
+msgid "Metropolitan France"
+msgstr "Metropolitan France"
+
+msgid "Mexico"
+msgstr "Mexico"
+
+msgid "MiB"
+msgstr "MiB"
+
+msgid "Micronesia"
+msgstr "Micronesia"
+
+msgid "Midway Islands"
+msgstr "Midway Islands"
+
+msgid "Minimum"
+msgstr "Minimum"
+
+msgid "Minimum performance, Minimum acoustic output"
+msgstr "Minimális teljesítmény, Minimális zajszint"
+
+msgid "Minimum {0} selected item(s) required"
+msgstr "Minimum {0} kiválasztott tétel szükséges"
+
+msgid "Minute"
+msgstr "Perc"
+
+msgid "Mirror"
+msgstr "Tükör"
+
+msgid "Missing"
+msgstr "Hiányzó"
+
+msgid "Mode"
+msgstr "Mód"
+
+msgid "Model"
+msgstr "Modell"
+
+msgid "Modify account"
+msgstr "Hozzáférés módosítása"
+
+msgid "Modify shared folder ACL"
+msgstr "Megosztott ACL mappa módosítása"
+
+msgid "Modules"
+msgstr "Modulok"
+
+msgid "Moldova"
+msgstr "Moldova"
+
+msgid "Monaco"
+msgstr "Monaco"
+
+msgid "Monday"
+msgstr "Hétfő"
+
+msgid "Mongolia"
+msgstr "Mongolia"
+
+msgid "Monitoring"
+msgstr "Ellenőrzés"
+
+msgid "Month"
+msgstr "Hónap"
+
+msgid "Montserrat"
+msgstr "Montserrat"
+
+msgid "Morocco"
+msgstr "Morocco"
+
+msgid "Mount"
+msgstr "Csatolás"
+
+msgid "Mounted"
+msgstr "Csatolva"
+
+msgid "Mozambique"
+msgstr "Mozambique"
+
+msgid "Myanmar"
+msgstr "Myanmar"
+
+msgid "NFS"
+msgstr "NFS"
+
+msgid "Name"
+msgstr "Név"
+
+msgid "Namibia"
+msgstr "Namibia"
+
+msgid "Nauru"
+msgstr "Nauru"
+
+msgid "Nepal"
+msgstr "Nepal"
+
+msgid "Netherlands"
+msgstr "Netherlands"
+
+msgid "Netherlands Antilles"
+msgstr "Netherlands Antilles"
+
+msgid "Netmask"
+msgstr "Netmaszk"
+
+msgid "Network"
+msgstr "Hálózat"
+
+#, c-format
+msgid "Network interface '%s' already exists"
+msgstr "'%s' hálózati interfész már létezik"
+
+msgid "Neutral Zone"
+msgstr "Semleges Övezet"
+
+msgid "Never"
+msgstr "Soha"
+
+msgid "New Caledonia"
+msgstr "New Caledonia"
+
+msgid "New Zealand"
+msgstr "New Zealand"
+
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+msgid "Niger"
+msgstr "Niger"
+
+msgid "Nigeria"
+msgstr "Nigeria"
+
+msgid "Niue"
+msgstr "Niue"
+
+msgid "No"
+msgstr "Nem"
+
+msgid "No access"
+msgstr "Nincs hozzáférés"
+
+msgid "No authentication and no privacy"
+msgstr "Nincs hitelesítés és nincs titkosítás"
+
+msgid "No certificate request"
+msgstr "Nincs tanúsítvány kérés"
+
+msgid "No items to display"
+msgstr "Nincsenek megjeleníthető tételek"
+
+msgid "No log entries to display"
+msgstr "Nincsenek megjeleníthető napló bejegyzések"
+
+msgid "No session reuse required"
+msgstr "Nincs szükség munkamenet újra használathoz"
+
+msgid "No users connected"
+msgstr "Nincsenek felhasználók kapcsolódva"
+
+msgid "No users defined"
+msgstr "Nincsenek felhasználók létrehozva"
+
+msgid "None"
+msgstr "Nincs"
+
+msgid "Norfolk Island"
+msgstr "Norfolk Island"
+
+msgid "Normal"
+msgstr "Normál"
+
+msgid "North Korea"
+msgstr "North Korea"
+
+msgid "North Vietnam"
+msgstr "North Vietnam"
+
+msgid "Northern Mariana Islands"
+msgstr "Northern Mariana Islands"
+
+msgid "Norway"
+msgstr "Norway"
+
+msgid "Not ICMP"
+msgstr "Nem ICMP"
+
+msgid "Not TCP"
+msgstr "Nem TCP"
+
+msgid "Not UDP"
+msgstr "Nem UDP"
+
+msgid "November"
+msgstr "November"
+
+msgid "Null passwords"
+msgstr "Üres jelszavak"
+
+msgid "Num"
+msgstr "Szám"
+
+msgid "Number of servers"
+msgstr "Szerverek száma"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Occurrence"
+msgstr "Előfordulás"
+
+msgid "October"
+msgstr "Október"
+
+msgid "Offline immediate test"
+msgstr "Azonnali offline teszt"
+
+msgid "Oman"
+msgstr "Oman"
+
+msgid "Online"
+msgstr "Online"
+
+msgid "Options"
+msgstr "Opciók"
+
+msgid "Organization Name"
+msgstr "Szervezet Név"
+
+msgid "Organizational Unit"
+msgstr "Szervezeti Egység"
+
+msgid "Others"
+msgstr "Mások"
+
+msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
+msgstr "Kimenő SMTP levél szerver címe, pl. smtp.mycorp.com."
+
+msgid "Outlying Oceania"
+msgstr "Outlying Oceania"
+
+msgid "Overview"
+msgstr "Áttekintés"
+
+msgid "Owner"
+msgstr "Tulajdonos"
+
+msgid "Pacific Islands Trust Territory"
+msgstr "Pacific Islands Trust Territory"
+
+msgid "Package information"
+msgstr "Csomag információ"
+
+msgid "Pakistan"
+msgstr "Pakistan"
+
+msgid "Palau"
+msgstr "Palau"
+
+msgid "Palestinian Territory"
+msgstr "Palestinian Territory"
+
+msgid "Panama"
+msgstr "Panama"
+
+msgid "Panama Canal Zone"
+msgstr "Panama Canal Zone"
+
+msgid "Papua New Guinea"
+msgstr "Papua New Guinea"
+
+msgid "Paraguay"
+msgstr "Paraguay"
+
+msgid "Passive FTP"
+msgstr "Passzív FTP"
+
+msgid "Password"
+msgstr "Jelszó"
+
+msgid "Password authentication"
+msgstr "Jelszó hitelesítés"
+
+msgid "Passwords don't match"
+msgstr "Jelszavak nem egyeznek meg"
+
+msgid "Paste a RSA certificate in X.509 PEM format here."
+msgstr "Illessz be egy X.509 PEM formátumú RSA tanúsítványt ide."
+
+msgid "Paste an private RSA key in X.509 PEM format here."
+msgstr "Illessz be egy X.509 PEM formátumú privát RSA kulcsot ide."
+
+msgid "Path"
+msgstr "Útvonal"
+
+msgid "People's Democratic Republic of Yemen"
+msgstr "People's Democratic Republic of Yemen"
+
+msgid "Perform a trial run with no changes made"
+msgstr ""
+
+msgid "Period of validity"
+msgstr "Érvényesség ideje"
+
+msgid "Permissions"
+msgstr "Jogosultságok"
+
+msgid "Permissions of group."
+msgstr "Csoport jogosultságok"
+
+msgid "Permissions of others (e.g. anonymous FTP users)."
+msgstr "Mások jogosultságai (pl. anonymous FTP felhasználók)"
+
+msgid "Permissions of owner."
+msgstr "Tulajdonos jogosultságok"
+
+msgid "Permit root login"
+msgstr "Root bejelentkezés engedélyezése"
+
+msgid "Permit to do SSH tunneling"
+msgstr "SSH átjáró engedélyezése"
+
+msgid "Peru"
+msgstr "Peru"
+
+msgid "Philippines"
+msgstr "Philippines"
+
+msgid "Physical Disks"
+msgstr "Fizikai Lemezek"
+
+msgid "Pitcairn"
+msgstr "Pitcairn"
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/exports' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Kérlek tekintsd meg a <a href='http://linux.die.net/man/5/exports' target='_blank'>kézikönyvet</a> a további részletekért."
+
+msgid ""
+"Please check the <a href='http://www.openbsd.org/cgi-"
+"bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
+" more details."
+msgstr "Kérlek tekintsd meg a <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>kézikönyvet</a> a további részletekért."
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Kérlek tekintsd meg a <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>kézikönyvet</a> a további részletekért."
+
+msgid ""
+"Please check the <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Kérlek tekintsd meg a <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>kézikönyvet</a> a további részletekért."
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Kérlek tekintsd meg a <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>kézikönyvet</a> a további részletekért."
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Kérlek tekintsd meg a <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>kézikönyvet</a> a további részletekért."
+
+msgid ""
+"Please check the <a "
+"href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Kérlek tekintsd meg a <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>kézikönyvet</a> a további részletekért."
+
+msgid "Please choose the method to wipe the device or 'Cancel' to abort."
+msgstr ""
+
+msgid "Please first select a volume."
+msgstr "Kérlek előbb válassz ki egy kötetet."
+
+msgid ""
+"Please note that no communication with the system is possible during this "
+"test."
+msgstr "Kérlek vedd figyelembe, hogy a teszt során nem lesz kommunikáció a rendszerrel."
+
+msgid "Please reload the page to let the changes take effect."
+msgstr "Kérlek frissítsd az oldalt a változások érvénybe lépéséhez."
+
+msgid "Please wait ..."
+msgstr "Kérlek várj ..."
+
+msgid "Plugins"
+msgstr "Bővítmények"
+
+msgid "Poland"
+msgstr "Poland"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Port to listen on."
+msgstr "Beállítás erre a portra."
+
+msgid "Portugal"
+msgstr "Portugal"
+
+msgid "Power Management"
+msgstr "Energia Gazdálkodás"
+
+msgid "Power button"
+msgstr "Bekapcsoló gomb"
+
+msgid "Power mode"
+msgstr "Energia mód"
+
+msgid "Preserve ACLs"
+msgstr "ACL-ek megőrzése"
+
+msgid "Preserve extended attributes"
+msgstr "Kiterjesztett attribútumok megőrzése"
+
+msgid "Preserve modification times"
+msgstr "Módosított idő megőrzése"
+
+msgid "Preserve permissions"
+msgstr "Jogosultságok megőrzése"
+
+msgid ""
+"Prevent a disk from being spun-up when it is periodically "
+"polled.<br/><br/><ul><li>Never - Poll (check) the device regardless of its "
+"power mode. This may cause a disk which is spun-down to be spun-up when it "
+"is checked.</li><li>Sleep - Check the device unless it is in SLEEP "
+"mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY "
+"mode. In these modes most disks are not spinning, so if you want to prevent "
+"a disk from spinning up each poll, this is probably what you "
+"want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
+" mode. In the IDLE state, most disks are still spinning, so this is probably"
+" not what you want.</li></ul>"
+msgstr "Lemez felpörgésének megakadályozása, az időnkénti elérési lekérdezés miatt.<br/><br/><ul><li>Soha - Lekérdezés (ellenőrzés) figyelmen kívül hagyja a lemez energiagazdálkodási módját. Ez okozhatja a lemez felpörgését és leállását.</li><li>Alvóállapot - Lemez ellenőrzése, kivéve ha ALVÓ üzemmódba van.</li><li>Készenlét - Lemez ellenőrzése, kivéve ha ALVÓ vagy KÉSZENLÉTI üzemmódba van. Ebben a módban a legtöbb lemez nem pörög, ezért ha megakarod akadályozni a lemez felpörgését az egyes lekérdezések miatt, valószínűleg erre a módra van szükséged.</li><li>Tétlen - Lemez ellenőrzése, kivéve ha ALVÓ,  KÉSZENLÉTI vagy TÉTLEN üzemmódba van. Tétlen állapotban a legtöbb lemez pörög, valószínűleg ez nem az amit akarsz.</li></ul>"
+
+msgid "Primary"
+msgstr "Elsődleges"
+
+msgid "Primary email"
+msgstr "Elsődleges email cím"
+
+msgid "Privacy passphrase"
+msgstr "Titkosítási jelszó"
+
+msgid "Privacy type"
+msgstr "Titkosítás típusa"
+
+msgid "Private key"
+msgstr "Privát kulcs"
+
+msgid "Privilege"
+msgstr "Privilégium"
+
+msgid "Privileges"
+msgstr "Jogosultságok"
+
+msgid "Processes"
+msgstr "Folyamatok"
+
+msgid "Processor"
+msgstr "Processzor"
+
+msgid "Protocol"
+msgstr "Protokoll"
+
+msgid "Public"
+msgstr "Nyilvános"
+
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+msgid "Pull"
+msgstr "Húzás"
+
+msgid "Push"
+msgstr "Tolás"
+
+msgid "Qatar"
+msgstr "Qatar"
+
+msgid "Quick"
+msgstr ""
+
+msgid "Quiet"
+msgstr "Csendes"
+
+msgid "Quota"
+msgstr "Kvóta"
+
+msgid "RAID 10"
+msgstr "RAID 10"
+
+msgid "RAID 5"
+msgstr "RAID 5"
+
+msgid "RAID 6"
+msgstr "RAID 6"
+
+msgid "RAID Management"
+msgstr "RAID Kezelés"
+
+msgid "RPC error"
+msgstr "RPC hiba"
+
+msgid "RSync server"
+msgstr "RSync szerver"
+
+msgid "Ranges of numbers are not allowed"
+msgstr "A számok tartományai nem megengedettek"
+
+msgid "Raw value"
+msgstr "Raw érték"
+
+msgid "Read only"
+msgstr "Csak olvasható"
+
+msgid "Read-only"
+msgstr "Csak olvasható"
+
+msgid "Read/Write"
+msgstr "Olvasás/Írás"
+
+msgid "Reboot"
+msgstr "Újraindítás"
+
+msgid "Recipient"
+msgstr "Címzett"
+
+msgid "Recover"
+msgstr "Helyreállítás"
+
+msgid "Recurse into directories"
+msgstr "Ismétlődés könyvtárakban"
+
+msgid "Recursive"
+msgstr "Rekurzivitás"
+
+msgid "Recycle bin"
+msgstr "Lomtár"
+
+msgid "Refresh"
+msgstr "Frissítés"
+
+msgid "Remaining"
+msgstr "Hátralévő"
+
+msgid "Remote"
+msgstr "Távoli"
+
+msgid "Remote syslog"
+msgstr "Távoli rendszernapló"
+
+msgid "Replace"
+msgstr "Eltávolítás"
+
+msgid "Replace all existing permissions"
+msgstr "Minden létező jogosultság eltávolítása"
+
+msgid ""
+"Report if the temperature had changed by at least N degrees Celsius since "
+"last report. Set to 0 to disable this report."
+msgstr "Jelzés, ha a hőmérséklet legalább N Celsius fokkal megváltozott az utolsó jelzés óta. A 0 beállítás letiltja a jelzést."
+
+msgid ""
+"Report if the temperature is greater or equal than N degrees Celsius. Set to"
+" 0 to disable this report."
+msgstr "Jelzés, ha a hőmérséklet nagyobb vagy egyenlő N Celsius fokkal. A 0 beállítás letiltja a jelzést."
+
+msgid "Repository"
+msgstr "Gyűjtemény"
+
+msgid "Require valid shell"
+msgstr "Érvényes héj lekérése"
+
+msgid "Required"
+msgstr "Kötelező"
+
+msgid "Reset"
+msgstr "Visszaállítás"
+
+msgid "Reset WebGUI state"
+msgstr "WebGUI állapot visszaállítása"
+
+msgid "Resize"
+msgstr "Átméretezés"
+
+msgid "Restore"
+msgstr "Visszaállítás"
+
+msgid "Restore configuration"
+msgstr "Konfiguráció visszaállítása"
+
+msgid "Restore configuration..."
+msgstr "Konfiguráció visszaállítása..."
+
+msgid "Resume"
+msgstr "Folytatás"
+
+msgid "Retry timeout"
+msgstr "Újbóli időtúllépés"
+
+msgid "Reunion"
+msgstr "Újraegyesítés"
+
+msgid "Reverse DNS lookup"
+msgstr "Fordított DNS figyelés"
+
+msgid "Romania"
+msgstr "Romania"
+
+msgid "Rsync"
+msgstr "Rsync"
+
+msgid "Rsync - Jobs"
+msgstr "Rsync - Feladatok"
+
+msgid "Rsync - Server"
+msgstr "Rsync - Szerver"
+
+msgid "Run"
+msgstr "Futtatás"
+
+msgid "Running"
+msgstr "Futás"
+
+msgid "Russia"
+msgstr "Russia"
+
+msgid "Rwanda"
+msgstr "Rwanda"
+
+msgid "S.M.A.R.T."
+msgstr "S.M.A.R.T."
+
+msgid "S.M.A.R.T. informations"
+msgstr "S.M.A.R.T. információk"
+
+msgid "S.M.A.R.T. monitoring must be activated for the selected device."
+msgstr "S.M.A.R.T. ellenőrzésnek aktívnak kell lennie a kiválasztott meghajtón."
+
+msgid "SMB/CIFS"
+msgstr "SMB/CIFS"
+
+msgid "SMTP port"
+msgstr "SMTP port"
+
+msgid "SMTP server"
+msgstr "SMTP szerver"
+
+msgid "SMTP settings"
+msgstr "SMTP beállítások"
+
+msgid "SNMP"
+msgstr "SNMP"
+
+msgid "SNMP version 1/2c"
+msgstr "SNMP verzió 1/2c"
+
+msgid "SNMP version 3"
+msgstr "SNMP verzió 3"
+
+msgid "SSH"
+msgstr "SSH"
+
+msgid "SSL/TLS"
+msgstr "SSL/TLS"
+
+msgid "Saint Helena"
+msgstr "Saint Helena"
+
+msgid "Saint Kitts and Nevis"
+msgstr "Saint Kitts and Nevis"
+
+msgid "Saint Lucia"
+msgstr "Saint Lucia"
+
+msgid "Saint Pierre and Miquelon"
+msgstr "Saint Pierre and Miquelon"
+
+msgid "Saint Vincent and the Grenadines"
+msgstr "Saint Vincent and the Grenadines"
+
+msgid "Samoa"
+msgstr "Samoa"
+
+msgid "San Marino"
+msgstr "San Marino"
+
+msgid "Sao Tome and Principe"
+msgstr "Sao Tome and Principe"
+
+msgid "Saturday"
+msgstr "Szombat"
+
+msgid "Saudi Arabia"
+msgstr "Saudi Arabia"
+
+msgid "Saving ..."
+msgstr "Mentés ..."
+
+msgid "Scan"
+msgstr "Keresés"
+
+msgid "Scanning for new devices ..."
+msgstr "Új meghajtók keresése ..."
+
+msgid "Scheduled tests"
+msgstr "Ütemezett tesztek"
+
+msgid "Secondary"
+msgstr "Másodlagos"
+
+msgid "Secondary email"
+msgstr "Másodlagos email cím"
+
+msgid "Seconds"
+msgstr "Másodperc"
+
+msgid "Secure"
+msgstr ""
+
+msgid "Secure connection"
+msgstr "Biztonságos kapcsolat"
+
+msgid "Security level"
+msgstr "Biztonsági szint"
+
+msgid "Select a SSL certificate ..."
+msgstr "Válassz ki egy SSL tanúsítványt ..."
+
+msgid "Select a country ..."
+msgstr "Válassz ki egy országot ..."
+
+msgid "Select a device ..."
+msgstr "Válassz ki egy meghajtót ..."
+
+msgid "Select a directory"
+msgstr "Válassz ki egy könyvtárat"
+
+msgid "Select a filesystem ..."
+msgstr "Válassz ki egy fájlrendszert ..."
+
+msgid "Select a group name..."
+msgstr "Válassz ki egy csoport nevet..."
+
+msgid "Select a language ..."
+msgstr "Válassz ki egy nyelvet ..."
+
+msgid "Select a primary device ..."
+msgstr "Válassz ki egy elsődleges meghajtót ..."
+
+msgid "Select a protocol ..."
+msgstr "Válassz ki egy protokollt ..."
+
+msgid "Select a shared folder ..."
+msgstr "Válassz ki egy megosztott mappát ..."
+
+msgid "Select a shell ..."
+msgstr "Válassz ki egy héjat ..."
+
+msgid "Select a user name..."
+msgstr "Válassz ki egy felhasználó nevet..."
+
+msgid "Select a volume ..."
+msgstr "Válassz ki egy kötetet ..."
+
+msgid "Select devices to be added to the RAID device"
+msgstr "Kiválasztott meghajtók hozzáadása a RAID tömbhöz"
+
+msgid "Select or enter a user name ..."
+msgstr "Válassz ki vagy írj be egy felhasználó nevet"
+
+msgid "Self-test logs"
+msgstr "Önteszt naplók"
+
+msgid "Send command output via email"
+msgstr "Parancs kimenet elküldése emailben"
+
+msgid "Send email"
+msgstr "Email elküldése"
+
+msgid "Send test email"
+msgstr "Teszt email elküldése"
+
+msgid "Sender"
+msgstr "Küldő"
+
+msgid "Sending test email ..."
+msgstr "Teszt email elküldése ..."
+
+msgid "Senegal"
+msgstr "Senegal"
+
+msgid "September"
+msgstr "Szeptember"
+
+msgid "Serbia And Montenegro"
+msgstr "Serbia And Montenegro"
+
+msgid "Serial Number"
+msgstr "Sorozatszám"
+
+msgid "Serial number"
+msgstr "Sorozatszám"
+
+msgid "Server"
+msgstr "Szerver"
+
+msgid "Service"
+msgstr "Szolgáltatás"
+
+msgid "Service disabled"
+msgstr "Szolgáltatás letiltva"
+
+msgid "Services"
+msgstr "Szolgáltatások"
+
+msgid "Session expired"
+msgstr "A munkamenet lejárt"
+
+msgid "Session not authenticated"
+msgstr "Munkamenet nem hitelesített"
+
+msgid "Session timeout"
+msgstr "Munkamenet lejárta"
+
+msgid "Set browseable"
+msgstr "Beállítás böngészhetőnek"
+
+msgid "Set read only"
+msgstr "Beállítás csak olvashatónak"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions"
+msgstr "Célállomás jogosultságai egyezzenek meg a forrás jogosultságaival."
+
+msgid "Set write only"
+msgstr "Beállítás csak írhatónak"
+
+msgid "Sets the interval between disk checks to N seconds."
+msgstr "Lemez ellenőrzések közti N másodperces intervallum beállítása."
+
+msgid "Settings"
+msgstr "Beállítások"
+
+#, c-format
+msgid "Settings already exist for device '%s'"
+msgstr "A beállítások már léteznek a(z) '%s' meghajtón"
+
+msgid "Seychelles"
+msgstr "Seychelles"
+
+msgid "Shared Folders"
+msgstr "Megosztott Mappák"
+
+msgid "Shared folder"
+msgstr "Megosztott mappa"
+
+msgid "Shared folder must not be equal"
+msgstr "Megosztott mappa nem lehet egyenlő"
+
+msgid "Shares"
+msgstr "Megosztások"
+
+msgid "Shell"
+msgstr "Héj"
+
+msgid "Short self-test"
+msgstr "Rövid önteszt"
+
+msgid "Show certificate"
+msgstr "Tanúsítvány mutatása"
+
+msgid "Show details"
+msgstr "Részletek megjelenítése"
+
+msgid "Show password"
+msgstr "Jelszó megjelenítése"
+
+msgid "Show privileges"
+msgstr "Jogosultságok megjelenítése"
+
+msgid "Shutdown"
+msgstr "Leállítás"
+
+msgid "Shutdown the system when pressing the power button."
+msgstr "Rendszer leállítása a bekapcsológomb megnyomásakor."
+
+msgid "Shutdown/Reboot schedule"
+msgstr "Leállítás/Újraindítás ütemezése"
+
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+msgid "Singapore"
+msgstr "Singapore"
+
+msgid "Size"
+msgstr "Méret"
+
+msgid "Slaves"
+msgstr "Kiszolgálók"
+
+msgid "Sleep"
+msgstr "Alvó állapot"
+
+msgid "Slovakia"
+msgstr "Slovakia"
+
+msgid "Slovenia"
+msgstr "Slovenia"
+
+msgid "Solomon Islands"
+msgstr "Solomon Islands"
+
+msgid "Somalia"
+msgstr "Somalia"
+
+msgid "Source"
+msgstr "Forrás"
+
+msgid ""
+"Source address can be either a network IP address (with /mask), a IP range "
+"or a plain IP address. A '!' argument before the address specification "
+"inverts the sense of the address."
+msgstr "Forrás címe lehet egy hálózati IP cím (/mask-al ellátva), egy IP tartomány vagy egy egyszerű IP cím. A címe előtti \"!\" argumentum megfordítja ennek a címnek a jelentését."
+
+msgid "Source port"
+msgstr "Forrás port"
+
+msgid "Source server"
+msgstr "Forrás szerver"
+
+msgid "Source shared folder"
+msgstr "Forrás mappa"
+
+msgid "South Africa"
+msgstr "South Africa"
+
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "South Georgia and the South Sandwich Islands"
+
+msgid "South Korea"
+msgstr "South Korea"
+
+msgid "Spain"
+msgstr "Spain"
+
+msgid "Specifies how many server threads to create."
+msgstr "Meghatározza, hogy hány szerver szálat lehet létrehozni."
+
+msgid "Specifies one of the bonding policies."
+msgstr "Megadja az egyik kötés eljárásmódjait."
+
+msgid "Specifies the MII link monitoring frequency in milliseconds."
+msgstr "MII link ellenőrzési gyakoriság meghatározása milliszekundumban."
+
+msgid ""
+"Specifies the amount of time, in seconds, between checking and updating the "
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
+msgstr "Az IP cím feloldás ellenőrzésének és frissítésének megadása másodpercben az ál címen keresztül. A 0 beállítás letiltja az opciót."
+
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
+msgstr "Maximálisan engedélyezett blokkméret meghatározása. A megengedett tartomány mérete 512 és 65464 között van."
+
+msgid "Specifies the time in hh:mm:ss after which the ban expires."
+msgstr "Kitiltási idő lejárásának meghatározása óó:pp:mm formátumban."
+
+msgid ""
+"Specifies the time interval in hh:mm:ss in which the given number of "
+"occurrences must happen to add the ban."
+msgstr "Idő intervallum meghatározása óó:pp:mm formátumban, melynél a kitiltáshoz a megadott számú esemény előfordulásnak kell történnie."
+
+msgid ""
+"Specifies the time, in milliseconds, to wait before disabling a slave after "
+"a link failure has been detected."
+msgstr "Az idő meghatározása milliszekundumban, hogy mennyit várjon, mielőtt letilt egy hibás linket az észlelése után."
+
+msgid ""
+"Specifies the time, in milliseconds, to wait before enabling a slave after a"
+" link recovery has been detected."
+msgstr "Az idő meghatározása milliszekundumban, hogy mennyit várjon, mielőtt engedélyez egy megjavított linket az észlelése után."
+
+msgid "Specifies whether it is allowed to login as superuser directly"
+msgstr "Meghatározza, hogy engedélyezve legyen-e a belépés közvetlenül rendszergazdaként."
+
+msgid "Specifies whether it is allowed to login as superuser."
+msgstr "Rendszergazdaként való bejelentkezés engedélyezése."
+
+msgid ""
+"Specifies whether to monitor the system status and select the most "
+"appropriate CPU level."
+msgstr "Rendszer állapot ellenőrzése és a legoptimálisabb CPU szint kiválasztása."
+
+msgid "Specifies which slave is the primary device."
+msgstr "Annak meghatározása, melyik kiszolgáló legyen az elsődleges eszköz."
+
+msgid "Spindown time"
+msgstr "Leállítási idő"
+
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+msgid "Standby"
+msgstr "Készenlét"
+
+msgid "Start"
+msgstr "Indítás"
+
+msgid "State"
+msgstr "Állapot"
+
+msgid "State/Province"
+msgstr "Állapot/Tartomány"
+
+msgid "Static"
+msgstr "Statikus"
+
+msgid "Status"
+msgstr "Állapot"
+
+msgid "Stop"
+msgstr "Leállítás"
+
+msgid "Storage"
+msgstr "Tárolás"
+
+msgid "Store DOS attributes"
+msgstr "DOS attribútumok tárolása"
+
+msgid "Stripe"
+msgstr "Sáv"
+
+msgid "Success"
+msgstr "Sikeres"
+
+msgid "Sudan"
+msgstr "Sudan"
+
+msgid "Sunday"
+msgstr "Vasárnap"
+
+msgid "Support"
+msgstr "Segítség"
+
+msgid "Suppress non-error messages"
+msgstr "Nem hibaüzenetek kihagyása"
+
+msgid "Suriname"
+msgstr "Suriname"
+
+msgid "Svalbard and Jan Mayen"
+msgstr "Svalbard and Jan Mayen"
+
+msgid "Swaziland"
+msgstr "Swaziland"
+
+msgid "Sweden"
+msgstr "Sweden"
+
+msgid "Switzerland"
+msgstr "Switzerland"
+
+msgid "Syria"
+msgstr "Syria"
+
+msgid "Syslog"
+msgstr "Rendszer napló"
+
+msgid "System"
+msgstr "Rendszer"
+
+msgid "System Information"
+msgstr "Rendszer Információ"
+
+msgid "System Logs"
+msgstr "Rendszer Naplók"
+
+msgid "System time"
+msgstr "Rendszer idő"
+
+msgid "System user/group"
+msgstr "Rendszer felhasználó/csoport"
+
+msgid "TCP forwarding"
+msgstr "TCP átengedés"
+
+msgid "TFTP"
+msgstr "TFTP"
+
+msgid "Taiwan"
+msgstr "Taiwan"
+
+msgid "Tajikistan"
+msgstr "Tajikistan"
+
+msgid "Tanzania"
+msgstr "Tanzania"
+
+msgid "Temperature"
+msgstr "Hőmérséklet"
+
+msgid "Temperature monitoring"
+msgstr "Hőmérséklet figyelés"
+
+msgid "Test description"
+msgstr "Teszt leírás"
+
+msgid "Thailand"
+msgstr "Thailand"
+
+msgid "The NT description field."
+msgstr "NT leírás mező."
+
+msgid "The RSA key length."
+msgstr "Az RSA kulcs hossza."
+
+msgid "The SSL certificate."
+msgstr "Az SSL tanúsítvány."
+
+msgid "The changes have been applied "
+msgstr "A változások alkalmazva lettek"
+
+msgid "The changes have been applied successfully."
+msgstr "A változások sikeresen alkalmazva lettek."
+
+msgid "The default SMTP mail server port, e.g. 25 or 587."
+msgstr "Az alapértelmezett SMTP levél szerver portja, pl. 25 vagy 587."
+
+msgid ""
+"The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
+"rsync://[USER@]HOST[:PORT]/DEST."
+msgstr "A távoli cél szerver, pl. [FELHASZNÁLÓ@]HOSZT:CÉL, [FELHASZNÁLÓ@]HOSZT::CÉL vagy rsync://[FELHASZNÁLÓ@]HOSZT[:PORT]/CÉL."
+
+msgid "The destination shared folder."
+msgstr "Megosztott mappa célállomása."
+
+#, c-format
+msgid "The field '%s' contains forbidden "
+msgstr "A '%s' mező tartalma tiltott."
+
+msgid "The file mode of the shared folder path."
+msgstr "Megosztott mappa útvonalának fájl elérési módja"
+
+#, c-format
+msgid "The group '%s' does not exist"
+msgstr "'%s' csoport nem létezik"
+
+msgid "The hostname is a label that identifies the system to the network."
+msgstr "A hosztnév egy címke, ami azonosítja a rendszert a hálózaton."
+
+msgid "The location of the files to share."
+msgstr "A megosztás fájljainak helye."
+
+msgid ""
+"The location of the files to share. The share will be accessible at "
+"/export/<name>."
+msgstr "A fájlok helye a megosztáshoz. A megosztás elérhető lesz az /export/<név> címen."
+
+msgid "The location of the user home directories."
+msgstr "A felhasználói saját könyvtár útvonala."
+
+msgid "The name of the share."
+msgstr "A megosztás neve"
+
+msgid "The number of days the certificate is valid for."
+msgstr "A tanúsítvány érvényességének ideje."
+
+msgid "The password contains invalid characters"
+msgstr "A jelszó érvénytelen karaktereket tartalmaz"
+
+msgid ""
+"The password that is used for access via rsync daemon. Note, this is not "
+"used for remote shell transport such as ssh."
+msgstr "Hozzáféréshez használható jelszó az rsync démon számára. Megjegyzés, ez nem használható távoli héj műveletekre, mint amilyen az ssh."
+
+msgid ""
+"The path of the folder to share. The specified folder will be created if it "
+"does not already exist."
+msgstr "A mappa útvonala a megosztáshoz A megadott mappa létre fog jönni, ha az még nem létezik."
+
+msgid ""
+"The permissions on new files and directories are normally governed by create"
+" mask and directory mask but the inherit permissions parameter overrides "
+"this. This can be particularly useful on systems with many users to allow a "
+"single share to be used flexibly by each user."
+msgstr "A jogosultságok új fájlokon és könyvtárakon általában szabályozva vannak létrehozó maszk és könyvtár maszk által, de az örökölt jogosultságok paraméterei felülírják ezt. Ez különösen hasznos lehet több felhasználós rendszereknél, hogy egy megosztás rugalmasan használható legyen az egyes felhasználóknak."
+
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr "Annak a követelménye, hogy az SSL munkamenettől a vezérlő kapcsolat újra használatához nincs szükség adat kapcsolatokra."
+
+msgid "The service name."
+msgstr "A szolgáltatás neve."
+
+msgid "The session timeout time in minutes."
+msgstr "A munkamenet túllépésének ideje percben."
+
+msgid "The shared folder is already used by another share"
+msgstr "A megosztott mappa már használva van egy másik megosztásban"
+
+msgid ""
+"The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
+"rsync://[USER@]HOST[:PORT]/SRC."
+msgstr "A távoli forrás szerver, pl. [FELHASZNÁLÓ@]HOSZT:FORRÁS, [FELHASZNÁLÓ@]HOSZT::FORRÁS vagy rsync://[FELHASZNÁLÓ@]HOSZT[:PORT]/FORRÁS."
+
+msgid "The source shared folder."
+msgstr "Megosztott mappa forrása."
+
+msgid "The specified quota exceeds the max. possible value of 4TiB."
+msgstr "A megadott kvóta meghaladja a max. lehetséges 4TiB értéket."
+
+msgid "The system will reboot now."
+msgstr "A rendszer most újraindul."
+
+msgid "The system will reboot now. This may take some time ..."
+msgstr "A rendszer most újraindul. Ez eltarthat egy ideig ..."
+
+msgid "The test email has been sent successfully. Please check your mailbox."
+msgstr "A teszt email sikeresen elküldve. Kérlek tekintsd meg a postaládádat."
+
+#, c-format
+msgid "The user '%s' does not exist"
+msgstr "'%s' felhasználó nem létezik"
+
+#, c-format
+msgid "The user '%s' is not allowed"
+msgstr "'%s' felhasználó nincs engedélyezve"
+
+msgid "The value in this field is invalid"
+msgstr "A mező értéke érvénytelen"
+
+msgid "The volume label for the filesystem."
+msgstr "A kötet címkéje a fájlrendszeren."
+
+msgid ""
+"The welcome message which will be displayed to the user when they initially "
+"login."
+msgstr "Az üdvözlő üzenet meg fog jelenni a felhasználóknak, mikor bejelentkeznek."
+
+msgid "The workgroup the server will appear to be in when queried by clients."
+msgstr "A munkacsoport a szerver részéről látszani fog, mikor a kliensek lekérdezik azt."
+
+#, c-format
+msgid "There already exists a mount point for %s"
+msgstr "A %s csatolási pont már létezik"
+
+msgid ""
+"These settings are used by the services to configure the user access rights."
+" Please note that these settings do no affect the file system permissions."
+msgstr "Ezeket a beállításokat használják a szolgáltatások konfigurációi a felhasználói jogok hozzáféréséhez. Felhívjuk a figyelmed, hogy ezek a beállítások nem befolyásolják a fájlrendszer engedélyeit."
+
+msgid ""
+"This controls whether this share is seen in the list of available shares in "
+"a net view and in the browse list."
+msgstr "Ez vezérli, hogy a megosztás látható legyen az elérhető megosztási listákban, egy netes nézetben és a böngésző listában."
+
+msgid "This field does not allow blanks"
+msgstr "Ez a mező nem lehet üres"
+
+msgid "This field must have the format hh:mm:ss"
+msgstr "Ennek a mezőnek óó:pp:mm formátumúnak kell lennie"
+
+msgid "This field should be a IPv4 network address"
+msgstr "Ennek a mezőnek IPv4 hálózati címnek kell lennie"
+
+msgid "This field should be a IPv4 network address in CIDR notation"
+msgstr "Ennek a mezőnek egy IPv4 hálózati címnek kell lennie CIDR jelölésben."
+
+msgid "This field should be a domainname or an IPv4 address"
+msgstr "Ennek a mezőnek egy tartománynévnek vagy egy IPv4 címnek kell lennie."
+
+msgid "This field should be a hostname or an IPv4 address"
+msgstr "Ennek a mezőnek hosztnévnek vagy egy IPv4 címnek kell lennie"
+
+msgid ""
+"This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
+msgstr "Ennek a mezőnek egy skálán belüli 128.0.0.0 - 255.255.255.252 netmaszknak kell lennie"
+
+msgid "This field should be a port in the range of 1 - 65535"
+msgstr "Ennek a mezőnek egy skálán belüli 1 - 65535 portnak kell lennie"
+
+msgid ""
+"This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
+msgstr "Ennek a mezőnek egy portnak vagy port sorozatnak (pl. 21 vagy !443 vagy 1024-65535) kell lennie"
+
+msgid "This field should be an IPv4 address"
+msgstr "Ennek a mezőnek IPv4 címnek kell lennie"
+
+msgid ""
+"This field should be either a IPv4 network address (with /mask), a IPv4 "
+"range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
+"192.168.178.20-192.168.178.254)"
+msgstr "Ennek a mezőnek egy IPv4 hálózati címnek (/maszkkal ellátva), egy IPv4 tartománynak vagy egy egyszerű IPv4 címnek (pl. 172.16.76.4 vagy !192.168.178.87/24 vagy 192.168.178.20-192.168.178.254) kell lennie."
+
+msgid "This field should only contain numbers"
+msgstr "Ez a mező csak számokat tartalmazhat"
+
+msgid "This field should only contain numbers seperated by <,> or <;>"
+msgstr "Ez a mező csak <,> vagy <;> -vel elválasztott számokat tartalmazhat"
+
+msgid ""
+"This field should only contain ports (0 - 65535) seperated by <,> or <;>"
+msgstr "Ennek a mezőnek csak portokat szabad tartalmaznia (0 - 65535) <,> vagy <;>-vel elválasztva."
+
+msgid "This field should only contain strings seperated by <,> or <;>"
+msgstr "Ennek a mezőnek csak szöveget szabad tartalmaznia <,> vagy <;>-vel elválasztva."
+
+msgid "This function is effective only if the hard drive supports it."
+msgstr "Ez a funkció csak akkor hatékony, ha a merevlemez támogatja."
+
+msgid ""
+"This is a text field that is seen next to a share when a client queries the "
+"server."
+msgstr "Ez egy szöveges mező, mely látható a megosztásba, mikor egy kliens lekérdezi a szerverről."
+
+msgid ""
+"This may make more efficient use of the system CPU's and cause Samba to be "
+"faster. Samba automatically turns this off for clients that use protocol "
+"levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
+msgstr "Ezzel hatékonyabban használja a rendszer CPU-t és a Samba gyorsabb lesz. A Samba automatikusan kikapcsolja ezt a klienseken, ha azoknak alacsonyabb a szintjük, mint az NT LM 0.12 vagy mikor Windows 9x klienst érzékel."
+
+msgid ""
+"This option causes the server to not send a certificate request during a SSL"
+" handshake."
+msgstr "Ez az opció azt eredményezi, hogy a szerver nem küld tanúsítvány kérelmet az SSL kézfogáshoz."
+
+msgid ""
+"This option determines if this module should be listed when the client asks "
+"for a listing of available modules."
+msgstr "Ez az opció határozza meg, hogy a modulok listázva legyenek-e, ha a kliens lekéri az elérhető modulok listáját."
+
+msgid ""
+"This option is a comma, space, or tab delimited set of host which are NOT "
+"permitted to access this module. Where the lists conflict, the allow list "
+"takes precedence. In the event that it is necessary to deny all by default, "
+"use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
+"to the hosts allow parameter those hosts that should be permitted access. "
+"Leave this field empty to use default settings."
+msgstr "Ez az opció egy vessző, szóköz vagy tabbal meghatározott hosztnak a beállítására szolgál, melyeknek NEM engedélyezett a hozzáférés ehhez a modulhoz. Ha a listák összeütköznek, az engedélyezett lista elsőbbséget élvez. Abban az esetben ha szükség van az összes tiltására, alapértelmezésben használd az ALL kulcsszót (vagy a 0.0.0.0/0 netmaszkot), majd egyértelműen meg kell határozni a hosztok engedélyezett paraméterét és azon hosztoknak a hozzáférését is engedélyezni kell. Hagyd üresen, hogy az alapértelmezett beállítások legyenek használva."
+
+msgid ""
+"This option is a comma, space, or tab delimited set of host which are NOT "
+"permitted to access this share. Where the lists conflict, the allow list "
+"takes precedence. In the event that it is necessary to deny all by default, "
+"use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
+"to the hosts allow parameter those hosts that should be permitted access. "
+"Leave this field empty to use default settings."
+msgstr "Ez az opció egy vessző, szóköz vagy tabbal meghatározott hosztnak a beállítására szolgál, melyeknek NEM engedélyezett a hozzáférés ehhez a megosztáshoz. Ha a listák összeütköznek, az engedélyezett lista elsőbbséget élvez. Abban az esetben ha szükség van az összes tiltására, alapértelmezésben használd az ALL kulcsszót (vagy a 0.0.0.0/0 netmaszkot), majd egyértelműen meg kell határozni a hosztok engedélyezett paraméterét és azon hosztoknak a hozzáférését is engedélyezni kell. Hagyd üresen, hogy az alapértelmezett beállítások legyenek használva."
+
+msgid ""
+"This option is a comma, space, or tab delimited set of hosts which are "
+"permitted to access this module. You can specify the hosts by name or IP "
+"number. Leave this field empty to use default settings."
+msgstr "Ez az opció egy vessző, szóköz vagy tabbal meghatározott hosztnak a beállítására szolgál, melyeknek engedélyezett a hozzáférés ehhez a modulhoz. Megadhatod a hosztok nevét vagy IP címét. Hagyd üresen, hogy az alapértelmezett beállítások legyenek használva."
+
+msgid ""
+"This option is a comma, space, or tab delimited set of hosts which are "
+"permitted to access this share. You can specify the hosts by name or IP "
+"number. Leave this field empty to use default settings."
+msgstr "Ez az opció egy vessző, szóköz vagy tabbal meghatározott hosztnak a beállítására szolgál, melyeknek engedélyezett a hozzáférés ehhez a megosztáshoz. Megadhatod a hosztok nevét vagy IP címét. Hagyd üresen, hogy az alapértelmezett beállítások legyenek használva."
+
+msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr "Ez az opció szükséges a klienseknek az FTP-ről TLS-re váltás használatához, mikor a szerverrel kommunikálnak."
+
+msgid ""
+"This option specifies the group name that file transfers to and from that "
+"module should take place."
+msgstr "Ezen opció által meghatározott csoport, a modul alapján fájlátvitelt kezdeményezhet."
+
+msgid ""
+"This option specifies the maximum number of simultaneous connections. 0 "
+"means no limit."
+msgstr "Ez az opció határozza meg a kapcsolatok maximális számát. A 0 beírásával ez nincs meghatározva."
+
+msgid ""
+"This option specifies the user name that file transfers to and from that "
+"module should take place."
+msgstr "Ezen opció által meghatározott felhasználó, a modul alapján fájlátvitelt kezdeményezhet."
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr "Ez az opció fogja kezelni az összes kapcsolatot, úgy, mintha kizárólag SSL kapcsolatok lennének."
+
+msgid ""
+"This parameter can be used to ensure that if default acls exist on parent "
+"directories, they are always honored when creating a new file or "
+"subdirectory in these parent directories."
+msgstr "Ez a paraméter használható annak biztosítására, hogy az alapértelmezett ACL-ek megmaradjanak a szülő könyvtárakban. Ezek mindig meg lesznek tartva, mikor új fájl vagy alkönyvtár jön létre a szülő könyvtárakban."
+
+msgid ""
+"This parameter controls whether files starting with a dot appear as hidden "
+"files"
+msgstr "Ez a paraméter szabályozza, hogy a ponttal kezdődő fájlok rejtett fájlként jelenjenek meg."
+
+msgid ""
+"This parameter says that if N occurrences of the event happen within the "
+"given time interval, then a ban is automatically added."
+msgstr "Ennek a paraméternek a hatására ha egy esemény N előfordulása a megadott intervallumban megtörténik, akkor automatikusan tiltólistára kerül."
+
+msgid "This rule is triggered whenever the selected event directive occurs."
+msgstr "Ezt az eseményt váltja ki, mikor a kiválasztott utasítás történik."
+
+msgid "This will create a recycle bin on the share."
+msgstr "Egy lomtár lesz létrehozva a megosztásban."
+
+msgid "Thursday"
+msgstr "Csütörtök"
+
+msgid "TiB"
+msgstr "TiB"
+
+msgid "Time"
+msgstr "Idő"
+
+msgid "Time interval"
+msgstr "Idő intervallum"
+
+msgid "Time server"
+msgstr "Idő szerver"
+
+msgid "Time servers"
+msgstr "Idő szerverek"
+
+msgid "Time zone"
+msgstr "Időzóna"
+
+msgid "Timeout"
+msgstr "Időtúllépés"
+
+msgid "Times"
+msgstr "Idők"
+
+msgid ""
+"To restore a previously backed up configuration click the 'Restore' button. "
+"The system will reboot automatically after import has been finished "
+"successfully."
+msgstr "Az előző biztonsági mentés visszaállításához, kattints a 'Visszaállítás' gombra. A rendszer automatikusan újra fog indulni, miután sikeresen befejezte a folyamatot."
+
+msgid "Togo"
+msgstr "Togo"
+
+msgid "Tokelau"
+msgstr "Tokelau"
+
+msgid "Tonga"
+msgstr "Tonga"
+
+msgid "Traps"
+msgstr "Trap-ek"
+
+msgid "Treshold"
+msgstr "Határérték"
+
+msgid "Trial run"
+msgstr ""
+
+msgid "Trinidad and Tobago"
+msgstr "Trinidad and Tobago"
+
+msgid "Tuesday"
+msgstr "Kedd"
+
+msgid "Tunisia"
+msgstr "Tunisia"
+
+msgid "Turkey"
+msgstr "Turkey"
+
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+msgid "Turks and Caicos Islands"
+msgstr "Turks and Caicos Islands"
+
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+msgid "Type"
+msgstr "Típus"
+
+msgid "U.S. Miscellaneous Pacific Islands"
+msgstr "U.S. Miscellaneous Pacific Islands"
+
+msgid "U.S. Virgin Islands"
+msgstr "U.S. Virgin Islands"
+
+msgid "Uganda"
+msgstr "Uganda"
+
+msgid "Ukraine"
+msgstr "Ukraine"
+
+msgid "Uninstall"
+msgstr "Eltávolítás"
+
+msgid "Uninstall plugins ..."
+msgstr "Bővítmények eltávolítása ..."
+
+msgid "Union of Soviet Socialist Republics"
+msgstr "Union of Soviet Socialist Republics"
+
+msgid "Unit"
+msgstr "Egység"
+
+msgid "United Arab Emirates"
+msgstr "United Arab Emirates"
+
+msgid "United Kingdom"
+msgstr "United Kingdom"
+
+msgid "United States"
+msgstr "United States"
+
+msgid "United States Minor Outlying Islands"
+msgstr "United States Minor Outlying Islands"
+
+#, c-format
+msgid "Unknown filesystem '%s'"
+msgstr "Ismeretlen fájlrendszer '%s'"
+
+#, c-format
+msgid "Unknown log file type (id=%s)"
+msgstr "Ismeretlen naplózó fájl típus (id=%s)"
+
+msgid "Unknown network interface type."
+msgstr "Ismeretlen hálózati interfész típus."
+
+msgid "Unmount"
+msgstr "Leválasztás"
+
+msgid "Up"
+msgstr "Fel"
+
+msgid "Up delay"
+msgstr "Engedélyezés késleltetése"
+
+msgid "Update Manager"
+msgstr "Frissítés Kezelő"
+
+msgid "Update now"
+msgstr "Frissítés most"
+
+msgid "Update the destination ACLs to be the same as the source ACLs"
+msgstr "A célállomás ACL-ek frissítése, hogy megegyezzen a forrás ACL-ekkel"
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones"
+msgstr "A célállomás kiterjesztett attribútumainak frissítése, hogy megegyezzen a helyiekkel"
+
+msgid "Updated"
+msgstr "Frissítve"
+
+msgid "Updating ACL settings"
+msgstr "ACL beállítások frissítése"
+
+msgid "Upload"
+msgstr "Feltöltés"
+
+msgid "Upload file"
+msgstr "Fájl feltöltése"
+
+msgid "Upload package"
+msgstr "Csomag feltöltése"
+
+msgid "Upload plugin"
+msgstr "Bővítmény feltöltése"
+
+msgid "Uploading file ..."
+msgstr "Fájl feltöltés ..."
+
+msgid "Uptime"
+msgstr "Futási idő"
+
+msgid "Uruguay"
+msgstr "Uruguay"
+
+msgid "Use NTP server"
+msgstr "NTP szerver használata"
+
+msgid "Use SSL/TLS secure connection"
+msgstr "SSL/TLS biztonságos kapcsolat használata"
+
+msgid "Use sendfile"
+msgstr "Sendfile használata"
+
+msgid "Use the following bandwidth restriction:"
+msgstr "A következő sávszélesség-korlátozás használata:"
+
+msgid "Use the following port range:"
+msgstr "A következő port tartomány használata:"
+
+msgid ""
+"Use the more efficient sendfile system call for files that are exclusively "
+"oplocked"
+msgstr "Hatékonyabb rendszer hívó sendfile használata fájlokhoz."
+
+msgid "Use the specified WINS server."
+msgstr "A megadott WINS szerver használata."
+
+msgid "Used"
+msgstr "Foglalt"
+
+msgid "Used capacity"
+msgstr "Foglalt lemezterület"
+
+msgid "User"
+msgstr "Felhasználó"
+
+#, c-format
+msgid "User '%s' already exist"
+msgstr "'%s' felhasználó már létezik"
+
+#, c-format
+msgid "User '%s' does not exist"
+msgstr "'%s' felhasználó nem létezik"
+
+#, c-format
+msgid "User ID '%d' already exist"
+msgstr "Felhasználó ID '%d' már létezik"
+
+msgid "User home directory"
+msgstr "Felhasználói saját könyvtár"
+
+msgid "User information"
+msgstr "Felhasználó információ"
+
+msgid "User/Group permissions"
+msgstr "Felhasználó/Csoport jogosultságok"
+
+msgid "Username"
+msgstr "Felhasználónév"
+
+msgid "Users"
+msgstr "Felhasználók"
+
+msgid "Uzbekistan"
+msgstr "Uzbekistan"
+
+msgid "Valid to"
+msgstr "Érvényes"
+
+msgid "Value"
+msgstr "Érték"
+
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+msgid "Vatican"
+msgstr "Vatican"
+
+msgid "Vendor"
+msgstr "Csatlakozás"
+
+msgid "Venezuela"
+msgstr "Venezuela"
+
+msgid "Version"
+msgstr "Verzió"
+
+msgid "Vietnam"
+msgstr "Vietnam"
+
+msgid "Volume"
+msgstr "Kötet"
+
+msgid "WINS"
+msgstr "WINS"
+
+msgid "WINS server"
+msgstr "WINS szerver"
+
+msgid "WINS support"
+msgstr "WINS támogatás"
+
+msgid "Wake Island"
+msgstr "Wake Island"
+
+msgid "Wake-on-LAN"
+msgstr "Ébresztés LAN-on keresztül "
+
+msgid "Wallis and Futuna"
+msgstr "Wallis and Futuna"
+
+msgid "Warning"
+msgstr "Figyelmeztetés"
+
+msgid "Web Administration"
+msgstr "Web Adminisztráció"
+
+msgid "Web Administrator Password"
+msgstr "Web Adminisztrátor Jelszó"
+
+msgid "Web administration interface"
+msgstr "Web adminisztrációs felület"
+
+msgid "Wednesday"
+msgstr "Szerda"
+
+msgid "Welcome message"
+msgstr "Üdvözlő üzenet"
+
+msgid "Western Sahara"
+msgstr "Western Sahara"
+
+msgid ""
+"When a client initially connects to the server the ident protocol is used to"
+" attempt to identify the remote username."
+msgstr "Mikor egy kliens először csatlakozik a szerverhez, akkor az azonosító protokollt használja, hogy megpróbálja azonosítani a távoli felhasználót."
+
+msgid "When failed"
+msgstr "Mikor sikertelen"
+
+msgid "Wipe"
+msgstr "Formázás"
+
+msgid "Wiping device ..."
+msgstr "Meghajtó formázása ..."
+
+msgid "Workgroup"
+msgstr "Munkacsoport"
+
+msgid "Worst"
+msgstr "Legrosszabb"
+
+msgid "Write cache"
+msgstr "Cache írás"
+
+msgid "Write only"
+msgstr "Csak írás"
+
+msgid "Yemen"
+msgstr "Yemen"
+
+msgid "Yes"
+msgstr "Igen"
+
+msgid "Zambia"
+msgstr "Zambia"
+
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+msgid "day"
+msgstr "nap"
+
+msgid "days"
+msgstr "nap"
+
+msgid "hour"
+msgstr "óra"
+
+msgid "hours"
+msgstr "óra"
+
+msgid "minute"
+msgstr "perc"
+
+msgid "minutes"
+msgstr "perc"
+
+#, c-format
+msgid "n/a"
+msgstr "n/a"
+
+msgid "seconds"
+msgstr "másodperc"
+
+msgid "web administration interface"
+msgstr "webes adminisztrációs felület"

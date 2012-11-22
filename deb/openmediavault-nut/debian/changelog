@@ -1,0 +1,116 @@
+openmediavault-nut (0.4) stable; urgency=low
+
+  * Upgrade to xmlstarlet 1.3.1.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 09 Sep 2012 01:29:50 +0200
+
+openmediavault-nut (0.3.0.7) stable; urgency=low
+
+  * Rename deb-trigger 'update-fileperms' to 'update-fixperms'.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 08 Sep 2012 17:54:44 +0200
+
+openmediavault-nut (0.3.0.6) stable; urgency=low
+
+  * Update locales.
+  * Code was modified to meet the coding guidelines.
+  * Mantis 0000581: Add deb-triggers 'update-locale' and 'update-fileperms'
+    to replace omv_install_locale and omv_install_fixperms in postinst
+    scripts.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 Aug 2012 21:06:11 +0200
+
+openmediavault-nut (0.3.0.5) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker <volker.theile@openmediavault.org>  Fri, 29 Jun 2012 22:39:09 +0200
+
+openmediavault-nut (0.3.0.4) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 25 May 2012 21:45:16 +0200
+
+openmediavault-nut (0.3.0.3) stable; urgency=low
+
+  * Mantis 0000445: Update upsd.conf after a network interface has been
+    modified. This is only necessary if remote monitoring is enabled.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 May 2012 20:41:38 +0200
+
+openmediavault-nut (0.3.0.2) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 03 May 2012 21:12:00 +0200
+
+openmediavault-nut (0.3.0.1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 26 Apr 2012 22:43:35 +0200
+
+openmediavault-nut (0.3) stable; urgency=low
+
+  * Adapt to openmediavault 0.3
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Apr 2012 22:26:44 +0200
+
+openmediavault-nut (0.1.8) stable; urgency=low
+
+  * Mantis 0000334: after updating the nut 1.5 => 1.6 no longer run
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 04 Jan 2012 12:54:24 +0100
+
+openmediavault-nut (0.1.7) stable; urgency=low
+
+  * Fix config import issues
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 28 Dec 2011 12:45:20 +0100
+
+openmediavault-nut (0.1.6) stable; urgency=low
+
+  * Auto-generate udev rule for the serial port where the UPS is connected
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 24 Dec 2011 16:19:15 +0100
+
+openmediavault-nut (0.1.5) stable; urgency=low
+
+  * Mantis 0000329: NUT Plugin does not create Voltage/Timeleft Graphs
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Dec 2011 02:08:54 +0100
+
+openmediavault-nut (0.1.4) stable; urgency=low
+
+  * Fix bugs in form validation
+  * Mantis 0000328: NUT Plugin does not create Charge & Temp. Graphs
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 20 Dec 2011 00:21:21 +0100
+
+openmediavault-nut (0.1.3) stable; urgency=low
+
+  * Validate and limit UPS identifier to /[a-zA-Z0-9_-]/
+  * Mantis 0000320: Modify permissions of /dev/ttyS0
+  * Mantis 0000321: NUT Plugin does not create any Graphs
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 18 Dec 2011 23:42:33 +0100
+
+openmediavault-nut (0.1.2) stable; urgency=low
+
+  * Various improvements
+  * Refactor email implementation
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 17 Dec 2011 00:35:48 +0100
+
+openmediavault-nut (0.1.1) stable; urgency=low
+
+  * Improve monitoring feature
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 16 Dec 2011 21:56:56 +0100
+
+openmediavault-nut (0.1) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 07 Apr 2011 18:45:43 +0200

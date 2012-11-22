@@ -1,0 +1,220 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Cyryl Sochacki <>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-06-21 22:48+0200\n"
+"PO-Revision-Date: 2012-07-04 09:30+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Add job"
+msgstr "Dodaj zadanie"
+
+msgid "Algorithmic detection"
+msgstr "Wykrywanie algorytmiczne"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "Wiadomość e-mail z danymi wyjściowymi polecenia (jeśli jakieś są)  są wysłane do administratora."
+
+msgid "Antivirus"
+msgstr "Antywirus"
+
+msgid "Be verbose."
+msgstr "Jest pełne."
+
+msgid "Comment"
+msgstr "Komentarz"
+
+msgid "Database checks"
+msgstr "Sprawdź bazę wirusów"
+
+msgid "Database mirror"
+msgstr "Kopia bazy wirusów"
+
+msgid "Date & Time"
+msgstr "Data i czas"
+
+msgid "Day of month"
+msgstr "Dzień miesiąca"
+
+msgid "Day of week"
+msgstr "Dzień tygodnia"
+
+msgid "Detect PUA"
+msgstr "Wykrywanie PUA"
+
+msgid "Detect broken executables"
+msgstr "Wykryj przerwane pliki wykonywalne"
+
+msgid "Edit job"
+msgstr "Edytuj zadanie"
+
+msgid "Enable"
+msgstr "Włącz"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "Włącz wykrywanie HTML i normalizacji."
+
+msgid "Enable archive scanning."
+msgstr "Włącz skanowanie archiwów."
+
+msgid "Enable on-access virus scanning"
+msgstr "Włącz skanowanie antywirusowe przy dostępie"
+
+msgid "Enable scanning of ELF files."
+msgstr "Włącz skanowanie plików ELF."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Włącz skanowanie plików OLE2, takich jak dokumenty pakietu Microsoft Office i pliki .msi."
+
+msgid "Enable scanning within PDF files."
+msgstr "Włącz skanowanie w plikach PDF."
+
+msgid "Enable the algorithmic detection."
+msgstr "Włącz wykrywanie algorytmiczne."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Włącz wykrywanie uszkodzonych plików wykonywalnych (PE i ELF)."
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Włącz wykrywanie potencjalnie niepotrzebnych aplikacji."
+
+msgid "Enabled"
+msgstr "Włączone"
+
+msgid "Event"
+msgstr "Zdarzenia"
+
+msgid "Every N day of month"
+msgstr "Co N dni miesiąca"
+
+msgid "Every N hour"
+msgstr "Co N godzin"
+
+msgid "Every N minute"
+msgstr "Co N minut"
+
+msgid "Execute job"
+msgstr "Wykonaj zadanie"
+
+msgid "Extra options"
+msgstr "Dodatkowe opcje"
+
+msgid "Follow directory symlinks"
+msgstr "Podążaj za linkami symbolicznymi katalogów"
+
+msgid "Follow directory symlinks."
+msgstr "Podążaj za linkami symbolicznymi katalogów."
+
+msgid "Follow file symlinks"
+msgstr "Podążaj za linkami symbolicznymi plików"
+
+msgid "Follow regular file symlinks."
+msgstr "Podążaj za linkami symbolicznymi plików."
+
+msgid "General settings"
+msgstr "Ustawienia główne"
+
+msgid "Hour"
+msgstr "Godzina"
+
+msgid "Jobs"
+msgstr "Zadania"
+
+msgid "Minute"
+msgstr "Minut"
+
+msgid "Monitor the shared folder and scan new or modified files."
+msgstr "Monitorowanie folderów udostępnionych i skanowanie nowych lub zmodyfikowanych plików."
+
+msgid "Month"
+msgstr "Miesiąc"
+
+msgid "Multiscan"
+msgstr "Multiskan"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "Liczba sprawdza aktualizacji bazy wirusów w ciągu dnia. Ustaw na 0, aby wyłączyć."
+
+msgid "On-access"
+msgstr "Przy dostępie"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Wykonaj głębszą analizę plików wykonywalnych."
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Proszę sprawdź <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'> stronę podręcznika</a> aby uzyskać więcej informacji."
+
+msgid "Remove"
+msgstr "Usuń"
+
+msgid "Remove infected files."
+msgstr "Usuń zainfekowane pliki."
+
+msgid "Run"
+msgstr "Uruchom"
+
+msgid "Scan ELF"
+msgstr "Skanuj ELF"
+
+msgid "Scan HTML"
+msgstr "Skanuj HTML"
+
+msgid "Scan OLE2"
+msgstr "Skanuj OLE2"
+
+msgid "Scan PDF"
+msgstr "Skanuj PDF"
+
+msgid "Scan Portable Executable"
+msgstr "Skanuj przenośne pliki wykonywalne"
+
+msgid "Scan archives"
+msgstr "Skanuj archiwa"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr "Skanowanie zawartości katalogu z użyciem dostępnych wątków."
+
+msgid "Send command output via email"
+msgstr "Wyślij wynik komendy na e-mail"
+
+msgid "Send email"
+msgstr "Wyślij e-maila"
+
+msgid ""
+"Server name where database updates are downloaded from. Get a complete list "
+"of database mirrors <a href='http://www.clamav.net/mirrors.html' "
+"target='_blank'>here</a>."
+msgstr "Nazwa serwera, skąd są pobierane aktualizacje bazy danych. Pełną listę serwerów lustrzanych bazy danych możesz sprawdzić <a href='http://www.clamav.net/mirrors.html' target='_blank'>tutaj</a>."
+
+msgid "Settings"
+msgstr "Ustawienia"
+
+msgid "Shared folder"
+msgstr "Folder udostępniony"
+
+msgid "The location of the files to scan."
+msgstr "Lokalizacja plików do skanowania."
+
+msgid "Verbose"
+msgstr "Pełne"
+
+msgid "n/a"
+msgstr "n/a"

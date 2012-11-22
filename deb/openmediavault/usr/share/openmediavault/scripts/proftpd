@@ -1,0 +1,303 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://wiki.ubuntuusers.de/ProFTPD
+# http://www.proftpd.de/HowTo-Server-Config.42.0.html
+# http://wiki.ubuntu-forum.de/index.php/ProFTPd
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_PROFTPD_CONFIG=${OMV_PROFTPD_CONFIG:-"/etc/proftpd/proftpd.conf"}
+OMV_PROFTPD_EXTENSIONSDIR=${OMV_PROFTPD_EXTENSIONSDIR:-"${OMV_SCRIPTS_DIR}/proftpd.d"}
+OMV_PROFTPD_DEFAULTROOT=${OMV_PROFTPD_DEFAULTROOT:-"/home/ftp"}
+OMV_PROFTPD_DISPLAYLOGIN=${OMV_PROFTPD_DISPLAYLOGIN:-"/home/ftp/welcome.msg"}
+OMV_PROFTPD_USEIPV6=${OMV_PROFTPD_USEIPV6:-"on"}
+OMV_PROFTPD_DEFERWELCOME=${OMV_PROFTPD_DEFERWELCOME:-"off"}
+OMV_PROFTPD_MULTILINERFC2228=${OMV_PROFTPD_MULTILINERFC2228:-"on"}
+OMV_PROFTPD_DEFAULTSERVER=${OMV_PROFTPD_DEFAULTSERVER:-"on"}
+OMV_PROFTPD_SHOWSYMLINKS=${OMV_PROFTPD_SHOWSYMLINKS:-"on"}
+OMV_PROFTPD_TIMEOUTNOTRANSFER=${OMV_PROFTPD_TIMEOUTNOTRANSFER:-"600"}
+OMV_PROFTPD_TIMEOUTSTALLED=${OMV_PROFTPD_TIMEOUTSTALLED:-"600"}
+OMV_PROFTPD_LISTOPTIONS=${OMV_PROFTPD_LISTOPTIONS:-"-l"}
+OMV_PROFTPD_MAXINSTANCES=${OMV_PROFTPD_MAXINSTANCES:-"30"}
+OMV_PROFTPD_DENYFILTER=${OMV_PROFTPD_DENYFILTER:-"\*.*/"}
+OMV_PROFTPD_AUTHORDER=${OMV_PROFTPD_AUTHORDER:-"mod_auth_pam.c* mod_auth_unix.c"}
+OMV_PROFTPD_USER=${OMV_PROFTPD_USER:-"proftpd"}
+OMV_PROFTPD_GROUP=${OMV_PROFTPD_GROUP:-"nogroup"}
+OMV_PROFTPD_UMASK=${OMV_PROFTPD_UMASK:-"000 000"}
+OMV_PROFTPD_AUTHPAMCONFIG=${OMV_PROFTPD_AUTHPAMCONFIG:-"proftpd"}
+OMV_PROFTPD_USEFTPUSERS=${OMV_PROFTPD_USEFTPUSERS:-"off"}
+OMV_PROFTPD_PERSISTENTPASSWD=${OMV_PROFTPD_PERSISTENTPASSWD:-"off"}
+OMV_PROFTPD_TIMESGMT=${OMV_PROFTPD_TIMESGMT:-"off"}
+OMV_PROFTPD_DEFAULTTRANSFERMODE=${OMV_PROFTPD_DEFAULTTRANSFERMODE:-"ascii"}
+OMV_PROFTPD_ALLOWOVERWRITE=${OMV_PROFTPD_ALLOWOVERWRITE:-"on"}
+OMV_PROFTPD_DELETEABORTEDSTORES=${OMV_PROFTPD_DELETEABORTEDSTORES:-"off"}
+OMV_PROFTPD_MODQUOTATAB_QUOTAENGINE=${OMV_PROFTPD_MODQUOTATAB_QUOTAENGINE:-"off"}
+OMV_PROFTPD_MODRATIO_RATIOS=${OMV_PROFTPD_MODRATIO_RATIOS:-"off"}
+OMV_PROFTPD_MODFACL_FACLENGINE=${OMV_PROFTPD_MODFACL_FACLENGINE:-"on"}
+OMV_PROFTPD_MODDELAY_DELAYENGINE=${OMV_PROFTPD_MODDELAY_DELAYENGINE:-"on"}
+OMV_PROFTPD_MODCTRLS_CONTROLSENGINE=${OMV_PROFTPD_MODCTRLS_CONTROLSENGINE:-"on"}
+OMV_PROFTPD_MODCTRLS_CONTROLSMAXCLIENTS=${OMV_PROFTPD_MODCTRLS_CONTROLSMAXCLIENTS:-"2"}
+OMV_PROFTPD_MODCTRLS_CONTROLSLOG=${OMV_PROFTPD_MODCTRLS_CONTROLSLOG:-"/var/log/proftpd/controls.log"}
+OMV_PROFTPD_MODCTRLS_CONTROLSINTERVAL=${OMV_PROFTPD_MODCTRLS_CONTROLSINTERVAL:-"5"}
+OMV_PROFTPD_MODCTRLS_CONTROLSSOCKET=${OMV_PROFTPD_MODCTRLS_CONTROLSSOCKET:-"/var/run/proftpd/proftpd.sock"}
+OMV_PROFTPD_MODCTRLSADMIN_ADMINCONTROLSENGINE=${OMV_PROFTPD_MODCTRLSADMIN_ADMINCONTROLSENGINE:-"off"}
+OMV_PROFTPD_MODBAN_BANCONTROLSACLS=${OMV_PROFTPD_MODBAN_BANCONTROLSACLS:-"all allow user root"}
+OMV_PROFTPD_MODBAN_BANLOG=${OMV_PROFTPD_MODBAN_BANLOG:-"/var/log/proftpd/ban.log"}
+OMV_PROFTPD_MODBAN_BANMESSAGE=${OMV_PROFTPD_MODBAN_BANMESSAGE:-"Host %a has been banned"}
+OMV_PROFTPD_MODBAN_BANTABLE=${OMV_PROFTPD_MODBAN_BANTABLE:-"/var/run/proftpd/ban.tab"}
+OMV_PROFTPD_MODTLS_CONFIG=${OMV_PROFTPD_MODTLS_CONFIG:-"/etc/proftpd/tls.conf"}
+OMV_PROFTPD_MODTLS_TLSLOG=${OMV_PROFTPD_MODTLS_TLSLOG:-"/var/log/proftpd/tls.log"}
+OMV_PROFTPD_MODTLS_TLSPROTOCOL=${OMV_PROFTPD_MODTLS_TLSPROTOCOL:-"SSLv23"}
+OMV_PROFTPD_MODTLS_TLSOPTIONS=${OMV_PROFTPD_MODTLS_TLSOPTIONS:-"NoCertRequest"}
+OMV_PROFTPD_MODTLS_TLSRSACERTIFICATEFILE=${OMV_PROFTPD_MODTLS_TLSRSACERTIFICATEFILE:-"/etc/ssl/certs/proftpd.crt"}
+OMV_PROFTPD_MODTLS_TLSRSACERTIFICATEKEYFILE=${OMV_PROFTPD_MODTLS_TLSRSACERTIFICATEKEYFILE:-"/etc/ssl/private/proftpd.key"}
+OMV_PROFTPD_MODTLS_TLSVERIFYCLIENT=${OMV_PROFTPD_MODTLS_TLSVERIFYCLIENT:-"off"}
+OMV_PROFTPD_MODTLS_TLSRENEGOTIATE=${OMV_PROFTPD_MODTLS_TLSRENEGOTIATE:-"required off"}
+
+# Create welcome message file
+displaylogin=$(omv_config_get "//services/ftp/displaylogin")
+if [ -z "${displaylogin}" ]; then
+	cat <<EOF > ${OMV_PROFTPD_DISPLAYLOGIN}
+Welcome user %U@%R to %L FTP server.
+The local time is: %T
+EOF
+else
+	echo ${displaylogin} > ${OMV_PROFTPD_DISPLAYLOGIN}
+fi
+
+# Create /etc/proftpd/proftpd.conf configuration
+xmlstarlet sel -t \
+  -o "Include /etc/proftpd/modules.conf" -n \
+  -o "UseIPv6 ${OMV_PROFTPD_USEIPV6}" -n \
+  -v "concat('ServerName \"',//system/network/hostname,'\"')" -n \
+  -o "ServerType standalone" -n \
+  -o "DeferWelcome ${OMV_PROFTPD_DEFERWELCOME}" -n \
+  -o "MultilineRFC2228 ${OMV_PROFTPD_MULTILINERFC2228}" -n \
+  -o "DefaultServer ${OMV_PROFTPD_DEFAULTSERVER}" -n \
+  -o "ShowSymlinks ${OMV_PROFTPD_SHOWSYMLINKS}" -n \
+  -o "DisplayLogin ${OMV_PROFTPD_DISPLAYLOGIN}" -n \
+  -o "DisplayChdir .message true" -n \
+  -o "ListOptions \"${OMV_PROFTPD_LISTOPTIONS}\"" -n \
+  -o "MaxInstances ${OMV_PROFTPD_MAXINSTANCES}" -n \
+  -o "DenyFilter ${OMV_PROFTPD_DENYFILTER}" -n \
+  -o "AuthPAMConfig ${OMV_PROFTPD_AUTHPAMCONFIG}" -n \
+  -o "User ${OMV_PROFTPD_USER}" -n \
+  -o "Group ${OMV_PROFTPD_GROUP}" -n \
+  -o "Umask ${OMV_PROFTPD_UMASK}" -n \
+  -o "UseFtpUsers ${OMV_PROFTPD_USEFTPUSERS}" -n \
+  -o "PersistentPasswd ${OMV_PROFTPD_PERSISTENTPASSWD}" -n \
+  -o "DefaultRoot ${OMV_PROFTPD_DEFAULTROOT}" -n \
+  -o "TimesGMT ${OMV_PROFTPD_TIMESGMT}" -n \
+  -o "AllowOverwrite ${OMV_PROFTPD_ALLOWOVERWRITE}" -n \
+  -o "AuthOrder ${OMV_PROFTPD_AUTHORDER}" -n \
+  -o "DefaultTransferMode ${OMV_PROFTPD_DEFAULTTRANSFERMODE}" -n \
+  -o "#TransferLog /var/log/proftpd/xferlog" -n \
+  -o "#SystemLog /var/log/proftpd/proftpd.log" -n \
+  -o "<IfModule mod_facl.c>" -n \
+  -o "  FACLEngine ${OMV_PROFTPD_MODFACL_FACLENGINE}" -n \
+  -o "</IfModule>" -n \
+  -o "<IfModule mod_quotatab.c>" -n \
+  -o "  QuotaEngine ${OMV_PROFTPD_MODQUOTATAB_QUOTAENGINE}" -n \
+  -o "</IfModule>" -n \
+  -o "<IfModule mod_ratio.c>" -n \
+  -o "  Ratios ${OMV_PROFTPD_MODRATIO_RATIOS}" -n \
+  -o "</IfModule>" -n \
+  -o "<IfModule mod_delay.c>" -n \
+  -o "  DelayEngine ${OMV_PROFTPD_MODDELAY_DELAYENGINE}" -n \
+  -o "</IfModule>" -n \
+  -o "<IfModule mod_ctrls.c>" -n \
+  -o "  ControlsEngine ${OMV_PROFTPD_MODCTRLS_CONTROLSENGINE}" -n \
+  -o "  ControlsMaxClients ${OMV_PROFTPD_MODCTRLS_CONTROLSMAXCLIENTS}" -n \
+  -o "  ControlsLog ${OMV_PROFTPD_MODCTRLS_CONTROLSLOG}" -n \
+  -o "  ControlsInterval ${OMV_PROFTPD_MODCTRLS_CONTROLSINTERVAL}" -n \
+  -o "  ControlsSocket ${OMV_PROFTPD_MODCTRLS_CONTROLSSOCKET}" -n \
+  -o "</IfModule>" -n \
+  -o "<IfModule mod_ctrls_admin.c>" -n \
+  -o "  AdminControlsEngine ${OMV_PROFTPD_MODCTRLSADMIN_ADMINCONTROLSENGINE}" -n \
+  -o "</IfModule>" -n \
+  -m "//services/ftp" \
+	  -o "<IfModule mod_ban.c>" -n \
+	  -i "count(modules/mod_ban/rule) = 0" -o "  BanEngine off" -n -b \
+	  -i "count(modules/mod_ban/rule) > 0" -o "  BanEngine on" -n -b \
+	  -o "  BanControlsACLs ${OMV_PROFTPD_MODBAN_BANCONTROLSACLS}" -n \
+	  -o "  BanLog ${OMV_PROFTPD_MODBAN_BANLOG}" -n \
+	  -o "  BanMessage ${OMV_PROFTPD_MODBAN_BANMESSAGE}" -n \
+	  -m "modules/mod_ban/rule" \
+		  -v "concat('  BanOnEvent ',event,' ',occurrence,'/',timeinterval,' ',expire)" -n \
+	  -b \
+	  -o "  BanTable ${OMV_PROFTPD_MODBAN_BANTABLE}" -n \
+	  -o "</ifModule>" -n \
+	  -i "modules/mod_tls/enable[. = '1']" \
+		  -o "Include ${OMV_PROFTPD_MODTLS_CONFIG}" -n \
+	  -b \
+	  -v "concat('Port ',port)" -n \
+	  -i "requirevalidshell[. = '0']" -o "RequireValidShell off" -n -b \
+	  -i "requirevalidshell[. = '1']" -o "RequireValidShell on" -n -b \
+	  -i "identlookups[. = '0']" -o "IdentLookups off" -n -b \
+	  -i "identlookups[. = '1']" -o "IdentLookups on" -n -b \
+	  -i "usereversedns[. = '0']" -o "UseReverseDNS off" -n -b \
+	  -i "usereversedns[. = '1']" -o "UseReverseDNS on" -n -b \
+	  -v "concat('TimeoutIdle ',timeoutidle)" -n \
+	  -o "TimeoutNoTransfer ${OMV_PROFTPD_TIMEOUTNOTRANSFER}" -n \
+	  -o "TimeoutStalled ${OMV_PROFTPD_TIMEOUTSTALLED}" -n \
+	  -i "usepassiveports[. = '1']" -v "concat('PassivePorts ',minpassiveports,' ',maxpassiveports)" -n -b \
+	  -i "string-length(masqueradeaddress) > 0" \
+		  -v "concat('MasqueradeAddress ',masqueradeaddress)" -n \
+		  -i "dynmasqrefresh[. > '0']" \
+			  -o "<IfModule mod_dynmasq.c>" -n \
+			  -v "concat('  DynMasqRefresh ',dynmasqrefresh)" -n \
+			  -o "</ifModule>" -n \
+		  -b \
+	  -b \
+	  -i "limittransferrate[. = '1']" \
+		  -i "maxuptransferrate[. > '0']" -v "concat('TransferRate STOR ',maxuptransferrate)" -n -b \
+		  -i "maxdowntransferrate[. > '0']" -v "concat('TransferRate RETR ',maxdowntransferrate)" -n -b \
+	  -b \
+	  -i "rootlogin[. = '1']" -o "RootLogin on" -n -b \
+	  -i "allowrestart[. = '1']" \
+		  -o "AllowRetrieveRestart on" -n \
+		  -o "AllowStoreRestart on" -n \
+	  -b \
+	  -o "DeleteAbortedStores ${OMV_PROFTPD_DELETEABORTEDSTORES}" -n \
+	  -i "allowforeignaddress[. = '1']" -o "AllowForeignAddress on" -n -b \
+	  -v "concat('MaxClients ',maxclients)" -n \
+	  -i "maxconnectionsperhost[. > '0']" -v "concat('MaxConnectionsPerHost ',maxconnectionsperhost)" -n -b \
+	  -i "maxloginattempts[. > '0']" -v "concat('MaxLoginAttempts ',maxloginattempts )" -n -b \
+	  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
+	  -o "<Directory ${OMV_PROFTPD_DEFAULTROOT}>" -n \
+	  -o "  HideFiles (welcome.msg)" -n \
+	  -o "</Directory>" -n \
+	  -i "anonymous[. = '1']" \
+		  -o "<Anonymous ~ftp>" -n \
+		  -o "  User ftp" -n \
+		  -o "  Group nogroup" -n \
+		  -o "  UserAlias anonymous ftp" -n \
+		  -o "  DirFakeUser on ftp" -n \
+		  -o "  DirFakeGroup on ftp" -n \
+		  -o "  RequireValidShell off" -n \
+		  -o "  <Directory *>" -n \
+		  -o "    HideFiles (welcome.msg)" -n \
+		  -o "    HideNoAccess on" -n \
+		  -o "    <Limit WRITE>" -n \
+		  -o "      DenyAll" -n \
+		  -o "    </Limit>" -n \
+		  -o "  </Directory>" -n \
+		  -o "</Anonymous>" -n \
+	  -b \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_PROFTPD_CONFIG}
+
+# Is it allowed to login as superuser directly?
+rootlogin=$(omv_config_get "//services/ftp/rootlogin")
+
+# Process FTP shares
+index=$(omv_config_get_count "//services/ftp/shares/share")
+while [ ${index} -gt 0 ]
+do
+	limitall_allowuser=""
+	limitall_allowgroup=""
+	limitread_allowuser=""
+	limitread_allowgroup=""
+
+	# Is it allowed to login as superuser directly?
+	if [ ${rootlogin} -eq 1 ]; then
+		limitall_allowuser="root"
+		limitall_allowgroup="root"
+	fi
+
+	# Get the shared folder reference and path
+	sfref=$(omv_config_get "//services/ftp/shares/share[position()=${index}]/sharedfolderref")
+	sfname=$(omv_get_sharedfolder_name "${sfref}")
+	sfpath="${OMV_PROFTPD_DEFAULTROOT}/${sfname}"
+
+	# Get shared folder user privileges
+	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
+	  -v "concat(perms,'|',name)" -n \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+	for privilege in ${privileges}
+	do
+		perms=${privilege%|*}
+		name=${privilege#*|}
+		# Skip 'No access' entries
+		[ ${perms} -eq 0 ] && continue
+		# Append user to list
+		case ${perms} in
+		5)
+			[ -n "${limitread_allowuser}" ] && limitread_allowuser="${limitread_allowuser},";
+			limitread_allowuser="${limitread_allowuser}${name}";;
+		7)
+			[ -n "${limitall_allowuser}" ] && limitall_allowuser="${limitall_allowuser},";
+			limitall_allowuser="${limitall_allowuser}${name}";;
+		esac
+	done
+
+	# Get shared folder group privileges
+	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='group']" \
+	  -v "concat(perms,'|',name)" -n \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+	for privilege in ${privileges}
+	do
+		perms=${privilege%|*}
+		name=${privilege#*|}
+		# Skip 'No access' entries
+		[ ${perms} -eq 0 ] && continue
+		# Append group to list
+		case ${perms} in
+		5)
+			[ -n "${limitread_allowgroup}" ] && limitread_allowgroup="${limitread_allowgroup},";
+			limitread_allowgroup="${limitread_allowgroup}${name}";;
+		7)
+			[ -n "${limitall_allowgroup}" ] && limitall_allowgroup="${limitall_allowgroup},";
+			limitall_allowgroup="${limitall_allowgroup}${name}";;
+		esac
+	done
+
+	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
+<Directory ${sfpath}>
+  <Limit ALL>
+EOF
+	[ -n "${limitall_allowuser}" ] && echo "    AllowUser OR ${limitall_allowuser}" >> ${OMV_PROFTPD_CONFIG}
+	[ -n "${limitall_allowgroup}" ] && echo "    AllowGroup OR ${limitall_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
+	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
+    DenyAll
+  </Limit>
+  <Limit READ DIRS>
+EOF
+	[ -n "${limitall_allowuser}" ] && echo "    AllowUser OR ${limitall_allowuser}" >> ${OMV_PROFTPD_CONFIG}
+	[ -n "${limitall_allowgroup}" ] && echo "    AllowGroup OR ${limitall_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
+	[ -n "${limitread_allowuser}" ] && echo "    AllowUser OR ${limitread_allowuser}" >> ${OMV_PROFTPD_CONFIG}
+	[ -n "${limitread_allowgroup}" ] && echo "    AllowGroup OR ${limitread_allowgroup}" >> ${OMV_PROFTPD_CONFIG}
+	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
+    DenyAll
+  </Limit>
+</Directory>
+EOF
+
+	index=$(( ${index} - 1 ))
+done
+
+# Add additional extensions to the configuration file
+run-parts ${OMV_PROFTPD_EXTENSIONSDIR}

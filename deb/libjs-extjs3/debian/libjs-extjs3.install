@@ -1,0 +1,3 @@
+resources/ usr/share/javascript/extjs3
+adapter/ usr/share/javascript/extjs3
+*.js usr/share/javascript/extjs3
