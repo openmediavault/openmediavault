@@ -257,7 +257,7 @@ class CertificateMgmtRpc extends OMVRpc {
 		// Delete the configuration object.
 		$xpath = sprintf("//system/certificates/sslcertificate[uuid='%s']",
 		  $data['uuid']);
-		$this->deleteConfigObject($xpath,
+		$this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.system.certificates.sslcertificate");
 	}
 

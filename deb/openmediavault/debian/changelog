@@ -1,3 +1,9 @@
+openmediavault (0.3.7) stable; urgency=low
+
+  * Mantis 0000660: Cannot delete SSL certs in WebGUI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 28 Nov 2012 19:23:30 +0100
+
 openmediavault (0.3.6) stable; urgency=low
 
   * Mantis 0000651: Rsync job recursive parameter not working correctly.
