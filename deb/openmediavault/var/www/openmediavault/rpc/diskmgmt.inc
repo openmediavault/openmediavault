@@ -53,7 +53,7 @@ class DiskMgmtRpc extends OMVRpc {
 					"devicefile":{"type":["string","null"],"format":"regex",'.
 					  '"pattern":"#^/dev(/disk/by-id)?/.+$#i"},
 					"smart":{"type":"boolean"},
-					"apm":{"type":"integer","minimum":1,"maximum":255},
+					"apm":{"type":"integer","minimum":0,"maximum":255},
 					"aam":{"type":"integer","enum":[0,128,254]},
 					"spindowntime":{"type":"integer","minimum":0,"maximum":254},
 					"writecache":{"type":"boolean"}
