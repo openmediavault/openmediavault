@@ -1,6 +1,7 @@
 openmediavault (0.3.7) stable; urgency=low
 
   * Mantis 0000660: Cannot delete SSL certs in WebGUI.
+  * Mantis 0000662: Physical Drive - Advanced Power Management - Value 255.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 28 Nov 2012 19:23:30 +0100
 

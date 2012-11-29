@@ -302,13 +302,14 @@ Ext.extend(OMV.Module.Storage.HdParmPropertyDialog, OMV.CfgObjectDialog, {
 			store: new Ext.data.SimpleStore({
 				fields: [ "value","text" ],
 				data: [
-					[ 255,_("Disabled") ],
+					[ 0,_("Disabled") ],
 					[ 1,_("1 - Minimum power usage with standby (spindown)") ],
 					[ 64,_("64 - Intermediate power usage with standby") ],
 					[ 127,_("127 - Intermediate power usage with standby") ],
 					[ 128,_("128 - Minimum power usage without standby (no spindown)") ],
 					[ 192,_("192 - Intermediate power usage without standby") ],
-					[ 254,_("254 - Maximum performance, maximum power usage") ]
+					[ 254,_("254 - Maximum performance, maximum power usage") ],
+					[ 255,_("255 - Disabled") ]
 				]
 			}),
 			displayField: "text",
@@ -316,7 +317,7 @@ Ext.extend(OMV.Module.Storage.HdParmPropertyDialog, OMV.CfgObjectDialog, {
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
-			value: 255
+			value: 0
 		},{
 			xtype: "combo",
 			name: "aam",

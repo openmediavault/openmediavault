@@ -20,9 +20,9 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
+require_once("openmediavault/initscript.inc");
 
 class OMVHdParmModule extends OMVModuleAbstract
   implements OMVINotifyListener {
@@ -46,13 +46,23 @@ class OMVHdParmModule extends OMVModuleAbstract
 	}
 
 	/**
+	 * Create the configuration file and update the service.
+	 */
+	public function updateService() {
+		$this->mkConf();
+		// Reload the service configuration.
+		$initd = new OMVSysVInitScript("hdparm", TRUE);
+		$initd->invoke("reload");
+	}
+
+	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.storage.hdparm",
-		  array($this, "mkConf"));
+		  array($this, "updateService"));
     }
 }
 
