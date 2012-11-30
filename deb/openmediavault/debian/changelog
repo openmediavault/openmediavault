@@ -1,5 +1,7 @@
 openmediavault (0.3.7) stable; urgency=low
 
+  * Add omv-dist-upgrade command to easily upgrade to the latest release
+    version.
   * Mantis 0000660: Cannot delete SSL certs in WebGUI.
   * Mantis 0000662: Physical Drive - Advanced Power Management - Value 255.
 
