@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
-"PO-Revision-Date: 2012-11-22 12:38+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"POT-Creation-Date: 2012-11-30 20:58+0100\n"
+"PO-Revision-Date: 2012-11-30 19:50+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,15 +18,12 @@ msgstr ""
 "Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr "% gennemført ..."
 
-#, c-format
 msgid "%s (%s available)"
 msgstr "%s (%s tilgængelig)"
 
-#, c-format
 msgid "%s [on %s]"
 msgstr "%s [på %s]"
 
@@ -57,7 +54,6 @@ msgstr "10 minutter"
 msgid "10 years"
 msgstr "10 år"
 
-#, c-format
 msgid "100% completed ..."
 msgstr "100% gennemført ..."
 
@@ -102,6 +98,9 @@ msgstr "25 år"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maksimal ydeevne, maksimal strømforbrug"
+
+msgid "255 - Disabled"
+msgstr ""
 
 msgid "3 days"
 msgstr "3 dage"
@@ -422,7 +421,6 @@ msgstr "Bahrain"
 msgid "Ban list"
 msgstr "Sort liste"
 
-#, c-format
 msgid "Ban statistics:"
 msgstr "Sort liste statistikker::"
 
@@ -689,7 +687,6 @@ msgstr "Cuba"
 msgid "Current time"
 msgstr "Nuværende tid"
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr "Nuværende brugere der er logget ind:"
 
@@ -785,7 +782,6 @@ msgstr "Bestem den standard timeout, i mikrosekunder, før den første pakke bli
 msgid "Device"
 msgstr "Enhed"
 
-#, c-format
 msgid "Device '%s' not found"
 msgstr "Enhed '%s' blev ikke fundet"
 
@@ -1071,7 +1067,6 @@ msgstr "Fejl"
 msgid "Error #"
 msgstr "Fejl #"
 
-#, c-format
 msgid "Error #%d"
 msgstr "Fejl #%d"
 
@@ -1128,7 +1123,6 @@ msgstr "FXP tillader overførsler mellem to eksterne servere uden at nogen filda
 msgid "Failed to call "
 msgstr "Lykkedes ikke at lave et opkald"
 
-#, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1164,11 +1158,9 @@ msgstr "Fil"
 msgid "Filesystem"
 msgstr "Filsystem"
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr "Filsystem '%s' blev ikke fundet"
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr "Filsystem '%s' er ikke understøttet"
 
@@ -1262,15 +1254,12 @@ msgstr "Grenada"
 msgid "Group"
 msgstr "Gruppe"
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr "Gruppen '%s' findes allerede"
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr "Gruppe '%s' eksisterer ikke"
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr "Gruppe ID '%d' findes allerede"
 
@@ -1481,7 +1470,6 @@ msgstr "Ugyldig gruppenavn"
 msgid "Invalid hostname"
 msgstr "Ugyldig værtsnavn"
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr "Ugyldig linie: %s"
 
@@ -1634,7 +1622,6 @@ msgstr "Placerings oplysninger, f.eks. fysisk placering af dette system."
 msgid "Log level"
 msgstr "Log niveau"
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr "Logisk drev %s [%s, %s]"
 
@@ -1891,7 +1878,6 @@ msgstr "Netmaske"
 msgid "Network"
 msgstr "Netværk"
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr "Netværks interface '%s' findes allerede"
 
@@ -2631,7 +2617,6 @@ msgstr "Indstiller intervallet mellem disk kontrol til N sekunder."
 msgid "Settings"
 msgstr "Indstillinger"
 
-#, c-format
 msgid "Settings already exist for device '%s'"
 msgstr "Indstillingen eksisterer allerede for enhed '%s'"
 
@@ -2926,14 +2911,12 @@ msgstr " Ekstern server destination, f.eks. [USER@]HOST:DEST, [USER@]HOST::DEST 
 msgid "The destination shared folder."
 msgstr "Destinationens delte mappe"
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr "Feltet '%s' indeholder forbudte"
 
 msgid "The file mode of the shared folder path."
 msgstr "Fil tilstand af den delte mappes sti."
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr "Gruppen '%s' findes ikke"
 
@@ -3011,11 +2994,9 @@ msgstr "Systemet vil genstarte nu. Dette kan tage noget tid ..."
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "Test mailen er sendt med succes. Kontroller venligst din mailboks."
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr "Brugeren '%s' findes ikke"
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr "Brugeren '%s' er ikke tilladt"
 
@@ -3033,7 +3014,6 @@ msgstr "Velkomstbeskeden, der vil blive vist første gang en bruger logger ind."
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Arbejdsgruppen, som serveren vil fremstå i, når der forespørges af klienter."
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr "Der findes allerede et monterings punkt for %s"
 
@@ -3310,11 +3290,9 @@ msgstr "United States"
 msgid "United States Minor Outlying Islands"
 msgstr "United States Minor Outlying Islands"
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr "Ukendt filsystem '%s'"
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr "Ukendt log filtype (id=%s)"
 
@@ -3402,15 +3380,12 @@ msgstr "Brugt kapacitet"
 msgid "User"
 msgstr "Bruger"
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr "Bruger '%s' findes allerede"
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr "Bruger '%s' findes ikke"
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr "Bruger ID '%d' findes allerede"
 
@@ -3554,7 +3529,6 @@ msgstr "minut"
 msgid "minutes"
 msgstr "minutter"
 
-#, c-format
 msgid "n/a"
 msgstr "n/a"
 

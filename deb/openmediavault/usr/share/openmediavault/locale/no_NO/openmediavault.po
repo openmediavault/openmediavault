@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
-"PO-Revision-Date: 2012-11-19 19:12+0000\n"
+"POT-Creation-Date: 2012-11-30 20:58+0100\n"
+"PO-Revision-Date: 2012-11-30 19:52+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -18,15 +18,12 @@ msgstr ""
 "Language: no\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr "% ferdig ..."
 
-#, c-format
 msgid "%s (%s available)"
 msgstr "%s (%s tilgjengelig)"
 
-#, c-format
 msgid "%s [on %s]"
 msgstr "%s [på %s]"
 
@@ -57,7 +54,6 @@ msgstr "10 minutter"
 msgid "10 years"
 msgstr "10 år"
 
-#, c-format
 msgid "100% completed ..."
 msgstr "100% ferdig ..."
 
@@ -102,6 +98,9 @@ msgstr "25 år"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maksimal ytelse, maksimalt strømforbruk"
+
+msgid "255 - Disabled"
+msgstr ""
 
 msgid "3 days"
 msgstr "3 dager"
@@ -422,7 +421,6 @@ msgstr "Bahrain"
 msgid "Ban list"
 msgstr "Blokkeringsliste"
 
-#, c-format
 msgid "Ban statistics:"
 msgstr "Blokkeringsstatistikk:"
 
@@ -689,7 +687,6 @@ msgstr "Kuba"
 msgid "Current time"
 msgstr "Gjeldende tid"
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr "Inloggede brukere:"
 
@@ -785,7 +782,6 @@ msgstr "Sett standard timeout i millisekunder, før den første pakken er sendt 
 msgid "Device"
 msgstr "Enhet"
 
-#, c-format
 msgid "Device '%s' not found"
 msgstr "Enhet '%s' ble ikke funnet"
 
@@ -1071,7 +1067,6 @@ msgstr "Feil"
 msgid "Error #"
 msgstr "Feil #"
 
-#, c-format
 msgid "Error #%d"
 msgstr "Feil #%d"
 
@@ -1128,7 +1123,6 @@ msgstr "FXP muliggjør overføring mellom to destinasjonsservere uten at fildata
 msgid "Failed to call "
 msgstr "Oppkall feilet"
 
-#, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1164,11 +1158,9 @@ msgstr "Fil"
 msgid "Filesystem"
 msgstr "Filsystem"
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr "Filsystem '%s' ble ikke funnet"
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr "Filsystem '%s' er ikke støttet"
 
@@ -1262,15 +1254,12 @@ msgstr "Grenada"
 msgid "Group"
 msgstr "Gruppe"
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr "Gruppen '%s' finnes allerede"
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr "Gruppen '%s' finnes ikke"
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr "Gruppe ID '%d' finnes allerede"
 
@@ -1481,7 +1470,6 @@ msgstr "Ugyldig gruppenavn"
 msgid "Invalid hostname"
 msgstr "Ugyldig vertsnavn"
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr "Ugyldig linje: %s"
 
@@ -1634,7 +1622,6 @@ msgstr "Plasseringsinformasjon, f.eks. den fysiske plasseringen av dette systeme
 msgid "Log level"
 msgstr "Loggnivået"
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr "Logiske volum %s [%s, %s]"
 
@@ -1891,7 +1878,6 @@ msgstr "Nettmaske"
 msgid "Network"
 msgstr "Nettverk"
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr "Nettverksgrensesnitt '%s' finnes allerede"
 
@@ -2631,7 +2617,6 @@ msgstr "Setter tidsintervallet mellom diskkontroll til N sekunder."
 msgid "Settings"
 msgstr "Instillinger"
 
-#, c-format
 msgid "Settings already exist for device '%s'"
 msgstr "Instillinger finnes allerede for enhet '%s'"
 
@@ -2926,14 +2911,12 @@ msgstr "Den eksterne mål server, for eksempel [USER@]HOST:DEST, [USER@]HOST::DE
 msgid "The destination shared folder."
 msgstr "Den delte målmappen"
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr "Feltet '%s' inneholder ulovlig"
 
 msgid "The file mode of the shared folder path."
 msgstr "Filmodus i den delte mappens bane."
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr "Gruppen '%s' eksisterer ikke"
 
@@ -3011,11 +2994,9 @@ msgstr "Systemet starter nå på nytt. Dette kan ta litt tid ... "
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "Test eposten er sendt. Vennligst sjekk postkassen."
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr "Brukeren '%s' eksisterer ikke"
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr "Brukeren '%s' er ikke tillatt"
 
@@ -3033,7 +3014,6 @@ msgstr "Velkomstmeldingen som vil bli vist til brukere når de logger inn for f�
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Arbeidsgruppen serveren vil se ut til å være i når den blir spurt av klienter."
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr "Det eksisterer allerede et monteringspunkt for %s"
 
@@ -3310,11 +3290,9 @@ msgstr "USA"
 msgid "United States Minor Outlying Islands"
 msgstr "USAs ytre småøyer"
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr "Ukjent filsystem '%s'"
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr "Ukjent loggfiltype (id=%s)"
 
@@ -3402,15 +3380,12 @@ msgstr "Brukt kapasitet"
 msgid "User"
 msgstr "Bruker"
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr "Bruker '%s' finnes allerede"
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr "Bruker '%s' finnes ikke"
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr "Bruker ID '%d' finnes allerede"
 
@@ -3554,7 +3529,6 @@ msgstr "minutt"
 msgid "minutes"
 msgstr "minutter"
 
-#, c-format
 msgid "n/a"
 msgstr "n/a"
 

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
-"PO-Revision-Date: 2012-11-19 19:12+0000\n"
+"POT-Creation-Date: 2012-11-30 20:58+0100\n"
+"PO-Revision-Date: 2012-11-30 19:52+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -20,15 +20,12 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr "% completato ..."
 
-#, c-format
 msgid "%s (%s available)"
 msgstr "%s (%s disponibile)"
 
-#, c-format
 msgid "%s [on %s]"
 msgstr "%s [di %s]"
 
@@ -59,7 +56,6 @@ msgstr "10 minuti"
 msgid "10 years"
 msgstr "10 anni"
 
-#, c-format
 msgid "100% completed ..."
 msgstr "100% completato ..."
 
@@ -104,6 +100,9 @@ msgstr "25 anni"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Prestazioni elevate, consumo di energia massimo"
+
+msgid "255 - Disabled"
+msgstr ""
 
 msgid "3 days"
 msgstr "3 giorni"
@@ -424,7 +423,6 @@ msgstr "Bahrain"
 msgid "Ban list"
 msgstr "Lista di ban"
 
-#, c-format
 msgid "Ban statistics:"
 msgstr "Statistiche di ban:"
 
@@ -691,7 +689,6 @@ msgstr "Cuba"
 msgid "Current time"
 msgstr "Tempo attuale"
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr "Utenti attualmente collegati:"
 
@@ -787,7 +784,6 @@ msgstr "Determina il timeout di default, in microsecondi, prima di ritrasmettere
 msgid "Device"
 msgstr "Dispositivo"
 
-#, c-format
 msgid "Device '%s' not found"
 msgstr "Dispositivo '%s' non trovato"
 
@@ -1073,7 +1069,6 @@ msgstr "Errore"
 msgid "Error #"
 msgstr "Errore #"
 
-#, c-format
 msgid "Error #%d"
 msgstr "Errore #%d"
 
@@ -1130,7 +1125,6 @@ msgstr "FXP permette trasferimenti di files tra due server remoti direttamente s
 msgid "Failed to call "
 msgstr "Chiamata non riuscita"
 
-#, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1166,11 +1160,9 @@ msgstr "File"
 msgid "Filesystem"
 msgstr "Filesystem"
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr "Filesystem '%s' non trovato"
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr "Filesystem '%s' non supportato"
 
@@ -1264,15 +1256,12 @@ msgstr "Grenada"
 msgid "Group"
 msgstr "Gruppo"
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr "Il gruppo '%s' esiste già"
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr "Il gruppo '%s' non esiste"
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr "L'ID del gruppo '%d' esiste già"
 
@@ -1483,7 +1472,6 @@ msgstr "Nome del gruppo non valido"
 msgid "Invalid hostname"
 msgstr "Nome dell'host non valido"
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr "Linea non valida: %s"
 
@@ -1636,7 +1624,6 @@ msgstr "Informazioni sulla posizione, es. posizione fisica di questo sistema."
 msgid "Log level"
 msgstr "Livello di log"
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr "Volume logico %s [%s, %s]"
 
@@ -1893,7 +1880,6 @@ msgstr "Netmask"
 msgid "Network"
 msgstr "Rete"
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr "L'interfaccia di rete '%s' esiste già"
 
@@ -2633,7 +2619,6 @@ msgstr "Imposta l'intervallo tra i check del disco a N secondi."
 msgid "Settings"
 msgstr "Impostazioni"
 
-#, c-format
 msgid "Settings already exist for device '%s'"
 msgstr "Impostazione già esistenti per il device '%s'"
 
@@ -2928,14 +2913,12 @@ msgstr "Il server remoto di destinazione, es. [USER@]HOST:DEST, [USER@]HOST::DES
 msgid "The destination shared folder."
 msgstr "La cartella condivisa di destinazione."
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr "Il campo '%s' contiene parameti vietati"
 
 msgid "The file mode of the shared folder path."
 msgstr "Le impostazioni dei file del percorso della cartella condivisa."
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr "Il gruppo '%s' non esiste"
 
@@ -3013,11 +2996,9 @@ msgstr "Il sistema verrà riavviato adesso. Il riavvio può impiegare qualche te
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "La mail di test è stata inviata con successo. Si prega di controllare la casella di posta."
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr "L'utente '%s' non esiste"
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr "L'utente '%s' non è abilitato"
 
@@ -3035,7 +3016,6 @@ msgstr "Il messaggio di benvenuto che verrà visualizzato all'utente al primo ac
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Il gruppo nel quale apparirà il server quando i client lo interrogheranno."
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr "Esiste già un mount point per %s"
 
@@ -3312,11 +3292,9 @@ msgstr "Stati Uniti"
 msgid "United States Minor Outlying Islands"
 msgstr "Isole Minori Esterne degli Stati Uniti"
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr "Filesystem sconosciuto '%s'"
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr "File di log di tipo sconosciuto (id=%s)"
 
@@ -3404,15 +3382,12 @@ msgstr "Capacità usata"
 msgid "User"
 msgstr "Utente"
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr "L'utente '%s' è già esistente"
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr "L'utente '%s' non esiste"
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr "L'ID utente '%d' è già esistente"
 
@@ -3556,7 +3531,6 @@ msgstr "minuto"
 msgid "minutes"
 msgstr "minuti"
 
-#, c-format
 msgid "n/a"
 msgstr "n/c"
 

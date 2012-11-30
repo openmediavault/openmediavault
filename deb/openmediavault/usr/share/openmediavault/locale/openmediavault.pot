@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
+"POT-Creation-Date: 2012-11-30 20:58+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr ""
 
-#, c-format
 msgid "%s (%s available)"
 msgstr ""
 
-#, c-format
 msgid "%s [on %s]"
 msgstr ""
 
@@ -56,7 +53,6 @@ msgstr ""
 msgid "10 years"
 msgstr ""
 
-#, c-format
 msgid "100% completed ..."
 msgstr ""
 
@@ -100,6 +96,9 @@ msgid "25 years"
 msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
+msgstr ""
+
+msgid "255 - Disabled"
 msgstr ""
 
 msgid "3 days"
@@ -411,7 +410,6 @@ msgstr ""
 msgid "Ban list"
 msgstr ""
 
-#, c-format
 msgid "Ban statistics:"
 msgstr ""
 
@@ -670,7 +668,6 @@ msgstr ""
 msgid "Current time"
 msgstr ""
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr ""
 
@@ -761,7 +758,6 @@ msgstr ""
 msgid "Device"
 msgstr ""
 
-#, c-format
 msgid "Device '%s' not found"
 msgstr ""
 
@@ -1032,7 +1028,6 @@ msgstr ""
 msgid "Error #"
 msgstr ""
 
-#, c-format
 msgid "Error #%d"
 msgstr ""
 
@@ -1087,7 +1082,6 @@ msgstr ""
 msgid "Failed to call "
 msgstr ""
 
-#, c-format
 msgid "Failed to create filesystem. Please check the syslog or '%s' for more details."
 msgstr ""
 
@@ -1121,11 +1115,9 @@ msgstr ""
 msgid "Filesystem"
 msgstr ""
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr ""
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr ""
 
@@ -1219,15 +1211,12 @@ msgstr ""
 msgid "Group"
 msgstr ""
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr ""
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr ""
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr ""
 
@@ -1417,7 +1406,6 @@ msgstr ""
 msgid "Invalid hostname"
 msgstr ""
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr ""
 
@@ -1568,7 +1556,6 @@ msgstr ""
 msgid "Log level"
 msgstr ""
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr ""
 
@@ -1818,7 +1805,6 @@ msgstr ""
 msgid "Network"
 msgstr ""
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr ""
 
@@ -2524,7 +2510,6 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#, c-format
 msgid "Settings already exist for device '%s'"
 msgstr ""
 
@@ -2801,14 +2786,12 @@ msgstr ""
 msgid "The destination shared folder."
 msgstr ""
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr ""
 
 msgid "The file mode of the shared folder path."
 msgstr ""
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr ""
 
@@ -2872,11 +2855,9 @@ msgstr ""
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr ""
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr ""
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr ""
 
@@ -2892,7 +2873,6 @@ msgstr ""
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr ""
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr ""
 
@@ -3112,11 +3092,9 @@ msgstr ""
 msgid "United States Minor Outlying Islands"
 msgstr ""
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr ""
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr ""
 
@@ -3201,15 +3179,12 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr ""
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr ""
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr ""
 
@@ -3351,7 +3326,6 @@ msgstr ""
 msgid "minutes"
 msgstr ""
 
-#, c-format
 msgid "n/a"
 msgstr ""
 
