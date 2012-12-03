@@ -31,16 +31,16 @@ OMV_UPGRADE_APTSOURCESLIST=${OMV_UPGRADE_APTSOURCESLIST:-"/etc/apt/sources.list.
 prodname=$(xmlstarlet sel -t -v "//name" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
 prodcopyright=$(xmlstarlet sel -t -v "//copyright" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
 
-whiptail --clear --backtitle "${prodname} - ${prodcopyright}" --title "Distribution upgrade" --yesno "Do you really want to upgrade your system to release version ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME})?" 8 45 5
+whiptail --clear --backtitle "${prodname} - ${prodcopyright}" --title "Release upgrade" --yesno "Do you really want to upgrade your system to release version ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME})?" 8 45 5
 [ $? -ne 0 ] && exit 0
 echo "Upgrading system to ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME}) ..."
 
 # Upgrade source list file.
-releasename=$(echo ${OMV_UPGRADE_RELEASENAME} | tr "[:upper:]" "[:lower:]")
+relname=$(echo ${OMV_UPGRADE_RELEASENAME} | tr "[:upper:]" "[:lower:]")
 cat <<EOF > ${OMV_UPGRADE_APTSOURCESLIST}
-deb http://packages.openmediavault.org/public ${releasename} main
+deb http://packages.openmediavault.org/public ${relname} main
 ## Uncomment the following line to add software from the proposed repository.
-# deb http://packages.openmediavault.org/public ${releasename}-proposed main
+# deb http://packages.openmediavault.org/public ${relname}-proposed main
 EOF
 
 # Update package database and upgrade distribution.
