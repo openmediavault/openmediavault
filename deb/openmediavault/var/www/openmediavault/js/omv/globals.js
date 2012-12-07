@@ -38,5 +38,6 @@ OMV.languages = [
 	[ "uk_UK","Український" ], // Ukrainian
 	[ "no_NO","Norsk" ], // Norwegian
 	[ "sv_SV","Svenska" ], // Swedish
-	[ "pt_PT","Português" ] // Portuguese
+	[ "pt_PT","Português" ], // Portuguese
+	[ "zh_TW","正體中文" ] // Chinese (traditional)
 ];
