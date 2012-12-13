@@ -1,6 +1,8 @@
 openmediavault (0.4.7) stable; urgency=low
 
+  * Update locales.
   * Add chinese translations. Thanks to Kochin Chang.
+  * Various code improvements.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 05 Dec 2012 18:47:04 +0100
 
