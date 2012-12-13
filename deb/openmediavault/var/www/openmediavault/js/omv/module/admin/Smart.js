@@ -616,9 +616,9 @@ OMV.Module.Storage.SMARTScheduledTestsPanel = function(config) {
 				sortable: true,
 				renderer: function(val, cell, record, row, col, store) {
 					var tpl = new Ext.XTemplate(
-					  '<b>Model:</b> {volumemodel}<br/>',
-					  '<b>Device:</b> {volumedevicefile}<br/>',
-					  '<b>Capacity:</b> {[OMV.util.Format.binaryUnit(values.volumesize)]}');
+					  '<b>', _("Model"), ':</b> {volumemodel}<br/>',
+					  '<b>', _("Device"), ':</b> {volumedevicefile}<br/>',
+					  '<b>', _("Capacity"), ':</b> {[OMV.util.Format.binaryUnit(values.volumesize)]}');
 					return tpl.apply(record.data);
 				}
 			},{

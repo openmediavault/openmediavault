@@ -2116,13 +2116,15 @@ class OMVSystemUser extends OMVObject {
 			if (!is_null($this->groups))
 				return TRUE;
 			// http://www.howtogeek.com/howto/ubuntu/see-which-groups-your-linux-user-belongs-to
-			$cmd = sprintf("export LANG=C; groups %s | ".
-			  "awk -F ' : ' '{print $2}'", escapeshellarg($this->getName()));
+			$cmd = sprintf("export LANG=C; groups %s", escapeshellarg(
+			  $this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if (($result !== 0) || empty($output[0]))
 				return FALSE;
-			$this->groups = empty($output[0]) ? array() : explode(" ",
-			  $output[0]);
+			// Parse command output:
+			// test : users adm audio www-data avahi
+			$output = trim(substr(strrchr($output[0], ":"), 1));
+			$this->groups = empty($output) ? array() : explode(" ", $output);
 			$result = TRUE;
 			break;
 		}
