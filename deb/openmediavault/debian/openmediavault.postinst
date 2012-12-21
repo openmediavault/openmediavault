@@ -403,6 +403,12 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.4.5"; then
 			omv_config_add_element "//services/rsync/jobs/job" "partial" "0"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.8"; then
+			omv_config_add_element "//services/smb/shares/share" "recyclemaxsize" "0"
+			omv_config_add_element "//services/smb/shares/share" "recyclemaxage" "0"
+			omv-mkconf samba
+			invoke-rc.d samba restart
+		fi
 	;;
 
 	triggered)

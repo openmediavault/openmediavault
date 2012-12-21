@@ -414,6 +414,8 @@
 					<readonly>0</readonly>
 					<browseable>1</browseable>
 					<recyclebin>0</recyclebin>
+					<recyclemaxsize>0</recyclemaxsize>
+					<recyclemaxage>0</recyclemaxage>
 					<hidedotfiles>1</hidedotfiles>
 					<inheritacls>1</inheritacls>
 					<inheritpermissions>0</inheritpermissions>

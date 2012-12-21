@@ -75,6 +75,8 @@ class SMBRpc extends OMVRpc {
 					"readonly":{"type":"boolean"},
 					"browseable":{"type":"boolean"},
 					"recyclebin":{"type":"boolean"},
+					"recyclemaxsize":{"type":"integer","minimum":0},
+					"recyclemaxage":{"type":"integer","minimum":0},
 					"hidedotfiles":{"type":"boolean"},
 					"inheritacls":{"type":"boolean"},
 					"inheritpermissions":{"type":"boolean"},
@@ -217,6 +219,8 @@ class SMBRpc extends OMVRpc {
 			$objectv['readonly'] = boolval($objectv['readonly']);
 			$objectv['browseable'] = boolval($objectv['browseable']);
 			$objectv['recyclebin'] = boolval($objectv['recyclebin']);
+			$objectv['recyclemaxsize'] = intval($objectv['recyclemaxsize']);
+			$objectv['recyclemaxage'] = intval($objectv['recyclemaxage']);
 			$objectv['hidedotfiles'] = boolval($objectv['hidedotfiles']);
 			$objectv['inheritacls'] = boolval($objectv['inheritacls']);
 			$objectv['inheritpermissions'] = boolval(
@@ -266,6 +270,8 @@ class SMBRpc extends OMVRpc {
 		$object['readonly'] = boolval($object['readonly']);
 		$object['browseable'] = boolval($object['browseable']);
 		$object['recyclebin'] = boolval($object['recyclebin']);
+		$object['recyclemaxsize'] = intval($object['recyclemaxsize']);
+		$object['recyclemaxage'] = intval($object['recyclemaxage']);
 		$object['hidedotfiles'] = boolval($object['hidedotfiles']);
 		$object['inheritacls'] = boolval($object['inheritacls']);
 		$object['inheritpermissions'] = boolval($object['inheritpermissions']);
@@ -301,6 +307,8 @@ class SMBRpc extends OMVRpc {
 			"inheritacls" => array_boolval($data, 'inheritacls'),
 			"inheritpermissions" => array_boolval($data, 'inheritpermissions'),
 			"recyclebin" => array_boolval($data, 'recyclebin'),
+			"recyclemaxsize" => $data['recyclemaxsize'],
+			"recyclemaxage" => $data['recyclemaxage'],
 			"hidedotfiles" => array_boolval($data, 'hidedotfiles'),
 			"easupport" => array_boolval($data, 'easupport'),
 			"storedosattributes" => array_boolval($data, 'storedosattributes'),

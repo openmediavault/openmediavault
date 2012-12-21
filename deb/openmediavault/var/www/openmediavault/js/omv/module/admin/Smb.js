@@ -461,6 +461,43 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: _("This will create a recycle bin on the share.")
 		},{
+			xtype: "container",
+			fieldLabel: " ",
+			items: [{
+				layout: "column",
+				defaults: {
+					layout: "form"
+				},
+				items: [{
+					defaults: {
+						labelSeparator: ""
+					},
+					items: [{
+						xtype: "numberfield",
+						name: "recyclemaxsize",
+						fieldLabel: _("Maximum file size"),
+						minValue: 0,
+						allowDecimals: false,
+						allowNegative: false,
+						allowBlank: false,
+						plugins: [ OMV.form.plugins.FieldInfo ],
+						infoText: _("Files that are larger than the specified number of bytes will not be put into the recycle bin. Set to 0 for unrestricted."),
+						value: 0
+					},{
+						xtype: "numberfield",
+						name: "recyclemaxage",
+						fieldLabel: _("Delete files"),
+						minValue: 0,
+						allowDecimals: false,
+						allowNegative: false,
+						allowBlank: false,
+						plugins: [ OMV.form.plugins.FieldInfo ],
+						infoText: _("Files that are older than the specified number of days will be deleted automatically. Set to 0 for manual deletion."),
+						value: 0
+					}]
+				}]
+			}]
+		},{
 			xtype: "checkbox",
 			name: "hidedotfiles",
 			fieldLabel: _("Hide dot files"),
