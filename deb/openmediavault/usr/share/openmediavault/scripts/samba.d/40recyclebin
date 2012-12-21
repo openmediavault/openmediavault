@@ -45,6 +45,9 @@ xmlstarlet sel -t -m "//services/smb/shares/share[recyclebin='1']" \
   -i "position() != last()" -n -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid sharedfolderref recyclemaxage; do
+	  # Skip shared folders with recyclemaxage=0.
+	  [ "${recyclemaxage}" -eq "0" ] && continue
+
 	  filename="${OMV_SAMBA_SHARE_RECYCLE_CRONSCRIPTS_DIR}/${OMV_SAMBA_SHARE_RECYCLE_CRONSCRIPT_TEMPLATE}${uuid}"
 	  runfile="/var/run/${OMV_SAMBA_SHARE_RECYCLE_CRONSCRIPT_TEMPLATE}${uuid}"
 	  sfpath=$(omv_get_sharedfolder_path "${sharedfolderref}")
