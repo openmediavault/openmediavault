@@ -407,7 +407,7 @@ case "$1" in
 			omv_config_add_element "//services/smb/shares/share" "recyclemaxsize" "0"
 			omv_config_add_element "//services/smb/shares/share" "recyclemaxage" "0"
 			omv-mkconf samba
-			invoke-rc.d samba restart
+			invoke-rc.d samba reload
 		fi
 	;;
 

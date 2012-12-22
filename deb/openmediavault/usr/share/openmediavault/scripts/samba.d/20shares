@@ -25,6 +25,7 @@
 # http://www.cyberciti.biz/tips/how-do-i-set-permissions-to-samba-shares.html
 # http://oreilly.com/catalog/samba/chapter/book/ch06_02.html
 # https://www.bsi.bund.de/ContentBSI/grundschutz/kataloge/m/m04/m04332.html
+# http://www.redhat.com/advice/tips/sambatrash.html
 
 set -e
 
@@ -71,13 +72,13 @@ do
 	  -i "storedosattributes[. = '1']" -o "store dos attributes = yes" -n -b \
 	  -i "recyclebin[. = '1']" \
 		  -o "vfs objects = recycle" -n \
-		  -o "recycle:repository = ${OMV_SAMBA_SHARE_RECYCLE_REPOSITORY}" -n \
+		  -o "recycle:repository = ${OMV_SAMBA_SHARE_RECYCLE_REPOSITORY}/%U" -n \
 		  -o "recycle:keeptree = yes" -n \
 		  -o "recycle:versions = yes" -n \
 		  -o "recycle:touch = yes" -n \
 		  -o "recycle:directory_mode = ${OMV_SAMBA_SHARE_RECYCLE_DIRECTORYMODE}" -n \
 		  -o "recycle:subdir_mode = ${OMV_SAMBA_SHARE_RECYCLE_SUBDIRMODE}" -n \
-		  -i "recyclemaxsize[. > '0']" -v "concat('recycle:maxsize = ',recyclemaxsize)" -n -b \
+		  -v "concat('recycle:maxsize = ',recyclemaxsize)" -n \
 	  -b \
 	  -o "printable = ${OMV_SAMBA_SHARE_PRINTABLE}" -n \
 	  -o "create mask = ${OMV_SAMBA_SHARE_CREATEMASK}" -n \

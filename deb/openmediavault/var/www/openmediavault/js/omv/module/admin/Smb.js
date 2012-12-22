@@ -492,7 +492,7 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 						allowNegative: false,
 						allowBlank: false,
 						plugins: [ OMV.form.plugins.FieldInfo ],
-						infoText: _("Files that are older than the specified number of days will be deleted automatically. Set to 0 for manual deletion."),
+						infoText: _("Files in the recycle bin will be deleted automatically after the specified number of days. Set to 0 for manual deletion."),
 						value: 0
 					}]
 				}]

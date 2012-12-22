@@ -21,6 +21,7 @@
 
 # Documentation/Howto:
 # http://www.samba.org/samba/docs/man/Samba-HOWTO-Collection/VFS.html#id2651247
+# http://www.redhat.com/advice/tips/sambatrash.html
 
 set -e
 
