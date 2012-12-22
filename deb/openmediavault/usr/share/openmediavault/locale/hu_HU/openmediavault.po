@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-30 20:58+0100\n"
-"PO-Revision-Date: 2012-11-30 19:51+0000\n"
+"POT-Creation-Date: 2012-12-22 03:12+0100\n"
+"PO-Revision-Date: 2012-12-22 02:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -735,6 +735,9 @@ msgstr "Törlés"
 msgid "Delete content"
 msgstr "Tartalom törlése"
 
+msgid "Delete files"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Fájlok törlése a fogadó oldalon, ha a feladó nem létezik"
 
@@ -1154,6 +1157,16 @@ msgstr "Fiji"
 
 msgid "File"
 msgstr "Fájl"
+
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr ""
+
+msgid ""
+"Files that are larger than the specified number of bytes will not be put "
+"into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
 
 msgid "Filesystem"
 msgstr "Fájlrendszer"
@@ -1724,6 +1737,9 @@ msgstr "Max. bejelentkezési kísérletek"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maximum letöltési sebesség (KiB/s)"
+
+msgid "Maximum file size"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "

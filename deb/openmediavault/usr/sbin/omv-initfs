@@ -21,6 +21,7 @@
 
 # Documentation/Howto:
 # http://wiki.linuxquestions.org/wiki/Fstab
+# http://unix.stackexchange.com/questions/43922/how-to-read-the-in-memory-kernel-partition-table-of-dev-sda
 
 set -e
 
@@ -197,6 +198,9 @@ EOF
 		sleep 2
 		;;
 	esac
+
+	# Reread partition table.
+	partprobe ${device}
 
 	# Get the mkfs command options
 	fsoptions=""

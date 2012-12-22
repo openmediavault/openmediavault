@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-30 20:58+0100\n"
-"PO-Revision-Date: 2012-12-09 14:37+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
+"POT-Creation-Date: 2012-12-22 03:12+0100\n"
+"PO-Revision-Date: 2012-12-22 02:12+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -735,6 +735,9 @@ msgstr "刪除"
 msgid "Delete content"
 msgstr "刪除內容"
 
+msgid "Delete files"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "刪除在接收端但不存於發送端的檔案"
 
@@ -1154,6 +1157,16 @@ msgstr "斐濟"
 
 msgid "File"
 msgstr "檔案"
+
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr ""
+
+msgid ""
+"Files that are larger than the specified number of bytes will not be put "
+"into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
 
 msgid "Filesystem"
 msgstr "檔案系統"
@@ -1724,6 +1737,9 @@ msgstr "最多登入嘗試次數"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "最大下載速度 (KiB/s)"
+
+msgid "Maximum file size"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "

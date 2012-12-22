@@ -481,7 +481,7 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 						allowNegative: false,
 						allowBlank: false,
 						plugins: [ OMV.form.plugins.FieldInfo ],
-						infoText: _("Files that are larger than the specified number of bytes will not be put into the recycle bin. Set to 0 for unrestricted."),
+						infoText: _("Files that are larger than the specified number of bytes will not be put into the recycle bin. Set to 0 for unrestricted file size."),
 						value: 0
 					},{
 						xtype: "numberfield",

@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-30 20:58+0100\n"
-"PO-Revision-Date: 2012-12-10 06:49+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"POT-Creation-Date: 2012-12-22 03:12+0100\n"
+"PO-Revision-Date: 2012-12-22 02:12+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -737,6 +737,9 @@ msgstr "Borrar"
 msgid "Delete content"
 msgstr "Borrar contenido"
 
+msgid "Delete files"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Borrar archivos en la parte receptora que no existan en la parte emisora."
 
@@ -1156,6 +1159,16 @@ msgstr "Fidji"
 
 msgid "File"
 msgstr "Archivo"
+
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr ""
+
+msgid ""
+"Files that are larger than the specified number of bytes will not be put "
+"into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
 
 msgid "Filesystem"
 msgstr "Sistema de archivos"
@@ -1726,6 +1739,9 @@ msgstr "Nº Max. de login"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Velocidad max. de descarga (KiB/s)"
+
+msgid "Maximum file size"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
