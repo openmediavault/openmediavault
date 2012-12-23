@@ -1463,12 +1463,17 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 		// md1 : active raid5 sde[2] sdg[1] sdf[0]
 		//       207872 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/3] [UUU]
 		//       [=========>...........]  resync = 45.0% (47488/103936) finish=0.0min speed=47488K/sec
+		//
 		// md0 : active (auto-read-only) raid5 sdd[2] sdc[1] sdb[0]
 		//       207872 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/3] [UUU]
 		//       	resync=PENDING
+		//
 		// md0 : active raid5 sdf[4] sde[3] sdd[2] sdc[1] sdb[0]
 		//       311808 blocks super 1.2 level 5, 512k chunk, algorithm 2 [5/5] [UUUUU]
 		//       [====>................]  reshape = 20.5% (21504/103936) finish=0.0min speed=21504K/sec
+		//
+		// md0 : inactive sdb[0](S) sdc[2](S) sdd[1](S)
+		//       311808 blocks super 1.2
 		$cmd = sprintf("cat /proc/mdstat | sed -n '/^%s.*:/,/^[ ]*$/p'",
 		  $this->getDeviceName());
 		unset($output);
