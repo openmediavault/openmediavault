@@ -209,12 +209,15 @@ class OMVVolumeGroups extends OMVObject {
 	 * )
 	 */
 	public static function get() {
-		$cmd = "export LANG=C; sudo vgdisplay --noheadings -C -o vg_name";
+		$cmd = "export LANG=C; sudo vgdisplay --noheadings -C -o vg_name".
+		  "2>/dev/null";
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			return FALSE;
 		}
 		$list = array();
+		// Parse command output:
+		//   vg0
 		foreach ($output as $outputk => $outputv) {
 			$list[] = trim($outputv);
 		}
@@ -283,7 +286,8 @@ class OMVVolumeGroup extends OMVObject {
 		if ($this->pvCount > 0) {
 			unset($output);
 			$cmd = sprintf("export LANG=C; sudo vgdisplay --noheadings ".
-			  "--separator '|' -C -o pv_name %s", $this->getName());
+			  "--separator '|' -C -o pv_name %s 2>/dev/null",
+			  escapeshellarg($this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0)
 				return FALSE;
@@ -298,7 +302,8 @@ class OMVVolumeGroup extends OMVObject {
 		if ($this->lvCount > 0) {
 			unset($output);
 			$cmd = sprintf("export LANG=C; sudo vgdisplay --noheadings ".
-			  "--separator '|' -C -o lv_name %s", $this->getName());
+			  "--separator '|' -C -o lv_name %s 2>/dev/null",
+			  escapeshellarg($this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0)
 				return FALSE;

@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Christophe Lherieau <skimpax@gmail.com>, 2012.
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-09-15 12:28+0200\n"
-"PO-Revision-Date: 2012-09-15 10:29+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2012-09-26 12:37+0000\n"
+"Last-Translator: Christophe Lherieau <skimpax@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,7 +34,7 @@ msgid "Confirmation"
 msgstr "Confirmation"
 
 msgid "Create"
-msgstr ""
+msgstr "Créer"
 
 msgid "Create logical volume"
 msgstr "Créer un volume logique"
@@ -90,10 +91,10 @@ msgid "Name"
 msgstr "Nom"
 
 msgid "No free space available to create a logical volume."
-msgstr ""
+msgstr "Aucun espace libre n'est disponible pour créer un volume logique."
 
 msgid "No free space available to extend the logical volume."
-msgstr ""
+msgstr "Aucun espace libre n'est disponible pour étendre le volume logique."
 
 msgid "Physical volumes"
 msgstr "Volumes physiques"

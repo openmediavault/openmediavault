@@ -2316,14 +2316,22 @@ class OMVPhysicalVolumes extends OMVObject {
 	 * )
 	 */
 	public static function get() {
-		$cmd = "export LANG=C; sudo pvdisplay --noheadings -C -o pv_name";
+		$cmd = "export LANG=C; sudo pvdisplay --noheadings -C -o pv_name ".
+		  "2>/dev/null";
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			return FALSE;
 		}
 		$list = array();
-		foreach ($output as $outputk => $outputv) {
-			$list[] = trim($outputv);
+		// Parse command output:
+		//   /dev/sdc      
+		//   /dev/sdd      
+		//   unknown device
+		foreach($output as $outputk => $outputv) {
+			$deviceFile = trim($outputv);
+			if(!is_devicefile($deviceFile))
+				continue;
+			$list[] = $deviceFile;
 		}
 		return $list;
 	}
