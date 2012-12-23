@@ -285,12 +285,16 @@ class DiskMgmtRpc extends OMVRpc {
 		$outputFile = tempnam(sys_get_temp_dir(), "format");
 		if (TRUE === boolval($data['secure'])) {
 			// Secure wipe the device.
-			$cmd = sprintf("export LANG=C; sudo shred -v -n 1 %s ".
-			  ">%s 2>&1 & echo $!", $data['devicefile'], $outputFile);
+			$cmd = sprintf("export LANG=C; sudo sh -c 'shred -v -n 1 %s; ".
+			  "blockdev --rereadpt %s' >%s 2>&1 & echo $!", escapeshellarg(
+			  $data['devicefile']), escapeshellarg($data['devicefile']),
+			  $outputFile);
 		} else {
 			// Quick wipe the device (see omv-initfs).
-			$cmd = sprintf("export LANG=C; sudo sgdisk --zap-all %s ".
-			  ">%s 2>&1 & echo $!", $data['devicefile'], $outputFile);
+			$cmd = sprintf("export LANG=C; sudo sh -c 'sgdisk --zap-all %s; ".
+			  "blockdev --rereadpt %s' >%s 2>&1 & echo $!", escapeshellarg(
+			  $data['devicefile']), escapeshellarg($data['devicefile']),
+			  $outputFile);
 		}
 		OMVUtil::exec($cmd, $output, $res);
 		if ($res !== 0) {

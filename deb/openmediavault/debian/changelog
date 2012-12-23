@@ -2,6 +2,7 @@ openmediavault (0.4.8) stable; urgency=low
 
   * Mantis 0000671: Provide a built-in automatic pruning mechanism for the
     CIFS/SMB recycle bin.
+  * Mantis 0000672: Simplify the process to prepare a new disk for RAID.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 21 Dec 2012 15:04:50 +0100
 
