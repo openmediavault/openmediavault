@@ -209,7 +209,7 @@ class OMVVolumeGroups extends OMVObject {
 	 * )
 	 */
 	public static function get() {
-		$cmd = "export LANG=C; sudo vgdisplay --noheadings -C -o vg_name".
+		$cmd = "export LANG=C; sudo vgdisplay --noheadings -C -o vg_name ".
 		  "2>/dev/null";
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
