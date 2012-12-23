@@ -1,3 +1,9 @@
+openmediavault (0.4.9) stable; urgency=low
+
+  * Mantis 0000675: Validate user-input in SMTP server.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 23 Dec 2012 22:20:57 +0100
+
 openmediavault (0.4.8) stable; urgency=low
 
   * Mantis 0000671: Provide a built-in automatic pruning mechanism for the

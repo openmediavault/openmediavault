@@ -122,6 +122,7 @@ Ext.extend(OMV.Module.System.Notification, OMV.FormPanelExt, {
 				name: "server",
 				fieldLabel: _("SMTP server"),
 				allowBlank: false,
+				vtype: "domainnameIPv4",
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: _("Outgoing SMTP mail server address, e.g. smtp.mycorp.com.")
 			},{
