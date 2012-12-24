@@ -1,6 +1,9 @@
 openmediavault (0.4.9) stable; urgency=low
 
   * Mantis 0000675: Validate user-input in SMTP server.
+  * Mantis 0000676: Provide a way to change average system load thresholds
+    for notifications. Alert notifications can be disabled via the environment
+    variables OMV_MONIT_SERVICE_SYSTEM_(MEMORYUSAGE|CPUUSAGE|LOADAVG)_ENABLE.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 23 Dec 2012 22:20:57 +0100
 
