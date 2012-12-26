@@ -293,7 +293,7 @@ class RaidMgmtRpc extends OMVRpc {
 		$newDevices = explode(",", $data['devices']);
 		$numDevices += count($newDevices);
 		// Add new devices to the RAID device.
-		$cmd = sprintf("sudo mdadm --manage %s --add %s 2>&1",
+		$cmd = sprintf("export LANG=C; sudo mdadm --manage %s --add %s 2>&1",
 		  $raid->getDeviceFile(), implode(" ", $newDevices));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
@@ -301,9 +301,14 @@ class RaidMgmtRpc extends OMVRpc {
 			  $cmd, implode("\n", $output));
 		}
 		// Now grow the RAID.
-		// See https://raid.wiki.kernel.org/index.php/Growing
-		$cmd = sprintf("sudo mdadm --grow --raid-devices=%d %s 2>&1",
-		  $numDevices, $raid->getDeviceFile());
+		// See for more details:
+		// https://raid.wiki.kernel.org/index.php/Growing
+		// https://raid.wiki.kernel.org/index.php/Write-intent_bitmap
+		$cmdArgs = array();
+		$cmdArgs[] = "--grow";
+		$cmdArgs[] = sprintf("--raid-devices=%d", $numDevices);
+		$cmd = sprintf("export LANG=C; sudo mdadm %s %s 2>&1", implode(" ",
+		  $cmdArgs), $raid->getDeviceFile());
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -349,7 +354,7 @@ class RaidMgmtRpc extends OMVRpc {
 		$newDevices = explode(",", $data['devices']);
 		$numDevices += count($newDevices);
 		// Add new devices to the RAID device.
-		$cmd = sprintf("sudo mdadm --manage %s --add %s 2>&1",
+		$cmd = sprintf("export LANG=C; sudo mdadm --manage %s --add %s 2>&1",
 		  $raid->getDeviceFile(), implode(" ", $newDevices));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {

@@ -1325,6 +1325,9 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	protected $devices = array();
 	protected $numDevices = FALSE;
 	protected $uuid = FALSE;
+	protected $state = "";
+	protected $hasWriteIntentBitmap = FALSE;
+	protected $details = array();
 	private $dataCached = FALSE;
 
 	/**
@@ -1364,6 +1367,67 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 		$this->numDevices = intval($attributes['num-devices']);
 		$this->uuid = $attributes['uuid'];
 		$this->devices = explode(",", $attributes['devices']);
+
+		// Get more informations.
+		$cmd = sprintf("export LANG=C; sudo mdadm --detail %s",
+		  escapeshellarg($this->getDeviceFile()));
+		unset($output);
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0)
+			return FALSE;
+
+		// Store the whole command output.
+		array_shift($output);
+		$this->details = $output;
+
+		// Parse command output:
+		// /dev/md0:
+		//         Version : 1.2
+		//   Creation Time : Tue Dec 25 21:58:20 2012
+		//      Raid Level : raid5
+		//      Array Size : 207872 (203.03 MiB 212.86 MB)
+		//   Used Dev Size : 103936 (101.52 MiB 106.43 MB)
+		//    Raid Devices : 3
+		//   Total Devices : 3
+		//     Persistence : Superblock is persistent
+		// 
+		//   Intent Bitmap : Internal
+		// 
+		//     Update Time : Tue Dec 25 22:31:32 2012
+		//           State : active
+		//  Active Devices : 3
+		// Working Devices : 3
+		//  Failed Devices : 0
+		//   Spare Devices : 0
+		// 
+		//          Layout : left-symmetric
+		//      Chunk Size : 512K
+		// 
+		//            Name : dhcppc2:0  (local to host dhcppc2)
+		//            UUID : 9d85a4f6:afff2cb6:b8a5f4dc:75f3cfd3
+		//          Events : 37
+		// 
+		//     Number   Major   Minor   RaidDevice State
+		//        0       8       16        0      active sync   /dev/sdb
+		//        1       8       48        1      active sync   /dev/sdd
+		//        2       8       64        2      active sync   /dev/sde
+		foreach ($output as $outputk => $outputv) {
+			if (empty($outputv))
+				continue;
+			$parts = explode(":", $outputv);
+			if (empty($parts))
+				continue;
+			$parts = array_map("trim", $parts);
+			switch (strtolower($parts[0])) {
+			case "state":
+				$this->state = $parts[1];
+				break;
+			case "intent bitmap":
+				$this->hasWriteIntentBitmap = (0 == strcasecmp($parts[1],
+				  "Internal")) ? TRUE : FALSE;
+				break;
+			}
+		}
 
 		// Set flag to mark informations has been successfully read
 		$this->dataCached = TRUE;
@@ -1453,13 +1517,16 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 * @return The status of the array, otherwise FALSE.
 	 */
 	public function getState() {
-		$cmd = sprintf("export LANG=C; sudo mdadm --detail %s | " .
-		  "grep 'State :'", escapeshellarg($this->getDeviceFile()));
+		if ($this->getData() === FALSE)
+			return FALSE;
+		// Get more informations about the current state.
+		$cmd = sprintf("cat /proc/mdstat | sed -n '/^%s.*:/,/^[ ]*$/p'",
+		  $this->getDeviceName());
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0)
 			return FALSE;
-		$status = trim(substr($output[0], strpos($output[0], ":") + 1));
-		// Check /proc/mdstat
+		// Parse command output:
+		// Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10]
 		// md1 : active raid5 sde[2] sdg[1] sdf[0]
 		//       207872 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/3] [UUU]
 		//       [=========>...........]  resync = 45.0% (47488/103936) finish=0.0min speed=47488K/sec
@@ -1474,26 +1541,23 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 		//
 		// md0 : inactive sdb[0](S) sdc[2](S) sdd[1](S)
 		//       311808 blocks super 1.2
-		$cmd = sprintf("cat /proc/mdstat | sed -n '/^%s.*:/,/^[ ]*$/p'",
-		  $this->getDeviceName());
-		unset($output);
-		@OMVUtil::exec($cmd, $output, $result);
+		//
+		// unused devices: <none>
 		$output = implode(" ", $output);
-		if ($result !== 0)
-			return FALSE;
-		// Extract the resync state
+		// Extract the resync state.
 		$resyncState = "";
 		if (1 == preg_match("/^.+(resync|reshape)\s*=\s*(.+)$/i", $output,
 		  $matches)) {
 			$resyncState = trim($matches[2]);
 		}
-		if ((FALSE !== stristr($status, "resyncing")) ||
-		  (FALSE !== stristr($status, "recovering"))) {
-			$status = sprintf("%s (%s)", $status, $resyncState);
+		$state = $this->state;
+		if ((FALSE !== stristr($state, "resyncing")) ||
+		  (FALSE !== stristr($state, "recovering"))) {
+			$state = sprintf("%s (%s)", $state, $resyncState);
 		} else if (FALSE !== stristr($output, "resync")) {
-			$status = sprintf("%s, resyncing (%s)", $status, $resyncState);
+			$state = sprintf("%s, resyncing (%s)", $state, $resyncState);
 		}
-		return $status;
+		return $state;
 	}
 
 	/**
@@ -1501,13 +1565,9 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 * @return The detail of the md device, otherwise FALSE.
 	 */
 	public function getDetail() {
-		$cmd = sprintf("export LANG=C; sudo mdadm --detail %s",
-		  escapeshellarg($this->getDeviceFile()));
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if ($this->getData() === FALSE)
 			return FALSE;
-		array_shift($output);
-		return implode("\n", $output);
+		return implode("\n", $this->details);
 	}
 
 	/**
@@ -1524,6 +1584,18 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 */
 	public function isRaid() {
 		return TRUE;
+	}
+
+	/**
+	 * Check whether the RAID device has write-intent bitmap enabled.
+	 * Note, only 'internal' bitmaps are detected and supported.
+	 * @see https://raid.wiki.kernel.org/index.php/Write-intent_bitmap
+	 * @return TRUE if write-intent bitmap is enabled, otherwise FALSE.
+	 */
+	public function hasWriteIntentBitmap() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		return $this->hasWriteIntentBitmap;
 	}
 }
 
