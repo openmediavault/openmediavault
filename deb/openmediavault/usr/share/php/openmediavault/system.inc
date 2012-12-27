@@ -568,6 +568,24 @@ class OMVFilesystem extends OMVObject {
 	}
 
 	/**
+	 * Get the device path by UUID, e.g.
+	 * \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+	 * \li /dev/disk/by-uuid/2ED43920D438EC29 (NTFS)
+	 * @return The device path (/dev/disk/by-uuid/xxx) if available,
+	 *   otherwise /dev/xxx will be returned. In case of an error FALSE
+	 *   will be returned.
+	 */
+	public function getDeviceFileByUuid() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		$deviceFileByUuid = sprintf("/dev/disk/by-uuid/%s",
+		  $this->getUuid());
+		if (is_block($deviceFileByUuid))
+			return $deviceFileByUuid;
+		return $this->getDeviceFile();
+	}
+
+	/**
 	 * Get the filesystem block size.
 	 * @return The block size, otherwise FALSE.
 	 */
@@ -851,10 +869,12 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	}
 
 	/**
-	 * Get device path, e.g. /dev/disk/by-id/wwn-0x5000cca211cc703c or
-	 * /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML.
-	 * @return The device path (/dev/disk/by-id/xxx) if available, otherwise
-	 * /dev/xxx will be returned. In case of an error FALSE will be returned.
+	 * Get the device path by ID, e.g.
+	 * \li /dev/disk/by-id/wwn-0x5000cca211cc703c
+	 * \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML
+	 * @return The device path (/dev/disk/by-id/xxx) if available,
+	 *   otherwise /dev/xxx will be returned. In case of an error FALSE
+	 *   will be returned.
 	 */
 	public function getDeviceFileById() {
 		if(!$this->deviceFileById) {

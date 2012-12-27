@@ -131,6 +131,20 @@ function is_devicefile($var) {
 }
 
 /**
+ * Tells whether the given file is a block device.
+ * @param filename Path to the file.
+ * @return Returns TRUE if the file is a block device, FALSE otherwise.
+ */
+function is_block($filename) {
+	if(FALSE === file_exists($filename))
+		return FALSE;
+	if(FALSE === ($stat = stat($filename)))
+		return FALSE;
+	// See http://www.kernel.org/doc/man-pages/online/pages/man2/stat.2.html
+	return $stat['mode'] & 060000;
+}
+
+/**
  * Finds out whether a variable is JSON.
  * @param var The variable being evaluated.
  * @return TRUE if variable is JSON, otherwise FALSE.

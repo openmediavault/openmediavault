@@ -659,7 +659,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 			break;
 		case "vfat":
 		case "ntfs":
-			$fsName = $fs->getDeviceFile();
+			$fsName = $fs->getDeviceFileByUuid();
 			$opts = "defaults";
 			break;
 		default:
