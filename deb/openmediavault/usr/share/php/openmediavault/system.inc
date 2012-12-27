@@ -332,7 +332,7 @@ class OMVSystem {
 /**
  * @class OMVFilesystems
  * @extends OMVObject
- * Generic class to handle RAID devices.
+ * Generic class to handle filesystems.
  */
 class OMVFilesystems extends OMVObject {
 	/**
@@ -403,8 +403,14 @@ class OMVFilesystem extends OMVObject {
 	/**
 	 * Constructor
 	 * @param id The UUID or device path of the filesystem, e.g.
-	 * /dev/sde1, 78b669c1-9183-4ca3-a32c-80a4e2c61e2d, 7A48-BA97 (DOS)
-	 * or 2ED43920D438EC29 (NTFS).
+	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+	 *   \li 7A48-BA97 (DOS)
+	 *   \li 2ED43920D438EC29 (NTFS)
+	 *   \li /dev/sde1
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
+	 *   \li /dev/disk/by-label/DATA
+	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
+	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 */
 	public function __construct($id) {
 		if (!is_devicefile($id))
@@ -425,15 +431,20 @@ class OMVFilesystem extends OMVObject {
 		if (!empty($this->uuid)) {
 			// Get the device name containing the file system. This is
 			// required for the blkid low-level probing mode.
+			// Note, it is not possible to use /dev/disk/by-uuid/* to get
+			// the real device name because under some unknown circumstances
+			// filesystems are not listed there sometimes.
 			$cmd = sprintf("export LANG=C; sudo findfs UUID=%s", $this->uuid);
 			@OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0)
 				return FALSE;
 			$this->deviceFile = $output[0];
+			unset($output);
 		}
 
-		unset($output);
-		$cmd = sprintf("export LANG=C; sudo blkid -p %s", $this->deviceFile);
+		// Get the filesystem details.
+		$cmd = sprintf("export LANG=C; sudo blkid -p %s", realpath(
+		  $this->deviceFile));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0)
 			return FALSE;
@@ -444,6 +455,8 @@ class OMVFilesystem extends OMVObject {
 		$regex = '/^(\S+): (.+)$/i';
 		if (1 !== preg_match($regex, $output[0], $matches))
 			return FALSE;
+
+		// Set default values and extract key/value pairs.
 		$data = array(
 			"devicefile" => $matches[1],
 			"uuid" => "",
@@ -467,7 +480,7 @@ class OMVFilesystem extends OMVObject {
 		$this->ptType = $data['pttype'];
 		$this->usage = $data['usage'];
 
-		// Set flag to mark informations has been successfully read
+		// Set flag to mark informations has been successfully read.
 		$this->dataCached = TRUE;
 
 		return TRUE;
@@ -499,6 +512,8 @@ class OMVFilesystem extends OMVObject {
 	 * @return The UUID of the filesystem, otherwise FALSE.
 	 */
 	public function getUuid() {
+		if ($this->getData() === FALSE)
+			return FALSE;
 		return $this->uuid;
 	}
 
@@ -960,8 +975,14 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 class OMVStorageDeviceFactory extends OMVObject {
 	/**
 	 * Get the object of the class implementing the given device type.
-	 * @param deviceFile The device file, e.g. /dev/sdb, /dev/md1,
-	 *   /dev/cciss/c0d0 or /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6.
+	 * @param deviceFile The device file, e.g.
+	 *   \li /dev/sdb
+	 *   \li /dev/md1
+	 *   \li /dev/cciss/c0d0
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
+	 *   \li /dev/disk/by-label/DATA
+	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
+	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 * @return The object of the class implementing the given device type,
 	 *   otherwise NULL.
 	 */
@@ -974,15 +995,10 @@ class OMVStorageDeviceFactory extends OMVObject {
 		$object = NULL;
 		// Store original function argument for later usage.
 		$arg = $deviceFile;
-		// If the device file looks like /dev/disk/by-id/xxx then it is
-		// necessary to get the /dev/xxx equivalent.
-		if(preg_match("/^\/dev\/disk\/by-id\/.+$/", $deviceFile)) {
-			$cmd = sprintf("export LANG=C; readlink -e %s", escapeshellarg(
-			  $deviceFile));
-			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0)
-				return NULL;
-			$deviceFile = $output[0];
+		// If the device file looks like /dev/disk/by-(id|label|path|uuid)/*
+		// then it is necessary to get the /dev/xxx equivalent.
+		if (preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile)) {
+			$deviceFile = realpath($deviceFile);
 		}
 		// Extract the device name, e.g.:
 		// - /dev/sdb => sdb
@@ -1325,7 +1341,7 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	protected $devices = array();
 	protected $numDevices = FALSE;
 	protected $uuid = FALSE;
-	protected $state = "";
+	protected $state = "unknown";
 	protected $hasWriteIntentBitmap = FALSE;
 	protected $details = array();
 	private $dataCached = FALSE;
@@ -1588,7 +1604,7 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 
 	/**
 	 * Check whether the RAID device has write-intent bitmap enabled.
-	 * Note, only 'internal' bitmaps are detected and supported.
+	 * Note, only 'internal' bitmaps are detected and reported.
 	 * @see https://raid.wiki.kernel.org/index.php/Write-intent_bitmap
 	 * @return TRUE if write-intent bitmap is enabled, otherwise FALSE.
 	 */
