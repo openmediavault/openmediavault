@@ -115,7 +115,7 @@ class FileSystemMgmtRpc extends OMVRpc {
 			// Is it a filesystem of interest?
 			if (!in_array($objectv['type'], array("ext", "ext2", "ext3",
 			  "ext4", "xfs", "jfs", "iso9660", "msdos", "ntfs", "udf",
-			  "umsdos", "vfat", "ufs", "reiserfs", "btrfs"))) {
+			  "umsdos", "vfat", "ufs", "reiserfs", "btrfs", "hfsplus"))) {
 				continue;
 			}
 			// Skip the device where the operation system is installed on.
@@ -658,9 +658,16 @@ class FileSystemMgmtRpc extends OMVRpc {
 			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_XFS'];
 			break;
 		case "vfat":
+			$fsName = $fs->getDeviceFileByUuid();
+			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_VFAT'];
+			break;
 		case "ntfs":
 			$fsName = $fs->getDeviceFileByUuid();
-			$opts = "defaults";
+			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_NTFS'];
+			break;
+		case "hfsplus":
+			$fsName = $fs->getUuid();
+			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_HFSPLUS'];
 			break;
 		default:
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
