@@ -1,3 +1,10 @@
+openmediavault (0.3.8) stable; urgency=low
+
+  * Fix access bug when a SMB/CIFS share is declared as public. Thanks to
+    premudriy for the research and fix.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 29 Dec 2012 13:24:10 +0100
+
 openmediavault (0.3.7.1) stable; urgency=low
 
   * Rename omv-dist-upgrade to omv-release-upgrade.

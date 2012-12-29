@@ -32,6 +32,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_SAMBA_CONFIG=${OMV_SAMBA_CONFIG:-"/etc/samba/smb.conf"}
+OMV_SAMBA_GUESTACCOUNT=${OMV_SAMBA_GUESTACCOUNT:-"nobody"}
 OMV_SAMBA_SHARE_RECYCLEREPOSITORY=${OMV_SAMBA_SHARE_RECYCLEREPOSITORY:-".recycle/%U"}
 OMV_SAMBA_SHARE_RECYCLEDIRECTORYMODE=${OMV_SAMBA_SHARE_RECYCLEDIRECTORYMODE:-"0777"}
 OMV_SAMBA_SHARE_RECYCLESUBDIRMODE=${OMV_SAMBA_SHARE_RECYCLESUBDIRMODE:-"0700"}
@@ -96,6 +97,13 @@ do
 	invalidusers=""
 	readlist=""
 	writelist=""
+
+	# Add the guest account user to the valid/write users list to grant
+	# access to the share if it is public.
+	if [ "$(omv_config_get "//services/smb/shares/share[position()=${index}]/guestok")" = "1" ]; then
+		validusers="${OMV_SAMBA_GUESTACCOUNT}"
+		writelist="${OMV_SAMBA_GUESTACCOUNT}"
+	fi
 
 	# Get shared folder user privileges
 	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
