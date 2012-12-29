@@ -1,5 +1,7 @@
 openmediavault (0.4.9) stable; urgency=low
 
+  * Fix access bug when a SMB/CIFS share is declared as public. Thanks to
+    premudriy for the research and fix.
   * Mantis 0000675: Validate user-input in SMTP server.
   * Mantis 0000676: Provide a way to change average system load thresholds
     for notifications. Alert notifications can be disabled via the environment
