@@ -428,18 +428,22 @@ class OMVFilesystem extends OMVObject {
 		if ($this->dataCached !== FALSE)
 			return TRUE;
 
-		if (!empty($this->uuid)) {
+		if(!empty($this->uuid)) {
 			// Get the device name containing the file system. This is
 			// required for the blkid low-level probing mode.
-			// Note, it is not possible to use /dev/disk/by-uuid/* to get
-			// the real device name because under some unknown circumstances
-			// filesystems are not listed there sometimes.
-			$cmd = sprintf("export LANG=C; sudo findfs UUID=%s", $this->uuid);
-			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0)
-				return FALSE;
-			$this->deviceFile = $output[0];
-			unset($output);
+			$this->deviceFile = sprintf("/dev/disk/by-uuid/%s", $this->uuid);
+			if(!is_block($this->deviceFile)) {
+				// In some unknown circumstances (e.g. after creating a
+				// software RAID) the filesystem is not in listed in
+				// /dev/disk/by-uuid, thus try to find it the following
+				// way.
+				$cmd = sprintf("export LANG=C; findfs UUID=%s", $this->uuid);
+				@OMVUtil::exec($cmd, $output, $result);
+				if($result !== 0)
+					return FALSE;
+				$this->deviceFile = $output[0];
+				unset($output);
+			}
 		}
 
 		// If the device file looks like /dev/disk/by-(id|label|path|uuid)/*
