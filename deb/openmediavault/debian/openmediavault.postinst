@@ -395,7 +395,7 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.3.7"; then
 			omv_config_update "//system/storage/hdparm[apm=255]/apm" "0"
 		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.8"; then
+		if dpkg --compare-versions "$2" lt-nl "0.3.9"; then
 			omv-mkconf samba
 			invoke-rc.d samba reload
 		fi

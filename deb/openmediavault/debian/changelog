@@ -1,3 +1,9 @@
+openmediavault (0.3.9) stable; urgency=low
+
+  * Mantis 0000681: Public shares in SMB/CIFS do not work.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 30 Dec 2012 16:20:12 +0100
+
 openmediavault (0.3.8) stable; urgency=low
 
   * Fix access bug when a SMB/CIFS share is declared as public. Thanks to
