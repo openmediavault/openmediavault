@@ -222,11 +222,17 @@ Ext.extend(OMV.Module.Privileges.SharedFolderGridPanel,
 		OMV.MessageBox.show({
 			title: _("Delete content"),
 			msg: _("Do you want to remove the content of the shared folder recursively? The shared folder content will be permanently removed and cannot be recovered. Select 'No' to delete the shared folder configuration only or 'Cancel' to abort."),
-			buttons: Ext.Msg.YESNOCANCEL,
+			// Stupid workaround to reorder buttons cause ExtJS does not
+			// support this.
+			buttons: {
+				yes: _("No"),
+				no: _("Yes"),
+				cancel: _("Cancel")
+			},
 			fn: function(answer) {
 				this.deleteRecursive = false;
 				switch (answer) {
-				case "yes":
+				case "no": // Recursively delete data
 					OMV.MessageBox.show({
 						title: _("Confirmation"),
 						msg: _("Do you really want to remove the shared folder content?"),
@@ -243,7 +249,7 @@ Ext.extend(OMV.Module.Privileges.SharedFolderGridPanel,
 						icon: Ext.Msg.QUESTION
 					});
 					break;
-				case "no":
+				case "yes": // Configuration only
 					OMV.Module.Privileges.SharedFolderGridPanel.superclass.
 					  startDeletion.call(this, model, records);
 					break;
@@ -503,7 +509,7 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 				disabled: this.readOnly
 			},{
 				text: _("Cancel"),
-				handler: this.cbCancelBtnHdl,
+				handler: this.close,
 				scope: this
 			}],
 			items: [ this.grid ],
@@ -539,14 +545,6 @@ Ext.extend(OMV.Module.Privileges.PrivilegesPropertyDialog, Ext.Window, {
 			return;
 		}
 		this.doSubmit();
-	},
-
-	/**
-	 * @method cbCancelBtnHdl
-	 * Method that is called when the 'Cancel' button is pressed.
-	 */
-	cbCancelBtnHdl : function() {
-		this.close();
 	},
 
 	doSubmit : function() {
