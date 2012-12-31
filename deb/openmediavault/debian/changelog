@@ -1,5 +1,7 @@
 openmediavault (0.4.11) stable; urgency=low
 
+  * Add 'omv-update' to update the package repository and install new
+    packages from CLI.
   * Mantis 0000683: On delete of "Shared Folders" it is too easy to remove
     content, yes is the default.
 
