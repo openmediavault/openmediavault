@@ -1,5 +1,6 @@
 openmediavault (0.4.11) stable; urgency=low
 
+  * Fix issue related to Mantis 0000679.
   * Add 'omv-update' to update the package repository and install new
     packages from CLI.
   * Mantis 0000683: On delete of "Shared Folders" it is too easy to remove
