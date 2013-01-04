@@ -3,6 +3,7 @@ openmediavault (0.4.12) stable; urgency=low
   * Reconfigure smartmontools configuration if email notification settings
     has been modified.
   * Make gateway field in the bond interface configuration dialogs optional.
+  * Send emails from user root to the primary email recipient.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 04 Jan 2013 04:58:32 +0100
 
