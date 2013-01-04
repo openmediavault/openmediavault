@@ -1,5 +1,6 @@
 openmediavault (0.4.12) stable; urgency=low
 
+  * Add Galician WebGUI language support.
   * Reconfigure smartmontools configuration if email notification settings
     has been modified.
   * Make gateway field in the bond interface configuration dialogs optional.
