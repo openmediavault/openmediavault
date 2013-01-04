@@ -76,6 +76,10 @@ class OMVSMARTModule extends OMVModuleAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.smart.scheduledtests.job",
 		  array($this, "updateService"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.email",
+		  array($this, "mkConf"));
     }
 }
 

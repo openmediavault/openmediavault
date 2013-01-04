@@ -1,3 +1,9 @@
+openmediavault (0.3.10) stable; urgency=low
+
+  * Make gateway field in the bond interface configuration dialogs optional.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 04 Jan 2013 15:22:47 +0100
+
 openmediavault (0.3.9) stable; urgency=low
 
   * Mantis 0000681: Public shares in SMB/CIFS do not work.
