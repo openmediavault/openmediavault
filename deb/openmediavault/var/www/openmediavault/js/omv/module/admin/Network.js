@@ -873,8 +873,12 @@ Ext.extend(OMV.Module.System.Network.BondIfacePropertyDialog,
 		for (var i = 0; i < fields.length; i++) {
 			field = this.findFormField(fields[i]);
 			if (Ext.isDefined(field)) {
-				field.allowBlank = readOnly;
 				field.setReadOnly(readOnly);
+				// Modify the 'allowBlank' flag for all fields except the
+				// field 'gateway'. This is optional in 'static' mode.
+				if(fields[i] !== "gateway") {
+					field.allowBlank = readOnly;
+				}
 			}
 		}
 	},
