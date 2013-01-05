@@ -1215,8 +1215,14 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 			return FALSE;
 		// S.M.A.R.T. informations already cached?
 		if (is_null($this->smartInfo)) {
-			$cmd = sprintf("export LANG=C; sudo smartctl -a %s",
-			  escapeshellarg($this->getDeviceFile()));
+			$cmdArgs = array();
+			$cmdArgs[] = sprintf("-a %s", escapeshellarg(
+			  $this->getDeviceFile()));
+			if("" !== ($deviceType = $this->getSmartDeviceType())) {
+				$cmdArgs[] = sprintf("-d %s", $deviceType);
+			}
+			$cmd = sprintf("export LANG=C; sudo smartctl %s", implode(" ",
+			  $cmdArgs));
 			@OMVUtil::exec($cmd, $output, $result);
 			// Bit 0: Command line did not parse
 			// Bit 1: Device open failed, or device did not return an
@@ -1315,8 +1321,14 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 		if (!$this->exists())
 			return FALSE;
 		if ($this->identityInfo === FALSE) {
-			$cmd = sprintf("export LANG=C; sudo smartctl -i %s",
-			  escapeshellarg($this->getDeviceFile()));
+			$cmdArgs = array();
+			$cmdArgs[] = sprintf("-i %s", escapeshellarg(
+			  $this->getDeviceFile()));
+			if("" !== ($deviceType = $this->getSmartDeviceType())) {
+				$cmdArgs[] = sprintf("-d %s", $deviceType);
+			}
+			$cmd = sprintf("export LANG=C; sudo smartctl %s", implode(" ",
+			  $cmdArgs));
 			@OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0)
 				return FALSE;
@@ -1333,6 +1345,20 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 		}
 		return $this->identityInfo;
 	}
+
+	/**
+	 * Helper function to identify the device type required by the
+	 * smartctl command.
+	 * @return Returns the identified device type or an empty string.
+	 */
+	private function getSmartDeviceType() {
+		$type = ""; // Force auto-detection.
+		// TODO: The device type identification must be improved.
+		if(TRUE === $this->isUsb()) {
+			$type = "sat";
+		}
+		return $type;
+	}
 }
 
 /**
@@ -1342,9 +1368,6 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
  * RAID controller.
  */
 class OMVHardwareRaidDevice extends OMVStorageDeviceAbstract {
-	protected $model = FALSE;
-	protected $vendor = FALSE;
-
 	/**
 	 * See interface definition.
 	 */
