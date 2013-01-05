@@ -191,7 +191,7 @@ class DiskMgmtRpc extends OMVRpc {
 			  $xpath);
 		}
 		// Modify result data
-		$object['smart'] = boolval($object['smart']);
+		$object['smart'] = boolval($object['smart']['enable']);
 		$object['apm'] = intval($object['apm']);
 		$object['aam'] = intval($object['aam']);
 		$object['spindowntime'] = intval($object['spindowntime']);
@@ -224,7 +224,10 @@ class DiskMgmtRpc extends OMVRpc {
 			"uuid" => ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $data['uuid'],
 			"devicefile" => $sd->getDeviceFileById(),
-			"smart" => array_boolval($data, 'smart'),
+			"smart" => array(
+				"enable" => array_boolval($data, 'smart'),
+				"devicetype" => $sd->getSmartDeviceType()
+			),
 			"apm" => $data['apm'],
 			"aam" => $data['aam'],
 			"spindowntime" => $data['spindowntime'],

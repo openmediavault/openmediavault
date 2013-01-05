@@ -997,6 +997,14 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 		}
 		return empty($result);
 	}
+
+	/**
+	 * Identify the device type required by the smartctl command.
+	 * @return Returns the identified device type or an empty string.
+	 */
+	public function getSmartDeviceType() {
+		return ""; // Force auto-detection.
+	}
 }
 
 /**
@@ -1347,12 +1355,11 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 	}
 
 	/**
-	 * Helper function to identify the device type required by the
-	 * smartctl command.
+	 * Identify the device type required by the smartctl command.
 	 * @return Returns the identified device type or an empty string.
 	 */
-	private function getSmartDeviceType() {
-		$type = ""; // Force auto-detection.
+	public function getSmartDeviceType() {
+		$type = "";
 		// TODO: The device type identification must be improved.
 		if(TRUE === $this->isUsb()) {
 			$type = "sat";
@@ -1382,6 +1389,19 @@ class OMVHardwareRaidDevice extends OMVStorageDeviceAbstract {
 	 */
 	public function isRaid() {
 		return TRUE;
+	}
+
+	/**
+	 * Identify the device type required by the smartctl command.
+	 * @return Returns the identified device type or an empty string.
+	 */
+	public function getSmartDeviceType() {
+		$type = "";
+		if(1 == preg_match("/^cciss!c(\d)d(\d)$/", $this->getDeviceName(),
+		  $matches)) {
+			$type = sprintf("cciss,%s", $matches[2]);
+		}
+		return $type;
 	}
 }
 

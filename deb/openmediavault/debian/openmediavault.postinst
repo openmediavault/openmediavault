@@ -413,6 +413,18 @@ case "$1" in
 			omv-mkconf samba
 			invoke-rc.d samba reload
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.12"; then
+			xmlstarlet sel -t -m "//system/storage/hdparm" \
+			  -v "uuid" \
+			  -i "position() != last()" -n -b \
+			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+			  while read uuid; do
+				  enable=$(omv_config_get "//system/storage/hdparm[uuid='${uuid}']/smart")
+				  omv_config_update "//system/storage/hdparm[uuid='${uuid}']/smart" ""
+				  omv_config_add_element "//system/storage/hdparm[uuid='${uuid}']/smart" "enable" "${enable}"
+			  done
+			omv_config_add_element "//system/storage/hdparm/smart" "devicetype" ""
+		fi
 	;;
 
 	triggered)

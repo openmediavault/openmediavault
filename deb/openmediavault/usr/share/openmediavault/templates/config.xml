@@ -166,7 +166,10 @@
 			<hdparm>
 				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 				<devicefile>/dev/xxx</devicefile>
-				<smart>0|1</smart>
+				<smart>
+					<enable>0|1</enable>
+					<devicetype>|sat|cciss|xxx</devicetype>
+				</smart>
 				<apm>0 = disable|1-255<apm>
 				<aam>0|128|254</aam>
 				<spindowntime>0 = disabled|1-254</spindowntime>
