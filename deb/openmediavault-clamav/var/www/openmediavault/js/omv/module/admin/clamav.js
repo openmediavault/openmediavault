@@ -21,6 +21,7 @@
 // require("js/omv/NavigationPanel.js")
 // require("js/omv/FormPanelExt.js")
 // require("js/omv/CfgObjectDialog.js")
+// require("js/omv/data/DataProxy.js")
 // require("js/omv/grid/TBarGridPanel.js")
 // require("js/omv/form/SharedFolderComboBox.js")
 // require("js/omv/form/plugins/FieldInfo.js")

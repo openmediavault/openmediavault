@@ -1,0 +1,290 @@
+# This file is part of OpenMediaVault.
+# 
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+# 
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+# 
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+# Translators:
+#   <kochinc@outlook.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-03-15 20:05+0100\n"
+"PO-Revision-Date: 2012-12-31 19:41+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Add LUN"
+msgstr "新增 LUN"
+
+msgid "Add target"
+msgstr "新增目的裝置"
+
+msgid "Add user"
+msgstr "新增用戶"
+
+msgid "Alias"
+msgstr "別名"
+
+msgid "Assign a unique identifier to the iSCSI volume optionally."
+msgstr ""
+
+msgid "Assign a unique serial number to the iSCSI volume optionally."
+msgstr ""
+
+msgid "Authentication"
+msgstr "驗證"
+
+msgid "Block IO"
+msgstr "區塊 IO"
+
+msgid "Comment"
+msgstr "註釋"
+
+msgid ""
+"Controls the maximum number of data transfers the target may request at "
+"once."
+msgstr ""
+
+msgid "Data PDU in order"
+msgstr ""
+
+msgid "Data digest"
+msgstr ""
+
+msgid "Data sequence in order"
+msgstr ""
+
+msgid "Device"
+msgstr "裝置"
+
+msgid "Discovery authentication"
+msgstr ""
+
+msgid "Edit LUN"
+msgstr "編輯 LUN"
+
+msgid "Edit target"
+msgstr "編輯目的裝置"
+
+msgid "Edit user"
+msgstr "編輯用戶"
+
+msgid "Enable"
+msgstr "啟用"
+
+msgid "Error recovery level"
+msgstr "錯誤恢復層級"
+
+msgid "Extra options"
+msgstr "額外選項"
+
+msgid "File IO"
+msgstr "檔案 IO"
+
+msgid "First burst length"
+msgstr ""
+
+msgid "General"
+msgstr "一般"
+
+msgid "General settings"
+msgstr "一般設定"
+
+msgid "Header digest"
+msgstr ""
+
+msgid "IO threads"
+msgstr "IO 執行緒"
+
+msgid "IQN"
+msgstr "IQN"
+
+msgid "Id"
+msgstr "Id"
+
+msgid "Identifier"
+msgstr "識別名稱"
+
+msgid ""
+"If a non-zero 'NOP interval' is used to periodically 'ping' the initiator "
+"during phases of inactivity (i.e. no data transfers), the initiator must "
+"respond within N seconds, otherwise the connection will be closed."
+msgstr ""
+
+msgid ""
+"If enabled, the initiator has to wait for the target to solicit SCSI data "
+"before sending it. Disabling it allows the initiator to send a burst of N "
+"bytes unsolicited right after and/or together with the command. Thus "
+"disabling it may improve performance."
+msgstr ""
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's data segment will be protected by a CRC32C "
+"checksum."
+msgstr ""
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's header segments will be protected by a CRC32C "
+"checksum."
+msgstr ""
+
+msgid ""
+"If value is non-zero, the initiator will be 'ping'ed during phases of "
+"inactivity (i.e. no data transfers) every N seconds to verify the connection"
+" is still alive."
+msgstr ""
+
+msgid "Immediate data"
+msgstr ""
+
+msgid "Incoming"
+msgstr "傳入"
+
+msgid "Initial R2T"
+msgstr ""
+
+msgid "LUN"
+msgstr "LUN"
+
+msgid "Max. burst length"
+msgstr ""
+
+msgid "Max. connections"
+msgstr "最多連線數目"
+
+msgid "Max. outstanding R2T"
+msgstr ""
+
+msgid "Max. receive data segment length"
+msgstr ""
+
+msgid "Max. sessions"
+msgstr "最多作業階段數目"
+
+msgid "Max. transmit data segment length"
+msgstr ""
+
+msgid "NOP interval"
+msgstr "NOP 時間間隔"
+
+msgid "NOP timeout"
+msgstr "NOP 逾時"
+
+msgid "None"
+msgstr "無"
+
+msgid "Only one outgoing user per target is supported."
+msgstr "每個目的裝置只支援一個傳出的用戶。"
+
+msgid "Outgoing"
+msgstr "傳出"
+
+msgid "Password"
+msgstr "密碼"
+
+msgid "Queued commands"
+msgstr "被佇列的指令"
+
+msgid "R/W mode"
+msgstr "讀寫模式"
+
+msgid "Read-only"
+msgstr "唯讀"
+
+msgid "SCSI Id."
+msgstr "SCSI Id."
+
+msgid "SCSI serial no."
+msgstr "SCSI 序號"
+
+msgid "Select an device ..."
+msgstr "選擇一個裝置 ..."
+
+msgid ""
+"Sets the amount of unsolicited data the initiator may transmit in the first "
+"burst of a transfer either with and/or right after the command."
+msgstr ""
+
+msgid ""
+"Sets the maximum amount of either unsolicited or solicited data the "
+"initiator may send in a single burst."
+msgstr ""
+
+msgid "Sets the maximum data segment length that can be received."
+msgstr ""
+
+msgid "Sets the maximum data segment length that can be sent."
+msgstr ""
+
+msgid "Settings"
+msgstr "設置"
+
+msgid "Targets"
+msgstr "目的裝置"
+
+msgid "The identifier of the target."
+msgstr "目的裝置的識別名稱。"
+
+msgid "The maximum number of sessions for this target."
+msgstr "對此目的裝置所允許的最多作業階段數目。"
+
+msgid ""
+"The number of commands an initiator may send and that will be buffered by "
+"the target."
+msgstr ""
+
+msgid "The number of connections within a session."
+msgstr "在一個作業階段中的連線數。"
+
+msgid "The number of threads to perform block I/O to the device."
+msgstr "用來對該裝置執行區塊 I/O 的執行緒數目。"
+
+msgid "The optional alias of the target."
+msgstr "目的裝置的別名(非必要)。"
+
+msgid ""
+"This allows the initiator to append unsolicited data to a command. To "
+"achieve better performance, this should be enabled."
+msgstr ""
+
+msgid "Transfer mode"
+msgstr "傳送模式"
+
+msgid "Type"
+msgstr "類型"
+
+msgid "Username"
+msgstr "用戶名稱"
+
+msgid "Users"
+msgstr "用戶"
+
+msgid "Write-back"
+msgstr "回寫"
+
+msgid "Write-through"
+msgstr "透寫"
+
+msgid "iSCSI Target"
+msgstr "iSCSI 目的裝置"

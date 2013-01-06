@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#   <bejonwe@gmx.net>, 2012.
 # Volker  <votdev@gmx.de>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-08-19 16:20+0200\n"
-"PO-Revision-Date: 2012-08-24 20:11+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2012-11-21 15:37+0000\n"
+"Last-Translator: bejonwe <bejonwe@gmx.net>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +35,7 @@ msgid "General settings"
 msgstr "Allgemeine Einstellungen"
 
 msgid "Groups suffix"
-msgstr ""
+msgstr "Gruppenzusatz"
 
 msgid "Host"
 msgstr "Host"
@@ -62,13 +63,13 @@ msgid ""
 msgstr ""
 
 msgid "Specifies the group suffix, e.g. 'ou=Groups'."
-msgstr ""
+msgstr "Legt die Gruppenzusatz fest (z.B. \"ou=Gruppen\")."
 
 msgid "Specifies the user suffix, e.g. 'ou=Users'."
-msgstr ""
+msgstr "Legt den Benutzerzusatz fest (z.B. \"ou=Benutzer\")."
 
 msgid "The FQDN or IP address of the server."
-msgstr ""
+msgstr "Die FQDN oder IP-Adresse des Servers."
 
 msgid "Users suffix"
-msgstr ""
+msgstr "Benutzerzusatz"

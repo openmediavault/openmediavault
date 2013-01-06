@@ -2,7 +2,7 @@
 # 
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2013 Volker Theile
+# @copyright Copyright (c) 2009-2012 Volker Theile
 # 
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-15 20:05+0100\n"
-"PO-Revision-Date: 2012-05-23 14:12+0000\n"
+"PO-Revision-Date: 2012-12-04 10:10+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -107,7 +107,7 @@ msgid "General"
 msgstr "Generelt"
 
 msgid "General settings"
-msgstr "Genrelle indstillinger"
+msgstr "Generelle indstillinger"
 
 msgid "Header digest"
 msgstr "Header digest"
@@ -135,7 +135,7 @@ msgid ""
 "before sending it. Disabling it allows the initiator to send a burst of N "
 "bytes unsolicited right after and/or together with the command. Thus "
 "disabling it may improve performance."
-msgstr "Hvis aktiveret, skal initiatoren vente på at destinationen anmoder om SCSI-data, inden afsendelse. Deaktivering tillader initiatoren til at sende en byge af N bytes uopfordrede lige efter og/eller sammen med kommandoen. Således kan deaktivering forbedre ydeevnen."
+msgstr "Hvis aktiveret, skal initiatoren vente på at destinationen anmoder om SCSI-data, inden afsendelse. Deaktivering tillader initiatoren til at sende en burst af N bytes uopfordrede lige efter og/eller sammen med kommandoen. Således kan deaktivering forbedre ydeevnen."
 
 msgid ""
 "If set to 'CRC32C' and the initiator is configured accordingly, the "
@@ -224,7 +224,7 @@ msgstr "Vælg en enhed ..."
 msgid ""
 "Sets the amount of unsolicited data the initiator may transmit in the first "
 "burst of a transfer either with and/or right after the command."
-msgstr "Angiver mængden af uopfordrede data initiatoren kan sende i den første byge af en overførsel enten med og/eller lige efter kommandoen."
+msgstr "Angiver mængden af uopfordrede data initiatoren kan sende i den første burst af en overførsel enten med og/eller lige efter kommandoen."
 
 msgid ""
 "Sets the maximum amount of either unsolicited or solicited data the "

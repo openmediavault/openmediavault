@@ -1,3 +1,9 @@
+openmediavault-iscsitarget (0.4.2) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 06 Jan 2013 01:43:54 +0100
+
 openmediavault-iscsitarget (0.4.1) stable; urgency=low
 
   * Fix xmlstarlet issue.
