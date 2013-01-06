@@ -8,14 +8,14 @@
 #   <mattjes04@googlemail.com>, 2012.
 # Volker  <votdev@gmx.de>, 2012.
 #   <votdev@gmx.de>, 2012.
-#   <warhog@gmx.de>, 2012.
+#   <warhog@gmx.de>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-12-22 03:12+0100\n"
-"PO-Revision-Date: 2012-12-22 02:13+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-01-04 23:33+0000\n"
+"Last-Translator: warhog <warhog@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1906,7 +1906,7 @@ msgid "Neutral Zone"
 msgstr "Neutrale Zone"
 
 msgid "Never"
-msgstr "Niemals"
+msgstr "Nie"
 
 msgid "New Caledonia"
 msgstr "Neukaledonien"

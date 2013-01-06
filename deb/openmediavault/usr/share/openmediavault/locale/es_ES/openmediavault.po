@@ -4,15 +4,15 @@
 # 
 # Translators:
 #   <jmcainzos@vodafone.es>, 2012.
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012.
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2013.
 # Volker  <votdev@gmx.de>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-12-22 03:12+0100\n"
-"PO-Revision-Date: 2012-12-22 02:12+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-01-05 22:01+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -738,7 +738,7 @@ msgid "Delete content"
 msgstr "Borrar contenido"
 
 msgid "Delete files"
-msgstr ""
+msgstr "Borrar archivos"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Borrar archivos en la parte receptora que no existan en la parte emisora."
@@ -1163,12 +1163,12 @@ msgstr "Archivo"
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
-msgstr ""
+msgstr "Los archivos de la papelera serán borrados automáticamente despues de un nº determinado de dias. 0 para borrado manual."
 
 msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
-msgstr ""
+msgstr "Archivos de un tamaño superior al nº especificado de bytes, no serán copiados en la papelera de reciclaje. 0 para eliminar la restricción."
 
 msgid "Filesystem"
 msgstr "Sistema de archivos"
@@ -1741,7 +1741,7 @@ msgid "Maximum download rate (KiB/s)"
 msgstr "Velocidad max. de descarga (KiB/s)"
 
 msgid "Maximum file size"
-msgstr ""
+msgstr "Tamaño máximo del archivo"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
