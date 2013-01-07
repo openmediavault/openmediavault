@@ -449,6 +449,12 @@ class UserMgmtRpc extends OMVRpc {
 		$this->commitSession();
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
+		// Do not allow to modify user 'root' via RPC.
+		if(0 == strcasecmp("root", $data['name'])) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+			  gettext("Operation not allowed for user '%s'."),
+			  $data['name']));
+		}
 		// Get additional informations stored in database
 		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
 		  $data['name']);
