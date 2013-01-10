@@ -79,7 +79,7 @@ class OMVSMARTModule extends OMVModuleAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.email",
-		  array($this, "mkConf"));
+		  array($this, "updateService"));
     }
 }
 
