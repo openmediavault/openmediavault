@@ -621,27 +621,28 @@ class OMVFilesystem extends OMVObject {
 	 * strings and their unit is 'B' (bytes).
 	 */
 	public function getStatistics() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		$data = array();
-		$cmd = sprintf("export LANG=C; sudo df -P %s", $this->deviceFile);
+		$cmd = sprintf("export LANG=C; df -PT %s", escapeshellarg(
+		  $this->deviceFile));
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			return FALSE;
 		}
 		// Parse command output:
-		// Filesystem         1024-blocks      Used Available Capacity Mounted on
-		// /dev/sdf1               103180       148    103032       1% /media/f4f01ecc-548b-4e96-8fc4-874c6fdc9be0
+		// Filesystem    Type 1024-blocks      Used Available Capacity Mounted on
+		// /dev/sdb1     ext4      100156      4164     90824       5% /media/f3c61f34-f640-472c-b27e-a8e441caf460
 		$matches = preg_split("/[\s,]+/", array_pop($output));
 		$data = array(
 			"devicefile" => $this->deviceFile,
-			"type" => $this->deviceFile,
-			"blocks" => $matches[1],
-			"size" => bcmul($matches[1], "1024", 0),
-			"used" => binary_convert($matches[2], "KiB", "B"),
-			"available" => binary_convert($matches[3], "KiB", "B"),
-			"percentage" => intval(trim($matches[4], "%")),
-			"mountpoint" => $matches[5]
+			"type" => $matches[1],
+			"blocks" => $matches[2],
+			"size" => bcmul($matches[2], "1024", 0),
+			"used" => binary_convert($matches[3], "KiB", "B"),
+			"available" => binary_convert($matches[4], "KiB", "B"),
+			"percentage" => intval(trim($matches[5], "%")),
+			"mountpoint" => $matches[6]
 		);
 		return $data;
 	}

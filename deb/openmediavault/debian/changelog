@@ -1,5 +1,7 @@
 openmediavault (0.4.13) stable; urgency=low
 
+  * Update locales.
+  * Various code improvements.
   * Mantis 0000693: Do not allow to modify user 'root' via RPC.
   * Mantis 0000695: Mail notification error.
 

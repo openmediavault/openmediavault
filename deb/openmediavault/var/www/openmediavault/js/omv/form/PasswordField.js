@@ -46,18 +46,27 @@ OMV.form.PasswordField = function(config) {
 };
 Ext.extend(OMV.form.PasswordField, Ext.form.TriggerField, {
 	onTriggerClick : function() {
-		if (this.disabled) {
+		if(this.disabled) {
 			return;
 		}
 		var el = this.getEl();
-		var newEl = document.createElement("input");
-		newEl.type = (el.dom.type === "text") ? "password" : "text";
-		if (el.dom.value) newEl.value = el.dom.value;
-		if (el.dom.name) newEl.name = el.dom.name;
-		if (el.dom.id) newEl.id = el.dom.id;
-		if (el.dom.className) newEl.className = el.dom.className;
-		el.replaceWith(newEl);
-		this.syncSize();
+		if(!Ext.isIE) {
+			// Firefox, Chrome, ... can change the field type dynamically.
+			el.dom.type = (el.dom.type == "text") ? "password" : "text";
+		} else {
+			// Windows IE is not able to change the type dynamically, thus
+			// a new HTML element must be created.
+			var newEl = document.createElement("input");
+			newEl.type = (el.dom.type == "text") ? "password" : "text";
+			// Copy various attributes from the origin object.
+			if(el.dom.value) newEl.value = el.dom.value;
+			if(el.dom.name) newEl.name = el.dom.name;
+			if(el.dom.id) newEl.id = el.dom.id;
+			if(el.dom.className) newEl.className = el.dom.className;
+			if(el.dom.readOnly) newEl.readOnly = el.dom.readOnly;
+			if(el.dom.style.width) newEl.style.width = el.dom.style.width;
+			el.replaceWith(htmlEl);
+		}
 	}
 });
 Ext.reg("passwordfield", OMV.form.PasswordField);
