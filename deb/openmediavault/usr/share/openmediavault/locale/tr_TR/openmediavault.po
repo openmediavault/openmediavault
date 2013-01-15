@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Serhat SUT <serhat.sut@gmail.com>, 2012.
+# Serhat SUT <serhat.sut@gmail.com>, 2012-2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-12-22 03:12+0100\n"
-"PO-Revision-Date: 2012-12-22 02:12+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-01-12 15:26+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,7 +100,7 @@ msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - En yüksek performans, en yüksek güç kullanımı"
 
 msgid "255 - Disabled"
-msgstr ""
+msgstr "255 - Kapatılmış"
 
 msgid "3 days"
 msgstr "3 gün"
@@ -461,7 +461,7 @@ msgid "Bond options"
 msgstr "Birleştirme opsiyonları"
 
 msgid "Boot"
-msgstr ""
+msgstr "Boot"
 
 msgid "Bosnia and Herzegovina"
 msgstr "Bosna Hersek"
@@ -736,7 +736,7 @@ msgid "Delete content"
 msgstr "İçeriği sil"
 
 msgid "Delete files"
-msgstr ""
+msgstr "Dosyaları sil"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Göndericide bulunmayan dosyaları kaydedilen taraftan sil"
@@ -1038,7 +1038,7 @@ msgstr "Ident protokolüne (RFC1413) izin ver"
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Kısmen transfer edilmiş dosyaları saklamak için bu seçeneği işaretleyiniz, aksi taktirde transfer kesildiğinde bu dosyalar silinecektir."
 
 msgid "Enable user authentication"
 msgstr "Kullanıcı doğrulamasını etkinleştir"
@@ -1161,12 +1161,12 @@ msgstr "Dosya"
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
-msgstr ""
+msgstr "Geri dönüşüm kutusundaki dosyalar belirtilen sayıda günden sonra otomatik oalrak silinecektir. Manuel silmek için 0 a ayarlayınız."
 
 msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
-msgstr ""
+msgstr "Byte olarak belirlenenden daha büyük dosyalar geri dönüşüm kutusuna konulmayacaktır. Dosya büyüklük sınırını kaldırmak için 0 a ayarlayınız."
 
 msgid "Filesystem"
 msgstr "Dosya sistemi"
@@ -1538,7 +1538,7 @@ msgid "Kazakhstan"
 msgstr "Kazakistan"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Kısmen transfer edilmiş dosyaları koru"
 
 msgid "Kenya"
 msgstr "Kenya"
@@ -1739,7 +1739,7 @@ msgid "Maximum download rate (KiB/s)"
 msgstr "Maksimum indirme hızı (KiB/s)"
 
 msgid "Maximum file size"
-msgstr ""
+msgstr "Maksimum dosya büyüklüğü"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -2084,7 +2084,7 @@ msgid "People's Democratic Republic of Yemen"
 msgstr "Yemek Demoktarik Halk Cumhuriyeti"
 
 msgid "Perform a trial run with no changes made"
-msgstr ""
+msgstr "Herhangi bir değişiklik yapmadan deneme çalıştırması yapmak."
 
 msgid "Period of validity"
 msgstr "Geçerlilik süresi"
@@ -2158,7 +2158,7 @@ msgid ""
 msgstr "Daha fazla bilgi için lütfen <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> adresini ziyaret ediniz."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr ""
+msgstr "Lütfen aygıtı silmek için bir metod seçiniz ya da iptal etmek için \"İptal\" tuşuna basınız."
 
 msgid "Please first select a volume."
 msgstr "Lütfen önce bir volüm seçiniz."
@@ -2269,7 +2269,7 @@ msgid "Qatar"
 msgstr "Katar"
 
 msgid "Quick"
-msgstr ""
+msgstr "Hızlı"
 
 msgid "Quiet"
 msgstr "Durgun"
@@ -2507,7 +2507,7 @@ msgid "Seconds"
 msgstr "Saniye"
 
 msgid "Secure"
-msgstr ""
+msgstr "Güvenli"
 
 msgid "Secure connection"
 msgstr "Güvenli bağlantı"
@@ -3244,7 +3244,7 @@ msgid "Treshold"
 msgstr "Eşik değer"
 
 msgid "Trial run"
-msgstr ""
+msgstr "Deneme çalıştırması"
 
 msgid "Trinidad and Tobago"
 msgstr "Tinidad ve Tobago"

@@ -1,5 +1,6 @@
 openmediavault (0.4.14) stable; urgency=low
 
+  * Update locales.
   * Mantis 0000663: ldap plugin // gui do not show groups.
   * Mantis 0000698: Error adding shares to FTP (when dir path contains
     spaces).
