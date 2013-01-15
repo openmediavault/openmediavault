@@ -71,7 +71,7 @@ class OMVNFSModule extends OMVModuleAbstract
 			  $xpath);
 		}
 		// Mount the subtree.
-		$cmd = sprintf("sudo mount %s", $meObject['dir']);
+		$cmd = sprintf("sudo mount %s", escapeshellarg($meObject['dir']));
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -97,7 +97,8 @@ class OMVNFSModule extends OMVModuleAbstract
 		}
 		// Unmount the subtree (if still mounted)
 		if (OMVFilesystem::isMountedEx("mountpoint", $meObject['dir'])) {
-			$cmd = sprintf("sudo umount -fl %s 2>&1", $meObject['dir']);
+			$cmd = sprintf("sudo umount -fl %s 2>&1", escapeshellarg(
+			  $meObject['dir']));
 			OMVUtil::exec($cmd, $output, $result);
 			if ($result !== 0) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

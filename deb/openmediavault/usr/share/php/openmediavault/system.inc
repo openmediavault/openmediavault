@@ -2080,12 +2080,14 @@ class OMVSystemGroup extends OMVObject {
 		@OMVUtil::exec($cmd, $output, $result);
 		if (($result !== 0) || empty($output[0]))
 			return FALSE;
-		if (1 !== preg_match("/^(\S+):x:(\d+):(.*)$/", $output[0], $matches))
-			return FALSE;
-		$this->name = $matches[1];
-		$this->gid = intval($matches[2]);
-		$this->members = empty($matches[3]) ? array() : explode(",",
-		  $matches[3]);
+		// Parse command output:
+		// users:x:100:
+		// ssh:x:116:test1,test2
+		$output = explode(":", $output[0]);
+		$this->name = $output[0];
+		$this->gid = intval($output[2]);
+		$this->members = empty($output[3]) ? array() : explode(
+		  ",", $output[3]);
 		return TRUE;
 	}
 

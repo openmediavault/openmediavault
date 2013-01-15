@@ -1,3 +1,13 @@
+openmediavault (0.4.14) stable; urgency=low
+
+  * Mantis 0000663: ldap plugin // gui do not show groups.
+  * Mantis 0000698: Error adding shares to FTP (when dir path contains
+    spaces).
+  * Mantis 0000700: impossible to set ACL for shared folders (connected
+    to LDAP).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 14 Jan 2013 18:58:38 +0100
+
 openmediavault (0.4.13) stable; urgency=low
 
   * Update locales.

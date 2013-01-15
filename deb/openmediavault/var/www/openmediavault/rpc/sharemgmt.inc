@@ -859,7 +859,8 @@ class ShareMgmtRpc extends OMVRpc {
 			$cmdargs[] = "--recursive";
 		}
 		if (!empty($aclspec)) {
-			$cmdargs[] = sprintf("-m %s", implode(",", $aclspec));
+			$cmdargs[] = sprintf("-m %s", escapeshellarg(
+			  implode(",", $aclspec)));
 		}
 		// Execute command to set the file access control lists.
 		$outputFile = tempnam(sys_get_temp_dir(), "setfacl");
