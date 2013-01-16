@@ -1,3 +1,9 @@
+openmediavault (0.4.15) stable; urgency=low
+
+  * Mantis 0000701: parsing /etc/fstab failed => \n has write.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 16 Jan 2013 18:26:13 +0100
+
 openmediavault (0.4.14) stable; urgency=low
 
   * Update locales.
