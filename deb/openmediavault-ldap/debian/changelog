@@ -1,3 +1,9 @@
+openmediavault-ldap (0.4.2) stable; urgency=low
+
+  * Regenerate configurations during plugin deinstallation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 19 Jan 2013 11:40:51 +0100
+
 openmediavault-ldap (0.4.1) stable; urgency=low
 
   * Update locales.

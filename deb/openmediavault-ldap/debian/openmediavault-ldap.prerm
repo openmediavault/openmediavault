@@ -23,6 +23,12 @@ set -e
 
 case "$1" in
 	purge)
+		# Disable service.
+		omv_config_update "//services/ldap/enable" "0"
+		# Regenerate configuration files.
+		omv-mkconf ldap
+		omv-mkconf nsswitch
+		omv-mkconf pam
 	;;
 
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
