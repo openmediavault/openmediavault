@@ -45,6 +45,7 @@ OMV.Module.Storage.RAIDGridPanel = function(config) {
 	var initialConfig = {
 		autoReload: true,
 		reloadInterval: 10000, // 10 seconds
+		disableLoadMaskOnLoad: true,
 		hideAdd: true,
 		hideEdit: true,
 		hideRefresh: true,

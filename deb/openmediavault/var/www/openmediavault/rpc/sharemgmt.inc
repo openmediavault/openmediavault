@@ -723,8 +723,7 @@ class ShareMgmtRpc extends OMVRpc {
 				$result['acl']["{$matches[1]}s"][] = array(
 					// Convert special characters, e.g.
 					// group:Domain\040Computers:---
-					// default:group:Domain\040Computers:---
-					"name" => strtr($matches[2], array('\040', ' ')),
+					"name" => str_replace('\040', ' ', $matches[2]),
 					"perms" => $perms
 				);
 			} else {
