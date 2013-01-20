@@ -60,18 +60,21 @@ OMV.Module.Storage.SMARTDevicesPanel = function(config) {
 				header: _("Model"),
 				sortable: true,
 				dataIndex: "model",
-				id: "model"
+				id: "model",
+				renderer: OMV.util.Format.emptyRenderer()
 			},{
 				header: _("Vendor"),
 				sortable: true,
 				dataIndex: "vendor",
 				id: "vendor",
-				width: 30
+				width: 30,
+				renderer: OMV.util.Format.emptyRenderer()
 			},{
 				header: _("Serial Number"),
 				sortable: true,
 				dataIndex: "serialnumber",
-				id: "serialnumber"
+				id: "serialnumber",
+				renderer: OMV.util.Format.emptyRenderer()
 			},{
 				header: _("Capacity"),
 				sortable: true,
@@ -84,7 +87,8 @@ OMV.Module.Storage.SMARTDevicesPanel = function(config) {
 				sortable: true,
 				dataIndex: "temperature",
 				id: "temperature",
-				width: 45
+				width: 45,
+				renderer: OMV.util.Format.emptyRenderer()
 			}]
 		})
 	};
