@@ -1,3 +1,9 @@
+openmediavault-forkeddaapd (0.4.2) stable; urgency=low
+
+  * Fix problem when shared folder path contains spaces.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 21 Jan 2013 19:34:41 +0100
+
 openmediavault-forkeddaapd (0.4.1) stable; urgency=low
 
   * Update locales.

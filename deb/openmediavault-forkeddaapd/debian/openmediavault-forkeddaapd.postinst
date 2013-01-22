@@ -78,6 +78,9 @@ case "$1" in
 			omv_config_delete "//*[userref=//system/usermanagement/users/user[name='daapd']/uuid]"
 			omv_config_delete_user "daapd"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.2"; then
+			omv-mkconf forked-daapd
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
