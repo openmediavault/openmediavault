@@ -178,7 +178,7 @@ class AptRpc extends OMVRpc {
 		$outputFile = tempnam(sys_get_temp_dir(), "aptgetupgrade");
 		$cmd = sprintf("export LANG=C; sudo apt-get --yes --force-yes " .
 		  "--fix-missing --auto-remove --allow-unauthenticated " .
-		  "--show-upgraded --option DPkg::Options::=\"--force-confnew\" " .
+		  "--show-upgraded --option DPkg::Options::=\"--force-confold\" " .
 		  "install %s >%s 2>&1 & echo $!", implode(" ", $data['packages']),
 		  $outputFile);
 		OMVUtil::exec($cmd, $output, $res);

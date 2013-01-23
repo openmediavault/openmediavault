@@ -1,3 +1,9 @@
+openmediavault (0.4.17) stable; urgency=low
+
+  * Keep the old configuration files when upgrading Debian packages.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 23 Jan 2013 20:19:37 +0100
+
 openmediavault (0.4.16) stable; urgency=low
 
   * Update locales.
