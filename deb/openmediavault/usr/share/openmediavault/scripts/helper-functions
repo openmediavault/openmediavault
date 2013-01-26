@@ -138,7 +138,7 @@ omv_get_if() {
 # Get the IPv4 address from the given network interface.
 omv_get_ipaddr() {
   local _ipaddr
-  _ipaddr=$(export LANG=C; ip addr show $1 | grep -i "inet " | awk '{ split($2,a,"/"); print a[1] }')
+  _ipaddr=$(export LANG=C; ip addr show $1 2>/dev/null | grep -i "inet " | awk '{ split($2,a,"/"); print a[1] }')
   echo ${_ipaddr}
 }
 
