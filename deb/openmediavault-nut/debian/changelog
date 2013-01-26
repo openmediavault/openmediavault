@@ -1,3 +1,9 @@
+openmediavault-nut (0.4.2) stable; urgency=low
+
+  * Mantis 0000706: Nut plug-in not correctly work on netserver mode.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 26 Jan 2013 15:29:40 +0100
+
 openmediavault-nut (0.4.1) stable; urgency=low
 
   * Update locales.

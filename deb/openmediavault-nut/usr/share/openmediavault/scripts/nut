@@ -94,7 +94,9 @@ EOF
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
 		  while read iface; do
 			  ipaddr=$(omv_get_ipaddr ${iface})
-			  echo "LISTEN ${ipaddr} ${OMV_NUT_UPSD_PORT}" >> ${OMV_NUT_UPSD_CONFIG}
+			  if [ -n "${ipaddr}" ]; then
+				  echo "LISTEN ${ipaddr} ${OMV_NUT_UPSD_PORT}" >> ${OMV_NUT_UPSD_CONFIG}
+			  fi
 		  done
 	fi
 
