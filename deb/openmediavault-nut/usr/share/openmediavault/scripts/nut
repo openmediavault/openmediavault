@@ -86,18 +86,15 @@ EOF
 	cat <<EOF > ${OMV_NUT_UPSD_CONFIG}
 MAXAGE ${OMV_NUT_UPSD_MAXAGE}
 MAXCONN ${OMV_NUT_UPSD_MAXCONN}
-LISTEN 127.0.0.1 ${OMV_NUT_UPSD_PORT}
 EOF
+
 	if [ "1" = $(omv_config_get "//services/nut/remotemonitor") ]; then
-		xmlstarlet sel -t -m "//system/network/interfaces/*" \
-		  -v devicename -i "position() != last()" -n -b \
-		  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-		  while read iface; do
-			  ipaddr=$(omv_get_ipaddr ${iface})
-			  if [ -n "${ipaddr}" ]; then
-				  echo "LISTEN ${ipaddr} ${OMV_NUT_UPSD_PORT}" >> ${OMV_NUT_UPSD_CONFIG}
-			  fi
-		  done
+		# To simplify setup we are listening on ANY network address. To
+		# enhance security this can be limited via iptables rules.
+		echo "LISTEN 0.0.0.0 ${OMV_NUT_UPSD_PORT}" >> ${OMV_NUT_UPSD_CONFIG}
+	else
+		# If remote monitoring is disabled then only listen on localhost.
+		echo "LISTEN 127.0.0.1 ${OMV_NUT_UPSD_PORT}" >> ${OMV_NUT_UPSD_CONFIG}
 	fi
 
 	# Create '/etc/nut/upsd.users'. Note, the password for OMV_NUT_UPSMON_USER
