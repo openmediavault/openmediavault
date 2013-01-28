@@ -1,0 +1,64 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_SAMBA_CONFIG=${OMV_SAMBA_CONFIG:-"/etc/samba/smb.conf"}
+OMV_SAMBA_IDMAPUID=${OMV_SAMBA_IDMAPUID:-"10000-20000"}
+OMV_SAMBA_IDMAPGID=${OMV_SAMBA_IDMAPGID:-"10000-20000"}
+OMV_SAMBA_TEMPLATESHELL=${OMV_SAMBA_TEMPLATESHELL:-"/bin/sh"}
+OMV_SAMBA_TEMPLATEHOMEDIR=${OMV_SAMBA_TEMPLATEHOMEDIR:-"/home/%D/%U"}
+
+[ "$(omv_config_get "//system/directoryservice/enable")" = "0" -o "$(omv_config_get "//system/directoryservice/type")" != "ad" ] && exit 0
+
+dcname=$(omv_config_get "//system/directoryservice/ad/dcname" | tr '[:upper:]' '[:lower:]')
+domainname=$(omv_config_get "//system/directoryservice/ad/domainname" | tr '[:upper:]' '[:lower:]')
+ucdcname=$(echo ${dcname} | tr '[:lower:]' '[:upper:]')
+ucdomainname=$(echo ${domainname} | tr '[:lower:]' '[:upper:]')
+netbiosname=$(omv_config_get "//system/directoryservice/ad/netbiosname" | tr '[:lower:]' '[:upper:]')
+
+cat <<EOF >> ${OMV_SAMBA_CONFIG}
+#======================= Active Directory Settings =======================
+security = ADS
+realm = ${dcname}
+workgroup = ${ucdomainname}
+netbios name = ${netbiosname}
+winbind offline logon = yes
+winbind refresh tickets = yes
+winbind use default domain = yes
+winbind enum users = yes
+winbind enum groups = yes
+winbind nested groups = yes
+winbind cache time = 10
+template homedir = ${OMV_SAMBA_TEMPLATEHOMEDIR}
+template shell = ${OMV_SAMBA_TEMPLATESHELL}
+idmap uid = ${OMV_SAMBA_IDMAPUID}
+idmap gid = ${OMV_SAMBA_IDMAPGID}
+wins server = ${dcname}
+password server = ${dcname}
+local master = no
+domain master = no
+preferred master = no
+
+EOF

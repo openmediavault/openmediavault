@@ -1,0 +1,184 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://wiki.ubuntuusers.de/LDAP_Client_Authentifizierung
+# http://debianclusters.org/index.php/LDAP_Client
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_KRB5_CONFIG=${OMV_KRB5_CONFIG:-"/etc/krb5.conf"}
+
+--------------------------------------------------
+
+/etc/ldap/ldap.conf
+
+HOST    192.168.178.19 # IP des LDAP Servers
+BASE    dc=example,dc=local # BASE DN
+
+#BASE   dc=example,dc=com
+#URI    ldap://ldap.example.com ldap://ldap-master.example.com:666
+
+#SIZELIMIT      12
+#TIMELIMIT      15
+#DEREF          never
+
+
+
+
+
+
+------------------------------
+
+/etc/ldap/ldap.secret
+
+xxxxxxxxxxxxxxx
+
+chmod 600 /etc/ldap/ldap.secret
+
+-----------------------------------------------
+
+
+/etc/libnss-ldap.conf
+
+uri ldap://192.168.178.19
+base dc=example,dc=local
+ldap_version 3
+
+
+#nss_base_passwd         ou=user,dc=homenet,dc=de?one
+#nss_base_shadow         ou=user,dc=homenet,dc=de?one
+#nss_base_group          ou=group,dc=homenet,dc=de?one
+#nss_base_hosts          ou=machine,dc=homenet,dc=de?one
+
+
+
+
+From http://forums.devshed.com/ldap-programming-76/ldap-server-unwilling-to-perform-179960.html
+
+host my.host
+port my-portNum
+base dc=my-domain,dc=com
+ldap_version 3
+nss_base_passwd ou=people,dc=my-domain,dc=com?one
+nss_base_shadow ou=people,dc=my-domain,dc=com?one
+nss_base_group ou=group,dc=my-domain,dc=com?one
+binddn cn=Manager,dc=my-domain,dc=com
+bindpw secret
+rootbinddn cn=Manager,dc=my-domain,dc=com
+scope one
+pam_filter objectclass=posixaccount
+pam_login_attribute uid
+pam_check_host_attr yes
+pam_groupdn ou=people,dc=my-domain,dc=com
+pam_member_attribute gid
+pam_template_login_attribute uid
+pam_password crypt
+nss_map_attribute userPassword
+ssl no
+
+
+
+-----------------------------------------------
+
+/etc/libnss-ldap.secret
+
+xxxxxxxxxxxxx
+
+
+
+chmod 600 /etc/libnss-ldap.secret
+
+-----------------------------------------------
+
+/etc/pam_ldap.conf
+
+base dc=example,dc=local
+binddn cn=proxyuser,dc=example,dc=net
+rootbinddn cn=manager,ou=Internal,dc=example,dc=local
+
+-----------------------------------------------
+
+
+OMV_KRB5_LIBDEFAULTS_KRB4CONFIG=${OMV_KRB5_LIBDEFAULTS_KRB4CONFIG:-"/etc/krb.conf"}
+OMV_KRB5_LIBDEFAULTS_KRB4REALMS=${OMV_KRB5_LIBDEFAULTS_KRB4REALMS:-"/etc/krb.realms"}
+OMV_KRB5_LIBDEFAULTS_KDCTIMESYNC=${OMV_KRB5_LIBDEFAULTS_KDCTIMESYNC:-"1"}
+OMV_KRB5_LIBDEFAULTS_CCACHETYPE=${OMV_KRB5_LIBDEFAULTS_CCACHETYPE:-"4"}
+OMV_KRB5_LIBDEFAULTS_FORWARDABLE=${OMV_KRB5_LIBDEFAULTS_FORWARDABLE:-"true"}
+OMV_KRB5_LIBDEFAULTS_PROXIABLE=${OMV_KRB5_LIBDEFAULTS_PROXIABLE:-"true"}
+OMV_KRB5_LIBDEFAULTS_DNSLOOKUPREALM=${OMV_KRB5_LIBDEFAULTS_DNSLOOKUPREALM:-"true"}
+OMV_KRB5_LIBDEFAULTS_DNSLOOKUPKDC=${OMV_KRB5_LIBDEFAULTS_DNSLOOKUPKDC:-"true"}
+OMV_KRB5_LIBDEFAULTS_TICKETLIFETIME=${OMV_KRB5_LIBDEFAULTS_TICKETLIFETIME:-"24000"}
+OMV_KRB5_LIBDEFAULTS_CLOCKSKEW=${OMV_KRB5_LIBDEFAULTS_CLOCKSKEW:-"300"}
+OMV_KRB5_LOGGING_DEFAULT=${OMV_KRB5_LOGGING_DEFAULT:-"SYSLOG:ERR:AUTH"}
+OMV_KRB5_APPDEFAULTS_PAM_DEBUG=${OMV_KRB5_APPDEFAULTS_PAM_DEBUG:-"false"}
+OMV_KRB5_APPDEFAULTS_PAM_TICKETLIFETIME=${OMV_KRB5_APPDEFAULTS_PAM_TICKETLIFETIME:-"36000"}
+OMV_KRB5_APPDEFAULTS_PAM_RENEWLIFETIME=${OMV_KRB5_APPDEFAULTS_PAM_RENEWLIFETIME:-"36000"}
+OMV_KRB5_APPDEFAULTS_PAM_FORWARDABLE=${OMV_KRB5_APPDEFAULTS_PAM_FORWARDABLE:-"true"}
+OMV_KRB5_APPDEFAULTS_PAM_KRB4CONVERT=${OMV_KRB5_APPDEFAULTS_PAM_KRB4CONVERT:-"false"}
+
+dcname=$(omv_config_get "//system/directoryservice/ad/dcname" | tr '[:upper:]' '[:lower:]')
+domainname=$(omv_config_get "//system/directoryservice/ad/domainname" | tr '[:upper:]' '[:lower:]')
+ucdcname=$(echo ${dcname} | tr '[:lower:]' '[:upper:]')
+ucdomainname=$(echo ${domainname} | tr '[:lower:]' '[:upper:]')
+
+cat <<EOF > ${OMV_KRB5_CONFIG}
+[libdefaults]
+  krb4_config = ${OMV_KRB5_LIBDEFAULTS_KRB4CONFIG}
+  krb4_realms = ${OMV_KRB5_LIBDEFAULTS_KRB4REALMS}
+  kdc_timesync = ${OMV_KRB5_LIBDEFAULTS_KDCTIMESYNC}
+  ccache_type = ${OMV_KRB5_LIBDEFAULTS_CCACHETYPE}
+  forwardable = ${OMV_KRB5_LIBDEFAULTS_FORWARDABLE}
+  proxiable = ${OMV_KRB5_LIBDEFAULTS_PROXIABLE}
+  dns_lookup_realm = ${OMV_KRB5_LIBDEFAULTS_DNSLOOKUPREALM}
+  dns_lookup_kdc = ${OMV_KRB5_LIBDEFAULTS_DNSLOOKUPKDC}
+  ticket_lifetime = ${OMV_KRB5_LIBDEFAULTS_TICKETLIFETIME}
+  clockskew = ${OMV_KRB5_LIBDEFAULTS_CLOCKSKEW}
+  default_realm = ${ucdomainname}
+
+[realms]
+  ${ucdomainname} = {
+    kdc = ${dcname}
+    admin_server = ${dcname}
+    default_domain = ${domainname}
+  }
+
+[domain_realm]
+  .${domainname} = ${ucdcname}
+  ${domainname} = ${ucdcname}
+  .${domainname} = ${ucdomainname}
+  ${domainname} = ${ucdomainname}
+
+[logging]
+  default = ${OMV_KRB5_LOGGING_DEFAULT}
+
+[appdefaults]
+  pam = {
+    debug = ${OMV_KRB5_APPDEFAULTS_PAM_DEBUG}
+    ticket_lifetime = ${OMV_KRB5_APPDEFAULTS_PAM_TICKETLIFETIME}
+    renew_lifetime = ${OMV_KRB5_APPDEFAULTS_PAM_RENEWLIFETIME}
+    forwardable = ${OMV_KRB5_APPDEFAULTS_PAM_FORWARDABLE}
+    krb4_convert = ${OMV_KRB5_APPDEFAULTS_PAM_KRB4CONVERT}
+  }
+EOF

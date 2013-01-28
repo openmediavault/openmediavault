@@ -1,0 +1,92 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2012 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_NSSWITCH_CONFIG=${OMV_NSSWITCH_CONFIG:-"/etc/nsswitch.conf"}
+
+xmlstarlet sel -t \
+  -o "passwd:         compat" -n \
+  -o "group:          compat" -n \
+  -o "shadow:         compat" -n \
+  -n \
+  -o "hosts:          files mdns4_minimal [NOTFOUND=return] dns mdns4" -n \
+  -o "networks:       files" -n \
+  -n \
+  -o "protocols:      db files" -n \
+  -o "services:       db files" -n \
+  -o "ethers:         db files" -n \
+  -o "rpc:            db files" -n \
+  -n \
+  -o "netgroup:       nis" -n \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NSSWITCH_CONFIG}
+
+
+
+
+
+LDAP
+
+# /etc/nsswitch.conf
+#
+# Example configuration of GNU Name Service Switch functionality.
+# If you have the `glibc-doc-reference' and `info' packages installed, try:
+# `info libc "Name Service Switch"' for information about this file.
+
+passwd:         compat ldap
+group:          compat ldap
+shadow:         compat ldap
+
+hosts:          files mdns4_minimal [NOTFOUND=return] dns mdns4
+networks:       files
+
+protocols:      db files
+services:       db files
+ethers:         db files
+rpc:            db files
+
+netgroup:       nis
+
+
+
+AD
+# /etc/nsswitch.conf
+#
+# Example configuration of GNU Name Service Switch functionality.
+# If you have the `glibc-doc-reference' and `info' packages installed, try:
+# `info libc "Name Service Switch"' for information about this file.
+
+passwd:         compat winbind
+group:          compat winbind
+shadow:         compat
+
+hosts:          files mdns4_minimal [NOTFOUND=return] dns mdns4 wins
+networks:       files
+
+protocols:      db files
+services:       db files
+ethers:         db files
+rpc:            db files
+
+netgroup:       nis
