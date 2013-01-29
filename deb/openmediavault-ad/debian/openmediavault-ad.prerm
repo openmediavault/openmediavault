@@ -21,14 +21,25 @@
 
 set -e
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
+case "$1" in
+	purge)
+		# Disable service.
+		omv_config_update "//services/ad/enable" "0"
+		# Regenerate configuration files.
+		omv-mkconf krb5
+		omv-mkconf ldap
+		omv-mkconf nsswitch
+		omv-mkconf pam
+		omv-mkconf samba
+	;;
 
-OMV_SAMBA_CONFIG=${OMV_SAMBA_CONFIG:-"/etc/samba/smb.conf"}
+	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+	;;
 
-[ "$(omv_config_get "//system/directoryservice/enable")" = "0" -o "$(omv_config_get "//system/directoryservice/type")" != "ldap" ] && exit 0
+	*)
+		echo "postrm called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
 
-cat <<EOF >> ${OMV_SAMBA_CONFIG}
-#======================= LDAP Settings =======================
-
-EOF
+exit 0

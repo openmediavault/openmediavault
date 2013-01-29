@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -29,17 +29,8 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 # PAM profiles are stored below /usr/share/pam-configs
-if [ "$(omv_config_get "//system/directoryservice/enable")" = "1" ]; then
-	type=$(omv_config_get "//system/directoryservice/type")
-	case ${type} in
-	ad)
-		pam-auth-update --package winbind
-		;;
-	ldap)
-		pam-auth-update --package ldap
-		;;
-	esac
+if [ "$(omv_config_get "//services/ad/enable")" = "1" ]; then
+	pam-auth-update --force --package winbind
 else
-	pam-auth-update --package --remove ldap
-	pam-auth-update --package --remove winbind
+	pam-auth-update --force --package --remove winbind
 fi
