@@ -113,7 +113,12 @@ xmlstarlet sel -t \
 	  -i "everyndayofmonth[. = '0']" -v "concat(dayofmonth,' ')" -b \
 	  -v "concat(month,' ',dayofweek,' ${OMV_RSYNC_CRONUSER} ${OMV_RSYNC_CRONSCRIPTS_DIR}/rsync-',uuid)" \
 	  -i "sendemail[. = '0']" \
-		  -o " >/dev/null 2>&1" \
+		-o " >/dev/null 2>&1" \
+	  -b \
+	  -i "sendemail[. = '1']" \
+		-i "string-length(comment) > 0" \
+		  -v "concat(' | mail -s \"Cron - ',comment,'\" root >/dev/null 2>&1')" \
+		-b \
 	  -b \
 	  -n \
   -b \
