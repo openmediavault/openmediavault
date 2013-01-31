@@ -216,6 +216,11 @@ xmlstarlet sel -t \
 		  -i "sendemail[. = '0']" \
 			  -o " >/dev/null 2>&1" \
 		  -b \
+		  -i "sendemail[. = '1']" \
+			-i "string-length(comment) > 0" \
+			  -v "concat(' | mail -s \"ClamAV - ',translate(comment,'&#xD;',' '),'\" -a \"From: Cron Daemon <root>\" root >/dev/null 2>&1')" \
+			-b \
+		  -b \
 		  -n \
 	-b \
   -b \

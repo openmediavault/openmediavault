@@ -88,6 +88,11 @@ xmlstarlet sel -t \
 	  -i "sendemail[. = '0']" \
 		  -o " >/dev/null 2>&1" \
 	  -b \
+	  -i "sendemail[. = '1']" \
+		-i "string-length(comment) > 0" \
+		  -v "concat(' | mail -s \"Cron - ',translate(comment,'&#xD;',' '),'\" -a \"From: Cron Daemon <',username,'>\" ',username,' >/dev/null 2>&1')" \
+		-b \
+	  -b \
 	  -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CRONTAB_USERDEFINED_CONFIG}

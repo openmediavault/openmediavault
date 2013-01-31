@@ -3,7 +3,7 @@ openmediavault (0.4.17) stable; urgency=low
   * Improve omv_get_ipaddr helper function.
   * Keep the old configuration files when upgrading Debian packages.
   * Limit sshd to IPv4 (AddressFamily=inet) if IPv6 is disabled.
-  * Use the comment from a rsync job as email subject.
+  * Use the comment from a rsync/cron job as email subject.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 23 Jan 2013 20:19:37 +0100
 
