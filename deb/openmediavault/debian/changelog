@@ -1,5 +1,6 @@
 openmediavault (0.4.17) stable; urgency=low
 
+  * Update locales.
   * Improve omv_get_ipaddr helper function.
   * Keep the old configuration files when upgrading Debian packages.
   * Limit sshd to IPv4 (AddressFamily=inet) if IPv6 is disabled.

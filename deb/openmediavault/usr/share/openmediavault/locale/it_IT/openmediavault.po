@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-22 03:12+0100\n"
-"PO-Revision-Date: 2012-12-22 02:12+0000\n"
+"POT-Creation-Date: 2013-02-01 19:27+0100\n"
+"PO-Revision-Date: 2013-02-01 18:27+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -2011,6 +2011,9 @@ msgstr "Oman"
 msgid "Online"
 msgstr "Online"
 
+msgid "Operation not allowed for user '%s'."
+msgstr ""
+
 msgid "Options"
 msgstr "Opzioni"
 
@@ -2987,8 +2990,9 @@ msgstr "Il requisito che la sessione SSL venga riutilizzata per le connessioni d
 msgid "The service name."
 msgstr "Il nome del servizio."
 
-msgid "The session timeout time in minutes."
-msgstr "Timeout per la sessione in minuti."
+msgid ""
+"The session timeout time in minutes. Set to 0 to disable automatic logout."
+msgstr ""
 
 msgid "The shared folder is already used by another share"
 msgstr "La directory condivisa e già in uso da un'altra condivisione"

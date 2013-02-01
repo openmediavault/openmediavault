@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-22 03:12+0100\n"
-"PO-Revision-Date: 2012-12-22 02:12+0000\n"
+"POT-Creation-Date: 2013-02-01 19:27+0100\n"
+"PO-Revision-Date: 2013-02-01 18:28+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -2008,6 +2008,9 @@ msgstr "Oman"
 msgid "Online"
 msgstr "Online"
 
+msgid "Operation not allowed for user '%s'."
+msgstr ""
+
 msgid "Options"
 msgstr "Opciók"
 
@@ -2984,8 +2987,9 @@ msgstr "Annak a követelménye, hogy az SSL munkamenettől a vezérlő kapcsolat
 msgid "The service name."
 msgstr "A szolgáltatás neve."
 
-msgid "The session timeout time in minutes."
-msgstr "A munkamenet túllépésének ideje percben."
+msgid ""
+"The session timeout time in minutes. Set to 0 to disable automatic logout."
+msgstr ""
 
 msgid "The shared folder is already used by another share"
 msgstr "A megosztott mappa már használva van egy másik megosztásban"
