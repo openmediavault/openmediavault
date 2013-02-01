@@ -123,11 +123,15 @@ class OMVSession extends OMVObject {
 		global $xmlConfig;
 		if (!isset($_SESSION['lastaccess']))
 			return FALSE;
-		// Get session timeout from configuration.
+		// Get session timeout from configuration. Default is 5 minutes.
 		$timeout = 300;
 		$object = $xmlConfig->get("//webadmin");
 		if (!is_null($object) && array_key_exists("timeout", $object)) {
 			$timeout = intval($object['timeout']) * 60;
+			// If the timeout value is set the 0 the session timeout
+			// validation is disabled.
+			if(0 == $timeout)
+				return FALSE;
 		}
 		return ((time() - $_SESSION['lastaccess']) > $timeout) ? TRUE : FALSE;
 	}

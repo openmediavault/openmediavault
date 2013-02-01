@@ -40,7 +40,7 @@ class WebGUIRpc extends OMVRpc {
 					"forcesslonly":{"type":"boolean"},
 					"sslcertificateref":{'.
 					  $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'},
-					"timeout":{"type":"integer","minimum":1,"maximum":30},
+					"timeout":{"type":"integer","minimum":0,"maximum":30},
 					"dnssdenable":{"type":"boolean"},
 					"dnssdname":{"type":"string"}
 				}

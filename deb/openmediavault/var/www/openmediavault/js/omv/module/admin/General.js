@@ -76,14 +76,14 @@ Ext.extend(OMV.Module.System.WebGUI.Settings, OMV.FormPanelExt, {
 				xtype: "numberfield",
 				name: "timeout",
 				fieldLabel: _("Session timeout"),
-				minValue: 1,
+				minValue: 0,
 				maxValue: 30,
 				allowDecimals: false,
 				allowNegative: false,
 				allowBlank: false,
 				value: 5,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: _("The session timeout time in minutes.")
+				infoText: _("The session timeout time in minutes. Set to 0 to disable automatic logout.")
 			}]
 		},{
 			xtype: "fieldset",
