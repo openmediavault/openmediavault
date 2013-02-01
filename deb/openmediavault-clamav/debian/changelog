@@ -1,5 +1,6 @@
 openmediavault-clamav (0.4.4) stable; urgency=low
 
+  * Update locales.
   * Use the comment from a scan job as email subject.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 31 Jan 2013 20:55:49 +0100

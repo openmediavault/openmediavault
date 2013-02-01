@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-06-21 22:48+0200\n"
-"PO-Revision-Date: 2012-05-18 22:06+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2013-01-30 12:09+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,202 +19,202 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add job"
-msgstr ""
+msgstr "Engadir un traballo"
 
 msgid "Algorithmic detection"
-msgstr ""
+msgstr "Detección algorítmica"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Enviaráselle ao administrador unha mensaxe de correo coa saída da orde (se é que se produce)."
 
 msgid "Antivirus"
-msgstr ""
+msgstr "Antivirus"
 
 msgid "Be verbose."
-msgstr ""
+msgstr "Saída detallada."
 
 msgid "Comment"
-msgstr ""
+msgstr "Comentario"
 
 msgid "Database checks"
-msgstr ""
+msgstr "Comprobacións da base de datos"
 
 msgid "Database mirror"
-msgstr ""
+msgstr "Espello da base de datos"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Data e hora"
 
 msgid "Day of month"
-msgstr ""
+msgstr "Día do mes"
 
 msgid "Day of week"
-msgstr ""
+msgstr "Día da semana"
 
 msgid "Detect PUA"
-msgstr ""
+msgstr "Detectar PUA"
 
 msgid "Detect broken executables"
-msgstr ""
+msgstr "Detectar executábeis quebrados"
 
 msgid "Edit job"
-msgstr ""
+msgstr "Editar o traballo"
 
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 msgid "Enable HTML detection and normalisation."
-msgstr ""
+msgstr "Activa a detección e a normalización HTML"
 
 msgid "Enable archive scanning."
-msgstr ""
+msgstr "Activa a análise de arquivos."
 
 msgid "Enable on-access virus scanning"
-msgstr ""
+msgstr "Activa a análise de virus no acceso"
 
 msgid "Enable scanning of ELF files."
-msgstr ""
+msgstr "Activa a análise de ficheiros ELF."
 
 msgid ""
 "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
 "files."
-msgstr ""
+msgstr "Activa a análise de ficheiros OLE2, como os documentos de Microsoft Office e os ficheiros .msi"
 
 msgid "Enable scanning within PDF files."
-msgstr ""
+msgstr "Activa a análise dentro dos ficheiros PDF."
 
 msgid "Enable the algorithmic detection."
-msgstr ""
+msgstr "Activa a detección algorítmica."
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
-msgstr ""
+msgstr "Activa a detección de executábeis quebrados (tanto os PE como os ELF)"
 
 msgid "Enable the detection of possibly unwanted applications."
-msgstr ""
+msgstr "Activa a detección de aplicativos posíbelmente non desexados."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Activado"
 
 msgid "Event"
-msgstr ""
+msgstr "Actividade"
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "Cada día N do mes"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "Cada N horas"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "Cada N minutos"
 
 msgid "Execute job"
-msgstr ""
+msgstr "Executar o traballo"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Opcións adicionais"
 
 msgid "Follow directory symlinks"
-msgstr ""
+msgstr "Seguir as ligazóns simbólicas a directorios"
 
 msgid "Follow directory symlinks."
-msgstr ""
+msgstr "Seguir as ligazóns simbólicas a directorios."
 
 msgid "Follow file symlinks"
-msgstr ""
+msgstr "Seguir as ligazóns simbólicas a ficheiros"
 
 msgid "Follow regular file symlinks."
-msgstr ""
+msgstr "Seguir as ligazóns simbólicas normais a ficheiros"
 
 msgid "General settings"
-msgstr ""
+msgstr "Axustes xerais"
 
 msgid "Hour"
-msgstr ""
+msgstr "Hora"
 
 msgid "Jobs"
-msgstr ""
+msgstr "Traballos"
 
 msgid "Minute"
-msgstr ""
+msgstr "Minuto"
 
 msgid "Monitor the shared folder and scan new or modified files."
-msgstr ""
+msgstr "Supervisar o cartafol compartido e analizar os ficheiros novos ou modificados."
 
 msgid "Month"
-msgstr ""
+msgstr "Mes"
 
 msgid "Multiscan"
-msgstr ""
+msgstr "Múltiplas análises"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr ""
+msgstr "Número de actualizacións da bases de datos que comprobar por día. Estabelecer a 0 para desactivar."
 
 msgid "On-access"
-msgstr ""
+msgstr "No acceso"
 
 msgid "Perform a deeper analysis of executable files."
-msgstr ""
+msgstr "Realizar unha análise máis profunda dos ficheiros executábeis."
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Consulte a <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>páxina do manual</a> para obter máis detalles."
 
 msgid "Remove"
-msgstr ""
+msgstr "Retirar"
 
 msgid "Remove infected files."
-msgstr ""
+msgstr "Retirar os ficheiros infectados."
 
 msgid "Run"
-msgstr ""
+msgstr "Executar"
 
 msgid "Scan ELF"
-msgstr ""
+msgstr "Analizar ELF"
 
 msgid "Scan HTML"
-msgstr ""
+msgstr "Analizar HTML"
 
 msgid "Scan OLE2"
-msgstr ""
+msgstr "Analizar OLE2"
 
 msgid "Scan PDF"
-msgstr ""
+msgstr "Analizar PDF"
 
 msgid "Scan Portable Executable"
-msgstr ""
+msgstr "Analizar os executábeis portábeis"
 
 msgid "Scan archives"
-msgstr ""
+msgstr "Analizar os arquivos"
 
 msgid "Scan the directory contents in parallel using available threads."
-msgstr ""
+msgstr "Analizar os contidos dos directorios usando os fíos dispoñíbeis."
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "Enviar a saída da orde por correo"
 
 msgid "Send email"
-msgstr ""
+msgstr "Enviar por correo"
 
 msgid ""
 "Server name where database updates are downloaded from. Get a complete list "
 "of database mirrors <a href='http://www.clamav.net/mirrors.html' "
 "target='_blank'>here</a>."
-msgstr ""
+msgstr "Nome do servidor de bases de datos do que se descargan as actualizacións. Obteña <a href='http://www.clamav.net/mirrors.html' target='_blank'>aquí</a> unha lista completa de espellos de bases de datos."
 
 msgid "Settings"
-msgstr ""
+msgstr "Axustes"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Cartafol compartido"
 
 msgid "The location of the files to scan."
-msgstr ""
+msgstr "A localización dos ficheiros que analizar."
 
 msgid "Verbose"
-msgstr ""
+msgstr "Detallado"
 
 msgid "n/a"
-msgstr ""
+msgstr "n/d"
