@@ -414,7 +414,8 @@ Ext.extend(OMV.Module.System.CronPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "textarea",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			allowBlank: true
+			allowBlank: true,
+			vtype: "comment"
 		},{
 			xtype: "hidden",
 			name: "type",

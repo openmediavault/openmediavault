@@ -444,7 +444,8 @@ Ext.extend(OMV.Module.Services.ClamAV.JobPropertyDialog,
 			xtype: "textfield",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			allowBlank: true
+			allowBlank: true,
+			vtype: "comment"
 		},{
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",

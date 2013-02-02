@@ -160,10 +160,10 @@ Ext.apply(Ext.form.VTypes, {
 	usernameMask: /[-\@_.A-Za-z0-9]/,
 
 	comment: function(v) {
-		return !/[:]/.test(v);
+		return !/["':]/.test(v);
 	},
-	commentText: _("Invalid comment"),
-	commentMask: /[^:]/,
+	commentText: _("The comment contains invalid characters"),
+	commentMask: /[^"':]/,
 
 	password: function(v) {
 		return !/[^a-zA-Z0-9\.\-_]/.test(v);

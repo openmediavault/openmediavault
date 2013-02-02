@@ -327,7 +327,8 @@ Ext.extend(OMV.Module.Services.Rsyncd.ModuleGeneralPanel, OMV.form.FormPanel, {
 			xtype: "textfield",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			allowBlank: true
+			allowBlank: true,
+			vtype: "comment"
 		},{
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",
@@ -810,7 +811,8 @@ Ext.extend(OMV.Module.Services.Rsync.JobPropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "textfield",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			allowBlank: true
+			allowBlank: true,
+			vtype: "comment"
 		},{
 			xtype: "combo",
 			name: "type",

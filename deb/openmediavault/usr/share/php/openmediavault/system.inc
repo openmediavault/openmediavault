@@ -969,7 +969,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	public function getSerialNumber() {
 		if(FALSE === ($property = $this->getUdevProperty("ID_SERIAL_SHORT")))
 			return "n/a";
-		return $property;
+		return str_replace("_", " ", $property);
 	}
 
 	/**
