@@ -176,6 +176,10 @@ Ext.extend(OMV.ExecCmdDialog, OMV.Window, {
 				  this.setButtonDisabled("stop", true);
 				  this.setButtonDisabled("close", false);
 			  } else {
+				  // Enable 'Close' button to be able to close the dialog.
+				  this.setButtonDisabled("stop", true);
+				  this.setButtonDisabled("close", false);
+				  // Fire exception event to notify listeners.
 				  this.fireEvent("exception", this, error);
 			  }
 		  }, this, "Exec", "stop", { "id": this.cmdId });

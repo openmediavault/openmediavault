@@ -842,6 +842,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	protected $deviceFileById = FALSE;
 	protected $model = FALSE;
 	protected $vendor = FALSE;
+	protected $udevInfo = FALSE;
 
 	/**
 	 * Constructor
@@ -929,32 +930,34 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 
 	/**
 	 * Get the device model.
-	 * @return The device model, otherwise FALSE.
+	 * @return The device model, otherwise an empty string.
 	 */
 	public function getModel() {
-		if ($this->model === FALSE) {
-			$cmd = sprintf("sudo cat /sys/block/%s/device/model",
+		if($this->model === FALSE) {
+			$filename = sprintf("/sys/block/%s/device/model",
 			  $this->getDeviceName());
-			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0)
-				return FALSE;
-			$this->model = $output[0];
+			if(file_exists($filename)) {
+				$this->model = trim(file_get_contents($filename));
+			} else {
+				$this->model = "";
+			}
 		}
 		return $this->model;
 	}
 
 	/**
 	 * Get the device vendor.
-	 * @return The device vendor, otherwise FALSE.
+	 * @return The device vendor, otherwise an empty string.
 	 */
 	public function getVendor() {
-		if ($this->vendor === FALSE) {
-			$cmd = sprintf("sudo cat /sys/block/%s/device/vendor",
+		if($this->vendor === FALSE) {
+			$filename = sprintf("/sys/block/%s/device/vendor",
 			  $this->getDeviceName());
-			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0)
-				return FALSE;
-			$this->vendor = $output[0];
+			if(file_exists($filename)) {
+				$this->vendor = trim(file_get_contents($filename));
+			} else {
+				$this->vendor = "";
+			}
 		}
 		return $this->vendor;
 	}
@@ -964,7 +967,9 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return The device serial number.
 	 */
 	public function getSerialNumber() {
-		return gettext("n/a");
+		if(FALSE === ($property = $this->getUdevProperty("ID_SERIAL_SHORT")))
+			return "n/a";
+		return $property;
 	}
 
 	/**
@@ -989,14 +994,49 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return TRUE if the device is a connected via USB, otherwise FALSE.
 	 */
 	public function isUsb() {
-		$cmd = sprintf("export LANG=C; sudo udevadm info --name=%s " .
-		  "--attribute-walk | grep 'SUBSYSTEMS==\"usb\"'",
-		  escapeshellarg($this->getDeviceFile()));
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if(FALSE === ($property = $this->getUdevProperty("ID_BUS")))
 			return FALSE;
+		return ("usb" === $property);
+	}
+
+	/**
+	 * Queries the udev database for device information stored in the udev
+	 * database.
+	 * @param id The name of the property, e.g. ID_VENDOR, ID_MODEL or
+	 *   ID_SERIAL_SHORT.
+	 * @return The requested property, otherwise FALSE.
+	 */
+	protected function getUdevProperty($id) {
+		if($this->udevInfo === FALSE) {
+			$cmd = sprintf("export LANG=C; sudo udevadm info ".
+			  "--query=property --name=%s", escapeshellarg(
+			  $this->getDeviceFile()));
+			@OMVUtil::exec($cmd, $output, $result);
+			if($result !== 0)
+				return FALSE;
+			// Parse output:
+			// UDEV_LOG=3
+			// DEVPATH=/devices/pci0000:00/0000:00:10.0/host2/target2:0:1/2:0:1:0/block/sdb
+			// MAJOR=8
+			// MINOR=16
+			// DEVNAME=/dev/sdb
+			// DEVTYPE=disk
+			// SUBSYSTEM=block
+			// ID_SCSI=1
+			// ID_VENDOR=VMware_
+			// ID_VENDOR_ENC=VMware\x2c\x20
+			// ID_MODEL=VMware_Virtual_S
+			// ID_MODEL_ENC=VMware\x20Virtual\x20S
+			foreach($output as $row) {
+				$data = explode("=", $row);
+				if(empty($data))
+					continue;
+				$this->udevInfo[$data[0]] = $data[1];
+			}
 		}
-		return empty($result);
+		if(!array_key_exists($id, $this->udevInfo))
+			return FALSE;
+		return $this->udevInfo[$id];
 	}
 
 	/**
@@ -1124,28 +1164,6 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 	}
 
 	/**
-	 * Get the device model.
-	 * @return The device model, otherwise FALSE.
-	 */
-	public function getModel() {
-		if ($this->model === FALSE) {
-			// Try to get the device model string via S.M.A.R.T., otherwise
-			// use the one available via sysfs.
-			if (FALSE === ($ii = $this->getIdentityInfo())) {
-				$cmd = sprintf("sudo cat /sys/block/%s/device/model",
-				  $this->getDeviceName());
-				@OMVUtil::exec($cmd, $output, $result);
-				if ($result !== 0)
-					return FALSE;
-				$this->model = $output[0];
-			} else {
-				$this->model = $ii['devicemodel'];
-			}
-		}
-		return $this->model;
-	}
-
-	/**
 	 * Get the temperature in °C (value only, no unit).
 	 * @return The temperature value, otherwise FALSE.
 	 */
@@ -1192,16 +1210,6 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 			}
 		}
 		return $temp;
-	}
-
-	/**
-	 * Get the device serial number.
-	 * @return The device serial number.
-	 */
-	public function getSerialNumber() {
-		if (FALSE === ($ii = $this->getIdentityInfo()))
-			return gettext("n/a");
-		return $ii['serialnumber'];
 	}
 
 	/**
