@@ -1,8 +1,10 @@
 openmediavault (0.4.18) stable; urgency=low
 
+  * Update locales.
   * Enable 'Close' button in ExecCmdDialog if the 'Stop' RPC fails.
   * Use udev to retrieve various device informations.
   * Prohibit various characters in comments.
+  * Fix bug in rsync script.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 02 Feb 2013 12:56:19 +0100
 

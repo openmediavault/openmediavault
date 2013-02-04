@@ -80,8 +80,8 @@ xmlstarlet sel -t -m "//services/rsync/jobs/job" \
 		-o "[ -e ${runfile} ] && exit 0" -n \
 		-o "trap \"rm -f ${runfile}\" 0 1 2 5 15" -n \
 		-o "touch ${runfile}" -n \
-		-i "string-length(password) > 0" -v "concat('env RSYNC_PASSWORD=\"',password,'\" ')" -b \
 		-o "echo \"Please wait, syncing <${srcuri}> to <${desturi}> ...\n\"" -n \
+		-i "string-length(password) > 0" -v "concat('env RSYNC_PASSWORD=\"',password,'\" ')" -b \
 		-o "rsync --verbose --log-file=\"${OMV_RSYNC_LOGFILE}\"" \
 		-i "recursive = '1'" -o " --recursive" -b \
 		-i "times = '1'" -o " --times" -b \

@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-01 19:27+0100\n"
-"PO-Revision-Date: 2013-02-01 18:28+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-02-03 13:07+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,7 +34,7 @@ msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s significa «sen límite»."
 
 msgid "1 - Minimum power usage with standby (spindown)"
-msgstr "1 - Mínimo consumo de enerxía en repouso (spindown)"
+msgstr "1 - Mínimo consumo de enerxía con repouso (spindown)"
 
 msgid "1 day"
 msgstr "1 día"
@@ -61,10 +61,10 @@ msgid "120 minutes"
 msgstr "120 minutos"
 
 msgid "127 - Intermediate power usage with standby"
-msgstr ""
+msgstr "127 - Consumo intermedio de enerxía con repouso"
 
 msgid "128 - Minimum power usage without standby (no spindown)"
-msgstr ""
+msgstr "128 - Consumo mínimo de enerxía sen repouso (no spindown)"
 
 msgid "15 years"
 msgstr "15 anos"
@@ -73,7 +73,7 @@ msgid "180 minutes"
 msgstr "180 minutos"
 
 msgid "192 - Intermediate power usage without standby"
-msgstr ""
+msgstr "192 - Consumo intermedio de enerxía sen repouso"
 
 msgid "2 days"
 msgstr "2 días"
@@ -97,7 +97,7 @@ msgid "25 years"
 msgstr "25 anos"
 
 msgid "254 - Maximum performance, maximum power usage"
-msgstr ""
+msgstr "254 - Máximo rendemento, consumo máximo de enerxía"
 
 msgid "255 - Disabled"
 msgstr "255 - Desactivado"
@@ -145,10 +145,10 @@ msgid "6 months"
 msgstr "6 meses"
 
 msgid "60 minutes"
-msgstr ""
+msgstr "60 minutos"
 
 msgid "64 - Intermediate power usage with standby"
-msgstr ""
+msgstr "64 - Consumo intermedio de enerxía con espera"
 
 msgid "9 months"
 msgstr "9 meses"
@@ -166,7 +166,7 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "About"
-msgstr ""
+msgstr "Sobre"
 
 msgid "Access Right Management"
 msgstr ""
@@ -250,35 +250,35 @@ msgid "Administrator: read/write, Users: read/write, Others: read-only"
 msgstr ""
 
 msgid "Advanced Power Management"
-msgstr ""
+msgstr "Xestión avanzada da enerxía"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "Axustes avanzados"
 
 msgid "Advertise this service via mDNS/DNS-SD."
 msgstr ""
 
 msgid "Afghanistan"
-msgstr ""
+msgstr "Afganistán"
 
 msgid ""
 "After the RAID has been grown you can resize the containing filesystem."
 msgstr ""
 
 msgid "Aland Islands"
-msgstr ""
+msgstr "Illas de Åland"
 
 msgid "Albania"
-msgstr ""
+msgstr "Albania"
 
 msgid "Algeria"
-msgstr ""
+msgstr "Alxeria"
 
 msgid "All"
-msgstr ""
+msgstr "Todo"
 
 msgid "Allow"
-msgstr ""
+msgstr "Permitir"
 
 msgid "Allow client access to accounts that have null passwords"
 msgstr ""
@@ -304,44 +304,44 @@ msgid "Allow this server to try and become a local master browser"
 msgstr ""
 
 msgid "American Samoa"
-msgstr ""
+msgstr "Samoa Americana"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Enviaráselle ao administrador unha mensaxe de correo coa saída da orde (se é que se produce)."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr ""
+msgstr "Enviaráselle ao usuario que fai o traballo unha mensaxe de correo coa saída da orde (se é que se produce)."
 
 msgid "An error has occured"
-msgstr ""
+msgstr "Produciuse un erro"
 
 msgid "Andorra"
-msgstr ""
+msgstr "Andorra"
 
 msgid "Angola"
-msgstr ""
+msgstr "Angola"
 
 msgid "Anguilla"
-msgstr ""
+msgstr "Anguila"
 
 msgid "Anonymous FTP"
 msgstr "FTP anónimo"
 
 msgid "Antarctica"
-msgstr ""
+msgstr "Antártida"
 
 msgid "Antigua and Barbuda"
-msgstr ""
+msgstr "Antigua e Barbuda"
 
 msgid "Apply"
 msgstr "Aplicar"
 
 msgid "Apply permissions to files and subfolders"
-msgstr ""
+msgstr "Aplicar os permisos aos ficheiros e subcartafoles"
 
 msgid "April"
 msgstr "abril"
@@ -359,7 +359,7 @@ msgid "Array details"
 msgstr ""
 
 msgid "Aruba"
-msgstr ""
+msgstr "Aruba"
 
 msgid "Attribute name"
 msgstr "Nome do atributo"
@@ -374,7 +374,7 @@ msgid "Australia"
 msgstr "Australia"
 
 msgid "Austria"
-msgstr ""
+msgstr "Austria"
 
 msgid "Authenticate users"
 msgstr "Autenticar aos usuarios"
@@ -392,7 +392,7 @@ msgid "Authentication passphrase"
 msgstr ""
 
 msgid "Authentication required"
-msgstr ""
+msgstr "Precisa autenticarse"
 
 msgid "Authentication type"
 msgstr "Tipo de autenticación"
@@ -425,37 +425,37 @@ msgid "Ban statistics:"
 msgstr "Estatísticas de expulsións:"
 
 msgid "Bandwidth restriction"
-msgstr ""
+msgstr "Restrición do largo de banda"
 
 msgid "Bangladesh"
-msgstr ""
+msgstr "Bangladesh"
 
 msgid "Barbados"
-msgstr ""
+msgstr "Barbados"
 
 msgid "Belarus"
-msgstr ""
+msgstr "Bielorusia"
 
 msgid "Belgium"
-msgstr ""
+msgstr "Bélxica"
 
 msgid "Belize"
-msgstr ""
+msgstr "Belice"
 
 msgid "Benin"
-msgstr ""
+msgstr "Benin"
 
 msgid "Bermuda"
-msgstr ""
+msgstr "Bermuda"
 
 msgid "Bhutan"
-msgstr ""
+msgstr "Bután"
 
 msgid "Blocksize"
 msgstr "Tamaño do bloque"
 
 msgid "Bolivia"
-msgstr ""
+msgstr "Bolivia"
 
 msgid "Bond options"
 msgstr ""
@@ -464,25 +464,25 @@ msgid "Boot"
 msgstr "Arrinque"
 
 msgid "Bosnia and Herzegovina"
-msgstr ""
+msgstr "Bosnia e Hercegovina"
 
 msgid "Botswana"
-msgstr ""
+msgstr "Botsuana"
 
 msgid "Bouvet Island"
-msgstr ""
+msgstr "Illa Bouvet"
 
 msgid "Brazil"
-msgstr ""
+msgstr "Brasil"
 
 msgid "British Antarctic Territory"
-msgstr ""
+msgstr "Territorio Británico da Antártida"
 
 msgid "British Indian Ocean Territory"
-msgstr ""
+msgstr "Territorio Británico do Océano Índico"
 
 msgid "British Virgin Islands"
-msgstr ""
+msgstr "Illas Virxes Británicas"
 
 msgid "Browseable"
 msgstr "Navegábel"
@@ -494,25 +494,25 @@ msgid "Bulgaria"
 msgstr "Bulgaria"
 
 msgid "Burkina Faso"
-msgstr ""
+msgstr "Burquina Faso"
 
 msgid "Burundi"
 msgstr "Burundi"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr ""
+msgstr "De forma predeterminada, só poden cargarse os ficheiros que xa existen."
 
 msgid "CPU usage"
 msgstr "Uso da CPU"
 
 msgid "Cambodia"
-msgstr ""
+msgstr "Camboxa"
 
 msgid "Cameroon"
-msgstr ""
+msgstr "Camerún"
 
 msgid "Canada"
-msgstr ""
+msgstr "Canadá"
 
 msgid "Cancel"
 msgstr "Cancelar"
@@ -523,19 +523,19 @@ msgid ""
 msgstr ""
 
 msgid "Canton and Enderbury Islands"
-msgstr ""
+msgstr "Illas Canton e Enderbury"
 
 msgid "Capacity"
 msgstr "Capacidade"
 
 msgid "Cape Verde"
-msgstr ""
+msgstr "Cabo Verde"
 
 msgid "Cayman Islands"
-msgstr ""
+msgstr "Illas Caimán"
 
 msgid "Central African Republic"
-msgstr ""
+msgstr "República Centro Africana"
 
 msgid "Certificate"
 msgstr "Certificado"
@@ -547,7 +547,7 @@ msgid "Certificates"
 msgstr "Certificados"
 
 msgid "Chad"
-msgstr ""
+msgstr "Chad"
 
 msgid "Check"
 msgstr "Comprobar"
@@ -568,7 +568,7 @@ msgid "China"
 msgstr "China"
 
 msgid "Christmas Island"
-msgstr ""
+msgstr "Illas de Nadal"
 
 msgid "City"
 msgstr "Cidade"
@@ -578,7 +578,7 @@ msgstr "Limpar"
 
 msgid ""
 "Click the 'Backup' button to download the current system configuration."
-msgstr ""
+msgstr "Prema en «Copia de seguranza» para descargar a configuración actual do sistema."
 
 msgid "Client"
 msgstr "Cliente"
@@ -587,13 +587,13 @@ msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
 msgstr ""
 
 msgid "Close"
-msgstr ""
+msgstr "Pechar"
 
 msgid "Cocos (Keeling) Islands"
-msgstr ""
+msgstr "Illas Cocos (Keeling)"
 
 msgid "Colombia"
-msgstr ""
+msgstr "Colombia"
 
 msgid "Command"
 msgstr "Orde"
@@ -611,7 +611,7 @@ msgid "Community"
 msgstr "Comunidade"
 
 msgid "Comoros"
-msgstr ""
+msgstr "Comores"
 
 msgid "Compress"
 msgstr "Comprimir"
@@ -635,10 +635,10 @@ msgid "Confirmation"
 msgstr "Confirmación"
 
 msgid "Congo (Brazzaville)"
-msgstr ""
+msgstr "Congo (Brazzaville)"
 
 msgid "Congo (Kinshasa)"
-msgstr ""
+msgstr "República Democrática do Congo-Kinshasa"
 
 msgid "Contact"
 msgstr "Contacto"
@@ -652,10 +652,10 @@ msgid "Conveyance self-test"
 msgstr ""
 
 msgid "Cook Islands"
-msgstr ""
+msgstr "Illas Cook"
 
 msgid "Costa Rica"
-msgstr ""
+msgstr "Costa Rica"
 
 msgid "Country"
 msgstr "País"
@@ -667,7 +667,7 @@ msgid "Create RAID device"
 msgstr "Crear un dispositivo RAID"
 
 msgid "Create filesystem"
-msgstr ""
+msgstr "Crear sistema de ficheiros"
 
 msgid "Create self-signed SSL certificate"
 msgstr ""
@@ -676,13 +676,13 @@ msgid "Critical"
 msgstr "Crítico"
 
 msgid "Croatia"
-msgstr ""
+msgstr "Croacia"
 
 msgid "Cron Jobs"
 msgstr ""
 
 msgid "Cuba"
-msgstr ""
+msgstr "Cuba"
 
 msgid "Current time"
 msgstr "Hora actual"
@@ -691,10 +691,10 @@ msgid "Currently logged in users:"
 msgstr ""
 
 msgid "Cyprus"
-msgstr ""
+msgstr "Chipre"
 
 msgid "Czech Republic"
-msgstr ""
+msgstr "República Checa"
 
 msgid "DHCP"
 msgstr "DHCP"
@@ -739,7 +739,7 @@ msgid "Delete files"
 msgstr "Eliminar ficheiros"
 
 msgid "Delete files on the receiving side that don't exist on sender"
-msgstr ""
+msgstr "Eliminar no lado receptor os ficheiros que non existen no remitente"
 
 msgid "Deleting selected item(s)"
 msgstr "Eliminar o(s) elemento(s) seleccionado(s)"
@@ -780,16 +780,16 @@ msgstr "Detalle"
 msgid ""
 "Determine the default timeout, in microseconds, before the first packet is "
 "retransmitted."
-msgstr ""
+msgstr "Determinar o tempo de espera predeterminado, en microsegundos, antes de que o primeiro paquete sexa retransmitido."
 
 msgid "Device"
 msgstr "Dispositivo"
 
 msgid "Device '%s' not found"
-msgstr ""
+msgstr "Non se atopou o dispositivo «%s»"
 
 msgid "Device identity information"
-msgstr ""
+msgstr "Información da identidade do dispositivo"
 
 msgid "Device model"
 msgstr "Modelo do dispositivo"
@@ -813,25 +813,25 @@ msgid "Disabled"
 msgstr "Desactivado"
 
 msgid "Disallow the user to modify his account."
-msgstr ""
+msgstr "Non permitir que o usuario modifique a súa conta."
 
 msgid "Disk usage"
 msgstr "Uso do disco"
 
 msgid "Displaying items {0} - {1} of {2}"
-msgstr ""
+msgstr "Amosando os elementos {0} - {1} de {2}"
 
 msgid "Djibouti"
 msgstr "Xibuti"
 
 msgid "Do you really want to clear the log file?"
-msgstr ""
+msgstr "Confirma que quere limpar o ficheiro de rexistro?"
 
 msgid "Do you really want to create the RAID device?"
-msgstr ""
+msgstr "Confirma que quere crear o dispositivo RAID?"
 
 msgid "Do you really want to delete the selected item(s)?"
-msgstr ""
+msgstr "Confirma que quere eliminar o(s) elemento(s) seleccionado(s)?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
@@ -839,19 +839,19 @@ msgid ""
 msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
-msgstr ""
+msgstr "Confirma que quere instalar o(s) engadidos(s) seleccionado(s)?"
 
 msgid "Do you really want to leave the page?"
-msgstr ""
+msgstr "Confirma que quere abandonar esta páxina?"
 
 msgid "Do you really want to logout?"
-msgstr ""
+msgstr "Confirma que quere saír da sesión?"
 
 msgid "Do you really want to reboot the system?"
-msgstr ""
+msgstr "Confirma que quere reiniciar o sistema?"
 
 msgid "Do you really want to remove the shared folder content?"
-msgstr ""
+msgstr "Confirma que quere retirar o contido do cartafol compartido?"
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr ""
@@ -862,13 +862,13 @@ msgid ""
 msgstr ""
 
 msgid "Do you really want to shutdown the system?"
-msgstr ""
+msgstr "Confirma que quere apagar o sistema?"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr ""
+msgstr "Confirma que quere desinstalar o(s) engadidos(s) seleccionado(s)?"
 
 msgid "Do you really want to wipe the selected device?"
-msgstr ""
+msgstr "Confirma que quere destruír o contido do dispositivo seleccionado?"
 
 msgid ""
 "Do you want to remove the content of the shared folder recursively? The "
@@ -878,51 +878,51 @@ msgid ""
 msgstr ""
 
 msgid "Domain name"
-msgstr ""
+msgstr "Nome de dominio"
 
 msgid "Dominica"
-msgstr ""
+msgstr "Dominica"
 
 msgid "Dominican Republic"
-msgstr ""
+msgstr "República Dominicana"
 
 msgid "Donate"
-msgstr ""
+msgstr "Faga unha doazón"
 
 msgid "Done ..."
-msgstr ""
+msgstr "Feito ..."
 
 msgid "Down"
-msgstr ""
+msgstr "Baixar"
 
 msgid "Down delay"
-msgstr ""
+msgstr "Reducir o atraso"
 
 msgid "Download"
-msgstr ""
+msgstr "Descarga"
 
 msgid "Dronning Maud Land"
-msgstr ""
+msgstr "Terra da Raíña Maud"
 
 msgid "Each line represents one group."
-msgstr ""
+msgstr "Cada liña representa un grupo"
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
 "text."
-msgstr ""
+msgstr "Cada liña representa un usuario. Nota: o contrasinal debe introducirse en texto simpe."
 
 msgid "East Timor"
-msgstr ""
+msgstr "Timor Leste"
 
 msgid "Ecuador"
-msgstr ""
+msgstr "Ecuador"
 
 msgid "Edit"
 msgstr ""
 
 msgid "Edit SSL certificate"
-msgstr ""
+msgstr "Editar o certificado SSL"
 
 msgid "Edit bonded interface"
 msgstr ""
@@ -931,16 +931,16 @@ msgid "Edit cron job"
 msgstr ""
 
 msgid "Edit firewall rule"
-msgstr ""
+msgstr "Editar regra na devasa"
 
 msgid "Edit group"
-msgstr ""
+msgstr "Editar grupo"
 
 msgid "Edit module"
-msgstr ""
+msgstr "Editar módulo"
 
 msgid "Edit physical disk properties"
-msgstr ""
+msgstr "Editar as propiedades do disco físico"
 
 msgid "Edit physical interface"
 msgstr ""
@@ -952,55 +952,55 @@ msgid "Edit rsync job"
 msgstr ""
 
 msgid "Edit rule"
-msgstr ""
+msgstr "Editar regra"
 
 msgid "Edit scheduled test"
-msgstr ""
+msgstr "Editar proba planificada"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Editar a compartición"
 
 msgid "Edit shared folder"
-msgstr ""
+msgstr "Editar cartafol compartido"
 
 msgid "Edit shared folder privileges"
-msgstr ""
+msgstr "Editar os privilexios do cartafol compartido"
 
 msgid "Edit user"
-msgstr ""
+msgstr "Editar usuario"
 
 msgid "Egypt"
-msgstr ""
+msgstr "Exipto"
 
 msgid "El Salvador"
-msgstr ""
+msgstr "O Salvador"
 
 msgid "Email"
-msgstr ""
+msgstr "Correo"
 
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 msgid "Enable FXP protocol"
-msgstr ""
+msgstr "Activar o protocolo FXP"
 
 msgid "Enable SSL/TLS"
-msgstr ""
+msgstr "Activar SSL/TLS"
 
 msgid "Enable SSL/TLS connections"
-msgstr ""
+msgstr "Activar as conexións SSL/TLS"
 
 msgid "Enable WINS server"
-msgstr ""
+msgstr "Activar o servidor WINS"
 
 msgid "Enable anonymous FTP"
-msgstr ""
+msgstr "Activar o FTP anónimo"
 
 msgid "Enable archive mode"
 msgstr ""
 
 msgid "Enable compression"
-msgstr ""
+msgstr "Activar a compresión"
 
 msgid "Enable extended attribute support"
 msgstr ""
@@ -1027,7 +1027,7 @@ msgid ""
 msgstr ""
 
 msgid "Enable secure connection."
-msgstr ""
+msgstr "Activar a conexión segura."
 
 msgid "Enable store DOS attributes support"
 msgstr ""
@@ -1050,22 +1050,22 @@ msgid "Enable write-cache."
 msgstr ""
 
 msgid "Enabled"
-msgstr ""
+msgstr "Activado"
 
 msgid "Enter your password"
-msgstr ""
+msgstr "Escriba o seu contrasinal:"
 
 msgid "Enter your username"
-msgstr ""
+msgstr "Escriba o seu nome do usuario"
 
 msgid "Equatorial Guinea"
-msgstr ""
+msgstr "Guinea Ecuatorial"
 
 msgid "Eritrea"
-msgstr ""
+msgstr "Eritrea"
 
 msgid "Error"
-msgstr ""
+msgstr "Erro"
 
 msgid "Error #"
 msgstr ""
@@ -1074,28 +1074,28 @@ msgid "Error #%d"
 msgstr ""
 
 msgid "Estonia"
-msgstr ""
+msgstr "Estonia"
 
 msgid "Ethiopia"
-msgstr ""
+msgstr "Etiopía"
 
 msgid "Event"
-msgstr ""
+msgstr "Actividade"
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "Cada día N do mes"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "Cada N horas"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "Cada N minutos"
 
 msgid "Everyone: read/write"
 msgstr ""
 
 msgid "Execute command"
-msgstr ""
+msgstr "Executar unha orde"
 
 msgid "Execute cron job"
 msgstr ""
@@ -1107,16 +1107,16 @@ msgid "Expire"
 msgstr ""
 
 msgid "Extended attributes"
-msgstr ""
+msgstr "Atributos estendidos"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Opcións adicionais"
 
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 msgid "FXP"
-msgstr ""
+msgstr "FXP"
 
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
@@ -1138,25 +1138,25 @@ msgid "Failed to get system date and time"
 msgstr ""
 
 msgid "Falkland Islands"
-msgstr ""
+msgstr "Illas Malvinas"
 
 msgid "Faroe Islands"
-msgstr ""
+msgstr "Islas Faroe"
 
 msgid "Fatal error"
-msgstr ""
+msgstr "Produciuse un erro fatal"
 
 msgid "February"
-msgstr ""
+msgstr "febreiro"
 
 msgid "Fields must be exclusive"
-msgstr ""
+msgstr "Os campos deben ser exclusivos"
 
 msgid "Fiji"
-msgstr ""
+msgstr "Fidxi"
 
 msgid "File"
-msgstr ""
+msgstr "Ficheiro"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1169,7 +1169,7 @@ msgid ""
 msgstr ""
 
 msgid "Filesystem"
-msgstr ""
+msgstr "Sistema de ficheiros"
 
 msgid "Filesystem '%s' not found"
 msgstr ""
@@ -1178,151 +1178,151 @@ msgid "Filesystem '%s' not supported"
 msgstr ""
 
 msgid "Filesystems"
-msgstr ""
+msgstr "Sistemas de ficheiros"
 
 msgid "Finland"
-msgstr ""
+msgstr "Finlandia"
 
 msgid "Firewall"
-msgstr ""
+msgstr "Devasa"
 
 msgid "Firmware version"
-msgstr ""
+msgstr "Versión do firmware"
 
 msgid "Flag"
 msgstr ""
 
 msgid "Force SSL/TLS"
-msgstr ""
+msgstr "Forzar SSL/TLS"
 
 msgid "Force secure connection only."
 msgstr ""
 
 msgid "France"
-msgstr ""
+msgstr "Francia"
 
 msgid "French Guiana"
-msgstr ""
+msgstr "Guiana Francesa"
 
 msgid "French Polynesia"
-msgstr ""
+msgstr "Polinesia Francesa"
 
 msgid "French Southern Territories"
-msgstr ""
+msgstr "Territorios Franceses do Sur"
 
 msgid "French Southern and Antarctic Territories"
-msgstr ""
+msgstr "Territorios Franceses do Sur e da Antártida"
 
 msgid "Friday"
-msgstr ""
+msgstr "Venres"
 
 msgid "Full"
-msgstr ""
+msgstr "Completa"
 
 msgid "Gabon"
-msgstr ""
+msgstr "Gabón"
 
 msgid "Gambia"
-msgstr ""
+msgstr "Gambia"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Pasarela"
 
 msgid "General"
-msgstr ""
+msgstr "Xeral"
 
 msgid "General Settings"
-msgstr ""
+msgstr "Axustes xerais"
 
 msgid "General settings"
-msgstr ""
+msgstr "Axustes xerais"
 
 msgid "Generating graphs ..."
 msgstr ""
 
 msgid "Georgia"
-msgstr ""
+msgstr "Xeorxia"
 
 msgid "Germany"
-msgstr ""
+msgstr "Alemania"
 
 msgid "Ghana"
-msgstr ""
+msgstr "Ghana"
 
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 msgid "Gibraltar"
-msgstr ""
+msgstr "Xibraltar"
 
 msgid "Greece"
-msgstr ""
+msgstr "Grecia"
 
 msgid "Greenland"
-msgstr ""
+msgstr "Groenlandia"
 
 msgid "Grenada"
-msgstr ""
+msgstr "Granada"
 
 msgid "Group"
-msgstr ""
+msgstr "Grupo"
 
 msgid "Group '%s' already exist"
-msgstr ""
+msgstr "O grupo «%s» xa existe"
 
 msgid "Group '%s' does not exist"
-msgstr ""
+msgstr "O grupo «%s» non existe"
 
 msgid "Group ID '%d' already exist"
-msgstr ""
+msgstr "O ID de grupo «%d» xa existe"
 
 msgid "Groups"
-msgstr ""
+msgstr "Grupos"
 
 msgid "Grow"
-msgstr ""
+msgstr "Expandir"
 
 msgid "Grow RAID device"
-msgstr ""
+msgstr "Expandir un dispositivo RAID"
 
 msgid "Guadeloupe"
-msgstr ""
+msgstr "Guadalupe"
 
 msgid "Guam"
-msgstr ""
+msgstr "Guam"
 
 msgid "Guatemala"
-msgstr ""
+msgstr "Guatemala"
 
 msgid "Guinea"
-msgstr ""
+msgstr "Guinea"
 
 msgid "Guinea-Bissau"
-msgstr ""
+msgstr "Guinea-Bissau"
 
 msgid "Guyana"
-msgstr ""
+msgstr "Guiana"
 
 msgid "Haiti"
-msgstr ""
+msgstr "Haití"
 
 msgid "Heard Island and McDonald Islands"
-msgstr ""
+msgstr "Illa Heard e Illas McDonald"
 
 msgid "Hide details"
-msgstr ""
+msgstr "Agochar os detalles"
 
 msgid "Hide dot files"
-msgstr ""
+msgstr "Agochar os ficheiros con punto"
 
 msgid "Home directories"
 msgstr ""
 
 msgid "Homepage"
-msgstr ""
+msgstr "Páxina de incio"
 
 msgid "Honduras"
-msgstr ""
+msgstr "Honduras"
 
 msgid "Hong Kong S.A.R., China"
 msgstr ""
@@ -1349,28 +1349,28 @@ msgid "Hosts deny"
 msgstr ""
 
 msgid "Hour"
-msgstr ""
+msgstr "Hora"
 
 msgid "Hungary"
-msgstr ""
+msgstr "Hungría"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "Iceland"
-msgstr ""
+msgstr "Islandia"
 
 msgid "Ident protocol"
 msgstr ""
 
 msgid "Identify"
-msgstr ""
+msgstr "Identificar"
 
 msgid "Identify network interface device"
-msgstr ""
+msgstr "Identificar o dispositivo de interface de rede"
 
 msgid "Idle"
-msgstr ""
+msgstr "Inactivo"
 
 msgid "If enabled then no password is required to connect to the share"
 msgstr ""
@@ -1410,16 +1410,16 @@ msgid "Implicit SSL"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "Importar"
 
 msgid "Import SSL certificate"
 msgstr ""
 
 msgid "Import groups"
-msgstr ""
+msgstr "Importar grupos"
 
 msgid "Import users"
-msgstr ""
+msgstr "Importar usuarios"
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1433,16 +1433,16 @@ msgid ""
 msgstr ""
 
 msgid "India"
-msgstr ""
+msgstr "India"
 
 msgid "Indonesia"
-msgstr ""
+msgstr "Indonesia"
 
 msgid "Informal"
-msgstr ""
+msgstr "Informal"
 
 msgid "Information"
-msgstr ""
+msgstr "Información"
 
 msgid "Inherit ACLs"
 msgstr ""
@@ -1451,34 +1451,34 @@ msgid "Inherit permissions"
 msgstr ""
 
 msgid "Initializing"
-msgstr ""
+msgstr "Iniciando"
 
 msgid "Install"
-msgstr ""
+msgstr "Instalar"
 
 msgid "Install plugins ..."
-msgstr ""
+msgstr "Instalar engadidos ..."
 
 msgid "Install updates ..."
-msgstr ""
+msgstr "Instalar actualizacións ..."
 
 msgid "Installed"
 msgstr ""
 
 msgid "Interfaces"
-msgstr ""
+msgstr "Interfaces"
 
 msgid "Invalid comment"
-msgstr ""
+msgstr "Comentario incorrecto"
 
 msgid "Invalid domain name"
-msgstr ""
+msgstr "Nome de dominio incorrecto"
 
 msgid "Invalid filesystem label"
-msgstr ""
+msgstr "Etiqueta do sistema de ficheiros incorrecto"
 
 msgid "Invalid group name"
-msgstr ""
+msgstr "Nome de grupo incorrecto"
 
 msgid "Invalid hostname"
 msgstr ""
@@ -1487,97 +1487,97 @@ msgid "Invalid line: %s"
 msgstr ""
 
 msgid "Invalid name"
-msgstr ""
+msgstr "Nome incorrecto"
 
 msgid "Invalid user name"
-msgstr ""
+msgstr "Nome de usuario incorrecto"
 
 msgid "Iran"
-msgstr ""
+msgstr "Irán"
 
 msgid "Iraq"
-msgstr ""
+msgstr "Iraq"
 
 msgid "Ireland"
-msgstr ""
+msgstr "Irlanda"
 
 msgid "Israel"
-msgstr ""
+msgstr "Israel"
 
 msgid "Italy"
-msgstr ""
+msgstr "Italia"
 
 msgid "Ivory Coast"
-msgstr ""
+msgstr "Costa de Marfil"
 
 msgid "Jamaica"
-msgstr ""
+msgstr "Xamaica"
 
 msgid "January"
-msgstr ""
+msgstr "xaneiro"
 
 msgid "Japan"
-msgstr ""
+msgstr "Xapón"
 
 msgid "Jobs"
-msgstr ""
+msgstr "Traballos"
 
 msgid "Johnston Island"
-msgstr ""
+msgstr "Illa Johnston"
 
 msgid "Jordan"
-msgstr ""
+msgstr "Xordania"
 
 msgid "July"
-msgstr ""
+msgstr "xullo"
 
 msgid "June"
-msgstr ""
+msgstr "xuño"
 
 msgid "Kazakhstan"
-msgstr ""
+msgstr "Cazaquistán"
 
 msgid "Keep partially transferred files"
 msgstr ""
 
 msgid "Kenya"
-msgstr ""
+msgstr "Quenia"
 
 msgid "Kernel"
-msgstr ""
+msgstr "Núcleo"
 
 msgid "Key size"
-msgstr ""
+msgstr "Tamaño da chave"
 
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 msgid "Kiribati"
-msgstr ""
+msgstr "Quiribati"
 
 msgid "Kuwait"
-msgstr ""
+msgstr "Cuvait "
 
 msgid "Kyrgyzstan"
-msgstr ""
+msgstr "Quirguistán"
 
 msgid "LBA of first error"
 msgstr ""
 
 msgid "Label"
-msgstr ""
+msgstr "Etiqueta"
 
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 msgid "Laos"
-msgstr ""
+msgstr "Laos"
 
 msgid "Latvia"
-msgstr ""
+msgstr "Letonia"
 
 msgid "Lebanon"
-msgstr ""
+msgstr "Líbano"
 
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
@@ -1585,58 +1585,58 @@ msgid ""
 msgstr ""
 
 msgid "Lesotho"
-msgstr ""
+msgstr "Lesotho"
 
 msgid "Level"
-msgstr ""
+msgstr "Nivel"
 
 msgid "Liberia"
-msgstr ""
+msgstr "Liberia"
 
 msgid "Libya"
-msgstr ""
+msgstr "Libia"
 
 msgid "Liechtenstein"
-msgstr ""
+msgstr "Liechtenstein"
 
 msgid "Lifetime"
-msgstr ""
+msgstr "Tempo de vida"
 
 msgid "Linear"
-msgstr ""
+msgstr "Lineal"
 
 msgid "Link"
-msgstr ""
+msgstr "Ligazón"
 
 msgid "List"
-msgstr ""
+msgstr "Lista"
 
 msgid "Lithuania"
-msgstr ""
+msgstr "Lituania"
 
 msgid "Load average"
-msgstr ""
+msgstr "Carga media"
 
 msgid "Loading ..."
-msgstr ""
+msgstr "Cargando ..."
 
 msgid "Local"
-msgstr ""
+msgstr "Local"
 
 msgid "Local master browser"
 msgstr ""
 
 msgid "Location"
-msgstr ""
+msgstr "Localización"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr ""
+msgstr "Información da localización. p.ex. localización física deste sistema."
 
 msgid "Log level"
 msgstr ""
 
 msgid "Logical volume %s [%s, %s]"
-msgstr ""
+msgstr "Volume lóxico %s [%s, %s]"
 
 msgid "Login"
 msgstr "Acceso"
@@ -1651,7 +1651,7 @@ msgid "Long self-test"
 msgstr ""
 
 msgid "Luxembourg"
-msgstr ""
+msgstr "Luxemburgo"
 
 msgid "MAC address"
 msgstr "Enderezo MAC"
@@ -1666,10 +1666,10 @@ msgid "Macao S.A.R., China"
 msgstr ""
 
 msgid "Macedonia"
-msgstr ""
+msgstr "Macedonia"
 
 msgid "Madagascar"
-msgstr ""
+msgstr "Madagascar"
 
 msgid "Mail Notification"
 msgstr "Notificación de correo"
@@ -1678,19 +1678,19 @@ msgid "Maintainer"
 msgstr "Mantedor"
 
 msgid "Malawi"
-msgstr ""
+msgstr "Malaui"
 
 msgid "Malaysia"
-msgstr ""
+msgstr "Malasia"
 
 msgid "Maldives"
-msgstr ""
+msgstr "Maldivas"
 
 msgid "Mali"
-msgstr ""
+msgstr "Malí"
 
 msgid "Malta"
-msgstr ""
+msgstr "Malta"
 
 msgid "Manual"
 msgstr "Manual"
@@ -1699,10 +1699,10 @@ msgid "March"
 msgstr "marzo"
 
 msgid "Marshall Islands"
-msgstr ""
+msgstr "Illas Marshall"
 
 msgid "Martinique"
-msgstr ""
+msgstr "Martinica"
 
 msgid "Masquerade address"
 msgstr ""
@@ -3323,7 +3323,7 @@ msgid "Unmount"
 msgstr "Desmontar"
 
 msgid "Up"
-msgstr ""
+msgstr "Subir"
 
 msgid "Up delay"
 msgstr ""
@@ -3407,7 +3407,7 @@ msgid "User '%s' does not exist"
 msgstr "O usuario «%s» non existe."
 
 msgid "User ID '%d' already exist"
-msgstr "O ID deusuario «%d» xa existe"
+msgstr "O ID de usuario «%d» xa existe"
 
 msgid "User home directory"
 msgstr "Directorio persoal do usuario"
