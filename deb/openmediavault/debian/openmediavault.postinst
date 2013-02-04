@@ -429,6 +429,9 @@ case "$1" in
 			omv-mkconf cron
 			omv-mkconf rsync
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.18"; then
+			omv-mkconf rsync
+		fi
 	;;
 
 	triggered)
