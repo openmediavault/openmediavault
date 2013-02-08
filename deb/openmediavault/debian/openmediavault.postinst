@@ -432,6 +432,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.4.18"; then
 			omv-mkconf rsync
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.19"; then
+			omv-mkconf samba
+		fi
 	;;
 
 	triggered)
