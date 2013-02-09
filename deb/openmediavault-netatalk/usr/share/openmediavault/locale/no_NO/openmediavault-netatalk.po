@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-16 19:00+0200\n"
-"PO-Revision-Date: 2012-10-25 15:33+0000\n"
-"Last-Translator: runesudden <runesudden@gmail.com>\n"
+"POT-Creation-Date: 2013-02-09 19:45+0100\n"
+"PO-Revision-Date: 2013-02-09 18:45+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,14 +18,23 @@ msgstr ""
 "Language: no\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr ""
+
 msgid "Add share"
 msgstr "Legg til delt område"
+
+msgid "Advanced settings"
+msgstr ""
 
 msgid "Advertise this service via mDNS/DNS-SD."
 msgstr "Annonser denne tjenesten via mDNS/DNS-SD."
 
-msgid "Allow guest logins"
-msgstr "Tillat gjesteinnlogging"
+msgid "Allow guest login."
+msgstr ""
+
+msgid "Allow guests to create or modify files."
+msgstr ""
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr "Tillat login med passord sendt ukryptert."
@@ -35,9 +44,6 @@ msgstr "Tillat ukrypterte passord"
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
-
-msgid "Authentication"
-msgstr "Autentisering"
 
 msgid "Case folding"
 msgstr "Case folding"
@@ -78,11 +84,17 @@ msgstr "Påtving restriksjoner i filnavn"
 msgid "General settings"
 msgstr "Generelle innstillinger"
 
+msgid "Guest login"
+msgstr ""
+
 msgid "Hide dot files"
 msgstr "Skjul dot filer"
 
 msgid "Home directories"
 msgstr "Hjemmemapper"
+
+msgid "If this option is not set, guests may only read files."
+msgstr ""
 
 msgid ""
 "If this option is set, then a password is required to access the share."

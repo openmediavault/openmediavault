@@ -4,14 +4,15 @@
 # 
 # Translators:
 #   <mattjes04@googlemail.com>, 2012.
+# Volker <votdev@gmx.de>, 2013.
 # Volker  <votdev@gmx.de>, 2012.
 #   <warhog@gmx.de>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-16 19:00+0200\n"
-"PO-Revision-Date: 2012-08-19 01:08+0000\n"
+"POT-Creation-Date: 2013-02-09 19:45+0100\n"
+"PO-Revision-Date: 2013-02-09 18:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -20,14 +21,23 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr ""
+
 msgid "Add share"
 msgstr "Freigabe hinzufügen"
+
+msgid "Advanced settings"
+msgstr "Erweiterte Einstellungen"
 
 msgid "Advertise this service via mDNS/DNS-SD."
 msgstr "Diesen Dienst mittels mDNS/DNS-SD annoncieren."
 
-msgid "Allow guest logins"
-msgstr "Erlaube Gastlogin"
+msgid "Allow guest login."
+msgstr "Erlaube Gastanmeldungen"
+
+msgid "Allow guests to create or modify files."
+msgstr "Erlaube Gästen Dateien zu erstellen oder zu ändern."
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr "Erlaube Anmeldungen mit Passwörtern welche im Klartext übertragen werden."
@@ -37,9 +47,6 @@ msgstr "Erlaube Passwörter im Klartext"
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
-
-msgid "Authentication"
-msgstr "Authentifizierung"
 
 msgid "Case folding"
 msgstr "Groß- / Kleinschreibung"
@@ -80,11 +87,17 @@ msgstr "Dateinamenbeschränkungen erzwingen"
 msgid "General settings"
 msgstr "Allgemeine Einstellungen"
 
+msgid "Guest login"
+msgstr "Gastanmeldung"
+
 msgid "Hide dot files"
 msgstr "Dotfiles verstecken"
 
 msgid "Home directories"
 msgstr "Heimatverzeichnisse"
+
+msgid "If this option is not set, guests may only read files."
+msgstr "Wenn diese Option nicht gesetzt ist, dann können Gäste nur lesend auf Dateien zugreifen."
 
 msgid ""
 "If this option is set, then a password is required to access the share."

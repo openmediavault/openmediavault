@@ -33,7 +33,6 @@ class AFPRpc extends OMVRpc {
 				"type":"object",
 				"properties":{
 					"enable":{"type":"boolean"},
-					"allowguests":{"type":"boolean"},
 					"allowclrtxt":{"type":"boolean"},
 					"homesenable":{"type":"boolean"},
 					"extraoptions":{"type":"string"},
@@ -73,6 +72,8 @@ class AFPRpc extends OMVRpc {
 					"tm":{"type":"boolean"},
 					"mswindows":{"type":"boolean"},
 					"volsizelimit":{"type":"integer","minimum":0},
+					"allowguest":{"type":"boolean"},
+					"guestrw":{"type":"boolean"},
 					"extraoptions":{"type":"string"}
 				}
 			}'),
@@ -102,7 +103,6 @@ class AFPRpc extends OMVRpc {
 		}
 		// Modify result data
 		$object['enable'] = boolval($object['enable']);
-		$object['allowguests'] = boolval($object['allowguests']);
 		$object['allowclrtxt'] = boolval($object['allowclrtxt']);
 		$object['homesenable'] = boolval($object['homesenable']);
 		$object['dnssdenable'] = boolval($object['dnssd']['enable']);
@@ -134,7 +134,6 @@ class AFPRpc extends OMVRpc {
 		// Update configuration
 		$object = array(
 			"enable" => array_boolval($data, 'enable'),
-			"allowguests" => array_boolval($data, 'allowguests'),
 			"allowclrtxt" => array_boolval($data, 'allowclrtxt'),
 			"homesenable" => array_boolval($data, 'homesenable'),
 			"extraoptions" => $data['extraoptions'],
@@ -192,8 +191,11 @@ class AFPRpc extends OMVRpc {
 		foreach ($objects as $objectk => &$objectv) {
 			$objectv['sharedfoldername'] = gettext("n/a");
 			// Modify result data
-			foreach ($objectv['options'] as $optionk => $optionv) {
-				$objectv['options'][$optionk] = boolval($optionv);
+			$objectv['volsizelimit'] = intval($objectv['volsizelimit']);
+			$objectv['allowguest'] = boolval($objectv['allowguest']);
+			$objectv['guestrw'] = boolval($objectv['guestrw']);
+			foreach ($objectv['options'] as $optionk => &$optionv) {
+				$optionv = boolval($optionv);
 			}
 			// Get the shared folder configuration object
 			$sfobject = $xmlConfig->get("//system/shares/sharedfolder[" .
@@ -234,8 +236,10 @@ class AFPRpc extends OMVRpc {
 		}
 		// Modify result data
 		$object['volsizelimit'] = intval($object['volsizelimit']);
-		foreach ($object['options'] as $optionk => $optionv) {
-			$object[$optionk] = boolval($optionv);
+		$object['allowguest'] = boolval($object['allowguest']);
+		$object['guestrw'] = boolval($object['guestrw']);
+		foreach ($object['options'] as $optionk => &$optionv) {
+			$optionv = boolval($optionv);
 		}
 		unset($object['options']);
 		return $object;
@@ -265,6 +269,8 @@ class AFPRpc extends OMVRpc {
 			"password" => $data['password'],
 			"casefold" => $data['casefold'],
 			"volsizelimit" => $data['volsizelimit'],
+			"allowguest" => array_boolval($data, 'allowguest'),
+			"guestrw" => array_boolval($data, 'guestrw'),
 			"options" => array(
 				"ro" => array_boolval($data, 'ro'),
 				"upriv" => array_boolval($data, 'upriv'),

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-16 19:00+0200\n"
-"PO-Revision-Date: 2012-08-16 17:00+0000\n"
+"POT-Creation-Date: 2013-02-09 19:45+0100\n"
+"PO-Revision-Date: 2013-02-09 18:45+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -18,14 +18,23 @@ msgstr ""
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr ""
+
 msgid "Add share"
 msgstr "Voeg share toe"
+
+msgid "Advanced settings"
+msgstr ""
 
 msgid "Advertise this service via mDNS/DNS-SD."
 msgstr ""
 
-msgid "Allow guest logins"
-msgstr "Toestaan van gast logins"
+msgid "Allow guest login."
+msgstr ""
+
+msgid "Allow guests to create or modify files."
+msgstr ""
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr ""
@@ -35,9 +44,6 @@ msgstr ""
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
-
-msgid "Authentication"
-msgstr "Authenticatie"
 
 msgid "Case folding"
 msgstr "Omzetten van hoofdletters en kleine letters"
@@ -78,10 +84,16 @@ msgstr "Forceert bestandsnaam restricties"
 msgid "General settings"
 msgstr "Algemene instellingen"
 
+msgid "Guest login"
+msgstr ""
+
 msgid "Hide dot files"
 msgstr "Verberg punt bestanden"
 
 msgid "Home directories"
+msgstr ""
+
+msgid "If this option is not set, guests may only read files."
 msgstr ""
 
 msgid ""

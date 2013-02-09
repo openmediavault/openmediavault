@@ -76,27 +76,6 @@ Ext.extend(OMV.Module.Services.AFP.SettingsPanel, OMV.FormPanelExt, {
 			}]
 		},{
 			xtype: "fieldset",
-			title: _("Authentication"),
-			defaults: {
-//				anchor: "100%",
-				labelSeparator: ""
-			},
-			items: [{
-				xtype: "checkbox",
-				name: "allowguests",
-				fieldLabel: _("Allow guest logins"),
-				checked: false,
-				inputValue: 1
-			},{
-				xtype: "checkbox",
-				name: "allowclrtxt",
-				fieldLabel: _("Allow plain passwords"),
-				checked: false,
-				inputValue: 1,
-				boxLabel: _("Allow logins with passwords transmitted in the clear.")
-			}]
-		},{
-			xtype: "fieldset",
 			title: _("Home directories"),
 			defaults: {
 //				anchor: "100%",
@@ -109,6 +88,21 @@ Ext.extend(OMV.Module.Services.AFP.SettingsPanel, OMV.FormPanelExt, {
 				checked: false,
 				inputValue: 1,
 				boxLabel: _("Enable user home directories.")
+			}]
+		},{
+			xtype: "fieldset",
+			title: _("Advanced settings"),
+			defaults: {
+//				anchor: "100%",
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "checkbox",
+				name: "allowclrtxt",
+				fieldLabel: _("Allow plain passwords"),
+				checked: false,
+				inputValue: 1,
+				boxLabel: _("Allow logins with passwords transmitted in the clear.")
 			}]
 		},{
 			xtype: "fieldset",
@@ -286,7 +280,8 @@ Ext.extend(OMV.Module.Services.AFP.SharePropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "textfield",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			allowBlank: true
+			allowBlank: true,
+			vtype: "comment"
 		},{
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",
@@ -311,6 +306,22 @@ Ext.extend(OMV.Module.Services.AFP.SharePropertyDialog, OMV.CfgObjectDialog, {
 			boxLabel: _("Set read only."),
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: _("If this option is set, then users may not create or modify files in the share.")
+		},{
+			xtype: "checkbox",
+			name: "allowguest",
+			fieldLabel: _("Guest login"),
+			checked: false,
+			inputValue: 1,
+			boxLabel: _("Allow guest login.")
+		},{
+			xtype: "checkbox",
+			name: "guestrw",
+			fieldLabel: _(" "),
+			checked: false,
+			inputValue: 1,
+			boxLabel: _("Allow guests to create or modify files."),
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: _("If this option is not set, guests may only read files.")
 		},{
 			xtype: "checkbox",
 			name: "tm",

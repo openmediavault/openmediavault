@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-16 19:00+0200\n"
-"PO-Revision-Date: 2012-08-18 09:34+0000\n"
-"Last-Translator: Mauro Rulli <mauro.rulli@gmail.com>\n"
+"POT-Creation-Date: 2013-02-09 19:45+0100\n"
+"PO-Revision-Date: 2013-02-09 18:45+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,14 +18,23 @@ msgstr ""
 "Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr ""
+
 msgid "Add share"
 msgstr "Aggiungi condivisione"
+
+msgid "Advanced settings"
+msgstr ""
 
 msgid "Advertise this service via mDNS/DNS-SD."
 msgstr "Notifica questo servizio tramite mDNS/DNS-SD."
 
-msgid "Allow guest logins"
-msgstr "Consenti login di guest"
+msgid "Allow guest login."
+msgstr ""
+
+msgid "Allow guests to create or modify files."
+msgstr ""
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr "Consenti autenticazioni con la trasmissione in chiaro delle password."
@@ -35,9 +44,6 @@ msgstr "Consenti passowrd in chiaro"
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
-
-msgid "Authentication"
-msgstr "Autenticazione"
 
 msgid "Case folding"
 msgstr "Case folding"
@@ -78,11 +84,17 @@ msgstr "Forza restrizioni sul nome del file"
 msgid "General settings"
 msgstr "Impostazioni generali"
 
+msgid "Guest login"
+msgstr ""
+
 msgid "Hide dot files"
 msgstr "Nascondi file puntati"
 
 msgid "Home directories"
 msgstr "Home direcotry"
+
+msgid "If this option is not set, guests may only read files."
+msgstr ""
 
 msgid ""
 "If this option is set, then a password is required to access the share."

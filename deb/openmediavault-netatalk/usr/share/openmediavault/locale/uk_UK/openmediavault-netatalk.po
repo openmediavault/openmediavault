@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-16 19:00+0200\n"
-"PO-Revision-Date: 2012-08-16 17:00+0000\n"
+"POT-Creation-Date: 2013-02-09 19:45+0100\n"
+"PO-Revision-Date: 2013-02-09 18:45+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -17,13 +17,22 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+msgid " "
+msgstr ""
+
 msgid "Add share"
+msgstr ""
+
+msgid "Advanced settings"
 msgstr ""
 
 msgid "Advertise this service via mDNS/DNS-SD."
 msgstr ""
 
-msgid "Allow guest logins"
+msgid "Allow guest login."
+msgstr ""
+
+msgid "Allow guests to create or modify files."
 msgstr ""
 
 msgid "Allow logins with passwords transmitted in the clear."
@@ -33,9 +42,6 @@ msgid "Allow plain passwords"
 msgstr ""
 
 msgid "Apple Filing"
-msgstr ""
-
-msgid "Authentication"
 msgstr ""
 
 msgid "Case folding"
@@ -77,10 +83,16 @@ msgstr ""
 msgid "General settings"
 msgstr ""
 
+msgid "Guest login"
+msgstr ""
+
 msgid "Hide dot files"
 msgstr ""
 
 msgid "Home directories"
+msgstr ""
+
+msgid "If this option is not set, guests may only read files."
 msgstr ""
 
 msgid ""

@@ -92,7 +92,7 @@ EOF
 	# Create the '/etc/netatalk/afpd.conf' file
 	xmlstarlet sel -t -m "//services/afp" \
 	  -o "- -tcp -nosavepassword -nozeroconf -uamlist ${OMV_NETATALK_AFPD_UAMLIST}" \
-	  -i "allowguests[. = '1']" -o ",uams_guest.so" -b \
+	  -i "count(shares/share[allowguest = '1']) > 0" -o ",uams_guest.so" -b \
 	  -i "allowclrtxt[. = '1']" -o ",uams_clrtxt.so" -b \
 	  -i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
 	  -n \
@@ -116,8 +116,17 @@ EOF
 		writelist=""
 
 		# Get shared folder user privileges
-		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
-		  -v "concat(perms,'|',name)" -n \
+		privileges=$(xmlstarlet sel -t \
+		  -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
+			-v "concat(perms,'|',name)" -n \
+		  -b \
+		  -m "//services/afp/shares/share[position()=${index}]" \
+			-i "allowguest[. = '1']" \
+			  -i "guestrw[. = '1']" -o "7" -b \
+			  -i "guestrw[. = '0']" -o "5" -b \
+			  -o "|${OMV_NETATALK_AFPD_GUEST}" -n \
+			-b \
+		  -b \
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 		for privilege in ${privileges}
 		do
