@@ -399,6 +399,7 @@ Ext.extend(OMV.Module.Services.SMB.SharePropertyDialog,
 			name: "comment",
 			fieldLabel: _("Comment"),
 			allowBlank: true,
+			vtype: "comment",
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: _("This is a text field that is seen next to a share when a client queries the server.")
 		},{

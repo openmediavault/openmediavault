@@ -652,7 +652,8 @@ Ext.extend(OMV.Module.Services.FTPSharePropertyDialog, OMV.CfgObjectDialog, {
 			xtype: "textfield",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			allowBlank: true
+			allowBlank: true,
+			vtype: "comment"
 		},{
 			xtype: "hidden",
 			name: "mntentref",
