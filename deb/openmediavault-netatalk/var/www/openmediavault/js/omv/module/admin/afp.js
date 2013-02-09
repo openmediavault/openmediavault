@@ -312,16 +312,16 @@ Ext.extend(OMV.Module.Services.AFP.SharePropertyDialog, OMV.CfgObjectDialog, {
 			fieldLabel: _("Guest login"),
 			checked: false,
 			inputValue: 1,
-			boxLabel: _("Allow guest login.")
+			boxLabel: _("Allow guest login."),
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: _("Guests only have read access by default.")
 		},{
 			xtype: "checkbox",
 			name: "guestrw",
 			fieldLabel: _(" "),
 			checked: false,
 			inputValue: 1,
-			boxLabel: _("Allow guests to create or modify files."),
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("If this option is not set, guests may only read files.")
+			boxLabel: _("Allow guests to create or modify files.")
 		},{
 			xtype: "checkbox",
 			name: "tm",

@@ -1,3 +1,9 @@
+openmediavault-netatalk (0.4.3) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 10 Feb 2013 00:05:56 +0100
+
 openmediavault-netatalk (0.4.2) stable; urgency=low
 
   * Mantis 0000712: Guest login using AFP plugin not working.

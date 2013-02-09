@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-09 19:45+0100\n"
-"PO-Revision-Date: 2013-02-09 18:45+0000\n"
+"POT-Creation-Date: 2013-02-10 00:15+0100\n"
+"PO-Revision-Date: 2013-02-09 23:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -88,14 +88,14 @@ msgstr "Általános beállítások"
 msgid "Guest login"
 msgstr ""
 
+msgid "Guests only have read access by default."
+msgstr ""
+
 msgid "Hide dot files"
 msgstr "Pont kezdetű fájlok elrejtése."
 
 msgid "Home directories"
 msgstr "Saját könyvtárak"
-
-msgid "If this option is not set, guests may only read files."
-msgstr ""
 
 msgid ""
 "If this option is set, then a password is required to access the share."

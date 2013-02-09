@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-09 19:45+0100\n"
-"PO-Revision-Date: 2013-02-09 18:50+0000\n"
+"POT-Creation-Date: 2013-02-10 00:15+0100\n"
+"PO-Revision-Date: 2013-02-09 23:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -90,14 +90,14 @@ msgstr "Allgemeine Einstellungen"
 msgid "Guest login"
 msgstr "Gastanmeldung"
 
+msgid "Guests only have read access by default."
+msgstr "Gäste haben standardmäßig nur lesenden Zugriff."
+
 msgid "Hide dot files"
 msgstr "Dotfiles verstecken"
 
 msgid "Home directories"
 msgstr "Heimatverzeichnisse"
-
-msgid "If this option is not set, guests may only read files."
-msgstr "Wenn diese Option nicht gesetzt ist, dann können Gäste nur lesend auf Dateien zugreifen."
 
 msgid ""
 "If this option is set, then a password is required to access the share."
