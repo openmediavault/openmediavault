@@ -238,8 +238,9 @@ class AFPRpc extends OMVRpc {
 		$object['volsizelimit'] = intval($object['volsizelimit']);
 		$object['allowguest'] = boolval($object['allowguest']);
 		$object['guestrw'] = boolval($object['guestrw']);
-		foreach ($object['options'] as $optionk => &$optionv) {
-			$optionv = boolval($optionv);
+		foreach ($object['options'] as $optionk => $optionv) {
+			// Relocate options.
+			$object[$optionk] = boolval($optionv);
 		}
 		unset($object['options']);
 		return $object;
