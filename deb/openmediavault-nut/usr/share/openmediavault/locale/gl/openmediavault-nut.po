@@ -17,13 +17,14 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-03-15 20:08+0100\n"
-"PO-Revision-Date: 2012-03-17 01:51+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2013-01-31 19:55+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,84 +33,84 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Charge"
-msgstr ""
+msgstr "Carga"
 
 msgid "Comment"
-msgstr ""
+msgstr "Comentario"
 
 msgid "Defines when the shutdown is initiated."
-msgstr ""
+msgstr "Define cando se inicia a apagado."
 
 msgid "Driver configuration directives"
-msgstr ""
+msgstr "Directivas de configuración do controlador"
 
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 msgid "Enable remote monitoring of the local connected UPS."
-msgstr ""
+msgstr "Activar a supervisión remota do SAI local conectado."
 
 msgid "General settings"
-msgstr ""
+msgstr "Axustes xerais"
 
 msgid "Identifier"
-msgstr ""
+msgstr "Identificador"
 
 msgid "Load"
-msgstr ""
+msgstr "Cargar"
 
 msgid "Loading ..."
-msgstr ""
+msgstr "Cargando ..."
 
 msgid "Password"
-msgstr ""
+msgstr "Contrasinal"
 
 msgid "Remote monitoring"
-msgstr ""
+msgstr "Supervisión remota"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "Servizo desactivado"
 
 msgid "Shutdown mode"
-msgstr ""
+msgstr "Modo de apagado"
 
 msgid "Shutdown timer"
-msgstr ""
+msgstr "Temporizador de apagado"
 
 msgid "Temperature"
-msgstr ""
+msgstr "Temperatura"
 
 msgid "The name used to uniquely identify your UPS on this system."
-msgstr ""
+msgstr "O nome utilizado para identificar de forma exclusiva o SAI neste sistema."
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
 "back before the time is up the shutdown is canceled."
-msgstr ""
+msgstr "O tempo en segundos ata que se inicie o apagado. Se acontece que o SAI volve antes de que se acabe o tempo cancelase o apagado."
 
 msgid ""
 "To get more information how to configure your UPS please check the Network "
 "UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
 "target='_blank'>documentation</a>."
-msgstr ""
+msgstr "Para obter máis información sobre como configurar o seu SAI revise a documentación na rede sobre as <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>ferramentas SAI</a>."
 
 msgid "UPS"
-msgstr ""
+msgstr "SAI"
 
 msgid "UPS goes on battery"
-msgstr ""
+msgstr "O SAI continúa coa batería"
 
 msgid "UPS reaches low battery"
-msgstr ""
+msgstr "O SAI ten a batería baixa"
 
 msgid "Used for remote authentication."
-msgstr ""
+msgstr "Utilizase para a autenticación remota."
 
 msgid "Username"
-msgstr ""
+msgstr "Nome de usuario"
 
 msgid "Variables"
-msgstr ""
+msgstr "Variábeis"
 
 msgid "Voltage"
-msgstr ""
+msgstr "Voltaxe"
