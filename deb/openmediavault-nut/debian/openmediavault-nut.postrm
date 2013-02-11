@@ -47,7 +47,7 @@ case "$1" in
 		omv_config_delete "//services/nut"
 		# Remove udev-rule.
 		rm -f ${OMV_NUT_UDEV_RULE_CONFIG}
-		udevadm trigger
+		udevadm control --reload-rules
 	;;
 
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
