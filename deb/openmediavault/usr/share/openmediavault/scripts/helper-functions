@@ -506,3 +506,17 @@ omv_install_fixperms() {
 omv_install_locale() {
 	omv-mki18ndict
 }
+
+# void omv_set_default (char *key, char* value)
+# Set a default value in /etc/default/openmediavault.
+omv_set_default() {
+	local _key _value
+	_key=$1
+	_value=$2
+	if ! grep -E "^${_key}" /etc/default/openmediavault >/dev/null; then
+		echo "${_key}=\"${_value}\"" >> /etc/default/openmediavault
+	else
+		_value=$(omv_quotemeta ${_value})
+		sed -i "s/^${_key}=.*$/${_key}=\"${_value}\"/" /etc/default/openmediavault
+	fi
+}
