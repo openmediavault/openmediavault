@@ -598,6 +598,45 @@ class OMVFilesystem extends OMVObject {
 	}
 
 	/**
+	 * Get the device file of the storage device containing this
+	 * file system.
+	 * @return The device file of the underlying storage device,
+	 *   otherwise FALSE.
+	 */
+	public function getParentDeviceFile() {
+		if($this->getData() === FALSE)
+			return FALSE;
+		$conf = array(
+			  $GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'] => "/(\d+)$/",
+			  $GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'] => "//",
+			  $GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'] => "/(p\d+)$/",
+			  $GLOBALS['OMV_REGEX_DEVNAME_DEVICEMAPPER'] => "//"
+		  );
+		$storageDeviceFile = FALSE;
+		$deviceFile = $this->getDeviceFile();
+		// The following line is not necessary but will be kept to be safe.
+		// If the device file looks like /dev/disk/by-(id|label|path|uuid)/*
+		// then it is necessary to get the /dev/xxx equivalent.
+		if(1 == preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile)) {
+			$deviceFile = realpath($deviceFile);
+		}
+		// Truncate the partition appendix, e.g.:
+		// - /dev/sdb1 => /dev/sdb
+		// - /dev/cciss/c0d0p2 => /dev/cciss/c0d0
+		// - /dev/mapper/vg0-lv0 => /dev/mapper/vg0-lv0
+		// - /dev/dm-0 => /dev/dm-0
+		// - /dev/md0 => /dev/md0
+		$deviceName = str_replace("/dev/", "", $deviceFile);
+		foreach($conf as $confk => $confv) {
+			if(1 == preg_match("/^{$confk}(\d+|p\d+)?$/i", $deviceName)) {
+				$storageDeviceFile = preg_replace($confv, "", $deviceFile);
+				break;
+			}
+		}
+		return $storageDeviceFile;
+	}
+
+	/**
 	 * Get the filesystem block size.
 	 * @return The block size, otherwise FALSE.
 	 */

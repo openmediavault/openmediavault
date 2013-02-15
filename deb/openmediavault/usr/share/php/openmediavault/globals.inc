@@ -110,6 +110,7 @@ $OMV_JSONSCHEMA_IPV4_NONE = '"type":"string","format":"regex","pattern":'.
 $OMV_REGEX_DEVNAME_HARDDISK = "(h|s|x?v)d[a-z]+";
 $OMV_REGEX_DEVNAME_SOFTWARERAID = "md\d+";
 $OMV_REGEX_DEVNAME_HARDWARERAID = "cciss\/c[0-9]+d[0-9]+";
+$OMV_REGEX_DEVNAME_DEVICEMAPPER = "(mapper\/.+)|(dm-\d+)";
 
 // Read the defaults file
 $lines = file($GLOBALS['OMV_DEFAULT_FILE']);
