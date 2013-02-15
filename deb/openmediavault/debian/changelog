@@ -1,5 +1,6 @@
 openmediavault (0.4.20) stable; urgency=low
 
+  * Update locales.
   * Add OMVFilesystem::getParentDeviceFile() method.
   * Add omv_set_default script helper function.
   * Mantis 0000724: Bug with group names with spaces for samba in shared

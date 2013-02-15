@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-15 15:26+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-02-15 20:32+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgid "A backup job already exists for this storage device"
 msgstr ""
 
 msgid "Add USB backup job"
-msgstr ""
+msgstr "Tilføj en USB backup opgave"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -29,31 +30,31 @@ msgid ""
 msgstr ""
 
 msgid "Archive"
-msgstr ""
+msgstr "Arkiv"
 
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 msgid "Compress"
-msgstr ""
+msgstr "Komprimere"
 
 msgid "Compress file data during the transfer."
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "Slet"
 
 msgid "Delete files on the receiving side that don't exist on sender."
 msgstr ""
 
 msgid "Device '%s' not found"
-msgstr ""
+msgstr "Enhed '%s' er ikke fundet"
 
 msgid "Edit USB backup job"
-msgstr ""
+msgstr "Rediger USB backup opgave"
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktiver"
 
 msgid "Enable archive mode."
 msgstr ""
@@ -64,7 +65,7 @@ msgid ""
 msgstr ""
 
 msgid "Enabled"
-msgstr ""
+msgstr "Aktiveret"
 
 msgid "Execute USB backup job"
 msgstr ""
@@ -73,16 +74,16 @@ msgid "External storage device"
 msgstr ""
 
 msgid "Extra options"
-msgstr ""
+msgstr "Ekstra valgmuligheder"
 
 msgid "Failed to get filesystems"
 msgstr ""
 
 msgid "Filesystem '%s' not found"
-msgstr ""
+msgstr "Filsystem '%s' ikke fundet"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Behold delvis overførte filer"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -90,19 +91,19 @@ msgid ""
 msgstr ""
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "Bevar ACL'er"
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "Bevar udvidet attributter"
 
 msgid "Preserve modification times."
 msgstr ""
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Bevar rettigheder"
 
 msgid "Quiet"
-msgstr ""
+msgstr "Stille"
 
 msgid "Recurse into directories."
 msgstr ""
@@ -114,20 +115,20 @@ msgid "Run"
 msgstr ""
 
 msgid "Select a volume ..."
-msgstr ""
+msgstr "Vælg et drev"
 
 msgid "Send command output via email."
 msgstr ""
 
 msgid "Send email"
-msgstr ""
+msgstr "Send email"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
 msgstr ""
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Delt mappe"
 
 msgid "Suppress non-error messages."
 msgstr ""
@@ -144,7 +145,7 @@ msgid "Times"
 msgstr ""
 
 msgid "USB Backup"
-msgstr ""
+msgstr "USB Backup"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr ""
@@ -154,7 +155,7 @@ msgid ""
 msgstr ""
 
 msgid "Volume"
-msgstr ""
+msgstr "Drev"
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
