@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-15 14:44+0100\n"
-"PO-Revision-Date: 2013-02-15 14:04+0000\n"
+"POT-Creation-Date: 2013-02-15 16:25+0100\n"
+"PO-Revision-Date: 2013-02-15 15:27+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A backup job already exists for this storage device"
+msgstr "Ein Datensicherungsauftrag existiert bereits für dieses Speichergerät"
 
 msgid "Add USB backup job"
 msgstr "Backup Job hinzufügen"
@@ -64,6 +67,12 @@ msgstr "Aktivieren, wenn nur teilweise übertragene Dateien behalten werden soll
 msgid "Enabled"
 msgstr "Aktiviert"
 
+msgid "Execute USB backup job"
+msgstr "Führe USB Datensicherungsauftrag aus"
+
+msgid "External storage device"
+msgstr "Externes Speichergerät"
+
 msgid "Extra options"
 msgstr "Erweiterte Optionen"
 
@@ -101,6 +110,9 @@ msgstr "Verzeichnisse rekursiv abarbeiten."
 
 msgid "Recursive"
 msgstr "Rekursiv"
+
+msgid "Run"
+msgstr "Ausführen"
 
 msgid "Select a volume ..."
 msgstr "Wähle einen Datenträger ..."

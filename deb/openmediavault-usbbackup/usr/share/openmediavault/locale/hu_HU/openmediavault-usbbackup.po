@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-15 14:44+0100\n"
-"PO-Revision-Date: 2013-02-15 13:44+0000\n"
+"POT-Creation-Date: 2013-02-15 16:25+0100\n"
+"PO-Revision-Date: 2013-02-15 15:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A backup job already exists for this storage device"
+msgstr ""
 
 msgid "Add USB backup job"
 msgstr ""
@@ -63,6 +66,12 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
+msgid "Execute USB backup job"
+msgstr ""
+
+msgid "External storage device"
+msgstr ""
+
 msgid "Extra options"
 msgstr ""
 
@@ -99,6 +108,9 @@ msgid "Recurse into directories."
 msgstr ""
 
 msgid "Recursive"
+msgstr ""
+
+msgid "Run"
 msgstr ""
 
 msgid "Select a volume ..."

@@ -72,6 +72,12 @@ class UsbBackupRpc extends OMVRpc {
 				"properties":{
 					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
 				}
+			}'),
+			"execute" => array('{
+				"type":"object",
+				"properties":{
+					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+				}
 			}')
 		);
 	}
@@ -279,7 +285,7 @@ class UsbBackupRpc extends OMVRpc {
 			  $data['fsuuid']);
 			if(TRUE === $xmlConfig->exists($xpath)) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				  gettext("A backup job already exists for this volume"));
+				  gettext("A backup job already exists for this storage device"));
 			}
 			// Append object to configuration.
 			$success = $xmlConfig->set("//services/usbbackup/jobs",
@@ -325,6 +331,42 @@ class UsbBackupRpc extends OMVRpc {
 		  $data['uuid']);
 		$this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.services.usbbackup.jobs.job");
+	}
+
+	/**
+	 * Execute a backup job.
+	 * @param data An array containing the following fields:
+	 *   \em uuid The UUID of the backup job to execute.
+	 * @return The process id of the executed command. This is required by
+	 *   the 'Exec' RPC for identification.
+	 */
+	public function execute($data) {
+//		$this->debug(var_export(func_get_args(), TRUE));
+		// Validate method parameters
+		$this->validateParams(__METHOD__, func_get_args());
+		// Get the rsync job configuration object
+		$object = OMVRpc::exec("UsbBackup", "get", array(
+		  "uuid" => $data['uuid']));
+		if(is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Execute the backup job.
+		$outputFile = tempnam(sys_get_temp_dir(), "usbbackupjob");
+		$cmd = sprintf("sudo sh '%s/rsync-%s' >%s 2>&1 & echo $!",
+		  $GLOBALS['OMV_USBBACKUP_SCRIPTS_DIR'], $data['uuid'], $outputFile);
+		OMVUtil::exec($cmd, $output, $res);
+		if ($res !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Remember pid and content filename in session.
+		$pid = intval($output[0]);
+		$_SESSION['execjob'][$pid] = array(
+			"pid" => $pid,
+			"outputFile" => $outputFile
+		);
+		return $pid;
 	}
 }
 ?>

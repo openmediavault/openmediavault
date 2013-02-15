@@ -66,6 +66,9 @@ case "$1" in
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "0.4"; then
+			echo "OMV_USBBACKUP_SCRIPTS_DIR=\"/var/lib/openmediavault/usbbackup.d\"" >> /etc/default/openmediavault
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

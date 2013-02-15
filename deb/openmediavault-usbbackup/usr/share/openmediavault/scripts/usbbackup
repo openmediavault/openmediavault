@@ -41,17 +41,18 @@ OMV_USBBACKUP_SCRIPTS_DIR=${OMV_USBBACKUP_SCRIPTS_DIR:-"/var/lib/openmediavault/
 OMV_USBBACKUP_SCRIPTS_MASK=${OMV_USBBACKUP_SCRIPTS_MASK:-"755"}
 OMV_USBBACKUP_LOGFILE=${OMV_USBBACKUP_LOGFILE:-"/var/log/rsync.log"}
 
-# Create the rsync jobs. Each job is configured in a seperate script.
+# Create the backup jobs. Each job is configured in a seperate script.
 mkdir -p ${OMV_USBBACKUP_SCRIPTS_DIR}
-rm -f ${OMV_USBBACKUP_SCRIPTS_DIR}/usbbackup-*
+rm -f ${OMV_USBBACKUP_SCRIPTS_DIR}/rsync-*
 
+# Create the scripts regardless if enabled or disabled.
 xmlstarlet sel -t -m "//services/usbbackup/jobs/job" \
   -v "uuid" \
   -i "position() != last()" -n -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid; do
-	  filename="${OMV_USBBACKUP_SCRIPTS_DIR}/usbbackup-${uuid}"
-	  runfile="/var/run/usbbackup-${uuid}"
+	  filename="${OMV_USBBACKUP_SCRIPTS_DIR}/rsync-${uuid}"
+	  runfile="/var/run/rsync-${uuid}"
 
 	  xmlstarlet sel -t -m "//services/usbbackup/jobs/job[uuid='${uuid}']" \
 		-o "#!/bin/sh" -n \
@@ -60,7 +61,12 @@ xmlstarlet sel -t -m "//services/usbbackup/jobs/job" \
 		-o "[ -e ${runfile} ] && exit 0" -n \
 		-o "trap \"rm -f ${runfile}\" 0 1 2 5 15" -n \
 		-o "touch ${runfile}" -n \
+		-v "concat('if [ ! -e /dev/disk/by-uuid/',fsuuid,' ]; then')" -n \
+		-o "    echo \"External storage device not found!\"" -n \
+		-o "    exit 1" -n \
+		-o "fi" -n \
 		-o "beep -f 3000 -l 100 -r 2" -n \
+		-o "echo \"Please wait, syncing <" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -v "concat('> to <${OMV_MOUNT_DIR}/',fsuuid,'> ...\n\"')" -n \
 		-o "rsync --verbose --log-file=\"${OMV_USBBACKUP_LOGFILE}\"" \
 		-i "recursive = '1'" -o " --recursive" -b \
 		-i "times = '1'" -o " --times" -b \
@@ -73,10 +79,10 @@ xmlstarlet sel -t -m "//services/usbbackup/jobs/job" \
 		-i "xattrs = '1'" -o " --xattrs" -b \
 		-i "partial = '1'" -o " --partial" -b \
 		-i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
-		-o " \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -v "concat(' \"/media/',fsuuid,'\"')" \
+		-o " \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -v "concat(' \"${OMV_MOUNT_DIR}/',fsuuid,'\"')" \
 		-i "sendemail[. = '0']" -n -b \
 		-i "sendemail[. = '1']" \
-		  -o " | mail -s \"USB Backup (shared folder=" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -o ")" \
+		  -o " | mail -s \"USB Backup (" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -v "concat(' => ${OMV_MOUNT_DIR}/',fsuuid,')')" \
 		  -i "string-length(comment) > 0" \
 			-v "concat(' - ',translate(comment,'\
 
@@ -90,7 +96,7 @@ xmlstarlet sel -t -m "//services/usbbackup/jobs/job" \
 	  chmod ${OMV_USBBACKUP_SCRIPTS_MASK} ${filename}
   done
 
-# Create udev-rules file.
+# Create udev rules file.
 xmlstarlet sel -t \
   -o "# Start at sdb to ignore the system hard drive" -n \
   -o "KERNEL!=\"sd[b-z]*\", SUBSYSTEM!=\"block\", GOTO=\"omv_automount_usb_end\"" -n \
@@ -101,26 +107,26 @@ xmlstarlet sel -t \
 	-v "concat('ENV{ID_FS_UUID}==\"',fsuuid,'\", GOTO=\"omv_automount_usb_mkdir\"')" -n \
   -b \
   -o "GOTO=\"omv_automount_usb_end\"" -n \
-  -o "# Create the mount directory in /media" -n \
+  -o "# Create the mount directory in ${OMV_MOUNT_DIR}" -n \
   -o "LABEL=\"omv_automount_usb_mkdir\"" -n \
-  -o "ACTION==\"add\", RUN+=\"/bin/mkdir -p /media/%E{ID_FS_UUID}\"" -n \
+  -o "ACTION==\"add\", RUN+=\"/bin/mkdir -p ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\"" -n \
   -o "# Global mount options" -n \
   -o "ACTION==\"add\", ENV{omv_mount_options}=\"defaults\"" -n \
   -o "# Filesystem-specific mount options" -n \
   -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"ext3|ext4\", ENV{omv_mount_options}=\"%E{omv_mount_options},acl,user_xattr,noexec\"" -n \
   -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"jfs|xfs\", ENV{omv_mount_options}=\"%E{omv_mount_options},noexec\"" -n \
   -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"ntfs\", ENV{omv_mount_options}=\"%E{omv_mount_options},utf8\"" -n \
-  -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"hpfsplus\", ENV{omv_mount_options}=\"%E{omv_mount_options},force\"" -n \
+  -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"hfsplus\", ENV{omv_mount_options}=\"%E{omv_mount_options},force\"" -n \
   -o "# Automount ntfs filesystems using ntfs-3g driver" -n \
-  -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"ntfs\", RUN+=\"/bin/mount -t ntfs-3g -o %E{omv_mount_options} /dev/%k /media/%E{ID_FS_UUID}\"" -n \
+  -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"ntfs\", RUN+=\"/bin/mount -t ntfs-3g -o %E{omv_mount_options} /dev/%k ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\"" -n \
   -o "# Automount all other filesystems" -n \
-  -o "ACTION==\"add\", ENV{ID_FS_TYPE}!=\"ntfs\", RUN+=\"/bin/mount -t auto -o %E{omv_mount_options} /dev/%k /media/%E{ID_FS_UUID}\"" -n \
+  -o "ACTION==\"add\", ENV{ID_FS_TYPE}!=\"ntfs\", RUN+=\"/bin/mount -t auto -o %E{omv_mount_options} /dev/%k ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\"" -n \
   -o "# Execute rsync command" -n \
   -m "//services/usbbackup/jobs/job[enable = '1']" \
-	-v "concat('ACTION==\"add\", ENV{ID_FS_UUID}==\"',fsuuid,'\", RUN+=\"/bin/sh ${OMV_USBBACKUP_SCRIPTS_DIR}/usbbackup-',uuid,'\"')" -n \
+	-v "concat('ACTION==\"add\", ENV{ID_FS_UUID}==\"',fsuuid,'\", RUN+=\"/bin/sh ${OMV_USBBACKUP_SCRIPTS_DIR}/rsync-',uuid,'\"')" -n \
   -b \
   -o "# Cleanup after device removal" -n \
-  -o "ACTION==\"remove\", ENV{ID_FS_UUID}!=\"\", RUN+=\"/bin/umount -l /media/%E{ID_FS_UUID}\", RUN+=\"/bin/rmdir /media/%E{ID_FS_UUID}\"" -n \
+  -o "ACTION==\"remove\", ENV{ID_FS_UUID}!=\"\", RUN+=\"/bin/umount -l ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\", RUN+=\"/bin/rmdir ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\"" -n \
   -o "# Exit" -n \
   -o "LABEL=\"omv_automount_usb_end\"" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_USBBACKUP_UDEV_RULE_CONFIG}

@@ -22,6 +22,7 @@
 // require("js/omv/PluginMgr.js")
 // require("js/omv/data/DataProxy.js")
 // require("js/omv/data/Store.js")
+// require("js/omv/ExecCmdDialog.js")
 // require("js/omv/grid/TBarGridPanel.js")
 // require("js/omv/CfgObjectDialog.js")
 // require("js/omv/form/SharedFolderComboBox.js")
@@ -59,7 +60,7 @@ OMV.Module.Services.UsbBackup.JobsGridPanel = function(config) {
 				dataIndex: "sharedfoldername",
 				id: "sharedfoldername"
 			},{
-				header: _("Volume"),
+				header: _("External storage device"),
 				sortable: true,
 				dataIndex: "fsuuid",
 				id: "fsuuid"
@@ -102,6 +103,37 @@ Ext.extend(OMV.Module.Services.UsbBackup.JobsGridPanel,
 		  apply(this, arguments);
 	},
 
+	initToolbar : function() {
+		var tbar = OMV.Module.Services.UsbBackup.JobsGridPanel.superclass.
+		  initToolbar.apply(this);
+		// Add 'Run' button to top toolbar
+		tbar.insert(2, {
+			id: this.getId() + "-run",
+			xtype: "button",
+			text: _("Run"),
+			icon: "images/run.png",
+			handler: this.cbRunBtnHdl,
+			scope: this,
+			disabled: true
+		});
+		return tbar;
+	},
+
+	cbSelectionChangeHdl : function(model) {
+		OMV.Module.Services.UsbBackup.JobsGridPanel.superclass.
+		  cbSelectionChangeHdl.apply(this, arguments);
+		// Process additional buttons
+		var records = model.getSelections();
+		var tbarRunCtrl = this.getTopToolbar().findById(this.getId() + "-run");
+		if(records.length <= 0) {
+			tbarRunCtrl.disable();
+		} else if (records.length == 1) {
+			tbarRunCtrl.enable();
+		} else {
+			tbarRunCtrl.disable();
+		}
+	},
+
 	cbAddBtnHdl : function() {
 		var wnd = new OMV.Module.Services.UsbBackup.JobPropertyDialog({
 			uuid: OMV.UUID_UNDEFINED,
@@ -133,6 +165,24 @@ Ext.extend(OMV.Module.Services.UsbBackup.JobsGridPanel,
 	doDeletion : function(record) {
 		OMV.Ajax.request(this.cbDeletionHdl, this, "UsbBackup",
 		  "delete", { "uuid": record.get("uuid") });
+	},
+
+	cbRunBtnHdl : function() {
+		var selModel = this.getSelectionModel();
+		var record = selModel.getSelected();
+		var wnd = new OMV.ExecCmdDialog({
+			title: _("Execute USB backup job"),
+			rpcService: "UsbBackup",
+			rpcMethod: "execute",
+			rpcArgs: { "uuid": record.get("uuid") },
+			listeners: {
+				exception: function(wnd, error) {
+					OMV.MessageBox.error(null, error);
+				},
+				scope: this
+			}
+		});
+		wnd.show();
 	}
 });
 OMV.NavigationPanelMgr.registerPanel("services", "usbbackup", {
