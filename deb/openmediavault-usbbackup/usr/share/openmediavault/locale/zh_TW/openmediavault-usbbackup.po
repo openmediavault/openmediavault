@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+#  <kochinc@outlook.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-15 15:26+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-02-15 21:08+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,50 +22,50 @@ msgid "A backup job already exists for this storage device"
 msgstr ""
 
 msgid "Add USB backup job"
-msgstr ""
+msgstr "新增 USB 備份工作"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "一封含有指令輸出(如有產生)的電子信件會被送給管理員。"
 
 msgid "Archive"
-msgstr ""
+msgstr "歸檔"
 
 msgid "Comment"
-msgstr ""
+msgstr "註釋"
 
 msgid "Compress"
-msgstr ""
+msgstr "壓縮"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "在傳輸過程中壓縮檔案資料。"
 
 msgid "Delete"
-msgstr ""
+msgstr "刪除"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "刪除在接收端但不存於發送端的檔案。"
 
 msgid "Device '%s' not found"
-msgstr ""
+msgstr "未找到裝置 '%s'"
 
 msgid "Edit USB backup job"
 msgstr ""
 
 msgid "Enable"
-msgstr ""
+msgstr "啟用"
 
 msgid "Enable archive mode."
-msgstr ""
+msgstr "啟用歸檔模式。"
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "啟用此選項來保留部分傳送的的檔案，否則如果傳送中斷，它們將被刪除。"
 
 msgid "Enabled"
-msgstr ""
+msgstr "已啟用"
 
 msgid "Execute USB backup job"
 msgstr ""
@@ -73,64 +74,64 @@ msgid "External storage device"
 msgstr ""
 
 msgid "Extra options"
-msgstr ""
+msgstr "額外選項"
 
 msgid "Failed to get filesystems"
-msgstr ""
+msgstr "無法取得檔案系統"
 
 msgid "Filesystem '%s' not found"
-msgstr ""
+msgstr "未找到檔案系統 '%s'"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "保留部分傳送的檔案"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "詳情請查看<a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>手冊頁</a>。"
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "保存 ACLs"
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "保存擴展屬性"
 
 msgid "Preserve modification times."
-msgstr ""
+msgstr "保存修改的時間。"
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "保存權限"
 
 msgid "Quiet"
-msgstr ""
+msgstr "安靜"
 
 msgid "Recurse into directories."
-msgstr ""
+msgstr "遞歸進入目錄。"
 
 msgid "Recursive"
-msgstr ""
+msgstr "遞歸"
 
 msgid "Run"
-msgstr ""
+msgstr "執行"
 
 msgid "Select a volume ..."
-msgstr ""
+msgstr "選擇一個磁碟 ..."
 
 msgid "Send command output via email."
-msgstr ""
+msgstr "經由電子郵件發送指令執行結果輸出。"
 
 msgid "Send email"
-msgstr ""
+msgstr "發送電子郵件"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "將目的地的權限設定為與來源的權限相同。"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "共享檔案夾"
 
 msgid "Suppress non-error messages."
-msgstr ""
+msgstr "抑制非錯誤訊息。"
 
 msgid "The external storage device."
 msgstr ""
@@ -141,20 +142,20 @@ msgid ""
 msgstr ""
 
 msgid "Times"
-msgstr ""
+msgstr "時間"
 
 msgid "USB Backup"
 msgstr ""
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "更新目的地的 ACLs 成為與來源的 ACLs 相同。"
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "更新目的地的擴展屬性成為與本地相同。"
 
 msgid "Volume"
-msgstr ""
+msgstr "磁碟"
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"

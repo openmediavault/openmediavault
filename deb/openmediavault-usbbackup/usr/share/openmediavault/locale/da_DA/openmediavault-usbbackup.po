@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-15 20:32+0000\n"
+"PO-Revision-Date: 2013-02-15 21:17+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "A backup job already exists for this storage device"
-msgstr ""
+msgstr "En backup opgave eksistere allerede for denne lagerenhed"
 
 msgid "Add USB backup job"
 msgstr "Tilføj en USB backup opgave"
@@ -57,7 +57,7 @@ msgid "Enable"
 msgstr "Aktiver"
 
 msgid "Enable archive mode."
-msgstr ""
+msgstr "Aktiver arkiv modus."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -68,10 +68,10 @@ msgid "Enabled"
 msgstr "Aktiveret"
 
 msgid "Execute USB backup job"
-msgstr ""
+msgstr "Udfør USB backup opgave"
 
 msgid "External storage device"
-msgstr ""
+msgstr "Ekstern lagerenhed"
 
 msgid "Extra options"
 msgstr "Ekstra valgmuligheder"
@@ -112,7 +112,7 @@ msgid "Recursive"
 msgstr ""
 
 msgid "Run"
-msgstr ""
+msgstr "Kør"
 
 msgid "Select a volume ..."
 msgstr "Vælg et drev"

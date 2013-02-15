@@ -1,3 +1,10 @@
+openmediavault-usbbackup (0.4.1) stable; urgency=low
+
+  * Update locales.
+  * Modify config script.
+
+ -- vot <vot@genesis>  Fri, 15 Feb 2013 23:59:46 +0100
+
 openmediavault-usbbackup (0.4) stable; urgency=low
 
   * Initial release

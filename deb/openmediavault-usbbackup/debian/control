@@ -8,7 +8,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-usbbackup
 Architecture: all
-Depends: udev, rsync, openmediavault (>= 0.4.20)
+Depends: udev, rsync, openmediavault (>= 0.4.21)
 Priority: optional
 Description: OpenMediaVault USB backup plugin
  Automatically synchronise a shared folder to an USB stick when it is

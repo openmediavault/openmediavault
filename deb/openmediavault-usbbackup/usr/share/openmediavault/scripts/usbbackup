@@ -115,7 +115,6 @@ xmlstarlet sel -t \
   -o "# Filesystem-specific mount options" -n \
   -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"ext3|ext4\", ENV{omv_mount_options}=\"%E{omv_mount_options},acl,user_xattr,noexec\"" -n \
   -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"jfs|xfs\", ENV{omv_mount_options}=\"%E{omv_mount_options},noexec\"" -n \
-  -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"ntfs\", ENV{omv_mount_options}=\"%E{omv_mount_options},utf8\"" -n \
   -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"hfsplus\", ENV{omv_mount_options}=\"%E{omv_mount_options},force\"" -n \
   -o "# Automount ntfs filesystems using ntfs-3g driver" -n \
   -o "ACTION==\"add\", ENV{ID_FS_TYPE}==\"ntfs\", RUN+=\"/bin/mount -t ntfs-3g -o %E{omv_mount_options} /dev/%k ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\"" -n \
@@ -123,7 +122,7 @@ xmlstarlet sel -t \
   -o "ACTION==\"add\", ENV{ID_FS_TYPE}!=\"ntfs\", RUN+=\"/bin/mount -t auto -o %E{omv_mount_options} /dev/%k ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\"" -n \
   -o "# Execute rsync command" -n \
   -m "//services/usbbackup/jobs/job[enable = '1']" \
-	-v "concat('ACTION==\"add\", ENV{ID_FS_UUID}==\"',fsuuid,'\", RUN+=\"/bin/sh ${OMV_USBBACKUP_SCRIPTS_DIR}/rsync-',uuid,'\"')" -n \
+	-v "concat('ACTION==\"add\", ENV{ID_FS_UUID}==\"',fsuuid,'\", RUN+=\"${OMV_USBBACKUP_SCRIPTS_DIR}/rsync-',uuid,'\"')" -n \
   -b \
   -o "# Cleanup after device removal" -n \
   -o "ACTION==\"remove\", ENV{ID_FS_UUID}!=\"\", RUN+=\"/bin/umount -l ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\", RUN+=\"/bin/rmdir ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\"" -n \
