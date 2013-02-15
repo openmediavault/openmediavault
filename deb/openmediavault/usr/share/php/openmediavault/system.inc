@@ -1108,25 +1108,28 @@ class OMVStorageDeviceFactory extends OMVObject {
 	 */
 	public static function get($deviceFile) {
 		$conf = array(
-			$GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'] => "OMVHardDiskDevice",
-			$GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'] => "OMVSoftwareRaidDevice",
-			$GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'] => "OMVHardwareRaidDevice"
-		);
+			  $GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'] => "OMVHardDiskDevice",
+			  $GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'] => "OMVSoftwareRaidDevice",
+			  $GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'] => "OMVHardwareRaidDevice",
+			  $GLOBALS['OMV_REGEX_DEVNAME_DEVICEMAPPER'] => "OMVDeviceMapperDevice"
+		  );
 		$object = NULL;
 		// Store original function argument for later usage.
 		$arg = $deviceFile;
 		// If the device file looks like /dev/disk/by-(id|label|path|uuid)/*
 		// then it is necessary to get the /dev/xxx equivalent.
-		if (1 == preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile)) {
+		if(1 == preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile)) {
 			$deviceFile = realpath($deviceFile);
 		}
 		// Extract the device name, e.g.:
 		// - /dev/sdb => sdb
 		// - /dev/cciss/c0d0 => cciss/c0d0
+		// - /dev/mapper/vg0-lv0 => mapper/vg0-lv0
 		$deviceName = str_replace("/dev/", "", $deviceFile);
-		foreach ($conf as $regex => $className) {
-			if (1 == preg_match("/^{$regex}$/i", $deviceName)) {
-				$object = new $className($arg);
+		foreach($conf as $confk => $confv) {
+			if(1 == preg_match("/^{$confk}$/i", $deviceName)) {
+				// Create a new class object.
+				$object = new $confv($arg);
 				break;
 			}
 		}
@@ -1736,6 +1739,15 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 			return FALSE;
 		return $this->hasWriteIntentBitmap;
 	}
+}
+
+/**
+ * This class provides a simple interface to handle device-mapper devices.
+ * See http://en.wikipedia.org/wiki/Device_mapper for more details.
+ * @ingroup api
+ */
+class OMVDeviceMapperDevice extends OMVStorageDeviceAbstract {
+	// Nothing to do here.
 }
 
 /**
