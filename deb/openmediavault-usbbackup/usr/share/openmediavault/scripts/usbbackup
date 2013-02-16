@@ -30,6 +30,7 @@
 # udevadm info -a --name=/dev/sdX
 # udevadm control --reload-rules
 # udevadm test /sys/block/sdX
+# udevadm monitor --environment
 
 set -e
 
@@ -61,7 +62,7 @@ xmlstarlet sel -t -m "//services/usbbackup/jobs/job" \
 		-o "[ -e ${runfile} ] && exit 0" -n \
 		-o "trap \"rm -f ${runfile}\" 0 1 2 5 15" -n \
 		-o "touch ${runfile}" -n \
-		-v "concat('if [ ! -e /dev/disk/by-uuid/',fsuuid,' ]; then')" -n \
+		-v "concat('if [ ! -e \"/dev/disk/by-uuid/',fsuuid,'\" ]; then')" -n \
 		-o "    echo \"External storage device not found!\"" -n \
 		-o "    exit 1" -n \
 		-o "fi" -n \
@@ -79,17 +80,7 @@ xmlstarlet sel -t -m "//services/usbbackup/jobs/job" \
 		-i "xattrs = '1'" -o " --xattrs" -b \
 		-i "partial = '1'" -o " --partial" -b \
 		-i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
-		-o " \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -v "concat(' \"${OMV_MOUNT_DIR}/',fsuuid,'\"')" \
-		-i "sendemail[. = '0']" -n -b \
-		-i "sendemail[. = '1']" \
-		  -o " | mail -s \"USB Backup (" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -v "concat(' => ${OMV_MOUNT_DIR}/',fsuuid,')')" \
-		  -i "string-length(comment) > 0" \
-			-v "concat(' - ',translate(comment,'\
-
-  ',' '))" \
-		  -b \
-		  -o "\" -a \"From: USB Backup <root>\" root" -n \
-		-b \
+		-o " \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -v "concat(' \"${OMV_MOUNT_DIR}/',fsuuid,'\"')" -n \
 		-o "sync" -n \
 		-o "beep -f 3000 -l 100 -r 3 -n -f 3000 -l 500" \
 		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${filename}
@@ -122,7 +113,17 @@ xmlstarlet sel -t \
   -o "ACTION==\"add\", ENV{ID_FS_TYPE}!=\"ntfs\", RUN+=\"/bin/mount -t auto -o %E{omv_mount_options} /dev/%k ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\"" -n \
   -o "# Execute rsync command" -n \
   -m "//services/usbbackup/jobs/job[enable = '1']" \
-	-v "concat('ACTION==\"add\", ENV{ID_FS_UUID}==\"',fsuuid,'\", RUN+=\"${OMV_USBBACKUP_SCRIPTS_DIR}/rsync-',uuid,'\"')" -n \
+	-v "concat('ACTION==\"add\", ENV{ID_FS_UUID}==\"',fsuuid,'\", RUN+=\"/usr/sbin/omv-run')" \
+	-i "sendemail[. = '1']" \
+	  -o " -e -s 'USB Backup (" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -v "concat(' => ${OMV_MOUNT_DIR}/',fsuuid,')')" \
+	  -i "string-length(comment) > 0" \
+		-v "concat(' - ',translate(comment,'\
+
+',' '))" \
+	  -b \
+	  -o "' -a 'From: USB Backup <root>'" \
+	-b \
+	-v "concat(' ${OMV_USBBACKUP_SCRIPTS_DIR}/rsync-',uuid,'\"')" -n \
   -b \
   -o "# Cleanup after device removal" -n \
   -o "ACTION==\"remove\", ENV{ID_FS_UUID}!=\"\", RUN+=\"/bin/umount -l ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\", RUN+=\"/bin/rmdir ${OMV_MOUNT_DIR}/%E{ID_FS_UUID}\"" -n \

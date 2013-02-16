@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# артур Мудрых <arturmon82@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-15 15:26+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-02-16 05:46+0000\n"
+"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,10 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "A backup job already exists for this storage device"
-msgstr ""
+msgstr "Задания резервного копирования уже существует для этого устройства хранения"
 
 msgid "Add USB backup job"
-msgstr ""
+msgstr "Добавить задание резервного копирования для USB"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -29,122 +30,122 @@ msgid ""
 msgstr ""
 
 msgid "Archive"
-msgstr ""
+msgstr "Архив"
 
 msgid "Comment"
-msgstr ""
+msgstr "Комментировать"
 
 msgid "Compress"
-msgstr ""
+msgstr "Сжимать"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "Сжатие данных в процессе передачи."
 
 msgid "Delete"
-msgstr ""
+msgstr "Удалить"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "Удалить файлы на приемной стороне, которые не существует у отправителя"
 
 msgid "Device '%s' not found"
-msgstr ""
+msgstr "'%s' Устройство не найдено"
 
 msgid "Edit USB backup job"
-msgstr ""
+msgstr "Редактировать задание резервного копирования USB устройства"
 
 msgid "Enable"
-msgstr ""
+msgstr "Включить"
 
 msgid "Enable archive mode."
-msgstr ""
+msgstr "Включить режим архива."
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Включите эту опцию, чтобы частично передать файлы, в противном случае они будут удалены, если передача прерывается."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Доступно"
 
 msgid "Execute USB backup job"
 msgstr ""
 
 msgid "External storage device"
-msgstr ""
+msgstr "Внешние устройства хранения данных"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Дополнительные опции"
 
 msgid "Failed to get filesystems"
-msgstr ""
+msgstr "Не удалось получить файловые системы"
 
 msgid "Filesystem '%s' not found"
-msgstr ""
+msgstr "Файловая система '%s' не найден"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Хранить частично загруженные файлы"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Пожалуйста, проверьте <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> для более подробной информации."
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "Сохранить список ACLs"
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "Сохранить расширенных атрибутов"
 
 msgid "Preserve modification times."
-msgstr ""
+msgstr "Сохранить время модификации."
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Сохранение прав доступа"
 
 msgid "Quiet"
-msgstr ""
+msgstr "Тихий"
 
 msgid "Recurse into directories."
-msgstr ""
+msgstr "Рекурсивно в каталогах."
 
 msgid "Recursive"
-msgstr ""
+msgstr "Рекурсивный"
 
 msgid "Run"
-msgstr ""
+msgstr "Запуск"
 
 msgid "Select a volume ..."
 msgstr ""
 
 msgid "Send command output via email."
-msgstr ""
+msgstr "Отправить команды Вывода на электронную почту."
 
 msgid "Send email"
-msgstr ""
+msgstr "Оправить email"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "Установить права назначения такие же, как на источнике."
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Общая папка"
 
 msgid "Suppress non-error messages."
-msgstr ""
+msgstr "Не показывать сообщения в которых нет ошибок."
 
 msgid "The external storage device."
-msgstr ""
+msgstr "Внешние устройства хранения данных."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
 "connected."
-msgstr ""
+msgstr "Общие папки синхронизируются, когда внешнее устройство хранения данных подключено."
 
 msgid "Times"
-msgstr ""
+msgstr "Время"
 
 msgid "USB Backup"
-msgstr ""
+msgstr "USB Резервное копирование"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr ""
@@ -157,4 +158,4 @@ msgid "Volume"
 msgstr ""
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
