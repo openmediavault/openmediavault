@@ -73,6 +73,10 @@ case "$1" in
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "0.4.2"; then
+			omv-mkconf usbbackup
+			udevadm control --reload-rules
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
