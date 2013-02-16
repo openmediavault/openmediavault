@@ -43,7 +43,7 @@ Usage:
 
   device - The name of the device where to create the filesystem.
 
-Options:
+OPTIONS:
   -b  Build the filesystem
   -t  Specifies the type of filesystem to be built
   -L  Set the volume label of the filesystem

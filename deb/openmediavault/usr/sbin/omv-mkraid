@@ -35,7 +35,7 @@ Usage:
 
   device - The name of the device to be created.
 
-Options:
+OPTIONS:
   -N  Set a name for the array
   -l  Set raid level
   -n  Specify the number of active devices in the array

@@ -32,7 +32,7 @@ Usage:
 
   basename - The name of the script to be executed.
 
-Options:
+OPTIONS:
   -l  List available scripts
   -q  Quiet mode, no error messages are generated
   -h  Print a help text

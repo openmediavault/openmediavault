@@ -31,7 +31,7 @@ function usage() {
 Usage:
   %s [options] <class> <method> [params]
 
-Options:
+OPTIONS:
   -u --user  The name of the user
   -h --help  Print a help text
 

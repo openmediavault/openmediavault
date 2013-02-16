@@ -1,3 +1,9 @@
+openmediavault (0.4.22) stable; urgency=low
+
+  * Add omv-run command.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 16 Feb 2013 13:23:12 +0100
+
 openmediavault (0.4.21) stable; urgency=low
 
   * Add OMVDeviceMapperDevice class to fix OMVStorageDeviceFactory::get()
