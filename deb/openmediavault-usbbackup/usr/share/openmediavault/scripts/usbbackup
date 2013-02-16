@@ -64,6 +64,12 @@ xmlstarlet sel -t -m "//services/usbbackup/jobs/job" \
 		-o "touch ${runfile}" -n \
 		-v "concat('if [ ! -e \"/dev/disk/by-uuid/',fsuuid,'\" ]; then')" -n \
 		-o "    echo \"External storage device not found!\"" -n \
+		-o "    beep -f 2000 -l 1200 -r 3" -n \
+		-o "    exit 1" -n \
+		-o "fi" -n \
+		-v "concat('if ! \$(mount | grep \"${OMV_MOUNT_DIR}/',fsuuid,'\" >/dev/null) ; then')" -n \
+		-o "    echo \"External storage device not mounted!\"" -n \
+		-o "    beep -f 2000 -l 1200 -r 3" -n \
 		-o "    exit 1" -n \
 		-o "fi" -n \
 		-o "beep -f 3000 -l 100 -r 2" -n \

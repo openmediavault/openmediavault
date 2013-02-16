@@ -1,9 +1,16 @@
+openmediavault-usbbackup (0.4.2) stable; urgency=low
+
+  * Harden sync script. Additionally check if external storage device is
+    mounted before starting synchronisation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 16 Feb 2013 15:15:48 +0100
+
 openmediavault-usbbackup (0.4.1) stable; urgency=low
 
   * Update locales.
   * Modify config script.
 
- -- vot <vot@genesis>  Fri, 15 Feb 2013 23:59:46 +0100
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 15 Feb 2013 23:59:46 +0100
 
 openmediavault-usbbackup (0.4) stable; urgency=low
 
