@@ -205,7 +205,7 @@ reset_webgui_passwd() {
 }
 
 tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/omv-setup$$
-trap "rm -f $tempfile" 0 1 2 5 15
+trap "rm -f $tempfile; exit" 0 1 2 5 15
 
 # Get some product informations.
 prodname=$(xmlstarlet sel -t -v "//name" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-01 19:27+0100\n"
-"PO-Revision-Date: 2013-02-03 13:07+0000\n"
+"PO-Revision-Date: 2013-02-17 20:21+0000\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -154,13 +154,13 @@ msgid "9 months"
 msgstr "9 meses"
 
 msgid "A mount point already exists for the given filesystem"
-msgstr ""
+msgstr "Xa existe un punto de montaxe para o sistema de ficheiros indicado"
 
 msgid "A share with the given name already exists"
-msgstr ""
+msgstr "Xa existe un recurso compartido co mesmo nome"
 
 msgid "A shared folder with the given name already exists"
-msgstr ""
+msgstr "Xa existe un cartafol compartido co mesmo nome"
 
 msgid "ACL"
 msgstr "ACL"
@@ -169,10 +169,10 @@ msgid "About"
 msgstr "Sobre"
 
 msgid "Access Right Management"
-msgstr ""
+msgstr "Acceso a administración de dereitos"
 
 msgid "Act as a WINS server."
-msgstr ""
+msgstr "Actuar como servidor WINS."
 
 msgid "Action"
 msgstr "Acción"
@@ -184,10 +184,10 @@ msgid "Add"
 msgstr "Engadir"
 
 msgid "Add bonded interface"
-msgstr ""
+msgstr "Engadir unha interface vinculada"
 
 msgid "Add cron job"
-msgstr ""
+msgstr "Engadir un traballo de cron"
 
 msgid "Add devices to RAID device"
 msgstr "Engadir dispositivos ao dispositivo RAID"
@@ -199,7 +199,7 @@ msgid "Add group"
 msgstr "Engadir un grupo"
 
 msgid "Add hot spares / recover RAID device"
-msgstr ""
+msgstr "Engadir reposición en quente / recuperar dispositivos RAID"
 
 msgid "Add module"
 msgstr "Engadir un módulo"
@@ -226,7 +226,7 @@ msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
 " href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 "for more details."
-msgstr ""
+msgstr "Outros axustes do dispositivo, p.ex. «negociación auomática  de velocidade 100 full duplex». Vexa as <a href='http://linux.die.net/man/8/ethtool' target='_blank'>páxinas do manual</a> para obter máis detalles."
 
 msgid "Address"
 msgstr "Enderezo"
@@ -235,19 +235,19 @@ msgid "Administrator password"
 msgstr "Contrasinal do administrador"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
-msgstr ""
+msgstr "Administrador: lectura/escritura, Usuarios: sen acceso, Outros: sen acceso"
 
 msgid "Administrator: read/write, Users: read-only, Others: no access"
-msgstr ""
+msgstr "Administrador: lectura/escritura, Usuarios: só lectura, Outros: sen acceso"
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
-msgstr ""
+msgstr "Administrador: lectura/escritura, Usuarios: só lectura, Outros: só lectura"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
-msgstr ""
+msgstr "Administrador: lectura/escritura, Usuarios: lectura/escritura, Outros: sen acceso"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr ""
+msgstr "Administrador: lectura/escritura, Usuarios: lectura/escritura, Outros: só lectura"
 
 msgid "Advanced Power Management"
 msgstr "Xestión avanzada da enerxía"
@@ -256,14 +256,14 @@ msgid "Advanced settings"
 msgstr "Axustes avanzados"
 
 msgid "Advertise this service via mDNS/DNS-SD."
-msgstr ""
+msgstr "Anunciar este servizo a través de mDNS/DNS-SD."
 
 msgid "Afghanistan"
 msgstr "Afganistán"
 
 msgid ""
 "After the RAID has been grown you can resize the containing filesystem."
-msgstr ""
+msgstr "Despois de que teña aumentado o RAID, pode cambiar o tamaño do sistema de ficheiros que contén."
 
 msgid "Aland Islands"
 msgstr "Illas de Åland"
@@ -281,27 +281,27 @@ msgid "Allow"
 msgstr "Permitir"
 
 msgid "Allow client access to accounts that have null passwords"
-msgstr ""
+msgstr "Permitirlle aos clientes o acceso ás contas que teñen contrasinais nulos"
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
-msgstr ""
+msgstr "Permitir que os clientes tenten almacenar atributos estendidos estilo OS/2 nun recurso compartido."
 
 msgid "Allow clients to resume interrupted uploads and downloads"
-msgstr ""
+msgstr "Permitir que os clientes continúen cos envíos e descargas interrompidos "
 
 msgid "Allow new files"
-msgstr ""
+msgstr "Permitir ficheiros novos"
 
 msgid "Allow new files to be created."
-msgstr ""
+msgstr "Permitir que sexan creados ficheiros novos."
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
-msgstr ""
+msgstr "Permitir que este servidor se anuncie como un servidor de tempo para os clientes de Windows"
 
 msgid "Allow this server to try and become a local master browser"
-msgstr ""
+msgstr "Permitir que este servidor tente converterse nun explorador mestre local"
 
 msgid "American Samoa"
 msgstr "Samoa Americana"
@@ -356,7 +356,7 @@ msgid "Armenia"
 msgstr "Armenia"
 
 msgid "Array details"
-msgstr ""
+msgstr "Detalles da matriz"
 
 msgid "Aruba"
 msgstr "Aruba"
@@ -383,13 +383,13 @@ msgid "Authentication"
 msgstr "Autenticación"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Autenticación e sen intimidade"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Autenticación e intimidade"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "Contrasinal de autenticación"
 
 msgid "Authentication required"
 msgstr "Precisa autenticarse"
@@ -458,7 +458,7 @@ msgid "Bolivia"
 msgstr "Bolivia"
 
 msgid "Bond options"
-msgstr ""
+msgstr "Opcións de vinculo"
 
 msgid "Boot"
 msgstr "Arrinque"
@@ -520,7 +520,7 @@ msgstr "Cancelar"
 msgid ""
 "Cannot unlink shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "Non é posíbel desligar contido do cartafol compartido xa que noutro cartafol compartido faise referencia a un subdirectorio"
 
 msgid "Canton and Enderbury Islands"
 msgstr "Illas Canton e Enderbury"
@@ -584,7 +584,7 @@ msgid "Client"
 msgstr "Cliente"
 
 msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Clientes aos que se lles permite montar o sistema de ficheros, p.ex. 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Pechar"
@@ -670,7 +670,7 @@ msgid "Create filesystem"
 msgstr "Crear sistema de ficheiros"
 
 msgid "Create self-signed SSL certificate"
-msgstr ""
+msgstr "Crear un certificado SSL autoasinado"
 
 msgid "Critical"
 msgstr "Crítico"
@@ -679,7 +679,7 @@ msgid "Croatia"
 msgstr "Croacia"
 
 msgid "Cron Jobs"
-msgstr ""
+msgstr "Traballos de cron"
 
 msgid "Cuba"
 msgstr "Cuba"
@@ -688,7 +688,7 @@ msgid "Current time"
 msgstr "Hora actual"
 
 msgid "Currently logged in users:"
-msgstr ""
+msgstr "Usuarios rexistrados actualmente: "
 
 msgid "Cyprus"
 msgstr "Chipre"
@@ -703,7 +703,7 @@ msgid "DNS Server"
 msgstr "Servidor DNS"
 
 msgid "DNS Service Discovery"
-msgstr ""
+msgstr "Descubrimento de servizos DNS"
 
 msgid "DNS server"
 msgstr "Servidor DNS"
@@ -836,7 +836,7 @@ msgstr "Confirma que quere eliminar o(s) elemento(s) seleccionado(s)?"
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the filesystem creation may take some time."
-msgstr ""
+msgstr "Confirma que quere formatar este dispositivo? Todos os datos que conteña van seren eliminados. Teña en conta que a creación do sistema de ficheiros pode levar bastante tempo."
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Confirma que quere instalar o(s) engadidos(s) seleccionado(s)?"
@@ -925,10 +925,10 @@ msgid "Edit SSL certificate"
 msgstr "Editar o certificado SSL"
 
 msgid "Edit bonded interface"
-msgstr ""
+msgstr "Editar a interface vinculada"
 
 msgid "Edit cron job"
-msgstr ""
+msgstr "Editar un traballo de cron"
 
 msgid "Edit firewall rule"
 msgstr "Editar regra na devasa"
@@ -943,13 +943,13 @@ msgid "Edit physical disk properties"
 msgstr "Editar as propiedades do disco físico"
 
 msgid "Edit physical interface"
-msgstr ""
+msgstr "Editar a interface física"
 
 msgid "Edit quota"
-msgstr ""
+msgstr "Editar a cota"
 
 msgid "Edit rsync job"
-msgstr ""
+msgstr "Editar un traballo rsync"
 
 msgid "Edit rule"
 msgstr "Editar regra"
@@ -997,25 +997,25 @@ msgid "Enable anonymous FTP"
 msgstr "Activar o FTP anónimo"
 
 msgid "Enable archive mode"
-msgstr ""
+msgstr "Activar o modo de arquivo"
 
 msgid "Enable compression"
 msgstr "Activar a compresión"
 
 msgid "Enable extended attribute support"
-msgstr ""
+msgstr "Activar a compatibilidade con atributos estendidos"
 
 msgid "Enable keyboard-interactive authentication"
-msgstr ""
+msgstr "Activar a autenticación con teclado interactivo"
 
 msgid "Enable module listing"
 msgstr ""
 
 msgid "Enable permission inheritance"
-msgstr ""
+msgstr "Activar a herdanza de permisos"
 
 msgid "Enable recycle bin"
-msgstr ""
+msgstr "Activar o cesto do lixo"
 
 msgid "Enable reverse DNS lookup"
 msgstr ""
@@ -1030,10 +1030,10 @@ msgid "Enable secure connection."
 msgstr "Activar a conexión segura."
 
 msgid "Enable store DOS attributes support"
-msgstr ""
+msgstr "Activar a compatibilidade co almacenado de atributos DOS"
 
 msgid "Enable the ident protocol (RFC1413)"
-msgstr ""
+msgstr "Activar o protocolo de identificación (RFC1413)"
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -1041,13 +1041,13 @@ msgid ""
 msgstr ""
 
 msgid "Enable user authentication"
-msgstr ""
+msgstr "Activar a autenticación de usuario"
 
 msgid "Enable user home directories"
-msgstr ""
+msgstr "Activar os directorios persoais dos usuarios"
 
 msgid "Enable write-cache."
-msgstr ""
+msgstr "Activar a escritura na caché"
 
 msgid "Enabled"
 msgstr "Activado"
@@ -1068,10 +1068,10 @@ msgid "Error"
 msgstr "Erro"
 
 msgid "Error #"
-msgstr ""
+msgstr "Erro núm."
 
 msgid "Error #%d"
-msgstr ""
+msgstr "Erro núm.%d"
 
 msgid "Estonia"
 msgstr "Estonia"
@@ -1092,19 +1092,19 @@ msgid "Every N minute"
 msgstr "Cada N minutos"
 
 msgid "Everyone: read/write"
-msgstr ""
+msgstr "Todos: lectura/escritura"
 
 msgid "Execute command"
 msgstr "Executar unha orde"
 
 msgid "Execute cron job"
-msgstr ""
+msgstr "Executar un traballo de cron"
 
 msgid "Execute rsync job"
-msgstr ""
+msgstr "Executar un traballo rsync"
 
 msgid "Expire"
-msgstr ""
+msgstr "Caduca"
 
 msgid "Extended attributes"
 msgstr "Atributos estendidos"
@@ -1132,10 +1132,10 @@ msgid ""
 msgstr ""
 
 msgid "Failed to get filesystems"
-msgstr ""
+msgstr "Produciuse un erro ao obter o sistema de ficheiros"
 
 msgid "Failed to get system date and time"
-msgstr ""
+msgstr "Produciuse un erro ao obter a data e a hora do sistema"
 
 msgid "Falkland Islands"
 msgstr "Illas Malvinas"
@@ -1172,10 +1172,10 @@ msgid "Filesystem"
 msgstr "Sistema de ficheiros"
 
 msgid "Filesystem '%s' not found"
-msgstr ""
+msgstr "Non se atopou o sistema de ficheiros «%s»"
 
 msgid "Filesystem '%s' not supported"
-msgstr ""
+msgstr "O sistema de ficheiros «%s» non é compatíbel"
 
 msgid "Filesystems"
 msgstr "Sistemas de ficheiros"
@@ -1190,13 +1190,13 @@ msgid "Firmware version"
 msgstr "Versión do firmware"
 
 msgid "Flag"
-msgstr ""
+msgstr "Marca"
 
 msgid "Force SSL/TLS"
 msgstr "Forzar SSL/TLS"
 
 msgid "Force secure connection only."
-msgstr ""
+msgstr "Forzar a só conexións seguras."
 
 msgid "France"
 msgstr "Francia"
@@ -1238,7 +1238,7 @@ msgid "General settings"
 msgstr "Axustes xerais"
 
 msgid "Generating graphs ..."
-msgstr ""
+msgstr "Xerando os gráficos ..."
 
 msgid "Georgia"
 msgstr "Xeorxia"
@@ -1328,25 +1328,25 @@ msgid "Hong Kong S.A.R., China"
 msgstr ""
 
 msgid "Honor existing ACLs"
-msgstr ""
+msgstr "Aceptar as ACL existentes"
 
 msgid "Host"
-msgstr ""
+msgstr "Servidor"
 
 msgid "Host access control"
-msgstr ""
+msgstr "Control de acceso ao servidor"
 
 msgid "Hostname"
-msgstr ""
+msgstr "Nome do servidor"
 
 msgid "Hosts"
-msgstr ""
+msgstr "Servidores"
 
 msgid "Hosts allow"
-msgstr ""
+msgstr "Permitir servidor"
 
 msgid "Hosts deny"
-msgstr ""
+msgstr "Denegar servidor"
 
 msgid "Hour"
 msgstr "Hora"
@@ -1361,7 +1361,7 @@ msgid "Iceland"
 msgstr "Islandia"
 
 msgid "Ident protocol"
-msgstr ""
+msgstr "Protocolo de identificación"
 
 msgid "Identify"
 msgstr "Identificar"
@@ -1373,7 +1373,7 @@ msgid "Idle"
 msgstr "Inactivo"
 
 msgid "If enabled then no password is required to connect to the share"
-msgstr ""
+msgstr "Se está activado, non se require contrasinal para conectarse ao recurso compartido"
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1397,7 +1397,7 @@ msgstr ""
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
 "share."
-msgstr ""
+msgstr "Si se activa esta parámetro, os usuarios non poderán crear ou modificar ficheiros no recurso compartido."
 
 msgid ""
 "If your host is acting as a NAT gateway or port forwarder for the server, "
@@ -1407,13 +1407,13 @@ msgid ""
 msgstr ""
 
 msgid "Implicit SSL"
-msgstr ""
+msgstr "SSL implícito"
 
 msgid "Import"
 msgstr "Importar"
 
 msgid "Import SSL certificate"
-msgstr ""
+msgstr "Importar o certificado SSL"
 
 msgid "Import groups"
 msgstr "Importar grupos"
@@ -1445,10 +1445,10 @@ msgid "Information"
 msgstr "Información"
 
 msgid "Inherit ACLs"
-msgstr ""
+msgstr "Herdar as ACL"
 
 msgid "Inherit permissions"
-msgstr ""
+msgstr "Permisos herdados"
 
 msgid "Initializing"
 msgstr "Iniciando"
@@ -1463,7 +1463,7 @@ msgid "Install updates ..."
 msgstr "Instalar actualizacións ..."
 
 msgid "Installed"
-msgstr ""
+msgstr "Instalado"
 
 msgid "Interfaces"
 msgstr "Interfaces"
@@ -1481,10 +1481,10 @@ msgid "Invalid group name"
 msgstr "Nome de grupo incorrecto"
 
 msgid "Invalid hostname"
-msgstr ""
+msgstr "Nome incorrecto de servidor."
 
 msgid "Invalid line: %s"
-msgstr ""
+msgstr "Liña incorrecta: %s"
 
 msgid "Invalid name"
 msgstr "Nome incorrecto"
@@ -1538,7 +1538,7 @@ msgid "Kazakhstan"
 msgstr "Cazaquistán"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Manter os ficheiros transferidos parcialmente"
 
 msgid "Kenya"
 msgstr "Quenia"
@@ -1624,7 +1624,7 @@ msgid "Local"
 msgstr "Local"
 
 msgid "Local master browser"
-msgstr ""
+msgstr "Explorador mestre local"
 
 msgid "Location"
 msgstr "Localización"
@@ -1633,7 +1633,7 @@ msgid "Location information, e.g. physical location of this system."
 msgstr "Información da localización. p.ex. localización física deste sistema."
 
 msgid "Log level"
-msgstr ""
+msgstr "Nivel de rexistro"
 
 msgid "Logical volume %s [%s, %s]"
 msgstr "Volume lóxico %s [%s, %s]"
@@ -1705,7 +1705,7 @@ msgid "Martinique"
 msgstr "Martinica"
 
 msgid "Masquerade address"
-msgstr ""
+msgstr "Enmascarar enderezos"
 
 msgid ""
 "Match if the destination port is one of the given ports. E.g. 21 or !443 or "
@@ -1718,25 +1718,25 @@ msgid ""
 msgstr ""
 
 msgid "Mauritania"
-msgstr ""
+msgstr "Mauritania"
 
 msgid "Mauritius"
-msgstr ""
+msgstr "Mauricio"
 
 msgid "Max. clients"
-msgstr ""
+msgstr "Número máx. de clientes"
 
 msgid "Max. connections"
-msgstr ""
+msgstr "Número máx. de conexións"
 
 msgid "Max. connections per host"
-msgstr ""
+msgstr "Número máx. de conexións por servidor"
 
 msgid "Max. login attempts"
-msgstr ""
+msgstr "Número máx. de intentos de acceso"
 
 msgid "Maximum download rate (KiB/s)"
-msgstr ""
+msgstr "Taxa máxima de descarga (KiB/s)"
 
 msgid "Maximum file size"
 msgstr "Tamaño máximo do ficheiro"
@@ -1754,13 +1754,13 @@ msgid "Maximum number of connections per IP (0 = unlimited)."
 msgstr ""
 
 msgid "Maximum number of simultaneous clients."
-msgstr ""
+msgstr "Número máximo de clientes simultáneos."
 
 msgid "Maximum performance, maximum acoustic output"
 msgstr ""
 
 msgid "Maximum upload rate (KiB/s)"
-msgstr ""
+msgstr "Taxa máxima de envío (KiB/s)"
 
 msgid "Maximum {0} selected item(s) allowed"
 msgstr ""
@@ -1769,7 +1769,7 @@ msgid "May"
 msgstr "Maio"
 
 msgid "Mayotte"
-msgstr ""
+msgstr "Maiote"
 
 msgid "Members"
 msgstr "Membros"
@@ -1784,19 +1784,19 @@ msgid "Method"
 msgstr "Método"
 
 msgid "Metropolitan France"
-msgstr ""
+msgstr "Francia Metropolitana"
 
 msgid "Mexico"
-msgstr ""
+msgstr "México"
 
 msgid "MiB"
 msgstr "MiB"
 
 msgid "Micronesia"
-msgstr ""
+msgstr "Micronesia"
 
 msgid "Midway Islands"
-msgstr ""
+msgstr "Illas de Midway"
 
 msgid "Minimum"
 msgstr "Mínimo"
@@ -1826,22 +1826,22 @@ msgid "Modify account"
 msgstr "Modificar a conta"
 
 msgid "Modify shared folder ACL"
-msgstr ""
+msgstr "Modificar a ACL do cartafol compartido"
 
 msgid "Modules"
 msgstr "Módulos"
 
 msgid "Moldova"
-msgstr ""
+msgstr "Moldavia"
 
 msgid "Monaco"
-msgstr ""
+msgstr "Mónaco"
 
 msgid "Monday"
 msgstr "Luns"
 
 msgid "Mongolia"
-msgstr ""
+msgstr "Mongolia"
 
 msgid "Monitoring"
 msgstr "Supervisión"
@@ -1850,10 +1850,10 @@ msgid "Month"
 msgstr "Mes"
 
 msgid "Montserrat"
-msgstr ""
+msgstr "Montserrat"
 
 msgid "Morocco"
-msgstr ""
+msgstr "Marrocos"
 
 msgid "Mount"
 msgstr "Montar"
@@ -1862,31 +1862,31 @@ msgid "Mounted"
 msgstr "Montado"
 
 msgid "Mozambique"
-msgstr ""
+msgstr "Mozambique"
 
 msgid "Myanmar"
-msgstr ""
+msgstr "Mianmar"
 
 msgid "NFS"
 msgstr "NFS"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 msgid "Namibia"
-msgstr ""
+msgstr "Namibia"
 
 msgid "Nauru"
-msgstr ""
+msgstr "Naurú"
 
 msgid "Nepal"
-msgstr ""
+msgstr "Nepal"
 
 msgid "Netherlands"
-msgstr ""
+msgstr "Holanda"
 
 msgid "Netherlands Antilles"
-msgstr ""
+msgstr "Antillas Holandesas"
 
 msgid "Netmask"
 msgstr "Máscara de rede"
@@ -1904,49 +1904,49 @@ msgid "Never"
 msgstr "Nunca"
 
 msgid "New Caledonia"
-msgstr ""
+msgstr "Nova Caledonia"
 
 msgid "New Zealand"
-msgstr ""
+msgstr "Nova Celandia"
 
 msgid "Nicaragua"
-msgstr ""
+msgstr "Nicaragua"
 
 msgid "Niger"
-msgstr ""
+msgstr "Níxer"
 
 msgid "Nigeria"
-msgstr ""
+msgstr "Nixeria"
 
 msgid "Niue"
-msgstr ""
+msgstr "Niue"
 
 msgid "No"
 msgstr "Non"
 
 msgid "No access"
-msgstr ""
+msgstr "Sen acceso"
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "Sen autenticación e sen intimidade"
 
 msgid "No certificate request"
 msgstr ""
 
 msgid "No items to display"
-msgstr ""
+msgstr "Non hai elementos para presentar"
 
 msgid "No log entries to display"
-msgstr ""
+msgstr "Non hai entradas no rexistro que presentar"
 
 msgid "No session reuse required"
 msgstr ""
 
 msgid "No users connected"
-msgstr ""
+msgstr "Non hai ningún usuario conectado"
 
 msgid "No users defined"
-msgstr ""
+msgstr "Non hai ningún usuario definido"
 
 msgid "None"
 msgstr "Ningún"
@@ -1958,31 +1958,31 @@ msgid "Normal"
 msgstr "Normal"
 
 msgid "North Korea"
-msgstr ""
+msgstr "Corea do Norte"
 
 msgid "North Vietnam"
-msgstr ""
+msgstr "Vietnam do Norte"
 
 msgid "Northern Mariana Islands"
-msgstr ""
+msgstr "Illas Marianas do Norte"
 
 msgid "Norway"
-msgstr ""
+msgstr "Noruega"
 
 msgid "Not ICMP"
-msgstr ""
+msgstr "Non ICMP"
 
 msgid "Not TCP"
-msgstr ""
+msgstr "Non TCP"
 
 msgid "Not UDP"
-msgstr ""
+msgstr "Non UDP"
 
 msgid "November"
 msgstr "novembro"
 
 msgid "Null passwords"
-msgstr ""
+msgstr "Contrasinais nulos"
 
 msgid "Num"
 msgstr "Num."
@@ -1994,7 +1994,7 @@ msgid "OK"
 msgstr "Aceptar"
 
 msgid "Occurrence"
-msgstr ""
+msgstr "Coincidencia"
 
 msgid "October"
 msgstr "outubro"
@@ -2003,10 +2003,10 @@ msgid "Offline immediate test"
 msgstr ""
 
 msgid "Oman"
-msgstr ""
+msgstr "Omán"
 
 msgid "Online"
-msgstr ""
+msgstr "Conectado"
 
 msgid "Operation not allowed for user '%s'."
 msgstr ""
@@ -2024,46 +2024,46 @@ msgid "Others"
 msgstr "Outros"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
-msgstr ""
+msgstr "Enderezo do servidor de correo SMTP saínte, p.ex. smtp.nosaempresa.com"
 
 msgid "Outlying Oceania"
-msgstr ""
+msgstr "Illas periféricas de Oceanía"
 
 msgid "Overview"
-msgstr ""
+msgstr "Vista xeral"
 
 msgid "Owner"
-msgstr ""
+msgstr "Propietario"
 
 msgid "Pacific Islands Trust Territory"
-msgstr ""
+msgstr "Illas do Pacífico (territorio en fideicomiso)"
 
 msgid "Package information"
-msgstr ""
+msgstr "Información do paquete"
 
 msgid "Pakistan"
-msgstr ""
+msgstr "Paquistán"
 
 msgid "Palau"
-msgstr ""
+msgstr "Palau"
 
 msgid "Palestinian Territory"
-msgstr ""
+msgstr "Territorios Palestinos"
 
 msgid "Panama"
-msgstr ""
+msgstr "Panamá"
 
 msgid "Panama Canal Zone"
-msgstr ""
+msgstr "Zona da Canle de Panamá"
 
 msgid "Papua New Guinea"
-msgstr ""
+msgstr "Papúa Nova Guinea"
 
 msgid "Paraguay"
-msgstr ""
+msgstr "Paraguai"
 
 msgid "Passive FTP"
-msgstr ""
+msgstr "FTP pasivo"
 
 msgid "Password"
 msgstr "Contrasinal"
@@ -2084,104 +2084,104 @@ msgid "Path"
 msgstr "Ruta"
 
 msgid "People's Democratic Republic of Yemen"
-msgstr ""
+msgstr "República Democrática Popular do Iemen"
 
 msgid "Perform a trial run with no changes made"
 msgstr ""
 
 msgid "Period of validity"
-msgstr ""
+msgstr "Período de vixencia"
 
 msgid "Permissions"
 msgstr "Permisos"
 
 msgid "Permissions of group."
-msgstr ""
+msgstr "Permisos de grupo."
 
 msgid "Permissions of others (e.g. anonymous FTP users)."
-msgstr ""
+msgstr "Permisos de outros (p.ex. usuarios anónimos de FTP)"
 
 msgid "Permissions of owner."
-msgstr ""
+msgstr "Permisos de propietario."
 
 msgid "Permit root login"
-msgstr ""
+msgstr "Permitir acceso como superusuario (root)"
 
 msgid "Permit to do SSH tunneling"
-msgstr ""
+msgstr "Permitir facer un túnel SSH"
 
 msgid "Peru"
-msgstr ""
+msgstr "Perú"
 
 msgid "Philippines"
-msgstr ""
+msgstr "Filipinas"
 
 msgid "Physical Disks"
-msgstr ""
+msgstr "Discos físicos"
 
 msgid "Pitcairn"
-msgstr ""
+msgstr "Pitcairn"
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Consulte a <a href='http://linux.die.net/man/5/exports' target='_blank'>páxina do manual</a> para obter máis detalles."
 
 msgid ""
 "Please check the <a href='http://www.openbsd.org/cgi-"
 "bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
 " more details."
-msgstr ""
+msgstr "Consulte a <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>páxina do manual</a> para obter máis detalles."
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Consulte a <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>páxina do manual</a> para obter máis detalles."
 
 msgid ""
 "Please check the <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Consulte a <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>páxina do manual</a> para obter máis detalles."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Consulte a <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>páxina do manual</a> para obter máis detalles."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Consulte a <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>páxina do manual</a> para obter máis detalles."
 
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Consulte a <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>páxina do manual</a> para obter máis detalles."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr ""
 
 msgid "Please first select a volume."
-msgstr ""
+msgstr "Primeiro seleccione un volume."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
-msgstr ""
+msgstr "Teña en conta que non é posíbel a comunicación co sistema durante esta proba."
 
 msgid "Please reload the page to let the changes take effect."
-msgstr ""
+msgstr "Volva a cargar a páxina para que os cambios teñan efecto."
 
 msgid "Please wait ..."
 msgstr "Agarde ..."
 
 msgid "Plugins"
-msgstr ""
+msgstr "Engadidos"
 
 msgid "Poland"
-msgstr ""
+msgstr "Polonia"
 
 msgid "Port"
 msgstr "Porto"
@@ -2190,28 +2190,28 @@ msgid "Port to listen on."
 msgstr "Porto a empregar."
 
 msgid "Portugal"
-msgstr ""
+msgstr "Portugal"
 
 msgid "Power Management"
-msgstr ""
+msgstr "Xestión da enerxía"
 
 msgid "Power button"
-msgstr ""
+msgstr "Botón de acendido/apagado"
 
 msgid "Power mode"
-msgstr ""
+msgstr "Modo de enerxía"
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "Conservar as ACL"
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "Conservar os atributos estendidos"
 
 msgid "Preserve modification times"
-msgstr ""
+msgstr "Conservar a hora/data de modificación"
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Conservar os permisos"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
@@ -2227,10 +2227,10 @@ msgid ""
 msgstr ""
 
 msgid "Primary"
-msgstr ""
+msgstr "Primacipal"
 
 msgid "Primary email"
-msgstr ""
+msgstr "Enderezo de correo principal"
 
 msgid "Privacy passphrase"
 msgstr ""
@@ -2269,49 +2269,49 @@ msgid "Push"
 msgstr ""
 
 msgid "Qatar"
-msgstr ""
+msgstr "Catar"
 
 msgid "Quick"
-msgstr ""
+msgstr "Rápido"
 
 msgid "Quiet"
-msgstr ""
+msgstr "Silencioso"
 
 msgid "Quota"
-msgstr ""
+msgstr "Cota"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "RAID Management"
-msgstr ""
+msgstr "Xestión do RAID"
 
 msgid "RPC error"
 msgstr ""
 
 msgid "RSync server"
-msgstr ""
+msgstr "Servidor RSync"
 
 msgid "Ranges of numbers are not allowed"
-msgstr ""
+msgstr "Non está permitido o intervalo de números"
 
 msgid "Raw value"
-msgstr ""
+msgstr "Valor bruto"
 
 msgid "Read only"
-msgstr ""
+msgstr "Só lectura"
 
 msgid "Read-only"
-msgstr ""
+msgstr "Só lectura"
 
 msgid "Read/Write"
-msgstr ""
+msgstr "Lectura/Escritura"
 
 msgid "Reboot"
 msgstr "Reiniciar"
@@ -2323,13 +2323,13 @@ msgid "Recover"
 msgstr "Recuperar"
 
 msgid "Recurse into directories"
-msgstr ""
+msgstr "Recursivamente polos directorios"
 
 msgid "Recursive"
 msgstr "Recursivo"
 
 msgid "Recycle bin"
-msgstr ""
+msgstr "Cesta do lixo"
 
 msgid "Refresh"
 msgstr "Actualizar"
@@ -2381,10 +2381,10 @@ msgid "Restore"
 msgstr "Restaurar"
 
 msgid "Restore configuration"
-msgstr ""
+msgstr "Restaurar a configuración"
 
 msgid "Restore configuration..."
-msgstr ""
+msgstr "Restaurar a configuración..."
 
 msgid "Resume"
 msgstr "Continuar"
@@ -2393,34 +2393,34 @@ msgid "Retry timeout"
 msgstr ""
 
 msgid "Reunion"
-msgstr ""
+msgstr "Reunión"
 
 msgid "Reverse DNS lookup"
 msgstr ""
 
 msgid "Romania"
-msgstr ""
+msgstr "Romanía"
 
 msgid "Rsync"
 msgstr "Rsync"
 
 msgid "Rsync - Jobs"
-msgstr ""
+msgstr "Rsync - Traballos"
 
 msgid "Rsync - Server"
-msgstr ""
+msgstr "Rsync - Servidor"
 
 msgid "Run"
 msgstr "Executar"
 
 msgid "Running"
-msgstr ""
+msgstr "Executando"
 
 msgid "Russia"
-msgstr ""
+msgstr "Rusia"
 
 msgid "Rwanda"
-msgstr ""
+msgstr "Ruanda"
 
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
@@ -2462,16 +2462,16 @@ msgid "Saint Helena"
 msgstr "Santa Helena"
 
 msgid "Saint Kitts and Nevis"
-msgstr ""
+msgstr "San Cristobo e Nevis"
 
 msgid "Saint Lucia"
-msgstr ""
+msgstr "Santa Lucía"
 
 msgid "Saint Pierre and Miquelon"
-msgstr ""
+msgstr "San Pedro e Miguelón"
 
 msgid "Saint Vincent and the Grenadines"
-msgstr ""
+msgstr "San Vicente e as Granadinas"
 
 msgid "Samoa"
 msgstr "Samoa"
@@ -2486,7 +2486,7 @@ msgid "Saturday"
 msgstr "Sábado"
 
 msgid "Saudi Arabia"
-msgstr ""
+msgstr "Arabia Saudí"
 
 msgid "Saving ..."
 msgstr "Gardando ..."
@@ -2588,7 +2588,7 @@ msgid "September"
 msgstr "setembro"
 
 msgid "Serbia And Montenegro"
-msgstr ""
+msgstr "Serbia e Montenegro"
 
 msgid "Serial Number"
 msgstr "Número de serie"
@@ -2615,17 +2615,17 @@ msgid "Session not authenticated"
 msgstr ""
 
 msgid "Session timeout"
-msgstr ""
+msgstr "Tempo de espera da sesión excedido"
 
 msgid "Set browseable"
-msgstr ""
+msgstr "Estabelecer como navegábel"
 
 msgid "Set read only"
 msgstr "Estabelecer só para lectura"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
-msgstr ""
+msgstr "Configurar os permisos de destino para sexan os mesmos que os permisos de orixe"
 
 msgid "Set write only"
 msgstr "Estabelecer só para escritura"
@@ -2637,22 +2637,22 @@ msgid "Settings"
 msgstr "Axustes"
 
 msgid "Settings already exist for device '%s'"
-msgstr ""
+msgstr "Xa existen axustes para o dispositivo «%s»"
 
 msgid "Seychelles"
-msgstr ""
+msgstr "Seicheles"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "Cartafoles compartidos"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Cartafol compartido"
 
 msgid "Shared folder must not be equal"
 msgstr ""
 
 msgid "Shares"
-msgstr ""
+msgstr "Recursos compartidos"
 
 msgid "Shell"
 msgstr ""
@@ -2661,16 +2661,16 @@ msgid "Short self-test"
 msgstr ""
 
 msgid "Show certificate"
-msgstr ""
+msgstr "Amosar o certificado"
 
 msgid "Show details"
-msgstr ""
+msgstr "Amosar os detalles"
 
 msgid "Show password"
-msgstr ""
+msgstr "Amosar o contrasinal"
 
 msgid "Show privileges"
-msgstr ""
+msgstr "Amosar os privilexios"
 
 msgid "Shutdown"
 msgstr "Apagar"
@@ -2682,10 +2682,10 @@ msgid "Shutdown/Reboot schedule"
 msgstr ""
 
 msgid "Sierra Leone"
-msgstr ""
+msgstr "Serra Leoa"
 
 msgid "Singapore"
-msgstr ""
+msgstr "Singapur"
 
 msgid "Size"
 msgstr "Tamaño"
@@ -2697,19 +2697,19 @@ msgid "Sleep"
 msgstr ""
 
 msgid "Slovakia"
-msgstr ""
+msgstr "Eslovaquia"
 
 msgid "Slovenia"
-msgstr ""
+msgstr "Eslovenia"
 
 msgid "Solomon Islands"
-msgstr ""
+msgstr "Illas Salomón"
 
 msgid "Somalia"
-msgstr ""
+msgstr "Somalia"
 
 msgid "Source"
-msgstr ""
+msgstr "Orixe"
 
 msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
@@ -2718,7 +2718,7 @@ msgid ""
 msgstr ""
 
 msgid "Source port"
-msgstr ""
+msgstr "Porto orixe"
 
 msgid "Source server"
 msgstr ""
@@ -2727,13 +2727,13 @@ msgid "Source shared folder"
 msgstr ""
 
 msgid "South Africa"
-msgstr ""
+msgstr "Suráfrica"
 
 msgid "South Georgia and the South Sandwich Islands"
-msgstr ""
+msgstr "Xeorxia do Sul e as Illas Sandwich do Sul"
 
 msgid "South Korea"
-msgstr ""
+msgstr "Corea do Sur"
 
 msgid "Spain"
 msgstr "España"
@@ -2830,7 +2830,7 @@ msgid "Success"
 msgstr "Correcto"
 
 msgid "Sudan"
-msgstr ""
+msgstr "Sudán"
 
 msgid "Sunday"
 msgstr "domingo"
@@ -2842,22 +2842,22 @@ msgid "Suppress non-error messages"
 msgstr ""
 
 msgid "Suriname"
-msgstr ""
+msgstr "Surinam"
 
 msgid "Svalbard and Jan Mayen"
 msgstr ""
 
 msgid "Swaziland"
-msgstr ""
+msgstr "Suazilandia"
 
 msgid "Sweden"
-msgstr ""
+msgstr "Suecia"
 
 msgid "Switzerland"
-msgstr ""
+msgstr "Suíza"
 
 msgid "Syria"
-msgstr ""
+msgstr "Siria"
 
 msgid "Syslog"
 msgstr ""
@@ -2887,10 +2887,10 @@ msgid "Taiwan"
 msgstr ""
 
 msgid "Tajikistan"
-msgstr ""
+msgstr "Taxiquistán"
 
 msgid "Tanzania"
-msgstr ""
+msgstr "Tanzánia"
 
 msgid "Temperature"
 msgstr "Temperatura"
@@ -2902,7 +2902,7 @@ msgid "Test description"
 msgstr "Descrición da proba"
 
 msgid "Thailand"
-msgstr ""
+msgstr "Tailandia"
 
 msgid "The NT description field."
 msgstr ""
@@ -3203,10 +3203,10 @@ msgid "Thursday"
 msgstr "Xoves"
 
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 msgid "Time"
-msgstr ""
+msgstr "Hora"
 
 msgid "Time interval"
 msgstr "Intervalo de tempo"
@@ -3224,7 +3224,7 @@ msgid "Timeout"
 msgstr "Esgotou o tempo límite"
 
 msgid "Times"
-msgstr ""
+msgstr "Veces"
 
 msgid ""
 "To restore a previously backed up configuration click the 'Restore' button. "
@@ -3233,13 +3233,13 @@ msgid ""
 msgstr ""
 
 msgid "Togo"
-msgstr ""
+msgstr "Togo"
 
 msgid "Tokelau"
-msgstr ""
+msgstr "Toquelau"
 
 msgid "Tonga"
-msgstr ""
+msgstr "Tonga"
 
 msgid "Traps"
 msgstr "Trampas"
@@ -3251,16 +3251,16 @@ msgid "Trial run"
 msgstr ""
 
 msgid "Trinidad and Tobago"
-msgstr ""
+msgstr "Trindade e Tobago"
 
 msgid "Tuesday"
 msgstr ""
 
 msgid "Tunisia"
-msgstr ""
+msgstr "Túnez"
 
 msgid "Turkey"
-msgstr ""
+msgstr "Turquía"
 
 msgid "Turkmenistan"
 msgstr ""
@@ -3269,31 +3269,31 @@ msgid "Turks and Caicos Islands"
 msgstr ""
 
 msgid "Tuvalu"
-msgstr ""
+msgstr "Tuvalu"
 
 msgid "Type"
 msgstr "Tipo"
 
 msgid "U.S. Miscellaneous Pacific Islands"
-msgstr ""
+msgstr "Varias Illas do Pacífico dos EEUU"
 
 msgid "U.S. Virgin Islands"
-msgstr ""
+msgstr "Illas Virxes Estadounidenses"
 
 msgid "Uganda"
-msgstr ""
+msgstr "Uganda"
 
 msgid "Ukraine"
-msgstr ""
+msgstr "Ucraína"
 
 msgid "Uninstall"
-msgstr ""
+msgstr "Desinstalar"
 
 msgid "Uninstall plugins ..."
-msgstr ""
+msgstr "Desinstalar engadidos ..."
 
 msgid "Union of Soviet Socialist Republics"
-msgstr ""
+msgstr "URSS, Unión de Repúblicas Socialistas Soviéticas"
 
 msgid "Unit"
 msgstr "Unidade"
@@ -3308,16 +3308,16 @@ msgid "United States"
 msgstr "Estados Unidos de América"
 
 msgid "United States Minor Outlying Islands"
-msgstr ""
+msgstr "Illas exteriores menores dos Estados Unidos"
 
 msgid "Unknown filesystem '%s'"
-msgstr ""
+msgstr "Sistema de ficheiros descoñecido «%s»"
 
 msgid "Unknown log file type (id=%s)"
 msgstr ""
 
 msgid "Unknown network interface type."
-msgstr ""
+msgstr "Tipo de interface de rede descoñecida."
 
 msgid "Unmount"
 msgstr "Desmontar"
@@ -3329,38 +3329,38 @@ msgid "Up delay"
 msgstr ""
 
 msgid "Update Manager"
-msgstr ""
+msgstr "Xestor de actualización"
 
 msgid "Update now"
-msgstr ""
+msgstr "Actualizar agora"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
-msgstr ""
+msgstr "Actualizar as ACL de destino para que sexan os mesmos que as ACL de orixe"
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones"
-msgstr ""
+msgstr "Actualizar os atributos estendidos do destino para que sexan os mesmos que os locais"
 
 msgid "Updated"
-msgstr ""
+msgstr "Actualizado"
 
 msgid "Updating ACL settings"
-msgstr ""
+msgstr "Actualizando os axustes ACL"
 
 msgid "Upload"
-msgstr ""
+msgstr "Enviar"
 
 msgid "Upload file"
-msgstr ""
+msgstr "Enviar un ficheiro"
 
 msgid "Upload package"
-msgstr ""
+msgstr "Enviar un paquete"
 
 msgid "Upload plugin"
-msgstr ""
+msgstr "Enviar un engadido"
 
 msgid "Uploading file ..."
-msgstr "Enviando datos..."
+msgstr "Enviando un ficheiro ..."
 
 msgid "Uptime"
 msgstr "Tempo de funcionamento"
@@ -3491,7 +3491,7 @@ msgid "Welcome message"
 msgstr "Mensaxe de benvida"
 
 msgid "Western Sahara"
-msgstr ""
+msgstr "Sahara Occidental"
 
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
@@ -3520,16 +3520,16 @@ msgid "Write only"
 msgstr "Só escritura"
 
 msgid "Yemen"
-msgstr ""
+msgstr "Iemen"
 
 msgid "Yes"
 msgstr "Si"
 
 msgid "Zambia"
-msgstr ""
+msgstr "Zambia"
 
 msgid "Zimbabwe"
-msgstr ""
+msgstr "Zimbabue"
 
 msgid "day"
 msgstr "día"

@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-15 21:17+0000\n"
+"PO-Revision-Date: 2013-02-17 19:37+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgstr "Tilføj en USB backup opgave"
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "En email besked med kommandoens output (hvis nogen produceret) er sendt administratoren."
 
 msgid "Archive"
 msgstr "Arkiv"
@@ -36,16 +36,16 @@ msgid "Comment"
 msgstr "Kommentar"
 
 msgid "Compress"
-msgstr "Komprimere"
+msgstr "Komprimer"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "Komprimere fildata under overførelse."
 
 msgid "Delete"
 msgstr "Slet"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "Slet filer på modtagerside der ikke findes på senderside."
 
 msgid "Device '%s' not found"
 msgstr "Enhed '%s' er ikke fundet"
@@ -62,7 +62,7 @@ msgstr "Aktiver arkiv modus."
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Aktiver denne mulighed for at beholde delvis overførte filer, ellers vil de blive slettet hvis overførelsen afbrydes."
 
 msgid "Enabled"
 msgstr "Aktiveret"
@@ -77,7 +77,7 @@ msgid "Extra options"
 msgstr "Ekstra valgmuligheder"
 
 msgid "Failed to get filesystems"
-msgstr ""
+msgstr "Kunne få fat i filsystem"
 
 msgid "Filesystem '%s' not found"
 msgstr "Filsystem '%s' ikke fundet"
@@ -88,16 +88,16 @@ msgstr "Behold delvis overførte filer"
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Kontroller venligst <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> for flere detajler."
 
 msgid "Preserve ACLs"
 msgstr "Bevar ACL'er"
 
 msgid "Preserve extended attributes"
-msgstr "Bevar udvidet attributter"
+msgstr "Bevar udvidede attributter"
 
 msgid "Preserve modification times."
-msgstr ""
+msgstr "Bevar ændrings antal."
 
 msgid "Preserve permissions"
 msgstr "Bevar rettigheder"
@@ -106,10 +106,10 @@ msgid "Quiet"
 msgstr "Stille"
 
 msgid "Recurse into directories."
-msgstr ""
+msgstr "Medtag undermapper."
 
 msgid "Recursive"
-msgstr ""
+msgstr "Rekursiv"
 
 msgid "Run"
 msgstr "Kør"
@@ -118,41 +118,41 @@ msgid "Select a volume ..."
 msgstr "Vælg et drev"
 
 msgid "Send command output via email."
-msgstr ""
+msgstr "Send kommando output via email."
 
 msgid "Send email"
 msgstr "Send email"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "Sæt destinations tilladelser til at være de samme som kilde tilladelser"
 
 msgid "Shared folder"
 msgstr "Delt mappe"
 
 msgid "Suppress non-error messages."
-msgstr ""
+msgstr "Tilsidesæt ikke-fejls beskeder"
 
 msgid "The external storage device."
-msgstr ""
+msgstr "Den eksterne lagerenhed."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
 "connected."
-msgstr ""
+msgstr "Den delte mappe der synkroniseres når den eksterne lagerenhed bliver tilsluttet."
 
 msgid "Times"
-msgstr ""
+msgstr "Antal gange"
 
 msgid "USB Backup"
 msgstr "USB Backup"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "Opdater destinationens ACL'er til at være de samme som kilde ACL'er."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "Opdater destinationens udvidede attributter til at være de samme som de lokale."
 
 msgid "Volume"
 msgstr "Drev"

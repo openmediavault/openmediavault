@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-16 05:46+0000\n"
+"PO-Revision-Date: 2013-02-17 09:36+0000\n"
 "Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -22,12 +22,12 @@ msgid "A backup job already exists for this storage device"
 msgstr "Задания резервного копирования уже существует для этого устройства хранения"
 
 msgid "Add USB backup job"
-msgstr "Добавить задание резервного копирования для USB"
+msgstr "Добавить задание резервного копирования на USB"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "отправить администратору Сообщения электронной почты с помощью команды вывода (если такие имеются)."
 
 msgid "Archive"
 msgstr "Архив"
@@ -68,7 +68,7 @@ msgid "Enabled"
 msgstr "Доступно"
 
 msgid "Execute USB backup job"
-msgstr ""
+msgstr "Выполнить задание резервного копирования USB"
 
 msgid "External storage device"
 msgstr "Внешние устройства хранения данных"
@@ -91,37 +91,37 @@ msgid ""
 msgstr "Пожалуйста, проверьте <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> для более подробной информации."
 
 msgid "Preserve ACLs"
-msgstr "Сохранить список ACLs"
+msgstr "Сохранять список ACLs"
 
 msgid "Preserve extended attributes"
-msgstr "Сохранить расширенных атрибутов"
+msgstr "Сохранять расширенные атрибуты"
 
 msgid "Preserve modification times."
-msgstr "Сохранить время модификации."
+msgstr "Сохранять время модификации."
 
 msgid "Preserve permissions"
 msgstr "Сохранение прав доступа"
 
 msgid "Quiet"
-msgstr "Тихий"
+msgstr "Тихий режим"
 
 msgid "Recurse into directories."
 msgstr "Рекурсивно в каталогах."
 
 msgid "Recursive"
-msgstr "Рекурсивный"
+msgstr "Рекурсивно"
 
 msgid "Run"
 msgstr "Запуск"
 
 msgid "Select a volume ..."
-msgstr ""
+msgstr "Выберите том ..."
 
 msgid "Send command output via email."
-msgstr "Отправить команды Вывода на электронную почту."
+msgstr "Отправить команды вывода на электронную почту."
 
 msgid "Send email"
-msgstr "Оправить email"
+msgstr "Оправить на email"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
@@ -148,14 +148,14 @@ msgid "USB Backup"
 msgstr "USB Резервное копирование"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "Обновлять ACL назначения, чтобы были такими же, как источник ACL."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "Обновлять расширенные атрибуты назначения, чтобы были таким же, как у источника."
 
 msgid "Volume"
-msgstr ""
+msgstr "Том"
 
 msgid "n/a"
 msgstr "n/a"

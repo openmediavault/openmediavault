@@ -1,3 +1,10 @@
+openmediavault-usbbackup (0.4.3) stable; urgency=low
+
+  * Update locales.
+  * Improve config scripts (to fix trap issue).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 17 Feb 2013 03:14:08 +0100
+
 openmediavault-usbbackup (0.4.2) stable; urgency=low
 
   * Harden sync script. Additionally check if external storage device is

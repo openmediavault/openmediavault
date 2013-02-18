@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-15 21:08+0000\n"
+"PO-Revision-Date: 2013-02-16 16:27+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "A backup job already exists for this storage device"
-msgstr ""
+msgstr "已經存在一個針對此儲存裝置的備份工作"
 
 msgid "Add USB backup job"
 msgstr "新增 USB 備份工作"
@@ -51,7 +51,7 @@ msgid "Device '%s' not found"
 msgstr "未找到裝置 '%s'"
 
 msgid "Edit USB backup job"
-msgstr ""
+msgstr "編輯 USB 備份工作"
 
 msgid "Enable"
 msgstr "啟用"
@@ -68,10 +68,10 @@ msgid "Enabled"
 msgstr "已啟用"
 
 msgid "Execute USB backup job"
-msgstr ""
+msgstr "執行 USB 備份工作"
 
 msgid "External storage device"
-msgstr ""
+msgstr "外接儲存裝置"
 
 msgid "Extra options"
 msgstr "額外選項"
@@ -134,18 +134,18 @@ msgid "Suppress non-error messages."
 msgstr "抑制非錯誤訊息。"
 
 msgid "The external storage device."
-msgstr ""
+msgstr "外接式儲存裝置。"
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
 "connected."
-msgstr ""
+msgstr "當外接儲存裝置連接上時，所要進行同步作業的分享檔案夾。"
 
 msgid "Times"
 msgstr "時間"
 
 msgid "USB Backup"
-msgstr ""
+msgstr "USB 備份"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr "更新目的地的 ACLs 成為與來源的 ACLs 相同。"

@@ -1,3 +1,9 @@
+openmediavault-clamav (0.4.5) stable; urgency=low
+
+  * Improve config scripts (to fix trap issue).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 17 Feb 2013 03:13:27 +0100
+
 openmediavault-clamav (0.4.4) stable; urgency=low
 
   * Update locales.

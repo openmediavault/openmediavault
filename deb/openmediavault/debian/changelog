@@ -1,3 +1,13 @@
+openmediavault (0.4.23) stable; urgency=low
+
+  * Update locales.
+  * Improve config scripts (to fix trap issue).
+  * Harden rsync cron scripts. Check if destination storage device is mounted
+    before running the script.
+  * Mantis 0000722: Stopped Rsync jobs still run in background.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 17 Feb 2013 03:14:23 +0100
+
 openmediavault (0.4.22) stable; urgency=low
 
   * Add omv-run command.
