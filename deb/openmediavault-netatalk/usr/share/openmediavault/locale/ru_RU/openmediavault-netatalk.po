@@ -5,13 +5,14 @@
 # Translators:
 #   <arturmon82@gmail.com>, 2012.
 #   <ffrants@gmail.com>, 2012.
+# артур Мудрых <arturmon82@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-10 00:15+0100\n"
-"PO-Revision-Date: 2013-02-09 23:15+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-02-12 05:40+0000\n"
+"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,16 +27,16 @@ msgid "Add share"
 msgstr "Добавить общий ресурс"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "Расширенные настройки"
 
 msgid "Advertise this service via mDNS/DNS-SD."
 msgstr "Распространить эту службу через mDNS/DNS-SD."
 
 msgid "Allow guest login."
-msgstr ""
+msgstr "Разрешить гостевой вход."
 
 msgid "Allow guests to create or modify files."
-msgstr ""
+msgstr "Разрешить гостям создавать или изменять файлы."
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr "Разрешить передавать логины с паролями в незашифрованном виде."
@@ -86,10 +87,10 @@ msgid "General settings"
 msgstr "Общие параметры"
 
 msgid "Guest login"
-msgstr ""
+msgstr "Гостевой вход"
 
 msgid "Guests only have read access by default."
-msgstr ""
+msgstr "По умолчанию гости имеют доступ только на чтение ."
 
 msgid "Hide dot files"
 msgstr "Скрыть файлы с точкой"

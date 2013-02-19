@@ -4,13 +4,14 @@
 # 
 # Translators:
 #   <mauro.rulli@gmail.com>, 2012.
+# Paolo Velati <paolo.velati@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-10 00:15+0100\n"
-"PO-Revision-Date: 2013-02-09 23:15+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-02-11 18:43+0000\n"
+"Last-Translator: polxmod <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,22 +20,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
-msgstr ""
+msgstr " "
 
 msgid "Add share"
 msgstr "Aggiungi condivisione"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "Impostazioni Avanzate"
 
 msgid "Advertise this service via mDNS/DNS-SD."
 msgstr "Notifica questo servizio tramite mDNS/DNS-SD."
 
 msgid "Allow guest login."
-msgstr ""
+msgstr "Permetti accesso guest."
 
 msgid "Allow guests to create or modify files."
-msgstr ""
+msgstr "Permetti agli utenti guest di creare o modificare file."
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr "Consenti autenticazioni con la trasmissione in chiaro delle password."
@@ -85,10 +86,10 @@ msgid "General settings"
 msgstr "Impostazioni generali"
 
 msgid "Guest login"
-msgstr ""
+msgstr "Accesso guest"
 
 msgid "Guests only have read access by default."
-msgstr ""
+msgstr "Gli utenti guest hanno l'accesso alla lettura come privilegio predefinito."
 
 msgid "Hide dot files"
 msgstr "Nascondi file puntati"
