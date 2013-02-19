@@ -56,7 +56,7 @@ mntent=$(echo -n "# >>> [${OMV_FSTAB_SECTIONNAME}]\n"; xmlstarlet sel -t \
   done; echo -n "# <<< [${OMV_FSTAB_SECTIONNAME}]")
 
 # Append mount entries if not still present or replace existing entries.
-if ! grep -E "^# >>> \[${OMV_FSTAB_SECTIONNAME}\]$" ${OMV_FSTAB_CONFIG} >/dev/null; then
+if ! grep -E "^# >>> \[${OMV_FSTAB_SECTIONNAME}\]\s*$" ${OMV_FSTAB_CONFIG} >/dev/null; then
 	echo -e "${mntent}" >> ${OMV_FSTAB_CONFIG}
 else
 	sed -i "/# >>> \[${OMV_FSTAB_SECTIONNAME}\]/,/# <<< \[${OMV_FSTAB_SECTIONNAME}\]/ c ${mntent}" ${OMV_FSTAB_CONFIG}

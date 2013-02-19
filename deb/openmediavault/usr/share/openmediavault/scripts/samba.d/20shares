@@ -51,8 +51,7 @@ OMV_SAMBA_SHARE_FORCEDIRECTORYMODE=${OMV_SAMBA_SHARE_FORCEDIRECTORYMODE:-"0755"}
 
 echo "#======================= Share Definitions =======================" >> ${OMV_SAMBA_CONFIG}
 index=$(omv_config_get_count "//services/smb/shares/share")
-while [ ${index} -gt 0 ]
-do
+while [ ${index} -gt 0 ]; do
 	# Get the shared folder reference and path
 	sfref=$(omv_config_get "//services/smb/shares/share[position()=${index}]/sharedfolderref")
 	sfpath=$(omv_get_sharedfolder_path "${sfref}")
@@ -108,12 +107,13 @@ do
 
 	# Get shared folder user privileges
 	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
-	  -v "concat(perms,'|',name)" -n \
+	  -v "concat(perms,':',name)" -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
-	for privilege in ${privileges}
-	do
-		perms=${privilege%|*}
-		name=${privilege#*|}
+	IFS="$(printf '\n+')"
+	for privilege in ${privileges}; do
+		[ -z "${privilege}" ] && continue
+		perms=${privilege%:*}
+		name=${privilege#*:}
 		# Append user to list
 		case ${perms} in
 		0)	[ -n "${invalidusers}" ] && invalidusers="${invalidusers},";
@@ -130,15 +130,17 @@ do
 			validusers="${validusers}\"${name}\"";;
 		esac
 	done
+	unset IFS
 
 	# Get shared folder group privileges
 	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='group']" \
-	  -v "concat(perms,'|',name)" -n \
+	  -v "concat(perms,':',name)" -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
-	for privilege in ${privileges}
-	do
-		perms=${privilege%|*}
-		name=${privilege#*|}
+	IFS="$(printf '\n+')"
+	for privilege in ${privileges}; do
+		[ -z "${privilege}" ] && continue
+		perms=${privilege%:*}
+		name=${privilege#*:}
 		# Append group to list
 		case ${perms} in
 		0)	[ -n "${invalidusers}" ] && invalidusers="${invalidusers},";
@@ -155,6 +157,7 @@ do
 			validusers="${validusers}@\"${name}\"";;
 		esac
 	done
+	unset IFS
 
 	xmlstarlet sel -t -m "//services/smb/shares/share[position()=${index}]" \
 	  -i "guestok[. = '0']" -o "valid users = ${validusers}" -n -b \

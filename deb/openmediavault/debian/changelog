@@ -1,3 +1,11 @@
+openmediavault (0.4.24) stable; urgency=low
+
+  * Make fstab config script less restrictive.
+  * Mantis 0000724: Bug with group names with spaces for samba in shared
+    folders.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 19 Feb 2013 20:36:46 +0100
+
 openmediavault (0.4.23) stable; urgency=low
 
   * Update locales.

@@ -215,8 +215,7 @@ rootlogin=$(omv_config_get "//services/ftp/rootlogin")
 
 # Process FTP shares
 index=$(omv_config_get_count "//services/ftp/shares/share")
-while [ ${index} -gt 0 ]
-do
+while [ ${index} -gt 0 ]; do
 	limitall_allowuser=""
 	limitall_allowgroup=""
 	limitread_allowuser=""
@@ -235,45 +234,49 @@ do
 
 	# Get shared folder user privileges
 	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
-	  -v "concat(perms,'|',name)" -n \
+	  -v "concat(perms,':',name)" -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
-	for privilege in ${privileges}
-	do
-		perms=${privilege%|*}
-		name=${privilege#*|}
+	IFS="$(printf '\n+')"
+	for privilege in ${privileges}; do
+		[ -z "${privilege}" ] && continue
+		perms=${privilege%:*}
+		name=${privilege#*:}
 		# Skip 'No access' entries
 		[ ${perms} -eq 0 ] && continue
 		# Append user to list
 		case ${perms} in
 		5)
 			[ -n "${limitread_allowuser}" ] && limitread_allowuser="${limitread_allowuser},";
-			limitread_allowuser="${limitread_allowuser}${name}";;
+			limitread_allowuser="${limitread_allowuser}\"${name}\"";;
 		7)
 			[ -n "${limitall_allowuser}" ] && limitall_allowuser="${limitall_allowuser},";
-			limitall_allowuser="${limitall_allowuser}${name}";;
+			limitall_allowuser="${limitall_allowuser}\"${name}\"";;
 		esac
 	done
+	unset IFS
 
 	# Get shared folder group privileges
 	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='group']" \
-	  -v "concat(perms,'|',name)" -n \
+	  -v "concat(perms,':',name)" -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
-	for privilege in ${privileges}
-	do
-		perms=${privilege%|*}
-		name=${privilege#*|}
+	IFS="$(printf '\n+')"
+	for privilege in ${privileges}; do
+		[ -z "${privilege}" ] && continue
+		perms=${privilege%:*}
+		name=${privilege#*:}
 		# Skip 'No access' entries
 		[ ${perms} -eq 0 ] && continue
 		# Append group to list
 		case ${perms} in
 		5)
 			[ -n "${limitread_allowgroup}" ] && limitread_allowgroup="${limitread_allowgroup},";
-			limitread_allowgroup="${limitread_allowgroup}${name}";;
+			limitread_allowgroup="${limitread_allowgroup}\"${name}\"";;
 		7)
 			[ -n "${limitall_allowgroup}" ] && limitall_allowgroup="${limitall_allowgroup},";
-			limitall_allowgroup="${limitall_allowgroup}${name}";;
+			limitall_allowgroup="${limitall_allowgroup}\"${name}\"";;
 		esac
 	done
+	unset IFS
 
 	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
 <Directory ${sfpath}>

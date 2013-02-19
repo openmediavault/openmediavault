@@ -101,8 +101,7 @@ EOF
 	# Create the '/etc/netatalk/AppleVolumes.default' file
 	cat /dev/null > ${OMV_NETATALK_AVDEFAULT_CONFIG}
 	index=$(omv_config_get_count "//services/afp/shares/share")
-	while [ ${index} -gt 0 ]
-	do
+	while [ ${index} -gt 0 ]; do
 		# Get the shared folder reference and path
 		sfref=$(omv_config_get "//services/afp/shares/share[position()=${index}]/sharedfolderref")
 		sfpath=$(omv_get_sharedfolder_path "${sfref}")
@@ -118,61 +117,65 @@ EOF
 		# Get shared folder user privileges
 		privileges=$(xmlstarlet sel -t \
 		  -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
-			-v "concat(perms,'|',name)" -n \
+			-v "concat(perms,':',name)" -n \
 		  -b \
 		  -m "//services/afp/shares/share[position()=${index}]" \
 			-i "allowguest[. = '1']" \
 			  -i "guestrw[. = '1']" -o "7" -b \
 			  -i "guestrw[. = '0']" -o "5" -b \
-			  -o "|${OMV_NETATALK_AFPD_GUEST}" -n \
+			  -o ":${OMV_NETATALK_AFPD_GUEST}" -n \
 			-b \
 		  -b \
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
-		for privilege in ${privileges}
-		do
-			perms=${privilege%|*}
-			name=${privilege#*|}
+		IFS="$(printf '\n+')"
+		for privilege in ${privileges}; do
+			[ -z "${privilege}" ] && continue
+			perms=${privilege%:*}
+			name=${privilege#*:}
 			# Append user to list
 			case ${perms} in
 			0)	[ -n "${deny}" ] && deny="${deny},";
-				deny="${deny}${name}";;
+				deny="${deny}\"${name}\"";;
 			5)
 				[ -n "${readlist}" ] && readlist="${readlist},";
-				readlist="${readlist}${name}";
+				readlist="${readlist}\"${name}\"";
 				[ -n "${allow}" ] && allow="${allow},";
-				allow="${allow}${name}";;
+				allow="${allow}\"${name}\"";;
 			7)
 				[ -n "${writelist}" ] && writelist="${writelist},";
-				writelist="${writelist}${name}";
+				writelist="${writelist}\"${name}\"";
 				[ -n "${allow}" ] && allow="${allow},";
-				allow="${allow}${name}";;
+				allow="${allow}\"${name}\"";;
 			esac
 		done
+		unset IFS
 
 		# Get shared folder group privileges
 		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='group']" \
-		  -v "concat(perms,'|',name)" -n \
+		  -v "concat(perms,':',name)" -n \
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
-		for privilege in ${privileges}
-		do
-			perms=${privilege%|*}
-			name=${privilege#*|}
+		IFS="$(printf '\n+')"
+		for privilege in ${privileges}; do
+			[ -z "${privilege}" ] && continue
+			perms=${privilege%:*}
+			name=${privilege#*:}
 			# Append group to list
 			case ${perms} in
 			0)	[ -n "${deny}" ] && deny="${deny},";
-				deny="${deny}@${name}";;
+				deny="${deny}@\"${name}\"";;
 			5)
 				[ -n "${readlist}" ] && readlist="${readlist},";
-				readlist="${readlist}@${name}";
+				readlist="${readlist}@\"${name}\"";
 				[ -n "${allow}" ] && allow="${allow},";
-				allow="${allow}@${name}";;
+				allow="${allow}@\"${name}\"";;
 			7)
 				[ -n "${writelist}" ] && writelist="${writelist},";
-				writelist="${writelist}@${name}";
+				writelist="${writelist}@\"${name}\"";
 				[ -n "${allow}" ] && allow="${allow},";
-				allow="${allow}@${name}";;
+				allow="${allow}@\"${name}\"";;
 			esac
 		done
+		unset IFS
 
 		accessrights=""
 		[ -n "${allow}" ] && accessrights="${accessrights} allow:${allow}"
