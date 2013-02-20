@@ -94,6 +94,7 @@ xmlstarlet sel -t -m "//services/usbbackup/jobs/job" \
 		-i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
 		-o " \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -v "concat(' \"${OMV_MOUNT_DIR}/',fsuuid,'\" & wait \$!')" -n \
 		-o "sync" -n \
+		-v "concat('umount \"${OMV_MOUNT_DIR}/',fsuuid,'\"')" -n \
 		-o "omv_beep_ok" \
 		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${filename}
 	  chmod ${OMV_USBBACKUP_SCRIPTS_MASK} ${filename}
