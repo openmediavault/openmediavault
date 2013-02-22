@@ -1,6 +1,7 @@
 openmediavault-usbbackup (0.4.4) stable; urgency=low
 
   * Unmount USB device after synchronisation has been finished.
+  * Mantis 0000726: Support multiple "Shared folders" to the same "Volume".
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Feb 2013 17:43:46 +0100
 

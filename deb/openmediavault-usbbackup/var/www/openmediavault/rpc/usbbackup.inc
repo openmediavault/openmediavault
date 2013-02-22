@@ -280,13 +280,6 @@ class UsbBackupRpc extends OMVRpc {
 		// Set configuration data.
 		$success = FALSE;
 		if($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Check for duplicates.
-			$xpath = sprintf("//services/usbbackup/jobs/job[fsuuid='%s']",
-			  $data['fsuuid']);
-			if(TRUE === $xmlConfig->exists($xpath)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
-				  gettext("A backup job already exists for this storage device"));
-			}
 			// Append object to configuration.
 			$success = $xmlConfig->set("//services/usbbackup/jobs",
 			  array("job" => $object));
