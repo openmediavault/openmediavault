@@ -65,7 +65,7 @@ Ext.extend(OMV.form.PasswordField, Ext.form.TriggerField, {
 			if(el.dom.className) newEl.className = el.dom.className;
 			if(el.dom.readOnly) newEl.readOnly = el.dom.readOnly;
 			if(el.dom.style.width) newEl.style.width = el.dom.style.width;
-			el.replaceWith(htmlEl);
+			el.replaceWith(newEl);
 		}
 	}
 });
