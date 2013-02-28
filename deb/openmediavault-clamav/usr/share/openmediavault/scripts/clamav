@@ -254,7 +254,7 @@ chmod 0644 "${OMV_CLAMAV_CLAMD_LOGROTATE_CONFIG}"
 # Only write a seperate logrotate configuration file for clamav-freshclam if
 # it does not use the same logfile as clamd.
 rm -f ${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}
-if [ ${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE} != ${OMV_CLAMAV_CLAMD_LOGFILE} ]; then
+if [ "${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE}" != "${OMV_CLAMAV_CLAMD_LOGFILE}" ]; then
 	cat <<EOF > ${OMV_CLAMAV_FRESHCLAM_LOGROTATE_CONFIG}
 ${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE} {
 	rotate 12
