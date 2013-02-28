@@ -1,5 +1,6 @@
 openmediavault (0.4.25) stable; urgency=low
 
+  * Update locales.
   * Mantis 0000731: Relocate monit.state file.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 28 Feb 2013 18:21:47 +0100
