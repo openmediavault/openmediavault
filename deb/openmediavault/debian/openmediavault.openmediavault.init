@@ -14,8 +14,6 @@
 
 do_start() {
 	log_action_begin_msg "Cleaning up"
-	# Remove monit.state file
-	rm -f /var/lib/monit/monit.state
 	# Cleanup PHP session files
 	rm -f /var/lib/php5/*
 	log_action_end_msg "$?"
