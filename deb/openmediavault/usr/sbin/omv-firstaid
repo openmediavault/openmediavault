@@ -192,14 +192,14 @@ reset_webgui_passwd() {
 	local passwd
 	while [ -z ${passwd} ]; do
 		whiptail --clear --passwordbox \
-		  "Please enter the WebGUI password for user 'admin'." 8 60 2>$tempfile
+		  "Please enter the new WebGUI administrator password." 8 55 2>$tempfile
 		[ $? -ne 0 ] && return 1
 		passwd=$(cat $tempfile)
 		if [ -z ${passwd} ]; then
 			whiptail --clear --msgbox "The password must not be empty." 8 35
 		fi
 	done
-	echo "Updating administrator password. Please wait ..."
+	echo "Updating WebGUI administrator password. Please wait ..."
 	omv-rpc "WebGUI" "setPassword" "{\"password\":\"${passwd}\"}" >/dev/null
 	return 0
 }
@@ -215,7 +215,7 @@ prodcopyright=$(xmlstarlet sel -t -v "//copyright" ${OMV_PRODUCTINFO_FILE} | xml
 whiptail --nocancel --clear --backtitle "${prodname} - ${prodcopyright}" --title "First aid" --menu "Please select a menu:" 12 65 4 \
   "1" "Configure network interface" \
   "2" "Configure WebGUI" \
-  "3" "Change WebGUI password" \
+  "3" "Change WebGUI administrator password" \
   "4" "Exit" 2>$tempfile
 [ $? -ne 0 ] && return 1
 choice=$(cat $tempfile)
