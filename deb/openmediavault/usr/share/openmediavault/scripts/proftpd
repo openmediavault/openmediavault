@@ -247,10 +247,10 @@ while [ ${index} -gt 0 ]; do
 		case ${perms} in
 		5)
 			[ -n "${limitread_allowuser}" ] && limitread_allowuser="${limitread_allowuser},";
-			limitread_allowuser="${limitread_allowuser}\"${name}\"";;
+			limitread_allowuser="${limitread_allowuser}${name}";;
 		7)
 			[ -n "${limitall_allowuser}" ] && limitall_allowuser="${limitall_allowuser},";
-			limitall_allowuser="${limitall_allowuser}\"${name}\"";;
+			limitall_allowuser="${limitall_allowuser}${name}";;
 		esac
 	done
 	unset IFS
@@ -270,10 +270,10 @@ while [ ${index} -gt 0 ]; do
 		case ${perms} in
 		5)
 			[ -n "${limitread_allowgroup}" ] && limitread_allowgroup="${limitread_allowgroup},";
-			limitread_allowgroup="${limitread_allowgroup}\"${name}\"";;
+			limitread_allowgroup="${limitread_allowgroup}${name}";;
 		7)
 			[ -n "${limitall_allowgroup}" ] && limitall_allowgroup="${limitall_allowgroup},";
-			limitall_allowgroup="${limitall_allowgroup}\"${name}\"";;
+			limitall_allowgroup="${limitall_allowgroup}${name}";;
 		esac
 	done
 	unset IFS

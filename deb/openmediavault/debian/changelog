@@ -1,6 +1,7 @@
 openmediavault (0.4.25) stable; urgency=low
 
   * Update locales.
+  * Fix FTP shared folder issue.
   * Mantis 0000731: Relocate monit.state file.
   * Mantis 0000733: Display more informations in welcome message.
 
