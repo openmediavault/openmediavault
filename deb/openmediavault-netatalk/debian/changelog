@@ -1,3 +1,10 @@
+openmediavault-netatalk (0.4.6) stable; urgency=low
+
+  * Improve user access configuration. Thanks to Edmar Dominicci and
+    James Baker for their help to fix this issue.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 04 Mar 2013 20:02:17 +0100
+
 openmediavault-netatalk (0.4.5) stable; urgency=low
 
   * Improve guest account configuration.

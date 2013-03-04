@@ -117,6 +117,9 @@ case "$1" in
 			omv_config_add_element "//services/afp/shares/share" "guestrw" "0"
 			omv-mkconf netatalk
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.6"; then
+			omv-mkconf netatalk
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
