@@ -1,3 +1,9 @@
+openmediavault (0.4.25.1) stable; urgency=low
+
+  * Fix bug in package postinst script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 04 Mar 2013 21:01:59 +0100
+
 openmediavault (0.4.25) stable; urgency=low
 
   * Update locales.
