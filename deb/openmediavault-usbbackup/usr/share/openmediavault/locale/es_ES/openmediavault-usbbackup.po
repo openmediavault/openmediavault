@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-15 15:26+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-02-24 20:42+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgid "A backup job already exists for this storage device"
 msgstr ""
 
 msgid "Add USB backup job"
-msgstr ""
+msgstr "Añadir un backup USB"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -32,7 +33,7 @@ msgid "Archive"
 msgstr ""
 
 msgid "Comment"
-msgstr ""
+msgstr "Comentario"
 
 msgid "Compress"
 msgstr ""
@@ -50,7 +51,7 @@ msgid "Device '%s' not found"
 msgstr ""
 
 msgid "Edit USB backup job"
-msgstr ""
+msgstr "Editar Backup USB"
 
 msgid "Enable"
 msgstr ""
@@ -87,10 +88,10 @@ msgstr ""
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Por favor vea: <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> para más detalles."
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "Conservar ACLs"
 
 msgid "Preserve extended attributes"
 msgstr ""
@@ -105,13 +106,13 @@ msgid "Quiet"
 msgstr ""
 
 msgid "Recurse into directories."
-msgstr ""
+msgstr "Navegar  recursivamente entre los directorios"
 
 msgid "Recursive"
 msgstr ""
 
 msgid "Run"
-msgstr ""
+msgstr "Ejecutar"
 
 msgid "Select a volume ..."
 msgstr ""
