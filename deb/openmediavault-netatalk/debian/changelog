@@ -1,5 +1,6 @@
 openmediavault-netatalk (0.4.6) stable; urgency=low
 
+  * Update locales.
   * Improve user access configuration. Thanks to Edmar Dominicci and
     James Baker for their help to fix this issue.
 
