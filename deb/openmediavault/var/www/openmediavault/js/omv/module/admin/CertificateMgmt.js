@@ -375,7 +375,7 @@ Ext.extend(OMV.Module.System.CreateCertificateDialog, OMV.FormPanelDialog, {
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
-			value: 1024,
+			value: 2048,
 			plugins: [ OMV.form.plugins.FieldInfo ],
 			infoText: _("The RSA key length.")
 		},{

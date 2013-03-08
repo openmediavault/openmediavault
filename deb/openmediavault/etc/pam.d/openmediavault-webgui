@@ -1,1 +1,5 @@
+#
+# The PAM configuration file for the OpenMediaVault web management console
+#
+
 @include common-auth
