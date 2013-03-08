@@ -74,6 +74,7 @@ Ext.extend(OMV.Module.Privileges.DirectoryService.Settings,
 				name: "host",
 				fieldLabel: _("Host"),
 				allowBlank: false,
+				vtype: "domainnameIPv4",
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: _("The FQDN or IP address of the server.")
 			},{
@@ -103,14 +104,16 @@ Ext.extend(OMV.Module.Privileges.DirectoryService.Settings,
 				fieldLabel: _("Users suffix"),
 				allowBlank: false,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: _("Specifies the user suffix, e.g. 'ou=Users'.")
+				infoText: _("Specifies the user suffix, e.g. 'ou=Users'."),
+				value: "ou=Users"
 			},{
 				xtype: "textfield",
 				name: "groupsuffix",
 				fieldLabel: _("Groups suffix"),
 				allowBlank: false,
 				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: _("Specifies the group suffix, e.g. 'ou=Groups'.")
+				infoText: _("Specifies the group suffix, e.g. 'ou=Groups'."),
+				value: "ou=Groups"
 			},{
 				xtype: "textfield",
 				name: "extraoptions",
