@@ -4,15 +4,15 @@
 # 
 # Translators:
 #   <jmcainzos@vodafone.es>, 2012.
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012.
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2013.
 # Volker  <votdev@gmx.de>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-10 00:15+0100\n"
-"PO-Revision-Date: 2013-02-09 23:15+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-03-06 21:13+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,22 +21,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid " "
-msgstr ""
+msgstr " "
 
 msgid "Add share"
 msgstr "Añadir compartido"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "Propiedades avanzadas"
 
 msgid "Advertise this service via mDNS/DNS-SD."
 msgstr "Anunciar este servicio vía mDNS/DNS-SD."
 
 msgid "Allow guest login."
-msgstr ""
+msgstr "Permitir login de invitado"
 
 msgid "Allow guests to create or modify files."
-msgstr ""
+msgstr "Permitir a los invitados crear o modificar ficheros."
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr "Permitir Login con contraseñas en claro"
@@ -87,10 +87,10 @@ msgid "General settings"
 msgstr "Opciones generales"
 
 msgid "Guest login"
-msgstr ""
+msgstr "Login de invitado"
 
 msgid "Guests only have read access by default."
-msgstr ""
+msgstr "Los invitados solo tienen acceso de lectura por defecto."
 
 msgid "Hide dot files"
 msgstr "Ocultar archivos con punto \".\""
