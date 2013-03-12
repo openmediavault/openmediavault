@@ -1,3 +1,9 @@
+openmediavault-clamav (0.4.7) stable; urgency=low
+
+  * Various cosmetic improvements in WebGUI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 12 Mar 2013 12:11:58 +0100
+
 openmediavault-clamav (0.4.6) stable; urgency=low
 
   * Mantis 0000732: Logrotate has duplicate entry for /var/log/clamav/clamav.log.
