@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-15 15:27+0000\n"
+"POT-Creation-Date: 2013-03-12 13:08+0100\n"
+"PO-Revision-Date: 2013-03-12 12:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -17,9 +17,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "A backup job already exists for this storage device"
-msgstr "Ein Datensicherungsauftrag existiert bereits für dieses Speichergerät"
 
 msgid "Add USB backup job"
 msgstr "Backup Job hinzufügen"
@@ -82,8 +79,17 @@ msgstr "Konnte Dateisysteme nicht ermitteln"
 msgid "Filesystem '%s' not found"
 msgstr "Das Dateisystem '%s' wurde nicht gefunden"
 
+msgid "From external storage to shared folder"
+msgstr "Von externem Speichermedium in freigegebenen Ordner"
+
+msgid "From shared folder to external storage"
+msgstr "Von freigegebenem Ordner auf externes Speichermedium"
+
 msgid "Keep partially transferred files"
 msgstr "Teilweise übertragene Dateien behalten"
+
+msgid "Mode"
+msgstr "Modus"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -113,6 +119,9 @@ msgstr "Rekursiv"
 
 msgid "Run"
 msgstr "Ausführen"
+
+msgid "Running"
+msgstr "Läuft"
 
 msgid "Select a volume ..."
 msgstr "Wähle einen Datenträger ..."

@@ -53,7 +53,8 @@ OMV.Module.Services.UsbBackup.JobsGridPanel = function(config) {
 				id: "enable",
 				align: "center",
 				width: 60,
-				renderer: OMV.util.Format.booleanIconRenderer()
+				renderer: OMV.util.Format.booleanIconRenderer(
+				  "switch_on.png", "switch_off.png")
 			},{
 				header: _("Shared folder"),
 				sortable: true,
@@ -69,6 +70,14 @@ OMV.Module.Services.UsbBackup.JobsGridPanel = function(config) {
 				sortable: true,
 				dataIndex: "comment",
 				id: "comment"
+			},{
+				header: _("Running"),
+				sortable: true,
+				dataIndex: "running",
+				id: "running",
+				align: "center",
+				width: 60,
+				renderer: OMV.util.Format.booleanIconRenderer()
 			}]
 		})
 	};
@@ -95,7 +104,8 @@ Ext.extend(OMV.Module.Services.UsbBackup.JobsGridPanel,
 					{ name: "enable" },
 					{ name: "fsuuid" },
 					{ name: "sharedfoldername" },
-					{ name: "comment" }
+					{ name: "comment" },
+					{ name: "running" }
     			]
 			})
 		});
@@ -226,6 +236,25 @@ Ext.extend(OMV.Module.Services.UsbBackup.JobPropertyDialog,
 			fieldLabel: _("Enable"),
 			checked: true,
 			inputValue: 1
+		},{
+			xtype: "combo",
+			name: "mode",
+			hiddenName: "mode",
+			fieldLabel: _("Mode"),
+			mode: "local",
+			store: new Ext.data.SimpleStore({
+				fields: [ "value","text" ],
+				data: [
+					[ "push",_("From shared folder to external storage") ],
+					[ "pull",_("From external storage to shared folder") ]
+				]
+			}),
+			displayField: "text",
+			valueField: "value",
+			allowBlank: false,
+			editable: false,
+			triggerAction: "all",
+			value: "push"
 		},{
 			xtype: "textfield",
 			name: "comment",

@@ -50,6 +50,7 @@ class UsbBackupRpc extends OMVRpc {
 				"properties":{
 					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
 					"enable":{"type":"boolean"},
+					"mode":{"type":"string","enum":["push","pull"]},
 					"sendemail":{"type":"boolean"},
 					"comment":{"type":"string"},
 					"fsuuid":{"type":"string","optional":true},
@@ -184,6 +185,9 @@ class UsbBackupRpc extends OMVRpc {
 			if(!is_null($sfobject) && !empty($sfobject)) {
 				$objectv['sharedfoldername'] = $sfobject['name'];
 			}
+			// Get job status.
+			$objectv['running'] = file_exists(sprintf("/var/run/sync-%s",
+			  $objectv['fsuuid']));
 			// Modify result data.
 			$objectv['enable'] = boolval($objectv['enable']);
 			$objectv['sendemail'] = boolval($objectv['sendemail']);
@@ -261,6 +265,7 @@ class UsbBackupRpc extends OMVRpc {
 			"uuid" => ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $data['uuid'],
 			"enable" => array_boolval($data, 'enable'),
+			"mode" => $data['mode'],
 			"sendemail" => array_boolval($data, 'sendemail'),
 			"comment" => $data['comment'],
 			"fsuuid" => $data['fsuuid'],

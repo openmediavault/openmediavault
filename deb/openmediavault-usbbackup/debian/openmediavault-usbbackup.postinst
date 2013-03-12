@@ -42,6 +42,7 @@ case "$1" in
 		#         <job>
 		#           <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 		#           <enable>0|1</enable>
+		#           <mode>push|pull</mode>
 		#           <sendemail>0|1<sendemail>
 		#           <comment>xxx</comment>
 		#           <fsuuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxxx-xxxx</fsuuid>
@@ -79,6 +80,9 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.4.3"; then
 			omv-mkconf usbbackup
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.6"; then
+			omv_config_add_element "//services/usbbackup/jobs/job" "mode" "push"
 		fi
 	;;
 

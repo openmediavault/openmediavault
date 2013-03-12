@@ -8,18 +8,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-16 09:59+0000\n"
-"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
+"POT-Creation-Date: 2013-03-12 13:08+0100\n"
+"PO-Revision-Date: 2013-03-12 12:08+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid "A backup job already exists for this storage device"
-msgstr "Xa existe un traballo de copia de seguranza para este dispositivo"
 
 msgid "Add USB backup job"
 msgstr "Engadir un traballo de copia de seguranza"
@@ -82,8 +79,17 @@ msgstr "Produciuse un erro ao obter o sistema de ficheiros"
 msgid "Filesystem '%s' not found"
 msgstr "Non se atopou o sistema de ficheiros «%s»"
 
+msgid "From external storage to shared folder"
+msgstr ""
+
+msgid "From shared folder to external storage"
+msgstr ""
+
 msgid "Keep partially transferred files"
 msgstr "Manter os ficheiros transferidos parcialmente"
+
+msgid "Mode"
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -113,6 +119,9 @@ msgstr "Recursivo"
 
 msgid "Run"
 msgstr "Executar"
+
+msgid "Running"
+msgstr ""
 
 msgid "Select a volume ..."
 msgstr "Seleccione o volume ..."
