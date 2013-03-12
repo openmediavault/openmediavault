@@ -18,8 +18,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/MessageBox.js")
-// require("js/omv/data/Connection.js")
 
 Ext.ns("OMV");
 

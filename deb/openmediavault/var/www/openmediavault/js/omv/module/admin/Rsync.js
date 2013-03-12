@@ -627,7 +627,8 @@ OMV.Module.Services.Rsync.JobsGridPanel = function(config) {
 				id: "enable",
 				align: "center",
 				width: 60,
-				renderer: OMV.util.Format.booleanIconRenderer()
+				renderer: OMV.util.Format.booleanIconRenderer(
+				  "switch_on.png", "switch_off.png")
 			},{
 				header: _("Source"),
 				sortable: true,
