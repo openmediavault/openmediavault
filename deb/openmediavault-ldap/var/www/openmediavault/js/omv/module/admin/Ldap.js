@@ -50,11 +50,6 @@ OMV.Module.Privileges.DirectoryService.Settings = function(config) {
 };
 Ext.extend(OMV.Module.Privileges.DirectoryService.Settings,
   OMV.FormPanelExt, {
-	initComponent : function() {
-		OMV.Module.Privileges.DirectoryService.Settings.superclass.
-		  initComponent.apply(this, arguments);
-	},
-
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
@@ -77,6 +72,19 @@ Ext.extend(OMV.Module.Privileges.DirectoryService.Settings,
 				vtype: "domainnameIPv4",
 				plugins: [ OMV.form.plugins.FieldInfo ],
 				infoText: _("The FQDN or IP address of the server.")
+			},{
+				xtype: "numberfield",
+				name: "port",
+				fieldLabel: "Port",
+				vtype: "port",
+				minValue: 1,
+				maxValue: 65535,
+				allowDecimals: false,
+				allowNegative: false,
+				allowBlank: false,
+				plugins: [ OMV.form.plugins.FieldInfo ],
+				infoText: _("Specifies the port to connect to."),
+				value: 389
 			},{
 				xtype: "textfield",
 				name: "base",

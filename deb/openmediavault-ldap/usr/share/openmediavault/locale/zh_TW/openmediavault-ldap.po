@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-19 16:20+0200\n"
-"PO-Revision-Date: 2012-12-31 21:08+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
+"POT-Creation-Date: 2013-03-20 18:53+0100\n"
+"PO-Revision-Date: 2013-03-20 17:53+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -45,6 +45,11 @@ msgstr "LDAP"
 msgid "Password"
 msgstr "密碼"
 
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+
 msgid "Root Bind DN"
 msgstr "根目錄綁定 DN"
 
@@ -63,6 +68,9 @@ msgstr "指定基準辨別名稱(DN)來與做查詢的目錄伺服器綁定，�
 
 msgid "Specifies the group suffix, e.g. 'ou=Groups'."
 msgstr "指定群組後置詞，例如：'ou=Groups'。"
+
+msgid "Specifies the port to connect to."
+msgstr ""
 
 msgid "Specifies the user suffix, e.g. 'ou=Users'."
 msgstr "指定用戶後置詞，例如：'ou=Users'。"

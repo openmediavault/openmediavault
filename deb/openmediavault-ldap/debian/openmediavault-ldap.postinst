@@ -42,6 +42,7 @@ case "$1" in
 		#     <ldap>
 		#       <enable>0</enable>
 		#       <host></host>
+		#       <port>389</port>
 		#       <base></base>
 		#       <rootbinddn></rootbinddn>
 		#       <rootbindpw></rootbindpw>
@@ -56,6 +57,7 @@ case "$1" in
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
 			object="${object}<host></host>"
+			object="${object}<port>389</port>"
 			object="${object}<base></base>"
 			object="${object}<rootbinddn></rootbinddn>"
 			object="${object}<rootbindpw></rootbindpw>"
@@ -69,6 +71,9 @@ case "$1" in
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "0.4.3"; then
+			omv_config_add_element "//services/ldap" "port" "389"
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

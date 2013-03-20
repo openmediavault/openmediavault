@@ -1,3 +1,10 @@
+openmediavault-ldap (0.4.3) stable; urgency=low
+
+  * Update locales.
+  * Add option to configure port.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Mar 2013 18:40:31 +0100
+
 openmediavault-ldap (0.4.2) stable; urgency=low
 
   * Update locales.

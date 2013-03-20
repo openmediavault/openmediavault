@@ -42,7 +42,7 @@ rootbindpw=$(omv_config_get "//services/ldap/rootbindpw")
 xmlstarlet sel -t -m "//services/ldap" \
   -o "#======================= LDAP Settings =======================" -n \
   -o "security = user" -n \
-  -v "concat('passdb backend = ldapsam:ldap://',host)" -n \
+  -v "concat('passdb backend = ldapsam:ldap://',host)" -i "string-length(port) > 0" -v "concat(':',port)" -b -n \
   -v "concat('ldap suffix = ',base)" -n \
   -v "concat('ldap admin dn = ',rootbinddn)" -n \
   -v "concat('ldap user suffix = ',usersuffix)" -n \

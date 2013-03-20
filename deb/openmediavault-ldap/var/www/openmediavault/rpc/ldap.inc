@@ -35,6 +35,7 @@ class LDAPRpc extends OMVRpc {
 				"properties":{
 					"enable":{"type":"boolean"},
 					"host":{"type":"string"},
+					"port":{"type":"integer","minimum":1,"maximum":65535},
 					"base":{"type":"string"},
 					"rootbinddn":{"type":"string"},
 					"rootbindpw":{"type":"string"},
@@ -69,6 +70,7 @@ class LDAPRpc extends OMVRpc {
 		}
 		// Modify result data.
 		$object['enable'] = boolval($object['enable']);
+		$object['port'] = intval($object['port']);
 		return $object;
 	}
 
@@ -106,6 +108,7 @@ class LDAPRpc extends OMVRpc {
 		$object = array(
 			"enable" => array_boolval($data, 'enable'),
 			"host" => trim($data['host']),
+			"port" => $data['port'],
 			"base" => trim($data['base']),
 			"rootbinddn" => trim($data['rootbinddn']),
 			"rootbindpw" => $data['rootbindpw'],
