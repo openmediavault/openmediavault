@@ -19,7 +19,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/data/Connection.js")
-// require("js/omv/LoginDialog.js")
 
 Ext.ns("OMV");
 

@@ -1,3 +1,10 @@
+openmediavault (0.4.27) stable; urgency=low
+
+  * Update locales.
+  * Various cosmetic improvements in WebGUI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Mar 2013 19:01:32 +0100
+
 openmediavault (0.4.26) stable; urgency=low
 
   * Set default key size in the SSL certificate property dialog to 2048b.

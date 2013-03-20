@@ -257,7 +257,7 @@ class OMVWebGuiLogin extends OMVHtmlPage {
 								document.location.reload(true);
 							} else {
 								OMV.MessageBox.failure(null,
-								  "Incorrect username or password.");
+								  _("Incorrect username or password."));
 							}
 						}
 					}

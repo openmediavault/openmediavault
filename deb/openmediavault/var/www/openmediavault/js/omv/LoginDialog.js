@@ -68,7 +68,8 @@ Ext.extend(OMV.LoginDialog, OMV.Window, {
 				name: "username",
 				blankText: _("Enter your username"),
 				autoComplete: false,
-				autoCapitalize: false
+				autoCapitalize: false,
+				allowBlank: false
 			},{
 				id: "password",
 				xtype: "passwordfield",
@@ -117,6 +118,8 @@ Ext.extend(OMV.LoginDialog, OMV.Window, {
 	cbLoginBtnHdl : function() {
 		// Get the username and password
 		var basicForm = this.form.getForm();
+		if(!basicForm.isValid())
+			return;
 		var values = basicForm.getValues();
 		// Execute RPC
 		OMV.Ajax.request(function(id, response, error) {

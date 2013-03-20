@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-01 19:27+0100\n"
-"PO-Revision-Date: 2013-02-01 18:28+0000\n"
+"POT-Creation-Date: 2013-03-14 02:55+0100\n"
+"PO-Revision-Date: 2013-03-14 01:56+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -1432,6 +1432,9 @@ msgid ""
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "Egyes esetekben meg kell adnod passzív port tartományokat a tűzfal korlátozások kikerüléséhez A passzív portok korlátozhatják a portok tartományát, melyből a szerver válogathat, mikor a kliens elküldi a PASV parancsot. A szerver véletlenszerűen választ egy portot a tartományból addig, amíg nyitott portot nem talál. A kiválasztott port tartománynak nem privilegizált tartománynak kell lennie (pl. nagyobb vagy egyenlő mint 1024). Erősen ajánlott olyan nagy tartomány választása, mely elég nagy több passzív kapcsolat egyidejű használatához (például: 49152-65534, az IANA-regisztrált rövid idejű port tartomány)."
 
+msgid "Incorrect username or password."
+msgstr ""
+
 msgid "India"
 msgstr "India"
 
@@ -1467,9 +1470,6 @@ msgstr "Telepítve"
 
 msgid "Interfaces"
 msgstr "Interfészek"
-
-msgid "Invalid comment"
-msgstr "Érvénytelen megjegyzés"
 
 msgid "Invalid domain name"
 msgstr "Érvénytelen domain név"
@@ -2918,6 +2918,9 @@ msgstr "A változások alkalmazva lettek"
 
 msgid "The changes have been applied successfully."
 msgstr "A változások sikeresen alkalmazva lettek."
+
+msgid "The comment contains invalid characters"
+msgstr ""
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "Az alapértelmezett SMTP levél szerver portja, pl. 25 vagy 587."

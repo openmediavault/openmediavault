@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-01 19:27+0100\n"
-"PO-Revision-Date: 2013-02-05 22:44+0000\n"
+"POT-Creation-Date: 2013-03-14 02:55+0100\n"
+"PO-Revision-Date: 2013-03-15 23:06+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -1433,6 +1433,9 @@ msgid ""
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "在某些情況下，你必須指定被動通訊埠範圍來避開防火牆的限制。當客戶端送來 PASV 指令時，被動通訊埠限制了伺服器選用通訊埠的範圍。伺服器將在指定範圍內隨機選擇一個號碼，直到找到一個開放的通訊埠。所選的通訊埠範圍必須是在非特權的範圍內(例如：大於或等於1024)。我們強烈建議，選擇的範圍應大到足以處理許多同時發生的被動連線(例如：49152-65534，這是 IANA 註冊的短暫使用通訊埠範圍)。"
 
+msgid "Incorrect username or password."
+msgstr "用戶名稱或密碼不正確。"
+
 msgid "India"
 msgstr "印度"
 
@@ -1468,9 +1471,6 @@ msgstr "已安裝"
 
 msgid "Interfaces"
 msgstr "介面"
-
-msgid "Invalid comment"
-msgstr "不合法的註釋"
 
 msgid "Invalid domain name"
 msgstr "不合法的網域名稱"
@@ -2919,6 +2919,9 @@ msgstr "變更已被套用"
 
 msgid "The changes have been applied successfully."
 msgstr "變更已被成功地套用。"
+
+msgid "The comment contains invalid characters"
+msgstr "註釋內含有無效字符"
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "預設的 SMTP 郵件伺服器通訊埠，例如 25 或 587。"

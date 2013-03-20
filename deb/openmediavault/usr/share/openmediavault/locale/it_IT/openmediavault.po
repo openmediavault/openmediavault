@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-01 19:27+0100\n"
-"PO-Revision-Date: 2013-02-21 23:24+0000\n"
+"POT-Creation-Date: 2013-03-14 02:55+0100\n"
+"PO-Revision-Date: 2013-03-14 20:14+0000\n"
 "Last-Translator: polxmod <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -1436,6 +1436,9 @@ msgid ""
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "In alcuni casi è necessario specificare un intervallo di porte passive per by-passare le restrizioni del firewall. Le porte passive riducono l'intervallo di porte dalle quali il server potrà scegliere per inviare il comando PASV di un client. Il server sceglierà casualmente un numero di porta fra quelle specificate nell'intervallo finché non troverà una porta aperta. L'intervallo di porte impostato non deve contenere porte privilegiate (es. deve essere maggiore o uguale alla 1024). E' fortemente raccomandato che l'intervallo scelto sia grande abbastanza per consentire la gestione simultanea di più connessioni passive (per esempio, 49152-65534, l'intervallo di porte \"effimere\" suggerito da IANA)"
 
+msgid "Incorrect username or password."
+msgstr "Username o password errate.."
+
 msgid "India"
 msgstr "India"
 
@@ -1471,9 +1474,6 @@ msgstr "Installato"
 
 msgid "Interfaces"
 msgstr "Interfacce"
-
-msgid "Invalid comment"
-msgstr "Commento non valido"
 
 msgid "Invalid domain name"
 msgstr "Domain name non valido"
@@ -2922,6 +2922,9 @@ msgstr "I cambiamenti sono stati applicati"
 
 msgid "The changes have been applied successfully."
 msgstr "I cambiamenti sono stati applicati con successo."
+
+msgid "The comment contains invalid characters"
+msgstr "Il commento contiene caratteri non validi"
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "La porta predefinita per il server di posta SMTP, es. 25 o 587."

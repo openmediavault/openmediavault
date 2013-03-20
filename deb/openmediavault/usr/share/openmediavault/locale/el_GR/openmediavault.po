@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-01 19:27+0100\n"
-"PO-Revision-Date: 2013-02-02 06:30+0000\n"
+"POT-Creation-Date: 2013-03-14 02:55+0100\n"
+"PO-Revision-Date: 2013-03-19 17:55+0000\n"
 "Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -1432,6 +1432,9 @@ msgid ""
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "Σε μερικές περιπτώσεις θα πρέπει να ορίσετε ένα εύρος παθητικών θυρών για να παρακάμψετε τους περιορισμούς του συστήματος ασφαλείας. Οι παθητικές θύρες περιορίζουν το εύρος των θυρών απο τις οποίες θα επιλέγει ο διακομιστής όταν δέχεται την εντολή PASV από έναν πελάτη. Θα επιλέγεται τυχαία κάποια θύρα από το δωσμένο εύρος, ώσπου να βρεθεί κάποια ανοιχτή. Οι δωσμένες θύρες θα πρέπει μην βρίσκονται στο προνομιακό εύρος (δηλαδή πρέπει να είναι πάνω από το 1024). Συνίσταται να δωθεί αρκετά μεγάλο εύρος (π.χ. 49152-65534), ώστε να υπάρχει περιθώριο χειρισμού αρκετών ταυτόχρονων παθητικών συνδέσεων."
 
+msgid "Incorrect username or password."
+msgstr "Λανθασμένο όνομα χρήστη ή κωδικός."
+
 msgid "India"
 msgstr "India"
 
@@ -1467,9 +1470,6 @@ msgstr "Εγκατεστημένο"
 
 msgid "Interfaces"
 msgstr "Διεπαφές"
-
-msgid "Invalid comment"
-msgstr "Άκυρο σχόλιο"
 
 msgid "Invalid domain name"
 msgstr "Άκυρο όνομα τομέα"
@@ -2918,6 +2918,9 @@ msgstr "Οι αλλαγές εφαρμόστηκαν."
 
 msgid "The changes have been applied successfully."
 msgstr "Οι αλλαγές εφαρμόστηκαν επιτυχώς."
+
+msgid "The comment contains invalid characters"
+msgstr "Το σχόλιο περιέχει μη-αποδεκτούς χαρακτήρες"
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "Η εξ'ορισμού θύρα του ταχυδρομικου διακομιστή SMTP, π.χ. 25 ή 587."

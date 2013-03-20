@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-01 19:27+0100\n"
+"POT-Creation-Date: 2013-03-14 02:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1364,6 +1364,9 @@ msgstr ""
 msgid "In some cases you have to specify passive ports range to by-pass firewall limitations. Passive ports restricts the range of ports from which the server will select when sent the PASV command from a client. The server will randomly choose a number from within the specified range until an open port is found. The port range selected must be in the non-privileged range (eg. greater than or equal to 1024). It is strongly recommended that the chosen range be large enough to handle many simultaneous passive connections (for example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr ""
 
+msgid "Incorrect username or password."
+msgstr ""
+
 msgid "India"
 msgstr ""
 
@@ -1398,9 +1401,6 @@ msgid "Installed"
 msgstr ""
 
 msgid "Interfaces"
-msgstr ""
-
-msgid "Invalid comment"
 msgstr ""
 
 msgid "Invalid domain name"
@@ -2790,6 +2790,9 @@ msgid "The changes have been applied "
 msgstr ""
 
 msgid "The changes have been applied successfully."
+msgstr ""
+
+msgid "The comment contains invalid characters"
 msgstr ""
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."

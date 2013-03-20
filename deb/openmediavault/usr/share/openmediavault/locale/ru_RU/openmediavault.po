@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-01 19:27+0100\n"
-"PO-Revision-Date: 2013-02-03 09:38+0000\n"
+"POT-Creation-Date: 2013-03-14 02:55+0100\n"
+"PO-Revision-Date: 2013-03-19 08:18+0000\n"
 "Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -1437,6 +1437,9 @@ msgid ""
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "В некоторых случаях необходимо определить пассивный диапазон портов, чтобы обойти ограничения брандмауэра. При получении от клиента команды PASV, сервер в произвольном порядке выбирает из заданного диапазона пассивных портов, пока не будет найден открытый порт. Выбранный диапазон портов должен быть в непривилегированном диапазоне (например, больше или равным 1024). Строго рекомендуется, чтобы выбранный диапазон был достаточно большим, чтобы обработать много одновременных пассивных соединений (например, 49152-65534, зарегистрированный В IANA эфемерный диапазон портов)."
 
+msgid "Incorrect username or password."
+msgstr "Неправильное имя пользователя или пароль."
+
 msgid "India"
 msgstr "Индия"
 
@@ -1472,9 +1475,6 @@ msgstr "установленный"
 
 msgid "Interfaces"
 msgstr "Интерфейсы"
-
-msgid "Invalid comment"
-msgstr "Недопустимый комментарий"
 
 msgid "Invalid domain name"
 msgstr "Неверное имя домена"
@@ -2923,6 +2923,9 @@ msgstr "Изменения применены"
 
 msgid "The changes have been applied successfully."
 msgstr "Изменения успешно применены."
+
+msgid "The comment contains invalid characters"
+msgstr "Комментарий содержит недопустимые символы"
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "SMTP порт сервера по умолчанию, например 25 или 587."

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-01 19:27+0100\n"
-"PO-Revision-Date: 2013-03-03 12:32+0000\n"
+"POT-Creation-Date: 2013-03-14 02:55+0100\n"
+"PO-Revision-Date: 2013-03-14 08:01+0000\n"
 "Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -1433,6 +1433,9 @@ msgid ""
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "Nalgúns casos ten que especificar o intervalo de portos pasivos para as limitacións do desvío da devasa. Os portos pasivos restrinxen o intervalo de portos desde os que se seleccionará o servidor cando se envía a orde PASV desde un cliente. O servidor seleccionará ao chou un número dentro do intervalo especificado ata que atopa un porto aberto. O intervalo de portos seleccionado debe estar nun intervalo non privilexiado (p.ex. maior que ou igual a 1024). Recomendase que o intervalo escollido sexa grande abondo como para manexar moitas conexións pasivas simultáneas (por exemplo, 49152-65534, o intervalo efémero de portos rexistrados IANA)."
 
+msgid "Incorrect username or password."
+msgstr "Nome de usuario ou contrasinal incorrecto"
+
 msgid "India"
 msgstr "India"
 
@@ -1468,9 +1471,6 @@ msgstr "Instalado"
 
 msgid "Interfaces"
 msgstr "Interfaces"
-
-msgid "Invalid comment"
-msgstr "Comentario incorrecto"
 
 msgid "Invalid domain name"
 msgstr "Nome de dominio incorrecto"
@@ -2919,6 +2919,9 @@ msgstr "os cambios foron aplicados"
 
 msgid "The changes have been applied successfully."
 msgstr "Os cambios foron aplicados satisfactoriamente."
+
+msgid "The comment contains invalid characters"
+msgstr "O comentario contén caracteres incorrectos"
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "O porto predeterminado do servidor de correo SMTP, p.ex. 25 ou 587."

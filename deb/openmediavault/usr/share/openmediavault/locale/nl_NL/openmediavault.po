@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-01 19:27+0100\n"
-"PO-Revision-Date: 2013-02-01 18:27+0000\n"
+"POT-Creation-Date: 2013-03-14 02:55+0100\n"
+"PO-Revision-Date: 2013-03-14 01:56+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -1434,6 +1434,9 @@ msgid ""
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "In sommige gevallen moet je het bereik van passieve poorten opgeven om firewall beperkingen te omzeilen. Passieve poorten beperken het bereik van poorten van waaruit de server zal kiezen, wanneer het PASV commando van een cliënt is verzonden. De server zal willekeurig een nummer kiezen vanuit het opgegeven bereik totdat een open poort is gevonden. Het geselecteerde poortbereik moet in het niet-geprivilegieerde bereik liggen (b.v. groter of gelijk aan 1024). Het wordt ten zeerste aanbevolen dat het gekozen bereik groot genoeg is om veel gelijktijdige passieve verbindingen af te handelen (b.v. 49152-65534, het IANA-geregistreerde tijdelijke poortbereik)."
 
+msgid "Incorrect username or password."
+msgstr ""
+
 msgid "India"
 msgstr "India"
 
@@ -1469,9 +1472,6 @@ msgstr "Geïnstalleerd"
 
 msgid "Interfaces"
 msgstr "Interfaces"
-
-msgid "Invalid comment"
-msgstr "Ongeldige opmerking"
 
 msgid "Invalid domain name"
 msgstr "Ongeldige domein naam"
@@ -2920,6 +2920,9 @@ msgstr "De wijzigingen zijn doorgevoerd"
 
 msgid "The changes have been applied successfully."
 msgstr "De wijzigingen zijn succesvol doorgevoerd."
+
+msgid "The comment contains invalid characters"
+msgstr ""
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "De standaard SMTP mail server poort, b.v. 25 of 587"

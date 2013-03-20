@@ -29,7 +29,7 @@ OMV.languages = [
 	[ "nl_NL","Nederlands" ], // Dutch
 	[ "it_IT","Italiano" ], // Italian
 	[ "el_GR","ελληνικά" ], // Greek
-	[ "tr_TR","Türk" ], // Turkish
+	[ "tr_TR","Türkçe" ], // Turkish
 	[ "fr_FR","Français" ], // French
 	[ "pl_PL","Polski" ], // Polish
 	[ "es_ES","Español" ], // Spanish
