@@ -118,8 +118,7 @@ Ext.extend(OMV.form.FormPanel, Ext.form.FormPanel, {
 		OMV.MessageBox.hide();
 		if (error === null) {
 			this.fireEvent("submit", this);
-			OMV.MessageBox.success(null, _("The changes have been applied " +
-			  "successfully."));
+			OMV.MessageBox.success(null, _("The changes have been applied successfully."));
 		} else {
 			OMV.MessageBox.error(null, error);
 		}

@@ -104,6 +104,15 @@ class OMVConfigEngine extends OMVObject {
 	 * @return TRUE on success, otherwise FALSE.
 	 */
 	public function save() {
+		// Create a copy of the existing document. Exit immediatelly
+		// on failure to do not corrupt the original file. Note, the
+		// current changes can get lost.
+		if(!copy($this->filePath, sprintf("%s.bak", $this->filePath))) {
+			$error = error_get_last();
+			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
+			  $error['message']);
+		}
+		// Save document.
 		$this->domdoc->encoding = "UTF-8";
 		$this->domdoc->formatOutput = true;
 		return (FALSE === $this->domdoc->save($this->filePath,
