@@ -204,6 +204,45 @@ reset_webgui_passwd() {
 	return 0
 }
 
+restore_config_backup()
+{
+	local conifgbak 
+	configbak=${OMV_CONFIG_FILE}.bak
+
+	# Does a auto-generated configuration backup exist?
+	if [ ! -e "${configbak}" ]; then
+		whiptail --clear --msgbox 'No configuration backup found!' 8 34
+		return 1
+	fi
+	# Only show a diff, if there's a difference.
+	if diff --brief "${OMV_CONFIG_FILE}" "${configbak}" >/dev/null; then
+		whiptail --clear --msgbox "There's no difference between the configuration files. Nothing to restore." 8 58
+		return 0
+	fi
+	whiptail --clear --yesno "Do you want to see the differences between the current configuration and the backup." 8 46
+	if [ $? -eq 0 ]; then
+		# Get the differences.
+		cat > ${tempfile} <<EOF
+================================================================
+All lines with '-' will be changed to the lines with '+'
+================================================================
+EOF
+		diff --unified=1 "${OMV_CONFIG_FILE}" "${configbak}" >> ${tempfile}
+		# Show differences.
+		whiptail --clear --textbox --title "Diff" --scrolltext "${tempfile}" 20 72
+	fi
+	# Restore configuration backup?
+	whiptail --clear --yesno --defaultno "Do you want to restore the configuration backup? This will overwrite the actual configuration?" 8 57
+	if [ $? -eq 0 ]; then
+		# Replace configuration files.
+		cp "${OMV_CONFIG_FILE}" "${tempfile}" && cp "${configbak}" "${OMV_CONFIG_FILE}" && cp "${tempfile}" "${configbak}"
+		if [ $? -eq 0 ]; then
+			whiptail --clear --msgbox "Configuration backup successfully restored." 7 47
+		fi
+	fi
+	return 0
+}
+
 tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/omv-setup$$
 trap "rm -f $tempfile; exit" 0 1 2 5 15
 
@@ -212,11 +251,12 @@ prodname=$(xmlstarlet sel -t -v "//name" ${OMV_PRODUCTINFO_FILE} | xmlstarlet un
 prodcopyright=$(xmlstarlet sel -t -v "//copyright" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
 
 # Display the default menu
-whiptail --nocancel --clear --backtitle "${prodname} - ${prodcopyright}" --title "First aid" --menu "Please select a menu:" 12 65 4 \
+whiptail --nocancel --clear --backtitle "${prodname} - ${prodcopyright}" --title "First aid" --menu "Please select a menu:" 12 65 5 \
   "1" "Configure network interface" \
   "2" "Configure WebGUI" \
   "3" "Change WebGUI administrator password" \
-  "4" "Exit" 2>$tempfile
+  "4" "Restore configuration backup" \
+  "5" "Exit" 2>$tempfile
 [ $? -ne 0 ] && return 1
 choice=$(cat $tempfile)
 case ${choice} in
@@ -228,6 +268,9 @@ case ${choice} in
 	;;
 3)
 	reset_webgui_passwd;
+	;;
+4)
+	restore_config_backup;
 	;;
 esac
 

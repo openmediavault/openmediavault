@@ -4,6 +4,8 @@ openmediavault (0.4.28) stable; urgency=low
   * Mantis 0000745: Autmatically save config.xml to config.bak.
   * Mantis 0000746: Logical Volumes page does not show LVs that contain
     dash in its name.
+  * Add option to omv-firstaid to restore a configuration backup, see
+    Mantis 0000745. Thanks to Ralf Lindlein.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 26 Mar 2013 20:39:49 +0100
 
