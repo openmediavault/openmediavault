@@ -1,6 +1,8 @@
 openmediavault (0.4.28) stable; urgency=low
 
   * Update locales.
+  * Fix SMB/CIFS recycle bin issue. Directories should be deleted
+    correctly now.
   * Mantis 0000745: Autmatically save config.xml to config.bak.
   * Mantis 0000746: Logical Volumes page does not show LVs that contain
     dash in its name.

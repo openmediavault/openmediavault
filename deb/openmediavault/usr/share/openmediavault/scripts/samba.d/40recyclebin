@@ -63,7 +63,7 @@ xmlstarlet sel -t -m "//services/smb/shares/share[recyclebin='1']" \
 trap "rm -f ${runfile}; exit" 0 1 2 5 15
 touch ${runfile}
 [ ! -e ${recyclerepository} ] && exit 0
-find ${recyclerepository} -amin +${amin} -exec rm -rf {} \;
+find ${recyclerepository} -amin +${amin} -mindepth 1 | xargs rm -rf
 EOF
 	  chmod ${OMV_SAMBA_SHARE_RECYCLE_CRONSCRIPT_MASK} ${filename}
   done
