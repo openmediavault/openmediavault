@@ -1,3 +1,9 @@
+openmediavault-keyring (0.2) stable; urgency=low
+
+  * Fix bug in postinst.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 25 Jan 2013 18:32:29 +0100
+
 openmediavault-keyring (0.1) stable; urgency=low
 
   * Initial release

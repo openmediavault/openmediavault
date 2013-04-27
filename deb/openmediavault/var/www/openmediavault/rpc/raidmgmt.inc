@@ -217,6 +217,7 @@ class RaidMgmtRpc extends OMVRpc {
 			$result[] = array(
 				"devicefile" => $devv['devicefile'],
 				"size" => $devv['size'],
+				"vendor" => $devv['vendor'],
 				"description" => $devv['description']
 			);
 		}
