@@ -428,32 +428,9 @@ Ext.extend(OMV.Module.Privileges.UserPropertyDialog, OMV.FormPanelDialog, {
 	setValues : function(values) {
 		// Duplicate 'password'
 		values.passwordconf = values.password;
-		// Update various form fields, e.g. reset validation
-		this._updateFormFields();
 		// Set the form field values
 		return OMV.Module.Privileges.UserPropertyDialog.superclass.
 		  setValues.call(this, values);
-	},
-
-	/**
-	 * Private function to update the states of various form fields.
-	 */
-	_updateFormFields : function() {
-		if (this.uuid == OMV.UUID_UNDEFINED) {
-			return;
-		}
-		var fields = [ "useuid", "uid" ];
-		for (var i = 0; i < fields.length; i++) {
-			var field = this.findFormField(fields[i]);
-			if (!Ext.isEmpty(field)) {
-				field.allowBlank = true;
-				field.setReadOnly(true);
-				if ("numberfield" === field.getXType()) {
-					// Reset validation
-					field.minValue = Number.NEGATIVE_INFINITY;
-				}
-			}
-		}
 	}
 });
 
