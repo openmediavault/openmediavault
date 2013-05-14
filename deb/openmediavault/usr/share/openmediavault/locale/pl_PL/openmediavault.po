@@ -3,11 +3,11 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Cyryl Sochacki <>, 2012.
-# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2013.
-# Jacek Niedziółka <>, 2012.
-#   <jacnie@wp.pl>, 2012.
-# Jakub Górny <jakub@world.pl>, 2012.
+# Cyryl Sochacki <>, 2012
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2013
+# Jacek Niedziółka <>, 2012
+# jacekniedziolka71 <jacnie@wp.pl>, 2012
+# Jakub Górny <jakub@world.pl>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"

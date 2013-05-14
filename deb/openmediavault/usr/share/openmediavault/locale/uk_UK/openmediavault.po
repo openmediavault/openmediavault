@@ -3,8 +3,8 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Andrey Chapalda <ansilent@gmail.com>, 2012.
-# Андрей Чапалда <ansilent@gmail.com>, 2012.
+# Андрей Чапалда <ansilent@gmail.com>, 2012
+# Андрей Чапалда <ansilent@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"

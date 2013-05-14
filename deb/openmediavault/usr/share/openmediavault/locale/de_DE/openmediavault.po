@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <bejonwe@gmx.net>, 2012.
-# Marcel Beck <fo3nik5@gmail.com>, 2012.
-#   <mattjes04@googlemail.com>, 2012.
-# Volker <votdev@gmx.de>, 2013.
-# Volker  <votdev@gmx.de>, 2012.
-#   <votdev@gmx.de>, 2012.
-#   <warhog@gmx.de>, 2012-2013.
+# bejonwe <bejonwe@gmx.net>, 2012
+# Marcel Beck <fo3nik5@gmail.com>, 2012
+# mattjes04 <mattjes04@googlemail.com>, 2012
+# Volker <votdev@gmx.de>, 2013
+# Volker <votdev@gmx.de>, 2012
+# Volker <votdev@gmx.de>, 2012
+# warhog <warhog@gmx.de>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
