@@ -1,6 +1,9 @@
 openmediavault (0.4.29) stable; urgency=low
 
   * Add missing vendor field in RPC RaidMgmt::getCandidates.
+  * Mantis 0000760: Update does not update the current Samba recycle bin
+    pruning scripts.
+  * Mantis 0000761: Bond error pre-up should be post-up.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 21 Apr 2013 10:38:17 +0200
 

@@ -446,6 +446,10 @@ case "$1" in
 			invoke-rc.d proftpd restart
 			omv-mkconf issue
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.29"; then
+			omv-mkconf samba
+			omv-mkconf interfaces
+		fi
 	;;
 
 	triggered)

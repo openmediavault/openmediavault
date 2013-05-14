@@ -26,6 +26,7 @@
 # http://www.thomas-krenn.com/de/wiki/NIC_Bonding_unter_Debian
 # http://www.linuxfoundation.org/collaborate/workgroups/networking/bonding
 # http://www.howtoforge.com/nic-bonding-on-debian-lenny
+# http://wiki.linuxmce.org/index.php/MTU
 
 set -e
 
@@ -47,7 +48,7 @@ xmlstarlet sel -t \
 	  -v "concat('allow-hotplug ',devicename)" -n \
 	  -v "concat('iface ',devicename,' inet dhcp')" -n \
 	  -i "string-length(mtu) > 0" \
-		  -v "concat('    pre-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
+		  -v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
 	  -b \
 	  -i "string-length(//system/network/dnsnameservers) > 0" \
 		  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
@@ -92,7 +93,7 @@ xmlstarlet sel -t \
 	-v "concat('auto ',devicename)" -n \
 	-v "concat('iface ',devicename,' inet dhcp')" -n \
 	-i "string-length(mtu) > 0" \
-		-v "concat('    pre-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
+		-v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
 	-b \
 	-i "string-length(//system/network/dnsnameservers) > 0" \
 		-v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
