@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
-# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013.
+# mbouzada <mbouzada@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"

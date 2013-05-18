@@ -1,3 +1,10 @@
+openmediavault-nut (0.4.4) stable; urgency=low
+
+  * Update locales.
+  * Mantis 0000762: NUT configuration remote access impossible.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 18 May 2013 19:50:40 +0200
+
 openmediavault-nut (0.4.3) stable; urgency=low
 
   * Update locales.

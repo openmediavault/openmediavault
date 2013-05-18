@@ -106,7 +106,8 @@ EOF
 	  -i "remotemonitor[. = '1']" \
 		-n -n \
 		-v "concat('[',remoteuser,']')" -n \
-		-v "concat('password = ',remotepassword)" \
+		-v "concat('password = ',remotepassword)" -n \
+		-o "upsmon slave" \
 	  -b \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NUT_UPSDUSERS_CONFIG}
 
