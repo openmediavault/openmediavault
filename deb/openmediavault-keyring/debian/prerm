@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,8 +23,10 @@ set -e
 
 case "$1" in
     remove|purge)
-	if [ -x /usr/bin/apt-key ]; then
-	    apt-key del 2EF35D13
+	if [ "$1" = "purge" ]; then
+		if [ -x /usr/bin/apt-key ]; then
+			apt-key del 2EF35D13
+		fi
 	fi
     ;;
 
