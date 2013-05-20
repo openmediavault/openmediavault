@@ -1,3 +1,9 @@
+openmediavault (0.4.30) stable; urgency=low
+
+  * Mantis 0000771: Samba recycle bin pruning script produces errors/warnings.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 20 May 2013 12:46:48 +0200
+
 openmediavault (0.4.29) stable; urgency=low
 
   * Update locales.
