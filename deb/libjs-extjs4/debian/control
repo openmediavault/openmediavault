@@ -8,7 +8,19 @@ Homepage: http://www.sencha.com
 
 Package: libjs-extjs4
 Architecture: all
-Depends:
+Depends: ${misc:Depends}
+Suggests: libjs-extjs4-docs
 Description: Ext JS is a cross-browser JavaScript library for building rich internet applications.
  ExtJS is a JavaScript library for building interactive web applications using
  techniques such as Ajax, DHTML and DOM scripting.
+
+Package: libjs-extjs4-docs
+Section: doc
+Architecture: all
+Depends: ${misc:Depends}
+Description: Ext JS is a cross-browser JavaScript library for building rich internet applications.
+ ExtJS is a JavaScript library for building interactive web applications using
+ techniques such as Ajax, DHTML and DOM scripting.
+ .
+ This package contains the documentation and example files.
+
