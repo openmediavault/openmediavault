@@ -168,7 +168,11 @@ Ext.extend(OMV.Module.System.UpdateMgmtGridPanel, OMV.grid.TBarGridPanel, {
 					{ name: "maintainer" },
 					{ name: "size" }
     			]
-			})
+			}),
+			sortInfo: {
+				field: "name",
+				direction: "ASC"
+			}
 		});
 		OMV.Module.System.UpdateMgmtGridPanel.superclass.initComponent.apply(
 		  this, arguments);
