@@ -1,0 +1,14 @@
+Source: libjs-extjs4-theme-bootstrap
+Section: web
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>> 7 ), unzip
+Standards-Version: 3.6.10
+Homepage: http://bootstrap.newbridgegreen.com
+
+Package: libjs-extjs4-theme-bootstrap
+Architecture: all
+Depends: libjs-extjs4
+Description: The 'Bootstrap' theme for the ExtJS JavaScript framework
+ ExtJS is a JavaScript library for building interactive web applications using
+ techniques such as Ajax, DHTML and DOM scripting.
