@@ -1,5 +1,6 @@
 openmediavault (0.4.31) stable; urgency=low
 
+  * Update locales.
   * Mantis 0000772: The Samba recycle bin pruning script is still missing (old)
     empty directories.
 
