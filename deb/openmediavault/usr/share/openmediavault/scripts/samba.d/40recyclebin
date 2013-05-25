@@ -64,6 +64,8 @@ trap "rm -f ${runfile}; exit" 0 1 2 5 15
 touch ${runfile}
 [ ! -e ${recyclerepository} ] && exit 0
 find ${recyclerepository} -mindepth 1 -amin +${amin} -print0 | xargs -0 rm -rf
+# Do a second run to remove empty directories.
+find ${recyclerepository} -mindepth 1 -type d -empty -print0 | xargs -0 rm -rf
 EOF
 	  chmod ${OMV_SAMBA_SHARE_RECYCLE_CRONSCRIPT_MASK} ${filename}
   done
