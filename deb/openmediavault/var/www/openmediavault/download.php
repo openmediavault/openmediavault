@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 require_once("openmediavault/env.inc");
 require_once("openmediavault/functions.inc");
 
-if (array_keys_exists(array("service", "method"), $_POST)) {
+if(array_keys_exists(array("service", "method"), $_POST)) {
 	try {
 		function exception_error_handler($errno, $errstr, $errfile,
 		  $errline) {
@@ -39,13 +39,12 @@ if (array_keys_exists(array("service", "method"), $_POST)) {
 
 		require_once("openmediavault/config.inc"); // Must be included here
 		require_once("openmediavault/session.inc");
-		require_once("openmediavault/rpc.inc");
-		require_once("openmediavault/module.inc");
+		require_once("openmediavault/rpcproxy.inc");
 
 		$session = &OMVSession::getInstance();
 		$session->start();
 
-		if ($session->isAuthenticated()) {
+		if($session->isAuthenticated()) {
 			$session->validate();
 			// Do not update last access time
 			//$session->updateLastAccess();
@@ -53,9 +52,11 @@ if (array_keys_exists(array("service", "method"), $_POST)) {
 			throw new OMVException(OMVErrorMsg::E_SESSION_NOT_AUTHENTICATED);
 		}
 
-		$server = new OMVDownloadRpcServer();
+		$server = new OMVDownloadRpcProxy();
 		$server->handle();
+		$server->cleanup();
 	} catch(Exception $e) {
+		$server->cleanup();
 		header("Content-Type: text/html");
 		printf("Error #".$e->getCode().":<br/>%s", str_replace("\n", "<br/>",
 		  $e->__toString()));

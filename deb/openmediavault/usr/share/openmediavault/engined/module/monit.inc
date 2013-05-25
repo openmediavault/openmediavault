@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,48 +20,88 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
 
-class OMVMonitModule extends OMVModuleAbstract
-  implements OMVINotifyListener {
+class OMVModuleMonit extends OMVModuleServiceAbstract
+  implements OMVINotifyListener, OMVIModuleNotification {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "monit";
 	}
 
 	/**
-	 * Create the configuration file and update the service.
+	 * Defines the modules that if present should start before the service
+	 * provided by this module.
+	 * @return An array of modules.
 	 */
-	public function updateService() {
-		$cmd = "sudo omv-mkconf monit 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	public function shouldStart() { return array("email"); }
+
+	/**
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
+	 */
+	public function applyConfig() {
+		$cmd = "omv-mkconf monit 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		// Force daemon to reload the configuration
+	}
+
+	/**
+	 * Start the managed service.
+	 */
+	public function startService() {
 		$initd = new OMVSysVInitScript("monit", TRUE);
 		$initd->invoke("force-reload");
+	}
+
+	/**
+	 * Get the notification configuration.
+	 */
+	public function getNotificationConfig() {
+		return array(
+			  array(
+				  "id" => "monitprocevents",
+				  "type" => getText("System"),
+				  "title" => gettext("Process monitoring")
+			  ),
+			  array(
+				  "id" => "monitloadavg",
+				  "type" => getText("System"),
+				  "title" => gettext("Load average")
+			  ),
+			  array(
+				  "id" => "monitcpuusage",
+				  "type" => getText("System"),
+				  "title" => gettext("CPU usage")
+			  ),
+			  array(
+				  "id" => "monitmemoryusage",
+				  "type" => getText("System"),
+				  "title" => gettext("Memory usage")
+			  )
+		  );
 	}
 
 	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
-		// Update config file if notification/email configuration has been
-		// modified
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.email",
-		  array($this, "updateService"));
+		  array($this, "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.notification.notifications",
+		  array($this, "setDirty"));
     }
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVMonitModule());
+$moduleMgr->registerModule(new OMVModuleMonit());
 ?>

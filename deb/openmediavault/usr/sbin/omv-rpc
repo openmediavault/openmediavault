@@ -1,11 +1,11 @@
-#!/usr/bin/php5 -c/var/www/openmediavault/cgi
+#!/usr/bin/php5 -c/etc/openmediavault
 <?php
 /**
  * This file is part of OpenMediaVault.
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,18 +20,24 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/config.inc"); // Must be included here
-require_once("openmediavault/session.inc");
+require_once("openmediavault/globals.inc");
+require_once("openmediavault/functions.inc");
 require_once("openmediavault/rpc.inc");
-require_once("openmediavault/module.inc");
 
+///////////////////////////////////////////////////////////////////////////////
+// Helper functions.
+///////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Display command usage.
+ */
 function usage() {
     global $argv;
     $text = <<<EOF
 Usage:
-  %s [options] <class> <method> [params]
+  %s [options] <service> <method> [params]
 
-Options:
+OPTIONS:
   -u --user  The name of the user
   -h --help  Print a help text
 
@@ -39,57 +45,65 @@ EOF;
     printf($text, basename($argv[0]));
 }
 
-// Global variables
+///////////////////////////////////////////////////////////////////////////////
+// Global variables.
+///////////////////////////////////////////////////////////////////////////////
+
 $cmdargs = array(
-  "u:" => "user:",
-  "h::" => "help::"
-);
+	  "u:" => "user:",
+	  "h::" => "help::"
+  );
 $username = "admin";
 $rc = 0;
 
 // Check the command line arguments. Exit and display usage if
 // nessecary.
 $options = getopt(implode("", array_keys($cmdargs)), $cmdargs);
-foreach ($options as $optionk => $optionv) {
-    switch ($optionk) {
-    case "h":
-    case "help":
-        usage();
-        exit(0);
-        break;
-    case "u":
-    case "user":
-        $username = $options[$optionk];
-        $argc -= 2;
-        array_splice($argv, 1, 2);
-        break;
-    }
+foreach($options as $optionk => $optionv) {
+	switch($optionk) {
+	case "h":
+	case "help":
+		usage();
+		exit(0);
+		break;
+	case "u":
+	case "user":
+		$username = $options[$optionk];
+		$argc -= 2;
+		array_splice($argv, 1, 2);
+		break;
+	}
 }
-if (($argc < 2) || ($argc > 4)) {
+if(($argc < 2) || ($argc > 4)) {
 	print gettext("ERROR: Invalid number of arguments\n");
-    usage();
-    exit(1);
+	usage();
+	exit(1);
 }
 
-// Start session
-$session = &OMVSession::getInstance();
-$session->start();
-$session->initialize($username, ($username === "admin") ?
-  OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER);
+// Create the RPC caller context.
+$context = array(
+	"username" => $username,
+	"role" => ($username === "admin") ? OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER
+);
 
-// Execute the RPC
-$class = $argv[1];
+// Process command arguments.
+$service = $argv[1];
 $method = $argv[2];
 $params = null;
-if ($argc > 3) {
-	if (!is_json($argv[3])) {
+
+// Decode RPC method parameters from JSON to a PHP array.
+if($argc > 3) {
+	if(!is_json($argv[3])) {
 		print gettext("ERROR: The params argument is no valid JSON\n");
 		exit(1);
 	}
 	$params = json_decode($argv[3], TRUE);
 }
+
+// Execute the RPC.
 try {
-	$response = OMVRpc::exec($class, $method, $params);
+	$response = OMVRpc::exec($service, $method, $params, $context,
+	  OMV_RPC_MODE_REMOTE);
 } catch(Exception $e) {
 	$response = array(
 		"response" => null,
@@ -102,9 +116,6 @@ try {
 	$rc = 1;
 }
 printf("%s\n", json_encode_safe($response));
-
-// Destroy session. Note, session may already closed by RPC.
-@$session->destroy();
 
 exit($rc);
 ?>

@@ -3,7 +3,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,24 +18,22 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/NavigationPanel.js")
-// require("js/omv/PluginMgr.js")
+// require("js/omv/ModuleManager.js")
 // require("js/omv/data/DataProxy.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/FormPanelExt.js")
 // require("js/omv/grid/TBarGridPanel.js")
 // require("js/omv/CfgObjectDialog.js")
-// require("js/omv/DiagPanel.js")
-// require("js/omv/form/SharedFolderComboBox.js")
-// require("js/omv/form/plugins/FieldInfo.js")
+// require("js/omv/form/field/SharedFolderComboBox.js")
+// require("js/omv/form/field/plugin/FieldInfo.js")
 // require("js/omv/util/Format.js")
 
 Ext.ns("OMV.Module.Services.AFP");
 
 // Register the menu.
-OMV.NavigationPanelMgr.registerMenu("services", "afp", {
+OMV.ModuleManager.registerMenu("services", "afp", {
 	text: _("Apple Filing"),
-	icon: "images/afp.png"
+	icon16: "images/afp.png"
 });
 
 /**
@@ -57,49 +55,24 @@ Ext.extend(OMV.Module.Services.AFP.SettingsPanel, OMV.FormPanelExt, {
 		return [{
 			xtype: "fieldset",
 			title: _("General settings"),
-			defaults: {
-//				anchor: "100%",
+			fieldDefaults: {
 				labelSeparator: ""
 			},
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
 				fieldLabel: _("Enable"),
-				checked: false,
-				inputValue: 1
+				checked: false
 			},{
 				xtype: "textfield",
 				name: "extraoptions",
 				fieldLabel: _("Extra options"),
-				allowBlank: true,
-				anchor: "100%"
-			}]
-		},{
-			xtype: "fieldset",
-			title: _("Authentication"),
-			defaults: {
-//				anchor: "100%",
-				labelSeparator: ""
-			},
-			items: [{
-				xtype: "checkbox",
-				name: "allowguests",
-				fieldLabel: _("Allow guest logins"),
-				checked: false,
-				inputValue: 1
-			},{
-				xtype: "checkbox",
-				name: "allowclrtxt",
-				fieldLabel: _("Allow plain passwords"),
-				checked: false,
-				inputValue: 1,
-				boxLabel: _("Allow logins with passwords transmitted in the clear.")
+				allowBlank: true
 			}]
 		},{
 			xtype: "fieldset",
 			title: _("Home directories"),
-			defaults: {
-//				anchor: "100%",
+			fieldDefaults: {
 				labelSeparator: ""
 			},
 			items: [{
@@ -107,36 +80,25 @@ Ext.extend(OMV.Module.Services.AFP.SettingsPanel, OMV.FormPanelExt, {
 				name: "homesenable",
 				fieldLabel: _("Enable"),
 				checked: false,
-				inputValue: 1,
 				boxLabel: _("Enable user home directories.")
 			}]
 		},{
 			xtype: "fieldset",
-			title: _("DNS Service Discovery"),
-			defaults: {
-//				anchor: "100%",
+			title: _("Advanced settings"),
+			fieldDefaults: {
 				labelSeparator: ""
 			},
 			items: [{
 				xtype: "checkbox",
-				name: "dnssdenable",
-				fieldLabel: _("Enable"),
-				checked: true,
-				inputValue: 1,
-				boxLabel: _("Advertise this service via mDNS/DNS-SD.")
-			},{
-				xtype: "textfield",
-				name: "dnssdname",
-				fieldLabel: _("Name"),
-				allowBlank: false,
-				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: _("The service name."),
-				value: "%h - AFP"
+				name: "allowclrtxt",
+				fieldLabel: _("Allow plain passwords"),
+				checked: false,
+				boxLabel: _("Allow logins with passwords transmitted in the clear.")
 			}]
 		}];
 	}
 });
-OMV.NavigationPanelMgr.registerPanel("services", "afp", {
+OMV.ModuleManager.registerPanel("services", "afp", {
 	cls: OMV.Module.Services.AFP.SettingsPanel,
 	title: _("Settings"),
 	position: 10
@@ -149,28 +111,29 @@ OMV.NavigationPanelMgr.registerPanel("services", "afp", {
 OMV.Module.Services.AFP.SharesGridPanel = function(config) {
 	var initialConfig = {
 		hidePagingToolbar: false,
+		stateful: true,
 		stateId: "b2878122-c1e7-11e0-9bbc-00221568ca88",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: _("Shared folder"),
+				text: _("Shared folder"),
 				sortable: true,
 				dataIndex: "sharedfoldername",
-				id: "sharedfoldername"
+				stateId: "sharedfoldername"
 			},{
-				header: _("Name"),
+				text: _("Name"),
 				sortable: true,
 				dataIndex: "name",
-				id: "name"
+				stateId: "name"
 			},{
-				header: _("Comment"),
+				text: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
-				id: "comment"
+				stateId: "comment"
 			},{
-				header: _("Read only"),
+				text: _("Read only"),
 				sortable: true,
 				dataIndex: "readonly",
-				id: "readonly",
+				stateId: "readonly",
 				renderer: OMV.util.Format.booleanRenderer()
 			}]
 		})
@@ -183,10 +146,13 @@ Ext.extend(OMV.Module.Services.AFP.SharesGridPanel, OMV.grid.TBarGridPanel, {
 	initComponent : function() {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
-			remoteSort: false,
 			proxy: new OMV.data.DataProxy({
-				"service": "AFP",
-				"method": "getShareList"
+				"rpcOptions": {
+					"rpcData": {
+						"service": "AFP",
+						"method": "getShareList"
+					}
+				}
 			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
@@ -205,7 +171,7 @@ Ext.extend(OMV.Module.Services.AFP.SharesGridPanel, OMV.grid.TBarGridPanel, {
 		  apply(this, arguments);
 	},
 
-	cbAddBtnHdl : function() {
+	onAddButton : function() {
 		var wnd = new OMV.Module.Services.AFP.SharePropertyDialog({
 			uuid: OMV.UUID_UNDEFINED,
 			listeners: {
@@ -218,9 +184,9 @@ Ext.extend(OMV.Module.Services.AFP.SharesGridPanel, OMV.grid.TBarGridPanel, {
 		wnd.show();
 	},
 
-	cbEditBtnHdl : function() {
+	onEditButton : function() {
 		var selModel = this.getSelectionModel();
-		var record = selModel.getSelected();
+		var record = selModel.getSelection()[0];
 		var wnd = new OMV.Module.Services.AFP.SharePropertyDialog({
 			uuid: record.get("uuid"),
 			listeners: {
@@ -234,11 +200,20 @@ Ext.extend(OMV.Module.Services.AFP.SharesGridPanel, OMV.grid.TBarGridPanel, {
 	},
 
 	doDeletion : function(record) {
-		OMV.Ajax.request(this.cbDeletionHdl, this, "AFP", "deleteShare",
-		  { "uuid": record.get("uuid") });
+		OMV.Ajax.request({
+			  "scope": this,
+			  "callback": this.onDeletion,
+			  "rpcData": {
+				  "service": "AFP",
+				  "method": "deleteShare",
+				  "params": {
+					  "uuid": record.get("uuid")
+				  }
+			  }
+		  });
 	}
 });
-OMV.NavigationPanelMgr.registerPanel("services", "afp", {
+OMV.ModuleManager.registerPanel("services", "afp", {
 	cls: OMV.Module.Services.AFP.SharesGridPanel,
 	title: _("Shares"),
 	position: 20
@@ -263,16 +238,6 @@ OMV.Module.Services.AFP.SharePropertyDialog = function(config) {
 	  this, initialConfig);
 };
 Ext.extend(OMV.Module.Services.AFP.SharePropertyDialog, OMV.CfgObjectDialog, {
-	getFormConfig : function() {
-		return {
-			autoScroll: true,
-			defaults: {
-				anchor: "-" + Ext.getScrollBarWidth(),
-				labelSeparator: ""
-			}
-		};
-	},
-
 	getFormItems : function() {
 		return [{
 			xtype: "textfield",
@@ -280,81 +245,100 @@ Ext.extend(OMV.Module.Services.AFP.SharePropertyDialog, OMV.CfgObjectDialog, {
 			fieldLabel: _("Name"),
 			allowBlank: false,
 			vtype: "sharename",
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("The name of the share.")
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("The name of the share.")
+			}]
 		},{
 			xtype: "textfield",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			allowBlank: true
+			allowBlank: true,
+			vtype: "comment"
 		},{
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",
-			hiddenName: "sharedfolderref",
 			fieldLabel: _("Shared folder"),
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("The location of the files to share.")
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("The location of the files to share.")
+			}]
 		},{
 			xtype: "passwordfield",
 			name: "password",
 			fieldLabel: _("Password"),
 			allowBlank: true,
 			maxLength: 8,
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("If this option is set, then a password is required to access the share.")
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("If this option is set, then a password is required to access the share.")
+			}]
 		},{
 			xtype: "checkbox",
 			name: "ro",
 			fieldLabel: _("Read only"),
 			checked: false,
-			inputValue: 1,
 			boxLabel: _("Set read only."),
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("If this option is set, then users may not create or modify files in the share.")
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("If this option is set, then users may not create or modify files in the share.")
+			}]
+		},{
+			xtype: "checkbox",
+			name: "allowguest",
+			fieldLabel: _("Guest login"),
+			checked: false,
+			boxLabel: _("Allow guest login."),
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Guests only have read access by default.")
+			}]
+		},{
+			xtype: "checkbox",
+			name: "guestrw",
+			fieldLabel: _(" "),
+			checked: false,
+			boxLabel: _("Allow guests to create or modify files.")
 		},{
 			xtype: "checkbox",
 			name: "tm",
 			fieldLabel: _("Time Machine support"),
 			checked: false,
-			inputValue: 1,
 			boxLabel: _("Enable Time Machine support for this share.")
 		},{
 			xtype: "checkbox",
 			name: "upriv",
 			fieldLabel: _("Unix privileges"),
 			checked: true,
-			inputValue: 1,
 			boxLabel: _("Use AFP3 unix privileges.")
 		},{
 			xtype: "checkbox",
 			name: "usedots",
 			fieldLabel: _("Use dots"),
 			checked: true,
-			inputValue: 1,
 			boxLabel: _("Don't do :hex translation for dot files."),
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("When this option gets set, certain file names become illegal. These are .Parent and anything that starts with .Apple.")
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("When this option gets set, certain file names become illegal. These are .Parent and anything that starts with .Apple.")
+			}]
 		},{
 			xtype: "checkbox",
 			name: "invisibledots",
 			fieldLabel: _("Hide dot files"),
 			checked: false,
-			inputValue: 1,
 			boxLabel: _("Make dot files invisible.")
 		},{
 			xtype: "checkbox",
 			name: "mswindows",
 			fieldLabel: _("Forces filename restrictions"),
 			checked: false,
-			inputValue: 1,
 			boxLabel: _("This forces filenames to be restricted to the character set used by Windows.")
 		},{
 			xtype: "combo",
 			name: "casefold",
-			hiddenName: "casefold",
 			fieldLabel: _("Case folding"),
-			mode: "local",
-			store: new Ext.data.SimpleStore({
+			queryMode: "local",
+			store: Ext.create("Ext.data.ArrayStore", {
 				fields: [ "value","text" ],
 				data: [
 					[ "none",_("None") ],
@@ -370,19 +354,22 @@ Ext.extend(OMV.Module.Services.AFP.SharePropertyDialog, OMV.CfgObjectDialog, {
 			editable: false,
 			triggerAction: "all",
 			value: "none",
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("This option handles, if the case of filenames should be changed.")
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("This option handles, if the case of filenames should be changed.")
+			}]
 		},{
 			xtype: "numberfield",
 			name: "volsizelimit",
 			fieldLabel: _("Quota"),
 			minValue: 0,
 			allowDecimals: false,
-			allowNegative: false,
 			allowBlank: false,
 			value: 0,
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("Limit the reported volume size to the given value in MiB, thus preventing TM from using the whole disk space for backup. Set this value to 0 to disable this option.")
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Limit the reported volume size to the given value in MiB, thus preventing TM from using the whole disk space for backup. Set this value to 0 to disable this option.")
+			}]
 		},{
 			xtype: "textfield",
 			name: "extraoptions",

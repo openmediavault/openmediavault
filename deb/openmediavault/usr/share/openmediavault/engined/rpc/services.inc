@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,31 +21,56 @@
  */
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/rpc.inc");
 require_once("openmediavault/module.inc");
+require_once("openmediavault/rpcservice.inc");
 
-class ServicesRpc extends OMVRpc {
-	function getStatus() {
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
+class OMVRpcServiceServices extends OMVRpcServiceAbstract {
+	/**
+	 * Get the RPC service name.
+	 */
+	public function getName() {
+		return "Services";
+	}
+
+	/**
+	 * Initialize the RPC service.
+	 */
+	public function initialize() {
+		$this->registerMethod("getStatus");
+	}
+
+	/**
+	 * Get the status of the modules that implement the
+	 * OMVIModuleServiceStatus interface.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array containing the module statistics.
+	 * @throw E_EXEC_FAILED
+	 */
+	function getStatus($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
 		$status = array();
-		// Get list of modules
+		// Get the list of registered modules.
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$modules = $moduleMgr->getModules();
-		foreach ($modules as $module) {
-			if ($module instanceof OMVIModuleStatus) {
-				$status[] = $module->getStatus();
+		foreach($modules as $modulev) {
+			// Check if the module implements the OMVIModuleServiceStatus
+			// interface.
+			if($modulev instanceof OMVIModuleServiceStatus) {
+				$status[] = $modulev->getStatus();
 			}
 		}
-		$result = array(
+		return array(
 			"total" => count($status),
 			"data" => $status
 		);
-		return $result;
 	}
 }
+
+// Register the RPC service.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->registerService(new OMVRpcServiceServices());
 ?>

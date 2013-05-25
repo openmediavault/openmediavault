@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -28,11 +28,11 @@ OMV_AVAHIDAEMON_FTPSERVICE=${OMV_AVAHIDAEMON_FTPSERVICE:-"/etc/avahi/services/ft
 
 # Is the service enabled? Announce this service via DNS-SD?
 rm -f ${OMV_AVAHIDAEMON_FTPSERVICE}
-[ "$(omv_config_get "//services/ftp/enable")" = "0" -o "$(omv_config_get "//services/ftp/dnssd/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//services/ftp/enable")" = "0" -o "$(omv_config_get "//services/zeroconf/services/service[id='ftp']/enable")" = "0" ] && exit 0
 
 # Create '/etc/avahi/services/ftp.service' file.
 port=$(omv_config_get "//services/ftp/port")
-name=$(omv_config_get "//services/ftp/dnssd/name")
+name=$(omv_config_get "//services/zeroconf/services/service[id='ftp']/name")
 cat <<EOF > ${OMV_AVAHIDAEMON_FTPSERVICE}
 <?xml version="1.0" standalone='no'?>
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">

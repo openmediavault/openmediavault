@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,48 +20,54 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
+require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
-require_once("openmediavault/globals.inc");
+require_once("openmediavault/initscript.inc");
 
-class OMVEmailModule extends OMVModuleAbstract
+class OMVModulePostfix extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
-		return "email";
+	public function getName() {
+		return "email"; // Keep the module name neutral.
 	}
 
 	/**
-	 * Create the configuration file.
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
 	 */
-	public function mkConf() {
-		$cmd = "sudo omv-mkconf postfix 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	public function applyConfig() {
+		$cmd = "omv-mkconf postfix 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 	}
 
 	/**
-	 * Create the configuration file and update the service.
+	 * Stop the managed service.
 	 */
-	public function updateService() {
+	public function stopService() {
+		$initd = new OMVSysVInitScript("postfix", FALSE);
+		$initd->exec();
+	}
+
+	/**
+	 * Start the managed service.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	public function startService() {
 		global $xmlConfig;
-		// Get the configuration object
 		$xpath = "//system/email";
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Create the service configuration file
-        $this->mkConf();
-		// Update service
-		$initd = new OMVSysVInitScript("postfix", boolval(
-		  $object['enable']));
+		if(FALSE === boolval($object['enable']))
+			return;
+		$initd = new OMVSysVInitScript("postfix", TRUE);
 		$initd->exec();
 	}
 
@@ -72,19 +78,19 @@ class OMVEmailModule extends OMVModuleAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.email",
-		  array($this, "updateService"));
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.usermanagement.users.user",
-		  array($this, "mkConf"));
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.hostname",
-		  array($this, "mkConf"));
+		  array($this, "setDirty"));
     }
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVEmailModule());
+$moduleMgr->registerModule(new OMVModulePostfix());
 ?>

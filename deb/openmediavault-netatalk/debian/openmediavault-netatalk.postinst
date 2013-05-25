@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -41,8 +41,7 @@ case "$1" in
 		# <config>
 		#   <services>
 		#     <afp>
-		#       <enable>0</enable>
-		#       <allowguests>0</allowguests>
+		#       <enable>0|1</enable>
 		#       <allowclrtxt>0</allowclrtxt>
 		#       <homesenable>0</homesenable>
 		#       <extraoptions></extraoptions>
@@ -56,13 +55,15 @@ case "$1" in
 		#       		<password></password>
 		#       		<casefold>none|tolower|toupper|xlatelower|xlateupper</casefold>
 		#       		<volsizelimit>0</volsizelimit>
+		#       		<allowguest>0|1</allowguest>
+		#       		<guestrw>0|1</guestrw>
 		#       		<options>
-		#       			<ro>0</ro>
-		#       			<upriv>1</upriv>
-		#       			<usedots>1</usedots>
-		#       			<invisibledots>0</invisibledots>
-		#       			<tm>0</tm>
-		#       			<mswindows>0</mswindows>
+		#       			<ro>0|1</ro>
+		#       			<upriv>0|1</upriv>
+		#       			<usedots>0|1</usedots>
+		#       			<invisibledots>0|1</invisibledots>
+		#       			<tm>0|1</tm>
+		#       			<mswindows>0|1</mswindows>
 		#       		</options>
 		#       		<extraoptions></extraoptions>
 		#       	</share>
@@ -79,7 +80,6 @@ case "$1" in
 		if ! omv_config_exists "//services/afp"; then
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
-			object="${object}<allowguests>0</allowguests>"
 			object="${object}<allowclrtxt>0</allowclrtxt>"
 			object="${object}<homesenable>0</homesenable>"
 			object="${object}<extraoptions></extraoptions>"
@@ -110,6 +110,10 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.7"; then
 			omv_config_add_element "//services/afp/shares/share" "volsizelimit" "0"
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5"; then
+			# Add avahi configuration.
+			omv_config_add_element "//services/zeroconf/services" "service" "<id>afp</id><enable>1</enable><name>%h - AFP</name>" true
 		fi
 	;;
 

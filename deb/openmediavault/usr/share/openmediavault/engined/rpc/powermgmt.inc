@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,80 +22,93 @@
 require_once("openmediavault/object.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
-require_once("openmediavault/rpc.inc");
+require_once("openmediavault/functions.inc");
+require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
 
-class PowerMgmtRpc extends OMVRpc {
-	public function __construct() {
-		$this->methodSchemata = array(
-			"set" => array('{
-				"type":"object",
-				"properties":{
-					"cpufreq":{"type":"boolean"},
-					"powerbtn":{"type":"boolean"}
-				}
-			}')
-		);
+class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
+	/**
+	 * Get the RPC service name.
+	 */
+	public function getName() {
+		return "PowerMgmt";
 	}
 
 	/**
-	 * Get the power management configuration
+	 * Initialize the RPC service.
 	 */
-	function get() {
+	public function initialize() {
+		$this->registerMethod("get");
+		$this->registerMethod("set");
+	}
+
+	/**
+	 * Get the power management configuration settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The requested configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	function get($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Get configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get the configuration object.
 		$xpath = "//system/powermanagement";
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Modify result data
+		// Modify result data.
 		$object['cpufreq'] = boolval($object['cpufreq']);
 		$object['powerbtn'] = boolval($object['powerbtn']);
 		return $object;
 	}
 
 	/**
-	 * Set the power management configuration
+	 * Set the power management configuration settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
-	function set($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	function set($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Prepare configuration data
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "cpufreq":{"type":"boolean"},
+				  "powerbtn":{"type":"boolean"}
+			  }
+		  }');
+		// Update the configuration object.
 		$object = array(
-			"cpufreq" => array_boolval($data, "cpufreq"),
-			"powerbtn" => array_boolval($data, "powerbtn")
+			"cpufreq" => array_boolval($params, "cpufreq"),
+			"powerbtn" => array_boolval($params, "powerbtn")
 		);
-		// Set configuration object
+		// Set the configuration object.
 		$success = $xmlConfig->replace("//system/powermanagement", $object);
-		if (FALSE === $success) {
+		if(FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.powermanagement", $object);
+		// Return the configuration object.
+		return $object;
 	}
 }
+
+// Register the RPC service.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->registerService(new OMVRpcServicePowerMgmt());
 ?>

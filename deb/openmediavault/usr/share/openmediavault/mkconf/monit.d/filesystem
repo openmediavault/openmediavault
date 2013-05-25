@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,12 +24,12 @@ set -e
 . /etc/default/openmediavault
 
 OMV_MONIT_CONFIG=${OMV_MONIT_CONFIG:-"/etc/monit/monitrc"}
-OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE=${OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE:-"80%"}
+OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE=${OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE:-"80"}
 
 cat <<EOF >> ${OMV_MONIT_CONFIG}
 # Alert if disk space of root filesystem gets low
 check filesystem rootfs with path /
-  if space usage > ${OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE} for 5 times within 15 cycles
+  if space usage > ${OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE}% for 5 times within 15 cycles
     then alert else if succeeded for 10 cycles then alert
 
 EOF

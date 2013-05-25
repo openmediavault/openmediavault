@@ -1,0 +1,88 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2013 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+	configure)
+		########################################################################
+		# Set the default settings.
+		########################################################################
+		if [ -z "$2" ]; then
+			omv_set_default "OMV_USBBACKUP_SCRIPTS_DIR" "/var/lib/openmediavault/usbbackup.d"
+		fi
+
+		########################################################################
+		# Update the configuration.
+		# <config>
+		#   <services>
+		#     <usbbackup>
+		#       <jobs>
+		#         <job>
+		#           <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+		#           <enable>0|1</enable>
+		#           <mode>push|pull</mode>
+		#           <sendemail>0|1<sendemail>
+		#           <comment>xxx</comment>
+		#           <fsuuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxxx-xxxx</fsuuid>
+		#           <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+		#           <recursive>1</recursive>
+		#           <times>1</times>
+		#           <compress>0</compress>
+		#           <archive>1</archive>
+		#           <delete>0</delete>
+		#           <quiet>0</quiet>
+		#           <perms>1</perms>
+		#           <acls>1</acls>
+		#           <xattrs>0</xattrs>
+		#           <partial>0</partial>
+		#           <extraoptions></extraoptions>
+		#         </job>
+		#       </jobs>
+		#     <usbbackup>
+		#   </services>
+		# </config>
+		########################################################################
+		if ! omv_config_exists "//services/usbbackup"; then
+			echo "Initialize configuration"
+			omv_config_add_element "//services" "usbbackup" ""
+			omv_config_add_element "//services/usbbackup" "jobs" ""
+		fi
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		echo "Updating configuration ..."
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

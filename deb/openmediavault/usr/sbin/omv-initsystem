@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@ set -e
 . /etc/default/openmediavault
 
 # Run all system initialization scripts
-run-parts --report ${OMV_SCRIPTS_DIR}/initsystem.d 2>&1 >${OMV_LOG_DIR}/initsystem.log
+run-parts --report ${OMV_INITSYSTEM_SCRIPTS_DIR} 2>&1 >${OMV_LOG_DIR}/initsystem.log
 
 # Remove the flag
 rm -f ${OMV_INITSYSTEM_FILE}

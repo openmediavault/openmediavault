@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,9 @@
 require_once("openmediavault/util.inc");
 require_once("openmediavault/object.inc");
 
+/**
+ * @ingroup api
+ */
 class OMVSysVInitScript extends OMVObject {
 	private $name = "";
 	private $enable = FALSE;
@@ -48,7 +51,7 @@ class OMVSysVInitScript extends OMVObject {
 	 */
 	public function exec() {
 		$this->stop();
-		switch ($this->enable) {
+		switch($this->enable) {
 		case FALSE:
 			$this->update(TRUE);
 			break;
@@ -63,13 +66,14 @@ class OMVSysVInitScript extends OMVObject {
 	/**
 	 * Enable or remove a system init script.
 	 * @param disable Set TRUE to remove the system init script.
-	 * @return None
+	 * @return None.
+	 * @throw E_EXEC_FAILED
 	 */
 	private function update($disable) {
-		if (!$this->update)
+		if(!$this->update)
 			return;
 		$cmdargs = array();
-		switch ($disable) {
+		switch($disable) {
 		case FALSE:
 			$cmdargs[] = escapeshellarg($this->name);
 			$cmdargs[] = "enable";
@@ -79,10 +83,10 @@ class OMVSysVInitScript extends OMVObject {
 			$cmdargs[] = "disable";
 			break;
 		}
-		$cmd = sprintf("export LANG=C; sudo update-rc.d %s 2>&1", implode(
+		$cmd = sprintf("export LANG=C; update-rc.d %s 2>&1", implode(
 		  " ", $cmdargs));
 		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -104,12 +108,13 @@ class OMVSysVInitScript extends OMVObject {
 
 	/**
 	 * Make links to start and stop the service in the defined runlevels.
+	 * @throw E_EXEC_FAILED
 	 */
 	public function defaults() {
-		$cmd = sprintf("export LANG=C; sudo update-rc.d %s defaults 2>&1",
+		$cmd = sprintf("export LANG=C; update-rc.d %s defaults 2>&1",
 		  escapeshellarg($this->name));
 		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -117,12 +122,13 @@ class OMVSysVInitScript extends OMVObject {
 
 	/**
 	 * Remove the system init script from all runlevels.
+	 * @throw E_EXEC_FAILED
 	 */
 	public function remove() {
-		$cmd = sprintf("export LANG=C; sudo update-rc.d --force %s ".
+		$cmd = sprintf("export LANG=C; update-rc.d --force %s ".
 		  "remove 2>&1", escapeshellarg($this->name));
 		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -152,12 +158,14 @@ class OMVSysVInitScript extends OMVObject {
 	/**
 	 * Invoke init script with the given aktion. Throws an exception in case
 	 * of an error.
+	 * @param action The action to be executed.
+	 * @throw E_EXEC_FAILED
 	 */
 	public function invoke($action) {
-		$cmd = sprintf("export LANG=C; sudo invoke-rc.d %s %s 2>&1",
+		$cmd = sprintf("export LANG=C; invoke-rc.d %s %s 2>&1",
 		  escapeshellarg($this->name), $action);
 		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -178,7 +186,7 @@ class OMVSysVInitScript extends OMVObject {
 	 * See http://refspecs.freestandards.org/LSB_3.1.0/LSB-Core-generic/LSB-Core-generic/iniscrptact.html
 	 */
 	public function status() {
-		$cmd = sprintf("export LANG=C; sudo invoke-rc.d %s status 2>&1",
+		$cmd = sprintf("export LANG=C; invoke-rc.d %s status 2>&1",
 		  escapeshellarg($this->name));
 		OMVUtil::exec($cmd, $output, $result);
 		return $result;

@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,57 +22,48 @@
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/util.inc");
-require_once("openmediavault/rpc.inc");
-require_once("openmediavault/system.inc");
-require_once("openmediavault/product.inc");
+require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
 
-class WebGUIRpc extends OMVRpc {
-	public function __construct() {
-		$this->methodSchemata = array(
-			"setSettings" => array('{
-				"type":"object",
-				"properties":{
-					"port":{"type":"integer","minimum":1,"maximum":65535},
-					"enablessl":{"type":"boolean"},
-					"sslport":{"type":"integer","minimum":1,"maximum":65535},
-					"forcesslonly":{"type":"boolean"},
-					"sslcertificateref":{'.
-					  $GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'},
-					"timeout":{"type":"integer","minimum":1,"maximum":30},
-					"dnssdenable":{"type":"boolean"},
-					"dnssdname":{"type":"string"}
-				}
-			}'),
-			"setPassword" => array('{
-				"type":"object",
-				"properties":{
-					"password":{"type":"string"}
-				}
-			}')
-		);
+class OMVRpcServiceWebGui extends OMVRpcServiceAbstract {
+	/**
+	 * Get the RPC service name.
+	 */
+	public function getName() {
+		return "WebGui";
+	}
+
+	/**
+	 * Initialize the RPC service.
+	 */
+	public function initialize() {
+		$this->registerMethod("getSettings");
+		$this->registerMethod("setSettings");
+		$this->registerMethod("setPassword");
 	}
 
 	/**
 	 * Get settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The requested configuration object.
+	 * @throw 
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	function getSettings() {
+	function getSettings($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Get configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get the configuration object.
 		$xpath = "//webadmin";
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Modify result data
+		// Modify the result object.
 		$object['port'] = intval($object['port']);
 		$object['enablessl'] = boolval($object['enablessl']);
 		$object['sslport'] = intval($object['sslport']);
@@ -80,78 +71,94 @@ class WebGUIRpc extends OMVRpc {
 		$object['timeout'] = intval($object['timeout']);
 		$object['dnssdenable'] = boolval($object['dnssd']['enable']);
 		$object['dnssdname'] = $object['dnssd']['name'];
-		// Remove useless data
+		// Remove useless data.
 		unset($object['dnssd']);
 		return $object;
 	}
 
 	/**
 	 * Set settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
-	function setSettings($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	function setSettings($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "port":{"type":"integer","minimum":1,"maximum":65535},
+				  "enablessl":{"type":"boolean"},
+				  "sslport":{"type":"integer","minimum":1,"maximum":65535},
+				  "forcesslonly":{"type":"boolean"},
+				  "sslcertificateref":{'.
+					$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'},
+				  "timeout":{"type":"integer","minimum":0,"maximum":30}
+			  }
+		  }');
 		// Prepare configuration objects
 		$object = array(
-			"port" => $data['port'],
-			"enablessl" => array_boolval($data, 'enablessl'),
-			"sslport" => $data['sslport'],
-			"forcesslonly" => array_boolval($data, 'forcesslonly'),
-			"sslcertificateref" => $data['sslcertificateref'],
-			"timeout" => $data['timeout'],
+			"port" => $params['port'],
+			"enablessl" => array_boolval($params, 'enablessl'),
+			"sslport" => $params['sslport'],
+			"forcesslonly" => array_boolval($params, 'forcesslonly'),
+			"sslcertificateref" => $params['sslcertificateref'],
+			"timeout" => $params['timeout'],
 			"dnssd" => array(
-				"enable" => array_boolval($data, 'dnssdenable'),
-				"name" => $data['dnssdname']
+				"enable" => array_boolval($params, 'dnssdenable'),
+				"name" => $params['dnssdname']
 			)
 		);
-		// Set configuration object
+		// Set the configuration object.
 		$xpath = "//webadmin";
-		if (FALSE === $xmlConfig->replace($xpath, $object)) {
+		if(FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.webadmin", $object);
+		$dispatcher->notify(OMV_NOTIFY_MODIFY, "org.openmediavault.webadmin",
+		  $object);
+		// Return the configuration object.
+		return $object;
 	}
 
 	/**
 	 * Set the administrator password.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em password The new password.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_EXEC_FAILED
 	 */
-	function setPassword($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Modify user password
-		$cmd = sprintf("sudo usermod --password %s admin 2>&1",
-		  escapeshellarg(crypt($data['password'])));
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	function setPassword($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "password":{"type":"string"}
+			  }
+		  }');
+		// Modify user password.
+		$cmd = sprintf("usermod --password %s admin 2>&1",
+		  escapeshellarg(crypt($params['password'])));
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 	}
 }
+
+// Register the RPC service.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->registerService(new OMVRpcServiceWebGui());
 ?>

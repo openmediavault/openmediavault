@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,27 +20,39 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/config.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
+require_once("openmediavault/functions.inc");
 require_once("openmediavault/log.inc");
 
-class OMVRsyncModule extends OMVModuleAbstract
+class OMVModuleRsync extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "rsync";
 	}
 
 	/**
-	 * Create the configuration file.
+	 * Defines the modules that if present should start before the service
+	 * provided by this module.
+	 * @return An array of modules.
 	 */
-	public function mkConf() {
-		$cmd = "sudo omv-mkconf rsync 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	public function shouldStart() { return array("cron"); }
+
+	/**
+	 * Defines the modules that if present should be stopped after the
+	 * service provided by this module.
+	 * @return An array of modules.
+	 */
+	function shouldStop() { return array("cron"); }
+
+	/**
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
+	 */
+	public function applyConfig() {
+		$cmd = "omv-mkconf rsync 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -52,16 +64,16 @@ class OMVRsyncModule extends OMVModuleAbstract
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.services.rsync.jobs.job",
-		  array($this, "mkConf"), 1);
+		  "org.openmediavault.services.rsync.job",
+		  array($this, "setDirty"));
     }
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVRsyncModule());
+$moduleMgr->registerModule(new OMVModuleRsync());
 
-// Register new logfile type
+// Register new logfile type.
 OMVLogFile::registerType("rsync", array(
   "filename" => "rsync",
   "filepath" => "/var/log/rsync.log",

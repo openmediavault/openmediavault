@@ -3,7 +3,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,6 +19,10 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 
+/**
+ * @defgroup webgui The WebGUI Application Programming Interface
+ */
+
 Ext.ns("OMV");
 
 OMV.languages = [
@@ -29,14 +33,16 @@ OMV.languages = [
 	[ "nl_NL","Nederlands" ], // Dutch
 	[ "it_IT","Italiano" ], // Italian
 	[ "el_GR","ελληνικά" ], // Greek
-	[ "tr_TR","Türk" ], // Turkish
+	[ "tr_TR","Türkçe" ], // Turkish
 	[ "fr_FR","Français" ], // French
 	[ "pl_PL","Polski" ], // Polish
 	[ "es_ES","Español" ], // Spanish
+	[ "gl","Galego" ], // Galician
 	[ "hu_HU","Magyar" ], // Hungarian
 	[ "da_DA","Dansk" ], // Danish
 	[ "uk_UK","Український" ], // Ukrainian
 	[ "no_NO","Norsk" ], // Norwegian
 	[ "sv_SV","Svenska" ], // Swedish
-	[ "pt_PT","Português" ] // Portuguese
+	[ "pt_PT","Português" ], // Portuguese
+	[ "zh_TW","正體中文" ] // Chinese (traditional)
 ];

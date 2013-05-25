@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -42,6 +42,9 @@ omv_build_pot:
 	  --output-dir=$(OMV_POT_DIR) --output=$(OMV_POT_FILE) \
 	  --force-po --no-location --no-wrap --sort-output \
 	  --package-name=$(OMV_PACKAGE) -
+	# Remove '#, c-format' comments, otherwise manuall upload of translation
+	# files confuses Transifex.
+	sed --in-place '/^#, c-format/d' $(OMV_POT_DIR)/$(OMV_POT_FILE)
 
 omv_clean_scm:
 	dh_testdir
@@ -49,4 +52,8 @@ omv_clean_scm:
 	find $(CURDIR)/debian/$(OMV_PACKAGE) \( -name .svn -o -name .git \) \
 	  -type d -print0 -prune | xargs -0 rm -rf
 
-.PHONY: omv_build_pot omv_clean_scm
+omv_build_doc: debian/doxygen.conf
+	mkdir -p debian/doxygen
+	doxygen $<
+
+.PHONY: omv_pull_po omv_push_pot omv_build_pot omv_clean_scm omv_build_doc

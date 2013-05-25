@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,56 +20,97 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
+require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
+require_once("openmediavault/system.inc");
 
-class OMVFsTabModule extends OMVModuleAbstract
+class OMVModuleFsTab extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "fstab";
 	}
 
 	/**
-	 * Update the configuration.
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
 	 */
-	public function mkConf() {
-		$cmd = "sudo omv-mkconf fstab 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	public function applyConfig() {
+		$cmd = "omv-mkconf fstab 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 	}
 
 	/**
-	 * Create a mount point.
+	 * Stop the managed service.
 	 */
-	public function create($object) {
-		$cmd = sprintf("sudo mkdir -p %s 2>&1", escapeshellarg($object['dir']));
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-		$this->mkConf();
+	public function stopService() {
+		$this->execTasks("delete");
 	}
 
 	/**
-	 * Delete a mount point.
+	 * Start the managed service.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @throw E_MISC_FAILURE
 	 */
-	public function delete($object) {
-		// Note, if the filesystem using this mount point has been unmounted,
-		// then the directory is empty and rmdir must succeed.
-		$cmd = sprintf("sudo rmdir %s 2>&1", escapeshellarg($object['dir']));
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+	public function startService() {
+		global $xmlConfig;
+		// Make sure all mount points are mounted.
+		$xpath = "//system/fstab/mntent";
+		$objects = $xmlConfig->getList($xpath);
+		if(is_null($objects)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
 		}
-		$this->mkConf();
+		foreach($objects as $objectk => $objectv) {
+			$me = new OMVMntEnt($objectv['fsname'], $objectv['dir']);
+			// Does the directory exists.
+			if(FALSE === $me->mkDir()) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("Failed to create the directory '%s'",
+				  $objectv['dir']));
+			}
+			// Is it mounted?
+			if(FALSE === $me->isMounted()) {
+				if(FALSE === $me->mount()) {
+					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+					  sprintf("Failed to mount '%s'", $objectv['fsname']));
+				}
+			}
+		}
+	}
+
+	/**
+	 * Helper function to add a new task when a fstab entry has been deleted.
+	 * @param object The configuration object submitted by the notification.
+	 * @return None.
+	 */
+	final public function onDelete($object) {
+		$this->addTask("delete", "deleteEntry", $object);
+	}
+
+	/**
+	 * Helper method to umount a fstab entry and remove it.
+	 * @param params The method parameters.
+	 * @throw E_MISC_FAILURE
+	 */
+	final public function deleteEntry($params) {
+		$me = new OMVMntEnt($params['fsname'], $params['dir']);
+		if(TRUE === $me->isMounted()) {
+			if(FALSE === $me->umount()) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("Failed to unmount '%s'", $params['fsname']));
+			}
+		}
+		if(FALSE === $me->unlinkDir()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to unlink the directory '%s'",
+			  $params['dir']));
+		}
 	}
 
 	/**
@@ -77,17 +118,17 @@ class OMVFsTabModule extends OMVModuleAbstract
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE,
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.fstab.mntent",
-		  array($this, "create"));
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.fstab.mntent",
-		  array($this, "delete"));
+		  array($this, "onDelete"));
 	}
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVFsTabModule());
+$moduleMgr->registerModule(new OMVModuleFsTab());
 ?>

@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,131 +23,75 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/system.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/rpc.inc");
+require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
 
-class SmartRpc extends OMVRpc {
-	public function __construct() {
-		$this->methodSchemata = array(
-			"getList" => array('{
-				"type":"object",
-				"properties":{
-					"start":{"type":"integer"},
-					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-				}
-			}'),
-			"setSettings" => array('{
-				"type":"object",
-				"properties":{
-					"enable":{"type":"boolean"},
-					"interval":{"type":"integer","minimum":10},
-					"powermode":{"type":"string","enum":["never","sleep",'.
-					  '"standby","idle"]},
-					"tempdiff":{"type":"integer","minimum":0},
-					"tempinfo":{"type":"integer","minimum":0},
-					"tempcrit":{"type":"integer","minimum":0}
-				}
-			}'),
-			"getAttributes" => array('{
-				"type":"object",
-				"properties":{
-					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
-				}
-			}'),
-			"getSelfTestLogs" => array('{
-				"type":"object",
-				"properties":{
-					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
-				}
-			}'),
-			"getIdentityInfo" => array('{
-				"type":"object",
-				"properties":{
-					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
-				}
-			}'),
-			"getScheduleList" => array('{
-				"type":"object",
-				"properties":{
-					"start":{"type":"integer"},
-					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-				}
-			}'),
-			"getScheduledTest" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-				}
-			}'),
-			"setScheduledTest" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
-					"type":{"type":"string","enum":["S","L","C","O"]},
-					"hour":{"type":"string","format":"regex",'.
-					  '"pattern":"\/^0[0-9]|1[0-9]|2[0-3]|[*]$\/"},
-					"month":{"type":"string","format":"regex",'.
-					  '"pattern":"\/^0[1-9]|1[0-2]|[*]$\/"},
-					"dayofmonth":{"type":"string","format":"regex",'.
-					  '"pattern":"\/^0[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$\/"},
-					"dayofweek":{"type":"string","format":"regex",'.
-					  '"pattern":"\/^[1-7]|[*]$\/"},
-					"comment":{"type":"string"}
-				}
-			}'),
-			"deleteScheduledTest" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-				}
-			}')
-		);
+class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
+	/**
+	 * Get the RPC service name.
+	 */
+	public function getName() {
+		return "Smart";
+	}
+
+	/**
+	 * Initialize the RPC service.
+	 */
+	public function initialize() {
+		$this->registerMethod("enumerateDevices");
+		$this->registerMethod("getList");
+		$this->registerMethod("getSettings");
+		$this->registerMethod("setSettings");
+		$this->registerMethod("getAttributes");
+		$this->registerMethod("getSelfTestLogs");
+		$this->registerMethod("getIdentityInfo");
+		$this->registerMethod("getScheduleList");
+		$this->registerMethod("getScheduledTest");
+		$this->registerMethod("setScheduledTest");
+		$this->registerMethod("deleteScheduledTest");
 	}
 
 	/**
 	 * Enumerate all devices supporting S.M.A.R.T.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
 	 * @return An array containing physical disk device objects with
-	 *   following fields: devicename, devicefile, model, size, temperature,
-	 *   description, vendor and serialnumber.
+	 *   following fields: \em devicename, \em devicefile, \em model,
+	 *   \em size, \em temperature, \em description, \em vendor and
+	 *   \em serialnumber.
+	 * @throw E_MISC_FAILURE
 	 */
-	public function enumerateDevices() {
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
+	public function enumerateDevices($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
 		// Get all existing hard disks devices.
-		if (FALSE === ($devs = OMVStorageDevices::enumerate(
+		if(FALSE === ($devs = OMVStorageDevices::enumerate(
 		  OMVStorageDevices::HARDDISK))) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
-			  "get list of hard disks devices");
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  "Failed to get list of hard disks devices");
 		}
 		// Prepare result
 		$objects = array();
-		foreach ($devs as $devk => $devv) {
+		foreach($devs as $devk => $devv) {
 			$hdd = new OMVHardDiskDevice($devv);
-			if ($hdd->exists()) {
+			if($hdd->exists()) {
 				// Try to get the device temperature via S.M.A.R.T.
 				$temperature = $hdd->getTemperature();
 				// Prepare device object
 				$objects[] = array(
-					"devicename" => $hdd->getDeviceName(),
-					"devicefile" => $hdd->getDeviceFile(),
-					"devicefilebyid" => $hdd->getDeviceFileById(),
-					"model" => $hdd->getModel(),
-					"size" => $hdd->getSize(),
-					"temperature" => (FALSE === $temperature) ?
-					  gettext("n/a") : sprintf("%d°C", $temperature),
-					"description" => $hdd->getDescription(),
-					"vendor" => $hdd->getVendor(),
-					"serialnumber" => $hdd->getSerialNumber()
-				);
+					  "devicename" => $hdd->getDeviceName(),
+					  "devicefile" => $hdd->getDeviceFile(),
+					  "devicefilebyid" => $hdd->getDeviceFileById(),
+					  "model" => $hdd->getModel(),
+					  "size" => $hdd->getSize(),
+					  "temperature" => (FALSE === $temperature) ?
+						"" : sprintf("%d°C", $temperature),
+					  "description" => $hdd->getDescription(),
+					  "vendor" => $hdd->getVendor(),
+					  "serialnumber" => $hdd->getSerialNumber()
+				  );
 			}
 		}
 		return $objects;
@@ -155,47 +99,60 @@ class SmartRpc extends OMVRpc {
 
 	/**
 	 * Get all devices supporting S.M.A.R.T.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em start The index where to start.
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @param context The context of the caller.
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
 	 */
-	public function getList($data) {
+	public function getList($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "start":{"type":"integer"},
+				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+			  }
+		  }');
 		// Enumerate all devices supporting S.M.A.R.T.
-		$objects = OMVRpc::exec("Smart", "enumerateDevices");
-		// Filter result
-		return $this->applyFilter($objects, $data['start'], $data['limit'],
-		  $data['sortfield'], $data['sortdir']);
+		$objects = $this->callMethod("enumerateDevices", NULL, $context);
+		// Filter result.
+		return $this->applyFilter($objects, $params['start'],
+		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
-	public function getSettings() {
+	/**
+	 * Get the settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	public function getSettings($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Get configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get the configuration object.
 		$xpath = "//services/smart";
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Modify result data
+		// Modify result data.
 		$object['enable'] = boolval($object['enable']);
 		$object['interval'] = intval($object['interval']);
 		$object['tempdiff'] = intval($object['tempdiff']);
@@ -204,72 +161,90 @@ class SmartRpc extends OMVRpc {
 		return $object;
 	}
 
-	public function setSettings($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	/**
+	 * Set the settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
+	 */
+	public function setSettings($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get existing configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "enable":{"type":"boolean"},
+				  "interval":{"type":"integer","minimum":10},
+				  "powermode":{"type":"string","enum":["never","sleep",'.
+					'"standby","idle"]},
+				  "tempdiff":{"type":"integer","minimum":0},
+				  "tempinfo":{"type":"integer","minimum":0},
+				  "tempcrit":{"type":"integer","minimum":0}
+			  }
+		  }');
+		// Get the existing configuration object.
 		$xpath = "//services/smart";
 		$oldObject = $xmlConfig->get($xpath);
-		if (is_null($oldObject)) {
+		if(is_null($oldObject)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Update configuration
+		// Update the configuration object.
 		$object = array(
-			"enable" => array_boolval($data, 'enable'),
-			"interval" => $data['interval'],
-			"powermode" => $data['powermode'],
-			"tempdiff" => $data['tempdiff'],
-			"tempinfo" => $data['tempinfo'],
-			"tempcrit" => $data['tempcrit'],
-			"scheduledtests" => $oldObject['scheduledtests']
-		);
-		if (FALSE === $xmlConfig->replace($xpath, $object)) {
+			  "enable" => array_boolval($params, 'enable'),
+			  "interval" => $params['interval'],
+			  "powermode" => $params['powermode'],
+			  "tempdiff" => $params['tempdiff'],
+			  "tempinfo" => $params['tempinfo'],
+			  "tempcrit" => $params['tempcrit'],
+			  "scheduledtests" => $oldObject['scheduledtests']
+		  );
+		if(FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.smart", $object);
+		// Return the configuration object.
+		return $object;
 	}
 
 	/**
 	 * Get 'S.M.A.R.T. Attributes Data Structure' for the given device.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em devicefile The device file.
+	 * @param context The context of the caller.
 	 * @return The requested S.M.A.R.T. attributes.
+	 * @throw E_MISC_DEVICE_NOT_FOUND
+	 * @throw E_MISC_FAILURE
 	 */
-	public function getAttributes($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function getAttributes($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+			  }
+		  }');
+		// Get the S.M.A.R.T. statistics.
+		$hdd = new OMVHardDiskDevice($params['devicefile']);
+		if(FALSE === $hdd->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
+			  $hdd->getDeviceFile());
 		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get S.M.A.R.T. statistics
-		$hdd = new OMVHardDiskDevice($data['devicefile']);
-		if (FALSE === $hdd->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Device '%s' not found", $hdd->getDeviceFile()));
-		}
-		if (FALSE === ($stats = $hdd->getSmartStats())) {
+		if(FALSE === ($stats = $hdd->getSmartStats())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to get S.M.A.R.T. statistics (device=%s)",
 			  $hdd->getDeviceFile()));
@@ -279,28 +254,33 @@ class SmartRpc extends OMVRpc {
 
 	/**
 	 * Get 'SMART Self-test log structure' for the given device.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em devicefile The device file.
+	 * @param context The context of the caller.
 	 * @return The requested Self-test logs.
+	 * @throw E_MISC_DEVICE_NOT_FOUND
+	 * @throw E_MISC_FAILURE
 	 */
-	public function getSelfTestLogs($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function getSelfTestLogs($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+			  }
+		  }');
+		// Get the S.M.A.R.T. statistics.
+		$hdd = new OMVHardDiskDevice($params['devicefile']);
+		if(FALSE === $hdd->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
+			  $hdd->getDeviceFile());
 		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get S.M.A.R.T. statistics
-		$hdd = new OMVHardDiskDevice($data['devicefile']);
-		if (FALSE === $hdd->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Device '%s' not found", $hdd->getDeviceFile()));
-		}
-		if (FALSE === ($stats = $hdd->getSmartStats())) {
+		if(FALSE === ($stats = $hdd->getSmartStats())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to get S.M.A.R.T. statistics (device=%s)",
 			  $hdd->getDeviceFile()));
@@ -310,26 +290,30 @@ class SmartRpc extends OMVRpc {
 
 	/**
 	 * Get all S.M.A.R.T. identity information for the given device.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em devicefile The device file.
+	 * @param context The context of the caller.
 	 * @return The requested S.M.A.R.T. identity information.
+	 * @throw E_MISC_DEVICE_NOT_FOUND
 	 */
-	public function getIdentityInfo($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function getIdentityInfo($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get S.M.A.R.T. identity informations
-		$hdd = new OMVHardDiskDevice($data['devicefile']);
-		if (FALSE === $hdd->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Device '%s' not found", $hdd->getDeviceFile()));
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+			  }
+		  }');
+		// Get the S.M.A.R.T. identity informations.
+		$hdd = new OMVHardDiskDevice($params['devicefile']);
+		if(FALSE === $hdd->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
+			  $hdd->getDeviceFile());
 		}
 		return array(
 			"devicemodel" => $hdd->getModel(),
@@ -340,41 +324,49 @@ class SmartRpc extends OMVRpc {
 
 	/**
 	 * Get list of schedule configuration objects.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em start The index where to start.
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @param context The context of the caller.
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	public function getScheduleList($data) {
+	public function getScheduleList($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get configuration object list
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "start":{"type":"integer"},
+				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+			  }
+		  }');
+		// Get the configuration object list.
 		$xpath = "//services/smart/scheduledtests/job";
 		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
+		if(is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Add additional share informations
-		foreach ($objects as $objectk => &$objectv) {
+		// Add additional share informations.
+		foreach($objects as $objectk => &$objectv) {
 			$objectv['volume'] = array(
 				"devicefile" => gettext("n/a"),
 				"model" => gettext("n/a"),
 				"size" => "-1" // as string
 			);
 			$hdd = new OMVHardDiskDevice($objectv['devicefile']);
-			if ($hdd->exists()) {
+			if($hdd->exists()) {
 				$objectv['volume'] = array(
 					"devicefile" => $hdd->getDeviceFile(),
 					"devicefilebyid" => $hdd->getDeviceFileById(),
@@ -383,33 +375,37 @@ class SmartRpc extends OMVRpc {
 				);
 			}
 		}
-		// Filter result
-		return $this->applyFilter($objects, $data['start'], $data['limit'],
-		  $data['sortfield'], $data['sortdir']);
+		// Filter result.
+		return $this->applyFilter($objects, $params['start'],
+		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
 	/**
 	 * Get a scheduled test configuration object.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
+	 * @param context The context of the caller.
 	 * @return The requested configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	public function getScheduledTest($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function getScheduledTest($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
+		// Get the configuration object.
 		$xpath = sprintf("//services/smart/scheduledtests/job[uuid='%s']",
-		  $data['uuid']);
+		  $params['uuid']);
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -418,83 +414,105 @@ class SmartRpc extends OMVRpc {
 
 	/**
 	 * Set a scheduled test config object.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_MISC_DEVICE_NOT_FOUND
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
-	public function setScheduledTest($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function setScheduledTest($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
+				  "type":{"type":"string","enum":["S","L","C","O"]},
+				  "hour":{"type":"string","format":"regex",'.
+					'"pattern":"\/^0[0-9]|1[0-9]|2[0-3]|[*]$\/"},
+				  "month":{"type":"string","format":"regex",'.
+					'"pattern":"\/^0[1-9]|1[0-2]|[*]$\/"},
+				  "dayofmonth":{"type":"string","format":"regex",'.
+					'"pattern":"\/^0[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$\/"},
+				  "dayofweek":{"type":"string","format":"regex",'.
+					'"pattern":"\/^[1-7]|[*]$\/"},
+				  "comment":{"type":"string"}
+			  }
+		  }');
 		// Check if the given device exists.
-		$sd = OMVStorageDeviceFactory::get($data['devicefile']);
-		if (is_null($sd) || !$sd->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf(gettext("Device '%s' not found"), $data['devicefile']));
+		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		if(is_null($sd) || !$sd->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
+			  $params['devicefile']);
 		}
 		// Prepare configuration data
 		$object = array(
-			"uuid" => ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $data['uuid'],
-			"devicefile" => $sd->getDeviceFileById(),
-			"type" => $data['type'],
-			"month" => $data['month'],
-			"dayofmonth" => $data['dayofmonth'],
-			"dayofweek" => $data['dayofweek'],
-			"hour" => $data['hour'],
-			"comment" => $data['comment']
-		);
-		// Set configuration data
+			  "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+				OMVUtil::uuid() : $params['uuid'],
+			  "devicefile" => $sd->getDeviceFileById(),
+			  "type" => $params['type'],
+			  "month" => $params['month'],
+			  "dayofmonth" => $params['dayofmonth'],
+			  "dayofweek" => $params['dayofweek'],
+			  "hour" => $params['hour'],
+			  "comment" => $params['comment']
+		  );
+		// Set the configuration data.
 		$success = FALSE;
-		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Append object to configuration
+		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			// Append object to configuration.
 			$success = $xmlConfig->set("//services/smart/scheduledtests",
 			  array("job" => $object));
 		} else {
-			// Update existing configuration object
-			$success = $xmlConfig->replace("//services/smart/scheduledtests/" .
-			  "job[uuid='{$data['uuid']}']", $object);
+			// Update existing configuration object.
+			$success = $xmlConfig->replace("//services/smart/scheduledtests/".
+			  "job[uuid='{$params['uuid']}']", $object);
 		}
-		if (FALSE === $success) {
+		if(FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.smart.scheduledtests.job", $object);
+		// Return the configuration object.
+		return $object;
 	}
 
 	/**
 	 * Delete a scheduled test configuration object.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return The deleted configuration object.
 	 */
-	public function deleteScheduledTest($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions.
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters.
-		$this->validateParams(__METHOD__, func_get_args());
+	public function deleteScheduledTest($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
 		// Delete the configuration object.
 		$xpath = sprintf("//services/smart/scheduledtests/job[uuid='%s']",
-		  $data['uuid']);
-		$this->deleteConfigObjectByPath($xpath,
+		  $params['uuid']);
+		return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.services.smart.scheduledtests.job");
 	}
 }
+
+// Register the RPC service.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->registerService(new OMVRpcServiceSmart());
 ?>

@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
-"PO-Revision-Date: 2012-11-19 19:12+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2012-12-22 03:12+0100\n"
+"PO-Revision-Date: 2012-12-22 05:22+0000\n"
+"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,15 +23,12 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr "% выполнено..."
 
-#, c-format
 msgid "%s (%s available)"
 msgstr "%s (%s доступно)"
 
-#, c-format
 msgid "%s [on %s]"
 msgstr "%s [включен %s]"
 
@@ -62,7 +59,6 @@ msgstr "10 минут"
 msgid "10 years"
 msgstr "10 лет"
 
-#, c-format
 msgid "100% completed ..."
 msgstr "100% выполнено..."
 
@@ -107,6 +103,9 @@ msgstr "25 лет"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - максимальная производительность, максимальное использование мощности"
+
+msgid "255 - Disabled"
+msgstr "255 - Отключено"
 
 msgid "3 days"
 msgstr "3 дня"
@@ -427,7 +426,6 @@ msgstr "Бахрейн"
 msgid "Ban list"
 msgstr "Бан лист"
 
-#, c-format
 msgid "Ban statistics:"
 msgstr "Статистика банов:"
 
@@ -694,7 +692,6 @@ msgstr "Куба"
 msgid "Current time"
 msgstr "Текущее время"
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr "Зарегистрированные пользователи:"
 
@@ -743,6 +740,9 @@ msgstr "Удалить"
 msgid "Delete content"
 msgstr "Удалить содержимое"
 
+msgid "Delete files"
+msgstr "Удалить файлы"
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Удалять файлы на стороне получателя, которые не существуют у отправителя"
 
@@ -790,7 +790,6 @@ msgstr "Определить время ожидания по умолчанию
 msgid "Device"
 msgstr "Устройство"
 
-#, c-format
 msgid "Device '%s' not found"
 msgstr "Устройство '%s' не найдено"
 
@@ -1044,7 +1043,7 @@ msgstr "Включить идентификационный протокол (RF
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Включить эту опцию, если передача прерывается, чтобы частично переданные файлы сохранялись, в противном случае они будут удалены ."
 
 msgid "Enable user authentication"
 msgstr "Включить авторизацию пользователей"
@@ -1076,7 +1075,6 @@ msgstr "Ошибка"
 msgid "Error #"
 msgstr "Ошибка #"
 
-#, c-format
 msgid "Error #%d"
 msgstr "Ошибка #%d"
 
@@ -1133,7 +1131,6 @@ msgstr "FXP позволяет передавать данные между дв
 msgid "Failed to call "
 msgstr "Не удалось вызвать"
 
-#, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1166,14 +1163,22 @@ msgstr "Фиджи"
 msgid "File"
 msgstr "Файл"
 
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr "Файлы в корзине, будут удалены автоматически после определенного количества дней. Установите 0 для ручного удаления."
+
+msgid ""
+"Files that are larger than the specified number of bytes will not be put "
+"into the recycle bin. Set to 0 for unrestricted file size."
+msgstr "Файлы, размер которых превышает указанное значение байт не будет удален в корзину. Установите 0 для неограниченного размера файла."
+
 msgid "Filesystem"
 msgstr "Файловая система"
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr "Файловая система '%s' не найдена"
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr "Файловая система '%s' не поддерживается"
 
@@ -1267,15 +1272,12 @@ msgstr "Гренада"
 msgid "Group"
 msgstr "Группы"
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr "Группа '%s' уже существует"
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr "Группа '%s' не существует"
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr "Группа с ID '%d' уже существует"
 
@@ -1486,7 +1488,6 @@ msgstr "Недопустимое название группы"
 msgid "Invalid hostname"
 msgstr "Недопустимое имя узла"
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr "Неверная строка: %s"
 
@@ -1542,7 +1543,7 @@ msgid "Kazakhstan"
 msgstr "Казахстан"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Держить частично загруженные файлы"
 
 msgid "Kenya"
 msgstr "Кения"
@@ -1639,7 +1640,6 @@ msgstr "Информация о местоположении, например, 
 msgid "Log level"
 msgstr "Уровень журналирования"
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr "Логический том %s [%s, %s]"
 
@@ -1742,6 +1742,9 @@ msgstr "Максимум попыток входа в систему"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Максимальная скорость загрузки (КБ/с)"
+
+msgid "Maximum file size"
+msgstr "Максимальный размер файла"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1896,7 +1899,6 @@ msgstr "Сетевая маска"
 msgid "Network"
 msgstr "Сеть"
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr "Сетевой интерфейс '%s' уже существует"
 
@@ -2636,7 +2638,6 @@ msgstr "Устанавливает интервал между проверка�
 msgid "Settings"
 msgstr "Настройки"
 
-#, c-format
 msgid "Settings already exist for device '%s'"
 msgstr "Настройки уже существуют для устройства '%s'"
 
@@ -2931,14 +2932,12 @@ msgstr "Целевой удаленный сервер, например. [USER@
 msgid "The destination shared folder."
 msgstr "Общая папка назначения."
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr " Поле '%s' содержит запрещенные"
 
 msgid "The file mode of the shared folder path."
 msgstr "Разрешения файлов для общего ресурса."
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr "Группа '%s' не существует"
 
@@ -3016,11 +3015,9 @@ msgstr "Система будет перезагружена сейчас. Эт�
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "Тестовое электронное письмо было успешно отправлено. Проверьте почтовый ящик."
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr "Пользователь '%s' не существует"
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr "Пользователь '%s' не разрешен"
 
@@ -3038,7 +3035,6 @@ msgstr "Приветственное сообщение, которое буде
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Рабочая группа, в которой отображается сервер при запросе клиентами."
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr "Точка монтирования уже существует для %s"
 
@@ -3315,11 +3311,9 @@ msgstr "Соединенные Штаты"
 msgid "United States Minor Outlying Islands"
 msgstr "США Внешние малые острова"
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr "Неизвестная файловая система '%s'"
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr "Неизвестный тип файла журнала (id=%s)"
 
@@ -3407,15 +3401,12 @@ msgstr "Занятое место"
 msgid "User"
 msgstr "Пользователь"
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr "Пользователь '%s' уже существует"
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr "Пользователь '%s' не существует"
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr "Идентификатор пользователя '%d' уже существует"
 
@@ -3559,7 +3550,6 @@ msgstr "минута"
 msgid "minutes"
 msgstr "минут"
 
-#, c-format
 msgid "n/a"
 msgstr "n/a"
 

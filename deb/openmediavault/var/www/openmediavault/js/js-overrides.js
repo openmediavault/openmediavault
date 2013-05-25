@@ -3,7 +3,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -45,14 +45,14 @@ Ext.applyIf(Array, {
 	 * @return Returns an array of elements from low  to high , inclusive.
 	 * If low > high, the sequence will be from high to low.
 	 */
-	range : function(low, high, step, asString) {
+	range: function(low, high, step, asString) {
 		var array = [];
 		var startv = low;
 		var endv = high;
 		var stepv = step || 1;
 		asString = asString || false;
 
-		if (startv < endv) {
+		if(startv < endv) {
 			while (startv <= endv) {
 				array.push(((asString) ? startv.toString() : startv));
 				startv += stepv;
@@ -76,9 +76,9 @@ Ext.applyIf(Array.prototype, {
 	 * @param scope (optional) The scope in which the function is executed.
 	 * @return None
 	 */
-	each : function(fn, scope) {
-		for (var i = 0; i < this.length; i++) {
-			if (fn.call(scope || this, this[i], i) === false) {
+	each: function(fn, scope) {
+		for(var i = 0; i < this.length; i++) {
+			if(fn.call(scope || this, this[i], i) === false) {
 				break;
 			}
 		}
@@ -90,9 +90,9 @@ Ext.applyIf(Array.prototype, {
 	 * @param fn The function to apply.
 	 * @return Returns the modified array.
 	 */
-	walk : function(fn) {
+	walk: function(fn) {
 		var a = [], i = this.length;
-		while (i--) {
+		while(i--) {
 			a.push(fn(this[i]));
 		}
 		return a.reverse();
@@ -105,7 +105,7 @@ Ext.applyIf(Array.prototype, {
 	 * @param value The value to insert into the array.
 	 * @return Returns the modified array.
 	 */
-	insert : function(index, value) {
+	insert: function(index, value) {
 		this.splice(index,0,value);
 		return this;
 	},
@@ -117,14 +117,14 @@ Ext.applyIf(Array.prototype, {
 	 * @param value The new value.
 	 * @return Returns the modified array.
 	 */
-	replace : function(index, value) {
+	replace: function(index, value) {
 		this.splice(index,1,value);
 		return this;
 	}
 });
 
 Ext.applyIf(Date, {
-	mapHour : [
+	mapHour: [
 		[ "*","*" ],
 		[ "0","0" ],
 		[ "1","1" ],
@@ -152,7 +152,7 @@ Ext.applyIf(Date, {
 		[ "23","23" ]
 	],
 
-	mapHour2Digits : [
+	mapHour2Digits: [
 		[ "*","*" ],
 		[ "00","0" ],
 		[ "01","1" ],
@@ -180,7 +180,7 @@ Ext.applyIf(Date, {
 		[ "23","23" ]
 	],
 
-	mapDayOfWeek : [
+	mapDayOfWeek: [
 		[ "*","*" ],
 		[ "1",_("Monday") ],
 		[ "2",_("Tuesday") ],
@@ -191,7 +191,7 @@ Ext.applyIf(Date, {
 		[ "7",_("Sunday") ]
 	],
 
-	mapDayOfMonth : [
+	mapDayOfMonth: [
 		[ "*", "*" ],
 		[ "1","1" ],
 		[ "2","2" ],
@@ -226,7 +226,7 @@ Ext.applyIf(Date, {
 		[ "31","31" ]
 	],
 
-	mapDayOfMonth2Digits : [
+	mapDayOfMonth2Digits: [
 		[ "*", "*" ],
 		[ "01","1" ],
 		[ "02","2" ],
@@ -261,7 +261,7 @@ Ext.applyIf(Date, {
 		[ "31","31" ]
 	],
 
-	mapMonth : [
+	mapMonth: [
 		[ "*","*" ],
 		[ "1",_("January") ],
 		[ "2",_("February") ],
@@ -277,7 +277,7 @@ Ext.applyIf(Date, {
 		[ "12",_("December") ]
 	],
 
-	mapMonth2Digits : [
+	mapMonth2Digits: [
 		[ "*","*" ],
 		[ "01",_("January") ],
 		[ "02",_("February") ],
@@ -302,7 +302,7 @@ Ext.applyIf(Number.prototype, {
 	 * 'TiB'.
 	 * @return The converted number.
 	 */
-	binaryConvert : function(fromPrefix, toPrefix) {
+	binaryConvert: function(fromPrefix, toPrefix) {
 		var prefixes = {
 			"B": 0,
 			"KiB": 10,
@@ -328,7 +328,7 @@ Ext.applyIf(Number.prototype, {
 	 * @return The converted string value including the unit or an indexed
 	 * array with the fields \em value and \em unit.
 	 */
-	binaryFormat : function(options) {
+	binaryFormat: function(options) {
 		var prefixes = [ "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB",
 		  "ZiB", "YiB" ];
 		var curExp = 0;
@@ -337,13 +337,13 @@ Ext.applyIf(Number.prototype, {
 		var indexed = false;
 
 		// Process additional function options.
-		if (!!options && ("[object Object]" === Object.prototype.toString.call(
+		if(!!options && ("[object Object]" === Object.prototype.toString.call(
 		  options))) {
-			if (typeof options.decimalPlaces !== 'undefined')
+			if(typeof options.decimalPlaces !== 'undefined')
 				decimalPlaces = options.decimalPlaces;
-			if (typeof options.indexed !== 'undefined')
+			if(typeof options.indexed !== 'undefined')
 				indexed = options.indexed;
-			if (typeof options.maxUnit !== 'undefined') {
+			if(typeof options.maxUnit !== 'undefined') {
 				maxExp = prefixes.indexOf(options.maxUnit);
 			}
 		}
@@ -360,7 +360,7 @@ Ext.applyIf(Number.prototype, {
 			"exponent": curExp,
 			"divisor": Math.pow(1024, curExp)
 		};
-		if (false === indexed) {
+		if(false === indexed) {
 			result = number + " " + prefixes[curExp];
 		}
 

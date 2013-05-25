@@ -8,7 +8,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-route
 Architecture: all
-Depends: openmediavault (>= 0.4)
+Depends: openmediavault (>= 0.5)
 Priority: optional
 Description: OpenMediaVault IP routing table plugin
  Adds the ability to manipulate the IP routing table via WebGUI.

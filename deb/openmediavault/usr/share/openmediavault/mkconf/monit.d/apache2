@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@
 set -e
 
 . /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
 
 OMV_MONIT_CONFIG=${OMV_MONIT_CONFIG:-"/etc/monit/monitrc"}
 
@@ -30,5 +31,14 @@ check process apache2 with pidfile /var/run/apache2.pid
   start program = "/etc/init.d/apache2 start"
   stop program = "/etc/init.d/apache2 stop"
   mode manual
-
 EOF
+
+# Disable event notifications.
+xmlstarlet sel -t -m "//system/email" \
+  -i "enable = '1'" \
+	-i "//system/notification/notifications/monitprocevents = '0'" \
+	  -v "concat('  noalert ',primaryemail)" \
+	-b \
+  -b \
+  -n \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_CONFIG}

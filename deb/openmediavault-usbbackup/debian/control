@@ -1,0 +1,15 @@
+Source: openmediavault-usbbackup
+Section: net
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>> 7), gettext
+Standards-Version: 3.6.10
+Homepage: http://www.openmediavault.org
+
+Package: openmediavault-usbbackup
+Architecture: all
+Depends: udev, rsync, openmediavault (>= 0.5)
+Priority: optional
+Description: OpenMediaVault USB backup plugin
+ Automatically synchronise a shared folder to an USB stick and vice verse
+ when it is plugged in.

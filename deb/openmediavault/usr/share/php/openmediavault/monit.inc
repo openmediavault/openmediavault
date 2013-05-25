@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,6 +24,9 @@ require_once("openmediavault/util.inc");
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 
+/**
+ * @ingroup api
+ */
 class OMVMonit extends OMVObject {
 	/**
 	 * Start the named service and enable monitoring for it.
@@ -83,9 +86,9 @@ class OMVMonit extends OMVObject {
 	 * @return None
 	 */
 	private function action($action, $name, $quiet = FALSE) {
-		$cmd = sprintf("sudo monit %s %s 2>&1", $action, $name);
+		$cmd = sprintf("export LANG=C; monit %s %s 2>&1", $action, $name);
 		OMVUtil::exec($cmd, $output, $result);
-		if (!$quiet && ($result !== 0)) {
+		if(!$quiet && ($result !== 0)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -96,16 +99,16 @@ class OMVMonit extends OMVObject {
 	 */
 	public function update() {
 		// Create monit and monitored services configuration files.
-		$cmd = "sudo omv-mkconf monit";
+		$cmd = "omv-mkconf monit 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 		// Reinitialize monit.
-		$cmd = "sudo monit reload";
+		$cmd = "export LANG=C; monit reload 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -117,18 +120,25 @@ class OMVMonit extends OMVObject {
 	 * @return The status of the monitored service, e.g. 'running'.
 	 */
 	public function status($name) {
-		$cmd = sprintf("export LANG=C; sudo monit status | sed -e " .
-		  "'/^.*%s.*$/,/^$/!d' | grep '^\s*status' || true", $name);
+		$status = "unknown";
+		// Get status summary of monitored services. 
+		$cmd = "export LANG=C; monit summary";
 		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		$result = "unknown";
-		if (isset($output[0])) {
-			$result = trim(str_replace("status", "", $output[0]));
+		// Parse the command output.
+		foreach($output as $outputk => $outputv) {
+			$regex = '/^Process\s+\'([^\']+)\'\s+(.+)$/i';
+			if(1 !== preg_match($regex, $outputv, $matches))
+				continue;
+			if($matches[1] != $name)
+				continue;
+			$status = trim($matches[2]);
+			break;
 		}
-		return $result;
+		return $status;
 	}
 }
 ?>

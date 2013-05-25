@@ -3,7 +3,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,23 +18,12 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/MessageBox.js")
-
-Ext.ns("OMV.data");
 
 /**
+ * @ingroup webgui
  * @class OMV.data.Store
  * @derived Ext.data.Store
  */
-OMV.data.Store = function(config) {
-	var initialConfig = {};
-	Ext.applyEx(initialConfig, config);
-	OMV.data.Store.superclass.constructor.call(this, initialConfig);
-	// Register event handler
-	this.on("exception", function(proxy, type, action, options, response,
-	  arg) {
-		OMV.MessageBox.error(null, response || arg);
-	}, this);
-};
-Ext.extend(OMV.data.Store, Ext.data.Store, {
+Ext.define("OMV.data.Store", {
+	extend: "Ext.data.Store"
 });

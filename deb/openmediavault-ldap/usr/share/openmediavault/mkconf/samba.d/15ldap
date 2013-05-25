@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -42,7 +42,7 @@ rootbindpw=$(omv_config_get "//services/ldap/rootbindpw")
 xmlstarlet sel -t -m "//services/ldap" \
   -o "#======================= LDAP Settings =======================" -n \
   -o "security = user" -n \
-  -v "concat('passdb backend = ldapsam:ldap://',host)" -n \
+  -v "concat('passdb backend = ldapsam:ldap://',host)" -i "string-length(port) > 0" -v "concat(':',port)" -b -n \
   -v "concat('ldap suffix = ',base)" -n \
   -v "concat('ldap admin dn = ',rootbinddn)" -n \
   -v "concat('ldap user suffix = ',usersuffix)" -n \

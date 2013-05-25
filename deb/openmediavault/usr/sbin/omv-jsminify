@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -36,26 +36,26 @@ sub main {
 	# Parse options
 	GetOptions('in:s'  => \$infile, 'out:s' => \$outfile, 'help!' => \$help);
 	# Display usage?
-	if ($help) {
+	if($help) {
 		usage;
 		exit 1;
 	}
 	# Use input file or stdin?
-	if ($infile) {
+	if($infile) {
 		open INFILE, "<$infile" or die "Can't open '$infile': $!";
 	}
 	# Use output file or stdout?
-	if ($outfile) {
+	if($outfile) {
 		open OUTFILE, ">$outfile" or die "Can't open '$outfile': $!";
 	}
 	# Minify javascript code.
 	minify(input => $infile ? *INFILE : *STDIN, outfile => $outfile ?
 	  *OUTFILE : *STDOUT);
 	# Close file handles.
-	if ($infile) {
+	if($infile) {
 		close INFILE;
 	}
-	if ($outfile) {
+	if($outfile) {
 		close OUTFILE;
 	}
 	exit 0;

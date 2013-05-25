@@ -3,7 +3,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,18 +18,18 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/NavigationPanel.js")
+// require("js/omv/ModuleManager.js")
 // require("js/omv/FormPanelExt.js")
-// require("js/omv/form/PasswordField.js")
-// require("js/omv/form/SharedFolderComboBox.js")
-// require("js/omv/form/plugins/FieldInfo.js")
+// require("js/omv/form/field/Password.js")
+// require("js/omv/form/field/SharedFolderComboBox.js")
+// require("js/omv/form/field/plugin/FieldInfo.js")
 
 Ext.ns("OMV.Module.Services");
 
 // Register the menu.
-OMV.NavigationPanelMgr.registerMenu("services", "daapd", {
+OMV.ModuleManager.registerMenu("services", "daapd", {
 	text: _("iTunes/DAAP"),
-	icon: "images/forkeddaapd.png"
+	icon16: "images/forkeddaapd.png"
 });
 
 /**
@@ -48,15 +48,14 @@ Ext.extend(OMV.Module.Services.ForkedDaapd, OMV.FormPanelExt, {
 	initComponent : function() {
 		OMV.Module.Services.ForkedDaapd.superclass.initComponent.apply(this,
 		  arguments);
-		this.on("load", this._updateFormFields, this);
+		this.on("load", this.updateFormFields, this);
 	},
 
 	getFormItems : function() {
 		return [{
 			xtype: "fieldset",
 			title: _("General settings"),
-			defaults: {
-//				anchor: "100%",
+			fieldDefaults: {
 				labelSeparator: ""
 			},
 			items: [{
@@ -64,9 +63,8 @@ Ext.extend(OMV.Module.Services.ForkedDaapd, OMV.FormPanelExt, {
 				name: "enable",
 				fieldLabel: _("Enable"),
 				checked: false,
-				inputValue: 1,
 				listeners: {
-					check: this._updateFormFields,
+					check: this.updateFormFields,
 					scope: this
 				}
 			},{
@@ -74,8 +72,10 @@ Ext.extend(OMV.Module.Services.ForkedDaapd, OMV.FormPanelExt, {
 				name: "libraryname",
 				fieldLabel: _("Library name"),
 				allowBlank: false,
-				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: _("The name of the library as displayed by the clients.")
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The name of the library as displayed by the clients.")
+				}]
 			},{
 				xtype: "numberfield",
 				name: "port",
@@ -84,28 +84,29 @@ Ext.extend(OMV.Module.Services.ForkedDaapd, OMV.FormPanelExt, {
 				minValue: 0,
 				maxValue: 65535,
 				allowDecimals: false,
-				allowNegative: false,
 				allowBlank: false,
 				value: 3689,
-				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: _("Port to listen on.")
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("Port to listen on.")
+				}]
 			},{
 				xtype: "sharedfoldercombo",
 				name: "sharedfolderref",
-				hiddenName: "sharedfolderref",
 				fieldLabel: _("Shared folder"),
 				allowNone: true,
-				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: _("The location of the media files to share.")
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The location of the media files to share.")
+				}]
 			},{
 				xtype: "checkbox",
 				name: "passwordrequired",
 				fieldLabel: _("Authentication"),
 				checked: false,
-				inputValue: 1,
 				boxLabel: _("A password is required to access the library."),
 				listeners: {
-					check: this._updateFormFields,
+					check: this.updateFormFields,
 					scope: this
 				}
 			},{
@@ -120,24 +121,24 @@ Ext.extend(OMV.Module.Services.ForkedDaapd, OMV.FormPanelExt, {
 	/**
 	 * Private function to update the states of various form fields.
 	 */
-	_updateFormFields : function() {
+	updateFormFields: function() {
 		// Update 'password' field settings
-		var field = this.findFormField("passwordrequired");
+		var field = this.findField("passwordrequired");
 		var checked = field.checked;
-		field = this.findFormField("password");
-		if (!Ext.isEmpty(field)) {
+		field = this.findField("password");
+		if(!Ext.isEmpty(field)) {
 			field.allowBlank = !checked;
 			field.setReadOnly(!checked);
 		}
 		// Update 'sharedfolderref' field settings
-		field = this.findFormField("enable");
+		field = this.findField("enable");
 		checked = field.checked;
-		field = this.findFormField("sharedfolderref");
-		if (!Ext.isEmpty(field)) {
+		field = this.findField("sharedfolderref");
+		if(!Ext.isEmpty(field)) {
 			field.allowBlank = !checked;
 		}
 	}
 });
-OMV.NavigationPanelMgr.registerPanel("services", "daapd", {
+OMV.ModuleManager.registerPanel("services", "daapd", {
 	cls: OMV.Module.Services.ForkedDaapd
 });

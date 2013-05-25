@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
-"PO-Revision-Date: 2012-11-19 19:12+0000\n"
+"POT-Creation-Date: 2012-12-22 03:12+0100\n"
+"PO-Revision-Date: 2012-12-22 02:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -18,15 +18,12 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr "% slutförd ..."
 
-#, c-format
 msgid "%s (%s available)"
 msgstr "%s (%s tillgänglig)"
 
-#, c-format
 msgid "%s [on %s]"
 msgstr "%s [på %s]"
 
@@ -57,7 +54,6 @@ msgstr "10 minuter"
 msgid "10 years"
 msgstr "10 år"
 
-#, c-format
 msgid "100% completed ..."
 msgstr "100% slutförd ..."
 
@@ -102,6 +98,9 @@ msgstr "25 år"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maximal prestanda, maximal strömförbrukning"
+
+msgid "255 - Disabled"
+msgstr "255 - Inaktiverad"
 
 msgid "3 days"
 msgstr "3 dagar"
@@ -422,7 +421,6 @@ msgstr "Bahrain"
 msgid "Ban list"
 msgstr "Blockeringslista"
 
-#, c-format
 msgid "Ban statistics:"
 msgstr "Statistik för blockering:"
 
@@ -463,7 +461,7 @@ msgid "Bond options"
 msgstr "Band-inställningar"
 
 msgid "Boot"
-msgstr ""
+msgstr "Boot"
 
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnien och Hercegovina"
@@ -689,7 +687,6 @@ msgstr "Kuba"
 msgid "Current time"
 msgstr "Nuvarande tid"
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr "Inloggade användare:"
 
@@ -738,6 +735,9 @@ msgstr "Radera"
 msgid "Delete content"
 msgstr "Radera innehåll"
 
+msgid "Delete files"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Radera "
 
@@ -785,7 +785,6 @@ msgstr "Bestäm standard-timeout, i mikrosekunder, innan det första paketet är
 msgid "Device"
 msgstr "Enhet"
 
-#, c-format
 msgid "Device '%s' not found"
 msgstr "Enhet '%s' hittades inte"
 
@@ -1039,7 +1038,7 @@ msgstr "Aktivera \"ident\"-protokollet (RFC1413)"
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Aktivera det här alternativet för att behålla delvis överförda filer, annars kommer de att tas bort om överföringen stannar."
 
 msgid "Enable user authentication"
 msgstr "Aktivera autentisering för användare"
@@ -1071,7 +1070,6 @@ msgstr "Fel"
 msgid "Error #"
 msgstr "Fel #"
 
-#, c-format
 msgid "Error #%d"
 msgstr "Fel #%d"
 
@@ -1128,7 +1126,6 @@ msgstr "FXP tillåter överföringar mellan två fjärrservrar utan fildata att 
 msgid "Failed to call "
 msgstr "Det gick inte att anropa"
 
-#, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1161,14 +1158,22 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Fil"
 
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr ""
+
+msgid ""
+"Files that are larger than the specified number of bytes will not be put "
+"into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
+
 msgid "Filesystem"
 msgstr "Filsystem"
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr "Filsystem '%s' hittades inte"
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr "Filesystem '%s' stöds inte"
 
@@ -1262,15 +1267,12 @@ msgstr "Grenada"
 msgid "Group"
 msgstr "Grupper"
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr "Grupp '%s' existerar redan"
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr "Grupp '%s' existerar inte"
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr "Grupp-ID '%d' existerar redan"
 
@@ -1481,7 +1483,6 @@ msgstr "Ogiltigt gruppnamn"
 msgid "Invalid hostname"
 msgstr "Ogiltigt värdnamn"
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr "Felaktig rad: %s"
 
@@ -1537,7 +1538,7 @@ msgid "Kazakhstan"
 msgstr "Kazakstan"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Behåll delvis överförda filer"
 
 msgid "Kenya"
 msgstr "Kenya"
@@ -1634,7 +1635,6 @@ msgstr "Platsinformation, t.ex. fysisk plats för det här systemet."
 msgid "Log level"
 msgstr "Loggnivå"
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr "Logisk volym %s [%s, %s]"
 
@@ -1737,6 +1737,9 @@ msgstr "Max. loginförsök"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maximal nedladdningshastighet (KiB/s)"
+
+msgid "Maximum file size"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1891,7 +1894,6 @@ msgstr "Nätmask"
 msgid "Network"
 msgstr "Nätverk"
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr "Nätverksgränssnitt '%s' finns redan"
 
@@ -2082,7 +2084,7 @@ msgid "People's Democratic Republic of Yemen"
 msgstr "Demokratiska folkrepubliken Jemen"
 
 msgid "Perform a trial run with no changes made"
-msgstr ""
+msgstr "Genomför ett test utan att spara"
 
 msgid "Period of validity"
 msgstr "Giltighetstid"
@@ -2156,7 +2158,7 @@ msgid ""
 msgstr "Kontrollera <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manualsidan</a> för mer information."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr ""
+msgstr "Välj en metod för att radera enheten eller välj 'Avbryt' "
 
 msgid "Please first select a volume."
 msgstr "Välj först en volym."
@@ -2267,7 +2269,7 @@ msgid "Qatar"
 msgstr "Qatar"
 
 msgid "Quick"
-msgstr ""
+msgstr "Snabb"
 
 msgid "Quiet"
 msgstr "Tyst"
@@ -2505,7 +2507,7 @@ msgid "Seconds"
 msgstr "Sekunder"
 
 msgid "Secure"
-msgstr ""
+msgstr "Säker"
 
 msgid "Secure connection"
 msgstr "Säker anslutning"
@@ -2631,7 +2633,6 @@ msgstr "Ange intervall mellan enhetskontroller till N sekunder."
 msgid "Settings"
 msgstr "Inställningar"
 
-#, c-format
 msgid "Settings already exist for device '%s'"
 msgstr "Inställningar existerar redan för enheten '%s'"
 
@@ -2926,14 +2927,12 @@ msgstr "Destinationens fjärrserver, exempelvis [USER@]HOST:DEST, [USER@]HOST::D
 msgid "The destination shared folder."
 msgstr "Delade mappens destination."
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr "Fältet '%s' innehåller förbjudna"
 
 msgid "The file mode of the shared folder path."
 msgstr "Filens läge för den delade mappsökvägen."
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr "Gruppen '%s' existerar inte"
 
@@ -3011,11 +3010,9 @@ msgstr "Systemet startar nu om. Detta kan ta lite tid ..."
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "Testets e-postmeddelande har skickats. Kontrollera din brevlåda."
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr "Användaren '%s' finns inte"
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr "Användaren '%s' är inte tillåten"
 
@@ -3033,7 +3030,6 @@ msgstr "Välkomstmeddelandet som kommer att visas för användaren när de initi
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Arbetsgruppen som servern utger sig för att vara i när klienterna frågar."
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr "Det redan finns en monteringspunkt för %s"
 
@@ -3248,7 +3244,7 @@ msgid "Treshold"
 msgstr "Tröskelvärde"
 
 msgid "Trial run"
-msgstr ""
+msgstr "Testkörning"
 
 msgid "Trinidad and Tobago"
 msgstr "Trinidad och Tobago"
@@ -3310,11 +3306,9 @@ msgstr "United States"
 msgid "United States Minor Outlying Islands"
 msgstr "Förenta staternas avlägset belägna öar"
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr "Okänt filsystem \"%s'"
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr "Okänd loggfilstyp (id=%s)"
 
@@ -3402,15 +3396,12 @@ msgstr "Använd kapacitet"
 msgid "User"
 msgstr "Användare"
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr "Användaren '%s' finns redan"
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr "Användaren '%s' finns inte"
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr "Användar ID '%d' finns redan"
 
@@ -3554,7 +3545,6 @@ msgstr "minut"
 msgid "minutes"
 msgstr "minuter"
 
-#, c-format
 msgid "n/a"
 msgstr "n/a"
 
@@ -3562,4 +3552,4 @@ msgid "seconds"
 msgstr "sekunder"
 
 msgid "web administration interface"
-msgstr ""
+msgstr "Gränssnitt för webbadministration"

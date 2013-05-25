@@ -1,0 +1,553 @@
+#!/usr/bin/php5 -c/etc/openmediavault
+<?php
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2013 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+require_once("openmediavault/globals.inc");
+require_once("openmediavault/error.inc");
+require_once("openmediavault/functions.inc");
+
+///////////////////////////////////////////////////////////////////////////////
+// Helper functions.
+///////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Display command usage.
+ */
+function usage() {
+    global $argv, $cmdName;
+    $text = <<<EOF
+The RPC daemon. RPC request will be received via socket.
+Usage:
+  %s [options]
+
+OPTIONS:
+  -d --debug       Enable debug mode
+  -f --foreground  Run in foreground
+  -h --help        Print a help text
+
+EOF;
+    printf($text, $cmdName);
+}
+
+/**
+ * Signal handler function.
+ * @param signal The signal.
+ */
+function signalHandler($signal) {
+	global $sigTerm, $sigChld;
+
+	switch($signal) {
+	case SIGINT:
+		debug("SIGINT received ...\n");
+		$sigTerm = TRUE;
+		break;
+	case SIGTERM:
+		debug("SIGTERM received ...\n");
+		$sigTerm = TRUE;
+		break;
+	case SIGCHLD:
+		debug("SIGCHLD received ...\n");
+		$sigChld = true;
+		break;
+	default:
+		// Nothing to do here.
+		break;
+	}
+}
+
+/**
+ * Process SIGCHLD signals.
+ */
+function handleSigChld() {
+	global $sigChld, $children;
+
+	$pid = pcntl_waitpid(-1, $status, WNOHANG);
+	if($pid > 0) {
+		foreach($children as $childk => $childv) {
+			if($childv !== $pid)
+				continue;
+			unset($children[$childk]);
+			if(pcntl_wifexited($status)) {
+				debug("Child (pid=%d) terminated with exit code %d\n",
+				  $pid, pcntl_wexitstatus($status));
+			} else {
+				debug("Child (pid=%d) terminated with signal %d\n",
+				  $pid, pcntl_wtermsig($status));
+			}
+			break;
+		}
+	}
+	$sigChld = FALSE;
+}
+
+/**
+ * Kill all child processes.
+ */
+function killChld() {
+	global $children;
+
+	foreach($children as $childk => $childv) {
+		if(posix_kill($childv, SIGTERM)) {
+			debug("Send SIGTERM to child (pid=%d)\n", $childv);
+		}
+	}
+	while(!empty($children)) {
+		debug("Waiting for children to terminate ...\n");
+		handleSigChld();
+		usleep(1000);
+	}
+}
+
+/**
+ * Daemonize the application.
+ */
+function daemonize() {
+	global $debug, $daemon, $pidFile, $stdIn, $stdOut, $stdErr;
+
+	if(FALSE === $daemon)
+		return;
+
+	// Check if PID file already exists and whether a daemon is already
+	// running.
+	if(file_exists($pidFile)) {
+		$pid = file_get_contents($pidFile);
+		if(TRUE === posix_kill($pid, 0)) {
+			error("Daemon already running (pid=%d)\n", $pid);
+			exit(1);
+		}
+		unlink($pidFile);
+	}
+
+	$pid = pcntl_fork();
+	if($pid == -1) {
+		error("Failed to fork process\n");
+		exit(1);
+	} else if($pid) { // Parent process
+		exit(0);
+	}
+
+	// Make the current process a session leader.
+	if(0 > posix_setsid()) {
+		error("Could not detach from terminal\n");
+		exit(1);
+	}
+
+	pcntl_signal(SIGHUP, SIG_IGN);
+
+	// If starting a process on the command line, the shell will become the
+	// session leader of that command. To create a new process group with the
+	// daemon as session leader it is necessary to fork a new process again.
+	$pid = pcntl_fork();
+	if($pid == -1) {
+		error("Failed to fork process\n");
+		exit(1);
+	} else if($pid) { // Parent process
+		debug("Daemon process started (pid=%d)\n", $pid);
+		// Exit parent process.
+		exit(0);
+	}
+
+	// Change the file mode mask.
+	umask(0);
+
+	// Change the current working directory.
+	if(FALSE === chdir("/")) {
+		error("Failed to change to root directory\n");
+		exit(1);
+	}
+
+	// Create PID file.
+	file_put_contents($pidFile, posix_getpid());
+
+	if(FALSE === $debug) {
+		// Close all of the standard file descriptors.
+		if(is_resource(STDIN))  fclose(STDIN);
+		if(is_resource(STDOUT)) fclose(STDOUT);
+		if(is_resource(STDERR)) fclose(STDERR);
+		// Create new standard file descriptors.
+		$stdIn = fopen("/dev/null", "r");
+		$stdOut = fopen("/dev/null", "w");
+		$stdErr = fopen("/dev/null", "w");
+	}
+}
+
+/**
+ * Error function. Output message to system log and console in debug mode.
+ * @param msg The error message.
+ */
+function error() {
+	global $debug;
+
+	$args = func_get_args();
+	$msg = array_shift($args);
+	syslog(LOG_ALERT, vsprintf($msg, $args));
+	if(TRUE === $debug) {
+		vprintf($msg, $args);
+	}
+}
+
+/**
+ * Debug function. Output message to syslog or console in debug mode.
+ * @param msg The debug message.
+ */
+function debug() {
+	global $debug, $daemon;
+
+	$args = func_get_args();
+	$msg = array_shift($args);
+	if(TRUE === $debug) {
+		if(FALSE === $daemon)
+			vprintf($msg, $args);
+		else
+			syslog(LOG_DEBUG, vsprintf($msg, $args));
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Global variables.
+///////////////////////////////////////////////////////////////////////////////
+
+$cmdName = basename($argv[0]);
+$sigTerm = FALSE;
+$sigChld = FALSE;
+$socket = NULL;
+$maxConnections = 10;
+$timeout = 1;
+$debug = FALSE;
+$daemon = TRUE;
+$pidFile = "/var/run/{$cmdName}.pid";
+$children = array();
+
+$stdIn = NULL;
+$stdOut = NULL;
+$stdErr = NULL;
+
+///////////////////////////////////////////////////////////////////////////////
+// Process command line arguments.
+///////////////////////////////////////////////////////////////////////////////
+
+// Check the command line arguments. Exit and display usage if
+// nessecary.
+$cmdArgs = array(
+	  "d::" => "debug::",
+	  "f::" => "foreground::",
+	  "h::" => "help::"
+  );
+$options = getopt(implode("", array_keys($cmdArgs)), $cmdArgs);
+foreach($options as $optionk => $optionv) {
+	switch ($optionk) {
+	case "d":
+	case "debug":
+		$argc -= 1;
+		$debug = TRUE;
+		break;
+	case "f":
+	case "foreground":
+		$argc -= 1;
+		$daemon = FALSE;
+		break;
+	case "h":
+	case "help":
+		usage();
+		exit(0);
+		break;
+	}
+}
+if($argc > 1) {
+	print gettext("ERROR: Invalid number of arguments\n");
+	usage();
+	exit(1);
+}
+
+ini_set("max_execution_time", "0");
+ini_set("max_input_time", "0");
+set_time_limit(0);
+
+// Open syslog, include the process ID and also send the log to
+// standard error.
+openlog($cmdName, LOG_PID | LOG_PERROR, LOG_USER);
+
+// Change process name.
+setproctitle($cmdName);
+
+///////////////////////////////////////////////////////////////////////////////
+// Daemonize the application if running in daemon mode and initialize
+// signal handlers.
+///////////////////////////////////////////////////////////////////////////////
+daemonize();
+
+pcntl_signal(SIGINT, "signalHandler");
+pcntl_signal(SIGTERM, "signalHandler");
+pcntl_signal(SIGHUP, "signalHandler");
+pcntl_signal(SIGCHLD, "signalHandler");
+
+///////////////////////////////////////////////////////////////////////////////
+// Include all RPC service classes.
+///////////////////////////////////////////////////////////////////////////////
+// Including additional include files here is a workaround because of a bug
+// in sem_get(), see https://bugs.php.net/bug.php?id=62928 for more details.
+// The workaround simply loads the include files using the sem_get function
+// after the daemon process has been forked.
+///////////////////////////////////////////////////////////////////////////////
+
+require_once("openmediavault/config.inc");
+require_once("openmediavault/rpc.inc");
+require_once("openmediavault/module.inc");
+
+$rpcServiceDir = sprintf("%s/rpc", $GLOBALS['OMV_ENGINED_DIR']);
+foreach(new DirectoryIterator($rpcServiceDir) as $item) {
+	if($item->isDot())
+		continue;
+	if($item->isFile()) {
+		$pathInfo = pathinfo($item->getFilename());
+		if(strtolower($pathInfo['extension']) === "inc") {
+			require_once("{$rpcServiceDir}/{$item->getFilename()}");
+		}
+	}
+}
+// Initialize the RPC sevices.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->initializeServices();
+if(TRUE === $debug) {
+	$rpcServiceMgr->dump();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Include additional files and all module classes.
+///////////////////////////////////////////////////////////////////////////////
+foreach(array("inc", "module") as $dirName) {
+	$dirPath = sprintf("%s/%s", $GLOBALS['OMV_ENGINED_DIR'], $dirName);
+	foreach(new DirectoryIterator($dirPath) as $item) {
+		if($item->isDot())
+			continue;
+		if($item->isFile()) {
+			$pathInfo = pathinfo($item->getFilename());
+			if(strtolower($pathInfo['extension']) === "inc") {
+				require_once("{$dirPath}/{$item->getFilename()}");
+			}
+		}
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Bind listeners.
+///////////////////////////////////////////////////////////////////////////////
+$moduleMgr = &OMVModuleMgr::getInstance();
+$modules = $moduleMgr->getModules();
+$dispatcher = &OMVNotifyDispatcher::getInstance();
+foreach($modules as $module) {
+	$dispatcher->addListener($module);
+}
+if(TRUE === $debug) {
+	$moduleMgr->dump();
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Open the socket.
+///////////////////////////////////////////////////////////////////////////////
+if(FALSE === ($socket = @socket_create(AF_UNIX, SOCK_STREAM, 0))) {
+	error("Failed to create socket: %s\n", socket_strerror(
+	  socket_last_error()));
+	exit(1);
+}
+if(FALSE === @socket_set_option($socket, SOL_SOCKET, SO_REUSEADDR, 1)) {
+	error("Failed to set socket option: %s\n", socket_strerror(
+	  socket_last_error()));
+	exit(1);
+}
+// Unlink socket, even if it does not exist.
+@unlink($GLOBALS['OMV_ENGINED_SO_ADDRESS']);
+if(FALSE === @socket_bind($socket, $GLOBALS['OMV_ENGINED_SO_ADDRESS'])) {
+	error("Failed to bind socket: %s\n", socket_strerror(
+	  socket_last_error()));
+	exit(1);
+}
+// Modify file permission to allow access for non-root users.
+chmod($GLOBALS['OMV_ENGINED_SO_ADDRESS'], 0777);
+if(FALSE === @socket_listen($socket, $maxConnections)) {
+	error("Failed to listen to socket: %s\n", socket_strerror(
+	  socket_last_error()));
+	exit(1);
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Main loop. Wait for requests until SIGINT or SIGTERM has been received.
+///////////////////////////////////////////////////////////////////////////////
+while(FALSE === $sigTerm) {
+	// Call signal handlers for pending signals.
+	pcntl_signal_dispatch();
+	// Monitor socket.
+	$read = array($socket);
+	if(FALSE === ($r = @socket_select($read, $write = NULL, $except = NULL,
+	  $timeout))) {
+		$errCode = socket_last_error();
+		if(SOCKET_EINTR == $errCode) {
+			pcntl_signal_dispatch();
+		} else {
+			error("Failed to select socket: %s\n", socket_strerror($errCode));
+			exit(1);
+		}
+	} else if($r > 0) {
+		if(FALSE === ($conn = @socket_accept($socket))) {
+			error("Failed to accept socket: %s\n", socket_strerror(
+			  socket_last_error()));
+			exit(1);
+		}
+
+		///////////////////////////////////////////////////////////////////////
+		// Read the RPC request from the socket.
+		///////////////////////////////////////////////////////////////////////
+		// Read the RPC request header.
+		$header = "";
+		while(($len = strlen($header)) < 8) {
+			$data = @socket_read($conn, 8 - $len, PHP_BINARY_READ);
+			if(FALSE === $data) {
+				@socket_close($conn);
+				error("Failed to read RPC request header: %s\n",
+				  socket_strerror(socket_last_error()));
+				exit(1);
+			}
+			$header .= $data;
+		}
+		// Unpack header.
+		$header = unpack("Nlength/Ncrc32", $header);
+		// Read the RPC request data.
+		$request = "";
+		while(($len = strlen($request)) < $header['length']) {
+			$data = @socket_read($conn, $header['length'] - $len,
+			  PHP_BINARY_READ);
+			if(FALSE === $data) {
+				@socket_close($conn);
+				error("Failed to read RPC request data: %s\n",
+				  socket_strerror(socket_last_error()));
+				exit(1);
+			}
+			$request .= $data;
+		}
+		// Check RPC request data.
+		if($header['crc32'] != hexdec(hash("crc32b", $request))) {
+			@socket_close($conn);
+			error("Invalid checksum of RPC request data\n");
+			exit(1);
+		}
+
+		///////////////////////////////////////////////////////////////////////
+		// Fork a child process to execute the RPC.
+		///////////////////////////////////////////////////////////////////////
+		$pid = pcntl_fork();
+		if($pid == -1) {
+			@socket_close($conn);
+			error("Failed to create child process\n");
+			exit(1);
+		} else if($pid) { // Parent process
+			$children[] = $pid;
+		} else { // Child process
+			debug("Child process forked (pid=%d)\n", posix_getpid());
+
+			// Reset signal handlers to their default.
+			pcntl_signal(SIGINT, SIG_DFL);
+			pcntl_signal(SIGTERM, SIG_DFL);
+			pcntl_signal(SIGHUP, SIG_DFL);
+			pcntl_signal(SIGCHLD, SIG_DFL);
+
+			// Load include file for every new child.
+			// Note, if the configuration is dirty and has not been applied
+			// until now, then the changes are still used. This is acceptable
+			// for the moment because it only applies to the timezone.
+			require_once("openmediavault/env.inc");
+
+			// Decode JSON string to a PHP array.
+			$request = json_decode($request, TRUE);
+
+			///////////////////////////////////////////////////////////////////
+			// Execute RPC.
+			///////////////////////////////////////////////////////////////////
+			debug("Executing RPC (service=%s, method=%s, params=%s, ".
+			  "context=%s) ...\n", $request['service'], $request['method'],
+			  json_encode_safe($request['params']), json_encode_safe(
+			  $request['context']));
+
+			try {
+				$response = OMVRpc::exec($request['service'],
+				  $request['method'], $request['params'],
+				  $request['context'], OMV_RPC_MODE_LOCAL);
+
+				$response = json_encode_safe(array(
+					"response" => $response,
+					"error" => null
+				));
+			} catch(Exception $e) {
+				$response = json_encode_safe(array(
+					"response" => null,
+					"error" => array(
+						"code" => $e->getCode(),
+						"message" => $e->getMessage(),
+						"trace" => $e->__toString()
+					)
+				));
+			}
+
+			debug("RPC response (service=%s, method=%s): %s\n",
+			  $request['service'], $request['method'], $response);
+
+			///////////////////////////////////////////////////////////////////
+			// Write RPC response.
+			///////////////////////////////////////////////////////////////////
+			// Build the response header.
+			$header = pack("NN", strlen($response), hexdec(hash("crc32b",
+			  $response)));
+			// Build the buffer to be written to the socket.
+			$response = $header . $response;
+			if(FALSE === @socket_write($conn, $response, strlen($response))) {
+				@socket_close($conn);
+				error("Failed to write to socket: %s\n",
+				  socket_strerror( socket_last_error()));
+				exit(1);
+			}
+			// Close connection.
+			@socket_close($conn);
+			// Exit child process.
+			exit(0);
+		}
+	}
+	// Process SIGCHLD signal.
+	if(TRUE === $sigChld) {
+		handleSigChld();
+	}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Cleanup.
+///////////////////////////////////////////////////////////////////////////////
+
+killChld();
+
+// Close and unlink socket.
+@socket_close($socket);
+@unlink($GLOBALS['OMV_ENGINED_SO_ADDRESS']);
+
+// Unlink PID file (exists only when running in daemon mode).
+@unlink($pidFile);
+
+// Set exit code.
+exit(0);
+?>

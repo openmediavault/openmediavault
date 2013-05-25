@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,38 +23,49 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/util.inc");
-require_once("openmediavault/rpc.inc");
 require_once("openmediavault/system.inc");
 require_once("openmediavault/product.inc");
+require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
 
-class SystemRpc extends OMVRpc {
-	public function __construct() {
-		$this->methodSchemata = array(
-			"setTimeSettings" => array('{
-				"type":"object",
-				"properties":{
-					"timezone":{"type":"string"},
-					"ntpenable":{"type":"boolean"},
-					"ntptimeservers":{"type":"string"}
-				}
-			}'),
-			"setDate" => array('{
-				"type":"object",
-				"properties":{
-					"timestamp":{"type":"integer"}
-				}
-			}')
-		);
+class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
+	/**
+	 * Get the RPC service name.
+	 */
+	public function getName() {
+		return "System";
+	}
+
+	/**
+	 * Initialize the RPC service.
+	 */
+	public function initialize() {
+		$this->registerMethod("noop");
+		$this->registerMethod("getTopInfo");
+		$this->registerMethod("getShells");
+		$this->registerMethod("reboot");
+		$this->registerMethod("shutdown");
+		$this->registerMethod("getTimeSettings");
+		$this->registerMethod("setTimeSettings");
+		$this->registerMethod("setDate");
+		$this->registerMethod("setNtpDate");
+		$this->registerMethod("getTimeZoneList");
+		$this->registerMethod("getInformation");
 	}
 
 	/**
 	 * This function can be used to check if the communication between
 	 * WebGUI and server exists.
-	 * @return None.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return A quotation from the Dune novel, which is a string.
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
-	function noop() {
-		$this->commitSession();
+	public function noop($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
 		// http://www.nightsolo.net/dune/god.html
 		$result = array(
 			"The beginning of knowledge is the discovery of something ".
@@ -76,7 +87,9 @@ class SystemRpc extends OMVRpc {
 			  "fear. I will permit it to pass over me and through me. And ".
 			  "when it has gone past I will turn the inner eye to see its ".
 			  "path. Where the fear has gone there will be nothing. Only I ".
-			  "will remain."
+			  "will remain.",
+			"People always fear the unknown, if they are truthful about ".
+			  "it. But i can face my fears."
 		);
 		return $result[mt_rand(0, count($result) - 1)];
 	}
@@ -84,68 +97,66 @@ class SystemRpc extends OMVRpc {
 	/**
 	 * Get the list of running processes and a system summary information
 	 * as well.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
 	 * @return The 'top' console command output.
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
-	function getTopInfo() {
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Get task overview
+	public function getTopInfo($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get task overview.
 		OMVUtil::exec("top -b -n 1", $result);
 		return implode("\n", $result);
 	}
 
 	/**
 	 * Get a list of available shells.
-	 * @return The list of available shells.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array with the available shells.
+	 * @throw E_EXEC_FAILED
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
-	function getShells() {
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Get list of available shells
-		$cmd = 'for sh in $(sudo cat /etc/shells); do '.
-		  'if [ -x ${sh} ]; then echo ${sh}; fi done';
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-		$data = array(
-			array("path" => "/bin/false"),
-			array("path" => "/usr/sbin/nologin")
+	public function getShells($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Prepare result list.
+		$result = array(
+			"/bin/false",
+			"/usr/sbin/nologin"
 		);
-		foreach ($output as $path) {
-			$data[] = array(
-				"path" => $path
-			);
+		// Get list of available shells.
+		$shells = file("/etc/shells");
+		foreach($shells as $shellk => $shellv) {
+			$shellv = trim($shellv);
+			if(is_executable($shellv)) {
+				$result[] = $shellv;
+			}
 		}
-		return array(
-			"total" => count($data),
-			"data" => $data
-		);
+		return $result;
 	}
 
 	/**
 	 * Reboot the system.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @throw E_EXEC_FAILED
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
-	function reboot() {
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Reboot the system now
-		$cmd = "sudo shutdown -r now 2>&1";
+	public function reboot($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Reboot the system now.
+		$cmd = "shutdown -r now 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -153,18 +164,21 @@ class SystemRpc extends OMVRpc {
 
 	/**
 	 * Shutdown the system.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_EXEC_FAILED
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
-	function shutdown() {
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Shutdown the system now
-		$cmd = "sudo shutdown -h -P now 2>&1";
+	public function shutdown($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Shutdown the system now.
+		$cmd = "shutdown -h -P now 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -172,31 +186,30 @@ class SystemRpc extends OMVRpc {
 
 	/**
 	 * Get system time settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @throw E_EXEC_MISC
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
-	function getTimeSettings() {
+	public function getTimeSettings($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Get configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get configuration object.
 		$xpath = "//system/time";
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Get local date/time
-		if (FALSE === ($date = OMVSystem::date())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  gettext("Failed to get system date and time"));
-		}
 		return array(
 			"date" => array(
-				"local" => $date['local'],
-				"ISO8601" => $date['ISO8601']
+				"local" => strftime("%c"),
+				"ISO8601" => date("c")
 			),
 			"timezone" => $object['timezone'],
 			"ntpenable" => boolval($object['ntp']['enable']),
@@ -206,116 +219,131 @@ class SystemRpc extends OMVRpc {
 
 	/**
 	 * Set system time settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_PARAMS
 	 */
-	function setTimeSettings($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function setTimeSettings($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Prepare configuration data
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "timezone":{"type":"string"},
+				  "ntpenable":{"type":"boolean"},
+				  "ntptimeservers":{"type":"string"}
+			  }
+		  }');
+		// Prepare configuration data.
 		$object = array(
-			"timezone" => $data['timezone'],
+			"timezone" => $params['timezone'],
 			"ntp" => array(
-				"enable" => array_boolval($data, 'ntpenable'),
-				"timeservers" => $data['ntptimeservers']
+				"enable" => array_boolval($params, 'ntpenable'),
+				"timeservers" => $params['ntptimeservers']
 			)
 		);
-		// Set configuration object
-		if (FALSE === $xmlConfig->replace("//system/time", $object)) {
+		// Set configuration object.
+		if(FALSE === $xmlConfig->replace("//system/time", $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.time", $object);
 	}
 
 	/**
-	 * Set system date.
-	 * @param data An array containing the following fields:
+	 * Set the system date.
+	 * @param params An array containing the following fields:
 	 *   \em timestamp The date to set as UNIX timestamp.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_EXEC_FAILED
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_PARAMS
 	 */
-	function setDate($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Set the date
-		$cmd = sprintf("sudo date --set='@%d' 2>&1", $data['timestamp']);
+	public function setDate($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "timestamp":{"type":"integer"}
+			  }
+		  }');
+		// Set the system date.
+		$cmd = sprintf("date --set='@%d' 2>&1", $params['timestamp']);
 		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 	}
 
 	/**
-	 * Set system date via NTP.
+	 * Set the system date via NTP.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_EXEC_FAILED
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
-	function setNtpDate() {
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Set the date
-		$cmd = "sudo ntpd -gq 2>&1";
+	public function setNtpDate($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Set the system date via NTP.
+		$cmd = "ntpd -gq 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 	}
 
 	/**
-	 * Get list of time zones.
+	 * Get a list of time zones.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array with the time zone strings.
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
-	function getTimeZoneList() {
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Prepare list of time zone identifiers (for ComboBox store)
+	public function getTimeZoneList($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Prepare list of time zone identifiers (for ComboBox store).
 		$timezoneIdentifiers = DateTimeZone::listIdentifiers();
 		natsort($timezoneIdentifiers);
-		$data = array();
-		foreach ($timezoneIdentifiers as $timezoneIdentifier) {
-			$data[] = array(
-				"value" => $timezoneIdentifier
-			);
-		}
-		return array(
-			"total" => count($data),
-			"data" => $data
-		);
+		return $timezoneIdentifiers;
 	}
 
 	/**
-	 * Set general system informations.
+	 * Get various system informations.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array of system informations.
+	 * @throw E_EXEC_MISC
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
-	function getInformation() {
+	public function getInformation($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get various system informations.
 		$prd = new OMVProduct();
 		$uname = posix_uname();
 		$memStats = OMVSystem::getMemoryStats();
@@ -323,10 +351,6 @@ class SystemRpc extends OMVRpc {
 		  ($memStats['wobufferscache']['used'] * 100) /
 		  $memStats['mem']['total']);
 		$cpuStats = OMVSystem::getCPUStats();
-		if (FALSE === ($date = OMVSystem::date())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  gettext("Failed to get system date and time"));
-		}
 		$index = 0;
 		$data = array(
 			array(
@@ -353,7 +377,7 @@ class SystemRpc extends OMVRpc {
 				"index" => $index++),
 			array(
 				"name" => gettext("System time"),
-				"value" => $date['local'],
+				"value" => strftime("%c"),
 				"type" => "string",
 				"index" => $index++),
 			array(
@@ -392,4 +416,8 @@ class SystemRpc extends OMVRpc {
 		return $result;
 	}
 }
+
+// Register the RPC service.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->registerService(new OMVRpcServiceSystem());
 ?>

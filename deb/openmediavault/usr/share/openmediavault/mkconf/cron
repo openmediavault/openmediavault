@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -87,6 +87,13 @@ xmlstarlet sel -t \
 	  -v "concat(month,' ',dayofweek,' ',username,' ${OMV_CRONTAB_CRONSCRIPTS_DIR}/userdefined-',uuid)" \
 	  -i "sendemail[. = '0']" \
 		  -o " >/dev/null 2>&1" \
+	  -b \
+	  -i "sendemail[. = '1']" \
+		-i "string-length(comment) > 0" \
+		  -v "concat(' | mail -s \"Cron - ',translate(comment,'\
+
+',' '),'\" -a \"From: Cron Daemon <',username,'>\" ',username,' >/dev/null 2>&1')" \
+		-b \
 	  -b \
 	  -n \
   -b \

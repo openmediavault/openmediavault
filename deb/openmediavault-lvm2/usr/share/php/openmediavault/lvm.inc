@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,7 +25,7 @@ require_once("openmediavault/functions.inc");
 require_once("openmediavault/util.inc");
 
 /**
- * Class to handle a physical volume.
+ * Class to handle a LVM physical volume.
  */
 class OMVPhysicalVolume extends OMVObject {
 	protected $deviceFile = "";
@@ -52,16 +52,16 @@ class OMVPhysicalVolume extends OMVObject {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	private function getData() {
-		if ($this->dataCached !== FALSE)
+		if($this->dataCached !== FALSE)
 			return TRUE;
 
 		// Parse command output:
 		// gHikbD-106X-xVOQ-7wtr-Q6PO-Pn3Q-UTmNls|vg0|8585740288B|8585740288B|0B
-		$cmd = sprintf("export LANG=C; sudo pvdisplay --noheadings ".
+		$cmd = sprintf("export LANG=C; pvdisplay --noheadings ".
 		  "--separator '|' -C -o pv_uuid,pv_size,pv_free,pv_used,vg_uuid,".
 		  "vg_name,pv_pe_alloc_count --unit b %s", $this->getDeviceFile());
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if($result !== 0)
 			return FALSE;
 
 		$output = explode("|", trim($output[0]));
@@ -86,7 +86,7 @@ class OMVPhysicalVolume extends OMVObject {
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return TRUE;
 	}
@@ -96,7 +96,7 @@ class OMVPhysicalVolume extends OMVObject {
 	 * @return TRUE if the physical volume exists, otherwise FALSE.
 	 */
 	public function exists() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return !empty($this->uuid);
 	}
@@ -114,7 +114,7 @@ class OMVPhysicalVolume extends OMVObject {
 	 * @return The UUID of the physical volume, FALSE on failure.
 	 */
 	public function getUuid() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->uuid;
 	}
@@ -125,7 +125,7 @@ class OMVPhysicalVolume extends OMVObject {
 	 * FALSE on failure.
 	 */
 	public function getSize() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->size;
 	}
@@ -136,7 +136,7 @@ class OMVPhysicalVolume extends OMVObject {
 	 * FALSE on failure.
 	 */
 	public function getFree() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->free;
 	}
@@ -147,7 +147,7 @@ class OMVPhysicalVolume extends OMVObject {
 	 * FALSE on failure.
 	 */
 	public function getUsed() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->used;
 	}
@@ -158,7 +158,7 @@ class OMVPhysicalVolume extends OMVObject {
 	 * on failure.
 	 */
 	public function getAllocatedPhysicalExtents() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->allocatedPE;
 	}
@@ -168,7 +168,7 @@ class OMVPhysicalVolume extends OMVObject {
 	 * @return The volume group name or FALSE on failure.
 	 */
 	public function getVGName() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->vgName;
 	}
@@ -178,7 +178,7 @@ class OMVPhysicalVolume extends OMVObject {
 	 * @return The volume group UUID or FALSE on failure.
 	 */
 	public function getVGUuid() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->vgName;
 	}
@@ -188,7 +188,7 @@ class OMVPhysicalVolume extends OMVObject {
 	 * @return The physical volume description or FALSE on failure.
 	 */
 	public function getDescription() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return sprintf("Physical Volume [%s, %s]", $this->getDeviceFile(),
 		  binary_format($this->getSize()));
@@ -196,7 +196,7 @@ class OMVPhysicalVolume extends OMVObject {
 }
 
 /**
- * Class to handle volume groups.
+ * Class to handle LVM volume groups.
  */
 class OMVVolumeGroups extends OMVObject {
 	/**
@@ -209,13 +209,16 @@ class OMVVolumeGroups extends OMVObject {
 	 * )
 	 */
 	public static function get() {
-		$cmd = "export LANG=C; sudo vgdisplay --noheadings -C -o vg_name";
+		$cmd = "export LANG=C; vgdisplay --noheadings -C -o vg_name ".
+		  "2>/dev/null";
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			return FALSE;
 		}
 		$list = array();
-		foreach ($output as $outputk => $outputv) {
+		// Parse command output:
+		//   vg0
+		foreach($output as $outputk => $outputv) {
 			$list[] = trim($outputv);
 		}
 		return $list;
@@ -223,7 +226,7 @@ class OMVVolumeGroups extends OMVObject {
 }
 
 /**
- * Class to handle a volume group.
+ * Class to handle a LVM volume group.
  */
 class OMVVolumeGroup extends OMVObject {
 	protected $uuid = "";
@@ -253,17 +256,17 @@ class OMVVolumeGroup extends OMVObject {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	private function getData() {
-		if ($this->dataCached !== FALSE)
+		if($this->dataCached !== FALSE)
 			return TRUE;
 
 		// Parse command output:
 		// gHikbD-106X-xVOQ-7wtr-Q6PO-Pn3Q-UTmNls|vg0|8585740288B|8552185856B|1|2
-		$cmd = sprintf("export LANG=C; sudo vgdisplay --noheadings ".
+		$cmd = sprintf("export LANG=C; vgdisplay --noheadings ".
 		  "--separator '|' -C -o vg_uuid,vg_name,vg_size,vg_free,pv_count,".
 		  "lv_count,vg_extent_size,vg_extent_count,vg_free_count --unit b %s",
 		  $this->getName());
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if($result !== 0)
 			return FALSE;
 
 		$output = explode("|", trim($output[0]));
@@ -280,30 +283,32 @@ class OMVVolumeGroup extends OMVObject {
 
 		// Get the names of the physical volumes.
 		$this->pvName = array();
-		if ($this->pvCount > 0) {
+		if($this->pvCount > 0) {
 			unset($output);
-			$cmd = sprintf("export LANG=C; sudo vgdisplay --noheadings ".
-			  "--separator '|' -C -o pv_name %s", $this->getName());
+			$cmd = sprintf("export LANG=C; vgdisplay --noheadings ".
+			  "--separator '|' -C -o pv_name %s 2>/dev/null",
+			  escapeshellarg($this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0)
+			if($result !== 0)
 				return FALSE;
 
-			foreach ($output as $outputk => $outputv) {
+			foreach($output as $outputk => $outputv) {
 				$this->pvName[] = trim($outputv);
 			}
 		}
 
 		// Get the names of the logical volumes.
 		$this->lvName = array();
-		if ($this->lvCount > 0) {
+		if($this->lvCount > 0) {
 			unset($output);
-			$cmd = sprintf("export LANG=C; sudo vgdisplay --noheadings ".
-			  "--separator '|' -C -o lv_name %s", $this->getName());
+			$cmd = sprintf("export LANG=C; vgdisplay --noheadings ".
+			  "--separator '|' -C -o lv_name %s 2>/dev/null",
+			  escapeshellarg($this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0)
+			if($result !== 0)
 				return FALSE;
 
-			foreach ($output as $outputk => $outputv) {
+			foreach($output as $outputk => $outputv) {
 				$this->lvName[] = trim($outputv);
 			}
 		}
@@ -320,7 +325,7 @@ class OMVVolumeGroup extends OMVObject {
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return TRUE;
 	}
@@ -330,7 +335,7 @@ class OMVVolumeGroup extends OMVObject {
 	 * @return TRUE if the volume group exists, otherwise FALSE.
 	 */
 	public function exists() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return !empty($this->uuid);
 	}
@@ -348,7 +353,7 @@ class OMVVolumeGroup extends OMVObject {
 	 * @return The device path, otherwise FALSE.
 	 */
 	public function getDeviceFile() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return sprintf("/dev/%s", $this->name);
 	}
@@ -358,7 +363,7 @@ class OMVVolumeGroup extends OMVObject {
 	 * @return The UUID of the volume group, FALSE on failure.
 	 */
 	public function getUuid() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->uuid;
 	}
@@ -369,7 +374,7 @@ class OMVVolumeGroup extends OMVObject {
 	 * FALSE on failure.
 	 */
 	public function getSize() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->size;
 	}
@@ -380,7 +385,7 @@ class OMVVolumeGroup extends OMVObject {
 	 * or FALSE on failure.
 	 */
 	public function getFree() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->free;
 	}
@@ -390,7 +395,7 @@ class OMVVolumeGroup extends OMVObject {
 	 * @return The number of physical volumes or FALSE on failure.
 	 */
 	public function getPVCount() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->pvCount;
 	}
@@ -401,7 +406,7 @@ class OMVVolumeGroup extends OMVObject {
 	 * @return An array of the physical volume devicefiles or FALSE on failure.
 	 */
 	public function getPVName() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->pvName;
 	}
@@ -411,7 +416,7 @@ class OMVVolumeGroup extends OMVObject {
 	 * @return The number of logical volumes or FALSE on failure.
 	 */
 	public function getLVCount() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->lvCount;
 	}
@@ -421,7 +426,7 @@ class OMVVolumeGroup extends OMVObject {
 	 * @return An array of logical volume names or FALSE on failure.
 	 */
 	public function getLVName() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->lvName;
 	}
@@ -432,7 +437,7 @@ class OMVVolumeGroup extends OMVObject {
 	 *   on failure.
 	 */
 	public function getExtentSize() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->extentSize;
 	}
@@ -442,7 +447,7 @@ class OMVVolumeGroup extends OMVObject {
 	 * @return the total number of physical extents or FALSE on failure.
 	 */
 	public function getNumExtents() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->extentCount;
 	}
@@ -453,7 +458,7 @@ class OMVVolumeGroup extends OMVObject {
 	 *   or FALSE on failure.
 	 */
 	public function getNumFreeExtents() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->freeCount;
 	}
@@ -463,7 +468,7 @@ class OMVVolumeGroup extends OMVObject {
 	 * @return The volume group description or FALSE on failure.
 	 */
 	public function getDescription() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return sprintf("Volume Group [%s, %s, %s free]",
 		  $this->getDeviceFile(), binary_format($this->getSize()),

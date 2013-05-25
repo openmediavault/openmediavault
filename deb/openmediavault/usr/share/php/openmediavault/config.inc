@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,17 +22,19 @@
 require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/object.inc");
-require_once("openmediavault/util.inc");
 require_once("openmediavault/error.inc");
 
 /**
- * @class OMVConfigEngine
  * See http://www.zvon.org/xxl/XPathTutorial/General/examples.html for
  * some helpful XPath examples.
+ * @ingroup api
  */
 class OMVConfigEngine extends OMVObject {
-	private $domdoc = null;
-	private $filePath = "";
+	private $forceReload = TRUE;
+	private $autoCommit = TRUE;
+	private $semaphore = NULL;
+	private $domdoc = NULL;
+	private $filename = "";
 	// These fields must be handled as arrays
 	private $enums = array(
 		// Usermanagement
@@ -50,15 +52,26 @@ class OMVConfigEngine extends OMVObject {
 		// Shared folder
 		"sharedfolder", "privilege", "share",
 		// Miscellaneous
-		"job", "module", "sslcertificate"
+		"job", "module", "sslcertificate", "service"
 	);
 
 	/**
 	 * Constructor
+	 * @param filename The path to the XML document.
+	 * @param forceReload Set to TRUE to reload the XML document everytime
+	 *   before any action is performed on the XML document. Defaults to
+	 *   TRUE.
+	 * @param autoCommit Set to TRUE to automatically commit the XML document
+	 *   modifications after write-access. Defaults to TRUE.
 	 */
-	public function __construct($filePath) {
+	public function __construct($filename, $forceReload = TRUE,
+	  $autoCommit = TRUE) {
 		libxml_use_internal_errors(true);
-		$this->filePath = $filePath;
+		$this->domdoc = NULL;
+		$this->forceReload = $forceReload;
+		$this->autoCommit = $autoCommit;
+		$this->filename = $filename;
+		$this->semaphore = sem_get(1965);
 	}
 
 	/**
@@ -79,8 +92,8 @@ class OMVConfigEngine extends OMVObject {
 			LIBXML_ERR_ERROR => gettext("Error"),
 			LIBXML_ERR_FATAL => gettext("Fatal error")
 		);
-		foreach (libxml_get_errors() as $errork => $errorv) {
-			if ($errork > 0) $text .= "; ";
+		foreach(libxml_get_errors() as $errork => $errorv) {
+			if($errork > 0) $text .= "; ";
 			$text .= sprintf("%s %d: %s (line=%d, column=%d)",
 			  $errLevels[$errorv->level], $errorv->code,
 			  trim($errorv->message), $errorv->line, $errorv->column);
@@ -95,20 +108,21 @@ class OMVConfigEngine extends OMVObject {
 	 */
 	public function load() {
 		$this->domdoc = new DOMDocument();
-		return $this->domdoc->load($this->filePath, LIBXML_NOBLANKS |
+		return $this->domdoc->load($this->filename, LIBXML_NOBLANKS |
 		  LIBXML_NONET);
 	}
 
 	/**
-	 * Save configuration file.
-	 * @param error[out] The error message in case of a failure.
+	 * Save configuration file. This function is protected by mutual exclusion,
+	 * thus the function will be blocked until it can acces the protected
+	 * section.
 	 * @return TRUE on success, otherwise FALSE.
 	 */
 	public function save() {
-		$this->domdoc->encoding = "UTF-8";
-		$this->domdoc->formatOutput = true;
-		return (FALSE === $this->domdoc->save($this->filePath,
-		  LIBXML_NOEMPTYTAG)) ? FALSE : TRUE;
+		sem_acquire($this->semaphore);
+		$result = $this->commit(TRUE);
+		sem_release($this->semaphore);
+		return $result;
 	}
 
 	/**
@@ -119,15 +133,16 @@ class OMVConfigEngine extends OMVObject {
 	 * match NULL will be returned.
 	 */
 	public function get($xpath) {
+		$this->reload();
 		$domxpath = new DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
 		$result = NULL;
-		foreach ($nodeList as $nodek => $nodev) {
-			$data = $this->_nodeToArray($nodev);
-			if ($nodeList->length == 1) {
+		foreach($nodeList as $nodek => $nodev) {
+			$data = $this->nodeToArray($nodev);
+			if($nodeList->length == 1) {
 				$result = $data;
 			} else {
-				if (!is_array($result)) $result = array();
+				if(!is_array($result)) $result = array();
 				$result[] = $data;
 			}
 		}
@@ -141,11 +156,12 @@ class OMVConfigEngine extends OMVObject {
 	 * otherwise an empty array.
 	 */
 	public function getList($xpath) {
+		$this->reload();
 		$domxpath = new DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
 		$result = array();
-		foreach ($nodeList as $nodek => $nodev) {
-			$result[] = $this->_nodeToArray($nodev);
+		foreach($nodeList as $nodek => $nodev) {
+			$result[] = $this->nodeToArray($nodev);
 		}
 		return $result;
 	}
@@ -158,64 +174,92 @@ class OMVConfigEngine extends OMVObject {
 	 * empty array.
 	 */
 	public function getXPathList($xpath) {
+		$this->reload();
 		$domxpath = new DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
 		$result = array();
-		foreach ($nodeList as $nodek => $nodev) {
+		foreach($nodeList as $nodek => $nodev) {
 			$result[] = $nodev->getNodePath();
 		}
 		return $result;
 	}
 
 	/**
-	 * Set the data at the given XPath.
+	 * Set the data at the given XPath. This function is protected by mutual
+	 * exclusion, thus the function will be blocked until it can acces the
+	 * protected section.
 	 * @param xpath The path to the configuration data.
 	 * @param data The data to set at the given XPath position.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function set($xpath, $data) {
+		sem_acquire($this->semaphore);
+		$result = FALSE;
+		$this->reload();
 		$domxpath = new DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
-		if (0 >= $nodeList->length)
-			return FALSE;
-		foreach ($nodeList as $node) {
-			$this->_nodeFromArray($data, $node);
+		if(0 >= $nodeList->length)
+			goto finish;
+		foreach($nodeList as $node) {
+			$this->nodeFromArray($data, $node);
 		}
-		return TRUE;
+		$this->commit();
+		$result = TRUE;
+	finish:
+		sem_release($this->semaphore);
+		return $result;
 	}
 
 	/**
 	 * Replace the data at the given XPath. If the given XPath does not
-	 * exist the method will exit immediatelly.
+	 * exist the method will exit immediatelly. This function is protected by
+	 * mutual exclusion, thus the function will be blocked until it can acces
+	 * the protected section.
 	 * @param xpath The path to the configuration data.
 	 * @param data The data to set at the given XPath position.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function replace($xpath, $data) {
+		sem_acquire($this->semaphore);
+		$result = FALSE;
+		$this->reload();
 		$domxpath = new DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
-		if (0 >= $nodeList->length)
-			return FALSE;
-		foreach ($nodeList as $node) {
-			$this->_deleteChildren($node);
-			$this->_nodeFromArray($data, $node);
+		if(0 >= $nodeList->length)
+			goto finish;
+		foreach($nodeList as $node) {
+			$this->deleteChildren($node);
+			$this->nodeFromArray($data, $node);
 		}
-		return TRUE;
+		$result = TRUE;
+		$this->commit();
+	finish:
+		sem_release($this->semaphore);
+		return $result;
 	}
 
 	/**
-	 * Delete the nodes matching the given XPath expression.
+	 * Delete the nodes matching the given XPath expression. This function is
+	 * protected by mutual exclusion, thus the function will be blocked until
+	 * it can acces the protected section.
 	 * @param xpath The XPath expression to delete.
 	 * @return Returns the deleted nodes, otherwise FALSE.
 	 */
 	public function delete($xpath) {
-		if (is_null($result = $this->get($xpath)))
-			return FALSE;
+		sem_acquire($this->semaphore);
+		$result = FALSE;
+		if(is_null($result = $this->get($xpath))) {
+			$result = FALSE;
+			goto finish;
+		}
 		$domxpath = new DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
-		foreach ($nodeList as $node) {
-			$this->_deleteNode($node);
+		foreach($nodeList as $node) {
+			$this->deleteNode($node);
 		}
+		$this->commit();
+	finish:
+		sem_release($this->semaphore);
 		return $result;
 	}
 
@@ -226,7 +270,8 @@ class OMVConfigEngine extends OMVObject {
 	 * is malformed FALSE will be returned.
 	 */
 	public function exists($xpath) {
-		if (FALSE === ($result = $this->count($xpath)))
+		$this->reload();
+		if(FALSE === ($result = $this->count($xpath)))
 			return FALSE;
 		return (0 < $result);
 	}
@@ -238,9 +283,10 @@ class OMVConfigEngine extends OMVObject {
 	 * or FALSE on failure (e.g. XPath expression is malformed).
 	 */
 	public function count($xpath) {
+		$this->reload();
 		$domxpath = new DOMXPath($this->domdoc);
 		$nodeList = $domxpath->query($xpath);
-		if (FALSE === $nodeList)
+		if(FALSE === $nodeList)
 			return FALSE;
 		return $nodeList->length;
 	}
@@ -248,8 +294,40 @@ class OMVConfigEngine extends OMVObject {
 	/**
 	 * @private
 	 */
-	private function _deleteNode($node) {
-		$this->_deleteChildren($node);
+	final private function commit($force = FALSE) {
+		if(!((TRUE === $force) || (TRUE === $this->autoCommit)))
+			return TRUE;
+		// Create a copy of the existing document. Exit immediatelly
+		// on failure to do not corrupt the original file. Note, the
+		// current changes can get lost.
+		if(!copy($this->filename, sprintf("%s.bak", $this->filename))) {
+			$error = error_get_last();
+			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
+			  $error['message']);
+		}
+		// Save document.
+		$this->domdoc->encoding = "UTF-8";
+		$this->domdoc->formatOutput = true;
+		return (FALSE === $this->domdoc->save($this->filename,
+		  LIBXML_NOEMPTYTAG)) ? FALSE : TRUE;
+	}
+
+	/**
+	 * @private
+	 */
+	final private function reload() {
+		if(TRUE === $this->forceReload) {
+			$this->domdoc = NULL;
+			return $this->load();
+		}
+		return TRUE;
+	}
+
+	/**
+	 * @private
+	 */
+	final private function deleteNode($node) {
+		$this->deleteChildren($node);
 		$parent = $node->parentNode;
 		$parent->removeChild($node);
 	}
@@ -257,9 +335,9 @@ class OMVConfigEngine extends OMVObject {
 	/**
 	 * @private
 	 */
-	private function _deleteChildren($node) {
-		while (isset($node->firstChild)) {
-			$this->_deleteChildren($node->firstChild);
+	final private function deleteChildren($node) {
+		while(isset($node->firstChild)) {
+			$this->deleteChildren($node->firstChild);
 			$node->removeChild($node->firstChild);
 		}
 	}
@@ -268,11 +346,11 @@ class OMVConfigEngine extends OMVObject {
 	 * @private
 	 * Convert a PHP array to a DOMNode object.
 	 */
-	private function _nodeFromArray($mixed, DOMNode $domNode) {
-		if (is_array($mixed)) {
-			foreach ($mixed as $mixedk => $mixedv) {
-				if (is_int($mixedk)) {
-					if ($mixedk == 0) {
+	final private function nodeFromArray($mixed, DOMNode $domNode) {
+		if(is_array($mixed)) {
+			foreach($mixed as $mixedk => $mixedv) {
+				if(is_int($mixedk)) {
+					if($mixedk == 0) {
 						$node = $domNode;
 					} else {
 						$node = $this->domdoc->createElement($domNode->tagName);
@@ -282,12 +360,12 @@ class OMVConfigEngine extends OMVObject {
 					$node = $this->domdoc->createElement($mixedk);
 					$domNode->appendChild($node);
 				}
-				$this->_nodeFromArray($mixedv, $node);
+				$this->nodeFromArray($mixedv, $node);
 			}
 		} else {
 			$value = $mixed;
 			// Convert boolean values: true => 1, false => 0
-			if (is_bool($mixed)) $value = ($mixed) ? 1 : 0;
+			if(is_bool($mixed)) $value = ($mixed) ? 1 : 0;
 			$domNode->appendChild($this->domdoc->createTextNode($value));
 		}
 	}
@@ -296,41 +374,41 @@ class OMVConfigEngine extends OMVObject {
 	 * @private
 	 * Convert a DOMNode object to a PHP array.
 	 */
-	private function _nodeToArray(DOMNode $domNode = null) {
+	final private function nodeToArray(DOMNode $domNode = null) {
 		$result = "";
-		if (is_null($domNode) && !$this->hasChildNodes()) {
+		if(is_null($domNode) && !$this->hasChildNodes()) {
 			return $result;
 		}
-		if ($domNode->nodeType == XML_TEXT_NODE) {
+		if($domNode->nodeType == XML_TEXT_NODE) {
 			$result = $domNode->nodeValue;
 		} else {
-			if ($domNode->hasChildNodes()){
-				foreach ($domNode->childNodes as $childv) {
-					if ($childv->nodeName == '#comment')
+			if($domNode->hasChildNodes()){
+				foreach($domNode->childNodes as $childv) {
+					if($childv->nodeName == '#comment')
 						continue;
- 					if ($childv->nodeName !== '#text') {
-						if (!is_array($result)) $result = array();
+ 					if($childv->nodeName !== '#text') {
+						if(!is_array($result)) $result = array();
 						$childElem = $domNode->getElementsByTagName(
 						  $childv->nodeName);
 						$numElements = 0;
-						foreach ($childElem as $childElemv) {
-							if ($childElemv->parentNode->isSameNode(
+						foreach($childElem as $childElemv) {
+							if($childElemv->parentNode->isSameNode(
 							  $childv->parentNode)) {
 								$numElements++;
 							}
 						}
-						$value = $this->_nodeToArray($childv);
+						$value = $this->nodeToArray($childv);
 						$key = $childv->nodeName;
-						if (in_array($key, $this->enums)) $numElements++;
-						if ($numElements > 1) {
+						if(in_array($key, $this->enums)) $numElements++;
+						if($numElements > 1) {
 							$result[$key][] = $value;
 						}
 						else {
 							$result[$key] = $value;
 						}
 					}
-					else if ($childv->nodeName == '#text') {
-						$result = $this->_nodeToArray($childv);
+					else if($childv->nodeName == '#text') {
+						$result = $this->nodeToArray($childv);
 					}
 				}
 			}
@@ -341,7 +419,7 @@ class OMVConfigEngine extends OMVObject {
 
 // Load the configuration file and save it in a global variable.
 $xmlConfig = new OMVConfigEngine($GLOBALS['OMV_CONFIG_FILE']);
-if (FALSE === $xmlConfig->load()) {
+if(FALSE === $xmlConfig->load()) {
 	throw new OMVException(OMVErrorMsg::E_CONFIG_LOAD_FAILED,
 	  $xmlConfig->getError());
 }

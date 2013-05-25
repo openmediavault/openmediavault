@@ -1,3 +1,9 @@
+openmediavault-clamav (0.5) stable; urgency=low
+
+  * Adapt plugin to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 22 Nov 2012 18:27:32 +0200
+
 openmediavault-clamav (0.4.2) stable; urgency=low
 
   * Change file permissions of logrotate config file.

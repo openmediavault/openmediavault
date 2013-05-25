@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@ OMV_AVAHIDAEMON_WEBSITESERVICE=${OMV_AVAHIDAEMON_WEBSITESERVICE:-"/etc/avahi/ser
 
 # Announce this service via DNS-SD?
 rm -f ${OMV_AVAHIDAEMON_WEBSITESERVICE}
-[ "$(omv_config_get "//webadmin/dnssd/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//services/zeroconf/services/service[id='webadmin']/enable")" = "0" ] && exit 0
 
 # Create '/etc/avahi/services/http.service' file.
 xmlstarlet sel -t \
@@ -36,7 +36,7 @@ xmlstarlet sel -t \
   -o "<!DOCTYPE service-group SYSTEM \"avahi-service.dtd\">" -n \
   -o "<service-group>" -n \
   -m "//webadmin" \
-	  -v "concat('  <name replace-wildcards=\"yes\">',dnssd/name,'</name>')" -n \
+	  -v "concat('  <name replace-wildcards=\"yes\">',//services/zeroconf/services/service[id='webadmin']/name,'</name>')" -n \
 	  -i "enablessl[. = '1']" \
 		  -o "  <service>" -n \
 		  -o "    <type>_https._tcp</type>" -n \

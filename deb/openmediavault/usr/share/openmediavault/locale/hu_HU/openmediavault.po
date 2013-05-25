@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
-"PO-Revision-Date: 2012-11-19 19:12+0000\n"
+"POT-Creation-Date: 2012-12-22 03:12+0100\n"
+"PO-Revision-Date: 2012-12-22 02:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -18,15 +18,12 @@ msgstr ""
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr "% kész ..."
 
-#, c-format
 msgid "%s (%s available)"
 msgstr "%s (%s elérhető)"
 
-#, c-format
 msgid "%s [on %s]"
 msgstr "%s [%s -n]"
 
@@ -57,7 +54,6 @@ msgstr "10 perc"
 msgid "10 years"
 msgstr "10 év"
 
-#, c-format
 msgid "100% completed ..."
 msgstr "100% kész ..."
 
@@ -102,6 +98,9 @@ msgstr "25 év"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maximális teljesítmény, teljes energia használat"
+
+msgid "255 - Disabled"
+msgstr ""
 
 msgid "3 days"
 msgstr "3 nap"
@@ -422,7 +421,6 @@ msgstr "Bahrain"
 msgid "Ban list"
 msgstr "Tiltó lista"
 
-#, c-format
 msgid "Ban statistics:"
 msgstr "Kitiltás statisztika:"
 
@@ -689,7 +687,6 @@ msgstr "Cuba"
 msgid "Current time"
 msgstr "Jelenlegi idő"
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr "Jelenleg bejelentkezett felhasználók:"
 
@@ -738,6 +735,9 @@ msgstr "Törlés"
 msgid "Delete content"
 msgstr "Tartalom törlése"
 
+msgid "Delete files"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Fájlok törlése a fogadó oldalon, ha a feladó nem létezik"
 
@@ -785,7 +785,6 @@ msgstr "Alapértelmezett időtúllépés meghatározása, mikroszekundumban, mie
 msgid "Device"
 msgstr "Meghajtó"
 
-#, c-format
 msgid "Device '%s' not found"
 msgstr "'%s' meghajtó nem található"
 
@@ -1071,7 +1070,6 @@ msgstr "Hiba"
 msgid "Error #"
 msgstr "Hiba #"
 
-#, c-format
 msgid "Error #%d"
 msgstr "Hiba #%d"
 
@@ -1128,7 +1126,6 @@ msgstr "FXP lehetővé teszi az átvitelt két távoli szerver között anélkü
 msgid "Failed to call "
 msgstr "Sikertelen hívás"
 
-#, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1161,14 +1158,22 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Fájl"
 
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr ""
+
+msgid ""
+"Files that are larger than the specified number of bytes will not be put "
+"into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
+
 msgid "Filesystem"
 msgstr "Fájlrendszer"
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr "Fájlrendszer '%s' nem található"
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr "Fájlrendszer '%s' nem támogatott"
 
@@ -1262,15 +1267,12 @@ msgstr "Grenada"
 msgid "Group"
 msgstr "Csoport"
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr "'%s' csoport már létezik"
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr "'%s' csoport nem létezik"
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr "Csoport ID '%d' már létezik"
 
@@ -1481,7 +1483,6 @@ msgstr "Érvénytelen csoport név"
 msgid "Invalid hostname"
 msgstr "Érvénytelen hosztnév"
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr "Érvénytelen sor: %s"
 
@@ -1634,7 +1635,6 @@ msgstr "Területi információ, pl. a rendszer fizikai elhelyezkedése."
 msgid "Log level"
 msgstr "Naplózó szint"
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr "Logikai kötet %s [%s, %s]"
 
@@ -1737,6 +1737,9 @@ msgstr "Max. bejelentkezési kísérletek"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maximum letöltési sebesség (KiB/s)"
+
+msgid "Maximum file size"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1891,7 +1894,6 @@ msgstr "Netmaszk"
 msgid "Network"
 msgstr "Hálózat"
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr "'%s' hálózati interfész már létezik"
 
@@ -2631,7 +2633,6 @@ msgstr "Lemez ellenőrzések közti N másodperces intervallum beállítása."
 msgid "Settings"
 msgstr "Beállítások"
 
-#, c-format
 msgid "Settings already exist for device '%s'"
 msgstr "A beállítások már léteznek a(z) '%s' meghajtón"
 
@@ -2926,14 +2927,12 @@ msgstr "A távoli cél szerver, pl. [FELHASZNÁLÓ@]HOSZT:CÉL, [FELHASZNÁLÓ@]
 msgid "The destination shared folder."
 msgstr "Megosztott mappa célállomása."
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr "A '%s' mező tartalma tiltott."
 
 msgid "The file mode of the shared folder path."
 msgstr "Megosztott mappa útvonalának fájl elérési módja"
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr "'%s' csoport nem létezik"
 
@@ -3011,11 +3010,9 @@ msgstr "A rendszer most újraindul. Ez eltarthat egy ideig ..."
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "A teszt email sikeresen elküldve. Kérlek tekintsd meg a postaládádat."
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr "'%s' felhasználó nem létezik"
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr "'%s' felhasználó nincs engedélyezve"
 
@@ -3033,7 +3030,6 @@ msgstr "Az üdvözlő üzenet meg fog jelenni a felhasználóknak, mikor bejelen
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "A munkacsoport a szerver részéről látszani fog, mikor a kliensek lekérdezik azt."
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr "A %s csatolási pont már létezik"
 
@@ -3310,11 +3306,9 @@ msgstr "United States"
 msgid "United States Minor Outlying Islands"
 msgstr "United States Minor Outlying Islands"
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr "Ismeretlen fájlrendszer '%s'"
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr "Ismeretlen naplózó fájl típus (id=%s)"
 
@@ -3402,15 +3396,12 @@ msgstr "Foglalt lemezterület"
 msgid "User"
 msgstr "Felhasználó"
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr "'%s' felhasználó már létezik"
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr "'%s' felhasználó nem létezik"
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr "Felhasználó ID '%d' már létezik"
 
@@ -3554,7 +3545,6 @@ msgstr "perc"
 msgid "minutes"
 msgstr "perc"
 
-#, c-format
 msgid "n/a"
 msgstr "n/a"
 

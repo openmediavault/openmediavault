@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,148 +23,65 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/system.inc");
 require_once("openmediavault/lvm.inc");
-require_once("openmediavault/rpc.inc");
+require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
 
-class LogicalVolumeMgmtRpc extends OMVRpc {
-	public function __construct() {
-		$this->methodSchemata = array(
-			"getPhysicalVolumesList" => array('{
-				"type":"object",
-				"properties":{
-					"start":{"type":"integer"},
-					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-				}
-			}'),
-			"createPhysicalVolume" => array('{
-				"type":"object",
-				"properties":{
-					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
-				}
-			}'),
-			"deletePhysicalVolume" => array('{
-				"type":"object",
-				"properties":{
-					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
-				}
-			}'),
-			"getVolumeGroupsList" => array('{
-				"type":"object",
-				"properties":{
-					"start":{"type":"integer"},
-					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-				}
-			}'),
-			"getVolumeGroupPhysicalVolumes" => array('{
-				"type":"object",
-				"properties":{
-					"name":{"type":"string"}
-				}
-			}'),
-			"createVolumeGroup" => array('{
-				"type":"object",
-				"properties":{
-					"name":{"type":"string"},
-					"devices":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE_LIST'].'}
-				}
-			}'),
-			"getVolumeGroup" => array('{
-				"type":"object",
-				"properties":{
-					"name":{"type":"string"}
-				}
-			}'),
-			"deleteVolumeGroup" => array('{
-				"type":"object",
-				"properties":{
-					"name":{"type":"string"}
-				}
-			}'),
-			"renameVolumeGroup" => array('{
-				"type":"object",
-				"properties":{
-					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
-					"name":{"type":"string"}
-				}
-			}'),
-			"extendVolumeGroup" => array('{
-				"type":"object",
-				"properties":{
-					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
-					"devices":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE_LIST'].'}
-				}
-			}'),
-			"reduceVolumeGroup" => array('{
-				"type":"object",
-				"properties":{
-					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
-					"devices":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE_LIST'].'}
-				}
-			}'),
-			"getLogicalVolumesList" => array('{
-				"type":"object",
-				"properties":{
-					"start":{"type":"integer"},
-					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-				}
-			}'),
-			"deleteLogicalVolume" => array('{
-				"type":"object",
-				"properties":{
-					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
-				}
-			}'),
-			"createLogicalVolume" => array('{
-				"type":"object",
-				"properties":{
-					"name":{"type":"string"},
-					"size":{"type":"string"},
-					"vgname":{"type":"string"}
-				}
-			}'),
-			"renameLogicalVolume" => array('{
-				"type":"object",
-				"properties":{
-					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
-					"name":{"type":"string"}
-				}
-			}'),
-			"modifyLogicalVolume" => array('{
-				"type":"object",
-				"properties":{
-					"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
-					"size":{"type":"string"}
-				}
-			}')
-		);
+class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
+	/**
+	 * Get the RPC service name.
+	 */
+	public function getName() {
+		return "LogicalVolumeMgmt";
+	}
+
+	/**
+	 * Initialize the RPC service.
+	 */
+	public function initialize() {
+		$this->registerMethod("enumeratePhysicalVolumes");
+		$this->registerMethod("getPhysicalVolumesList");
+		$this->registerMethod("getPhysicalVolumeCandidates");
+		$this->registerMethod("createPhysicalVolume");
+		$this->registerMethod("deletePhysicalVolume");
+		$this->registerMethod("enumerateVolumeGroups");
+		$this->registerMethod("getVolumeGroupsList");
+		$this->registerMethod("getVolumeGroupCandidates");
+		$this->registerMethod("createVolumeGroup");
+		$this->registerMethod("getVolumeGroup");
+		$this->registerMethod("deleteVolumeGroup");
+		$this->registerMethod("getVolumeGroupPhysicalVolumes");
+		$this->registerMethod("renameVolumeGroup");
+		$this->registerMethod("extendVolumeGroup");
+		$this->registerMethod("reduceVolumeGroup");
+		$this->registerMethod("enumerateLogicalVolumes");
+		$this->registerMethod("getLogicalVolumesList");
+		$this->registerMethod("createLogicalVolume");
+		$this->registerMethod("renameLogicalVolume");
+		$this->registerMethod("deleteLogicalVolume");
+		$this->registerMethod("modifyLogicalVolume");
 	}
 
 	/**
 	 * Enumerate all physical volumes on the system.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
 	 * @return An array of objects. Each object represents a physical volume
 	 *   with the following properties: devicename, free, used, size, vguuid,
 	 *   vgname and description.
+	 * @throw E_EXEC_MISC
 	 */
-	public function enumeratePhysicalVolumes() {
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
+	public function enumeratePhysicalVolumes($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
 		// Enumerate all physical volumes on the system.
-		if (FALSE === ($devs = OMVPhysicalVolumes::get())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
-			  "get list of physical volumes");
+		if(FALSE === ($devs = OMVPhysicalVolumes::get())) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  "Failed to get list of physical volumes");
 		}
 		$result = array();
-		foreach ($devs as $devk => $devv) {
+		foreach($devs as $devk => $devv) {
 			// Get the physical volume details.
 			$pv = new OMVPhysicalVolume($devv);
 			$result[] = array(
@@ -182,74 +99,82 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 
 	/**
 	 * Get a list of physical volumes.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em start The index where to start.
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @param context The context of the caller.
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
 	 */
-	function getPhysicalVolumesList($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+	function getPhysicalVolumesList($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "start":{"type":"integer"},
+				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+			  }
+		  }');
 		// Enumerate all physical volumes on the system.
-		$devs = $this->enumeratePhysicalVolumes();
-		foreach ($devs as $devk => &$devv) {
-			$devv['_used'] = !empty($devv['vgname']);
+		$pvs = $this->callMethod("enumeratePhysicalVolumes", NULL, $context);
+		foreach($pvs as $pvk => &$pvv) {
+			$pvv['_used'] = !empty($pvv['vgname']);
 		}
-		// Filter result
-		return $this->applyFilter($devs, $data['start'], $data['limit'],
-		  $data['sortfield'], $data['sortdir']);
+		// Filter result.
+		return $this->applyFilter($pvs, $params['start'], $params['limit'],
+		  $params['sortfield'], $params['sortdir']);
 	}
 
 	/**
 	 * Get list of devices that can be used to create a physical volume.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
 	 * @return An array containing objects with the following fields:
 	 *   devicefile, size and description.
+	 * @throw E_EXEC_MISC
 	 */
-	public function getPhysicalVolumeCandidates() {
+	public function getPhysicalVolumeCandidates($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
 		$result = array();
 		// Prepare list of used devices
 		$usedDevs = array();
 		// Get all physical disks that are already used by a physical volume
 		// and add them to the list of used physical disks.
-		if (FALSE === ($devs = OMVPhysicalVolumes::get())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
-			  "get list of physical volumes");
+		if(FALSE === ($devs = OMVPhysicalVolumes::get())) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  "Failed to get list of physical volumes");
 		}
 		$usedDevs = array_merge($usedDevs, $devs);
 		// Get all existing software RAID devices.
-		if (FALSE === ($devs = OMVStorageDevices::enumerate(
+		if(FALSE === ($devs = OMVStorageDevices::enumerate(
 		  OMVStorageDevices::SOFTWARERAID))) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
-			  "get list of software RAID devices");
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  "Failed to get list of software RAID devices");
 		}
-		foreach ($devs as $devk => $devv) {
+		foreach($devs as $devk => $devv) {
 			$raid = new OMVSoftwareRaidDevice($devv);
-			if (!$raid->exists())
+			if(!$raid->exists())
 				continue;
  			// Add the devices used by the RAID to the list of used devices.
 			$usedDevs = array_merge($usedDevs, $raid->getDevices());
 			// Is this RAID device already used as a physical volume?
-			if (in_array($raid->getDeviceFile(), $usedDevs))
+			if(in_array($raid->getDeviceFile(), $usedDevs))
 				continue;
 			// Does this RAID already contain a filesystem?
-			if (FALSE !== OMVFilesystem::hasFileSystem($raid->getDeviceFile()))
+			if(FALSE !== OMVFilesystem::hasFileSystem($raid->getDeviceFile()))
 				continue;
 			$result[] = array(
 				"devicefile" => $raid->getDeviceFile(),
@@ -257,21 +182,20 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 				"description" => $raid->getDescription()
 			);
 		}
-
 		// Get all physical disk devices on the system.
-		unset($devs);
-		$devs = OMVRpc::exec("DiskMgmt", "enumerateDevices");
+		$devs = OMVRpc::exec("DiskMgmt", "enumerateDevices", array(),
+		  $context);
 		// Prepare result
-		foreach ($devs as $devk => $devv) {
+		foreach($devs as $devk => $devv) {
 			// Is this hard disk device used in a RAID device?
-			if (in_array($devv['devicefile'], $usedDevs))
+			if(in_array($devv['devicefile'], $usedDevs))
 				continue;
 			// Check if device is referenced/used by a plugin.
-			if (TRUE === $xmlConfig->exists("//services/devicefile[".
+			if(TRUE === $xmlConfig->exists("//services/devicefile[".
 			  "contains(.,'{$devv['devicefile']}')]"))
 				continue;
 			// Does this device already contain a filesystem?
-			if (FALSE !== OMVFilesystem::hasFileSystem($devv['devicefile']))
+			if(FALSE !== OMVFilesystem::hasFileSystem($devv['devicefile']))
 				continue;
 			$result[] = array(
 				"devicefile" => $devv['devicefile'],
@@ -284,72 +208,105 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 
 	/**
 	 * Create a physical volume.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_EXEC_FAILED
 	 */
-	public function createPhysicalVolume($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+	public function createPhysicalVolume($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+			  }
+		  }');
+		// Prepare the notification object.
+		$object = array(
+			  "devicefile" => $params['devicefile']
+		  );
+		// Make sure the disk device is clean, no partition table
+		// should exist, otherwise pvcreate fails.
+		$cmd = sprintf("dd if=/dev/zero of=%s bs=512 count=1 2>&1",
+		  $object['devicefile']);
+		if(0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
 		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Notify configuration changes
+		// Create the physical volume.
+		$cmd = sprintf("pvcreate %s 2>&1", $object['devicefile']);
+		if(0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  "org.openmediavault.system.storage.lvm.physicalvolume", array(
-			  "devicefile" => $data['devicefile']
-		  ));
+		  "org.openmediavault.system.storage.lvm.physicalvolume", $object);
 	}
 
 	/**
 	 * Delete a physical volume.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em devicefile The devicefile of the physical volume.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_EXEC_FAILED
 	 */
-	public function deletePhysicalVolume($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+	public function deletePhysicalVolume($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+			  }
+		  }');
+		// Prepare the notification object.
+		$object = array(
+			  "devicefile" => $params['devicefile']
+		  );
+		// Delete the physical volume.
+		$cmd = sprintf("pvremove %s 2>&1", $object['devicefile']);
+		if(0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
 		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Notify configuration changes
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.storage.lvm.physicalvolume", array(
-			  "devicefile" => $data['devicefile']
-		  ));
+		  "org.openmediavault.system.storage.lvm.physicalvolume", $object);
 	}
 
 	/**
 	 * Enumerate all volume groups on the system.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
 	 * @return An array of objects. Each object represents a volume group
 	 *   with the following properties: \em devicefile, \em uuid, \em name,
 	 *   \em free, \em size, \em pvname, \em lvname, \em extentsize,
 	 *   \em numextents, \em numfreeextents and \em description.
+	 * @throw E_EXEC_MISC
 	 */
-	public function enumerateVolumeGroups() {
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
+	public function enumerateVolumeGroups($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
 		// Enumerate all volume groups on the system.
-		if (FALSE === ($vgs = OMVVolumeGroups::get())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
-			  "get list of volume groups");
+		if(FALSE === ($vgs = OMVVolumeGroups::get())) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  "Failed to get list of volume groups");
 		}
 		$result = array();
-		foreach ($vgs as $vgk => $vgv) {
+		foreach($vgs as $vgk => $vgv) {
 			// Get the volume group details.
 			$vg = new OMVVolumeGroup($vgv);
 			$result[] = array(
@@ -371,70 +328,77 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 
 	/**
 	 * Get a list of volume groups.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em start The index where to start.
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @param context The context of the caller.
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
 	 */
-	function getVolumeGroupsList($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+	function getVolumeGroupsList($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "start":{"type":"integer"},
+				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+			  }
+		  }');
 		// Enumerate all volume groups on the system.
-		$vgs = $this->enumerateVolumeGroups();
-		foreach ($vgs as $vgk => &$vgv) {
+		$vgs = $this->callMethod("enumerateVolumeGroups", NULL, $context);
+		foreach($vgs as $vgk => &$vgv) {
 			$vgv['_used'] = !empty($vgv['lvname']);
 		}
-		// Filter result
-		return $this->applyFilter($vgs, $data['start'], $data['limit'],
-		  $data['sortfield'], $data['sortdir']);
+		// Filter result.
+		return $this->applyFilter($vgs, $params['start'], $params['limit'],
+		  $params['sortfield'], $params['sortdir']);
 	}
 
 	/**
 	 * Get list of physical volumes that can be used to create a volume group.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
 	 * @return An array containing objects with the following fields:
 	 *   devicefile, size and description.
+	 * @throw E_EXEC_MISC
 	 */
-	public function getVolumeGroupCandidates() {
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
+	public function getVolumeGroupCandidates($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
 		$result = array();
-		// Prepare list of used devices
+		// Prepare list of used devices.
 		$usedDevs = array();
 		// Get volume groups to get the used physical volumes.
-		if (FALSE === ($vgs = OMVVolumeGroups::get())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
-			  "get list of volume groups");
+		if(FALSE === ($vgs = OMVVolumeGroups::get())) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  "Failed to get list of volume groups");
 		}
-		foreach ($vgs as $vgk => $vgv) {
+		foreach($vgs as $vgk => $vgv) {
 			$vg = new OMVVolumeGroup($vgv);
 			// Add the physical volumes assigned to the volume group to the
 			// list of already used physical volumes.
 			$usedDevs = array_merge($usedDevs, $vg->getPVName());
 		}
 		// Get all physical physical volumes.
-		if (FALSE === ($pvs = OMVPhysicalVolumes::get())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
-			  "get list of physical volumes");
+		if(FALSE === ($pvs = OMVPhysicalVolumes::get())) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  "Failed to get list of physical volumes");
 		}
-		foreach ($pvs as $pvk => $pvv) {
+		foreach($pvs as $pvk => $pvv) {
 			$pv = new OMVPhysicalVolume($pvv);
 			// Is this physical volume already used?
-			if (in_array($pv->getDeviceFile(), $usedDevs))
+			if(in_array($pv->getDeviceFile(), $usedDevs))
 				continue;
 			$result[] = array(
 				"devicefile" => $pv->getDeviceFile(),
@@ -447,50 +411,68 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 
 	/**
 	 * Create a volume group.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_EXEC_FAILED
 	 */
-	public function createVolumeGroup($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+	public function createVolumeGroup($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "name":{"type":"string"},
+				  "devices":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE_LIST'].'}
+			  }
+		  }');
+		// Prepare the notification object.
+		$object = array(
+			  "name" => $params['name'],
+			  "devices" => preg_split("/[,;]/", $params['devices'])
+		  );
+		// Create the volume group.
+		$cmd = sprintf("vgcreate %s %s 2>&1", $object['name'],
+		  implode(" ", $object['devices']));
+		if(0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
 		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Notify configuration changes
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  "org.openmediavault.system.storage.lvm.volumegroup", array(
-			  "name" => $data['name'],
-			  "devices" => preg_split("/[,;]/", $data['devices'])
-		  ));
+		  "org.openmediavault.system.storage.lvm.volumegroup", $object);
 	}
 
 	/**
 	 * Get volume group details.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em uuid name The name of the volume group, e.g. vg0 or /dev/vg1.
+	 * @param context The context of the caller.
 	 * @return The volume group details containing the fields \em devicefile,
 	 *   \em uuid, \em name, \em free, \em size, \em pvname, \em lvname,
 	 *   \em extentsize, \em numextents, \em numfreeextents and
 	 *   \em description.
+	 * @throw E_MISC_FAILURE
 	 */
-	public function getVolumeGroup($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+	public function getVolumeGroup($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "name":{"type":"string"}
+			  }
+		  }');
 		// Get the volume group details.
-		$vg = new OMVVolumeGroup($data['name']);
-		if (FALSE === $vg->exists()) {
+		$vg = new OMVVolumeGroup($params['name']);
+		if(FALSE === $vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Volume group '%s' not found", $vg->getName()));
 		}
@@ -511,52 +493,77 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 
 	/**
 	 * Delete a volume group.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em name The name of the volume group, e.g. vg0 or /dev/vg1.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_MISC_FAILURE
+	 * @throw E_EXEC_FAILED
 	 */
-	public function deleteVolumeGroup($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+	public function deleteVolumeGroup($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "name":{"type":"string"}
+			  }
+		  }');
+		// Check if the volume group exists.
+		$vg = new OMVVolumeGroup($params['name']);
+		if(FALSE === $vg->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Volume group '%s' not found", $vg->getName()));
 		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Notify configuration changes
+		// Prepare the notification object.
+		$object = array(
+			  "name" => $params['name']
+		  );
+		// Delete the volume group.
+		$cmd = sprintf("vgremove %s 2>&1", $vg->getName());
+		if(0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.storage.lvm.volumegroup", array(
-			  "name" => $data['name']
-		  ));
+		  "org.openmediavault.system.storage.lvm.volumegroup", $object);
 	}
 
 	/**
 	 * Get the physical volumes assigned to a volume group.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em name The name of the volume group, e.g. vg0 or /dev/vg1.
+	 * @param context The context of the caller.
 	 * @return An array containing the physical volumes assigned to the
 	 *   given volume group. Each array item has the fields \em devicefile,
 	 *   \em size, \em description and \em _used.
+	 * @throw E_MISC_FAILURE
 	 */
-	public function getVolumeGroupPhysicalVolumes($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+	public function getVolumeGroupPhysicalVolumes($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "name":{"type":"string"}
+			  }
+		  }');
 		// Get the volume groups physical volumes.
-		$vg = new OMVVolumeGroup($data['name']);
+		$vg = new OMVVolumeGroup($params['name']);
+		if(FALSE === $vg->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Volume group '%s' not found", $vg->getName()));
+		}
 		$result = array();
-		foreach ($vg->getPVName() as $pvk => $pvv) {
+		foreach($vg->getPVName() as $pvk => $pvv) {
 			$pv = new OMVPhysicalVolume($pvv);
 			$result[] = array(
 				"devicefile" => $pv->getDeviceFile(),
@@ -571,112 +578,187 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 
 	/**
 	 * Rename a volume group.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_MISC_FAILURE
+	 * @throw E_EXEC_FAILED
 	 */
-	public function renameVolumeGroup($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Notify configuration changes
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.storage.lvm.volumegroup", array(
-			  "devicefile" => $data['devicefile'],
-			  "name" => $data['name']
+	public function renameVolumeGroup($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
+				  "name":{"type":"string"}
+			  }
+		  }');
+		// Check if the volume group exists.
+		$vg = new OMVVolumeGroup($params['devicefile']);
+		if(FALSE === $vg->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("No volume group found on '%s'",
+			  $params['devicefile']));
+		}
+		// Prepare the notification object.
+		$object = array(
+			  "devicefile" => $params['devicefile'],
+			  "name" => $params['name']
+		  );
+		// Rename the volume group.
+		if($object['name'] !== $vg->getName()) {
+			$cmd = sprintf("vgrename %s %s 2>&1", $vg->getUuid(),
+			  $object['name']);
+			if(0 !== $this->exec($cmd, $output)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
+			// Notify configuration changes.
+			$dispatcher = &OMVNotifyDispatcher::getInstance();
+			$dispatcher->notify(OMV_NOTIFY_MODIFY,
+			  "org.openmediavault.system.storage.lvm.volumegroup", $object);
+		}
 	}
 
 	/**
 	 * Extend a volume group.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_MISC_FAILURE
+	 * @throw E_EXEC_MISC
 	 */
-	public function extendVolumeGroup($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get the physical volumes assigned to the volume group.
-		$vg = new OMVVolumeGroup($data['devicefile']);
-		if (FALSE === ($pvs = $vg->getPVName())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
-			  "get list of physical volumes");
-		}
-		// Compose the new list of devices.
-		$devices = array_merge(preg_split("/[,;]/", $data['devices']), $pvs);
-		// Notify configuration changes
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.storage.lvm.volumegroup", array(
-			  "devicefile" => $data['devicefile'],
-			  "devices" => $devices
+	public function extendVolumeGroup($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
+				  "devices":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE_LIST'].'}
+			  }
+		  }');
+		// Check if the volume group exists.
+		$vg = new OMVVolumeGroup($params['devicefile']);
+		if(FALSE === $vg->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("No volume group found on '%s'",
+			  $params['devicefile']));
+		}
+		// Get the physical volumes assigned to the volume group.
+		if(FALSE === ($pvs = $vg->getPVName())) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  "Failed to get list of physical volumes");
+		}
+		// Prepare the notification object.
+		$object = array(
+			  "devicefile" => $params['devicefile'],
+			  "devices" => array_merge(preg_split("/[,;]/",
+				$params['devices']), $pvs)
+		  );
+		// Get the new assigned physical volumes.
+		$extendPV = array_diff($object['devices'], $pvs);
+		// Extend the volume group.
+		if(!empty($extendPV)) {
+			$cmd = sprintf("vgextend %s %s 2>&1", $vg->getName(),
+			  implode(" ", $extendPV));
+			if(0 !== $this->exec($cmd, $output)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
+			// Notify configuration changes.
+			$dispatcher = &OMVNotifyDispatcher::getInstance();
+			$dispatcher->notify(OMV_NOTIFY_MODIFY,
+			  "org.openmediavault.system.storage.lvm.volumegroup", $object);
+		}
 	}
 
 	/**
 	 * Reduce a volume group.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_EXEC_MISC
 	 */
-	public function reduceVolumeGroup($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get the physical volumes assigned to the volume group.
-		$vg = new OMVVolumeGroup($data['devicefile']);
-		if (FALSE === ($pvs = $vg->getPVName())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
-			  "get list of physical volumes");
-		}
-		// Compose the new list of devices.
-		$devices = array_diff($pvs, preg_split("/[,;]/", $data['devices']));
-		// Notify configuration changes
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.storage.lvm.volumegroup", array(
-			  "devicefile" => $data['devicefile'],
-			  "devices" => $devices
+	public function reduceVolumeGroup($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
+				  "devices":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE_LIST'].'}
+			  }
+		  }');
+		// Check if the volume group exists.
+		$vg = new OMVVolumeGroup($params['devicefile']);
+		if(FALSE === $vg->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("No volume group found on '%s'",
+			  $params['devicefile']));
+		}
+		// Get the physical volumes assigned to the volume group.
+		if(FALSE === ($pvs = $vg->getPVName())) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  "Failed to get list of physical volumes");
+		}
+		// Prepare the notification object.
+		$object = array(
+			  "devicefile" => $params['devicefile'],
+			  "devices" => array_diff($pvs, preg_split("/[,;]/",
+				$params['devices']))
+		  );
+		// Get the removed physical volumes.
+		$reducePV = array_diff($pvs, $object['devices']);
+		// Reduce the volume group.
+		if(!empty($reducePV)) {
+			$cmd = sprintf("vgreduce %s %s 2>&1", $vg->getName(),
+			  implode(" ", $reducePV));
+			if(0 !== $this->exec($cmd, $output)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
+			// Notify configuration changes.
+			$dispatcher = &OMVNotifyDispatcher::getInstance();
+			$dispatcher->notify(OMV_NOTIFY_MODIFY,
+			  "org.openmediavault.system.storage.lvm.volumegroup", $object);
+		}
 	}
 
 	/**
 	 * Enumerate all logical volumes on the system.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
 	 * @return An array of objects. Each object represents a logical volume
 	 *   with the following properties: devicefile, uuid, name, size and
 	 *   vgname.
+	 * @throw E_EXEC_MISC
 	 */
-	public function enumerateLogicalVolumes() {
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
+	public function enumerateLogicalVolumes($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
 		// Enumerate all volume groups on the system.
-		if (FALSE === ($lvs = OMVLogicalVolumes::get())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to " .
-			  "get list of logical volumes");
+		if(FALSE === ($lvs = OMVLogicalVolumes::get())) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  "Failed to get list of logical volumes");
 		}
 		$result = array();
-		foreach ($lvs as $lvk => $lvv) {
+		foreach($lvs as $lvk => $lvv) {
 			// Get the physical volume details.
 			$lv = new OMVLogicalVolume($lvv);
-			if ($lv->exists()) {
+			if($lv->exists()) {
 				$result[] = array(
 					"devicefile" => $lv->getDeviceFile(),
 					"uuid" => $lv->getUuid(),
@@ -691,145 +773,259 @@ class LogicalVolumeMgmtRpc extends OMVRpc {
 
 	/**
 	 * Get a list of logical volumes.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em start The index where to start.
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @param context The context of the caller.
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
 	 */
-	function getLogicalVolumesList($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+	function getLogicalVolumesList($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "start":{"type":"integer"},
+				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+			  }
+		  }');
 		// Enumerate all volume groups on the system.
-		$lvs = $this->enumerateLogicalVolumes();
-		foreach ($lvs as $lvk => &$lvv) {
+		$lvs = $this->callMethod("enumerateLogicalVolumes", NULL, $context);
+		foreach($lvs as $lvk => &$lvv) {
 			$used = FALSE;
 			// Does the logical volume contain a filesystem and is it used?
-			if (FALSE !== OMVRpc::exec("FsTab", "getByFsName", array(
-			  "id" => $lvv['devicefile']))) {
+			if(FALSE !== OMVRpc::exec("FsTab", "getByFsName", array(
+			  "id" => $lvv['devicefile']), $context)) {
 				$used = TRUE;
 			}
 			$lvv['_used'] = $used;
 		}
-		// Filter result
-		return $this->applyFilter($lvs, $data['start'], $data['limit'],
-		  $data['sortfield'], $data['sortdir']);
+		// Filter result.
+		return $this->applyFilter($lvs, $params['start'], $params['limit'],
+		  $params['sortfield'], $params['sortdir']);
 	}
 
 	/**
 	 * Create a logical volume.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em name The name of the logical volume, e.g. lv0.
 	 *   \em size The size of the logical volume in bytes. This is a string to
 	 *      support volumes > 2GiB on 32bit systems.
 	 *   \em vgname The name of the volume group, e.g. /dev/vg0.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_EXEC_FAILED
 	 */
-	public function createLogicalVolume($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+	public function createLogicalVolume($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "name":{"type":"string"},
+				  "size":{"type":"string"},
+				  "vgname":{"type":"string"}
+			  }
+		  }');
+		// Prepare the notification object.
+		$object = array(
+			  "name" => $params['name'],
+			  "size" => $params['size'],
+			  "vgname" => $params['vgname']
+		  );
+		// Create the logical volume. Convert size to KiB to ensure it is
+		// a multiple of 512.
+		$cmd = sprintf("lvcreate --size %sK -n %s %s 2>&1",
+		  binary_convert($object['size'], "B", "KiB"), $object['name'],
+		  $object['vgname']);
+		if(0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
 		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Notify configuration changes
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
-			  "name" => $data['name'],
-			  "size" => $data['size'],
-			  "vgname" => $data['vgname']
-		  ));
+		  "org.openmediavault.system.storage.lvm.logicalvolume", $object);
 	}
 
 	/**
 	 * Rename a logical volume.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_MISC_FAILURE
+	 * @throw E_EXEC_FAILED
 	 */
-	public function renameLogicalVolume($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Notify configuration changes
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
-			  "devicefile" => $data['devicefile'],
-			  "name" => $data['name']
+	public function renameLogicalVolume($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
+				  "name":{"type":"string"}
+			  }
+		  }');
+		// Check if logical volume exists.
+		$lv = new OMVLogicalVolume($params['devicefile']);
+		if(FALSE === $lv->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("No logical volume found on '%s'",
+			  $params['devicefile']));
+		}
+		// Prepare the notification object.
+		$object = array(
+			  "devicefile" => $params['devicefile'],
+			  "name" => $params['name']
+		  );
+		// Rename the logical volume.
+		if($object['name'] !== $lv->getName()) {
+			$cmd = sprintf("lvrename %s %s 2>&1", $lv->getPath(),
+			  $object['name']);
+			if(0 !== $this->exec($cmd, $output)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
+			// Notify configuration changes.
+			$dispatcher = &OMVNotifyDispatcher::getInstance();
+			$dispatcher->notify(OMV_NOTIFY_MODIFY,
+			  "org.openmediavault.system.storage.lvm.logicalvolume", $object);
+		}
 	}
 
 	/**
 	 * Delete a logical volume.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em devicefile The device file of the logical volume.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_MISC_FAILURE
+	 * @throw E_EXEC_FAILED
 	 */
-	public function deleteLogicalVolume($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+	public function deleteLogicalVolume($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+			  }
+		  }');
+		// Check if logical volume exists.
+		$lv = new OMVLogicalVolume($params['devicefile']);
+		if(FALSE === $lv->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("No logical volume found on '%s'",
+			  $params['devicefile']));
 		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Notify configuration changes
+		// Prepare the notification object.
+		$object = array(
+			  "devicefile" => $params['devicefile']
+		  );
+		// Delete the logical volume.
+		$cmd = sprintf("lvremove --force %s 2>&1", $object['devicefile']);
+		if(0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
-			  "devicefile" => $data['devicefile']
-		  ));
+		  "org.openmediavault.system.storage.lvm.logicalvolume", $object);
 	}
 
 	/**
 	 * Modify a logical volume.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em devicefile The device file of the logical volume to modify.
 	 *   \em size The new size of the logical volume in bytes. This is a string
 	 *      to support volumes > 2GiB on 32bit systems.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_MISC_FAILURE
+	 * @throw E_EXEC_FAILED
 	 */
-	public function modifyLogicalVolume($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+	public function modifyLogicalVolume($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
+				  "size":{"type":"string"}
+			  }
+		  }');
+		// Check if logical volume exists.
+		$lv = new OMVLogicalVolume($params['devicefile']);
+		if(FALSE === $lv->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("No logical volume found on '%s'",
+			  $params['devicefile']));
 		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Notify configuration changes
+		// Prepare the notification object.
+		$object = array(
+			  "devicefile" => $params['devicefile'],
+			  "size" => $params['size']
+		  );
+		// Calculate the new size of the logical volume to decide
+		// whether it must be extended or reduced.
+		$vg = new OMVVolumeGroup($lv->getVGName());
+		if(FALSE === $vg->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Volume group '%s' not found", $lv->getVGName()));
+		}
+		// Extend or reduce volume size?
+		switch(bccomp($lv->getSize(), $object['size'])) {
+		case -1: // Extend
+			// Convert size to KiB to ensure it is a multiple of 512.
+			$cmd = sprintf("lvextend --size %sK %s 2>&1",
+			  binary_convert($object['size'], "B", "KiB"),
+			  $object['devicefile']);
+			if(0 !== $this->exec($cmd, $output)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
+			break;
+		case 1: // Reduce
+			// Convert size to KiB to ensure it is a multiple of 512.
+			$cmd = sprintf("lvreduce --size %sK %s 2>&1",
+			  binary_convert($object['size'], "B", "KiB"),
+			  $object['devicefile']);
+			if(0 !== $this->exec($cmd, $output)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
+			break;
+		}
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
-			  "devicefile" => $data['devicefile'],
-			  "size" => $data['size']
-		  ));
+		  "org.openmediavault.system.storage.lvm.logicalvolume", $object);
 	}
 }
+
+// Register the RPC service.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->registerService(new OMVRpcServiceLogicalVolumeMgmt());
 ?>

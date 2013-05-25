@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Documentation/Howto:
+# http://wiki.debianforum.de/Hdparm
+
 set -e
 
 . /etc/default/openmediavault
@@ -31,7 +34,7 @@ xmlstarlet sel -t \
   -m "//system/storage/hdparm" \
 	-v "concat(devicefile,' {')" -n \
 	-i "aam > 0" -v "concat('    acoustic_management = ',aam)" -n -b \
-	-i "apm != 255" -v "concat('    apm = ',apm)" -n -b \
+	-i "apm > 0" -v "concat('    apm = ',apm)" -n -b \
 	-i "spindowntime > 0" -v "concat('    spindown_time = ',spindowntime)" -n -b \
 	-i "writecache = 1" -o "    write_cache = on" -n -b \
 	-o "}" -n \

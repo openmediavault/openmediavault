@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,80 +25,64 @@ require_once("openmediavault/system.inc");
 require_once("openmediavault/functions.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
-require_once("openmediavault/rpc.inc");
+require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
 
-class QuotaRpc extends OMVRpc {
-	public function __construct() {
-		$this->methodSchemata = array(
-			"get" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-				}
-			}'),
-			"set" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-					"quota":{
-						"type":"array",
-						"items":{
-							"type":"object",
-							"properties":{
-								"name":{"type":"string"},
-								"type":{"type":"string","enum":["user","group"]},
-								"bhardlimit":{"type":"number","minimum":0},
-								"bunit":{"type":"string","enum":["B","KiB",'.
-								  '"MiB","GiB","TiB","PiB","EiB"]}
-							}
-						}
-					}
-				}
-			}'),
-			"delete" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-				}
-			}')
-		);
+class OMVRpcServiceQuota extends OMVRpcServiceAbstract {
+	/**
+	 * Get the RPC service name.
+	 */
+	public function getName() {
+		return "Quota";
+	}
+
+	/**
+	 * Initialize the RPC service.
+	 */
+	public function initialize() {
+		$this->registerMethod("get");
+		$this->registerMethod("set");
+		$this->registerMethod("delete");
 	}
 
     /**
 	 * Get the quota for the given filesystem.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the filesystem.
+	 * @param context The context of the caller.
 	 * @return An array containing the requested quota configuration.
+	 * @throw E_MISC_FAILURE
 	 */
-	function get($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	function get($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
 		// Get filesystem details.
-		$fs = new OMVFilesystem($data['uuid']);
-		if (!$fs->exists()) {
+		$fs = new OMVFilesystem($params['uuid']);
+		if(!$fs->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf(gettext("Filesystem '%s' not found"), $data['uuid']));
+			  sprintf(gettext("Filesystem '%s' not found"), $params['uuid']));
 		}
 		$devicefile = $fs->getDeviceFile();
 		// Does any quota configuration exist for the given filesystem?
 		$xpath = sprintf("//system/storage/filesystem/quota[fsuuid='%s']",
-		  $data['uuid']);
+		  $params['uuid']);
 		$object = $xmlConfig->get($xpath);
 		// Prepare result. Iterate over all system users and groups and get
 		// their quota configuration for the given filesystem.
 		$result = array();
 		// Get non-system users
-		$users = OMVRpc::exec("UserMgmt", "enumerateUsers");
-		foreach ($users as $userk => $userv) {
+		$users = OMVRpc::exec("UserMgmt", "enumerateUsers", NULL, $context);
+		foreach($users as $userk => $userv) {
 			// Set default values.
 			$resObj = array(
 				"type" => "user",
@@ -108,15 +92,15 @@ class QuotaRpc extends OMVRpc {
 				"bunit" => "MiB"
 			);
 			// Check if there is any configured quota for the given user.
-			if (isset($object['usrquota']) && is_array($object['usrquota'])) {
-				foreach ($object['usrquota'] as $usrquotav) {
-					if ($userv['name'] !== $usrquotav['name'])
+			if(isset($object['usrquota']) && is_array($object['usrquota'])) {
+				foreach($object['usrquota'] as $usrquotav) {
+					if($userv['name'] !== $usrquotav['name'])
 						continue;
 					// Get user quotas and get the number of used disk space
 					// if available. Note, 'blocks' are given in KiB.
-					$sysUser = new OMVSystemUser($userv['name']);
-					if (FALSE !== ($quotas = $sysUser->getQuotas())) {
-						if (array_key_exists($devicefile, $quotas)) {
+					$sysUser = new OMVUser($userv['name']);
+					if(FALSE !== ($quotas = $sysUser->getQuotas())) {
+						if(array_key_exists($devicefile, $quotas)) {
 							$resObj['bused'] = binary_format(
 							  $quotas[$devicefile]['blocks'], array(
 							  "fromPrefix" => "KiB"));
@@ -134,8 +118,8 @@ class QuotaRpc extends OMVRpc {
 			$result[] = $resObj;
 		}
 		// Get non-system groups
-		$groups = OMVRpc::exec("UserMgmt", "enumerateGroups");
-		foreach ($groups as $groupk => $groupv) {
+		$groups = OMVRpc::exec("UserMgmt", "enumerateGroups", NULL, $context);
+		foreach($groups as $groupk => $groupv) {
 			// Set default values.
 			$resObj = array(
 				"type" => "group",
@@ -145,15 +129,15 @@ class QuotaRpc extends OMVRpc {
 				"bunit" => "MiB"
 			);
 			// Check if there is any configured quota for the given group.
-			if (isset($object['grpquota']) && is_array($object['grpquota'])) {
-				foreach ($object['grpquota'] as $grpquotav) {
-					if ($groupv['name'] !== $grpquotav['name'])
+			if(isset($object['grpquota']) && is_array($object['grpquota'])) {
+				foreach($object['grpquota'] as $grpquotav) {
+					if($groupv['name'] !== $grpquotav['name'])
 						continue;
 					// Get user quotas and get the number of used disk space
 					// if available. Note, 'blocks' are given in KiB.
-					$sysGroup = new OMVSystemGroup($groupv['name']);
-					if (FALSE !== ($quotas = $sysGroup->getQuotas())) {
-						if (array_key_exists($devicefile, $quotas)) {
+					$sysGroup = new OMVUserGroup($groupv['name']);
+					if(FALSE !== ($quotas = $sysGroup->getQuotas())) {
+						if(array_key_exists($devicefile, $quotas)) {
 							$resObj['bused'] = binary_format(
 							  $quotas[$devicefile]['blocks'], array(
 							  "fromPrefix" => "KiB"));
@@ -175,60 +159,79 @@ class QuotaRpc extends OMVRpc {
 
     /**
 	 * Set the quota for the given filesystem.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the filesystem.
      *   \em quota. An array of quotas to set.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
-	function set($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	function set($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
+				  "quota":{
+					  "type":"array",
+					  "items":{
+						  "type":"object",
+						  "properties":{
+							  "name":{"type":"string"},
+							  "type":{"type":"string","enum":["user","group"]},
+							  "bhardlimit":{"type":"number","minimum":0},
+							  "bunit":{"type":"string","enum":["B","KiB",'.
+								'"MiB","GiB","TiB","PiB","EiB"]}
+						  }
+					  }
+				  }
+			  }
+		  }');
 		// Create filesystem quota configuration object.
 		$object = array();
-		foreach ($data['quota'] as $datak => $datav) {
+		foreach($params['quota'] as $paramk => $paramv) {
 			$quotaObj = array(
 				"bsoftlimit" => 0,
-				"bhardlimit" => binary_convert($datav['bhardlimit'],
-				  $datav['bunit'], "KiB"),
+				"bhardlimit" => binary_convert($paramv['bhardlimit'],
+				  $paramv['bunit'], "KiB"),
 				"isoftlimit" => 0,
 				"ihardlimit" => 0
 			);
-			switch ($datav['type']) {
+			switch ($paramv['type']) {
 			case "user":
-				if (!isset($object['usrquota']))
+				if(!isset($object['usrquota']))
 					$object['usrquota'] = array();
-				$quotaObj['name'] = $datav['name'];
+				$quotaObj['name'] = $paramv['name'];
 				$object['usrquota'][] = $quotaObj;
 				break;
 			case "group":
-				if (!isset($object['grpquota']))
+				if(!isset($object['grpquota']))
 					$object['grpquota'] = array();
-				$quotaObj['name'] = $datav['name'];
+				$quotaObj['name'] = $paramv['name'];
 				$object['grpquota'][] = $quotaObj;
 				break;
 			}
 		}
 		// Set configuration object.
-		$xpath = "//system/storage/filesystem/quota[fsuuid='{$data['uuid']}']";
-		if (FALSE === $xmlConfig->exists($xpath)) {
+		$xpath = sprintf("//system/storage/filesystem/quota[fsuuid='%s']",
+		  $params['uuid']);
+		if(FALSE === $xmlConfig->exists($xpath)) {
 			// Create a new configuration object.
 			$object['uuid'] = OMVUtil::uuid();
-			$object['fsuuid'] = $data['uuid'];
+			$object['fsuuid'] = $params['uuid'];
 			// Append object to configuration.
 			$success = $xmlConfig->set("//system/storage/filesystem",
 			  array("quota" => $object));
 		} else {
 			// Get existing configuration object.
 			$oldObject = $xmlConfig->get($xpath);
-			if (is_null($oldObject)) {
+			if(is_null($oldObject)) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 				  $xpath);
 			}
@@ -237,41 +240,45 @@ class QuotaRpc extends OMVRpc {
 			// Update existing configuration object.
 			$success = $xmlConfig->replace($xpath, $object);
 		}
-		if (FALSE === $success) {
+		if(FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
-		// Save configuration.
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.storage.filesystem.quota", $object);
+		// Return the configuration object.
+		return $object;
 	}
 
 	/**
 	 * Delete a filesystem quota configuration object.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return The deleted configuration object.
 	 */
-	function delete($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions.
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters.
-		$this->validateParams(__METHOD__, func_get_args());
+	function delete($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
 		// Delete the configuration object.
 		$xpath = sprintf("//system/storage/filesystem/quota[uuid='%s']",
-		  $data['uuid']);
-		$this->deleteConfigObjectByPath($xpath,
+		  $params['uuid']);
+		return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.system.storage.filesystem.quota");
 	}
 }
+
+// Register the RPC service.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->registerService(new OMVRpcServiceQuota());
 ?>

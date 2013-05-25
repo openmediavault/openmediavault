@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,29 +22,25 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 
-class OMVLDAPModule extends OMVModuleAbstract
+class OMVModuleLDAP extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "ldap";
 	}
 
 	/**
-	 * Create the configuration files.
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
 	 */
-	public function updateService($object, $oldObject) {
-		$cmdargs = array("ldap", "nsswitch", "pam");
-		foreach ($cmdargs as $cmdargk => $cmdargv) {
-			$cmd = sprintf("sudo omv-mkconf %s 2>&1", $cmdargv);
-			OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
+	public function applyConfig() {
+		$cmd = "omv-mkconf ldap 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
 		}
 	}
 
@@ -55,17 +51,16 @@ class OMVLDAPModule extends OMVModuleAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ldap",
-		  array($this, "updateService"), 1);
-		// Update SMB/CIFS service if configuration has been modified.
+		  array($this, "setDirty"));
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ldap",
-		  array($moduleMgr->getModule("smb"), "updateService"));
+		  array($moduleMgr->getModule("samba"), "setDirty"));
     }
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVLDAPModule());
+$moduleMgr->registerModule(new OMVModuleLDAP());
 ?>

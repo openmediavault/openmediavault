@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -35,5 +35,14 @@ check process netatalk with pidfile /var/run/afpd.pid
 #  if failed host 127.0.0.1 port 548 type TCP then restart
 #  if 5 restarts within 5 cycles then timeout
   mode manual
-
 EOF
+
+# Disable event notifications.
+xmlstarlet sel -t -m "//system/email" \
+  -i "enable = '1'" \
+	-i "//system/notification/notifications/monitprocevents = '0'" \
+	  -v "concat('  noalert ',primaryemail)" \
+	-b \
+  -b \
+  -n \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_CONFIG}

@@ -2,7 +2,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -30,6 +30,12 @@ OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH=${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH=-m "
 # of the current processed node.
 # @return The shared folder name, e.g. data.
 OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME=${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME=-m "//system/shares/sharedfolder[uuid=current()/sharedfolderref]" -v "name" -b}
+
+# Helper makro for 'xmlstarlet' to get the shared folders mount directory for
+# a given 'sharedfolderref'. The 'sharedfolderref' element must be a child
+# of the current processed node.
+# @return The shared folder path, e.g /media/85732966-949a-4d8b-87d7-d7e6681f787e/data.
+OMV_XMLSTARLET_GET_SHAREDFOLDER_MOUNT_DIR=${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH=-m "//system/shares/sharedfolder[uuid=current()/sharedfolderref]" -v "//system/fstab/mntent[uuid=current()/mntentref]/dir" -b}
 
 # omv_isnumber value
 # Check if the given argument is a number.
@@ -121,6 +127,25 @@ omv_log() {
 	logger -t "${_tag}" $@
 }
 
+# omv_error message
+# Print error to stderr and syslog.
+omv_error() {
+	echo $* >&2
+	omv_log $*
+}
+
+# omv_exec_rpc service method params
+# Execute an RPC.
+omv_exec_rpc() {
+	omv_debug "omv_exec_rpc: service=<$1>, method=<$2>, params=<$3>"
+	omv-rpc $1 $2 $3 >/dev/null
+	if [ $? -ne 0 ]; then
+		omv_error "Failed to execute RPC (service=$1, method=$2)."
+		return 1
+	fi
+	return $?
+}
+
 # omv_get_if [interface]
 # Get the interface. If set to 'auto' use the first interface found.
 omv_get_if() {
@@ -138,7 +163,7 @@ omv_get_if() {
 # Get the IPv4 address from the given network interface.
 omv_get_ipaddr() {
   local _ipaddr
-  _ipaddr=$(export LANG=C; ip addr show $1 | grep -i "inet " | awk '{ split($2,a,"/"); print a[1] }')
+  _ipaddr=$(export LANG=C; ip addr show $1 2>/dev/null | grep -i "inet " | awk '{ split($2,a,"/"); print a[1] }')
   echo ${_ipaddr}
 }
 
@@ -476,6 +501,16 @@ omv_mkdir_sharedfolder() {
 	return ${result}
 }
 
+# void omv_get_sharedfolder_mount_dir (char *uuid)
+# Get the mount directory of the given shared folder
+# @param The UUID of the shared folder
+# @return The shared folders mount directory, e.g /media/85732966-949a-4d8b-87d7-d7e6681f787e.
+omv_get_sharedfolder_mount_dir() {
+	xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='$1']" \
+	  -v "//system/fstab/mntent[uuid=current()/mntentref]/dir" \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc
+}
+
 # int omv_is_mounted (char *mountpoint)
 # Check if the given mount point is mounted.
 # @param mountpoint The mount point to check for
@@ -505,4 +540,59 @@ omv_install_fixperms() {
 # Install locale files
 omv_install_locale() {
 	omv-mki18ndict
+}
+
+# void omv_set_default (char *key, char* value)
+# Set a default value in /etc/default/openmediavault.
+omv_set_default() {
+	local _key _value
+	_key=$1
+	_value=$2
+	[ -z "${_key}" ] && return
+	if ! grep -E "^${_key}" /etc/default/openmediavault >/dev/null; then
+		echo "${_key}=\"${_value}\"" >> /etc/default/openmediavault
+	else
+		_value=$(omv_quotemeta ${_value})
+		sed -i "s/^${_key}=.*$/${_key}=\"${_value}\"/" /etc/default/openmediavault
+	fi
+}
+
+# void omv_beep_start ()
+omv_beep_start() {
+	beep -f 3000 -l 100 -r 2
+}
+
+# void omv_beep_ok ()
+omv_beep_ok() {
+	beep -f 3000 -l 100 -r 3 -n -f 3000 -l 500
+}
+
+# void omv_beep_error ()
+omv_beep_error() {
+	beep -f 2000 -l 1200 -r 3
+}
+
+# void omv_kill_tree (int pid)
+# Kill the given process and all it's children.
+omv_kill_tree() {
+	local _pid _cpid
+	_pid=$1
+	[ -z "${_pid}" ] && return
+	kill -stop ${_pid}
+	for _cpid in $(pgrep -P ${_pid}); do
+		omv_kill_tree ${_cpid}
+	done
+	kill ${_pid}
+	kill -cont ${_pid}
+}
+
+# void omv_kill_children (int pid)
+# Kill all children of the given process.
+omv_kill_children() {
+	local _pid _cpid
+	_pid=$1
+	[ -z "${_pid}" ] && return
+	for _cpid in $(pgrep -P ${_pid}); do
+		kill ${_cpid}
+	done
 }

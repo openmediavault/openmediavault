@@ -1,38 +1,17 @@
-openmediavault (0.4.5) stable; urgency=low
+openmediavault (0.5) stable; urgency=low
 
-  * Update locales.
-  * Mantis 0000651: Rsync job recursive parameter not working correctly.
-  * Mantis 0000652: Rsync job that is disabled can't be run although it
-    looks as if it can.
-  * Mantis 0000653: Add partial parameter to rsync job options.
+  * Refactor backend.
+  * Add new panel in the 'System - Network' section to configure Zeroconf/
+    Service Discovery.
+  * Add option to enable AIO support for SMB/CIFS. AIO is enabled by default.
+  * Do not execute a filesystem check during boot on USB devices.
+  * Mantis 0000472: Add ability to configure notifications.
+  * Mantis 0000634: Provide a way to see changelogs of available package
+    upgrades before installing.
+  * Mantis 0000661: Rsync server on OpenMediaVault does not send user/group
+    info.
 
- -- Volker Theile <volker.theile@openmediavault.org>  Mon, 19 Nov 2012 19:23:42 +0100
-
-openmediavault (0.4.4.1) stable; urgency=low
-
-  * Mantis 0000644: Hostname is not updated.
-
- -- Volker Theile <volker.theile@openmediavault.org>  Sat, 10 Nov 2012 10:56:27 +0100
-
-openmediavault (0.4.4) stable; urgency=low
-
-  * Update locales.
-  * Improve code to assign hostname.
-  * Fix bug in the configuration init/sync script.
-  * Fix bug when deleting a shared folder recursively. The check to prevent
-    the deletion of a shared folder that is a sub-directory of another one
-    was erroneous.
-  * Mantis 0000644: Hostname is not updated.
-
- -- Volker Theile <volker.theile@openmediavault.org>  Tue, 06 Nov 2012 20:54:09 +0100
-
-openmediavault (0.4.3) stable; urgency=low
-
-  * Update locales.
-  * Fix bug in user portal. It was not possible to change the password.
-  * Simplify dialog to wipe a device.
-
- -- Volker Theile <volker.theile@openmediavault.org>  Tue, 30 Oct 2012 18:03:53 +0100
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 23 Sep 2012 13:59:08 +0200
 
 openmediavault (0.4.2) stable; urgency=low
 
@@ -74,13 +53,6 @@ openmediavault (0.4) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 09 Sep 2012 01:24:21 +0200
 
-openmediavault (0.3.1) stable; urgency=low
-
-  * Update locales.
-  * Various bug fixes.
-
- -- Volker Theile <volker.theile@openmediavault.org>  Tue, 02 Oct 2012 21:53:33 +0200
-
 openmediavault (0.3.0.26) stable; urgency=low
 
   * Update mdadm.conf during system initialization to import existing
@@ -88,7 +60,6 @@ openmediavault (0.3.0.26) stable; urgency=low
   * Display a notification to reload the page after plugins have been
     updated via the update manager in the WebGUI.
   * Rename PHP session name.
-  * Mantis 0000595: Revert previous changes.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 14 Sep 2012 20:46:54 +0200
 

@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,87 +22,50 @@
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
-require_once("openmediavault/rpc.inc");
+require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
 
-class IptablesRpc extends OMVRpc {
-	public function __construct() {
-		$this->methodSchemata = array(
-			"setRules" => array('{
-				"type":"array",
-				"items":{
-					"type":"object",
-					"properties":{
-						"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-						"rulenum":{"type":"integer"},
-						"chain":{"type":"string","enum":["INPUT","OUTPUT"]},
-						"action":{"type":"string","enum":["ACCEPT","REJECT",'.
-						  '"DROP","LOG"]},
-						"source":{"type":"string"},
-						"sport":{"type":"string"},
-						"destination":{"type":"string"},
-						"dport":{"type":"string"},
-						"protocol":{"type":"string","format":"regex",'.
-						  '"pattern":"\/^(!?(tcp|udp|icmp))|all$\/"},
-						"extraoptions":{"type":"string"},
-						"comment":{"type":"string"}
-					}
-				}
-			}'),
-			"getRule" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-				}
-			}'),
-			"setRule" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-					"rulenum":{"type":"integer","minimum":1},
-					"chain":{"type":"string","enum":["INPUT","OUTPUT"]},
-					"action":{"type":"string","enum":["ACCEPT","REJECT",'.
-					  '"DROP","LOG"]},
-					"source":{"type":"string"},
-					"sport":{"type":"string"},
-					"destination":{"type":"string"},
-					"dport":{"type":"string"},
-					"protocol":{"type":"string","format":"regex",'.
-					  '"pattern":"\/^((! )?(tcp|udp|icmp))|all$\/"},
-					"extraoptions":{"type":"string"},
-					"comment":{"type":"string"}
-				}
-			}'),
-			"deleteRule" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-				}
-			}')
-		);
+class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
+	/**
+	 * Get the RPC service name.
+	 */
+	public function getName() {
+		return "Iptables";
+	}
+
+	/**
+	 * Initialize the RPC service.
+	 */
+	public function initialize() {
+		$this->registerMethod("getRules");
+		$this->registerMethod("setRules");
+		$this->registerMethod("getRule");
+		$this->registerMethod("setRule");
+		$this->registerMethod("deleteRule");
 	}
 
 	/**
 	 * Get all iptables rules.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return A list of configuration objects.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	function getRules() {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	function getRules($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Get configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get the configuration objects.
 		$xpath = "//system/network/iptables/rule";
 		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
+		if(is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Modify result data
-		foreach ($objects as $objectk => &$objectv) {
+		// Modify result object.
+		foreach($objects as $objectk => &$objectv) {
 			$objectv['rulenum'] = intval($objectv['rulenum']);
 		}
 		return $objects;
@@ -110,165 +73,209 @@ class IptablesRpc extends OMVRpc {
 
 	/**
 	 * Set multiple iptables rules at one time.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration objects.
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
-	function setRules($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	function setRules($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Prepare configuration data
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"array",
+			  "items":{
+				  "type":"object",
+				  "properties":{
+					  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+					  "rulenum":{"type":"integer"},
+					  "chain":{"type":"string","enum":["INPUT","OUTPUT"]},
+					  "action":{"type":"string","enum":["ACCEPT","REJECT",'.
+						'"DROP","LOG"]},
+					  "source":{"type":"string"},
+					  "sport":{"type":"string"},
+					  "destination":{"type":"string"},
+					  "dport":{"type":"string"},
+					  "protocol":{"type":"string","format":"regex",'.
+						'"pattern":"\/^(!?(tcp|udp|icmp))|all$\/"},
+					  "extraoptions":{"type":"string"},
+					  "comment":{"type":"string"}
+				  }
+			  }
+		  }');
+		// Prepare the configuration object.
 		$objects = array();
-		foreach ($data as $datak => $datav) {
+		foreach($params as $paramk => $paramv) {
 			$objects[] = array(
-				"uuid" => ($datav['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				  OMVUtil::uuid() : $datav['uuid'],
-				"rulenum" => $datav['rulenum'],
-				"chain" => $datav['chain'],
-				"action" => $datav['action'],
-				"source" => $datav['source'],
-				"sport" => $datav['sport'],
-				"destination" => $datav['destination'],
-				"dport" => $datav['dport'],
-				"protocol" => $datav['protocol'],
-				"extraoptions" => $datav['extraoptions'],
-				"comment" => $datav['comment']
+				"uuid" => ($paramv['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+				  OMVUtil::uuid() : $paramv['uuid'],
+				"rulenum" => $paramv['rulenum'],
+				"chain" => $paramv['chain'],
+				"action" => $paramv['action'],
+				"source" => $paramv['source'],
+				"sport" => $paramv['sport'],
+				"destination" => $paramv['destination'],
+				"dport" => $paramv['dport'],
+				"protocol" => $paramv['protocol'],
+				"extraoptions" => $paramv['extraoptions'],
+				"comment" => $paramv['comment']
 			);
 		}
-		// Update configuration objects
+		// Update configuration objects.
 		$success = FALSE;
-		if (empty($objects)) {
+		if(empty($objects)) {
 			$success = $xmlConfig->replace("//system/network/iptables",
 			  array());
 		} else {
 			$success = $xmlConfig->replace("//system/network/iptables",
 			  array("rule" => $objects));
 		}
-		if (FALSE === $success) {
+		if(FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.iptables.rule", $objects);
+		// Return the configuration object.
+		return $objects;
 	}
 
 	/**
 	 * Get an iptables rule configuration object.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
+	 * @param context The context of the caller.
 	 * @return The requested configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	function getRule($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	function getRule($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
+		// Get the configuration object.
 		$xpath = sprintf("//system/network/iptables/rule[uuid='%s']",
-		  $data['uuid']);
+		  $params['uuid']);
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Modify result data
+		// Modify result object.
 		$object['rulenum'] = intval($object['rulenum']);
 		return $object;
 	}
 
 	/**
 	 * Set an iptables rule configuration object.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
-	function setRule($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	function setRule($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Prepare configuration data
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+				  "rulenum":{"type":"integer","minimum":1},
+				  "chain":{"type":"string","enum":["INPUT","OUTPUT"]},
+				  "action":{"type":"string","enum":["ACCEPT","REJECT",'.
+					'"DROP","LOG"]},
+				  "source":{"type":"string"},
+				  "sport":{"type":"string"},
+				  "destination":{"type":"string"},
+				  "dport":{"type":"string"},
+				  "protocol":{"type":"string","format":"regex",'.
+					'"pattern":"\/^((! )?(tcp|udp|icmp))|all$\/"},
+				  "extraoptions":{"type":"string"},
+				  "comment":{"type":"string"}
+			  }
+		  }');
+		// Prepare the configuration object.
 		$object = array(
-			"uuid" => ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $data['uuid'],
-			"rulenum" => $data['rulenum'],
-			"chain" => $data['chain'],
-			"action" => $data['action'],
-			"source" => $data['source'],
-			"sport" => $data['sport'],
-			"destination" => $data['destination'],
-			"dport" => $data['dport'],
-			"protocol" => $data['protocol'],
-			"extraoptions" => $data['extraoptions'],
-			"comment" => $data['comment']
-		);
-		// Set configuration data
+			  "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+				OMVUtil::uuid() : $params['uuid'],
+			  "rulenum" => $params['rulenum'],
+			  "chain" => $params['chain'],
+			  "action" => $params['action'],
+			  "source" => $params['source'],
+			  "sport" => $params['sport'],
+			  "destination" => $params['destination'],
+			  "dport" => $params['dport'],
+			  "protocol" => $params['protocol'],
+			  "extraoptions" => $params['extraoptions'],
+			  "comment" => $params['comment']
+		  );
+		// Set the configuration object.
 		$success = FALSE;
-		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Append object to configuration
+		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			// Append object to configuration.
 			$success = $xmlConfig->set("//system/network/iptables",
 			  array("rule" => $object));
 		} else {
-			// Update existing configuration object
+			// Update existing configuration object.
 			$success = $xmlConfig->replace("//system/network/iptables/rule" .
-			  "[uuid='{$data['uuid']}']", $object);
+			  "[uuid='{$params['uuid']}']", $object);
 		}
-		if (FALSE === $success) {
+		if(FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.iptables.rule", $object);
+		// Return the configuration object.
+		return $object;
 	}
 
 	/**
 	 * Delete an iptables rule configuration object.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return The deleted configuration object.
 	 */
-	function deleteRule($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions.
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters.
-		$this->validateParams(__METHOD__, func_get_args());
+	function deleteRule($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
 		// Delete the configuration object.
 		$xpath = sprintf("//system/network/iptables/rule[uuid='%s']",
-		  $data['uuid']);
-		$this->deleteConfigObjectByPath($xpath,
+		  $params['uuid']);
+		return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.system.network.iptables.rule");
 	}
 }
+
+// Register the RPC service.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->registerService(new OMVRpcServiceIptables());
 ?>

@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,98 +22,116 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 require_once("openmediavault/monit.inc");
 require_once("openmediavault/initscript.inc");
 
-class OMVForkedDaapdModule extends OMVModuleAbstract
-  implements OMVINotifyListener, OMVIModuleStatus {
+class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
+  implements OMVINotifyListener, OMVIModuleServiceStatus {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "daap";
 	}
 
 	/**
-	 * Get the module status.
+	 * Defines the modules that if present should start before the service
+	 * provided by this module.
+	 * @return An array of modules.
 	 */
-	public function getStatus() {
-		global $xmlConfig;
-		// Get the configuration object
-		$xpath = "//services/daap";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		$initd = new OMVSysVInitScript("forked-daapd");
-		return array(
-			"name" => $this->getName(),
-			"title" => gettext("iTunes/DAAP"),
-			"enabled" => boolval($object['enable']),
-			"running" => ($initd->status() == 0)
-		);
-	}
+	public function shouldStart() { return array("monit"); }
 
 	/**
-	 * Update the configuration.
+	 * Defines the modules that if present should be stopped after the
+	 * service provided by this module.
+	 * @return An array of modules.
 	 */
-	public function mkConf() {
-		$cmd = "sudo omv-mkconf forked-daapd 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	function shouldStop() { return array("monit"); }
+
+	/**
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
+	 */
+	public function applyConfig() {
+		$cmd = "omv-mkconf forked-daapd 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 	}
 
 	/**
-	 * Update the service.
+	 * Stop the managed service.
 	 */
-	public function updateService($object) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Create configuration
-		$this->mkConf();
-		// Update service:
-		// - Start/Stop service
-		// - Activate/deactivate monitoring
+	public function stopService() {
+		// Disable monitoring of this service.
 		$monit = new OMVMonit();
-		switch($object['enable']) {
-		case TRUE:
-			// Start the service.
-			$initd = new OMVSysVInitScript("forked-daapd", TRUE);
-			$initd->exec();
-			// Update monit configuration and start monitoring. Delay some
-			// time to give monit enough time to reload its configuration.
-			$monit->update();
-			usleep(2000000);
-			$monit->monitor("forked-daapd");
-			break;
-		default:
-			// Stop monitoring and update monit configuration.
-			$monit->unmonitor("forked-daapd", TRUE);
-			$monit->update();
-			// Stop the service.
-			$initd = new OMVSysVInitScript("forked-daapd", FALSE);
-			$initd->exec();
-			break;
+		$monit->unmonitor("forked-daapd", TRUE);
+		// Stop this service and unregister System-V style init script.
+		$initd = new OMVSysVInitScript("forked-daapd", FALSE);
+		$initd->exec();
+	}
+
+	/**
+	 * Start the managed service.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	public function startService() {
+		global $xmlConfig;
+		$xpath = "//services/daap";
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
 		}
+		if(FALSE === boolval($object['enable']))
+			return;
+		// Start this service and register System-V style init script.
+		$initd = new OMVSysVInitScript("forked-daapd", TRUE);
+		$initd->exec();
+		// Enable monitoring of this service.
+		$monit = new OMVMonit();
+		$monit->monitor("forked-daapd");
+	}
+
+	/**
+	 * Get the status of the managed service.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	public function getStatus() {
+		global $xmlConfig;
+		$xpath = "//services/daap";
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		$monit = new OMVMonit();
+		return array(
+			"name" => $this->getName(),
+			"title" => gettext("iTunes/DAAP"),
+			"enabled" => boolval($object['enable']),
+			"running" => ($monit->status("forked-daapd") === "running")
+		);
 	}
 
 	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
-		// Update service if configuration has been modified
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.daap",
-		  array($this, "updateService"), 1);
+		  array($this, "setDirty"));
+		$moduleMgr = &OMVModuleMgr::getInstance();
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.services.daap",
+		  array($moduleMgr->getModule("monit"), "setDirty"));
 	}
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVForkedDaapdModule());
+$moduleMgr->registerModule(new OMVModuleForkedDaapd());
 ?>

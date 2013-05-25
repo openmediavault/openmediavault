@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,18 +25,20 @@ require_once("openmediavault/functions.inc");
 require_once("openmediavault/util.inc");
 
 /**
- * @class OMVSystem
+ * Helper class that provides various functions regarding the Linux system.
+ * @ingroup api
  */
-class OMVSystem {
+class OMVSystem extends OMVObject {
 	/**
-	 * Get the partition where '/' is installed on.
-	 * @return Returns the partition where '/' is installed (e.g. /dev/sda1)
-	 * or FALSE on failure.
+	 * Get the device file where the operating system is installed on (e.g.
+	 * /dev/sda1).
+	 * @return Returns the device file where the operating system is installed
+	 *   on or FALSE on failure.
 	 */
-	public static function getRootPartition() {
+	public static function getRootDeviceFile() {
 		$cmd = "export LANG=C; mount | grep -i 'on / '";
 		$data = @OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			return FALSE;
 		}
 		$data = explode(" ", $data);
@@ -46,24 +48,30 @@ class OMVSystem {
 	/**
 	 * Get the /etc/login.defs configuration
 	 * @return Array containing the configuration as key/value pairs or
-	 * FALSE on failure.
+	 *   FALSE on failure.
 	 */
 	public static function getLoginDefs() {
-		// Extract the lines that are not commented out. Use 'awk' to convert
-		// them to 'xxx=yyy' to use explode to extract the key/value pairs
-		// instead of another regex.
-		$cmd = 'grep \'^[^#].\{1,\}$\' /etc/login.defs | '.
-		  'awk \'{printf("%s=%s\n",$1,$2)}\'';
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			return FALSE;
-		}
 		$defs = array();
-		foreach ($output as $row) {
-			$data = explode("=", $row);
-			if (empty($data))
+		// Extract the lines that are not commented out.
+		// Parse file content:
+		// #
+		// # Min/max values for automatic uid selection in useradd
+		// #
+		// UID_MIN                  1000
+		// UID_MAX                 60000
+		// # System accounts
+		// #SYS_UID_MIN              100
+		// #SYS_UID_MAX              999
+		$rows = file("/etc/login.defs");
+		foreach($rows as $rowk => $rowv) {
+			// Skip comments.
+			if("#" == substr($rowv, 0, 1))
 				continue;
-			$defs[$data[0]] = $data[1];
+			// Extract key/value.
+			$regex = '/^(\S+)\s+(\S+)$/i';
+			if(1 !== preg_match($regex, $rowv, $matches))
+				continue;
+			$defs[$matches[1]] = $matches[2];
 		}
 		return $defs;
 	}
@@ -79,7 +87,7 @@ class OMVSystem {
 			"disk" => "cat /proc/partitions | awk '{print $4}'",
 			"iface" => "netstat -i"
 		);
-		$cmd = sprintf("sudo %s | grep '^%s[0-9]\{1,\}$' | sort -r | " .
+		$cmd = sprintf("%s | grep '^%s[0-9]\{1,\}$' | sort -r | " .
 		  "head -n 1", $cmdList[$type], $name);
 		$deviceName = @OMVUtil::exec($cmd, $output);
 		$deviceName = strrev($deviceName);
@@ -96,16 +104,12 @@ class OMVSystem {
 	 *   failure.
 	 */
 	public static function uptime($indexed = FALSE) {
-		@OMVUtil::exec("cat /proc/uptime", $output, $result);
-		if ($result !== 0) {
-			return FALSE;
-		}
-		$uptime = explode(" ", $output[0]);
+		$uptime = explode(" ", trim(file_get_contents("/proc/uptime")));
 		$days = intval($uptime[0] / 86400);
 		$hours = intval(($uptime[0] / 3600) % 24);
 		$mins = intval(($uptime[0] / 60) % 60);
 		$secs = intval($uptime[0] % 60);
-		if (FALSE === $indexed)
+		if(FALSE === $indexed)
 			return sprintf("%d %s %d %s %d %s %d %s",
 			  $days, ($days == 1) ? gettext("day") : gettext("days"),
 			  $hours, ($hours == 1) ? gettext("hour") : gettext("hours"),
@@ -121,37 +125,12 @@ class OMVSystem {
 	}
 
 	/**
-	 * Get system date and time.
-	 * @return An array containing the system date and time in local format,
-	 * ISO 8601 (without numeric timezone) and UNIX timestamp if successful,
-	 * otherwise FALSE.
-	 */
-	public static function date() {
-		// If system date and time has been modified via NTP or manually
-		// the PHP date functions do not return correct values until the
-		// Apache server has not been restarted.
-		$cmd = "date; date +'%Y-%m-%dT%H:%M:%S'; date +'%s'";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
-			return FALSE;
-		return array(
-			"local" => $output[0],
-			"ISO8601" => $output[1],
-			"timestamp" => $output[2]
-		);
-	}
-
-	/**
 	 * Get load average in regard to both the CPU and IO over time.
 	 * @return The CPU and IO utilization of the last one, five, and 10 minute
-	 * periods or FALSE on failure.
+	 *   periods or FALSE on failure.
 	 */
 	public static function getLoadAverage() {
-		@OMVUtil::exec("cat /proc/loadavg", $output, $result);
-		if ($result !== 0) {
-			return FALSE;
-		}
-		$loadavg = explode(" ", $output[0]);
+		$loadavg = explode(" ", trim(file_get_contents("/proc/loadavg")));
 		return sprintf("%s, %s, %s", $loadavg[0], $loadavg[1], $loadavg[2]);
 	}
 
@@ -186,7 +165,7 @@ class OMVSystem {
 	public static function getMemoryStats() {
 /*
 		@OMVUtil::exec("cat /proc/meminfo", $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			return FALSE;
 		}
 		$result = array(
@@ -195,11 +174,11 @@ class OMVSystem {
 		  "used" => 0,
 		  "percent" => 0
 		);
-		foreach ($output as $outputk => $outputv) {
-			if (preg_match('/^MemTotal:\s+(\d+)\s+kB$/i', $outputv,
+		foreach($output as $outputk => $outputv) {
+			if(preg_match('/^MemTotal:\s+(\d+)\s+kB$/i', $outputv,
 			  $matches)) {
 				$result['total'] = $matches[1] * 1024;
-			} else if (preg_match('/^MemFree:\s+(\d+)\s+kB$/i', $outputv,
+			} else if(preg_match('/^MemFree:\s+(\d+)\s+kB$/i', $outputv,
 			  $matches)) {
 				$result['free'] = $matches[1] * 1024;
 			}
@@ -208,7 +187,7 @@ class OMVSystem {
 		$result['percent'] = round(($result['used'] * 100) / $result['total']);
 */
 		@OMVUtil::exec("free -b", $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			return FALSE;
 		}
 		$result = array(
@@ -235,14 +214,14 @@ class OMVSystem {
 				"free" => 0
 			)
 		);
-		// Parse output:
+		// Parse command output:
 		//              total       used       free     shared    buffers     cached
 		// Mem:     526987264  195010560  331976704          0   28565504  120373248
 		// -/+ buffers/cache:   46071808  480915456
 		// Swap:    401596416          0  401596416
 		// Total:   928583680  195137536  733446144
-		foreach ($output as $outputk => $outputv) {
-			if (preg_match('/^Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/',
+		foreach($output as $outputk => $outputv) {
+			if(preg_match('/^Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
 				$result['mem'] = array(
 					"total" => $matches[1],
@@ -252,20 +231,20 @@ class OMVSystem {
 					"buffers" => $matches[5],
 					"cached" => $matches[6]
 				);
-			} else if (preg_match('/^-\/\+ buffers\/cache:\s+(\d+)\s+(\d+)$/',
+			} else if(preg_match('/^-\/\+ buffers\/cache:\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
 				$result['wobufferscache'] = array(
 					"used" => $matches[1],
 					"free" => $matches[2]
 				);
-			} else if (preg_match('/^Swap:\s+(\d+)\s+(\d+)\s+(\d+)$/',
+			} else if(preg_match('/^Swap:\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
 				$result['swap'] = array(
 					"total" => $matches[1],
 					"used" => $matches[2],
 					"free" => $matches[3]
 				);
-			} else if (preg_match('/^Total:\s+(\d+)\s+(\d+)\s+(\d+)$/',
+			} else if(preg_match('/^Total:\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
 				$result['swap'] = array(
 					"total" => $matches[1],
@@ -289,20 +268,14 @@ class OMVSystem {
 		// Get the CPU model name. Take care about CPUs with multiple cores.
 		@OMVUtil::exec("grep -Em1 '^(model name|Processor)' /proc/cpuinfo",
 		  $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			return FALSE;
 		}
 		$output = explode(":", $output[0]);
 		$modelName = trim($output[1]);
-		@OMVUtil::exec("cat /proc/stat", $tprev, $result);
-		if ($result !== 0) {
-			return FALSE;
-		}
+		$tprev = file("/proc/stat");
 		sleep(1);
-		@OMVUtil::exec("cat /proc/stat", $tnow, $result);
-		if ($result !== 0) {
-			return FALSE;
-		}
+		$tnow = file("/proc/stat");
 		// Extract values:
 		// cpu  2255 34 2290 22625563 6290 127 456
 		// * user: normal processes executing in user mode
@@ -330,30 +303,29 @@ class OMVSystem {
 }
 
 /**
- * @class OMVFilesystems
- * @extends OMVObject
- * Generic class to handle RAID devices.
+ * Helper class that implements functions regarding filesystems.
+ * @ingroup api
  */
 class OMVFilesystems extends OMVObject {
 	/**
 	 * Get a list of available/detected file systems.
 	 * @return A list of file systems, otherwise FALSE. The array elements
-	 * contain the fields: \em devicefile, \em uuid, \em label and \em type.
-	 * The devicefile is used as key to access the array elements.
+	 *   contain the fields: \em devicefile, \em uuid, \em label and \em type.
+	 *   The devicefile is used as key to access the array elements.
 	 */
 	public static function get() {
-		$cmd = "export LANG=C; sudo blkid -o full";
+		$cmd = "export LANG=C; blkid -o full";
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			return FALSE;
 		}
 		$result = array();
-		foreach ($output as $outputk => $outputv) {
+		foreach($output as $outputk => $outputv) {
 			// Parse command output:
 			// /dev/sdb: UUID="e6a0f61e-d969-ffcb-d4c5-06e7711285a3" LABEL="dhcppc4:0" TYPE="linux_raid_member"
 			// /dev/sdg1: LABEL="test" UUID="d19bcea0-a323-4aea-9791-c6578180c129" TYPE="jfs"
 			$regex = '/^(\S+): (.+)$/i';
-			if (1 !== preg_match($regex, $outputv, $matches))
+			if(1 !== preg_match($regex, $outputv, $matches))
 				continue;
 			$data = array(
 				"devicefile" => $matches[1],
@@ -362,9 +334,9 @@ class OMVFilesystems extends OMVObject {
 				"type" => ""
 			);
 			$output = explode(" ", $matches[2]);
-			foreach ($output as $outputk => &$outputv) {
+			foreach($output as $outputk => &$outputv) {
 				$keyValue = explode("=", $outputv);
-				if (count($keyValue) != 2)
+				if(count($keyValue) != 2)
 					continue;
 				$data[strtolower($keyValue[0])] = substr($keyValue[1], 1, -1);
 			}
@@ -372,7 +344,7 @@ class OMVFilesystems extends OMVObject {
 /*
 			// Alternative implementation:
 			$regex = '/^(\S+): (LABEL="(\S+)" )?UUID="(\S+)" (LABEL="(\S+)" )?TYPE="(\S+)"$/i';
-			if (1 !== preg_match($regex, $outputv, $matches))
+			if(1 !== preg_match($regex, $outputv, $matches))
 				continue;
 			$result[$matches[1]] = array(
 				"devicefile" => $matches[1],
@@ -387,9 +359,8 @@ class OMVFilesystems extends OMVObject {
 }
 
 /**
- * @class OMVFilesystem
- * @extends OMVObject
  * Class to get detailed informations about a given filesystem.
+ * @ingroup api
  */
 class OMVFilesystem extends OMVObject {
 	protected $uuid = "";
@@ -399,18 +370,34 @@ class OMVFilesystem extends OMVObject {
 	protected $ptType = "";
 	protected $usage = "";
 	private $dataCached = FALSE;
+	private $errStr = "";
 
 	/**
 	 * Constructor
 	 * @param id The UUID or device path of the filesystem, e.g.
-	 * /dev/sde1, 78b669c1-9183-4ca3-a32c-80a4e2c61e2d, 7A48-BA97 (DOS)
-	 * or 2ED43920D438EC29 (NTFS).
+	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+	 *   \li 7A48-BA97 (DOS)
+	 *   \li 2ED43920D438EC29 (NTFS)
+	 *   \li /dev/sde1
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
+	 *   \li /dev/disk/by-label/DATA
+	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
+	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+	 *   \li /dev/cciss/c0d0p2
 	 */
 	public function __construct($id) {
-		if (!is_devicefile($id))
+		if(!is_devicefile($id))
 			$this->uuid = $id;
 		else
 			$this->deviceFile = $id;
+	}
+
+	/**
+	 * Get the error description of the last occured error.
+	 * @return The error description of the last error if set.
+	 */
+	public function getError() {
+		return implode("\n", $this->errStr);
 	}
 
 	/**
@@ -419,31 +406,50 @@ class OMVFilesystem extends OMVObject {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	private function getData() {
-		if ($this->dataCached !== FALSE)
+		if($this->dataCached !== FALSE)
 			return TRUE;
 
-		if (!empty($this->uuid)) {
+		if(!empty($this->uuid)) {
 			// Get the device name containing the file system. This is
 			// required for the blkid low-level probing mode.
-			$cmd = sprintf("export LANG=C; sudo findfs UUID=%s", $this->uuid);
+			// Do not use /dev/disk/by-uuid/xxx because this will cause
+			// some problems:
+			// - After creating an RAID the filesystem is not listed in
+			//   /dev/disk/by-uuid.
+			// - After a reboot a LVM2 logical volume is listed in
+			//   /dev/disk/by-uuid but pointing to /dev/dm-X and not to
+			//   /dev/mapper which is prefered.
+			$cmd = sprintf("export LANG=C; findfs UUID=%s", $this->uuid);
 			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0)
+			if($result !== 0)
 				return FALSE;
 			$this->deviceFile = $output[0];
+			unset($output);
 		}
 
-		unset($output);
-		$cmd = sprintf("export LANG=C; sudo blkid -p %s", $this->deviceFile);
+		// If the device file looks like /dev/disk/by-(id|label|path|uuid)/*
+		// then it is necessary to get the /dev/xxx equivalent.
+		// Note, limit this to the given types, otherwise unexpected behaviors
+		// might occur, e.g. the name of the LVM device /dev/mapper/vg0-lv0
+		// will be replaced by /dev/dm-0.
+		if(1 == preg_match("/^\/dev\/disk\/by-.+$/", $this->deviceFile)) {
+			$this->deviceFile = realpath($this->deviceFile);
+		}
+
+		// Get the filesystem details.
+		$cmd = sprintf("export LANG=C; blkid -p %s", $this->deviceFile);
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if($result !== 0)
 			return FALSE;
 
 		// Parse command output:
 		// /dev/sda1: UUID="3d9be906-d592-449b-93c4-3dd8888801b2" TYPE="ext3"
 		// /dev/sdg1: LABEL="test" UUID="d19bcea0-a323-4aea-9791-c6578180c129" TYPE="jfs"
 		$regex = '/^(\S+): (.+)$/i';
-		if (1 !== preg_match($regex, $output[0], $matches))
+		if(1 !== preg_match($regex, $output[0], $matches))
 			return FALSE;
+
+		// Set default values and extract key/value pairs.
 		$data = array(
 			"devicefile" => $matches[1],
 			"uuid" => "",
@@ -453,9 +459,9 @@ class OMVFilesystem extends OMVObject {
 			"usage" => ""
 		);
 		$output = explode(" ", $matches[2]);
-		foreach ($output as $outputk => &$outputv) {
+		foreach($output as $outputk => &$outputv) {
 			$keyValue = explode("=", $outputv);
-			if (count($keyValue) != 2)
+			if(count($keyValue) != 2)
 				continue;
 			$data[strtolower($keyValue[0])] = substr($keyValue[1], 1, -1);
 		}
@@ -467,7 +473,7 @@ class OMVFilesystem extends OMVObject {
 		$this->ptType = $data['pttype'];
 		$this->usage = $data['usage'];
 
-		// Set flag to mark informations has been successfully read
+		// Set flag to mark informations has been successfully read.
 		$this->dataCached = TRUE;
 
 		return TRUE;
@@ -479,7 +485,7 @@ class OMVFilesystem extends OMVObject {
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return TRUE;
 	}
@@ -489,7 +495,7 @@ class OMVFilesystem extends OMVObject {
 	 * @return TRUE if the device exists, otherwise FALSE.
 	 */
 	public function exists() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return TRUE;
 	}
@@ -499,6 +505,8 @@ class OMVFilesystem extends OMVObject {
 	 * @return The UUID of the filesystem, otherwise FALSE.
 	 */
 	public function getUuid() {
+		if($this->getData() === FALSE)
+			return FALSE;
 		return $this->uuid;
 	}
 
@@ -507,7 +515,7 @@ class OMVFilesystem extends OMVObject {
 	 * @return The filesystem label, otherwise FALSE.
 	 */
 	public function getLabel() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->label;
 	}
@@ -517,7 +525,7 @@ class OMVFilesystem extends OMVObject {
 	 * @return The filesystem type, otherwise FALSE.
 	 */
 	public function getType() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->type;
 	}
@@ -527,7 +535,7 @@ class OMVFilesystem extends OMVObject {
 	 * @return The filesystem type, otherwise FALSE.
 	 */
 	public function getPartitionType() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->ptType;
 	}
@@ -537,7 +545,7 @@ class OMVFilesystem extends OMVObject {
 	 * @return The filesystem type, otherwise FALSE.
 	 */
 	public function getUsage() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->usage;
 	}
@@ -547,9 +555,66 @@ class OMVFilesystem extends OMVObject {
 	 * @return The device name, otherwise FALSE.
 	 */
 	public function getDeviceFile() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->deviceFile;
+	}
+
+	/**
+	 * Get the device path by UUID, e.g.
+	 * \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+	 * \li /dev/disk/by-uuid/2ED43920D438EC29 (NTFS)
+	 * @return The device path (/dev/disk/by-uuid/xxx) if available,
+	 *   otherwise /dev/xxx will be returned. In case of an error FALSE
+	 *   will be returned.
+	 */
+	public function getDeviceFileByUuid() {
+		if($this->getData() === FALSE)
+			return FALSE;
+		$deviceFileByUuid = sprintf("/dev/disk/by-uuid/%s",
+		  $this->getUuid());
+		if(is_block($deviceFileByUuid))
+			return $deviceFileByUuid;
+		return $this->getDeviceFile();
+	}
+
+	/**
+	 * Get the device file of the storage device containing this
+	 * file system.
+	 * @return The device file of the underlying storage device,
+	 *   otherwise FALSE.
+	 */
+	public function getParentDeviceFile() {
+		if($this->getData() === FALSE)
+			return FALSE;
+		$conf = array(
+			  $GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'] => "/(\d+)$/",
+			  $GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'] => "//",
+			  $GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'] => "/(p\d+)$/",
+			  $GLOBALS['OMV_REGEX_DEVNAME_DEVICEMAPPER'] => "//"
+		  );
+		$storageDeviceFile = FALSE;
+		$deviceFile = $this->getDeviceFile();
+		// The following line is not necessary but will be kept to be safe.
+		// If the device file looks like /dev/disk/by-(id|label|path|uuid)/*
+		// then it is necessary to get the /dev/xxx equivalent.
+		if(1 == preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile)) {
+			$deviceFile = realpath($deviceFile);
+		}
+		// Truncate the partition appendix, e.g.:
+		// - /dev/sdb1 => /dev/sdb
+		// - /dev/cciss/c0d0p2 => /dev/cciss/c0d0
+		// - /dev/mapper/vg0-lv0 => /dev/mapper/vg0-lv0
+		// - /dev/dm-0 => /dev/dm-0
+		// - /dev/md0 => /dev/md0
+		$deviceName = str_replace("/dev/", "", $deviceFile);
+		foreach($conf as $confk => $confv) {
+			if(1 == preg_match("/^{$confk}(\d+|p\d+)?$/i", $deviceName)) {
+				$storageDeviceFile = preg_replace($confv, "", $deviceFile);
+				break;
+			}
+		}
+		return $storageDeviceFile;
 	}
 
 	/**
@@ -557,18 +622,18 @@ class OMVFilesystem extends OMVObject {
 	 * @return The block size, otherwise FALSE.
 	 */
 	public function getBlockSize() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
-		$cmd = sprintf("export LANG=C; sudo blockdev --getbsz %s ",
+		$cmd = sprintf("export LANG=C; blockdev --getbsz %s ",
 		  $this->deviceFile);
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if($result !== 0)
 			return FALSE;
 		return intval($output[0]);
 	}
 
 	/**
-	 * Get filesystem statistics.
+	 * Get statistics from a mounted filesystem.
 	 * @return The filesystem statistics if successful, otherwise FALSE. The
 	 * following fields are included: \em devicefile, \em type, \em blocks,
 	 * \em size, \em used, \em available, \em percentage and \em mountpoint.
@@ -576,27 +641,28 @@ class OMVFilesystem extends OMVObject {
 	 * strings and their unit is 'B' (bytes).
 	 */
 	public function getStatistics() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		$data = array();
-		$cmd = sprintf("export LANG=C; sudo df -P %s", $this->deviceFile);
+		$cmd = sprintf("export LANG=C; df -PT %s", escapeshellarg(
+		  $this->deviceFile));
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			return FALSE;
 		}
 		// Parse command output:
-		// Filesystem         1024-blocks      Used Available Capacity Mounted on
-		// /dev/sdf1               103180       148    103032       1% /media/f4f01ecc-548b-4e96-8fc4-874c6fdc9be0
+		// Filesystem    Type 1024-blocks      Used Available Capacity Mounted on
+		// /dev/sdb1     ext4      100156      4164     90824       5% /media/f3c61f34-f640-472c-b27e-a8e441caf460
 		$matches = preg_split("/[\s,]+/", array_pop($output));
 		$data = array(
 			"devicefile" => $this->deviceFile,
-			"type" => $this->deviceFile,
-			"blocks" => $matches[1],
-			"size" => bcmul($matches[1], "1024", 0),
-			"used" => binary_convert($matches[2], "KiB", "B"),
-			"available" => binary_convert($matches[3], "KiB", "B"),
-			"percentage" => intval(trim($matches[4], "%")),
-			"mountpoint" => $matches[5]
+			"type" => $matches[1],
+			"blocks" => $matches[2],
+			"size" => bcmul($matches[2], "1024", 0),
+			"used" => binary_convert($matches[3], "KiB", "B"),
+			"available" => binary_convert($matches[4], "KiB", "B"),
+			"percentage" => intval(trim($matches[5], "%")),
+			"mountpoint" => $matches[6]
 		);
 		return $data;
 	}
@@ -606,7 +672,7 @@ class OMVFilesystem extends OMVObject {
 	 * @return TRUE if the filesystem supports POSIX ACL, otherwise FALSE.
 	 */
 	public function hasPosixAclSupport() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return self::hasPosixAclSupportByType($this->getType());
 	}
@@ -616,9 +682,43 @@ class OMVFilesystem extends OMVObject {
 	 * @return TRUE if the filesystem is mounted, otherwise FALSE.
 	 */
 	public function isMounted() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return self::isMountedEx("filesystem", $this->getDeviceFile());
+	}
+
+	/**
+	 * Mount the filesystem.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function mount() {
+		$uuid = $this->getUuid();
+		$cmd = sprintf("export LANG=C; mount -v %s", is_uuid($uuid) ?
+		  "-U {$uuid}" : $this->getDeviceFile());
+		@OMVUtil::exec($cmd, $this->errStr, $result);
+		if($result !== 0)
+			return FALSE;
+		return TRUE;
+	}
+
+	/**
+	 * Unmount the filesystem.
+	 * @param force Set to TRUE to force unmount. Defaults to FALSE.
+	 * @param lazy Set to TRUE to lazy unmount. Defaults to FALSE.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function umount($force = FALSE, $lazy = FALSE) {
+		$cmdArgs = array("-v");
+		if(TRUE === $force)
+			$cmdArgs[] = "-f";
+		if(TRUE === $lazy)
+			$cmdArgs[] = "-l";
+		$cmd = sprintf("export LANG=C; umount %s %s", implode(" ",
+		  $cmdArgs), $this->getDeviceFile());
+		@OMVUtil::exec($cmd, $this->errStr, $result);
+		if($result !== 0)
+			return FALSE;
+		return TRUE;
 	}
 
 	/**
@@ -629,12 +729,8 @@ class OMVFilesystem extends OMVObject {
 	 * @return TRUE if the filesystem is mounted, otherwise FALSE.
 	 */
 	public static function isMountedEx($key, $value) {
-		OMVUtil::exec("cat /proc/mounts", $output, $result);
-		if ($result !== 0) {
-			return FALSE;
-		}
 		$result = FALSE;
-		foreach ($output as $outputv) {
+		foreach(file("/proc/mounts") as $rowk => $rowv) {
 			// Parse command output:
 			// rootfs / rootfs rw 0 0
 			// none /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
@@ -642,8 +738,8 @@ class OMVFilesystem extends OMVObject {
 			// tmpfs /dev/shm tmpfs rw,nosuid,nodev,relatime 0 0
 			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
-			$matches = explode(" ", $outputv);
-			switch ($key) {
+			$matches = explode(" ", $rowv);
+			switch($key) {
 			case "filesystem":
 				$result = ($matches[0] === $value);
 				break;
@@ -651,7 +747,7 @@ class OMVFilesystem extends OMVObject {
 				$result = ($matches[1] === $value);
 				break;
 			}
-			if (TRUE === $result)
+			if(TRUE === $result)
 				break;
 		}
 		return $result;
@@ -676,10 +772,10 @@ class OMVFilesystem extends OMVObject {
 		// An alternative implementation is:
 		// blkid -p -u filesystem <devicefile>
 		// Scan output for tag PTTYPE.
-		$cmd = sprintf("export LANG=C; sudo blkid | grep -E '^%s[0-9]*:.+$'",
+		$cmd = sprintf("export LANG=C; blkid | grep -E '^%s[0-9]*:.+$'",
 		  $devicefile);
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if($result !== 0)
 			return FALSE;
 		return TRUE;
 	}
@@ -699,8 +795,164 @@ class OMVFilesystem extends OMVObject {
 }
 
 /**
- * @interface OMVIBlockDevice
+ * A class that implements a mount point.
+ * @ingroup api
+ */
+class OMVMntEnt extends OMVObject {
+	private $fsname;
+	private $dir;
+	private $errStr = "";
+
+	/**
+	 * Constructor
+	 * @param fsname The name of the mounted filesystem.
+	 * @param dir The filesystem path prefix.
+	 */
+	public function __construct($fsname, $dir) {
+		$this->fsname = $fsname;
+		$this->dir = $dir;
+	}
+
+	/**
+	 * Get the error description of the last occured error.
+	 * @return The error description of the last error if set.
+	 */
+	public function getError() {
+		return implode("\n", $this->errStr);
+	}
+
+	/**
+	 * Mount the given filesystem.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function mount() {
+		$cmd = sprintf("export LANG=C; mount -v %s", escapeshellarg(
+		  $this->dir));
+		@OMVUtil::exec($cmd, $this->errStr, $result);
+		if($result !== 0)
+			return FALSE;
+		return TRUE;
+	}
+
+	/**
+	 * Unmount the given filesystem.
+	 * @param force Set to TRUE to force unmount. Defaults to FALSE.
+	 * @param lazy Set to TRUE to lazy unmount. Defaults to FALSE.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function umount($force = FALSE, $lazy = FALSE) {
+		$cmdArgs = array("-v");
+		if(TRUE === $force)
+			$cmdArgs[] = "-f";
+		if(TRUE === $lazy)
+			$cmdArgs[] = "-l";
+		$cmd = sprintf("export LANG=C; umount %s %s", implode(" ",
+		  $cmdArgs), escapeshellarg($this->dir));
+		@OMVUtil::exec($cmd, $this->errStr, $result);
+		if($result !== 0)
+			return FALSE;
+		return TRUE;
+	}
+
+	/**
+	 * Create the mount point of the filesystem.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function mkDir() {
+		if(is_dir($this->dir))
+			return TRUE;
+		return mkdir($this->dir, 0700, TRUE);
+	}
+
+	/**
+	 * Unlink the mount point of the filesystem.
+	 * @param force Set to TRUE to ignore nonexistent files. Defaults to TRUE.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function unlinkDir($force = TRUE) {
+		$cmd = sprintf("export LANG=C; rm -rf %s 2>&1", escapeshellarg(
+		  $this->dir));
+		@OMVUtil::exec($cmd, $this->errStr, $result);
+		if($result !== 0)
+			return FALSE;
+		return TRUE;
+	}
+
+	/**
+	 * Check if the given filesystem is mounted.
+	 * @return TRUE if the filesystem is mounted, otherwise FALSE.
+	 */
+	public function isMounted() {
+		$result = FALSE;
+		foreach(file("/proc/mounts") as $rowk => $rowv) {
+			// Parse command output:
+			// rootfs / rootfs rw 0 0
+			// none /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
+			// none /proc proc rw,nosuid,nodev,noexec,relatime 0 0
+			// tmpfs /dev/shm tmpfs rw,nosuid,nodev,relatime 0 0
+			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
+			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
+			$matches = explode(" ", $rowv);
+			if(($matches[0] == $this->fsname) || ($matches[1] == $this->dir)) {
+				$result = TRUE;
+				break;
+			}
+		}
+		return $result;
+	}
+
+	/**
+	 * Get the OMVFilesystem object for the given mount point.
+	 * @param dir The filesystem path prefix.
+	 * @return The class object or NULL on failure.
+	 */
+	public static function getFilesystemByDir($dir) {
+		$result = NULL;
+		foreach(file("/proc/mounts") as $rowk => $rowv) {
+			// Parse command output:
+			// rootfs / rootfs rw 0 0
+			// none /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
+			// none /proc proc rw,nosuid,nodev,noexec,relatime 0 0
+			// tmpfs /dev/shm tmpfs rw,nosuid,nodev,relatime 0 0
+			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
+			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
+			$matches = explode(" ", $rowv);
+			if($matches[1] == $dir) {
+				$result = new OMVFilesystem($matches[0]);
+				break;
+			}
+		}
+		return $result;
+	}
+
+	/**
+	 * Get the OMVFilesystem object for the given mount point.
+	 * @param name The name of mounted file system.
+	 * @return The class object or NULL on failure.
+	 */
+	public static function getFilesystemByName($name) {
+		$result = NULL;
+		foreach(file("/proc/mounts") as $rowk => $rowv) {
+			// Parse command output:
+			// rootfs / rootfs rw 0 0
+			// none /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
+			// none /proc proc rw,nosuid,nodev,noexec,relatime 0 0
+			// tmpfs /dev/shm tmpfs rw,nosuid,nodev,relatime 0 0
+			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
+			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
+			$matches = explode(" ", $rowv);
+			if($matches[0] == $name) {
+				$result = new OMVFilesystem($matches[0]);
+				break;
+			}
+		}
+		return $result;
+	}
+}
+
+/**
  * Class implementing generic block devices.
+ * @ingroup api
  */
 interface OMVIBlockDevice {
 	/**
@@ -735,10 +987,8 @@ interface OMVIBlockDevice {
 }
 
 /**
- * @class OMVBlockDeviceAbstract
- * @extends OMVObject
- * @implements OMVIBlockDevice
  * Abstract class implementing generic block devices.
+ * @ingroup api
  */
 abstract class OMVBlockDeviceAbstract extends OMVObject implements
   OMVIBlockDevice {
@@ -757,10 +1007,7 @@ abstract class OMVBlockDeviceAbstract extends OMVObject implements
 	 * See interface definition.
 	 */
 	public function exists() {
-		$cmd = sprintf("sudo test -b %s", escapeshellarg(
-		  $this->getDeviceFile()));
-		@OMVUtil::exec($cmd, $output, $result);
-		return ($result == 0) ? TRUE : FALSE;
+		return is_block($this->getDeviceFile());
 	}
 
 	/**
@@ -788,14 +1035,15 @@ abstract class OMVBlockDeviceAbstract extends OMVObject implements
 }
 
 /**
- * @class OMVStorageDeviceAbstract
- * @extends OMVBlockDeviceAbstract
  * Abstract class implementing generic storage devices.
+ * @ingroup api
  */
 abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	protected $deviceFileById = FALSE;
 	protected $model = FALSE;
 	protected $vendor = FALSE;
+	protected $udevInfo = FALSE;
+	protected $smartDeviceType = "";
 
 	/**
 	 * Constructor
@@ -814,10 +1062,8 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * See interface definition.
 	 */
 	public function exists() {
-		$cmd = sprintf("sudo test -b %s", escapeshellarg(!$this->deviceFile ?
-		  $this->deviceFileById : $this->deviceFile));
-		@OMVUtil::exec($cmd, $output, $result);
-		return ($result == 0) ? TRUE : FALSE;
+		return is_block(!$this->deviceFile ? $this->deviceFileById :
+		  $this->deviceFile);
 	}
 
 	/**
@@ -836,10 +1082,12 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	}
 
 	/**
-	 * Get device path, e.g. /dev/disk/by-id/wwn-0x5000cca211cc703c or
-	 * /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML.
-	 * @return The device path (/dev/disk/by-id/xxx) if available, otherwise
-	 * /dev/xxx will be returned. In case of an error FALSE will be returned.
+	 * Get the device path by ID, e.g.
+	 * \li /dev/disk/by-id/wwn-0x5000cca211cc703c
+	 * \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML
+	 * @return The device path (/dev/disk/by-id/xxx) if available,
+	 *   otherwise /dev/xxx will be returned. In case of an error FALSE
+	 *   will be returned.
 	 */
 	public function getDeviceFileById() {
 		if(!$this->deviceFileById) {
@@ -868,11 +1116,11 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return The size (64bit) of the device in bytes as string.
 	 */
 	public function getSize() {
-		if ($this->size === FALSE) {
-			$cmd = sprintf("export LANG=C; sudo blockdev --getsize64 %s",
+		if($this->size === FALSE) {
+			$cmd = sprintf("export LANG=C; blockdev --getsize64 %s",
 			  escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0)
+			if($result !== 0)
 				return FALSE;
 			$this->size = $output[0];
 		}
@@ -881,42 +1129,46 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 
 	/**
 	 * Get the device model.
-	 * @return The device model, otherwise FALSE.
+	 * @return The device model, otherwise an empty string.
 	 */
 	public function getModel() {
-		if ($this->model === FALSE) {
-			$cmd = sprintf("sudo cat /sys/block/%s/device/model",
+		if($this->model === FALSE) {
+			$filename = sprintf("/sys/block/%s/device/model",
 			  $this->getDeviceName());
-			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0)
-				return FALSE;
-			$this->model = $output[0];
+			if(file_exists($filename)) {
+				$this->model = trim(file_get_contents($filename));
+			} else {
+				$this->model = "";
+			}
 		}
 		return $this->model;
 	}
 
 	/**
 	 * Get the device vendor.
-	 * @return The device vendor, otherwise FALSE.
+	 * @return The device vendor, otherwise an empty string.
 	 */
 	public function getVendor() {
-		if ($this->vendor === FALSE) {
-			$cmd = sprintf("sudo cat /sys/block/%s/device/vendor",
+		if($this->vendor === FALSE) {
+			$filename = sprintf("/sys/block/%s/device/vendor",
 			  $this->getDeviceName());
-			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0)
-				return FALSE;
-			$this->vendor = $output[0];
+			if(file_exists($filename)) {
+				$this->vendor = trim(file_get_contents($filename));
+			} else {
+				$this->vendor = "";
+			}
 		}
 		return $this->vendor;
 	}
 
 	/**
 	 * Get the device serial number.
-	 * @return The device serial number.
+	 * @return The device serial number, otherwise an empty string.
 	 */
 	public function getSerialNumber() {
-		return gettext("n/a");
+		if(FALSE === ($property = $this->getUdevProperty("ID_SERIAL_SHORT")))
+			return "";
+		return str_replace("_", " ", $property);
 	}
 
 	/**
@@ -941,56 +1193,111 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return TRUE if the device is a connected via USB, otherwise FALSE.
 	 */
 	public function isUsb() {
-		$cmd = sprintf("export LANG=C; sudo udevadm info --name=%s " .
-		  "--attribute-walk | grep 'SUBSYSTEMS==\"usb\"'",
-		  escapeshellarg($this->getDeviceFile()));
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if(FALSE === ($property = $this->getUdevProperty("ID_BUS")))
 			return FALSE;
+		return ("usb" === $property);
+	}
+
+	/**
+	 * Queries the udev database for device information stored in the udev
+	 * database.
+	 * @param id The name of the property, e.g. ID_VENDOR, ID_MODEL or
+	 *   ID_SERIAL_SHORT.
+	 * @return The requested property, otherwise FALSE.
+	 */
+	protected function getUdevProperty($id) {
+		if($this->udevInfo === FALSE) {
+			$cmd = sprintf("export LANG=C; sudo udevadm info ".
+			  "--query=property --name=%s", escapeshellarg(
+			  $this->getDeviceFile()));
+			@OMVUtil::exec($cmd, $output, $result);
+			if($result !== 0)
+				return FALSE;
+			// Parse output:
+			// UDEV_LOG=3
+			// DEVPATH=/devices/pci0000:00/0000:00:10.0/host2/target2:0:1/2:0:1:0/block/sdb
+			// MAJOR=8
+			// MINOR=16
+			// DEVNAME=/dev/sdb
+			// DEVTYPE=disk
+			// SUBSYSTEM=block
+			// ID_SCSI=1
+			// ID_VENDOR=VMware_
+			// ID_VENDOR_ENC=VMware\x2c\x20
+			// ID_MODEL=VMware_Virtual_S
+			// ID_MODEL_ENC=VMware\x20Virtual\x20S
+			foreach($output as $row) {
+				$data = explode("=", $row);
+				if(empty($data))
+					continue;
+				$this->udevInfo[$data[0]] = $data[1];
+			}
 		}
-		return empty($result);
+		if(!array_key_exists($id, $this->udevInfo))
+			return FALSE;
+		return $this->udevInfo[$id];
+	}
+
+	/**
+	 * Set the device type required by the smartctl command.
+	 * @return Returns the device type.
+	 */
+	public function setSmartDeviceType($type) {
+		$this->smartDeviceType = $type;
+		return $this->smartDeviceType;
+	}
+
+	/**
+	 * Identify the device type required by the smartctl command.
+	 * @return Returns the identified device type or an empty string.
+	 */
+	public function getSmartDeviceType() {
+		return $this->smartDeviceType;
 	}
 }
 
 /**
- * @class OMVStorageDeviceFactory
- * @extends OMVObject
  * Factory to create objects of storage device classes.
+ * @ingroup api
  */
 class OMVStorageDeviceFactory extends OMVObject {
 	/**
 	 * Get the object of the class implementing the given device type.
-	 * @param deviceFile The device file, e.g. /dev/sdb, /dev/md1,
-	 *   /dev/cciss/c0d0 or /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6.
+	 * @param deviceFile The device file, e.g.
+	 *   \li /dev/sdb
+	 *   \li /dev/md1
+	 *   \li /dev/cciss/c0d0
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
+	 *   \li /dev/disk/by-label/DATA
+	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
+	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 * @return The object of the class implementing the given device type,
 	 *   otherwise NULL.
 	 */
 	public static function get($deviceFile) {
 		$conf = array(
-			$GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'] => "OMVHardDiskDevice",
-			$GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'] => "OMVSoftwareRaidDevice",
-			$GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'] => "OMVHardwareRaidDevice"
-		);
+			  $GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'] => "OMVHardDiskDevice",
+			  $GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'] => "OMVSoftwareRaidDevice",
+			  $GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'] => "OMVHardwareRaidDevice",
+			  $GLOBALS['OMV_REGEX_DEVNAME_DEVICEMAPPER'] => "OMVDeviceMapperDevice"
+		  );
 		$object = NULL;
 		// Store original function argument for later usage.
 		$arg = $deviceFile;
-		// If the device file looks like /dev/disk/by-id/xxx then it is
-		// necessary to get the /dev/xxx equivalent.
-		if(preg_match("/^\/dev\/disk\/by-id\/.+$/", $deviceFile)) {
-			$cmd = sprintf("export LANG=C; readlink -e %s", escapeshellarg(
-			  $deviceFile));
-			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0)
-				return NULL;
-			$deviceFile = $output[0];
+		// If the device file looks like /dev/disk/by-(id|label|path|uuid)/*
+		// then it is necessary to get the /dev/xxx equivalent.
+		if(1 == preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile)) {
+			$deviceFile = realpath($deviceFile);
 		}
 		// Extract the device name, e.g.:
 		// - /dev/sdb => sdb
 		// - /dev/cciss/c0d0 => cciss/c0d0
+		// - /dev/mapper/vg0-lv0 => mapper/vg0-lv0
 		$deviceName = str_replace("/dev/", "", $deviceFile);
-		foreach ($conf as $regex => $className) {
-			if (1 == preg_match("/^{$regex}$/i", $deviceName)) {
-				$object = new $className($arg);
+		foreach($conf as $confk => $confv) {
+			if(1 == preg_match("/^{$confk}$/i", $deviceName)) {
+				// Create a new class object.
+				$object = new $confv($arg);
 				break;
 			}
 		}
@@ -999,9 +1306,8 @@ class OMVStorageDeviceFactory extends OMVObject {
 }
 
 /**
- * @class OMVStorageDevices
- * @extends OMVObject
- * Helper class to handle with storage devices.
+ * Helper class to get all existing devices of the given storage type.
+ * @ingroup api
  */
 class OMVStorageDevices extends OMVObject {
 	const HARDDISK = 0x1;
@@ -1018,24 +1324,18 @@ class OMVStorageDevices extends OMVObject {
 	public static function enumerate($type = OMVStorageDevices::ALL) {
 		// Prepare regex. options.
 		$args = array();
-		if ($type & OMVStorageDevices::HARDDISK)
+		if($type & OMVStorageDevices::HARDDISK)
 			$args[] = $GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'];
-		if ($type & OMVStorageDevices::SOFTWARERAID)
+		if($type & OMVStorageDevices::SOFTWARERAID)
 			$args[] = $GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'];
-		if ($type & OMVStorageDevices::HARDWARERAID)
+		if($type & OMVStorageDevices::HARDWARERAID)
 			$args[] = $GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'];
-		$regex = sprintf("/^\s+(\d+)\s+(\d+)\s+(\d+)\s+(%s)$/",
+		$regex = sprintf('/^\s+(\d+)\s+(\d+)\s+(\d+)\s+(%s)$/',
 		  implode("|", $args));
-		// List partitions detected by the kernel.
-		$cmd = "sudo cat /proc/partitions";
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			return FALSE;
-		}
-		// Process output.
+		// Process partitions detected by the kernel.
 		$devs = array();
-		foreach ($output as $outputk => $outputv) {
-			if (1 !== preg_match($regex, $outputv, $matches))
+		foreach(file("/proc/partitions") as $outputk => $outputv) {
+			if(1 !== preg_match($regex, $outputv, $matches))
 				continue;
 			$devs[] = sprintf("/dev/%s", $matches[4]);
 		}
@@ -1044,11 +1344,10 @@ class OMVStorageDevices extends OMVObject {
 }
 
 /**
- * @class OMVHardDiskDevice
- * @extends OMVStorageDeviceAbstract
- * Class implementing ATA/SATA and SCSI hard disk devices. Try to use sysfs
- * only to get the required informations, otherwise the disk will spin-up if
- * it is in sleep mode.
+ * This class provides a simple interface to handle ATA/SATA and SCSI
+ * hard disk devices. Try to use sysfs only to get the required informations,
+ * otherwise the disk will spin-up if it is in sleep mode.
+ * @ingroup api
  */
 class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 	protected $identityInfo = FALSE;
@@ -1067,49 +1366,27 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 	}
 
 	/**
-	 * Get the device model.
-	 * @return The device model, otherwise FALSE.
-	 */
-	public function getModel() {
-		if ($this->model === FALSE) {
-			// Try to get the device model string via S.M.A.R.T., otherwise
-			// use the one available via sysfs.
-			if (FALSE === ($ii = $this->getIdentityInfo())) {
-				$cmd = sprintf("sudo cat /sys/block/%s/device/model",
-				  $this->getDeviceName());
-				@OMVUtil::exec($cmd, $output, $result);
-				if ($result !== 0)
-					return FALSE;
-				$this->model = $output[0];
-			} else {
-				$this->model = $ii['devicemodel'];
-			}
-		}
-		return $this->model;
-	}
-
-	/**
 	 * Get the temperature in °C (value only, no unit).
 	 * @return The temperature value, otherwise FALSE.
 	 */
 	public function getTemperature() {
-		if (FALSE === ($stats = $this->getSmartStats()))
+		if(FALSE === ($stats = $this->getSmartStats()))
 			return FALSE;
 		$temp = FALSE;
 		$found = FALSE;
-		foreach ($stats['attributes'] as $statv) {
-			switch ($statv['id']) {
+		foreach($stats['attributes'] as $statv) {
+			switch($statv['id']) {
 			case 194:
 			case 231:
 				// The value may look like: '43 (Lifetime Min/Max 16/61)'
-				$regex = "/^(\d+)(\s+(.+))*$/";
-				if (1 !== preg_match($regex, $statv['rawvalue'], $matches))
+				$regex = '/^(\d+)(\s+(.+))*$/';
+				if(1 !== preg_match($regex, $statv['rawvalue'], $matches))
 					continue;
 				$temp = $matches[1];
 				$found = TRUE;
 				break;
 			}
-			if ($found)
+			if($found)
 				break;
 		}
 		// If the SMART attributes are not present then it may be an older
@@ -1125,10 +1402,10 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 		// Current Drive Temperature:     34 C
 		// Drive Trip Temperature:        65 C
 		// ...
-		if (FALSE === $found) {
-			foreach ($this->smartInfo as $smartInfov) {
-				$regex = "/^Current Drive Temperature:\s+(\d+)\s+C$/";
-				if (1 == preg_match($regex, $smartInfov, $matches)) {
+		if(FALSE === $found) {
+			foreach($this->smartInfo as $smartInfov) {
+				$regex = '/^Current Drive Temperature:\s+(\d+)\s+C$/';
+				if(1 == preg_match($regex, $smartInfov, $matches)) {
 					$temp = $matches[1];
 					break;
 				}
@@ -1138,22 +1415,12 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 	}
 
 	/**
-	 * Get the device serial number.
-	 * @return The device serial number.
-	 */
-	public function getSerialNumber() {
-		if (FALSE === ($ii = $this->getIdentityInfo()))
-			return gettext("n/a");
-		return $ii['serialnumber'];
-	}
-
-	/**
 	 * Get the device firmware version.
-	 * @return The device firmware version.
+	 * @return The device firmware version, otherwise an empty string.
 	 */
 	public function getFirmwareVersion() {
-		if (FALSE === ($ii = $this->getIdentityInfo()))
-			return gettext("n/a");
+		if(FALSE === ($ii = $this->getIdentityInfo()))
+			return "";
 		return $ii['firmwareversion'];
 	}
 
@@ -1163,17 +1430,23 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 	 * otherwise FALSE.
 	 */
 	public function getSmartStats() {
-		if (!$this->exists())
+		if(!$this->exists())
 			return FALSE;
 		// S.M.A.R.T. informations already cached?
-		if (is_null($this->smartInfo)) {
-			$cmd = sprintf("export LANG=C; sudo smartctl -a %s",
-			  escapeshellarg($this->getDeviceFile()));
+		if(is_null($this->smartInfo)) {
+			$cmdArgs = array();
+			$cmdArgs[] = sprintf("-a %s", escapeshellarg(
+			  $this->getDeviceFile()));
+			if("" !== ($deviceType = $this->getSmartDeviceType())) {
+				$cmdArgs[] = sprintf("-d %s", $deviceType);
+			}
+			$cmd = sprintf("export LANG=C; smartctl %s", implode(" ",
+			  $cmdArgs));
 			@OMVUtil::exec($cmd, $output, $result);
 			// Bit 0: Command line did not parse
 			// Bit 1: Device open failed, or device did not return an
 			//        IDENTIFY DEVICE structure
-			if (($result !== 0) && (($result & 0) || ($result & 1)))
+			if(($result !== 0) && (($result & 0) || ($result & 1)))
 				return FALSE;
 			$this->smartInfo = $output;
 		}
@@ -1181,21 +1454,21 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 		$attributes = array();
 		$selfTestLogs = array();
 		$information = $information = array(
-			"devicemodel" => gettext("n/a"),
-			"serialnumber" => gettext("n/a"),
-			"firmwareversion" => gettext("n/a")
+			"devicemodel" => "",
+			"serialnumber" => "",
+			"firmwareversion" => ""
 		);
 		// Process command output
-		foreach ($this->smartInfo as $smartInfov) {
+		foreach($this->smartInfo as $smartInfov) {
 			// SMART Attributes Data Structure
 			// Parse command output:
 			// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
 			//   1 Raw_Read_Error_Rate     0x000b   100   100   016    Pre-fail  Always       -       0
 			//   8 Seek_Time_Performance   0x0005   100   100   020    Pre-fail  Offline      -       0
 			// 194 Temperature_Celsius     0x0002   139   139   000    Old_age   Always       -       43 (Lifetime Min/Max 16/61)
-			$regex = "/^\s*(\d+)\s+(\S+)\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+" .
-			  "(\S+)\s+(\S+)\s+(\S+)\s+(.+)$/";
-			if (1 == preg_match($regex, $smartInfov, $matches)) {
+			$regex = '/^\s*(\d+)\s+(\S+)\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+'.
+			  '(\S+)\s+(\S+)\s+(\S+)\s+(.+)$/';
+			if(1 == preg_match($regex, $smartInfov, $matches)) {
 				$attributes[] = array(
 					"id" => $matches[1],
 					"attrname" => $matches[2],
@@ -1214,10 +1487,10 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 			// Num  Test_Description    Status                  Remaining  LifeTime(hours)  LBA_of_first_error
 			// # 1  Extended offline    Completed: read failure       90%       670         57217755
 			// # 2  Short captive       Interrupted (host reset)      80%      1392         -
-			$regex = "/^# (\d+)\s+(Short offline|Extended offline|" .
-			  "Short captive|Extended captive)\s+(.+)\s+(\d+)%\s+(\d+)" .
-			  "\s+(.+)$/";
-			if (1 == preg_match($regex, $smartInfov, $matches)) {
+			$regex = '/^# (\d+)\s+(Short offline|Extended offline|'.
+			  'Short captive|Extended captive)\s+(.+)\s+(\d+)%\s+(\d+)'.
+			  '\s+(.+)$/';
+			if(1 == preg_match($regex, $smartInfov, $matches)) {
 				$selfTestLogs[] = array(
 					"num" => $matches[1],
 					"description" => $matches[2],
@@ -1237,9 +1510,9 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 		// Firmware Version: V54OA52A
 		// User Capacity:    320.072.933.376 bytes
 		$output = implode("|", $this->smartInfo);
-		$regex = "/^.+\|Device Model:\s+(.+)\|Serial Number:\s+(.+)".
-		  "\|Firmware Version:\s+(.+)\|User Capacity:\s+(.+) bytes\|.+$/";
-		if (1 == preg_match($regex, $output, $matches)) {
+		$regex = '/^.+\|Device Model:\s+(.+)\|Serial Number:\s+(.+)'.
+		  '\|Firmware Version:\s+(.+)\|User Capacity:\s+(.+) bytes\|.+$/';
+		if(1 == preg_match($regex, $output, $matches)) {
 			$this->identityInfo = $information = array(
 				"devicemodel" => $matches[1],
 				"serialnumber" => $matches[2],
@@ -1264,18 +1537,24 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 	 * )
 	 */
 	private function getIdentityInfo() {
-		if (!$this->exists())
+		if(!$this->exists())
 			return FALSE;
-		if ($this->identityInfo === FALSE) {
-			$cmd = sprintf("export LANG=C; sudo smartctl -i %s",
-			  escapeshellarg($this->getDeviceFile()));
+		if($this->identityInfo === FALSE) {
+			$cmdArgs = array();
+			$cmdArgs[] = sprintf("-i %s", escapeshellarg(
+			  $this->getDeviceFile()));
+			if("" !== ($deviceType = $this->getSmartDeviceType())) {
+				$cmdArgs[] = sprintf("-d %s", $deviceType);
+			}
+			$cmd = sprintf("export LANG=C; smartctl %s", implode(" ",
+			  $cmdArgs));
 			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0)
+			if($result !== 0)
 				return FALSE;
 			$output = implode("|", $output);
-			$regex = "/^.+\|Device Model:\s+(.+)\|Serial Number:\s+(.+)" .
-			  "\|Firmware Version:\s+(.+)\|User Capacity:\s+(.+) bytes\|.+$/";
-			if (0 >= preg_match($regex, $output, $matches))
+			$regex = '/^.+\|Device Model:\s+(.+)\|Serial Number:\s+(.+)'.
+			  '\|Firmware Version:\s+(.+)\|User Capacity:\s+(.+) bytes\|.+$/';
+			if(0 >= preg_match($regex, $output, $matches))
 				return FALSE;
 			$this->identityInfo = array(
 				"devicemodel" => $matches[1],
@@ -1285,18 +1564,29 @@ class OMVHardDiskDevice extends OMVStorageDeviceAbstract {
 		}
 		return $this->identityInfo;
 	}
+
+	/**
+	 * Identify the device type required by the smartctl command.
+	 * @return Returns the identified device type or an empty string.
+	 */
+	public function getSmartDeviceType() {
+		$type = parent::getSmartDeviceType();
+		if(empty($type)) {
+			// TODO: The device type identification must be improved.
+			if(TRUE === $this->isUsb()) {
+				$type = $this->setSmartDeviceType("sat");
+			}
+		}
+		return $type;
+	}
 }
 
 /**
- * @class OMVHardwareRaidDevice
- * @extends OMVStorageDeviceAbstract
- * Class implementing hardware RAID devices, e.g. HP's Smart Array hardware
- * RAID controller.
+ * This class provides a simple interface to handle hardware RAID devices,
+ * e.g. HP's Smart Array hardware RAID controller.
+ * @ingroup api
  */
 class OMVHardwareRaidDevice extends OMVStorageDeviceAbstract {
-	protected $model = FALSE;
-	protected $vendor = FALSE;
-
 	/**
 	 * See interface definition.
 	 */
@@ -1312,12 +1602,31 @@ class OMVHardwareRaidDevice extends OMVStorageDeviceAbstract {
 	public function isRaid() {
 		return TRUE;
 	}
+
+	/**
+	 * Identify the device type required by the smartctl command.
+	 * @return Returns the identified device type or an empty string.
+	 */
+	public function getSmartDeviceType() {
+		$type = parent::getSmartDeviceType();
+		// Note, 'auto' attempts to guess the device type from the device
+		// name or from controller type info provided by the operating system
+		// or from a matching USB ID entry in the drive database. Thus we
+		// have to do the job ourself for various hardware RAID devices.
+		if(empty($type) || ("auto" === $type)) {
+			if(1 == preg_match("/^cciss!c(\d)d(\d)$/", $this->getDeviceName(),
+			  $matches)) {
+				$type = $this->setSmartDeviceType(sprintf("cciss,%s",
+				  $matches[2]));
+			}
+		}
+		return $type;
+	}
 }
 
 /**
- * @class OMVSoftwareRaidDevice
- * @extends OMVStorageDeviceAbstract
- * Class implementing software RAID devices.
+ * This class provides a simple interface to handle software RAID devices.
+ * @ingroup api
  */
 class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	protected $name = "";
@@ -1325,6 +1634,9 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	protected $devices = array();
 	protected $numDevices = FALSE;
 	protected $uuid = FALSE;
+	protected $state = "unknown";
+	protected $hasWriteIntentBitmap = FALSE;
+	protected $details = array();
 	private $dataCached = FALSE;
 
 	/**
@@ -1333,28 +1645,28 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	private function getData() {
-		if ($this->dataCached !== FALSE)
+		if($this->dataCached !== FALSE)
 			return TRUE;
 
 		// ARRAY /dev/md0 level=raid5 num-devices=3 metadata=1.2 name=xxxx:0 UUID=a4266bf7:c671b343:c3d6e535:ca455e37
 		//    devices=/dev/sdb,/dev/sdc,/dev/sdd
-		$cmd = sprintf("export LANG=C; sudo mdadm --detail --brief " .
+		$cmd = sprintf("export LANG=C; mdadm --detail --brief " .
 		  "--verbose %s", escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if($result !== 0)
 			return FALSE;
 
 		$attributes = array(
-			"name" => gettext("n/a"),
+			"name" => "",
 			"level" => "",
 			"num-devices" => -1,
 			"uuid" => "",
 			"devices" => ""
 		);
 		$output = explode(" ", implode(" ", $output));
-		foreach ($output as $outputk => &$outputv) {
+		foreach($output as $outputk => &$outputv) {
 			$keyValue = explode("=", $outputv);
-			if (count($keyValue) != 2)
+			if(count($keyValue) != 2)
 				continue;
 			$attributes[strtolower($keyValue[0])] = $keyValue[1];
 		}
@@ -1364,6 +1676,67 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 		$this->numDevices = intval($attributes['num-devices']);
 		$this->uuid = $attributes['uuid'];
 		$this->devices = explode(",", $attributes['devices']);
+
+		// Get more informations.
+		$cmd = sprintf("export LANG=C; mdadm --detail %s",
+		  escapeshellarg($this->getDeviceFile()));
+		unset($output);
+		@OMVUtil::exec($cmd, $output, $result);
+		if($result !== 0)
+			return FALSE;
+
+		// Store the whole command output.
+		array_shift($output);
+		$this->details = $output;
+
+		// Parse command output:
+		// /dev/md0:
+		//         Version : 1.2
+		//   Creation Time : Tue Dec 25 21:58:20 2012
+		//      Raid Level : raid5
+		//      Array Size : 207872 (203.03 MiB 212.86 MB)
+		//   Used Dev Size : 103936 (101.52 MiB 106.43 MB)
+		//    Raid Devices : 3
+		//   Total Devices : 3
+		//     Persistence : Superblock is persistent
+		// 
+		//   Intent Bitmap : Internal
+		// 
+		//     Update Time : Tue Dec 25 22:31:32 2012
+		//           State : active
+		//  Active Devices : 3
+		// Working Devices : 3
+		//  Failed Devices : 0
+		//   Spare Devices : 0
+		// 
+		//          Layout : left-symmetric
+		//      Chunk Size : 512K
+		// 
+		//            Name : dhcppc2:0  (local to host dhcppc2)
+		//            UUID : 9d85a4f6:afff2cb6:b8a5f4dc:75f3cfd3
+		//          Events : 37
+		// 
+		//     Number   Major   Minor   RaidDevice State
+		//        0       8       16        0      active sync   /dev/sdb
+		//        1       8       48        1      active sync   /dev/sdd
+		//        2       8       64        2      active sync   /dev/sde
+		foreach($output as $outputk => $outputv) {
+			if(empty($outputv))
+				continue;
+			$parts = explode(":", $outputv);
+			if(empty($parts))
+				continue;
+			$parts = array_map("trim", $parts);
+			switch(strtolower($parts[0])) {
+			case "state":
+				$this->state = $parts[1];
+				break;
+			case "intent bitmap":
+				$this->hasWriteIntentBitmap = (0 == strcasecmp($parts[1],
+				  "Internal")) ? TRUE : FALSE;
+				break;
+			}
+		}
 
 		// Set flag to mark informations has been successfully read
 		$this->dataCached = TRUE;
@@ -1377,7 +1750,7 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return TRUE;
 	}
@@ -1386,7 +1759,7 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 * See interface definition.
 	 */
 	public function exists() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return ($this->level !== FALSE);
 	}
@@ -1396,7 +1769,7 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 * @return The array name, otherwise FALSE.
 	 */
 	public function getName() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->name;
 	}
@@ -1406,7 +1779,7 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 * @return The level of the array, otherwise FALSE.
 	 */
 	public function getLevel() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->level;
 	}
@@ -1416,7 +1789,7 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 * @return The number of active devices in the array, otherwise FALSE.
 	 */
 	public function getNumDevices() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->numDevices;
 	}
@@ -1426,7 +1799,7 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 * @return The UUID of the array, otherwise FALSE.
 	 */
 	public function getUuid() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->uuid;
 	}
@@ -1443,52 +1816,54 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 * @return A list of device files used in the array, otherwise FALSE.
 	 */
 	public function getDevices() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->devices;
 	}
 
-	/**
-	 * Get the status of the array.
-	 * @return The status of the array, otherwise FALSE.
-	 */
 	public function getState() {
-		$cmd = sprintf("export LANG=C; sudo mdadm --detail %s | " .
-		  "grep 'State :'", escapeshellarg($this->getDeviceFile()));
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if($this->getData() === FALSE)
 			return FALSE;
-		$status = trim(substr($output[0], strpos($output[0], ":") + 1));
-		// Check /proc/mdstat
+		// Parse command output:
+		// Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10]
 		// md1 : active raid5 sde[2] sdg[1] sdf[0]
 		//       207872 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/3] [UUU]
 		//       [=========>...........]  resync = 45.0% (47488/103936) finish=0.0min speed=47488K/sec
+		//
 		// md0 : active (auto-read-only) raid5 sdd[2] sdc[1] sdb[0]
 		//       207872 blocks super 1.2 level 5, 512k chunk, algorithm 2 [3/3] [UUU]
 		//       	resync=PENDING
+		//
 		// md0 : active raid5 sdf[4] sde[3] sdd[2] sdc[1] sdb[0]
 		//       311808 blocks super 1.2 level 5, 512k chunk, algorithm 2 [5/5] [UUUUU]
 		//       [====>................]  reshape = 20.5% (21504/103936) finish=0.0min speed=21504K/sec
-		$cmd = sprintf("cat /proc/mdstat | sed -n '/^%s.*:/,/^[ ]*$/p'",
-		  $this->getDeviceName());
-		unset($output);
-		@OMVUtil::exec($cmd, $output, $result);
-		$output = implode(" ", $output);
-		if ($result !== 0)
+		//
+		// md0 : inactive sdb[0](S) sdc[2](S) sdd[1](S)
+		//       311808 blocks super 1.2
+		//
+		// md0 : active raid0 sdd[0] sde[1]
+		//       311296 blocks super 1.2 512k chunks
+		//
+		// unused devices: <none>
+		$regex = sprintf('/^(%s\s*:.*)^\s*$/ims', $this->getDeviceName());
+		if(1 !== preg_match($regex, file_get_contents("/proc/mdstat"),
+		  $matches))
 			return FALSE;
-		// Extract the resync state
+		$mdstat = $matches[1];
+		// Extract the resync state.
 		$resyncState = "";
-		if (1 == preg_match("/^.+(resync|reshape)\s*=\s*(.+)$/i", $output,
+		if(1 == preg_match("/^.+(resync|reshape)\s*=\s*(.+)$/i", $mdstat,
 		  $matches)) {
 			$resyncState = trim($matches[2]);
 		}
-		if ((FALSE !== stristr($status, "resyncing")) ||
-		  (FALSE !== stristr($status, "recovering"))) {
-			$status = sprintf("%s (%s)", $status, $resyncState);
-		} else if (FALSE !== stristr($output, "resync")) {
-			$status = sprintf("%s, resyncing (%s)", $status, $resyncState);
+		$state = $this->state;
+		if((FALSE !== stristr($state, "resyncing")) ||
+		  (FALSE !== stristr($state, "recovering"))) {
+			$state = sprintf("%s (%s)", $state, $resyncState);
+		} else if(FALSE !== stristr($mdstat, "resync")) {
+			$state = sprintf("%s, resyncing (%s)", $state, $resyncState);
 		}
-		return $status;
+		return $state;
 	}
 
 	/**
@@ -1496,13 +1871,9 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 * @return The detail of the md device, otherwise FALSE.
 	 */
 	public function getDetail() {
-		$cmd = sprintf("export LANG=C; sudo mdadm --detail %s",
-		  escapeshellarg($this->getDeviceFile()));
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if($this->getData() === FALSE)
 			return FALSE;
-		array_shift($output);
-		return implode("\n", $output);
+		return implode("\n", $this->details);
 	}
 
 	/**
@@ -1520,35 +1891,57 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	public function isRaid() {
 		return TRUE;
 	}
+
+	/**
+	 * Check whether the RAID device has write-intent bitmap enabled.
+	 * Note, only 'internal' bitmaps are detected and reported.
+	 * @see https://raid.wiki.kernel.org/index.php/Write-intent_bitmap
+	 * @return TRUE if write-intent bitmap is enabled, otherwise FALSE.
+	 */
+	public function hasWriteIntentBitmap() {
+		if($this->getData() === FALSE)
+			return FALSE;
+		return $this->hasWriteIntentBitmap;
+	}
 }
 
 /**
- * @class OMVNetwork
- * @extends OMVObject
+ * This class provides a simple interface to handle device-mapper devices.
+ * See http://en.wikipedia.org/wiki/Device_mapper for more details.
+ * @ingroup api
+ */
+class OMVDeviceMapperDevice extends OMVStorageDeviceAbstract {
+	// Nothing to do here.
+}
+
+/**
+ * Helper class that provides various functions regarding the systems network
+ * configuration.
+ * @ingroup api
  */
 class OMVNetwork extends OMVObject {
 	/**
-	 * Get the host name.
+	 * Get the systems host name.
 	 * @param options Additional command parameters
 	 * @return The host name if successful, otherwise FALSE.
 	 */
 	public static function getHostname($options) {
-		$cmd = sprintf("export LANG=C; sudo hostname %s", $options);
+		$cmd = sprintf("export LANG=C; hostname %s", $options);
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			return FALSE;
 		}
 		return $output[0];
 	}
 
 	/**
-	 * Get the domain.
-	 * @return The domain if successful, otherwise FALSE.
+	 * Get the systems domain name.
+	 * @return The domain name if successful, otherwise FALSE.
 	 */
 	public static function getDomain() {
-		$cmd = "export LANG=C; sudo hostname -d";
+		$cmd = "export LANG=C; hostname -d";
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			return FALSE;
 		}
 		return $output[0];
@@ -1556,8 +1949,8 @@ class OMVNetwork extends OMVObject {
 }
 
 /**
- * @class OMVNetworkInterfaces
- * @extends OMVObject
+ * Helper class to get all existing Linux network interfaces.
+ * @ingroup api
  */
 class OMVNetworkInterfaces extends OMVObject {
 	/**
@@ -1565,9 +1958,9 @@ class OMVNetworkInterfaces extends OMVObject {
 	 * @return A list of network interfaces, otherwise FALSE.
 	 */
 	public static function get() {
-		$cmd = "sudo ls /sys/class/net | grep -E '^[a-z]+[0-9]+|lo$'";
+		$cmd = "ls /sys/class/net | grep -E '^[a-z]+[0-9]+|lo$'";
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			return FALSE;
 		}
 		return $output;
@@ -1579,10 +1972,10 @@ class OMVNetworkInterfaces extends OMVObject {
 	 * @return A list of network interfaces, otherwise FALSE.
 	 */
 	public static function getByType($type) {
-		$cmd = sprintf("sudo ls /sys/class/net | grep %s", escapeshellarg(
+		$cmd = sprintf("ls /sys/class/net | grep %s", escapeshellarg(
 		  $type));
 		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			return FALSE;
 		}
 		return $output;
@@ -1590,9 +1983,8 @@ class OMVNetworkInterfaces extends OMVObject {
 }
 
 /**
- * @class OMVNetworkInterface
- * @extends OMVObject
- * Network interfaces class.
+ * This class provides a simple interface to handle Linux network interfaces.
+ * @ingroup api
  */
 class OMVNetworkInterface extends OMVObject {
 	protected $name = "";
@@ -1600,9 +1992,9 @@ class OMVNetworkInterface extends OMVObject {
 	protected $ip = null;
 	protected $ethtool = null;
 	protected $regex = array(
-		"ipv4" => "\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}",
-		"ipv6" => "(.+)\/(\d{1,2})",
-		"state" => "UP|DOWN|UNKNOWN"
+		"ipv4" => '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}',
+		"ipv6" => '(.+)\/(\d{1,2})',
+		"state" => 'UP|DOWN|UNKNOWN'
 	);
 
 	/**
@@ -1620,41 +2012,41 @@ class OMVNetworkInterface extends OMVObject {
 	 */
 	private function getData($type) {
 		$result = FALSE;
-		switch ($type) {
+		switch($type) {
 		case "ifconfig":
-			if (!is_null($this->ifconfig))
+			if(!is_null($this->ifconfig))
 				return TRUE;
-			$cmd = sprintf("export LANG=C; sudo ifconfig %s",
+			$cmd = sprintf("export LANG=C; ifconfig %s",
 			  $this->getDeviceName());
 			@OMVUtil::exec($cmd, $output, $result);
-			if (($result !== 0) || empty($output[0]))
+			if(($result !== 0) || empty($output[0]))
 				return FALSE;
 			$this->ifconfig = implode("|", $output);
 			$result = TRUE;
 			break;
 		case "ip":
-			if (!is_null($this->ip))
+			if(!is_null($this->ip))
 				return TRUE;
-			$cmd = sprintf("export LANG=C; sudo ip addr show dev %s",
+			$cmd = sprintf("export LANG=C; ip addr show dev %s",
 			  $this->getDeviceName());
 			@OMVUtil::exec($cmd, $output, $result);
-			if (($result !== 0) || empty($output[0]))
+			if(($result !== 0) || empty($output[0]))
 				return FALSE;
-			foreach ($output as $outputk => &$outputv) {
+			foreach($output as $outputk => &$outputv) {
 				$outputv = trim($outputv);
 			}
 			$this->ip = implode("|", $output);
 			$result = TRUE;
 			break;
 		case "ethtool":
-			if (!is_null($this->ethtool))
+			if(!is_null($this->ethtool))
 				return TRUE;
-			$cmd = sprintf("export LANG=C; sudo ethtool %s",
+			$cmd = sprintf("export LANG=C; ethtool %s",
 			  $this->getDeviceName());
 			@OMVUtil::exec($cmd, $output, $result);
-			if (($result !== 0) || empty($output[0]))
+			if(($result !== 0) || empty($output[0]))
 				return FALSE;
-			foreach ($output as $outputk => &$outputv) {
+			foreach($output as $outputk => &$outputv) {
 				$outputv = trim($outputv);
 			}
 			$this->ethtool = implode("|", $output);
@@ -1677,7 +2069,7 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return TRUE if the network interface exists, otherwise FALSE.
 	 */
 	public function exists() {
-		if ($this->getData("ifconfig") === FALSE)
+		if($this->getData("ifconfig") === FALSE)
 			return FALSE;
 		return TRUE;
 	}
@@ -1687,9 +2079,9 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return The network interface IPv4 address, otherwise FALSE.
 	 */
 	public function getIPv4() {
-		if ($this->getData("ifconfig") === FALSE)
+		if($this->getData("ifconfig") === FALSE)
 			return FALSE;
-		if (1 !== preg_match("/inet addr:({$this->regex['ipv4']})/i",
+		if(1 !== preg_match("/inet addr:({$this->regex['ipv4']})/i",
 		  $this->ifconfig, $matches))
 			return FALSE;
 		return $matches[1];
@@ -1700,9 +2092,9 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return The network interface IPv6 address, otherwise FALSE.
 	 */
 	public function getIPv6() {
-		if ($this->getData("ifconfig") === FALSE)
+		if($this->getData("ifconfig") === FALSE)
 			return FALSE;
-		if (1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6']})/i",
+		if(1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6']})/i",
 		  $this->ifconfig, $matches))
 			return FALSE;
 		return $matches[2];
@@ -1713,9 +2105,9 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return The network interface mask, otherwise FALSE.
 	 */
 	public function getMask() {
-		if ($this->getData("ifconfig") === FALSE)
+		if($this->getData("ifconfig") === FALSE)
 			return FALSE;
-		if (1 !== preg_match("/Mask:({$this->regex['ipv4']})/i",
+		if(1 !== preg_match("/Mask:({$this->regex['ipv4']})/i",
 		  $this->ifconfig, $matches))
 			return FALSE;
 		return $matches[1];
@@ -1726,12 +2118,8 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return The network interface MAC address, otherwise FALSE.
 	 */
 	public function getMAC() {
-		$cmd = sprintf("sudo cat /sys/class/net/%s/address",
-		  $this->getDeviceName());
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
-			return FALSE;
-		return $output[0];
+		return trim(file_get_contents(sprintf("/sys/class/net/%s/address",
+		  $this->getDeviceName())));
 	}
 
 	/**
@@ -1739,12 +2127,8 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return The network interface MTU, otherwise FALSE.
 	 */
 	public function getMTU() {
-		$cmd = sprintf("sudo cat /sys/class/net/%s/mtu",
-		  $this->getDeviceName());
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
-			return FALSE;
-		return $output[0];
+		return trim(file_get_contents(sprintf("/sys/class/net/%s/mtu",
+		  $this->getDeviceName())));
 	}
 
 	/**
@@ -1754,11 +2138,11 @@ class OMVNetworkInterface extends OMVObject {
 	public function getGateway() {
 		// Build the regex to search the default gateway for the
 		// given interface
-		$regex = sprintf("^0\.0\.0\.0.*%s$", $this->getDeviceName());
-		$cmd = sprintf("export LANG=C; sudo route -ne | grep '%s' | " .
+		$regex = sprintf('^0\.0\.0\.0.*%s$', $this->getDeviceName());
+		$cmd = sprintf("export LANG=C; route -ne | grep '%s' | " .
 		  "awk '{print $2}'", $regex);
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if($result !== 0)
 			return FALSE;
 		return implode($output);
 	}
@@ -1768,9 +2152,9 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return The network interface state, otherwise FALSE.
 	 */
 	public function getState() {
-		if ($this->getData("ethtool") === FALSE)
+		if($this->getData("ethtool") === FALSE)
 			return FALSE;
-		if (1 !== preg_match("/state {$this->regex['state']}/i",
+		if(1 !== preg_match("/state {$this->regex['state']}/i",
 		  $this->ethtool, $matches))
 			return FALSE;
 		return $matches[0];
@@ -1781,9 +2165,9 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return TRUE if link is established, otherwise FALSE.
 	 */
 	public function getLink() {
-		if ($this->getData("ethtool") === FALSE)
+		if($this->getData("ethtool") === FALSE)
 			return FALSE;
-		if (1 !== preg_match("/Link detected: yes/i",
+		if(1 !== preg_match("/Link detected: yes/i",
 		  $this->ethtool, $matches))
 			return FALSE;
 		return TRUE;
@@ -1791,7 +2175,7 @@ class OMVNetworkInterface extends OMVObject {
 
 	/**
 	 * Get the network interface statistics.
-	 * @return The network interface MTU, otherwise FALSE.
+	 * @return The network interface statistics, otherwise FALSE.
 	 * array(
 	 *   rx_bytes => xxx,
 	 *   rx_packets => xxx,
@@ -1800,56 +2184,55 @@ class OMVNetworkInterface extends OMVObject {
 	 *   rx_fifo_errors => xxx,
 	 *   rx_frame_errors => xxx,
 	 *   rx_compressed => xxx,
-	 *   multicast => xxx,
+	 *   rx_multicast => xxx,
 	 *   tx_bytes => xxx,
 	 *   tx_packets => xxx,
 	 *   tx_errors => xxx,
 	 *   tx_dropped => xxx,
 	 *   tx_fifo_errors => xxx,
-	 *   collisions => xxx,
+	 *   tx_collisions => xxx,
 	 *   tx_carrier_errors => xxx,
 	 *   tx_compressed => xxx
 	 * )
 	 */
 	public function getStatistics() {
-		$cmd = sprintf("sudo cat /proc/net/dev | grep %s",
-		  $this->getDeviceName());
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		// Parse command output:
+		// Inter-|   Receive                                                |  Transmit
+		//  face |bytes    packets errs drop fifo frame compressed multicast|bytes    packets errs drop fifo colls carrier compressed
+		//     lo:  156976     947    0    0    0     0          0         0   156976     947    0    0    0     0       0          0
+		//   eth0:162137708  168681    0    0    0     0          0         0 15969317  103565    0    0    0     0       0          0
+		//   eth1:       0       0    0    0    0     0          0         0        0       0    0    0    0     0       0          0
+		$regex = sprintf('/^\s*%s:(.*)$/im', $this->getDeviceName());
+		if(1 !== preg_match($regex, file_get_contents("/proc/net/dev"),
+		  $matches))
 			return FALSE;
-		$regex = "/^\s*([a-zA-Z]+\d+):\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)" .
-		  "\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)" .
-		  "\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/";
-		if (1 !== preg_match($regex, $output[0], $matches))
-			return FALSE;
-		$stats = array(
-			"rx_bytes" => $matches[2],
-			"rx_packets" => $matches[3],
-			"rx_errors" => $matches[4],
-			"rx_dropped" => $matches[5],
-			"rx_fifo_errors" => $matches[6],
-			"rx_frame_errors" => $matches[7],
-			"rx_compressed" => $matches[8],
-			"multicast" => $matches[9],
-			"tx_bytes" => $matches[10],
-			"tx_packets" => $matches[11],
-			"tx_errors" => $matches[12],
-			"tx_dropped" => $matches[13],
-			"tx_fifo_errors" => $matches[14],
-			"collisions" => $matches[15],
-			"tx_carrier_errors" => $matches[16],
-			"tx_compressed" => $matches[17]
-		);
-		return $stats;
+		$data = preg_split("/[\s]+/", $matches[1]);
+		return array(
+			  "rx_bytes" => $data[0],
+			  "rx_packets" => $data[1],
+			  "rx_errors" => $data[2],
+			  "rx_dropped" => $data[3],
+			  "rx_fifo_errors" => $data[4],
+			  "rx_frame_errors" => $data[5],
+			  "rx_compressed" => $data[6],
+			  "rx_multicast" => $data[7],
+			  "tx_bytes" => $data[8],
+			  "tx_packets" => $data[9],
+			  "tx_errors" => $data[10],
+			  "tx_dropped" => $data[11],
+			  "tx_fifo_errors" => $data[12],
+			  "tx_collisions" => $data[13],
+			  "tx_carrier_errors" => $data[14],
+			  "tx_compressed" => $data[15]
+		  );
 	}
 }
 
 /**
- * @class OMVSystemGroups
- * @extends OMVObject
- * System groups class.
+ * Helper class to get the groups on the system.
+ * @ingroup api
  */
-class OMVSystemGroups extends OMVObject {
+class OMVUserGroups extends OMVObject {
 	/**
 	 * Get a list of system group names.
 	 * @return An array of system group names, otherwise FALSE.
@@ -1857,18 +2240,18 @@ class OMVSystemGroups extends OMVObject {
 	public static function get() {
 		$cmd = "export LANG=C; getent group";
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if($result !== 0)
 			return FALSE;
 		$list = array();
-		// Parse output:
+		// Parse command output:
 		// shadow:x:42:openmediavault
 		// snmp:x:112:
 		// sambashare:x:113:
 		// openmediavault:x:999:
 		// nut:x:114:
-		foreach ($output as $outputv) {
+		foreach($output as $outputv) {
 			$data = explode(":", $outputv);
-			if (empty($data))
+			if(empty($data))
 				continue;
 			$list[] = $data[0];
 		}
@@ -1877,11 +2260,10 @@ class OMVSystemGroups extends OMVObject {
 }
 
 /**
- * @class OMVSystemGroup
- * @extends OMVObject
- * System group class.
+ * This class provides a simple interface to handle a system group.
+ * @ingroup api
  */
-class OMVSystemGroup extends OMVObject {
+class OMVUserGroup extends OMVObject {
 	protected $name = null;
 	protected $gid = null;
 	protected $members = null;
@@ -1891,7 +2273,7 @@ class OMVSystemGroup extends OMVObject {
 	 * @param id The name or GID of the system group.
 	 */
 	public function __construct($id) {
-		if (is_int($id))
+		if(is_int($id))
 			$this->gid = $id;
 		else
 			$this->name = $id;
@@ -1903,20 +2285,22 @@ class OMVSystemGroup extends OMVObject {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	private function getData() {
-		if (!is_null($this->members))
+		if(!is_null($this->members))
 			return TRUE;
 		// http://www.cyberciti.biz/faq/understanding-etcgroup-file
 		$cmd = sprintf("export LANG=C; getent group %s", !is_null(
 		  $this->gid) ? strval($this->gid) : escapeshellarg($this->name));
 		@OMVUtil::exec($cmd, $output, $result);
-		if (($result !== 0) || empty($output[0]))
+		if(($result !== 0) || empty($output[0]))
 			return FALSE;
-		if (1 !== preg_match("/^(\S+):x:(\d+):(.*)$/", $output[0], $matches))
-			return FALSE;
-		$this->name = $matches[1];
-		$this->gid = intval($matches[2]);
-		$this->members = empty($matches[3]) ? array() : explode(",",
-		  $matches[3]);
+		// Parse output:
+		// users:x:100:
+		// ssh:x:116:test1,test2
+		$output = explode(":", $output[0]);
+		$this->name = $output[0];
+		$this->gid = intval($output[2]);
+		$this->members = empty($output[3]) ? array() : explode(
+		  ",", $output[3]);
 		return TRUE;
 	}
 
@@ -1925,7 +2309,7 @@ class OMVSystemGroup extends OMVObject {
 	 * @return TRUE if the system group exists, otherwise FALSE.
 	 */
 	public function exists() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return !is_null($this->members);
 	}
@@ -1935,9 +2319,9 @@ class OMVSystemGroup extends OMVObject {
 	 * @return The group name.
 	 */
 	public function getName() {
-		if (!is_null($this->name))
+		if(!is_null($this->name))
 			return $this->name;
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->name;
 	}
@@ -1947,9 +2331,9 @@ class OMVSystemGroup extends OMVObject {
 	 * @return The group ID, otherwise FALSE.
 	 */
 	public function getGid() {
-		if (!is_null($this->gid))
+		if(!is_null($this->gid))
 			return $this->gid;
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->gid;
 	}
@@ -1960,7 +2344,7 @@ class OMVSystemGroup extends OMVObject {
 	 * otherwise FALSE.
 	 */
 	public function getMembers() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->members;
 	}
@@ -1970,10 +2354,10 @@ class OMVSystemGroup extends OMVObject {
 	 * @return An array containing the quotas.
 	 */
 	public function getQuotas() {
-		$cmd = sprintf("export LANG=C; sudo EDITOR=cat edquota -g %s",
+		$cmd = sprintf("export LANG=C; EDITOR=cat edquota -g %s",
 		  $this->getName());
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if($result !== 0)
 			return FALSE;
 
 		// Parse command output:
@@ -1981,8 +2365,8 @@ class OMVSystemGroup extends OMVObject {
 		// /dev/sdb1                     10188          0      12288          4        0        0
 		// /dev/sdc1                         0          0      45056          0        0        0
 		$result = array();
-		foreach ($output as $outputk => $outputv) {
-			if (preg_match("/^\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+".
+		foreach($output as $outputk => $outputv) {
+			if(preg_match("/^\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+".
 			  "(\d+)\s+(\d+)$/i", $outputv, $matches)) {
 				$result[$matches[1]] = array(
 					"devicefile" => $matches[1],
@@ -2000,11 +2384,10 @@ class OMVSystemGroup extends OMVObject {
 }
 
 /**
- * @class OMVSystemUsers
- * @extends OMVObject
- * System users class.
+ * Helper class to get the users on the system.
+ * @ingroup api
  */
-class OMVSystemUsers extends OMVObject {
+class OMVUsers extends OMVObject {
 	/**
 	 * Get a list of system user names.
 	 * @return An array of system user names, otherwise FALSE.
@@ -2012,19 +2395,19 @@ class OMVSystemUsers extends OMVObject {
 	public static function get() {
 		$cmd = "export LANG=C; getent passwd";
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if($result !== 0)
 			return FALSE;
 		$list = array();
-		// Parse output:
+		// Parse command output:
 		// proftpd:x:109:65534::/var/run/proftpd:/bin/false
 		// ftp:x:110:65534::/home/ftp:/bin/false
 		// openmediavault:x:999:999::/home/openmediavault:/bin/sh
 		// admin:x:998:100:WebGUI administrator:/home/admin:/usr/sbin/nologin
 		// nut:x:111:114::/var/lib/nut:/bin/false
 		// test:x:1001:100:sdfds:/home/test:/bin/dash
-		foreach ($output as $outputv) {
+		foreach($output as $outputv) {
 			$data = explode(":", $outputv);
-			if (empty($data))
+			if(empty($data))
 				continue;
 			$list[] = $data[0]; // User name
 		}
@@ -2033,11 +2416,10 @@ class OMVSystemUsers extends OMVObject {
 }
 
 /**
- * @class OMVSystemUser
- * @extends OMVObject
- * System user class.
+ * This class provides a simple interface to handle a system user.
+ * @ingroup api
  */
-class OMVSystemUser extends OMVObject {
+class OMVUser extends OMVObject {
 	protected $name = null;
 	protected $uid = null;
 	protected $gid = null;
@@ -2059,7 +2441,7 @@ class OMVSystemUser extends OMVObject {
 	 * @param id The name or UID of the system user.
 	 */
 	public function __construct($id) {
-		if (is_int($id))
+		if(is_int($id))
 			$this->uid = $id;
 		else
 			$this->name = $id;
@@ -2072,15 +2454,15 @@ class OMVSystemUser extends OMVObject {
 	 */
 	private function getData($type) {
 		$result = FALSE;
-		switch ($type) {
+		switch($type) {
 		case "shadow":
-			if (!is_null($this->password))
+			if(!is_null($this->password))
 				return TRUE;
 			// http://www.cyberciti.biz/faq/understanding-etcshadow-file
 			$cmd = sprintf("export LANG=C; getent shadow %s", escapeshellarg(
 			  $this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if (($result !== 0) || empty($output[0]))
+			if(($result !== 0) || empty($output[0]))
 				return FALSE;
 			$output = explode(":", $output[0]);
 			$this->password = $output[1];
@@ -2094,14 +2476,14 @@ class OMVSystemUser extends OMVObject {
 			$result = TRUE;
 			break;
 		case "passwd":
-			if (!is_null($this->gid))
+			if(!is_null($this->gid))
 				return TRUE;
 			// http://www.cyberciti.biz/faq/understanding-etcpasswd-file-format
 			// http://en.wikipedia.org/wiki/Passwd_(file)
 			$cmd = sprintf("export LANG=C; getent passwd %s", !is_null(
 			  $this->uid) ? strval($this->uid) : escapeshellarg($this->name));
 			@OMVUtil::exec($cmd, $output, $result);
-			if (($result !== 0) || empty($output[0]))
+			if(($result !== 0) || empty($output[0]))
 				return FALSE;
 			$output = explode(":", $output[0]);
 			$this->name = $output[0];
@@ -2113,16 +2495,18 @@ class OMVSystemUser extends OMVObject {
 			$result = TRUE;
 			break;
 		case "groups":
-			if (!is_null($this->groups))
+			if(!is_null($this->groups))
 				return TRUE;
 			// http://www.howtogeek.com/howto/ubuntu/see-which-groups-your-linux-user-belongs-to
-			$cmd = sprintf("export LANG=C; groups %s | ".
-			  "awk -F ' : ' '{print $2}'", escapeshellarg($this->getName()));
+			$cmd = sprintf("export LANG=C; groups %s", escapeshellarg(
+			  $this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if (($result !== 0) || empty($output[0]))
+			if(($result !== 0) || empty($output[0]))
 				return FALSE;
-			$this->groups = empty($output[0]) ? array() : explode(" ",
-			  $output[0]);
+			// Parse command output:
+			// test : users adm audio www-data avahi
+			$output = trim(substr(strrchr($output[0], ":"), 1));
+			$this->groups = empty($output) ? array() : explode(" ", $output);
 			$result = TRUE;
 			break;
 		}
@@ -2134,7 +2518,7 @@ class OMVSystemUser extends OMVObject {
 	 * @return TRUE if the system user exists, otherwise FALSE.
 	 */
 	public function exists() {
-		if ($this->getData("passwd") === FALSE)
+		if($this->getData("passwd") === FALSE)
 			return FALSE;
 		return !is_null($this->gid);
 	}
@@ -2144,9 +2528,9 @@ class OMVSystemUser extends OMVObject {
 	 * @return The group name.
 	 */
 	public function getName() {
-		if (!is_null($this->name))
+		if(!is_null($this->name))
 			return $this->name;
-		if ($this->getData("passwd") === FALSE)
+		if($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->name;
 	}
@@ -2156,9 +2540,9 @@ class OMVSystemUser extends OMVObject {
 	 * @return The user ID, otherwise FALSE.
 	 */
 	public function getUid() {
-		if (!is_null($this->uid))
+		if(!is_null($this->uid))
 			return $this->uid;
-		if ($this->getData("passwd") === FALSE)
+		if($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->uid;
 	}
@@ -2168,7 +2552,7 @@ class OMVSystemUser extends OMVObject {
 	 * @return The user group ID, otherwise FALSE.
 	 */
 	public function getGid() {
-		if ($this->getData("passwd") === FALSE)
+		if($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->gid;
 	}
@@ -2178,7 +2562,7 @@ class OMVSystemUser extends OMVObject {
 	 * @return The comment, otherwise FALSE.
 	 */
 	public function getGecos() {
-		if ($this->getData("passwd") === FALSE)
+		if($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->gecos;
 	}
@@ -2188,7 +2572,7 @@ class OMVSystemUser extends OMVObject {
 	 * @return The home directory, otherwise FALSE.
 	 */
 	public function getHomeDirectory() {
-		if ($this->getData("passwd") === FALSE)
+		if($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->dir;
 	}
@@ -2198,7 +2582,7 @@ class OMVSystemUser extends OMVObject {
 	 * @return The shell, otherwise FALSE.
 	 */
 	public function getShell() {
-		if ($this->getData("passwd") === FALSE)
+		if($this->getData("passwd") === FALSE)
 			return FALSE;
 		return $this->shell;
 	}
@@ -2208,49 +2592,49 @@ class OMVSystemUser extends OMVObject {
 	 * @return The encrypted password, otherwise FALSE.
 	 */
 	public function getPassword() {
-		if ($this->getData("shadow") === FALSE)
+		if($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->password;
 	}
 
 	public function getLastChanged() {
-		if ($this->getData("shadow") === FALSE)
+		if($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->lastchanged;
 	}
 
 	public function getMinimum() {
-		if ($this->getData("shadow") === FALSE)
+		if($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->minimum;
 	}
 
 	public function getMaximum() {
-		if ($this->getData("shadow") === FALSE)
+		if($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->maximum;
 	}
 
 	public function getWarn() {
-		if ($this->getData("shadow") === FALSE)
+		if($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->warn;
 	}
 
 	public function getInactive() {
-		if ($this->getData("shadow") === FALSE)
+		if($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->inactive;
 	}
 
 	public function getExpire() {
-		if ($this->getData("shadow") === FALSE)
+		if($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->expire;
 	}
 
 	public function getReserved() {
-		if ($this->getData("shadow") === FALSE)
+		if($this->getData("shadow") === FALSE)
 			return FALSE;
 		return $this->reserved;
 	}
@@ -2260,7 +2644,7 @@ class OMVSystemUser extends OMVObject {
 	 * @return An array of groups the user is in, otherwise FALSE.
 	 */
 	public function getGroups() {
-		if ($this->getData("groups") === FALSE)
+		if($this->getData("groups") === FALSE)
 			return FALSE;
 		return $this->groups;
 	}
@@ -2270,10 +2654,10 @@ class OMVSystemUser extends OMVObject {
 	 * @return An array containing the quotas.
 	 */
 	public function getQuotas() {
-		$cmd = sprintf("export LANG=C; sudo EDITOR=cat edquota -u %s",
+		$cmd = sprintf("export LANG=C; EDITOR=cat edquota -u %s",
 		  $this->getName());
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if($result !== 0)
 			return FALSE;
 
 		// Parse command output:
@@ -2281,8 +2665,8 @@ class OMVSystemUser extends OMVObject {
 		// /dev/sdb1                     10188          0      12288          4        0        0
 		// /dev/sdc1                         0          0      45056          0        0        0
 		$result = array();
-		foreach ($output as $outputk => $outputv) {
-			if (preg_match("/^\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+".
+		foreach($output as $outputk => $outputv) {
+			if(preg_match("/^\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+".
 			  "(\d+)\s+(\d+)$/i", $outputv, $matches)) {
 				$result[$matches[1]] = array(
 					"devicefile" => $matches[1],
@@ -2297,12 +2681,21 @@ class OMVSystemUser extends OMVObject {
 		}
 		return $result;
 	}
+
+	/**
+	 * Authenticate user via PAM. Note, the calling process must have the
+	 * privilege to read the user shadow file.
+	 * @param password The password.
+	 * @return TRUE if the authentication was successful, otherwise FALSE.
+	 */
+	public function authenticate($password) {
+		return pam_auth($this->getName(), $password);
+	}
 }
 
 /**
- * @class OMVPhysicalVolumes
- * @extends OMVObject
- * Class to handle physical volumes.
+ * This class provides a simple interface to handle a LVM physical volume.
+ * @ingroup api
  */
 class OMVPhysicalVolumes extends OMVObject {
 	/**
@@ -2314,23 +2707,30 @@ class OMVPhysicalVolumes extends OMVObject {
 	 * )
 	 */
 	public static function get() {
-		$cmd = "export LANG=C; sudo pvdisplay --noheadings -C -o pv_name";
+		$cmd = "export LANG=C; pvdisplay --noheadings -C -o pv_name ".
+		  "2>/dev/null";
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			return FALSE;
 		}
 		$list = array();
-		foreach ($output as $outputk => $outputv) {
-			$list[] = trim($outputv);
+		// Parse command output:
+		//   /dev/sdc      
+		//   /dev/sdd      
+		//   unknown device
+		foreach($output as $outputk => $outputv) {
+			$deviceFile = trim($outputv);
+			if(!is_devicefile($deviceFile))
+				continue;
+			$list[] = $deviceFile;
 		}
 		return $list;
 	}
 }
 
 /**
- * @class OMVLogicalVolumes
- * @extends OMVObject
- * Class to handle logical volumes.
+ * Helper class to get the LVM logical volumes.
+ * @ingroup api
  */
 class OMVLogicalVolumes extends OMVObject {
 	/**
@@ -2342,18 +2742,19 @@ class OMVLogicalVolumes extends OMVObject {
 	 * )
 	 */
 	public static function get() {
-		$cmd = "export LANG=C; sudo lvdisplay --noheadings --separator '|' ".
+		$cmd = "export LANG=C; lvdisplay --noheadings --separator '|' ".
 		  "-C -o vg_name,lv_name 2>/dev/null";
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if($result !== 0) {
 			return FALSE;
 		}
 		$list = array();
-		foreach ($output as $outputk => $outputv) {
+		foreach($output as $outputk => $outputv) {
 			$outputv = explode("|", trim($outputv));
 			// Replace '-' with '--' in volume group name.
-			$list[] = sprintf("/dev/mapper/%s-%s", str_replace("-", "--",
-			  $outputv[0]), $outputv[1]);
+			$list[] = sprintf("/dev/mapper/%s-%s",
+			  str_replace("-", "--", $outputv[0]),
+			  str_replace("-", "--", $outputv[1]));
 			// Alternative device path: /dev/<vg_name>/<lv_name>
 			//$list[] = sprintf("/dev/%s/%s", $outputv[0], $outputv[1]);
 		}
@@ -2362,9 +2763,8 @@ class OMVLogicalVolumes extends OMVObject {
 }
 
 /**
- * @class OMVLogicalVolume
- * @extends OMVObject
- * Class to handle a logical volume.
+ * This class provides a simple interface to handle a LVM logical volume.
+ * @ingroup api
  */
 class OMVLogicalVolume extends OMVObject {
 	protected $deviceFile = "";
@@ -2392,17 +2792,17 @@ class OMVLogicalVolume extends OMVObject {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	private function getData() {
-		if ($this->dataCached !== FALSE)
+		if($this->dataCached !== FALSE)
 			return TRUE;
 
 		// Parse command output:
 		// VOSP6y-Lw75-pbTs-3v8A-6Qek-XBKJ-Md2G1q|vltest|test|12582912B
-		$cmd = sprintf("export LANG=C; sudo lvdisplay --noheadings ".
+		$cmd = sprintf("export LANG=C; lvdisplay --noheadings ".
 		  "--separator '|' -C -o lv_uuid,lv_name,vg_name,lv_size,lv_attr,".
 		  "lv_kernel_major,lv_kernel_minor --unit b %s",
 		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		if($result !== 0)
 			return FALSE;
 
 		$output = explode("|", trim($output[0]));
@@ -2427,7 +2827,7 @@ class OMVLogicalVolume extends OMVObject {
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return TRUE;
 	}
@@ -2437,7 +2837,7 @@ class OMVLogicalVolume extends OMVObject {
 	 * @return TRUE if the logical volume exists, otherwise FALSE.
 	 */
 	public function exists() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return !empty($this->uuid);
 	}
@@ -2455,7 +2855,7 @@ class OMVLogicalVolume extends OMVObject {
 	 * @return The volume group name, FALSE on failure.
 	 */
 	public function getVGName() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->vgName;
 	}
@@ -2465,7 +2865,7 @@ class OMVLogicalVolume extends OMVObject {
 	 * @return The logical volume name, e.g. lvol0, or FALSE on failure.
 	 */
 	public function getName() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->name;
 	}
@@ -2476,7 +2876,7 @@ class OMVLogicalVolume extends OMVObject {
 	 * failure.
 	 */
 	public function getPath() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return sprintf("/dev/%s/%s", $this->getVGName(), $this->getName());
 	}
@@ -2487,7 +2887,7 @@ class OMVLogicalVolume extends OMVObject {
 	 * FALSE on failure.
 	 */
 	public function getSize() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->size;
 	}
@@ -2497,7 +2897,7 @@ class OMVLogicalVolume extends OMVObject {
 	 * @return The UUID of the array, FALSE on failure.
 	 */
 	public function getUuid() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->uuid;
 	}
@@ -2508,7 +2908,7 @@ class OMVLogicalVolume extends OMVObject {
 	 * otherwise FALSE.
 	 */
 	public function getDevices() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->devices;
 	}
@@ -2518,7 +2918,7 @@ class OMVLogicalVolume extends OMVObject {
 	 * @return The logical volume description, FALSE on failure.
 	 */
 	public function getDescription() {
-		if ($this->getData() === FALSE)
+		if($this->getData() === FALSE)
 			return FALSE;
 		return sprintf(gettext("Logical volume %s [%s, %s]"),
 		  $this->getName(), $this->getDeviceFile(),

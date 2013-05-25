@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,30 +22,91 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 require_once("openmediavault/monit.inc");
 require_once("openmediavault/initscript.inc");
 
-class OMVAFPModule extends OMVModuleAbstract
-  implements OMVINotifyListener, OMVIModuleStatus {
+class OMVModuleAFP extends OMVModuleServiceAbstract
+  implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
 	private $invalidUsers = array("admin");
 
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "afp";
 	}
 
 	/**
-	 * Get the module status.
+	 * Defines the modules that if present should start before the service
+	 * provided by this module.
+	 * @return An array of modules.
+	 */
+	public function shouldStart() { return array("monit"); }
+
+	/**
+	 * Defines the modules that if present should be stopped after the
+	 * service provided by this module.
+	 * @return An array of modules.
+	 */
+	function shouldStop() { return array("monit"); }
+
+	/**
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
+	 */
+	public function applyConfig() {
+		$cmd = "omv-mkconf netatalk 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+	}
+
+	/**
+	 * Stop the managed service.
+	 */
+	public function stopService() {
+		// Disable monitoring of this service.
+		$monit = new OMVMonit();
+		$monit->unmonitor("netatalk", TRUE);
+		// Stop this service and unregister System-V style init script.
+		$initd = new OMVSysVInitScript("netatalk", FALSE);
+		$initd->exec();
+	}
+
+	/**
+	 * Start the managed service.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @throw E_EXEC_FAILED
+	 */
+	public function startService() {
+		global $xmlConfig;
+		$xpath = "//services/afp";
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		if(FALSE === boolval($object['enable']))
+			return;
+		// Start this service and register System-V style init script.
+		$initd = new OMVSysVInitScript("netatalk", TRUE);
+		$initd->exec();
+		// Enable monitoring of this service.
+		$monit = new OMVMonit();
+		$monit->monitor("netatalk");
+	}
+
+	/**
+	 * Get the status of the managed service.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getStatus() {
 		global $xmlConfig;
 		// Get the configuration object
 		$xpath = "//services/afp";
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -59,86 +120,44 @@ class OMVAFPModule extends OMVModuleAbstract
 	}
 
 	/**
-	 * Update the configuration.
+	 * Get the Zeroconf service configuration.
 	 */
-	public function mkConf() {
-		$cmd = "sudo omv-mkconf netatalk 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-	}
-
-	/**
-	 * Create the configuration file and update the service.
-	 */
-	public function updateService() {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Get the configuration object
-		$xpath = "//services/afp";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Create configuration
-		$this->mkConf();
-		// Update service:
-		// - Start/Stop service
-		// - Activate/deactivate monitoring
-		$monit = new OMVMonit();
-		switch($object['enable']) {
-		case TRUE:
-			// Start the service.
-			$initd = new OMVSysVInitScript("netatalk", TRUE);
-			$initd->exec();
-			// Update monit configuration and start monitoring. Delay some
-			// time to give monit enough time to reload its configuration.
-			$monit->update();
-			usleep(2000000);
-			$monit->monitor("netatalk");
-			break;
-		default:
-			// Stop monitoring and update monit configuration.
-			$monit->unmonitor("netatalk", TRUE);
-			$monit->update();
-			// Stop the service.
-			$initd = new OMVSysVInitScript("netatalk", FALSE);
-			$initd->exec();
-			break;
-		}
+	public function getZeroconfConfig() {
+		return array(
+			  "id" => "afp",
+			  "title" => gettext("Apple Filing")
+		  );
 	}
 
 	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
-		// Update service if configuration has been modified
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.afp",
-		  array($this, "updateService"), 1);
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.afp.shares.share",
-		  array($this, "updateService"), 1);
-		// Modify share permissions
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder.privileges",
-		  array($this, "updateService"));
-		// Update Zeroconf if configuration has been modified
+		  array($this, "setDirty"));
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.afp",
-		  array($moduleMgr->getModule("zeroconf"), "mkConf"));
+		  array($moduleMgr->getModule("zeroconf"), "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.services.afp",
+		  array($moduleMgr->getModule("monit"), "setDirty"));
     }
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVAFPModule());
+$moduleMgr->registerModule(new OMVModuleAFP());
 ?>

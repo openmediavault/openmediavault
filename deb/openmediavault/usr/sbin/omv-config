@@ -1,0 +1,131 @@
+#!/usr/bin/php5 -c/etc/openmediavault
+<?php
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2013 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ */
+require_once("openmediavault/globals.inc");
+require_once("openmediavault/config.inc");
+require_once("openmediavault/functions.inc");
+require_once("openmediavault/error.inc");
+
+///////////////////////////////////////////////////////////////////////////////
+// Helper functions.
+///////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Display command usage.
+ */
+function usage() {
+    global $argv;
+    $text = <<<EOF
+Usage:
+  %s [options] <xpath> <jsondata>
+
+OPTIONS:
+  -i --insert=element  Insert to the given XPath
+  -m --modify          Modify the given XPath
+  -h --help            Print a help text
+
+EOF;
+    printf($text, basename($argv[0]));
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Global variables.
+///////////////////////////////////////////////////////////////////////////////
+
+$cmdargs = array(
+	  "i:" => "insert:",
+	  "m::" => "modify::",
+	  "h::" => "help::"
+  );
+$mode = "";
+$element = "";
+$rc = 0;
+
+// Check the command line arguments. Exit and display usage if
+// nessecary.
+$options = getopt(implode("", array_keys($cmdargs)), $cmdargs);
+foreach($options as $optionk => $optionv) {
+	switch($optionk) {
+	case "h":
+	case "help":
+		usage();
+		exit(0);
+		break;
+	case "i":
+	case "insert":
+		$mode = "insert";
+		$element = $options[$optionk];
+		$argc -= 2;
+		array_splice($argv, 1, 2);
+		break;
+	case "m":
+	case "modify":
+		$mode = "modify";
+		$argc -= 1;
+		array_splice($argv, 1, 1);
+		break;
+	}
+}
+if($argc != 3) {
+	print gettext("ERROR: Invalid number of arguments\n");
+	usage();
+	exit(1);
+}
+if(empty($mode)) {
+	print gettext("ERROR: No operation mode given\n");
+	usage();
+	exit(1);
+}
+if(!is_json($argv[2])) {
+	print gettext("ERROR: Invalid JSON\n");
+	exit(1);
+}
+// Process command arguments.
+$xpath = $argv[1];
+$object = json_decode($argv[2], TRUE);
+
+try {
+	$success = FALSE;
+	switch($mode) {
+	case "insert":
+		$success = $xmlConfig->set($xpath, array($element => $object));
+		break;
+	case "modify":
+		$success = $xmlConfig->replace($xpath, $object);
+		break;
+	}
+	if(FALSE === $success) {
+		throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+	}
+} catch(Exception $e) {
+	printf("%s\n", json_encode_safe(array(
+		  "response" => null,
+		  "error" => array(
+			  "code" => $e->getCode(),
+			  "message" => $e->getMessage(),
+			  "trace" => $e->__toString()
+		  )
+	  )));
+	$rc = 1;
+}
+exit($rc);
+?>

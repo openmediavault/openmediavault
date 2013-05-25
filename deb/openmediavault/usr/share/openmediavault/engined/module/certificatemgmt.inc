@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,49 +20,24 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 
-class OMVCertificateMgmtModule extends OMVModuleAbstract
+class OMVModuleCertificateMgmt extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "certificatemgmt";
 	}
 
 	/**
-	 * Create/update the certificates.
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
 	 */
-	public function mkConf() {
-		$cmd = "sudo omv-mkconf certificates 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-	}
-
-	/**
-	 * Delete a certificate.
-	 */
-	public function delete($object) {
-		// Delete the certificate
-		$cmd = sprintf("sudo rm %s/certs/%s.crt %s/private/%s.key 2>&1",
-		  $GLOBALS['OMV_CERTIFICATE_DIR'], $object['uuid'],
-		  $GLOBALS['OMV_CERTIFICATE_DIR'], $object['uuid']);
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-		// Create symbolic links to files named by the hash values
-		$cmd = sprintf("sudo c_rehash %s/certs",
-		  $GLOBALS['OMV_CERTIFICATE_DIR']);
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	public function applyConfig() {
+		$cmd = "omv-mkconf certificates 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -75,15 +50,11 @@ class OMVCertificateMgmtModule extends OMVModuleAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.certificates.sslcertificate",
-		  array($this, "mkConf"), 1);
-		$dispatcher->addListener(
-		  OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.certificates.sslcertificate",
-		  array($this, "delete"));
+		  array($this, "setDirty"));
     }
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVCertificateMgmtModule());
+$moduleMgr->registerModule(new OMVModuleCertificateMgmt());
 ?>

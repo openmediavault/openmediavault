@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,35 +22,48 @@
 require_once("openmediavault/globals.inc");
 require_once("openmediavault/functions.inc");
 
+/**
+ * @ingroup api
+ */
 abstract class OMVObject {
+	/**
+	 * Constructor
+	 */
 	public function __construct() {
 	}
 
+	/**
+	 * Print debug message to stdout and file if debugging is enabled.
+	 */
 	protected function debug() {
-		if (boolval($GLOBALS['OMV_DEBUG_PHP']) === FALSE)
+		if(boolval($GLOBALS['OMV_DEBUG_PHP']) === FALSE)
 			return;
 
 		$args = func_get_args();
 		$fmt = array_shift($args);
 
-		// Get the backtrace
+		// Get the backtrace.
 		$bt = debug_backtrace();
 		$bt0 = $bt[0];
 		$bt1 = $bt[1];
 
-		// Prepare debug output
+		// Prepare debug message.
 		$msg = sprintf("%s File: %s Line: %d", date(DATE_RFC822),
-			basename($bt0['file']), $bt0['line']);
-		if (isset($bt1['class'])) {
+		  basename($bt0['file']), $bt0['line']);
+		if(isset($bt1['class'])) {
 			$msg .= sprintf(" Method: %s::%s()", $bt1['class'],
-				$bt1['function']);
+			  $bt1['function']);
 		} else if(isset($bt1['function'])) {
 			$msg .= sprintf(" Function: %s()", $entry['function']);
 		}
 		$msg .= sprintf(" Message: %s\n", vsprintf($fmt, $args));
 
-		// Append debug output to log file
-		file_put_contents($GLOBALS['OMV_DEBUG_PHP_LOGFILE'], $msg, FILE_APPEND);
+		// Output message to stdout.
+		//fwrite(STDOUT, $msg);
+		file_put_contents("php://stdout", $msg);
+		// Append message to debug log file.
+		file_put_contents($GLOBALS['OMV_DEBUG_PHP_LOGFILE'], $msg,
+		  FILE_APPEND);
 	}
 }
 ?>

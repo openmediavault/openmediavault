@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -66,7 +66,7 @@ EOF
 		  -v "concat('    password = \"',password,'\"')" -n \
 	  -b \
 	  -o "    # Directories to index" -n \
-	  -o "    directories = " ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -n \
+	  -o "    directories = \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -n \
 	  -o "    # Directories containing compilations" -n \
 	  -o "    # Matches anywhere in the path (not a regexp, though)" -n \
 	  -o "#   compilations = { \"/compilations/\" }" -n \

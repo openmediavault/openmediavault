@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
+"POT-Creation-Date: 2012-12-28 18:54+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,15 +17,12 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr ""
 
-#, c-format
 msgid "%s (%s available)"
 msgstr ""
 
-#, c-format
 msgid "%s [on %s]"
 msgstr ""
 
@@ -56,7 +53,6 @@ msgstr ""
 msgid "10 years"
 msgstr ""
 
-#, c-format
 msgid "100% completed ..."
 msgstr ""
 
@@ -100,6 +96,9 @@ msgid "25 years"
 msgstr ""
 
 msgid "254 - Maximum performance, maximum power usage"
+msgstr ""
+
+msgid "255 - Disabled"
 msgstr ""
 
 msgid "3 days"
@@ -153,10 +152,7 @@ msgstr ""
 msgid "9 months"
 msgstr ""
 
-msgid "A mount point already exists for the given filesystem"
-msgstr ""
-
-msgid "A share with the given name already exists"
+msgid "A share with the name '%s' already exists"
 msgstr ""
 
 msgid "A shared folder with the given name already exists"
@@ -330,6 +326,9 @@ msgstr ""
 msgid "Apply"
 msgstr ""
 
+msgid "Apply configuration"
+msgstr ""
+
 msgid "Apply permissions to files and subfolders"
 msgstr ""
 
@@ -396,12 +395,6 @@ msgstr ""
 msgid "Azerbaijan"
 msgstr ""
 
-msgid "Backup"
-msgstr ""
-
-msgid "Backup configuration"
-msgstr ""
-
 msgid "Bahamas"
 msgstr ""
 
@@ -411,7 +404,6 @@ msgstr ""
 msgid "Ban list"
 msgstr ""
 
-#, c-format
 msgid "Ban statistics:"
 msgstr ""
 
@@ -538,6 +530,9 @@ msgstr ""
 msgid "Chad"
 msgstr ""
 
+msgid "Changelog"
+msgstr ""
+
 msgid "Check"
 msgstr ""
 
@@ -565,9 +560,6 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
-msgid "Click the 'Backup' button to download the current system configuration."
-msgstr ""
-
 msgid "Client"
 msgstr ""
 
@@ -587,9 +579,6 @@ msgid "Command"
 msgstr ""
 
 msgid "Comment"
-msgstr ""
-
-msgid "Commit"
 msgstr ""
 
 msgid "Common Name"
@@ -670,7 +659,6 @@ msgstr ""
 msgid "Current time"
 msgstr ""
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr ""
 
@@ -719,6 +707,9 @@ msgstr ""
 msgid "Delete content"
 msgstr ""
 
+msgid "Delete files"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr ""
 
@@ -761,10 +752,6 @@ msgstr ""
 msgid "Device"
 msgstr ""
 
-#, c-format
-msgid "Device '%s' not found"
-msgstr ""
-
 msgid "Device identity information"
 msgstr ""
 
@@ -799,6 +786,9 @@ msgid "Displaying items {0} - {1} of {2}"
 msgstr ""
 
 msgid "Djibouti"
+msgstr ""
+
+msgid "Do you really want to apply the configuration?"
 msgstr ""
 
 msgid "Do you really want to clear the log file?"
@@ -966,6 +956,9 @@ msgstr ""
 msgid "Enable archive mode"
 msgstr ""
 
+msgid "Enable chroot."
+msgstr ""
+
 msgid "Enable compression"
 msgstr ""
 
@@ -1032,7 +1025,6 @@ msgstr ""
 msgid "Error #"
 msgstr ""
 
-#, c-format
 msgid "Error #%d"
 msgstr ""
 
@@ -1087,14 +1079,28 @@ msgstr ""
 msgid "Failed to call "
 msgstr ""
 
-#, c-format
 msgid "Failed to create filesystem. Please check the syslog or '%s' for more details."
 msgstr ""
 
 msgid "Failed to get filesystems"
 msgstr ""
 
-msgid "Failed to get system date and time"
+msgid "Failed to get list of groups."
+msgstr ""
+
+msgid "Failed to get list of logical volumes"
+msgstr ""
+
+msgid "Failed to get list of physical volumes"
+msgstr ""
+
+msgid "Failed to get list of software RAID devices"
+msgstr ""
+
+msgid "Failed to get list of users."
+msgstr ""
+
+msgid "Failed to get shadow password suite configuration."
 msgstr ""
 
 msgid "Falkland Islands"
@@ -1118,14 +1124,18 @@ msgstr ""
 msgid "File"
 msgstr ""
 
+msgid "Files in the recycle bin will be deleted automatically after the specified number of days. Set to 0 for manual deletion."
+msgstr ""
+
+msgid "Files that are larger than the specified number of bytes will not be put into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
+
 msgid "Filesystem"
 msgstr ""
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr ""
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr ""
 
@@ -1219,15 +1229,12 @@ msgstr ""
 msgid "Group"
 msgstr ""
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr ""
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr ""
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr ""
 
@@ -1333,6 +1340,9 @@ msgstr ""
 msgid "If set then the client will be challenged to supply a username and password to connect to the module."
 msgstr ""
 
+msgid "If this option is set, the daemon will chroot to the shared folder path before starting the file transfer with the client. Then it is not possible to map users and groups by name and the daemon is not being able to follow symbolic links that are either absolute or outside of the new root path."
+msgstr ""
+
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr ""
 
@@ -1361,6 +1371,12 @@ msgid "Import groups"
 msgstr ""
 
 msgid "Import users"
+msgstr ""
+
+msgid "Importing groups ..."
+msgstr ""
+
+msgid "Importing users ..."
 msgstr ""
 
 msgid "In some cases you have to specify passive ports range to by-pass firewall limitations. Passive ports restricts the range of ports from which the server will select when sent the PASV command from a client. The server will randomly choose a number from within the specified range until an open port is found. The port range selected must be in the non-privileged range (eg. greater than or equal to 1024). It is strongly recommended that the chosen range be large enough to handle many simultaneous passive connections (for example, 49152-65534, the IANA-registered ephemeral port range)."
@@ -1417,7 +1433,6 @@ msgstr ""
 msgid "Invalid hostname"
 msgstr ""
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr ""
 
@@ -1568,7 +1583,6 @@ msgstr ""
 msgid "Log level"
 msgstr ""
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr ""
 
@@ -1603,9 +1617,6 @@ msgid "Macedonia"
 msgstr ""
 
 msgid "Madagascar"
-msgstr ""
-
-msgid "Mail Notification"
 msgstr ""
 
 msgid "Maintainer"
@@ -1666,6 +1677,9 @@ msgid "Max. login attempts"
 msgstr ""
 
 msgid "Maximum download rate (KiB/s)"
+msgstr ""
+
+msgid "Maximum file size"
 msgstr ""
 
 msgid "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle timer completely (clients can stay connected for ever, without sending data)."
@@ -1818,7 +1832,6 @@ msgstr ""
 msgid "Network"
 msgstr ""
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr ""
 
@@ -1901,6 +1914,12 @@ msgid "Not TCP"
 msgstr ""
 
 msgid "Not UDP"
+msgstr ""
+
+msgid "Notification"
+msgstr ""
+
+msgid "Notifications"
 msgstr ""
 
 msgid "November"
@@ -2140,6 +2159,9 @@ msgstr ""
 msgid "Privileges"
 msgstr ""
 
+msgid "Process monitoring"
+msgstr ""
+
 msgid "Processes"
 msgstr ""
 
@@ -2264,15 +2286,6 @@ msgid "Reset WebGUI state"
 msgstr ""
 
 msgid "Resize"
-msgstr ""
-
-msgid "Restore"
-msgstr ""
-
-msgid "Restore configuration"
-msgstr ""
-
-msgid "Restore configuration..."
 msgstr ""
 
 msgid "Resume"
@@ -2455,16 +2468,16 @@ msgstr ""
 msgid "Self-test logs"
 msgstr ""
 
+msgid "Send a test email"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr ""
 
 msgid "Send email"
 msgstr ""
 
-msgid "Send test email"
-msgstr ""
-
-msgid "Sender"
+msgid "Sender email"
 msgstr ""
 
 msgid "Sending test email ..."
@@ -2524,10 +2537,6 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#, c-format
-msgid "Settings already exist for device '%s'"
-msgstr ""
-
 msgid "Seychelles"
 msgstr ""
 
@@ -2550,6 +2559,9 @@ msgid "Short self-test"
 msgstr ""
 
 msgid "Show certificate"
+msgstr ""
+
+msgid "Show changelog"
 msgstr ""
 
 msgid "Show details"
@@ -2801,14 +2813,12 @@ msgstr ""
 msgid "The destination shared folder."
 msgstr ""
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr ""
 
 msgid "The file mode of the shared folder path."
 msgstr ""
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr ""
 
@@ -2851,7 +2861,7 @@ msgstr ""
 msgid "The session timeout time in minutes."
 msgstr ""
 
-msgid "The shared folder is already used by another share"
+msgid "The shared folder is already used by another share."
 msgstr ""
 
 msgid "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or rsync://[USER@]HOST[:PORT]/SRC."
@@ -2863,20 +2873,15 @@ msgstr ""
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr ""
 
-msgid "The system will reboot now."
-msgstr ""
-
 msgid "The system will reboot now. This may take some time ..."
 msgstr ""
 
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr ""
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr ""
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr ""
 
@@ -2892,7 +2897,6 @@ msgstr ""
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr ""
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr ""
 
@@ -3031,9 +3035,6 @@ msgstr ""
 msgid "Times"
 msgstr ""
 
-msgid "To restore a previously backed up configuration click the 'Restore' button. The system will reboot automatically after import has been finished successfully."
-msgstr ""
-
 msgid "Togo"
 msgstr ""
 
@@ -3112,11 +3113,9 @@ msgstr ""
 msgid "United States Minor Outlying Islands"
 msgstr ""
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr ""
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr ""
 
@@ -3177,6 +3176,9 @@ msgstr ""
 msgid "Use SSL/TLS secure connection"
 msgstr ""
 
+msgid "Use chroot"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr ""
 
@@ -3201,15 +3203,12 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr ""
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr ""
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr ""
 
@@ -3351,7 +3350,6 @@ msgstr ""
 msgid "minutes"
 msgstr ""
 
-#, c-format
 msgid "n/a"
 msgstr ""
 

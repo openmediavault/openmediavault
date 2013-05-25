@@ -1,5 +1,8 @@
 #!/usr/bin/make -f
 
+# Documentation/Howto:
+# http://www.debian.org/doc/manuals/maint-guide/dother.en.html#install
+
 include ../openmediavault.mk
 
 clean:
@@ -22,6 +25,7 @@ binary-indep: install omv_clean_scm
 	dh_installinit -r --no-start --name=openmediavault
 	dh_installinit -r --no-start --name=openmediavault-beep
 	dh_installinit -r --no-start --name=openmediavault-configimport
+	dh_installinit -r --no-start --name=openmediavault-engined
 	dh_lintian
 	dh_link
 	dh_compress

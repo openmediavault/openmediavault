@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -86,16 +86,15 @@ EOF
 	cat <<EOF > ${OMV_NUT_UPSD_CONFIG}
 MAXAGE ${OMV_NUT_UPSD_MAXAGE}
 MAXCONN ${OMV_NUT_UPSD_MAXCONN}
-LISTEN 127.0.0.1 ${OMV_NUT_UPSD_PORT}
 EOF
+
 	if [ "1" = $(omv_config_get "//services/nut/remotemonitor") ]; then
-		xmlstarlet sel -t -m "//system/network/interfaces/*" \
-		  -v devicename -i "position() != last()" -n -b \
-		  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-		  while read iface; do
-			  ipaddr=$(omv_get_ipaddr ${iface})
-			  echo "LISTEN ${ipaddr} ${OMV_NUT_UPSD_PORT}" >> ${OMV_NUT_UPSD_CONFIG}
-		  done
+		# To simplify setup we are listening on ANY network address. To
+		# enhance security this can be limited via iptables rules.
+		echo "LISTEN 0.0.0.0 ${OMV_NUT_UPSD_PORT}" >> ${OMV_NUT_UPSD_CONFIG}
+	else
+		# If remote monitoring is disabled then only listen on localhost.
+		echo "LISTEN 127.0.0.1 ${OMV_NUT_UPSD_PORT}" >> ${OMV_NUT_UPSD_CONFIG}
 	fi
 
 	# Create '/etc/nut/upsd.users'. Note, the password for OMV_NUT_UPSMON_USER
@@ -107,7 +106,8 @@ EOF
 	  -i "remotemonitor[. = '1']" \
 		-n -n \
 		-v "concat('[',remoteuser,']')" -n \
-		-v "concat('password = ',remotepassword)" \
+		-v "concat('password = ',remotepassword)" -n \
+		-o "upsmon slave" \
 	  -b \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NUT_UPSDUSERS_CONFIG}
 

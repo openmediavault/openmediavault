@@ -1,0 +1,38 @@
+openmediavault-route (0.5) stable; urgency=low
+
+  * Adapt plugin to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Feb 2013 17:52:12 +0100
+
+openmediavault-usbbackup (0.4.4) stable; urgency=low
+
+  * Unmount USB device after synchronisation has been finished.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Feb 2013 17:43:46 +0100
+
+openmediavault-usbbackup (0.4.3) stable; urgency=low
+
+  * Update locales.
+  * Improve config scripts (to fix trap issue).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 17 Feb 2013 03:14:08 +0100
+
+openmediavault-usbbackup (0.4.2) stable; urgency=low
+
+  * Harden sync script. Additionally check if external storage device is
+    mounted before starting synchronisation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 16 Feb 2013 15:15:48 +0100
+
+openmediavault-usbbackup (0.4.1) stable; urgency=low
+
+  * Update locales.
+  * Modify config script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 15 Feb 2013 23:59:46 +0100
+
+openmediavault-usbbackup (0.4) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 11 Feb 2013 19:56:24 +0100

@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,41 +20,34 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
 
-class OMVZeroconfModule extends OMVModuleAbstract
+class OMVModuleZeroconf extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "zeroconf";
 	}
 
 	/**
-	 * Create the configuration file.
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
 	 */
-	public function mkConf() {
-		// Create '/etc/avahi/avahi-daemon.conf' and
-		// '/etc/avahi/services/*.service' files
-		$cmd = "sudo omv-mkconf avahi-daemon 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	public function applyConfig() {
+		$cmd = "omv-mkconf avahi-daemon 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 	}
 
 	/**
-	 * Update the service.
+	 * Start the managed service.
 	 */
-	public function updateService() {
-		// Create configuration files
-		$this->mkConf();
-		// Restart service
+	public function startService() {
 		$initd = new OMVSysVInitScript("avahi-daemon");
 		$initd->restart();
 	}
@@ -65,16 +58,16 @@ class OMVZeroconfModule extends OMVModuleAbstract
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.webadmin",
-		  array($this, "updateService"));
+		  "org.openmediavault.system.network.hostname",
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.hostname",
-		  array($this, "updateService"));
+		  "org.openmediavault.services.zeroconf.services",
+		  array($this, "setDirty"));
 	}
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVZeroconfModule());
+$moduleMgr->registerModule(new OMVModuleZeroconf());
 ?>

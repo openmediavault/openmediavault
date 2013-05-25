@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,27 +21,46 @@
  */
 require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 
-class OMVRaidMgmtModule extends OMVModuleAbstract
-  implements OMVINotifyListener {
+class OMVModuleMdadm extends OMVModuleServiceAbstract
+  implements OMVINotifyListener, OMVIModuleNotification {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
-		return "raidmgmt";
+	public function getName() {
+		return "mdadm";
 	}
 
 	/**
-	 * Create the mdadm configuration file.
+	 * Defines the modules that if present should start before the service
+	 * provided by this module.
+	 * @return An array of modules.
 	 */
-	public function mkConf() {
-		$cmd = "sudo omv-mkconf mdadm 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	public function shouldStart() { return array("email"); }
+
+	/**
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
+	 */
+	public function applyConfig() {
+		$cmd = "omv-mkconf mdadm 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
+	}
+
+	/**
+	 * Get the notification configuration.
+	 */
+	public function getNotificationConfig() {
+		return array(
+			  array(
+				  "id" => "mdadm",
+				  "type" => getText("Storage"),
+				  "title" => gettext("Software RAID")
+			  )
+		  );
 	}
 
 	/**
@@ -51,17 +70,19 @@ class OMVRaidMgmtModule extends OMVModuleAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.storage.raid.device",
-		  array($this, "mkConf"));
-		// Update config file if notification/email configuration has
-		// been modified.
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.email",
-		  array($this, "mkConf"));
+		  array($this, "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.notification.notifications",
+		  array($this, "setDirty"));
 	}
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVRaidMgmtModule());
+$moduleMgr->registerModule(new OMVModuleMdadm());
 ?>

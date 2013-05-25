@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
-"PO-Revision-Date: 2012-11-19 19:12+0000\n"
+"POT-Creation-Date: 2012-12-22 03:12+0100\n"
+"PO-Revision-Date: 2012-12-22 02:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -22,15 +22,12 @@ msgstr ""
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr "% ukończonych ..."
 
-#, c-format
 msgid "%s (%s available)"
 msgstr "%s (%s dostępnych)"
 
-#, c-format
 msgid "%s [on %s]"
 msgstr "%s [na %s]"
 
@@ -61,7 +58,6 @@ msgstr "10 minut"
 msgid "10 years"
 msgstr "10 lat"
 
-#, c-format
 msgid "100% completed ..."
 msgstr "100% ukończonych ..."
 
@@ -106,6 +102,9 @@ msgstr "25 lat"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maksymalna wydajność - maksymalne zużycie energii"
+
+msgid "255 - Disabled"
+msgstr "255 - Wyłączony"
 
 msgid "3 days"
 msgstr "3 dni"
@@ -426,7 +425,6 @@ msgstr "Bahrain"
 msgid "Ban list"
 msgstr "Lista blokowanych"
 
-#, c-format
 msgid "Ban statistics:"
 msgstr "Statystyki blokowanych"
 
@@ -693,7 +691,6 @@ msgstr "Cuba"
 msgid "Current time"
 msgstr "Aktualny czas"
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr "Aktualnie zalogowani użytkownicy:"
 
@@ -742,6 +739,9 @@ msgstr "Usuń"
 msgid "Delete content"
 msgstr "Usuń zawartość"
 
+msgid "Delete files"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Kasuj pliki po stronie odbiorczej, nie istniejące po stronie nadawczej"
 
@@ -789,7 +789,6 @@ msgstr "Określa domyślny limit czasu, w mikrosekundach, zanim pierwszy pakiet 
 msgid "Device"
 msgstr "Urządzenie"
 
-#, c-format
 msgid "Device '%s' not found"
 msgstr "Urządzenie '%s' nie znaleziono"
 
@@ -1075,7 +1074,6 @@ msgstr "Błąd"
 msgid "Error #"
 msgstr "Błąd #"
 
-#, c-format
 msgid "Error #%d"
 msgstr "Błąd #%d"
 
@@ -1132,7 +1130,6 @@ msgstr "FXP pozwala na transfery między dwoma zdalnymi serwerami bez danych pli
 msgid "Failed to call "
 msgstr "Nie udało się połączyć"
 
-#, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1165,14 +1162,22 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Plik"
 
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr ""
+
+msgid ""
+"Files that are larger than the specified number of bytes will not be put "
+"into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
+
 msgid "Filesystem"
 msgstr "System plików"
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr "System plików '%s' nie znaleziony"
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr "System plików '%s' nie obsługiwany"
 
@@ -1266,15 +1271,12 @@ msgstr "Grenada"
 msgid "Group"
 msgstr "Grupa"
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr "Grupa '%s' już istnieje"
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr "Grupa '%s' nie istnieje"
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr "ID grupy '%d' już istnieje"
 
@@ -1485,7 +1487,6 @@ msgstr "Nieprawidłowa nazwa grupy"
 msgid "Invalid hostname"
 msgstr "Nieprawidłowa nazwa hosta"
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr "Nieprawidłowa linia: %s"
 
@@ -1638,7 +1639,6 @@ msgstr "Informacje o lokalizacji, np. fizycznej lokalizacji tego systemu."
 msgid "Log level"
 msgstr "Poziom logów"
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr "Wolumin logiczny %s [%s, %s]"
 
@@ -1741,6 +1741,9 @@ msgstr "Maksymalna ilość prób logowania"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maksymalna prędkość pobierania (KiB/s)"
+
+msgid "Maximum file size"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1895,7 +1898,6 @@ msgstr "Maska sieci"
 msgid "Network"
 msgstr "Sieć"
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr "Interfejs sieciowy '%s' już istnieje"
 
@@ -2635,7 +2637,6 @@ msgstr "Ustawia okres między sprawdzaniem dysku na N sekund."
 msgid "Settings"
 msgstr "Konfiguracja"
 
-#, c-format
 msgid "Settings already exist for device '%s'"
 msgstr "Ustawienia już istnieją dla urządzenia '%s'"
 
@@ -2930,14 +2931,12 @@ msgstr "Zdalny serwer docelowy, np. [USER@]HOST:DEST, [USER@]HOST::DEST lub rsyn
 msgid "The destination shared folder."
 msgstr "Docelowy katalog współdzielony."
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr "Pole '%s' zawiera zabronione"
 
 msgid "The file mode of the shared folder path."
 msgstr "Tryb pliku ścieżki folderu udostępnionego."
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr "Grupa '%s' nie istnieje"
 
@@ -3015,11 +3014,9 @@ msgstr "System zostanie teraz zrestartowany. Może to zająć trochę czasu ..."
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "Testowy email został wysłany. Proszę sprawdzić skrzynkę odbiorczą."
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr "Użytkownik '%s' nie istnieje"
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr "Użytkownik '%s' jest niedozwolony"
 
@@ -3037,7 +3034,6 @@ msgstr "Wiadomość powitalna, która będzie wyświetlona logującym się użyt
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Grupa robocza serwera pojawi się przy poszukiwaniu przez klientów."
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr "Istnieje już punkt montowania dla %s"
 
@@ -3314,11 +3310,9 @@ msgstr "United States"
 msgid "United States Minor Outlying Islands"
 msgstr "United States Minor Outlying Islands"
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr "Nieznany system plików  '%s'"
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr "Typ pliku dziennika nieznany  (id=%s)"
 
@@ -3406,15 +3400,12 @@ msgstr "Pojemność używanych"
 msgid "User"
 msgstr "Użytkownik"
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr "Użytkownik '%s'  już istnieje"
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr "Użytkownik '%s' nie istnieje"
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr "ID '%d' użytkownika już istnieje"
 
@@ -3558,7 +3549,6 @@ msgstr "minuta"
 msgid "minutes"
 msgstr "minut"
 
-#, c-format
 msgid "n/a"
 msgstr "n/a"
 

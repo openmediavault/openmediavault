@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,22 +22,22 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
 
-class OMVCronAptModule extends OMVModuleAbstract
+class OMVModuleCronApt extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "cronapt";
 	}
 
 	/**
-	 * Create the configuration file.
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
 	 */
-	public function mkConf() {
-		$cmd = "sudo omv-mkconf cron-apt 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	public function applyConfig() {
+		$cmd = "omv-mkconf cron-apt 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -47,16 +47,14 @@ class OMVCronAptModule extends OMVModuleAbstract
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
-		// Update config file if notification/email configuration has been
-		// modified
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.email",
-		  array($this, "mkConf"));
+		  array($this, "setDirty"));
     }
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVCronAptModule());
+$moduleMgr->registerModule(new OMVModuleCronApt());
 ?>

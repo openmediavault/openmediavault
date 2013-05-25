@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -36,7 +36,7 @@ set -e
 OMV_AVAHIDAEMON_CONFIG=${OMV_AVAHIDAEMON_CONFIG:-"/etc/avahi/avahi-daemon.conf"}
 OMV_AVAHIDAEMON_DEFAULT=${OMV_AVAHIDAEMON_DEFAULT:-"/etc/default/avahi-daemon"}
 OMV_AVAHIDAEMON_DETECTLOCAL=${OMV_AVAHIDAEMON_DETECTLOCAL:-"0"}
-OMV_AVAHIDAEMON_AVAHISERVICESDIR=${OMV_AVAHIDAEMON_AVAHISERVICESDIR:-"${OMV_SCRIPTS_DIR}/avahiservices.d"}
+OMV_AVAHIDAEMON_AVAHISERVICES_DIR=${OMV_AVAHIDAEMON_AVAHISERVICES_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/avahiservices.d"}
 OMV_AVAHIDAEMON_UPDATEAVAHISERVICES=${OMV_AVAHIDAEMON_UPDATEAVAHISERVICES:-"yes"}
 
 # Create '/etc/default/avahi-daemon' file
@@ -90,5 +90,5 @@ EOF
 
 # Create '/etc/avahi/services/*.service' files
 if [ "${OMV_AVAHIDAEMON_UPDATEAVAHISERVICES}" = "yes" ]; then
-	run-parts ${OMV_AVAHIDAEMON_AVAHISERVICESDIR}
+	run-parts ${OMV_AVAHIDAEMON_AVAHISERVICES_DIR}
 fi

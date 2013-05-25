@@ -1,3 +1,9 @@
+openmediavault-iscsitarget (0.5) stable; urgency=low
+
+  * Adapt plugin to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 09 Dec 2012 13:11:44 +0100
+
 openmediavault-iscsitarget (0.4.1) stable; urgency=low
 
   * Fix xmlstarlet issue.

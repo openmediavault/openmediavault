@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -32,7 +32,6 @@ set -e
 
 OMV_RSYNCD_DEFAULT=${OMV_RSYNCD_DEFAULT:-"/etc/default/rsync"}
 OMV_RSYNCD_CONFIG=${OMV_RSYNCD_CONFIG:-"/etc/rsyncd.conf"}
-OMV_RSYNCD_USECHROOT=${OMV_RSYNCD_USECHROOT:-"yes"}
 OMV_RSYNCD_SECRETSFILE_DIR=${OMV_RSYNCD_SECRETSFILE_DIR:-"/var/lib/openmediavault"}
 
 # Create '/etc/default/rsync' file
@@ -46,7 +45,6 @@ xmlstarlet sel -t -m "//services/rsync/server" \
 # Create '/etc/rsyncd.conf' file
 xmlstarlet sel -t -m "//services/rsync/server" \
   -v "concat('port = ',port)" -n \
-  -o "use chroot = ${OMV_RSYNCD_USECHROOT}" -n \
   -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_RSYNCD_CONFIG}
 
@@ -79,6 +77,8 @@ do
 	  -i "readonly[. = '1']" -o "read only = yes" -n -b \
 	  -i "writeonly[. = '0']" -o "write only = no" -n -b \
 	  -i "writeonly[. = '1']" -o "write only = yes" -n -b \
+	  -i "usechroot[. = '0']" -o "use chroot = no" -n -b \
+	  -i "usechroot[. = '1']" -o "use chroot = yes" -n -b \
 	  -i "maxconnections[. != '0']" -v "concat('max connections = ',maxconnections)" -n -b \
 	  -i "string-length(hostsallow) > 0" -v "concat('hosts allow = ',hostsallow)" -n -b \
 	  -i "string-length(hostsdeny) > 0" -v "concat('hosts deny = ',hostsdeny)" -n -b \

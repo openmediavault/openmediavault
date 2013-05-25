@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,226 +22,198 @@
 require_once("openmediavault/object.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 require_once("openmediavault/functions.inc");
-require_once("openmediavault/rpc.inc");
+require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
 
-class RsyncdRpc extends OMVRpc {
-	public function __construct() {
-		$this->methodSchemata = array(
-			"setSettings" => array('{
-				"type":"object",
-				"properties":{
-					"enable":{"type":"boolean"},
-					"port":{"type":"integer","minimum":1,"maximum":65535},
-					"extraoptions":{"type":"string"},
-					"dnssdenable":{"type":"boolean"},
-					"dnssdname":{"type":"string"}
-				}
-			}'),
-			"getModuleList" => array('{
-				"type":"object",
-				"properties":{
-					"start":{"type":"integer"},
-					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-				}
-			}'),
-			"getModule" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-				}
-			}'),
-			"setModule" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-					"sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-					"name":{'.$GLOBALS['OMV_JSONSCHEMA_SHARENAME'].'},
-					"comment":{"type":"string"},
-					"uid":{"type":"string"},
-					"gid":{"type":"string"},
-					"readonly":{"type":"boolean"},
-					"writeonly":{"type":"boolean"},
-					"maxconnections":{"type":"integer","minimum":0},
-					"list":{"type":"boolean"},
-					"hostsallow":{"type":"string"},
-					"hostsdeny":{"type":"string"},
-					"authusers":{"type":"boolean"},
-					"users":{
-						"type":"array",
-						"items":{
-							"type":"object",
-							"properties":{
-								"name":{"type":"string"},
-								"password":{"type":"string"}
-							}
-						}
-					},
-					"extraoptions":{"type":"string"}
-				}
-			}'),
-			"deleteModule" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-				}
-			}')
-		);
+class OMVRpcServiceRsyncd extends OMVRpcServiceAbstract {
+	/**
+	 * Get the RPC service name.
+	 */
+	public function getName() {
+		return "Rsyncd";
 	}
 
-	function getSettings() {
+	/**
+	 * Initialize the RPC service.
+	 */
+	public function initialize() {
+		$this->registerMethod("getSettings");
+		$this->registerMethod("setSettings");
+		$this->registerMethod("getModuleList");
+		$this->registerMethod("getModule");
+		$this->registerMethod("setModule");
+		$this->registerMethod("deleteModule");
+	}
+
+	/**
+	 * Get settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	function getSettings($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Get configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get the configuration object.
 		$xpath = "//services/rsync/server";
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Modify result data
-		$object['dnssdenable'] = boolval($object['dnssd']['enable']);
-		$object['dnssdname'] = $object['dnssd']['name'];
-		// Remove useless data
+		// Remove useless attributes.
 		unset($object['modules']);
-		unset($object['dnssd']);
 		return $object;
 	}
 
-	function setSettings($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	/**
+	 * Set settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
+	 */
+	function setSettings($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get existing configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "enable":{"type":"boolean"},
+				  "port":{"type":"integer","minimum":1,"maximum":65535},
+				  "extraoptions":{"type":"string"}
+			  }
+		  }');
+		// Get the existing configuration object.
 		$xpath = "//services/rsync/server";
 		$oldObject = $xmlConfig->get($xpath);
-		if (is_null($oldObject)) {
+		if(is_null($oldObject)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Update configuration
+		// Update the configuration object.
 		$object = array(
-			"enable" => array_boolval($data, 'enable'),
-			"port" => $data['port'],
-			"extraoptions" => $data['extraoptions'],
-			"modules" => isset($oldObject['modules']) ?
-			  $oldObject['modules'] : array(),
-			"dnssd" => array(
-				"enable" => array_boolval($data, 'dnssdenable'),
-				"name" => $data['dnssdname']
-			)
-		);
-		if (FALSE === $xmlConfig->replace($xpath, $object)) {
+			  "enable" => array_boolval($params, 'enable'),
+			  "port" => $params['port'],
+			  "extraoptions" => $params['extraoptions'],
+			  "modules" => isset($oldObject['modules']) ?
+				$oldObject['modules'] : array()
+		  );
+		if(FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.rsync.server");
+		  "org.openmediavault.services.rsync.server", $object);
+		// Return the configuration object.
+		return $object;
 	}
 
 	/**
 	 * Get list of module configuration objects.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em start The index where to start.
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @param context The context of the caller.
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	public function getModuleList($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function getModuleList($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "start":{"type":"integer"},
+				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+			  }
+		  }');
+		// Get the configuration object.
 		$xpath = "//services/rsync/server/modules/module";
 		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
+		if(is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Add additional share informations
-		foreach ($objects as $objectk => &$objectv) {
+		// Add additional share informations.
+		foreach($objects as $objectk => &$objectv) {
 			$objectv['sharedfoldername'] = gettext("n/a");
-			// Modify result data
+			// Modify result data.
 			$objectv['readonly'] = boolval($objectv['readonly']);
 			$objectv['writeonly'] = boolval($objectv['writeonly']);
 			$objectv['list'] = boolval($objectv['list']);
 			$objectv['authusers'] = boolval($objectv['authusers']);
+			$objectv['usechroot'] = boolval($objectv['usechroot']);
 			$objectv['users'] = !is_array($objectv['users']) ?
 			  array() : $objectv['users']['user'];
-			// Get the shared folder configuration object
-			$sfobject = $xmlConfig->get("//system/shares/sharedfolder[" .
+			// Get the shared folder configuration object.
+			$sfobject = $xmlConfig->get("//system/shares/sharedfolder[".
 			  "uuid='{$objectv['sharedfolderref']}']");
-			if (!is_null($sfobject) && !empty($sfobject)) {
+			if(!is_null($sfobject) && !empty($sfobject)) {
 				$objectv['sharedfoldername'] = $sfobject['name'];
 			}
 		}
-		// Filter result
-		return $this->applyFilter($objects, $data['start'], $data['limit'],
-		  $data['sortfield'], $data['sortdir']);
+		// Filter result.
+		return $this->applyFilter($objects, $params['start'],
+		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
 	/**
 	 * Get a module configuration object.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
+	 * @param context The context of the caller.
 	 * @return The requested configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	public function getModule($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function getModule($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
+		// Get the configuration object.
 		$xpath = sprintf("//services/rsync/server/modules/module[uuid='%s']",
-		  $data['uuid']);
+		  $params['uuid']);
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Modify result data
+		// Modify result data.
 		$object['readonly'] = boolval($object['readonly']);
 		$object['writeonly'] = boolval($object['writeonly']);
 		$object['list'] = boolval($object['list']);
 		$object['authusers'] = boolval($object['authusers']);
+		$object['usechroot'] = boolval($object['usechroot']);
 		$object['users'] = !is_array($object['users']) ?
 		  array() : $object['users']['user'];
 		return $object;
@@ -249,85 +221,120 @@ class RsyncdRpc extends OMVRpc {
 
 	/**
 	 * Set a module configuration object.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
-	public function setModule($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function setModule($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Prepare configuration data
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+				  "sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
+				  "name":{'.$GLOBALS['OMV_JSONSCHEMA_SHARENAME'].'},
+				  "comment":{"type":"string"},
+				  "uid":{"type":"string"},
+				  "gid":{"type":"string"},
+				  "readonly":{"type":"boolean"},
+				  "writeonly":{"type":"boolean"},
+				  "maxconnections":{"type":"integer","minimum":0},
+				  "list":{"type":"boolean"},
+				  "hostsallow":{"type":"string"},
+				  "hostsdeny":{"type":"string"},
+				  "authusers":{"type":"boolean"},
+				  "usechroot":{"type":"boolean"},
+				  "users":{
+					  "type":"array",
+					  "items":{
+						  "type":"object",
+						  "properties":{
+							  "name":{"type":"string"},
+							  "password":{"type":"string"}
+						  }
+					  }
+				  },
+				  "extraoptions":{"type":"string"}
+			  }
+		  }');
+		// Prepare the configuration object.
 		$object = array(
-			"uuid" => ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $data['uuid'],
-			"sharedfolderref" => $data['sharedfolderref'],
-			"name" => $data['name'],
-			"uid" => $data['uid'],
-			"gid" => $data['gid'],
-			"comment" => $data['comment'],
-			"readonly" => array_boolval($data, 'readonly'),
-			"writeonly" => array_boolval($data, 'writeonly'),
-			"maxconnections" => $data['maxconnections'],
-			"list" => array_boolval($data, 'list'),
-			"hostsallow" => $data['hostsallow'],
-			"hostsdeny" => $data['hostsdeny'],
-			"authusers" => array_boolval($data, 'authusers'),
-			"users" => !empty($data['users']) ?
-			  array("user" => $data['users']) : array(),
-			"extraoptions" => $data['extraoptions']
-		);
-		// Set configuration data
+			  "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+				OMVUtil::uuid() : $params['uuid'],
+			  "sharedfolderref" => $params['sharedfolderref'],
+			  "name" => $params['name'],
+			  "uid" => $params['uid'],
+			  "gid" => $params['gid'],
+			  "comment" => $params['comment'],
+			  "readonly" => array_boolval($params, 'readonly'),
+			  "writeonly" => array_boolval($params, 'writeonly'),
+			  "maxconnections" => $params['maxconnections'],
+			  "list" => array_boolval($params, 'list'),
+			  "hostsallow" => $params['hostsallow'],
+			  "hostsdeny" => $params['hostsdeny'],
+			  "authusers" => array_boolval($params, 'authusers'),
+			  "usechroot" => array_boolval($params, 'usechroot'),
+			  "users" => !empty($params['users']) ?
+				array("user" => $params['users']) : array(),
+			  "extraoptions" => $params['extraoptions']
+		  );
+		// Set the configuration object.
 		$success = FALSE;
-		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Append object to configuration
+		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			// Append object to configuration.
 			$success = $xmlConfig->set("//services/rsync/server/modules",
 			  array("module" => $object));
 		} else {
-			// Update existing configuration object
-			$success = $xmlConfig->replace("//services/rsync/server/modules/" .
-			  "module[uuid='{$data['uuid']}']", $object);
+			// Update existing configuration object.
+			$success = $xmlConfig->replace("//services/rsync/server/modules/".
+			  "module[uuid='{$params['uuid']}']", $object);
 		}
-		if (FALSE === $success) {
+		if(FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.rsync.server.modules.module", $object);
+		// Return the configuration object.
+		return $object;
 	}
 
 	/**
 	 * Delete a module configuration object.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return The deleted configuration object.
 	 */
-	public function deleteModule($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions.
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters.
-		$this->validateParams(__METHOD__, func_get_args());
+	public function deleteModule($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
 		// Delete the configuration object.
 		$xpath = sprintf("//services/rsync/server/modules/module[uuid='%s']",
-		  $data['uuid']);
-		$this->deleteConfigObjectByPath($xpath,
+		  $params['uuid']);
+		return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.services.rsync.server.modules.module");
 	}
 }
+
+// Register the RPC service.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->registerService(new OMVRpcServiceRsyncd());
 ?>

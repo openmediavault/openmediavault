@@ -1,3 +1,9 @@
+openmediavault-netatalk (0.5) stable; urgency=low
+
+  * Adapt plugin to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 26 Nov 2012 19:21:45 +0100
+
 openmediavault-netatalk (0.4) stable; urgency=low
 
   * Upgrade to xmlstarlet 1.3.1.

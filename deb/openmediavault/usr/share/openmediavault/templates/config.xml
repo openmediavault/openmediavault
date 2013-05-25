@@ -36,6 +36,19 @@
 			<primaryemail></primaryemail>
 			<secondaryemail></secondaryemail>
 		</email>
+		<notification>
+			<notifications>
+				<!--
+				<xxx>0|1</xxx>
+				-->
+				<monitprocevents>1</monitprocevents>
+				<monitloadavg>1</monitloadavg>
+				<monitmemoryusage>1</monitmemoryusage>
+				<monitcpuusage>1</monitcpuusage>
+				<mdadm>1</mdadm>
+				<smartmontools>1</smartmontools>
+			</notifications>
+		</notification>
 		<certificates>
 			<!--
 			<sslcertificate>
@@ -61,6 +74,7 @@
 					<mtu></mtu>
 					<wol>0|1</wol>
 					<options></options>
+					<comment>xxx</comment>
 				</iface>
 				<bondiface>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
@@ -72,6 +86,7 @@
 					<mtu></mtu>
 					<wol>0|1</wol>
 					<options></options>
+					<comment>xxx</comment>
 					<slaves>((eth|wlan)\d+,)*(eth|wlan)\d+</slaves>
 					<bondprimary>(eth|wlan)\d+</bondprimary>
 					<bondmode>0|1|2|3|4|5|6</bondmode>
@@ -166,8 +181,11 @@
 			<hdparm>
 				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 				<devicefile>/dev/xxx</devicefile>
-				<smart>0|1</smart>
-				<apm>255 = disable|1-254<apm>
+				<smart>
+					<enable>0|1</enable>
+					<devicetype>|sat|cciss|xxx</devicetype>
+				</smart>
+				<apm>0 = disable|1-255<apm>
 				<aam>0|128|254</aam>
 				<spindowntime>0 = disabled|1-254</spindowntime>
 				<writecache>0|1</writecache>
@@ -245,10 +263,6 @@
 		<forcesslonly>0</forcesslonly>
 		<sslcertificateref></sslcertificateref>
 		<timeout>5</timeout>
-		<dnssd>
-			<enable>1</enable>
-			<name>%h - Web administration</name>
-		</dnssd>
 	</webadmin>
 	<!-- Plugin configuration area -->
 	<services>
@@ -260,10 +274,6 @@
 			<permitrootlogin>1</permitrootlogin>
 			<tcpforwarding>0</tcpforwarding>
 			<compression>0</compression>
-			<dnssd>
-				<enable>1</enable>
-				<name>%h - SSH</name>
-			</dnssd>
 		</ssh>
 		<nfs>
 			<enable>0</enable>
@@ -281,10 +291,6 @@
 				</share>
 				-->
 			</shares>
-			<dnssd>
-				<enable>1</enable>
-				<name>%h - NFS</name>
-			</dnssd>
 		</nfs>
 		<ftp>
 			<enable>0</enable>
@@ -342,10 +348,6 @@
 					<extraoptions></extraoptions>
 				</mod_tls>
 			</modules>
-			<dnssd>
-				<enable>1</enable>
-				<name>%h - FTP</name>
-			</dnssd>
 		</ftp>
 		<smart>
 			<!--
@@ -384,17 +386,14 @@
 			<allownewfiles>0</allownewfiles>
 			<sharedfolderref></sharedfolderref>
 			<extraoptions></extraoptions>
-			<dnssd>
-				<enable>1</enable>
-				<name>%h - TFTP</name>
-			</dnssd>
 		</tftp>
 		<smb>
 			<enable>0</enable>
 			<workgroup>WORKGROUP</workgroup>
 			<serverstring>%h server</serverstring>
 			<loglevel>0</loglevel>
-			<usesendfile>0</usesendfile>
+			<usesendfile>1</usesendfile>
+			<aio>1</aio>
 			<nullpasswords>0</nullpasswords>
 			<localmaster>1</localmaster>
 			<timeserver>0</timeserver>
@@ -414,6 +413,8 @@
 					<readonly>0</readonly>
 					<browseable>1</browseable>
 					<recyclebin>0</recyclebin>
+					<recyclemaxsize>0</recyclemaxsize>
+					<recyclemaxage>0</recyclemaxage>
 					<hidedotfiles>1</hidedotfiles>
 					<inheritacls>1</inheritacls>
 					<inheritpermissions>0</inheritpermissions>
@@ -425,10 +426,6 @@
 				</share>
 				-->
 			</shares>
-			<dnssd>
-				<enable>1</enable>
-				<name>%h - SMB/CIFS</name>
-			</dnssd>
 		</smb>
 		<rsync>
 			<server>
@@ -452,6 +449,7 @@
 						<hostsdeny></hostsdeny>
 						<extraoptions></extraoptions>
 						<authusers>0|1</authusers>
+						<usechroot>0|1</usechroot>
 						<users>
 							<user>
 								<name>xxx</name>
@@ -461,10 +459,6 @@
 					</module>
 					-->
 				</modules>
-				<dnssd>
-					<enable>1</enable>
-					<name>%h - Rsync</name>
-				</dnssd>
 			</server>
 			<jobs>
 				<!--
@@ -529,5 +523,51 @@
 				<port>162</port>
 			</trap>
 		</snmp>
+		<zeroconf>
+			<services>
+				<!--
+				<service>
+					<id>xxx</id>
+					<enable>0|1</enable>
+					<name>xxx</name>
+				</service>
+				-->
+				<service>
+					<id>webadmin</id>
+					<enable>1</enable>
+					<name>%h - Web administration</name>
+				</service>
+				<service>
+					<id>ssh</id>
+					<enable>1</enable>
+					<name>%h - SSH</name>
+				</service>
+				<service>
+					<id>nfs</id>
+					<enable>1</enable>
+					<name>%h - NFS</name>
+				</service>
+				<service>
+					<id>ftp</id>
+					<enable>1</enable>
+					<name>%h - FTP</name>
+				</service>
+				<service>
+					<id>tftp</id>
+					<enable>1</enable>
+					<name>%h - TFTP</name>
+				</service>
+				<service>
+					<id>smb</id>
+					<enable>1</enable>
+					<name>%h - SMB/CIFS</name>
+				</service>
+				<service>
+					<id>rsync</id>
+					<enable>1</enable>
+					<name>%h - Rsync</name>
+				</service>
+			</services>
+		</zeroconf>
 	</services>
 </config>

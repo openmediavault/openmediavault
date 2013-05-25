@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -52,6 +52,7 @@ OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS=${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS:-"/etc
 OMV_POSTFIX_SMTP_SASL_SECURITY_OPTIONS=${OMV_POSTFIX_INETINTERFACES:-"noanonymous"}
 OMV_POSTFIX_SMTP_SASL_MECHANISM_FILTER=${OMV_POSTFIX_SMTP_SASL_MECHANISM_FILTER:-""}
 OMV_POSTFIX_SMTP_HEADER_CHECKS=${OMV_POSTFIX_SMTP_HEADER_CHECKS:-"/etc/postfix/smtp_header_checks"}
+OMV_POSTFIX_SMTP_TLS_SECURITY_LEVEL=${OMV_POSTFIX_SMTP_TLS_SECURITY_LEVEL:-"may"}
 OMV_POSTFIX_SMTP_TLS_CAFILE=${OMV_POSTFIX_SMTP_TLS_CAFILE:-"/etc/ssl/certs/ca-certificates.crt"}
 OMV_POSTFIX_SMTP_TLS_CAPATH=${OMV_POSTFIX_SMTP_TLS_CAPATH:-"/etc/ssl/certs"}
 OMV_POSTFIX_CRON_CONFIG=${OMV_POSTFIX_CRON_CONFIG:-"/etc/cron.hourly/openmediavault-flushmailq"}
@@ -68,11 +69,11 @@ xmlstarlet sel -t -m "//system/email" \
     -o "smtp_sasl_auth_enable = ${OMV_POSTFIX_SMTP_SASL_AUTH_ENABLE}" -n \
     -o "smtp_sasl_security_options = ${OMV_POSTFIX_SMTP_SASL_SECURITY_OPTIONS}" -n \
     -o "smtp_sasl_password_maps = hash:${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}" -n \
-	-o "smtp_sasl_mechanism_filter = ${OMV_POSTFIX_SMTP_SASL_MECHANISM_FILTER}" -n \
+    -o "smtp_sasl_mechanism_filter = ${OMV_POSTFIX_SMTP_SASL_MECHANISM_FILTER}" -n \
   -b \
   -i "tls[. = '1']" \
-    -o "smtp_use_tls = yes" -n \
-	-o "smtp_tls_CAfile = ${OMV_POSTFIX_SMTP_TLS_CAFILE}" -n \
+    -o "smtp_tls_security_level = ${OMV_POSTFIX_SMTP_TLS_SECURITY_LEVEL}" -n \
+    -o "smtp_tls_CAfile = ${OMV_POSTFIX_SMTP_TLS_CAFILE}" -n \
     -o "smtp_tls_CApath = ${OMV_POSTFIX_SMTP_TLS_CAPATH}" -n \
   -b \
   -o "smtp_header_checks = regexp:${OMV_POSTFIX_SMTP_HEADER_CHECKS}" -n \
@@ -94,8 +95,8 @@ postmap ${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}
 myhostname=$(postconf -h myhostname)
 xmlstarlet sel -t \
   -i "//system/email/enable[. = '1']" \
-	-v "concat('root ',//system/email/sender)" -n \
-	-v "concat('openmediavault ',//system/email/sender)" -n \
+	-v "concat('root ',//system/email/primaryemail)" -n \
+	-v "concat('openmediavault ',//system/email/primaryemail)" -n \
 	-m "//system/usermanagement/users/user[email != '']" \
 	  -v "concat(name,' ',email)" -n \
 	-b \

@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,19 +25,24 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_CERTIFICATE_DIR=${OMV_CERTIFICATE_DIR:-"/etc/ssl"}
+OMV_CERTIFICATE_PREFIX=${OMV_CERTIFICATE_PREFIX:-"openmediavault-"}
 
-# Create the certificate files
+# Remove all certificates, thus deleted ones are removed also.
+rm -f "${OMV_CERTIFICATE_DIR}/certs/${OMV_CERTIFICATE_PREFIX}*.crt"
+rm -f "${OMV_CERTIFICATE_DIR}/private/${OMV_CERTIFICATE_PREFIX}*.key"
+
+# Create the certificate files.
 xmlstarlet sel -t -m "//system/certificates/sslcertificate" \
   -v uuid -i "position() != last()" -n -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid; do
-	  crtfile="${OMV_CERTIFICATE_DIR}/certs/${uuid}.crt"
+	  crtfile="${OMV_CERTIFICATE_DIR}/certs/${OMV_CERTIFICATE_PREFIX}${uuid}.crt"
 	  xmlstarlet sel -t -m "//system/certificates/sslcertificate[uuid='${uuid}']" \
 		-v certificate \
 		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${crtfile}
 	  chmod 0640 ${crtfile}
 
-	  keyfile="${OMV_CERTIFICATE_DIR}/private/${uuid}.key"
+	  keyfile="${OMV_CERTIFICATE_DIR}/private/${OMV_CERTIFICATE_PREFIX}${uuid}.key"
 	  xmlstarlet sel -t -m "//system/certificates/sslcertificate[uuid='${uuid}']" \
 		-v privatekey \
 		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${keyfile}

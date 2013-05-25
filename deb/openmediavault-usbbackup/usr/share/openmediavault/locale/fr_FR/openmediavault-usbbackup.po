@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Nahir Mohamed <nahirmoha@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-15 16:25+0100\n"
+"PO-Revision-Date: 2013-02-16 18:59+0000\n"
+"Last-Translator: Nahir Mohamed <nahirmoha@gmail.com>\n"
+"Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: fr_FR\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "A backup job already exists for this storage device"
+msgstr "Une tâche de sauvegarde existe déjà pour ce périphérique de stockage."
+
+msgid "Add USB backup job"
+msgstr "Ajouter une tâche de sauvegarde USB"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "Un email avec la sortie de la commande (si  il y a) est envoyé à l'administrateur."
+
+msgid "Archive"
+msgstr "Archiver"
+
+msgid "Comment"
+msgstr "Commentaire"
+
+msgid "Compress"
+msgstr "Compresser"
+
+msgid "Compress file data during the transfer."
+msgstr "Compresser les données durant le transfert."
+
+msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "Supprimer les fichiers de destination qui n'existe pas dans les fichiers sources."
+
+msgid "Device '%s' not found"
+msgstr "Le périphérique '%s' n'a pas été trouvé"
+
+msgid "Edit USB backup job"
+msgstr "Editer la tâche de sauvegarde usb"
+
+msgid "Enable"
+msgstr "Activer"
+
+msgid "Enable archive mode."
+msgstr "Activer le mode archive"
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Activer cette option pour conserver les fichiers partiellement transferés, sinon ils seront détruis en cas d'interruption du transfert."
+
+msgid "Enabled"
+msgstr "Activé"
+
+msgid "Execute USB backup job"
+msgstr "Exectuer la tâche de sauvegarde USB"
+
+msgid "External storage device"
+msgstr "Périphérique de stockage externe"
+
+msgid "Extra options"
+msgstr "Options supplémentaires"
+
+msgid "Failed to get filesystems"
+msgstr "Echec de lecture du système de fichier"
+
+msgid "Filesystem '%s' not found"
+msgstr "Système de fichier '%s' non trouvé"
+
+msgid "Keep partially transferred files"
+msgstr "Converse les fichiers partiellement transferés"
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Veuillez vous référer aux <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>pages du manuel</a> pour plus de détails."
+
+msgid "Preserve ACLs"
+msgstr "Preserver les ACL"
+
+msgid "Preserve extended attributes"
+msgstr "Preserver les attributs étendus"
+
+msgid "Preserve modification times."
+msgstr "Préserver les dates et heures de modification."
+
+msgid "Preserve permissions"
+msgstr "Preserver les permissions"
+
+msgid "Quiet"
+msgstr "Silencieux"
+
+msgid "Recurse into directories."
+msgstr "Parcourir les dossiers récursivement"
+
+msgid "Recursive"
+msgstr "Récursif"
+
+msgid "Run"
+msgstr "Lancer"
+
+msgid "Select a volume ..."
+msgstr "Selectionner un volume"
+
+msgid "Send command output via email."
+msgstr "Envoyer la sortie de la commande par mail."
+
+msgid "Send email"
+msgstr "Envoyer un email"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "Configurer les permissions de la destionation à l'identique de celles de la source."
+
+msgid "Shared folder"
+msgstr "Dossier partagé"
+
+msgid "Suppress non-error messages."
+msgstr "Conserver uniquement les messages d'erreurs."
+
+msgid "The external storage device."
+msgstr "Le périphérique de stockage externe"
+
+msgid ""
+"The shared folder to synchronise when the external storage device is "
+"connected."
+msgstr "Le dossier partagé à synchroniser lorsque le périphérique de stockage externe est connecté."
+
+msgid "Times"
+msgstr "Heure et date"
+
+msgid "USB Backup"
+msgstr "Sauvegarde USB"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "Mettre à jour les ACL de destination pour correspondre au ACL de la source."
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "Mettre à jour les attribus étendus de la destination pour correspondre à celles locales."
+
+msgid "Volume"
+msgstr "Volume"
+
+msgid "n/a"
+msgstr "n/a"

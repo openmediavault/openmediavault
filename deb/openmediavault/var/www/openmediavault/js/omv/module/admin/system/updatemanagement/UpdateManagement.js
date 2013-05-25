@@ -1,0 +1,424 @@
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2013 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ */
+// require("js/omv/WorkspaceManager.js")
+// require("js/omv/workspace/grid/Panel.js")
+// require("js/omv/util/Format.js")
+// require("js/omv/Rpc.js")
+// require("js/omv/data/Store.js")
+// require("js/omv/data/Model.js")
+// require("js/omv/data/proxy/Rpc.js")
+// require("js/omv/window/Execute.js")
+// require("js/omv/window/Upload.js")
+
+/**
+ * @class OMV.module.admin.system.updatemanagement.Packages
+ * @derived OMV.workspace.grid.Panel
+ */
+Ext.define("OMV.module.admin.system.updatemanagement.Packages", {
+	extend: "OMV.workspace.grid.Panel",
+	requires: [
+		"OMV.Rpc",
+		"OMV.data.Store",
+		"OMV.data.Model",
+		"OMV.data.proxy.Rpc",
+		"OMV.util.Format",
+		"OMV.window.Execute",
+		"OMV.window.Upload"
+	],
+
+	maskBody: true,
+	hidePagingToolbar: true,
+	hideAddButton: true,
+	hideEditButton: true,
+	hideDeleteButton: true,
+	stateful: true,
+	stateId: "1a2ca00e-37ac-4aa4-8cbe-290d8f95bd1b",
+	selType: "checkboxmodel",
+	columns: [{
+		text: _("Package information"),
+		sortable: true,
+		dataIndex: "name",
+		stateId: "info",
+		flex: 1,
+		renderer: function(value, metaData, record) {
+			var tpl = new Ext.XTemplate(
+			  '<b>{name} {version}</b><br/>',
+			  '{description}<br/><br/>',
+			  '<tpl if="!Ext.isEmpty(values.longdescription)">',
+				'{[OMV.util.Format.whitespace(values.longdescription)]}<br/><br/>',
+			  '</tpl>',
+			  _("Size") + ': {[OMV.util.Format.binaryUnit(values.size)]}<br/>',
+			  '<tpl if="!Ext.isEmpty(values.maintainer)">',
+				_("Maintainer") + ': {[Ext.String.htmlEncode(values.maintainer)]}<br/>',
+			  '</tpl>',
+			  '<tpl if="!Ext.isEmpty(values.homepage)">',
+				_("Homepage") + ': {[Ext.String.htmlEncode(values.homepage)]}<br/>',
+			  '</tpl>',
+			  '<tpl if="!Ext.isEmpty(values.repository)">',
+				_("Repository") + ': {[Ext.String.htmlEncode(values.repository)]}<br/>',
+			  '</tpl>');
+			value = tpl.apply(record.data);
+			return value;
+		}
+/**
+ * Workaround:
+ * See http://www.sencha.com/forum/showthread.php?251392-4.1.3-Renderer-of-hidden-column-can-cause-undesired-effect
+	},{
+		text: _("Name"),
+		sortable: true,
+		dataIndex: "name",
+		stateId: "name",
+		width: 180,
+		hidden: true
+	},{
+		text: _("Version"),
+		sortable: false,
+		dataIndex: "version",
+		stateId: "version",
+		width: 120,
+		hidden: true
+	},{
+		text: _("Repository"),
+		sortable: true,
+		dataIndex: "repository",
+		stateId: "repository",
+		width: 160,
+		hidden: true
+	},{
+		text: _("Description"),
+		sortable: true,
+		dataIndex: "description",
+		stateId: "description",
+		renderer: function(value, metaData, record) {
+			var longdescription = record.get("longdescription");
+			if(!Ext.isEmpty(longdescription)) {
+				value = Ext.String.format("<b>{0}</b><br/>{1}",
+				  value, Ext.String.htmlEncode(longdescription));
+			}
+			return OMV.util.Format.whitespace(value);
+		},
+		width: 340,
+		hidden: true
+	},{
+		text: _("Size"),
+		sortable: true,
+		dataIndex: "size",
+		stateId: "size",
+		renderer: OMV.util.Format.binaryUnitRenderer(),
+		width: 80,
+		hidden: true
+	},{
+		text: _("Maintainer"),
+		sortable: true,
+		dataIndex: "maintainer",
+		stateId: "maintainer",
+		width: 140,
+		hidden: true
+	},{
+		text: _("Homepage"),
+		sortable: true,
+		dataIndex: "homepage",
+		stateId: "homepage",
+		width: 140,
+		hidden: true
+*/
+	}],
+
+	initComponent: function() {
+		var me = this;
+		Ext.apply(me, {
+			store: Ext.create("OMV.data.Store", {
+				autoLoad: true,
+				model: OMV.data.Model.createImplicit({
+					idProperty: "name",
+					fields: [
+						{ name: "name" },
+						{ name: "version" },
+						{ name: "repository" },
+						{ name: "description" },
+						{ name: "longdescription" },
+						{ name: "homepage" },
+						{ name: "maintainer" },
+						{ name: "size" },
+						{ name: "filename" }
+					]
+				}),
+				proxy: {
+					type: "rpc",
+					rpcData: {
+						service: "Apt",
+						method: "getUpgraded"
+					},
+					appendSortParams: false
+				},
+				sorters: [{
+					direction: "ASC",
+					property: "name"
+				}]
+			})
+		});
+		me.callParent(arguments);
+	},
+
+	getTopToolbarItems: function() {
+		var me = this;
+		var items = me.callParent(arguments);
+		Ext.Array.insert(items, 0, [{
+			id: me.getId() + "-check",
+			xtype: "button",
+			text: _("Check"),
+			icon: "images/reload.png",
+			handler: Ext.Function.bind(me.onCheckButton, me, [ me ]),
+			scope: me
+		},{
+			id: me.getId() + "-upload",
+			xtype: "button",
+			text: _("Upload"),
+			icon: "images/upload.png",
+			handler: Ext.Function.bind(me.onUploadButton, me, [ me ]),
+			scope: me
+		},{
+			id: me.getId() + "-install",
+			xtype: "button",
+			text: _("Install"),
+			icon: "images/yes.png",
+			handler: Ext.Function.bind(me.onInstallButton, me, [ me ]),
+			scope: me,
+			disabled: true
+		}]);
+		Ext.Array.push(items, {
+			id: me.getId() + "-changelog",
+			xtype: "button",
+			text: _("Show changelog"),
+			icon: "images/changelog.png",
+			handler: Ext.Function.bind(me.onChangelogButton, me, [ me ]),
+			scope: me,
+			disabled: true
+		});
+		return items;
+	},
+
+	onSelectionChange: function(model, records) {
+		var me = this;
+		me.callParent(arguments);
+		// Process additional buttons.
+		var tbarBtnName = [ "install", "changelog" ];
+		var tbarBtnDisabled = {
+			"install": true,
+			"changelog": true
+		};
+		if(records.length <= 0) {
+			tbarBtnDisabled["install"] = true;
+			tbarBtnDisabled["changelog"] = true;
+		} else if(records.length == 1) {
+			tbarBtnDisabled["install"] = false;
+			tbarBtnDisabled["changelog"] = false;
+		} else {
+			tbarBtnDisabled["install"] = false;
+			tbarBtnDisabled["changelog"] = true;
+		}
+		// Update the button states.
+		for(var i = 0; i < tbarBtnName.length; i++) {
+			var tbarBtnCtrl = me.queryById(me.getId() + "-" + tbarBtnName[i]);
+			if(!Ext.isEmpty(tbarBtnCtrl)) {
+				if(true == tbarBtnDisabled[tbarBtnName[i]]) {
+					tbarBtnCtrl.disable();
+				} else {
+					tbarBtnCtrl.enable();
+				}
+			}
+		}
+	},
+
+	onInstallButton: function() {
+		var me = this;
+		var records = me.getSelection();
+		var packages = [];
+		var showMessageBox = false;
+		Ext.Array.each(records, function(record) {
+			var name = record.get("name");
+			packages.push(name);
+			// Is it a plugin?
+			if(RegExp("^"+OMV.PRODUCT_PACKAGENAME+"(-\S+)?$", "i").test(
+			  name)) {
+				showMessageBox = true;
+			}
+		});
+		var wnd = Ext.create("OMV.window.Execute", {
+			title: _("Install updates ..."),
+			rpcService: "Apt",
+			rpcMethod: "upgrade",
+			rpcParams: { "packages": packages },
+			rpcIgnoreErrors: true,
+			hideStartButton: true,
+			hideStopButton: true,
+			listeners: {
+				scope: me,
+				finish: function(wnd, response) {
+					wnd.appendValue(_("Done ..."));
+					wnd.setButtonDisabled("close", false);
+				},
+				exception: function(wnd, error) {
+					OMV.MessageBox.error(null, error);
+					wnd.setButtonDisabled("close", false);
+				},
+				close: function() {
+					me.doReload();
+					// Display a message box if plugins have been updated to
+					// notify the user to reload the page. This is necessary
+					// to let potentially new WebGUI Javascript code take
+					// effect.
+					if(true === showMessageBox) {
+						OMV.MessageBox.info(null, _("Please reload the page to let the changes take effect."));
+					}
+				}
+			}
+		});
+		wnd.setButtonDisabled("close", true);
+		wnd.show();
+		wnd.start();
+	},
+
+	onUploadButton: function() {
+		var me = this;
+		Ext.create("OMV.window.Upload", {
+			title: _("Upload package"),
+			service: "Apt",
+			method: "upload",
+			listeners: {
+				scope: me,
+				success: function(wnd, response) {
+					// The upload was successful, now resynchronize the
+					// package index files from their sources.
+					me.onCheckButton();
+				}
+			}
+		}).show();
+	},
+
+	onCheckButton: function() {
+		var me = this;
+		OMV.MessageBox.wait(null, _("Checking for new updates ..."));
+		// Execute RPC.
+		OMV.Rpc.request({
+			  scope: me,
+			  callback: function(id, success, response) {
+				  if(!success) {
+					  OMV.MessageBox.hide();
+					  OMV.MessageBox.error(null, response);
+				  } else {
+					  // Execute RPC.
+					  OMV.Rpc.request({
+						  scope: me,
+						  callback: me.onIsRunning,
+						  relayErrors: true,
+						  rpcData: {
+							  service: "Exec",
+							  method: "isRunning",
+							  params: {
+								  "filename": response
+							  }
+						  }
+					  });
+				  }
+			  },
+			  relayErrors: true,
+			  rpcData: {
+				  service: "Apt",
+				  method: "update"
+			  }
+		  });
+	},
+
+	onIsRunning: function(id, success, response) {
+		var me = this;
+		if(!success) {
+			OMV.MessageBox.hide();
+			OMV.MessageBox.error(null, response);
+		} else {
+			if(response.running === true) {
+				Ext.Function.defer(function() {
+					// Execute RPC.
+					OMV.Rpc.request({
+						scope: me,
+						callback: me.onIsRunning,
+						relayErrors: true,
+						rpcData: {
+							service: "Exec",
+							method: "isRunning",
+							params: {
+								filename: response.filename
+							}
+						}
+					});
+				}, 500, me);
+			} else {
+				OMV.MessageBox.hide();
+				me.doReload();
+			}
+		}
+	},
+
+	onChangelogButton: function() {
+		var me = this;
+		var record = me.getSelected();
+		var wnd = Ext.create("OMV.window.Execute", {
+			title: _("Changelog"),
+			rpcService: "Apt",
+			rpcMethod: "getChangeLog",
+			rpcParams: {
+				filename: record.get("filename")
+			},
+			hideStartButton: true,
+			hideStopButton: true,
+			scrollBottom: false,
+			listeners: {
+				finish: function(wnd, response) {
+					wnd.setButtonDisabled("close", false);
+				},
+				exception: function(wnd, error) {
+					OMV.MessageBox.error(null, error);
+					wnd.close();
+				},
+				scope: me
+			}
+		});
+		wnd.setButtonDisabled("close", true);
+		wnd.show();
+		wnd.start();
+	}
+});
+
+OMV.WorkspaceManager.registerNode({
+	id: "updatemanagement",
+	path: "/system",
+	text: _("Update Manager"),
+	icon16: "images/system-software-update.png",
+	position: 80
+});
+
+OMV.WorkspaceManager.registerPanel({
+	id: "packages",
+	path: "/system/updatemanagement",
+	text: _("Update Manager"),
+	position: 10,
+	className: "OMV.module.admin.system.updatemanagement.Packages"
+});

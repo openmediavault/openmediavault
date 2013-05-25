@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,43 +22,35 @@
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
-require_once("openmediavault/rpc.inc");
 require_once("openmediavault/product.inc");
+require_once("openmediavault/rpcservice.inc");
 
-class PluginRpc extends OMVRpc {
-	public function __construct() {
-		$this->methodSchemata = array(
-			"getList" => array('{
-				"type":"object",
-				"properties":{
-					"start":{"type":"integer"},
-					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-				}
-			}'),
-			"remove" => array('{
-				"type":"object",
-				"properties":{
-					"packages":{"type":"array","items":{"type":"string"}}
-				}
-			}'),
-			"install" => array('{
-				"type":"object",
-				"properties":{
-					"packages":{"type":"array","items":{"type":"string"}}
-				}
-			}')
-		);
+class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
+	/**
+	 * Get the RPC service name.
+	 */
+	public function getName() {
+		return "Plugin";
+	}
+
+	/**
+	 * Initialize the RPC service.
+	 */
+	public function initialize() {
+		$this->registerMethod("getList");
+		$this->registerMethod("remove");
+		$this->registerMethod("upload");
+		$this->registerMethod("install");
 	}
 
 	/**
 	 * Get list of installed packages/plugins.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em start The index where to start.
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @param context The context of the caller.
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An object contains the following fields: \em name, \em version,
@@ -69,35 +61,39 @@ class PluginRpc extends OMVRpc {
 	 *   are optional: \em longdescription, \em depends, \em replaces and
 	 *   \em conflicts. An exception will be thrown in case of an error.
 	 */
-	function getList($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+	function getList($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "start":{"type":"integer"},
+				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+			  }
+		  }');
 		// Get product informations
 		$prd = new OMVProduct();
 		// List of packages to ignore.
 		$except = array(sprintf("%s-keyring", $prd->getPackageName()));
 		// Get list of available plugin packages.
-		$cmd = sprintf("export LANG=C; sudo apt-cache search %s-",
+		$cmd = sprintf("export LANG=C; apt-cache search %s-",
 		  $prd->getPackageName());
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 		$objects = array();
-		foreach ($output as $row) {
+		foreach($output as $row) {
 			$regex = sprintf("/^(%s-\S+) - (.+)$/", $prd->getPackageName());
-			if (1 !== preg_match($regex, $row, $matches))
+			if(1 !== preg_match($regex, $row, $matches))
 				continue;
 			// Skip packages listed in the ignore list.
-			if (in_array($matches[1], $except))
+			if(in_array($matches[1], $except))
 				continue;
 			// Set default package informations.
 			$object = array(
@@ -107,10 +103,9 @@ class PluginRpc extends OMVRpc {
 				"_readOnly" => TRUE
 			);
 			// Get additional package informations.
-			$cmd = sprintf("export LANG=C; sudo apt-cache --no-all-versions ".
+			$cmd = sprintf("export LANG=C; apt-cache --no-all-versions ".
 			  "show %s", $object['name']);
-			OMVUtil::exec($cmd, $output2, $result);
-			if ($result !== 0) {
+			if(0 !== $this->exec($cmd, $output2)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output2));
 			}
@@ -120,12 +115,12 @@ class PluginRpc extends OMVRpc {
 			// ...
 			// <fieldname>: <fieldvalue>
 			$fieldname = $fieldvalue = "";
-			foreach ($output2 as $row) {
+			foreach($output2 as $row) {
 				$regex = "/^(\S+): (.+)$/";
-				if (1 !== preg_match($regex, $row, $matches)) {
+				if(1 !== preg_match($regex, $row, $matches)) {
 					// Process folded/multiline fields. See
 					// http://www.debian.org/doc/debian-policy/ch-controlfields.html
-					switch ($fieldname) {
+					switch($fieldname) {
 					case "description":
 						$fieldname = "longdescription";
 						$object[$fieldname] = "";
@@ -134,7 +129,7 @@ class PluginRpc extends OMVRpc {
 						break;
 					}
 					$fieldvalue = trim($row);
-					if ($fieldvalue === ".")
+					if($fieldvalue === ".")
 						$fieldvalue = "\n";
 					$object[$fieldname] .= sprintf("%s\n", $fieldvalue);
 					continue;
@@ -147,13 +142,12 @@ class PluginRpc extends OMVRpc {
 			// to be too difficult, simply simulate the package installation.
 			// The 'apt-get' output includes the repository where the package
 			// comes from.
-			$cmd = sprintf("export LANG=C; sudo apt-get --simulate ".
+			$cmd = sprintf("export LANG=C; apt-get --simulate ".
 			  "--reinstall install %s 2>&1", $object['name']);
-			OMVUtil::exec($cmd, $output2, $result);
-			if ($result !== 0) {
+			if(0 !== $this->exec($cmd, $output2)) {
 				// Skip packages that fail, e.g. because of unmet
 				// dependencies.
-				if ($result == 100)
+				if($result == 100)
 					continue;
 				// Throw an exception for all other errors.
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -164,12 +158,12 @@ class PluginRpc extends OMVRpc {
 			// Inst file [5.04-5] (5.04-5+squeeze1 Debian-Security:6.0/stable [i386]) []
 			// Inst libxml2 [2.7.8.dfsg-2+squeeze2] (2.7.8.dfsg-2+squeeze3 Debian-Security:6.0/stable [i386])
 			// Inst libssl1.0.0 (1.0.0h-1 localhost [amd64])
-			foreach ($output2 as $row) {
+			foreach($output2 as $row) {
 				$regex = "/^Inst\s+(\S+)\s+(\[(\S+)|\])?\s*\((\S+)\s+(.+)\s+".
 				  "\[(\S+)\]\).*$/";
-				if (1 !== preg_match($regex, $row, $matches))
+				if(1 !== preg_match($regex, $row, $matches))
 					continue;
-				if ($object['name'] === $matches[1]) {
+				if($object['name'] === $matches[1]) {
 					$object['repository'] = $matches[5];
 					break;
 				}
@@ -179,24 +173,23 @@ class PluginRpc extends OMVRpc {
 		}
 		// Get list of installed packages.
 		unset($output);
-		$cmd = sprintf("export LANG=C;sudo dpkg-query --list %s-*",
+		$cmd = sprintf("export LANG=C; dpkg-query --list %s-*",
 		  $prd->getPackageName());
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		foreach ($output as $row) {
+		foreach($output as $row) {
 			$regex = sprintf("/^ii\s+(%s-\S+)\s+(\S+)\s+(.+)$/",
 			  $prd->getPackageName());
-			if (1 !== preg_match($regex, $row, $matches))
+			if(1 !== preg_match($regex, $row, $matches))
 				continue;
 			// Skip packages listed in the ignore list.
-			if (in_array($matches[1], $except))
+			if(in_array($matches[1], $except))
 				continue;
 			// Mark plugin package as installed?
-			foreach ($objects as $objectk => &$objectv) {
-				if ($objectv['name'] === $matches[1]) {
+			foreach($objects as $objectk => &$objectv) {
+				if($objectv['name'] === $matches[1]) {
 					$objectv['installed'] = TRUE;
 					$objectv['_readOnly'] = FALSE;
 					break;
@@ -204,139 +197,176 @@ class PluginRpc extends OMVRpc {
 			}
 		}
 		// Filter result
-		return $this->applyFilter($objects, $data['start'], $data['limit'],
-		  $data['sortfield'], $data['sortdir']);
+		return $this->applyFilter($objects, $params['start'],
+		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
 	/**
 	 * Remove a plugin.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em packages An array of package names to remove.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return The name of the background process status file.
 	 */
-	function remove($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+	function remove($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "packages":{"type":"array","items":{"type":"string"}}
+			  }
+		  }');
+		// Create a background process.
+		$bgStatusFilename = $this->createBgProcStatus();
+		$pid = $this->fork();
+		if($pid > 0) { // Parent process.
+			$this->initializeBgProcStatus($bgStatusFilename, $pid);
+			return $bgStatusFilename;
 		}
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get product informations
-		$prd = new OMVProduct();
-		// Validate package names
-		$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
-		foreach ($data['packages'] as $packagek => $packagev) {
-			if (0 == preg_match($regex, $packagev)) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to remove package '%s'. The name of the " .
-				  "package does not match the plugin naming convention.",
-				  $packagev));
+		// Child process.
+		try {
+			$bgOutputFilename = $this->createBgProcOutput();
+			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
+			  $bgOutputFilename);
+			// Get product informations.
+			$prd = new OMVProduct();
+			// Validate package names.
+			$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
+			foreach($params['packages'] as $packagek => $packagev) {
+				if(0 == preg_match($regex, $packagev)) {
+					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+					  sprintf("Failed to remove package '%s'. The name ".
+					  "of the package does not match the plugin naming ".
+					  "convention.", $packagev));
+				}
 			}
+			// Remove the packages.
+			$cmd = sprintf("export LANG=C; apt-get --yes --auto-remove ".
+			  "--purge remove %s 2>&1", implode(" ", $params['packages']));
+			if(0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
+			$this->finalizeBgProcStatus($bgStatusFilename, $output);
+			exit(0);
+		} catch(Exception $e) {
+			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
+			exit(1);
 		}
-		// Remove the packages
-		$outputFile = tempnam(sys_get_temp_dir(), "aptgetremove");
-		$cmd = sprintf("export LANG=C; sudo apt-get --yes --auto-remove ".
-		  "--purge remove %s >%s 2>&1 & echo $!", implode(" ",
-		  $data['packages']), $outputFile);
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-		// Remember pid and content filename in session
-		$pid = intval($output[0]);
-		$_SESSION['execjob'][$pid] = array(
-			"pid" => $pid,
-			"outputFile" => $outputFile
-		);
-		return $pid;
 	}
 
 	/**
 	 * Upload a package/plugin. Do some plugin specific checks, e.g. the
 	 * package name must match a given naming convention.
+	 * @param params An array containing the following fields:
+	 *   \em filename The original name of the file.
+	 *   \em filepath The path to the uploaded file.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_EXEC_FAILED
+	 * @throw E_MISC_FAILURE
 	 */
-	function upload() {
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Is file successfully upload?
-		if (!is_uploaded_file($_FILES['file']['tmp_name'])) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  "Invalid upload request");
-		}
-		// Get the real file name
-		$fileName = $_FILES['file']['name'];
-		// Extract the package name
-		$cmd = sprintf("export LANG=C; dpkg --field %s | grep 'Package: ' | ".
-		  "awk '{print \$2}'", escapeshellarg($_FILES['file']['tmp_name']));
-		$packageName = OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	function upload($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "filename":{"type":"string"},
+				  "filepath":{"type":"string"}
+			  }
+		  }');
+		// Extract the package name.
+		$cmd = sprintf("export LANG=C; dpkg --field %s | ".
+		  "grep 'Package: ' | awk '{print \$2}'", escapeshellarg(
+		  $params['filepath']));
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		// Get product informations
+		$packageName = end($output);
+		// Get product informations.
 		$prd = new OMVProduct();
 		// Validate package name
 		$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
-		if (0 == preg_match($regex, $packageName)) {
+		if(0 == preg_match($regex, $packageName)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to install package '%s'. The package name " .
-			  "does not match the plugin naming convention.", $fileName));
+			  sprintf("Failed to upload package '%s'. The package name " .
+			  "does not match the plugin naming convention.",
+			  $params['filename']));
 		}
-		// Continue to upload the package
-		OMVRpc::exec("Apt", "upload");
+		// Continue to upload the package.
+		return OMVRpc::exec("Apt", "upload", $params, $context);
 	}
 
 	/**
 	 * Install an package/plugin.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em packages An array of package names to install.
-	 * @return The process ID of the 'apt-get' command.
+	 * @param context The context of the caller.
+	 * @return The name of the background process status file.
 	 */
-	function install($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+	function install($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "packages":{"type":"array","items":{"type":"string"}}
+			  }
+		  }');
+		// Create a background process.
+		$bgStatusFilename = $this->createBgProcStatus();
+		$pid = $this->fork();
+		if($pid > 0) { // Parent process.
+			$this->initializeBgProcStatus($bgStatusFilename, $pid);
+			return $bgStatusFilename;
 		}
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get product informations
-		$prd = new OMVProduct();
-		// Validate package names
-		$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
-		foreach ($data['packages'] as $packagek => $packagev) {
-			if (0 == preg_match($regex, $packagev)) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to install package '%s'. The name of the " .
-				  "package does not match the plugin naming convention.",
-				  $packagev));
+		// Child process.
+		try {
+			$bgOutputFilename = $this->createBgProcOutput();
+			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
+			  $bgOutputFilename);
+			// Get product informations.
+			$prd = new OMVProduct();
+			// Validate package names.
+			$regex = sprintf("/^%s-.+$/", $prd->getPackageName());
+			foreach($params['packages'] as $packagek => $packagev) {
+				if(0 == preg_match($regex, $packagev)) {
+					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+					  sprintf("Failed to install package '%s'. The name ".
+					  "of the package does not match the plugin naming ".
+					  "convention.", $packagev));
+				}
 			}
+			// Install the packages.
+			$cmd = sprintf("export LANG=C; apt-get --yes --force-yes ".
+			  "--fix-missing --allow-unauthenticated --reinstall install ".
+			  "%s 2>&1", implode(" ", $params['packages']));
+			if(0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
+			$this->finalizeBgProcStatus($bgStatusFilename, $output);
+			exit(0);
+		} catch(Exception $e) {
+			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
+			exit(1);
 		}
-		// Install the packages
-		$outputFile = tempnam(sys_get_temp_dir(), "aptgetinstall");
-		$cmd = sprintf("export LANG=C;sudo apt-get --yes --force-yes ".
-		  "--fix-missing --allow-unauthenticated --reinstall install %s >%s ".
-		  "2>&1 & echo $!", implode(" ", $data['packages']), $outputFile);
-		OMVUtil::exec($cmd, $output, $res);
-		if ($res !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-		// Remember pid and content filename in session
-		$pid = intval($output[0]);
-		$_SESSION['execjob'][$pid] = array(
-			"pid" => $pid,
-			"outputFile" => $outputFile
-		);
-		return $pid;
 	}
 }
+
+// Register the RPC service.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->registerService(new OMVRpcServicePluginMgmt());
 ?>

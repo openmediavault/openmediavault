@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
-"PO-Revision-Date: 2012-11-19 19:12+0000\n"
+"POT-Creation-Date: 2012-12-22 03:12+0100\n"
+"PO-Revision-Date: 2012-12-22 02:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,15 +18,12 @@ msgstr ""
 "Language: el_GR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr "% ολοκληρώθηκε ..."
 
-#, c-format
 msgid "%s (%s available)"
 msgstr "%s (%s διαθέσιμο)"
 
-#, c-format
 msgid "%s [on %s]"
 msgstr "%s [σε %s]"
 
@@ -57,7 +54,6 @@ msgstr "10 λεπτά"
 msgid "10 years"
 msgstr "10 έτη"
 
-#, c-format
 msgid "100% completed ..."
 msgstr "100% ολοκληρώθηκε ..."
 
@@ -102,6 +98,9 @@ msgstr "25 έτη"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Μέγιστη απόδοση με μέγιστη κατανάλωση ενέργειας"
+
+msgid "255 - Disabled"
+msgstr "255 - Ανενεργό"
 
 msgid "3 days"
 msgstr "3 έτη"
@@ -422,7 +421,6 @@ msgstr "Bahrain"
 msgid "Ban list"
 msgstr "Λίστα αποκλεισμού"
 
-#, c-format
 msgid "Ban statistics:"
 msgstr "Στατιστικά αποκλεισμών"
 
@@ -689,7 +687,6 @@ msgstr "Cuba"
 msgid "Current time"
 msgstr "Τρέχουσα ώρα"
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr "Συνδεδεμένοι χρήστες :"
 
@@ -738,6 +735,9 @@ msgstr "Διαγραφή"
 msgid "Delete content"
 msgstr "Διαγραφή περιεχομένων"
 
+msgid "Delete files"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Διαγραφή αρχείων του λήπτη που δεν υπάρχουν στον αποστολέα"
 
@@ -785,7 +785,6 @@ msgstr "Καθορισμός προθεσμίας, σε εκατομμυριοσ
 msgid "Device"
 msgstr "Συσκευή"
 
-#, c-format
 msgid "Device '%s' not found"
 msgstr "Η συσκευή '%s' δεν βρέθηκε"
 
@@ -1039,7 +1038,7 @@ msgstr "Ενεργοποίηση προτοκόλου αναγνώρισης (id
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Αν ενεργοποιηθεί, τα ημιτελή αρχεία θα διατηρούνται, αλλιώς θα διαγράφονται εφόσον διακοπεί η μεταφορά τους."
 
 msgid "Enable user authentication"
 msgstr "Ενεργοποίηση πιστοποίησης χρηστών"
@@ -1071,7 +1070,6 @@ msgstr "Σφάλμα"
 msgid "Error #"
 msgstr "Σφάλμα #"
 
-#, c-format
 msgid "Error #%d"
 msgstr "Σφάλμα #%d"
 
@@ -1128,7 +1126,6 @@ msgstr "Το FXP επιτρέπει την μεταφορά αρχείων αν�
 msgid "Failed to call "
 msgstr "Αποτυχία κλήσης"
 
-#, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1161,14 +1158,22 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Αρχείο"
 
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr ""
+
+msgid ""
+"Files that are larger than the specified number of bytes will not be put "
+"into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
+
 msgid "Filesystem"
 msgstr "Σύστημα αρχείων"
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr "Το σύστημα αρχείων '%s' δεν βρέθηκε"
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr "Το σύστημα αρχείων '%s' δεν υποστηρίζεται"
 
@@ -1262,15 +1267,12 @@ msgstr "Grenada"
 msgid "Group"
 msgstr "Group"
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr "Η ομάδα '%s' υπάρχει ήδη"
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr "Η ομάδα '%s' δεν υπάρχει"
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr "Η ομάδα με αναγνωριστικό '%d' υπάρχει ήδη"
 
@@ -1481,7 +1483,6 @@ msgstr "Άκυρη ονομασία ομάδας"
 msgid "Invalid hostname"
 msgstr "Άκυρο όνομα συστήματος"
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr "Άκυρη γραμμή : %s"
 
@@ -1537,7 +1538,7 @@ msgid "Kazakhstan"
 msgstr "Kazakhstan"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Διατήρηση ημιτελών αρχείων"
 
 msgid "Kenya"
 msgstr "Kenya"
@@ -1634,7 +1635,6 @@ msgstr "Πληροφορίες τοποθεσίας συστήματος"
 msgid "Log level"
 msgstr "Επίπεδο καταγραφής"
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr "Λογικός τόμος %s [%s, %s]"
 
@@ -1737,6 +1737,9 @@ msgstr "Μέγιστες απόπειρες εισόδου"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Μέγιστη ταχύτητα κατεβάσματος (KiB/s)"
+
+msgid "Maximum file size"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1891,7 +1894,6 @@ msgstr "Μάσκα δικτύου"
 msgid "Network"
 msgstr "Δίκτυο"
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr "Η επαφή δικτύου '%s' υπάρχει ήδη"
 
@@ -2631,7 +2633,6 @@ msgstr "Ορίζει το διάστημα ανάμεσα στους ελέγχ�
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
-#, c-format
 msgid "Settings already exist for device '%s'"
 msgstr "Υπάρχουν ήδη ρυθμίσεις για την συσκευή '%s'"
 
@@ -2926,14 +2927,12 @@ msgstr "Ο απομακρυσμένος διακομιστής προορισμ�
 msgid "The destination shared folder."
 msgstr "Ο κοινόχρηστος φάκελος προορισμού."
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr "Το πεδίο '%s' περιέχει απαγορευμένο"
 
 msgid "The file mode of the shared folder path."
 msgstr "Η ιδιότητα αρχείου της διαδρομής διαμοιρασμού."
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr "Η ομάδα '%s' δεν υπάρχει"
 
@@ -3011,11 +3010,9 @@ msgstr "Το σύστημα θα επανεκκινήσει τώρα. Αυτό �
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "Το δοκιμαστικό μήνυμα εστάλη επιτυχώς. Ελέγξτε τα εισερχόμενά σας."
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr "Ο χρήστης '%s' δεν υπάρχει"
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr "Ο χρήστης '%s' δεν επιτρέπεται"
 
@@ -3033,7 +3030,6 @@ msgstr "Το μήνυμα καλωσορίσματος θα εμφανίζετα
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Ο διακομιστής θα αναφέρει οτι ανήκει σε αυτήν την ομάδα εργασίας όταν ρωτάνε οι πελάτες."
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr "Υπάρχει ήδη σημείο προσάρτησης για το '%s'q"
 
@@ -3310,11 +3306,9 @@ msgstr "United States"
 msgid "United States Minor Outlying Islands"
 msgstr "United States Minor Outlying Islands"
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr "Άγνωστο σύστημα αρχείων '%s'"
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr "Άγνωστο αρχείο καταγραφής (%s)"
 
@@ -3402,15 +3396,12 @@ msgstr "Χρησιμοποιημένη χωρητικότητα"
 msgid "User"
 msgstr "Χρήστης"
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr "Ο χρήστης '%s' υπάρχει ήδη"
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr "Ο χρήστης '%s' δεν υπάρχει"
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr "Ο χρήστης με αναγνωριστικό '%d' υπάρχει ήδη"
 
@@ -3554,7 +3545,6 @@ msgstr "λεπτό"
 msgid "minutes"
 msgstr "λεπτά"
 
-#, c-format
 msgid "n/a"
 msgstr "τίποτα"
 

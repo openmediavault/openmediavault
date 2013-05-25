@@ -1,0 +1,18 @@
+Source: php5-proctitle
+Section: web
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 7), po-debconf, xsltproc , php5-dev  
+Standards-Version: 3.8.1
+
+Package: php5-proctitle
+Architecture: any
+Depends: ${shlibs:Depends}, ${php:Depends}, ${misc:Depends}
+Description: proctitle module for PHP 5
+ Allows setting the current process name on Linux and BSD
+ .
+ This extension allows changing the current process' name on Linux
+ and *BSD systems. This is useful when using pcntl_fork() to identify
+ running processes in process list
+
+

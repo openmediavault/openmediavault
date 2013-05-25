@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,46 +21,44 @@
  */
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
-require_once("openmediavault/system.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 
-class OMVQuotaModule extends OMVModuleAbstract
+class OMVModuleQuota extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "quota";
 	}
 
 	/**
-	 * Update filesystem quota.
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
 	 */
-	public function mkConf() {
-		$cmd = "sudo omv-mkconf quota 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	public function applyConfig() {
+		$cmd = "omv-mkconf quota 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 	}
 
 	/**
-	 * Delete the associated quota configuration if a filesystem is
-	 * going to be deleted.
+	 * Delete the associated quota configuration after a filesystem has
+	 * been deleted.
 	 * @param object The filesystem object to be deleted.
 	 */
-	public function deleteFilesystem($object) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function onDeleteFilesystem($object) {
 		global $xmlConfig;
 		// Does a quota configuration exists for the deleted filesystem?
 		$xpath = sprintf("//system/storage/filesystem/quota[fsuuid='%s']",
 		  $object['uuid']);
 		$qObject = $xmlConfig->get($xpath);
-		if (!is_null($qObject)) {
+		if(!is_null($qObject)) {
 			// Execute RPC to delete the configuration object.
-			OMVRpc::exec("Quota", "delete", array("uuid" => $qObject['uuid']));
+			OMVRpc::exec("Quota", "delete", array("uuid" => $qObject['uuid']),
+			  $this->getAdminContext());
 		}
 	}
 
@@ -71,15 +69,15 @@ class OMVQuotaModule extends OMVModuleAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.storage.filesystem",
-		  array($this, "deleteFilesystem"));
+		  array($this, "onDeleteFilesystem"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.storage.filesystem.quota",
-		  array($this, "mkConf"));
+		  array($this, "setDirty"));
 	}
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVQuotaModule());
+$moduleMgr->registerModule(new OMVModuleQuota());
 ?>

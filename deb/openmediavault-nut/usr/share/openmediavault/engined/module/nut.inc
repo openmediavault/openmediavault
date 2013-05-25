@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,112 +22,123 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 require_once("openmediavault/monit.inc");
 require_once("openmediavault/initscript.inc");
 
-class OMVNetworkUPSToolsModule extends OMVModuleAbstract
-  implements OMVINotifyListener, OMVIModuleStatus {
+class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
+  implements OMVINotifyListener, OMVIModuleServiceStatus {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "nut";
 	}
 
 	/**
-	 * Get the module status.
+	 * Defines the modules that if present should start before the service
+	 * provided by this module.
+	 * @return An array of modules.
 	 */
-	public function getStatus() {
+	public function shouldStart() { return array("monit"); }
+
+	/**
+	 * Defines the modules that if present should be stopped after the
+	 * service provided by this module.
+	 * @return An array of modules.
+	 */
+	function shouldStop() { return array("monit"); }
+
+	/**
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
+	 */
+	public function applyConfig() {
+		$cmd = "omv-mkconf nut 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+	}
+
+	/**
+	 * Stop the managed service.
+	 */
+	public function stopService() {
+		// Disable monitoring of this service.
+		$monit = new OMVMonit();
+		$monit->unmonitor("nut", TRUE);
+		// Stop this service and unregister System-V style init script.
+		$initd = new OMVSysVInitScript("nut", FALSE);
+		$initd->exec();
+	}
+
+	/**
+	 * Start the managed service.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @throw E_EXEC_FAILED
+	 */
+	public function startService() {
 		global $xmlConfig;
-		// Get the configuration object
 		$xpath = "//services/nut";
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$initd = new OMVSysVInitScript("nut");
+		if(FALSE === boolval($object['enable']))
+			return;
+		// Request device events from the kernel.
+		$cmd = "udevadm trigger 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Start this service and register System-V style init script.
+		$initd = new OMVSysVInitScript("nut", TRUE);
+		$initd->exec();
+		// Enable monitoring of this service.
+		$monit = new OMVMonit();
+		$monit->monitor("nut");
+	}
+
+	/**
+	 * Get the status of the managed service.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	public function getStatus() {
+		global $xmlConfig;
+		$xpath = "//services/nut";
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		$monit = new OMVMonit();
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("UPS"),
 			"enabled" => boolval($object['enable']),
-			"running" => ($initd->status() == 0)
+			"running" => ($monit->status("nut") === "running")
 		);
-	}
-
-	/**
-	 * Update the configuration.
-	 */
-	public function mkConf() {
-		$cmd = "sudo omv-mkconf nut 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-	}
-
-	/**
-	 * Update the service.
-	 * @param object The plugin configuration object.
-	 */
-	public function updateService($object) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Create configuration
-		$this->mkConf();
-		// Request device events from the kernel.
-		$cmd = "sudo udevadm trigger 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-		// Update service:
-		// - Start/Stop service
-		// - Activate/deactivate monitoring
-		$monit = new OMVMonit();
-		switch($object['enable']) {
-		case TRUE:
-			// Start the service.
-			$initd = new OMVSysVInitScript("nut", TRUE);
-			$initd->exec();
-			// Update monit configuration and start monitoring. Delay some
-			// time to give monit enough time to reload its configuration.
-			$monit->update();
-			usleep(2000000);
-			$monit->monitor("nut");
-			break;
-		default:
-			// Stop monitoring and update monit configuration.
-			$monit->unmonitor("nut", TRUE);
-			$monit->update();
-			// Stop the service.
-			$initd = new OMVSysVInitScript("nut", FALSE);
-			$initd->exec();
-			break;
-		}
 	}
 
 	/**
 	 * Update service if a network interface has been modified. Note,
 	 * the service must not be updated if remote monitoring is disabled.
 	 * @param object The network interface configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	public function updateInterface($object) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function onUpdateInterface($object) {
 		global $xmlConfig;
-		// Get the configuration object.
 		$xpath = "//services/nut";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		$object2 = $xmlConfig->get($xpath);
+		if(is_null($object2)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Is remote monitoring enabled?
-		if (TRUE === boolval($object['remotemonitor'])) {
-			// Update the configuration.
-			$this->updateService($object);
+		if(TRUE === boolval($object2['remotemonitor'])) {
+			$this->setDirty();
 		}
 	}
 
@@ -135,36 +146,35 @@ class OMVNetworkUPSToolsModule extends OMVModuleAbstract
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
-		// Update service if configuration has been modified
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nut",
-		  array($this, "updateService"), 1);
-		// Update service if a interface has been modified
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.iface",
-		  array($this, "updateInterface"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.bondiface",
-		  array($this, "updateInterface"));
-		// Update config file if notification/email configuration has been
-		// modified
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.email",
-		  array($this, "mkConf"));
-		// Update collectd if configuration has been modified
+		  array($this, "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+		  "org.openmediavault.system.network.interfaces.iface",
+		  array($this, "onUpdateInterface"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+		  "org.openmediavault.system.network.interfaces.bondiface",
+		  array($this, "onUpdateInterface"));
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.nut",
-		  array($moduleMgr->getModule("collectd"), "updateService"));
+		  array($moduleMgr->getModule("collectd"), "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.services.nut",
+		  array($moduleMgr->getModule("monit"), "setDirty"));
 	}
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVNetworkUPSToolsModule());
+$moduleMgr->registerModule(new OMVModuleNetworkUPSTools());
 ?>

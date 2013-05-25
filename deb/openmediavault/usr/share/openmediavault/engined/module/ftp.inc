@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,29 +22,79 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
 require_once("openmediavault/log.inc");
-require_once("openmediavault/system.inc");
 
-class OMVFTPModule extends OMVModuleAbstract
-  implements OMVINotifyListener, OMVIModuleStatus {
+class OMVModuleFtp extends OMVModuleServiceAbstract
+  implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "ftp";
 	}
 
 	/**
-	 * Get the module status.
+	 * Defines the modules that if present should start before the service
+	 * provided by this module.
+	 * @return An array of modules.
+	 */
+	public function shouldStart() { return array("fstab"); }
+
+	/**
+	 * Defines the modules that if present should be stopped after the
+	 * service provided by this module.
+	 * @return An array of modules.
+	 */
+	function shouldStop() { return array("fstab"); }
+
+	/**
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
+	 */
+	public function applyConfig() {
+		$cmd = "omv-mkconf proftpd 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+	}
+
+	/**
+	 * Stop the managed service.
+	 */
+	public function stopService() {
+		$initd = new OMVSysVInitScript("proftpd", FALSE);
+		$initd->exec();
+	}
+
+	/**
+	 * Start the managed service.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	public function startService() {
+		global $xmlConfig;
+		$xpath = "//services/ftp";
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		if(FALSE === boolval($object['enable']))
+			return;
+		$initd = new OMVSysVInitScript("proftpd", TRUE);
+		$initd->exec();
+	}
+
+	/**
+	 * Get the status of the managed service.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getStatus() {
 		global $xmlConfig;
-		// Get the configuration object.
 		$xpath = "//services/ftp";
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -58,134 +108,56 @@ class OMVFTPModule extends OMVModuleAbstract
 	}
 
 	/**
-	 * Set/Update share.
+	 * Get the Zeroconf service configuration.
 	 */
-	public function createShare($object) {
-		global $xmlConfig;
-		// Get the associated mount point configuration object.
-		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
-		  $object['mntentref']);
-		$meObject = $xmlConfig->get($xpath);
-		if (is_null($meObject)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Mount the subtree.
-		$cmd = sprintf("sudo mount %s", $meObject['dir']);
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-		// Update the service
-		self::updateService();
-	}
-
-	/**
-	 * Unmount /home/ftp/<xxx> directory before the share is deleted.
-	 */
-	public static function preDeleteShare($object) {
-		global $xmlConfig;
-		// Get the associated mount point configuration object.
-		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
-		  $object['mntentref']);
-		$meObject = $xmlConfig->get($xpath);
-		if (is_null($meObject)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Unmount the subtree (if still mounted)
-		if (OMVFilesystem::isMountedEx("mountpoint", $meObject['dir'])) {
-			$cmd = sprintf("sudo umount -fl %s 2>&1", $meObject['dir']);
-			OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
-			}
-		}
-	}
-
-	/**
-	 * Create the configuration file and update the service.
-	 */
-	public static function updateService() {
-//		self::debug(var_export(func_get_args(), TRUE));
-		global $xmlConfig;
-		// Get the configuration object
-		$xpath = "//services/ftp";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Create '/etc/proftpd/proftpd.conf' file
-		$cmd = "sudo omv-mkconf proftpd 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-		// Update service
-		$initd = new OMVSysVInitScript("proftpd", boolval($object['enable']));
-		$initd->exec();
+	public function getZeroconfConfig() {
+		return array(
+			  "id" => "ftp",
+			  "title" => gettext("FTP")
+		  );
 	}
 
 	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
-		// Update service if configuration has been modified
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ftp",
-		  array($this, "updateService"), 1);
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE,
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.ftp.shares.share",
-		  array($this, "createShare"), 1);
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
-		  OMV_NOTIFY_PREDELETE,
-		  "org.openmediavault.services.ftp.shares.share",
-		  array($this, "preDeleteShare"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_DELETE,
-		  "org.openmediavault.services.ftp.shares.share",
-		  array($this, "updateService"), 1);
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.ftp.modules.mod_ban.rule",
-		  array($this, "updateService"), 1);
-		$dispatcher->addListener(
-		  OMV_NOTIFY_DELETE,
-		  "org.openmediavault.services.ftp.modules.mod_ban.rule",
-		  array($this, "updateService"), 1);
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ftp.modules.mod_tls",
-		  array($this, "updateService"), 1);
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.hostname",
-		  array($this, "updateService"));
-		// Modify share permissions
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder.privileges",
-		  array($this, "updateService"));
-		// Update Zeroconf if configuration has been modified
+		  array($this, "setDirty"));
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ftp",
-		  array($moduleMgr->getModule("zeroconf"), "mkConf"));
+		  array($moduleMgr->getModule("zeroconf"), "setDirty"));
     }
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVFTPModule());
+$moduleMgr->registerModule(new OMVModuleFtp());
 
-// Register new logfile type
+// Register new logfile type.
 OMVLogFile::registerType("proftpd", array(
   "filename" => "proftpd.log",
   "filepath" => "/var/log/proftpd/proftpd.log",

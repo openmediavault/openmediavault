@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,6 +19,11 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+
+/**
+ * @defgroup api The Application Programming Interface
+ */
+
 define("_PERMISSION_NA",  0);
 define("_PERMISSION_X",   1);
 define("_PERMISSION_W",   2);
@@ -35,8 +40,12 @@ define("OMV_NOTIFY_MODIFY",    0x8);
 define("OMV_NOTIFY_PREDELETE", 0x10);
 define("OMV_NOTIFY_DELETE",    0x20);
 
-define("OMV_ROLE_ADMINISTRATOR", 0);
-define("OMV_ROLE_USER",          1);
+define("OMV_ROLE_ADMINISTRATOR", 0x1);
+define("OMV_ROLE_USER",          0x2);
+define("OMV_ROLE_EVERYONE",      OMV_ROLE_ADMINISTRATOR | OMV_ROLE_USER);
+
+define("OMV_RPC_MODE_LOCAL",  0x1);
+define("OMV_RPC_MODE_REMOTE", 0x2);
 
 $OMV_DEFAULT_FILE = "/etc/default/openmediavault";
 $OMV_DEBUG_PHP_LOGFILE = "/tmp/openmediavault_debug_php.log";
@@ -110,11 +119,12 @@ $OMV_JSONSCHEMA_IPV4_NONE = '"type":"string","format":"regex","pattern":'.
 $OMV_REGEX_DEVNAME_HARDDISK = "(h|s|x?v)d[a-z]+";
 $OMV_REGEX_DEVNAME_SOFTWARERAID = "md\d+";
 $OMV_REGEX_DEVNAME_HARDWARERAID = "cciss\/c[0-9]+d[0-9]+";
+$OMV_REGEX_DEVNAME_DEVICEMAPPER = "(mapper\/.+)|(dm-\d+)";
 
 // Read the defaults file
 $lines = file($GLOBALS['OMV_DEFAULT_FILE']);
-foreach ($lines as $kline => $vline) {
-	if (1 == preg_match("/^(OMV_[A-Z0-9_]+)=(\")?([^\"]+)(\")?$/",
+foreach($lines as $kline => $vline) {
+	if(1 == preg_match("/^(OMV_[A-Z0-9_]+)=(\")?([^\"]+)(\")?$/",
 	  trim($vline), $matches)) {
 		$GLOBALS[$matches[1]] = $matches[3];
 	}

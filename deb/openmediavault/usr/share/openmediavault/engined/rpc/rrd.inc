@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,34 +22,59 @@
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
-require_once("openmediavault/rpc.inc");
+require_once("openmediavault/rpcservice.inc");
 
-class RrdRpc extends OMVRpc {
+class OMVRpcServiceRrd extends OMVRpcServiceAbstract {
+	/**
+	 * Get the RPC service name.
+	 */
+	public function getName() {
+		return "Rrd";
+	}
+
+	/**
+	 * Initialize the RPC service.
+	 */
+	public function initialize() {
+		$this->registerMethod("generate");
+	}
+
 	/**
 	 * Generate the RRD graphs.
-	 * @return The process id of the 'omv-mkgraph' command.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The name of the background process status file.
+	 * @throw E_EXEC_FAILED
 	 */
-	function generate() {
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+	function generate($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Create a background process.
+		$bgStatusFilename = $this->createBgProcStatus();
+		$pid = $this->fork();
+		if($pid > 0) { // Parent process.
+			$this->initializeBgProcStatus($bgStatusFilename, $pid);
+			return $bgStatusFilename;
 		}
-		// Execute the script to create the RRD graphs
-		$outputFile = tempnam(sys_get_temp_dir(), "rrdgraph");
-		$cmd = sprintf("sudo omv-mkgraph >%s 2>&1 & echo $!", $outputFile);
-		OMVUtil::exec($cmd, $output, $res);
-		if ($res !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		// Child process.
+		try {
+			$cmd = "omv-mkgraph 2>&1";
+			if(0 !== $this->exec($cmd, $output)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
+			$this->finalizeBgProcStatus($bgStatusFilename, $output);
+			exit(0);
+		} catch(Exception $e) {
+			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
+			exit(1);
 		}
-		// Remember pid and content filename in session
-		$pid = intval($output[0]);
-		$_SESSION['execjob'][$pid] = array(
-			"pid" => $pid,
-			"outputFile" => $outputFile
-		);
-		return $pid;
 	}
 }
+
+// Register the RPC service.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->registerService(new OMVRpcServiceRrd());
 ?>

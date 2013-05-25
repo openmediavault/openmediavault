@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -40,12 +40,10 @@ case "$1" in
 
 			####################################################################
 			# Create user 'openmediavault' which is used to run the web
-			# interface. Add user to sudoers to allow web server to be able to
-			# execute actions that require 'root' permissions.
+			# interface.
 			####################################################################
 			if ! getent passwd openmediavault > /dev/null 2>&1; then
-				useradd --system --groups sudo,shadow --user-group openmediavault || :
-				echo "%openmediavault ALL=NOPASSWD: ALL" >> /etc/sudoers
+				useradd --system --user-group openmediavault || :
 			fi
 
 			####################################################################
@@ -91,6 +89,7 @@ case "$1" in
 
 			update-rc.d openmediavault defaults &>/dev/null
 			update-rc.d openmediavault-beep defaults &>/dev/null
+			update-rc.d openmediavault-engined defaults &>/dev/null
 
 			####################################################################
 			# Setup apache configuration
@@ -154,254 +153,49 @@ case "$1" in
 			invoke-rc.d apache2 graceful
 			invoke-rc.d monit restart
 		fi
+		dpkg-trigger restart-engined || monit restart omv-engined
 
 		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
-		if dpkg --compare-versions "$2" lt-nl "0.2.4.2"; then
-			# Remove useless APT configuration
-			rm -rf /etc/apt/apt.conf.d/99openmediavault-postdpkg
-			# Add missing config.xml setting
-			omv_config_add_element "//system/storage" "filesystem" ""
-			omv_config_add_element "//webadmin" "timeout" "5"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.4.6"; then
-			omv_config_import_group "users"
-			omv_config_add_element "//services/smb" "homesenable" "0"
-			omv_config_add_element "//services/smb" "homesbrowseable" "1"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.5"; then
-			omv-mkconf postfix
-			omv-mkconf cron-apt
-			omv-mkconf cpufrequtils
-			omv-mkconf mdadm
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.5.1"; then
-			omv_config_add_element "//system/network/interfaces/*" "options" ""
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.5.4"; then
-			omv_config_add_element "//system/crontab/job" "enable" "1"
-			omv_config_add_element "//services/rsync/jobs/job" "enable" "1"
-			omv-mkconf cron
-			omv-mkconf rsync
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.5.5"; then
-			xmlstarlet sel -t -m "//system/storage/hdparm" \
-			  -v "uuid" \
-			  -i "position() != last()" -n -b \
-			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-			  while read uuid; do
-				  devicefile=$(omv_config_get "//system/storage/hdparm[uuid='${uuid}']/devicefile")
-				  devicefilebyid=$(test -d "/dev/disk/by-id" && ls -ogr "/dev/disk/by-id/" | \
-					grep -e "/${devicefile##*/}$" | awk '{print $7}' | head -n 1)
-				  if [ -n "${devicefilebyid}" ]; then
-					  omv_config_update "//system/storage/hdparm[uuid='${uuid}']/devicefile" \
-						"/dev/disk/by-id/${devicefilebyid}"
-				  fi
-			  done
-			xmlstarlet sel -t -m "//services/smart/scheduledtests/job" \
-			  -v "uuid" \
-			  -i "position() != last()" -n -b \
-			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-			  while read uuid; do
-				  devicefile=$(omv_config_get "//services/smart/scheduledtests/job[uuid='${uuid}']/devicefile")
-				  devicefilebyid=$(test -d "/dev/disk/by-id" && \ ls -ogr "/dev/disk/by-id/" | \
-					grep -e "/${devicefile##*/}$" | awk '{print $7}' | head -n 1)
-				  if [ -n "${devicefilebyid}" ]; then
-					  omv_config_update "//services/smart/scheduledtests/job[uuid='${uuid}']/devicefile" \
-						"/dev/disk/by-id/${devicefilebyid}"
-				  fi
-			  done
-			omv-mkconf hdparm
-			omv-mkconf smartmontools
-			omv-mkconf monit
-			update-rc.d openmediavault remove
-			update-rc.d openmediavault start 15 S . &>/dev/null
-			update-rc.d collectd enable
-			update-rc.d apache2 enable
-			invoke-rc.d monit restart
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.6.0"; then
-			omv-mkconf postfix
-			invoke-rc.d postfix restart
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.6.1"; then
-			omv_config_add_element "//system/crontab/job" "sendemail" "0"
-			omv-mkconf cron
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.6.2"; then
-			omv_config_add_element "//services/rsync/jobs/job" "sendemail" "0"
-			omv-mkconf cron
-			omv-mkconf rsync
-			rm -rf /var/lib/openmediavault/cronscripts
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.6.3"; then
-			omv-mkconf apache2
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.6.4"; then
-			omv_config_add_element "//system/crontab/job" "everynminute" "0"
-			omv_config_add_element "//system/crontab/job" "everynhour" "0"
-			omv_config_add_element "//system/crontab/job" "everyndayofmonth" "0"
-			omv_config_add_element "//services/rsync/jobs/job" "everynminute" "0"
-			omv_config_add_element "//services/rsync/jobs/job" "everynhour" "0"
-			omv_config_add_element "//services/rsync/jobs/job" "everyndayofmonth" "0"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.6.7"; then
+		if dpkg --compare-versions "$2" lt-nl "0.5"; then
+			# Add avahi configurations.
+			omv_config_add_element "//services" "zeroconf" ""
+			omv_config_add_element "//services/zeroconf" "services" ""
+			omv_config_add_element "//services/zeroconf/services" "service" "<id>webadmin</id><enable>1</enable><name>%h - Web administration</name>" true
+			omv_config_add_element "//services/zeroconf/services" "service" "<id>ssh</id><enable>1</enable><name>%h - SSH</name>" true
+			omv_config_add_element "//services/zeroconf/services" "service" "<id>nfs</id><enable>1</enable><name>%h - NFS</name>" true
+			omv_config_add_element "//services/zeroconf/services" "service" "<id>ftp</id><enable>1</enable><name>%h - FTP</name>" true
+			omv_config_add_element "//services/zeroconf/services" "service" "<id>tftp</id><enable>1</enable><name>%h - TFTP</name>" true
+			omv_config_add_element "//services/zeroconf/services" "service" "<id>smb</id><enable>1</enable><name>%h - SMB/CIFS</name>" true
+			omv_config_add_element "//services/zeroconf/services" "service" "<id>rsync</id><enable>1</enable><name>%h - Rsync</name>" true
+			omv_config_delete "//dnssd"
+			# Add notification configurations.
+			omv_config_add_element "//system" "notification" ""
+			omv_config_add_element "//system/notification" "notifications" ""
+			omv_config_add_element "//system/notification/notifications" "monitprocevents" "1"
+			omv_config_add_element "//system/notification/notifications" "monitloadavg" "1"
+			omv_config_add_element "//system/notification/notifications" "monitmemoryusage" "1"
+			omv_config_add_element "//system/notification/notifications" "monitcpuusage" "1"
+			omv_config_add_element "//system/notification/notifications" "mdadm" "1"
+			omv_config_add_element "//system/notification/notifications" "smartmontools" "1"
+			# Add new Rsync module option.
+			omv_config_add_element "//services/rsync/server/modules/module" "usechroot" "1"
+			# Add comment to network interface configurations.
+			omv_config_add_element "//system/network/interfaces/iface" "comment" ""
+			omv_config_add_element "//system/network/interfaces/bondiface" "comment" ""
+			# Add 'aio' option to SMB/CIFS server. Configuration will be
+			# reloaded automatically.
+			omv_config_add_element "//services/smb" "aio" "1"
 			omv-mkconf samba
-			invoke-rc.d samba restart
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3"; then
-			# Add home directory service configuration
-			omv_config_add_element "//system/usermanagement" "homedirectory" ""
-			omv_config_add_element "//system/usermanagement/homedirectory" "enable" "0"
-			omv_config_add_element "//system/usermanagement/homedirectory" "sharedfolderref" ""
-			# Delete useless users/groups
-			omv_config_delete_user "admin"
-			omv_config_delete "//*[userref=//system/usermanagement/users/user[name='tftp']/uuid]"
-			omv_config_delete_user "tftp"
-			omv_config_delete "//*[userref=//system/usermanagement/users/user[name='nobody']/uuid]"
-			omv_config_delete_user "nobody"
-			omv_config_delete "//*[groupref=//system/usermanagement/groups/group[name='tftp']/uuid]"
-			omv_config_delete_group "tftp"
-			omv_config_delete "//*[groupref=//system/usermanagement/groups/group[name='ssh']/uuid]"
-			omv_config_delete_group "ssh"
-			omv_config_delete "//*[groupref=//system/usermanagement/groups/group[name='${OMV_USERMGMT_DEFAULT_GROUP}']/uuid]"
-			omv_config_delete_group "${OMV_USERMGMT_DEFAULT_GROUP}"
-			# Convert shared folder user privileges
-			xmlstarlet sel -t -m "//system/shares/sharedfolder/privileges/privilege[userref]" \
-			  -v "userref" \
-			  -i "position() != last()" -n -b \
-			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-			  while read userref; do
-				  name=$(omv_config_get "//system/usermanagement/users/user[uuid='${userref}']/name")
-				  omv_config_add_element "//system/shares/sharedfolder/privileges/privilege[userref][userref='${userref}']" "name" "${name}"
-				  omv_config_add_element "//system/shares/sharedfolder/privileges/privilege[userref][userref='${userref}']" "type" "user"
-			  done
-			omv_config_delete "//system/shares/sharedfolder/privileges/privilege[userref]/userref"
-			# Convert shared folder group privileges
-			xmlstarlet sel -t -m "//system/shares/sharedfolder/privileges/privilege[groupref]" \
-			  -v "groupref" \
-			  -i "position() != last()" -n -b \
-			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-			  while read groupref; do
-				  name=$(omv_config_get "//system/usermanagement/groups/group[uuid='${groupref}']/name")
-				  omv_config_add_element "//system/shares/sharedfolder/privileges/privilege[groupref][groupref='${groupref}']" "name" "${name}"
-				  omv_config_add_element "//system/shares/sharedfolder/privileges/privilege[groupref][groupref='${groupref}']" "type" "group"
-			  done
-			omv_config_delete "//system/shares/sharedfolder/privileges/privilege[groupref]/groupref"
-			# Delete shared folder umask
-			omv_config_delete "//system/shares/sharedfolder/umask"
-			# Convert user quota
-			xmlstarlet sel -t -m "//system/storage/filesystem/quota/usrquota" \
-			  -v "userref" \
-			  -i "position() != last()" -n -b \
-			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-			  while read userref; do
-				  name=$(omv_config_get "//system/usermanagement/users/user[uuid='${userref}']/name")
-				  omv_config_add_element "//system/storage/filesystem/quota/usrquota[userref='${userref}']" "name" "${name}"
-			  done
-			omv_config_delete "//system/storage/filesystem/quota/usrquota/userref"
-			# Convert group quota
-			xmlstarlet sel -t -m "//system/storage/filesystem/quota/grpquota" \
-			  -v "groupref" \
-			  -i "position() != last()" -n -b \
-			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-			  while read groupref; do
-				  name=$(omv_config_get "//system/usermanagement/users/user[uuid='${groupref}']/name")
-				  omv_config_add_element "//system/storage/filesystem/quota/grpquota[groupref='${groupref}']" "name" "${name}"
-			  done
-			omv_config_delete "//system/storage/filesystem/quota/grpquota/groupref"
-			# Modify rsync server module configuration
-			omv_config_add_element "//services/rsync/server/modules/module" "uid" "nobody"
-			omv_config_add_element "//services/rsync/server/modules/module" "gid" "${OMV_USERMGMT_DEFAULT_GROUP}"
-			omv_config_add_element "//services/rsync/server/modules/module" "authusers" "0"
-			omv_config_add_element "//services/rsync/server/modules/module" "users" ""
-			rm -rf /etc/rsyncd.secrets
-			# Modify rsync job configuration
-			omv_config_add_element "//services/rsync/jobs/job" "password" ""
-			# Modify FTP service configuration
-			omv_config_add_element "//services/ftp/modules/mod_tls" "extraoptions" ""
-			# Add NFS options
-			omv_config_add_element "//services/nfs" "numproc" "8"
-			# Add domainname configuration field
-			omv_config_update "//system/network/hostname" "$(hostname --short)"
-			omv_config_add_element "//system/network" "domainname" "$(hostname --domain)"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.5"; then
-			# Change group owner of shared folder directory to configured
-			# default group, e.g. 'users'.
-			xmlstarlet sel -t -m "//system/shares/sharedfolder" \
-			  -v "uuid" \
-			  -i "position() != last()" -n -b \
-			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-			  while read uuid; do
-				  sfpath=$(omv_get_sharedfolder_path "${uuid}")
-				  chown :${OMV_USERMGMT_DEFAULT_GROUP} ${sfpath} || true
-			  done
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.8"; then
-			omv_config_add_element "//services/ftp/modules/mod_tls" "nocertrequest" "0"
-			omv_config_add_element "//services/ftp/modules/mod_tls" "nosessionreuserequired" "0"
-			omv_config_add_element "//services/ftp/modules/mod_tls" "useimplicitssl" "0"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.12"; then
-			echo 'send host-name "<hostname>";' >> /etc/dhcp/dhclient.conf
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.13"; then
-			omv-mkconf fstab
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.14"; then
-			omv-mkconf postfix
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.15"; then
-			omv_config_add_element "//webadmin" "dnssd" ""
-			omv_config_add_element "//webadmin/dnssd" "enable" "1"
-			omv_config_add_element "//webadmin/dnssd" "name" "%h - Web administration"
-			omv_config_add_element "//services/ssh" "dnssd" ""
-			omv_config_add_element "//services/ssh/dnssd" "enable" "1"
-			omv_config_add_element "//services/ssh/dnssd" "name" "%h - SSH"
-			omv_config_add_element "//services/nfs" "dnssd" ""
-			omv_config_add_element "//services/nfs/dnssd" "enable" "1"
-			omv_config_add_element "//services/nfs/dnssd" "name" "%h - NFS"
-			omv_config_add_element "//services/ftp" "dnssd" ""
-			omv_config_add_element "//services/ftp/dnssd" "enable" "1"
-			omv_config_add_element "//services/ftp/dnssd" "name" "%h - FTP"
-			omv_config_add_element "//services/tftp" "dnssd" ""
-			omv_config_add_element "//services/tftp/dnssd" "enable" "1"
-			omv_config_add_element "//services/tftp/dnssd" "name" "%h - TFTP"
-			omv_config_add_element "//services/smb" "dnssd" ""
-			omv_config_add_element "//services/smb/dnssd" "enable" "1"
-			omv_config_add_element "//services/smb/dnssd" "name" "%h - SMB/CIFS"
-			omv_config_add_element "//services/rsync/server" "dnssd" ""
-			omv_config_add_element "//services/rsync/server/dnssd" "enable" "1"
-			omv_config_add_element "//services/rsync/server/dnssd" "name" "%h - Rsync"
-			omv-mkconf avahi-daemon
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.17"; then
-			rm -f /etc/php5/conf.d/pam_auth.ini
-			invoke-rc.d apache2 graceful
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.21"; then
-			omv_config_add_element "//services/ftp" "dynmasqrefresh" "0"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.3.0.26"; then
-			omv-mkconf postfix
-			invoke-rc.d postfix restart
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.4.0.1"; then
-			omv-mkconf postfix
-			invoke-rc.d postfix restart
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.4.2"; then
-			omv_config_add_element "//services/rsync/jobs/job" "dryrun" "0"
-			sed -i -e "s/BOOTLOGD_ENABLE=.*/BOOTLOGD_ENABLE=Yes/" /etc/default/bootlogd
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.4.4"; then
-			omv-mkconf dhclient
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.4.5"; then
-			omv_config_add_element "//services/rsync/jobs/job" "partial" "0"
+			# Remove user 'openmediavault' from sudoers list.
+			sed -i -e '/^%openmediavault/d' /etc/sudoers
+			# Start engine.
+			omv-mkconf monit
+			invoke-rc.d monit restart
+			update-rc.d openmediavault-engined defaults &>/dev/null
+			dpkg-trigger restart-engined || monit restart omv-engined
 		fi
 	;;
 
@@ -420,6 +214,10 @@ case "$1" in
 					echo "Updating file permissions ..."
 					omv_install_fixperms
 				;;
+
+				restart-engined)
+					echo "Restarting engine daemon ..."
+					monit restart omv-engined
 			esac
 		done
 	;;

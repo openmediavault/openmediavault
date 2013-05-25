@@ -1,0 +1,161 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+#  <runesudden@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-15 16:25+0100\n"
+"PO-Revision-Date: 2013-02-16 08:11+0000\n"
+"Last-Translator: runesudden <runesudden@gmail.com>\n"
+"Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: no\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A backup job already exists for this storage device"
+msgstr "En sikkerhetskopi jobb, finnes allerede for denne lagringsenheten"
+
+msgid "Add USB backup job"
+msgstr "Legg til USB sikkerhetskopieringsjobb"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "En epost med kommandoresultatet (hvis noe blir produsert) vil bli sendt til administrator."
+
+msgid "Archive"
+msgstr "Arkiv"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Compress"
+msgstr "Komprimer"
+
+msgid "Compress file data during the transfer."
+msgstr "Komprimer filen når den overføres."
+
+msgid "Delete"
+msgstr "Slett"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "Slett filer som ikke lenger eksisterer hos avsender."
+
+msgid "Device '%s' not found"
+msgstr "Enhet '%s' ikke funnet"
+
+msgid "Edit USB backup job"
+msgstr "Rediger USB sikkerhetskopieringsjobb"
+
+msgid "Enable"
+msgstr "Aktiver"
+
+msgid "Enable archive mode."
+msgstr "Aktiver arkivmodus."
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Aktiver dette alternativet for å holde delvis overførte filer, ellers vil de bli slettet hvis overføringen avbrytes."
+
+msgid "Enabled"
+msgstr "Aktivert"
+
+msgid "Execute USB backup job"
+msgstr "Kjør USB sikkerhetskopi jobb"
+
+msgid "External storage device"
+msgstr "Ekstern lagringsenhet"
+
+msgid "Extra options"
+msgstr "Tilleggsfunksjoner"
+
+msgid "Failed to get filesystems"
+msgstr "Kunne ikke hente filsystemer"
+
+msgid "Filesystem '%s' not found"
+msgstr "Filsystem '%s' ikke funnet"
+
+msgid "Keep partially transferred files"
+msgstr "Behold delvis overførte filer"
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Vennligst sjekk <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>bruksanvisning</a> for mer informasjon."
+
+msgid "Preserve ACLs"
+msgstr "Bevar ACL"
+
+msgid "Preserve extended attributes"
+msgstr "Bevar utvidede attributter"
+
+msgid "Preserve modification times."
+msgstr "Bevar endringstidspunkt."
+
+msgid "Preserve permissions"
+msgstr "Bevar rettigheter"
+
+msgid "Quiet"
+msgstr "Stille"
+
+msgid "Recurse into directories."
+msgstr "Rekursiv inn i mapper."
+
+msgid "Recursive"
+msgstr "Rekursivt"
+
+msgid "Run"
+msgstr "Kjør"
+
+msgid "Select a volume ..."
+msgstr "Velg et volum ..."
+
+msgid "Send command output via email."
+msgstr "Send kommando utgang via epost."
+
+msgid "Send email"
+msgstr "Send epost"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "Sett målrettighetene til å være de samme som kilderettighetene."
+
+msgid "Shared folder"
+msgstr "Delt mappe"
+
+msgid "Suppress non-error messages."
+msgstr "Fortreng ikke-feilmeldinger"
+
+msgid "The external storage device."
+msgstr "Den eksterne lagringsenheten."
+
+msgid ""
+"The shared folder to synchronise when the external storage device is "
+"connected."
+msgstr "Den delte mappen du vil synkronisere når den eksterne lagringsenheten er tilkoblet."
+
+msgid "Times"
+msgstr "Tider"
+
+msgid "USB Backup"
+msgstr "USB Sikkerhetskopiering"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "Oppdater målets ACL til de samme som kildens ACL."
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "Oppdatere destinasjon utvidede attributter for å være den samme som de lokale."
+
+msgid "Volume"
+msgstr "Volum"
+
+msgid "n/a"
+msgstr "Ikke tilgjengelig"

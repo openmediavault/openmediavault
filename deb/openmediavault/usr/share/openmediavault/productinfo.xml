@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <productinfo>
 	<name>OpenMediaVault</name>
-	<versionname>Fedaykin</versionname>
+	<versionname>Sardaukar</versionname>
 	<url>http://www.openmediavault.org</url>
-	<copyright>Copyright (C) 2009-2012 by Volker Theile. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2009-2013 by Volker Theile. All rights reserved.</copyright>
 	<packagename>openmediavault</packagename>
 </productinfo>

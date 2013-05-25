@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/bin/bash
 #
 # This file is part of OpenMediaVault.
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -29,28 +29,35 @@ OMV_FSTAB_SECTIONNAME=${OMV_FSTAB_SECTIONNAME:-"openmediavault"}
 
 # Create list of mount entries stored in database. Take care about the order
 # of lines, binds must be located at the end.
-mntent=$(echo -n "# >>> [${OMV_FSTAB_SECTIONNAME}]\\\n"; xmlstarlet sel -t \
+mntent=$(echo -n "# >>> [${OMV_FSTAB_SECTIONNAME}]\n"; xmlstarlet sel -t \
   -m "//system/fstab/mntent[not(contains(opts,'bind'))]" \
-	-v "concat(fsname,' ',dir,' ',type,' ',opts,' ',freq,' ',passno)" \
+	-v uuid \
 	-i "position() != last()" -n -b \
   -b \
   -i "count(//system/fstab/mntent[contains(opts,'bind')]) > 0" -n -b \
   -m "//system/fstab/mntent[contains(opts,'bind')]" \
-	-v "concat(fsname,' ',dir,' ',type,' ',opts,' ',freq,' ',passno)" \
+	-v uuid \
 	-i "position() != last()" -n -b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-  while read fsname dir type opts freq passno; do
+  while read uuid; do
+	  fsname=$(omv_config_get "//system/fstab/mntent[uuid='${uuid}']/fsname")
+	  dir=$(omv_config_get "//system/fstab/mntent[uuid='${uuid}']/dir")
 	  # Modify spec field if it contains a UUID
 	  if omv_isfsuuid ${fsname}; then
 		  fsname="UUID=${fsname}"
 	  fi
-	  echo -n "${fsname} ${dir} ${type} ${opts} ${freq} ${passno}\\\n"
+	  # Print mount entry line.
+	  xmlstarlet sel -t -m "//system/fstab/mntent[uuid='${uuid}']" \
+		-o "${fsname// /\\\040} ${dir// /\\\040} " \
+		-v "concat(type,' ',opts,' ',freq,' ',passno)" \
+		-o "\\n" \
+		${OMV_CONFIG_FILE} | xmlstarlet unesc | tr -d '\n'
   done; echo -n "# <<< [${OMV_FSTAB_SECTIONNAME}]")
 
 # Append mount entries if not still present or replace existing entries.
-if ! grep -E "^# >>> \[${OMV_FSTAB_SECTIONNAME}\]$" ${OMV_FSTAB_CONFIG} >/dev/null; then
-	echo "${mntent}" >> ${OMV_FSTAB_CONFIG}
+if ! grep -E "^# >>> \[${OMV_FSTAB_SECTIONNAME}\]\s*$" ${OMV_FSTAB_CONFIG} >/dev/null; then
+	echo -e "${mntent}" >> ${OMV_FSTAB_CONFIG}
 else
 	sed -i "/# >>> \[${OMV_FSTAB_SECTIONNAME}\]/,/# <<< \[${OMV_FSTAB_SECTIONNAME}\]/ c ${mntent}" ${OMV_FSTAB_CONFIG}
 fi

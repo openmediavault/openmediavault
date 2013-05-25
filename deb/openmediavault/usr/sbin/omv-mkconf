@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -32,7 +32,7 @@ Usage:
 
   basename - The name of the script to be executed.
 
-Options:
+OPTIONS:
   -l  List available scripts
   -q  Quiet mode, no error messages are generated
   -h  Print a help text
@@ -41,17 +41,15 @@ EOF
 
 # Print the error message.
 printerror() {
-	msg=$*
-	basename=$(basename $0)
 	if test x${bequiet} = x ; then
-		echo ${basename}: "${*}" >&2
+		echo ${*} >&2
 	fi
-	omv_log "${basename}: ${*}"
+	omv_log ${*}
 }
 
 # List available scripts.
 listscripts() {
-	find ${OMV_SCRIPTS_DIR} -maxdepth 1 -type f -executable \
+	find ${OMV_MKCONF_SCRIPTS_DIR} -maxdepth 1 -type f -executable \
 	  -printf %f\\n | sort
 }
 
@@ -85,15 +83,15 @@ shift
 extraparams=$@
 
 # Test if the script exists.
-if test ! -f "${OMV_SCRIPTS_DIR}/${scriptname}" ; then
-	printerror "unknown script, ${OMV_SCRIPTS_DIR}/${scriptname} not found."
+if test ! -f "${OMV_MKCONF_SCRIPTS_DIR}/${scriptname}" ; then
+	printerror "Unknown script, ${OMV_MKCONF_SCRIPTS_DIR}/${scriptname} not found."
 	exit 100
 fi
 # Test if the script is executable.
-if test ! -x "${OMV_SCRIPTS_DIR}/${scriptname}" ; then
-	printerror "script ${OMV_SCRIPTS_DIR}/${scriptname} not executable."
+if test ! -x "${OMV_MKCONF_SCRIPTS_DIR}/${scriptname}" ; then
+	printerror "Script ${OMV_MKCONF_SCRIPTS_DIR}/${scriptname} not executable."
 	exit 101
 fi
 # Execute the script.
-${OMV_SCRIPTS_DIR}/${scriptname} mkconf "${extraparams}" 2>&1 && exit 0
+${OMV_MKCONF_SCRIPTS_DIR}/${scriptname} mkconf "${extraparams}" 2>&1 && exit 0
 exit $?

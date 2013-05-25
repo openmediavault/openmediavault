@@ -3,7 +3,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,21 +18,22 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/NavigationPanel.js")
+// require("js/omv/ModuleManager.js")
 // require("js/omv/FormPanelExt.js")
 // require("js/omv/CfgObjectDialog.js")
+// require("js/omv/data/DataProxy.js")
 // require("js/omv/grid/TBarGridPanel.js")
-// require("js/omv/form/SharedFolderComboBox.js")
-// require("js/omv/form/plugins/FieldInfo.js")
+// require("js/omv/form/field/SharedFolderComboBox.js")
+// require("js/omv/form/field/plugin/FieldInfo.js")
 // require("js/omv/module/admin/Logs.js")
 // require("js/omv/util/Format.js")
 
 Ext.ns("OMV.Module.Services");
 
 // Register the menu.
-OMV.NavigationPanelMgr.registerMenu("services", "clamav", {
+OMV.ModuleManager.registerMenu("services", "clamav", {
 	text: _("Antivirus"),
-	icon: "images/antivirus.png"
+	icon16: "images/antivirus.png"
 });
 
 Ext.ns("OMV.Module.Services.ClamAV");
@@ -56,24 +57,24 @@ Ext.extend(OMV.Module.Services.ClamAV.SettingsPanel, OMV.FormPanelExt, {
 		return [{
 			xtype: "fieldset",
 			title: _("General settings"),
-			defaults: {
-//				anchor: "100%",
+			fieldDefaults: {
 				labelSeparator: ""
 			},
 			items: [{
 				xtype: "checkbox",
 				name: "enable",
 				fieldLabel: _("Enable"),
-				checked: false,
-				inputValue: 1
+				checked: false
 			},{
 				xtype: "textfield",
 				name: "databasemirror",
 				fieldLabel: _("Database mirror"),
 				allowBlank: false,
 				value: "db.local.clamav.net",
-				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: _("Server name where database updates are downloaded from. Get a complete list of database mirrors <a href='http://www.clamav.net/mirrors.html' target='_blank'>here</a>.")
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("Server name where database updates are downloaded from. Get a complete list of database mirrors <a href='http://www.clamav.net/mirrors.html' target='_blank'>here</a>.")
+				}]
 			},{
 				xtype: "numberfield",
 				name: "checks",
@@ -81,95 +82,84 @@ Ext.extend(OMV.Module.Services.ClamAV.SettingsPanel, OMV.FormPanelExt, {
 				minValue: 0,
 				maxValue: 50,
 				allowDecimals: false,
-				allowNegative: false,
 				allowBlank: false,
 				value: 24,
-				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: _("Number of database update checks per day. Set to 0 to disable.")
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("Number of database update checks per day. Set to 0 to disable.")
+				}]
 			},{
 				xtype: "checkbox",
 				name: "logclean",
 				fieldLabel: _("Log clean files"),
 				boxLabel: _("Log clean files. This drastically increases the log size."),
-				checked: false,
-				inputValue: 1
+				checked: false
 			},{
 				xtype: "checkbox",
 				name: "scanpe",
 				fieldLabel: _("Scan Portable Executable"),
 				boxLabel: _("Perform a deeper analysis of executable files."),
-				checked: true,
-				inputValue: 1
+				checked: true
 			},{
 				xtype: "checkbox",
 				name: "scanole2",
 				fieldLabel: _("Scan OLE2"),
 				boxLabel: _("Enable scanning of OLE2 files, such as Microsoft Office documents and .msi files."),
-				checked: true,
-				inputValue: 1
+				checked: true
 			},{
 				xtype: "checkbox",
 				name: "scanhtml",
 				fieldLabel: _("Scan HTML"),
 				boxLabel: _("Enable HTML detection and normalisation."),
-				checked: true,
-				inputValue: 1
+				checked: true
 			},{
 				xtype: "checkbox",
 				name: "scanpdf",
 				fieldLabel: _("Scan PDF"),
 				boxLabel: _("Enable scanning within PDF files."),
-				checked: true,
-				inputValue: 1
+				checked: true
 			},{
 				xtype: "checkbox",
 				name: "scanelf",
 				fieldLabel: _("Scan ELF"),
 				boxLabel: _("Enable scanning of ELF files."),
-				checked: true,
-				inputValue: 1
+				checked: true
 			},{
 				xtype: "checkbox",
 				name: "scanarchive",
 				fieldLabel: _("Scan archives"),
 				boxLabel: _("Enable archive scanning."),
-				checked: true,
-				inputValue: 1
+				checked: true
 			},{
 				xtype: "checkbox",
 				name: "detectbrokenexecutables",
 				fieldLabel: _("Detect broken executables"),
 				boxLabel: _("Enable the detection of broken executables (both PE and ELF)."),
-				checked: false,
-				inputValue: 1
+				checked: false
 			},{
 				xtype: "checkbox",
 				name: "detectpua",
 				fieldLabel: _("Detect PUA"),
 				boxLabel: _("Enable the detection of possibly unwanted applications."),
-				checked: false,
-				inputValue: 1
+				checked: false
 			},{
 				xtype: "checkbox",
 				name: "algorithmicdetection",
 				fieldLabel: _("Algorithmic detection"),
 				boxLabel: _("Enable the algorithmic detection."),
-				checked: true,
-				inputValue: 1
+				checked: true
 			},{
 				xtype: "checkbox",
 				name: "followdirectorysymlinks",
 				fieldLabel: _("Follow directory symlinks"),
 		   		boxLabel: _("Follow directory symlinks."),
-				checked: false,
-				inputValue: 1
+				checked: false
 			},{
 				xtype: "checkbox",
 				name: "followfilesymlinks",
 				fieldLabel: _("Follow file symlinks"),
 				boxLabel: _("Follow regular file symlinks."),
-				checked: false,
-				inputValue: 1
+				checked: false
 			},{
 				xtype: "textfield",
 				name: "extraoptions",
@@ -181,14 +171,15 @@ Ext.extend(OMV.Module.Services.ClamAV.SettingsPanel, OMV.FormPanelExt, {
 					rows: "3",
 					cols: "65"
 				},
-				plugins: [ OMV.form.plugins.FieldInfo ],
-				infoText: _("Please check the <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manual page</a> for more details."),
-				anchor: "100%"
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("Please check the <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manual page</a> for more details."),
+				}]
 			}]
 		}];
 	}
 });
-OMV.NavigationPanelMgr.registerPanel("services", "clamav", {
+OMV.ModuleManager.registerPanel("services", "clamav", {
 	cls: OMV.Module.Services.ClamAV.SettingsPanel,
 	title: _("Settings"),
 	position: 10
@@ -201,79 +192,85 @@ OMV.NavigationPanelMgr.registerPanel("services", "clamav", {
 OMV.Module.Services.ClamAV.JobGridPanel = function(config) {
 	var initialConfig = {
 		hidePagingToolbar: false,
+		stateful: true,
 		stateId: "f8a8cf1c-a107-11e1-a5a0-00221568ca88",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: _("Enabled"),
+				text: _("Enabled"),
 				sortable: true,
 				dataIndex: "enable",
-				id: "enable",
+				stateId: "enable",
 				align: "center",
-				width: 60,
-				renderer: OMV.util.Format.booleanIconRenderer()
+				width: 80,
+				resizable: false,
+				renderer: OMV.util.Format.booleanIconRenderer(
+				  "switch_on.png", "switch_off.png")
 			},{
-				header: _("Shared folder"),
+				text: _("Shared folder"),
 				sortable: true,
 				dataIndex: "sharedfoldername",
-				id: "sharedfoldername"
+				stateId: "sharedfoldername"
 			},{
-				header: _("Minute"),
+				text: _("Minute"),
 				sortable: true,
 				dataIndex: "minute",
-				id: "minute",
-				renderer: function(val, cell, record, row, col, store) {
+				stateId: "minute",
+				renderer: function(value, metaData, record, rowIndex,
+				  colIndex, store, view) {
 					var everynminute = record.get("everynminute");
-					if (everynminute == true) {
-						val = "*/" + val;
+					if(everynminute == true) {
+						value = "*/" + value;
 					}
-					return val;
+					return value;
 				}
 			},{
-				header: _("Hour"),
+				text: _("Hour"),
 				sortable: true,
 				dataIndex: "hour",
-				id: "hour",
-				renderer: function(val, cell, record, row, col, store) {
+				stateId: "hour",
+				renderer: function(value, metaData, record, rowIndex,
+				  colIndex, store, view) {
 					var everynhour = record.get("everynhour");
 					var func = OMV.util.Format.arrayRenderer(Date.mapHour);
-					val = func(val);
-					if (everynhour == true) {
-						val = "*/" + val;
+					value = func(value);
+					if(everynhour == true) {
+						value = "*/" + value;
 					}
-					return val;
+					return value;
 				}
 			},{
-				header: _("Day of month"),
+				text: _("Day of month"),
 				sortable: true,
 				dataIndex: "dayofmonth",
-				id: "dayofmonth",
-				renderer: function(val, cell, record, row, col, store) {
+				stateId: "dayofmonth",
+				renderer: function(value, metaData, record, rowIndex,
+				  colIndex, store, view) {
 					var everyndayofmonth = record.get("everyndayofmonth");
 					var func = OMV.util.Format.arrayRenderer(
 					  Date.mapDayOfMonth);
-					val = func(val);
-					if (everyndayofmonth == true) {
-						val = "*/" + val;
+					value = func(value);
+					if(everyndayofmonth == true) {
+						value = "*/" + value;
 					}
-					return val;
+					return value;
 				}
 			},{
-				header: _("Month"),
+				text: _("Month"),
 				sortable: true,
 				dataIndex: "month",
-				id: "month",
+				stateId: "month",
 				renderer: OMV.util.Format.arrayRenderer(Date.mapMonth)
 			},{
-				header: _("Day of week"),
+				text: _("Day of week"),
 				sortable: true,
 				dataIndex: "dayofweek",
-				id: "dayofweek",
+				stateId: "dayofweek",
 				renderer: OMV.util.Format.arrayRenderer(Date.mapDayOfWeek)
 			},{
-				header: _("Comment"),
+				text: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
-				id: "comment"
+				stateId: "comment"
 			}]
 		})
 	};
@@ -285,10 +282,13 @@ Ext.extend(OMV.Module.Services.ClamAV.JobGridPanel, OMV.grid.TBarGridPanel, {
 	initComponent : function() {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
-			remoteSort: false,
 			proxy: new OMV.data.DataProxy({
-				"service": "ClamAV",
-				"method": "getJobList"
+				"rpcOptions": {
+					"rpcData": {
+						"service": "ClamAV",
+						"method": "getJobList"
+					}
+				}
 			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "uuid",
@@ -330,22 +330,21 @@ Ext.extend(OMV.Module.Services.ClamAV.JobGridPanel, OMV.grid.TBarGridPanel, {
 		return tbar;
 	},
 
-	cbSelectionChangeHdl : function(model) {
+	onSelectionChange: function(model, records) {
 		OMV.Module.Services.ClamAV.JobGridPanel.superclass.
-		  cbSelectionChangeHdl.apply(this, arguments);
+		  onSelectionChange.apply(this, arguments);
 		// Process additional buttons
-		var records = model.getSelections();
-		var tbarRunCtrl = this.getTopToolbar().findById(this.getId() + "-run");
-		if (records.length <= 0) {
+		var tbarRunCtrl = this.queryById(this.getId() + "-run");
+		if(records.length <= 0) {
 			tbarRunCtrl.disable();
-		} else if (records.length == 1) {
+		} else if(records.length == 1) {
 			tbarRunCtrl.enable();
 		} else {
 			tbarRunCtrl.disable();
 		}
 	},
 
-	cbAddBtnHdl : function() {
+	onAddButton : function() {
 		var wnd = new OMV.Module.Services.ClamAV.JobPropertyDialog({
 			uuid: OMV.UUID_UNDEFINED,
 			listeners: {
@@ -358,9 +357,9 @@ Ext.extend(OMV.Module.Services.ClamAV.JobGridPanel, OMV.grid.TBarGridPanel, {
 		wnd.show();
 	},
 
-	cbEditBtnHdl : function() {
+	onEditButton : function() {
 		var selModel = this.getSelectionModel();
-		var record = selModel.getSelected();
+		var record = selModel.getSelection()[0];
 		var wnd = new OMV.Module.Services.ClamAV.JobPropertyDialog({
 			uuid: record.get("uuid"),
 			listeners: {
@@ -374,18 +373,27 @@ Ext.extend(OMV.Module.Services.ClamAV.JobGridPanel, OMV.grid.TBarGridPanel, {
 	},
 
 	doDeletion : function(record) {
-		OMV.Ajax.request(this.cbDeletionHdl, this, "ClamAV",
-		  "deleteJob", { "uuid": record.get("uuid") });
+		OMV.Ajax.request({
+			  "scope": this,
+			  "callback": this.onDeletion,
+			  "rpcData": {
+				  "service": "ClamAV",
+				  "method": "deleteJob",
+				  "params": {
+					  "uuid": record.get("uuid")
+				  }
+			  }
+		  });
 	},
 
 	cbRunBtnHdl : function() {
 		var selModel = this.getSelectionModel();
-		var record = selModel.getSelected();
-		var wnd = new OMV.ExecCmdDialog({
+		var record = selModel.getSelection()[0];
+		var wnd = Ext.create("OMV.window.Execute", {
 			title: _("Execute job"),
 			rpcService: "ClamAV",
 			rpcMethod: "executeJob",
-			rpcArgs: { "uuid": record.get("uuid") },
+			rpcParams: { "uuid": record.get("uuid") },
 			listeners: {
 				exception: function(wnd, error) {
 					OMV.MessageBox.error(null, error);
@@ -396,7 +404,7 @@ Ext.extend(OMV.Module.Services.ClamAV.JobGridPanel, OMV.grid.TBarGridPanel, {
 		wnd.show();
 	}
 });
-OMV.NavigationPanelMgr.registerPanel("services", "clamav", {
+OMV.ModuleManager.registerPanel("services", "clamav", {
 	cls: OMV.Module.Services.ClamAV.JobGridPanel,
 	title: _("Jobs"),
 	position: 20
@@ -422,35 +430,26 @@ OMV.Module.Services.ClamAV.JobPropertyDialog = function(config) {
 };
 Ext.extend(OMV.Module.Services.ClamAV.JobPropertyDialog,
   OMV.CfgObjectDialog, {
-	getFormConfig : function() {
-		return {
-			autoScroll: true,
-			defaults: {
-				anchor: "-" + Ext.getScrollBarWidth(),
-				labelSeparator: ""
-			}
-		};
-	},
-
 	getFormItems : function() {
 		return [{
 			xtype: "checkbox",
 			name: "enable",
 			fieldLabel: _("Enable"),
-			checked: true,
-			inputValue: 1
+			checked: true
 		},{
 			xtype: "textfield",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			allowBlank: true
+			allowBlank: true,
+			vtype: "comment"
 		},{
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",
-			hiddenName: "sharedfolderref",
 			fieldLabel: _("Shared folder"),
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("The location of the files to scan.")
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("The location of the files to scan.")
+			}]
 		},{
 			xtype: "compositefield",
 			fieldLabel: _("Minute"),
@@ -458,20 +457,18 @@ Ext.extend(OMV.Module.Services.ClamAV.JobPropertyDialog,
 			items: [{
 				xtype: "combo",
 				name: "minute",
-				hiddenName: "minute",
-				mode: "local",
+				queryMode: "local",
 				store: Array.range(0, 59, 1, true).insert(0, "*"),
 				allowBlank: false,
 				editable: false,
 				triggerAction: "all",
-				value: new Date().format("i"),
+				value: Ext.Date.format(new Date(), "i"),
 				flex: 1
 			},{
 				xtype: "checkbox",
 				name: "everynminute",
 				fieldLabel: "",
 				checked: false,
-				inputValue: 1,
 				boxLabel: _("Every N minute"),
 				width: 140
 			}]
@@ -482,9 +479,8 @@ Ext.extend(OMV.Module.Services.ClamAV.JobPropertyDialog,
 			items: [{
 				xtype: "combo",
 				name: "hour",
-				hiddenName: "hour",
-				mode: "local",
-				store: new Ext.data.SimpleStore({
+				queryMode: "local",
+				store: Ext.create("Ext.data.ArrayStore", {
 					fields: [ "value", "text" ],
 					data: Date.mapHour
 				}),
@@ -493,14 +489,13 @@ Ext.extend(OMV.Module.Services.ClamAV.JobPropertyDialog,
 				allowBlank: false,
 				editable: false,
 				triggerAction: "all",
-				value: new Date().format("H"),
+				value: Ext.Date.format(new Date(), "H"),
 				flex: 1
 			},{
 				xtype: "checkbox",
 				name: "everynhour",
 				fieldLabel: "",
 				checked: false,
-				inputValue: 1,
 				boxLabel: _("Every N hour"),
 				width: 140
 			}]
@@ -511,9 +506,8 @@ Ext.extend(OMV.Module.Services.ClamAV.JobPropertyDialog,
 			items: [{
 				xtype: "combo",
 				name: "dayofmonth",
-				hiddenName: "dayofmonth",
-				mode: "local",
-				store: new Ext.data.SimpleStore({
+				queryMode: "local",
+				store: Ext.create("Ext.data.ArrayStore", {
 					fields: [ "value", "text" ],
 					data: Date.mapDayOfMonth
 				}),
@@ -529,17 +523,15 @@ Ext.extend(OMV.Module.Services.ClamAV.JobPropertyDialog,
 				name: "everyndayofmonth",
 				fieldLabel: "",
 				checked: false,
-				inputValue: 1,
 				boxLabel: _("Every N day of month"),
 				width: 140
 			}]
 		},{
 			xtype: "combo",
 			name: "month",
-			hiddenName: "month",
 			fieldLabel: _("Month"),
-			mode: "local",
-			store: new Ext.data.SimpleStore({
+			queryMode: "local",
+			store: Ext.create("Ext.data.ArrayStore", {
 				fields: [ "value", "text" ],
 				data: Date.mapMonth
 			}),
@@ -552,10 +544,9 @@ Ext.extend(OMV.Module.Services.ClamAV.JobPropertyDialog,
 		},{
 			xtype: "combo",
 			name: "dayofweek",
-			hiddenName: "dayofweek",
 			fieldLabel: _("Day of week"),
-			mode: "local",
-			store: new Ext.data.SimpleStore({
+			queryMode: "local",
+			store: Ext.create("Ext.data.ArrayStore", {
 				fields: [ "value", "text" ],
 				data: Date.mapDayOfWeek
 			}),
@@ -570,41 +561,40 @@ Ext.extend(OMV.Module.Services.ClamAV.JobPropertyDialog,
 			name: "onaccess",
 			fieldLabel: _("On-access"),
 			checked: false,
-			inputValue: 1,
 			hidden: true,
 			boxLabel: _("Enable on-access virus scanning"),
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("Monitor the shared folder and scan new or modified files.")
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Monitor the shared folder and scan new or modified files.")
+			}]
 		},{
 			xtype: "checkbox",
 			name: "remove",
 			fieldLabel: _("Remove"),
 			boxLabel: _("Remove infected files."),
-			checked: false,
-			inputValue: 1
+			checked: false
 		},{
 			xtype: "checkbox",
 			name: "multiscan",
 			fieldLabel: _("Multiscan"),
 			boxLabel: _("Scan the directory contents in parallel using available threads."),
-			checked: false,
-			inputValue: 1
+			checked: false
 		},{
 			xtype: "checkbox",
 			name: "verbose",
 			fieldLabel: _("Verbose"),
 			boxLabel: _("Be verbose."),
-			checked: false,
-			inputValue: 1
+			checked: false
 		},{
 			xtype: "checkbox",
 			name: "sendemail",
 			fieldLabel: _("Send email"),
 			checked: false,
-			inputValue: 1,
 			boxLabel: _("Send command output via email"),
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("An email message with the command output (if any produced) is send to the administrator.")
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("An email message with the command output (if any produced) is send to the administrator.")
+			}]
 		}];
 	}
 });
@@ -618,24 +608,25 @@ Ext.ns("OMV.Module.Diagnostics.LogPlugin");
  */
 OMV.Module.Diagnostics.LogPlugin.ClamAV = function(config) {
 	var initialConfig = {
-		title: _("Antivirus"),
+		stateful: true,
 		stateId: "487886d0-97cc-11e1-9f42-000c29f7c0eb",
 		columns: [{
-			header: _("Date & Time"),
+			text: _("Date & Time"),
 			sortable: true,
 			dataIndex: "rownum",
-			id: "date",
+			stateId: "date",
 			width: 35,
-			renderer: function(val, cell, record, row, col, store) {
+			renderer: function(value, metaData, record, rowIndex,
+			  colIndex, store, view) {
 				return record.get("date");
 			}
 		},{
-			header: _("Event"),
+			text: _("Event"),
 			sortable: true,
 			dataIndex: "event",
-			id: "event"
+			stateId: "event"
 		}],
-		rpcArgs: { "id": "clamav" },
+		rpcParams: { "id": "clamav" },
 		rpcFields: [
 			{ name: "rownum" },
 			{ name: "date" },
@@ -649,4 +640,10 @@ OMV.Module.Diagnostics.LogPlugin.ClamAV = function(config) {
 Ext.extend(OMV.Module.Diagnostics.LogPlugin.ClamAV,
   OMV.Module.Diagnostics.LogPlugin, {
 });
-OMV.preg("log", "clamav", OMV.Module.Diagnostics.LogPlugin.ClamAV);
+
+OMV.PluginManager.register({
+	ptype: "log",
+	id: "clamav",
+	text: _("Antivirus"),
+	className: "OMV.Module.Diagnostics.LogPlugin.ClamAV"
+});

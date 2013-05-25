@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -28,11 +28,11 @@ OMV_AVAHIDAEMON_RSYNCSERVICE=${OMV_AVAHIDAEMON_RSYNCSERVICE:-"/etc/avahi/service
 
 # Is the service enabled? Announce this service via DNS-SD?
 rm -f ${OMV_AVAHIDAEMON_RSYNCSERVICE}
-[ "$(omv_config_get "//services/rsync/server/enable")" = "0" -o "$(omv_config_get "//services/rsync/server/dnssd/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//services/rsync/server/enable")" = "0" -o "$(omv_config_get "//services/zeroconf/services/service[id='rsync']/enable")" = "0" ] && exit 0
 
 # Create '/etc/avahi/services/rsync.service' file.
 port=$(omv_config_get "//services/rsync/server/port")
-name=$(omv_config_get "//services/rsync/server/dnssd/name")
+name=$(omv_config_get "//services/zeroconf/services/service[id='rsync']/name")
 cat <<EOF > ${OMV_AVAHIDAEMON_RSYNCSERVICE}
 <?xml version="1.0" standalone='no'?>
 <!DOCTYPE service-group SYSTEM "avahi-service.dtd">

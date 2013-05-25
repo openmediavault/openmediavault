@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
-"PO-Revision-Date: 2012-11-19 19:12+0000\n"
+"POT-Creation-Date: 2012-12-22 03:12+0100\n"
+"PO-Revision-Date: 2012-12-22 02:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -20,15 +20,12 @@ msgstr ""
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr "% voltooid ..."
 
-#, c-format
 msgid "%s (%s available)"
 msgstr "%s (%s beschikbaar)"
 
-#, c-format
 msgid "%s [on %s]"
 msgstr "%s [van %s]"
 
@@ -59,7 +56,6 @@ msgstr "10 minuten"
 msgid "10 years"
 msgstr "10 jaren"
 
-#, c-format
 msgid "100% completed ..."
 msgstr "100% voltooid ..."
 
@@ -104,6 +100,9 @@ msgstr "25 jaren"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maximale prestaties, maximaal stroomverbruik"
+
+msgid "255 - Disabled"
+msgstr ""
 
 msgid "3 days"
 msgstr "3 dagen"
@@ -424,7 +423,6 @@ msgstr "Bahrein"
 msgid "Ban list"
 msgstr "Ban lijst"
 
-#, c-format
 msgid "Ban statistics:"
 msgstr "Ban statistieken:"
 
@@ -691,7 +689,6 @@ msgstr "Cuba"
 msgid "Current time"
 msgstr "Huidige tijd"
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr "Huidige ingelogde gebruikers"
 
@@ -740,6 +737,9 @@ msgstr "Verwijder"
 msgid "Delete content"
 msgstr "Verwijder inhoud"
 
+msgid "Delete files"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Verwijder bestanden aan de ontvangende kant die niet bestaan bij de verzender"
 
@@ -787,7 +787,6 @@ msgstr "Bepaal de standaard time-out, in microseconden, voordat het eerste pakke
 msgid "Device"
 msgstr "Apparaat"
 
-#, c-format
 msgid "Device '%s' not found"
 msgstr "Apparaat '%s' werd niet gevonden"
 
@@ -1073,7 +1072,6 @@ msgstr "Fout"
 msgid "Error #"
 msgstr "Fout #"
 
-#, c-format
 msgid "Error #%d"
 msgstr "Fout #%d"
 
@@ -1130,7 +1128,6 @@ msgstr "FXP staat transfers tussen twee externe servers toe zonder bestandsgegev
 msgid "Failed to call "
 msgstr "Fout bij het aanroepen van"
 
-#, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1163,14 +1160,22 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Bestand"
 
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr ""
+
+msgid ""
+"Files that are larger than the specified number of bytes will not be put "
+"into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
+
 msgid "Filesystem"
 msgstr "Bestandssysteem"
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr "Bestandssysteem '%s' niet gevonden"
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr "Bestandssysteem '%s' niet ondersteund"
 
@@ -1264,15 +1269,12 @@ msgstr "Grenada"
 msgid "Group"
 msgstr "Groep"
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr "Er bestaat reeds een groep met naam '%s'"
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr "De groep '%s' bestaat niet"
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr "Er bestaat reeds een groep met ID '%d'"
 
@@ -1483,7 +1485,6 @@ msgstr "Ongeldige groeps naam"
 msgid "Invalid hostname"
 msgstr "Ongeldige hostnaam"
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr "Ongeldige regel: %s"
 
@@ -1636,7 +1637,6 @@ msgstr "Locatie informatie, b.v. fysieke locatie van dit systeem "
 msgid "Log level"
 msgstr "Log niveau"
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr "Logisch volume %s [%s, %s]"
 
@@ -1739,6 +1739,9 @@ msgstr "Max. login pogingen"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maximum download snelheid (KiB/s)"
+
+msgid "Maximum file size"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1893,7 +1896,6 @@ msgstr "Netmask"
 msgid "Network"
 msgstr "Netwerk"
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr "Netwerk interface '%s' bestaat al"
 
@@ -2633,7 +2635,6 @@ msgstr "Stelt de tijd tussen schijf controles in op N seconden."
 msgid "Settings"
 msgstr "Instellingen"
 
-#, c-format
 msgid "Settings already exist for device '%s'"
 msgstr "Instellingen bestaan al voor schijf '%s'"
 
@@ -2928,14 +2929,12 @@ msgstr "De doel server, b.v. [GEBRUIKER@]HOST:DOEL, [USER@]HOST::DOEL of rsync:/
 msgid "The destination shared folder."
 msgstr "De gedeelde doel map"
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr "Het veld '%s' bevat verboden"
 
 msgid "The file mode of the shared folder path."
 msgstr "De bestandsmodus van de locatie van de gedeelde map."
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr "De groep '%s' bestaat niet"
 
@@ -3013,11 +3012,9 @@ msgstr "Het systeem wordt opnieuw opgestart. Dit kan enige tijd duren ..."
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "De test mail is succesvol verzonden. Controleer alstublieft uw E-mail."
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr "Gebruiker '%s' bestaat niet"
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr "Gebruikersnaam '%s' is niet toegestaan"
 
@@ -3035,7 +3032,6 @@ msgstr "Het welkom bericht dat zal worden getoond aan de gebruiker, wanneer deze
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "De werkgroep waarin de server zich zal tonen, wanneer opgevraagd door clients."
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr "Er bestaat al een koppelpunt voor %s"
 
@@ -3312,11 +3308,9 @@ msgstr "Verenigde Staten"
 msgid "United States Minor Outlying Islands"
 msgstr "Amerikaanse Kleine Buitengelegen Eilanden"
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr "Onbekend bestandssysteem '%s'"
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr "Onbekend bestandstype van de log (id=%s)"
 
@@ -3404,15 +3398,12 @@ msgstr "Gebruikte capaciteit"
 msgid "User"
 msgstr "Gebruiker"
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr "Gebruiker '%s' bestaat al"
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr "Gebruiker '%s' kon niet worden gevonden."
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr "Gebruikers ID '%d' bestaat al."
 
@@ -3556,7 +3547,6 @@ msgstr "minuut"
 msgid "minutes"
 msgstr "minuten"
 
-#, c-format
 msgid "n/a"
 msgstr "niet beschikbaar"
 

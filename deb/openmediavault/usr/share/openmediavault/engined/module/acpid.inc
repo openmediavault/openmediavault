@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,36 +22,52 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
 
-class OMVAcpidModule extends OMVModuleAbstract
+class OMVModuleAcpid extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "acpid";
 	}
 
- 	public function updateService() {
-		global $xmlConfig;
-		// Get the configuration object
-		$xpath = "//system/powermanagement";
-		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Update the acpid configuration file and service
-		$cmd = "sudo omv-mkconf acpid 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	/**
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
+	 */
+	public function applyConfig() {
+		$cmd = "omv-mkconf acpid 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		$initd = new OMVSysVInitScript("acpid", boolval($object['powerbtn']),
-		  FALSE);
+	}
+
+	/**
+	 * Stop the managed service.
+	 */
+	public function stopService() {
+		$initd = new OMVSysVInitScript("acpid", FALSE);
+		$initd->exec();
+	}
+
+	/**
+	 * Start the managed service.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	public function startService() {
+		global $xmlConfig;
+		$xpath = "//system/powermanagement";
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		if(FALSE === boolval($object['enable']))
+			return;
+		$initd = new OMVSysVInitScript("acpid", TRUE, FALSE);
 		$initd->exec();
 	}
 
@@ -61,11 +77,11 @@ class OMVAcpidModule extends OMVModuleAbstract
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.powermanagement",
-		  array($this, "updateService"), 1);
+		  array($this, "setDirty"));
 	}
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVAcpidModule());
+$moduleMgr->registerModule(new OMVModuleAcpid());
 ?>

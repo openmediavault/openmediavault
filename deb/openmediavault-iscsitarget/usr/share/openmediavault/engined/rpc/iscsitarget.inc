@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,232 +23,179 @@ require_once("openmediavault/object.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/util.inc");
-require_once("openmediavault/rpc.inc");
+require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/system.inc");
 require_once("openmediavault/notify.inc");
 
-class iSCSITargetRpc extends OMVRpc {
-	public function __construct() {
-		$this->methodSchemata = array(
-			"setSettings" => array('{
-				"type":"object",
-				"properties":{
-					"enable":{"type":"boolean"},
-					"extraoptions":{"type":"string"},
-					"authentication":{
-						"type":"array",
-						"items":{
-							"type":"object",
-							"properties":{
-								"uuid":{'.
-								  $GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-								"type":{"type":"string","enum":'.
-								  '["incoming","outgoing"]},
-								"username":{"type":"string"},
-								"password":{"type":"string"}
-							}
-						}
-					}
-				}
-			}'),
-			"getTargetList" => array('{
-				"type":"object",
-				"properties":{
-					"start":{"type":"integer"},
-					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-				}
-			}'),
-			"getTarget" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-				}
-			}'),
-			"setTarget" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-					"activation":{"type":"string","format":"regex","pattern":'.
-					  '"#^([0-9]{4}-[0-9]{2})|$#"},
-					"identifier":{"type":"string"},
-					"alias":{"type":"string"},
-					"headerdigest":{"type":"string","enum":["CRC32C","None"]},
-					"datadigest":{"type":"string","enum":["CRC32C","None"]},
-					"maxconnections":{"type":"integer","minimum":0},
-					"maxsessions":{"type":"integer","minimum":0},
-					"initialr2t":{"type":"boolean"},
-					"immediatedata":{"type":"boolean"},
-					"maxrecvdatasegmentlength":{"type":"integer","minimum":0},
-					"maxxmitdatasegmentlength":{"type":"integer","minimum":0},
-					"maxburstlength":{"type":"integer","minimum":0},
-					"firstburstlength":{"type":"integer","minimum":0},
-					"maxoutstandingr2t":{"type":"integer","minimum":0},
-					"datapduinorder":{"type":"boolean"},
-					"datasequenceinorder":{"type":"boolean"},
-					"errorrecoverylevel":{"type":"integer","minimum":0},
-					"nopinterval":{"type":"integer","minimum":0},
-					"noptimeout":{"type":"integer","minimum":0},
-					"wthreads":{"type":"integer","minimum":0},
-					"queuedcommands":{"type":"integer","minimum":0},
-					"comment":{"type":"string"},
-					"extraoptions":{"type":"string"},
-					"authentication":{
-						"type":"array",
-						"items":{
-							"type":"object",
-							"properties":{
-								"uuid":{'.
-								  $GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-								"type":{"type":"string","enum":'.
-								  '["incoming","outgoing"]},
-								"username":{"type":"string"},
-								"password":{"type":"string"}
-							}
-						}
-					},
-					"luns":{
-						"type":"array",
-						"items":{
-							"type":"object",
-							"properties":{
-								"uuid":{'.
-								  $GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-								"id":{"type":"integer","minimum":0},
-								"type":{"type":"string","enum":'.
-								  '["fileio","blockio"]},
-								"iomode":{"type":"string","enum":'.
-								  '["wt","wb","ro"]},
-								"devicefile":{'.
-								  $GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
-								"scsiid":{"type":"string"},
-								"scsisn":{"type":"string"}
-							}
-						}
-					}
-				}
-			}'),
-			"deleteTarget" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-				}
-			}')
-		);
+class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
+	/**
+	 * Get the RPC service name.
+	 */
+	public function getName() {
+		return "iSCSITarget";
 	}
 
-	public function getSettings() {
+	/**
+	 * Initialize the RPC service.
+	 */
+	public function initialize() {
+		$this->registerMethod("getSettings");
+		$this->registerMethod("setSettings");
+		$this->registerMethod("getTargetList");
+		$this->registerMethod("getTarget");
+		$this->registerMethod("setTarget");
+		$this->registerMethod("deleteTarget");
+	}
+
+	/**
+	 * Get the configuration settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The requested configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	public function getSettings($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Get configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get the configuration object.
 		$xpath = "//services/iscsitarget";
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		$object['authentication'] = !empty($object['authentication']['user']) ?
 		  $object['authentication']['user'] : array();
-		unset($object['targets']);
-		// Modify result data
+		// Modify result object.
 		$object['enable'] = boolval($object['enable']);
+		unset($object['targets']);
 		return $object;
 	}
 
-	public function setSettings($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	/**
+	 * Set the configuration settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
+	 */
+	public function setSettings($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get existing configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "enable":{"type":"boolean"},
+				  "extraoptions":{"type":"string"},
+				  "authentication":{
+					  "type":"array",
+					  "items":{
+						  "type":"object",
+						  "properties":{
+							  "uuid":{'.
+								$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+							  "type":{"type":"string","enum":'.
+								'["incoming","outgoing"]},
+							  "username":{"type":"string"},
+							  "password":{"type":"string"}
+						  }
+					  }
+				  }
+			  }
+		  }');
+		// Get existing configuration object.
 		$xpath = "//services/iscsitarget";
 		$oldObject = $xmlConfig->get($xpath);
-		if (is_null($oldObject)) {
+		if(is_null($oldObject)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Update configuration
+		// Update the configuration object.
 		$object = array(
-			"enable" => array_boolval($data, 'enable'),
-			"extraoptions" => $data['extraoptions'],
+			"enable" => array_boolval($params, 'enable'),
+			"extraoptions" => $params['extraoptions'],
 			"targets" => isset($oldObject['targets']) ?
 			  $oldObject['targets'] : array(),
-			"authentication" => !empty($data['authentication']) ?
-			  array("user" => $data['authentication']) : array()
+			"authentication" => !empty($params['authentication']) ?
+			  array("user" => $params['authentication']) : array()
 		);
 		// Update the authentication users uuid's (only necessary if the
 		// user is new)
-		if (!empty($object['authentication']['user'])) {
-			foreach ($object['authentication']['user'] as
-			  $objectk => &$objectv) {
+		if(!empty($object['authentication']['user'])) {
+			foreach($object['authentication']['user'] as $objectk =>
+			  &$objectv) {
 				$objectv['uuid'] = ($objectv['uuid'] ==
 				  $GLOBALS['OMV_UUID_UNDEFINED']) ?
 				  OMVUtil::uuid() : $objectv['uuid'];
 			}
 		}
-		if (FALSE === $xmlConfig->replace("//services/iscsitarget", $object)) {
+		// Set the configuration object.
+		$xpath = "//services/iscsitarget";
+		if(FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
-		}
-		// Notify configuration changes
+		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.iscsitarget", $object);
+		// Return the configuration object.
+		return $object;
 	}
 
 	/**
 	 * Get list of target configuration objects.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em start The index where to start.
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @param context The context of the caller.
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	public function getTargetList($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function getTargetList($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Get configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "start":{"type":"integer"},
+				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+			  }
+		  }');
+		// Get the configuration object.
 		$xpath = "//services/iscsitarget/targets/target";
 		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
+		if(is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Add additional share informations
+		// Add additional share informations.
 		$rdomainname = strtolower(implode(".", array_reverse(explode(".",
 		  OMVNetwork::getHostname("--fqdn")))));
-		foreach ($objects as $objectk => &$objectv) {
+		foreach($objects as $objectk => &$objectv) {
 			$objectv['iqn'] = sprintf("iqn.%s.%s", $objectv['activation'],
 			  $rdomainname);
-			if (!empty($objectv['identifier'])) {
+			if(!empty($objectv['identifier'])) {
 				$objectv['iqn'] .= sprintf(":%s", $objectv['identifier']);
 			}
-			// Modify result data
+			// Modify result object.
 			$objectv['maxconnections'] = intval($objectv['maxconnections']);
 			$objectv['maxsessions'] = intval($objectv['maxsessions']);
 			$objectv['maxrecvdatasegmentlength'] = intval(
@@ -266,41 +213,45 @@ class iSCSITargetRpc extends OMVRpc {
 			$objectv['noptimeout'] = intval($objectv['noptimeout']);
 			$objectv['wthreads'] = intval($objectv['wthreads']);
 			$objectv['queuedcommands'] = intval($objectv['queuedcommands']);
-			foreach ($objectv['luns']['lun'] as $lunk => &$lunv) {
+			foreach($objectv['luns']['lun'] as $lunk => &$lunv) {
 				$lunv['id'] = intval($lunv['id']);
 			}
 		}
-		// Filter result
-		return $this->applyFilter($objects, $data['start'], $data['limit'],
-		  $data['sortfield'], $data['sortdir']);
+		// Filter result.
+		return $this->applyFilter($objects, $params['start'],
+		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
 	/**
 	 * Get a target configuration object.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
+	 * @param context The context of the caller.
 	 * @return The requested configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	public function getTarget($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function getTarget($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Get configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
+		// Get the configuration object.
 		$xpath = sprintf("//services/iscsitarget/targets/target[uuid='%s']",
-		  $data['uuid']);
+		  $params['uuid']);
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Modify result data
+		// Modify result object.
 		$object['maxconnections'] = intval($object['maxconnections']);
 		$object['maxsessions'] = intval($object['maxsessions']);
 		$object['maxrecvdatasegmentlength'] = intval(
@@ -315,7 +266,7 @@ class iSCSITargetRpc extends OMVRpc {
 		$object['noptimeout'] = intval($object['noptimeout']);
 		$object['wthreads'] = intval($object['wthreads']);
 		$object['queuedcommands'] = intval($object['queuedcommands']);
-		foreach ($object['luns']['lun'] as $lunk => &$lunv) {
+		foreach($object['luns']['lun'] as $lunk => &$lunv) {
 			$lunv['id'] = intval($lunv['id']);
 		}
 		return $object;
@@ -323,118 +274,185 @@ class iSCSITargetRpc extends OMVRpc {
 
 	/**
 	 * Set a target configuration object.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
-	public function setTarget($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function setTarget($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
-		// Prepare configuration data
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+				  "activation":{"type":"string","format":"regex","pattern":'.
+					'"#^([0-9]{4}-[0-9]{2})|$#"},
+				  "identifier":{"type":"string"},
+				  "alias":{"type":"string"},
+				  "headerdigest":{"type":"string","enum":["CRC32C","None"]},
+				  "datadigest":{"type":"string","enum":["CRC32C","None"]},
+				  "maxconnections":{"type":"integer","minimum":0},
+				  "maxsessions":{"type":"integer","minimum":0},
+				  "initialr2t":{"type":"boolean"},
+				  "immediatedata":{"type":"boolean"},
+				  "maxrecvdatasegmentlength":{"type":"integer","minimum":0},
+				  "maxxmitdatasegmentlength":{"type":"integer","minimum":0},
+				  "maxburstlength":{"type":"integer","minimum":0},
+				  "firstburstlength":{"type":"integer","minimum":0},
+				  "maxoutstandingr2t":{"type":"integer","minimum":0},
+				  "datapduinorder":{"type":"boolean"},
+				  "datasequenceinorder":{"type":"boolean"},
+				  "errorrecoverylevel":{"type":"integer","minimum":0},
+				  "nopinterval":{"type":"integer","minimum":0},
+				  "noptimeout":{"type":"integer","minimum":0},
+				  "wthreads":{"type":"integer","minimum":0},
+				  "queuedcommands":{"type":"integer","minimum":0},
+				  "comment":{"type":"string"},
+				  "extraoptions":{"type":"string"},
+				  "authentication":{
+					  "type":"array",
+					  "items":{
+						  "type":"object",
+						  "properties":{
+							  "uuid":{'.
+								$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+							  "type":{"type":"string","enum":'.
+								'["incoming","outgoing"]},
+							  "username":{"type":"string"},
+							  "password":{"type":"string"}
+						  }
+					  }
+				  },
+				  "luns":{
+					  "type":"array",
+					  "items":{
+						  "type":"object",
+						  "properties":{
+							  "uuid":{'.
+								$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+							  "id":{"type":"integer","minimum":0},
+							  "type":{"type":"string","enum":'.
+								'["fileio","blockio"]},
+							  "iomode":{"type":"string","enum":'.
+								'["wt","wb","ro"]},
+							  "devicefile":{'.
+								$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
+							  "scsiid":{"type":"string"},
+							  "scsisn":{"type":"string"}
+						  }
+					  }
+				  }
+			  }
+		  }');
+		// Prepare the configuration object.
 		$object = array(
-			"uuid" => ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-			  OMVUtil::uuid() : $data['uuid'],
-			"activation" => $data['activation'],
-			"identifier" => $data['identifier'],
-			"alias" => $data['alias'],
-			"headerdigest" => $data['headerdigest'],
-			"datadigest" => $data['datadigest'],
-			"maxconnections" => $data['maxconnections'],
-			"maxsessions" => $data['maxsessions'],
-			"initialr2t" => $data['initialr2t'],
-			"immediatedata" => $data['immediatedata'],
-			"maxrecvdatasegmentlength" => $data['maxrecvdatasegmentlength'],
-			"maxxmitdatasegmentlength" => $data['maxxmitdatasegmentlength'],
-			"maxburstlength" => $data['maxburstlength'],
-			"firstburstlength" => $data['firstburstlength'],
-			"maxoutstandingr2t" => $data['maxoutstandingr2t'],
-			"datapduinorder" => $data['datapduinorder'],
-			"datasequenceinorder" => $data['datasequenceinorder'],
-			"errorrecoverylevel" => $data['errorrecoverylevel'],
-			"nopinterval" => $data['nopinterval'],
-			"noptimeout" => $data['noptimeout'],
-			"wthreads" => $data['wthreads'],
-			"queuedcommands" => $data['queuedcommands'],
-			"comment" => $data['comment'],
-			"extraoptions" => $data['extraoptions'],
-			"luns" => !empty($data['luns']) ?
-			  array("lun" => $data['luns']) : array(),
-			"authentication" => !empty($data['authentication']) ?
-			  array("user" => $data['authentication']) : array()
+			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+			  OMVUtil::uuid() : $params['uuid'],
+			"activation" => $params['activation'],
+			"identifier" => $params['identifier'],
+			"alias" => $params['alias'],
+			"headerdigest" => $params['headerdigest'],
+			"datadigest" => $params['datadigest'],
+			"maxconnections" => $params['maxconnections'],
+			"maxsessions" => $params['maxsessions'],
+			"initialr2t" => $params['initialr2t'],
+			"immediatedata" => $params['immediatedata'],
+			"maxrecvdatasegmentlength" => $params['maxrecvdatasegmentlength'],
+			"maxxmitdatasegmentlength" => $params['maxxmitdatasegmentlength'],
+			"maxburstlength" => $params['maxburstlength'],
+			"firstburstlength" => $params['firstburstlength'],
+			"maxoutstandingr2t" => $params['maxoutstandingr2t'],
+			"datapduinorder" => $params['datapduinorder'],
+			"datasequenceinorder" => $params['datasequenceinorder'],
+			"errorrecoverylevel" => $params['errorrecoverylevel'],
+			"nopinterval" => $params['nopinterval'],
+			"noptimeout" => $params['noptimeout'],
+			"wthreads" => $params['wthreads'],
+			"queuedcommands" => $params['queuedcommands'],
+			"comment" => $params['comment'],
+			"extraoptions" => $params['extraoptions'],
+			"luns" => !empty($params['luns']) ?
+			  array("lun" => $params['luns']) : array(),
+			"authentication" => !empty($params['authentication']) ?
+			  array("user" => $params['authentication']) : array()
 		);
-		// Update the LUNs uuid's (only necessary if the LUN is new)
-		if (!empty($object['luns']['lun'])) {
-			foreach ($object['luns']['lun'] as $objectk => &$objectv) {
+		// Update the LUNs uuid's (only necessary if the LUN is new).
+		if(!empty($object['luns']['lun'])) {
+			foreach($object['luns']['lun'] as $objectk => &$objectv) {
 				$objectv['uuid'] = ($objectv['uuid'] ==
 				  $GLOBALS['OMV_UUID_UNDEFINED']) ?
 				  OMVUtil::uuid() : $objectv['uuid'];
 			}
 		}
 		// Update the authentication users uuid's (only necessary if the
-		// user is new)
-		if (!empty($object['authentication']['user'])) {
-			foreach ($object['authentication']['user'] as $objectk =>
+		// user is new).
+		if(!empty($object['authentication']['user'])) {
+			foreach($object['authentication']['user'] as $objectk =>
 			  &$objectv) {
 				$objectv['uuid'] = ($objectv['uuid'] ==
 				  $GLOBALS['OMV_UUID_UNDEFINED']) ?
 				  OMVUtil::uuid() : $objectv['uuid'];
 			}
 		}
-		// Set configuration data
+		// Set configuration object.
 		$success = FALSE;
-		if ($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
 			$object['activation'] = date("Y-m");
-			// Append object to configuration
+			// Append object to configuration.
 			$success = $xmlConfig->set("//services/iscsitarget/targets",
 			  array("target" => $object));
 		} else {
-			// Update existing configuration object
+			// Update existing configuration object.
 			$success = $xmlConfig->replace(
-			  "//services/iscsitarget/targets/target[uuid='{$data['uuid']}']",
+			  "//services/iscsitarget/targets/target[uuid='{$params['uuid']}']",
 			  $object);
 		}
-		if (FALSE === $success) {
+		if(FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
-		// Save configuration
-		if (FALSE === $xmlConfig->save()) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
 		}
 		// Notify configuration changes
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(($data['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.iscsitarget.targets.target", $object);
+		// Return the configuration object.
+		return $object;
 	}
 
 	/**
 	 * Delete a target configuration object.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return The deleted configuration object.
 	 */
-	public function deleteTarget($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function deleteTarget($params, $context) {
 		global $xmlConfig;
-		// Check permissions.
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters.
-		$this->validateParams(__METHOD__, func_get_args());
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
 		// Delete the configuration object.
 		$xpath = sprintf("//services/iscsitarget/targets/target[uuid='%s']",
-		  $data['uuid']);
-		$this->deleteConfigObjectByPath($xpath,
+		  $params['uuid']);
+		return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.services.iscsitarget.targets.target");
 	}
 }
+
+// Register the RPC service.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->registerService(new OMVRpcServiceIscsiTarget());
 ?>

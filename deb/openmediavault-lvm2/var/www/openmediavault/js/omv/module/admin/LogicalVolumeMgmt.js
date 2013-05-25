@@ -3,7 +3,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/NavigationPanel.js")
+// require("js/omv/ModuleManager.js")
 // require("js/omv/data/Connection.js")
 // require("js/omv/data/DataProxy.js")
 // require("js/omv/FormPanelDialog.js")
@@ -28,10 +28,26 @@
 
 Ext.ns("OMV.Module.Storage.LVM");
 
+// Append new vtypes used by LVM property dialogs.
+// According to http://linux.die.net/man/8/lvm
+Ext.apply(Ext.form.VTypes, {
+	vgname: function(v) {
+		return /^[a-zA-Z0-9+_\.\-]+$/.test(v);
+	},
+	vgnameText: _("Invalid name"),
+	vgnameMask: /[a-zA-Z0-9+_\.\-]/,
+
+	lvname: function(v) {
+		return /^[a-zA-Z0-9+_\.\-]+$/.test(v);
+	},
+	lvnameText: _("Invalid name"),
+	lvnameMask: /[a-zA-Z0-9+_\.\-]/
+});
+
 // Register the menu.
-OMV.NavigationPanelMgr.registerMenu("storage", "lvm", {
+OMV.ModuleManager.registerMenu("storage", "lvm", {
 	text: _("Logical Volume Management"),
-	icon: "images/lvm.png",
+	icon16: "images/lvm.png",
 	position: 25
 });
 
@@ -41,40 +57,42 @@ OMV.NavigationPanelMgr.registerMenu("storage", "lvm", {
  */
 OMV.Module.Storage.LVM.PhysicalVolumeGridPanel = function(config) {
 	var initialConfig = {
-		hideAdd: false,
-		hideEdit: true,
-		hideDelete: false,
-		hideRefresh: true,
+		hideAddButton: false,
+		hideEditButton: true,
+		hideDeleteButton: false,
+		hideRefreshButton: true,
 		hidePagingToolbar: false,
+		stateful: true,
 		stateId: "4f7be743-777a-4547-9277-21a30ce0856b",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: _("Device"),
+				text: _("Device"),
 				sortable: true,
 				dataIndex: "devicefile",
-				id: "devicefile"
+				stateId: "devicefile"
 			},{
-				header: _("Available"),
+				text: _("Available"),
 				sortable: true,
 				dataIndex: "size",
-				id: "size",
+				stateId: "size",
 				renderer: OMV.util.Format.binaryUnitRenderer()
 			},{
-				header: _("Used"),
+				text: _("Used"),
 				sortable: true,
 				dataIndex: "used",
-				id: "used",
+				stateId: "used",
 				renderer: OMV.util.Format.binaryUnitRenderer()
 			},{
-				header: _("Volume group"),
+				text: _("Volume group"),
 				sortable: true,
 				dataIndex: "vgname",
-				id: "vgName",
-				renderer: function(val, cell, record, row, col, store) {
-					if (val.length == 0) {
-						val = "-";
+				stateId: "vgName",
+				renderer: function(value, metaData, record, rowIndex,
+				  colIndex, store, view) {
+					if(value.length == 0) {
+						value = "-";
 					}
-					return val;
+					return value;
 				}
 			}]
 		})
@@ -88,10 +106,13 @@ Ext.extend(OMV.Module.Storage.LVM.PhysicalVolumeGridPanel,
 	initComponent : function() {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
-			remoteSort: false,
 			proxy: new OMV.data.DataProxy({
-				"service": "LogicalVolumeMgmt",
-				"method": "getPhysicalVolumesList"
+				"rpcOptions": {
+					"rpcData": {
+						"service": "LogicalVolumeMgmt",
+						"method": "getPhysicalVolumesList"
+					}
+				}
 			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "devicefile",
@@ -120,7 +141,7 @@ Ext.extend(OMV.Module.Storage.LVM.PhysicalVolumeGridPanel,
 		return tbar;
 	},
 
-	cbAddBtnHdl : function() {
+	onAddButton : function() {
 		var wnd = new OMV.Module.Storage.LVM.CreatePhysicalVolumeDialog({
 			listeners: {
 				submit: function() {
@@ -133,11 +154,20 @@ Ext.extend(OMV.Module.Storage.LVM.PhysicalVolumeGridPanel,
 	},
 
 	doDeletion : function(record) {
-		OMV.Ajax.request(this.cbDeletionHdl, this, "LogicalVolumeMgmt",
-		  "deletePhysicalVolume", { "devicefile": record.get("devicefile") });
+		OMV.Ajax.request({
+			  "scope": this,
+			  "callback": this.onDeletion,
+			  "rpcData": {
+				  "service": "LogicalVolumeMgmt",
+				  "method": "deletePhysicalVolume",
+				  "params": {
+					  "devicefile": record.get("devicefile")
+				  }
+			  }
+		  });
 	}
 });
-OMV.NavigationPanelMgr.registerPanel("storage", "lvm", {
+OMV.ModuleManager.registerPanel("storage", "lvm", {
 	cls: OMV.Module.Storage.LVM.PhysicalVolumeGridPanel,
 	title: _("Physical volumes"),
 	position: 10
@@ -151,9 +181,8 @@ OMV.Module.Storage.LVM.CreatePhysicalVolumeDialog = function(config) {
 	var initialConfig = {
 		rpcService: "LogicalVolumeMgmt",
 		rpcSetMethod: "createPhysicalVolume",
-		title: _("Create physical volume"),
-		autoHeight: true,
-		hideReset: true,
+		title: _("Create physical volume"),	
+		hideResetButton: true,
 		width: 500
 	};
 	Ext.apply(initialConfig, config);
@@ -162,25 +191,21 @@ OMV.Module.Storage.LVM.CreatePhysicalVolumeDialog = function(config) {
 };
 Ext.extend(OMV.Module.Storage.LVM.CreatePhysicalVolumeDialog,
   OMV.FormPanelDialog, {
-	getFormConfig : function() {
-		return {
-			autoHeight: true
-		};
-	},
-
-	getFormItems : function() {
+	getFormItems: function() {
 		return [{
 			xtype: "combo",
 			name: "devicefile",
-			hiddenName: "devicefile",
 			fieldLabel: _("Device"),
 			emptyText: _("Select an device ..."),
 			store: new OMV.data.Store({
-				remoteSort: false,
 				proxy: new OMV.data.DataProxy({
-					"service": "LogicalVolumeMgmt",
-					"method": "getPhysicalVolumeCandidates",
-					"appendPagingParams": false
+					"rpcOptions": {
+						"rpcData": {
+							"service": "LogicalVolumeMgmt",
+							"method": "getPhysicalVolumeCandidates"
+						}
+					},
+					"appendSortParams": false
 				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "devicefile",
@@ -204,7 +229,7 @@ Ext.extend(OMV.Module.Storage.LVM.CreatePhysicalVolumeDialog,
 			msg: _("Do you really want to create the physical volume?"),
 			buttons: Ext.Msg.YESNO,
 			fn: function(answer) {
-				if (answer === "no") {
+				if(answer === "no") {
 					return;
 				}
 				OMV.Module.Storage.LVM.CreatePhysicalVolumeDialog.superclass.
@@ -222,45 +247,48 @@ Ext.extend(OMV.Module.Storage.LVM.CreatePhysicalVolumeDialog,
  */
 OMV.Module.Storage.LVM.VolumeGroupGridPanel = function(config) {
 	var initialConfig = {
-		hideAdd: false,
-		hideEdit: false,
-		hideDelete: false,
-		hideRefresh: true,
+		hideAddButton: false,
+		hideEditButton: false,
+		hideDeleteButton: false,
+		hideRefreshButton: true,
 		hidePagingToolbar: false,
+		stateful: true,
 		stateId: "af0712c4-9f60-493a-9be4-c9658f958f99",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: _("Name"),
+				text: _("Name"),
 				sortable: true,
 				dataIndex: "name",
-				id: "name"
+				stateId: "name"
 			},{
-				header: _("Available"),
+				text: _("Available"),
 				sortable: true,
 				dataIndex: "size",
-				id: "size",
+				stateId: "size",
 				renderer: OMV.util.Format.binaryUnitRenderer()
 			},{
-				header: _("Free"),
+				text: _("Free"),
 				sortable: true,
 				dataIndex: "free",
-				id: "free",
+				stateId: "free",
 				renderer: OMV.util.Format.binaryUnitRenderer()
 			},{
-				header: _("Physical volumes"),
+				text: _("Physical volumes"),
 				sortable: true,
 				dataIndex: "pvname",
-				id: "pvname",
-				renderer: function(val, cell, record, row, col, store) {
+				stateId: "pvname",
+				renderer: function(value, metaData, record, rowIndex,
+				  colIndex, store, view) {
 					var tpl = new Ext.XTemplate('<tpl for=".">{.}<br/></tpl>');
 					return tpl.apply(record.get("pvname"));
 				}
 			},{
-				header: _("Logical volumes"),
+				text: _("Logical volumes"),
 				sortable: true,
 				dataIndex: "lvname",
-				id: "lvname",
-				renderer: function(val, cell, record, row, col, store) {
+				stateId: "lvname",
+				renderer: function(value, metaData, record, rowIndex,
+				  colIndex, store, view) {
 					var tpl = new Ext.XTemplate('<tpl for=".">{.}<br/></tpl>');
 					return tpl.apply(record.get("lvname"));
 				}
@@ -276,10 +304,13 @@ Ext.extend(OMV.Module.Storage.LVM.VolumeGroupGridPanel,
 	initComponent : function() {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
-			remoteSort: false,
 			proxy: new OMV.data.DataProxy({
-				"service": "LogicalVolumeMgmt",
-				"method": "getVolumeGroupsList"
+				"rpcOptions": {
+					"rpcData": {
+						"service": "LogicalVolumeMgmt",
+						"method": "getVolumeGroupsList"
+					}
+				}
 			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "devicefile",
@@ -333,31 +364,30 @@ Ext.extend(OMV.Module.Storage.LVM.VolumeGroupGridPanel,
 		return tbar;
 	},
 
-	cbSelectionChangeHdl : function(model) {
+	onSelectionChange: function(model, records) {
 		OMV.Module.Storage.LVM.VolumeGroupGridPanel.superclass.
-		  cbSelectionChangeHdl.apply(this, arguments);
+		  onSelectionChange.apply(this, arguments);
 		// Process additional buttons
 		var tbarBtnName = [ "extend","reduce" ];
 		var tbarBtnDisabled = {
 			"extend": true,
 			"reduce": true
 		};
-		var records = model.getSelections();
-		if (records.length <= 0) {
+		if(records.length <= 0) {
 			tbarBtnDisabled["extend"] = true;
 			tbarBtnDisabled["reduce"] = true;
-		} else if (records.length == 1) {
+		} else if(records.length == 1) {
 			tbarBtnDisabled["extend"] = false;
 			tbarBtnDisabled["reduce"] = false;
 		} else {
 			tbarBtnDisabled["extend"] = true;
 			tbarBtnDisabled["reduce"] = true;
 		}
-		for (var i = 0; i < tbarBtnName.length; i++) {
-			var tbarBtnCtrl = this.getTopToolbar().findById(this.getId() +
-			  "-" + tbarBtnName[i]);
-			if (!Ext.isEmpty(tbarBtnCtrl)) {
-				if (true == tbarBtnDisabled[tbarBtnName[i]]) {
+		for(var i = 0; i < tbarBtnName.length; i++) {
+			var tbarBtnCtrl = this.queryById(this.getId() + "-" +
+			  tbarBtnName[i]);
+			if(!Ext.isEmpty(tbarBtnCtrl)) {
+				if(true == tbarBtnDisabled[tbarBtnName[i]]) {
 					tbarBtnCtrl.disable();
 				} else {
 					tbarBtnCtrl.enable();
@@ -366,7 +396,7 @@ Ext.extend(OMV.Module.Storage.LVM.VolumeGroupGridPanel,
 		}
 	},
 
-	cbAddBtnHdl : function() {
+	onAddButton : function() {
 		var wnd = new OMV.Module.Storage.LVM.CreateVolumeGroupDialog({
 			listeners: {
 				submit: function() {
@@ -378,9 +408,9 @@ Ext.extend(OMV.Module.Storage.LVM.VolumeGroupGridPanel,
 		wnd.show();
 	},
 
-	cbEditBtnHdl : function() {
+	onEditButton : function() {
 		var selModel = this.getSelectionModel();
-		var record = selModel.getSelected();
+		var record = selModel.getSelection()[0];
 		var wnd = new OMV.Module.Storage.LVM.EditVolumeGroupDialog({
 			devicefile: record.get("devicefile"),
 			name: record.get("name"),
@@ -396,7 +426,7 @@ Ext.extend(OMV.Module.Storage.LVM.VolumeGroupGridPanel,
 
 	cbExtendBtnHdl : function() {
 		var selModel = this.getSelectionModel();
-		var record = selModel.getSelected();
+		var record = selModel.getSelection()[0];
 		var wnd = new OMV.Module.Storage.LVM.ExtendVolumeGroupDialog({
 			devicefile: record.get("devicefile"),
 			name: record.get("name"),
@@ -412,7 +442,7 @@ Ext.extend(OMV.Module.Storage.LVM.VolumeGroupGridPanel,
 
 	cbReduceBtnHdl : function() {
 		var selModel = this.getSelectionModel();
-		var record = selModel.getSelected();
+		var record = selModel.getSelection()[0];
 		var wnd = new OMV.Module.Storage.LVM.ReduceVolumeGroupDialog({
 			devicefile: record.get("devicefile"),
 			name: record.get("name"),
@@ -427,11 +457,20 @@ Ext.extend(OMV.Module.Storage.LVM.VolumeGroupGridPanel,
 	},
 
 	doDeletion : function(record) {
-		OMV.Ajax.request(this.cbDeletionHdl, this, "LogicalVolumeMgmt",
-		  "deleteVolumeGroup", { "name": record.get("name") });
+		OMV.Ajax.request({
+			  "scope": this,
+			  "callback": this.onDeletion,
+			  "rpcData": {
+				  "service": "LogicalVolumeMgmt",
+				  "method": "deleteVolumeGroup",
+				  "params": {
+					  "name": record.get("name")
+				  }
+			  }
+		  });
 	}
 });
-OMV.NavigationPanelMgr.registerPanel("storage", "lvm", {
+OMV.ModuleManager.registerPanel("storage", "lvm", {
 	cls: OMV.Module.Storage.LVM.VolumeGroupGridPanel,
 	title: _("Volume groups"),
 	position: 20
@@ -446,8 +485,7 @@ OMV.Module.Storage.LVM.CreateVolumeGroupDialog = function(config) {
 		rpcService: "LogicalVolumeMgmt",
 		rpcSetMethod: "createVolumeGroup",
 		title: _("Create volume group"),
-		autoHeight: true,
-		hideReset: true,
+		hideResetButton: true,
 		width: 500
 	};
 	Ext.apply(initialConfig, config);
@@ -456,31 +494,27 @@ OMV.Module.Storage.LVM.CreateVolumeGroupDialog = function(config) {
 };
 Ext.extend(OMV.Module.Storage.LVM.CreateVolumeGroupDialog,
   OMV.FormPanelDialog, {
-	getFormConfig : function() {
-		return {
-			autoHeight: true
-		};
-	},
-
-	getFormItems : function() {
+	getFormItems: function() {
 		return [{
 			xtype: "textfield",
 			name: "name",
 			fieldLabel: _("Name"),
 			allowBlank: false,
-			vtype: "devname"
+			vtype: "vgname"
 		},{
 			xtype: "checkboxgrid",
 			name: "devices",
-			hiddenName: "devices",
 			fieldLabel: _("Devices"),
 			store: new OMV.data.Store({
 				autoLoad: true,
-				remoteSort: false,
 				proxy: new OMV.data.DataProxy({
-					"service": "LogicalVolumeMgmt",
-					"method": "getVolumeGroupCandidates",
-					"appendPagingParams": false
+					"rpcOptions": {
+						"rpcData": {
+							"service": "LogicalVolumeMgmt",
+							"method": "getVolumeGroupCandidates"
+						}
+					},
+					"appendSortParams": false
 				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "devicefile",
@@ -491,16 +525,17 @@ Ext.extend(OMV.Module.Storage.LVM.CreateVolumeGroupDialog,
 				})
 			}),
 			valueField: "devicefile",
+			stateful: true,
 			stateId: "f5a7a042-ae59-4a5d-a1f9-276230cacab7",
 			colModel: new Ext.grid.ColumnModel({
 				defaults: {
 					sortable: true
 				},
 				columns: [{
-					header: _("Description"),
+					text: _("Description"),
 					sortable: true,
 					dataIndex: "description",
-					id: "description"
+					stateId: "description"
 				}]
 			}),
 			viewConfig: {
@@ -517,7 +552,7 @@ Ext.extend(OMV.Module.Storage.LVM.CreateVolumeGroupDialog,
 			msg: _("Do you really want to create the volume group?"),
 			buttons: Ext.Msg.YESNO,
 			fn: function(answer) {
-				if (answer === "no") {
+				if(answer === "no") {
 					return;
 				}
 				OMV.Module.Storage.LVM.CreateVolumeGroupDialog.superclass.
@@ -532,16 +567,15 @@ Ext.extend(OMV.Module.Storage.LVM.CreateVolumeGroupDialog,
 /**
  * @class OMV.Module.Storage.LVM.EditVolumeGroupDialog
  * @derived OMV.FormPanelDialog
- * @config devicefile The devicefile of the volume group.
- * @config name The name of the volume group.
+ * @param devicefile The devicefile of the volume group.
+ * @param name The name of the volume group.
  */
 OMV.Module.Storage.LVM.EditVolumeGroupDialog = function(config) {
 	var initialConfig = {
 		rpcService: "LogicalVolumeMgmt",
 		rpcSetMethod: "renameVolumeGroup",
 		title: _("Edit volume group"),
-		autoHeight: true,
-		hideReset: false,
+		hideResetButton: false,
 		width: 300
 	};
 	Ext.apply(initialConfig, config);
@@ -550,13 +584,7 @@ OMV.Module.Storage.LVM.EditVolumeGroupDialog = function(config) {
 };
 Ext.extend(OMV.Module.Storage.LVM.EditVolumeGroupDialog,
   OMV.FormPanelDialog, {
-	getFormConfig : function() {
-		return {
-			autoHeight: true
-		};
-	},
-
-	getFormItems : function() {
+	getFormItems: function() {
 		return [{
 			xtype: "hidden",
 			name: "devicefile",
@@ -566,7 +594,7 @@ Ext.extend(OMV.Module.Storage.LVM.EditVolumeGroupDialog,
 			name: "name",
 			fieldLabel: _("Name"),
 			allowBlank: false,
-			vtype: "devname",
+			vtype: "vgname",
 			value: this.name
 		}];
 	}
@@ -575,16 +603,15 @@ Ext.extend(OMV.Module.Storage.LVM.EditVolumeGroupDialog,
 /**
  * @class OMV.Module.Storage.LVM.ExtendVolumeGroupDialog
  * @derived OMV.FormPanelDialog
- * @config devicefile The devicefile of the volume group.
- * @config name The name of the volume group.
+ * @param devicefile The devicefile of the volume group.
+ * @param name The name of the volume group.
  */
 OMV.Module.Storage.LVM.ExtendVolumeGroupDialog = function(config) {
 	var initialConfig = {
 		rpcService: "LogicalVolumeMgmt",
 		rpcSetMethod: "extendVolumeGroup",
 		title: _("Extend volume group"),
-		autoHeight: true,
-		hideReset: true,
+		hideResetButton: true,
 		width: 450
 	};
 	Ext.apply(initialConfig, config);
@@ -593,13 +620,7 @@ OMV.Module.Storage.LVM.ExtendVolumeGroupDialog = function(config) {
 };
 Ext.extend(OMV.Module.Storage.LVM.ExtendVolumeGroupDialog,
   OMV.FormPanelDialog, {
-	getFormConfig : function() {
-		return {
-			autoHeight: true
-		};
-	},
-
-	getFormItems : function() {
+	getFormItems: function() {
 		return [{
 			xtype: "hidden",
 			name: "devicefile",
@@ -610,20 +631,22 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendVolumeGroupDialog,
 			fieldLabel: _("Name"),
 			readOnly: true,
 			submitValue: false,
-			vtype: "devname",
+			vtype: "vgname",
 			value: this.name
 		},{
 			xtype: "checkboxgrid",
 			name: "devices",
-			hiddenName: "devices",
 			fieldLabel: _("Devices"),
 			store: new OMV.data.Store({
 				autoLoad: true,
-				remoteSort: false,
 				proxy: new OMV.data.DataProxy({
-					"service": "LogicalVolumeMgmt",
-					"method": "getVolumeGroupCandidates",
-					"appendPagingParams": false
+					"rpcOptions": {
+						"rpcData": {
+							"service": "LogicalVolumeMgmt",
+							"method": "getVolumeGroupCandidates"
+						}
+					},
+					"appendSortParams": false
 				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "devicefile",
@@ -634,16 +657,17 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendVolumeGroupDialog,
 				})
 			}),
 			valueField: "devicefile",
+			stateful: true,
 			stateId: "713c4486-89cd-4e80-b21d-11921e5f717e",
 			colModel: new Ext.grid.ColumnModel({
 				defaults: {
 					sortable: true
 				},
 				columns: [{
-					header: _("Description"),
+					text: _("Description"),
 					sortable: true,
 					dataIndex: "description",
-					id: "description"
+					stateId: "description"
 				}]
 			}),
 			viewConfig: {
@@ -658,16 +682,15 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendVolumeGroupDialog,
 /**
  * @class OMV.Module.Storage.LVM.ReduceVolumeGroupDialog
  * @derived OMV.FormPanelDialog
- * @config devicefile The devicefile of the volume group.
- * @config name The name of the volume group.
+ * @param devicefile The devicefile of the volume group.
+ * @param name The name of the volume group.
  */
 OMV.Module.Storage.LVM.ReduceVolumeGroupDialog = function(config) {
 	var initialConfig = {
 		rpcService: "LogicalVolumeMgmt",
 		rpcSetMethod: "reduceVolumeGroup",
 		title: _("Reduce volume group"),
-		autoHeight: true,
-		hideReset: true,
+		hideResetButton: true,
 		width: 450
 	};
 	Ext.apply(initialConfig, config);
@@ -676,13 +699,7 @@ OMV.Module.Storage.LVM.ReduceVolumeGroupDialog = function(config) {
 };
 Ext.extend(OMV.Module.Storage.LVM.ReduceVolumeGroupDialog,
   OMV.FormPanelDialog, {
-	getFormConfig : function() {
-		return {
-			autoHeight: true
-		};
-	},
-
-	getFormItems : function() {
+	getFormItems: function() {
 		return [{
 			xtype: "hidden",
 			name: "devicefile",
@@ -693,21 +710,25 @@ Ext.extend(OMV.Module.Storage.LVM.ReduceVolumeGroupDialog,
 			fieldLabel: _("Name"),
 			readOnly: true,
 			submitValue: false,
-			vtype: "devname",
+			vtype: "vgname",
 			value: this.name
 		},{
 			xtype: "checkboxgrid",
 			name: "devices",
-			hiddenName: "devices",
 			fieldLabel: _("Devices"),
 			store: new OMV.data.Store({
 				autoLoad: true,
-				remoteSort: false,
 				proxy: new OMV.data.DataProxy({
-					"service": "LogicalVolumeMgmt",
-					"method": "getVolumeGroupPhysicalVolumes",
-					"extraParams": { "name": this.name },
-					"appendPagingParams": false
+					"rpcOptions": {
+						"rpcData": {
+							"service": "LogicalVolumeMgmt",
+							"method": "getVolumeGroupPhysicalVolumes"
+						}
+					},
+					"extraParams": {
+						"name": this.name
+					},
+					"appendSortParams": false
 				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "devicefile",
@@ -731,16 +752,17 @@ Ext.extend(OMV.Module.Storage.LVM.ReduceVolumeGroupDialog,
 				}
 			}),
 			valueField: "devicefile",
+			stateful: true,
 			stateId: "6060bab3-e7da-40a9-99cf-5f7570f16a68",
 			colModel: new Ext.grid.ColumnModel({
 				defaults: {
 					sortable: true
 				},
 				columns: [{
-					header: _("Description"),
+					text: _("Description"),
 					sortable: true,
 					dataIndex: "description",
-					id: "description"
+					stateId: "description"
 				}]
 			}),
 			viewConfig: {
@@ -758,29 +780,30 @@ Ext.extend(OMV.Module.Storage.LVM.ReduceVolumeGroupDialog,
  */
 OMV.Module.Storage.LVM.LogicalVolumeGridPanel = function(config) {
 	var initialConfig = {
-		hideAdd: false,
-		hideEdit: false,
-		hideDelete: false,
-		hideRefresh: true,
+		hideAddButton: false,
+		hideEditButton: false,
+		hideDeleteButton: false,
+		hideRefreshButton: true,
 		hidePagingToolbar: false,
+		stateful: true,
 		stateId: "87081dac-a91b-4a5e-901e-e69290b533ee",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: _("Name"),
+				text: _("Name"),
 				sortable: true,
 				dataIndex: "name",
-				id: "name"
+				stateId: "name"
 			},{
-				header: _("Capacity"),
+				text: _("Capacity"),
 				sortable: true,
 				dataIndex: "size",
-				id: "size",
+				stateId: "size",
 				renderer: OMV.util.Format.binaryUnitRenderer()
 			},{
-				header: _("Volume group"),
+				text: _("Volume group"),
 				sortable: true,
 				dataIndex: "vgname",
-				id: "vgname"
+				stateId: "vgname"
 			}]
 		})
 	};
@@ -793,10 +816,13 @@ Ext.extend(OMV.Module.Storage.LVM.LogicalVolumeGridPanel,
 	initComponent : function() {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
-			remoteSort: false,
 			proxy: new OMV.data.DataProxy({
-				"service": "LogicalVolumeMgmt",
-				"method": "getLogicalVolumesList"
+				"rpcOptions": {
+					"rpcData": {
+						"service": "LogicalVolumeMgmt",
+						"method": "getLogicalVolumesList"
+					}
+				}
 			}),
 			reader: new Ext.data.JsonReader({
 				idProperty: "devicefile",
@@ -850,31 +876,30 @@ Ext.extend(OMV.Module.Storage.LVM.LogicalVolumeGridPanel,
 		return tbar;
 	},
 
-	cbSelectionChangeHdl : function(model) {
+	onSelectionChange: function(model, records) {
 		OMV.Module.Storage.LVM.LogicalVolumeGridPanel.superclass.
-		  cbSelectionChangeHdl.apply(this, arguments);
+		  onSelectionChange.apply(this, arguments);
 		// Process additional buttons
 		var tbarBtnName = [ "extend","reduce" ];
 		var tbarBtnDisabled = {
 			"extend": true,
 			"reduce": true
 		};
-		var records = model.getSelections();
-		if (records.length <= 0) {
+		if(records.length <= 0) {
 			tbarBtnDisabled["extend"] = true;
 			tbarBtnDisabled["reduce"] = true;
-		} else if (records.length == 1) {
+		} else if(records.length == 1) {
 			tbarBtnDisabled["extend"] = false;
 			tbarBtnDisabled["reduce"] = false;
 		} else {
 			tbarBtnDisabled["extend"] = true;
 			tbarBtnDisabled["reduce"] = true;
 		}
-		for (var i = 0; i < tbarBtnName.length; i++) {
-			var tbarBtnCtrl = this.getTopToolbar().findById(this.getId() +
-			  "-" + tbarBtnName[i]);
-			if (!Ext.isEmpty(tbarBtnCtrl)) {
-				if (true == tbarBtnDisabled[tbarBtnName[i]]) {
+		for(var i = 0; i < tbarBtnName.length; i++) {
+			var tbarBtnCtrl = this.queryById(this.getId() + "-" +
+			  tbarBtnName[i]);
+			if(!Ext.isEmpty(tbarBtnCtrl)) {
+				if(true == tbarBtnDisabled[tbarBtnName[i]]) {
 					tbarBtnCtrl.disable();
 				} else {
 					tbarBtnCtrl.enable();
@@ -883,7 +908,7 @@ Ext.extend(OMV.Module.Storage.LVM.LogicalVolumeGridPanel,
 		}
 	},
 
-	cbAddBtnHdl : function() {
+	onAddButton : function() {
 		var wnd = new OMV.Module.Storage.LVM.CreateLogicalVolumeDialog({
 			listeners: {
 				submit: function() {
@@ -895,9 +920,9 @@ Ext.extend(OMV.Module.Storage.LVM.LogicalVolumeGridPanel,
 		wnd.show();
 	},
 
-	cbEditBtnHdl : function() {
+	onEditButton : function() {
 		var selModel = this.getSelectionModel();
-		var record = selModel.getSelected();
+		var record = selModel.getSelection()[0];
 		var wnd = new OMV.Module.Storage.LVM.EditLogicalVolumeDialog({
 			devicefile: record.get("devicefile"),
 			name: record.get("name"),
@@ -913,7 +938,7 @@ Ext.extend(OMV.Module.Storage.LVM.LogicalVolumeGridPanel,
 
 	cbExtendBtnHdl : function() {
 		var selModel = this.getSelectionModel();
-		var record = selModel.getSelected();
+		var record = selModel.getSelection()[0];
 		var wnd = new OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog({
 			devicefile: record.get("devicefile"),
 			name: record.get("name"),
@@ -933,7 +958,7 @@ Ext.extend(OMV.Module.Storage.LVM.LogicalVolumeGridPanel,
 	cbReduceBtnHdl : function() {
 /*
 		var selModel = this.getSelectionModel();
-		var record = selModel.getSelected();
+		var record = selModel.getSelection()[0];
 		var wnd = new OMV.Module.Storage.LVM.ReduceLogicalVolumeDialog({
 			devicefile: record.get("devicefile"),
 			size: parseInt(record.get("size")),
@@ -953,11 +978,20 @@ Ext.extend(OMV.Module.Storage.LVM.LogicalVolumeGridPanel,
 	},
 
 	doDeletion : function(record) {
-		OMV.Ajax.request(this.cbDeletionHdl, this, "LogicalVolumeMgmt",
-		  "deleteLogicalVolume", { "devicefile": record.get("devicefile") });
+		OMV.Ajax.request({
+			  "scope": this,
+			  "callback": this.onDeletion,
+			  "rpcData": {
+				  "service": "LogicalVolumeMgmt",
+				  "method": "deleteLogicalVolume",
+				  "params": {
+					  "devicefile": record.get("devicefile")
+				  }
+			  }
+		  });
 	}
 });
-OMV.NavigationPanelMgr.registerPanel("storage", "lvm", {
+OMV.ModuleManager.registerPanel("storage", "lvm", {
 	cls: OMV.Module.Storage.LVM.LogicalVolumeGridPanel,
 	title: _("Logical volumes"),
 	position: 30
@@ -972,8 +1006,7 @@ OMV.Module.Storage.LVM.CreateLogicalVolumeDialog = function(config) {
 		rpcService: "LogicalVolumeMgmt",
 		rpcSetMethod: "createLogicalVolume",
 		title: _("Create logical volume"),
-		autoHeight: true,
-		hideReset: true,
+		hideResetButton: true,
 		width: 500,
 		lvFree: 0
 	};
@@ -983,31 +1016,27 @@ OMV.Module.Storage.LVM.CreateLogicalVolumeDialog = function(config) {
 };
 Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
   OMV.FormPanelDialog, {
-	getFormConfig : function() {
-		return {
-			autoHeight: true
-		};
-	},
-
-	getFormItems : function() {
+	getFormItems: function() {
 		return [{
 			xtype: "textfield",
 			name: "name",
 			fieldLabel: _("Name"),
 			allowBlank: false,
-			vtype: "devname"
+			vtype: "lvname"
 		},{
 			xtype: "combo",
 			name: "vgname",
-			hiddenName: "vgname",
 			fieldLabel: _("Volume group"),
 			emptyText: _("Select a volume group ..."),
 			store: new OMV.data.Store({
-				remoteSort: false,
 				proxy: new OMV.data.DataProxy({
-					"service": "LogicalVolumeMgmt",
-					"method": "enumerateVolumeGroups",
-					"appendPagingParams": false
+					"rpcOptions": {
+						"rpcData": {
+							"service": "LogicalVolumeMgmt",
+							"method": "enumerateVolumeGroups"
+						}
+					},
+					"appendSortParams": false
 				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "devicefile",
@@ -1029,20 +1058,20 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 					var disabled = false;
 					var free = parseInt(record.get("free"));
 					// Update the 'Size' slider control.
-					field = this.findFormField("sizeslider");
-					if (0 >= free) {
+					field = this.findField("sizeslider");
+					if(0 >= free) {
 						disabled = true;
 						OMV.MessageBox.info(null, _("No free space available to create a logical volume."));
 					} else {
 						field.slider.on("change", function(c, newValue) {
 							// Update the hidden field storing the number of
 							// bytes to use.
-							var field = this.findFormField("size");
+							var field = this.findField("size");
 							field.setValue(newValue);
 							// Display value in highest possible binary unit
 							// in the textfield right beside the slider
 							// control.
-							field = this.findFormField("sizetext");
+							field = this.findField("sizetext");
 							field.setValue(newValue.binaryFormat());
 						}, this);
 					}
@@ -1083,7 +1112,7 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 			msg: _("Do you really want to create the logical volume?"),
 			buttons: Ext.Msg.YESNO,
 			fn: function(answer) {
-				if (answer === "no") {
+				if(answer === "no") {
 					return;
 				}
 				OMV.Module.Storage.LVM.CreateLogicalVolumeDialog.superclass.
@@ -1098,16 +1127,15 @@ Ext.extend(OMV.Module.Storage.LVM.CreateLogicalVolumeDialog,
 /**
  * @class OMV.Module.Storage.LVM.EditLogicalVolumeDialog
  * @derived OMV.FormPanelDialog
- * @config devicefile The devicefile of the volume group.
- * @config name The name of the volume group.
+ * @param devicefile The devicefile of the volume group.
+ * @param name The name of the volume group.
  */
 OMV.Module.Storage.LVM.EditLogicalVolumeDialog = function(config) {
 	var initialConfig = {
 		rpcService: "LogicalVolumeMgmt",
 		rpcSetMethod: "renameLogicalVolume",
 		title: _("Edit logical volume"),
-		autoHeight: true,
-		hideReset: false,
+		hideResetButton: false,
 		width: 300
 	};
 	Ext.apply(initialConfig, config);
@@ -1116,13 +1144,7 @@ OMV.Module.Storage.LVM.EditLogicalVolumeDialog = function(config) {
 };
 Ext.extend(OMV.Module.Storage.LVM.EditLogicalVolumeDialog,
   OMV.FormPanelDialog, {
-	getFormConfig : function() {
-		return {
-			autoHeight: true
-		};
-	},
-
-	getFormItems : function() {
+	getFormItems: function() {
 		return [{
 			xtype: "hidden",
 			name: "devicefile",
@@ -1132,7 +1154,7 @@ Ext.extend(OMV.Module.Storage.LVM.EditLogicalVolumeDialog,
 			name: "name",
 			fieldLabel: _("Name"),
 			allowBlank: false,
-			vtype: "devname",
+			vtype: "lvname",
 			value: this.name
 		}];
 	}
@@ -1141,18 +1163,17 @@ Ext.extend(OMV.Module.Storage.LVM.EditLogicalVolumeDialog,
 /**
  * @class OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog
  * @derived OMV.FormPanelDialog
- * @config devicefile The devicefile of the logical volume.
- * @config name The name of the logical volume.
- * @config size The current size of the logical volume.
- * @config vgname The name of the volume group.
+ * @param devicefile The devicefile of the logical volume.
+ * @param name The name of the logical volume.
+ * @param size The current size of the logical volume.
+ * @param vgname The name of the volume group.
  */
 OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog = function(config) {
 	var initialConfig = {
 		title: _("Extend logical volume"),
 		rpcService: "LogicalVolumeMgmt",
 		rpcSetMethod: "modifyLogicalVolume",
-		autoHeight: true,
-		hideReset: false,
+		hideResetButton: false,
 		width: 500
 	};
 	Ext.apply(initialConfig, config);
@@ -1161,13 +1182,7 @@ OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog = function(config) {
 };
 Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
   OMV.FormPanelDialog, {
-	getFormConfig : function() {
-		return {
-			autoHeight: true
-		};
-	},
-
-	getFormItems : function() {
+	getFormItems: function() {
 		return [{
 			xtype: "hidden",
 			name: "devicefile",
@@ -1179,21 +1194,26 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 			allowBlank: false,
 			readOnly: true,
 			submitValue: false,
-			vtype: "devname",
+			vtype: "lvname",
 			value: this.name
 		},{
 			xtype: "combo",
 			name: "vgname",
-//			hiddenName: "vgname", // Do not submit form field
+			submitValue: false,
 			fieldLabel: _("Volume group"),
 			emptyText: _("Select a volume group ..."),
 			store: new OMV.data.Store({
-				remoteSort: false,
 				proxy: new OMV.data.DataProxy({
-					"service": "LogicalVolumeMgmt",
-					"method": "getVolumeGroup",
-					"extraParams": { "name": this.vgname },
-					"appendPagingParams": false
+					"rpcOptions": {
+						"rpcData": {
+							"service": "LogicalVolumeMgmt",
+							"method": "getVolumeGroup"
+						}
+					},
+					"extraParams": {
+						"name": this.vgname
+					},
+					"appendSortParams": false
 				}),
 				reader: new Ext.data.JsonReader({
 					idProperty: "name",
@@ -1239,40 +1259,50 @@ Ext.extend(OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog,
 	show : function() {
 		// Before the dialog can be displayed it is necessary to request
 		// some details about the underlaying volume group.
-		OMV.Ajax.request(function(id, response, error) {
-			if (error === null) {
-				var currSize = this.size;
-				var free = parseInt(response.free);
-				// Display a info message if no free space is available
-				// and close the dialog.
-				if (0 >= free) {
-					OMV.MessageBox.info(null, _("No free space available to extend the logical volume."));
-					this.close();
-				} else {
-					// Finally show the dialog.
-					OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog.
-					  superclass.show.call(this, arguments);
-					// Update the 'Size' slider control.
-					var field = this.findFormField("sizeslider");
-					field.slider.on("change", function(c, newValue) {
-						var newSize = currSize + newValue;
-						// Update the hidden field storing the number of
-						// bytes to use.
-						var field = this.findFormField("size");
-						field.setValue(newSize);
-						// Display value in highest possible binary unit in
-						// the textfield right beside the slider control.
-						field = this.findFormField("sizetext");
-						field.setValue(newSize.binaryFormat());
-					}, this);
-					field.setMaxValue(free);
-					field.setValue(free);
-				}
-			} else {
-				OMV.MessageBox.error(null, error);
-				this.close();
-			}
-		}, this, "LogicalVolumeMgmt", "getVolumeGroup",
-		{ "name": this.vgname });
+		OMV.Ajax.request({
+			  "scope": this,
+			  "callback": function(id, response, error) {
+				  if(error === null) {
+					  var currSize = this.size;
+					  var free = parseInt(response.free);
+					  // Display a info message if no free space is available
+					  // and close the dialog.
+					  if(0 >= free) {
+						  OMV.MessageBox.info(null, _("No free space available to extend the logical volume."));
+						  this.close();
+					  } else {
+						  // Finally show the dialog.
+						  OMV.Module.Storage.LVM.ExtendLogicalVolumeDialog.
+							superclass.show.call(this, arguments);
+						  // Update the 'Size' slider control.
+						  var field = this.findField("sizeslider");
+						  field.slider.on("change", function(c, newValue) {
+							  var newSize = currSize + newValue;
+							  // Update the hidden field storing the number
+							  // of bytes to use.
+							  var field = this.findField("size");
+							  field.setValue(newSize);
+							  // Display value in highest possible binary
+							  // unit in the textfield right beside the slider
+							  // control.
+							  field = this.findField("sizetext");
+							  field.setValue(newSize.binaryFormat());
+						  }, this);
+						  field.setMaxValue(free);
+						  field.setValue(free);
+					  }
+				  } else {
+					  OMV.MessageBox.error(null, error);
+					  this.close();
+				  }
+			  },
+			  "rpcData": {
+				  "service": "LogicalVolumeMgmt",
+				  "method": "getVolumeGroup",
+				  "params": {
+					  "name": this.vgname
+				  }
+			  }
+		  });
 	}
 });

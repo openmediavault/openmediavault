@@ -19,9 +19,9 @@ License: LGPL
 URL: http://www.iconfinder.net/icondetails/7891/16
 
 Image: harddisk.png
-Designer: Everaldo Coelho (http://www.everaldo.com)
-License: LGPL (http://www.gnu.org/licenses/lgpl.html)
-URL: http://www.iconfinder.com/icondetails/18285/16
+Designer: Andy Fitzsimon (http://www.fitzsimon.com.au)
+License: GPL (http://www.gnu.org/copyleft/gpl.html)
+URL: http://www.iconfinder.com/icondetails/48040/16
 
 Image: battery.png
 Designer: Everaldo Coelho (http://www.everaldo.com)
@@ -39,14 +39,14 @@ License: GPL (http://www.gnu.org/copyleft/gpl.html)
 URL: http://www.iconfinder.net/icondetails/8810/16
 
 Image: mail.png
-Designer: Everaldo Coelho (http://www.everaldo.com)
-License: LGPL (http://www.everaldo.com/crystal/?action=license)
-URL: http://www.iconfinder.net/icondetails/18784/16
+Designer: PICOL (http://www.picol.org)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/103615/16
 
 Image: preferences.png
-Designer: Oxygen Team (http://www.oxygen-icons.org)
+Designer: Everaldo Coelho (http://www.everaldo.com)
 License: GPL (http://www.gnu.org/copyleft/gpl.html)
-URL: http://www.iconfinder.net/icondetails/8844/16
+URL: http://www.iconfinder.com/icondetails/932/16
 
 Image: logs.png
 Designer: FatCow Web Hosting
@@ -79,9 +79,9 @@ License: LGPL (http://www.everaldo.com/crystal/?action=license)
 URL: http://www.iconfinder.net/icondetails/18268/16
 
 Image: trashcan.png
-Designer: Oxygen Team (http://www.oxygen-icons.org)
-License: GPL (http://www.gnu.org/copyleft/gpl.html)
-URL: http://www.iconfinder.net/icondetails/9268/16
+Designer: Keyamoon (http://keyamoon.com)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/83404/16
 
 Image: harddisk-smart.png
 Designer: Oliver Scholtz (and others)
@@ -127,9 +127,9 @@ License: CC BY 3.0
 URL: http://www.iconfinder.com/icondetails/59142/16
 
 Image: about.png
-Designer: Yusuke Kamiyamane
-License: Creative Commons (Attribution 3.0 Unported)
-URL: http://www.iconfinder.net/icondetails/26923/16
+Designer: AIGA (http://www.aiga.org)
+License: Public Domain
+URL: http://www.iconfinder.com/icondetails/134192/16
 
 Image: rsync.png
 Designer:  Everaldo Coelho
@@ -142,20 +142,29 @@ License: GPL
 URL: http://www.iconfinder.net/icondetails/20478/16
 
 Image: plugin.png
-Designer: FatCow Web Hosting
-License: Creative Commons (Attribution 3.0 United States)
-URL: http://www.iconfinder.net/icondetails/36351/16
+Designer: Keyamoon (http://keyamoon.com)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/83365/16
+
+Image: book.png
+Designer: Keyamoon (http://keyamoon.com)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/83234/16
+
+Image: download.png
+Designer: Keyamoon (http://keyamoon.com)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/83275/16
 
 Image: upload.png
-Designer: Dat Nguyen
-License: Free for commercial use
-URL: http://www.iconfinder.net/icondetails/14667/16
+Designer: Keyamoon (http://keyamoon.com)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/83415/16
 
 Image: reload.png
-Designer: Yusuke Kamiyamane
-License: Creative Commons (Attribution 3.0 Unported)
-URL: http://www.iconfinder.net/browse/iconset/fugue/#readme
-URL: http://www.iconfinder.net/icondetails/11450/16
+Designer: Jigsoar (http://www.jigsoaricons.com)
+License: CC BY 3.0
+URL: http://www.iconfinder.com/icondetails/80977/16
 
 Image: no.png
 Designer: Dat Nguyen (http://splashyfish.com)
@@ -171,10 +180,14 @@ Image: system-software-update.png
 URL: http://www.gnome.org
 
 Image: arrow-up.png
-URL: http://www.gnome.org
+Designer: Keyamoon (http://keyamoon.com)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/83225/16
 
 Image: arrow-down.png
-URL: http://www.gnome.org
+Designer: Keyamoon (http://keyamoon.com)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/83220/16
 
 Image: snmp.png
 Designer: Tango (http://tango.freedesktop.org/Tango_Desktop_Project)
@@ -201,14 +214,14 @@ Designer: Oxygen Team
 License: GPL
 
 Image: edit.png
-Designer: PC (http://pc.de/icons)
-License: CC BY 3.0
-URL: http://www.iconfinder.com/icondetails/59135/16
+Designer: PICOL (http://www.picol.org)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/103539/16
 
 Image: info.png
-Designer: Oxygen Team
-License: GPL
-URL: http://www.iconfinder.com/icondetails/9346/16
+Designer: PICOL (http://www.picol.org)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/103599/16
 
 Image: raid.png
 Designer: Everaldo Coelho (http://www.everaldo.com)
@@ -236,9 +249,9 @@ License: GPL
 URL: http://www.iconfinder.net/icondetails/24564/16
 
 Image: detail.png
-Designer: Everaldo Coelho (http://www.everaldo.com)
-License: LGPL (http://www.gnu.org/licenses/lgpl.html)
-URL: http://www.iconfinder.com/icondetails/3262/16
+Designer: Keyamoon (http://keyamoon.com)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/83254/16
 
 Image: filesystem-resize.png
 Designer: Volker Theile, based on Oliver Scholtz (and others)
@@ -290,6 +303,11 @@ Designer: Orman Clark
 License: Free for use in both personal and commercial projects
 URL: http://www.premiumpixels.com/freebies/onoff-switches-and-toggles-psd
 
+Image: led_gray.png
+Designer: Volker Theile
+License: Free for commercial use
+URL: www.openmediavault.org
+
 Image: led_green.png
 Designer: Volker Theile
 License: Free for commercial use
@@ -301,9 +319,9 @@ License: Free for commercial use
 URL: www.openmediavault.org
 
 Image: donate.png
-Designer: Everaldo Coelho (http://www.everaldo.com)
-License: LGPL (http://www.gnu.org/licenses/lgpl.html)
-URL: http://www.iconfinder.com/icondetails/3547/16
+Designer: Keyamoon (http://keyamoon.com)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/83314/16
 
 Image: nfs.png
 Designer: David Vignoni (http://www.icon-king.com)
@@ -351,6 +369,31 @@ License: CC BY 3.0
 URL: http://www.iconfinder.com/icondetails/59135/16
 
 Image: search.png
-Designer: Everaldo Coelho (http://www.everaldo.com)
-License: GPL (http://www.gnu.org/copyleft/gpl.html)
-URL: http://www.iconfinder.com/icondetails/712/16
+Designer: Keyamoon (http://keyamoon.com)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/83376/16
+
+Image: search_32.png
+Designer: Keyamoon (http://keyamoon.com)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/83376/32
+
+Image: settings.png
+Designer: Volker Theile
+License: Free for commercial use
+URL: www.openmediavault.org
+
+Image: changelog.png
+Designer: Volker Theile
+License: Free for commercial use
+URL: www.openmediavault.org
+
+Image: apply.png
+Designer: Keyamoon (http://keyamoon.com)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/83252/16
+
+Image: refresh.png
+Designer: PC (http://pc.de/icons)
+License: CC BY 3.0
+URL: http://www.iconfinder.com/icondetails/59198/16

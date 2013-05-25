@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,6 +24,9 @@ require_once("openmediavault/globals.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/config.inc");
 
+/**
+ * @ingroup api
+ */
 class OMVSession extends OMVObject {
 	private static $instance = NULL;
 
@@ -32,7 +35,7 @@ class OMVSession extends OMVObject {
 	 * @return The session object.
 	 */
 	public static function &getInstance() {
-		if (is_null(self::$instance)) {
+		if(is_null(self::$instance)) {
 			self::$instance = new OMVSession();
 		}
 		return self::$instance;
@@ -70,9 +73,9 @@ class OMVSession extends OMVObject {
 		$_SESSION['authenticated'] = TRUE;
 		$_SESSION['username'] = $username;
 		$_SESSION['role'] = $role;
-		if (array_key_exists("REMOTE_ADDR", $_SERVER))
+		if(array_key_exists("REMOTE_ADDR", $_SERVER))
 			$_SESSION['ipaddress'] = $_SERVER['REMOTE_ADDR'];
-		if (array_key_exists("HTTP_USER_AGENT", $_SERVER))
+		if(array_key_exists("HTTP_USER_AGENT", $_SERVER))
 			$_SESSION['useragent'] = $_SERVER['HTTP_USER_AGENT'];
 		$this->updateLastAccess();
 		return session_id();
@@ -83,7 +86,7 @@ class OMVSession extends OMVObject {
 	 * @return Returns the user role, otherwise FALSE.
 	 */
 	public function getRole() {
-		if (!isset($_SESSION['role']))
+		if(!isset($_SESSION['role']))
 			return FALSE;
 		return $_SESSION['role'];
 	}
@@ -93,7 +96,7 @@ class OMVSession extends OMVObject {
 	 * @return Returns TRUE if the session is authenticated, otherwise FALSE.
 	 */
 	public function isAuthenticated() {
-		if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated'])
+		if(!isset($_SESSION['authenticated']) || !$_SESSION['authenticated'])
 			return FALSE;
 	 	return TRUE;
 	}
@@ -103,7 +106,7 @@ class OMVSession extends OMVObject {
 	 * @return Returns the current user name, otherwise FALSE.
 	 */
 	public function getUsername() {
-		if (!isset($_SESSION['username']))
+		if(!isset($_SESSION['username']))
 			return FALSE;
 	 	return $_SESSION['username'];
 	}
@@ -121,13 +124,18 @@ class OMVSession extends OMVObject {
 	 */
 	public function isTimeout() {
 		global $xmlConfig;
-		if (!isset($_SESSION['lastaccess']))
+		if(!isset($_SESSION['lastaccess']))
 			return FALSE;
-		// Get session timeout from configuration.
+		// Get session timeout from configuration. Default is 5 minutes.
 		$timeout = 300;
 		$object = $xmlConfig->get("//webadmin");
-		if (!is_null($object) && array_key_exists("timeout", $object)) {
+		if(!is_null($object) && array_key_exists("timeout", $object)) {
 			$timeout = intval($object['timeout']) * 60;
+			// If the timeout value is set the 0 the session timeout
+			// validation is disabled.
+			if(0 == $timeout)
+				return FALSE;
+
 		}
 		return ((time() - $_SESSION['lastaccess']) > $timeout) ? TRUE : FALSE;
 	}
@@ -137,30 +145,30 @@ class OMVSession extends OMVObject {
 	 */
 	public function validate() {
 		$exception = null;
-		if (array_key_exists("REMOTE_ADDR", $_SERVER)) {
-			if ($_SESSION['ipaddress'] !== $_SERVER['REMOTE_ADDR']) {
+		if(array_key_exists("REMOTE_ADDR", $_SERVER)) {
+			if($_SESSION['ipaddress'] !== $_SERVER['REMOTE_ADDR']) {
 				$exception = new OMVException(
 				  OMVErrorMsg::E_SESSION_INVALID_IPADDRESS);
 			}
 		}
-		if (array_key_exists("HTTP_USER_AGENT", $_SERVER)) {
-			if ($_SESSION['useragent'] !== $_SERVER['HTTP_USER_AGENT']) {
+		if(array_key_exists("HTTP_USER_AGENT", $_SERVER)) {
+			if($_SESSION['useragent'] !== $_SERVER['HTTP_USER_AGENT']) {
 				$exception = new OMVException(
 				  OMVErrorMsg::E_SESSION_INVALID_USERAGENT);
 			}
 		}
-		if ($this->isTimeout()) {
+		if($this->isTimeout()) {
 			$exception = new OMVException(OMVErrorMsg::E_SESSION_TIMEOUT);
 		} else {
 			// Check if user still exists, maybe it has been deleted by the
 			// administrator in the meanwhile.
 			$userinfo = posix_getpwnam($_SESSION['username']);
-			if ($userinfo === FALSE) {
+			if($userinfo === FALSE) {
 				$exception = new OMVException(
 				  OMVErrorMsg::E_SESSION_INVALID_USER);
 			}
 		}
-		if (!is_null($exception)) {
+		if(!is_null($exception)) {
 			$this->destroy();
 			throw $exception;
 		}
@@ -171,9 +179,9 @@ class OMVSession extends OMVObject {
 	 */
 	public function dump() {
 		$this->debug(var_export(array(
-			"id" => session_id(),
-			"data" => $_SESSION
-		), TRUE));
+			  "id" => session_id(),
+			  "data" => $_SESSION
+		  ), TRUE));
 	}
 }
 ?>

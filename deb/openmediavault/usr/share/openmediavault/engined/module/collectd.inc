@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,39 +20,41 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 require_once("openmediavault/monit.inc");
 
-class OMVCollectdModule extends OMVModuleAbstract
+class OMVModuleCollectd extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "collectd";
 	}
 
 	/**
-	 * Update the service.
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
 	 */
-	public function updateService($object) {
-		// Create configuration file
-		$cmd = "sudo omv-mkconf collectd 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	public function applyConfig() {
+		$cmd = "omv-mkconf collectd 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		// Restart service
+	}
+
+	/**
+	 * Start the managed service.
+	 * @throw E_EXEC_FAILED
+	 */
+	public function startService() {
 		$monit = new OMVMonit();
 		$monit->restart("collectd");
-		// Generate RRD graph images as background job (rendering may take
-		// some time).
-		$cmd = "sudo omv-mkgraph 2>&1 &";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+		// Generate RRD graph images based on the latest configuration as a
+		// background job (rendering may take some time).
+		$cmd = "omv-mkgraph 2>&1 &";
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -62,25 +64,22 @@ class OMVCollectdModule extends OMVModuleAbstract
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
-		// Update configuration if:
-		// - the filesystem configuration has been modified
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.fstab.mntent",
-		  array($this, "updateService"));
-		// - the network interface configuration has been modified
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.network.interfaces.iface",
-		  array($this, "updateService"));
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.network.interfaces.bondiface",
-		  array($this, "updateService"));
+		  array($this, "setDirty"));
 	}
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVCollectdModule());
+$moduleMgr->registerModule(new OMVModuleCollectd());
 ?>

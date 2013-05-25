@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
 
 # Documentation/Howto:
 # http://wiki.linuxquestions.org/wiki/Fstab
+# http://unix.stackexchange.com/questions/43922/how-to-read-the-in-memory-kernel-partition-table-of-dev-sda
 
 set -e
 
@@ -42,7 +43,7 @@ Usage:
 
   device - The name of the device where to create the filesystem.
 
-Options:
+OPTIONS:
   -b  Build the filesystem
   -t  Specifies the type of filesystem to be built
   -L  Set the volume label of the filesystem
@@ -197,6 +198,9 @@ EOF
 		sleep 2
 		;;
 	esac
+
+	# Reread partition table.
+	partprobe ${device}
 
 	# Get the mkfs command options
 	fsoptions=""

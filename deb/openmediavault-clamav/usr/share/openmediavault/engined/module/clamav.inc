@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,27 +22,71 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
+require_once("openmediavault/initscript.inc");
 require_once("openmediavault/log.inc");
 
-class OMVClamAVModule extends OMVModuleAbstract
-  implements OMVINotifyListener, OMVIModuleStatus {
+class OMVModuleClamAV extends OMVModuleServiceAbstract
+  implements OMVINotifyListener, OMVIModuleServiceStatus {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "clamav";
 	}
 
 	/**
-	 * Get the module status.
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
+	 */
+	public function applyConfig() {
+		$cmd = "omv-mkconf clamav 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+	}
+
+	/**
+	 * Stop the managed service.
+	 */
+	public function stopService() {
+		$initd = new OMVSysVInitScript("clamav-daemon", FALSE);
+		$initd->exec();
+		$initd = new OMVSysVInitScript("clamav-freshclam", FALSE);
+		$initd->exec();
+	}
+
+	/**
+	 * Start the managed service.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	public function startService() {
+		global $xmlConfig;
+		$xpath = "//services/clamav";
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		if(FALSE === boolval($object['enable']))
+			return;
+		$initd = new OMVSysVInitScript("clamav-daemon", TRUE);
+		$initd->exec();
+		if(TRUE === boolval($object['freshclam']['enable'])) {
+			$initd = new OMVSysVInitScript("clamav-freshclam", TRUE);
+			$initd->exec();
+		}
+	}
+
+	/**
+	 * Get the status of the managed service.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getStatus() {
 		global $xmlConfig;
-		// Get the configuration object
 		$xpath = "//services/clamav";
 		$object = $xmlConfig->get($xpath);
-		if (is_null($object)) {
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -56,54 +100,25 @@ class OMVClamAVModule extends OMVModuleAbstract
 	}
 
 	/**
-	 * Update the configuration.
-	 */
-	public function mkConf() {
-		$cmd = "sudo omv-mkconf clamav 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-	}
-
-	/**
-	 * Create the configuration file and update the service.
-	 */
-	public function updateService($object) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Create configuration
-		$this->mkConf();
-		// Update services.
-		$initd = new OMVSysVInitScript("clamav-daemon", boolval(
-		  $object['enable']));
-		$initd->exec();
-		// Enable freshclam daemon only if checks > 0.
-		$initd = new OMVSysVInitScript("clamav-freshclam", boolval(
-		  $object['enable'] && $object['freshclam']['enable']));
-		$initd->exec();
-	}
-
-	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.clamav",
-		  array($this, "updateService"), 1);
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.clamav.jobs.job",
-		  array($this, "mkConf"));
+		  array($this, "setDirty"));
 	}
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVClamAVModule());
+$moduleMgr->registerModule(new OMVModuleClamAV());
 
-// Register new logfile type
+// Register new logfile type.
 OMVLogFile::registerType("clamav", array(
   "filename" => "clamav",
   "filepath" => "/var/log/clamav/clamav.log",

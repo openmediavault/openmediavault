@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -38,8 +38,8 @@ mkconf() {
 ${prdname} ${version} (${versionname}) \n \l
 ${copyright}
 
-To manage the system visit the ${prdname} web administration
-interface via a web browser on:
+To manage the system visit the ${prdname} web management
+interface via a web browser:
 
 EOF
 
@@ -56,6 +56,12 @@ EOF
 	fi
 
 	cat <<EOF >> ${OMV_ISSUE_CONFIG}
+
+The default web management interface administrator account has
+the username 'admin' and password '$(echo ${prdname} | awk '{print tolower($0)}')'.
+It is recommended that you change the password for this account
+via the web management interface or using the 'omv-firstaid'
+CLI command.
 
 For more information regarding this appliance, please visit
 the web site: ${url}

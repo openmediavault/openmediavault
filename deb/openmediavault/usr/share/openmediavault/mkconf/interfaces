@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -20,12 +20,14 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
+# http://www.kernel.org/doc/Documentation/networking/bonding.txt
 # http://www.cyberciti.biz/tips/configuring-static-routes-in-debian-or-red-hat-linux-systems.html
 # http://www.itsyourip.com/networking/add-persistent-static-routes-in-debian-linux
 # http://wiki.debian.org/Bonding
 # http://www.thomas-krenn.com/de/wiki/NIC_Bonding_unter_Debian
 # http://www.linuxfoundation.org/collaborate/workgroups/networking/bonding
 # http://www.howtoforge.com/nic-bonding-on-debian-lenny
+# http://wiki.linuxmce.org/index.php/MTU
 
 set -e
 
@@ -47,7 +49,7 @@ xmlstarlet sel -t \
 	  -v "concat('allow-hotplug ',devicename)" -n \
 	  -v "concat('iface ',devicename,' inet dhcp')" -n \
 	  -i "string-length(mtu) > 0" \
-		  -v "concat('    pre-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
+		  -v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
 	  -b \
 	  -i "string-length(//system/network/dnsnameservers) > 0" \
 		  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
@@ -92,7 +94,7 @@ xmlstarlet sel -t \
 	-v "concat('auto ',devicename)" -n \
 	-v "concat('iface ',devicename,' inet dhcp')" -n \
 	-i "string-length(mtu) > 0" \
-		-v "concat('    pre-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
+		-v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
 	-b \
 	-i "string-length(//system/network/dnsnameservers) > 0" \
 		-v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \

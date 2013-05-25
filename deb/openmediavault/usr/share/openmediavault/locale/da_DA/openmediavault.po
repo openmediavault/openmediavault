@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
-"PO-Revision-Date: 2012-11-19 19:12+0000\n"
+"POT-Creation-Date: 2012-12-22 03:12+0100\n"
+"PO-Revision-Date: 2012-12-22 02:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -18,15 +18,12 @@ msgstr ""
 "Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr "% gennemført ..."
 
-#, c-format
 msgid "%s (%s available)"
 msgstr "%s (%s tilgængelig)"
 
-#, c-format
 msgid "%s [on %s]"
 msgstr "%s [på %s]"
 
@@ -57,7 +54,6 @@ msgstr "10 minutter"
 msgid "10 years"
 msgstr "10 år"
 
-#, c-format
 msgid "100% completed ..."
 msgstr "100% gennemført ..."
 
@@ -102,6 +98,9 @@ msgstr "25 år"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maksimal ydeevne, maksimal strømforbrug"
+
+msgid "255 - Disabled"
+msgstr "255 - Deaktiveret"
 
 msgid "3 days"
 msgstr "3 dage"
@@ -191,7 +190,7 @@ msgid "Add cron job"
 msgstr "Tilføj cron job"
 
 msgid "Add devices to RAID device"
-msgstr "Tilføj enhed til RAID enhed"
+msgstr "Tilføj enheder til RAID enhed"
 
 msgid "Add firewall rule"
 msgstr "Tilføj firewall regl"
@@ -264,7 +263,7 @@ msgstr "Afghanistan"
 
 msgid ""
 "After the RAID has been grown you can resize the containing filesystem."
-msgstr "Efter at RAID er vokset, kan du ændre størrelsen på det indeholdende filsystem."
+msgstr "Efter at RAIDen er vokset, kan du ændre størrelsen på det indeholdende filsystem."
 
 msgid "Aland Islands"
 msgstr "Aland Islands"
@@ -422,7 +421,6 @@ msgstr "Bahrain"
 msgid "Ban list"
 msgstr "Sort liste"
 
-#, c-format
 msgid "Ban statistics:"
 msgstr "Sort liste statistikker::"
 
@@ -689,7 +687,6 @@ msgstr "Cuba"
 msgid "Current time"
 msgstr "Nuværende tid"
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr "Nuværende brugere der er logget ind:"
 
@@ -738,6 +735,9 @@ msgstr "Slet"
 msgid "Delete content"
 msgstr "Slet indhold"
 
+msgid "Delete files"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Slet filer på den modtagende side, der ikke eksisterer på afsender"
 
@@ -785,7 +785,6 @@ msgstr "Bestem den standard timeout, i mikrosekunder, før den første pakke bli
 msgid "Device"
 msgstr "Enhed"
 
-#, c-format
 msgid "Device '%s' not found"
 msgstr "Enhed '%s' blev ikke fundet"
 
@@ -1039,7 +1038,7 @@ msgstr "Aktiver ident protokollen (RFC1413)"
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Aktiver denne mulighed for at beholde delvis overførte filer, ellers vil de blive slettet hvis overførelsen afbrydes."
 
 msgid "Enable user authentication"
 msgstr "Aktiver bruger godkendelse"
@@ -1071,7 +1070,6 @@ msgstr "Fejl"
 msgid "Error #"
 msgstr "Fejl #"
 
-#, c-format
 msgid "Error #%d"
 msgstr "Fejl #%d"
 
@@ -1128,14 +1126,13 @@ msgstr "FXP tillader overførsler mellem to eksterne servere uden at nogen filda
 msgid "Failed to call "
 msgstr "Lykkedes ikke at lave et opkald"
 
-#, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
 msgstr "Kunne ikke oprette filsystem. Tjek venligst syslog eller '%s' for flere oplysninger."
 
 msgid "Failed to get filesystems"
-msgstr "Lykkedes ikke at få filsystemerne"
+msgstr "Lykkedes ikke at hente filsystemerne"
 
 msgid "Failed to get system date and time"
 msgstr "Lykkedes ikke at få system dato og tid"
@@ -1161,14 +1158,22 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Fil"
 
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr ""
+
+msgid ""
+"Files that are larger than the specified number of bytes will not be put "
+"into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
+
 msgid "Filesystem"
 msgstr "Filsystem"
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr "Filsystem '%s' blev ikke fundet"
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr "Filsystem '%s' er ikke understøttet"
 
@@ -1262,15 +1267,12 @@ msgstr "Grenada"
 msgid "Group"
 msgstr "Gruppe"
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr "Gruppen '%s' findes allerede"
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr "Gruppe '%s' eksisterer ikke"
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr "Gruppe ID '%d' findes allerede"
 
@@ -1311,13 +1313,13 @@ msgid "Hide details"
 msgstr "Gem detajler"
 
 msgid "Hide dot files"
-msgstr "Vis ikke punktum filer"
+msgstr "Vis ikke dot filer"
 
 msgid "Home directories"
 msgstr "Hjemme biblioteker"
 
 msgid "Homepage"
-msgstr "Hjemmside"
+msgstr "Hjemmeside"
 
 msgid "Honduras"
 msgstr "Honduras"
@@ -1376,13 +1378,13 @@ msgstr "Hvis aktiveret behøves der ikke adgangskode for at forbinde til den del
 msgid ""
 "If set then the client will be challenged to supply a username and password "
 "to connect to the module."
-msgstr "Hvis sat så vil klienten blive udfordret til at give et brugernavn og en adgangskode til modulet."
+msgstr "Hvis markeret så vil klienten blive opfordret til at give et brugernavn og en adgangskode til modulet."
 
 msgid "If this option is set, then any attempted downloads will fail."
-msgstr "Hvis denne valgmulighed er sat, så vil ethvert forsøg på at downloade mislykkes."
+msgstr "Hvis denne valgmulighed er markeret, så vil ethvert forsøg på at downloade fejle."
 
 msgid "If this option is set, then any attempted uploads will fail."
-msgstr "Hvis denne valgmulighed er sat, så vil ethvert forsøg på at uploade mislykkes."
+msgstr "Hvis denne valgmulighed er markeret, så vil ethvert forsøg på at uploade fejle."
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
@@ -1390,19 +1392,19 @@ msgid ""
 " before mapping DOS attributes to UNIX permission bits. When set, DOS "
 "attributes will be stored onto an extended attribute in the UNIX filesystem,"
 " associated with the file or directory."
-msgstr "Hvis denne parameter er sat, vil Samba forsøge først at læse DOS attributterne (SYSTEM, SKJULT, ARKIV eller SKRIVEBESKYTTET) fra et filsystems udvidede attribut, før kortlægning af DOS attributterne til UNIX tilladelse bits. Når den er sat, vil DOS attributterne blive opbevaret på en udvidet attribut i UNIX filsystemet, der er forbundet med filen eller biblioteket."
+msgstr "Hvis denne parameter er markeret, vil Samba forsøge først at læse DOS attributterne (SYSTEM, SKJULT, ARKIV eller SKRIVEBESKYTTET) fra et filsystems udvidede attribut, før kortlægning af DOS attributterne til UNIX tilladelse bits. Når den er markeret, vil DOS attributterne blive opbevaret på en udvidet attribut i UNIX filsystemet, der er forbundet med filen eller biblioteket."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
 "share."
-msgstr "Hvis denne parameter er sat, så brugere kan ikke oprette eller ændre filer i den delte mappe."
+msgstr "Hvis denne parameter er markeret, så kan brugere ikke oprette eller ændre filer i den delte mappe."
 
 msgid ""
 "If your host is acting as a NAT gateway or port forwarder for the server, "
 "this option is useful in order to allow passive tranfers to work. You have "
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
-msgstr "Hvis din vært fungerer som en NAT-gateway eller port forwarder for serveren, er denne valgmulighed nyttig for at tillade passive overførelse at virke. Du skal bruge din offentlige adresse og åbne de passive porte, der bruges af din firewall."
+msgstr "Hvis din vært fungerer som en NAT-gateway eller port forwarder for serveren, er denne valgmulighed nyttig for at tillade passive overførelser at virke. Du skal bruge din offentlige adresse og åbne de passive porte, der bruges af din firewall."
 
 msgid "Implicit SSL"
 msgstr "Indirekte SSL"
@@ -1428,7 +1430,7 @@ msgid ""
 "greater than or equal to 1024). It is strongly recommended that the chosen "
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "I nogle tilfælde skal du angive passive port områder til at by-pass firewall begrænsninger. Passive porte begrænser området af porte, som serveren vil vælge, når PASV kommandoen bliver sendt fra en klient. Serveren vil tilfældigt vælge et nummer fra inden for det angivne område, indtil en åben port er fundet. Det valgte port område skal være i det ikke-privilegeret område (f.eks større end eller lig med 1024). Det anbefales kraftigt, at det valgte område skal være stort nok til at håndtere mange samtidige passive forbindelser (eksempelvis, 49152-65534, det IANA-registrerede kortvarige port område)."
+msgstr "I nogle tilfælde skal du angive passive port områder for at by-passe firewall begrænsninger. Passive porte begrænser området af porte, som serveren vil vælge, når PASV kommandoen bliver sendt fra en klient. Serveren vil tilfældigt vælge et nummer indenfor for det angivne område, indtil en åben port er fundet. Det valgte port område skal være i det ikke-privilegeret område (f.eks større end eller lig med 1024). Det anbefales kraftigt, at det valgte område skal være stort nok til at håndtere mange samtidige passive forbindelser (eksempelvis, 49152-65534, det IANA-registrerede kortvarige port område)."
 
 msgid "India"
 msgstr "India"
@@ -1481,7 +1483,6 @@ msgstr "Ugyldig gruppenavn"
 msgid "Invalid hostname"
 msgstr "Ugyldig værtsnavn"
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr "Ugyldig linie: %s"
 
@@ -1519,7 +1520,7 @@ msgid "Japan"
 msgstr "Japan"
 
 msgid "Jobs"
-msgstr "Opgaver"
+msgstr "Jobs"
 
 msgid "Johnston Island"
 msgstr "Johnston Island"
@@ -1537,7 +1538,7 @@ msgid "Kazakhstan"
 msgstr "Kazakhstan"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Behold delvis overførte filer"
 
 msgid "Kenya"
 msgstr "Kenya"
@@ -1634,7 +1635,6 @@ msgstr "Placerings oplysninger, f.eks. fysisk placering af dette system."
 msgid "Log level"
 msgstr "Log niveau"
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr "Logisk drev %s [%s, %s]"
 
@@ -1724,34 +1724,37 @@ msgid "Mauritius"
 msgstr "Mauritius"
 
 msgid "Max. clients"
-msgstr "Maks klienter"
+msgstr "Maks. klienter"
 
 msgid "Max. connections"
-msgstr "Maks forbindelser"
+msgstr "Maks. forbindelser"
 
 msgid "Max. connections per host"
-msgstr "Maks forbindelser pr vært"
+msgstr "Maks. forbindelser pr vært"
 
 msgid "Max. login attempts"
-msgstr "Maks log ind forsøg"
+msgstr "Maks. log ind forsøg"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maksimal download rate (KiB/s)"
+
+msgid "Maximum file size"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
 "timer completely (clients can stay connected for ever, without sending "
 "data)."
-msgstr "Maksimal Ledig Tid i sekunder. Sættes ledig timeout til 0 deaktiveres ledig tiden helt (klienter kan holde forbindelsen for altid, uden at sende data)."
+msgstr "Maksimal ledig tid i sekunder. Sættes ledig timeout til 0 deaktiveres ledig tiden helt (klienter kan holde forbindelsen for altid, uden at sende data)."
 
 msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "Maksimalt antal tilladte adgangskode forsøg, før frakobling."
+msgstr "Maksimal antal tilladte adgangskode forsøg, før afbrydelse."
 
 msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "Maksimalt antal forbindelser pr IP (0 = ubegrænset)."
+msgstr "Maksimal antal forbindelser pr IP (0 = ubegrænset)."
 
 msgid "Maximum number of simultaneous clients."
-msgstr "Maksimalt antal klienter på samme tid."
+msgstr "Maksimal antal klienter på samme tid."
 
 msgid "Maximum performance, maximum acoustic output"
 msgstr "Maksimal ydelse, maksimal akustisk output"
@@ -1772,7 +1775,7 @@ msgid "Members"
 msgstr "Medlemmer"
 
 msgid "Memory usage"
-msgstr "Hukommelse forbrug"
+msgstr "Hukommelses forbrug"
 
 msgid "Messages"
 msgstr "Beskeder"
@@ -1802,7 +1805,7 @@ msgid "Minimum performance, Minimum acoustic output"
 msgstr "Minimum ydelse, Minimum akustisk output"
 
 msgid "Minimum {0} selected item(s) required"
-msgstr "Minimum {0} valgt(e) emne(r) kræves"
+msgstr "Minimum {0} valgt(e) emne(r) krævet"
 
 msgid "Minute"
 msgstr "Minut"
@@ -1891,7 +1894,6 @@ msgstr "Netmaske"
 msgid "Network"
 msgstr "Netværk"
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr "Netværks interface '%s' findes allerede"
 
@@ -1926,7 +1928,7 @@ msgid "No access"
 msgstr "Ingen adgang"
 
 msgid "No authentication and no privacy"
-msgstr "Ingen godkendelse og ingen privatliv"
+msgstr "Ingen godkendelse og intet privatliv"
 
 msgid "No certificate request"
 msgstr "Ingen certifikat forespørgsel"
@@ -2022,7 +2024,7 @@ msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Udgående SMTP server adresse, f.eks smtp.mycorp.com."
 
 msgid "Outlying Oceania"
-msgstr "Fjerntliggende Oceania"
+msgstr "Outlying Oceania"
 
 msgid "Overview"
 msgstr "Oversigt"
@@ -2034,7 +2036,7 @@ msgid "Pacific Islands Trust Territory"
 msgstr "Pacific Islands Trust Territory"
 
 msgid "Package information"
-msgstr "Pakke oplysninger"
+msgstr "Pakke oplysning"
 
 msgid "Pakistan"
 msgstr "Pakistan"
@@ -2112,7 +2114,7 @@ msgid "Philippines"
 msgstr "Philippines"
 
 msgid "Physical Disks"
-msgstr "Fysisk Diske"
+msgstr "Fysiske Diske"
 
 msgid "Pitcairn"
 msgstr "Pitcairn"
@@ -2156,7 +2158,7 @@ msgid ""
 msgstr "Kontroller venligst <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for flere detaljer."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr "Vælg en metode til sletning af enheden eller tryk 'Annuller' for at afbryde."
+msgstr "Vælg en metode til rydning af enheden eller tryk 'Annuller' for at afbryde."
 
 msgid "Please first select a volume."
 msgstr "Vælg venligst først et drev."
@@ -2191,10 +2193,10 @@ msgid "Power Management"
 msgstr "Strøm Håndtering"
 
 msgid "Power button"
-msgstr "Strøm knap"
+msgstr "Power knap"
 
 msgid "Power mode"
-msgstr "Strøm tilstand"
+msgstr "Power tilstand"
 
 msgid "Preserve ACLs"
 msgstr "Bevar ACL'er"
@@ -2219,7 +2221,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr "Forhindre en disk i at blive spundet op, når den periodisk bliver adspurgt.<br/><ul><li>Aldrig - Spørg (kontroller) enheden uanset dens strøm tilstand. Dette kan medføre en disk, der er spundet ned i at blive spundet op, når den kontrolleres.</li><li>Dvale - Kontroller enheden medmindre den er i DVALE tilstand.</li><li>Standby - Kontroller enheden medmindre den er i DVALE eller STANDBY tilstand. I disse tilstande spinder de fleste diske ikke, så hvis du ønsker at forhindre en disk i at spinde op ved hver adspørgelse, er det nok det du vil.</li><li>Tomgang - Kontroller enheden medmindre den er i DVALE, STANDBY eller TOMGANG tilstand. I TOMGANG tilstand, spinder de fleste diske stadig, så det er sandsynligvis nok ikke det du vil.</li></ul>"
+msgstr "Forhindre en disk i at blive spundet op, når den periodisk bliver adspurgt.<br/><ul><li>Aldrig - Spørg (kontroller) enheden uanset dens power tilstand. Dette kan medføre at en disk, der er spundet ned bliver spundet op, når den kontrolleres.</li><li>Dvale - Kontroller enheden medmindre den er i DVALE tilstand.</li><li>Standby - Kontroller enheden medmindre den er i DVALE eller STANDBY tilstand. I disse tilstande spinder de fleste diske ikke, så hvis du ønsker at forhindre en disk i at spinde op ved hver forespørgeles, er det nok det du vil.</li><li>Tomgang - Kontroller enheden medmindre den er i DVALE, STANDBY eller TOMGANG tilstand. I TOMGANG tilstand, spinder de fleste diske stadig, så det er sandsynligvis nok ikke det du vil.</li></ul>"
 
 msgid "Primary"
 msgstr "Primær"
@@ -2385,7 +2387,7 @@ msgid "Resume"
 msgstr "Genoptag"
 
 msgid "Retry timeout"
-msgstr "Forsøg timeout"
+msgstr "Forsøg timeout igen"
 
 msgid "Reunion"
 msgstr "Genforening"
@@ -2457,16 +2459,16 @@ msgid "Saint Helena"
 msgstr "Saint Helena"
 
 msgid "Saint Kitts and Nevis"
-msgstr "Saint Kitts og Nevis"
+msgstr "Saint Kitts and Nevis"
 
 msgid "Saint Lucia"
 msgstr "Saint Lucia"
 
 msgid "Saint Pierre and Miquelon"
-msgstr "Saint Pierre og Miquelon"
+msgstr "Saint Pierre and Miquelon"
 
 msgid "Saint Vincent and the Grenadines"
-msgstr "Saint Vincent og Grenadines"
+msgstr "Saint Vincent and Grenadines"
 
 msgid "Samoa"
 msgstr "Samoa"
@@ -2475,7 +2477,7 @@ msgid "San Marino"
 msgstr "San Marino"
 
 msgid "Sao Tome and Principe"
-msgstr "Sao Tome og Principe"
+msgstr "Sao Tome and Principe"
 
 msgid "Saturday"
 msgstr "Lørdag"
@@ -2583,7 +2585,7 @@ msgid "September"
 msgstr "September"
 
 msgid "Serbia And Montenegro"
-msgstr "Serbia og Montenegro"
+msgstr "Serbia and Montenegro"
 
 msgid "Serial Number"
 msgstr "Serie Nummer"
@@ -2631,7 +2633,6 @@ msgstr "Indstiller intervallet mellem disk kontrol til N sekunder."
 msgid "Settings"
 msgstr "Indstillinger"
 
-#, c-format
 msgid "Settings already exist for device '%s'"
 msgstr "Indstillingen eksisterer allerede for enhed '%s'"
 
@@ -2672,7 +2673,7 @@ msgid "Shutdown"
 msgstr "Luk ned"
 
 msgid "Shutdown the system when pressing the power button."
-msgstr "Luk systemet ned når slukknappen bliver trykket."
+msgstr "Luk systemet ned når power knappen bliver trykket."
 
 msgid "Shutdown/Reboot schedule"
 msgstr "Luk ned/Genstart planlægning"
@@ -2711,7 +2712,7 @@ msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
 "or a plain IP address. A '!' argument before the address specification "
 "inverts the sense of the address."
-msgstr "Kildeadresse kan enten være en IP adresse (med /maske), et IP række eller en ren IP adresse. Et '!' argument før adresse specifikationen vender meningen af ​​adressen."
+msgstr "Kildeadresse kan enten være en IP adresse (med /maske), en IP række eller en ren IP adresse. Et '!' argument før adresse specifikationen vender meningen af ​​adressen."
 
 msgid "Source port"
 msgstr "Kilde port"
@@ -2765,12 +2766,12 @@ msgstr "Angiver i tidsintervallet hh:mm:ss, det givne antal af hændelser der sk
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
 "a link failure has been detected."
-msgstr "Angiver tiden, i millisekunder, der skal ventes før deaktivering af en slave, efter et link fejl er blevet opdaget."
+msgstr "Angiver tiden, i millisekunder, der skal ventes før deaktivering af en slave, efter en link fejl er blevet opdaget."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
-msgstr "Angiver tiden, i millisekunder, der skal ventes før aktivering af en slave, efter et link genopretning er blevet opdaget."
+msgstr "Angiver tiden, i millisekunder, der skal ventes før aktivering af en slave, efter en link genopretning er blevet opdaget."
 
 msgid "Specifies whether it is allowed to login as superuser directly"
 msgstr "Angiver om det er tilladt at logge ind direkte som superbruger"
@@ -2910,7 +2911,7 @@ msgid "The SSL certificate."
 msgstr "SSL certifikat."
 
 msgid "The changes have been applied "
-msgstr "Ændringerne blev udført"
+msgstr "Ændringerne er blevet tilføjet"
 
 msgid "The changes have been applied successfully."
 msgstr "Ændringerne er blevet tilføjet med succes."
@@ -2926,14 +2927,12 @@ msgstr " Ekstern server destination, f.eks. [USER@]HOST:DEST, [USER@]HOST::DEST 
 msgid "The destination shared folder."
 msgstr "Destinationens delte mappe"
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr "Feltet '%s' indeholder forbudte"
 
 msgid "The file mode of the shared folder path."
 msgstr "Fil tilstand af den delte mappes sti."
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr "Gruppen '%s' findes ikke"
 
@@ -3011,11 +3010,9 @@ msgstr "Systemet vil genstarte nu. Dette kan tage noget tid ..."
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "Test mailen er sendt med succes. Kontroller venligst din mailboks."
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr "Brugeren '%s' findes ikke"
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr "Brugeren '%s' er ikke tilladt"
 
@@ -3031,9 +3028,8 @@ msgid ""
 msgstr "Velkomstbeskeden, der vil blive vist første gang en bruger logger ind."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
-msgstr "Arbejdsgruppen, som serveren vil fremstå i, når der forespørges af klienter."
+msgstr "Arbejdsgruppen, som serveren vil fremstå i, når den forespørges af klienter."
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr "Der findes allerede et monterings punkt for %s"
 
@@ -3110,7 +3106,7 @@ msgid ""
 "This may make more efficient use of the system CPU's and cause Samba to be "
 "faster. Samba automatically turns this off for clients that use protocol "
 "levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
-msgstr "Dette kan få en mere effektiv udnyttelse af systemet CPU'er og få Samba til at være hurtigere. Samba deaktiverer automatisk dette for klienter, der bruger et protokol niveau lavere end NT LM 0.12 og når den registrerer at en klient er Windows 9x."
+msgstr "Dette kan få en mere effektiv udnyttelse af systemets CPU'er og få Samba til at være hurtigere. Samba deaktiverer automatisk dette for klienter, der bruger et protokol niveau lavere end NT LM 0.12 og når den registrerer at en klient er Windows 9x."
 
 msgid ""
 "This option causes the server to not send a certificate request during a SSL"
@@ -3186,7 +3182,7 @@ msgstr "Denne parameter kan bruges til at sikre, at hvis standard ACL'er findes 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
-msgstr "Denne parameter kontrollerer om filer der starter med et punktum optræder som skjulte filer"
+msgstr "Denne parameter kontrollerer om filer der starter med en dot optræder som skjulte filer"
 
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
@@ -3310,11 +3306,9 @@ msgstr "United States"
 msgid "United States Minor Outlying Islands"
 msgstr "United States Minor Outlying Islands"
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr "Ukendt filsystem '%s'"
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr "Ukendt log filtype (id=%s)"
 
@@ -3402,15 +3396,12 @@ msgstr "Brugt kapacitet"
 msgid "User"
 msgstr "Bruger"
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr "Bruger '%s' findes allerede"
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr "Bruger '%s' findes ikke"
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr "Bruger ID '%d' findes allerede"
 
@@ -3510,7 +3501,7 @@ msgid "Wipe"
 msgstr "Ryd"
 
 msgid "Wiping device ..."
-msgstr "Rydder enhed ..."
+msgstr "Formatere enhed ..."
 
 msgid "Workgroup"
 msgstr "Arbejdsgruppe"
@@ -3554,7 +3545,6 @@ msgstr "minut"
 msgid "minutes"
 msgstr "minutter"
 
-#, c-format
 msgid "n/a"
 msgstr "n/a"
 

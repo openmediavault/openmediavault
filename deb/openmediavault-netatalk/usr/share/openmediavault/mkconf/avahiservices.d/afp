@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -30,14 +30,14 @@ OMV_AVAHIDAEMON_AFPSERVICE_FINDERICON=${OMV_AVAHIDAEMON_AFPSERVICE_FINDERICON:-"
 
 # Is the service enabled? Announce this service via DNS-SD?
 rm -f ${OMV_AVAHIDAEMON_AFPSERVICE}
-[ "$(omv_config_get "//services/afp/enable")" = "0" -o "$(omv_config_get "//services/afp/dnssd/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//services/afp/enable")" = "0" -o "$(omv_config_get "//services/zeroconf/services/service[id='afp']/enable")" = "0" ] && exit 0
 
 # Create '/etc/avahi/services/smb.service' file.
 xmlstarlet sel -t \
   -o "<?xml version=\"1.0\" standalone=\"no\"?>" -n \
   -o "<!DOCTYPE service-group SYSTEM \"avahi-service.dtd\">" -n \
   -o "<service-group>" -n \
-  -v "concat('  <name replace-wildcards=\"yes\">',//services/afp/dnssd/name,'</name>')" -n \
+  -v "concat('  <name replace-wildcards=\"yes\">',//services/zeroconf/services/service[id='afp']/name,'</name>')" -n \
   -o "  <service>" -n \
   -o "    <type>_afpovertcp._tcp</type>" -n \
   -o "    <port>${OMV_AVAHIDAEMON_AFPSERVICE_PORT}</port>" -n \

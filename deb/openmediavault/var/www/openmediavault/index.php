@@ -5,7 +5,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,12 +24,11 @@ try {
 	require_once("openmediavault/env.inc");
 	require_once("openmediavault/session.inc");
 	require_once("openmediavault/htmlpage.inc");
-	require_once("rpc/authentication.inc");
 
 	$session = &OMVSession::getInstance();
 	$session->start();
 
-	if ($session->isAuthenticated() && !$session->isTimeout()) {
+	if($session->isAuthenticated() && !$session->isTimeout()) {
 		$session->validate();
 		$session->updateLastAccess();
 

@@ -1,2 +1,3 @@
 interest update-locale
 interest update-fixperms
+interest restart-engined

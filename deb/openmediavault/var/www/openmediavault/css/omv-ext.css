@@ -3,7 +3,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -23,14 +23,7 @@ div#header {
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	height: 80px;
-	background: #1A1A1A;
-	background-image: url("/images/carbon.png");
-	background-image: -webkit-gradient(linear, 0% 0%, 0% 40%, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 0))), url("/images/carbon.png");
-	background-image: -webkit-linear-gradient(0% 40%, from(rgba(255, 255, 255, 0.3)), rgba(255, 255, 255, 0) 100%), url("/images/carbon.png");
-	background-image: -moz-linear-gradient(0% 40% 90deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.3) 100%), url("/images/carbon.png");
-	background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 40%), url("/images/carbon.png");
-	background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 40%), url("/images/carbon.png");
-	background-image: linear-gradient(top, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0) 40%), url("/images/carbon.png");
+	background: #98b7cf; /* #475668, #98b7cf, #3C404B */
 }
 div#headerlogo {
 	float: left;
@@ -45,72 +38,40 @@ div#headerrlogo {
 	width: 400px;
 	background-image: url("/images/header_rlogo.png");
 }
-div#headerrlogo .hostname {
-	font-size: 11px;
-	color: #FFFFFF;
-	text-align: right;
-	margin-top: 63px;
-	margin-right: 25px;
-}
 .x-text-center {
 	text-align: center;
 }
-.x-border-panel-header {
-	height: 80px;
-}
-.x-border-panel-footer {
-	height: 24px;
-}
-.x-form-textarea-default {
-	border: 0 none;
-	font-family: tahoma,arial,verdana,sans-serif;
-	font-size: 12px;
-}
-.x-form-textarea-monospaced {
-	border: 0 none;
+/* Customize textarea fields */
+.x-form-textarea-monospaced textarea {
 	font-family: monospace;
 	font-size: 11px;
 	padding: 0;
-}
-/*
-Remove red corner in modified grid cells.
-See http://www.extjs.com/learn/Ext_FAQ_Grid#Dirty_Record_.2F_Red_Flag_.28modifying.2C_etc..29
-*/
-.x-grid3-without-dirty-cell .x-grid3-dirty-cell {
-	background: none;
-}
-/* Customize tabs */
-.x-tab-strip-invalid-icon {
-	background-image: url("/images/error.png");
-}
-/* Customize tree node */
-.x-tree-node-collapsed .x-tree-node-icon, .x-tree-node-expanded .x-tree-node-icon, .x-tree-node-leaf .x-tree-node-icon {
-	height: 16px;
-	width: 16px;
 }
 /* Field info text */
 .x-form-fieldinfo {
 	font-size: 11px;
 	color: #333333;
+	line-height: 14px;
 }
-/* Multi trigger field */
-.x-form-field-wrap .x-form-password-trigger {
+/* Trigger field */
+.x-form-password-trigger {
 	cursor: pointer;
 	background-image: url("/images/password-trigger.png");
 }
-.x-form-field-wrap .x-form-add-trigger {
+.x-form-add-trigger {
     background-image: url("../images/add-trigger.png");
 }
-.x-form-field-wrap .x-form-folder-trigger {
+.x-form-folder-trigger {
     background-image: url("../images/folder-trigger.png");
 }
 /* About box */
 .x-box-aboutbox {
-	width: 95%;
-	margin-top: 15px;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 15px;
 	text-align: left;
+	padding: 5px 10px;
+	background-color: #eee;
+	font-family: "Myriad Pro","Myriad Web","Tahoma","Helvetica","Arial",sans-serif;
+	color: #393939;
 }
 .x-box-aboutbox a {
 	text-decoration: none !important;
@@ -129,17 +90,28 @@ See http://www.extjs.com/learn/Ext_FAQ_Grid#Dirty_Record_.2F_Red_Flag_.28modifyi
 }
 /* Progress bar */
 .x-progress-bar {
-	background-color: #9cbfee;
-	background-image: url("/images/progress-bg.gif");
-	border-top-color: #d1e4fd;
-	border-bottom-color: #7fa9e4;
-	border-right-color: #7fa9e4;
+	background-color: #b3b3b3;
+	background-image: none;
+	border-top-color: #b3b3b3;
+	border-bottom-color: #b3b3b3;
+	border-right-color: #b3b3b3;
 }
-/* Checkbox Grid */
-.x-checkboxgrid {
-	border: 1px solid;
-	border-color: #C1C1C1;
+/* Tabs */
+.x-tab-invalid {
+	border: 1px solid #cc3300;
 }
-.x-checkboxgrid-invalid {
-	border-color: #c30;
+/* Meditation message box */
+.x-message-box-guru {
+	width: 100%;
+	background-color: #000000;
+	padding: 7px;
+}
+.x-message-box-guru-body {
+	padding: 12px 0px 12px 0px;
+	border: solid 6px #ff0000;
+	color: #f72000;
+	font-family: courier;
+	font-weight: bold;
+	font-size: large;
+	text-align: center;
 }

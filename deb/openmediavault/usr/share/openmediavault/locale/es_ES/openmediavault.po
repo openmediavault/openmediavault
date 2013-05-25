@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
-"PO-Revision-Date: 2012-11-19 19:12+0000\n"
+"POT-Creation-Date: 2012-12-22 03:12+0100\n"
+"PO-Revision-Date: 2012-12-22 02:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -20,15 +20,12 @@ msgstr ""
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr "% completado ..."
 
-#, c-format
 msgid "%s (%s available)"
 msgstr "%s (%s disponible)"
 
-#, c-format
 msgid "%s [on %s]"
 msgstr "%s [en %s]"
 
@@ -59,7 +56,6 @@ msgstr "10 minutos"
 msgid "10 years"
 msgstr "10 años"
 
-#, c-format
 msgid "100% completed ..."
 msgstr "100% completado ..."
 
@@ -104,6 +100,9 @@ msgstr "25 años"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Máximo rendimiento, máximo consumo"
+
+msgid "255 - Disabled"
+msgstr "255 - Deshabilitado"
 
 msgid "3 days"
 msgstr "3 días"
@@ -424,7 +423,6 @@ msgstr "Bahrain"
 msgid "Ban list"
 msgstr "Lista de excluidos"
 
-#, c-format
 msgid "Ban statistics:"
 msgstr "Estadística de excluidos:"
 
@@ -691,7 +689,6 @@ msgstr "Cuba"
 msgid "Current time"
 msgstr "Hora actual"
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr "Usuarios conectados al sistema:"
 
@@ -740,6 +737,9 @@ msgstr "Borrar"
 msgid "Delete content"
 msgstr "Borrar contenido"
 
+msgid "Delete files"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Borrar archivos en la parte receptora que no existan en la parte emisora."
 
@@ -787,7 +787,6 @@ msgstr "Determina el tiempo por defecto en microsegundos, antes de que el primer
 msgid "Device"
 msgstr "Dispositivo"
 
-#, c-format
 msgid "Device '%s' not found"
 msgstr "Dispositivo '%s' no encontrado"
 
@@ -1041,7 +1040,7 @@ msgstr "Habilitar el protocolo de Identificación (RFC1413)"
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Habilite está opción pra mantener los archivos parcialmente transferidos, si no , serán borrados en caso de interrumpirse la transmisión."
 
 msgid "Enable user authentication"
 msgstr "Habilitar la autenticación de usuarios"
@@ -1073,7 +1072,6 @@ msgstr "Error"
 msgid "Error #"
 msgstr "Error #"
 
-#, c-format
 msgid "Error #%d"
 msgstr "Error #%d"
 
@@ -1130,7 +1128,6 @@ msgstr "FXP permite transferencias de archivos entre dos servidores remotos sin 
 msgid "Failed to call "
 msgstr "Falló al llamar"
 
-#, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1163,14 +1160,22 @@ msgstr "Fidji"
 msgid "File"
 msgstr "Archivo"
 
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr ""
+
+msgid ""
+"Files that are larger than the specified number of bytes will not be put "
+"into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
+
 msgid "Filesystem"
 msgstr "Sistema de archivos"
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr "Sistema de archivos '%s' no encontrado"
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr "Sistema de archivos '%s' no soportado"
 
@@ -1264,15 +1269,12 @@ msgstr "Granada"
 msgid "Group"
 msgstr "Grupo"
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr "El grupo '%s' ya existe"
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr "El grupo '%s' no existe"
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr "ID de grupo '%d' existente"
 
@@ -1483,7 +1485,6 @@ msgstr "Nombre de grupo inválido"
 msgid "Invalid hostname"
 msgstr "Nombre de host inválido."
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr "Línea inválida: %s"
 
@@ -1539,7 +1540,7 @@ msgid "Kazakhstan"
 msgstr "Kazajstán"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Mantener los archivos parcialmente transferidos"
 
 msgid "Kenya"
 msgstr "Kenia"
@@ -1636,7 +1637,6 @@ msgstr "Información de la ubicación, p.ej: casa, despacho"
 msgid "Log level"
 msgstr "Nivel de Log"
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr "Volúmen lógico %s [%s, %s]"
 
@@ -1739,6 +1739,9 @@ msgstr "Nº Max. de login"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Velocidad max. de descarga (KiB/s)"
+
+msgid "Maximum file size"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1893,7 +1896,6 @@ msgstr "Mascara de Red"
 msgid "Network"
 msgstr "Red"
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr "El interfaz de red '%s' ya existe"
 
@@ -2633,7 +2635,6 @@ msgstr "Establecer el intervalo entre comprobaciones de disco en N segundos."
 msgid "Settings"
 msgstr "Configuración"
 
-#, c-format
 msgid "Settings already exist for device '%s'"
 msgstr "El dispositivo '%s' ya está configurado"
 
@@ -2928,14 +2929,12 @@ msgstr "El servidor remoto de destino, p.ej. [USER@]HOST:DEST, [USER@]HOST::DEST
 msgid "The destination shared folder."
 msgstr "La carpeta compartida de destino"
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr "El campo '%s' contiene elementos prohibidos:"
 
 msgid "The file mode of the shared folder path."
 msgstr "Modo de archivo de la ruta a las carpetas compartidas."
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr "El grupo '%s' no existe"
 
@@ -3013,11 +3012,9 @@ msgstr "El sistema se reiniciará ahora. Puede tardar un poco ..."
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "El email de prueba ha sido enviado. Por favor, compruebe su buzón."
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr "El usuario '%s' no existe"
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr "El usuario '%s' no está permitido"
 
@@ -3035,7 +3032,6 @@ msgstr "Mensaje de bienvenida a mostrar tras el login inicial"
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "El grupo de trabajo en el que aparecerá el servidor cuando lo examinen los clientes."
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr "Debe existir un punto de montaje para %s"
 
@@ -3312,11 +3308,9 @@ msgstr "Estados Unidos"
 msgid "United States Minor Outlying Islands"
 msgstr "Islas Ultramarinas de Estados Unidos"
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr "Sistema de archivos '%s' desconocido"
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr "Tipo de archivo de registro desconocido (id=%s)"
 
@@ -3404,15 +3398,12 @@ msgstr "Capacidad"
 msgid "User"
 msgstr "Usuario"
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr "El usuario '%s' ya existe"
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr "El usuario '%s' no existe"
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr "El ID de usuario '%d' ya existe"
 
@@ -3556,7 +3547,6 @@ msgstr "minuto"
 msgid "minutes"
 msgstr "minutos"
 
-#, c-format
 msgid "n/a"
 msgstr "n/d"
 

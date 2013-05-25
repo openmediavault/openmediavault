@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -23,4 +23,4 @@ set -e
 
 . /etc/default/openmediavault
 
-run-parts --report ${OMV_SCRIPTS_DIR}/configimport.d 2>&1 >${OMV_LOG_DIR}/configimport.log
+run-parts --report ${OMV_CONFIGIMPORT_SCRIPTS_DIR} 2>&1 >${OMV_LOG_DIR}/configimport.log

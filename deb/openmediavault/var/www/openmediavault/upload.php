@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -34,12 +34,12 @@ try {
 	require_once("openmediavault/env.inc");
 	require_once("openmediavault/config.inc"); // Must be included here
 	require_once("openmediavault/session.inc");
-	require_once("openmediavault/rpc.inc");
+	require_once("openmediavault/rpcproxy.inc");
 
 	$session = &OMVSession::getInstance();
 	$session->start();
 
-	if ($session->isAuthenticated()) {
+	if($session->isAuthenticated()) {
 		$session->validate();
 		// Do not update last access time
 		//$session->updateLastAccess();
@@ -47,9 +47,11 @@ try {
 		throw new OMVException(OMVErrorMsg::E_SESSION_NOT_AUTHENTICATED);
 	}
 
-	$server = new OMVUploadRpcServer();
+	$server = new OMVUploadRpcProxy();
 	$server->handle();
+	$server->cleanup();
 } catch(Exception $e) {
+	$server->cleanup();
 	header("Content-Type: text/html");
 	print json_encode_safe(array(
 		"success" => false, // required by ExtJS

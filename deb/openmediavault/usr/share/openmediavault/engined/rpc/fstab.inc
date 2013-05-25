@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,44 +22,47 @@
 require_once("openmediavault/object.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/rpc.inc");
 require_once("openmediavault/functions.inc");
+require_once("openmediavault/rpcservice.inc");
+require_once("openmediavault/notify.inc");
 
-class FsTabRpc extends OMVRpc {
-	public function __construct() {
-		$this->methodSchemata = array(
-			"delete" => array('{
-				"type":"object",
-				"properties":{
-					"uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
-				}
-			}'),
-			"getByFsName" => array('{
-				"type":"object",
-				"properties":{
-					"id":{"type":"string"}
-				}
-			}')
-		);
+class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
+	/**
+	 * Get the RPC service name.
+	 */
+	public function getName() {
+		return "FsTab";
+	}
+
+	/**
+	 * Initialize the RPC service.
+	 */
+	public function initialize() {
+		$this->registerMethod("enumerateEntries");
+		$this->registerMethod("get");
+		$this->registerMethod("set");
+		$this->registerMethod("delete");
+		$this->registerMethod("getByFsName");
 	}
 
 	/**
 	 * Enumerate all fstab mount point entries.
-	 * @return An array of objects. Each object represents a mount point entry.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array of objects. Each object represents a mount point
+	 *   entry.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	public function enumerateEntries() {
-//		$this->debug(var_export(func_get_args(), TRUE));
+	public function enumerateEntries($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Get configuration object
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get the configuration object.
 		$xpath = "//system/fstab/mntent";
 		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
+		if(is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -67,60 +70,178 @@ class FsTabRpc extends OMVRpc {
 	}
 
 	/**
-	 * Delete a mount point configuration object.
-	 * @param data An array containing the following fields:
+	 * Get a mount point configuration object.
+	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
-	 * @return None
+	 * @param context The context of the caller.
+	 * @return The requested configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	public function delete($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions.
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
+	function get($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
+		// Get the configuration object.
+		$xpath = sprintf("//system/fstab/mntent[uuid='%s']", $params['uuid']);
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
 		}
-		$this->commitSession();
-		// Validate method parameters.
-		$this->validateParams(__METHOD__, func_get_args());
+		// Modify result object.
+		$object['freq'] = intval($object['freq']);
+		$object['passno'] = intval($object['passno']);
+		return $object;
+	}
+
+	/**
+	 * Set a mount point configuration object. The given mount point in the
+	 * filesystem will be created.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 *   \em fsname The block special device or filesystem UUID to be mounted.
+	 *   \em dir The mount point for the filesystem.
+	 *   \em type The type of the filesystem.
+	 *   \em opts The mount options associated with the filesystem.
+	 *   \em freq This option is used for these filesystems by the dump(8)
+	 *   command to determine which filesystems need to be dumped.
+	 *   \em passno This field is used by the fsck(8) program to determine
+	 *   the order in which filesystem checks are done at reboot time.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_EXEC_FAILED
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
+	 */
+	public function set($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+				  "fsname":{"type":"string"},
+				  "dir":{"type":"string"},
+				  "type":{"type":"string"},
+				  "opts":{"type":"string"},
+				  "freq":{"type":"integer"},
+				  "passno":{"type":"integer","enum":[0,1,2]}
+			  }
+		  }');
+		// Prepare the configuration object.
+		$object = array(
+			  "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+				OMVUtil::uuid() : $params['uuid'],
+			  "fsname" => $params['fsname'],
+			  "dir" => $params['dir'],
+			  "type" => $params['type'],
+			  "opts" => $params['opts'],
+			  "freq" => $params['freq'],
+			  "passno" => $params['passno']
+		  );
+		// Set the configuration object.
+		$success = FALSE;
+		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			// Append object to configuration.
+			$success = $xmlConfig->set("//system/fstab",
+			  array("mntent" => $object));
+		} else {
+			// Update existing configuration object.
+			$success = $xmlConfig->replace("//system/fstab/mntent" .
+			  "[uuid='{$params['uuid']}']", $object);
+		}
+		if(FALSE === $success) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+		}
+		// Notify configuration changes.
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.fstab.mntent", $object);
+		// Return the configuration object.
+		return $object;
+	}
+
+	/**
+	 * Delete a mount point configuration object. The mount point in the
+	 * filesystem will be deleted.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @param context The context of the caller.
+	 * @return The deleted configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @throw E_MISC_FAILURE
+	 * @throw E_EXEC_FAILED
+	 */
+	public function delete($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
 		// Delete the configuration object.
-		$xpath = sprintf("//system/fstab/mntent[uuid='%s']", $data['uuid']);
-		$this->deleteConfigObjectByPath($xpath,
+		$xpath = sprintf("//system/fstab/mntent[uuid='%s']", $params['uuid']);
+		return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.system.fstab.mntent");
 	}
 
 	/**
 	 * Get a mount point configuration object by the given file system name,
 	 * which may be a UUID or block special device.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em id The file system identifier, e.g. UUID or block special device.
+	 * @param context The context of the caller.
 	 * @return The mount point configuration object if exists, otherwise FALSE.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	public function getByFsName($data) {
+	public function getByFsName($params, $context) {
 		global $xmlConfig;
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "id":{"type":"string"}
+			  }
+		  }');
 		// Get the list of mount point configuration objects.
 		$xpath = "//system/fstab/mntent";
 		$objects = $xmlConfig->getList($xpath);
-		if (is_null($objects)) {
+		if(is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Add function parameter to search argument list.
 		$args = array();
-		$args[] = $data['id'];
+		$args[] = $params['id'];
 		// If the function parameter is a device file, then try to get the
 		// file system UUID and add it to the search argument list. This is
 		// done to increase the probability to find the fstab config object.
-		if (is_devicefile($data['id'])) {
-			$fs = new OMVFilesystem($data['id']);
-			if ($fs->exists()) {
+		if(is_devicefile($params['id'])) {
+			$fs = new OMVFilesystem($params['id']);
+			if($fs->exists()) {
 				$args[] = $fs->getUuid();
 			}
 		}
@@ -128,26 +249,30 @@ class FsTabRpc extends OMVRpc {
 		// arguments. Note, the field 'fsname' may contain a device file
 		// or a file system UUID.
 		$result = FALSE;
-		foreach ($objects as $objectk => $objectv) {
-			foreach ($args as $argk => $argv) {
+		foreach($objects as $objectk => $objectv) {
+			foreach($args as $argk => $argv) {
 				// Device files must be handled seperate because the device
 				// may contain partitions.
-				if (is_devicefile($argv)) {
-					if (FALSE !== strpos($objectv['fsname'], $argv)) {
+				if(is_devicefile($argv)) {
+					if(FALSE !== strpos($objectv['fsname'], $argv)) {
 						$result = $objectv;
 						break;
 					}
 				} else {
-					if ($argv === $objectv['fsname']) {
+					if($argv === $objectv['fsname']) {
 						$result = $objectv;
 						break;
 					}
 				}
 			}
-			if (TRUE === $result)
+			if(TRUE === $result)
 				break;
 		}
 		return $result;
 	}
 }
+
+// Register the RPC service.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->registerService(new OMVRpcServiceFsTab());
 ?>

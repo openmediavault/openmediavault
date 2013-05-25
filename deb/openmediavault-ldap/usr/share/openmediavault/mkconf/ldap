@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -45,7 +45,7 @@ OMV_LDAP_PAM_CONFIG=${OMV_LDAP_PAM_CONFIG:-"/etc/pam_ldap.conf"}
 xmlstarlet sel -t \
   -m "//services/ldap" \
 	-v "concat('base ',base)" -n \
-	-v "concat('uri ldap://',host)" -n \
+	-v "concat('uri ldap://',host)" -i "string-length(port) > 0" -v "concat(':',port)" -b -n \
 	-o "ldap_version ${OMV_LDAP_LDAPVERSION}" -n \
 	-v "concat('binddn ',rootbinddn)" -n \
 	-v "concat('bindpw ',rootbindpw)" -n \
@@ -57,14 +57,14 @@ xmlstarlet sel -t \
 xmlstarlet sel -t \
   -m "//services/ldap" \
 	-v "concat('BASE ',base)" -n \
-	-v "concat('URI ldap://',host)" -n \
+	-v "concat('URI ldap://',host)" -i "string-length(port) > 0" -v "concat(':',port)" -b -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_LDAP_CONFIG}
 
 xmlstarlet sel -t \
   -m "//services/ldap" \
 	-v "concat('base ',base)" -n \
-	-v "concat('uri ldap://',host)" -n \
+	-v "concat('uri ldap://',host)" -i "string-length(port) > 0" -v "concat(':',port)" -b -n \
 	-o "ldap_version ${OMV_LDAP_LDAPVERSION}" -n \
 	-v "concat('rootbinddn ',rootbinddn)" -n \
 	-o "bind_policy ${OMV_LDAP_LIBNSS_BINDPOLICY}" -n \

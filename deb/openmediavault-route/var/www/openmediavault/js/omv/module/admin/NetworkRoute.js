@@ -3,7 +3,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,12 +19,12 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/module/admin/Network.js")
-// require("js/omv/NavigationPanel.js")
+// require("js/omv/ModuleManager.js")
 // require("js/omv/data/DataProxy.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/CfgObjectDialog.js")
 // require("js/omv/grid/TBarGridPanel.js")
-// require("js/omv/form/plugins/FieldInfo.js")
+// require("js/omv/form/field/plugin/FieldInfo.js")
 
 Ext.ns("OMV.Module.System.Network");
 
@@ -35,24 +35,25 @@ Ext.ns("OMV.Module.System.Network");
 OMV.Module.System.Network.RouteGridPanel = function(config) {
 	var initialConfig = {
 		hidePagingToolbar: false,
-		hideEdit: true, // Simplifies duplicate checks
+		hideEditButton: true, // Simplifies duplicate checks
+		stateful: true,
 		stateId: "a6faec48-f389-11e1-8b67-00221568ca88",
 		colModel: new Ext.grid.ColumnModel({
 			columns: [{
-				header: _("Network"),
+				text: _("Network"),
 				sortable: true,
 				dataIndex: "network",
-				id: "network"
+				stateId: "network"
 			},{
-				header: _("Gateway"),
+				text: _("Gateway"),
 				sortable: true,
 				dataIndex: "gateway",
-				id: "gateway"
+				stateId: "gateway"
 			},{
-				header: _("Comment"),
+				text: _("Comment"),
 				sortable: true,
 				dataIndex: "comment",
-				id: "comment"
+				stateId: "comment"
 			}]
 		})
 	};
@@ -65,10 +66,13 @@ Ext.extend(OMV.Module.System.Network.RouteGridPanel,
 	initComponent : function() {
 		this.store = new OMV.data.Store({
 			autoLoad: true,
-			remoteSort: false,
 			proxy: new OMV.data.DataProxy({
-				"service": "NetworkRoute",
-				"method": "getList"
+				"rpcOptions": {
+					"rpcData": {
+						"service": "NetworkRoute",
+						"method": "getList"
+					}
+				}
 			}),
 			reader: new Ext.data.JsonReader({
 				"idProperty": "uuid",
@@ -86,7 +90,7 @@ Ext.extend(OMV.Module.System.Network.RouteGridPanel,
 		  initComponent.apply(this, arguments);
 	},
 
-	cbAddBtnHdl : function() {
+	onAddButton : function() {
 		var wnd = new OMV.Module.System.Network.RoutePropertyDialog({
 			uuid: OMV.UUID_UNDEFINED,
 			listeners: {
@@ -99,9 +103,9 @@ Ext.extend(OMV.Module.System.Network.RouteGridPanel,
 		wnd.show();
 	},
 
-	cbEditBtnHdl : function() {
+	onEditButton : function() {
 		var selModel = this.getSelectionModel();
-		var record = selModel.getSelected();
+		var record = selModel.getSelection()[0];
 		var wnd = new OMV.Module.System.Network.RoutePropertyDialog({
 			uuid: record.get("uuid"),
 			listeners: {
@@ -115,11 +119,20 @@ Ext.extend(OMV.Module.System.Network.RouteGridPanel,
 	},
 
 	doDeletion : function(record) {
-		OMV.Ajax.request(this.cbDeletionHdl, this, "NetworkRoute",
-		  "delete", { "uuid": record.get("uuid") });
+		OMV.Ajax.request({
+			  "scope": this,
+			  "callback": this.onDeletion,
+			  "rpcData": {
+				  "service": "NetworkRoute",
+				  "method": "delete",
+				  "params": {
+					  "uuid": record.get("uuid")
+				  }
+			  }
+		  });
 	}
 });
-OMV.NavigationPanelMgr.registerPanel("system", "network", {
+OMV.ModuleManager.registerPanel("system", "network", {
 	cls: OMV.Module.System.Network.RouteGridPanel,
 	position: 70,
 	title: _("Static Routes")
@@ -136,8 +149,7 @@ OMV.Module.System.Network.RoutePropertyDialog = function(config) {
 		rpcGetMethod: "get",
 		rpcSetMethod: "set",
 		title: (config.uuid == OMV.UUID_UNDEFINED) ?
-		  _("Add static route") : _("Edit static route"),
-		autoHeight: true
+		  _("Add static route") : _("Edit static route")
 	};
 	Ext.apply(initialConfig, config);
 	OMV.Module.System.Network.RoutePropertyDialog.superclass.
@@ -145,29 +157,27 @@ OMV.Module.System.Network.RoutePropertyDialog = function(config) {
 };
 Ext.extend(OMV.Module.System.Network.RoutePropertyDialog,
   OMV.CfgObjectDialog, {
-	getFormConfig : function() {
-		return {
-			autoHeight: true
-		};
-	},
-
-	getFormItems : function() {
+	getFormItems: function() {
 		return [{
 			xtype: "textfield",
 			name: "network",
 			fieldLabel: _("Network"),
 			vtype: "IPv4NetCIDR",
 			allowBlank: false,
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("IP or network address.")
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("IP or network address.")
+			}]
 		},{
 			xtype: "textfield",
 			name: "gateway",
 			fieldLabel: _("Gateway"),
 			vtype: "IPv4",
 			allowBlank: false,
-			plugins: [ OMV.form.plugins.FieldInfo ],
-			infoText: _("Gateway used to reach the above network address.")
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Gateway used to reach the above network address.")
+			}]
 		},{
 			xtype: "textfield",
 			name: "comment",

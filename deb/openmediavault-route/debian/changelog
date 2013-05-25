@@ -1,3 +1,9 @@
+openmediavault-route (0.5) stable; urgency=low
+
+  * Adapt plugin to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 25 Nov 2012 12:28:25 +0100
+
 openmediavault-route (0.4) stable; urgency=low
 
   * Upgrade to xmlstarlet 1.3.1.

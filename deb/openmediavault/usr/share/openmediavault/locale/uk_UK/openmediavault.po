@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
-"PO-Revision-Date: 2012-11-19 19:12+0000\n"
+"POT-Creation-Date: 2012-12-22 03:12+0100\n"
+"PO-Revision-Date: 2012-12-22 02:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -19,15 +19,12 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr "% виконано ..."
 
-#, c-format
 msgid "%s (%s available)"
 msgstr "%s (%s доступно)"
 
-#, c-format
 msgid "%s [on %s]"
 msgstr "%s [із %s]"
 
@@ -58,7 +55,6 @@ msgstr "10 хвилин"
 msgid "10 years"
 msgstr "10 років"
 
-#, c-format
 msgid "100% completed ..."
 msgstr "100% виконано"
 
@@ -103,6 +99,9 @@ msgstr "25 років"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Максимальна продуктивність, максимальне енергоспоживання"
+
+msgid "255 - Disabled"
+msgstr ""
 
 msgid "3 days"
 msgstr "3 дні"
@@ -423,7 +422,6 @@ msgstr "Bahrain"
 msgid "Ban list"
 msgstr "Список банів "
 
-#, c-format
 msgid "Ban statistics:"
 msgstr "Статистика банів:"
 
@@ -690,7 +688,6 @@ msgstr "Cuba"
 msgid "Current time"
 msgstr "Поточний час"
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr "Поточні користувачі в системі:"
 
@@ -737,6 +734,9 @@ msgid "Delete"
 msgstr "Видалити"
 
 msgid "Delete content"
+msgstr ""
+
+msgid "Delete files"
 msgstr ""
 
 msgid "Delete files on the receiving side that don't exist on sender"
@@ -786,7 +786,6 @@ msgstr "Визначити час очікування за замовчуван
 msgid "Device"
 msgstr "Пристрій"
 
-#, c-format
 msgid "Device '%s' not found"
 msgstr "Пристрій '%s' не знайдено"
 
@@ -1072,7 +1071,6 @@ msgstr "Error"
 msgid "Error #"
 msgstr "Error #"
 
-#, c-format
 msgid "Error #%d"
 msgstr "Error #%d"
 
@@ -1129,7 +1127,6 @@ msgstr ""
 msgid "Failed to call "
 msgstr ""
 
-#, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1162,14 +1159,22 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Файл"
 
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr ""
+
+msgid ""
+"Files that are larger than the specified number of bytes will not be put "
+"into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
+
 msgid "Filesystem"
 msgstr "Файлова система"
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr "Файлова система '%s' не знайдена"
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr "Файлова система '%s' не підтримується"
 
@@ -1263,15 +1268,12 @@ msgstr "Grenada"
 msgid "Group"
 msgstr "Група"
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr ""
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr "Група '%s' не існує"
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr ""
 
@@ -1482,7 +1484,6 @@ msgstr "Невірна назва групи"
 msgid "Invalid hostname"
 msgstr "Невірна назва хоста"
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr ""
 
@@ -1635,7 +1636,6 @@ msgstr ""
 msgid "Log level"
 msgstr "Log level"
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr "Логічні розділи %s [%s, %s]"
 
@@ -1738,6 +1738,9 @@ msgstr "Максимум спроб для входу"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Максимальна швидкість завантаження (KiB/s)"
+
+msgid "Maximum file size"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1892,7 +1895,6 @@ msgstr "Маска мережі"
 msgid "Network"
 msgstr "Мережа"
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr ""
 
@@ -2632,7 +2634,6 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#, c-format
 msgid "Settings already exist for device '%s'"
 msgstr ""
 
@@ -2927,14 +2928,12 @@ msgstr ""
 msgid "The destination shared folder."
 msgstr ""
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr ""
 
 msgid "The file mode of the shared folder path."
 msgstr ""
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr "Група '%s' не існує"
 
@@ -3012,11 +3011,9 @@ msgstr "Зараз система буде перезавантажена. Це 
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr ""
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr "Користувач '%s' не існує"
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr "Недопустимий користувач '%s' "
 
@@ -3034,7 +3031,6 @@ msgstr ""
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr ""
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr ""
 
@@ -3311,11 +3307,9 @@ msgstr "United States"
 msgid "United States Minor Outlying Islands"
 msgstr "United States Minor Outlying Islands"
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr "Невідома файлова система '%s'"
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr "Невідомий тип log-файлу (id=%s)"
 
@@ -3403,15 +3397,12 @@ msgstr ""
 msgid "User"
 msgstr "Користувач"
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr "Користувач '%s' вже існує"
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr "Користувач '%s' не існує"
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr "ID  '%d' користувача вже існує"
 
@@ -3555,7 +3546,6 @@ msgstr ""
 msgid "minutes"
 msgstr ""
 
-#, c-format
 msgid "n/a"
 msgstr ""
 

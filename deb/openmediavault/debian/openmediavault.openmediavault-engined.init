@@ -1,0 +1,91 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides:          openmediavault-engined
+# Required-Start:    $syslog $local_fs
+# Required-Stop:     $syslog $local_fs
+# Should-Start:
+# Should-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: The engine daemon.
+# Description:       The engine daemon.
+### END INIT INFO
+
+set -e
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/sbin/omv-engined
+NAME=omv-engined
+DESC="Engine daemon"
+PIDFILE=/var/run/$NAME.pid
+DAEMON_OPTS=""
+
+test -x $DAEMON || exit 0
+
+running_pid() {
+	pid=$1
+	[ -z "$pid" ] && return 1
+	[ ! -d "/proc/$pid" ] && return 1
+	return 0
+}
+
+running() {
+	[ ! -f "$PIDFILE" ] && return 1
+	pid=$(cat $PIDFILE)
+	running_pid $pid || return 1
+	return 0
+}
+
+case "$1" in
+start)
+	echo -n "Starting $DESC: "
+	start-stop-daemon --start --quiet --pidfile $PIDFILE \
+	  --exec $DAEMON -- $DAEMON_OPTS
+	if running ; then
+		echo "$NAME."
+	else
+		echo "ERROR."
+	fi
+	;;
+stop)
+	echo -n "Stopping $DESC: "
+	start-stop-daemon --oknodo --stop --quiet --pidfile $PIDFILE
+	echo "$NAME."
+	;;
+restart)
+	PID=$(cat $PIDFILE 2> /dev/null || true)
+	echo -n "Restarting $DESC: "
+	start-stop-daemon --oknodo --stop --quiet --pidfile $PIDFILE
+	if [ -n "$PID" ]; then
+		while running_pid $PID; do echo -n "."; sleep 1; done
+	fi
+	start-stop-daemon --start --quiet --pidfile $PIDFILE \
+	  --exec $DAEMON -- $DAEMON_OPTS
+	echo "$NAME."
+	;;
+reload)
+	PID=$(cat $PIDFILE 2> /dev/null || true)
+	echo -n "Reloading $DESC: "
+	if [ -n "$PID" ]; then
+		kill -s HUP $PID
+	fi
+	echo "$NAME."
+	;;
+status)
+	echo -n "$NAME is "
+	if running; then
+		echo "running"
+	else
+		echo "not running."
+		exit 1
+	fi
+	;;
+*)
+	N=/etc/init.d/$NAME
+	echo "Usage: $N {start|stop|restart|reload|status}" >&2
+	exit 1
+	;;
+esac
+
+exit 0

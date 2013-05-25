@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-19 20:12+0100\n"
-"PO-Revision-Date: 2012-11-19 19:12+0000\n"
+"POT-Creation-Date: 2012-12-22 03:12+0100\n"
+"PO-Revision-Date: 2012-12-22 02:12+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,15 +18,12 @@ msgstr ""
 "Language: tr_TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#, c-format
 msgid "% completed ..."
 msgstr "% tamamlandı ..."
 
-#, c-format
 msgid "%s (%s available)"
 msgstr "%s (%s kullanılabilir)"
 
-#, c-format
 msgid "%s [on %s]"
 msgstr "%s [%s de]"
 
@@ -57,7 +54,6 @@ msgstr "10 dakika"
 msgid "10 years"
 msgstr "10 yıl"
 
-#, c-format
 msgid "100% completed ..."
 msgstr "%100 tamamlandı ..."
 
@@ -102,6 +98,9 @@ msgstr "25 yıl"
 
 msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - En yüksek performans, en yüksek güç kullanımı"
+
+msgid "255 - Disabled"
+msgstr ""
 
 msgid "3 days"
 msgstr "3 gün"
@@ -422,7 +421,6 @@ msgstr "Bahreyn"
 msgid "Ban list"
 msgstr "Yasaklı listesi"
 
-#, c-format
 msgid "Ban statistics:"
 msgstr "Yasaklama istatistikleri:"
 
@@ -689,7 +687,6 @@ msgstr "Küba"
 msgid "Current time"
 msgstr "Geçerli zaman"
 
-#, c-format
 msgid "Currently logged in users:"
 msgstr "Şu anda sisteme bağlı kullanıcılar:"
 
@@ -738,6 +735,9 @@ msgstr "Sil"
 msgid "Delete content"
 msgstr "İçeriği sil"
 
+msgid "Delete files"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Göndericide bulunmayan dosyaları kaydedilen taraftan sil"
 
@@ -785,7 +785,6 @@ msgstr "Birinci paketin tekrar gönderilmesinden önce geçerli zaman aşımın�
 msgid "Device"
 msgstr "Aygıt"
 
-#, c-format
 msgid "Device '%s' not found"
 msgstr "'%s' aygıtı bulunamıyor"
 
@@ -1071,7 +1070,6 @@ msgstr "Hata"
 msgid "Error #"
 msgstr "Hata #"
 
-#, c-format
 msgid "Error #%d"
 msgstr "Hata #%d"
 
@@ -1128,7 +1126,6 @@ msgstr "FXP kullanıcı tarafına herhangi bir dosya bilgisi aktarımı olmaksı
 msgid "Failed to call "
 msgstr "Hatalı işlem"
 
-#, c-format
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1161,14 +1158,22 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Dosya"
 
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr ""
+
+msgid ""
+"Files that are larger than the specified number of bytes will not be put "
+"into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
+
 msgid "Filesystem"
 msgstr "Dosya sistemi"
 
-#, c-format
 msgid "Filesystem '%s' not found"
 msgstr "Dosya sistemi '%s' bulunamadı"
 
-#, c-format
 msgid "Filesystem '%s' not supported"
 msgstr "Dosya sistemi '%s' desteklenmiyor"
 
@@ -1262,15 +1267,12 @@ msgstr "Grenada"
 msgid "Group"
 msgstr "Grup"
 
-#, c-format
 msgid "Group '%s' already exist"
 msgstr "Grup '%s' zaten var"
 
-#, c-format
 msgid "Group '%s' does not exist"
 msgstr "Grup '%s' mevcut değil"
 
-#, c-format
 msgid "Group ID '%d' already exist"
 msgstr "Grup ID '%d' zaten var"
 
@@ -1481,7 +1483,6 @@ msgstr "Geçersiz grup adı"
 msgid "Invalid hostname"
 msgstr "Geçersiz cihaz adı"
 
-#, c-format
 msgid "Invalid line: %s"
 msgstr "Geçersiz satır : %s"
 
@@ -1634,7 +1635,6 @@ msgstr "Yerleşim bilgisi, örneğin sistemin fiziksel yerleşimi."
 msgid "Log level"
 msgstr "Kayıt seviyesi"
 
-#, c-format
 msgid "Logical volume %s [%s, %s]"
 msgstr "Matıksal birim %s [%s, %s]"
 
@@ -1737,6 +1737,9 @@ msgstr "Maksimum giriş denemesi"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maksimum indirme hızı (KiB/s)"
+
+msgid "Maximum file size"
+msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1891,7 +1894,6 @@ msgstr "Ağ maskesi"
 msgid "Network"
 msgstr "Ağ"
 
-#, c-format
 msgid "Network interface '%s' already exists"
 msgstr "Ağ arabirimi '%s' zaten mevcut"
 
@@ -2631,7 +2633,6 @@ msgstr "Disk kontrol aralığını N saniye olarak ayarla."
 msgid "Settings"
 msgstr "Ayarlar"
 
-#, c-format
 msgid "Settings already exist for device '%s'"
 msgstr "'%s' aygıtı için ayarlar mevcut"
 
@@ -2926,14 +2927,12 @@ msgstr "Hedef uzak sunucu, örn. [USER@]HOST:DEST, [USER@]HOST::DEST veya rsync:
 msgid "The destination shared folder."
 msgstr "Hedef paylaşım klasörü."
 
-#, c-format
 msgid "The field '%s' contains forbidden "
 msgstr "'%s' alanı erişilemez"
 
 msgid "The file mode of the shared folder path."
 msgstr "Paylaşılmış klasör adresinin dosya modu."
 
-#, c-format
 msgid "The group '%s' does not exist"
 msgstr "'%s' grubu mevut değil"
 
@@ -3011,11 +3010,9 @@ msgstr "Sistem yeniden başlatılıyor. Bu işlem vakit alabilir ..."
 msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "Test e-postası başarıyla gönderildi. Lütfen posta kutunuzu kontrol ediniz."
 
-#, c-format
 msgid "The user '%s' does not exist"
 msgstr "Kullanıcı '%s' mevcut değil"
 
-#, c-format
 msgid "The user '%s' is not allowed"
 msgstr "Kullanıcı '%s' yetkili değil"
 
@@ -3033,7 +3030,6 @@ msgstr "Hoşgeldiniz mesajı kullanıcılara giriş yaptıklarında gösterilir.
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr "Çalışma grubu, kullanıcılar tarafından sorgulandığında sunucunun bulunacağı yerdir."
 
-#, c-format
 msgid "There already exists a mount point for %s"
 msgstr "%s için zaten bir bağlantı noktası mevcut"
 
@@ -3310,11 +3306,9 @@ msgstr "Birleşik Devletler"
 msgid "United States Minor Outlying Islands"
 msgstr "ABD Küçük Dış Adaları"
 
-#, c-format
 msgid "Unknown filesystem '%s'"
 msgstr "Bilinmeyen dosya sistemi '%s'"
 
-#, c-format
 msgid "Unknown log file type (id=%s)"
 msgstr "Bilinmeyen kayıt dosyası tipi (id=%s)"
 
@@ -3402,15 +3396,12 @@ msgstr "Kullanılmış kapasite"
 msgid "User"
 msgstr "Kullanıcı"
 
-#, c-format
 msgid "User '%s' already exist"
 msgstr "Kullanıcı '%s' zaten var"
 
-#, c-format
 msgid "User '%s' does not exist"
 msgstr "Kullanıcı '%s' mevcut değil"
 
-#, c-format
 msgid "User ID '%d' already exist"
 msgstr "Kullanıcı ID '%d' zaten var "
 
@@ -3554,7 +3545,6 @@ msgstr "dakika"
 msgid "minutes"
 msgstr "dakika"
 
-#, c-format
 msgid "n/a"
 msgstr "yok"
 

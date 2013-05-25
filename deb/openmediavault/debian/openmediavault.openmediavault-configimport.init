@@ -15,7 +15,7 @@
 case "$1" in
 	start|"")
 		log_begin_msg "Executing configuration import scripts..."
-		run-parts --report --arg=configure ${OMV_SCRIPTS_DIR}/configimport-post.d 2>&1 >${OMV_LOG_DIR}/configimport-post.log
+		run-parts --report --arg=configure ${OMV_CONFIGIMPORT_SCRIPTS_DIR}/post.d 2>&1 >${OMV_LOG_DIR}/configimport-post.log
 		log_end_msg $?
 		update-rc.d -f openmediavault-configimport remove >/dev/null
 		;;

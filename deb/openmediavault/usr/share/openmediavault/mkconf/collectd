@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -34,7 +34,7 @@ set -e
 OMV_COLLECTD_CONFIG=${OMV_COLLECTD_CONFIG:-"/etc/collectd/collectd.conf"}
 OMV_COLLECTD_DEFAULT=${OMV_COLLECTD_DEFAULT:-"/etc/default/collectd"}
 OMV_COLLECTD_CRON=${OMV_COLLECTD_CRON:-"/etc/cron.d/openmediavault-rrdtoolgraph"}
-OMV_COLLECTD_PLUGINSDIR=${OMV_COLLECTD_PLUGINSDIR:-"${OMV_SCRIPTS_DIR}/collectd.d"}
+OMV_COLLECTD_PLUGINS_DIR=${OMV_COLLECTD_PLUGINS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/collectd.d"}
 OMV_COLLECTD_HOSTNAME=${OMV_COLLECTD_HOSTNAME:-"localhost"}
 OMV_COLLECTD_SYSLOG_LOGLEVEL=${OMV_COLLECTD_SYSLOG_LOGLEVEL:-"info"}
 OMV_COLLECTD_RRDTOOL_DATADIR=${OMV_COLLECTD_RRDTOOL_DATADIR:-"/var/lib/collectd/rrd"}
@@ -133,7 +133,7 @@ EOF
 	chmod 755 ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
 
 	# Create '/etc/avahi/services/*.service' files
-	run-parts ${OMV_COLLECTD_PLUGINSDIR}
+	run-parts ${OMV_COLLECTD_PLUGINS_DIR}
 
 	cat <<EOF >> ${OMV_COLLECTD_CONFIG}
 Include "/etc/collectd/thresholds.conf"

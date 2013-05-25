@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -31,6 +31,14 @@ set -e
 OMV_SSHD_CONFIG=${OMV_SSHD_CONFIG:-"/etc/ssh/sshd_config"}
 OMV_SSHD_ALLOWGROUPS=${OMV_SSHD_ALLOWGROUPS:-"root ssh"}
 OMV_SSHD_SUBSYSTEM_SFTP=${OMV_SSHD_SUBSYSTEM_SFTP:-"/usr/lib/openssh/sftp-server"}
+OMV_SSHD_ADDRESSFAMILY=${OMV_SSHD_ADDRESSFAMILY:-"any"}
+OMV_SSHD_X11FORWARDING=${OMV_SSHD_X11FORWARDING:-"yes"}
+OMV_SSHD_X11DISPLAYOFFSET=${OMV_SSHD_X11DISPLAYOFFSET:-"10"}
+
+# Limit connections to IPv4 only if IPv6 is disabled.
+if [ ! -f /proc/net/if_inet6 ]; then
+	OMV_SSHD_ADDRESSFAMILY="inet"
+fi
 
 # Create sshd_config file.
 # /etc/ssh/sshd_config from the Debian ssh package has been used
@@ -53,8 +61,8 @@ xmlstarlet sel -t \
   -o "HostbasedAuthentication no" -n \
   -o "PermitEmptyPasswords no" -n \
   -o "ChallengeResponseAuthentication no" -n \
-  -o "X11Forwarding yes" -n \
-  -o "X11DisplayOffset 10" -n \
+  -o "X11Forwarding ${OMV_SSHD_X11FORWARDING}" -n \
+  -o "X11DisplayOffset ${OMV_SSHD_X11DISPLAYOFFSET}" -n \
   -o "PrintMotd no" -n \
   -o "PrintLastLog yes" -n \
   -o "TCPKeepAlive yes" -n \
@@ -62,6 +70,7 @@ xmlstarlet sel -t \
   -o "Subsystem sftp ${OMV_SSHD_SUBSYSTEM_SFTP}" -n \
   -o "UsePAM yes" -n \
   -o "AllowGroups ${OMV_SSHD_ALLOWGROUPS}" -n \
+  -o "AddressFamily ${OMV_SSHD_ADDRESSFAMILY}" -n \
   -m "//services/ssh" \
 	  -v "concat('Port ',port)" -n \
 	  -i "permitrootlogin = 0" -o "PermitRootLogin no" -n -b \

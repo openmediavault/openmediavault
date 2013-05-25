@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,8 +25,8 @@ require_once("openmediavault/config.inc");
 setlocale(LC_ALL, "");
 // Set timezone.
 $object = $xmlConfig->get("//system/time");
-if (!is_null($object)) {
-	if (in_array($object['timezone'], timezone_identifiers_list())) {
+if(!is_null($object)) {
+	if(in_array($object['timezone'], timezone_identifiers_list())) {
 		date_default_timezone_set($object['timezone']);
 	} else {
 		syslog(LOG_ERR, sprintf("Unknown or unsupported timezone [tz=%s]",

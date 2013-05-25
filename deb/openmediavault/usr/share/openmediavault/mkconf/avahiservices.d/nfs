@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -29,11 +29,11 @@ OMV_AVAHIDAEMON_NFSSERVICE_PORT=${OMV_AVAHIDAEMON_NFSSERVICE_PORT:-"2049"}
 
 # Is the service enabled? Announce this service via DNS-SD?
 rm -f ${OMV_AVAHIDAEMON_NFSSERVICE}
-[ "$(omv_config_get "//services/nfs/enable")" = "0" -o "$(omv_config_get "//services/nfs/dnssd/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//services/nfs/enable")" = "0" -o "$(omv_config_get "//services/zeroconf/services/service[id='nfs']/enable")" = "0" ] && exit 0
 
 # Announce duplicate shares only once (emulate SQL 'DISTINCT' to filter
 # duplicates).
-name=$(omv_config_get "//services/nfs/dnssd/name")
+name=$(omv_config_get "//services/zeroconf/services/service[id='nfs']/name")
 xmlstarlet sel -t -m "//services/nfs/shares/share[not(sharedfolderref=preceding-sibling::*/sharedfolderref)]" \
   -v sharedfolderref -i "position() != last()" -n -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |

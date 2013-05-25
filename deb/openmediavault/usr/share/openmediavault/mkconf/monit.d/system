@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@
 set -e
 
 . /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
 
 OMV_MONIT_CONFIG=${OMV_MONIT_CONFIG:-"/etc/monit/monitrc"}
 OMV_MONIT_SERVICE_SYSTEM_MEMORYUSAGE=${OMV_MONIT_SERVICE_SYSTEM_MEMORYUSAGE:-"90"}
@@ -29,18 +30,37 @@ OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_USER=${OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_USER:
 OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_SYSTEM=${OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_SYSTEM:-"95"}
 OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_WAIT=${OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_WAIT:-"95"}
 OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_MULT=${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_MULT:-"2"}
+OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_CYCLES=${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_CYCLES:-"3"}
 OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_MULT=${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_MULT:-"1"}
-
-# Get the number of CPU's
-numcpu=$(grep -ci processor /proc/cpuinfo)
+OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_CYCLES=${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_CYCLES:-"3"}
 
 cat <<EOF >> ${OMV_MONIT_CONFIG}
 check system localhost
-  if loadavg (1min) > $(expr ${numcpu} \* ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_MULT}) for 3 cycles then alert
-  if loadavg (5min) > $(expr ${numcpu} \* ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_MULT}) for 3 cycles then alert
+EOF
+
+# Monitor load average.
+if [ "$(omv_config_get "//system/notification/notifications/monitloadavg")" = "1" ]; then
+	# Get the number of CPU's
+	numcpu=$(grep -ci processor /proc/cpuinfo)
+
+	cat <<EOF >> ${OMV_MONIT_CONFIG}
+  if loadavg (1min) > $(expr ${numcpu} \* ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_MULT}) for ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_1MIN_CYCLES} cycles then alert
+  if loadavg (5min) > $(expr ${numcpu} \* ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_MULT}) for ${OMV_MONIT_SERVICE_SYSTEM_LOADAVG_5MIN_CYCLES} cycles then alert
+EOF
+fi
+
+# Monitor memory usage.
+if [ "$(omv_config_get "//system/notification/notifications/monitmemoryusage")" = "1" ]; then
+	cat <<EOF >> ${OMV_MONIT_CONFIG}
   if memory usage > ${OMV_MONIT_SERVICE_SYSTEM_MEMORYUSAGE}% then alert
+EOF
+fi
+
+# Monitor CPU usage.
+if [ "$(omv_config_get "//system/notification/notifications/monitcpuusage")" = "1" ]; then
+	cat <<EOF >> ${OMV_MONIT_CONFIG}
   if cpu usage (user) > ${OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_USER}% then alert
   if cpu usage (system) > ${OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_SYSTEM}% then alert
   if cpu usage (wait) > ${OMV_MONIT_SERVICE_SYSTEM_CPUUSAGE_WAIT}% then alert
-
 EOF
+fi

@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -19,93 +19,82 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+require_once("openmediavault/globals.inc");
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/rpc.inc");
 require_once("openmediavault/log.inc");
+require_once("openmediavault/rpcservice.inc");
 
-class LogFileRpc extends OMVRpc {
-	public function __construct() {
-		$this->methodSchemata = array(
-			"getList" => array('{
-				"type":"object",
-				"properties":{
-					"start":{"type":"integer"},
-					"limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-					"sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-					"sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'},
-					"id":{"type":"string"}
-				}
-			}'),
-			"get" => array('{
-				"type":"object",
-				"properties":{
-					"id":{"type":"string"}
-				}
-			}'),
-			"getContent" => array('{
-				"type":"object",
-				"properties":{
-					"id":{"type":"string"}
-				}
-			}'),
-			"clear" => array('{
-				"type":"object",
-				"properties":{
-					"id":{"type":"string"}
-				}
-			}')
-		);
+class OMVRpcServiceLogFile extends OMVRpcServiceAbstract {
+	/**
+	 * Get the RPC service name.
+	 */
+	public function getName() {
+		return "LogFile";
+	}
+
+	/**
+	 * Initialize the RPC service.
+	 */
+	public function initialize() {
+		$this->registerMethod("getList");
+		$this->registerMethod("clear");
+		$this->registerMethod("getContent");
 	}
 
 	/**
 	 * Helper method to parse a logfile.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em start The index where to start.
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
 	 *   \em id The identifier of the registered log file type.
+	 * @param context The context of the caller.
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
+	 * @throw E_MISC_FAILURE
 	 */
-	function getList($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+	function getList($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "start":{"type":"integer"},
+				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'},
+				  "id":{"type":"string"}
+			  }
+		  }');
 		// Check if the given log file type if registered.
-		$logfile = new OMVLogFile($data['id']);
+		$logfile = new OMVLogFile($params['id']);
 		if(FALSE === $logfile->isRegistered()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Unknown log file type (id=%s)"), $data['id']));
+			  gettext("Unknown log file type (id=%s)"), $params['id']));
 		}
 		// Read file content.
-		$cmd = sprintf("sudo tail -n %s %s", $GLOBALS['OMV_MAX_LOGFILE_LINES'],
-		  $logfile->getFilePath());
-		$proc = proc_open($cmd, array(
-			0 => array("pipe", "r"), // stdin
-			1 => array("pipe", "w"), // stdout
-			2 => array("pipe", "w")  // stderr
-		  ), $pipes);
-		if(!is_resource($proc)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED, $cmd, "");
+		if(FALSE === ($fh = fopen($logfile->getFilePath(), "r"))) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to open the log file (filename=%s).",
+			  $logfile->getFilePath()));
 		}
 		$objects = array();
-		$rownum = 0;
-		while(($line = fgets($pipes[1])) !== false) {
+		$rowNum = 0;
+		while(($line = fgets($fh)) !== FALSE) {
+			if($rowNum > $GLOBALS['OMV_MAX_LOGFILE_LINES'])
+				break;
 			// Skip invalid pattern matches.
 			$result = preg_match($logfile->getRegex(), $line, $matches);
 			if((FALSE === $result) || (0 == $result))
 				continue;
 			$object = array(
-				"rownum" => $rownum++
+				"rownum" => $rowNum++
 			);
 			foreach($logfile->getColumns() as $columnk => $columnv) { 
 				// Execute user defined function, e.g. to convert
@@ -119,72 +108,109 @@ class LogFileRpc extends OMVRpc {
 			}
 			$objects[] = $object;
 		}
-		proc_close($proc);
-		// Filter result
-		return $this->applyFilter($objects, $data['start'], $data['limit'],
-		  $data['sortfield'], $data['sortdir']);
+		if(FALSE === fclose($fh)) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to close the log file (filename=%s).",
+			  $logfile->getFilePath()));
+		}
+		// Filter result.
+		return $this->applyFilter($objects, $params['start'],
+		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
  	/**
 	 * Clear a log file.
-	 * @param data An array containing the following fields:
+	 * @param params An array containing the following fields:
 	 *   \em id The identifier of the registered log file type.
+	 * @param context The context of the caller.
 	 * @return None
+	 * @throw E_MISC_FAILURE
 	 */
-	function clear($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+	function clear($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "id":{"type":"string"}
+			  }
+		  }');
 		// Check if the given log file type if registered.
-		$logfile = new OMVLogFile($data['id']);
+		$logfile = new OMVLogFile($params['id']);
 		if(FALSE === $logfile->isRegistered()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Unknown log file type (id=%s)"), $data['id']));
+			  gettext("Unknown log file type (id=%s)"), $params['id']));
 		}
-		// Empty log file
-		$cmd = sprintf("cat /dev/null | sudo tee %s", $logfile->getFilePath());
-		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		// Clear log file.
+		if(FALSE === ($fh = fopen($logfile->getFilePath(), "w"))) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to open the log file (filename=%s).",
+			  $logfile->getFilePath()));
+		}
+		if(FALSE === ftruncate($fh, 0)) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to truncate the log file (filename=%s).",
+			  $logfile->getFilePath()));
+		}
+		rewind($fh);
+		if(FALSE === fclose($fh)) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to close the log file (filename=%s).",
+			  $logfile->getFilePath()));
 		}
 	}
 
  	/**
-	 * Get the content of a log file. Note, the RPC does not return the file
-	 * content itself, instead the file path is returned which is used by
-	 * generic download RPC mechanism to deliver the file content.
-	 * @param data An array containing the following fields:
+	 * Get the content of a log file. Note, the RPC does not return the
+	 * file content itself, instead the file path is returned which is
+	 * used by generic download RPC mechanism to deliver the file content.
+	 * @param params An array containing the following fields:
 	 *   \em id The identifier of the registered log file type.
+	 * @param context The context of the caller.
 	 * @return An array with the keys \em filename and \em filepath.
+	 * @throw E_MISC_FAILURE
 	 */
-	function getContent($data) {
-//		$this->debug(var_export(func_get_args(), TRUE));
-		// Check permissions
-		$this->validateSession();
-		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
-			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PERMISSION);
-		}
-		$this->commitSession();
-		// Validate method parameters
-		$this->validateParams(__METHOD__, func_get_args());
+	function getContent($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "id":{"type":"string"}
+			  }
+		  }');
 		// Check if the given log file type if registered.
-		$logfile = new OMVLogFile($data['id']);
+		$logfile = new OMVLogFile($params['id']);
 		if(FALSE === $logfile->isRegistered()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Unknown log file type (id=%s)"), $data['id']));
+			  gettext("Unknown log file type (id=%s)"), $params['id']));
 		}
+		// Copy the log file to a temporary location and modify the file
+		// mode/owner to allow the WebGUI PHP backend to unlink it.
+		$tmpFilePath = tempnam(sys_get_temp_dir(), "logfile");
+		if(FALSE === copy($logfile->getFilePath(), $tmpFilePath)) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to copy the log file (source=%s, dest=%s).",
+			  $logfile->getFilePath(), $tmpFilePath));
+		}
+		chmod($tmpFilePath, 0700);
+		chown($tmpFilePath, $GLOBALS['OMV_APACHE2_SUEXECUSERGROUP']);
 		// Return values required by generic download RPC implementation.
 		return array(
 			"filename" => $logfile->getFileName(),
-			"filepath" => $logfile->getFilePath()
+			"filepath" => $tmpFilePath,
+			"unlink" => TRUE
 		);
 	}
 }
+
+// Register the RPC service.
+$rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
+$rpcServiceMgr->registerService(new OMVRpcServiceLogFile());
 ?>

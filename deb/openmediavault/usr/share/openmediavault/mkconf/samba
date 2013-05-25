@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -28,7 +28,7 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_SAMBA_EXTENSIONSDIR=${OMV_SAMBA_EXTENSIONSDIR:-"${OMV_SCRIPTS_DIR}/samba.d"}
+OMV_SAMBA_EXTENSIONS_DIR=${OMV_SAMBA_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/samba.d"}
 OMV_SAMBA_DEFAULT=${OMV_SAMBA_DEFAULT:-"/etc/default/samba"}
 OMV_SAMBA_CONFIG=${OMV_SAMBA_CONFIG:-"/etc/samba/smb.conf"}
 
@@ -41,4 +41,4 @@ EOF
 
 # Add additional extensions to the configuration file
 cat /dev/null > ${OMV_SAMBA_CONFIG}
-run-parts ${OMV_SAMBA_EXTENSIONSDIR}
+run-parts ${OMV_SAMBA_EXTENSIONS_DIR}

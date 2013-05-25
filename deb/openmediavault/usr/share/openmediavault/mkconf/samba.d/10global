@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -48,6 +48,8 @@ OMV_SAMBA_UNIXEXTENSIONS=${OMV_SAMBA_UNIXEXTENSIONS:-"yes"}
 OMV_SAMBA_WIDELINKS=${OMV_SAMBA_WIDELINKS:-"no"}
 OMV_SAMBA_CREATEMASK=${OMV_SAMBA_CREATEMASK:-"0777"}
 OMV_SAMBA_DIRECTORYMASK=${OMV_SAMBA_DIRECTORYMASK:-"0777"}
+OMV_SAMBA_AIOREADSIZE=${OMV_SAMBA_AIOREADSIZE:-"16384"}
+OMV_SAMBA_AIOWRITESIZE=${OMV_SAMBA_AIOWRITESIZE:-"16384"}
 
 xmlstarlet sel -t -m "//services/smb" \
   -o "#======================= Global Settings =======================" -n \
@@ -82,6 +84,10 @@ xmlstarlet sel -t -m "//services/smb" \
   -i "count(shares/*[guestok = '1']) > 0" -o "map to guest = ${OMV_SAMBA_MAPTOGUEST}" -n -b \
   -i "usesendfile[. = '1']" -o "use sendfile = yes" -n -b \
   -i "usesendfile[. = '0']" -o "use sendfile = no" -n -b \
+  -i "aio[. = '1']" \
+    -o "aio read size = ${OMV_SAMBA_AIOREADSIZE}" -n \
+    -o "aio write size = ${OMV_SAMBA_AIOWRITESIZE}" -n \
+  -b \
   -i "nullpasswords[. = '1']" -o "null passwords = yes" -n -b \
   -i "nullpasswords[. = '0']" -o "null passwords = no" -n -b \
   -i "localmaster[. = '1']" -o "local master = yes" -n -b \

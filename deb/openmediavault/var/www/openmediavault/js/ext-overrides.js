@@ -3,7 +3,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,10 +20,10 @@
  */
 
 ////////////////////////////////////////////////////////////////////////////////
-// Ext.form.VTypes
+// Ext.form.field.VTypes
 ////////////////////////////////////////////////////////////////////////////////
 
-Ext.apply(Ext.form.VTypes, {
+Ext.apply(Ext.form.field.VTypes, {
 	IPv4: function(v) {
 		return /^([1-9][0-9]{0,1}|1[013-9][0-9]|12[0-689]|2[01][0-9]|22[0-3])([.]([1-9]{0,1}[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){2}[.]([1-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-4])$/.test(v);
 	},
@@ -35,7 +35,7 @@ Ext.apply(Ext.form.VTypes, {
 		// Split string into several IPv4 addresses.
 		Ext.each(v.split(/[,;]/), function(ip) {
 			// Is it a valid IPv4 address?
-			if (!Ext.form.VTypes.IPv4(ip)) {
+			if(!Ext.form.field.VTypes.IPv4(ip)) {
 				valid = false;
 				return false;
 			}
@@ -59,10 +59,10 @@ Ext.apply(Ext.form.VTypes, {
 
 	IPv4Fw: function(v) {
 		ipv4RegEx = "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}";
-		if (v === "0/0")
+		if(v === "0/0")
 			return true;
 		// 172.16.76.4 or !192.168.178.87/24
-		if (RegExp("^(!)?("+ipv4RegEx+")(\/(3[0-2]|[0-2]?\\d))?$", "i").test(v))
+		if(RegExp("^(!)?("+ipv4RegEx+")(\/(3[0-2]|[0-2]?\\d))?$", "i").test(v))
 			return true;
 		// 192.168.178.20-192.168.178.254
 		return RegExp("^(!)?(("+ipv4RegEx+")([-]("+ipv4RegEx+")){0,1})$", "i").test(v);
@@ -120,9 +120,9 @@ Ext.apply(Ext.form.VTypes, {
 	hostnameMask: /[a-z0-9\-]/i,
 
 	hostnameIPv4: function(v) {
-		if(Ext.form.VTypes.hostname(v))
+		if(Ext.form.field.VTypes.hostname(v))
 			return true;
-		if(Ext.form.VTypes.IPv4(v))
+		if(Ext.form.field.VTypes.IPv4(v))
 			return true;
 		return false;
 	},
@@ -137,9 +137,9 @@ Ext.apply(Ext.form.VTypes, {
 	domainnameMask: /[a-z0-9\-\.]/i,
 
 	domainnameIPv4: function(v) {
-		if(Ext.form.VTypes.domainname(v))
+		if(Ext.form.field.VTypes.domainname(v))
 			return true;
-		if(Ext.form.VTypes.IPv4(v))
+		if(Ext.form.field.VTypes.IPv4(v))
 			return true;
 		return false;
 	},
@@ -160,10 +160,10 @@ Ext.apply(Ext.form.VTypes, {
 	usernameMask: /[-\@_.A-Za-z0-9]/,
 
 	comment: function(v) {
-		return !/[:]/.test(v);
+		return !/["':]/.test(v);
 	},
-	commentText: _("Invalid comment"),
-	commentMask: /[^:]/,
+	commentText: _("The comment contains invalid characters"),
+	commentMask: /[^"':]/,
 
 	password: function(v) {
 		return !/[^a-zA-Z0-9\.\-_]/.test(v);
@@ -208,7 +208,7 @@ Ext.apply(Ext.form.VTypes, {
 });
 
 ////////////////////////////////////////////////////////////////////////////////
-// Ext.MessageBox
+// Ext.LoadMask
 ////////////////////////////////////////////////////////////////////////////////
 
 Ext.apply(Ext.LoadMask.prototype, {
@@ -216,10 +216,10 @@ Ext.apply(Ext.LoadMask.prototype, {
 });
 
 ////////////////////////////////////////////////////////////////////////////////
-// Ext.MessageBox
+// Ext.window.MessageBox
 ////////////////////////////////////////////////////////////////////////////////
 
-Ext.apply(Ext.MessageBox, {
+Ext.apply(Ext.window.MessageBox, {
 	buttonText: {
 		ok: _("OK"),
 		cancel: _("Cancel"),
@@ -229,339 +229,65 @@ Ext.apply(Ext.MessageBox, {
 });
 
 ////////////////////////////////////////////////////////////////////////////////
-// Ext.form.BasicForm
+// Ext.data.Store
 ////////////////////////////////////////////////////////////////////////////////
 
-Ext.apply(Ext.form.BasicForm.prototype, {
-	/**
-	 * Retrieves the fields in the form as a set of key/value pairs. If
-	 * multiple fields exist with the same name they are returned as an array.
-	 * Disabled fields and fields where the submitValue option is set to false
-	 * are not processed and included in the result array.
-     * @return The values in the form.
-	 */
-	getValuesEx : function() {
-		var name, key, values;
-		// Use the default ExtJS implementation to get the form field values.
-		// This is done to get the same behaviour as a form submit. The
-		// resulting array contains the requested form fields except disabled
-		// and 'submitValue = false' fields.
-		values = this.getValues();
-		for (key in values) {
-			var field = this.findField(key);
-			if (!Ext.isEmpty(field)) {
-				switch (field.xtype) {
-				case "datefield":
-					break;
-				default:
-					values[key] = field.getValue();
-					break;
-				}
-			}
-		}
-		// Note, unchecked checkboxes are not included, so it is necessary to
-		// loop over all form fields to get them also.
-		var func = function(f) {
-			if (f.isFormField) {
-				if (!f.disabled && f.submitValue && (f.xtype == "checkbox")) {
-					key = f.getName();
-					value = values[key];
-					if (!Ext.isDefined(value)) {
-						values[key] = f.getValue();
-					}
-				} else if (f.isComposite) {
-					return f.items.each(func);
-				} else if (f instanceof Ext.form.CheckboxGroup && f.rendered) {
-					return f.eachItem(func);
-				}
-			}
-		};
-		this.items.each(func);
-		return values;
-	}
-});
+Ext.apply(Ext.data.Store.prototype, {
+	dirty: false,
 
-////////////////////////////////////////////////////////////////////////////////
-// Ext.form.Field
-////////////////////////////////////////////////////////////////////////////////
-
-// Add 'autoComplete' config option.
-Ext.apply(Ext.form.Field.prototype, {
-	autoComplete: false,
-	autoCapitalize: undefined,
-
-	getAutoCreate : function() {
-		var cfg = Ext.form.Field.superclass.getAutoCreate.call(this);
-		if(true === this.autoComplete) {
-			cfg.autocomplete = "on";
-		}
-		if(undefined !== this.autoCapitalize) {
-			cfg.autocapitalize = (true === this.autoCapitalize) ? "on" : "off";
-		}
-		return cfg;
-	}
-});
-
-// Add 'setReadOnly' to Ext.form.Field
-Ext.override(Ext.form.Field, {
-	setReadOnly : function(readOnly) {
-		var el = this.getEl();
-		var xtype = this.getXType();
-		this.readOnly = readOnly;
-		if (readOnly) {
-			if (el) {
-				el.dom.setAttribute('readOnly', true);
-			}
-			this.addClass(this.disabledClass);
-		} else {
-			if (el) {
-				el.dom.removeAttribute('readOnly');
-			}
-			this.removeClass(this.disabledClass);
-		}
-		if ("checkbox" == xtype) {
-			this.readOnly = readOnly;
-		}
-		if (("radiogroup" == xtype) || ("checkboxgroup" == xtype)) {
-			var items = this.items.items;
-			for (var i = 0; i < items.length; i++) {
-				items[i].readOnly = readOnly;
-			}
-		}
-	}
-});
-
-// Show or hide the form field label when show() or hide() is called
-Ext.override(Ext.form.Field, {
-	onHide : function() {
-		var element = this.getEl().up('.x-form-item');
-		if (!Ext.isEmpty(element)) {
-			element.setDisplayed(false);
-		}
+	markDirty: function() {
+		this.dirty = true;
 	},
 
-	onShow : function() {
-		var element = this.getEl().up('.x-form-item');
-		if (!Ext.isEmpty(element)) {
-			element.setDisplayed(true);
-		}
-	}
-});
+	isDirty: function() {
+		return this.dirty;
+	},
 
-// Do not reset a form field that is read-only
-Ext.intercept(Ext.form.Field.prototype, "reset", function() {
-	if (this.readOnly) {
+	isLoaded: function() {
+		var me = this;
+		// Note, this method may be incorrect in some cases, but in
+		// most cases the following indications should be suitable to
+		// find out whether a store has been loaded or not.
+		if(me.isLoading())
+			return false;
+		if(Ext.isDefined(me.totalCount))
+			return true;
+		if(Ext.isDefined(me.lastOptions))
+			return true;
+		// Note, if the store has been loaded but no content has been
+		// received the following test returns an incorrect result.
+		if(me.getCount() > 0)
+			return true;
 		return false;
 	}
 });
 
-////////////////////////////////////////////////////////////////////////////////
-// Ext.form.TriggerField
-////////////////////////////////////////////////////////////////////////////////
-
-// Display trigger field if field is read-only like it is done in previous
-// versions (e.g. 3.0.3).
-Ext.sequence(Ext.form.TriggerField.prototype, "updateEditState", function() {
-	if (this.rendered) {
-		this.trigger.setDisplayed(!this.hideTrigger);
-		this.onResize(this.width || this.wrap.getWidth());
-	}
-});
-
-// Grey out read-only trigger fields.
-Ext.sequence(Ext.form.TriggerField.prototype, "setReadOnly",
-  function(readOnly) {
-	Ext.form.TriggerField.superclass.setReadOnly.call(this, readOnly);
-});
-
-////////////////////////////////////////////////////////////////////////////////
-// Ext.form.ComboBox
-////////////////////////////////////////////////////////////////////////////////
-
-// Restrict the selected value to one of the values in the list per default.
-Ext.apply(Ext.form.ComboBox.prototype, {
-	forceSelection: true,
-	showItemTooltip: false,
-	loadingText: _("Loading ...")
-});
-
-// Sometimes the first load of a form loads a value into a ComboBox before
-// that ComboBox's store has been populated.
-// http://www.extjs.com/forum/showthread.php?p=364333
-Ext.override(Ext.form.ComboBox, {
-	setValue : function(v) {
-		if(!Ext.isObject(this.store))
-			return;
-		if(this.mode == 'remote' && !Ext.isDefined(this.store.totalLength)){
-			// Display the loading text in the meanwhile ...
-			this.setRawValue(this.loadingText);
-			// Call this funtion again after store has been loaded
-			this.store.on('load', this.setValue.createDelegate(this, arguments),
-			  null, {single: true});
-			if(this.store.lastOptions === null){
-				this.store.load();
-			}
-			// Set value to get trackResetOnLoad working
-			this.value = v;
-			return;
-		}
-		var text = v;
-		if(this.valueField){
-			var r = this.findRecord(this.valueField, v);
-			if(r){
-				text = r.data[this.displayField];
-			}else if(Ext.isDefined(this.valueNotFoundText)){
-				text = this.valueNotFoundText;
-			}
-		}
-		this.lastSelectionText = text;
-		if(this.hiddenField){
-			this.hiddenField.value = v;
-		}
-		Ext.form.ComboBox.superclass.setValue.call(this, text);
-		this.value = v;
-		return this;
-	}
-});
-
-// Encode HTML entities in combobox drop-down list
-Ext.intercept(Ext.form.ComboBox.prototype, "initList", function() {
-	if (!this.list){
-		if (!this.tpl) {
-			var cls = 'x-combo-list';
-			this.tpl = new Ext.XTemplate(
-			  '<tpl for="."><div class="'+cls+'-item"',
-			  this.showItemTooltip ?
-				'ext:qtip="{[Ext.util.Format.htmlEncode(values.'+this.displayField+')]}">' :
-				'>',
-			  '{[Ext.util.Format.htmlEncode(values.'+this.displayField+')]}',
-			  '</div></tpl>');
-		}
-	}
-});
-
-////////////////////////////////////////////////////////////////////////////////
-// Ext.form.Radio
-////////////////////////////////////////////////////////////////////////////////
-
-// See http://www.sencha.com/forum/showthread.php?77999-Bug-in-Ext.form.Radio-setValue&highlight=radio%20check%20event
-Ext.override(Ext.form.Radio, {
-	setValue : function(v) {
-		if (typeof v == 'boolean') {
-			Ext.form.Radio.superclass.setValue.call(this, v);
-		} else if (this.rendered) {
-			var els = this.getCheckEl().select('input[name=' + this.el.dom.name + ']');
-			els.each(function(el){
-				if (el.dom.value == v) {
-					Ext.getCmp(el.dom.id).setValue(true);
-				} else {
-					Ext.getCmp(el.dom.id).setValue(false);
-				}
-			}, this);
-		}
-		return this;
-	}
-});
-
-////////////////////////////////////////////////////////////////////////////////
-// Ext.form.Checkbox
-////////////////////////////////////////////////////////////////////////////////
-
-Ext.apply(Ext.form.Checkbox.prototype, {
-	msgTarget: "under"
-});
-Ext.override(Ext.form.Checkbox, {
-	markInvalid : function(msg) {
-		Ext.form.Checkbox.superclass.markInvalid.apply(this, arguments);
-	},
-
-	clearInvalid : function(){
-		Ext.form.Checkbox.superclass.clearInvalid.apply(this, arguments);
-	}
-});
-
-////////////////////////////////////////////////////////////////////////////////
-// Ext.form.SliderField
-////////////////////////////////////////////////////////////////////////////////
-
-Ext.apply(Ext.form.SliderField.prototype, {
-	setIncrement : function(v) {
-		this.slider.increment = v;
-		return this;    
-	}
-});
-
-////////////////////////////////////////////////////////////////////////////////
-// Ext.grid.Column
-////////////////////////////////////////////////////////////////////////////////
-
-// Encode HTML entities in default column renderer (strings only)
-Ext.override(Ext.grid.Column, {
-	renderer : function(value) {
-		if (Ext.isString(value)) {
-			if (value.length < 1) {
-				return '&#160;';
-			} else {
-				return Ext.util.Format.htmlEncode(value);
-			}
-		}
-		return value;
-	}
-});
-
-////////////////////////////////////////////////////////////////////////////////
-// Ext.data.Store
-////////////////////////////////////////////////////////////////////////////////
-
-Ext.override(Ext.data.Store, {
-	dirty: false,
-	markDirty : function() {
-        this.dirty = true;
-    },
-	isDirty : function() {
-		return this.dirty;
-	}
-});
-
 // Fix modified issue when adding, inserting or removing records from a store.
-Ext.sequence(Ext.data.Store.prototype, "insert", function(index, records) {
+Ext.Function.interceptAfter(Ext.data.Store.prototype, "insert",
+  function(index, records) {
 	this.markDirty();
 });
-Ext.sequence(Ext.data.Store.prototype, "add", function(records) {
+Ext.Function.interceptAfter(Ext.data.Store.prototype, "add",
+  function(records) {
 	this.markDirty();
 });
-Ext.sequence(Ext.data.Store.prototype, "remove", function(records) {
+Ext.Function.interceptAfter(Ext.data.Store.prototype, "remove",
+  function(records) {
 	this.markDirty();
 });
-Ext.sequence(Ext.data.Store.prototype, "afterEdit", function(record) {
-	if (this.modified.length > 0) {
-		this.markDirty();
-	}
+Ext.Function.interceptAfter(Ext.data.Store.prototype, "afterEdit",
+  function(record) {
+	var me = this, recs = me.getModifiedRecords();
+	if(recs.length > 0)
+		me.markDirty();
 });
-
-////////////////////////////////////////////////////////////////////////////////
-// Ext.TabPanel
-////////////////////////////////////////////////////////////////////////////////
-
-Ext.override(Ext.TabPanel, {
-	removeTabIconClass : function(tab, cls) {
-		var el = this.getTabEl(tab);
-		if (el) {
-			if (Ext.fly(el).hasClass('x-tab-with-icon')) {
-				Ext.fly(el).addClass('x-tab-with-icon').
-				  child('span.x-tab-strip-text').removeClass(cls);
-				Ext.fly(el).removeClass('x-tab-with-icon');
-			}
-		}
-	},
-
-	setTabIconClass : function(tab, cls) {
-		var el = this.getTabEl(tab);
-		if (el) {
-			Ext.fly(el).addClass('x-tab-with-icon').
-			  child('span.x-tab-strip-text').addClass(cls);
-		}
-	}
+Ext.Function.interceptAfter(Ext.data.Store.prototype, "rejectChanges",
+  function() {
+	this.dirty = false;
+});
+Ext.Function.interceptAfter(Ext.data.Store.prototype, "commitChanges",
+  function() {
+	this.dirty = false;
 });
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -572,16 +298,85 @@ Ext.apply(Ext.state.CookieProvider.prototype, {
 	/**
 	 * Clear all states.
 	 */
-	clearCookies : function() {
+	clearAll: function() {
+		var me = this;
 		var cookie = document.cookie + ";";
 		var re = /\s?(.*?)=(.*?);/g;
 		var matches;
-		while (null != (matches = re.exec(cookie))) {
+		var prefix = me.prefix;
+		var len = prefix.length;
+		while(null != (matches = re.exec(cookie))) {
 			var name = matches[1];
-			if (name && name.substring(0,3) == "ys-") {
-				this.clear(name.substr(3));
+			if(name && name.substring(0, len) == prefix) {
+				this.clear(name.substr(len));
 			}
 		}
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
+// Ext.form.field.Field
+////////////////////////////////////////////////////////////////////////////////
+
+// Do not reset a form field that is read-only.
+Ext.Function.createInterceptor(Ext.form.field.Field.prototype, "reset",
+  function() {
+	if(this.readOnly)
+		return false;
+});
+
+////////////////////////////////////////////////////////////////////////////////
+// Ext.form.field.Trigger
+////////////////////////////////////////////////////////////////////////////////
+
+Ext.apply(Ext.form.field.Trigger.prototype, {
+	getTriggerButtonEl: function(id) {
+		var me = this, el = null;
+		if(Ext.isNumber(id)) {
+			el = me.triggerEl.item(id);
+		} else if(Ext.isString(id)) {
+			// Search by the given CSS class.
+			var selector = Ext.String.format("[class~={0}][role=button]", id);
+			el = me.getEl().query(selector)[0];
+		}
+		return el;
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
+// Ext.form.field.ComboBox
+////////////////////////////////////////////////////////////////////////////////
+
+Ext.form.field.ComboBox.prototype.setValue = Ext.Function.createInterceptor(
+  Ext.form.field.ComboBox.prototype.setValue, function() {
+	var me = this;
+	// Check if the store has already been loaded. If not, then call this
+	// function again after the store has been loaded. Note, if the store
+	// is already loading then do nothing, the base implementation will
+	// handle this for us.
+	// Note, in some situations it occurs that the setValue function is
+	// called multiple times before the store has been loaded. To ensure
+	// that unfired listeners do not overwrite the value which is
+	// successfully set after the store has been loaded it is necessary
+	// to remove all of them.
+	if(!me.store.isLoading() && !me.store.isLoaded()) {
+		var fn = Ext.Function.bind(me.setValue, me, arguments);
+		if(!Ext.isDefined(me.setValueListeners))
+			me.setValueListeners = [];
+		me.setValueListeners.push(fn);
+		me.store.on({
+			single: true,
+			load: fn
+		});
+		return false;
+	}
+	// Remove buffered listeners (which have not been fired until now),
+	// otherwise they will overwrite the given value.
+	if(Ext.isDefined(me.setValueListeners)) {
+		Ext.Array.each(me.setValueListeners, function(fn) {
+			me.store.un("load", fn)
+		});
+		delete me.setValueListeners;
 	}
 });
 
@@ -597,14 +392,14 @@ Ext.applyIf(Ext, {
 	 * @param defaults A different object that will also be applied for default values
 	 * @return Returns the receiver object.
 	 */
-	applyEx : function(o, c, defaults) {
+	applyEx: function(o, c, defaults) {
 		// no "this" reference for friendly out of scope calls
-		if (defaults) {
+		if(defaults) {
 			Ext.apply(o, defaults);
 		}
-		if (o && c && typeof c == 'object') {
-			for (var p in c) {
-				if ((typeof c[p] == 'object') && (typeof o[p] !== 'undefined')) {
+		if(o && c && typeof c == 'object') {
+			for(var p in c) {
+				if((typeof c[p] == 'object') && (typeof o[p] !== 'undefined')) {
 					Ext.applyEx(o[p], c[p]);
 				} else {
 					o[p] = c[p];
@@ -614,24 +409,14 @@ Ext.applyIf(Ext, {
 		return o;
 	},
 
-	clone : function(o) {
-		var c = (o instanceof Array) ? [] : {};
-		for (i in o) {
-			if (o[i] && typeof o[i] == "object") {
-				c[i] = Ext.clone(o[i]);
-			} else c[i] = o[i]
-		}
-		return c;
-	},
-
 	/**
 	 * Finds out whether a variable is an UUID v4.
-	 * @param v The variable being evaluated.
+	 * @param value The variable being evaluated.
 	 * @return TRUE if variable is a UUID, otherwise FALSE.
 	 */
-	isUUID: function(v) {
-		if (!Ext.isString(v))
+	isUUID: function(value) {
+		if(Ext.isEmpty(value) || !Ext.isString(value))
 			return false;
-		return /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(v);
+		return /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value);
 	}
 });

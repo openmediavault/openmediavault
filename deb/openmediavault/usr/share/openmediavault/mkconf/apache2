@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -29,6 +29,9 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_CERTIFICATE_DIR=${OMV_CERTIFICATE_DIR:-"/etc/ssl"}
+OMV_CERTIFICATE_PREFIX=${OMV_CERTIFICATE_PREFIX:-"openmediavault-"}
+
 OMV_APACHE2_SERVERNAME=${OMV_APACHE2_SERVERNAME:-"openmediavault-webgui"}
 OMV_APACHE2_SITE_OPENMEDIAVAULT_CONFIG=${OMV_APACHE2_SITE_OPENMEDIAVAULT_CONFIG:-"/etc/apache2/sites-available/openmediavault-webgui"}
 OMV_APACHE2_SITE_OPENMEDIAVAULT_LOGLEVEL=${OMV_APACHE2_SITE_OPENMEDIAVAULT_LOGLEVEL:-"warn"}
@@ -37,6 +40,7 @@ OMV_APACHE2_WEBGUI_CONFIG_DIR=${OMV_APACHE2_WEBGUI_CONFIG_DIR:-"/etc/apache2/ope
 OMV_APACHE2_WEBGUI_DEFAULT_CONFIG=${OMV_APACHE2_WEBGUI_DEFAULT_CONFIG:-"${OMV_APACHE2_WEBGUI_CONFIG_DIR}/default.conf"}
 OMV_APACHE2_SECURITY_CONFIG=${OMV_APACHE2_SECURITY_CONFIG:-"/etc/apache2/conf.d/security"}
 OMV_APACHE2_FCGIDIOTIMEOUT=${OMV_APACHE2_FCGIDIOTIMEOUT:-"300"} # Apache default is 40
+OMV_APACHE2_SUEXECUSERGROUP=${OMV_APACHE2_SUEXECUSERGROUP:-"openmediavault"}
 
 cat <<EOF > ${OMV_APACHE2_SECURITY_CONFIG}
 ServerTokens Prod
@@ -49,9 +53,11 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "ServerName ${OMV_APACHE2_SERVERNAME}" -n \
   -o "DocumentRoot ${OMV_DOCUMENTROOT_DIR}" -n \
   -o "DirectoryIndex index.php" -n \
-  -o "SuexecUserGroup openmediavault openmediavault" -n \
-  -o "Alias /extjs/ /usr/share/javascript/extjs3/" -n \
+  -o "SuexecUserGroup ${OMV_APACHE2_SUEXECUSERGROUP} ${OMV_APACHE2_SUEXECUSERGROUP}" -n \
+  -o "Alias /extjs/ /usr/share/javascript/extjs4/" -n \
   -o "Alias /images/ ${OMV_DOCUMENTROOT_DIR}/images/" -n \
+  -o "# Increase HTTP request header field" -n \
+  -o "LimitRequestFieldSize 16380" -n \
   -o "# Set maximum HTTP request length to 25 MiB" -n \
   -o "FcgidMaxRequestLen 26214400" -n \
   -o "FcgidIOTimeout ${OMV_APACHE2_FCGIDIOTIMEOUT}" -n \
@@ -77,8 +83,8 @@ xmlstarlet sel -t -m "//webadmin" \
 	  -v "concat('<VirtualHost *:',sslport,'>')" -n \
 	  -o "    Include ${OMV_APACHE2_WEBGUI_CONFIG_DIR}/*.conf" -n \
 	  -o "    SSLEngine on" -n \
-	  -v "concat('    SSLCertificateFile ${OMV_CERTIFICATE_DIR}/certs/',sslcertificateref,'.crt')" -n \
-	  -v "concat('    SSLCertificateKeyFile ${OMV_CERTIFICATE_DIR}/private/',sslcertificateref,'.key')" -n \
+	  -v "concat('    SSLCertificateFile ${OMV_CERTIFICATE_DIR}/certs/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.crt')" -n \
+	  -v "concat('    SSLCertificateKeyFile ${OMV_CERTIFICATE_DIR}/private/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.key')" -n \
 	  -o "</Virtualhost>" -n \
   -b \
   -i "enablessl[. = '0'] or forcesslonly[. = '0']" \

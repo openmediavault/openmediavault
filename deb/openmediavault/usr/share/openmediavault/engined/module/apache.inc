@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2012 Volker Theile
+ * @copyright Copyright (c) 2009-2013 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -20,48 +20,47 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
-require_once("openmediavault/util.inc");
 require_once("openmediavault/initscript.inc");
 
-class OMVApacheModule extends OMVModuleAbstract
-  implements OMVINotifyListener {
+class OMVModuleApache extends OMVModuleServiceAbstract {
 	/**
 	 * Get the module name.
 	 */
-	public static function getName() {
+	public function getName() {
 		return "apache";
 	}
 
+
 	/**
-	 * Update the service.
+	 * Defines the modules that if present should build their configuration
+	 * before the service provided by this module.
+	 * @return An array of modules.
 	 */
-	public function updateService($object) {
-		// Create '/etc/apache2/sites-available/openmediavault' file
-		$cmd = "sudo omv-mkconf apache2 2>&1";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
+	public function shouldApply() { return array("certificatemgmt"); }
+
+	/**
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
+	 */
+	public function applyConfig() {
+		$cmd = "omv-mkconf apache2 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		// Force Apache to reload its configuration.
-		$initd = new OMVSysVInitScript("apache2", TRUE);
-		$initd->invoke("graceful");
 	}
 
 	/**
-	 * Bind listeners.
+	 * Start the managed service.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
-		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.webadmin",
-		  array($this, "updateService"));
-    }
+	public function startService() {
+		$initd = new OMVSysVInitScript("apache2", TRUE);
+		$initd->invoke("graceful");
+	}
 }
 
-// Register module
+// Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVApacheModule());
+$moduleMgr->registerModule(new OMVModuleApache());
 ?>

@@ -4,7 +4,7 @@
 #
 # @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
 # @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2012 Volker Theile
+# @copyright Copyright (c) 2009-2013 Volker Theile
 #
 # OpenMediaVault is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -57,19 +57,25 @@ cat <<EOF > ${OMV_SMARTMONTOOLS_CONFIG}
 
 EOF
 
-xmlstarlet sel -t -m "//system/storage/hdparm[smart=1]" \
-  -v "devicefile" \
+xmlstarlet sel -t -m "//system/storage/hdparm[smart/enable=1]" \
+  -v "uuid" \
   -i "position() != last()" -n -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-  while read devicefile; do
+  while read uuid; do
 	  xmlstarlet sel -t \
+		-m "//system/storage/hdparm[uuid='${uuid}']" \
+		  -v devicefile \
+		  -i "string-length(smart/devicetype) > 0" \
+			-v "concat(' -d ',smart/devicetype)" \
+		  -b \
+		-b \
+		-o " ${OMV_SMARTMONTOOLS_DEFAULTDIRECTIVES}" \
 		-m "//services/smart" \
-		  -o "${devicefile} ${OMV_SMARTMONTOOLS_DEFAULTDIRECTIVES}" \
 		  -v "concat(' -W ',tempdiff,',',tempinfo,',',tempcrit)" \
 		  -i "tempdiff = '0' and tempinfo = '0' and tempcrit = '0'" -o " -I 194 -I 231" -b \
 		  -v "concat(' -n ',powermode,',q')" \
 		-b \
-		-m "//services/smart/scheduledtests/job[devicefile='${devicefile}']" \
+		-m "//services/smart/scheduledtests/job[devicefile=//system/storage/hdparm[uuid='${uuid}']/devicefile]" \
 		  -i "position() = 1" -o " -s " -b \
 		  -i "last() > 1 and position() = 1" -o "(" -b \
 		  -i "position() > 1" -o "|" -b \
@@ -89,7 +95,7 @@ xmlstarlet sel -t -m "//system/storage/hdparm[smart=1]" \
 		  -i "last() > 1 and position() = last()" -o ")" -b \
 		-b \
 		-m "//system/email" \
-		  -i "enable = 1" \
+		  -i "enable[. = '1'] and //system/notification/notifications/smartmontools[. = '1']" \
 			-v "concat(' -m ',primaryemail)" \
 			-i "string-length(secondaryemail) > 0" \
 			  -v "concat(',',secondaryemail)" \
