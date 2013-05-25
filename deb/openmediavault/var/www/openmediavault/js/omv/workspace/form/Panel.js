@@ -64,7 +64,9 @@ Ext.define("OMV.workspace.form.Panel", {
 	hideOkButton: false,
 	hideResetButton: false,
 	okButtonText: _("Apply"),
+	okButtonIcon: "images/apply.png",
 	resetButtonText: _("Reset"),
+	resetButtonIcon: "images/refresh.png",
 	autoLoadData: true,
 
 	constructor: function() {
@@ -108,8 +110,7 @@ Ext.define("OMV.workspace.form.Panel", {
 		Ext.apply(me, {
 			dockedItems: [{
 				xtype: "toolbar",
-				dock: "bottom",
-				ui: "footer",
+				dock: "top",
 				defaults: {
 					minWidth: me.minButtonWidth
 				},
@@ -131,12 +132,14 @@ Ext.define("OMV.workspace.form.Panel", {
 		return [{
 			id: me.getId() + "-ok",
 			text: me.okButtonText,
+			icon: me.okButtonIcon,
 			hidden: me.hideOkButton,
 			handler: Ext.Function.bind(me.onOkButton, me, [ me ]),
 			scope: me
 		},{
 			id: me.getId() + "-reset",
 			text: me.resetButtonText,
+			icon: me.resetButtonIcon,
 			hidden: me.hideResetButton,
 			handler: Ext.Function.bind(me.onResetButton, me, [ me ]),
 			scope: me

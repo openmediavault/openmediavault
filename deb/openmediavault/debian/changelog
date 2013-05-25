@@ -1,6 +1,7 @@
 openmediavault (0.5) stable; urgency=low
 
   * Refactor backend.
+  * Upgrade WebGUI to Sencha ExtJS 4.2.x.
   * Add new panel in the 'System - Network' section to configure Zeroconf/
     Service Discovery.
   * Add option to enable AIO support for SMB/CIFS. AIO is enabled by default.
