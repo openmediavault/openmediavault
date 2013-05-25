@@ -450,7 +450,7 @@ case "$1" in
 			omv-mkconf samba
 			omv-mkconf interfaces
 		fi
-		if dpkg --compare-versions "$2" lt-nl "0.4.30"; then
+		if dpkg --compare-versions "$2" lt-nl "0.4.31"; then
 			omv-mkconf samba
 		fi
 	;;
