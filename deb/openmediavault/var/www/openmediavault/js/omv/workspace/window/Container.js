@@ -41,7 +41,7 @@
  *   Defaults to true.
  * @param hideResetButton True to hide the 'Reset' button.
  *   Defaults to true.
- * @param okButtonText The button text. Defaults to 'Commit'.
+ * @param okButtonText The button text. Defaults to 'Save'.
  * @param resetButtonText The button text. Defaults to 'Reset'.
  * @param cancelButtonText The button text. Defaults to 'Cancel'.
  * @param closeButtonText The button text. Defaults to 'Close'.
@@ -70,11 +70,11 @@ Ext.define("OMV.workspace.window.Container", {
 	modal: true,
 	mode: "remote",
 	rpcSetPollStatus: false,
-	hideOkButton: false, // Hide the 'Ok' button
-	hideResetButton: false, // Hide the 'Reset' button
-	hideCancelButton: false, // Hide the 'Cancel' button
-	hideCloseButton: true, // Hide the 'Close' button
-	okButtonText: _("Commit"),
+	hideOkButton: false,
+	hideResetButton: false,
+	hideCancelButton: false,
+	hideCloseButton: true,
+	okButtonText: _("Save"),
 	resetButtonText: _("Reset"),
 	cancelButtonText: _("Cancel"),
 	closeButtonText: _("Close"),

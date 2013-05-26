@@ -60,7 +60,7 @@
  * @param deleteButtonText The button text. Defaults to 'Delete'.
  * @param upButtonText The button text. Defaults to 'Up'.
  * @param downButtonText The button text. Defaults to 'Down'.
- * @param applyButtonText The button text. Defaults to 'Apply'.
+ * @param applyButtonText The button text. Defaults to 'Save'.
  * @param refreshButtonText The button text. Defaults to 'Refresh'.
  * @param deletionConfirmRequired Set to TRUE to force the user to confirm
  *   the deletion request. Defaults to TRUE.
@@ -97,19 +97,19 @@ Ext.define("OMV.workspace.grid.Panel", {
 
 	hideTopToolbar: false,
 	hidePagingToolbar: true,
-	hideAddButton: false, // Hide the 'Add' button in the top toolbar
-	hideEditButton: false, // Hide the 'Edit' button in the top toolbar
-	hideDeleteButton: false, // Hide the 'Delete' button in the top toolbar
-	hideUpButton: true, // Hide the 'Up' button in the top toolbar
-	hideDownButton: true, // Hide the 'Down' button in the top toolbar
-	hideApplyButton: true, // Hide the 'Apply' button in the top toolbar
-	hideRefreshButton: true, // Hide the 'Refresh' button in the top toolbar
+	hideAddButton: false,
+	hideEditButton: false,
+	hideDeleteButton: false,
+	hideUpButton: true,
+	hideDownButton: true,
+	hideApplyButton: true,
+	hideRefreshButton: true,
 	addButtonText: _("Add"),
 	editButtonText: _("Edit"),
 	deleteButtonText: _("Delete"),
 	upButtonText: _("Up"),
 	downButtonText: _("Down"),
-	applyButtonText: _("Apply"),
+	applyButtonText: _("Save"),
 	refreshButtonText: _("Refresh"),
 	deletionConfirmRequired: true,
 	deletionWaitMsg: _("Deleting selected item(s)"),
