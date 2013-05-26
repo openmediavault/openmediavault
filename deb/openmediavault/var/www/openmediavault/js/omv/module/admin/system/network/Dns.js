@@ -55,21 +55,13 @@ Ext.define("OMV.module.admin.system.network.Dns", {
 		}];
 	},
 
-	/**
-	 * Set values for fields in this form in bulk.
-	 * @param values The values to set in the form of an object hash.
-	 * @return The basic form object.
-	 */
 	setValues: function(values) {
-		this.callParent({
+		return this.callParent([{
 			"primarydns": values.shift(),
 			"secondarydns": values.join(",")
-		});
+		}]);
 	},
 
-	/**
-	 * Returns the fields in this form as an object with key/value pairs.
-	 */
 	getValues: function() {
 		var me = this;
 		var values = me.callParent(arguments);
