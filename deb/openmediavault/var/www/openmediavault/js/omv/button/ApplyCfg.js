@@ -43,14 +43,9 @@ Ext.define("OMV.button.ApplyCfg", {
 
 	reloadInterval: 5000,
 
-	constructor: function(config) {
-		config = Ext.apply({
-			icon: "images/led_gray.png",
-			tooltip: _("Apply configuration"),
-			disabled: true
-		}, config || {});
-		this.callParent([config]);
-	},
+	icon: "images/led_gray.png",
+	tooltip: _("Apply configuration"),
+	disabled: true,
 
 	initComponent: function() {
 		var me = this;
@@ -110,7 +105,7 @@ Ext.define("OMV.button.ApplyCfg", {
 					icon: Ext.Msg.QUESTION
 				});
 			},
-			render: function(c) {
+			afterrender: function(c) {
 				if(Ext.isEmpty(this.reloadTask)) {
 					this.reloadTask = Ext.util.TaskManager.start({
 						run: this.doCheck,

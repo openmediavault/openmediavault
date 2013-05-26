@@ -63,7 +63,7 @@ Ext.define("OMV.workspace.form.Panel", {
 	onlySubmitIfDirty: true,
 	hideOkButton: false,
 	hideResetButton: false,
-	okButtonText: _("Commit"),
+	okButtonText: _("Save"),
 	okButtonIcon: "images/apply.png",
 	resetButtonText: _("Reset"),
 	resetButtonIcon: "images/refresh.png",
