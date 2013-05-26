@@ -41,6 +41,10 @@
  *   Defaults to true.
  * @param hideResetButton True to hide the 'Reset' button.
  *   Defaults to true.
+ * @param okButtonText The button text. Defaults to 'Commit'.
+ * @param resetButtonText The button text. Defaults to 'Reset'.
+ * @param cancelButtonText The button text. Defaults to 'Cancel'.
+ * @param closeButtonText The button text. Defaults to 'Close'.
  * @param mode The mode how to retrieve the data displayed in the property
  *   dialog. This can be 'local' or 'remote' which means the data is
  *   requested via RPC. Defaults to 'remote'.
@@ -70,6 +74,10 @@ Ext.define("OMV.workspace.window.Container", {
 	hideResetButton: false, // Hide the 'Reset' button
 	hideCancelButton: false, // Hide the 'Cancel' button
 	hideCloseButton: true, // Hide the 'Close' button
+	okButtonText: _("Commit"),
+	resetButtonText: _("Reset"),
+	cancelButtonText: _("Cancel"),
+	closeButtonText: _("Close"),
 	buttonAlign: "center",
 	readOnly: false,
 	closeIfNotDirty: true,
@@ -139,27 +147,31 @@ Ext.define("OMV.workspace.window.Container", {
 		var me = this;
 		return [{
 			id: me.getId() + "-ok",
-			text: _("OK"),
+			xtype: "button",
+			text: me.okButtonText,
 			hidden: me.hideOkButton,
 			disabled: me.readOnly,
 			handler: Ext.Function.bind(me.onOkButton, me, [ me ]),
 			scope: me
 		},{
 			id: me.getId() + "-reset",
-			text: _("Reset"),
+			xtype: "button",
+			text: me.resetButtonText,
 			hidden: me.hideResetButton,
 			disabled: me.readOnly,
 			handler: Ext.Function.bind(me.onResetButton, me, [ me ]),
 			scope: me
 		},{
 			id: me.getId() + "-cancel",
-			text: _("Cancel"),
+			xtype: "button",
+			text: me.cancelButtonText,
 			hidden: me.hideCancelButton,
 			handler: Ext.Function.bind(me.onCancelButton, me, [ me ]),
 			scope: me
 		},{
 			id: me.getId() + "-close",
-			text: _("Close"),
+			xtype: "button",
+			text: me.closeButtonText,
 			hidden: me.hideCloseButton,
 			handler: Ext.Function.bind(me.onCloseButton, me, [ me ]),
 			scope: me

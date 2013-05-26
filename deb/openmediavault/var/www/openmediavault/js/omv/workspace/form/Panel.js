@@ -63,7 +63,7 @@ Ext.define("OMV.workspace.form.Panel", {
 	onlySubmitIfDirty: true,
 	hideOkButton: false,
 	hideResetButton: false,
-	okButtonText: _("Apply"),
+	okButtonText: _("Commit"),
 	okButtonIcon: "images/apply.png",
 	resetButtonText: _("Reset"),
 	resetButtonIcon: "images/refresh.png",
@@ -131,6 +131,7 @@ Ext.define("OMV.workspace.form.Panel", {
 		var me = this;
 		return [{
 			id: me.getId() + "-ok",
+			xtype: "button",
 			text: me.okButtonText,
 			icon: me.okButtonIcon,
 			hidden: me.hideOkButton,
@@ -138,6 +139,7 @@ Ext.define("OMV.workspace.form.Panel", {
 			scope: me
 		},{
 			id: me.getId() + "-reset",
+			xtype: "button",
 			text: me.resetButtonText,
 			icon: me.resetButtonIcon,
 			hidden: me.hideResetButton,

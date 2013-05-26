@@ -55,13 +55,13 @@
  *   Defaults to TRUE.
  * @param hideRefreshButton Hide the 'Refresh' button in the top toolbar.
  *   Defaults to TRUE.
- * @param addButtonText The 'Add' button text. Defaults to 'Add'.
- * @param editButtonText The 'Edit' button text. Defaults to 'Edit'.
- * @param deleteButtonText The 'Delete' button text. Defaults to 'Delete'.
- * @param upButtonText The 'Up' button text. Defaults to 'Up'.
- * @param downButtonText The 'Down' button text. Defaults to 'Down'.
- * @param applyButtonText The 'Refresh' button text. Defaults to 'Apply'.
- * @param refreshButtonText The 'Refresh' button text. Defaults to 'Refresh'.
+ * @param addButtonText The button text. Defaults to 'Add'.
+ * @param editButtonText The button text. Defaults to 'Edit'.
+ * @param deleteButtonText The button text. Defaults to 'Delete'.
+ * @param upButtonText The button text. Defaults to 'Up'.
+ * @param downButtonText The button text. Defaults to 'Down'.
+ * @param applyButtonText The button text. Defaults to 'Apply'.
+ * @param refreshButtonText The button text. Defaults to 'Refresh'.
  * @param deletionConfirmRequired Set to TRUE to force the user to confirm
  *   the deletion request. Defaults to TRUE.
  * @param deletionWaitMsg The message displayed during the deletion process.

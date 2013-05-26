@@ -462,7 +462,6 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 	getTopToolbarItems: function() {
 		var me = this;
 		var items = me.callParent(arguments);
-
 		Ext.Array.insert(items, 1, [{
 			id: me.getId() + "-create",
 			xtype: "button",

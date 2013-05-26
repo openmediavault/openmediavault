@@ -587,7 +587,7 @@ Ext.define("OMV.module.admin.system.certificate.Certificates", {
 	getTopToolbarItems: function() {
 		var me = this;
 		var items = me.callParent(arguments);
-		// Replace the default 'Add' button
+		// Replace the default 'Add' button.
 		Ext.Array.erase(items, 0, 1);
 		Ext.Array.insert(items, 0, [{
 			id: me.getId() + "-add",
@@ -610,7 +610,7 @@ Ext.define("OMV.module.admin.system.certificate.Certificates", {
 				}
 			})
 		}]);
-		// Add 'Detail' button to top toolbar
+		// Add 'Detail' button to top toolbar.
 		Ext.Array.insert(items, 2, [{
 			id: me.getId() + "-detail",
 			xtype: "button",

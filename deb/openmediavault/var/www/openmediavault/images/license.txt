@@ -44,9 +44,9 @@ License: CC BY-SA 3.0
 URL: http://www.iconfinder.com/icondetails/103615/16
 
 Image: preferences.png
-Designer: Everaldo Coelho (http://www.everaldo.com)
-License: GPL (http://www.gnu.org/copyleft/gpl.html)
-URL: http://www.iconfinder.com/icondetails/932/16
+Designer: WPZOOM (http://www.wpzoom.com)
+License: CC BY-SA 3.0
+URL: http://www.iconfinder.com/icondetails/111048/16
 
 Image: logs.png
 Designer: FatCow Web Hosting
@@ -249,9 +249,9 @@ License: GPL
 URL: http://www.iconfinder.net/icondetails/24564/16
 
 Image: detail.png
-Designer: Keyamoon (http://keyamoon.com)
+Designer: WPZOOM (http://www.wpzoom.com)
 License: CC BY-SA 3.0
-URL: http://www.iconfinder.com/icondetails/83254/16
+URL: http://www.iconfinder.com/icondetails/111109/16
 
 Image: filesystem-resize.png
 Designer: Volker Theile, based on Oliver Scholtz (and others)

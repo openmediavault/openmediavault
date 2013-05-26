@@ -368,7 +368,7 @@ Ext.define("OMV.module.admin.system.cron.Jobs", {
 	getTopToolbarItems: function() {
 		var me = this;
 		var items = me.callParent(arguments);
-		// Add 'Run' button to top toolbar
+		// Add 'Run' button to top toolbar.
 		Ext.Array.insert(items, 2, [{
 			id: me.getId() + "-run",
 			xtype: "button",

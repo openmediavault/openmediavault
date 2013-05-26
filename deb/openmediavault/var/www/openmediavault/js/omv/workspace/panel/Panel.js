@@ -24,7 +24,10 @@
  * @class OMV.workspace.panel.Panel
  * @derived Ext.panel.Panel
  * @param hideTopToolbar TRUE to hide the whole toolbar. Defaults
- *   to FALSE.
+ *   to TRUE.
+ * @param hideRefreshButton Hide the 'Refresh' button in the top toolbar.
+ *   Defaults to FALSE.
+ * @param refreshButtonText The 'Refresh' button text. Defaults to 'Refresh'.
  * @param autoLoadData Automatically execute the doLoad method after
  *   render. Defaults to FALSE.
  */
@@ -32,7 +35,10 @@ Ext.define("OMV.workspace.panel.Panel", {
 	extend: "Ext.panel.Panel",
 
 	hideTopToolbar: true,
+	hideRefreshButton: false,
+	refreshButtonText: _("Refresh"),
 	autoLoadData: false,
+
 	border: false,
 	autoScroll: true,
 
@@ -61,8 +67,9 @@ Ext.define("OMV.workspace.panel.Panel", {
 		return [{
 			id: me.getId() + "-refresh",
 			xtype: "button",
-			text: _("Refresh"),
+			text: me.refreshButtonText,
 			icon: "images/reload.png",
+			hidden: me.hideRefreshButton,
 			handler: Ext.Function.bind(me.onRefreshButton, me, [ me ]),
 			scope: me
 		}];

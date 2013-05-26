@@ -85,6 +85,7 @@ Ext.define("OMV.module.admin.system.notification.Settings", {
 		// Add 'Send test email' button.
 		items.push({
 			id: me.getId() + "-test",
+			xtype: "button",
 			text: _("Send a test email"),
 			icon: "images/mail.png",
 			disabled: true,

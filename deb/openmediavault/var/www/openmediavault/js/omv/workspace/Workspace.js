@@ -22,7 +22,7 @@
 // require("js/omv/SessionManager.js")
 // require("js/omv/Rpc.js")
 // require("js/omv/window/MessageBox.js")
-// require("js/omv/button/CfgApply.js")
+// require("js/omv/button/ApplyCfg.js")
 // require("js/omv/workspace/tab/Panel.js")
 // require("js/omv/workspace/node/tree/Panel.js")
 // require("js/omv/workspace/node/panel/Panel.js")
@@ -39,7 +39,7 @@ Ext.define("OMV.workspace.Workspace", {
 	requires: [
 		"OMV.SessionManager",
 		"OMV.Rpc",
-		"OMV.button.CfgApply",
+		"OMV.button.ApplyCfg",
 		"OMV.window.MessageBox",
 		"OMV.form.field.LanguageComboBox",
 		"OMV.workspace.node.tree.Panel",
@@ -112,7 +112,7 @@ Ext.define("OMV.workspace.Workspace", {
 				},{
 					xtype: "tbfill"
 				},{
-					xtype: "cfgapplybutton",
+					xtype: "applycfgbutton",
 					hidden: !OMV.SessionManager.isAdministrator()
 				},{
 					xtype: "tbseparator",

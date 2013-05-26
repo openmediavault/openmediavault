@@ -23,7 +23,7 @@
 
 /**
  * @ingroup webgui
- * @class OMV.button.CfgApply
+ * @class OMV.button.ApplyCfg
  * @derived Ext.button.Button
  * A button that is enabled when configuration changes have been done, thus
  * they can be applied. During the configuration changes are applied a
@@ -33,9 +33,9 @@
  *   checked whether there are any outstanding configuration changes that
  *   can be applied. Defaults to 5 seconds.
  */
-Ext.define("OMV.button.CfgApply", {
+Ext.define("OMV.button.ApplyCfg", {
 	extend: "Ext.button.Button",
-	alias: "widget.cfgapplybutton",
+	alias: "widget.applycfgbutton",
 	requires: [
 		"OMV.Rpc",
 		"OMV.window.Execute"
@@ -55,23 +55,78 @@ Ext.define("OMV.button.CfgApply", {
 	initComponent: function() {
 		var me = this;
 		me.callParent(arguments);
-		me.on("click", me.onClickHdl, me);
-		me.on("render", function(c) {
-			if(Ext.isEmpty(me.reloadTask)) {
-				me.reloadTask = Ext.util.TaskManager.start({
-					run: me.doCheck,
-					scope: me,
-					interval: me.reloadInterval,
-					fireOnStart: true
+		me.on({
+			scope: me,
+			click: function(c, e) {
+				OMV.MessageBox.show({
+					title: _("Confirmation"),
+					msg: _("Do you really want to apply the configuration?"),
+					buttons: Ext.Msg.YESNO,
+					fn: function(answer) {
+						if(answer == "no")
+							return;
+						// Disable the button during the process.
+						this.inProgress = true;
+						this.setDisabled(true);
+						// Display a progress bar until the configuration
+						// changes have been applied.
+						var dlg = Ext.create("OMV.window.Execute", {
+							title: _("Apply configuration"),
+							width: 350,
+							rpcService: "Config",
+							rpcMethod: "applyChangesBg",
+							rpcParams: {
+								modules: [],
+								force: false
+							},
+							hideStartButton: true,
+							hideStopButton: true,
+							hideCloseButton: true,
+							progress: true,
+							listeners: {
+								start: function(c) {
+									// Show the progress dialog.
+									c.show();
+								},
+								finish: function(c) {
+									var value = c.getValue();
+									delete this.inProgress;
+									c.close();
+									if(value.length > 0) {
+										OMV.MessageBox.error(null, value);
+									}
+								},
+								exception: function(c, error) {
+									delete this.inProgress;
+									c.close();
+									OMV.MessageBox.error(null, error);
+								},
+								scope: this
+							}
+						});
+						dlg.start();
+					},
+					scope: this,
+					icon: Ext.Msg.QUESTION
 				});
+			},
+			render: function(c) {
+				if(Ext.isEmpty(this.reloadTask)) {
+					this.reloadTask = Ext.util.TaskManager.start({
+						run: this.doCheck,
+						scope: this,
+						interval: this.reloadInterval,
+						fireOnStart: true
+					});
+				}
+			},
+			beforedestroy: function(c) {
+				if(!Ext.isEmpty(this.reloadTask)) {
+					Ext.util.TaskManager.stop(this.reloadTask);
+					delete this.reloadTask;
+				}
 			}
-		}, me);
-		me.on("beforedestroy", function(c) {
-			if(!Ext.isEmpty(me.reloadTask)) {
-				Ext.util.TaskManager.stop(me.reloadTask);
-				delete me.reloadTask;
-			}
-		}, me);
+		});
 	},
 
 	/**
@@ -101,79 +156,19 @@ Ext.define("OMV.button.CfgApply", {
 		// Execute RPC in background, this means errors will be ignored and
 		// not forwarded to the caller.
 		OMV.Rpc.request({
-			  scope: me,
-			  callback: function(id, success, response) {
-				  me.setDisabled(!response);
-			  },
-			  rpcData: {
-				  service: "Config",
-				  method: "isDirty",
-				  options: {
-					  updatelastaccess: false
-				  }
-			  },
-			  relayErrors: false,
-			  showErrors: false
-		  });
-	},
-
-	/**
-	 * @method onClickHdl
-	 * Private function that is called when the button is clicked. During
-	 * the outstanding configuration changes are applied a modal progress
-	 * dialog is displayed.
-	 */
-	onClickHdl: function(c, e) {
-		OMV.MessageBox.show({
-			title: _("Confirmation"),
-			msg: _("Do you really want to apply the configuration?"),
-			buttons: Ext.Msg.YESNO,
-			fn: function(answer) {
-				if(answer == "no")
-					return;
-				// Disable the button during the process.
-				this.inProgress = true;
-				this.setDisabled(true);
-				// Display a progress bar until the configuration changes have
-				// been applied.
-				var dlg = Ext.create("OMV.window.Execute", {
-					title: _("Apply configuration"),
-					width: 350,
-					rpcService: "Config",
-					rpcMethod: "applyChangesBg",
-					rpcParams: {
-						modules: [],
-						force: false
-					},
-					hideStartButton: true,
-					hideStopButton: true,
-					hideCloseButton: true,
-					progress: true,
-					listeners: {
-						start: function(c) {
-							// Show the progress dialog.
-							c.show();
-						},
-						finish: function(c) {
-							var value = c.getValue();
-							delete this.inProgress;
-							c.close();
-							if(value.length > 0) {
-								OMV.MessageBox.error(null, value);
-							}
-						},
-						exception: function(c, error) {
-							delete this.inProgress;
-							c.close();
-							OMV.MessageBox.error(null, error);
-						},
-						scope: this
-					}
-				});
-				dlg.start();
+			scope: me,
+			callback: function(id, success, response) {
+				me.setDisabled(!response);
 			},
-			scope: this,
-			icon: Ext.Msg.QUESTION
+			relayErrors: false,
+			showErrors: false,
+			rpcData: {
+				service: "Config",
+				method: "isDirty",
+				options: {
+					updatelastaccess: false
+				}
+			}
 		});
 	}
 });
