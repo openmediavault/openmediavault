@@ -82,11 +82,13 @@ Ext.define("OMV.module.admin.system.notification.Settings", {
 	getButtonItems: function() {
 		var me = this;
 		var items = me.callParent(arguments);
-		// Add 'Send test email' button
+		// Add 'Send test email' button.
 		items.push({
 			id: me.getId() + "-test",
 			text: _("Send a test email"),
+			icon: "images/mail.png",
 			disabled: true,
+			scope: me,
 			handler: function() {
 				// Is the form valid?
 				if(!this.isValid()) {
@@ -96,25 +98,24 @@ Ext.define("OMV.module.admin.system.notification.Settings", {
 					OMV.MessageBox.wait(null, _("Sending test email ..."));
 					// Execute RPC
 					OMV.Rpc.request({
-						  scope: this,
-						  callback: function(id, success, response) {
-							  OMV.MessageBox.updateProgress(1);
-							  OMV.MessageBox.hide();
-							  if(success) {
-								  OMV.MessageBox.success(null, _("The test email has been sent successfully. Please check your mailbox."));
-							  } else {
-								  OMV.MessageBox.error(null, response);
-							  }
-						  },
-						  relayErrors: true,
-						  rpcData: {
-							  service: this.rpcService,
-							  method: "sendTestEmail"
-						  }
-					  });
+						scope: this,
+						callback: function(id, success, response) {
+							OMV.MessageBox.updateProgress(1);
+							OMV.MessageBox.hide();
+							if(success) {
+								OMV.MessageBox.success(null, _("The test email has been sent successfully. Please check your mailbox."));
+							} else {
+								OMV.MessageBox.error(null, response);
+							}
+						},
+						relayErrors: true,
+						rpcData: {
+							service: this.rpcService,
+							method: "sendTestEmail"
+						}
+					});
 				}
-			},
-			scope: me
+			}
 		});
 		return items;
 	},
