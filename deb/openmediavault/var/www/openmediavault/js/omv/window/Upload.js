@@ -74,11 +74,10 @@ Ext.define("OMV.window.Upload", {
 				bodyPadding: "5 5 0",
 				fileUpload: true,
 				items: [{
-					xtype: "textfield",
+					xtype: "filefield",
 					name: "file",
 					fieldLabel: _("File"),
-					allowBlank: false,
-					inputType: "file"
+					allowBlank: false
 				}]
 			}) ]
 		});
@@ -91,9 +90,8 @@ Ext.define("OMV.window.Upload", {
 	onOkButton: function() {
 		var me = this;
 		var basicForm = me.fp.getForm();
-		if(!basicForm.isValid()) {
+		if(!basicForm.isValid())
 			return;
-		}
 		basicForm.submit({
 			url: me.url,
 			method: "POST",
@@ -103,9 +101,10 @@ Ext.define("OMV.window.Upload", {
 				params: me.params
 			},
 			waitMsg: me.waitMsg,
+			scope: me,
 			success: function(form, action) {
-				me.fireEvent("success", me, action.result.responseText);
 				me.close();
+				me.fireEvent("success", me, action.result.responseText);
 			},
 			failure: function(form, action) {
 				var msg = action.response.responseText;
@@ -118,8 +117,7 @@ Ext.define("OMV.window.Upload", {
 					// plain text.
 				}
 				OMV.MessageBox.error(null, msg);
-			},
-			scope: me
+			}
 		});
 	},
 
