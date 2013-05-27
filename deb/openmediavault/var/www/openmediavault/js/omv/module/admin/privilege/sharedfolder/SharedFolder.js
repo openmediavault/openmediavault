@@ -648,7 +648,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 			id: me.getId() + "-privileges",
 			xtype: "button",
 			text: _("Privileges"),
-			icon: "images/privileges.gif",
+			icon: "images/privileges.png",
 			handler: me.onPrivilegesButton,
 			scope: me,
 			disabled: true
@@ -656,7 +656,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 			id: me.getId() + "-acl",
 			xtype: "button",
 			text: _("ACL"),
-			icon: "images/acl.png",
+			icon: "images/access.png",
 			handler: me.onACLButton,
 			scope: me,
 			disabled: true

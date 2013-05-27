@@ -1,3 +1,10 @@
+openmediavault (0.5.0.2) stable; urgency=low
+
+  * Fix various issues in the WebGUI.
+  * Fix bug in SMB module when creating a new user.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 27 May 2013 10:10:28 +0200
+
 openmediavault (0.5.0.1) stable; urgency=low
 
   * Fix various issues in the WebGUI.
