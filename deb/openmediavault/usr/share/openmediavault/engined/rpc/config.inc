@@ -88,12 +88,25 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		  $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
 		$jsonFile->open("c+");
 		$dirtyModules = $jsonFile->read();
+		// Remove non-existing modules from list. It may happen that the
+		// list contains entries from already deinstalled plugins.
+		$removeDirtyModules = array();
+		$modules = array_keys($moduleMgr->getModules());
+		foreach($dirtyModules as $dirtyModulek => $dirtyModulev) {
+			if(!in_array($modules, $dirtyModulev))
+				$removeDirtyModules[] = $dirtyModulev;
+		}
+		if(!empty($removeDirtyModules)) {
+			// Remove module name from list of dirty modules. Note, the
+			// array must be re-indexed.
+			$dirtyModules = array_values(array_diff($dirtyModules,
+			  $removeDirtyModules));
+		}
 		// Get list of modules to be processed. If the parameter 'modules'
 		// is empty, then process all registered modules.
 		$modules = $params['modules'];
-		if(empty($params['modules'])) {
+		if(empty($params['modules']))
 			$modules = array_keys($moduleMgr->getModules());
-		}
 		$processModules = array();
 		foreach($modules as $modulek => $modulev) {
 			// Skip module if 'force' is disabled and module is not marked

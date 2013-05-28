@@ -270,18 +270,19 @@ Ext.define("OMV.window.MessageBox", {
 			  "Press left mouse button to continue.<br/>{0}", config.msg)
 		});
 		// Animate message box border.
+		var borderColorState = true;
 		var task = Ext.util.TaskManager.newTask({
 			interval: 1000,
 			fireOnStart: false,
 			scope: me,
 			run: function() {
 				var el = Ext.get(dlg.getId() + "-body");
-				var borderColor = Ext.draw.Color.fromString(
-				  el.getStyle("borderColor"));
-				if("#000000" !== borderColor.toString())
-					el.setStyle("borderColor", "#000000");
-				else
-					el.setStyle("borderColor", "#ff0000");
+				if(!borderColorState) {
+					el.setStyle("border-color", "#ff0000");
+				} else {
+					el.setStyle("border-color", "#000000");
+				}
+				borderColorState = !borderColorState;
 			}
 		});
 		task.start();

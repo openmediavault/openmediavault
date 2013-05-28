@@ -219,16 +219,16 @@ Ext.define("OMV.module.admin.service.nfs.Shares", {
 	doDeletion: function(record) {
 		var me = this;
 		OMV.Rpc.request({
-			  scope: me,
-			  callback: me.onDeletion,
-			  rpcData: {
-				  service: "NFS",
-				  method: "deleteShare",
-				  params: {
-					  uuid: record.get("uuid")
-				  }
-			  }
-		  });
+			scope: me,
+			callback: me.onDeletion,
+			rpcData: {
+				service: "NFS",
+				method: "deleteShare",
+				params: {
+					uuid: record.get("uuid")
+				}
+			}
+		});
 	}
 });
 

@@ -392,6 +392,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 					rpcService: "Plugin",
 					rpcMethod: "remove",
 					rpcParams: { "packages": packages },
+					rpcIgnoreErrors: true,
 					hideStartButton: true,
 					hideStopButton: true,
 					killCmdBeforeDestroy: false,

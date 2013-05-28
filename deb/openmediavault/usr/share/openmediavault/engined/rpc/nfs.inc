@@ -318,6 +318,7 @@ class OMVRpcServiceNfs extends OMVRpcServiceAbstract {
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function deleteShare($params, $context) {
+		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -334,6 +335,13 @@ class OMVRpcServiceNfs extends OMVRpcServiceAbstract {
 		  $params['uuid']);
 		$object = $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.services.nfs.shares.share");
+		// Check if the shared folder is still shared by another NFS share.
+		// In this case do not delete or unmount the mount point configuration
+		// object.
+		$xpath = sprintf("//services/nfs/shares/share[mntentref='%s']",
+		  $object['mntentref']);
+		if(0 < $xmlConfig->count($xpath))
+			return $object;
 		// Delete the associated fstab mount point entry.
 		OMVRpc::exec("FsTab", "delete", array("uuid" => $object['mntentref']),
 		  $context);
