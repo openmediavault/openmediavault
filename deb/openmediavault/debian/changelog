@@ -1,3 +1,10 @@
+openmediavault (0.4.32) stable; urgency=low
+
+  * Mantis 0000775: NFS: Deleting a share of a folder that is shared multiple
+    times, results in an error.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 28 May 2013 19:05:01 +0200
+
 openmediavault (0.4.31) stable; urgency=low
 
   * Update locales.

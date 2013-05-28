@@ -324,6 +324,7 @@ class NFSRpc extends OMVRpc {
 	 */
 	public function deleteShare($data) {
 //		$this->debug(var_export(func_get_args(), TRUE));
+		global $xmlConfig;
 		// Check permissions.
 		$this->validateSession();
 		if (!$this->hasRole(OMV_ROLE_ADMINISTRATOR)) {
@@ -337,6 +338,12 @@ class NFSRpc extends OMVRpc {
 		  $data['uuid']);
 		$object = $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.services.nfs.shares.share");
+		// Check if the mount point is used by multiple shared folders. In
+		// this case do not delete the mount point configuration object.
+		$xpath = sprintf("//services/nfs/shares/share[mntentref='%s']",
+		  $object['mntentref']);
+		if(0 < $xmlConfig->count($xpath))
+			return;
 		// Delete the associated fstab mount point entry.
 		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
 		  $object['mntentref']);

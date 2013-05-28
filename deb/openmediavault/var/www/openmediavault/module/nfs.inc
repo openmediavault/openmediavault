@@ -71,11 +71,13 @@ class OMVNFSModule extends OMVModuleAbstract
 			  $xpath);
 		}
 		// Mount the subtree.
-		$cmd = sprintf("sudo mount %s", escapeshellarg($meObject['dir']));
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		if(!OMVFilesystem::isMountedEx("mountpoint", $meObject['dir'])) {
+			$cmd = sprintf("sudo mount %s", escapeshellarg($meObject['dir']));
+			OMVUtil::exec($cmd, $output, $result);
+			if ($result !== 0) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
 		}
 		// Update the service
 		self::updateService();
@@ -87,6 +89,12 @@ class OMVNFSModule extends OMVModuleAbstract
 	public function preDeleteShare($object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		global $xmlConfig;
+		// Check if the shared folder is shared multiple times. In this
+		// case do not unmount the exported directory.
+		$xpath = sprintf("//services/nfs/shares/share[mntentref='%s']",
+		  $object['mntentref']);
+		if(0 < $xmlConfig->count($xpath))
+			return;
 		// Get the associated mount point configuration object.
 		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
 		  $object['mntentref']);
