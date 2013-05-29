@@ -470,7 +470,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			id: me.getId() + "-create",
 			xtype: "button",
 			text: _("Create"),
-			icon: "images/raid.png",
+			icon: "images/add.png",
 			handler: me.onCreateButton,
 			scope: me,
 			disabled: false
@@ -478,7 +478,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			id: me.getId() + "-grow",
 			xtype: "button",
 			text: _("Grow"),
-			icon: "images/raid-grow.png",
+			icon: "images/resize.png",
 			handler: me.onGrowButton,
 			scope: me,
 			disabled: true
@@ -486,7 +486,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			id: me.getId() + "-recover",
 			xtype: "button",
 			text: _("Recover"),
-			icon: "images/raid-recover.png",
+			icon: "images/first-aid.png",
 			handler: me.onRecoverButton,
 			scope: me,
 			disabled: true

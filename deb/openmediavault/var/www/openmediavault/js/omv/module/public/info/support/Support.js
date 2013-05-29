@@ -52,7 +52,7 @@ OMV.WorkspaceManager.registerNode({
 	id: "support",
 	path: "/info",
 	text: _("Support"),
-	icon16: "images/support.png",
+	icon16: "images/help.png",
 	position: 20
 });
 

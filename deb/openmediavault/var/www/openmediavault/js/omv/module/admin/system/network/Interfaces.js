@@ -689,18 +689,18 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		var items = me.callParent(arguments);
 		// Override 'Add' button in top toolbar.
 		Ext.apply(items[0], {
-			icon: "images/nic-add.png"
+			icon: "images/add.png"
 		});
 		// Override 'Edit' button in top toolbar.
 		Ext.apply(items[1], {
-			icon: "images/nic-edit.png"
+			icon: "images/edit.png"
 		});
 		// Add 'Identify' button to top toolbar.
 		items.insert(2, {
 			id: me.getId() + "-identify",
 			xtype: "button",
 			text: _("Identify"),
-			icon: "images/nic-identify.png",
+			icon: "images/search.png",
 			handler: Ext.Function.bind(me.onIdentifyButton, me, [ me ]),
 			scope: me,
 			disabled: true

@@ -466,7 +466,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			id: me.getId() + "-create",
 			xtype: "button",
 			text: _("Create"),
-			icon: "images/filesystem.png",
+			icon: "images/add.png",
 			handler: me.onCreateButton,
 			scope: me,
 			disabled: false
@@ -474,7 +474,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			id: me.getId() + "-resize",
 			xtype: "button",
 			text: _("Resize"),
-			icon: "images/filesystem-resize.png",
+			icon: "images/resize.png",
 			handler: me.onResizeButton,
 			scope: me,
 			disabled: true
@@ -482,7 +482,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			id: me.getId() + "-quota",
 			xtype: "button",
 			text: _("Quota"),
-			icon: "images/filesystem-quota.png",
+			icon: "images/group.png",
 			handler: me.onQuotaButton,
 			scope: me,
 			disabled: true
@@ -490,7 +490,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			id: me.getId() + "-mount",
 			xtype: "button",
 			text: _("Mount"),
-			icon: "images/filesystem-mount.png",
+			icon: "images/mount.png",
 			handler: me.onMountButton,
 			scope: me,
 			disabled: true
@@ -498,7 +498,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			id: me.getId() + "-unmount",
 			xtype: "button",
 			text: _("Unmount"),
-			icon: "images/filesystem-umount.png",
+			icon: "images/unmount.png",
 			handler: me.onUnmountButton,
 			scope: me,
 			disabled: true

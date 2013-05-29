@@ -312,11 +312,9 @@ Ext.define("OMV.window.Execute", {
 		if(false === me.progress) {
 			me.contentCtrl.setValue(value);
 			if(true === me.scrollBottom) {
-				// http://www.extjs.com/forum/showthread.php?t=49096
-				var el = me.contentCtrl.getEl();
-				if(el && el.dom) {
+				var el = me.contentCtrl.inputEl;
+				if(el && el.dom)
 					el.dom.scrollTop = el.dom.scrollHeight
-				}
 			}
 		} else {
 			me.content = value;
