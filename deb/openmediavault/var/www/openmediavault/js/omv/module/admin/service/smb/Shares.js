@@ -35,7 +35,8 @@
 Ext.define("OMV.module.admin.service.smb.Share", {
 	extend: "OMV.workspace.window.Form",
 	requires: [
-	    "OMV.workspace.window.plugin.ConfigObject"
+	    "OMV.workspace.window.plugin.ConfigObject",
+		"OMV.form.field.SharedFolderComboBox"
 	],
 
 	rpcService: "SMB",

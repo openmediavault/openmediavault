@@ -28,6 +28,9 @@
  */
 Ext.define("OMV.module.admin.service.tftp.Settings", {
 	extend: "OMV.workspace.form.Panel",
+	requires: [
+		"OMV.form.field.SharedFolderComboBox"
+	],
 
 	rpcService: "TFTP",
 	plugins: [{

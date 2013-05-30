@@ -241,7 +241,8 @@ class OMVUploadRpcProxy extends OMVJsonRpcProxy {
 	 */
 	public function cleanup() {
 		// Ensure the uploaded file is removed.
-		@unlink($this->params['params']['filepath']);
+		if(file_exists($this->params['params']['filepath']))
+			unlink($this->params['params']['filepath']);
 	}
 }
 

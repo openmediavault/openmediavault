@@ -391,14 +391,14 @@ Ext.define("OMV.module.admin.system.updatemanagement.Packages", {
 			hideStopButton: true,
 			scrollBottom: false,
 			listeners: {
+				scope: me,
 				finish: function(wnd, response) {
 					wnd.setButtonDisabled("close", false);
 				},
 				exception: function(wnd, error) {
 					OMV.MessageBox.error(null, error);
 					wnd.close();
-				},
-				scope: me
+				}
 			}
 		});
 		wnd.setButtonDisabled("close", true);

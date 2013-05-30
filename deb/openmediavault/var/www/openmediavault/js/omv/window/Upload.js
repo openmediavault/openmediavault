@@ -45,7 +45,7 @@ Ext.define("OMV.window.Upload", {
 	modal: true,
 	buttonAlign: "center",
 
-	constructor: function(config) {
+	constructor: function() {
 		var me = this;
 		me.callParent(arguments);
 		me.addEvents(
@@ -72,7 +72,6 @@ Ext.define("OMV.window.Upload", {
 			}],
 			items: [ me.fp = Ext.create("OMV.form.Panel", {
 				bodyPadding: "5 5 0",
-				fileUpload: true,
 				items: [{
 					xtype: "filefield",
 					name: "file",
@@ -103,12 +102,12 @@ Ext.define("OMV.window.Upload", {
 			waitMsg: me.waitMsg,
 			scope: me,
 			success: function(form, action) {
-				me.close();
-				me.fireEvent("success", me, action.result.responseText);
+				this.close();
+				this.fireEvent("success", this, action.result.responseText);
 			},
 			failure: function(form, action) {
 				var msg = action.response.responseText;
-				me.close();
+				this.close();
 				try {
 					// Try to decode JSON data.
 					msg = Ext.util.JSON.decode(action.response.responseText);
