@@ -95,7 +95,7 @@ case "$1" in
 		#   </services>
 		# </config>
 		########################################################################
-		if ! omv_config_exists "//services/clamav"; then
+		if ! omv_config_exists "/config/services/clamav"; then
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
 			object="${object}<clamd>"
@@ -119,7 +119,7 @@ case "$1" in
 			object="${object}<checks>24</checks>"
 			object="${object}</freshclam>"
 			object="${object}<jobs></jobs>"
-			omv_config_add_element "//services" "clamav" "${object}" true
+			omv_config_add_element "/config/services" "clamav" "${object}" true
 		fi
 
 		########################################################################
@@ -127,21 +127,21 @@ case "$1" in
 		########################################################################
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.1"; then
-			omv_config_add_element "//services/clamav/jobs/job" "remove" "0"
+			omv_config_add_element "/config/services/clamav/jobs/job" "remove" "0"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.2"; then
-			omv_config_add_element "//services/clamav/jobs/job" "verbose" "0"
-			omv_config_add_element "//services/clamav/jobs/job" "multiscan" "0"
+			omv_config_add_element "/config/services/clamav/jobs/job" "verbose" "0"
+			omv_config_add_element "/config/services/clamav/jobs/job" "multiscan" "0"
 			omv-mkconf clamav
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.3"; then
 			omv-mkconf clamav
-			if [ "$(omv_config_get "//services/clamav/enable")" != "0" ]; then
+			if [ "$(omv_config_get "/config/services/clamav/enable")" != "0" ]; then
 				invoke-rc.d clamav-freshclam restart
 			fi
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.4.1"; then
-			omv_config_add_element "//services/clamav/clamd" "logclean" "0"
+			omv_config_add_element "/config/services/clamav/clamd" "logclean" "0"
 		fi
 	;;
 
