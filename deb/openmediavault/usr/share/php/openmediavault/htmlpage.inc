@@ -261,6 +261,8 @@ class OMVWebGuiLogin extends OMVHtmlPage {
 					listeners: {
 						login: function(wnd, response) {
 							if(response.authenticated === true) {
+								// Close the window now.
+								wnd.close();
 								// Reload page to render the web
 								// administration interface
 								document.location.reload(true);

@@ -245,38 +245,46 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		}
 	},
 
+	doReload: function() {
+		var me = this;
+		me.callParent(arguments);
+		// Deselect all records.
+		me.getSelectionModel().deselectAll();
+	},
+
 	onCheckButton: function() {
 		var me = this;
 		OMV.MessageBox.wait(null, _("Checking for new plugins ..."));
 		// Execute RPC.
 		OMV.Rpc.request({
-			  scope: me,
-			  callback: function(id, success, response) {
-				  if(!success) {
-					  OMV.MessageBox.hide();
-					  OMV.MessageBox.error(null, response);
-				  } else {
-					  // Execute RPC.
-					  OMV.Rpc.request({
-						  scope: me,
-						  callback: me.onIsRunning,
-						  relayErrors: true,
-						  rpcData: {
-							  service: "Exec",
-							  method: "isRunning",
-							  params: {
-								  "filename": response
-							  }
-						  }
-					  });
-				  }
-			  },
-			  relayErrors: true,
-			  rpcData: {
-				  service: "Apt",
-				  method: "update"
-			  }
-		  });
+			scope: me,
+			callback: function(id, success, response) {
+				this.getSelectionModel().deselectAll();
+				if(!success) {
+					OMV.MessageBox.hide();
+					OMV.MessageBox.error(null, response);
+				} else {
+					// Execute RPC.
+					OMV.Rpc.request({
+						scope: this,
+						callback: this.onIsRunning,
+						relayErrors: true,
+						rpcData: {
+							service: "Exec",
+							method: "isRunning",
+							params: {
+								"filename": response
+							}
+						}
+					});
+				}
+			},
+			relayErrors: true,
+			rpcData: {
+				service: "Apt",
+				method: "update"
+			}
+		});
 	},
 
 	onIsRunning: function(id, success, response) {
@@ -349,6 +357,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 					hideStopButton: true,
 					killCmdBeforeDestroy: false,
 					listeners: {
+						scope: me,
 						finish: function(wnd, response) {
 							wnd.appendValue(_("Done ..."));
 							wnd.setButtonDisabled("close", false);
@@ -360,8 +369,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 						close: function() {
 							me.doReload();
 							OMV.MessageBox.info(null, _("Please reload the page to let the changes take effect."));
-						},
-						scope: me
+						}
 					}
 				});
 				wnd.setButtonDisabled("close", true);

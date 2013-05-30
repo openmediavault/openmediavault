@@ -104,7 +104,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			);
 			// Get additional package informations.
 			$cmd = sprintf("export LANG=C; apt-cache --no-all-versions ".
-			  "show %s", $object['name']);
+			  "show %s 2>&1", $object['name']);
 			if(0 !== $this->exec($cmd, $output2)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output2));
@@ -173,7 +173,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 		}
 		// Get list of installed packages.
 		unset($output);
-		$cmd = sprintf("export LANG=C; dpkg-query --list %s-*",
+		$cmd = sprintf("export LANG=C; dpkg-query --list %s-* 2>&1",
 		  $prd->getPackageName());
 		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

@@ -161,33 +161,33 @@ case "$1" in
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "0.5"; then
 			# Add avahi configurations.
-			omv_config_add_element "//services" "zeroconf" ""
-			omv_config_add_element "//services/zeroconf" "services" ""
-			omv_config_add_element "//services/zeroconf/services" "service" "<id>webadmin</id><enable>1</enable><name>%h - Web administration</name>" true
-			omv_config_add_element "//services/zeroconf/services" "service" "<id>ssh</id><enable>1</enable><name>%h - SSH</name>" true
-			omv_config_add_element "//services/zeroconf/services" "service" "<id>nfs</id><enable>1</enable><name>%h - NFS</name>" true
-			omv_config_add_element "//services/zeroconf/services" "service" "<id>ftp</id><enable>1</enable><name>%h - FTP</name>" true
-			omv_config_add_element "//services/zeroconf/services" "service" "<id>tftp</id><enable>1</enable><name>%h - TFTP</name>" true
-			omv_config_add_element "//services/zeroconf/services" "service" "<id>smb</id><enable>1</enable><name>%h - SMB/CIFS</name>" true
-			omv_config_add_element "//services/zeroconf/services" "service" "<id>rsync</id><enable>1</enable><name>%h - Rsync</name>" true
+			omv_config_add_element "/config/services" "zeroconf" ""
+			omv_config_add_element "/config/services/zeroconf" "services" ""
+			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>webadmin</id><enable>1</enable><name>%h - Web administration</name>" true
+			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>ssh</id><enable>1</enable><name>%h - SSH</name>" true
+			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>nfs</id><enable>1</enable><name>%h - NFS</name>" true
+			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>ftp</id><enable>1</enable><name>%h - FTP</name>" true
+			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>tftp</id><enable>1</enable><name>%h - TFTP</name>" true
+			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>smb</id><enable>1</enable><name>%h - SMB/CIFS</name>" true
+			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>rsync</id><enable>1</enable><name>%h - Rsync</name>" true
 			omv_config_delete "//dnssd"
 			# Add notification configurations.
-			omv_config_add_element "//system" "notification" ""
-			omv_config_add_element "//system/notification" "notifications" ""
-			omv_config_add_element "//system/notification/notifications" "monitprocevents" "1"
-			omv_config_add_element "//system/notification/notifications" "monitloadavg" "1"
-			omv_config_add_element "//system/notification/notifications" "monitmemoryusage" "1"
-			omv_config_add_element "//system/notification/notifications" "monitcpuusage" "1"
-			omv_config_add_element "//system/notification/notifications" "mdadm" "1"
-			omv_config_add_element "//system/notification/notifications" "smartmontools" "1"
+			omv_config_add_element "/config/system" "notification" ""
+			omv_config_add_element "/config/system/notification" "notifications" ""
+			omv_config_add_element "/config/system/notification/notifications" "monitprocevents" "1"
+			omv_config_add_element "/config/system/notification/notifications" "monitloadavg" "1"
+			omv_config_add_element "/config/system/notification/notifications" "monitmemoryusage" "1"
+			omv_config_add_element "/config/system/notification/notifications" "monitcpuusage" "1"
+			omv_config_add_element "/config/system/notification/notifications" "mdadm" "1"
+			omv_config_add_element "/config/system/notification/notifications" "smartmontools" "1"
 			# Add new Rsync module option.
-			omv_config_add_element "//services/rsync/server/modules/module" "usechroot" "1"
+			omv_config_add_element "/config/services/rsync/server/modules/module" "usechroot" "1"
 			# Add comment to network interface configurations.
-			omv_config_add_element "//system/network/interfaces/iface" "comment" ""
-			omv_config_add_element "//system/network/interfaces/bondiface" "comment" ""
+			omv_config_add_element "/config/system/network/interfaces/iface" "comment" ""
+			omv_config_add_element "/config/system/network/interfaces/bondiface" "comment" ""
 			# Add 'aio' option to SMB/CIFS server. Configuration will be
 			# reloaded automatically.
-			omv_config_add_element "//services/smb" "aio" "1"
+			omv_config_add_element "/config/services/smb" "aio" "1"
 			omv-mkconf samba
 			# Remove user 'openmediavault' from sudoers list.
 			sed -i -e '/^%openmediavault/d' /etc/sudoers

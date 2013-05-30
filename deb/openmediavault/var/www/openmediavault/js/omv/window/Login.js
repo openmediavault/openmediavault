@@ -97,12 +97,12 @@ Ext.define("OMV.window.Login", {
 		});
 		me.callParent(arguments);
 		me.on("show", function() {
-			  // Set focus to field 'Username'.
-			  var field = me.fp.findField("username");
-			  if(!Ext.isEmpty(field)) {
-				  field.focus(false, 500);
-			  }
-		  }, me);
+			// Set focus to field 'Username'.
+			var field = me.fp.findField("username");
+			if(!Ext.isEmpty(field)) {
+				field.focus(false, 500);
+			}
+		}, me);
 	},
 
 	/**
@@ -113,10 +113,10 @@ Ext.define("OMV.window.Login", {
 		me.callParent(arguments);
 		// Monitor keyboard activities.
 		me.map = new Ext.util.KeyMap(me.getEl(), [{
-			  key: [ 10, 13 ],
-			  fn: me.onLogin,
-			  scope: me
-		  }]);
+			key: [ 10, 13 ],
+			fn: me.onLogin,
+			scope: me
+		}]);
 	},
 
 	/**
@@ -138,6 +138,7 @@ Ext.define("OMV.window.Login", {
 				if(!success)
 					OMV.MessageBox.error(null, response);
 				else
+					// Fire event but do not close the window.
 					this.fireEvent("login", this, response);
 			},
 			relayErrors: true,

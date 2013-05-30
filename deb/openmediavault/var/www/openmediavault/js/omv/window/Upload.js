@@ -102,8 +102,12 @@ Ext.define("OMV.window.Upload", {
 			waitMsg: me.waitMsg,
 			scope: me,
 			success: function(form, action) {
-				this.close();
+				// !!! Attention !!! Fire event before window is closed,
+				// otherwise the dialog's own listener is removed before the
+				// event has been fired and the action has been executed.
 				this.fireEvent("success", this, action.result.responseText);
+				// Now close the dialog.
+				this.close();
 			},
 			failure: function(form, action) {
 				var msg = action.response.responseText;

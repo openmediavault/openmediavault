@@ -257,8 +257,7 @@ Ext.define("OMV.module.admin.system.cron.Jobs", {
 		sortable: true,
 		dataIndex: "minute",
 		stateId: "minute",
-		renderer: function(value, metaData, record, rowIndex, colIndex,
-		  store, view) {
+		renderer: function(value, metaData, record) {
 			var everynminute = record.get("everynminute");
 			if(everynminute == true) {
 				value = "*/" + value;
@@ -270,8 +269,7 @@ Ext.define("OMV.module.admin.system.cron.Jobs", {
 		sortable: true,
 		dataIndex: "hour",
 		stateId: "hour",
-		renderer: function(value, metaData, record, rowIndex, colIndex,
-		  store, view) {
+		renderer: function(value, metaData, record) {
 			var everynhour = record.get("everynhour");
 			var func = OMV.util.Format.arrayRenderer(Date.mapHour);
 			value = func(value);
@@ -285,8 +283,7 @@ Ext.define("OMV.module.admin.system.cron.Jobs", {
 		sortable: true,
 		dataIndex: "dayofmonth",
 		stateId: "dayofmonth",
-		renderer: function(value, metaData, record, rowIndex, colIndex,
-		  store, view) {
+		renderer: function(value, metaData, record) {
 			var everyndayofmonth = record.get("everyndayofmonth");
 			var func = OMV.util.Format.arrayRenderer(
 			  Date.mapDayOfMonth);

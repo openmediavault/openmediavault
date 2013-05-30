@@ -218,7 +218,12 @@ class OMVUploadRpcProxy extends OMVJsonRpcProxy {
 		// Create the temporary filename.
 		$tmpFilename = tempnam(sys_get_temp_dir(), "upload");
 		// Copy file to a temporary location.
-		move_uploaded_file($_FILES['file']['tmp_name'], $tmpFilename);
+		if(!move_uploaded_file($_FILES['file']['tmp_name'], $tmpFilename)) {
+			throw new OMVException( OMVErrorMsg::E_MISC_FAILURE, sprintf(
+			  "Failed to move uploaded file (src=%s, dst=%s, size=%d).",
+			  $_FILES['file']['tmp_name'], $tmpFilename,
+			  $_FILES['file']['size']));
+		}
 		// Modify the service method parameters.
 		$this->params['params']['filename'] = $_FILES['file']['name'];
 		$this->params['params']['filepath'] = $tmpFilename;

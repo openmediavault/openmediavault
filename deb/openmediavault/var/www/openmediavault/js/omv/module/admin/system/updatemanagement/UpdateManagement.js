@@ -308,7 +308,7 @@ Ext.define("OMV.module.admin.system.updatemanagement.Packages", {
 				success: function(wnd, response) {
 					// The upload was successful, now resynchronize the
 					// package index files from their sources.
-					me.onCheckButton();
+					this.onCheckButton();
 				}
 			}
 		}).show();

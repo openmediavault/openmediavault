@@ -82,18 +82,22 @@ Ext.define("OMV.WorkspaceManager", {
 
 	/**
 	 * Register a new node. These config is used to create the navigation tree
-	 * and working area.
+	 * and working area. Nodes are sorted by their position and text.
 	 * @param config The node configuration. An object which may contain
 	 *   the following properties:
 	 *   \em id The id of the node. This must be unique.
 	 *   \em path The path of the parent node.
 	 *   \em text
-	 *   \em position
+	 *   \em position The position of the node. Defaults to 100.
 	 *   \em icon16
 	 *   \em icon32
 	 */
 	registerNode: function(config) {
 		var me = this;
+		// Append default values.
+		config = Ext.apply({
+			position: 100
+		}, config);
 		// Extract path nodes.
 		var parts = me.explodeNodePath(config.path)
 		var parent = me.getRootNode();
@@ -123,30 +127,35 @@ Ext.define("OMV.WorkspaceManager", {
 				leaf: false
 			})));
 		}
-		parent.sort({
+		parent.sort([{
 			property : "position",
 			direction: "ASC"
 		},{
 			property : "text",
-			direction: "ASC"
-		});
+			direction: "DESC"
+		}]);
 		return result;
 	},
 
 	/**
-	 * Register a new panel for the given node path.
+	 * Register a new panel for the given node path. Panels are sorted by
+	 * their position and text.
 	 * @param config The node configuration. An object which may contain
 	 *   the following properties:
 	 *   \em id The id of the node. This must be unique.
 	 *   \em path The path of the parent node.
 	 *   \em text
-	 *   \em position
+	 *   \em position The position of the panel. Defaults to 100.
 	 *   \em icon16
 	 *   \em icon32
 	 *   \em className
 	 */
 	registerPanel: function(config) {
 		var me = this;
+		// Append default values.
+		config = Ext.apply({
+			position: 100
+		}, config);
 		// Check if the given class exists.
 		if(!Ext.ClassManager.isCreated(config.className)) {
 			Ext.Error.raise(Ext.String.format("Failed to register " +
@@ -178,13 +187,13 @@ Ext.define("OMV.WorkspaceManager", {
 		var node = parent.appendChild(me.createNode(Ext.apply(config, {
 			leaf: true
 		})));
-		parent.sort({
+		parent.sort([{
 			property : "position",
 			direction: "ASC"
 		},{
 			property : "text",
-			direction: "ASC"
-		});
+			direction: "DESC"
+		}]);
 		return node;
 	},
 
