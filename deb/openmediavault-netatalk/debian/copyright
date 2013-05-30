@@ -3,12 +3,9 @@ Upstream-Name: PHP JSON schema
 Upstream-Contact: Volker Theile <volker.theile@openmediavault.org>
 Source: http://www.openmediavault.org
 
+Files: *
 Copyright: 2009-2013 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
-
-Files: *
-License: GPL-3
-Copyright: Volker Theile <volker.theile@openmediavault.org>
 
 Files: var/www/openmediavault/images/afp.png
 License: CC-BY-SA

@@ -64,10 +64,10 @@ case "$1" in
 		#   </services>
 		# </config>
 		########################################################################
-		if ! omv_config_exists "//services/usbbackup"; then
+		if ! omv_config_exists "/config/services/usbbackup"; then
 			echo "Initialize configuration"
-			omv_config_add_element "//services" "usbbackup" ""
-			omv_config_add_element "//services/usbbackup" "jobs" ""
+			omv_config_add_element "/config/services" "usbbackup" ""
+			omv_config_add_element "/config/services/usbbackup" "jobs" ""
 		fi
 
 		########################################################################

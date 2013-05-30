@@ -44,7 +44,7 @@ update-rc.d ups-monitor disable &>/dev/null
 case "$1" in
 	purge)
 		# Remove the configuration data.
-		omv_config_delete "//services/nut"
+		omv_config_delete "/config/services/nut"
 		# Remove udev-rule.
 		rm -f ${OMV_NUT_UDEV_RULE_CONFIG}
 		udevadm control --reload-rules

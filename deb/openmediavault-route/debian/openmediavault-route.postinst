@@ -42,9 +42,9 @@ case "$1" in
 		#   </services>
 		# </config>
 		########################################################################
-		if ! omv_config_exists "//services/staticroutes"; then
+		if ! omv_config_exists "/config/services/staticroutes"; then
 			echo "Initialize configuration"
-			omv_config_add_element "//services" "staticroutes" ""
+			omv_config_add_element "/config/services" "staticroutes" ""
 		fi
 
 		########################################################################

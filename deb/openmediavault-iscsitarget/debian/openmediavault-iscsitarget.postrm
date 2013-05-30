@@ -31,7 +31,7 @@ monit reload
 case "$1" in
 	purge)
 		# Remove the configuration data
-		omv_config_delete "//services/iscsitarget"
+		omv_config_delete "/config/services/iscsitarget"
 	;;
 
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

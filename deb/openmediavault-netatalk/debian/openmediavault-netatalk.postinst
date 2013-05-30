@@ -77,7 +77,7 @@ case "$1" in
 		#   </services>
 		# </config>
 		########################################################################
-		if ! omv_config_exists "//services/afp"; then
+		if ! omv_config_exists "/config/services/afp"; then
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
 			object="${object}<allowclrtxt>0</allowclrtxt>"
@@ -88,7 +88,7 @@ case "$1" in
 			object="${object}<enable>1</enable>"
 			object="${object}<name>%h - AFP</name>"
 			object="${object}</dnssd>"
-			omv_config_add_element "//services" "afp" "${object}" true
+			omv_config_add_element "/config/services" "afp" "${object}" true
 		fi
 
 		########################################################################
@@ -99,21 +99,21 @@ case "$1" in
 			rm -f /etc/monit/conf.d/netatalk
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.4"; then
-			omv_config_add_element "//services/afp" "dnssd" ""
-			omv_config_add_element "//services/afp/dnssd" "enable" "1"
-			omv_config_add_element "//services/afp/dnssd" "name" "%h - AFP"
+			omv_config_add_element "/config/services/afp" "dnssd" ""
+			omv_config_add_element "/config/services/afp/dnssd" "enable" "1"
+			omv_config_add_element "/config/services/afp/dnssd" "name" "%h - AFP"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.5"; then
-			omv_config_add_element "//services/afp" "allowclrtxt" "0"
-			omv_config_add_element "//services/afp" "homesenable" "0"
+			omv_config_add_element "/config/services/afp" "allowclrtxt" "0"
+			omv_config_add_element "/config/services/afp" "homesenable" "0"
 			omv-mkconf netatalk
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.3.0.7"; then
-			omv_config_add_element "//services/afp/shares/share" "volsizelimit" "0"
+			omv_config_add_element "/config/services/afp/shares/share" "volsizelimit" "0"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.5"; then
 			# Add avahi configuration.
-			omv_config_add_element "//services/zeroconf/services" "service" "<id>afp</id><enable>1</enable><name>%h - AFP</name>" true
+			omv_config_add_element "/config/services/zeroconf/services" "service" "<id>afp</id><enable>1</enable><name>%h - AFP</name>" true
 		fi
 	;;
 

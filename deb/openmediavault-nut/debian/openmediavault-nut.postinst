@@ -56,7 +56,7 @@ case "$1" in
 		#   </services>
 		# </config>
 		########################################################################
-		if ! omv_config_exists "//services/nut"; then
+		if ! omv_config_exists "/config/services/nut"; then
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
 			object="${object}<upsname>ups</upsname>"
@@ -67,7 +67,7 @@ case "$1" in
 			object="${object}<remotemonitor>0</remotemonitor>"
 			object="${object}<remoteuser></remoteuser>"
 			object="${object}<remotepassword></remotepassword>"
-			omv_config_add_element "//services" "nut" "${object}" true
+			omv_config_add_element "/config/services" "nut" "${object}" true
 		fi
 
 		########################################################################

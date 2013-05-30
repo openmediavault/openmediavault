@@ -29,7 +29,7 @@ OMV_USBBACKUP_UDEV_RULE_CONFIG=${OMV_USBBACKUP_UDEV_RULE_CONFIG:-"/etc/udev/rule
 case "$1" in
 	purge)
 		# Remove the configuration data.
-		omv_config_delete "//services/usbbackup"
+		omv_config_delete "/config/services/usbbackup"
 		# Remove udev-rule
 		rm -f ${OMV_USBBACKUP_UDEV_RULE_CONFIG}
 		udevadm control --reload-rules

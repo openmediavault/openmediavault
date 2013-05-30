@@ -55,7 +55,7 @@ case "$1" in
 		#   </services>
 		# </config>
 		########################################################################
-		if ! omv_config_exists "//services/daap"; then
+		if ! omv_config_exists "/config/services/daap"; then
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
 			object="${object}<libraryname>%h - iTunes/DAAP</libraryname>"
@@ -64,7 +64,7 @@ case "$1" in
 			object="${object}<passwordrequired>0</passwordrequired>"
 			object="${object}<password></password>"
 			object="${object}<adminpassword>unused</adminpassword>"
-			omv_config_add_element "//services" "daap" "${object}" true
+			omv_config_add_element "/config/services" "daap" "${object}" true
 		fi
 
 		########################################################################
@@ -75,7 +75,7 @@ case "$1" in
 			rm -f /etc/monit/conf.d/forked-daapd
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.2.4"; then
-			omv_config_delete "//*[userref=//system/usermanagement/users/user[name='daapd']/uuid]"
+			omv_config_delete "//*[userref=/config/system/usermanagement/users/user[name='daapd']/uuid]"
 			omv_config_delete_user "daapd"
 		fi
 	;;

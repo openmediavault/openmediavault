@@ -53,7 +53,7 @@ case "$1" in
 		#   </services>
 		# </config>
 		########################################################################
-		if ! omv_config_exists "//services/ldap"; then
+		if ! omv_config_exists "/config/services/ldap"; then
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
 			object="${object}<host></host>"
@@ -64,7 +64,7 @@ case "$1" in
 			object="${object}<usersuffix>ou=Users</usersuffix>"
 			object="${object}<groupsuffix>ou=Groups</groupsuffix>"
 			object="${object}<extraoptions></extraoptions>"
-			omv_config_add_element "//services" "ldap" "${object}" true
+			omv_config_add_element "/config/services" "ldap" "${object}" true
 		fi
 
 		########################################################################

@@ -31,7 +31,7 @@ monit reload
 case "$1" in
 	purge)
 		# Remove the configuration data
-		omv_config_delete "//services/daap"
+		omv_config_delete "/config/services/daap"
 	;;
 
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

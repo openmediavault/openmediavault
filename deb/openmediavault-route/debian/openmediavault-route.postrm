@@ -27,7 +27,7 @@ set -e
 case "$1" in
 	purge)
 		# Remove the configuration data
-		omv_config_delete "//services/staticroutes"
+		omv_config_delete "/config/services/staticroutes"
 	;;
 
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
