@@ -18,40 +18,42 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/ModuleManager.js")
-// require("js/omv/FormPanelExt.js")
-// require("js/omv/form/field/Password.js")
+// require("js/omv/WorkspaceManager.js")
+// require("js/omv/workspace/form/Panel.js")
 // require("js/omv/form/field/SharedFolderComboBox.js")
-// require("js/omv/form/field/plugin/FieldInfo.js")
-
-Ext.ns("OMV.Module.Services");
-
-// Register the menu.
-OMV.ModuleManager.registerMenu("services", "daapd", {
-	text: _("iTunes/DAAP"),
-	icon16: "images/forkeddaapd.png"
-});
 
 /**
- * @class OMV.Module.Services.ForkedDaapd
- * @derived OMV.FormPanelExt
+ * @class OMV.module.admin.service.daapd.Settings
+ * @derived OMV.workspace.form.Panel
  */
-OMV.Module.Services.ForkedDaapd = function(config) {
-	var initialConfig = {
-		rpcService: "ForkedDaapd"
-	};
-	Ext.apply(initialConfig, config);
-	OMV.Module.Services.ForkedDaapd.superclass.constructor.call(this,
-	  initialConfig);
-};
-Ext.extend(OMV.Module.Services.ForkedDaapd, OMV.FormPanelExt, {
-	initComponent : function() {
-		OMV.Module.Services.ForkedDaapd.superclass.initComponent.apply(this,
-		  arguments);
-		this.on("load", this.updateFormFields, this);
-	},
+Ext.define("OMV.module.admin.service.daapd.Settings", {
+	extend: "OMV.workspace.form.Panel",
+	requires: [
+		"OMV.form.field.SharedFolderComboBox"
+	],
 
-	getFormItems : function() {
+	rpcService: "ForkedDaapd",
+	plugins: [{
+		ptype: "linkedfields",
+		correlations: [{
+			name: "password",
+			conditions: [
+				{ name: "passwordrequired", value: true }
+			],
+			properties: [
+				"!allowBlank",
+				"!readOnly"
+			]
+		},{
+			name: "sharedfolderref",
+			conditions: [
+				{ name: "enable", value: true }
+			],
+			properties: "!allowBlank"
+		}]
+	}],
+
+	getFormItems: function() {
 		return [{
 			xtype: "fieldset",
 			title: _("General settings"),
@@ -62,11 +64,7 @@ Ext.extend(OMV.Module.Services.ForkedDaapd, OMV.FormPanelExt, {
 				xtype: "checkbox",
 				name: "enable",
 				fieldLabel: _("Enable"),
-				checked: false,
-				listeners: {
-					check: this.updateFormFields,
-					scope: this
-				}
+				checked: false
 			},{
 				xtype: "textfield",
 				name: "libraryname",
@@ -104,11 +102,7 @@ Ext.extend(OMV.Module.Services.ForkedDaapd, OMV.FormPanelExt, {
 				name: "passwordrequired",
 				fieldLabel: _("Authentication"),
 				checked: false,
-				boxLabel: _("A password is required to access the library."),
-				listeners: {
-					check: this.updateFormFields,
-					scope: this
-				}
+				boxLabel: _("A password is required to access the library.")
 			},{
 				xtype: "passwordfield",
 				name: "password",
@@ -116,29 +110,20 @@ Ext.extend(OMV.Module.Services.ForkedDaapd, OMV.FormPanelExt, {
 				allowBlank: true
 			}]
 		}];
-	},
-
-	/**
-	 * Private function to update the states of various form fields.
-	 */
-	updateFormFields: function() {
-		// Update 'password' field settings
-		var field = this.findField("passwordrequired");
-		var checked = field.checked;
-		field = this.findField("password");
-		if(!Ext.isEmpty(field)) {
-			field.allowBlank = !checked;
-			field.setReadOnly(!checked);
-		}
-		// Update 'sharedfolderref' field settings
-		field = this.findField("enable");
-		checked = field.checked;
-		field = this.findField("sharedfolderref");
-		if(!Ext.isEmpty(field)) {
-			field.allowBlank = !checked;
-		}
 	}
 });
-OMV.ModuleManager.registerPanel("services", "daapd", {
-	cls: OMV.Module.Services.ForkedDaapd
+
+OMV.WorkspaceManager.registerNode({
+	id: "daapd",
+	path: "/service",
+	text: _("iTunes/DAAP"),
+	icon16: "images/forkeddaapd.png"
+});
+
+OMV.WorkspaceManager.registerPanel({
+	id: "settings",
+	path: "/service/daapd",
+	text: _("Settings"),
+	position: 10,
+	className: "OMV.module.admin.service.daapd.Settings"
 });
