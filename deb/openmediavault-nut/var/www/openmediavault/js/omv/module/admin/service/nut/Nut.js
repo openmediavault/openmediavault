@@ -19,16 +19,10 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/WorkspaceManager.js")
-// require("js/omv/workspace/tab/Panel.js")
-
-// require("js/omv/ModuleManager.js")
-// require("js/omv/FormPanelExt.js")
-// require("js/omv/form/field/plugin/FieldInfo.js")
-
-Ext.ns("OMV.Module.Services");
+// require("js/omv/workspace/form/Panel.js")
 
 // Append vtypes
-Ext.apply(Ext.form.VTypes, {
+Ext.apply(Ext.form.field.VTypes, {
 	upsname: function(v) {
 		return /^[a-zA-Z0-9_-]+$/.test(v);
 	},
@@ -36,30 +30,42 @@ Ext.apply(Ext.form.VTypes, {
 	upsnameMask: /[a-z0-9_-]/i
 });
 
-// Register the menu.
-OMV.ModuleManager.registerMenu("services", "nut", {
-	text: _("UPS"),
-	icon16: "images/nut.png"
-});
-
 /**
- * @class OMV.Module.Services.NUT
- * @derived OMV.FormPanelExt
+ * @class OMV.module.admin.service.nut.Settings
+ * @derived OMV.workspace.form.Panel
  */
-OMV.Module.Services.NUT = function(config) {
-	var initialConfig = {
-		rpcService: "Nut"
-	};
-	Ext.apply(initialConfig, config);
-	OMV.Module.Services.NUT.superclass.constructor.call(this, initialConfig);
-};
-Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
-	initComponent : function() {
-		OMV.Module.Services.NUT.superclass.initComponent.apply(this, arguments);
-		this.on("load", this.updateFormFields, this);
-	},
+Ext.define("OMV.module.admin.service.nut.Settings", {
+	extend: "OMV.workspace.form.Panel",
 
-	getFormItems : function() {
+	rpcService: "Nut",
+	plugins: [{
+		ptype: "linkedfields",
+		correlations: [{
+			name: [
+				"remoteuser",
+				"remotepassword"
+			],
+			conditions: [
+				{ name: "enable", value: true },
+				{ name: "remotemonitor", value: true }
+			],
+			properties: [
+				"!allowBlank",
+				"!readOnly"
+			]
+		},{
+			name: "shutdowntimer",
+			conditions: [
+				{ name: "shutdownmode", value: "onbatt" }
+			],
+			properties: [
+				"!allowBlank",
+				"!readOnly"
+			]
+		}]
+	}],
+
+	getFormItems: function() {
 		return [{
 			xtype: "fieldset",
 			title: _("General settings"),
@@ -70,13 +76,7 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 				xtype: "checkbox",
 				name: "enable",
 				fieldLabel: _("Enable"),
-				checked: false,
-				listeners: {
-					check: function(comp, checked) {
-						this.updateFormFields();
-					},
-					scope: this
-				}
+				checked: false
 			},{
 				xtype: "textfield",
 				name: "upsname",
@@ -91,19 +91,13 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 				xtype: "textfield",
 				name: "comment",
 				fieldLabel: _("Comment"),
-				allowBlank: true,
-				width: 400
+				allowBlank: true
 			},{
 				xtype: "textfield",
 				name: "driverconf",
 				fieldLabel: _("Driver configuration directives"),
 				allowBlank: false,
-				autoCreate: {
-					tag: "textarea",
-					autocomplete: "off",
-					rows: "7",
-					cols: "65"
-				},
+				minHeight: 150,
 				plugins: [{
 					ptype: "fieldinfo",
 					text: _("To get more information how to configure your UPS please check the Network UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>documentation</a>."),
@@ -114,10 +108,10 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 				fieldLabel: _("Shutdown mode"),
 				queryMode: "local",
 				store: Ext.create("Ext.data.ArrayStore", {
-					fields: [ "value","text" ],
+					fields: [ "value", "text" ],
 					data: [
-						[ "fsd",_("UPS reaches low battery") ],
-						[ "onbatt",_("UPS goes on battery") ]
+						[ "fsd", _("UPS reaches low battery") ],
+						[ "onbatt", _("UPS goes on battery") ]
 					]
 				}),
 				displayField: "text",
@@ -129,13 +123,7 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 				plugins: [{
 					ptype: "fieldinfo",
 					text: _("Defines when the shutdown is initiated."),
-				}],
-				listeners: {
-					select: function(combo, record, index) {
-						this.updateFormFields();
-					},
-					scope: this
-				}
+				}]
 			},{
 				xtype: "numberfield",
 				name: "shutdowntimer",
@@ -160,11 +148,7 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 				name: "remotemonitor",
 				fieldLabel: _("Enable"),
 				checked: false,
-				boxLabel: _("Enable remote monitoring of the local connected UPS."),
-				listeners: {
-					check: this.updateFormFields,
-					scope: this
-				}
+				boxLabel: _("Enable remote monitoring of the local connected UPS.")
 			},{
 				xtype: "textfield",
 				name: "remoteuser",
@@ -215,6 +199,18 @@ Ext.extend(OMV.Module.Services.NUT, OMV.FormPanelExt, {
 		}
 	}
 });
-OMV.ModuleManager.registerPanel("services", "nut", {
-	cls: OMV.Module.Services.NUT
+
+OMV.WorkspaceManager.registerNode({
+	id: "nut",
+	path: "/service",
+	text: _("UPS"),
+	icon16: "images/nut.png"
+});
+
+OMV.WorkspaceManager.registerPanel({
+	id: "settings",
+	path: "/service/nut",
+	text: _("Settings"),
+	position: 10,
+	className: "OMV.module.admin.service.nut.Settings"
 });
