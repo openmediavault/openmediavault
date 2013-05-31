@@ -350,9 +350,9 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 				}
 			}
 			// Install the packages.
-			$cmd = sprintf("export LANG=C; apt-get --yes --force-yes ".
-			  "--fix-missing --allow-unauthenticated --reinstall install ".
-			  "%s 2>&1", implode(" ", $params['packages']));
+			$cmd = sprintf("export LANG=C; export DEBIAN_FRONTEND=noninteractive; ".
+			  "apt-get --yes --force-yes --fix-missing --allow-unauthenticated ".
+			  "--reinstall install %s 2>&1", implode(" ", $params['packages']));
 			if(0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
