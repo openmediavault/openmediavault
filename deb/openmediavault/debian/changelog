@@ -1,3 +1,15 @@
+openmediavault (0.5.0.5) stable; urgency=low
+
+  * Fix various issues.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 31 May 2013 22:09:46 +0200
+
+openmediavault (0.5.0.4) stable; urgency=low
+
+  * Fix various issues.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 31 May 2013 14:01:19 +0200
+
 openmediavault (0.5.0.3) stable; urgency=low
 
   * Fix various issues in the WebGUI.
