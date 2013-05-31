@@ -18,39 +18,21 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/ModuleManager.js")
-// require("js/omv/FormPanelExt.js")
-// require("js/omv/form/field/Password.js")
-// require("js/omv/form/field/plugin/FieldInfo.js")
-
-Ext.ns("OMV.Module.Privileges");
-
-// Register the menu.
-OMV.ModuleManager.registerMenu("privileges", "directoryservice", {
-	text: _("Directory Service"),
-	icon16: "images/ldap.png",
-	position: 5
-});
-
-Ext.ns("OMV.Module.Privileges.DirectoryService");
+// require("js/omv/WorkspaceManager.js")
+// require("js/omv/workspace/form/Panel.js")
 
 /**
- * @class OMV.Module.Privileges.DirectoryService.Settings
- * @derived OMV.FormPanelExt
+ * @class OMV.module.admin.privilege.ldap.Settings
+ * @derived OMV.workspace.form.Panel
  */
-OMV.Module.Privileges.DirectoryService.Settings = function(config) {
-	var initialConfig = {
-		rpcService: "LDAP",
-		rpcGetMethod: "getSettings",
-		rpcSetMethod: "setSettings"
-	};
-	Ext.apply(initialConfig, config);
-	OMV.Module.Privileges.DirectoryService.Settings.superclass.
-	  constructor.call(this, initialConfig);
-};
-Ext.extend(OMV.Module.Privileges.DirectoryService.Settings,
-  OMV.FormPanelExt, {
-	getFormItems : function() {
+Ext.define("OMV.module.admin.privilege.ldap.Settings", {
+	extend: "OMV.workspace.form.Panel",
+
+	rpcService: "LDAP",
+	rpcGetMethod: "getSettings",
+	rpcSetMethod: "setSettings",
+
+	getFormItems: function() {
 		return [{
 			xtype: "fieldset",
 			title: _("General settings"),
@@ -138,12 +120,6 @@ Ext.extend(OMV.Module.Privileges.DirectoryService.Settings,
 				name: "extraoptions",
 				fieldLabel: _("Extra options"),
 				allowBlank: true,
-				autoCreate: {
-					tag: "textarea",
-					autocomplete: "off",
-					rows: "7",
-					cols: "65"
-				},
 				plugins: [{
 					ptype: "fieldinfo",
 					text: _("Please check the <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>manual page</a> for more details."),
@@ -152,8 +128,11 @@ Ext.extend(OMV.Module.Privileges.DirectoryService.Settings,
 		}];
 	}
 });
-OMV.ModuleManager.registerPanel("privileges", "directoryservice", {
-	cls: OMV.Module.Privileges.DirectoryService.Settings,
-	title: _("LDAP"),
-	position: 10
+
+OMV.WorkspaceManager.registerPanel({
+	id: "settings",
+	path: "/privilege/ldap",
+	text: _("Settings"),
+	position: 10,
+	className: "OMV.module.admin.privilege.ldap.Settings"
 });
