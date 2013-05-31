@@ -51,7 +51,7 @@ Ext.define("OMV.workspace.window.plugin.ConfigObject", {
 		} else {
 			Ext.Error.raise(Ext.String.format("Failed to initialize " +
 			  "plugin. The property 'uuid' is missing in class '{0}'.",
-			  client.getName()));
+			  Ext.getClassName(client)));
 		}
 	},
 
