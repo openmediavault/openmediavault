@@ -1,4 +1,4 @@
-openmediavault-route (0.5) stable; urgency=low
+openmediavault-usbbackup (0.5) stable; urgency=low
 
   * Adapt plugin to new framework.
 

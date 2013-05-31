@@ -37,6 +37,7 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 	 * Initialize the RPC service.
 	 */
 	public function initialize() {
+		$this->registerMethod("getCandidates");
 		$this->registerMethod("getList");
 		$this->registerMethod("get");
 		$this->registerMethod("set");
@@ -67,7 +68,7 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 		}
 		// Get the root partition (the filesystem containing the operation
 		// system) to filter it out.
-		$rootDeviceFile = OMVSystem::getRootPartition();
+		$rootDeviceFile = OMVSystem::getRootDeviceFile();
 		// Collect volumes that are candidates for a backup job.
 		$result = array();
 		foreach($objects as $objectk => $objectv) {
