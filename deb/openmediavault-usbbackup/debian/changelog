@@ -1,3 +1,9 @@
+openmediavault-usbbackup (0.5.1) stable; urgency=low
+
+  * Restart omv-engined via trigger.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 31 May 2013 22:17:47 +0200
+
 openmediavault-usbbackup (0.5) stable; urgency=low
 
   * Adapt plugin to new framework.
