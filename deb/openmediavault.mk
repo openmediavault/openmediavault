@@ -38,7 +38,7 @@ omv_build_pot:
 	echo "Building PO template file ..." >&2
 	mkdir -p $(OMV_POT_DIR)
 	find $(CURDIR) \( -iname *.js -o -iname *.php -o -iname *.inc \) \
-	  -type f -print0 | xargs -0 xgettext --keyword=_ \
+	  -type f -print0 | xargs -0r xgettext --keyword=_ \
 	  --output-dir=$(OMV_POT_DIR) --output=$(OMV_POT_FILE) \
 	  --force-po --no-location --no-wrap --sort-output \
 	  --package-name=$(OMV_PACKAGE) -
@@ -50,7 +50,7 @@ omv_clean_scm:
 	dh_testdir
 	echo "Removing SCM files ..." >&2
 	find $(CURDIR)/debian/$(OMV_PACKAGE) \( -name .svn -o -name .git \) \
-	  -type d -print0 -prune | xargs -0 rm -rf
+	  -type d -print0 -prune | xargs -0r rm -rf
 
 omv_build_doc: debian/doxygen.conf
 	mkdir -p debian/doxygen
