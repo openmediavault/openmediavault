@@ -93,7 +93,7 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		$removeDirtyModules = array();
 		$modules = array_keys($moduleMgr->getModules());
 		foreach($dirtyModules as $dirtyModulek => $dirtyModulev) {
-			if(!in_array($modules, $dirtyModulev))
+			if(!in_array($dirtyModulev, $modules))
 				$removeDirtyModules[] = $dirtyModulev;
 		}
 		if(!empty($removeDirtyModules)) {

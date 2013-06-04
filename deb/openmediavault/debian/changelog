@@ -1,3 +1,9 @@
+openmediavault (0.5.0.6) stable; urgency=low
+
+  * Fix bug in RPC Config::applyChanges().
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 04 Jun 2013 19:49:53 +0200
+
 openmediavault (0.5.0.5) stable; urgency=low
 
   * Fix various issues.
