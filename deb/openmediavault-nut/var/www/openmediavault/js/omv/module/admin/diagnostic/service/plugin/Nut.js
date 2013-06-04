@@ -108,6 +108,6 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.Nut", {
 OMV.PluginManager.register({
 	ptype: "diagnostic",
 	id: "service",
-	title: _("UPS"),
+	text: _("UPS"),
 	className: "OMV.module.admin.diagnostic.service.plugin.Nut"
 });

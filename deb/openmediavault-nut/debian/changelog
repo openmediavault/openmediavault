@@ -1,3 +1,9 @@
+openmediavault-nut (0.5.1) stable; urgency=low
+
+  * Fix issue in 'Diagnostics | Services' page.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 04 Jun 2013 19:30:05 +0200
+
 openmediavault-nut (0.5) stable; urgency=low
 
   * Adapt plugin to new framework.
