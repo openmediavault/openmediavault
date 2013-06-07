@@ -175,9 +175,8 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 			msg: _("Do you really want to create the RAID device?"),
 			buttons: Ext.Msg.YESNO,
 			fn: function(answer) {
-				if(answer === "no") {
+				if(answer === "no")
 					return;
-				}
 				me.superclass.doSubmit.call(me);
 			},
 			scope: me,

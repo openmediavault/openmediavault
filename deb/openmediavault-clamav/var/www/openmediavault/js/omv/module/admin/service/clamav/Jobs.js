@@ -245,7 +245,6 @@ Ext.define("OMV.module.admin.service.clamav.Jobs", {
 	hidePagingToolbar: false,
 	stateful: true,
 	stateId: "f8a8cf1c-a107-11e1-a5a0-00221568ca88",
-
 	columns: [{
 		xtype: "booleaniconcolumn",
 		text: _("Enabled"),
