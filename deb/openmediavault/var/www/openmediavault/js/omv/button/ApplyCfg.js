@@ -44,7 +44,7 @@ Ext.define("OMV.button.ApplyCfg", {
 	reloadInterval: 5000,
 
 	icon: "images/led_gray.png",
-	tooltip: _("Apply configuration"),
+	tooltip: _("Apply configuration changes"),
 	disabled: true,
 
 	initComponent: function() {
@@ -66,7 +66,7 @@ Ext.define("OMV.button.ApplyCfg", {
 						// Display a progress bar until the configuration
 						// changes have been applied.
 						var dlg = Ext.create("OMV.window.Execute", {
-							title: _("Apply configuration"),
+							title: _("Apply configuration changes"),
 							width: 350,
 							rpcService: "Config",
 							rpcMethod: "applyChangesBg",
