@@ -27,10 +27,10 @@
 // require("js/omv/data/proxy/Rpc.js")
 
 /**
- * @class OMV.module.admin.storage.lvm.PhysicalVolume
+ * @class OMV.module.admin.storage.lvm.pv.Create
  * @derived OMV.workspace.window.Form
  */
-Ext.define("OMV.module.admin.storage.lvm.PhysicalVolume", {
+Ext.define("OMV.module.admin.storage.lvm.pv.Create", {
 	extend: "OMV.workspace.window.Form",
 
 	rpcService: "LogicalVolumeMgmt",
@@ -106,7 +106,7 @@ Ext.define("OMV.module.admin.storage.lvm.PhysicalVolumes", {
 		"OMV.data.proxy.Rpc"
 	],
 	uses: [
-		"OMV.module.admin.storage.lvm.PhysicalVolume"
+		"OMV.module.admin.storage.lvm.pv.Create"
 	],
 
 	hideAddButton: false,
@@ -171,7 +171,7 @@ Ext.define("OMV.module.admin.storage.lvm.PhysicalVolumes", {
 
 	onAddButton: function() {
 		var me = this;
-		Ext.create("OMV.module.admin.storage.lvm.PhysicalVolume", {
+		Ext.create("OMV.module.admin.storage.lvm.pv.Create", {
 			title: _("Add physical volume"),
 			listeners: {
 				scope: me,

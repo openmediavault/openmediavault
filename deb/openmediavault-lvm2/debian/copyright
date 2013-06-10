@@ -7,29 +7,5 @@ Copyright: 2009-2013 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
 
 Files: var/www/openmediavault/images/lvm.png
-License: LGPL
-Copyright: Everaldo Coelho (http://www.everaldo.com)
-Comment: http://www.iconfinder.com/icondetails/3321/16
-
-Files: var/www/openmediavault/images/lvm-extend.png
-License: LGPL
-Copyright: Everaldo Coelho (http://www.everaldo.com)
- Volker Theile
-Comment: http://www.iconfinder.com/icondetails/3321/16
-
-Files: var/www/openmediavault/images/lvm-create.png
-License: LGPL
-Copyright: Everaldo Coelho (http://www.everaldo.com)
-Comment: http://www.iconfinder.com/icondetails/3321/16
-
-Files: var/www/openmediavault/images/lvm-edit.png
-License: LGPL
-Copyright: Everaldo Coelho (http://www.everaldo.com)
- Volker Theile
-Comment: http://www.iconfinder.com/icondetails/3321/16
-
-Files: var/www/openmediavault/images/lvm-reduce.png
-License: LGPL
-Copyright: Everaldo Coelho (http://www.everaldo.com)
- Volker Theile
-Comment: http://www.iconfinder.com/icondetails/3321/16
+Copyright: interactivemania <http://www.defaulticon.com>
+License: CC-BY-ND-3.0
