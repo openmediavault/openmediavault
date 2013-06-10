@@ -37,6 +37,7 @@ div#headerrlogo {
 	height: 100%;
 	width: 362px;
 	background-image: url("/images/header_rlogo.png");
+	display: none;
 }
 .x-text-center {
 	text-align: center;

@@ -24,6 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "smart",
 	path: "/storage",
 	text: _("S.M.A.R.T."),
-	icon16: "images/harddisk-smart.png",
+	icon16: "images/activity.png",
 	position: 20
 });
