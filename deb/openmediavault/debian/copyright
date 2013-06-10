@@ -379,6 +379,14 @@ Files: /var/www/openmediavault/images/resize.png
 Copyright: interactivemania <http://www.defaulticon.com>
 License: CC-BY-ND-3.0
 
+Files: /var/www/openmediavault/images/grow.png
+Copyright: interactivemania <http://www.defaulticon.com>
+License: CC-BY-ND-3.0
+
+Files: /var/www/openmediavault/images/shrink.png
+Copyright: interactivemania <http://www.defaulticon.com>
+License: CC-BY-ND-3.0
+
 Files: /var/www/openmediavault/images/first-aid.png
 Copyright: interactivemania <http://www.defaulticon.com>
 License: CC-BY-ND-3.0
