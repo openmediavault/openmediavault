@@ -18,6 +18,17 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+
+OMV.WorkspaceManager.registerNode({
+	id: "iscsitarget",
+	path: "/services",
+	text: _("iSCSI Target"),
+	icon16: "images/iscsitarget.png"
+});
+
+
+
+
 // require("js/omv/ModuleManager.js")
 // require("js/omv/data/DataProxy.js")
 // require("js/omv/data/Store.js")
