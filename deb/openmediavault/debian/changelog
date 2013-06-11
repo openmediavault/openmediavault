@@ -1,3 +1,9 @@
+openmediavault (0.5.0.7) stable; urgency=low
+
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 11 Jun 2013 20:05:43 +0200
+
 openmediavault (0.5.0.6) stable; urgency=low
 
   * Various improvements.
