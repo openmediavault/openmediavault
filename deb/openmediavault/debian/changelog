@@ -1,3 +1,9 @@
+openmediavault (0.4.32) stable; urgency=low
+
+  * Fix issue in RPC Plugin::getList.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Jun 2013 18:30:04 +0200
+
 openmediavault (0.4.31) stable; urgency=low
 
   * Update locales.

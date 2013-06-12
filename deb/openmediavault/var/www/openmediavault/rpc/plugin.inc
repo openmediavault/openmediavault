@@ -179,7 +179,7 @@ class PluginRpc extends OMVRpc {
 		}
 		// Get list of installed packages.
 		unset($output);
-		$cmd = sprintf("export LANG=C;sudo dpkg-query --list %s-*",
+		$cmd = sprintf("export LANG=C;sudo dpkg-query --list '%s-*'",
 		  $prd->getPackageName());
 		OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
