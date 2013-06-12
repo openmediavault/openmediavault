@@ -7,9 +7,8 @@ Copyright: 2009-2013 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
 
 Files: /var/www/openmediavault/images/ftp.png
-Copyright: Hbons
-License: Creative Commons (Attribution-Share Alike 3.0 Unported)
-Comment: http://www.iconfinder.net/icondetails/30481/16
+Copyright: interactivemania <http://www.defaulticon.com>
+License: CC-BY-ND-3.0
 
 Files: /var/www/openmediavault/images/ssh.png
 Copyright: Everaldo Coelho
@@ -38,9 +37,8 @@ Copyright: interactivemania <http://www.defaulticon.com>
 License: CC-BY-ND-3.0
 
 Files: /var/www/openmediavault/images/cron.png
-Copyright: Oxygen Team (http://www.oxygen-icons.org)
-License: GPL (http://www.gnu.org/copyleft/gpl.html)
-Comment: http://www.iconfinder.net/icondetails/8810/16
+Copyright: interactivemania <http://www.defaulticon.com>
+License: CC-BY-ND-3.0
 
 Files: /var/www/openmediavault/images/mail.png
 Copyright: Yannick Lung <www.yanlu.de>
@@ -51,8 +49,8 @@ License: permissive
  designers.
 
 Files: /var/www/openmediavault/images/preferences.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
+Copyright: Keyamoon (http://keyamoon.com)
+License: CC-BY-SA-3.0
 
 Files: /var/www/openmediavault/images/logs.png
 Copyright: FatCow Web Hosting
@@ -175,7 +173,8 @@ License: LGPL
 Comment: http://www.iconfinder.net/icondetails/3207/16
 
 Files: /var/www/openmediavault/images/system-software-update.png
-Comment: http://www.gnome.org
+Copyright: Keyamoon (http://keyamoon.com)
+License: CC-BY-SA-3.0
 
 Files: /var/www/openmediavault/images/arrow-up.png
 Copyright: Keyamoon (http://keyamoon.com)
@@ -230,19 +229,16 @@ License: LGPL
 Comment: http://www.iconfinder.com/icondetails/17902/64
 
 Files: /var/www/openmediavault/images/detail.png
-Copyright: WPZOOM (http://www.wpzoom.com)
+Copyright: Keyamoon (http://keyamoon.com)
 License: CC-BY-SA-3.0
-Comment: http://www.iconfinder.com/icondetails/111109/16
 
 Files: /var/www/openmediavault/images/filesystem.png
 Copyright: interactivemania <http://www.defaulticon.com>
 License: CC-BY-ND-3.0
 
 Files: /var/www/openmediavault/images/certificate.png
-Copyright: Gasyoun (http://twitter.com/gasyoun or http://led24.de)
-License: permissive
- Free for commercial use.
-Comment: http://www.iconfinder.com/icondetails/16420/16
+Copyright: interactivemania <http://www.defaulticon.com>
+License: CC-BY-ND-3.0
 
 Files: /var/www/openmediavault/images/reboot.png
 Copyright: Oxygen Team
@@ -333,9 +329,8 @@ Copyright: interactivemania <http://www.defaulticon.com>
 License: CC-BY-ND-3.0
 
 Files: /var/www/openmediavault/images/search_32.png
-Copyright: Keyamoon (http://keyamoon.com)
-License: CC-BY-SA-3.0
-Comment: http://www.iconfinder.com/icondetails/83376/32
+Copyright: interactivemania <http://www.defaulticon.com>
+License: CC-BY-ND-3.0
 
 Files: /var/www/openmediavault/images/settings.png
 Copyright: Volker Theile

@@ -52,6 +52,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 	deletionWaitMsg: "Uninstalling selected plugin",
 	stateful: true,
 	stateId: "2bd3835f-56c4-4047-942b-7d7b5163de2a",
+	selType: "checkboxmodel",
 	columns: [{
 		xtype: "booleaniconcolumn",
 		text: _("Installed"),
@@ -159,16 +160,16 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 				model: OMV.data.Model.createImplicit({
 					idProperty: "name",
 					fields: [
-						{ name: "_readOnly" },
-						{ name: "name" },
-						{ name: "version" },
-						{ name: "repository" },
-						{ name: "description" },
-						{ name: "longdescription" },
-						{ name: "homepage" },
-						{ name: "maintainer" },
-						{ name: "installed" },
-						{ name: "size" }
+						{ name: "_readOnly", type: "boolean" },
+						{ name: "name", type: "string" },
+						{ name: "version", type: "string" },
+						{ name: "repository", type: "string" },
+						{ name: "description", type: "string" },
+						{ name: "longdescription", type: "string" },
+						{ name: "homepage", type: "string" },
+						{ name: "maintainer", type: "string" },
+						{ name: "installed", type: "boolean" },
+						{ name: "size", type: "string" }
 					]
 				}),
 				proxy: {

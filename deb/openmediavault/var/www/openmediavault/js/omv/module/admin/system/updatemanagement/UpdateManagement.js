@@ -150,24 +150,24 @@ Ext.define("OMV.module.admin.system.updatemanagement.Packages", {
 				model: OMV.data.Model.createImplicit({
 					idProperty: "name",
 					fields: [
-						{ name: "name" },
-						{ name: "version" },
-						{ name: "repository" },
-						{ name: "description" },
-						{ name: "longdescription" },
-						{ name: "homepage" },
-						{ name: "maintainer" },
-						{ name: "size" },
-						{ name: "filename" }
+						{ name: "name", type: "string" },
+						{ name: "version", type: "string" },
+						{ name: "repository", type: "string" },
+						{ name: "description", type: "string" },
+						{ name: "longdescription", type: "string" },
+						{ name: "homepage", type: "string" },
+						{ name: "maintainer", type: "string" },
+						{ name: "size", type: "string" },
+						{ name: "filename", type: "string" }
 					]
 				}),
 				proxy: {
 					type: "rpc",
+					appendSortParams: false,
 					rpcData: {
 						service: "Apt",
 						method: "getUpgraded"
-					},
-					appendSortParams: false
+					}
 				},
 				sorters: [{
 					direction: "ASC",
@@ -199,7 +199,7 @@ Ext.define("OMV.module.admin.system.updatemanagement.Packages", {
 			id: me.getId() + "-install",
 			xtype: "button",
 			text: _("Install"),
-			icon: "images/yes.png",
+			icon: "images/apply.png",
 			handler: Ext.Function.bind(me.onInstallButton, me, [ me ]),
 			scope: me,
 			disabled: true

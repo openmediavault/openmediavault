@@ -173,15 +173,18 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 		}
 		// Get list of installed packages.
 		unset($output);
-		$cmd = sprintf("export LANG=C; dpkg-query --list %s-* 2>&1",
-		  $prd->getPackageName());
+		$cmd = sprintf("export LANG=C; dpkg-query --showformat='\${Status}\\t".
+		  "\${Package}\\n' --show '%s-*' 2>&1", $prd->getPackageName());
 		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
+		// Parse output:
+		// unknown ok not-installed	openmediavault-ad
+		// install ok installed	openmediavault-clamav
+		// install ok installed	openmediavault-forkeddaapd
 		foreach($output as $row) {
-			$regex = sprintf("/^ii\s+(%s-\S+)\s+(\S+)\s+(.+)$/",
-			  $prd->getPackageName());
+			$regex = "/^install ok installed\t(\S+)$/";
 			if(1 !== preg_match($regex, $row, $matches))
 				continue;
 			// Skip packages listed in the ignore list.
@@ -196,7 +199,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 				}
 			}
 		}
-		// Filter result
+		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}

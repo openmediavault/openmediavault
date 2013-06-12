@@ -1,3 +1,10 @@
+openmediavault (0.5.0.8) stable; urgency=low
+
+  * Fix issue in RPC Plugin::getList.
+  * Change various icons.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Jun 2013 18:25:01 +0200
+
 openmediavault (0.5.0.7) stable; urgency=low
 
   * Various improvements.
