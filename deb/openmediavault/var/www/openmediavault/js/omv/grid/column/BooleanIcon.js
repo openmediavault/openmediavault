@@ -36,8 +36,9 @@ Ext.define("OMV.grid.column.BooleanIcon", {
 	falseIcon: "no.png",
 	undefinedText: "&#160;",
 
-	defaultRenderer: function(value) {
+	defaultRenderer: function(value, metaData) {
 		var me = this;
+		metaData.tdAttr = 'style="vertical-align: middle;"';
 		if(value === undefined)
 			return me.undefinedText;
 		var img = me.trueIcon;

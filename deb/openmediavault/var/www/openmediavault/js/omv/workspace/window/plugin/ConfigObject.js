@@ -46,7 +46,7 @@ Ext.define("OMV.workspace.window.plugin.ConfigObject", {
 				isNew: function() {
 					return (client.uuid == OMV.UUID_UNDEFINED);
 				},
-				autoLoadData: !((client.mode === "local") &&
+				autoLoadData: !((client.mode == "local") ||
 				  (client.uuid == OMV.UUID_UNDEFINED)),
 				closeIfNotDirty: !(client.uuid == OMV.UUID_UNDEFINED),
 				getRpcGetParams: me.interceptAfter(client, "getRpcGetParams"),
