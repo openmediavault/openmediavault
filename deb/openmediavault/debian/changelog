@@ -1,3 +1,9 @@
+openmediavault (0.5.0.8) stable; urgency=low
+
+  * Fix issue in method OMVSoftwareRaidDevice::getState().
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Jun 2013 20:49:40 +0200
+
 openmediavault (0.5.0.7) stable; urgency=low
 
   * Fix issue in RPC Plugin::getList.

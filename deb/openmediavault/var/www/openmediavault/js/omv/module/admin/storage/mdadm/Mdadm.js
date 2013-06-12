@@ -411,7 +411,35 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 		text: _("Level"),
 		sortable: true,
 		dataIndex: "level",
-		stateId: "level"
+		stateId: "level",
+		renderer: function(value) {
+			switch(value) {
+			case "raid0":
+			case "stripe":
+				value = _("Stripe");
+				break;
+			case "raid1":
+			case "mirror":
+				value = _("Mirror");
+				break;
+			case "linear":
+				value = _("Linear");
+				break;
+			case "raid10":
+				value = _("RAID 10");
+				break;
+			case "raid4":
+				value = _("RAID 4");
+				break;
+			case "raid5":
+				value = _("RAID 5");
+				break;
+			case "raid6":
+				value = _("RAID 6");
+				break;
+			}
+			return value;
+		}
 	},{
 		text: _("Capacity"),
 		sortable: true,
@@ -423,8 +451,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 		sortable: true,
 		dataIndex: "devices",
 		stateId: "devices",
-		renderer: function(value, metaData, record, rowIndex,
-		  colIndex, store, view) {
+		renderer: function(value, metaData, record) {
 			var tpl = new Ext.XTemplate('<tpl for=".">{.}<br/></tpl>');
 			return tpl.apply(record.get("devices"));
 		}
@@ -438,13 +465,13 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 				model: OMV.data.Model.createImplicit({
 					idProperty: "devicefile",
 					fields: [
-						{ name: "_used" },
-						{ name: "name" },
-						{ name: "devicefile" },
-						{ name: "size" },
-						{ name: "level" },
-						{ name: "devices" },
-						{ name: "state" }
+						{ name: "_used", type: "boolean" },
+						{ name: "name", type: "string" },
+						{ name: "devicefile", type: "string" },
+						{ name: "size", type: "string" },
+						{ name: "level", type: "string" },
+						{ name: "devices", type: "array" },
+						{ name: "state", type: "string" }
 					]
 				}),
 				proxy: {

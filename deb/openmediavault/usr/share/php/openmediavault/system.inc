@@ -1851,8 +1851,8 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 			return FALSE;
 		$mdstat = $matches[1];
 		// Extract the resync state.
-		$resyncState = "";
-		if(1 == preg_match("/^.+(resync|reshape)\s*=\s*(.+)$/i", $mdstat,
+		$resyncState = "unknown";
+		if(1 == preg_match("/^.+(resync|reshape)\s*=\s*(.+)$/im", $mdstat,
 		  $matches)) {
 			$resyncState = trim($matches[2]);
 		}
