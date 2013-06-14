@@ -512,7 +512,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			id: me.getId() + "-recover",
 			xtype: "button",
 			text: _("Recover"),
-			icon: "images/first-aid.png",
+			icon: "images/aid.png",
 			handler: me.onRecoverButton,
 			scope: me,
 			disabled: true
@@ -647,6 +647,7 @@ OMV.WorkspaceManager.registerNode({
 	path: "/storage",
 	text: _("RAID Management"),
 	icon16: "images/raid.png",
+	iconSvg: "images/raid.svg",
 	position: 30
 });
 

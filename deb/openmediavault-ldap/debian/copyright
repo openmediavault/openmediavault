@@ -7,5 +7,8 @@ Copyright: 2009-2013 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
 
 Files: var/www/openmediavault/images/ldap.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
+ var/www/openmediavault/images/ldap.svg
+Copyright: Brankic1979 <http://www.brankic1979.com>
+License: permissive
+ You may use this icon set for both personal and commercial use, which means
+ this resource can be used in any project without worrying about licensing.

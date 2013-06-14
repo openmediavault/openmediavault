@@ -461,6 +461,7 @@ OMV.WorkspaceManager.registerNode({
 	path: "/system",
 	text: _("Cron Jobs"),
 	icon16: "images/cron.png",
+	iconSvg: "images/cron.svg",
 	position: 70
 });
 

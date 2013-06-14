@@ -336,6 +336,7 @@ OMV.WorkspaceManager.registerNode({
 	path: "/system",
 	text: _("Notification"),
 	icon16: "images/mail.png",
+	iconSvg: "images/mail.svg",
 	position: 40
 });
 

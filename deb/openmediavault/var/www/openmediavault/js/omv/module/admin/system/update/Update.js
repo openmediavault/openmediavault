@@ -185,7 +185,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			id: me.getId() + "-check",
 			xtype: "button",
 			text: _("Check"),
-			icon: "images/reload.png",
+			icon: "images/refresh.png",
 			handler: Ext.Function.bind(me.onCheckButton, me, [ me ]),
 			scope: me
 		},{
@@ -412,6 +412,7 @@ OMV.WorkspaceManager.registerNode({
 	path: "/system",
 	text: _("Update Manager"),
 	icon16: "images/system-software-update.png",
+	iconSvg: "images/system-software-update.svg",
 	position: 80
 });
 

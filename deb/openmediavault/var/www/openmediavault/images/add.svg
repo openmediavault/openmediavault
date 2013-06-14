@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="16px" height="16px" xmlns="http://www.w3.org/2000/svg" version="1.1">
+    <title>199 CircledPlus</title>
+    <description>Created with Sketch (http://www.bohemiancoding.com/sketch)</description>
+    <defs>
+        <linearGradient id="gradient-1" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(255,255,255); stop-opacity:100"></stop>
+            <stop offset="100%" style="stop-color:rgb(0,0,0); stop-opacity:100"></stop>
+        </linearGradient>
+        <linearGradient id="gradient-2" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(255,255,255); stop-opacity:100"></stop>
+            <stop offset="100%" style="stop-color:rgb(0,0,0); stop-opacity:100"></stop>
+        </linearGradient>
+        <linearGradient id="gradient-3" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(255,255,255); stop-opacity:100"></stop>
+            <stop offset="100%" style="stop-color:rgb(0,0,0); stop-opacity:100"></stop>
+        </linearGradient>
+        <radialGradient id="gradient-4" cx="50%" cy="0%" fx="50%" fy="0%" r="100%">
+            <stop offset="0%" style="stop-color:rgb(255,255,255); stop-opacity:100"></stop>
+            <stop offset="49%" style="stop-color:rgb(139,139,139); stop-opacity:100"></stop>
+            <stop offset="49%" style="stop-color:rgb(104,104,104); stop-opacity:100"></stop>
+            <stop offset="100%" style="stop-color:rgb(157,157,157); stop-opacity:100"></stop>
+        </radialGradient>
+        <linearGradient id="gradient-5" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(255,255,255); stop-opacity:100"></stop>
+            <stop offset="100%" style="stop-color:rgb(0,0,0); stop-opacity:100"></stop>
+        </linearGradient>
+        <linearGradient id="gradient-6" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(255,255,255); stop-opacity:100"></stop>
+            <stop offset="100%" style="stop-color:rgb(0,0,0); stop-opacity:100"></stop>
+        </linearGradient>
+        <linearGradient id="gradient-7" x1="50%" y1="0%" x2="50%" y2="100%">
+            <stop offset="0%" style="stop-color:rgb(255,255,255); stop-opacity:100"></stop>
+            <stop offset="100%" style="stop-color:rgb(0,0,0); stop-opacity:100"></stop>
+        </linearGradient>
+    </defs>
+    <g fill="rgb(215,215,215)" id="Icons with numbers">
+        <g fill="rgb(215,215,215)" id="Stripes Vertical copy">
+            <g stroke="rgb(255,255,255)" stroke-width="1" fill="none" id="Rectangle 180 copy 3"></g>
+            <path id="Rectangle 180 copy 3" d="M0,-592 L0,128 L16,128 L16,-592 L0,-592 Z M0,-592" stroke="rgb(255,255,255)" stroke-width="1" fill="none"></path>
+            <path id="Rectangle 180 copy 3 decoration" d="" stroke="rgb(255,255,255)" stroke-width="1" fill="none"></path>
+        </g>
+        <g fill="rgb(0,0,0)" id="Oval 210 copy"></g>
+        <path id="Oval 210 copy" d="M4,7 L4,9 L7,9 L7,12 L9,12 L9,9 L12,9 L12,7 L9,7 L9,4 L7,4 L7,7 Z M8,16 C3,16 0,12 0,8 C0,3 3,0 8,0 C12,0 16,3 16,8 C16,12 12,16 8,16 Z M8,16" fill="rgb(0,0,0)"></path>
+        <path id="Oval 210 copy decoration" d="" fill="rgb(0,0,0)"></path>
+    </g>
+</svg>

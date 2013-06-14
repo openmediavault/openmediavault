@@ -29,28 +29,45 @@ Copyright: interactivemania <http://www.defaulticon.com>
 License: CC-BY-ND-3.0
 
 Files: /var/www/openmediavault/images/battery.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
+       /var/www/openmediavault/images/battery.svg
+Copyright: Visual Idiot <http://idiot.vc>
+License: permissive
+ By attaching this document to the given files (the “work”), you, the licensee,
+ are hereby granted free usage in both personal and commerical environments,
+ without any obligation of attribution or payment (monetary or otherwise). The
+ licensee is free to use, copy, modify, publish, distribute, sublicence, and/or
+ merchandise the work, subject to the licensee inflecting a positive message
+ unto someone. This includes (but is not limited to): smiling, being nice,
+ saying “thank you”, assisting other persons, or any similar actions
+ percolating the given concept. The above copyright notice serves as a
+ permissions notice also, and may optionally be included in copies or portions
+ of the work. The work is provided “as is”, without warranty or support,
+ express or implied. The author(s) are not liable for any damages, misuse, or
+ other claim, whether from or as a consequence of usage of the given work.
 
-Files: /var/www/openmediavault/images/time.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
+Files: /var/www/openmediavault/images/clock.png
+       /var/www/openmediavault/images/clock.svg
+Copyright: Keyamoon <http://icomoon.io>
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/cron.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
+       /var/www/openmediavault/images/cron.svg
+Copyright: Brankic1979 <http://www.brankic1979.com>
+License: permissive
+ You may use this icon set for both personal and commercial use, which means
+ this resource can be used in any project without worrying about licensing.
 
 Files: /var/www/openmediavault/images/mail.png
-Copyright: Yannick Lung <www.yanlu.de>
+       /var/www/openmediavault/images/mail.svg
+Copyright: Brankic1979 <http://www.brankic1979.com>
 License: permissive
- You are free to use Freecns for commercial and non-commercial purposes.
- Examples are apps, applications or user interfaces. You are not allowed
- to sell these icons because Freecns is a free source for developers and/or
- designers.
+ You may use this icon set for both personal and commercial use, which means
+ this resource can be used in any project without worrying about licensing.
 
 Files: /var/www/openmediavault/images/preferences.png
+       /var/www/openmediavault/images/preferences.svg
 Copyright: Keyamoon (http://keyamoon.com)
-License: CC-BY-SA-3.0
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/logs.png
 Copyright: FatCow Web Hosting
@@ -68,6 +85,7 @@ Copyright: interactivemania <http://www.defaulticon.com>
 License: CC-BY-ND-3.0
 
 Files: /var/www/openmediavault/images/add.png
+       /var/www/openmediavault/images/add.svg
 Copyright: Yannick Lung <www.yanlu.de>
 License: permissive
  You are free to use Freecns for commercial and non-commercial purposes.
@@ -76,9 +94,9 @@ License: permissive
  designers.
 
 Files: /var/www/openmediavault/images/delete.png
-Copyright: Everaldo Coelho (http://www.everaldo.com)
-License: LGPL
-Comment: http://www.iconfinder.net/icondetails/18572/16
+       /var/www/openmediavault/images/delete.svg
+Copyright: Keyamoon <http://icomoon.io>
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/save.png
 Copyright: interactivemania <http://www.defaulticon.com>
@@ -118,16 +136,19 @@ Copyright: interactivemania <http://www.defaulticon.com>
 License: CC-BY-ND-3.0
 
 Files: /var/www/openmediavault/images/user.png
-Copyright: Melih Bilgil <www.picol.org>
-License: CC-BY-SA-3.0
+       /var/www/openmediavault/images/user.svg
+Copyright: Daniel Bruce <http://danielbruce.se>
+License: CC-BY-SA-3.0-US
 
 Files: /var/www/openmediavault/images/group.png
-Copyright: Melih Bilgil <www.picol.org>
-License: CC-BY-SA-3.0
+       /var/www/openmediavault/images/group.svg
+Copyright: Daniel Bruce <http://danielbruce.se>
+License: CC-BY-SA-3.0-US
 
 Files: /var/www/openmediavault/images/about.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
+       /var/www/openmediavault/images/about.svg
+Copyright: Daniel Bruce <http://danielbruce.se>
+License: CC-BY-SA-3.0-US
 
 Files: /var/www/openmediavault/images/rsync.png
 Copyright: Yannick Lung <www.yanlu.de>
@@ -151,22 +172,14 @@ License: CC-BY-SA-3.0
 Comment: http://www.iconfinder.com/icondetails/83365/16
 
 Files: /var/www/openmediavault/images/download.png
-Copyright: Keyamoon (http://keyamoon.com)
-License: CC-BY-SA-3.0
-Comment: http://www.iconfinder.com/icondetails/83275/16
+       /var/www/openmediavault/images/download.svg
+Copyright: Egemen Kapusuz
+License: GPL-3
 
 Files: /var/www/openmediavault/images/upload.png
-Copyright: Keyamoon (http://keyamoon.com)
-License: CC-BY-SA-3.0
-Comment: http://www.iconfinder.com/icondetails/83415/16
-
-Files: /var/www/openmediavault/images/reload.png
-Copyright: Yannick Lung <www.yanlu.de>
-License: permissive
- You are free to use Freecns for commercial and non-commercial purposes.
- Examples are apps, applications or user interfaces. You are not allowed
- to sell these icons because Freecns is a free source for developers and/or
- designers.
+       /var/www/openmediavault/images/upload.svg
+Copyright: Egemen Kapusuz
+License: GPL-3
 
 Files: /var/www/openmediavault/images/no.png
 Copyright: Dat Nguyen (http://splashyfish.com)
@@ -179,18 +192,19 @@ License: LGPL
 Comment: http://www.iconfinder.net/icondetails/3207/16
 
 Files: /var/www/openmediavault/images/system-software-update.png
+       /var/www/openmediavault/images/system-software-update.svg
 Copyright: Keyamoon (http://keyamoon.com)
-License: CC-BY-SA-3.0
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/arrow-up.png
-Copyright: Keyamoon (http://keyamoon.com)
-License: CC-BY-SA-3.0
-Comment: http://www.iconfinder.com/icondetails/83225/16
+       /var/www/openmediavault/images/arrow-up.svg
+Copyright: Keyamoon <http://icomoon.io>
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/arrow-down.png
-Copyright: Keyamoon (http://keyamoon.com)
-License: CC-BY-SA-3.0
-Comment: http://www.iconfinder.com/icondetails/83220/16
+       /var/www/openmediavault/images/arrow-down.svg
+Copyright: Keyamoon <http://icomoon.io>
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/snmp.png
 Copyright: Tango (http://tango.freedesktop.org/Tango_Desktop_Project)
@@ -208,26 +222,40 @@ License: LGPL
 Comment: http://www.iconfinder.com/icondetails/3793/16
 
 Files: /var/www/openmediavault/images/logout.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
+       /var/www/openmediavault/images/logout.svg
+Copyright: Daniel Bruce <http://danielbruce.se>
+License: CC-BY-SA-3.0-US
 
 Files: /var/www/openmediavault/images/report.png
 Copyright: interactivemania <http://www.defaulticon.com>
 License: CC-BY-ND-3.0
 
 Files: /var/www/openmediavault/images/edit.png
-Copyright: Melih Bilgil <www.picol.org>
-License: CC-BY-SA-3.0
-Comment: http://www.iconfinder.com/icondetails/103539/16
+       /var/www/openmediavault/images/edit.svg
+Copyright: Egemen Kapusuz
+License: GPL-3
 
 Files: /var/www/openmediavault/images/info.png
-Copyright: Melih Bilgil <www.picol.org>
-License: CC-BY-SA-3.0
-Comment: http://www.iconfinder.com/icondetails/103599/16
+       /var/www/openmediavault/images/info.svg
+Copyright: Daniel Bruce <http://danielbruce.se>
+License: CC-BY-SA-3.0-US
 
 Files: /var/www/openmediavault/images/raid.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
+       /var/www/openmediavault/images/raid.svg
+Copyright: Visual Idiot <http://idiot.vc>
+License: permissive
+ By attaching this document to the given files (the “work”), you, the licensee,
+ are hereby granted free usage in both personal and commerical environments,
+ without any obligation of attribution or payment (monetary or otherwise). The
+ licensee is free to use, copy, modify, publish, distribute, sublicence, and/or
+ merchandise the work, subject to the licensee inflecting a positive message
+ unto someone. This includes (but is not limited to): smiling, being nice,
+ saying “thank you”, assisting other persons, or any similar actions
+ percolating the given concept. The above copyright notice serves as a
+ permissions notice also, and may optionally be included in copies or portions
+ of the work. The work is provided “as is”, without warranty or support,
+ express or implied. The author(s) are not liable for any damages, misuse, or
+ other claim, whether from or as a consequence of usage of the given work.
 
 Files: /var/www/openmediavault/images/shutdown_64.png
 Copyright: Everaldo Coelho (http://www.everaldo.com)
@@ -235,8 +263,9 @@ License: LGPL
 Comment: http://www.iconfinder.com/icondetails/17902/64
 
 Files: /var/www/openmediavault/images/detail.png
-Copyright: Keyamoon (http://keyamoon.com)
-License: CC-BY-SA-3.0
+       /var/www/openmediavault/images/detail.svg
+Copyright: Keyamoon <http://icomoon.io>
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/filesystem.png
 Copyright: interactivemania <http://www.defaulticon.com>
@@ -292,9 +321,9 @@ License: permissive
 Comment: www.openmediavault.org
 
 Files: /var/www/openmediavault/images/donate.png
+       /var/www/openmediavault/images/donate.svg
 Copyright: Keyamoon (http://keyamoon.com)
-License: CC-BY-SA-3.0
-Comment: http://www.iconfinder.com/icondetails/83314/16
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/nfs.png
 Copyright: interactivemania <http://www.defaulticon.com>
@@ -331,12 +360,9 @@ License: CC-BY-3.0
 Comment: http://www.iconfinder.com/icondetails/59135/16
 
 Files: /var/www/openmediavault/images/search.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
-
-Files: /var/www/openmediavault/images/search_32.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
+       /var/www/openmediavault/images/search.svg
+Copyright: Keyamoon <http://icomoon.io>
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/settings.png
 Copyright: Volker Theile
@@ -351,14 +377,14 @@ License: permissive
 Comment: www.openmediavault.org
 
 Files: /var/www/openmediavault/images/apply.png
-Copyright: Keyamoon (http://keyamoon.com)
-License: CC-BY-SA-3.0
-Comment: http://www.iconfinder.com/icondetails/83252/16
+       /var/www/openmediavault/images/apply.svg
+Copyright: Keyamoon <http://icomoon.io>
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/refresh.png
-Copyright: PC (http://pc.de/icons)
-License: CC-BY-3.0
-Comment: http://www.iconfinder.com/icondetails/59198/16
+       /var/www/openmediavault/images/refresh.svg
+Copyright: Egemen Kapusuz
+License: GPL-3
 
 Files: /var/www/openmediavault/images/access.png
 Copyright: interactivemania <http://www.defaulticon.com>
@@ -381,20 +407,28 @@ Copyright: interactivemania <http://www.defaulticon.com>
 License: CC-BY-ND-3.0
 
 Files: /var/www/openmediavault/images/grow.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
+       /var/www/openmediavault/images/grow.svg
+Copyright: Brankic1979 <http://www.brankic1979.com>
+License: permissive
+ You may use this icon set for both personal and commercial use, which means
+ this resource can be used in any project without worrying about licensing.
 
 Files: /var/www/openmediavault/images/shrink.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
+       /var/www/openmediavault/images/shrink.svg
+Copyright: Brankic1979 <http://www.brankic1979.com>
+License: permissive
+ You may use this icon set for both personal and commercial use, which means
+ this resource can be used in any project without worrying about licensing.
 
-Files: /var/www/openmediavault/images/first-aid.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
+Files: /var/www/openmediavault/images/aid.png
+       /var/www/openmediavault/images/aid.svg
+Copyright: Keyamoon <http://icomoon.io>
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/help.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
+       /var/www/openmediavault/images/help.svg
+Copyright: Daniel Bruce <http://danielbruce.se>
+License: CC-BY-SA-3.0-US
 
 Files: /var/www/openmediavault/images/activity.png
 Copyright: interactivemania <http://www.defaulticon.com>

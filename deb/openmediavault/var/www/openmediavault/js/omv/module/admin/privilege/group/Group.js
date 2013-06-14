@@ -303,6 +303,7 @@ OMV.WorkspaceManager.registerNode({
 	path: "/privilege",
 	text: _("Group"),
 	icon16: "images/group.png",
+	iconSvg: "images/group.svg",
 	position: 20
 });
 

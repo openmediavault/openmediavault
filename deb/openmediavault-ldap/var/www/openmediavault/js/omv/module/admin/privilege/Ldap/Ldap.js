@@ -25,5 +25,6 @@ OMV.WorkspaceManager.registerNode({
 	path: "/privilege",
 	text: _("Directory Service"),
 	icon16: "images/ldap.png",
+	iconSvg: "images/ldap.svg",
 	position: 5
 });
