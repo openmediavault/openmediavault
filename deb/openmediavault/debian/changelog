@@ -1,5 +1,11 @@
 openmediavault (0.4.32) stable; urgency=low
 
+  * Close login dialog on success.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 14 Jun 2013 20:54:09 +0200
+
+openmediavault (0.4.32) stable; urgency=low
+
   * Fix issue in RPC Plugin::getList.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Jun 2013 18:30:04 +0200

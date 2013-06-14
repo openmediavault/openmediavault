@@ -248,10 +248,12 @@ class OMVWebGuiLogin extends OMVHtmlPage {
 		<script type="text/javascript">
 			Ext.QuickTips.init();
 			Ext.onReady(function() {
-				new OMV.LoginDialog({
+				var wnd = new OMV.LoginDialog({
 					listeners: {
 						login: function(data) {
 							if (data.authenticated === true) {
+								// Close the window now.
+								wnd.close();
 								// Reload page to render the web
 								// administration interface
 								document.location.reload(true);
