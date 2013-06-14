@@ -24,5 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "usbbackup",
 	path: "/service",
 	text: _("USB Backup"),
-	icon16: "images/rsync.png"
+	icon16: "images/usb.png",
+	iconSvg: "images/usb.svg"
 });

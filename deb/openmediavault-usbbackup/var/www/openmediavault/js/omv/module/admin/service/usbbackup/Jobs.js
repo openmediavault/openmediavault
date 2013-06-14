@@ -60,6 +60,7 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 	 */
 
 	getFormItems: function() {
+		var me = this;
 		return [{
 			xtype: "checkbox",
 			name: "enable",
@@ -108,6 +109,7 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 			triggerAction: "all",
 			displayField: "description",
 			valueField: "uuid",
+			trigger2Cls: Ext.baseCSSPrefix + "form-search-trigger",
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
@@ -136,6 +138,34 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The external storage device.")
+			}],
+			listeners: {
+				scope: me,
+				afterrender: function(c, eOpts) {
+					// Add tooltip to trigger button.
+					var trigger2El = c.getTriggerButtonEl(c.trigger2Cls);
+					Ext.tip.QuickTipManager.register({
+						target: trigger2El.id,
+						text: _("Refresh")
+					});
+				}
+			},
+			onTrigger2Click: function(c) {
+				var me = this;
+				// Reload list of detected external storage devices.
+				delete me.lastQuery;
+				me.store.reload();
+			}
+		},{
+			xtype: "checkbox",
+			name: "usesubdir",
+			fieldLabel: "&nbsp",
+			checked: true,
+			inputValue: 1,
+			boxLabel: _("Synchronise from/to directory on external storage device."),
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("The shared folder content is synchronised from/to the root of the external storage device if this option is not set. The name of the directory is taken from the shared folder.")
 			}]
 		},{
 			xtype: "checkbox",

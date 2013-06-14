@@ -159,6 +159,7 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 			// Modify result object.
 			$objectv['enable'] = boolval($objectv['enable']);
 			$objectv['sendemail'] = boolval($objectv['sendemail']);
+			$objectv['usesubdir'] = boolval($objectv['usesubdir']);
 			$objectv['recursive'] = boolval($objectv['recursive']);
 			$objectv['times'] = boolval($objectv['times']);
 			$objectv['compress'] = boolval($objectv['compress']);
@@ -206,6 +207,7 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 		// Modify result object.
 		$object['enable'] = boolval($object['enable']);
 		$object['sendemail'] = boolval($object['sendemail']);
+		$object['usesubdir'] = boolval($object['usesubdir']);
 		$object['recursive'] = boolval($object['recursive']);
 		$object['times'] = boolval($object['times']);
 		$object['compress'] = boolval($object['compress']);
@@ -244,6 +246,7 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 				  "comment":{"type":"string"},
 				  "fsuuid":{"type":"string","optional":true},
 				  "sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
+				  "usesubdir":{"type":"boolean"},
 				  "recursive":{"type":"boolean"},
 				  "times":{"type":"boolean"},
 				  "compress":{"type":"boolean"},
@@ -267,6 +270,7 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 			"comment" => $params['comment'],
 			"fsuuid" => $params['fsuuid'],
 			"sharedfolderref" => $params['sharedfolderref'],
+			"usesubdir" => array_boolval($params, 'usesubdir'),
 			"recursive" => array_boolval($params, 'recursive'),
 			"times" => array_boolval($params, 'times'),
 			"compress" => array_boolval($params, 'compress'),
@@ -367,10 +371,12 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
 			// Execute the backup script.
-			$cmd = sprintf("%s/rsync-%s",
-			  $GLOBALS['OMV_USBBACKUP_SCRIPTS_DIR'], $params['uuid']);
-			if(FALSE === $this->execve($cmd, NULL, $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED, $cmd, "");
+			$cmdArgs = array(sprintf("%s/rsync-%s",
+			  $GLOBALS['OMV_USBBACKUP_SCRIPTS_DIR'], $params['uuid']));
+			if(FALSE === $this->execve("/bin/sh", $cmdArgs,
+			  $bgOutputFilename)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  "/bin/sh ".implode(" ", $cmdArgs), "");
 			}
 		} catch(Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
