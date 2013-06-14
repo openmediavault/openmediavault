@@ -47,6 +47,7 @@ case "$1" in
 		#           <comment>xxx</comment>
 		#           <fsuuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxxx-xxxx</fsuuid>
 		#           <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+		#           <usesubdir>0|1</usesubdir>
 		#           <recursive>1</recursive>
 		#           <times>1</times>
 		#           <compress>0</compress>
@@ -83,6 +84,9 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.4.6"; then
 			omv_config_add_element "//services/usbbackup/jobs/job" "mode" "push"
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.7"; then
+			omv_config_add_element "//services/usbbackup/jobs/job" "usesubdir" "0"
 		fi
 	;;
 

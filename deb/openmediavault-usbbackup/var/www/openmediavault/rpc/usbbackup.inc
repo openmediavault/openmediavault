@@ -55,6 +55,7 @@ class UsbBackupRpc extends OMVRpc {
 					"comment":{"type":"string"},
 					"fsuuid":{"type":"string","optional":true},
 					"sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
+					"usesubdir":{"type":"boolean"},
 					"recursive":{"type":"boolean"},
 					"times":{"type":"boolean"},
 					"compress":{"type":"boolean"},
@@ -191,6 +192,7 @@ class UsbBackupRpc extends OMVRpc {
 			// Modify result data.
 			$objectv['enable'] = boolval($objectv['enable']);
 			$objectv['sendemail'] = boolval($objectv['sendemail']);
+			$objectv['usesubdir'] = boolval($objectv['usesubdir']);
 			$objectv['recursive'] = boolval($objectv['recursive']);
 			$objectv['times'] = boolval($objectv['times']);
 			$objectv['compress'] = boolval($objectv['compress']);
@@ -233,6 +235,7 @@ class UsbBackupRpc extends OMVRpc {
 		// Modify result data.
 		$object['enable'] = boolval($object['enable']);
 		$object['sendemail'] = boolval($object['sendemail']);
+		$object['usesubdir'] = boolval($object['usesubdir']);
 		$object['recursive'] = boolval($object['recursive']);
 		$object['times'] = boolval($object['times']);
 		$object['compress'] = boolval($object['compress']);
@@ -270,6 +273,7 @@ class UsbBackupRpc extends OMVRpc {
 			"comment" => $data['comment'],
 			"fsuuid" => $data['fsuuid'],
 			"sharedfolderref" => $data['sharedfolderref'],
+			"usesubdir" => array_boolval($data, 'usesubdir'),
 			"recursive" => array_boolval($data, 'recursive'),
 			"times" => array_boolval($data, 'times'),
 			"compress" => array_boolval($data, 'compress'),

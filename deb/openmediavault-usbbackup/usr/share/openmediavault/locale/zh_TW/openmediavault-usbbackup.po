@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#  <kochinc@outlook.com>, 2013.
+# kochin <kochinc@outlook.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-12 13:08+0100\n"
-"PO-Revision-Date: 2013-03-12 12:08+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-03-15 23:17+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,16 +80,16 @@ msgid "Filesystem '%s' not found"
 msgstr "未找到檔案系統 '%s'"
 
 msgid "From external storage to shared folder"
-msgstr ""
+msgstr "從外接儲存裝置到共享檔案夾"
 
 msgid "From shared folder to external storage"
-msgstr ""
+msgstr "從共享檔案夾到外接儲存裝置"
 
 msgid "Keep partially transferred files"
 msgstr "保留部分傳送的檔案"
 
 msgid "Mode"
-msgstr ""
+msgstr "模式"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -121,7 +121,7 @@ msgid "Run"
 msgstr "執行"
 
 msgid "Running"
-msgstr ""
+msgstr "執行中"
 
 msgid "Select a volume ..."
 msgstr "選擇一個磁碟 ..."

@@ -298,6 +298,15 @@ Ext.extend(OMV.Module.Services.UsbBackup.JobPropertyDialog,
 			infoText: _("The external storage device.")
 		},{
 			xtype: "checkbox",
+			name: "usesubdir",
+			fieldLabel: "&nbsp",
+			checked: true,
+			inputValue: 1,
+			boxLabel: _("Synchronise from/to directory on external storage device."),
+			plugins: [ OMV.form.plugins.FieldInfo ],
+			infoText: _("The shared folder content is synchronised from/to the root of the external storage device if this option is not set. The name of the directory is taken from the shared folder.")
+		},{
+			xtype: "checkbox",
 			name: "recursive",
 			fieldLabel: _("Recursive"),
 			checked: true,

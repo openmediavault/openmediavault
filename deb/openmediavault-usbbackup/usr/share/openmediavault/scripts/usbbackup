@@ -73,7 +73,13 @@ xmlstarlet sel -t -m "//services/usbbackup/jobs/job" \
 		-o "fi" -n \
 		-o "trap cleanup 0 1 2 5 15" -n \
 		-o "touch ${runfile}" -n \
-		-o "echo \"Please wait, syncing <" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -v "concat('> to <${OMV_MOUNT_DIR}/',fsuuid,'> ...\n\"')" -n \
+		-i "mode = 'push' and usesubdir = '1'" \
+		  -o "# Create target directory on external storage device." -n \
+		  -v "concat('mkdir -p \"${OMV_MOUNT_DIR}/',fsuuid,'/')" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -o "\"" -n \
+		  -v "concat('chmod 777 \"${OMV_MOUNT_DIR}/',fsuuid,'/')" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -o "\"" -n \
+		-b \
+		-o "# Synchronise directories ..." -n \
+		-o "echo \"Please wait, syncing <" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -v "concat('> to <${OMV_MOUNT_DIR}/',fsuuid)" -i "usesubdir = '1'" -o "/" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -b -o "> ...\n\"" -n \
 		-o "rsync --verbose --log-file=\"${OMV_USBBACKUP_LOGFILE}\"" \
 		-i "recursive = '1'" -o " --recursive" -b \
 		-i "times = '1'" -o " --times" -b \
@@ -86,8 +92,8 @@ xmlstarlet sel -t -m "//services/usbbackup/jobs/job" \
 		-i "xattrs = '1'" -o " --xattrs" -b \
 		-i "partial = '1'" -o " --partial" -b \
 		-i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
-		-i "mode = 'push'" -o " \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/\"" -v "concat(' \"${OMV_MOUNT_DIR}/',fsuuid,'\"')" -b \
-		-i "mode = 'pull'" -v "concat(' \"${OMV_MOUNT_DIR}/',fsuuid,'/\"')" -o " \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -b \
+		-i "mode = 'push'" -o " \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "/\"" -v "concat(' \"${OMV_MOUNT_DIR}/',fsuuid)" -i "usesubdir = '1'" -o "/" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -b -o "\"" -b \
+		-i "mode = 'pull'" -v "concat(' \"${OMV_MOUNT_DIR}/',fsuuid)" -i "usesubdir = '1'" -o "/" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -b -o "/\" \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -b \
 		-o " & wait \$!" \
 		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${filename}
 	  chmod ${OMV_USBBACKUP_SCRIPTS_MASK} ${filename}

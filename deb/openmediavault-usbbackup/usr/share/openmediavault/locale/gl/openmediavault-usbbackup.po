@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013.
+# mbouzada <mbouzada@gmail.com>, 2013
+# mbouzada <mbouzada@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-12 13:08+0100\n"
-"PO-Revision-Date: 2013-03-12 12:08+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-03-12 17:08+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,16 +81,16 @@ msgid "Filesystem '%s' not found"
 msgstr "Non se atopou o sistema de ficheiros «%s»"
 
 msgid "From external storage to shared folder"
-msgstr ""
+msgstr "Desde o almacenamento externo cara ao cartafol compartido"
 
 msgid "From shared folder to external storage"
-msgstr ""
+msgstr "Desde o cartafol compartido cara ao almacenamento externo"
 
 msgid "Keep partially transferred files"
 msgstr "Manter os ficheiros transferidos parcialmente"
 
 msgid "Mode"
-msgstr ""
+msgstr "Modo"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -121,7 +122,7 @@ msgid "Run"
 msgstr "Executar"
 
 msgid "Running"
-msgstr ""
+msgstr "En execución"
 
 msgid "Select a volume ..."
 msgstr "Seleccione o volume ..."

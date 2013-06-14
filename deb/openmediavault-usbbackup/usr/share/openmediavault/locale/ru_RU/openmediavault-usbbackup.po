@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# артур Мудрых <arturmon82@gmail.com>, 2013.
+# артур Мудрых <arturmon82@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-12 13:08+0100\n"
-"PO-Revision-Date: 2013-03-12 12:08+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-03-16 06:02+0000\n"
+"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -80,16 +80,16 @@ msgid "Filesystem '%s' not found"
 msgstr "Файловая система '%s' не найден"
 
 msgid "From external storage to shared folder"
-msgstr ""
+msgstr "С внешнего накопителя в общую папку"
 
 msgid "From shared folder to external storage"
-msgstr ""
+msgstr "Из общей папки на внешний накопитель"
 
 msgid "Keep partially transferred files"
 msgstr "Хранить частично загруженные файлы"
 
 msgid "Mode"
-msgstr ""
+msgstr "Режим"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -121,7 +121,7 @@ msgid "Run"
 msgstr "Запуск"
 
 msgid "Running"
-msgstr ""
+msgstr "Запущенный"
 
 msgid "Select a volume ..."
 msgstr "Выберите том ..."
