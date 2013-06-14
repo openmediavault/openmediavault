@@ -78,6 +78,10 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 						method: "enumerateSharedFolders"
 					}
 				},
+				sorters: [{
+					direction: "ASC",
+					property: "name"
+				}],
 				listeners: {
 					scope: me,
 					load: function(store, records, options) {

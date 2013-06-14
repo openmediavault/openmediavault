@@ -34,6 +34,7 @@ Ext.define("OMV.workspace.node.Node", {
 		position: 0,
 		icon16: null,
 		icon32: null,
+		iconSvg: null,
 		childNodes: null,
 		parentNode: null,
 		leaf: false
@@ -156,5 +157,58 @@ Ext.define("OMV.workspace.node.Node", {
 
 	sort: function(sorters, direction, where, doSort) {
 		return this.childNodes.sort(sorters, direction, where, doSort);
+	},
+
+	/**
+	 * Get the path of the 16x16 icon. If the device supports SVG, then the
+	 *   SVG icon will be returned instead if this is set.
+	 * @return The icon path.
+	 */
+	getIcon16: function() {
+		var me = this;
+		if(me.hasIcon("svg"))
+			return me.iconSvg;
+		return me.icon16;
+	},
+
+	/**
+	 * Get the path of the 32x32 icon. If the device supports SVG, then the
+	 *   SVG icon will be returned instead if this is set.
+	 * @return The icon path.
+	 */
+	getIcon32: function() {
+		var me = this;
+		if(me.hasIcon("svg"))
+			return me.iconSvg;
+		return me.icon32;
+	},
+
+	/**
+	 * Check if the given icon type is defined. For SVG it will be also
+	 * checked whether the device supports this.
+	 * @return TRUE if the requested icon is defined.
+	 */
+	hasIcon: function(type) {
+		var me = this;
+		var result = false;
+		switch(type) {
+		case "svg":
+			result = !Ext.isEmpty(me.iconSvg) && Ext.supports.Svg;
+			break;
+		case "raster16":
+			result = !Ext.isEmpty(me.icon16);
+			break;
+		case "raster32":
+			result = !Ext.isEmpty(me.icon32);
+			break;
+		case "raster":
+			result = !Ext.isEmpty(me.icon16) || !Ext.isEmpty(me.icon32);
+			break;
+		default:
+			result = !Ext.isEmpty(me.icon16) || !Ext.isEmpty(me.icon32) ||
+			  (!Ext.isEmpty(me.iconSvg) && Ext.supports.Svg);
+			break;
+		}
+		return result;
 	}
 });

@@ -62,28 +62,38 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 			plugins: [{
 				ptype: "linkedfields",
 				correlations: [{
-					name: [
-						"srcsharedfolderref",
-						"destsharedfolderref"
-					],
-					conditions: [
-						{ name: "type", value: "local" }
-					],
+					name: "srcsharedfolderref",
+					conditions: [{
+						func: function(values) {
+							var valid = false;
+							if(values.type === "local")
+								valid = true;
+							else if((values.type === "remote") &&
+							  (values.mode === "push"))
+								valid = true;
+							return valid;
+						}
+					}],
 					properties: [
 						"show",
 						"!allowBlank"
 					]
 				},{
-					name: [
-						"srcuri",
-						"desturi"
-					],
-					conditions: [
-						{ name: "type", value: "local" }
-					],
+					name: "destsharedfolderref",
+					conditions: [{
+						func: function(values) {
+							var valid = false;
+							if(values.type === "local")
+								valid = true;
+							else if((values.type === "remote") &&
+							  (values.mode === "pull"))
+								valid = true;
+							return valid;
+						}
+					}],
 					properties: [
-						"hide",
-						"allowBlank"
+						"show",
+						"!allowBlank"
 					]
 				},{
 					name: [
@@ -95,10 +105,7 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 					],
 					properties: "hide"
 				},{
-					name: [
-						"srcsharedfolderref",
-						"desturi"
-					],
+					name: "desturi",
 					conditions: [
 						{ name: "type", value: "remote" },
 						{ name: "mode", value: "push" }
@@ -108,17 +115,14 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 						"!allowBlank"
 					]
 				},{
-					name: [
-						"srcuri",
-						"destsharedfolderref"
-					],
+					name: "srcuri",
 					conditions: [
 						{ name: "type", value: "remote" },
-						{ name: "mode", value: "push" }
+						{ name: "mode", value: "pull" }
 					],
 					properties: [
-						"hide",
-						"allowBlank"
+						"show",
+						"!allowBlank"
 					]
 				}]
 			}]

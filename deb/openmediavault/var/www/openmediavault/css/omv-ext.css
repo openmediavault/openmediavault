@@ -116,3 +116,7 @@ div#headerrlogo {
 	font-size: large;
 	text-align: center;
 }
+/* Tree */
+.x-tree-icon-16x16 {
+	background-size: 16px 16px;
+}

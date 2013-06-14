@@ -178,7 +178,11 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 						service: "Plugin",
 						method: "getList"
 					}
-				}
+				},
+				sorters: [{
+					direction: "ASC",
+					property: "name"
+				}],
 			})
 		});
 		me.callParent(arguments);

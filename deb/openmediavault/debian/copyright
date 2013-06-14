@@ -130,9 +130,12 @@ Copyright: interactivemania <http://www.defaulticon.com>
 License: CC-BY-ND-3.0
 
 Files: /var/www/openmediavault/images/rsync.png
-Copyright:  Everaldo Coelho
-License: GPL
-Comment: http://www.iconfinder.net/icondetails/770/16
+Copyright: Yannick Lung <www.yanlu.de>
+License: permissive
+ You are free to use Freecns for commercial and non-commercial purposes.
+ Examples are apps, applications or user interfaces. You are not allowed
+ to sell these icons because Freecns is a free source for developers and/or
+ designers.
 
 Files: /var/www/openmediavault/images/run.png
 Copyright: Yannick Lung <www.yanlu.de>
@@ -158,9 +161,12 @@ License: CC-BY-SA-3.0
 Comment: http://www.iconfinder.com/icondetails/83415/16
 
 Files: /var/www/openmediavault/images/reload.png
-Copyright: Jigsoar (http://www.jigsoaricons.com)
-License: CC-BY-3.0
-Comment: http://www.iconfinder.com/icondetails/80977/16
+Copyright: Yannick Lung <www.yanlu.de>
+License: permissive
+ You are free to use Freecns for commercial and non-commercial purposes.
+ Examples are apps, applications or user interfaces. You are not allowed
+ to sell these icons because Freecns is a free source for developers and/or
+ designers.
 
 Files: /var/www/openmediavault/images/no.png
 Copyright: Dat Nguyen (http://splashyfish.com)

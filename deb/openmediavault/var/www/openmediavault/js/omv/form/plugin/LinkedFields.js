@@ -91,7 +91,12 @@ Ext.define("OMV.form.plugin.LinkedFields", {
 			// First check if the fields are bonded together.
 			var bonded = false;
 			Ext.Array.each(correlation.conditions, function(condition) {
-				if(condition.name === name) {
+				// Process the event if the name of the changed field is
+				// listed in the properties of the current processed
+				// condition. Alternatively process the event if no name
+				// but a function is defined.
+				if((condition.name === name) || (!Ext.isDefined(
+				  condition.name) && Ext.isFunction(condition.func))) {
 					bonded = true;
 					return false;
 				}

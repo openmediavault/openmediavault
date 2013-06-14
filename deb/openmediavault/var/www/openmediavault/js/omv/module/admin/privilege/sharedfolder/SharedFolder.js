@@ -221,19 +221,18 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.Privileges", {
 	getRpcSetParams: function() {
 		var me = this;
 		var privileges = [];
-		var records = me.getValues();
-		Ext.Array.each(records, function(record) {
-			if((true === record.get("deny")) ||
-			  (true === record.get("readonly")) ||
-			  (true === record.get("writeable"))) {
+		var items = me.getValues();
+		Ext.Array.each(items, function(item) {
+			if((true === item.deny) || (true === item.readonly) ||
+			  (true === item.writeable)) {
 				var perms = 0;
-				if(true === record.get("readonly"))
+				if(true === item.readonly)
 					perms = 5;
-				else if(true === record.get("writeable"))
+				else if(true === item.writeable)
 					perms = 7;
 				privileges.push({
-					type: record.get("type"),
-					name: record.get("name"),
+					type: item.type,
+					name: item.name,
 					perms: perms
 				});
 			}
