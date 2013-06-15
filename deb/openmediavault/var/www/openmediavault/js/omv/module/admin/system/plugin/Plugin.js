@@ -439,7 +439,8 @@ OMV.WorkspaceManager.registerNode({
 	id: "plugin",
 	path: "/system",
 	text: _("Plugins"),
-	icon16: "images/plugin.png",
+	icon16: "images/puzzle.png",
+	iconSvg: "images/puzzle.svg",
 	position: 90
 });
 

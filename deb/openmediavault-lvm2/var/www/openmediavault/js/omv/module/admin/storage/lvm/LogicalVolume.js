@@ -446,7 +446,7 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 			id: me.getId() + "-extend",
 			xtype: "button",
 			text: _("Extend"),
-			icon: "images/grow.png",
+			icon: "images/expand.png",
 			handler: Ext.Function.bind(me.onExtendButton, me, [ me ]),
 			scope: me,
 			disabled: true

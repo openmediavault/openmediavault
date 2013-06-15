@@ -504,7 +504,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			id: me.getId() + "-grow",
 			xtype: "button",
 			text: _("Grow"),
-			icon: "images/resize.png",
+			icon: "images/expand.png",
 			handler: me.onGrowButton,
 			scope: me,
 			disabled: true

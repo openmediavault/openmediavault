@@ -474,7 +474,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			id: me.getId() + "-resize",
 			xtype: "button",
 			text: _("Resize"),
-			icon: "images/resize.png",
+			icon: "images/expand.png",
 			handler: Ext.Function.bind(me.onResizeButton, me, [ me ]),
 			scope: me,
 			disabled: true
@@ -490,7 +490,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			id: me.getId() + "-mount",
 			xtype: "button",
 			text: _("Mount"),
-			icon: "images/mount.png",
+			icon: "images/play.png",
 			handler: Ext.Function.bind(me.onMountButton, me, [ me ]),
 			scope: me,
 			disabled: true
@@ -498,7 +498,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			id: me.getId() + "-unmount",
 			xtype: "button",
 			text: _("Unmount"),
-			icon: "images/unmount.png",
+			icon: "images/eject.png",
 			handler: Ext.Function.bind(me.onUnmountButton, me, [ me ]),
 			scope: me,
 			disabled: true
@@ -726,6 +726,7 @@ OMV.WorkspaceManager.registerNode({
 	path: "/storage",
 	text: _("Filesystems"),
 	icon16: "images/filesystem.png",
+	iconSvg: "images/filesystem.svg",
 	position: 40
 });
 

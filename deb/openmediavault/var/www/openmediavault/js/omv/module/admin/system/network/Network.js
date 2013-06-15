@@ -25,5 +25,6 @@ OMV.WorkspaceManager.registerNode({
 	path: "/system",
 	text: _("Network"),
 	icon16: "images/network.png",
+	iconSvg: "images/network.svg",
 	position: 30
 });

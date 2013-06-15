@@ -25,5 +25,6 @@ OMV.WorkspaceManager.registerNode({
 	path: "/diagnostic",
 	text: _("Services"),
 	icon16: "images/wrench.png",
+	iconSvg: "images/wrench.svg",
 	position: 100
 });
