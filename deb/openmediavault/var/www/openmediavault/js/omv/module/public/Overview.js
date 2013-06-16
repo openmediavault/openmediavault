@@ -31,13 +31,3 @@ Ext.define("OMV.module.public.Overview", {
 		"OMV.workspace.node.panel.Panel"
 	]
 });
-/*
-OMV.WorkspaceManager.registerPanel({
-	id: "overview",
-	path: "/",
-	text: _("Overview"),
-	icon16: "images/eye.png",
-	position: 0,
-	className: "OMV.module.public.Overview"
-});
-*/

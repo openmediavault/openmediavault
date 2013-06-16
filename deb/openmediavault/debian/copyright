@@ -178,11 +178,6 @@ Copyright: Alexander Moore (http://www.famfamfam.com)
 License: GPL
 Comment: http://www.iconfinder.com/icondetails/39516/16
 
-Files: /var/www/openmediavault/images/eye.png
-Copyright: Everaldo Coelho (http://www.everaldo.com)
-License: LGPL
-Comment: http://www.iconfinder.com/icondetails/3793/16
-
 Files: /var/www/openmediavault/images/logout.png
        /var/www/openmediavault/images/logout.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
@@ -388,3 +383,13 @@ Files: /var/www/openmediavault/images/tftp.png
        /var/www/openmediavault/images/tftp.svg
 Copyright: David Ferreira (http://cargocollective.com/davidferreira)
 License: CC-BY-SA-3.0
+
+Files: /var/www/openmediavault/images/folder.png
+       /var/www/openmediavault/images/folder.svg
+Copyright: Keyamoon <http://icomoon.io>
+License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/folder-open.png
+       /var/www/openmediavault/images/folder-open.svg
+Copyright: Keyamoon <http://icomoon.io>
+License: CC-BY-3.0

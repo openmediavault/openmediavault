@@ -120,6 +120,12 @@ div#headerrlogo {
 .x-tree-icon-16x16 {
 	background-size: 16px 16px;
 }
+.x-tree-icon-parent {
+	background-image: url("../images/folder.png");
+}
+.x-grid-tree-node-expanded .x-tree-icon-parent {
+	background-image: url("../images/folder-open.png");
+}
 /* Button */
 .x-btn-icon-16x16 {
 	background-size: 16px 16px;

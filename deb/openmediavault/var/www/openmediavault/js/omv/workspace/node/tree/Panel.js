@@ -68,6 +68,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 		OMV.WorkspaceManager.getRootNode().eachChild(function(node) {
 			var treeNode = {
 				text: node.getText(),
+				iconCls: Ext.baseCSSPrefix + "tree-icon-16x16",
 				node: node,
 				leaf: node.isLeaf(),
 				children: []
@@ -80,8 +81,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 			}
 			if(node.hasIcon("raster16")) {
 				Ext.apply(treeNode, {
-					icon: node.getIcon16(),
-					iconCls: Ext.baseCSSPrefix + "tree-icon-16x16"
+					icon: node.getIcon16()
 				});
 			}
 			node.eachChild(function(childNode) {
