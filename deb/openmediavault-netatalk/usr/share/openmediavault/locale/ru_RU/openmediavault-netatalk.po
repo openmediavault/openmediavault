@@ -3,9 +3,9 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <arturmon82@gmail.com>, 2012.
-#   <ffrants@gmail.com>, 2012.
-# артур Мудрых <arturmon82@gmail.com>, 2013.
+# артур Мудрых <arturmon82@gmail.com>, 2012
+# mictian <ffrants@gmail.com>, 2012
+# артур Мудрых <arturmon82@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"

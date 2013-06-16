@@ -3,8 +3,8 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Nelson Rosado <nelsontrosado@gmail.com>, 2012.
-#   <nelsontrosado@gmail.com>, 2012.
+# Nelson Rosado <nelsontrosado@gmail.com>, 2012
+# Nelson Rosado <nelsontrosado@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"

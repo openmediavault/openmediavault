@@ -3,10 +3,10 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Christophe Lherieau <skimpax@gmail.com>, 2012.
-# Nahir Mohamed <nahirmoha@gmail.com>, 2013.
-# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012.
-# Stéphane BOCQUET <stephane_bocquet@hotmail.com>, 2012.
+# Christophe Lherieau <skimpax@gmail.com>, 2012
+# Nahir Mohamed <nahirmoha@gmail.com>, 2013
+# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
+# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"

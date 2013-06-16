@@ -1,3 +1,9 @@
+openmediavault-netatalk (0.4.8) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Jun 2013 12:53:14 +0200
+
 openmediavault-netatalk (0.4.7) stable; urgency=low
 
   * Update locales.

@@ -3,9 +3,9 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Antonio Pelaez Redondo <antorayman@gmail.com>, 2012.
-#   <jmcainzos@vodafone.es>, 2012.
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012.
+# Antonio Pelaez Redondo <antorayman@gmail.com>, 2012
+# jmcainzos <jmcainzos@vodafone.es>, 2012
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"

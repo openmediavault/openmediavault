@@ -3,9 +3,9 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Cyryl Sochacki <>, 2012.
-# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013.
-# Jacek Niedziółka <>, 2012.
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013
+# Jacek Niedziółka <>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"

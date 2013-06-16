@@ -3,8 +3,8 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Volker  <votdev@gmx.de>, 2012.
-#   <warhog@gmx.de>, 2012.
+# Volker <votdev@gmx.de>, 2012
+# warhog <warhog@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"

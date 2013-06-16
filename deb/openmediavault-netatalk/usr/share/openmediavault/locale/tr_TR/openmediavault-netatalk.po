@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Serhat SUT <serhat.sut@gmail.com>, 2012.
+# Serhat SUT <serhat.sut@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-10 00:15+0100\n"
-"PO-Revision-Date: 2013-02-09 23:15+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-03-16 23:31+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,22 +19,22 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid " "
-msgstr ""
+msgstr "."
 
 msgid "Add share"
 msgstr "Paylaşım ekle"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "Gelişmiş Ayarlar"
 
 msgid "Advertise this service via mDNS/DNS-SD."
 msgstr "Bu servisi mDNS/DNS-SD ile duyur."
 
 msgid "Allow guest login."
-msgstr ""
+msgstr "Misafir girişine izin ver."
 
 msgid "Allow guests to create or modify files."
-msgstr ""
+msgstr "Misafir kullanıcıların dosya oluşturma ve düzenlemesine izin ver."
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr "Temiz yollanan şifreler ile girişe izin ver."
@@ -85,10 +85,10 @@ msgid "General settings"
 msgstr "Genel ayarlar"
 
 msgid "Guest login"
-msgstr ""
+msgstr "Misafir kullanıcı girişi"
 
 msgid "Guests only have read access by default."
-msgstr ""
+msgstr "Misafir kullanıcılar varsayılan olarak sadece okuma iznine sahiptirler."
 
 msgid "Hide dot files"
 msgstr "Noktalı dosyaları gizle"

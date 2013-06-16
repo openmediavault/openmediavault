@@ -1,0 +1,76 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2013 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+
+usage() {
+	cat <<EOF
+Usage:
+  $(basename $0) [options] <command>
+
+Execute the given command and send its output via email.
+
+OPTIONS:
+  -e  Send command output via email.
+  -a  Append  given header to the message being sent.
+  -s  Send a message with the given subject.
+  -u  The name of the user to whom the mail will be sent. Defaults to root.
+  -h  Show this message.
+
+EOF
+}
+
+mail=0
+mailuser="root"
+mailopts=
+runcmd=
+
+while getopts "a:es:u:?h" option
+do
+	case ${option} in
+	e)
+		mail=1
+		;;
+	a|s)
+		mailopts="${mailopts} -${option} \"${OPTARG}\""
+		;;
+	u)
+		mailuser="${OPTARG}"
+		;;
+	h|?)
+		usage >&2
+		exit 2
+		;;
+	esac
+done
+
+shift $((OPTIND-1))
+runcmd=$@
+
+if [ "${mail}" = 1 ]; then
+	runcmd="${runcmd} | mail ${mailopts} ${mailuser}"
+fi
+
+sh -c "${runcmd}"
+
+exit 0

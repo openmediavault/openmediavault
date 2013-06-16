@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#  <kochinc@outlook.com>, 2013.
+# kochin <kochinc@outlook.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
