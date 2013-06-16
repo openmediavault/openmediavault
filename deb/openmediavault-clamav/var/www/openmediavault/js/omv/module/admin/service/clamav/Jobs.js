@@ -364,6 +364,7 @@ Ext.define("OMV.module.admin.service.clamav.Jobs", {
 			xtype: "button",
 			text: _("Run"),
 			icon: "images/run.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onRunButton, me, [ me ]),
 			scope: me,
 			disabled: true

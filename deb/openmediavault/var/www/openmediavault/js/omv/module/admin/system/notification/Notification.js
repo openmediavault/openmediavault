@@ -88,6 +88,7 @@ Ext.define("OMV.module.admin.system.notification.Settings", {
 			xtype: "button",
 			text: _("Send a test email"),
 			icon: "images/mail.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			disabled: true,
 			scope: me,
 			handler: function() {

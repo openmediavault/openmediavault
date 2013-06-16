@@ -81,8 +81,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 			if(node.hasIcon("raster16")) {
 				Ext.apply(treeNode, {
 					icon: node.getIcon16(),
-					iconCls: !node.hasIcon("svg") ? null :
-					  Ext.baseCSSPrefix + "tree-icon-16x16"
+					iconCls: Ext.baseCSSPrefix + "tree-icon-16x16"
 				});
 			}
 			node.eachChild(function(childNode) {
@@ -91,8 +90,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 					leaf: true,
 					node: childNode,
 					icon: childNode.getIcon16(),
-					iconCls: !childNode.hasIcon("svg") ? null :
-					  Ext.baseCSSPrefix + "tree-icon-16x16"
+					iconCls: Ext.baseCSSPrefix + "tree-icon-16x16"
 				};
 				treeNode.children.push(treeChildNode);
 			});

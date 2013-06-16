@@ -6,6 +6,7 @@ Files: *
 Copyright: 2009-2013 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
 
-Files: var/www/openmediavault/images/nut.png
-License: LGPL
-Copyright: Everaldo Coelho (http://www.everaldo.com)
+Files: /var/www/openmediavault/images/nut.png
+       /var/www/openmediavault/images/nut.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0

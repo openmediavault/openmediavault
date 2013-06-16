@@ -69,6 +69,7 @@ Ext.define("OMV.workspace.panel.Panel", {
 			xtype: "button",
 			text: me.refreshButtonText,
 			icon: "images/refresh.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			hidden: me.hideRefreshButton,
 			handler: Ext.Function.bind(me.onRefreshButton, me, [ me ]),
 			scope: me

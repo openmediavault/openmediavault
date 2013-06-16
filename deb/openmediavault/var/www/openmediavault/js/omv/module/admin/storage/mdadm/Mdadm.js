@@ -497,6 +497,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			xtype: "button",
 			text: _("Create"),
 			icon: "images/add.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onCreateButton,
 			scope: me,
 			disabled: false
@@ -505,6 +506,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			xtype: "button",
 			text: _("Grow"),
 			icon: "images/expand.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onGrowButton,
 			scope: me,
 			disabled: true
@@ -513,6 +515,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			xtype: "button",
 			text: _("Recover"),
 			icon: "images/aid.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onRecoverButton,
 			scope: me,
 			disabled: true
@@ -521,6 +524,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			xtype: "button",
 			text: _("Detail"),
 			icon: "images/details.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onDetailButton,
 			scope: me,
 			disabled: true

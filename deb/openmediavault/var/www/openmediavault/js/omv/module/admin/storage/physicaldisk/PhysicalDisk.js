@@ -244,6 +244,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 			xtype: "button",
 			text: _("Wipe"),
 			icon: "images/erase.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onWipebutton,
 			scope: me,
 			disabled: true
@@ -252,6 +253,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 			xtype: "button",
 			text: _("Scan"),
 			icon: "images/search.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onScanButton,
 			scope: me
 		}]);

@@ -129,7 +129,8 @@ OMV.WorkspaceManager.registerNode({
 	id: "tftp",
 	path: "/service",
 	text: _("TFTP"),
-	icon16: "images/tftp.png"
+	icon16: "images/tftp.png",
+	iconSvg: "images/tftp.svg"
 });
 
 OMV.WorkspaceManager.registerPanel({

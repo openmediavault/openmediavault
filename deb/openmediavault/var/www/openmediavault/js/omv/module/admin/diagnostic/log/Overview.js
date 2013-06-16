@@ -108,6 +108,7 @@ Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 			xtype: "button",
 			text: _("Clear"),
 			icon: "images/trashcan.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onClearButton, me, [ me ]),
 			scope: me
 		},{
@@ -115,6 +116,7 @@ Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 			xtype: "button",
 			text: _("Download"),
 			icon: "images/download.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onDownloadButton, me, [ me ]),
 			scope: me
 		}];

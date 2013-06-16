@@ -124,6 +124,7 @@ Ext.define("OMV.workspace.Workspace", {
 				},{
 					xtype: "splitbutton",
 					icon: "images/menu.png",
+					iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 					handler: function() {
 						this.showMenu();
 					},
@@ -132,25 +133,29 @@ Ext.define("OMV.workspace.Workspace", {
 							text: _("Reset WebGUI state"),
 							action: "resetstate",
 							msg: _("Do you really want to reset WebGUI state, e.g. grid column order?"),
-							icon: "images/refresh.png"
+							icon: "images/refresh.png",
+							iconCls: Ext.baseCSSPrefix + "btn-icon-16x16"
 						},{
 							xtype: "menuseparator"
 						},{
 							text: _("Logout"),
 							action: "logout",
 							msg: _("Do you really want to logout?"),
-							icon: "images/logout.png"
+							icon: "images/logout.png",
+							iconCls: Ext.baseCSSPrefix + "btn-icon-16x16"
 						},{
 							text: _("Reboot"),
 							action: "reboot",
 							msg: _("Do you really want to reboot the system?"),
 							icon: "images/reboot.png",
+							iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 							hidden: !OMV.SessionManager.isAdministrator()
 						},{
 							text: _("Shutdown"),
 							action: "shutdown",
 							msg: _("Do you really want to shutdown the system?"),
 							icon: "images/shutdown.png",
+							iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 							hidden: !OMV.SessionManager.isAdministrator()
 						}],
 						listeners: {

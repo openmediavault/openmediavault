@@ -701,6 +701,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			xtype: "button",
 			text: _("Identify"),
 			icon: "images/search.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onIdentifyButton, me, [ me ]),
 			scope: me,
 			disabled: true

@@ -467,6 +467,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			xtype: "button",
 			text: _("Create"),
 			icon: "images/add.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onCreateButton, me, [ me ]),
 			scope: me,
 			disabled: false
@@ -475,6 +476,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			xtype: "button",
 			text: _("Resize"),
 			icon: "images/expand.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onResizeButton, me, [ me ]),
 			scope: me,
 			disabled: true
@@ -483,6 +485,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			xtype: "button",
 			text: _("Quota"),
 			icon: "images/group.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onQuotaButton, me, [ me ]),
 			scope: me,
 			disabled: true
@@ -491,6 +494,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			xtype: "button",
 			text: _("Mount"),
 			icon: "images/play.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onMountButton, me, [ me ]),
 			scope: me,
 			disabled: true
@@ -499,6 +503,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			xtype: "button",
 			text: _("Unmount"),
 			icon: "images/eject.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onUnmountButton, me, [ me ]),
 			scope: me,
 			disabled: true

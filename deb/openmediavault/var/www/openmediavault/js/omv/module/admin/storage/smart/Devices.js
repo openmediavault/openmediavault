@@ -397,6 +397,7 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 			xtype: "button",
 			text: _("Detail"),
 			icon: "images/details.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onDetailButton, me, [ me ]),
 			scope: me,
 			disabled: true
@@ -405,6 +406,7 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 			xtype: "button",
 			text: _("Information"),
 			icon: "images/info.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onInformationButton, me, [ me ]),
 			scope: me,
 			disabled: true

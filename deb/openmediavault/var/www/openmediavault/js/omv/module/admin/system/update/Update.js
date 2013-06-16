@@ -186,6 +186,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			xtype: "button",
 			text: _("Check"),
 			icon: "images/refresh.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onCheckButton, me, [ me ]),
 			scope: me
 		},{
@@ -193,6 +194,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			xtype: "button",
 			text: _("Upload"),
 			icon: "images/upload.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onUploadButton, me, [ me ]),
 			scope: me
 		},{
@@ -200,6 +202,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			xtype: "button",
 			text: _("Install"),
 			icon: "images/apply.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onInstallButton, me, [ me ]),
 			scope: me,
 			disabled: true
@@ -209,6 +212,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			xtype: "button",
 			text: _("Show changelog"),
 			icon: "images/changelog.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onChangelogButton, me, [ me ]),
 			scope: me,
 			disabled: true

@@ -252,7 +252,8 @@ OMV.WorkspaceManager.registerNode({
 	id: "snmp",
 	path: "/service",
 	text: _("SNMP"),
-	icon16: "images/snmp.png"
+	icon16: "images/snmp.png",
+	iconSvg: "images/snmp.svg"
 });
 
 OMV.WorkspaceManager.registerPanel({

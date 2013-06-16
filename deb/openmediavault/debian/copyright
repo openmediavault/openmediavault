@@ -91,15 +91,10 @@ Copyright: Oliver Scholtz (and others)
 License: GPL
 Comment: http://www.iconfinder.net/icondetails/24363/16
 
-Files: /var/www/openmediavault/images/tftp.png
-Copyright: Various (Tango icon set)
-License: public-domain
-Comment: http://www.iconfinder.net/icondetails/15460/16
-
 Files: /var/www/openmediavault/images/smb.png
-Copyright: David Vignoni
-License: LGPL
-Comment: http://www.iconfinder.net/icondetails/1452/16
+       /var/www/openmediavault/images/smb.png
+Copyright: Keyamoon (http://keyamoon.com)
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/lock.png
        /var/www/openmediavault/images/lock.svg
@@ -122,12 +117,8 @@ Copyright: Daniel Bruce <http://danielbruce.se>
 License: CC-BY-SA-3.0-US
 
 Files: /var/www/openmediavault/images/rsync.png
-Copyright: Yannick Lung <www.yanlu.de>
-License: permissive
- You are free to use Freecns for commercial and non-commercial purposes.
- Examples are apps, applications or user interfaces. You are not allowed
- to sell these icons because Freecns is a free source for developers and/or
- designers.
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/run.png
 Copyright: Yannick Lung <www.yanlu.de>
@@ -178,9 +169,9 @@ Copyright: Keyamoon <http://icomoon.io>
 License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/snmp.png
-Copyright: Tango (http://tango.freedesktop.org/Tango_Desktop_Project)
-License: public-domain
-Comment: http://www.iconfinder.net/icondetails/15436/16
+       /var/www/openmediavault/images/snmp.svg
+Copyright: David Ferreira (http://cargocollective.com/davidferreira)
+License: CC-BY-SA-3.0
 
 Files: /var/www/openmediavault/images/error.png
 Copyright: Alexander Moore (http://www.famfamfam.com)
@@ -288,8 +279,9 @@ Copyright: Keyamoon (http://keyamoon.com)
 License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/nfs.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
+       /var/www/openmediavault/images/nfs.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/nic.png
 Copyright: FatCow Web Hosting (http://www.fatcow.com)
@@ -343,12 +335,9 @@ Copyright: Egemen Kapusuz
 License: GPL-3
 
 Files: /var/www/openmediavault/images/access.png
-Copyright: interactivemania <http://www.defaulticon.com>
-License: CC-BY-ND-3.0
-
-Files: /var/www/openmediavault/images/privileges.png
-Copyright: Melih Bilgil <www.picol.org>
-License: CC-BY-SA-3.0
+       /var/www/openmediavault/images/access.svg
+Copyright: Keyamoon <http://icomoon.io>
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/eject.png
        /var/www/openmediavault/images/eject.svg
@@ -394,3 +383,8 @@ Files: /var/www/openmediavault/images/logs.png
        /var/www/openmediavault/images/logs.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/tftp.png
+       /var/www/openmediavault/images/tftp.svg
+Copyright: David Ferreira (http://cargocollective.com/davidferreira)
+License: CC-BY-SA-3.0

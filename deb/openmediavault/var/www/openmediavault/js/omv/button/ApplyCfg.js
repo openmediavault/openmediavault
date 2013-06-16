@@ -44,6 +44,7 @@ Ext.define("OMV.button.ApplyCfg", {
 	reloadInterval: 5000,
 
 	icon: "images/led_gray.png",
+	iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 	tooltip: _("Apply configuration changes"),
 	disabled: true,
 

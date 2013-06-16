@@ -594,6 +594,7 @@ Ext.define("OMV.module.admin.system.certificate.Certificates", {
 			xtype: "splitbutton",
 			text: _("Add"),
 			icon: "images/add.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: function() {
 				this.showMenu();
 			},
@@ -616,6 +617,7 @@ Ext.define("OMV.module.admin.system.certificate.Certificates", {
 			xtype: "button",
 			text: _("Detail"),
 			icon: "images/details.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onDetailButton, me, [ me ]),
 			scope: me,
 			disabled: true

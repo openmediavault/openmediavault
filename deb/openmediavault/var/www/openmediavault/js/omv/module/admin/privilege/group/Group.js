@@ -218,6 +218,7 @@ Ext.define("OMV.module.admin.privilege.group.Groups", {
 			xtype: "splitbutton",
 			text: _("Add"),
 			icon: "images/add.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: function() {
 				this.showMenu();
 			},
