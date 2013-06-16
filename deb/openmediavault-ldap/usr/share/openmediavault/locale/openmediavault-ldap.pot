@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-ldap\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-19 16:20+0200\n"
+"POT-Creation-Date: 2013-06-16 13:09+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,13 +38,16 @@ msgstr ""
 msgid "Host"
 msgstr ""
 
-msgid "LDAP"
-msgstr ""
-
 msgid "Password"
 msgstr ""
 
+msgid "Please check the <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>manual page</a> for more details."
+msgstr ""
+
 msgid "Root Bind DN"
+msgstr ""
+
+msgid "Settings"
 msgstr ""
 
 msgid "Specifies the base distinguished name (DN) to use as search base, e.g. 'dc=example,dc=net'."
@@ -57,6 +60,9 @@ msgid "Specifies the distinguished name (DN) with which to bind to the directory
 msgstr ""
 
 msgid "Specifies the group suffix, e.g. 'ou=Groups'."
+msgstr ""
+
+msgid "Specifies the port to connect to."
 msgstr ""
 
 msgid "Specifies the user suffix, e.g. 'ou=Users'."

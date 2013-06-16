@@ -3,19 +3,19 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Alexander Savchenko <>, 2012.
-# Alexandr <phg.azlk@gmail.com>, 2012.
-#   <arturmon82@gmail.com>, 2012.
-#   <ffrants@gmail.com>, 2012.
-# Ichi  <ichiperm@gmail.com>, 2012.
-# артур Мудрых <arturmon82@gmail.com>, 2012.
+# Alexander Savchenko <>, 2012
+# az lk <phg.azlk@gmail.com>, 2012
+# артур Мудрых <arturmon82@gmail.com>, 2012
+# mictian <ffrants@gmail.com>, 2012
+# Ichi <ichiperm@gmail.com>, 2012
+# артур Мудрых <arturmon82@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-22 03:12+0100\n"
-"PO-Revision-Date: 2012-12-22 05:22+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2013-06-16 13:05+0200\n"
+"PO-Revision-Date: 2013-06-16 11:05+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -158,11 +158,8 @@ msgstr "64 - промежуточное энергопотребление с о
 msgid "9 months"
 msgstr "9 месяц"
 
-msgid "A mount point already exists for the given filesystem"
-msgstr "Точка монтирования уже существует для данной файловой системы"
-
-msgid "A share with the given name already exists"
-msgstr "Общий ресурс с таким именем уже существует"
+msgid "A share with the name '%s' already exists"
+msgstr ""
 
 msgid "A shared folder with the given name already exists"
 msgstr "Общий ресурс с таким именем уже существует"
@@ -191,9 +188,6 @@ msgstr "Добавить"
 msgid "Add bonded interface"
 msgstr "Добавить связанный интерфейс"
 
-msgid "Add cron job"
-msgstr "Добавить задание cron"
-
 msgid "Add devices to RAID device"
 msgstr "Добавить устройство в RAID массив"
 
@@ -214,6 +208,9 @@ msgstr "Добавить задание Rsync"
 
 msgid "Add rule"
 msgstr "Добавить правило"
+
+msgid "Add scheduled job"
+msgstr ""
 
 msgid "Add scheduled test"
 msgstr "Добавить запланированный тест"
@@ -259,9 +256,6 @@ msgstr "Расширенное управление питанием"
 
 msgid "Advanced settings"
 msgstr "Дополнительные настройки"
-
-msgid "Advertise this service via mDNS/DNS-SD."
-msgstr "Распространить эту службу через mDNS/DNS-SD."
 
 msgid "Afghanistan"
 msgstr "Афганистан"
@@ -345,6 +339,9 @@ msgstr "Антигуа и Барбуда"
 msgid "Apply"
 msgstr "Применить"
 
+msgid "Apply configuration changes"
+msgstr ""
+
 msgid "Apply permissions to files and subfolders"
 msgstr "Применить разрешения к файлам и подкаталогам"
 
@@ -365,6 +362,9 @@ msgstr "Детали массива"
 
 msgid "Aruba"
 msgstr "Аруба"
+
+msgid "Asynchronous I/O"
+msgstr ""
 
 msgid "Attribute name"
 msgstr "Имя атрибута"
@@ -410,12 +410,6 @@ msgstr "Доступное"
 
 msgid "Azerbaijan"
 msgstr "Азербайджан"
-
-msgid "Backup"
-msgstr "Резервное копирование"
-
-msgid "Backup configuration"
-msgstr "Настройка резервного копирования"
 
 msgid "Bahamas"
 msgstr "Багамские острова"
@@ -554,6 +548,9 @@ msgstr "Сертификаты"
 msgid "Chad"
 msgstr "Чад"
 
+msgid "Changelog"
+msgstr ""
+
 msgid "Check"
 msgstr "Проверка"
 
@@ -581,10 +578,6 @@ msgstr "Город"
 msgid "Clear"
 msgstr "Очистить"
 
-msgid ""
-"Click the 'Backup' button to download the current system configuration."
-msgstr "Нажмите кнопку 'Backup', чтобы скачать текущую конфигурацию системы."
-
 msgid "Client"
 msgstr "Клиент"
 
@@ -605,9 +598,6 @@ msgstr "Команда"
 
 msgid "Comment"
 msgstr "Коментарий"
-
-msgid "Commit"
-msgstr "Фиксировать"
 
 msgid "Common Name"
 msgstr "Общее имя"
@@ -707,9 +697,6 @@ msgstr "DHCP"
 msgid "DNS Server"
 msgstr "DNS сервер"
 
-msgid "DNS Service Discovery"
-msgstr "DNS обнаружение служб"
-
 msgid "DNS server"
 msgstr "DNS сервер"
 
@@ -739,9 +726,6 @@ msgstr "Удалить"
 
 msgid "Delete content"
 msgstr "Удалить содержимое"
-
-msgid "Delete files"
-msgstr "Удалить файлы"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Удалять файлы на стороне получателя, которые не существуют у отправителя"
@@ -790,9 +774,6 @@ msgstr "Определить время ожидания по умолчанию
 msgid "Device"
 msgstr "Устройство"
 
-msgid "Device '%s' not found"
-msgstr "Устройство '%s' не найдено"
-
 msgid "Device identity information"
 msgstr "Информация об устройстве"
 
@@ -829,6 +810,9 @@ msgstr "Отображение пунктов {0} - {1} , {2}"
 msgid "Djibouti"
 msgstr "Джибути"
 
+msgid "Do you really want to apply the configuration?"
+msgstr ""
+
 msgid "Do you really want to clear the log file?"
 msgstr "Вы действительно хотите очистить лог файл?"
 
@@ -855,8 +839,10 @@ msgstr "Вы действительно хотите выйти?"
 msgid "Do you really want to reboot the system?"
 msgstr "Вы действительно хотите перезагрузить систему?"
 
-msgid "Do you really want to remove the shared folder content?"
-msgstr "Вы действительно хотите удалить содержимое общей папки?"
+msgid ""
+"Do you really want to remove the shared folder content? It will be "
+"permanently removed and cannot be recovered."
+msgstr ""
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Вы действительно хотите сбросить состояние WebGUI, например, порядок столбцов?"
@@ -932,9 +918,6 @@ msgstr "Редактировать SSL сертификат"
 msgid "Edit bonded interface"
 msgstr "Редактировать связанный интерфейс"
 
-msgid "Edit cron job"
-msgstr "Редактировать задания cron"
-
 msgid "Edit firewall rule"
 msgstr "Изменить правила брандмауэра"
 
@@ -958,6 +941,9 @@ msgstr "Редактировать задание Rsync"
 
 msgid "Edit rule"
 msgstr "Редактировать правило"
+
+msgid "Edit scheduled job"
+msgstr ""
 
 msgid "Edit scheduled test"
 msgstr "Редактировать запланированный тест"
@@ -1003,6 +989,12 @@ msgstr "Включить анонимный FTP"
 
 msgid "Enable archive mode"
 msgstr "Включить режим архивирования"
+
+msgid "Enable asynchronous I/O (AIO) support."
+msgstr ""
+
+msgid "Enable chroot."
+msgstr ""
 
 msgid "Enable compression"
 msgstr "Включить сжатие"
@@ -1128,9 +1120,6 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP позволяет передавать данные между двумя серверами без запроса передачи данных к клиенту."
 
-msgid "Failed to call "
-msgstr "Не удалось вызвать"
-
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1139,8 +1128,23 @@ msgstr "Не удалось создать файловую систему. Пр
 msgid "Failed to get filesystems"
 msgstr "Не удалось определить файловые системы"
 
-msgid "Failed to get system date and time"
-msgstr "Не удалось определить системные дату и время"
+msgid "Failed to get list of groups."
+msgstr ""
+
+msgid "Failed to get list of logical volumes"
+msgstr ""
+
+msgid "Failed to get list of physical volumes"
+msgstr ""
+
+msgid "Failed to get list of software RAID devices"
+msgstr ""
+
+msgid "Failed to get list of users."
+msgstr ""
+
+msgid "Failed to get shadow password suite configuration."
+msgstr ""
 
 msgid "Falkland Islands"
 msgstr "Фолклендские острова"
@@ -1385,6 +1389,13 @@ msgid ""
 "to connect to the module."
 msgstr "Если установлено, для подключения к модулю клиенту необходимо ввести имя пользователя и пароль."
 
+msgid ""
+"If this option is set, the daemon will chroot to the shared folder path "
+"before starting the file transfer with the client. Then it is not possible "
+"to map users and groups by name and the daemon is not being able to follow "
+"symbolic links that are either absolute or outside of the new root path."
+msgstr ""
+
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr "Если этот параметр установлен, любые попытки скачивания будут отклонены."
 
@@ -1426,6 +1437,12 @@ msgstr "Импортировать группы"
 msgid "Import users"
 msgstr "Импортировать пользователей"
 
+msgid "Importing groups ..."
+msgstr ""
+
+msgid "Importing users ..."
+msgstr ""
+
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
 "limitations. Passive ports restricts the range of ports from which the "
@@ -1437,11 +1454,17 @@ msgid ""
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "В некоторых случаях необходимо определить пассивный диапазон портов, чтобы обойти ограничения брандмауэра. При получении от клиента команды PASV, сервер в произвольном порядке выбирает из заданного диапазона пассивных портов, пока не будет найден открытый порт. Выбранный диапазон портов должен быть в непривилегированном диапазоне (например, больше или равным 1024). Строго рекомендуется, чтобы выбранный диапазон был достаточно большим, чтобы обработать много одновременных пассивных соединений (например, 49152-65534, зарегистрированный В IANA эфемерный диапазон портов)."
 
+msgid "Incorrect username or password."
+msgstr "Неправильное имя пользователя или пароль."
+
 msgid "India"
 msgstr "Индия"
 
 msgid "Indonesia"
 msgstr "Индонезия"
+
+msgid "Info"
+msgstr ""
 
 msgid "Informal"
 msgstr "Неформальный"
@@ -1472,9 +1495,6 @@ msgstr "установленный"
 
 msgid "Interfaces"
 msgstr "Интерфейсы"
-
-msgid "Invalid comment"
-msgstr "Недопустимый комментарий"
 
 msgid "Invalid domain name"
 msgstr "Неверное имя домена"
@@ -1676,9 +1696,6 @@ msgstr "Македония"
 msgid "Madagascar"
 msgstr "Мадагаскар"
 
-msgid "Mail Notification"
-msgstr "Почтовое уведомление"
-
 msgid "Maintainer"
 msgstr "Обслуживающий"
 
@@ -1742,9 +1759,6 @@ msgstr "Максимум попыток входа в систему"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Максимальная скорость загрузки (КБ/с)"
-
-msgid "Maximum file size"
-msgstr "Максимальный размер файла"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1941,9 +1955,6 @@ msgstr "Нет запроса на сертификат"
 msgid "No items to display"
 msgstr "Нет объектов для отображения"
 
-msgid "No log entries to display"
-msgstr "Нет записей журнала для отображения"
-
 msgid "No session reuse required"
 msgstr "Нет необходимости повторного использования сессии"
 
@@ -1983,6 +1994,12 @@ msgstr "Не TCP"
 msgid "Not UDP"
 msgstr "Не UDP"
 
+msgid "Notification"
+msgstr ""
+
+msgid "Notifications"
+msgstr ""
+
 msgid "November"
 msgstr "Ноябрь"
 
@@ -2012,6 +2029,9 @@ msgstr "Оман"
 
 msgid "Online"
 msgstr "Онлайн"
+
+msgid "Operation not allowed for user '%s'."
+msgstr "Операция не разрешена для пользователя '%s'."
 
 msgid "Options"
 msgstr "Опции"
@@ -2217,16 +2237,16 @@ msgstr "Сохранить права доступа"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
-"polled.<br/><br/><ul><li>Never - Poll (check) the device regardless of its "
-"power mode. This may cause a disk which is spun-down to be spun-up when it "
-"is checked.</li><li>Sleep - Check the device unless it is in SLEEP "
+"polled.<br/><ul><li>Never - Poll (check) the device regardless of its power "
+"mode. This may cause a disk which is spun-down to be spun-up when it is "
+"checked.</li><li>Sleep - Check the device unless it is in SLEEP "
 "mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY "
 "mode. In these modes most disks are not spinning, so if you want to prevent "
 "a disk from spinning up each poll, this is probably what you "
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr "Предотвращает диск от раскручивания при периодических запросах.<br/><br/><ul><li>Никогда - Опрашивать (проверять) устройство независимо от режима питания. Это может привести к тому, что остановленный диск будет вновь раскручен, когда будет проверен.</li><li>Сон - Проверять устройство, если оно не находится в режиме СОН.</li><li>Ожидание - Проверять устройство, если оно не находится в режиме СОН или ОЖИДАНИЕ. В этих режимах большинство дисков не раскручиваются, так что если Вы хотите предотвратить раскручивание диска при каждом запросе, скорее всего это тот режим, который Вам нужен.</li><li>Неактивный - Проверять устройство, если оно не находится в режиме СОН, ОЖИДАНИЕ или НЕАКТИВНЫЙ. В режиме НЕАКТИВНЫЙ большинство дисков продолжают раскручиваться, так что скорее всего это не тот режим, который Вам нужен.</li></ul>"
+msgstr ""
 
 msgid "Primary"
 msgstr "Основной"
@@ -2248,6 +2268,9 @@ msgstr "Привилегии"
 
 msgid "Privileges"
 msgstr "Привилегии"
+
+msgid "Process monitoring"
+msgstr ""
 
 msgid "Processes"
 msgstr "Процессы"
@@ -2285,6 +2308,9 @@ msgstr "Квота"
 msgid "RAID 10"
 msgstr "RAID 10"
 
+msgid "RAID 4"
+msgstr ""
+
 msgid "RAID 5"
 msgstr "RAID 5"
 
@@ -2293,9 +2319,6 @@ msgstr "RAID 6"
 
 msgid "RAID Management"
 msgstr "Менеджер RAID"
-
-msgid "RPC error"
-msgstr "Ошибка RPC"
 
 msgid "RSync server"
 msgstr "Сервер RSync"
@@ -2379,15 +2402,6 @@ msgstr "Сброс состояния WebGUI"
 msgid "Resize"
 msgstr "Изменить размер"
 
-msgid "Restore"
-msgstr "Восстановление"
-
-msgid "Restore configuration"
-msgstr "Восстановление настроек"
-
-msgid "Restore configuration..."
-msgstr "Восстановление настроек..."
-
 msgid "Resume"
 msgstr "Сводка"
 
@@ -2427,8 +2441,8 @@ msgstr "Руанда"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. informations"
-msgstr "Информация S.M.A.R.T."
+msgid "S.M.A.R.T. information"
+msgstr ""
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. должен быть включен для выбранного устройства."
@@ -2490,6 +2504,9 @@ msgstr "Суббота"
 msgid "Saudi Arabia"
 msgstr "Саудовская Аравия"
 
+msgid "Save"
+msgstr ""
+
 msgid "Saving ..."
 msgstr "Сохранение..."
 
@@ -2498,6 +2515,9 @@ msgstr "Сканирование"
 
 msgid "Scanning for new devices ..."
 msgstr "Сканирование новых устройств..."
+
+msgid "Scheduled jobs"
+msgstr ""
 
 msgid "Scheduled tests"
 msgstr "Запланированные тесты"
@@ -2568,17 +2588,17 @@ msgstr "Выберите или введите имя пользователя..
 msgid "Self-test logs"
 msgstr "Журналы самопроверки"
 
+msgid "Send a test email"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Отправить вывод команды по электронной почте"
 
 msgid "Send email"
 msgstr "Отправить email"
 
-msgid "Send test email"
-msgstr "Отправить тестовое письмо"
-
-msgid "Sender"
-msgstr "Отправитель"
+msgid "Sender email"
+msgstr ""
 
 msgid "Sending test email ..."
 msgstr "Отправление тестового письма..."
@@ -2604,17 +2624,20 @@ msgstr "Сервер"
 msgid "Service"
 msgstr "Сервис"
 
+msgid "Service Discovery"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "Сервис отключен"
 
 msgid "Services"
 msgstr "Сервисы"
 
-msgid "Session expired"
-msgstr "Сессия истекла"
+msgid "Session expired."
+msgstr ""
 
-msgid "Session not authenticated"
-msgstr "Сессия не прошла проверку подлинности"
+msgid "Session not authenticated."
+msgstr ""
 
 msgid "Session timeout"
 msgstr "Закончилось время сессии"
@@ -2637,9 +2660,6 @@ msgstr "Устанавливает интервал между проверка�
 
 msgid "Settings"
 msgstr "Настройки"
-
-msgid "Settings already exist for device '%s'"
-msgstr "Настройки уже существуют для устройства '%s'"
 
 msgid "Seychelles"
 msgstr "Сейшельские острова"
@@ -2664,6 +2684,9 @@ msgstr "Короткая самопроверка"
 
 msgid "Show certificate"
 msgstr "Показать сертификат"
+
+msgid "Show changelog"
+msgstr ""
 
 msgid "Show details"
 msgstr "Показать детали"
@@ -2703,6 +2726,9 @@ msgstr "Словакия"
 
 msgid "Slovenia"
 msgstr "Словения"
+
+msgid "Software RAID"
+msgstr ""
 
 msgid "Solomon Islands"
 msgstr "Соломоновы Острова"
@@ -2876,9 +2902,6 @@ msgstr "Системные журналы"
 msgid "System time"
 msgstr "Системное время"
 
-msgid "System user/group"
-msgstr "Системный пользователь/группа"
-
 msgid "TCP forwarding"
 msgstr "Перенаправление TCP"
 
@@ -2915,11 +2938,11 @@ msgstr "Длина RSA ключа"
 msgid "The SSL certificate."
 msgstr "Сертификат SSL."
 
-msgid "The changes have been applied "
-msgstr "Изменения применены"
-
 msgid "The changes have been applied successfully."
 msgstr "Изменения успешно применены."
+
+msgid "The comment contains invalid characters"
+msgstr "Комментарий содержит недопустимые символы"
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "SMTP порт сервера по умолчанию, например 25 или 587."
@@ -2986,14 +3009,12 @@ msgid ""
 "for data connections is not required."
 msgstr "Установка повторного использования сессии SSL управляющего соединения для передачи данных."
 
-msgid "The service name."
-msgstr "Имя сервиса."
+msgid ""
+"The session timeout time in minutes. Set to 0 to disable automatic logout."
+msgstr "Время тайм-аута сеанса в минутах. Установите 0, чтобы отключить автоматический выход из системы."
 
-msgid "The session timeout time in minutes."
-msgstr "Время таймаута сеанса в минутах."
-
-msgid "The shared folder is already used by another share"
-msgstr "Эта общая папка уже используется другим общим ресурсом"
+msgid "The shared folder is already used by another share."
+msgstr ""
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3006,9 +3027,6 @@ msgstr "Исходный общий ресурс."
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "Указанная квота превышает максимальное возможное значение 4 TiB."
 
-msgid "The system will reboot now."
-msgstr "Система будет перезагружена сейчас."
-
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Система будет перезагружена сейчас. Это может занять некоторое время..."
 
@@ -3020,9 +3038,6 @@ msgstr "Пользователь '%s' не существует"
 
 msgid "The user '%s' is not allowed"
 msgstr "Пользователь '%s' не разрешен"
-
-msgid "The value in this field is invalid"
-msgstr "Значение этого поля неверное"
 
 msgid "The volume label for the filesystem."
 msgstr "Метка тома для файловой системы."
@@ -3050,6 +3065,9 @@ msgstr "Задает, виден ли этот сетевой ресурс в с
 
 msgid "This field does not allow blanks"
 msgstr "Это поле не допускает пробелы"
+
+msgid "This field is required"
+msgstr ""
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Это поле должно быть в формате hh:mm:ss"
@@ -3227,12 +3245,6 @@ msgstr "Таймаут"
 msgid "Times"
 msgstr "Время"
 
-msgid ""
-"To restore a previously backed up configuration click the 'Restore' button. "
-"The system will reboot automatically after import has been finished "
-"successfully."
-msgstr "Для восстановления резервной копии прежней конфигурации нажмите кнопку \"Восстановление\". Система перезагрузится автоматически после успешного завершения."
-
 msgid "Togo"
 msgstr "Того"
 
@@ -3375,6 +3387,9 @@ msgstr "Использование сервера NTP"
 msgid "Use SSL/TLS secure connection"
 msgstr "Использовать SSL/TLS для безопасного соединения"
 
+msgid "Use chroot"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "Использовать sendfile"
 
@@ -3481,6 +3496,9 @@ msgstr "Web Администратор"
 
 msgid "Web Administrator Password"
 msgstr "Пароль Web Администратора"
+
+msgid "Web administration"
+msgstr ""
 
 msgid "Web administration interface"
 msgstr "Интерфейс Web Администратора"

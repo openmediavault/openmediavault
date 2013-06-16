@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-15 12:28+0200\n"
-"PO-Revision-Date: 2012-09-15 10:29+0000\n"
+"POT-Creation-Date: 2013-06-16 13:10+0200\n"
+"PO-Revision-Date: 2013-06-16 11:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Add physical volume"
+msgstr ""
 
 msgid ""
 "After the logical volume has been extended you can resize the containing "
@@ -31,13 +34,7 @@ msgstr ""
 msgid "Confirmation"
 msgstr ""
 
-msgid "Create"
-msgstr ""
-
 msgid "Create logical volume"
-msgstr ""
-
-msgid "Create physical volume"
 msgstr ""
 
 msgid "Create volume group"
@@ -77,6 +74,9 @@ msgid "Extend volume group"
 msgstr ""
 
 msgid "Free"
+msgstr ""
+
+msgid "Invalid name"
 msgstr ""
 
 msgid "Logical Volume Management"

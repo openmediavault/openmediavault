@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Christophe Lherieau <skimpax@gmail.com>, 2012.
-# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012.
-# Stéphane BOCQUET <stephane_bocquet@hotmail.com>, 2012.
+# Christophe Lherieau <skimpax@gmail.com>, 2012-2013
+# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
+# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-19 16:20+0200\n"
-"PO-Revision-Date: 2012-08-29 13:59+0000\n"
-"Last-Translator: Stéphane BOCQUET <sbocquet4772@gmail.com>\n"
+"POT-Creation-Date: 2013-06-16 13:09+0200\n"
+"PO-Revision-Date: 2013-06-16 11:09+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -41,14 +41,19 @@ msgstr "Suffixe de groupes"
 msgid "Host"
 msgstr "Hôte"
 
-msgid "LDAP"
-msgstr "LDAP"
-
 msgid "Password"
 msgstr "Mot de passe"
 
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Voir la <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>page d'aide</a> pour plus de détails."
+
 msgid "Root Bind DN"
 msgstr "DN racine de liaison (Root Bind DN)"
+
+msgid "Settings"
+msgstr ""
 
 msgid ""
 "Specifies the base distinguished name (DN) to use as search base, e.g. "
@@ -65,6 +70,9 @@ msgstr "Spécifie le DN avec lequel se lier au serveur d'annuaire pour les reche
 
 msgid "Specifies the group suffix, e.g. 'ou=Groups'."
 msgstr "Spécifie le suffixe de  groupe (ex: 'ou=Groups')."
+
+msgid "Specifies the port to connect to."
+msgstr "Spécifie le port auquel se connecter."
 
 msgid "Specifies the user suffix, e.g. 'ou=Users'."
 msgstr "Spécifie le suffixe d'utilisateur (ex: 'ou=Users')."

@@ -3,13 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Volker  <votdev@gmx.de>, 2012.
+# bejonwe <bejonwe@gmx.net>, 2012
+# Volker <votdev@gmx.de>, 2013
+# Volker <votdev@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-19 16:20+0200\n"
-"PO-Revision-Date: 2012-08-24 20:11+0000\n"
+"POT-Creation-Date: 2013-06-16 13:09+0200\n"
+"PO-Revision-Date: 2013-06-16 11:09+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -34,18 +36,23 @@ msgid "General settings"
 msgstr "Allgemeine Einstellungen"
 
 msgid "Groups suffix"
-msgstr ""
+msgstr "Gruppensuffix"
 
 msgid "Host"
 msgstr "Host"
 
-msgid "LDAP"
-msgstr "LDAP"
-
 msgid "Password"
 msgstr "Passwort"
 
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+
 msgid "Root Bind DN"
+msgstr "Root Bind DN"
+
+msgid "Settings"
 msgstr ""
 
 msgid ""
@@ -62,13 +69,16 @@ msgid ""
 msgstr ""
 
 msgid "Specifies the group suffix, e.g. 'ou=Groups'."
+msgstr "Legt die Gruppensuffix fest (z.B. \"ou=Groups\")."
+
+msgid "Specifies the port to connect to."
 msgstr ""
 
 msgid "Specifies the user suffix, e.g. 'ou=Users'."
-msgstr ""
+msgstr "Legt den Benutzersuffix fest (z.B. \"ou=Users\")."
 
 msgid "The FQDN or IP address of the server."
-msgstr ""
+msgstr "Die FQDN oder IP-Adresse des Servers."
 
 msgid "Users suffix"
-msgstr ""
+msgstr "Benutzersuffix"

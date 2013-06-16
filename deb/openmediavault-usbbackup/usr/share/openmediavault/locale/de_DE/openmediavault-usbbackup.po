@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Volker <votdev@gmx.de>, 2013.
+# Volker <votdev@gmx.de>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-15 15:27+0000\n"
+"POT-Creation-Date: 2013-06-16 13:13+0200\n"
+"PO-Revision-Date: 2013-06-16 11:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -18,11 +18,8 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "A backup job already exists for this storage device"
-msgstr "Ein Datensicherungsauftrag existiert bereits für dieses Speichergerät"
-
-msgid "Add USB backup job"
-msgstr "Backup Job hinzufügen"
+msgid "Add backup job"
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -31,6 +28,9 @@ msgstr "Eine E-Mail mit der Ausgabe des Befehls (wenn eine Ausgabe erzeugt wurde
 
 msgid "Archive"
 msgstr "Archiv"
+
+msgid "Backup jobs"
+msgstr ""
 
 msgid "Comment"
 msgstr "Kommentar"
@@ -47,11 +47,14 @@ msgstr "Löschen"
 msgid "Delete files on the receiving side that don't exist on sender."
 msgstr "Lösche Dateien beim Empfänger die beim Sender nicht existieren."
 
+msgid "Device"
+msgstr ""
+
 msgid "Device '%s' not found"
 msgstr "Das Laufwerk '%s' wurde nicht gefunden"
 
-msgid "Edit USB backup job"
-msgstr "Backup Job ändern"
+msgid "Edit backup job"
+msgstr ""
 
 msgid "Enable"
 msgstr "Aktivieren"
@@ -67,8 +70,8 @@ msgstr "Aktivieren, wenn nur teilweise übertragene Dateien behalten werden soll
 msgid "Enabled"
 msgstr "Aktiviert"
 
-msgid "Execute USB backup job"
-msgstr "Führe USB Datensicherungsauftrag aus"
+msgid "Execute backup job"
+msgstr ""
 
 msgid "External storage device"
 msgstr "Externes Speichergerät"
@@ -82,8 +85,17 @@ msgstr "Konnte Dateisysteme nicht ermitteln"
 msgid "Filesystem '%s' not found"
 msgstr "Das Dateisystem '%s' wurde nicht gefunden"
 
+msgid "From external storage to shared folder"
+msgstr "Von externem Speichermedium in freigegebenen Ordner"
+
+msgid "From shared folder to external storage"
+msgstr "Von freigegebenem Ordner auf externes Speichermedium"
+
 msgid "Keep partially transferred files"
 msgstr "Teilweise übertragene Dateien behalten"
+
+msgid "Mode"
+msgstr "Modus"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -114,8 +126,11 @@ msgstr "Rekursiv"
 msgid "Run"
 msgstr "Ausführen"
 
-msgid "Select a volume ..."
-msgstr "Wähle einen Datenträger ..."
+msgid "Scan"
+msgstr ""
+
+msgid "Select a device ..."
+msgstr ""
 
 msgid "Send command output via email."
 msgstr "Sende Kommandoausgabe per E-Mail."
@@ -133,8 +148,17 @@ msgstr "Freigegebene Ordner"
 msgid "Suppress non-error messages."
 msgstr "Unterdrücke Nicht-Fehlermeldungen."
 
+msgid "Synchronise from/to directory on external storage device."
+msgstr ""
+
 msgid "The external storage device."
 msgstr "Das externe Speichergerät."
+
+msgid ""
+"The shared folder content is synchronised from/to the root of the external "
+"storage device if this option is not set. The name of the directory is taken"
+" from the shared folder."
+msgstr ""
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
@@ -153,9 +177,6 @@ msgstr "Aktualisiere Ziel-ACLs mit Quell-ACLs."
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "Erweiterte Ziel-Attribute aktualisieren damit sie den Lokalen entsprechen."
-
-msgid "Volume"
-msgstr "Datenträger"
 
 msgid "n/a"
 msgstr "N/V"

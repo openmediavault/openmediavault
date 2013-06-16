@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Serhat SUT <serhat.sut@gmail.com>, 2012.
+# Serhat SUT <serhat.sut@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-22 03:12+0100\n"
-"PO-Revision-Date: 2012-12-22 02:12+0000\n"
+"POT-Creation-Date: 2013-06-16 13:05+0200\n"
+"PO-Revision-Date: 2013-06-16 11:05+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -100,7 +100,7 @@ msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - En yüksek performans, en yüksek güç kullanımı"
 
 msgid "255 - Disabled"
-msgstr ""
+msgstr "255 - Kapatılmış"
 
 msgid "3 days"
 msgstr "3 gün"
@@ -153,11 +153,8 @@ msgstr "64 - Orta düzey güç kullanımı - Bekleme ile"
 msgid "9 months"
 msgstr "9 ay"
 
-msgid "A mount point already exists for the given filesystem"
-msgstr "Bağlantı noktası dosya sisteminde zaten mevcut"
-
-msgid "A share with the given name already exists"
-msgstr "Bu isimde bir paylaşım mevcut"
+msgid "A share with the name '%s' already exists"
+msgstr ""
 
 msgid "A shared folder with the given name already exists"
 msgstr "Bu isimde paylaşılan bir klasör mevcut"
@@ -186,9 +183,6 @@ msgstr "Ekle"
 msgid "Add bonded interface"
 msgstr "Birleştirilmiş arabirim ekle"
 
-msgid "Add cron job"
-msgstr "Cron görevi ekle"
-
 msgid "Add devices to RAID device"
 msgstr "RAID aygıtına ekle"
 
@@ -209,6 +203,9 @@ msgstr "Rsync görevi ekle"
 
 msgid "Add rule"
 msgstr "Kural ekle"
+
+msgid "Add scheduled job"
+msgstr ""
 
 msgid "Add scheduled test"
 msgstr "Zamanlanmış test ekle"
@@ -254,9 +251,6 @@ msgstr "Gelişmiş Güç Yönetimi"
 
 msgid "Advanced settings"
 msgstr "Gelişmiş Ayarlar"
-
-msgid "Advertise this service via mDNS/DNS-SD."
-msgstr "Bu servisi mDNS/DNS-SD ile duyur."
 
 msgid "Afghanistan"
 msgstr "Afganistan"
@@ -340,6 +334,9 @@ msgstr "Antigua ve Barbuda"
 msgid "Apply"
 msgstr "Uygula"
 
+msgid "Apply configuration changes"
+msgstr ""
+
 msgid "Apply permissions to files and subfolders"
 msgstr "Yetkileri dosyalara ve alt klasörlere uygula"
 
@@ -360,6 +357,9 @@ msgstr "Dizi detayları"
 
 msgid "Aruba"
 msgstr "Aruba"
+
+msgid "Asynchronous I/O"
+msgstr ""
 
 msgid "Attribute name"
 msgstr "Özellik adı"
@@ -405,12 +405,6 @@ msgstr "Mevcut"
 
 msgid "Azerbaijan"
 msgstr "Azerbaycan"
-
-msgid "Backup"
-msgstr "Yedek"
-
-msgid "Backup configuration"
-msgstr "Yedek konfigürasyonu"
 
 msgid "Bahamas"
 msgstr "Bahamalar"
@@ -461,7 +455,7 @@ msgid "Bond options"
 msgstr "Birleştirme opsiyonları"
 
 msgid "Boot"
-msgstr ""
+msgstr "Boot"
 
 msgid "Bosnia and Herzegovina"
 msgstr "Bosna Hersek"
@@ -549,6 +543,9 @@ msgstr "Sertifikalar"
 msgid "Chad"
 msgstr "Çad"
 
+msgid "Changelog"
+msgstr ""
+
 msgid "Check"
 msgstr "Kontrol"
 
@@ -576,10 +573,6 @@ msgstr "Şehir"
 msgid "Clear"
 msgstr "Temiz"
 
-msgid ""
-"Click the 'Backup' button to download the current system configuration."
-msgstr "Geçerli sistem konfigürasyonunu indirmek için 'Yedekle' butonuna basınız."
-
 msgid "Client"
 msgstr "Kullanıcı"
 
@@ -600,9 +593,6 @@ msgstr "Komut"
 
 msgid "Comment"
 msgstr "Açıklama"
-
-msgid "Commit"
-msgstr "Uygula"
 
 msgid "Common Name"
 msgstr "Genel İsim"
@@ -702,9 +692,6 @@ msgstr "DHCP"
 msgid "DNS Server"
 msgstr "DNS Sunucu"
 
-msgid "DNS Service Discovery"
-msgstr "DNS Servis Araştırması"
-
 msgid "DNS server"
 msgstr "DNS Sunucu"
 
@@ -734,9 +721,6 @@ msgstr "Sil"
 
 msgid "Delete content"
 msgstr "İçeriği sil"
-
-msgid "Delete files"
-msgstr ""
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Göndericide bulunmayan dosyaları kaydedilen taraftan sil"
@@ -785,9 +769,6 @@ msgstr "Birinci paketin tekrar gönderilmesinden önce geçerli zaman aşımın�
 msgid "Device"
 msgstr "Aygıt"
 
-msgid "Device '%s' not found"
-msgstr "'%s' aygıtı bulunamıyor"
-
 msgid "Device identity information"
 msgstr "Aygıt tanımlama bilgisi"
 
@@ -824,6 +805,9 @@ msgstr "Ögeler gösteriliyor {0} - {1} / {2}"
 msgid "Djibouti"
 msgstr "Cibuti"
 
+msgid "Do you really want to apply the configuration?"
+msgstr ""
+
 msgid "Do you really want to clear the log file?"
 msgstr "Log dosyasını gerçekten temizlemek istiyor musunuz?"
 
@@ -850,8 +834,10 @@ msgstr "Çıkış yapmak istediğinize emin misiniz?"
 msgid "Do you really want to reboot the system?"
 msgstr "Sistemi yeniden başlatmak istediğinize emin misiniz?"
 
-msgid "Do you really want to remove the shared folder content?"
-msgstr "Paylaşılmış klasör içeriğini kaldırmak istediğinize emin misiniz?"
+msgid ""
+"Do you really want to remove the shared folder content? It will be "
+"permanently removed and cannot be recovered."
+msgstr ""
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "WebGUI durumunu, örneğin sıralı kolon sıralaması şeklinde, sıfırlamak istediğinize emin misiniz?"
@@ -927,9 +913,6 @@ msgstr "SSL sertifikasını düzenle"
 msgid "Edit bonded interface"
 msgstr "Birleştirilmiş arabirimi düzenle"
 
-msgid "Edit cron job"
-msgstr "Cron görevi düzenle"
-
 msgid "Edit firewall rule"
 msgstr "Güvenlik duvarı kuralını düzenle"
 
@@ -953,6 +936,9 @@ msgstr "Rsync görevini düzenle"
 
 msgid "Edit rule"
 msgstr "Kural düzenle"
+
+msgid "Edit scheduled job"
+msgstr ""
 
 msgid "Edit scheduled test"
 msgstr "Zamanlanmış test düzenle"
@@ -999,6 +985,12 @@ msgstr "Anonim FTP aç"
 msgid "Enable archive mode"
 msgstr "Arşiv modunu aç"
 
+msgid "Enable asynchronous I/O (AIO) support."
+msgstr ""
+
+msgid "Enable chroot."
+msgstr ""
+
 msgid "Enable compression"
 msgstr "Sıkıştırmayı aç"
 
@@ -1038,7 +1030,7 @@ msgstr "Ident protokolüne (RFC1413) izin ver"
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Kısmen transfer edilmiş dosyaları saklamak için bu seçeneği işaretleyiniz, aksi taktirde transfer kesildiğinde bu dosyalar silinecektir."
 
 msgid "Enable user authentication"
 msgstr "Kullanıcı doğrulamasını etkinleştir"
@@ -1123,9 +1115,6 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP kullanıcı tarafına herhangi bir dosya bilgisi aktarımı olmaksızın iki uzak sunucu arasında aktarıma imkan tanır."
 
-msgid "Failed to call "
-msgstr "Hatalı işlem"
-
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1134,8 +1123,23 @@ msgstr "Dosya sistemi yaratılamadı. Daha fazla bilgi için lütfen sistem kay�
 msgid "Failed to get filesystems"
 msgstr "Dosya sistemin algılamasında hata"
 
-msgid "Failed to get system date and time"
-msgstr "Sistem tarih ve zaman algılamasında hata"
+msgid "Failed to get list of groups."
+msgstr ""
+
+msgid "Failed to get list of logical volumes"
+msgstr ""
+
+msgid "Failed to get list of physical volumes"
+msgstr ""
+
+msgid "Failed to get list of software RAID devices"
+msgstr ""
+
+msgid "Failed to get list of users."
+msgstr ""
+
+msgid "Failed to get shadow password suite configuration."
+msgstr ""
 
 msgid "Falkland Islands"
 msgstr "Falkland Adaları"
@@ -1161,12 +1165,12 @@ msgstr "Dosya"
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
-msgstr ""
+msgstr "Geri dönüşüm kutusundaki dosyalar belirtilen sayıda günden sonra otomatik oalrak silinecektir. Manuel silmek için 0 a ayarlayınız."
 
 msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
-msgstr ""
+msgstr "Byte olarak belirlenenden daha büyük dosyalar geri dönüşüm kutusuna konulmayacaktır. Dosya büyüklük sınırını kaldırmak için 0 a ayarlayınız."
 
 msgid "Filesystem"
 msgstr "Dosya sistemi"
@@ -1380,6 +1384,13 @@ msgid ""
 "to connect to the module."
 msgstr "Bu seçenek aktive edilir ise kullanıcılar modüle bağlanabilme için kullanıcı adı ve şifre kullanmak zorunda kalacaktır."
 
+msgid ""
+"If this option is set, the daemon will chroot to the shared folder path "
+"before starting the file transfer with the client. Then it is not possible "
+"to map users and groups by name and the daemon is not being able to follow "
+"symbolic links that are either absolute or outside of the new root path."
+msgstr ""
+
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr "Bu seçenek aktive edilir ise tüm indirme girişimler hata alacaktır."
 
@@ -1421,6 +1432,12 @@ msgstr "Grupları aktar"
 msgid "Import users"
 msgstr "Kullanıcıları içeri aktar"
 
+msgid "Importing groups ..."
+msgstr ""
+
+msgid "Importing users ..."
+msgstr ""
+
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
 "limitations. Passive ports restricts the range of ports from which the "
@@ -1432,11 +1449,17 @@ msgid ""
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "Bazı durumlarda güvenlik duvarını devre dışı bırakabilmek için pasif port aralığı tanımlamak zorunda kalırsınız. Pasif portlar kullanıcı tarafından PASV komutu geldiğinde sunucunun seçebileceği port aralığını sınırlar. Sunucu belirlenmiş aralıktan açık bir port bulana kadar rastgele port numaraları dener. Port aralığı mutlaka özelleştirilmemiş bir aralıktan (örn. 1024 ya da daha büyük) seçilmelidir. Seçilen aralığın olabilecek en fazla sayıdaki pasif bağlantıyı karşılayabilecek kadar geniş olarak ayarlanması şiddetle önerilir (örneğin, IANA - kayıtlı geçici port aralığı olan 49152-65534 şeklinde)."
 
+msgid "Incorrect username or password."
+msgstr "Geçersiz kullanıcı adı ya da şifresi."
+
 msgid "India"
 msgstr "Hindistan"
 
 msgid "Indonesia"
 msgstr "Endonezya"
+
+msgid "Info"
+msgstr ""
 
 msgid "Informal"
 msgstr "Resmi olmayan"
@@ -1467,9 +1490,6 @@ msgstr "Kuruldu"
 
 msgid "Interfaces"
 msgstr "Arabirim"
-
-msgid "Invalid comment"
-msgstr "Geçersiz açıklama"
 
 msgid "Invalid domain name"
 msgstr "Geçersiz alan adı"
@@ -1538,7 +1558,7 @@ msgid "Kazakhstan"
 msgstr "Kazakistan"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Kısmen transfer edilmiş dosyaları koru"
 
 msgid "Kenya"
 msgstr "Kenya"
@@ -1671,9 +1691,6 @@ msgstr "Makedonya"
 msgid "Madagascar"
 msgstr "Madagaskar"
 
-msgid "Mail Notification"
-msgstr "İletim Uyarısı"
-
 msgid "Maintainer"
 msgstr "Bakımcı"
 
@@ -1737,9 +1754,6 @@ msgstr "Maksimum giriş denemesi"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Maksimum indirme hızı (KiB/s)"
-
-msgid "Maximum file size"
-msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1936,9 +1950,6 @@ msgstr "Sertifika talebi yok"
 msgid "No items to display"
 msgstr "Gösterilecek herhangi bir öge yok"
 
-msgid "No log entries to display"
-msgstr "Gösterilecek herhangi bir kayıt girişi yok"
-
 msgid "No session reuse required"
 msgstr "Oturum tekrar kullanımı gerekli değil"
 
@@ -1978,6 +1989,12 @@ msgstr "TCP değil"
 msgid "Not UDP"
 msgstr "UDP değil"
 
+msgid "Notification"
+msgstr ""
+
+msgid "Notifications"
+msgstr ""
+
 msgid "November"
 msgstr "Kasım"
 
@@ -2007,6 +2024,9 @@ msgstr "Amman"
 
 msgid "Online"
 msgstr "Çalışır"
+
+msgid "Operation not allowed for user '%s'."
+msgstr "'%s' kullanıcısı bu işlemi yapamaz."
 
 msgid "Options"
 msgstr "Seçenekler"
@@ -2084,7 +2104,7 @@ msgid "People's Democratic Republic of Yemen"
 msgstr "Yemek Demoktarik Halk Cumhuriyeti"
 
 msgid "Perform a trial run with no changes made"
-msgstr ""
+msgstr "Herhangi bir değişiklik yapmadan deneme çalıştırması yapmak."
 
 msgid "Period of validity"
 msgstr "Geçerlilik süresi"
@@ -2158,7 +2178,7 @@ msgid ""
 msgstr "Daha fazla bilgi için lütfen <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> adresini ziyaret ediniz."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr ""
+msgstr "Lütfen aygıtı silmek için bir metod seçiniz ya da iptal etmek için \"İptal\" tuşuna basınız."
 
 msgid "Please first select a volume."
 msgstr "Lütfen önce bir volüm seçiniz."
@@ -2212,16 +2232,16 @@ msgstr "Yetkileri koru"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
-"polled.<br/><br/><ul><li>Never - Poll (check) the device regardless of its "
-"power mode. This may cause a disk which is spun-down to be spun-up when it "
-"is checked.</li><li>Sleep - Check the device unless it is in SLEEP "
+"polled.<br/><ul><li>Never - Poll (check) the device regardless of its power "
+"mode. This may cause a disk which is spun-down to be spun-up when it is "
+"checked.</li><li>Sleep - Check the device unless it is in SLEEP "
 "mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY "
 "mode. In these modes most disks are not spinning, so if you want to prevent "
 "a disk from spinning up each poll, this is probably what you "
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr "Düzenli konttroller sırasında diskin tekrar dönmesini önler.<br/><br/><ul><li>Asla - Aygıtı güç durumuna bakmaksızın kontrol eder. Bu dönmesi durdurulmuş bir diskin tekrar dönmeye başlamasına neden olabilir.</li><li>Uyku - Aygıtı UYKU durumu dışında ise kontrol eder.</li><li>Bekleme - Aygıtı UYKU veya BEKLEME durumları dışında ise kontrol eder. Bu modlarda pek çok disk dönmemektedir, yani her kontrolde disklerin tekrar dönmeye başlamasını istemiyor iseniz, bu size en uygun seçenektir.</li><li>Hazır - Aygıtı UYKU, BEKLEME yada HAZIR modlarında kontrol eder. HAZIR durumunda pek çok disk hala dönmektedir, yani bu muhtemelen sizin isteğinize uygun değildir.</li><ul>"
+msgstr ""
 
 msgid "Primary"
 msgstr "Birincil"
@@ -2243,6 +2263,9 @@ msgstr "İzin"
 
 msgid "Privileges"
 msgstr "İzinler"
+
+msgid "Process monitoring"
+msgstr ""
 
 msgid "Processes"
 msgstr "İşlemler"
@@ -2269,7 +2292,7 @@ msgid "Qatar"
 msgstr "Katar"
 
 msgid "Quick"
-msgstr ""
+msgstr "Hızlı"
 
 msgid "Quiet"
 msgstr "Durgun"
@@ -2280,6 +2303,9 @@ msgstr "Kota"
 msgid "RAID 10"
 msgstr "RAID 10"
 
+msgid "RAID 4"
+msgstr ""
+
 msgid "RAID 5"
 msgstr "RAID 5"
 
@@ -2288,9 +2314,6 @@ msgstr "RAID 6"
 
 msgid "RAID Management"
 msgstr "RAID Yönetimi"
-
-msgid "RPC error"
-msgstr "RPC hatası"
 
 msgid "RSync server"
 msgstr "Rsync sunucu"
@@ -2374,15 +2397,6 @@ msgstr "WebGUI durumunu sıfırla"
 msgid "Resize"
 msgstr "Yeniden boyutlandır"
 
-msgid "Restore"
-msgstr "Geri yükle"
-
-msgid "Restore configuration"
-msgstr "Konfigürasyonu geri yükle"
-
-msgid "Restore configuration..."
-msgstr "Konfigürasyonu geri yükle ..."
-
 msgid "Resume"
 msgstr "Devam et"
 
@@ -2422,8 +2436,8 @@ msgstr "Ruanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. informations"
-msgstr "S.M.A.R.T. bilgileri"
+msgid "S.M.A.R.T. information"
+msgstr ""
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Seçili aygıt için S.M.A.R.T. izlemesi aktive edilmelidir."
@@ -2485,6 +2499,9 @@ msgstr "Cumartesi"
 msgid "Saudi Arabia"
 msgstr "Suudi Arabistan"
 
+msgid "Save"
+msgstr ""
+
 msgid "Saving ..."
 msgstr "Kaydediliyor ..."
 
@@ -2493,6 +2510,9 @@ msgstr "Tara"
 
 msgid "Scanning for new devices ..."
 msgstr "Yeni aygıtlar taranıyor ..."
+
+msgid "Scheduled jobs"
+msgstr ""
 
 msgid "Scheduled tests"
 msgstr "Zamanlanmış testler"
@@ -2507,7 +2527,7 @@ msgid "Seconds"
 msgstr "Saniye"
 
 msgid "Secure"
-msgstr ""
+msgstr "Güvenli"
 
 msgid "Secure connection"
 msgstr "Güvenli bağlantı"
@@ -2563,17 +2583,17 @@ msgstr "Bir kullanıcı adı seçiniz ya da giriniz..."
 msgid "Self-test logs"
 msgstr "İç kontrol kayıtları"
 
+msgid "Send a test email"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Komut çıktısını e-posta ile gönder"
 
 msgid "Send email"
 msgstr "E-mail yolla"
 
-msgid "Send test email"
-msgstr "Test e-maili yolla"
-
-msgid "Sender"
-msgstr "Gönderici"
+msgid "Sender email"
+msgstr ""
 
 msgid "Sending test email ..."
 msgstr "Test e-maili yollanıyor ..."
@@ -2599,17 +2619,20 @@ msgstr "Sunucu"
 msgid "Service"
 msgstr "Servis"
 
+msgid "Service Discovery"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "Hizmet kapatıldı"
 
 msgid "Services"
 msgstr "Servisler"
 
-msgid "Session expired"
-msgstr "Oturum zaman aşımına uğradı"
+msgid "Session expired."
+msgstr ""
 
-msgid "Session not authenticated"
-msgstr "Oturum onaylanmadı"
+msgid "Session not authenticated."
+msgstr ""
 
 msgid "Session timeout"
 msgstr "Oturum zamanaşımı"
@@ -2632,9 +2655,6 @@ msgstr "Disk kontrol aralığını N saniye olarak ayarla."
 
 msgid "Settings"
 msgstr "Ayarlar"
-
-msgid "Settings already exist for device '%s'"
-msgstr "'%s' aygıtı için ayarlar mevcut"
 
 msgid "Seychelles"
 msgstr "Seyşeller"
@@ -2659,6 +2679,9 @@ msgstr "Kısa iç kontrol"
 
 msgid "Show certificate"
 msgstr "Sertifikayı göster"
+
+msgid "Show changelog"
+msgstr ""
 
 msgid "Show details"
 msgstr "Detayları göster"
@@ -2698,6 +2721,9 @@ msgstr "Slovakya"
 
 msgid "Slovenia"
 msgstr "Slovenya"
+
+msgid "Software RAID"
+msgstr ""
 
 msgid "Solomon Islands"
 msgstr "Solomon Adaları"
@@ -2871,9 +2897,6 @@ msgstr "Sistem Kayıtları"
 msgid "System time"
 msgstr "Sistem zamanı"
 
-msgid "System user/group"
-msgstr "Sistem kullanıcı/grup"
-
 msgid "TCP forwarding"
 msgstr "TCP yönlendirme"
 
@@ -2910,11 +2933,11 @@ msgstr "RSA anahtar uzunluğu."
 msgid "The SSL certificate."
 msgstr "SSL sertifikası."
 
-msgid "The changes have been applied "
-msgstr "Değişiklikler uygulandı"
-
 msgid "The changes have been applied successfully."
 msgstr "Değişiklikler başarılı bir şekilde uygulandı."
+
+msgid "The comment contains invalid characters"
+msgstr "Açıklama geçersiz karakter içermektedir"
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "Varsayılan SMTP posta sunucusu portu, örn. 25 veya 587."
@@ -2981,14 +3004,12 @@ msgid ""
 "for data connections is not required."
 msgstr "Kontrol bağlantılarındaki SSL oturumlarının data bağlantılarında yeniden kullanılması gerekli değildir."
 
-msgid "The service name."
-msgstr "Servis adı."
+msgid ""
+"The session timeout time in minutes. Set to 0 to disable automatic logout."
+msgstr "Dakika olarak oturum sonlandırma süresi. Otomatik çıkışı iptal etmek için değeri 0 olarak ayarlayınız."
 
-msgid "The session timeout time in minutes."
-msgstr "Dakika olarak oturum zaman aşımı."
-
-msgid "The shared folder is already used by another share"
-msgstr "Bu paylaşılmış klasör zaten başka bir paylaşımda kullanılıyor"
+msgid "The shared folder is already used by another share."
+msgstr ""
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3001,9 +3022,6 @@ msgstr "Kaynak paylaşım klasörü."
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "Belirlenen kota 4 TiB lık olabilecek en yüksek değere ulaştığında biter."
 
-msgid "The system will reboot now."
-msgstr "Sistem şimdi yeniden başlatılacak."
-
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Sistem yeniden başlatılıyor. Bu işlem vakit alabilir ..."
 
@@ -3015,9 +3033,6 @@ msgstr "Kullanıcı '%s' mevcut değil"
 
 msgid "The user '%s' is not allowed"
 msgstr "Kullanıcı '%s' yetkili değil"
-
-msgid "The value in this field is invalid"
-msgstr "Bu alandaki değer geçersizdir"
 
 msgid "The volume label for the filesystem."
 msgstr "Dosya sistemi için birim etiketi."
@@ -3045,6 +3060,9 @@ msgstr "Bu parametre, paylaşımın ağ görüntüleme ve araştırma listesinde
 
 msgid "This field does not allow blanks"
 msgstr "Bu alan boş bırakılamaz"
+
+msgid "This field is required"
+msgstr ""
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Bu alan SS:dd:ss şeklinde olmalıdır"
@@ -3222,12 +3240,6 @@ msgstr "Zaman aşımı"
 msgid "Times"
 msgstr "Kere"
 
-msgid ""
-"To restore a previously backed up configuration click the 'Restore' button. "
-"The system will reboot automatically after import has been finished "
-"successfully."
-msgstr "Daha önceden yedeklenmiş ayarları yüklemek için 'Geri Yükle' düğmesine basınız. Sistem işlem tamamlandıkatan sonra otomatik olarak yeniden başlatılacaktır."
-
 msgid "Togo"
 msgstr "togo"
 
@@ -3244,7 +3256,7 @@ msgid "Treshold"
 msgstr "Eşik değer"
 
 msgid "Trial run"
-msgstr ""
+msgstr "Deneme çalıştırması"
 
 msgid "Trinidad and Tobago"
 msgstr "Tinidad ve Tobago"
@@ -3370,6 +3382,9 @@ msgstr "NTP sunucusu kullan"
 msgid "Use SSL/TLS secure connection"
 msgstr "SSl/TLS güvenli bağlantı kullan"
 
+msgid "Use chroot"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "Sendfile kullan"
 
@@ -3476,6 +3491,9 @@ msgstr "Ağ Yönetimi"
 
 msgid "Web Administrator Password"
 msgstr "Ağ Yöneticisi Şifresi"
+
+msgid "Web administration"
+msgstr ""
 
 msgid "Web administration interface"
 msgstr "Ağ yönetim arabirimi"

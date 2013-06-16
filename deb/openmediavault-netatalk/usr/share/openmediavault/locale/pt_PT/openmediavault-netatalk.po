@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Nelson Rosado <nelsontrosado@gmail.com>, 2012.
-#   <nelsontrosado@gmail.com>, 2012.
+# Nelson Rosado <nelsontrosado@gmail.com>, 2012
+# Nelson Rosado <nelsontrosado@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-16 19:00+0200\n"
-"PO-Revision-Date: 2012-08-16 17:00+0000\n"
+"POT-Creation-Date: 2013-06-16 13:10+0200\n"
+"PO-Revision-Date: 2013-06-16 11:11+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -19,14 +19,20 @@ msgstr ""
 "Language: pt_PT\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr ""
+
 msgid "Add share"
 msgstr "Adicionar partilha"
 
-msgid "Advertise this service via mDNS/DNS-SD."
-msgstr "Anuncie este serviço via mDNS / DNS-SD."
+msgid "Advanced settings"
+msgstr ""
 
-msgid "Allow guest logins"
-msgstr "Permitir convidados"
+msgid "Allow guest login."
+msgstr ""
+
+msgid "Allow guests to create or modify files."
+msgstr ""
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr "Permitir logins com senhas transmitidas em claro."
@@ -36,9 +42,6 @@ msgstr "Permitir senhas simples"
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
-
-msgid "Authentication"
-msgstr "Autenticação"
 
 msgid "Case folding"
 msgstr "Case folding"
@@ -51,9 +54,6 @@ msgstr "Cliente vê maiúsculas, servidor vê minúsculas"
 
 msgid "Comment"
 msgstr "Comentário"
-
-msgid "DNS Service Discovery"
-msgstr "DNS serviço de pesquisa"
 
 msgid "Don't do :hex translation for dot files."
 msgstr "Não faça: tradução hexadecimal para arquivos de pontos."
@@ -79,6 +79,12 @@ msgstr "Forçar restrição de ficheiros"
 msgid "General settings"
 msgstr "Definições gerais"
 
+msgid "Guest login"
+msgstr ""
+
+msgid "Guests only have read access by default."
+msgstr ""
+
 msgid "Hide dot files"
 msgstr "Esconder ficheiros dot"
 
@@ -98,7 +104,7 @@ msgid ""
 "Limit the reported volume size to the given value in MiB, thus preventing TM"
 " from using the whole disk space for backup. Set this value to 0 to disable "
 "this option."
-msgstr ""
+msgstr "Limitar o tamanho do volume reportado ao valor dado em MiB, evitando TM de usar o espaço em disco inteiro para backup. Defina esse valor para 0 para desabilitar esta opção."
 
 msgid "Lowercases names in both directions"
 msgstr "Nomes em minúsculas em ambas as direções."
@@ -116,7 +122,7 @@ msgid "Password"
 msgstr "Senha de acesso"
 
 msgid "Quota"
-msgstr ""
+msgstr "Quota"
 
 msgid "Read only"
 msgstr "Ler apenas"
@@ -138,9 +144,6 @@ msgstr "A localização do ficheiro para partilha."
 
 msgid "The name of the share."
 msgstr "O nome da partilha."
-
-msgid "The service name."
-msgstr "O nome do serviço."
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."

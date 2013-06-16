@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Volker  <votdev@gmx.de>, 2012.
-#   <warhog@gmx.de>, 2012.
+# Volker <votdev@gmx.de>, 2012
+# warhog <warhog@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-15 12:28+0200\n"
-"PO-Revision-Date: 2012-09-15 10:31+0000\n"
+"POT-Creation-Date: 2013-06-16 13:10+0200\n"
+"PO-Revision-Date: 2013-06-16 11:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add physical volume"
+msgstr ""
 
 msgid ""
 "After the logical volume has been extended you can resize the containing "
@@ -33,14 +36,8 @@ msgstr "Kapazität"
 msgid "Confirmation"
 msgstr "Bestätigung"
 
-msgid "Create"
-msgstr "Erstellen"
-
 msgid "Create logical volume"
 msgstr "Logical Volume erstellen"
-
-msgid "Create physical volume"
-msgstr "Physical Volume erstellen"
 
 msgid "Create volume group"
 msgstr "Volumegruppe erstellen"
@@ -80,6 +77,9 @@ msgstr "Volumegruppe erweitern"
 
 msgid "Free"
 msgstr "Frei"
+
+msgid "Invalid name"
+msgstr ""
 
 msgid "Logical Volume Management"
 msgstr "Logical Volume Management"

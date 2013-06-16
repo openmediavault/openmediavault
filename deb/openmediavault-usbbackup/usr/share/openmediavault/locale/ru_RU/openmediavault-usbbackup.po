@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# артур Мудрых <arturmon82@gmail.com>, 2013.
+# артур Мудрых <arturmon82@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-17 09:36+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2013-06-16 13:13+0200\n"
+"PO-Revision-Date: 2013-06-16 11:15+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,11 +18,8 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
-msgid "A backup job already exists for this storage device"
-msgstr "Задания резервного копирования уже существует для этого устройства хранения"
-
-msgid "Add USB backup job"
-msgstr "Добавить задание резервного копирования на USB"
+msgid "Add backup job"
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -31,6 +28,9 @@ msgstr "отправить администратору Сообщения эл�
 
 msgid "Archive"
 msgstr "Архив"
+
+msgid "Backup jobs"
+msgstr ""
 
 msgid "Comment"
 msgstr "Комментировать"
@@ -47,11 +47,14 @@ msgstr "Удалить"
 msgid "Delete files on the receiving side that don't exist on sender."
 msgstr "Удалить файлы на приемной стороне, которые не существует у отправителя"
 
+msgid "Device"
+msgstr ""
+
 msgid "Device '%s' not found"
 msgstr "'%s' Устройство не найдено"
 
-msgid "Edit USB backup job"
-msgstr "Редактировать задание резервного копирования USB устройства"
+msgid "Edit backup job"
+msgstr ""
 
 msgid "Enable"
 msgstr "Включить"
@@ -67,8 +70,8 @@ msgstr "Включите эту опцию, чтобы частично пере
 msgid "Enabled"
 msgstr "Доступно"
 
-msgid "Execute USB backup job"
-msgstr "Выполнить задание резервного копирования USB"
+msgid "Execute backup job"
+msgstr ""
 
 msgid "External storage device"
 msgstr "Внешние устройства хранения данных"
@@ -82,8 +85,17 @@ msgstr "Не удалось получить файловые системы"
 msgid "Filesystem '%s' not found"
 msgstr "Файловая система '%s' не найден"
 
+msgid "From external storage to shared folder"
+msgstr "С внешнего накопителя в общую папку"
+
+msgid "From shared folder to external storage"
+msgstr "Из общей папки на внешний накопитель"
+
 msgid "Keep partially transferred files"
 msgstr "Хранить частично загруженные файлы"
+
+msgid "Mode"
+msgstr "Режим"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -114,8 +126,11 @@ msgstr "Рекурсивно"
 msgid "Run"
 msgstr "Запуск"
 
-msgid "Select a volume ..."
-msgstr "Выберите том ..."
+msgid "Scan"
+msgstr ""
+
+msgid "Select a device ..."
+msgstr ""
 
 msgid "Send command output via email."
 msgstr "Отправить команды вывода на электронную почту."
@@ -133,8 +148,17 @@ msgstr "Общая папка"
 msgid "Suppress non-error messages."
 msgstr "Не показывать сообщения в которых нет ошибок."
 
+msgid "Synchronise from/to directory on external storage device."
+msgstr ""
+
 msgid "The external storage device."
 msgstr "Внешние устройства хранения данных."
+
+msgid ""
+"The shared folder content is synchronised from/to the root of the external "
+"storage device if this option is not set. The name of the directory is taken"
+" from the shared folder."
+msgstr ""
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
@@ -153,9 +177,6 @@ msgstr "Обновлять ACL назначения, чтобы были так�
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "Обновлять расширенные атрибуты назначения, чтобы были таким же, как у источника."
-
-msgid "Volume"
-msgstr "Том"
 
 msgid "n/a"
 msgstr "n/a"

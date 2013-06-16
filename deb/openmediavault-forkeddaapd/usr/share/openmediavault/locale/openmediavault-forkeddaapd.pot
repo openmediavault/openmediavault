@@ -1,29 +1,14 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-# This file is part of OpenMediaVault.
-#
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2013 Volker Theile
-#
-# OpenMediaVault is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-#
-# OpenMediaVault is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
-
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-forkeddaapd\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 20:04+0100\n"
+"POT-Creation-Date: 2013-06-16 13:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,6 +39,9 @@ msgid "Port"
 msgstr ""
 
 msgid "Port to listen on."
+msgstr ""
+
+msgid "Settings"
 msgstr ""
 
 msgid "Shared folder"

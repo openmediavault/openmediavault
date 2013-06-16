@@ -3,20 +3,23 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Kostas Moho <kgounaris@hotmail.com>, 2012.
+# Kostas Moho <kgounaris@hotmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-15 12:28+0200\n"
-"PO-Revision-Date: 2012-09-17 07:48+0000\n"
-"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
+"POT-Creation-Date: 2013-06-16 13:10+0200\n"
+"PO-Revision-Date: 2013-06-16 11:10+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: el_GR\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add physical volume"
+msgstr ""
 
 msgid ""
 "After the logical volume has been extended you can resize the containing "
@@ -32,14 +35,8 @@ msgstr "Χωρητικότητα"
 msgid "Confirmation"
 msgstr "Επιβεβαίωση"
 
-msgid "Create"
-msgstr "Δημιουργία"
-
 msgid "Create logical volume"
 msgstr "Δημιουργία λογικού τόμου"
-
-msgid "Create physical volume"
-msgstr "Δημιουργία φυσικού τόμου"
 
 msgid "Create volume group"
 msgstr "Δημιουργία ομάδας τόμων"
@@ -79,6 +76,9 @@ msgstr "Επέκταση ομάδας τόμων"
 
 msgid "Free"
 msgstr "Διαθέσιμο"
+
+msgid "Invalid name"
+msgstr ""
 
 msgid "Logical Volume Management"
 msgstr "Διαχείριση Λογικών Τόμων"

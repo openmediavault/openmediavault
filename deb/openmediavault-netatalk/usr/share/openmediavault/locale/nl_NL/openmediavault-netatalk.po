@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Milan Toet <milantoet@gmail.com>, 2012.
+# Milan Toet <milantoet@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-16 19:00+0200\n"
-"PO-Revision-Date: 2012-08-16 17:00+0000\n"
+"POT-Creation-Date: 2013-06-16 13:10+0200\n"
+"PO-Revision-Date: 2013-06-16 11:11+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -18,14 +18,20 @@ msgstr ""
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr ""
+
 msgid "Add share"
 msgstr "Voeg share toe"
 
-msgid "Advertise this service via mDNS/DNS-SD."
+msgid "Advanced settings"
 msgstr ""
 
-msgid "Allow guest logins"
-msgstr "Toestaan van gast logins"
+msgid "Allow guest login."
+msgstr ""
+
+msgid "Allow guests to create or modify files."
+msgstr ""
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr ""
@@ -35,9 +41,6 @@ msgstr ""
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
-
-msgid "Authentication"
-msgstr "Authenticatie"
 
 msgid "Case folding"
 msgstr "Omzetten van hoofdletters en kleine letters"
@@ -50,9 +53,6 @@ msgstr "Cliënt ziet hoofdletters, server ziet kleine letters"
 
 msgid "Comment"
 msgstr "Opmerking"
-
-msgid "DNS Service Discovery"
-msgstr ""
 
 msgid "Don't do :hex translation for dot files."
 msgstr "Doe geen :hex vertaling voor punt bestanden."
@@ -77,6 +77,12 @@ msgstr "Forceert bestandsnaam restricties"
 
 msgid "General settings"
 msgstr "Algemene instellingen"
+
+msgid "Guest login"
+msgstr ""
+
+msgid "Guests only have read access by default."
+msgstr ""
 
 msgid "Hide dot files"
 msgstr "Verberg punt bestanden"
@@ -137,9 +143,6 @@ msgstr "De locatie van bestanden om te delen."
 
 msgid "The name of the share."
 msgstr "De naam van de share."
-
-msgid "The service name."
-msgstr ""
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."

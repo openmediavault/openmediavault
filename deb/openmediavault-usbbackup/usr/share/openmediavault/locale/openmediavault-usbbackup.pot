@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-usbbackup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-15 16:25+0100\n"
+"POT-Creation-Date: 2013-06-16 13:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,16 +17,16 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "A backup job already exists for this storage device"
-msgstr ""
-
-msgid "Add USB backup job"
+msgid "Add backup job"
 msgstr ""
 
 msgid "An email message with the command output (if any produced) is send to the administrator."
 msgstr ""
 
 msgid "Archive"
+msgstr ""
+
+msgid "Backup jobs"
 msgstr ""
 
 msgid "Comment"
@@ -44,10 +44,13 @@ msgstr ""
 msgid "Delete files on the receiving side that don't exist on sender."
 msgstr ""
 
+msgid "Device"
+msgstr ""
+
 msgid "Device '%s' not found"
 msgstr ""
 
-msgid "Edit USB backup job"
+msgid "Edit backup job"
 msgstr ""
 
 msgid "Enable"
@@ -62,7 +65,7 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-msgid "Execute USB backup job"
+msgid "Execute backup job"
 msgstr ""
 
 msgid "External storage device"
@@ -77,7 +80,16 @@ msgstr ""
 msgid "Filesystem '%s' not found"
 msgstr ""
 
+msgid "From external storage to shared folder"
+msgstr ""
+
+msgid "From shared folder to external storage"
+msgstr ""
+
 msgid "Keep partially transferred files"
+msgstr ""
+
+msgid "Mode"
 msgstr ""
 
 msgid "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> for more details."
@@ -107,7 +119,10 @@ msgstr ""
 msgid "Run"
 msgstr ""
 
-msgid "Select a volume ..."
+msgid "Scan"
+msgstr ""
+
+msgid "Select a device ..."
 msgstr ""
 
 msgid "Send command output via email."
@@ -125,7 +140,13 @@ msgstr ""
 msgid "Suppress non-error messages."
 msgstr ""
 
+msgid "Synchronise from/to directory on external storage device."
+msgstr ""
+
 msgid "The external storage device."
+msgstr ""
+
+msgid "The shared folder content is synchronised from/to the root of the external storage device if this option is not set. The name of the directory is taken from the shared folder."
 msgstr ""
 
 msgid "The shared folder to synchronise when the external storage device is connected."
@@ -141,9 +162,6 @@ msgid "Update the destination ACLs to be the same as the source ACLs."
 msgstr ""
 
 msgid "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
-
-msgid "Volume"
 msgstr ""
 
 msgid "n/a"

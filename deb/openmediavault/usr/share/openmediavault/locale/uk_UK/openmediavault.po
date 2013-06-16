@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Andrey Chapalda <ansilent@gmail.com>, 2012.
-# Андрей Чапалда <ansilent@gmail.com>, 2012.
+# Андрей Чапалда <ansilent@gmail.com>, 2012
+# Андрей Чапалда <ansilent@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-22 03:12+0100\n"
-"PO-Revision-Date: 2012-12-22 02:12+0000\n"
+"POT-Creation-Date: 2013-06-16 13:05+0200\n"
+"PO-Revision-Date: 2013-06-16 11:05+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -154,11 +154,8 @@ msgstr ""
 msgid "9 months"
 msgstr "9 місяців"
 
-msgid "A mount point already exists for the given filesystem"
-msgstr "Ця точка монтування вже існує в данній файловій системі "
-
-msgid "A share with the given name already exists"
-msgstr "Шара з данним ім'ям вже існує"
+msgid "A share with the name '%s' already exists"
+msgstr ""
 
 msgid "A shared folder with the given name already exists"
 msgstr "Загальна папка з данним ім'ям вже існує"
@@ -187,9 +184,6 @@ msgstr "Додати"
 msgid "Add bonded interface"
 msgstr "Додати пов'язаний інтерфейс"
 
-msgid "Add cron job"
-msgstr "Додати завдання Cron"
-
 msgid "Add devices to RAID device"
 msgstr "Додати диск до RAID"
 
@@ -210,6 +204,9 @@ msgstr "Додати завдання rsync"
 
 msgid "Add rule"
 msgstr "Додати правило"
+
+msgid "Add scheduled job"
+msgstr ""
 
 msgid "Add scheduled test"
 msgstr "Додати запланований тест"
@@ -255,9 +252,6 @@ msgstr "Розширенний менеджер енергоспоживання
 
 msgid "Advanced settings"
 msgstr "Розширенні налаштування"
-
-msgid "Advertise this service via mDNS/DNS-SD."
-msgstr ""
 
 msgid "Afghanistan"
 msgstr "Afghanistan"
@@ -341,6 +335,9 @@ msgstr "Antigua and Barbuda"
 msgid "Apply"
 msgstr "Застосувати"
 
+msgid "Apply configuration changes"
+msgstr ""
+
 msgid "Apply permissions to files and subfolders"
 msgstr "Застосувати права до файлів і підкаталогів"
 
@@ -361,6 +358,9 @@ msgstr "Деталі масиву"
 
 msgid "Aruba"
 msgstr "Aruba"
+
+msgid "Asynchronous I/O"
+msgstr ""
 
 msgid "Attribute name"
 msgstr "Назва атрибуту"
@@ -406,12 +406,6 @@ msgstr "Доступний"
 
 msgid "Azerbaijan"
 msgstr "Azerbaijan"
-
-msgid "Backup"
-msgstr "Backup"
-
-msgid "Backup configuration"
-msgstr "Конфігурація резервного копіювання"
 
 msgid "Bahamas"
 msgstr "Bahamas"
@@ -550,6 +544,9 @@ msgstr "Сертифікати"
 msgid "Chad"
 msgstr "Chad"
 
+msgid "Changelog"
+msgstr ""
+
 msgid "Check"
 msgstr "Перевірка"
 
@@ -577,10 +574,6 @@ msgstr "Місто"
 msgid "Clear"
 msgstr "Очистити"
 
-msgid ""
-"Click the 'Backup' button to download the current system configuration."
-msgstr "Натисніть кнопку 'Backup' для збереження поточної конфігурації системи."
-
 msgid "Client"
 msgstr "Клієнт"
 
@@ -601,9 +594,6 @@ msgstr "Команда"
 
 msgid "Comment"
 msgstr "Коментар"
-
-msgid "Commit"
-msgstr ""
 
 msgid "Common Name"
 msgstr "Загальне ім'я"
@@ -703,9 +693,6 @@ msgstr "DHCP"
 msgid "DNS Server"
 msgstr "DNS Server"
 
-msgid "DNS Service Discovery"
-msgstr "DNS Service Discovery"
-
 msgid "DNS server"
 msgstr "DNS server"
 
@@ -734,9 +721,6 @@ msgid "Delete"
 msgstr "Видалити"
 
 msgid "Delete content"
-msgstr ""
-
-msgid "Delete files"
 msgstr ""
 
 msgid "Delete files on the receiving side that don't exist on sender"
@@ -786,9 +770,6 @@ msgstr "Визначити час очікування за замовчуван
 msgid "Device"
 msgstr "Пристрій"
 
-msgid "Device '%s' not found"
-msgstr "Пристрій '%s' не знайдено"
-
 msgid "Device identity information"
 msgstr "Інформацію про пристрій "
 
@@ -825,6 +806,9 @@ msgstr "Показати значення {0} - {1} of {2}"
 msgid "Djibouti"
 msgstr "Djibouti"
 
+msgid "Do you really want to apply the configuration?"
+msgstr ""
+
 msgid "Do you really want to clear the log file?"
 msgstr "Ви дійсно хочете очистити log файл?"
 
@@ -851,7 +835,9 @@ msgstr "Ви дійсно хочете вийти?"
 msgid "Do you really want to reboot the system?"
 msgstr "Ви дійсно хочете перезавантажити систему?"
 
-msgid "Do you really want to remove the shared folder content?"
+msgid ""
+"Do you really want to remove the shared folder content? It will be "
+"permanently removed and cannot be recovered."
 msgstr ""
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
@@ -928,9 +914,6 @@ msgstr "Редагувати SSL сертифікат"
 msgid "Edit bonded interface"
 msgstr ""
 
-msgid "Edit cron job"
-msgstr "Редагувати завдання Cron"
-
 msgid "Edit firewall rule"
 msgstr "Редагувати правило брандмауера"
 
@@ -954,6 +937,9 @@ msgstr "Редагувати завдання rsync"
 
 msgid "Edit rule"
 msgstr "Редагувати правило"
+
+msgid "Edit scheduled job"
+msgstr ""
 
 msgid "Edit scheduled test"
 msgstr "Редагувати запланований тест"
@@ -999,6 +985,12 @@ msgstr "Увімкнути anonymous FTP"
 
 msgid "Enable archive mode"
 msgstr "Увімкнути режим архівування"
+
+msgid "Enable asynchronous I/O (AIO) support."
+msgstr ""
+
+msgid "Enable chroot."
+msgstr ""
 
 msgid "Enable compression"
 msgstr "Увімкнути стиснення"
@@ -1124,9 +1116,6 @@ msgid ""
 "to the client asking for the transfer."
 msgstr ""
 
-msgid "Failed to call "
-msgstr ""
-
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1135,8 +1124,23 @@ msgstr ""
 msgid "Failed to get filesystems"
 msgstr "Не вдалося отримати файлові системи"
 
-msgid "Failed to get system date and time"
-msgstr "Не вдалоса отримати дату та час системи"
+msgid "Failed to get list of groups."
+msgstr ""
+
+msgid "Failed to get list of logical volumes"
+msgstr ""
+
+msgid "Failed to get list of physical volumes"
+msgstr ""
+
+msgid "Failed to get list of software RAID devices"
+msgstr ""
+
+msgid "Failed to get list of users."
+msgstr ""
+
+msgid "Failed to get shadow password suite configuration."
+msgstr ""
 
 msgid "Falkland Islands"
 msgstr "Falkland Islands"
@@ -1381,6 +1385,13 @@ msgid ""
 "to connect to the module."
 msgstr ""
 
+msgid ""
+"If this option is set, the daemon will chroot to the shared folder path "
+"before starting the file transfer with the client. Then it is not possible "
+"to map users and groups by name and the daemon is not being able to follow "
+"symbolic links that are either absolute or outside of the new root path."
+msgstr ""
+
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr ""
 
@@ -1422,6 +1433,12 @@ msgstr ""
 msgid "Import users"
 msgstr "Імпортувати користувачів"
 
+msgid "Importing groups ..."
+msgstr ""
+
+msgid "Importing users ..."
+msgstr ""
+
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
 "limitations. Passive ports restricts the range of ports from which the "
@@ -1433,11 +1450,17 @@ msgid ""
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr ""
 
+msgid "Incorrect username or password."
+msgstr ""
+
 msgid "India"
 msgstr "India"
 
 msgid "Indonesia"
 msgstr "Indonesia"
+
+msgid "Info"
+msgstr ""
 
 msgid "Informal"
 msgstr ""
@@ -1468,9 +1491,6 @@ msgstr "Встановлено"
 
 msgid "Interfaces"
 msgstr "Інтерфейси"
-
-msgid "Invalid comment"
-msgstr ""
 
 msgid "Invalid domain name"
 msgstr "Невірна назва домену"
@@ -1672,9 +1692,6 @@ msgstr "Macedonia"
 msgid "Madagascar"
 msgstr "Madagascar"
 
-msgid "Mail Notification"
-msgstr ""
-
 msgid "Maintainer"
 msgstr ""
 
@@ -1738,9 +1755,6 @@ msgstr "Максимум спроб для входу"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Максимальна швидкість завантаження (KiB/s)"
-
-msgid "Maximum file size"
-msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1937,9 +1951,6 @@ msgstr ""
 msgid "No items to display"
 msgstr "Елементи для показу відсутні"
 
-msgid "No log entries to display"
-msgstr "Немає лог-записів для відображення"
-
 msgid "No session reuse required"
 msgstr ""
 
@@ -1979,6 +1990,12 @@ msgstr ""
 msgid "Not UDP"
 msgstr ""
 
+msgid "Notification"
+msgstr ""
+
+msgid "Notifications"
+msgstr ""
+
 msgid "November"
 msgstr ""
 
@@ -2007,6 +2024,9 @@ msgid "Oman"
 msgstr "Oman"
 
 msgid "Online"
+msgstr ""
+
+msgid "Operation not allowed for user '%s'."
 msgstr ""
 
 msgid "Options"
@@ -2213,9 +2233,9 @@ msgstr "Зберегти права доступу"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
-"polled.<br/><br/><ul><li>Never - Poll (check) the device regardless of its "
-"power mode. This may cause a disk which is spun-down to be spun-up when it "
-"is checked.</li><li>Sleep - Check the device unless it is in SLEEP "
+"polled.<br/><ul><li>Never - Poll (check) the device regardless of its power "
+"mode. This may cause a disk which is spun-down to be spun-up when it is "
+"checked.</li><li>Sleep - Check the device unless it is in SLEEP "
 "mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY "
 "mode. In these modes most disks are not spinning, so if you want to prevent "
 "a disk from spinning up each poll, this is probably what you "
@@ -2243,6 +2263,9 @@ msgid "Privilege"
 msgstr ""
 
 msgid "Privileges"
+msgstr ""
+
+msgid "Process monitoring"
 msgstr ""
 
 msgid "Processes"
@@ -2281,6 +2304,9 @@ msgstr ""
 msgid "RAID 10"
 msgstr ""
 
+msgid "RAID 4"
+msgstr ""
+
 msgid "RAID 5"
 msgstr ""
 
@@ -2288,9 +2314,6 @@ msgid "RAID 6"
 msgstr ""
 
 msgid "RAID Management"
-msgstr ""
-
-msgid "RPC error"
 msgstr ""
 
 msgid "RSync server"
@@ -2375,15 +2398,6 @@ msgstr ""
 msgid "Resize"
 msgstr "Зміна розміру"
 
-msgid "Restore"
-msgstr "Відновити"
-
-msgid "Restore configuration"
-msgstr "Відновити конфігурацію"
-
-msgid "Restore configuration..."
-msgstr "Відновлення конфігурації..."
-
 msgid "Resume"
 msgstr "Підсумок"
 
@@ -2423,8 +2437,8 @@ msgstr "Rwanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. informations"
-msgstr "Інформація S.M.A.R.T."
+msgid "S.M.A.R.T. information"
+msgstr ""
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr ""
@@ -2486,6 +2500,9 @@ msgstr "Субота"
 msgid "Saudi Arabia"
 msgstr "Saudi Arabia"
 
+msgid "Save"
+msgstr ""
+
 msgid "Saving ..."
 msgstr "Збереження ..."
 
@@ -2493,6 +2510,9 @@ msgid "Scan"
 msgstr ""
 
 msgid "Scanning for new devices ..."
+msgstr ""
+
+msgid "Scheduled jobs"
 msgstr ""
 
 msgid "Scheduled tests"
@@ -2564,16 +2584,16 @@ msgstr ""
 msgid "Self-test logs"
 msgstr ""
 
+msgid "Send a test email"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr ""
 
 msgid "Send email"
 msgstr ""
 
-msgid "Send test email"
-msgstr ""
-
-msgid "Sender"
+msgid "Sender email"
 msgstr ""
 
 msgid "Sending test email ..."
@@ -2600,16 +2620,19 @@ msgstr ""
 msgid "Service"
 msgstr ""
 
+msgid "Service Discovery"
+msgstr ""
+
 msgid "Service disabled"
 msgstr ""
 
 msgid "Services"
 msgstr ""
 
-msgid "Session expired"
+msgid "Session expired."
 msgstr ""
 
-msgid "Session not authenticated"
+msgid "Session not authenticated."
 msgstr ""
 
 msgid "Session timeout"
@@ -2632,9 +2655,6 @@ msgid "Sets the interval between disk checks to N seconds."
 msgstr ""
 
 msgid "Settings"
-msgstr ""
-
-msgid "Settings already exist for device '%s'"
 msgstr ""
 
 msgid "Seychelles"
@@ -2660,6 +2680,9 @@ msgstr "Коротке самотестування"
 
 msgid "Show certificate"
 msgstr "Показати сертифікат"
+
+msgid "Show changelog"
+msgstr ""
 
 msgid "Show details"
 msgstr "Показати деталі"
@@ -2699,6 +2722,9 @@ msgstr "Slovakia"
 
 msgid "Slovenia"
 msgstr "Slovenia"
+
+msgid "Software RAID"
+msgstr ""
 
 msgid "Solomon Islands"
 msgstr "Solomon Islands"
@@ -2872,9 +2898,6 @@ msgstr ""
 msgid "System time"
 msgstr ""
 
-msgid "System user/group"
-msgstr ""
-
 msgid "TCP forwarding"
 msgstr ""
 
@@ -2911,10 +2934,10 @@ msgstr ""
 msgid "The SSL certificate."
 msgstr ""
 
-msgid "The changes have been applied "
+msgid "The changes have been applied successfully."
 msgstr ""
 
-msgid "The changes have been applied successfully."
+msgid "The comment contains invalid characters"
 msgstr ""
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
@@ -2982,13 +3005,11 @@ msgid ""
 "for data connections is not required."
 msgstr ""
 
-msgid "The service name."
+msgid ""
+"The session timeout time in minutes. Set to 0 to disable automatic logout."
 msgstr ""
 
-msgid "The session timeout time in minutes."
-msgstr ""
-
-msgid "The shared folder is already used by another share"
+msgid "The shared folder is already used by another share."
 msgstr ""
 
 msgid ""
@@ -3002,9 +3023,6 @@ msgstr ""
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr ""
 
-msgid "The system will reboot now."
-msgstr "Зараз система буде перезавантажена."
-
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Зараз система буде перезавантажена. Це може зайняти деякий час..."
 
@@ -3016,9 +3034,6 @@ msgstr "Користувач '%s' не існує"
 
 msgid "The user '%s' is not allowed"
 msgstr "Недопустимий користувач '%s' "
-
-msgid "The value in this field is invalid"
-msgstr "Хибне значення поля"
 
 msgid "The volume label for the filesystem."
 msgstr "Мітка тому для цієї файлової системи"
@@ -3045,6 +3060,9 @@ msgid ""
 msgstr ""
 
 msgid "This field does not allow blanks"
+msgstr ""
+
+msgid "This field is required"
 msgstr ""
 
 msgid "This field must have the format hh:mm:ss"
@@ -3223,12 +3241,6 @@ msgstr "Тайм-аут"
 msgid "Times"
 msgstr ""
 
-msgid ""
-"To restore a previously backed up configuration click the 'Restore' button. "
-"The system will reboot automatically after import has been finished "
-"successfully."
-msgstr ""
-
 msgid "Togo"
 msgstr ""
 
@@ -3371,6 +3383,9 @@ msgstr "Використовувати NTP сервер"
 msgid "Use SSL/TLS secure connection"
 msgstr "Використовувати SSL/TLS захищене з'єднання"
 
+msgid "Use chroot"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr ""
 
@@ -3476,6 +3491,9 @@ msgid "Web Administration"
 msgstr ""
 
 msgid "Web Administrator Password"
+msgstr ""
+
+msgid "Web administration"
 msgstr ""
 
 msgid "Web administration interface"

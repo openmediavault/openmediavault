@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Kostas Moho <kgounaris@hotmail.com>, 2012.
+# Kostas Moho <kgounaris@hotmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-19 16:20+0200\n"
-"PO-Revision-Date: 2012-09-17 08:06+0000\n"
-"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
+"POT-Creation-Date: 2013-06-16 13:09+0200\n"
+"PO-Revision-Date: 2013-06-16 11:09+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,14 +39,19 @@ msgstr "Πρόθεμα Ομάδων"
 msgid "Host"
 msgstr "Οικοδεσπότης"
 
-msgid "LDAP"
-msgstr "LDAP"
-
 msgid "Password"
 msgstr "Κωδικός"
 
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Περισσότερες λεπτομέρειες στο <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>εγχειρίδιο</a>."
+
 msgid "Root Bind DN"
 msgstr "Βασική δέσμευση DN"
+
+msgid "Settings"
+msgstr ""
 
 msgid ""
 "Specifies the base distinguished name (DN) to use as search base, e.g. "
@@ -63,6 +68,9 @@ msgstr "Προσδιορίζει το διακεκριμένο όνομα (DN) �
 
 msgid "Specifies the group suffix, e.g. 'ou=Groups'."
 msgstr "Προσδιορίζει το πρόθεμα ομάδας, π.χ. 'ou=Groups'"
+
+msgid "Specifies the port to connect to."
+msgstr "Προσδιορίζει την θύρα της σύνδεσης."
 
 msgid "Specifies the user suffix, e.g. 'ou=Users'."
 msgstr "Προσδιορίζει το πρόθεμα χρήστη, π.χ. 'ou=Users'"

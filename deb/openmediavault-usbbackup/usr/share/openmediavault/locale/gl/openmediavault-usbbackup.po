@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013.
+# mbouzada <mbouzada@gmail.com>, 2013
+# mbouzada <mbouzada@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-16 09:59+0000\n"
-"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
+"POT-Creation-Date: 2013-06-16 13:13+0200\n"
+"PO-Revision-Date: 2013-06-16 11:14+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,11 +19,8 @@ msgstr ""
 "Language: gl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "A backup job already exists for this storage device"
-msgstr "Xa existe un traballo de copia de seguranza para este dispositivo"
-
-msgid "Add USB backup job"
-msgstr "Engadir un traballo de copia de seguranza"
+msgid "Add backup job"
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -31,6 +29,9 @@ msgstr "Enviaráselle ao administrador unha mensaxe de correo coa saída da orde
 
 msgid "Archive"
 msgstr "Arquivo"
+
+msgid "Backup jobs"
+msgstr ""
 
 msgid "Comment"
 msgstr "Comentario"
@@ -47,11 +48,14 @@ msgstr "Eliminar"
 msgid "Delete files on the receiving side that don't exist on sender."
 msgstr "Eliminar no lado receptor os ficheiros que non existen no remitente."
 
+msgid "Device"
+msgstr ""
+
 msgid "Device '%s' not found"
 msgstr "Non se atopou o dispositivo «%s»"
 
-msgid "Edit USB backup job"
-msgstr "Editar o traballo de copia de seguranza"
+msgid "Edit backup job"
+msgstr ""
 
 msgid "Enable"
 msgstr "Activar"
@@ -67,8 +71,8 @@ msgstr "Active esta opción para manter os ficheiros transferidos parcialmente, 
 msgid "Enabled"
 msgstr "Activado"
 
-msgid "Execute USB backup job"
-msgstr "Executar o traballo de copia de seguranza"
+msgid "Execute backup job"
+msgstr ""
 
 msgid "External storage device"
 msgstr "Dispositivo de almacenamento externo"
@@ -82,8 +86,17 @@ msgstr "Produciuse un erro ao obter o sistema de ficheiros"
 msgid "Filesystem '%s' not found"
 msgstr "Non se atopou o sistema de ficheiros «%s»"
 
+msgid "From external storage to shared folder"
+msgstr "Desde o almacenamento externo cara ao cartafol compartido"
+
+msgid "From shared folder to external storage"
+msgstr "Desde o cartafol compartido cara ao almacenamento externo"
+
 msgid "Keep partially transferred files"
 msgstr "Manter os ficheiros transferidos parcialmente"
+
+msgid "Mode"
+msgstr "Modo"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -114,8 +127,11 @@ msgstr "Recursivo"
 msgid "Run"
 msgstr "Executar"
 
-msgid "Select a volume ..."
-msgstr "Seleccione o volume ..."
+msgid "Scan"
+msgstr ""
+
+msgid "Select a device ..."
+msgstr ""
 
 msgid "Send command output via email."
 msgstr "Enviar a saída da orde por correo."
@@ -133,8 +149,17 @@ msgstr "Cartafol compartido"
 msgid "Suppress non-error messages."
 msgstr "Suprimir as mensaxes que non sexan de erros."
 
+msgid "Synchronise from/to directory on external storage device."
+msgstr ""
+
 msgid "The external storage device."
 msgstr "O dispositivo de almacenamento externo."
+
+msgid ""
+"The shared folder content is synchronised from/to the root of the external "
+"storage device if this option is not set. The name of the directory is taken"
+" from the shared folder."
+msgstr ""
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
@@ -153,9 +178,6 @@ msgstr "Actualizar os ACL de destino para que sexan os mesmos que os ACL de orix
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
 msgstr "Actualizar os atributos estendidos do destino para que sexan os mesmos que os locais."
-
-msgid "Volume"
-msgstr "Volume"
 
 msgid "n/a"
 msgstr "n/d"

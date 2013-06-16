@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <arturmon82@gmail.com>, 2012.
+# артур Мудрых <arturmon82@gmail.com>, 2012
+# артур Мудрых <arturmon82@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-19 16:20+0200\n"
-"PO-Revision-Date: 2012-08-22 04:06+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2013-06-16 13:09+0200\n"
+"PO-Revision-Date: 2013-06-16 11:09+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -39,14 +40,19 @@ msgstr "Суффикс групп"
 msgid "Host"
 msgstr "Хост"
 
-msgid "LDAP"
-msgstr "LDAP"
-
 msgid "Password"
 msgstr "Пароль"
 
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Пожалуйста, ознакомьтесь с  <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>manual page</a>  для более подробной информации."
+
 msgid "Root Bind DN"
 msgstr "Корневая авторизация уникального имени"
+
+msgid "Settings"
+msgstr ""
 
 msgid ""
 "Specifies the base distinguished name (DN) to use as search base, e.g. "
@@ -63,6 +69,9 @@ msgstr "Указывает Уникальное имя (DN) с  которым �
 
 msgid "Specifies the group suffix, e.g. 'ou=Groups'."
 msgstr "Определяет суффикс группы, например, 'ou=Groups'."
+
+msgid "Specifies the port to connect to."
+msgstr "Указать порт для подключения."
 
 msgid "Specifies the user suffix, e.g. 'ou=Users'."
 msgstr "Определяет пользовательский суффикс, например, 'ou=Users'."

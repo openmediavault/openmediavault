@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Christophe Lherieau <skimpax@gmail.com>, 2012.
-# Nahir Mohamed <nahirmoha@gmail.com>, 2012.
-# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012.
-# Stéphane BOCQUET <stephane_bocquet@hotmail.com>, 2012.
+# Christophe Lherieau <skimpax@gmail.com>, 2012-2013
+# Nahir Mohamed <nahirmoha@gmail.com>, 2012-2013
+# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
+# Stéphane BOCQUET <stephane_bocquet@hotmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-22 03:12+0100\n"
-"PO-Revision-Date: 2012-12-22 02:12+0000\n"
+"POT-Creation-Date: 2013-06-16 13:05+0200\n"
+"PO-Revision-Date: 2013-06-16 11:05+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -156,11 +156,8 @@ msgstr "64 - Consommation intermédiaire avec mise en veille"
 msgid "9 months"
 msgstr "9 mois"
 
-msgid "A mount point already exists for the given filesystem"
-msgstr "Un point de montage existe déjà pour ce système de fichiers"
-
-msgid "A share with the given name already exists"
-msgstr "Un partage existe déjà avec ce nom"
+msgid "A share with the name '%s' already exists"
+msgstr ""
 
 msgid "A shared folder with the given name already exists"
 msgstr "Un dossier partagé existe déjà avec ce nom"
@@ -189,9 +186,6 @@ msgstr "Ajouter"
 msgid "Add bonded interface"
 msgstr "Ajouter une interface liée"
 
-msgid "Add cron job"
-msgstr "Ajouter une tâche"
-
 msgid "Add devices to RAID device"
 msgstr "Ajouter des disques durs au périphérique RAID"
 
@@ -212,6 +206,9 @@ msgstr "Ajouter une tâche"
 
 msgid "Add rule"
 msgstr "Ajouter une règle"
+
+msgid "Add scheduled job"
+msgstr ""
 
 msgid "Add scheduled test"
 msgstr "Ajouter un test programmé"
@@ -257,9 +254,6 @@ msgstr "Gestion avancée de l'énergie"
 
 msgid "Advanced settings"
 msgstr "Paramètres avancés"
-
-msgid "Advertise this service via mDNS/DNS-SD."
-msgstr "Annoncer ce service via mDNS/DNS-SD."
 
 msgid "Afghanistan"
 msgstr "Afghanistan"
@@ -343,6 +337,9 @@ msgstr "Antigua-et-Barbuda"
 msgid "Apply"
 msgstr "Appliquer"
 
+msgid "Apply configuration changes"
+msgstr ""
+
 msgid "Apply permissions to files and subfolders"
 msgstr "Appliquer les permissions aux sous-répertoires et fichiers"
 
@@ -363,6 +360,9 @@ msgstr "Détails de l'ensemble RAID"
 
 msgid "Aruba"
 msgstr "Aruba"
+
+msgid "Asynchronous I/O"
+msgstr ""
 
 msgid "Attribute name"
 msgstr "Nom de l'attribut"
@@ -408,12 +408,6 @@ msgstr "Disponible"
 
 msgid "Azerbaijan"
 msgstr "Azerbaijan"
-
-msgid "Backup"
-msgstr "Sauvegarde"
-
-msgid "Backup configuration"
-msgstr "Configuration de la sauvegarde"
 
 msgid "Bahamas"
 msgstr "Bahamas"
@@ -552,6 +546,9 @@ msgstr "Certificats"
 msgid "Chad"
 msgstr "Tchad"
 
+msgid "Changelog"
+msgstr ""
+
 msgid "Check"
 msgstr "Vérifier"
 
@@ -579,10 +576,6 @@ msgstr "Ville"
 msgid "Clear"
 msgstr "Effacer"
 
-msgid ""
-"Click the 'Backup' button to download the current system configuration."
-msgstr "Cliquer sur le bouton 'Sauvegarde' pour télécharger la configuration courante du système."
-
 msgid "Client"
 msgstr "Client"
 
@@ -603,9 +596,6 @@ msgstr "Commande"
 
 msgid "Comment"
 msgstr "Commentaire"
-
-msgid "Commit"
-msgstr "Valider"
 
 msgid "Common Name"
 msgstr "Nom commun"
@@ -705,9 +695,6 @@ msgstr "DHCP"
 msgid "DNS Server"
 msgstr "Serveur DNS"
 
-msgid "DNS Service Discovery"
-msgstr "Découverte des services DNS "
-
 msgid "DNS server"
 msgstr "Serveur DNS"
 
@@ -737,9 +724,6 @@ msgstr "Supprimer"
 
 msgid "Delete content"
 msgstr "Supprimer le contenu"
-
-msgid "Delete files"
-msgstr ""
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Supprime les fichiers de destination qui n'existent pas à la source"
@@ -788,9 +772,6 @@ msgstr "Détermine, en microsecondes, le délai d'attente par défaut avant que 
 msgid "Device"
 msgstr "Périphérique"
 
-msgid "Device '%s' not found"
-msgstr "Périphérique '%s' non trouvé"
-
 msgid "Device identity information"
 msgstr "Informations sur l'identité du périphérique"
 
@@ -827,6 +808,9 @@ msgstr "Afficher les éléments {0} - {1} de {2}"
 msgid "Djibouti"
 msgstr "Djibouti"
 
+msgid "Do you really want to apply the configuration?"
+msgstr ""
+
 msgid "Do you really want to clear the log file?"
 msgstr "Voulez-vous vraiment effacer le fichier journal ?"
 
@@ -853,8 +837,10 @@ msgstr "Voulez-vous vraiment vous déconnecter ?"
 msgid "Do you really want to reboot the system?"
 msgstr "Voulez-vous vraiment redémarrer le système ?"
 
-msgid "Do you really want to remove the shared folder content?"
-msgstr "Voulez-vous vraiment supprimer le contenu du dossier partagé ?"
+msgid ""
+"Do you really want to remove the shared folder content? It will be "
+"permanently removed and cannot be recovered."
+msgstr ""
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Voulez-vous vraiment réinitialiser l'interface Web (ex: l'ordre des colonnes) ?"
@@ -930,9 +916,6 @@ msgstr "Modifier le certificat SSL"
 msgid "Edit bonded interface"
 msgstr "Modifier l'interface de liaison"
 
-msgid "Edit cron job"
-msgstr "Modifier la tâche Cron"
-
 msgid "Edit firewall rule"
 msgstr "Modifier les règles de pare-feu"
 
@@ -956,6 +939,9 @@ msgstr "Modifier la tâche RSync"
 
 msgid "Edit rule"
 msgstr "Modifier la règle"
+
+msgid "Edit scheduled job"
+msgstr ""
 
 msgid "Edit scheduled test"
 msgstr "Modifier le test planifié"
@@ -1001,6 +987,12 @@ msgstr "Activer le FTP anonyme"
 
 msgid "Enable archive mode"
 msgstr "Activer l'archivage"
+
+msgid "Enable asynchronous I/O (AIO) support."
+msgstr ""
+
+msgid "Enable chroot."
+msgstr ""
 
 msgid "Enable compression"
 msgstr "Activer la compression"
@@ -1126,9 +1118,6 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP permet les transferts entre deux serveurs distants sans qu'aucun fichier ne passe par le client qui demande le transfert."
 
-msgid "Failed to call "
-msgstr "Impossible d'appeler"
-
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
@@ -1137,8 +1126,23 @@ msgstr "Echec lors de la création du système de fichiers. Vérifier les journa
 msgid "Failed to get filesystems"
 msgstr "Impossible d'accéder aux systèmes de fichiers"
 
-msgid "Failed to get system date and time"
-msgstr "Impossible d'obtenir la date et l'heure système"
+msgid "Failed to get list of groups."
+msgstr ""
+
+msgid "Failed to get list of logical volumes"
+msgstr ""
+
+msgid "Failed to get list of physical volumes"
+msgstr ""
+
+msgid "Failed to get list of software RAID devices"
+msgstr ""
+
+msgid "Failed to get list of users."
+msgstr ""
+
+msgid "Failed to get shadow password suite configuration."
+msgstr ""
 
 msgid "Falkland Islands"
 msgstr "Îles Malouines"
@@ -1164,12 +1168,12 @@ msgstr "Fichier"
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
-msgstr ""
+msgstr "Les fichiers de la poubelle seront automatiquement supprimés après le nombre de jours spécifié. Mettre 0 pour une suppression manuelle."
 
 msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
-msgstr ""
+msgstr "Les fichiers ayant une taille en octets supérieure à la valeur spécifiée ne seront pas mis dans la poubelle. Mettre 0 pour une taille de fichier illimitée."
 
 msgid "Filesystem"
 msgstr "Système de fichiers"
@@ -1383,6 +1387,13 @@ msgid ""
 "to connect to the module."
 msgstr "Indique que le client sera obligé de fournir un nom d'utilisateur et un mot de passe pour se connecter au module."
 
+msgid ""
+"If this option is set, the daemon will chroot to the shared folder path "
+"before starting the file transfer with the client. Then it is not possible "
+"to map users and groups by name and the daemon is not being able to follow "
+"symbolic links that are either absolute or outside of the new root path."
+msgstr ""
+
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr "Si cette option est activée, toutes les tentatives de réception de données échoueront."
 
@@ -1424,6 +1435,12 @@ msgstr "Importer des groupes"
 msgid "Import users"
 msgstr "Importer des comptes utilisateurs"
 
+msgid "Importing groups ..."
+msgstr ""
+
+msgid "Importing users ..."
+msgstr ""
+
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
 "limitations. Passive ports restricts the range of ports from which the "
@@ -1435,11 +1452,17 @@ msgid ""
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "Dans certains cas, vous devez spécifier un plage de port passifs pour passer outre les limitations du pare-feu. Le serveur va choisir au hasard un nombre au sein de la plage spécifiée jusqu'à ce qu'un port ouvert soit trouvé. La plage de ports doit être choisi dans la plage Unix non-privilégiée (supérieur ou égal à 1024). Il est fortement recommandé que la plage choisie soit suffisamment grande pour traiter de nombreuses connexions simultanées passives (ex: 49152-65534, la plage de ports éphémères enregistrés à l'IANA)."
 
+msgid "Incorrect username or password."
+msgstr "Nom d'utilisateur ou mot de passe incorrect."
+
 msgid "India"
 msgstr "Inde"
 
 msgid "Indonesia"
 msgstr "Indonésie"
+
+msgid "Info"
+msgstr ""
 
 msgid "Informal"
 msgstr "Information"
@@ -1470,9 +1493,6 @@ msgstr "Installé"
 
 msgid "Interfaces"
 msgstr "Interfaces"
-
-msgid "Invalid comment"
-msgstr "Commentaire invalide"
 
 msgid "Invalid domain name"
 msgstr "Nom de domaine invalide"
@@ -1674,9 +1694,6 @@ msgstr "Macédonie"
 msgid "Madagascar"
 msgstr "Madagascar"
 
-msgid "Mail Notification"
-msgstr "Notification par mail"
-
 msgid "Maintainer"
 msgstr "Mainteneur"
 
@@ -1740,9 +1757,6 @@ msgstr "Max. tentatives de connexion"
 
 msgid "Maximum download rate (KiB/s)"
 msgstr "Vitesse réception max. (Ko/s)"
-
-msgid "Maximum file size"
-msgstr ""
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1939,9 +1953,6 @@ msgstr "Aucune requête de certificat"
 msgid "No items to display"
 msgstr "Aucun élément à afficher"
 
-msgid "No log entries to display"
-msgstr "Aucune entrée de journal à afficher"
-
 msgid "No session reuse required"
 msgstr "Aucune réutilisation de session"
 
@@ -1981,6 +1992,12 @@ msgstr "Non TCP"
 msgid "Not UDP"
 msgstr "Non UDP"
 
+msgid "Notification"
+msgstr ""
+
+msgid "Notifications"
+msgstr ""
+
 msgid "November"
 msgstr "Novembre"
 
@@ -2010,6 +2027,9 @@ msgstr "Oman"
 
 msgid "Online"
 msgstr "En ligne"
+
+msgid "Operation not allowed for user '%s'."
+msgstr "Opération non permise pour l'utilisateur '%s'."
 
 msgid "Options"
 msgstr "Options"
@@ -2215,16 +2235,16 @@ msgstr "Conserver les permissions"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
-"polled.<br/><br/><ul><li>Never - Poll (check) the device regardless of its "
-"power mode. This may cause a disk which is spun-down to be spun-up when it "
-"is checked.</li><li>Sleep - Check the device unless it is in SLEEP "
+"polled.<br/><ul><li>Never - Poll (check) the device regardless of its power "
+"mode. This may cause a disk which is spun-down to be spun-up when it is "
+"checked.</li><li>Sleep - Check the device unless it is in SLEEP "
 "mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY "
 "mode. In these modes most disks are not spinning, so if you want to prevent "
 "a disk from spinning up each poll, this is probably what you "
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr "Empêcher un disque d'être réveillé lorsqu'il est régulièrement vérifié.<br/><br/><ul><li>Never - Vérifie le périphérique quel que soit son état de mise en veille. Cela peut entraîner le réveil du disque lorsqu'il est en mode veille.</li><li>Sleep - Vérifie le périphérique sauf s'il est en mode SLEEP.</li><li>Standby- Vérifie le périphérique sauf s'il est en mode SLEEP ou STANDBY. Dans ces modes, la plupart des disques ne tournent pas, donc si vous voulez éviter qu'un disque ne se réveille à chaque vérification, ce mode est probablement celui qu'il vous faut.</li><li>Idle - Vérifie le périphérique sauf s'il est en mode SLEEP, STANDBY ou IDLE. Dans l'état IDLE, la plupart des disques sont toujours en rotation, donc ce n'est probablement pas celui qu'il vous faut.</li></ul>"
+msgstr ""
 
 msgid "Primary"
 msgstr "Primaire"
@@ -2246,6 +2266,9 @@ msgstr "Privilèges"
 
 msgid "Privileges"
 msgstr "Privilèges"
+
+msgid "Process monitoring"
+msgstr ""
 
 msgid "Processes"
 msgstr "Processus"
@@ -2283,6 +2306,9 @@ msgstr "Quota"
 msgid "RAID 10"
 msgstr "RAID 10"
 
+msgid "RAID 4"
+msgstr ""
+
 msgid "RAID 5"
 msgstr "RAID 5"
 
@@ -2291,9 +2317,6 @@ msgstr "RAID 6"
 
 msgid "RAID Management"
 msgstr "Gestion du RAID"
-
-msgid "RPC error"
-msgstr "Erreur RPC"
 
 msgid "RSync server"
 msgstr "Serveur RSync"
@@ -2377,15 +2400,6 @@ msgstr "Réinitialiser l'interface Web"
 msgid "Resize"
 msgstr "Redimensionner"
 
-msgid "Restore"
-msgstr "Restaurer"
-
-msgid "Restore configuration"
-msgstr "Restaurer la configuration"
-
-msgid "Restore configuration..."
-msgstr "Restauration de la configuration ..."
-
 msgid "Resume"
 msgstr "Reprise"
 
@@ -2425,8 +2439,8 @@ msgstr "Rwanda"
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
-msgid "S.M.A.R.T. informations"
-msgstr "Informations S.M.A.R.T."
+msgid "S.M.A.R.T. information"
+msgstr ""
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "La surveillance S.M.A.R.T. doit-être activée pour le périphérique sélectionné."
@@ -2488,6 +2502,9 @@ msgstr "Samedi"
 msgid "Saudi Arabia"
 msgstr "Arabie saoudite"
 
+msgid "Save"
+msgstr ""
+
 msgid "Saving ..."
 msgstr "Sauvegarde en cours ..."
 
@@ -2496,6 +2513,9 @@ msgstr "Rechercher"
 
 msgid "Scanning for new devices ..."
 msgstr "Recherche de nouveaux périphériques ..."
+
+msgid "Scheduled jobs"
+msgstr ""
 
 msgid "Scheduled tests"
 msgstr "Tests programmés"
@@ -2566,17 +2586,17 @@ msgstr "Sélectionnez ou saisissez un nom d'utilisateur ..."
 msgid "Self-test logs"
 msgstr "Journal des tests"
 
+msgid "Send a test email"
+msgstr ""
+
 msgid "Send command output via email"
 msgstr "Envoi par mail des traces de la commande"
 
 msgid "Send email"
 msgstr "Envoyer un mail"
 
-msgid "Send test email"
-msgstr "Envoyer un mail de test"
-
-msgid "Sender"
-msgstr "Expéditeur"
+msgid "Sender email"
+msgstr ""
 
 msgid "Sending test email ..."
 msgstr "Envoi d'un mail de test ..."
@@ -2602,17 +2622,20 @@ msgstr "Serveur"
 msgid "Service"
 msgstr "Service"
 
+msgid "Service Discovery"
+msgstr ""
+
 msgid "Service disabled"
 msgstr "Service désactivé"
 
 msgid "Services"
 msgstr "Services"
 
-msgid "Session expired"
-msgstr "La session a expiré"
+msgid "Session expired."
+msgstr ""
 
-msgid "Session not authenticated"
-msgstr "Session non authentifiée"
+msgid "Session not authenticated."
+msgstr ""
 
 msgid "Session timeout"
 msgstr "Délai d'inactivité"
@@ -2635,9 +2658,6 @@ msgstr "Définir l'intervalle de temps (en secondes) entre chaque contrôle."
 
 msgid "Settings"
 msgstr "Paramètres"
-
-msgid "Settings already exist for device '%s'"
-msgstr "Les paramètres existent déjà pour le périphérique '%s'"
 
 msgid "Seychelles"
 msgstr "Seychelles"
@@ -2662,6 +2682,9 @@ msgstr "Short self-test"
 
 msgid "Show certificate"
 msgstr "Voir le certificat"
+
+msgid "Show changelog"
+msgstr ""
 
 msgid "Show details"
 msgstr "Voir les détails"
@@ -2701,6 +2724,9 @@ msgstr "Slovaquie"
 
 msgid "Slovenia"
 msgstr "Slovénie"
+
+msgid "Software RAID"
+msgstr ""
 
 msgid "Solomon Islands"
 msgstr "Îles Salomon"
@@ -2874,9 +2900,6 @@ msgstr "Journaux système"
 msgid "System time"
 msgstr "Date système"
 
-msgid "System user/group"
-msgstr "Utilisateur/Groupe système"
-
 msgid "TCP forwarding"
 msgstr "Transmission TCP"
 
@@ -2913,11 +2936,11 @@ msgstr "La longueur de clé RSA."
 msgid "The SSL certificate."
 msgstr "Le certificat SSL à utiliser."
 
-msgid "The changes have been applied "
-msgstr "Les modifications ont été appliquées."
-
 msgid "The changes have been applied successfully."
 msgstr "Les modifications ont été appliquées avec succès."
+
+msgid "The comment contains invalid characters"
+msgstr "Le commentaire contient des caractères invalides"
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "Port par défaut du serveur de messagerie SMTP (ex: 25 ou 587)."
@@ -2984,14 +3007,12 @@ msgid ""
 "for data connections is not required."
 msgstr "Il n'est pas nécessaire que la session SSL de la connexion de contrôle soit réutilisée pour les connexions de données."
 
-msgid "The service name."
-msgstr "Le nom du service."
+msgid ""
+"The session timeout time in minutes. Set to 0 to disable automatic logout."
+msgstr "Temps d'activité de la session en minutes. Mettre à 0 pour désactiver la déconnexion automatique."
 
-msgid "The session timeout time in minutes."
-msgstr "Le temps d'expiration de la session en minutes."
-
-msgid "The shared folder is already used by another share"
-msgstr "Le dossier partagé est déjà utilisé par un autre partage."
+msgid "The shared folder is already used by another share."
+msgstr ""
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3004,9 +3025,6 @@ msgstr "Le dossier partagé source."
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr "Le quota fixé dépasse la valeur maximale possible de 4To."
 
-msgid "The system will reboot now."
-msgstr "Le système va redémarrer maintenant."
-
 msgid "The system will reboot now. This may take some time ..."
 msgstr "Le système va redémarrer maintenant. Cela peut prendre un certain temps ..."
 
@@ -3018,9 +3036,6 @@ msgstr "L'utilisateur '%s' n'existe pas"
 
 msgid "The user '%s' is not allowed"
 msgstr "L'utilisateur '%s' n'est pas autorisé"
-
-msgid "The value in this field is invalid"
-msgstr "La valeur de ce champs est invalide"
 
 msgid "The volume label for the filesystem."
 msgstr "Le nom de volume pour le système de fichiers."
@@ -3048,6 +3063,9 @@ msgstr "Indique si le partage peut-être vu dans la liste des partages dans une 
 
 msgid "This field does not allow blanks"
 msgstr "Ce champ n'accepte pas de blancs"
+
+msgid "This field is required"
+msgstr ""
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Ce champ doit avoir le format hh:mm:ss"
@@ -3225,12 +3243,6 @@ msgstr "Inactivité"
 msgid "Times"
 msgstr "Dates"
 
-msgid ""
-"To restore a previously backed up configuration click the 'Restore' button. "
-"The system will reboot automatically after import has been finished "
-"successfully."
-msgstr "Pour restaurer une configuration préalablement sauvegardée, cliquez  sur le bouton 'Restaurer'. Le système redémarrera automatiquement une fois l'importation terminée avec succès"
-
 msgid "Togo"
 msgstr "Togo"
 
@@ -3373,6 +3385,9 @@ msgstr "Utiliser NTP"
 msgid "Use SSL/TLS secure connection"
 msgstr "Utiliser SSL/TLS"
 
+msgid "Use chroot"
+msgstr ""
+
 msgid "Use sendfile"
 msgstr "Utiliser sendfile"
 
@@ -3479,6 +3494,9 @@ msgstr "Administration Web"
 
 msgid "Web Administrator Password"
 msgstr "Sécurité Administrateur"
+
+msgid "Web administration"
+msgstr ""
 
 msgid "Web administration interface"
 msgstr "Interface de l'administration Web"

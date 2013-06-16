@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <runesudden@gmail.com>, 2012.
+# runesudden <runesudden@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-21 22:48+0200\n"
-"PO-Revision-Date: 2012-06-21 20:49+0000\n"
+"POT-Creation-Date: 2013-06-16 13:06+0200\n"
+"PO-Revision-Date: 2013-06-16 11:06+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgid "Antivirus"
 msgstr "Antivirus"
 
 msgid "Be verbose."
-msgstr ""
+msgstr "Vær detaljert."
 
 msgid "Comment"
 msgstr "Kommentar"
@@ -109,8 +109,8 @@ msgstr "Hver N time"
 msgid "Every N minute"
 msgstr "Hvert N minutt"
 
-msgid "Execute job"
-msgstr "Utfør jobb"
+msgid "Execute cron job"
+msgstr ""
 
 msgid "Extra options"
 msgstr "Ekstra alternativer"
@@ -136,6 +136,12 @@ msgstr "Time"
 msgid "Jobs"
 msgstr "Jobber"
 
+msgid "Log clean files"
+msgstr ""
+
+msgid "Log clean files. This drastically increases the log size."
+msgstr ""
+
 msgid "Minute"
 msgstr "Minutt"
 
@@ -146,7 +152,7 @@ msgid "Month"
 msgstr "Måned"
 
 msgid "Multiscan"
-msgstr ""
+msgstr "Multiskann"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Antall databaseoppdateringer pr. dag. Sett til 0 for å deaktivere."
@@ -190,7 +196,7 @@ msgid "Scan archives"
 msgstr "Skann arkiver"
 
 msgid "Scan the directory contents in parallel using available threads."
-msgstr ""
+msgstr "Skann mapper i paralell ved å bruke tilgjengelige tråder."
 
 msgid "Send command output via email"
 msgstr "Send kommandoproduksjon via epost"
@@ -202,7 +208,7 @@ msgid ""
 "Server name where database updates are downloaded from. Get a complete list "
 "of database mirrors <a href='http://www.clamav.net/mirrors.html' "
 "target='_blank'>here</a>."
-msgstr ""
+msgstr "Servernavn der databaseoppdateringer lastes ned fra. Få en komplett liste over databasespeil <a href='http://www.clamav.net/mirrors.html' target='_blank'>her</a>."
 
 msgid "Settings"
 msgstr "Innstillinger"
@@ -214,7 +220,7 @@ msgid "The location of the files to scan."
 msgstr "Plasseringern av filene som skal scannes"
 
 msgid "Verbose"
-msgstr ""
+msgstr "Detaljert"
 
 msgid "n/a"
 msgstr "n/a"

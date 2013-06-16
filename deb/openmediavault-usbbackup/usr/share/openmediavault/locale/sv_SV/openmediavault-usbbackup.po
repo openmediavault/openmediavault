@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-15 15:26+0000\n"
+"POT-Creation-Date: 2013-06-16 13:13+0200\n"
+"PO-Revision-Date: 2013-06-16 11:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -17,10 +17,7 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-msgid "A backup job already exists for this storage device"
-msgstr ""
-
-msgid "Add USB backup job"
+msgid "Add backup job"
 msgstr ""
 
 msgid ""
@@ -29,6 +26,9 @@ msgid ""
 msgstr ""
 
 msgid "Archive"
+msgstr ""
+
+msgid "Backup jobs"
 msgstr ""
 
 msgid "Comment"
@@ -46,10 +46,13 @@ msgstr ""
 msgid "Delete files on the receiving side that don't exist on sender."
 msgstr ""
 
+msgid "Device"
+msgstr ""
+
 msgid "Device '%s' not found"
 msgstr ""
 
-msgid "Edit USB backup job"
+msgid "Edit backup job"
 msgstr ""
 
 msgid "Enable"
@@ -66,7 +69,7 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-msgid "Execute USB backup job"
+msgid "Execute backup job"
 msgstr ""
 
 msgid "External storage device"
@@ -81,7 +84,16 @@ msgstr ""
 msgid "Filesystem '%s' not found"
 msgstr ""
 
+msgid "From external storage to shared folder"
+msgstr ""
+
+msgid "From shared folder to external storage"
+msgstr ""
+
 msgid "Keep partially transferred files"
+msgstr ""
+
+msgid "Mode"
 msgstr ""
 
 msgid ""
@@ -113,7 +125,10 @@ msgstr ""
 msgid "Run"
 msgstr ""
 
-msgid "Select a volume ..."
+msgid "Scan"
+msgstr ""
+
+msgid "Select a device ..."
 msgstr ""
 
 msgid "Send command output via email."
@@ -132,7 +147,16 @@ msgstr ""
 msgid "Suppress non-error messages."
 msgstr ""
 
+msgid "Synchronise from/to directory on external storage device."
+msgstr ""
+
 msgid "The external storage device."
+msgstr ""
+
+msgid ""
+"The shared folder content is synchronised from/to the root of the external "
+"storage device if this option is not set. The name of the directory is taken"
+" from the shared folder."
 msgstr ""
 
 msgid ""
@@ -151,9 +175,6 @@ msgstr ""
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
-
-msgid "Volume"
 msgstr ""
 
 msgid "n/a"

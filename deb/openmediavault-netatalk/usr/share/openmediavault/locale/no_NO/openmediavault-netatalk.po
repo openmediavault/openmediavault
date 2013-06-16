@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <runesudden@gmail.com>, 2012.
+# runesudden <runesudden@gmail.com>, 2013
+# runesudden <runesudden@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-16 19:00+0200\n"
-"PO-Revision-Date: 2012-08-16 17:00+0000\n"
+"POT-Creation-Date: 2013-06-16 13:10+0200\n"
+"PO-Revision-Date: 2013-06-16 11:11+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -18,26 +19,29 @@ msgstr ""
 "Language: no\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr "."
+
 msgid "Add share"
 msgstr "Legg til delt område"
 
-msgid "Advertise this service via mDNS/DNS-SD."
-msgstr ""
+msgid "Advanced settings"
+msgstr "Avanserte instillinger"
 
-msgid "Allow guest logins"
+msgid "Allow guest login."
 msgstr "Tillat gjesteinnlogging"
 
+msgid "Allow guests to create or modify files."
+msgstr "Tillat gjester å skape eller endre filer."
+
 msgid "Allow logins with passwords transmitted in the clear."
-msgstr ""
+msgstr "Tillat login med passord sendt ukryptert."
 
 msgid "Allow plain passwords"
-msgstr ""
+msgstr "Tillat ukrypterte passord"
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
-
-msgid "Authentication"
-msgstr "Autentisering"
 
 msgid "Case folding"
 msgstr "Case folding"
@@ -50,9 +54,6 @@ msgstr "Klient ser store bokstaver, server ser små bokstaver"
 
 msgid "Comment"
 msgstr "Kommenter"
-
-msgid "DNS Service Discovery"
-msgstr ""
 
 msgid "Don't do :hex translation for dot files."
 msgstr "Ikke gjør :hex oversetninger for dot filer"
@@ -67,7 +68,7 @@ msgid "Enable Time Machine support for this share."
 msgstr "Aktiver Time Machine støtte for dette delte området."
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "Aktiver hjemmemapper for brukere"
 
 msgid "Extra options"
 msgstr "Ekstra alternativer"
@@ -78,11 +79,17 @@ msgstr "Påtving restriksjoner i filnavn"
 msgid "General settings"
 msgstr "Generelle innstillinger"
 
+msgid "Guest login"
+msgstr "Gjesteinnlogging"
+
+msgid "Guests only have read access by default."
+msgstr "Gjester har som standard kun leserettigheter"
+
 msgid "Hide dot files"
 msgstr "Skjul dot filer"
 
 msgid "Home directories"
-msgstr ""
+msgstr "Hjemmemapper"
 
 msgid ""
 "If this option is set, then a password is required to access the share."
@@ -97,7 +104,7 @@ msgid ""
 "Limit the reported volume size to the given value in MiB, thus preventing TM"
 " from using the whole disk space for backup. Set this value to 0 to disable "
 "this option."
-msgstr ""
+msgstr "Begrens den rapporterte volumstørrelsen i MiB, for å hindre TM fra å bruke hele diskplassen til sikkerhetskopi. Sett verdien til 0 for å deaktivere denne funksjonen."
 
 msgid "Lowercases names in both directions"
 msgstr "Små bokstaver i begge retninger"
@@ -115,7 +122,7 @@ msgid "Password"
 msgstr "Passord"
 
 msgid "Quota"
-msgstr ""
+msgstr "Kvote"
 
 msgid "Read only"
 msgstr "Kun lesning"
@@ -137,9 +144,6 @@ msgstr "Plasseringen av filsystemet som skal deles."
 
 msgid "The name of the share."
 msgstr "Det delte områdets navn"
-
-msgid "The service name."
-msgstr ""
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."

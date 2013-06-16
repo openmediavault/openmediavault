@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Cyryl Sochacki <>, 2012.
-# Jacek Niedziółka <>, 2012.
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013
+# Jacek Niedziółka <>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-16 19:00+0200\n"
-"PO-Revision-Date: 2012-08-20 10:06+0000\n"
-"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
+"POT-Creation-Date: 2013-06-16 13:10+0200\n"
+"PO-Revision-Date: 2013-06-16 11:11+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,14 +20,20 @@ msgstr ""
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+msgid " "
+msgstr " "
+
 msgid "Add share"
 msgstr "Dodaj udział"
 
-msgid "Advertise this service via mDNS/DNS-SD."
-msgstr "Anonsowanie tej usługi za pośrednictwem mDNS/DNS-SD."
+msgid "Advanced settings"
+msgstr "Zaawansowana konfiguracja"
 
-msgid "Allow guest logins"
+msgid "Allow guest login."
 msgstr "Pozwól na dostęp gościom"
+
+msgid "Allow guests to create or modify files."
+msgstr "Pozwól gościom na edycje i tworzenie plików."
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr "Pozwól na  logowanie z hasłem przesyłanym w formie nieszyfrowanej."
@@ -36,9 +43,6 @@ msgstr "Pozwól na nieszyfrowane hasła"
 
 msgid "Apple Filing"
 msgstr "Zgłoszenia Apple"
-
-msgid "Authentication"
-msgstr "Uwierzytelnienie"
 
 msgid "Case folding"
 msgstr "Składana skrzynka"
@@ -51,9 +55,6 @@ msgstr "Klient widzi wielkie, serwer małe litery"
 
 msgid "Comment"
 msgstr "Komentarz"
-
-msgid "DNS Service Discovery"
-msgstr "Odnajdywanie usługi DNS"
 
 msgid "Don't do :hex translation for dot files."
 msgstr "Nie wykonuj tłumaczenia :hex dla plików dot."
@@ -78,6 +79,12 @@ msgstr "Wymuś ograniczenia nazwy pliku"
 
 msgid "General settings"
 msgstr "Ustawienia"
+
+msgid "Guest login"
+msgstr "Login gościa"
+
+msgid "Guests only have read access by default."
+msgstr "Goście mają prawo tylko do odczytu - domyślnie."
 
 msgid "Hide dot files"
 msgstr "Ukryj pliki dot"
@@ -138,9 +145,6 @@ msgstr "Lokalizacja plików do współdzielenia."
 
 msgid "The name of the share."
 msgstr "Nazwa zasobu."
-
-msgid "The service name."
-msgstr "Nazwa usługi."
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."

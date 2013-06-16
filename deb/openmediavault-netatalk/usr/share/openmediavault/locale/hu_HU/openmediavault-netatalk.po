@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Ádám Balajti <balajtiadam@gmail.com>, 2012.
-#   <mersaint@gmail.com>, 2012.
+# Ádám Balajti <balajtiadam@gmail.com>, 2012
+# mersaint <mersaint@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-16 19:00+0200\n"
-"PO-Revision-Date: 2012-08-26 18:05+0000\n"
-"Last-Translator: Ádám Balajti <balajtiadam@gmail.com>\n"
+"POT-Creation-Date: 2013-06-16 13:10+0200\n"
+"PO-Revision-Date: 2013-06-16 11:11+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,14 +19,20 @@ msgstr ""
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr ""
+
 msgid "Add share"
 msgstr "Megosztás hozzáadása"
 
-msgid "Advertise this service via mDNS/DNS-SD."
-msgstr "Szolgáltatás közzététele mDNS/DNS-SD-n keresztül."
+msgid "Advanced settings"
+msgstr ""
 
-msgid "Allow guest logins"
-msgstr "Vendég hozzáférés engedélyezése"
+msgid "Allow guest login."
+msgstr ""
+
+msgid "Allow guests to create or modify files."
+msgstr ""
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr "Jelszóval való bejelentkezés kódolatlan formában történő továbbításának engedélyezése."
@@ -36,9 +42,6 @@ msgstr "Egyszerű jelszavak engedélyezése"
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
-
-msgid "Authentication"
-msgstr "Hitelesítés"
 
 msgid "Case folding"
 msgstr "Eset összehasonlítása"
@@ -51,9 +54,6 @@ msgstr "A kliens nagybetűsnek, szerver kisbetűsnek látja"
 
 msgid "Comment"
 msgstr "Megjegyzés"
-
-msgid "DNS Service Discovery"
-msgstr "DNS Szolgáltatás Felderítése"
 
 msgid "Don't do :hex translation for dot files."
 msgstr "Ne tegyen :hex lefordítást pont kezdetű fájlokhoz."
@@ -78,6 +78,12 @@ msgstr "Fájlnév korlátozások kényszerítése"
 
 msgid "General settings"
 msgstr "Általános beállítások"
+
+msgid "Guest login"
+msgstr ""
+
+msgid "Guests only have read access by default."
+msgstr ""
 
 msgid "Hide dot files"
 msgstr "Pont kezdetű fájlok elrejtése."
@@ -138,9 +144,6 @@ msgstr "A megosztani kívánt fájlok helye."
 
 msgid "The name of the share."
 msgstr "A megosztás neve"
-
-msgid "The service name."
-msgstr "A szolgáltatás neve."
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."

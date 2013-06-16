@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Serhat SUT <serhat.sut@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-15 16:25+0100\n"
-"PO-Revision-Date: 2013-02-15 15:26+0000\n"
+"POT-Creation-Date: 2013-06-16 13:13+0200\n"
+"PO-Revision-Date: 2013-06-16 11:15+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -17,144 +18,165 @@ msgstr ""
 "Language: tr_TR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgid "A backup job already exists for this storage device"
-msgstr ""
-
-msgid "Add USB backup job"
+msgid "Add backup job"
 msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Yöneticiye komut çıkış bilgisi (eğer üretilmişse) ile birlikte bir email yollandı."
 
 msgid "Archive"
+msgstr "Arşiv"
+
+msgid "Backup jobs"
 msgstr ""
 
 msgid "Comment"
-msgstr ""
+msgstr "Açıklama"
 
 msgid "Compress"
-msgstr ""
+msgstr "Sıkıştırma"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "Transfer sırasında dosya datasını sıkıştır"
 
 msgid "Delete"
-msgstr ""
+msgstr "Sil"
 
 msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "Göndericide bulunmayan dosyaları kaydedilen taraftan sil"
+
+msgid "Device"
 msgstr ""
 
 msgid "Device '%s' not found"
-msgstr ""
+msgstr "'%s' aygıtı bulunamıyor"
 
-msgid "Edit USB backup job"
+msgid "Edit backup job"
 msgstr ""
 
 msgid "Enable"
-msgstr ""
+msgstr "Geçerli"
 
 msgid "Enable archive mode."
-msgstr ""
+msgstr "Arşiv modunu aç"
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Kısmen aktarılmış dosyaları korumak için bu seçeneği aktifleştiriniz, aksi taktirde iletişim kesilir ise bu dosyalar silinecektir."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Geçerli"
 
-msgid "Execute USB backup job"
+msgid "Execute backup job"
 msgstr ""
 
 msgid "External storage device"
-msgstr ""
+msgstr "Harici depolama cihazı"
 
 msgid "Extra options"
-msgstr ""
+msgstr "İlave seçenekler"
 
 msgid "Failed to get filesystems"
-msgstr ""
+msgstr "Dosya sistemi erişim hatası"
 
 msgid "Filesystem '%s' not found"
-msgstr ""
+msgstr "Dosya sistemi '%s' bulunamadı"
+
+msgid "From external storage to shared folder"
+msgstr "Harici depolamadan paylaşımlı klasöre"
+
+msgid "From shared folder to external storage"
+msgstr "Paylaşılmış klasörden harici depolamaya"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Kısmen transfer edilmiş dosyaları koru"
+
+msgid "Mode"
+msgstr "Mod"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Daha fazla bilgi için lütfen <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> adresini ziyaret ediniz."
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "ACL leri koru"
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "Genişletilmiş öznitelikleri koru"
 
 msgid "Preserve modification times."
-msgstr ""
+msgstr "Değiştirilme zamanlarını koru"
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Yetkileri koru"
 
 msgid "Quiet"
-msgstr ""
+msgstr "Durgun"
 
 msgid "Recurse into directories."
-msgstr ""
+msgstr "Dizinlere yinele"
 
 msgid "Recursive"
-msgstr ""
+msgstr "Tekrarlanan"
 
 msgid "Run"
+msgstr "Çalıştır"
+
+msgid "Scan"
 msgstr ""
 
-msgid "Select a volume ..."
+msgid "Select a device ..."
 msgstr ""
 
 msgid "Send command output via email."
-msgstr ""
+msgstr "Komut çıktısını e-posta ile gönder"
 
 msgid "Send email"
-msgstr ""
+msgstr "E-mail yolla"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "Hedef yetkilerini kaynak yetkileri ile aynı olacak şekilde ayarla"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Paylaşılmış klasör"
 
 msgid "Suppress non-error messages."
+msgstr "Hata belirtlemeyen mesajları gizle"
+
+msgid "Synchronise from/to directory on external storage device."
 msgstr ""
 
 msgid "The external storage device."
+msgstr "Harici depolama aygıtı."
+
+msgid ""
+"The shared folder content is synchronised from/to the root of the external "
+"storage device if this option is not set. The name of the directory is taken"
+" from the shared folder."
 msgstr ""
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
 "connected."
-msgstr ""
+msgstr "Harici depolama cihazı bağlandığında eşleştirilecek olan paylaşımlı klasör."
 
 msgid "Times"
-msgstr ""
+msgstr "Kere"
 
 msgid "USB Backup"
-msgstr ""
+msgstr "USB yedekleme"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "Hedef ACL lerini kaynak ACL leri ile aynı olacak biçimde güncelleştir."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
-
-msgid "Volume"
-msgstr ""
+msgstr "Hedefteki genişletilmiş öznitelikleri yerel olanlarla aynı olacak şekilde güncelleştir."
 
 msgid "n/a"
-msgstr ""
+msgstr "yok"

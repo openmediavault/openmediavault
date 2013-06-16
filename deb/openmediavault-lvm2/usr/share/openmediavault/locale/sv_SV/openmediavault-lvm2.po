@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Henrik Sandström <henrik.sandstroem@gmail.com>, 2012.
+# Henrik Sandström <henrik.sandstroem@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-15 12:28+0200\n"
-"PO-Revision-Date: 2012-09-15 10:29+0000\n"
+"POT-Creation-Date: 2013-06-16 13:10+0200\n"
+"PO-Revision-Date: 2013-06-16 11:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add physical volume"
+msgstr ""
 
 msgid ""
 "After the logical volume has been extended you can resize the containing "
@@ -32,14 +35,8 @@ msgstr "Kapacitet"
 msgid "Confirmation"
 msgstr "Bekräftelse"
 
-msgid "Create"
-msgstr ""
-
 msgid "Create logical volume"
 msgstr "Skapa logisk volym"
-
-msgid "Create physical volume"
-msgstr "Skapa fysisk volym"
 
 msgid "Create volume group"
 msgstr "Skapa volymgrupp"
@@ -79,6 +76,9 @@ msgstr "Utöka volymgrupp"
 
 msgid "Free"
 msgstr "Ledigt"
+
+msgid "Invalid name"
+msgstr ""
 
 msgid "Logical Volume Management"
 msgstr "Logisk volymhantering"

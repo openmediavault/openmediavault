@@ -3,20 +3,23 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012.
+# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-31 20:03+0200\n"
-"PO-Revision-Date: 2012-09-03 09:21+0000\n"
-"Last-Translator: Stéphane BOCQUET <sbocquet4772@gmail.com>\n"
+"POT-Creation-Date: 2013-06-16 13:12+0200\n"
+"PO-Revision-Date: 2013-06-16 11:12+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fr_FR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "A route with the network already exists"
+msgstr ""
 
 msgid "Add static route"
 msgstr "Ajouter un routage statique"

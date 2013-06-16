@@ -3,16 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-#   <jmcainzos@vodafone.es>, 2012.
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012.
-# Volker  <votdev@gmx.de>, 2012.
+# jmcainzos <jmcainzos@vodafone.es>, 2012
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2013
+# Volker <votdev@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-16 19:00+0200\n"
-"PO-Revision-Date: 2012-08-25 21:00+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"POT-Creation-Date: 2013-06-16 13:10+0200\n"
+"PO-Revision-Date: 2013-06-16 11:11+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,14 +20,20 @@ msgstr ""
 "Language: es_ES\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+msgid " "
+msgstr " "
+
 msgid "Add share"
 msgstr "Añadir compartido"
 
-msgid "Advertise this service via mDNS/DNS-SD."
-msgstr "Anunciar este servicio vía mDNS/DNS-SD."
+msgid "Advanced settings"
+msgstr "Propiedades avanzadas"
 
-msgid "Allow guest logins"
-msgstr "Permitir acceso de invitado"
+msgid "Allow guest login."
+msgstr "Permitir login de invitado"
+
+msgid "Allow guests to create or modify files."
+msgstr "Permitir a los invitados crear o modificar ficheros."
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr "Permitir Login con contraseñas en claro"
@@ -37,9 +43,6 @@ msgstr "Permitir contraseñas simples"
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
-
-msgid "Authentication"
-msgstr "Autenticación"
 
 msgid "Case folding"
 msgstr "Conversión a mayúsculas"
@@ -52,9 +55,6 @@ msgstr "Los clientes ven mayúsculas, el servidor minúsculas"
 
 msgid "Comment"
 msgstr "Comentario"
-
-msgid "DNS Service Discovery"
-msgstr "Servicio de descubrimiento DNS"
 
 msgid "Don't do :hex translation for dot files."
 msgstr "No realizar: Traducción hexadecimal para archivos con punto \".\""
@@ -79,6 +79,12 @@ msgstr "Fuerza restricciones de nombre de archivo"
 
 msgid "General settings"
 msgstr "Opciones generales"
+
+msgid "Guest login"
+msgstr "Login de invitado"
+
+msgid "Guests only have read access by default."
+msgstr "Los invitados solo tienen acceso de lectura por defecto."
 
 msgid "Hide dot files"
 msgstr "Ocultar archivos con punto \".\""
@@ -139,9 +145,6 @@ msgstr "Ruta de los archivos a compartir"
 
 msgid "The name of the share."
 msgstr "Nombre del compartido"
-
-msgid "The service name."
-msgstr "Nombre del servicio."
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."
