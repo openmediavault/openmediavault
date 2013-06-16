@@ -123,7 +123,7 @@ Ext.define("OMV.workspace.Workspace", {
 					xtype: "tbseparator"
 				},{
 					xtype: "splitbutton",
-					icon: "images/settings.png",
+					icon: "images/menu.png",
 					handler: function() {
 						this.showMenu();
 					},

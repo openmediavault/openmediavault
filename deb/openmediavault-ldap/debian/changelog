@@ -1,8 +1,8 @@
-openmediavault-ldap (0.5.0.1) stable; urgency=low
+openmediavault-ldap (0.5.1) stable; urgency=low
 
-  * Modify icon.
+  * Add SVG icon.
 
- -- Volker Theile <volker.theile@openmediavault.org>  Wed, 12 Jun 2013 19:47:37 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Jun 2013 03:22:00 +0200
 
 openmediavault-ldap (0.5) stable; urgency=low
 

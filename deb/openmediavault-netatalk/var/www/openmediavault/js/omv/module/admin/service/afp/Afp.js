@@ -24,5 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "afp",
 	path: "/service",
 	text: _("Apple Filing"),
-	icon16: "images/afp.png"
+	icon16: "images/afp.png",
+	iconSvg: "images/afp.svg"
 });

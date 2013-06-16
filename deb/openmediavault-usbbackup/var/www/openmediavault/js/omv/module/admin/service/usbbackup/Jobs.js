@@ -146,7 +146,7 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 					var trigger2El = c.getTriggerButtonEl(c.trigger2Cls);
 					Ext.tip.QuickTipManager.register({
 						target: trigger2El.id,
-						text: _("Refresh")
+						text: _("Scan")
 					});
 				}
 			},

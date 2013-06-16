@@ -615,7 +615,7 @@ Ext.define("OMV.module.admin.system.certificate.Certificates", {
 			id: me.getId() + "-detail",
 			xtype: "button",
 			text: _("Detail"),
-			icon: "images/detail.png",
+			icon: "images/details.png",
 			handler: Ext.Function.bind(me.onDetailButton, me, [ me ]),
 			scope: me,
 			disabled: true

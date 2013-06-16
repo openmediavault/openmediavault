@@ -24,5 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "ftp",
 	path: "/service",
 	text: _("FTP"),
-	icon16: "images/ftp.png"
+	icon16: "images/ftp.png",
+	iconSvg: "images/ftp.svg"
 });

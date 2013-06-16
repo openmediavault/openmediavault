@@ -520,7 +520,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			id: me.getId() + "-detail",
 			xtype: "button",
 			text: _("Detail"),
-			icon: "images/detail.png",
+			icon: "images/details.png",
 			handler: me.onDetailButton,
 			scope: me,
 			disabled: true

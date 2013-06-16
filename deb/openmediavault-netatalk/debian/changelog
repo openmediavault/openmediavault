@@ -1,3 +1,9 @@
+openmediavault-netatalk (0.5.1) stable; urgency=low
+
+  * Add SVG icon.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Jun 2013 03:14:26 +0200
+
 openmediavault-netatalk (0.5) stable; urgency=low
 
   * Adapt plugin to new framework.

@@ -7,5 +7,6 @@ Copyright: 2009-2013 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
 
 Files: var/www/openmediavault/images/forkeddaapd.png
-License: PD
-Copyright: Tango (http://www.iconfinder.com/icondetails/15442/16/audio_high_volume_icon)
+       var/www/openmediavault/images/forkeddaapd.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
