@@ -1,3 +1,10 @@
+openmediavault (0.5.0.11) stable; urgency=low
+
+  * Set the setgid bit on shared folders.
+  * Mantis 0000782: root SSH Key ist always the same.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 17 Jun 2013 17:40:08 +0200
+
 openmediavault (0.5.0.10) stable; urgency=low
 
   * Use SVG icons if possible.
