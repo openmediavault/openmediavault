@@ -1,3 +1,9 @@
+openmediavault (0.4.33) stable; urgency=low
+
+  * Mantis 0000782: root SSH Key ist always the same.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 17 Jun 2013 17:38:32 +0200
+
 openmediavault (0.4.32) stable; urgency=low
 
   * Close login dialog on success.
