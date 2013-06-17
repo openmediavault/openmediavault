@@ -389,6 +389,15 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  sprintf("Failed to set file group to '%s' for '%s'",
 			  $GLOBALS['OMV_USERMGMT_DEFAULT_GROUP'], $pathName));
 		}
+		// Set the setgid bit. Setting this permission means that all files
+		// created in the folder will inherit the group of the folder rather
+		// than the primary group of the user who creates the file.
+		$mode = fileperms($pathName) | 02000;
+		if(FALSE === chmod($pathName, $mode)) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to set file mode to '%o' for '%s'",
+			  $mode, $pathName));
+		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
