@@ -31,15 +31,6 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUser", {
 
 	mode: "local",
 	width: 500,
-	plugins: [{
-		ptype: "configobject"
-	}],
-
-	/**
-	 * The class constructor.
-	 * @fn constructor
-	 * @param uuid The UUID of the database/configuration object. Required.
-	 */
 
 	getFormItems: function() {
 		var me = this;
@@ -55,7 +46,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUser", {
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
-			readOnly: me.isNew(),
+			readOnly: (me.uuid == OMV.UUID_UNDEFINED),
 			value: "incoming"
 		},{
 			xtype: "textfield",
@@ -63,7 +54,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUser", {
 			fieldLabel: _("Username"),
 			allowBlank: false,
 			vtype: "username",
-			readOnly: me.isNew()
+			readOnly: (me.uuid == OMV.UUID_UNDEFINED),
 		},{
 			xtype: "passwordfield",
 			name: "password",
@@ -147,6 +138,9 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 		Ext.create("OMV.module.admin.service.iscsitarget.AuthUser", {
 			title: _("Add user"),
 			uuid: OMV.UUID_UNDEFINED,
+			plugins: [{
+				ptype: "configobject"
+			}],
 			listeners: {
 				scope: me,
 				submit: function(wnd, values) {
@@ -175,6 +169,9 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 		var wnd = Ext.create("OMV.module.admin.service.iscsitarget.AuthUser", {
 			title: _("Edit user"),
 			uuid: record.get("uuid"),
+			plugins: [{
+				ptype: "configobject"
+			}],
 			listeners: {
 				scope: me,
 				submit: function(wnd, values) {

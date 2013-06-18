@@ -22,7 +22,8 @@
 
 OMV.WorkspaceManager.registerNode({
 	id: "iscsitarget",
-	path: "/services",
+	path: "/service",
 	text: _("iSCSI Target"),
-	icon16: "images/iscsitarget.png"
+	icon16: "images/iscsitarget.png",
+	iconSvg: "images/iscsitarget.svg"
 });
