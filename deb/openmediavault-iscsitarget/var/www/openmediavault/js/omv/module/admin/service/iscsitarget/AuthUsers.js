@@ -46,7 +46,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUser", {
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
-			readOnly: (me.uuid == OMV.UUID_UNDEFINED),
+			readOnly: (me.uuid !== OMV.UUID_UNDEFINED),
 			value: "incoming"
 		},{
 			xtype: "textfield",
@@ -54,7 +54,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUser", {
 			fieldLabel: _("Username"),
 			allowBlank: false,
 			vtype: "username",
-			readOnly: (me.uuid == OMV.UUID_UNDEFINED),
+			readOnly: (me.uuid !== OMV.UUID_UNDEFINED),
 		},{
 			xtype: "passwordfield",
 			name: "password",

@@ -36,6 +36,9 @@
 Ext.define("OMV.module.admin.service.iscsitarget.target.General", {
 	extend: "OMV.form.Panel",
 
+	title: _("General"),
+	bodyPadding: "5 5 0",
+
 	initComponent: function() {
 		var me = this;
 		Ext.apply(me, {
@@ -309,7 +312,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.LUN", {
 			],
 			allowBlank: false,
 			editable: false,
-			readOnly: me.isNew(),
+			readOnly: !me.isNew(),
 			triggerAction: "all",
 			value: "blockio"
 		},{
@@ -343,7 +346,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.LUN", {
 			valueField: "devicefile",
 			allowBlank: false,
 			editable: false,
-			readOnly: me.isNew(),
+			readOnly: !me.isNew(),
 			triggerAction: "all"
 		},{
 			xtype: "textfield",
@@ -401,6 +404,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.LUNs", {
 		"OMV.module.admin.service.iscsitarget.target.LUN"
 	],
 
+	title: _("LUN"),
 	mode: "local",
 	stateful: true,
 	stateId: "3107db90-c1e9-11e0-90c8-00221568ca88",
@@ -478,6 +482,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.LUNs", {
 	},
 
 	onAddButton: function() {
+		var me = this;
 		Ext.create("OMV.module.admin.service.iscsitarget.target.LUN", {
 			title: _("Add LUN"),
 			uuid: OMV.UUID_UNDEFINED,
@@ -578,6 +583,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.Target", {
 		return [
 			Ext.create("OMV.module.admin.service.iscsitarget.target.General"),
 			Ext.create("OMV.module.admin.service.iscsitarget.AuthUsers", {
+				title: _("Authentication"),
 				getValues: function() {
 					var me = this;
 					var values = me.callParent(arguments);

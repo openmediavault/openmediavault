@@ -39,7 +39,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.Settings", {
 		"OMV.workspace.grid.Panel"
 	],
 	uses: [
-		"OMV.module.admin.service.iscsitarget.AuthUser"
+		"OMV.module.admin.service.iscsitarget.AuthUsers"
 	],
 
 	rpcService: "iSCSITarget",
@@ -100,7 +100,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.Settings", {
 					}]
 				}),
 */
-				gridClass: "OMV.module.admin.service.iscsitarget.AuthUser"
+				gridClass: "OMV.module.admin.service.iscsitarget.AuthUsers"
 			}]
 		}];
 	}
