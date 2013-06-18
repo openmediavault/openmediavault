@@ -8,5 +8,5 @@ License: GPL-3
 
 Files: var/www/openmediavault/images/iscsitarget.png
        var/www/openmediavault/images/iscsitarget.svg
-Copyright: WebHostingHub <http://www.webhostinghub.com>
-License: CC-BY-3.0
+Copyright: David Ferreira (http://cargocollective.com/davidferreira)
+License: CC-BY-SA-3.0
