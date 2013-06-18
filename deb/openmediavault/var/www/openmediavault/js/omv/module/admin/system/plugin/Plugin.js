@@ -408,7 +408,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 					rpcService: "Plugin",
 					rpcMethod: "remove",
 					rpcParams: { "packages": packages },
-					rpcIgnoreErrors: true,
+					rpcIgnoreErrors: [ OMV.E_ENGINED_CONNECT_SOCKET ],
 					hideStartButton: true,
 					hideStopButton: true,
 					killCmdBeforeDestroy: false,

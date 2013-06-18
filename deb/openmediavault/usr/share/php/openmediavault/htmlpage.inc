@@ -204,9 +204,11 @@ class OMVWebGui extends OMVHtmlPage {
 		  $prd->getURL(), $prd->getCopyright(), $prd->getPackageName());
 		$errorCodes = sprintf(
 		  "OMV.E_SESSION_NOT_AUTHENTICATED = %d; ".
-		  "OMV.E_SESSION_TIMEOUT = %d;",
+		  "OMV.E_SESSION_TIMEOUT = %d;".
+		  "OMV.E_ENGINED_CONNECT_SOCKET = %d",
 		  OMVErrorMsg::E_SESSION_NOT_AUTHENTICATED,
-		  OMVErrorMsg::E_SESSION_TIMEOUT);
+		  OMVErrorMsg::E_SESSION_TIMEOUT,
+		  OMVErrorMsg::E_ENGINED_CONNECT_SOCKET);
 		return <<<EOF
 		<script type="text/javascript">
 			// Global defines

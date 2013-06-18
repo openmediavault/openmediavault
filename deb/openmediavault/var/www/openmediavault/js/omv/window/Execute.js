@@ -33,7 +33,8 @@
  * @param rpcMethod The name of the method to start the command asynchronously
  * @param rpcParams The method arguments of the start RPC
  * @param rpcDelay The milliseconds to delay the RPC request. Default is 500.
- * @param rpcIgnoreErrors Ignore RPC errors. Defaults to FALSE.
+ * @param rpcIgnoreErrors Ignore RPC errors. Set to TRUE to ignore all errors
+ *   or list special ones in an array. Defaults to FALSE.
  * @param hideStartButton Hide the 'Start' button. Defaults to FALSE.
  * @param hideStopButton Hide the 'Edit' button. Defaults to FALSE.
  * @param hideCloseButton Hide the 'Close' button. Defaults to FALSE.
@@ -63,6 +64,7 @@ Ext.define("OMV.window.Execute", {
 
 	rpcDelay: 500,
 	rpcIgnoreErrors: false,
+	rpcIgnoreErrorCodes: [],
 	hideStartButton: false,
 	hideStopButton: false,
 	hideCloseButton: false,
@@ -258,8 +260,17 @@ Ext.define("OMV.window.Execute", {
 						  this.setButtonDisabled("stop", !this.cmdIsRunning);
 						  this.setButtonDisabled("close", this.cmdIsRunning);
 					  } else {
+						  var ignore = false;
+						  if(this.rpcIgnoreErrors === true)
+							  ignore = true;
+						  else if(Ext.isArray(this.rpcIgnoreErrors)) {
+							  // Check if there are defined some special error
+							  // codes that should be ignored.
+							  ignore = Ext.Array.contains(this.rpcIgnoreErrors,
+								response.error.code);
+						  }
 						  // Ignore RPC errors?
-						  if(this.rpcIgnoreErrors === true) {
+						  if(ignore === true) {
 							  // Execute another RPC.
 							  Ext.Function.defer(this.doGetOutput,
 								this.rpcDelay, this);
