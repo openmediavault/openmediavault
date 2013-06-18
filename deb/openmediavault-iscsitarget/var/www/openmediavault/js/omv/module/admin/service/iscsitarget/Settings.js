@@ -27,57 +27,6 @@
 // require("js/omv/module/admin/service/iscsitarget/AuthUsers.js")
 
 /**
- * @class OMV.module.admin.service.iscsitarget.AuthUser
- * @derived OMV.workspace.window.Form
- */
-Ext.define("OMV.module.admin.service.iscsitarget.AuthUser", {
-	extend: "OMV.workspace.window.Form",
-
-	mode: "local",
-	width: 500,
-	plugins: [{
-		ptype: "configobject"
-	}],
-
-	/**
-	 * The class constructor.
-	 * @fn constructor
-	 * @param uuid The UUID of the database/configuration object. Required.
-	 */
-
-	getFormItems: function() {
-		var me = this;
-		return [{
-			xtype: "combo",
-			name: "type",
-			fieldLabel: _("Transfer mode"),
-			queryMode: "local",
-			store: [
-				[ "incoming", _("Incoming") ],
-				[ "outgoing", _("Outgoing") ]
-			],
-			allowBlank: false,
-			editable: false,
-			triggerAction: "all",
-			readOnly: me.isNew(),
-			value: "incoming"
-		},{
-			xtype: "textfield",
-			name: "username",
-			fieldLabel: _("Username"),
-			allowBlank: false,
-			vtype: "username",
-			readOnly: me.isNew()
-		},{
-			xtype: "passwordfield",
-			name: "password",
-			fieldLabel: _("Password"),
-			allowBlank: true
-		}];
-	}
-});
-
-/**
  * @class OMV.module.admin.service.iscsitarget.Settings
  * @derived OMV.workspace.form.Panel
  */
@@ -90,7 +39,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.Settings", {
 		"OMV.workspace.grid.Panel"
 	],
 	uses: [
-		"OMV.module.admin.service.iscsitarget.AuthUsers"
+		"OMV.module.admin.service.iscsitarget.AuthUser"
 	],
 
 	rpcService: "iSCSITarget",
@@ -127,6 +76,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.Settings", {
 				name: "authentication",
 				fieldLabel: _("Users"),
 				height: 150,
+/* Use the store which is defined by the grid class.
 				store: Ext.create("OMV.data.Store", {
 					autoLoad: false,
 					model: OMV.data.Model.createImplicit({
@@ -149,7 +99,8 @@ Ext.define("OMV.module.admin.service.iscsitarget.Settings", {
 						property: "username"
 					}]
 				}),
-				gridClass: "OMV.module.admin.service.iscsitarget.AuthUsers"
+*/
+				gridClass: "OMV.module.admin.service.iscsitarget.AuthUser"
 			}]
 		}];
 	}

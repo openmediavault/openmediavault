@@ -80,7 +80,6 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUser", {
 Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 	extend: "OMV.workspace.grid.Panel",
 	requires: [
-		"OMV.Rpc",
 		"OMV.data.Store",
 		"OMV.data.Model",
 		"OMV.data.proxy.Rpc",
@@ -118,7 +117,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 		var me = this;
 		Ext.apply(me, {
 			store: Ext.create("OMV.data.Store", {
-				autoLoad: true,
+				autoLoad: false,
 				model: OMV.data.Model.createImplicit({
 					idProperty: "uuid",
 					fields: [
@@ -143,15 +142,15 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 		me.callParent(arguments);
 	},
 
-	onAddButton : function() {
+	onAddButton: function() {
 		var me = this;
 		Ext.create("OMV.module.admin.service.iscsitarget.AuthUser", {
-			uuid: OMV.UUID_UNDEFINED,
 			title: _("Add user"),
+			uuid: OMV.UUID_UNDEFINED,
 			listeners: {
 				scope: me,
 				submit: function(wnd, values) {
-					var store = grid.getStore();
+					var store = this.getStore();
 					// Do some checks before adding the new user.
 					if(values.type === "outgoing") {
 						var qr = store.query("type", "outgoing");
@@ -172,10 +171,10 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 
 	onEditButton: function() {
 		var me = this;
-		var record = grid.getSelected();
+		var record = me.getSelected();
 		var wnd = Ext.create("OMV.module.admin.service.iscsitarget.AuthUser", {
-			uuid: record.get("uuid"),
 			title: _("Edit user"),
+			uuid: record.get("uuid"),
 			listeners: {
 				scope: me,
 				submit: function(wnd, values) {
