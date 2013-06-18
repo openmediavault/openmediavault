@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:05+0200\n"
-"PO-Revision-Date: 2013-06-16 11:05+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-06-17 10:59+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -154,7 +154,7 @@ msgid "9 months"
 msgstr "9 månder"
 
 msgid "A share with the name '%s' already exists"
-msgstr ""
+msgstr "En mappe med navnet '%s' findes allerede"
 
 msgid "A shared folder with the given name already exists"
 msgstr "En delt mappe med det givne navn findes allerede"
@@ -199,13 +199,13 @@ msgid "Add module"
 msgstr "Tilføj modul"
 
 msgid "Add rsync job"
-msgstr "Tilføj rsync job"
+msgstr "Tilføj rsync opgave"
 
 msgid "Add rule"
 msgstr "Tilføj regl"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Tilføj planlagt opgave"
 
 msgid "Add scheduled test"
 msgstr "Tilføj planlagt test"
@@ -335,7 +335,7 @@ msgid "Apply"
 msgstr "Anvend"
 
 msgid "Apply configuration changes"
-msgstr ""
+msgstr "Anvend konfiguration ændringer"
 
 msgid "Apply permissions to files and subfolders"
 msgstr "Tilføj rettigheder til filer og undermapper"
@@ -359,7 +359,7 @@ msgid "Aruba"
 msgstr "Aruba"
 
 msgid "Asynchronous I/O"
-msgstr ""
+msgstr "Asynkron I/O"
 
 msgid "Attribute name"
 msgstr "Attribut navn"
@@ -544,7 +544,7 @@ msgid "Chad"
 msgstr "Chad"
 
 msgid "Changelog"
-msgstr ""
+msgstr "Changelog"
 
 msgid "Check"
 msgstr "Kontroller"
@@ -669,7 +669,7 @@ msgid "Croatia"
 msgstr "Croatia"
 
 msgid "Cron Jobs"
-msgstr "Cron Jobs"
+msgstr "Cron Opgaver"
 
 msgid "Cuba"
 msgstr "Cuba"
@@ -806,7 +806,7 @@ msgid "Djibouti"
 msgstr "Djibouti"
 
 msgid "Do you really want to apply the configuration?"
-msgstr ""
+msgstr "Er du sikker på at du vil anvende konfigurationen?"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Er du sikker på at du vil slette log filen?"
@@ -837,7 +837,7 @@ msgstr "Er du sikker på at du vil genstarte systemet?"
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
-msgstr ""
+msgstr "Er du sikker på at du vil slette den delte mappes indhold? Det vil blive permanent fjernet og kan ikke genskabes."
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Er du sikker på at du vil resette WebGUI tilstanden, d.v.s gitter kolonne ordnen?"
@@ -932,13 +932,13 @@ msgid "Edit quota"
 msgstr "Rediger kvote"
 
 msgid "Edit rsync job"
-msgstr "Rediger rsync job"
+msgstr "Rediger rsync opgave"
 
 msgid "Edit rule"
 msgstr "Rediger regl"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Rediger planlagt opgave"
 
 msgid "Edit scheduled test"
 msgstr "Rediger planlagt test"
@@ -986,10 +986,10 @@ msgid "Enable archive mode"
 msgstr "Aktiver arkiv tilstand"
 
 msgid "Enable asynchronous I/O (AIO) support."
-msgstr ""
+msgstr "Aktiver asynkron I/O (AIO) understøttelse."
 
 msgid "Enable chroot."
-msgstr ""
+msgstr "Aktiver chroot."
 
 msgid "Enable compression"
 msgstr "Aktiver komprimering"
@@ -1090,10 +1090,10 @@ msgid "Execute command"
 msgstr "Udfør kommando"
 
 msgid "Execute cron job"
-msgstr "Udfør cron job"
+msgstr "Udfør cron opgave"
 
 msgid "Execute rsync job"
-msgstr "Udfør rsync job"
+msgstr "Udfør rsync opgave"
 
 msgid "Expire"
 msgstr "Udløb"
@@ -1124,22 +1124,22 @@ msgid "Failed to get filesystems"
 msgstr "Lykkedes ikke at hente filsystemerne"
 
 msgid "Failed to get list of groups."
-msgstr ""
+msgstr "Lykkedes ikke at hente liste over grupper."
 
 msgid "Failed to get list of logical volumes"
-msgstr ""
+msgstr "Lykkedes ikke at hente liste over logiske drev."
 
 msgid "Failed to get list of physical volumes"
-msgstr ""
+msgstr "Lykkedes ikke at hente liste over fysiske drev."
 
 msgid "Failed to get list of software RAID devices"
-msgstr ""
+msgstr "Lykkedes ikke at hente liste over software RAID enheder"
 
 msgid "Failed to get list of users."
-msgstr ""
+msgstr "Lykkedes ikke at hente liste over brugere."
 
 msgid "Failed to get shadow password suite configuration."
-msgstr ""
+msgstr "Lykkedes ikke at hente tildækket adgangskode suite konfiguration."
 
 msgid "Falkland Islands"
 msgstr "Falkland Islands"
@@ -1389,7 +1389,7 @@ msgid ""
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr ""
+msgstr "Hvis denne mulighed bliver sat, vil dæmonen chroot til den delte mappes sti før den starter fil overførelse med klienten. Derefter er det ikke muligt at tilknytte bruger og grupper med navn og dæmonen er ikke i stand til at følge symbolske links, der enten er forældet eller udenfor den nye rod sti.  "
 
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr "Hvis denne valgmulighed er markeret, så vil ethvert forsøg på at downloade fejle."
@@ -1433,10 +1433,10 @@ msgid "Import users"
 msgstr "Importer brugere"
 
 msgid "Importing groups ..."
-msgstr ""
+msgstr "Importere grupper ..."
 
 msgid "Importing users ..."
-msgstr ""
+msgstr "Importere brugere ..."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1459,7 +1459,7 @@ msgid "Indonesia"
 msgstr "Indonesia"
 
 msgid "Info"
-msgstr ""
+msgstr "Oplysninger"
 
 msgid "Informal"
 msgstr "Uformelt"
@@ -1540,7 +1540,7 @@ msgid "Japan"
 msgstr "Japan"
 
 msgid "Jobs"
-msgstr "Jobs"
+msgstr "Opgaver"
 
 msgid "Johnston Island"
 msgstr "Johnston Island"
@@ -1990,10 +1990,10 @@ msgid "Not UDP"
 msgstr "Ikke UDP"
 
 msgid "Notification"
-msgstr ""
+msgstr "Notifikation"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Notifikationer"
 
 msgid "November"
 msgstr "November"
@@ -2241,7 +2241,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr ""
+msgstr "Forhindre en disk i at blive spundet op, når den periodisk bliver adspurgt.<br/><ul><li>Aldrig - Spørg (kontroller) enheden uanset dens strøm tilstand. Dette kan medføre en disk, der er spundet ned i at blive spundet op, når den kontrolleres.</li><li>Dvale - Kontroller enheden medmindre den er i DVALE tilstand.</li><li>Standby - Kontroller enheden medmindre den er i DVALE eller STANDBY tilstand. I disse tilstande spinder de fleste diske ikke, så hvis du ønsker at forhindre en disk i at spinde op ved hver adspørgelse, er det nok det du vil.</li><li>Tomgang - Kontroller enheden medmindre den er i DVALE, STANDBY eller TOMGANG tilstand. I TOMGANG tilstand, spinder de fleste diske stadig, så det er sandsynligvis nok ikke det du vil.</li></ul>"
 
 msgid "Primary"
 msgstr "Primær"
@@ -2265,7 +2265,7 @@ msgid "Privileges"
 msgstr "Rettigheder"
 
 msgid "Process monitoring"
-msgstr ""
+msgstr "Proces overvågning"
 
 msgid "Processes"
 msgstr "Processer"
@@ -2304,7 +2304,7 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
 msgstr "RAID 5"
@@ -2416,7 +2416,7 @@ msgid "Rsync"
 msgstr "Rsync"
 
 msgid "Rsync - Jobs"
-msgstr "Rsync - Jobs"
+msgstr "Rsync - Opgaver"
 
 msgid "Rsync - Server"
 msgstr "Rsync - Server"
@@ -2437,7 +2437,7 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. information"
-msgstr ""
+msgstr "S.M.A.R.T. oplysning"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. overvågning skal være aktiveret for den valgte enhed."
@@ -2500,7 +2500,7 @@ msgid "Saudi Arabia"
 msgstr "Saudi Arabia"
 
 msgid "Save"
-msgstr ""
+msgstr "Gem"
 
 msgid "Saving ..."
 msgstr "Gemmer ..."
@@ -2512,7 +2512,7 @@ msgid "Scanning for new devices ..."
 msgstr "Scanner efter nye enheder ..."
 
 msgid "Scheduled jobs"
-msgstr ""
+msgstr "Planlagte opgaver"
 
 msgid "Scheduled tests"
 msgstr "Planlagte tests"
@@ -2584,7 +2584,7 @@ msgid "Self-test logs"
 msgstr "Selvtest logs"
 
 msgid "Send a test email"
-msgstr ""
+msgstr "Send en test email"
 
 msgid "Send command output via email"
 msgstr "Send kommando output via email"
@@ -2593,7 +2593,7 @@ msgid "Send email"
 msgstr "Send email"
 
 msgid "Sender email"
-msgstr ""
+msgstr "Sender email"
 
 msgid "Sending test email ..."
 msgstr "Sender test email ..."
@@ -2620,7 +2620,7 @@ msgid "Service"
 msgstr "Tjeneste"
 
 msgid "Service Discovery"
-msgstr ""
+msgstr "Tjeneste Opdagelse"
 
 msgid "Service disabled"
 msgstr "Tjeneste deaktiveret"
@@ -2629,10 +2629,10 @@ msgid "Services"
 msgstr "Tjenester"
 
 msgid "Session expired."
-msgstr ""
+msgstr "Session udløbet"
 
 msgid "Session not authenticated."
-msgstr ""
+msgstr "Session ikke godkendt"
 
 msgid "Session timeout"
 msgstr "Session udløbstid"
@@ -2681,7 +2681,7 @@ msgid "Show certificate"
 msgstr "Vis certifikat"
 
 msgid "Show changelog"
-msgstr ""
+msgstr "Vis changelog"
 
 msgid "Show details"
 msgstr "Vis detajler"
@@ -2723,7 +2723,7 @@ msgid "Slovenia"
 msgstr "Slovenia"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "Software RAID"
 
 msgid "Solomon Islands"
 msgstr "Solomon Islands"
@@ -3009,7 +3009,7 @@ msgid ""
 msgstr "Session udløbstid i minutter. Sæt til 0 for at deaktivere automatisk log ud."
 
 msgid "The shared folder is already used by another share."
-msgstr ""
+msgstr "Den delte mappe bliver allerede brugt af en anden delt mappe"
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3062,7 +3062,7 @@ msgid "This field does not allow blanks"
 msgstr "Dette felt må ikke være tomt"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Dette felt er påkrævet"
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Dette felt skal have formatet hh:mm:ss"
@@ -3383,7 +3383,7 @@ msgid "Use SSL/TLS secure connection"
 msgstr "Brug SSL/TLS sikker forbindelse"
 
 msgid "Use chroot"
-msgstr ""
+msgstr "Brug chroot"
 
 msgid "Use sendfile"
 msgstr "Brug sendfil"
@@ -3493,7 +3493,7 @@ msgid "Web Administrator Password"
 msgstr "Web Administrator Adgangskode"
 
 msgid "Web administration"
-msgstr ""
+msgstr "Web administration"
 
 msgid "Web administration interface"
 msgstr "Web administration interface"

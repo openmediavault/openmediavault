@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:05+0200\n"
-"PO-Revision-Date: 2013-06-16 11:05+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-06-17 06:10+0000\n"
+"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -159,7 +159,7 @@ msgid "9 months"
 msgstr "9 месяц"
 
 msgid "A share with the name '%s' already exists"
-msgstr ""
+msgstr "Общий ресурс с таким именем '%s' уже существует"
 
 msgid "A shared folder with the given name already exists"
 msgstr "Общий ресурс с таким именем уже существует"
@@ -210,7 +210,7 @@ msgid "Add rule"
 msgstr "Добавить правило"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Добавить запланированное задание"
 
 msgid "Add scheduled test"
 msgstr "Добавить запланированный тест"
@@ -340,7 +340,7 @@ msgid "Apply"
 msgstr "Применить"
 
 msgid "Apply configuration changes"
-msgstr ""
+msgstr "Применить изменения конфигурации"
 
 msgid "Apply permissions to files and subfolders"
 msgstr "Применить разрешения к файлам и подкаталогам"
@@ -364,7 +364,7 @@ msgid "Aruba"
 msgstr "Аруба"
 
 msgid "Asynchronous I/O"
-msgstr ""
+msgstr "Асинхронный ввод/вывод"
 
 msgid "Attribute name"
 msgstr "Имя атрибута"
@@ -549,7 +549,7 @@ msgid "Chad"
 msgstr "Чад"
 
 msgid "Changelog"
-msgstr ""
+msgstr "Изменения"
 
 msgid "Check"
 msgstr "Проверка"
@@ -811,7 +811,7 @@ msgid "Djibouti"
 msgstr "Джибути"
 
 msgid "Do you really want to apply the configuration?"
-msgstr ""
+msgstr "Вы действительно хотите, применить конфигурацию?"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Вы действительно хотите очистить лог файл?"
@@ -842,7 +842,7 @@ msgstr "Вы действительно хотите перезагрузить 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
-msgstr ""
+msgstr "Вы действительно хотите удалить содержимое общей папки? Она будет навсегда удалена, и  не сможет быть восстановлена."
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Вы действительно хотите сбросить состояние WebGUI, например, порядок столбцов?"
@@ -943,7 +943,7 @@ msgid "Edit rule"
 msgstr "Редактировать правило"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Изменить запланированное задание"
 
 msgid "Edit scheduled test"
 msgstr "Редактировать запланированный тест"
@@ -991,10 +991,10 @@ msgid "Enable archive mode"
 msgstr "Включить режим архивирования"
 
 msgid "Enable asynchronous I/O (AIO) support."
-msgstr ""
+msgstr "Включить поддержку асинхронного ввода / вывода (AIO)."
 
 msgid "Enable chroot."
-msgstr ""
+msgstr "Включить chroot."
 
 msgid "Enable compression"
 msgstr "Включить сжатие"
@@ -1129,22 +1129,22 @@ msgid "Failed to get filesystems"
 msgstr "Не удалось определить файловые системы"
 
 msgid "Failed to get list of groups."
-msgstr ""
+msgstr "Не удалось получить список групп."
 
 msgid "Failed to get list of logical volumes"
-msgstr ""
+msgstr "Не удалось получить список логических томов"
 
 msgid "Failed to get list of physical volumes"
-msgstr ""
+msgstr "Не удалось получить список физических дисков"
 
 msgid "Failed to get list of software RAID devices"
-msgstr ""
+msgstr "Не удалось получить список software RAID устройств"
 
 msgid "Failed to get list of users."
-msgstr ""
+msgstr "Не удалось получить список пользователей."
 
 msgid "Failed to get shadow password suite configuration."
-msgstr ""
+msgstr "Не удалось получить конфигурацию паролей."
 
 msgid "Falkland Islands"
 msgstr "Фолклендские острова"
@@ -1438,10 +1438,10 @@ msgid "Import users"
 msgstr "Импортировать пользователей"
 
 msgid "Importing groups ..."
-msgstr ""
+msgstr "Импорт групп ..."
 
 msgid "Importing users ..."
-msgstr ""
+msgstr "Импорт пользователей ..."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1464,7 +1464,7 @@ msgid "Indonesia"
 msgstr "Индонезия"
 
 msgid "Info"
-msgstr ""
+msgstr "Информация"
 
 msgid "Informal"
 msgstr "Неформальный"
@@ -1995,10 +1995,10 @@ msgid "Not UDP"
 msgstr "Не UDP"
 
 msgid "Notification"
-msgstr ""
+msgstr "Уведомление"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Уведомления"
 
 msgid "November"
 msgstr "Ноябрь"
@@ -2246,7 +2246,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr ""
+msgstr "Предотвращает диск от раскручивания при периодических запросах.<br/><br/><ul><li>Никогда - Опрашивать (проверять) устройство независимо от режима питания. Это может привести к тому, что остановленный диск будет вновь раскручен, когда будет проверен.</li><li>Сон - Проверять устройство, если оно не находится в режиме СОН.</li><li>Ожидание - Проверять устройство, если оно не находится в режиме СОН или ОЖИДАНИЕ. В этих режимах большинство дисков не раскручиваются, так что если Вы хотите предотвратить раскручивание диска при каждом запросе, скорее всего это тот режим, который Вам нужен.</li><li>Неактивный - Проверять устройство, если оно не находится в режиме СОН, ОЖИДАНИЕ или НЕАКТИВНЫЙ. В режиме НЕАКТИВНЫЙ большинство дисков продолжают раскручиваться, так что скорее всего это не тот режим, который Вам нужен.</li></ul>"
 
 msgid "Primary"
 msgstr "Основной"
@@ -2270,7 +2270,7 @@ msgid "Privileges"
 msgstr "Привилегии"
 
 msgid "Process monitoring"
-msgstr ""
+msgstr "Мониторинг процессов"
 
 msgid "Processes"
 msgstr "Процессы"
@@ -2309,7 +2309,7 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
 msgstr "RAID 5"
@@ -2442,7 +2442,7 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. information"
-msgstr ""
+msgstr "Информация S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. должен быть включен для выбранного устройства."
@@ -2505,7 +2505,7 @@ msgid "Saudi Arabia"
 msgstr "Саудовская Аравия"
 
 msgid "Save"
-msgstr ""
+msgstr "Сохранить"
 
 msgid "Saving ..."
 msgstr "Сохранение..."
@@ -2517,7 +2517,7 @@ msgid "Scanning for new devices ..."
 msgstr "Сканирование новых устройств..."
 
 msgid "Scheduled jobs"
-msgstr ""
+msgstr "Запланированные задания"
 
 msgid "Scheduled tests"
 msgstr "Запланированные тесты"
@@ -2589,7 +2589,7 @@ msgid "Self-test logs"
 msgstr "Журналы самопроверки"
 
 msgid "Send a test email"
-msgstr ""
+msgstr "Отправить тестовое письмо"
 
 msgid "Send command output via email"
 msgstr "Отправить вывод команды по электронной почте"
@@ -2598,7 +2598,7 @@ msgid "Send email"
 msgstr "Отправить email"
 
 msgid "Sender email"
-msgstr ""
+msgstr "Отправитель email"
 
 msgid "Sending test email ..."
 msgstr "Отправление тестового письма..."
@@ -2625,7 +2625,7 @@ msgid "Service"
 msgstr "Сервис"
 
 msgid "Service Discovery"
-msgstr ""
+msgstr "Обозреватель сервисов"
 
 msgid "Service disabled"
 msgstr "Сервис отключен"
@@ -2634,10 +2634,10 @@ msgid "Services"
 msgstr "Сервисы"
 
 msgid "Session expired."
-msgstr ""
+msgstr "Сессия истекла."
 
 msgid "Session not authenticated."
-msgstr ""
+msgstr "Сессия не прошла проверку подлинности"
 
 msgid "Session timeout"
 msgstr "Закончилось время сессии"
@@ -2686,7 +2686,7 @@ msgid "Show certificate"
 msgstr "Показать сертификат"
 
 msgid "Show changelog"
-msgstr ""
+msgstr "Показать изменения"
 
 msgid "Show details"
 msgstr "Показать детали"
@@ -2728,7 +2728,7 @@ msgid "Slovenia"
 msgstr "Словения"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "Software RAID"
 
 msgid "Solomon Islands"
 msgstr "Соломоновы Острова"
@@ -3014,7 +3014,7 @@ msgid ""
 msgstr "Время тайм-аута сеанса в минутах. Установите 0, чтобы отключить автоматический выход из системы."
 
 msgid "The shared folder is already used by another share."
-msgstr ""
+msgstr "Эта общая папка уже используется другим общим ресурсом"
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3067,7 +3067,7 @@ msgid "This field does not allow blanks"
 msgstr "Это поле не допускает пробелы"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Это поле является обязательным"
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Это поле должно быть в формате hh:mm:ss"
@@ -3388,7 +3388,7 @@ msgid "Use SSL/TLS secure connection"
 msgstr "Использовать SSL/TLS для безопасного соединения"
 
 msgid "Use chroot"
-msgstr ""
+msgstr "Использовать chroot"
 
 msgid "Use sendfile"
 msgstr "Использовать sendfile"
@@ -3498,7 +3498,7 @@ msgid "Web Administrator Password"
 msgstr "Пароль Web Администратора"
 
 msgid "Web administration"
-msgstr ""
+msgstr "Web Администратор"
 
 msgid "Web administration interface"
 msgstr "Интерфейс Web Администратора"

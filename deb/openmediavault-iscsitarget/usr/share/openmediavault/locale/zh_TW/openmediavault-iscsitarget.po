@@ -3,8 +3,8 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# mattjes04 <mattjes04@googlemail.com>, 2012
-# warhog <warhog@gmx.de>, 2012
+# kochin <kochinc@outlook.com>, 2013
+# kochin <kochinc@outlook.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
@@ -12,89 +12,89 @@ msgstr ""
 "POT-Creation-Date: 2013-06-18 17:41+0200\n"
 "PO-Revision-Date: 2013-06-18 15:41+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: de\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Add LUN"
-msgstr "LUN hinzufügen"
+msgstr "新增 LUN"
 
 msgid "Add target"
-msgstr "Ziel hinzufügen"
+msgstr "新增目標裝置"
 
 msgid "Add user"
-msgstr "Benutzer hinzufügen"
+msgstr "新增用戶"
 
 msgid "Alias"
-msgstr "Alias"
+msgstr "別名"
 
 msgid "Assign a unique identifier to the iSCSI volume optionally."
-msgstr "Wahlweise kann dem iSCI Volume eine eindeutige Kennung  zugeordnet werden"
+msgstr "選擇性地指定一個唯一的識別名稱給此 iSCSI 磁碟。"
 
 msgid "Assign a unique serial number to the iSCSI volume optionally."
-msgstr "Wahlweise kann dem iSCI Volume eine eindeutige Seriennummer  zugeordnet werden"
+msgstr "選擇性地指定一個唯一的序號給此 iSCSI 磁碟。"
 
 msgid "Block IO"
-msgstr "IO blocken"
+msgstr "區塊 IO"
 
 msgid "Comment"
-msgstr "Kommentar"
+msgstr "註釋"
 
 msgid ""
 "Controls the maximum number of data transfers the target may request at "
 "once."
-msgstr "Bestimmt die Anzahl der maximalen Daten-Transfers, die gleichzeitig vom Ziel angefragt werden können"
+msgstr "控制該目標裝置一次最多可以要求資料傳送的數目。"
 
 msgid "Data PDU in order"
-msgstr "Reihenfolge Data PDU"
+msgstr "資料 PDU 按順序"
 
 msgid "Data digest"
-msgstr "Datenverarbeitung"
+msgstr "資料摘要"
 
 msgid "Data sequence in order"
-msgstr "Daten-Abfolge geordnet"
+msgstr "資料序列按順序"
 
 msgid "Device"
-msgstr "Einheit"
+msgstr "裝置"
 
 msgid "Discovery authentication"
-msgstr "Authentifizierungseinstellungen"
+msgstr "裝置探尋驗證"
 
 msgid "Edit LUN"
-msgstr "LUN editieren"
+msgstr "編輯 LUN"
 
 msgid "Edit target"
-msgstr "Ziel bearbeiten"
+msgstr "編輯目標裝置"
 
 msgid "Edit user"
-msgstr "Benutzer bearbeiten"
+msgstr "編輯用戶"
 
 msgid "Enable"
-msgstr "Aktivieren"
+msgstr "啟用"
 
 msgid "Error recovery level"
-msgstr "Fehlerkorrektur-Level"
+msgstr "錯誤恢復層級"
 
 msgid "Extra options"
-msgstr "Zustätzliche Optionen"
+msgstr "額外選項"
 
 msgid "File IO"
-msgstr "Datei IO"
+msgstr "檔案 IO"
 
 msgid "First burst length"
-msgstr "Länge des ersten Burst"
+msgstr "首次叢發長度"
 
 msgid "General settings"
-msgstr "Allgemeine Einstellungen"
+msgstr "一般設定"
 
 msgid "Header digest"
-msgstr "Headerverarbeitung"
+msgstr "標頭摘要"
 
 msgid "IO threads"
-msgstr "IO Threads"
+msgstr "IO 執行緒"
 
 msgid "IQN"
 msgstr "IQN"
@@ -103,166 +103,166 @@ msgid "Id"
 msgstr "Id"
 
 msgid "Identifier"
-msgstr "Kennung"
+msgstr "識別名稱"
 
 msgid ""
 "If a non-zero 'NOP interval' is used to periodically 'ping' the initiator "
 "during phases of inactivity (i.e. no data transfers), the initiator must "
 "respond within N seconds, otherwise the connection will be closed."
-msgstr "Wenn das 'NOP Intervall' nicht Null ist um den Initiator zyklisch während inaktiven Phasen (z.B. keine Datenübertragung) 'anzupingen' muss der Initiator innerhalb von N Sekunden antworten, ansonsten wird die Verbindung geschlossen."
+msgstr "如果使用一個非零的 'NOP 時間間隔' 在無活動狀態(也就是無資料傳輸)週期性地 'ping' 初始裝置，則初始裝置必須於 N 秒之內回覆，否則連線將被關閉。"
 
 msgid ""
 "If enabled, the initiator has to wait for the target to solicit SCSI data "
 "before sending it. Disabling it allows the initiator to send a burst of N "
 "bytes unsolicited right after and/or together with the command. Thus "
 "disabling it may improve performance."
-msgstr "Wenn diese Option aktiviert ist muss der Initiator warten bis das Ziel SCSI Daten anfordert bevor diese gesendet werden. Wird sie deaktiviert kann der Initiator einen Burst von N Bytes unaufgefordert direkt nach und/oder zusammen mit dem Kommando senden. Die Performanz wird durch die Deaktivierung eventuell erhöht."
+msgstr "如果啟用，則初始裝置必須先等待目標裝置要求 SCSI 資料，才能送出。將它停用則允許初始裝置未經請求，在指令之後及/或與指令一起送出叢發 N 個位元。因此，停用它可以提高性能。"
 
 msgid ""
 "If set to 'CRC32C' and the initiator is configured accordingly, the "
 "integrity of an iSCSI PDU's data segment will be protected by a CRC32C "
 "checksum."
-msgstr "Wenn auf 'CRC32' gesetzt und der Initiator dementsprechend konfiguriert wurde wird das iSCSI PDU Daten Segment mit einer CRC32 Prüfsumme geschützt."
+msgstr "如果設定為 'CRC32C' 並且初始裝置也配合著設置，則 iSCSI PDU 資料段的完整性將會以 CRC32C 檢查碼來保持。"
 
 msgid ""
 "If set to 'CRC32C' and the initiator is configured accordingly, the "
 "integrity of an iSCSI PDU's header segments will be protected by a CRC32C "
 "checksum."
-msgstr "Wenn auf 'CRC32' gesetzt und der Initiator dementsprechend konfiguriert wurde wird das iSCSI PDU Header Segment mit einer CRC32 Prüfsumme geschützt."
+msgstr "如果設定為 'CRC32C' 並且初始裝置也配合著設置，則 iSCSI PDU 標頭段的完整性將會以 CRC32C 檢查碼來保持。"
 
 msgid ""
 "If value is non-zero, the initiator will be 'ping'ed during phases of "
 "inactivity (i.e. no data transfers) every N seconds to verify the connection"
 " is still alive."
-msgstr "Wenn der Wert nicht Null ist wird der Initiator zyklisch alle N Sekunden während inaktiven Phasen (z.B. keine Datenübertragung) 'angepingt' und zu prüfen ob die Verbindung noch aktiv ist."
+msgstr "如果此數值是非零，則初始裝置會在無活動狀態時期(也就是無資料傳輸)，每 N 秒鐘被 'ping' 來確認連線仍然活著。"
 
 msgid "Immediate data"
-msgstr "Dringende Daten"
+msgstr "即時資料"
 
 msgid "Incoming"
-msgstr "Eingehend"
+msgstr "傳入"
 
 msgid "Initial R2T"
-msgstr "Initiale R2T"
+msgstr "初始 R2T"
 
 msgid "Max. burst length"
-msgstr "Max. Burst-Länge"
+msgstr "最大叢發長度"
 
 msgid "Max. connections"
-msgstr "Max. Verbindungen"
+msgstr "最多連線數目"
 
 msgid "Max. outstanding R2T"
-msgstr "Max. ausstehende R2T"
+msgstr "最多未處理 R2T"
 
 msgid "Max. receive data segment length"
-msgstr "Max. empfangbare Datensegment-Länge"
+msgstr "最大的接收資料段長度"
 
 msgid "Max. sessions"
-msgstr "Max. Sessions"
+msgstr "最多作業階段數目"
 
 msgid "Max. transmit data segment length"
-msgstr "Max. übertragene Datensegmentlänge"
+msgstr "最大的傳送資料段長度"
 
 msgid "NOP interval"
-msgstr "NOP Intervall"
+msgstr "NOP 時間間隔"
 
 msgid "NOP timeout"
-msgstr "NOP Zeitüberschreitung"
+msgstr "NOP 逾時"
 
 msgid "None"
-msgstr "Keine"
+msgstr "無"
 
 msgid "Only one outgoing user per target is supported."
-msgstr "Es wird nur ein ausgehender Benutzer pro Ziel unterstützt."
+msgstr "每個目標裝置只支援一個傳出的用戶。"
 
 msgid "Outgoing"
-msgstr "Ausgehend"
+msgstr "傳出"
 
 msgid "Password"
-msgstr "Passwort"
+msgstr "密碼"
 
 msgid "Queued commands"
-msgstr "Queued Commands"
+msgstr "被佇列的指令"
 
 msgid "R/W mode"
-msgstr "Schreib/Lese Modus"
+msgstr "讀寫模式"
 
 msgid "Read-only"
-msgstr "Nur lesen"
+msgstr "唯讀"
 
 msgid "SCSI Id."
 msgstr "SCSI Id."
 
 msgid "SCSI serial no."
-msgstr "SCSI Seriennr."
+msgstr "SCSI 序號"
 
 msgid "Select an device ..."
-msgstr "Wählen Sie ein Laufwerk..."
+msgstr "選擇一個裝置 ..."
 
 msgid ""
 "Sets the amount of unsolicited data the initiator may transmit in the first "
 "burst of a transfer either with and/or right after the command."
-msgstr "Legt die Menge fest, welche der Initiator unaufgefordert im ersten Burst während eines Transfers mit und/oder direkt nach dem Kommando übertragen darf."
+msgstr "設定初始裝置與指令一起及/或之後傳輸時，首次叢發能夠傳送未經請求的資料數量。"
 
 msgid ""
 "Sets the maximum amount of either unsolicited or solicited data the "
 "initiator may send in a single burst."
-msgstr "Legt die maximale Menge fest die der Initiator unaufgefordert oder aufgefordert in einem einzelnen Burst senden darf."
+msgstr "設定初始裝置於一次叢發內可以送出的未經請求或經過請求資料的最大數量。"
 
 msgid "Sets the maximum data segment length that can be received."
-msgstr "Legt die maximal empfangbare Datensegmentgröße fest."
+msgstr "設定能被接收的最大資料段長度。"
 
 msgid "Sets the maximum data segment length that can be sent."
-msgstr "Setzt die maximale Länge eines zu sendenden Datensegments."
+msgstr "設定能被傳送的最大資料段長度。"
 
 msgid "Settings"
-msgstr "Einstellungen"
+msgstr "設置"
 
 msgid "Targets"
-msgstr "Ziele"
+msgstr "目標裝置"
 
 msgid "The identifier of the target."
-msgstr "Der Identifizierer eines Ziels."
+msgstr "目標裝置的識別名稱。"
 
 msgid "The maximum number of sessions for this target."
-msgstr "Maximale Anzahl Sessions für dieses Ziel."
+msgstr "對此目標裝置所允許的最多作業階段數目。"
 
 msgid ""
 "The number of commands an initiator may send and that will be buffered by "
 "the target."
-msgstr "Anzahl Kommandos die ein Initiator senden kann und vom Ziel gepuffert wird."
+msgstr "一個初始裝置能夠傳送但被目標裝置留置於緩衝的指令數目。"
 
 msgid "The number of connections within a session."
-msgstr "Anzahl Verbindungen innerhalb einer Session."
+msgstr "在一個作業階段中的連線數。"
 
 msgid "The number of threads to perform block I/O to the device."
-msgstr "Anzahl Threads für Block I/O Operationen für das Laufwerk ausführen."
+msgstr "用來對該裝置執行區塊 I/O 的執行緒數目。"
 
 msgid "The optional alias of the target."
-msgstr "Optionales Alias für das Ziel."
+msgstr "目標裝置之選擇性的別名。"
 
 msgid ""
 "This allows the initiator to append unsolicited data to a command. To "
 "achieve better performance, this should be enabled."
-msgstr "Diese Einstellung erlaubt dem Initiator unaufgefordert Daten an das Kommando anzuhängen. Um eine bessere Performanz zu erreichen sollte diese Option aktiviert werden."
+msgstr "這會允許初始裝置附加未經請求的資料到指令中。為了達到更佳的性能，這應該被啟用。"
 
 msgid "Transfer mode"
-msgstr "Übertragungsmodus"
+msgstr "傳送模式"
 
 msgid "Type"
-msgstr "Typ"
+msgstr "類型"
 
 msgid "Username"
-msgstr "Benutzername"
+msgstr "用戶名稱"
 
 msgid "Users"
-msgstr "Benutzer"
+msgstr "用戶"
 
 msgid "Write-back"
-msgstr "Write-back"
+msgstr "回寫"
 
 msgid "Write-through"
-msgstr "Write-through"
+msgstr "透寫"
 
 msgid "iSCSI Target"
-msgstr "iSCSI Ziel"
+msgstr "iSCSI 目標裝置"

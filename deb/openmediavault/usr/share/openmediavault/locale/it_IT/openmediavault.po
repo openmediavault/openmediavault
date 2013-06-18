@@ -4,6 +4,7 @@
 # 
 # Translators:
 # Mario Varelli <mvarelli@biologia.unipi.it>, 2012
+# Mauro Rulli <mauro.rulli@gmail.com>, 2013
 # Mauro Rulli <mauro.rulli@gmail.com>, 2012
 # Mauro Rulli <mauro.rulli@gmail.com>, 2012
 # Mario Varelli <mvarelli@biologia.unipi.it>, 2012
@@ -13,8 +14,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:05+0200\n"
-"PO-Revision-Date: 2013-06-16 11:05+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-06-17 07:27+0000\n"
+"Last-Translator: Mauro Rulli <mauro.rulli@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,7 +33,7 @@ msgid "%s [on %s]"
 msgstr "%s [di %s]"
 
 msgid "'All' is not allowed"
-msgstr "'All' non è consentito"
+msgstr "'Tutti' non è consentito"
 
 msgid "0 KiB/s means unlimited."
 msgstr "0 KiB/s significa illimitato."
@@ -158,7 +159,7 @@ msgid "9 months"
 msgstr "9 mesi"
 
 msgid "A share with the name '%s' already exists"
-msgstr ""
+msgstr "Esiste già una condivisione con nome '%s'"
 
 msgid "A shared folder with the given name already exists"
 msgstr "Esiste già una cartella condivisa con il nome scelto"
@@ -209,7 +210,7 @@ msgid "Add rule"
 msgstr "Aggiungi regola"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Aggiungi job pianificato"
 
 msgid "Add scheduled test"
 msgstr "Aggiungi test pianificato"
@@ -339,7 +340,7 @@ msgid "Apply"
 msgstr "Applica"
 
 msgid "Apply configuration changes"
-msgstr ""
+msgstr "Applica le modifiche"
 
 msgid "Apply permissions to files and subfolders"
 msgstr "Applica i permessi ai file e alle sottocartelle"
@@ -363,7 +364,7 @@ msgid "Aruba"
 msgstr "Aruba"
 
 msgid "Asynchronous I/O"
-msgstr ""
+msgstr "I/O Asincrono"
 
 msgid "Attribute name"
 msgstr "Nome attributo"
@@ -548,7 +549,7 @@ msgid "Chad"
 msgstr "Repubblica del Ciad"
 
 msgid "Changelog"
-msgstr ""
+msgstr "Changelog"
 
 msgid "Check"
 msgstr "Verifica"
@@ -810,7 +811,7 @@ msgid "Djibouti"
 msgstr "Gibuti"
 
 msgid "Do you really want to apply the configuration?"
-msgstr ""
+msgstr "Vuoi veramente applicare la configurazione?"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Sicuro di voler svuotare il file di log?"
@@ -841,7 +842,7 @@ msgstr "Sicuro di voler riavviare il sistema?"
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
-msgstr ""
+msgstr "Sicuro di voler eliminare il contenuto della cartella condivisa? Sarà definitivamente cancellato e non potrà essere recuperato."
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Sei sicuro di voler ripristinare lo stato della WebGUI, ad es. l'ordine delle colonne nelle griglie?"
@@ -942,7 +943,7 @@ msgid "Edit rule"
 msgstr "Morifica regola"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Modifica job pianificato"
 
 msgid "Edit scheduled test"
 msgstr "Modifica test pianificato"
@@ -990,10 +991,10 @@ msgid "Enable archive mode"
 msgstr "Abilita la modalità archivio"
 
 msgid "Enable asynchronous I/O (AIO) support."
-msgstr ""
+msgstr "Abilita il supporto I/O Asincrono (AIO)."
 
 msgid "Enable chroot."
-msgstr ""
+msgstr "Abilita chroot."
 
 msgid "Enable compression"
 msgstr "Abilita la compressione"
@@ -1128,22 +1129,22 @@ msgid "Failed to get filesystems"
 msgstr "Impossibile ottenere i filesystem"
 
 msgid "Failed to get list of groups."
-msgstr ""
+msgstr "Impossibile ottenere lista di gruppi."
 
 msgid "Failed to get list of logical volumes"
-msgstr ""
+msgstr "Impossibile ottenere lista di volumi logici"
 
 msgid "Failed to get list of physical volumes"
-msgstr ""
+msgstr "Impossibile ottenere lista di volumi fisici"
 
 msgid "Failed to get list of software RAID devices"
-msgstr ""
+msgstr "Impossibile ottenere lista di dispositivi RAID software"
 
 msgid "Failed to get list of users."
-msgstr ""
+msgstr "Impossibile ottenere lista di utenti."
 
 msgid "Failed to get shadow password suite configuration."
-msgstr ""
+msgstr "Impossibile ottenere la configurazione della shadow password suite."
 
 msgid "Falkland Islands"
 msgstr "isole Falkland"
@@ -1393,7 +1394,7 @@ msgid ""
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr ""
+msgstr "Se questa opzione è abilitata, il demone eseguirà chroot sul percorso della cartella condivisa prima di iniziare il trasferimento file con il client. Non sarà possibile mappare gli utenti e i gruppi per nome e il demone non potrà seguire i link simbolici assoluti o fuori dal nuovo percorso di root."
 
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr "Se selezionata ogni tentativo di download fallirà."
@@ -1437,10 +1438,10 @@ msgid "Import users"
 msgstr "Importa utenti"
 
 msgid "Importing groups ..."
-msgstr ""
+msgstr "Importazione gruppi in corso ..."
 
 msgid "Importing users ..."
-msgstr ""
+msgstr "Importazione utenti in corso ..."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1463,7 +1464,7 @@ msgid "Indonesia"
 msgstr "Indonesia"
 
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 msgid "Informal"
 msgstr "Informale"
@@ -1994,10 +1995,10 @@ msgid "Not UDP"
 msgstr "Non UDP"
 
 msgid "Notification"
-msgstr ""
+msgstr "Notifica"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Notifiche"
 
 msgid "November"
 msgstr "Novembre"
@@ -2245,7 +2246,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr ""
+msgstr "Evita che un disco diventi spun-up se interrogato periodicamente.<br/><br/><ul><li>Mai - Interroga (verifica) il dispositivo indipendentemente dalla sua modalità energetica. Potrebbe fra diventare spun-up un disco che si trovi nello stato spun-down al momento della sua interrogazione.</li><li>Sleep - Verifica il dispositivo a meno che non sia in modalità SLEEP.</li><li>Standby - verifica il dispositivo a meno che non si trovi in stato SLEEP o STANDBY. In questi stati molti dischi non sono in rotazione, così se vuoi evitare che un disco si rimetta in moto ad ogni interrogazione, questa è probabilmente l'opzione che desideri.</li><li>Idle - Verifica il dispositivo a meno che non si trovi in stato SLEEP, STANDBY o IDLE. Nello stato IDLE, molti dischi continuano a girare, quindi probabilmente questa non è la soluzione che desideri.</li></ul>"
 
 msgid "Primary"
 msgstr "Primario"
@@ -2269,7 +2270,7 @@ msgid "Privileges"
 msgstr "Privilegi"
 
 msgid "Process monitoring"
-msgstr ""
+msgstr "Monitoraggio processo"
 
 msgid "Processes"
 msgstr "Processi"
@@ -2308,7 +2309,7 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
 msgstr "RAID 5"
@@ -2441,7 +2442,7 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. information"
-msgstr ""
+msgstr "Informazioni S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Il monitoraggio S.M.A.R.T. deve essere attivato per il dispositivo selezionato."
@@ -2504,7 +2505,7 @@ msgid "Saudi Arabia"
 msgstr "Arabia Saudita"
 
 msgid "Save"
-msgstr ""
+msgstr "Salva"
 
 msgid "Saving ..."
 msgstr "Salvataggio ..."
@@ -2516,7 +2517,7 @@ msgid "Scanning for new devices ..."
 msgstr "Ricerca di nuovi dispositivi in corso ..."
 
 msgid "Scheduled jobs"
-msgstr ""
+msgstr "Job pianificati"
 
 msgid "Scheduled tests"
 msgstr "Test pianificati"
@@ -2588,7 +2589,7 @@ msgid "Self-test logs"
 msgstr "Logs del self-test"
 
 msgid "Send a test email"
-msgstr ""
+msgstr "Invia una email di test"
 
 msgid "Send command output via email"
 msgstr "Invia l'output del comando via email"
@@ -2597,7 +2598,7 @@ msgid "Send email"
 msgstr "Invia email"
 
 msgid "Sender email"
-msgstr ""
+msgstr "Mittente email"
 
 msgid "Sending test email ..."
 msgstr "Sto inviando la email di test... ..."
@@ -2624,7 +2625,7 @@ msgid "Service"
 msgstr "Servizio"
 
 msgid "Service Discovery"
-msgstr ""
+msgstr "Servizio Discovery"
 
 msgid "Service disabled"
 msgstr "Servizio disabilitato"
@@ -2633,10 +2634,10 @@ msgid "Services"
 msgstr "Servizi"
 
 msgid "Session expired."
-msgstr ""
+msgstr "Sessione scaduta."
 
 msgid "Session not authenticated."
-msgstr ""
+msgstr "Sessione non autenticata."
 
 msgid "Session timeout"
 msgstr "Timeout della sessione"
@@ -2685,7 +2686,7 @@ msgid "Show certificate"
 msgstr "Mostra certificato"
 
 msgid "Show changelog"
-msgstr ""
+msgstr "Mostra changelog"
 
 msgid "Show details"
 msgstr "Mostra dettagli"
@@ -2727,7 +2728,7 @@ msgid "Slovenia"
 msgstr "Slovenia"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "RAID software"
 
 msgid "Solomon Islands"
 msgstr "Isole Salomone"
@@ -3013,7 +3014,7 @@ msgid ""
 msgstr "Il timeout di sessione definito in minuti. Imposta a 0 per disabilitare il logout automatico."
 
 msgid "The shared folder is already used by another share."
-msgstr ""
+msgstr "La directory condivisa e già in uso da un'altra condivisione."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3066,7 +3067,7 @@ msgid "This field does not allow blanks"
 msgstr "In questo campo non sono consentiti gli spazi"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Questo campo è richiesto"
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Questo campo deve essere inserito nel formato hh:mm:ss"
@@ -3387,7 +3388,7 @@ msgid "Use SSL/TLS secure connection"
 msgstr "Usa una connessione sicura SSL/TLS"
 
 msgid "Use chroot"
-msgstr ""
+msgstr "Usa chroot"
 
 msgid "Use sendfile"
 msgstr "Usa sendfile"
@@ -3497,7 +3498,7 @@ msgid "Web Administrator Password"
 msgstr "Password Amministratore Web"
 
 msgid "Web administration"
-msgstr ""
+msgstr "Amministrazione Web"
 
 msgid "Web administration interface"
 msgstr "Interfaccia amministrazione web"

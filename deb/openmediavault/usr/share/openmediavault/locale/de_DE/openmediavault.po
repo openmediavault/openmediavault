@@ -9,14 +9,15 @@
 # Volker <votdev@gmx.de>, 2013
 # Volker <votdev@gmx.de>, 2012
 # Volker <votdev@gmx.de>, 2012
+# warhog <warhog@gmx.de>, 2013
 # warhog <warhog@gmx.de>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:05+0200\n"
-"PO-Revision-Date: 2013-06-16 11:05+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-06-16 11:11+0000\n"
+"Last-Translator: warhog <warhog@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -160,7 +161,7 @@ msgid "9 months"
 msgstr "9 Monate"
 
 msgid "A share with the name '%s' already exists"
-msgstr ""
+msgstr "Eine Freigabe mit dem Namen '%s' existiert bereits."
 
 msgid "A shared folder with the given name already exists"
 msgstr "Ein freigegebener Ordner mit dem angegebenen Namen ist bereits vorhanden"
@@ -211,7 +212,7 @@ msgid "Add rule"
 msgstr "Regel hinzufügen"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Geplante Aufgabe hinzufügen"
 
 msgid "Add scheduled test"
 msgstr "Geplanten Test hinzufügen"
@@ -341,7 +342,7 @@ msgid "Apply"
 msgstr "Anwenden"
 
 msgid "Apply configuration changes"
-msgstr ""
+msgstr "Änderungen der Konfiguration übernehmen"
 
 msgid "Apply permissions to files and subfolders"
 msgstr "Berechtigungen auf Dateien und Unterordner anwenden"
@@ -550,7 +551,7 @@ msgid "Chad"
 msgstr "Tschad"
 
 msgid "Changelog"
-msgstr ""
+msgstr "Änderungen"
 
 msgid "Check"
 msgstr "Prüfen"
@@ -812,7 +813,7 @@ msgid "Djibouti"
 msgstr "Dschibuti"
 
 msgid "Do you really want to apply the configuration?"
-msgstr ""
+msgstr "Wollen Sie die Konfiguration wirklich anwenden?"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Wollen Sie die Log-Datei wirklich leeren?"
@@ -843,7 +844,7 @@ msgstr "Wollen Sie wirklich das System neu starten?"
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
-msgstr ""
+msgstr "Soll der Inhalt des freigegebenen Ordners wirklich gelöscht werden? Der Inhalt wird unwiderruflich gelöscht und kann nicht wiederhergestellt werden."
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Soll das WebGUI (z.B. Spaltenanordnung) wirklich zurückgesetzt werden?"
@@ -944,7 +945,7 @@ msgid "Edit rule"
 msgstr "Regel bearbeiten"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Geplante Aufgabe bearbeiten"
 
 msgid "Edit scheduled test"
 msgstr "Geplanten Test bearbeiten"
@@ -995,7 +996,7 @@ msgid "Enable asynchronous I/O (AIO) support."
 msgstr ""
 
 msgid "Enable chroot."
-msgstr ""
+msgstr "chroot aktivieren."
 
 msgid "Enable compression"
 msgstr "Aktiviere Kompression"
@@ -1130,19 +1131,19 @@ msgid "Failed to get filesystems"
 msgstr "Konnte Dateisysteme nicht ermitteln"
 
 msgid "Failed to get list of groups."
-msgstr ""
+msgstr "Konnte Gruppenliste nicht holen."
 
 msgid "Failed to get list of logical volumes"
-msgstr ""
+msgstr "Konnte Liste der logischen Laufwerke nicht holen."
 
 msgid "Failed to get list of physical volumes"
-msgstr ""
+msgstr "Konnte Liste der physischen Laufwerke nicht holen."
 
 msgid "Failed to get list of software RAID devices"
-msgstr ""
+msgstr "Konnte Liste der Software-RAID Geräte nicht holen."
 
 msgid "Failed to get list of users."
-msgstr ""
+msgstr "Konnte Userliste nicht holen."
 
 msgid "Failed to get shadow password suite configuration."
 msgstr ""

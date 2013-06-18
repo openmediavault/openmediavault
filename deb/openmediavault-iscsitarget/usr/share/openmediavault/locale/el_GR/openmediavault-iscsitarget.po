@@ -1,30 +1,16 @@
-# This file is part of OpenMediaVault.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2013 Volker Theile
-# 
-# OpenMediaVault is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-# 
-# OpenMediaVault is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
-# Kostas Moho <kgounaris@hotmail.com>, 2012.
+# Kostas Moho <kgounaris@hotmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 20:05+0100\n"
-"PO-Revision-Date: 2012-04-25 11:38+0000\n"
-"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
+"POT-Creation-Date: 2013-06-18 17:41+0200\n"
+"PO-Revision-Date: 2013-06-18 15:41+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,9 +35,6 @@ msgstr "Προαιρετική απονομή μοναδικού αναγνωρ�
 
 msgid "Assign a unique serial number to the iSCSI volume optionally."
 msgstr "Προαιρετική απονομή μοναδικού σειριακού αριθμού στον τόμο iSCSI."
-
-msgid "Authentication"
-msgstr "Πιστοποίηση"
 
 msgid "Block IO"
 msgstr "Τμηματικές μεταφορές"
@@ -102,9 +85,6 @@ msgstr "Μεταφορά αρχείων"
 
 msgid "First burst length"
 msgstr "Μέγεθος πρώτης ριπής"
-
-msgid "General"
-msgstr "Γενικά"
 
 msgid "General settings"
 msgstr "Γενικές ρυθμίσεις"
@@ -163,9 +143,6 @@ msgstr "Εισερχόμενα"
 
 msgid "Initial R2T"
 msgstr "Αρχικό R2T"
-
-msgid "LUN"
-msgstr "Λογική Μόνάδα"
 
 msgid "Max. burst length"
 msgstr "Μέγιστο μέγεθος ριπής"

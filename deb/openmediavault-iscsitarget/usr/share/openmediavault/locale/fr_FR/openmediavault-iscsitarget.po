@@ -1,30 +1,16 @@
-# This file is part of OpenMediaVault.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2013 Volker Theile
-# 
-# OpenMediaVault is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-# 
-# OpenMediaVault is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
-# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012.
+# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 20:05+0100\n"
-"PO-Revision-Date: 2012-05-14 10:18+0000\n"
-"Last-Translator: Stéphane BOCQUET <sbocquet4772@gmail.com>\n"
+"POT-Creation-Date: 2013-06-18 17:41+0200\n"
+"PO-Revision-Date: 2013-06-18 15:41+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,9 +35,6 @@ msgstr "Assigner optionnellement un identifiant unique au volume iSCSI."
 
 msgid "Assign a unique serial number to the iSCSI volume optionally."
 msgstr "Assigner optionnellement un n° de série unique au volume iSCSI."
-
-msgid "Authentication"
-msgstr "Authentification"
 
 msgid "Block IO"
 msgstr "Block IO"
@@ -102,9 +85,6 @@ msgstr "Fichier IO"
 
 msgid "First burst length"
 msgstr "Longueur première rafale"
-
-msgid "General"
-msgstr "Général"
 
 msgid "General settings"
 msgstr "Paramètres généraux"
@@ -163,9 +143,6 @@ msgstr "Entrant"
 
 msgid "Initial R2T"
 msgstr "R2T initial"
-
-msgid "LUN"
-msgstr "LUN"
 
 msgid "Max. burst length"
 msgstr "Longueur max. mode rafale"

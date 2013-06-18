@@ -1,30 +1,16 @@
-# This file is part of OpenMediaVault.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2013 Volker Theile
-# 
-# OpenMediaVault is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-# 
-# OpenMediaVault is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
-#   <runesudden@gmail.com>, 2012.
+# runesudden <runesudden@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 20:05+0100\n"
-"PO-Revision-Date: 2012-05-28 18:40+0000\n"
-"Last-Translator: runesudden <runesudden@gmail.com>\n"
+"POT-Creation-Date: 2013-06-18 17:41+0200\n"
+"PO-Revision-Date: 2013-06-18 15:41+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -49,9 +35,6 @@ msgstr "Tilordne valgfritt en unik identifikator til iSCSI volumet."
 
 msgid "Assign a unique serial number to the iSCSI volume optionally."
 msgstr "Tildel valgfritt et serienummer til iSCSI volumet."
-
-msgid "Authentication"
-msgstr "Autentisering"
 
 msgid "Block IO"
 msgstr "Block IO"
@@ -102,9 +85,6 @@ msgstr "File IO"
 
 msgid "First burst length"
 msgstr "Lengde på første burst"
-
-msgid "General"
-msgstr "Generelt"
 
 msgid "General settings"
 msgstr "Generelle innstillinger"
@@ -163,9 +143,6 @@ msgstr "Inkommende"
 
 msgid "Initial R2T"
 msgstr "Initiell R2T"
-
-msgid "LUN"
-msgstr "LUN"
 
 msgid "Max. burst length"
 msgstr "Max. burst lengde"

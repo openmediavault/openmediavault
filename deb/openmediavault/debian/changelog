@@ -1,5 +1,6 @@
 openmediavault (0.5.0.11) stable; urgency=low
 
+  * Update locales.
   * Set the setgid bit on shared folders.
   * Improve error handling in OMV.window.Execute dialog.
 

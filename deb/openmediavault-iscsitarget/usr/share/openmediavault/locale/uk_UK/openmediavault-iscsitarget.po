@@ -1,29 +1,15 @@
-# This file is part of OpenMediaVault.
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 # 
-# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
-# @author    Volker Theile <volker.theile@openmediavault.org>
-# @copyright Copyright (c) 2009-2013 Volker Theile
-# 
-# OpenMediaVault is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# any later version.
-# 
-# OpenMediaVault is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-# 
-# You should have received a copy of the GNU General Public License
-# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 # Translators:
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-15 20:05+0100\n"
-"PO-Revision-Date: 2012-03-17 01:50+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2013-06-18 17:41+0200\n"
+"PO-Revision-Date: 2013-06-18 15:41+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -47,9 +33,6 @@ msgid "Assign a unique identifier to the iSCSI volume optionally."
 msgstr ""
 
 msgid "Assign a unique serial number to the iSCSI volume optionally."
-msgstr ""
-
-msgid "Authentication"
 msgstr ""
 
 msgid "Block IO"
@@ -100,9 +83,6 @@ msgid "File IO"
 msgstr ""
 
 msgid "First burst length"
-msgstr ""
-
-msgid "General"
 msgstr ""
 
 msgid "General settings"
@@ -161,9 +141,6 @@ msgid "Incoming"
 msgstr ""
 
 msgid "Initial R2T"
-msgstr ""
-
-msgid "LUN"
 msgstr ""
 
 msgid "Max. burst length"
