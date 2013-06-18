@@ -69,9 +69,14 @@ Ext.define("OMV.form.field.Grid", {
 		// Create the grid object.
 		me.grid = Ext.create(me.gridClass, Ext.apply(
 		  me.getGridConfig(), me.gridConfig));
+		// Note, in some scenarious the grid has it's own store and the
+		// field's store is not defined. In this case simply use the
+		// grid's store.
+		if(!Ext.isDefined(me.store))
+			me.store = me.grid.store;
 		me.items = [ me.grid ];
 		me.callParent();
-		// Now bind the store.
+		// Bind the store to this instance.
 		me.bindStore(me.store, true);
 	},
 
@@ -93,12 +98,19 @@ Ext.define("OMV.form.field.Grid", {
 
 	getGridConfig: function() {
 		var me = this;
-		return {
+		var config = {
 			anchor: "100% 100%",
-			store: me.store,
 			border: true,
 			disabled: me.readOnly
 		};
+		// Only apply the store if it's defined. This is because in some
+		// scenarious the grid may already has its own store defined.
+		if(Ext.isDefined(me.store)) {
+			Ext.apply(config, {
+				store: me.store
+			});
+		}
+		return config;
 	},
 
 	getGrid: function() {
