@@ -9,7 +9,7 @@
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: The engine daemon.
-# Description:       The engine daemon.
+# Description:       The engine daemon that processes the RPC request.
 ### END INIT INFO
 
 set -e
@@ -17,7 +17,7 @@ set -e
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/usr/sbin/omv-engined
 NAME=omv-engined
-DESC="Engine daemon"
+DESC="engine daemon"
 PIDFILE=/var/run/$NAME.pid
 DAEMON_OPTS=""
 
