@@ -42,7 +42,7 @@ Ext.define("OMV.form.field.UserComboBox", {
 	userType: "all",
 
 	allowBlank: false,
-	editable: true,
+	editable: false,
 	typeAhead: true,
 	forceSelection: true,
 	selectOnFocus: true,
@@ -50,6 +50,7 @@ Ext.define("OMV.form.field.UserComboBox", {
 	emptyText: _("Select a user name..."),
 	valueField: "name",
 	displayField: "name",
+	vtype: "username",
 
 	initComponent: function() {
 		var me = this;

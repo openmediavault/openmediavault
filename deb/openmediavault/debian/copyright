@@ -278,11 +278,6 @@ Files: /var/www/openmediavault/images/nfs.png
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
-Files: /var/www/openmediavault/images/support.png
-Copyright: Gnome Project
-License: GPL
-Comment: http://www.iconfinder.com/icondetails/20560/16
-
 Files: /var/www/openmediavault/images/erase.png
        /var/www/openmediavault/images/erase.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>

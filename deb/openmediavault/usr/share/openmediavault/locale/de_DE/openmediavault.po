@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:05+0200\n"
-"PO-Revision-Date: 2013-06-16 11:11+0000\n"
-"Last-Translator: warhog <warhog@gmx.de>\n"
+"PO-Revision-Date: 2013-06-21 19:08+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -366,7 +366,7 @@ msgid "Aruba"
 msgstr "Aruba"
 
 msgid "Asynchronous I/O"
-msgstr ""
+msgstr "Asynchrones I/O"
 
 msgid "Attribute name"
 msgstr "Attributname"
@@ -993,7 +993,7 @@ msgid "Enable archive mode"
 msgstr "Archivmodus aktiveren"
 
 msgid "Enable asynchronous I/O (AIO) support."
-msgstr ""
+msgstr "Aktiviere asynchrones I/O (AIO)."
 
 msgid "Enable chroot."
 msgstr "chroot aktivieren."
@@ -1440,10 +1440,10 @@ msgid "Import users"
 msgstr "Benutzer importieren"
 
 msgid "Importing groups ..."
-msgstr ""
+msgstr "Gruppen importieren ..."
 
 msgid "Importing users ..."
-msgstr ""
+msgstr "Benutzer importieren ..."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1466,7 +1466,7 @@ msgid "Indonesia"
 msgstr "Indonesien"
 
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 msgid "Informal"
 msgstr "Informell"
@@ -1997,10 +1997,10 @@ msgid "Not UDP"
 msgstr "Nicht UDP"
 
 msgid "Notification"
-msgstr ""
+msgstr "Benachrichtigung"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Benachrichtigungen"
 
 msgid "November"
 msgstr "November"
@@ -2272,7 +2272,7 @@ msgid "Privileges"
 msgstr "Privilegien"
 
 msgid "Process monitoring"
-msgstr ""
+msgstr "Prozessüberwachung"
 
 msgid "Processes"
 msgstr "Prozesse"
@@ -2311,7 +2311,7 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
 msgstr "RAID 5"
@@ -2444,7 +2444,7 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. information"
-msgstr ""
+msgstr "S.M.A.R.T. Informationen"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. Überwachung muss für das ausgewählte Laufwerk aktiviert werden."
@@ -2507,7 +2507,7 @@ msgid "Saudi Arabia"
 msgstr "Saudi Arabien"
 
 msgid "Save"
-msgstr ""
+msgstr "Speichern"
 
 msgid "Saving ..."
 msgstr "Speichere ..."
@@ -2519,7 +2519,7 @@ msgid "Scanning for new devices ..."
 msgstr "Suche nach neuen Geräten ..."
 
 msgid "Scheduled jobs"
-msgstr ""
+msgstr "Geplante Aufgaben"
 
 msgid "Scheduled tests"
 msgstr "Planmäßige Tests"
@@ -2600,7 +2600,7 @@ msgid "Send email"
 msgstr "E-Mail senden"
 
 msgid "Sender email"
-msgstr ""
+msgstr "E-Mail Absender"
 
 msgid "Sending test email ..."
 msgstr "Sende eine Test-Email ..."
@@ -2636,10 +2636,10 @@ msgid "Services"
 msgstr "Dienste"
 
 msgid "Session expired."
-msgstr ""
+msgstr "Sitzungszeit abgelaufen"
 
 msgid "Session not authenticated."
-msgstr ""
+msgstr "Sitzung nicht authentifiziert"
 
 msgid "Session timeout"
 msgstr "Sitzungszeitlimit"
@@ -2688,7 +2688,7 @@ msgid "Show certificate"
 msgstr "Zertifikat anzeigen"
 
 msgid "Show changelog"
-msgstr ""
+msgstr "Änderungen anzeigen"
 
 msgid "Show details"
 msgstr "Details zeigen"
@@ -2730,7 +2730,7 @@ msgid "Slovenia"
 msgstr "Slowenien"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "Software RAID"
 
 msgid "Solomon Islands"
 msgstr "Salomonen"
@@ -3016,7 +3016,7 @@ msgid ""
 msgstr "Das Sitzungszeitlimit in Minuten. Auf 0 setzen um das automatische Abmelden zu deaktivieren."
 
 msgid "The shared folder is already used by another share."
-msgstr ""
+msgstr "Der freigegebene Ordner wird bereits von einer anderen Freigabe verwendet."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3069,7 +3069,7 @@ msgid "This field does not allow blanks"
 msgstr "In diesem Feld sind keine Leerzeichen erlaubt"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Dieses Feld ist obligatorisch"
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Diese Feld muss das Format hh:mm:ss erfüllen"
@@ -3390,7 +3390,7 @@ msgid "Use SSL/TLS secure connection"
 msgstr "Benutze sichere Verbindung über SSL/TLS"
 
 msgid "Use chroot"
-msgstr ""
+msgstr "chroot aktivieren."
 
 msgid "Use sendfile"
 msgstr "Sendfile benutzen"
@@ -3500,7 +3500,7 @@ msgid "Web Administrator Password"
 msgstr "Web Administrator Passwort"
 
 msgid "Web administration"
-msgstr ""
+msgstr "Web Administration"
 
 msgid "Web administration interface"
 msgstr "Web Administrationsoberfläche"
