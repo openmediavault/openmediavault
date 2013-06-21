@@ -458,7 +458,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.LUNs", {
 					idProperty: "uuid",
 					fields: [
 						{ name: "uuid", type: "string" },
-						{ name: "id", type: "string" },
+						{ name: "id", type: "int" },
 						{ name: "devicefile", type: "string" },
 						{ name: "iomode", type: "string" },
 						{ name: "type", type: "string" },
@@ -540,7 +540,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.LUNs", {
 
 	setValues: function(values) {
 		var me = this;
-		return me.callParent(values.luns.lun);
+		return me.callParent([ values.luns ]);
 	},
 
 	getValues: function() {
@@ -586,14 +586,15 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.Target", {
 				title: _("Authentication"),
 				getValues: function() {
 					var me = this;
-					var values = me.callParent(arguments);
+					var values = me.callPrototype("getValues", arguments);
 					return {
 						authentication: values
 					};
 				},
 				setValues: function(values) {
 					var me = this;
-					return me.callParent(values.authentication.user);
+					return me.callPrototype("setValues",
+					  [ values.authentication ]);
 				}
 			}),
 			Ext.create("OMV.module.admin.service.iscsitarget.target.LUNs")

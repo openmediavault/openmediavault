@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-18 17:41+0200\n"
-"PO-Revision-Date: 2013-06-18 15:41+0000\n"
+"POT-Creation-Date: 2013-06-21 20:56+0200\n"
+"PO-Revision-Date: 2013-06-21 18:57+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -36,6 +36,9 @@ msgstr "Asignar un identificador único ao volume iSCSI de xeito opcional."
 
 msgid "Assign a unique serial number to the iSCSI volume optionally."
 msgstr "Asignar un número de serie único ao volume iSCSI de xeito opcional."
+
+msgid "Authentication"
+msgstr ""
 
 msgid "Block IO"
 msgstr "Bloquear E/S"
@@ -86,6 +89,9 @@ msgstr "E/S de ficheiro"
 
 msgid "First burst length"
 msgstr "Lonxitude do primeiro refacho"
+
+msgid "General"
+msgstr ""
 
 msgid "General settings"
 msgstr "Axustes xerais"
@@ -144,6 +150,9 @@ msgstr "Entrante"
 
 msgid "Initial R2T"
 msgstr "R2T inicial"
+
+msgid "LUN"
+msgstr ""
 
 msgid "Max. burst length"
 msgstr "Lonxitude máx. do refacho"

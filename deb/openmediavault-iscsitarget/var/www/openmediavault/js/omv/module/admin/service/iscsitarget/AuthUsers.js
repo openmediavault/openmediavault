@@ -21,6 +21,7 @@
 // require("js/omv/workspace/window/Form.js")
 // require("js/omv/workspace/window/plugin/ConfigObject.js")
 // require("js/omv/workspace/grid/Panel.js")
+// require("js/omv/form/field/UserComboBox.js")
 
 /**
  * @class OMV.module.admin.service.iscsitarget.AuthUser
@@ -28,6 +29,9 @@
  */
 Ext.define("OMV.module.admin.service.iscsitarget.AuthUser", {
 	extend: "OMV.workspace.window.Form",
+	requires: [
+		"OMV.form.field.UserComboBox"
+	],
 
 	mode: "local",
 	width: 500,
@@ -49,12 +53,12 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUser", {
 			readOnly: (me.uuid !== OMV.UUID_UNDEFINED),
 			value: "incoming"
 		},{
-			xtype: "textfield",
+			xtype: "usercombo",
 			name: "username",
 			fieldLabel: _("Username"),
-			allowBlank: false,
-			vtype: "username",
-			readOnly: (me.uuid !== OMV.UUID_UNDEFINED),
+			editable: true,
+			forceSelection: false,
+			readOnly: (me.uuid !== OMV.UUID_UNDEFINED)
 		},{
 			xtype: "passwordfield",
 			name: "password",

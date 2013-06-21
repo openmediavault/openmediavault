@@ -130,11 +130,10 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 		// Update the authentication users uuid's (only necessary if the
 		// user is new)
 		if(!empty($object['authentication']['user'])) {
-			foreach($object['authentication']['user'] as $objectk =>
-			  &$objectv) {
-				$objectv['uuid'] = ($objectv['uuid'] ==
+			foreach($object['authentication']['user'] as $userk => &$userv) {
+				$userv['uuid'] = ($userv['uuid'] ==
 				  $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				  OMVUtil::uuid() : $objectv['uuid'];
+				  OMVUtil::uuid() : $userv['uuid'];
 			}
 		}
 		// Set the configuration object.
@@ -213,9 +212,18 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 			$objectv['noptimeout'] = intval($objectv['noptimeout']);
 			$objectv['wthreads'] = intval($objectv['wthreads']);
 			$objectv['queuedcommands'] = intval($objectv['queuedcommands']);
-			foreach($objectv['luns']['lun'] as $lunk => &$lunv) {
-				$lunv['id'] = intval($lunv['id']);
+			if(empty($object['luns']['lun']))
+				$object['luns'] = array();
+			else {
+				$object['luns'] = $object['luns']['lun'];
+				foreach($object['luns'] as $lunk => &$lunv) {
+					$lunv['id'] = intval($lunv['id']);
+				}
 			}
+			if(empty($object['authentication']['user']))
+				$object['authentication'] = array();
+			else
+				$object['authentication'] = $object['authentication']['user'];
 		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
@@ -266,9 +274,18 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 		$object['noptimeout'] = intval($object['noptimeout']);
 		$object['wthreads'] = intval($object['wthreads']);
 		$object['queuedcommands'] = intval($object['queuedcommands']);
-		foreach($object['luns']['lun'] as $lunk => &$lunv) {
-			$lunv['id'] = intval($lunv['id']);
+		if(empty($object['luns']['lun']))
+			$object['luns'] = array();
+		else {
+			$object['luns'] = $object['luns']['lun'];
+			foreach($object['luns'] as $lunk => &$lunv) {
+				$lunv['id'] = intval($lunv['id']);
+			}
 		}
+		if(empty($object['authentication']['user']))
+			$object['authentication'] = array();
+		else
+			$object['authentication'] = $object['authentication']['user'];
 		return $object;
 	}
 
@@ -383,20 +400,19 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 		);
 		// Update the LUNs uuid's (only necessary if the LUN is new).
 		if(!empty($object['luns']['lun'])) {
-			foreach($object['luns']['lun'] as $objectk => &$objectv) {
-				$objectv['uuid'] = ($objectv['uuid'] ==
+			foreach($object['luns']['lun'] as $lunk => &$lunv) {
+				$lunv['uuid'] = ($lunv['uuid'] ==
 				  $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				  OMVUtil::uuid() : $objectv['uuid'];
+				  OMVUtil::uuid() : $lunv['uuid'];
 			}
 		}
 		// Update the authentication users uuid's (only necessary if the
 		// user is new).
 		if(!empty($object['authentication']['user'])) {
-			foreach($object['authentication']['user'] as $objectk =>
-			  &$objectv) {
-				$objectv['uuid'] = ($objectv['uuid'] ==
+			foreach($object['authentication']['user'] as $userk => &$userv) {
+				$userv['uuid'] = ($userv['uuid'] ==
 				  $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				  OMVUtil::uuid() : $objectv['uuid'];
+				  OMVUtil::uuid() : $userv['uuid'];
 			}
 		}
 		// Set configuration object.

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-18 17:41+0200\n"
-"PO-Revision-Date: 2013-06-18 15:41+0000\n"
+"POT-Creation-Date: 2013-06-21 20:56+0200\n"
+"PO-Revision-Date: 2013-06-21 18:57+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -37,6 +37,9 @@ msgstr "Назначить уникальный идентификатор дл�
 
 msgid "Assign a unique serial number to the iSCSI volume optionally."
 msgstr "Назначить уникальный серийный номер для iSCSI (необязательно)"
+
+msgid "Authentication"
+msgstr ""
 
 msgid "Block IO"
 msgstr "Блок IO"
@@ -87,6 +90,9 @@ msgstr "Файл IO"
 
 msgid "First burst length"
 msgstr "Длина первого пакета"
+
+msgid "General"
+msgstr ""
 
 msgid "General settings"
 msgstr "Общие настройки"
@@ -145,6 +151,9 @@ msgstr "Входящий"
 
 msgid "Initial R2T"
 msgstr "Начальный R2T"
+
+msgid "LUN"
+msgstr ""
 
 msgid "Max. burst length"
 msgstr "Максимальная длина пакета"

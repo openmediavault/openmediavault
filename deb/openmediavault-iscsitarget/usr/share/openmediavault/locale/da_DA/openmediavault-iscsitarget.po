@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-18 17:41+0200\n"
-"PO-Revision-Date: 2013-06-18 15:41+0000\n"
+"POT-Creation-Date: 2013-06-21 20:56+0200\n"
+"PO-Revision-Date: 2013-06-21 18:57+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -35,6 +35,9 @@ msgstr "Tildel en unik valgfri identifikator til iSCSI drevet."
 
 msgid "Assign a unique serial number to the iSCSI volume optionally."
 msgstr "Tildel et unik valgfri serienummer til iSCSI drevet. "
+
+msgid "Authentication"
+msgstr ""
 
 msgid "Block IO"
 msgstr "Blokér IO"
@@ -85,6 +88,9 @@ msgstr "Fil IO"
 
 msgid "First burst length"
 msgstr "Første burst længde"
+
+msgid "General"
+msgstr ""
 
 msgid "General settings"
 msgstr "Generelle indstillinger"
@@ -143,6 +149,9 @@ msgstr "Indgående"
 
 msgid "Initial R2T"
 msgstr "Initialiser R2T"
+
+msgid "LUN"
+msgstr ""
 
 msgid "Max. burst length"
 msgstr "Maks. burst længde"
