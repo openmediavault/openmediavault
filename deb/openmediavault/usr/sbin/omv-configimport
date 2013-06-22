@@ -23,4 +23,7 @@ set -e
 
 . /etc/default/openmediavault
 
+OMV_CONFIGIMPORT_SCRIPTS_DIR=${OMV_CONFIGIMPORT_SCRIPTS_DIR:-"/usr/share/openmediavault/configimport"}
+
+# Execute the configuration import scripts.
 run-parts --report ${OMV_CONFIGIMPORT_SCRIPTS_DIR} 2>&1 >${OMV_LOG_DIR}/configimport.log

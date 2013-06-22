@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:06+0200\n"
-"PO-Revision-Date: 2013-06-16 11:06+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-06-17 07:16+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add job"
-msgstr "Tilføj job"
+msgstr "Tilføj opgave"
 
 msgid "Algorithmic detection"
 msgstr "Algoritmisk detektering"
@@ -60,7 +60,7 @@ msgid "Detect broken executables"
 msgstr "Detektere ødelagte eksekverbare filer"
 
 msgid "Edit job"
-msgstr "Rediger job"
+msgstr "Rediger opgave"
 
 msgid "Enable"
 msgstr "Aktiver"
@@ -110,7 +110,7 @@ msgid "Every N minute"
 msgstr "Hver N minut"
 
 msgid "Execute cron job"
-msgstr ""
+msgstr "Udfør cron opgave"
 
 msgid "Extra options"
 msgstr "Ekstra valgmuligheder"
@@ -134,13 +134,13 @@ msgid "Hour"
 msgstr "Time"
 
 msgid "Jobs"
-msgstr "Jobs"
+msgstr "Opgaver"
 
 msgid "Log clean files"
-msgstr ""
+msgstr "Log rene filer"
 
 msgid "Log clean files. This drastically increases the log size."
-msgstr ""
+msgstr "Log rene filer. Dette vil øge log størrelsen dramatisk."
 
 msgid "Minute"
 msgstr "Minut"

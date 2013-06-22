@@ -41,6 +41,8 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
+
 OMV_MONIT_CONFIG=${OMV_MONIT_CONFIG:-"/etc/monit/monitrc"}
 OMV_MONIT_DEFAULT=${OMV_MONIT_DEFAULT:-"/etc/default/monit"}
 OMV_MONIT_CHECK_INTERVAL=${OMV_MONIT_CHECK_INTERVAL:-"30"}

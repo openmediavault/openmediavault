@@ -23,8 +23,12 @@ set -e
 
 . /etc/default/openmediavault
 
+OMV_INITSYSTEM_SCRIPTS_DIR=${OMV_INITSYSTEM_SCRIPTS_DIR:-"/usr/share/openmediavault/initsystem"}
+
 # Run all system initialization scripts
 run-parts --report ${OMV_INITSYSTEM_SCRIPTS_DIR} 2>&1 >${OMV_LOG_DIR}/initsystem.log
 
 # Remove the flag
 rm -f ${OMV_INITSYSTEM_FILE}
+
+exit 0

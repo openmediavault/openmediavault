@@ -1,5 +1,6 @@
 openmediavault-forkeddaapd (0.5.1) stable; urgency=low
 
+  * Update locales.
   * Add SVG icon.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Jun 2013 03:16:47 +0200

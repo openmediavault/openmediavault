@@ -160,6 +160,18 @@ case "$1" in
 		########################################################################
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "0.5"; then
+			# Set default envionment variables.
+			omv_set_default "OMV_CACHE_DIR" "/var/cache/openmediavault"
+			omv_set_default "OMV_CERTIFICATE_PREFIX" "openmediavault-"
+			omv_set_default "OMV_CONFIGIMPORT_SCRIPTS_DIR" "/usr/share/openmediavault/configimport"
+			omv_set_default "OMV_MKCONF_SCRIPTS_DIR" "/usr/share/openmediavault/mkconf"
+			omv_set_default "OMV_ENGINED_DIR" "/usr/share/openmediavault/engined"
+			omv_set_default "OMV_ENGINED_SO_ADDRESS" "/var/lib/openmediavault/engined.sock"
+			omv_set_default "OMV_ENGINED_SO_SNDTIMEO" "10"
+			omv_set_default "OMV_ENGINED_SO_RCVTIMEO" "180"
+			omv_set_default "OMV_ENGINED_DIRTY_MODULES_FILE" "/var/lib/openmediavault/dirtymodules.json"
+			omv_set_default "OMV_INITSYSTEM_SCRIPTS_DIR" "/usr/share/openmediavault/initsystem"
+			omv_set_default "OMV_APACHE2_SUEXECUSERGROUP" "openmediavault"
 			# Add avahi configurations.
 			omv_config_add_element "/config/services" "zeroconf" ""
 			omv_config_add_element "/config/services/zeroconf" "services" ""

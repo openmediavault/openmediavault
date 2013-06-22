@@ -1,3 +1,9 @@
+openmediavault (0.5.0.12) stable; urgency=low
+
+  * Fix global environment variable issue.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 22 Jun 2013 11:35:06 +0200
+
 openmediavault (0.5.0.11) stable; urgency=low
 
   * Update locales.

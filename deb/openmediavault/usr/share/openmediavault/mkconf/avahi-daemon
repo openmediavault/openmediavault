@@ -33,6 +33,8 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
+
 OMV_AVAHIDAEMON_CONFIG=${OMV_AVAHIDAEMON_CONFIG:-"/etc/avahi/avahi-daemon.conf"}
 OMV_AVAHIDAEMON_DEFAULT=${OMV_AVAHIDAEMON_DEFAULT:-"/etc/default/avahi-daemon"}
 OMV_AVAHIDAEMON_DETECTLOCAL=${OMV_AVAHIDAEMON_DETECTLOCAL:-"0"}

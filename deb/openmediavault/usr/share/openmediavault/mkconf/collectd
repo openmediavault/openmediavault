@@ -31,6 +31,8 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
+
 OMV_COLLECTD_CONFIG=${OMV_COLLECTD_CONFIG:-"/etc/collectd/collectd.conf"}
 OMV_COLLECTD_DEFAULT=${OMV_COLLECTD_DEFAULT:-"/etc/default/collectd"}
 OMV_COLLECTD_CRON=${OMV_COLLECTD_CRON:-"/etc/cron.d/openmediavault-rrdtoolgraph"}

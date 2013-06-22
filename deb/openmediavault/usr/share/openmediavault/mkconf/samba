@@ -28,6 +28,8 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
+
 OMV_SAMBA_EXTENSIONS_DIR=${OMV_SAMBA_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/samba.d"}
 OMV_SAMBA_DEFAULT=${OMV_SAMBA_DEFAULT:-"/etc/default/samba"}
 OMV_SAMBA_CONFIG=${OMV_SAMBA_CONFIG:-"/etc/samba/smb.conf"}

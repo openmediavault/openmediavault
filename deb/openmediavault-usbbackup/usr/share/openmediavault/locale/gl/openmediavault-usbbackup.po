@@ -5,13 +5,14 @@
 # Translators:
 # mbouzada <mbouzada@gmail.com>, 2013
 # mbouzada <mbouzada@gmail.com>, 2013
+# mbouzada <mbouzada@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:13+0200\n"
-"PO-Revision-Date: 2013-06-16 11:14+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-06-19 08:51+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add backup job"
-msgstr ""
+msgstr "Engadir un traballo de copia de seguranza"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -31,7 +32,7 @@ msgid "Archive"
 msgstr "Arquivo"
 
 msgid "Backup jobs"
-msgstr ""
+msgstr "Ttraballos de copia de seguranza"
 
 msgid "Comment"
 msgstr "Comentario"
@@ -49,13 +50,13 @@ msgid "Delete files on the receiving side that don't exist on sender."
 msgstr "Eliminar no lado receptor os ficheiros que non existen no remitente."
 
 msgid "Device"
-msgstr ""
+msgstr "Dispositivo"
 
 msgid "Device '%s' not found"
 msgstr "Non se atopou o dispositivo «%s»"
 
 msgid "Edit backup job"
-msgstr ""
+msgstr "Editar o traballo de copia de seguranza"
 
 msgid "Enable"
 msgstr "Activar"
@@ -72,7 +73,7 @@ msgid "Enabled"
 msgstr "Activado"
 
 msgid "Execute backup job"
-msgstr ""
+msgstr "Executar o traballo de copia de seguranza"
 
 msgid "External storage device"
 msgstr "Dispositivo de almacenamento externo"
@@ -128,10 +129,10 @@ msgid "Run"
 msgstr "Executar"
 
 msgid "Scan"
-msgstr ""
+msgstr "Analizar"
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Seleccione un dispositivo ..."
 
 msgid "Send command output via email."
 msgstr "Enviar a saída da orde por correo."
@@ -150,7 +151,7 @@ msgid "Suppress non-error messages."
 msgstr "Suprimir as mensaxes que non sexan de erros."
 
 msgid "Synchronise from/to directory on external storage device."
-msgstr ""
+msgstr "Sincronizar desde/cara o directorio no dispositivo de almacenamento externo."
 
 msgid "The external storage device."
 msgstr "O dispositivo de almacenamento externo."
@@ -159,7 +160,7 @@ msgid ""
 "The shared folder content is synchronised from/to the root of the external "
 "storage device if this option is not set. The name of the directory is taken"
 " from the shared folder."
-msgstr ""
+msgstr "O contido do cartafol compartido sincronizase desde/cara a raíz do dispositivo de almacenamento externo, se non está estabelecida esta opción. O nome do directorio tomase do cartafol compartido."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
