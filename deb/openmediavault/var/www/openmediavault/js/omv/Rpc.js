@@ -62,19 +62,23 @@ Ext.define("OMV.Rpc", {
 		var me = this;
 		if(true === me.disabled)
 			return null;
-		options = Ext.apply(options || {}, {
+		// Apply default values.
+		options = Ext.apply({
+			timeout: OMV.HTTPREQUEST_TIMEOUT,
+			relayErrors: true,
+			showErrors: true
+		}, options);
+		// Apply generic values that can't be modified.
+		Ext.apply(options, {
 			url: "rpc.php",
 			method: "POST",
-			timeout: OMV.HTTPREQUEST_TIMEOUT,
 			jsonData: {
 				service: options.rpcData.service,
 				method: options.rpcData.method,
 				params: options.rpcData.params || null,
 				options: options.rpcData.options || null
 			},
-			callback: me.createRequestCallback(options.callback),
-			relayErrors: true,
-			showErrors: true
+			callback: me.createRequestCallback(options.callback)
 		});
 		return me.callParent([ options ]);
 	},

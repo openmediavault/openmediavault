@@ -352,7 +352,7 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		  $memStats['mem']['total']);
 		$cpuStats = OMVSystem::getCPUStats();
 		$index = 0;
-		$data = array(
+		return array(
 			array(
 				"name" => gettext("Hostname"),
 				"value" => OMVNetwork::getHostname("--fqdn"),
@@ -409,11 +409,6 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 				"type" => "progress",
 				"index" => $index++)
 		);
-		$result = array(
-			"total" => count($data),
-			"data" => $data
-		);
-		return $result;
 	}
 }
 

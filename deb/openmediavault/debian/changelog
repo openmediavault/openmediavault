@@ -1,3 +1,10 @@
+openmediavault (0.5.0.13) stable; urgency=low
+
+  * Fix bug in OMV.Rpc.
+  * Various improvements and bugfixes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 22 Jun 2013 13:21:16 +0200
+
 openmediavault (0.5.0.12) stable; urgency=low
 
   * Fix global environment variable issue.

@@ -20,6 +20,7 @@
  */
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
+// require("js/omv/data/reader/RpcArray.js")
 
 /**
  * @class OMV.tree.Folder
@@ -35,7 +36,8 @@ Ext.define("OMV.tree.Folder", {
 	extend: "Ext.tree.Panel",
 	requires: [
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc"
+		"OMV.data.proxy.Rpc",
+		"OMV.data.reader.RpcArray"
 	],
 
 	type: "mntent",
