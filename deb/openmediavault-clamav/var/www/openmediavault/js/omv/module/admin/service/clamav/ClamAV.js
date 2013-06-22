@@ -24,5 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "clamav",
 	path: "/service",
 	text: _("Antivirus"),
-	icon16: "images/antivirus.png"
+	icon16: "images/antivirus.png",
+	iconSvg: "images/antivirus.svg"
 });

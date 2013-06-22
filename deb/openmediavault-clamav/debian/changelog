@@ -1,6 +1,7 @@
 openmediavault-clamav (0.5.1) stable; urgency=low
 
   * Update locales.
+  * Add SVG icon.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 22 Jun 2013 12:23:11 +0200
 

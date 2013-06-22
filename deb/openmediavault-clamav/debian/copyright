@@ -6,6 +6,7 @@ Files: *
 Copyright: 2009-2013 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
 
-Files: var/www/openmediavault/images/antivirus.png
-License: LGPL
-Copyright: Everaldo Coelho (http://www.everaldo.com, http://www.iconfinder.com/icondetails/3291/16)
+Files: /var/www/openmediavault/images/antivirus.png
+       /var/www/openmediavault/images/antivirus.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
