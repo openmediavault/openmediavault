@@ -208,6 +208,9 @@ case "$1" in
 			invoke-rc.d monit restart
 			update-rc.d openmediavault-engined defaults &>/dev/null
 			dpkg-trigger restart-engined || monit restart omv-engined
+			# Update apache2 configuration.
+			omv-mkconf apache2
+			invoke-rc.d apache2 graceful
 		fi
 	;;
 
