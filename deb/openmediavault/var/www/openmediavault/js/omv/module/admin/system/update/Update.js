@@ -201,7 +201,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			id: me.getId() + "-install",
 			xtype: "button",
 			text: _("Install"),
-			icon: "images/apply.png",
+			icon: "images/add.png",
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onInstallButton, me, [ me ]),
 			scope: me,
