@@ -43,6 +43,7 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 		$this->registerMethod("set");
 		$this->registerMethod("delete");
 		$this->registerMethod("getByFsName");
+		$this->registerMethod("getByDir");
 	}
 
 	/**
@@ -211,7 +212,6 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 	 *   \em id The file system identifier, e.g. UUID or block special device.
 	 * @param context The context of the caller.
 	 * @return The mount point configuration object if exists, otherwise FALSE.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getByFsName($params, $context) {
 		global $xmlConfig;
@@ -227,12 +227,7 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get the list of mount point configuration objects.
-		$xpath = "//system/fstab/mntent";
-		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
+		$objects = $this->callMethod("enumerateEntries", NULL, $context);
 		// Add function parameter to search argument list.
 		$args = array();
 		$args[] = $params['id'];
@@ -265,8 +260,42 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 					}
 				}
 			}
-			if(TRUE === $result)
+			if(FALSE !== $result)
 				break;
+		}
+		return $result;
+	}
+
+	/**
+	 * Get a mount point configuration object by the given mount point.
+	 * @param params An array containing the following fields:
+	 *   \em dir The mount point.
+	 * @param context The context of the caller.
+	 * @return The mount point configuration object if exists, otherwise FALSE.
+	 */
+	public function getByDir($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "dir":{"type":"string"}
+			  }
+		  }');
+		// Get the list of mount point configuration objects.
+		$objects = $this->callMethod("enumerateEntries", NULL, $context);
+		// Try to find the configuration object matching the given search
+		// arguments.
+		$result = FALSE;
+		foreach($objects as $objectk => $objectv) {
+			if($params['dir'] === $objectv['dir']) {
+				$result = $objectv;
+				break;
+			}
 		}
 		return $result;
 	}

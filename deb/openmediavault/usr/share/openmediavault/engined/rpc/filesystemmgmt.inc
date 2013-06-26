@@ -88,9 +88,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				continue;
 			}
 			// Skip the device where the operating system is installed on.
-			if($objectv['devicefile'] === $rootDeviceFile) {
+			if($objectv['devicefile'] === $rootDeviceFile)
 				continue;
-			}
 			// Use the devicefile to get the filesystem details because vfat
 			// filesystems do not have a valid UUID. Any idea why?
 			$fs = new OMVFilesystem($objectv['devicefile']);
@@ -292,9 +291,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					}
 				}
 				if(TRUE === $initialized) {
-					if(TRUE === file_exists($fileName)) {
+					if(TRUE === file_exists($fileName))
 						unlink($fileName);
-					}
 					continue;
 				}
 				// Add the filesystem to the result list.
@@ -319,7 +317,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		// Add filesystems configured to be mounted but device does not
 		// exist anymore. This is necessary to be able remove invalid mount
 		// point configuration objects. Mark such filesystem as missing.
-		$xpath = "//system/fstab/mntent[not(contains(opts,'bind'))]";
+		$xpath = "//system/fstab/mntent[not(contains(opts,'bind') or ".
+		  "contains(opts,'loop'))]";
 		$mntents = $xmlConfig->getList($xpath);
 		if(is_null($mntents)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -329,9 +328,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// Skip valid mount point configuration objects (the filesystem
 			// exists in this case).
 			$fs = new OMVFilesystem($mntentv['fsname']);
-			if($fs->exists()) {
+			if($fs->exists())
 				continue;
-			}
 			// Check if the mount point configuration object is referenced by
 			// any other object, e.g. by a shared folder configuration object.
 			$xpath = sprintf("//mntentref[contains(.,'%s')]", $mntentv['uuid']);

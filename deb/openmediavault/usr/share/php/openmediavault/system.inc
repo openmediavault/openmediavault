@@ -591,22 +591,23 @@ class OMVFilesystem extends OMVObject {
 			  $GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'] => "/(\d+)$/",
 			  $GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'] => "//",
 			  $GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'] => "/(p\d+)$/",
-			  $GLOBALS['OMV_REGEX_DEVNAME_DEVICEMAPPER'] => "//"
+			  $GLOBALS['OMV_REGEX_DEVNAME_DEVICEMAPPER'] => "//",
+			  $GLOBALS['OMV_REGEX_DEVNAME_LOOPDEVICE'] => "//"
 		  );
 		$storageDeviceFile = FALSE;
 		$deviceFile = $this->getDeviceFile();
 		// The following line is not necessary but will be kept to be safe.
 		// If the device file looks like /dev/disk/by-(id|label|path|uuid)/*
 		// then it is necessary to get the /dev/xxx equivalent.
-		if(1 == preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile)) {
+		if(1 == preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile))
 			$deviceFile = realpath($deviceFile);
-		}
 		// Truncate the partition appendix, e.g.:
 		// - /dev/sdb1 => /dev/sdb
 		// - /dev/cciss/c0d0p2 => /dev/cciss/c0d0
 		// - /dev/mapper/vg0-lv0 => /dev/mapper/vg0-lv0
 		// - /dev/dm-0 => /dev/dm-0
 		// - /dev/md0 => /dev/md0
+		// - /dev/loop0 => /dev/loop0
 		$deviceName = str_replace("/dev/", "", $deviceFile);
 		foreach($conf as $confk => $confv) {
 			if(1 == preg_match("/^{$confk}(\d+|p\d+)?$/i", $deviceName)) {
@@ -1279,20 +1280,21 @@ class OMVStorageDeviceFactory extends OMVObject {
 			  $GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'] => "OMVHardDiskDevice",
 			  $GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'] => "OMVSoftwareRaidDevice",
 			  $GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'] => "OMVHardwareRaidDevice",
-			  $GLOBALS['OMV_REGEX_DEVNAME_DEVICEMAPPER'] => "OMVDeviceMapperDevice"
+			  $GLOBALS['OMV_REGEX_DEVNAME_DEVICEMAPPER'] => "OMVDeviceMapperDevice",
+			  $GLOBALS['OMV_REGEX_DEVNAME_LOOPDEVICE'] => "OMVLoopDevice"
 		  );
 		$object = NULL;
 		// Store original function argument for later usage.
 		$arg = $deviceFile;
 		// If the device file looks like /dev/disk/by-(id|label|path|uuid)/*
 		// then it is necessary to get the /dev/xxx equivalent.
-		if(1 == preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile)) {
+		if(1 == preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile))
 			$deviceFile = realpath($deviceFile);
-		}
 		// Extract the device name, e.g.:
 		// - /dev/sdb => sdb
 		// - /dev/cciss/c0d0 => cciss/c0d0
 		// - /dev/mapper/vg0-lv0 => mapper/vg0-lv0
+		// - /dev/loop1 => loop1
 		$deviceName = str_replace("/dev/", "", $deviceFile);
 		foreach($conf as $confk => $confv) {
 			if(1 == preg_match("/^{$confk}$/i", $deviceName)) {
@@ -1313,7 +1315,8 @@ class OMVStorageDevices extends OMVObject {
 	const HARDDISK = 0x1;
 	const SOFTWARERAID = 0x2;
 	const HARDWARERAID = 0x4;
-	const ALL = 0x7;
+	const LOOPDEVICE = 0x8;
+	const ALL = 0xF;
 
 	/**
 	 * Enumerate devices matching the given type.
@@ -1330,6 +1333,8 @@ class OMVStorageDevices extends OMVObject {
 			$args[] = $GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'];
 		if($type & OMVStorageDevices::HARDWARERAID)
 			$args[] = $GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'];
+		if($type & OMVStorageDevices::LOOPDEVICE)
+			$args[] = $GLOBALS['OMV_REGEX_DEVNAME_LOOPDEVICE'];
 		$regex = sprintf('/^\s+(\d+)\s+(\d+)\s+(\d+)\s+(%s)$/',
 		  implode("|", $args));
 		// Process partitions detected by the kernel.
@@ -1915,6 +1920,14 @@ class OMVDeviceMapperDevice extends OMVStorageDeviceAbstract {
 }
 
 /**
+ * This class provides a simple interface to handle loop devices.
+ * @ingroup api
+ */
+class OMVLoopDevice extends OMVStorageDeviceAbstract {
+	// Nothing to do here.
+}
+
+/**
  * Helper class that provides various functions regarding the systems network
  * configuration.
  * @ingroup api
@@ -1928,9 +1941,8 @@ class OMVNetwork extends OMVObject {
 	public static function getHostname($options) {
 		$cmd = sprintf("export LANG=C; hostname %s", $options);
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if($result !== 0)
 			return FALSE;
-		}
 		return $output[0];
 	}
 
@@ -1941,9 +1953,8 @@ class OMVNetwork extends OMVObject {
 	public static function getDomain() {
 		$cmd = "export LANG=C; hostname -d";
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if($result !== 0)
 			return FALSE;
-		}
 		return $output[0];
 	}
 }
@@ -1960,9 +1971,8 @@ class OMVNetworkInterfaces extends OMVObject {
 	public static function get() {
 		$cmd = "ls /sys/class/net | grep -E '^[a-z]+[0-9]+|lo$'";
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if($result !== 0)
 			return FALSE;
-		}
 		return $output;
 	}
 
@@ -1975,9 +1985,8 @@ class OMVNetworkInterfaces extends OMVObject {
 		$cmd = sprintf("ls /sys/class/net | grep %s", escapeshellarg(
 		  $type));
 		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if($result !== 0)
 			return FALSE;
-		}
 		return $output;
 	}
 }

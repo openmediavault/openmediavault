@@ -17,7 +17,7 @@ set -e
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DAEMON=/usr/sbin/omv-engined
 NAME=omv-engined
-DESC="engine daemon"
+DESC="OpenMediaVault engine daemon"
 PIDFILE=/var/run/$NAME.pid
 DAEMON_OPTS=""
 

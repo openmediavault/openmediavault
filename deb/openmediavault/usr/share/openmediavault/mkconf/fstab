@@ -28,14 +28,14 @@ OMV_FSTAB_CONFIG=${OMV_FSTAB_CONFIG:-"/etc/fstab"}
 OMV_FSTAB_SECTIONNAME=${OMV_FSTAB_SECTIONNAME:-"openmediavault"}
 
 # Create list of mount entries stored in database. Take care about the order
-# of lines, binds must be located at the end.
+# of lines, 'binds' or 'loop' must be located at the end.
 mntent=$(echo -n "# >>> [${OMV_FSTAB_SECTIONNAME}]\n"; xmlstarlet sel -t \
-  -m "//system/fstab/mntent[not(contains(opts,'bind'))]" \
+  -m "//system/fstab/mntent[not(contains(opts,'bind') or contains(opts,'loop'))]" \
 	-v uuid \
 	-i "position() != last()" -n -b \
   -b \
-  -i "count(//system/fstab/mntent[contains(opts,'bind')]) > 0" -n -b \
-  -m "//system/fstab/mntent[contains(opts,'bind')]" \
+  -i "count(//system/fstab/mntent[contains(opts,'bind') or contains(opts,'loop')]) > 0" -n -b \
+  -m "//system/fstab/mntent[contains(opts,'bind') or contains(opts,'loop')]" \
 	-v uuid \
 	-i "position() != last()" -n -b \
   -b \

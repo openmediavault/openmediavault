@@ -427,7 +427,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
-					idProperty: "num",
+					idProperty: "devicefile",
 					fields: [
 						{ name: "uuid", type: "string" },
 						{ name: "devicefile", type: "string" },
