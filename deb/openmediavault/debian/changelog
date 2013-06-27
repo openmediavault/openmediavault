@@ -2,6 +2,8 @@ openmediavault (0.4.33) stable; urgency=low
 
   * Add omv-release-upgrade command to easily upgrade to the latest release
     version.
+  * Mantis 0000784: System fails to boot without ineraction when harddisc has
+    been removed.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 18 Jun 2013 20:14:03 +0200
 

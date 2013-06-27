@@ -453,6 +453,15 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.4.31"; then
 			omv-mkconf samba
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.33"; then
+			omv_set_default "OMV_FSTAB_MNTOPS_EXT3", "defaults,nofail,acl,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0"
+			omv_set_default "OMV_FSTAB_MNTOPS_EXT4", "defaults,nofail,acl,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0"
+			omv_set_default "OMV_FSTAB_MNTOPS_JFS", "defaults,nofail,noexec,usrquota,grpquota"
+			omv_set_default "OMV_FSTAB_MNTOPS_XFS", "defaults,nofail,noexec,usrquota,grpquota"
+			omv_set_default "OMV_FSTAB_MNTOPS_VFAT", "defaults,nofail"
+			omv_set_default "OMV_FSTAB_MNTOPS_NTFS", "defaults,nofail"
+			omv_set_default "OMV_FSTAB_MNTOPS_HFSPLUS", "defaults,nofail,force"
+		fi
 	;;
 
 	triggered)
