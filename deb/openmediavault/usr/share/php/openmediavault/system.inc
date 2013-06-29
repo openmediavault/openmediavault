@@ -361,7 +361,8 @@ class OMVFilesystems extends OMVObject {
 				"label" => "",
 				"type" => ""
 			);
-			$output = explode(" ", $matches[2]);
+			$output = preg_split("/(\S+=\\\"[^\\\"]+\\\")|[\s]+/", $matches[2],
+			  -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
 			foreach ($output as $outputk => &$outputv) {
 				$keyValue = explode("=", $outputv);
 				if (count($keyValue) != 2)
