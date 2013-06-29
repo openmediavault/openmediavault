@@ -82,6 +82,11 @@ class OMVModuleMonit extends OMVModuleServiceAbstract
 				  "id" => "monitmemoryusage",
 				  "type" => getText("System"),
 				  "title" => gettext("Memory usage")
+			  ),
+			  array(
+				  "id" => "monitfilesystems",
+				  "type" => getText("Storage"),
+				  "title" => gettext("Filesystems")
 			  )
 		  );
 	}
@@ -97,6 +102,10 @@ class OMVModuleMonit extends OMVModuleServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.notification.notifications",
+		  array($this, "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
+		  "org.openmediavault.system.fstab.mntent",
 		  array($this, "setDirty"));
     }
 }

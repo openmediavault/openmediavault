@@ -432,9 +432,8 @@ class OMVFilesystem extends OMVObject {
 		// Note, limit this to the given types, otherwise unexpected behaviors
 		// might occur, e.g. the name of the LVM device /dev/mapper/vg0-lv0
 		// will be replaced by /dev/dm-0.
-		if(1 == preg_match("/^\/dev\/disk\/by-.+$/", $this->deviceFile)) {
+		if(1 == preg_match("/^\/dev\/disk\/by-.+$/", $this->deviceFile))
 			$this->deviceFile = realpath($this->deviceFile);
-		}
 
 		// Get the filesystem details.
 		$cmd = sprintf("export LANG=C; blkid -p %s", $this->deviceFile);
@@ -458,7 +457,8 @@ class OMVFilesystem extends OMVObject {
 			"pttype" => "",
 			"usage" => ""
 		);
-		$output = explode(" ", $matches[2]);
+		$output = preg_split("/(\S+=\\\"[^\\\"]+\\\")|[\s]+/", $matches[2],
+		  -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
 		foreach($output as $outputk => &$outputv) {
 			$keyValue = explode("=", $outputv);
 			if(count($keyValue) != 2)

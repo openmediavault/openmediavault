@@ -66,6 +66,7 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
+		// Process all configured mount points and mount them if necessary.
 		foreach($objects as $objectk => $objectv) {
 			$me = new OMVMntEnt($objectv['fsname'], $objectv['dir']);
 			// Does the directory exists.
@@ -76,6 +77,15 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 			}
 			// Is it mounted?
 			if(FALSE === $me->isMounted()) {
+				// If it's no loop or bind mount then skip mounting if the
+				// filesystem does not exist.
+				if(is_uuid($objectv['fsname']) || is_devicefile(
+				  $objectv['fsname'])) {
+					$fs = new OMVFilesystem($objectv['fsname']);
+					if(!$fs->exists())
+						continue;
+				}
+				// Mount it.
 				if(FALSE === $me->mount()) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf("Failed to mount '%s'", $objectv['fsname']));

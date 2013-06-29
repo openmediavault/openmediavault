@@ -45,6 +45,7 @@
 				<monitloadavg>1</monitloadavg>
 				<monitmemoryusage>1</monitmemoryusage>
 				<monitcpuusage>1</monitcpuusage>
+				<monitfilesystems>1</monitfilesystems>
 				<mdadm>1</mdadm>
 				<smartmontools>1</smartmontools>
 			</notifications>

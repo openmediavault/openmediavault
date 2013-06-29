@@ -44,7 +44,7 @@ mntent=$(echo -n "# >>> [${OMV_FSTAB_SECTIONNAME}]\n"; xmlstarlet sel -t \
 	  fsname=$(omv_config_get "//system/fstab/mntent[uuid='${uuid}']/fsname")
 	  dir=$(omv_config_get "//system/fstab/mntent[uuid='${uuid}']/dir")
 	  # Modify spec field if it contains a UUID
-	  if omv_isfsuuid ${fsname}; then
+	  if omv_isfsuuid "${fsname}"; then
 		  fsname="UUID=${fsname}"
 	  fi
 	  # Print mount entry line.

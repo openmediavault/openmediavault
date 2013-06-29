@@ -704,6 +704,31 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 		});
 	},
 
+	startDeletion: function(records) {
+		var me = this;
+		if(records.length <= 0)
+			return;
+		OMV.MessageBox.show({
+			title: _("Delete filesystem"),
+			msg: _("Do you really want to delete the filesystem? All data will be lost."),
+			icon: Ext.Msg.WARNING,
+			buttonText: {
+				yes: _("No"),
+				no: _("Yes")
+			},
+			scope: me,
+			fn: function(answer) {
+				switch(answer) {
+				  case "no": // Attention, switched buttons.
+					me.superclass.startDeletion.apply(this, [ records ]);
+					break;
+				default:
+					break;
+				}
+			}
+		});
+	},
+
 	doDeletion: function(record) {
 		var me = this;
 		// Prefer the filesystem UUID, but in some cases a filesystem does not

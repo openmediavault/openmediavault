@@ -759,7 +759,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 			scope: me,
 			fn: function(answer) {
 				me.deleteRecursive = false;
-				switch (answer) {
+				switch(answer) {
 				case "no": // Recursively delete data
 					OMV.MessageBox.show({
 						title: _("Confirmation"),
@@ -773,7 +773,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 							}
 						},
 						scope: this,
-						icon: Ext.Msg.QUESTION
+						icon: Ext.Msg.WARNING
 					});
 					break;
 				case "yes": // Configuration only

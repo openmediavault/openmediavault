@@ -190,6 +190,7 @@ case "$1" in
 			omv_config_add_element "/config/system/notification/notifications" "monitloadavg" "1"
 			omv_config_add_element "/config/system/notification/notifications" "monitmemoryusage" "1"
 			omv_config_add_element "/config/system/notification/notifications" "monitcpuusage" "1"
+			omv_config_add_element "/config/system/notification/notifications" "monitfilesystems" "1"
 			omv_config_add_element "/config/system/notification/notifications" "mdadm" "1"
 			omv_config_add_element "/config/system/notification/notifications" "smartmontools" "1"
 			# Add new Rsync module option.

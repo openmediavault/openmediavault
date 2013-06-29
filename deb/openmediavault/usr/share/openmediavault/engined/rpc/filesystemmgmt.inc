@@ -655,14 +655,15 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		// wipefs: error: /dev/sdh1: appears to contain 'dos' partition table
 		if(in_array($fs->getPartitionType(), array("dos", "vfat"))) {
 			// http://en.wikipedia.org/wiki/Master_boot_record
-			$cmd = sprintf("dd if=/dev/zero of=%s bs=512 count=1 2>&1",
-			  $fs->getDeviceFile());
+			$cmd = sprintf("export LANG=C; dd if=/dev/zero of=%s bs=512 ".
+			  "count=1 2>&1", $fs->getDeviceFile());
 			if(0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
 		}
-		$cmd = sprintf("wipefs -a %s 2>&1", $fs->getDeviceFile());
+		$cmd = sprintf("export LANG=C; wipefs -a %s 2>&1",
+		  $fs->getDeviceFile());
 		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
@@ -759,7 +760,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					  "type" => $fs->getType(),
 					  "opts" => $opts,
 					  "freq" => 0,
-					  "passno" => (TRUE === $sd->isUsb()) ? 0 : 2
+					  "passno" => 2
 				  ), $context);
 				// Apply the changes to the '/etc/fstab' file immediately
 				// to mount the filesystem.

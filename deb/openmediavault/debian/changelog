@@ -2,6 +2,7 @@ openmediavault (0.5.0.14) stable; urgency=low
 
   * Various improvements and bugfixes.
   * Modify fstab script to write special fstab entries at the end.
+  * Add option to disable Monit notifications when a filesystem gets low.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Jun 2013 10:42:31 +0200
 
