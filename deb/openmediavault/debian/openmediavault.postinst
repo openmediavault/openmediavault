@@ -461,6 +461,8 @@ case "$1" in
 			omv_set_default "OMV_FSTAB_MNTOPS_VFAT", "defaults,nofail"
 			omv_set_default "OMV_FSTAB_MNTOPS_NTFS", "defaults,nofail"
 			omv_set_default "OMV_FSTAB_MNTOPS_HFSPLUS", "defaults,nofail,force"
+			omv-mkconf monit
+			invoke-rc.d monit restart
 		fi
 	;;
 
