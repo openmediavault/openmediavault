@@ -34,17 +34,7 @@ class OMVSystem {
 	 * or FALSE on failure.
 	 */
 	public static function getRootPartition() {
-		$cmd = "export LANG=C; mount | grep -i 'on / '";
-		$data = @OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
-			return FALSE;
-		// Parse output:
-		// /dev/sda1 on / type ext4 (rw,errors=remount-ro)
-		// /dev/disk/by-uuid/3626fbc4-2e32-435a-bcf4-52ce08469100 on / type ext4 (rw,relatime,errors=remount-ro,user_xattr,barrier=1,data=ordered)
-		$data = explode(" ", $data);
-		// Get the device file.
-		$sd = OMVStorageDeviceFactory::get($data[0]);
-		return $sd->getDeviceFile();
+		return realpath("/dev/root");
 	}
 
 	/**
