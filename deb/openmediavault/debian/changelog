@@ -4,6 +4,7 @@ openmediavault (0.4.33) stable; urgency=low
   * Disable 'Action done' messages send by Monit.
   * Add omv-release-upgrade command to easily upgrade to the latest release
     version.
+  * Improve OMVSystem::getRootPartition() method.
   * Mantis 0000784: System fails to boot without ineraction when harddisc has
     been removed.
 
