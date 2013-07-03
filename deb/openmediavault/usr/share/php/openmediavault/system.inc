@@ -36,13 +36,7 @@ class OMVSystem extends OMVObject {
 	 *   on or FALSE on failure.
 	 */
 	public static function getRootDeviceFile() {
-		$cmd = "export LANG=C; mount | grep -i 'on / '";
-		$data = @OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
-			return FALSE;
-		}
-		$data = explode(" ", $data);
-		return $data[0];
+		return realpath("/dev/root");
 	}
 
 	/**
@@ -1071,14 +1065,8 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * See interface definition.
 	 */
 	public function getDeviceFile() {
-		if(!$this->deviceFile) {
-			$cmd = sprintf("export LANG=C; readlink -e %s",
-			  escapeshellarg($this->deviceFileById));
-			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0)
-				return FALSE;
-			$this->deviceFile = $output[0];
-		}
+		if(!$this->deviceFile)
+			$this->deviceFile = realpath($this->deviceFileById);
 		return $this->deviceFile;
 	}
 
