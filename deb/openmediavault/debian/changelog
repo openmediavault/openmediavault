@@ -1,11 +1,12 @@
 openmediavault (0.5.0.14) stable; urgency=low
 
+  * Update locales.
   * Various improvements and bugfixes.
   * Modify fstab script to write special fstab entries at the end.
   * Add option to disable Monit notifications when a filesystem gets low.
   * Mantis 0000787: Display more SSH informations.
 
- -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Jun 2013 10:42:31 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 05 Jul 2013 19:40:10 +0200
 
 openmediavault (0.5.0.13) stable; urgency=low
 

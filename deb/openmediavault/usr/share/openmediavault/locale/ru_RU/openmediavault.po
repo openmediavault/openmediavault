@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:05+0200\n"
-"PO-Revision-Date: 2013-06-17 06:10+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2013-07-05 19:29+0200\n"
+"PO-Revision-Date: 2013-07-05 17:30+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -635,6 +635,9 @@ msgstr "Конго (Бразавиль)"
 msgid "Congo (Kinshasa)"
 msgstr "Конго (Киншаса)"
 
+msgid "Connections"
+msgstr ""
+
 msgid "Contact"
 msgstr "Связаться"
 
@@ -681,6 +684,9 @@ msgstr "Куба"
 
 msgid "Current time"
 msgstr "Текущее время"
+
+msgid "Currently logged in users"
+msgstr ""
 
 msgid "Currently logged in users:"
 msgstr "Зарегистрированные пользователи:"
@@ -729,6 +735,9 @@ msgstr "Удалить содержимое"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Удалять файлы на стороне получателя, которые не существуют у отправителя"
+
+msgid "Delete filesystem"
+msgstr ""
 
 msgid "Deleting selected item(s)"
 msgstr "Удалить выделенные элементы"
@@ -818,6 +827,9 @@ msgstr "Вы действительно хотите очистить лог ф�
 
 msgid "Do you really want to create the RAID device?"
 msgstr "Вы действительно хотите создать массив RAID?"
+
+msgid "Do you really want to delete the filesystem? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Вы действительно хотите удалить выбранные элементы?"
@@ -1951,6 +1963,9 @@ msgstr "Без аутентификации и конфиденциальнос�
 
 msgid "No certificate request"
 msgstr "Нет запроса на сертификат"
+
+msgid "No connections"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Нет объектов для отображения"

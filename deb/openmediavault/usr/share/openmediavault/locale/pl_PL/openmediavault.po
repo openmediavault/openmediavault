@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:05+0200\n"
-"PO-Revision-Date: 2013-06-17 10:02+0000\n"
-"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
+"POT-Creation-Date: 2013-07-05 19:29+0200\n"
+"PO-Revision-Date: 2013-07-05 17:30+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -158,7 +158,7 @@ msgid "9 months"
 msgstr "9 miesięcy"
 
 msgid "A share with the name '%s' already exists"
-msgstr ""
+msgstr "Udział o nazwie '%s' już istnieje"
 
 msgid "A shared folder with the given name already exists"
 msgstr "Udostępniony katalog z podaną nazwą już istnieje."
@@ -209,7 +209,7 @@ msgid "Add rule"
 msgstr "Dodaj regułę"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Dodaj zaplanowane zadanie"
 
 msgid "Add scheduled test"
 msgstr "Dodaj zaplanowany test"
@@ -339,7 +339,7 @@ msgid "Apply"
 msgstr "Zastosuj"
 
 msgid "Apply configuration changes"
-msgstr ""
+msgstr "Zapisz zmiany konfiguracji"
 
 msgid "Apply permissions to files and subfolders"
 msgstr "Zastosuj uprawnienia do plików i podfolderów"
@@ -363,7 +363,7 @@ msgid "Aruba"
 msgstr "Aruba"
 
 msgid "Asynchronous I/O"
-msgstr ""
+msgstr "Asynchroniczne I/O"
 
 msgid "Attribute name"
 msgstr "Nazwa atrybutu"
@@ -634,6 +634,9 @@ msgstr "Congo (Brazzaville)"
 msgid "Congo (Kinshasa)"
 msgstr "Congo (Kinshasa)"
 
+msgid "Connections"
+msgstr ""
+
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -680,6 +683,9 @@ msgstr "Cuba"
 
 msgid "Current time"
 msgstr "Aktualny czas"
+
+msgid "Currently logged in users"
+msgstr ""
 
 msgid "Currently logged in users:"
 msgstr "Aktualnie zalogowani użytkownicy:"
@@ -728,6 +734,9 @@ msgstr "Usuń zawartość"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Kasuj pliki po stronie odbiorczej, nie istniejące po stronie nadawczej"
+
+msgid "Delete filesystem"
+msgstr ""
 
 msgid "Deleting selected item(s)"
 msgstr "Kasowanie wybranego elementu(ów)"
@@ -810,13 +819,16 @@ msgid "Djibouti"
 msgstr "Djibouti"
 
 msgid "Do you really want to apply the configuration?"
-msgstr ""
+msgstr "Czy naprawdę chcesz zapisać konfigurację?"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Czy na pewno chcesz usunąć plik dziennika?"
 
 msgid "Do you really want to create the RAID device?"
 msgstr "Czy na pewno chcesz utworzyć urządzenie RAID?"
+
+msgid "Do you really want to delete the filesystem? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Czy na pewno chcesz usunąć wybrane(y) produkt(y)?"
@@ -942,7 +954,7 @@ msgid "Edit rule"
 msgstr "Edytuj regułę"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Edytuj zaplanowane zadanie"
 
 msgid "Edit scheduled test"
 msgstr "Edycja zaplanowanego testu"
@@ -990,10 +1002,10 @@ msgid "Enable archive mode"
 msgstr "Włącz tryb archiwizacji"
 
 msgid "Enable asynchronous I/O (AIO) support."
-msgstr ""
+msgstr "Włącz wsparcie ssynchronicznego I/O (AIO)"
 
 msgid "Enable chroot."
-msgstr ""
+msgstr "Włącz chroot"
 
 msgid "Enable compression"
 msgstr "Włącz kompresje"
@@ -1128,22 +1140,22 @@ msgid "Failed to get filesystems"
 msgstr "Nie udało się uzyskać systemów plików"
 
 msgid "Failed to get list of groups."
-msgstr ""
+msgstr "Nie udało się pobrać listy grup."
 
 msgid "Failed to get list of logical volumes"
-msgstr ""
+msgstr "Nie udało się pobrać listy logicznych dysków"
 
 msgid "Failed to get list of physical volumes"
-msgstr ""
+msgstr "Nie udało się pobrać listy fizycznych dysków"
 
 msgid "Failed to get list of software RAID devices"
-msgstr ""
+msgstr "Nie udało się pobrać listy urządzeń programowych RAID"
 
 msgid "Failed to get list of users."
-msgstr ""
+msgstr "Nie udało się pobrać listy użytkowników."
 
 msgid "Failed to get shadow password suite configuration."
-msgstr ""
+msgstr "Nie udało się uzyskać cienia hasła konfiguracji pakietu."
 
 msgid "Falkland Islands"
 msgstr "Falkland Islands"
@@ -1437,10 +1449,10 @@ msgid "Import users"
 msgstr "Importuj użytkowników"
 
 msgid "Importing groups ..."
-msgstr ""
+msgstr "Importuję grupy..."
 
 msgid "Importing users ..."
-msgstr ""
+msgstr "Importuje użytkowników ..."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1463,7 +1475,7 @@ msgid "Indonesia"
 msgstr "Indonesia"
 
 msgid "Info"
-msgstr ""
+msgstr "Info"
 
 msgid "Informal"
 msgstr "Nieformalny"
@@ -1951,6 +1963,9 @@ msgstr "Brak uwierzytelniania i prywatności"
 msgid "No certificate request"
 msgstr "Brak żądania certyfikatu"
 
+msgid "No connections"
+msgstr ""
+
 msgid "No items to display"
 msgstr "Brak elementów do wyświetlenia"
 
@@ -1994,10 +2009,10 @@ msgid "Not UDP"
 msgstr "Bez UDP"
 
 msgid "Notification"
-msgstr ""
+msgstr "Powiadomienie"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Powiadomienia"
 
 msgid "November"
 msgstr "Listopad"
@@ -2269,7 +2284,7 @@ msgid "Privileges"
 msgstr "Przywileje"
 
 msgid "Process monitoring"
-msgstr ""
+msgstr "Monitoring proscesów"
 
 msgid "Processes"
 msgstr "Procesy"
@@ -2308,7 +2323,7 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
 msgstr "RAID 5"
@@ -2441,7 +2456,7 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. information"
-msgstr ""
+msgstr "Informacje S.M.A.R.T."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "Monitoring S.M.A.R.T. musi być aktywny dla wybranego urządzenia"
@@ -2504,7 +2519,7 @@ msgid "Saudi Arabia"
 msgstr "Saudi Arabia"
 
 msgid "Save"
-msgstr ""
+msgstr "Zapisz"
 
 msgid "Saving ..."
 msgstr "Zapisuje ..."
@@ -2516,7 +2531,7 @@ msgid "Scanning for new devices ..."
 msgstr "Trwa skanowanie w poszukiwaniu nowych urządzeń..."
 
 msgid "Scheduled jobs"
-msgstr ""
+msgstr "Zaplanowane zadania"
 
 msgid "Scheduled tests"
 msgstr "Zaplanowane testy"
@@ -2588,7 +2603,7 @@ msgid "Self-test logs"
 msgstr "Logi self-test"
 
 msgid "Send a test email"
-msgstr ""
+msgstr "Wyślij testowy email"
 
 msgid "Send command output via email"
 msgstr "Wyślij wynik polecenia przez e-mail"
@@ -2597,7 +2612,7 @@ msgid "Send email"
 msgstr "Wyślij email"
 
 msgid "Sender email"
-msgstr ""
+msgstr "E-mail nadawcy"
 
 msgid "Sending test email ..."
 msgstr "Wysyłam testowy email ..."
@@ -2633,10 +2648,10 @@ msgid "Services"
 msgstr "Usługi"
 
 msgid "Session expired."
-msgstr ""
+msgstr "Sesja wygasa."
 
 msgid "Session not authenticated."
-msgstr ""
+msgstr "Sesja nie uwierzytelniona."
 
 msgid "Session timeout"
 msgstr "Sesja wygasła"
@@ -2685,7 +2700,7 @@ msgid "Show certificate"
 msgstr "Pokaż certyfikat"
 
 msgid "Show changelog"
-msgstr ""
+msgstr "Pokaż logi zmian"
 
 msgid "Show details"
 msgstr "Pokaż szczegóły"
@@ -2727,7 +2742,7 @@ msgid "Slovenia"
 msgstr "Slovenia"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "Programowy RAID"
 
 msgid "Solomon Islands"
 msgstr "Solomon Islands"
@@ -3013,7 +3028,7 @@ msgid ""
 msgstr "Czas limit sesji w minutach. Ustaw na 0, aby wyłączyć automatyczne wylogowanie."
 
 msgid "The shared folder is already used by another share."
-msgstr ""
+msgstr "Współdzielony katalog jest użytkowany przez inny zasób."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3066,7 +3081,7 @@ msgid "This field does not allow blanks"
 msgstr "To pole nie może być puste"
 
 msgid "This field is required"
-msgstr ""
+msgstr "To pole jest wymagane"
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "To pole musi mieć format gg:mm:ss"
@@ -3387,7 +3402,7 @@ msgid "Use SSL/TLS secure connection"
 msgstr "Użyj bezpiecznego połączenia SSL/TLS"
 
 msgid "Use chroot"
-msgstr ""
+msgstr "Użyj chroot"
 
 msgid "Use sendfile"
 msgstr "Użyj Wyślij plik"
@@ -3497,7 +3512,7 @@ msgid "Web Administrator Password"
 msgstr "Hasło administratora"
 
 msgid "Web administration"
-msgstr ""
+msgstr "Panel Administracyjny"
 
 msgid "Web administration interface"
 msgstr "Interfejs panelu administracyjnego"

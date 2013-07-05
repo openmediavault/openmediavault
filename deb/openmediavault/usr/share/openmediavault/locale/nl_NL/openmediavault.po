@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:05+0200\n"
-"PO-Revision-Date: 2013-06-16 11:05+0000\n"
+"POT-Creation-Date: 2013-07-05 19:29+0200\n"
+"PO-Revision-Date: 2013-07-05 17:30+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -632,6 +632,9 @@ msgstr "Congo (Brazzaville)"
 msgid "Congo (Kinshasa)"
 msgstr "Congo (Kinshasa)"
 
+msgid "Connections"
+msgstr ""
+
 msgid "Contact"
 msgstr "Contact"
 
@@ -678,6 +681,9 @@ msgstr "Cuba"
 
 msgid "Current time"
 msgstr "Huidige tijd"
+
+msgid "Currently logged in users"
+msgstr ""
 
 msgid "Currently logged in users:"
 msgstr "Huidige ingelogde gebruikers"
@@ -726,6 +732,9 @@ msgstr "Verwijder inhoud"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Verwijder bestanden aan de ontvangende kant die niet bestaan bij de verzender"
+
+msgid "Delete filesystem"
+msgstr ""
 
 msgid "Deleting selected item(s)"
 msgstr "Verwijder geselecteerde item(s)"
@@ -815,6 +824,9 @@ msgstr "Weet u zeker dat u de log bestanden wilt wissen?"
 
 msgid "Do you really want to create the RAID device?"
 msgstr "Weet u zeker dat u het RAID apparaat wilt creëren?"
+
+msgid "Do you really want to delete the filesystem? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Weet u zeker dat u het/de geselecteerde bestand(en) wilt verwijderen?"
@@ -1948,6 +1960,9 @@ msgstr "Geen authenticatie en geen privacy"
 
 msgid "No certificate request"
 msgstr "Geen certificaat vereist"
+
+msgid "No connections"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Geen items om weer te geven"

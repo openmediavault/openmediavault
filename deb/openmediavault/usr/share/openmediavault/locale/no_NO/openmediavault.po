@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:05+0200\n"
-"PO-Revision-Date: 2013-06-16 11:05+0000\n"
+"POT-Creation-Date: 2013-07-05 19:29+0200\n"
+"PO-Revision-Date: 2013-07-05 17:30+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -631,6 +631,9 @@ msgstr "Republikken Kongo"
 msgid "Congo (Kinshasa)"
 msgstr "Kongo"
 
+msgid "Connections"
+msgstr ""
+
 msgid "Contact"
 msgstr "Kontakt"
 
@@ -677,6 +680,9 @@ msgstr "Kuba"
 
 msgid "Current time"
 msgstr "Gjeldende tid"
+
+msgid "Currently logged in users"
+msgstr ""
 
 msgid "Currently logged in users:"
 msgstr "Inloggede brukere:"
@@ -725,6 +731,9 @@ msgstr "Slett innhold"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Fjern filer på mottagende side som ikke eksisterer hos sender"
+
+msgid "Delete filesystem"
+msgstr ""
 
 msgid "Deleting selected item(s)"
 msgstr "Sletter valgte element(er)"
@@ -814,6 +823,9 @@ msgstr "Ønsker du virkelig å slette loggfilen?"
 
 msgid "Do you really want to create the RAID device?"
 msgstr "Ønsker du virkelig å opprette en RAID enhet?"
+
+msgid "Do you really want to delete the filesystem? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Ønsker du virkelig å slette utvalget?"
@@ -1947,6 +1959,9 @@ msgstr "Ingen autentisering og ingen kryptering"
 
 msgid "No certificate request"
 msgstr "Sertifikat kreves ikke"
+
+msgid "No connections"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Ingen elementer å vise"

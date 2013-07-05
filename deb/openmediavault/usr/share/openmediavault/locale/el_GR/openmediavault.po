@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:05+0200\n"
-"PO-Revision-Date: 2013-06-16 11:05+0000\n"
+"POT-Creation-Date: 2013-07-05 19:29+0200\n"
+"PO-Revision-Date: 2013-07-05 17:30+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -630,6 +630,9 @@ msgstr "Congo (Brazzaville)"
 msgid "Congo (Kinshasa)"
 msgstr "Congo (Kinshasa)"
 
+msgid "Connections"
+msgstr ""
+
 msgid "Contact"
 msgstr "Επικοινωνία"
 
@@ -676,6 +679,9 @@ msgstr "Cuba"
 
 msgid "Current time"
 msgstr "Τρέχουσα ώρα"
+
+msgid "Currently logged in users"
+msgstr ""
 
 msgid "Currently logged in users:"
 msgstr "Συνδεδεμένοι χρήστες :"
@@ -724,6 +730,9 @@ msgstr "Διαγραφή περιεχομένων"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Διαγραφή αρχείων του λήπτη που δεν υπάρχουν στον αποστολέα"
+
+msgid "Delete filesystem"
+msgstr ""
 
 msgid "Deleting selected item(s)"
 msgstr "Διαγραφή επιλεγμένων"
@@ -813,6 +822,9 @@ msgstr "Να καθαριστεί το αρχείο καταγραφής;"
 
 msgid "Do you really want to create the RAID device?"
 msgstr "Να δημιουργηθεί η συσκευή RAID;"
+
+msgid "Do you really want to delete the filesystem? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Να διαγραφούν τα επιλεγμένα;"
@@ -1946,6 +1958,9 @@ msgstr "Χωρίς πιστοποίηση και χωρίς ιδιοτικότη
 
 msgid "No certificate request"
 msgstr "Δεν απαιτείται πιστοποιητικό"
+
+msgid "No connections"
+msgstr ""
 
 msgid "No items to display"
 msgstr "Δεν υπάρχει τίποτα προς εμφάνιση"
