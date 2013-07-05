@@ -148,13 +148,24 @@ class OMVRpcServiceSsh extends OMVRpcServiceAbstract {
 			$stats = gettext("Service disabled");
 		} else {
 			// Get users currently logged in.
+			$stats = sprintf("%s:\n", gettext("Currently logged in users"));
 			$cmd = "who -u 2>&1";
 			if(0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
-			$stats = implode("\n", $output);
-			$stats = empty($stats) ? gettext("No users connected") : $stats;
+			$stats .= empty($output) ? gettext("No users connected") :
+			  implode("\n", $output);
+			// Get connections.
+			$cmd = sprintf("lsof -n -s TCP:ESTABLISHED -i :%d 2>&1",
+			  $object['port']);
+			if(0 !== $this->exec($cmd, $output)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
+			$stats .= sprintf("\n\n%s:\n", gettext("Connections"));
+			$stats .= empty($output) ? gettext("No connections") :
+			  implode("\n", $output);
 		}
 		return $stats;
 	}
