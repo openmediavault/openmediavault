@@ -206,6 +206,8 @@ case "$1" in
 			omv_config_add_element "/config/services/smart/scheduledtests/job" "enable" "1"
 			# Remove user 'openmediavault' from sudoers list.
 			sed -i -e '/^%openmediavault/d' /etc/sudoers
+			# Recreate certificates.
+			omv-mkconf certificates
 			# Start engine.
 			omv-mkconf monit
 			invoke-rc.d monit restart

@@ -88,7 +88,7 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Job", {
 				},
 				sorters: [{
 					direction: "ASC",
-					property: "devicefilebyid"
+					property: "description"
 				}]
 			}),
 			emptyText: _("Select a device ..."),

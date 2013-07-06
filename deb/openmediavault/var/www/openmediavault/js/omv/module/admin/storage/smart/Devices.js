@@ -286,7 +286,9 @@ Ext.define("OMV.module.admin.storage.smart.device.Stats", {
 	title: _("S.M.A.R.T. information"),
 	width: 700,
 	height: 350,
+	hideOkButton: true,
 	hideCancelButton: true,
+	hideCloseButton: false,
 	hideResetButton: true,
 
 	getTabItems: function() {
