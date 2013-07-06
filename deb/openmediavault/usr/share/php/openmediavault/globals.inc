@@ -53,6 +53,7 @@ $OMV_UUID_UNDEFINED = "undefined";
 $OMV_MAX_LOGFILE_LINES = "100000";
 $OMV_HTTPREQUEST_TIMEOUT = "60000";
 $OMV_ENGINED_DIR = "/usr/share/openmediavault/engined";
+$OMV_ENGINED_SO_RPC_HEADER_LENGTH = 8;
 $OMV_ENGINED_SO_ADDRESS = "/var/lib/openmediavault/engined.sock";
 $OMV_ENGINED_SO_SNDTIMEO = 10;
 $OMV_ENGINED_SO_RCVTIMEO = 180;

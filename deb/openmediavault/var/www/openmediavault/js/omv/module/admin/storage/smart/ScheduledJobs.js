@@ -27,6 +27,7 @@
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
+// require("js/omv/window/Execute.js")
 
 /**
  * @class OMV.module.admin.storage.smart.schedule.Job
@@ -57,6 +58,11 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Job", {
 
 	getFormItems: function() {
 		return [{
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Enable"),
+			checked: true
+		},{
 			xtype: "combo",
 			name: "devicefile",
 			fieldLabel: _("Device"),
@@ -192,7 +198,8 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 		"OMV.data.Store",
 		"OMV.data.Model",
 		"OMV.data.proxy.Rpc",
-		"OMV.util.Format"
+		"OMV.util.Format",
+		"OMV.window.Execute"
 	],
 	uses: [
 		"OMV.module.admin.storage.smart.schedule.Job"
@@ -202,6 +209,17 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 	stateful: true,
 	stateId: "ca86feba-53c1-42b4-8eea-5119f0244fb5",
 	columns: [{
+		xtype: "booleaniconcolumn",
+		text: _("Enabled"),
+		sortable: true,
+		dataIndex: "enable",
+		stateId: "enable",
+		align: "center",
+		width: 80,
+		resizable: false,
+		trueIcon: "switch_on.png",
+		falseIcon: "switch_off.png"
+	},{
 		text: _("Device"),
 		stateId: "device",
 		sortable: true,
@@ -262,6 +280,7 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 					idProperty: "uuid",
 					fields: [
 						{ name: "uuid", type: "string" },
+						{ name: "enable", type: "boolean" },
 						{ name: "volumedevicefile", mapping: "volume.devicefile", type: "string" },
 						{ name: "volumemodel", mapping: "volume.model", type: "string" },
 						{ name: "volumesize", mapping: "volume.size", type: "string" },
@@ -283,6 +302,36 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 			})
 		});
 		me.callParent(arguments);
+	},
+
+	getTopToolbarItems: function() {
+		var me = this;
+		var items = me.callParent(arguments);
+		// Add 'Run' button to top toolbar.
+		Ext.Array.insert(items, 2, [{
+			id: me.getId() + "-run",
+			xtype: "button",
+			text: _("Run"),
+			icon: "images/play.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			handler: Ext.Function.bind(me.onRunButton, me, [ me ]),
+			scope: me,
+			disabled: true
+		}]);
+		return items;
+	},
+
+	onSelectionChange: function(model, records) {
+		var me = this;
+		me.callParent(arguments);
+		// Process additional buttons.
+		var tbarRunCtrl = me.queryById(me.getId() + "-run");
+		if(records.length <= 0)
+			tbarRunCtrl.disable();
+		else if(records.length == 1)
+			tbarRunCtrl.enable();
+		else
+			tbarRunCtrl.disable();
 	},
 
 	onAddButton: function() {
@@ -327,6 +376,25 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 				}
 			}
 		});
+	},
+
+	onRunButton: function() {
+		var me = this;
+		var record = me.getSelected();
+		Ext.create("OMV.window.Execute", {
+			title: _("Execute scheduled test"),
+			rpcService: "Smart",
+			rpcMethod: "executeScheduledTest",
+			rpcParams: {
+				uuid: record.get("uuid")
+			},
+			listeners: {
+				scope: me,
+				exception: function(wnd, error) {
+					OMV.MessageBox.error(null, error);
+				}
+			}
+		}).show();
 	}
 });
 

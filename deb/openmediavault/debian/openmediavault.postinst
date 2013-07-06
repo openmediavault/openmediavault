@@ -202,6 +202,8 @@ case "$1" in
 			# reloaded automatically.
 			omv_config_add_element "/config/services/smb" "aio" "1"
 			omv-mkconf samba
+			# Add new S.M.A.R.T. scheduled test option.
+			omv_config_add_element "/config/services/smart/scheduledtests/job" "enable" "1"
 			# Remove user 'openmediavault' from sudoers list.
 			sed -i -e '/^%openmediavault/d' /etc/sudoers
 			# Start engine.

@@ -49,6 +49,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		$this->registerMethod("getScheduledTest");
 		$this->registerMethod("setScheduledTest");
 		$this->registerMethod("deleteScheduledTest");
+		$this->registerMethod("executeScheduledTest");
 	}
 
 	/**
@@ -360,6 +361,9 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		}
 		// Add additional share informations.
 		foreach($objects as $objectk => &$objectv) {
+			// Modify result data.
+			$objectv['enable'] = boolval($objectv['enable']);
+			// Append data.
 			$objectv['volume'] = array(
 				"devicefile" => gettext("n/a"),
 				"model" => gettext("n/a"),
@@ -409,6 +413,8 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
+		// Modify the result object.
+		$object['enable'] = boolval($object['enable']);
 		return $object;
 	}
 
@@ -431,6 +437,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  "type":"object",
 			  "properties":{
 				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+				  "enable":{"type":"boolean"},
 				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
 				  "type":{"type":"string","enum":["S","L","C","O"]},
 				  "hour":{"type":"string","format":"regex",'.
@@ -454,6 +461,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		$object = array(
 			  "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 				OMVUtil::uuid() : $params['uuid'],
+			  "enable" => array_boolval($params, 'enable'),
 			  "devicefile" => $sd->getDeviceFileById(),
 			  "type" => $params['type'],
 			  "month" => $params['month'],
@@ -509,6 +517,62 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		  $params['uuid']);
 		return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.services.smart.scheduledtests.job");
+	}
+
+	/**
+	 * Execute a scheduled test.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @param context The context of the caller.
+	 * @return The name of the background process status file.
+	 * @throw E_CONFIG_DIRTY
+	 */
+	public function executeScheduledTest($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
+		// Create a background process.
+		$bgStatusFilename = $this->createBgProcStatus();
+		$pid = $this->fork();
+		if($pid > 0) { // Parent process.
+			$this->initializeBgProcStatus($bgStatusFilename, $pid);
+			return $bgStatusFilename;
+		}
+		// Child process.
+		try {
+			$bgOutputFilename = $this->createBgProcOutput();
+			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
+			  $bgOutputFilename);
+			// Get the scheduled test configuration object.
+			$object = $this->callMethod("getScheduledTest", array(
+			  "uuid" => $params['uuid']), $context);
+			// Execute the command line in a shell.
+			$test = array(
+				  "S" => "short",
+				  "L" => "long",
+				  "C" => "conveyance",
+				  "O" => "offline"
+			  );
+			$cmd = "/usr/sbin/smartctl";
+			$cmdArgs = array("-t", $test[$object['type']],
+			  $object['devicefile']);
+			if(FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd." ".implode(" ", $cmdArgs), "");
+			}
+		} catch(Exception $e) {
+			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
+			exit(1);
+		}
 	}
 }
 

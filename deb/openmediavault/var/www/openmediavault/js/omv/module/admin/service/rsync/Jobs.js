@@ -616,13 +616,12 @@ Ext.define("OMV.module.admin.service.rsync.Jobs", {
 		me.callParent(arguments);
 		// Process additional buttons.
 		var tbarRunCtrl = me.queryById(me.getId() + "-run");
-		if(records.length <= 0) {
+		if(records.length <= 0)
 			tbarRunCtrl.disable();
-		} else if(records.length == 1) {
+		else if(records.length == 1)
 			tbarRunCtrl.enable();
-		} else {
+		else
 			tbarRunCtrl.disable();
-		}
 	},
 
 	onAddButton: function() {

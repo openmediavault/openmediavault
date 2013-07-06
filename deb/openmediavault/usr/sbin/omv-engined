@@ -418,8 +418,9 @@ while(FALSE === $sigTerm) {
 		///////////////////////////////////////////////////////////////////////
 		// Read the RPC request header.
 		$header = "";
-		while(($len = strlen($header)) < 8) {
-			$data = @socket_read($conn, 8 - $len, PHP_BINARY_READ);
+		$headerLen = $GLOBALS['OMV_ENGINED_SO_RPC_HEADER_LENGTH'];
+		while(($read = strlen($header)) < $headerLen) {
+			$data = @socket_read($conn, $headerLen - $read, PHP_BINARY_READ);
 			if(FALSE === $data) {
 				@socket_close($conn);
 				error("Failed to read RPC request header: %s\n",
@@ -429,11 +430,11 @@ while(FALSE === $sigTerm) {
 			$header .= $data;
 		}
 		// Unpack header.
-		$header = unpack("Nlength/Ncrc32", $header);
+		$header = unpack("Nlength/H*crc32", $header);
 		// Read the RPC request data.
 		$request = "";
-		while(($len = strlen($request)) < $header['length']) {
-			$data = @socket_read($conn, $header['length'] - $len,
+		while(($read = strlen($request)) < $header['length']) {
+			$data = @socket_read($conn, $header['length'] - $read,
 			  PHP_BINARY_READ);
 			if(FALSE === $data) {
 				@socket_close($conn);
@@ -444,9 +445,11 @@ while(FALSE === $sigTerm) {
 			$request .= $data;
 		}
 		// Check RPC request data.
-		if($header['crc32'] != hexdec(hash("crc32b", $request))) {
+		$crc32 = hash("crc32", $request);
+		if($header['crc32'] != $crc32) {
 			@socket_close($conn);
-			error("Invalid checksum of RPC request data\n");
+			error("Invalid checksum (required=0x%s, calculated=0x%s) of RPC ".
+			  "request data\n", $header['crc32'], $crc32);
 			exit(1);
 		}
 
@@ -513,8 +516,7 @@ while(FALSE === $sigTerm) {
 			// Write RPC response.
 			///////////////////////////////////////////////////////////////////
 			// Build the response header.
-			$header = pack("NN", strlen($response), hexdec(hash("crc32b",
-			  $response)));
+			$header = pack("NH*", strlen($response), hash("crc32", $response));
 			// Build the buffer to be written to the socket.
 			$response = $header . $response;
 			if(FALSE === @socket_write($conn, $response, strlen($response))) {

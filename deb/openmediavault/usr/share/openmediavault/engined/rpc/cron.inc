@@ -90,7 +90,7 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 		$jobs = array();
 		foreach($objects as $objectk => $objectv) {
 			if(in_array($objectv['type'], $params['type'])) {
-				// Modify result data
+				// Modify result data.
 				$objectv['enable'] = boolval($objectv['enable']);
 				$objectv['sendemail'] = boolval($objectv['sendemail']);
 				$objectv['everynminute'] = boolval($objectv['everynminute']);
@@ -338,11 +338,11 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 			$object = $this->callMethod("get", array(
 			  "uuid" => $params['uuid']), $context);
 			// Execute the cron command line in a shell.
+			$cmd = "/bin/su";
 			$cmdArgs = array("-c", $object['command'], $object['username']);
-			if(FALSE === $this->execve("/bin/su", $cmdArgs,
-			  $bgOutputFilename)) {
+			if(FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  "/bin/su ".implode(" ", $cmdArgs), "");
+				  $cmd." ".implode(" ", $cmdArgs), "");
 			}
 		} catch(Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);

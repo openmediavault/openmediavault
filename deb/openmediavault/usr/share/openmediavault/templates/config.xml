@@ -364,6 +364,7 @@
 				<!--
 				<job>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<enable>0|1</enable>
 					<devicefile>/dev/xxx</devicefile>
 					<type>S|L|C|O</type>
 					<month>[01-12|*]</month>

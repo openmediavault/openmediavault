@@ -22,6 +22,7 @@
 // require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/workspace/window/Form.js")
 // require("js/omv/workspace/window/Grid.js")
+// require("js/omv/workspace/window/plugin/ConfigObject.js")
 // require("js/omv/Rpc.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")

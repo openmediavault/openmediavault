@@ -109,8 +109,7 @@ class OMVRpc extends OMVObject {
 				"context" => $context
 			));
 			// Build the header.
-			$header = pack("NN", strlen($request), hexdec(hash("crc32b",
-			  $request)));
+			$header = pack("NH*", strlen($request), hash("crc32", $request));
 			// Build the buffer to be written to the socket.
 			$request = $header . $request;
 			// Write to socket.
@@ -121,8 +120,10 @@ class OMVRpc extends OMVObject {
 			}
 			// Read the RPC response header.
 			$header = "";
-			while(($len = strlen($header)) < 8) {
-				$data = @socket_read($socket, 8 - $len, PHP_BINARY_READ);
+			$headerLen = $GLOBALS['OMV_ENGINED_SO_RPC_HEADER_LENGTH'];
+			while(($read = strlen($header)) < $headerLen) {
+				$data = @socket_read($socket, $headerLen - $read,
+				  PHP_BINARY_READ);
 				if(FALSE === $data) {
 					throw new OMVException(
 					  OMVErrorMsg::E_ENGINED_READ_SOCKET,
@@ -131,11 +132,11 @@ class OMVRpc extends OMVObject {
 				$header .= $data;
 			}
 			// Unpack header.
-			$header = unpack("Nlength/Ncrc32", $header);
+			$header = unpack("Nlength/H*crc32", $header);
 			// Read the RPC response data.
 			$response = "";
-			while(($len = strlen($response)) < $header['length']) {
-				$data = @socket_read($socket, $header['length'] - $len,
+			while(($read = strlen($response)) < $header['length']) {
+				$data = @socket_read($socket, $header['length'] - $read,
 				  PHP_BINARY_READ);
 				if(FALSE === $data) {
 					throw new OMVException(
@@ -145,10 +146,11 @@ class OMVRpc extends OMVObject {
 				$response .= $data;
 			}
 			// Check RPC response data.
-			if($header['crc32'] != hexdec(hash("crc32b", $response))) {
-				throw new OMVException(
-				  OMVErrorMsg::E_MISC_FAILURE,
-				  "Invalid checksum of RPC response.");
+			$crc32 = hash("crc32", $response);
+			if($header['crc32'] != $crc32) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("Invalid checksum (required=0x%s, calculated=0x%s) ".
+				  "of RPC response.", $header['crc32'], $crc32));
 			}
 			// Close the socket.
 			@socket_close($socket);
