@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:13+0200\n"
-"PO-Revision-Date: 2013-06-16 11:15+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-06-28 09:39+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "Add backup job"
-msgstr ""
+msgstr "Dodaj zadanie kopii"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -30,7 +30,7 @@ msgid "Archive"
 msgstr "Archiwum"
 
 msgid "Backup jobs"
-msgstr ""
+msgstr "Zadania kopii"
 
 msgid "Comment"
 msgstr "Komentarz"
@@ -48,13 +48,13 @@ msgid "Delete files on the receiving side that don't exist on sender."
 msgstr "Kasuj pliki po stronie odbiorczej, nie istniejące po stronie nadawczej"
 
 msgid "Device"
-msgstr ""
+msgstr "Urządzenie"
 
 msgid "Device '%s' not found"
 msgstr "Urządzenie '%s' nie znaleziono"
 
 msgid "Edit backup job"
-msgstr ""
+msgstr "Edytuj zadanie kopii"
 
 msgid "Enable"
 msgstr "Włącz"
@@ -71,7 +71,7 @@ msgid "Enabled"
 msgstr "Właczone"
 
 msgid "Execute backup job"
-msgstr ""
+msgstr "Wykonaj zadanie kopii"
 
 msgid "External storage device"
 msgstr "Zewnętrzne urządzenie pamięci masowej"
@@ -127,10 +127,10 @@ msgid "Run"
 msgstr "Uruchom"
 
 msgid "Scan"
-msgstr ""
+msgstr "Skanuj"
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Wybierz urządzenie ..."
 
 msgid "Send command output via email."
 msgstr "Wyślij wynik polecenia przez e-mail"
@@ -149,7 +149,7 @@ msgid "Suppress non-error messages."
 msgstr "Pomijaj inne komunikaty niż błędy"
 
 msgid "Synchronise from/to directory on external storage device."
-msgstr ""
+msgstr "Synchronizacji z/do katalogu na zewnętrznym urządzeniu pamięci masowej."
 
 msgid "The external storage device."
 msgstr "Zewnętrzne urządzenie pamięci masowej."

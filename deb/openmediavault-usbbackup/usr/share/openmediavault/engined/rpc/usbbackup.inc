@@ -371,12 +371,12 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
 			// Execute the backup script.
+			$cmd = "/bin/sh";
 			$cmdArgs = array(sprintf("%s/rsync-%s",
 			  $GLOBALS['OMV_USBBACKUP_SCRIPTS_DIR'], $params['uuid']));
-			if(FALSE === $this->execve("/bin/sh", $cmdArgs,
-			  $bgOutputFilename)) {
+			if(FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  "/bin/sh ".implode(" ", $cmdArgs), "");
+				  $cmd." ".implode(" ", $cmdArgs), "");
 			}
 		} catch(Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
