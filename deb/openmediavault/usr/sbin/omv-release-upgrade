@@ -35,6 +35,9 @@ whiptail --clear --backtitle "${prodname} - ${prodcopyright}" --title "Release u
 [ $? -ne 0 ] && exit 0
 echo "Upgrading system to ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME}) ..."
 
+# Create a configuration backup.
+cp ${OMV_CONFIG_FILE} ${OMV_CONFIG_FILE}.04x.bak
+
 # Upgrade source list file.
 relname=$(echo ${OMV_UPGRADE_RELEASENAME} | tr "[:upper:]" "[:lower:]")
 cat <<EOF > ${OMV_UPGRADE_APTSOURCESLIST}

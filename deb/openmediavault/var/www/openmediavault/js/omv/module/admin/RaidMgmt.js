@@ -255,6 +255,7 @@ Ext.extend(OMV.Module.Storage.RAIDGridPanel, OMV.grid.TBarGridPanel, {
 			listeners: {
 				submit: function() {
 					this.doReload();
+					OMV.MessageBox.info(null, _("Please wait until the RAID has been initialized before creating a filesystem."));
 				},
 				scope: this
 			}
