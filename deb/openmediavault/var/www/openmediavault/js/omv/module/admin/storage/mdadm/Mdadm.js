@@ -600,6 +600,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			listeners: {
 				submit: function() {
 					me.doReload();
+					OMV.MessageBox.info(null, _("Please wait until the RAID has been initialized before creating a filesystem."));
 				}
 			}
 		}).show();

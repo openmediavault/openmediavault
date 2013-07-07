@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-05 19:29+0200\n"
+"POT-Creation-Date: 2013-07-07 21:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1067,6 +1067,9 @@ msgstr ""
 msgid "Execute rsync job"
 msgstr ""
 
+msgid "Execute scheduled test"
+msgstr ""
+
 msgid "Expire"
 msgstr ""
 
@@ -2106,6 +2109,9 @@ msgid "Please reload the page to let the changes take effect."
 msgstr ""
 
 msgid "Please wait ..."
+msgstr ""
+
+msgid "Please wait until the RAID has been initialized before creating a filesystem."
 msgstr ""
 
 msgid "Plugins"

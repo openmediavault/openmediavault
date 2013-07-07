@@ -1,3 +1,9 @@
+openmediavault (0.5.0.18) stable; urgency=low
+
+  * Display a information dialog after the RAID has been created.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Jul 2013 21:47:13 +0200
+
 openmediavault (0.5.0.17) stable; urgency=low
 
   * Various improvements and bugfixes.
