@@ -21,6 +21,7 @@
  */
 require_once("openmediavault/object.inc");
 require_once("openmediavault/session.inc");
+require_once("openmediavault/system.inc");
 require_once("openmediavault/rpc.inc");
 
 class AuthenticationRpc extends OMVRpc {
@@ -50,14 +51,35 @@ class AuthenticationRpc extends OMVRpc {
 		global $xmlConfig;
 		// Validate method parameters
 		$this->validateParams(__METHOD__, func_get_args());
-		// Validate password via PAM
+		// Get shadow password suite configuration.
+		if(FALSE === ($loginDefs = OMVSystem::getLoginDefs())) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  gettext("Failed to get shadow password suite configuration."));
+		}
+		// Authenticate the user.
 		$authenticated = FALSE;
-		if (pam_auth($data['username'], $data['password'])) {
+		$user = new OMVSystemUser($data['username']);
+		if($user->exists()) {
+			if(FALSE === ($authenticated = pam_auth($data['username'],
+			  $data['password'])))
+				goto finish;
+			if("admin" === $data['username'])
+				goto checksession;
+			if(TRUE === $user->getInactive()) {
+				$authenticated = FALSE;
+				goto finish;
+			}
+			if(!(($user->getUid() >= $loginDefs['UID_MIN']) &&
+			  ($user->getUid() <= $loginDefs['UID_MAX']))) {
+				$authenticated = FALSE;
+				goto finish;
+			}
+checksession:
 			$session = &OMVSession::getInstance();
-			if ($session->isAuthenticated()) {
+			if($session->isAuthenticated()) {
 				// Is the current session registered to the user to be
 				// authenticated?
-				if ($session->getUsername() !== $data['username']) {
+				if($session->getUsername() !== $data['username']) {
 					throw new OMVException(
 					  OMVErrorMsg::E_SESSION_ALREADY_AUTHENTICATED);
 				}
@@ -69,7 +91,8 @@ class AuthenticationRpc extends OMVRpc {
 			}
 			$authenticated = $session->isAuthenticated();
 		}
-		if (FALSE === $authenticated) {
+finish:
+		if(FALSE === $authenticated) {
 			syslog(LOG_ALERT, sprintf("Unauthorized login attempt from %s ".
 			  "[username='%s', user-agent=%s]", $_SERVER['REMOTE_ADDR'],
 			  $data['username'], $_SERVER['HTTP_USER_AGENT']));

@@ -1,5 +1,6 @@
 openmediavault (0.4.34) stable; urgency=low
 
+  * Improve WebGUI user validation.
   * Display a information dialog after the RAID has been created.
   * Backup configuration before release upgrade.
 
