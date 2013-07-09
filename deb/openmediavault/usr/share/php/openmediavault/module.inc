@@ -282,9 +282,8 @@ class OMVModuleMgr extends OMVObject {
 	 */
 	public static function &getInstance() {
 		static $instance = NULL;
-		if(!isset($instance)) {
+		if(!isset($instance))
 			$instance = new OMVModuleMgr();
-		}
 		return $instance;
 	}
 

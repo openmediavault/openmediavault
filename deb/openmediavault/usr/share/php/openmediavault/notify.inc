@@ -54,9 +54,8 @@ class OMVNotifyDispatcher extends OMVObject {
 	 * @return An array of listeners.
 	 */
 	public function getListeners() {
-		if(!isset($this->listeners)) {
+		if(!isset($this->listeners))
 			return array();
-		}
 		return $this->listeners;
 	}
 
@@ -66,33 +65,33 @@ class OMVNotifyDispatcher extends OMVObject {
 	 * @return The dispatcher object.
 	 */
 	public static function &getInstance($name = "default") {
-		if(!isset(self::$instances[$name])) {
+		if(!isset(self::$instances[$name]))
 			self::$instances[$name] = new OMVNotifyDispatcher($name);
-		}
 		return self::$instances[$name];
 	}
 
 	/**
 	 * Add a listener to a given event message.
-	 * @param arg1 The event type, e.g. OMV_NOTIFY_CREATE. OMV_NOTIFY_MODIFY,
-	 * OMV_NOTIFY_PREDELETE, OMV_NOTIFY_DELETE or
-	 * OMV_NOTIFY_MODIFY|OMV_NOTIFY_DELETE.
-	 * @param arg2 The event message that should be monitored.
+	 * @param arg1 The event message type, e.g. OMV_NOTIFY_CREATE,
+	 *   OMV_NOTIFY_MODIFY, OMV_NOTIFY_PREDELETE, OMV_NOTIFY_DELETE or
+	 *   OMV_NOTIFY_MODIFY|OMV_NOTIFY_DELETE.
+	 * @param arg2 The event message path that should be monitored,
+	 *   e.g. 'org.openmediavault.abc.xyz'.
 	 * @param arg3 The callback function.
-	 * @param arg4 The sequence number of the called function. Default is 20.
-	 * If you want a function to be execute as the first one then set it to 1.
+	 * @param arg4 The sequence number of the called function. Default
+	 *   is 20. If you want a function to be execute as the first one
+	 *   then set it to 1.
 	 */
 	function addListener($arg1, $arg2 = null, $arg3 = null, $arg4 = 20) {
-		if(is_a($arg1, "OMVINotifyListener")) {
+		if(is_a($arg1, "OMVINotifyListener"))
 			return $arg1->bindListeners($this);
-		}
-		// Add listerer
+		// Add the listerer.
 //		$this->debug(sprintf("Add listener (type=%s, message=%s, " .
 //		  "callback=%s::%s, seqnum=%s", $arg1, $arg2, get_class($arg3[0]),
 //		  $arg3[1], $arg4));
 		$this->listeners[] = array(
 			"type" => $arg1,
-			"message" => $arg2,
+			"path" => $arg2,
 			"callback" => $arg3,
 			"seqnum" => $arg4
 		);
@@ -100,44 +99,45 @@ class OMVNotifyDispatcher extends OMVObject {
 
 	/**
 	 * Notify all registered listeners.
-	 * @param type The event type that should be announced.
-	 * @param message The event message.
+	 * @param type The event message type that should be announced, e.g.
+	 *   OMV_NOTIFY_CREATE, OMV_NOTIFY_MODIFY, OMV_NOTIFY_PREDELETE,
+	 *   OMV_NOTIFY_DELETE or OMV_NOTIFY_MODIFY|OMV_NOTIFY_DELETE.
+	 * @param path The event message path, e.g. 'org.openmediavault.abc.xyz'.
 	 * @param argX The parameters to be passed.
 	 */
-	function notify($type, $message /* [, $arg1 [, $... ]] */) {
+	function notify($type, $path /* [, $arg1 [, $... ]] */) {
 //		$this->debug(var_export(func_get_args(), TRUE));
-		// Filter list of registered listeners
-		$listeners = array_filter_ex($this->listeners, "message", $message);
-		// Sort list of registered listeners
+		// Filter list of registered listeners.
+		$listeners = array_filter_ex($this->listeners, "path", $path);
+		// Sort list of registered listeners.
 		array_sort_key($listeners, "seqnum");
 		// Call registered listeners
 		if(!empty($listeners)) {
 			foreach($listeners as $listenerk => $listenerv) {
 				if($listenerv['type'] & $type) {
 //					$this->debug(sprintf("Notify listener (type=%s, " .
-//					  "message=%s, callback=%s::%s, seqnum=%s",
-//					  $listenerv['type'], $listenerv['message'],
+//					  "path=%s, callback=%s::%s, seqnum=%s",
+//					  $listenerv['type'], $listenerv['path'],
 //					  get_class($listenerv['callback'][0]),
 //					  $listenerv['callback'][1], $listenerv['seqnum']));
-					$args = array_slice(func_get_args(), 2);
-					call_user_func_array($listenerv['callback'], $args);
+					call_user_func_array($listenerv['callback'],
+					  func_get_args());
 				}
 			}
 		}
 	}
 
 	/**
-	 * Dump all registered listeners sorted by their event message.
-	 * @param message The event message that should be monitored.
+	 * Dump all registered listeners sorted by their event message path.
+	 * @param path The event message path that should be monitored.
 	 */
-	function dumpListeners($message = "") {
+	function dumpListeners($path = "") {
 		$listeners = $this->listeners;
 		// Filter list of registered listeners
-		if(!empty($message)) {
-			$listeners = array_filter_ex($listeners, "message", $message);
-		}
+		if(!empty($path))
+			$listeners = array_filter_ex($listeners, "path", $path);
 		// Sort list of registered listeners
-		array_sort_key($listeners, "message");
+		array_sort_key($listeners, "path");
 		// Dump registered listeners
 		$this->debug($listeners);
 	}

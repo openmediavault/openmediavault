@@ -105,6 +105,22 @@ class OMVModuleRsyncd extends OMVModuleServiceAbstract
 	}
 
 	/**
+	 * Helper function to find out whether the given shared folder
+	 * configuration object is used. If it is used, then mark the
+	 * module as dirty.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The configuration object.
+	 */
+	final public function hasSharedFolder($type, $path, $object) {
+		global $xmlConfig;
+		$xpath = sprintf("//services/rsync/server/modules/module[".
+		  "sharedfolderref='%s']", $object['uuid']);
+		if(TRUE === $xmlConfig->exists($xpath))
+			$this->setDirty();
+	}
+
+	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
@@ -118,8 +134,12 @@ class OMVModuleRsyncd extends OMVModuleServiceAbstract
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.shares.sharedfolder",
+		  array($this, "hasSharedFolder"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder.privileges",
-		  array($this, "setDirty"));
+		  array($this, "hasSharedFolder"));
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,

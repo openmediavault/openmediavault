@@ -1,6 +1,11 @@
 openmediavault (0.5.0.18) stable; urgency=low
 
+  * Update locales.
+  * Introduce new configuration notification API.
+  * Improve WebGUI user validation.
   * Display a information dialog after the RAID has been created.
+  * Fix bug in user portal.
+  * Fix bug when trying to display certificate details.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Jul 2013 21:47:13 +0200
 

@@ -785,7 +785,7 @@ class OMVFilesystem extends OMVObject {
 		// - http://de.wikipedia.org/wiki/Access_Control_List
 		// - http://www.suse.de/~agruen/acl/linux-acls/online
 		return in_array(strtolower($type), array("ext2", "ext3",
-		  "ext4", "xfs", "jfs", "reiserfs"));
+		  "ext4", "xfs", "jfs", "reiserfs", "btrfs"));
 	}
 }
 

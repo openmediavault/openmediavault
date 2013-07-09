@@ -47,9 +47,11 @@ class OMVModuleQuota extends OMVModuleServiceAbstract
 	/**
 	 * Delete the associated quota configuration after a filesystem has
 	 * been deleted.
-	 * @param object The filesystem object to be deleted.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The modified configuration object.
 	 */
-	public function onDeleteFilesystem($object) {
+	public function onDeleteFilesystem($type, $path, $object) {
 		global $xmlConfig;
 		// Does a quota configuration exists for the deleted filesystem?
 		$xpath = sprintf("//system/storage/filesystem/quota[fsuuid='%s']",

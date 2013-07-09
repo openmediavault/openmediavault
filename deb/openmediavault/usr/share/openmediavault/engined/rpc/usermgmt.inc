@@ -64,7 +64,7 @@ class OMVRpcServiceUserMgmt extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Authenticate the given user via PAM.
+	 * Authenticate the given user.
 	 * @param params The method parameters containing the following fields:
 	 *   \em username The name of the user.
 	 *   \em password The password.
@@ -87,9 +87,33 @@ class OMVRpcServiceUserMgmt extends OMVRpcServiceAbstract {
 				  "password":{"type":"string"}
 			  }
 		  }');
+		// Get shadow password suite configuration.
+		if(FALSE === ($loginDefs = OMVSystem::getLoginDefs())) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  gettext("Failed to get shadow password suite configuration."));
+		}
+		// Authenticate the user.
+		$authenticated = FALSE;
 		$user = new OMVUser($params['username']);
+		if($user->exists()) {
+			if(FALSE === ($authenticated = $user->authenticate(
+			  $params['password'])))
+				goto finish;
+			if("admin" === $params['username'])
+				goto finish;
+			if(TRUE === $user->getInactive()) {
+				$authenticated = FALSE;
+				goto finish;
+			}
+			if(!(($user->getUid() >= $loginDefs['UID_MIN']) &&
+			  ($user->getUid() <= $loginDefs['UID_MAX']))) {
+				$authenticated = FALSE;
+				goto finish;
+			}
+		}
+finish:
 		return array(
-			"authenticated" => $user->authenticate($params['password']),
+			"authenticated" => $authenticated,
 			"username" => $params['username']
 		);
 	}

@@ -96,10 +96,12 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 
 	/**
 	 * Helper function to add a new task when a fstab entry has been deleted.
-	 * @param object The configuration object submitted by the notification.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The configuration object.
 	 * @return None.
 	 */
-	final public function onDelete($object) {
+	final public function onDelete($type, $path, $object) {
 		$this->addTask("delete", "deleteEntry", $object);
 	}
 

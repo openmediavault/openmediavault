@@ -94,7 +94,7 @@ Ext.define("OMV.data.proxy.Rpc", {
 			operation: operation,
 			proxy: me,
 			rpcData: rpcData,
-			relayErrors: false
+			relayErrors: true
 		});
 		operation.request = request;
 		return request;

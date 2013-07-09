@@ -274,8 +274,8 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 		  }');
 		// Get certificate details.
 		$cmd = sprintf("openssl x509 -text -noout -in ".
-		  "%s/certs/%s.crt 2>&1", $GLOBALS['OMV_CERTIFICATE_DIR'],
-		  $params['uuid']);
+		  "%s/certs/%s%s.crt 2>&1", $GLOBALS['OMV_CERTIFICATE_DIR'],
+		  $GLOBALS['OMV_CERTIFICATE_PREFIX'], $params['uuid']);
 		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));

@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-05 19:29+0200\n"
-"PO-Revision-Date: 2013-07-05 17:38+0000\n"
+"POT-Creation-Date: 2013-07-07 21:51+0200\n"
+"PO-Revision-Date: 2013-07-07 19:55+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1115,6 +1115,9 @@ msgstr "Führe Cron Job aus"
 msgid "Execute rsync job"
 msgstr "Führe rsync Job aus"
 
+msgid "Execute scheduled test"
+msgstr "Geplanten Test ausführen"
+
 msgid "Expire"
 msgstr "Verfall"
 
@@ -1159,7 +1162,7 @@ msgid "Failed to get list of users."
 msgstr "Konnte Userliste nicht holen."
 
 msgid "Failed to get shadow password suite configuration."
-msgstr ""
+msgstr "Die Konfiguration der Shadow-Passwort-Suite konnte nicht ermittelt werden."
 
 msgid "Falkland Islands"
 msgstr "Falklandinseln"
@@ -2216,6 +2219,11 @@ msgstr "Laden Sie die Seite neu, damit die Änderungen wirksam werden."
 
 msgid "Please wait ..."
 msgstr "Bitte warten ..."
+
+msgid ""
+"Please wait until the RAID has been initialized before creating a "
+"filesystem."
+msgstr "Bitte warten Sie bis das RAID initialisiert ist bevor Sie ein Dateisystem anlegen."
 
 msgid "Plugins"
 msgstr "Erweiterungen"

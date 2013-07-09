@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-05 19:29+0200\n"
-"PO-Revision-Date: 2013-07-05 17:30+0000\n"
+"POT-Creation-Date: 2013-07-07 21:51+0200\n"
+"PO-Revision-Date: 2013-07-07 19:52+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -1107,6 +1107,9 @@ msgstr "Utfør cron jobb"
 
 msgid "Execute rsync job"
 msgstr "Utfør rsync jobb"
+
+msgid "Execute scheduled test"
+msgstr ""
 
 msgid "Expire"
 msgstr "Utløp"
@@ -2209,6 +2212,11 @@ msgstr "Vennligst oppdater siden for å la endringene tre i kraft."
 
 msgid "Please wait ..."
 msgstr "Vennligst vent ..."
+
+msgid ""
+"Please wait until the RAID has been initialized before creating a "
+"filesystem."
+msgstr ""
 
 msgid "Plugins"
 msgstr "TIllegg"

@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-05 19:29+0200\n"
-"PO-Revision-Date: 2013-07-06 06:02+0000\n"
+"POT-Creation-Date: 2013-07-07 21:51+0200\n"
+"PO-Revision-Date: 2013-07-08 05:26+0000\n"
 "Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -1111,6 +1111,9 @@ msgstr "Выполнение задание cron"
 
 msgid "Execute rsync job"
 msgstr "Выполнить задание rsync"
+
+msgid "Execute scheduled test"
+msgstr "Выполнение запланированных тестов"
 
 msgid "Expire"
 msgstr "Истекает"
@@ -2213,6 +2216,11 @@ msgstr "Пожалуйста, перезагрузите страницу, чт�
 
 msgid "Please wait ..."
 msgstr "Пожалуйста, подождите..."
+
+msgid ""
+"Please wait until the RAID has been initialized before creating a "
+"filesystem."
+msgstr "Пожалуйста, подождите, пока RAID не был инициализирован, перед созданием файловой системы."
 
 msgid "Plugins"
 msgstr "Плагины"

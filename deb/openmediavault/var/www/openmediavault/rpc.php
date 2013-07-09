@@ -20,17 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 try {
-	function exception_error_handler($errno, $errstr, $errfile, $errline) {
-		switch ($errno) {
-		case E_STRICT:
-			break;
-		default:
-			throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
-			break;
-		}
-	}
-	set_error_handler("exception_error_handler");
-
 	require_once("openmediavault/env.inc");
 	require_once("openmediavault/config.inc"); // Must be included here
 	require_once("openmediavault/session.inc");

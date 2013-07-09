@@ -267,7 +267,7 @@ Ext.define("OMV.window.Execute", {
 							  // Check if there are defined some special error
 							  // codes that should be ignored.
 							  ignore = Ext.Array.contains(this.rpcIgnoreErrors,
-								response.error.code);
+								response.code);
 						  }
 						  // Ignore RPC errors?
 						  if(ignore === true) {
