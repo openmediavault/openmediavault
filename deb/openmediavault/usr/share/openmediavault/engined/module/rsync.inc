@@ -66,7 +66,7 @@ class OMVModuleRsync extends OMVModuleServiceAbstract
 	 * @param path The event message path.
 	 * @param object The configuration object.
 	 */
-	final public function hasSharedFolder($type, $path, $object) {
+	final public function onSharedFolder($type, $path, $object) {
 		global $xmlConfig;
 		$xpath = sprintf("//services/rsync/jobs/job[src='%s' or dest='%s']",
 		  $object['uuid']);
@@ -85,7 +85,7 @@ class OMVModuleRsync extends OMVModuleServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder",
-		  array($this, "hasSharedFolder"));
+		  array($this, "onSharedFolder"));
     }
 }
 

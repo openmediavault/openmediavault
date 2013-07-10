@@ -1,3 +1,16 @@
+openmediavault-usbbackup (0.5.6) stable; urgency=low
+
+  * Update locales.
+  * Various improvements and bugfixes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 10 Jul 2013 18:17:25 +0200
+
+openmediavault-usbbackup (0.5.5) stable; urgency=low
+
+  * Adapt plugin to new configuration notification API.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 09 Jul 2013 18:19:50 +0200
+
 openmediavault-usbbackup (0.5.4) stable; urgency=low
 
   * Update locales.

@@ -125,10 +125,12 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 	/**
 	 * Update service if a network interface has been modified. Note,
 	 * the service must not be updated if remote monitoring is disabled.
-	 * @param object The network interface configuration object.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The configuration object.
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	public function onUpdateInterface($object) {
+	final public function onUpdateInterface($type, $path, $object) {
 		global $xmlConfig;
 		$xpath = "//services/nut";
 		$object2 = $xmlConfig->get($xpath);

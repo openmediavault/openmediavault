@@ -149,7 +149,7 @@ class OMVRpcServiceSsh extends OMVRpcServiceAbstract {
 		} else {
 			// Get users currently logged in.
 			$stats = sprintf("%s:\n", gettext("Currently logged in users"));
-			$cmd = "who -u 2>&1";
+			$cmd = "export LANG=C; who -u 2>&1";
 			if(0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
@@ -157,8 +157,8 @@ class OMVRpcServiceSsh extends OMVRpcServiceAbstract {
 			$stats .= empty($output) ? gettext("No users connected") :
 			  implode("\n", $output);
 			// Get connections.
-			$cmd = sprintf("lsof -n -s TCP:ESTABLISHED -i :%d 2>&1",
-			  $object['port']);
+			$cmd = sprintf("export LANG=C; lsof -n -s TCP:ESTABLISHED ".
+			  "-i :%d 2>&1 || true", $object['port']);
 			if(0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));

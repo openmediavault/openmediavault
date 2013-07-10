@@ -128,7 +128,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	 * @param object The configuration object.
 	 * @throw E_EXEC_FAILED
 	 */
-	final public function addUser($type, $path, $object) {
+	final public function onAddUser($type, $path, $object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Skip user if it is listed on the ignore list.
 		if(in_array($object['name'], $this->invalidUsers))
@@ -150,7 +150,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	 * @param object The configuration object.
 	 * @throw E_EXEC_FAILED
 	 */
-	final public function modifyUser($type, $path, $object) {
+	final public function onModifyUser($type, $path, $object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Skip user if it is listed on the ignore list.
 		if(in_array($object['name'], $this->invalidUsers))
@@ -164,9 +164,8 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		}
 		// Check if user exists in the database. If it does not exist then
 		// add it to the database (this should never happen).
-		if(FALSE === $this->existsUser($object['name'])) {
-			return $this->addUser($object);
-		}
+		if(FALSE === $this->existsUser($object['name']))
+			return $this->onAddUser($type, $path, $object);
 		// Modify the user.
 		$cmd = sprintf("(echo '%s'; echo '%s') | smbpasswd -s %s 2>&1",
 		  $object['password'], $object['password'], $object['name']);
@@ -185,7 +184,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	 * @param object The configuration object.
 	 * @throw E_EXEC_FAILED
 	 */
-	final public function deleteUser($type, $path, $object) {
+	final public function onDeleteUser($type, $path, $object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Skip user if it is listed on the ignore list.
 		if(in_array($object['name'], $this->invalidUsers))
@@ -194,7 +193,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		if(FALSE === $this->existsUser($object['name']))
 			return;
 		// Delete the user.
-		$cmd = sprintf("pdbedit -vx %s 2>&1", $object['name']);
+		$cmd = sprintf("export LANG=C; pdbedit -vx %s 2>&1", $object['name']);
 		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
@@ -221,7 +220,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	 * @param path The event message path.
 	 * @param object The configuration object.
 	 */
-	final public function hasSharedFolder($type, $path, $object) {
+	final public function onSharedFolder($type, $path, $object) {
 		global $xmlConfig;
 		$xpath = sprintf("//services/smb/shares/share[sharedfolderref='%s']",
 		  $object['uuid']);
@@ -244,23 +243,23 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder",
-		  array($this, "hasSharedFolder"));
+		  array($this, "onSharedFolder"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder.privileges",
-		  array($this, "hasSharedFolder"));
+		  array($this, "onSharedFolder"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE,
 		  "org.openmediavault.system.usermanagement.users.user",
-		  array($this, "addUser"));
+		  array($this, "onAddUser"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.usermanagement.users.user",
-		  array($this, "modifyUser"));
+		  array($this, "onModifyUser"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.usermanagement.users.user",
-		  array($this, "deleteUser"));
+		  array($this, "onDeleteUser"));
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,

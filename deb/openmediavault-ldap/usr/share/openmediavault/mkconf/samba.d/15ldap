@@ -54,4 +54,4 @@ xmlstarlet sel -t -m "//services/ldap" \
   -o "idmap gid = ${OMV_SAMBA_LDAP_IDMAPGID}" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
 
-smbpasswd -w ${rootbindpw} 2>&1
+smbpasswd -w "${rootbindpw}" 2>&1

@@ -123,7 +123,7 @@ class OMVModuleNfs extends OMVModuleServiceAbstract
 	 * @param path The event message path.
 	 * @param object The configuration object.
 	 */
-	final public function hasSharedFolder($type, $path, $object) {
+	final public function onSharedFolder($type, $path, $object) {
 		global $xmlConfig;
 		$xpath = sprintf("//services/nfs/shares/share[sharedfolderref='%s']",
 		  $object['uuid']);
@@ -148,7 +148,7 @@ class OMVModuleNfs extends OMVModuleServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder",
-		  array($this, "hasSharedFolder"));
+		  array($this, "onSharedFolder"));
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
