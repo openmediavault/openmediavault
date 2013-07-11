@@ -1,8 +1,14 @@
+libjs-extjs3 (3.4.1.1) stable; urgency=low
+
+  * New upstream release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 11 Jul 2013 14:30:45 +0200
+
 libjs-extjs3 (3.4.0) stable; urgency=low
 
   * New upstream release
 
- -- Volker Theile <vot@Genesis>  Thu, 09 Jun 2011 18:07:08 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 09 Jun 2011 18:07:08 +0200
 
 libjs-extjs3 (3.3.2) stable; urgency=low
 

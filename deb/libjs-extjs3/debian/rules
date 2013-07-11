@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 #export DH_VERBOSE=1
-EXTJSVERSION=3.4.0
+EXTJSVERSION=3.4.1
 
 clean:
 	dh_testdir
@@ -11,7 +11,7 @@ clean:
 
 extract: extract-stamp
 extract-stamp:
-	unzip $(CURDIR)/../sources/ext-$(EXTJSVERSION).zip
+	unzip -o $(CURDIR)/../sources/ext-$(EXTJSVERSION).1-gpl.zip
 	mv $(CURDIR)/ext-$(EXTJSVERSION)/* $(CURDIR)
 	rm -rf $(CURDIR)/ext-$(EXTJSVERSION)
 	touch extract-stamp
