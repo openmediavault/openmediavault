@@ -1,7 +1,13 @@
+openmediavault (0.4.35) stable; urgency=low
+
+  * Modify message in release upgrade script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 11 Jul 2013 20:08:36 +0200
+
 openmediavault (0.4.34) stable; urgency=low
 
   * Improve WebGUI user validation.
-  * Display a information dialog after the RAID has been created.
+  * Display an information dialog after the RAID has been created.
   * Backup configuration before release upgrade.
   * Cleanup local package archive before release upgrade.
 
