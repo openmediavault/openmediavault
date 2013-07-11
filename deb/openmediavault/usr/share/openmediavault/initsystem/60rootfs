@@ -23,22 +23,23 @@
 # http://techgage.com/article/enabling_and_testing_ssd_trim_support_under_linux
 # https://wiki.archlinux.org/index.php/Solid_State_Drives
 # http://wiki.ubuntuusers.de/SSD/TRIM
+# http://superuser.com/questions/228657/which-linux-filesystem-works-best-with-ssd
 
 set -e
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_FSTAB_MNTOPS_NONROTATIONAL=${OMV_FSTAB_MNTOPS_NONROTATIONAL:-"noatime,discard"}
+OMV_FSTAB_MNTOPS_NONROTATIONAL=${OMV_FSTAB_MNTOPS_NONROTATIONAL:-"noatime,nodiratime,discard"}
 
 # Reload udev rules because we are now in a chroot environment. This is
 # necessary to load udev rules coming with OpenMediaVault.
 udevadm control --reload-rules
 udevadm trigger
 
-# Modify rootfs mount options for non-rotational devices
-devicefile=$(export LANG=C; mount | grep -i 'on / ' | awk '{ print $1 }' | sed 's/[1-9]//')
-filepath="/sys/block/${devicefile##*/}/queue/rotational"
+# Modify rootfs mount options for non-rotational devices.
+devicename=$(readlink /dev/root | sed 's/[1-9]//')
+filepath="/sys/block/${devicename}/queue/rotational"
 if [ -f ${filepath} ]; then
 	if [ $(cat ${filepath}) -eq 0 ]; then
 		options=$(grep -P '^\S+\s+/\s+\S+\s+\S+\s+\d+\s+\d+\s*$' /etc/fstab | awk '{ print $4 }')
