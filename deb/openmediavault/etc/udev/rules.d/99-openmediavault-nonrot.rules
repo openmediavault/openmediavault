@@ -26,4 +26,4 @@
 # cat /sys/block/sdX/queue/rotational
 
 # TRANSCEND DOM (http://ec.transcendusa.com/product/product_memory.asp?Cid=59&indexnum=13)
-SUBSYSTEM=="block", ENV{ID_ATA}=="1", ENV{ID_TYPE}=="disk", ENV{ID_BUS}=="ata", ENV{ID_MODEL}=="TRANSCEND", ATTR{queue/rotational}="0"
+SUBSYSTEM=="block", KERNEL=="[sh]d[a-z]", ENV{ID_ATA}=="1", ENV{ID_TYPE}=="disk", ENV{ID_BUS}=="ata", ENV{ID_MODEL}=="TRANSCEND", ATTR{queue/rotational}="0"
