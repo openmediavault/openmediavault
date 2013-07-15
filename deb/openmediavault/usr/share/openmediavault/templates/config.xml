@@ -72,6 +72,11 @@
 					<address>xxx.xxx.xxx.xxx</address>
 					<netmask>xxx.xxx.xxx.xxx</netmask>
 					<gateway>xxx.xxx.xxx.xxx</gateway>
+					<enable6>0|1</enable6>
+					<method6>auto|static</method6>
+					<address6>xxxx:xxxx:...:xxxx</address6>
+					<netmask6>0-128</netmask6>
+					<gateway6>xxxx:xxxx:...:xxxx</gateway6>
 					<mtu></mtu>
 					<wol>0|1</wol>
 					<options></options>
@@ -84,6 +89,11 @@
 					<address>xxx.xxx.xxx.xxx</address>
 					<netmask>xxx.xxx.xxx.xxx</netmask>
 					<gateway>xxx.xxx.xxx.xxx</gateway>
+					<enable6>0|1</enable6>
+					<method6>auto|static</method6>
+					<address6>xxxx:xxxx:...:xxxx</address6>
+					<netmask6>0-128</netmask6>
+					<gateway6>xxxx:xxxx:...:xxxx</gateway6>
 					<mtu></mtu>
 					<wol>0|1</wol>
 					<options></options>

@@ -160,6 +160,12 @@ case "$1" in
 		########################################################################
 		echo "Updating configuration ..."
 		if dpkg --compare-versions "$2" lt-nl "0.5"; then
+			# Set IPv6 interface configurations.
+			omv_config_add_element "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "enable6" "0"
+			omv_config_add_element "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "method6" "static"
+			omv_config_add_element "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "address6" ""
+			omv_config_add_element "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "netmask6" "64"
+			omv_config_add_element "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "gateway6" ""
 			# Set default envionment variables.
 			omv_set_default "OMV_CACHE_DIR" "/var/cache/openmediavault"
 			omv_set_default "OMV_CERTIFICATE_PREFIX" "openmediavault-"

@@ -26,42 +26,43 @@ set -e
 
 OMV_INTERFACES_CONFIG=${OMV_INTERFACES_CONFIG:-"/etc/network/interfaces"}
 
-# Configure network interfaces
-for iface in $(grep -i "^iface.*" ${OMV_INTERFACES_CONFIG} | awk '{print $2}'); do
-	# Skip loopback interface
-	[ "lo" = "${iface}" ] && continue
-	# Init 'iface' configuration object
-	object="<uuid>$(uuid)</uuid><devicename>${iface}</devicename>"
-	# Is DHCP enabled?
-	if grep -i "${iface}.*dhcp" ${OMV_INTERFACES_CONFIG} >/dev/null; then
-		object="${object}<method>dhcp</method>"
-		object="${object}<wol>0</wol>"
-		object="${object}<address></address>"
-		object="${object}<netmask></netmask>"
-		object="${object}<gateway></gateway>"
-		object="${object}<mtu></mtu>"
-	else
-		# Get interface configuration
-		value=$(ip -4 -o addr show dev ${iface} | awk '{print $4}')
-		address=${value%/*}
-		netmask=$(omv_cidr2mask ${value#*/})
-		gateway=$(omv_get_gateway ${iface})
-		# Prepare 'iface' configuration object
-		object="${object}<method>static</method>"
-		object="${object}<wol>0</wol>"
-		object="${object}<address>${address}</address>"
-		object="${object}<netmask>${netmask}</netmask>"
-		object="${object}<gateway>${gateway}</gateway>"
-		object="${object}<mtu></mtu>"
-	fi
-	# Add interface if it does not already exist
-	if ! omv_config_exists "//system/network/interfaces/iface[devicename='${iface}']"; then
-		omv_config_add_element "//system/network/interfaces" "iface" \
-		  "${object}" true
-	fi
-done
+# Configure network interfaces.
+grep -Pi "^iface\s+(eth|wlan)[0-9]+\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INTERFACES_CONFIG} |
+  while read type devname family method; do
+	  # Skip IPv6.
+	  [ "inet6" = "${family}" ] && continue
+	  # Init 'iface' configuration object.
+	  object="<uuid>$(uuid)</uuid><devicename>${devname}</devicename>"
+	  # DHCP or static?
+	  if [ "dhcp" = "${method}" ]; then
+		  object="${object}<method>dhcp</method>"
+		  object="${object}<wol>0</wol>"
+		  object="${object}<address></address>"
+		  object="${object}<netmask></netmask>"
+		  object="${object}<gateway></gateway>"
+		  object="${object}<mtu></mtu>"
+	  else
+		  # Get interface configuration.
+		  value=$(ip -4 -o addr show dev ${devname} | awk '{print $4}')
+		  address=${value%/*}
+		  netmask=$(omv_cidr2mask ${value#*/})
+		  gateway=$(omv_get_gateway ${devname})
+		  # Prepare 'iface' configuration object.
+		  object="${object}<method>static</method>"
+		  object="${object}<wol>0</wol>"
+		  object="${object}<address>${address}</address>"
+		  object="${object}<netmask>${netmask}</netmask>"
+		  object="${object}<gateway>${gateway}</gateway>"
+		  object="${object}<mtu></mtu>"
+	  fi
+	  # Add interface if it does not already exist.
+	  if ! omv_config_exists "//system/network/interfaces/iface[devicename='${devname}']"; then
+		  omv_config_add_element "//system/network/interfaces" "iface" \
+			"${object}" true
+	  fi
+  done
 
-# Configure DNS servers
+# Configure DNS servers.
 dnsnameservers=""
 for dnsnameserver in $(grep -i "^\s*dns-nameservers.*$" ${OMV_INTERFACES_CONFIG} | sed -e 's/\s*dns-nameservers \(.*\)/\1/gi'); do
 	dnsnameservers=$(omv_trim "${dnsnameservers} ${dnsnameserver}")
