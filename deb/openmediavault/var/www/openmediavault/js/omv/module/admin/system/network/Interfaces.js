@@ -67,16 +67,34 @@ Ext.define("OMV.module.admin.system.network.interface.Physical", {
 						"netmask"
 					],
 					conditions: [
-						{ name: "method", value: "dhcp" }
+						{ name: "method", value: "static" }
 					],
 					properties: [
-						"allowBlank",
-						"readOnly"
+						"!allowBlank",
+						"!readOnly"
 					]
 				},{
 					name: "gateway", // Optional in 'Static' mode.
 					conditions: [
 						{ name: "method", value: "static" }
+					],
+					properties: "!readOnly"
+				},{
+					name: [
+						"address6",
+						"netmask6"
+					],
+					conditions: [
+						{ name: "method6", value: "static" }
+					],
+					properties: [
+						"!allowBlank",
+						"!readOnly"
+					]
+				},{
+					name: "gateway6", // Optional in 'Static' mode.
+					conditions: [
+						{ name: "method6", value: "static" }
 					],
 					properties: "!readOnly"
 				}]
@@ -94,44 +112,101 @@ Ext.define("OMV.module.admin.system.network.interface.Physical", {
 			allowBlank: true,
 			value: me.devicename
 		},{
-			xtype: "combo",
-			name: "method",
-			fieldLabel: _("Method"),
-			queryMode: "local",
-			store: Ext.create("Ext.data.ArrayStore", {
-				fields: [ "value", "text" ],
-				data: [
-					[ "dhcp", _("DHCP") ],
-					[ "static", _("Static") ]
-				]
-			}),
-			displayField: "text",
-			valueField: "value",
-			allowBlank: false,
-			editable: false,
-			triggerAction: "all",
-			value: "dhcp"
+			xtype: "fieldset",
+			title: _("IPv4"),
+			fieldDefaults: {
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "combo",
+				name: "method",
+				fieldLabel: _("Method"),
+				queryMode: "local",
+				store: Ext.create("Ext.data.ArrayStore", {
+					fields: [ "value", "text" ],
+					data: [
+						[ "manual", _("Manual") ],
+						[ "dhcp", _("DHCP") ],
+						[ "static", _("Static") ]
+					]
+				}),
+				displayField: "text",
+				valueField: "value",
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: "dhcp"
+			},{
+				xtype: "textfield",
+				name: "address",
+				fieldLabel: _("Address"),
+				vtype: "IPv4",
+				readOnly: true,
+				allowBlank: true
+			},{
+				xtype: "textfield",
+				name: "netmask",
+				fieldLabel: _("Netmask"),
+				vtype: "netmask",
+				readOnly: true,
+				allowBlank: true
+			},{
+				xtype: "textfield",
+				name: "gateway",
+				fieldLabel: _("Gateway"),
+				vtype: "IPv4",
+				readOnly: true,
+				allowBlank: true
+			}]
 		},{
-			xtype: "textfield",
-			name: "address",
-			fieldLabel: _("Address"),
-			vtype: "IPv4",
-			readOnly: true,
-			allowBlank: true
-		},{
-			xtype: "textfield",
-			name: "netmask",
-			fieldLabel: _("Netmask"),
-			vtype: "netmask",
-			readOnly: true,
-			allowBlank: true
-		},{
-			xtype: "textfield",
-			name: "gateway",
-			fieldLabel: _("Gateway"),
-			vtype: "IPv4",
-			readOnly: true,
-			allowBlank: true
+			xtype: "fieldset",
+			title: _("IPv6"),
+			fieldDefaults: {
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "combo",
+				name: "method6",
+				fieldLabel: _("Method"),
+				queryMode: "local",
+				store: Ext.create("Ext.data.ArrayStore", {
+					fields: [ "value", "text" ],
+					data: [
+						[ "manual", _("Manual") ],
+						[ "auto", _("Auto") ],
+						[ "static", _("Static") ]
+					]
+				}),
+				displayField: "text",
+				valueField: "value",
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: "manual"
+			},{
+				xtype: "textfield",
+				name: "address6",
+				fieldLabel: _("Address"),
+				vtype: "IPv6",
+				readOnly: true,
+				allowBlank: true
+			},{
+				xtype: "numberfield",
+				name: "netmask6",
+				fieldLabel: _("Prefix length"),
+				allowBlank: true,
+				allowDecimals: false,
+				minValue: 0,
+				maxValue: 128,
+				value: 64
+			},{
+				xtype: "textfield",
+				name: "gateway6",
+				fieldLabel: _("Gateway"),
+				vtype: "IPv6",
+				readOnly: true,
+				allowBlank: true
+			}]
 		},{
 			xtype: "numberfield",
 			name: "mtu",
@@ -197,16 +272,34 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 						"netmask"
 					],
 					conditions: [
-						{ name: "method", value: "dhcp" }
+						{ name: "method", value: "static" }
 					],
 					properties: [
-						"allowBlank",
-						"readOnly"
+						"!allowBlank",
+						"!readOnly"
 					]
 				},{
 					name: "gateway", // Optional in 'Static' mode.
 					conditions: [
 						{ name: "method", value: "static" }
+					],
+					properties: "!readOnly"
+				},{
+					name: [
+						"address6",
+						"netmask6"
+					],
+					conditions: [
+						{ name: "method6", value: "static" }
+					],
+					properties: [
+						"!allowBlank",
+						"!readOnly"
+					]
+				},{
+					name: "gateway6", // Optional in 'Static' mode.
+					conditions: [
+						{ name: "method6", value: "static" }
 					],
 					properties: "!readOnly"
 				}]
@@ -294,44 +387,101 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 				}
 			}
 		},{
-			xtype: "combo",
-			name: "method",
-			fieldLabel: _("Method"),
-			queryMode: "local",
-			store: Ext.create("Ext.data.ArrayStore", {
-				fields: [ "value", "text" ],
-				data: [
-					[ "dhcp", _("DHCP") ],
-					[ "static", _("Static") ]
-				]
-			}),
-			displayField: "text",
-			valueField: "value",
-			allowBlank: false,
-			editable: false,
-			triggerAction: "all",
-			value: "dhcp"
+			xtype: "fieldset",
+			title: _("IPv4"),
+			fieldDefaults: {
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "combo",
+				name: "method",
+				fieldLabel: _("Method"),
+				queryMode: "local",
+				store: Ext.create("Ext.data.ArrayStore", {
+					fields: [ "value", "text" ],
+					data: [
+						[ "manual", _("Manual") ],
+						[ "dhcp", _("DHCP") ],
+						[ "static", _("Static") ]
+					]
+				}),
+				displayField: "text",
+				valueField: "value",
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: "dhcp"
+			},{
+				xtype: "textfield",
+				name: "address",
+				fieldLabel: _("Address"),
+				vtype: "IPv4",
+				readOnly: true,
+				allowBlank: true
+			},{
+				xtype: "textfield",
+				name: "netmask",
+				fieldLabel: _("Netmask"),
+				vtype: "netmask",
+				readOnly: true,
+				allowBlank: true
+			},{
+				xtype: "textfield",
+				name: "gateway",
+				fieldLabel: _("Gateway"),
+				vtype: "IPv4",
+				readOnly: true,
+				allowBlank: true
+			}]
 		},{
-			xtype: "textfield",
-			name: "address",
-			fieldLabel: _("Address"),
-			vtype: "IPv4",
-			readOnly: true,
-			allowBlank: true
-		},{
-			xtype: "textfield",
-			name: "netmask",
-			fieldLabel: _("Netmask"),
-			vtype: "netmask",
-			readOnly: true,
-			allowBlank: true
-		},{
-			xtype: "textfield",
-			name: "gateway",
-			fieldLabel: _("Gateway"),
-			vtype: "IPv4",
-			readOnly: true,
-			allowBlank: true
+			xtype: "fieldset",
+			title: _("IPv6"),
+			fieldDefaults: {
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "combo",
+				name: "method6",
+				fieldLabel: _("Method"),
+				queryMode: "local",
+				store: Ext.create("Ext.data.ArrayStore", {
+					fields: [ "value", "text" ],
+					data: [
+						[ "manual", _("Manual") ],
+						[ "auto", _("Auto") ],
+						[ "static", _("Static") ]
+					]
+				}),
+				displayField: "text",
+				valueField: "value",
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				value: "manual"
+			},{
+				xtype: "textfield",
+				name: "address6",
+				fieldLabel: _("Address"),
+				vtype: "IPv6",
+				readOnly: true,
+				allowBlank: true
+			},{
+				xtype: "numberfield",
+				name: "netmask6",
+				fieldLabel: _("Prefix length"),
+				allowBlank: true,
+				allowDecimals: false,
+				minValue: 0,
+				maxValue: 128,
+				value: 64
+			},{
+				xtype: "textfield",
+				name: "gateway6",
+				fieldLabel: _("Gateway"),
+				vtype: "IPv6",
+				readOnly: true,
+				allowBlank: true
+			}]
 		},{
 			xtype: "numberfield",
 			name: "mtu",
@@ -587,28 +737,54 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 	},{
 		text: _("Method"),
 		sortable: true,
-		dataIndex: "method",
 		stateId: "method",
-		renderer: OMV.util.Format.arrayRenderer([
-			[ "dhcp", _("DHCP") ],
-			[ "static", _("Static") ]
-		]),
+		renderer: function(value, metaData, record) {
+			var tpl = new Ext.XTemplate(
+			  '<b>', _("IPv4"), ':</b> {[this.renderValue(values.method)]}<br/>',
+			  '<b>', _("IPv6"), ':</b> {[this.renderValue(values.method6)]}',
+			  {
+				  renderValue: function(value) {
+					  var methods = {
+						  manual: _("Manual"),
+						  dhcp: _("DHCP"),
+						  static: _("Static")
+					  };
+					  return Ext.util.Format.defaultValue(methods[value], "-");
+				  }
+			  });
+			return tpl.apply(record.data);
+		},
 		width: 45
 	},{
 		text: _("Address"),
 		sortable: true,
-		dataIndex: "address",
-		stateId: "address"
+		stateId: "address",
+		renderer: function(value, metaData, record) {
+			var tpl = new Ext.XTemplate(
+			  '<b>', _("IPv4"), ':</b> {[Ext.util.Format.defaultValue(values.address, "-")]}<br/>',
+			  '<b>', _("IPv6"), ':</b> {[Ext.util.Format.defaultValue(values.address6, "-")]}');
+			return tpl.apply(record.data);
+		}
 	},{
 		text: _("Netmask"),
 		sortable: true,
-		dataIndex: "netmask",
-		stateId: "netmask"
+		stateId: "netmask",
+		renderer: function(value, metaData, record) {
+			var tpl = new Ext.XTemplate(
+			  '<b>', _("IPv4"), ':</b> {[Ext.util.Format.defaultValue(values.netmask, "-")]}<br/>',
+			  '<b>', _("IPv6"), ':</b> {[Ext.util.Format.defaultValue((values.netmask6 == 0) ? "" : values.netmask6, "-")]}');
+			return tpl.apply(record.data);
+		}
 	},{
 		text: _("Gateway"),
 		sortable: true,
-		dataIndex: "gateway",
-		stateId: "gateway"
+		stateId: "gateway",
+		renderer: function(value, metaData, record) {
+			var tpl = new Ext.XTemplate(
+			  '<b>', _("IPv4"), ':</b> {[Ext.util.Format.defaultValue(values.gateway, "-")]}<br/>',
+			  '<b>', _("IPv6"), ':</b> {[Ext.util.Format.defaultValue(values.gateway6, "-")]}');
+			return tpl.apply(record.data);
+		}
 	},{
 		text: _("MAC address"),
 		sortable: true,
@@ -662,6 +838,10 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 						{ name: "address", type: "string" },
 						{ name: "netmask", type: "string" },
 						{ name: "gateway", type: "string" },
+						{ name: "method6", type: "string" },
+						{ name: "address6", type: "string" },
+						{ name: "netmask6", type: "int" },
+						{ name: "gateway6", type: "string" },
 						{ name: "ether", type: "string" },
 						{ name: "mtu" },
 						{ name: "state" },

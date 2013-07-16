@@ -34,7 +34,7 @@ OMV.util.Format = function() {
 			/**
 			 * @method boolean
 			 * Format a boolean value in a string representation.
-			 * @param value The boolean value to format
+			 * @param value The boolean value to format.
 			 * @return The formatted boolean string.
 			 */
 			boolean: function(value) {

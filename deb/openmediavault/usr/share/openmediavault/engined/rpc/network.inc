@@ -62,16 +62,18 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	 * Helper function to get details of the given network interface device.
 	 * @param devicename The name of the network interface device.
 	 * @return An array containing the network interface details. The following
-	 *   fields are returned: devicename, gateway, address, address6, netmask,
-	 *   ether, mtu, state and link.
+	 *   fields are returned: devicename, gateway, gateway6, address, address6,
+	 *   netmask, netmask6, ether, mtu, state and link.
 	 */
 	private function getIfaceInfo($devicename) {
 		$obj = array();
 		$obj['devicename'] = $devicename;
 		$obj['gateway'] = "";
+		$obj['gateway6'] = "";
 		$obj['address'] = "";
 		$obj['address6'] = "";
 		$obj['netmask'] = "";
+		$obj['netmask6'] = 0;
 		$obj['ether'] = "";
 		$obj['mtu'] = "";
 		$obj['state'] = "";
@@ -79,15 +81,17 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$iface = new OMVNetworkInterface($devicename);
 		if($iface->exists()) {
 			$gateway = $iface->getGateway();
-			$address = $iface->getIPv4();
-			$address6 = $iface->getIPv6();
+			$address = $iface->getIP();
+			$address6 = $iface->getIP6();
 			$netmask = $iface->getMask();
+			$netmask6 = $iface->getMask6();
 			$ether = $iface->getMAC();
 			$state = $iface->getState();
 			$obj['gateway'] = !$gateway ? "" : $gateway;
 			$obj['address'] = !$address ? "" : $address;
 			$obj['address6'] = !$address6 ? "" : $address6;
 			$obj['netmask'] = !$netmask ? "" : $netmask;
+			$obj['netmask6'] = !$netmask6 ? 0 : $netmask6;
 			$obj['ether'] = !$ether ? "" : $ether;
 			$obj['mtu'] = $iface->getMTU();
 			$obj['state'] = !$state ? "UNKNOWN" : $state;
@@ -173,8 +177,8 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return An array of objects. Each object represents a network interface
 	 *   device with the following properties: \em devicename, \em gateway,
-	 *   \em address, \em address6, \em netmask, \em ether, \em mtu,
-	 *   \em state and \em link.
+	 *   \em gateway6, \em address, \em address6, \em netmask, \em netmask6,
+	 *   \em ether, \em mtu, \em state and \em link.
 	 * @throw E_MISC_FAILURE
 	 */
 	public function enumerateDevices($params, $context) {
@@ -430,6 +434,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result data.
+		$object['netmask6'] = intval($object['netmask6']);
 		$object['wol'] = boolval($object['wol']);
 		if(!empty($object['mtu']))
 			$object['mtu'] = intval($object['mtu']);
@@ -461,6 +466,11 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				  "address":{"type":"string"},
 				  "netmask":{"type":"string"},
 				  "gateway":{"type":"string"},
+				  "method6":{"type":"string","enum":["auto","static",'.
+					'"manual"]},
+				  "address6":{"type":"string"},
+				  "netmask6":{"type":"integer","minimum":0,"maximum":128},
+				  "gateway6":{"type":"string"},
 				  "mtu":{"type":["integer","string"]},
 				  "wol":{"type":"boolean"},
 				  "options":{"type":"string"},
@@ -473,9 +483,13 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			  OMVUtil::uuid() : $params['uuid'],
 			"devicename" => $params['devicename'],
 			"method" => $params['method'],
-			"address" => isset($params['address']) ? $params['address'] : "",
-			"netmask" => isset($params['netmask']) ? $params['netmask'] : "",
-			"gateway" => isset($params['gateway']) ? $params['gateway'] : "",
+			"address" => $params['address'],
+			"netmask" => $params['netmask'],
+			"gateway" => $params['gateway'],
+			"method6" => $params['method6'],
+			"address6" => $params['address6'],
+			"netmask6" => $params['netmask6'],
+			"gateway6" => $params['gateway6'],
 			"mtu" => $params['mtu'],
 			"wol" => array_boolval($params, 'wol'),
 			"options" => $params['options'],
@@ -658,6 +672,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result data.
+		$object['netmask6'] = intval($object['netmask6']);
 		$object['wol'] = boolval($object['wol']);
 		if(!empty($object['mtu']))
 			$object['mtu'] = intval($object['mtu']);
@@ -692,6 +707,11 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				  "address":{"type":"string"},
 				  "netmask":{"type":"string"},
 				  "gateway":{"type":"string"},
+				  "method6":{"type":"string","enum":["auto","static",'.
+					'"manual"]},
+				  "address6":{"type":"string"},
+				  "netmask6":{"type":"integer","minimum":0,"maximum":128},
+				  "gateway6":{"type":"string"},
 				  "mtu":{"type":["integer","string"]},
 				  "wol":{"type":"boolean"},
 				  "options":{"type":"string"},
@@ -710,9 +730,13 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $params['uuid'],
 			"method" => $params['method'],
-			"address" => isset($params['address']) ? $params['address'] : "",
-			"netmask" => isset($params['netmask']) ? $params['netmask'] : "",
-			"gateway" => isset($params['gateway']) ? $params['gateway'] : "",
+			"address" => $params['address'],
+			"netmask" => $params['netmask'],
+			"gateway" => $params['gateway'],
+			"method6" => $params['method6'],
+			"address6" => $params['address6'],
+			"netmask6" => $params['netmask6'],
+			"gateway6" => $params['gateway6'],
 			"mtu" => $params['mtu'],
 			"wol" => array_boolval($params, 'wol'),
 			"options" => $params['options'],

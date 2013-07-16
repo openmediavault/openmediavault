@@ -2075,7 +2075,7 @@ class OMVNetworkInterface extends OMVObject {
 	 * Get the network interface IPv4 address.
 	 * @return The network interface IPv4 address, otherwise FALSE.
 	 */
-	public function getIPv4() {
+	public function getIP() {
 		if($this->getData("ifconfig") === FALSE)
 			return FALSE;
 		if(1 !== preg_match("/inet addr:({$this->regex['ipv4']})/i",
@@ -2088,7 +2088,7 @@ class OMVNetworkInterface extends OMVObject {
 	 * Get the network interface IPv6 address.
 	 * @return The network interface IPv6 address, otherwise FALSE.
 	 */
-	public function getIPv6() {
+	public function getIP6() {
 		if($this->getData("ifconfig") === FALSE)
 			return FALSE;
 		if(1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6']})/i",
@@ -2108,6 +2108,20 @@ class OMVNetworkInterface extends OMVObject {
 		  $this->ifconfig, $matches))
 			return FALSE;
 		return $matches[1];
+	}
+
+	/**
+	 * Get the network interface IPv6 mask/prefix length.
+	 * @return The network interface IPv6 mask/prefix length as integer,
+	 *   otherwise FALSE.
+	 */
+	public function getMask6() {
+		if($this->getData("ifconfig") === FALSE)
+			return FALSE;
+		if(1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6']})/i",
+		  $this->ifconfig, $matches))
+			return FALSE;
+		return intval($matches[3]);
 	}
 
 	/**

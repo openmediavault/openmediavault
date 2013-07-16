@@ -41,6 +41,14 @@ xmlstarlet sel -t \
   -o "# The loopback network interface" -n \
   -o "auto lo" -n \
   -o "iface lo inet loopback" -n \
+  -m "//system/network/interfaces/iface[method='manual']" \
+	-i "count(//system/network/interfaces//slaves[contains(.,current()/devicename)]) = 0" \
+	  -n \
+	  -v "concat('# ',devicename,' network interface')" -n \
+	  -v "concat('auto ',devicename)" -n \
+	  -v "concat('iface ',devicename,' inet manual')" -n \
+	-b \
+  -b \
   -m "//system/network/interfaces/iface[method='dhcp']" \
 	-i "count(//system/network/interfaces//slaves[contains(.,current()/devicename)]) = 0" \
 	  -n \

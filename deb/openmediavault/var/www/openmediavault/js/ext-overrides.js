@@ -70,6 +70,13 @@ Ext.apply(Ext.form.field.VTypes, {
 	IPv4FwText: _("This field should be either a IPv4 network address (with /mask), a IPv4 range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or 192.168.178.20-192.168.178.254)"),
 	IPv4FwMask: /[\d\.\/\-:!]/i,
 
+	IPv6: function(v) {
+		// Taken from http://home.deds.nl/~aeron/regex
+		return /^((?=.*::)(?!.*::.+::)(::)?([\dA-F]{1,4}:(:|\b)|){5}|([\dA-F]{1,4}:){6})((([\dA-F]{1,4}((?!\3)::|:\b|$))|(?!\2\3)){2}|(((2[0-4]|1\d|[1-9])?\d|25[0-5])\.?\b){4})$/i.test(v);
+	},
+	IPv6Text: _("This field should be an IPv6 address"),
+	IPv6Mask: /[0-9A-F:]/i,
+
 	netmask: function(v) {
 		return /^(128|192|224|24[08]|25[245].0.0.0)|(255.(0|128|192|224|24[08]|25[245]).0.0)|(255.255.(0|128|192|224|24[08]|25[245]).0)|(255.255.255.(0|128|192|224|24[08]|252))$/.test(v);
 	},
