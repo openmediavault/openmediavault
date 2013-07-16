@@ -81,6 +81,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$iface = new OMVNetworkInterface($devicename);
 		if($iface->exists()) {
 			$gateway = $iface->getGateway();
+			$gateway6 = $iface->getGateway6();
 			$address = $iface->getIP();
 			$address6 = $iface->getIP6();
 			$netmask = $iface->getMask();
@@ -88,6 +89,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			$ether = $iface->getMAC();
 			$state = $iface->getState();
 			$obj['gateway'] = !$gateway ? "" : $gateway;
+			$obj['gateway6'] = !$gateway6 ? "" : $gateway6;
 			$obj['address'] = !$address ? "" : $address;
 			$obj['address6'] = !$address6 ? "" : $address6;
 			$obj['netmask'] = !$netmask ? "" : $netmask;

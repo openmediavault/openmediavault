@@ -2143,19 +2143,43 @@ class OMVNetworkInterface extends OMVObject {
 	}
 
 	/**
-	 * Get the network interface default gateway.
+	 * Get the network interface IPv4 default gateway.
 	 * @return The interface default gateway, or FALSE on failure.
 	 */
 	public function getGateway() {
-		// Build the regex to search the default gateway for the
-		// given interface
-		$regex = sprintf('^0\.0\.0\.0.*%s$', $this->getDeviceName());
-		$cmd = sprintf("export LANG=C; route -ne | grep '%s' | " .
-		  "awk '{print $2}'", $regex);
+		$cmd = sprintf("export LANG=C; ip -4 route show dev %s",
+		  $this->getDeviceName());
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0)
 			return FALSE;
-		return implode($output);
+		// Parse command output:
+		// 192.168.178.0/24  proto kernel  scope link  src 192.168.178.21 
+		// default via 192.168.178.1
+		array_shift($output);
+		if(empty($output[0]))
+			return FALSE;
+		$output = explode(" ", $output[0]);
+		return $output[2];
+	}
+
+	/**
+	 * Get the network interface IPv6 default gateway.
+	 * @return The interface default gateway, or FALSE on failure.
+	 */
+	public function getGateway6() {
+		$cmd = sprintf("export LANG=C; ip -6 route show dev %s",
+		  $this->getDeviceName());
+		@OMVUtil::exec($cmd, $output, $result);
+		if($result !== 0)
+			return FALSE;
+		// Parse command output:
+		// fe80::/64  proto kernel  metric 256  mtu 1500 advmss 1440 hoplimit 4294967295
+		// default via fe80::21e:13ff:fef9:af0  metric 1024  mtu 1500 advmss 1440 hoplimit 4294967295
+		array_shift($output);
+		if(empty($output[0]))
+			return FALSE;
+		$output = explode(" ", $output[0]);
+		return $output[2];
 	}
 
 	/**
