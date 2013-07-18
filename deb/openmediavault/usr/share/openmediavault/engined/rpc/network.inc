@@ -73,7 +73,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$obj['address'] = "";
 		$obj['address6'] = "";
 		$obj['netmask'] = "";
-		$obj['netmask6'] = 0;
+		$obj['netmask6'] = -1;
 		$obj['ether'] = "";
 		$obj['mtu'] = "";
 		$obj['state'] = "";
@@ -93,10 +93,10 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			$obj['address'] = !$address ? "" : $address;
 			$obj['address6'] = !$address6 ? "" : $address6;
 			$obj['netmask'] = !$netmask ? "" : $netmask;
-			$obj['netmask6'] = !$netmask6 ? 0 : $netmask6;
+			$obj['netmask6'] = !$netmask6 ? -1 : $netmask6;
 			$obj['ether'] = !$ether ? "" : $ether;
 			$obj['mtu'] = $iface->getMTU();
-			$obj['state'] = !$state ? "UNKNOWN" : $state;
+			$obj['state'] = !$state ? gettext("UNKNOWN") : $state;
 			$obj['link'] = $iface->getLink();
 		}
 		return $obj;
@@ -191,7 +191,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		// Enumerate all network interface devices on the system.
 		if(FALSE === ($devs = OMVNetworkInterfaces::get())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  "Failed to get list of network interface devices");
+			  gettext("Failed to get list of network interface devices"));
 		}
 		$result = array();
 		// Collect network interface device details.

@@ -114,6 +114,7 @@
 				<!--
 				<rule>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<family>inet|inet6</family>
 					<rulenum>1...x</rulenum>
 					<chain>INPUT|OUTPUT</chain>
 					<action>ACCEPT|REJECT|DROP|LOG</action>

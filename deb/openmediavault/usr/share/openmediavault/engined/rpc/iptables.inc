@@ -39,32 +39,30 @@ class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
 	public function initialize() {
 		$this->registerMethod("getRules");
 		$this->registerMethod("setRules");
+		$this->registerMethod("getRules6");
+		$this->registerMethod("setRules6");
 		$this->registerMethod("getRule");
 		$this->registerMethod("setRule");
 		$this->registerMethod("deleteRule");
 	}
 
 	/**
-	 * Get all iptables rules.
-	 * @param params The method parameters.
-	 * @param context The context of the caller.
-	 * @return A list of configuration objects.
+	 * Helper function to get all rules for the given family.
+	 * @param family The rule family type, e.g. inet or inet6.
+	 * @return The iptables rules of the given family.
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	function getRules($params, $context) {
+	private function getRulesByFamily($family) {
 		global $xmlConfig;
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
 		// Get the configuration objects.
-		$xpath = "//system/network/iptables/rule";
+		$xpath = sprintf("//system/network/iptables/rule[family='%s']",
+		  $family);
 		$objects = $xmlConfig->getList($xpath);
 		if(is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Modify result object.
+		// Modify the result objects.
 		foreach($objects as $objectk => &$objectv) {
 			$objectv['rulenum'] = intval($objectv['rulenum']);
 		}
@@ -72,14 +70,91 @@ class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Set multiple iptables rules at one time.
+	 * Get all IPv4 iptables rules.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return The stored configuration objects.
+	 * @return A list of configuration objects.
+	 */
+	function getRules($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get the configuration objects.
+		return $this->getRulesByFamily("inet");
+	}
+
+	/**
+	 * Get all IPv6 iptables rules.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return A list of configuration objects.
+	 */
+	function getRules6($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get the configuration objects.
+		return $this->getRulesByFamily("inet6");
+	}
+
+	/**
+	 * Set multiple iptables rules at one time.
+	 * @param family The rule family type, e.g. inet or inet6.
+	 * @param rules An array containing the iptables rules.
+	 * @return An array containg the stored configuration objects.
+	 * @throw E_CONFIG_OBJECT_NOT_FOUND
 	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
-	function setRules($params, $context) {
+	private function setRulesByFamily($family, $rules) {
 		global $xmlConfig;
+		// Prepare the configuration objects.
+		$objects = array();
+		foreach($rules as $rulek => $rulev) {
+			$objects[] = array(
+				"uuid" => ($rulev['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+				  OMVUtil::uuid() : $rulev['uuid'],
+				"rulenum" => $rulev['rulenum'],
+				"chain" => $rulev['chain'],
+				"action" => $rulev['action'],
+				"family" => $rulev['family'],
+				"source" => $rulev['source'],
+				"sport" => $rulev['sport'],
+				"destination" => $rulev['destination'],
+				"dport" => $rulev['dport'],
+				"protocol" => $rulev['protocol'],
+				"extraoptions" => $rulev['extraoptions'],
+				"comment" => $rulev['comment']
+			);
+		}
+		// Remove all existing rules for the given family.
+		$xpath = sprintf("//system/network/iptables/rule[family='%s']",
+		  $family);
+		if(FALSE === $xmlConfig->delete($xpath)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
+			  $xpath);
+		}
+		// Append the given iptables rules.
+		if(FALSE === $xmlConfig->set("//system/network/iptables",
+		  array("rule" => $objects))) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+		}
+		// Notify configuration changes.
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher->notify(OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.network.iptables.rule", $objects);
+		// Return the configuration object.
+		return $objects;
+	}
+
+	/**
+	 * Set multiple IPv4 iptables rules at one time.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array containg the stored configuration objects.
+	 */
+	function setRules($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -95,6 +170,7 @@ class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
 					  "chain":{"type":"string","enum":["INPUT","OUTPUT"]},
 					  "action":{"type":"string","enum":["ACCEPT","REJECT",'.
 						'"DROP","LOG"]},
+					  "family":{"type":"string","enum":["inet"]},
 					  "source":{"type":"string"},
 					  "sport":{"type":"string"},
 					  "destination":{"type":"string"},
@@ -106,42 +182,46 @@ class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
 				  }
 			  }
 		  }');
-		// Prepare the configuration object.
-		$objects = array();
-		foreach($params as $paramk => $paramv) {
-			$objects[] = array(
-				"uuid" => ($paramv['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
-				  OMVUtil::uuid() : $paramv['uuid'],
-				"rulenum" => $paramv['rulenum'],
-				"chain" => $paramv['chain'],
-				"action" => $paramv['action'],
-				"source" => $paramv['source'],
-				"sport" => $paramv['sport'],
-				"destination" => $paramv['destination'],
-				"dport" => $paramv['dport'],
-				"protocol" => $paramv['protocol'],
-				"extraoptions" => $paramv['extraoptions'],
-				"comment" => $paramv['comment']
-			);
-		}
-		// Update configuration objects.
-		$success = FALSE;
-		if(empty($objects)) {
-			$success = $xmlConfig->replace("//system/network/iptables",
-			  array());
-		} else {
-			$success = $xmlConfig->replace("//system/network/iptables",
-			  array("rule" => $objects));
-		}
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
-		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.iptables.rule", $objects);
-		// Return the configuration object.
-		return $objects;
+		// Store the given IPv4 iptables rules.
+		return $this->setRulesByFamily("inet", $params);
+	}
+
+	/**
+	 * Set multiple IPv6 iptables rules at one time.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array containg the stored configuration objects.
+	 */
+	function setRules6($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"array",
+			  "items":{
+				  "type":"object",
+				  "properties":{
+					  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+					  "rulenum":{"type":"integer"},
+					  "chain":{"type":"string","enum":["INPUT","OUTPUT"]},
+					  "action":{"type":"string","enum":["ACCEPT","REJECT",'.
+						'"DROP","LOG"]},
+					  "family":{"type":"string","enum":["inet6"]},
+					  "source":{"type":"string"},
+					  "sport":{"type":"string"},
+					  "destination":{"type":"string"},
+					  "dport":{"type":"string"},
+					  "protocol":{"type":"string","format":"regex",'.
+						'"pattern":"\/^(!?(tcp|udp|icmp))|all$\/"},
+					  "extraoptions":{"type":"string"},
+					  "comment":{"type":"string"}
+				  }
+			  }
+		  }');
+		// Store the given IPv6 iptables rules.
+		return $this->setRulesByFamily("inet6", $params);
 	}
 
 	/**
@@ -200,6 +280,7 @@ class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
 				  "chain":{"type":"string","enum":["INPUT","OUTPUT"]},
 				  "action":{"type":"string","enum":["ACCEPT","REJECT",'.
 					'"DROP","LOG"]},
+				  "family":{"type":"string","enum":["inet","inet6"]},
 				  "source":{"type":"string"},
 				  "sport":{"type":"string"},
 				  "destination":{"type":"string"},
@@ -217,6 +298,7 @@ class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
 			  "rulenum" => $params['rulenum'],
 			  "chain" => $params['chain'],
 			  "action" => $params['action'],
+			  "family" => $params['family'],
 			  "source" => $params['source'],
 			  "sport" => $params['sport'],
 			  "destination" => $params['destination'],

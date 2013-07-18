@@ -1,3 +1,10 @@
+openmediavault (0.5.0.21) stable; urgency=low
+
+  * Various improvements and bugfixes.
+  * Add IPv6 support.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 17 Jul 2013 18:30:59 +0200
+
 openmediavault (0.5.0.20) stable; urgency=low
 
   * Modify mount options for non-rotational root devices.

@@ -126,6 +126,8 @@ Ext.define("OMV.form.field.CheckboxGrid", {
 
 	setValue: function(value) {
 		var me = this;
+		if(me.useStringValue && me.delimiter && Ext.isString(value))
+			value = value.split(me.delimiter);
 		me.mixins.field.setValue.call(me, value);
 		if(me.rendered) {
 			me.syncSelections();
@@ -135,10 +137,6 @@ Ext.define("OMV.form.field.CheckboxGrid", {
 				single: true
 			});
 		}
-	},
-
-	getValue: function(){
-		return this.value || [];
 	},
 
 	getErrors: function(value) {

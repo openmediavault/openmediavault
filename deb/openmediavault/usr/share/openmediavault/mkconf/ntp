@@ -36,6 +36,8 @@ xmlstarlet sel -t \
   -o "filegen peerstats file peerstats type day enable" -n \
   -o "filegen clockstats file clockstats type day enable" -n \
   -n \
+  -o "server 127.127.1.0 # Local clock" -n \
+  -o "fudge 127.127.1.0 stratum 12" -n \
   -v "concat('server ',//system/time/ntp/timeservers,' iburst')" -n \
   -n \
   -o "# By default, exchange time with everybody, but do not allow configuration." -n \

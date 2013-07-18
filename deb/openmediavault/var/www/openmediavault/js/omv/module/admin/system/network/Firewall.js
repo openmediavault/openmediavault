@@ -41,16 +41,27 @@ Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 	getFormItems: function() {
 		return [{
 			xtype: "combo",
+			name: "family",
+			fieldLabel: _("Family"),
+			queryMode: "local",
+			store: [
+				[ "inet", "IPv4" ],
+				[ "inet6", "IPv6" ]
+			],
+			readOnly: true,
+			allowBlank: false,
+			editable: false,
+			triggerAction: "all",
+			value: "inet"
+		},{
+			xtype: "combo",
 			name: "chain",
 			fieldLabel: _("Direction"),
 			queryMode: "local",
-			store: Ext.create("Ext.data.ArrayStore", {
-				fields: [ "value", "text" ],
-				data: [
-					[ "INPUT", "INPUT" ],
-					[ "OUTPUT", "OUTPUT" ]
-				]
-			}),
+			store: [
+				[ "INPUT", "INPUT" ],
+				[ "OUTPUT", "OUTPUT" ]
+			],
 			displayField: "text",
 			valueField: "value",
 			allowBlank: false,
@@ -62,17 +73,12 @@ Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 			name: "action",
 			fieldLabel: _("Action"),
 			queryMode: "local",
-			store: Ext.create("Ext.data.ArrayStore", {
-				fields: [ "value", "text" ],
-				data: [
-					[ "ACCEPT", "ACCEPT" ],
-					[ "REJECT", "REJECT" ],
-					[ "DROP", "DROP" ],
-					[ "LOG", "LOG" ]
-				]
-			}),
-			displayField: "text",
-			valueField: "value",
+			store: [
+				[ "ACCEPT", "ACCEPT" ],
+				[ "REJECT", "REJECT" ],
+				[ "DROP", "DROP" ],
+				[ "LOG", "LOG" ]
+			],
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
@@ -122,20 +128,15 @@ Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 			name: "protocol",
 			fieldLabel: _("Protocol"),
 			queryMode: "local",
-			store: Ext.create("Ext.data.ArrayStore", {
-				fields: [ "value", "text" ],
-				data: [
-					[ "tcp", "TCP" ],
-					[ "udp", "UDP" ],
-					[ "icmp", "ICMP" ],
-					[ "all", _("All") ],
-					[ "!tcp", _("Not TCP") ],
-					[ "!udp", _("Not UDP") ],
-					[ "!icmp", _("Not ICMP") ]
-				]
-			}),
-			displayField: "text",
-			valueField: "value",
+			store: [
+				[ "tcp", "TCP" ],
+				[ "udp", "UDP" ],
+				[ "icmp", "ICMP" ],
+				[ "all", _("All") ],
+				[ "!tcp", _("Not TCP") ],
+				[ "!udp", _("Not UDP") ],
+				[ "!icmp", _("Not ICMP") ]
+			],
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
@@ -209,6 +210,15 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 		dataIndex: "action",
 		stateId: "action"
 	},{
+		text: _("Family"),
+		sortable: false,
+		dataIndex: "family",
+		stateId: "family",
+		renderer: OMV.util.Format.arrayRenderer([
+			[ "inet", "IPv4" ],
+			[ "inet6", "IPv6" ]
+		])
+	},{
 		xtype: "emptycolumn",
 		emptyText: "-",
 		text: _("Source"),
@@ -277,6 +287,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 						{ name: "rulenum" },
 						{ name: "chain" },
 						{ name: "action" },
+						{ name: "family" },
 						{ name: "source" },
 						{ name: "sport" },
 						{ name: "destination" },
