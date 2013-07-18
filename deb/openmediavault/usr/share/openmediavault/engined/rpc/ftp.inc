@@ -672,7 +672,7 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 		} else {
 			// Get users currently logged in.
 			$stats = sprintf("%s\n", gettext("Currently logged in users:"));
-			$cmd = "export LANG=C; ftpwho -v 2>&1";
+			$cmd = "ftpwho -v 2>&1";
 			if(0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
@@ -683,8 +683,8 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 			$xpath = "//services/ftp/modules/mod_ban/rule";
 			if(TRUE === $xmlConfig->exists($xpath)) {
 				$stats .= sprintf("\n\n%s\n", gettext("Ban statistics:"));
-				$cmd = "export LANG=C; ftpdctl -s ".
-				  "/var/run/proftpd/proftpd.sock ban info -v -e 2>&1";
+				$cmd = "ftpdctl -s /var/run/proftpd/proftpd.sock ".
+				  "ban info -v -e 2>&1";
 				if(0 !== $this->exec($cmd, $output)) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 					  $cmd, implode("\n", $output));
