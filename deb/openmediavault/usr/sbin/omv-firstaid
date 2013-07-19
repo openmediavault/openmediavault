@@ -103,7 +103,7 @@ configure_iface() {
 	# Delete all existing network interface configuration objects
 	omv_config_delete "//system/network/interfaces/*"
 	# Insert a new network interface configuration object
-	omv_exec_rpc "Network" "setIface" "{\"uuid\":\"undefined\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"mtu\":\"\",\"wol\":${wol},\"options\":\"\"}"
+	omv_exec_rpc "Network" "setIface" "{\"uuid\":\"undefined\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"method6\":\"manual\",\"address6\":\"\",\"netmask6\":64,\"gateway6\":\"\",\"mtu\":\"\",\"wol\":${wol},\"options\":\"\",\"comment\":\"\"}"
 	[ $? -ne 0 ] && return 1
 	omv_exec_rpc "Config" "applyChanges" "{\"modules\":[],\"force\":false}"
 	[ $? -ne 0 ] && return 1

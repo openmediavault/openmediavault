@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-07 21:51+0200\n"
-"PO-Revision-Date: 2013-07-07 19:52+0000\n"
+"POT-Creation-Date: 2013-07-19 20:17+0200\n"
+"PO-Revision-Date: 2013-07-19 18:17+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -1147,6 +1147,9 @@ msgstr "Echec à la récupération de la liste des groupes."
 msgid "Failed to get list of logical volumes"
 msgstr "Echec à la récupération de la liste des volumes logiques"
 
+msgid "Failed to get list of network interface devices"
+msgstr ""
+
 msgid "Failed to get list of physical volumes"
 msgstr "Echec à la récupérations de volumes physiques"
 
@@ -1161,6 +1164,9 @@ msgstr "Echec à la récupération de la configuration des mots de passe masqué
 
 msgid "Falkland Islands"
 msgstr "Îles Malouines"
+
+msgid "Family"
+msgstr ""
 
 msgid "Faroe Islands"
 msgstr "Îles Féroé"
@@ -1378,6 +1384,12 @@ msgstr "Hongrie"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
+msgstr ""
 
 msgid "Iceland"
 msgstr "Iseland"
@@ -2243,6 +2255,9 @@ msgstr "Bouton d'alimentation"
 
 msgid "Power mode"
 msgstr "Mode d'alimentation"
+
+msgid "Prefix length"
+msgstr ""
 
 msgid "Preserve ACLs"
 msgstr "Conserver les ACL"
@@ -3119,6 +3134,9 @@ msgstr "Ce champ doit être un port ou une plage de ports (ex: 21 ou !443 ou 102
 msgid "This field should be an IPv4 address"
 msgstr "Ce champs doit être une adresse réseau IPv4"
 
+msgid "This field should be an IPv6 address"
+msgstr ""
+
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
 "range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
@@ -3313,6 +3331,9 @@ msgstr "Îles du Pacifique américaines"
 
 msgid "U.S. Virgin Islands"
 msgstr "Îles vierges américaines"
+
+msgid "UNKNOWN"
+msgstr ""
 
 msgid "Uganda"
 msgstr "Ouganda"

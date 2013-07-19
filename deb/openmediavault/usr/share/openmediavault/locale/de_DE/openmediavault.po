@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-07 21:51+0200\n"
-"PO-Revision-Date: 2013-07-07 19:55+0000\n"
+"POT-Creation-Date: 2013-07-19 20:17+0200\n"
+"PO-Revision-Date: 2013-07-19 18:23+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1152,6 +1152,9 @@ msgstr "Konnte Gruppenliste nicht holen."
 msgid "Failed to get list of logical volumes"
 msgstr "Konnte Liste der logischen Laufwerke nicht holen."
 
+msgid "Failed to get list of network interface devices"
+msgstr "Konnte Liste der Netzwerkschnittstellen nicht holen"
+
 msgid "Failed to get list of physical volumes"
 msgstr "Konnte Liste der physischen Laufwerke nicht holen."
 
@@ -1166,6 +1169,9 @@ msgstr "Die Konfiguration der Shadow-Passwort-Suite konnte nicht ermittelt werde
 
 msgid "Falkland Islands"
 msgstr "Falklandinseln"
+
+msgid "Family"
+msgstr "Familie"
 
 msgid "Faroe Islands"
 msgstr "Färöer-Inseln"
@@ -1383,6 +1389,12 @@ msgstr "Ungarn"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IPv4"
+msgstr "IPv4"
+
+msgid "IPv6"
+msgstr "IPv6"
 
 msgid "Iceland"
 msgstr "Island"
@@ -2248,6 +2260,9 @@ msgstr "Einschaltknopf"
 
 msgid "Power mode"
 msgstr "Powermodus"
+
+msgid "Prefix length"
+msgstr "Präfixlänge"
 
 msgid "Preserve ACLs"
 msgstr "Erhalte ACLs"
@@ -3124,6 +3139,9 @@ msgstr "Dieses Feld sollte einen Port oder einen Portbereich enthalten (z.B. 21 
 msgid "This field should be an IPv4 address"
 msgstr "Dieses Feld sollte eine IPv4 Adresse enthalten"
 
+msgid "This field should be an IPv6 address"
+msgstr "Dieses Feld sollte eine IPv6 Adresse enthalten"
+
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
 "range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
@@ -3318,6 +3336,9 @@ msgstr "U.S. Miscellaneous Pacific Islands"
 
 msgid "U.S. Virgin Islands"
 msgstr "Amerikanische Jungferninseln"
+
+msgid "UNKNOWN"
+msgstr "UNBEKANNT"
 
 msgid "Uganda"
 msgstr "Uganda"

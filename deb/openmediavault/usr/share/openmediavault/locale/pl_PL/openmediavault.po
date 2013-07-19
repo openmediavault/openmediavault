@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-07 21:51+0200\n"
-"PO-Revision-Date: 2013-07-07 19:52+0000\n"
+"POT-Creation-Date: 2013-07-19 20:17+0200\n"
+"PO-Revision-Date: 2013-07-19 18:17+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -1148,6 +1148,9 @@ msgstr "Nie udało się pobrać listy grup."
 msgid "Failed to get list of logical volumes"
 msgstr "Nie udało się pobrać listy logicznych dysków"
 
+msgid "Failed to get list of network interface devices"
+msgstr ""
+
 msgid "Failed to get list of physical volumes"
 msgstr "Nie udało się pobrać listy fizycznych dysków"
 
@@ -1162,6 +1165,9 @@ msgstr "Nie udało się uzyskać cienia hasła konfiguracji pakietu."
 
 msgid "Falkland Islands"
 msgstr "Falkland Islands"
+
+msgid "Family"
+msgstr ""
 
 msgid "Faroe Islands"
 msgstr "Faroe Islands"
@@ -1379,6 +1385,12 @@ msgstr "Hungary"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IPv4"
+msgstr ""
+
+msgid "IPv6"
+msgstr ""
 
 msgid "Iceland"
 msgstr "Iceland"
@@ -2244,6 +2256,9 @@ msgstr "Przycisk zasilania"
 
 msgid "Power mode"
 msgstr "Opcje zasilania"
+
+msgid "Prefix length"
+msgstr ""
 
 msgid "Preserve ACLs"
 msgstr "Chroń ACL"
@@ -3120,6 +3135,9 @@ msgstr "To pole powinno być portem lub zakresem portów (np 21 lub !443 lub 102
 msgid "This field should be an IPv4 address"
 msgstr "To pole powinno być adresem IPv4"
 
+msgid "This field should be an IPv6 address"
+msgstr ""
+
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
 "range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
@@ -3314,6 +3332,9 @@ msgstr "U.S. Miscellaneous Pacific Islands"
 
 msgid "U.S. Virgin Islands"
 msgstr "U.S. Virgin Islands"
+
+msgid "UNKNOWN"
+msgstr ""
 
 msgid "Uganda"
 msgstr "Uganda"
