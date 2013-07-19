@@ -1990,7 +1990,8 @@ class OMVNetworkInterface extends OMVObject {
 	protected $ethtool = null;
 	protected $regex = array(
 		"ipv4" => '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}',
-		"ipv6" => '(.+)\/(\d{1,2})',
+		"ipv6" => '[a-f0-9:]+',
+		"ipv6cidr" => '([a-f0-9:]+)\/(\d{1,2})',
 		"state" => 'UP|DOWN|UNKNOWN'
 	);
 
@@ -2078,7 +2079,7 @@ class OMVNetworkInterface extends OMVObject {
 	public function getIP() {
 		if($this->getData("ifconfig") === FALSE)
 			return FALSE;
-		if(1 !== preg_match("/inet addr:({$this->regex['ipv4']})/i",
+		if(1 !== preg_match("/inet addr:\s*({$this->regex['ipv4']})/i",
 		  $this->ifconfig, $matches))
 			return FALSE;
 		return $matches[1];
@@ -2091,8 +2092,8 @@ class OMVNetworkInterface extends OMVObject {
 	public function getIP6() {
 		if($this->getData("ifconfig") === FALSE)
 			return FALSE;
-		if(1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6']})/i",
-		  $this->ifconfig, $matches))
+		if(1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6cidr']})".
+		  "\s*Scope:Global/i", $this->ifconfig, $matches))
 			return FALSE;
 		return $matches[2];
 	}
@@ -2104,7 +2105,7 @@ class OMVNetworkInterface extends OMVObject {
 	public function getMask() {
 		if($this->getData("ifconfig") === FALSE)
 			return FALSE;
-		if(1 !== preg_match("/Mask:({$this->regex['ipv4']})/i",
+		if(1 !== preg_match("/Mask:\s*({$this->regex['ipv4']})/i",
 		  $this->ifconfig, $matches))
 			return FALSE;
 		return $matches[1];
@@ -2118,7 +2119,7 @@ class OMVNetworkInterface extends OMVObject {
 	public function getMask6() {
 		if($this->getData("ifconfig") === FALSE)
 			return FALSE;
-		if(1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6']})/i",
+		if(1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6cidr']})/i",
 		  $this->ifconfig, $matches))
 			return FALSE;
 		return intval($matches[3]);
@@ -2152,14 +2153,14 @@ class OMVNetworkInterface extends OMVObject {
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0)
 			return FALSE;
+		$output = implode("\n", $output);
 		// Parse command output:
 		// 192.168.178.0/24  proto kernel  scope link  src 192.168.178.21 
 		// default via 192.168.178.1
-		array_shift($output);
-		if(empty($output[0]))
+		$regex = sprintf('/default via\s+(%s)/im', $this->regex['ipv4']);
+		if(1 !== preg_match($regex, $output, $matches))
 			return FALSE;
-		$output = explode(" ", $output[0]);
-		return $output[2];
+		return $matches[1];
 	}
 
 	/**
@@ -2172,14 +2173,14 @@ class OMVNetworkInterface extends OMVObject {
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0)
 			return FALSE;
+		$output = implode("\n", $output);
 		// Parse command output:
 		// fe80::/64  proto kernel  metric 256  mtu 1500 advmss 1440 hoplimit 4294967295
 		// default via fe80::21e:13ff:fef9:af0  metric 1024  mtu 1500 advmss 1440 hoplimit 4294967295
-		array_shift($output);
-		if(empty($output[0]))
+		$regex = sprintf('/default via\s+(%s)\s+/im', $this->regex['ipv6']);
+		if(1 !== preg_match($regex, $output, $matches))
 			return FALSE;
-		$output = explode(" ", $output[0]);
-		return $output[2];
+		return $matches[1];
 	}
 
 	/**

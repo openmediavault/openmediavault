@@ -173,7 +173,7 @@ Ext.define("OMV.module.admin.system.network.interface.Physical", {
 					fields: [ "value", "text" ],
 					data: [
 						[ "manual", _("Manual") ],
-						[ "auto", _("Auto") ],
+						//[ "auto", _("Auto") ], // Supported in Debian Wheezy
 						[ "static", _("Static") ]
 					]
 				}),
@@ -320,7 +320,7 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 			xtype: "checkboxgridfield",
 			name: "slaves",
 			fieldLabel: _("Slaves"),
-			height: 110,
+			height: 105,
 			minSelections: 1,
 			allowBlank: false,
 			valueField: "devicename",
@@ -448,7 +448,7 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 					fields: [ "value", "text" ],
 					data: [
 						[ "manual", _("Manual") ],
-						[ "auto", _("Auto") ],
+						//[ "auto", _("Auto") ], // Supported in Debian Wheezy
 						[ "static", _("Static") ]
 					]
 				}),
@@ -772,7 +772,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		renderer: function(value, metaData, record) {
 			var tpl = new Ext.XTemplate(
 			  '<b>', _("IPv4"), ':</b> {[Ext.util.Format.defaultValue(values.netmask, "-")]}<br/>',
-			  '<b>', _("IPv6"), ':</b> {[Ext.util.Format.defaultValue((values.netmask6 == 0) ? "" : values.netmask6, "-")]}');
+			  '<b>', _("IPv6"), ':</b> {[Ext.util.Format.defaultValue((values.netmask6 < 0) ? "" : values.netmask6, "-")]}');
 			return tpl.apply(record.data);
 		}
 	},{

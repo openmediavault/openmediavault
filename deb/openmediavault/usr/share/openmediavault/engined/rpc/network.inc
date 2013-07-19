@@ -240,6 +240,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			// Set defaults.
 			$devv['uuid'] = $GLOBALS['OMV_UUID_UNDEFINED'];
 			$devv['method'] = "";
+			$devv['method6'] = "";
 			$devv['comment'] = "";
 			$devv['_used'] = FALSE;
 			$devv['_readOnly'] = FALSE;
@@ -279,6 +280,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			if(!is_null($cfgObject)) {
 				$devv['uuid'] = $cfgObject['uuid'];
 				$devv['method'] = $cfgObject['method'];
+				$devv['method6'] = $cfgObject['method6'];
 				$devv['comment'] = $cfgObject['comment'];
 			}
 			// Do some more checks.
@@ -303,6 +305,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 					$devv['_used'] = TRUE;
 					$devv['_readOnly'] = TRUE;
 					$devv['method'] = "";
+					$devv['method6'] = "";
 				}
 				break;
 			}

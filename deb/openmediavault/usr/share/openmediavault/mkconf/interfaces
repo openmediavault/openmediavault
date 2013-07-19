@@ -29,6 +29,7 @@
 # http://www.linuxfoundation.org/collaborate/workgroups/networking/bonding
 # http://www.howtoforge.com/nic-bonding-on-debian-lenny
 # http://wiki.linuxmce.org/index.php/MTU
+# http://www.simpledns.com/private-ipv6.aspx
 
 set -e
 
@@ -42,6 +43,7 @@ xmlstarlet sel -t \
   -o "# The loopback network interface" -n \
   -o "auto lo" -n \
   -o "iface lo inet loopback" -n \
+  -o "iface lo inet6 loopback" -n \
   -m "//system/network/interfaces/iface" \
 	  -i "count(//system/network/interfaces//slaves[contains(.,current()/devicename)]) = 0" \
 		  -n \
@@ -50,15 +52,19 @@ xmlstarlet sel -t \
 		  -v "concat('allow-hotplug ',devicename)" -n \
 		  -i "method = 'manual'" \
 			  -v "concat('iface ',devicename,' inet manual')" -n \
-			  -v "concat('    up ip link set ',devicename,' up')" -n \
-			  -v "concat('    down ip link set ',devicename,' down')" -n \
-			  -v "concat('    pre-down ip address flush dev ',devicename)" -n \
-		  -b \
-		  -i "method6 = 'manual'" \
-			  -v "concat('iface ',devicename,' inet6 manual')" -n \
-			  -v "concat('    up ip link set ',devicename,' up')" -n \
-			  -v "concat('    down ip link set ',devicename,' down')" -n \
-			  -v "concat('    pre-down ip address flush dev ',devicename)" -n \
+			  -v "concat('    pre-down ip -4 addr flush dev ',devicename)" -n \
+			  -i "string-length(mtu) > 0" \
+				  -v "concat('    mtu ',mtu)" -n \
+			  -b \
+			  -i "string-length(//system/network/dnsnameservers) > 0" \
+				  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
+			  -b \
+			  -i "wol = 1" \
+				  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
+			  -b \
+			  -i "string-length(options) > 0" \
+				  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
+			  -b \
 		  -b \
 		  -i "method = 'static'" \
 			  -v "concat('iface ',devicename,' inet static')" -n \
@@ -67,18 +73,25 @@ xmlstarlet sel -t \
 				  -v "concat('    gateway ',gateway)" -n \
 			  -b \
 			  -v "concat('    netmask ',netmask)" -n \
-			  -i "string-length(mtu) > 0" \
-				  -v "concat('    mtu ',mtu)" -n \
-			  -b \
-			  -i "string-length(//system/network/dnsnameservers) > 0" \
-				  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
-			  -b \
-			  -i "wol = 1" \
-				  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
-			  -b \
-			  -i "string-length(options) > 0" \
-				  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
-			  -b \
+		  -b \
+		  -i "method = 'dhcp'" \
+			  -v "concat('iface ',devicename,' inet dhcp')" -n \
+		  -b \
+		  -i "string-length(mtu) > 0" \
+			  -v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
+		  -b \
+		  -i "string-length(//system/network/dnsnameservers) > 0" \
+			  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
+		  -b \
+		  -i "wol = 1" \
+			  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
+		  -b \
+		  -i "string-length(options) > 0" \
+			  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
+		  -b \
+		  -i "method6 = 'manual'" \
+			  -v "concat('iface ',devicename,' inet6 manual')" -n \
+			  -v "concat('    pre-down ip -6 addr flush dev ',devicename)" -n \
 		  -b \
 		  -i "method6 = 'static'" \
 			  -v "concat('iface ',devicename,' inet6 static')" -n \
@@ -87,52 +100,13 @@ xmlstarlet sel -t \
 				  -v "concat('    gateway ',gateway6)" -n \
 			  -b \
 			  -v "concat('    netmask ',netmask6)" -n \
-			  -i "string-length(mtu) > 0" \
-				  -v "concat('    mtu ',mtu)" -n \
-			  -b \
-			  -i "string-length(//system/network/dnsnameservers) > 0" \
-				  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
-			  -b \
 			  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
-			  -i "wol = 1" \
-				  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
-			  -b \
-			  -i "string-length(options) > 0" \
-				  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
-			  -b \
-		  -b \
-		  -i "method = 'dhcp'" \
-			  -v "concat('iface ',devicename,' inet dhcp')" -n \
-			  -i "string-length(mtu) > 0" \
-				  -v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
-			  -b \
-			  -i "string-length(//system/network/dnsnameservers) > 0" \
-				  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
-			  -b \
-			  -i "wol = 1" \
-				  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
-			  -b \
-			  -i "string-length(options) > 0" \
-				  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
-			  -b \
 		  -b \
 		  -i "method6 = 'auto'" \
 			  -v "concat('iface ',devicename,' inet6 auto')" -n \
 			  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/autoconf" -n \
 			  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/accept_ra" -n \
 			  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
-			  -i "string-length(mtu) > 0" \
-				  -v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
-			  -b \
-			  -i "string-length(//system/network/dnsnameservers) > 0" \
-				  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
-			  -b \
-			  -i "wol = 1" \
-				  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
-			  -b \
-			  -i "string-length(options) > 0" \
-				  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
-			  -b \
 		  -b \
 	  -b \
   -b \
@@ -142,15 +116,7 @@ xmlstarlet sel -t \
 	  -v "concat('auto ',devicename)" -n \
 	  -i "method = 'manual'" \
 		  -v "concat('iface ',devicename,' inet manual')" -n \
-		  -v "concat('    up ip link set ',devicename,' up')" -n \
-		  -v "concat('    down ip link set ',devicename,' down')" -n \
-		  -v "concat('    pre-down ip address flush dev ',devicename)" -n \
-	  -b \
-	  -i "method6 = 'manual'" \
-		  -v "concat('iface ',devicename,' inet6 manual')" -n \
-		  -v "concat('    up ip link set ',devicename,' up')" -n \
-		  -v "concat('    down ip link set ',devicename,' down')" -n \
-		  -v "concat('    pre-down ip address flush dev ',devicename)" -n \
+		  -v "concat('    pre-down ip -4 addr flush dev ',devicename)" -n \
 	  -b \
 	  -i "method = 'static'" \
 		  -v "concat('iface ',devicename,' inet static')" -n \
@@ -180,6 +146,33 @@ xmlstarlet sel -t \
 		  -v "concat('    bond-downdelay ',bonddowndelay)" -n \
 		  -v "concat('    bond-updelay ',bondupdelay)" -n \
 	  -b \
+	  -i "method = 'dhcp'" \
+		  -v "concat('iface ',devicename,' inet dhcp')" -n \
+	  -b \
+	  -i "string-length(mtu) > 0" \
+		  -v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
+	  -b \
+	  -i "string-length(//system/network/dnsnameservers) > 0" \
+		  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
+	  -b \
+	  -i "wol = 1" \
+		  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
+	  -b \
+	  -i "string-length(options) > 0" \
+		  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
+	  -b \
+	  -v "concat('    bond-slaves ',translate(slaves,',',' '))" -n \
+	  -i "string-length(bondprimary) > 0" \
+		  -v "concat('    bond-primary ',bondprimary)" -n \
+	  -b \
+	  -v "concat('    bond-mode ',bondmode)" -n \
+	  -v "concat('    bond-miimon ',bondmiimon)" -n \
+	  -v "concat('    bond-downdelay ',bonddowndelay)" -n \
+	  -v "concat('    bond-updelay ',bondupdelay)" -n \
+	  -i "method6 = 'manual'" \
+		  -v "concat('iface ',devicename,' inet6 manual')" -n \
+		  -v "concat('    pre-down ip -6 addr flush dev ',devicename)" -n \
+	  -b \
 	  -i "method6 = 'static'" \
 		  -v "concat('iface ',devicename,' inet6 static')" -n \
 		  -v "concat('    address ',address6)" -n \
@@ -187,76 +180,13 @@ xmlstarlet sel -t \
 			  -v "concat('    gateway ',gateway6)" -n \
 		  -b \
 		  -v "concat('    netmask ',netmask6)" -n \
-		  -i "string-length(mtu) > 0" \
-			  -v "concat('    mtu ',mtu)" -n \
-		  -b \
-		  -i "string-length(//system/network/dnsnameservers) > 0" \
-			  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
-		  -b \
 		  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
-		  -i "wol = 1" \
-			  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
-		  -b \
-		  -i "string-length(options) > 0" \
-			  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
-		  -b \
-		  -v "concat('    bond-slaves ',translate(slaves,',',' '))" -n \
-		  -i "string-length(bondprimary) > 0" \
-			  -v "concat('    bond-primary ',bondprimary)" -n \
-		  -b \
-		  -v "concat('    bond-mode ',bondmode)" -n \
-		  -v "concat('    bond-miimon ',bondmiimon)" -n \
-		  -v "concat('    bond-downdelay ',bonddowndelay)" -n \
-		  -v "concat('    bond-updelay ',bondupdelay)" -n \
-	  -b \
-	  -i "method = 'dhcp'" \
-		  -v "concat('iface ',devicename,' inet dhcp')" -n \
-		  -i "string-length(mtu) > 0" \
-			  -v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
-		  -b \
-		  -i "string-length(//system/network/dnsnameservers) > 0" \
-			  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
-		  -b \
-		  -i "wol = 1" \
-			  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
-		  -b \
-		  -i "string-length(options) > 0" \
-			  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
-		  -b \
-		  -v "concat('    bond-slaves ',translate(slaves,',',' '))" -n \
-		  -i "string-length(bondprimary) > 0" \
-			  -v "concat('    bond-primary ',bondprimary)" -n \
-		  -b \
-		  -v "concat('    bond-mode ',bondmode)" -n \
-		  -v "concat('    bond-miimon ',bondmiimon)" -n \
-		  -v "concat('    bond-downdelay ',bonddowndelay)" -n \
-		  -v "concat('    bond-updelay ',bondupdelay)" -n \
 	  -b \
 	  -i "method6 = 'auto'" \
 		  -v "concat('iface ',devicename,' inet6 auto')" -n \
 		  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/autoconf" -n \
 		  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/accept_ra" -n \
 		  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
-		  -i "string-length(mtu) > 0" \
-			  -v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
-		  -b \
-		  -i "string-length(//system/network/dnsnameservers) > 0" \
-			  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
-		  -b \
-		  -i "wol = 1" \
-			  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
-		  -b \
-		  -i "string-length(options) > 0" \
-			  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
-		  -b \
-		  -v "concat('    bond-slaves ',translate(slaves,',',' '))" -n \
-		  -i "string-length(bondprimary) > 0" \
-			  -v "concat('    bond-primary ',bondprimary)" -n \
-		  -b \
-		  -v "concat('    bond-mode ',bondmode)" -n \
-		  -v "concat('    bond-miimon ',bondmiimon)" -n \
-		  -v "concat('    bond-downdelay ',bonddowndelay)" -n \
-		  -v "concat('    bond-updelay ',bondupdelay)" -n \
 	  -b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_INTERFACES_CONFIG}
