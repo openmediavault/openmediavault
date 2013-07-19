@@ -2119,8 +2119,8 @@ class OMVNetworkInterface extends OMVObject {
 	public function getMask6() {
 		if($this->getData("ifconfig") === FALSE)
 			return FALSE;
-		if(1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6cidr']})/i",
-		  $this->ifconfig, $matches))
+		if(1 !== preg_match("/inet6 addr:\s*({$this->regex['ipv6cidr']})".
+		  "\s*Scope:Global/i", $this->ifconfig, $matches))
 			return FALSE;
 		return intval($matches[3]);
 	}

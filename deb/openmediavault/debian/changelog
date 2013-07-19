@@ -1,7 +1,9 @@
 openmediavault (0.5.0.21) stable; urgency=low
 
   * Various improvements and bugfixes.
-  * Add IPv6 support.
+  * Add IPv6 support. Note, the WebGUI only supports 'static' configuration
+    because ifupdown package does not support 'auto' in Debian Squeeze.
+    Select 'manual' to do not configure an interface.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 17 Jul 2013 18:30:59 +0200
 
