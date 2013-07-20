@@ -50,6 +50,10 @@ EOF
 			if [ -n "${ipaddr}" ]; then
 				echo "${iface}: ${ipaddr}" >> ${OMV_ISSUE_CONFIG}
 			fi
+			ipaddr6=$(omv_get_ipaddr6 ${iface})
+			if [ -n "${ipaddr6}" ]; then
+				echo "${iface}: [${ipaddr6}]" >> ${OMV_ISSUE_CONFIG}
+			fi
 		done
 	else
 		echo "No interface(s) available" >> ${OMV_ISSUE_CONFIG}

@@ -149,29 +149,45 @@ omv_exec_rpc() {
 # omv_get_if [interface]
 # Get the interface. If set to 'auto' use the first interface found.
 omv_get_if() {
-  local _interface
-  _interface=$1
-  case ${_interface} in
+	local _interface
+	_interface=$1
+	case ${_interface} in
 	[Aa][Uu][Tt][Oo])
-	  _interface=`ifconfig -s | tail -n +2 | head -n 1 | awk '{print $1}'`
-	  ;;
-  esac
-  echo ${_interface}
+		_interface=`ifconfig -s | tail -n +2 | head -n 1 | awk '{print $1}'`
+		;;
+	esac
+	echo ${_interface}
 }
 
 # omv_get_ipaddr [interface]
 # Get the IPv4 address from the given network interface.
 omv_get_ipaddr() {
-  local _ipaddr
-  _ipaddr=$(export LANG=C; ip addr show $1 2>/dev/null | grep -i "inet " | awk '{ split($2,a,"/"); print a[1] }')
-  echo ${_ipaddr}
+	local _ipaddr
+	_ipaddr=$(export LANG=C; ip -4 addr show $1 | sed -n 's/^\s\+inet \([0-9\.]\+\)\/[0-9]\+ brd.\+/\1/p')
+	echo ${_ipaddr}
+}
+
+# omv_get_ipaddr6 [interface]
+# Get the IPv6 address from the given network interface.
+omv_get_ipaddr6() {
+	local _ipaddr
+	_ipaddr=$(export LANG=C; ip -6 addr show $1 | sed -n 's/^\s\+inet6 \([a-f0-9:]\+\)\/[0-9]\+ scope global/\1/p')
+	echo ${_ipaddr}
 }
 
 # omv_get_gateway [interface]
-# Get the default gateway for the given network interface.
+# Get the default IPv4 gateway for the given network interface.
 omv_get_gateway() {
 	local _gateway
-	_gateway=$(route -ne | grep -E "^0\.0\.0\.0.+$1$" | awk '{print $2}')
+	_gateway=$(export LANG=C; ip -4 route show dev $1 | sed -n 's/default via \([0-9\.]\+\)/\1/p')
+	echo ${_gateway}
+}
+
+# omv_get_gateway6 [interface]
+# Get the default IPv6 gateway for the given network interface.
+omv_get_gateway6() {
+	local _gateway
+	_gateway=$(export LANG=C; ip -6 route show dev $1 | sed -n 's/default via \([a-f0-9:]\+\)/\1/p')
 	echo ${_gateway}
 }
 

@@ -225,6 +225,12 @@ case "$1" in
 			omv_config_add_element "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "gateway6" ""
 			# Modify firewall rules.
 			omv_config_add_element "/config/system/network/iptables/rule" "family" "inet"
+			# Modify sysctl settings.
+			echo 0 > /proc/sys/net/ipv6/conf/all/autoconf
+			echo 0 > /proc/sys/net/ipv6/conf/default/autoconf
+			echo 0 > /proc/sys/net/ipv6/conf/all/accept_ra
+			echo 0 > /proc/sys/net/ipv6/conf/default/accept_ra
+			echo 0 > /proc/sys/net/ipv6/conf/lo/disable_ipv6
 		fi
 	;;
 
