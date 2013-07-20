@@ -34,7 +34,10 @@
 
 configure_iface() {
 	local devicename method address netmask gateway
+	# Default values.
 	method="dhcp"
+	method6="manual"
+	netmask6=64
 	wol=false
 	# Get the network interface device.
 	cmd="whiptail --clear --menu 'Please select a network interface. Note, the existing network interface configuration will be deleted.' 15 53 5 "
@@ -45,10 +48,10 @@ configure_iface() {
 	[ $? -ne 0 ] && return 1
 	devicename=$(cat $tempfile)
 	# Use DHCP?
-	whiptail --clear --yesno "Do you want to use DHCP for this interface?" 8 50
+	whiptail --clear --yesno "Do you want to use DHCPv4 for this interface?" 8 50
 	if [ $? -eq 1 ]; then
 		method="static"
-		# Get address
+		# Get the static IPv4 address.
 		while [ -z ${address} ]; do
 			whiptail --clear --inputbox "Please enter the IPv4 address." \
 			  8 60 2>$tempfile
@@ -63,7 +66,7 @@ configure_iface() {
 				address=""
 			fi
 		done
-		# Get netmask
+		# Get the IPv4 netmask.
 		while [ -z ${netmask} ]; do
 			whiptail --clear --inputbox "Please enter the netmask." \
 			  8 60 2>$tempfile
@@ -78,7 +81,7 @@ configure_iface() {
 				netmask=""
 			fi
 		done
-		# Get default gateway
+		# Get default IPv4 gateway.
 		while [ -z ${gateway} ]; do
 			whiptail --clear --inputbox "Please enter the default gateway." \
 			  8 60 2>$tempfile
@@ -94,16 +97,73 @@ configure_iface() {
 			fi
 		done
 	fi
+	# Use IPv6?
+	whiptail --clear --defaultno --yesno "Do you want to configure IPv6 for this interface?" 8 53
+	if [ $? -eq 0 ]; then
+# Available with Debian Wheezy.
+#		whiptail --clear --yesno "Do you want to enable stateless autoconfiguration?" 8 50
+#		if [ $? -eq 1 ]; then
+#			method6="auto"
+#		else
+			method6="static"
+			# Get static IPv6 address.
+			while [ -z ${address6} ]; do
+				whiptail --clear --inputbox "Please enter the IPv6 address." \
+				  8 60 2>$tempfile
+				[ $? -ne 0 ] && return 1
+				address6=$(cat $tempfile)
+				if [ -z ${address6} ]; then
+					whiptail --clear --msgbox "The field must not be empty." 8 32
+					continue
+				fi
+				if ! omv_is_valid_ipv6address "${address6}"; then
+					whiptail --clear --msgbox "Invalid IPv6 address." 8 26
+					address6=""
+				fi
+			done
+			# Get the prefix length.
+			netmask6=""
+			while [ -z ${netmask6} ]; do
+				whiptail --clear --inputbox "Please enter the prefix length." \
+				  8 60 64 2>$tempfile
+				[ $? -ne 0 ] && return 1
+				netmask6=$(cat $tempfile)
+				if [ -z ${netmask6} ]; then
+					whiptail --clear --msgbox "The field must not be empty." 8 32
+					continue
+				fi
+				if ! omv_is_valid_ipv6netmask "${netmask6}"; then
+					whiptail --clear --msgbox "Invalid netmask." 8 22
+					netmask=""
+				fi
+			done
+			# Get default IPv6 gateway.
+			while [ -z ${gateway6} ]; do
+				whiptail --clear --inputbox "Please enter the default gateway." \
+				  8 60 2>$tempfile
+				[ $? -ne 0 ] && return 1
+				gateway6=$(cat $tempfile)
+				if [ -n "${gateway6}" ]; then
+					if ! omv_is_valid_ipv6gateway "${gateway6}"; then
+						whiptail --clear --msgbox "Invalid gateway." 8 22
+						gateway6=""
+					fi
+				else
+					break
+				fi
+			done
+#		fi
+	fi
 	whiptail --clear --defaultno --yesno \
 	  "Do you want to enable WOL for this interface?" 8 50
 	if [ $? -eq 0 ]; then
 		wol=true
 	fi
 	echo "Configuring network interface. Please wait ..."
-	# Delete all existing network interface configuration objects
+	# Delete all existing network interface configuration objects.
 	omv_config_delete "//system/network/interfaces/*"
-	# Insert a new network interface configuration object
-	omv_exec_rpc "Network" "setIface" "{\"uuid\":\"undefined\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"method6\":\"manual\",\"address6\":\"\",\"netmask6\":64,\"gateway6\":\"\",\"mtu\":\"\",\"wol\":${wol},\"options\":\"\",\"comment\":\"\"}"
+	# Insert a new network interface configuration object.
+	omv_exec_rpc "Network" "setIface" "{\"uuid\":\"undefined\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"method6\":\"${method6}\",\"address6\":\"${address6}\",\"netmask6\":${netmask6},\"gateway6\":\"${gateway6}\",\"mtu\":\"\",\"wol\":${wol},\"options\":\"\",\"comment\":\"\"}"
 	[ $? -ne 0 ] && return 1
 	omv_exec_rpc "Config" "applyChanges" "{\"modules\":[],\"force\":false}"
 	[ $? -ne 0 ] && return 1

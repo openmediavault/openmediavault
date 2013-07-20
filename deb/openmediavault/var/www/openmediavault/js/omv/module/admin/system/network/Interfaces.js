@@ -740,8 +740,8 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		stateId: "method",
 		renderer: function(value, metaData, record) {
 			var tpl = new Ext.XTemplate(
-			  '<b>', _("IPv4"), ':</b> {[this.renderValue(values.method)]}<br/>',
-			  '<b>', _("IPv6"), ':</b> {[this.renderValue(values.method6)]}',
+			  _("IPv4"),': {[this.renderValue(values.method)]}<br/>',
+			  _("IPv6"),': {[this.renderValue(values.method6)]}',
 			  {
 				  renderValue: function(value) {
 					  var methods = {
@@ -761,8 +761,8 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		stateId: "address",
 		renderer: function(value, metaData, record) {
 			var tpl = new Ext.XTemplate(
-			  '<b>', _("IPv4"), ':</b> {[Ext.util.Format.defaultValue(values.address, "-")]}<br/>',
-			  '<b>', _("IPv6"), ':</b> {[Ext.util.Format.defaultValue(values.address6, "-")]}');
+			  _("IPv4"),': {[Ext.util.Format.defaultValue(values.address, "-")]}<br/>',
+			  _("IPv6"),': {[Ext.util.Format.defaultValue(values.address6, "-")]}');
 			return tpl.apply(record.data);
 		}
 	},{
@@ -771,8 +771,8 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		stateId: "netmask",
 		renderer: function(value, metaData, record) {
 			var tpl = new Ext.XTemplate(
-			  '<b>', _("IPv4"), ':</b> {[Ext.util.Format.defaultValue(values.netmask, "-")]}<br/>',
-			  '<b>', _("IPv6"), ':</b> {[Ext.util.Format.defaultValue((values.netmask6 < 0) ? "" : values.netmask6, "-")]}');
+			  _("IPv4"),': {[Ext.util.Format.defaultValue(values.netmask, "-")]}<br/>',
+			  _("IPv6"),': {[Ext.util.Format.defaultValue((values.netmask6 < 0) ? "" : values.netmask6, "-")]}');
 			return tpl.apply(record.data);
 		}
 	},{
@@ -781,8 +781,8 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		stateId: "gateway",
 		renderer: function(value, metaData, record) {
 			var tpl = new Ext.XTemplate(
-			  '<b>', _("IPv4"), ':</b> {[Ext.util.Format.defaultValue(values.gateway, "-")]}<br/>',
-			  '<b>', _("IPv6"), ':</b> {[Ext.util.Format.defaultValue(values.gateway6, "-")]}');
+			  _("IPv4"),': {[Ext.util.Format.defaultValue(values.gateway, "-")]}<br/>',
+			  _("IPv6"),': {[Ext.util.Format.defaultValue(values.gateway6, "-")]}');
 			return tpl.apply(record.data);
 		}
 	},{

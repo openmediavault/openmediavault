@@ -461,6 +461,33 @@ omv_is_valid_ipv4gateway() {
 	return 0
 }
 
+# omv_is_valid_ipv6address (char address)
+# Check if the given IPv6 address is valid.
+# @param address The IPv6 address to validate
+# @return 0 if valid, otherwise 1.
+omv_is_valid_ipv6address() {
+	// ToDo ...
+	return 0
+}
+
+# omv_is_valid_ipv6netmask (int netmask)
+# Check if the given IPv6 prefix length is valid.
+# @param netmask The IPv6 prefix length to validate
+# @return 0 if valid, otherwise 1.
+omv_is_valid_ipv6netmask() {
+	[ $1 -lt 0 -o $1 -gt 128 ] && return 1
+	return 0
+}
+
+# omv_is_valid_ipv6gateway (char gateway)
+# Check if the given IPv6 gateway is valid.
+# @param gateway The IPv6 gateway to validate
+# @return 0 if valid, otherwise 1.
+omv_is_valid_ipv6gateway() {
+	// ToDo ...
+	return 0
+}
+
 # void omv_get_sharedfolder_name (char *uuid)
 # Get the name of the given shared folder
 # @param The UUID of the shared folder
