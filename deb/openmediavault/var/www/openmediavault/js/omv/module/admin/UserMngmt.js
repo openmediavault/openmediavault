@@ -72,7 +72,9 @@ OMV.Module.Privileges.UserGridPanel = function(config) {
 				dataIndex: "groups",
 				id: "groups",
 				renderer: function(val, cell, record, row, col, store) {
-					return val.join(",");
+					if(Ext.isArray(val))
+						return val.join(",");
+					return val;
 				},
 				scope: this
 			}]
