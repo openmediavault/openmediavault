@@ -5,6 +5,7 @@ openmediavault (0.5.0.21) stable; urgency=low
   * Add IPv6 support. Note, the WebGUI only supports 'static' configuration
     because ifupdown package does not support 'auto' in Debian Squeeze.
     Select 'manual' to do not configure an interface.
+  * Set swappiness to 30 by default.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 17 Jul 2013 18:30:59 +0200
 

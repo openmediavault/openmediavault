@@ -61,7 +61,7 @@ configure_iface() {
 				whiptail --clear --msgbox "The field must not be empty." 8 32
 				continue
 			fi
-			if ! omv_is_valid_ipv4address "${address}"; then
+			if ! omv_is_ipaddr4 "${address}"; then
 				whiptail --clear --msgbox "Invalid IPv4 address." 8 26
 				address=""
 			fi
@@ -76,7 +76,7 @@ configure_iface() {
 				whiptail --clear --msgbox "The field must not be empty." 8 32
 				continue
 			fi
-			if ! omv_is_valid_ipv4netmask "${netmask}"; then
+			if ! omv_is_netmask4 "${netmask}"; then
 				whiptail --clear --msgbox "Invalid netmask." 8 22
 				netmask=""
 			fi
@@ -88,7 +88,7 @@ configure_iface() {
 			[ $? -ne 0 ] && return 1
 			gateway=$(cat $tempfile)
 			if [ -n "${gateway}" ]; then
-				if ! omv_is_valid_ipv4gateway "${gateway}"; then
+				if ! omv_is_gateway4 "${gateway}"; then
 					whiptail --clear --msgbox "Invalid gateway." 8 22
 					gateway=""
 				fi
@@ -116,7 +116,7 @@ configure_iface() {
 					whiptail --clear --msgbox "The field must not be empty." 8 32
 					continue
 				fi
-				if ! omv_is_valid_ipv6address "${address6}"; then
+				if ! omv_is_ipaddr6 "${address6}"; then
 					whiptail --clear --msgbox "Invalid IPv6 address." 8 26
 					address6=""
 				fi
@@ -132,7 +132,7 @@ configure_iface() {
 					whiptail --clear --msgbox "The field must not be empty." 8 32
 					continue
 				fi
-				if ! omv_is_valid_ipv6netmask "${netmask6}"; then
+				if ! omv_is_netmask6 "${netmask6}"; then
 					whiptail --clear --msgbox "Invalid netmask." 8 22
 					netmask=""
 				fi
@@ -144,7 +144,7 @@ configure_iface() {
 				[ $? -ne 0 ] && return 1
 				gateway6=$(cat $tempfile)
 				if [ -n "${gateway6}" ]; then
-					if ! omv_is_valid_ipv6gateway "${gateway6}"; then
+					if ! omv_is_gateway6 "${gateway6}"; then
 						whiptail --clear --msgbox "Invalid gateway." 8 22
 						gateway6=""
 					fi

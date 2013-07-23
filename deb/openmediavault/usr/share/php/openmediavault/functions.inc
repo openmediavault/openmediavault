@@ -167,6 +167,42 @@ function is_json($var) {
 }
 
 /**
+ * Finds out whether a variable is an IP address.
+ * @ingroup api
+ * @param var The variable being evaluated.
+ * @return TRUE if variable is an IP address, otherwise FALSE.
+ */
+function is_ipaddr($var) {
+	if(!is_string($var))
+		return FALSE;
+	return filter_var($var, FILTER_VALIDATE_IP));
+}
+
+/**
+ * Finds out whether a variable is an IPv4 address.
+ * @ingroup api
+ * @param var The variable being evaluated.
+ * @return TRUE if variable is an IPv4 address, otherwise FALSE.
+ */
+function is_ipaddr4($var) {
+	if(!is_string($var))
+		return FALSE;
+	return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4));
+}
+
+/**
+ * Finds out whether a variable is an IPv6 address.
+ * @ingroup api
+ * @param var The variable being evaluated.
+ * @return TRUE if variable is an IPv6 address, otherwise FALSE.
+ */
+function is_ipaddr6($var) {
+	if(!is_string($var))
+		return FALSE;
+	return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6));
+}
+
+/**
  * Validate JSON data via JSON schema.
  * @ingroup api
  * @param json The JSON string to validate.

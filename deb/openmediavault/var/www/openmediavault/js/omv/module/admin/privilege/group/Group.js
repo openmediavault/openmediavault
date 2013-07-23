@@ -178,7 +178,9 @@ Ext.define("OMV.module.admin.privilege.group.Groups", {
 		dataIndex: "members",
 		stateId: "members",
 		renderer: function(value) {
-			return value.join(",");
+			if(Ext.isArray(value))
+				return value.join(",");
+			return value;
 		}
 	}],
 

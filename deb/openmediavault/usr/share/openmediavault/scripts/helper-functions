@@ -447,61 +447,65 @@ omv_cidr2mask() {
 	echo $mask
 }
 
-# omv_is_valid_ipv4address (char address)
+# omv_is_ipaddr4 (char address)
 # Check if the given IPv4 address is valid.
 # @param address The IPv4 address to validate
 # @return 0 if valid, otherwise 1.
-omv_is_valid_ipv4address() {
+omv_is_ipaddr4() {
 	echo $1 | grep -Eq "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$"
 	[ $? -ne 0 ] && return 1
 	return 0
 }
 
-# omv_is_valid_ipv4netmask (char netmask)
+# omv_is_netmask4 (char netmask)
 # Check if the given IPv4 netmask is valid.
 # @param netmask The IPv4 netmask to validate
 # @return 0 if valid, otherwise 1.
-omv_is_valid_ipv4netmask() {
+omv_is_netmask4() {
 	echo $1 | grep -Eq "^(128|192|224|24[08]|25[245].0.0.0)|(255.(0|128|192|224|24[08]|25[245]).0.0)|(255.255.(0|128|192|224|24[08]|25[245]).0)|(255.255.255.(0|128|192|224|24[08]|252))$"
 	[ $? -ne 0 ] && return 1
 	return 0
 }
 
-# omv_is_valid_ipv4gateway (char gateway)
+# omv_is_gateway4 (char gateway)
 # Check if the given IPv4 gateway is valid.
 # @param gateway The IPv4 gateway to validate
 # @return 0 if valid, otherwise 1.
-omv_is_valid_ipv4gateway() {
+omv_is_gateway4() {
 	echo $1 | grep -Eq "^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$"
 	[ $? -ne 0 ] && return 1
 	return 0
 }
 
-# omv_is_valid_ipv6address (char address)
+# omv_is_ipaddr6 (char address)
 # Check if the given IPv6 address is valid.
 # @param address The IPv6 address to validate
 # @return 0 if valid, otherwise 1.
-omv_is_valid_ipv6address() {
-	// ToDo ...
-	return 0
+omv_is_ipaddr6() {
+	local _valid
+#	perl -ne "use Socket qw(AF_INET6 inet_pton); print inet_pton(AF_INET6, '$1');"
+	_valid=$(php -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
+	return ${_valid}
 }
 
-# omv_is_valid_ipv6netmask (int netmask)
+# omv_is_netmask6 (int netmask)
 # Check if the given IPv6 prefix length is valid.
 # @param netmask The IPv6 prefix length to validate
 # @return 0 if valid, otherwise 1.
-omv_is_valid_ipv6netmask() {
+omv_is_netmask6() {
 	[ $1 -lt 0 -o $1 -gt 128 ] && return 1
 	return 0
 }
 
-# omv_is_valid_ipv6gateway (char gateway)
+# omv_is_gateway6 (char gateway)
 # Check if the given IPv6 gateway is valid.
 # @param gateway The IPv6 gateway to validate
 # @return 0 if valid, otherwise 1.
-omv_is_valid_ipv6gateway() {
-	// ToDo ...
-	return 0
+omv_is_gateway6() {
+	local _valid
+#	perl -ne "use Socket qw(AF_INET6 inet_pton); print inet_pton(AF_INET6, '$1');"
+	_valid=$(php -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
+	return ${_valid}
 }
 
 # void omv_get_sharedfolder_name (char *uuid)
