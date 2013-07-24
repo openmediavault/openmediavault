@@ -30,15 +30,20 @@
 /**
  * @class OMV.module.admin.system.network.firewall.Rule
  * @derived OMV.workspace.window.Form
+ * @param family The address family, e.g. 'inet' or 'inet6'. Defaults
+ *   to 'inet'.
  */
 Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 	extend: "OMV.workspace.window.Form",
+
+	family: "inet",
 
 	mode: "local",
 	width: 550,
 	height: 400,
 
 	getFormItems: function() {
+		var me = this;
 		return [{
 			xtype: "combo",
 			name: "family",
@@ -52,7 +57,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
-			value: "inet"
+			value: me.family
 		},{
 			xtype: "combo",
 			name: "chain",
@@ -87,7 +92,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 			xtype: "textfield",
 			name: "source",
 			fieldLabel: _("Source"),
-			vtype: "IPv4Fw",
+			vtype: (me.family == "inet") ? "IPv4Fw" : "IPv6Fw",
 			allowBlank: true,
 			plugins: [{
 				ptype: "fieldinfo",
@@ -107,7 +112,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 			xtype: "textfield",
 			name: "destination",
 			fieldLabel: _("Destination"),
-			vtype: "IPv4Fw",
+			vtype: (me.family == "inet") ? "IPv4Fw" : "IPv6Fw",
 			allowBlank: true,
 			plugins: [{
 				ptype: "fieldinfo",
@@ -180,6 +185,8 @@ Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 /**
  * @class OMV.module.admin.system.network.firewall.Rules
  * @derived OMV.workspace.grid.Panel
+ * @param family The address family, e.g. 'inet' or 'inet6'. Defaults
+ *   to 'inet'.
  */
 Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 	extend: "OMV.workspace.grid.Panel",
@@ -192,6 +199,8 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 		"OMV.module.admin.system.network.firewall.Rule"
 	],
 
+	family: "inet",
+
 	hideUpButton: false,
 	hideDownButton: false,
 	hideApplyButton: false,
@@ -199,7 +208,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 	hidePagingToolbar: true,
 	stateful: true,
 	stateId: "edb8c917-abd1-4b59-a67f-fc4ef3ab8a5f",
-	columns: [{
+	columnsTpl: [{
 		text: _("Direction"),
 		sortable: false,
 		dataIndex: "chain",
@@ -278,63 +287,102 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 	initComponent: function() {
 		var me = this;
 		Ext.apply(me, {
-			store: Ext.create("OMV.data.Store", {
-				autoLoad: true,
-				model: OMV.data.Model.createImplicit({
-					idProperty: null,
-					fields: [
-						{ name: "uuid" },
-						{ name: "rulenum" },
-						{ name: "chain" },
-						{ name: "action" },
-						{ name: "family" },
-						{ name: "source" },
-						{ name: "sport" },
-						{ name: "destination" },
-						{ name: "dport" },
-						{ name: "protocol" },
-						{ name: "comment" },
-						{ name: "extraoptions" }
-					]
-				}),
-				proxy: {
-					type: "rpc",
-					rpcData: {
-						service: "Iptables",
-						method: "getRules"
-					},
-					extraParams: {
-						type: [ "userdefined" ]
-					}
-				},
-				sorters: [{
-					direction: "ASC",
-					property: "rulenum"
-				}],
-				listeners: {
-					scope: me,
-					load: function(store, records, options) {
-						this.setToolbarButtonDisabled("apply", true);
-					},
-					add: function(store, records, index) {
-						this.setToolbarButtonDisabled("apply", false);
-					},
-					update: function(store, record, operation) {
-						this.setToolbarButtonDisabled("apply", false);
-					},
-					remove: function(store, record, index) {
-						this.setToolbarButtonDisabled("apply", false);
-					}
-				}
-			})
+			columns: Ext.clone(me.columnsTpl),
+			store: me.createStore()
 		});
 		me.callParent(arguments);
+	},
+
+	/**
+	 * Helper function to create a store.
+	 * @private
+	 */
+	createStore: function() {
+		var me = this;
+		return Ext.create("OMV.data.Store", {
+			autoLoad: true,
+			model: OMV.data.Model.createImplicit({
+				idProperty: "uuid",
+				fields: [
+					{ name: "uuid" },
+					{ name: "rulenum" },
+					{ name: "chain" },
+					{ name: "action" },
+					{ name: "family" },
+					{ name: "source" },
+					{ name: "sport" },
+					{ name: "destination" },
+					{ name: "dport" },
+					{ name: "protocol" },
+					{ name: "comment" },
+					{ name: "extraoptions" }
+				]
+			}),
+			proxy: {
+				type: "rpc",
+				rpcData: {
+					service: "Iptables",
+					method: (me.family == "inet") ? "getRules" : "getRules6"
+				},
+				extraParams: {
+					type: [ "userdefined" ]
+				}
+			},
+			sorters: [{
+				direction: "ASC",
+				property: "rulenum"
+			}],
+			listeners: {
+				scope: me,
+				load: function(store, records, options) {
+					this.setToolbarButtonDisabled("apply", true);
+				},
+				add: function(store, records, index) {
+					this.setToolbarButtonDisabled("apply", false);
+				},
+				update: function(store, record, operation) {
+					this.setToolbarButtonDisabled("apply", false);
+				},
+				remove: function(store, record, index) {
+					this.setToolbarButtonDisabled("apply", false);
+				}
+			}
+		});
+	},
+
+	getTopToolbarItems: function() {
+		var me = this;
+		var items = me.callParent(arguments);
+		Ext.Array.insert(items, 0, [{
+			id: me.getId() + "-family",
+			xtype: "combo",
+			queryMode: "local",
+			store: [
+				[ "inet", "IPv4" ],
+				[ "inet6", "IPv6" ]
+			],
+			allowBlank: false,
+			editable: false,
+			triggerAction: "all",
+			value: me.family,
+			listeners: {
+				scope: me,
+				change: function(combo, value) {
+					this.family = value;
+					// Create a new store.
+					var store = this.createStore();
+					this.reconfigure(store, Ext.clone(this.columnsTpl));
+				}
+			}
+		}]);
+		return items;
 	},
 
 	onAddButton: function() {
 		var me = this;
 		Ext.create("OMV.module.admin.system.network.firewall.Rule", {
 			title: _("Add firewall rule"),
+			family: me.family,
 			listeners: {
 				scope: me,
 				submit: function(c, values) {
@@ -356,6 +404,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 		var record = selModel.getSelection()[0];
 		var wnd = Ext.create("OMV.module.admin.system.network.firewall.Rule", {
 			title: _("Edit firewall rule"),
+			family: me.family,
 			listeners: {
 				scope: me,
 				submit: function(c, values) {
@@ -406,7 +455,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 			},
 			rpcData: {
 				service: "Iptables",
-				method: "setRules",
+				method: (me.family == "inet") ? "setRules" : "setRules6",
 				params: params
 			}
 		});

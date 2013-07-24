@@ -175,7 +175,7 @@ function is_json($var) {
 function is_ipaddr($var) {
 	if(!is_string($var))
 		return FALSE;
-	return filter_var($var, FILTER_VALIDATE_IP));
+	return filter_var($var, FILTER_VALIDATE_IP);
 }
 
 /**
@@ -187,7 +187,7 @@ function is_ipaddr($var) {
 function is_ipaddr4($var) {
 	if(!is_string($var))
 		return FALSE;
-	return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4));
+	return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4);
 }
 
 /**
@@ -199,7 +199,7 @@ function is_ipaddr4($var) {
 function is_ipaddr6($var) {
 	if(!is_string($var))
 		return FALSE;
-	return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6));
+	return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6);
 }
 
 /**
@@ -213,9 +213,8 @@ function is_ipaddr6($var) {
  */
 function json_validate($json, $schema, &$errors = NULL) {
 	$jsonSchema = new JsonSchema($json);
-	if(false === ($result = $jsonSchema->validate($schema))) {
+	if(false === ($result = $jsonSchema->validate($schema)))
 		$errors = $jsonSchema->getErrors();
-	}
 	return $result;
 }
 

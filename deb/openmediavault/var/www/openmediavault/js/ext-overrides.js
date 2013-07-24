@@ -77,6 +77,18 @@ Ext.apply(Ext.form.field.VTypes, {
 	IPv6Text: _("This field should be an IPv6 address"),
 	IPv6Mask: /[0-9A-F:]/i,
 
+	IPv6Fw: function(v) {
+		// Taken from http://home.deds.nl/~aeron/regex
+		ipv6RegEx = "((?=.*::)(?!.*::.+::)(::)?([\dA-F]{1,4}:(:|\b)|){5}|([\dA-F]{1,4}:){6})((([\dA-F]{1,4}((?!\3)::|:\b|$))|(?!\2\3)){2}|(((2[0-4]|1\d|[1-9])?\d|25[0-5])\.?\b){4})";
+		// 2001:db8::15 or !2001:db8::/96
+		if(RegExp("^(!)?("+ipv6RegEx+")(\/(12[0-8]|[0-9]?\\d))?$", "i").test(v))
+			return true;
+		// 2001:db8::10-2001:db8::20
+		return RegExp("^(!)?(("+ipv6RegEx+")([-]("+ipv6RegEx+")){0,1})$", "i").test(v);
+	},
+	IPv6FwText: _("This field should be either a IPv6 network address (with /mask), a IPv6 range or a plain IPv6 address (e.g. !2001:db8::/96 or 2001:db8::10-2001:db8::20 or 2001:db8::15)"),
+	IPv6FwMask: /[0-9A-F\-:!]/i,
+
 	netmask: function(v) {
 		return /^(128|192|224|24[08]|25[245].0.0.0)|(255.(0|128|192|224|24[08]|25[245]).0.0)|(255.255.(0|128|192|224|24[08]|25[245]).0)|(255.255.255.(0|128|192|224|24[08]|252))$/.test(v);
 	},

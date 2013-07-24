@@ -131,9 +131,11 @@ class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
 		// Remove all existing rules for the given family.
 		$xpath = sprintf("//system/network/iptables/rule[family='%s']",
 		  $family);
-		if(FALSE === $xmlConfig->delete($xpath)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
-			  $xpath);
+		if(TRUE === $xmlConfig->exists($xpath)) {
+			if(FALSE === $xmlConfig->delete($xpath)) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_NOT_FOUND,
+				  $xpath);
+			}
 		}
 		// Append the given iptables rules.
 		if(FALSE === $xmlConfig->set("//system/network/iptables",
