@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-19 20:17+0200\n"
-"PO-Revision-Date: 2013-07-19 18:17+0000\n"
+"POT-Creation-Date: 2013-07-29 18:53+0200\n"
+"PO-Revision-Date: 2013-07-29 16:53+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -155,7 +155,7 @@ msgid "9 months"
 msgstr "9 måneder"
 
 msgid "A share with the name '%s' already exists"
-msgstr ""
+msgstr "Et delt område med navnet '%s' finnes allerede"
 
 msgid "A shared folder with the given name already exists"
 msgstr "En delt mappe med det gitte navnet eksisterer allerede"
@@ -206,7 +206,7 @@ msgid "Add rule"
 msgstr "Ny regel"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Legg til planlagt oppgave"
 
 msgid "Add scheduled test"
 msgstr "Ny planlagt test"
@@ -336,7 +336,7 @@ msgid "Apply"
 msgstr "Bruk"
 
 msgid "Apply configuration changes"
-msgstr ""
+msgstr "Gjennomfør konfigurasjonsendringer"
 
 msgid "Apply permissions to files and subfolders"
 msgstr "Bruk rettighetene på filer og undermapper"
@@ -360,7 +360,7 @@ msgid "Aruba"
 msgstr "Aruba"
 
 msgid "Asynchronous I/O"
-msgstr ""
+msgstr "Asynkron I/O"
 
 msgid "Attribute name"
 msgstr "Attributtnavn"
@@ -545,7 +545,7 @@ msgid "Chad"
 msgstr "Tsjad"
 
 msgid "Changelog"
-msgstr ""
+msgstr "Endringslogg"
 
 msgid "Check"
 msgstr "Sjekk"
@@ -632,7 +632,7 @@ msgid "Congo (Kinshasa)"
 msgstr "Kongo"
 
 msgid "Connections"
-msgstr ""
+msgstr "Tilkoblinger"
 
 msgid "Contact"
 msgstr "Kontakt"
@@ -682,7 +682,7 @@ msgid "Current time"
 msgstr "Gjeldende tid"
 
 msgid "Currently logged in users"
-msgstr ""
+msgstr "Brukere som er logget på"
 
 msgid "Currently logged in users:"
 msgstr "Inloggede brukere:"
@@ -733,7 +733,7 @@ msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Fjern filer på mottagende side som ikke eksisterer hos sender"
 
 msgid "Delete filesystem"
-msgstr ""
+msgstr "Slett filsystemet"
 
 msgid "Deleting selected item(s)"
 msgstr "Sletter valgte element(er)"
@@ -816,7 +816,7 @@ msgid "Djibouti"
 msgstr "Djibouti"
 
 msgid "Do you really want to apply the configuration?"
-msgstr ""
+msgstr "Ønsker du virkelig å gjennomføre konfigurasjonen?"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Ønsker du virkelig å slette loggfilen?"
@@ -825,7 +825,7 @@ msgid "Do you really want to create the RAID device?"
 msgstr "Ønsker du virkelig å opprette en RAID enhet?"
 
 msgid "Do you really want to delete the filesystem? All data will be lost."
-msgstr ""
+msgstr "Ønsker du virkelig å slette filsystemet? Alle data vil bli tapt."
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Ønsker du virkelig å slette utvalget?"
@@ -850,7 +850,7 @@ msgstr "Vil du virkelig foreta en omstart?"
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
-msgstr ""
+msgstr "Ønsker du virkelig å fjerne innholdet i den delte mappen? Det vil bli permanent fjernet og kan ikke gjenopprettes."
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Vil du virkelig tilbakestille WebGUI tilstand, f.eks grid kolonnerekkefølge?"
@@ -951,7 +951,7 @@ msgid "Edit rule"
 msgstr "Endre regel"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Rediger planlagt oppgave"
 
 msgid "Edit scheduled test"
 msgstr "Endre planlagt test"
@@ -999,10 +999,10 @@ msgid "Enable archive mode"
 msgstr "Aktiver arkivmodus"
 
 msgid "Enable asynchronous I/O (AIO) support."
-msgstr ""
+msgstr "Aktiver asynkron I/O (AIO) støtte."
 
 msgid "Enable chroot."
-msgstr ""
+msgstr "Aktiver chroot."
 
 msgid "Enable compression"
 msgstr "Aktiver kompimering"
@@ -1109,7 +1109,7 @@ msgid "Execute rsync job"
 msgstr "Utfør rsync jobb"
 
 msgid "Execute scheduled test"
-msgstr ""
+msgstr "Utfør planlagt kontroll"
 
 msgid "Expire"
 msgstr "Utløp"
@@ -1140,31 +1140,31 @@ msgid "Failed to get filesystems"
 msgstr "Kunne ikke finne filsystemer"
 
 msgid "Failed to get list of groups."
-msgstr ""
+msgstr "Klarte ikke å hente listen over grupper."
 
 msgid "Failed to get list of logical volumes"
-msgstr ""
+msgstr "Klarte ikke å hente listen over logiske volum"
 
 msgid "Failed to get list of network interface devices"
-msgstr ""
+msgstr "Klarte ikke å hente listen over nettverksenheter"
 
 msgid "Failed to get list of physical volumes"
-msgstr ""
+msgstr "Klarte ikke å hente listen over fysiske volum"
 
 msgid "Failed to get list of software RAID devices"
-msgstr ""
+msgstr "Klarte ikke å hente listen over RAID enheter"
 
 msgid "Failed to get list of users."
-msgstr ""
+msgstr "Klarte ikke å hente listen over brukere."
 
 msgid "Failed to get shadow password suite configuration."
-msgstr ""
+msgstr "Klarte ikke å hente shadow password suite konfigurasjon."
 
 msgid "Falkland Islands"
 msgstr "Falklandsøyene"
 
 msgid "Family"
-msgstr ""
+msgstr "Familie"
 
 msgid "Faroe Islands"
 msgstr "Færøyene"
@@ -1384,10 +1384,10 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IPv4"
-msgstr ""
+msgstr "IPv4"
 
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6"
 
 msgid "Iceland"
 msgstr "Island"
@@ -1417,7 +1417,7 @@ msgid ""
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr ""
+msgstr "Hvis dette valget er aktivert vil klienten bli chrootet til den delte mappestien før filoverføringen. Det er ikke mulig å mappe brukere eller grupper etter navn og brukeren kan ikke følge symbolske linker som ligger uten for root mappestien."
 
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr "Hvis dette valget er aktivert, vil ethvert nedlastningsforsøk mislykkes."
@@ -1461,10 +1461,10 @@ msgid "Import users"
 msgstr "Importer brukere"
 
 msgid "Importing groups ..."
-msgstr ""
+msgstr "Importerer grupper ..."
 
 msgid "Importing users ..."
-msgstr ""
+msgstr "Importerer brukere ..."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1478,7 +1478,7 @@ msgid ""
 msgstr "I noen tilfeller må du spesifisere passiv portområde for å omgå begrensninger i brannmuren. Passive porter begrenser portområdet serveren vil velge når PASV kommando fra en klient er mottatt. Serveren vil tilfeldig velge et nummer innenfor det angitte området inntil en åpen port blir funnet. Portområdet som er valgt må være i ikke-privilegerte område (dvs. større enn eller lik 1024). Det anbefales sterkt at det valgte området er stort nok til å håndtere mange samtidige passive tilkoblinger (for eksempel 49152-65534, altså det IANA-registrerte flyktige portområdet)."
 
 msgid "Incorrect username or password."
-msgstr ""
+msgstr "Feil brukernavn eller passord."
 
 msgid "India"
 msgstr "India"
@@ -1487,7 +1487,7 @@ msgid "Indonesia"
 msgstr "Indonesia"
 
 msgid "Info"
-msgstr ""
+msgstr "Informasjon"
 
 msgid "Informal"
 msgstr "Uformell"
@@ -1976,7 +1976,7 @@ msgid "No certificate request"
 msgstr "Sertifikat kreves ikke"
 
 msgid "No connections"
-msgstr ""
+msgstr "Ingen tilkoblinger"
 
 msgid "No items to display"
 msgstr "Ingen elementer å vise"
@@ -2021,10 +2021,10 @@ msgid "Not UDP"
 msgstr "Ikke UDP"
 
 msgid "Notification"
-msgstr ""
+msgstr "Varsling"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Varslinger"
 
 msgid "November"
 msgstr "November"
@@ -2228,7 +2228,7 @@ msgstr "Vennligst vent ..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a "
 "filesystem."
-msgstr ""
+msgstr "Vennligst vent til raidet har blitt initialisert før du lager et filsystem."
 
 msgid "Plugins"
 msgstr "TIllegg"
@@ -2255,7 +2255,7 @@ msgid "Power mode"
 msgstr "Strømmodus"
 
 msgid "Prefix length"
-msgstr ""
+msgstr "Prefikslengde"
 
 msgid "Preserve ACLs"
 msgstr "Bevar ACLs"
@@ -2280,7 +2280,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr ""
+msgstr "Hindre en disk fra å være spunnet opp når den er periodisk forespurt.<br/><ul><li>Aldri - Spørr (kontroller) enheten uavhengig av strømtilstand. Dette kan føre til at en disk som er spunnet ned blir spunnet opp for å kontrolleres.</li><li>Sover - Kontroller enheten med mindre den er i SOVEMODUS.</li><li>Ventemodus - Kontroller enheten med mindre den er i VENTE- eller SOVEMODUS. I disse modusene står de fleste disker stille, så hvis du ønsker å hindre en disk dra å spinne opp ved hver kontroll er det sannsynligvis dette du ønsker.</li><li>Inaktiv - Kotroller enheten med mindre den er i SOVE, VENTE eller INAKTIV modus. I inaktivt modus spinner fortsatt de fleste disker så dette er sannsynligvis ikke det du vil.</li></ul>"
 
 msgid "Primary"
 msgstr "Primær"
@@ -2304,7 +2304,7 @@ msgid "Privileges"
 msgstr "Privilegier"
 
 msgid "Process monitoring"
-msgstr ""
+msgstr "Prosess overvåkning"
 
 msgid "Processes"
 msgstr "Prosesser"
@@ -2343,7 +2343,7 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
 msgstr "RAID 5"
@@ -2476,7 +2476,7 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. information"
-msgstr ""
+msgstr "S.M.A.R.T. informasjon"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. overvåkning må aktiveres for den gjeldende enheten."
@@ -2539,7 +2539,7 @@ msgid "Saudi Arabia"
 msgstr "Saudi-Arabia"
 
 msgid "Save"
-msgstr ""
+msgstr "Lagre"
 
 msgid "Saving ..."
 msgstr "Lagrer ..."
@@ -2551,7 +2551,7 @@ msgid "Scanning for new devices ..."
 msgstr "Skanner etter nye enheter ..."
 
 msgid "Scheduled jobs"
-msgstr ""
+msgstr "Planlagte oppgaver"
 
 msgid "Scheduled tests"
 msgstr "Planlagte tester"
@@ -2623,7 +2623,7 @@ msgid "Self-test logs"
 msgstr "Selvtest logger"
 
 msgid "Send a test email"
-msgstr ""
+msgstr "Sendt en test epost"
 
 msgid "Send command output via email"
 msgstr "Send kommandoens utput via epost"
@@ -2632,7 +2632,7 @@ msgid "Send email"
 msgstr "Send epost"
 
 msgid "Sender email"
-msgstr ""
+msgstr "Sender epost"
 
 msgid "Sending test email ..."
 msgstr "Sender test epost ..."
@@ -2659,7 +2659,7 @@ msgid "Service"
 msgstr "Tjeneste"
 
 msgid "Service Discovery"
-msgstr ""
+msgstr "Oppdag tjenester"
 
 msgid "Service disabled"
 msgstr "Tjeneste deaktivert"
@@ -2668,10 +2668,10 @@ msgid "Services"
 msgstr "Tjenester"
 
 msgid "Session expired."
-msgstr ""
+msgstr "Sesjon utgått."
 
 msgid "Session not authenticated."
-msgstr ""
+msgstr "Sesjon ikke autentisert."
 
 msgid "Session timeout"
 msgstr "Tidsavbrudd for sesjonen"
@@ -2720,7 +2720,7 @@ msgid "Show certificate"
 msgstr "Vis sertifikat"
 
 msgid "Show changelog"
-msgstr ""
+msgstr "Vis endringslogg"
 
 msgid "Show details"
 msgstr "Vis detaljer"
@@ -2762,7 +2762,7 @@ msgid "Slovenia"
 msgstr "Slovenia"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "Software RAID"
 
 msgid "Solomon Islands"
 msgstr "Salomonøyene"
@@ -2976,7 +2976,7 @@ msgid "The changes have been applied successfully."
 msgstr "Endringene har blitt brukt med hell."
 
 msgid "The comment contains invalid characters"
-msgstr ""
+msgstr "Kommentaren inneholder ugyldige tegn"
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "Standard SMTP epostserver port, f.eks 25 eller 587."
@@ -3048,7 +3048,7 @@ msgid ""
 msgstr "Sesjonens timeout i minutter. Sett til 0 for å deaktivere automatisk utlogging."
 
 msgid "The shared folder is already used by another share."
-msgstr ""
+msgstr "Den delte mappen er allerede brukt av en annen deling."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3101,7 +3101,7 @@ msgid "This field does not allow blanks"
 msgstr "Dette feltet må fylles ut"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Dette feltet er påkrevd"
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Dette feltet må ha formatet tt:mm:ss"
@@ -3133,13 +3133,19 @@ msgid "This field should be an IPv4 address"
 msgstr "Dette feltet bør være en IPv4-adresse"
 
 msgid "This field should be an IPv6 address"
-msgstr ""
+msgstr "Dette feltet skal være en IPv6 adresse"
 
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
 "range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
 "192.168.178.20-192.168.178.254)"
 msgstr "Dette feltet skal være enten en IPv4 nettverk adresse (med / maske), et IPv4 område eller en vanlig IPv4-adresse (f.eks 172.16.76.4 eller !192.168.178.87/24 eller 192.168.178.20-192.168.178.254)"
+
+msgid ""
+"This field should be either a IPv6 network address (with /mask), a IPv6 "
+"range or a plain IPv6 address (e.g. !2001:db8::/96 or "
+"2001:db8::10-2001:db8::20 or 2001:db8::15)"
+msgstr ""
 
 msgid "This field should only contain numbers"
 msgstr "Dette feltet skal kun inneholde tall"
@@ -3331,7 +3337,7 @@ msgid "U.S. Virgin Islands"
 msgstr "De amerikanske Jomfruøyene"
 
 msgid "UNKNOWN"
-msgstr ""
+msgstr "UKJENT"
 
 msgid "Uganda"
 msgstr "Uganda"
@@ -3428,7 +3434,7 @@ msgid "Use SSL/TLS secure connection"
 msgstr "Bruk sikker tilkobling over SSL/TLS "
 
 msgid "Use chroot"
-msgstr ""
+msgstr "Bruk chroot"
 
 msgid "Use sendfile"
 msgstr "Benytt sendfile"
@@ -3538,7 +3544,7 @@ msgid "Web Administrator Password"
 msgstr "Web Administrator Passord"
 
 msgid "Web administration"
-msgstr ""
+msgstr "Web administrasjon"
 
 msgid "Web administration interface"
 msgstr "Web administrasjonsgrensesnitt"
