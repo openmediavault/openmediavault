@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-29 18:53+0200\n"
-"PO-Revision-Date: 2013-07-29 16:53+0000\n"
+"POT-Creation-Date: 2013-07-30 19:44+0200\n"
+"PO-Revision-Date: 2013-07-30 17:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -3107,14 +3107,26 @@ msgstr ""
 msgid "This field must have the format hh:mm:ss"
 msgstr "Este campo debe estar en formato: hh:mm:ss"
 
+msgid "This field should be a IP network address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a IPv4 network address"
 msgstr "Este campo debe ser una dirección IP válida"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Debería ser una dirección de red IPv4 en notación CIDR."
 
+msgid "This field should be a IPv6 network address in CIDR notation"
+msgstr ""
+
+msgid "This field should be a domainname or an IP address"
+msgstr ""
+
 msgid "This field should be a domainname or an IPv4 address"
 msgstr "Este campo debe ser un nombre de dominio o una dirección IPv4 vàlida"
+
+msgid "This field should be a hostname or an IP address"
+msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Debería ser un nombre de host o una dirección IPv4."
@@ -3129,6 +3141,9 @@ msgstr "Debería ser un puerto del rango 1-65535"
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
 msgstr "Debería ser un puerto o un rango de puertos (p.ej. 21 o !443 o 1024-65535)"
+
+msgid "This field should be an IP address"
+msgstr ""
 
 msgid "This field should be an IPv4 address"
 msgstr "Debería ser una dirección IPv4"

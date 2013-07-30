@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-29 18:53+0200\n"
-"PO-Revision-Date: 2013-07-29 16:54+0000\n"
+"POT-Creation-Date: 2013-07-30 19:44+0200\n"
+"PO-Revision-Date: 2013-07-30 17:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -3113,14 +3113,26 @@ msgstr "Dieses Feld ist obligatorisch"
 msgid "This field must have the format hh:mm:ss"
 msgstr "Diese Feld muss das Format hh:mm:ss erfüllen"
 
+msgid "This field should be a IP network address in CIDR notation"
+msgstr "Dieses Feld sollte eine IP Netzadresse in CIDR Notation enthalten"
+
 msgid "This field should be a IPv4 network address"
 msgstr "Dieses Feld sollte eine IPv4 Netzadresse enthalten"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Dieses Feld sollte eine IPv4 Netzadresse in CIDR Notation enthalten"
 
+msgid "This field should be a IPv6 network address in CIDR notation"
+msgstr "Dieses Feld sollte eine IPv6 Netzadresse in CIDR Notation enthalten"
+
+msgid "This field should be a domainname or an IP address"
+msgstr "Dieses Feld erwartet einen Domainnamen oder eine IP Adresse"
+
 msgid "This field should be a domainname or an IPv4 address"
-msgstr "Dieses Feld erwartet einen Domainnamen oder eine IPv4-Adresse."
+msgstr "Dieses Feld erwartet einen Domainnamen oder eine IPv4 Adresse"
+
+msgid "This field should be a hostname or an IP address"
+msgstr "Dieses Feld sollte einen Hostnamen oder eine IP Adresse enthalten"
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Dieses Feld sollte einen Hostnamen oder eine IPv4 Adresse enthalten"
@@ -3135,6 +3147,9 @@ msgstr "Dieses Feld sollte einen Port im Bereich 1 - 65535 enthalten"
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
 msgstr "Dieses Feld sollte einen Port oder einen Portbereich enthalten (z.B. 21 oder !443 oder 1024-65535)"
+
+msgid "This field should be an IP address"
+msgstr "Dieses Feld sollte eine IP Adresse enthalten"
 
 msgid "This field should be an IPv4 address"
 msgstr "Dieses Feld sollte eine IPv4 Adresse enthalten"

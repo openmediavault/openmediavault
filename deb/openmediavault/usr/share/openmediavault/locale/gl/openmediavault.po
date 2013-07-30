@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-29 18:53+0200\n"
-"PO-Revision-Date: 2013-07-29 16:53+0000\n"
+"POT-Creation-Date: 2013-07-30 19:44+0200\n"
+"PO-Revision-Date: 2013-07-30 17:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -3107,14 +3107,26 @@ msgstr "Este campo é obrigatorio"
 msgid "This field must have the format hh:mm:ss"
 msgstr "Este campo debe ter o formato hh:mm:ss"
 
+msgid "This field should be a IP network address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a IPv4 network address"
 msgstr "Este campo debe ser un enderezo de rede IPv4"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Este campo debe ser un enderezo de rede IPv4 en notación CIDR"
 
+msgid "This field should be a IPv6 network address in CIDR notation"
+msgstr ""
+
+msgid "This field should be a domainname or an IP address"
+msgstr ""
+
 msgid "This field should be a domainname or an IPv4 address"
 msgstr "Este campo debe ser un nome de dominio ou un enderezo IPv4"
+
+msgid "This field should be a hostname or an IP address"
+msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Este campo debe ser un nome de máquina/servidor ou un enderezo IPv4"
@@ -3130,6 +3142,9 @@ msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
 msgstr "Este campo debe ser un porto ou un intervalo de perotos (p.ex. 21 ou !443 ou 1024-65535)"
 
+msgid "This field should be an IP address"
+msgstr ""
+
 msgid "This field should be an IPv4 address"
 msgstr "Este campo debe ser un enderezo IPv4"
 
@@ -3140,13 +3155,13 @@ msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
 "range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
 "192.168.178.20-192.168.178.254)"
-msgstr "Este campo debe ser un enderezo de rede IPv4 (con /máscara), un intervalo de enderezos IPv4 ou un enderezo IPv4 simple IPv4 (p.ex. 172.16.76.4 ou !192.168.178.87/24 ou 192.168.178.20-192.168.178.254)"
+msgstr "Este campo debe ser un enderezo de rede IPv4 (con /máscara), un intervalo de enderezos IPv4 ou un enderezo IPv4 simple (p.ex. 172.16.76.4 ou !192.168.178.87/24 ou 192.168.178.20-192.168.178.254)"
 
 msgid ""
 "This field should be either a IPv6 network address (with /mask), a IPv6 "
 "range or a plain IPv6 address (e.g. !2001:db8::/96 or "
 "2001:db8::10-2001:db8::20 or 2001:db8::15)"
-msgstr ""
+msgstr "Este campo debe ser un enderezo de rede IPv6 (con /máscara), un intervalo de enderezos IPv6 ou un enderezo IPv6 simple (p.ex. !2001:db8::/96 or 2001:db8::10-2001:db8::20 ou 2001:db8::15)"
 
 msgid "This field should only contain numbers"
 msgstr "Este campo só debe conter números"

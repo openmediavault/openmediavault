@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-29 18:53+0200\n"
-"PO-Revision-Date: 2013-07-29 16:53+0000\n"
+"POT-Creation-Date: 2013-07-30 19:44+0200\n"
+"PO-Revision-Date: 2013-07-30 17:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -3105,14 +3105,26 @@ msgstr ""
 msgid "This field must have the format hh:mm:ss"
 msgstr "Ennek a mezőnek óó:pp:mm formátumúnak kell lennie"
 
+msgid "This field should be a IP network address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a IPv4 network address"
 msgstr "Ennek a mezőnek IPv4 hálózati címnek kell lennie"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Ennek a mezőnek egy IPv4 hálózati címnek kell lennie CIDR jelölésben."
 
+msgid "This field should be a IPv6 network address in CIDR notation"
+msgstr ""
+
+msgid "This field should be a domainname or an IP address"
+msgstr ""
+
 msgid "This field should be a domainname or an IPv4 address"
 msgstr "Ennek a mezőnek egy tartománynévnek vagy egy IPv4 címnek kell lennie."
+
+msgid "This field should be a hostname or an IP address"
+msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Ennek a mezőnek hosztnévnek vagy egy IPv4 címnek kell lennie"
@@ -3127,6 +3139,9 @@ msgstr "Ennek a mezőnek egy skálán belüli 1 - 65535 portnak kell lennie"
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
 msgstr "Ennek a mezőnek egy portnak vagy port sorozatnak (pl. 21 vagy !443 vagy 1024-65535) kell lennie"
+
+msgid "This field should be an IP address"
+msgstr ""
 
 msgid "This field should be an IPv4 address"
 msgstr "Ennek a mezőnek IPv4 címnek kell lennie"

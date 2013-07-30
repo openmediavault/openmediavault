@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-29 18:53+0200\n"
-"PO-Revision-Date: 2013-07-29 16:53+0000\n"
+"POT-Creation-Date: 2013-07-30 19:44+0200\n"
+"PO-Revision-Date: 2013-07-30 17:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -3110,14 +3110,26 @@ msgstr "Это поле является обязательным"
 msgid "This field must have the format hh:mm:ss"
 msgstr "Это поле должно быть в формате hh:mm:ss"
 
+msgid "This field should be a IP network address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a IPv4 network address"
 msgstr "Это поле должно содержать адрес IPv4 сети"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "В этом поле должен быть адрес сети IPv4 в нотации CIDR"
 
+msgid "This field should be a IPv6 network address in CIDR notation"
+msgstr ""
+
+msgid "This field should be a domainname or an IP address"
+msgstr ""
+
 msgid "This field should be a domainname or an IPv4 address"
 msgstr "В этом поле должно быть доменное имя или IPv4 адрес"
+
+msgid "This field should be a hostname or an IP address"
+msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Это поле должно содержать имя комьютера или его адрес IPv4"
@@ -3132,6 +3144,9 @@ msgstr "Это поле должно содержать порт в диапаз
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
 msgstr "Это поле должно содержать порт или диапазон портов (например, 21 или !443 или 1024-65535)"
+
+msgid "This field should be an IP address"
+msgstr ""
 
 msgid "This field should be an IPv4 address"
 msgstr "Это поле должно содержать адрес IPv4"
@@ -3149,7 +3164,7 @@ msgid ""
 "This field should be either a IPv6 network address (with /mask), a IPv6 "
 "range or a plain IPv6 address (e.g. !2001:db8::/96 or "
 "2001:db8::10-2001:db8::20 or 2001:db8::15)"
-msgstr ""
+msgstr "Это поле должно содержать адрес сети в виде IPv6/маска, диапазон IPv6 или простой адрес IPv6 (например, !2001:db8::/96 или! 2001:db8::10-2001:db8::20 или 2001:db8::15)"
 
 msgid "This field should only contain numbers"
 msgstr "Это поле должно содержать только цифры"

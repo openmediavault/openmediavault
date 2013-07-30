@@ -24,8 +24,62 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 Ext.apply(Ext.form.field.VTypes, {
+	ReIPv4Seg: "(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])",
+	ReIPv6Seg: "[0-9a-f]{1,4}"
+});
+Ext.apply(Ext.form.field.VTypes, {
+	// IPv4 and IPv6 regex based on http://stackoverflow.com/questions/53497/regular-expression-that-matches-valid-ipv6-addresses
+	ReIPv4Addr: Ext.String.format("({0}\.){3,3}{1}",
+	  Ext.form.field.VTypes.ReIPv4Seg,
+	  Ext.form.field.VTypes.ReIPv4Seg),
+	ReIPv6Addr: Ext.String.format("("+
+	  "({0}:){7,7}{1}|" +                    // 1:2:3:4:5:6:7:8
+	  "({2}:){1,7}:|" +                      // 1::                                 1:2:3:4:5:6:7::
+	  "({3}:){1,6}:{4}|" +                   // 1::8               1:2:3:4:5:6::8   1:2:3:4:5:6::8
+	  "({5}:){1,5}(:{6}){1,2}|" +            // 1::7:8             1:2:3:4:5::7:8   1:2:3:4:5::8
+	  "({7}:){1,4}(:{8}){1,3}|" +            // 1::6:7:8           1:2:3:4::6:7:8   1:2:3:4::8
+	  "({9}:){1,3}(:{10}){1,4}|" +           // 1::5:6:7:8         1:2:3::5:6:7:8   1:2:3::8
+	  "({11}:){1,2}(:{12}){1,5}|" +          // 1::4:5:6:7:8       1:2::4:5:6:7:8   1:2::8
+	  "{13}:((:{14}){1,6})|" +               // 1::3:4:5:6:7:8     1::3:4:5:6:7:8   1::8
+	  ":((:{15}){1,7}|:)|" +                 // ::2:3:4:5:6:7:8    ::2:3:4:5:6:7:8  ::8       ::       
+	  "fe80:(:{16}){0,4}%[0-9a-zA-Z]{1,}|" + // fe80::7:8%eth0     fe80::7:8%1  (link-local IPv6 addresses with zone index)
+	  "::(ffff(:0{1,4}){0,1}:){0,1}{17}|" +  // ::255.255.255.255  ::ffff:255.255.255.255  ::ffff:0:255.255.255.255 (IPv4-mapped IPv6 addresses and IPv4-translated addresses)
+	  "({18}:){1,4}:{19}" +                  // 2001:db8:3:4::192.0.2.33  64:ff9b::192.0.2.33 (IPv4-Embedded IPv6 Address)
+	  ")",
+	  Ext.form.field.VTypes.ReIPv6Seg, Ext.form.field.VTypes.ReIPv6Seg,
+	  Ext.form.field.VTypes.ReIPv6Seg,
+	  Ext.form.field.VTypes.ReIPv6Seg, Ext.form.field.VTypes.ReIPv6Seg,
+	  Ext.form.field.VTypes.ReIPv6Seg, Ext.form.field.VTypes.ReIPv6Seg,
+	  Ext.form.field.VTypes.ReIPv6Seg, Ext.form.field.VTypes.ReIPv6Seg,
+	  Ext.form.field.VTypes.ReIPv6Seg, Ext.form.field.VTypes.ReIPv6Seg,
+	  Ext.form.field.VTypes.ReIPv6Seg, Ext.form.field.VTypes.ReIPv6Seg,
+	  Ext.form.field.VTypes.ReIPv6Seg, Ext.form.field.VTypes.ReIPv6Seg,
+	  Ext.form.field.VTypes.ReIPv6Seg,
+	  Ext.form.field.VTypes.ReIPv6Seg,
+	  Ext.form.field.VTypes.ReIPv4Seg,
+	  Ext.form.field.VTypes.ReIPv6Seg, Ext.form.field.VTypes.ReIPv4Seg)
+});
+Ext.apply(Ext.form.field.VTypes, {
+	IP: function(v) {
+		if(Ext.form.field.VTypes.IPv4(v) || Ext.form.field.VTypes.IPv6(v))
+			return true;
+		return false;
+	},
+	IPText: _("This field should be an IP address"),
+	IPMask: /[0-9a-f\.:]/i,
+
+	IPNetCIDR: function(v) {
+		if(Ext.form.field.VTypes.IPv4NetCIDR(v) ||
+		  Ext.form.field.VTypes.IPv6NetCIDR(v))
+			return true;
+		return false;
+	},
+	IPNetCIDRText: _("This field should be a IP network address in CIDR notation"),
+	IPNetCIDRMask: /[0-9a-f:\.\/]/i,
+
 	IPv4: function(v) {
-		return /^([1-9][0-9]{0,1}|1[013-9][0-9]|12[0-689]|2[01][0-9]|22[0-3])([.]([1-9]{0,1}[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){2}[.]([1-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-4])$/.test(v);
+		var re =  Ext.String.format("^{0}$", Ext.form.field.VTypes.ReIPv4Addr);
+		return new RegExp(re, "i").test(v);
 	},
 	IPv4Text: _("This field should be an IPv4 address"),
 	IPv4Mask: /[\d\.]/i,
@@ -46,48 +100,63 @@ Ext.apply(Ext.form.field.VTypes, {
 	IPv4ListMask: /[\d\.,;]/i,
 
 	IPv4Net: function(v) {
-		return /^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/.test(v);
+		return Ext.form.field.VTypes.IPv4(v);
 	},
 	IPv4NetText: _("This field should be a IPv4 network address"),
 	IPv4NetMask: /[\d\.\/]/i,
 
 	IPv4NetCIDR: function(v) {
-		return /^([0-9][0-9]{0,1}|1[013-9][0-9]|12[0-689]|2[01][0-9]|22[0-3])([.]([0-9]{0,1}[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){2}[.]([0-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-4])\/(3[0-2]|[0-2]?[0-9])$/.test(v);
+		var re =  Ext.String.format("^({0}\/(3[0-2]|[0-2]?[0-9])$",
+		  Ext.form.field.VTypes.ReIPv4Addr);
+		return new RegExp(re, "i").test(v);
 	},
 	IPv4NetCIDRText: _("This field should be a IPv4 network address in CIDR notation"),
 	IPv4NetCIDRMask: /[\d\.\/]/i,
 
 	IPv4Fw: function(v) {
-		ipv4RegEx = "\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}\\.\\d{1,3}";
 		if(v === "0/0")
 			return true;
 		// 172.16.76.4 or !192.168.178.87/24
-		if(RegExp("^(!)?("+ipv4RegEx+")(\/(3[0-2]|[0-2]?\\d))?$", "i").test(v))
+		var re = Ext.String.format("^(!)?({0})(\/(3[0-2]|[0-2]?\\d))?$",
+		  Ext.form.field.VTypes.ReIPv4Addr);
+		if(RegExp(re, "i").test(v))
 			return true;
 		// 192.168.178.20-192.168.178.254
-		return RegExp("^(!)?(("+ipv4RegEx+")([-]("+ipv4RegEx+")){0,1})$", "i").test(v);
+		re = Ext.String.format("^(!)?(({0})([-]({1})){0,1})$",
+		  Ext.form.field.VTypes.ReIPv4Addr, Ext.form.field.VTypes.ReIPv4Addr);
+		return RegExp(re, "i").test(v);
 	},
 	IPv4FwText: _("This field should be either a IPv4 network address (with /mask), a IPv4 range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or 192.168.178.20-192.168.178.254)"),
 	IPv4FwMask: /[\d\.\/\-:!]/i,
 
 	IPv6: function(v) {
-		// Taken from http://home.deds.nl/~aeron/regex
-		return /^((?=.*::)(?!.*::.+::)(::)?([\dA-F]{1,4}:(:|\b)|){5}|([\dA-F]{1,4}:){6})((([\dA-F]{1,4}((?!\3)::|:\b|$))|(?!\2\3)){2}|(((2[0-4]|1\d|[1-9])?\d|25[0-5])\.?\b){4})$/i.test(v);
+		var re =  Ext.String.format("^{0}$", Ext.form.field.VTypes.ReIPv6Addr);
+		return new RegExp(re, "i").test(v);
 	},
 	IPv6Text: _("This field should be an IPv6 address"),
-	IPv6Mask: /[0-9A-F:]/i,
+	IPv6Mask: /[0-9a-f:]/i,
+
+	IPv6NetCIDR: function(v) {
+		var re = Ext.String.format("^({0}\/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$",
+		  Ext.form.field.VTypes.ReIPv6Addr)
+		return new RegExp(re, "i").test(v);
+	},
+	IPv6NetCIDRText: _("This field should be a IPv6 network address in CIDR notation"),
+	IPv6NetCIDRMask: /[0-9a-f:\/]/i,
 
 	IPv6Fw: function(v) {
-		// Taken from http://home.deds.nl/~aeron/regex
-		ipv6RegEx = "((?=.*::)(?!.*::.+::)(::)?([\dA-F]{1,4}:(:|\b)|){5}|([\dA-F]{1,4}:){6})((([\dA-F]{1,4}((?!\3)::|:\b|$))|(?!\2\3)){2}|(((2[0-4]|1\d|[1-9])?\d|25[0-5])\.?\b){4})";
 		// 2001:db8::15 or !2001:db8::/96
-		if(RegExp("^(!)?("+ipv6RegEx+")(\/(12[0-8]|[0-9]?\\d))?$", "i").test(v))
+		var re = Ext.String.format("^(!)?({0})(\/(12[0-8]|[0-9]?\\d))?$",
+		  Ext.form.field.VTypes.ReIPv6Addr);
+		if(RegExp(re, "i").test(v))
 			return true;
 		// 2001:db8::10-2001:db8::20
-		return RegExp("^(!)?(("+ipv6RegEx+")([-]("+ipv6RegEx+")){0,1})$", "i").test(v);
+		re = Ext.String.format("^(!)?(({0})([-]({1})){0,1})$",
+		  Ext.form.field.VTypes.ReIPv6Addr, Ext.form.field.VTypes.ReIPv6Addr);
+		return RegExp(re, "i").test(v);
 	},
 	IPv6FwText: _("This field should be either a IPv6 network address (with /mask), a IPv6 range or a plain IPv6 address (e.g. !2001:db8::/96 or 2001:db8::10-2001:db8::20 or 2001:db8::15)"),
-	IPv6FwMask: /[0-9A-F\-:!]/i,
+	IPv6FwMask: /[0-9a-f\-:\/!]/i,
 
 	netmask: function(v) {
 		return /^(128|192|224|24[08]|25[245].0.0.0)|(255.(0|128|192|224|24[08]|25[245]).0.0)|(255.255.(0|128|192|224|24[08]|25[245]).0)|(255.255.255.(0|128|192|224|24[08]|252))$/.test(v);
@@ -102,8 +171,8 @@ Ext.apply(Ext.form.field.VTypes, {
 	portMask: /[0-9]/i,
 
 	portFw: function(v) {
-		var portRegEx = "[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]";
-		return RegExp("^!?(("+portRegEx+")([-:]("+portRegEx+")){0,1})$", "i").test(v);
+		var re = "[1-9][0-9]{0,3}|[1-5][0-9]{4}|6[0-4][0-9]{3}|65[0-4][0-9]{2}|655[0-2][0-9]|6553[0-5]";
+		return RegExp("^!?((" + re + ")([-:](" + re + ")){0,1})$", "i").test(v);
 	},
 	portFwText: _("This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"),
 	portFwMask: /[0-9\-:!]/i,
@@ -138,6 +207,16 @@ Ext.apply(Ext.form.field.VTypes, {
 	hostnameText: _("Invalid hostname"),
 	hostnameMask: /[a-z0-9\-]/i,
 
+	hostnameIP: function(v) {
+		if(Ext.form.field.VTypes.hostname(v))
+			return true;
+		if(Ext.form.field.VTypes.IP(v))
+			return true;
+		return false;
+	},
+	hostnameIPText: _("This field should be a hostname or an IP address"),
+	hostnameIPMask: /[a-z0-9:\-\.]/i,
+
 	hostnameIPv4: function(v) {
 		if(Ext.form.field.VTypes.hostname(v))
 			return true;
@@ -154,6 +233,16 @@ Ext.apply(Ext.form.field.VTypes, {
 	},
 	domainnameText: _("Invalid domain name"),
 	domainnameMask: /[a-z0-9\-\.]/i,
+
+	domainnameIP: function(v) {
+		if(Ext.form.field.VTypes.domainname(v))
+			return true;
+		if(Ext.form.field.VTypes.IP(v))
+			return true;
+		return false;
+	},
+	domainnameIPText: _("This field should be a domainname or an IP address"),
+	domainnameIPMask: /[a-z0-9:\-\.]/i,
 
 	domainnameIPv4: function(v) {
 		if(Ext.form.field.VTypes.domainname(v))

@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Milan Toet <milantoet@gmail.com>, 2012
+# Milan Toet <milantoet@gmail.com>, 2012-2013
 # Seba Kerckhof <seba.kerckhof@gmail.com>, 2012
 # stokerh <stoker.pc@home.nl>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-29 18:53+0200\n"
-"PO-Revision-Date: 2013-07-29 16:53+0000\n"
+"POT-Creation-Date: 2013-07-30 19:44+0200\n"
+"PO-Revision-Date: 2013-07-30 17:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -102,7 +102,7 @@ msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maximale prestaties, maximaal stroomverbruik"
 
 msgid "255 - Disabled"
-msgstr ""
+msgstr "255 - uitgeschakeld"
 
 msgid "3 days"
 msgstr "3 dagen"
@@ -457,7 +457,7 @@ msgid "Bond options"
 msgstr "Gebonden opties"
 
 msgid "Boot"
-msgstr ""
+msgstr "Opstart"
 
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnië-Herzegovina"
@@ -516,7 +516,7 @@ msgstr "Annuleren"
 msgid ""
 "Cannot unlink shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "De inhoud van de gedeelde map kan niet losgekoppeld worden, omdat een andere gedeelde map naar een onderliggende map verwijst"
 
 msgid "Canton and Enderbury Islands"
 msgstr "Canton en Enderbury Eilanden"
@@ -2546,10 +2546,10 @@ msgid "Saving ..."
 msgstr "Opslaan ..."
 
 msgid "Scan"
-msgstr ""
+msgstr "Scan"
 
 msgid "Scanning for new devices ..."
-msgstr ""
+msgstr "Zoeken naar nieuwe apparaten ..."
 
 msgid "Scheduled jobs"
 msgstr ""
@@ -2567,7 +2567,7 @@ msgid "Seconds"
 msgstr "Seconden"
 
 msgid "Secure"
-msgstr ""
+msgstr "Veilig"
 
 msgid "Secure connection"
 msgstr "Veilige verbinding"
@@ -3107,13 +3107,25 @@ msgstr ""
 msgid "This field must have the format hh:mm:ss"
 msgstr "Dit veld moet een hh:mm:ss formaat volgen."
 
+msgid "This field should be a IP network address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a IPv4 network address"
 msgstr "Dit veld aanvaardt enkel een IPv4 netwerkadres."
 
 msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Dit veld aanvaardt enkel IPv4 netwerk adressen in CIDR notatie."
 
+msgid "This field should be a IPv6 network address in CIDR notation"
+msgstr ""
+
+msgid "This field should be a domainname or an IP address"
+msgstr ""
+
 msgid "This field should be a domainname or an IPv4 address"
+msgstr "Dit veld dient een domeinnaam of IPv4 adres te bevatten"
+
+msgid "This field should be a hostname or an IP address"
 msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
@@ -3129,6 +3141,9 @@ msgstr "Dit veld aanvaardt enkel een poort in het 1-65535 bereik."
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
 msgstr "Dit veld aanvaardt enkel een poort of een poort bereik (vb. 21, !443 of 1024-65535)"
+
+msgid "This field should be an IP address"
+msgstr ""
 
 msgid "This field should be an IPv4 address"
 msgstr "Dit veld aanvaardt enkel een IPv4 adres."
@@ -3377,7 +3392,7 @@ msgid "Unknown log file type (id=%s)"
 msgstr "Onbekend bestandstype van de log (id=%s)"
 
 msgid "Unknown network interface type."
-msgstr ""
+msgstr "Onbekend netwerk interface type"
 
 msgid "Unmount"
 msgstr "Unmount"

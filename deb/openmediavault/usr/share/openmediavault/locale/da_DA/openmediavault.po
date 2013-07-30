@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-29 18:53+0200\n"
-"PO-Revision-Date: 2013-07-29 16:53+0000\n"
+"POT-Creation-Date: 2013-07-30 19:44+0200\n"
+"PO-Revision-Date: 2013-07-30 17:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -3105,14 +3105,26 @@ msgstr "Dette felt er påkrævet"
 msgid "This field must have the format hh:mm:ss"
 msgstr "Dette felt skal have formatet hh:mm:ss"
 
+msgid "This field should be a IP network address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a IPv4 network address"
 msgstr "Dette felt skal være en IPv4 netværks adresse"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Dette felt skal være en IPv4 netværks adresse i CIDR betegnelse"
 
+msgid "This field should be a IPv6 network address in CIDR notation"
+msgstr ""
+
+msgid "This field should be a domainname or an IP address"
+msgstr ""
+
 msgid "This field should be a domainname or an IPv4 address"
 msgstr "Dette felt skal være et domænenavn eller en IPv4 adresse"
+
+msgid "This field should be a hostname or an IP address"
+msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Dette felt skal være et værtsnavn eller en IPv4 adresse"
@@ -3128,6 +3140,9 @@ msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
 msgstr "Dette felt skal være en port eller port område (f.eks 21 eller !443 eller 1024-65535)"
 
+msgid "This field should be an IP address"
+msgstr ""
+
 msgid "This field should be an IPv4 address"
 msgstr "Dette felt skal være en IPv4 adresse"
 
@@ -3138,13 +3153,13 @@ msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
 "range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
 "192.168.178.20-192.168.178.254)"
-msgstr "Dette felt skal være enten en IPv4 netværks adresse (med /maske), en IPv4 område eller en ren IPv4 adresse (f.eks 172.16.76.4 eller !192.168.178.87/24 eller 192.168.178.20-192.168.178.254)"
+msgstr "Dette felt skal være enten en IPv4 netværks adresse (med /maske), et IPv4 område eller en ren IPv4 adresse (f.eks 172.16.76.4 eller !192.168.178.87/24 eller 192.168.178.20-192.168.178.254)"
 
 msgid ""
 "This field should be either a IPv6 network address (with /mask), a IPv6 "
 "range or a plain IPv6 address (e.g. !2001:db8::/96 or "
 "2001:db8::10-2001:db8::20 or 2001:db8::15)"
-msgstr ""
+msgstr "Dette felt skal være enten en IPv6 netværks adresse (med /maske), et IPv6 område eller en ren IPv6 adresse (f.eks !2001:db8::/96 eller 2001:db8::10-2001:db8::20 eller 2001:db8::15)"
 
 msgid "This field should only contain numbers"
 msgstr "Dette felt kan kun indeholde tal"

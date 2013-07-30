@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-29 18:53+0200\n"
-"PO-Revision-Date: 2013-07-29 16:53+0000\n"
+"POT-Creation-Date: 2013-07-30 19:44+0200\n"
+"PO-Revision-Date: 2013-07-30 17:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -3105,14 +3105,26 @@ msgstr "Bu alan gereklidir"
 msgid "This field must have the format hh:mm:ss"
 msgstr "Bu alan SS:dd:ss şeklinde olmalıdır"
 
+msgid "This field should be a IP network address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a IPv4 network address"
 msgstr "Bu alan IPv4 network adresi olmalıdır"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Bu alan SIDR notasyonu ile yazılmış IPv4 network adresi olmalıdır"
 
+msgid "This field should be a IPv6 network address in CIDR notation"
+msgstr ""
+
+msgid "This field should be a domainname or an IP address"
+msgstr ""
+
 msgid "This field should be a domainname or an IPv4 address"
 msgstr "Bu alan domain adı ya da IPv4 adresi olmalıdır."
+
+msgid "This field should be a hostname or an IP address"
+msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Bu alan sistem adı veya IPv4 adresi olmalıdır"
@@ -3127,6 +3139,9 @@ msgstr "Bu alan 1 - 65535 aralığında bir port olmalıdır"
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
 msgstr "Bu alan bir port ya da port aralığı olmalıdır (örn. 21 veya !443 ya da 1024-65535)"
+
+msgid "This field should be an IP address"
+msgstr ""
 
 msgid "This field should be an IPv4 address"
 msgstr "Bu alan IPv4 adresi olmalıdır"

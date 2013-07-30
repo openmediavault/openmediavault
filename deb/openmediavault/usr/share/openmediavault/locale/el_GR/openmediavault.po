@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-29 18:53+0200\n"
-"PO-Revision-Date: 2013-07-29 16:53+0000\n"
+"POT-Creation-Date: 2013-07-30 19:44+0200\n"
+"PO-Revision-Date: 2013-07-30 17:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -3105,14 +3105,26 @@ msgstr ""
 msgid "This field must have the format hh:mm:ss"
 msgstr "Αυτό το πεδίο πρέπει να έχει μορφή ωω:λλ:δδ"
 
+msgid "This field should be a IP network address in CIDR notation"
+msgstr ""
+
 msgid "This field should be a IPv4 network address"
 msgstr "Το πεδίο πρέπει να περιέχει διεύθυνση δικτύου IPv4"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Το πεδίο πρέπει να περιέχει διεύθυνση δικτύου IPv4 σε συμβολισμό CIDR"
 
+msgid "This field should be a IPv6 network address in CIDR notation"
+msgstr ""
+
+msgid "This field should be a domainname or an IP address"
+msgstr ""
+
 msgid "This field should be a domainname or an IPv4 address"
 msgstr "Αυτό το πεδίο δέχεται όνομα τομέα ή διεύθυνση IPv4"
+
+msgid "This field should be a hostname or an IP address"
+msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Το πεδίο πρέπει να περιέχει όνομα συστήματος ή διεύθυνση IPv4"
@@ -3127,6 +3139,9 @@ msgstr "Αυτό το πεδίο δέχεται θύρα από 1 εώς 65535"
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
 msgstr "Αυτό το πεδίο δέχεται θύρα ή σύνολο θυρών (π.χ. 21 ή 1443 ή 1024 - 65535)"
+
+msgid "This field should be an IP address"
+msgstr ""
 
 msgid "This field should be an IPv4 address"
 msgstr "Αυτό το πεδίο δέχεται διεύθυνση δικτύου IPv4"

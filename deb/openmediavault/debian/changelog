@@ -1,3 +1,10 @@
+openmediavault (0.5.0.22) stable; urgency=low
+
+  * Update locales.
+  * Fix IPv6 validation in WebGUI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 30 Jul 2013 19:00:12 +0200
+
 openmediavault (0.5.0.21) stable; urgency=low
 
   * Update locales.

@@ -256,7 +256,7 @@ Ext.define("OMV.module.admin.service.ftp.Settings", {
 				xtype: "textfield",
 				name: "masqueradeaddress",
 				fieldLabel: _("Masquerade address"),
-				vtype: "domainnameIPv4",
+				vtype: "domainnameIP",
 				allowBlank: true,
 				plugins: [{
 					ptype: "fieldinfo",
