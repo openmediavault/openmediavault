@@ -1,3 +1,10 @@
+openmediavault-route (0.5.3) stable; urgency=low
+
+  * Update locales.
+  * Add IPv6 support.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 30 Jul 2013 18:59:38 +0200
+
 openmediavault-route (0.5.2) stable; urgency=low
 
   * Update locales.

@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# runesudden <runesudden@gmail.com>, 2013
 # runesudden <runesudden@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:12+0200\n"
-"PO-Revision-Date: 2013-06-16 11:12+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-07-24 18:06+0000\n"
+"Last-Translator: runesudden <runesudden@gmail.com>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "A route with the network already exists"
-msgstr ""
+msgstr "En rute med angitt nettverk eksisterer allerede"
 
 msgid "Add static route"
 msgstr "Legg til statisk rute"

@@ -56,7 +56,7 @@ Ext.define("OMV.module.admin.system.network.route.Route", {
 			xtype: "textfield",
 			name: "network",
 			fieldLabel: _("Network"),
-			vtype: "IPv4NetCIDR",
+			vtype: "IPNetCIDR",
 			allowBlank: false,
 			plugins: [{
 				ptype: "fieldinfo",
@@ -66,7 +66,7 @@ Ext.define("OMV.module.admin.system.network.route.Route", {
 			xtype: "textfield",
 			name: "gateway",
 			fieldLabel: _("Gateway"),
-			vtype: "IPv4",
+			vtype: "IP",
 			allowBlank: false,
 			plugins: [{
 				ptype: "fieldinfo",

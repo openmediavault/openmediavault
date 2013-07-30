@@ -49,7 +49,7 @@ Ext.define("OMV.module.admin.privilege.ldap.Settings", {
 				name: "host",
 				fieldLabel: _("Host"),
 				allowBlank: false,
-				vtype: "domainnameIPv4",
+				vtype: "domainnameIP",
 				plugins: [{
 					ptype: "fieldinfo",
 					text: _("The FQDN or IP address of the server.")
