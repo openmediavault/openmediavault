@@ -93,7 +93,7 @@ Ext.define("OMV.module.admin.service.nut.Settings", {
 				fieldLabel: _("Comment"),
 				allowBlank: true
 			},{
-				xtype: "textfield",
+				xtype: "textarea",
 				name: "driverconf",
 				fieldLabel: _("Driver configuration directives"),
 				allowBlank: false,
