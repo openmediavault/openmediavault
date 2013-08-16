@@ -91,6 +91,12 @@ Ext.define("OMV.window.Upload", {
 		var basicForm = me.fp.getForm();
 		if(!basicForm.isValid())
 			return;
+		me.doUpload();
+	},
+
+	doUpload: function() {
+		var me = this;
+		var basicForm = me.fp.getForm();
 		basicForm.submit({
 			url: me.url,
 			method: "POST",
@@ -102,24 +108,10 @@ Ext.define("OMV.window.Upload", {
 			waitMsg: me.waitMsg,
 			scope: me,
 			success: function(form, action) {
-				// !!! Attention !!! Fire event before window is closed,
-				// otherwise the dialog's own listener is removed before the
-				// event has been fired and the action has been executed.
-				this.fireEvent("success", this, action.result.responseText);
-				// Now close the dialog.
-				this.close();
+				this.onUploadSuccess(action.response);
 			},
 			failure: function(form, action) {
-				var msg = action.response.responseText;
-				this.close();
-				try {
-					// Try to decode JSON data.
-					msg = Ext.util.JSON.decode(action.response.responseText);
-				} catch(e) {
-					// Decoding JSON has been failed, assume response contains
-					// plain text.
-				}
-				OMV.MessageBox.error(null, msg);
+				this.onUploadFailure(action.response);
 			}
 		});
 	},
@@ -129,5 +121,37 @@ Ext.define("OMV.window.Upload", {
 	 */
 	onCancelButton: function() {
 		this.close();
+	},
+
+	/**
+	 * Method that is called when the file upload was successful.
+	 * @param response The response object.
+	 */
+	onUploadSuccess: function(response) {
+		var me = this;
+		// !!! Attention !!! Fire event before window is closed,
+		// otherwise the dialog's own listener is removed before the
+		// event has been fired and the action has been executed.
+		me.fireEvent("success", me, result.responseText);
+		// Now close the dialog.
+		me.close();
+	},
+
+	/**
+	 * Method that is called when the file upload has been failed.
+	 * @param response The response object.
+	 */
+	onUploadFailure: function(response) {
+		var me = this;
+		var msg = response.responseText;
+		me.close();
+		try {
+			// Try to decode JSON data.
+			msg = Ext.util.JSON.decode(response.responseText);
+		} catch(e) {
+			// Decoding JSON has been failed, assume response contains
+			// plain text.
+		}
+		OMV.MessageBox.error(null, msg);
 	}
 });
