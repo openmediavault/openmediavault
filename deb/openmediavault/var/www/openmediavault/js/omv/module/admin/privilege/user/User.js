@@ -147,7 +147,8 @@ Ext.define("OMV.module.admin.privilege.user.User", {
 					stateId: "name",
 					flex: 1
 				}]
-			}
+			},
+			value: [ "users" ]
 		},{
 			xtype: "checkbox",
 			name: "disallowusermod",

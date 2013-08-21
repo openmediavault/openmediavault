@@ -232,6 +232,10 @@ case "$1" in
 			echo 0 > /proc/sys/net/ipv6/conf/default/accept_ra
 			echo 0 > /proc/sys/net/ipv6/conf/lo/disable_ipv6
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.24"; then
+			omv-mkconf collectd
+			monit restart collectd
+		fi
 	;;
 
 	triggered)

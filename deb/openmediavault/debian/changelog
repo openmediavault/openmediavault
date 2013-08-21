@@ -1,3 +1,10 @@
+openmediavault (0.5.0.24) stable; urgency=low
+
+  * Improve collectd IO issue.
+  * Fix bug in user creation dialog. Set group 'users' by default.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Aug 2013 17:40:09 +0200
+
 openmediavault (0.5.0.23) stable; urgency=low
 
   * Update locales.
