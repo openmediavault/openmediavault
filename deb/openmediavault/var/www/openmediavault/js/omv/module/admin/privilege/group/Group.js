@@ -96,7 +96,8 @@ Ext.define("OMV.module.admin.privilege.group.Group", {
 					stateId: "name",
 					flex: 1
 				}]
-			}
+			},
+			value: []
 		}];
 	}
 });
