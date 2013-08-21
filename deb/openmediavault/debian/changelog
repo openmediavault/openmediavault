@@ -1,3 +1,10 @@
+openmediavault (0.5.0.25) stable; urgency=low
+
+  * Improve package update manager dialog. Display a 'Reload' button to reload
+    the page after package installation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Aug 2013 18:08:12 +0200
+
 openmediavault (0.5.0.24) stable; urgency=low
 
   * Improve collectd IO issue.

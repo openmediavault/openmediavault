@@ -720,7 +720,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			scope: me,
 			fn: function(answer) {
 				switch(answer) {
-				  case "no": // Attention, switched buttons.
+				case "no": // Attention, switched buttons.
 					me.superclass.startDeletion.apply(this, [ records ]);
 					break;
 				default:
