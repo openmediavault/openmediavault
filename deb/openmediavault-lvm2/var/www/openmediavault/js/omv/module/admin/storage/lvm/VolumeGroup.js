@@ -69,7 +69,7 @@ Ext.define("OMV.module.admin.storage.lvm.vg.Create", {
 			name: "devices",
 			fieldLabel: _("Devices"),
 			valueField: "devicefile",
-			height: 110,
+			height: 105,
 			minSelections: 1,
 			useStringValue: true,
 			store: Ext.create("OMV.data.Store", {
