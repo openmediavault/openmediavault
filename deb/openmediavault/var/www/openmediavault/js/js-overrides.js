@@ -291,7 +291,17 @@ Ext.applyIf(Date, {
 		[ "10",_("October") ],
 		[ "11",_("November") ],
 		[ "12",_("December") ]
-	]
+	],
+
+	/**
+	 * Get the date as Unix timestamp.
+	 */
+	toUnixTimestamp: function() {
+		var val = this.getTime();
+		val = val / 1000;
+		val = Math.floor(val);
+		return val;
+	}
 });
 
 Ext.applyIf(Number.prototype, {

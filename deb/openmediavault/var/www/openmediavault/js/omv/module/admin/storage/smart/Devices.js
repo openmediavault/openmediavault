@@ -87,7 +87,7 @@ Ext.define("OMV.module.admin.storage.smart.device.Attributes", {
 		text: _("ID"),
 		dataIndex: "id",
 		stateId: "id",
-		width: 30,
+		width: 40,
 		resizable: false,
 		align: "right"
 	},{
@@ -203,7 +203,7 @@ Ext.define("OMV.module.admin.storage.smart.device.SelfTestLogs", {
 		text: _("Num"),
 		dataIndex: "num",
 		stateId: "num",
-		width: 35,
+		width: 40,
 		resizable: false,
 		align: "right"
 	},{

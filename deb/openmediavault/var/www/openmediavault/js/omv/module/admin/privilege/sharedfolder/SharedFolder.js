@@ -319,7 +319,14 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 										});
 									}, this);
 								}, this);
-								this.gp.store.loadData(data);
+								this.gp.store.setProxy({
+									type: "memory",
+									reader: {
+										type: "json"
+									},
+									data: data
+								});
+								this.gp.store.load();
 								// Disable load mask.
 								this.getEl().unmask();
 							}

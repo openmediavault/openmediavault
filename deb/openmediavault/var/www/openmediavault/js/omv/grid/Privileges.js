@@ -100,6 +100,8 @@ Ext.define("OMV.grid.Privileges", {
 							case 7:
 								record.set("writeable", true);
 								break;
+							default:
+								break;
 							}
 							record.commit();
 							record.endEdit();

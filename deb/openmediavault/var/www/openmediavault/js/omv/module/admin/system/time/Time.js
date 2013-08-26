@@ -231,7 +231,7 @@ Ext.define("OMV.module.admin.system.time.Time", {
 						var date = new Date(values.date);
 						date.setHours(values.hour, values.minute,
 						  values.second);
-						// Execute RPC
+						// Execute RPC.
 						OMV.Rpc.request({
 							scope: this,
 							callback: function(id, success, response) {
@@ -242,7 +242,7 @@ Ext.define("OMV.module.admin.system.time.Time", {
 								service: "System",
 								method: "setDate",
 								params: {
-									timestamp: Ext.Date.format(date, "U")
+									timestamp: date.toUnixTimestamp()
 								}
 							}
 						});

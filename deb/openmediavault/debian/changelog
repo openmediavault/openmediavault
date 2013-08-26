@@ -1,7 +1,11 @@
-openmediavault (0.5.0.25) stable; urgency=low
+openmediavault (0.5.1) stable; urgency=low
 
+  * Update locales.
+  * Various improvements and bugfixes.
   * Improve package update manager dialog. Display a 'Reload' button to reload
     the page after package installation.
+  * Mantis 0000812: Error setting the time.
+  * Mantis 0000813: Permissions are not displayed in ACL dialog.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 21 Aug 2013 18:08:12 +0200
 
