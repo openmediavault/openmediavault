@@ -135,7 +135,7 @@ Ext.define("OMV.module.admin.system.network.interface.Physical", {
 				allowBlank: false,
 				editable: false,
 				triggerAction: "all",
-				value: "dhcp"
+				value: "manual"
 			},{
 				xtype: "textfield",
 				name: "address",
@@ -830,7 +830,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
-					idProperty: "uuid",
+					idProperty: "devicename",
 					fields: [
 						{ name: "uuid", type: "string" },
 						{ name: "devicename", type: "string" },
@@ -843,10 +843,10 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 						{ name: "netmask6", type: "int" },
 						{ name: "gateway6", type: "string" },
 						{ name: "ether", type: "string" },
-						{ name: "mtu" },
-						{ name: "state" },
-						{ name: "link" },
-						{ name: "type" },
+						{ name: "mtu", type: "string" },
+						{ name: "state", type: "string" },
+						{ name: "link", type: "boolean" },
+						{ name: "type", type: "string" },
 						{ name: "comment", type: "string" },
 						{ name: "_used", type: "boolean" },
 						{ name: "_readOnly", type: "boolean" }

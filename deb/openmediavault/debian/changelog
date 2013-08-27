@@ -1,3 +1,9 @@
+openmediavault (0.5.3) stable; urgency=low
+
+  * Fix bug in network interface panel.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 27 Aug 2013 19:58:02 +0200
+
 openmediavault (0.5.2) stable; urgency=low
 
   * Various improvements and bugfixes.
