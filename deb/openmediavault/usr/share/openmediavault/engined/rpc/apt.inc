@@ -358,8 +358,9 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			// /var/cache/apt/archives. Do not redirect the command output to
 			// the backgropund output file. Only the changelog will be
 			// redirected to this file.
-			$cmd = sprintf("export LANG=C; apt-get --yes --download-only ".
-			  "--reinstall install %s 2>&1", escapeshellarg($packageName));
+			$cmd = sprintf("export LANG=C; apt-get --yes --force-yes ".
+			  "--download-only --reinstall install %s 2>&1",
+			  escapeshellarg($packageName));
 			if(0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
