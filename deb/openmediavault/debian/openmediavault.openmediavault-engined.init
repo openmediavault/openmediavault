@@ -12,6 +12,8 @@
 # Description:       The engine daemon that processes the RPC request.
 ### END INIT INFO
 
+. /etc/default/locale
+
 set -e
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
@@ -22,6 +24,10 @@ PIDFILE=/var/run/$NAME.pid
 DAEMON_OPTS=""
 
 test -x $DAEMON || exit 0
+
+# Workaround for monit which is using a purged environment.
+# See http://mmonit.com/wiki/Monit/FAQ#execution
+export LANG
 
 running_pid() {
 	pid=$1

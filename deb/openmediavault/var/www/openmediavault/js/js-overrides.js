@@ -291,8 +291,10 @@ Ext.applyIf(Date, {
 		[ "10",_("October") ],
 		[ "11",_("November") ],
 		[ "12",_("December") ]
-	],
+	]
+});
 
+Ext.applyIf(Date.prototype, {
 	/**
 	 * Get the date as Unix timestamp.
 	 */

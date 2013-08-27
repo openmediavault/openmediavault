@@ -599,10 +599,11 @@ Ext.define("OMV.workspace.grid.Panel", {
 	 */
 	setToolbarButtonDisabled: function(name, disabled) {
 		var me = this;
+		var result = false;
 		var btnCtrl = me.queryById(me.getId() + "-" + name);
-		if(!Ext.isDefined(btnCtrl))
-			return false;
-		return btnCtrl.setDisabled(disabled);
+		if(!Ext.isEmpty(btnCtrl) && btnCtrl.isButton)
+			result = btnCtrl.setDisabled(disabled);
+		return result;
 	},
 
 	/**

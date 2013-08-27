@@ -1,3 +1,11 @@
+openmediavault (0.5.2) stable; urgency=low
+
+  * Various improvements and bugfixes.
+  * Fix locale issue caused by purged monit environment.
+  * Mantis 0000812: Error setting the time.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 27 Aug 2013 17:24:30 +0200
+
 openmediavault (0.5.1) stable; urgency=low
 
   * Update locales.

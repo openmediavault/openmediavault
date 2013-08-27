@@ -64,7 +64,7 @@ Ext.define("OMV.module.admin.system.time.Time", {
 			conditions: [
 				{ name: "ntpenable", value: true }
 			],
-			properties: "allowBlank"
+			properties: [ "allowBlank", "!readOnly" ]
 		}]
 	}],
 
