@@ -31,6 +31,9 @@ xmlstarlet sel -t \
   -n \
   -o "driftfile /var/lib/ntp/ntp.drift" -n \
   -n \
+  -o "# Disable the panic feature." -n \
+  -o "tinker panic 0" -n \
+  -n \
   -o "statistics loopstats peerstats clockstats" -n \
   -o "filegen loopstats file loopstats type day enable" -n \
   -o "filegen peerstats file peerstats type day enable" -n \

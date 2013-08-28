@@ -217,7 +217,7 @@ case "$1" in
 			omv-mkconf apache2
 			invoke-rc.d apache2 graceful
 		fi
-		if dpkg --compare-versions "$2" lt-nl "0.5.21"; then
+		if dpkg --compare-versions "$2" lt-nl "0.5.0.21"; then
 			# Set IPv6 interface configurations.
 			omv_config_add_element "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "method6" "manual"
 			omv_config_add_element "/config/system/network/interfaces/*[name()='iface' or name()='bondiface']" "address6" ""
@@ -232,9 +232,12 @@ case "$1" in
 			echo 0 > /proc/sys/net/ipv6/conf/default/accept_ra
 			echo 0 > /proc/sys/net/ipv6/conf/lo/disable_ipv6
 		fi
-		if dpkg --compare-versions "$2" lt-nl "0.5.24"; then
+		if dpkg --compare-versions "$2" lt-nl "0.5.0.24"; then
 			omv-mkconf collectd
 			monit restart collectd
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.4"; then
+			omv-mkconf ntp
 		fi
 	;;
 

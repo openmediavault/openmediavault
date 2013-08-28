@@ -1,3 +1,10 @@
+openmediavault (0.5.4) stable; urgency=low
+
+  * Disable the NTP daemon panic feature.
+  * Mantis 0000810: Web interface does not load at all, blank screen.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 28 Aug 2013 17:22:54 +0200
+
 openmediavault (0.5.3) stable; urgency=low
 
   * Fix bug in network interface panel.

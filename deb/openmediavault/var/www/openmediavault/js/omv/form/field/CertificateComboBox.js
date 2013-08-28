@@ -41,7 +41,7 @@ Ext.define("OMV.form.field.CertificateComboBox", {
 		"OMV.data.proxy.Rpc"
 	],
 	uses: [
-		"OMV.Module.System.CertificateDetailDialog"
+		"OMV.module.admin.system.certificate.Detail"
 	],
 
 	allowNone: false,
