@@ -29,7 +29,7 @@
 Ext.define("OMV.module.admin.diagnostic.log.plugin.Ftp", {
 	extend: "OMV.module.admin.diagnostic.log.plugin.Plugin",
 
-	id: "smart",
+	id: "proftpd",
 	text: _("FTP"),
 	stateful: true,
 	stateId: "c9d06952-00da-11e1-aa29-00221568ca88",

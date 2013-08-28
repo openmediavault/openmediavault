@@ -1,3 +1,9 @@
+openmediavault (0.5.5) stable; urgency=low
+
+  * Mantis 0000809: Not displaying FTP-log.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 28 Aug 2013 18:13:53 +0200
+
 openmediavault (0.5.4) stable; urgency=low
 
   * Various improvements and bugfixes.
