@@ -375,8 +375,26 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 							wnd.setButtonDisabled("close", false);
 						},
 						close: function() {
-							me.doReload();
-							OMV.MessageBox.info(null, _("Please reload the page to let the changes take effect."));
+							Ext.MessageBox.show({
+								title: _("Information"),
+								msg: _("Please reload the page to let the changes take effect."),
+								modal: true,
+								icon: Ext.MessageBox.INFO,
+								buttons: Ext.MessageBox.OKCANCEL,
+								buttonText: {
+									ok: _("OK"),
+									cancel: _("Reload")
+								},
+								fn: function(answer) {
+									if("cancel" == answer) {
+										// Reload the page.
+										OMV.confirmPageUnload = false;
+										document.location.reload();
+									} else {
+										me.doReload();
+									}
+								}
+							});
 						}
 					}
 				});
@@ -422,8 +440,26 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 							wnd.setButtonDisabled("close", false);
 						},
 						close: function() {
-							me.doReload();
-							OMV.MessageBox.info(null, _("Please reload the page to let the changes take effect."));
+							Ext.MessageBox.show({
+								title: _("Information"),
+								msg: _("Please reload the page to let the changes take effect."),
+								modal: true,
+								icon: Ext.MessageBox.INFO,
+								buttons: Ext.MessageBox.OKCANCEL,
+								buttonText: {
+									ok: _("OK"),
+									cancel: _("Reload")
+								},
+								fn: function(answer) {
+									if("cancel" == answer) {
+										// Reload the page.
+										OMV.confirmPageUnload = false;
+										document.location.reload();
+									} else {
+										me.doReload();
+									}
+								}
+							});
 						},
 						scope: me
 					}

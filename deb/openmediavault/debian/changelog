@@ -1,5 +1,6 @@
 openmediavault (0.5.4) stable; urgency=low
 
+  * Various improvements and bugfixes.
   * Disable the NTP daemon panic feature.
   * Mantis 0000810: Web interface does not load at all, blank screen.
 
