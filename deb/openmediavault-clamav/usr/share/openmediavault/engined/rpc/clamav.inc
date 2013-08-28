@@ -426,10 +426,12 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
 			// Execute the clamdscan cron script.
-			$cmd = sprintf("%s/clamdscan-%s", $GLOBALS['OMV_CRONSCRIPTS_DIR'],
-			  $params['uuid']);
-			if(FALSE === $this->execve($cmd, NULL, $bgOutputFilename)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED, $cmd, "");
+			$cmd = "/bin/sh";
+			$cmdArgs = array(sprintf("%s/clamdscan-%s",
+			  $GLOBALS['OMV_CRONSCRIPTS_DIR'], $params['uuid']));
+			if(FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd." ".implode(" ", $cmdArgs), "");
 			}
 		} catch(Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
