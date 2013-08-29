@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Christophe Lherieau <skimpax@gmail.com>, 2013
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-21 20:56+0200\n"
-"PO-Revision-Date: 2013-06-21 18:57+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-07-03 13:00+0000\n"
+"Last-Translator: Christophe Lherieau <skimpax@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,7 +38,7 @@ msgid "Assign a unique serial number to the iSCSI volume optionally."
 msgstr "Assigner optionnellement un n° de série unique au volume iSCSI."
 
 msgid "Authentication"
-msgstr ""
+msgstr "Authentification"
 
 msgid "Block IO"
 msgstr "Block IO"
@@ -90,7 +91,7 @@ msgid "First burst length"
 msgstr "Longueur première rafale"
 
 msgid "General"
-msgstr ""
+msgstr "Général"
 
 msgid "General settings"
 msgstr "Paramètres généraux"
@@ -151,7 +152,7 @@ msgid "Initial R2T"
 msgstr "R2T initial"
 
 msgid "LUN"
-msgstr ""
+msgstr "LUN"
 
 msgid "Max. burst length"
 msgstr "Longueur max. mode rafale"

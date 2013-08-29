@@ -31,7 +31,7 @@
 
 /**
  * @class OMV.module.admin.service.iscsitarget.target.General
- * @derived OMV.workspace.form.Panel
+ * @derived OMV.form.Panel
  */
 Ext.define("OMV.module.admin.service.iscsitarget.target.General", {
 	extend: "OMV.form.Panel",
