@@ -1,3 +1,10 @@
+openmediavault (0.5.6) stable; urgency=low
+
+  * Various improvements and bugfixes.
+  * Mantis 0000810: Web interface does not load at all, blank screen.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 28 Aug 2013 18:24:42 +0200
+
 openmediavault (0.5.5) stable; urgency=low
 
   * Mantis 0000809: Not displaying FTP-log.

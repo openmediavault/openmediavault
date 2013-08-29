@@ -285,7 +285,6 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 					wnd.setButtonDisabled("close", false);
 				},
 				close: function() {
-					me.doReload();
 					// Display a message box if plugins have been updated to
 					// notify the user to reload the page. This is necessary
 					// to let potentially new WebGUI Javascript code take
@@ -306,9 +305,13 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 									// Reload the page.
 									OMV.confirmPageUnload = false;
 									document.location.reload();
+								} else {
+									me.doReload();
 								}
 							}
 						});
+					} else {
+						me.doReload();
 					}
 				}
 			}

@@ -24,6 +24,7 @@
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/window/MessageBox.js")
+// require("js/omv/workspace/form/Panel.js")
 // require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/form/field/Password.js")
 // require("js/omv/util/Format.js")
