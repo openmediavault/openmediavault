@@ -94,6 +94,9 @@ Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 					this.activePlugin = this.getPluginById(value);
 					if(!this.activePlugin || !this.activePlugin.isLogPlugin)
 						return;
+					// Save current state.
+					if(this.stateful)
+						this.saveState();
 					// Create a new store.
 					var store = this.createStore();
 					// Reconfigure grid to use new store and colums.
