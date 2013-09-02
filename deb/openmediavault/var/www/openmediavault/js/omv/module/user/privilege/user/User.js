@@ -119,7 +119,7 @@ Ext.define("OMV.module.user.privilege.user.User", {
 
 OMV.WorkspaceManager.registerNode({
 	id: "user",
-	path: "/privileges",
+	path: "/privilege",
 	text: _("User"),
 	icon16: "images/user.png",
 	position: 10

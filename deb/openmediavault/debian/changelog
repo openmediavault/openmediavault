@@ -1,3 +1,13 @@
+openmediavault (0.5.7) stable; urgency=low
+
+  * Fix SSL cert issue when activating TLS for the FTP service.
+  * Mantis 0000815: When log on a non-administrator account,there is some
+    "undefined" text.
+  * Mantis 0000817: Powermanagement - Power down button does not work.
+  * Mantis 0000819: Column-Width not saved in Diagnostic -> System logs.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Sep 2013 18:21:42 +0200
+
 openmediavault (0.5.6) stable; urgency=low
 
   * Various improvements and bugfixes.

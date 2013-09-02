@@ -29,6 +29,9 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_CERTIFICATE_DIR=${OMV_CERTIFICATE_DIR:-"/etc/ssl"}
+OMV_CERTIFICATE_PREFIX=${OMV_CERTIFICATE_PREFIX:-"openmediavault-"}
+
 OMV_PROFTPD_MODTLS_CONFIG=${OMV_PROFTPD_MODTLS_CONFIG:-"/etc/proftpd/tls.conf"}
 OMV_PROFTPD_MODTLS_TLSLOG=${OMV_PROFTPD_MODTLS_TLSLOG:-"/var/log/proftpd/tls.log"}
 OMV_PROFTPD_MODTLS_TLSPROTOCOL=${OMV_PROFTPD_MODTLS_TLSPROTOCOL:-"SSLv23"}
@@ -51,8 +54,8 @@ xmlstarlet sel -t -m "//services/ftp/modules/mod_tls" \
 	  -i "useimplicitssl[. = '1']" -o "UseImplicitSSL " -b \
 	  -n \
   -b \
-  -v "concat('  TLSRSACertificateFile ${OMV_CERTIFICATE_DIR}/certs/',sslcertificateref,'.crt')" -n \
-  -v "concat('  TLSRSACertificateKeyFile ${OMV_CERTIFICATE_DIR}/private/',sslcertificateref,'.key')" -n \
+  -v "concat('  TLSRSACertificateFile ${OMV_CERTIFICATE_DIR}/certs/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.crt')" -n \
+  -v "concat('  TLSRSACertificateKeyFile ${OMV_CERTIFICATE_DIR}/private/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.key')" -n \
   -o "  TLSVerifyClient ${OMV_PROFTPD_MODTLS_TLSVERIFYCLIENT}" -n \
   -o "  TLSRenegotiate ${OMV_PROFTPD_MODTLS_TLSRENEGOTIATE}" -n \
   -i "required[. = '0']" -o "  TLSRequired off" -n -b \

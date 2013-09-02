@@ -21,7 +21,7 @@
 // require("js/omv/WorkspaceManager.js")
 
 OMV.WorkspaceManager.registerNode({
-	id: "privileges",
+	id: "privilege",
 	path: "/",
 	text: _("Access Right Management"),
 	position: 30

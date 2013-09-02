@@ -45,5 +45,6 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Plugin", {
 	rpcDownloadMethod: "getContent",
 	rpcParams: undefined,
 	rpcFields: [],
-	rpcRemoteSort: true
+	rpcRemoteSort: true,
+	isLogPlugin: true
 });

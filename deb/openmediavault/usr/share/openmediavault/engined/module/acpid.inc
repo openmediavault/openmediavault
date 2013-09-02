@@ -65,7 +65,7 @@ class OMVModuleAcpid extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if(FALSE === boolval($object['enable']))
+		if(FALSE === boolval($object['powerbtn']))
 			return;
 		$initd = new OMVSysVInitScript("acpid", TRUE, FALSE);
 		$initd->exec();
