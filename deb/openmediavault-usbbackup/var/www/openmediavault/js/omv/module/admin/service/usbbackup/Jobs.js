@@ -334,7 +334,7 @@ Ext.define("OMV.module.admin.service.usbbackup.Jobs", {
 			id: me.getId() + "-run",
 			xtype: "button",
 			text: _("Run"),
-			icon: "images/run.png",
+			icon: "images/play.png",
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onRunButton, me, [ me ]),
 			scope: me,
