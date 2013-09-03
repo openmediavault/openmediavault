@@ -43,7 +43,7 @@ Ext.define("OMV.button.ApplyCfg", {
 
 	reloadInterval: 5000,
 
-	icon: "images/led_gray.png",
+	icon: "images/refresh.png",
 	iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 	tooltip: _("Apply configuration changes"),
 	disabled: true,
@@ -132,8 +132,8 @@ Ext.define("OMV.button.ApplyCfg", {
 		var me = this;
 		// Only change the icon if necessary.
 		if(me.disabled !== disabled) {
-			me.setIcon(disabled ? "images/led_gray.png" :
-			  "images/led_green.png");
+			me.setIcon(disabled ? "images/refresh.png" :
+			  "images/refresh.gif");
 		}
 		me.callParent(arguments);
 	},

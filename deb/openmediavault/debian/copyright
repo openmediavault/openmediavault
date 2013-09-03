@@ -120,14 +120,6 @@ Files: /var/www/openmediavault/images/rsync.png
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
-Files: /var/www/openmediavault/images/run.png
-Copyright: Yannick Lung <www.yanlu.de>
-License: permissive
- You are free to use Freecns for commercial and non-commercial purposes.
- Examples are apps, applications or user interfaces. You are not allowed
- to sell these icons because Freecns is a free source for developers and/or
- designers.
-
 Files: /var/www/openmediavault/images/puzzle.png
        /var/www/openmediavault/images/puzzle.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
@@ -318,6 +310,11 @@ Files: /var/www/openmediavault/images/refresh.png
        /var/www/openmediavault/images/refresh.svg
 Copyright: Egemen Kapusuz
 License: GPL-3
+
+Files: /var/www/openmediavault/images/refresh.gif
+License: permissive
+ Generated gifs are totally free for use.
+Comment: http://www.ajaxload.info
 
 Files: /var/www/openmediavault/images/access.png
        /var/www/openmediavault/images/access.svg

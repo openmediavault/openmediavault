@@ -94,20 +94,14 @@ Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 					this.activePlugin = this.getPluginById(value);
 					if(!this.activePlugin || !this.activePlugin.isLogPlugin)
 						return;
-					// Save current state.
-					if(this.stateful)
-						this.saveState();
 					// Create a new store.
 					var store = this.createStore();
 					// Reconfigure grid to use new store and colums.
 					this.stateful = this.activePlugin.stateful;
 					this.stateId = this.activePlugin.stateId;
 					this.reconfigure(store, this.activePlugin.columns);
-					// Refresh the grid state.
-					if(this.stateful) {
-						var state = this.getState();
-						this.applyState(state);
-					}
+					if(this.stateful)
+						this.initState();
 					// Bind new store to paging toolbar.
 					this.getPagingToolbar().bindStore(this.store);
 				}

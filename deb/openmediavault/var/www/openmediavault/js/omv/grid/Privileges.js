@@ -181,6 +181,7 @@ Ext.define("OMV.grid.Privileges", {
 				text: _("System"),
 				sortable: true,
 				groupable: true,
+				width: 60,
 				hidden: me.hideSystemColumn,
 				dataIndex: "system",
 				stateId: "system",
