@@ -309,17 +309,16 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 	getRpcSetParams: function() {
 		var me = this;
 		var quota = [];
-		var records = me.getValues();
-		Ext.Array.each(records, function(record) {
-			var bhardlimit = record.get("bhardlimit");
+		var values = me.getValues();
+		Ext.Array.each(values, function(value) {
 			// Only submit useful settings.
-			if((bhardlimit == 0) || Ext.isEmpty(bhardlimit))
+			if((value.bhardlimit == 0) || Ext.isEmpty(value.bhardlimit))
 				return;
 			quota.push({
-				"type": record.get("type"),
-				"name": record.get("name"),
-				"bhardlimit": bhardlimit,
-				"bunit": record.get("bunit")
+				type: value.type,
+				name: value.name,
+				bhardlimit: value.bhardlimit,
+				bunit: value.bunit
 			});
 		});
 		return {

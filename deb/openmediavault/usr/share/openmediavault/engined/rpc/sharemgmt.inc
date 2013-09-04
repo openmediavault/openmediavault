@@ -756,7 +756,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		  "uuid" => $params['uuid']), $context);
 		// Execute command to get the file access control lists.
 		$cmd = sprintf("export LANG=C; getfacl --no-effective ".
-		  "--access %s 2>&1", escapeshellarg(sprintf("%s/%s", $sfpath,
+		  "--access -- %s 2>&1", escapeshellarg(sprintf("%s/%s", $sfpath,
 		  $params['file'])));
 		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -1000,7 +1000,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 				  implode(",", $aclspec)));
 			}
 			// Execute command to set the file access control lists.
-			$cmd = sprintf("export LANG=C; setfacl %s %s 2>&1",
+			$cmd = sprintf("export LANG=C; setfacl %s -- %s 2>&1",
 			  implode(" ", $cmdargs), escapeshellarg(sprintf("%s/%s",
 			  $sfpath, $params['file'])));
 			if(0 !== $this->exec($cmd, $output, $bgOutputFilename)) {

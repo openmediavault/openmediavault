@@ -148,6 +148,7 @@ Ext.define("OMV.grid.Privileges", {
 				flex: 1,
 				listeners: {
 					scope: me,
+					beforecheckchange: me.onBeforeCheckChange,
 					checkchange: me.onCheckChange
 				}
 			},{
@@ -161,6 +162,7 @@ Ext.define("OMV.grid.Privileges", {
 				flex: 1,
 				listeners: {
 					scope: me,
+					beforecheckchange: me.onBeforeCheckChange,
 					checkchange: me.onCheckChange
 				}
 			},{
@@ -174,6 +176,7 @@ Ext.define("OMV.grid.Privileges", {
 				flex: 1,
 				listeners: {
 					scope: me,
+					beforecheckchange: me.onBeforeCheckChange,
 					checkchange: me.onCheckChange
 				}
 			},{
@@ -190,6 +193,12 @@ Ext.define("OMV.grid.Privileges", {
 			}]
 		});
 		me.callParent(arguments);
+	},
+
+	onBeforeCheckChange: function(column, rowIndex, checked, eOpts) {
+		// Do not allow to deselect a checkbox. At least one checkbox
+		// must be selected.
+		return checked;
 	},
 
 	onCheckChange: function(column, rowIndex, checked, eOpts) {

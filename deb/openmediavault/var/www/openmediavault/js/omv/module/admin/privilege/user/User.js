@@ -194,6 +194,7 @@ Ext.define("OMV.module.admin.privilege.user.Import", {
 	rpcSetPollStatus: true,
 	autoLoadData: false,
 	submitMsg: _("Importing users ..."),
+	okButtonText: _("Import"),
 
 	getFormConfig: function() {
 		return {

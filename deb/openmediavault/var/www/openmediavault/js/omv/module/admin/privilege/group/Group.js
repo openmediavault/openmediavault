@@ -118,6 +118,7 @@ Ext.define("OMV.module.admin.privilege.group.Import", {
 	rpcSetPollStatus: true,
 	autoLoadData: false,
 	submitMsg: _("Importing groups ..."),
+	okButtonText: _("Import"),
 
 	getFormConfig: function() {
 		return {

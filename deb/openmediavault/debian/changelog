@@ -1,5 +1,8 @@
 openmediavault (0.5.7) stable; urgency=low
 
+  * Various improvements and bugfixes.
+  * Fix bug in user/group import RPC.
+  * Fix bug in filesystem quota dialog.
   * Fix SSL cert issue when activating TLS for the FTP service.
   * Mantis 0000815: When log on a non-administrator account,there is some
     "undefined" text.

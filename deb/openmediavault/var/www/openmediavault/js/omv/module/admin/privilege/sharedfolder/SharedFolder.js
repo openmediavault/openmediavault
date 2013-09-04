@@ -502,25 +502,21 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 		var users = [];
 		var groups = [];
 		Ext.Array.each(records, function(record) {
-			if((true === record.get("deny")) ||
-			  (true === record.get("readonly")) ||
-			  (true === record.get("writeable"))) {
-				var object = {
-					"name": record.get("name"),
-					"perms": 0
-				}
-				if(true === record.get("readonly"))
-					object.perms = 5;
-				else if(true === record.get("writeable"))
-					object.perms = 7;
-				switch(record.get("type")) {
-				case "user":
-					users.push(object);
-					break;
-				case "group":
-					groups.push(object);
-					break;
-				}
+			var object = {
+				"name": record.get("name"),
+				"perms": 0
+			}
+			if(true === record.get("readonly"))
+				object.perms = 5;
+			else if(true === record.get("writeable"))
+				object.perms = 7;
+			switch(record.get("type")) {
+			case "user":
+				users.push(object);
+				break;
+			case "group":
+				groups.push(object);
+				break;
 			}
 		});
 		// Use the execute dialog to execute the RPC because it might

@@ -88,7 +88,7 @@ Ext.define("OMV.workspace.window.Grid", {
 
 	/**
 	 * Loads an array of data straight into the grid.
-	 * @param values The values to set in the tab of an object hash.
+	 * @param values The values to load into the grids store.
 	 * @return None.
 	 */
 	setValues: function(values) {
@@ -99,17 +99,11 @@ Ext.define("OMV.workspace.window.Grid", {
 
 	/**
 	 * Get the data from the grid.
-	 * @return An array of records.
+	 * @return The records from the grids store as key/value pairs.
 	 */
 	getValues: function() {
 		var me = this;
-		var values = [];
-		var store = me.getGrid().getStore();
-		var records = store.getRange();
-		Ext.Array.each(records, function(record) {
-			values.push(record.getData());
-		});
-		return values;
+		return me.getGrid().getValues();
 	},
 
 	/**

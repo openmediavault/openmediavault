@@ -734,8 +734,8 @@ finish:
 				if(empty($linev) || ($linev[0] === "#"))
 					continue;
 				# Parse line.
-				if(1 !== preg_match("/^([^;]+);(\d*);([^;]+);([^;]+);([^;]+);".
-				  "([^;]+);(true|1|yes|y|on|false|0|no|n|off)$/i",
+				if(1 !== preg_match("/^([^;]+);(\d*);([^;]*);([^;]*);([^;]+);".
+				  "([^;]*);(true|1|yes|y|on|false|0|no|n|off)$/i",
 				  $linev, $matches)) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf(gettext("Invalid line: %s"), $linev));
@@ -1064,7 +1064,7 @@ finish:
 				if(empty($linev) || ($linev[0] === "#"))
 					continue;
 				# Parse line.
-				if(1 !== preg_match("/^([^;]+);(\d*);([^;]+)$/i", $linev,
+				if(1 !== preg_match("/^([^;]+);(\d*);([^;]*)$/i", $linev,
 				  $matches)) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf(gettext("Invalid line: %s"), $linev));
