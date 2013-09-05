@@ -57,24 +57,26 @@ Ext.define("OMV.workspace.window.Tab", {
 			defaults: {
 				readOnly: me.readOnly
 			},
-			items: me.getTabItems()
-		}, me.getTabConfig()));
+			items: me.getTabItems(me)
+		}, me.getTabConfig(me)));
 	},
 
 	/**
 	 * Returns additional tab configuration options.
+	 * @param c This component object.
 	 * @return The tab panel configuration object.
 	 */
-	getTabConfig: function() {
+	getTabConfig: function(c) {
 		return this.tabConfig;
 	},
 
 	/**
 	 * Returns the items displayed in the property window form.
 	 * This function must be overwritten by every derived class.
+	 * @param c This component object.
 	 * @return An array of items displayed in the tab panel.
 	 */
-	getTabItems: function() {
+	getTabItems: function(c) {
 		return this.tabItems;
 	},
 

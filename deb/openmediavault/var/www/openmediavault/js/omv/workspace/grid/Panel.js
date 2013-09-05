@@ -126,7 +126,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			me.dockedItems.push(me.topToolbar = Ext.widget({
 				xtype: "toolbar",
 				dock: "top",
-				items: me.getTopToolbarItems()
+				items: me.getTopToolbarItems(me)
 			}));
 		}
 		if(!me.hidePagingToolbar) {
@@ -199,8 +199,10 @@ Ext.define("OMV.workspace.grid.Panel", {
 
 	/**
 	 * Returns the items displayed in the top toolbar.
+	 * @param c This component object.
+	 * @return An array of buttons displayed in the top toolbar.
 	 */
-	getTopToolbarItems: function() {
+	getTopToolbarItems: function(c) {
 		var me = this;
 		return [{
 			id: me.getId() + "-add",

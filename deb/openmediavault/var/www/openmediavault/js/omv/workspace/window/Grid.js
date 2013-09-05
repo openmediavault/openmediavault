@@ -56,14 +56,15 @@ Ext.define("OMV.workspace.window.Grid", {
 			defaults: {
 				readOnly: me.readOnly
 			}
-		}, me.getGridConfig()));
+		}, me.getGridConfig(me)));
 	},
 
 	/**
 	 * Returns additional grid configuration options.
+	 * @param c This component object.
 	 * @return The grid panel configuration object.
 	 */
-	getGridConfig: function() {
+	getGridConfig: function(c) {
 		return this.gridConfig;
 	},
 

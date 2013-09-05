@@ -58,24 +58,26 @@ Ext.define("OMV.workspace.window.Form", {
 				anchor: "100%",
 				labelSeparator: ""
 			},
-			items: me.getFormItems()
-		}, me.getFormConfig()));
+			items: me.getFormItems(me)
+		}, me.getFormConfig(me)));
 	},
 
 	/**
 	 * Returns additional form configuration options.
+	 * @param c This component object.
 	 * @return The form panel configuration object.
 	 */
-	getFormConfig: function() {
+	getFormConfig: function(c) {
 		return this.formConfig;
 	},
 
 	/**
 	 * Returns the items displayed in the property window form.
 	 * This function must be overwritten by every derived class.
+	 * @param c This component object.
 	 * @return An array of items displayed in the form panel.
 	 */
-	getFormItems: function() {
+	getFormItems: function(c) {
 		return this.formItems;
 	},
 

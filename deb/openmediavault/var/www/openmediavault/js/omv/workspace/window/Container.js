@@ -125,7 +125,7 @@ Ext.define("OMV.workspace.window.Container", {
 	initComponent: function() {
 		var me = this;
 		Ext.apply(me, {
-			buttons: me.getButtonItems(),
+			buttons: me.getButtonItems(me),
 			items: me.getWindowItems()
 		});
 		me.callParent(arguments);
@@ -142,8 +142,9 @@ Ext.define("OMV.workspace.window.Container", {
 
 	/**
 	 * Returns the buttons displayed in the property window.
+	 * @param c This component object.
 	 */
-	getButtonItems: function() {
+	getButtonItems: function(c) {
 		var me = this;
 		return [{
 			id: me.getId() + "-ok",
