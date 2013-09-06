@@ -239,6 +239,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.5.4"; then
 			omv-mkconf ntp
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.8"; then
+			omv_config_add_element "/config/system/notification/notifications" "cronapt" "1"
+		fi
 	;;
 
 	triggered)

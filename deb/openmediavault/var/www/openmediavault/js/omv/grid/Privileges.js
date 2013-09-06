@@ -63,10 +63,10 @@ Ext.define("OMV.grid.Privileges", {
 					fields: [
 						{ name: "type", type: "string" },
 						{ name: "name", type: "string" },
-						{ name: "perms", type: "int" },
-						{ name: "deny", type: "boolean", defaultValue: null },
-						{ name: "readonly", type: "boolean", defaultValue: null },
-						{ name: "writeable", type: "boolean", defaultValue: null },
+						{ name: "perms", type: "int", useNull: true, defaultValue: null },
+						{ name: "deny", type: "boolean", defaultValue: false },
+						{ name: "readonly", type: "boolean", defaultValue: false },
+						{ name: "writeable", type: "boolean", defaultValue: false },
 						{ name: "system", type: "boolean" }
 					]
 				}),
@@ -148,7 +148,6 @@ Ext.define("OMV.grid.Privileges", {
 				flex: 1,
 				listeners: {
 					scope: me,
-					beforecheckchange: me.onBeforeCheckChange,
 					checkchange: me.onCheckChange
 				}
 			},{
@@ -162,7 +161,6 @@ Ext.define("OMV.grid.Privileges", {
 				flex: 1,
 				listeners: {
 					scope: me,
-					beforecheckchange: me.onBeforeCheckChange,
 					checkchange: me.onCheckChange
 				}
 			},{
@@ -176,7 +174,6 @@ Ext.define("OMV.grid.Privileges", {
 				flex: 1,
 				listeners: {
 					scope: me,
-					beforecheckchange: me.onBeforeCheckChange,
 					checkchange: me.onCheckChange
 				}
 			},{
@@ -193,12 +190,6 @@ Ext.define("OMV.grid.Privileges", {
 			}]
 		});
 		me.callParent(arguments);
-	},
-
-	onBeforeCheckChange: function(column, rowIndex, checked, eOpts) {
-		// Do not allow to deselect a checkbox. At least one checkbox
-		// must be selected.
-		return checked;
 	},
 
 	onCheckChange: function(column, rowIndex, checked, eOpts) {

@@ -1,6 +1,9 @@
 openmediavault (0.5.8) stable; urgency=low
 
+  * Update locales.
   * Various WebGUI API improvements.
+  * Add option to enable/disable software update notifications.
+  * Mantis 0000830: Shared folders "Privileges" dialog.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 05 Sep 2013 23:27:33 +0200
 

@@ -79,7 +79,7 @@ EOF
 
 xmlstarlet sel -t -m "//system/email" \
   -o "# The email address to send mail to." -n \
-  -i "enable[. != '1']" -o "#" -b \
+  -i "enable[. != '1'] or //system/notification/notifications/cronapt[. != '1']" -o "#" -b \
   -v "concat('MAILTO=\"',primaryemail,'\"')" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_CRONAPT_CONFIG}
 }

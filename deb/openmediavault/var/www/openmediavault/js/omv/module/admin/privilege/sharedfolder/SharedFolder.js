@@ -225,7 +225,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.Privileges", {
 		Ext.Array.each(items, function(item) {
 			if((true === item.deny) || (true === item.readonly) ||
 			  (true === item.writeable)) {
-				var perms = 0;
+				var perms = 0; // No access
 				if(true === item.readonly)
 					perms = 5;
 				else if(true === item.writeable)
@@ -264,7 +264,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 	readOnly: false,
 
 	title: _("Modify shared folder ACL"),
-	width: 650,
+	width: 700,
 	height: 520,
 	layout: "border",
 	modal: true,
@@ -463,7 +463,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 				xtype: "checkbox",
 				name: "replace",
 				fieldLabel: _("Replace"),
-				checked: false,
+				checked: true,
 				boxLabel: _("Replace all existing permissions")
 			},{
 				xtype: "checkbox",
@@ -502,21 +502,29 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 		var users = [];
 		var groups = [];
 		Ext.Array.each(records, function(record) {
-			var object = {
-				"name": record.get("name"),
-				"perms": 0
-			}
-			if(true === record.get("readonly"))
-				object.perms = 5;
-			else if(true === record.get("writeable"))
-				object.perms = 7;
-			switch(record.get("type")) {
-			case "user":
-				users.push(object);
-				break;
-			case "group":
-				groups.push(object);
-				break;
+			// Only process users/groups with at least one selected
+			// permission. Users without a selected permission won't
+			// be submitted and will be removed from the ACL when the
+			// checkbox 'Replace all existing permissions' is selected.
+			if((true === record.get("deny")) ||
+			  (true === record.get("readonly")) ||
+			  (true === record.get("writeable"))) {
+				var object = {
+					"name": record.get("name"),
+					"perms": 0 // No access
+				}
+				if(true === record.get("readonly"))
+					object.perms = 5;
+				else if(true === record.get("writeable"))
+					object.perms = 7;
+				switch(record.get("type")) {
+				case "user":
+					users.push(object);
+					break;
+				case "group":
+					groups.push(object);
+					break;
+				}
 			}
 		});
 		// Use the execute dialog to execute the RPC because it might

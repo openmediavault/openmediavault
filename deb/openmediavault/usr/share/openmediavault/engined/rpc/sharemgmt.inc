@@ -654,7 +654,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get shared folder configuration object.
-		$xpath = "//system/shares/sharedfolder[uuid='{$params['uuid']}']";
+		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
+		  $params['uuid']);
 		$object = $xmlConfig->get($xpath);
 		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
@@ -704,7 +705,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			);
 		}
 		// Update existing configuration object.
-		$xpath = "//system/shares/sharedfolder[uuid='{$params['uuid']}']";
+		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
+		  $params['uuid']);
 		if(FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}

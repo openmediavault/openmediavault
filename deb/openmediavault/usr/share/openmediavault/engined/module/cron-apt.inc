@@ -23,13 +23,20 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
 
 class OMVModuleCronApt extends OMVModuleServiceAbstract
-  implements OMVINotifyListener {
+  implements OMVINotifyListener, OMVIModuleNotification {
 	/**
 	 * Get the module name.
 	 */
 	public function getName() {
 		return "cronapt";
 	}
+
+	/**
+	 * Defines the modules that if present should start before the service
+	 * provided by this module.
+	 * @return An array of modules.
+	 */
+	public function shouldStart() { return array("email"); }
 
 	/**
 	 * Generate the configuration.
@@ -44,12 +51,29 @@ class OMVModuleCronApt extends OMVModuleServiceAbstract
 	}
 
 	/**
+	 * Get the notification configuration.
+	 */
+	public function getNotificationConfig() {
+		return array(
+			  array(
+				  "id" => "cronapt",
+				  "type" => getText("System"),
+				  "title" => gettext("Software updates")
+			  )
+		  );
+	}
+
+	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.email",
+		  array($this, "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.notification.notifications",
 		  array($this, "setDirty"));
     }
 }

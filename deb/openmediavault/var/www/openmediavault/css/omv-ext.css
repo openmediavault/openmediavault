@@ -42,6 +42,13 @@ div#headerrlogo {
 .x-text-center {
 	text-align: center;
 }
+/* Fieldset */
+.x-fieldset-header-text {
+	font-size: 11px;
+	font-weight: bold;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	color: #6F6F6F;
+}
 /* Customize textarea fields */
 .x-form-textarea-monospaced textarea {
 	font-family: monospace;

@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-04 17:50+0200\n"
-"PO-Revision-Date: 2013-09-04 15:50+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-09-05 10:10+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1149,7 +1149,7 @@ msgid "Failed to get list of logical volumes"
 msgstr "Nie udało się pobrać listy logicznych dysków"
 
 msgid "Failed to get list of network interface devices"
-msgstr ""
+msgstr "Nie udało się pobrać listy  interfejsu sieciowego urządzenia"
 
 msgid "Failed to get list of physical volumes"
 msgstr "Nie udało się pobrać listy fizycznych dysków"
@@ -2397,7 +2397,7 @@ msgid "Refresh"
 msgstr "Odśwież"
 
 msgid "Reload"
-msgstr ""
+msgstr "Przeładuj"
 
 msgid "Remaining"
 msgstr "Pozostaje"
@@ -2665,7 +2665,7 @@ msgid "Service"
 msgstr "Usługa"
 
 msgid "Service Discovery"
-msgstr ""
+msgstr "Odnajdywanie serwisów"
 
 msgid "Service disabled"
 msgstr "Usługa wyłączona"
@@ -3113,7 +3113,7 @@ msgid "This field must have the format hh:mm:ss"
 msgstr "To pole musi mieć format gg:mm:ss"
 
 msgid "This field should be a IP network address in CIDR notation"
-msgstr ""
+msgstr "To pole powinno być adresem IP w zapisie CIDR"
 
 msgid "This field should be a IPv4 network address"
 msgstr "To pole powinno być adresem IPv4"
@@ -3122,16 +3122,16 @@ msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "To pole powinno być adresem IPv4 w zapisie CIDR"
 
 msgid "This field should be a IPv6 network address in CIDR notation"
-msgstr ""
+msgstr "To pole powinno być adresem IPv6 w zapisie CIDR"
 
 msgid "This field should be a domainname or an IP address"
-msgstr ""
+msgstr "To pole powinno zawierać nazwę domeny lub adres IP"
 
 msgid "This field should be a domainname or an IPv4 address"
 msgstr "To pole powinno zawierać nazwę domeny lub adres IPv4"
 
 msgid "This field should be a hostname or an IP address"
-msgstr ""
+msgstr "To pole powinno być nazwą hosta lub adresem IP"
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "To pole powinno być nazwą hosta lub adresem IPv4"
@@ -3148,13 +3148,13 @@ msgid ""
 msgstr "To pole powinno być portem lub zakresem portów (np 21 lub !443 lub 1024-65535)"
 
 msgid "This field should be an IP address"
-msgstr ""
+msgstr "To pole powinno być adresem IP"
 
 msgid "This field should be an IPv4 address"
 msgstr "To pole powinno być adresem IPv4"
 
 msgid "This field should be an IPv6 address"
-msgstr ""
+msgstr "To pole powinno być adresem IPv6"
 
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
@@ -3166,7 +3166,7 @@ msgid ""
 "This field should be either a IPv6 network address (with /mask), a IPv6 "
 "range or a plain IPv6 address (e.g. !2001:db8::/96 or "
 "2001:db8::10-2001:db8::20 or 2001:db8::15)"
-msgstr ""
+msgstr "To pole powinno mieć adresu sieci IPv6 (z /maską), zakres IPv6 lub zwykły adres IPv6(e.g. !2001:db8::/96 or 2001:db8::10-2001:db8::20 or 2001:db8::15)"
 
 msgid "This field should only contain numbers"
 msgstr "To pole powinno zawierać wyłącznie cyfry"
