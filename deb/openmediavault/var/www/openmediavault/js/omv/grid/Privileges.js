@@ -103,7 +103,6 @@ Ext.define("OMV.grid.Privileges", {
 							default:
 								break;
 							}
-							record.commit();
 							record.endEdit();
 						});
 						store.commitChanges();

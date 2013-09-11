@@ -49,8 +49,19 @@ EOF
 		  dir=$(omv_config_get "//system/fstab/mntent[uuid='${uuid}']/dir")
 		  # Try to get an unique block special device.
 		  path=${fsname}
-		  if omv_isfsuuid "${path}"; then
+		  # Check if we are processing a filesystem UUID.
+		  if omv_isfsuuid "${fsname}"; then
 			  path="/dev/disk/by-uuid/${path}"
+			  if [ ! -b "${path}" ]; then
+				  # Find the device containing the filesystem.
+				  path=$(findfs UUID=${fsname})
+				  # Monit in Debian Squeeze does not like symbolic links, see
+				  # http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=617259.
+				  # Use the filesystem's mount point in this case.
+				  if [ -h "${path}" ]; then
+					  path=${dir}
+				  fi
+			  fi
 		  fi
 		  # Try to generate a unique identifier.
 		  fscheckname=$(echo "fs${path}" | tr "/" "_")

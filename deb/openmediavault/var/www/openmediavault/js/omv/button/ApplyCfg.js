@@ -59,7 +59,7 @@ Ext.define("OMV.button.ApplyCfg", {
 					msg: _("Do you really want to apply the configuration?"),
 					buttons: Ext.Msg.YESNO,
 					fn: function(answer) {
-						if(answer == "no")
+						if(answer !== "yes")
 							return;
 						// Disable the button during the process.
 						this.inProgress = true;

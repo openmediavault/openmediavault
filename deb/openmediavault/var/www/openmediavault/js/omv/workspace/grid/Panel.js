@@ -484,7 +484,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 				msg: msg,
 				buttons: Ext.Msg.YESNO,
 				fn: function(answer) {
-					if(answer == "no")
+					if(answer !== "yes")
 						return;
 					me.startDeletion(records);
 				},

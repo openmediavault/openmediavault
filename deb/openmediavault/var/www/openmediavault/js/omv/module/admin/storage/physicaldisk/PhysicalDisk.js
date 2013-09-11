@@ -320,7 +320,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 			buttons: Ext.Msg.YESNO,
 			scope: me,
 			fn: function(answer) {
-				if(answer == "no")
+				if(answer !== "yes")
 					return;
 				OMV.MessageBox.show({
 					title: _("Wiping device ..."),

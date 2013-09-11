@@ -627,7 +627,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			icon: Ext.Msg.QUESTION,
 			scope: me,
 			fn: function(answer) {
-				if(answer == "no")
+				if(answer !== "yes")
 					return;
 				var record = me.getSelected();
 				// Execute RPC.

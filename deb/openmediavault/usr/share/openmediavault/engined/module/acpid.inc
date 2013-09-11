@@ -49,7 +49,7 @@ class OMVModuleAcpid extends OMVModuleServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
-		$initd = new OMVSysVInitScript("acpid", FALSE);
+		$initd = new OMVSysVInitScript("acpid", FALSE, FALSE);
 		$initd->exec();
 	}
 

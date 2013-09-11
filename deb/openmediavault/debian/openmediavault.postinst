@@ -242,6 +242,12 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.5.8"; then
 			omv_config_add_element "/config/system/notification/notifications" "cronapt" "1"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.9"; then
+			update-rc.d acpid enable
+			invoke-rc.d acpid start
+			omv-mkconf monit
+			invoke-rc.d monit restart
+		fi
 	;;
 
 	triggered)

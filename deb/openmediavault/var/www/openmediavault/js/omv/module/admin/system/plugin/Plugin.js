@@ -353,7 +353,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 			msg: _("Do you really want to install the selected plugin(s)?"),
 			buttons: Ext.Msg.YESNO,
 			fn: function(answer) {
-				if(answer == "no")
+				if(answer !== "yes")
 					return;
 				var wnd = Ext.create("OMV.window.Execute", {
 					title: _("Install plugins ..."),
@@ -419,7 +419,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 			msg: _("Do you really want to uninstall the selected plugin(s)?"),
 			buttons: Ext.Msg.YESNO,
 			fn: function(answer) {
-				if(answer == "no")
+				if(answer !== "yes")
 					return;
 				var wnd = Ext.create("OMV.window.Execute", {
 					title: _("Uninstall plugins ..."),

@@ -167,7 +167,7 @@ Ext.define("OMV.workspace.Workspace", {
 									msg: item.msg,
 									buttons: Ext.Msg.YESNO,
 									fn: function(answer) {
-										if(answer == "no")
+										if(answer !== "yes")
 											return;
 										switch (item.action) {
 										case "resetstate":

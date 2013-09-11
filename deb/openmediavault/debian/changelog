@@ -1,3 +1,12 @@
+openmediavault (0.5.9) stable; urgency=low
+
+  * Various improvements and bugfixes.
+  * Mantis 0000817: Powermanagement - Power down button does not work.
+  * Mantis 0000818: Monit alert: filesystem doesn't exist when checking
+    a filesystem.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Sep 2013 18:02:39 +0200
+
 openmediavault (0.5.8) stable; urgency=low
 
   * Update locales.
