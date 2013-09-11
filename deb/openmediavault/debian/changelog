@@ -1,3 +1,9 @@
+openmediavault (0.4.37) stable; urgency=low
+
+  * Mantis 0000817: Powermanagement - Power down button does not work.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Sep 2013 18:07:18 +0200
+
 openmediavault (0.4.36) stable; urgency=low
 
   * Mantis 0000795: LDAP User error.

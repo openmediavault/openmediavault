@@ -464,6 +464,10 @@ case "$1" in
 			omv-mkconf monit
 			invoke-rc.d monit restart
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.4.37"; then
+			update-rc.d acpid enable
+			invoke-rc.d acpid start
+		fi
 	;;
 
 	triggered)

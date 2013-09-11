@@ -50,8 +50,7 @@ class OMVAcpidModule extends OMVModuleAbstract
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		$initd = new OMVSysVInitScript("acpid", boolval($object['powerbtn']),
-		  FALSE);
+		$initd = new OMVSysVInitScript("acpid", boolval($object['powerbtn']));
 		$initd->exec();
 	}
 
