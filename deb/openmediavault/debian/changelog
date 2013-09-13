@@ -1,3 +1,10 @@
+openmediavault (0.5.10) ) stable; urgency=low
+
+  * Mantis 0000818: Monit alert: filesystem doesn't exist when checking
+    a filesystem. Use only mount points and not device paths.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 13 Sep 2013 18:07:33 +0200
+
 openmediavault (0.5.9) stable; urgency=low
 
   * Various improvements and bugfixes.
