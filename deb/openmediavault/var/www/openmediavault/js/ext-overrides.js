@@ -312,7 +312,12 @@ Ext.apply(Ext.form.field.VTypes, {
 		return !/[ ]+/.test(v);
 	},
 	noBlankText: _("This field does not allow blanks"),
-	noBlankMask: /[^ ]/i
+	noBlankMask: /[^ ]/i,
+
+	email: function(v) {
+		// http://de.wikipedia.org/wiki/Top-Level-Domain#Spezialf.C3.A4lle
+		return /^(")?(?:[^\."])(?:(?:[\.])?(?:[\w\-!#$%&'*+/=?^_`{|}~]))*\1@(\w[\-\w]*\.){1,5}([A-Za-z]){2,}$/.test(v);
+	}
 });
 
 ////////////////////////////////////////////////////////////////////////////////
