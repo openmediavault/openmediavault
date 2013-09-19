@@ -134,6 +134,7 @@ Ext.define("OMV.workspace.form.Panel", {
 			xtype: "button",
 			text: me.okButtonText,
 			icon: me.okButtonIcon,
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			hidden: me.hideOkButton,
 			handler: Ext.Function.bind(me.onOkButton, me, [ me ]),
 			scope: me
@@ -142,6 +143,7 @@ Ext.define("OMV.workspace.form.Panel", {
 			xtype: "button",
 			text: me.resetButtonText,
 			icon: me.resetButtonIcon,
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			hidden: me.hideResetButton,
 			handler: Ext.Function.bind(me.onResetButton, me, [ me ]),
 			scope: me

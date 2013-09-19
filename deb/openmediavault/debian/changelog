@@ -1,5 +1,6 @@
-openmediavault (0.5.10) ) stable; urgency=low
+openmediavault (0.5.10) stable; urgency=low
 
+  * Update locales.
   * Mantis 0000818: Monit alert: filesystem doesn't exist when checking
     a filesystem. Use only mount points and not device paths.
   * Mantis 0000842: NFS duplicate export entries.

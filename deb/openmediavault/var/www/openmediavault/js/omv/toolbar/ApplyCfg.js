@@ -59,7 +59,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 				width: 16,
 				style: {
 					margin: "5px",
-					background: "url(/images/refresh.png) center left no-repeat"
+					background: "url(/images/alert.png) center left no-repeat"
 				}
 			},{
 				xtype: "tbtext",
@@ -68,6 +68,8 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 			},{
 				xtype: "button",
 				text: _("Apply"),
+				icon: "images/apply.png",
+				iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 				tooltip: _("Apply configuration changes"),
 				listeners: {
 					scope: me,

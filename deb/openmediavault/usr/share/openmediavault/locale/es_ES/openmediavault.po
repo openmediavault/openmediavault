@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# jmcainzos <jmcainzos@vodafone.es>, 2013
 # jmcainzos <jmcainzos@vodafone.es>, 2012
 # Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2013
 # Volker <votdev@gmx.de>, 2012
@@ -11,8 +12,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-04 17:50+0200\n"
-"PO-Revision-Date: 2013-09-04 15:50+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-09-13 00:27+0000\n"
+"Last-Translator: jmcainzos <jmcainzos@vodafone.es>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -156,7 +157,7 @@ msgid "9 months"
 msgstr "9 meses"
 
 msgid "A share with the name '%s' already exists"
-msgstr ""
+msgstr "Ya existe un compartido con el nombre '%s'"
 
 msgid "A shared folder with the given name already exists"
 msgstr "Ya existe un directorio con ese nombre"
@@ -171,7 +172,7 @@ msgid "Access Right Management"
 msgstr "Administración de permisos de acceso"
 
 msgid "Act as a WINS server."
-msgstr "Funciona como servidor WINS"
+msgstr "Funcionar como servidor WINS."
 
 msgid "Action"
 msgstr "Acción"
@@ -207,7 +208,7 @@ msgid "Add rule"
 msgstr "Añadir regla"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Añadir tarea programada"
 
 msgid "Add scheduled test"
 msgstr "Añadir test programado"
@@ -225,7 +226,7 @@ msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
 " href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 "for more details."
-msgstr "Opciones adicionalesispositivo, P.ej:. 'autoneg off speed 100 duplex full'. Ver <a href='http://linux.die.net/man/8/ethtool' target='_blank'>páginas del manual</a> para más detalles"
+msgstr "Opciones adicionalesispositivo, P.ej:. 'autoneg off speed 100 duplex full'. Ver <a href='http://linux.die.net/man/8/ethtool' target='_blank'>páginas del manual</a> para más detalles."
 
 msgid "Address"
 msgstr "Dirección"
@@ -277,11 +278,11 @@ msgid "Allow"
 msgstr "Permitir"
 
 msgid "Allow client access to accounts that have null passwords"
-msgstr "Permitir acceso aunque la contraseña sea nula/vacia"
+msgstr "Permitir acceso aunque la contraseña sea nula/vacía"
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
-msgstr "Permitir grabar atributos extendidos del tipo OS/2 en el compartido "
+msgstr "Permitir el intentar grabar atributos extendidos del tipo OS/2 en el compartido."
 
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Permitir reanudar subidas/bajadas interrumpidas"
@@ -290,7 +291,7 @@ msgid "Allow new files"
 msgstr "Permitir nuevos archivos"
 
 msgid "Allow new files to be created."
-msgstr "Permitir la creación de nuevos archivos"
+msgstr "Permitir la creación de nuevos archivos."
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
@@ -337,7 +338,7 @@ msgid "Apply"
 msgstr "Aplicar"
 
 msgid "Apply configuration changes"
-msgstr ""
+msgstr "Aplicar cambios de configuración"
 
 msgid "Apply permissions to files and subfolders"
 msgstr "Aplicar permisos a los archivos y subcarpetas"
@@ -361,7 +362,7 @@ msgid "Aruba"
 msgstr "Aruba (Países Bajos)"
 
 msgid "Asynchronous I/O"
-msgstr ""
+msgstr "E/S asíncrona"
 
 msgid "Attribute name"
 msgstr "Nombre del atributo"
@@ -546,7 +547,7 @@ msgid "Chad"
 msgstr "Chad"
 
 msgid "Changelog"
-msgstr ""
+msgstr "Registro de cambios"
 
 msgid "Check"
 msgstr "Refrescar"
@@ -817,7 +818,7 @@ msgid "Djibouti"
 msgstr "Djibouti"
 
 msgid "Do you really want to apply the configuration?"
-msgstr ""
+msgstr "¿Seguro que quiere aplicar la configuración?"
 
 msgid "Do you really want to clear the log file?"
 msgstr "¿Realmente desea borrar el archivo de log?"
@@ -851,7 +852,7 @@ msgstr "¿Realmente desea reiniciar el sistema?"
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
-msgstr ""
+msgstr "¿Seguro que quiere eliminar el contenido de la carpeta compartida?. Se borrará permanentemente y no se podrá recuperar."
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "¿Seguro que desea reiniciar la WebGUI?, Ej: el orden de las columnas"
@@ -952,7 +953,7 @@ msgid "Edit rule"
 msgstr "Editar regla"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Editar tarea programada"
 
 msgid "Edit scheduled test"
 msgstr "Editar prueba programada"
@@ -1000,10 +1001,10 @@ msgid "Enable archive mode"
 msgstr "Habilitar modo archivo"
 
 msgid "Enable asynchronous I/O (AIO) support."
-msgstr ""
+msgstr "Habilitar soporte para E/S asíncrona."
 
 msgid "Enable chroot."
-msgstr ""
+msgstr "Habilitar chroot."
 
 msgid "Enable compression"
 msgstr "Habilitar compresión"
@@ -1141,25 +1142,25 @@ msgid "Failed to get filesystems"
 msgstr "Falló al obtener los sistemas de archivos"
 
 msgid "Failed to get list of groups."
-msgstr ""
+msgstr "Fallo al obtener la lista de grupos."
 
 msgid "Failed to get list of logical volumes"
-msgstr ""
+msgstr "Fallo al obtener la lista de volúmenes lógicos."
 
 msgid "Failed to get list of network interface devices"
 msgstr ""
 
 msgid "Failed to get list of physical volumes"
-msgstr ""
+msgstr "Fallo al obtener la lista de volúmenes físicos."
 
 msgid "Failed to get list of software RAID devices"
-msgstr ""
+msgstr "Fallo al obtener la lista de los dispositivos RAID software"
 
 msgid "Failed to get list of users."
-msgstr ""
+msgstr "Fallo al obtener la lista de usuarios."
 
 msgid "Failed to get shadow password suite configuration."
-msgstr ""
+msgstr "Fallo al obtener la configuración de la shadow password."
 
 msgid "Falkland Islands"
 msgstr "Islas Malvinas"
@@ -1418,7 +1419,7 @@ msgid ""
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr ""
+msgstr "Si se marca esta opción, el demonio hará chroot a la ruta de la carpeta compartida antes de empezar la transferencia con el cliente. Por tanto, no será posible relacionar usuarios y grupos por nombre y el demonio no podrá seguir los enlaces simbólicos que sean absolutos ni los que salgan del nuevo directorio raíz."
 
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr "Si se marca esta opción, cualquier intento de descarga fallará."
@@ -1462,10 +1463,10 @@ msgid "Import users"
 msgstr "Importar usuarios"
 
 msgid "Importing groups ..."
-msgstr ""
+msgstr "Importando grupos ..."
 
 msgid "Importing users ..."
-msgstr ""
+msgstr "Importando usuarios ..."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1488,7 +1489,7 @@ msgid "Indonesia"
 msgstr "Indonesia"
 
 msgid "Info"
-msgstr ""
+msgstr "Información"
 
 msgid "Informal"
 msgstr "Informal"
@@ -2022,10 +2023,10 @@ msgid "Not UDP"
 msgstr "No UDP"
 
 msgid "Notification"
-msgstr ""
+msgstr "Aviso"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Avisos"
 
 msgid "November"
 msgstr "Noviembre"
@@ -2281,7 +2282,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr ""
+msgstr "Evita que un disco sea puesto en marcha cuando sea periódicamente interrogado.<br/><br/><ul><li>NUNCA - Interroga (comprueba) el dispositivo con independencia de su modo de energía. Puede provocar que un disco que esté frenando sea acelerado al comprobarlo.</li><li>SLEEP - Comprueba el dispositivo a no ser que esté en modo SLEEP.</li><li>REPOSO - Comprueba el dispositivo a no ser que esté en SLEEP o en REPOSO. En estos modos la mayoría de los discos no están girando, por lo que si lo que quiere es evitar que empiece a girar en cada comprobación, esto es lo que probabemente quiere.</li><li>INACTIVO - Comprueba el dispositivo a no ser que esté en REPOSO, REPOSO o INACTIVO. En el modo INACTIVO la mayoría de los discos están todavía girando, por lo que esto no es probablemente lo que quiere.</li></ul>"
 
 msgid "Primary"
 msgstr "Primario"

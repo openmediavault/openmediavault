@@ -380,3 +380,8 @@ Files: /var/www/openmediavault/images/folder-open.png
        /var/www/openmediavault/images/folder-open.svg
 Copyright: Keyamoon <http://icomoon.io>
 License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/aletr.png
+       /var/www/openmediavault/images/alert.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
