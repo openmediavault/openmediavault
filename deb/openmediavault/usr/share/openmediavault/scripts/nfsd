@@ -63,10 +63,12 @@ xmlstarlet sel -t \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_NFSD_CONFIG}
 
 if omv_checkyesno ${OMV_NFSD_ENABLEV4}; then
+	# Export duplicate shares only once (emulate SQL 'DISTINCT' to filter
+	# duplicates).
 	xmlstarlet sel -t \
 		-n \
 		-o "# NFSv4 - pseudo filesystem root" -n \
-		-m "//services/nfs/shares/share" \
+		-m "//services/nfs/shares/share[not(client=preceding-sibling::*/client)]" \
 		  -v "concat('${OMV_NFSD_EXPORT_DIR} ',normalize-space(client),'(ro,fsid=0,root_squash,no_subtree_check,hide)')" \
 		  -i "position() != last()" -n -b \
 		-b \

@@ -1,3 +1,9 @@
+openmediavault (0.4.38) stable; urgency=low
+
+  * Mantis 0000842: NFS duplicate export entries.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 19 Sep 2013 23:26:20 +0200
+
 openmediavault (0.4.37) stable; urgency=low
 
   * Mantis 0000817: Powermanagement - Power down button does not work.
