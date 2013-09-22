@@ -326,12 +326,19 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 		// Set the configuration object.
 		$success = FALSE;
 		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Check uniqueness.
+			// Check uniqueness:
+			// - Share name
+			// - Shared folder
 			if(TRUE === $xmlConfig->exists("//services/smb/shares/share[" .
 			  "name='{$params['name']}']")) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
 				  sprintf(gettext("A share with the name '%s' already exists"),
 				  $params['name']));
+			}
+			if(TRUE === $xmlConfig->exists("//services/smb/shares/share[" .
+			  "sharedfolderref='{$params['sharedfolderref']}']")) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+				  gettext("The shared folder is already used by another share."));
 			}
 			// Append object to the configuration.
 			$success = $xmlConfig->set("//services/smb/shares",

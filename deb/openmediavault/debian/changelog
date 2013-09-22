@@ -1,5 +1,7 @@
 openmediavault (0.5.11) stable; urgency=low
 
+  * Mantis 0000736: SMB/CIFS shares used more then once in a service. Causing
+    permission errors and corrupting config.xml.
   * Mantis 0000853: 'omv-mkgraph' runs every 5 mins. By default it is set to
     15min and can be modified via OMV_COLLECTD_RRDTOOL_MKGRAPH_INTERVAL.
   * Mantis 0000850: Entering multiple NTP servers results in wrong ntp.conf.
