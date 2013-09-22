@@ -19,39 +19,53 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-function exception_error_handler($errno, $errstr, $errfile, $errline) {
-	switch ($errno) {
-	case E_STRICT:
-		break;
-	default:
-		throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
-		break;
+try {
+	function exception_error_handler($errno, $errstr, $errfile, $errline) {
+		switch ($errno) {
+		case E_STRICT:
+			break;
+		default:
+			throw new ErrorException($errstr, 0, $errno, $errfile, $errline);
+			break;
+		}
 	}
+	set_error_handler("exception_error_handler");
+
+	require_once("openmediavault/env.inc");
+	require_once("openmediavault/globals.inc");
+	require_once("openmediavault/config.inc"); // Must be included here
+	require_once("openmediavault/session.inc");
+
+	$session = &OMVSession::getInstance();
+	$session->start();
+
+	if($session->isAuthenticated()) {
+		$session->validate();
+		// Do not update last access time
+		//$session->updateLastAccess();
+	} else {
+		throw new OMVException(OMVErrorMsg::E_SESSION_NOT_AUTHENTICATED);
+	}
+
+	// The parameter 'name' may not contain the characters '..'. This is
+	// because of security reasons: the given canonicalized absolute
+	// path MUST be below the given image directory.
+	if(1 == preg_match("/\.\./", $_GET['name'])) {
+		throw new OMVException(OMVErrorMsg::E_RPC_INVALID_PARAMS,
+		  sprintf(gettext("The parameter '%s' contains forbidden two-dot symbols"),
+		  "name"));
+	}
+	// Build the image filename. If it does not exist, then display an error
+	// image by default.
+	$filename = sprintf("%s/%s", $GLOBALS['OMV_RRDGRAPH_DIR'], $_GET['name']);
+	if(!file_exists($filename))
+		$filename = $GLOBALS['OMV_RRDGRAPH_ERROR_IMAGE'];
+	$fd = fopen($filename, "r");
+	header("Content-type: image/png");
+	fpassthru($fd);
+} catch(Exception $e) {
+	header("Content-Type: text/html");
+	printf("Error #".$e->getCode().":<br/>%s", str_replace("\n", "<br/>",
+	  $e->__toString()));
 }
-set_error_handler("exception_error_handler");
-
-require_once("openmediavault/env.inc");
-require_once("openmediavault/globals.inc");
-require_once("openmediavault/config.inc"); // Must be included here
-require_once("openmediavault/session.inc");
-
-$session = &OMVSession::getInstance();
-$session->start();
-
-if($session->isAuthenticated()) {
-	$session->validate();
-	// Do not update last access time
-	//$session->updateLastAccess();
-} else {
-	throw new OMVException(OMVErrorMsg::E_SESSION_NOT_AUTHENTICATED);
-}
-
-$filename = sprintf("%s/%s", $GLOBALS['OMV_RRDGRAPH_DIR'], $_GET['name']);
-if(!file_exists($filename)) {
-	// Display error image.
-	$filename = $GLOBALS['OMV_RRDGRAPH_ERROR_IMAGE'];
-}
-$fd = fopen($filename, "r");
-header("Content-type: image/png");
-fpassthru($fd);
 ?>
