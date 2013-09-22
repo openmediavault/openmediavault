@@ -52,7 +52,7 @@ try {
 	// path MUST be below the given image directory.
 	if(1 == preg_match("/\.\./", $_GET['name'])) {
 		throw new OMVException(OMVErrorMsg::E_MISC_INVALID_PARAM, "name",
-		  sprintf(gettext("The parameter '%s' contains forbidden two-dot symbols")));
+		  gettext("The parameter contains forbidden two-dot symbols"));
 	}
 	// Build the image filename. If it does not exist, then display an error
 	// image by default.
