@@ -248,6 +248,9 @@ case "$1" in
 			omv-mkconf monit
 			invoke-rc.d monit restart
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.11"; then
+			omv-mkconf collectd
+		fi
 	;;
 
 	triggered)

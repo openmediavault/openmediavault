@@ -1,3 +1,10 @@
+openmediavault (0.5.11) stable; urgency=low
+
+  * Mantis 0000853: 'omv-mkgraph' runs every 5 mins. By default it is set to
+    15min and can be modified via OMV_COLLECTD_RRDTOOL_MKGRAPH_INTERVAL.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 22 Sep 2013 08:35:09 +0200
+
 openmediavault (0.5.10) stable; urgency=low
 
   * Update locales.
