@@ -37,6 +37,7 @@ xmlstarlet sel -t \
 	-i "apm > 0" -v "concat('    apm = ',apm)" -n -b \
 	-i "spindowntime > 0" -v "concat('    spindown_time = ',spindowntime)" -n -b \
 	-i "writecache = 1" -o "    write_cache = on" -n -b \
+	-i "writecache = 0" -o "    write_cache = off" -n -b \
 	-o "}" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_HDPARM_CONFIG}
