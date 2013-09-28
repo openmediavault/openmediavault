@@ -1,5 +1,6 @@
 openmediavault (0.5.12) stable; urgency=low
 
+  * Improve interface bonding RPC.
   * Mantis 0000857: Cant disable HDD write cache.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 27 Sep 2013 18:04:49 +0200

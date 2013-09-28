@@ -82,6 +82,18 @@ function toArray($object) {
 }
 
 /**
+ * Get an array value.
+ * @param array The array.
+ * @param key The key of the element.
+ * @param sefault The default value.
+ * @return The value of the given key or the default value if the key
+ *   does not exist.
+ */
+function array_value($array, $key, $default = NULL) {
+	return isset($array[$key]) ? $array[$key] : $default;
+}
+
+/**
  * Get boolean value of an array element.
  * @ingroup api
  * @param array An array with keys.

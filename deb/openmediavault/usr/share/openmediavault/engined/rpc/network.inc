@@ -279,9 +279,9 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			$cfgObject = $xmlConfig->get($xpath);
 			if(!is_null($cfgObject)) {
 				$devv['uuid'] = $cfgObject['uuid'];
-				$devv['method'] = $cfgObject['method'];
-				$devv['method6'] = $cfgObject['method6'];
-				$devv['comment'] = $cfgObject['comment'];
+				$devv['method'] = array_value($cfgObject, "method", "manual");
+				$devv['method6'] = array_value($cfgObject, "method6", "manual");
+				$devv['comment'] = array_value($cfgObject, "comment", "");
 			}
 			// Do some more checks.
 			switch($matches[1]) {
@@ -612,20 +612,21 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 					// Skip bond interfaces.
 					break;
 				default:
+					// First check if the interface is already used by
+					// a bonding interface. If used, then do not add this
+					// interface.
+					$xpath = sprintf("//system/network/interfaces/bondiface".
+					  "[contains(slaves,'%s')]", $devv['devicename']);
+					if(TRUE === $xmlConfig->exists($xpath))
+						break;
 					// Does a configuration object exists for the given
-					// network interface device?
+					// network interface device? In this case this
+					// interface can't be used for bonding.
 					$xpath = sprintf("//system/network/interfaces/iface[".
 					  "devicename='%s']", $devv['devicename']);
 					$object = $xmlConfig->get($xpath);
-					if(is_null($object)) {
-						// Is it referenced somewhere else?
-						if(FALSE === $xmlConfig->exists("//bondiface[".
-						  "contains(slaves,'{$devv['devicename']}')]")) {
-							$result[] = $devv;
-						}
-					} else {
+					if(is_null($object))
 						$result[] = $devv;
-					}
 					break;
 				}
 			}
@@ -640,6 +641,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 				  $xpath);
 			}
+			// Get interface details of the bonding slaves.
 			foreach(explode(",", $object['slaves']) as $slavek => $slavev) {
 				$result[] = $this->getIfaceInfo($slavev);
 			}
@@ -756,8 +758,19 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		// Set the configuration object.
 		$success = FALSE;
 		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			// Check if the slaves are already used by a bonding interface.
+			foreach(explode(",", $object['slaves']) as $slavek => $slavev) {
+				$xpath = sprintf("//system/network/interfaces/bondiface[".
+				  "contains(slaves,'%s')]", $slavev);
+				if(TRUE === $xmlConfig->exists($xpath)) {
+					throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+					  sprintf(gettext("The interface '%s' is already used by a bonding interface"),
+					  $slavev));
+				}
+			}
+			// Get the next free device name.
 			$object['devicename'] = OMVSystem::getNextDevice("iface", "bond");
-			// Append object to configuration
+			// Append object to configuration.
 			$success = $xmlConfig->set("//system/network/interfaces",
 			  array("bondiface" => $object));
 		} else {
