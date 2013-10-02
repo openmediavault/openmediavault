@@ -66,7 +66,7 @@ Ext.define("OMV.module.admin.diagnostic.log.Settings", {
 				name: "host",
 				fieldLabel: _("Host"),
 				allowBlank: true,
-				vtype: "IPv4",
+				vtype: "domainnameIP",
 				value: ""
 			},{
 				xtype: "numberfield",
