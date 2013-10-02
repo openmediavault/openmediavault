@@ -8,7 +8,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault
 Architecture: all
-Depends: libjs-extjs4 (>= 4.2.1), apache2, apache2-suexec, libapache2-mod-fcgid,
+Depends: libjs-extjs4 (>= 4.2.2), apache2, apache2-suexec, libapache2-mod-fcgid,
  php5-cgi, php5-cli, php5-pam, php-json-schema, sudo, ethtool, acl, ifenslave,
  resolvconf, iproute, xfsprogs, jfsutils, ntfs-3g, hdparm, sdparm,
  ifupdown, mdadm, postfix, libsasl2-modules, bsd-mailx, ntp, cpufrequtils,

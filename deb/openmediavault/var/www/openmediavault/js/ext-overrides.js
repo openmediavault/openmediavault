@@ -477,7 +477,7 @@ Ext.apply(Ext.form.field.Trigger.prototype, {
 			el = me.triggerEl.item(id);
 		} else if(Ext.isString(id)) {
 			// Search by the given CSS class.
-			var selector = Ext.String.format("[class~={0}][role=button]", id);
+			var selector = Ext.String.format("[class~={0}][role=presentation]", id);
 			el = me.getEl().query(selector)[0];
 		}
 		return el;

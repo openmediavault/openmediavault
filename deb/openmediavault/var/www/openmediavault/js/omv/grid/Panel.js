@@ -60,11 +60,17 @@ Ext.define("OMV.grid.Panel", {
 		// Disable mask after data has been loaded the first time?
 		me.store.on("load", function(store, records, options) {
 			if(me.disableLoadMaskOnLoad) {
-				if(Ext.isObject(me.view.loadMask)) {
-					me.view.loadMask.bindStore(null);
-					delete me.view.loadMask;
+				if(Ext.isObject(me.view)) {
+					if(Ext.isObject(me.view.loadMask)) {
+						me.view.loadMask.bindStore(null);
+						delete me.view.loadMask;
+					} else {
+						me.view.loadMask = false;
+					}
 				} else {
-					me.view.loadMask = false;
+					Ext.apply(me.viewConfig, {
+						loadMask: false
+					});
 				}
 			}
 		});
