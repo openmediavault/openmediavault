@@ -1,5 +1,6 @@
 openmediavault (0.5.12) stable; urgency=low
 
+  * Update locales.
   * Improve interface bonding RPC.
   * Adapt WebGUI code to Sencha ExtJS 4.2.2.
   * Mantis 0000857: Cant disable HDD write cache.

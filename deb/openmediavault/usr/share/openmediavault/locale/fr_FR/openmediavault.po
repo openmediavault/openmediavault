@@ -5,15 +5,15 @@
 # Translators:
 # Christophe Lherieau <skimpax@gmail.com>, 2012-2013
 # Nahir Mohamed <nahirmoha@gmail.com>, 2012-2013
-# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
+# Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012-2013
 # Stéphane BOCQUET <stephane_bocquet@hotmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-09-04 17:50+0200\n"
-"PO-Revision-Date: 2013-09-04 15:50+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-09-25 08:23+0000\n"
+"Last-Translator: Stéphane BOCQUET <sbocquet4772@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -634,7 +634,7 @@ msgid "Congo (Kinshasa)"
 msgstr "Congo (Kinshasa)"
 
 msgid "Connections"
-msgstr ""
+msgstr "Connexions"
 
 msgid "Contact"
 msgstr "Contact"
@@ -684,7 +684,7 @@ msgid "Current time"
 msgstr "Date actuelle"
 
 msgid "Currently logged in users"
-msgstr ""
+msgstr "Utilisateurs connectés"
 
 msgid "Currently logged in users:"
 msgstr "Utilisateurs actuellement connectés :"
@@ -735,7 +735,7 @@ msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Supprime les fichiers de destination qui n'existent pas à la source"
 
 msgid "Delete filesystem"
-msgstr ""
+msgstr "Supprime le système de fichiers"
 
 msgid "Deleting selected item(s)"
 msgstr "Suppression de(s) élément(s) sélectionné(s)"
@@ -827,7 +827,7 @@ msgid "Do you really want to create the RAID device?"
 msgstr "Voulez-vous vraiment de créer le périphérique RAID ?"
 
 msgid "Do you really want to delete the filesystem? All data will be lost."
-msgstr ""
+msgstr "Voulez-vous vraiment supprimer le système de fichiers ? Toutes les données seront perdues."
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Voulez-vous vraiment supprimer l(es) élément(s) sélectionné(s) ?"
@@ -1111,7 +1111,7 @@ msgid "Execute rsync job"
 msgstr "Exécute le tâche RSync"
 
 msgid "Execute scheduled test"
-msgstr ""
+msgstr "Exécute le test planifié"
 
 msgid "Expire"
 msgstr "Expire"
@@ -1148,7 +1148,7 @@ msgid "Failed to get list of logical volumes"
 msgstr "Echec à la récupération de la liste des volumes logiques"
 
 msgid "Failed to get list of network interface devices"
-msgstr ""
+msgstr "Echec de récupération de la liste des périphériques réseaux"
 
 msgid "Failed to get list of physical volumes"
 msgstr "Echec à la récupérations de volumes physiques"
@@ -1166,7 +1166,7 @@ msgid "Falkland Islands"
 msgstr "Îles Malouines"
 
 msgid "Family"
-msgstr ""
+msgstr "Famille"
 
 msgid "Faroe Islands"
 msgstr "Îles Féroé"
@@ -1386,10 +1386,10 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IPv4"
-msgstr ""
+msgstr "IPv4"
 
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6"
 
 msgid "Iceland"
 msgstr "Iseland"
@@ -1978,7 +1978,7 @@ msgid "No certificate request"
 msgstr "Aucune requête de certificat"
 
 msgid "No connections"
-msgstr ""
+msgstr "Aucune connexion"
 
 msgid "No items to display"
 msgstr "Aucun élément à afficher"
@@ -2230,7 +2230,7 @@ msgstr "Veuillez patienter SVP ..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a "
 "filesystem."
-msgstr ""
+msgstr "Attendez que le système RAID soit initialisé avant de pouvoir créer le système de fichier."
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -2257,7 +2257,7 @@ msgid "Power mode"
 msgstr "Mode d'alimentation"
 
 msgid "Prefix length"
-msgstr ""
+msgstr "longueur du prefix"
 
 msgid "Preserve ACLs"
 msgstr "Conserver les ACL"
@@ -2396,7 +2396,7 @@ msgid "Refresh"
 msgstr "Rafraîchir"
 
 msgid "Reload"
-msgstr ""
+msgstr "Recharger"
 
 msgid "Remaining"
 msgstr "Restant"
@@ -3112,7 +3112,7 @@ msgid "This field must have the format hh:mm:ss"
 msgstr "Ce champ doit avoir le format hh:mm:ss"
 
 msgid "This field should be a IP network address in CIDR notation"
-msgstr ""
+msgstr "Ce champ doit être une adresse IP en notation CIDR"
 
 msgid "This field should be a IPv4 network address"
 msgstr "Ce champs doit être une adresse réseau IPv4"
@@ -3121,10 +3121,10 @@ msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Ce champ doit être une adresse réseau IPv4 en notation CIDR"
 
 msgid "This field should be a IPv6 network address in CIDR notation"
-msgstr ""
+msgstr "Ce champ doit être une adresse réseau IPv6 en notation CIDR"
 
 msgid "This field should be a domainname or an IP address"
-msgstr ""
+msgstr "Ce champ doit contenir un nom de domaine ou une adresse IP"
 
 msgid "This field should be a domainname or an IPv4 address"
 msgstr "Ce champ doit contenir un nom de domaine ou une adresse IPv4"
@@ -3147,13 +3147,13 @@ msgid ""
 msgstr "Ce champ doit être un port ou une plage de ports (ex: 21 ou !443 ou 1024-65535)"
 
 msgid "This field should be an IP address"
-msgstr ""
+msgstr "Ce champs doit être une adresse IP"
 
 msgid "This field should be an IPv4 address"
 msgstr "Ce champs doit être une adresse réseau IPv4"
 
 msgid "This field should be an IPv6 address"
-msgstr ""
+msgstr "Ce champs doit être une adresse réseau IPv6"
 
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
@@ -3165,7 +3165,7 @@ msgid ""
 "This field should be either a IPv6 network address (with /mask), a IPv6 "
 "range or a plain IPv6 address (e.g. !2001:db8::/96 or "
 "2001:db8::10-2001:db8::20 or 2001:db8::15)"
-msgstr ""
+msgstr "Ce champ doit être une adresse réseau IPv6 (avec /masque), une plage IPv6 ou une adresse IPv6 complète (ex: !2001:db8::/96 ou 2001:db8::10-2001:db8::20 ou 2001:db8::15)"
 
 msgid "This field should only contain numbers"
 msgstr "Ce champ ne doit contenir que des chiffres"
@@ -3357,7 +3357,7 @@ msgid "U.S. Virgin Islands"
 msgstr "Îles vierges américaines"
 
 msgid "UNKNOWN"
-msgstr ""
+msgstr "INCONNU"
 
 msgid "Uganda"
 msgstr "Ouganda"
