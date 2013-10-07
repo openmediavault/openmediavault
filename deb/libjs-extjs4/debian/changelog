@@ -1,3 +1,9 @@
+libjs-extjs4 (4.2.2) stable; urgency=low
+
+  * New upstream release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 01 Oct 2013 19:37:22 +0200
+
 libjs-extjs4 (4.2.1) stable; urgency=low
 
   * New upstream release
