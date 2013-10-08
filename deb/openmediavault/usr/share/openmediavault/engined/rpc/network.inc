@@ -245,7 +245,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			$devv['_used'] = FALSE;
 			$devv['_readOnly'] = FALSE;
 			// Get network interface type.
-			if(1 !== preg_match("/^([a-z]+)\d+$/i", $devv['devicename'],
+			if(1 !== preg_match("/^([a-z0-9]+)\d+$/i", $devv['devicename'],
 			  $matches)) {
 				throw new OMVException(
 				  OMVErrorMsg::E_MISC_DEVICE_NOT_SUPPORTED,

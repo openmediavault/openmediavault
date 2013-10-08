@@ -2,6 +2,7 @@ openmediavault (0.5.13) stable; urgency=low
 
   * Mantis 0000865: Allow entering a hostname/FQDN under
     System Logs -> Settings -> Host.
+  * Mantis 0000866: Device 'ip6tnl0' not supported.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 02 Oct 2013 16:15:17 +0200
 
