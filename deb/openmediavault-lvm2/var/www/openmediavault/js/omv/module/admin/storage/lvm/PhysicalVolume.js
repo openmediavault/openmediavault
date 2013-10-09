@@ -114,6 +114,7 @@ Ext.define("OMV.module.admin.storage.lvm.PhysicalVolumes", {
 	hideDeleteButton: false,
 	hideRefreshButton: true,
 	hidePagingToolbar: false,
+	reloadOnActivate: true,
 	stateful: true,
 	stateId: "4f7be743-777a-4547-9277-21a30ce0856b",
 	columns: [{

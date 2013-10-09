@@ -1,3 +1,10 @@
+openmediavault-lvm2 (0.5.2) stable; urgency=low
+
+  * Update locales.
+  * Mantis 0000859: Parent tab will not be refreshed after delete of child.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 Oct 2013 18:22:59 +0200
+
 openmediavault-lvm2 (0.5.1) stable; urgency=low
 
   * Update locales.

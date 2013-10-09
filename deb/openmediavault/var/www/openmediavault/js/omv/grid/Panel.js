@@ -28,6 +28,8 @@
  *   first load has been done.
  * @param maskBody TRUE to mask the document body while loading data.
  *   Defaults to FALSE.
+ * @param reloadOnActivate TRUE to automatically reload the grid content
+ *   when the component has been visually activated. Defaults to FALSE.
  */
 Ext.define("OMV.grid.Panel", {
 	extend: "Ext.grid.Panel",
@@ -43,6 +45,7 @@ Ext.define("OMV.grid.Panel", {
 
 	maskBody: false,
 	disableLoadMaskOnLoad: false,
+	reloadOnActivate: false,
 
 	initComponent: function() {
 		var me = this;
@@ -74,6 +77,11 @@ Ext.define("OMV.grid.Panel", {
 				}
 			}
 		});
+		if(me.reloadOnActivate) {
+			me.on("activate", function() {
+				this.doReload();
+			}, me);
+		}
 	},
 
 	/**
@@ -129,5 +137,21 @@ Ext.define("OMV.grid.Panel", {
 			values.push(record.getData());
 		});
 		return values;
+	},
+
+	/**
+	 * Load the grid content.
+	 */
+	doLoad: function() {
+		var me = this;
+		me.store.load();
+	},
+
+	/**
+	 * Reload the grid content.
+	 */
+	doReload: function() {
+		var me = this;
+		me.store.reload();
 	}
 });

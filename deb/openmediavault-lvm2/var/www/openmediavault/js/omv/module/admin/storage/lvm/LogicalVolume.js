@@ -390,6 +390,7 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 	hideDeleteButton: false,
 	hideRefreshButton: true,
 	hidePagingToolbar: false,
+	reloadOnActivate: true,
 	stateful: true,
 	stateId: "87081dac-a91b-4a5e-901e-e69290b533ee",
 	columns: [{
