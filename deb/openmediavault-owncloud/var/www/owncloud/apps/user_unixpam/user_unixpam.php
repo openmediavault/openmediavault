@@ -21,6 +21,9 @@
  */
 
 class OC_User_UnixPAM extends OC_User_Backend {
+	public function __construct() {
+	}
+
 	/**
 	 * @brief Check if the password is correct
 	 * @param $uid The username
@@ -51,13 +54,13 @@ class OC_User_UnixPAM extends OC_User_Backend {
 	 * Deletes a user
 	 */
 	public function deleteUser($uid) {
-		OC_Log::write("OC_USER_UNIXPAM", "Not possible to delete users from ".
+		OC_Log::write("OC_User_UnixPAM", "Not possible to delete users from ".
 		  "web frontend using Unix PAM user backend", OC_Log::ERROR);
 		return false;
 	}
 
 	public function setPassword($uid, $password) {
-		OC_Log::write("OC_USER_UNIXPAM", "Not possible to change password ".
+		OC_Log::write("OC_User_UnixPAM", "Not possible to change password ".
 		  "for users from web frontend using Unix PAM user backend",
 		  OC_Log::ERROR);
 		return false;
