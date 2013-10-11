@@ -1,0 +1,17 @@
+Source: openmediavault-owncloud
+Section: net
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>> 7), gettext
+Standards-Version: 3.6.10
+Homepage: http://www.openmediavault.org
+
+Package: openmediavault-owncloud
+Architecture: all
+Depends: openmediavault (>= 0.5.13), owncloud
+Priority: optional
+Description: OpenMediaVault ownCloud plugin
+ ownCloud gives you universal access to your files through a web interface
+ or WebDAV. It also provides a platform to easily view & sync your contacts,
+ calendars and bookmarks across all your devices and enables basic editing
+ right on the web.

@@ -1,0 +1,86 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2013 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_OWNCLOUD_APACHE2_SITE_CONFIG=${OMV_OWNCLOUD_APACHE2_SITE_CONFIG:-"/etc/apache2/openmediavault-webgui.d/owncloud.conf"}
+#OMV_OWNCLOUD_APACHE2_SITE_CONFIG=${OMV_OWNCLOUD_APACHE2_SITE_CONFIG:-"/etc/apache2/sites-available/openmediavault-owncloud"}
+OMV_OWNCLOUD_APACHE2_DOCUMENTROOT=${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT:-"/var/www/owncloud"}
+OMV_OWNCLOUD_APACHE2_SERVERNAME=${OMV_OWNCLOUD_APACHE2_SERVERNAME:-"openmediavault-owncloud"}
+OMV_OWNCLOUD_APACHE2_LOGLEVEL=${OMV_OWNCLOUD_APACHE2_LOGLEVEL:-"warn"}
+
+mkconf() {
+	# !!! NOTE !!!
+	# The plugin uses an alias to access the ownCloud webgui because in this
+	# case we get SSL/TLS support out-of-the-box if the OMV webgui has enabled
+	# secure connection.
+	rm -f ${OMV_OWNCLOUD_APACHE2_SITE_CONFIG}
+	[ "$(omv_config_get "//services/owncloud/enable")" = "0" ] && exit 0
+
+	# Create '/etc/apache2/openmediavault-webgui.d/owncloud.conf' file.
+	cat <<EOF > ${OMV_OWNCLOUD_APACHE2_SITE_CONFIG}
+<IfModule mod_alias.c>
+    Alias /owncloud ${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/
+</IfModule>
+<Directory ${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/>
+    Options FollowSymLinks
+    <FilesMatch \.php$>
+        FcgidWrapper ${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/php-fcgi .php
+        SetHandler fcgid-script
+        Options +ExecCGI
+    </FilesMatch>
+    Order Allow,Deny
+    Allow from All
+    AllowOverride None
+</Directory>
+EOF
+
+#   # Create '/etc/apache2/sites-available/openmediavault-owncloud' file
+#	xmlstarlet sel -t -m "//services/owncloud" \
+#	  -o "<IfModule mod_alias.c>" -n \
+#	  -o "    Alias /owncloud ${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/" -n \
+#	  -o "</IfModule>" -n \
+#	  -o "<Directory ${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/>" -n \
+#	  -o "    Options None" -n \
+#	  -o "    Order Allow,Deny" -n \
+#	  -o "    Allow from All" -n \
+#	  -o "    AllowOverride None" -n \
+#	  -o "</Directory>" -n \
+#	  -v "concat('<VirtualHost *:',port,'>')" -n \
+#	  -o "    Options FollowSymLinks" -n \
+#	  -o "    ServerSignature Off" -n \
+#	  -o "    DocumentRoot ${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}" -n \
+#	  -o "    ServerName ${OMV_OWNCLOUD_APACHE2_SERVERNAME}" -n \
+#	  -o "    LogLevel ${OMV_OWNCLOUD_APACHE2_LOGLEVEL}" -n \
+#	  -o "    ErrorLog \${APACHE_LOG_DIR}/${OMV_OWNCLOUD_APACHE2_SERVERNAME}_error.log" -n \
+#	  -o "    CustomLog \${APACHE_LOG_DIR}/${OMV_OWNCLOUD_APACHE2_SERVERNAME}_access.log combined" -n \
+#	  -o "</VirtualHost>" \
+#	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_APACHE2_SITE_CONFIG}
+}
+
+case "$1" in
+	mkconf|*)
+		mkconf
+		;;
+esac

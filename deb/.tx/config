@@ -52,3 +52,8 @@ source_lang = en
 file_filter = openmediavault-usbbackup/usr/share/openmediavault/locale/<lang>/openmediavault-usbbackup.po
 source_file = openmediavault-usbbackup/usr/share/openmediavault/locale/openmediavault-usbbackup.pot
 source_lang = en
+
+[openmediavault.openmediavault-owncloud]
+file_filter = openmediavault-owncloud/usr/share/openmediavault/locale/<lang>/openmediavault-owncloud.po
+source_file = openmediavault-owncloud/usr/share/openmediavault/locale/openmediavault-owncloud.pot
+source_lang = en
