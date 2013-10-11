@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<info>
+	<id>user_unixpam</id>
+	<name>Unix PAM backend</name>
+	<description>Authenticate users via Unix PAM</description>
+	<version>1.0</version>
+	<licence>GPL-3</licence>
+	<author>Volker Theile</author>
+	<require>5.0.12</require>
+	<types>
+		<authentication/>
+	</types>
+</info>
