@@ -30,6 +30,10 @@
  *   Defaults to FALSE.
  * @param reloadOnActivate TRUE to automatically reload the grid content
  *   when the component has been visually activated. Defaults to FALSE.
+  * @param autoReload TRUE to reload the grid content automatically every n
+ *   milliseconds. Defaults to FALSE.
+ * @param reloadInterval The frequency in milliseconds with which the grid
+ *   content should be reloaded. Defaults to 10 seconds.
  */
 Ext.define("OMV.grid.Panel", {
 	extend: "Ext.grid.Panel",
@@ -46,6 +50,8 @@ Ext.define("OMV.grid.Panel", {
 	maskBody: false,
 	disableLoadMaskOnLoad: false,
 	reloadOnActivate: false,
+	autoReload: false,
+	reloadInterval: 10000, // 10 seconds
 
 	initComponent: function() {
 		var me = this;
@@ -77,10 +83,37 @@ Ext.define("OMV.grid.Panel", {
 				}
 			}
 		});
+		// Reload grid content when panel is activated?
 		if(me.reloadOnActivate) {
 			me.on("activate", function() {
 				this.doReload();
 			}, me);
+		}
+		// Auto-reload the grid content?
+		if(me.autoReload) {
+			var fnActivateTask = function() {
+				if(Ext.isEmpty(me.reloadTask)) {
+					me.reloadTask = Ext.util.TaskManager.start({
+						run: me.doReload,
+						scope: me,
+						interval: me.reloadInterval,
+						fireOnStart: true
+					});
+				}
+			};
+			var fnDeactivateTask = function() {
+				if(!Ext.isEmpty(me.reloadTask)) {
+					Ext.util.TaskManager.stop(me.reloadTask);
+					delete me.reloadTask;
+				}
+			}
+			me.on({
+				render: fnActivateTask,
+				beforedestroy: fnDeactivateTask,
+				activate: fnActivateTask,
+				deactivate: fnDeactivateTask,
+				scope: me
+			});
 		}
 	},
 

@@ -68,10 +68,6 @@
  * @param mode The mode how to retrieve the data displayed in the grid panel.
  *   This can be 'local' or 'remote' which means the data is requested via
  *   RPC. Defaults to 'remote'.
- * @param autoReload TRUE to reload the grid content automatically every n
- *   milliseconds. Defaults to FALSE.
- * @param reloadInterval The frequency in milliseconds with which the grid
- *   content should be reloaded. Defaults to 10 seconds.
  * @param rememberSelected TRUE to reselect the previous selected rows
  *   after the grid content has been reloaded/refreshed. Defaults to FALSE.
  */
@@ -114,8 +110,6 @@ Ext.define("OMV.workspace.grid.Panel", {
 	deletionConfirmRequired: true,
 	deletionWaitMsg: _("Deleting selected item(s)"),
 	mode: "remote",
-	autoReload: false,
-	reloadInterval: 10000, // 10 seconds
 	rememberSelected: false,
 
 	initComponent: function() {
@@ -150,25 +144,6 @@ Ext.define("OMV.workspace.grid.Panel", {
 		// Process selections in grid, e.g. to update the toolbar.
 		var selModel = me.getSelectionModel();
 		selModel.on("selectionchange", me.onSelectionChange, me);
-		// Auto-reload the grid content?
-		if(me.autoReload) {
-			me.on("render", function(c) {
-				if(Ext.isEmpty(me.reloadTask)) {
-					me.reloadTask = Ext.util.TaskManager.start({
-						run: me.doReload,
-						scope: me,
-						interval: me.reloadInterval,
-						fireOnStart: true
-					});
-				}
-			}, me);
-			me.on("beforedestroy", function(c) {
-				if(!Ext.isEmpty(me.reloadTask)) {
-					Ext.util.TaskManager.stop(me.reloadTask);
-					delete me.reloadTask;
-				}
-			}, me);
-		}
 		// Remember selection to restore it after the grid has been
 		// refreshed.
 		if(me.rememberSelected) {
