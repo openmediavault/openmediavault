@@ -47,18 +47,18 @@ define("OMV_ROLE_EVERYONE",      OMV_ROLE_ADMINISTRATOR | OMV_ROLE_USER);
 define("OMV_RPC_MODE_LOCAL",  0x1);
 define("OMV_RPC_MODE_REMOTE", 0x2);
 
-$OMV_DEFAULT_FILE = "/etc/default/openmediavault";
-$OMV_DEBUG_PHP_LOGFILE = "/tmp/openmediavault_debug_php.log";
-$OMV_UUID_UNDEFINED = "undefined";
-$OMV_MAX_LOGFILE_LINES = "100000";
-$OMV_HTTPREQUEST_TIMEOUT = "60000";
-$OMV_ENGINED_DIR = "/usr/share/openmediavault/engined";
-$OMV_ENGINED_SO_RPC_HEADER_LENGTH = 8;
-$OMV_ENGINED_SO_ADDRESS = "/var/lib/openmediavault/engined.sock";
-$OMV_ENGINED_SO_SNDTIMEO = 10;
-$OMV_ENGINED_SO_RCVTIMEO = 180;
-$OMV_ENGINED_DIRTY_MODULES_FILE = "/var/lib/openmediavault/dirtymodules.json";
-$OMV_APACHE2_SUEXECUSERGROUP = "openmediavault";
+$GLOBALS['OMV_DEFAULT_FILE'] = "/etc/default/openmediavault";
+$GLOBALS['OMV_DEBUG_PHP_LOGFILE'] = "/tmp/openmediavault_debug_php.log";
+$GLOBALS['OMV_UUID_UNDEFINED'] = "undefined";
+$GLOBALS['OMV_MAX_LOGFILE_LINES'] = "100000";
+$GLOBALS['OMV_HTTPREQUEST_TIMEOUT'] = "60000";
+$GLOBALS['OMV_ENGINED_DIR'] = "/usr/share/openmediavault/engined";
+$GLOBALS['OMV_ENGINED_SO_RPC_HEADER_LENGTH'] = 8;
+$GLOBALS['OMV_ENGINED_SO_ADDRESS'] = "/var/lib/openmediavault/engined.sock";
+$GLOBALS['OMV_ENGINED_SO_SNDTIMEO'] = 10;
+$GLOBALS['OMV_ENGINED_SO_RCVTIMEO'] = 180;
+$GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE'] = "/var/lib/openmediavault/dirtymodules.json";
+$GLOBALS['OMV_APACHE2_SUEXECUSERGROUP'] = "openmediavault";
 
 /**
  * Use the following table as reference when defining a regex:
@@ -77,66 +77,68 @@ $OMV_APACHE2_SUEXECUSERGROUP = "openmediavault";
  *  ? => \\\?
  *  : => \\\:
  */
-$OMV_JSONSCHEMA_USERNAME = '"type":"string","format":"regex","pattern":'.
+$GLOBALS['OMV_JSONSCHEMA_USERNAME'] = '"type":"string","format":"regex","pattern":'.
   '"\/^[_.A-Za-z0-9][-\\\@_.A-Za-z0-9]*\\\$?$\/i"';
-$OMV_JSONSCHEMA_COUNTFIELD = '"type":["integer","null"]';
-$OMV_JSONSCHEMA_SORTFIELD = '"type":["string","null"]';
-$OMV_JSONSCHEMA_SORTDIR ='"type":["string","null"],"format":"regex",'.
+$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'] = '"type":["integer","null"]';
+$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'] = '"type":["string","null"]';
+$GLOBALS['OMV_JSONSCHEMA_SORTDIR'] ='"type":["string","null"],"format":"regex",'.
   '"pattern":"\/^asc|desc$\/i"';
-$OMV_JSONSCHEMA_UUID = '"type":"string","format":"regex","pattern":'.
+$GLOBALS['OMV_JSONSCHEMA_UUID'] = '"type":"string","format":"regex","pattern":'.
   '"\/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$\/i"';
-$OMV_JSONSCHEMA_UUID_UNDEFINED = '"type":"string","format":"regex",'.
+$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'] = '"type":"string","format":"regex",'.
   '"pattern":"\/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|'.
-  $OMV_UUID_UNDEFINED.'$\/i"';
-$OMV_JSONSCHEMA_UUID_NONE = '"type":"string","format":"regex","pattern":'.
+  $GLOBALS['OMV_UUID_UNDEFINED'].'$\/i"';
+$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'] = '"type":"string","format":"regex","pattern":'.
   '"\/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}|$\/i"';
-$OMV_JSONSCHEMA_UUID_LIST = '"type":"string","format":"regex","pattern":'.
+$GLOBALS['OMV_JSONSCHEMA_UUID_LIST'] = '"type":"string","format":"regex","pattern":'.
   '"\/^([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}[,;])*'.
   '[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$\/i"';
-$OMV_JSONSCHEMA_DEVICEFILE = '"type":"string","format":"regex",'.
+$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'] = '"type":"string","format":"regex",'.
   '"pattern":"\/^\\\/dev(\\\/disk\\\/by-id)?\\\/.+$\/i"';
-$OMV_JSONSCHEMA_DEVICEFILE_LIST = '"type":"string","format":"regex",'.
+$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE_LIST'] = '"type":"string","format":"regex",'.
   '"pattern":"\/^(.+[,;])*.+$\/i"';
-$OMV_JSONSCHEMA_EMAIL = '"type":"string","format":"regex","pattern":'.
+$GLOBALS['OMV_JSONSCHEMA_EMAIL'] = '"type":"string","format":"regex","pattern":'.
   '"\/^(\\\w+)([-+.\'][\\\w]+)*@(\\\w[-\\\w]*\\\.){1,5}([A-Za-z]){2,6}|$\/"';
 // JSON schema describing a file system UUID.
 // EXT(2|3|4)/JFS/XFS: 7725c816-00d8-11e1-ad4c-00221568ca88
 // DOS: 7A48-BA97
 // NTFS: 2ED43920D438EC29
-$OMV_JSONSCHEMA_FILESYSTEM_UUID = '"type":"string","format":"regex",'.
+$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_UUID'] = '"type":"string","format":"regex",'.
   '"pattern":"\/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
   '[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16})$\/i"';
 // JSON schema describing a file system identifier. This can be a UUID or
 // the devicefile of the file system.
-$OMV_JSONSCHEMA_FILESYSTEM_ID = '"type":"string","format":"regex",'.
+$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_ID'] = '"type":"string","format":"regex",'.
   '"pattern":"\/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
   '[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16}|\\\/dev\\\/.+)$\/i"';
-$OMV_JSONSCHEMA_SHARENAME ='"type":["string","null"],"format":"regex",'.
+$GLOBALS['OMV_JSONSCHEMA_SHARENAME'] ='"type":["string","null"],"format":"regex",'.
   '"pattern":"\/^[^\\\.]([^\"\\\/\\\\\\\[\\\]\\\:\\\+\\\|\\\<\\\>=;,\\\*'.
   '\\\?\\\. ]+){0,1}([.][^\"\\\/\\\\\\\[\\\]\\\:\\\+\\\|\\\<\\\>=;,\\\*'.
   '\\\?\\\. ]+){0,}$\/i"';
-$OMV_JSONSCHEMA_IPV4 = '"type":"string","format":"regex","pattern":'.
+$GLOBALS['OMV_JSONSCHEMA_IPV4'] = '"type":"string","format":"regex","pattern":'.
   '"\/^([1-9][0-9]{0,1}|1[013-9][0-9]|12[0-689]|2[01][0-9]|22[0-3])'.
   '([.]([1-9]{0,1}[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){2}[.]'.
   '([1-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-4])$\/i"';
-$OMV_JSONSCHEMA_IPV4_NONE = '"type":"string","format":"regex","pattern":'.
+$GLOBALS['OMV_JSONSCHEMA_IPV4_NONE'] = '"type":"string","format":"regex","pattern":'.
   '"\/^([1-9][0-9]{0,1}|1[013-9][0-9]|12[0-689]|2[01][0-9]|22[0-3])'.
   '([.]([1-9]{0,1}[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){2}[.]'.
   '([1-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-4])|$\/i"';
-$OMV_REGEX_DEVNAME_HARDDISK = "(h|s|x?v)d[a-z]+";
-$OMV_REGEX_DEVNAME_SOFTWARERAID = "md\d+";
-$OMV_REGEX_DEVNAME_HARDWARERAID = "cciss\/c[0-9]+d[0-9]+";
-$OMV_REGEX_DEVNAME_DEVICEMAPPER = "(mapper\/.+)|(dm-\d+)";
-$OMV_REGEX_DEVNAME_LOOPDEVICE = "loop[0-9]+";
+$GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'] = "(h|s|x?v)d[a-z]+";
+$GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'] = "md\d+";
+$GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'] = "cciss\/c[0-9]+d[0-9]+";
+$GLOBALS['OMV_REGEX_DEVNAME_DEVICEMAPPER'] = "(mapper\/.+)|(dm-\d+)";
+$GLOBALS['OMV_REGEX_DEVNAME_LOOPDEVICE'] = "loop[0-9]+";
 
-// Read the defaults file
-$lines = file($GLOBALS['OMV_DEFAULT_FILE']);
-foreach($lines as $kline => $vline) {
-	if(1 == preg_match("/^(OMV_[A-Z0-9_]+)=(\")?([^\"]+)(\")?$/",
-	  trim($vline), $matches)) {
-		$GLOBALS[$matches[1]] = $matches[3];
+// Read the defaults file.
+if(posix_access($GLOBALS['OMV_DEFAULT_FILE'], POSIX_F_OK | POSIX_R_OK)) {
+	$lines = file($GLOBALS['OMV_DEFAULT_FILE']);
+	foreach($lines as $kline => $vline) {
+		if(1 == preg_match("/^(OMV_[A-Z0-9_]+)=(\")?([^\"]+)(\")?$/",
+		  trim($vline), $matches)) {
+			$GLOBALS[$matches[1]] = $matches[3];
+		}
+		unset($matches);
 	}
-	unset($matches);
+	unset($lines);
 }
-unset($lines);
 ?>

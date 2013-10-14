@@ -575,7 +575,7 @@ omv_is_mounted() {
 # Set the module/plugin file permissions.
 omv_install_fixperms() {
 	chmod 755 ${OMV_DOCUMENTROOT_DIR}
-	chown -R openmediavault:openmediavault ${OMV_DOCUMENTROOT_DIR}
+	chown -R ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} ${OMV_DOCUMENTROOT_DIR}
 	find ${OMV_DOCUMENTROOT_DIR}/* -type d -exec chmod 775 {} +
 	find ${OMV_DOCUMENTROOT_DIR}/* -type f -exec chmod 664 {} +
 	chmod 644 ${OMV_DOCUMENTROOT_DIR}/cgi/php.ini
