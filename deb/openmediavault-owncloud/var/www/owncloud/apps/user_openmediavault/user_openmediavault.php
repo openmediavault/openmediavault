@@ -49,7 +49,8 @@ class OC_User_OpenMediaVault extends OC_User_Backend {
 			$valid = $result['authenticated'];
 		} catch(Exception $e) {
 			OC_Log::write("OC_User_OpenMediaVault", sprintf(
-			  "Failed to check password: ", $e->getMessage()), OC_Log::ERROR);
+			  "Failed to check password (code=%d, message=%s)",
+			  $e->getCode(), $e->getMessage()), OC_Log::ERROR);
 		}
 		return $valid;
 	}
@@ -68,8 +69,8 @@ class OC_User_OpenMediaVault extends OC_User_Backend {
 			$exists = true;
 		} catch(Exception $e) {
 			OC_Log::write("OC_User_OpenMediaVault", sprintf(
-			  "Failed to get user '%s': ", $uid, $e->getMessage()),
-			  OC_Log::ERROR);
+			  "Failed to get user '%s' (code=%d, message=%s)", $uid,
+			  $e->getCode(), $e->getMessage()), OC_Log::ERROR);
 		}
 		return $exists;
 	}
@@ -128,7 +129,8 @@ class OC_User_OpenMediaVault extends OC_User_Backend {
 			}
 		} catch(Exception $e) {
 			OC_Log::write("OC_User_OpenMediaVault", sprintf(
-			  "Failed to get users: ", $e->getMessage()), OC_Log::ERROR);
+			  "Failed to get users (code=%d, message=%s)", $e->getCode(),
+			  $e->getMessage()), OC_Log::ERROR);
 		}
 		return $result;
 	}

@@ -29,6 +29,19 @@ OMV_OWNCLOUD_APACHE2_SITE_CONFIG=${OMV_OWNCLOUD_APACHE2_SITE_CONFIG:-"/etc/apach
 OMV_OWNCLOUD_APACHE2_DOCUMENTROOT=${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT:-"/var/www/owncloud"}
 OMV_OWNCLOUD_APACHE2_SERVERNAME=${OMV_OWNCLOUD_APACHE2_SERVERNAME:-"openmediavault-owncloud"}
 OMV_OWNCLOUD_APACHE2_LOGLEVEL=${OMV_OWNCLOUD_APACHE2_LOGLEVEL:-"warn"}
+OMV_OWNCLOUD_CONFIG=${OMV_OWNCLOUD_CONFIG:-"/var/www/owncloud/config/config.php"}
+OMV_OWNCLOUD_CONFIG_DBTYPE=${OMV_OWNCLOUD_CONFIG_DBTYPE:-"sqlite3"}
+OMV_OWNCLOUD_CONFIG_DBNAME=${OMV_OWNCLOUD_CONFIG_DBNAME:-"owncloud"}
+OMV_OWNCLOUD_CONFIG_VERSION=${OMV_OWNCLOUD_CONFIG_VERSION:-"5.0.22"}
+OMV_OWNCLOUD_CONFIG_THEME=${OMV_OWNCLOUD_CONFIG_THEME:-""}
+OMV_OWNCLOUD_CONFIG_BLACKLISTEDFILES=${OMV_OWNCLOUD_CONFIG_BLACKLISTEDFILES:-"'.htaccess'"}
+OMV_OWNCLOUD_CONFIG_KNOWLEDGEBASEENABLED=${OMV_OWNCLOUD_CONFIG_KNOWLEDGEBASEENABLED:-"false"}
+OMV_OWNCLOUD_CONFIG_KNOWLEDGEBASEURL=${OMV_OWNCLOUD_CONFIG_KNOWLEDGEBASEURL:-"http://api.apps.owncloud.com/v1"}
+OMV_OWNCLOUD_CONFIG_APPSTOREENABLED=${OMV_OWNCLOUD_CONFIG_APPSTOREENABLED:-"false"}
+OMV_OWNCLOUD_CONFIG_ALLOWUSERTOCHANGEDISPLAYNAME=${OMV_OWNCLOUD_CONFIG_ALLOWUSERTOCHANGEDISPLAYNAME:-"false"}
+OMV_OWNCLOUD_CONFIG_UPDATECHECKER=${OMV_OWNCLOUD_CONFIG_UPDATECHECKER:-"false"}
+OMV_OWNCLOUD_CONFIG_LOGTYPE=${OMV_OWNCLOUD_CONFIG_LOGTYPE:-"owncloud"}
+OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG=${OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG:-"/var/www/owncloud/data/mount.json"}
 
 mkconf() {
 	# !!! NOTE !!!
@@ -77,6 +90,61 @@ EOF
 #	  -o "    CustomLog \${APACHE_LOG_DIR}/${OMV_OWNCLOUD_APACHE2_SERVERNAME}_access.log combined" -n \
 #	  -o "</VirtualHost>" \
 #	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_APACHE2_SITE_CONFIG}
+
+	# Create '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/config/config.php' file.
+	xmlstarlet sel -t -m "//services/owncloud" \
+	  -o "<?php" -n \
+	  -o "define('DEBUG', false);" -n \
+	  -o "\$CONFIG = array(" -n \
+	  -o "  'instanceid' => '" -v instanceid -o "'," -n \
+	  -o "  'passwordsalt' => '" -v passwordsalt -o "'," -n \
+	  -o "  'installed' => true," -n \
+	  -o "  'version' => '${OMV_OWNCLOUD_CONFIG_VERSION}'," -n \
+	  -o "  'dbtype' => '${OMV_OWNCLOUD_CONFIG_DBTYPE}'," -n \
+	  -o "  'dbname' => '${OMV_OWNCLOUD_CONFIG_DBNAME}'," -n \
+	  -i "//webadmin/enablessl[. = '0']" -o "  'forcessl' => false," -n -b \
+	  -i "//webadmin/enablessl[. = '1']" -o "  'forcessl' => true," -n -b \
+	  -o "  'blacklisted_files' => array(${OMV_OWNCLOUD_CONFIG_BLACKLISTEDFILES})," -n \
+	  -o "  'default_language' => 'en'," -n \
+	  -o "  'defaultapp' => 'files'," -n \
+	  -o "  'knowledgebaseenabled' => ${OMV_OWNCLOUD_CONFIG_KNOWLEDGEBASEENABLED}," -n \
+	  -o "  'knowledgebaseurl' => '${OMV_OWNCLOUD_CONFIG_KNOWLEDGEBASEURL}'," -n \
+	  -o "  'appstoreenabled' => ${OMV_OWNCLOUD_CONFIG_APPSTOREENABLED}," -n \
+	  -o "  'allow_user_to_change_display_name' => ${OMV_OWNCLOUD_CONFIG_ALLOWUSERTOCHANGEDISPLAYNAME}," -n \
+	  -o "  'updatechecker' => ${OMV_OWNCLOUD_CONFIG_UPDATECHECKER}," -n \
+	  -o "  'theme' => '${OMV_OWNCLOUD_CONFIG_THEME}'," -n \
+	  -o "  'log_type' => '${OMV_OWNCLOUD_CONFIG_LOGTYPE}'," -n \
+	  -o "  'user_backends' => array(" -n \
+	  -o "    0 => array(" -n \
+	  -o "     'class' => 'OC_User_OpenMediaVault'," -n \
+	  -o "     'arguments' => array()" -n \
+	  -o "    )" -n \
+	  -o "  )" -n \
+	  -o ");" -n \
+	  -o "?>" \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_CONFIG}
+	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} ${OMV_OWNCLOUD_CONFIG}
+
+	# Create '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/data/mount.json' file.
+	xmlstarlet sel -t \
+	  -o "{" -n \
+	  -o "  'group': {" -n \
+	  -o "  }," -n \
+	  -o "  'user': {" -n \
+	  -o "    'all': {" -n \
+	  -m "//services/owncloud/shares/share[type='localfs']" \
+	    -o "{" -n \
+	    -o "  'class': '\OC\Files\Storage\Local'," -n \
+	    -o "  'options': {" -n \
+	    -o "    'datadir': '" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "'" -n \
+	    -o "  }" -n \
+	    -o "}" -n \
+	  -b \
+	  -o "    }" -n \
+	  -o "  }" -n \
+	  -o "}" \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG}
+	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} ${OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG}
 }
 
 case "$1" in

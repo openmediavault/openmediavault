@@ -32,13 +32,41 @@ case "$1" in
 		#   <services>
 		#     <owncloud>
 		#       <enable>0</enable>
+		#       <instanceid>xxx</instanceid>
+		#       <passwordsalt>xxx</passwordsalt>
+		#       <shares>
+		#         <!--
+		#         <share>
+		#           <type>localfs|dropbox|googledrive|openstackswift|webdav</type>
+		#           <!-- localfs -->
+		#           <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+		#           <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
+		#           <!-- dropbox -->
+		#           <appkey>xxx</appkey>
+		#           <appsecret>xxx</appsecret>
+		#           <token>xxx</token>
+		#           <tokensecret>xxx</tokensecret>
+		#           <!-- googledrive -->
+		#           <clientid>xxx</clientid>
+		#           <clientsecret>xxx</clientsecret>
+		#           <token>xxx</token>
+		#           <!-- ... -->
+		#           <xxx>xxx</xxx>
+		#         </share>
+		#         -->
+		#       </shares>
 		#     </owncloud>
 		#   </services>
 		# </config>
 		########################################################################
 		if ! omv_config_exists "/config/services/owncloud"; then
+			instanceid=$(uuid -F SIV)
+			passwordsalt=$(openssl rand -base64 30)
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
+			object="${object}<instanceid>${instanceid}</instanceid>"
+			object="${object}<passwordsalt>${passwordsalt}</passwordsalt>"
+			object="${object}<shares></shares>"
 			omv_config_add_element "/config/services" "owncloud" "${object}" true
 		fi
 
@@ -46,7 +74,7 @@ case "$1" in
 		# Setup permissions
 		########################################################################
 		# These permissions are required by Apache
-		chown -R openmediavault:openmediavault /var/www/owncloud
+		chown -R ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} /var/www/owncloud
 
 		########################################################################
 		# Action to be done depending on the previous version.
