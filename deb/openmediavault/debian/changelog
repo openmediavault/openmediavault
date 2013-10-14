@@ -1,5 +1,6 @@
 openmediavault (0.5.14) stable; urgency=low
 
+  * Update locales.
   * Increase PHP post_max_size option to 25MiB.
   * Improve OMV.grid.Panel class.
 

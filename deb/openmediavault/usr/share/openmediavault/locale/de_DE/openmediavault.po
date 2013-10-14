@@ -16,9 +16,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-04 17:50+0200\n"
-"PO-Revision-Date: 2013-09-09 05:18+0000\n"
-"Last-Translator: warhog <warhog@gmx.de>\n"
+"POT-Creation-Date: 2013-10-14 17:42+0200\n"
+"PO-Revision-Date: 2013-10-14 15:52+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2774,6 +2774,9 @@ msgstr "Slowenien"
 msgid "Software RAID"
 msgstr "Software RAID"
 
+msgid "Software updates"
+msgstr "Softwareaktualisierungen"
+
 msgid "Solomon Islands"
 msgstr "Salomonen"
 
@@ -2988,6 +2991,11 @@ msgstr "Die Änderungen wurden erfolgreich angewendet."
 msgid "The comment contains invalid characters"
 msgstr "Der Kommentar enthält ungültige Zeichen"
 
+msgid ""
+"The configuration has been changed. You must apply the changes in order for "
+"them to take effect."
+msgstr "Die Konfiguration wurde geändert. Sie müssen die Änderungen bestätigen damit sie wirksam werden."
+
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "Der Standardport des SMTP Mail Servers, z.B. 25 oder 587."
 
@@ -3011,6 +3019,9 @@ msgstr "Die Gruppe '%s' existiert nicht."
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Der Hostname identifiziert das System im Netzwerk."
 
+msgid "The interface '%s' is already used by a bonding interface"
+msgstr "Die Schnittstelle '%s' wird bereits von einer Bonding-Schnittstelle verwendet"
+
 msgid "The location of the files to share."
 msgstr "Speicherort der freizugebenden Dateien."
 
@@ -3027,6 +3038,10 @@ msgstr "Der Name der Freigabe."
 
 msgid "The number of days the certificate is valid for."
 msgstr "Anzahl Tage die das Zertifikat gültig ist."
+
+#, php-format
+msgid "The parameter '%s' contains forbidden two-dot symbols"
+msgstr "Der Parameter '%s' enthält verboten Zwei-Punkt-Symbole"
 
 msgid "The password contains invalid characters"
 msgstr "Das Passwort enthält ungültige Zeichen"
@@ -3139,6 +3154,12 @@ msgstr "Dieses Feld sollte einen Hostnamen oder eine IP Adresse enthalten"
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Dieses Feld sollte einen Hostnamen oder eine IPv4 Adresse enthalten"
+
+msgid "This field should be a list of domainnames or IP addresses"
+msgstr "Dieses Feld erwartet einen Liste von Domainnamen oder IP Adressen"
+
+msgid "This field should be a list of hostnames or IP addresses"
+msgstr "Dieses Feld erwartet eine Liste von Hostnamen oder IP Adressen"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"

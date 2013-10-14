@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-04 17:50+0200\n"
-"PO-Revision-Date: 2013-09-05 10:10+0000\n"
-"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
+"POT-Creation-Date: 2013-10-14 17:42+0200\n"
+"PO-Revision-Date: 2013-10-14 15:42+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -853,7 +853,7 @@ msgstr "Czy na pewno chcesz zrestartować system?"
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
-msgstr ""
+msgstr "Czy na pewno chcesz usunąć zawartość folderu udostępnionego? Zawartość zostanie trwale usunięta i nie może być odzyskana."
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Czy na pewno chcesz zresetować stan WebGUI, np. kolejność kolumn siatki?"
@@ -1420,7 +1420,7 @@ msgid ""
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr ""
+msgstr "Jeśli ta opcja jest ustawiona, Demon będzie chroot-ował ścieżkę folderu udostępnionego przed rozpoczęciem przesyłania plików z klientem. To nie jest możliwe do mapowania użytkowników i grup przez nazwę i demona, nie jest w stanie śledzić łączy symbolicznych , które są absolutne lub zewnętrzne nowe ścieżki katalogu głównego."
 
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr "Jeśli opcja ta jest ustawiona, wtedy każda próba pobrania pliku się nie powiedzie."
@@ -2231,7 +2231,7 @@ msgstr "Proszę czekać ..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a "
 "filesystem."
-msgstr ""
+msgstr "Proszę poczekać, aż RAID zostanie zainicjowany przed utworzeniem systemu plików."
 
 msgid "Plugins"
 msgstr "Wtyczki"
@@ -2283,7 +2283,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr ""
+msgstr "Zapobiegaj przed obracaniem dysku, kiedy jest okresowo sprawdzany.<br/><ul><li>Nigdy - (sprawdź) w zależności czy urządzenie jest w trybie zasilania. To może spowodować, że urządzenie zostanie uruchomione podczas sprawdzania.</li><li>Uśpienie - Sprawdzaj urządzenie do momentu kiedy jest w trybie uśpienia.</li><li>Czuwanie - Sprawdzaj urządzenie do momentu kiedy jest w trybie uśpienia lub czuwania. W tych trybach większość dysków nie obracają się, więc jeśli chcesz zapobiec obracaniu się dysku przy każdym odpytywaniu, jest to tryb, którego potrzebujesz.</li><li>Bezczynny - Sprawdzaj urządzenie do momentu kiedy jest w trybie uśpienia, czuwania lub bezczynności. W tym stanie większość dysków obraca się ciągle, więc prawdopodobnie to nie jest to, czego potrzebujesz.</li></ul>"
 
 msgid "Primary"
 msgstr "Podstawowy"
@@ -2770,6 +2770,9 @@ msgstr "Slovenia"
 msgid "Software RAID"
 msgstr "Programowy RAID"
 
+msgid "Software updates"
+msgstr ""
+
 msgid "Solomon Islands"
 msgstr "Solomon Islands"
 
@@ -2984,6 +2987,11 @@ msgstr "Strefa czasu"
 msgid "The comment contains invalid characters"
 msgstr "Wprowadzono nieprawidłowe znaki"
 
+msgid ""
+"The configuration has been changed. You must apply the changes in order for "
+"them to take effect."
+msgstr ""
+
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "Domyślne porty SMTP poczty serwera, np. 25 lub 587."
 
@@ -3007,6 +3015,9 @@ msgstr "Grupa '%s' nie istnieje"
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Nazwa hosta jest etykietą, która identyfikuje system w sieci."
 
+msgid "The interface '%s' is already used by a bonding interface"
+msgstr ""
+
 msgid "The location of the files to share."
 msgstr "Lokalizacja plików do współdzielenia."
 
@@ -3023,6 +3034,10 @@ msgstr "Nazwa zasobu."
 
 msgid "The number of days the certificate is valid for."
 msgstr "Ilość dni, przez jaką jest ważny certyfikat.."
+
+#, php-format
+msgid "The parameter '%s' contains forbidden two-dot symbols"
+msgstr ""
 
 msgid "The password contains invalid characters"
 msgstr "Hasło zawiera nieprawidłowe znaki"
@@ -3135,6 +3150,12 @@ msgstr "To pole powinno być nazwą hosta lub adresem IP"
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "To pole powinno być nazwą hosta lub adresem IPv4"
+
+msgid "This field should be a list of domainnames or IP addresses"
+msgstr ""
+
+msgid "This field should be a list of hostnames or IP addresses"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"

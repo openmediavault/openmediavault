@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-04 17:50+0200\n"
-"PO-Revision-Date: 2013-09-04 15:50+0000\n"
+"POT-Creation-Date: 2013-10-14 17:42+0200\n"
+"PO-Revision-Date: 2013-10-14 15:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -2766,6 +2766,9 @@ msgstr "Slovenien"
 msgid "Software RAID"
 msgstr ""
 
+msgid "Software updates"
+msgstr ""
+
 msgid "Solomon Islands"
 msgstr "Salomonöarna"
 
@@ -2980,6 +2983,11 @@ msgstr "Förändringarna har tillämpats med framgång."
 msgid "The comment contains invalid characters"
 msgstr ""
 
+msgid ""
+"The configuration has been changed. You must apply the changes in order for "
+"them to take effect."
+msgstr ""
+
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "Standardport för SMTP-servern, t.ex. 25 eller 587."
 
@@ -3003,6 +3011,9 @@ msgstr "Gruppen '%s' existerar inte"
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Värdnamnet är en etikett som identifierar systemet till nätverket."
 
+msgid "The interface '%s' is already used by a bonding interface"
+msgstr ""
+
 msgid "The location of the files to share."
 msgstr "Placeringen av filerna att dela."
 
@@ -3019,6 +3030,10 @@ msgstr "Namnet på delningen."
 
 msgid "The number of days the certificate is valid for."
 msgstr "Antalet dagar som certifikatet är giltigt för."
+
+#, php-format
+msgid "The parameter '%s' contains forbidden two-dot symbols"
+msgstr ""
 
 msgid "The password contains invalid characters"
 msgstr "Lösenordet innehåller ogiltiga tecken"
@@ -3131,6 +3146,12 @@ msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Detta fält ska vara en värdnamn eller en IPv4-adress"
+
+msgid "This field should be a list of domainnames or IP addresses"
+msgstr ""
+
+msgid "This field should be a list of hostnames or IP addresses"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"

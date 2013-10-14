@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-09-04 17:50+0200\n"
-"PO-Revision-Date: 2013-09-06 08:13+0000\n"
-"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
+"POT-Creation-Date: 2013-10-14 17:42+0200\n"
+"PO-Revision-Date: 2013-10-14 15:42+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -2768,6 +2768,9 @@ msgstr "Eslovenia"
 msgid "Software RAID"
 msgstr "RAID por software"
 
+msgid "Software updates"
+msgstr ""
+
 msgid "Solomon Islands"
 msgstr "Illas Salomón"
 
@@ -2982,6 +2985,11 @@ msgstr "Os cambios foron aplicados satisfactoriamente."
 msgid "The comment contains invalid characters"
 msgstr "O comentario contén caracteres incorrectos"
 
+msgid ""
+"The configuration has been changed. You must apply the changes in order for "
+"them to take effect."
+msgstr ""
+
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "O porto predeterminado do servidor de correo SMTP, p.ex. 25 ou 587."
 
@@ -3005,6 +3013,9 @@ msgstr "O grupo «%s» non existe"
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "O nome do servidor é unha etiqueta que identifica o sistema na rede."
 
+msgid "The interface '%s' is already used by a bonding interface"
+msgstr ""
+
 msgid "The location of the files to share."
 msgstr "A localización dos ficheiros que compartir."
 
@@ -3021,6 +3032,10 @@ msgstr "O nome do recurso compartido"
 
 msgid "The number of days the certificate is valid for."
 msgstr "O número de días para os que ten vixencia o certificado."
+
+#, php-format
+msgid "The parameter '%s' contains forbidden two-dot symbols"
+msgstr ""
 
 msgid "The password contains invalid characters"
 msgstr "O contrasinal conten caracteres incorrectos"
@@ -3133,6 +3148,12 @@ msgstr "Este campo debe ser un nome de máquina/servidor ou un enderezo IP"
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Este campo debe ser un nome de máquina/servidor ou un enderezo IPv4"
+
+msgid "This field should be a list of domainnames or IP addresses"
+msgstr ""
+
+msgid "This field should be a list of hostnames or IP addresses"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
