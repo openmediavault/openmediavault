@@ -41,6 +41,7 @@ OMV_OWNCLOUD_CONFIG_APPSTOREENABLED=${OMV_OWNCLOUD_CONFIG_APPSTOREENABLED:-"fals
 OMV_OWNCLOUD_CONFIG_ALLOWUSERTOCHANGEDISPLAYNAME=${OMV_OWNCLOUD_CONFIG_ALLOWUSERTOCHANGEDISPLAYNAME:-"false"}
 OMV_OWNCLOUD_CONFIG_UPDATECHECKER=${OMV_OWNCLOUD_CONFIG_UPDATECHECKER:-"false"}
 OMV_OWNCLOUD_CONFIG_LOGTYPE=${OMV_OWNCLOUD_CONFIG_LOGTYPE:-"owncloud"}
+OMV_OWNCLOUD_CONFIG_DEBUG=${OMV_OWNCLOUD_CONFIG_DEBUG:-"false"}
 OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG=${OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG:-"/var/www/owncloud/data/mount.json"}
 
 mkconf() {
@@ -94,7 +95,7 @@ EOF
 	# Create '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/config/config.php' file.
 	xmlstarlet sel -t -m "//services/owncloud" \
 	  -o "<?php" -n \
-	  -o "define('DEBUG', false);" -n \
+	  -o "define('DEBUG', ${OMV_OWNCLOUD_CONFIG_DEBUG});" -n \
 	  -o "\$CONFIG = array(" -n \
 	  -o "  'instanceid' => '" -v instanceid -o "'," -n \
 	  -o "  'passwordsalt' => '" -v passwordsalt -o "'," -n \
@@ -113,13 +114,7 @@ EOF
 	  -o "  'allow_user_to_change_display_name' => ${OMV_OWNCLOUD_CONFIG_ALLOWUSERTOCHANGEDISPLAYNAME}," -n \
 	  -o "  'updatechecker' => ${OMV_OWNCLOUD_CONFIG_UPDATECHECKER}," -n \
 	  -o "  'theme' => '${OMV_OWNCLOUD_CONFIG_THEME}'," -n \
-	  -o "  'log_type' => '${OMV_OWNCLOUD_CONFIG_LOGTYPE}'," -n \
-	  -o "  'user_backends' => array(" -n \
-	  -o "    0 => array(" -n \
-	  -o "     'class' => 'OC_User_OpenMediaVault'," -n \
-	  -o "     'arguments' => array()" -n \
-	  -o "    )" -n \
-	  -o "  )" -n \
+	  -o "  'log_type' => '${OMV_OWNCLOUD_CONFIG_LOGTYPE}'" -n \
 	  -o ");" -n \
 	  -o "?>" \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_CONFIG}

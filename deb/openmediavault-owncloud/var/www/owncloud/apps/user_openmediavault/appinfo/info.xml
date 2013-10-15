@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <info>
 	<id>user_openmediavault</id>
-	<name>OpenMediaVault user backend</name>
-	<description>Authenticate users via OpenMediaVault services</description>
+	<name>OpenMediaVault user and group backend</name>
+	<description>Authenticate users and groups via OpenMediaVault services</description>
 	<version>1.0</version>
 	<licence>GPL-3</licence>
 	<author>Volker Theile</author>

@@ -40,7 +40,7 @@ class OC_User_OpenMediaVault extends OC_User_Backend {
 	 * Check if the password is correct without logging in the user
 	 */
 	public function checkPassword($uid, $password) {
-		$valid = false;
+		$valid = FALSE;
 		try {
 			$result = OMVRpc::exec("UserMgmt", "authUser", array(
 			  	  "username" => strtolower($uid),
@@ -61,18 +61,7 @@ class OC_User_OpenMediaVault extends OC_User_Backend {
 	 * @return boolean
 	 */
 	public function userExists($uid) {
-		$exists = false;
-		try {
-			OMVRpc::exec("UserMgmt", "getUser", array(
-			  	  "username" => strtolower($uid)
-			  ), $this->context, OMV_RPC_MODE_REMOTE);
-			$exists = true;
-		} catch(Exception $e) {
-			OC_Log::write("OC_User_OpenMediaVault", sprintf(
-			  "Failed to get user '%s' (code=%d, message=%s)", $uid,
-			  $e->getCode(), $e->getMessage()), OC_Log::ERROR);
-		}
-		return $exists;
+		return in_array($uid, $this->getUsers());
 	}
 
 	/**
@@ -88,7 +77,7 @@ class OC_User_OpenMediaVault extends OC_User_Backend {
 		OC_Log::write("OC_User_OpenMediaVault", "Not possible to create ".
 		  "users from web frontend using OpenMediaVault user backend",
 		  OC_Log::ERROR);
-		return false;
+		return FALSE;
 	}
 
 	/**
@@ -102,7 +91,7 @@ class OC_User_OpenMediaVault extends OC_User_Backend {
 		OC_Log::write("OC_User_OpenMediaVault", "Not possible to delete ".
 		  "users from web frontend using OpenMediaVault user backend",
 		  OC_Log::ERROR);
-		return false;
+		return FALSE;
 	}
 
 	/**
@@ -110,21 +99,28 @@ class OC_User_OpenMediaVault extends OC_User_Backend {
 	 * @return boolean if users can be listed or not
 	 */
 	public function hasUserListings() {
-		return true;
+		return TRUE;
 	}
 
 	/**
-	* @brief Get a list of all users
-	* @returns array with all uids
-	*
-	* Get a list of all users.
-	*/
-	public function getUsers($search = '', $limit = null, $offset = null) {
+	 * @brief Get a list of all users
+	 * @param string $search
+	 * @param int $limit
+	 * @param int $offset
+	 * @returns array with all uids
+	 *
+	 * Get a list of all users.
+	 */
+	public function getUsers($search = '', $limit = NULL, $offset = 0) {
 		$result = array();
 		try {
-			$users = OMVRpc::exec("UserMgmt", "enumerateUsers", NULL,
-			  $this->context, OMV_RPC_MODE_REMOTE);
-			foreach($users as $userk => $userv) {
+			$users = OMVRpc::exec("UserMgmt", "getUserList", array(
+			      "start" => intval($offset),
+			      "limit" => !is_null($limit) ? intval($limit) : NULL,
+			      "sortfield" => !empty($search) ? $search : NULL,
+			      "sortdir" => NULL
+			  ), $this->context, OMV_RPC_MODE_REMOTE);
+			foreach($users['data'] as $userk => $userv) {
 				$result[] = $userv['name'];
 			}
 		} catch(Exception $e) {
@@ -147,7 +143,7 @@ class OC_User_OpenMediaVault extends OC_User_Backend {
 		OC_Log::write("OC_User_OpenMediaVault", "Not possible to change ".
 		  "passwords from web frontend using OpenMediaVault user backend",
 		  OC_Log::ERROR);
-		return false;
+		return FALSE;
 	}
 }
 ?>

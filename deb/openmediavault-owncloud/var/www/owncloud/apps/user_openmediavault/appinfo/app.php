@@ -20,7 +20,8 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once OC_App::getAppPath("user_openmediavault")."/user_openmediavault.php";
+require_once OC_App::getAppPath("user_openmediavault")."/group_openmediavault.php";
 
-OC_User::registerBackend("openmediavault");
 OC_User::useBackend("openmediavault");
+OC_Group::useBackend("openmediavault");
 ?>
