@@ -49,10 +49,12 @@ Ext.define("OMV.data.proxy.Rpc", {
 	sortParam: "sortfield",
 	directionParam: "sortdir",
 	appendSortParams: true,
-	timeout: OMV.HTTPREQUEST_TIMEOUT,
 
 	constructor: function() {
 		var me = this;
+		Ext.apply(me, {
+			timeout: OMV.HTTPREQUEST_TIMEOUT
+		});
 		me.callParent(arguments);
 		me.on("exception", function(proxy, response, operation) {
 			OMV.MessageBox.error(null, response);
