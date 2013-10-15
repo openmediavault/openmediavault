@@ -49,6 +49,7 @@ Ext.define("OMV.data.proxy.Rpc", {
 	sortParam: "sortfield",
 	directionParam: "sortdir",
 	appendSortParams: true,
+	timeout: OMV.HTTPREQUEST_TIMEOUT,
 
 	constructor: function() {
 		var me = this;

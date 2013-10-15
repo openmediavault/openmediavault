@@ -3,6 +3,7 @@ openmediavault (0.5.14) stable; urgency=low
   * Update locales.
   * Increase PHP post_max_size option to 25MiB.
   * Improve OMV.grid.Panel class.
+  * Mantis 0000868: Unable to display users list when using Winbind backend.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Oct 2013 08:55:02 +0200
 
