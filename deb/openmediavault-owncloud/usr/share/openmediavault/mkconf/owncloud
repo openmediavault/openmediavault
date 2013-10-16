@@ -123,17 +123,17 @@ EOF
 	# Create '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/data/mount.json' file.
 	xmlstarlet sel -t \
 	  -o "{" -n \
-	  -o "  'group': {" -n \
+	  -o "  \"group\": {" -n \
 	  -o "  }," -n \
-	  -o "  'user': {" -n \
-	  -o "    'all': {" -n \
+	  -o "  \"user\": {" -n \
+	  -o "    \"all\": {" -n \
 	  -m "//services/owncloud/shares/share[type='localfs']" \
-	    -o "{" -n \
-	    -o "  'class': '\OC\Files\Storage\Local'," -n \
-	    -o "  'options': {" -n \
-	    -o "    'datadir': '" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "'" -n \
-	    -o "  }" -n \
-	    -o "}" -n \
+	    -v "concat('      \"\/\$user\/files\/',name,'\": {')" -n \
+	    -o "        \"class\": \"\\\\OC\\\\Files\\\\Storage\\\\Local\"," -n \
+	    -o "        \"options\": {" -n \
+	    -o "          \"datadir\": \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -n \
+	    -o "        }" -n \
+	    -o "      }" -n \
 	  -b \
 	  -o "    }" -n \
 	  -o "  }" -n \

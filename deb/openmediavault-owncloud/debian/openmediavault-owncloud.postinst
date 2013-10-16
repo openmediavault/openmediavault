@@ -38,8 +38,10 @@ case "$1" in
 		#         <!--
 		#         <share>
 		#           <type>localfs|dropbox|googledrive|openstackswift|webdav</type>
-		#           <!-- localfs -->
 		#           <uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+		#           <name>xxx</name>
+		#           <comment>xxx</comment>
+		#           <!-- localfs -->
 		#           <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
 		#           <!-- dropbox -->
 		#           <appkey>xxx</appkey>

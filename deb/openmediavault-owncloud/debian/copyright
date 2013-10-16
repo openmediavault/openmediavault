@@ -5,3 +5,8 @@ Source: http://www.openmediavault.org
 Files: *
 Copyright: 2009-2013 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
+
+Files: var/www/openmediavault/images/owncloud.png
+       var/www/openmediavault/images/owncloud.svg
+Copyright: Sergey Shmidt <http://shmidt.in>
+License: CC-BY-SA-3.0
