@@ -113,20 +113,18 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 		  }');
 		// Get existing configuration object.
 		$xpath = "//services/iscsitarget";
-		$oldObject = $xmlConfig->get($xpath);
-		if(is_null($oldObject)) {
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Update the configuration object.
-		$object = array(
-			"enable" => array_boolval($params, 'enable'),
-			"extraoptions" => $params['extraoptions'],
-			"targets" => isset($oldObject['targets']) ?
-			  $oldObject['targets'] : array(),
-			"authentication" => !empty($params['authentication']) ?
-			  array("user" => $params['authentication']) : array()
-		);
+		$object = array_merge($object, array(
+			  "enable" => array_boolval($params, 'enable'),
+			  "extraoptions" => $params['extraoptions'],
+			  "authentication" => !empty($params['authentication']) ?
+				array("user" => $params['authentication']) : array()
+		  ));
 		// Update the authentication users uuid's (only necessary if the
 		// user is new)
 		if(!empty($object['authentication']['user'])) {
