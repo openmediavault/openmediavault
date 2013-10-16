@@ -79,6 +79,7 @@ class OMVRpcServiceAFP extends OMVRpcServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setSettings($params, $context) {
@@ -97,15 +98,20 @@ class OMVRpcServiceAFP extends OMVRpcServiceAbstract {
 				  "extraoptions":{"type":"string"}
 			  }
 		  }');
-		// Prepare the configuration object.
-		$object = array(
-			"enable" => array_boolval($params, 'enable'),
-			"allowclrtxt" => array_boolval($params, 'allowclrtxt'),
-			"homesenable" => array_boolval($params, 'homesenable'),
-			"extraoptions" => $params['extraoptions'],
-			"shares" => isset($oldObject['shares']) ?
-			  $oldObject['shares'] : array()
-		);
+		// Get the existing configuration object.
+		$xpath = "//services/afp";
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Update the configuration object.
+		$object = array_merge($object, array(
+			  "enable" => array_boolval($params, 'enable'),
+			  "allowclrtxt" => array_boolval($params, 'allowclrtxt'),
+			  "homesenable" => array_boolval($params, 'homesenable'),
+			  "extraoptions" => $params['extraoptions']
+		  ));
 		if(FALSE === $xmlConfig->replace("//services/afp", $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}

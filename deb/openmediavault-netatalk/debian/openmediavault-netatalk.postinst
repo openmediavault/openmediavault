@@ -69,10 +69,6 @@ case "$1" in
 		#       	</share>
 		#       	-->
 		#       </shares>
-		#       <dnssd>
-		#       	<enable>1</enable>
-		#       	<name>%h - AFP</name>
-		#       </dnssd>
 		#     </afp>
 		#   </services>
 		# </config>
@@ -84,10 +80,6 @@ case "$1" in
 			object="${object}<homesenable>0</homesenable>"
 			object="${object}<extraoptions></extraoptions>"
 			object="${object}<shares></shares>"
-			object="${object}<dnssd>"
-			object="${object}<enable>1</enable>"
-			object="${object}<name>%h - AFP</name>"
-			object="${object}</dnssd>"
 			omv_config_add_element "/config/services" "afp" "${object}" true
 		fi
 
