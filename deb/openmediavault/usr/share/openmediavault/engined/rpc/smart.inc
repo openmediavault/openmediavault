@@ -191,21 +191,20 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		  }');
 		// Get the existing configuration object.
 		$xpath = "//services/smart";
-		$oldObject = $xmlConfig->get($xpath);
-		if(is_null($oldObject)) {
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Update the configuration object.
-		$object = array(
+		$object = array_merge($object, array(
 			  "enable" => array_boolval($params, 'enable'),
 			  "interval" => $params['interval'],
 			  "powermode" => $params['powermode'],
 			  "tempdiff" => $params['tempdiff'],
 			  "tempinfo" => $params['tempinfo'],
-			  "tempcrit" => $params['tempcrit'],
-			  "scheduledtests" => $oldObject['scheduledtests']
-		  );
+			  "tempcrit" => $params['tempcrit']
+		  ));
 		if(FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}

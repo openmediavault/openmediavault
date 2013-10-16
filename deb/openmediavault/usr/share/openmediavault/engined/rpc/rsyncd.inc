@@ -96,19 +96,17 @@ class OMVRpcServiceRsyncd extends OMVRpcServiceAbstract {
 		  }');
 		// Get the existing configuration object.
 		$xpath = "//services/rsync/server";
-		$oldObject = $xmlConfig->get($xpath);
-		if(is_null($oldObject)) {
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Update the configuration object.
-		$object = array(
+		$object = array_merge($object, array(
 			  "enable" => array_boolval($params, 'enable'),
 			  "port" => $params['port'],
-			  "extraoptions" => $params['extraoptions'],
-			  "modules" => isset($oldObject['modules']) ?
-				$oldObject['modules'] : array()
-		  );
+			  "extraoptions" => $params['extraoptions']
+		  ));
 		if(FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}

@@ -149,42 +149,40 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 		  }');
 		// Get the existing configuration object.
 		$xpath = "//services/ftp";
-		$oldObject = $xmlConfig->get($xpath);
-		if(is_null($oldObject)) {
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Update the configuration object.
-		$object = array(
-			"enable" => array_boolval($params, 'enable'),
-			"port" => $params['port'],
-			"maxclients" => $params['maxclients'],
-			"maxconnectionsperhost" => $params['maxconnectionsperhost'],
-			"maxloginattempts" => $params['maxloginattempts'],
-			"timeoutidle" => $params['timeoutidle'],
-			"displaylogin" => $params['displaylogin'],
-			"allowforeignaddress" => array_boolval($params,
-			  'allowforeignaddress'),
-			"allowrestart" => array_boolval($params, 'allowrestart'),
-			"identlookups" => array_boolval($params, 'identlookups'),
-			"usereversedns" => array_boolval($params, 'usereversedns'),
-			"rootlogin" => array_boolval($params, 'rootlogin'),
-			"masqueradeaddress" => $params['masqueradeaddress'],
-			"dynmasqrefresh" => $params['dynmasqrefresh'],
-			"usepassiveports" => array_boolval($params, 'usepassiveports'),
-			"minpassiveports" => $params['minpassiveports'],
-			"maxpassiveports" => $params['maxpassiveports'],
-			"limittransferrate" => array_boolval($params, 'limittransferrate'),
-			"maxuptransferrate" => $params['maxuptransferrate'],
-			"maxdowntransferrate" => $params['maxdowntransferrate'],
-			"anonymous" => array_boolval($params, 'anonymous'),
-			"requirevalidshell" => array_boolval($params, 'requirevalidshell'),
-			"extraoptions" => $params['extraoptions'],
-			"shares" => isset($oldObject['shares']) ?
-			  $oldObject['shares'] : array(),
-			"modules" => isset($oldObject['modules']) ?
-			  $oldObject['modules'] : array()
-		);
+		$object = array_merge($object, array(
+			  "enable" => array_boolval($params, 'enable'),
+			  "port" => $params['port'],
+			  "maxclients" => $params['maxclients'],
+			  "maxconnectionsperhost" => $params['maxconnectionsperhost'],
+			  "maxloginattempts" => $params['maxloginattempts'],
+			  "timeoutidle" => $params['timeoutidle'],
+			  "displaylogin" => $params['displaylogin'],
+			  "allowforeignaddress" => array_boolval($params,
+				'allowforeignaddress'),
+			  "allowrestart" => array_boolval($params, 'allowrestart'),
+			  "identlookups" => array_boolval($params, 'identlookups'),
+			  "usereversedns" => array_boolval($params, 'usereversedns'),
+			  "rootlogin" => array_boolval($params, 'rootlogin'),
+			  "masqueradeaddress" => $params['masqueradeaddress'],
+			  "dynmasqrefresh" => $params['dynmasqrefresh'],
+			  "usepassiveports" => array_boolval($params, 'usepassiveports'),
+			  "minpassiveports" => $params['minpassiveports'],
+			  "maxpassiveports" => $params['maxpassiveports'],
+			  "limittransferrate" => array_boolval($params,
+				'limittransferrate'),
+			  "maxuptransferrate" => $params['maxuptransferrate'],
+			  "maxdowntransferrate" => $params['maxdowntransferrate'],
+			  "anonymous" => array_boolval($params, 'anonymous'),
+			  "requirevalidshell" => array_boolval($params,
+				'requirevalidshell'),
+			  "extraoptions" => $params['extraoptions']
+		  ));
 		if(FALSE === $xmlConfig->replace("//services/ftp", $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}

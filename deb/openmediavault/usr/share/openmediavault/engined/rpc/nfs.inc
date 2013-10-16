@@ -98,18 +98,16 @@ class OMVRpcServiceNfs extends OMVRpcServiceAbstract {
 		  }');
 		// Get the existing configuration object.
 		$xpath = "//services/nfs";
-		$oldObject = $xmlConfig->get($xpath);
-		if(is_null($oldObject)) {
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Update the configuration object.
-		$object = array(
-			"enable" => array_boolval($params, 'enable'),
-			"numproc" => $params['numproc'],
-			"shares" => isset($oldObject['shares']) ?
-			  $oldObject['shares'] : array()
-		);
+		$object = array_merge($object, array(
+			  "enable" => array_boolval($params, 'enable'),
+			  "numproc" => $params['numproc']
+		  ));
 		if(FALSE === $xmlConfig->replace("//services/nfs", $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}

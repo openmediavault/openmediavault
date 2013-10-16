@@ -71,7 +71,7 @@ class OMVRpcServiceZeroconf extends OMVRpcServiceAbstract {
 					$object = array(
 						  "id" => $config['id'],
 						  "enable" => FALSE,
-						  "name" => $config['title']
+						  "name" => sprintf("%%h - %s", $config['title'])
 					  );
 				}
 				$object['title'] = $config['title'];
