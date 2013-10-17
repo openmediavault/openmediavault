@@ -132,22 +132,41 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 	}
 
 	/**
+	 * Helper function that is called whenever the basic settings have
+	 * been modified.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	final public function onSettings($type, $path, $object) {
+		global $xmlConfig;
+		// Mark this module as dirty.
+		$this->setDirty();
+		// Check whether the monit configuration has to be updated. In this
+		// case mark the module as dirty.
+		$xpath = "//services/daap";
+		$oldObject = $xmlConfig->get($xpath);
+		if(is_null($oldObject)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		if($oldObject['enable'] != $object['enable'])
+			$this->setDirtyByName("monit");
+	}
+
+	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.daap",
-		  array($this, "setDirty"));
+		  array($this, "onSettings"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder",
 		  array($this, "onSharedFolder"));
-		$moduleMgr = &OMVModuleMgr::getInstance();
-		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.daap",
-		  array($moduleMgr->getModule("monit"), "setDirty"));
 	}
 }
 
