@@ -56,6 +56,7 @@ OMV_PROFTPD_TIMESGMT=${OMV_PROFTPD_TIMESGMT:-"off"}
 OMV_PROFTPD_DEFAULTTRANSFERMODE=${OMV_PROFTPD_DEFAULTTRANSFERMODE:-"ascii"}
 OMV_PROFTPD_ALLOWOVERWRITE=${OMV_PROFTPD_ALLOWOVERWRITE:-"on"}
 OMV_PROFTPD_DELETEABORTEDSTORES=${OMV_PROFTPD_DELETEABORTEDSTORES:-"off"}
+OMV_PROFTPD_TRANSFERLOG=${OMV_PROFTPD_TRANSFERLOG:-"/var/log/proftpd/xferlog"}
 OMV_PROFTPD_MODQUOTATAB_QUOTAENGINE=${OMV_PROFTPD_MODQUOTATAB_QUOTAENGINE:-"off"}
 OMV_PROFTPD_MODRATIO_RATIOS=${OMV_PROFTPD_MODRATIO_RATIOS:-"off"}
 OMV_PROFTPD_MODFACL_FACLENGINE=${OMV_PROFTPD_MODFACL_FACLENGINE:-"on"}
@@ -116,7 +117,6 @@ xmlstarlet sel -t \
   -o "AllowOverwrite ${OMV_PROFTPD_ALLOWOVERWRITE}" -n \
   -o "AuthOrder ${OMV_PROFTPD_AUTHORDER}" -n \
   -o "DefaultTransferMode ${OMV_PROFTPD_DEFAULTTRANSFERMODE}" -n \
-  -o "#TransferLog /var/log/proftpd/xferlog" -n \
   -o "#SystemLog /var/log/proftpd/proftpd.log" -n \
   -o "<IfModule mod_facl.c>" -n \
   -o "  FACLEngine ${OMV_PROFTPD_MODFACL_FACLENGINE}" -n \
@@ -156,6 +156,8 @@ xmlstarlet sel -t \
 		  -o "Include ${OMV_PROFTPD_MODTLS_CONFIG}" -n \
 	  -b \
 	  -v "concat('Port ',port)" -n \
+	  -i "transferlog[. = '0']" -o "TransferLog NONE" -n -b \
+	  -i "transferlog[. = '1']" -o "TransferLog ${OMV_PROFTPD_TRANSFERLOG}" -n -b \
 	  -i "requirevalidshell[. = '0']" -o "RequireValidShell off" -n -b \
 	  -i "requirevalidshell[. = '1']" -o "RequireValidShell on" -n -b \
 	  -i "identlookups[. = '0']" -o "IdentLookups off" -n -b \

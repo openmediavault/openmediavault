@@ -251,6 +251,11 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.5.11"; then
 			omv-mkconf collectd
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.15"; then
+			omv_config_add_element "/config/services/ftp" "transferlog" "0"
+			omv-mkconf proftpd
+			service proftpd reload
+		fi
 	;;
 
 	triggered)

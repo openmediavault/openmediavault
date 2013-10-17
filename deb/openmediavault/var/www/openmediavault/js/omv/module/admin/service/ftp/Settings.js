@@ -307,6 +307,11 @@ Ext.define("OMV.module.admin.service.ftp.Settings", {
 					text: _("Enable reverse DNS lookup performed on the remote host's IP address for incoming active mode data connections and outgoing passive mode data connections.")
 				}]
 			},{
+				xtype: "checkbox",
+				name: "transferlog",
+				fieldLabel: _("Transfer log"),
+				boxLabel: _("Enable transfer log")
+			},{
 				xtype: "textarea",
 				name: "extraoptions",
 				fieldLabel: _("Extra options"),

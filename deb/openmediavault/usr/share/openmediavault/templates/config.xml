@@ -325,6 +325,7 @@
 			<maxdowntransferrate>0</maxdowntransferrate>
 			<anonymous>0</anonymous>
 			<requirevalidshell>1</requirevalidshell>
+			<transferlog>0</transferlog>
 			<extraoptions></extraoptions>
 			<shares>
 				<!--

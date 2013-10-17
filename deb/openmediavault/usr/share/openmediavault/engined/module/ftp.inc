@@ -192,10 +192,13 @@ $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleFtp());
 
 // Register new logfile type.
+// Format:
+// Oct 17 18:19:00 vmomv5 proftpd[17127]: 192.167.178.101 (::ffff:192.168.178.254[::ffff:192.168.178.254]) - USER test: Login successful.
+// Oct 17 18:20:00 vmomv5 proftpd: pam_unix(proftpd:session): session closed for user test
 OMVLogFile::registerType("proftpd", array(
   "filename" => "proftpd.log",
   "filepath" => "/var/log/proftpd/proftpd.log",
-  "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\sproftpd\[\d+\]: (.*)$/",
+  "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\sproftpd\[\d+\]: (.*)$/",
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
@@ -207,5 +210,37 @@ OMVLogFile::registerType("proftpd", array(
 			'return strftime("%c", strpdate($v,"M j G:i:s"));')
 	  ),
 	  "event" => 3
+  )));
+
+// Format:
+// <currenttime> <transfertime> <remotehost> <filesize> <filename> <transfertype> <specialactionflag> <direction> <accessmode> <username> <ser­vicename> <authenticationmethod> <authenticateduserid> <completionstatus>
+// Thu Oct 17 18:19:00 2013 0 ::ffff:192.168.178.254 56374 /home/ftp/test/testfile b _ i r test ftp 0 * c
+OMVLogFile::registerType("proftpd_xferlog", array(
+  "filename" => "xferlog",
+  "filepath" => "/var/log/proftpd/xferlog",
+  "regex" => "/^(\S+\s+\S+\s+\d+\s+\d{2}:\d{2}:\d{2}\s+\d+)\s+(\d+)\s+(\S+)\s+(\d+)\s+(\S+)\s+(a|b)\s+(C|U|T|_)\s+(o|i)\s+(a|g|r)\s+(\S+)\s+(\S+)\s+(0|1)\s+(\d+|\*)\s+(c|i)$/",
+  "columns" => array(
+	  "ts" => array(
+		  "index" => 1,
+		  "func" => create_function('$v', 'return strpdate($v,"D M d H:i:s Y");')
+	  ),
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v',
+			'return strftime("%c", strpdate($v,"D M d H:i:s Y"));')
+	  ),
+	  "transfertime" => 2,
+	  "remotehost" => 3,
+	  "filesize" => 4,
+	  "filename" => 5,
+	  "transfertype" => 6,
+	  "specialactionflag" => 7,
+	  "direction" => 8,
+	  "accessmode" => 9,
+	  "username" => 10,
+	  "ser­vicename" => 11,
+	  "authenticationmethod" => 12,
+	  "authenticateduserid" => 13,
+	  "completionstatus" => 14
   )));
 ?>

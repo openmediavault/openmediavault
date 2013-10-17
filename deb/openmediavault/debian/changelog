@@ -1,3 +1,9 @@
+openmediavault (0.5.15) stable; urgency=low
+
+  * Add feature to enable/disable FTP transfer log.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 17 Oct 2013 12:25:23 +0200
+
 openmediavault (0.5.14) stable; urgency=low
 
   * Update locales.

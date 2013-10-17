@@ -96,6 +96,7 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 		$object['anonymous'] = boolval($object['anonymous']);
 		$object['requirevalidshell'] = boolval($object['requirevalidshell']);
 		$object['dynmasqrefresh'] = intval($object['dynmasqrefresh']);
+		$object['transferlog'] = boolval($object['transferlog']);
 		// Remove useless fields from the result object.
 		unset($object['shares']);
 		unset($object['modules']);
@@ -144,6 +145,7 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 				  "maxdowntransferrate":{"type":"integer","minimum":0},
 				  "anonymous":{"type":"boolean"},
 				  "requirevalidshell":{"type":"boolean"},
+				  "transferlog":{"type":"boolean"},
 				  "extraoptions":{"type":"string"}
 			  }
 		  }');
@@ -181,6 +183,7 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 			  "anonymous" => array_boolval($params, 'anonymous'),
 			  "requirevalidshell" => array_boolval($params,
 				'requirevalidshell'),
+			  "transferlog" => array_boolval($params, 'transferlog'),
 			  "extraoptions" => $params['extraoptions']
 		  ));
 		if(FALSE === $xmlConfig->replace("//services/ftp", $object)) {

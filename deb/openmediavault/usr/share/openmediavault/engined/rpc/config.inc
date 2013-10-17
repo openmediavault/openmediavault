@@ -171,7 +171,6 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 			}
 			$startBeforeDeps = $object->startBefore();
 			foreach($startBeforeDeps as $depk => $depv) {
-				$tsort->add($depv, $name);
 				if(FALSE === $tsort->add($depv, $name)) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf("Failed to add node (name=%s, dependencies=[%s]",
