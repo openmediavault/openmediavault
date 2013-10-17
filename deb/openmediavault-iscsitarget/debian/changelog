@@ -1,3 +1,9 @@
+openmediavault-iscsitarget (0.5.4) stable; urgency=low
+
+  * Mantis 0000874: Monit error when enabling iscsitarget plugin.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 17 Oct 2013 12:10:33 +0200
+
 openmediavault-iscsitarget (0.5.3) stable; urgency=low
 
   * Update locales.
