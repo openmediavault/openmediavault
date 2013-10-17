@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 17:42+0200\n"
-"PO-Revision-Date: 2013-10-14 15:52+0000\n"
+"POT-Creation-Date: 2013-10-17 12:43+0200\n"
+"PO-Revision-Date: 2013-10-17 21:30+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -170,11 +170,17 @@ msgstr "Ein freigegebener Ordner mit dem angegebenen Namen ist bereits vorhanden
 msgid "ACL"
 msgstr "ACL"
 
+msgid "ASCII"
+msgstr "ASCII"
+
 msgid "About"
 msgstr "Über"
 
 msgid "Access Right Management"
 msgstr "Zugriffskontrolle"
+
+msgid "Access mode"
+msgstr ""
 
 msgid "Act as a WINS server."
 msgstr "Arbeite als WINS Server."
@@ -330,6 +336,9 @@ msgstr "Angola"
 msgid "Anguilla"
 msgstr "Anguilla"
 
+msgid "Anonymous"
+msgstr "Anonym"
+
 msgid "Anonymous FTP"
 msgstr "Anonymes FTP "
 
@@ -387,6 +396,9 @@ msgstr "Österreich"
 msgid "Authenticate users"
 msgstr "Benutzer authentifizieren"
 
+msgid "Authenticated user ID"
+msgstr ""
+
 msgid "Authentication"
 msgstr "Authentifizierung"
 
@@ -395,6 +407,9 @@ msgstr "Authentifizierung und keine Verschlüsselung"
 
 msgid "Authentication and privacy"
 msgstr "Authentifizierung und Verschlüsselung"
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Authentication passphrase"
 msgstr "Passphrase für Authentifizierung"
@@ -452,6 +467,9 @@ msgstr "Bermuda"
 
 msgid "Bhutan"
 msgstr "Bhutan"
+
+msgid "Binary"
+msgstr "Binär"
 
 msgid "Blocksize"
 msgstr "Blockgröße"
@@ -611,11 +629,20 @@ msgstr "Community"
 msgid "Comoros"
 msgstr "Komoren"
 
+msgid "Complete"
+msgstr "Abgeschlossen"
+
+msgid "Completion status"
+msgstr ""
+
 msgid "Compress"
 msgstr "Komprimieren"
 
 msgid "Compress file data during the transfer"
 msgstr "Komprimiere Daten während der Übertragung"
+
+msgid "Compressed"
+msgstr "Komprimiert"
 
 msgid "Compression"
 msgstr "Kompression"
@@ -1052,6 +1079,9 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Aktivieren, wenn nur teilweise übertragene Dateien behalten werden sollen, andernfalls werden diese gelöscht."
 
+msgid "Enable transfer log"
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr "Aktiviere Benutzerauthentifizierung"
 
@@ -1130,6 +1160,9 @@ msgstr "Erweiterte Optionen"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1191,6 +1224,9 @@ msgstr "Fidschi"
 msgid "File"
 msgstr "Datei"
 
+msgid "Filename"
+msgstr "Dateiname"
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1200,6 +1236,9 @@ msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
 msgstr "Dateien, die größer als die angegebene Anzahl von Bytes sind, werden nicht in den Papierkorb verschoben. Auf 0 setzen für unbeschränkte Dateigröße."
+
+msgid "Filesize"
+msgstr "Dateigröße"
 
 msgid "Filesystem"
 msgstr "Dateisystem"
@@ -1326,6 +1365,9 @@ msgstr "Guam"
 
 msgid "Guatemala"
 msgstr "Guatemala"
+
+msgid "Guest"
+msgstr "Gast"
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1483,6 +1525,12 @@ msgid ""
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "In manchen Fällen müssen Sie einen Bereich von passiven Ports auswählen um Beschränkungen durch die Firewall zu umgehen. Die Einstellung beschränkt den Portbereich den der Server benutzt wenn er ein PASV Befehl vom Client erhält. Der Server wählt einen zufälligen Port aus dem angegebenen Bereich bis ein offener Port gefunden wurde. Der ausgewählte Portbereich muss im Nicht-Privilegierten Bereich (größer oder gleich 1024) liegen. Es wird dringend empfohlen den Bereich groß genug zu wählen damit  viele simultane passive Verbindungen (z.B. 49152-65534, von der IANA zugelassene Bereich für kurzlebige Verbindungen) gehandhabt werden können."
+
+msgid "Incoming"
+msgstr "Eingehend"
+
+msgid "Incomplete"
+msgstr "Unvollständig"
 
 msgid "Incorrect username or password."
 msgstr "Falscher Benutzername oder Passwort."
@@ -1976,6 +2024,9 @@ msgstr "Nein"
 msgid "No access"
 msgstr "Kein Zugriff"
 
+msgid "No action"
+msgstr ""
+
 msgid "No authentication and no privacy"
 msgstr "Keine Authentifizierung und keine Verschlüsselung"
 
@@ -2077,6 +2128,9 @@ msgstr "Organisation"
 
 msgid "Others"
 msgstr "Andere"
+
+msgid "Outgoing"
+msgstr "Ausgehend"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Die Serveradresse des SMTP Mail Servers, z.B. smtp.meinefirma.com"
@@ -2361,6 +2415,9 @@ msgstr "RAID 6"
 msgid "RAID Management"
 msgstr "RAID Verwaltung"
 
+msgid "RFC931"
+msgstr "RFC931"
+
 msgid "RSync server"
 msgstr "rsync Server"
 
@@ -2378,6 +2435,9 @@ msgstr "Nur lesen"
 
 msgid "Read/Write"
 msgstr "Lesen/Schreiben"
+
+msgid "Real"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Neu starten"
@@ -2408,6 +2468,9 @@ msgstr "Verbleibend"
 
 msgid "Remote"
 msgstr "Entfernt"
+
+msgid "Remote host"
+msgstr "Entfernter Host"
 
 msgid "Remote syslog"
 msgstr "Entferntes syslog"
@@ -2674,6 +2737,9 @@ msgstr "Service Discovery"
 msgid "Service disabled"
 msgstr "Service deaktiviert"
 
+msgid "Servicename"
+msgstr "Dienstname"
+
 msgid "Services"
 msgstr "Dienste"
 
@@ -2813,6 +2879,9 @@ msgstr "Südkorea"
 msgid "Spain"
 msgstr "Spanien"
 
+msgid "Special action flag"
+msgstr ""
+
 msgid "Specifies how many server threads to create."
 msgstr "Legt fest wie viele Server Threads generiert werden sollen."
 
@@ -2948,6 +3017,9 @@ msgstr "Systemprotokolle"
 
 msgid "System time"
 msgstr "Systemzeit"
+
+msgid "TAR"
+msgstr ""
 
 msgid "TCP forwarding"
 msgstr "TCP Weiterleitung"
@@ -3343,6 +3415,15 @@ msgstr "Tokelau"
 msgid "Tonga"
 msgstr "Tonga"
 
+msgid "Transfer log"
+msgstr ""
+
+msgid "Transfer time"
+msgstr "Übertragungszeit"
+
+msgid "Transfer type"
+msgstr "Übertragungsart"
+
 msgid "Traps"
 msgstr "Traps"
 
@@ -3390,6 +3471,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukraine"
+
+msgid "Uncompressed"
+msgstr ""
 
 msgid "Uninstall"
 msgstr "Entfernen"

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 17:42+0200\n"
-"PO-Revision-Date: 2013-10-14 15:42+0000\n"
+"POT-Creation-Date: 2013-10-17 12:43+0200\n"
+"PO-Revision-Date: 2013-10-17 21:25+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -165,11 +165,17 @@ msgstr "Un dossier partagé existe déjà avec ce nom"
 msgid "ACL"
 msgstr "ACL"
 
+msgid "ASCII"
+msgstr ""
+
 msgid "About"
 msgstr "A propos"
 
 msgid "Access Right Management"
 msgstr "Gestion des droits d'accès"
+
+msgid "Access mode"
+msgstr ""
 
 msgid "Act as a WINS server."
 msgstr "Agir en tant que serveur WINS."
@@ -325,6 +331,9 @@ msgstr "Angola"
 msgid "Anguilla"
 msgstr "Anguille"
 
+msgid "Anonymous"
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "FTP anonyme"
 
@@ -382,6 +391,9 @@ msgstr "Autriche"
 msgid "Authenticate users"
 msgstr "Utilisateurs authentifiés"
 
+msgid "Authenticated user ID"
+msgstr ""
+
 msgid "Authentication"
 msgstr "Authentification"
 
@@ -390,6 +402,9 @@ msgstr "Authentification sans secret"
 
 msgid "Authentication and privacy"
 msgstr "Authentification avec secret"
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Authentication passphrase"
 msgstr "Mot de passe d'authentification"
@@ -447,6 +462,9 @@ msgstr "Bermudes"
 
 msgid "Bhutan"
 msgstr "Bhoutan"
+
+msgid "Binary"
+msgstr ""
 
 msgid "Blocksize"
 msgstr "Taille de block"
@@ -606,11 +624,20 @@ msgstr "Communauté"
 msgid "Comoros"
 msgstr "Comores"
 
+msgid "Complete"
+msgstr ""
+
+msgid "Completion status"
+msgstr ""
+
 msgid "Compress"
 msgstr "Compresser"
 
 msgid "Compress file data during the transfer"
 msgstr "Compresser les données des fichiers lors du transfert"
+
+msgid "Compressed"
+msgstr ""
 
 msgid "Compression"
 msgstr "Compression"
@@ -1047,6 +1074,9 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Activer cette option pour conserver les fichiers partiellement transférés, sinon ils seront supprimés si le transfert est interrompu."
 
+msgid "Enable transfer log"
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr "Activer l'authentification des utilisateurs"
 
@@ -1125,6 +1155,9 @@ msgstr "Options supplémentaires"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1186,6 +1219,9 @@ msgstr "Fidji"
 msgid "File"
 msgstr "Fichier"
 
+msgid "Filename"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1195,6 +1231,9 @@ msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
 msgstr "Les fichiers ayant une taille en octets supérieure à la valeur spécifiée ne seront pas mis dans la poubelle. Mettre 0 pour une taille de fichier illimitée."
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Filesystem"
 msgstr "Système de fichiers"
@@ -1321,6 +1360,9 @@ msgstr "Guam"
 
 msgid "Guatemala"
 msgstr "Guatémala"
+
+msgid "Guest"
+msgstr ""
 
 msgid "Guinea"
 msgstr "Guinée"
@@ -1478,6 +1520,12 @@ msgid ""
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "Dans certains cas, vous devez spécifier un plage de port passifs pour passer outre les limitations du pare-feu. Le serveur va choisir au hasard un nombre au sein de la plage spécifiée jusqu'à ce qu'un port ouvert soit trouvé. La plage de ports doit être choisi dans la plage Unix non-privilégiée (supérieur ou égal à 1024). Il est fortement recommandé que la plage choisie soit suffisamment grande pour traiter de nombreuses connexions simultanées passives (ex: 49152-65534, la plage de ports éphémères enregistrés à l'IANA)."
+
+msgid "Incoming"
+msgstr ""
+
+msgid "Incomplete"
+msgstr ""
 
 msgid "Incorrect username or password."
 msgstr "Nom d'utilisateur ou mot de passe incorrect."
@@ -1971,6 +2019,9 @@ msgstr "Non"
 msgid "No access"
 msgstr "Pas d'accès"
 
+msgid "No action"
+msgstr ""
+
 msgid "No authentication and no privacy"
 msgstr "Aucune authentification"
 
@@ -2072,6 +2123,9 @@ msgstr "Unité organisationnelle"
 
 msgid "Others"
 msgstr "Autres"
+
+msgid "Outgoing"
+msgstr ""
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Adresse serveur de messagerie SMTP (ex: smtp.mycorp.com)."
@@ -2356,6 +2410,9 @@ msgstr "RAID 6"
 msgid "RAID Management"
 msgstr "Gestion du RAID"
 
+msgid "RFC931"
+msgstr ""
+
 msgid "RSync server"
 msgstr "Serveur RSync"
 
@@ -2373,6 +2430,9 @@ msgstr "Lecture seule"
 
 msgid "Read/Write"
 msgstr "Lecture/Ecriture"
+
+msgid "Real"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Redémarrer"
@@ -2403,6 +2463,9 @@ msgstr "Restant"
 
 msgid "Remote"
 msgstr "Distant"
+
+msgid "Remote host"
+msgstr ""
 
 msgid "Remote syslog"
 msgstr "Syslog distant"
@@ -2669,6 +2732,9 @@ msgstr "Découverte des services"
 msgid "Service disabled"
 msgstr "Service désactivé"
 
+msgid "Servicename"
+msgstr ""
+
 msgid "Services"
 msgstr "Services"
 
@@ -2808,6 +2874,9 @@ msgstr "Corée du Sud"
 msgid "Spain"
 msgstr "Espagne"
 
+msgid "Special action flag"
+msgstr ""
+
 msgid "Specifies how many server threads to create."
 msgstr "Indique le nombre de threads à créer."
 
@@ -2943,6 +3012,9 @@ msgstr "Journaux système"
 
 msgid "System time"
 msgstr "Date système"
+
+msgid "TAR"
+msgstr ""
 
 msgid "TCP forwarding"
 msgstr "Transmission TCP"
@@ -3338,6 +3410,15 @@ msgstr "Tokelau"
 msgid "Tonga"
 msgstr "Tonga"
 
+msgid "Transfer log"
+msgstr ""
+
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Traps"
 msgstr "Trappes"
 
@@ -3385,6 +3466,9 @@ msgstr "Ouganda"
 
 msgid "Ukraine"
 msgstr "Ukraine"
+
+msgid "Uncompressed"
+msgstr ""
 
 msgid "Uninstall"
 msgstr "Désinstaller"

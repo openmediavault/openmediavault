@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 17:42+0200\n"
-"PO-Revision-Date: 2013-10-14 15:42+0000\n"
+"POT-Creation-Date: 2013-10-17 12:43+0200\n"
+"PO-Revision-Date: 2013-10-17 21:25+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -162,11 +162,17 @@ msgstr "Υπάρχει ήδη κοινόχρηστος φάκελος με το 
 msgid "ACL"
 msgstr "Λίστα Διαχείρισης Πρόσβασης"
 
+msgid "ASCII"
+msgstr ""
+
 msgid "About"
 msgstr "Σχετικά"
 
 msgid "Access Right Management"
 msgstr "Διαχείριση Δικαιωμάτων Πρόσβασης"
+
+msgid "Access mode"
+msgstr ""
 
 msgid "Act as a WINS server."
 msgstr "Λειτουργεία ως διακομιστής WINS"
@@ -322,6 +328,9 @@ msgstr "Angola"
 msgid "Anguilla"
 msgstr "Anguilla"
 
+msgid "Anonymous"
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "Ανόνυμη πρόσβαση FTP"
 
@@ -379,6 +388,9 @@ msgstr "Austria"
 msgid "Authenticate users"
 msgstr "Πιστοποίηση χρηστών"
 
+msgid "Authenticated user ID"
+msgstr ""
+
 msgid "Authentication"
 msgstr "Πιστοποίηση"
 
@@ -387,6 +399,9 @@ msgstr "Πιστοποίηση χωρίς ιδιωτικότητα"
 
 msgid "Authentication and privacy"
 msgstr "Πιστοποίηση με ιδιωτικότητα"
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Authentication passphrase"
 msgstr "Κωδικός πιστοποίησης"
@@ -444,6 +459,9 @@ msgstr "Bermuda"
 
 msgid "Bhutan"
 msgstr "Bhutan"
+
+msgid "Binary"
+msgstr ""
 
 msgid "Blocksize"
 msgstr "Μέγεθος τμήματος"
@@ -603,11 +621,20 @@ msgstr "Κοινότητα"
 msgid "Comoros"
 msgstr "Comoros"
 
+msgid "Complete"
+msgstr ""
+
+msgid "Completion status"
+msgstr ""
+
 msgid "Compress"
 msgstr "Συμπίεση"
 
 msgid "Compress file data during the transfer"
 msgstr "Συμπίεση αρχείων κατά την μεταφορά"
+
+msgid "Compressed"
+msgstr ""
 
 msgid "Compression"
 msgstr "Συμπίεση"
@@ -1044,6 +1071,9 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Αν ενεργοποιηθεί, τα ημιτελή αρχεία θα διατηρούνται, αλλιώς θα διαγράφονται εφόσον διακοπεί η μεταφορά τους."
 
+msgid "Enable transfer log"
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr "Ενεργοποίηση πιστοποίησης χρηστών"
 
@@ -1122,6 +1152,9 @@ msgstr "Επιπλέον ρυθμίσεις"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1183,6 +1216,9 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Αρχείο"
 
+msgid "Filename"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1192,6 +1228,9 @@ msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
 msgstr "Αρχεία μεγαλύτερα από το προσδιορισμένο μέγεθος, δεν θα τοποθετούνται στον κάδο ανακύκλωσης. Το 0 σημαίνει απεριόριστο μέγεθος."
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Filesystem"
 msgstr "Σύστημα αρχείων"
@@ -1318,6 +1357,9 @@ msgstr "Guam"
 
 msgid "Guatemala"
 msgstr "Guatemala"
+
+msgid "Guest"
+msgstr ""
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1475,6 +1517,12 @@ msgid ""
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "Σε μερικές περιπτώσεις θα πρέπει να ορίσετε ένα εύρος παθητικών θυρών για να παρακάμψετε τους περιορισμούς του συστήματος ασφαλείας. Οι παθητικές θύρες περιορίζουν το εύρος των θυρών απο τις οποίες θα επιλέγει ο διακομιστής όταν δέχεται την εντολή PASV από έναν πελάτη. Θα επιλέγεται τυχαία κάποια θύρα από το δωσμένο εύρος, ώσπου να βρεθεί κάποια ανοιχτή. Οι δωσμένες θύρες θα πρέπει μην βρίσκονται στο προνομιακό εύρος (δηλαδή πρέπει να είναι πάνω από το 1024). Συνίσταται να δωθεί αρκετά μεγάλο εύρος (π.χ. 49152-65534), ώστε να υπάρχει περιθώριο χειρισμού αρκετών ταυτόχρονων παθητικών συνδέσεων."
+
+msgid "Incoming"
+msgstr ""
+
+msgid "Incomplete"
+msgstr ""
 
 msgid "Incorrect username or password."
 msgstr "Λανθασμένο όνομα χρήστη ή κωδικός."
@@ -1968,6 +2016,9 @@ msgstr "Όχι"
 msgid "No access"
 msgstr "Καμία πρόσβαση"
 
+msgid "No action"
+msgstr ""
+
 msgid "No authentication and no privacy"
 msgstr "Χωρίς πιστοποίηση και χωρίς ιδιοτικότητα"
 
@@ -2069,6 +2120,9 @@ msgstr "Μονάδα οργάνωσης"
 
 msgid "Others"
 msgstr "Λοιποί"
+
+msgid "Outgoing"
+msgstr ""
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Διεύθυνση διακομιστή SMTP εξερχόμενης αλληλογραφίας, π.χ. smtp.mycorp.com."
@@ -2353,6 +2407,9 @@ msgstr "RAID 6"
 msgid "RAID Management"
 msgstr "Διαχείριση RAID"
 
+msgid "RFC931"
+msgstr ""
+
 msgid "RSync server"
 msgstr "Διακομιστής απομακρυσμένου συγχρονισμού"
 
@@ -2370,6 +2427,9 @@ msgstr "Μόνο για ανάγνωση"
 
 msgid "Read/Write"
 msgstr "Ανάγνωση & εγγραφή"
+
+msgid "Real"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Επανεκκίνηση"
@@ -2400,6 +2460,9 @@ msgstr "Απομένει"
 
 msgid "Remote"
 msgstr "Απομακρυσμένος"
+
+msgid "Remote host"
+msgstr ""
 
 msgid "Remote syslog"
 msgstr "Απομακρυσμένη καταγραφη"
@@ -2666,6 +2729,9 @@ msgstr "Ανακάλυψη Υπηρεσιών"
 msgid "Service disabled"
 msgstr "Ανενεργή υπηρεσία"
 
+msgid "Servicename"
+msgstr ""
+
 msgid "Services"
 msgstr "Υπηρεσίες"
 
@@ -2805,6 +2871,9 @@ msgstr "South Korea"
 msgid "Spain"
 msgstr "Spain"
 
+msgid "Special action flag"
+msgstr ""
+
 msgid "Specifies how many server threads to create."
 msgstr "Αριθμός νημάτων εξυπηρέτησης προς δημιουργία"
 
@@ -2940,6 +3009,9 @@ msgstr "Καταγραφή συστήματος"
 
 msgid "System time"
 msgstr "Ώρα συστήματος"
+
+msgid "TAR"
+msgstr ""
 
 msgid "TCP forwarding"
 msgstr "Προώθηση TCP"
@@ -3335,6 +3407,15 @@ msgstr "Tokelau"
 msgid "Tonga"
 msgstr "Tonga"
 
+msgid "Transfer log"
+msgstr ""
+
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Traps"
 msgstr "Διεγέρσεις"
 
@@ -3382,6 +3463,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukraine"
+
+msgid "Uncompressed"
+msgstr ""
 
 msgid "Uninstall"
 msgstr "Απεγκατάσταση"

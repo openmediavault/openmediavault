@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 17:42+0200\n"
-"PO-Revision-Date: 2013-10-14 15:42+0000\n"
+"POT-Creation-Date: 2013-10-17 12:43+0200\n"
+"PO-Revision-Date: 2013-10-17 21:25+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -164,11 +164,17 @@ msgstr "Xa existe un cartafol compartido co mesmo nome"
 msgid "ACL"
 msgstr "ACL"
 
+msgid "ASCII"
+msgstr ""
+
 msgid "About"
 msgstr "Sobre"
 
 msgid "Access Right Management"
 msgstr "Acceso a administración de dereitos"
+
+msgid "Access mode"
+msgstr ""
 
 msgid "Act as a WINS server."
 msgstr "Actuar como servidor WINS."
@@ -324,6 +330,9 @@ msgstr "Angola"
 msgid "Anguilla"
 msgstr "Anguila"
 
+msgid "Anonymous"
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "FTP anónimo"
 
@@ -381,6 +390,9 @@ msgstr "Austria"
 msgid "Authenticate users"
 msgstr "Autenticar aos usuarios"
 
+msgid "Authenticated user ID"
+msgstr ""
+
 msgid "Authentication"
 msgstr "Autenticación"
 
@@ -389,6 +401,9 @@ msgstr "Autenticación e sen intimidade"
 
 msgid "Authentication and privacy"
 msgstr "Autenticación e intimidade"
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Authentication passphrase"
 msgstr "Contrasinal de autenticación"
@@ -446,6 +461,9 @@ msgstr "Bermuda"
 
 msgid "Bhutan"
 msgstr "Bután"
+
+msgid "Binary"
+msgstr ""
 
 msgid "Blocksize"
 msgstr "Tamaño do bloque"
@@ -605,11 +623,20 @@ msgstr "Comunidade"
 msgid "Comoros"
 msgstr "Comores"
 
+msgid "Complete"
+msgstr ""
+
+msgid "Completion status"
+msgstr ""
+
 msgid "Compress"
 msgstr "Comprimir"
 
 msgid "Compress file data during the transfer"
 msgstr "Comprimir os datos durante a transferencia"
+
+msgid "Compressed"
+msgstr ""
 
 msgid "Compression"
 msgstr "Compresión"
@@ -1046,6 +1073,9 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Active esta opción para manter os ficheiros transferidos parcialmente, pola contra eliminaranse se se interrompe a transferencia."
 
+msgid "Enable transfer log"
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr "Activar a autenticación de usuario"
 
@@ -1124,6 +1154,9 @@ msgstr "Opcións adicionais"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1185,6 +1218,9 @@ msgstr "Fidxi"
 msgid "File"
 msgstr "Ficheiro"
 
+msgid "Filename"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1194,6 +1230,9 @@ msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
 msgstr "Os ficheiros exceden do número especificado de bytes para que se poidan enviar ao cesto do lixo. Estabelézao en 0 para non restrinxir o tamaño dos ficheiros."
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Filesystem"
 msgstr "Sistema de ficheiros"
@@ -1320,6 +1359,9 @@ msgstr "Guam"
 
 msgid "Guatemala"
 msgstr "Guatemala"
+
+msgid "Guest"
+msgstr ""
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1477,6 +1519,12 @@ msgid ""
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "Nalgúns casos ten que especificar o intervalo de portos pasivos para as limitacións do desvío da devasa. Os portos pasivos restrinxen o intervalo de portos desde os que se seleccionará o servidor cando se envía a orde PASV desde un cliente. O servidor seleccionará ao chou un número dentro do intervalo especificado ata que atopa un porto aberto. O intervalo de portos seleccionado debe estar nun intervalo non privilexiado (p.ex. maior que ou igual a 1024). Recomendase que o intervalo escollido sexa grande abondo como para manexar moitas conexións pasivas simultáneas (por exemplo, 49152-65534, o intervalo efémero de portos rexistrados IANA)."
+
+msgid "Incoming"
+msgstr ""
+
+msgid "Incomplete"
+msgstr ""
 
 msgid "Incorrect username or password."
 msgstr "Nome de usuario ou contrasinal incorrecto"
@@ -1970,6 +2018,9 @@ msgstr "Non"
 msgid "No access"
 msgstr "Sen acceso"
 
+msgid "No action"
+msgstr ""
+
 msgid "No authentication and no privacy"
 msgstr "Sen autenticación e sen intimidade"
 
@@ -2071,6 +2122,9 @@ msgstr "Unidade de organización"
 
 msgid "Others"
 msgstr "Outros"
+
+msgid "Outgoing"
+msgstr ""
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Enderezo do servidor de correo SMTP saínte, p.ex. smtp.nosaempresa.com"
@@ -2355,6 +2409,9 @@ msgstr "RAID 6"
 msgid "RAID Management"
 msgstr "Xestión do RAID"
 
+msgid "RFC931"
+msgstr ""
+
 msgid "RSync server"
 msgstr "Servidor RSync"
 
@@ -2372,6 +2429,9 @@ msgstr "Só lectura"
 
 msgid "Read/Write"
 msgstr "Lectura/Escritura"
+
+msgid "Real"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Reiniciar"
@@ -2402,6 +2462,9 @@ msgstr "Restante"
 
 msgid "Remote"
 msgstr "Remoto"
+
+msgid "Remote host"
+msgstr ""
 
 msgid "Remote syslog"
 msgstr "Rexistro remoto do sistema"
@@ -2668,6 +2731,9 @@ msgstr "Descuberta de servizos"
 msgid "Service disabled"
 msgstr "Servizo desactivado"
 
+msgid "Servicename"
+msgstr ""
+
 msgid "Services"
 msgstr "Servizos"
 
@@ -2807,6 +2873,9 @@ msgstr "Corea do Sur"
 msgid "Spain"
 msgstr "España"
 
+msgid "Special action flag"
+msgstr ""
+
 msgid "Specifies how many server threads to create."
 msgstr "Especifica o número de subprocesos a crear no servidor."
 
@@ -2942,6 +3011,9 @@ msgstr "Rexistros do sistema"
 
 msgid "System time"
 msgstr "Hora do sistema"
+
+msgid "TAR"
+msgstr ""
 
 msgid "TCP forwarding"
 msgstr "Reenvío TCP"
@@ -3337,6 +3409,15 @@ msgstr "Toquelau"
 msgid "Tonga"
 msgstr "Tonga"
 
+msgid "Transfer log"
+msgstr ""
+
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Traps"
 msgstr "Trampas"
 
@@ -3384,6 +3465,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ucraína"
+
+msgid "Uncompressed"
+msgstr ""
 
 msgid "Uninstall"
 msgstr "Desinstalar"

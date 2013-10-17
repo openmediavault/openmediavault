@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 17:42+0200\n"
-"PO-Revision-Date: 2013-10-14 18:07+0000\n"
-"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
+"POT-Creation-Date: 2013-10-17 12:43+0200\n"
+"PO-Revision-Date: 2013-10-17 21:25+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -164,11 +164,17 @@ msgstr "Er bestaat al een gedeelde map met de opgegeven naam"
 msgid "ACL"
 msgstr "ACL"
 
+msgid "ASCII"
+msgstr ""
+
 msgid "About"
 msgstr "Over"
 
 msgid "Access Right Management"
 msgstr "Toegangsrechten beheren"
+
+msgid "Access mode"
+msgstr ""
 
 msgid "Act as a WINS server."
 msgstr "Voordoen als een WINS server."
@@ -324,6 +330,9 @@ msgstr "Angola"
 msgid "Anguilla"
 msgstr "Anguilla"
 
+msgid "Anonymous"
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "Anonieme FTP"
 
@@ -381,6 +390,9 @@ msgstr "Oostenrijk"
 msgid "Authenticate users"
 msgstr "Authenticatie van gebruikers"
 
+msgid "Authenticated user ID"
+msgstr ""
+
 msgid "Authentication"
 msgstr "Authenticatie"
 
@@ -389,6 +401,9 @@ msgstr "Authenticatie en geen privacy"
 
 msgid "Authentication and privacy"
 msgstr "Authenticatie en privacy"
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Authentication passphrase"
 msgstr "Authenticatie wachtwoord"
@@ -446,6 +461,9 @@ msgstr "Bermuda"
 
 msgid "Bhutan"
 msgstr "Bhutan"
+
+msgid "Binary"
+msgstr ""
 
 msgid "Blocksize"
 msgstr "Blokgrootte"
@@ -605,11 +623,20 @@ msgstr "Gemeenschap"
 msgid "Comoros"
 msgstr "Comoren"
 
+msgid "Complete"
+msgstr ""
+
+msgid "Completion status"
+msgstr ""
+
 msgid "Compress"
 msgstr "Comprimeren"
 
 msgid "Compress file data during the transfer"
 msgstr "Comprimeer bestandsgegevens tijdens de overdracht"
+
+msgid "Compressed"
+msgstr ""
 
 msgid "Compression"
 msgstr "Compressie"
@@ -1046,6 +1073,9 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr ""
 
+msgid "Enable transfer log"
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr "Gebruikers authenticatie inschakelen"
 
@@ -1124,6 +1154,9 @@ msgstr "Extra opties"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1185,6 +1218,9 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Bestand"
 
+msgid "Filename"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1193,6 +1229,9 @@ msgstr ""
 msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
+
+msgid "Filesize"
 msgstr ""
 
 msgid "Filesystem"
@@ -1320,6 +1359,9 @@ msgstr "Guam"
 
 msgid "Guatemala"
 msgstr "Guatemala"
+
+msgid "Guest"
+msgstr ""
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1477,6 +1519,12 @@ msgid ""
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "In sommige gevallen moet je het bereik van passieve poorten opgeven om firewall beperkingen te omzeilen. Passieve poorten beperken het bereik van poorten van waaruit de server zal kiezen, wanneer het PASV commando van een cliënt is verzonden. De server zal willekeurig een nummer kiezen vanuit het opgegeven bereik totdat een open poort is gevonden. Het geselecteerde poortbereik moet in het niet-geprivilegieerde bereik liggen (b.v. groter of gelijk aan 1024). Het wordt ten zeerste aanbevolen dat het gekozen bereik groot genoeg is om veel gelijktijdige passieve verbindingen af te handelen (b.v. 49152-65534, het IANA-geregistreerde tijdelijke poortbereik)."
+
+msgid "Incoming"
+msgstr ""
+
+msgid "Incomplete"
+msgstr ""
 
 msgid "Incorrect username or password."
 msgstr "Ongeldige gebruikersnaam of paswoord."
@@ -1970,6 +2018,9 @@ msgstr "Nee"
 msgid "No access"
 msgstr "Geen toegang"
 
+msgid "No action"
+msgstr ""
+
 msgid "No authentication and no privacy"
 msgstr "Geen authenticatie en geen privacy"
 
@@ -2071,6 +2122,9 @@ msgstr "Organisatie eenheid"
 
 msgid "Others"
 msgstr "Anderen"
+
+msgid "Outgoing"
+msgstr ""
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Uitgaande SMTP mail server adres, b.v. smtp.mycorp.com."
@@ -2355,6 +2409,9 @@ msgstr "RAID 6"
 msgid "RAID Management"
 msgstr "RAID Beheer"
 
+msgid "RFC931"
+msgstr ""
+
 msgid "RSync server"
 msgstr "RSync server"
 
@@ -2372,6 +2429,9 @@ msgstr "Alleen lezen"
 
 msgid "Read/Write"
 msgstr "Lezen/Schrijven"
+
+msgid "Real"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Reboot"
@@ -2402,6 +2462,9 @@ msgstr "Overgebleven"
 
 msgid "Remote"
 msgstr "Op afstand"
+
+msgid "Remote host"
+msgstr ""
 
 msgid "Remote syslog"
 msgstr "Syslog op afstand"
@@ -2668,6 +2731,9 @@ msgstr "Service Ontdekking"
 msgid "Service disabled"
 msgstr "Service uitgeschakeld"
 
+msgid "Servicename"
+msgstr ""
+
 msgid "Services"
 msgstr "Diensten"
 
@@ -2807,6 +2873,9 @@ msgstr "Zuid Korea"
 msgid "Spain"
 msgstr "Spanje"
 
+msgid "Special action flag"
+msgstr ""
+
 msgid "Specifies how many server threads to create."
 msgstr "Geeft aan hoeveel server threads er aangemaakt worden."
 
@@ -2942,6 +3011,9 @@ msgstr "Systeem Logbestanden"
 
 msgid "System time"
 msgstr "Systeem tijd"
+
+msgid "TAR"
+msgstr ""
 
 msgid "TCP forwarding"
 msgstr "TCP forwarden"
@@ -3337,6 +3409,15 @@ msgstr "Tokelau"
 msgid "Tonga"
 msgstr "Tonga"
 
+msgid "Transfer log"
+msgstr ""
+
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Traps"
 msgstr "Valluiken"
 
@@ -3384,6 +3465,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukraïne"
+
+msgid "Uncompressed"
+msgstr ""
 
 msgid "Uninstall"
 msgstr "Verwijderen"

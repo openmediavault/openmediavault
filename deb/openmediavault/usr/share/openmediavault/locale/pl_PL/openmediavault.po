@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 17:42+0200\n"
-"PO-Revision-Date: 2013-10-14 15:42+0000\n"
+"POT-Creation-Date: 2013-10-17 12:43+0200\n"
+"PO-Revision-Date: 2013-10-17 21:25+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -166,11 +166,17 @@ msgstr "Udostępniony katalog z podaną nazwą już istnieje."
 msgid "ACL"
 msgstr "ACL"
 
+msgid "ASCII"
+msgstr ""
+
 msgid "About"
 msgstr "O"
 
 msgid "Access Right Management"
 msgstr "Ustawienia dostępu"
+
+msgid "Access mode"
+msgstr ""
 
 msgid "Act as a WINS server."
 msgstr "Zachowuj się jak serwer WINS."
@@ -326,6 +332,9 @@ msgstr "Angola"
 msgid "Anguilla"
 msgstr "Anguilla"
 
+msgid "Anonymous"
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "Anonimowy FTP"
 
@@ -383,6 +392,9 @@ msgstr "Austria"
 msgid "Authenticate users"
 msgstr "Uwierzytelnianie użytkownika"
 
+msgid "Authenticated user ID"
+msgstr ""
+
 msgid "Authentication"
 msgstr "Uwierzytelnienie"
 
@@ -391,6 +403,9 @@ msgstr "Uwierzytelnianie i brak prywatności"
 
 msgid "Authentication and privacy"
 msgstr "Uwierzytelnianie i prywatność"
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Authentication passphrase"
 msgstr "Hasło uwierzytelniające"
@@ -448,6 +463,9 @@ msgstr "Bermuda"
 
 msgid "Bhutan"
 msgstr "Bhutan"
+
+msgid "Binary"
+msgstr ""
 
 msgid "Blocksize"
 msgstr "Wielkość bloku"
@@ -607,11 +625,20 @@ msgstr "Społeczność"
 msgid "Comoros"
 msgstr "Comoros"
 
+msgid "Complete"
+msgstr ""
+
+msgid "Completion status"
+msgstr ""
+
 msgid "Compress"
 msgstr "Kompresuj"
 
 msgid "Compress file data during the transfer"
 msgstr "Kompresja danych podczas transferu"
+
+msgid "Compressed"
+msgstr ""
 
 msgid "Compression"
 msgstr "Kompresja"
@@ -1048,6 +1075,9 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Włącz tę opcję, aby zachować częściowo przesłane pliki, w przeciwnym razie zostaną one usunięte gdy transfer zostanie przerywany."
 
+msgid "Enable transfer log"
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr "Włącz uwierzytelnianie użytkownika"
 
@@ -1126,6 +1156,9 @@ msgstr "Dodatkowe opcje"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1187,6 +1220,9 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Plik"
 
+msgid "Filename"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1196,6 +1232,9 @@ msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
 msgstr "Pliki, które są większe niż określona liczba bajtów nie zostanie przeniesiona do kosza. Ustaw na 0 dla nieograniczonego rozmiaru."
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Filesystem"
 msgstr "System plików"
@@ -1322,6 +1361,9 @@ msgstr "Guam"
 
 msgid "Guatemala"
 msgstr "Guatemala"
+
+msgid "Guest"
+msgstr ""
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1479,6 +1521,12 @@ msgid ""
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "W niektórych przypadkach trzeba określić zakres portów pasywny do obejścia zapory ograniczenia. Pasywnych portach ogranicza zakres portów, z których serwer wybierze gdy wysłane przez klienta polecenia PASV. Serwer będzie losowo wybrać numer z określonego zakresu, do czasu otworzenia portu. Zakres portów, zaznaczone musi być w zakresie nieuprzywilejowanego (np. większa niż lub równa 1024). Zaleca się, że wybrany zakres był wystarczająco duży, aby obsługiwać wiele jednoczesnych połączeń pasywne (na przykład 49152-65534, zakres portów tymczasowych IANA zarejestrowane)."
+
+msgid "Incoming"
+msgstr ""
+
+msgid "Incomplete"
+msgstr ""
 
 msgid "Incorrect username or password."
 msgstr "Nieprawidłowa nazwa użytkownika lub hasło."
@@ -1972,6 +2020,9 @@ msgstr "Nie"
 msgid "No access"
 msgstr "Brak dostępu"
 
+msgid "No action"
+msgstr ""
+
 msgid "No authentication and no privacy"
 msgstr "Brak uwierzytelniania i prywatności"
 
@@ -2073,6 +2124,9 @@ msgstr "Jednostka organizacyjna"
 
 msgid "Others"
 msgstr "Inni"
+
+msgid "Outgoing"
+msgstr ""
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Adres SMTP poczty wychodzącej, np: smtp.mycorp.com."
@@ -2357,6 +2411,9 @@ msgstr "RAID 6"
 msgid "RAID Management"
 msgstr "Zarządzanie RAID"
 
+msgid "RFC931"
+msgstr ""
+
 msgid "RSync server"
 msgstr "Serwer RSync"
 
@@ -2374,6 +2431,9 @@ msgstr "Tylko odczyt"
 
 msgid "Read/Write"
 msgstr "Czytanie/Zapis"
+
+msgid "Real"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Restart"
@@ -2404,6 +2464,9 @@ msgstr "Pozostaje"
 
 msgid "Remote"
 msgstr "Zdalny"
+
+msgid "Remote host"
+msgstr ""
 
 msgid "Remote syslog"
 msgstr "Zdalny syslog"
@@ -2670,6 +2733,9 @@ msgstr "Odnajdywanie serwisów"
 msgid "Service disabled"
 msgstr "Usługa wyłączona"
 
+msgid "Servicename"
+msgstr ""
+
 msgid "Services"
 msgstr "Usługi"
 
@@ -2809,6 +2875,9 @@ msgstr "South Korea"
 msgid "Spain"
 msgstr "Spain"
 
+msgid "Special action flag"
+msgstr ""
+
 msgid "Specifies how many server threads to create."
 msgstr "Określa liczbę wątków serwera do utworzenia."
 
@@ -2944,6 +3013,9 @@ msgstr "Logi systemowe"
 
 msgid "System time"
 msgstr "Czas systemowy"
+
+msgid "TAR"
+msgstr ""
 
 msgid "TCP forwarding"
 msgstr "Przekazywanie TCP"
@@ -3339,6 +3411,15 @@ msgstr "Tokelau"
 msgid "Tonga"
 msgstr "Tonga"
 
+msgid "Transfer log"
+msgstr ""
+
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Traps"
 msgstr "Pułapki"
 
@@ -3386,6 +3467,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukraine"
+
+msgid "Uncompressed"
+msgstr ""
 
 msgid "Uninstall"
 msgstr "Odinstaluj"

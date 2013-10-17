@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 17:42+0200\n"
-"PO-Revision-Date: 2013-10-14 15:42+0000\n"
+"POT-Creation-Date: 2013-10-17 12:43+0200\n"
+"PO-Revision-Date: 2013-10-17 21:25+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -163,11 +163,17 @@ msgstr "Загальна папка з данним ім'ям вже існує"
 msgid "ACL"
 msgstr "Список контролю доступа"
 
+msgid "ASCII"
+msgstr ""
+
 msgid "About"
 msgstr "Про"
 
 msgid "Access Right Management"
 msgstr "Менеджер прав доступу"
+
+msgid "Access mode"
+msgstr ""
 
 msgid "Act as a WINS server."
 msgstr "Виступати в якості WINS сервера."
@@ -323,6 +329,9 @@ msgstr "Angola"
 msgid "Anguilla"
 msgstr "Anguilla"
 
+msgid "Anonymous"
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "Anonymous FTP"
 
@@ -380,6 +389,9 @@ msgstr "Austria"
 msgid "Authenticate users"
 msgstr "Аутентифікація користувачів"
 
+msgid "Authenticated user ID"
+msgstr ""
+
 msgid "Authentication"
 msgstr "Аутентифікація"
 
@@ -387,6 +399,9 @@ msgid "Authentication and no privacy"
 msgstr ""
 
 msgid "Authentication and privacy"
+msgstr ""
+
+msgid "Authentication method"
 msgstr ""
 
 msgid "Authentication passphrase"
@@ -445,6 +460,9 @@ msgstr "Bermuda"
 
 msgid "Bhutan"
 msgstr "Bhutan"
+
+msgid "Binary"
+msgstr ""
 
 msgid "Blocksize"
 msgstr "Розмір блоку"
@@ -604,11 +622,20 @@ msgstr "Спільнота"
 msgid "Comoros"
 msgstr "Comoros"
 
+msgid "Complete"
+msgstr ""
+
+msgid "Completion status"
+msgstr ""
+
 msgid "Compress"
 msgstr "Стискати"
 
 msgid "Compress file data during the transfer"
 msgstr "Стискати файл під час передачі"
+
+msgid "Compressed"
+msgstr ""
 
 msgid "Compression"
 msgstr "Стискання"
@@ -1045,6 +1072,9 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr ""
 
+msgid "Enable transfer log"
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr "Увімкнути аутентифікацію користувача"
 
@@ -1123,6 +1153,9 @@ msgstr "Додаткові опції"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1184,6 +1217,9 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Файл"
 
+msgid "Filename"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1192,6 +1228,9 @@ msgstr ""
 msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
+
+msgid "Filesize"
 msgstr ""
 
 msgid "Filesystem"
@@ -1319,6 +1358,9 @@ msgstr "Guam"
 
 msgid "Guatemala"
 msgstr "Guatemala"
+
+msgid "Guest"
+msgstr ""
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1475,6 +1517,12 @@ msgid ""
 "greater than or equal to 1024). It is strongly recommended that the chosen "
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr ""
+
+msgid "Incoming"
+msgstr ""
+
+msgid "Incomplete"
 msgstr ""
 
 msgid "Incorrect username or password."
@@ -1969,6 +2017,9 @@ msgstr "Ні"
 msgid "No access"
 msgstr ""
 
+msgid "No action"
+msgstr ""
+
 msgid "No authentication and no privacy"
 msgstr ""
 
@@ -2070,6 +2121,9 @@ msgstr "Підрозділ"
 
 msgid "Others"
 msgstr "Інше"
+
+msgid "Outgoing"
+msgstr ""
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr ""
@@ -2354,6 +2408,9 @@ msgstr ""
 msgid "RAID Management"
 msgstr ""
 
+msgid "RFC931"
+msgstr ""
+
 msgid "RSync server"
 msgstr ""
 
@@ -2370,6 +2427,9 @@ msgid "Read-only"
 msgstr ""
 
 msgid "Read/Write"
+msgstr ""
+
+msgid "Real"
 msgstr ""
 
 msgid "Reboot"
@@ -2401,6 +2461,9 @@ msgstr ""
 
 msgid "Remote"
 msgstr "Віддалений"
+
+msgid "Remote host"
+msgstr ""
 
 msgid "Remote syslog"
 msgstr "Віддалений системний лог"
@@ -2667,6 +2730,9 @@ msgstr ""
 msgid "Service disabled"
 msgstr ""
 
+msgid "Servicename"
+msgstr ""
+
 msgid "Services"
 msgstr ""
 
@@ -2806,6 +2872,9 @@ msgstr "South Korea"
 msgid "Spain"
 msgstr "Spain"
 
+msgid "Special action flag"
+msgstr ""
+
 msgid "Specifies how many server threads to create."
 msgstr ""
 
@@ -2940,6 +3009,9 @@ msgid "System Logs"
 msgstr ""
 
 msgid "System time"
+msgstr ""
+
+msgid "TAR"
 msgstr ""
 
 msgid "TCP forwarding"
@@ -3336,6 +3408,15 @@ msgstr ""
 msgid "Tonga"
 msgstr ""
 
+msgid "Transfer log"
+msgstr ""
+
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Traps"
 msgstr ""
 
@@ -3382,6 +3463,9 @@ msgid "Uganda"
 msgstr ""
 
 msgid "Ukraine"
+msgstr ""
+
+msgid "Uncompressed"
 msgstr ""
 
 msgid "Uninstall"

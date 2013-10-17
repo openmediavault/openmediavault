@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 17:42+0200\n"
-"PO-Revision-Date: 2013-10-14 15:42+0000\n"
+"POT-Creation-Date: 2013-10-17 12:43+0200\n"
+"PO-Revision-Date: 2013-10-17 21:25+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -163,11 +163,17 @@ msgstr "En delt mappe med det gitte navnet eksisterer allerede"
 msgid "ACL"
 msgstr "ACL"
 
+msgid "ASCII"
+msgstr ""
+
 msgid "About"
 msgstr "Om"
 
 msgid "Access Right Management"
 msgstr "Adgangsrettigheter"
+
+msgid "Access mode"
+msgstr ""
 
 msgid "Act as a WINS server."
 msgstr "Funger som WINS server"
@@ -323,6 +329,9 @@ msgstr "Angola"
 msgid "Anguilla"
 msgstr "Anguilla"
 
+msgid "Anonymous"
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "Anonym FTP"
 
@@ -380,6 +389,9 @@ msgstr "Østerike"
 msgid "Authenticate users"
 msgstr "Godkjente brukere"
 
+msgid "Authenticated user ID"
+msgstr ""
+
 msgid "Authentication"
 msgstr "Godkjenning"
 
@@ -388,6 +400,9 @@ msgstr "Autentisering og ingen kryptering"
 
 msgid "Authentication and privacy"
 msgstr "Autentisering og kryptering"
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Authentication passphrase"
 msgstr "Godkjenningspassord"
@@ -445,6 +460,9 @@ msgstr "Bermuda"
 
 msgid "Bhutan"
 msgstr "Bhutan"
+
+msgid "Binary"
+msgstr ""
 
 msgid "Blocksize"
 msgstr "Blokkstørrelse"
@@ -604,11 +622,20 @@ msgstr "Community"
 msgid "Comoros"
 msgstr "Komorene"
 
+msgid "Complete"
+msgstr ""
+
+msgid "Completion status"
+msgstr ""
+
 msgid "Compress"
 msgstr "Komprimer"
 
 msgid "Compress file data during the transfer"
 msgstr "Komprimer data under overføring"
+
+msgid "Compressed"
+msgstr ""
 
 msgid "Compression"
 msgstr "Komprimering"
@@ -1045,6 +1072,9 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr "Aktiver dette alternativet for å beholde delvis overførte filer, ellers vil de bli slettet hvis overføringen blir avbrutt."
 
+msgid "Enable transfer log"
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr "Aktiver brukerautentisering"
 
@@ -1123,6 +1153,9 @@ msgstr "Avanserte alternativer"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1184,6 +1217,9 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Fil"
 
+msgid "Filename"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1193,6 +1229,9 @@ msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
 msgstr "Filer som er større enn det angitte antallet byte vil ikke bli satt inn i papirkurven. Sett til 0 for ubegrenset filstørrelse."
+
+msgid "Filesize"
+msgstr ""
 
 msgid "Filesystem"
 msgstr "Filsystem"
@@ -1319,6 +1358,9 @@ msgstr "Guam"
 
 msgid "Guatemala"
 msgstr "Guatemala"
+
+msgid "Guest"
+msgstr ""
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1476,6 +1518,12 @@ msgid ""
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "I noen tilfeller må du spesifisere passiv portområde for å omgå begrensninger i brannmuren. Passive porter begrenser portområdet serveren vil velge når PASV kommando fra en klient er mottatt. Serveren vil tilfeldig velge et nummer innenfor det angitte området inntil en åpen port blir funnet. Portområdet som er valgt må være i ikke-privilegerte område (dvs. større enn eller lik 1024). Det anbefales sterkt at det valgte området er stort nok til å håndtere mange samtidige passive tilkoblinger (for eksempel 49152-65534, altså det IANA-registrerte flyktige portområdet)."
+
+msgid "Incoming"
+msgstr ""
+
+msgid "Incomplete"
+msgstr ""
 
 msgid "Incorrect username or password."
 msgstr "Feil brukernavn eller passord."
@@ -1969,6 +2017,9 @@ msgstr "Nei"
 msgid "No access"
 msgstr "Ingen tilgang"
 
+msgid "No action"
+msgstr ""
+
 msgid "No authentication and no privacy"
 msgstr "Ingen autentisering og ingen kryptering"
 
@@ -2070,6 +2121,9 @@ msgstr "Organisasjonsenhet"
 
 msgid "Others"
 msgstr "Andre"
+
+msgid "Outgoing"
+msgstr ""
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Utgående SMTP epostserver adresse, f.eks. smtp.mycorp.com."
@@ -2354,6 +2408,9 @@ msgstr "RAID 6"
 msgid "RAID Management"
 msgstr "RAID Administrasjon"
 
+msgid "RFC931"
+msgstr ""
+
 msgid "RSync server"
 msgstr "RSync server"
 
@@ -2371,6 +2428,9 @@ msgstr "Kun lesing"
 
 msgid "Read/Write"
 msgstr "Les/skriv"
+
+msgid "Real"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Omstart"
@@ -2401,6 +2461,9 @@ msgstr "Gjenstår"
 
 msgid "Remote"
 msgstr "Ekstern"
+
+msgid "Remote host"
+msgstr ""
 
 msgid "Remote syslog"
 msgstr "Ekstern systemlogg"
@@ -2667,6 +2730,9 @@ msgstr "Oppdag tjenester"
 msgid "Service disabled"
 msgstr "Tjeneste deaktivert"
 
+msgid "Servicename"
+msgstr ""
+
 msgid "Services"
 msgstr "Tjenester"
 
@@ -2806,6 +2872,9 @@ msgstr "Sør-Korea"
 msgid "Spain"
 msgstr "Spania"
 
+msgid "Special action flag"
+msgstr ""
+
 msgid "Specifies how many server threads to create."
 msgstr "Angir hvor mange servertråder som skal opprettes."
 
@@ -2941,6 +3010,9 @@ msgstr "Systemlogger"
 
 msgid "System time"
 msgstr "Systemtid"
+
+msgid "TAR"
+msgstr ""
 
 msgid "TCP forwarding"
 msgstr "TCP videresending"
@@ -3336,6 +3408,15 @@ msgstr "Tokelau"
 msgid "Tonga"
 msgstr "Tonga"
 
+msgid "Transfer log"
+msgstr ""
+
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Traps"
 msgstr "Traps"
 
@@ -3383,6 +3464,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukraina"
+
+msgid "Uncompressed"
+msgstr ""
 
 msgid "Uninstall"
 msgstr "Avinstaller"

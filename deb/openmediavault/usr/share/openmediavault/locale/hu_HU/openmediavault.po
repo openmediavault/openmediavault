@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 17:42+0200\n"
-"PO-Revision-Date: 2013-10-14 15:42+0000\n"
+"POT-Creation-Date: 2013-10-17 12:43+0200\n"
+"PO-Revision-Date: 2013-10-17 21:25+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -162,11 +162,17 @@ msgstr "Egy megosztott mappa már létezik a megadott névvel"
 msgid "ACL"
 msgstr "ACL"
 
+msgid "ASCII"
+msgstr ""
+
 msgid "About"
 msgstr "Névjegy"
 
 msgid "Access Right Management"
 msgstr "Hozzáférési Jogok Kezelése"
+
+msgid "Access mode"
+msgstr ""
 
 msgid "Act as a WINS server."
 msgstr "WINS szerverként való viselkedés"
@@ -322,6 +328,9 @@ msgstr "Angola"
 msgid "Anguilla"
 msgstr "Anguilla"
 
+msgid "Anonymous"
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr "Anonymous FTP"
 
@@ -379,6 +388,9 @@ msgstr "Austria"
 msgid "Authenticate users"
 msgstr "Felhasználók hitelesítése"
 
+msgid "Authenticated user ID"
+msgstr ""
+
 msgid "Authentication"
 msgstr "Hitelesítés"
 
@@ -387,6 +399,9 @@ msgstr "Hitelesítés és nincs titkosítás"
 
 msgid "Authentication and privacy"
 msgstr "Hitelesítés és titkosítás"
+
+msgid "Authentication method"
+msgstr ""
 
 msgid "Authentication passphrase"
 msgstr "Hitelesítés jelszó"
@@ -444,6 +459,9 @@ msgstr "Bermuda"
 
 msgid "Bhutan"
 msgstr "Bhutan"
+
+msgid "Binary"
+msgstr ""
 
 msgid "Blocksize"
 msgstr "Blokkméret"
@@ -603,11 +621,20 @@ msgstr "Közösség"
 msgid "Comoros"
 msgstr "Comoros"
 
+msgid "Complete"
+msgstr ""
+
+msgid "Completion status"
+msgstr ""
+
 msgid "Compress"
 msgstr "Tömörítés"
 
 msgid "Compress file data during the transfer"
 msgstr "Fájl adat tömörítése az átvitel során"
+
+msgid "Compressed"
+msgstr ""
 
 msgid "Compression"
 msgstr "Tömörítés"
@@ -1044,6 +1071,9 @@ msgid ""
 "be deleted if the transfer is interrupted."
 msgstr ""
 
+msgid "Enable transfer log"
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr "Felhasználó hitelesítés engedélyezése"
 
@@ -1122,6 +1152,9 @@ msgstr "Extra opciók"
 msgid "FTP"
 msgstr "FTP"
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr "FXP"
 
@@ -1183,6 +1216,9 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Fájl"
 
+msgid "Filename"
+msgstr ""
+
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
@@ -1191,6 +1227,9 @@ msgstr ""
 msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
+
+msgid "Filesize"
 msgstr ""
 
 msgid "Filesystem"
@@ -1318,6 +1357,9 @@ msgstr "Guam"
 
 msgid "Guatemala"
 msgstr "Guatemala"
+
+msgid "Guest"
+msgstr ""
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1475,6 +1517,12 @@ msgid ""
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
 msgstr "Egyes esetekben meg kell adnod passzív port tartományokat a tűzfal korlátozások kikerüléséhez A passzív portok korlátozhatják a portok tartományát, melyből a szerver válogathat, mikor a kliens elküldi a PASV parancsot. A szerver véletlenszerűen választ egy portot a tartományból addig, amíg nyitott portot nem talál. A kiválasztott port tartománynak nem privilegizált tartománynak kell lennie (pl. nagyobb vagy egyenlő mint 1024). Erősen ajánlott olyan nagy tartomány választása, mely elég nagy több passzív kapcsolat egyidejű használatához (például: 49152-65534, az IANA-regisztrált rövid idejű port tartomány)."
+
+msgid "Incoming"
+msgstr ""
+
+msgid "Incomplete"
+msgstr ""
 
 msgid "Incorrect username or password."
 msgstr ""
@@ -1968,6 +2016,9 @@ msgstr "Nem"
 msgid "No access"
 msgstr "Nincs hozzáférés"
 
+msgid "No action"
+msgstr ""
+
 msgid "No authentication and no privacy"
 msgstr "Nincs hitelesítés és nincs titkosítás"
 
@@ -2069,6 +2120,9 @@ msgstr "Szervezeti Egység"
 
 msgid "Others"
 msgstr "Mások"
+
+msgid "Outgoing"
+msgstr ""
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Kimenő SMTP levél szerver címe, pl. smtp.mycorp.com."
@@ -2353,6 +2407,9 @@ msgstr "RAID 6"
 msgid "RAID Management"
 msgstr "RAID Kezelés"
 
+msgid "RFC931"
+msgstr ""
+
 msgid "RSync server"
 msgstr "RSync szerver"
 
@@ -2370,6 +2427,9 @@ msgstr "Csak olvasható"
 
 msgid "Read/Write"
 msgstr "Olvasás/Írás"
+
+msgid "Real"
+msgstr ""
 
 msgid "Reboot"
 msgstr "Újraindítás"
@@ -2400,6 +2460,9 @@ msgstr "Hátralévő"
 
 msgid "Remote"
 msgstr "Távoli"
+
+msgid "Remote host"
+msgstr ""
 
 msgid "Remote syslog"
 msgstr "Távoli rendszernapló"
@@ -2666,6 +2729,9 @@ msgstr ""
 msgid "Service disabled"
 msgstr "Szolgáltatás letiltva"
 
+msgid "Servicename"
+msgstr ""
+
 msgid "Services"
 msgstr "Szolgáltatások"
 
@@ -2805,6 +2871,9 @@ msgstr "South Korea"
 msgid "Spain"
 msgstr "Spain"
 
+msgid "Special action flag"
+msgstr ""
+
 msgid "Specifies how many server threads to create."
 msgstr "Meghatározza, hogy hány szerver szálat lehet létrehozni."
 
@@ -2940,6 +3009,9 @@ msgstr "Rendszer Naplók"
 
 msgid "System time"
 msgstr "Rendszer idő"
+
+msgid "TAR"
+msgstr ""
 
 msgid "TCP forwarding"
 msgstr "TCP átengedés"
@@ -3335,6 +3407,15 @@ msgstr "Tokelau"
 msgid "Tonga"
 msgstr "Tonga"
 
+msgid "Transfer log"
+msgstr ""
+
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Traps"
 msgstr "Trap-ek"
 
@@ -3382,6 +3463,9 @@ msgstr "Uganda"
 
 msgid "Ukraine"
 msgstr "Ukraine"
+
+msgid "Uncompressed"
+msgstr ""
 
 msgid "Uninstall"
 msgstr "Eltávolítás"
