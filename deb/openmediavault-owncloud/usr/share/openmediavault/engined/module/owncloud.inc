@@ -52,42 +52,22 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 	}
 
 	/**
-	 * Helper function that is called whenever the basic settings have
-	 * been modified.
-	 * @param type The event message type.
-	 * @param path The event message path.
-	 * @param object The configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 */
-	final public function onSettings($type, $path, $object) {
-		global $xmlConfig;
-		// Mark this module as dirty.
-		$this->setDirty();
-		// Check whether the Apache webserver needs to be restarted because
-		// ownCloud has been enabled/disabled. In this case mark the module
-		// as dirty.
-		$xpath = "//services/owncloud";
-		$oldObject = $xmlConfig->get($xpath);
-		if(is_null($oldObject)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		if($oldObject['enable'] != $object['enable'])
-			$this->setDirtyByName("apache");
-	}
-
-	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.owncloud",
-		  array($this, "onSettings"));
+		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.owncloud.shares.share",
 		  array($this, "setDirty"));
+		$moduleMgr = &OMVModuleMgr::getInstance();
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.services.owncloud",
+		  array($moduleMgr->getModule("apache"), "setDirty"));
     }
 }
 
