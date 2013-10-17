@@ -213,7 +213,7 @@ OMVLogFile::registerType("proftpd", array(
   )));
 
 // Format:
-// <currenttime> <transfertime> <remotehost> <filesize> <filename> <transfertype> <specialactionflag> <direction> <accessmode> <username> <ser­vicename> <authenticationmethod> <authenticateduserid> <completionstatus>
+// <currenttime> <transfertime> <remotehost> <filesize> <filename> <transfertype> <specialactionflag> <direction> <accessmode> <username> <servicename> <authenticationmethod> <authenticateduserid> <completionstatus>
 // Thu Oct 17 18:19:00 2013 0 ::ffff:192.168.178.254 56374 /home/ftp/test/testfile b _ i r test ftp 0 * c
 OMVLogFile::registerType("proftpd_xferlog", array(
   "filename" => "xferlog",
@@ -238,7 +238,7 @@ OMVLogFile::registerType("proftpd_xferlog", array(
 	  "direction" => 8,
 	  "accessmode" => 9,
 	  "username" => 10,
-	  "ser­vicename" => 11,
+	  "servicename" => 11,
 	  "authenticationmethod" => 12,
 	  "authenticateduserid" => 13,
 	  "completionstatus" => 14

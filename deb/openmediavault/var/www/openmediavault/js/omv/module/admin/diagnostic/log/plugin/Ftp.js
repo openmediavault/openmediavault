@@ -141,8 +141,8 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.ftp.Xferlog", {
 	},{
 		text: _("Servicename"),
 		sortable: true,
-		dataIndex: "ser­vicename",
-		stateId: "ser­vicename",
+		dataIndex: "servicename",
+		stateId: "servicename",
 		hidden: true
 	},{
 		text: _("Transfer type"),
@@ -224,7 +224,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.ftp.Xferlog", {
 		{ name: "direction", type: "string" },
 		{ name: "accessmode", type: "string" },
 		{ name: "username", type: "string" },
-		{ name: "ser­vicename", type: "string" },
+		{ name: "servicename", type: "string" },
 		{ name: "authenticationmethod", type: "string" },
 		{ name: "authenticateduserid", type: "string" },
 		{ name: "completionstatus", type: "string" }
