@@ -95,12 +95,19 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.ftp.Xferlog", {
 		text: _("Filesize"),
 		sortable: true,
 		dataIndex: "filesize",
-		stateId: "filesize"
+		stateId: "filesize",
+		renderer: function(value, metaData, record) {
+			value = parseInt(value);
+			return value.binaryFormat();
+		}
 	},{
 		text: _("Transfer time"),
 		sortable: true,
 		dataIndex: "transfertime",
-		stateId: "transfertime"
+		stateId: "transfertime",
+		renderer: function(value, metaData, record) {
+			return Ext.String.format("{0} sec", value);
+		}
 	},{
 		text: _("Direction"),
 		sortable: true,

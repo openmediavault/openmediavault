@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-14 17:42+0200\n"
+"POT-Creation-Date: 2013-10-17 12:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -161,10 +161,16 @@ msgstr ""
 msgid "ACL"
 msgstr ""
 
+msgid "ASCII"
+msgstr ""
+
 msgid "About"
 msgstr ""
 
 msgid "Access Right Management"
+msgstr ""
+
+msgid "Access mode"
 msgstr ""
 
 msgid "Act as a WINS server."
@@ -311,6 +317,9 @@ msgstr ""
 msgid "Anguilla"
 msgstr ""
 
+msgid "Anonymous"
+msgstr ""
+
 msgid "Anonymous FTP"
 msgstr ""
 
@@ -368,6 +377,9 @@ msgstr ""
 msgid "Authenticate users"
 msgstr ""
 
+msgid "Authenticated user ID"
+msgstr ""
+
 msgid "Authentication"
 msgstr ""
 
@@ -375,6 +387,9 @@ msgid "Authentication and no privacy"
 msgstr ""
 
 msgid "Authentication and privacy"
+msgstr ""
+
+msgid "Authentication method"
 msgstr ""
 
 msgid "Authentication passphrase"
@@ -432,6 +447,9 @@ msgid "Bermuda"
 msgstr ""
 
 msgid "Bhutan"
+msgstr ""
+
+msgid "Binary"
 msgstr ""
 
 msgid "Blocksize"
@@ -590,10 +608,19 @@ msgstr ""
 msgid "Comoros"
 msgstr ""
 
+msgid "Complete"
+msgstr ""
+
+msgid "Completion status"
+msgstr ""
+
 msgid "Compress"
 msgstr ""
 
 msgid "Compress file data during the transfer"
+msgstr ""
+
+msgid "Compressed"
 msgstr ""
 
 msgid "Compression"
@@ -1004,6 +1031,9 @@ msgstr ""
 msgid "Enable this option to keep partially transferred files, otherwise they will be deleted if the transfer is interrupted."
 msgstr ""
 
+msgid "Enable transfer log"
+msgstr ""
+
 msgid "Enable user authentication"
 msgstr ""
 
@@ -1082,6 +1112,9 @@ msgstr ""
 msgid "FTP"
 msgstr ""
 
+msgid "FTP - Transfer log"
+msgstr ""
+
 msgid "FXP"
 msgstr ""
 
@@ -1139,10 +1172,16 @@ msgstr ""
 msgid "File"
 msgstr ""
 
+msgid "Filename"
+msgstr ""
+
 msgid "Files in the recycle bin will be deleted automatically after the specified number of days. Set to 0 for manual deletion."
 msgstr ""
 
 msgid "Files that are larger than the specified number of bytes will not be put into the recycle bin. Set to 0 for unrestricted file size."
+msgstr ""
+
+msgid "Filesize"
 msgstr ""
 
 msgid "Filesystem"
@@ -1269,6 +1308,9 @@ msgid "Guam"
 msgstr ""
 
 msgid "Guatemala"
+msgstr ""
+
+msgid "Guest"
 msgstr ""
 
 msgid "Guinea"
@@ -1401,6 +1443,12 @@ msgid "Importing users ..."
 msgstr ""
 
 msgid "In some cases you have to specify passive ports range to by-pass firewall limitations. Passive ports restricts the range of ports from which the server will select when sent the PASV command from a client. The server will randomly choose a number from within the specified range until an open port is found. The port range selected must be in the non-privileged range (eg. greater than or equal to 1024). It is strongly recommended that the chosen range be large enough to handle many simultaneous passive connections (for example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr ""
+
+msgid "Incoming"
+msgstr ""
+
+msgid "Incomplete"
 msgstr ""
 
 msgid "Incorrect username or password."
@@ -1886,6 +1934,9 @@ msgstr ""
 msgid "No access"
 msgstr ""
 
+msgid "No action"
+msgstr ""
+
 msgid "No authentication and no privacy"
 msgstr ""
 
@@ -1986,6 +2037,9 @@ msgid "Organizational Unit"
 msgstr ""
 
 msgid "Others"
+msgstr ""
+
+msgid "Outgoing"
 msgstr ""
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
@@ -2240,6 +2294,9 @@ msgstr ""
 msgid "RAID Management"
 msgstr ""
 
+msgid "RFC931"
+msgstr ""
+
 msgid "RSync server"
 msgstr ""
 
@@ -2256,6 +2313,9 @@ msgid "Read-only"
 msgstr ""
 
 msgid "Read/Write"
+msgstr ""
+
+msgid "Real"
 msgstr ""
 
 msgid "Reboot"
@@ -2286,6 +2346,9 @@ msgid "Remaining"
 msgstr ""
 
 msgid "Remote"
+msgstr ""
+
+msgid "Remote host"
 msgstr ""
 
 msgid "Remote syslog"
@@ -2549,6 +2612,9 @@ msgstr ""
 msgid "Service disabled"
 msgstr ""
 
+msgid "Servicename"
+msgstr ""
+
 msgid "Services"
 msgstr ""
 
@@ -2684,6 +2750,9 @@ msgstr ""
 msgid "Spain"
 msgstr ""
 
+msgid "Special action flag"
+msgstr ""
+
 msgid "Specifies how many server threads to create."
 msgstr ""
 
@@ -2805,6 +2874,9 @@ msgid "System Logs"
 msgstr ""
 
 msgid "System time"
+msgstr ""
+
+msgid "TAR"
 msgstr ""
 
 msgid "TCP forwarding"
@@ -3123,6 +3195,15 @@ msgstr ""
 msgid "Tonga"
 msgstr ""
 
+msgid "Transfer log"
+msgstr ""
+
+msgid "Transfer time"
+msgstr ""
+
+msgid "Transfer type"
+msgstr ""
+
 msgid "Traps"
 msgstr ""
 
@@ -3169,6 +3250,9 @@ msgid "Uganda"
 msgstr ""
 
 msgid "Ukraine"
+msgstr ""
+
+msgid "Uncompressed"
 msgstr ""
 
 msgid "Uninstall"
