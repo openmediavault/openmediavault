@@ -129,8 +129,8 @@ class OMVConfigEngine extends OMVObject {
 	 * Get the configuration for the given XPath.
 	 * @param xpath The path to the configuration object(s).
 	 * @return The requested value or an array containing the requested value
-	 * if the XPath matches multiple configuration objects. If XPath does not
-	 * match NULL will be returned.
+	 *   if the XPath matches multiple configuration objects. If XPath does not
+	 *   match NULL will be returned.
 	 */
 	public function get($xpath) {
 		$this->reload();
@@ -153,7 +153,7 @@ class OMVConfigEngine extends OMVObject {
 	 * Get the configuration for the given XPath as a list.
 	 * @param xpath The path to the configuration object(s).
 	 * @return An array containing the requested configuration objects,
-	 * otherwise an empty array.
+	 *   otherwise an empty array.
 	 */
 	public function getList($xpath) {
 		$this->reload();
@@ -171,7 +171,7 @@ class OMVConfigEngine extends OMVObject {
 	 * XPath as a list.
 	 * @param xpath The XPath of the requested configuration object(s).
 	 * @return An array containing the XPath to the objects, otherwise an
-	 * empty array.
+	 *   empty array.
 	 */
 	public function getXPathList($xpath) {
 		$this->reload();
@@ -267,7 +267,7 @@ class OMVConfigEngine extends OMVObject {
 	 * Check if the data at the given XPath exists.
 	 * @param xpath The XPath expression to execute.
 	 * @return TRUE if data exists, otherwise FALSE. If the XPath expression
-	 * is malformed FALSE will be returned.
+	 *   is malformed FALSE will be returned.
 	 */
 	public function exists($xpath) {
 		$this->reload();
@@ -280,7 +280,7 @@ class OMVConfigEngine extends OMVObject {
 	 * Get the number of nodes matching the given XPath expression.
 	 * @param xpath The XPath expression to execute.
 	 * @return Get the number of nodes matching the given XPath expression
-	 * or FALSE on failure (e.g. XPath expression is malformed).
+	 *   or FALSE on failure (e.g. XPath expression is malformed).
 	 */
 	public function count($xpath) {
 		$this->reload();

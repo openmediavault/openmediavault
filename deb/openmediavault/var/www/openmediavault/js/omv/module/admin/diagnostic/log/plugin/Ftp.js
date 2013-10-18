@@ -83,8 +83,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.ftp.Xferlog", {
 		text: _("Remote host"),
 		sortable: true,
 		dataIndex: "remotehost",
-		stateId: "remotehost",
-		flex: 1
+		stateId: "remotehost"
 	},{
 		text: _("Filename"),
 		sortable: true,
