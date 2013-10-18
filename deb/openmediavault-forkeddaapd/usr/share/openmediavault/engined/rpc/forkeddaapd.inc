@@ -94,25 +94,30 @@ class OMVRpcServiceForkedDaapd extends OMVRpcServiceAbstract {
 				  "password":{"type":"string"}
 			  }
 		  }');
-		// Prepare the configuration object.
-		$object = array(
-			"enable" => array_boolval($params, 'enable'),
-			"libraryname" => $params['libraryname'],
-			"port" => $params['port'],
-			"sharedfolderref" => $params['sharedfolderref'],
-			"passwordrequired" => array_boolval($params, 'passwordrequired'),
-			"password" => $params['password'],
-			"adminpassword" => "unused"
-		);
-		// Set the configuration object.
+		// Get the existing configuration object.
 		$xpath = "//services/daap";
+		$oldObject = $xmlConfig->get($xpath);
+		if(is_null($oldObject)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Update the configuration object.
+		$object = array_merge($oldObject, array(
+			  "enable" => array_boolval($params, 'enable'),
+			  "libraryname" => $params['libraryname'],
+			  "port" => $params['port'],
+			  "sharedfolderref" => $params['sharedfolderref'],
+			  "passwordrequired" => array_boolval($params, 'passwordrequired'),
+			  "password" => $params['password'],
+			  "adminpassword" => "unused"
+		  ));
 		if(FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.daap", $object);
+		  "org.openmediavault.services.daap", $object, $oldObject);
 		// Return the configuration object.
 		return $object;
 	}

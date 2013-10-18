@@ -123,12 +123,30 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 	 * @param path The event message path.
 	 * @param object The configuration object.
 	 */
-	final public function onSharedFolder($type, $path, $object) {
+	final public function onModifySharedFolder($type, $path, $object) {
 		global $xmlConfig;
 		$xpath = sprintf("//services/daap[sharedfolderref='%s']",
 		  $object['uuid']);
 		if(TRUE === $xmlConfig->exists($xpath))
 			$this->setDirty();
+	}
+
+	/**
+	 * Helper function that is called whenever the basic service settings
+	 * have been modified.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The new configuration object.
+	 * @param oldObject The previous configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	final public function onModifySettings($type, $path, $object, $oldObject) {
+		// Mark this module as dirty.
+		$this->setDirty();
+		// Check whether the monit daemon configuration needs to be updated.
+		// In this case mark the module as dirty.
+		if($oldObject['enable'] != $object['enable'])
+			$this->setDirtyByName("monit");
 	}
 
 	/**
@@ -138,16 +156,11 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.daap",
-		  array($this, "setDirty"));
+		  array($this, "onModifySettings"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder",
-		  array($this, "onSharedFolder"));
-		$moduleMgr = &OMVModuleMgr::getInstance();
-		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.daap",
-		  array($moduleMgr->getModule("monit"), "setDirty"));
+		  array($this, "onModifySharedFolder"));
 	}
 }
 
