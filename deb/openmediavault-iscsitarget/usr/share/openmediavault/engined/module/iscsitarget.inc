@@ -116,13 +116,31 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 	}
 
 	/**
+	 * Helper function that is called whenever the basic service settings
+	 * have been modified.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The new configuration object.
+	 * @param oldObject The previous configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	final public function onModifySettings($type, $path, $object, $oldObject) {
+		// Mark this module as dirty.
+		$this->setDirty();
+		// Check whether the monit daemon configuration needs to be updated.
+		// In this case mark the module as dirty.
+		if($oldObject['enable'] != $object['enable'])
+			$this->setDirtyByName("monit");
+	}
+
+	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.iscsitarget",
-		  array($this, "setDirty"));
+		  array($this, "onModifySettings"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.iscsitarget.targets.target",
@@ -131,11 +149,6 @@ class OMVModuleIscsiTarget extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.hostname",
 		  array($this, "setDirty"));
-		$moduleMgr = &OMVModuleMgr::getInstance();
-		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.iscsitarget",
-		  array($moduleMgr->getModule("monit"), "setDirty"));
 	}
 }
 

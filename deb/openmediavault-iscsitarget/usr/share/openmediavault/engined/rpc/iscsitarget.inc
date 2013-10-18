@@ -113,13 +113,13 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 		  }');
 		// Get existing configuration object.
 		$xpath = "//services/iscsitarget";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		$oldObject = $xmlConfig->get($xpath);
+		if(is_null($oldObject)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Update the configuration object.
-		$object = array_merge($object, array(
+		$object = array_merge($oldObject, array(
 			  "enable" => array_boolval($params, 'enable'),
 			  "extraoptions" => $params['extraoptions'],
 			  "authentication" => !empty($params['authentication']) ?
@@ -135,14 +135,13 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 			}
 		}
 		// Set the configuration object.
-		$xpath = "//services/iscsitarget";
 		if(FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.iscsitarget", $object);
+		  "org.openmediavault.services.iscsitarget", $object, $oldObject);
 		// Return the configuration object.
 		return $object;
 	}
