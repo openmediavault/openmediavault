@@ -95,22 +95,22 @@ class OMVRpcServiceOwnCloud extends OMVRpcServiceAbstract {
 		  }');
 		// Get the existing configuration object.
 		$xpath = "//services/owncloud";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		$oldObject = $xmlConfig->get($xpath);
+		if(is_null($oldObject)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Update the configuration object.
-		$object = array_merge($object, array(
+		$object = array_merge($oldObject, array(
 			  "enable" => array_boolval($params, 'enable')
 		  ));
-		if(FALSE === $xmlConfig->replace("//services/owncloud", $object)) {
+		if(FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.owncloud", $object);
+		  "org.openmediavault.services.owncloud", $object, $oldObject);
 		// Return the configuration object.
 		return $object;
 	}
