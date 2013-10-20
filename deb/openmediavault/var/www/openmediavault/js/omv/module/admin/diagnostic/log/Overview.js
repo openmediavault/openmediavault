@@ -175,6 +175,7 @@ Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 		var me = this;
 		return Ext.create("OMV.data.Store", {
 			autoLoad: true,
+			pageSize: 50,
 			remoteSort: me.activePlugin.rpcRemoteSort,
 			model: OMV.data.Model.createImplicit({
 				idProperty: "rownum",
