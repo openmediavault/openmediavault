@@ -1,5 +1,6 @@
 openmediavault (0.5.16) stable; urgency=low
 
+  * Update locales.
   * Various improvements.
   * Mantis 0000879: System-Logs are not using monitor-space. Increase displayed
     numbers of rows in a paging grid to 50.

@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-10-17 21:25+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-10-18 14:09+0000\n"
+"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -168,7 +168,7 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "About"
 msgstr "О нас"
@@ -177,7 +177,7 @@ msgid "Access Right Management"
 msgstr "Управление правами доступа"
 
 msgid "Access mode"
-msgstr ""
+msgstr "Режим доступа"
 
 msgid "Act as a WINS server."
 msgstr "Выступать в качестве сервера WINS."
@@ -334,7 +334,7 @@ msgid "Anguilla"
 msgstr "Ангилья"
 
 msgid "Anonymous"
-msgstr ""
+msgstr "Анонимный"
 
 msgid "Anonymous FTP"
 msgstr "Анонимный FTP"
@@ -406,7 +406,7 @@ msgid "Authentication and privacy"
 msgstr "Аутентификация и конфиденциальность"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Метод аутентификации"
 
 msgid "Authentication passphrase"
 msgstr "Пароль проверки подлинности"
@@ -466,7 +466,7 @@ msgid "Bhutan"
 msgstr "Бутан"
 
 msgid "Binary"
-msgstr ""
+msgstr "Двоичный"
 
 msgid "Blocksize"
 msgstr "Размер блока"
@@ -627,10 +627,10 @@ msgid "Comoros"
 msgstr "Коморские острова"
 
 msgid "Complete"
-msgstr ""
+msgstr "Выполнено"
 
 msgid "Completion status"
-msgstr ""
+msgstr "Статус завершения"
 
 msgid "Compress"
 msgstr "Сжать"
@@ -639,7 +639,7 @@ msgid "Compress file data during the transfer"
 msgstr "Сжимать файлы при передаче"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Сжатый"
 
 msgid "Compression"
 msgstr "Сжатие"
@@ -1077,7 +1077,7 @@ msgid ""
 msgstr "Включить эту опцию, если передача прерывается, чтобы частично переданные файлы сохранялись, в противном случае они будут удалены ."
 
 msgid "Enable transfer log"
-msgstr ""
+msgstr "Включить Протокол передачи"
 
 msgid "Enable user authentication"
 msgstr "Включить авторизацию пользователей"
@@ -1158,7 +1158,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - Протокол передачи"
 
 msgid "FXP"
 msgstr "FXP"
@@ -1222,7 +1222,7 @@ msgid "File"
 msgstr "Файл"
 
 msgid "Filename"
-msgstr ""
+msgstr "Имя файла"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1235,7 +1235,7 @@ msgid ""
 msgstr "Файлы, размер которых превышает указанное значение байт не будет удален в корзину. Установите 0 для неограниченного размера файла."
 
 msgid "Filesize"
-msgstr ""
+msgstr "Размер файла"
 
 msgid "Filesystem"
 msgstr "Файловая система"
@@ -1364,7 +1364,7 @@ msgid "Guatemala"
 msgstr "Гватемала"
 
 msgid "Guest"
-msgstr ""
+msgstr "Гость"
 
 msgid "Guinea"
 msgstr "Гвинея"
@@ -1527,7 +1527,7 @@ msgid "Incoming"
 msgstr ""
 
 msgid "Incomplete"
-msgstr ""
+msgstr "Незаконченный"
 
 msgid "Incorrect username or password."
 msgstr "Неправильное имя пользователя или пароль."
@@ -2022,7 +2022,7 @@ msgid "No access"
 msgstr "Нет доступа"
 
 msgid "No action"
-msgstr ""
+msgstr "Никаких действий"
 
 msgid "No authentication and no privacy"
 msgstr "Без аутентификации и конфиденциальности"
@@ -2127,7 +2127,7 @@ msgid "Others"
 msgstr "Другие"
 
 msgid "Outgoing"
-msgstr ""
+msgstr "Исходящий"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Адрес почтового сервера SMTP, например, smtp.mycorp.com."
@@ -2413,7 +2413,7 @@ msgid "RAID Management"
 msgstr "Менеджер RAID"
 
 msgid "RFC931"
-msgstr ""
+msgstr "RFC931"
 
 msgid "RSync server"
 msgstr "Сервер RSync"
@@ -2467,7 +2467,7 @@ msgid "Remote"
 msgstr "Удаленный"
 
 msgid "Remote host"
-msgstr ""
+msgstr "Удаленный хост"
 
 msgid "Remote syslog"
 msgstr "Удаленный системный журнал"
@@ -2735,7 +2735,7 @@ msgid "Service disabled"
 msgstr "Сервис отключен"
 
 msgid "Servicename"
-msgstr ""
+msgstr "Имя службы"
 
 msgid "Services"
 msgstr "Сервисы"
@@ -2877,7 +2877,7 @@ msgid "Spain"
 msgstr "Испания"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "Специальный флаг действия"
 
 msgid "Specifies how many server threads to create."
 msgstr "Определяет, сколько серверных потоков создавать."
@@ -3016,7 +3016,7 @@ msgid "System time"
 msgstr "Системное время"
 
 msgid "TAR"
-msgstr ""
+msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "Перенаправление TCP"
@@ -3413,13 +3413,13 @@ msgid "Tonga"
 msgstr "Тонга"
 
 msgid "Transfer log"
-msgstr ""
+msgstr "Протокол передачи"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "Время передачи"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "Тип передачи"
 
 msgid "Traps"
 msgstr "Ловушки"
@@ -3470,7 +3470,7 @@ msgid "Ukraine"
 msgstr "Украина"
 
 msgid "Uncompressed"
-msgstr ""
+msgstr "Несжатый"
 
 msgid "Uninstall"
 msgstr "Удалить"

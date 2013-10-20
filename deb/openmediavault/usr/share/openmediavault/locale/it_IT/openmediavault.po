@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-10-17 21:25+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-10-17 21:59+0000\n"
+"Last-Translator: polxmod <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -168,7 +168,7 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "About"
 msgstr "Informazioni su"
@@ -177,7 +177,7 @@ msgid "Access Right Management"
 msgstr "Gestione Permessi d'Accesso"
 
 msgid "Access mode"
-msgstr ""
+msgstr "Modalità di accesso"
 
 msgid "Act as a WINS server."
 msgstr "Si comporta come un server WINS."
@@ -334,7 +334,7 @@ msgid "Anguilla"
 msgstr "Anguilla"
 
 msgid "Anonymous"
-msgstr ""
+msgstr "Anonimo"
 
 msgid "Anonymous FTP"
 msgstr "FTP Anonimo"
@@ -394,7 +394,7 @@ msgid "Authenticate users"
 msgstr "Utenti autenticati"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "ID utente autenticato"
 
 msgid "Authentication"
 msgstr "Autenticazione"
@@ -406,7 +406,7 @@ msgid "Authentication and privacy"
 msgstr "Autenticazione con privacy"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Metodo di autenticazione"
 
 msgid "Authentication passphrase"
 msgstr "Authentication passphrase"
@@ -466,7 +466,7 @@ msgid "Bhutan"
 msgstr "Bhutan"
 
 msgid "Binary"
-msgstr ""
+msgstr "Binario"
 
 msgid "Blocksize"
 msgstr "Blocksize"
@@ -627,10 +627,10 @@ msgid "Comoros"
 msgstr "Comore"
 
 msgid "Complete"
-msgstr ""
+msgstr "Completa"
 
 msgid "Completion status"
-msgstr ""
+msgstr "Stato completamento"
 
 msgid "Compress"
 msgstr "Comprimi"
@@ -639,7 +639,7 @@ msgid "Compress file data during the transfer"
 msgstr "Comprimi file durante il trasferimento"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Compresso"
 
 msgid "Compression"
 msgstr "Compressione"
@@ -1077,7 +1077,7 @@ msgid ""
 msgstr "Abilita questa opzione per mantenere i file parzialmente trasferiti, altrimenti verranno eliminati se il trasferimento sarà interrotto."
 
 msgid "Enable transfer log"
-msgstr ""
+msgstr "Abilita log di trasferimento"
 
 msgid "Enable user authentication"
 msgstr "Abilita l'autenticazione utente"
@@ -1158,7 +1158,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - Log di trasferimento"
 
 msgid "FXP"
 msgstr "FXP"
@@ -1222,7 +1222,7 @@ msgid "File"
 msgstr "File"
 
 msgid "Filename"
-msgstr ""
+msgstr "Nome file"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1235,7 +1235,7 @@ msgid ""
 msgstr "I file che sono più grandi del numero specificato in byte non saranno messi nel cestino. Imposta a 0 per non avere limitazioni sulla dimensione dei file."
 
 msgid "Filesize"
-msgstr ""
+msgstr "Dimensione file"
 
 msgid "Filesystem"
 msgstr "Filesystem"
@@ -1364,7 +1364,7 @@ msgid "Guatemala"
 msgstr "Guatemala"
 
 msgid "Guest"
-msgstr ""
+msgstr "Guest"
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1524,10 +1524,10 @@ msgid ""
 msgstr "In alcuni casi è necessario specificare un intervallo di porte passive per by-passare le restrizioni del firewall. Le porte passive riducono l'intervallo di porte dalle quali il server potrà scegliere per inviare il comando PASV di un client. Il server sceglierà casualmente un numero di porta fra quelle specificate nell'intervallo finché non troverà una porta aperta. L'intervallo di porte impostato non deve contenere porte privilegiate (es. deve essere maggiore o uguale alla 1024). E' fortemente raccomandato che l'intervallo scelto sia grande abbastanza per consentire la gestione simultanea di più connessioni passive (per esempio, 49152-65534, l'intervallo di porte \"effimere\" suggerito da IANA)"
 
 msgid "Incoming"
-msgstr ""
+msgstr "In entrata"
 
 msgid "Incomplete"
-msgstr ""
+msgstr "Incompleto"
 
 msgid "Incorrect username or password."
 msgstr "Username o password errate.."
@@ -2022,7 +2022,7 @@ msgid "No access"
 msgstr "Nessun accesso"
 
 msgid "No action"
-msgstr ""
+msgstr "Nessuna azione"
 
 msgid "No authentication and no privacy"
 msgstr "Nessuna autenticazione e nessuna privacy"
@@ -2127,7 +2127,7 @@ msgid "Others"
 msgstr "Altri"
 
 msgid "Outgoing"
-msgstr ""
+msgstr "In uscita"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Indirizzo del server della posta in uscita SMTP, es. smtp.mycorp.com."
@@ -2413,7 +2413,7 @@ msgid "RAID Management"
 msgstr "Gestione RAID"
 
 msgid "RFC931"
-msgstr ""
+msgstr "RFC931"
 
 msgid "RSync server"
 msgstr "Server RSync"
@@ -2434,7 +2434,7 @@ msgid "Read/Write"
 msgstr "Lettura/Scrittura"
 
 msgid "Real"
-msgstr ""
+msgstr "Reale"
 
 msgid "Reboot"
 msgstr "Riavvio"
@@ -2467,7 +2467,7 @@ msgid "Remote"
 msgstr "Remoto"
 
 msgid "Remote host"
-msgstr ""
+msgstr "Host remoto"
 
 msgid "Remote syslog"
 msgstr "Syslog remoto"
@@ -2735,7 +2735,7 @@ msgid "Service disabled"
 msgstr "Servizio disabilitato"
 
 msgid "Servicename"
-msgstr ""
+msgstr "Nome del servizio"
 
 msgid "Services"
 msgstr "Servizi"
@@ -2877,7 +2877,7 @@ msgid "Spain"
 msgstr "Spagna"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "Flag azione speciale"
 
 msgid "Specifies how many server threads to create."
 msgstr "Specifica quanti thread creare sul server."
@@ -3016,7 +3016,7 @@ msgid "System time"
 msgstr "Ora di sistema"
 
 msgid "TAR"
-msgstr ""
+msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP forwarding"
@@ -3413,13 +3413,13 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Transfer log"
-msgstr ""
+msgstr "Log di trasferimento"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "Tempo di trasferimento"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "Tipo di trasferimento"
 
 msgid "Traps"
 msgstr "Trappole"
@@ -3470,7 +3470,7 @@ msgid "Ukraine"
 msgstr "Ucraina"
 
 msgid "Uncompressed"
-msgstr ""
+msgstr "Non compresso"
 
 msgid "Uninstall"
 msgstr "Disinstalla"
