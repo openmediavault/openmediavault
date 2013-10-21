@@ -247,7 +247,8 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INUSE);
 		}
 		// Delete the configuration object.
-		$xpath = sprintf("//system/crontab/job[uuid='%s']", $params['uuid']);
+		$xpath = sprintf("//system/certificates/sslcertificate[uuid='%s']",
+		  $params['uuid']);
 		return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.system.certificates.sslcertificate");
 	}

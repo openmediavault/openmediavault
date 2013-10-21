@@ -2,6 +2,7 @@ openmediavault (0.5.17) stable; urgency=low
 
   * Various improvements.
   * Display relative path in shared folder combobox.
+  * Mantis 0000881: Can't delete self-signed SSL certificates.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 20 Oct 2013 22:25:53 +0200
 
