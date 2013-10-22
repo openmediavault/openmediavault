@@ -70,7 +70,18 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 			fieldLabel: _("Name"),
 			allowBlank: false,
 			readOnly: (me.uuid !== OMV.UUID_UNDEFINED),
-			vtype: "sharename"
+			vtype: "sharename",
+			listeners: {
+				scope: me,
+				blur: function(c, e, eOpts) {
+					// Automatically set the relative directory path based on
+					// the entered shared folder name, except it has already
+					// been entered.
+					var field = this.findField("reldirpath");
+					if(Ext.isEmpty(field.getValue()))
+						field.setValue(Ext.String.format("{0}/", c.getValue()));
+				}
+			}
 		},{
 			xtype: "combo",
 			name: "mntentref",
