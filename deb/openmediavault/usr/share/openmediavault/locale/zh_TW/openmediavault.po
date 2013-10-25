@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-10-17 21:25+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-10-21 09:21+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -164,7 +164,7 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "About"
 msgstr "關於"
@@ -173,7 +173,7 @@ msgid "Access Right Management"
 msgstr "存取權限管理"
 
 msgid "Access mode"
-msgstr ""
+msgstr "存取模式"
 
 msgid "Act as a WINS server."
 msgstr "作為一個 WINS 伺服器。"
@@ -330,7 +330,7 @@ msgid "Anguilla"
 msgstr "安圭拉"
 
 msgid "Anonymous"
-msgstr ""
+msgstr "匿名"
 
 msgid "Anonymous FTP"
 msgstr "匿名 FTP"
@@ -390,7 +390,7 @@ msgid "Authenticate users"
 msgstr "驗證用戶"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "驗證過的用戶 ID"
 
 msgid "Authentication"
 msgstr "驗證"
@@ -402,7 +402,7 @@ msgid "Authentication and privacy"
 msgstr "驗證及隱私"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "驗證方式"
 
 msgid "Authentication passphrase"
 msgstr "驗證密語"
@@ -462,7 +462,7 @@ msgid "Bhutan"
 msgstr "不丹"
 
 msgid "Binary"
-msgstr ""
+msgstr "二進位碼"
 
 msgid "Blocksize"
 msgstr "區塊大小"
@@ -623,10 +623,10 @@ msgid "Comoros"
 msgstr "科摩羅"
 
 msgid "Complete"
-msgstr ""
+msgstr "完成"
 
 msgid "Completion status"
-msgstr ""
+msgstr "完成狀態"
 
 msgid "Compress"
 msgstr "壓縮"
@@ -635,7 +635,7 @@ msgid "Compress file data during the transfer"
 msgstr "在傳輸過程中壓縮檔案資料"
 
 msgid "Compressed"
-msgstr ""
+msgstr "經過壓縮"
 
 msgid "Compression"
 msgstr "壓縮"
@@ -1073,7 +1073,7 @@ msgid ""
 msgstr "啟用此選項來保留部分傳送的的檔案，否則如果傳送中斷，它們將被刪除。"
 
 msgid "Enable transfer log"
-msgstr ""
+msgstr "啟用傳輸日誌"
 
 msgid "Enable user authentication"
 msgstr "啟用用戶驗證"
@@ -1154,7 +1154,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - 傳輸日誌"
 
 msgid "FXP"
 msgstr "FXP"
@@ -1218,7 +1218,7 @@ msgid "File"
 msgstr "檔案"
 
 msgid "Filename"
-msgstr ""
+msgstr "檔案名稱"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1231,7 +1231,7 @@ msgid ""
 msgstr "檔案若其大小超過所指定的位元數，將不會被放進回收桶內。設定為 0 則不限制檔案大小。"
 
 msgid "Filesize"
-msgstr ""
+msgstr "檔案大小"
 
 msgid "Filesystem"
 msgstr "檔案系統"
@@ -1360,7 +1360,7 @@ msgid "Guatemala"
 msgstr "瓜地馬拉"
 
 msgid "Guest"
-msgstr ""
+msgstr "訪客"
 
 msgid "Guinea"
 msgstr "幾內亞"
@@ -1520,10 +1520,10 @@ msgid ""
 msgstr "在某些情況下，你必須指定被動通訊埠範圍來避開防火牆的限制。當客戶端送來 PASV 指令時，被動通訊埠限制了伺服器選用通訊埠的範圍。伺服器將在指定範圍內隨機選擇一個號碼，直到找到一個開放的通訊埠。所選的通訊埠範圍必須是在非特權的範圍內(例如：大於或等於1024)。我們強烈建議，選擇的範圍應大到足以處理許多同時發生的被動連線(例如：49152-65534，這是 IANA 註冊的短暫使用通訊埠範圍)。"
 
 msgid "Incoming"
-msgstr ""
+msgstr "傳入"
 
 msgid "Incomplete"
-msgstr ""
+msgstr "未完成"
 
 msgid "Incorrect username or password."
 msgstr "用戶名稱或密碼不正確。"
@@ -2018,7 +2018,7 @@ msgid "No access"
 msgstr "禁止存取"
 
 msgid "No action"
-msgstr ""
+msgstr "無動作"
 
 msgid "No authentication and no privacy"
 msgstr "無驗證及無隱私"
@@ -2123,7 +2123,7 @@ msgid "Others"
 msgstr "其他"
 
 msgid "Outgoing"
-msgstr ""
+msgstr "傳出"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "對外發送 SMTP 郵件伺服器地址，例如：smtp.mycorp.com。"
@@ -2409,7 +2409,7 @@ msgid "RAID Management"
 msgstr "RAID 管理"
 
 msgid "RFC931"
-msgstr ""
+msgstr "RFC931"
 
 msgid "RSync server"
 msgstr "RSync 伺服器"
@@ -2430,7 +2430,7 @@ msgid "Read/Write"
 msgstr "讀/寫"
 
 msgid "Real"
-msgstr ""
+msgstr "實際用戶"
 
 msgid "Reboot"
 msgstr "重新啟動"
@@ -2463,7 +2463,7 @@ msgid "Remote"
 msgstr "遠端"
 
 msgid "Remote host"
-msgstr ""
+msgstr "遠端主機"
 
 msgid "Remote syslog"
 msgstr "遠端系統日誌"
@@ -2731,7 +2731,7 @@ msgid "Service disabled"
 msgstr "服務已停用"
 
 msgid "Servicename"
-msgstr ""
+msgstr "服務名稱"
 
 msgid "Services"
 msgstr "服務"
@@ -2873,7 +2873,7 @@ msgid "Spain"
 msgstr "西班牙"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "特殊動作旗標"
 
 msgid "Specifies how many server threads to create."
 msgstr "指定創建多少個伺服器執行緒。"
@@ -3012,7 +3012,7 @@ msgid "System time"
 msgstr "系統時間"
 
 msgid "TAR"
-msgstr ""
+msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP 轉送"
@@ -3409,13 +3409,13 @@ msgid "Tonga"
 msgstr "東加"
 
 msgid "Transfer log"
-msgstr ""
+msgstr "傳輸日誌"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "傳輸時間"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "傳輸型式"
 
 msgid "Traps"
 msgstr "捕捉"
@@ -3466,7 +3466,7 @@ msgid "Ukraine"
 msgstr "烏克蘭"
 
 msgid "Uncompressed"
-msgstr ""
+msgstr "未經壓縮"
 
 msgid "Uninstall"
 msgstr "移除安裝"

@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-10-17 21:25+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-10-24 18:04+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -165,7 +165,7 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "About"
 msgstr "Sobre"
@@ -174,7 +174,7 @@ msgid "Access Right Management"
 msgstr "Acceso a administración de dereitos"
 
 msgid "Access mode"
-msgstr ""
+msgstr "Modo de acceso"
 
 msgid "Act as a WINS server."
 msgstr "Actuar como servidor WINS."
@@ -331,7 +331,7 @@ msgid "Anguilla"
 msgstr "Anguila"
 
 msgid "Anonymous"
-msgstr ""
+msgstr "Anonimo"
 
 msgid "Anonymous FTP"
 msgstr "FTP anónimo"
@@ -391,7 +391,7 @@ msgid "Authenticate users"
 msgstr "Autenticar aos usuarios"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "ID de usuario autenticado"
 
 msgid "Authentication"
 msgstr "Autenticación"
@@ -403,7 +403,7 @@ msgid "Authentication and privacy"
 msgstr "Autenticación e intimidade"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Método de autenticación"
 
 msgid "Authentication passphrase"
 msgstr "Contrasinal de autenticación"
@@ -463,7 +463,7 @@ msgid "Bhutan"
 msgstr "Bután"
 
 msgid "Binary"
-msgstr ""
+msgstr "Binario"
 
 msgid "Blocksize"
 msgstr "Tamaño do bloque"
@@ -624,10 +624,10 @@ msgid "Comoros"
 msgstr "Comores"
 
 msgid "Complete"
-msgstr ""
+msgstr "Completar"
 
 msgid "Completion status"
-msgstr ""
+msgstr "Estado do completado"
 
 msgid "Compress"
 msgstr "Comprimir"
@@ -636,7 +636,7 @@ msgid "Compress file data during the transfer"
 msgstr "Comprimir os datos durante a transferencia"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Comprimido"
 
 msgid "Compression"
 msgstr "Compresión"
@@ -1074,7 +1074,7 @@ msgid ""
 msgstr "Active esta opción para manter os ficheiros transferidos parcialmente, pola contra eliminaranse se se interrompe a transferencia."
 
 msgid "Enable transfer log"
-msgstr ""
+msgstr "Activar o rexistro de transferencias"
 
 msgid "Enable user authentication"
 msgstr "Activar a autenticación de usuario"
@@ -1155,7 +1155,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "Rexistro de transferencias FTP"
 
 msgid "FXP"
 msgstr "FXP"
@@ -1219,7 +1219,7 @@ msgid "File"
 msgstr "Ficheiro"
 
 msgid "Filename"
-msgstr ""
+msgstr "Nome do ficheiro"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1232,7 +1232,7 @@ msgid ""
 msgstr "Os ficheiros exceden do número especificado de bytes para que se poidan enviar ao cesto do lixo. Estabelézao en 0 para non restrinxir o tamaño dos ficheiros."
 
 msgid "Filesize"
-msgstr ""
+msgstr "Tamaño do ficheiro"
 
 msgid "Filesystem"
 msgstr "Sistema de ficheiros"
@@ -1361,7 +1361,7 @@ msgid "Guatemala"
 msgstr "Guatemala"
 
 msgid "Guest"
-msgstr ""
+msgstr "Convidado"
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1521,10 +1521,10 @@ msgid ""
 msgstr "Nalgúns casos ten que especificar o intervalo de portos pasivos para as limitacións do desvío da devasa. Os portos pasivos restrinxen o intervalo de portos desde os que se seleccionará o servidor cando se envía a orde PASV desde un cliente. O servidor seleccionará ao chou un número dentro do intervalo especificado ata que atopa un porto aberto. O intervalo de portos seleccionado debe estar nun intervalo non privilexiado (p.ex. maior que ou igual a 1024). Recomendase que o intervalo escollido sexa grande abondo como para manexar moitas conexións pasivas simultáneas (por exemplo, 49152-65534, o intervalo efémero de portos rexistrados IANA)."
 
 msgid "Incoming"
-msgstr ""
+msgstr "Entrante"
 
 msgid "Incomplete"
-msgstr ""
+msgstr "Incompleto"
 
 msgid "Incorrect username or password."
 msgstr "Nome de usuario ou contrasinal incorrecto"
@@ -2019,7 +2019,7 @@ msgid "No access"
 msgstr "Sen acceso"
 
 msgid "No action"
-msgstr ""
+msgstr "Sen acción"
 
 msgid "No authentication and no privacy"
 msgstr "Sen autenticación e sen intimidade"
@@ -2124,7 +2124,7 @@ msgid "Others"
 msgstr "Outros"
 
 msgid "Outgoing"
-msgstr ""
+msgstr "Saínte"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Enderezo do servidor de correo SMTP saínte, p.ex. smtp.nosaempresa.com"
@@ -2410,7 +2410,7 @@ msgid "RAID Management"
 msgstr "Xestión do RAID"
 
 msgid "RFC931"
-msgstr ""
+msgstr "RFC931"
 
 msgid "RSync server"
 msgstr "Servidor RSync"
@@ -2431,7 +2431,7 @@ msgid "Read/Write"
 msgstr "Lectura/Escritura"
 
 msgid "Real"
-msgstr ""
+msgstr "Real"
 
 msgid "Reboot"
 msgstr "Reiniciar"
@@ -2464,7 +2464,7 @@ msgid "Remote"
 msgstr "Remoto"
 
 msgid "Remote host"
-msgstr ""
+msgstr "Máquina remota"
 
 msgid "Remote syslog"
 msgstr "Rexistro remoto do sistema"
@@ -2732,7 +2732,7 @@ msgid "Service disabled"
 msgstr "Servizo desactivado"
 
 msgid "Servicename"
-msgstr ""
+msgstr "Nome do servizo"
 
 msgid "Services"
 msgstr "Servizos"
@@ -2835,7 +2835,7 @@ msgid "Software RAID"
 msgstr "RAID por software"
 
 msgid "Software updates"
-msgstr ""
+msgstr "Actualizacións do software"
 
 msgid "Solomon Islands"
 msgstr "Illas Salomón"
@@ -2874,7 +2874,7 @@ msgid "Spain"
 msgstr "España"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "Marca de acción especial"
 
 msgid "Specifies how many server threads to create."
 msgstr "Especifica o número de subprocesos a crear no servidor."
@@ -3013,7 +3013,7 @@ msgid "System time"
 msgstr "Hora do sistema"
 
 msgid "TAR"
-msgstr ""
+msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "Reenvío TCP"
@@ -3060,7 +3060,7 @@ msgstr "O comentario contén caracteres incorrectos"
 msgid ""
 "The configuration has been changed. You must apply the changes in order for "
 "them to take effect."
-msgstr ""
+msgstr "Cambiou a configuración. Ten que aplicar os cambios para que teñan efecto."
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "O porto predeterminado do servidor de correo SMTP, p.ex. 25 ou 587."
@@ -3086,7 +3086,7 @@ msgid "The hostname is a label that identifies the system to the network."
 msgstr "O nome do servidor é unha etiqueta que identifica o sistema na rede."
 
 msgid "The interface '%s' is already used by a bonding interface"
-msgstr ""
+msgstr "A interface «%s» está a ser usada por unha interface vinculada"
 
 msgid "The location of the files to share."
 msgstr "A localización dos ficheiros que compartir."
@@ -3107,7 +3107,7 @@ msgstr "O número de días para os que ten vixencia o certificado."
 
 #, php-format
 msgid "The parameter '%s' contains forbidden two-dot symbols"
-msgstr ""
+msgstr "O parámetro «%s» conten símbolos de dous puntos prohibidos"
 
 msgid "The password contains invalid characters"
 msgstr "O contrasinal conten caracteres incorrectos"
@@ -3222,10 +3222,10 @@ msgid "This field should be a hostname or an IPv4 address"
 msgstr "Este campo debe ser un nome de máquina/servidor ou un enderezo IPv4"
 
 msgid "This field should be a list of domainnames or IP addresses"
-msgstr ""
+msgstr "Este campo debe ser unha lista de nomes de dominio ou de enderezos IP"
 
 msgid "This field should be a list of hostnames or IP addresses"
-msgstr ""
+msgstr "Este campo debe ser unha lista de nomes de máquina/servidor ou de enderezos IP"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3410,13 +3410,13 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Transfer log"
-msgstr ""
+msgstr "Rexistro das transferencias"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "Hora da transferencia"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "Tipo de transferencia"
 
 msgid "Traps"
 msgstr "Trampas"
@@ -3467,7 +3467,7 @@ msgid "Ukraine"
 msgstr "Ucraína"
 
 msgid "Uncompressed"
-msgstr ""
+msgstr "Sen comprimir"
 
 msgid "Uninstall"
 msgstr "Desinstalar"
