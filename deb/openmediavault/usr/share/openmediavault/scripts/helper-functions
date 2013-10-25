@@ -484,7 +484,7 @@ omv_is_gateway4() {
 omv_is_ipaddr6() {
 	local _valid
 #	perl -ne "use Socket qw(AF_INET6 inet_pton); print inet_pton(AF_INET6, '$1');"
-	_valid=$(php -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
+	_valid=$(php5 -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
 	return ${_valid}
 }
 
@@ -504,7 +504,7 @@ omv_is_netmask6() {
 omv_is_gateway6() {
 	local _valid
 #	perl -ne "use Socket qw(AF_INET6 inet_pton); print inet_pton(AF_INET6, '$1');"
-	_valid=$(php -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
+	_valid=$(php5 -n -r "filter_var('$1', FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) ? print 0 : print 1;")
 	return ${_valid}
 }
 
