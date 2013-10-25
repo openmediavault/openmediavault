@@ -121,24 +121,38 @@ EOF
 	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} ${OMV_OWNCLOUD_CONFIG}
 
 	# Create '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/data/mount.json' file.
-	xmlstarlet sel -t \
-	  -o "{" -n \
-	  -o "  \"group\": {" -n \
-	  -o "  }," -n \
-	  -o "  \"user\": {" -n \
-	  -o "    \"all\": {" -n \
-	  -m "//services/owncloud/shares/share[type='localfs']" \
-	    -v "concat('      \"\/\$user\/files\/',name,'\": {')" -n \
-	    -o "        \"class\": \"\\\\OC\\\\Files\\\\Storage\\\\Local\"," -n \
-	    -o "        \"options\": {" -n \
-	    -o "          \"datadir\": \"" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "\"" -n \
-	    -o "        }" -n \
-	    -o "      }" -n \
-	  -b \
-	  -o "    }" -n \
-	  -o "  }" -n \
-	  -o "}" \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG}
+	php5 -c /etc/openmediavault <<EOF
+<?php
+require_once("openmediavault/config.inc");
+\$result = array(
+	'group' => array(),
+	'user' => array(
+		'all' => array()
+	)
+);
+\$xmlConfig = new OMVConfigEngine(\$GLOBALS['OMV_CONFIG_FILE']);
+\$xmlConfig->load();
+\$shares = \$xmlConfig->get("//services/owncloud/shares/share[type='localfs']");
+foreach(\$shares as \$sharek => \$sharev) {
+	\$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']", \$sharev['sharedfolderref']);
+	\$sf = \$xmlConfig->get(\$xpath);
+	\$xpath = sprintf("//system/fstab/mntent[uuid='%s']", \$sf['mntentref']);
+	\$mntent = \$xmlConfig->get(\$xpath);
+	\$datadir = sprintf("%s/%s", \$mntent['dir'], \$sf['reldirpath']);
+	foreach(\$sf['privileges']['privilege'] as \$privk => \$privv) {
+		if(\$privv['perms'] == 0) continue;
+		\$foldername = sprintf("/%s/files/%s", \$privv['name'], \$sharev['name']);
+		\$result['user'][\$privv['name']][\$foldername] = array(
+			'class' => "\\OC\\Files\\Storage\\Local",
+			'options' => array(
+				'datadir' => \$datadir
+			)
+		);
+	}
+}
+file_put_contents("${OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG}", json_encode_safe(\$result, JSON_FORCE_OBJECT))
+?>
+EOF
 	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} ${OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG}
 }
 

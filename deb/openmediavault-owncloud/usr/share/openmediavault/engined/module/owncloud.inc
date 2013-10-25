@@ -24,12 +24,22 @@ require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 
 class OMVModuleOwnCloud extends OMVModuleServiceAbstract
-  implements OMVINotifyListener {
+  implements OMVINotifyListener, OMVIModuleZeroconf {
 	/**
 	 * Get the module name.
 	 */
 	public function getName() {
 		return "owncloud";
+	}
+
+	/**
+	 * Get the Zeroconf service configuration.
+	 */
+	public function getZeroconfConfig() {
+		return array(
+			  "id" => "owncloud",
+			  "title" => gettext("ownCloud")
+		  );
 	}
 
 	/**
@@ -82,6 +92,13 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.owncloud.shares.share",
 		  array($this, "setDirty"));
+		// Changing webgui settings requires recreation of ownCloud
+		// configuration.
+		$moduleMgr = &OMVModuleMgr::getInstance();
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.webadmin",
+		  array($moduleMgr->getModule("apache"), "setDirty"));
     }
 }
 

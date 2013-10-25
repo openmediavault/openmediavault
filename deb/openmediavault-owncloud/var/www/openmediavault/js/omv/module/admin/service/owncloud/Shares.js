@@ -47,7 +47,6 @@ Ext.define("OMV.module.admin.service.owncloud.Share", {
 		ptype: "configobject"
 	}],
 	width: 700,
-	height: 400,
 
 	/**
 	 * The class constructor.
