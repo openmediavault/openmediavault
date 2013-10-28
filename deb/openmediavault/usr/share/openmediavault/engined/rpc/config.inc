@@ -23,6 +23,7 @@ require_once("openmediavault/globals.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/util.inc");
+require_once("openmediavault/notify.inc");
 
 class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 	/**
@@ -82,6 +83,7 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		$moduleMgr = &OMVModuleMgr::getInstance();
+		$notifyDispatcher = &OMVNotifyDispatcher::getInstance();
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.
 		$jsonFile = new OMVJsonFile(
@@ -146,6 +148,8 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		foreach($tsort->sort() as $name) {
 			$this->debug("Stopping service '%s'", $name);
 			$processModules[$name]->stopService();
+			$notifyDispatcher->notify(OMV_NOTIFY_EVENT, strtolower(sprintf(
+			  "org.openmediavault.module.service.%s.stopservice", $name)));
 		}
 		// Build the dependency list and apply the configuration for the
 		// given services.
@@ -160,6 +164,8 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		foreach($tsort->sort() as $name) {
 			$this->debug("Applying configuration '%s'", $name);
 			$processModules[$name]->applyConfig();
+			$notifyDispatcher->notify(OMV_NOTIFY_EVENT, strtolower(sprintf(
+			  "org.openmediavault.module.service.%s.applyconfig", $name)));
 		}
 		// Build the dependency list and start all services.
 		$tsort->clean();
@@ -181,6 +187,8 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		foreach($tsort->sort() as $name) {
 			$this->debug("Starting service '%s'", $name);
 			$processModules[$name]->startService();
+			$notifyDispatcher->notify(OMV_NOTIFY_EVENT, strtolower(sprintf(
+			  "org.openmediavault.module.service.%s.startservice", $name)));
 		}
 		// Reset list of dirty modules.
 		$jsonFile->write($dirtyModules);

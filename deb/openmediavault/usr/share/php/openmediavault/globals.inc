@@ -39,6 +39,7 @@ define("OMV_NOTIFY_PREMODIFY", 0x4);
 define("OMV_NOTIFY_MODIFY",    0x8);
 define("OMV_NOTIFY_PREDELETE", 0x10);
 define("OMV_NOTIFY_DELETE",    0x20);
+define("OMV_NOTIFY_EVENT",     0x40);
 
 define("OMV_ROLE_ADMINISTRATOR", 0x1);
 define("OMV_ROLE_USER",          0x2);

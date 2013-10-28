@@ -111,7 +111,7 @@ class OMVNotifyDispatcher extends OMVObject {
 		$listeners = array_filter_ex($this->listeners, "path", $path);
 		// Sort list of registered listeners.
 		array_sort_key($listeners, "seqnum");
-		// Call registered listeners
+		// Call registered listeners.
 		if(!empty($listeners)) {
 			foreach($listeners as $listenerk => $listenerv) {
 				if($listenerv['type'] & $type) {
@@ -133,12 +133,12 @@ class OMVNotifyDispatcher extends OMVObject {
 	 */
 	function dumpListeners($path = "") {
 		$listeners = $this->listeners;
-		// Filter list of registered listeners
+		// Filter list of registered listeners.
 		if(!empty($path))
 			$listeners = array_filter_ex($listeners, "path", $path);
-		// Sort list of registered listeners
+		// Sort list of registered listeners.
 		array_sort_key($listeners, "path");
-		// Dump registered listeners
+		// Dump registered listeners.
 		$this->debug($listeners);
 	}
 }
