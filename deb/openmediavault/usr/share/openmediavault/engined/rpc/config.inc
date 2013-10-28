@@ -149,7 +149,7 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 			$this->debug("Stopping service '%s'", $name);
 			$processModules[$name]->stopService();
 			$notifyDispatcher->notify(OMV_NOTIFY_EVENT, strtolower(sprintf(
-			  "org.openmediavault.module.service.%s.stopservice", $name)));
+			  "org.openmediavault.module.service.%s.stop", $name)));
 		}
 		// Build the dependency list and apply the configuration for the
 		// given services.
@@ -188,7 +188,7 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 			$this->debug("Starting service '%s'", $name);
 			$processModules[$name]->startService();
 			$notifyDispatcher->notify(OMV_NOTIFY_EVENT, strtolower(sprintf(
-			  "org.openmediavault.module.service.%s.startservice", $name)));
+			  "org.openmediavault.module.service.%s.start", $name)));
 		}
 		// Reset list of dirty modules.
 		$jsonFile->write($dirtyModules);
