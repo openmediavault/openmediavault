@@ -56,4 +56,8 @@ omv_build_doc: debian/doxygen.conf
 	mkdir -p debian/doxygen
 	doxygen $<
 
+source: clean
+	dpkg-buildpackage -S -us -uc
+
 .PHONY: omv_pull_po omv_push_pot omv_build_pot omv_clean_scm omv_build_doc
+.PHONY: source
