@@ -1456,7 +1456,7 @@ class OMVStorageDevices extends OMVObject {
 	 * @param backend The storage device backend object to register.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
-	final public function registerBackend(OMVStorageDeviceBackendAbstract $backend) {
+	final static function registerBackend(OMVStorageDeviceBackendAbstract $backend) {
 		if(!isset($backend))
 			return FALSE;
 		self::$backends[] = $backend;
