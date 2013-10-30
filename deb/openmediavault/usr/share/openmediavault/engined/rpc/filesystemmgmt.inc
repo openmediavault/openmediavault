@@ -84,9 +84,9 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// Is it a filesystem of interest?
 			if(!in_array($objectv['type'], array("ext", "ext2", "ext3",
 			  "ext4", "xfs", "jfs", "iso9660", "msdos", "ntfs", "udf",
-			  "umsdos", "vfat", "ufs", "reiserfs", "btrfs", "hfsplus"))) {
+			  "umsdos", "vfat", "ufs", "reiserfs", "btrfs", "hfsplus",
+			  "zfs")))
 				continue;
-			}
 			// Skip the device where the operating system is installed on.
 			if($objectv['devicefile'] === $rootDeviceFile)
 				continue;
@@ -380,18 +380,18 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		$fs = OMVFilesystems::get();
 		// Get the devices that are used by a physical volume and add them to
 		// the list of used devices.
-		if(FALSE === ($devs = OMVPhysicalVolumes::get())) {
+		if(FALSE === ($devs = OMVLvmPhysicalVolumes::get())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get list of physical volumes"));
 		}
 		$usedDevs = array_merge($usedDevs, $devs);
 		// Get all existing logical volumes.
-		if(FALSE === ($devs = OMVLogicalVolumes::get())) {
+		if(FALSE === ($devs = OMVLvmLogicalVolumes::get())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get list of logical volumes"));
 		}
 		foreach($devs as $devk => $devv) {
-			$lv = new OMVLogicalVolume($devv);
+			$lv = new OMVLvmLogicalVolume($devv);
 			if(!$lv->exists())
 				continue;
 			// Does this device already contain a filesystem?
@@ -404,7 +404,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			);
 		}
 		// Get all existing software RAID devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerate(
+		if(FALSE === ($devs = OMVStorageDevices::enumerateByType(
 		  OMVStorageDevices::SOFTWARERAID))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get list of software RAID devices"));

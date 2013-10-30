@@ -55,6 +55,11 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 
 	/**
 	 * Apply the configuration changes.
+	 * The following notifications will be sent for each processed module:<ul>
+	 * \li org.openmediavault.module.service.<module>.start
+	 * \li org.openmediavault.module.service.<module>.stop
+	 * \li org.openmediavault.module.service.<module>.applyconfig
+	 * </ul>
 	 * @param params An array containing the following fields:
 	 *   \em modules The list of modules that should be applied. If empty
 	 *   all dirty modules will be processed.

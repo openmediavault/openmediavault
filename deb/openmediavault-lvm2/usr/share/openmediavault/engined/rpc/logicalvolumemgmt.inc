@@ -76,14 +76,14 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Enumerate all physical volumes on the system.
-		if(FALSE === ($devs = OMVPhysicalVolumes::get())) {
+		if(FALSE === ($devs = OMVLvmPhysicalVolumes::get())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of physical volumes");
 		}
 		$result = array();
 		foreach($devs as $devk => $devv) {
 			// Get the physical volume details.
-			$pv = new OMVPhysicalVolume($devv);
+			$pv = new OMVLvmPhysicalVolume($devv);
 			$result[] = array(
 				"devicefile" => $pv->getDeviceFile(),
 				"free" => $pv->getFree(),
@@ -153,13 +153,13 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		$usedDevs = array();
 		// Get all physical disks that are already used by a physical volume
 		// and add them to the list of used physical disks.
-		if(FALSE === ($devs = OMVPhysicalVolumes::get())) {
+		if(FALSE === ($devs = OMVLvmPhysicalVolumes::get())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of physical volumes");
 		}
 		$usedDevs = array_merge($usedDevs, $devs);
 		// Get all existing software RAID devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerate(
+		if(FALSE === ($devs = OMVStorageDevices::enumerateByType(
 		  OMVStorageDevices::SOFTWARERAID))) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of software RAID devices");
@@ -301,14 +301,14 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Enumerate all volume groups on the system.
-		if(FALSE === ($vgs = OMVVolumeGroups::get())) {
+		if(FALSE === ($vgs = OMVLvmVolumeGroups::get())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of volume groups");
 		}
 		$result = array();
 		foreach($vgs as $vgk => $vgv) {
 			// Get the volume group details.
-			$vg = new OMVVolumeGroup($vgv);
+			$vg = new OMVLvmVolumeGroup($vgv);
 			$result[] = array(
 				"devicefile" => $vg->getDeviceFile(),
 				"uuid" => $vg->getUuid(),
@@ -380,23 +380,23 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		// Prepare list of used devices.
 		$usedDevs = array();
 		// Get volume groups to get the used physical volumes.
-		if(FALSE === ($vgs = OMVVolumeGroups::get())) {
+		if(FALSE === ($vgs = OMVLvmVolumeGroups::get())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of volume groups");
 		}
 		foreach($vgs as $vgk => $vgv) {
-			$vg = new OMVVolumeGroup($vgv);
+			$vg = new OMVLvmVolumeGroup($vgv);
 			// Add the physical volumes assigned to the volume group to the
 			// list of already used physical volumes.
 			$usedDevs = array_merge($usedDevs, $vg->getPVName());
 		}
 		// Get all physical physical volumes.
-		if(FALSE === ($pvs = OMVPhysicalVolumes::get())) {
+		if(FALSE === ($pvs = OMVLvmPhysicalVolumes::get())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of physical volumes");
 		}
 		foreach($pvs as $pvk => $pvv) {
-			$pv = new OMVPhysicalVolume($pvv);
+			$pv = new OMVLvmPhysicalVolume($pvv);
 			// Is this physical volume already used?
 			if(in_array($pv->getDeviceFile(), $usedDevs))
 				continue;
@@ -471,7 +471,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get the volume group details.
-		$vg = new OMVVolumeGroup($params['name']);
+		$vg = new OMVLvmVolumeGroup($params['name']);
 		if(FALSE === $vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Volume group '%s' not found", $vg->getName()));
@@ -513,7 +513,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Check if the volume group exists.
-		$vg = new OMVVolumeGroup($params['name']);
+		$vg = new OMVLvmVolumeGroup($params['name']);
 		if(FALSE === $vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Volume group '%s' not found", $vg->getName()));
@@ -557,14 +557,14 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get the volume groups physical volumes.
-		$vg = new OMVVolumeGroup($params['name']);
+		$vg = new OMVLvmVolumeGroup($params['name']);
 		if(FALSE === $vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Volume group '%s' not found", $vg->getName()));
 		}
 		$result = array();
 		foreach($vg->getPVName() as $pvk => $pvv) {
-			$pv = new OMVPhysicalVolume($pvv);
+			$pv = new OMVLvmPhysicalVolume($pvv);
 			$result[] = array(
 				"devicefile" => $pv->getDeviceFile(),
 				"size" => $pv->getSize(),
@@ -598,7 +598,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Check if the volume group exists.
-		$vg = new OMVVolumeGroup($params['devicefile']);
+		$vg = new OMVLvmVolumeGroup($params['devicefile']);
 		if(FALSE === $vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("No volume group found on '%s'",
@@ -646,7 +646,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Check if the volume group exists.
-		$vg = new OMVVolumeGroup($params['devicefile']);
+		$vg = new OMVLvmVolumeGroup($params['devicefile']);
 		if(FALSE === $vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("No volume group found on '%s'",
@@ -701,7 +701,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Check if the volume group exists.
-		$vg = new OMVVolumeGroup($params['devicefile']);
+		$vg = new OMVLvmVolumeGroup($params['devicefile']);
 		if(FALSE === $vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("No volume group found on '%s'",
@@ -750,14 +750,14 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Enumerate all volume groups on the system.
-		if(FALSE === ($lvs = OMVLogicalVolumes::get())) {
+		if(FALSE === ($lvs = OMVLvmLogicalVolumes::get())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of logical volumes");
 		}
 		$result = array();
 		foreach($lvs as $lvk => $lvv) {
 			// Get the physical volume details.
-			$lv = new OMVLogicalVolume($lvv);
+			$lv = new OMVLvmLogicalVolume($lvv);
 			if($lv->exists()) {
 				$result[] = array(
 					"devicefile" => $lv->getDeviceFile(),
@@ -882,7 +882,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Check if logical volume exists.
-		$lv = new OMVLogicalVolume($params['devicefile']);
+		$lv = new OMVLvmLogicalVolume($params['devicefile']);
 		if(FALSE === $lv->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("No logical volume found on '%s'",
@@ -930,7 +930,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Check if logical volume exists.
-		$lv = new OMVLogicalVolume($params['devicefile']);
+		$lv = new OMVLvmLogicalVolume($params['devicefile']);
 		if(FALSE === $lv->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("No logical volume found on '%s'",
@@ -977,7 +977,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Check if logical volume exists.
-		$lv = new OMVLogicalVolume($params['devicefile']);
+		$lv = new OMVLvmLogicalVolume($params['devicefile']);
 		if(FALSE === $lv->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("No logical volume found on '%s'",
@@ -990,7 +990,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		  );
 		// Calculate the new size of the logical volume to decide
 		// whether it must be extended or reduced.
-		$vg = new OMVVolumeGroup($lv->getVGName());
+		$vg = new OMVLvmVolumeGroup($lv->getVGName());
 		if(FALSE === $vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Volume group '%s' not found", $lv->getVGName()));

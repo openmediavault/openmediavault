@@ -64,14 +64,14 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get all existing software RAID devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerate(
+		if(FALSE === ($devs = OMVStorageDevices::enumerateByType(
 		  OMVStorageDevices::SOFTWARERAID))) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of software RAID devices");
 		}
 		// Get list of physical volumes to check whether a RAID device
 		// is used as a physical volume.
-		if(FALSE === ($pvs = OMVPhysicalVolumes::get())) {
+		if(FALSE === ($pvs = OMVLvmPhysicalVolumes::get())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of physical volumes");
 		}
@@ -161,7 +161,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		// Prepare list of used devices.
 		$usedDevs = array($rootDeviceFile);
 		// Get all existing software RAID devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerate(
+		if(FALSE === ($devs = OMVStorageDevices::enumerateByType(
 		  OMVStorageDevices::SOFTWARERAID))) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of software RAID devices");
@@ -174,7 +174,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		}
 		// Get all physical disks that are already used by a physical volume
 		// and add them to the list of used physical disks.
-		if(FALSE === ($devs = OMVPhysicalVolumes::get())) {
+		if(FALSE === ($devs = OMVLvmPhysicalVolumes::get())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of physical volumes");
 		}

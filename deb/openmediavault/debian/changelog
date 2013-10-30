@@ -1,5 +1,6 @@
 openmediavault (0.5.18) stable; urgency=low
 
+  * Improve storage device handling in core framework.
   * Fire OMV_NOTIFY_EVENT notifications after module services has been
     started/stopped, e.g. 'org.openmediavault.module.service.nfs.stop'
     or 'org.openmediavault.module.service.samba.start'.

@@ -27,7 +27,7 @@ require_once("openmediavault/util.inc");
 /**
  * Class to handle a LVM physical volume.
  */
-class OMVPhysicalVolume extends OMVObject {
+class OMVLvmPhysicalVolume extends OMVObject {
 	protected $deviceFile = "";
 	protected $uuid = "";
 	protected $size = "";
@@ -198,7 +198,7 @@ class OMVPhysicalVolume extends OMVObject {
 /**
  * Class to handle LVM volume groups.
  */
-class OMVVolumeGroups extends OMVObject {
+class OMVLvmVolumeGroups extends OMVObject {
 	/**
 	 * Get a list of volume groups.
 	 * @return A list of volume groups or FALSE on failure.
@@ -228,7 +228,7 @@ class OMVVolumeGroups extends OMVObject {
 /**
  * Class to handle a LVM volume group.
  */
-class OMVVolumeGroup extends OMVObject {
+class OMVLvmVolumeGroup extends OMVObject {
 	protected $uuid = "";
 	protected $name = "";
 	protected $size = "";
