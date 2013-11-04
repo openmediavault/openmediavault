@@ -66,8 +66,8 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 		// read-only to deny wiping this device.
 		$rootDeviceFile = OMVSystem::getRootDeviceFile();
 		// Get all existing devices except software RAID devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerateByType(
-		  OMVStorageDevices::ALL & ~OMVStorageDevices::SOFTWARERAID))) {
+		if(FALSE === ($devs = OMVStorageDevices::enumerate(
+		  OMV_STORAGE_DEVICE_TYPE_HDD | OMV_STORAGE_DEVICE_TYPE_HBA))) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, "Failed to ".
 			  "get list of hard disks and hardware RAID devices");
 		}

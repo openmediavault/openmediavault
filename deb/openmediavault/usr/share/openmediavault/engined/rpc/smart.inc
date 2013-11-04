@@ -68,8 +68,8 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get all existing hard disks devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerateByType(
-		  OMVStorageDevices::HARDDISK))) {
+		if(FALSE === ($devs = OMVStorageDevices::enumerate(
+		  OMV_STORAGE_DEVICE_TYPE_HDD))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  "Failed to get list of hard disks devices");
 		}

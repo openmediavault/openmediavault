@@ -64,16 +64,10 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get all existing software RAID devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerateByType(
-		  OMVStorageDevices::SOFTWARERAID))) {
+		if(FALSE === ($devs = OMVStorageDevices::enumerate(
+		  OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID))) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of software RAID devices");
-		}
-		// Get list of physical volumes to check whether a RAID device
-		// is used as a physical volume.
-		if(FALSE === ($pvs = OMVLvmPhysicalVolumes::get())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  "Failed to get list of physical volumes");
 		}
 		// Prepare the result object.
 		$result = array();
@@ -81,8 +75,8 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 			$raid = new OMVSoftwareRaidDevice($devv);
 			if($raid->exists()) {
 				$used = FALSE;
-				// Is this RAID device already used as a physical volume?
-				if(in_array($raid->getDeviceFile(), $pvs)) {
+				// Is this RAID device used by another storage device?
+				if(OMVStorageDevices::isUsed($raid->getDeviceFile())) {
 					$used = TRUE;
 				// Does the RAID device contain a filesystem and is it used?
 				} else if(FALSE !== OMVRpc::exec("FsTab", "getByFsName",
@@ -96,7 +90,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 					"uuid" => $raid->getUuid(),
 					"level" => $raid->getLevel(),
 					"numdevices" => $raid->getNumDevices(),
-					"devices" => $raid->getDevices(),
+					"devices" => $raid->getSlaves(),
 					"size" => $raid->getSize(),
 					"state" => $raid->getState(),
 					"description" => $raid->getDescription()
@@ -154,53 +148,33 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		// Get the device file where the operating system is installed on and
-		// strip partition informations from the device file name.
-		$rootDeviceFile = preg_replace("/\d+/", "",
-		  OMVSystem::getRootDeviceFile());
-		// Prepare list of used devices.
-		$usedDevs = array($rootDeviceFile);
-		// Get all existing software RAID devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerateByType(
-		  OMVStorageDevices::SOFTWARERAID))) {
+		// Get a list of all potential usable devices.
+		if(FALSE === ($devs = OMVStorageDevices::enumerateUnused())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  "Failed to get list of software RAID devices");
+			  "Failed to get list of devices");
 		}
-		foreach($devs as $devk => $devv) {
-			$raid = new OMVSoftwareRaidDevice($devv);
-			if($raid->exists()) {
-				$usedDevs = array_merge($usedDevs, $raid->getDevices());
-			}
-		}
-		// Get all physical disks that are already used by a physical volume
-		// and add them to the list of used physical disks.
-		if(FALSE === ($devs = OMVLvmPhysicalVolumes::get())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  "Failed to get list of physical volumes");
-		}
-		$usedDevs = array_merge($usedDevs, $devs);
-		// Get all physical disk devices on the system.
-		unset($devs);
-		$devs = OMVRpc::exec("DiskMgmt", "enumerateDevices", NULL,
-		  $context);
 		// Prepare the result list.
 		$result = array();
 		foreach($devs as $devk => $devv) {
-			// Is this hard disk device used in a RAID device?
-			if(in_array($devv['devicefile'], $usedDevs))
+			// Get the object that implements the given storage device.
+			$sd = OMVStorageDeviceFactory::get($devv);
+			if(is_null($sd) || !$sd->exists())
 				continue;
 			// Check if device is referenced/used by a plugin.
-			if(TRUE === $xmlConfig->exists("//services/devicefile[".
-			  "contains(.,'{$devv['devicefile']}')]"))
+			$xpath = sprintf("//services/devicefile[contains(.,'%s')]",
+			  $sd->getDeviceFile());
+			if(TRUE === $xmlConfig->exists($xpath))
 				continue;
 			// Does this device already contain a filesystem?
-			if(FALSE !== OMVFilesystem::hasFileSystem($devv['devicefile']))
+			if(FALSE !== OMVFilesystem::hasFileSystem($sd->getDeviceFile()))
 				continue;
+			// The device is a potential candidate to be a member of a
+			// Software RAID.
 			$result[] = array(
-				"devicefile" => $devv['devicefile'],
-				"size" => $devv['size'],
-				"vendor" => $devv['vendor'],
-				"description" => $devv['description']
+				"devicefile" => $sd->getDeviceFile(),
+				"size" => $sd->getSize(),
+				"vendor" => $sd->getVendor(),
+				"description" => $sd->getDescription()
 			);
 		}
 		return $result;
@@ -288,7 +262,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 			  $raid->getDeviceFile());
 		}
 		$numDevices = $raid->getNumDevices();
-		$devices = $raid->getDevices();
+		$devices = $raid->getSlaves();
 		// Calculate new number of devices.
 		$newDevices = explode(",", $params['devices']);
 		$numDevices += count($newDevices);
@@ -352,7 +326,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 			  $raid->getDeviceFile());
 		}
 		$numDevices = $raid->getNumDevices();
-		$devices = $raid->getDevices();
+		$devices = $raid->getSlaves();
 		// Calculate new number of devices.
 		$newDevices = explode(",", $params['devices']);
 		$numDevices += count($newDevices);
@@ -408,7 +382,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 			"devicefile" => $raid->getDeviceFile(),
 			"level" => $raid->getLevel(),
 			"numdevices" => $raid->getNumDevices(),
-			"devices" => $raid->getDevices()
+			"devices" => $raid->getSlaves()
 		);
 		// Delete the RAID device.
 		$cmd = sprintf("omv-rmraid %s", $raid->getDeviceFile());

@@ -619,8 +619,8 @@ class OMVFilesystem extends OMVObject {
 	public function getBlockSize() {
 		if($this->getData() === FALSE)
 			return FALSE;
-		$cmd = sprintf("export LANG=C; blockdev --getbsz %s ",
-		  $this->deviceFile);
+		$cmd = sprintf("export LANG=C; blockdev --getbsz %s",
+		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0)
 			return FALSE;
@@ -975,6 +975,18 @@ interface OMVIBlockDevice {
 	function getSize();
 
 	/**
+	 * Get the blocksize of the device in bytes.
+	 * @return The blocksize of the device in bytes, otherwise FALSE.
+	 */
+	function getBlockSize();
+
+	/**
+	 * Get the sectorsize of the device in bytes.
+	 * @return The sectorsize of the device in bytes, otherwise FALSE.
+	 */
+	function getSectorSize();
+
+	/**
 	 * Get the description of the device.
 	 * @return The device description.
 	 */
@@ -989,6 +1001,8 @@ abstract class OMVBlockDeviceAbstract extends OMVObject implements
   OMVIBlockDevice {
 	protected $deviceFile = FALSE;
 	protected $size = FALSE;
+	protected $blockSize = FALSE;
+	protected $sectorSize = FALSE;
 
 	/**
 	 * Constructor
@@ -1026,6 +1040,20 @@ abstract class OMVBlockDeviceAbstract extends OMVObject implements
 	 */
 	public function getSize() {
 		return $this->size;
+	}
+
+	/**
+	 * See interface definition.
+	 */
+	public function getBlockSize() {
+		return $this->blockSize;
+	}
+
+	/**
+	 * See interface definition.
+	 */
+	public function getSectorSize() {
+		return $this->sectorSize;
 	}
 }
 
@@ -1114,6 +1142,38 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			$this->size = $output[0];
 		}
 		return $this->size;
+	}
+
+	/**
+	 * Get the blocksize of the device in bytes.
+	 * @return The blocksize of the device in bytes, otherwise FALSE.
+	 */
+	public function getBlockSize() {
+		if($this->blockSize === FALSE) {
+			$cmd = sprintf("export LANG=C; blockdev --getbsz %s",
+			  escapeshellarg($this->getDeviceFile()));
+			@OMVUtil::exec($cmd, $output, $result);
+			if($result !== 0)
+				return FALSE;
+			$this->blockSize = intval($output[0]);
+		}
+		return $this->blockSize;
+	}
+
+	/**
+	 * Get the sectorsize of the device in bytes.
+	 * @return The sectorsize of the device in bytes, otherwise FALSE.
+	 */
+	public function getSectorSize() {
+		if($this->sectorSize === FALSE) {
+			$cmd = sprintf("export LANG=C; blockdev --getss %s",
+			  escapeshellarg($this->getDeviceFile()));
+			@OMVUtil::exec($cmd, $output, $result);
+			if($result !== 0)
+				return FALSE;
+			$this->sectorSize = intval($output[0]);
+		}
+		return $this->sectorSize;
 	}
 
 	/**
@@ -1246,26 +1306,33 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 }
 
 /**
- * A class that represents a storage backend.
+ * The generic class that represents a storage device backend.
+ * @ingroup api
  */
 abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	/**
-	 * Get a list of devices of the given storage backend.
+	 * Get the type of the storage device backend which is implemented
+	 * by this class.
+	 */
+	abstract function getType();
+
+	/**
+	 * Get a list of devices of the given storage device backend.
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
 	abstract function enumerate();
 
 	/**
 	 * Get a list of all (physical) devices that are used by devices of
-	 * this storage backend.
+	 * this storage device backend.
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
 	function getMembers() { return array(); }
 
 	/**
-	 * Check whether the given device is is represented by this storage
-	 * backend.
-	 * @param deviceFile The device file, e.g.
+	 * Check whether the given device is represented by this storage
+	 * device backend.
+	 * @param deviceFile The device file, e.g. <ul>
 	 *   \li /dev/sdb
 	 *   \li /dev/md1
 	 *   \li /dev/cciss/c0d0
@@ -1273,13 +1340,14 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	 *   \li /dev/disk/by-label/DATA
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+	 *   </ul>
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	function isTypeOf($deviceFile) { return FALSE; }
 
 	/**
-	 * Get an object of the class that represents and implements a device of
-	 * this storage backend.
+	 * Get an object of the class that represents and implements a device
+	 * of this storage device backend.
 	 * @param args The arguments to the class constructor.
 	 * @return The object of the class implementing the given device type,
 	 *   otherwise NULL.
@@ -1288,7 +1356,7 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 
 	/**
 	 * Helper function to enumerate the devices represented by this storage
-	 * backend via the /proc filesystem.
+	 * device backend via the /proc filesystem.
 	 * @param regex The regular expression used to identify the devices
 	 *   represented by this storage backend.
 	 * @return A list of devicefile names, otherwise FALSE.
@@ -1306,7 +1374,7 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 
 	/**
 	 * Helper function to check whether the given device is represented by
-	 * this storage backend.
+	 * this storage device backend.
 	 * @param deviceFile The device file.
 	 * @param regex The regular expression used to identify the devices
 	 *   represented by this storage backend.
@@ -1330,6 +1398,10 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 
 class OMVStorageDeviceBackendLoopDevice extends
   OMVStorageDeviceBackendAbstract {
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE;
+	}
+
 	function enumerate() {
 		$regex = $GLOBALS['OMV_REGEX_DEVNAME_LOOPDEVICE'];
 		return $this->enumerateProcFs($regex);
@@ -1347,21 +1419,25 @@ class OMVStorageDeviceBackendLoopDevice extends
 
 class OMVStorageDeviceBackendDeviceMapper extends
   OMVStorageDeviceBackendAbstract {
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER;
+	}
+
 	function enumerate() {
 		$regex = $GLOBALS['OMV_REGEX_DEVNAME_DEVICEMAPPER'];
 		return $this->enumerateProcFs($regex);
 	}
 
 	function getMembers() {
-		$result = array();
 		$devs = $this->enumerate();
 		if(FALSE === $devs)
 			return FALSE;
+		$result = array();
 		foreach($devs as $devk => $devv) {
-			// Process LVM logical volumes.
-			$object = new OMVLvmLogicalVolume($devv);
-			if($object->exists())
-				$result = array_merge($result, $object->getDevices());
+			$object = new OMVDeviceMapperDevice($devv);
+			if(!$object->exists())
+				continue;
+			$result = array_merge($result, $object->getSlaves());
 		}
 		return $result;
 	}
@@ -1376,22 +1452,78 @@ class OMVStorageDeviceBackendDeviceMapper extends
 	}
 }
 
+class OMVStorageDeviceBackendLVM extends OMVStorageDeviceBackendDeviceMapper {
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_LVM;
+	}
+
+	function enumerate() {
+		$devs = parent::enumerate();
+		if(FALSE === $devs)
+			return FALSE;
+		$result = array();
+		foreach($devs as $devk => $devv) {
+			$object = new OMVDeviceMapperDevice($devv);
+			if(!$object->exists())
+				continue;
+			// Build a device file name that contains the VG and LV name.
+			$deviceFile = sprintf("/dev/mapper/%s", $object->getName());
+			// Check if the given device is a LVM logical volume.
+			$object = new OMVLvmLogicalVolume($deviceFile);
+			if(!$object->exists())
+				continue;
+			$result[] = $object->getDeviceFile();
+		}
+		return $result;
+	}
+
+	function getMembers() {
+		$devs = $this->enumerate();
+		if(FALSE === $devs)
+			return FALSE;
+		$result = array();
+		foreach($devs as $devk => $devv) {
+			// Process LVM logical volumes.
+			$object = new OMVLvmLogicalVolume($devv);
+			if($object->exists())
+				$result = array_merge($result, $object->getSlaves());
+		}
+		return $result;
+	}
+
+	function isTypeOf($deviceFile) {
+		if(FALSE === ($result = parent::isTypeOf($deviceFile)))
+			return FALSE;
+		// Do some more detailed checks.
+		$object = new OMVLvmLogicalVolume($deviceFile);
+		return $object->exists();
+	}
+
+	function getImpl($args) {
+		return new OMVLvmLogicalVolume($args);
+	}
+}
+
 class OMVStorageDeviceBackendMdadm extends OMVStorageDeviceBackendAbstract {
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID;
+	}
+
 	function enumerate() {
 		$regex = $GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'];
 		return $this->enumerateProcFs($regex);
 	}
 
 	function getMembers() {
-		$result = array();
 		$devs = $this->enumerate();
 		if(FALSE === $devs)
 			return FALSE;
+		$result = array();
 		foreach($devs as $devk => $devv) {
 			$object = new OMVSoftwareRaidDevice($devv);
 			if(!$object->exists())
 				continue;
-			$result = array_merge($result, $object->getDevices());
+			$result = array_merge($result, $object->getSlaves());
 		}
 		return $result;
 	}
@@ -1407,6 +1539,10 @@ class OMVStorageDeviceBackendMdadm extends OMVStorageDeviceBackendAbstract {
 }
 
 class OMVStorageDeviceBackendHBA extends OMVStorageDeviceBackendAbstract {
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_HBA;
+	}
+
 	function enumerate() {
 		$regex = $GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'];
 		return $this->enumerateProcFs($regex);
@@ -1423,6 +1559,10 @@ class OMVStorageDeviceBackendHBA extends OMVStorageDeviceBackendAbstract {
 }
 
 class OMVStorageDeviceBackendHDD extends OMVStorageDeviceBackendAbstract {
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_HDD;
+	}
+
 	function enumerate() {
 		$regex = $GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'];
 		return $this->enumerateProcFs($regex);
@@ -1443,12 +1583,6 @@ class OMVStorageDeviceBackendHDD extends OMVStorageDeviceBackendAbstract {
  * @ingroup api
  */
 class OMVStorageDevices extends OMVObject {
-	const HARDDISK = 0x1;
-	const SOFTWARERAID = 0x2;
-	const HARDWARERAID = 0x4;
-	const LOOPDEVICE = 0x8;
-	const ALL = 0xF;
-
 	static private $backends = array();
 
 	/**
@@ -1464,19 +1598,39 @@ class OMVStorageDevices extends OMVObject {
 	}
 
 	/**
-	 * Enumerate all available storage devices.
+	 * Enumerate devices matching the given storage device type.
+	 * @param type Defines the storage device type, e.g. hard disk, hard or
+	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
-	final public function enumerate() {
+	public static function enumerate($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = array();
-		// Append storage devices.
 		foreach(self::$backends as $backendk => $backendv) {
+			if(!($type & $backendv->getType()))
+				continue;
 			if(FALSE === ($devs = $backendv->enumerate()))
 				return FALSE;
 			$result = array_unique(array_merge($result, $devs));
 		}
+		return $result;
+	}
+
+	/**
+	 * Enumerate all unused devices. This list contains all devices of the
+	 * given type except the devices that are used by other storage devices
+	 * (e.g. LVM as physical volume or a member of a Software RAID).
+	 * @param type Defines the storage device type, e.g. hard disk, hard or
+	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
+	 * @return A list of devicefile names, otherwise FALSE.
+	 */
+	final public function enumerateUnused($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
+		// Append all available storage devices.
+		if(FALSE === ($result = self::enumerate($type)))
+			return FALSE;
 		// Remove used devices.
 		foreach(self::$backends as $backendk => $backendv) {
+			if(!($type & $backendv->getType()))
+				continue;
 			if(FALSE === ($devs = $backendv->getMembers()))
 				return FALSE;
 			if(empty($devs))
@@ -1487,37 +1641,29 @@ class OMVStorageDevices extends OMVObject {
 	}
 
 	/**
-	 * Enumerate devices matching the given type.
-	 * @param type Defines the device type, e.g. hard disk, hard or software
-	 *   RAID. Defaults to ALL.
-	 * @return A list of devicefile names of the given type, otherwise FALSE.
+	 * Enumerate all used devices. The list contains all those devices that
+	 * are used by the given storage devices, e.g. all members of a LVM
+	 * or Software RAID.
+	 * @param type Defines the storage device type, e.g. hard disk, hard or
+	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
+	 * @return A list of devicefile names, otherwise FALSE.
 	 */
-	public static function enumerateByType($type = OMVStorageDevices::ALL) {
-		// Prepare regex. options.
-		$args = array();
-		if($type & OMVStorageDevices::HARDDISK)
-			$args[] = $GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'];
-		if($type & OMVStorageDevices::SOFTWARERAID)
-			$args[] = $GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'];
-		if($type & OMVStorageDevices::HARDWARERAID)
-			$args[] = $GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'];
-		if($type & OMVStorageDevices::LOOPDEVICE)
-			$args[] = $GLOBALS['OMV_REGEX_DEVNAME_LOOPDEVICE'];
-		$regex = sprintf('/^\s+(\d+)\s+(\d+)\s+(\d+)\s+(%s)$/',
-		  implode("|", $args));
-		// Process partitions detected by the kernel.
-		$devs = array();
-		foreach(file("/proc/partitions") as $outputk => $outputv) {
-			if(1 !== preg_match($regex, $outputv, $matches))
+	final public function enumerateUsed($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
+		$result = array();
+		// Remove used devices.
+		foreach(self::$backends as $backendk => $backendv) {
+			if(!($type & $backendv->getType()))
 				continue;
-			$devs[] = sprintf("/dev/%s", $matches[4]);
+			if(FALSE === ($devs = $backendv->getMembers()))
+				return FALSE;
+			$result = array_unique(array_merge($result, $devs));
 		}
-		return $devs;
+		return $result;
 	}
 
 	/**
-	 * Get the object of the class which implements the given storage backend.
-	 * @param deviceFile The device file, e.g.
+	 * Check if the given device is used/consumed by another storage device.
+	 * @param deviceFile The device file, e.g. <ul>
 	 *   \li /dev/sdb
 	 *   \li /dev/md1
 	 *   \li /dev/cciss/c0d0
@@ -1525,6 +1671,38 @@ class OMVStorageDevices extends OMVObject {
 	 *   \li /dev/disk/by-label/DATA
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+	 *   </ul>
+	 * @param type Defines the storage device type, e.g. hard disk, hard or
+	 *   Software RAID. Defaults to OMV_STORAGE_DEVICE_TYPE_ALL.
+	 * @return TRUE if the given device is used/consumed by another storage
+	 *   device, otherwise FALSE.
+	 */
+	final public function isUsed($deviceFile, $type = OMV_STORAGE_DEVICE_TYPE_ALL) {
+		$result = FALSE;
+		foreach(self::$backends as $backendk => $backendv) {
+			if(!($type & $backendv->getType()))
+				continue;
+			if(FALSE === ($devs = $backendv->getMembers()))
+				return FALSE;
+			if(in_array($deviceFile, $devs)) {
+				$result = TRUE;
+				break;
+			}
+		}
+		return $result;
+	}
+
+	/**
+	 * Get the object of the class which implements the given storage backend.
+	 * @param deviceFile The device file, e.g. <ul>
+	 *   \li /dev/sdb
+	 *   \li /dev/md1
+	 *   \li /dev/cciss/c0d0
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
+	 *   \li /dev/disk/by-label/DATA
+	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
+	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+	 *   </ul>
 	 * @return The object of the class implementing the given storage backend,
 	 *   otherwise NULL.
 	 */
@@ -1548,7 +1726,7 @@ class OMVStorageDevices extends OMVObject {
 class OMVStorageDeviceFactory extends OMVObject {
 	/**
 	 * Get the object of the class implementing the given device type.
-	 * @param deviceFile The device file, e.g.
+	 * @param deviceFile The device file, e.g. <ul>
 	 *   \li /dev/sdb
 	 *   \li /dev/md1
 	 *   \li /dev/cciss/c0d0
@@ -1556,6 +1734,7 @@ class OMVStorageDeviceFactory extends OMVObject {
 	 *   \li /dev/disk/by-label/DATA
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+	 *   </ul>
 	 * @return The object of the class implementing the given device type,
 	 *   otherwise NULL.
 	 */
@@ -2036,7 +2215,7 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
 	 * Get the list of device files used in the array.
 	 * @return A list of device files used in the array, otherwise FALSE.
 	 */
-	public function getDevices() {
+	public function getSlaves() {
 		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->devices;
@@ -2132,7 +2311,45 @@ class OMVSoftwareRaidDevice extends OMVStorageDeviceAbstract {
  * @ingroup api
  */
 class OMVDeviceMapperDevice extends OMVStorageDeviceAbstract {
-	// Nothing to do here.
+	/**
+	 * Get the name of the device mapper device.
+	 * @return The name of the device mapper device.
+	 */
+	public function getName() {
+		$path = sprintf("/sys/block/%s/dm/name", $this->getDeviceName());
+		if(!file_exists($path))
+			return FALSE;
+		return trim(file_get_contents($path));
+	}
+
+	/**
+	 * Get the UUID of the device mapper device.
+	 * @return The UUID of the device mapper device, otherwise FALSE.
+	 */
+	public function getUuid() {
+		$path = sprintf("/sys/block/%s/dm/uuid", $this->getDeviceName());
+		if(!file_exists($path))
+			return FALSE;
+		return trim(file_get_contents($path));
+	}
+
+	/**
+	 * Get the slave devices of the device mapper device.
+	 * @return An array of device files, otherwise FALSE.
+	 */
+	public function getSlaves() {
+		$path = sprintf("/sys/block/%s/slaves", $this->getDeviceName());
+		if(!file_exists($path))
+			return FALSE;
+		$result = array();
+		$dir = new DirectoryIterator($path);
+		foreach($dir as $item) {
+			if($item->isDot() || !$item->isFile())
+				continue;
+			$result[] = sprintf("/dev/%s", $item->getFilename());
+		}
+		return $result;
+	}
 }
 
 /**
@@ -3030,7 +3247,7 @@ class OMVLvmLogicalVolumes extends OMVObject {
  * This class provides a simple interface to handle a LVM logical volume.
  * @ingroup api
  */
-class OMVLvmLogicalVolume extends OMVObject {
+class OMVLvmLogicalVolume extends OMVDeviceMapperDevice {
 	protected $deviceFile = "";
 	protected $name = "";
 	protected $uuid = "";
@@ -3167,17 +3384,6 @@ class OMVLvmLogicalVolume extends OMVObject {
 	}
 
 	/**
-	 * Get the list of underlying devices used by this logical volume.
-	 * @return A list of underlying devices used by this logical volume,
-	 * otherwise FALSE.
-	 */
-	public function getDevices() {
-		if($this->getData() === FALSE)
-			return FALSE;
-		return $this->devices;
-	}
-
-	/**
 	 * Get the description of the logical volume.
 	 * @return The logical volume description, FALSE on failure.
 	 */
@@ -3193,10 +3399,10 @@ class OMVLvmLogicalVolume extends OMVObject {
 ///////////////////////////////////////////////////////////////////////////////
 // Register default storage device backends.
 ///////////////////////////////////////////////////////////////////////////////
-
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLoopDevice());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendDeviceMapper());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendMdadm());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendHBA());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendHDD());
+OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendHBA());
+OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendMdadm());
+OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLVM());
+OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendDeviceMapper());
+OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLoopDevice());
 ?>

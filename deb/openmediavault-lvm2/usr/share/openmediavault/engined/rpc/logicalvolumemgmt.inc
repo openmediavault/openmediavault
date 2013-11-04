@@ -148,59 +148,32 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		// Get a list of all potential usable devices.
+		if(FALSE === ($devs = OMVStorageDevices::enumerateUnused())) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  "Failed to get list of devices");
+		}
+		// Prepare the result list.
 		$result = array();
-		// Prepare list of used devices
-		$usedDevs = array();
-		// Get all physical disks that are already used by a physical volume
-		// and add them to the list of used physical disks.
-		if(FALSE === ($devs = OMVLvmPhysicalVolumes::get())) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  "Failed to get list of physical volumes");
-		}
-		$usedDevs = array_merge($usedDevs, $devs);
-		// Get all existing software RAID devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerateByType(
-		  OMVStorageDevices::SOFTWARERAID))) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  "Failed to get list of software RAID devices");
-		}
 		foreach($devs as $devk => $devv) {
-			$raid = new OMVSoftwareRaidDevice($devv);
-			if(!$raid->exists())
-				continue;
- 			// Add the devices used by the RAID to the list of used devices.
-			$usedDevs = array_merge($usedDevs, $raid->getDevices());
-			// Is this RAID device already used as a physical volume?
-			if(in_array($raid->getDeviceFile(), $usedDevs))
-				continue;
-			// Does this RAID already contain a filesystem?
-			if(FALSE !== OMVFilesystem::hasFileSystem($raid->getDeviceFile()))
-				continue;
-			$result[] = array(
-				"devicefile" => $raid->getDeviceFile(),
-				"size" => $raid->getSize(),
-				"description" => $raid->getDescription()
-			);
-		}
-		// Get all physical disk devices on the system.
-		$devs = OMVRpc::exec("DiskMgmt", "enumerateDevices", array(),
-		  $context);
-		// Prepare result
-		foreach($devs as $devk => $devv) {
-			// Is this hard disk device used in a RAID device?
-			if(in_array($devv['devicefile'], $usedDevs))
+			// Get the object that implements the given storage device.
+			$sd = OMVStorageDeviceFactory::get($devv);
+			if(is_null($sd) || !$sd->exists())
 				continue;
 			// Check if device is referenced/used by a plugin.
-			if(TRUE === $xmlConfig->exists("//services/devicefile[".
-			  "contains(.,'{$devv['devicefile']}')]"))
+			$xpath = sprintf("//services/devicefile[contains(.,'%s')]",
+			  $sd->getDeviceFile());
+			if(TRUE === $xmlConfig->exists($xpath))
 				continue;
 			// Does this device already contain a filesystem?
-			if(FALSE !== OMVFilesystem::hasFileSystem($devv['devicefile']))
+			if(FALSE !== OMVFilesystem::hasFileSystem($sd->getDeviceFile()))
 				continue;
+			// The device is a potential candidate to be used as a
+			// physical volume.
 			$result[] = array(
-				"devicefile" => $devv['devicefile'],
-				"size" => $devv['size'],
-				"description" => $devv['description']
+				"devicefile" => $sd->getDeviceFile(),
+				"size" => $sd->getSize(),
+				"description" => $sd->getDescription()
 			);
 		}
 		return $result;
