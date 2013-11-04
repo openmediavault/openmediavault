@@ -210,5 +210,14 @@ Ext.define("OMV.workspace.node.Node", {
 			break;
 		}
 		return result;
+	},
+
+	/**
+	 * Get the URI of the node based on its path and id.
+	 * @return The URI of this node.
+	 */
+	getURI: function() {
+		var me = this;
+		return Ext.String.format("{0}/{1}", me.path, me.id);
 	}
 });

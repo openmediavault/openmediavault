@@ -36,6 +36,10 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 		"OMV.WorkspaceManager"
 	],
 
+	stateful: true,
+	stateId: "ee299152-4534-11e3-bbea-0002b3a176b4",
+	stateEvents: [ "afteritemcollapse", "afteritemexpand" ],
+
 	constructor: function(config) {
 		var me = this;
 		config = Ext.apply({
@@ -122,5 +126,47 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 				return false;
 			}
 		});
-	}
+	},
+
+	/**
+	 * Gets the current state of the tree panel. It contains an array of
+	 * expanded nodes.
+	 * @return The current state of the object.
+	 */
+	getState: function() {
+		var me = this;
+		var nodeURI = [];
+		me.getRootNode().cascadeBy(function(treeNode) {
+			var node = treeNode.get("node");
+			if(!Ext.isObject(node) || !node.isNode)
+				return;
+			if(node.isLeaf() || !node.hasChildNodes())
+				return;
+			if(!treeNode.isExpanded())
+				return;
+			var uri = node.getURI();
+			nodeURI.push(uri);
+		});
+		return {
+			expanded: nodeURI
+		};
+    },
+
+    /**
+     * Applies the state to the tree panel.
+     */
+    applyState: function(state) {
+    	var me = this;
+    	var nodeURI = Ext.apply([], state.expanded);
+    	me.getRootNode().cascadeBy(function(treeNode) {
+			var node = treeNode.get("node");
+			if(!Ext.isObject(node) || !node.isNode)
+				return;
+			if(node.isLeaf() || !node.hasChildNodes())
+				return;
+			var uri = node.getURI();
+			if(Ext.Array.contains(nodeURI, uri))
+				treeNode.expand();
+		});
+    }
 });
