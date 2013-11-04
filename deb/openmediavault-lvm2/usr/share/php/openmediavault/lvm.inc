@@ -190,7 +190,7 @@ class OMVLvmPhysicalVolume extends OMVObject {
 	public function getDescription() {
 		if($this->getData() === FALSE)
 			return FALSE;
-		return sprintf("Physical Volume [%s, %s]", $this->getDeviceFile(),
+		return sprintf("LVM physical volume [%s, %s]", $this->getDeviceFile(),
 		  binary_format($this->getSize()));
 	}
 }
@@ -470,7 +470,7 @@ class OMVLvmVolumeGroup extends OMVObject {
 	public function getDescription() {
 		if($this->getData() === FALSE)
 			return FALSE;
-		return sprintf("Volume Group [%s, %s, %s free]",
+		return sprintf("LVM volume group [%s, %s, %s free]",
 		  $this->getDeviceFile(), binary_format($this->getSize()),
 		  binary_format($this->getFree()));
 	}

@@ -3390,7 +3390,7 @@ class OMVLvmLogicalVolume extends OMVDeviceMapperDevice {
 	public function getDescription() {
 		if($this->getData() === FALSE)
 			return FALSE;
-		return sprintf(gettext("Logical volume %s [%s, %s]"),
+		return sprintf(gettext("LVM logical volume %s [%s, %s]"),
 		  $this->getName(), $this->getDeviceFile(),
 		  binary_format($this->getSize()));
 	}
@@ -3403,6 +3403,9 @@ OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendHDD());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendHBA());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendMdadm());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLVM());
-OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendDeviceMapper());
+// Any devices of the form /dev/dm-n are for internal use only and should
+// never be used. See for more information:
+// https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html-single/DM_Multipath
+//OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendDeviceMapper());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLoopDevice());
 ?>
