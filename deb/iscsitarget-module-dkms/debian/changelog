@@ -1,10 +1,16 @@
+iscsitarget-module-dkms (0.3) stable; urgency=low
+
+  * Support backport kernel.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 05 Nov 2013 12:17:33 +0100
+
 iscsitarget-module-dkms (0.2) stable; urgency=low
 
   * Modify package dependency, otherwise kernel headers are not installed.
     These are required by iscsitarget-dkms to automatically build the
     kernel module.
 
- -- vot <vot@pcvot>  Tue, 02 Oct 2012 18:01:43 +0200
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 02 Oct 2012 18:01:43 +0200
 
 iscsitarget-module-dkms (0.1) stable; urgency=low
 
