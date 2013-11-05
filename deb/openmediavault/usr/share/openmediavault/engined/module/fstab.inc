@@ -114,7 +114,7 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 	final public function deleteEntry($params) {
 		$me = new OMVMntEnt($params['fsname'], $params['dir']);
 		if(TRUE === $me->isMounted()) {
-			if(FALSE === $me->umount(TRUE)) {
+			if(FALSE === $me->umount(TRUE, TRUE)) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("Failed to unmount '%s': %s", $params['fsname'],
 				  $me->getError()));
