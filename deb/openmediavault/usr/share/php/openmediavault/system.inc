@@ -1345,11 +1345,11 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	abstract function enumerate();
 
 	/**
-	 * Get a list of all (physical) devices that are used by devices of
-	 * this storage device backend.
+	 * Get a list of all devices that are used by devices of this
+	 * storage device backend.
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
-	function getMembers() { return array(); }
+	function enumerateSlaves() { return array(); }
 
 	/**
 	 * Check whether the given device is represented by this storage
@@ -1450,7 +1450,7 @@ class OMVStorageDeviceBackendDeviceMapper extends
 		return $this->enumerateProcFs($regex);
 	}
 
-	function getMembers() {
+	function enumerateSlaves() {
 		$devs = $this->enumerate();
 		if(FALSE === $devs)
 			return FALSE;
@@ -1499,7 +1499,7 @@ class OMVStorageDeviceBackendLVM extends OMVStorageDeviceBackendDeviceMapper {
 		return $result;
 	}
 
-	function getMembers() {
+	function enumerateSlaves() {
 		$devs = $this->enumerate();
 		if(FALSE === $devs)
 			return FALSE;
@@ -1536,7 +1536,7 @@ class OMVStorageDeviceBackendMdadm extends OMVStorageDeviceBackendAbstract {
 		return $this->enumerateProcFs($regex);
 	}
 
-	function getMembers() {
+	function enumerateSlaves() {
 		$devs = $this->enumerate();
 		if(FALSE === $devs)
 			return FALSE;
@@ -1653,7 +1653,7 @@ class OMVStorageDevices extends OMVObject {
 		foreach(self::$backends as $backendk => $backendv) {
 			if(!($type & $backendv->getType()))
 				continue;
-			if(FALSE === ($devs = $backendv->getMembers()))
+			if(FALSE === ($devs = $backendv->enumerateSlaves()))
 				return FALSE;
 			if(empty($devs))
 				continue;
@@ -1676,7 +1676,7 @@ class OMVStorageDevices extends OMVObject {
 		foreach(self::$backends as $backendk => $backendv) {
 			if(!($type & $backendv->getType()))
 				continue;
-			if(FALSE === ($devs = $backendv->getMembers()))
+			if(FALSE === ($devs = $backendv->enumerateSlaves()))
 				return FALSE;
 			$result = array_unique(array_merge($result, $devs));
 		}
@@ -1704,7 +1704,7 @@ class OMVStorageDevices extends OMVObject {
 		foreach(self::$backends as $backendk => $backendv) {
 			if(!($type & $backendv->getType()))
 				continue;
-			if(FALSE === ($devs = $backendv->getMembers()))
+			if(FALSE === ($devs = $backendv->enumerateSlaves()))
 				return FALSE;
 			if(in_array($deviceFile, $devs)) {
 				$result = TRUE;
