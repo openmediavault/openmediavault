@@ -165,8 +165,8 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 			if(node.isLeaf() || !node.hasChildNodes())
 				return;
 			var uri = node.getURI();
-			if(Ext.Array.contains(nodeURI, uri))
-				treeNode.expand();
+			if(!Ext.Array.contains(nodeURI, uri))
+				treeNode.collapse();
 		});
     }
 });

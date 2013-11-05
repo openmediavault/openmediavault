@@ -415,8 +415,10 @@ class OMVFilesystem extends OMVObject {
 			//   /dev/mapper which is prefered.
 			$cmd = sprintf("export LANG=C; findfs UUID=%s", $this->uuid);
 			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0)
+			if($result !== 0) {
+				$this->errStr = $output;
 				return FALSE;
+			}
 			$this->deviceFile = $output[0];
 			unset($output);
 		}
@@ -432,8 +434,10 @@ class OMVFilesystem extends OMVObject {
 		// Get the filesystem details.
 		$cmd = sprintf("export LANG=C; blkid -p %s", $this->deviceFile);
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if($result !== 0) {
+			$this->errStr = $output;
 			return FALSE;
+		}
 
 		// Parse command output:
 		// /dev/sda1: UUID="3d9be906-d592-449b-93c4-3dd8888801b2" TYPE="ext3"
@@ -622,8 +626,10 @@ class OMVFilesystem extends OMVObject {
 		$cmd = sprintf("export LANG=C; blockdev --getbsz %s",
 		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if($result !== 0) {
+			$this->errStr = $output;
 			return FALSE;
+		}
 		return intval($output[0]);
 	}
 
@@ -643,6 +649,7 @@ class OMVFilesystem extends OMVObject {
 		  $this->deviceFile));
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
+			$this->errStr = $output;
 			return FALSE;
 		}
 		// Parse command output:
@@ -1003,6 +1010,7 @@ abstract class OMVBlockDeviceAbstract extends OMVObject implements
 	protected $size = FALSE;
 	protected $blockSize = FALSE;
 	protected $sectorSize = FALSE;
+	private $errStr = "";
 
 	/**
 	 * Constructor
@@ -1010,6 +1018,14 @@ abstract class OMVBlockDeviceAbstract extends OMVObject implements
 	 */
 	public function __construct($deviceFile) {
 		$this->deviceFile = $deviceFile;
+	}
+
+	/**
+	 * Get the error description of the last occured error.
+	 * @return The error description of the last error if set.
+	 */
+	public function getError() {
+		return implode("\n", $this->errStr);
 	}
 
 	/**
@@ -1153,8 +1169,10 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			$cmd = sprintf("export LANG=C; blockdev --getbsz %s",
 			  escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0)
+			if($result !== 0) {
+				$this->errStr = $output;
 				return FALSE;
+			}
 			$this->blockSize = intval($output[0]);
 		}
 		return $this->blockSize;
@@ -1169,8 +1187,10 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			$cmd = sprintf("export LANG=C; blockdev --getss %s",
 			  escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0)
+			if($result !== 0) {
+				$this->errStr = $output;
 				return FALSE;
+			}
 			$this->sectorSize = intval($output[0]);
 		}
 		return $this->sectorSize;
@@ -1260,8 +1280,10 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			  "--query=property --name=%s", escapeshellarg(
 			  $this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0)
+			if($result !== 0) {
+				$this->errStr = $output;
 				return FALSE;
+			}
 			// Parse output:
 			// UDEV_LOG=3
 			// DEVPATH=/devices/pci0000:00/0000:00:10.0/host2/target2:0:1/2:0:1:0/block/sdb
