@@ -50,10 +50,9 @@ define("OMV_RPC_MODE_REMOTE", 0x2);
 
 define("OMV_STORAGE_DEVICE_TYPE_HDD", 0x1);
 define("OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID", 0x2);
-define("OMV_STORAGE_DEVICE_TYPE_LVM", 0x4);
-define("OMV_STORAGE_DEVICE_TYPE_HBA", 0x8);
-define("OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE", 0x10);
-define("OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER", 0x20);
+define("OMV_STORAGE_DEVICE_TYPE_HBA", 0x4);
+define("OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE", 0x8);
+define("OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER", 0x10);
 define("OMV_STORAGE_DEVICE_TYPE_ALL", 0xFF);
 
 $GLOBALS['OMV_DEFAULT_FILE'] = "/etc/default/openmediavault";
@@ -132,11 +131,6 @@ $GLOBALS['OMV_JSONSCHEMA_IPV4_NONE'] = '"type":"string","format":"regex","patter
   '"\/^([1-9][0-9]{0,1}|1[013-9][0-9]|12[0-689]|2[01][0-9]|22[0-3])'.
   '([.]([1-9]{0,1}[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])){2}[.]'.
   '([1-9][0-9]{0,1}|1[0-9]{2}|2[0-4][0-9]|25[0-4])|$\/i"';
-$GLOBALS['OMV_REGEX_DEVNAME_HARDDISK'] = "(h|s|x?v)d[a-z]+";
-$GLOBALS['OMV_REGEX_DEVNAME_SOFTWARERAID'] = "md\d+";
-$GLOBALS['OMV_REGEX_DEVNAME_HARDWARERAID'] = "cciss\/c[0-9]+d[0-9]+";
-$GLOBALS['OMV_REGEX_DEVNAME_DEVICEMAPPER'] = "(mapper\/.+)|(dm-\d+)";
-$GLOBALS['OMV_REGEX_DEVNAME_LOOPDEVICE'] = "loop[0-9]+";
 
 // Read the defaults file.
 if(posix_access($GLOBALS['OMV_DEFAULT_FILE'], POSIX_F_OK | POSIX_R_OK)) {

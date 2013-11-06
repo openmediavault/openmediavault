@@ -72,7 +72,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		// Prepare the result object.
 		$result = array();
 		foreach($devs as $devk => $devv) {
-			$raid = new OMVSoftwareRaidDevice($devv);
+			$raid = new OMVStorageDeviceMdadm($devv);
 			if($raid->exists()) {
 				$used = FALSE;
 				// Is this RAID device used by another storage device?
@@ -256,7 +256,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get software RAID device details to create notification message.
-		$raid = new OMVSoftwareRaidDevice($params['devicefile']);
+		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
 		if(FALSE === $raid->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $raid->getDeviceFile());
@@ -320,7 +320,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get software RAID device details to create notification message.
-		$raid = new OMVSoftwareRaidDevice($params['devicefile']);
+		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
 		if(FALSE === $raid->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $raid->getDeviceFile());
@@ -371,7 +371,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get software RAID device details to create notification message.
-		$raid = new OMVSoftwareRaidDevice($params['devicefile']);
+		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
 		if(FALSE === $raid->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $raid->getDeviceFile());
@@ -417,7 +417,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get software RAID device details.
-		$raid = new OMVSoftwareRaidDevice($params['devicefile']);
+		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
 		if(FALSE === $raid->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $raid->getDeviceFile());

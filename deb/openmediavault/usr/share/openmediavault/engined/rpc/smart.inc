@@ -76,7 +76,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		// Prepare result
 		$objects = array();
 		foreach($devs as $devk => $devv) {
-			$hdd = new OMVHardDiskDevice($devv);
+			$hdd = new OMVStorageDeviceHDD($devv);
 			if($hdd->exists()) {
 				// Try to get the device temperature via S.M.A.R.T.
 				$temperature = $hdd->getTemperature();
@@ -239,7 +239,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get the S.M.A.R.T. statistics.
-		$hdd = new OMVHardDiskDevice($params['devicefile']);
+		$hdd = new OMVStorageDeviceHDD($params['devicefile']);
 		if(FALSE === $hdd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $hdd->getDeviceFile());
@@ -275,7 +275,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get the S.M.A.R.T. statistics.
-		$hdd = new OMVHardDiskDevice($params['devicefile']);
+		$hdd = new OMVStorageDeviceHDD($params['devicefile']);
 		if(FALSE === $hdd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $hdd->getDeviceFile());
@@ -310,7 +310,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get the S.M.A.R.T. identity informations.
-		$hdd = new OMVHardDiskDevice($params['devicefile']);
+		$hdd = new OMVStorageDeviceHDD($params['devicefile']);
 		if(FALSE === $hdd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $hdd->getDeviceFile());
@@ -368,7 +368,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 				"model" => gettext("n/a"),
 				"size" => "-1" // as string
 			);
-			$hdd = new OMVHardDiskDevice($objectv['devicefile']);
+			$hdd = new OMVStorageDeviceHDD($objectv['devicefile']);
 			if($hdd->exists()) {
 				$objectv['volume'] = array(
 					"devicefile" => $hdd->getDeviceFile(),
