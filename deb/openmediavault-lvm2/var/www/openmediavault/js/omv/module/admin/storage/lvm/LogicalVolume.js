@@ -86,7 +86,7 @@ Ext.define("OMV.module.admin.storage.lvm.lv.Create", {
 					appendSortParams: false,
 					rpcData: {
 						service: "LogicalVolumeMgmt",
-						method: "enumerateVolumeGroups"
+						method: "getLogicalVolumeCandidates"
 					}
 				},
 				sorters: [{

@@ -55,6 +55,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		$this->registerMethod("reduceVolumeGroup");
 		$this->registerMethod("enumerateLogicalVolumes");
 		$this->registerMethod("getLogicalVolumesList");
+		$this->registerMethod("getLogicalVolumeCandidates");
 		$this->registerMethod("createLogicalVolume");
 		$this->registerMethod("renameLogicalVolume");
 		$this->registerMethod("deleteLogicalVolume");
@@ -278,10 +279,13 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of volume groups");
 		}
+		// Prepare the result object.
 		$result = array();
 		foreach($vgs as $vgk => $vgv) {
 			// Get the volume group details.
 			$vg = new OMVLvmVolumeGroup($vgv);
+			if(!$vg->exists())
+				continue;
 			$result[] = array(
 				"devicefile" => $vg->getDeviceFile(),
 				"uuid" => $vg->getUuid(),
@@ -785,6 +789,33 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		// Filter result.
 		return $this->applyFilter($lvs, $params['start'], $params['limit'],
 		  $params['sortfield'], $params['sortdir']);
+	}
+
+	/**
+	 * Get list of volume groups that can be used to create a logical volume.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array containing objects with the following fields:
+	 *   devicefile, size and description.
+	 * @throw E_EXEC_MISC
+	 */
+	public function getLogicalVolumeCandidates($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Enumerate all volume groups on the system.
+		$objects = $this->callMethod("enumerateVolumeGroups", NULL, $context);
+		// Prepare the result object.
+		$result = array();
+		foreach($objects as $objectk => $objectv) {
+			// Skip volume groups that are in use.
+			if(OMVStorageDevices::isUsed($objectv['devicefile'],
+			  OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER))
+				continue;
+			$result[] = $objectv;
+		}
+		return $result;
 	}
 
 	/**
