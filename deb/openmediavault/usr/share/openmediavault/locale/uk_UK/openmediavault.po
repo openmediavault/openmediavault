@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Андрей Чапалда <ansilent@gmail.com>, 2012
+# zubr139 <zubr139@ukr.net>, 2013
 # Андрей Чапалда <ansilent@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-10-17 21:25+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-11-06 17:24+0000\n"
+"Last-Translator: zubr139 <zubr139@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,7 +63,7 @@ msgid "120 minutes"
 msgstr "120 хвилин"
 
 msgid "127 - Intermediate power usage with standby"
-msgstr ""
+msgstr "127 - проміжне споживання енергії з очікування"
 
 msgid "128 - Minimum power usage without standby (no spindown)"
 msgstr "128 - Мінімальне енергоспоживання без режиму очікування (no spindown)"
@@ -74,7 +75,7 @@ msgid "180 minutes"
 msgstr "180 хвилин"
 
 msgid "192 - Intermediate power usage without standby"
-msgstr ""
+msgstr "192 - проміжне споживання енергії без очікування"
 
 msgid "2 days"
 msgstr "2 дні"
@@ -149,7 +150,7 @@ msgid "60 minutes"
 msgstr "60 хвилин"
 
 msgid "64 - Intermediate power usage with standby"
-msgstr ""
+msgstr "64 - проміжне споживання енергії з очікування"
 
 msgid "9 months"
 msgstr "9 місяців"
@@ -200,7 +201,7 @@ msgid "Add group"
 msgstr "Додати групу"
 
 msgid "Add hot spares / recover RAID device"
-msgstr ""
+msgstr "Додати пристрій резервування/відновлення в RAID масив"
 
 msgid "Add module"
 msgstr "Додати модуль"
@@ -264,7 +265,7 @@ msgstr "Afghanistan"
 
 msgid ""
 "After the RAID has been grown you can resize the containing filesystem."
-msgstr ""
+msgstr "Після створення RAID, Ви можете змінити розмір файлової системи."
 
 msgid "Aland Islands"
 msgstr "Aland Islands"
@@ -396,16 +397,16 @@ msgid "Authentication"
 msgstr "Аутентифікація"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "Аутентифікація без конфіденційності"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "Аутентифікація і конфіденційність"
 
 msgid "Authentication method"
 msgstr ""
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "Перевірка достовірності пароля"
 
 msgid "Authentication required"
 msgstr "Потрібна аутентифікація"
@@ -891,7 +892,7 @@ msgid "Do you really want to shutdown the system?"
 msgstr "Ви дійсно хочете завершити роботу системи?"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr "Ви дійсно хочете деінсталювати обрані плагіни?"
+msgstr "Ви дійсно хочете деінсталювати обрані модулі?"
 
 msgid "Do you really want to wipe the selected device?"
 msgstr "Ви дійсно хочете зтерти?"
@@ -919,10 +920,10 @@ msgid "Done ..."
 msgstr "Готово..."
 
 msgid "Down"
-msgstr ""
+msgstr "Вниз"
 
 msgid "Down delay"
-msgstr ""
+msgstr "Зменшити затримку"
 
 msgid "Download"
 msgstr "Завантажити"
@@ -1062,7 +1063,7 @@ msgid "Enable secure connection."
 msgstr "Увімкнути захищене з'єднання."
 
 msgid "Enable store DOS attributes support"
-msgstr ""
+msgstr "Увімкнути підтримку DOS атрибутів"
 
 msgid "Enable the ident protocol (RFC1413)"
 msgstr "Увімкнути ідентифікаційний протокол (RFC1413)"
@@ -1085,7 +1086,7 @@ msgid "Enable write-cache."
 msgstr "Увімкнути запис кешу"
 
 msgid "Enabled"
-msgstr ""
+msgstr "Увімкнено"
 
 msgid "Enter your password"
 msgstr "Введіть Ваш пароль"
@@ -1345,10 +1346,10 @@ msgid "Groups"
 msgstr "Групи"
 
 msgid "Grow"
-msgstr ""
+msgstr "Розширити"
 
 msgid "Grow RAID device"
-msgstr ""
+msgstr "Розширити RAID пристрій"
 
 msgid "Guadeloupe"
 msgstr "Guadeloupe"
@@ -1405,7 +1406,7 @@ msgid "Host access control"
 msgstr "Host контроль доступу"
 
 msgid "Hostname"
-msgstr "Hostname"
+msgstr "Ім'я хоста"
 
 msgid "Hosts"
 msgstr "Hosts"
@@ -1426,10 +1427,10 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IPv4"
-msgstr ""
+msgstr "IPv4"
 
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6"
 
 msgid "Iceland"
 msgstr "Iceland"
@@ -1646,7 +1647,7 @@ msgid "Key size"
 msgstr "Розмір ключа"
 
 msgid "KiB"
-msgstr ""
+msgstr "КіБ"
 
 msgid "Kiribati"
 msgstr "Kiribati"
@@ -1714,7 +1715,7 @@ msgid "Load average"
 msgstr "Середнє завантаження"
 
 msgid "Loading ..."
-msgstr "Завантаження..."
+msgstr "Завантаження ..."
 
 msgid "Local"
 msgstr "Local"
@@ -1735,7 +1736,7 @@ msgid "Logical volume %s [%s, %s]"
 msgstr "Логічні розділи %s [%s, %s]"
 
 msgid "Login"
-msgstr "Логін"
+msgstr "Увійти"
 
 msgid "Logout"
 msgstr "Вихід"
@@ -1880,7 +1881,7 @@ msgid "Mexico"
 msgstr "Mexico"
 
 msgid "MiB"
-msgstr ""
+msgstr "МіБ"
 
 msgid "Micronesia"
 msgstr "Micronesia"
@@ -2015,7 +2016,7 @@ msgid "No"
 msgstr "Ні"
 
 msgid "No access"
-msgstr ""
+msgstr "Немає доступу"
 
 msgid "No action"
 msgstr ""
@@ -2054,13 +2055,13 @@ msgid "North Korea"
 msgstr "North Korea"
 
 msgid "North Vietnam"
-msgstr ""
+msgstr "Північний В'єтнам"
 
 msgid "Northern Mariana Islands"
-msgstr ""
+msgstr "Північні Маріанські острови"
 
 msgid "Norway"
-msgstr ""
+msgstr "Норвегія"
 
 msgid "Not ICMP"
 msgstr ""
@@ -2078,7 +2079,7 @@ msgid "Notifications"
 msgstr ""
 
 msgid "November"
-msgstr ""
+msgstr "Листопад"
 
 msgid "Null passwords"
 msgstr ""
@@ -2090,7 +2091,7 @@ msgid "Number of servers"
 msgstr "Кількість серверів"
 
 msgid "OK"
-msgstr ""
+msgstr "Гаразд"
 
 msgid "Occurrence"
 msgstr ""
@@ -2105,7 +2106,7 @@ msgid "Oman"
 msgstr "Oman"
 
 msgid "Online"
-msgstr ""
+msgstr "Онлайн"
 
 msgid "Operation not allowed for user '%s'."
 msgstr ""
@@ -2285,7 +2286,7 @@ msgid ""
 msgstr ""
 
 msgid "Plugins"
-msgstr "Плагіни"
+msgstr "Модулі"
 
 msgid "Poland"
 msgstr "Poland"
@@ -2294,7 +2295,7 @@ msgid "Port"
 msgstr "Порт"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "Порт для прослуховування."
 
 msgid "Portugal"
 msgstr "Portugal"
@@ -2306,7 +2307,7 @@ msgid "Power button"
 msgstr "Кнопка виключення"
 
 msgid "Power mode"
-msgstr ""
+msgstr "Режим живлення"
 
 msgid "Prefix length"
 msgstr ""
@@ -2361,10 +2362,10 @@ msgid "Process monitoring"
 msgstr ""
 
 msgid "Processes"
-msgstr ""
+msgstr "Процеси"
 
 msgid "Processor"
-msgstr ""
+msgstr "Процесор"
 
 msgid "Protocol"
 msgstr ""
@@ -2394,25 +2395,25 @@ msgid "Quota"
 msgstr ""
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "RAID Management"
-msgstr ""
+msgstr "Керування RAID"
 
 msgid "RFC931"
-msgstr ""
+msgstr "RFC931"
 
 msgid "RSync server"
-msgstr ""
+msgstr "RSync сервер"
 
 msgid "Ranges of numbers are not allowed"
 msgstr ""
@@ -2433,7 +2434,7 @@ msgid "Real"
 msgstr ""
 
 msgid "Reboot"
-msgstr ""
+msgstr "Перезавантажити"
 
 msgid "Recipient"
 msgstr ""
@@ -2494,7 +2495,7 @@ msgid "Required"
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "Скинути"
 
 msgid "Reset WebGUI state"
 msgstr ""
@@ -2542,7 +2543,7 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. information"
-msgstr ""
+msgstr "S.M.A.R.T. інформація"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr ""
@@ -2605,7 +2606,7 @@ msgid "Saudi Arabia"
 msgstr "Saudi Arabia"
 
 msgid "Save"
-msgstr ""
+msgstr "Зберегти"
 
 msgid "Saving ..."
 msgstr "Збереження ..."
@@ -2629,7 +2630,7 @@ msgid "Secondary email"
 msgstr "Вторинний email"
 
 msgid "Seconds"
-msgstr ""
+msgstr "Секунди"
 
 msgid "Secure"
 msgstr ""
@@ -2713,13 +2714,13 @@ msgid "Serbia And Montenegro"
 msgstr ""
 
 msgid "Serial Number"
-msgstr ""
+msgstr "Серійний Номер"
 
 msgid "Serial number"
-msgstr ""
+msgstr "Серійний номер"
 
 msgid "Server"
-msgstr ""
+msgstr "Сервер"
 
 msgid "Service"
 msgstr ""
@@ -2731,7 +2732,7 @@ msgid "Service disabled"
 msgstr ""
 
 msgid "Servicename"
-msgstr ""
+msgstr "Ім'я служби"
 
 msgid "Services"
 msgstr ""
@@ -2768,7 +2769,7 @@ msgid "Seychelles"
 msgstr ""
 
 msgid "Shared Folders"
-msgstr "Загальнф папки"
+msgstr "Спільні теки"
 
 msgid "Shared folder"
 msgstr "Загальна папка"
@@ -2955,7 +2956,7 @@ msgid "Stop"
 msgstr "Стоп"
 
 msgid "Storage"
-msgstr ""
+msgstr "Сховище"
 
 msgid "Store DOS attributes"
 msgstr ""
@@ -2973,7 +2974,7 @@ msgid "Sunday"
 msgstr ""
 
 msgid "Support"
-msgstr ""
+msgstr "Підтримка"
 
 msgid "Suppress non-error messages"
 msgstr ""
@@ -2985,31 +2986,31 @@ msgid "Svalbard and Jan Mayen"
 msgstr ""
 
 msgid "Swaziland"
-msgstr ""
+msgstr "Свазіленд"
 
 msgid "Sweden"
-msgstr ""
+msgstr "Швеція"
 
 msgid "Switzerland"
-msgstr ""
+msgstr "Швейцарія"
 
 msgid "Syria"
-msgstr ""
+msgstr "Сирія"
 
 msgid "Syslog"
 msgstr ""
 
 msgid "System"
-msgstr ""
+msgstr "Cистема"
 
 msgid "System Information"
-msgstr ""
+msgstr "Системна інформація"
 
 msgid "System Logs"
 msgstr ""
 
 msgid "System time"
-msgstr ""
+msgstr "Cистемний час"
 
 msgid "TAR"
 msgstr ""
@@ -3018,28 +3019,28 @@ msgid "TCP forwarding"
 msgstr ""
 
 msgid "TFTP"
-msgstr ""
+msgstr "TFTP"
 
 msgid "Taiwan"
-msgstr ""
+msgstr "Тайвань"
 
 msgid "Tajikistan"
-msgstr ""
+msgstr "Таджикистан"
 
 msgid "Tanzania"
-msgstr ""
+msgstr "Танзанія"
 
 msgid "Temperature"
-msgstr ""
+msgstr "Температура"
 
 msgid "Temperature monitoring"
-msgstr ""
+msgstr "Контроль температури"
 
 msgid "Test description"
 msgstr ""
 
 msgid "Thailand"
-msgstr ""
+msgstr "Таїланд"
 
 msgid "The NT description field."
 msgstr ""
@@ -3079,7 +3080,7 @@ msgid "The file mode of the shared folder path."
 msgstr ""
 
 msgid "The group '%s' does not exist"
-msgstr "Група '%s' не існує"
+msgstr "Групи '%s' не існує"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr ""
@@ -3391,7 +3392,7 @@ msgid "Time servers"
 msgstr "Сервери часу"
 
 msgid "Time zone"
-msgstr "Чаова зона"
+msgstr "Часовий пояс"
 
 msgid "Timeout"
 msgstr "Тайм-аут"
@@ -3400,13 +3401,13 @@ msgid "Times"
 msgstr ""
 
 msgid "Togo"
-msgstr ""
+msgstr "Тоґо"
 
 msgid "Tokelau"
-msgstr ""
+msgstr "Токелау"
 
 msgid "Tonga"
-msgstr ""
+msgstr "Тонґа"
 
 msgid "Transfer log"
 msgstr ""
@@ -3433,16 +3434,16 @@ msgid "Tuesday"
 msgstr ""
 
 msgid "Tunisia"
-msgstr ""
+msgstr "Туніс"
 
 msgid "Turkey"
-msgstr ""
+msgstr "Туреччина"
 
 msgid "Turkmenistan"
-msgstr ""
+msgstr "Туркменістан"
 
 msgid "Turks and Caicos Islands"
-msgstr ""
+msgstr "Острови Теркс і Кайкос"
 
 msgid "Tuvalu"
 msgstr ""
@@ -3460,10 +3461,10 @@ msgid "UNKNOWN"
 msgstr ""
 
 msgid "Uganda"
-msgstr ""
+msgstr "Уганда"
 
 msgid "Ukraine"
-msgstr ""
+msgstr "Україна"
 
 msgid "Uncompressed"
 msgstr ""
@@ -3542,10 +3543,10 @@ msgid "Upload plugin"
 msgstr "Завантажити плагін"
 
 msgid "Uploading file ..."
-msgstr "Завантаження файлу..."
+msgstr "Завантаження файлу ..."
 
 msgid "Uptime"
-msgstr ""
+msgstr "Час роботи"
 
 msgid "Uruguay"
 msgstr "Uruguay"
@@ -3631,13 +3632,13 @@ msgid "Venezuela"
 msgstr "Venezuela"
 
 msgid "Version"
-msgstr ""
+msgstr "Версія"
 
 msgid "Vietnam"
-msgstr ""
+msgstr "В'єтнам"
 
 msgid "Volume"
-msgstr ""
+msgstr "Об'єм"
 
 msgid "WINS"
 msgstr ""
@@ -3658,7 +3659,7 @@ msgid "Wallis and Futuna"
 msgstr ""
 
 msgid "Warning"
-msgstr ""
+msgstr "Попередження"
 
 msgid "Web Administration"
 msgstr ""
@@ -3708,40 +3709,40 @@ msgid "Write only"
 msgstr ""
 
 msgid "Yemen"
-msgstr ""
+msgstr "Ємен"
 
 msgid "Yes"
-msgstr ""
+msgstr "Так"
 
 msgid "Zambia"
-msgstr ""
+msgstr "Замбія"
 
 msgid "Zimbabwe"
-msgstr ""
+msgstr "Зімбабве"
 
 msgid "day"
-msgstr ""
+msgstr "день"
 
 msgid "days"
-msgstr ""
+msgstr "дні"
 
 msgid "hour"
-msgstr ""
+msgstr "година"
 
 msgid "hours"
-msgstr ""
+msgstr "годин"
 
 msgid "minute"
-msgstr ""
+msgstr "хвилина"
 
 msgid "minutes"
-msgstr ""
+msgstr "хвилин"
 
 msgid "n/a"
 msgstr ""
 
 msgid "seconds"
-msgstr ""
+msgstr "секунди"
 
 msgid "web administration interface"
 msgstr ""

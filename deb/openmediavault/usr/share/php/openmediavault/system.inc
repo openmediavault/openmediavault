@@ -3404,14 +3404,6 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	}
 
 	/**
-	 * Get the device path, e.g. /dev/vg0/lvol0 or /dev/mapper/vg0-lvol0.
-	 * @return The device path.
-	 */
-	public function getDeviceFile() {
-		return $this->deviceFile;
-	}
-
-	/**
 	 * Get the name of the volume group.
 	 * @return The volume group name, FALSE on failure.
 	 */

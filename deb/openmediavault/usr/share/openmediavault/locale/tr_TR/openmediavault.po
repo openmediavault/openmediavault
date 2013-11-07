@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-10-17 21:25+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-10-30 21:36+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -163,7 +163,7 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "About"
 msgstr "Hakkında"
@@ -172,7 +172,7 @@ msgid "Access Right Management"
 msgstr "Erişim Hak Yönetimi"
 
 msgid "Access mode"
-msgstr ""
+msgstr "Erişim modu"
 
 msgid "Act as a WINS server."
 msgstr "WINS sunucu gibi davran."
@@ -329,7 +329,7 @@ msgid "Anguilla"
 msgstr "Anguilla"
 
 msgid "Anonymous"
-msgstr ""
+msgstr "Anonim"
 
 msgid "Anonymous FTP"
 msgstr "Anonim FTP"
@@ -389,7 +389,7 @@ msgid "Authenticate users"
 msgstr "Kullanıcı onaylaması"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "Onaylanmış kullanıcı kimliği"
 
 msgid "Authentication"
 msgstr "Onaylama"
@@ -401,7 +401,7 @@ msgid "Authentication and privacy"
 msgstr "Kimlik denetimi ve gizlilik"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Doğrulama metodu"
 
 msgid "Authentication passphrase"
 msgstr "Onaylama parolası"
@@ -461,7 +461,7 @@ msgid "Bhutan"
 msgstr "Butan"
 
 msgid "Binary"
-msgstr ""
+msgstr "İkili sayı sistemi"
 
 msgid "Blocksize"
 msgstr "Blok ebadı"
@@ -622,10 +622,10 @@ msgid "Comoros"
 msgstr "Comoros"
 
 msgid "Complete"
-msgstr ""
+msgstr "Tamamlandı"
 
 msgid "Completion status"
-msgstr ""
+msgstr "Tamamlama durumu"
 
 msgid "Compress"
 msgstr "Sıkıştır"
@@ -634,7 +634,7 @@ msgid "Compress file data during the transfer"
 msgstr "Transfer sırasında dosya datasını sıkıştır"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Sıkıştırılmış"
 
 msgid "Compression"
 msgstr "Sıkıştırma"
@@ -1072,7 +1072,7 @@ msgid ""
 msgstr "Kısmen transfer edilmiş dosyaları saklamak için bu seçeneği işaretleyiniz, aksi taktirde transfer kesildiğinde bu dosyalar silinecektir."
 
 msgid "Enable transfer log"
-msgstr ""
+msgstr "Transfer kaydını etkinleştir"
 
 msgid "Enable user authentication"
 msgstr "Kullanıcı doğrulamasını etkinleştir"
@@ -1153,7 +1153,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - Tansfer kaydı"
 
 msgid "FXP"
 msgstr "FXP"
@@ -1217,7 +1217,7 @@ msgid "File"
 msgstr "Dosya"
 
 msgid "Filename"
-msgstr ""
+msgstr "Dosya adı"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1230,7 +1230,7 @@ msgid ""
 msgstr "Byte olarak belirlenenden daha büyük dosyalar geri dönüşüm kutusuna konulmayacaktır. Dosya büyüklük sınırını kaldırmak için 0 a ayarlayınız."
 
 msgid "Filesize"
-msgstr ""
+msgstr "Dosya büyüklüğü"
 
 msgid "Filesystem"
 msgstr "Dosya sistemi"
@@ -1359,7 +1359,7 @@ msgid "Guatemala"
 msgstr "Guatemala"
 
 msgid "Guest"
-msgstr ""
+msgstr "Misafir"
 
 msgid "Guinea"
 msgstr "Gine"
@@ -1519,10 +1519,10 @@ msgid ""
 msgstr "Bazı durumlarda güvenlik duvarını devre dışı bırakabilmek için pasif port aralığı tanımlamak zorunda kalırsınız. Pasif portlar kullanıcı tarafından PASV komutu geldiğinde sunucunun seçebileceği port aralığını sınırlar. Sunucu belirlenmiş aralıktan açık bir port bulana kadar rastgele port numaraları dener. Port aralığı mutlaka özelleştirilmemiş bir aralıktan (örn. 1024 ya da daha büyük) seçilmelidir. Seçilen aralığın olabilecek en fazla sayıdaki pasif bağlantıyı karşılayabilecek kadar geniş olarak ayarlanması şiddetle önerilir (örneğin, IANA - kayıtlı geçici port aralığı olan 49152-65534 şeklinde)."
 
 msgid "Incoming"
-msgstr ""
+msgstr "Gelen"
 
 msgid "Incomplete"
-msgstr ""
+msgstr "Tamamlanmamış"
 
 msgid "Incorrect username or password."
 msgstr "Geçersiz kullanıcı adı ya da şifresi."
@@ -2017,7 +2017,7 @@ msgid "No access"
 msgstr "Erişim yok"
 
 msgid "No action"
-msgstr ""
+msgstr "İşlem yapma"
 
 msgid "No authentication and no privacy"
 msgstr "Kimlik doğrulama ve gizlilik yok"
@@ -2122,7 +2122,7 @@ msgid "Others"
 msgstr "Diğerleri"
 
 msgid "Outgoing"
-msgstr ""
+msgstr "Çıkan"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Giden SMTP posta sunucu adresi, örn. smtp.mycorp.com."
@@ -2408,7 +2408,7 @@ msgid "RAID Management"
 msgstr "RAID Yönetimi"
 
 msgid "RFC931"
-msgstr ""
+msgstr "RFC931"
 
 msgid "RSync server"
 msgstr "Rsync sunucu"
@@ -2429,7 +2429,7 @@ msgid "Read/Write"
 msgstr "Yazma / Okuma"
 
 msgid "Real"
-msgstr ""
+msgstr "Gerçek"
 
 msgid "Reboot"
 msgstr "Yeniden başlat"
@@ -2462,7 +2462,7 @@ msgid "Remote"
 msgstr "Uzak"
 
 msgid "Remote host"
-msgstr ""
+msgstr "Uzak sistem"
 
 msgid "Remote syslog"
 msgstr "Uzak sistem kaydı"
@@ -2730,7 +2730,7 @@ msgid "Service disabled"
 msgstr "Hizmet kapatıldı"
 
 msgid "Servicename"
-msgstr ""
+msgstr "Servis adı"
 
 msgid "Services"
 msgstr "Servisler"
@@ -2833,7 +2833,7 @@ msgid "Software RAID"
 msgstr "Yazılımsal RAID"
 
 msgid "Software updates"
-msgstr ""
+msgstr "Yazılım güncellemeleri"
 
 msgid "Solomon Islands"
 msgstr "Solomon Adaları"
@@ -2872,7 +2872,7 @@ msgid "Spain"
 msgstr "İspanya"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "Özel işlem belirteci"
 
 msgid "Specifies how many server threads to create."
 msgstr "Kaç tane sunucu iş parçacığı oluşturulacağını belirler."
@@ -3011,7 +3011,7 @@ msgid "System time"
 msgstr "Sistem zamanı"
 
 msgid "TAR"
-msgstr ""
+msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP yönlendirme"
@@ -3058,7 +3058,7 @@ msgstr "Açıklama geçersiz karakter içermektedir"
 msgid ""
 "The configuration has been changed. You must apply the changes in order for "
 "them to take effect."
-msgstr ""
+msgstr "Yapılandırma değiştirildi. Değişikliklerin etkin olabilmesi için uygulamanız gerekmektedir."
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "Varsayılan SMTP posta sunucusu portu, örn. 25 veya 587."
@@ -3084,7 +3084,7 @@ msgid "The hostname is a label that identifies the system to the network."
 msgstr "Sistem adı, ağ üzerindeki bir sistemi belirleyen bir etikettir."
 
 msgid "The interface '%s' is already used by a bonding interface"
-msgstr ""
+msgstr "'%s' arabirimi halihazırda birleştirilmiş arabirimde kullanılıyor"
 
 msgid "The location of the files to share."
 msgstr "Paylaşılacak dosyaların yeri."
@@ -3105,7 +3105,7 @@ msgstr "Sertifikanın geçerli olduğu gün sayısı."
 
 #, php-format
 msgid "The parameter '%s' contains forbidden two-dot symbols"
-msgstr ""
+msgstr "'%s' parametresi yasaklanmış olan iki-nokta sembollerini içeriyor"
 
 msgid "The password contains invalid characters"
 msgstr "Şifre geçersiz karakter içeriyor"
@@ -3220,10 +3220,10 @@ msgid "This field should be a hostname or an IPv4 address"
 msgstr "Bu alan sistem adı veya IPv4 adresi olmalıdır"
 
 msgid "This field should be a list of domainnames or IP addresses"
-msgstr ""
+msgstr "Bu alan domain adları ya da IP adresleri listesi olmalıdır"
 
 msgid "This field should be a list of hostnames or IP addresses"
-msgstr ""
+msgstr "Bu alan sistem adları ya da IP adresleri listesi olmalıdır"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3408,13 +3408,13 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Transfer log"
-msgstr ""
+msgstr "Altarım kaydı"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "Aktarım zamanı"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "Aktarım tipi"
 
 msgid "Traps"
 msgstr "Kapan"
@@ -3465,7 +3465,7 @@ msgid "Ukraine"
 msgstr "Ukrayna"
 
 msgid "Uncompressed"
-msgstr ""
+msgstr "Sıkıştırılmamış"
 
 msgid "Uninstall"
 msgstr "Kaldır"

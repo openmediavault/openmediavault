@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-10-17 21:25+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-10-26 18:18+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -166,7 +166,7 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "About"
 msgstr "Acerca"
@@ -175,7 +175,7 @@ msgid "Access Right Management"
 msgstr "Administración de permisos de acceso"
 
 msgid "Access mode"
-msgstr ""
+msgstr "Modo de acceso"
 
 msgid "Act as a WINS server."
 msgstr "Funcionar como servidor WINS."
@@ -332,7 +332,7 @@ msgid "Anguilla"
 msgstr "Anguilla"
 
 msgid "Anonymous"
-msgstr ""
+msgstr "Anónimo"
 
 msgid "Anonymous FTP"
 msgstr "FTP Anónimo"
@@ -392,7 +392,7 @@ msgid "Authenticate users"
 msgstr "Usuarios autenticados"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "ID del usuario autenticado"
 
 msgid "Authentication"
 msgstr "Autenticación"
@@ -404,7 +404,7 @@ msgid "Authentication and privacy"
 msgstr "Autenticación y privacidad"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Metodo de autenticación"
 
 msgid "Authentication passphrase"
 msgstr "Contraseña para Autenticación"
@@ -464,7 +464,7 @@ msgid "Bhutan"
 msgstr "Bután"
 
 msgid "Binary"
-msgstr ""
+msgstr "Binario"
 
 msgid "Blocksize"
 msgstr "Tamaño de bloque"
@@ -625,10 +625,10 @@ msgid "Comoros"
 msgstr "Comores"
 
 msgid "Complete"
-msgstr ""
+msgstr "Completo"
 
 msgid "Completion status"
-msgstr ""
+msgstr "Estado"
 
 msgid "Compress"
 msgstr "Comprimir"
@@ -637,7 +637,7 @@ msgid "Compress file data during the transfer"
 msgstr "Comprimir los datos durante la transferencia"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Comprimido"
 
 msgid "Compression"
 msgstr "Compresión"
@@ -661,7 +661,7 @@ msgid "Congo (Kinshasa)"
 msgstr "Congo (Kinshasa)"
 
 msgid "Connections"
-msgstr ""
+msgstr "Conexiones"
 
 msgid "Contact"
 msgstr "Contacto"
@@ -711,7 +711,7 @@ msgid "Current time"
 msgstr "Hora actual"
 
 msgid "Currently logged in users"
-msgstr ""
+msgstr "Usuarios registrados en el sistema:"
 
 msgid "Currently logged in users:"
 msgstr "Usuarios conectados al sistema:"
@@ -762,7 +762,7 @@ msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Borrar archivos en la parte receptora que no existan en la parte emisora."
 
 msgid "Delete filesystem"
-msgstr ""
+msgstr "Borrar un sistema de archivos"
 
 msgid "Deleting selected item(s)"
 msgstr "Borrar elementos selecionado(s)"
@@ -854,7 +854,7 @@ msgid "Do you really want to create the RAID device?"
 msgstr "¿Realmente desea crear un RAID?"
 
 msgid "Do you really want to delete the filesystem? All data will be lost."
-msgstr ""
+msgstr "¿Realmente desea borrar el sistema de archivos?. Todos los datos serán borrados"
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "¿Realmente desea borrar los elementos seleccionados?"
@@ -1075,7 +1075,7 @@ msgid ""
 msgstr "Habilite está opción pra mantener los archivos parcialmente transferidos, si no , serán borrados en caso de interrumpirse la transmisión."
 
 msgid "Enable transfer log"
-msgstr ""
+msgstr "Habilitar log de transferencia"
 
 msgid "Enable user authentication"
 msgstr "Habilitar la autenticación de usuarios"
@@ -1141,7 +1141,7 @@ msgid "Execute rsync job"
 msgstr "Ejecutar tarea rsync"
 
 msgid "Execute scheduled test"
-msgstr ""
+msgstr "Ejecutar prueba programada"
 
 msgid "Expire"
 msgstr "Caduca"
@@ -1156,7 +1156,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "Log de transferencias FTP"
 
 msgid "FXP"
 msgstr "FXP"
@@ -1181,7 +1181,7 @@ msgid "Failed to get list of logical volumes"
 msgstr "Fallo al obtener la lista de volúmenes lógicos."
 
 msgid "Failed to get list of network interface devices"
-msgstr ""
+msgstr "Falló al obtener la lista de los dispositivos de red"
 
 msgid "Failed to get list of physical volumes"
 msgstr "Fallo al obtener la lista de volúmenes físicos."
@@ -1199,7 +1199,7 @@ msgid "Falkland Islands"
 msgstr "Islas Malvinas"
 
 msgid "Family"
-msgstr ""
+msgstr "Familia"
 
 msgid "Faroe Islands"
 msgstr "Islas Faroe"
@@ -1220,7 +1220,7 @@ msgid "File"
 msgstr "Archivo"
 
 msgid "Filename"
-msgstr ""
+msgstr "Nombre de archivo"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1233,7 +1233,7 @@ msgid ""
 msgstr "Archivos de un tamaño superior al nº especificado de bytes, no serán copiados en la papelera de reciclaje. 0 para eliminar la restricción."
 
 msgid "Filesize"
-msgstr ""
+msgstr "Tamaño del archivo"
 
 msgid "Filesystem"
 msgstr "Sistema de archivos"
@@ -1362,7 +1362,7 @@ msgid "Guatemala"
 msgstr "Guatemala"
 
 msgid "Guest"
-msgstr ""
+msgstr "Invitado"
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1428,10 +1428,10 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IPv4"
-msgstr ""
+msgstr "IPv4"
 
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6"
 
 msgid "Iceland"
 msgstr "Islandia"
@@ -1522,10 +1522,10 @@ msgid ""
 msgstr "En algunos casos tendrá que especificar una rango de puertos pasivos para evitar las limitaciones del firewall. Los puertos pasivos limitan el rango de puertos que el servidor utilizará cuando envíe el comando PASV de un cliente. El servidor elegirá aleatoriamente un número del rango especificado hasta que encuentre un puerto abierto. El puerto debe estar en el rango de los puerto sin provilegios (es decir, 1024 o mayor). Se recomienda encarecidamente que el rango sea lo suficientemente amplio para poder manejar muchas conexiones pasivas simultáneas (p.ej., 49152-65534, el rango IANA de puertos efímeros)."
 
 msgid "Incoming"
-msgstr ""
+msgstr "Entrantes"
 
 msgid "Incomplete"
-msgstr ""
+msgstr "Incompleto"
 
 msgid "Incorrect username or password."
 msgstr "Nombre de usuario o contraseña incorrectos"
@@ -2020,7 +2020,7 @@ msgid "No access"
 msgstr "Sin acceso"
 
 msgid "No action"
-msgstr ""
+msgstr "Sin acción"
 
 msgid "No authentication and no privacy"
 msgstr "Sin autenticación y sin privacidad"
@@ -2029,7 +2029,7 @@ msgid "No certificate request"
 msgstr "No se pide certificado"
 
 msgid "No connections"
-msgstr ""
+msgstr "Sin conexiones"
 
 msgid "No items to display"
 msgstr "Nada que mostrar"
@@ -2125,7 +2125,7 @@ msgid "Others"
 msgstr "Otros"
 
 msgid "Outgoing"
-msgstr ""
+msgstr "Salientes"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Dirección del servidor de correo SMTP de salida, p.ej. smtp.miempresa.com"
@@ -2284,7 +2284,7 @@ msgstr "Por favor espere ..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a "
 "filesystem."
-msgstr ""
+msgstr "Por favor espere a que el RAID sea inicializado, antes de crear un sistema de archivos."
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -2311,7 +2311,7 @@ msgid "Power mode"
 msgstr "Modo de energía"
 
 msgid "Prefix length"
-msgstr ""
+msgstr "Longitud del prefijo"
 
 msgid "Preserve ACLs"
 msgstr "Mantener ACLs"
@@ -2360,7 +2360,7 @@ msgid "Privileges"
 msgstr "Privilegios"
 
 msgid "Process monitoring"
-msgstr ""
+msgstr "Monitorización de procesos"
 
 msgid "Processes"
 msgstr "Procesos"
@@ -2399,7 +2399,7 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
 msgstr "RAID 5"
@@ -2411,7 +2411,7 @@ msgid "RAID Management"
 msgstr "Gestión de RAID"
 
 msgid "RFC931"
-msgstr ""
+msgstr "RFC931"
 
 msgid "RSync server"
 msgstr "Servidor rsync"
@@ -2432,7 +2432,7 @@ msgid "Read/Write"
 msgstr "Lectura/Escritura"
 
 msgid "Real"
-msgstr ""
+msgstr "Real"
 
 msgid "Reboot"
 msgstr "Reiniciar"
@@ -2456,7 +2456,7 @@ msgid "Refresh"
 msgstr "Refrescar"
 
 msgid "Reload"
-msgstr ""
+msgstr "Recargar"
 
 msgid "Remaining"
 msgstr "Pendiente"
@@ -2465,7 +2465,7 @@ msgid "Remote"
 msgstr "Remoto"
 
 msgid "Remote host"
-msgstr ""
+msgstr "Host remoto"
 
 msgid "Remote syslog"
 msgstr "SysLog Remoto"
@@ -2544,7 +2544,7 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. information"
-msgstr ""
+msgstr "S.M.A.R.T. info."
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "La monitorización S.M.A.R.T. debe ser activada para el dispositivo seleccionado."
@@ -2607,7 +2607,7 @@ msgid "Saudi Arabia"
 msgstr "Arabia Saudí"
 
 msgid "Save"
-msgstr ""
+msgstr "Salvar"
 
 msgid "Saving ..."
 msgstr "Salvando ..."
@@ -2619,7 +2619,7 @@ msgid "Scanning for new devices ..."
 msgstr "Buscando nuevos dispositivos ..."
 
 msgid "Scheduled jobs"
-msgstr ""
+msgstr "Añadir tareas programadas"
 
 msgid "Scheduled tests"
 msgstr "Pruebas programadas"
@@ -2691,7 +2691,7 @@ msgid "Self-test logs"
 msgstr "Logs de Auto-Prueba"
 
 msgid "Send a test email"
-msgstr ""
+msgstr "Enviar email de prueba"
 
 msgid "Send command output via email"
 msgstr "Enviar la salida del comando por email"
@@ -2700,7 +2700,7 @@ msgid "Send email"
 msgstr "Enviar email"
 
 msgid "Sender email"
-msgstr ""
+msgstr "e-mail enviado"
 
 msgid "Sending test email ..."
 msgstr "Enviando email de prueba ..."
@@ -2727,22 +2727,22 @@ msgid "Service"
 msgstr "Servicio"
 
 msgid "Service Discovery"
-msgstr ""
+msgstr "Servicio de descubrimiento"
 
 msgid "Service disabled"
 msgstr "Servicio desactivado"
 
 msgid "Servicename"
-msgstr ""
+msgstr "Nombre del servicio"
 
 msgid "Services"
 msgstr "Servicios"
 
 msgid "Session expired."
-msgstr ""
+msgstr "Sessión expirada"
 
 msgid "Session not authenticated."
-msgstr ""
+msgstr "Sesión no autenticada"
 
 msgid "Session timeout"
 msgstr "Caducidad de la sesión"
@@ -2791,7 +2791,7 @@ msgid "Show certificate"
 msgstr "Mostrar certificado"
 
 msgid "Show changelog"
-msgstr ""
+msgstr "Mostrar cambios"
 
 msgid "Show details"
 msgstr "Mostrar detalles"
@@ -2833,10 +2833,10 @@ msgid "Slovenia"
 msgstr "Eslovenia"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "Software RAID"
 
 msgid "Software updates"
-msgstr ""
+msgstr "Actualizar el Software"
 
 msgid "Solomon Islands"
 msgstr "Islas Solomon"
@@ -2875,7 +2875,7 @@ msgid "Spain"
 msgstr "España"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "Flag de acción especial"
 
 msgid "Specifies how many server threads to create."
 msgstr "Indica cuántos hilos de servidor se crearán."
@@ -3014,7 +3014,7 @@ msgid "System time"
 msgstr "Hora del sistema"
 
 msgid "TAR"
-msgstr ""
+msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "Reenvío TCP"
@@ -3061,7 +3061,7 @@ msgstr "El comentario contiene carácteres inválidos"
 msgid ""
 "The configuration has been changed. You must apply the changes in order for "
 "them to take effect."
-msgstr ""
+msgstr "La configuración ha cambiado. Debe aplicar los cambios para que tenga efecto."
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "El puerto del servidor de correo SMTP, Ej; 25 o 578"
@@ -3087,7 +3087,7 @@ msgid "The hostname is a label that identifies the system to the network."
 msgstr "El nombre de host es una etiqueta que identifica al sistema en la red."
 
 msgid "The interface '%s' is already used by a bonding interface"
-msgstr ""
+msgstr "El interfaz '%s' está en uso por el interfaz bonding"
 
 msgid "The location of the files to share."
 msgstr "La ubicación de los archivos a compartir."
@@ -3108,7 +3108,7 @@ msgstr "El número de días de validez del certificado."
 
 #, php-format
 msgid "The parameter '%s' contains forbidden two-dot symbols"
-msgstr ""
+msgstr "El parámetro '%s' contiene el simbolo prohibido \":\""
 
 msgid "The password contains invalid characters"
 msgstr "La contraseña contiene carácteres inválidos"
@@ -3140,7 +3140,7 @@ msgid ""
 msgstr "Duración de la sesión en minutos. seleccionar \"0\" para deshabilitar el logout automático."
 
 msgid "The shared folder is already used by another share."
-msgstr ""
+msgstr "La carpeta compartida ya está siendo usada por otra carpeta compartida"
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3193,13 +3193,13 @@ msgid "This field does not allow blanks"
 msgstr "Este campo no admite espacios"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Este campo es obligatorio"
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Este campo debe estar en formato: hh:mm:ss"
 
 msgid "This field should be a IP network address in CIDR notation"
-msgstr ""
+msgstr "Debería ser una dirección de red IPv4 en notación CIDR."
 
 msgid "This field should be a IPv4 network address"
 msgstr "Este campo debe ser una dirección IP válida"
@@ -3208,25 +3208,25 @@ msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Debería ser una dirección de red IPv4 en notación CIDR."
 
 msgid "This field should be a IPv6 network address in CIDR notation"
-msgstr ""
+msgstr "Debería ser una dirección de red IPv46en notación CIDR."
 
 msgid "This field should be a domainname or an IP address"
-msgstr ""
+msgstr "Este campo debe ser un nombre de dominio o una dirección IPv4 vàlida"
 
 msgid "This field should be a domainname or an IPv4 address"
 msgstr "Este campo debe ser un nombre de dominio o una dirección IPv4 vàlida"
 
 msgid "This field should be a hostname or an IP address"
-msgstr ""
+msgstr "Debería ser un nombre de host o una dirección IPv4."
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Debería ser un nombre de host o una dirección IPv4."
 
 msgid "This field should be a list of domainnames or IP addresses"
-msgstr ""
+msgstr "Este campo debe ser una lista de hostnames o una dirección IP vàlida"
 
 msgid "This field should be a list of hostnames or IP addresses"
-msgstr ""
+msgstr "Este campo debe ser una lista de hostnames o una dirección IP vàlida"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3240,13 +3240,13 @@ msgid ""
 msgstr "Debería ser un puerto o un rango de puertos (p.ej. 21 o !443 o 1024-65535)"
 
 msgid "This field should be an IP address"
-msgstr ""
+msgstr "Este campo debería ser una dirección IP"
 
 msgid "This field should be an IPv4 address"
 msgstr "Debería ser una dirección IPv4"
 
 msgid "This field should be an IPv6 address"
-msgstr ""
+msgstr "Este campo debe ser una dirección IPv6 válida"
 
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
@@ -3258,7 +3258,7 @@ msgid ""
 "This field should be either a IPv6 network address (with /mask), a IPv6 "
 "range or a plain IPv6 address (e.g. !2001:db8::/96 or "
 "2001:db8::10-2001:db8::20 or 2001:db8::15)"
-msgstr ""
+msgstr "Debe ser una dirección IPv6 válida  (incluyendo máscara), un rango IPv6 o una dirección única IPv6  (ejemplo: !2001:db8::/96 or 2001:db8::10-2001:db8::20  > 2001:db8::15)"
 
 msgid "This field should only contain numbers"
 msgstr "Debe contener solo números"
@@ -3411,13 +3411,13 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Transfer log"
-msgstr ""
+msgstr "Log de transferencia"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "Tiempo de transferencia"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "Tipo de transferencia"
 
 msgid "Traps"
 msgstr "Excepción"
@@ -3459,7 +3459,7 @@ msgid "U.S. Virgin Islands"
 msgstr "Islas Vírgenes (EEUU)"
 
 msgid "UNKNOWN"
-msgstr ""
+msgstr "Desconocido"
 
 msgid "Uganda"
 msgstr "Uganda"
@@ -3468,7 +3468,7 @@ msgid "Ukraine"
 msgstr "Ucrania"
 
 msgid "Uncompressed"
-msgstr ""
+msgstr "Sin comprimir"
 
 msgid "Uninstall"
 msgstr "Desinstalar"
@@ -3559,7 +3559,7 @@ msgid "Use SSL/TLS secure connection"
 msgstr "Usar conexión SSL/TLS segura"
 
 msgid "Use chroot"
-msgstr ""
+msgstr "Habilitar chroot."
 
 msgid "Use sendfile"
 msgstr "Usar Sendfile"
@@ -3669,7 +3669,7 @@ msgid "Web Administrator Password"
 msgstr "Contraseña del administrador Web"
 
 msgid "Web administration"
-msgstr ""
+msgstr "Interfaz de administración Web"
 
 msgid "Web administration interface"
 msgstr "Interfaz de administración Web"
