@@ -37,6 +37,7 @@ class OMVLvmPhysicalVolume extends OMVObject {
 	protected $vgName = "";
 	protected $allocatedPE = 0;
 	private $dataCached = FALSE;
+	private $errStr = "";
 
 	/**
 	 * Constructor
@@ -44,6 +45,14 @@ class OMVLvmPhysicalVolume extends OMVObject {
 	 */
 	public function __construct($deviceFile) {
 		$this->deviceFile = $deviceFile;
+	}
+
+	/**
+	 * Get the error description of the last occured error.
+	 * @return The error description of the last error if set.
+	 */
+	public function getError() {
+		return implode("\n", $this->errStr);
 	}
 
 	/**
@@ -61,8 +70,10 @@ class OMVLvmPhysicalVolume extends OMVObject {
 		  "--separator '|' -C -o pv_uuid,pv_size,pv_free,pv_used,vg_uuid,".
 		  "vg_name,pv_pe_alloc_count --unit b %s", $this->getDeviceFile());
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if($result !== 0) {
+			$this->errStr = $output;
 			return FALSE;
+		}
 
 		$output = explode("|", trim($output[0]));
 
@@ -192,6 +203,21 @@ class OMVLvmPhysicalVolume extends OMVObject {
 			return FALSE;
 		return sprintf("LVM physical volume [%s, %s]", $this->getDeviceFile(),
 		  binary_format($this->getSize()));
+	}
+
+	/**
+	 * Remove the physical volume.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function remove() {
+		$cmd = sprintf("export LANG=C; pvremove --yes --force %s",
+		  escapeshellarg($this->getDeviceFile()));
+		@OMVUtil::exec($cmd, $output, $result);
+		if($result !== 0) {
+			$this->errStr = $output;
+			return FALSE;
+		}
+		return TRUE;
 	}
 }
 

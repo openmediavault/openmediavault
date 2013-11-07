@@ -372,7 +372,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		  }');
 		// Get software RAID device details to create notification message.
 		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
-		if(FALSE === $raid->exists()) {
+		if(!$raid->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $raid->getDeviceFile());
 		}

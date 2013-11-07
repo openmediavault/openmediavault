@@ -684,9 +684,11 @@ class OMVFilesystem extends OMVObject {
 		$uuid = $this->getUuid();
 		$cmd = sprintf("export LANG=C; mount -v %s", is_uuid($uuid) ?
 		  "-U {$uuid}" : $this->getDeviceFile());
-		@OMVUtil::exec($cmd, $this->errStr, $result);
-		if($result !== 0)
+		@OMVUtil::exec($cmd, $output, $result);
+		if($result !== 0) {
+			$this->errStr = $output;
 			return FALSE;
+		}
 		return TRUE;
 	}
 
@@ -704,9 +706,11 @@ class OMVFilesystem extends OMVObject {
 			$cmdArgs[] = "-l";
 		$cmd = sprintf("export LANG=C; umount %s %s", implode(" ",
 		  $cmdArgs), $this->getDeviceFile());
-		@OMVUtil::exec($cmd, $this->errStr, $result);
-		if($result !== 0)
+		@OMVUtil::exec($cmd, $output, $result);
+		if($result !== 0) {
+			$this->errStr = $output;
 			return FALSE;
+		}
 		return TRUE;
 	}
 
@@ -837,9 +841,11 @@ class OMVMntEnt extends OMVObject {
 			$cmdArgs[] = "-l";
 		$cmd = sprintf("export LANG=C; umount %s %s", implode(" ",
 		  $cmdArgs), escapeshellarg($this->dir));
-		@OMVUtil::exec($cmd, $this->errStr, $result);
-		if($result !== 0)
+		@OMVUtil::exec($cmd, $output, $result);
+		if($result !== 0) {
+			$this->errStr = $output;
 			return FALSE;
+		}
 		return TRUE;
 	}
 
@@ -861,9 +867,11 @@ class OMVMntEnt extends OMVObject {
 	public function unlinkDir($force = TRUE) {
 		$cmd = sprintf("export LANG=C; rm -rf %s 2>&1", escapeshellarg(
 		  $this->dir));
-		@OMVUtil::exec($cmd, $this->errStr, $result);
-		if($result !== 0)
+		@OMVUtil::exec($cmd, $output, $result);
+		if($result !== 0) {
+			$this->errStr = $output;
 			return FALSE;
+		}
 		return TRUE;
 	}
 
@@ -1150,8 +1158,10 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			$cmd = sprintf("export LANG=C; blockdev --getsize64 %s",
 			  escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0)
+			if($result !== 0) {
+				$this->errStr = $output;
 				return FALSE;
+			}
 			$this->size = $output[0];
 		}
 		return $this->size;

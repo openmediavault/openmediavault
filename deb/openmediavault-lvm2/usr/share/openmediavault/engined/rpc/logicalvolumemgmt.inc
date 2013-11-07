@@ -85,6 +85,8 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		foreach($devs as $devk => $devv) {
 			// Get the physical volume details.
 			$pv = new OMVLvmPhysicalVolume($devv);
+			if(!$pv->exists())
+				continue;
 			$result[] = array(
 				"devicefile" => $pv->getDeviceFile(),
 				"free" => $pv->getFree(),
@@ -229,7 +231,8 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 	 *   \em devicefile The devicefile of the physical volume.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_FAILED
+	 * @throw E_MISC_DEVICE_NOT_FOUND
+	 * @throw E_EXEC_MISC
 	 */
 	public function deletePhysicalVolume($params, $context) {
 		// Validate the RPC caller context.
@@ -248,10 +251,15 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  "devicefile" => $params['devicefile']
 		  );
 		// Delete the physical volume.
-		$cmd = sprintf("pvremove %s 2>&1", $object['devicefile']);
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		$pv = new OMVLvmPhysicalVolume($object['devicefile']);
+		if(!$pv->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
+			  $object['devicefile']);
+		}
+		if(!$pv->remove()) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
+			  gettext("Failed to remove physical volume: %s"),
+			  $pv->getError()));
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
@@ -374,6 +382,8 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		}
 		foreach($pvs as $pvk => $pvv) {
 			$pv = new OMVLvmPhysicalVolume($pvv);
+			if(!$pv->exists())
+				continue;
 			// Is this physical volume already used?
 			if(in_array($pv->getDeviceFile(), $usedDevs))
 				continue;
@@ -542,6 +552,8 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		$result = array();
 		foreach($vg->getPVName() as $pvk => $pvv) {
 			$pv = new OMVLvmPhysicalVolume($pvv);
+			if(!$pv->exists())
+				continue;
 			$result[] = array(
 				"devicefile" => $pv->getDeviceFile(),
 				"size" => $pv->getSize(),
