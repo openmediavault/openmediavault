@@ -73,29 +73,29 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		$result = array();
 		foreach($devs as $devk => $devv) {
 			$raid = new OMVStorageDeviceMdadm($devv);
-			if($raid->exists()) {
-				$used = FALSE;
-				// Is this RAID device used by another storage device?
-				if(OMVStorageDevices::isUsed($raid->getDeviceFile())) {
-					$used = TRUE;
-				// Does the RAID device contain a filesystem and is it used?
-				} else if(FALSE !== OMVRpc::exec("FsTab", "getByFsName",
-				  array("id" => $raid->getDeviceFile()), $context)) {
-					$used = TRUE;
-				}
-				$result[] = array(
-					"_used" => $used,
-					"name" => $raid->getName(),
-					"devicefile" => $raid->getDeviceFile(),
-					"uuid" => $raid->getUuid(),
-					"level" => $raid->getLevel(),
-					"numdevices" => $raid->getNumDevices(),
-					"devices" => $raid->getSlaves(),
-					"size" => $raid->getSize(),
-					"state" => $raid->getState(),
-					"description" => $raid->getDescription()
-				);
+			if(!$raid->exists())
+				continue;
+			$used = FALSE;
+			// Is this RAID device used by another storage device?
+			if(OMVStorageDevices::isUsed($raid->getDeviceFile())) {
+				$used = TRUE;
+			// Does the RAID device contain a filesystem and is it used?
+			} else if(FALSE !== OMVRpc::exec("FsTab", "getByFsName",
+			  array("id" => $raid->getDeviceFile()), $context)) {
+				$used = TRUE;
 			}
+			$result[] = array(
+				"_used" => $used,
+				"name" => $raid->getName(),
+				"devicefile" => $raid->getDeviceFile(),
+				"uuid" => $raid->getUuid(),
+				"level" => $raid->getLevel(),
+				"numdevices" => $raid->getNumDevices(),
+				"devices" => $raid->getSlaves(),
+				"size" => $raid->getSize(),
+				"state" => $raid->getState(),
+				"description" => $raid->getDescription()
+			);
 		}
 		return $result;
 	}
@@ -151,7 +151,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		// Get a list of all potential usable devices.
 		if(FALSE === ($devs = OMVStorageDevices::enumerateUnused())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  "Failed to get list of devices");
+			  "Failed to get list of unused devices");
 		}
 		// Prepare the result list.
 		$result = array();

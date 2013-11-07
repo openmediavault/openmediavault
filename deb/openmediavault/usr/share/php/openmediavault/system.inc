@@ -958,9 +958,11 @@ interface OMVIBlockDevice {
 
 	/**
 	 * Get the device name, e.g. sda or hdb.
+	 * @param canonical If set to TRUE the canonical device file will
+	 *   be used. Defaults to FALSE.
 	 * @return The device name.
 	 */
-	function getDeviceName();
+	function getDeviceName($canonical = FALSE);
 
 	/**
 	 * Get the size of the device in bytes.
@@ -1033,15 +1035,16 @@ abstract class OMVBlockDeviceAbstract extends OMVObject implements
 	 * Get the canonical device file, e.g. /dev/mapper/vg0-lv0 -> /dev/dm-0
 	 */
 	public function getCanonicalDeviceFile() {
-		return realpath($this->deviceFile);
+		return realpath($this->getDeviceFile());
 	}
 
 	/**
 	 * See interface definition.
 	 */
-	public function getDeviceName() {
+	public function getDeviceName($canonical = FALSE) {
 		// Get the device file and extract the name, e.g. /dev/sda => sda.
-		$deviceName = str_replace("/dev/", "", $this->getDeviceFile());
+		$deviceName = str_replace("/dev/", "", !$canonical ?
+		  $this->getDeviceFile() : $this->getCanonicalDeviceFile());
 		return $deviceName;
 	}
 
@@ -1523,8 +1526,12 @@ class OMVStorageDeviceBackendLVM extends OMVStorageDeviceBackendDM {
 		foreach($devs as $devk => $devv) {
 			// Process LVM logical volumes.
 			$object = new OMVLvmLogicalVolume($devv);
-			if($object->exists())
-				$result = array_merge($result, $object->getSlaves());
+			if(!$object->exists())
+				continue;
+			// Get the physical volumes.
+			$result = array_merge($result, $object->getSlaves());
+			// Get the volume group.
+			$result[] = sprintf("/dev/%s", $object->getVGName());
 		}
 		return $result;
 	}
@@ -2060,18 +2067,12 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceAbstract {
  * @ingroup api
  */
 class OMVStorageDeviceCCISS extends OMVStorageDeviceAbstract {
-	/**
-	 * See interface definition.
-	 */
-	public function getDeviceName() {
+	public function getDeviceName($canonical = FALSE) {
 		// Get the device name and convert '/' character to '!', e.g.
 		// cciss/c0d0 => cciss!c0d0.
-		return strtr(OMVStorageDeviceAbstract::getDeviceName(), "/", "!");
+		return strtr(parent::getDeviceName($canonical), "/", "!");
 	}
 
-	/**
-	 * See abstract class definition.
-	 */
 	public function isRaid() {
 		return TRUE;
 	}
@@ -2389,10 +2390,9 @@ class OMVStorageDeviceDM extends OMVStorageDeviceAbstract {
 	 * @return The name of the device mapper device.
 	 */
 	public function getName() {
-		// It is necessary to use device files like /dev/dm-xxx.
-		$deviceName = str_replace("/dev/", "", $this->getCanonicalDeviceFile());
-		// Build the sysfs path to get the required information.
-		$path = sprintf("/sys/block/%s/dm/name", $deviceName);
+		// Make sure the canonical device file is used to extract the name
+		// of the device.
+		$path = sprintf("/sys/block/%s/dm/name", $this->getDeviceName(TRUE));
 		if(!file_exists($path))
 			return FALSE;
 		return trim(file_get_contents($path));
@@ -2403,10 +2403,9 @@ class OMVStorageDeviceDM extends OMVStorageDeviceAbstract {
 	 * @return The UUID of the device mapper device, otherwise FALSE.
 	 */
 	public function getUuid() {
-		// It is necessary to use device files like /dev/dm-xxx.
-		$deviceName = str_replace("/dev/", "", $this->getCanonicalDeviceFile());
-		// Build the sysfs path to get the required information.
-		$path = sprintf("/sys/block/%s/dm/uuid", $deviceName);
+		// Make sure the canonical device file is used to extract the name
+		// of the device.
+		$path = sprintf("/sys/block/%s/dm/uuid", $this->getDeviceName(TRUE));
 		if(!file_exists($path))
 			return FALSE;
 		return trim(file_get_contents($path));
@@ -2417,10 +2416,9 @@ class OMVStorageDeviceDM extends OMVStorageDeviceAbstract {
 	 * @return An array of device files, otherwise FALSE.
 	 */
 	public function getSlaves() {
-		// It is necessary to use device files like /dev/dm-xxx.
-		$deviceName = str_replace("/dev/", "", $this->getCanonicalDeviceFile());
-		// Build the sysfs path to get the required information.
-		$path = sprintf("/sys/block/%s/slaves", $deviceName);
+		// Make sure the canonical device file is used to extract the name
+		// of the device.
+		$path = sprintf("/sys/block/%s/slaves", $this->getDeviceName(TRUE));
 		if(!file_exists($path))
 			return FALSE;
 		$result = array();

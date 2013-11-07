@@ -375,7 +375,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		// Get a list of all potential usable devices.
 		if(FALSE === ($devs = OMVStorageDevices::enumerateUnused())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
-			  "Failed to get list of devices");
+			  "Failed to get list of unused devices");
 		}
 		// Prepare the result list.
 		$result = array();
