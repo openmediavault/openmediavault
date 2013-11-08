@@ -52,7 +52,8 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 	 * @return An array containing objects with the following fields:
 	 *   \em uuid, \em devicefile and \em description.
 	 *   The field \em uuid is the mount point configuration object UUID.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @throw E_MISC_FAILURE
+	 * @throw E_MISC_DEVICE_NOT_FOUND
 	 */
 	public function getCandidates($params, $context) {
 		global $xmlConfig;
@@ -78,22 +79,25 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 				continue;
 			}
 			// Skip the device where the operating system is installed on.
-			if($objectv['devicefile'] === $rootDeviceFile) {
+			if($objectv['devicefile'] === $rootDeviceFile)
 				continue;
-			}
 			// Check if the volume is connected via USB.
 			$fs = new OMVFilesystem($objectv['devicefile']);
 			if(!$fs->exists()) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf(gettext("Filesystem '%s' not found"),
 				  $objectv['devicefile']));
-				continue;
 			}
-			$sd = OMVStorageDeviceFactory::get($fs->getParentDeviceFile());
+			// Get the storage device containing the filesystem.
+			if(FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile())) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+				  gettext("Failed to get storage device file from '%s'"),
+				  $objectv['devicefile']));
+			}
+			$sd = OMVStorageDeviceFactory::get($storageDeviceFile);
 			if(is_null($sd) || !$sd->exists()) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf(gettext("Device '%s' not found"),
-				  $fs->getParentDeviceFile()));
+				throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
+			  	  $storageDeviceFile);
 			}
 			if(!$sd->isUsb())
 				continue;

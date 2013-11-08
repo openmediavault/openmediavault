@@ -657,13 +657,19 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		$fs = new OMVFilesystem($params['id']);
 		if(!$fs->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf(gettext("Filesystem '%s' not found"), $params['id']));
+			  sprintf(gettext("Filesystem '%s' not found"),
+			  $params['id']));
 		}
 		// Get the storage device containing the filesystem.
-		$sd = OMVStorageDeviceFactory::get($fs->getParentDeviceFile());
+		if(FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile())) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+			  gettext("Failed to get storage device file from '%s'"),
+			  $params['id']));
+		}
+		$sd = OMVStorageDeviceFactory::get($storageDeviceFile);
 		if(is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $fs->getDeviceFile());
+			  $storageDeviceFile);
 		}
 		// Get mount options depending on the filesystem type.
 		switch($fs->getType()) {
@@ -792,7 +798,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			if(TRUE === $fs->isMounted()) {
 				if(FALSE === $fs->umount(TRUE)) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, $fs->getError());
+					  $cmd, $fs->getLastError());
 				}
 			}
 		}

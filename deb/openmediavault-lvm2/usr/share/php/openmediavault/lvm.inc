@@ -37,7 +37,6 @@ class OMVLvmPhysicalVolume extends OMVObject {
 	protected $vgName = "";
 	protected $allocatedPE = 0;
 	private $dataCached = FALSE;
-	private $errStr = "";
 
 	/**
 	 * Constructor
@@ -45,14 +44,6 @@ class OMVLvmPhysicalVolume extends OMVObject {
 	 */
 	public function __construct($deviceFile) {
 		$this->deviceFile = $deviceFile;
-	}
-
-	/**
-	 * Get the error description of the last occured error.
-	 * @return The error description of the last error if set.
-	 */
-	public function getError() {
-		return implode("\n", $this->errStr);
 	}
 
 	/**
@@ -71,7 +62,7 @@ class OMVLvmPhysicalVolume extends OMVObject {
 		  "vg_name,pv_pe_alloc_count --unit b %s", $this->getDeviceFile());
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
-			$this->errStr = $output;
+			$this->setLastError($output);
 			return FALSE;
 		}
 
@@ -210,11 +201,11 @@ class OMVLvmPhysicalVolume extends OMVObject {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function remove() {
-		$cmd = sprintf("export LANG=C; pvremove --yes --force %s",
+		$cmd = sprintf("export LANG=C; pvremove --yes --force %s 2>&1",
 		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
-			$this->errStr = $output;
+			$this->setLastError($output);
 			return FALSE;
 		}
 		return TRUE;
@@ -315,8 +306,10 @@ class OMVLvmVolumeGroup extends OMVObject {
 			  "--separator '|' -C -o pv_name %s 2>/dev/null",
 			  escapeshellarg($this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0)
+			if($result !== 0) {
+				$this->setLastError($output);
 				return FALSE;
+			}
 
 			foreach($output as $outputk => $outputv) {
 				$this->pvName[] = trim($outputv);
@@ -331,8 +324,10 @@ class OMVLvmVolumeGroup extends OMVObject {
 			  "--separator '|' -C -o lv_name %s 2>/dev/null",
 			  escapeshellarg($this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0)
+			if($result !== 0) {
+				$this->setLastError($output);
 				return FALSE;
+			}
 
 			foreach($output as $outputk => $outputv) {
 				$this->lvName[] = trim($outputv);
@@ -499,6 +494,21 @@ class OMVLvmVolumeGroup extends OMVObject {
 		return sprintf("LVM volume group [%s, %s, %s free]",
 		  $this->getDeviceFile(), binary_format($this->getSize()),
 		  binary_format($this->getFree()));
+	}
+
+	/**
+	 * Remove the volume group.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function remove() {
+		$cmd = sprintf("export LANG=C; vgremove --force %s 2>&1",
+		  escapeshellarg($this->getName()));
+		@OMVUtil::exec($cmd, $output, $result);
+		if($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
 	}
 }
 ?>

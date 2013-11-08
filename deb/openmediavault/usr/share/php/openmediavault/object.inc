@@ -26,6 +26,8 @@ require_once("openmediavault/functions.inc");
  * @ingroup api
  */
 abstract class OMVObject {
+	private $lastError = "";
+
 	/**
 	 * Constructor
 	 */
@@ -33,9 +35,31 @@ abstract class OMVObject {
 	}
 
 	/**
+	 * Set the last error.
+	 * @param error The error description.
+	 * @return Returns the previous error.
+	 */
+	final protected function setLastError($error) {
+		$lastError = $this->lastError;
+		$this->lastError = $error;
+		return $lastError;
+	}
+
+	/**
+	 * Get the last error.
+	 * @return The error description of the last error if set.
+	 */
+	final public function getLastError() {
+		$lastError = $this->lastError;
+		if(is_array($lastError))
+			$lastError = implode("\n", $lastError);
+		return $lastError;
+	}
+
+	/**
 	 * Print debug message to stdout and file if debugging is enabled.
 	 */
-	protected function debug() {
+	final protected function debug() {
 		if(boolval($GLOBALS['OMV_DEBUG_PHP']) === FALSE)
 			return;
 

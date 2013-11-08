@@ -310,9 +310,8 @@ class OMVFilesystems extends OMVObject {
 	public static function get() {
 		$cmd = "export LANG=C; blkid -o full";
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if($result !== 0)
 			return FALSE;
-		}
 		$result = array();
 		foreach($output as $outputk => $outputv) {
 			// Parse command output:
@@ -364,7 +363,6 @@ class OMVFilesystem extends OMVObject {
 	protected $ptType = "";
 	protected $usage = "";
 	private $dataCached = FALSE;
-	private $errStr = "";
 
 	/**
 	 * Constructor
@@ -384,14 +382,6 @@ class OMVFilesystem extends OMVObject {
 			$this->uuid = $id;
 		else
 			$this->deviceFile = $id;
-	}
-
-	/**
-	 * Get the error description of the last occured error.
-	 * @return The error description of the last error if set.
-	 */
-	public function getError() {
-		return implode("\n", $this->errStr);
 	}
 
 	/**
@@ -416,7 +406,7 @@ class OMVFilesystem extends OMVObject {
 			$cmd = sprintf("export LANG=C; findfs UUID=%s", $this->uuid);
 			@OMVUtil::exec($cmd, $output, $result);
 			if($result !== 0) {
-				$this->errStr = $output;
+				$this->setLastError($output);
 				return FALSE;
 			}
 			$this->deviceFile = $output[0];
@@ -435,7 +425,7 @@ class OMVFilesystem extends OMVObject {
 		$cmd = sprintf("export LANG=C; blkid -p %s", $this->deviceFile);
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
-			$this->errStr = $output;
+			$this->setLastError($output);
 			return FALSE;
 		}
 
@@ -578,11 +568,15 @@ class OMVFilesystem extends OMVObject {
 
 	/**
 	 * Get the device file of the storage device containing this
-	 * file system.
+	 * file system. Example:
+	 * <ul>
+	 * \li /dev/sdb1 => /dev/sdb
+	 * \li /dev/cciss/c0d0p2 => /dev/cciss/c0d0
+	 * </ul>
 	 * @return The device file of the underlying storage device,
 	 *   otherwise FALSE.
 	 */
-	public function getParentDeviceFile() {
+	public function getStorageDeviceFile() {
 		if($this->getData() === FALSE)
 			return FALSE;
 		$deviceFile = $this->getDeviceFile();
@@ -614,7 +608,7 @@ class OMVFilesystem extends OMVObject {
 		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
-			$this->errStr = $output;
+			$this->setLastError($output);
 			return FALSE;
 		}
 		return intval($output[0]);
@@ -636,7 +630,7 @@ class OMVFilesystem extends OMVObject {
 		  $this->deviceFile));
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
-			$this->errStr = $output;
+			$this->setLastError($output);
 			return FALSE;
 		}
 		// Parse command output:
@@ -686,7 +680,7 @@ class OMVFilesystem extends OMVObject {
 		  "-U {$uuid}" : $this->getDeviceFile());
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
-			$this->errStr = $output;
+			$this->setLastError($output);
 			return FALSE;
 		}
 		return TRUE;
@@ -708,7 +702,7 @@ class OMVFilesystem extends OMVObject {
 		  $cmdArgs), $this->getDeviceFile());
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
-			$this->errStr = $output;
+			$this->setLastError($output);
 			return FALSE;
 		}
 		return TRUE;
@@ -794,7 +788,6 @@ class OMVFilesystem extends OMVObject {
 class OMVMntEnt extends OMVObject {
 	private $fsname;
 	private $dir;
-	private $errStr = "";
 
 	/**
 	 * Constructor
@@ -807,23 +800,17 @@ class OMVMntEnt extends OMVObject {
 	}
 
 	/**
-	 * Get the error description of the last occured error.
-	 * @return The error description of the last error if set.
-	 */
-	public function getError() {
-		return implode("\n", $this->errStr);
-	}
-
-	/**
 	 * Mount the given filesystem.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function mount() {
 		$cmd = sprintf("export LANG=C; mount -v %s", escapeshellarg(
 		  $this->dir));
-		@OMVUtil::exec($cmd, $this->errStr, $result);
-		if($result !== 0)
+		@OMVUtil::exec($cmd, $output, $result);
+		if($result !== 0) {
+			$this->setLastError($output);
 			return FALSE;
+		}
 		return TRUE;
 	}
 
@@ -843,7 +830,7 @@ class OMVMntEnt extends OMVObject {
 		  $cmdArgs), escapeshellarg($this->dir));
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
-			$this->errStr = $output;
+			$this->setLastError($output);
 			return FALSE;
 		}
 		return TRUE;
@@ -869,7 +856,7 @@ class OMVMntEnt extends OMVObject {
 		  $this->dir));
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
-			$this->errStr = $output;
+			$this->setLastError($output);
 			return FALSE;
 		}
 		return TRUE;
@@ -1007,7 +994,6 @@ abstract class OMVBlockDeviceAbstract extends OMVObject implements
 	protected $size = FALSE;
 	protected $blockSize = FALSE;
 	protected $sectorSize = FALSE;
-	private $errStr = "";
 
 	/**
 	 * Constructor
@@ -1015,14 +1001,6 @@ abstract class OMVBlockDeviceAbstract extends OMVObject implements
 	 */
 	public function __construct($deviceFile) {
 		$this->deviceFile = $deviceFile;
-	}
-
-	/**
-	 * Get the error description of the last occured error.
-	 * @return The error description of the last error if set.
-	 */
-	public function getError() {
-		return implode("\n", $this->errStr);
 	}
 
 	/**
@@ -1159,7 +1137,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			  escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if($result !== 0) {
-				$this->errStr = $output;
+				$this->setLastError($output);
 				return FALSE;
 			}
 			$this->size = $output[0];
@@ -1177,7 +1155,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			  escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if($result !== 0) {
-				$this->errStr = $output;
+				$this->setLastError($output);
 				return FALSE;
 			}
 			$this->blockSize = intval($output[0]);
@@ -1195,7 +1173,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			  escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if($result !== 0) {
-				$this->errStr = $output;
+				$this->setLastError($output);
 				return FALSE;
 			}
 			$this->sectorSize = intval($output[0]);
@@ -1288,7 +1266,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			  $this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if($result !== 0) {
-				$this->errStr = $output;
+				$this->setLastError($output);
 				return FALSE;
 			}
 			// Parse output:
@@ -1603,18 +1581,20 @@ class OMVStorageDeviceBackendMdadm extends OMVStorageDeviceBackendAbstract {
  * @ingroup api
  */
 class OMVStorageDeviceBackendCCISS extends OMVStorageDeviceBackendAbstract {
-	protected $regex = "cciss\/c[0-9]+d[0-9]+";
-
 	function getType() {
 		return OMV_STORAGE_DEVICE_TYPE_HBA;
 	}
 
 	function enumerate() {
-		return $this->enumerateProcFs($this->regex);
+		return $this->enumerateProcFs("cciss\/c[0-9]+d[0-9]+");
 	}
 
 	function isTypeOf($deviceFile) {
-		return $this->isTypeOfByName($deviceFile, $this->regex);
+		// Examples:
+		// - /dev/cciss/c0d0
+		// - /dev/cciss/c0d0p2
+		$regex = "cciss\/c[0-9]+d[0-9]+(p[0-9]+)?";
+		return $this->isTypeOfByName($deviceFile, $regex);
 	}
 
 	function getImpl($args) {
@@ -1631,18 +1611,20 @@ class OMVStorageDeviceBackendCCISS extends OMVStorageDeviceBackendAbstract {
  * @ingroup api
  */
 class OMVStorageDeviceBackendHDD extends OMVStorageDeviceBackendAbstract {
-	protected $regex = "(h|s|x?v)d[a-z]+";
-
 	function getType() {
 		return OMV_STORAGE_DEVICE_TYPE_HDD;
 	}
 
 	function enumerate() {
-		return $this->enumerateProcFs($this->regex);
+		return $this->enumerateProcFs("(h|s|x?v)d[a-z]+");
 	}
 
 	function isTypeOf($deviceFile) {
-		return $this->isTypeOfByName($deviceFile, $this->regex);
+		// Examples:
+		// - /dev/sdb
+		// - /dev/sda1
+		$regex = "(h|s|x?v)d[a-z]+[0-9]*";
+		return $this->isTypeOfByName($deviceFile, $regex);
 	}
 
 	function getImpl($args) {
@@ -2862,8 +2844,10 @@ class OMVUserGroup extends OMVObject {
 		$cmd = sprintf("export LANG=C; getent group %s", !is_null(
 		  $this->gid) ? strval($this->gid) : escapeshellarg($this->name));
 		@OMVUtil::exec($cmd, $output, $result);
-		if(($result !== 0) || empty($output[0]))
+		if(($result !== 0) || empty($output[0])) {
+			$this->setLastError($output);
 			return FALSE;
+		}
 		// Parse output:
 		// users:x:100:
 		// ssh:x:116:test1,test2
@@ -2928,8 +2912,10 @@ class OMVUserGroup extends OMVObject {
 		$cmd = sprintf("export LANG=C; EDITOR=cat edquota -g %s",
 		  $this->getName());
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if($result !== 0) {
+			$this->setLastError($output);
 			return FALSE;
+		}
 
 		// Parse command output:
 		// Filesystem                   blocks       soft       hard     inodes     soft     hard
@@ -3033,8 +3019,10 @@ class OMVUser extends OMVObject {
 			$cmd = sprintf("export LANG=C; getent shadow %s", escapeshellarg(
 			  $this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if(($result !== 0) || empty($output[0]))
+			if(($result !== 0) || empty($output[0])) {
+				$this->setLastError($output);
 				return FALSE;
+			}
 			$output = explode(":", $output[0]);
 			$this->password = $output[1];
 			$this->lastchanged = $output[2];
@@ -3054,8 +3042,10 @@ class OMVUser extends OMVObject {
 			$cmd = sprintf("export LANG=C; getent passwd %s", !is_null(
 			  $this->uid) ? strval($this->uid) : escapeshellarg($this->name));
 			@OMVUtil::exec($cmd, $output, $result);
-			if(($result !== 0) || empty($output[0]))
+			if(($result !== 0) || empty($output[0])) {
+				$this->setLastError($output);
 				return FALSE;
+			}
 			$output = explode(":", $output[0]);
 			$this->name = $output[0];
 			$this->uid = intval($output[2]);
@@ -3072,8 +3062,10 @@ class OMVUser extends OMVObject {
 			$cmd = sprintf("export LANG=C; groups %s", escapeshellarg(
 			  $this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if(($result !== 0) || empty($output[0]))
+			if(($result !== 0) || empty($output[0])) {
+				$this->setLastError($output);
 				return FALSE;
+			}
 			// Parse command output:
 			// test : users adm audio www-data avahi
 			$output = trim(substr(strrchr($output[0], ":"), 1));
@@ -3228,8 +3220,10 @@ class OMVUser extends OMVObject {
 		$cmd = sprintf("export LANG=C; EDITOR=cat edquota -u %s",
 		  $this->getName());
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if($result !== 0) {
+			$this->setLastError($output);
 			return FALSE;
+		}
 
 		// Parse command output:
 		// Filesystem                   blocks       soft       hard     inodes     soft     hard
@@ -3281,9 +3275,8 @@ class OMVLvmPhysicalVolumes extends OMVObject {
 		$cmd = "export LANG=C; pvdisplay --noheadings -C -o pv_name ".
 		  "2>/dev/null";
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if($result !== 0)
 			return FALSE;
-		}
 		$list = array();
 		// Parse command output:
 		//   /dev/sdc      
@@ -3316,9 +3309,8 @@ class OMVLvmLogicalVolumes extends OMVObject {
 		$cmd = "export LANG=C; lvdisplay --noheadings --separator '|' ".
 		  "-C -o vg_name,lv_name 2>/dev/null";
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if($result !== 0)
 			return FALSE;
-		}
 		$list = array();
 		foreach($output as $outputk => $outputv) {
 			$outputv = explode("|", trim($outputv));
@@ -3373,8 +3365,10 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 		  "lv_kernel_major,lv_kernel_minor --unit b %s",
 		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if($result !== 0) {
+			$this->setLastError($output);
 			return FALSE;
+		}
 
 		$output = explode("|", trim($output[0]));
 
@@ -3475,6 +3469,21 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 		return sprintf(gettext("LVM logical volume %s [%s, %s]"),
 		  $this->getName(), $this->getDeviceFile(),
 		  binary_format($this->getSize()));
+	}
+
+	/**
+	 * Remove the logical volume.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function remove() {
+		$cmd = sprintf("export LANG=C; lvremove --force %s 2>&1",
+		  escapeshellarg($this->getDeviceFile()));
+		@OMVUtil::exec($cmd, $output, $result);
+		if($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
 	}
 }
 

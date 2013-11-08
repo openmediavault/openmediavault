@@ -400,8 +400,11 @@ Ext.define("OMV.module.admin.storage.lvm.VolumeGroups", {
 		dataIndex: "lvname",
 		stateId: "lvname",
 		renderer: function(value, metaData, record) {
+			var lvname = record.get("lvname");
+			if(Ext.isEmpty(lvname))
+				return "--";
 			var tpl = new Ext.XTemplate('<tpl for=".">{.}<br/></tpl>');
-			return tpl.apply(record.get("lvname"));
+			return tpl.apply(lvname);
 		}
 	}],
 

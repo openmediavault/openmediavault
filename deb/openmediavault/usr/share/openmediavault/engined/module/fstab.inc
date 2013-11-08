@@ -89,7 +89,7 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 				if(FALSE === $me->mount()) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf("Failed to mount '%s': %s", $objectv['fsname'],
-					  $me->getError()));
+					  $me->getLastError()));
 				}
 			}
 		}
@@ -117,13 +117,13 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 			if(FALSE === $me->umount(TRUE, TRUE)) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("Failed to unmount '%s': %s", $params['fsname'],
-				  $me->getError()));
+				  $me->getLastError()));
 			}
 		}
 		if(FALSE === $me->unlinkDir()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to unlink the directory '%s': %s",
-			  $params['dir'], $me->getError()));
+			  $params['dir'], $me->getLastError()));
 		}
 	}
 

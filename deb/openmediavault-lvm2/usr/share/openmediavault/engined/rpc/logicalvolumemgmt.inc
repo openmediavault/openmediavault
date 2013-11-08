@@ -231,7 +231,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 	 *   \em devicefile The devicefile of the physical volume.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_MISC_DEVICE_NOT_FOUND
+	 * @throw E_MISC_FAILURE
 	 * @throw E_EXEC_MISC
 	 */
 	public function deletePhysicalVolume($params, $context) {
@@ -250,16 +250,18 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		$object = array(
 			  "devicefile" => $params['devicefile']
 		  );
-		// Delete the physical volume.
+		// Check if the physical volume exists.
 		$pv = new OMVLvmPhysicalVolume($object['devicefile']);
 		if(!$pv->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $object['devicefile']);
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf(gettext("No physical volume found on '%s'"),
+			  $object['devicefile']));
 		}
+		// Remove the physical volume.
 		if(!$pv->remove()) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
 			  gettext("Failed to remove physical volume: %s"),
-			  $pv->getError()));
+			  $pv->getLastError()));
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
@@ -485,7 +487,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return None.
 	 * @throw E_MISC_FAILURE
-	 * @throw E_EXEC_FAILED
+	 * @throw E_EXEC_MISC
 	 */
 	public function deleteVolumeGroup($params, $context) {
 		// Validate the RPC caller context.
@@ -499,21 +501,21 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 				  "name":{"type":"string"}
 			  }
 		  }');
-		// Check if the volume group exists.
-		$vg = new OMVLvmVolumeGroup($params['name']);
-		if(FALSE === $vg->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Volume group '%s' not found", $vg->getName()));
-		}
 		// Prepare the notification object.
 		$object = array(
 			  "name" => $params['name']
 		  );
-		// Delete the volume group.
-		$cmd = sprintf("vgremove %s 2>&1", $vg->getName());
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		// Check if the volume group exists.
+		$vg = new OMVLvmVolumeGroup($object['name']);
+		if(!$vg->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+			  gettext("Volume group '%s' not found", $object['name'])));
+		}
+		// Remove the volume group.
+		if(!$vg->remove()) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
+			  gettext("Failed to remove volume group: %s"),
+			  $vg->getLastError()));
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
@@ -931,7 +933,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return None.
 	 * @throw E_MISC_FAILURE
-	 * @throw E_EXEC_FAILED
+	 * @throw E_EXEC_MISC
 	 */
 	public function deleteLogicalVolume($params, $context) {
 		// Validate the RPC caller context.
@@ -945,22 +947,22 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
 			  }
 		  }');
-		// Check if logical volume exists.
-		$lv = new OMVLvmLogicalVolume($params['devicefile']);
-		if(FALSE === $lv->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("No logical volume found on '%s'",
-			  $params['devicefile']));
-		}
 		// Prepare the notification object.
 		$object = array(
 			  "devicefile" => $params['devicefile']
 		  );
+		// Check if logical volume exists.
+		$lv = new OMVLvmLogicalVolume($object['devicefile']);
+		if(!$lv->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf(gettext("No logical volume found on '%s'"),
+			  $object['devicefile']));
+		}
 		// Delete the logical volume.
-		$cmd = sprintf("lvremove --force %s 2>&1", $object['devicefile']);
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		if(!$lv->remove()) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
+			  gettext("Failed to remove logical volume: %s"),
+			  $lv->getLastError()));
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
