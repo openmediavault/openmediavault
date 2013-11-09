@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Milan Toet <milantoet@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:13+0200\n"
-"PO-Revision-Date: 2013-06-16 11:15+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-10-14 17:35+0000\n"
+"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,164 +19,164 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add backup job"
-msgstr ""
+msgstr "Voeg een backup taak toe"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Er is een E-mail bericht met de output van het commando (indien geproduceerd) naar de administrator gestuurd."
 
 msgid "Archive"
-msgstr ""
+msgstr "Archiveren"
 
 msgid "Backup jobs"
-msgstr ""
+msgstr "Backup taak"
 
 msgid "Comment"
-msgstr ""
+msgstr "Geef commentaar"
 
 msgid "Compress"
-msgstr ""
+msgstr "Comprimeren"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "Comprimeer bestand gegevens tijdens de overdracht"
 
 msgid "Delete"
-msgstr ""
+msgstr "Verwijder"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "Verwijder bestanden aan de ontvangende kant die niet bestaan bij de verzender"
 
 msgid "Device"
-msgstr ""
+msgstr "Apparaat"
 
 msgid "Device '%s' not found"
-msgstr ""
+msgstr "Apparaat '%s' is niet gevonden"
 
 msgid "Edit backup job"
-msgstr ""
+msgstr "Geplande backup taak aanpassen"
 
 msgid "Enable"
-msgstr ""
+msgstr "Inschakelen"
 
 msgid "Enable archive mode."
-msgstr ""
+msgstr "Archief modus inschakelen"
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Stel deze optie in om de gedeeltelijk overgedragen bestanden te behouden, anders zullen deze bestanden worden verwijdert indien de bestandsoverdracht is onderbroken."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Ingeschakeld"
 
 msgid "Execute backup job"
-msgstr ""
+msgstr "Uitvoeren backup taak"
 
 msgid "External storage device"
-msgstr ""
+msgstr "Extern opslag apparaat"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Extra opties"
 
 msgid "Failed to get filesystems"
-msgstr ""
+msgstr "Fout bij het opvragen van bestandssystemen"
 
 msgid "Filesystem '%s' not found"
-msgstr ""
+msgstr "Bestandssysteem '%s' niet gevonden"
 
 msgid "From external storage to shared folder"
-msgstr ""
+msgstr "Van de gedeelde map naar de gedeelde map"
 
 msgid "From shared folder to external storage"
-msgstr ""
+msgstr "Van de gedeelde map naar het externe opslag medium"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Behoud gedeeltelijk overgedragen bestanden"
 
 msgid "Mode"
-msgstr ""
+msgstr "Modus"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Raadpleeg de <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>handleiding</a> voor meer details."
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "Behouden ACL's behouden"
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "Uitgebreide kenmerken behouden"
 
 msgid "Preserve modification times."
-msgstr ""
+msgstr "Wijzigingstijden behouden"
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Rechten behouden"
 
 msgid "Quiet"
-msgstr ""
+msgstr "Stil"
 
 msgid "Recurse into directories."
-msgstr ""
+msgstr "Recursief in mappen"
 
 msgid "Recursive"
-msgstr ""
+msgstr "Recursief"
 
 msgid "Run"
-msgstr ""
+msgstr "Draai"
 
 msgid "Scan"
-msgstr ""
+msgstr "Scan"
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Selecteer een apparaat ..."
 
 msgid "Send command output via email."
-msgstr ""
+msgstr "Verzend de resultaten van een opdracht per E-mail"
 
 msgid "Send email"
-msgstr ""
+msgstr "Verstuur e-mail"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "Stel de rechten van het doel hetzelfde in als de rechten van de bron"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Gedeelde map"
 
 msgid "Suppress non-error messages."
-msgstr ""
+msgstr "Onderdruk non-fout meldingen"
 
 msgid "Synchronise from/to directory on external storage device."
-msgstr ""
+msgstr "Synchroniseer van/naar de directory op het externe opslag medium."
 
 msgid "The external storage device."
-msgstr ""
+msgstr "Het externe opslag medium."
 
 msgid ""
 "The shared folder content is synchronised from/to the root of the external "
 "storage device if this option is not set. The name of the directory is taken"
 " from the shared folder."
-msgstr ""
+msgstr "De inhoud van de gedeelde map is gesynchroniseerd van/naar de root van het externe opslag medium, wanneer deze optie niet is ingesteld. De naam van de directory is afkomstig van de gedeelde map."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
 "connected."
-msgstr ""
+msgstr "De gedeelde map synchroniseren wanneer het externe opslag medium is aangesloten."
 
 msgid "Times"
-msgstr ""
+msgstr "Keren"
 
 msgid "USB Backup"
-msgstr ""
+msgstr "USB Backup"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "De ACLs op de bestemming bijwerken zodat ze overeenkomen met de lokale ACLs."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "De uitgebreide attributen op de bestemming bijwerken zodat ze overeenkomen met de lokale attributen."
 
 msgid "n/a"
-msgstr ""
+msgstr "niet beschikbaar"
