@@ -664,7 +664,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		if(FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  gettext("Failed to get storage device file from '%s'"),
-			  $params['id']));
+			  $fs->getDeviceFile()));
 		}
 		$sd = OMVStorageDeviceFactory::get($storageDeviceFile);
 		if(is_null($sd) || !$sd->exists()) {

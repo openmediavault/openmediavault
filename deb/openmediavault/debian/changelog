@@ -1,3 +1,9 @@
+openmediavault (0.5.20) stable; urgency=low
+
+  * Add support for Linux Device Mapper devices in new storage backend.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 12 Nov 2013 12:09:28 +0100
+
 openmediavault (0.5.19) stable; urgency=low
 
   * Various code improvements.

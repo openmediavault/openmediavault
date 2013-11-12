@@ -1021,7 +1021,7 @@ abstract class OMVBlockDeviceAbstract extends OMVObject implements
 	 * Get the canonical device file, e.g. /dev/mapper/vg0-lv0 -> /dev/dm-0
 	 */
 	public function getCanonicalDeviceFile() {
-		return realpath($this->getDeviceFile());
+		return realpath($this->deviceFile);
 	}
 
 	/**
@@ -1495,10 +1495,8 @@ class OMVStorageDeviceBackendLVM extends OMVStorageDeviceBackendDM {
 			$object = new OMVStorageDeviceDM($devv);
 			if(!$object->exists())
 				continue;
-			// Build a device file name that contains the VG and LV name.
-			$deviceFile = sprintf("/dev/mapper/%s", $object->getName());
 			// Check if the given device is a LVM logical volume.
-			$object = new OMVLvmLogicalVolume($deviceFile);
+			$object = new OMVLvmLogicalVolume($object->getDeviceFile());
 			if(!$object->exists())
 				continue;
 			$result[] = $object->getDeviceFile();
@@ -2377,6 +2375,22 @@ class OMVStorageDeviceMdadm extends OMVStorageDeviceAbstract {
  * @ingroup api
  */
 class OMVStorageDeviceDM extends OMVStorageDeviceAbstract {
+	/**
+	 * See interface definition.
+	 * @note Any devices of the form /dev/dm-n are for internal use only and
+	 *   should never be used. Because of that the device file returned should
+	 *   look like /dev/mapper/<xyz>.
+	 *   See for more information:
+	 *   https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html-single/DM_Multipath
+	 */
+	function getDeviceFile() {
+		if(preg_match("/^\/dev\/dm-\d+$/", $this->deviceFile)) {
+			if(FALSE !== ($name = $this->getName()))
+				$this->deviceFile = sprintf("/dev/mapper/%s", $name);
+		}
+		return parent::getDeviceFile();
+	}
+
 	/**
 	 * Get the name of the device mapper device.
 	 * @return The name of the device mapper device.
@@ -3494,9 +3508,6 @@ OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendHDD());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendCCISS());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendMdadm());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLVM());
-// Any devices of the form /dev/dm-n are for internal use only and should
-// never be used. See for more information:
-// https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html-single/DM_Multipath
-//OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendDM());
+OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendDM());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLoop());
 ?>
