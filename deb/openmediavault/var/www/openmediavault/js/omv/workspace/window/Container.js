@@ -290,11 +290,6 @@ Ext.define("OMV.workspace.window.Container", {
 
 	doSubmit: function() {
 		var me = this;
-		// Validate values
-		if(!me.isValid()) {
-			me.markInvalid();
-			return;
-		}
 		if(me.mode === "remote") {
 			var rpcOptions = {
 				scope: me,
@@ -406,8 +401,8 @@ Ext.define("OMV.workspace.window.Container", {
 		}
 		// Validate values.
 		if(!me.isValid()) {
-			// Do not close the property dialog. The invalid fields are marked
-			// automatically.
+			// Do not close the property dialog.
+			me.markInvalid();
 		} else {
 			me.doSubmit();
 		}
@@ -433,5 +428,35 @@ Ext.define("OMV.workspace.window.Container", {
 	 * Method that is called when the 'Reset' button is pressed.
 	 * @param this The window itself.
 	 */
-	onResetButton: Ext.emptyFn
+	onResetButton: Ext.emptyFn,
+
+	/**
+	 * Convenience function for setting the given button disabled/enabled.
+	 * @param name The name of the button which can be 'ok', 'cancel',
+	 *   'close' or 'reset'.
+	 * @param disabled TRUE to disable the button, FALSE to enable.
+	 * @return The button component, otherwise FALSE.
+	 */
+	setButtonDisabled: function(name, disabled) {
+		var me = this;
+		var button = me.queryById(me.getId() + "-" + name);
+		if(!Ext.isObject(button) || !button.isButton)
+			return false;
+		return button.setDisabled(disabled);
+	},
+
+	/**
+	 * Convenience function to show or hide the given button.
+	 * @param name The name of the button which can be 'ok', 'cancel',
+	 *   'close' or 'reset'.
+	 * @param visible TRUE to show the button, FALSE to hide.
+	 * @return The button component, otherwise FALSE.
+	 */
+	setButtonVisible: function(name, visible) {
+		var me = this;
+		var button = me.queryById(me.getId() + "-" + name);
+		if(!Ext.isObject(button) || !button.isButton)
+			return false;
+		return button.setVisible(visible);
+	}
 });
