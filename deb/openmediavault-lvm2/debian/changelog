@@ -1,3 +1,9 @@
+openmediavault-lvm2 (0.5.5) stable; urgency=low
+
+  * Mantis 0000895: Mutiple LVM logical volumes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 13 Nov 2013 12:09:30 +0100
+
 openmediavault-lvm2 (0.5.4) stable; urgency=low
 
   * Various code improvements.

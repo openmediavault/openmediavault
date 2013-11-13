@@ -819,17 +819,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Enumerate all volume groups on the system.
-		$objects = $this->callMethod("enumerateVolumeGroups", NULL, $context);
-		// Prepare the result object.
-		$result = array();
-		foreach($objects as $objectk => $objectv) {
-			// Skip volume groups that are in use.
-			if(OMVStorageDevices::isUsed($objectv['devicefile'],
-			  OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER))
-				continue;
-			$result[] = $objectv;
-		}
-		return $result;
+		return $this->callMethod("enumerateVolumeGroups", NULL, $context);
 	}
 
 	/**

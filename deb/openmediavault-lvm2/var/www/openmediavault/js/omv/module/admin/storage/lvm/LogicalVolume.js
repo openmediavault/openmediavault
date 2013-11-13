@@ -143,7 +143,8 @@ Ext.define("OMV.module.admin.storage.lvm.lv.Create", {
 				useTips: false,
 				disabled: true,
 				flex: 1,
-				submitValue: false
+				submitValue: false,
+				value: 0
 			},{
 				xtype: "textfield",
 				name: "sizetext",
@@ -152,6 +153,15 @@ Ext.define("OMV.module.admin.storage.lvm.lv.Create", {
 				submitValue: false
 			}]
 		}];
+	},
+
+	isValid: function() {
+		var me = this;
+		if(!me.callParent(arguments))
+			return false;
+		// Do additional checks.
+		var values = me.getValues();
+		return parseInt(values.size) > 0;
 	},
 
 	doSubmit: function() {
