@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-11-06 17:24+0000\n"
+"PO-Revision-Date: 2013-11-13 15:29+0000\n"
 "Last-Translator: zubr139 <zubr139@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -2347,16 +2347,16 @@ msgid "Privacy passphrase"
 msgstr ""
 
 msgid "Privacy type"
-msgstr ""
+msgstr "Тип конфіденційності"
 
 msgid "Private key"
 msgstr ""
 
 msgid "Privilege"
-msgstr ""
+msgstr "Привілегія"
 
 msgid "Privileges"
-msgstr ""
+msgstr "Привілегії"
 
 msgid "Process monitoring"
 msgstr ""
@@ -2368,13 +2368,13 @@ msgid "Processor"
 msgstr "Процесор"
 
 msgid "Protocol"
-msgstr ""
+msgstr "Протокол"
 
 msgid "Public"
 msgstr ""
 
 msgid "Puerto Rico"
-msgstr ""
+msgstr "Пуерто-Ріко"
 
 msgid "Pull"
 msgstr ""
@@ -2383,7 +2383,7 @@ msgid "Push"
 msgstr ""
 
 msgid "Qatar"
-msgstr ""
+msgstr "Катар"
 
 msgid "Quick"
 msgstr ""
@@ -2392,7 +2392,7 @@ msgid "Quiet"
 msgstr ""
 
 msgid "Quota"
-msgstr ""
+msgstr "Квота"
 
 msgid "RAID 10"
 msgstr "RAID 10"
@@ -2422,13 +2422,13 @@ msgid "Raw value"
 msgstr ""
 
 msgid "Read only"
-msgstr ""
+msgstr "Лише для читання"
 
 msgid "Read-only"
-msgstr ""
+msgstr "Лише для читання"
 
 msgid "Read/Write"
-msgstr ""
+msgstr "Зчитування/Запис"
 
 msgid "Real"
 msgstr ""
@@ -2437,10 +2437,10 @@ msgid "Reboot"
 msgstr "Перезавантажити"
 
 msgid "Recipient"
-msgstr ""
+msgstr "Отримувач"
 
 msgid "Recover"
-msgstr ""
+msgstr "Відновлювати"
 
 msgid "Recurse into directories"
 msgstr ""
@@ -2708,10 +2708,10 @@ msgid "Senegal"
 msgstr ""
 
 msgid "September"
-msgstr ""
+msgstr "Вересень"
 
 msgid "Serbia And Montenegro"
-msgstr ""
+msgstr "Сербія і Чорногорія"
 
 msgid "Serial Number"
 msgstr "Серійний Номер"
@@ -2750,23 +2750,23 @@ msgid "Set browseable"
 msgstr ""
 
 msgid "Set read only"
-msgstr ""
+msgstr "Встановити лише для читання"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
 msgstr ""
 
 msgid "Set write only"
-msgstr ""
+msgstr "Встановити лише для запису"
 
 msgid "Sets the interval between disk checks to N seconds."
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Налаштування"
 
 msgid "Seychelles"
-msgstr ""
+msgstr "Сейшельські острови"
 
 msgid "Shared Folders"
 msgstr "Спільні теки"
@@ -2968,10 +2968,10 @@ msgid "Success"
 msgstr ""
 
 msgid "Sudan"
-msgstr ""
+msgstr "Судан"
 
 msgid "Sunday"
-msgstr ""
+msgstr "Неділя"
 
 msgid "Support"
 msgstr "Підтримка"
@@ -2980,10 +2980,10 @@ msgid "Suppress non-error messages"
 msgstr ""
 
 msgid "Suriname"
-msgstr ""
+msgstr "Сурінам"
 
 msgid "Svalbard and Jan Mayen"
-msgstr ""
+msgstr "Свальбард та Ян-Маєн"
 
 msgid "Swaziland"
 msgstr "Свазіленд"
@@ -3007,7 +3007,7 @@ msgid "System Information"
 msgstr "Системна інформація"
 
 msgid "System Logs"
-msgstr ""
+msgstr "Системні журнали"
 
 msgid "System time"
 msgstr "Cистемний час"
@@ -3016,7 +3016,7 @@ msgid "TAR"
 msgstr ""
 
 msgid "TCP forwarding"
-msgstr ""
+msgstr "TCP переадресація"
 
 msgid "TFTP"
 msgstr "TFTP"
@@ -3037,7 +3037,7 @@ msgid "Temperature monitoring"
 msgstr "Контроль температури"
 
 msgid "Test description"
-msgstr ""
+msgstr "Опис тесту"
 
 msgid "Thailand"
 msgstr "Таїланд"
@@ -3046,7 +3046,7 @@ msgid "The NT description field."
 msgstr ""
 
 msgid "The RSA key length."
-msgstr ""
+msgstr "Довжина ключа RSA."
 
 msgid "The SSL certificate."
 msgstr ""
@@ -3115,7 +3115,7 @@ msgstr "Пароль містить неприпустимі символи"
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
 "used for remote shell transport such as ssh."
-msgstr ""
+msgstr "Пароль, який використовується для доступу через Rsync демона. Зауважимо, що це не використовується для віддаленої транспортної оболонки, такої як SSH."
 
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "

@@ -1,5 +1,6 @@
 openmediavault (0.5.20) stable; urgency=low
 
+  * Update locales.
   * Add support for Linux Device Mapper devices in new storage backend.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 12 Nov 2013 12:09:28 +0100
