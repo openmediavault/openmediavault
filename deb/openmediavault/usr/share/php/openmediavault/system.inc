@@ -1413,9 +1413,8 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 		// - /dev/mapper/vg0-lv0 => mapper/vg0-lv0
 		// - /dev/loop1 => loop1
 		$deviceName = str_replace("/dev/", "", $deviceFile);
-		if(1 == preg_match("/^{$regex}$/i", $deviceName))
-			return TRUE;
-		return FALSE;
+		// Check if the device name matches the given regular expression.
+		return (1 == preg_match("/^{$regex}$/i", $deviceName));
 	}
 }
 
@@ -1492,11 +1491,8 @@ class OMVStorageDeviceBackendLVM extends OMVStorageDeviceBackendDM {
 			return FALSE;
 		$result = array();
 		foreach($devs as $devk => $devv) {
-			$object = new OMVStorageDeviceDM($devv);
-			if(!$object->exists())
-				continue;
 			// Check if the given device is a LVM logical volume.
-			$object = new OMVLvmLogicalVolume($object->getDeviceFile());
+			$object = new OMVLvmLogicalVolume($devv);
 			if(!$object->exists())
 				continue;
 			$result[] = $object->getDeviceFile();
@@ -1523,9 +1519,10 @@ class OMVStorageDeviceBackendLVM extends OMVStorageDeviceBackendDM {
 	}
 
 	function isTypeOf($deviceFile) {
-		if(FALSE === ($result = parent::isTypeOf($deviceFile)))
+		// Check if the given device is of type device mapper.
+		if(FALSE === parent::isTypeOf($deviceFile))
 			return FALSE;
-		// Do some more detailed checks.
+		// Check if it is a LVM logical volume.
 		$object = new OMVLvmLogicalVolume($deviceFile);
 		return $object->exists();
 	}
@@ -2376,26 +2373,28 @@ class OMVStorageDeviceMdadm extends OMVStorageDeviceAbstract {
  */
 class OMVStorageDeviceDM extends OMVStorageDeviceAbstract {
 	/**
-	 * See interface definition.
-	 * @note Any devices of the form /dev/dm-n are for internal use only and
-	 *   should never be used. Because of that the device file returned should
-	 *   look like /dev/mapper/<xyz>.
-	 *   See for more information:
-	 *   https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html-single/DM_Multipath
+	 * Constructor
+	 * @param deviceFile The device file, e.g. /dev/dm-1, /dev/vg0/lv0 or
+	 *   /dev/mapper/vg0-lv0.
 	 */
-	function getDeviceFile() {
-		if(preg_match("/^\/dev\/dm-\d+$/", $this->deviceFile)) {
-			if(FALSE !== ($name = $this->getName()))
+	public function __construct($deviceFile) {
+		// Call parent constructor.
+		parent::__construct($deviceFile);
+		// Any devices of the form /dev/dm-n are for internal use only and
+		// should never be used. Because of that the device file returned
+		// should look like /dev/mapper/<xyz>. See for more information:
+		// https://access.redhat.com/site/documentation/en-US/Red_Hat_Enterprise_Linux/6/html-single/DM_Multipath
+		if(1 == preg_match("/^\/dev\/dm-\d+$/", $this->deviceFile)) {
+			if(FALSE !== ($name = $this->getDeviceMapperName()))
 				$this->deviceFile = sprintf("/dev/mapper/%s", $name);
 		}
-		return parent::getDeviceFile();
 	}
 
 	/**
 	 * Get the name of the device mapper device.
 	 * @return The name of the device mapper device.
 	 */
-	public function getName() {
+	public function getDeviceMapperName() {
 		// Make sure the canonical device file is used to extract the name
 		// of the device.
 		$path = sprintf("/sys/block/%s/dm/name", $this->getDeviceName(TRUE));
@@ -2408,7 +2407,7 @@ class OMVStorageDeviceDM extends OMVStorageDeviceAbstract {
 	 * Get the UUID of the device mapper device.
 	 * @return The UUID of the device mapper device, otherwise FALSE.
 	 */
-	public function getUuid() {
+	public function getDeviceMapperUuid() {
 		// Make sure the canonical device file is used to extract the name
 		// of the device.
 		$path = sprintf("/sys/block/%s/dm/uuid", $this->getDeviceName(TRUE));
@@ -2435,6 +2434,16 @@ class OMVStorageDeviceDM extends OMVStorageDeviceAbstract {
 			$result[] = sprintf("/dev/%s", $item->getFilename());
 		}
 		return $result;
+	}
+
+	/**
+	 * Get the description of the logical volume.
+	 * @return The logical volume description, FALSE on failure.
+	 */
+	public function getDescription() {
+		return sprintf(gettext("Device Mapper %s [%s, %s]"),
+		  $this->getDeviceMapperName(), $this->getDeviceFile(),
+		  binary_format($this->getSize()));
 	}
 }
 
@@ -3344,24 +3353,13 @@ class OMVLvmLogicalVolumes extends OMVObject {
  * @ingroup api
  */
 class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
-	protected $deviceFile = "";
-	protected $name = "";
 	protected $uuid = "";
-	protected $size = FALSE;
 	protected $attr = "";
 	protected $kernelMajor = "";
 	protected $kernelMinor = "";
+	protected $lvName = "";
 	protected $vgName = "";
 	private $dataCached = FALSE;
-
-	/**
-	 * Constructor
-	 * @param deviceFile The device file, e.g. /dev/vg0/lvol0 or
-	 * /dev/mapper/vg0-lvol0.
-	 */
-	public function __construct($deviceFile) {
-		$this->deviceFile = $deviceFile;
-	}
 
 	/**
 	 * Get the logical volume detailed informations.
@@ -3387,7 +3385,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 		$output = explode("|", trim($output[0]));
 
 		$this->uuid = $output[0];
-		$this->name = $output[1];
+		$this->lvName = $output[1];
 		$this->vgName = $output[2];
 		$this->size = substr($output[3], 0, -1);
 		$this->attr = $output[4];
@@ -3438,7 +3436,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	public function getName() {
 		if($this->getData() === FALSE)
 			return FALSE;
-		return $this->name;
+		return $this->lvName;
 	}
 
 	/**
@@ -3460,7 +3458,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	public function getSize() {
 		if($this->getData() === FALSE)
 			return FALSE;
-		return $this->size;
+		return parent::getSize();
 	}
 
 	/**

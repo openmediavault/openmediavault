@@ -1,3 +1,9 @@
+openmediavault (0.5.21) stable; urgency=low
+
+  * Various improvements in storage backend code.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 14 Nov 2013 12:25:48 +0100
+
 openmediavault (0.5.20) stable; urgency=low
 
   * Update locales.
