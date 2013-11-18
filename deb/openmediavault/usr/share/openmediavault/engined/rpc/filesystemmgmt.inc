@@ -342,7 +342,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				"label" => gettext("n/a"),
 				"type" => $mntentv['type'],
 				"blocks" => "-1", // as string
-				"mounted" => TRUE,
+				"mounted" => FALSE,
 				"mountpoint" => $mntentv['dir'],
 				"used" => "-1", // as string
 				"available" => "-1", // as string
@@ -727,6 +727,31 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					  "modules" => array("fstab"),
 					  "force" => TRUE
 				  ), $context);
+			} else {
+				// Fstab entry already exists. Thus simply mount the
+				// given filesystem.
+				if(TRUE === $fs->isMounted()) {
+					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+					  sprintf("The filesystem '%s' is already mounted",
+					  $fsName));
+				}
+				if(FALSE === $fs->mount()) {
+					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+					  sprintf("Failed to mount '%s': %s", $fsName,
+					  $fs->getLastError()));
+				}
+			}
+		} else {
+			// Mount the filesystem if necessary.
+			if(TRUE === $fs->isMounted()) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("The filesystem '%s' is already mounted",
+				  $fsName));
+			}
+			if(FALSE === $fs->mount()) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("Failed to mount '%s': %s", $fsName,
+				  $fs->getLastError()));
 			}
 		}
 	}

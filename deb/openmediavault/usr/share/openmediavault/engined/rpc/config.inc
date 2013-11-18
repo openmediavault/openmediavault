@@ -48,6 +48,10 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 	 *   not been applied until now, otherwise FALSE.
 	 */
 	public function isDirty($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$modules = $moduleMgr->getDirtyModules();
 		return !empty($modules);

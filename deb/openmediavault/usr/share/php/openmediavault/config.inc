@@ -203,8 +203,8 @@ class OMVConfigEngine extends OMVObject {
 		foreach($nodeList as $node) {
 			$this->nodeFromArray($data, $node);
 		}
-		$this->commit();
 		$result = TRUE;
+		$this->commit();
 	finish:
 		sem_release($this->semaphore);
 		return $result;

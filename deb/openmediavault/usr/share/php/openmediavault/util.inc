@@ -139,6 +139,15 @@ class OMVJsonFile extends OMVObject {
 	}
 
 	/**
+	 * Destructor
+	 */
+	function __destruct() {
+		// Always ensure the file is unlocked.
+		if(!is_null($this->fh))
+        	flock($this->fh, LOCK_UN);
+    }
+
+	/**
 	 * Checks whether the file exists.
 	 * @return Returns TRUE if the file exists, FALSE otherwise.
 	 */
@@ -260,9 +269,8 @@ class OMVJsonFile extends OMVObject {
 	 * @return Returns TRUE on success or FALSE on failure.
 	 */
 	public function unlink() {
-		if($this->isOpen()) {
+		if($this->isOpen())
 			$this->close();
-		}
 		return @unlink($this->filename);
 	}
 }
