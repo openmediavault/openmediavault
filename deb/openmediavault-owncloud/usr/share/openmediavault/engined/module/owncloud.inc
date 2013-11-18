@@ -76,7 +76,7 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 		// Check whether the Apache webserver needs to be restarted because
 		// ownCloud has been enabled/disabled. In this case mark the module
 		// as dirty.
-		if($oldObject['enable'] != $object['enable'])
+		if(boolval($oldObject['enable']) != boolval($object['enable']))
 			$this->setDirtyByName("apache");
 	}
 
