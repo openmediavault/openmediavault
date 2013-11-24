@@ -1,3 +1,9 @@
+openmediavault (0.5.23) stable; urgency=low
+
+  * Mantis 0000898: Fix ukrainian typing.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 Nov 2013 11:44:04 +0100
+
 openmediavault (0.5.22) stable; urgency=low
 
   * Add ability to remount filesystems via WebGUI.
