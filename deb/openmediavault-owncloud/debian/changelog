@@ -1,3 +1,9 @@
+openmediavault-owncloud (0.5.1) stable; urgency=low
+
+  * Fix bug in WebGUI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 Nov 2013 11:52:20 +0100
+
 openmediavault-owncloud (0.5.0) stable; urgency=low
 
   * Initial release.
