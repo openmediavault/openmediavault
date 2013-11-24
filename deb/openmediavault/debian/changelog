@@ -1,5 +1,6 @@
 openmediavault (0.5.23) stable; urgency=low
 
+  * Increase Apache directive 'LimitRequestFieldSize' to 32KiB.
   * Mantis 0000898: Fix ukrainian typing.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 Nov 2013 11:44:04 +0100

@@ -57,7 +57,7 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "Alias /extjs/ /usr/share/javascript/extjs4/" -n \
   -o "Alias /images/ ${OMV_DOCUMENTROOT_DIR}/images/" -n \
   -o "# Increase HTTP request header field" -n \
-  -o "LimitRequestFieldSize 16380" -n \
+  -o "LimitRequestFieldSize 32768" -n \
   -o "# Set maximum HTTP request length to 25 MiB" -n \
   -o "FcgidMaxRequestLen 26214400" -n \
   -o "FcgidIOTimeout ${OMV_APACHE2_FCGIDIOTIMEOUT}" -n \
