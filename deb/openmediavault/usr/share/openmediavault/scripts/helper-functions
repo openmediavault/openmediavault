@@ -571,16 +571,21 @@ omv_is_mounted() {
 	return 0
 }
 
-# void omv_install_fixperms ()
+# void omv_install_fixperms (char *docroot)
 # Set the module/plugin file permissions.
+# @param docroot The path of the document root to be processed.
+#   Defaults to OMV_DOCUMENTROOT_DIR.
 omv_install_fixperms() {
-	chmod 755 ${OMV_DOCUMENTROOT_DIR}
-	chown -R ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} ${OMV_DOCUMENTROOT_DIR}
-	find ${OMV_DOCUMENTROOT_DIR}/* -type d -exec chmod 775 {} +
-	find ${OMV_DOCUMENTROOT_DIR}/* -type f -exec chmod 664 {} +
-	chmod 644 ${OMV_DOCUMENTROOT_DIR}/cgi/php.ini
-	chmod 700 ${OMV_DOCUMENTROOT_DIR}/php-fcgi
-	#chattr +i ${OMV_DOCUMENTROOT_DIR}/php-fcgi
+	local _docroot
+	_docroot=$1
+	[ -z "${_docroot}" ] && _docroot=${OMV_DOCUMENTROOT_DIR}
+	chmod 755 ${_docroot}
+	chown -R ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} ${_docroot}
+	find ${_docroot}/* -type d -exec chmod 775 {} +
+	find ${_docroot}/* -type f -exec chmod 664 {} +
+	chmod 644 ${_docroot}/cgi/php.ini
+	chmod 700 ${_docroot}/php-fcgi
+	#chattr +i ${_docroot}/php-fcgi
 }
 
 # void omv_install_locale ()
@@ -642,4 +647,17 @@ omv_kill_children() {
 	for _cpid in $(pgrep -P ${_pid}); do
 		kill ${_cpid}
 	done
+}
+
+# void omv_module_set_dirty (char *module)
+# Mark the given module as dirty.
+# @param name The name of the module.
+omv_module_set_dirty() {
+	php5 -c /etc/openmediavault <<EOF
+<?php
+require_once("openmediavault/module.inc");
+\$moduleMgr = &OMVModuleMgr::getInstance();
+\$moduleMgr->setModuleDirty("$1");
+?>
+EOF
 }

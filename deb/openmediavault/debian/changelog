@@ -1,3 +1,10 @@
+openmediavault (0.5.24) stable; urgency=low
+
+  * Various code improvements.
+  * Add helper function to modify file permissions.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 25 Nov 2013 18:15:30 +0100
+
 openmediavault (0.5.23) stable; urgency=low
 
   * Increase Apache directive 'LimitRequestFieldSize' to 32KiB.
