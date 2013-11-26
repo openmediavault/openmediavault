@@ -24,10 +24,14 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_OWNCLOUD_APACHE2_SITE_CONFIG=${OMV_OWNCLOUD_APACHE2_SITE_CONFIG:-"/etc/apache2/openmediavault-webgui.d/owncloud.conf"}
+
 case "$1" in
 	purge)
-		# Remove the configuration data
+		# Remove the configuration data.
 		omv_config_delete "/config/services/owncloud"
+		# Mark Apache webserver module as dirty.
+		omv_module_set_dirty "apache"
 	;;
 
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

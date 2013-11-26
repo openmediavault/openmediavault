@@ -24,6 +24,8 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_OWNCLOUD_APACHE2_DOCUMENTROOT=${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT:-"/var/www/owncloud"}
+
 case "$1" in
 	configure)
 		########################################################################
@@ -76,7 +78,7 @@ case "$1" in
 		# Setup permissions
 		########################################################################
 		# These permissions are required by Apache
-		chown -R ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} /var/www/owncloud
+		omv_install_fixperms "${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}"
 
 		########################################################################
 		# Action to be done depending on the previous version.
