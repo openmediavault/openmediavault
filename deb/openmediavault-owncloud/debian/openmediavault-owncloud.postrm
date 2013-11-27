@@ -30,6 +30,8 @@ case "$1" in
 	purge)
 		# Remove the configuration data.
 		omv_config_delete "/config/services/owncloud"
+		# Remove the owncloud Apache config file.
+		rm -f ${OMV_OWNCLOUD_APACHE2_SITE_CONFIG}
 		# Mark Apache webserver module as dirty.
 		omv_module_set_dirty "apache"
 	;;
