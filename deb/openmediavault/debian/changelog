@@ -1,5 +1,6 @@
 openmediavault (0.5.24) stable; urgency=low
 
+  * Update locales.
   * Various code improvements.
   * Add helper function to modify file permissions.
 

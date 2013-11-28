@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-10-17 21:30+0000\n"
+"PO-Revision-Date: 2013-11-28 17:19+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -180,7 +180,7 @@ msgid "Access Right Management"
 msgstr "Zugriffskontrolle"
 
 msgid "Access mode"
-msgstr ""
+msgstr "Zugriffsmodus"
 
 msgid "Act as a WINS server."
 msgstr "Arbeite als WINS Server."
@@ -397,7 +397,7 @@ msgid "Authenticate users"
 msgstr "Benutzer authentifizieren"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "Authentifizierte Benutzer-ID"
 
 msgid "Authentication"
 msgstr "Authentifizierung"
@@ -409,7 +409,7 @@ msgid "Authentication and privacy"
 msgstr "Authentifizierung und Verschlüsselung"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Authentifizierungsmethode"
 
 msgid "Authentication passphrase"
 msgstr "Passphrase für Authentifizierung"
@@ -633,7 +633,7 @@ msgid "Complete"
 msgstr "Abgeschlossen"
 
 msgid "Completion status"
-msgstr ""
+msgstr "Abschlussstatus"
 
 msgid "Compress"
 msgstr "Komprimieren"
@@ -1080,7 +1080,7 @@ msgid ""
 msgstr "Aktivieren, wenn nur teilweise übertragene Dateien behalten werden sollen, andernfalls werden diese gelöscht."
 
 msgid "Enable transfer log"
-msgstr ""
+msgstr "Übertragungsprotokoll aktivieren"
 
 msgid "Enable user authentication"
 msgstr "Aktiviere Benutzerauthentifizierung"
@@ -1161,7 +1161,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - Übertragungsprotokoll"
 
 msgid "FXP"
 msgstr "FXP"
@@ -2025,7 +2025,7 @@ msgid "No access"
 msgstr "Kein Zugriff"
 
 msgid "No action"
-msgstr ""
+msgstr "Keine Aktion"
 
 msgid "No authentication and no privacy"
 msgstr "Keine Authentifizierung und keine Verschlüsselung"
@@ -2437,7 +2437,7 @@ msgid "Read/Write"
 msgstr "Lesen/Schreiben"
 
 msgid "Real"
-msgstr ""
+msgstr "Real"
 
 msgid "Reboot"
 msgstr "Neu starten"
@@ -2880,7 +2880,7 @@ msgid "Spain"
 msgstr "Spanien"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "Spezielles Aktionsignal"
 
 msgid "Specifies how many server threads to create."
 msgstr "Legt fest wie viele Server Threads generiert werden sollen."
@@ -3019,7 +3019,7 @@ msgid "System time"
 msgstr "Systemzeit"
 
 msgid "TAR"
-msgstr ""
+msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP Weiterleitung"
@@ -3416,7 +3416,7 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Transfer log"
-msgstr ""
+msgstr "Übertragungsprotokoll"
 
 msgid "Transfer time"
 msgstr "Übertragungszeit"
@@ -3473,7 +3473,7 @@ msgid "Ukraine"
 msgstr "Ukraine"
 
 msgid "Uncompressed"
-msgstr ""
+msgstr "Unkomprimiert"
 
 msgid "Uninstall"
 msgstr "Entfernen"
