@@ -1,5 +1,6 @@
 openmediavault-owncloud (0.5.2) stable; urgency=low
 
+  * Update locales.
   * Mantis 0000908: Owncloud plugin activation.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 25 Nov 2013 12:22:59 +0100

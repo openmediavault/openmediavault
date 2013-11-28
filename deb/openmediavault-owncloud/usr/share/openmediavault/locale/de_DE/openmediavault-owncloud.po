@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Volker <votdev@gmx.de>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-28 18:03+0100\n"
-"PO-Revision-Date: 2013-11-28 17:03+0000\n"
+"PO-Revision-Date: 2013-11-28 17:11+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -18,40 +19,40 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add share"
-msgstr ""
+msgstr "Freigabe hinzufügen"
 
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Freigabe bearbeiten"
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktivieren"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Ordnername"
 
 msgid "General settings"
-msgstr ""
+msgstr "Allgemeine Einstellungen"
 
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Freigegebene Ordner"
 
 msgid "Shares"
-msgstr ""
+msgstr "Freigaben"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "Der Speicherort freizugebender Dateien."
 
 msgid "The name of the share."
-msgstr ""
+msgstr "Der Name der Freigabe."
 
 msgid "n/a"
-msgstr ""
+msgstr "N/V"
 
 msgid "ownCloud"
-msgstr ""
+msgstr "ownCloud"
