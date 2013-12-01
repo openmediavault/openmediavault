@@ -1,3 +1,10 @@
+openmediavault (0.5.25) stable; urgency=low
+
+  * Various code improvements.
+  * Mantis 0000910: Suppot for /dev/bcache0 block device.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 29 Nov 2013 00:16:41 +0100
+
 openmediavault (0.5.24) stable; urgency=low
 
   * Update locales.

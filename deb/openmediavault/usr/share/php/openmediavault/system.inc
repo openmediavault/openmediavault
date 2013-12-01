@@ -1443,6 +1443,44 @@ class OMVStorageDeviceBackendLoop extends OMVStorageDeviceBackendAbstract {
 }
 
 /**
+ * Implements the storage device backend for Linux Bcache devices.
+ * @ingroup api
+ */
+class OMVStorageDeviceBackendBcache extends OMVStorageDeviceBackendAbstract {
+	protected $regex = "bcache[0-9]+";
+
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_HDD;
+	}
+
+	function enumerate() {
+		return $this->enumerateProcFs($this->regex);
+	}
+
+	function enumerateSlaves() {
+		$devs = $this->enumerate();
+		if(FALSE === $devs)
+			return FALSE;
+		$result = array();
+		foreach($devs as $devk => $devv) {
+			$object = new OMVStorageDeviceBcache($devv);
+			if(!$object->exists())
+				continue;
+			$result = array_merge($result, $object->getSlaves());
+		}
+		return $result;
+	}
+
+	function isTypeOf($deviceFile) {
+		return $this->isTypeOfByName($deviceFile, $this->regex);
+	}
+
+	function getImpl($args) {
+		return new OMVStorageDeviceBcache($args);
+	}
+}
+
+/**
  * Implements the storage device backend for Linux device mapper devices.
  * @ingroup api
  */
@@ -1894,7 +1932,7 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceAbstract {
 	/**
 	 * Get the S.M.A.R.T. informations for the given disk device.
 	 * @return All S.M.A.R.T. information for the given device,
-	 * otherwise FALSE.
+	 *   otherwise FALSE.
 	 */
 	public function getSmartStats() {
 		if(!$this->exists())
@@ -1904,17 +1942,18 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceAbstract {
 			$cmdArgs = array();
 			$cmdArgs[] = sprintf("-a %s", escapeshellarg(
 			  $this->getDeviceFile()));
-			if("" !== ($deviceType = $this->getSmartDeviceType())) {
+			if("" !== ($deviceType = $this->getSmartDeviceType()))
 				$cmdArgs[] = sprintf("-d %s", $deviceType);
-			}
 			$cmd = sprintf("export LANG=C; smartctl %s", implode(" ",
 			  $cmdArgs));
 			@OMVUtil::exec($cmd, $output, $result);
 			// Bit 0: Command line did not parse
 			// Bit 1: Device open failed, or device did not return an
 			//        IDENTIFY DEVICE structure
-			if(($result !== 0) && (($result & 0) || ($result & 1)))
+			if(($result !== 0) && (($result & 0) || ($result & 1))) {
+				$this->setLastError($output);
 				return FALSE;
+			}
 			$this->smartInfo = $output;
 		}
 		// Set default values
@@ -2010,14 +2049,15 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceAbstract {
 			$cmdArgs = array();
 			$cmdArgs[] = sprintf("-i %s", escapeshellarg(
 			  $this->getDeviceFile()));
-			if("" !== ($deviceType = $this->getSmartDeviceType())) {
+			if("" !== ($deviceType = $this->getSmartDeviceType()))
 				$cmdArgs[] = sprintf("-d %s", $deviceType);
-			}
 			$cmd = sprintf("export LANG=C; smartctl %s", implode(" ",
 			  $cmdArgs));
 			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0)
+			if($result !== 0) {
+				$this->setLastError($output);
 				return FALSE;
+			}
 			$output = implode("|", $output);
 			$regex = '/^.+\|Device Model:\s+(.+)\|Serial Number:\s+(.+)'.
 			  '\|Firmware Version:\s+(.+)\|User Capacity:\s+(.+) bytes\|.+$/';
@@ -2040,9 +2080,8 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceAbstract {
 		$type = parent::getSmartDeviceType();
 		if(empty($type)) {
 			// TODO: The device type identification must be improved.
-			if(TRUE === $this->isUsb()) {
+			if(TRUE === $this->isUsb())
 				$type = $this->setSmartDeviceType("sat");
-			}
 		}
 		return $type;
 	}
@@ -2114,8 +2153,10 @@ class OMVStorageDeviceMdadm extends OMVStorageDeviceAbstract {
 		$cmd = sprintf("export LANG=C; mdadm --detail --brief " .
 		  "--verbose %s", escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if($result !== 0) {
+			$this->setLastError($output);
 			return FALSE;
+		}
 
 		$attributes = array(
 			"name" => "",
@@ -2143,8 +2184,10 @@ class OMVStorageDeviceMdadm extends OMVStorageDeviceAbstract {
 		  escapeshellarg($this->getDeviceFile()));
 		unset($output);
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if($result !== 0) {
+			$this->setLastError($output);
 			return FALSE;
+		}
 
 		// Store the whole command output.
 		array_shift($output);
@@ -2452,7 +2495,49 @@ class OMVStorageDeviceDM extends OMVStorageDeviceAbstract {
  * @ingroup api
  */
 class OMVStorageDeviceLoop extends OMVStorageDeviceAbstract {
-	// Nothing to do here.
+	/**
+	 * Get the description of the device.
+	 * @return The device description, FALSE on failure.
+	 */
+	public function getDescription() {
+		return sprintf(gettext("Loop device [%s, %s]"),
+		  $this->getDeviceFile(), binary_format($this->getSize()));
+	}
+}
+
+/**
+ * This class provides a simple interface to handle Linux Bcache devices.
+ * @ingroup api
+ */
+class OMVStorageDeviceBcache extends OMVStorageDeviceAbstract {
+	/**
+	 * Get the slave devices of the Bcache device.
+	 * @return An array of device files, otherwise FALSE.
+	 */
+	public function getSlaves() {
+		// Make sure the canonical device file is used to extract the name
+		// of the device.
+		$path = sprintf("/sys/block/%s/slaves", $this->getDeviceName(TRUE));
+		if(!file_exists($path))
+			return FALSE;
+		$result = array();
+		$dir = new DirectoryIterator($path);
+		foreach($dir as $item) {
+			if($item->isDot() || !$item->isFile())
+				continue;
+			$result[] = sprintf("/dev/%s", $item->getFilename());
+		}
+		return $result;
+	}
+
+	/**
+	 * Get the description of the device.
+	 * @return The device description, FALSE on failure.
+	 */
+	public function getDescription() {
+		return sprintf(gettext("Block layer cache [%s, %s]"),
+		  $this->getDeviceFile(), binary_format($this->getSize()));
+	}
 }
 
 /**
@@ -3508,4 +3593,5 @@ OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendMdadm());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLVM());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendDM());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLoop());
+OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendBcache());
 ?>
