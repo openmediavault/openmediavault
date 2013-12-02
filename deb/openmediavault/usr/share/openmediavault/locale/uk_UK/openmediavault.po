@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-11-26 15:11+0000\n"
+"PO-Revision-Date: 2013-12-01 23:18+0000\n"
 "Last-Translator: zubr139 <zubr139@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -219,7 +219,7 @@ msgid "Add scheduled test"
 msgstr "Додати запланований тест"
 
 msgid "Add share"
-msgstr "Додати спільне"
+msgstr "Додати спільний ресурс"
 
 msgid "Add shared folder"
 msgstr "Додати спільну теку"
@@ -878,7 +878,7 @@ msgstr "Ви дійсно хочете перезавантажити систе
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
-msgstr "Ви справді хочете видалити загальну теку контенту? Вона буде назавжди видалена, і не зможе бути відновлена."
+msgstr "Ви справді бажаєте видалити спільну теку контенту? Вона буде назавжди видалена, і не зможе бути відновлена."
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Справді хочете скинути стан WebGUI, наприклад, порядку стовпців?"
@@ -985,7 +985,7 @@ msgid "Edit scheduled test"
 msgstr "Редагувати запланований тест"
 
 msgid "Edit share"
-msgstr "Редагувати спільну"
+msgstr "Редагувати спільний ресурс"
 
 msgid "Edit shared folder"
 msgstr "Редагувати спільний каталог"
@@ -1071,7 +1071,7 @@ msgstr "Увімкнути ідентифікаційний протокол (RF
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Увімкніть цей параметр, щоб зберегти частково завантажені файли, в іншому випадку вони будуть вилучені, якщо передача перерветься."
 
 msgid "Enable transfer log"
 msgstr "Увімкнути протокол передачі"
@@ -1183,7 +1183,7 @@ msgid "Failed to get list of network interface devices"
 msgstr "Не вдалося отримати список інтерфейсних пристроїв мережі"
 
 msgid "Failed to get list of physical volumes"
-msgstr ""
+msgstr "Не вдалося отримати список фізичних дисків"
 
 msgid "Failed to get list of software RAID devices"
 msgstr "Не вдалось отримати список програмних RAID пристроїв"
@@ -1192,7 +1192,7 @@ msgid "Failed to get list of users."
 msgstr "Не вдалося одержати список користувачів."
 
 msgid "Failed to get shadow password suite configuration."
-msgstr ""
+msgstr "Не вдалося отримати конфігурацію паролів."
 
 msgid "Falkland Islands"
 msgstr "Фолклендські острови"
@@ -1224,12 +1224,12 @@ msgstr "Ім'я файлу"
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
-msgstr ""
+msgstr "Файли в кошику будуть видалені автоматично після певної кількості днів. Встановіть 0 для ручного видалення."
 
 msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
-msgstr ""
+msgstr "Файли, розмір яких перевищує вказане число байт не буде введений до кошика. Уведіть 0 для необмеженого розміру файлу."
 
 msgid "Filesize"
 msgstr "Розмір файлу"
@@ -1527,7 +1527,7 @@ msgid "Incomplete"
 msgstr ""
 
 msgid "Incorrect username or password."
-msgstr ""
+msgstr "Неправильне ім'я користувача або пароль."
 
 msgid "India"
 msgstr "Індія"
@@ -1635,7 +1635,7 @@ msgid "Kazakhstan"
 msgstr "Казахстан"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Містить частково передані файли"
 
 msgid "Kenya"
 msgstr "Кенія"
@@ -2109,7 +2109,7 @@ msgid "Online"
 msgstr "Онлайн"
 
 msgid "Operation not allowed for user '%s'."
-msgstr ""
+msgstr "Операція не дозволена для користувача  '%s'."
 
 msgid "Options"
 msgstr "Опції"
@@ -2190,7 +2190,7 @@ msgid "People's Democratic Republic of Yemen"
 msgstr "Народна Демократична Республіка Ємен"
 
 msgid "Perform a trial run with no changes made"
-msgstr ""
+msgstr "Виконайте пробний запуск без внесення будь-яких змін"
 
 msgid "Period of validity"
 msgstr ""
@@ -3055,7 +3055,7 @@ msgid "The changes have been applied successfully."
 msgstr ""
 
 msgid "The comment contains invalid characters"
-msgstr ""
+msgstr "Коментар містить неприпустимі символи"
 
 msgid ""
 "The configuration has been changed. You must apply the changes in order for "
@@ -3100,7 +3100,7 @@ msgid "The location of the user home directories."
 msgstr "Розташування домашнього каталога користувача"
 
 msgid "The name of the share."
-msgstr "Назва шари"
+msgstr "Назва спільного ресурсу"
 
 msgid "The number of days the certificate is valid for."
 msgstr ""
@@ -3245,7 +3245,7 @@ msgid "This field should be an IPv4 address"
 msgstr "Це поле повинно містити IPv4 адресу"
 
 msgid "This field should be an IPv6 address"
-msgstr ""
+msgstr "Це поле повинно містити адресу IPv6"
 
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
@@ -3425,7 +3425,7 @@ msgid "Treshold"
 msgstr ""
 
 msgid "Trial run"
-msgstr ""
+msgstr "Пробний запуск"
 
 msgid "Trinidad and Tobago"
 msgstr "Тринідад і Тобаго"
