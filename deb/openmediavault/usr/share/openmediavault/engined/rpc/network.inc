@@ -503,7 +503,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		// Set configuration data
 		$success = FALSE;
 		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Check uniqueness
+			// Check uniqueness.
 			$xpath = sprintf("//system/network/interfaces/iface[".
 			  "devicename='%s']", $params['devicename']);
 			if(TRUE === $xmlConfig->exists($xpath)) {
@@ -511,14 +511,13 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				  sprintf(gettext("Network interface '%s' already exists"),
 				  $object['devicename']));
 			}
-			// Append object to configuration
+			// Append object to configuration.
 			$success = $xmlConfig->set("//system/network/interfaces",
 			  array("iface" => $object));
 		} else {
-			// Get existing configuration object
+			// Update existing configuration object.
 			$xpath = sprintf("//system/network/interfaces/iface[uuid='%s']",
 			  $params['uuid']);
-			// Update existing configuration object
 			$success = $xmlConfig->replace($xpath, $object);
 		}
 		if(FALSE === $success) {
@@ -775,10 +774,9 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			  array("bondiface" => $object));
 		} else {
 			$object['devicename'] = $params['devicename'];
-			// Get existing configuration object.
+			// Update existing configuration object.
 			$xpath = sprintf("//system/network/interfaces/bondiface[uuid='%s']",
 			  $params['uuid']);
-			// Update existing configuration object.
 			$success = $xmlConfig->replace($xpath, $object);
 		}
 		if(FALSE === $success) {
