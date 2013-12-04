@@ -6,7 +6,8 @@
 	<version>1.0</version>
 	<licence>GPL-3</licence>
 	<author>Volker Theile</author>
-	<require>5.0.12</require>
+	<require>5.0.13</require>
+	<default_enable/>
 	<types>
 		<prelogin/>
 		<authentication/>

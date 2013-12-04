@@ -43,6 +43,9 @@ OMV_OWNCLOUD_CONFIG_UPDATECHECKER=${OMV_OWNCLOUD_CONFIG_UPDATECHECKER:-"false"}
 OMV_OWNCLOUD_CONFIG_LOGTYPE=${OMV_OWNCLOUD_CONFIG_LOGTYPE:-"owncloud"}
 OMV_OWNCLOUD_CONFIG_DEBUG=${OMV_OWNCLOUD_CONFIG_DEBUG:-"false"}
 OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG=${OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG:-"/var/www/owncloud/data/mount.json"}
+OMV_OWNCLOUD_AUTOCONFIG=${OMV_OWNCLOUD_AUTOCONFIG:-"/var/www/owncloud/config/autoconfig.php"}
+OMV_OWNCLOUD_AUTOCONFIG_ADMINLOGIN=${OMV_OWNCLOUD_AUTOCONFIG_ADMINLOGIN:-"admin"}
+OMV_OWNCLOUD_AUTOCONFIG_ADMINPASS=${OMV_OWNCLOUD_AUTOCONFIG_ADMINPASS:-"openmediavault"}
 
 mkconf() {
 	# !!! NOTE !!!
@@ -99,7 +102,6 @@ EOF
 	  -o "\$CONFIG = array(" -n \
 	  -o "  'instanceid' => '" -v instanceid -o "'," -n \
 	  -o "  'passwordsalt' => '" -v passwordsalt -o "'," -n \
-	  -o "  'installed' => true," -n \
 	  -o "  'version' => '${OMV_OWNCLOUD_CONFIG_VERSION}'," -n \
 	  -o "  'dbtype' => '${OMV_OWNCLOUD_CONFIG_DBTYPE}'," -n \
 	  -o "  'dbname' => '${OMV_OWNCLOUD_CONFIG_DBNAME}'," -n \
@@ -114,11 +116,25 @@ EOF
 	  -o "  'allow_user_to_change_display_name' => ${OMV_OWNCLOUD_CONFIG_ALLOWUSERTOCHANGEDISPLAYNAME}," -n \
 	  -o "  'updatechecker' => ${OMV_OWNCLOUD_CONFIG_UPDATECHECKER}," -n \
 	  -o "  'theme' => '${OMV_OWNCLOUD_CONFIG_THEME}'," -n \
-	  -o "  'log_type' => '${OMV_OWNCLOUD_CONFIG_LOGTYPE}'" -n \
+	  -o "  'log_type' => '${OMV_OWNCLOUD_CONFIG_LOGTYPE}'," -n \
+	  -o "  'datadirectory' => '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/data'" -n \
 	  -o ");" -n \
 	  -o "?>" \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_CONFIG}
 	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} ${OMV_OWNCLOUD_CONFIG}
+
+	# Create '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/config/autoconfig.php' file.
+	cat <<EOF > ${OMV_OWNCLOUD_AUTOCONFIG}
+<?php
+\$AUTOCONFIG = array(
+  'dbtype' => '${OMV_OWNCLOUD_CONFIG_DBTYPE}',
+  'dbname' => '${OMV_OWNCLOUD_CONFIG_DBNAME}',
+  'adminlogin' => '${OMV_OWNCLOUD_AUTOCONFIG_ADMINLOGIN}',
+  'adminpass' => '${OMV_OWNCLOUD_AUTOCONFIG_ADMINPASS}',
+  'directory' => '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/data'
+);
+?>
+EOF
 
 	# Create '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/data/mount.json' file.
 	php5 -c /etc/openmediavault <<EOF
