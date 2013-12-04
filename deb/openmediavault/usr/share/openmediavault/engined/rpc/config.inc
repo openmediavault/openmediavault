@@ -147,6 +147,9 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 			}
 			$stopAfterDeps = $object->stopAfter();
 			foreach($stopAfterDeps as $depk => $depv) {
+				// Skip modules that are not marked as dirty.
+				if(!array_key_exists($depv, $processModules))
+					continue;
 				if(FALSE === $tsort->add($depv, $name)) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf("Failed to add node (name=%s, dependencies=[%s]",
@@ -186,6 +189,9 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 			}
 			$startBeforeDeps = $object->startBefore();
 			foreach($startBeforeDeps as $depk => $depv) {
+				// Skip modules that are not marked as dirty.
+				if(!array_key_exists($depv, $processModules))
+					continue;
 				if(FALSE === $tsort->add($depv, $name)) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf("Failed to add node (name=%s, dependencies=[%s]",
