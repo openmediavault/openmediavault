@@ -2,6 +2,9 @@ openmediavault (0.5.25) stable; urgency=low
 
   * Update locales.
   * Various code improvements.
+  * Set filesystem blocks reserved for the super-user to 0% for EXT3/4. See
+    http://forums.openmediavault.org/viewtopic.php?f=10&t=3047 how to tune
+    existing filesystems.
   * Mantis 0000910: Suppot for /dev/bcache0 block device.
   * Mantis 0000915: Error In Raid Management page.
 
