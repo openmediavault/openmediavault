@@ -35,9 +35,10 @@ class OC_User_OpenMediaVault extends OC_User_Backend {
 	 * @brief Check if the password is correct
 	 * @param $uid The username
 	 * @param $password The password
-	 * @returns true/false
+	 * @returns string
 	 *
 	 * Check if the password is correct without logging in the user
+	 * returns the user id or false
 	 */
 	public function checkPassword($uid, $password) {
 		$valid = FALSE;
@@ -46,7 +47,8 @@ class OC_User_OpenMediaVault extends OC_User_Backend {
 			  	  "username" => strtolower($uid),
 			  	  "password" => $password
 			  ), $this->context, OMV_RPC_MODE_REMOTE);
-			$valid = $result['authenticated'];
+			if(TRUE === $result['authenticated'])
+				$valid = $result['username'];
 		} catch(Exception $e) {
 			OC_Log::write("OC_User_OpenMediaVault", sprintf(
 			  "Failed to check password (code=%d, message=%s)",
