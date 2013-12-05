@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# zubr139 <zubr139@ukr.net>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-28 18:03+0100\n"
-"PO-Revision-Date: 2013-11-28 17:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-11-28 21:54+0000\n"
+"Last-Translator: zubr139 <zubr139@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,40 +19,40 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "Add share"
-msgstr ""
+msgstr "Додати спільну теку"
 
 msgid "Comment"
-msgstr ""
+msgstr "Коментар"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Редагувати спільну теку"
 
 msgid "Enable"
-msgstr ""
+msgstr "Увімкнути"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Назва теки"
 
 msgid "General settings"
-msgstr ""
+msgstr "Загальні налаштування"
 
 msgid "Settings"
-msgstr ""
+msgstr "Налаштування"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Спільна тека"
 
 msgid "Shares"
-msgstr ""
+msgstr "Спільні ресурси"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "Розташування файлів для спільного доступу."
 
 msgid "The name of the share."
-msgstr ""
+msgstr "Назва спільної теки"
 
 msgid "n/a"
-msgstr ""
+msgstr "н/д"
 
 msgid "ownCloud"
-msgstr ""
+msgstr "ownCloud"

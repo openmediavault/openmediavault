@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-28 18:03+0100\n"
-"PO-Revision-Date: 2013-11-28 17:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-11-29 11:20+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,40 +19,40 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add share"
-msgstr ""
+msgstr "Tilføj delemappe"
 
 msgid "Comment"
-msgstr ""
+msgstr "Kommentar"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Rediger delemappe"
 
 msgid "Enable"
-msgstr ""
+msgstr "Aktiver"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Mappenavn"
 
 msgid "General settings"
-msgstr ""
+msgstr "Generelle indstillinger"
 
 msgid "Settings"
-msgstr ""
+msgstr "Indstillinger"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Delt mappe"
 
 msgid "Shares"
-msgstr ""
+msgstr "Delte mapper"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "Placeringen af filerne der skal deles."
 
 msgid "The name of the share."
-msgstr ""
+msgstr "Navnet på delt mappe."
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 msgid "ownCloud"
-msgstr ""
+msgstr "ownCloud"

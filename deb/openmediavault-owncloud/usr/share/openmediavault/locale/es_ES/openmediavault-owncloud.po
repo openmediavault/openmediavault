@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-28 18:03+0100\n"
-"PO-Revision-Date: 2013-11-28 17:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-11-28 18:54+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,40 +19,40 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add share"
-msgstr ""
+msgstr "Añadir compartido"
 
 msgid "Comment"
-msgstr ""
+msgstr "Comentario"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Editar compartido"
 
 msgid "Enable"
-msgstr ""
+msgstr "Habilitar"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Nombre de la carpeta "
 
 msgid "General settings"
-msgstr ""
+msgstr "Opciones Generales"
 
 msgid "Settings"
-msgstr ""
+msgstr "Opciones"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Carpeta compartida"
 
 msgid "Shares"
-msgstr ""
+msgstr "Compartidos"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "Ruta de los archivos compartidos"
 
 msgid "The name of the share."
-msgstr ""
+msgstr "Nombre del compartido"
 
 msgid "n/a"
-msgstr ""
+msgstr "no disponible"
 
 msgid "ownCloud"
-msgstr ""
+msgstr "ownCloud"

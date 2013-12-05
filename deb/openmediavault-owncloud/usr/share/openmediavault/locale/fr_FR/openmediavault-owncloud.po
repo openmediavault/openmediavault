@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Christophe Lherieau <skimpax@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-28 18:03+0100\n"
-"PO-Revision-Date: 2013-11-28 17:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-12-02 20:24+0000\n"
+"Last-Translator: Christophe Lherieau <skimpax@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,40 +19,40 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid "Add share"
-msgstr ""
+msgstr "Ajouter un partage"
 
 msgid "Comment"
-msgstr ""
+msgstr "Commentaire"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Modifier un partage"
 
 msgid "Enable"
-msgstr ""
+msgstr "Activer"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Nom du dossier"
 
 msgid "General settings"
-msgstr ""
+msgstr "Paramètres généraux"
 
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Dossier partagé"
 
 msgid "Shares"
-msgstr ""
+msgstr "Partages"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "L'emplacement des fichers à partager."
 
 msgid "The name of the share."
-msgstr ""
+msgstr "Le nom du partage."
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 msgid "ownCloud"
-msgstr ""
+msgstr "ownCloud"

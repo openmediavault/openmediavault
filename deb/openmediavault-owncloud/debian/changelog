@@ -1,5 +1,6 @@
 openmediavault-owncloud (0.5.3) stable; urgency=low
 
+  * Update locales.
   * Mantis 0000911: OwnCloud can't be installed.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 04 Dec 2013 12:15:00 +0000
