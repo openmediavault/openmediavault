@@ -230,7 +230,11 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 						service: "DiskMgmt",
 						method: "getList"
 					}
-				}
+				},
+				sorters: [{
+					direction: "ASC",
+					property: "devicefile"
+				}]
 			})
 		});
 		me.callParent(arguments);
