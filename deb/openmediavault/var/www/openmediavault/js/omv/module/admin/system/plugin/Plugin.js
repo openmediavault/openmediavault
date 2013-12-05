@@ -45,7 +45,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 	],
 
 	maskBody: true,
-	hidePagingToolbar: true,
+	hidePagingToolbar: false,
 	hideAddButton: true,
 	hideEditButton: true,
 	deleteButtonText: _("Uninstall"),
@@ -182,7 +182,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 				sorters: [{
 					direction: "ASC",
 					property: "name"
-				}],
+				}]
 			})
 		});
 		me.callParent(arguments);

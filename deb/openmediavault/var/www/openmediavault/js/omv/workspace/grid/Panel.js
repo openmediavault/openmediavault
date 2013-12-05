@@ -113,7 +113,6 @@ Ext.define("OMV.workspace.grid.Panel", {
 	deletionWaitMsg: _("Deleting selected item(s)"),
 	mode: "remote",
 	rememberSelected: false,
-	pagingToolbarPageSize: 50,
 
 	initComponent: function() {
 		var me = this;
@@ -135,8 +134,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 					store: me.store,
 					displayInfo: true,
 					displayMsg: _("Displaying items {0} - {1} of {2}"),
-					emptyMsg: _("No items to display"),
-					pageSize: me.pagingToolbarPageSize
+					emptyMsg: _("No items to display")
 				}) ]
 			});
 		}
