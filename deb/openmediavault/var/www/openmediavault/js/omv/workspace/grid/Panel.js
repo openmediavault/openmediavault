@@ -70,6 +70,8 @@
  *   RPC. Defaults to 'remote'.
  * @param rememberSelected TRUE to reselect the previous selected rows
  *   after the grid content has been reloaded/refreshed. Defaults to FALSE.
+ * @param pagingToolbarPageSize The number of records displayed when the grid
+     is paged. Defaults to 50.
  */
 Ext.define("OMV.workspace.grid.Panel", {
 	extend: "OMV.grid.Panel",
@@ -111,6 +113,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 	deletionWaitMsg: _("Deleting selected item(s)"),
 	mode: "remote",
 	rememberSelected: false,
+	pagingToolbarPageSize: 50,
 
 	initComponent: function() {
 		var me = this;
@@ -133,7 +136,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 					displayInfo: true,
 					displayMsg: _("Displaying items {0} - {1} of {2}"),
 					emptyMsg: _("No items to display"),
-					pageSize: 50
+					pageSize: me.pagingToolbarPageSize
 				}) ]
 			});
 		}
