@@ -94,7 +94,8 @@ class OMVHtmlPage extends OMVObject {
 <html>
 	<head>
 		<title>{$title}</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
 		<link rel="stylesheet" type="text/css" href="/extjs/resources/css/ext-all.css"/>
 		<link rel="stylesheet" type="text/css" href="/extjs/resources/css/ext-all-gray.css"/>
