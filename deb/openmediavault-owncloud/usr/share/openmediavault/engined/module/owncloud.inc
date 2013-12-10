@@ -81,6 +81,22 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 	}
 
 	/**
+	 * Helper function to find out whether the given shared folder
+	 * configuration object is used. If it is used, then mark the
+	 * module as dirty.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The configuration object.
+	 */
+	final public function onModifySharedFolder($type, $path, $object) {
+		global $xmlConfig;
+		$xpath = sprintf("//services/owncloud/shares/share[".
+		  "sharedfolderref='%s']", $object['uuid']);
+		if(TRUE === $xmlConfig->exists($xpath))
+			$this->setDirty();
+	}
+
+	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
@@ -92,6 +108,14 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.owncloud.shares.share",
 		  array($this, "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.shares.sharedfolder",
+		  array($this, "onModifySharedFolder"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.shares.sharedfolder.privileges",
+		  array($this, "onModifySharedFolder"));
 		// Changing webgui settings requires recreation of ownCloud
 		// configuration.
 		$moduleMgr = &OMVModuleMgr::getInstance();

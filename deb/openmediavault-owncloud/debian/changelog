@@ -1,5 +1,6 @@
 openmediavault-owncloud (0.5.4) stable; urgency=low
 
+  * Fix various issues.
   * Generate required en_US.UTF-8 locale.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Dec 2013 12:10:07 +0100
