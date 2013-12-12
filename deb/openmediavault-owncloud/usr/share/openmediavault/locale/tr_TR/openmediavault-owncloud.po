@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Serhat SUT <serhat.sut@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-11-28 18:03+0100\n"
-"PO-Revision-Date: 2013-11-28 17:03+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-12-09 17:23+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,40 +19,40 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Add share"
-msgstr ""
+msgstr "Payaşım ekle"
 
 msgid "Comment"
-msgstr ""
+msgstr "Açıklama"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Paylaşım düzenle"
 
 msgid "Enable"
-msgstr ""
+msgstr "Etkin"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Klasör adı"
 
 msgid "General settings"
-msgstr ""
+msgstr "Genel ayarlar"
 
 msgid "Settings"
-msgstr ""
+msgstr "Ayarlar"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Paylaşılmış klasör"
 
 msgid "Shares"
-msgstr ""
+msgstr "Paylaşımlar"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "Paylaşılan dosyaların yeri"
 
 msgid "The name of the share."
-msgstr ""
+msgstr "Paylaşımın adı"
 
 msgid "n/a"
-msgstr ""
+msgstr "yok"
 
 msgid "ownCloud"
-msgstr ""
+msgstr "ownCloud"
