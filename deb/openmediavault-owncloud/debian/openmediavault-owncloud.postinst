@@ -36,6 +36,7 @@ case "$1" in
 		#       <enable>0</enable>
 		#       <instanceid>xxx</instanceid>
 		#       <passwordsalt>xxx</passwordsalt>
+		#       <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
 		#       <shares>
 		#         <!--
 		#         <share>
@@ -70,6 +71,7 @@ case "$1" in
 			object="<enable>0</enable>"
 			object="${object}<instanceid>${instanceid}</instanceid>"
 			object="${object}<passwordsalt>${passwordsalt}</passwordsalt>"
+			object="${object}<sharedfolderref></sharedfolderref>"
 			object="${object}<shares></shares>"
 			omv_config_add_element "/config/services" "owncloud" "${object}" true
 		fi
@@ -97,6 +99,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.5.5"; then
 			omv-mkconf owncloud
 			invoke-rc.d apache2 graceful
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.6"; then
+			omv_config_add_element "/config/services/owncloud" "sharedfolderref" ""
 		fi
 	;;
 

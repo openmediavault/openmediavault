@@ -42,7 +42,6 @@ OMV_OWNCLOUD_CONFIG_ALLOWUSERTOCHANGEDISPLAYNAME=${OMV_OWNCLOUD_CONFIG_ALLOWUSER
 OMV_OWNCLOUD_CONFIG_UPDATECHECKER=${OMV_OWNCLOUD_CONFIG_UPDATECHECKER:-"false"}
 OMV_OWNCLOUD_CONFIG_LOGTYPE=${OMV_OWNCLOUD_CONFIG_LOGTYPE:-"owncloud"}
 OMV_OWNCLOUD_CONFIG_DEBUG=${OMV_OWNCLOUD_CONFIG_DEBUG:-"false"}
-OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG=${OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG:-"/var/www/owncloud/data/mount.json"}
 OMV_OWNCLOUD_AUTOCONFIG=${OMV_OWNCLOUD_AUTOCONFIG:-"/var/www/owncloud/config/autoconfig.php"}
 OMV_OWNCLOUD_AUTOCONFIG_ADMINLOGIN=${OMV_OWNCLOUD_AUTOCONFIG_ADMINLOGIN:-"admin"}
 OMV_OWNCLOUD_AUTOCONFIG_ADMINPASS=${OMV_OWNCLOUD_AUTOCONFIG_ADMINPASS:-"openmediavault"}
@@ -95,6 +94,12 @@ EOF
 #	  -o "</VirtualHost>" \
 #	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_APACHE2_SITE_CONFIG}
 
+	# Make sure the data directory exists and has the correct owner permissions.
+	sfref=$(omv_config_get "//services/owncloud/sharedfolderref")
+	datadirectory=$(omv_get_sharedfolder_path "${sfref}")
+	mkdir -p --mode=0770 ${datadirectory}
+	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} ${datadirectory}
+
 	# Create '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/config/config.php' file.
 	xmlstarlet sel -t -m "//services/owncloud" \
 	  -o "<?php" -n \
@@ -117,7 +122,7 @@ EOF
 	  -o "  'updatechecker' => ${OMV_OWNCLOUD_CONFIG_UPDATECHECKER}," -n \
 	  -o "  'theme' => '${OMV_OWNCLOUD_CONFIG_THEME}'," -n \
 	  -o "  'log_type' => '${OMV_OWNCLOUD_CONFIG_LOGTYPE}'," -n \
-	  -o "  'datadirectory' => '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/data'" -n \
+	  -o "  'datadirectory' => '" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "'" -n \
 	  -o ");" -n \
 	  -o "?>" \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_CONFIG}
@@ -131,12 +136,12 @@ EOF
   'dbname' => '${OMV_OWNCLOUD_CONFIG_DBNAME}',
   'adminlogin' => '${OMV_OWNCLOUD_AUTOCONFIG_ADMINLOGIN}',
   'adminpass' => '${OMV_OWNCLOUD_AUTOCONFIG_ADMINPASS}',
-  'directory' => '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/data'
+  'directory' => '${datadirectory}'
 );
 ?>
 EOF
 
-	# Create '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/data/mount.json' file.
+	# Create '<datadirectory>/mount.json' file.
 	php5 -c /etc/openmediavault <<EOF
 <?php
 require_once("openmediavault/config.inc");
@@ -174,10 +179,10 @@ foreach(\$shares as \$sharek => \$sharev) {
 		);
 	}
 }
-file_put_contents("${OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG}", json_encode_safe(\$result, JSON_FORCE_OBJECT))
+file_put_contents("${datadirectory}/mount.json", json_encode_safe(\$result, JSON_FORCE_OBJECT))
 ?>
 EOF
-	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} ${OMV_OWNCLOUD_CUSTOMMOUNT_CONFIG}
+	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} "${datadirectory}/mount.json"
 }
 
 case "$1" in

@@ -20,6 +20,7 @@
  */
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/form/Panel.js")
+// require("js/omv/form/field/SharedFolderComboBox.js")
 
 /**
  * @class OMV.module.admin.service.owncloud.Settings
@@ -27,10 +28,23 @@
  */
 Ext.define("OMV.module.admin.service.owncloud.Settings", {
 	extend: "OMV.workspace.form.Panel",
+	requires: [
+		"OMV.form.field.SharedFolderComboBox"
+	],
 
 	rpcService: "OwnCloud",
  	rpcGetMethod: "getSettings",
 	rpcSetMethod: "setSettings",
+	plugins: [{
+		ptype: "linkedfields",
+		correlations: [{
+			name: "sharedfolderref",
+			conditions: [
+				{ name: "enable", value: true }
+			],
+			properties: "!allowBlank"
+		}]
+	}],
 
 	getFormItems: function() {
 		return [{
@@ -44,6 +58,15 @@ Ext.define("OMV.module.admin.service.owncloud.Settings", {
 				name: "enable",
 				fieldLabel: _("Enable"),
 				checked: false
+			},{
+				xtype: "sharedfoldercombo",
+				name: "sharedfolderref",
+				fieldLabel: _("Data directory"),
+				allowNone: true,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The location where ownCloud stores its files.")
+				}]
 			}]
 		}];
 	}

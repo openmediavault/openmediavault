@@ -90,7 +90,8 @@ class OMVRpcServiceOwnCloud extends OMVRpcServiceAbstract {
 		$this->validateMethodParams($params, '{
 			  "type":"object",
 			  "properties":{
-				  "enable":{"type":"boolean"}
+				  "enable":{"type":"boolean"},
+				  "sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'}
 			  }
 		  }');
 		// Get the existing configuration object.
@@ -102,7 +103,8 @@ class OMVRpcServiceOwnCloud extends OMVRpcServiceAbstract {
 		}
 		// Update the configuration object.
 		$object = array_merge($oldObject, array(
-			  "enable" => array_boolval($params, 'enable')
+			  "enable" => array_boolval($params, 'enable'),
+			  "sharedfolderref" => $params['sharedfolderref']
 		  ));
 		if(FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
