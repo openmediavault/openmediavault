@@ -79,6 +79,12 @@ case "$1" in
 		locale-gen --keep-existing
 
 		########################################################################
+		# Setup apache configuration
+		# See http://doc.owncloud.org/server/5.0/admin_manual/installation/installation_source.html
+		########################################################################
+		a2enmod rewrite
+
+		########################################################################
 		# Setup permissions
 		########################################################################
 		# These permissions are required by Apache
@@ -88,6 +94,10 @@ case "$1" in
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "0.5.5"; then
+			omv-mkconf owncloud
+			invoke-rc.d apache2 graceful
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

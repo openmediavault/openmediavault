@@ -69,7 +69,7 @@ mkconf() {
     </FilesMatch>
     Order Allow,Deny
     Allow from All
-    AllowOverride None
+    AllowOverride All
 </Directory>
 EOF
 

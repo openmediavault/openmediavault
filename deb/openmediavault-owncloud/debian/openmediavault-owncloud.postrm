@@ -32,6 +32,8 @@ case "$1" in
 		omv_config_delete "/config/services/owncloud"
 		# Remove the owncloud Apache config file.
 		rm -f ${OMV_OWNCLOUD_APACHE2_SITE_CONFIG}
+		# Disable mod_rewrite.
+		a2dismod rewrite
 		# Restart Apache webserver.
 		invoke-rc.d apache2 graceful
 	;;
