@@ -347,7 +347,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 	rememberSelected: true,
 	hideAddButton: true,
 	hideEditButton: true,
-	hidePagingToolbar: true,
+	hidePagingToolbar: false,
 	disableLoadMaskOnLoad: true,
 	stateful: true,
 	stateId: "efea99a0-95d1-4bc9-8207-d21fe514f069",
@@ -390,7 +390,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			if(-1 == percentage)
 				return _("n/a");
 			var renderer = OMV.util.Format.progressBarRenderer(
-				  percentage / 100, value);
+			  percentage / 100, value);
 			return renderer.apply(this, arguments);
 		}
 	},{

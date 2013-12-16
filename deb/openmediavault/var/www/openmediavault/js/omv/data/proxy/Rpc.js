@@ -88,7 +88,7 @@ Ext.define("OMV.data.proxy.Rpc", {
 		var me = this, request = null, rpcData = me.rpcData;
 		rpcData.params = Ext.applyIf(rpcData.params || {},
 		  me.extraParams || {});
-		if(this.appendSortParams) {
+		if(me.appendSortParams) {
 			rpcData.params = Ext.apply(rpcData.params,
 			  me.getParams(operation));
 		}

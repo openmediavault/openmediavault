@@ -1,6 +1,7 @@
 openmediavault (0.5.26) stable; urgency=low
 
   * Various code improvements.
+  * Mantis 0000923: Filesystems does not show new filesystems.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Dec 2013 23:15:07 +0100
 
