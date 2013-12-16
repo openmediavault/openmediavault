@@ -108,10 +108,10 @@ Ext.define("OMV.window.Upload", {
 			waitMsg: me.waitMsg,
 			scope: me,
 			success: function(form, action) {
-				this.onUploadSuccess(action.response);
+				this.onUploadSuccess(form, action);
 			},
 			failure: function(form, action) {
-				this.onUploadFailure(action.response);
+				this.onUploadFailure(form, action);
 			}
 		});
 	},
@@ -125,33 +125,25 @@ Ext.define("OMV.window.Upload", {
 
 	/**
 	 * Method that is called when the file upload was successful.
-	 * @param response The response object.
+	 * @param form The form that requested the action.
+	 * @param action The Action object which performed the operation.
 	 */
-	onUploadSuccess: function(response) {
+	onUploadSuccess: function(form, action) {
 		var me = this;
 		// !!! Attention !!! Fire event before window is closed,
 		// otherwise the dialog's own listener is removed before the
 		// event has been fired and the action has been executed.
-		me.fireEvent("success", me, result.responseText);
+		me.fireEvent("success", me, action.result);
 		// Now close the dialog.
 		me.close();
 	},
 
 	/**
 	 * Method that is called when the file upload has been failed.
-	 * @param response The response object.
+	 * @param form The form that requested the action.
+	 * @param action The Action object which performed the operation.
 	 */
-	onUploadFailure: function(response) {
-		var me = this;
-		var msg = response.responseText;
-		me.close();
-		try {
-			// Try to decode JSON data.
-			msg = Ext.util.JSON.decode(response.responseText);
-		} catch(e) {
-			// Decoding JSON has been failed, assume response contains
-			// plain text.
-		}
-		OMV.MessageBox.error(null, msg);
+	onUploadFailure: function(form, action) {
+		OMV.MessageBox.error(null, action.result);
 	}
 });
