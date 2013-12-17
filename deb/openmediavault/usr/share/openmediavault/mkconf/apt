@@ -1,0 +1,59 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2013 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_APT_SOURCES_LIST_CONFIG=${OMV_APT_SOURCES_LIST_CONFIG:-"/etc/apt/sources.list.d/openmediavault.list"}
+OMV_APT_REPOSITORY_URL=${OMV_APT_REPOSITORY_URL:-"http://packages.openmediavault.org/public"}
+
+mkconf() {
+	# Get the distribution name.
+	distribution=$(xmlstarlet sel -t -v "//distribution" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+
+	# Create '/etc/apt/sources.list.d/openmediavault.list' file
+	cat <<EOF > ${OMV_APT_SOURCES_LIST_CONFIG}
+deb ${OMV_APT_REPOSITORY_URL} ${distribution} main
+# deb http://downloads.sourceforge.net/project/openmediavault/packages ${distribution} main
+EOF
+
+	xmlstarlet sel -t -m "//system/apt/distribution" \
+	  -i "proposed = 1" \
+		-o "## Uncomment the following line to add software from the proposed repository." -n \
+		-o "deb ${OMV_APT_REPOSITORY_URL} ${distribution}-proposed main" -n \
+		-o "# deb http://downloads.sourceforge.net/project/openmediavault/packages ${distribution}-proposed main" -n \
+	  -b \
+	  -i "partner = 1" \
+		-o "## This software is not part of OpenMediaVault, but is offered by third-party" -n \
+		-o "## developers as a service to OpenMediaVault users." -n \
+		-o "deb ${OMV_APT_REPOSITORY_URL} ${distribution} partner" -n \
+		-o "# deb http://downloads.sourceforge.net/project/openmediavault/packages ${distribution} partner" -n \
+	  -b \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_APT_SOURCES_LIST_CONFIG}
+}
+
+case "$1" in
+	mkconf|*)
+		mkconf
+		;;
+esac

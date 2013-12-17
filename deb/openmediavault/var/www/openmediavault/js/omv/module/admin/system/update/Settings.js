@@ -32,6 +32,36 @@ Ext.define("OMV.module.admin.system.update.Settings", {
 	rpcGetMethod: "getSettings",
 	rpcSetMethod: "setSettings",
 
+	initComponent: function() {
+		var me = this;
+		me.callParent(arguments);
+		me.on("submit", function() {
+			OMV.MessageBox.show({
+				title: _("Confirmation"),
+				msg: _("The information about available software is out-of-date. You need to reload the information about available software."),
+				buttons: Ext.MessageBox.OKCANCEL,
+				buttonText: {
+					ok: _("Reload"),
+					cancel: _("Close")
+				},
+				fn: function(answer) {
+					if("cancel" === answer)
+						return;
+					OMV.RpcRunner.request({
+						title: _("Downloading package information"),
+						msg: _("The repository will be checked for new, removed or upgraded software packages."),
+						rpcData: {
+							service: "Apt",
+							method: "update"
+						}
+					});
+				},
+				scope: me,
+				icon: Ext.Msg.QUESTION
+			});
+		}, me);
+	},
+
 	getFormItems: function() {
 		return [{
 			xtype: "fieldset",

@@ -107,6 +107,11 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.apt.distribution", $object);
+		// Apply the changes immediatelly (no user interaction is wanted).
+		OMVRpc::exec("Config", "applyChanges", array(
+			  "modules" => array("apt"),
+			  "force" => TRUE
+		  ), $context);
 		// Return the configuration object.
 		return $object;
 	}

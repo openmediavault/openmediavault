@@ -10,8 +10,8 @@
 				<proposed>0|1</proposed>
 				<partner>0|1</partner>
 				-->
-				<proposed>0<proposed>
-				<partner>0<partner>
+				<proposed>0</proposed>
+				<partner>0</partner>
 			</distribution>
 		</apt>
 		<powermanagement>

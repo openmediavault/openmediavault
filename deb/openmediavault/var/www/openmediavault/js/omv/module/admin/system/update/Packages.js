@@ -340,65 +340,17 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 
 	onCheckButton: function() {
 		var me = this;
-		OMV.MessageBox.wait(null, _("Checking for new updates ..."));
-		// Execute RPC.
-		OMV.Rpc.request({
-			  scope: me,
-			  callback: function(id, success, response) {
-				  if(!success) {
-					  OMV.MessageBox.hide();
-					  OMV.MessageBox.error(null, response);
-				  } else {
-					  // Execute RPC.
-					  OMV.Rpc.request({
-						  scope: me,
-						  callback: me.onIsRunning,
-						  relayErrors: true,
-						  rpcData: {
-							  service: "Exec",
-							  method: "isRunning",
-							  params: {
-								  "filename": response
-							  }
-						  }
-					  });
-				  }
-			  },
-			  relayErrors: true,
-			  rpcData: {
-				  service: "Apt",
-				  method: "update"
-			  }
-		  });
-	},
-
-	onIsRunning: function(id, success, response) {
-		var me = this;
-		if(!success) {
-			OMV.MessageBox.hide();
-			OMV.MessageBox.error(null, response);
-		} else {
-			if(response.running === true) {
-				Ext.Function.defer(function() {
-					// Execute RPC.
-					OMV.Rpc.request({
-						scope: me,
-						callback: me.onIsRunning,
-						relayErrors: true,
-						rpcData: {
-							service: "Exec",
-							method: "isRunning",
-							params: {
-								filename: response.filename
-							}
-						}
-					});
-				}, 500, me);
-			} else {
-				OMV.MessageBox.hide();
-				me.doReload();
+		OMV.RpcRunner.request({
+			msg: _("Checking for new updates ..."),
+			rpcData: {
+				service: "Apt",
+				method: "update"
+			},
+			scope: me,
+			finish: function() {
+				this.doReload();
 			}
-		}
+		});
 	},
 
 	onChangelogButton: function() {

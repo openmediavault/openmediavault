@@ -190,3 +190,98 @@ Ext.define("OMV.Rpc", {
 		}
 	}
 });
+
+/**
+ * @ingroup webgui
+ * @class OMV.RpcRunner
+ * @derived Ext.util.Observable
+ * Provides the ability to execute a RPC while displaying a waiting dialog.
+ */
+Ext.define("OMV.RpcRunner", {
+	extend: "Ext.util.Observable",
+	requires: [
+		"OMV.Rpc",
+		"OMV.window.MessageBox"
+	],
+	singleton: true,
+
+	/**
+	 * Execute the given RPC and displays a modal waiting dialog while the
+	 * given RPC is running.
+	 * @param options An object which may contain the following properties:
+	 *   \li title The title bar text. Defaults to null.
+	 *   \li msg The message box body text.
+	 *   \li finish The function to be called upon the RPC has been finished.
+	 *   \li scope The scope in which to execute the callbacks. Defaults to
+	 *     the browser window.
+	 *   \li rpcDelay The milliseconds to delay the RPC request. Default is 500.
+	 *   \li rpcData The RPC parameters. See OMV.Rpc.request.
+	 *     \li service The name/class of the service to be executed.
+	 *     \li method The method name to be executed.
+	 *     \li params The parameters of the method to be executed as object.
+	 *     \li options Optional RPC options. Defaults to NULL.
+	 */
+	request: function(options) {
+		var me = this;
+		options = Ext.apply(options, {
+			title: null,
+			rpcDelay: 500
+		});
+		// Display a waiting dialog while the RPC is running.
+		OMV.MessageBox.wait(options.title, options.msg);
+		// Execute RPC.
+		var isRunningFn = function(id, success, response) {
+			if(!success) {
+				OMV.MessageBox.hide();
+				OMV.MessageBox.error(null, response);
+			} else {
+				if(response.running === true) {
+					Ext.Function.defer(function() {
+						// Execute RPC.
+						OMV.Rpc.request({
+							scope: this,
+							callback: isRunningFn,
+							relayErrors: true,
+							rpcData: {
+								service: "Exec",
+								method: "isRunning",
+								params: {
+									filename: response.filename
+								}
+							}
+						});
+					}, options.rpcDelay, this);
+				} else {
+					OMV.MessageBox.hide();
+					if(Ext.isFunction(options.finish))
+						options.finish.call(options.scope || window);
+				}
+			}
+		};
+		OMV.Rpc.request({
+			  scope: me,
+			  callback: function(id, success, response) {
+				  if(!success) {
+					  OMV.MessageBox.hide();
+					  OMV.MessageBox.error(null, response);
+				  } else {
+					  // Execute RPC.
+					  OMV.Rpc.request({
+						  scope: me,
+						  callback: isRunningFn,
+						  relayErrors: true,
+						  rpcData: {
+							  service: "Exec",
+							  method: "isRunning",
+							  params: {
+								  "filename": response
+							  }
+						  }
+					  });
+				  }
+			  },
+			  relayErrors: true,
+			  rpcData: options.rpcData
+		  });
+	}
+});
