@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-11-20 10:09+0000\n"
-"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
+"POT-Creation-Date: 2013-12-17 01:05+0100\n"
+"PO-Revision-Date: 2013-12-17 00:05+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,8 +24,8 @@ msgstr "% tamamlandı ..."
 msgid "%s (%s available)"
 msgstr "%s (%s kullanılabilir)"
 
-msgid "%s [on %s]"
-msgstr "%s [%s de]"
+msgid "%s [on %s, %s ]"
+msgstr ""
 
 msgid "'All' is not allowed"
 msgstr "'Tamamı' geçerli değil"
@@ -463,6 +463,9 @@ msgstr "Butan"
 msgid "Binary"
 msgstr "İkili sayı sistemi"
 
+msgid "Block layer cache [%s, %s]"
+msgstr ""
+
 msgid "Blocksize"
 msgstr "Blok ebadı"
 
@@ -617,6 +620,9 @@ msgstr "Genel İsim"
 
 msgid "Community"
 msgstr "Topluluk"
+
+msgid "Community-maintained updates."
+msgstr ""
 
 msgid "Comoros"
 msgstr "Comoros"
@@ -804,6 +810,9 @@ msgstr "Birinci paketin tekrar gönderilmesinden önce geçerli zaman aşımın�
 
 msgid "Device"
 msgstr "Aygıt"
+
+msgid "Device Mapper %s [%s, %s]"
+msgstr ""
 
 msgid "Device identity information"
 msgstr "Aygıt tanımlama bilgisi"
@@ -1174,23 +1183,17 @@ msgstr "Dosya sistemin algılamasında hata"
 msgid "Failed to get list of groups."
 msgstr "Grup listesi okuma hatası."
 
-msgid "Failed to get list of logical volumes"
-msgstr "Kavramsal bölüm listesi okuma hatası."
-
 msgid "Failed to get list of network interface devices"
 msgstr "Ağ arabirim aygıt listesi okuma hatası"
-
-msgid "Failed to get list of physical volumes"
-msgstr "Fiziksel bölüm listesi okuma hatası."
-
-msgid "Failed to get list of software RAID devices"
-msgstr "Yazılımsal RAID aygıt listesi okuma hatası"
 
 msgid "Failed to get list of users."
 msgstr "Kullanıcı listesi okuma hatası."
 
 msgid "Failed to get shadow password suite configuration."
 msgstr "Şifre yedekleme yazılım konfigürasyonu okuma hatası."
+
+msgid "Failed to get storage device file from '%s'"
+msgstr ""
 
 msgid "Falkland Islands"
 msgstr "Falkland Adaları"
@@ -1560,6 +1563,9 @@ msgstr "Ekleri kur ..."
 msgid "Install updates ..."
 msgstr "Güncelleştirmeleri kur ..."
 
+msgid "Install updates from"
+msgstr ""
+
 msgid "Installed"
 msgstr "Kuruldu"
 
@@ -1659,6 +1665,9 @@ msgstr "Kırgızistan"
 msgid "LBA of first error"
 msgstr "İlk hata LBA sı"
 
+msgid "LVM logical volume %s [%s, %s]"
+msgstr ""
+
 msgid "Label"
 msgstr "Etiket"
 
@@ -1730,9 +1739,6 @@ msgstr "Yerleşim bilgisi, örneğin sistemin fiziksel yerleşimi."
 msgid "Log level"
 msgstr "Kayıt seviyesi"
 
-msgid "Logical volume %s [%s, %s]"
-msgstr "Matıksal birim %s [%s, %s]"
-
 msgid "Login"
 msgstr "Giriş"
 
@@ -1744,6 +1750,9 @@ msgstr "Kayıtlar"
 
 msgid "Long self-test"
 msgstr "uzun otomatik test"
+
+msgid "Loop device [%s, %s]"
+msgstr ""
 
 msgid "Luxembourg"
 msgstr "Lüksemburg"
@@ -2306,6 +2315,9 @@ msgstr "Güç Düğmesi"
 
 msgid "Power mode"
 msgstr "Güç modu"
+
+msgid "Pre-released updates."
+msgstr ""
 
 msgid "Prefix length"
 msgstr "Önek uzunluğu"
@@ -3524,6 +3536,9 @@ msgstr "Hedefteki genişletilmiş öznitelikleri yerel olanlarla aynı olacak ş
 
 msgid "Updated"
 msgstr "Güncellendi"
+
+msgid "Updates"
+msgstr ""
 
 msgid "Updating ACL settings"
 msgstr "ACL ayarları güncelleniyor"

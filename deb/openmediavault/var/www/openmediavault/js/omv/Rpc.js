@@ -176,9 +176,8 @@ Ext.define("OMV.Rpc", {
 			// Relay/Forward the error?
 			if(Ext.isDefined(options.relayErrors) && !options.relayErrors) {
 				// Display an error message dialog.
-				if(options.showErrors) {
+				if(options.showErrors)
 					OMV.MessageBox.error(null, rpcResponse);
-				}
 				return;
 			}
 		}
@@ -186,7 +185,7 @@ Ext.define("OMV.Rpc", {
 		// Call the given callback function.
 		if(Ext.isFunction(options.callback)) {
 			options.callback.call(options.scope || me, response.requestId,
-			  success, rpcResponse);
+			  success, rpcResponse, options);
 		}
 	}
 });

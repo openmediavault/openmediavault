@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-11-20 10:09+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"POT-Creation-Date: 2013-12-17 01:05+0100\n"
+"PO-Revision-Date: 2013-12-17 00:05+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,8 +24,8 @@ msgstr "% gennemført ..."
 msgid "%s (%s available)"
 msgstr "%s (%s tilgængelig)"
 
-msgid "%s [on %s]"
-msgstr "%s [på %s]"
+msgid "%s [on %s, %s ]"
+msgstr ""
 
 msgid "'All' is not allowed"
 msgstr "'Alle' er ikke tilladt"
@@ -463,6 +463,9 @@ msgstr "Bhutan"
 msgid "Binary"
 msgstr "Binære"
 
+msgid "Block layer cache [%s, %s]"
+msgstr ""
+
 msgid "Blocksize"
 msgstr "Blokstørrelse"
 
@@ -617,6 +620,9 @@ msgstr "Fælles Navn"
 
 msgid "Community"
 msgstr "Fællesskab"
+
+msgid "Community-maintained updates."
+msgstr ""
 
 msgid "Comoros"
 msgstr "Comoros"
@@ -804,6 +810,9 @@ msgstr "Bestem den standard timeout, i mikrosekunder, før den første pakke bli
 
 msgid "Device"
 msgstr "Enhed"
+
+msgid "Device Mapper %s [%s, %s]"
+msgstr ""
 
 msgid "Device identity information"
 msgstr "Enheds identitets oplysninger"
@@ -1174,23 +1183,17 @@ msgstr "Lykkedes ikke at hente filsystemerne"
 msgid "Failed to get list of groups."
 msgstr "Lykkedes ikke at hente liste over grupper."
 
-msgid "Failed to get list of logical volumes"
-msgstr "Lykkedes ikke at hente liste over logiske drev."
-
 msgid "Failed to get list of network interface devices"
 msgstr "Lykkedes ikke at hente liste over netværks interface enheder"
-
-msgid "Failed to get list of physical volumes"
-msgstr "Lykkedes ikke at hente liste over fysiske drev."
-
-msgid "Failed to get list of software RAID devices"
-msgstr "Lykkedes ikke at hente liste over software RAID enheder"
 
 msgid "Failed to get list of users."
 msgstr "Lykkedes ikke at hente liste over brugere."
 
 msgid "Failed to get shadow password suite configuration."
 msgstr "Lykkedes ikke at hente tildækket adgangskode suite konfiguration."
+
+msgid "Failed to get storage device file from '%s'"
+msgstr ""
 
 msgid "Falkland Islands"
 msgstr "Falkland Islands"
@@ -1560,6 +1563,9 @@ msgstr "Installer plugins ..."
 msgid "Install updates ..."
 msgstr "Installer opdateringer ..."
 
+msgid "Install updates from"
+msgstr ""
+
 msgid "Installed"
 msgstr "Installeret"
 
@@ -1659,6 +1665,9 @@ msgstr "Kyrgyzstan"
 msgid "LBA of first error"
 msgstr "LBA af første fejl"
 
+msgid "LVM logical volume %s [%s, %s]"
+msgstr ""
+
 msgid "Label"
 msgstr "Etiket"
 
@@ -1730,9 +1739,6 @@ msgstr "Placerings oplysninger, f.eks. fysisk placering af dette system."
 msgid "Log level"
 msgstr "Log niveau"
 
-msgid "Logical volume %s [%s, %s]"
-msgstr "Logisk drev %s [%s, %s]"
-
 msgid "Login"
 msgstr "Log ind"
 
@@ -1744,6 +1750,9 @@ msgstr "Logs"
 
 msgid "Long self-test"
 msgstr "Lang selvtest"
+
+msgid "Loop device [%s, %s]"
+msgstr ""
 
 msgid "Luxembourg"
 msgstr "Luxembourg"
@@ -2306,6 +2315,9 @@ msgstr "Power knap"
 
 msgid "Power mode"
 msgstr "Power tilstand"
+
+msgid "Pre-released updates."
+msgstr ""
 
 msgid "Prefix length"
 msgstr "Fortegn længde"
@@ -3524,6 +3536,9 @@ msgstr "Opdatere destinationens udvidede attributter til at være de samme som d
 
 msgid "Updated"
 msgstr "Opdateret"
+
+msgid "Updates"
+msgstr ""
 
 msgid "Updating ACL settings"
 msgstr "Opdater ACL indstillinger"

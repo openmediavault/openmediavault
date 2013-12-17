@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-11-20 10:09+0000\n"
+"POT-Creation-Date: 2013-12-17 01:05+0100\n"
+"PO-Revision-Date: 2013-12-17 00:05+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -24,8 +24,8 @@ msgstr "% slutförd ..."
 msgid "%s (%s available)"
 msgstr "%s (%s tillgänglig)"
 
-msgid "%s [on %s]"
-msgstr "%s [på %s]"
+msgid "%s [on %s, %s ]"
+msgstr ""
 
 msgid "'All' is not allowed"
 msgstr "\"Alla\" är inte tillåten"
@@ -463,6 +463,9 @@ msgstr "Bhutan"
 msgid "Binary"
 msgstr ""
 
+msgid "Block layer cache [%s, %s]"
+msgstr ""
+
 msgid "Blocksize"
 msgstr "Blockstorlek"
 
@@ -617,6 +620,9 @@ msgstr "Vanligt namn"
 
 msgid "Community"
 msgstr "Community"
+
+msgid "Community-maintained updates."
+msgstr ""
 
 msgid "Comoros"
 msgstr "Comoros"
@@ -804,6 +810,9 @@ msgstr "Bestäm standard-timeout, i mikrosekunder, innan det första paketet är
 
 msgid "Device"
 msgstr "Enhet"
+
+msgid "Device Mapper %s [%s, %s]"
+msgstr ""
 
 msgid "Device identity information"
 msgstr "Identitetsinformation för enhet"
@@ -1174,22 +1183,16 @@ msgstr "Det gick inte att hämta filsystem"
 msgid "Failed to get list of groups."
 msgstr ""
 
-msgid "Failed to get list of logical volumes"
-msgstr ""
-
 msgid "Failed to get list of network interface devices"
-msgstr ""
-
-msgid "Failed to get list of physical volumes"
-msgstr ""
-
-msgid "Failed to get list of software RAID devices"
 msgstr ""
 
 msgid "Failed to get list of users."
 msgstr ""
 
 msgid "Failed to get shadow password suite configuration."
+msgstr ""
+
+msgid "Failed to get storage device file from '%s'"
 msgstr ""
 
 msgid "Falkland Islands"
@@ -1560,6 +1563,9 @@ msgstr "Installera tillägg ..."
 msgid "Install updates ..."
 msgstr "Installera uppdateringar ..."
 
+msgid "Install updates from"
+msgstr ""
+
 msgid "Installed"
 msgstr "Installerad"
 
@@ -1659,6 +1665,9 @@ msgstr "Kirgizistan"
 msgid "LBA of first error"
 msgstr "LBA för första fel"
 
+msgid "LVM logical volume %s [%s, %s]"
+msgstr ""
+
 msgid "Label"
 msgstr "Etikett"
 
@@ -1730,9 +1739,6 @@ msgstr "Platsinformation, t.ex. fysisk plats för det här systemet."
 msgid "Log level"
 msgstr "Loggnivå"
 
-msgid "Logical volume %s [%s, %s]"
-msgstr "Logisk volym %s [%s, %s]"
-
 msgid "Login"
 msgstr "Logga in"
 
@@ -1744,6 +1750,9 @@ msgstr "Loggar"
 
 msgid "Long self-test"
 msgstr "Långt självtest"
+
+msgid "Loop device [%s, %s]"
+msgstr ""
 
 msgid "Luxembourg"
 msgstr "Luxemburg"
@@ -2306,6 +2315,9 @@ msgstr "Strömbrytare"
 
 msgid "Power mode"
 msgstr "Effektläge"
+
+msgid "Pre-released updates."
+msgstr ""
 
 msgid "Prefix length"
 msgstr ""
@@ -3524,6 +3536,9 @@ msgstr "Uppdatera destinationens utökade attribut för att vara detsamma som de
 
 msgid "Updated"
 msgstr "Uppdaterad"
+
+msgid "Updates"
+msgstr ""
 
 msgid "Updating ACL settings"
 msgstr "Uppdaterar ACL-inställningar"

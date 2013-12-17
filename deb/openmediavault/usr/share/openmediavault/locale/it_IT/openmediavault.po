@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-11-20 10:09+0000\n"
+"POT-Creation-Date: 2013-12-17 01:05+0100\n"
+"PO-Revision-Date: 2013-12-17 09:56+0000\n"
 "Last-Translator: polxmod <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -29,8 +29,8 @@ msgstr "% completato ..."
 msgid "%s (%s available)"
 msgstr "%s (%s disponibile)"
 
-msgid "%s [on %s]"
-msgstr "%s [di %s]"
+msgid "%s [on %s, %s ]"
+msgstr "%s [su %s, %s ]"
 
 msgid "'All' is not allowed"
 msgstr "'Tutti' non è consentito"
@@ -468,6 +468,9 @@ msgstr "Bhutan"
 msgid "Binary"
 msgstr "Binario"
 
+msgid "Block layer cache [%s, %s]"
+msgstr "Block layer cache [%s, %s]"
+
 msgid "Blocksize"
 msgstr "Blocksize"
 
@@ -622,6 +625,9 @@ msgstr "Nome Comune"
 
 msgid "Community"
 msgstr "Comunità"
+
+msgid "Community-maintained updates."
+msgstr "Aggiornamenti manutenuti dalla comunità."
 
 msgid "Comoros"
 msgstr "Comore"
@@ -809,6 +815,9 @@ msgstr "Determina il timeout di default, in microsecondi, prima di ritrasmettere
 
 msgid "Device"
 msgstr "Dispositivo"
+
+msgid "Device Mapper %s [%s, %s]"
+msgstr "Dispositivo Mapper %s [%s, %s]"
 
 msgid "Device identity information"
 msgstr "Informazione sull'identità del dispositivo"
@@ -1179,23 +1188,17 @@ msgstr "Impossibile ottenere i filesystem"
 msgid "Failed to get list of groups."
 msgstr "Impossibile ottenere lista di gruppi."
 
-msgid "Failed to get list of logical volumes"
-msgstr "Impossibile ottenere lista di volumi logici"
-
 msgid "Failed to get list of network interface devices"
 msgstr "Impossibile ottenere lista di dispositivi di rete"
-
-msgid "Failed to get list of physical volumes"
-msgstr "Impossibile ottenere lista di volumi fisici"
-
-msgid "Failed to get list of software RAID devices"
-msgstr "Impossibile ottenere lista di dispositivi RAID software"
 
 msgid "Failed to get list of users."
 msgstr "Impossibile ottenere lista di utenti."
 
 msgid "Failed to get shadow password suite configuration."
 msgstr "Impossibile ottenere la configurazione della shadow password suite."
+
+msgid "Failed to get storage device file from '%s'"
+msgstr "Impossibile ottenere file dispositivo di archiviazione da '%s'"
 
 msgid "Falkland Islands"
 msgstr "isole Falkland"
@@ -1565,6 +1568,9 @@ msgstr "Installa i plugins..."
 msgid "Install updates ..."
 msgstr "Installa gli update..."
 
+msgid "Install updates from"
+msgstr "Installa aggiornamenti da"
+
 msgid "Installed"
 msgstr "Installato"
 
@@ -1664,6 +1670,9 @@ msgstr "Kirghizistan"
 msgid "LBA of first error"
 msgstr "LBA del primo errore"
 
+msgid "LVM logical volume %s [%s, %s]"
+msgstr "Volume logico LVM %s [%s, %s]"
+
 msgid "Label"
 msgstr "Etichetta"
 
@@ -1735,9 +1744,6 @@ msgstr "Informazioni sulla posizione, es. posizione fisica di questo sistema."
 msgid "Log level"
 msgstr "Livello di log"
 
-msgid "Logical volume %s [%s, %s]"
-msgstr "Volume logico %s [%s, %s]"
-
 msgid "Login"
 msgstr "Login"
 
@@ -1749,6 +1755,9 @@ msgstr "Logs"
 
 msgid "Long self-test"
 msgstr "Autotest lungo"
+
+msgid "Loop device [%s, %s]"
+msgstr "Dispositivo Loop [%s, %s]"
 
 msgid "Luxembourg"
 msgstr "Lussemburgo"
@@ -2311,6 +2320,9 @@ msgstr "Pulsante alimentazione"
 
 msgid "Power mode"
 msgstr "Modo alimentazione"
+
+msgid "Pre-released updates."
+msgstr "Aggiornamenti pre-rilascio."
 
 msgid "Prefix length"
 msgstr "Lunghezza Prefisso"
@@ -3529,6 +3541,9 @@ msgstr "Aggiorna gli attributi estesi in modo da essere gli stessi di quelli loc
 
 msgid "Updated"
 msgstr "Aggiornato"
+
+msgid "Updates"
+msgstr "Aggiornamenti"
 
 msgid "Updating ACL settings"
 msgstr "Sto aggiornando le impostazioni delle ACL"

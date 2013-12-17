@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-11-20 10:09+0000\n"
+"POT-Creation-Date: 2013-12-17 01:05+0100\n"
+"PO-Revision-Date: 2013-12-17 00:05+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -26,8 +26,8 @@ msgstr "% voltooid ..."
 msgid "%s (%s available)"
 msgstr "%s (%s beschikbaar)"
 
-msgid "%s [on %s]"
-msgstr "%s [van %s]"
+msgid "%s [on %s, %s ]"
+msgstr ""
 
 msgid "'All' is not allowed"
 msgstr "'Iedereen' is niet toegestaan"
@@ -465,6 +465,9 @@ msgstr "Bhutan"
 msgid "Binary"
 msgstr ""
 
+msgid "Block layer cache [%s, %s]"
+msgstr ""
+
 msgid "Blocksize"
 msgstr "Blokgrootte"
 
@@ -619,6 +622,9 @@ msgstr "Gemeenschappelijke naam"
 
 msgid "Community"
 msgstr "Gemeenschap"
+
+msgid "Community-maintained updates."
+msgstr ""
 
 msgid "Comoros"
 msgstr "Comoren"
@@ -806,6 +812,9 @@ msgstr "Bepaal de standaard time-out, in microseconden, voordat het eerste pakke
 
 msgid "Device"
 msgstr "Apparaat"
+
+msgid "Device Mapper %s [%s, %s]"
+msgstr ""
 
 msgid "Device identity information"
 msgstr "Identiteitsinformatie van het apparaat"
@@ -1176,22 +1185,16 @@ msgstr "Fout bij het opvragen van bestandssystemen"
 msgid "Failed to get list of groups."
 msgstr "Fout bij het opvragen van de lijst met groepen."
 
-msgid "Failed to get list of logical volumes"
-msgstr "Fout bij het opvragen van de lijst met logische volumes"
-
 msgid "Failed to get list of network interface devices"
 msgstr ""
-
-msgid "Failed to get list of physical volumes"
-msgstr "Fout bij het opvragen van fysieke volumes"
-
-msgid "Failed to get list of software RAID devices"
-msgstr "Fout bij het opvragen van software RAID apparaten"
 
 msgid "Failed to get list of users."
 msgstr "Fout bij het opvragen van de lijst met gebruikers."
 
 msgid "Failed to get shadow password suite configuration."
+msgstr ""
+
+msgid "Failed to get storage device file from '%s'"
 msgstr ""
 
 msgid "Falkland Islands"
@@ -1562,6 +1565,9 @@ msgstr "Extensies installeren..."
 msgid "Install updates ..."
 msgstr "Updates installeren..."
 
+msgid "Install updates from"
+msgstr ""
+
 msgid "Installed"
 msgstr "Geïnstalleerd"
 
@@ -1661,6 +1667,9 @@ msgstr "Kirgizië"
 msgid "LBA of first error"
 msgstr "LBA van de eerste fout"
 
+msgid "LVM logical volume %s [%s, %s]"
+msgstr ""
+
 msgid "Label"
 msgstr "Label"
 
@@ -1732,9 +1741,6 @@ msgstr "Locatie informatie, b.v. fysieke locatie van dit systeem "
 msgid "Log level"
 msgstr "Log niveau"
 
-msgid "Logical volume %s [%s, %s]"
-msgstr "Logisch volume %s [%s, %s]"
-
 msgid "Login"
 msgstr "Inloggen"
 
@@ -1746,6 +1752,9 @@ msgstr "Logs"
 
 msgid "Long self-test"
 msgstr "Lange zelftest"
+
+msgid "Loop device [%s, %s]"
+msgstr ""
 
 msgid "Luxembourg"
 msgstr "Luxemburg"
@@ -2308,6 +2317,9 @@ msgstr "Aan/Uit knop"
 
 msgid "Power mode"
 msgstr "Energiemodus"
+
+msgid "Pre-released updates."
+msgstr ""
 
 msgid "Prefix length"
 msgstr "Prefix lengte"
@@ -3526,6 +3538,9 @@ msgstr "De uitgebreide attributen op de bestemming bijwerken zodat ze overeenkom
 
 msgid "Updated"
 msgstr "Bijgewerkt"
+
+msgid "Updates"
+msgstr ""
 
 msgid "Updating ACL settings"
 msgstr "ACL-instellingen bijwerken"

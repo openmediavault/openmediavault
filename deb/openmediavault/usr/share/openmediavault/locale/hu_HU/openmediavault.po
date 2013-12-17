@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-11-20 10:09+0000\n"
+"POT-Creation-Date: 2013-12-17 01:05+0100\n"
+"PO-Revision-Date: 2013-12-17 00:05+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -24,8 +24,8 @@ msgstr "% kész ..."
 msgid "%s (%s available)"
 msgstr "%s (%s elérhető)"
 
-msgid "%s [on %s]"
-msgstr "%s [%s -n]"
+msgid "%s [on %s, %s ]"
+msgstr ""
 
 msgid "'All' is not allowed"
 msgstr "'Összes' nem megengedett"
@@ -463,6 +463,9 @@ msgstr "Bhutan"
 msgid "Binary"
 msgstr ""
 
+msgid "Block layer cache [%s, %s]"
+msgstr ""
+
 msgid "Blocksize"
 msgstr "Blokkméret"
 
@@ -617,6 +620,9 @@ msgstr "Általános Név"
 
 msgid "Community"
 msgstr "Közösség"
+
+msgid "Community-maintained updates."
+msgstr ""
 
 msgid "Comoros"
 msgstr "Comoros"
@@ -804,6 +810,9 @@ msgstr "Alapértelmezett időtúllépés meghatározása, mikroszekundumban, mie
 
 msgid "Device"
 msgstr "Meghajtó"
+
+msgid "Device Mapper %s [%s, %s]"
+msgstr ""
 
 msgid "Device identity information"
 msgstr "Meghajtó azonosítási információ"
@@ -1174,22 +1183,16 @@ msgstr "Nem sikerült lekérni a fájlrendszereket"
 msgid "Failed to get list of groups."
 msgstr ""
 
-msgid "Failed to get list of logical volumes"
-msgstr ""
-
 msgid "Failed to get list of network interface devices"
-msgstr ""
-
-msgid "Failed to get list of physical volumes"
-msgstr ""
-
-msgid "Failed to get list of software RAID devices"
 msgstr ""
 
 msgid "Failed to get list of users."
 msgstr ""
 
 msgid "Failed to get shadow password suite configuration."
+msgstr ""
+
+msgid "Failed to get storage device file from '%s'"
 msgstr ""
 
 msgid "Falkland Islands"
@@ -1560,6 +1563,9 @@ msgstr "Bővítmények telepítése ..."
 msgid "Install updates ..."
 msgstr "Frissítések telepítése ..."
 
+msgid "Install updates from"
+msgstr ""
+
 msgid "Installed"
 msgstr "Telepítve"
 
@@ -1659,6 +1665,9 @@ msgstr "Kyrgyzstan"
 msgid "LBA of first error"
 msgstr "Első LBA hiba"
 
+msgid "LVM logical volume %s [%s, %s]"
+msgstr ""
+
 msgid "Label"
 msgstr "Címke"
 
@@ -1730,9 +1739,6 @@ msgstr "Területi információ, pl. a rendszer fizikai elhelyezkedése."
 msgid "Log level"
 msgstr "Naplózó szint"
 
-msgid "Logical volume %s [%s, %s]"
-msgstr "Logikai kötet %s [%s, %s]"
-
 msgid "Login"
 msgstr "Bejelentkezés"
 
@@ -1744,6 +1750,9 @@ msgstr "Naplók"
 
 msgid "Long self-test"
 msgstr "Hosszú önteszt"
+
+msgid "Loop device [%s, %s]"
+msgstr ""
 
 msgid "Luxembourg"
 msgstr "Luxembourg"
@@ -2306,6 +2315,9 @@ msgstr "Bekapcsoló gomb"
 
 msgid "Power mode"
 msgstr "Energia mód"
+
+msgid "Pre-released updates."
+msgstr ""
 
 msgid "Prefix length"
 msgstr ""
@@ -3524,6 +3536,9 @@ msgstr "A célállomás kiterjesztett attribútumainak frissítése, hogy megegy
 
 msgid "Updated"
 msgstr "Frissítve"
+
+msgid "Updates"
+msgstr ""
 
 msgid "Updating ACL settings"
 msgstr "ACL beállítások frissítése"

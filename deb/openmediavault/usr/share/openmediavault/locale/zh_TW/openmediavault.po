@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-11-20 10:09+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
+"POT-Creation-Date: 2013-12-17 01:05+0100\n"
+"PO-Revision-Date: 2013-12-17 00:05+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,8 +25,8 @@ msgstr "% 完成 ..."
 msgid "%s (%s available)"
 msgstr "%s (%s 可用)"
 
-msgid "%s [on %s]"
-msgstr "%s [位於 %s]"
+msgid "%s [on %s, %s ]"
+msgstr ""
 
 msgid "'All' is not allowed"
 msgstr "不允許 '全部' 選項"
@@ -464,6 +464,9 @@ msgstr "不丹"
 msgid "Binary"
 msgstr "二進位碼"
 
+msgid "Block layer cache [%s, %s]"
+msgstr ""
+
 msgid "Blocksize"
 msgstr "區塊大小"
 
@@ -618,6 +621,9 @@ msgstr "通用名稱"
 
 msgid "Community"
 msgstr "社群"
+
+msgid "Community-maintained updates."
+msgstr ""
 
 msgid "Comoros"
 msgstr "科摩羅"
@@ -805,6 +811,9 @@ msgstr "決定在重新傳送第一個數據包之前的預設逾時時間，這
 
 msgid "Device"
 msgstr "裝置"
+
+msgid "Device Mapper %s [%s, %s]"
+msgstr ""
 
 msgid "Device identity information"
 msgstr "裝置識別資訊"
@@ -1175,23 +1184,17 @@ msgstr "無法取得檔案系統"
 msgid "Failed to get list of groups."
 msgstr "無法取得群組的列表。"
 
-msgid "Failed to get list of logical volumes"
-msgstr "無法取得邏輯磁碟的列表"
-
 msgid "Failed to get list of network interface devices"
 msgstr "無法取得網路介面裝置的列表"
-
-msgid "Failed to get list of physical volumes"
-msgstr "無法取得實體磁碟的列表。"
-
-msgid "Failed to get list of software RAID devices"
-msgstr "無法取得軟體 RAID 裝置的列表"
 
 msgid "Failed to get list of users."
 msgstr "無法取得用戶的列表。"
 
 msgid "Failed to get shadow password suite configuration."
 msgstr "無法取得 shadow password suite 的配置。"
+
+msgid "Failed to get storage device file from '%s'"
+msgstr ""
 
 msgid "Falkland Islands"
 msgstr "福克蘭群島"
@@ -1561,6 +1564,9 @@ msgstr "安裝插件 ..."
 msgid "Install updates ..."
 msgstr "安裝更新 ..."
 
+msgid "Install updates from"
+msgstr ""
+
 msgid "Installed"
 msgstr "已安裝"
 
@@ -1660,6 +1666,9 @@ msgstr "吉爾吉斯坦"
 msgid "LBA of first error"
 msgstr "第一個錯誤的 LBA"
 
+msgid "LVM logical volume %s [%s, %s]"
+msgstr ""
+
 msgid "Label"
 msgstr "標籤"
 
@@ -1731,9 +1740,6 @@ msgstr "位置資訊，例如：本系統的實體位置。"
 msgid "Log level"
 msgstr "日誌層級"
 
-msgid "Logical volume %s [%s, %s]"
-msgstr "邏輯磁碟 %s [%s, %s]"
-
 msgid "Login"
 msgstr "登入"
 
@@ -1745,6 +1751,9 @@ msgstr "日誌"
 
 msgid "Long self-test"
 msgstr "延展自我測試"
+
+msgid "Loop device [%s, %s]"
+msgstr ""
 
 msgid "Luxembourg"
 msgstr "盧森堡"
@@ -2307,6 +2316,9 @@ msgstr "電源按鈕"
 
 msgid "Power mode"
 msgstr "耗電模式"
+
+msgid "Pre-released updates."
+msgstr ""
 
 msgid "Prefix length"
 msgstr "前綴詞長度"
@@ -3525,6 +3537,9 @@ msgstr "更新目的地的擴展屬性成為與本地相同"
 
 msgid "Updated"
 msgstr "已更新"
+
+msgid "Updates"
+msgstr ""
 
 msgid "Updating ACL settings"
 msgstr "正在更新 ACL 設定中"

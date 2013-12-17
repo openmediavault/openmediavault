@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-11-28 17:19+0000\n"
+"POT-Creation-Date: 2013-12-17 01:05+0100\n"
+"PO-Revision-Date: 2013-12-17 23:16+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -32,8 +32,8 @@ msgstr "% abgeschlossen ..."
 msgid "%s (%s available)"
 msgstr "%s (%s verfügbar)"
 
-msgid "%s [on %s]"
-msgstr "%s [auf %s]"
+msgid "%s [on %s, %s ]"
+msgstr "%s [auf %s, %s ]"
 
 msgid "'All' is not allowed"
 msgstr "'Alle' ist nicht erlaubt"
@@ -471,6 +471,9 @@ msgstr "Bhutan"
 msgid "Binary"
 msgstr "Binär"
 
+msgid "Block layer cache [%s, %s]"
+msgstr "Block layer cache [%s, %s]"
+
 msgid "Blocksize"
 msgstr "Blockgröße"
 
@@ -625,6 +628,9 @@ msgstr "Trivialname"
 
 msgid "Community"
 msgstr "Community"
+
+msgid "Community-maintained updates."
+msgstr "Von der Gemeinschaft betreute Aktualisierungen."
 
 msgid "Comoros"
 msgstr "Komoren"
@@ -812,6 +818,9 @@ msgstr "Legt die Standard-Zeitüberschreitung fest bevor das erste Paket erneut 
 
 msgid "Device"
 msgstr "Laufwerk"
+
+msgid "Device Mapper %s [%s, %s]"
+msgstr "Device Mapper %s [%s, %s]"
 
 msgid "Device identity information"
 msgstr "Informationen über die Laufwerksidentifikation"
@@ -1182,23 +1191,17 @@ msgstr "Konnte Dateisysteme nicht ermitteln"
 msgid "Failed to get list of groups."
 msgstr "Konnte Gruppenliste nicht holen."
 
-msgid "Failed to get list of logical volumes"
-msgstr "Konnte Liste der logischen Laufwerke nicht holen."
-
 msgid "Failed to get list of network interface devices"
 msgstr "Konnte Liste der Netzwerkschnittstellen nicht holen"
-
-msgid "Failed to get list of physical volumes"
-msgstr "Konnte Liste der physischen Laufwerke nicht holen."
-
-msgid "Failed to get list of software RAID devices"
-msgstr "Konnte Liste der Software-RAID Geräte nicht holen."
 
 msgid "Failed to get list of users."
 msgstr "Konnte Userliste nicht holen."
 
 msgid "Failed to get shadow password suite configuration."
 msgstr "Die Konfiguration der Shadow-Passwort-Suite konnte nicht ermittelt werden."
+
+msgid "Failed to get storage device file from '%s'"
+msgstr "Konnte die Speichergerätedatei von '%s' nicht ermitteln"
 
 msgid "Falkland Islands"
 msgstr "Falklandinseln"
@@ -1568,6 +1571,9 @@ msgstr "Installiere Erweiterungen ..."
 msgid "Install updates ..."
 msgstr "Installiere Aktualisierungen ..."
 
+msgid "Install updates from"
+msgstr "Installiere Aktualisierungen von"
+
 msgid "Installed"
 msgstr "Installiert"
 
@@ -1667,6 +1673,9 @@ msgstr "Kirgisistan"
 msgid "LBA of first error"
 msgstr "LBA des ersten Fehlers"
 
+msgid "LVM logical volume %s [%s, %s]"
+msgstr "LVM logical volume %s [%s, %s]"
+
 msgid "Label"
 msgstr "Datenträgerbezeichnung"
 
@@ -1738,9 +1747,6 @@ msgstr "Standortinformation, z.B. physikalischer Standort dieses Systems"
 msgid "Log level"
 msgstr "Log Level"
 
-msgid "Logical volume %s [%s, %s]"
-msgstr "Logisches Volume %s [%s, %s]"
-
 msgid "Login"
 msgstr "Anmelden"
 
@@ -1752,6 +1758,9 @@ msgstr "Logs"
 
 msgid "Long self-test"
 msgstr "Ausführlicher Selbstest"
+
+msgid "Loop device [%s, %s]"
+msgstr "Loop device [%s, %s]"
 
 msgid "Luxembourg"
 msgstr "Luxemburg"
@@ -2314,6 +2323,9 @@ msgstr "Einschaltknopf"
 
 msgid "Power mode"
 msgstr "Powermodus"
+
+msgid "Pre-released updates."
+msgstr "Vorabveröffentlichte Aktualisierungen"
 
 msgid "Prefix length"
 msgstr "Präfixlänge"
@@ -3532,6 +3544,9 @@ msgstr "Erweiterte Ziel-Attribute aktualisieren damit sie den Lokalen entspreche
 
 msgid "Updated"
 msgstr "Aktualisiert"
+
+msgid "Updates"
+msgstr "Aktualisierungen"
 
 msgid "Updating ACL settings"
 msgstr "ACL Einstellungen aktualisieren"

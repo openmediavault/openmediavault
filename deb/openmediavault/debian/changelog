@@ -1,5 +1,7 @@
 openmediavault (0.5.26) stable; urgency=low
 
+  * Update locales.
+  * Add chinese (China) language support.
   * Various code improvements.
   * Add 'System | Update Manager | Settings' page.
   * Mantis 0000923: Filesystems does not show new filesystems.

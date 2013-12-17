@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-12-10 23:48+0000\n"
+"POT-Creation-Date: 2013-12-17 01:05+0100\n"
+"PO-Revision-Date: 2013-12-17 01:38+0000\n"
 "Last-Translator: zubr139 <zubr139@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -26,8 +26,8 @@ msgstr "% виконано ..."
 msgid "%s (%s available)"
 msgstr "%s (%s доступно)"
 
-msgid "%s [on %s]"
-msgstr "%s [із %s]"
+msgid "%s [on %s, %s ]"
+msgstr ""
 
 msgid "'All' is not allowed"
 msgstr "'All' не дозволено"
@@ -156,7 +156,7 @@ msgid "9 months"
 msgstr "9 місяців"
 
 msgid "A share with the name '%s' already exists"
-msgstr ""
+msgstr "Спільний ресурс з ім'ям '%s' вже існує"
 
 msgid "A shared folder with the given name already exists"
 msgstr "Загальна тека з даним ім'ям вже існує"
@@ -465,6 +465,9 @@ msgstr "Бутан"
 msgid "Binary"
 msgstr "Двійковий"
 
+msgid "Block layer cache [%s, %s]"
+msgstr ""
+
 msgid "Blocksize"
 msgstr "Розмір блоку"
 
@@ -620,6 +623,9 @@ msgstr "Загальне ім'я"
 msgid "Community"
 msgstr "Спільнота"
 
+msgid "Community-maintained updates."
+msgstr ""
+
 msgid "Comoros"
 msgstr "Комори"
 
@@ -710,7 +716,7 @@ msgid "Current time"
 msgstr "Поточний час"
 
 msgid "Currently logged in users"
-msgstr ""
+msgstr "В даний час зареєстрованих користувачів"
 
 msgid "Currently logged in users:"
 msgstr "Поточні користувачі в системі:"
@@ -806,6 +812,9 @@ msgstr "Визначити час очікування типово, в мікр
 
 msgid "Device"
 msgstr "Пристрій"
+
+msgid "Device Mapper %s [%s, %s]"
+msgstr ""
 
 msgid "Device identity information"
 msgstr "Інформацію про пристрій "
@@ -932,7 +941,7 @@ msgid "Dronning Maud Land"
 msgstr "Земля Королеви Мод"
 
 msgid "Each line represents one group."
-msgstr ""
+msgstr "Кожен рядок представляє одну групу."
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
@@ -1176,23 +1185,17 @@ msgstr "Не вдалося отримати файлові системи"
 msgid "Failed to get list of groups."
 msgstr "Не вдалося одержати список груп."
 
-msgid "Failed to get list of logical volumes"
-msgstr "Не вдалося отримати список логічних томів"
-
 msgid "Failed to get list of network interface devices"
 msgstr "Не вдалося отримати список інтерфейсних пристроїв мережі"
-
-msgid "Failed to get list of physical volumes"
-msgstr "Не вдалося отримати список фізичних дисків"
-
-msgid "Failed to get list of software RAID devices"
-msgstr "Не вдалось отримати список програмних RAID пристроїв"
 
 msgid "Failed to get list of users."
 msgstr "Не вдалося одержати список користувачів."
 
 msgid "Failed to get shadow password suite configuration."
 msgstr "Не вдалося отримати конфігурацію паролів."
+
+msgid "Failed to get storage device file from '%s'"
+msgstr ""
 
 msgid "Falkland Islands"
 msgstr "Фолклендські острови"
@@ -1334,13 +1337,13 @@ msgid "Group"
 msgstr "Група"
 
 msgid "Group '%s' already exist"
-msgstr ""
+msgstr "Група '%s' вже є"
 
 msgid "Group '%s' does not exist"
 msgstr "Група '%s' не існує"
 
 msgid "Group ID '%d' already exist"
-msgstr ""
+msgstr "Група ID '%d' вже є"
 
 msgid "Groups"
 msgstr "Групи"
@@ -1498,7 +1501,7 @@ msgid "Import SSL certificate"
 msgstr "Імпортувати SSL-сертифікат"
 
 msgid "Import groups"
-msgstr ""
+msgstr "Імпортувати групи"
 
 msgid "Import users"
 msgstr "Імпортувати користувачів"
@@ -1561,6 +1564,9 @@ msgstr "Встановлення модулів..."
 
 msgid "Install updates ..."
 msgstr "Встановлення оновлень..."
+
+msgid "Install updates from"
+msgstr ""
 
 msgid "Installed"
 msgstr "Встановлено"
@@ -1661,6 +1667,9 @@ msgstr "Киргизстан"
 msgid "LBA of first error"
 msgstr ""
 
+msgid "LVM logical volume %s [%s, %s]"
+msgstr ""
+
 msgid "Label"
 msgstr "Позначка"
 
@@ -1732,9 +1741,6 @@ msgstr "Розміщення інформації, наприклад фізич
 msgid "Log level"
 msgstr "Рівень входу"
 
-msgid "Logical volume %s [%s, %s]"
-msgstr "Логічні розділи %s [%s, %s]"
-
 msgid "Login"
 msgstr "Увійти"
 
@@ -1746,6 +1752,9 @@ msgstr "Логи"
 
 msgid "Long self-test"
 msgstr "Довга самоперевірка"
+
+msgid "Loop device [%s, %s]"
+msgstr ""
 
 msgid "Luxembourg"
 msgstr "Люксембург"
@@ -2309,6 +2318,9 @@ msgstr "Кнопка виключення"
 msgid "Power mode"
 msgstr "Режим живлення"
 
+msgid "Pre-released updates."
+msgstr "Попередньо випущені оновлення."
+
 msgid "Prefix length"
 msgstr ""
 
@@ -2651,7 +2663,7 @@ msgid "Select a device ..."
 msgstr "Виберіть пристрій ..."
 
 msgid "Select a directory"
-msgstr ""
+msgstr "Оберіть каталог"
 
 msgid "Select a filesystem ..."
 msgstr "Оберіть файлову систему ..."
@@ -2738,7 +2750,7 @@ msgid "Services"
 msgstr "Служби"
 
 msgid "Session expired."
-msgstr ""
+msgstr "Сесія протермінована."
 
 msgid "Session not authenticated."
 msgstr "Сесія не пройшов перевірку автентичності."
@@ -2965,7 +2977,7 @@ msgid "Stripe"
 msgstr ""
 
 msgid "Success"
-msgstr ""
+msgstr "Вдало"
 
 msgid "Sudan"
 msgstr "Судан"
@@ -3452,7 +3464,7 @@ msgid "Type"
 msgstr "Тип"
 
 msgid "U.S. Miscellaneous Pacific Islands"
-msgstr ""
+msgstr "США Різне острови Тихого океану"
 
 msgid "U.S. Virgin Islands"
 msgstr "Віргінські острови СШ"
@@ -3506,7 +3518,7 @@ msgid "Unmount"
 msgstr "Розмонтувати"
 
 msgid "Up"
-msgstr ""
+msgstr "Вгору"
 
 msgid "Up delay"
 msgstr ""
@@ -3526,6 +3538,9 @@ msgstr ""
 
 msgid "Updated"
 msgstr "Оновлено"
+
+msgid "Updates"
+msgstr "Оновлення"
 
 msgid "Updating ACL settings"
 msgstr ""

@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 12:43+0200\n"
-"PO-Revision-Date: 2013-12-09 12:31+0000\n"
+"POT-Creation-Date: 2013-12-17 01:05+0100\n"
+"PO-Revision-Date: 2013-12-17 14:55+0000\n"
 "Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -29,8 +29,8 @@ msgstr "% выполнено..."
 msgid "%s (%s available)"
 msgstr "%s (%s доступно)"
 
-msgid "%s [on %s]"
-msgstr "%s [включен %s]"
+msgid "%s [on %s, %s ]"
+msgstr "%s [на %s, %s ]"
 
 msgid "'All' is not allowed"
 msgstr "'All' не допускается"
@@ -468,6 +468,9 @@ msgstr "Бутан"
 msgid "Binary"
 msgstr "Двоичный"
 
+msgid "Block layer cache [%s, %s]"
+msgstr "Кэш Слой блока [%s, %s]"
+
 msgid "Blocksize"
 msgstr "Размер блока"
 
@@ -622,6 +625,9 @@ msgstr "Общее имя"
 
 msgid "Community"
 msgstr "Сообщество"
+
+msgid "Community-maintained updates."
+msgstr "Обновления поддерживаемые сообществом."
 
 msgid "Comoros"
 msgstr "Коморские острова"
@@ -809,6 +815,9 @@ msgstr "Определить время ожидания по умолчанию
 
 msgid "Device"
 msgstr "Устройство"
+
+msgid "Device Mapper %s [%s, %s]"
+msgstr "Device Mapper %s [%s, %s]"
 
 msgid "Device identity information"
 msgstr "Информация об устройстве"
@@ -1179,23 +1188,17 @@ msgstr "Не удалось определить файловые системы
 msgid "Failed to get list of groups."
 msgstr "Не удалось получить список групп."
 
-msgid "Failed to get list of logical volumes"
-msgstr "Не удалось получить список логических томов"
-
 msgid "Failed to get list of network interface devices"
 msgstr "Не удалось получить список сетевых интерфейсов"
-
-msgid "Failed to get list of physical volumes"
-msgstr "Не удалось получить список физических дисков"
-
-msgid "Failed to get list of software RAID devices"
-msgstr "Не удалось получить список software RAID устройств"
 
 msgid "Failed to get list of users."
 msgstr "Не удалось получить список пользователей."
 
 msgid "Failed to get shadow password suite configuration."
 msgstr "Не удалось получить конфигурацию паролей."
+
+msgid "Failed to get storage device file from '%s'"
+msgstr "Ошибка получения файла устройства хранения данных из '% S'"
 
 msgid "Falkland Islands"
 msgstr "Фолклендские острова"
@@ -1565,6 +1568,9 @@ msgstr "Установка плагинов..."
 msgid "Install updates ..."
 msgstr "Установка обновлений..."
 
+msgid "Install updates from"
+msgstr "Установить обновления от"
+
 msgid "Installed"
 msgstr "установленный"
 
@@ -1664,6 +1670,9 @@ msgstr "Киргистан"
 msgid "LBA of first error"
 msgstr "LBA первой ошибки"
 
+msgid "LVM logical volume %s [%s, %s]"
+msgstr "Логический том LVM %s [%s, %s]"
+
 msgid "Label"
 msgstr "Метка"
 
@@ -1735,9 +1744,6 @@ msgstr "Информация о местоположении, например, 
 msgid "Log level"
 msgstr "Уровень журналирования"
 
-msgid "Logical volume %s [%s, %s]"
-msgstr "Логический том %s [%s, %s]"
-
 msgid "Login"
 msgstr "Логин"
 
@@ -1749,6 +1755,9 @@ msgstr "Журналы"
 
 msgid "Long self-test"
 msgstr "Длительная самопроверка"
+
+msgid "Loop device [%s, %s]"
+msgstr "Устройство Loop [%s, %s]"
 
 msgid "Luxembourg"
 msgstr "Люксембург"
@@ -2311,6 +2320,9 @@ msgstr "Кнопка питания"
 
 msgid "Power mode"
 msgstr "Режим питания"
+
+msgid "Pre-released updates."
+msgstr "Предварительно выпущенные обновления."
 
 msgid "Prefix length"
 msgstr "Длина префикса"
@@ -3529,6 +3541,9 @@ msgstr "Обновляет целевые расширенные атрибут�
 
 msgid "Updated"
 msgstr "Обновленный"
+
+msgid "Updates"
+msgstr "Обновления"
 
 msgid "Updating ACL settings"
 msgstr "Обновление ACL настроек"
