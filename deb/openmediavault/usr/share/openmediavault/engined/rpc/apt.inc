@@ -22,6 +22,7 @@
 require_once("openmediavault/object.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
+require_once("openmediavault/product.inc");
 
 class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	/**
@@ -35,11 +36,79 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	 * Initialize the RPC service.
 	 */
 	public function initialize() {
+		$this->registerMethod("getSettings");
+		$this->registerMethod("setSettings");
 		$this->registerMethod("getUpgraded");
 		$this->registerMethod("upgrade");
 		$this->registerMethod("update");
 		$this->registerMethod("upload");
 		$this->registerMethod("getChangeLog");
+	}
+
+	/**
+	 * Get settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The requested configuration object.
+	 * @throw 
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	function getSettings($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get the configuration object.
+		$xpath = "//system/apt/distribution";
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Modify the result object.
+		$object['proposed'] = boolval($object['proposed']);
+		$object['partner'] = boolval($object['partner']);
+		return $object;
+	}
+
+	/**
+	 * Set settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
+	 */
+	function setSettings($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "proposed":{"type":"boolean"},
+				  "partner":{"type":"boolean"}
+			  }
+		  }');
+		// Prepare configuration objects
+		$object = array(
+			  "proposed" => array_boolval($params, 'proposed'),
+			  "partner" => array_boolval($params, 'partner')
+		  );
+		// Set the configuration object.
+		$xpath = "//system/apt/distribution";
+		if(FALSE === $xmlConfig->replace($xpath, $object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+		}
+		// Notify configuration changes.
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher->notify(OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.apt.distribution", $object);
+		// Return the configuration object.
+		return $object;
 	}
 
 	/**

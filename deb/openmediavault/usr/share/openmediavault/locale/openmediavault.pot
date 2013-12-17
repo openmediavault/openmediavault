@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-10-17 12:43+0200\n"
+"POT-Creation-Date: 2013-12-17 01:05+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -23,7 +23,7 @@ msgstr ""
 msgid "%s (%s available)"
 msgstr ""
 
-msgid "%s [on %s]"
+msgid "%s [on %s, %s ]"
 msgstr ""
 
 msgid "'All' is not allowed"
@@ -452,6 +452,9 @@ msgstr ""
 msgid "Binary"
 msgstr ""
 
+msgid "Block layer cache [%s, %s]"
+msgstr ""
+
 msgid "Blocksize"
 msgstr ""
 
@@ -603,6 +606,9 @@ msgid "Common Name"
 msgstr ""
 
 msgid "Community"
+msgstr ""
+
+msgid "Community-maintained updates."
 msgstr ""
 
 msgid "Comoros"
@@ -780,6 +786,9 @@ msgid "Determine the default timeout, in microseconds, before the first packet i
 msgstr ""
 
 msgid "Device"
+msgstr ""
+
+msgid "Device Mapper %s [%s, %s]"
 msgstr ""
 
 msgid "Device identity information"
@@ -1130,22 +1139,16 @@ msgstr ""
 msgid "Failed to get list of groups."
 msgstr ""
 
-msgid "Failed to get list of logical volumes"
-msgstr ""
-
 msgid "Failed to get list of network interface devices"
-msgstr ""
-
-msgid "Failed to get list of physical volumes"
-msgstr ""
-
-msgid "Failed to get list of software RAID devices"
 msgstr ""
 
 msgid "Failed to get list of users."
 msgstr ""
 
 msgid "Failed to get shadow password suite configuration."
+msgstr ""
+
+msgid "Failed to get storage device file from '%s'"
 msgstr ""
 
 msgid "Falkland Islands"
@@ -1487,6 +1490,9 @@ msgstr ""
 msgid "Install updates ..."
 msgstr ""
 
+msgid "Install updates from"
+msgstr ""
+
 msgid "Installed"
 msgstr ""
 
@@ -1586,6 +1592,9 @@ msgstr ""
 msgid "LBA of first error"
 msgstr ""
 
+msgid "LVM logical volume %s [%s, %s]"
+msgstr ""
+
 msgid "Label"
 msgstr ""
 
@@ -1655,9 +1664,6 @@ msgstr ""
 msgid "Log level"
 msgstr ""
 
-msgid "Logical volume %s [%s, %s]"
-msgstr ""
-
 msgid "Login"
 msgstr ""
 
@@ -1668,6 +1674,9 @@ msgid "Logs"
 msgstr ""
 
 msgid "Long self-test"
+msgstr ""
+
+msgid "Loop device [%s, %s]"
 msgstr ""
 
 msgid "Luxembourg"
@@ -2202,6 +2211,9 @@ msgid "Power button"
 msgstr ""
 
 msgid "Power mode"
+msgstr ""
+
+msgid "Pre-released updates."
 msgstr ""
 
 msgid "Prefix length"
@@ -3310,6 +3322,9 @@ msgid "Update the destination extended attributes to be the same as the local on
 msgstr ""
 
 msgid "Updated"
+msgstr ""
+
+msgid "Updates"
 msgstr ""
 
 msgid "Updating ACL settings"

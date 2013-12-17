@@ -260,6 +260,12 @@ case "$1" in
 			omv-mkconf apache2
 			invoke-rc.d apache2 graceful
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.26"; then
+			omv_config_add_element "/config/system" "apt" ""
+			omv_config_add_element "/config/system/apt" "distribution" ""
+			omv_config_add_element "/config/system/apt/distribution" "proposed" "0"
+			omv_config_add_element "/config/system/apt/distribution" "partner" "0"
+		fi
 	;;
 
 	triggered)

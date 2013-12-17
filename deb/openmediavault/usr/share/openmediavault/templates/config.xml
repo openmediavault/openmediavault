@@ -4,6 +4,16 @@
 	<version>0.1</version>
 	<!-- System configuration - Do not add any configuration here -->
 	<system>
+		<apt>
+			<distribution>
+				<!--
+				<proposed>0|1</proposed>
+				<partner>0|1</partner>
+				-->
+				<proposed>0<proposed>
+				<partner>0<partner>
+			</distribution>
+		</apt>
 		<powermanagement>
 			<cpufreq>1</cpufreq>
 			<powerbtn>0</powerbtn>

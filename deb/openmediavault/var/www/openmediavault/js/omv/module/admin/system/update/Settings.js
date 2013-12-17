@@ -19,12 +19,46 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/WorkspaceManager.js")
+// require("js/omv/workspace/form/Panel.js")
 
-OMV.WorkspaceManager.registerNode({
-	id: "update",
-	path: "/system",
-	text: _("Update Manager"),
-	icon16: "images/software.png",
-	iconSvg: "images/software.svg",
-	position: 80
+/**
+ * @class OMV.module.admin.system.update.Settings
+ * @derived OMV.workspace.form.Panel
+ */
+Ext.define("OMV.module.admin.system.update.Settings", {
+	extend: "OMV.workspace.form.Panel",
+
+	rpcService: "Apt",
+	rpcGetMethod: "getSettings",
+	rpcSetMethod: "setSettings",
+
+	getFormItems: function() {
+		return [{
+			xtype: "fieldset",
+			title: _("Install updates from"),
+			fieldDefaults: {
+				labelSeparator: "",
+				hideLabel: true
+			},
+			items: [{
+				xtype: "checkbox",
+				name: "proposed",
+				checked: false,
+				boxLabel: _("Pre-released updates.")
+			},{
+				xtype: "checkbox",
+				name: "partner",
+				checked: false,
+				boxLabel: _("Community-maintained updates.")
+			}]
+		}];
+	}
+});
+
+OMV.WorkspaceManager.registerPanel({
+	id: "settings",
+	path: "/system/update",
+	text: _("Settings"),
+	position: 20,
+	className: "OMV.module.admin.system.update.Settings"
 });
