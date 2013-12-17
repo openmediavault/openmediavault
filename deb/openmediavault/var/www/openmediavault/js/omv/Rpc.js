@@ -195,7 +195,10 @@ Ext.define("OMV.Rpc", {
  * @ingroup webgui
  * @class OMV.RpcRunner
  * @derived Ext.util.Observable
- * Provides the ability to execute a RPC while displaying a waiting dialog.
+ * Provides the ability to execute a background RPC while displaying a
+ * waiting dialog. The RPC must return a filename that is used to get the
+ * necessary information to check the status of the background job that is
+ * implemented by the given RPC.
  */
 Ext.define("OMV.RpcRunner", {
 	extend: "Ext.util.Observable",
@@ -206,14 +209,14 @@ Ext.define("OMV.RpcRunner", {
 	singleton: true,
 
 	/**
-	 * Execute the given RPC and displays a modal waiting dialog while the
-	 * given RPC is running.
+	 * Execute a background RPC and displays a modal waiting dialog while
+	 * the RPC is running.
 	 * @param options An object which may contain the following properties:
 	 *   \li title The title bar text. Defaults to null.
 	 *   \li msg The message box body text.
 	 *   \li finish The function to be called upon the RPC has been finished.
-	 *   \li scope The scope in which to execute the callbacks. Defaults to
-	 *     the browser window.
+	 *   \li scope The scope of the callback function. Defaults to the
+	 *     browser window.
 	 *   \li rpcDelay The milliseconds to delay the RPC request. Default is 500.
 	 *   \li rpcData The RPC parameters. See OMV.Rpc.request.
 	 *     \li service The name/class of the service to be executed.
@@ -230,7 +233,7 @@ Ext.define("OMV.RpcRunner", {
 		// Display a waiting dialog while the RPC is running.
 		OMV.MessageBox.wait(options.title, options.msg);
 		// Execute RPC.
-		var isRunningFn = function(id, success, response) {
+		var fn = function(id, success, response) {
 			if(!success) {
 				OMV.MessageBox.hide();
 				OMV.MessageBox.error(null, response);
@@ -240,7 +243,7 @@ Ext.define("OMV.RpcRunner", {
 						// Execute RPC.
 						OMV.Rpc.request({
 							scope: this,
-							callback: isRunningFn,
+							callback: fn,
 							relayErrors: true,
 							rpcData: {
 								service: "Exec",
@@ -254,7 +257,7 @@ Ext.define("OMV.RpcRunner", {
 				} else {
 					OMV.MessageBox.hide();
 					if(Ext.isFunction(options.finish))
-						options.finish.call(options.scope || window);
+						options.finish.apply(options.scope || window);
 				}
 			}
 		};
@@ -268,7 +271,7 @@ Ext.define("OMV.RpcRunner", {
 					  // Execute RPC.
 					  OMV.Rpc.request({
 						  scope: me,
-						  callback: isRunningFn,
+						  callback: fn,
 						  relayErrors: true,
 						  rpcData: {
 							  service: "Exec",

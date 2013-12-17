@@ -450,7 +450,6 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 			scope: me,
 			relayErrors: false,
 			callback: function(id, success, response) {
-				OMV.MessageBox.success();
 				this.store.reload();
 			},
 			rpcData: {

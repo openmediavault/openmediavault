@@ -272,13 +272,12 @@ Ext.define("OMV.workspace.form.Panel", {
 		OMV.MessageBox.updateProgress(1);
 		OMV.MessageBox.hide();
 		if(!success) {
-			me.fireEvent("exception", me, response);
 			OMV.MessageBox.error(null, response);
+			me.fireEvent("exception", me, response);
 		} else {
 			var values = me.getRpcSetParams();
-			me.fireEvent("submit", me, values, response);
-			OMV.MessageBox.success(null, _("The changes have been applied successfully."));
 			me.doReload();
+			me.fireEvent("submit", me, values, response);
 		}
 	},
 

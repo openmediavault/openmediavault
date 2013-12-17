@@ -260,8 +260,8 @@ Ext.define("OMV.workspace.window.Container", {
 		OMV.MessageBox.updateProgress(1);
 		OMV.MessageBox.hide();
 		if(!success) {
-			me.fireEvent("exception", me, response);
 			OMV.MessageBox.error(null, response);
+			me.fireEvent("exception", me, response);
 		} else {
 			response = me.processLoadResponse(response);
 			me.setValues(response);
@@ -323,8 +323,8 @@ Ext.define("OMV.workspace.window.Container", {
 			if(!success) {
 				OMV.MessageBox.updateProgress(1);
 				OMV.MessageBox.hide();
-				me.fireEvent("exception", me, response);
 				OMV.MessageBox.error(null, response);
+				me.fireEvent("exception", me, response);
 				return;
 			}
 			// Execute RPC.
@@ -348,8 +348,8 @@ Ext.define("OMV.workspace.window.Container", {
 				me.fireEvent("submit", me, values, response);
 				me.close();
 			} else {
-				me.fireEvent("exception", me, response);
 				OMV.MessageBox.error(null, response);
+				me.fireEvent("exception", me, response);
 			}
 		}
 	},
@@ -359,8 +359,8 @@ Ext.define("OMV.workspace.window.Container", {
 		if(!success) {
 			OMV.MessageBox.updateProgress(1);
 			OMV.MessageBox.hide();
-			me.fireEvent("exception", me, response);
 			OMV.MessageBox.error(null, response);
+			me.fireEvent("exception", me, response);
 		} else {
 			if(response.running === true) {
 				Ext.Function.defer(function() {

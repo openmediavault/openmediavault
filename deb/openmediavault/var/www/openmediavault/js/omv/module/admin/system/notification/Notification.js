@@ -105,13 +105,9 @@ Ext.define("OMV.module.admin.system.notification.Settings", {
 						callback: function(id, success, response) {
 							OMV.MessageBox.updateProgress(1);
 							OMV.MessageBox.hide();
-							if(success) {
-								OMV.MessageBox.success(null, _("The test email has been sent successfully. Please check your mailbox."));
-							} else {
-								OMV.MessageBox.error(null, response);
-							}
+							OMV.MessageBox.success(null, _("The test email has been sent successfully. Please check your mailbox."));
 						},
-						relayErrors: true,
+						relayErrors: false,
 						rpcData: {
 							service: this.rpcService,
 							method: "sendTestEmail"
