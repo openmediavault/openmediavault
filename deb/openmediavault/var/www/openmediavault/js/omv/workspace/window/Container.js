@@ -131,7 +131,11 @@ Ext.define("OMV.workspace.window.Container", {
 		me.callParent(arguments);
 		if(Ext.isDefined(me.rpcGetMethod) && me.autoLoadData &&
 		  (me.mode === "remote")) {
-			me.doLoad();
+			// Force loading after the component markup is rendered.
+			me.on({
+				single: true,
+				render: me.doLoad
+			});
 		}
 	},
 
@@ -250,15 +254,14 @@ Ext.define("OMV.workspace.window.Container", {
 		if(me.fireEvent("beforeload", me, rpcOptions) === false)
 			return;
 		// Display waiting dialog.
-		OMV.MessageBox.wait(null, _("Loading ..."));
+		me.mask(_("Loading ..."));
 		// Execute RPC.
 		OMV.Rpc.request(rpcOptions);
 	},
 
 	onLoad: function(id, success, response) {
 		var me = this;
-		OMV.MessageBox.updateProgress(1);
-		OMV.MessageBox.hide();
+		me.unmask();
 		if(!success) {
 			OMV.MessageBox.error(null, response);
 			me.fireEvent("exception", me, response);
@@ -304,7 +307,7 @@ Ext.define("OMV.workspace.window.Container", {
 			if(me.fireEvent("beforesubmit", me, rpcOptions) === false)
 				return;
 			// Display waiting dialog.
-			OMV.MessageBox.wait(null, me.submitMsg);
+			me.mask(me.submitMsg);
 			// Execute RPC.
 			OMV.Rpc.request(rpcOptions);
 		} else {
@@ -321,8 +324,7 @@ Ext.define("OMV.workspace.window.Container", {
 		// we can notify listeners and close the window.
 		if(me.rpcSetPollStatus) {
 			if(!success) {
-				OMV.MessageBox.updateProgress(1);
-				OMV.MessageBox.hide();
+				me.unmask();
 				OMV.MessageBox.error(null, response);
 				me.fireEvent("exception", me, response);
 				return;
@@ -341,8 +343,7 @@ Ext.define("OMV.workspace.window.Container", {
 				}
 			});
 		} else {
-			OMV.MessageBox.updateProgress(1);
-			OMV.MessageBox.hide();
+			me.unmask();
 			if(success) {
 				var values = me.getRpcSetParams();
 				me.fireEvent("submit", me, values, response);
@@ -357,8 +358,7 @@ Ext.define("OMV.workspace.window.Container", {
 	onIsRunning: function(id, success, response) {
 		var me = this;
 		if(!success) {
-			OMV.MessageBox.updateProgress(1);
-			OMV.MessageBox.hide();
+			me.unmask();
 			OMV.MessageBox.error(null, response);
 			me.fireEvent("exception", me, response);
 		} else {
@@ -379,8 +379,7 @@ Ext.define("OMV.workspace.window.Container", {
 					});
 				}, 1000, me);
 			} else {
-				OMV.MessageBox.updateProgress(1);
-				OMV.MessageBox.hide();
+				me.unmask();
 				var values = me.getRpcSetParams();
 				me.fireEvent("submit", me, values, response);
 				me.close();

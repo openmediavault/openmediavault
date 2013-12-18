@@ -65,6 +65,7 @@ Ext.define("OMV.workspace.panel.RrdGraph", {
 
 	doLoad: function() {
 		var me = this;
+		// Display waiting dialog.
 		OMV.MessageBox.wait(null, _("Generating graphs ..."));
 		// Execute RPC.
 		OMV.Rpc.request({

@@ -55,7 +55,11 @@ Ext.define("OMV.workspace.panel.Panel", {
 		}
 		me.callParent(arguments);
 		if(me.autoLoadData) {
-			me.doLoad();
+			// Force loading after the component markup is rendered.
+			me.on({
+				single: true,
+				render: me.doLoad
+			});
 		}
 	},
 

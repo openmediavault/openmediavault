@@ -60,13 +60,13 @@ Ext.define("OMV.workspace.panel.Textarea", {
 
 	doLoad: function() {
 		var me = this;
-		OMV.MessageBox.wait(null, _("Loading ..."));
+		// Display waiting dialog.
+		me.mask(_("Loading ..."));
 		// Execute RPC.
 		OMV.Rpc.request({
 			scope: me,
 			callback: function(id, success, response) {
-				OMV.MessageBox.updateProgress(1);
-				OMV.MessageBox.hide();
+				me.unmask();
 				if(!success) {
 					OMV.MessageBox.error(null, response);
 				} else {

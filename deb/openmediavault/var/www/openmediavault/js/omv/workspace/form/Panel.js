@@ -120,7 +120,11 @@ Ext.define("OMV.workspace.form.Panel", {
 		});
 		me.callParent(arguments);
 		if(me.autoLoadData) {
-			me.doLoad();
+			// Force loading after the component markup is rendered.
+			me.on({
+				single: true,
+				render: me.doLoad
+			});
 		}
 	},
 
@@ -189,7 +193,7 @@ Ext.define("OMV.workspace.form.Panel", {
 		if(me.fireEvent("beforeload", me, rpcOptions) === false)
 			return;
 		// Display waiting dialog.
-		OMV.MessageBox.wait(null, _("Loading ..."));
+		me.mask(_("Loading ..."));
 		// Execute RPC.
 		OMV.Rpc.request(rpcOptions);
 	},
@@ -199,8 +203,7 @@ Ext.define("OMV.workspace.form.Panel", {
 	 */
 	onLoad: function(id, success, response) {
 		var me = this;
-		OMV.MessageBox.updateProgress(1);
-		OMV.MessageBox.hide();
+		me.unmask();
 		if(!success) {
 			me.fireEvent("exception", me, response);
 			OMV.MessageBox.error(null, response);
@@ -258,7 +261,7 @@ Ext.define("OMV.workspace.form.Panel", {
 		if(me.fireEvent("beforesubmit", me, rpcOptions) === false)
 			return;
 		// Display waiting dialog.
-		OMV.MessageBox.wait(null, _("Saving ..."));
+		me.mask(_("Saving ..."));
 		// Execute RPC.
 		OMV.Rpc.request(rpcOptions);
 	},
@@ -269,8 +272,7 @@ Ext.define("OMV.workspace.form.Panel", {
 	 */
 	onSubmit: function(id, success, response) {
 		var me = this;
-		OMV.MessageBox.updateProgress(1);
-		OMV.MessageBox.hide();
+		me.unmask();
 		if(!success) {
 			OMV.MessageBox.error(null, response);
 			me.fireEvent("exception", me, response);
