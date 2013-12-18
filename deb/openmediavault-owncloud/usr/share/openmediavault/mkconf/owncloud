@@ -54,17 +54,6 @@ mkconf() {
 	rm -f ${OMV_OWNCLOUD_APACHE2_SITE_CONFIG}
 	[ "$(omv_config_get "//services/owncloud/enable")" = "0" ] && exit 0
 
-	# Get the configured location of the data directory. Make sure the
-	# directory exists and has the correct owner permissions.
-	sfref=$(omv_config_get "//services/owncloud/sharedfolderref")
-	datadirectory=$(omv_get_sharedfolder_path "${sfref}")
-	mkdir -p --mode=0770 "${datadirectory}"
-	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} "${datadirectory}"
-
-	# Create a 'tmp' directory which is used for file uploads for example.
-	mkdir -p --mode=0770 "${datadirectory}/tmp"
-	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} "${datadirectory}/tmp"
-
 	# Create '/etc/apache2/openmediavault-webgui.d/owncloud.conf' file.
 	cat <<EOF > ${OMV_OWNCLOUD_APACHE2_SITE_CONFIG}
 <IfModule mod_alias.c>
@@ -80,7 +69,6 @@ mkconf() {
     Order Allow,Deny
     Allow from All
     AllowOverride All
-    php_admin_value upload_tmp_dir "${datadirectory}/tmp"
 </Directory>
 EOF
 
@@ -105,6 +93,20 @@ EOF
 #	  -o "    CustomLog \${APACHE_LOG_DIR}/${OMV_OWNCLOUD_APACHE2_SERVERNAME}_access.log combined" -n \
 #	  -o "</VirtualHost>" \
 #	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_APACHE2_SITE_CONFIG}
+
+	# Get the configured location of the data directory. Make sure the
+	# directory exists and has the correct owner permissions.
+	sfref=$(omv_config_get "//services/owncloud/sharedfolderref")
+	datadirectory=$(omv_get_sharedfolder_path "${sfref}")
+	mkdir -p --mode=0770 "${datadirectory}"
+	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} "${datadirectory}"
+
+	# Create a 'tmp' directory which is used for file uploads for example.
+	mkdir -p --mode=0770 "${datadirectory}/tmp"
+	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} "${datadirectory}/tmp"
+
+	# Modify 'php.ini' file.
+	sed -i "s/^upload_tmp_dir.*$/upload_tmp_dir = '$(omv_quotemeta "${datadirectory}/tmp")'/" "${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/cgi/php.ini"
 
 	# Create '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/config/config.php' file.
 	xmlstarlet sel -t -m "//services/owncloud" \
