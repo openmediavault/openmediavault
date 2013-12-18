@@ -61,6 +61,26 @@ Ext.define("OMV.workspace.Workspace", {
 		me.callParent([ config ]);
 	},
 
+	mask: function(config) {
+		var me = this;
+		if(!Ext.isDefined(me.loadMask)) {
+			Ext.apply(config, {
+				target: me,
+				useMsg: true
+			});
+			me.loadMask = new Ext.LoadMask(config);
+		} else {
+			Ext.apply(me.loadMask, config);
+		}
+		me.loadMask.show();
+	},
+
+	unmask: function() {
+		var me = this;
+		if(Ext.isDefined(me.loadMask))
+			me.loadMask.hide();
+	},
+
 	buildHeader: function() {
 		var me = this;
 		return Ext.create("Ext.Component", {
