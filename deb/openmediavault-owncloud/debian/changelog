@@ -1,5 +1,6 @@
 openmediavault-owncloud (0.5.6) stable; urgency=low
 
+  * Update locales.
   * Enhance config and WebGUI to define a shared folder which is used as
     data directory. This option is required. It is recommended to create
     a seperate shared folder to be used as data directory.

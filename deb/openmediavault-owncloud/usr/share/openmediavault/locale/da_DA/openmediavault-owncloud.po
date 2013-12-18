@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-28 18:03+0100\n"
-"PO-Revision-Date: 2013-11-29 11:20+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"POT-Creation-Date: 2013-12-18 19:52+0100\n"
+"PO-Revision-Date: 2013-12-18 18:52+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,6 +23,9 @@ msgstr "Tilføj delemappe"
 
 msgid "Comment"
 msgstr "Kommentar"
+
+msgid "Data directory"
+msgstr ""
 
 msgid "Edit share"
 msgstr "Rediger delemappe"
@@ -47,6 +50,9 @@ msgstr "Delte mapper"
 
 msgid "The location of the files to share."
 msgstr "Placeringen af filerne der skal deles."
+
+msgid "The location where ownCloud stores its files."
+msgstr ""
 
 msgid "The name of the share."
 msgstr "Navnet på delt mappe."

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-11-28 18:03+0100\n"
-"PO-Revision-Date: 2013-11-28 17:11+0000\n"
+"POT-Creation-Date: 2013-12-18 19:52+0100\n"
+"PO-Revision-Date: 2013-12-18 18:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,9 @@ msgstr "Freigabe hinzufügen"
 
 msgid "Comment"
 msgstr "Kommentar"
+
+msgid "Data directory"
+msgstr "Datenverzeichnis"
 
 msgid "Edit share"
 msgstr "Freigabe bearbeiten"
@@ -47,6 +50,9 @@ msgstr "Freigaben"
 
 msgid "The location of the files to share."
 msgstr "Der Speicherort freizugebender Dateien."
+
+msgid "The location where ownCloud stores its files."
+msgstr "Der Ort, an dem ownCloud seine Dateien speichert."
 
 msgid "The name of the share."
 msgstr "Der Name der Freigabe."
