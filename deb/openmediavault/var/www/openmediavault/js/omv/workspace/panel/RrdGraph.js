@@ -65,7 +65,7 @@ Ext.define("OMV.workspace.panel.RrdGraph", {
 
 	doLoad: function() {
 		var me = this;
-		OMV.RpcRunner.request({
+		OMV.RpcObserver.request({
 			msg: _("Generating graphs ..."),
 			rpcDelay: 1000,
 			rpcData: {

@@ -340,7 +340,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 
 	onCheckButton: function() {
 		var me = this;
-		OMV.RpcRunner.request({
+		OMV.RpcObserver.request({
 			msg: _("Checking for new updates ..."),
 			rpcData: {
 				service: "Apt",

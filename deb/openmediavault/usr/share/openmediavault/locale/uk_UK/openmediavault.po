@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-17 01:05+0100\n"
-"PO-Revision-Date: 2013-12-17 01:38+0000\n"
+"PO-Revision-Date: 2013-12-18 04:16+0000\n"
 "Last-Translator: zubr139 <zubr139@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -1754,7 +1754,7 @@ msgid "Long self-test"
 msgstr "Довга самоперевірка"
 
 msgid "Loop device [%s, %s]"
-msgstr ""
+msgstr "Пристрій Loop [%s, %s]"
 
 msgid "Luxembourg"
 msgstr "Люксембург"
@@ -2276,7 +2276,7 @@ msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr ""
 
 msgid "Please first select a volume."
-msgstr ""
+msgstr "Будь ласка, оберіть спочатку розділ."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2699,7 +2699,7 @@ msgid "Select or enter a user name ..."
 msgstr "Виберіть або введіть ім'я користувача..."
 
 msgid "Self-test logs"
-msgstr ""
+msgstr "Журнали самотестування"
 
 msgid "Send a test email"
 msgstr ""
@@ -2772,7 +2772,7 @@ msgid "Set write only"
 msgstr "Встановити лише для запису"
 
 msgid "Sets the interval between disk checks to N seconds."
-msgstr ""
+msgstr "Встановлює інтервал між дисковими перевірками в N секунд."
 
 msgid "Settings"
 msgstr "Налаштування"
@@ -2935,7 +2935,7 @@ msgstr "Визначає чи дозволено увійти в систему,
 msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
-msgstr ""
+msgstr "Визначає, чи слід контролювати стан системи і вибрати найбільш підходящий рівень процесора."
 
 msgid "Specifies which slave is the primary device."
 msgstr ""
@@ -3061,7 +3061,7 @@ msgid "The RSA key length."
 msgstr "Довжина ключа RSA."
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "Сертифікат SSL."
 
 msgid "The changes have been applied successfully."
 msgstr "Зміни успішно застосовані."

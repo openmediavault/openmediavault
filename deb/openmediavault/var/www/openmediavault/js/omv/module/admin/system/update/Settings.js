@@ -47,7 +47,7 @@ Ext.define("OMV.module.admin.system.update.Settings", {
 				fn: function(answer) {
 					if("cancel" === answer)
 						return;
-					OMV.RpcRunner.request({
+					OMV.RpcObserver.request({
 						title: _("Downloading package information"),
 						msg: _("The repository will be checked for new, removed or upgraded software packages."),
 						rpcData: {

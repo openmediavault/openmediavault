@@ -192,14 +192,14 @@ Ext.define("OMV.Rpc", {
 
 /**
  * @ingroup webgui
- * @class OMV.RpcRunner
+ * @class OMV.RpcObserver
  * @derived Ext.util.Observable
  * Provides the ability to execute a background RPC while displaying a
  * waiting dialog. The RPC must return a filename that is used to get the
  * necessary information to check the status of the background job that is
  * implemented by the given RPC.
  */
-Ext.define("OMV.RpcRunner", {
+Ext.define("OMV.RpcObserver", {
 	extend: "Ext.util.Observable",
 	requires: [
 		"OMV.Rpc",
