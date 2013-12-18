@@ -297,15 +297,16 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 							icon: Ext.MessageBox.INFO,
 							buttons: Ext.MessageBox.OKCANCEL,
 							buttonText: {
-								ok: _("OK"),
-								cancel: _("Reload")
+								ok: _("Reload"),
+								cancel: _("Close")
 							},
 							fn: function(answer) {
-								if("cancel" == answer) {
+								if("ok" === answer) {
 									// Reload the page.
 									OMV.confirmPageUnload = false;
 									document.location.reload();
 								} else {
+									// Reload the grid.
 									me.doReload();
 								}
 							}
