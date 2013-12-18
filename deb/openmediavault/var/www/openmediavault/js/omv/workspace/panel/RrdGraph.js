@@ -65,70 +65,21 @@ Ext.define("OMV.workspace.panel.RrdGraph", {
 
 	doLoad: function() {
 		var me = this;
-		// Display waiting dialog.
-		OMV.MessageBox.wait(null, _("Generating graphs ..."));
-		// Execute RPC.
-		OMV.Rpc.request({
-			scope: me,
-			callback: function(id, success, response) {
-				if(!success) {
-					OMV.MessageBox.updateProgress(1);
-					OMV.MessageBox.hide();
-					OMV.MessageBox.error(null, response);
-				} else {
-					me.isRunning(response);
-				}
-			},
-			relayErrors: true,
+		OMV.RpcRunner.request({
+			msg: _("Generating graphs ..."),
+			rpcDelay: 1000,
 			rpcData: {
 				service: "Rrd",
 				method: "generate"
-			}
-		});
-	},
-
-	/**
-	 * Helper function to check whether the graph generation is still
-	 * in progress.
-	 * @private
-	 * @param filename The name of the background RPC status file.
-	 */
-	isRunning: function(filename) {
-		var me = this;
-		// Execute RPC.
-		OMV.Rpc.request({
+			},
 			scope: me,
-			callback: me.onIsRunning,
-			relayErrors: true,
-			rpcData: {
-				service: "Exec",
-				method: "isRunning",
-				params: {
-					filename: filename
-				}
-			}
-		});
-	},
-
-	onIsRunning: function(id, success, response) {
-		var me = this;
-		if(!success) {
-			OMV.MessageBox.updateProgress(1);
-			OMV.MessageBox.hide();
-			OMV.MessageBox.error(null, error);
-		} else {
-			if(response.running === true) {
-				Ext.Function.defer(me.isRunning, 1000, me,
-				  [ response.filename ]);
-			} else {
-				var tpl = me.getTemplate();
-				me.update(tpl.apply({
-					name: me.rrdGraphName,
+			finish: function() {
+				var tpl = this.getTemplate();
+				this.update(tpl.apply({
+					name: this.rrdGraphName,
 					time: Ext.Date.now()
 				}));
-				OMV.MessageBox.updateProgress(1);
-				OMV.MessageBox.hide();
 			}
-		}
+		});
 	}
 });
