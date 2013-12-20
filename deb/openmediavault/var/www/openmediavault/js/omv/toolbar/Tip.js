@@ -46,6 +46,7 @@ Ext.define("OMV.toolbar.Tip", {
 	initComponent: function() {
 		var me = this;
 		Ext.apply(me, {
+			cls: Ext.baseCSSPrefix + "toolbar-tip",
 			items: [{
 				xtype: "tbitem",
 				height: me.iconHeight,

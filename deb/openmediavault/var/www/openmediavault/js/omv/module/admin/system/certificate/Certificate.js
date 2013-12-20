@@ -38,7 +38,6 @@ Ext.define("OMV.module.admin.system.certificate.Create", {
 	rpcService: "CertificateMgmt",
 	rpcSetMethod: "create",
 	hideResetButton: true,
-	height: 385,
 
 	getFormItems: function() {
 		return [{
