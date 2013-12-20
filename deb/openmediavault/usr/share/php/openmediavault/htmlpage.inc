@@ -100,19 +100,19 @@ class OMVHtmlPage extends OMVObject {
 		<link rel="stylesheet" type="text/css" href="/extjs/resources/css/ext-all.css"/>
 		<link rel="stylesheet" type="text/css" href="/extjs/resources/css/ext-all-gray.css"/>
 		<link rel="stylesheet" type="text/css" href="css/omv-ext.css"/>
-		<script type="text/javascript" src="/extjs/{$extAllFile}"></script>
-		<script type="text/javascript" src="js/omv/util/i18n.js"></script>
-		<script type="text/javascript" src="js/omv/util/i18nDict.js"></script>
-		<script type="text/javascript" src="js/ext-overrides.js"></script>
-		<script type="text/javascript" src="js/js-overrides.js"></script>
-		<script type="text/javascript" src="js/omv/globals.js"></script>
+		<script type="application/javascript" src="/extjs/{$extAllFile}"></script>
+		<script type="application/javascript" src="js/omv/util/i18n.js"></script>
+		<script type="application/javascript" src="js/omv/util/i18nDict.js"></script>
+		<script type="application/javascript" src="js/ext-overrides.js"></script>
+		<script type="application/javascript" src="js/js-overrides.js"></script>
+		<script type="application/javascript" src="js/omv/globals.js"></script>
 
 EOF;
 
 		// Add additionbal javascript files
 		$incList = array_unique($this->getJavascriptIncludes());
 		foreach($incList as $incListv) {
-			print "<script type='text/javascript' src='{$incListv}'></script>\n";
+			print "<script type='application/javascript' src='{$incListv}'></script>\n";
 		}
 
 		// Get the body code to be rendered
@@ -211,7 +211,7 @@ class OMVWebGui extends OMVHtmlPage {
 		  OMVErrorMsg::E_SESSION_TIMEOUT,
 		  OMVErrorMsg::E_ENGINED_CONNECT_SOCKET);
 		return <<<EOF
-		<script type="text/javascript">
+		<script type="application/javascript">
 			// Global defines
 			{$globalDefs}
 			// RPC error codes
@@ -257,7 +257,7 @@ class OMVWebGuiLogin extends OMVHtmlPage {
 		return <<<EOF
 		<link rel="stylesheet" type="text/css" href="css/omv.css"/>
 		<a title='{$prd->getName()}' href='{$prd->getURL()}' target='_blank'><div id="projectlogo"></div></a>
-		<script type="text/javascript">
+		<script type="application/javascript">
 			Ext.QuickTips.init();
 			Ext.onReady(function() {
 				Ext.create("OMV.window.Login", {
