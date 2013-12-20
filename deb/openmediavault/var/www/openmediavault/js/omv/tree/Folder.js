@@ -18,13 +18,14 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+// require("js/omv/tree/Panel.js")
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/data/reader/RpcArray.js")
 
 /**
  * @class OMV.tree.Folder
- * @derived Ext.tree.Panel
+ * @derived OMV.tree.Panel
  * @param uuid The UUID of the volume to process. Required.
  * @param type The type of the configuration object. This can be "mntent"
  *   or "sharedfolder". Defaults to "mntent".
@@ -33,7 +34,7 @@
  *   behaviour.
  */
 Ext.define("OMV.tree.Folder", {
-	extend: "Ext.tree.Panel",
+	extend: "OMV.tree.Panel",
 	requires: [
 		"OMV.data.Model",
 		"OMV.data.proxy.Rpc",

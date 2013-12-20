@@ -19,15 +19,16 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/WorkspaceManager.js")
+// require("js/omv/tree/Panel.js")
 // require("js/omv/workspace/node/tree/Model.js")
 
 /**
  * @ingroup webgui
  * @class OMV.workspace.node.tree.Panel
- * @derived Ext.tree.Panel
+ * @derived OMV.tree.Panel
  */
 Ext.define("OMV.workspace.node.tree.Panel", {
-	extend: "Ext.tree.Panel",
+	extend: "OMV.tree.Panel",
 	alias: "widget.workspacenodetree",
 	requires: [
 		"OMV.workspace.node.tree.Model"

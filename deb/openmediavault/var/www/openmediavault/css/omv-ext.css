@@ -109,6 +109,10 @@ div#headerrlogo {
 	background-image: none; /* Flat design */
 }
 /* Tabs */
+.x-tab-bar-default-top {
+	background-image: none;
+	background-color: #d8d8d8; /* Flat design */
+}
 .x-tab-invalid {
 	border: 1px solid #cc3300;
 }

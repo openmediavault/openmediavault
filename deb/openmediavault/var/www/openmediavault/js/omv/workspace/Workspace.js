@@ -109,8 +109,8 @@ Ext.define("OMV.workspace.Workspace", {
 			border: true,
 			autoScroll: true,
 			listeners: {
-				select: me.onSelectTreeNode,
-				scope: me
+				scope: me,
+				select: me.onSelectTreeNode
 			}
 		});
 	},
