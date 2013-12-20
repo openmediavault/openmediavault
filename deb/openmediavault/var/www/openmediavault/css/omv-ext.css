@@ -104,6 +104,10 @@ div#headerrlogo {
 	border-bottom-color: #b3b3b3;
 	border-right-color: #b3b3b3;
 }
+.x-progress-default .x-progress-bar-default {
+	background-color: #98b7cf; /* Cooperate color */
+	background-image: none; /* Flat design */
+}
 /* Tabs */
 .x-tab-invalid {
 	border: 1px solid #cc3300;
