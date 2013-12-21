@@ -231,7 +231,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			id: me.getId() + "-apply",
 			xtype: "button",
 			text: me.applyButtonText,
-			icon: "images/apply.png",
+			icon: "images/checkmark.png",
 			hidden: me.hideApplyButton,
 			handler: Ext.Function.bind(me.onApplyButton, me, [ me ]),
 			scope: me

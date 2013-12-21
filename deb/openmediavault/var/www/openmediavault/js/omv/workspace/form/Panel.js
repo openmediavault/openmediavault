@@ -64,7 +64,7 @@ Ext.define("OMV.workspace.form.Panel", {
 	hideOkButton: false,
 	hideResetButton: false,
 	okButtonText: _("Save"),
-	okButtonIcon: "images/apply.png",
+	okButtonIcon: "images/checkmark.png",
 	resetButtonText: _("Reset"),
 	resetButtonIcon: "images/refresh.png",
 	autoLoadData: true,

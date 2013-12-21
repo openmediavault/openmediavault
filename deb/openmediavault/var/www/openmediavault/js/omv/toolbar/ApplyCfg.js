@@ -68,7 +68,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 			},{
 				xtype: "button",
 				text: _("Apply"),
-				icon: "images/apply.png",
+				icon: "images/checkmark.png",
 				iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 				tooltip: _("Apply configuration changes"),
 				listeners: {

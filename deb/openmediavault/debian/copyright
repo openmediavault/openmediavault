@@ -301,11 +301,6 @@ License: permissive
  Free for commercial use.
 Comment: www.openmediavault.org
 
-Files: /var/www/openmediavault/images/apply.png
-       /var/www/openmediavault/images/apply.svg
-Copyright: Keyamoon <http://icomoon.io>
-License: CC-BY-3.0
-
 Files: /var/www/openmediavault/images/refresh.png
        /var/www/openmediavault/images/refresh.svg
 Copyright: Egemen Kapusuz
@@ -383,5 +378,15 @@ License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/aletr.png
        /var/www/openmediavault/images/alert.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/checkmark.png
+       /var/www/openmediavault/images/checkmark.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/minus.png
+       /var/www/openmediavault/images/minus.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
