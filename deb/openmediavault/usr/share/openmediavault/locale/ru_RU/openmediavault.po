@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-17 01:05+0100\n"
-"PO-Revision-Date: 2013-12-17 14:55+0000\n"
+"PO-Revision-Date: 2013-12-22 07:47+0000\n"
 "Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -394,7 +394,7 @@ msgid "Authenticate users"
 msgstr "Аутентификация пользователей"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "Аутентифицируемый идентификатор пользователя"
 
 msgid "Authentication"
 msgstr "Аутентификация"
@@ -1204,7 +1204,7 @@ msgid "Falkland Islands"
 msgstr "Фолклендские острова"
 
 msgid "Family"
-msgstr ""
+msgstr "Семейство"
 
 msgid "Faroe Islands"
 msgstr "Фарерские острова"
@@ -1466,7 +1466,7 @@ msgid ""
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr ""
+msgstr "Если эта опция будет установлена, то демон будет chroot к пути совместно используемой папки прежде, чем запустить передачу файлов с клиента. Тогда не возможно отобразить пользователей и группы по имени, и демон не способен идти по символьным ссылкам, которые являются или абсолютными или за пределами нового корневого пути."
 
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr "Если этот параметр установлен, любые попытки скачивания будут отклонены."
@@ -2446,7 +2446,7 @@ msgid "Read/Write"
 msgstr "Чтение/Запись"
 
 msgid "Real"
-msgstr ""
+msgstr "Настоящий"
 
 msgid "Reboot"
 msgstr "Перезагрузка"
@@ -3122,7 +3122,7 @@ msgstr "Число дней действия сертификата."
 
 #, php-format
 msgid "The parameter '%s' contains forbidden two-dot symbols"
-msgstr ""
+msgstr "Параметр '%s' содержит запрещенные символы с двумя точками"
 
 msgid "The password contains invalid characters"
 msgstr "Пароль содержит недопустимые символы"
