@@ -78,9 +78,6 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			value = tpl.apply(record.data);
 			return value;
 		}
-/**
- * Workaround:
- * See http://www.sencha.com/forum/showthread.php?251392-4.1.3-Renderer-of-hidden-column-can-cause-undesired-effect
 	},{
 		text: _("Name"),
 		sortable: true,
@@ -139,7 +136,6 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 		stateId: "homepage",
 		width: 140,
 		hidden: true
-*/
 	}],
 
 	initComponent: function() {

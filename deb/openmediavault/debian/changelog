@@ -1,6 +1,9 @@
 openmediavault (0.5.28) stable; urgency=low
 
   * Update locales.
+  * Mantis 0000930: Display additional columns in 'System - Updates' and
+    'System - Plugins'. Bug http://www.sencha.com/forum/showthread.php?251392-4.1.3-Renderer-of-hidden-column-can-cause-undesired-effect
+    seem to be fixed in ExtJS 4.2.2.
   * Mantis 0000932: Enable single-click node expansion in navigation tree.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 01 Jan 2014 16:40:30 +0100
