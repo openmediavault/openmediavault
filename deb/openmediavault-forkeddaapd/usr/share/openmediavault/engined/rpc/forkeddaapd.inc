@@ -4,7 +4,7 @@
  *
  * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
  * @author    Volker Theile <volker.theile@openmediavault.org>
- * @copyright Copyright (c) 2009-2013 Volker Theile
+ * @copyright Copyright (c) 2009-2014 Volker Theile
  *
  * OpenMediaVault is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -88,8 +88,7 @@ class OMVRpcServiceForkedDaapd extends OMVRpcServiceAbstract {
 				  "enable":{"type":"boolean"},
 				  "libraryname":{"type":"string"},
 				  "port":{"type":"integer","minimum":0,"maximum":65535},
-				  "sharedfolderref":{'.
-					$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'},
+				  "sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'},
 				  "passwordrequired":{"type":"boolean"},
 				  "password":{"type":"string"}
 			  }
