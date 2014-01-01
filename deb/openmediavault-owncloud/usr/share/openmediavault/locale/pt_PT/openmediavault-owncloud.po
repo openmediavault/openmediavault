@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Nelson Rosado <nelsontrosado@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-18 19:52+0100\n"
-"PO-Revision-Date: 2013-12-18 18:52+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-12-23 15:06+0000\n"
+"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,46 +19,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add share"
-msgstr ""
+msgstr "Adicionar Partilha"
 
 msgid "Comment"
-msgstr ""
+msgstr "Comentário"
 
 msgid "Data directory"
-msgstr ""
+msgstr "Diretoria de dados"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Editar partilha"
 
 msgid "Enable"
-msgstr ""
+msgstr "Activo"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Nome da pasta"
 
 msgid "General settings"
-msgstr ""
+msgstr "Definições gerais"
 
 msgid "Settings"
-msgstr ""
+msgstr "Definições"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Pasta partilhada"
 
 msgid "Shares"
-msgstr ""
+msgstr "Partilhas"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "A localização do ficheiro para partilha."
 
 msgid "The location where ownCloud stores its files."
-msgstr ""
+msgstr "A localização onde os ficheiro do ownCloud estão alojados."
 
 msgid "The name of the share."
-msgstr ""
+msgstr "O nome da partilha."
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 msgid "ownCloud"
-msgstr ""
+msgstr "ownCloud"

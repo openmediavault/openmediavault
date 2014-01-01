@@ -44,7 +44,7 @@ class OC_User_OpenMediaVault extends OC_User_Backend {
 		$valid = FALSE;
 		try {
 			$result = OMVRpc::exec("UserMgmt", "authUser", array(
-			  	  "username" => strtolower($uid),
+			  	  "username" => $uid,
 			  	  "password" => $password
 			  ), $this->context, OMV_RPC_MODE_REMOTE);
 			if(TRUE === $result['authenticated'])

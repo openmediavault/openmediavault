@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# dezi121 <by@songming.me>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-18 19:52+0100\n"
-"PO-Revision-Date: 2013-12-18 18:52+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-12-21 13:54+0000\n"
+"Last-Translator: dezi121 <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,46 +19,46 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Add share"
-msgstr ""
+msgstr "添加共享"
 
 msgid "Comment"
-msgstr ""
+msgstr "注释"
 
 msgid "Data directory"
-msgstr ""
+msgstr "数据目录"
 
 msgid "Edit share"
-msgstr ""
+msgstr "编辑共享"
 
 msgid "Enable"
-msgstr ""
+msgstr "启用"
 
 msgid "Folder name"
-msgstr ""
+msgstr "文件夹名"
 
 msgid "General settings"
-msgstr ""
+msgstr "常规设置"
 
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "共享文件夹"
 
 msgid "Shares"
-msgstr ""
+msgstr "共享"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "要共享的本地文件夹位置。"
 
 msgid "The location where ownCloud stores its files."
-msgstr ""
+msgstr "ownCloud 存储文件的位置。"
 
 msgid "The name of the share."
-msgstr ""
+msgstr "共享名。"
 
 msgid "n/a"
-msgstr ""
+msgstr "N/A"
 
 msgid "ownCloud"
-msgstr ""
+msgstr "ownCloud"
