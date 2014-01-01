@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-12-17 01:05+0100\n"
-"PO-Revision-Date: 2013-12-20 01:42+0000\n"
+"PO-Revision-Date: 2013-12-24 23:49+0000\n"
 "Last-Translator: zubr139 <zubr139@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgid "%s (%s available)"
 msgstr "%s (%s доступно)"
 
 msgid "%s [on %s, %s ]"
-msgstr ""
+msgstr "%s [на %s, %s ]"
 
 msgid "'All' is not allowed"
 msgstr "'All' не дозволено"
@@ -287,7 +287,7 @@ msgstr "Дозволити клієнтам доступ до аккаунта �
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
-msgstr ""
+msgstr "Дозволити клієнтам спробувати зберігати розширені атрибути OS/2."
 
 msgid "Allow clients to resume interrupted uploads and downloads"
 msgstr "Дозволити клієнтам відновити перервані закачування та скачування"
@@ -466,7 +466,7 @@ msgid "Binary"
 msgstr "Двійковий"
 
 msgid "Block layer cache [%s, %s]"
-msgstr ""
+msgstr "Кеш шар блоку [%s, %s]"
 
 msgid "Blocksize"
 msgstr "Розмір блоку"
@@ -624,7 +624,7 @@ msgid "Community"
 msgstr "Спільнота"
 
 msgid "Community-maintained updates."
-msgstr ""
+msgstr "Оновлення надані спільнотою."
 
 msgid "Comoros"
 msgstr "Комори"
@@ -1195,13 +1195,13 @@ msgid "Failed to get shadow password suite configuration."
 msgstr "Не вдалося отримати конфігурацію паролів."
 
 msgid "Failed to get storage device file from '%s'"
-msgstr ""
+msgstr "Не вдалося отримати файл з пристрою зберігання '%s'"
 
 msgid "Falkland Islands"
 msgstr "Фолклендські острови"
 
 msgid "Family"
-msgstr ""
+msgstr "Сім'я"
 
 msgid "Faroe Islands"
 msgstr "Фарерські острови"
@@ -1566,7 +1566,7 @@ msgid "Install updates ..."
 msgstr "Встановлення оновлень..."
 
 msgid "Install updates from"
-msgstr ""
+msgstr "Встановити оновлення від"
 
 msgid "Installed"
 msgstr "Встановлено"
@@ -1668,7 +1668,7 @@ msgid "LBA of first error"
 msgstr ""
 
 msgid "LVM logical volume %s [%s, %s]"
-msgstr ""
+msgstr "Логічний розділ LVM %s [%s, %s]"
 
 msgid "Label"
 msgstr "Позначка"
@@ -2284,7 +2284,7 @@ msgid ""
 msgstr ""
 
 msgid "Please reload the page to let the changes take effect."
-msgstr ""
+msgstr "Будь ласка, перезавантажте сторінку, щоб зміни набрали чинності."
 
 msgid "Please wait ..."
 msgstr "Зачекайте..."
@@ -2467,7 +2467,7 @@ msgid "Refresh"
 msgstr "Поновити"
 
 msgid "Reload"
-msgstr ""
+msgstr "Перезавантажити"
 
 msgid "Remaining"
 msgstr ""
@@ -2690,7 +2690,7 @@ msgid "Select a user name..."
 msgstr "Оберіть ім'я користувача..."
 
 msgid "Select a volume ..."
-msgstr "Оберіть том ..."
+msgstr "Оберіть розділ ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr ""
@@ -3159,7 +3159,7 @@ msgid ""
 msgstr ""
 
 msgid "The source shared folder."
-msgstr ""
+msgstr "Джерело спільної теки."
 
 msgid "The specified quota exceeds the max. possible value of 4TiB."
 msgstr ""
@@ -3168,7 +3168,7 @@ msgid "The system will reboot now. This may take some time ..."
 msgstr "Зараз система буде перезавантажена. Це може зайняти деякий час..."
 
 msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr ""
+msgstr "Тестове електронне повідомлення було успішно надіслано. Будь ласка, перевірте свою поштову скриньку."
 
 msgid "The user '%s' does not exist"
 msgstr "Користувач '%s' не існує"
@@ -3177,12 +3177,12 @@ msgid "The user '%s' is not allowed"
 msgstr "Недопустимий користувач '%s' "
 
 msgid "The volume label for the filesystem."
-msgstr "Мітка тому для цієї файлової системи"
+msgstr "Мітка розділу для цієї файлової системи"
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
 "login."
-msgstr ""
+msgstr "Привітання, яке буде відображатися користувачу, при вході до системи."
 
 msgid "The workgroup the server will appear to be in when queried by clients."
 msgstr ""
@@ -3193,7 +3193,7 @@ msgstr ""
 msgid ""
 "These settings are used by the services to configure the user access rights."
 " Please note that these settings do no affect the file system permissions."
-msgstr ""
+msgstr "Ці параметри використовуються службами для налаштування прав доступу користувачів. Будь ласка, зверніть увагу, що ці налаштування не впливають на дозволи файлової системи."
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3341,7 +3341,7 @@ msgstr ""
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
 "server."
-msgstr ""
+msgstr "Ця опція вимагає від клієнтів використовувати FTP через TLS, коли йде звернення до цього сервера."
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
@@ -3590,7 +3590,7 @@ msgid ""
 msgstr ""
 
 msgid "Use the specified WINS server."
-msgstr ""
+msgstr "Використовувати вказаний сервер WINS."
 
 msgid "Used"
 msgstr ""

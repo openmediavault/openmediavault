@@ -1,3 +1,10 @@
+openmediavault (0.5.28) stable; urgency=low
+
+  * Update locales.
+  * Mantis 0000932: Enable single-click node expansion in navigation tree.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 01 Jan 2014 16:40:30 +0100
+
 openmediavault (0.5.27) stable; urgency=low
 
   * Update locales.
