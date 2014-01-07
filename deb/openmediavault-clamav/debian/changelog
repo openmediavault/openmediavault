@@ -1,5 +1,6 @@
 openmediavault-clamav (0.5.7) stable; urgency=low
 
+  * Update locales.
   * Refactor JS overrides to prevent ECMAScript6 compatibility problems.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Jan 2014 12:32:12 +0100

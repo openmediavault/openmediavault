@@ -3,224 +3,224 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# zubr139 <zubr139@ukr.net>, 2013
+# dezi121 <by@songming.me>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:06+0200\n"
-"PO-Revision-Date: 2013-12-23 03:06+0000\n"
-"Last-Translator: zubr139 <zubr139@ukr.net>\n"
-"Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
+"PO-Revision-Date: 2013-12-21 13:51+0000\n"
+"Last-Translator: dezi121 <by@songming.me>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: uk\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Add job"
-msgstr "Додати завдання"
+msgstr "添加任务"
 
 msgid "Algorithmic detection"
-msgstr ""
+msgstr "检测算法"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "发送一封包含命令输出(如果执行了命令)的邮件到管理员。"
 
 msgid "Antivirus"
-msgstr "Антивірус"
+msgstr "防病毒"
 
 msgid "Be verbose."
-msgstr ""
+msgstr "要详细内容。"
 
 msgid "Comment"
-msgstr "Коментар"
+msgstr "注释"
 
 msgid "Database checks"
-msgstr "Перевірки бази даних"
+msgstr "检查数据库"
 
 msgid "Database mirror"
-msgstr "Дзеркало база даних"
+msgstr "数据库镜像"
 
 msgid "Date & Time"
-msgstr "Дата і час"
+msgstr "日期和时间"
 
 msgid "Day of month"
-msgstr "День місяця "
+msgstr "月内第几日"
 
 msgid "Day of week"
-msgstr "День тижня"
+msgstr "周内第几天"
 
 msgid "Detect PUA"
-msgstr ""
+msgstr "PUA 检测"
 
 msgid "Detect broken executables"
-msgstr ""
+msgstr "检测损坏的可执行文件"
 
 msgid "Edit job"
-msgstr "Редагувати завдання"
+msgstr "编辑任务"
 
 msgid "Enable"
-msgstr "Увімкнути"
+msgstr "启用"
 
 msgid "Enable HTML detection and normalisation."
-msgstr ""
+msgstr "启用 HTML 检测与正常化。"
 
 msgid "Enable archive scanning."
-msgstr ""
+msgstr "启用归档扫描。"
 
 msgid "Enable on-access virus scanning"
-msgstr ""
+msgstr "开启在存取时扫描"
 
 msgid "Enable scanning of ELF files."
-msgstr ""
+msgstr "启用扫描 ELF 文件。"
 
 msgid ""
 "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
 "files."
-msgstr ""
+msgstr "启用扫描 OLE2 文件，例如微软 Office 文档和 .msi  文档。"
 
 msgid "Enable scanning within PDF files."
-msgstr ""
+msgstr "启用 PDF 文档扫描。"
 
 msgid "Enable the algorithmic detection."
-msgstr ""
+msgstr "启用检测算法。"
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
-msgstr ""
+msgstr "启用损坏可执行文件(包括 PE 和 ELF)的检测。"
 
 msgid "Enable the detection of possibly unwanted applications."
-msgstr ""
+msgstr "启用不受欢迎的应用文件检测。"
 
 msgid "Enabled"
-msgstr "Увімкнено"
+msgstr "已启用"
 
 msgid "Event"
-msgstr "Подія"
+msgstr "事件"
 
 msgid "Every N day of month"
-msgstr "Кожен N день місяця"
+msgstr "每月的第 N 天"
 
 msgid "Every N hour"
-msgstr "Кожну N годину"
+msgstr "每 N 小时"
 
 msgid "Every N minute"
-msgstr "Кожну N хвилину"
+msgstr "每 N 分钟"
 
 msgid "Execute cron job"
-msgstr "Виконати завдання Cron"
+msgstr "执行 cron 任务"
 
 msgid "Extra options"
-msgstr "Додаткові опції"
+msgstr "扩展选项"
 
 msgid "Follow directory symlinks"
-msgstr ""
+msgstr "跟随目录符号链接"
 
 msgid "Follow directory symlinks."
-msgstr ""
+msgstr "跟随目录符号链接。"
 
 msgid "Follow file symlinks"
-msgstr ""
+msgstr "跟随文件符号链接"
 
 msgid "Follow regular file symlinks."
-msgstr ""
+msgstr "跟随常规文件符号链接。"
 
 msgid "General settings"
-msgstr "Загальні налаштування"
+msgstr "常规设置"
 
 msgid "Hour"
-msgstr "Година"
+msgstr "时"
 
 msgid "Jobs"
-msgstr "Завдання"
+msgstr "任务"
 
 msgid "Log clean files"
-msgstr ""
+msgstr "完整日志文件"
 
 msgid "Log clean files. This drastically increases the log size."
-msgstr ""
+msgstr "完整日志文件会大大增加日志大小。"
 
 msgid "Minute"
-msgstr "Хвилина"
+msgstr "分"
 
 msgid "Monitor the shared folder and scan new or modified files."
-msgstr ""
+msgstr "监控共享文件夹的新文件或者被修改的文件。"
 
 msgid "Month"
-msgstr "Місяць"
+msgstr "月"
 
 msgid "Multiscan"
-msgstr ""
+msgstr "多线程扫描"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr ""
+msgstr "每天数据库更新检查次数，0 为不检查。"
 
 msgid "On-access"
-msgstr ""
+msgstr "存取时"
 
 msgid "Perform a deeper analysis of executable files."
-msgstr ""
+msgstr "对可执行文件进行深入分析。"
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "详情请看  <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>指南页</a> 。"
 
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 msgid "Remove infected files."
-msgstr ""
+msgstr "移除被感染文件。"
 
 msgid "Run"
-msgstr "Запустити"
+msgstr "运行"
 
 msgid "Scan ELF"
-msgstr "Сканувати ELF"
+msgstr "扫描 ELF"
 
 msgid "Scan HTML"
-msgstr "Сканувати HTML"
+msgstr "扫描 HTML"
 
 msgid "Scan OLE2"
-msgstr "Сканувати OLE2"
+msgstr "扫描 OLE2"
 
 msgid "Scan PDF"
-msgstr "Сканувати PDF"
+msgstr "扫描 PDF"
 
 msgid "Scan Portable Executable"
-msgstr ""
+msgstr "扫描便携执行文件"
 
 msgid "Scan archives"
-msgstr "Сканувати архіви"
+msgstr "扫面归档"
 
 msgid "Scan the directory contents in parallel using available threads."
-msgstr ""
+msgstr "使用可用线程并行扫描目录内容。"
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "通过邮件发送命令输出结果"
 
 msgid "Send email"
-msgstr ""
+msgstr "发送 Email"
 
 msgid ""
 "Server name where database updates are downloaded from. Get a complete list "
 "of database mirrors <a href='http://www.clamav.net/mirrors.html' "
 "target='_blank'>here</a>."
-msgstr ""
+msgstr "数据库更新服务器地址，完整数据库镜像列表请见  <a href='http://www.clamav.net/mirrors.html' target='_blank'>这里</a>."
 
 msgid "Settings"
-msgstr "Налаштування"
+msgstr "设置"
 
 msgid "Shared folder"
-msgstr "Спільна тека"
+msgstr "共享文件夹"
 
 msgid "The location of the files to scan."
-msgstr ""
+msgstr "要扫描病毒的位置。"
 
 msgid "Verbose"
-msgstr ""
+msgstr "详细"
 
 msgid "n/a"
-msgstr "н/д"
+msgstr "N/A"

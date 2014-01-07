@@ -1,0 +1,175 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# dezi121 <by@songming.me>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-16 13:10+0200\n"
+"PO-Revision-Date: 2013-12-21 13:54+0000\n"
+"Last-Translator: dezi121 <by@songming.me>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid " "
+msgstr " "
+
+msgid "Add share"
+msgstr "添加共享"
+
+msgid "Advanced settings"
+msgstr "高级设置"
+
+msgid "Allow guest login."
+msgstr "允许访客登录。"
+
+msgid "Allow guests to create or modify files."
+msgstr "允许访客创建或修改文件。"
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr "允许登录时使用明文传输密码。"
+
+msgid "Allow plain passwords"
+msgstr "允许明文密码"
+
+msgid "Apple Filing"
+msgstr "Apple Filing"
+
+msgid "Case folding"
+msgstr "大小写合并"
+
+msgid "Client sees lowercase, server sees uppercase"
+msgstr "客户端看到小写字母，服务器看到大写字母"
+
+msgid "Client sees uppercase, server sees lowercase"
+msgstr "客户端看到大写字母，服务器看到小写字母"
+
+msgid "Comment"
+msgstr "注释"
+
+msgid "Don't do :hex translation for dot files."
+msgstr "对点文件不做 :hex 转换。"
+
+msgid "Edit share"
+msgstr "编辑共享"
+
+msgid "Enable"
+msgstr "启用"
+
+msgid "Enable Time Machine support for this share."
+msgstr "在这个共享启用 Time Machine。"
+
+msgid "Enable user home directories."
+msgstr "启用用户主目录。"
+
+msgid "Extra options"
+msgstr "扩展选项"
+
+msgid "Forces filename restrictions"
+msgstr "强制文件名限制"
+
+msgid "General settings"
+msgstr "常规设置"
+
+msgid "Guest login"
+msgstr "访客登录"
+
+msgid "Guests only have read access by default."
+msgstr "默认情况下访客只有读取权限。"
+
+msgid "Hide dot files"
+msgstr "隐藏点文件"
+
+msgid "Home directories"
+msgstr "主目录"
+
+msgid ""
+"If this option is set, then a password is required to access the share."
+msgstr "如果设置此项，则需要密码才能访问共享。"
+
+msgid ""
+"If this option is set, then users may not create or modify files in the "
+"share."
+msgstr "如果设置此项，用户不能在共享中修改或者创建文件。"
+
+msgid ""
+"Limit the reported volume size to the given value in MiB, thus preventing TM"
+" from using the whole disk space for backup. Set this value to 0 to disable "
+"this option."
+msgstr "限制容量大小单位 MiB，这样可以避免 TM 把全部磁盘空间用来备份，设为 0 表示关闭该选项。"
+
+msgid "Lowercases names in both directions"
+msgstr "双向使用小写名称"
+
+msgid "Make dot files invisible."
+msgstr "让点文件不可见。"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "None"
+msgstr "无"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Quota"
+msgstr "配额"
+
+msgid "Read only"
+msgstr "只读"
+
+msgid "Set read only."
+msgstr "设为只读。"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Shared folder"
+msgstr "共享文件夹"
+
+msgid "Shares"
+msgstr "共享"
+
+msgid "The location of the files to share."
+msgstr "共享文件的位置。"
+
+msgid "The name of the share."
+msgstr "共享的名称。"
+
+msgid ""
+"This forces filenames to be restricted to the character set used by Windows."
+msgstr "这将限制文件名只能使用 Windows 的字符集。"
+
+msgid "This option handles, if the case of filenames should be changed."
+msgstr "设置此选项决定是否改变文件名的大小写。"
+
+msgid "Time Machine support"
+msgstr "Time Machine支持"
+
+msgid "Unix privileges"
+msgstr "Unix 权限"
+
+msgid "Uppercases names in both directions"
+msgstr "双向使用大写名称"
+
+msgid "Use AFP3 unix privileges."
+msgstr "使用 AFP3 unix 权限"
+
+msgid "Use dots"
+msgstr "使用点文件"
+
+msgid ""
+"When this option gets set, certain file names become illegal. These are "
+".Parent and anything that starts with .Apple."
+msgstr "如果设置此项，某些文件名将变为非法。比如  .Parent 和任何以 .Apple 开头的文件。"
+
+msgid "n/a"
+msgstr "N/A"

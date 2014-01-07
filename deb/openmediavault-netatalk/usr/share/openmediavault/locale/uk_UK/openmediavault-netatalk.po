@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# zubr139 <zubr139@ukr.net>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:10+0200\n"
-"PO-Revision-Date: 2013-06-16 11:11+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-12-23 16:11+0000\n"
+"Last-Translator: zubr139 <zubr139@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,25 +19,25 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid " "
-msgstr ""
+msgstr " "
 
 msgid "Add share"
-msgstr ""
+msgstr "Додати спільний ресурс"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "Розширенні налаштування"
 
 msgid "Allow guest login."
-msgstr ""
+msgstr "Дозволити гостьовий вхід."
 
 msgid "Allow guests to create or modify files."
-msgstr ""
+msgstr "Дозволити гостям створювати або змінювати файли."
 
 msgid "Allow logins with passwords transmitted in the clear."
-msgstr ""
+msgstr "Дозволити передавати логіни з паролями в не зашифрованому вигляді."
 
 msgid "Allow plain passwords"
-msgstr ""
+msgstr "Дозволити прості паролі"
 
 msgid "Apple Filing"
 msgstr ""
@@ -45,58 +46,58 @@ msgid "Case folding"
 msgstr ""
 
 msgid "Client sees lowercase, server sees uppercase"
-msgstr ""
+msgstr "Клієнт бачить нижній регістр, сервер бачить прописні"
 
 msgid "Client sees uppercase, server sees lowercase"
-msgstr ""
+msgstr "Клієнт бачить у верхньому регістрі, сервер бачить нижній регістр"
 
 msgid "Comment"
-msgstr ""
+msgstr "Коментар"
 
 msgid "Don't do :hex translation for dot files."
 msgstr ""
 
 msgid "Edit share"
-msgstr ""
+msgstr "Редагувати спільний ресурс"
 
 msgid "Enable"
-msgstr ""
+msgstr "Увімкнути"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "Увімкнути підтримку Time Machine для цього спільного ресурсу."
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "Увімкнути домашній каталог користувача."
 
 msgid "Extra options"
-msgstr ""
+msgstr "Додаткові опції"
 
 msgid "Forces filename restrictions"
 msgstr ""
 
 msgid "General settings"
-msgstr ""
+msgstr "Загальні налаштування"
 
 msgid "Guest login"
-msgstr ""
+msgstr "Гість увійти"
 
 msgid "Guests only have read access by default."
-msgstr ""
+msgstr "Типово гості мають доступ лиш для читання."
 
 msgid "Hide dot files"
-msgstr ""
+msgstr "Приховати dot файли"
 
 msgid "Home directories"
-msgstr ""
+msgstr "Домашній каталог"
 
 msgid ""
 "If this option is set, then a password is required to access the share."
-msgstr ""
+msgstr "Якщо цей пункт встановлений​​, то необхідний пароль для доступу до спільної теки."
 
 msgid ""
 "If this option is set, then users may not create or modify files in the "
 "share."
-msgstr ""
+msgstr "Якщо ця опція встановлена​​, то користувачі не можуть створювати або змінювати файли у спільній теці."
 
 msgid ""
 "Limit the reported volume size to the given value in MiB, thus preventing TM"
@@ -105,65 +106,65 @@ msgid ""
 msgstr ""
 
 msgid "Lowercases names in both directions"
-msgstr ""
+msgstr "Нижній регістр імена в обох напрямках"
 
 msgid "Make dot files invisible."
-msgstr ""
+msgstr "Зробити файли з крапкою невидимими."
 
 msgid "Name"
-msgstr ""
+msgstr "Ім'я"
 
 msgid "None"
-msgstr ""
+msgstr "Немає"
 
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 msgid "Quota"
-msgstr ""
+msgstr "Квота"
 
 msgid "Read only"
-msgstr ""
+msgstr "Лише для читання"
 
 msgid "Set read only."
-msgstr ""
+msgstr "Встановити лише для читання."
 
 msgid "Settings"
-msgstr ""
+msgstr "Налаштування"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Спільна тека"
 
 msgid "Shares"
-msgstr ""
+msgstr "Спільний ресурс"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "Розташування файлів для спільного доступу."
 
 msgid "The name of the share."
-msgstr ""
+msgstr "Ім’я спільної теки"
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."
-msgstr ""
+msgstr "Змушує імена файлів бути обмеженими набором символів, що використовуються у Windows."
 
 msgid "This option handles, if the case of filenames should be changed."
 msgstr ""
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Підтримка Time Machine"
 
 msgid "Unix privileges"
-msgstr ""
+msgstr "Unix привілеї"
 
 msgid "Uppercases names in both directions"
-msgstr ""
+msgstr "Верхній регістр імені в обох напрямках"
 
 msgid "Use AFP3 unix privileges."
 msgstr ""
 
 msgid "Use dots"
-msgstr ""
+msgstr "Використовувати точки"
 
 msgid ""
 "When this option gets set, certain file names become illegal. These are "
@@ -171,4 +172,4 @@ msgid ""
 msgstr ""
 
 msgid "n/a"
-msgstr ""
+msgstr "н/д"
