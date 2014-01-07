@@ -3,6 +3,7 @@ openmediavault (0.5.29) stable; urgency=low
   * Refactor JS overrides to prevent ECMAScript6 compatibility problems.
   * Mantis 0000936: Plugin-Section - Sortable Collums: sorting is not working
     across more than one side.
+  * Mantis 0000940: Incorrect spelling.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Jan 2014 12:13:39 +0100
 

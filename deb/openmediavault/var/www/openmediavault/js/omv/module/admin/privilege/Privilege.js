@@ -23,6 +23,6 @@
 OMV.WorkspaceManager.registerNode({
 	id: "privilege",
 	path: "/",
-	text: _("Access Right Management"),
+	text: _("Access Rights Management"),
 	position: 30
 });
