@@ -175,6 +175,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 						method: "getList"
 					}
 				},
+				remoteSort: true,
 				sorters: [{
 					direction: "ASC",
 					property: "name"

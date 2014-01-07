@@ -876,7 +876,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			icon: "images/edit.png"
 		});
 		// Add 'Identify' button to top toolbar.
-		items.insert(2, {
+		Ext.Array.insert(items, 2, [{
 			id: me.getId() + "-identify",
 			xtype: "button",
 			text: _("Identify"),
@@ -885,7 +885,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			handler: Ext.Function.bind(me.onIdentifyButton, me, [ me ]),
 			scope: me,
 			disabled: true
-		});
+		}]);
 		return items;
 	},
 

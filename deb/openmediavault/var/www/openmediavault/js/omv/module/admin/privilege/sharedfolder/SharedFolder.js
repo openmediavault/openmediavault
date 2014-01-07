@@ -319,8 +319,9 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 								});
 								// Set the grid values.
 								var data = [];
-								[ "user", "group" ].each(function(type) {
-									response["acl"][type + "s"].each(
+								Ext.Array.each([ "user", "group" ],
+								  function(type) {
+									Ext.Array.each(response["acl"][type + "s"],
 									  function(r) {
 										data.push({
 											type: type,

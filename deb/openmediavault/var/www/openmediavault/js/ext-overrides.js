@@ -533,6 +533,61 @@ Ext.apply(Ext.Base.prototype, {
 });
 
 ////////////////////////////////////////////////////////////////////////////////
+// Ext.Array
+////////////////////////////////////////////////////////////////////////////////
+
+Ext.apply(Ext.Array, {
+	/**
+	 * @function range
+	 * Create an array containing a range of elements.
+	 * @param low Low value.
+	 * @param high High value.
+	 * @param step If a step value is given, it will be used as the increment
+	 * between elements in the sequence. It should be given as a positive number.
+	 * If not specified, step will default to 1.
+	 * @param asString Convert the elements to strings. Defaults to FALSE.
+	 * @return Returns an array of elements from low  to high , inclusive.
+	 * If low > high, the sequence will be from high to low.
+	 */
+	range: function(low, high, step, asString) {
+		var array = [];
+		var startv = low;
+		var endv = high;
+		var stepv = step || 1;
+		asString = asString || false;
+
+		if(startv < endv) {
+			while (startv <= endv) {
+				array.push(((asString) ? startv.toString() : startv));
+				startv += stepv;
+			}
+		} else {
+			while (startv >= endv) {
+				array.push(((asString) ? startv.toString() : startv));
+				startv -= stepv;
+			}
+		}
+
+		return array;
+	},
+
+	/**
+	 * @function walk
+	 * Change each value according to a callback function.
+	 * @param array The array to process.
+	 * @param fn The function to apply.
+	 * @return Returns the modified array.
+	 */
+	walk: function(array, fn) {
+		var a = [], i = array.length;
+		while(i--) {
+			a.push(fn(array[i]));
+		}
+		return a.reverse();
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
 // Additional helper functions
 ////////////////////////////////////////////////////////////////////////////////
 

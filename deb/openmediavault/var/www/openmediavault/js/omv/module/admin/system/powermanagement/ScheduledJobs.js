@@ -84,7 +84,8 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Job", {
 				xtype: "combo",
 				name: "minute",
 				queryMode: "local",
-				store: Array.range(0, 59, 1, true).insert(0, "*"),
+				store: Ext.Array.insert(Ext.Array.range(0, 59, 1, true),
+				  0, [ "*" ]),
 				allowBlank: false,
 				editable: false,
 				triggerAction: "all",
@@ -197,7 +198,7 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Job", {
 		var valid = true;
 		// It is not allowed to select '*' if the everyxxx checkbox
 		// is checked.
-		[ "minute", "hour", "dayofmonth" ].each(function(name) {
+		Ext.Array.each([ "minute", "hour", "dayofmonth" ], function(name) {
 			var field = me.findField(name);
 			field.clearInvalid(); // combineErrors is false
 			if((field.getValue() === "*") && (me.findField(
