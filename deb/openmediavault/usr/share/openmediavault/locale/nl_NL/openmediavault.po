@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 01:05+0100\n"
-"PO-Revision-Date: 2013-12-21 12:01+0000\n"
-"Last-Translator: tico <co_ti@hotmail.com>\n"
+"POT-Creation-Date: 2014-01-07 19:48+0100\n"
+"PO-Revision-Date: 2014-01-07 18:49+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -173,6 +173,9 @@ msgstr "Over"
 
 msgid "Access Right Management"
 msgstr "Toegangsrechtenbeheer"
+
+msgid "Access Rights Management"
+msgstr ""
 
 msgid "Access mode"
 msgstr "Toegangsmodus"
@@ -937,6 +940,9 @@ msgstr "Downtime vertragen"
 
 msgid "Download"
 msgstr "Downloaden"
+
+msgid "Downloading package information"
+msgstr ""
 
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
@@ -3098,6 +3104,11 @@ msgstr "De groep '%s' bestaat niet"
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "De hostnaam is een naam waarmee het systeem zich kenbaar maakt aan het netwerk."
 
+msgid ""
+"The information about available software is out-of-date. You need to reload "
+"the information about available software."
+msgstr ""
+
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr "De interface '%s' is al in gebruik door een bonding interface"
 
@@ -3141,6 +3152,11 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "De rechten op nieuwe bestanden en mappen worden normaal toegekend door het aanmaak- en mapmasker, maar de parameter voor het erven van rechten overschrijft dit. Dit is in het bijzonder handig voor het flexibel gebruik van een gedeelde bron op een systeem met veel gebruikers."
+
+msgid ""
+"The repository will be checked for new, removed or upgraded software "
+"packages."
+msgstr ""
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

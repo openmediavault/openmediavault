@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 01:05+0100\n"
-"PO-Revision-Date: 2013-12-19 20:21+0000\n"
-"Last-Translator: Christophe Lherieau <skimpax@gmail.com>\n"
+"POT-Creation-Date: 2014-01-07 19:48+0100\n"
+"PO-Revision-Date: 2014-01-07 18:49+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -173,6 +173,9 @@ msgstr "A propos"
 
 msgid "Access Right Management"
 msgstr "Gestion des droits d'accès"
+
+msgid "Access Rights Management"
+msgstr ""
 
 msgid "Access mode"
 msgstr "Mode d'accès"
@@ -937,6 +940,9 @@ msgstr "Délai d'arrêt"
 
 msgid "Download"
 msgstr "Télécharger"
+
+msgid "Downloading package information"
+msgstr ""
 
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
@@ -3098,6 +3104,11 @@ msgstr "Le groupe '%s' n'existe pas"
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Le nom de l'hôte est un libellé qui identifie le système sur le réseau."
 
+msgid ""
+"The information about available software is out-of-date. You need to reload "
+"the information about available software."
+msgstr ""
+
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr "L'interface '%s' est déjà utilisée par une interface de liaison (bonding)"
 
@@ -3141,6 +3152,11 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Les permissions sur les nouveaux fichiers et répertoires sont normalement régies par le masque de création de fichier et le masque de répertoire, mais le paramètre d'héritage des autorisations les écrase. Cela peut être utile sur les systèmes avec de nombreux utilisateurs afin de permettre à un dossier partagé d'être utilisé avec souplesse par chaque utilisateur."
+
+msgid ""
+"The repository will be checked for new, removed or upgraded software "
+"packages."
+msgstr ""
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

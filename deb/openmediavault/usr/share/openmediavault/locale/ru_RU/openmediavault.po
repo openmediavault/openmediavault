@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 01:05+0100\n"
-"PO-Revision-Date: 2013-12-22 07:47+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2014-01-07 19:48+0100\n"
+"PO-Revision-Date: 2014-01-07 18:49+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -175,6 +175,9 @@ msgstr "О нас"
 
 msgid "Access Right Management"
 msgstr "Управление правами доступа"
+
+msgid "Access Rights Management"
+msgstr ""
 
 msgid "Access mode"
 msgstr "Режим доступа"
@@ -939,6 +942,9 @@ msgstr "Снизить задержку"
 
 msgid "Download"
 msgstr "Загрузка"
+
+msgid "Downloading package information"
+msgstr ""
 
 msgid "Dronning Maud Land"
 msgstr "Земля Королевы Мод"
@@ -3100,6 +3106,11 @@ msgstr "Группа '%s' не существует"
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Имя узла - идентификатор системы в сети."
 
+msgid ""
+"The information about available software is out-of-date. You need to reload "
+"the information about available software."
+msgstr ""
+
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr "Этот интерфейс '%s' уже используется в bonding интерфейсе"
 
@@ -3143,6 +3154,11 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Разрешения на новые файлы и каталоги обычно регулируются маской, но параметр наследования имеет более высокий приоритет. Это позволяет гибко организовать совместное использование многими пользователями одного общего ресурса."
+
+msgid ""
+"The repository will be checked for new, removed or upgraded software "
+"packages."
+msgstr ""
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

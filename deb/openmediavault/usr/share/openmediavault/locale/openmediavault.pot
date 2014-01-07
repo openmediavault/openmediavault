@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 01:05+0100\n"
+"POT-Creation-Date: 2014-01-07 19:48+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -168,6 +168,9 @@ msgid "About"
 msgstr ""
 
 msgid "Access Right Management"
+msgstr ""
+
+msgid "Access Rights Management"
 msgstr ""
 
 msgid "Access mode"
@@ -900,6 +903,9 @@ msgid "Down delay"
 msgstr ""
 
 msgid "Download"
+msgstr ""
+
+msgid "Downloading package information"
 msgstr ""
 
 msgid "Dronning Maud Land"
@@ -2957,6 +2963,9 @@ msgstr ""
 msgid "The hostname is a label that identifies the system to the network."
 msgstr ""
 
+msgid "The information about available software is out-of-date. You need to reload the information about available software."
+msgstr ""
+
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr ""
 
@@ -2989,6 +2998,9 @@ msgid "The path of the folder to share. The specified folder will be created if 
 msgstr ""
 
 msgid "The permissions on new files and directories are normally governed by create mask and directory mask but the inherit permissions parameter overrides this. This can be particularly useful on systems with many users to allow a single share to be used flexibly by each user."
+msgstr ""
+
+msgid "The repository will be checked for new, removed or upgraded software packages."
 msgstr ""
 
 msgid "The requirement that the SSL session from the control connection is reused for data connections is not required."

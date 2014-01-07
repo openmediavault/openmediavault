@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 01:05+0100\n"
-"PO-Revision-Date: 2013-12-23 15:07+0000\n"
-"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>\n"
+"POT-Creation-Date: 2014-01-07 19:48+0100\n"
+"PO-Revision-Date: 2014-01-07 18:49+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -171,6 +171,9 @@ msgstr "Sobre"
 
 msgid "Access Right Management"
 msgstr "Acesso Gestão de Direitos"
+
+msgid "Access Rights Management"
+msgstr ""
 
 msgid "Access mode"
 msgstr ""
@@ -935,6 +938,9 @@ msgstr "Baixo com atraso"
 
 msgid "Download"
 msgstr "Descarregar"
+
+msgid "Downloading package information"
+msgstr ""
 
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
@@ -3096,6 +3102,11 @@ msgstr "O grupo '%s' não existe"
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "O nome da máquina é uma etiqueta que identifica o sistema na rede."
 
+msgid ""
+"The information about available software is out-of-date. You need to reload "
+"the information about available software."
+msgstr ""
+
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr ""
 
@@ -3139,6 +3150,11 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "As permissões de novos ficheiros e diretorias são normalmente regidas para criar mascaras e diretórios mascarados, mas as permissões herdadas substituem essas. Isto pode ser particularmente útil em sistemas com muitos utilizadores para permitir que uma unica partilha seja usada flexivelmente por outro utilizador."
+
+msgid ""
+"The repository will be checked for new, removed or upgraded software "
+"packages."
+msgstr ""
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

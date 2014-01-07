@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 01:05+0100\n"
-"PO-Revision-Date: 2013-12-24 23:49+0000\n"
-"Last-Translator: zubr139 <zubr139@ukr.net>\n"
+"POT-Creation-Date: 2014-01-07 19:48+0100\n"
+"PO-Revision-Date: 2014-01-07 18:49+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -172,6 +172,9 @@ msgstr "Про"
 
 msgid "Access Right Management"
 msgstr "Менеджер прав доступу"
+
+msgid "Access Rights Management"
+msgstr ""
 
 msgid "Access mode"
 msgstr "Режим доступу"
@@ -936,6 +939,9 @@ msgstr "Зменшити затримку"
 
 msgid "Download"
 msgstr "Завантажити"
+
+msgid "Downloading package information"
+msgstr ""
 
 msgid "Dronning Maud Land"
 msgstr "Земля Королеви Мод"
@@ -3097,6 +3103,11 @@ msgstr "Групи '%s' не існує"
 msgid "The hostname is a label that identifies the system to the network."
 msgstr ""
 
+msgid ""
+"The information about available software is out-of-date. You need to reload "
+"the information about available software."
+msgstr ""
+
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr ""
 
@@ -3139,6 +3150,11 @@ msgid ""
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
+msgstr ""
+
+msgid ""
+"The repository will be checked for new, removed or upgraded software "
+"packages."
 msgstr ""
 
 msgid ""

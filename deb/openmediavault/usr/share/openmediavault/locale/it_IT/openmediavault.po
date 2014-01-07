@@ -8,13 +8,13 @@
 # Mauro Rulli <mauro.rulli@gmail.com>, 2012
 # Mauro Rulli <mauro.rulli@gmail.com>, 2012
 # Mario Varelli <mvarelli@biologia.unipi.it>, 2012
-# polxmod <paolo.velati@gmail.com>, 2013
+# polxmod <paolo.velati@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 01:05+0100\n"
-"PO-Revision-Date: 2013-12-17 09:56+0000\n"
+"POT-Creation-Date: 2014-01-07 19:48+0100\n"
+"PO-Revision-Date: 2014-01-07 19:14+0000\n"
 "Last-Translator: polxmod <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -174,6 +174,9 @@ msgid "About"
 msgstr "Informazioni su"
 
 msgid "Access Right Management"
+msgstr "Gestione Permessi d'Accesso"
+
+msgid "Access Rights Management"
 msgstr "Gestione Permessi d'Accesso"
 
 msgid "Access mode"
@@ -939,6 +942,9 @@ msgstr "Down delay"
 
 msgid "Download"
 msgstr "Download"
+
+msgid "Downloading package information"
+msgstr "Scaricamento informazioni del pacchetto"
 
 msgid "Dronning Maud Land"
 msgstr "Terra della Regina Maud"
@@ -3100,6 +3106,11 @@ msgstr "Il gruppo '%s' non esiste"
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "L'hostname è un nome che identifica il sistema sulla rete."
 
+msgid ""
+"The information about available software is out-of-date. You need to reload "
+"the information about available software."
+msgstr "Le informazioni sul software disponibile non sono aggiornate. È necessario ricaricare le informazioni sul software disponibile."
+
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr "L'interfaccia '%s' è in uso da un interfaccia di bonding"
 
@@ -3143,6 +3154,11 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "I permessi sui nuovi file e directory sono normalmente impostati dal create mask e directory mask ma i parametri dei permessi ereditati li sovrascrivono. Questo può essere particolarmente utile sui sistemi con molti utenti per usare una singola condivisione con flessibilità da ogni utente."
+
+msgid ""
+"The repository will be checked for new, removed or upgraded software "
+"packages."
+msgstr "Il repository verrà controllato per pacchetti nuovi, rimossi oppure aggiornati."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

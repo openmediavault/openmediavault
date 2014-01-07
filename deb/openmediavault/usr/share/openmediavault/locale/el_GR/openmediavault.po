@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 01:05+0100\n"
-"PO-Revision-Date: 2013-12-17 00:05+0000\n"
+"POT-Creation-Date: 2014-01-07 19:48+0100\n"
+"PO-Revision-Date: 2014-01-07 18:49+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -170,6 +170,9 @@ msgstr "Σχετικά"
 
 msgid "Access Right Management"
 msgstr "Διαχείριση Δικαιωμάτων Πρόσβασης"
+
+msgid "Access Rights Management"
+msgstr ""
 
 msgid "Access mode"
 msgstr ""
@@ -934,6 +937,9 @@ msgstr "Καθυστέρηση παύσης"
 
 msgid "Download"
 msgstr "Λήψη"
+
+msgid "Downloading package information"
+msgstr ""
 
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
@@ -3095,6 +3101,11 @@ msgstr "Η ομάδα '%s' δεν υπάρχει"
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Το όνομα συστήματος είναι μια ετικέτα που χαρακτηρίζει το σύστημα στο δίκτυο."
 
+msgid ""
+"The information about available software is out-of-date. You need to reload "
+"the information about available software."
+msgstr ""
+
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr ""
 
@@ -3138,6 +3149,11 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Οι άδειες σε καινούργια αρχεία και φακέλους ρυθμίζονται κανονικά από την μάσκα δημιουργίας και φακέλου, αλλά η κληρονομικότητα το παρακάμπτει αυτό. Ιδιαίτερα χρήσιμο σε συστήματα με πολλούς χρήστες, καθώς τους προσφέρει ευελιξία."
+
+msgid ""
+"The repository will be checked for new, removed or upgraded software "
+"packages."
+msgstr ""
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

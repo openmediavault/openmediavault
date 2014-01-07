@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# dezi121 <by@songming.me>, 2013
+# dezi121 <by@songming.me>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 01:05+0100\n"
-"PO-Revision-Date: 2013-12-21 13:48+0000\n"
-"Last-Translator: dezi121 <by@songming.me>\n"
+"POT-Creation-Date: 2014-01-07 19:48+0100\n"
+"PO-Revision-Date: 2014-01-07 18:49+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -170,6 +170,9 @@ msgstr "关于"
 
 msgid "Access Right Management"
 msgstr "权限管理"
+
+msgid "Access Rights Management"
+msgstr ""
 
 msgid "Access mode"
 msgstr "访问模式"
@@ -934,6 +937,9 @@ msgstr "停用延迟"
 
 msgid "Download"
 msgstr "下载"
+
+msgid "Downloading package information"
+msgstr ""
 
 msgid "Dronning Maud Land"
 msgstr "毛德皇后地"
@@ -2890,7 +2896,7 @@ msgid "Specifies how many server threads to create."
 msgstr "指定创建多少个服务器线程。"
 
 msgid "Specifies one of the bonding policies."
-msgstr "制定一个绑定策略。"
+msgstr "指定一个绑定策略。"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "指定 MII 连接的监控频率，单位是毫秒。"
@@ -2928,12 +2934,12 @@ msgid "Specifies whether it is allowed to login as superuser directly"
 msgstr "指定是否允许以超级用户直接登录"
 
 msgid "Specifies whether it is allowed to login as superuser."
-msgstr "制定是否允许以超级用户登录。"
+msgstr "指定是否允许以超级用户登录。"
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
-msgstr "制定是否监控系统状态并选择最适合的 CPU 级别。"
+msgstr "指定是否监控系统状态并选择最适合的 CPU 级别。"
 
 msgid "Specifies which slave is the primary device."
 msgstr "指定主从设备。"
@@ -3095,6 +3101,11 @@ msgstr "用户组 '%s' 不存在"
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "主机名可以作为网络上识别系统的标签。"
 
+msgid ""
+"The information about available software is out-of-date. You need to reload "
+"the information about available software."
+msgstr ""
+
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr "网口 '%s' 已经被绑定使用"
 
@@ -3138,6 +3149,11 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "新文件和目录的权限一般是由创建掩码和目录掩码决定，但权限继承会复写它们。当系统有许多用户使用单一共享时这种方案会很灵活。"
+
+msgid ""
+"The repository will be checked for new, removed or upgraded software "
+"packages."
+msgstr ""
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

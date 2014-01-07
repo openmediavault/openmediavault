@@ -7,7 +7,7 @@
 # Marcel Beck <fo3nik5@gmail.com>, 2012
 # mattjes04 <mattjes04@googlemail.com>, 2013
 # mattjes04 <mattjes04@googlemail.com>, 2012
-# Volker <votdev@gmx.de>, 2013
+# Volker <votdev@gmx.de>, 2013-2014
 # Volker <votdev@gmx.de>, 2012
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2013
@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-17 01:05+0100\n"
-"PO-Revision-Date: 2013-12-29 11:19+0000\n"
+"POT-Creation-Date: 2014-01-07 19:48+0100\n"
+"PO-Revision-Date: 2014-01-07 19:01+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -177,6 +177,9 @@ msgid "About"
 msgstr "Über"
 
 msgid "Access Right Management"
+msgstr "Zugriffskontrolle"
+
+msgid "Access Rights Management"
 msgstr "Zugriffskontrolle"
 
 msgid "Access mode"
@@ -942,6 +945,9 @@ msgstr "Zeit bis Deaktivierung"
 
 msgid "Download"
 msgstr "Herunterladen"
+
+msgid "Downloading package information"
+msgstr "Paketinformationen werden heruntergeladen"
 
 msgid "Dronning Maud Land"
 msgstr "Königin-Maud-Land"
@@ -3103,6 +3109,11 @@ msgstr "Die Gruppe '%s' existiert nicht."
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Der Hostname identifiziert das System im Netzwerk."
 
+msgid ""
+"The information about available software is out-of-date. You need to reload "
+"the information about available software."
+msgstr "Die Informationen über verfügbare Software ist veraltet. Sie müssen die Informationen über verfügbare Software aktualisieren."
+
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr "Die Schnittstelle '%s' wird bereits von einer Bonding-Schnittstelle verwendet"
 
@@ -3146,6 +3157,11 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Die Zugriffsrechte neuer Dateien und Verzeichnisse sind normalerweise durch die Create- und Directory-Maske geregelt aber der Berechtigungen erben Parameter überschreibt dies. Das kann besonders auf Systemen mit vielen Benutzern nützlich sein um eine einzelne Freigabe flexibel von jedem Benutzer benutzbar zu machen."
+
+msgid ""
+"The repository will be checked for new, removed or upgraded software "
+"packages."
+msgstr "Das Repository wird nach neuen, entfernten oder aktualisierten Software-Pakete geprüft."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
