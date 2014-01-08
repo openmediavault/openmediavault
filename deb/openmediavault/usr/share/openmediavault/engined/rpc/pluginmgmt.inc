@@ -37,6 +37,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	 * Initialize the RPC service.
 	 */
 	public function initialize() {
+		$this->registerMethod("enumeratePlugins");
 		$this->registerMethod("getList");
 		$this->registerMethod("remove");
 		$this->registerMethod("upload");
@@ -44,38 +45,23 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Get list of installed packages/plugins.
-	 * @param params An array containing the following fields:
-	 *   \em start The index where to start.
-	 *   \em limit The number of objects to process.
-	 *   \em sortfield The name of the column used to sort.
-	 *   \em sortdir The sort direction, ASC or DESC.
+	 * Enumerate all installed packages/plugins.
+	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return An array containing the requested objects. The field \em total
-	 *   contains the total number of objects, \em data contains the object
-	 *   array. An object contains the following fields: \em name, \em version,
-	 *   \em oldversion, \em architecture, \em package, \em priority,
-	 *   \em section, \em installedsize, \em maintainer, \em filename, \em size,
-	 *   \em md5sum, \em sha1, \em sha256, \em description, \em homepage,
-	 *   \em installed, \em repository and \em _readOnly. The following fields
-	 *   are optional: \em longdescription, \em depends, \em replaces and
-	 *   \em conflicts. An exception will be thrown in case of an error.
+	 * @return An array of objects with the following fields: \em name,
+	 *   \em version, \em oldversion, \em architecture, \em package,
+	 *   \em priority, \em section, \em installedsize, \em maintainer,
+	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
+	 *   \em description, \em homepage, \em installed, \em repository and
+	 *   \em _readOnly. The following fields are optional: \em longdescription,
+	 *   \em depends, \em replaces and \em conflicts.
+	 * @throw E_EXEC_FAILED
 	 */
-	function getList($params, $context) {
+	function enumeratePlugins($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "start":{"type":"integer"},
-				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-			  }
-		  }');
 		// Get product informations
 		$prd = new OMVProduct();
 		// List of packages to ignore.
@@ -199,6 +185,44 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 				}
 			}
 		}
+		return $objects;
+	}
+
+	/**
+	 * Get list of installed packages/plugins.
+	 * @param params An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @param context The context of the caller.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An object contains the following fields: \em name, \em version,
+	 *   \em oldversion, \em architecture, \em package, \em priority,
+	 *   \em section, \em installedsize, \em maintainer, \em filename, \em size,
+	 *   \em md5sum, \em sha1, \em sha256, \em description, \em homepage,
+	 *   \em installed, \em repository and \em _readOnly. The following fields
+	 *   are optional: \em longdescription, \em depends, \em replaces and
+	 *   \em conflicts. An exception will be thrown in case of an error.
+	 */
+	function getList($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "start":{"type":"integer"},
+				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+			  }
+		  }');
+		// Enumerate all installed packages/plugins.
+		$objects = $this->callMethod("enumeratePlugins", NULL, $context);
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
