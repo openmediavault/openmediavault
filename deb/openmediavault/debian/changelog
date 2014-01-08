@@ -1,3 +1,9 @@
+openmediavault (0.5.30) stable; urgency=low
+
+  * Mantis 0000937: Error opening FTP-transfer log.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 08 Jan 2014 12:06:31 +0100
+
 openmediavault (0.5.29) stable; urgency=low
 
   * Update locales.
