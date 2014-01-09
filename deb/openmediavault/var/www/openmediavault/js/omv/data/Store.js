@@ -25,5 +25,26 @@
  * @derived Ext.data.Store
  */
 Ext.define("OMV.data.Store", {
-	extend: "Ext.data.Store"
+	extend: "Ext.data.Store",
+
+	constructor: function() {
+		var me = this;
+		me.callParent(arguments);
+		me.on({
+			scope: me,
+			beforeload: function(store) {
+				var result = true;
+				// Workaround for bug in ExtJS 4.2.2:
+				// If 'autoLoad' and 'remoteSort' is enabled, then the store is
+				// loaded twice which might cause problems in the backend RPC
+				// (e.g. locked structures). To prevent such a situation simply
+				// check if the store is currently loaded and abort the current
+				// load request.
+				if(me.autoLoad && (me.remoteSort || me.remoteGroup ||
+				  me.remoteFilter))
+					result = !store.isLoading();
+				return result;
+			}
+		})
+	}
 });

@@ -152,7 +152,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		var me = this;
 		Ext.apply(me, {
 			store: Ext.create("OMV.data.Store", {
-				autoLoad: false,
+				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
 					idProperty: "name",
 					fields: [
@@ -183,10 +183,6 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 			})
 		});
 		me.callParent(arguments);
-		// If 'autoLoad' and 'remoteSort' is enabled, then the store is
-		// loaded twice which causes problems in the backend RPC. Thus
-		// load the store manually.
-		me.doLoad();
 	},
 
 	getTopToolbarItems: function() {
