@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2013
+# kochin <kochinc@outlook.com>, 2013-2014
 # kochin <kochinc@outlook.com>, 2012-2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-07 19:48+0100\n"
-"PO-Revision-Date: 2014-01-07 18:49+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-01-07 23:57+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -173,7 +173,7 @@ msgid "Access Right Management"
 msgstr "存取權限管理"
 
 msgid "Access Rights Management"
-msgstr ""
+msgstr "存取權限管理"
 
 msgid "Access mode"
 msgstr "存取模式"
@@ -940,7 +940,7 @@ msgid "Download"
 msgstr "下載"
 
 msgid "Downloading package information"
-msgstr ""
+msgstr "下載套件資訊中"
 
 msgid "Dronning Maud Land"
 msgstr "德龍寧·毛德地"
@@ -3105,7 +3105,7 @@ msgstr "主機名稱是一個用以於網路上識別系統的標籤。"
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
-msgstr ""
+msgstr "有關可用軟體的資訊已過時。你需要重新載入可用軟體的資訊。"
 
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr "介面 '%s' 已被一個結合介面使用"
@@ -3154,7 +3154,7 @@ msgstr "新檔案和目錄的權限通常是由創建掩碼和目錄掩碼來控
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr ""
+msgstr "將對軟體套件庫查看新增、已移除或已升級的軟體套件。"
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

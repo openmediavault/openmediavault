@@ -1,5 +1,6 @@
 openmediavault (0.5.30) stable; urgency=low
 
+  * Update locales.
   * Fix ExtJS bug EXTJSIV-10029 introduced by Mantis 0000936, see
     http://www.sencha.com/forum/showthread.php?264958 for more information.
   * Mantis 0000937: Error opening FTP-transfer log.

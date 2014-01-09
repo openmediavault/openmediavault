@@ -22,6 +22,7 @@
 set -e
 
 . /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
 
 OMV_I18N_JS_DICT_FILE=${OMV_I18N_JS_DICT_FILE:-"${OMV_DOCUMENTROOT_DIR}/js/omv/util/i18nDict.js"}
 OMV_I18N_MINIFY_JS_DICT_FILE=${OMV_I18N_MINIFY_JS_DICT_FILE:-"yes"}

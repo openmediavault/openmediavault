@@ -6,14 +6,14 @@
 # Milan Toet <milantoet@gmail.com>, 2012-2013
 # Seba Kerckhof <seba.kerckhof@gmail.com>, 2012
 # stokerh <stoker.pc@home.nl>, 2012
-# tico <co_ti@hotmail.com>, 2013
+# tico <co_ti@hotmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-07 19:48+0100\n"
-"PO-Revision-Date: 2014-01-07 18:49+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-01-07 21:05+0000\n"
+"Last-Translator: tico <co_ti@hotmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -175,7 +175,7 @@ msgid "Access Right Management"
 msgstr "Toegangsrechtenbeheer"
 
 msgid "Access Rights Management"
-msgstr ""
+msgstr "Toegang tot rechtenbeheer"
 
 msgid "Access mode"
 msgstr "Toegangsmodus"
@@ -942,7 +942,7 @@ msgid "Download"
 msgstr "Downloaden"
 
 msgid "Downloading package information"
-msgstr ""
+msgstr "Pakketinformatie downloaden"
 
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
@@ -3107,7 +3107,7 @@ msgstr "De hostnaam is een naam waarmee het systeem zich kenbaar maakt aan het n
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
-msgstr ""
+msgstr "De informatie omtrent beschikbare software is verouderd. U dient de informatie omtrent beschikbare informatie te herladen."
 
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr "De interface '%s' is al in gebruik door een bonding interface"
@@ -3156,7 +3156,7 @@ msgstr "De rechten op nieuwe bestanden en mappen worden normaal toegekend door h
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr ""
+msgstr "De repository zal worden gecontroleerd op nieuwe, verwijderde of bijgewerkte pakketten."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
