@@ -34,7 +34,8 @@ Ext.define("OMV.data.Store", {
 			scope: me,
 			beforeload: function(store) {
 				var result = true;
-				// Workaround for bug in ExtJS 4.2.2:
+				// Workaround for ExtJS bug EXTJSIV-10029, see
+				// http://www.sencha.com/forum/showthread.php?264958.
 				// If 'autoLoad' and 'remoteSort' is enabled, then the store is
 				// loaded twice which might cause problems in the backend RPC
 				// (e.g. locked structures). To prevent such a situation simply
