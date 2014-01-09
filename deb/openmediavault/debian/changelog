@@ -1,7 +1,7 @@
 openmediavault (0.5.30) stable; urgency=low
 
-  * Mantis 0000936: Plugin-Section - Sortable Collums: sorting is not working
-    across more than one side.
+  * Fix ExtJS bug EXTJSIV-10029 introduced by Mantis 0000936, see
+    http://www.sencha.com/forum/showthread.php?264958 for more information.
   * Mantis 0000937: Error opening FTP-transfer log.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 08 Jan 2014 12:06:31 +0100
