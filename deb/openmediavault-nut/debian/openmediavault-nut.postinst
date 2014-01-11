@@ -95,6 +95,10 @@ case "$1" in
 			omv-mkconf nut
 			udevadm trigger
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.5"; then
+			omv-mkconf collectd
+			monit restart collectd
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
