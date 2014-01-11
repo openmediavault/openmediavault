@@ -1,0 +1,102 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# dezi121 <by@songming.me>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-16 13:11+0200\n"
+"PO-Revision-Date: 2013-12-21 13:54+0000\n"
+"Last-Translator: dezi121 <by@songming.me>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Charge"
+msgstr "充电量"
+
+msgid "Comment"
+msgstr "注释"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "设置何时开始关机。"
+
+msgid "Driver configuration directives"
+msgstr "驱动配置指令"
+
+msgid "Enable"
+msgstr "启用"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "启用本地连接 UPS 的远程监控。"
+
+msgid "General settings"
+msgstr "常规设置"
+
+msgid "Identifier"
+msgstr "标识符"
+
+msgid "Load"
+msgstr "负载"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Remote monitoring"
+msgstr "远程监控"
+
+msgid "Service disabled"
+msgstr "服务已停用"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Shutdown mode"
+msgstr "关机模式"
+
+msgid "Shutdown timer"
+msgstr "关机计时器"
+
+msgid "Temperature"
+msgstr "温度"
+
+msgid "The name used to uniquely identify your UPS on this system."
+msgstr "这个名字用于识别你系统上的 UPS。"
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "多少秒后关机，如果 UPS 恢复供电则取消关机。"
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "获取更多 UPS 配置信息请查看 <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>Network UPS Tools文档</a>。"
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "UPS goes on battery"
+msgstr "UPS 使用电池供电"
+
+msgid "UPS reaches low battery"
+msgstr "UPS 电池电量低"
+
+msgid "Used for remote authentication."
+msgstr "用于远程验证。"
+
+msgid "Username"
+msgstr "用户名"
+
+msgid "Variables"
+msgstr "变量"
+
+msgid "Voltage"
+msgstr "电压"

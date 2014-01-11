@@ -1,5 +1,6 @@
 openmediavault-nut (0.5.5) stable; urgency=low
 
+  * Update locales.
   * Mantis 0000948: Fix RRD for Powercom UPS which do not support battery
     monitoring.
 
