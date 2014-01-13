@@ -1,6 +1,7 @@
 openmediavault (0.5.31) stable; urgency=low
 
   * Mantis 0000949: IPv6 firewall - fix ICMP issue.
+  * Mantis 0000950: Firewall rules editing - set correct rule number.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 13 Jan 2014 01:18:37 +0100
 

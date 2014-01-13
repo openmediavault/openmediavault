@@ -211,6 +211,15 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 	stateful: true,
 	stateId: "edb8c917-abd1-4b59-a67f-fc4ef3ab8a5f",
 	columnsTpl: [{
+/*
+		sortable: false,
+		dataIndex: "rulenum",
+		stateId: "rulenum",
+		align: "center",
+		width: 80,
+		resizable: false
+	},{
+*/
 		text: _("Direction"),
 		sortable: false,
 		dataIndex: "chain",
@@ -266,10 +275,12 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 			[ "tcp", "TCP" ],
 			[ "udp", "UDP" ],
 			[ "icmp", "ICMP" ],
+			[ "icmpv6", "ICMPv6" ],
 			[ "all", "All" ],
 			[ "!tcp", "Not TCP" ],
 			[ "!udp", "Not UDP" ],
-			[ "!icmp", "Not ICMP" ]
+			[ "!icmp", "Not ICMP" ],
+			[ "!icmpv6", _("Not ICMPv6") ]
 		])
 	},{
 		text: _("Comment"),
@@ -304,7 +315,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 		return Ext.create("OMV.data.Store", {
 			autoLoad: true,
 			model: OMV.data.Model.createImplicit({
-				idProperty: "uuid",
+				idProperty: "rulenum",
 				fields: [
 					{ name: "uuid" },
 					{ name: "rulenum" },
@@ -388,13 +399,13 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 			listeners: {
 				scope: me,
 				submit: function(c, values) {
-					var lastRowNum = this.store.getCount();
+					var nextRowNum = this.store.getCount();
 					Ext.apply(values, {
 						uuid: OMV.UUID_UNDEFINED,
-						rulenum: lastRowNum
+						rulenum: nextRowNum
 					});
 					var newRecord = new this.store.model(values);
-					me.store.insert(lastRowNum, newRecord);
+					this.store.add(newRecord);
 				}
 			}
 		}).show();
@@ -468,11 +479,13 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 	 */
 	updateRuleNums: function() {
 		var me = this;
+		me.store.suspendEvents();
 		me.store.each(function(record, index) {
 			record.beginEdit();
 			record.set("rulenum", index);
 			record.endEdit();
 		});
+		me.store.resumeEvents();
 	}
 });
 
