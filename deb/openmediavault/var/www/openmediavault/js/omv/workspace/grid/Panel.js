@@ -426,11 +426,14 @@ Ext.define("OMV.workspace.grid.Panel", {
 		if(!Ext.isNumber(index))
 			return;
 		records = Ext.Array.from(records);
+		me.store.suspendEvents();
 		Ext.Array.each(records, function(record) {
 			me.store.remove(record);
 			me.store.insert(index, record);
 		});
+		me.store.resumeEvents();
 		me.afterMoveRows(records, index);
+		me.getView().refresh();
 	},
 
 	/**

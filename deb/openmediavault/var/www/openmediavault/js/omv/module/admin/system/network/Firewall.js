@@ -315,7 +315,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 		return Ext.create("OMV.data.Store", {
 			autoLoad: true,
 			model: OMV.data.Model.createImplicit({
-				idProperty: "rulenum",
+				idProperty: "uuid",
 				fields: [
 					{ name: "uuid" },
 					{ name: "rulenum" },
@@ -446,9 +446,8 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 
 	afterMoveRows: function(records, index) {
 		var me = this;
+		me.updateRuleNums(); // Update the 'rulenum' fields.
 		me.callParent(arguments);
-		// Update the 'rulenum' fields.
-		me.updateRuleNums();
 	},
 
 	onApplyButton: function() {
