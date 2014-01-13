@@ -132,7 +132,7 @@
 					<sport>xxx|xxx-yyy</sport>
 					<destination>[!]?xxx.xxx.xxx.xxx|[!]?xxx.xxx.xxx.xxx/xx|xxx.xxx.xxx.xxx-yyy.yyy.yyy.yyy</destination>
 					<dport>xxx|xxx-yyy</dport>
-					<protocol>[!]?(tcp|udp|icmp)|all</protocol>
+					<protocol>[!]?(tcp|udp|icmp|icmpv6)|all</protocol>
 					<extraoptions>xxx</extraoptions>
 					<comment>xxx</comment>
 				</rule>

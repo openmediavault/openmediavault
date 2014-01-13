@@ -136,11 +136,13 @@ Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 			store: [
 				[ "tcp", "TCP" ],
 				[ "udp", "UDP" ],
-				[ "icmp", "ICMP" ],
+				(me.family == "inet") ? [ "icmp", "ICMP" ] :
+				  [ "icmpv6", "ICMPv6" ],
 				[ "all", _("All") ],
 				[ "!tcp", _("Not TCP") ],
 				[ "!udp", _("Not UDP") ],
-				[ "!icmp", _("Not ICMP") ]
+				(me.family == "inet") ? [ "!icmp", _("Not ICMP") ] :
+				  [ "!icmpv6", _("Not ICMPv6") ]
 			],
 			allowBlank: false,
 			editable: false,

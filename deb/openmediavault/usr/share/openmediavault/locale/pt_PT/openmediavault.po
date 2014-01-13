@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Nelson Rosado <nelsontrosado@gmail.com>, 2012-2013
+# Nelson Rosado <nelsontrosado@gmail.com>, 2012-2014
 # Nelson Rosado <nelsontrosado@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-07 19:48+0100\n"
-"PO-Revision-Date: 2014-01-07 18:49+0000\n"
+"POT-Creation-Date: 2014-01-13 01:22+0100\n"
+"PO-Revision-Date: 2014-01-13 00:22+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -155,7 +155,7 @@ msgid "9 months"
 msgstr "9 meses"
 
 msgid "A share with the name '%s' already exists"
-msgstr ""
+msgstr "Já existe uma partilha com esse nome '%s'"
 
 msgid "A shared folder with the given name already exists"
 msgstr "Já existe uma pasta partilhada com esse nome"
@@ -215,7 +215,7 @@ msgid "Add rule"
 msgstr "Adicionar regra"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Adicionar tarefa agendada"
 
 msgid "Add scheduled test"
 msgstr "Adicionar teste agendado"
@@ -348,7 +348,7 @@ msgid "Apply"
 msgstr "Aplicar"
 
 msgid "Apply configuration changes"
-msgstr ""
+msgstr "Aplique as configurações alteradas."
 
 msgid "Apply permissions to files and subfolders"
 msgstr "Aplicar permissões aos ficheiros e subpastas"
@@ -1535,7 +1535,7 @@ msgid "Incomplete"
 msgstr ""
 
 msgid "Incorrect username or password."
-msgstr ""
+msgstr "Introduza a senha de acesso"
 
 msgid "India"
 msgstr "India"
@@ -2079,6 +2079,9 @@ msgstr "Noruega"
 
 msgid "Not ICMP"
 msgstr "Sem ICMP"
+
+msgid "Not ICMPv6"
+msgstr ""
 
 msgid "Not TCP"
 msgstr "Sem TCP"
@@ -3072,7 +3075,7 @@ msgid "The changes have been applied successfully."
 msgstr "As mudanças foram aplicadas com sucesso."
 
 msgid "The comment contains invalid characters"
-msgstr ""
+msgstr "A senha de acesso tem caráteres inválidos"
 
 msgid ""
 "The configuration has been changed. You must apply the changes in order for "

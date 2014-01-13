@@ -5,14 +5,14 @@
 # Translators:
 # jmcainzos <jmcainzos@vodafone.es>, 2013
 # jmcainzos <jmcainzos@vodafone.es>, 2012
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2013
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2014
 # Volker <votdev@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-07 19:48+0100\n"
-"PO-Revision-Date: 2014-01-07 18:49+0000\n"
+"POT-Creation-Date: 2014-01-13 01:22+0100\n"
+"PO-Revision-Date: 2014-01-13 00:22+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -175,7 +175,7 @@ msgid "Access Right Management"
 msgstr "Administración de permisos de acceso"
 
 msgid "Access Rights Management"
-msgstr ""
+msgstr "Administración de permisos de acceso"
 
 msgid "Access mode"
 msgstr "Modo de acceso"
@@ -942,7 +942,7 @@ msgid "Download"
 msgstr "Descargar"
 
 msgid "Downloading package information"
-msgstr ""
+msgstr "Descargando información del paquete"
 
 msgid "Dronning Maud Land"
 msgstr "Tierra de la Reina Maud (Noruega)"
@@ -2082,6 +2082,9 @@ msgstr "Noruega"
 msgid "Not ICMP"
 msgstr "No ICMP"
 
+msgid "Not ICMPv6"
+msgstr ""
+
 msgid "Not TCP"
 msgstr "No TCP"
 
@@ -3107,7 +3110,7 @@ msgstr "El nombre de host es una etiqueta que identifica al sistema en la red."
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
-msgstr ""
+msgstr "La información del software está anticuada. Necesita recargar la información disponible acerca del software."
 
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr "El interfaz '%s' está en uso por el interfaz bonding"
@@ -3156,7 +3159,7 @@ msgstr "Los permisos sobre los nuevos archivos y directorios se establecen por l
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr ""
+msgstr "El repositorio será recargado en busca de nuevos, eliminados o mejorados paquetes de software."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

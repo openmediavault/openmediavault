@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-07 19:48+0100\n"
+"POT-Creation-Date: 2014-01-13 01:22+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1995,6 +1995,9 @@ msgid "Norway"
 msgstr ""
 
 msgid "Not ICMP"
+msgstr ""
+
+msgid "Not ICMPv6"
 msgstr ""
 
 msgid "Not TCP"
