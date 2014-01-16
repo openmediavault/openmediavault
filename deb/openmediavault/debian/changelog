@@ -1,9 +1,11 @@
 openmediavault (0.5.31) stable; urgency=low
 
+  * Update locales.
   * Fix bug in WebGUI class OMV.window.Upload.
   * Mantis 0000949: IPv6 firewall - fix ICMP issue.
   * Mantis 0000950: Firewall rules editing - set correct rule number.
-  * Mantis 0000951: Strip_size_cache - change default value 8192.
+  * Mantis 0000951: Set strip_size_cache to 8192 via UDEV rule.
+  * Mantis 0000952: Creating a Bond interface breaks /etc/network/interfaces.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 13 Jan 2014 01:18:37 +0100
 
