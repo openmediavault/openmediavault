@@ -103,7 +103,8 @@ Ext.define("OMV.window.Upload", {
 			params: {
 				service: me.service,
 				method: me.method,
-				params: me.params
+				params: !Ext.isEmpty(me.params) ? Ext.JSON.encode(
+				  me.params).htmlspecialchars() : me.params
 			},
 			waitMsg: me.waitMsg,
 			scope: me,

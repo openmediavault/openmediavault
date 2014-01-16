@@ -199,7 +199,8 @@ class OMVUploadRpcProxy extends OMVJsonRpcProxy {
 		if(empty($this->params))
 			return FALSE;
 		$this->params['params'] = empty($this->params['params']) ?
-		  array() : $this->params['params'];
+		  array() : json_decode(htmlspecialchars_decode(
+		  $this->params['params']), TRUE);
 		return TRUE;
 	}
 
@@ -246,8 +247,10 @@ class OMVUploadRpcProxy extends OMVJsonRpcProxy {
 	 */
 	public function cleanup() {
 		// Ensure the uploaded file is removed.
-		if(file_exists($this->params['params']['filepath']))
-			unlink($this->params['params']['filepath']);
+		if(array_key_exists("filepath", $this->params['params'])) {
+			if(file_exists($this->params['params']['filepath']))
+				unlink($this->params['params']['filepath']);
+		}
 	}
 }
 
