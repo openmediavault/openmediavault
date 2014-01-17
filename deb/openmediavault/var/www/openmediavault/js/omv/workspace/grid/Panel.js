@@ -359,13 +359,13 @@ Ext.define("OMV.workspace.grid.Panel", {
 		if(records.length > 0) {
 			// Find the smallest index of the selected rows.
 			var ltIndex = me.store.indexOf(records[0]);
-			for(var i = 1; i < records.length; i++) {
-				var index = me.store.indexOf(records[i])
+			Ext.Array.each(records, function(record) {
+				var index = me.store.indexOf(record);
 				if(ltIndex > index)
 					ltIndex = index;
-			}
+			});
 			// Calculate the index where to insert the rows.
-			var index = ltIndex - records.length;
+			var index = ltIndex - 1;
 			if(index < 0)
 				index = 0;
 			me.doMoveRows(records, index);
@@ -384,11 +384,11 @@ Ext.define("OMV.workspace.grid.Panel", {
 		if(records.length > 0) {
 			// Find the smallest index of the selected rows.
 			var ltIndex = me.store.indexOf(records[0]);
-			for(var i = 1; i < records.length; i++) {
-				var index = me.store.indexOf(records[i])
+			Ext.Array.each(records, function(record) {
+				var index = me.store.indexOf(record);
 				if(ltIndex > index)
 					ltIndex = index;
-			}
+			});
 			// Calculate the index where to insert the rows.
 			var index = ltIndex + records.length;
 			var count = me.store.getCount() - 1;
