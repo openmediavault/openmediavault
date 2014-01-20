@@ -133,8 +133,7 @@ LASTUPDATE="Last update\: \$(date | sed -e 's/:/\\\:/g')\r"
 
 # Helper function to copy the error graph image
 omv_copy_error_rrd_graph_image() {
-	for period in hour day week month year
-	do
+	for period in hour day week month year; do
 		cp ${OMV_RRDGRAPH_ERROR_IMAGE} \${IMGDIR}/\$1-\${period}.png
 	done
 }

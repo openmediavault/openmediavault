@@ -1,3 +1,10 @@
+openmediavault (0.5.32) stable; urgency=low
+
+  * Improve code to move grid rows via up/down toolbar buttons.
+  * Simplify code to create the RRD graphs. Thanks to Solo0815 for the hint.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 17 Jan 2014 12:02:18 +0100
+
 openmediavault (0.5.31) stable; urgency=low
 
   * Update locales.
