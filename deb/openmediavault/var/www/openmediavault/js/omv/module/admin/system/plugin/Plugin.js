@@ -27,7 +27,6 @@
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/window/Execute.js")
 // require("js/omv/window/Upload.js")
-// require("js/omv/grid/column/Hyperlink.js")
 
 /**
  * @class OMV.module.admin.system.plugin.Plugins
