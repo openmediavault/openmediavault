@@ -27,6 +27,7 @@
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/window/Execute.js")
 // require("js/omv/window/Upload.js")
+// require("js/omv/grid/column/Hyperlink.js")
 
 /**
  * @class OMV.module.admin.system.update.Packages
@@ -70,7 +71,8 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 				_("Maintainer") + ': {[Ext.String.htmlEncode(values.maintainer)]}<br/>',
 			  '</tpl>',
 			  '<tpl if="!Ext.isEmpty(values.homepage)">',
-				_("Homepage") + ': {[Ext.String.htmlEncode(values.homepage)]}<br/>',
+				_("Homepage") + ': <a href="{[Ext.String.htmlEncode(values.homepage)]}" ',
+				'target="_blank">{[Ext.String.htmlEncode(values.homepage)]}</a><br/>',
 			  '</tpl>',
 			  '<tpl if="!Ext.isEmpty(values.repository)">',
 				_("Repository") + ': {[Ext.String.htmlEncode(values.repository)]}<br/>',
@@ -130,6 +132,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 		width: 140,
 		hidden: true
 	},{
+		xtype: "hyperlinkcolumn",
 		text: _("Homepage"),
 		sortable: true,
 		dataIndex: "homepage",

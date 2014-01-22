@@ -18,22 +18,23 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/util/Format.js")
 
 /**
  * @ingroup webgui
- * @class OMV.grid.column.Empty
+ * @class OMV.grid.column.Hyperlink
  * @derived Ext.grid.column.Column
- * @param emptyText The text to be used if the value to be displayed is
- *   empty. Defaults to 'n/a'.
+ * @param target The target attribute specifies a window or a frame where
+ *   the linked document is loaded. Defaults to '_blank'.
  */
-Ext.define("OMV.grid.column.Empty", {
+Ext.define("OMV.grid.column.Hyperlink", {
 	extend: "Ext.grid.column.Column",
-	alias: [ "widget.emptycolumn" ],
+	alias: [ "widget.hyperlinkcolumn" ],
 
-	emptyText: _("n/a"),
+	target: "_blank",
 
 	defaultRenderer: function(value) {
-		return Ext.util.Format.defaultValue(value, this.emptyText);
+		var me = this;
+		return Ext.String.format('<a href="{0}" target="{1}">{0}</a>',
+		  Ext.String.htmlEncode(value), me.target);
 	}
 });
