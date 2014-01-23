@@ -47,6 +47,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Syslog", {
 		dataIndex: "user",
 		stateId: "user"
 	},{
+		xtype: "whitespacecolumn",
 		text: _("Event"),
 		sortable: true,
 		dataIndex: "event",

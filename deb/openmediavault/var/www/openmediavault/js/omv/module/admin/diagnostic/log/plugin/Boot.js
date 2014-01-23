@@ -42,6 +42,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Boot", {
 			return record.get("date");
 		}
 	},{
+		xtype: "whitespacecolumn",
 		text: _("Event"),
 		sortable: true,
 		dataIndex: "event",

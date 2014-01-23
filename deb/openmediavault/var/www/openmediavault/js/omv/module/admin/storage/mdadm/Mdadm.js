@@ -144,13 +144,13 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 					stateId: "devicefile",
 					flex: 1
 				},{
+					xtype: "binaryunitcolumn",
 					text: _("Capacity"),
 					sortable: true,
 					dataIndex: "size",
 					stateId: "size",
 					width: 50,
-					flex: 1,
-					renderer: OMV.util.Format.binaryUnitRenderer()
+					flex: 1
 				},{
 					text: _("Vendor"),
 					sortable: true,
@@ -284,12 +284,12 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 					stateId: "devicefile",
 					flex: 1
 				},{
+					xtype: "binaryunitcolumn",
 					text: _("Capacity"),
 					sortable: true,
 					dataIndex: "size",
 					stateId: "size",
-					flex: 1,
-					renderer: OMV.util.Format.binaryUnitRenderer()
+					flex: 1
 				},{
 					text: _("Vendor"),
 					sortable: true,
@@ -372,8 +372,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 		"OMV.Rpc",
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc",
-		"OMV.util.Format"
+		"OMV.data.proxy.Rpc"
 	],
 	uses: [
 		"OMV.module.admin.storage.mdadm.device.Create",
@@ -402,11 +401,11 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 		dataIndex: "devicefile",
 		stateId: "devicefile"
 	},{
+		xtype: "whitespacecolumn",
 		text: _("State"),
 		sortable: true,
 		dataIndex: "state",
-		stateId: "state",
-		renderer: OMV.util.Format.whitespaceRenderer()
+		stateId: "state"
 	},{
 		text: _("Level"),
 		sortable: true,
@@ -441,11 +440,11 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			return value;
 		}
 	},{
+		xtype: "binaryunitcolumn",
 		text: _("Capacity"),
 		sortable: true,
 		dataIndex: "size",
-		stateId: "size",
-		renderer: OMV.util.Format.binaryUnitRenderer()
+		stateId: "size"
 	},{
 		text: _("Devices"),
 		sortable: true,

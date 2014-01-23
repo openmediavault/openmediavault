@@ -45,6 +45,7 @@ OMV.util.Format = function() {
 			 * @method booleanRenderer
 			 * Returns a boolean rendering function
 			 * @return The boolean rendering function.
+			 * @deprecated Use grid column 'booleantextcolumn' instead.
 			 */
 			booleanRenderer: function() {
 				return function(value) {
@@ -58,6 +59,7 @@ OMV.util.Format = function() {
 			 * @param trueIcon The icon to use, defaults to 'yes.png'
 			 * @param falseIcon The icon to use, defaults to 'no.png'
 			 * @return The boolean rendering function.
+			 * @deprecated Use grid column 'booleaniconcolumn' instead.
 			 */
 			booleanIconRenderer: function(trueIcon, falseIcon) {
 				trueIcon = trueIcon || "yes.png";
@@ -109,6 +111,7 @@ OMV.util.Format = function() {
 			 * UNIX epoch timestamp in human readable form using the
 			 * local time format.
 			 * @return The rendering function.
+			 * @deprecated Use grid column 'unixtimestampcolumn' instead.
 			 */
 			localeTimeRenderer: function() {
 				return function(value) {
@@ -127,8 +130,9 @@ OMV.util.Format = function() {
 			 */
 			whitespace: function(value, mode) {
 				mode = mode || "normal";
-				return "<span style='white-space:" + mode + " !important;'>" +
-				  value + "</span>";
+				return Ext.String.format('<span style="white-space:{0} ' +
+				  '!important;">{1}</span>', mode,
+				  Ext.String.htmlEncode(value));
 			},
 
 			/**
@@ -136,8 +140,9 @@ OMV.util.Format = function() {
 			 * Return a rendering function that formats a value using the
 			 * defined white-space mode.
 			 * @param mode The mode to use. This can be: normal, nowrap, pre,
-			 * pre-line, pre-wrap or inherit. Defaults to 'normal'.
+			 *   pre-line, pre-wrap or inherit. Defaults to 'normal'.
 			 * @return The rendering function.
+			 * @deprecated Use grid column 'whitespacecolumn' instead.
 			 */
 			whitespaceRenderer: function(mode) {
 				return function(value) {
@@ -150,6 +155,7 @@ OMV.util.Format = function() {
 			 * Returns a rendering function that displays 'n/a' if the value
 			 * is empty.
 			 * @return The rendering function.
+			 * @deprecated Use grid column 'emptycolumn' instead.
 			 */
 			emptyRenderer: function() {
 				return function(value) {
@@ -175,6 +181,7 @@ OMV.util.Format = function() {
 			 * Returns a rendering function that displays the value in the
 			 * highest possible binary unit.
 			 * @return The rendering function.
+			 * @deprecated Use grid column 'binaryunitcolumn' instead.
 			 */
 			binaryUnitRenderer: function() {
 				return function(value) {
