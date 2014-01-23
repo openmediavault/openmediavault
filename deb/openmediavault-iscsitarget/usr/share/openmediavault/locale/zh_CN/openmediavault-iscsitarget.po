@@ -1,0 +1,276 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# dezi121 <by@songming.me>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-21 20:56+0200\n"
+"PO-Revision-Date: 2013-12-21 13:53+0000\n"
+"Last-Translator: dezi121 <by@songming.me>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Add LUN"
+msgstr "添加 LUN"
+
+msgid "Add target"
+msgstr "添加 target"
+
+msgid "Add user"
+msgstr "添加用户"
+
+msgid "Alias"
+msgstr "别名"
+
+msgid "Assign a unique identifier to the iSCSI volume optionally."
+msgstr "选择分配一个唯一的标识符给iSCSI卷。"
+
+msgid "Assign a unique serial number to the iSCSI volume optionally."
+msgstr "选择分配一个唯一的序列号给iSCSI卷。"
+
+msgid "Authentication"
+msgstr "验证"
+
+msgid "Block IO"
+msgstr "Block IO"
+
+msgid "Comment"
+msgstr "注释"
+
+msgid ""
+"Controls the maximum number of data transfers the target may request at "
+"once."
+msgstr "控制 target 一次最大请求传输的数目。"
+
+msgid "Data PDU in order"
+msgstr "数据 PDU 按顺序"
+
+msgid "Data digest"
+msgstr "数据摘要"
+
+msgid "Data sequence in order"
+msgstr "数据序列按顺序"
+
+msgid "Device"
+msgstr "设备"
+
+msgid "Discovery authentication"
+msgstr "设备搜索验证"
+
+msgid "Edit LUN"
+msgstr "编辑 LUM"
+
+msgid "Edit target"
+msgstr "编辑 target"
+
+msgid "Edit user"
+msgstr "编辑用户"
+
+msgid "Enable"
+msgstr "启用"
+
+msgid "Error recovery level"
+msgstr "错误恢复级别"
+
+msgid "Extra options"
+msgstr "附加选项"
+
+msgid "File IO"
+msgstr "文件 IO"
+
+msgid "First burst length"
+msgstr "首次突发长度"
+
+msgid "General"
+msgstr "常规"
+
+msgid "General settings"
+msgstr "常规设置"
+
+msgid "Header digest"
+msgstr "头摘要"
+
+msgid "IO threads"
+msgstr "IO 线程"
+
+msgid "IQN"
+msgstr "IQN"
+
+msgid "Id"
+msgstr "id"
+
+msgid "Identifier"
+msgstr "识别名"
+
+msgid ""
+"If a non-zero 'NOP interval' is used to periodically 'ping' the initiator "
+"during phases of inactivity (i.e. no data transfers), the initiator must "
+"respond within N seconds, otherwise the connection will be closed."
+msgstr "在发起者非活动期(如无数据传输)如果使用一个非零的 'NOP interval' 周期性 'ping'，发起者必须在 N 秒内响应，否则就断开连接。"
+
+msgid ""
+"If enabled, the initiator has to wait for the target to solicit SCSI data "
+"before sending it. Disabling it allows the initiator to send a burst of N "
+"bytes unsolicited right after and/or together with the command. Thus "
+"disabling it may improve performance."
+msgstr "如果启用，发起者发送前必须等待 target 请求 SCSI 数据，关闭该项则允许发起者不经请求发送 N 字节的突发数据，或者请求和突发数据同时发出，因此关闭可以提高性能。"
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's data segment will be protected by a CRC32C "
+"checksum."
+msgstr "如果设置 'CRC32C' 不起发起者也进行了相应配置，则 iSCSI PDU 数据的完整性将会以 CRC32C 校验保护。"
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's header segments will be protected by a CRC32C "
+"checksum."
+msgstr "如果设置 'CRC32C' 不起发起者也进行了相应配置，则 iSCSI PDU 的头文件完整性将会以 CRC32C 校验保护。"
+
+msgid ""
+"If value is non-zero, the initiator will be 'ping'ed during phases of "
+"inactivity (i.e. no data transfers) every N seconds to verify the connection"
+" is still alive."
+msgstr "如果值是非零，则发起者将在非活动期(如无数据传输时) ，每 N 秒被 'ping' 以确认在线。"
+
+msgid "Immediate data"
+msgstr "即时数据"
+
+msgid "Incoming"
+msgstr "输入"
+
+msgid "Initial R2T"
+msgstr "初始 R2T"
+
+msgid "LUN"
+msgstr "LUN"
+
+msgid "Max. burst length"
+msgstr "最大突发长度"
+
+msgid "Max. connections"
+msgstr "最大连接数"
+
+msgid "Max. outstanding R2T"
+msgstr "最多未处理 R2T"
+
+msgid "Max. receive data segment length"
+msgstr "最大接受资料段长度"
+
+msgid "Max. sessions"
+msgstr "最大会话数"
+
+msgid "Max. transmit data segment length"
+msgstr "最大传输数据段长度"
+
+msgid "NOP interval"
+msgstr "NOP  间隔"
+
+msgid "NOP timeout"
+msgstr "NOP 超时"
+
+msgid "None"
+msgstr "无"
+
+msgid "Only one outgoing user per target is supported."
+msgstr "每个 target 只支持一个传出用户。"
+
+msgid "Outgoing"
+msgstr "传出"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Queued commands"
+msgstr "列队命令"
+
+msgid "R/W mode"
+msgstr "读/写模式"
+
+msgid "Read-only"
+msgstr "只读"
+
+msgid "SCSI Id."
+msgstr "SCSI Id"
+
+msgid "SCSI serial no."
+msgstr "SCSI 序列号"
+
+msgid "Select an device ..."
+msgstr "选择设备 ..."
+
+msgid ""
+"Sets the amount of unsolicited data the initiator may transmit in the first "
+"burst of a transfer either with and/or right after the command."
+msgstr "设置发起者在请求时发送时或者之后首次突发数据的大小。"
+
+msgid ""
+"Sets the maximum amount of either unsolicited or solicited data the "
+"initiator may send in a single burst."
+msgstr "设置发起者未经请求时单次发送突发数据包的最大值。"
+
+msgid "Sets the maximum data segment length that can be received."
+msgstr "设置能被接收的最大数据段长度。"
+
+msgid "Sets the maximum data segment length that can be sent."
+msgstr "设置能发送的最大数据段长度。"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Targets"
+msgstr "Targets"
+
+msgid "The identifier of the target."
+msgstr "target 标识符"
+
+msgid "The maximum number of sessions for this target."
+msgstr "target 允许最大会话数。"
+
+msgid ""
+"The number of commands an initiator may send and that will be buffered by "
+"the target."
+msgstr "发起者发送的指令能够在 target 缓存的条数。"
+
+msgid "The number of connections within a session."
+msgstr "一个会话中的连接数。"
+
+msgid "The number of threads to perform block I/O to the device."
+msgstr "执行设备  block I/O 的线程数。"
+
+msgid "The optional alias of the target."
+msgstr "target 的别名选项。"
+
+msgid ""
+"This allows the initiator to append unsolicited data to a command. To "
+"achieve better performance, this should be enabled."
+msgstr "这将允许发起者不经请求添加命令，为了更好的性能可以开启此项。"
+
+msgid "Transfer mode"
+msgstr "传输模式"
+
+msgid "Type"
+msgstr "类型"
+
+msgid "Username"
+msgstr "用户名"
+
+msgid "Users"
+msgstr "用户"
+
+msgid "Write-back"
+msgstr "回写"
+
+msgid "Write-through"
+msgstr "直写"
+
+msgid "iSCSI Target"
+msgstr "iSCSI Target"

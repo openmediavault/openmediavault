@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:13+0200\n"
-"PO-Revision-Date: 2013-11-06 17:56+0000\n"
+"PO-Revision-Date: 2013-12-23 16:18+0000\n"
 "Last-Translator: zubr139 <zubr139@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -19,27 +19,27 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "Add backup job"
-msgstr ""
+msgstr "Додати завдання резервного копіювання"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Надіслати адміністратору повідомлення електронною поштою за допомогою команди виводу (якщо така присутня)."
 
 msgid "Archive"
 msgstr "Архів"
 
 msgid "Backup jobs"
-msgstr ""
+msgstr "Завдання резервного копіювання"
 
 msgid "Comment"
 msgstr "Коментар"
 
 msgid "Compress"
-msgstr ""
+msgstr "Стискати"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "Стиснення файлів даних під час передачі."
 
 msgid "Delete"
 msgstr "Видалити"
@@ -54,7 +54,7 @@ msgid "Device '%s' not found"
 msgstr "Пристрій '%s' не знайдено"
 
 msgid "Edit backup job"
-msgstr ""
+msgstr "Редагувати завдання резервного копіювання"
 
 msgid "Enable"
 msgstr "Увімкнути"
@@ -65,34 +65,34 @@ msgstr "Увімкнути режим архівування."
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Увімкнути цей параметр, щоб частково передати файли, в іншому випадку вони будуть вилучені, якщо передача переривається."
 
 msgid "Enabled"
 msgstr "Увімкнено"
 
 msgid "Execute backup job"
-msgstr ""
+msgstr "Виконати завдання резервного копіювання"
 
 msgid "External storage device"
-msgstr ""
+msgstr "Зовнішній накопичувач"
 
 msgid "Extra options"
 msgstr "Додаткові опції"
 
 msgid "Failed to get filesystems"
-msgstr ""
+msgstr "Не вдалося отримати файлові системи"
 
 msgid "Filesystem '%s' not found"
 msgstr "Файлова система '%s' не знайдена"
 
 msgid "From external storage to shared folder"
-msgstr ""
+msgstr "Із зовнішнього накопичувача до спільної теки"
 
 msgid "From shared folder to external storage"
-msgstr ""
+msgstr "Зі спільної теки на зовнішній пристрій зберігання"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Зберігати частково передані файли"
 
 msgid "Mode"
 msgstr "Режим"
@@ -100,13 +100,13 @@ msgstr "Режим"
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Будь ласка, перевірте  <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>сторінку керівництва</a> для більш докладної інформації."
 
 msgid "Preserve ACLs"
 msgstr ""
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "Зберігати розширені атрибути"
 
 msgid "Preserve modification times."
 msgstr "Зберигти модифіковані пункти."
@@ -133,14 +133,14 @@ msgid "Select a device ..."
 msgstr "Оберіть пристрій ..."
 
 msgid "Send command output via email."
-msgstr ""
+msgstr "Надіслати команду виведення електронною поштою."
 
 msgid "Send email"
-msgstr ""
+msgstr "Надіслати листа"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "Встановити дозволи призначення такі ж, як на джерелі."
 
 msgid "Shared folder"
 msgstr "Спільна тека"
@@ -149,7 +149,7 @@ msgid "Suppress non-error messages."
 msgstr "Не показувати повідомлення в яких немає інформації про помилки."
 
 msgid "Synchronise from/to directory on external storage device."
-msgstr ""
+msgstr "Синхронізація з/на каталог на зовнішній запам'ятовуючий пристрій."
 
 msgid "The external storage device."
 msgstr "Зовнішній пристрій зберігання дантх."
@@ -158,15 +158,15 @@ msgid ""
 "The shared folder content is synchronised from/to the root of the external "
 "storage device if this option is not set. The name of the directory is taken"
 " from the shared folder."
-msgstr ""
+msgstr "Якщо ця опція не встановлена, вміст спільної теки синхронізуються з/в корінь зовнішнього накопичувача. Ім'я каталогу береться зі спільної теки."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
 "connected."
-msgstr ""
+msgstr "Спільні теки синхронізуються, коли зовнішній запам'ятовуючий пристрій підключено."
 
 msgid "Times"
-msgstr ""
+msgstr "Час"
 
 msgid "USB Backup"
 msgstr "Резервне копіювання USB"
@@ -176,7 +176,7 @@ msgstr ""
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "Оновлювати розширені атрибути призначення, щоб були таким, як у джерела."
 
 msgid "n/a"
-msgstr ""
+msgstr "н/д"

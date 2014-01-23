@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Milan Toet <milantoet@gmail.com>, 2012-2013
+# tico <co_ti@hotmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-21 20:56+0200\n"
-"PO-Revision-Date: 2013-10-14 18:06+0000\n"
-"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
+"PO-Revision-Date: 2013-12-21 11:01+0000\n"
+"Last-Translator: tico <co_ti@hotmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,28 +20,28 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add LUN"
-msgstr "Voeg LUN toe"
+msgstr "LUN toevoegen"
 
 msgid "Add target"
-msgstr "Voeg doel toe"
+msgstr "Doel toevoegen"
 
 msgid "Add user"
-msgstr "Voeg gebruiker toe"
+msgstr "Gebruiker toevoegen"
 
 msgid "Alias"
 msgstr "Alias"
 
 msgid "Assign a unique identifier to the iSCSI volume optionally."
-msgstr "Wijs optioneel een unieke identificatiecode toe aan de iSCSI-volume."
+msgstr "Wijs optioneel een unieke identificatiecode toe aan de iSCSI-schijf."
 
 msgid "Assign a unique serial number to the iSCSI volume optionally."
-msgstr "Wijs optioneel een uniek serie nummer toe aan de iSCSI-volume."
+msgstr "Wijs optioneel een uniek serienummer toe aan de iSCSI-schijf."
 
 msgid "Authentication"
 msgstr "Authenticatie"
 
 msgid "Block IO"
-msgstr "Blokkeer IO"
+msgstr "IO blokkeren"
 
 msgid "Comment"
 msgstr "Opmerking"
@@ -48,7 +49,7 @@ msgstr "Opmerking"
 msgid ""
 "Controls the maximum number of data transfers the target may request at "
 "once."
-msgstr "Regelt het maximum aantal data overdrachten die het doel tegelijk mag verzoeken."
+msgstr "Regelt het maximaal aantal dataoverdrachten die het doel tegelijk mag verzoeken."
 
 msgid "Data PDU in order"
 msgstr "Data PDU in orde"
@@ -66,19 +67,19 @@ msgid "Discovery authentication"
 msgstr "Ontdekking authenticatie"
 
 msgid "Edit LUN"
-msgstr "Aanpassen LUN"
+msgstr "LUN aanpassen"
 
 msgid "Edit target"
-msgstr "Aanpassen doel"
+msgstr "Doel aanpassenl"
 
 msgid "Edit user"
-msgstr "Aanpassen gebruiker"
+msgstr "Gebruiker aanpassen"
 
 msgid "Enable"
 msgstr "Inschakelen"
 
 msgid "Error recovery level"
-msgstr "Error herstel niveau"
+msgstr "Foutherstelniveau"
 
 msgid "Extra options"
 msgstr "Extra opties"
@@ -190,7 +191,7 @@ msgid "Password"
 msgstr "Wachtwoord"
 
 msgid "Queued commands"
-msgstr "In de wacht staande opdrachten"
+msgstr "Opdrachten in de wachtrij"
 
 msgid "R/W mode"
 msgstr "R/W modus"
@@ -210,7 +211,7 @@ msgstr "Selecteer een apparaat ..."
 msgid ""
 "Sets the amount of unsolicited data the initiator may transmit in the first "
 "burst of a transfer either with and/or right after the command."
-msgstr "Stelt de hoeveelheid ongevraagde de gegevens die de initiatiefnemer tijdens de eerste burst van een overdracht mag verzenden tegelijk met en / of direct na de opdracht."
+msgstr "Stelt de hoeveelheid ongevraagde gegevens die de initiatiefnemer tijdens de eerste burst van een overdracht mag verzenden tegelijk met en / of direct na de opdracht."
 
 msgid ""
 "Sets the maximum amount of either unsolicited or solicited data the "
@@ -238,10 +239,10 @@ msgstr "Het maximum aantal sessies voor dit doel."
 msgid ""
 "The number of commands an initiator may send and that will be buffered by "
 "the target."
-msgstr "Het aantal commando's dat een initiatiefnemer mag verzenden en zal worden gebufferd door het doel."
+msgstr "Het aantal opdrachten dat een initiatiefnemer mag verzenden en zal worden gebufferd door het doel."
 
 msgid "The number of connections within a session."
-msgstr "Het aantal connecties binnen een sessie."
+msgstr "Het aantal verbindingen binnen een sessie."
 
 msgid "The number of threads to perform block I/O to the device."
 msgstr "Het aantal threads data een block IO naar het apparaat uitvoert"

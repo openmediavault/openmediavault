@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# zubr139 <zubr139@ukr.net>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:07+0200\n"
-"PO-Revision-Date: 2013-06-16 11:07+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2013-11-20 12:03+0000\n"
+"Last-Translator: zubr139 <zubr139@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,40 +19,40 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "A password is required to access the library."
-msgstr ""
+msgstr "Потрібен пароль для доступу до бібліотеки."
 
 msgid "Authentication"
-msgstr ""
+msgstr "Аутентифікація"
 
 msgid "Enable"
-msgstr ""
+msgstr "Увімкнути"
 
 msgid "General settings"
-msgstr ""
+msgstr "Загальні налаштування"
 
 msgid "Library name"
-msgstr ""
+msgstr "Ім'я бібліотеки"
 
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "Порт для прослуховування."
 
 msgid "Settings"
-msgstr ""
+msgstr "Налаштування"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Спільна тека"
 
 msgid "The location of the media files to share."
-msgstr ""
+msgstr "Місцезнаходження медіа-файлів для спільного доступу."
 
 msgid "The name of the library as displayed by the clients."
-msgstr ""
+msgstr "Ім'я бібліотеки, як зображено клієнтам."
 
 msgid "iTunes/DAAP"
-msgstr ""
+msgstr "iTunes/DAAP"

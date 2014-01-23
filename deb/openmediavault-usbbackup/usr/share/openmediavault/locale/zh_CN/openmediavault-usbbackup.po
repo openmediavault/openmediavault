@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# dezi121 <by@songming.me>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-16 13:13+0200\n"
+"PO-Revision-Date: 2013-12-21 13:55+0000\n"
+"Last-Translator: dezi121 <by@songming.me>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Add backup job"
+msgstr "添加备份任务"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "发送一封包含命令输出结果(如有执行)的的电子邮件给管理员。"
+
+msgid "Archive"
+msgstr "归档"
+
+msgid "Backup jobs"
+msgstr "备份任务"
+
+msgid "Comment"
+msgstr "注释"
+
+msgid "Compress"
+msgstr "压缩"
+
+msgid "Compress file data during the transfer."
+msgstr "传输时压缩数据。"
+
+msgid "Delete"
+msgstr "删除"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "删除接收端存在而发送端不存在的文件。"
+
+msgid "Device"
+msgstr "设备"
+
+msgid "Device '%s' not found"
+msgstr "找不到 '%s' 设备"
+
+msgid "Edit backup job"
+msgstr "编辑备份任务"
+
+msgid "Enable"
+msgstr "启用"
+
+msgid "Enable archive mode."
+msgstr "启用归档模式。"
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "启用此选项可以保留传输了一部分的文件，否则传输中断的文件会被删除。"
+
+msgid "Enabled"
+msgstr "已启用"
+
+msgid "Execute backup job"
+msgstr "执行备份任务"
+
+msgid "External storage device"
+msgstr "外部存储设备"
+
+msgid "Extra options"
+msgstr "扩展选项"
+
+msgid "Failed to get filesystems"
+msgstr "无法获取文件系统"
+
+msgid "Filesystem '%s' not found"
+msgstr "无法找到 '%s' 文件系统"
+
+msgid "From external storage to shared folder"
+msgstr "从外部存储设备到共享文件夹"
+
+msgid "From shared folder to external storage"
+msgstr "从共享文件夹到外部存储设备"
+
+msgid "Keep partially transferred files"
+msgstr "保留传输了一部分的文件"
+
+msgid "Mode"
+msgstr "模式"
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "详情请看 <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>指南页</a> 。"
+
+msgid "Preserve ACLs"
+msgstr "保存 ACLs"
+
+msgid "Preserve extended attributes"
+msgstr "保存扩展属性"
+
+msgid "Preserve modification times."
+msgstr "保存修改时间。"
+
+msgid "Preserve permissions"
+msgstr "保存权限"
+
+msgid "Quiet"
+msgstr "安静"
+
+msgid "Recurse into directories."
+msgstr "递归到目录。"
+
+msgid "Recursive"
+msgstr "递归"
+
+msgid "Run"
+msgstr "运行"
+
+msgid "Scan"
+msgstr "扫描"
+
+msgid "Select a device ..."
+msgstr "选择设备 ..."
+
+msgid "Send command output via email."
+msgstr "通过 Email 发送命令输出结果。"
+
+msgid "Send email"
+msgstr "发送 Email"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "设置目标属性和源属性一致。"
+
+msgid "Shared folder"
+msgstr "共享文件夹"
+
+msgid "Suppress non-error messages."
+msgstr "抑制非错误信息。"
+
+msgid "Synchronise from/to directory on external storage device."
+msgstr "外部存储设备上要同步到/被 的目录。"
+
+msgid "The external storage device."
+msgstr "外部存储设备。"
+
+msgid ""
+"The shared folder content is synchronised from/to the root of the external "
+"storage device if this option is not set. The name of the directory is taken"
+" from the shared folder."
+msgstr "如果此选项没有设置，共享文件夹的内容将同步到/被 外部存储设备的根目录，改目录的名称取决于共享文件夹。"
+
+msgid ""
+"The shared folder to synchronise when the external storage device is "
+"connected."
+msgstr "当外部存储连接后同步共享文件夹。"
+
+msgid "Times"
+msgstr "时间"
+
+msgid "USB Backup"
+msgstr "USB 备份"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr "更新目标 ACLs 和源 ACLs 一致。"
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "更新目标扩展属性与本地的一致。"
+
+msgid "n/a"
+msgstr "N/A"

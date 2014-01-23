@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Milan Toet <milantoet@gmail.com>, 2012-2013
+# tico <co_ti@hotmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:10+0200\n"
-"PO-Revision-Date: 2013-10-14 17:55+0000\n"
-"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
+"PO-Revision-Date: 2013-12-21 10:08+0000\n"
+"Last-Translator: tico <co_ti@hotmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,12 +20,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add physical volume"
-msgstr "Fysieke volume toevoegen"
+msgstr "Fysieke schijf toevoegen"
 
 msgid ""
 "After the logical volume has been extended you can resize the containing "
 "filesystem."
-msgstr "Nadat het logische volume is uitgebreid, kunt u de grootte van het geïntegreerde bestandssysteem aanpassen"
+msgstr "Nadat de logische schijf is uitgebreid, kunt u de grootte van het geïntegreerde bestandssysteem aanpassen"
 
 msgid "Available"
 msgstr "Beschikbaar"
@@ -36,10 +37,10 @@ msgid "Confirmation"
 msgstr "Bevestiging"
 
 msgid "Create logical volume"
-msgstr "Creëer logisch volume"
+msgstr "Logische schijf aanmaken"
 
 msgid "Create volume group"
-msgstr "Creëer volume groep"
+msgstr "Schijfgroep aanmaken"
 
 msgid "Description"
 msgstr "Beschrijving"
@@ -51,28 +52,28 @@ msgid "Devices"
 msgstr "Apparaten"
 
 msgid "Do you really want to create the logical volume?"
-msgstr "Weet u zeker dat u een logisch volume wilt creëren?"
+msgstr "Weet u zeker dat u een logische schijf wilt aanmaken?"
 
 msgid "Do you really want to create the physical volume?"
-msgstr "Weet u zeker dat u een fysiek volume wilt creëren?"
+msgstr "Weet u zeker dat u een fysieke schijf wilt aanmaken?"
 
 msgid "Do you really want to create the volume group?"
-msgstr "Weet u zeker dat u een volume groep wilt creëren?"
+msgstr "Weet u zeker dat u een schijfgroep wilt aanmaken?"
 
 msgid "Edit logical volume"
-msgstr "Aanpassen logisch volume"
+msgstr "Logische schijf aanpassen"
 
 msgid "Edit volume group"
-msgstr "Aanpassen volume groep"
+msgstr "Schijfgroep aanpassen"
 
 msgid "Extend"
 msgstr "Uitbreiden"
 
 msgid "Extend logical volume"
-msgstr "Uitbreiden logisch volume"
+msgstr "Logische schijf uitbreiden"
 
 msgid "Extend volume group"
-msgstr "Uitbreiden volume groep"
+msgstr "Schijfgroep uitbreiden"
 
 msgid "Free"
 msgstr "Vrij"
@@ -81,31 +82,31 @@ msgid "Invalid name"
 msgstr "Ongeldige naam"
 
 msgid "Logical Volume Management"
-msgstr "Logisch Volume Management"
+msgstr "Logische schijfbeheer"
 
 msgid "Logical volumes"
-msgstr "Logische volumes"
+msgstr "Logische schijven"
 
 msgid "Name"
 msgstr "Naam"
 
 msgid "No free space available to create a logical volume."
-msgstr "Geen vrije ruimte beschikbaar om een logisch volume te creëren."
+msgstr "Geen vrije ruimte beschikbaar om een logische schijf aan te maken."
 
 msgid "No free space available to extend the logical volume."
-msgstr "Geen vrije ruimte beschikbaar om het logische volume uit te breiden."
+msgstr "Geen vrije ruimte beschikbaar om de logische schijf uit te breiden."
 
 msgid "Physical volumes"
-msgstr "Fysieke volumes"
+msgstr "Fysieke schijven"
 
 msgid "Reduce"
 msgstr "Verkleinen"
 
 msgid "Reduce volume group"
-msgstr "Verklein volume groep"
+msgstr "Schijfgroep verkleinen"
 
 msgid "Select a volume group ..."
-msgstr "Selecteer een volume groep ..."
+msgstr "Kies een schijfgroep ..."
 
 msgid "Select an device ..."
 msgstr "Selecteer een apparaat ..."
@@ -117,7 +118,7 @@ msgid "Used"
 msgstr "Gebruikt"
 
 msgid "Volume group"
-msgstr "Volume groep"
+msgstr "Schijfgroep"
 
 msgid "Volume groups"
-msgstr "Volume groepen"
+msgstr "Schijfgroepen"

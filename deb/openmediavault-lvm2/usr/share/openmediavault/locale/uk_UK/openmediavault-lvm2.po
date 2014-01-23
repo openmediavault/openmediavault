@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:10+0200\n"
-"PO-Revision-Date: 2013-10-28 22:33+0000\n"
+"PO-Revision-Date: 2013-12-23 03:36+0000\n"
 "Last-Translator: zubr139 <zubr139@ukr.net>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -19,27 +19,27 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
 msgid "Add physical volume"
-msgstr ""
+msgstr "Додати фізичний розділ"
 
 msgid ""
 "After the logical volume has been extended you can resize the containing "
 "filesystem."
-msgstr ""
+msgstr "Після того, як логічний розділ був розширений ви можете змінити розмір файлової системи."
 
 msgid "Available"
 msgstr "Доступний"
 
 msgid "Capacity"
-msgstr ""
+msgstr "Ємкість"
 
 msgid "Confirmation"
 msgstr "Підтвердження"
 
 msgid "Create logical volume"
-msgstr ""
+msgstr "Створення логічного розділу"
 
 msgid "Create volume group"
-msgstr ""
+msgstr "Створити групу розділів"
 
 msgid "Description"
 msgstr "Опис"
@@ -51,37 +51,37 @@ msgid "Devices"
 msgstr "Пристрої"
 
 msgid "Do you really want to create the logical volume?"
-msgstr ""
+msgstr "Справді бажаєте створити логічний розділ?"
 
 msgid "Do you really want to create the physical volume?"
-msgstr ""
+msgstr "Справді бажаєте створити фізичний розділ?"
 
 msgid "Do you really want to create the volume group?"
-msgstr ""
+msgstr "Справді бажаєте створити групу розділів?"
 
 msgid "Edit logical volume"
-msgstr ""
+msgstr "Редагувати логічний розділ"
 
 msgid "Edit volume group"
-msgstr ""
+msgstr "Редагувати групу розділів"
 
 msgid "Extend"
-msgstr ""
+msgstr "Збільшити"
 
 msgid "Extend logical volume"
-msgstr ""
+msgstr "Збільшити логічний розділ"
 
 msgid "Extend volume group"
-msgstr ""
+msgstr "Збільшити групу розділів"
 
 msgid "Free"
-msgstr ""
+msgstr "Вільно"
 
 msgid "Invalid name"
 msgstr "Неправильна назва"
 
 msgid "Logical Volume Management"
-msgstr ""
+msgstr "Керування логічними розділами"
 
 msgid "Logical volumes"
 msgstr "Логічні розділи"
@@ -90,22 +90,22 @@ msgid "Name"
 msgstr "Ім'я"
 
 msgid "No free space available to create a logical volume."
-msgstr ""
+msgstr "Немає вільного місця для створення логічного розділу."
 
 msgid "No free space available to extend the logical volume."
-msgstr ""
+msgstr "Немає вільного місця для розширення логічного розділу."
 
 msgid "Physical volumes"
-msgstr ""
+msgstr "Фізичні розділи"
 
 msgid "Reduce"
-msgstr ""
+msgstr "Зменшити"
 
 msgid "Reduce volume group"
-msgstr ""
+msgstr "Зменшити групу розділів"
 
 msgid "Select a volume group ..."
-msgstr ""
+msgstr "Оберіть групу розділів ..."
 
 msgid "Select an device ..."
 msgstr "Обрати пристрій ..."
@@ -114,10 +114,10 @@ msgid "Size"
 msgstr "Розмір"
 
 msgid "Used"
-msgstr ""
+msgstr "Використано"
 
 msgid "Volume group"
-msgstr ""
+msgstr "Група розділів"
 
 msgid "Volume groups"
-msgstr ""
+msgstr "Групи розділів"

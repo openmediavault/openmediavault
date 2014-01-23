@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# dezi121 <by@songming.me>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-16 13:12+0200\n"
+"PO-Revision-Date: 2013-12-21 09:21+0000\n"
+"Last-Translator: dezi121 <by@songming.me>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "A route with the network already exists"
+msgstr "一条路由已经存在。"
+
+msgid "Add static route"
+msgstr "添加静态路由"
+
+msgid "Comment"
+msgstr "注释"
+
+msgid "Edit static route"
+msgstr "编辑静态路由"
+
+msgid "Gateway"
+msgstr "网关"
+
+msgid "Gateway used to reach the above network address."
+msgstr "网关用于到达上述网络地址。"
+
+msgid "IP or network address."
+msgstr "IP 或网络地址。"
+
+msgid "Network"
+msgstr "网络"
+
+msgid "Static Routes"
+msgstr "静态路由"
