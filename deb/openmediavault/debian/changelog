@@ -2,6 +2,7 @@ openmediavault (0.5.32) stable; urgency=low
 
   * Improve code to move grid rows via up/down toolbar buttons.
   * Simplify code to create the RRD graphs. Thanks to Solo0815 for the hint.
+  * Add UDEV rule to set 'noop' scheduler for non-rotating disks.
   * Mantis 0000956: Make home page text in Plugins a hyperlink.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 17 Jan 2014 12:02:18 +0100
