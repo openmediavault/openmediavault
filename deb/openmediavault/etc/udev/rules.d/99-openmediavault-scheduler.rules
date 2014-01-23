@@ -17,7 +17,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Set 'noop' scheduler for non-rotating disks
+# Set 'noop' scheduler for non-rotating devices.
 #
 # Documentation:
 # http://wiki.ubuntuusers.de/SSD/Scheduler

@@ -40,8 +40,8 @@ udevadm trigger
 # Modify rootfs mount options for non-rotational devices.
 devicename=$(readlink /dev/root | sed 's/[1-9]//')
 filepath="/sys/block/${devicename}/queue/rotational"
-if [ -f ${filepath} ]; then
-	if [ $(cat ${filepath}) -eq 0 ]; then
+if [ -f "${filepath}" ]; then
+	if [ $(cat "${filepath}") -eq 0 ]; then
 		options=$(grep -P '^\S+\s+/\s+\S+\s+\S+\s+\d+\s+\d+\s*$' /etc/fstab | awk '{ print $4 }')
 		sed -i -e "s/\/\s*\(\S*\)\s*${options}\s*0/\/\t\1\t${OMV_FSTAB_MNTOPS_NONROTATIONAL},${options}\t0/" /etc/fstab
 	fi
