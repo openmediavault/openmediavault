@@ -71,17 +71,28 @@ EOF
 	  CDEF:oavg=oavgraw,8,* \
 	  CDEF:omin=ominraw,8,* \
 	  CDEF:omax=omaxraw,8,* \
+	  VDEF:otot=oavg,TOTAL \
 	  CDEF:iavg=iavgraw,8,* \
 	  CDEF:imin=iminraw,8,* \
 	  CDEF:imax=imaxraw,8,* \
+	  VDEF:itot=iavg,TOTAL \
+	  CDEF:tavg=oavg,iavg,+ \
+	  CDEF:tmin=omin,imin,+ \
+	  CDEF:tmax=omax,imax,+ \
 	  LINE1:oavg\${COLOR_INTERFACE_OUTGOING}:"Outgoing" \
 	  GPRINT:oavg:AVERAGE:"%5.1lf%s Avg" \
 	  GPRINT:omax:MAX:"%5.1lf%s Max" \
-	  GPRINT:oavg:LAST:"%5.1lf%s Last\l" \
+	  GPRINT:oavg:LAST:"%5.1lf%s Last" \
+	  GPRINT:otot:"%5.1lf%s Total\l" \
 	  LINE1:iavg\${COLOR_INTERFACE_INCOMING}:"Incoming" \
 	  GPRINT:iavg:AVERAGE:"%5.1lf%s Avg" \
 	  GPRINT:imax:MAX:"%5.1lf%s Max" \
-	  GPRINT:iavg:LAST:"%5.1lf%s Last\l" \
+	  GPRINT:iavg:LAST:"%5.1lf%s Last" \
+	  GPRINT:itot:"%5.1lf%s Total\l" \
+	  COMMENT:"  Total   " \
+	  GPRINT:tavg:AVERAGE:"%5.1lf%s Avg" \
+	  GPRINT:tmax:MAX:"%5.1lf%s Max" \
+	  GPRINT:tavg:LAST:"%5.1lf%s Last\l" \
 	  COMMENT:"\${LASTUPDATE}" >/dev/null
 EOF
 	done
