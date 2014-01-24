@@ -37,6 +37,7 @@ OMV_COLLECTD_RRDTOOL_MKGRAPH=${OMV_COLLECTD_RRDTOOL_MKGRAPH:-"/usr/sbin/omv-mkgr
 xmlstarlet sel -t \
   -o "LoadPlugin df" -n \
   -o "<Plugin df>" -n \
+  -o "  MountPoint \"/\"" -n \
   -m "//system/fstab/mntent[not(contains(opts,'bind'))]" \
 	-v "concat('  MountPoint \"',dir,'\"')" -n \
   -b \
@@ -44,8 +45,12 @@ xmlstarlet sel -t \
   -o "</Plugin>" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_COLLECTD_CONFIG}
 
-FILENAME=$(xmlstarlet sel -t -m "//system/fstab/mntent[not(contains(opts,'bind'))]" \
-  -v "concat('df',translate(dir,'/','-'),' ')" -b ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+# Process configured mount points and the rootfs (/dev/root).
+FILENAME=$(xmlstarlet sel -t \
+  -o "df-root " \
+  -m "//system/fstab/mntent[not(contains(opts,'bind'))]" \
+    -v "concat('df',translate(dir,'/','-'),' ')" \
+  -b ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
 # Plugin: df
 TITLE_DF="Disk usage"

@@ -39,6 +39,16 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 		// Execute RPC to get the information required to add tab panels.
 		OMV.Rpc.request({
 			callback: function(id, success, response) {
+				// Add rootfs (/dev/root) to the list of filesystems. Note,
+				// some values do not make really sense but are required to
+				// meet the current implementation.
+				Ext.Array.insert(response, 0, [{
+					devicefile: "/dev/root",
+					label: "System",
+					mountpoint: "/root",
+					type: "rootfs"
+				}]);
+				// Create a tab panel for each filesystem.
 				Ext.Array.each(response, function(item) {
 					me.add(Ext.create("OMV.workspace.panel.RrdGraph", {
 						title: item.label || item.devicefile,

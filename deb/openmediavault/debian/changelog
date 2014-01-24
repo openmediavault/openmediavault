@@ -1,6 +1,7 @@
 openmediavault (0.5.32) stable; urgency=low
 
   * Fix various issues.
+  * Display rootfs in 'Diagnostics | System Information | Status | Disk usage'.
   * Improve code to move grid rows via up/down toolbar buttons.
   * Simplify code to create the RRD graphs. Thanks to Solo0815 for the hint.
   * Add UDEV rule to set 'noop' scheduler for non-rotating devices.
