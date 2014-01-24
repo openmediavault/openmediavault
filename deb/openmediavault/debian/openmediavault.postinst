@@ -266,8 +266,10 @@ case "$1" in
 			omv_config_add_element "/config/system/apt/distribution" "proposed" "0"
 			omv_config_add_element "/config/system/apt/distribution" "partner" "0"
 		fi
-		if dpkg --compare-versions "$2" lt-nl "0.5.31"; then
+		if dpkg --compare-versions "$2" lt-nl "0.5.32"; then
 			udevadm control --reload-rules
+			omv-initsystem 90sysctl
+			sysctl -p
 		fi
 	;;
 

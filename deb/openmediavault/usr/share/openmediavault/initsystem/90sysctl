@@ -33,7 +33,7 @@ OMV_SYSCTL_NONROT_CONFIG=${OMV_SYSCTL_NONROT_CONFIG:-"/etc/sysctl.d/99-openmedia
 # Modify some kernel parameters to reduce disk I/O for non-rotating devices.
 # The improvements are only done if the root device is a non-rotating
 # device, e.g. SSD or DOM.
-devicename=$(readlink /dev/root | sed 's/[1-9]//')
+devicename=$(readlink /dev/root | sed 's/[1-9]//g')
 filepath="/sys/block/${devicename}/queue/rotational"
 if [ -f "${filepath}" ]; then
 	if [ $(cat "${filepath}") -eq 0 ]; then

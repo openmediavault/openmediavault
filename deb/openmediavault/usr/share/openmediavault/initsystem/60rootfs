@@ -38,7 +38,7 @@ udevadm control --reload-rules
 udevadm trigger
 
 # Modify rootfs mount options for non-rotational devices.
-devicename=$(readlink /dev/root | sed 's/[1-9]//')
+devicename=$(readlink /dev/root | sed 's/[1-9]//g')
 filepath="/sys/block/${devicename}/queue/rotational"
 if [ -f "${filepath}" ]; then
 	if [ $(cat "${filepath}") -eq 0 ]; then
