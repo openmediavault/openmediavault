@@ -549,6 +549,13 @@ class OMVFilesystem extends OMVObject {
 	}
 
 	/**
+	 * Get the canonical device file, e.g. /dev/root -> /dev/sde1
+	 */
+	public function getCanonicalDeviceFile() {
+		return realpath($this->deviceFile);
+	}
+
+	/**
 	 * Get the device path by UUID, e.g.
 	 * \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 * \li /dev/disk/by-uuid/2ED43920D438EC29 (NTFS)
@@ -617,17 +624,17 @@ class OMVFilesystem extends OMVObject {
 	/**
 	 * Get statistics from a mounted filesystem.
 	 * @return The filesystem statistics if successful, otherwise FALSE. The
-	 * following fields are included: \em devicefile, \em type, \em blocks,
-	 * \em size, \em used, \em available, \em percentage and \em mountpoint.
-	 * Please note, the fields \em size, \em used and \em available are
-	 * strings and their unit is 'B' (bytes).
+	 *   following fields are included: \em devicefile, \em type, \em blocks,
+	 *   \em size, \em used, \em available, \em percentage and \em mountpoint.
+	 *   Please note, the fields \em size, \em used and \em available are
+	 *   strings and their unit is 'B' (bytes).
 	 */
 	public function getStatistics() {
 		if($this->getData() === FALSE)
 			return FALSE;
 		$data = array();
 		$cmd = sprintf("export LANG=C; df -PT %s", escapeshellarg(
-		  $this->deviceFile));
+		  $this->getCanonicalDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
 			$this->setLastError($output);

@@ -39,28 +39,33 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 		// Execute RPC to get the information required to add tab panels.
 		OMV.Rpc.request({
 			callback: function(id, success, response) {
-				// Add rootfs (/dev/root) to the list of filesystems. Note,
-				// some values do not make really sense but are required to
-				// meet the current implementation.
-				Ext.Array.insert(response, 0, [{
-					devicefile: "/dev/root",
-					label: "System",
-					mountpoint: "/root",
-					type: "rootfs"
-				}]);
-				// Create a tab panel for each filesystem.
-				Ext.Array.each(response, function(item) {
-					me.add(Ext.create("OMV.workspace.panel.RrdGraph", {
+				var fnBuildRrdGraphConfig = function(item) {
+					var config = {
 						title: item.label || item.devicefile,
 						rrdGraphName: "df-" + item.mountpoint.substr(1).
 						  replace(/\//g, "-")
-					}));
+					};
+					if("/dev/root" === item.devicefile) {
+						Ext.apply(config, {
+							title: _("System"),
+							rrdGraphName: "df-root"
+						});
+					}
+					return config;
+				}
+				// Create a tab panel for each filesystem.
+				Ext.Array.each(response, function(item) {
+					me.add(Ext.create("OMV.workspace.panel.RrdGraph",
+					  fnBuildRrdGraphConfig(item)));
 				});
 			},
 			relayErrors: false,
 			rpcData: {
 				service: "FileSystemMgmt",
-				method: "enumerateMountedFilesystems"
+				method: "enumerateMountedFilesystems",
+				params: {
+					includeRoot: true
+				}
 			}
 		});
 	}

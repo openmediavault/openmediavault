@@ -158,6 +158,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 	 * Enumerate all filesystems that have a mount point configuration
 	 * object, except binds, and are actually mounted.
 	 * @param params The method parameters.
+	 *   \em includeRoot TRUE to append the filesystem '/dev/root' if mounted.
+	 *     Defaults to FALSE.
 	 * @param context The context of the caller.
 	 * @return An array of objects with the following fields: \em uuid,
 	 *   \em devicefile, \em type, \em label, \em blocks, \em size,
@@ -171,12 +173,27 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		// Validate the parameters of the RPC service method.
+		if(!is_null($params))
+			$this->validateMethodParams($params, '{
+				  "type":"object",
+				  "properties":{
+					  "includeRoot":{"type":"boolean","optional":true}
+				  }
+			  }');
 		// Get list of mount points, except bind mounts.
 		$xpath = "//system/fstab/mntent[not(contains(opts,'bind'))]";
 		$objects = $xmlConfig->getList($xpath);
 		if(is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
+		}
+		// Append '/dev/root'?
+		if(TRUE === array_boolval($params, "includeRoot", FALSE)) {
+			array_unshift($objects, array(
+				"fsname" => "/dev/root",
+				"dir" => "/"
+			));
 		}
 		// Get the filesystem details for each mount point.
 		$result = array();
@@ -188,8 +205,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 //				  $objectv['fsname']));
 				continue;
 			}
-			// Skip the filesystems that are not mounted at the moment.
-			if(FALSE === $fs->isMounted())
+			// Check if the given filesystem is mounted based on the configured
+			// mount point. Skip the filesystems that are not mounted at the
+			// moment.
+			if(FALSE === $fs->isMountedEx("mountpoint", $objectv['dir']))
 				continue;
 			// Get the filesystem details.
 			$object = array(
