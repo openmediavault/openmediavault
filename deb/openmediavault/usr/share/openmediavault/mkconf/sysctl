@@ -21,6 +21,8 @@
 
 set -e
 
-omv-mkconf sysctl
+. /etc/default/openmediavault
 
-exit 0
+OMV_SYSCTL_EXTENSIONS_DIR=${OMV_SYSCTL_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/sysctl.d"}
+
+run-parts ${OMV_SYSCTL_EXTENSIONS_DIR}

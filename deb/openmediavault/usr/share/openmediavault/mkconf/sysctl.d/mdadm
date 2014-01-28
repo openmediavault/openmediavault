@@ -19,8 +19,17 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# http://ticktoo.com/blog/32-Linux+Software+Raid%3A+mdadm+Performance+Tuning
+# http://www.cyberciti.biz/tips/linux-raid-increase-resync-rebuild-speed.html
+
 set -e
 
-omv-mkconf sysctl
+. /etc/default/openmediavault
 
-exit 0
+OMV_SYSCTL_MDADM_CONFIG=${OMV_SYSCTL_MDADM_CONFIG:-"/etc/sysctl.d/99-openmediavault-mdadm.conf"}
+OMV_SYSCTL_DEV_RAID_SPEEDLIMITMIN=${OMV_SYSCTL_DEV_RAID_SPEEDLIMITMIN:-"10000"}
+
+# Improve maximun md array reconstruction speed
+cat <<EOF > ${OMV_SYSCTL_MDADM_CONFIG}
+dev.raid.speed_limit_min=${OMV_SYSCTL_DEV_RAID_SPEEDLIMITMIN}
+EOF

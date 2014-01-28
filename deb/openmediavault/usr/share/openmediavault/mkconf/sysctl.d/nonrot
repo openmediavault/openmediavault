@@ -1,0 +1,71 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2014 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# https://www.kernel.org/doc/Documentation/sysctl/vm.txt
+# https://www.kernel.org/doc/Documentation/laptops/laptop-mode.txt
+# http://lonesysadmin.net/2013/12/22/better-linux-disk-caching-performance-vm-dirty_ratio
+# https://major.io/2008/08/07/reduce-disk-io-for-small-reads-using-memory
+
+set -e
+
+. /etc/default/openmediavault
+
+OMV_SYSCTL_NONROT_CONFIG=${OMV_SYSCTL_NONROT_CONFIG:-"/etc/sysctl.d/99-openmediavault-nonrot.conf"}
+OMV_SYSCTL_VM_DIRTYBACKGROUNDRATIO=${OMV_SYSCTL_VM_DIRTYBACKGROUNDRATIO:-"3"}
+OMV_SYSCTL_VM_DIRTYRATIO=${OMV_SYSCTL_VM_DIRTYRATIO:-"10"}
+OMV_SYSCTL_VM_DIRTYWRITEBACKCENTISECS=${OMV_SYSCTL_VM_DIRTYWRITEBACKCENTISECS:-"1000"}
+OMV_SYSCTL_VM_DIRTYEXPIRECENTISECS=${OMV_SYSCTL_VM_DIRTYEXPIRECENTISECS:-"6000"}
+OMV_SYSCTL_VM_LAPTOPMODE=${OMV_SYSCTL_VM_LAPTOPMODE:-"5"}
+OMV_SYSCTL_VM_SWAPPINESS=${OMV_SYSCTL_VM_SWAPPINESS:-"1"}
+OMV_SYSCTL_VM_VFSCACHEPRESSURE=${OMV_SYSCTL_VM_VFSCACHEPRESSURE:-"50"}
+
+# Cleanup config file.
+rm -f ${OMV_SYSCTL_NONROT_CONFIG}
+
+# Modify some kernel parameters to reduce disk I/O for non-rotating devices.
+# The improvements are only done if the root device is a non-rotating
+# device, e.g. SSD or DOM.
+devicename=$(readlink /dev/root | sed 's/[1-9]//g')
+filepath="/sys/block/${devicename}/queue/rotational"
+if [ -f "${filepath}" ]; then
+	if [ $(cat "${filepath}") -eq 0 ]; then
+cat <<EOF > ${OMV_SYSCTL_NONROT_CONFIG}
+# This configuration file is auto-generated.
+# Modify some kernel parameters to reduce disk I/O for non-rotating devices.
+#
+# Default values:
+# vm.dirty_background_ratio = 10
+# vm.dirty_ratio = 20
+# vm.dirty_writeback_centisecs = 500
+# vm.dirty_expire_centisecs = 3000
+# vm.laptop_mode = 0
+# vm.swappiness = 60
+# vm.vfs_cache_pressure = 100
+vm.dirty_background_ratio = ${OMV_SYSCTL_VM_DIRTYBACKGROUNDRATIO}
+vm.dirty_ratio = ${OMV_SYSCTL_VM_DIRTYRATIO}
+vm.dirty_writeback_centisecs = ${OMV_SYSCTL_VM_DIRTYWRITEBACKCENTISECS}
+vm.dirty_expire_centisecs = ${OMV_SYSCTL_VM_DIRTYEXPIRECENTISECS}
+vm.laptop_mode = ${OMV_SYSCTL_VM_LAPTOPMODE}
+vm.swappiness = ${OMV_SYSCTL_VM_SWAPPINESS}
+vm.vfs_cache_pressure = ${OMV_SYSCTL_VM_VFSCACHEPRESSURE}
+EOF
+	fi
+fi

@@ -270,7 +270,7 @@ case "$1" in
 			omv-mkconf collectd
 			monit restart collectd
 			udevadm control --reload-rules
-			omv-initsystem 90sysctl
+			omv-mkconf sysctl
 			sysctl -p
 		fi
 	;;
