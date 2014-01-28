@@ -31,5 +31,9 @@ OMV_SYSCTL_DEV_RAID_SPEEDLIMITMIN=${OMV_SYSCTL_DEV_RAID_SPEEDLIMITMIN:-"10000"}
 
 # Improve maximun md array reconstruction speed
 cat <<EOF > ${OMV_SYSCTL_MDADM_CONFIG}
-dev.raid.speed_limit_min=${OMV_SYSCTL_DEV_RAID_SPEEDLIMITMIN}
+# This configuration file is auto-generated.
+#
+# Default values:
+# dev.raid.speed_limit_min = 1000
+dev.raid.speed_limit_min = ${OMV_SYSCTL_DEV_RAID_SPEEDLIMITMIN}
 EOF
