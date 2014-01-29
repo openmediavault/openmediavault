@@ -179,4 +179,25 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleNetworkUPSTools());
+
+// Register new logfile type.
+OMVLogFile::registerType("nut", array(
+  "filename" => "nut.log",
+  "filepath" => "/var/log/nut.log",
+  "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\s(\S+)\[(\d+)\]:\s+(.*)$/",
+  "columns" => array(
+	  "ts" => array(
+		  "index" => 1,
+		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+	  ),
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v',
+			'return strftime("%c", strpdate($v,"M j G:i:s"));')
+	  ),
+	  "hostname" => 2,
+	  "program" => 3,
+	  "pid" => 4,
+	  "message" => 5
+  )));
 ?>

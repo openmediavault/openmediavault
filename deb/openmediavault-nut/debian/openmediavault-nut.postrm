@@ -48,6 +48,8 @@ case "$1" in
 		# Remove udev-rule.
 		rm -f ${OMV_NUT_UDEV_RULE_CONFIG}
 		udevadm control --reload-rules
+		# Reload rsyslog configuration.
+		invoke-rc.d rsyslog reload
 	;;
 
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

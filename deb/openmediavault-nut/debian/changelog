@@ -1,3 +1,9 @@
+openmediavault-nut (0.5.6) stable; urgency=low
+
+  * Mantis 0000958: Display NUT syslog messages in WebGUI.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 29 Jan 2014 12:19:26 +0100
+
 openmediavault-nut (0.5.5) stable; urgency=low
 
   * Update locales.
