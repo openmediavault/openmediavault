@@ -2249,7 +2249,7 @@ class OMVStorageDeviceMdadm extends OMVStorageDeviceAbstract {
 			}
 		}
 
-		// Set flag to mark informations has been successfully read
+		// Set flag to mark informations has been successfully read.
 		$this->dataCached = TRUE;
 
 		return TRUE;
@@ -2935,6 +2935,7 @@ class OMVUserGroup extends OMVObject {
 	protected $name = null;
 	protected $gid = null;
 	protected $members = null;
+	private $dataCached = FALSE;
 
 	/**
 	 * Constructor
@@ -2953,24 +2954,34 @@ class OMVUserGroup extends OMVObject {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	private function getData() {
-		if(!is_null($this->members))
+		if($this->dataCached !== FALSE)
 			return TRUE;
-		// http://www.cyberciti.biz/faq/understanding-etcgroup-file
-		$cmd = sprintf("export LANG=C; getent group %s", !is_null(
-		  $this->gid) ? strval($this->gid) : escapeshellarg($this->name));
-		@OMVUtil::exec($cmd, $output, $result);
-		if(($result !== 0) || empty($output[0])) {
-			$this->setLastError($output);
+		// Query user information.
+		$groupInfo = FALSE;
+		if(!is_null($this->gid))
+			$groupInfo = posix_getgrgid($this->gid);
+		else
+			$groupInfo = posix_getgrnam($this->name);
+		if(FALSE === $groupInfo) {
+			$this->setLastError(posix_strerror(posix_errno()));
 			return FALSE;
 		}
-		// Parse output:
-		// users:x:100:
-		// ssh:x:116:test1,test2
-		$output = explode(":", $output[0]);
-		$this->name = $output[0];
-		$this->gid = intval($output[2]);
-		$this->members = empty($output[3]) ? array() : explode(
-		  ",", $output[3]);
+		$this->name = $groupInfo['name'];
+		$this->gid = $groupInfo['gid'];
+		$this->members = $groupInfo['members'];
+		// Set flag to mark informations has been successfully read.
+		$this->dataCached = TRUE;
+		return TRUE;
+	}
+
+	/**
+	 * Refresh the cached informations.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function refresh() {
+		$this->dataCached = FALSE;
+		if($this->getData() === FALSE)
+			return FALSE;
 		return TRUE;
 	}
 
@@ -2981,7 +2992,7 @@ class OMVUserGroup extends OMVObject {
 	public function exists() {
 		if($this->getData() === FALSE)
 			return FALSE;
-		return !is_null($this->members);
+		return !is_null($this->name) && !is_null($this->gid);
 	}
 
 	/**
@@ -3150,24 +3161,24 @@ class OMVUser extends OMVObject {
 			$result = TRUE;
 			break;
 		case "passwd":
-			if(!is_null($this->gid))
+			if(!is_null($this->name) && !is_null($this->uid))
 				return TRUE;
-			// http://www.cyberciti.biz/faq/understanding-etcpasswd-file-format
-			// http://en.wikipedia.org/wiki/Passwd_(file)
-			$cmd = sprintf("export LANG=C; getent passwd %s", !is_null(
-			  $this->uid) ? strval($this->uid) : escapeshellarg($this->name));
-			@OMVUtil::exec($cmd, $output, $result);
-			if(($result !== 0) || empty($output[0])) {
-				$this->setLastError($output);
+			// Query user information.
+			$userInfo = FALSE;
+			if(!is_null($this->uid))
+				$userInfo = posix_getpwuid($this->uid);
+			else
+				$userInfo = posix_getpwnam($this->name);
+			if(FALSE === $userInfo) {
+				$this->setLastError(posix_strerror(posix_errno()));
 				return FALSE;
 			}
-			$output = explode(":", $output[0]);
-			$this->name = $output[0];
-			$this->uid = intval($output[2]);
-			$this->gid = intval($output[3]);
-			$this->gecos = $output[4];
-			$this->dir = $output[5];
-			$this->shell = $output[6];
+			$this->name = $userInfo['name'];
+			$this->uid = $userInfo['uid'];
+			$this->gid = $userInfo['gid'];
+			$this->gecos = $userInfo['gecos'];
+			$this->dir = $userInfo['dir'];
+			$this->shell = $userInfo['shell'];
 			$result = TRUE;
 			break;
 		case "groups":
@@ -3198,7 +3209,7 @@ class OMVUser extends OMVObject {
 	public function exists() {
 		if($this->getData("passwd") === FALSE)
 			return FALSE;
-		return !is_null($this->gid);
+		return !is_null($this->name) && !is_null($this->uid);
 	}
 
 	/**
@@ -3484,7 +3495,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 		$this->kernelMajor = intval($output[5]);
 		$this->kernelMinor = intval($output[6]);
 
-		// Set flag to mark informations has been successfully read
+		// Set flag to mark informations has been successfully read.
 		$this->dataCached = TRUE;
 
 		return TRUE;

@@ -8,6 +8,7 @@ openmediavault (0.5.32) stable; urgency=low
   * Set sysctl vm.* values to reduce disk I/O for non-rotating devices.
     This is done in a system post-install script.
   * Mantis 0000956: Make home page text in Plugins a hyperlink.
+  * Mantis 0000960: Numerical Usernames do not shop up in webinterface.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 17 Jan 2014 12:02:18 +0100
 
