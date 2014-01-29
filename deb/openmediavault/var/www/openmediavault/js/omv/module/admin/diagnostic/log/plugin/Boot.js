@@ -43,10 +43,10 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Boot", {
 		}
 	},{
 		xtype: "whitespacecolumn",
-		text: _("Event"),
+		text: _("Message"),
 		sortable: true,
-		dataIndex: "event",
-		stateId: "event",
+		dataIndex: "message",
+		stateId: "message",
 		flex: 1
 	}],
 	rpcParams: {
@@ -55,7 +55,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Boot", {
 	rpcFields: [
 		{ name: "rownum", type: "int" },
 		{ name: "date", type: "string" },
-		{ name: "event", type: "string" }
+		{ name: "message", type: "string" }
 	]
 });
 

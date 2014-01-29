@@ -198,7 +198,7 @@ $moduleMgr->registerModule(new OMVModuleFtp());
 OMVLogFile::registerType("proftpd", array(
   "filename" => "proftpd.log",
   "filepath" => "/var/log/proftpd/proftpd.log",
-  "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\sproftpd\[\d+\]: (.*)$/",
+  "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\sproftpd\[\d+\]:\s+(.*)$/",
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
@@ -209,7 +209,7 @@ OMVLogFile::registerType("proftpd", array(
 		  "func" => create_function('$v',
 			'return strftime("%c", strpdate($v,"M j G:i:s"));')
 	  ),
-	  "event" => 3
+	  "message" => 3
   )));
 
 // Format:

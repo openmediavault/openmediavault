@@ -167,7 +167,7 @@ OMVLogFile::registerType("rsyncd", array(
 		  "func" => create_function('$v',
 			'return strftime("%c", strpdate($v,"M j G:i:s"));')
 	  ),
-	  "user" => 2,
-	  "event" => 3
+	  "hostname" => 2,
+	  "message" => 3
   )));
 ?>

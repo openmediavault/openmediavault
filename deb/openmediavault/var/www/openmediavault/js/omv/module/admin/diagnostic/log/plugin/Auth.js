@@ -42,16 +42,17 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Auth", {
 			return record.get("date");
 		}
 	},{
-		text: _("User"),
+		text: _("Hostname"),
+		hidden: true,
 		sortable: true,
-		dataIndex: "user",
-		stateId: "user"
+		dataIndex: "hostname",
+		stateId: "hostname"
 	},{
 		xtype: "whitespacecolumn",
-		text: _("Event"),
+		text: _("Message"),
 		sortable: true,
-		dataIndex: "event",
-		stateId: "event",
+		dataIndex: "message",
+		stateId: "message",
 		flex: 1
 	}],
 	rpcParams: {
@@ -61,8 +62,8 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Auth", {
 		{ name: "rownum", type: "int" },
 		{ name: "ts", type: "int" },
 		{ name: "date", type: "string" },
-		{ name: "user", type: "string" },
-		{ name: "event", type: "string" }
+		{ name: "hostname", type: "string" },
+		{ name: "message", type: "string" }
 	]
 });
 

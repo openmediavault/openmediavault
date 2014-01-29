@@ -43,8 +43,8 @@ OMVLogFile::registerType("syslog", array(
 		  "func" => create_function('$v',
 			'return strftime("%c", strpdate($v,"M j G:i:s"));')
 	  ),
-	  "user" => 2,
-	  "event" => 3
+	  "hostname" => 2,
+	  "message" => 3
   )));
 
 // /var/log/daemon.log:
@@ -64,8 +64,8 @@ OMVLogFile::registerType("daemon", array(
 		  "func" => create_function('$v',
 			'return strftime("%c", strpdate($v,"M j G:i:s"));')
 	  ),
-	  "user" => 2,
-	  "event" => 3
+	  "hostname" => 2,
+	  "message" => 3
   )));
 
 // /var/log/auth.log:
@@ -85,8 +85,8 @@ OMVLogFile::registerType("auth", array(
 		  "func" => create_function('$v',
 			'return strftime("%c", strpdate($v,"M j G:i:s"));')
 	  ),
-	  "user" => 2,
-	  "event" => 3
+	  "hostname" => 2,
+	  "message" => 3
   )));
 
 // /var/log/messages:
@@ -106,8 +106,8 @@ OMVLogFile::registerType("messages", array(
 		  "func" => create_function('$v',
 			'return strftime("%c", strpdate($v,"M j G:i:s"));')
 	  ),
-	  "user" => 2,
-	  "event" => 3
+	  "hostname" => 2,
+	  "message" => 3
   )));
 
 // /var/log/boot:
@@ -127,6 +127,6 @@ OMVLogFile::registerType("boot", array(
 		  "func" => create_function('$v',
 			'return strftime("%c", strpdate($v,"D M j H:i:s Y"));')
 	  ),
-	  "event" => 2
+	  "message" => 2
   )));
 ?>

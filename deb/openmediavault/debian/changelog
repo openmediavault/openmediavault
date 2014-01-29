@@ -1,6 +1,6 @@
 openmediavault (0.5.32) stable; urgency=low
 
-  * Fix various issues.
+  * Fix and improve various issues.
   * Display rootfs in 'Diagnostics | System Information | Status | Disk usage'.
   * Improve code to move grid rows via up/down toolbar buttons.
   * Simplify code to create the RRD graphs. Thanks to Solo0815 for the hint.

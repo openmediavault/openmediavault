@@ -128,7 +128,7 @@ $moduleMgr->registerModule(new OMVModuleSmartMonTools());
 OMVLogFile::registerType("smartd", array(
   "filename" => "smartd.log",
   "filepath" => "/var/log/smartd.log",
-  "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\ssmartd\[\d+\]: (.*)$/",
+  "regex" => "/^(\S+\s+\d+\s+\S+)\s+(\S+)\ssmartd\[\d+\]:\s+(.*)$/",
   "columns" => array(
 	  "ts" => array(
 		  "index" => 1,
@@ -139,6 +139,6 @@ OMVLogFile::registerType("smartd", array(
 		  "func" => create_function('$v',
 			'return strftime("%c", strpdate($v,"M j G:i:s"));')
 	  ),
-	  "event" => 3
+	  "message" => 3
   )));
 ?>
