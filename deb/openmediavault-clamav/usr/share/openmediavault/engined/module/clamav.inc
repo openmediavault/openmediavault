@@ -154,6 +154,6 @@ OMVLogFile::registerType("clamav", array(
 		  "func" => create_function('$v',
 			'return strftime("%c", strpdate($v,"D M j H:i:s Y"));')
 	  ),
-	  "event" => 2
+	  "message" => 2
   )));
 ?>

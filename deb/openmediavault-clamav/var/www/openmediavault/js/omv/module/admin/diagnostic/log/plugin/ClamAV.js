@@ -42,19 +42,20 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.ClamAV", {
 			return record.get("date");
 		}
 	},{
-		text: _("Event"),
+		text: _("Message"),
 		sortable: true,
-		dataIndex: "event",
-		stateId: "event",
+		dataIndex: "message",
+		stateId: "message",
 		flex: 1
 	}],
 	rpcParams: {
 		id: "clamav"
 	},
 	rpcFields: [
-		{ name: "rownum" },
-		{ name: "date" },
-		{ name: "event" }
+		{ name: "rownum", type: "int" },
+		{ name: "ts", type: "int" },
+		{ name: "date", type: "string" },
+		{ name: "message", type: "string" }
 	]
 });
 
