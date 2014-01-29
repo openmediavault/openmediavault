@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:11+0200\n"
-"PO-Revision-Date: 2014-01-23 17:56+0000\n"
+"POT-Creation-Date: 2014-01-29 17:56+0100\n"
+"PO-Revision-Date: 2014-01-29 16:56+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -18,84 +18,93 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Charge"
-msgstr ""
+msgstr "充電"
 
 msgid "Comment"
+msgstr "コメント"
+
+msgid "Date & Time"
 msgstr ""
 
 msgid "Defines when the shutdown is initiated."
-msgstr ""
+msgstr "シャットダウンが開始されるときの定義。"
 
 msgid "Driver configuration directives"
-msgstr ""
+msgstr "ドライバの設定ディレクティブ"
 
 msgid "Enable"
-msgstr ""
+msgstr "有効"
 
 msgid "Enable remote monitoring of the local connected UPS."
-msgstr ""
+msgstr "ローカル接続されたUPSのリモート監視を有効にします。"
 
 msgid "General settings"
-msgstr ""
+msgstr "一般設定"
 
 msgid "Identifier"
-msgstr ""
+msgstr "識別子"
 
 msgid "Load"
+msgstr "ロード"
+
+msgid "Message"
 msgstr ""
 
 msgid "Password"
+msgstr "パスワード"
+
+msgid "Program"
 msgstr ""
 
 msgid "Remote monitoring"
-msgstr ""
+msgstr "リモート監視"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "サービスは無効"
 
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 msgid "Shutdown mode"
-msgstr ""
+msgstr "シャットダウンモード"
 
 msgid "Shutdown timer"
-msgstr ""
+msgstr "シャットダウンタイマー"
 
 msgid "Temperature"
-msgstr ""
+msgstr "温度"
 
 msgid "The name used to uniquely identify your UPS on this system."
-msgstr ""
+msgstr "名前は一意にこのシステム上のUPSを識別するために使用されます。"
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
 "back before the time is up the shutdown is canceled."
-msgstr ""
+msgstr "シャットダウンまでの時間（秒）が開始されます。タイムアップまでに回復すればシャットダウンはキャンセルされます。"
 
 msgid ""
 "To get more information how to configure your UPS please check the Network "
 "UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
 "target='_blank'>documentation</a>."
-msgstr ""
+msgstr "詳細や、あなたのUPSについての設定方法についてはNetwork UPS Toolsの <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>ドキュメント</a> を参照してください。"
 
 msgid "UPS"
-msgstr ""
+msgstr "UPS"
 
 msgid "UPS goes on battery"
-msgstr ""
+msgstr "UPSがバッテリモードへ移行した時"
 
 msgid "UPS reaches low battery"
-msgstr ""
+msgstr "UPSがローバッテリーになった時"
 
 msgid "Used for remote authentication."
-msgstr ""
+msgstr "リモート認証を使用します。"
 
 msgid "Username"
-msgstr ""
+msgstr "ユーザー名"
 
 msgid "Variables"
-msgstr ""
+msgstr "変数"
 
 msgid "Voltage"
-msgstr ""
+msgstr "電圧"

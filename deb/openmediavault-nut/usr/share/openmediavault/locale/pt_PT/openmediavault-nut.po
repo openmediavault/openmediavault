@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:11+0200\n"
-"PO-Revision-Date: 2013-06-16 11:11+0000\n"
+"POT-Creation-Date: 2014-01-29 17:56+0100\n"
+"PO-Revision-Date: 2014-01-29 16:56+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +23,9 @@ msgstr "Carga"
 
 msgid "Comment"
 msgstr "Comentário"
+
+msgid "Date & Time"
+msgstr ""
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Definir quando se inicia o desligar."
@@ -45,8 +48,14 @@ msgstr "Identificador"
 msgid "Load"
 msgstr "Carregar"
 
+msgid "Message"
+msgstr ""
+
 msgid "Password"
 msgstr "Senha de acesso"
+
+msgid "Program"
+msgstr ""
 
 msgid "Remote monitoring"
 msgstr "Monitorização remota"

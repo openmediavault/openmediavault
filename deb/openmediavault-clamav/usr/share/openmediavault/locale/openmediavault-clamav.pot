@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-clamav\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:06+0200\n"
+"POT-Creation-Date: 2014-01-29 17:56+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,9 +92,6 @@ msgstr ""
 msgid "Enabled"
 msgstr ""
 
-msgid "Event"
-msgstr ""
-
 msgid "Every N day of month"
 msgstr ""
 
@@ -135,6 +132,9 @@ msgid "Log clean files"
 msgstr ""
 
 msgid "Log clean files. This drastically increases the log size."
+msgstr ""
+
+msgid "Message"
 msgstr ""
 
 msgid "Minute"

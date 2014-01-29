@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:06+0200\n"
-"PO-Revision-Date: 2013-12-23 03:06+0000\n"
-"Last-Translator: zubr139 <zubr139@ukr.net>\n"
+"POT-Creation-Date: 2014-01-29 17:56+0100\n"
+"PO-Revision-Date: 2014-01-29 16:56+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -97,9 +97,6 @@ msgstr ""
 msgid "Enabled"
 msgstr "Увімкнено"
 
-msgid "Event"
-msgstr "Подія"
-
 msgid "Every N day of month"
 msgstr "Кожен N день місяця"
 
@@ -140,6 +137,9 @@ msgid "Log clean files"
 msgstr ""
 
 msgid "Log clean files. This drastically increases the log size."
+msgstr ""
+
+msgid "Message"
 msgstr ""
 
 msgid "Minute"

@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Volker <votdev@gmx.de>, 2014
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:06+0200\n"
-"PO-Revision-Date: 2013-06-16 11:06+0000\n"
+"POT-Creation-Date: 2014-01-29 17:56+0100\n"
+"PO-Revision-Date: 2014-01-29 17:01+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -98,9 +99,6 @@ msgstr "Aktiviere die Erkennung von \"possibly unwanted applications\"."
 msgid "Enabled"
 msgstr "Aktiviert"
 
-msgid "Event"
-msgstr "Ereignis"
-
 msgid "Every N day of month"
 msgstr "Jeden N. Tag des Monats"
 
@@ -111,7 +109,7 @@ msgid "Every N minute"
 msgstr "Jede N. Minute"
 
 msgid "Execute cron job"
-msgstr ""
+msgstr "Führe Cron Job aus"
 
 msgid "Extra options"
 msgstr "Erweiterte Optionen"
@@ -138,10 +136,13 @@ msgid "Jobs"
 msgstr "Aufgaben"
 
 msgid "Log clean files"
-msgstr ""
+msgstr "Saubere Dateien melden"
 
 msgid "Log clean files. This drastically increases the log size."
-msgstr ""
+msgstr "Saubere Dateien melden. Dies erhöht die Größe des Logs drastisch."
+
+msgid "Message"
+msgstr "Nachricht"
 
 msgid "Minute"
 msgstr "Minute"

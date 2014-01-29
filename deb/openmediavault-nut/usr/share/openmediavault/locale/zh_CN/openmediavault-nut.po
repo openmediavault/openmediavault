@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:11+0200\n"
-"PO-Revision-Date: 2013-12-21 13:54+0000\n"
-"Last-Translator: dezi121 <by@songming.me>\n"
+"POT-Creation-Date: 2014-01-29 17:56+0100\n"
+"PO-Revision-Date: 2014-01-29 16:56+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,6 +23,9 @@ msgstr "充电量"
 
 msgid "Comment"
 msgstr "注释"
+
+msgid "Date & Time"
+msgstr ""
 
 msgid "Defines when the shutdown is initiated."
 msgstr "设置何时开始关机。"
@@ -45,8 +48,14 @@ msgstr "标识符"
 msgid "Load"
 msgstr "负载"
 
+msgid "Message"
+msgstr ""
+
 msgid "Password"
 msgstr "密码"
+
+msgid "Program"
+msgstr ""
 
 msgid "Remote monitoring"
 msgstr "远程监控"

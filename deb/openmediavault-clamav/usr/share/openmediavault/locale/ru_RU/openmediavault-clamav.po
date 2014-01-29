@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:06+0200\n"
-"PO-Revision-Date: 2013-06-17 06:16+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2014-01-29 17:56+0100\n"
+"PO-Revision-Date: 2014-01-29 16:56+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -100,9 +100,6 @@ msgstr "Включить обнаружение возможно нежелат�
 msgid "Enabled"
 msgstr "Включено"
 
-msgid "Event"
-msgstr "Событие"
-
 msgid "Every N day of month"
 msgstr "Каждый N день месяца"
 
@@ -144,6 +141,9 @@ msgstr "Записывать в лог чистые файлы"
 
 msgid "Log clean files. This drastically increases the log size."
 msgstr "Записывать в лог чистые файлы. Это значительно увеличивает размер журнала."
+
+msgid "Message"
+msgstr ""
 
 msgid "Minute"
 msgstr "Минут"

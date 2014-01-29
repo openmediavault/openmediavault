@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Volker <votdev@gmx.de>, 2014
 # warhog <warhog@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:11+0200\n"
-"PO-Revision-Date: 2013-06-16 11:11+0000\n"
+"POT-Creation-Date: 2014-01-29 17:56+0100\n"
+"PO-Revision-Date: 2014-01-29 17:02+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -23,6 +24,9 @@ msgstr "Ladung"
 
 msgid "Comment"
 msgstr "Kommentar"
+
+msgid "Date & Time"
+msgstr "Datum & Zeit"
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Definiert wann ein Shutdown initiiert wird."
@@ -45,8 +49,14 @@ msgstr "Identifikation"
 msgid "Load"
 msgstr "Last"
 
+msgid "Message"
+msgstr "Nachricht"
+
 msgid "Password"
 msgstr "Passwort"
+
+msgid "Program"
+msgstr "Programm"
 
 msgid "Remote monitoring"
 msgstr "Fernüberwachung"
@@ -55,7 +65,7 @@ msgid "Service disabled"
 msgstr "Dienst deaktiviert"
 
 msgid "Settings"
-msgstr ""
+msgstr "Einstellungen"
 
 msgid "Shutdown mode"
 msgstr "Shutdown Modus"
