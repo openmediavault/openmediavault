@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Cyryl Sochacki <>, 2012
-# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2013
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2014
 # Jacek Niedziółka <>, 2012
 # jacekniedziolka71 <jacnie@wp.pl>, 2012
 # Jakub Górny <jakub@world.pl>, 2012
@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-13 01:22+0100\n"
-"PO-Revision-Date: 2014-01-13 00:22+0000\n"
+"POT-Creation-Date: 2014-01-29 17:54+0100\n"
+"PO-Revision-Date: 2014-01-29 16:55+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -176,7 +176,7 @@ msgid "Access Right Management"
 msgstr "Ustawienia dostępu"
 
 msgid "Access Rights Management"
-msgstr ""
+msgstr "Ustawienia dostępu"
 
 msgid "Access mode"
 msgstr "Opcje dostępu"
@@ -471,7 +471,7 @@ msgid "Binary"
 msgstr "Binarnie"
 
 msgid "Block layer cache [%s, %s]"
-msgstr ""
+msgstr "Blok pamięci podręcznej [%s, %s]"
 
 msgid "Blocksize"
 msgstr "Wielkość bloku"
@@ -629,7 +629,7 @@ msgid "Community"
 msgstr "Społeczność"
 
 msgid "Community-maintained updates."
-msgstr ""
+msgstr "Wspólnota utrzymuje aktualizacje."
 
 msgid "Comoros"
 msgstr "Comoros"
@@ -819,7 +819,7 @@ msgid "Device"
 msgstr "Urządzenie"
 
 msgid "Device Mapper %s [%s, %s]"
-msgstr ""
+msgstr "Zmapowane urządzenie %s [%s, %s]"
 
 msgid "Device identity information"
 msgstr "Informacie identyfikujące urządzenie"
@@ -943,7 +943,7 @@ msgid "Download"
 msgstr "Pobierz"
 
 msgid "Downloading package information"
-msgstr ""
+msgstr "Pobieranie informacje o pakiecie"
 
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
@@ -1885,6 +1885,9 @@ msgstr "Użytkownicy"
 msgid "Memory usage"
 msgstr "Użycie pamięci"
 
+msgid "Message"
+msgstr ""
+
 msgid "Messages"
 msgstr "Wiadomości"
 
@@ -2084,7 +2087,7 @@ msgid "Not ICMP"
 msgstr "Bez ICMP"
 
 msgid "Not ICMPv6"
-msgstr ""
+msgstr "Nie ICMPv6"
 
 msgid "Not TCP"
 msgstr "Bez TCP"
@@ -3111,7 +3114,7 @@ msgstr "Nazwa hosta jest etykietą, która identyfikuje system w sieci."
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
-msgstr ""
+msgstr "Informacje na temat dostępnego oprogramowania są nieaktualne. Należy odświeżyć informacje na temat dostępnego oprogramowania."
 
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr "Interfejs '%s' jest już używany "
@@ -3160,7 +3163,7 @@ msgstr "Uprawnienia na nowe pliki i katalogi są zazwyczaj regulowane przez twor
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr ""
+msgstr "Repozytoria będą sprawdzane pod kątem zmian oprogramowania."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

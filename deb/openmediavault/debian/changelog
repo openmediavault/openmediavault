@@ -1,5 +1,6 @@
 openmediavault (0.5.32) stable; urgency=low
 
+  * Update locales.
   * Fix and improve various issues.
   * Display rootfs in 'Diagnostics | System Information | Status | Disk usage'.
   * Improve code to move grid rows via up/down toolbar buttons.

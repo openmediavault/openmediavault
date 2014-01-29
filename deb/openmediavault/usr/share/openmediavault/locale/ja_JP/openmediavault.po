@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# kansuke <kansuke4649@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-13 01:22+0100\n"
-"PO-Revision-Date: 2014-01-23 17:56+0000\n"
+"POT-Creation-Date: 2014-01-29 17:54+0100\n"
+"PO-Revision-Date: 2014-01-29 16:55+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -18,1461 +19,1461 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "% completed ..."
-msgstr ""
+msgstr "% 完了しました ..."
 
 msgid "%s (%s available)"
-msgstr ""
+msgstr "%s (%s 有効)"
 
 msgid "%s [on %s, %s ]"
-msgstr ""
+msgstr "%s [%s 上の, %s ]"
 
 msgid "'All' is not allowed"
-msgstr ""
+msgstr "'すべて' は有効ではありません"
 
 msgid "0 KiB/s means unlimited."
-msgstr ""
+msgstr "0 KiB/s は無制限となります。"
 
 msgid "1 - Minimum power usage with standby (spindown)"
-msgstr ""
+msgstr "1 - スタンバイ（スピンダウン）を使った最小の消費電力"
 
 msgid "1 day"
-msgstr ""
+msgstr "1 日"
 
 msgid "1 month"
-msgstr ""
+msgstr "1 月"
 
 msgid "1 week"
-msgstr ""
+msgstr "1 週間"
 
 msgid "1 year"
-msgstr ""
+msgstr "1 年"
 
 msgid "10 minutes"
-msgstr ""
+msgstr "10 分"
 
 msgid "10 years"
-msgstr ""
+msgstr "10 年"
 
 msgid "100% completed ..."
-msgstr ""
+msgstr "100% 完了しました ..."
 
 msgid "120 minutes"
-msgstr ""
+msgstr "120 分"
 
 msgid "127 - Intermediate power usage with standby"
-msgstr ""
+msgstr "127 - スタンバイを使った中間的な電力消費"
 
 msgid "128 - Minimum power usage without standby (no spindown)"
-msgstr ""
+msgstr "128 - スタンバイ（スピンダウン）を使わない最小の消費電力"
 
 msgid "15 years"
-msgstr ""
+msgstr "15 年"
 
 msgid "180 minutes"
-msgstr ""
+msgstr "180 分"
 
 msgid "192 - Intermediate power usage without standby"
-msgstr ""
+msgstr "192 - スタンバイを使わない中間的な電力消費"
 
 msgid "2 days"
-msgstr ""
+msgstr "2 日"
 
 msgid "2 weeks"
-msgstr ""
+msgstr "2 週間"
 
 msgid "2 years"
-msgstr ""
+msgstr "2 年"
 
 msgid "20 minutes"
-msgstr ""
+msgstr "20 分"
 
 msgid "20 years"
-msgstr ""
+msgstr "20 年"
 
 msgid "240 minutes"
-msgstr ""
+msgstr "240 分"
 
 msgid "25 years"
-msgstr ""
+msgstr "25 年"
 
 msgid "254 - Maximum performance, maximum power usage"
-msgstr ""
+msgstr "254 - 最大のパフォーマンス、最大の消費電力"
 
 msgid "255 - Disabled"
-msgstr ""
+msgstr "255 - 無効"
 
 msgid "3 days"
-msgstr ""
+msgstr "3 日"
 
 msgid "3 months"
-msgstr ""
+msgstr "3 か月"
 
 msgid "3 weeks"
-msgstr ""
+msgstr "3 週刊"
 
 msgid "3 years"
-msgstr ""
+msgstr "3 年"
 
 msgid "30 minutes"
-msgstr ""
+msgstr "30 分"
 
 msgid "300 minutes"
-msgstr ""
+msgstr "300 分"
 
 msgid "360 minutes"
-msgstr ""
+msgstr "360 分"
 
 msgid "4 days"
-msgstr ""
+msgstr "4 日"
 
 msgid "4 years"
-msgstr ""
+msgstr "4 年"
 
 msgid "5 days"
-msgstr ""
+msgstr "5 日"
 
 msgid "5 minutes"
-msgstr ""
+msgstr "5 分"
 
 msgid "5 years"
-msgstr ""
+msgstr "5 年"
 
 msgid "6 days"
-msgstr ""
+msgstr "6 日"
 
 msgid "6 months"
-msgstr ""
+msgstr "6 か月"
 
 msgid "60 minutes"
-msgstr ""
+msgstr "60 分"
 
 msgid "64 - Intermediate power usage with standby"
-msgstr ""
+msgstr "64 - スタンバイを使った中間的な電力消費レベル"
 
 msgid "9 months"
-msgstr ""
+msgstr "9 か月"
 
 msgid "A share with the name '%s' already exists"
-msgstr ""
+msgstr "'%s' の共有名はすでに存在します。"
 
 msgid "A shared folder with the given name already exists"
-msgstr ""
+msgstr "指定された名前の共有フォルダは既に存在します"
 
 msgid "ACL"
-msgstr ""
+msgstr "ACL"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "About"
-msgstr ""
+msgstr "About"
 
 msgid "Access Right Management"
-msgstr ""
+msgstr "アクセス権の管理"
 
 msgid "Access Rights Management"
-msgstr ""
+msgstr "アクセス権の管理"
 
 msgid "Access mode"
-msgstr ""
+msgstr "アクセスモード"
 
 msgid "Act as a WINS server."
-msgstr ""
+msgstr "WINSサーバとして機能します。"
 
 msgid "Action"
-msgstr ""
+msgstr "アクション"
 
 msgid "Activate S.M.A.R.T. monitoring."
-msgstr ""
+msgstr "S.M.A.R.T. モニタリングの有効化。"
 
 msgid "Add"
-msgstr ""
+msgstr "追加"
 
 msgid "Add bonded interface"
-msgstr ""
+msgstr "ボンディングインタフェイスの追加"
 
 msgid "Add devices to RAID device"
-msgstr ""
+msgstr "RAIDデバイスへの追加"
 
 msgid "Add firewall rule"
-msgstr ""
+msgstr "ファイアウォールのルールを追加"
 
 msgid "Add group"
-msgstr ""
+msgstr "グループの追加"
 
 msgid "Add hot spares / recover RAID device"
-msgstr ""
+msgstr "ホットスペア/RAIDのリカバリ領域の追加"
 
 msgid "Add module"
-msgstr ""
+msgstr "モジュールの追加"
 
 msgid "Add rsync job"
-msgstr ""
+msgstr "Rsyncのジョブを追加"
 
 msgid "Add rule"
-msgstr ""
+msgstr "ルールの追加"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "スケジュールされたジョブの追加"
 
 msgid "Add scheduled test"
-msgstr ""
+msgstr "スケジュールされたテストの追加"
 
 msgid "Add share"
-msgstr ""
+msgstr "共有の追加"
 
 msgid "Add shared folder"
-msgstr ""
+msgstr "共有フォルダの追加"
 
 msgid "Add user"
-msgstr ""
+msgstr "ユーザーの追加"
 
 msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
 " href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 "for more details."
-msgstr ""
+msgstr "追加のデバイス設定 例)'autoneg off speed 100 duplex full' 詳細は<a href='http://linux.die.net/man/8/ethtool' target='_blank'>マニュアルページ</a>を参照してください。"
 
 msgid "Address"
-msgstr ""
+msgstr "アドレス"
 
 msgid "Administrator password"
-msgstr ""
+msgstr "管理者パスワード"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
-msgstr ""
+msgstr "Administrator: 読み込み/書き込み, Users: アクセス不可, Others: アクセス不可"
 
 msgid "Administrator: read/write, Users: read-only, Others: no access"
-msgstr ""
+msgstr "Administrator: 読み込み/書き込み, Users: 読み込み専用, Others: アクセス不可"
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
-msgstr ""
+msgstr "Administrator: 読み込み/書き込み, Users: 読み込み専用, Others: 読み込み専用"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
-msgstr ""
+msgstr "Administrator: 読み込み/書き込み, Users: 読み込み/書き込み, Others: アクセス不可"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr ""
+msgstr "Administrator: 読み込み/書き込み, Users: 読み込み/書き込み, Others: 読み込み専用"
 
 msgid "Advanced Power Management"
-msgstr ""
+msgstr "高度な電源管理(APM)"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "高度な設定"
 
 msgid "Afghanistan"
-msgstr ""
+msgstr "アフガニスタン"
 
 msgid ""
 "After the RAID has been grown you can resize the containing filesystem."
-msgstr ""
+msgstr "RAIDの領域を拡張した後で、ファイルシステムのサイズを変更できます。"
 
 msgid "Aland Islands"
-msgstr ""
+msgstr "オーランド諸島"
 
 msgid "Albania"
-msgstr ""
+msgstr "アルバニア"
 
 msgid "Algeria"
-msgstr ""
+msgstr "アルジェリア"
 
 msgid "All"
-msgstr ""
+msgstr "すべて"
 
 msgid "Allow"
-msgstr ""
+msgstr "許可"
 
 msgid "Allow client access to accounts that have null passwords"
-msgstr ""
+msgstr "ヌルパスワードを持つアカウントへのクライアントアクセスを許可"
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
-msgstr ""
+msgstr "クライアントが共有に、OS/2スタイルの拡張属性を格納することを許可します。"
 
 msgid "Allow clients to resume interrupted uploads and downloads"
-msgstr ""
+msgstr "アップロードとダウンロードの中断時のレジュームをクライアントに許可"
 
 msgid "Allow new files"
-msgstr ""
+msgstr "新しいファイルを許可"
 
 msgid "Allow new files to be created."
-msgstr ""
+msgstr "新しいファイルの作成を許可"
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
-msgstr ""
+msgstr "このサーバがWindowsクライアントへのタイムサーバとして自身をアドバタイズすることを許可"
 
 msgid "Allow this server to try and become a local master browser"
-msgstr ""
+msgstr "サーバーがローカルマスターブラウザになることを試行することを許可"
 
 msgid "American Samoa"
-msgstr ""
+msgstr "アメリカ領サモア"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "Emailメッセージがコマンドの出力（あれば）とともに管理者に送られます。"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr ""
+msgstr "Emailメッセージがコマンドの出力（あれば）とともにジョブを実行するユーザーに送られます。"
 
 msgid "An error has occured"
-msgstr ""
+msgstr "エラーが発生しました"
 
 msgid "Andorra"
-msgstr ""
+msgstr "アンドラ"
 
 msgid "Angola"
-msgstr ""
+msgstr "アンゴラ"
 
 msgid "Anguilla"
-msgstr ""
+msgstr "アンギラ"
 
 msgid "Anonymous"
-msgstr ""
+msgstr "Anonymous"
 
 msgid "Anonymous FTP"
-msgstr ""
+msgstr "Anonymous FTP"
 
 msgid "Antarctica"
-msgstr ""
+msgstr "南極大陸"
 
 msgid "Antigua and Barbuda"
-msgstr ""
+msgstr "アンチグアバーブーダ"
 
 msgid "Apply"
-msgstr ""
+msgstr "適用"
 
 msgid "Apply configuration changes"
-msgstr ""
+msgstr "設定の変更を適用"
 
 msgid "Apply permissions to files and subfolders"
-msgstr ""
+msgstr "ファイルやサブフォルダにアクセス許可を適用"
 
 msgid "April"
-msgstr ""
+msgstr "4月"
 
 msgid "Archive"
-msgstr ""
+msgstr "アーカイブ"
 
 msgid "Argentina"
-msgstr ""
+msgstr "アルゼンチン"
 
 msgid "Armenia"
-msgstr ""
+msgstr "アルメニア"
 
 msgid "Array details"
-msgstr ""
+msgstr "アレイの詳細"
 
 msgid "Aruba"
-msgstr ""
+msgstr "アルバ"
 
 msgid "Asynchronous I/O"
-msgstr ""
+msgstr "非同期I/O"
 
 msgid "Attribute name"
-msgstr ""
+msgstr "属性名"
 
 msgid "Attributes"
-msgstr ""
+msgstr "属性"
 
 msgid "August"
-msgstr ""
+msgstr "8月"
 
 msgid "Australia"
-msgstr ""
+msgstr "オーストラリア"
 
 msgid "Austria"
-msgstr ""
+msgstr "オーストリア"
 
 msgid "Authenticate users"
-msgstr ""
+msgstr "ユーザー認証"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "認証されたユーザーID"
 
 msgid "Authentication"
-msgstr ""
+msgstr "認証"
 
 msgid "Authentication and no privacy"
-msgstr ""
+msgstr "認証とプライバシーなし"
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "認証とプライバシー"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "認証方法"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "認証パスフレーズ"
 
 msgid "Authentication required"
-msgstr ""
+msgstr "認証の要求"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "認証のタイプ"
 
 msgid "Automatic Acoustic Management"
-msgstr ""
+msgstr "Automatic Acoustic Management(AAM)"
 
 msgid "Available"
-msgstr ""
+msgstr "利用可能"
 
 msgid "Azerbaijan"
-msgstr ""
+msgstr "アゼルバイジャン"
 
 msgid "Bahamas"
-msgstr ""
+msgstr "な浜"
 
 msgid "Bahrain"
-msgstr ""
+msgstr "バーレーン"
 
 msgid "Ban list"
-msgstr ""
+msgstr "Banリスト"
 
 msgid "Ban statistics:"
-msgstr ""
+msgstr "Ban統計:"
 
 msgid "Bandwidth restriction"
-msgstr ""
+msgstr "帯域幅の制限"
 
 msgid "Bangladesh"
-msgstr ""
+msgstr "バングラディシュ"
 
 msgid "Barbados"
-msgstr ""
+msgstr "バルバドス"
 
 msgid "Belarus"
-msgstr ""
+msgstr "ベラルーシ"
 
 msgid "Belgium"
-msgstr ""
+msgstr "ベルギー"
 
 msgid "Belize"
-msgstr ""
+msgstr "ベリーズ"
 
 msgid "Benin"
-msgstr ""
+msgstr "ベナン"
 
 msgid "Bermuda"
-msgstr ""
+msgstr "バミューダ諸島"
 
 msgid "Bhutan"
-msgstr ""
+msgstr "ブータン"
 
 msgid "Binary"
-msgstr ""
+msgstr "バイナリ"
 
 msgid "Block layer cache [%s, %s]"
-msgstr ""
+msgstr "ブロックレイヤキャッシュ [%s, %s]"
 
 msgid "Blocksize"
-msgstr ""
+msgstr "ブロックサイズ"
 
 msgid "Bolivia"
-msgstr ""
+msgstr "ボリビア"
 
 msgid "Bond options"
-msgstr ""
+msgstr "ボンディングのオプション"
 
 msgid "Boot"
-msgstr ""
+msgstr "Boot"
 
 msgid "Bosnia and Herzegovina"
-msgstr ""
+msgstr "ボスニア·ヘルツェゴビナ"
 
 msgid "Botswana"
-msgstr ""
+msgstr "ボツワナ"
 
 msgid "Bouvet Island"
-msgstr ""
+msgstr "ブーベ島"
 
 msgid "Brazil"
-msgstr ""
+msgstr "ブラジル"
 
 msgid "British Antarctic Territory"
-msgstr ""
+msgstr "イギリス領南極地域"
 
 msgid "British Indian Ocean Territory"
-msgstr ""
+msgstr "イギリス領インド洋地域"
 
 msgid "British Virgin Islands"
-msgstr ""
+msgstr "イギリス領ヴァージン諸島"
 
 msgid "Browseable"
-msgstr ""
+msgstr "参照可能"
 
 msgid "Brunei"
-msgstr ""
+msgstr "ブルネイ"
 
 msgid "Bulgaria"
-msgstr ""
+msgstr "ブルガリア"
 
 msgid "Burkina Faso"
-msgstr ""
+msgstr "ブルキナファソ"
 
 msgid "Burundi"
-msgstr ""
+msgstr "ブルンジ"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr ""
+msgstr "デフォルトでは、すでに存在しているファイルだけをアップロードすることが許可されています。"
 
 msgid "CPU usage"
-msgstr ""
+msgstr "CPU使用率"
 
 msgid "Cambodia"
-msgstr ""
+msgstr "カンボジア"
 
 msgid "Cameroon"
-msgstr ""
+msgstr "カメルーン"
 
 msgid "Canada"
-msgstr ""
+msgstr "カナダ"
 
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 msgid ""
 "Cannot unlink shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "別の共有フォルダがサブディレクトリを参照しているため、共有フォルダのコンテンツを削除することはできません"
 
 msgid "Canton and Enderbury Islands"
-msgstr ""
+msgstr "カントン島・エンダーバリ島"
 
 msgid "Capacity"
-msgstr ""
+msgstr "容量"
 
 msgid "Cape Verde"
-msgstr ""
+msgstr "カーボベルデ"
 
 msgid "Cayman Islands"
-msgstr ""
+msgstr "ケイマン諸島"
 
 msgid "Central African Republic"
-msgstr ""
+msgstr "中央アフリカ共和国"
 
 msgid "Certificate"
-msgstr ""
+msgstr "証明書"
 
 msgid "Certificate details"
-msgstr ""
+msgstr "証明書の詳細"
 
 msgid "Certificates"
-msgstr ""
+msgstr "証明書"
 
 msgid "Chad"
-msgstr ""
+msgstr "チャド"
 
 msgid "Changelog"
-msgstr ""
+msgstr "Changelog"
 
 msgid "Check"
-msgstr ""
+msgstr "チェック"
 
 msgid "Check interval"
-msgstr ""
+msgstr "インターバルのチェック"
 
 msgid "Checking for new plugins ..."
-msgstr ""
+msgstr "新しいプラグインを確認しています ..."
 
 msgid "Checking for new updates ..."
-msgstr ""
+msgstr "更新を確認しています ..."
 
 msgid "Chile"
-msgstr ""
+msgstr "チリ"
 
 msgid "China"
-msgstr ""
+msgstr "中国"
 
 msgid "Christmas Island"
-msgstr ""
+msgstr "クリスマス島"
 
 msgid "City"
-msgstr ""
+msgstr "市"
 
 msgid "Clear"
-msgstr ""
+msgstr "クリア"
 
 msgid "Client"
-msgstr ""
+msgstr "クライアント"
 
 msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "クライアントからのファイルシステムのマウントを許可 例） 192.168.178.0/24"
 
 msgid "Close"
-msgstr ""
+msgstr "クローズ"
 
 msgid "Cocos (Keeling) Islands"
-msgstr ""
+msgstr "ココス（キーリング）諸島"
 
 msgid "Colombia"
-msgstr ""
+msgstr "コロンビア"
 
 msgid "Command"
-msgstr ""
+msgstr "コマンド"
 
 msgid "Comment"
-msgstr ""
+msgstr "コメント"
 
 msgid "Common Name"
-msgstr ""
+msgstr "コモンネーム"
 
 msgid "Community"
-msgstr ""
+msgstr "コミュニティ"
 
 msgid "Community-maintained updates."
-msgstr ""
+msgstr "コミュニティーによるメンテナンスアップデート。"
 
 msgid "Comoros"
-msgstr ""
+msgstr "コモロ"
 
 msgid "Complete"
-msgstr ""
+msgstr "完了"
 
 msgid "Completion status"
-msgstr ""
+msgstr "完了ステータス"
 
 msgid "Compress"
-msgstr ""
+msgstr "圧縮"
 
 msgid "Compress file data during the transfer"
-msgstr ""
+msgstr "転送中にファイルデータを圧縮する"
 
 msgid "Compressed"
-msgstr ""
+msgstr "圧縮済み"
 
 msgid "Compression"
-msgstr ""
+msgstr "圧縮"
 
 msgid ""
 "Compression is worth using if your connection is slow. The efficiency of the"
 " compression depends on the type of the file, and varies widely. Useful for "
 "internet transfer only."
-msgstr ""
+msgstr "圧縮は、接続が遅い場合は使用する価値があります。圧縮率はファイルの種類に依存し、大きく異なります。インターネット経由の転送時に使用することをお勧めします。"
 
 msgid "Confirm password"
-msgstr ""
+msgstr "パスワードの確認"
 
 msgid "Confirmation"
-msgstr ""
+msgstr "確認"
 
 msgid "Congo (Brazzaville)"
-msgstr ""
+msgstr "コンゴ（ブラザビル）"
 
 msgid "Congo (Kinshasa)"
-msgstr ""
+msgstr "コンゴ（キンシャサ）"
 
 msgid "Connections"
-msgstr ""
+msgstr "接続"
 
 msgid "Contact"
-msgstr ""
+msgstr "連絡先"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
-msgstr ""
+msgstr "連絡先情報 例)名前またはこのシステムの責任者の電子メールアドレス"
 
 msgid "Conveyance self-test"
-msgstr ""
+msgstr "コンベイアンスセルフテスト"
 
 msgid "Cook Islands"
-msgstr ""
+msgstr "クック諸島"
 
 msgid "Costa Rica"
-msgstr ""
+msgstr "コスタリカ"
 
 msgid "Country"
-msgstr ""
+msgstr "国"
 
 msgid "Create"
-msgstr ""
+msgstr "作成"
 
 msgid "Create RAID device"
-msgstr ""
+msgstr "RAIDデバイスの作成"
 
 msgid "Create filesystem"
-msgstr ""
+msgstr "ファイルシステムの作成"
 
 msgid "Create self-signed SSL certificate"
-msgstr ""
+msgstr "SSL自己証明書の作成"
 
 msgid "Critical"
-msgstr ""
+msgstr "クリティカル"
 
 msgid "Croatia"
-msgstr ""
+msgstr "クロアチア"
 
 msgid "Cron Jobs"
-msgstr ""
+msgstr "Cronジョブ"
 
 msgid "Cuba"
-msgstr ""
+msgstr "キューバ"
 
 msgid "Current time"
-msgstr ""
+msgstr "現在時間"
 
 msgid "Currently logged in users"
-msgstr ""
+msgstr "現在のログインユーザー"
 
 msgid "Currently logged in users:"
-msgstr ""
+msgstr "現在のログインユーザー:"
 
 msgid "Cyprus"
-msgstr ""
+msgstr "キプロス"
 
 msgid "Czech Republic"
-msgstr ""
+msgstr "チェコ"
 
 msgid "DHCP"
-msgstr ""
+msgstr "DHCP"
 
 msgid "DNS Server"
-msgstr ""
+msgstr "DNSサーバー"
 
 msgid "DNS server"
-msgstr ""
+msgstr "DNSサーバー"
 
 msgid "Daemon"
-msgstr ""
+msgstr "デーモン"
 
 msgid "Date"
-msgstr ""
+msgstr "日付"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "日時"
 
 msgid "Day of month"
-msgstr ""
+msgstr "月の日"
 
 msgid "Day of week"
-msgstr ""
+msgstr "曜日"
 
 msgid "Debug"
-msgstr ""
+msgstr "デバッグ"
 
 msgid "December"
-msgstr ""
+msgstr "12月"
 
 msgid "Delete"
-msgstr ""
+msgstr "削除"
 
 msgid "Delete content"
-msgstr ""
+msgstr "コンテンツの削除"
 
 msgid "Delete files on the receiving side that don't exist on sender"
-msgstr ""
+msgstr "送信側に存在しないものは受信側でファイルを削除します。"
 
 msgid "Delete filesystem"
-msgstr ""
+msgstr "ファイルシステムの削除"
 
 msgid "Deleting selected item(s)"
-msgstr ""
+msgstr "選択したアイテムを削除"
 
 msgid "Denmark"
-msgstr ""
+msgstr "デンマーク"
 
 msgid "Deny"
-msgstr ""
+msgstr "拒否"
 
 msgid "Deny logins which do not have a valid shell"
-msgstr ""
+msgstr "有効なシェルを持っていないログインを拒否する"
 
 msgid "Description"
-msgstr ""
+msgstr "説明"
 
 msgid "Destination"
-msgstr ""
+msgstr "送信先"
 
 msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A '!' argument before the address specification"
 " inverts the sense of the address."
-msgstr ""
+msgstr "送信先アドレスは、ネットワークIPアドレス（/マスク つける）、IP範囲またはプレーンIPアドレスのいずれかになります。 '！'をアドレス指定の前に置くと、そのアドレスの意味を反転させることができます。"
 
 msgid "Destination port"
-msgstr ""
+msgstr "送信先ポート"
 
 msgid "Destination server"
-msgstr ""
+msgstr "送信先サーバ"
 
 msgid "Destination shared folder"
-msgstr ""
+msgstr "送信先共有フォルダ"
 
 msgid "Detail"
-msgstr ""
+msgstr "詳細"
 
 msgid ""
 "Determine the default timeout, in microseconds, before the first packet is "
 "retransmitted."
-msgstr ""
+msgstr "最初のパケットが再送信される前に、マイクロ秒単位でデフォルトのタイムアウトを決定します。"
 
 msgid "Device"
-msgstr ""
+msgstr "デバイス"
 
 msgid "Device Mapper %s [%s, %s]"
-msgstr ""
+msgstr "デバイスマッパー %s [%s, %s]"
 
 msgid "Device identity information"
-msgstr ""
+msgstr "デバイス識別情報"
 
 msgid "Device model"
-msgstr ""
+msgstr "デバイスモデル"
 
 msgid "Devices"
-msgstr ""
+msgstr "デバイス"
 
 msgid "Diagnostics"
-msgstr ""
+msgstr "診断"
 
 msgid "Difference"
-msgstr ""
+msgstr "差分"
 
 msgid "Direction"
-msgstr ""
+msgstr "方向"
 
 msgid "Directory"
-msgstr ""
+msgstr "ディレクトリ"
 
 msgid "Disabled"
-msgstr ""
+msgstr "無効"
 
 msgid "Disallow the user to modify his account."
-msgstr ""
+msgstr "自分のアカウントの変更をユーザーに許可しない。"
 
 msgid "Disk usage"
-msgstr ""
+msgstr "ディスク使用量"
 
 msgid "Displaying items {0} - {1} of {2}"
-msgstr ""
+msgstr "表示中のアイテム {0} - {1} of {2}"
 
 msgid "Djibouti"
-msgstr ""
+msgstr "ジブチ"
 
 msgid "Do you really want to apply the configuration?"
-msgstr ""
+msgstr "設定を適用してよろしいですか？"
 
 msgid "Do you really want to clear the log file?"
-msgstr ""
+msgstr "ログファイルをクリアしてもよろしいですか？"
 
 msgid "Do you really want to create the RAID device?"
-msgstr ""
+msgstr "RAIDデバイスを作成してもよろしいですか？"
 
 msgid "Do you really want to delete the filesystem? All data will be lost."
-msgstr ""
+msgstr "ファイルシステムを削除してもよろしいですか？ すべてのデータは失われます。"
 
 msgid "Do you really want to delete the selected item(s)?"
-msgstr ""
+msgstr "選択されたアイテムを削除してもよろしいですか？"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the filesystem creation may take some time."
-msgstr ""
+msgstr "このデバイスをフォーマットしてもよろしいですか？ すべてのデータが削除されます。ファイルシステムの作成には時間がかかる場合があります。"
 
 msgid "Do you really want to install the selected plugin(s)?"
-msgstr ""
+msgstr "選択されたプラグインをインストールしてもよろしいですか？"
 
 msgid "Do you really want to leave the page?"
-msgstr ""
+msgstr "このページから離れてもよろしいですか？"
 
 msgid "Do you really want to logout?"
-msgstr ""
+msgstr "ログアウトしますか？"
 
 msgid "Do you really want to reboot the system?"
-msgstr ""
+msgstr "システムを再起動してよろしいですか？"
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
-msgstr ""
+msgstr "共有フォルダのコンテンツを削除してもよろしいですか？コンテンツは完全に削除され、復元することはできません。"
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
-msgstr ""
+msgstr "WebGUIの状態をリセットしてもよろしいですか？ 例）グリッド列の順序"
 
 msgid ""
 "Do you really want to resize the selected filesystem? You have to do that "
 "after a RAID has been grown for example."
-msgstr ""
+msgstr "選択されたファイルシステムをリサイズしてもよろしいですか？ RAIDの領域を拡張した後にこれを行う必要があります。"
 
 msgid "Do you really want to shutdown the system?"
-msgstr ""
+msgstr "システムをシャットダウンしてもよろしいですか？"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr ""
+msgstr "選択されたプラグインをアンインストールしてもよろしいですか？"
 
 msgid "Do you really want to wipe the selected device?"
-msgstr ""
+msgstr "選択されたデバイスをワイプしてもよろしいですか？"
 
 msgid ""
 "Do you want to remove the content of the shared folder recursively? The "
 "shared folder content will be permanently removed and cannot be recovered. "
 "Select 'No' to delete the shared folder configuration only or 'Cancel' to "
 "abort."
-msgstr ""
+msgstr "共有フォルダ内のコンテンツを再帰的に削除しますか？ コンテンツは完全に削除され、復元することはできません。'いいえ'を選択すると共有フォルダの設定のみ削除します。処理を中止する場合は'キャンセル'を選択してください。"
 
 msgid "Domain name"
-msgstr ""
+msgstr "ドメイン名"
 
 msgid "Dominica"
-msgstr ""
+msgstr "ドミニカ"
 
 msgid "Dominican Republic"
-msgstr ""
+msgstr "ドミニカ共和国"
 
 msgid "Donate"
-msgstr ""
+msgstr "寄付"
 
 msgid "Done ..."
-msgstr ""
+msgstr "終了 ..."
 
 msgid "Down"
-msgstr ""
+msgstr "下"
 
 msgid "Down delay"
-msgstr ""
+msgstr "ダウンディレイ"
 
 msgid "Download"
-msgstr ""
+msgstr "ダウンロード"
 
 msgid "Downloading package information"
-msgstr ""
+msgstr "パッケージの情報をダウンロードしています"
 
 msgid "Dronning Maud Land"
-msgstr ""
+msgstr "ドローニング・モード・ランド"
 
 msgid "Each line represents one group."
-msgstr ""
+msgstr "各行は一つのグループを表します。"
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
 "text."
-msgstr ""
+msgstr "各行は1ユーザーを表します。 注意:パスワードはプレーンテキストで入力する必要があります。"
 
 msgid "East Timor"
-msgstr ""
+msgstr "東ティモール"
 
 msgid "Ecuador"
-msgstr ""
+msgstr "エクアドル"
 
 msgid "Edit"
-msgstr ""
+msgstr "編集"
 
 msgid "Edit SSL certificate"
-msgstr ""
+msgstr "SSL証明書の編集"
 
 msgid "Edit bonded interface"
-msgstr ""
+msgstr "ボンディングインタフェースの編集"
 
 msgid "Edit firewall rule"
-msgstr ""
+msgstr "ファイアウォールルールの編集"
 
 msgid "Edit group"
-msgstr ""
+msgstr "グループの編集"
 
 msgid "Edit module"
-msgstr ""
+msgstr "モジュールの編集"
 
 msgid "Edit physical disk properties"
-msgstr ""
+msgstr "物理ディスクのプロパティを編集"
 
 msgid "Edit physical interface"
-msgstr ""
+msgstr "物理インタフェースの編集"
 
 msgid "Edit quota"
-msgstr ""
+msgstr "クォータの編集"
 
 msgid "Edit rsync job"
-msgstr ""
+msgstr "rsyncジョブの編集"
 
 msgid "Edit rule"
-msgstr ""
+msgstr "ルールの編集"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "スケジュールされたジョブの編集"
 
 msgid "Edit scheduled test"
-msgstr ""
+msgstr "スケジュールされたテストの編集"
 
 msgid "Edit share"
-msgstr ""
+msgstr "共有の編集"
 
 msgid "Edit shared folder"
-msgstr ""
+msgstr "共有フォルダの編集"
 
 msgid "Edit shared folder privileges"
-msgstr ""
+msgstr "共有フォルダの権限を編集"
 
 msgid "Edit user"
-msgstr ""
+msgstr "ユーザーを編集"
 
 msgid "Egypt"
-msgstr ""
+msgstr "エジプト"
 
 msgid "El Salvador"
-msgstr ""
+msgstr "エルサルバドル"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "Enable"
-msgstr ""
+msgstr "有効"
 
 msgid "Enable FXP protocol"
-msgstr ""
+msgstr "FXPプロトコルを有効化"
 
 msgid "Enable SSL/TLS"
-msgstr ""
+msgstr "SSL/TLSを有効化"
 
 msgid "Enable SSL/TLS connections"
-msgstr ""
+msgstr "SSL/TLS接続を有効化"
 
 msgid "Enable WINS server"
-msgstr ""
+msgstr "WINSサーバーを有効化"
 
 msgid "Enable anonymous FTP"
-msgstr ""
+msgstr "Anonymous FTPを有効化"
 
 msgid "Enable archive mode"
-msgstr ""
+msgstr "アーカイブモードを有効化"
 
 msgid "Enable asynchronous I/O (AIO) support."
-msgstr ""
+msgstr "非同期I/O(AIO)サポートを有効化"
 
 msgid "Enable chroot."
-msgstr ""
+msgstr "Chrootを有効化"
 
 msgid "Enable compression"
-msgstr ""
+msgstr "圧縮を有効化"
 
 msgid "Enable extended attribute support"
-msgstr ""
+msgstr "拡張属性サポートを有効化"
 
 msgid "Enable keyboard-interactive authentication"
-msgstr ""
+msgstr "キーボードインタラクティブ認証を有効化"
 
 msgid "Enable module listing"
-msgstr ""
+msgstr "モジュールリスティングを有効化"
 
 msgid "Enable permission inheritance"
-msgstr ""
+msgstr "パーミッションの継承を有効化"
 
 msgid "Enable recycle bin"
-msgstr ""
+msgstr "ごみ箱を有効化"
 
 msgid "Enable reverse DNS lookup"
-msgstr ""
+msgstr "DNSの逆引き参照を有効化"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
 "connections."
-msgstr ""
+msgstr "サーバに入ってくるアクティブモードデータ接続と、サーバから出ていくパッシブモード接続のリモートホストのIPアドレスをDNSで逆引き参照することを有効にします。"
 
 msgid "Enable secure connection."
-msgstr ""
+msgstr "セキュアコネクションを有効にします。"
 
 msgid "Enable store DOS attributes support"
-msgstr ""
+msgstr "DOS属性の書き込みサポートを有効化"
 
 msgid "Enable the ident protocol (RFC1413)"
-msgstr ""
+msgstr "Identプロトコル(RFC1413)を有効化"
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "部分的に転送されたファイルを保持する場合はこのオプションを有効にします。それ以外の場合は転送が中断された場合、ファイルは削除されます。"
 
 msgid "Enable transfer log"
-msgstr ""
+msgstr "転送ログを有効化"
 
 msgid "Enable user authentication"
-msgstr ""
+msgstr "ユーザー認証を有効化"
 
 msgid "Enable user home directories"
-msgstr ""
+msgstr "ユーザーのホームディレクトリを有効化"
 
 msgid "Enable write-cache."
-msgstr ""
+msgstr "ライトキャッシュを有効化"
 
 msgid "Enabled"
-msgstr ""
+msgstr "有効"
 
 msgid "Enter your password"
-msgstr ""
+msgstr "パスワードを入力してください"
 
 msgid "Enter your username"
-msgstr ""
+msgstr "ユーザー名を入力してください"
 
 msgid "Equatorial Guinea"
-msgstr ""
+msgstr "赤道ギニア"
 
 msgid "Eritrea"
-msgstr ""
+msgstr "エリトリア"
 
 msgid "Error"
-msgstr ""
+msgstr "エラー"
 
 msgid "Error #"
-msgstr ""
+msgstr "エラー #"
 
 msgid "Error #%d"
-msgstr ""
+msgstr "エラー #%d"
 
 msgid "Estonia"
-msgstr ""
+msgstr "エストニア"
 
 msgid "Ethiopia"
-msgstr ""
+msgstr "エチオピア"
 
 msgid "Event"
-msgstr ""
+msgstr "イベント"
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "毎月N日"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "毎N時"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "毎N分"
 
 msgid "Everyone: read/write"
-msgstr ""
+msgstr "みんな:読み/書き"
 
 msgid "Execute command"
-msgstr ""
+msgstr "コマンドの実行"
 
 msgid "Execute cron job"
-msgstr ""
+msgstr "Cronジョブの実行"
 
 msgid "Execute rsync job"
-msgstr ""
+msgstr "Rsyncジョブの実行"
 
 msgid "Execute scheduled test"
-msgstr ""
+msgstr "スケジュールされたテストの実行"
 
 msgid "Expire"
-msgstr ""
+msgstr "有効期限"
 
 msgid "Extended attributes"
-msgstr ""
+msgstr "拡張属性"
 
 msgid "Extra options"
-msgstr ""
+msgstr "追加オプション"
 
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - 転送ログ"
 
 msgid "FXP"
-msgstr ""
+msgstr "FXP"
 
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
-msgstr ""
+msgstr "FXPはクライアントを経由しなくても２つのリモートサーバ間でデータ転送を行えます。"
 
 msgid ""
 "Failed to create filesystem. Please check the syslog or '%s' for more "
 "details."
-msgstr ""
+msgstr "ファイルシステムの作成に失敗しました。詳細はsyslogまたは '%s' をチェックしてください。"
 
 msgid "Failed to get filesystems"
-msgstr ""
+msgstr "ファイルシステムの取得に失敗しました"
 
 msgid "Failed to get list of groups."
-msgstr ""
+msgstr "グループリストの取得に失敗しました。"
 
 msgid "Failed to get list of network interface devices"
-msgstr ""
+msgstr "ネットワークインタフェースデバイスのリスト取得に失敗しました"
 
 msgid "Failed to get list of users."
-msgstr ""
+msgstr "ユーザーリストの取得に失敗しました。"
 
 msgid "Failed to get shadow password suite configuration."
-msgstr ""
+msgstr "シャドウパスワードスイートの設定の取得に失敗しました。"
 
 msgid "Failed to get storage device file from '%s'"
-msgstr ""
+msgstr "'%s' からのストレージデバイスファイルの取得に失敗しました"
 
 msgid "Falkland Islands"
-msgstr ""
+msgstr "フォークランド諸島"
 
 msgid "Family"
-msgstr ""
+msgstr "家族"
 
 msgid "Faroe Islands"
-msgstr ""
+msgstr "フェロー諸島"
 
 msgid "Fatal error"
-msgstr ""
+msgstr "致命的なエラー"
 
 msgid "February"
-msgstr ""
+msgstr "2月"
 
 msgid "Fields must be exclusive"
-msgstr ""
+msgstr "フィールドは排他的である必要があります"
 
 msgid "Fiji"
-msgstr ""
+msgstr "フィジー"
 
 msgid "File"
-msgstr ""
+msgstr "ファイル"
 
 msgid "Filename"
-msgstr ""
+msgstr "ファイル名"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
-msgstr ""
+msgstr "ごみ箱内のファイルは、指定した日数後に自動的に削除されます。手動で削除する場合は0に設定します。"
 
 msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
-msgstr ""
+msgstr "指定したバイト数を超えるファイルはごみ箱に入れられません。ファイルサイズを無制限にするには0を設定してください。"
 
 msgid "Filesize"
-msgstr ""
+msgstr "ファイルサイズ"
 
 msgid "Filesystem"
-msgstr ""
+msgstr "ファイルシステム"
 
 msgid "Filesystem '%s' not found"
-msgstr ""
+msgstr "ファイルシステム '%s' はありません"
 
 msgid "Filesystem '%s' not supported"
-msgstr ""
+msgstr "ファイルシステム '%s' はサポートしていません"
 
 msgid "Filesystems"
-msgstr ""
+msgstr "ファイルシステム"
 
 msgid "Finland"
-msgstr ""
+msgstr "フィンランド"
 
 msgid "Firewall"
-msgstr ""
+msgstr "ファイアウォール"
 
 msgid "Firmware version"
-msgstr ""
+msgstr "ファームウェアのバージョン"
 
 msgid "Flag"
-msgstr ""
+msgstr "フラグ"
 
 msgid "Force SSL/TLS"
-msgstr ""
+msgstr "Force SSL/TLS"
 
 msgid "Force secure connection only."
-msgstr ""
+msgstr "セキュアコネクションを強制します。"
 
 msgid "France"
-msgstr ""
+msgstr "フランス"
 
 msgid "French Guiana"
-msgstr ""
+msgstr "フランス領ギアナ"
 
 msgid "French Polynesia"
-msgstr ""
+msgstr "フランス領ポリネシア"
 
 msgid "French Southern Territories"
-msgstr ""
+msgstr "フランス領極南諸島"
 
 msgid "French Southern and Antarctic Territories"
-msgstr ""
+msgstr "フランス領南方・南極地域"
 
 msgid "Friday"
-msgstr ""
+msgstr "金曜"
 
 msgid "Full"
-msgstr ""
+msgstr "フル"
 
 msgid "Gabon"
-msgstr ""
+msgstr "ガボン"
 
 msgid "Gambia"
-msgstr ""
+msgstr "ガンビア"
 
 msgid "Gateway"
-msgstr ""
+msgstr "ゲートウェイ"
 
 msgid "General"
-msgstr ""
+msgstr "一般"
 
 msgid "General Settings"
-msgstr ""
+msgstr "一般設定"
 
 msgid "General settings"
-msgstr ""
+msgstr "一般設定"
 
 msgid "Generating graphs ..."
-msgstr ""
+msgstr "グラフ生成中 ..."
 
 msgid "Georgia"
-msgstr ""
+msgstr "グルジア"
 
 msgid "Germany"
-msgstr ""
+msgstr "ドイツ"
 
 msgid "Ghana"
-msgstr ""
+msgstr "ガーナ"
 
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 msgid "Gibraltar"
-msgstr ""
+msgstr "ジブラルタル"
 
 msgid "Greece"
-msgstr ""
+msgstr "ギリシャ"
 
 msgid "Greenland"
-msgstr ""
+msgstr "グリーンランド"
 
 msgid "Grenada"
-msgstr ""
+msgstr "グレナダ"
 
 msgid "Group"
-msgstr ""
+msgstr "グループ"
 
 msgid "Group '%s' already exist"
-msgstr ""
+msgstr "グループ '%s' はすでに存在します"
 
 msgid "Group '%s' does not exist"
-msgstr ""
+msgstr "グループ '%s' は存在しません"
 
 msgid "Group ID '%d' already exist"
-msgstr ""
+msgstr "グループ ID '%d' はすでに存在します"
 
 msgid "Groups"
-msgstr ""
+msgstr "グループ"
 
 msgid "Grow"
-msgstr ""
+msgstr "Grow"
 
 msgid "Grow RAID device"
-msgstr ""
+msgstr "RAIDデバイスの追加(GROW)"
 
 msgid "Guadeloupe"
-msgstr ""
+msgstr "グアドループ"
 
 msgid "Guam"
-msgstr ""
+msgstr "グアム"
 
 msgid "Guatemala"
-msgstr ""
+msgstr "グアテマラ"
 
 msgid "Guest"
-msgstr ""
+msgstr "ゲスト"
 
 msgid "Guinea"
-msgstr ""
+msgstr "ギニア"
 
 msgid "Guinea-Bissau"
-msgstr ""
+msgstr "ギニアビサウ"
 
 msgid "Guyana"
-msgstr ""
+msgstr "ガイアナ"
 
 msgid "Haiti"
-msgstr ""
+msgstr "ハイチ"
 
 msgid "Heard Island and McDonald Islands"
-msgstr ""
+msgstr "ハード島とマクドナルド諸島"
 
 msgid "Hide details"
-msgstr ""
+msgstr "詳細を隠す"
 
 msgid "Hide dot files"
-msgstr ""
+msgstr "ドットで始まるファイルを隠す"
 
 msgid "Home directories"
-msgstr ""
+msgstr "ホームディレクトリ"
 
 msgid "Homepage"
-msgstr ""
+msgstr "ホームページ"
 
 msgid "Honduras"
-msgstr ""
+msgstr "ホンジュラス"
 
 msgid "Hong Kong S.A.R., China"
-msgstr ""
+msgstr "香港"
 
 msgid "Honor existing ACLs"
-msgstr ""
+msgstr "既存のACLを優先"
 
 msgid "Host"
-msgstr ""
+msgstr "ホスト"
 
 msgid "Host access control"
-msgstr ""
+msgstr "ホストアクセスコントロール"
 
 msgid "Hostname"
-msgstr ""
+msgstr "ホスト名"
 
 msgid "Hosts"
-msgstr ""
+msgstr "ホスト"
 
 msgid "Hosts allow"
-msgstr ""
+msgstr "許可するホスト"
 
 msgid "Hosts deny"
-msgstr ""
+msgstr "拒否するホスト"
 
 msgid "Hour"
-msgstr ""
+msgstr "時"
 
 msgid "Hungary"
-msgstr ""
+msgstr "ハンガリー"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "IPv4"
-msgstr ""
+msgstr "IPv4"
 
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6"
 
 msgid "Iceland"
-msgstr ""
+msgstr "アイスランド"
 
 msgid "Ident protocol"
-msgstr ""
+msgstr "Identプロトコル"
 
 msgid "Identify"
-msgstr ""
+msgstr "識別"
 
 msgid "Identify network interface device"
-msgstr ""
+msgstr "ネットワークインタフェイスデバイスを識別する"
 
 msgid "Idle"
-msgstr ""
+msgstr "Idle"
 
 msgid "If enabled then no password is required to connect to the share"
-msgstr ""
+msgstr "有効の場合、共有への接続にパスワードは要求されません"
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
 "to connect to the module."
-msgstr ""
+msgstr "設定した場合、クライアントはモジュールに接続するためにユーザー名とパスワードの送信を試します。"
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr ""
+msgstr "このオプションを設定すると、デーモンはクライアントとのファイル転送を開始する前に、共有フォルダのパスにchrootします。その場合、ユーザーとグループを名前でマップすることはできませんし、デーモンは絶対パスまたは新しいルートパスの外側にあるシンボリックリンクをたどることはできません。"
 
 msgid "If this option is set, then any attempted downloads will fail."
-msgstr ""
+msgstr "このオプションを設定すると、すべてのダウンロードの試みは失敗します。"
 
 msgid "If this option is set, then any attempted uploads will fail."
-msgstr ""
+msgstr "このオプションを設定すると、すべてのアップロードの試みは失敗します。"
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
@@ -1480,40 +1481,40 @@ msgid ""
 " before mapping DOS attributes to UNIX permission bits. When set, DOS "
 "attributes will be stored onto an extended attribute in the UNIX filesystem,"
 " associated with the file or directory."
-msgstr ""
+msgstr "このパラメータを設定すると、SambaはDOSの属性をUNIXのパーミッションにマップする前に、最初にファイルシステムの拡張属性からDOSの属性(SYSTEM, HIDDEN, ARCHIVE または READ-ONLY)を読み込みます。設定されたとき、DOS属性はファイルまたはディレクトリに関連したUNIXファイルシステムの拡張属性に保存されます。"
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
 "share."
-msgstr ""
+msgstr "このパラメータを設定すると共有内のファイルを作成または変更することができません。"
 
 msgid ""
 "If your host is acting as a NAT gateway or port forwarder for the server, "
 "this option is useful in order to allow passive tranfers to work. You have "
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
-msgstr ""
+msgstr "もし、あなたのホストがNATゲートウェイか、サーバのポートフォワーダーとして動作している場合、このオプションはパッシブトランスファーとして動作することを許可するのに役立ちます。あなたは公開アドレスを使用し、ファイアウォールでパッシブポートを開く必要があります。"
 
 msgid "Implicit SSL"
-msgstr ""
+msgstr "暗黙のSSL"
 
 msgid "Import"
-msgstr ""
+msgstr "インポート"
 
 msgid "Import SSL certificate"
-msgstr ""
+msgstr "SSL証明書のインポート"
 
 msgid "Import groups"
-msgstr ""
+msgstr "グループのインポート"
 
 msgid "Import users"
-msgstr ""
+msgstr "ユーザーのインポート"
 
 msgid "Importing groups ..."
-msgstr ""
+msgstr "グループをインポートしています ..."
 
 msgid "Importing users ..."
-msgstr ""
+msgstr "ユーザーをインポートしています ..."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1524,823 +1525,826 @@ msgid ""
 "greater than or equal to 1024). It is strongly recommended that the chosen "
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr ""
+msgstr "いくつかのケースではファイアウォールの制限を回避するためにパッシブポートの範囲を指定する必要があります。サーバはクライアントからPASVコマンドを送信したとき、選択元となるパッシブポートの範囲を制限します。開いているポートが見つかるまで、サーバーがランダムに指定された範囲内の数値を選択します。選択されたポート範囲は（例えば1024以上の）非特権の範囲でなければなりません。選択した範囲は、多くの同時パッシブ接続を処理するのに十分な大きさであることを強くお勧めします。（例えば 49152-65534、IANAに登録されたエフェメラル·ポートの範囲）"
 
 msgid "Incoming"
-msgstr ""
+msgstr "Incoming"
 
 msgid "Incomplete"
-msgstr ""
+msgstr "不完全"
 
 msgid "Incorrect username or password."
-msgstr ""
+msgstr "ユーザー名またはパスワードが違います。"
 
 msgid "India"
-msgstr ""
+msgstr "インド"
 
 msgid "Indonesia"
-msgstr ""
+msgstr "インドネシア"
 
 msgid "Info"
-msgstr ""
+msgstr "情報"
 
 msgid "Informal"
-msgstr ""
+msgstr "インフォーマル"
 
 msgid "Information"
-msgstr ""
+msgstr "情報"
 
 msgid "Inherit ACLs"
-msgstr ""
+msgstr "ACLを継承"
 
 msgid "Inherit permissions"
-msgstr ""
+msgstr "パーミッションを継承"
 
 msgid "Initializing"
-msgstr ""
+msgstr "初期化"
 
 msgid "Install"
-msgstr ""
+msgstr "インストール"
 
 msgid "Install plugins ..."
-msgstr ""
+msgstr "プラグインをインストール ..."
 
 msgid "Install updates ..."
-msgstr ""
+msgstr "アップデートをインストール ..."
 
 msgid "Install updates from"
-msgstr ""
+msgstr "アップデートのインストール方法"
 
 msgid "Installed"
-msgstr ""
+msgstr "インストール済み"
 
 msgid "Interfaces"
-msgstr ""
+msgstr "インタフェース"
 
 msgid "Invalid domain name"
-msgstr ""
+msgstr "無効なドメイン名"
 
 msgid "Invalid filesystem label"
-msgstr ""
+msgstr "無効なファイルシステムラベル"
 
 msgid "Invalid group name"
-msgstr ""
+msgstr "無効なグループ名"
 
 msgid "Invalid hostname"
-msgstr ""
+msgstr "ホスト名が不正です"
 
 msgid "Invalid line: %s"
-msgstr ""
+msgstr "%s 行が不正です"
 
 msgid "Invalid name"
-msgstr ""
+msgstr "名前が不正です"
 
 msgid "Invalid user name"
-msgstr ""
+msgstr "ユーザー名が不正です"
 
 msgid "Iran"
-msgstr ""
+msgstr "イラン"
 
 msgid "Iraq"
-msgstr ""
+msgstr "イラク"
 
 msgid "Ireland"
-msgstr ""
+msgstr "アイルランド"
 
 msgid "Israel"
-msgstr ""
+msgstr "イスラエル"
 
 msgid "Italy"
-msgstr ""
+msgstr "イタリア"
 
 msgid "Ivory Coast"
-msgstr ""
+msgstr "コートジボワール"
 
 msgid "Jamaica"
-msgstr ""
+msgstr "ジャマイカ"
 
 msgid "January"
-msgstr ""
+msgstr "1月"
 
 msgid "Japan"
-msgstr ""
+msgstr "日本"
 
 msgid "Jobs"
-msgstr ""
+msgstr "ジョブ"
 
 msgid "Johnston Island"
-msgstr ""
+msgstr "ジョンストン島"
 
 msgid "Jordan"
-msgstr ""
+msgstr "ヨルダン"
 
 msgid "July"
-msgstr ""
+msgstr "7月"
 
 msgid "June"
-msgstr ""
+msgstr "6月"
 
 msgid "Kazakhstan"
-msgstr ""
+msgstr "カザフスタン"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "部分的に転送されたファイルを保持する"
 
 msgid "Kenya"
-msgstr ""
+msgstr "ケニヤ"
 
 msgid "Kernel"
-msgstr ""
+msgstr "カーネル"
 
 msgid "Key size"
-msgstr ""
+msgstr "キーサイズ"
 
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 msgid "Kiribati"
-msgstr ""
+msgstr "キリバス"
 
 msgid "Kuwait"
-msgstr ""
+msgstr "クウェート"
 
 msgid "Kyrgyzstan"
-msgstr ""
+msgstr "キルギスタン"
 
 msgid "LBA of first error"
-msgstr ""
+msgstr "LBA of first error"
 
 msgid "LVM logical volume %s [%s, %s]"
-msgstr ""
+msgstr "LVM 論理ボリューム %s [%s, %s]"
 
 msgid "Label"
-msgstr ""
+msgstr "ラベル"
 
 msgid "Language"
-msgstr ""
+msgstr "言語"
 
 msgid "Laos"
-msgstr ""
+msgstr "ラオス"
 
 msgid "Latvia"
-msgstr ""
+msgstr "ラトビア"
 
 msgid "Lebanon"
-msgstr ""
+msgstr "レバノン"
 
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
 " port."
-msgstr ""
+msgstr "特定のイーサネットポート上の1つまたは複数のLEDを点滅させる秒単位の時間の長さ。"
 
 msgid "Lesotho"
-msgstr ""
+msgstr "レソト"
 
 msgid "Level"
-msgstr ""
+msgstr "レベル"
 
 msgid "Liberia"
-msgstr ""
+msgstr "リベリア"
 
 msgid "Libya"
-msgstr ""
+msgstr "リビア"
 
 msgid "Liechtenstein"
-msgstr ""
+msgstr "リヒテンシュタイン"
 
 msgid "Lifetime"
-msgstr ""
+msgstr "ライフタイム"
 
 msgid "Linear"
-msgstr ""
+msgstr "リニア"
 
 msgid "Link"
-msgstr ""
+msgstr "リンク"
 
 msgid "List"
-msgstr ""
+msgstr "リスト"
 
 msgid "Lithuania"
-msgstr ""
+msgstr "リトアニア"
 
 msgid "Load average"
-msgstr ""
+msgstr "ロードアベレージ"
 
 msgid "Loading ..."
-msgstr ""
+msgstr "読み込み中 ..."
 
 msgid "Local"
-msgstr ""
+msgstr "ローカル"
 
 msgid "Local master browser"
-msgstr ""
+msgstr "ローカルマスタブラウザ"
 
 msgid "Location"
-msgstr ""
+msgstr "ロケーション"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr ""
+msgstr "位置情報 例）このシステムの物理的な場所"
 
 msgid "Log level"
-msgstr ""
+msgstr "ログレベル"
 
 msgid "Login"
-msgstr ""
+msgstr "ログイン"
 
 msgid "Logout"
-msgstr ""
+msgstr "ログアウト"
 
 msgid "Logs"
-msgstr ""
+msgstr "ログ"
 
 msgid "Long self-test"
-msgstr ""
+msgstr "ロングセルフテスト"
 
 msgid "Loop device [%s, %s]"
-msgstr ""
+msgstr "Loop デバイス [%s, %s]"
 
 msgid "Luxembourg"
-msgstr ""
+msgstr "ルクセンブルク"
 
 msgid "MAC address"
-msgstr ""
+msgstr "MACアドレス"
 
 msgid "MII monitoring frequency"
-msgstr ""
+msgstr "MII モニタリング頻度"
 
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 msgid "Macao S.A.R., China"
-msgstr ""
+msgstr "マカオ"
 
 msgid "Macedonia"
-msgstr ""
+msgstr "マケドニア"
 
 msgid "Madagascar"
-msgstr ""
+msgstr "マダガスカル"
 
 msgid "Maintainer"
-msgstr ""
+msgstr "メンテナ"
 
 msgid "Malawi"
-msgstr ""
+msgstr "マラウイ"
 
 msgid "Malaysia"
-msgstr ""
+msgstr "マレーシア"
 
 msgid "Maldives"
-msgstr ""
+msgstr "モルディブ"
 
 msgid "Mali"
-msgstr ""
+msgstr "マリ"
 
 msgid "Malta"
-msgstr ""
+msgstr "マルタ"
 
 msgid "Manual"
-msgstr ""
+msgstr "マニュアル"
 
 msgid "March"
-msgstr ""
+msgstr "3月"
 
 msgid "Marshall Islands"
-msgstr ""
+msgstr "マーシャル諸島"
 
 msgid "Martinique"
-msgstr ""
+msgstr "マルティニーク島"
 
 msgid "Masquerade address"
-msgstr ""
+msgstr "アドレスマスカレード"
 
 msgid ""
 "Match if the destination port is one of the given ports. E.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "宛先ポートが指定されたポートのうちのいずれかであれば一致しています。 例）21 または !443 または 1024-65535"
 
 msgid ""
 "Match if the source port is one of the given ports. E.g. 21 or !443 or "
 "1024-65535."
-msgstr ""
+msgstr "送信先ポートが指定されたポートのうちのいずれかであれば一致しています。 例）21 または !443 または 1024-65535"
 
 msgid "Mauritania"
-msgstr ""
+msgstr "モーリタニア"
 
 msgid "Mauritius"
-msgstr ""
+msgstr "モーリシャス"
 
 msgid "Max. clients"
-msgstr ""
+msgstr "最大クライアント"
 
 msgid "Max. connections"
-msgstr ""
+msgstr "最大コネクション"
 
 msgid "Max. connections per host"
-msgstr ""
+msgstr "ホストあたりの最大コネクション"
 
 msgid "Max. login attempts"
-msgstr ""
+msgstr "最大ログイン試行回数"
 
 msgid "Maximum download rate (KiB/s)"
-msgstr ""
+msgstr "最大ダウンロード速度(KiB/s)"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
 "timer completely (clients can stay connected for ever, without sending "
 "data)."
-msgstr ""
+msgstr "秒単位の最大アイドル時間。0にアイドルタイムアウトを設定すると、完全にアイドルタイマーを無効にします（クライアントはデータを送信せずに、いつまでも接続を維持することができます）。"
 
 msgid "Maximum number of allowed password attempts before disconnection."
-msgstr ""
+msgstr "切断までのパスワードの最大試行回数。"
 
 msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr ""
+msgstr "IPあたりの最大接続数（0 = 無制限）。"
 
 msgid "Maximum number of simultaneous clients."
-msgstr ""
+msgstr "クライアントの同時接続最大数。"
 
 msgid "Maximum performance, maximum acoustic output"
-msgstr ""
+msgstr "最大のパフォーマンス、最大音響出力"
 
 msgid "Maximum upload rate (KiB/s)"
-msgstr ""
+msgstr "最大アップロード速度 (KiB/s)"
 
 msgid "Maximum {0} selected item(s) allowed"
-msgstr ""
+msgstr "最大 {0} のアイテムを選択可能"
 
 msgid "May"
-msgstr ""
+msgstr "5月"
 
 msgid "Mayotte"
-msgstr ""
+msgstr "マヨット島"
 
 msgid "Members"
-msgstr ""
+msgstr "メンバー"
 
 msgid "Memory usage"
+msgstr "メモリ使用率"
+
+msgid "Message"
 msgstr ""
 
 msgid "Messages"
-msgstr ""
+msgstr "メッセージ"
 
 msgid "Method"
-msgstr ""
+msgstr "メソッド"
 
 msgid "Metropolitan France"
-msgstr ""
+msgstr "フランス・メトロポリテーヌ"
 
 msgid "Mexico"
-msgstr ""
+msgstr "メキシコ"
 
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 msgid "Micronesia"
-msgstr ""
+msgstr "ミクロネシア"
 
 msgid "Midway Islands"
-msgstr ""
+msgstr "ミッドウェー諸島"
 
 msgid "Minimum"
-msgstr ""
+msgstr "最小"
 
 msgid "Minimum performance, Minimum acoustic output"
-msgstr ""
+msgstr "最低限の性能、最小の音響出力"
 
 msgid "Minimum {0} selected item(s) required"
-msgstr ""
+msgstr "最低  {0} のアイテムを選択する必要があります"
 
 msgid "Minute"
-msgstr ""
+msgstr "分"
 
 msgid "Mirror"
-msgstr ""
+msgstr "ミラー"
 
 msgid "Missing"
-msgstr ""
+msgstr "欠落"
 
 msgid "Mode"
-msgstr ""
+msgstr "モード"
 
 msgid "Model"
-msgstr ""
+msgstr "モデル"
 
 msgid "Modify account"
-msgstr ""
+msgstr "アカウントの変更"
 
 msgid "Modify shared folder ACL"
-msgstr ""
+msgstr "共有フォルダのACLの変更"
 
 msgid "Modules"
-msgstr ""
+msgstr "モジュール"
 
 msgid "Moldova"
-msgstr ""
+msgstr "モルドバ"
 
 msgid "Monaco"
-msgstr ""
+msgstr "モナコ"
 
 msgid "Monday"
-msgstr ""
+msgstr "月曜"
 
 msgid "Mongolia"
-msgstr ""
+msgstr "モンゴル"
 
 msgid "Monitoring"
-msgstr ""
+msgstr "モニタリング"
 
 msgid "Month"
-msgstr ""
+msgstr "月"
 
 msgid "Montserrat"
-msgstr ""
+msgstr "モントセラト"
 
 msgid "Morocco"
-msgstr ""
+msgstr "モロッコ"
 
 msgid "Mount"
-msgstr ""
+msgstr "マウント"
 
 msgid "Mounted"
-msgstr ""
+msgstr "マウント済み"
 
 msgid "Mozambique"
-msgstr ""
+msgstr "モザンビーク"
 
 msgid "Myanmar"
-msgstr ""
+msgstr "ミャンマー"
 
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgid "Namibia"
-msgstr ""
+msgstr "ナミビア"
 
 msgid "Nauru"
-msgstr ""
+msgstr "ナウル"
 
 msgid "Nepal"
-msgstr ""
+msgstr "ネパール"
 
 msgid "Netherlands"
-msgstr ""
+msgstr "オランダ"
 
 msgid "Netherlands Antilles"
-msgstr ""
+msgstr "オランダ領アンティル"
 
 msgid "Netmask"
-msgstr ""
+msgstr "ネットマスク"
 
 msgid "Network"
-msgstr ""
+msgstr "ネットワーク"
 
 msgid "Network interface '%s' already exists"
-msgstr ""
+msgstr "ネットワークインタフェース '%s' はすでに存在します"
 
 msgid "Neutral Zone"
-msgstr ""
+msgstr "ニュートラルゾーン"
 
 msgid "Never"
-msgstr ""
+msgstr "Never"
 
 msgid "New Caledonia"
-msgstr ""
+msgstr "ニューカレドニア"
 
 msgid "New Zealand"
-msgstr ""
+msgstr "ニュージーランド"
 
 msgid "Nicaragua"
-msgstr ""
+msgstr "ニカラグア"
 
 msgid "Niger"
-msgstr ""
+msgstr "ニジェール"
 
 msgid "Nigeria"
-msgstr ""
+msgstr "ナイジェリア"
 
 msgid "Niue"
-msgstr ""
+msgstr "ニウエ"
 
 msgid "No"
-msgstr ""
+msgstr "いいえ"
 
 msgid "No access"
-msgstr ""
+msgstr "アクセスはありません"
 
 msgid "No action"
-msgstr ""
+msgstr "アクションはありません"
 
 msgid "No authentication and no privacy"
-msgstr ""
+msgstr "認証なしとプライバシーなし"
 
 msgid "No certificate request"
-msgstr ""
+msgstr "証明書要求はありません"
 
 msgid "No connections"
-msgstr ""
+msgstr "接続はありません"
 
 msgid "No items to display"
-msgstr ""
+msgstr "表示できるアイテムはありません"
 
 msgid "No session reuse required"
-msgstr ""
+msgstr "セッション再利用はありません"
 
 msgid "No users connected"
-msgstr ""
+msgstr "ユーザーの接続はありません"
 
 msgid "No users defined"
-msgstr ""
+msgstr "ユーザー定義はありません"
 
 msgid "None"
-msgstr ""
+msgstr "なし"
 
 msgid "Norfolk Island"
-msgstr ""
+msgstr "ノーフォーク島"
 
 msgid "Normal"
-msgstr ""
+msgstr "ノーマル"
 
 msgid "North Korea"
-msgstr ""
+msgstr "北朝鮮"
 
 msgid "North Vietnam"
-msgstr ""
+msgstr "北ベトナム"
 
 msgid "Northern Mariana Islands"
-msgstr ""
+msgstr "北マリアナ諸島連邦"
 
 msgid "Norway"
-msgstr ""
+msgstr "ノルウェー"
 
 msgid "Not ICMP"
-msgstr ""
+msgstr "Not ICMP"
 
 msgid "Not ICMPv6"
-msgstr ""
+msgstr "ICMPv6 無効"
 
 msgid "Not TCP"
-msgstr ""
+msgstr "Not TCP"
 
 msgid "Not UDP"
-msgstr ""
+msgstr "Not UDP"
 
 msgid "Notification"
-msgstr ""
+msgstr "通知"
 
 msgid "Notifications"
-msgstr ""
+msgstr "通知"
 
 msgid "November"
-msgstr ""
+msgstr "11月"
 
 msgid "Null passwords"
-msgstr ""
+msgstr "ヌルパスワード"
 
 msgid "Num"
-msgstr ""
+msgstr "番号"
 
 msgid "Number of servers"
-msgstr ""
+msgstr "サービス番号"
 
 msgid "OK"
-msgstr ""
+msgstr "はい"
 
 msgid "Occurrence"
-msgstr ""
+msgstr "発生"
 
 msgid "October"
-msgstr ""
+msgstr "10月"
 
 msgid "Offline immediate test"
-msgstr ""
+msgstr "オフライン即時テスト"
 
 msgid "Oman"
-msgstr ""
+msgstr "オマーン"
 
 msgid "Online"
-msgstr ""
+msgstr "オンライン"
 
 msgid "Operation not allowed for user '%s'."
-msgstr ""
+msgstr "この操作はユーザー '%s' には許可されていません。"
 
 msgid "Options"
-msgstr ""
+msgstr "オプション"
 
 msgid "Organization Name"
-msgstr ""
+msgstr "組織名(ON)"
 
 msgid "Organizational Unit"
-msgstr ""
+msgstr "組織単位(OU)"
 
 msgid "Others"
-msgstr ""
+msgstr "その他"
 
 msgid "Outgoing"
-msgstr ""
+msgstr "Outgoing"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
-msgstr ""
+msgstr "SMTPサーバアドレス 例）smtp.mycorp.com"
 
 msgid "Outlying Oceania"
-msgstr ""
+msgstr "離島オセアニア"
 
 msgid "Overview"
-msgstr ""
+msgstr "概要"
 
 msgid "Owner"
-msgstr ""
+msgstr "オーナー"
 
 msgid "Pacific Islands Trust Territory"
-msgstr ""
+msgstr "太平洋諸島信託統治領"
 
 msgid "Package information"
-msgstr ""
+msgstr "パッケージ情報"
 
 msgid "Pakistan"
-msgstr ""
+msgstr "パキスタン"
 
 msgid "Palau"
-msgstr ""
+msgstr "パラオ"
 
 msgid "Palestinian Territory"
-msgstr ""
+msgstr "パレスチナ自治区"
 
 msgid "Panama"
-msgstr ""
+msgstr "パナマ"
 
 msgid "Panama Canal Zone"
-msgstr ""
+msgstr "パナマ運河地帯"
 
 msgid "Papua New Guinea"
-msgstr ""
+msgstr "パプアニューギニア"
 
 msgid "Paraguay"
-msgstr ""
+msgstr "パラグアイ"
 
 msgid "Passive FTP"
-msgstr ""
+msgstr "パッシブFTP"
 
 msgid "Password"
-msgstr ""
+msgstr "パスワード"
 
 msgid "Password authentication"
-msgstr ""
+msgstr "パスワード認証"
 
 msgid "Passwords don't match"
-msgstr ""
+msgstr "パスワード不一致"
 
 msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr ""
+msgstr "ここにX.509 PEM形式のRSA証明書を貼り付けます。"
 
 msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr ""
+msgstr "ここにX.509 PEM形式のRSA秘密鍵を貼り付けます。"
 
 msgid "Path"
-msgstr ""
+msgstr "パス"
 
 msgid "People's Democratic Republic of Yemen"
-msgstr ""
+msgstr "イエメン人民民主共和国"
 
 msgid "Perform a trial run with no changes made"
-msgstr ""
+msgstr "設定を変更せずにテスト実行します"
 
 msgid "Period of validity"
-msgstr ""
+msgstr "有効期間"
 
 msgid "Permissions"
-msgstr ""
+msgstr "パーミッション"
 
 msgid "Permissions of group."
-msgstr ""
+msgstr "グループのパーミッション。"
 
 msgid "Permissions of others (e.g. anonymous FTP users)."
-msgstr ""
+msgstr "その他のパーミッション。例）anonymous FTP のユーザー"
 
 msgid "Permissions of owner."
-msgstr ""
+msgstr "オーナーのパーミッション。"
 
 msgid "Permit root login"
-msgstr ""
+msgstr "rootアカウントでのログインの許可"
 
 msgid "Permit to do SSH tunneling"
-msgstr ""
+msgstr "SSHトンネルの許可"
 
 msgid "Peru"
-msgstr ""
+msgstr "ペルー"
 
 msgid "Philippines"
-msgstr ""
+msgstr "フィリピン"
 
 msgid "Physical Disks"
-msgstr ""
+msgstr "物理ディスク"
 
 msgid "Pitcairn"
-msgstr ""
+msgstr "ピトケアン諸島"
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "詳細については <a href='http://linux.die.net/man/5/exports' target='_blank'>マニュアルページ</a> を確認してください。"
 
 msgid ""
 "Please check the <a href='http://www.openbsd.org/cgi-"
 "bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
 " more details."
-msgstr ""
+msgstr "詳細については <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>マニュアルページ</a> を確認してください。"
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "詳細については <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>マニュアルページ</a> を確認してください。"
 
 msgid ""
 "Please check the <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "詳細については <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>マニュアルページ</a> を確認してください。"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "詳細については <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>マニュアルページ</a> を確認してください。"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "詳細については <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>マニュアルページ</a> を確認してください。"
 
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "詳細については <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>マニュアルページ</a> を確認してください。"
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr ""
+msgstr "デバイスをワイプする方法を選択してください。中止する場合は'キャンセル'を選択してください。"
 
 msgid "Please first select a volume."
-msgstr ""
+msgstr "最初のボリュームを選択してください。"
 
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
-msgstr ""
+msgstr "このテスト中はシステムとの通信ができません。注意してください。"
 
 msgid "Please reload the page to let the changes take effect."
-msgstr ""
+msgstr "変更を反映するためにページを再読み込みしてください。"
 
 msgid "Please wait ..."
-msgstr ""
+msgstr "お待ちください ..."
 
 msgid ""
 "Please wait until the RAID has been initialized before creating a "
 "filesystem."
-msgstr ""
+msgstr "ファイルシステムを作成する前に、RAIDが初期化されるまでお待ちください。"
 
 msgid "Plugins"
-msgstr ""
+msgstr "プラグイン"
 
 msgid "Poland"
-msgstr ""
+msgstr "ポーランド"
 
 msgid "Port"
-msgstr ""
+msgstr "ポート"
 
 msgid "Port to listen on."
-msgstr ""
+msgstr "待ちうけポート"
 
 msgid "Portugal"
-msgstr ""
+msgstr "ポルトガル"
 
 msgid "Power Management"
-msgstr ""
+msgstr "電源管理"
 
 msgid "Power button"
-msgstr ""
+msgstr "電源ボタン"
 
 msgid "Power mode"
-msgstr ""
+msgstr "電源モード"
 
 msgid "Pre-released updates."
-msgstr ""
+msgstr "プレリリースされたアップデート。"
 
 msgid "Prefix length"
-msgstr ""
+msgstr "プレフィックス長"
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "ACLを保存"
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "拡張属性を保存"
 
 msgid "Preserve modification times"
-msgstr ""
+msgstr "修正時刻を保存"
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "パーミッションを保存"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
@@ -2353,976 +2357,976 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr ""
+msgstr "ポーリングによるディスクのスピンアップの防止方法。<br/><ul><li>Never - 電源モードに関わらず、デバイスをポーリング (チェック) します。これは、スピンダウンしているディスクに対してのチェックが行われる際にスピンアップする可能性があります。</li><li>Sleep - スリープモードで無い場合にデバイスをチェックします。</li><li>Standby - スリープ又はスタンバイモードで無い限り、デバイスをチェックします。これらのモードではディスクはほとんど回転しません。ラップトップで使用しているディスクでポーリングによるスピンアップを防止したい場合は望まれる選択肢です。</li><li>Idle - スリープ、スタンバイ、アイドルモードで無い場合にデバイスをチェックします。アイドル状態でもほとんどのディスクは回転しているので、これは望む選択肢ではないかもしれません。</li></ul>"
 
 msgid "Primary"
-msgstr ""
+msgstr "プライマリ"
 
 msgid "Primary email"
-msgstr ""
+msgstr "プライマリメール"
 
 msgid "Privacy passphrase"
-msgstr ""
+msgstr "プライバシーパスフレーズ"
 
 msgid "Privacy type"
-msgstr ""
+msgstr "プライバシータイプ"
 
 msgid "Private key"
-msgstr ""
+msgstr "プライベートキー"
 
 msgid "Privilege"
-msgstr ""
+msgstr "特権"
 
 msgid "Privileges"
-msgstr ""
+msgstr "特権"
 
 msgid "Process monitoring"
-msgstr ""
+msgstr "プロセスモニタリング"
 
 msgid "Processes"
-msgstr ""
+msgstr "プロセス"
 
 msgid "Processor"
-msgstr ""
+msgstr "プロセッサ"
 
 msgid "Protocol"
-msgstr ""
+msgstr "プロトコル"
 
 msgid "Public"
-msgstr ""
+msgstr "パブリック"
 
 msgid "Puerto Rico"
-msgstr ""
+msgstr "プエルトリコ"
 
 msgid "Pull"
-msgstr ""
+msgstr "プル"
 
 msgid "Push"
-msgstr ""
+msgstr "プッシュ"
 
 msgid "Qatar"
-msgstr ""
+msgstr "カタール"
 
 msgid "Quick"
-msgstr ""
+msgstr "クイック"
 
 msgid "Quiet"
-msgstr ""
+msgstr "静かな"
 
 msgid "Quota"
-msgstr ""
+msgstr "クォータ"
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "RAID Management"
-msgstr ""
+msgstr "RAID管理"
 
 msgid "RFC931"
-msgstr ""
+msgstr "RFC931"
 
 msgid "RSync server"
-msgstr ""
+msgstr "RSyncサーバー"
 
 msgid "Ranges of numbers are not allowed"
-msgstr ""
+msgstr "番号の範囲は許可されていません"
 
 msgid "Raw value"
-msgstr ""
+msgstr "生値"
 
 msgid "Read only"
-msgstr ""
+msgstr "読み込み専用"
 
 msgid "Read-only"
-msgstr ""
+msgstr "読み込み専用"
 
 msgid "Read/Write"
-msgstr ""
+msgstr "読み/書き"
 
 msgid "Real"
-msgstr ""
+msgstr "リアル"
 
 msgid "Reboot"
-msgstr ""
+msgstr "再起動"
 
 msgid "Recipient"
-msgstr ""
+msgstr "レシピエント"
 
 msgid "Recover"
-msgstr ""
+msgstr "リカバー"
 
 msgid "Recurse into directories"
-msgstr ""
+msgstr "ディレクトリを再帰的に"
 
 msgid "Recursive"
-msgstr ""
+msgstr "再帰的"
 
 msgid "Recycle bin"
-msgstr ""
+msgstr "ごみ箱"
 
 msgid "Refresh"
-msgstr ""
+msgstr "リフレッシュ"
 
 msgid "Reload"
-msgstr ""
+msgstr "再読み込み"
 
 msgid "Remaining"
-msgstr ""
+msgstr "残り"
 
 msgid "Remote"
-msgstr ""
+msgstr "リモート"
 
 msgid "Remote host"
-msgstr ""
+msgstr "リモートホスト"
 
 msgid "Remote syslog"
-msgstr ""
+msgstr "リモートシスログ"
 
 msgid "Replace"
-msgstr ""
+msgstr "置換"
 
 msgid "Replace all existing permissions"
-msgstr ""
+msgstr "既存のすべてのアクセス権を置き換える"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report. Set to 0 to disable this report."
-msgstr ""
+msgstr "最後のレポートから温度が摂氏 N 度変化した場合にレポートします。0に設定するとレポートしません。"
 
 msgid ""
 "Report if the temperature is greater or equal than N degrees Celsius. Set to"
 " 0 to disable this report."
-msgstr ""
+msgstr "温度が摂氏 N 度を超えるか、同じになった場合にレポートします。0に設定するとレポートしません。"
 
 msgid "Repository"
-msgstr ""
+msgstr "リポジトリ"
 
 msgid "Require valid shell"
-msgstr ""
+msgstr "有効なシェルが必要です"
 
 msgid "Required"
-msgstr ""
+msgstr "必須"
 
 msgid "Reset"
-msgstr ""
+msgstr "リセット"
 
 msgid "Reset WebGUI state"
-msgstr ""
+msgstr "WebGUIの状態をリセット"
 
 msgid "Resize"
-msgstr ""
+msgstr "リサイズ"
 
 msgid "Resume"
-msgstr ""
+msgstr "リジューム"
 
 msgid "Retry timeout"
-msgstr ""
+msgstr "リトライタイムアウト"
 
 msgid "Reunion"
-msgstr ""
+msgstr "レユニオン"
 
 msgid "Reverse DNS lookup"
-msgstr ""
+msgstr "DNSの逆引き"
 
 msgid "Romania"
-msgstr ""
+msgstr "ルーマニア"
 
 msgid "Rsync"
-msgstr ""
+msgstr "Rsync"
 
 msgid "Rsync - Jobs"
-msgstr ""
+msgstr "Rsync - ジョブ"
 
 msgid "Rsync - Server"
-msgstr ""
+msgstr "Rsync - サーバー"
 
 msgid "Run"
-msgstr ""
+msgstr "実行"
 
 msgid "Running"
-msgstr ""
+msgstr "実行中"
 
 msgid "Russia"
-msgstr ""
+msgstr "ロシア"
 
 msgid "Rwanda"
-msgstr ""
+msgstr "ルワンダ"
 
 msgid "S.M.A.R.T."
-msgstr ""
+msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. information"
-msgstr ""
+msgstr "S.M.A.R.T. 情報"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr ""
+msgstr "S.M.A.R.T.モニタリングは、選択したデバイスのために活性化されなければならない。"
 
 msgid "SMB/CIFS"
-msgstr ""
+msgstr "SMB/CIFS"
 
 msgid "SMTP port"
-msgstr ""
+msgstr "SMTP ポート"
 
 msgid "SMTP server"
-msgstr ""
+msgstr "SMTP サーバー"
 
 msgid "SMTP settings"
-msgstr ""
+msgstr "SMTP 設定"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr ""
+msgstr "SNMP version 1/2c"
 
 msgid "SNMP version 3"
-msgstr ""
+msgstr "SNMP version 3"
 
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 msgid "SSL/TLS"
-msgstr ""
+msgstr "SSL/TLS"
 
 msgid "Saint Helena"
-msgstr ""
+msgstr "セント·ヘレナ島"
 
 msgid "Saint Kitts and Nevis"
-msgstr ""
+msgstr "セントクリストファー・ネイビス"
 
 msgid "Saint Lucia"
-msgstr ""
+msgstr "セントルシア"
 
 msgid "Saint Pierre and Miquelon"
-msgstr ""
+msgstr "サンピエール島·ミクロン島"
 
 msgid "Saint Vincent and the Grenadines"
-msgstr ""
+msgstr "セントビンセントおよびグレナディーン諸島"
 
 msgid "Samoa"
-msgstr ""
+msgstr "サモア"
 
 msgid "San Marino"
-msgstr ""
+msgstr "サン·マリノ"
 
 msgid "Sao Tome and Principe"
-msgstr ""
+msgstr "サントメプリンシペ"
 
 msgid "Saturday"
-msgstr ""
+msgstr "土曜"
 
 msgid "Saudi Arabia"
-msgstr ""
+msgstr "サウジアラビア"
 
 msgid "Save"
-msgstr ""
+msgstr "保存"
 
 msgid "Saving ..."
-msgstr ""
+msgstr "保存しています ..."
 
 msgid "Scan"
-msgstr ""
+msgstr "スキャン"
 
 msgid "Scanning for new devices ..."
-msgstr ""
+msgstr "新しいデバイスをスキャンしています ..."
 
 msgid "Scheduled jobs"
-msgstr ""
+msgstr "スケジュールされたジョブ"
 
 msgid "Scheduled tests"
-msgstr ""
+msgstr "スケジュールされたテスト"
 
 msgid "Secondary"
-msgstr ""
+msgstr "セカンダリ"
 
 msgid "Secondary email"
-msgstr ""
+msgstr "セカンダリメール"
 
 msgid "Seconds"
-msgstr ""
+msgstr "秒"
 
 msgid "Secure"
-msgstr ""
+msgstr "セキュア"
 
 msgid "Secure connection"
-msgstr ""
+msgstr "セキュアコネクション"
 
 msgid "Security level"
-msgstr ""
+msgstr "セキュリティレベル"
 
 msgid "Select a SSL certificate ..."
-msgstr ""
+msgstr "SSL証明書を選択 ..."
 
 msgid "Select a country ..."
-msgstr ""
+msgstr "国を選択 ..."
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "デバイスを選択 ..."
 
 msgid "Select a directory"
-msgstr ""
+msgstr "ディレクトリを選択"
 
 msgid "Select a filesystem ..."
-msgstr ""
+msgstr "ファイルシステムを選択 ..."
 
 msgid "Select a group name..."
-msgstr ""
+msgstr "グループ名を選択 ..."
 
 msgid "Select a language ..."
-msgstr ""
+msgstr "言語を選択 ..."
 
 msgid "Select a primary device ..."
-msgstr ""
+msgstr "プライマリデバイスを選択 ..."
 
 msgid "Select a protocol ..."
-msgstr ""
+msgstr "プロトコルを選択 ..."
 
 msgid "Select a shared folder ..."
-msgstr ""
+msgstr "共有フォルダを選択 ..."
 
 msgid "Select a shell ..."
-msgstr ""
+msgstr "シェルを選択 ..."
 
 msgid "Select a user name..."
-msgstr ""
+msgstr "ユーザー名を選択 ..."
 
 msgid "Select a volume ..."
-msgstr ""
+msgstr "ボリュームを選択 ..."
 
 msgid "Select devices to be added to the RAID device"
-msgstr ""
+msgstr "RAIDデバイスに追加するデバイスを選択"
 
 msgid "Select or enter a user name ..."
-msgstr ""
+msgstr "ユーザー名を選択するか入力してください ..."
 
 msgid "Self-test logs"
-msgstr ""
+msgstr "セルフテストのログ"
 
 msgid "Send a test email"
-msgstr ""
+msgstr "テストメールの送信"
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "電子メールを介してコマンドの出力を送る"
 
 msgid "Send email"
-msgstr ""
+msgstr "電子メールの送信"
 
 msgid "Sender email"
-msgstr ""
+msgstr "送信者のメールアドレス"
 
 msgid "Sending test email ..."
-msgstr ""
+msgstr "テストメールを送信しています ..."
 
 msgid "Senegal"
-msgstr ""
+msgstr "セネガル"
 
 msgid "September"
-msgstr ""
+msgstr "9月"
 
 msgid "Serbia And Montenegro"
-msgstr ""
+msgstr "セルビア·モンテネグロ"
 
 msgid "Serial Number"
-msgstr ""
+msgstr "シリアルナンバー"
 
 msgid "Serial number"
-msgstr ""
+msgstr "シリアルナンバー"
 
 msgid "Server"
-msgstr ""
+msgstr "サーバ"
 
 msgid "Service"
-msgstr ""
+msgstr "サービス"
 
 msgid "Service Discovery"
-msgstr ""
+msgstr "サービスディスカバリ"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "サービス無効化"
 
 msgid "Servicename"
-msgstr ""
+msgstr "サービス名"
 
 msgid "Services"
-msgstr ""
+msgstr "サービス"
 
 msgid "Session expired."
-msgstr ""
+msgstr "セッションの期限が切れました。"
 
 msgid "Session not authenticated."
-msgstr ""
+msgstr "セッションは認証されていません。"
 
 msgid "Session timeout"
-msgstr ""
+msgstr "セッションタイムアウト"
 
 msgid "Set browseable"
-msgstr ""
+msgstr "参照可能に設定"
 
 msgid "Set read only"
-msgstr ""
+msgstr "読み込み専用に設定"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
-msgstr ""
+msgstr "元のアクセス権と同じになるように先のアクセス権を設定"
 
 msgid "Set write only"
-msgstr ""
+msgstr "書き込み専用に設定"
 
 msgid "Sets the interval between disk checks to N seconds."
-msgstr ""
+msgstr "ディスクチェックの間隔をN秒に設定します。"
 
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 msgid "Seychelles"
-msgstr ""
+msgstr "セイシェル"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "共有フォルダ"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "共有フォルダ"
 
 msgid "Shared folder must not be equal"
-msgstr ""
+msgstr "共有フォルダが同じであってはならない"
 
 msgid "Shares"
-msgstr ""
+msgstr "共有"
 
 msgid "Shell"
-msgstr ""
+msgstr "シェル"
 
 msgid "Short self-test"
-msgstr ""
+msgstr "ショートセルフテスト"
 
 msgid "Show certificate"
-msgstr ""
+msgstr "証明書の表示"
 
 msgid "Show changelog"
-msgstr ""
+msgstr "Changelogの表示"
 
 msgid "Show details"
-msgstr ""
+msgstr "詳細の表示"
 
 msgid "Show password"
-msgstr ""
+msgstr "パスワードの表示"
 
 msgid "Show privileges"
-msgstr ""
+msgstr "特権の表示"
 
 msgid "Shutdown"
-msgstr ""
+msgstr "シャットダウン"
 
 msgid "Shutdown the system when pressing the power button."
-msgstr ""
+msgstr "電源ボタンを押したとき、システムをシャットダウンします。"
 
 msgid "Shutdown/Reboot schedule"
-msgstr ""
+msgstr "シャットダウン/再起動のスケジュール"
 
 msgid "Sierra Leone"
-msgstr ""
+msgstr "シエラレオネ"
 
 msgid "Singapore"
-msgstr ""
+msgstr "シンガポール"
 
 msgid "Size"
-msgstr ""
+msgstr "サイズ"
 
 msgid "Slaves"
-msgstr ""
+msgstr "スレーブ"
 
 msgid "Sleep"
-msgstr ""
+msgstr "Sleep"
 
 msgid "Slovakia"
-msgstr ""
+msgstr "スロバキア"
 
 msgid "Slovenia"
-msgstr ""
+msgstr "スロベニア"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "ソフトウェアRAID"
 
 msgid "Software updates"
-msgstr ""
+msgstr "ソフトウェアアップデート"
 
 msgid "Solomon Islands"
-msgstr ""
+msgstr "ソロモン諸島"
 
 msgid "Somalia"
-msgstr ""
+msgstr "ソマリア"
 
 msgid "Source"
-msgstr ""
+msgstr "ソース"
 
 msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
 "or a plain IP address. A '!' argument before the address specification "
 "inverts the sense of the address."
-msgstr ""
+msgstr "送信元アドレスは、ネットワークIPアドレス（/マスク 付き）、IP範囲またはプレーンIPアドレスのいずれかになります。 '！'をアドレス指定の前に置くと、そのアドレスの意味を反転させます。"
 
 msgid "Source port"
-msgstr ""
+msgstr "ソースポート"
 
 msgid "Source server"
-msgstr ""
+msgstr "ソースサーバ"
 
 msgid "Source shared folder"
-msgstr ""
+msgstr "ソース共有フォルダ"
 
 msgid "South Africa"
-msgstr ""
+msgstr "南アフリカ"
 
 msgid "South Georgia and the South Sandwich Islands"
-msgstr ""
+msgstr "サウスジョージア・サウスサンドウィッチ諸島"
 
 msgid "South Korea"
-msgstr ""
+msgstr "大韓民国"
 
 msgid "Spain"
-msgstr ""
+msgstr "スペイン"
 
 msgid "Special action flag"
-msgstr ""
+msgstr "特殊なアクションフラグ"
 
 msgid "Specifies how many server threads to create."
-msgstr ""
+msgstr "いくつのサーバースレッドを生成するか指定します。"
 
 msgid "Specifies one of the bonding policies."
-msgstr ""
+msgstr "ボンディングポリシーの一つを指定します。"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
-msgstr ""
+msgstr "ミリ秒単位でMIIリンク監視頻度を指定します。"
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
 "masquerade address by resolving the IP address. Set this value to 0 to "
 "disable this option."
-msgstr ""
+msgstr "IPアドレスを名前解決してマスカレードアドレスのチェック、アップデートをする間隔を秒単位で指定します。"
 
 msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "
 "parameter is from 512 to 65464."
-msgstr ""
+msgstr "許可するブロックサイズの最大値を指定します。このパラメータの有効範囲は 512 から 65464 です。"
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr ""
+msgstr "指定した時間を過ぎると期限切れとなります。hh:mm:ss 形式で時間を指定します。"
 
 msgid ""
 "Specifies the time interval in hh:mm:ss in which the given number of "
 "occurrences must happen to add the ban."
-msgstr ""
+msgstr "BAN(禁止) を追加するインターバルを時間形式 hh:mm:ss で入力します。"
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
 "a link failure has been detected."
-msgstr ""
+msgstr "リンク障害が検出された後、スレーブを無効にする前に待機する時間をミリ秒単位で指定します。"
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
-msgstr ""
+msgstr "リンクリカバリーが検出された後、スレーブを有効にする前に待機する時間をミリ秒単位で指定します。"
 
 msgid "Specifies whether it is allowed to login as superuser directly"
-msgstr ""
+msgstr "直接、スーパーユーザーとしてログインすることを許可するかを指定します。"
 
 msgid "Specifies whether it is allowed to login as superuser."
-msgstr ""
+msgstr "スーパーユーザーとしてログインすることを許可するかを指定します。"
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
-msgstr ""
+msgstr "システムの状態を監視し、最も適切なCPUレベルを選択するかどうかを指定します。"
 
 msgid "Specifies which slave is the primary device."
-msgstr ""
+msgstr "どのスレーブがプライマリデバイスかを指定します。"
 
 msgid "Spindown time"
-msgstr ""
+msgstr "スピンダウンタイム"
 
 msgid "Sri Lanka"
-msgstr ""
+msgstr "スリランカ"
 
 msgid "Standby"
-msgstr ""
+msgstr "Standby"
 
 msgid "Start"
-msgstr ""
+msgstr "スタート"
 
 msgid "State"
-msgstr ""
+msgstr "状態"
 
 msgid "State/Province"
-msgstr ""
+msgstr "州/地方"
 
 msgid "Static"
-msgstr ""
+msgstr "スタティック"
 
 msgid "Status"
-msgstr ""
+msgstr "ステータス"
 
 msgid "Stop"
-msgstr ""
+msgstr "ストップ"
 
 msgid "Storage"
-msgstr ""
+msgstr "ストレージ"
 
 msgid "Store DOS attributes"
-msgstr ""
+msgstr "DOS属性を書き込む"
 
 msgid "Stripe"
-msgstr ""
+msgstr "ストライプ"
 
 msgid "Success"
-msgstr ""
+msgstr "成功"
 
 msgid "Sudan"
-msgstr ""
+msgstr "スーダン"
 
 msgid "Sunday"
-msgstr ""
+msgstr "日曜"
 
 msgid "Support"
-msgstr ""
+msgstr "サポート"
 
 msgid "Suppress non-error messages"
-msgstr ""
+msgstr "非エラーメッセージを抑制する"
 
 msgid "Suriname"
-msgstr ""
+msgstr "スリナム"
 
 msgid "Svalbard and Jan Mayen"
-msgstr ""
+msgstr "スヴァールバル諸島およびヤンマイエン島"
 
 msgid "Swaziland"
-msgstr ""
+msgstr "スワジランド"
 
 msgid "Sweden"
-msgstr ""
+msgstr "スウェーデン"
 
 msgid "Switzerland"
-msgstr ""
+msgstr "スイス"
 
 msgid "Syria"
-msgstr ""
+msgstr "シリア"
 
 msgid "Syslog"
-msgstr ""
+msgstr "Syslog"
 
 msgid "System"
-msgstr ""
+msgstr "システム"
 
 msgid "System Information"
-msgstr ""
+msgstr "システム情報"
 
 msgid "System Logs"
-msgstr ""
+msgstr "システムログ"
 
 msgid "System time"
-msgstr ""
+msgstr "システム時間"
 
 msgid "TAR"
-msgstr ""
+msgstr "TAR"
 
 msgid "TCP forwarding"
-msgstr ""
+msgstr "TCP転送"
 
 msgid "TFTP"
-msgstr ""
+msgstr "TFTP"
 
 msgid "Taiwan"
-msgstr ""
+msgstr "台湾"
 
 msgid "Tajikistan"
-msgstr ""
+msgstr "タジキスタン"
 
 msgid "Tanzania"
-msgstr ""
+msgstr "タンザニア"
 
 msgid "Temperature"
-msgstr ""
+msgstr "温度"
 
 msgid "Temperature monitoring"
-msgstr ""
+msgstr "温度監視"
 
 msgid "Test description"
-msgstr ""
+msgstr "テストの説明"
 
 msgid "Thailand"
-msgstr ""
+msgstr "タイ"
 
 msgid "The NT description field."
-msgstr ""
+msgstr "NTの説明フィールド。"
 
 msgid "The RSA key length."
-msgstr ""
+msgstr "RSAキーの長さ。"
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "SSL証明書。"
 
 msgid "The changes have been applied successfully."
-msgstr ""
+msgstr "変更が正常に適用されました。"
 
 msgid "The comment contains invalid characters"
-msgstr ""
+msgstr "コメントに無効な文字が含まれています"
 
 msgid ""
 "The configuration has been changed. You must apply the changes in order for "
 "them to take effect."
-msgstr ""
+msgstr "設定が変更されました。あなたはそれらを有効にするために変更を適用する必要があります。"
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr ""
+msgstr "デフォルトのSMTPサーバのポート。例)25 または 587"
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
 "rsync://[USER@]HOST[:PORT]/DEST."
-msgstr ""
+msgstr "送信先のリモートサーバ 例） [USER@]HOST:DEST, [USER@]HOST::DEST または rsync://[USER@]HOST[:PORT]/DEST。"
 
 msgid "The destination shared folder."
-msgstr ""
+msgstr "宛先の共有フォルダ。"
 
 msgid "The field '%s' contains forbidden "
-msgstr ""
+msgstr "フィールド '%s' は禁止を含みます"
 
 msgid "The file mode of the shared folder path."
-msgstr ""
+msgstr "共有フォルダパスのファイルモード。"
 
 msgid "The group '%s' does not exist"
-msgstr ""
+msgstr "グループ '%s' は存在しません"
 
 msgid "The hostname is a label that identifies the system to the network."
-msgstr ""
+msgstr "ホスト名はネットワーク上でシステムを識別するためのラベルです。"
 
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
-msgstr ""
+msgstr "利用可能なソフトウェアについての情報は古くなっています。利用可能なソフトウェアについての情報をリロードする必要があります。"
 
 msgid "The interface '%s' is already used by a bonding interface"
-msgstr ""
+msgstr "インタフェース '%s' はすでにボンディングインタフェースとして使われています"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "共有するファイルの場所。"
 
 msgid ""
 "The location of the files to share. The share will be accessible at "
 "/export/<name>."
-msgstr ""
+msgstr "共有するファイルの場所。共有は /export/<名前> でアクセスできるようになります。"
 
 msgid "The location of the user home directories."
-msgstr ""
+msgstr "ユーザーのホームディレクトリの場所。"
 
 msgid "The name of the share."
-msgstr ""
+msgstr "共有の名前。"
 
 msgid "The number of days the certificate is valid for."
-msgstr ""
+msgstr "この日数だけ証明書は有効です。"
 
 #, php-format
 msgid "The parameter '%s' contains forbidden two-dot symbols"
-msgstr ""
+msgstr "このパラメータ '%s' は禁止された二つのドットを含みます"
 
 msgid "The password contains invalid characters"
-msgstr ""
+msgstr "パスワードに無効な文字が含まれています"
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
 "used for remote shell transport such as ssh."
-msgstr ""
+msgstr "Rsyncデーモンを介したアクセスのために使用されるパスワード。注意、これはsshなどのリモートシェルトランスポートでは使用されません。"
 
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
 "does not already exist."
-msgstr ""
+msgstr "共有するフォルダのパス。それが存在しない場合、指定されたフォルダが作成されます。"
 
 msgid ""
 "The permissions on new files and directories are normally governed by create"
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
-msgstr ""
+msgstr "新しいファイルとディレクトリのパーミッションは通常、Create mask と Directorymask によって制御されていますが、継承許可パラメータはこれを無効にします。これは、1つの共有が各ユーザによって柔軟に利用される事を可能にし、多くのユーザとシステムで有益です。"
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr ""
+msgstr "新規、削除またはアップデートされたソフトウェアパッケージが無いか、リポジトリをチェックします。"
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
 "for data connections is not required."
-msgstr ""
+msgstr "コントロールコネクションからのSSLセッションがデータ接続に再利用される場合は本要件は不要です。"
 
 msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr ""
+msgstr "分単位でセッションタイムアウト値を設定します。自動ログアウトを無効にするには0を設定します。"
 
 msgid "The shared folder is already used by another share."
-msgstr ""
+msgstr "共有フォルダはすでに別の共有で使用されています。"
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
-msgstr ""
+msgstr "送信元リモートサーバ 例） [USER@]HOST:SRC, [USER@]HOST::SRC または rsync://[USER@]HOST[:PORT]/SRC。"
 
 msgid "The source shared folder."
-msgstr ""
+msgstr "ソース共有フォルダ。"
 
 msgid "The specified quota exceeds the max. possible value of 4TiB."
-msgstr ""
+msgstr "指定されたクォータは最大値を超えています。4TiBまでの値を設定。"
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr ""
+msgstr "システムが再起動されます。これにはしばらく時間がかかることがあります..."
 
 msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr ""
+msgstr "テストメールが正常に送信されました。あなたのメールボックスを確認してください。"
 
 msgid "The user '%s' does not exist"
-msgstr ""
+msgstr "ユーザー '%s' は存在しません"
 
 msgid "The user '%s' is not allowed"
-msgstr ""
+msgstr "ユーザー '%s' は許可されていません"
 
 msgid "The volume label for the filesystem."
-msgstr ""
+msgstr "ファイルシステムのボリュームラベル。"
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
 "login."
-msgstr ""
+msgstr "ウェルカムメッセージはユーザーが最初にログインする際に表示されます。"
 
 msgid "The workgroup the server will appear to be in when queried by clients."
-msgstr ""
+msgstr "ワークグループはサーバがクライアントから参照される際に表示されます。"
 
 msgid "There already exists a mount point for %s"
-msgstr ""
+msgstr "マウントポイント %s はすでに存在します"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
 " Please note that these settings do no affect the file system permissions."
-msgstr ""
+msgstr "これらの設定は、ユーザのアクセス権を設定するためのサービスで使用されます。これらの設定はファイルシステムのアクセス許可に影響を与えないことに注意をして下さい。"
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
-msgstr ""
+msgstr "共有が、net viewとブラウズリストで利用可能な共有の一覧に表示されるかを制御します。"
 
 msgid "This field does not allow blanks"
-msgstr ""
+msgstr "このフィールドは空白にはできません"
 
 msgid "This field is required"
-msgstr ""
+msgstr "このフィールドは必須です"
 
 msgid "This field must have the format hh:mm:ss"
-msgstr ""
+msgstr "このフィールドは hh:mm:ss 形式で入力してください"
 
 msgid "This field should be a IP network address in CIDR notation"
-msgstr ""
+msgstr "このフィールドは、CIDR表記のIPネットワークアドレスである必要があります"
 
 msgid "This field should be a IPv4 network address"
-msgstr ""
+msgstr "このフィールドは、IPv4ネットワークアドレスである必要があります"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
-msgstr ""
+msgstr "このフィールドは、CIDR表記のIPv4ネットワークアドレスである必要があります"
 
 msgid "This field should be a IPv6 network address in CIDR notation"
-msgstr ""
+msgstr "このフィールドは、CIDR表記のIPv6ネットワークアドレスである必要があります"
 
 msgid "This field should be a domainname or an IP address"
-msgstr ""
+msgstr "このフィールドはドメイン名かIPアドレスである必要があります"
 
 msgid "This field should be a domainname or an IPv4 address"
-msgstr ""
+msgstr "このフィールドはドメイン名かIPv4アドレスである必要があります"
 
 msgid "This field should be a hostname or an IP address"
-msgstr ""
+msgstr "このフィールドはホスト名かIPアドレスである必要があります"
 
 msgid "This field should be a hostname or an IPv4 address"
-msgstr ""
+msgstr "このフィールドはホスト名かIPv4アドレスである必要があります"
 
 msgid "This field should be a list of domainnames or IP addresses"
-msgstr ""
+msgstr "このフィールドはドメイン名かIPアドレスのリストである必要があります"
 
 msgid "This field should be a list of hostnames or IP addresses"
-msgstr ""
+msgstr "このフィールドはホスト名かIPアドレスのリストである必要があります"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
-msgstr ""
+msgstr "このフィールドは 128.0.0.0 - 255.255.255.252 の範囲のネットマスクである必要があります"
 
 msgid "This field should be a port in the range of 1 - 65535"
-msgstr ""
+msgstr "このフィールドは 1 - 65535 の範囲のポートである必要があります"
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
-msgstr ""
+msgstr "このフィールドは ポート番号かポート範囲である必要があります。 例) 21 または !443 または 1024-65535"
 
 msgid "This field should be an IP address"
-msgstr ""
+msgstr "このフィールドはIPアドレスである必要があります"
 
 msgid "This field should be an IPv4 address"
-msgstr ""
+msgstr "このフィールドはIPv4アドレスである必要があります"
 
 msgid "This field should be an IPv6 address"
-msgstr ""
+msgstr "このフィールドはIPv6アドレスである必要があります"
 
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
 "range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
 "192.168.178.20-192.168.178.254)"
-msgstr ""
+msgstr "このフィールドはIPv4ネットワークアドレス（/マスク をつけて）、IPv4の範囲かプレーンのIPv4アドレス（例えば 172.16.76.4 or !192.168.178.87/24 or 192.168.178.20-192.168.178.254）のいずれかでなければなりません"
 
 msgid ""
 "This field should be either a IPv6 network address (with /mask), a IPv6 "
 "range or a plain IPv6 address (e.g. !2001:db8::/96 or "
 "2001:db8::10-2001:db8::20 or 2001:db8::15)"
-msgstr ""
+msgstr "このフィールドはIPv6ネットワークアドレス（/マスク をつけて）、IPv6の範囲かプレーンのIPv6アドレス（例えば !2001:db8::/96 or 2001:db8::10-2001:db8::20 or 2001:db8::15）のいずれかでなければなりません"
 
 msgid "This field should only contain numbers"
-msgstr ""
+msgstr "このフィールドは数字のみである必要があります"
 
 msgid "This field should only contain numbers seperated by <,> or <;>"
-msgstr ""
+msgstr "このフィールドは<,> または <;>で区切られた数字でなければなりません"
 
 msgid ""
 "This field should only contain ports (0 - 65535) seperated by <,> or <;>"
-msgstr ""
+msgstr "このフィールドは<,> または <;>で区切られたポート番号(0 - 65535)でなければなりません"
 
 msgid "This field should only contain strings seperated by <,> or <;>"
-msgstr ""
+msgstr "このフィールドは<,> または <;>で区切られた文字列でなければなりません"
 
 msgid "This function is effective only if the hard drive supports it."
-msgstr ""
+msgstr "この機能は、ハードドライブがサポートしている場合にのみ有効です。"
 
 msgid ""
 "This is a text field that is seen next to a share when a client queries the "
 "server."
-msgstr ""
+msgstr "これはテキストフィールドです。クライアントがサーバに照会するとき、共有の隣に表示されます。"
 
 msgid ""
 "This may make more efficient use of the system CPU's and cause Samba to be "
 "faster. Samba automatically turns this off for clients that use protocol "
 "levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
-msgstr ""
+msgstr "このオプションを有効にすると、より効率的にシステム CPU が使用され、Samba の高速化が行われます。NT LM 0.12より低いプロトコルレベルを使うクライアント及びWindows 9x を検出した場合、自動的に無効になります。"
 
 msgid ""
 "This option causes the server to not send a certificate request during a SSL"
 " handshake."
-msgstr ""
+msgstr "このオプションは、サーバがSSLハンドシェイク時に証明書要求を送信しないようになります。"
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
-msgstr ""
+msgstr "このオプションはクライアントが利用可能なモジュールの一覧を要求したときにモジュールがリストに含まれるかを決定します。"
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3331,7 +3335,7 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr ""
+msgstr "このオプションはこのモジュールへのアクセスを拒否するホストをカンマ、半角スペース、タブで区切り入力します。リストが矛盾している場合は有効にするリストが優先します。デフォルトで全てを拒否し、キーワード ALL (またはネットマスク 0.0.0.0/0)を使用し、その後アクセスが許可されるホストを明示的に指定します。デフォルトの設定を使用する場合はこのフィールドを空のままにして下さい。"
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3340,440 +3344,440 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr ""
+msgstr "このオプションはこの共有へのアクセスを拒否するホストをカンマ、半角スペース、タブで区切り入力します。リストが矛盾している場合は有効にするリストが優先します。デフォルトで全てを拒否し、キーワード ALL (またはネットマスク 0.0.0.0/0)を使用し、その後アクセスが許可されるホストを明示的に指定します。デフォルトの設定を使用する場合はこのフィールドを空のままにして下さい。"
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this module. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr ""
+msgstr "このオプションはこのモジュールへのアクセスを許可するホストをカンマ、半角スペース、タブで区切り入力します。ホスト名、IPアドレスどちらの形式でも可能です。空にすると標準の設定を使用します。"
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this share. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr ""
+msgstr "このオプションはこの共有へのアクセスを許可するホストをカンマ、半角スペース、タブで区切り入力します。ホスト名、IPアドレスどちらの形式でも可能です。空にすると標準の設定を使用します。"
 
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
 "server."
-msgstr ""
+msgstr "このオプションは、このサーバーとの通信時にFTP over TLSを使用するようにクライアントに要求します。"
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
-msgstr ""
+msgstr "このオプションはモジュールへの、またモジュールからのファイル転送時のグループ名を指定します。"
 
 msgid ""
 "This option specifies the maximum number of simultaneous connections. 0 "
 "means no limit."
-msgstr ""
+msgstr "このオプションでは、同時接続の最大数を指定します。 0は無制限を意味します。"
 
 msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
-msgstr ""
+msgstr "このオプションはモジュールへの、またモジュールからのファイル転送時のユーザ名を指定します。"
 
 msgid ""
 "This option will handle all connections as if they are SSL connections "
 "implicitly."
-msgstr ""
+msgstr "このオプションは全ての接続が暗黙的にSSL接続であるかのように処理します。"
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr ""
+msgstr "このパラメータは、親ディレクトリにデフォルトのACLが存在する場合、これらの親ディレクトリに新しいファイルやサブディレクトリを作成する際に引き継がれることを確実にするために使用することができる。"
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
-msgstr ""
+msgstr "このパラメータは、ドットで始まるファイルは隠しファイルとして表示されるかどうかを制御します"
 
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
 "given time interval, then a ban is automatically added."
-msgstr ""
+msgstr "このパラメータは、イベント中が与えられた時間内に N 回発生した場合にBAN (禁止）が自動的に追加されます。"
 
 msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr ""
+msgstr "選択したイベントディレクティブが発生するたびに、このルールがトリガされます。"
 
 msgid "This will create a recycle bin on the share."
-msgstr ""
+msgstr "これは共有上にごみ箱が作成されます。"
 
 msgid "Thursday"
-msgstr ""
+msgstr "木曜"
 
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 msgid "Time"
-msgstr ""
+msgstr "時刻"
 
 msgid "Time interval"
-msgstr ""
+msgstr "タイムインターバル"
 
 msgid "Time server"
-msgstr ""
+msgstr "時刻サーバ"
 
 msgid "Time servers"
-msgstr ""
+msgstr "時刻サーバ"
 
 msgid "Time zone"
-msgstr ""
+msgstr "タイムゾーン"
 
 msgid "Timeout"
-msgstr ""
+msgstr "タイムアウト"
 
 msgid "Times"
-msgstr ""
+msgstr "時刻"
 
 msgid "Togo"
-msgstr ""
+msgstr "トーゴ"
 
 msgid "Tokelau"
-msgstr ""
+msgstr "トケラウ"
 
 msgid "Tonga"
-msgstr ""
+msgstr "トンガ"
 
 msgid "Transfer log"
-msgstr ""
+msgstr "転送ログ"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "転送時間"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "転送タイプ"
 
 msgid "Traps"
-msgstr ""
+msgstr "トラップ"
 
 msgid "Treshold"
-msgstr ""
+msgstr "しきい値"
 
 msgid "Trial run"
-msgstr ""
+msgstr "テスト実行"
 
 msgid "Trinidad and Tobago"
-msgstr ""
+msgstr "トリニダード·トバゴ"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "火曜"
 
 msgid "Tunisia"
-msgstr ""
+msgstr "チュニジア"
 
 msgid "Turkey"
-msgstr ""
+msgstr "トルコ"
 
 msgid "Turkmenistan"
-msgstr ""
+msgstr "トルクメニスタン"
 
 msgid "Turks and Caicos Islands"
-msgstr ""
+msgstr "タークス・カイコス諸島"
 
 msgid "Tuvalu"
-msgstr ""
+msgstr "ツバル"
 
 msgid "Type"
-msgstr ""
+msgstr "タイプ"
 
 msgid "U.S. Miscellaneous Pacific Islands"
-msgstr ""
+msgstr "米領太平洋諸島"
 
 msgid "U.S. Virgin Islands"
-msgstr ""
+msgstr "アメリカ領ヴァージン諸島"
 
 msgid "UNKNOWN"
-msgstr ""
+msgstr "UNKNOWN"
 
 msgid "Uganda"
-msgstr ""
+msgstr "ウガンダ"
 
 msgid "Ukraine"
-msgstr ""
+msgstr "ウクライナ"
 
 msgid "Uncompressed"
-msgstr ""
+msgstr "非圧縮"
 
 msgid "Uninstall"
-msgstr ""
+msgstr "アンインストール"
 
 msgid "Uninstall plugins ..."
-msgstr ""
+msgstr "プラグインをアンインストールしています ..."
 
 msgid "Union of Soviet Socialist Republics"
-msgstr ""
+msgstr "ソビエト連邦"
 
 msgid "Unit"
-msgstr ""
+msgstr "ユニット"
 
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "アラブ首長国連邦"
 
 msgid "United Kingdom"
-msgstr ""
+msgstr "イギリス"
 
 msgid "United States"
-msgstr ""
+msgstr "アメリカ合衆国"
 
 msgid "United States Minor Outlying Islands"
-msgstr ""
+msgstr "合衆国領有小離島"
 
 msgid "Unknown filesystem '%s'"
-msgstr ""
+msgstr "未知のファイルシステム '%s'"
 
 msgid "Unknown log file type (id=%s)"
-msgstr ""
+msgstr "未知のログファイルタイプ (id=%s)"
 
 msgid "Unknown network interface type."
-msgstr ""
+msgstr "未知のネットワークインタフェースタイプ。"
 
 msgid "Unmount"
-msgstr ""
+msgstr "アンマウント"
 
 msgid "Up"
-msgstr ""
+msgstr "上"
 
 msgid "Up delay"
-msgstr ""
+msgstr "Up delay"
 
 msgid "Update Manager"
-msgstr ""
+msgstr "アップデートマネージャー"
 
 msgid "Update now"
-msgstr ""
+msgstr "いますぐアップデート"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
-msgstr ""
+msgstr "元のACLと同じになるように宛先のACLを更新します"
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones"
-msgstr ""
+msgstr "ローカルの属性と同じになるように宛先の拡張属性を更新します"
 
 msgid "Updated"
-msgstr ""
+msgstr "アップデート済み"
 
 msgid "Updates"
-msgstr ""
+msgstr "アップデート"
 
 msgid "Updating ACL settings"
-msgstr ""
+msgstr "ACL設定のアップデート"
 
 msgid "Upload"
-msgstr ""
+msgstr "アップロード"
 
 msgid "Upload file"
-msgstr ""
+msgstr "ファイルをアップロード"
 
 msgid "Upload package"
-msgstr ""
+msgstr "パッケージをアップロード"
 
 msgid "Upload plugin"
-msgstr ""
+msgstr "プラグインをアップロード"
 
 msgid "Uploading file ..."
-msgstr ""
+msgstr "ファイルをアップロードしています …"
 
 msgid "Uptime"
-msgstr ""
+msgstr "起動時間"
 
 msgid "Uruguay"
-msgstr ""
+msgstr "ウルグアイ"
 
 msgid "Use NTP server"
-msgstr ""
+msgstr "NTPサーバを使用する"
 
 msgid "Use SSL/TLS secure connection"
-msgstr ""
+msgstr "SSL/TLSセキュアコネクションを使用する"
 
 msgid "Use chroot"
-msgstr ""
+msgstr "Chrootを利用する"
 
 msgid "Use sendfile"
-msgstr ""
+msgstr "Sendfileを使用する"
 
 msgid "Use the following bandwidth restriction:"
-msgstr ""
+msgstr "以下の帯域幅の制限を使用します:"
 
 msgid "Use the following port range:"
-msgstr ""
+msgstr "次のポート範囲を使用します:"
 
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked"
-msgstr ""
+msgstr "排他的にoplockされたファイルに対しより効率的なsendfileシステムコールを使用します"
 
 msgid "Use the specified WINS server."
-msgstr ""
+msgstr "指定されたWINSサーバを使用します。"
 
 msgid "Used"
-msgstr ""
+msgstr "使用済み"
 
 msgid "Used capacity"
-msgstr ""
+msgstr "使用済み容量"
 
 msgid "User"
-msgstr ""
+msgstr "ユーザー"
 
 msgid "User '%s' already exist"
-msgstr ""
+msgstr "ユーザー '%s' はすでに存在します"
 
 msgid "User '%s' does not exist"
-msgstr ""
+msgstr "ユーザー '%s' は存在しません"
 
 msgid "User ID '%d' already exist"
-msgstr ""
+msgstr "ユーザー ID '%d' はすでに存在します"
 
 msgid "User home directory"
-msgstr ""
+msgstr "ユーザーのホームディレクトリ"
 
 msgid "User information"
-msgstr ""
+msgstr "ユーザー情報"
 
 msgid "User/Group permissions"
-msgstr ""
+msgstr "ユーザー/グループのパーミッション"
 
 msgid "Username"
-msgstr ""
+msgstr "ユーザー名"
 
 msgid "Users"
-msgstr ""
+msgstr "ユーザー"
 
 msgid "Uzbekistan"
-msgstr ""
+msgstr "ウズベキスタン"
 
 msgid "Valid to"
-msgstr ""
+msgstr "有効期限"
 
 msgid "Value"
-msgstr ""
+msgstr "値"
 
 msgid "Vanuatu"
-msgstr ""
+msgstr "バヌアツ"
 
 msgid "Vatican"
-msgstr ""
+msgstr "バチカン"
 
 msgid "Vendor"
-msgstr ""
+msgstr "ベンダ"
 
 msgid "Venezuela"
-msgstr ""
+msgstr "ベネズエラ"
 
 msgid "Version"
-msgstr ""
+msgstr "バージョン"
 
 msgid "Vietnam"
-msgstr ""
+msgstr "ベトナム"
 
 msgid "Volume"
-msgstr ""
+msgstr "ボリューム"
 
 msgid "WINS"
-msgstr ""
+msgstr "WINS"
 
 msgid "WINS server"
-msgstr ""
+msgstr "WINSサーバー"
 
 msgid "WINS support"
-msgstr ""
+msgstr "WINSサポート"
 
 msgid "Wake Island"
-msgstr ""
+msgstr "ウェーク島"
 
 msgid "Wake-on-LAN"
-msgstr ""
+msgstr "Wake-on-LAN"
 
 msgid "Wallis and Futuna"
-msgstr ""
+msgstr "ウォリス・フツナ"
 
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 msgid "Web Administration"
-msgstr ""
+msgstr "Web管理"
 
 msgid "Web Administrator Password"
-msgstr ""
+msgstr "Web管理者パスワード"
 
 msgid "Web administration"
-msgstr ""
+msgstr "ウェブ管理"
 
 msgid "Web administration interface"
-msgstr ""
+msgstr "ウェブ管理インタフェース"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "水曜"
 
 msgid "Welcome message"
-msgstr ""
+msgstr "ウェルカムメッセージ"
 
 msgid "Western Sahara"
-msgstr ""
+msgstr "西サハラ"
 
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote username."
-msgstr ""
+msgstr "クライアントが最初にサーバへ接続するとき、identプロトコルは、リモートユーザ名を識別しようとするために使用されます。"
 
 msgid "When failed"
-msgstr ""
+msgstr "失敗したとき"
 
 msgid "Wipe"
-msgstr ""
+msgstr "ワイプ"
 
 msgid "Wiping device ..."
-msgstr ""
+msgstr "デバイスのワイプ ..."
 
 msgid "Workgroup"
-msgstr ""
+msgstr "ワークグループ"
 
 msgid "Worst"
-msgstr ""
+msgstr "ワースト"
 
 msgid "Write cache"
-msgstr ""
+msgstr "ライトキャッシュ"
 
 msgid "Write only"
-msgstr ""
+msgstr "書き込み専用"
 
 msgid "Yemen"
-msgstr ""
+msgstr "イエメン"
 
 msgid "Yes"
-msgstr ""
+msgstr "はい"
 
 msgid "Zambia"
-msgstr ""
+msgstr "ザンビア"
 
 msgid "Zimbabwe"
-msgstr ""
+msgstr "ジンバブエ"
 
 msgid "day"
-msgstr ""
+msgstr "日"
 
 msgid "days"
-msgstr ""
+msgstr "日"
 
 msgid "hour"
-msgstr ""
+msgstr "時間"
 
 msgid "hours"
-msgstr ""
+msgstr "時間"
 
 msgid "minute"
-msgstr ""
+msgstr "分"
 
 msgid "minutes"
-msgstr ""
+msgstr "分"
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 msgid "seconds"
-msgstr ""
+msgstr "秒"
 
 msgid "web administration interface"
-msgstr ""
+msgstr "ウェブ管理インタフェース"

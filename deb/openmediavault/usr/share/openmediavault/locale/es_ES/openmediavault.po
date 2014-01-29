@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-13 01:22+0100\n"
-"PO-Revision-Date: 2014-01-14 07:44+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"POT-Creation-Date: 2014-01-29 17:54+0100\n"
+"PO-Revision-Date: 2014-01-29 16:55+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -199,7 +199,7 @@ msgid "Add devices to RAID device"
 msgstr "Añadir dispositivos al RAID"
 
 msgid "Add firewall rule"
-msgstr "Añadir regla de cortafuegos"
+msgstr "Añadir regla de firewall"
 
 msgid "Add group"
 msgstr "Añadir grupo"
@@ -223,7 +223,7 @@ msgid "Add scheduled test"
 msgstr "Añadir test programado"
 
 msgid "Add share"
-msgstr "Añadir recurso compartido"
+msgstr "Añadir compartido"
 
 msgid "Add shared folder"
 msgstr "Añadir carpeta compartida"
@@ -235,7 +235,7 @@ msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
 " href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 "for more details."
-msgstr "Opciones adicionalesispositivo, P.ej:. 'autoneg off speed 100 duplex full'. Ver <a href='http://linux.die.net/man/8/ethtool' target='_blank'>páginas del manual</a> para más detalles."
+msgstr "Opciones adicionales dispositivo, P.ej:. 'autoneg off speed 100 duplex full'. Ver <a href='http://linux.die.net/man/8/ethtool' target='_blank'>páginas del manual</a> para más detalles."
 
 msgid "Address"
 msgstr "Dirección"
@@ -398,25 +398,25 @@ msgid "Authenticated user ID"
 msgstr "ID del usuario autenticado"
 
 msgid "Authentication"
-msgstr "Autenticación"
+msgstr "Autentificación"
 
 msgid "Authentication and no privacy"
-msgstr "Autenticación sin privacidad"
+msgstr "Autentificación sin privacidad"
 
 msgid "Authentication and privacy"
-msgstr "Autenticación y privacidad"
+msgstr "Autentificación y privacidad"
 
 msgid "Authentication method"
 msgstr "Metodo de autenticación"
 
 msgid "Authentication passphrase"
-msgstr "Contraseña para Autenticación"
+msgstr "Contraseña para Autentificación"
 
 msgid "Authentication required"
-msgstr "Se requiere autenticación"
+msgstr "Se requiere autentificación"
 
 msgid "Authentication type"
-msgstr "Tipo de autenticación"
+msgstr "Tipo de autentificación"
 
 msgid "Automatic Acoustic Management"
 msgstr "AAM Ajuste del ruido producido"
@@ -1883,6 +1883,9 @@ msgstr "Miembros"
 
 msgid "Memory usage"
 msgstr "Uso de memoria"
+
+msgid "Message"
+msgstr ""
 
 msgid "Messages"
 msgstr "Mensajes"
@@ -3640,7 +3643,7 @@ msgid "User/Group permissions"
 msgstr "Permisos de Usuario/Grupo"
 
 msgid "Username"
-msgstr "Nombre de usuario"
+msgstr "Usuario"
 
 msgid "Users"
 msgstr "Usuarios"
