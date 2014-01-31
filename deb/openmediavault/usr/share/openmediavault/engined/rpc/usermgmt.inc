@@ -144,6 +144,10 @@ finish:
 			$user = new OMVUser($userv);
 			if(!$user->exists())
 				continue;
+			// Append user 'root'?
+			if(0 == strcasecmp("root", $user->getName()) && FALSE == boolval(
+			  $GLOBALS['OMV_USERMGMT_ENUMERATE_USER_ROOT']))
+				continue;
 			// Check if the current user is requested.
 			$append = FALSE;
 			$system = !(($user->getUid() >= $loginDefs['UID_MIN']) &&

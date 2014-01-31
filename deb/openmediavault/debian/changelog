@@ -2,6 +2,9 @@ openmediavault (0.5.32) stable; urgency=low
 
   * Update locales.
   * Fix and improve various issues.
+  * Add environment variable OMV_USERMGMT_ENUMERATE_USER_ROOT. Set to FALSE in
+    /etc/default/openmediavault to do not list the user 'root' in the WebGUI.
+    Defaults to TRUE.
   * Display rootfs in 'Diagnostics | System Information | Status | Disk usage'.
   * Improve code to move grid rows via up/down toolbar buttons.
   * Simplify code to create the RRD graphs. Thanks to Solo0815 for the hint.
