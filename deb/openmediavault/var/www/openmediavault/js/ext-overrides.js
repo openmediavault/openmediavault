@@ -106,7 +106,7 @@ Ext.apply(Ext.form.field.VTypes, {
 	IPv4NetMask: /[\d\.\/]/i,
 
 	IPv4NetCIDR: function(v) {
-		var re =  Ext.String.format("^({0}\/(3[0-2]|[0-2]?[0-9])$",
+		var re =  Ext.String.format("^({0}\/(3[0-2]|[0-2]?[0-9]))$",
 		  Ext.form.field.VTypes.ReIPv4Addr);
 		return new RegExp(re, "i").test(v);
 	},
@@ -137,7 +137,7 @@ Ext.apply(Ext.form.field.VTypes, {
 	IPv6Mask: /[0-9a-f:]/i,
 
 	IPv6NetCIDR: function(v) {
-		var re = Ext.String.format("^({0}\/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9])$",
+		var re = Ext.String.format("^({0}\/(12[0-8]|1[0-1][0-9]|[1-9][0-9]|[0-9]))$",
 		  Ext.form.field.VTypes.ReIPv6Addr)
 		return new RegExp(re, "i").test(v);
 	},
