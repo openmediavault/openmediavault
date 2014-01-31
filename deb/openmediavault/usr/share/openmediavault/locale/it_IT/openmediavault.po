@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-29 17:54+0100\n"
-"PO-Revision-Date: 2014-01-29 16:55+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-01-29 22:05+0000\n"
+"Last-Translator: polxmod <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -213,13 +213,13 @@ msgid "Add module"
 msgstr "Aggiungi modulo"
 
 msgid "Add rsync job"
-msgstr "Agguingi rsync job"
+msgstr "Agguingi processo rsync"
 
 msgid "Add rule"
 msgstr "Aggiungi regola"
 
 msgid "Add scheduled job"
-msgstr "Aggiungi job pianificato"
+msgstr "Aggiungi processo pianificato"
 
 msgid "Add scheduled test"
 msgstr "Aggiungi test pianificato"
@@ -322,7 +322,7 @@ msgstr "Una email con l'output del comando (se prodotto) viene inviata all'ammin
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr "Una email con l'output del comando (se prodotto) viene inviata all'utente che esegue il job."
+msgstr "Una email con l'output del comando (se prodotto) viene inviata all'utente che esegue il processo."
 
 msgid "An error has occured"
 msgstr "Si è verificato un errore"
@@ -475,7 +475,7 @@ msgid "Block layer cache [%s, %s]"
 msgstr "Block layer cache [%s, %s]"
 
 msgid "Blocksize"
-msgstr "Blocksize"
+msgstr "Dimensione blocco"
 
 msgid "Bolivia"
 msgstr "Bolivia"
@@ -713,13 +713,13 @@ msgid "Croatia"
 msgstr "Croazia"
 
 msgid "Cron Jobs"
-msgstr "Cron Jobs"
+msgstr "Processi Pianificati"
 
 msgid "Cuba"
 msgstr "Cuba"
 
 msgid "Current time"
-msgstr "Tempo attuale"
+msgstr "Ora corrente"
 
 msgid "Currently logged in users"
 msgstr "Utenti attualmente collegati"
@@ -997,7 +997,7 @@ msgid "Edit rule"
 msgstr "Morifica regola"
 
 msgid "Edit scheduled job"
-msgstr "Modifica job pianificato"
+msgstr "Modifica processo pianificato"
 
 msgid "Edit scheduled test"
 msgstr "Modifica test pianificato"
@@ -1078,7 +1078,7 @@ msgid ""
 msgstr "Abilita il lookup inverso del DNS effettuato sull'indirizzo IP dell'host per le connessioni in arrivo in modo attivo e per le connessioni in uscita in modo passivo."
 
 msgid "Enable secure connection."
-msgstr "Abilita la connessione sicura"
+msgstr "Abilita connessione sicura."
 
 msgid "Enable store DOS attributes support"
 msgstr "Abilita il supporto alla registrazione di attributi DOS"
@@ -1152,10 +1152,10 @@ msgid "Execute command"
 msgstr "Esegui comando"
 
 msgid "Execute cron job"
-msgstr "Esegui cron job"
+msgstr "Esegui processo pianificato"
 
 msgid "Execute rsync job"
-msgstr "Esegui rsync job"
+msgstr "Esegui processo rsync"
 
 msgid "Execute scheduled test"
 msgstr "Esegui test pianificato"
@@ -1632,7 +1632,7 @@ msgid "Japan"
 msgstr "Giappone"
 
 msgid "Jobs"
-msgstr "Lavori"
+msgstr "Processi"
 
 msgid "Johnston Island"
 msgstr "Atollo Johnston"
@@ -1887,7 +1887,7 @@ msgid "Memory usage"
 msgstr "Memoria utilizzata"
 
 msgid "Message"
-msgstr ""
+msgstr "Messaggio"
 
 msgid "Messages"
 msgstr "Messaggi"
@@ -2112,7 +2112,7 @@ msgid "Num"
 msgstr "Num"
 
 msgid "Number of servers"
-msgstr "Numero di servers"
+msgstr "Numero di server"
 
 msgid "OK"
 msgstr "OK"
@@ -2549,7 +2549,7 @@ msgid "Rsync"
 msgstr "Rsync"
 
 msgid "Rsync - Jobs"
-msgstr "Rsync - Jobs"
+msgstr "Rsync - Processi"
 
 msgid "Rsync - Server"
 msgstr "Rsync - Server"
@@ -2645,7 +2645,7 @@ msgid "Scanning for new devices ..."
 msgstr "Ricerca di nuovi dispositivi in corso ..."
 
 msgid "Scheduled jobs"
-msgstr "Job pianificati"
+msgstr "Processi pianificati"
 
 msgid "Scheduled tests"
 msgstr "Test pianificati"
@@ -3129,7 +3129,7 @@ msgid ""
 msgstr "Il percorso dei file da condividere. La condivisione sarà accessibile in /export/<name>"
 
 msgid "The location of the user home directories."
-msgstr "Il percorso delle direcotry home dell'utente."
+msgstr "Il percorso delle directory home dell'utente."
 
 msgid "The name of the share."
 msgstr "Il nome della condivisione."
@@ -3173,7 +3173,7 @@ msgstr "Il requisito che la sessione SSL venga riutilizzata per le connessioni d
 
 msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "Il timeout di sessione definito in minuti. Imposta a 0 per disabilitare il logout automatico."
+msgstr "Timeout di sessione definito in minuti. Imposta a 0 per disabilitare il logout automatico."
 
 msgid "The shared folder is already used by another share."
 msgstr "La directory condivisa e già in uso da un'altra condivisione."
