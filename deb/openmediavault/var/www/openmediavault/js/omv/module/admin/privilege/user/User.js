@@ -273,7 +273,7 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
-					idProperty: "uuid",
+					idProperty: "name",
 					fields: [
 						{ name: "name", type: "string" },
 						{ name: "email", type: "string" },
@@ -289,7 +289,12 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 						service: "UserMgmt",
 						method: "getUserList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "name"
+				}]
 			})
 		});
 		me.callParent(arguments);

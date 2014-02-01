@@ -192,7 +192,7 @@ Ext.define("OMV.module.admin.privilege.group.Groups", {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
-					idProperty: "uuid",
+					idProperty: "name",
 					fields: [
 						{ name: "name", type: "string" },
 						{ name: "comment", type: "string" },
@@ -206,7 +206,12 @@ Ext.define("OMV.module.admin.privilege.group.Groups", {
 						service: "UserMgmt",
 						method: "getGroupList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "name"
+				}]
 			})
 		});
 		me.callParent(arguments);

@@ -656,7 +656,12 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 						service: "ShareMgmt",
 						method: "getList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "name"
+				}]
 			})
 		});
 		me.callParent(arguments);
