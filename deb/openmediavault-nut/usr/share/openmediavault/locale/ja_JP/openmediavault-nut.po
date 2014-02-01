@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# kansuke <kansuke4649@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-29 16:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-01-30 02:33+0000\n"
+"Last-Translator: kansuke <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +25,7 @@ msgid "Comment"
 msgstr "コメント"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "日付 & 時間"
 
 msgid "Defines when the shutdown is initiated."
 msgstr "シャットダウンが開始されるときの定義。"
@@ -48,13 +49,13 @@ msgid "Load"
 msgstr "ロード"
 
 msgid "Message"
-msgstr ""
+msgstr "メッセージ"
 
 msgid "Password"
 msgstr "パスワード"
 
 msgid "Program"
-msgstr ""
+msgstr "プログラム"
 
 msgid "Remote monitoring"
 msgstr "リモート監視"

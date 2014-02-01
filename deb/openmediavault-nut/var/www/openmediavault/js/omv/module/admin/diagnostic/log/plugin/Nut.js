@@ -19,21 +19,25 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/PluginManager.js")
+// require("js/omv/grid/column/WhiteSpace.js")
 // require("js/omv/module/admin/diagnostic/log/plugin/Plugin.js")
 
 /**
- * @class OMV.module.admin.diagnostic.log.plugin.Smart
+ * @class OMV.module.admin.diagnostic.log.plugin.Nut
  * @derived OMV.module.admin.diagnostic.log.plugin.Plugin
  * Class that implements the 'NUT (Network UPS Tools)' logfile
  * diagnostics plugin.
  */
 Ext.define("OMV.module.admin.diagnostic.log.plugin.Nut", {
 	extend: "OMV.module.admin.diagnostic.log.plugin.Plugin",
+	requires: [
+		"OMV.grid.column.WhiteSpace"
+	],
 
 	id: "nut",
 	text: _("UPS"),
 	stateful: true,
-	stateId: "2aa49758-88e2-11e3-8f8e-0050562b8ba0",
+	stateId: "d24bb3fa-8b86-11e3-a4cc-000c29f7c0eb",
 	columns: [{
 		text: _("Date & Time"),
 		sortable: true,

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# dezi121 <by@songming.me>, 2013
+# dezi121 <by@songming.me>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-29 16:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-01-30 12:58+0000\n"
+"Last-Translator: dezi121 <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -25,7 +25,7 @@ msgid "Comment"
 msgstr "注释"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "日期和时间"
 
 msgid "Defines when the shutdown is initiated."
 msgstr "设置何时开始关机。"
@@ -49,13 +49,13 @@ msgid "Load"
 msgstr "负载"
 
 msgid "Message"
-msgstr ""
+msgstr "消息"
 
 msgid "Password"
 msgstr "密码"
 
 msgid "Program"
-msgstr ""
+msgstr "程序"
 
 msgid "Remote monitoring"
 msgstr "远程监控"

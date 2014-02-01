@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Mauro Rulli <mauro.rulli@gmail.com>, 2012
-# polxmod <paolo.velati@gmail.com>, 2013
+# polxmod <paolo.velati@gmail.com>, 2013-2014
 # Volker <votdev@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-29 16:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-01-29 19:09+0000\n"
+"Last-Translator: polxmod <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgid "Comment"
 msgstr "Commento"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Data & Ora"
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Definisce quando lo shutdown viene avviato."
@@ -51,13 +51,13 @@ msgid "Load"
 msgstr "Carico"
 
 msgid "Message"
-msgstr ""
+msgstr "Messaggio"
 
 msgid "Password"
 msgstr "Password"
 
 msgid "Program"
-msgstr ""
+msgstr "Programma"
 
 msgid "Remote monitoring"
 msgstr "Monitoraggio remoto"

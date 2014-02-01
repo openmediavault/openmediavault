@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Milan Toet <milantoet@gmail.com>, 2012-2013
-# tico <co_ti@hotmail.com>, 2013
+# tico <co_ti@hotmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-29 16:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-02-01 15:05+0000\n"
+"Last-Translator: tico <co_ti@hotmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +26,7 @@ msgid "Comment"
 msgstr "Opmerking"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum en tijd"
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Bepaalt wanneer het afsluiten van het systeem wordt gestart."
@@ -50,13 +50,13 @@ msgid "Load"
 msgstr "Laden"
 
 msgid "Message"
-msgstr ""
+msgstr "Bericht"
 
 msgid "Password"
 msgstr "Wachtwoord"
 
 msgid "Program"
-msgstr ""
+msgstr "Toepassing"
 
 msgid "Remote monitoring"
 msgstr "Op afstand observeren"
