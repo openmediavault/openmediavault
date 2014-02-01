@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# mbouzada <mbouzada@gmail.com>, 2013
+# mbouzada <mbouzada@gmail.com>, 2013-2014
 # mbouzada <mbouzada@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-29 16:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-01-30 06:49+0000\n"
+"Last-Translator: mbouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -141,7 +141,7 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "Rexistrar os ficheiros limpos. Isto aumenta drasticamente o tamaño do rexistro."
 
 msgid "Message"
-msgstr ""
+msgstr "Mensaxe"
 
 msgid "Minute"
 msgstr "Minuto"

@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Mauro Rulli <mauro.rulli@gmail.com>, 2012
-# polxmod <paolo.velati@gmail.com>, 2013
+# polxmod <paolo.velati@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-29 16:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-01-29 19:09+0000\n"
+"Last-Translator: polxmod <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -141,7 +141,7 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "Log clean files. Questa operazione aumenterà drasticamente la dimensione del file di log."
 
 msgid "Message"
-msgstr ""
+msgstr "Messaggio"
 
 msgid "Minute"
 msgstr "Minuto"

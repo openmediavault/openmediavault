@@ -1,5 +1,6 @@
 openmediavault (0.5.33) stable; urgency=low
 
+  * Update locales.
   * Mantis 0000969: Sortable Columns do not work everywhere in the WebGUI.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 01 Feb 2014 21:42:49 +0100

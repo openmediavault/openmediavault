@@ -5,14 +5,14 @@
 # Translators:
 # Milan Toet <milantoet@gmail.com>, 2012-2013
 # Seba Kerckhof <seba.kerckhof@gmail.com>, 2012
-# tico <co_ti@hotmail.com>, 2013
+# tico <co_ti@hotmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-29 16:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-02-01 15:04+0000\n"
+"Last-Translator: tico <co_ti@hotmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -142,7 +142,7 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "Schone bestanden loggen. Hierdoor neemt de grootte van de logbestanden enorm toe."
 
 msgid "Message"
-msgstr ""
+msgstr "Bericht"
 
 msgid "Minute"
 msgstr "Minuut"

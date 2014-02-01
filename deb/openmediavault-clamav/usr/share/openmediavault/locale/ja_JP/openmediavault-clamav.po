@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# kansuke <kansuke4649@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-29 16:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-01-31 12:00+0000\n"
+"Last-Translator: kansuke <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -139,7 +140,7 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "ログファイルを整形します。ログファイルのサイズが劇的に大きくなります。"
 
 msgid "Message"
-msgstr ""
+msgstr "メッセージ"
 
 msgid "Minute"
 msgstr "分"
@@ -154,7 +155,7 @@ msgid "Multiscan"
 msgstr "マルチスキャン"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr "データベースの更新を1日に何回確認かを設定します。0に設定すると確認しません。"
+msgstr "データベースの更新を1日に何回確認するかを設定します。0に設定すると確認しません。"
 
 msgid "On-access"
 msgstr "オン-アクセス"
