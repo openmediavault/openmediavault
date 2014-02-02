@@ -1,3 +1,9 @@
+openmediavault-nut (0.5.8) stable; urgency=low
+
+  * Mantis 0000972: No NUT/UPS logs redirected to /var/log/nut.log.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 02 Feb 2014 20:45:08 +0100
+
 openmediavault-nut (0.5.7) stable; urgency=low
 
   * Update locales.

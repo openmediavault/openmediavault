@@ -19,6 +19,7 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/PluginManager.js")
+// require("js/omv/grid/column/Empty.js")
 // require("js/omv/grid/column/WhiteSpace.js")
 // require("js/omv/module/admin/diagnostic/log/plugin/Plugin.js")
 
@@ -53,6 +54,14 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Nut", {
 		stateId: "program",
 		flex: 1
 	},{
+		xtype: "emptycolumn",
+		text: _("PID"),
+		sortable: true,
+		hidden: true,
+		dataIndex: "pid",
+		stateId: "pid",
+		flex: 1
+	},{
 		xtype: "whitespacecolumn",
 		text: _("Message"),
 		sortable: true,
@@ -68,6 +77,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Nut", {
 		{ name: "ts", type: "int" },
 		{ name: "date", type: "string" },
 		{ name: "program", type: "string" },
+		{ name: "pid", type: "string" },
 		{ name: "message", type: "string" }
 	]
 });
