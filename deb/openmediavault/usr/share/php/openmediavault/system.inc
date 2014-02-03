@@ -633,8 +633,12 @@ class OMVFilesystem extends OMVObject {
 		if($this->getData() === FALSE)
 			return FALSE;
 		$data = array();
-		$cmd = sprintf("export LANG=C; df -PT %s", escapeshellarg(
-		  $this->getCanonicalDeviceFile()));
+		// Get the device file to be processed. Note, '/dev/root' must be
+		// handled differently.
+		$deviceFile = $this->getDeviceFile();
+		if("/dev/root" == $deviceFile)
+			$deviceFile = $this->getCanonicalDeviceFile();
+		$cmd = sprintf("export LANG=C; df -PT %s", escapeshellarg($deviceFile));
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
 			$this->setLastError($output);
