@@ -28,10 +28,7 @@ OMV_FSTAB_SECTIONNAME=${OMV_FSTAB_SECTIONNAME:-"openmediavault"}
 OMV_FSTAB_EXTENSIONS_DIR=${OMV_FSTAB_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/fstab.d"}
 
 # Execute all scripts building the custom fstab configuration.
-# !!! Note, the scripts must print out '\n' for line breaks to get the string
-# replacement working correct. See the example scripts in the fstab.d directory
-# for more information.
-fstabcfg=$(echo -n "# >>> [${OMV_FSTAB_SECTIONNAME}]\n"; run-parts ${OMV_FSTAB_EXTENSIONS_DIR} | tr -d '\n'; echo -n "# <<< [${OMV_FSTAB_SECTIONNAME}]")
+fstabcfg=$(echo -n "# >>> [${OMV_FSTAB_SECTIONNAME}]\n"; run-parts ${OMV_FSTAB_EXTENSIONS_DIR} | perl -p -e 's/\n/\\n/g'; echo -n "# <<< [${OMV_FSTAB_SECTIONNAME}]")
 
 # Append custom fstab configuration if not still present or replace existing one.
 if ! grep -E "^# >>> \[${OMV_FSTAB_SECTIONNAME}\]\s*$" ${OMV_FSTAB_CONFIG} >/dev/null; then
