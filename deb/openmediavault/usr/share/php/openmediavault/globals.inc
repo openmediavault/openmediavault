@@ -68,6 +68,7 @@ $GLOBALS['OMV_ENGINED_SO_RCVTIMEO'] = 180;
 $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE'] = "/var/lib/openmediavault/dirtymodules.json";
 $GLOBALS['OMV_APACHE2_SUEXECUSERGROUP'] = "openmediavault";
 $GLOBALS['OMV_USERMGMT_ENUMERATE_USER_ROOT'] = TRUE;
+$GLOBALS['OMV_PLUGIN_ENUMERATE_GET_REPOSITORY'] = FALSE;
 
 /**
  * Use the following table as reference when defining a regex:

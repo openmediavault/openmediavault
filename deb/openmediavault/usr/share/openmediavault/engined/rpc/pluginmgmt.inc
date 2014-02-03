@@ -124,34 +124,37 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 				$fieldvalue = trim($matches[2]);
 				$object[$fieldname] = $fieldvalue;
 			}
-			// Get the repository. Because parsing 'apt-cache' output seems
-			// to be too difficult, simply simulate the package installation.
-			// The 'apt-get' output includes the repository where the package
-			// comes from.
-			$cmd = sprintf("export LANG=C; apt-get --simulate ".
-			  "--reinstall install %s 2>&1", $object['name']);
-			if(0 !== $this->exec($cmd, $output2)) {
-				// Skip packages that fail, e.g. because of unmet
-				// dependencies.
-				if($result == 100)
-					continue;
-				// Throw an exception for all other errors.
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output2));
-			}
-			// Parse output:
-			// Inst libisccc60 [1:9.7.3.dfsg-1~squeeze3] (1:9.7.3.dfsg-1~squeeze4 Debian:6.0.4/stable, Debian-Security:6.0/stable [amd64])
-			// Inst file [5.04-5] (5.04-5+squeeze1 Debian-Security:6.0/stable [i386]) []
-			// Inst libxml2 [2.7.8.dfsg-2+squeeze2] (2.7.8.dfsg-2+squeeze3 Debian-Security:6.0/stable [i386])
-			// Inst libssl1.0.0 (1.0.0h-1 localhost [amd64])
-			foreach($output2 as $row) {
-				$regex = "/^Inst\s+(\S+)\s+(\[(\S+)|\])?\s*\((\S+)\s+(.+)\s+".
-				  "\[(\S+)\]\).*$/";
-				if(1 !== preg_match($regex, $row, $matches))
-					continue;
-				if($object['name'] === $matches[1]) {
-					$object['repository'] = $matches[5];
-					break;
+			if(TRUE == boolval($GLOBALS['OMV_PLUGIN_ENUMERATE_GET_REPOSITORY'])) {
+				// Get the repository where the package comes from. !!! Note,
+				// this is a really time consuming process. Because parsing
+				// 'apt-cache' output seems to be too difficult, simply
+				// simulate the package installation. The 'apt-get' output
+				// includes the repository where the package comes from.
+				$cmd = sprintf("export LANG=C; apt-get --simulate ".
+				  "--reinstall install %s 2>&1", $object['name']);
+				if(0 !== $this->exec($cmd, $output2)) {
+					// Skip packages that fail, e.g. because of unmet
+					// dependencies.
+					if($result == 100)
+						continue;
+					// Throw an exception for all other errors.
+					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+					  $cmd, implode("\n", $output2));
+				}
+				// Parse output:
+				// Inst libisccc60 [1:9.7.3.dfsg-1~squeeze3] (1:9.7.3.dfsg-1~squeeze4 Debian:6.0.4/stable, Debian-Security:6.0/stable [amd64])
+				// Inst file [5.04-5] (5.04-5+squeeze1 Debian-Security:6.0/stable [i386]) []
+				// Inst libxml2 [2.7.8.dfsg-2+squeeze2] (2.7.8.dfsg-2+squeeze3 Debian-Security:6.0/stable [i386])
+				// Inst libssl1.0.0 (1.0.0h-1 localhost [amd64])
+				foreach($output2 as $row) {
+					$regex = "/^Inst\s+(\S+)\s+(\[(\S+)|\])?\s*\((\S+)\s+(.+)".
+					  "\s+\[(\S+)\]\).*$/";
+					if(1 !== preg_match($regex, $row, $matches))
+						continue;
+					if($object['name'] === $matches[1]) {
+						$object['repository'] = $matches[5];
+						break;
+					}
 				}
 			}
 			// Append package information object.
