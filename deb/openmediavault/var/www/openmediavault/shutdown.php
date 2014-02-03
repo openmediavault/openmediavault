@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 /**
  * This file is part of OpenMediaVault.
