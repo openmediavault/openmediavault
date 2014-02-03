@@ -42,5 +42,5 @@ xmlstarlet sel -t \
 		-o "${fsname// /\\\040} ${dir// /\\\040} " \
 		-v "concat(type,' ',opts,' ',freq,' ',passno)" \
 		-o "\\n" \
-		${OMV_CONFIG_FILE} | xmlstarlet unesc | tr -d '\n'
+		${OMV_CONFIG_FILE} | xmlstarlet unesc
   done;
