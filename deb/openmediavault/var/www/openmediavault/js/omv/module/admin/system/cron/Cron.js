@@ -460,7 +460,7 @@ Ext.define("OMV.module.admin.system.cron.Jobs", {
 OMV.WorkspaceManager.registerNode({
 	id: "cron",
 	path: "/system",
-	text: _("Cron Jobs"),
+	text: _("Scheduled jobs"),
 	icon16: "images/alarm.png",
 	iconSvg: "images/alarm.svg",
 	position: 70
