@@ -84,7 +84,7 @@ case "$1" in
 		if [ -z "$2" ]; then
 			echo "Restarting services ..."
 			monit restart collectd
-			invoke-rc.d rsyslog reload
+			invoke-rc.d rsyslog restart
 		fi
 
 		########################################################################
@@ -102,8 +102,8 @@ case "$1" in
 			omv-mkconf collectd
 			monit restart collectd
 		fi
-		if dpkg --compare-versions "$2" lt-nl "0.5.6"; then
-			invoke-rc.d rsyslog reload
+		if dpkg --compare-versions "$2" lt-nl "0.5.9"; then
+			invoke-rc.d rsyslog restart
 		fi
 	;;
 
