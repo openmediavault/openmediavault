@@ -5,14 +5,14 @@
 # Translators:
 # Antonio Pelaez Redondo <antorayman@gmail.com>, 2012
 # jmcainzos <jmcainzos@vodafone.es>, 2012
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2013
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-29 16:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-02-02 22:35+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,7 +27,7 @@ msgid "Comment"
 msgstr "Comentario"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Fecha / Hora"
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Define cuándo se inicia el apagado."
@@ -48,16 +48,16 @@ msgid "Identifier"
 msgstr "Identificador"
 
 msgid "Load"
-msgstr "Cargar"
+msgstr "Consumo"
 
 msgid "Message"
-msgstr ""
+msgstr "Mensaje"
 
 msgid "Password"
 msgstr "Contraseña"
 
 msgid "Program"
-msgstr ""
+msgstr "Programación"
 
 msgid "Remote monitoring"
 msgstr "Control remoto"
@@ -104,10 +104,10 @@ msgid "Used for remote authentication."
 msgstr "Utilizado para autenticación remota."
 
 msgid "Username"
-msgstr "Nombre de usuario"
+msgstr "Usuario"
 
 msgid "Variables"
 msgstr "Variables"
 
 msgid "Voltage"
-msgstr "Voltaje"
+msgstr "Tensión"
