@@ -5,6 +5,8 @@ openmediavault (0.5.34) stable; urgency=low
     consuming this defaults to FALSE.
   * Mantis 0000867: Cache for System -> Plugins.
   * Mantis 0000917: Followup to 913 plugin error.
+  * Mantis 0000966: Automatically reload page after plugin installation or
+    deletion.
   * Mantis 0000967: Convert fstab mkconf to use run-parts.
   * Mantis 0000973: Fix issue in OMVFilesystem to get correct filesystem
     statistics.
