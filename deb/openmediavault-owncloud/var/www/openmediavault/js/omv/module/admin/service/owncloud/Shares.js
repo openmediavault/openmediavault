@@ -142,7 +142,12 @@ Ext.define("OMV.module.admin.service.owncloud.Shares", {
 						service: "OwnCloud",
 						method: "getShareList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "sharedfoldername"
+				}]
 			})
 		});
 		me.callParent(arguments);

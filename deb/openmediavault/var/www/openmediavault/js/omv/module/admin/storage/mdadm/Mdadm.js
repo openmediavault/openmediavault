@@ -482,7 +482,12 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 							updatelastaccess: false
 						}
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "name"
+				}]
 			})
 		});
 		me.callParent(arguments);

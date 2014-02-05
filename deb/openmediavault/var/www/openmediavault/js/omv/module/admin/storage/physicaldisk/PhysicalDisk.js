@@ -231,6 +231,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 						method: "getList"
 					}
 				},
+				remoteSort: true,
 				sorters: [{
 					direction: "ASC",
 					property: "devicefile"

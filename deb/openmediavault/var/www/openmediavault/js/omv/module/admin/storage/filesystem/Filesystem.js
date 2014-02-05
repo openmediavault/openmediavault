@@ -453,7 +453,12 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 							updatelastaccess: false
 						}
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "devicefile"
+				}]
 			})
 		});
 		me.callParent(arguments);

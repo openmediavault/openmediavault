@@ -180,7 +180,12 @@ Ext.define("OMV.module.admin.service.nfs.Shares", {
 						service: "NFS",
 						method: "getShareList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "sharedfoldername"
+				}]
 			})
 		});
 		me.callParent(arguments);

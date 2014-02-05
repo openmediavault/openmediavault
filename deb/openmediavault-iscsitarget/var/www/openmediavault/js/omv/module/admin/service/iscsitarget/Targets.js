@@ -663,7 +663,12 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.Targets", {
 						service: "iSCSITarget",
 						method: "getTargetList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "iqn"
+				}]
 			})
 		});
 		me.callParent(arguments);

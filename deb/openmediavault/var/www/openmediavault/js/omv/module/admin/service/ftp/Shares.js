@@ -127,7 +127,12 @@ Ext.define("OMV.module.admin.service.ftp.Shares", {
 						service: "FTP",
 						method: "getShareList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "sharedfoldername"
+				}]
 			})
 		});
 		me.callParent(arguments);

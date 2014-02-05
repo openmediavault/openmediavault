@@ -357,7 +357,12 @@ Ext.define("OMV.module.admin.system.cron.Jobs", {
 					extraParams: {
 						type: [ "userdefined" ]
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "enable"
+				}]
 			})
 		});
 		me.callParent(arguments);

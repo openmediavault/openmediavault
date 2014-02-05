@@ -320,7 +320,12 @@ Ext.define("OMV.module.admin.service.usbbackup.Jobs", {
 						service: "UsbBackup",
 						method: "getList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "sharedfoldername"
+				}]
 			})
 		});
 		me.callParent(arguments);

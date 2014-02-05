@@ -164,7 +164,12 @@ Ext.define("OMV.module.admin.storage.lvm.PhysicalVolumes", {
 						service: "LogicalVolumeMgmt",
 						method: "getPhysicalVolumesList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "devicefile"
+				}]
 			})
 		});
 		me.callParent(arguments);

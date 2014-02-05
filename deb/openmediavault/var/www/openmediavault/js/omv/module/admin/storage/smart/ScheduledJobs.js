@@ -298,7 +298,12 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 						service: "Smart",
 						method: "getScheduleList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "volumedevicefile"
+				}]
 			})
 		});
 		me.callParent(arguments);

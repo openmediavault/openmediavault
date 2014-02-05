@@ -459,7 +459,12 @@ Ext.define("OMV.module.admin.service.rsyncd.Modules", {
 						service: "Rsyncd",
 						method: "getModuleList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "name"
+				}]
 			})
 		});
 		me.callParent(arguments);

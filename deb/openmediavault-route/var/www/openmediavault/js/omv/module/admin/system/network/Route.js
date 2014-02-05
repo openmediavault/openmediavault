@@ -138,7 +138,12 @@ Ext.define("OMV.module.admin.system.network.route.Routes", {
 						service: "NetworkRoute",
 						method: "getList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "network"
+				}]
 			})
 		});
 		me.callParent(arguments);

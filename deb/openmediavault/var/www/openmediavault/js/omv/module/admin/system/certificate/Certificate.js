@@ -577,7 +577,12 @@ Ext.define("OMV.module.admin.system.certificate.Certificates", {
 						service: "CertificateMgmt",
 						method: "getList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "name"
+				}]
 			})
 		});
 		me.callParent(arguments);

@@ -431,7 +431,12 @@ Ext.define("OMV.module.admin.storage.lvm.VolumeGroups", {
 						service: "LogicalVolumeMgmt",
 						method: "getVolumeGroupsList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "devicefile"
+				}]
 			})
 		});
 		me.callParent(arguments);

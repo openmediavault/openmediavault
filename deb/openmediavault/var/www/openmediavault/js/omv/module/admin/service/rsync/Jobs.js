@@ -589,7 +589,12 @@ Ext.define("OMV.module.admin.service.rsync.Jobs", {
 						service: "Rsync",
 						method: "getList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "srcname"
+				}]
 			})
 		});
 		me.callParent(arguments);

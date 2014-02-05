@@ -1,5 +1,6 @@
 openmediavault (0.5.34) stable; urgency=low
 
+  * Fix remote grid sorting issue.
   * Add environment variable OMV_PLUGIN_ENUMERATE_GET_REPOSITORY. Set to TRUE
     to determine the repository of the plugin. Because this process is time
     consuming this defaults to FALSE.

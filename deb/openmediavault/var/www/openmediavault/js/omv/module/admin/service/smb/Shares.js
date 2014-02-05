@@ -307,7 +307,12 @@ Ext.define("OMV.module.admin.service.smb.Shares", {
 						service: "SMB",
 						method: "getShareList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "sharedfoldername"
+				}]
 			})
 		});
 		me.callParent(arguments);

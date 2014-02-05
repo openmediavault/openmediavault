@@ -350,7 +350,12 @@ Ext.define("OMV.module.admin.service.clamav.Jobs", {
 						service: "ClamAV",
 						method: "getJobList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "sharedfoldername"
+				}]
 			})
 		});
 		me.callParent(arguments);

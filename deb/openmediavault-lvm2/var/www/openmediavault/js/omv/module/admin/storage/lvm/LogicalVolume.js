@@ -443,7 +443,12 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 						service: "LogicalVolumeMgmt",
 						method: "getLogicalVolumesList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "devicefile"
+				}]
 			})
 		});
 		me.callParent(arguments);

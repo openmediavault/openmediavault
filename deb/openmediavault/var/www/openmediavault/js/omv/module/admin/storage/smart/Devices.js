@@ -385,7 +385,12 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 						service: "Smart",
 						method: "getList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "devicefile"
+				}]
 			})
 		});
 		me.callParent(arguments);

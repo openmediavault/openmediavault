@@ -261,7 +261,12 @@ Ext.define("OMV.module.admin.service.afp.Shares", {
 						service: "AFP",
 						method: "getShareList"
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "sharedfoldername"
+				}]
 			})
 		});
 		me.callParent(arguments);

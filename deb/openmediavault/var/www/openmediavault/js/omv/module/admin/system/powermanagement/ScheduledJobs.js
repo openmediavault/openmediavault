@@ -321,18 +321,18 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Jobs", {
 				model: OMV.data.Model.createImplicit({
 					idProperty: "uuid",
 					fields: [
-						{ name: "uuid" },
-						{ name: "enable" },
-						{ name: "type" },
-						{ name: "minute" },
-						{ name: "everynminute" },
-						{ name: "hour" },
-						{ name: "everynhour" },
-						{ name: "dayofmonth" },
-						{ name: "everyndayofmonth" },
-						{ name: "month" },
-						{ name: "dayofweek" },
-						{ name: "comment" }
+						{ name: "uuid", type: "string" },
+						{ name: "enable", type: "boolean" },
+						{ name: "type", type: "string" },
+						{ name: "minute", type: "string" },
+						{ name: "everynminute", type: "boolean" },
+						{ name: "hour", type: "string" },
+						{ name: "everynhour", type: "boolean" },
+						{ name: "dayofmonth", type: "string" },
+						{ name: "everyndayofmonth", type: "boolean" },
+						{ name: "month", type: "string" },
+						{ name: "dayofweek", type: "string" },
+						{ name: "comment", type: "string" }
 					]
 				}),
 				proxy: {
@@ -344,7 +344,12 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Jobs", {
 					extraParams: {
 						"type": [ "reboot", "shutdown" ]
 					}
-				}
+				},
+				remoteSort: true,
+				sorters: [{
+					direction: "ASC",
+					property: "enable"
+				}]
 			})
 		});
 		me.callParent(arguments);
