@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-29 17:54+0100\n"
-"PO-Revision-Date: 2014-01-30 02:32+0000\n"
+"POT-Creation-Date: 2014-02-04 22:52+0100\n"
+"PO-Revision-Date: 2014-02-05 00:23+0000\n"
 "Last-Translator: kansuke <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -706,9 +706,6 @@ msgstr "クリティカル"
 
 msgid "Croatia"
 msgstr "クロアチア"
-
-msgid "Cron Jobs"
-msgstr "Cronジョブ"
 
 msgid "Cuba"
 msgstr "キューバ"
@@ -3131,6 +3128,9 @@ msgstr "共有の名前。"
 
 msgid "The number of days the certificate is valid for."
 msgstr "この日数だけ証明書は有効です。"
+
+msgid "The page will reload now to let the changes take effect."
+msgstr "変更を有効にするためにページが再読み込みされます。"
 
 #, php-format
 msgid "The parameter '%s' contains forbidden two-dot symbols"

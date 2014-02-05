@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-29 17:54+0100\n"
-"PO-Revision-Date: 2014-02-01 20:19+0000\n"
-"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
+"POT-Creation-Date: 2014-02-04 22:52+0100\n"
+"PO-Revision-Date: 2014-02-04 21:52+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -706,9 +706,6 @@ msgstr "Kritik"
 
 msgid "Croatia"
 msgstr "Hırvatistan"
-
-msgid "Cron Jobs"
-msgstr "Cron görevleri"
 
 msgid "Cuba"
 msgstr "Küba"
@@ -3131,6 +3128,9 @@ msgstr "Paylaşımın adı."
 
 msgid "The number of days the certificate is valid for."
 msgstr "Sertifikanın geçerli olduğu gün sayısı."
+
+msgid "The page will reload now to let the changes take effect."
+msgstr ""
 
 #, php-format
 msgid "The parameter '%s' contains forbidden two-dot symbols"

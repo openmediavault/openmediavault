@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-29 17:54+0100\n"
-"PO-Revision-Date: 2014-01-29 16:55+0000\n"
+"POT-Creation-Date: 2014-02-04 22:52+0100\n"
+"PO-Revision-Date: 2014-02-04 21:52+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -708,9 +708,6 @@ msgstr "Критично"
 
 msgid "Croatia"
 msgstr "Хорватія"
-
-msgid "Cron Jobs"
-msgstr "Завдання Cron"
 
 msgid "Cuba"
 msgstr "Куба"
@@ -3132,6 +3129,9 @@ msgid "The name of the share."
 msgstr "Назва спільного ресурсу"
 
 msgid "The number of days the certificate is valid for."
+msgstr ""
+
+msgid "The page will reload now to let the changes take effect."
 msgstr ""
 
 #, php-format

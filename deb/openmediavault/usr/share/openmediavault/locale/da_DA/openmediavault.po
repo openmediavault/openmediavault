@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-29 17:54+0100\n"
-"PO-Revision-Date: 2014-01-29 16:55+0000\n"
+"POT-Creation-Date: 2014-02-04 22:52+0100\n"
+"PO-Revision-Date: 2014-02-04 21:52+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -706,9 +706,6 @@ msgstr "Kritisk"
 
 msgid "Croatia"
 msgstr "Croatia"
-
-msgid "Cron Jobs"
-msgstr "Cron Opgaver"
 
 msgid "Cuba"
 msgstr "Cuba"
@@ -3131,6 +3128,9 @@ msgstr "Navnet på delt mappe."
 
 msgid "The number of days the certificate is valid for."
 msgstr "Antal dage certifikatet er gyldig i."
+
+msgid "The page will reload now to let the changes take effect."
+msgstr ""
 
 #, php-format
 msgid "The parameter '%s' contains forbidden two-dot symbols"

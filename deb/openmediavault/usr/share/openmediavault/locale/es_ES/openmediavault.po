@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-29 17:54+0100\n"
-"PO-Revision-Date: 2014-01-29 16:55+0000\n"
+"POT-Creation-Date: 2014-02-04 22:52+0100\n"
+"PO-Revision-Date: 2014-02-04 21:52+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -709,9 +709,6 @@ msgstr "Crítico"
 
 msgid "Croatia"
 msgstr "Croacia"
-
-msgid "Cron Jobs"
-msgstr "Trabajos programados"
 
 msgid "Cuba"
 msgstr "Cuba"
@@ -1885,7 +1882,7 @@ msgid "Memory usage"
 msgstr "Uso de memoria"
 
 msgid "Message"
-msgstr ""
+msgstr "Mensaje"
 
 msgid "Messages"
 msgstr "Mensajes"
@@ -2951,7 +2948,7 @@ msgid ""
 msgstr "Especifica si se monitoriza el estado del sistema y selecciona el nivel de CPU más apropiado."
 
 msgid "Specifies which slave is the primary device."
-msgstr "Especifica qué esclaco es el dispositivo primario."
+msgstr "Especifica qué esclavo es el dispositivo primario."
 
 msgid "Spindown time"
 msgstr "Tiempo para detener el disco"
@@ -3134,6 +3131,9 @@ msgstr "El nombre del compartido"
 
 msgid "The number of days the certificate is valid for."
 msgstr "El número de días de validez del certificado."
+
+msgid "The page will reload now to let the changes take effect."
+msgstr ""
 
 #, php-format
 msgid "The parameter '%s' contains forbidden two-dot symbols"

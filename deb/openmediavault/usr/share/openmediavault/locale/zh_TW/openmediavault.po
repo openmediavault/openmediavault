@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-29 17:54+0100\n"
-"PO-Revision-Date: 2014-01-29 22:27+0000\n"
+"POT-Creation-Date: 2014-02-04 22:52+0100\n"
+"PO-Revision-Date: 2014-02-04 22:30+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -707,9 +707,6 @@ msgstr "嚴重"
 
 msgid "Croatia"
 msgstr "克羅埃西亞"
-
-msgid "Cron Jobs"
-msgstr "Cron 工作"
 
 msgid "Cuba"
 msgstr "古巴"
@@ -3132,6 +3129,9 @@ msgstr "該共享的名稱。"
 
 msgid "The number of days the certificate is valid for."
 msgstr "證書有效的天數。"
+
+msgid "The page will reload now to let the changes take effect."
+msgstr "現在網頁將重新載入頁面以讓更改生效。"
 
 #, php-format
 msgid "The parameter '%s' contains forbidden two-dot symbols"
