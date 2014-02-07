@@ -271,7 +271,7 @@ case "$1" in
 			monit restart collectd
 			udevadm control --reload-rules
 			omv-mkconf sysctl
-			sysctl -p
+			sysctl -e -p
 		fi
 	;;
 
