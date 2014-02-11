@@ -170,9 +170,11 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 					  $objectv['volume'], $objectv['reldirpath']);
 				}
 			}
-			// Is the shared folder referenced by any object?
-			if(TRUE === $xmlConfig->exists("//sharedfolderref[" .
-			  "contains(.,'{$objectv['uuid']}')]")) {
+			// Is the shared folder referenced by any object? Shared folder
+			// references are named 'sharedfolderref'.
+			$xpath = sprintf("//sharedfolderref[contains(.,'%s')]",
+			  $objectv['uuid']);
+			if(TRUE === $xmlConfig->exists($xpath)) {
 				$objectv['_used'] = true;
 			}
 		}
@@ -1081,10 +1083,12 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
 			  }
 		  }');
-		// Get a list of XPath's to the configuration objects referencing the
-		// given shared folder.
-		$objects = $xmlConfig->getXPathList("//sharedfolderref[contains(.,".
-		  "'{$params['uuid']}')]/..");
+		// Get a list of XPath's to the configuration objects referencing
+		// the given shared folder. Shared folder references are named
+		// 'sharedfolderref'.
+		$xpath = sprintf("//sharedfolderref[contains(.,'%s')]/..",
+		  $params['uuid']);
+		$objects = $xmlConfig->getXPathList($xpath);
 		return $objects;
 	}
 }
