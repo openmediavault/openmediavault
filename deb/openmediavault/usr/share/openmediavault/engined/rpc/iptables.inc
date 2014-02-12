@@ -138,9 +138,11 @@ class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
 			}
 		}
 		// Append the given iptables rules.
-		if(FALSE === $xmlConfig->set("//system/network/iptables",
-		  array("rule" => $objects))) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+		if(!empty($objects)) {
+			if(FALSE === $xmlConfig->set("//system/network/iptables",
+			  array("rule" => $objects))) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+			}
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
