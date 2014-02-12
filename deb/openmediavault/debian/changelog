@@ -1,5 +1,6 @@
 openmediavault (0.5.35) stable; urgency=low
 
+  * Update locales.
   * Improve SMB recycle dir cron-script.
   * Mantis 0000845: Fix postfix issue.
   * Mantis 0000978: FAQ Link no more available.
