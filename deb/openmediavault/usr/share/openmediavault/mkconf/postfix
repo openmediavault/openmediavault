@@ -57,6 +57,9 @@ OMV_POSTFIX_SMTP_TLS_CAFILE=${OMV_POSTFIX_SMTP_TLS_CAFILE:-"/etc/ssl/certs/ca-ce
 OMV_POSTFIX_SMTP_TLS_CAPATH=${OMV_POSTFIX_SMTP_TLS_CAPATH:-"/etc/ssl/certs"}
 OMV_POSTFIX_CRON_CONFIG=${OMV_POSTFIX_CRON_CONFIG:-"/etc/cron.hourly/openmediavault-flushmailq"}
 
+# Ensure various required directories exist.
+[ ! -e "/var/spool/postfix/public/pickup" ] &&  mkfifo /var/spool/postfix/public/pickup
+
 # Create '/etc/postfix/main.cf' configuration file
 xmlstarlet sel -t -m "//system/email" \
   -o "mydestination = ${OMV_POSTFIX_MYDESTINATION}" -n \
