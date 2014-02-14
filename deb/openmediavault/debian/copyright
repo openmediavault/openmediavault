@@ -136,14 +136,14 @@ Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/no.png
-Copyright: Dat Nguyen (http://splashyfish.com)
-License: Free for commercial use
-Comment: http://www.iconfinder.net/icondetails/14635/16
+       /var/www/openmediavault/images/no.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/yes.png
-Copyright: Everaldo Coelho (http://www.everaldo.com)
-License: LGPL
-Comment: http://www.iconfinder.net/icondetails/3207/16
+       /var/www/openmediavault/images/yes.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/software.png
        /var/www/openmediavault/images/software.svg
