@@ -23,6 +23,7 @@
 // require("js/omv/workspace/window/Form.js")
 // require("js/omv/form/field/CheckboxGrid.js")
 // require("js/omv/form/field/Password.js")
+// require("js/omv/util/Format.js")
 // require("js/omv/Rpc.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
@@ -234,6 +235,7 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 		"OMV.data.Store",
 		"OMV.data.Model",
 		"OMV.data.proxy.Rpc",
+		"OMV.util.Format",
 		"OMV.module.admin.privilege.user.User",
 		"OMV.module.admin.privilege.user.Import"
 	],
@@ -262,8 +264,8 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 		stateId: "groups",
 		renderer: function(value) {
 			if(Ext.isArray(value))
-				return value.join(",");
-			return value;
+				value = value.join(", ");
+			return OMV.util.Format.whitespace(value);
 		}
 	}],
 

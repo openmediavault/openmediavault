@@ -8,14 +8,14 @@
 # Mauro Rulli <mauro.rulli@gmail.com>, 2012
 # Mauro Rulli <mauro.rulli@gmail.com>, 2012
 # Mario Varelli <mvarelli@biologia.unipi.it>, 2012
-# polxmod <paolo.velati@gmail.com>, 2013-2014
+# Paolo Velati <paolo.velati@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-04 22:52+0100\n"
 "PO-Revision-Date: 2014-02-04 22:00+0000\n"
-"Last-Translator: polxmod <paolo.velati@gmail.com>\n"
+"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"

@@ -54,7 +54,6 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 		ptype: "configobject"
 	}],
 	width: 500,
-	height: 290,
 
 	/**
 	 * The class constructor.
