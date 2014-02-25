@@ -3188,18 +3188,23 @@ class OMVUser extends OMVObject {
 		case "groups":
 			if(!is_null($this->groups))
 				return TRUE;
-			// http://www.howtogeek.com/howto/ubuntu/see-which-groups-your-linux-user-belongs-to
-			$cmd = sprintf("export LANG=C; groups %s", escapeshellarg(
+			// Get the group IDs the user is in as white-space separated
+			// numbers. Thus it is possible to correctly process group
+			// names that contain blanks (e.g. imported via LDAP or AD).
+			$cmd = sprintf("export LANG=C; id -G %s", escapeshellarg(
 			  $this->getName()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if(($result !== 0) || empty($output[0])) {
 				$this->setLastError($output);
 				return FALSE;
 			}
-			// Parse command output:
-			// test : users adm audio www-data avahi
-			$output = trim(substr(strrchr($output[0], ":"), 1));
-			$this->groups = empty($output) ? array() : explode(" ", $output);
+			$gids = explode(" ", $output[0]);
+			// Resolve the group names.
+			$this->groups = array();
+			foreach($gids as $gidk => $gidv) {
+				$groupInfo = posix_getgrgid($gidv);
+				$this->groups[] = $groupInfo['name'];
+			}
 			$result = TRUE;
 			break;
 		}
