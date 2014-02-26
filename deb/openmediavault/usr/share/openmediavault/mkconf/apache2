@@ -87,20 +87,22 @@ xmlstarlet sel -t -m "//webadmin" \
 	  -v "concat('    SSLCertificateKeyFile ${OMV_CERTIFICATE_DIR}/private/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.key')" -n \
 	  -o "</Virtualhost>" -n \
   -b \
-  -i "enablessl[. = '0'] or forcesslonly[. = '0']" \
-	  -v "concat('<VirtualHost *:',port,'>')" -n \
-	  -o "    Include ${OMV_APACHE2_WEBGUI_CONFIG_DIR}/*.conf" -n \
-	  -o "    SSLEngine off" -n \
-	  -o "</Virtualhost>" \
+  -v "concat('<VirtualHost *:',port,'>')" -n \
+  -o "    Include ${OMV_APACHE2_WEBGUI_CONFIG_DIR}/*.conf" -n \
+  -i "enablessl[. = '1'] and forcesslonly[. = '1']" \
+    -o "    <IfModule mod_rewrite.c>" -n \
+    -o "    RewriteEngine On" -n \
+    -o "    RewriteCond %{HTTPS} off" -n \
+    -o "    RewriteRule ^/?(.*) https://%{SERVER_NAME}/\$1 [R,L]" -n \
+    -o "    </IfModule>" -n \
   -b \
+  -o "</Virtualhost>" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_APACHE2_SITE_OPENMEDIAVAULT_CONFIG}
 
 # Create '/etc/apache2/ports.conf' file
 xmlstarlet sel -t -m "//webadmin" \
-  -i "enablessl[. = '0'] or forcesslonly[. = '0']" \
-	  -v "concat('NameVirtualHost *:',port)" -n \
-	  -v "concat('Listen ',port)" -n \
-  -b \
+  -v "concat('NameVirtualHost *:',port)" -n \
+  -v "concat('Listen ',port)" -n \
   -i "enablessl[. = '1']" \
 	-o "<IfModule mod_ssl.c>" -n \
 	-v "concat('NameVirtualHost *:',sslport)" -n \

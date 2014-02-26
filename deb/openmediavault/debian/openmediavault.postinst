@@ -104,6 +104,7 @@ case "$1" in
 			a2enmod suexec
 			a2enmod fcgid
 			a2enmod ssl
+			a2enmod rewrite
 			a2dissite 000-default
 			a2ensite openmediavault-webgui
 		fi

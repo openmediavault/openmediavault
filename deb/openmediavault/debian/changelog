@@ -2,6 +2,7 @@ openmediavault (0.5.36) stable; urgency=low
 
   * Update locales.
   * Various improvements.
+  * Mantis 0000990: Redirect permanent to https option for apache.
   * Mantis 0000993: Groups with space not displayed correctly.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 14 Feb 2014 01:02:16 +0100
