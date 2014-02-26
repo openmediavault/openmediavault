@@ -93,7 +93,7 @@ xmlstarlet sel -t -m "//webadmin" \
     -o "    <IfModule mod_rewrite.c>" -n \
     -o "    RewriteEngine On" -n \
     -o "    RewriteCond %{HTTPS} off" -n \
-    -o "    RewriteRule ^/?(.*) https://%{SERVER_NAME}/\$1 [R,L]" -n \
+    -o "    RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]" -n \
     -o "    </IfModule>" -n \
   -b \
   -o "</Virtualhost>" \
