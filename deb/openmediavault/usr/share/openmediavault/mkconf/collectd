@@ -33,6 +33,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
+OMV_RRDCACHED_SOCKETFILE=${OMV_RRDCACHED_SOCKETFILE:-"/var/run/rrdcached.sock"}
 
 OMV_COLLECTD_CONFIG=${OMV_COLLECTD_CONFIG:-"/etc/collectd/collectd.conf"}
 OMV_COLLECTD_DEFAULT=${OMV_COLLECTD_DEFAULT:-"/etc/default/collectd"}
@@ -41,7 +42,6 @@ OMV_COLLECTD_PLUGINS_DIR=${OMV_COLLECTD_PLUGINS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/
 OMV_COLLECTD_HOSTNAME=${OMV_COLLECTD_HOSTNAME:-"localhost"}
 OMV_COLLECTD_FQDNLOOKUP=${OMV_COLLECTD_FQDNLOOKUP:-"true"}
 OMV_COLLECTD_SYSLOG_LOGLEVEL=${OMV_COLLECTD_SYSLOG_LOGLEVEL:-"info"}
-OMV_COLLECTD_RRDCACHED_SOCKETFILE=${OMV_COLLECTD_RRDCACHED_SOCKETFILE:-"/var/run/rrdcached.sock"}
 OMV_COLLECTD_RRDCACHED_CREATEFILES=${OMV_COLLECTD_RRDCACHED_CREATEFILES:-"true"}
 OMV_COLLECTD_RRDCACHED_COLLECTSTATISTICS=${OMV_COLLECTD_RRDCACHED_COLLECTSTATISTICS:-"true"}
 OMV_COLLECTD_RRDTOOL_DATADIR=${OMV_COLLECTD_RRDTOOL_DATADIR:-"/var/lib/collectd/rrd"}
@@ -71,7 +71,7 @@ LoadPlugin syslog
 
 #LoadPlugin rrdcached
 #<Plugin rrdcached>
-#	DaemonAddress "unix:${OMV_COLLECTD_RRDCACHED_SOCKETFILE}"
+#	DaemonAddress "unix:${OMV_RRDCACHED_SOCKETFILE}"
 #	DataDir "${OMV_COLLECTD_RRDTOOL_DATADIR}"
 #	CreateFiles ${OMV_COLLECTD_RRDCACHED_CREATEFILES}
 #	CollectStatistics ${OMV_COLLECTD_RRDCACHED_COLLECTSTATISTICS}
@@ -141,6 +141,7 @@ MONTHSTART="-1m"
 MONTHTITLE=" - by month"
 YEARSTART="-1y"
 YEARTITLE=" - by year"
+#DEFAULTS="--daemon unix:${OMV_RRDCACHED_SOCKETFILE} --imgformat ${OMV_COLLECTD_RRDTOOL_GRAPH_IMGFORMAT} --width ${OMV_COLLECTD_RRDTOOL_GRAPH_WIDTH} --height ${OMV_COLLECTD_RRDTOOL_GRAPH_HEIGHT} --alt-y-grid --interlaced --font TITLE:9:."
 DEFAULTS="--imgformat ${OMV_COLLECTD_RRDTOOL_GRAPH_IMGFORMAT} --width ${OMV_COLLECTD_RRDTOOL_GRAPH_WIDTH} --height ${OMV_COLLECTD_RRDTOOL_GRAPH_HEIGHT} --alt-y-grid --interlaced --font TITLE:9:."
 LASTUPDATE="Last update\: \$(date | sed -e 's/:/\\\:/g')\r"
 
@@ -152,8 +153,8 @@ omv_copy_error_rrd_graph_image() {
 }
 
 # Flush all rrdtool data
+#echo "FLUSHALL" | socat - unix:${OMV_RRDCACHED_SOCKETFILE} >/dev/null
 echo -n "FLUSH plugin=rrdtool" | socat unix:${OMV_COLLECTD_UNIXSOCK_SOCKETFILE} - >/dev/null
-#echo "FLUSHALL" | socat - unix:${OMV_COLLECTD_RRDCACHED_SOCKETFILE} >/dev/null
 # Create target graph directory
 mkdir -p \${IMGDIR}
 # Remove old graphs
