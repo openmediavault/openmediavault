@@ -32,6 +32,8 @@
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_COLLECTD_RRDTOOL_DATADIR=${OMV_COLLECTD_RRDTOOL_DATADIR:-"/var/lib/collectd/rrd"}
+
 configure_iface() {
 	local devicename method address netmask gateway
 	# Default values.
@@ -312,6 +314,33 @@ EOF
 	return 0
 }
 
+fix_rrd_database()
+{
+	# Stopping collectd daemon.
+	monit stop collectd
+	# Check RRD database files for invalid timestamps.
+	count=0
+	find "${OMV_COLLECTD_RRDTOOL_DATADIR}/localhost/" -name "*.rrd" -print | \
+	  while read filename; do
+		  tsLast=$(rrdtool last "${filename}")
+		  tsNow=$(date '+%s')
+		  if [ "${tsLast}" -gt "${tsNow}" ]; then
+			  count=$((count + 1))
+			  dirname=$(dirname "${filename}")
+			  basename=$(basename "${filename}")
+			  whiptail --clear --yesno --defaultno "The RRD file '../$(basename "${dirname}")/${basename}' contains timestamps in future. Do you want to delete it?" 8 70
+			  if [ $? -eq 0 ]; then
+				  rm -f "${filename}"
+			  fi
+		  fi
+	  done
+	# Display message if RRD databases are all valid.
+	[ "${count}" -eq 0 ] && echo "All RRD database files are valid."
+	# Starting collectd daemon.
+	monit start collectd
+	return 0
+}
+
 tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/omv-setup$$
 trap "rm -f $tempfile; exit" 0 1 2 5 15
 
@@ -320,12 +349,14 @@ prodname=$(xmlstarlet sel -t -v "//name" ${OMV_PRODUCTINFO_FILE} | xmlstarlet un
 prodcopyright=$(xmlstarlet sel -t -v "//copyright" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
 
 # Display the default menu
-whiptail --nocancel --clear --backtitle "${prodname} - ${prodcopyright}" --title "First aid" --menu "Please select a menu:" 12 65 5 \
+whiptail --nocancel --clear --backtitle "${prodname} - ${prodcopyright}" \
+  --title "First aid" --menu "Please select a menu:" 13 65 6 \
   "1" "Configure network interface" \
   "2" "Configure WebGUI" \
   "3" "Change WebGUI administrator password" \
   "4" "Restore configuration backup" \
-  "5" "Exit" 2>$tempfile
+  "5" "Fix RRD database" \
+  "6" "Exit" 2>$tempfile
 [ $? -ne 0 ] && return 1
 choice=$(cat $tempfile)
 case ${choice} in
@@ -340,6 +371,9 @@ case ${choice} in
 	;;
 4)
 	restore_config_backup;
+	;;
+5)
+	fix_rrd_database;
 	;;
 esac
 

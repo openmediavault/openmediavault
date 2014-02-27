@@ -2,6 +2,7 @@ openmediavault (0.5.36) stable; urgency=low
 
   * Update locales.
   * Various improvements.
+  * Add option to fix RRD database files in omv-firstaid.
   * Mantis 0000990: Redirect permanent to https option for apache.
   * Mantis 0000993: Groups with space not displayed correctly.
 
