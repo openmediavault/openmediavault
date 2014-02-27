@@ -42,7 +42,7 @@ configure_iface() {
 	netmask6=64
 	wol=false
 	# Get the network interface device.
-	cmd="whiptail --clear --menu 'Please select a network interface. Note, the existing network interface configuration will be deleted.' 15 53 5 "
+	cmd="dialog --clear --menu 'Please select a network interface. Note, the existing network interface configuration will be deleted.' 15 53 5 "
 	for i in $(ls /sys/class/net | grep -vi "lo"); do
 		cmd="${cmd} '${i}' '${i}'"
 	done
@@ -50,48 +50,48 @@ configure_iface() {
 	[ $? -ne 0 ] && return 1
 	devicename=$(cat $tempfile)
 	# Use DHCP?
-	whiptail --clear --yesno "Do you want to use DHCPv4 for this interface?" 8 50
+	dialog --clear --yesno "Do you want to use DHCPv4 for this interface?" 8 50
 	if [ $? -eq 1 ]; then
 		method="static"
 		# Get the static IPv4 address.
 		while [ -z ${address} ]; do
-			whiptail --clear --inputbox "Please enter the IPv4 address." \
+			dialog --clear --inputbox "Please enter the IPv4 address." \
 			  8 60 2>$tempfile
 			[ $? -ne 0 ] && return 1
 			address=$(cat $tempfile)
 			if [ -z ${address} ]; then
-				whiptail --clear --msgbox "The field must not be empty." 8 32
+				dialog --clear --msgbox "The field must not be empty." 8 32
 				continue
 			fi
 			if ! omv_is_ipaddr4 "${address}"; then
-				whiptail --clear --msgbox "Invalid IPv4 address." 8 26
+				dialog --clear --msgbox "Invalid IPv4 address." 8 26
 				address=""
 			fi
 		done
 		# Get the IPv4 netmask.
 		while [ -z ${netmask} ]; do
-			whiptail --clear --inputbox "Please enter the netmask." \
+			dialog --clear --inputbox "Please enter the netmask." \
 			  8 60 2>$tempfile
 			[ $? -ne 0 ] && return 1
 			netmask=$(cat $tempfile)
 			if [ -z ${netmask} ]; then
-				whiptail --clear --msgbox "The field must not be empty." 8 32
+				dialog --clear --msgbox "The field must not be empty." 8 32
 				continue
 			fi
 			if ! omv_is_netmask4 "${netmask}"; then
-				whiptail --clear --msgbox "Invalid netmask." 8 22
+				dialog --clear --msgbox "Invalid netmask." 8 22
 				netmask=""
 			fi
 		done
 		# Get default IPv4 gateway.
 		while [ -z ${gateway} ]; do
-			whiptail --clear --inputbox "Please enter the default gateway." \
+			dialog --clear --inputbox "Please enter the default gateway." \
 			  8 60 2>$tempfile
 			[ $? -ne 0 ] && return 1
 			gateway=$(cat $tempfile)
 			if [ -n "${gateway}" ]; then
 				if ! omv_is_gateway4 "${gateway}"; then
-					whiptail --clear --msgbox "Invalid gateway." 8 22
+					dialog --clear --msgbox "Invalid gateway." 8 22
 					gateway=""
 				fi
 			else
@@ -100,54 +100,54 @@ configure_iface() {
 		done
 	fi
 	# Use IPv6?
-	whiptail --clear --defaultno --yesno "Do you want to configure IPv6 for this interface?" 8 53
+	dialog --clear --defaultno --yesno "Do you want to configure IPv6 for this interface?" 8 53
 	if [ $? -eq 0 ]; then
 # Available with Debian Wheezy.
-#		whiptail --clear --yesno "Do you want to enable stateless autoconfiguration?" 8 50
+#		dialog --clear --yesno "Do you want to enable stateless autoconfiguration?" 8 50
 #		if [ $? -eq 1 ]; then
 #			method6="auto"
 #		else
 			method6="static"
 			# Get static IPv6 address.
 			while [ -z ${address6} ]; do
-				whiptail --clear --inputbox "Please enter the IPv6 address." \
+				dialog --clear --inputbox "Please enter the IPv6 address." \
 				  8 60 2>$tempfile
 				[ $? -ne 0 ] && return 1
 				address6=$(cat $tempfile)
 				if [ -z ${address6} ]; then
-					whiptail --clear --msgbox "The field must not be empty." 8 32
+					dialog --clear --msgbox "The field must not be empty." 8 32
 					continue
 				fi
 				if ! omv_is_ipaddr6 "${address6}"; then
-					whiptail --clear --msgbox "Invalid IPv6 address." 8 26
+					dialog --clear --msgbox "Invalid IPv6 address." 8 26
 					address6=""
 				fi
 			done
 			# Get the prefix length.
 			netmask6=""
 			while [ -z ${netmask6} ]; do
-				whiptail --clear --inputbox "Please enter the prefix length." \
+				dialog --clear --inputbox "Please enter the prefix length." \
 				  8 60 64 2>$tempfile
 				[ $? -ne 0 ] && return 1
 				netmask6=$(cat $tempfile)
 				if [ -z ${netmask6} ]; then
-					whiptail --clear --msgbox "The field must not be empty." 8 32
+					dialog --clear --msgbox "The field must not be empty." 8 32
 					continue
 				fi
 				if ! omv_is_netmask6 "${netmask6}"; then
-					whiptail --clear --msgbox "Invalid netmask." 8 22
+					dialog --clear --msgbox "Invalid netmask." 8 22
 					netmask=""
 				fi
 			done
 			# Get default IPv6 gateway.
 			while [ -z ${gateway6} ]; do
-				whiptail --clear --inputbox "Please enter the default gateway." \
+				dialog --clear --inputbox "Please enter the default gateway." \
 				  8 60 2>$tempfile
 				[ $? -ne 0 ] && return 1
 				gateway6=$(cat $tempfile)
 				if [ -n "${gateway6}" ]; then
 					if ! omv_is_gateway6 "${gateway6}"; then
-						whiptail --clear --msgbox "Invalid gateway." 8 22
+						dialog --clear --msgbox "Invalid gateway." 8 22
 						gateway6=""
 					fi
 				else
@@ -156,7 +156,7 @@ configure_iface() {
 			done
 #		fi
 	fi
-	whiptail --clear --defaultno --yesno \
+	dialog --clear --defaultno --yesno \
 	  "Do you want to enable WOL for this interface?" 8 50
 	if [ $? -eq 0 ]; then
 		wol=true
@@ -177,41 +177,41 @@ configure_webgui() {
 	enablessl=false
 	forcesslonly=false
 	while [ -z ${port} ]; do
-		whiptail --clear --inputbox \
+		dialog --clear --inputbox \
 		  "Please enter the port to access the WebGUI via HTTP." \
 		  8 60 80 2>$tempfile
 		[ $? -ne 0 ] && return 1
 		port=$(cat $tempfile)
 		if [ -z ${port} ]; then
-			whiptail --clear --msgbox "The field must not be empty." 8 32
+			dialog --clear --msgbox "The field must not be empty." 8 32
 		elif ! omv_isnumber ${port}; then
-			whiptail --clear --msgbox "Please enter a valid port." 8 32
+			dialog --clear --msgbox "Please enter a valid port." 8 32
 			port=""
 		elif [ ${port} -lt 1 -o ${port} -gt 65535 ]; then
-			whiptail --clear --msgbox "Please enter a valid port." 8 32
+			dialog --clear --msgbox "Please enter a valid port." 8 32
 			port=""
 		fi
 	done
 	# Before asking to enable HTTPS check if there are any SSL certificates
 	# available.
 	if [ $(omv_config_get_count "//system/certificates/sslcertificate") -gt 0 ]; then
-		whiptail --clear --yesno "Do you want to enable HTTPS?" 8 32
+		dialog --clear --yesno "Do you want to enable HTTPS?" 8 32
 		if [ $? -eq 0 ]; then
 			enablessl=true
 			# Get the port for HTTPS.
 			while [ -z ${sslport} ]; do
-				whiptail --clear --inputbox \
+				dialog --clear --inputbox \
 				  "Please enter the port to access the WebGUI via HTTPS." \
 				  8 60 443 2>$tempfile
 				[ $? -ne 0 ] && return 1
 				sslport=$(cat $tempfile)
 				if [ -z ${sslport} ]; then
-					whiptail --clear --msgbox "The field must not be empty." 8 32
+					dialog --clear --msgbox "The field must not be empty." 8 32
 				elif ! omv_isnumber ${sslport}; then
-					whiptail --clear --msgbox "Please enter a valid port." 8 32
+					dialog --clear --msgbox "Please enter a valid port." 8 32
 					port=""
 				elif [ ${sslport} -lt 1 -o ${sslport} -gt 65535 ]; then
-					whiptail --clear --msgbox "Please enter a valid port." 8 32
+					dialog --clear --msgbox "Please enter a valid port." 8 32
 					port=""
 				fi
 			done
@@ -220,7 +220,7 @@ configure_webgui() {
 			-v "concat(position(),' ',uuid,' ',comment)" -i "position() != last()" -n -b \
 			${OMV_CONFIG_FILE} | xmlstarlet unesc | {
 				local cmd 
-				cmd="whiptail --clear --menu 'Please select an SSL certificate:' 12 70 4 "
+				cmd="dialog --clear --menu 'Please select an SSL certificate:' 12 70 4 "
 				while read position uuid comment; do
 					# To be posix compliant use fake arrays
 					certs="certs"
@@ -237,7 +237,7 @@ configure_webgui() {
 			[ $? -ne 0 ] && return 1
 			sslcertificateref=$(cat $tempfile)
 			# Enable HTTPS only?
-			whiptail --clear --defaultno --yesno \
+			dialog --clear --defaultno --yesno \
 			  "Do you want to enable HTTPS only?" 8 40
 			if [ $? -eq 0 ]; then
 				forcesslonly=true
@@ -259,12 +259,12 @@ configure_webgui() {
 reset_webgui_passwd() {
 	local passwd
 	while [ -z ${passwd} ]; do
-		whiptail --clear --passwordbox \
+		dialog --clear --passwordbox \
 		  "Please enter the new WebGUI administrator password." 8 55 2>$tempfile
 		[ $? -ne 0 ] && return 1
 		passwd=$(cat $tempfile)
 		if [ -z ${passwd} ]; then
-			whiptail --clear --msgbox "The password must not be empty." 8 35
+			dialog --clear --msgbox "The password must not be empty." 8 35
 		fi
 	done
 	echo "Updating WebGUI administrator password. Please wait ..."
@@ -282,15 +282,15 @@ restore_config_backup()
 
 	# Does a auto-generated configuration backup exist?
 	if [ ! -e "${configbak}" ]; then
-		whiptail --clear --msgbox 'No configuration backup found!' 8 34
+		dialog --clear --msgbox 'No configuration backup found!' 8 34
 		return 1
 	fi
 	# Only show a diff, if there's a difference.
 	if diff --brief "${OMV_CONFIG_FILE}" "${configbak}" >/dev/null; then
-		whiptail --clear --msgbox "There's no difference between the configuration files. Nothing to restore." 8 58
+		dialog --clear --msgbox "There's no difference between the configuration files. Nothing to restore." 8 58
 		return 0
 	fi
-	whiptail --clear --yesno "Do you want to see the differences between the current configuration and the backup." 8 46
+	dialog --clear --yesno "Do you want to see the differences between the current configuration and the backup." 8 46
 	if [ $? -eq 0 ]; then
 		# Get the differences.
 		cat > ${tempfile} <<EOF
@@ -300,15 +300,15 @@ All lines with '-' will be changed to the lines with '+'
 EOF
 		diff --unified=1 "${OMV_CONFIG_FILE}" "${configbak}" >> ${tempfile}
 		# Show differences.
-		whiptail --clear --textbox --title "Diff" --scrolltext "${tempfile}" 20 72
+		dialog --clear --title "Diff" --scrollbar --textbox "${tempfile}" 20 72
 	fi
 	# Restore configuration backup?
-	whiptail --clear --yesno --defaultno "Do you want to restore the configuration backup? This will overwrite the actual configuration?" 8 57
+	dialog --clear --defaultno --yesno "Do you want to restore the configuration backup? This will overwrite the actual configuration?" 8 57
 	if [ $? -eq 0 ]; then
 		# Replace configuration files.
 		cp "${OMV_CONFIG_FILE}" "${tempfile}" && cp "${configbak}" "${OMV_CONFIG_FILE}" && cp "${tempfile}" "${configbak}"
 		if [ $? -eq 0 ]; then
-			whiptail --clear --msgbox "Configuration backup successfully restored." 7 47
+			dialog --clear --msgbox "Configuration backup successfully restored." 7 47
 		fi
 	fi
 	return 0
@@ -316,26 +316,27 @@ EOF
 
 fix_rrd_database()
 {
+	local invalid dirname basename tsLast tsNow
 	# Stopping collectd daemon.
 	monit stop collectd
 	# Check RRD database files for invalid timestamps.
-	count=0
+	invalid=0
 	find "${OMV_COLLECTD_RRDTOOL_DATADIR}/localhost/" -name "*.rrd" -print | \
 	  while read filename; do
 		  tsLast=$(rrdtool last "${filename}")
 		  tsNow=$(date '+%s')
 		  if [ "${tsLast}" -gt "${tsNow}" ]; then
-			  count=$((count + 1))
+			  invalid=$((invalid + 1))
 			  dirname=$(dirname "${filename}")
 			  basename=$(basename "${filename}")
-			  whiptail --clear --yesno --defaultno "The RRD file '../$(basename "${dirname}")/${basename}' contains timestamps in future. Do you want to delete it?" 8 70
+			  dialog --clear --defaultno --yesno "The RRD file '../$(basename "${dirname}")/${basename}' contains timestamps in future. Do you want to delete it?" 8 70
 			  if [ $? -eq 0 ]; then
 				  rm -f "${filename}"
 			  fi
 		  fi
 	  done
 	# Display message if RRD databases are all valid.
-	[ "${count}" -eq 0 ] && echo "All RRD database files are valid."
+	[ "${invalid}" -eq 0 ] && echo "All RRD database files are valid."
 	# Starting collectd daemon.
 	monit start collectd
 	return 0
@@ -349,7 +350,7 @@ prodname=$(xmlstarlet sel -t -v "//name" ${OMV_PRODUCTINFO_FILE} | xmlstarlet un
 prodcopyright=$(xmlstarlet sel -t -v "//copyright" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
 
 # Display the default menu
-whiptail --nocancel --clear --backtitle "${prodname} - ${prodcopyright}" \
+dialog --no-cancel --clear --backtitle "${prodname} - ${prodcopyright}" \
   --title "First aid" --menu "Please select a menu:" 13 65 6 \
   "1" "Configure network interface" \
   "2" "Configure WebGUI" \
