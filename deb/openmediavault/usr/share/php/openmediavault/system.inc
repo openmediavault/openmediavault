@@ -1919,9 +1919,9 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceAbstract {
 		// Drive Trip Temperature:        65 C
 		// ...
 		if(FALSE === $found) {
-			foreach($this->smartInfo as $smartInfov) {
+			foreach($stats['rawdata'] as $rawDatak => $rawDatav) {
 				$regex = '/^Current Drive Temperature:\s+(\d+)\s+C$/';
-				if(1 == preg_match($regex, $smartInfov, $matches)) {
+				if(1 == preg_match($regex, $rawDatav, $matches)) {
 					$temp = $matches[1];
 					break;
 				}
@@ -1943,7 +1943,12 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceAbstract {
 	/**
 	 * Get the S.M.A.R.T. informations for the given disk device.
 	 * @return All S.M.A.R.T. information for the given device,
-	 *   otherwise FALSE.
+	 *   otherwise FALSE. The returned array contains the following
+	 *   fields:
+	 *   \li attributes An array of SMART attributes data.
+	 *   \li selftestlogs An array of SMART self-test logs.
+	 *   \li information An array with device information.
+	 *   \li rawdata An array that contains the raw command output.
 	 */
 	public function getSmartStats() {
 		if(!$this->exists())
@@ -1951,7 +1956,7 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceAbstract {
 		// S.M.A.R.T. informations already cached?
 		if(is_null($this->smartInfo)) {
 			$cmdArgs = array();
-			$cmdArgs[] = sprintf("-a %s", escapeshellarg(
+			$cmdArgs[] = sprintf("-x %s", escapeshellarg(
 			  $this->getDeviceFile()));
 			if("" !== ($deviceType = $this->getSmartDeviceType()))
 				$cmdArgs[] = sprintf("-d %s", $deviceType);
@@ -1970,10 +1975,11 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceAbstract {
 		// Set default values
 		$attributes = array();
 		$selfTestLogs = array();
-		$information = $information = array(
+		$information = array(
 			"devicemodel" => "",
 			"serialnumber" => "",
-			"firmwareversion" => ""
+			"firmwareversion" => "",
+			"usercapacity" => ""
 		);
 		// Process command output
 		foreach($this->smartInfo as $smartInfov) {
@@ -2033,13 +2039,15 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceAbstract {
 			$this->identityInfo = $information = array(
 				"devicemodel" => $matches[1],
 				"serialnumber" => $matches[2],
-				"firmwareversion" => $matches[3]
+				"firmwareversion" => $matches[3],
+				"usercapacity" => $matches[4]
 			);
 		}
 		return array(
 			"attributes" => $attributes,
 			"selftestlogs" => $selfTestLogs,
-			"information" => $information
+			"information" => $information,
+			"rawdata" => $this->smartInfo
 		);
 	}
 

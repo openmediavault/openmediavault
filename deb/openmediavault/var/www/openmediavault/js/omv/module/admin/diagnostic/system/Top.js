@@ -27,10 +27,6 @@
  */
 Ext.define("OMV.module.admin.diagnostic.system.Top", {
 	extend: "OMV.workspace.panel.Textarea",
-	requires: [
-		"OMV.Rpc",
-		"OMV.window.MessageBox"
-	],
 
 	rpcService: "System",
 	rpcMethod: "getTopInfo"

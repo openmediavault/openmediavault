@@ -42,6 +42,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		$this->registerMethod("getList");
 		$this->registerMethod("getSettings");
 		$this->registerMethod("setSettings");
+		$this->registerMethod("getInformation");
 		$this->registerMethod("getAttributes");
 		$this->registerMethod("getSelfTestLogs");
 		$this->registerMethod("getIdentityInfo");
@@ -217,7 +218,43 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Get 'S.M.A.R.T. Attributes Data Structure' for the given device.
+	 * Get S.M.A.R.T. information about the given device.
+	 * @param params An array containing the following fields:
+	 *   \em devicefile The device file.
+	 * @param context The context of the caller.
+	 * @return The requested S.M.A.R.T. information as plain text.
+	 * @throw E_MISC_DEVICE_NOT_FOUND
+	 * @throw E_MISC_FAILURE
+	 */
+	public function getInformation($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+			  }
+		  }');
+		// Get the S.M.A.R.T. information.
+		$hdd = new OMVStorageDeviceHDD($params['devicefile']);
+		if(FALSE === $hdd->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
+			  $hdd->getDeviceFile());
+		}
+		if(FALSE === ($stats = $hdd->getSmartStats())) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to get S.M.A.R.T. statistics (device=%s)",
+			  $hdd->getDeviceFile()));
+		}
+		return implode("\n", $stats['rawdata']);
+	}
+
+	/**
+	 * Get 'S.M.A.R.T. Attributes Data Structure' about the given device.
 	 * @param params An array containing the following fields:
 	 *   \em devicefile The device file.
 	 * @param context The context of the caller.
@@ -238,7 +275,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
 			  }
 		  }');
-		// Get the S.M.A.R.T. statistics.
+		// Get the S.M.A.R.T. information.
 		$hdd = new OMVStorageDeviceHDD($params['devicefile']);
 		if(FALSE === $hdd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
@@ -253,7 +290,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Get 'SMART Self-test log structure' for the given device.
+	 * Get 'SMART Self-test log structure' about the given device.
 	 * @param params An array containing the following fields:
 	 *   \em devicefile The device file.
 	 * @param context The context of the caller.
@@ -274,7 +311,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
 			  }
 		  }');
-		// Get the S.M.A.R.T. statistics.
+		// Get the S.M.A.R.T. information.
 		$hdd = new OMVStorageDeviceHDD($params['devicefile']);
 		if(FALSE === $hdd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,

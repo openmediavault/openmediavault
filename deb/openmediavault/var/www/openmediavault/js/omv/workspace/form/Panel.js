@@ -36,6 +36,7 @@
  * @param rpcGetMethod The RPC method to request the data. Required.
  * @param rpcGetParams The RPC parameters. Required.
  * @param rpcSetMethod The RPC method to commit the data. Required.
+ * @param hideTopToolbar TRUE to hide the whole toolbar. Defaults to FALSE.
  * @param hideOkButton Hide the 'OK' button.
  * @param hideResetButton Hide the 'Reset' button.
  * @param okButtonText The 'OK' button text. Defaults to 'Apply'.
@@ -61,6 +62,7 @@ Ext.define("OMV.workspace.form.Panel", {
 	bodyPadding: "5 5 0",
 
 	onlySubmitIfDirty: true,
+	hideTopToolbar: false,
 	hideOkButton: false,
 	hideResetButton: false,
 	okButtonText: _("Save"),
@@ -107,15 +109,20 @@ Ext.define("OMV.workspace.form.Panel", {
 
 	initComponent: function() {
 		var me = this;
-		Ext.apply(me, {
-			dockedItems: [{
+		// Initialize toolbar.
+		me.dockedItems = [];
+		if(!me.hideTopToolbar) {
+			me.dockedItems.push(me.topToolbar = Ext.widget({
 				xtype: "toolbar",
 				dock: "top",
 				defaults: {
 					minWidth: me.minButtonWidth
 				},
-				items: me.getButtonItems()
-			}],
+				items: me.getButtonItems(me)
+			}));
+		}
+		// Initialize form.
+		Ext.apply(me, {
 			items: me.getFormItems()
 		});
 		me.callParent(arguments);
@@ -129,9 +136,11 @@ Ext.define("OMV.workspace.form.Panel", {
 	},
 
 	/**
-	 * Returns the buttons displayed in the property window form.
+	 * Returns the items displayed in the toolbar.
+	 * @param c This component object.
+	 * @return An array of buttons displayed in the toolbar.
 	 */
-	getButtonItems: function() {
+	getButtonItems: function(c) {
 		var me = this;
 		return [{
 			id: me.getId() + "-ok",

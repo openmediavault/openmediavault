@@ -44,14 +44,14 @@ Ext.define("OMV.workspace.panel.Panel", {
 
 	initComponent: function() {
 		var me = this;
+		// Initialize toolbar.
+		me.dockedItems = [];
 		if(!me.hideTopToolbar) {
-			Ext.apply(me, {
-				dockedItems: [{
-					xtype: "toolbar",
-					dock: "top",
-					items: me.getTopToolbarItems()
-				}]
-			});
+			me.dockedItems.push(me.topToolbar = Ext.widget({
+				xtype: "toolbar",
+				dock: "top",
+				items: me.getTopToolbarItems(me)
+			}));
 		}
 		me.callParent(arguments);
 		if(me.autoLoadData) {
@@ -65,8 +65,10 @@ Ext.define("OMV.workspace.panel.Panel", {
 
 	/**
 	 * Returns the items displayed in the top toolbar.
+	 * @param c This component object.
+	 * @return An array of buttons displayed in the top toolbar.
 	 */
-	getTopToolbarItems: function() {
+	getTopToolbarItems: function(c) {
 		var me = this;
 		return [{
 			id: me.getId() + "-refresh",
