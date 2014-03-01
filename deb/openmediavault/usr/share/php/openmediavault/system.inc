@@ -352,7 +352,7 @@ class OMVFilesystems extends OMVObject {
 }
 
 /**
- * Class to get detailed informations about a given filesystem.
+ * Class to get detailed information about a given filesystem.
  * @ingroup api
  */
 class OMVFilesystem extends OMVObject {
@@ -385,7 +385,7 @@ class OMVFilesystem extends OMVObject {
 	}
 
 	/**
-	 * Get the filesystem detailed informations.
+	 * Get the filesystem detailed information.
 	 * @private
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
@@ -461,14 +461,14 @@ class OMVFilesystem extends OMVObject {
 		$this->ptType = $data['pttype'];
 		$this->usage = $data['usage'];
 
-		// Set flag to mark informations has been successfully read.
+		// Set flag to mark information has been successfully read.
 		$this->dataCached = TRUE;
 
 		return TRUE;
 	}
 
 	/**
-	 * Refresh the cached informations.
+	 * Refresh the cached information.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function refresh() {
@@ -1272,9 +1272,8 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 */
 	protected function getUdevProperty($id) {
 		if($this->udevInfo === FALSE) {
-			$cmd = sprintf("export LANG=C; sudo udevadm info ".
-			  "--query=property --name=%s", escapeshellarg(
-			  $this->getDeviceFile()));
+			$cmd = sprintf("export LANG=C; udevadm info --query=property ".
+			  "--name=%s", escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
 			if($result !== 0) {
 				$this->setLastError($output);
@@ -1306,10 +1305,18 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	}
 
 	/**
+	 * Check if the given device has S.M.A.R.T. support.
+	 * @return TRUE if the device supports S.M.A.R.T., otherwise FALSE.
+	 */
+	public function hasSMART() {
+		return FALSE;
+	}
+
+	/**
 	 * Set the device type required by the smartctl command.
 	 * @return Returns the device type.
 	 */
-	public function setSmartDeviceType($type) {
+	public function setSMARTDeviceType($type) {
 		$this->smartDeviceType = $type;
 		return $this->smartDeviceType;
 	}
@@ -1318,8 +1325,20 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * Identify the device type required by the smartctl command.
 	 * @return Returns the identified device type or an empty string.
 	 */
-	public function getSmartDeviceType() {
+	public function getSMARTDeviceType() {
 		return $this->smartDeviceType;
+	}
+
+	/**
+	 * Get the object that implements the S.M.A.R.T. interface.
+	 * @return The object of the class implementing the S.M.A.R.T. interface,
+	 *   otherwise NULL.
+	 */
+	public function getSMARTImpl() {
+		if(!$this->hasSMART())
+			return NULL;
+		return new OMVATASMARTInformation($this->getDeviceFile(),
+		  $this->smartDeviceType);
 	}
 }
 
@@ -1365,7 +1384,7 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	function isTypeOf($deviceFile) { return FALSE; }
 
 	/**
-	 * Get an object of the class that represents and implements a device
+	 * Get the object of the class that represents and implements a device
 	 * of this storage device backend.
 	 * @param args The arguments to the class constructor.
 	 * @return The object of the class implementing the given device type,
@@ -1861,246 +1880,25 @@ class OMVStorageDeviceFactory extends OMVObject {
 
 /**
  * This class provides a simple interface to handle ATA/SATA and SCSI
- * hard disk devices. Try to use sysfs only to get the required informations,
+ * hard disk devices. Try to use sysfs only to get the required information,
  * otherwise the disk will spin-up if it is in sleep mode.
  * @ingroup api
  */
 class OMVStorageDeviceHDD extends OMVStorageDeviceAbstract {
-	protected $identityInfo = FALSE;
-	protected $smartInfo = NULL;
-
-	/**
-	 * Refresh the cached informations.
-	 * @return TRUE if successful, otherwise FALSE.
-	 */
-	public function refresh() {
-		// Mark variables as dirty, thus the cached command output will be
-		// refreshed when the class method is called the next time.
- 		$this->identityInfo = FALSE;
-		$this->smartInfo = NULL;
+	public function hasSMART() {
 		return TRUE;
-	}
-
-	/**
-	 * Get the temperature in °C (value only, no unit).
-	 * @return The temperature value, otherwise FALSE.
-	 */
-	public function getTemperature() {
-		if(FALSE === ($stats = $this->getSmartStats()))
-			return FALSE;
-		$temp = FALSE;
-		$found = FALSE;
-		foreach($stats['attributes'] as $statv) {
-			switch($statv['id']) {
-			case 194:
-			case 231:
-				// The value may look like: '43 (Lifetime Min/Max 16/61)'
-				$regex = '/^(\d+)(\s+(.+))*$/';
-				if(1 !== preg_match($regex, $statv['rawvalue'], $matches))
-					continue;
-				$temp = $matches[1];
-				$found = TRUE;
-				break;
-			}
-			if($found)
-				break;
-		}
-		// If the SMART attributes are not present then it may be an older
-		// SCSI device. Then the command output looks like:
-		// Device: SEAGATE  ST336605LSUN36G  Version: 0238
-		// Serial number: 3FP1J35V00007241EEC7
-		// Device type: disk
-		// Local Time is: Thu Apr  5 15:41:56 2012 CEST
-		// Device supports SMART and is Enabled
-		// Temperature Warning Enabled
-		// SMART Health Status: OK
-		//
-		// Current Drive Temperature:     34 C
-		// Drive Trip Temperature:        65 C
-		// ...
-		if(FALSE === $found) {
-			foreach($stats['rawdata'] as $rawDatak => $rawDatav) {
-				$regex = '/^Current Drive Temperature:\s+(\d+)\s+C$/';
-				if(1 == preg_match($regex, $rawDatav, $matches)) {
-					$temp = $matches[1];
-					break;
-				}
-			}
-		}
-		return $temp;
-	}
-
-	/**
-	 * Get the device firmware version.
-	 * @return The device firmware version, otherwise an empty string.
-	 */
-	public function getFirmwareVersion() {
-		if(FALSE === ($ii = $this->getIdentityInfo()))
-			return "";
-		return $ii['firmwareversion'];
-	}
-
-	/**
-	 * Get the S.M.A.R.T. informations for the given disk device.
-	 * @return All S.M.A.R.T. information for the given device,
-	 *   otherwise FALSE. The returned array contains the following
-	 *   fields:
-	 *   \li attributes An array of SMART attributes data.
-	 *   \li selftestlogs An array of SMART self-test logs.
-	 *   \li information An array with device information.
-	 *   \li rawdata An array that contains the raw command output.
-	 */
-	public function getSmartStats() {
-		if(!$this->exists())
-			return FALSE;
-		// S.M.A.R.T. informations already cached?
-		if(is_null($this->smartInfo)) {
-			$cmdArgs = array();
-			$cmdArgs[] = sprintf("-x %s", escapeshellarg(
-			  $this->getDeviceFile()));
-			if("" !== ($deviceType = $this->getSmartDeviceType()))
-				$cmdArgs[] = sprintf("-d %s", $deviceType);
-			$cmd = sprintf("export LANG=C; smartctl %s", implode(" ",
-			  $cmdArgs));
-			@OMVUtil::exec($cmd, $output, $result);
-			// Bit 0: Command line did not parse
-			// Bit 1: Device open failed, or device did not return an
-			//        IDENTIFY DEVICE structure
-			if(($result !== 0) && (($result & 0) || ($result & 1))) {
-				$this->setLastError($output);
-				return FALSE;
-			}
-			$this->smartInfo = $output;
-		}
-		// Set default values
-		$attributes = array();
-		$selfTestLogs = array();
-		$information = array(
-			"devicemodel" => "",
-			"serialnumber" => "",
-			"firmwareversion" => "",
-			"usercapacity" => ""
-		);
-		// Process command output
-		foreach($this->smartInfo as $smartInfov) {
-			// SMART Attributes Data Structure
-			// Parse command output:
-			// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
-			//   1 Raw_Read_Error_Rate     0x000b   100   100   016    Pre-fail  Always       -       0
-			//   8 Seek_Time_Performance   0x0005   100   100   020    Pre-fail  Offline      -       0
-			// 194 Temperature_Celsius     0x0002   139   139   000    Old_age   Always       -       43 (Lifetime Min/Max 16/61)
-			$regex = '/^\s*(\d+)\s+(\S+)\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+'.
-			  '(\S+)\s+(\S+)\s+(\S+)\s+(.+)$/';
-			if(1 == preg_match($regex, $smartInfov, $matches)) {
-				$attributes[] = array(
-					"id" => $matches[1],
-					"attrname" => $matches[2],
-					"flag" => $matches[3],
-					"value" => $matches[4],
-					"worst" => $matches[5],
-					"treshold" => $matches[6],
-					"type" => $matches[7],
-					"updated" => $matches[8],
-					"whenfailed" => $matches[9],
-					"rawvalue" => $matches[10]
-				);
-			}
-			// SMART Self-test log structure
-			// Parse command output:
-			// Num  Test_Description    Status                  Remaining  LifeTime(hours)  LBA_of_first_error
-			// # 1  Extended offline    Completed: read failure       90%       670         57217755
-			// # 2  Short captive       Interrupted (host reset)      80%      1392         -
-			$regex = '/^# (\d+)\s+(Short offline|Extended offline|'.
-			  'Short captive|Extended captive)\s+(.+)\s+(\d+)%\s+(\d+)'.
-			  '\s+(.+)$/';
-			if(1 == preg_match($regex, $smartInfov, $matches)) {
-				$selfTestLogs[] = array(
-					"num" => $matches[1],
-					"description" => $matches[2],
-					"status" => $matches[3],
-					"remaining" => $matches[4],
-					"lifetime" => $matches[5],
-					"lbaoffirsterror" => $matches[6]
-				);
-			}
-		}
-		// INFORMATION SECTION
-		// Parse command output:
-		// === START OF INFORMATION SECTION ===
-		// Model Family:     Hitachi Deskstar T7K500
-		// Device Model:     Hitachi HDT725032VLA360
-		// Serial Number:    VFD200R2CWBTLL
-		// Firmware Version: V54OA52A
-		// User Capacity:    320.072.933.376 bytes
-		$output = implode("|", $this->smartInfo);
-		$regex = '/^.+\|Device Model:\s+(.+)\|Serial Number:\s+(.+)'.
-		  '\|Firmware Version:\s+(.+)\|User Capacity:\s+(.+) bytes\|.+$/';
-		if(1 == preg_match($regex, $output, $matches)) {
-			$this->identityInfo = $information = array(
-				"devicemodel" => $matches[1],
-				"serialnumber" => $matches[2],
-				"firmwareversion" => $matches[3],
-				"usercapacity" => $matches[4]
-			);
-		}
-		return array(
-			"attributes" => $attributes,
-			"selftestlogs" => $selfTestLogs,
-			"information" => $information,
-			"rawdata" => $this->smartInfo
-		);
-	}
-
-	/**
-	 * Get identity information for the device.
-	 * @return The identity information for the device if
-	 * successful, otherwise FALSE.
-	 * array(
-	 *   devicemodel => xxx,
-	 *   serialnumber => xxx,
-	 *   firmwareversion => xxx
-	 * )
-	 */
-	private function getIdentityInfo() {
-		if(!$this->exists())
-			return FALSE;
-		if($this->identityInfo === FALSE) {
-			$cmdArgs = array();
-			$cmdArgs[] = sprintf("-i %s", escapeshellarg(
-			  $this->getDeviceFile()));
-			if("" !== ($deviceType = $this->getSmartDeviceType()))
-				$cmdArgs[] = sprintf("-d %s", $deviceType);
-			$cmd = sprintf("export LANG=C; smartctl %s", implode(" ",
-			  $cmdArgs));
-			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0) {
-				$this->setLastError($output);
-				return FALSE;
-			}
-			$output = implode("|", $output);
-			$regex = '/^.+\|Device Model:\s+(.+)\|Serial Number:\s+(.+)'.
-			  '\|Firmware Version:\s+(.+)\|User Capacity:\s+(.+) bytes\|.+$/';
-			if(0 >= preg_match($regex, $output, $matches))
-				return FALSE;
-			$this->identityInfo = array(
-				"devicemodel" => $matches[1],
-				"serialnumber" => $matches[2],
-				"firmwareversion" => $matches[3]
-			);
-		}
-		return $this->identityInfo;
 	}
 
 	/**
 	 * Identify the device type required by the smartctl command.
 	 * @return Returns the identified device type or an empty string.
 	 */
-	public function getSmartDeviceType() {
-		$type = parent::getSmartDeviceType();
+	public function getSMARTDeviceType() {
+		$type = parent::getSMARTDeviceType();
 		if(empty($type)) {
 			// TODO: The device type identification must be improved.
 			if(TRUE === $this->isUsb())
-				$type = $this->setSmartDeviceType("sat");
+				$type = $this->setSMARTDeviceType("sat");
 		}
 		return $type;
 	}
@@ -2122,12 +1920,16 @@ class OMVStorageDeviceCCISS extends OMVStorageDeviceAbstract {
 		return TRUE;
 	}
 
+	public function hasSMART() {
+		return TRUE;
+	}
+
 	/**
 	 * Identify the device type required by the smartctl command.
 	 * @return Returns the identified device type or an empty string.
 	 */
-	public function getSmartDeviceType() {
-		$type = parent::getSmartDeviceType();
+	public function getSMARTDeviceType() {
+		$type = parent::getSMARTDeviceType();
 		// Note, 'auto' attempts to guess the device type from the device
 		// name or from controller type info provided by the operating system
 		// or from a matching USB ID entry in the drive database. Thus we
@@ -2135,7 +1937,7 @@ class OMVStorageDeviceCCISS extends OMVStorageDeviceAbstract {
 		if(empty($type) || ("auto" === $type)) {
 			if(1 == preg_match("/^cciss!c(\d)d(\d)$/", $this->getDeviceName(),
 			  $matches)) {
-				$type = $this->setSmartDeviceType(sprintf("cciss,%s",
+				$type = $this->setSMARTDeviceType(sprintf("cciss,%s",
 				  $matches[2]));
 			}
 		}
@@ -2159,7 +1961,7 @@ class OMVStorageDeviceMdadm extends OMVStorageDeviceAbstract {
 	private $dataCached = FALSE;
 
 	/**
-	 * Get the software RAID device detailed informations.
+	 * Get the software RAID device detailed information.
 	 * @private
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
@@ -2198,7 +2000,7 @@ class OMVStorageDeviceMdadm extends OMVStorageDeviceAbstract {
 		$this->uuid = $attributes['uuid'];
 		$this->devices = explode(",", $attributes['devices']);
 
-		// Get more informations.
+		// Get more information.
 		$cmd = sprintf("export LANG=C; mdadm --detail %s",
 		  escapeshellarg($this->getDeviceFile()));
 		unset($output);
@@ -2261,14 +2063,14 @@ class OMVStorageDeviceMdadm extends OMVStorageDeviceAbstract {
 			}
 		}
 
-		// Set flag to mark informations has been successfully read.
+		// Set flag to mark information has been successfully read.
 		$this->dataCached = TRUE;
 
 		return TRUE;
 	}
 
 	/**
-	 * Refresh the cached informations.
+	 * Refresh the cached information.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function refresh() {
@@ -2556,6 +2358,231 @@ class OMVStorageDeviceBcache extends OMVStorageDeviceAbstract {
 	public function getDescription() {
 		return sprintf(gettext("Block layer cache [%s, %s]"),
 		  $this->getDeviceFile(), binary_format($this->getSize()));
+	}
+}
+
+/**
+ * This class implements methods to get and process S.M.A.R.T.
+ * AT Attachment (ATA) information and properties.
+ * @ingroup api
+ */
+class OMVATASMARTInformation extends OMVObject {
+	protected $deviceFile = "";
+	protected $type = "";
+	private $cmdOutput = NULL;
+	private $dataCached = FALSE;
+
+	/**
+	 * Constructor
+	 * @param deviceFile Specifies the device file.
+	 * @param type Specifies the type of the device, e.g. ata, cciss or 3ware.
+	 */
+	public function __construct($deviceFile, $type) {
+		$this->deviceFile = $deviceFile;
+		$this->type = $type;
+	}
+
+	/**
+	 * Get S.M.A.R.T. information.
+	 * @private
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	private function getData() {
+		if($this->dataCached !== FALSE)
+			return TRUE;
+
+		// Get all available S.M.A.R.T. information.
+		$cmdArgs = array();
+		$cmdArgs[] = sprintf("-x %s", escapeshellarg($this->deviceFile));
+		if(!empty($this->type))
+			$cmdArgs[] = sprintf("-d %s", $this->type);
+		$cmd = sprintf("export LANG=C; smartctl %s", implode(" ", $cmdArgs));
+		@OMVUtil::exec($cmd, $output, $result);
+		// Bit 0: Command line did not parse
+		// Bit 1: Device open failed, or device did not return an
+		//        IDENTIFY DEVICE structure
+		if(($result !== 0) && (($result & 0) || ($result & 1))) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		$this->cmdOutput = $output;
+
+		// Set flag to mark information has been successfully read.
+		$this->dataCached = TRUE;
+
+		return TRUE;
+	}
+
+	/**
+	 * Refresh the cached information.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function refresh() {
+		$this->dataCached = FALSE;
+		if($this->getData() === FALSE)
+			return FALSE;
+		return TRUE;
+	}
+
+	/**
+	 * Get the command output.
+	 * @return The command output, otherwise FALSE.
+	 */
+	public function getCmdOutput() {
+		if($this->getData() === FALSE)
+			return FALSE;
+		return implode("\n", $this->cmdOutput);
+	}
+
+	/**
+	 * Get the S.M.A.R.T. attributes data structure.
+	 * @return An array of S.M.A.R.T. attributes data, otherwise FALSE.
+	 */
+	public function getAttributes() {
+		if($this->getData() === FALSE)
+			return FALSE;
+		$result = array();
+		foreach($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
+			// SMART Attributes Data Structure
+			// Parse command output:
+			// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
+			//   1 Raw_Read_Error_Rate     0x000b   100   100   016    Pre-fail  Always       -       0
+			//   8 Seek_Time_Performance   0x0005   100   100   020    Pre-fail  Offline      -       0
+			// 194 Temperature_Celsius     0x0002   139   139   000    Old_age   Always       -       43 (Lifetime Min/Max 16/61)
+			$regex = '/^\s*(\d+)\s+(\S+)\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+'.
+			  '(\S+)\s+(\S+)\s+(\S+)\s+(.+)$/';
+			if(1 == preg_match($regex, $cmdOutputv, $matches)) {
+				$result[] = array(
+					"id" => $matches[1],
+					"attrname" => $matches[2],
+					"flag" => $matches[3],
+					"value" => $matches[4],
+					"worst" => $matches[5],
+					"treshold" => $matches[6],
+					"type" => $matches[7],
+					"updated" => $matches[8],
+					"whenfailed" => $matches[9],
+					"rawvalue" => $matches[10]
+				);
+			}
+		}
+		return $result;
+	}
+
+	/**
+	 * Get the S.M.A.R.T. Self-test log structure.
+	 * @return An array of S.M.A.R.T. self-test logs, otherwise FALSE.
+	 */
+	public function getSelfTestLogs() {
+		if($this->getData() === FALSE)
+			return FALSE;
+		$result = array();
+		foreach($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
+			// SMART Self-test log structure
+			// Parse command output:
+			// Num  Test_Description    Status                  Remaining  LifeTime(hours)  LBA_of_first_error
+			// # 1  Extended offline    Completed: read failure       90%       670         57217755
+			// # 2  Short captive       Interrupted (host reset)      80%      1392         -
+			$regex = '/^# (\d+)\s+(Short offline|Extended offline|'.
+			  'Short captive|Extended captive)\s+(.+)\s+(\d+)%\s+(\d+)'.
+			  '\s+(.+)$/';
+			if(1 == preg_match($regex, $cmdOutputv, $matches)) {
+				$result[] = array(
+					"num" => $matches[1],
+					"description" => $matches[2],
+					"status" => $matches[3],
+					"remaining" => $matches[4],
+					"lifetime" => $matches[5],
+					"lbaoffirsterror" => $matches[6]
+				);
+			}
+		}
+		return $result;
+	}
+
+	/**
+	 * Get various device information.
+	 * @return An array of strings, otherwise FALSE.
+	 */
+	public function getInformation() {
+		if($this->getData() === FALSE)
+			return FALSE;
+		$result = array(
+			"devicemodel" => "",
+			"serialnumber" => "",
+			"firmwareversion" => "",
+			"usercapacity" => ""
+		);
+		// INFORMATION SECTION
+		// Parse command output:
+		// === START OF INFORMATION SECTION ===
+		// Model Family:     Hitachi Deskstar T7K500
+		// Device Model:     Hitachi HDT725032VLA360
+		// Serial Number:    VFD200R2CWBTLL
+		// Firmware Version: V54OA52A
+		// User Capacity:    320.072.933.376 bytes
+		$output = implode("|", $this->cmdOutput);
+		$regex = '/^.+\|Device Model:\s+(.+)\|Serial Number:\s+(.+)'.
+		  '\|Firmware Version:\s+(.+)\|User Capacity:\s+(.+) bytes\|.+$/';
+		if(1 == preg_match($regex, $output, $matches)) {
+			$result = array(
+				"devicemodel" => $matches[1],
+				"serialnumber" => $matches[2],
+				"firmwareversion" => $matches[3],
+				"usercapacity" => $matches[4]
+			);
+		}
+		return $result;
+	}
+
+	/**
+	 * Get the device temperature in °C (value only, no unit).
+	 * @return The temperature value, otherwise FALSE.
+	 */
+	public function getTemperature() {
+		if(FALSE === ($attributes = $this->getAttributes()))
+			return FALSE;
+		$temp = FALSE;
+		$found = FALSE;
+		// Process the attributes to get the temperature value.
+		foreach($attributes as $attrk => $attrv) {
+			switch($attrv['id']) {
+			case 194:
+			case 231:
+				// The value may look like: '43 (Lifetime Min/Max 16/61)'
+				$regex = '/^(\d+)(\s+(.+))*$/';
+				if(1 !== preg_match($regex, $attrv['rawvalue'], $matches))
+					continue;
+				$temp = $matches[1];
+				$found = TRUE;
+				break;
+			}
+			if($found)
+				break;
+		}
+		// If the SMART attributes are not present then it may be an older
+		// SCSI device. Then the command output looks like:
+		// Device: SEAGATE  ST336605LSUN36G  Version: 0238
+		// Serial number: 3FP1J35V00007241EEC7
+		// Device type: disk
+		// Local Time is: Thu Apr  5 15:41:56 2012 CEST
+		// Device supports SMART and is Enabled
+		// Temperature Warning Enabled
+		// SMART Health Status: OK
+		//
+		// Current Drive Temperature:     34 C
+		// Drive Trip Temperature:        65 C
+		// ...
+		if(FALSE === $found) {
+			foreach($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
+				$regex = '/^Current Drive Temperature:\s+(\d+)\s+C$/';
+				if(1 == preg_match($regex, $cmdOutputv, $matches)) {
+					$temp = $matches[1];
+					break;
+				}
+			}
+		}
+		return $temp;
 	}
 }
 
@@ -2981,13 +3008,13 @@ class OMVUserGroup extends OMVObject {
 		$this->name = $groupInfo['name'];
 		$this->gid = $groupInfo['gid'];
 		$this->members = $groupInfo['members'];
-		// Set flag to mark informations has been successfully read.
+		// Set flag to mark information has been successfully read.
 		$this->dataCached = TRUE;
 		return TRUE;
 	}
 
 	/**
-	 * Refresh the cached informations.
+	 * Refresh the cached information.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function refresh() {
@@ -3482,7 +3509,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	private $dataCached = FALSE;
 
 	/**
-	 * Get the logical volume detailed informations.
+	 * Get the logical volume detailed information.
 	 * @private
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
@@ -3512,14 +3539,14 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 		$this->kernelMajor = intval($output[5]);
 		$this->kernelMinor = intval($output[6]);
 
-		// Set flag to mark informations has been successfully read.
+		// Set flag to mark information has been successfully read.
 		$this->dataCached = TRUE;
 
 		return TRUE;
 	}
 
 	/**
-	 * Refresh the cached informations.
+	 * Refresh the cached information.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function refresh() {

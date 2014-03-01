@@ -54,8 +54,8 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return An array containing physical disk device objects with the
 	 *   fields \em devicename, \em devicefile, \em model, \em size,
-	 *   \em description, \em vendor, \em serialnumber, \em israid and
-	 *   \em isroot.
+	 *   \em description, \em vendor, \em serialnumber, \em israid,
+	 *   \em hassmart and \em isroot.
 	 */
 	public function enumerateDevices($params, $context) {
 		// Validate the RPC caller context.
@@ -87,6 +87,7 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 					"vendor" => $sd->getVendor(),
 					"serialnumber" => $sd->getSerialNumber(),
 					"israid" => $sd->isRaid(),
+					"hassmart" => $sd->hasSMART(),
 					"isroot" => (0 === strpos($rootDeviceFile,
 					  $sd->getDeviceFile())) ? TRUE : FALSE
 				);
@@ -231,7 +232,7 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 			"devicefile" => $sd->getDeviceFileById(),
 			"smart" => array(
 				"enable" => array_boolval($params, 'smart'),
-				"devicetype" => $sd->getSmartDeviceType()
+				"devicetype" => $sd->getSMARTDeviceType()
 			),
 			"apm" => $params['apm'],
 			"aam" => $params['aam'],

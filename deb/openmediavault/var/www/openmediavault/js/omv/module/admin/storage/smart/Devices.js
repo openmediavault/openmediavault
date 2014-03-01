@@ -20,6 +20,7 @@
  */
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/grid/Panel.js")
+// require("js/omv/workspace/panel/Textarea.js")
 // require("js/omv/workspace/window/Form.js")
 // require("js/omv/workspace/window/Tab.js")
 // require("js/omv/util/Format.js")
@@ -39,7 +40,7 @@ Ext.define("OMV.module.admin.storage.smart.device.DeviceInformation", {
 	title: _("Device information"),
 	hideTopToolbar: true,
 	rpcService: "Smart",
-	rpcGetMethod: "getIdentityInfo",
+	rpcGetMethod: "getInformation",
 
 	initComponent: function() {
 		var me = this;
@@ -281,17 +282,17 @@ Ext.define("OMV.module.admin.storage.smart.device.SelfTestLogs", {
 });
 
 /**
- * @class OMV.module.admin.storage.smart.device.RawData
+ * @class OMV.module.admin.storage.smart.device.ExtendedInformation
  * @derived OMV.workspace.panel.Textarea
  * @param devicefile The device file, e.g. /dev/sda.
  */
-Ext.define("OMV.module.admin.storage.smart.device.RawData", {
+Ext.define("OMV.module.admin.storage.smart.device.ExtendedInformation", {
 	extend: "OMV.workspace.panel.Textarea",
 
 	title: _("Extended information"),
 	hideTopToolbar: true,
 	rpcService: "Smart",
-	rpcMethod: "getInformation",
+	rpcMethod: "getExtendedInformation",
 
 	initComponent: function() {
 		var me = this;
@@ -316,7 +317,7 @@ Ext.define("OMV.module.admin.storage.device.Information", {
 		"OMV.module.admin.storage.smart.device.DeviceInformation",
 		"OMV.module.admin.storage.smart.device.Attributes",
 		"OMV.module.admin.storage.smart.device.SelfTestLogs",
-		"OMV.module.admin.storage.smart.device.RawData"
+		"OMV.module.admin.storage.smart.device.ExtendedInformation"
 	],
 
 	title: _("S.M.A.R.T. information"),
@@ -339,7 +340,7 @@ Ext.define("OMV.module.admin.storage.device.Information", {
 			Ext.create("OMV.module.admin.storage.smart.device.SelfTestLogs", {
 				devicefile: me.devicefile
 			}),
-			Ext.create("OMV.module.admin.storage.smart.device.RawData", {
+			Ext.create("OMV.module.admin.storage.smart.device.ExtendedInformation", {
 				devicefile: me.devicefile
 			})
 		];

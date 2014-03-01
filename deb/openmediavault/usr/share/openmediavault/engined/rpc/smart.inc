@@ -42,10 +42,10 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		$this->registerMethod("getList");
 		$this->registerMethod("getSettings");
 		$this->registerMethod("setSettings");
-		$this->registerMethod("getInformation");
 		$this->registerMethod("getAttributes");
 		$this->registerMethod("getSelfTestLogs");
-		$this->registerMethod("getIdentityInfo");
+		$this->registerMethod("getInformation");
+		$this->registerMethod("getExtendedInformation");
 		$this->registerMethod("getScheduleList");
 		$this->registerMethod("getScheduledTest");
 		$this->registerMethod("setScheduledTest");
@@ -69,32 +69,37 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get all existing hard disks devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerate(
-		  OMV_STORAGE_DEVICE_TYPE_HDD))) {
+		if(FALSE === ($devs = OMVStorageDevices::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  "Failed to get list of hard disks devices");
+			  "Failed to get list of storage devices");
 		}
-		// Prepare result
+		// Prepare result.
 		$objects = array();
 		foreach($devs as $devk => $devv) {
-			$hdd = new OMVStorageDeviceHDD($devv);
-			if($hdd->exists()) {
-				// Try to get the device temperature via S.M.A.R.T.
-				$temperature = $hdd->getTemperature();
-				// Prepare device object
-				$objects[] = array(
-					  "devicename" => $hdd->getDeviceName(),
-					  "devicefile" => $hdd->getDeviceFile(),
-					  "devicefilebyid" => $hdd->getDeviceFileById(),
-					  "model" => $hdd->getModel(),
-					  "size" => $hdd->getSize(),
-					  "temperature" => (FALSE === $temperature) ?
-						"" : sprintf("%d°C", $temperature),
-					  "description" => $hdd->getDescription(),
-					  "vendor" => $hdd->getVendor(),
-					  "serialnumber" => $hdd->getSerialNumber()
-				  );
+			// Get the storage device object.
+			$sd = OMVStorageDeviceFactory::get($devv);
+			if(is_null($sd) || !$sd->exists()) {
+				throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
+				  $devv);
 			}
+			// Skip devices that do not support S.M.A.R.T.
+			if(is_null($smartInfo = $sd->getSMARTImpl()))
+				continue;
+			// Try to get the device temperature via S.M.A.R.T.
+			$temperature = $smartInfo->getTemperature();
+			// Prepare device object
+			$objects[] = array(
+				  "devicename" => $sd->getDeviceName(),
+				  "devicefile" => $sd->getDeviceFile(),
+				  "devicefilebyid" => $sd->getDeviceFileById(),
+				  "model" => $sd->getModel(),
+				  "size" => $sd->getSize(),
+				  "temperature" => (FALSE === $temperature) ?
+					"" : sprintf("%d°C", $temperature),
+				  "description" => $sd->getDescription(),
+				  "vendor" => $sd->getVendor(),
+				  "serialnumber" => $sd->getSerialNumber()
+			  );
 		}
 		return $objects;
 	}
@@ -218,16 +223,15 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Get S.M.A.R.T. information about the given device.
+	 * Get the extended S.M.A.R.T. information about the given device.
 	 * @param params An array containing the following fields:
 	 *   \em devicefile The device file.
 	 * @param context The context of the caller.
-	 * @return The requested S.M.A.R.T. information as plain text.
+	 * @return The requested extended S.M.A.R.T. information as plain text.
 	 * @throw E_MISC_DEVICE_NOT_FOUND
 	 * @throw E_MISC_FAILURE
 	 */
-	public function getInformation($params, $context) {
-		global $xmlConfig;
+	public function getExtendedInformation($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -240,17 +244,22 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get the S.M.A.R.T. information.
-		$hdd = new OMVStorageDeviceHDD($params['devicefile']);
-		if(FALSE === $hdd->exists()) {
+		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		if(is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $hdd->getDeviceFile());
+			  $params['devicefile']);
 		}
-		if(FALSE === ($stats = $hdd->getSmartStats())) {
+		if(is_null($smartInfo = $sd->getSMARTImpl())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. statistics (device=%s)",
-			  $hdd->getDeviceFile()));
+			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
+			  $sd->getDeviceFile()));
 		}
-		return implode("\n", $stats['rawdata']);
+		if(FALSE === ($result = $smartInfo->getCmdOutput())) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to get S.M.A.R.T. information (device=%s)",
+			  $sd->getDeviceFile()));
+		}
+		return $result;
 	}
 
 	/**
@@ -263,7 +272,6 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	 * @throw E_MISC_FAILURE
 	 */
 	public function getAttributes($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -276,17 +284,22 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get the S.M.A.R.T. information.
-		$hdd = new OMVStorageDeviceHDD($params['devicefile']);
-		if(FALSE === $hdd->exists()) {
+		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		if(is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $hdd->getDeviceFile());
+			  $params['devicefile']);
 		}
-		if(FALSE === ($stats = $hdd->getSmartStats())) {
+		if(is_null($smartInfo = $sd->getSMARTImpl())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. statistics (device=%s)",
-			  $hdd->getDeviceFile()));
+			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
+			  $sd->getDeviceFile()));
 		}
-		return $stats['attributes'];
+		if(FALSE === ($result = $smartInfo->getAttributes())) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to get S.M.A.R.T. attributes (device=%s)",
+			  $sd->getDeviceFile()));
+		}
+		return $result;
 	}
 
 	/**
@@ -299,7 +312,6 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	 * @throw E_MISC_FAILURE
 	 */
 	public function getSelfTestLogs($params, $context) {
-		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -312,17 +324,22 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get the S.M.A.R.T. information.
-		$hdd = new OMVStorageDeviceHDD($params['devicefile']);
-		if(FALSE === $hdd->exists()) {
+		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		if(is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $hdd->getDeviceFile());
+			  $params['devicefile']);
 		}
-		if(FALSE === ($stats = $hdd->getSmartStats())) {
+		if(is_null($smartInfo = $sd->getSMARTImpl())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. statistics (device=%s)",
-			  $hdd->getDeviceFile()));
+			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
+			  $sd->getDeviceFile()));
 		}
-		return $stats['selftestlogs'];
+		if(FALSE === ($result = $smartInfo->getSelfTestLogs())) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to get S.M.A.R.T. self-test logs (device=%s)",
+			  $sd->getDeviceFile()));
+		}
+		return $result;
 	}
 
 	/**
@@ -333,8 +350,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	 * @return The requested S.M.A.R.T. identity information.
 	 * @throw E_MISC_DEVICE_NOT_FOUND
 	 */
-	public function getIdentityInfo($params, $context) {
-		global $xmlConfig;
+	public function getInformation($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -346,17 +362,23 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
 			  }
 		  }');
-		// Get the S.M.A.R.T. identity informations.
-		$hdd = new OMVStorageDeviceHDD($params['devicefile']);
-		if(FALSE === $hdd->exists()) {
+		// Get the S.M.A.R.T. information.
+		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		if(is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
-			  $hdd->getDeviceFile());
+			  $params['devicefile']);
 		}
-		return array(
-			"devicemodel" => $hdd->getModel(),
-			"serialnumber" => $hdd->getSerialNumber(),
-			"firmwareversion" => $hdd->getFirmwareVersion()
-		);
+		if(is_null($smartInfo = $sd->getSMARTImpl())) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
+			  $sd->getDeviceFile()));
+		}
+		if(FALSE === ($result = $smartInfo->getInformation())) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to get S.M.A.R.T. information (device=%s)",
+			  $sd->getDeviceFile()));
+		}
+		return $result;
 	}
 
 	/**
