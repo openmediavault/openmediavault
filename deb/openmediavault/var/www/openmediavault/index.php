@@ -41,6 +41,9 @@ try {
 		$page->render();
 	}
 } catch(Exception $e) {
+	// Send an error message to the web server's error log.
+	error_log($e->getMessage());
+	// Print the error message.
 	header("Content-Type: text/html");
 	printf("Error #".$e->getCode().":<br/>%s", str_replace("\n", "<br/>",
 	  $e->__toString()));

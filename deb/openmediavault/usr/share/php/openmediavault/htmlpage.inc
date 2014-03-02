@@ -39,7 +39,7 @@ class OMVHtmlPage extends OMVObject {
 		array_unshift($incList, $fileName);
 		$fh = fopen($fileName, "r");
 		if($fh === FALSE) {
-			throw new Exception("Failed to open file {$fileName}.");
+			throw new Exception(sprintf("Failed to open file '%s'", $fileName));
 		}
 		for($row = 0; $row < 100 && !feof($fh); ++$row) {
 			$content = rtrim(fgets($fh));
@@ -67,7 +67,8 @@ class OMVHtmlPage extends OMVObject {
 				$pathInfo = pathinfo($item->getFilename());
 				if(array_key_exists("extension", $pathInfo) &&
 				  (strtolower($pathInfo['extension']) === "js")) {
-					$this->scanFiles("{$dirPath}/{$pathInfo['basename']}", $incList);
+					$this->scanFiles("{$dirPath}/{$pathInfo['basename']}",
+					  $incList);
 				}
 			}
 			if($item->isDir() && (TRUE === $recursive)) {
