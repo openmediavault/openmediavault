@@ -1076,7 +1076,6 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	protected $model = FALSE;
 	protected $vendor = FALSE;
 	protected $udevInfo = FALSE;
-	protected $smartDeviceType = "";
 
 	/**
 	 * Constructor
@@ -1309,8 +1308,17 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return TRUE if the device supports S.M.A.R.T., otherwise FALSE.
 	 */
 	public function hasSMART() {
-		return FALSE;
+		return ($this instanceof OMVStorageDeviceSMARTAbstract) ? TRUE : FALSE;
 	}
+}
+
+/**
+ * Abstract class implementing generic storage devices that support the
+ * S.M.A.R.T. AT Attachment (ATA) interface.
+ * @ingroup api
+ */
+abstract class OMVStorageDeviceSMARTAbstract extends OMVStorageDeviceAbstract {
+	protected $smartDeviceType = "";
 
 	/**
 	 * Set the device type required by the smartctl command.
@@ -1329,14 +1337,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 		return $this->smartDeviceType;
 	}
 
-	/**
-	 * Get the object that implements the S.M.A.R.T. interface.
-	 * @return The object of the class implementing the S.M.A.R.T. interface,
-	 *   otherwise NULL.
-	 */
-	public function getSMARTImpl() {
-		if(!$this->hasSMART())
-			return NULL;
+	public function getSMARTInformation() {
 		return new OMVATASMARTInformation($this->getDeviceFile(),
 		  $this->smartDeviceType);
 	}
@@ -1369,7 +1370,7 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	/**
 	 * Check whether the given device is represented by this storage
 	 * device backend.
-	 * @param deviceFile The device file, e.g. 
+	 * @param deviceFile Specifies the device file, e.g. 
 	 *   <ul>
 	 *   \li /dev/sdb
 	 *   \li /dev/md1
@@ -1394,7 +1395,7 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 
 	/**
 	 * Returns base device file by stripping the partition appendix.
-	 * @param deviceFile The device file, e.g.
+	 * @param deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb1 => /dev/sdb
 	 *   \li /dev/cciss/c0d0p2 => /dev/cciss/c0d0
@@ -1428,7 +1429,7 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	/**
 	 * Helper function to check whether the given device is represented by
 	 * this storage device backend.
-	 * @param deviceFile The device file.
+	 * @param deviceFile Specifies the device file.
 	 * @param regex The regular expression used to identify the devices
 	 *   represented by this storage backend.
 	 */
@@ -1720,7 +1721,7 @@ class OMVStorageDevices extends OMVObject {
 
 	/**
 	 * Get the backend of the given device.
-	 * @param deviceFile The device file.
+	 * @param deviceFile Specifies the device file.
 	 * @return The backend that implements the given device file, otherwise
 	 *   NULL.
 	 */
@@ -1801,7 +1802,7 @@ class OMVStorageDevices extends OMVObject {
 
 	/**
 	 * Check if the given device is used/consumed by another storage device.
-	 * @param deviceFile The device file, e.g.
+	 * @param deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb
 	 *   \li /dev/md1
@@ -1833,7 +1834,7 @@ class OMVStorageDevices extends OMVObject {
 
 	/**
 	 * Get the object of the class which implements the given storage backend.
-	 * @param deviceFile The device file, e.g.
+	 * @param deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb
 	 *   \li /dev/md1
@@ -1860,7 +1861,7 @@ class OMVStorageDevices extends OMVObject {
 class OMVStorageDeviceFactory extends OMVObject {
 	/**
 	 * Get the object of the class implementing the given device type.
-	 * @param deviceFile The device file, e.g.
+	 * @param deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb
 	 *   \li /dev/md1
@@ -1884,11 +1885,7 @@ class OMVStorageDeviceFactory extends OMVObject {
  * otherwise the disk will spin-up if it is in sleep mode.
  * @ingroup api
  */
-class OMVStorageDeviceHDD extends OMVStorageDeviceAbstract {
-	public function hasSMART() {
-		return TRUE;
-	}
-
+class OMVStorageDeviceHDD extends OMVStorageDeviceSMARTAbstract {
 	/**
 	 * Identify the device type required by the smartctl command.
 	 * @return Returns the identified device type or an empty string.
@@ -1909,7 +1906,7 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceAbstract {
  * devices, e.g. HP's Smart Array hardware RAID controller.
  * @ingroup api
  */
-class OMVStorageDeviceCCISS extends OMVStorageDeviceAbstract {
+class OMVStorageDeviceCCISS extends OMVStorageDeviceSMARTAbstract {
 	public function getDeviceName($canonical = FALSE) {
 		// Get the device name and convert '/' character to '!', e.g.
 		// cciss/c0d0 => cciss!c0d0.
@@ -1917,10 +1914,6 @@ class OMVStorageDeviceCCISS extends OMVStorageDeviceAbstract {
 	}
 
 	public function isRaid() {
-		return TRUE;
-	}
-
-	public function hasSMART() {
 		return TRUE;
 	}
 
@@ -2238,8 +2231,8 @@ class OMVStorageDeviceMdadm extends OMVStorageDeviceAbstract {
 class OMVStorageDeviceDM extends OMVStorageDeviceAbstract {
 	/**
 	 * Constructor
-	 * @param deviceFile The device file, e.g. /dev/dm-1, /dev/vg0/lv0 or
-	 *   /dev/mapper/vg0-lv0.
+	 * @param deviceFile Specifies the device file, e.g. /dev/dm-1,
+	 *   /dev/vg0/lv0 or /dev/mapper/vg0-lv0.
 	 */
 	public function __construct($deviceFile) {
 		// Call parent constructor.
@@ -2374,7 +2367,13 @@ class OMVATASMARTInformation extends OMVObject {
 
 	/**
 	 * Constructor
-	 * @param deviceFile Specifies the device file.
+	 * @param deviceFile Specifies the device file, e.g.
+	 *   <ul>
+	 *   \li /dev/sdb
+	 *   \li /dev/cciss/c0d0
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
+	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
+	 *   </ul>
 	 * @param type Specifies the type of the device, e.g. ata, cciss or 3ware.
 	 */
 	public function __construct($deviceFile, $type) {
@@ -2425,10 +2424,10 @@ class OMVATASMARTInformation extends OMVObject {
 	}
 
 	/**
-	 * Get the command output.
+	 * Get the plain text 'smartctl' command output.
 	 * @return The command output, otherwise FALSE.
 	 */
-	public function getCmdOutput() {
+	public function getExtendedInformation() {
 		if($this->getData() === FALSE)
 			return FALSE;
 		return implode("\n", $this->cmdOutput);

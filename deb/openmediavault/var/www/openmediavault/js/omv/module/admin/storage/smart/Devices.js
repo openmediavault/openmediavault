@@ -45,6 +45,9 @@ Ext.define("OMV.module.admin.storage.smart.device.DeviceInformation", {
 	initComponent: function() {
 		var me = this;
 		Ext.apply(me, {
+			defaults: {
+				readOnly: true
+			},
 			rpcGetParams: {
 				devicefile: me.devicefile
 			}
@@ -57,20 +60,17 @@ Ext.define("OMV.module.admin.storage.smart.device.DeviceInformation", {
 			xtype: "textfield",
 			name: "devicemodel",
 			fieldLabel: _("Device model"),
-			emptyText: _("n/a"),
-			readOnly: true
+			emptyText: _("n/a")
 		},{
 			xtype: "textfield",
 			name: "serialnumber",
 			fieldLabel: _("Serial number"),
-			emptyText: _("n/a"),
-			readOnly: true
+			emptyText: _("n/a")
 		},{
 			xtype: "textfield",
 			name: "firmwareversion",
 			fieldLabel: _("Firmware version"),
-			emptyText: _("n/a"),
-			readOnly: true
+			emptyText: _("n/a")
 		}];
 	}
 });

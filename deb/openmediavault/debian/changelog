@@ -1,3 +1,16 @@
+openmediavault (0.5.38) stable; urgency=low
+
+  * Improve error logging.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 03 Mar 2014 00:09:14 +0100
+
+openmediavault (0.5.37) stable; urgency=low
+
+  * Mantis 0000990: Redirect permanent to https option for apache. Enable
+    required rewrite module.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 02 Mar 2014 19:58:38 +0100
+
 openmediavault (0.5.36) stable; urgency=low
 
   * Update locales.

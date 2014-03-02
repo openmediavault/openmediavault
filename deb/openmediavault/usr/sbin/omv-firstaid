@@ -318,6 +318,7 @@ EOF
 fix_rrd_database()
 {
 	local invalid dirname basename tsLast tsNow
+	echo "Checking all RRD files. Please wait ..."
 	# Stopping collectd daemon.
 	monit stop collectd
 	# Check RRD database files for invalid timestamps.

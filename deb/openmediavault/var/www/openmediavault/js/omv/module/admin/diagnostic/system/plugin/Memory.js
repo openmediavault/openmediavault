@@ -23,7 +23,7 @@
 
 /**
  * @class OMV.module.admin.diagnostic.system.plugin.Memory
- * @derived OMV.workspace.panel.Textarea
+ * @derived OMV.workspace.panel.RrdGraph
  */
 Ext.define("OMV.module.admin.diagnostic.system.plugin.Memory", {
 	extend: "OMV.workspace.panel.RrdGraph",

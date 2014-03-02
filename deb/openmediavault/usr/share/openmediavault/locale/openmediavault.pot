@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-04 22:52+0100\n"
+"POT-Creation-Date: 2014-03-02 19:31+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -791,7 +791,7 @@ msgstr ""
 msgid "Device Mapper %s [%s, %s]"
 msgstr ""
 
-msgid "Device identity information"
+msgid "Device information"
 msgstr ""
 
 msgid "Device model"
@@ -1116,6 +1116,9 @@ msgid "Expire"
 msgstr ""
 
 msgid "Extended attributes"
+msgstr ""
+
+msgid "Extended information"
 msgstr ""
 
 msgid "Extra options"

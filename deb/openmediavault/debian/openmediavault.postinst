@@ -274,8 +274,9 @@ case "$1" in
 			omv-mkconf sysctl
 			sysctl -e -p
 		fi
-		if dpkg --compare-versions "$2" lt-nl "0.5.36"; then
+		if dpkg --compare-versions "$2" lt-nl "0.5.37"; then
 			omv-mkconf apache2
+			a2enmod rewrite || true
 			invoke-rc.d apache2 graceful
 		fi
 	;;

@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Christophe Lherieau <skimpax@gmail.com>, 2012-2013
+# Christophe Lherieau <skimpax@gmail.com>, 2012-2014
 # Nahir Mohamed <nahirmoha@gmail.com>, 2012-2013
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012-2013
 # Stéphane BOCQUET <stephane_bocquet@hotmail.com>, 2012
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-04 22:52+0100\n"
-"PO-Revision-Date: 2014-02-04 21:52+0000\n"
+"POT-Creation-Date: 2014-03-02 19:31+0100\n"
+"PO-Revision-Date: 2014-03-02 18:32+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -175,7 +175,7 @@ msgid "Access Right Management"
 msgstr "Gestion des droits d'accès"
 
 msgid "Access Rights Management"
-msgstr ""
+msgstr "Gestion des droits d'accès"
 
 msgid "Access mode"
 msgstr "Mode d'accès"
@@ -817,8 +817,8 @@ msgstr "Périphérique"
 msgid "Device Mapper %s [%s, %s]"
 msgstr "Correspondance de périphériques (device mapper) %s [%s, %s]"
 
-msgid "Device identity information"
-msgstr "Informations sur l'identité du périphérique"
+msgid "Device information"
+msgstr ""
 
 msgid "Device model"
 msgstr "Modèle de périphérique"
@@ -939,7 +939,7 @@ msgid "Download"
 msgstr "Télécharger"
 
 msgid "Downloading package information"
-msgstr ""
+msgstr "Téléchargement des informations du paquet"
 
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
@@ -1160,6 +1160,9 @@ msgstr "Expire"
 
 msgid "Extended attributes"
 msgstr "Attributs étendus"
+
+msgid "Extended information"
+msgstr ""
 
 msgid "Extra options"
 msgstr "Options supplémentaires"
@@ -1882,7 +1885,7 @@ msgid "Memory usage"
 msgstr "Mémoire"
 
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 msgid "Messages"
 msgstr "Messages"
@@ -2083,7 +2086,7 @@ msgid "Not ICMP"
 msgstr "Laos"
 
 msgid "Not ICMPv6"
-msgstr ""
+msgstr "Pas ICMPv6"
 
 msgid "Not TCP"
 msgstr "Non TCP"
@@ -3110,7 +3113,7 @@ msgstr "Le nom de l'hôte est un libellé qui identifie le système sur le rése
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
-msgstr ""
+msgstr "Les informations sur le logiciel disponible sont périmées. Vous devez recharger les informations pour ce logiciel."
 
 msgid "The interface '%s' is already used by a bonding interface"
 msgstr "L'interface '%s' est déjà utilisée par une interface de liaison (bonding)"
@@ -3133,7 +3136,7 @@ msgid "The number of days the certificate is valid for."
 msgstr "La durée de validité du certificat."
 
 msgid "The page will reload now to let the changes take effect."
-msgstr ""
+msgstr "Cette page va être rechargée pour que les changements prennent effet."
 
 #, php-format
 msgid "The parameter '%s' contains forbidden two-dot symbols"
@@ -3162,7 +3165,7 @@ msgstr "Les permissions sur les nouveaux fichiers et répertoires sont normaleme
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr ""
+msgstr "Le dépôt sera consulté pour identifier des nouveaux paquets, des paquet supprimés ou mis à niveau."
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "

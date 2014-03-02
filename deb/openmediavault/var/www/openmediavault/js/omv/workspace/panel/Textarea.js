@@ -43,6 +43,7 @@ Ext.define("OMV.workspace.panel.Textarea", {
 	hideTopToolbar: false,
 	autoLoadData: true,
 	readOnly: true,
+	autoScroll: false,
 
 	initComponent: function() {
 		var me = this;
