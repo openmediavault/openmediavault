@@ -25,8 +25,17 @@
 
 Ext.ns("OMV");
 
+// Configure the dynamic dependency loading capability.
+Ext.Loader.setConfig({
+	enabled: false, // Disable the dynamic dependency loading feature.
+	disableCaching: false,
+	paths: {
+		OMV: "js/omv"
+	}
+});
+
+// The supported languages are hardcoded and are not translated.
 OMV.languages = [
-	// The supported languages are hardcoded and are not translated.
 	[ "en","English" ], // English
 	[ "de_DE","Deutsch" ], // German
 	[ "ru_RU","Русский" ], // Russian
