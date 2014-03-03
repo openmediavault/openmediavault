@@ -42,8 +42,11 @@ devicename=$(readlink /dev/root | sed 's/[1-9]//g')
 filepath="/sys/block/${devicename}/queue/rotational"
 if [ -f "${filepath}" ]; then
 	if [ $(cat "${filepath}") -eq 0 ]; then
-		options=$(grep -P '^\S+\s+/\s+\S+\s+\S+\s+\d+\s+\d+\s*$' /etc/fstab | awk '{ print $4 }')
-		sed -i -e "s/\/\s*\(\S*\)\s*${options}\s*0/\/\t\1\t${OMV_FSTAB_MNTOPS_NONROTATIONAL},${options}\t0/" /etc/fstab
+		# UUID=cd69fda0-e2be-4e1c-99ea-78d5907618bc /               ext4    errors=remount-ro 0       1
+		options=$(grep -P -i '^\S+\s+/\s+ext4\s+\S+\s+\d+\s+\d+\s*$' /etc/fstab | awk '{ print $4 }')
+		if [ -n "${options}" ]; then
+			sed -i -e "s/\/\s*\(\S*\)\s*${options}\s*0/\/\t\1\t${OMV_FSTAB_MNTOPS_NONROTATIONAL},${options}\t0/" /etc/fstab
+		fi
 	fi
 fi
 
