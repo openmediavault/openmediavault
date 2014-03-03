@@ -133,6 +133,8 @@ Ext.define("OMV.form.Panel", {
 	findField: function(id) {
 		var me = this;
 		var basicForm = me.getForm();
+		if(Ext.isEmpty(basicForm))
+			return null;
 		return basicForm.findField(id);
 	}
 });
