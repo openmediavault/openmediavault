@@ -19,9 +19,9 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/WorkspaceManager.js")
+// require("js/omv/workspace/form/Panel.js")
 // require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/workspace/panel/Textarea.js")
-// require("js/omv/workspace/window/Form.js")
 // require("js/omv/workspace/window/Tab.js")
 // require("js/omv/util/Format.js")
 // require("js/omv/Rpc.js")
