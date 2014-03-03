@@ -1,6 +1,7 @@
 openmediavault (0.5.38) stable; urgency=low
 
   * Improve error logging.
+  * Fix bug in the PHP storage backend S.M.A.R.T. detection.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 03 Mar 2014 00:09:14 +0100
 

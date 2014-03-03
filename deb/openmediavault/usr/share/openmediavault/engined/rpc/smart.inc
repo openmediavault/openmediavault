@@ -88,7 +88,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			// Get the S.M.A.R.T. information about the given device.
 			if(is_null($smartInfo = $sd->getSMARTInformation())) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf("Failed to get S.M.A.R.T. information (device=%s)",
+				  sprintf("Failed to get S.M.A.R.T. interface (device=%s)",
 				  $sd->getDeviceFile()));
 			}
 			// Try to get the device temperature via S.M.A.R.T.
@@ -262,13 +262,14 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		}
 		if(is_null($smartInfo = $sd->getSMARTInformation())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. information (device=%s)",
+			  sprintf("Failed to get S.M.A.R.T. interface (device=%s)",
 			  $sd->getDeviceFile()));
 		}
 		if(FALSE === ($result = $smartInfo->getExtendedInformation())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to get S.M.A.R.T. extended information ".
-			  "(device=%s)", $sd->getDeviceFile()));
+			  "(device=%s): %s", $sd->getDeviceFile(),
+			  $smartInfo->getLastError()));
 		}
 		return $result;
 	}
@@ -307,13 +308,13 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		}
 		if(is_null($smartInfo = $sd->getSMARTInformation())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. information (device=%s)",
+			  sprintf("Failed to get S.M.A.R.T. interface (device=%s)",
 			  $sd->getDeviceFile()));
 		}
 		if(FALSE === ($result = $smartInfo->getAttributes())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. attributes (device=%s)",
-			  $sd->getDeviceFile()));
+			  sprintf("Failed to get S.M.A.R.T. attributes (device=%s): %s",
+			  $sd->getDeviceFile(), $smartInfo->getLastError()));
 		}
 		return $result;
 	}
@@ -352,13 +353,14 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		}
 		if(is_null($smartInfo = $sd->getSMARTInformation())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. information (device=%s)",
+			  sprintf("Failed to get S.M.A.R.T. interface (device=%s)",
 			  $sd->getDeviceFile()));
 		}
 		if(FALSE === ($result = $smartInfo->getSelfTestLogs())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. self-test logs (device=%s)",
-			  $sd->getDeviceFile()));
+			  sprintf("Failed to get S.M.A.R.T. self-test logs ".
+			  "(device=%s): %s", $sd->getDeviceFile(),
+			  $smartInfo->getLastError()));
 		}
 		return $result;
 	}
@@ -396,13 +398,13 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		}
 		if(is_null($smartInfo = $sd->getSMARTInformation())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. information (device=%s)",
+			  sprintf("Failed to get S.M.A.R.T. interface (device=%s)",
 			  $sd->getDeviceFile()));
 		}
 		if(FALSE === ($result = $smartInfo->getInformation())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to get S.M.A.R.T. information (device=%s)",
-			  $sd->getDeviceFile()));
+			  sprintf("Failed to get S.M.A.R.T. information (device=%s): %s",
+			  $sd->getDeviceFile(), $smartInfo->getLastError()));
 		}
 		return $result;
 	}

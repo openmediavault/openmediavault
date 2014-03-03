@@ -1339,7 +1339,7 @@ abstract class OMVStorageDeviceSMARTAbstract extends OMVStorageDeviceAbstract {
 
 	public function getSMARTInformation() {
 		return new OMVATASMARTInformation($this->getDeviceFile(),
-		  $this->smartDeviceType);
+		  $this->getSMARTDeviceType());
 	}
 }
 
@@ -2448,8 +2448,8 @@ class OMVATASMARTInformation extends OMVObject {
 			//   1 Raw_Read_Error_Rate     0x000b   100   100   016    Pre-fail  Always       -       0
 			//   8 Seek_Time_Performance   0x0005   100   100   020    Pre-fail  Offline      -       0
 			// 194 Temperature_Celsius     0x0002   139   139   000    Old_age   Always       -       43 (Lifetime Min/Max 16/61)
-			$regex = '/^\s*(\d+)\s+(\S+)\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+'.
-			  '(\S+)\s+(\S+)\s+(\S+)\s+(.+)$/';
+			$regex = '/^\s*(\d+)\s+(\S+)\s+(0x[0-9a-f]+)\s+(\d+)\s+(\d+)\s+'.
+			  '(\d+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(.+)$/i';
 			if(1 == preg_match($regex, $cmdOutputv, $matches)) {
 				$result[] = array(
 					"id" => $matches[1],

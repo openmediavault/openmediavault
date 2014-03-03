@@ -56,7 +56,14 @@ Ext.define("OMV.module.admin.storage.smart.device.DeviceInformation", {
 	},
 
 	getFormItems: function() {
+		var me = this;
 		return [{
+			xtype: "textfield",
+			name: "devicefile",
+			fieldLabel: _("Device"),
+			emptyText: _("n/a"),
+			value: me.devicefile
+		},{
 			xtype: "textfield",
 			name: "devicemodel",
 			fieldLabel: _("Device model"),
