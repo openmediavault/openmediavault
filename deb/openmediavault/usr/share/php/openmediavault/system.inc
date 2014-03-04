@@ -2482,7 +2482,7 @@ class OMVATASMARTInformation extends OMVObject {
 			// Num  Test_Description    Status                  Remaining  LifeTime(hours)  LBA_of_first_error
 			// # 1  Extended offline    Completed: read failure       90%       670         57217755
 			// # 2  Short captive       Interrupted (host reset)      80%      1392         -
-			$regex = '/^# (\d+)\s+(Short offline|Extended offline|'.
+			$regex = '/^#\s*(\d+)\s+(Short offline|Extended offline|'.
 			  'Short captive|Extended captive)\s+(.+)\s+(\d+)%\s+(\d+)'.
 			  '\s+(.+)$/';
 			if(1 == preg_match($regex, $cmdOutputv, $matches)) {

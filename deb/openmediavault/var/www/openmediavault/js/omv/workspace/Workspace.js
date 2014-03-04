@@ -147,6 +147,7 @@ Ext.define("OMV.workspace.Workspace", {
 							text: _("Reset WebGUI state"),
 							action: "resetstate",
 							msg: _("Do you really want to reset WebGUI state, e.g. grid column order?"),
+							tooltip: _("Reset WebGUI state will restore default settings of grid columns for example."),
 							icon: "images/refresh.png",
 							iconCls: Ext.baseCSSPrefix + "btn-icon-16x16"
 						},{

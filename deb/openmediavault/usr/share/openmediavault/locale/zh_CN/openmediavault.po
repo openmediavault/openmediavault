@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-02 19:31+0100\n"
-"PO-Revision-Date: 2014-03-02 18:32+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-03-03 01:45+0000\n"
+"Last-Translator: dezi121 <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -31,7 +31,7 @@ msgid "'All' is not allowed"
 msgstr "不允许 \"全部\" 选项"
 
 msgid "0 KiB/s means unlimited."
-msgstr "0 KiB/s 表示不限制。"
+msgstr "0KB/s表示不限制。"
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - 待机状态、最低功耗 (磁头停转)"
@@ -326,7 +326,7 @@ msgid "Andorra"
 msgstr "安道尔"
 
 msgid "Angola"
-msgstr "Angola"
+msgstr "安哥拉"
 
 msgid "Anguilla"
 msgstr "安圭拉"
@@ -359,7 +359,7 @@ msgid "Archive"
 msgstr "归档"
 
 msgid "Argentina"
-msgstr "Argentina"
+msgstr "阿根廷"
 
 msgid "Armenia"
 msgstr "亚美尼亚"
@@ -449,7 +449,7 @@ msgid "Belarus"
 msgstr "白俄罗斯"
 
 msgid "Belgium"
-msgstr "Belgium"
+msgstr "比利时"
 
 msgid "Belize"
 msgstr "伯利兹"
@@ -622,7 +622,7 @@ msgid "Common Name"
 msgstr "通用名"
 
 msgid "Community"
-msgstr "Community"
+msgstr "社区"
 
 msgid "Community-maintained updates."
 msgstr "社区维护更新。"
@@ -815,7 +815,7 @@ msgid "Device Mapper %s [%s, %s]"
 msgstr "设备图 %s [%s, %s]"
 
 msgid "Device information"
-msgstr ""
+msgstr "设备信息"
 
 msgid "Device model"
 msgstr "设备型号"
@@ -877,7 +877,7 @@ msgid "Do you really want to leave the page?"
 msgstr "确定离开此网页？"
 
 msgid "Do you really want to logout?"
-msgstr "确定登出？"
+msgstr "确定注销？"
 
 msgid "Do you really want to reboot the system?"
 msgstr "确定重启系统？"
@@ -1159,7 +1159,7 @@ msgid "Extended attributes"
 msgstr "扩展属性"
 
 msgid "Extended information"
-msgstr ""
+msgstr "扩展信息"
 
 msgid "Extra options"
 msgstr "扩展选项"
@@ -1323,7 +1323,7 @@ msgid "Ghana"
 msgstr "加纳"
 
 msgid "GiB"
-msgstr "GiB"
+msgstr "GB"
 
 msgid "Gibraltar"
 msgstr "直布罗陀"
@@ -1467,7 +1467,7 @@ msgid ""
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr "如果设置此项，守护进程会在客户端开始传输前 chroot 到共享文件夹目录。那么将无法用名字来映射用户和用户组，并且守护进程无法追随绝对路径或者新根目录之外的符号链接。"
+msgstr "如果设置此项，守护进程会在客户端开始传输前chroot到共享文件夹目录。那么将无法用名字来映射用户和用户组，并且守护进程无法追随绝对路径或者新根目录之外的符号链接。"
 
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr "如果设定那么任何下载将失败。"
@@ -1657,7 +1657,7 @@ msgid "Key size"
 msgstr "密钥长度"
 
 msgid "KiB"
-msgstr "KiB"
+msgstr "KB"
 
 msgid "Kiribati"
 msgstr "基里巴斯"
@@ -1749,7 +1749,7 @@ msgid "Login"
 msgstr "登录"
 
 msgid "Logout"
-msgstr "登出"
+msgstr "注销"
 
 msgid "Logs"
 msgstr "日志"
@@ -1843,7 +1843,7 @@ msgid "Max. login attempts"
 msgstr "最多登录尝试次数"
 
 msgid "Maximum download rate (KiB/s)"
-msgstr "最大下载速度 (KiB/s)"
+msgstr "最大下载速度(KB/s)"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1864,7 +1864,7 @@ msgid "Maximum performance, maximum acoustic output"
 msgstr "最高性能，噪音最大"
 
 msgid "Maximum upload rate (KiB/s)"
-msgstr "最大上传速度 (KiB/s)"
+msgstr "最大上传速度(KB/s)"
 
 msgid "Maximum {0} selected item(s) allowed"
 msgstr "运行最多 {0} 个选项(可复选)"
@@ -1897,7 +1897,7 @@ msgid "Mexico"
 msgstr "墨西哥"
 
 msgid "MiB"
-msgstr "MiB"
+msgstr "MB"
 
 msgid "Micronesia"
 msgstr "密克罗尼西亚"
@@ -3171,7 +3171,7 @@ msgstr "不要求控制连接 SSL 会话重用与数据连接。"
 
 msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "会话超时单位分钟，设置 0 后关闭自动登出。"
+msgstr "会话超时多少分钟后注销，设置0后不自动注销。"
 
 msgid "The shared folder is already used by another share."
 msgstr "共享文件夹已经被其它共享使用。"
@@ -3185,7 +3185,7 @@ msgid "The source shared folder."
 msgstr "源共享文件夹。"
 
 msgid "The specified quota exceeds the max. possible value of 4TiB."
-msgstr "指定的配额过大，可能超过了4TiB。"
+msgstr "指定的配额过大，可能超过了4TB。"
 
 msgid "The system will reboot now. This may take some time ..."
 msgstr "系统将要重启，这需要一些时间 ..."
@@ -3412,7 +3412,7 @@ msgid "Thursday"
 msgstr "星期四"
 
 msgid "TiB"
-msgstr "TiB"
+msgstr "TB"
 
 msgid "Time"
 msgstr "时间"
