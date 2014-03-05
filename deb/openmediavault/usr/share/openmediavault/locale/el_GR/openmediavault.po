@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-02 19:31+0100\n"
-"PO-Revision-Date: 2014-03-02 18:32+0000\n"
+"POT-Creation-Date: 2014-03-05 18:12+0100\n"
+"PO-Revision-Date: 2014-03-05 17:29+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -820,6 +820,9 @@ msgstr ""
 msgid "Device model"
 msgstr "Μοντέλο συσκευής"
 
+msgid "Device properties"
+msgstr ""
+
 msgid "Devices"
 msgstr "Συσκευές"
 
@@ -972,9 +975,6 @@ msgstr "Επεξεργασία ομάδας"
 
 msgid "Edit module"
 msgstr "Επεξεργασία μονάδας"
-
-msgid "Edit physical disk properties"
-msgstr "Μεταβολή ιδιοτήτων δίσκου"
 
 msgid "Edit physical interface"
 msgstr "Μεταβολή διεπαφής"
@@ -1950,6 +1950,9 @@ msgstr "Δευτέρα"
 msgid "Mongolia"
 msgstr "Mongolia"
 
+msgid "Monitor"
+msgstr ""
+
 msgid "Monitoring"
 msgstr "Παρακολούθηση"
 
@@ -2241,6 +2244,9 @@ msgstr "Philippines"
 msgid "Physical Disks"
 msgstr "Φυσικοί Δίσκοι"
 
+msgid "Physical disk properties"
+msgstr ""
+
 msgid "Pitcairn"
 msgstr "Pitcairn"
 
@@ -2521,6 +2527,11 @@ msgstr "Επαναφορά"
 
 msgid "Reset WebGUI state"
 msgstr "Επαναφορά γραφικού περιβάλόντος"
+
+msgid ""
+"Reset WebGUI state will restore default settings of grid columns for "
+"example."
+msgstr ""
 
 msgid "Resize"
 msgstr "Προσαρμογή"

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-02 19:31+0100\n"
-"PO-Revision-Date: 2014-03-02 18:32+0000\n"
+"POT-Creation-Date: 2014-03-05 18:12+0100\n"
+"PO-Revision-Date: 2014-03-05 17:29+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -821,6 +821,9 @@ msgstr ""
 msgid "Device model"
 msgstr "Enhetsmodell"
 
+msgid "Device properties"
+msgstr ""
+
 msgid "Devices"
 msgstr "Enheter"
 
@@ -973,9 +976,6 @@ msgstr "Endre gruppe"
 
 msgid "Edit module"
 msgstr "Endre modul"
-
-msgid "Edit physical disk properties"
-msgstr "Endre fysiske diskinstillinger"
 
 msgid "Edit physical interface"
 msgstr "Endre fysisk grensesnitt"
@@ -1951,6 +1951,9 @@ msgstr "Mandag"
 msgid "Mongolia"
 msgstr "Mongolia"
 
+msgid "Monitor"
+msgstr ""
+
 msgid "Monitoring"
 msgstr "Overvåkning"
 
@@ -2242,6 +2245,9 @@ msgstr "Filippinene"
 msgid "Physical Disks"
 msgstr "Fysiske disker"
 
+msgid "Physical disk properties"
+msgstr ""
+
 msgid "Pitcairn"
 msgstr "Pitcairnøyene"
 
@@ -2522,6 +2528,11 @@ msgstr "Tilbakestill"
 
 msgid "Reset WebGUI state"
 msgstr "Tilbakestill WebGUI tilstand"
+
+msgid ""
+"Reset WebGUI state will restore default settings of grid columns for "
+"example."
+msgstr ""
 
 msgid "Resize"
 msgstr "Endre størrelse"

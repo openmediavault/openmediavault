@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-02 19:31+0100\n"
-"PO-Revision-Date: 2014-03-02 19:20+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"POT-Creation-Date: 2014-03-05 18:12+0100\n"
+"PO-Revision-Date: 2014-03-05 17:29+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -823,6 +823,9 @@ msgstr "Información del dispositivo"
 msgid "Device model"
 msgstr "Modelo del dispositivo"
 
+msgid "Device properties"
+msgstr ""
+
 msgid "Devices"
 msgstr "Dispositivos"
 
@@ -975,9 +978,6 @@ msgstr "Editar grupo"
 
 msgid "Edit module"
 msgstr "Editar módulo"
-
-msgid "Edit physical disk properties"
-msgstr "Editar propiedades del disco"
 
 msgid "Edit physical interface"
 msgstr "Editar interfaz física"
@@ -1953,6 +1953,9 @@ msgstr "Lunes"
 msgid "Mongolia"
 msgstr "Mongolia"
 
+msgid "Monitor"
+msgstr ""
+
 msgid "Monitoring"
 msgstr "Monitorizar"
 
@@ -2244,6 +2247,9 @@ msgstr "Filipinas"
 msgid "Physical Disks"
 msgstr "Discos físicos"
 
+msgid "Physical disk properties"
+msgstr ""
+
 msgid "Pitcairn"
 msgstr "Isla Pitcairn"
 
@@ -2524,6 +2530,11 @@ msgstr "Reiniciar"
 
 msgid "Reset WebGUI state"
 msgstr "Reiniciar el estado de la WebGUI"
+
+msgid ""
+"Reset WebGUI state will restore default settings of grid columns for "
+"example."
+msgstr ""
 
 msgid "Resize"
 msgstr "Redimensionar"

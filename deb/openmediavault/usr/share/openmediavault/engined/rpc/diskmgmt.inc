@@ -136,9 +136,8 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 			$xpath = sprintf("//system/storage/hdparm[devicefile='%s' or ".
 			  "devicefile='%s']/uuid", $objectv['devicefilebyid'],
 			  $objectv['devicefile']);
-			$uuid = $xmlConfig->get($xpath);
 			// If found, then finally get the hdparm configuration object.
-			if(is_uuid($uuid)) {
+			if(is_uuid($uuid = $xmlConfig->get($xpath))) {
 				$objectv['hdparm'] = $this->callMethod("getHdParm",
 				  array("uuid" => $uuid), $context);
 			}

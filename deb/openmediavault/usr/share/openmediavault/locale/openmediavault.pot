@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-02 19:31+0100\n"
+"POT-Creation-Date: 2014-03-05 18:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -797,6 +797,9 @@ msgstr ""
 msgid "Device model"
 msgstr ""
 
+msgid "Device properties"
+msgstr ""
+
 msgid "Devices"
 msgstr ""
 
@@ -936,9 +939,6 @@ msgid "Edit group"
 msgstr ""
 
 msgid "Edit module"
-msgstr ""
-
-msgid "Edit physical disk properties"
 msgstr ""
 
 msgid "Edit physical interface"
@@ -1868,6 +1868,9 @@ msgstr ""
 msgid "Mongolia"
 msgstr ""
 
+msgid "Monitor"
+msgstr ""
+
 msgid "Monitoring"
 msgstr ""
 
@@ -2159,6 +2162,9 @@ msgstr ""
 msgid "Physical Disks"
 msgstr ""
 
+msgid "Physical disk properties"
+msgstr ""
+
 msgid "Pitcairn"
 msgstr ""
 
@@ -2403,6 +2409,9 @@ msgid "Reset"
 msgstr ""
 
 msgid "Reset WebGUI state"
+msgstr ""
+
+msgid "Reset WebGUI state will restore default settings of grid columns for example."
 msgstr ""
 
 msgid "Resize"

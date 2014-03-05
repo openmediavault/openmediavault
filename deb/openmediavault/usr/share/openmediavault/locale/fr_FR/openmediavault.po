@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-02 19:31+0100\n"
-"PO-Revision-Date: 2014-03-02 18:32+0000\n"
+"POT-Creation-Date: 2014-03-05 18:12+0100\n"
+"PO-Revision-Date: 2014-03-05 17:29+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -823,6 +823,9 @@ msgstr ""
 msgid "Device model"
 msgstr "Modèle de périphérique"
 
+msgid "Device properties"
+msgstr ""
+
 msgid "Devices"
 msgstr "Périphériques"
 
@@ -975,9 +978,6 @@ msgstr "Modifier le groupe"
 
 msgid "Edit module"
 msgstr "Modifier le module"
-
-msgid "Edit physical disk properties"
-msgstr "Modifier les propriétés physiques du disque"
 
 msgid "Edit physical interface"
 msgstr "Modifier l'interface physique"
@@ -1953,6 +1953,9 @@ msgstr "Lundi"
 msgid "Mongolia"
 msgstr "Mongolie"
 
+msgid "Monitor"
+msgstr ""
+
 msgid "Monitoring"
 msgstr "Surveillance"
 
@@ -2244,6 +2247,9 @@ msgstr "Philippines"
 msgid "Physical Disks"
 msgstr "Disques physiques"
 
+msgid "Physical disk properties"
+msgstr ""
+
 msgid "Pitcairn"
 msgstr "Île Pitcairn"
 
@@ -2524,6 +2530,11 @@ msgstr "Réinitialiser"
 
 msgid "Reset WebGUI state"
 msgstr "Réinitialiser l'interface Web"
+
+msgid ""
+"Reset WebGUI state will restore default settings of grid columns for "
+"example."
+msgstr ""
 
 msgid "Resize"
 msgstr "Redimensionner"

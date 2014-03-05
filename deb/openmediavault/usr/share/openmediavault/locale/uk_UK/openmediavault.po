@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-02 19:31+0100\n"
-"PO-Revision-Date: 2014-03-02 18:32+0000\n"
+"POT-Creation-Date: 2014-03-05 18:12+0100\n"
+"PO-Revision-Date: 2014-03-05 17:29+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -822,6 +822,9 @@ msgstr ""
 msgid "Device model"
 msgstr "Модель пристрою"
 
+msgid "Device properties"
+msgstr ""
+
 msgid "Devices"
 msgstr "Пристрої"
 
@@ -974,9 +977,6 @@ msgstr "Редагувати групу"
 
 msgid "Edit module"
 msgstr "Редагувати модуль"
-
-msgid "Edit physical disk properties"
-msgstr "Редагувати властивості фізичного диску"
 
 msgid "Edit physical interface"
 msgstr "Редагувати фізичний інтерфейс"
@@ -1952,6 +1952,9 @@ msgstr "Понеділок"
 msgid "Mongolia"
 msgstr "Монголія"
 
+msgid "Monitor"
+msgstr ""
+
 msgid "Monitoring"
 msgstr "Моніторинг"
 
@@ -2243,6 +2246,9 @@ msgstr "Філіппіни"
 msgid "Physical Disks"
 msgstr "Фізичні диски"
 
+msgid "Physical disk properties"
+msgstr ""
+
 msgid "Pitcairn"
 msgstr "Піткерн"
 
@@ -2523,6 +2529,11 @@ msgstr "Скинути"
 
 msgid "Reset WebGUI state"
 msgstr "Скинути стан WebGUI"
+
+msgid ""
+"Reset WebGUI state will restore default settings of grid columns for "
+"example."
+msgstr ""
 
 msgid "Resize"
 msgstr "Зміна розміру"

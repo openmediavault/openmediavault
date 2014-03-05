@@ -192,10 +192,9 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			$xpath = sprintf("//services/smart/monitor/device[".
 			  "devicefile='%s' or devicefile='%s']",
 			  $objectv['devicefilebyid'], $objectv['devicefile']);
-			$object = $xmlConfig->get($xpath);
 			// If found, then finally get the S.M.A.R.T. device settings
 			// configuration object.
-			if(!is_null($object)) {
+			if(!is_null($object = $xmlConfig->get($xpath))) {
 				$object = $this->callMethod("getDeviceSettings",
 				  array("devicefile" => $object['devicefile']), $context);
 				$objectv['uuid'] = $object['uuid'];
@@ -365,7 +364,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $params['uuid'],
-			"devicefile" => $sd->getCanonicalDeviceFile(),
+			"devicefile" => $sd->getDeviceFileById(),
 			"enable" => array_boolval($params, 'enable'),
 			"type" => $sd->getSMARTDeviceType()
 		);

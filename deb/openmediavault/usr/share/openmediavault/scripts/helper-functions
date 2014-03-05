@@ -80,6 +80,12 @@ omv_trim() {
     echo $trimmed
 }
 
+# omv_uuid
+# Create a UUID v4.
+omv_uuid() {
+	uuid -v 4
+}
+
 # omv_debug message
 # If debugging is enabled output message to stderr.
 omv_debug() {

@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-02 19:31+0100\n"
-"PO-Revision-Date: 2014-03-02 20:34+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2014-03-05 18:12+0100\n"
+"PO-Revision-Date: 2014-03-05 17:29+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -825,6 +825,9 @@ msgstr "Информация об устройстве"
 msgid "Device model"
 msgstr "Модель устройства"
 
+msgid "Device properties"
+msgstr ""
+
 msgid "Devices"
 msgstr "Устройства"
 
@@ -977,9 +980,6 @@ msgstr "Редактировать группу"
 
 msgid "Edit module"
 msgstr "Редактировать модуль"
-
-msgid "Edit physical disk properties"
-msgstr "Редактировать свойства физического диска"
 
 msgid "Edit physical interface"
 msgstr "Редактировать физический интерфейс"
@@ -1955,6 +1955,9 @@ msgstr "Понедельник"
 msgid "Mongolia"
 msgstr "Монголия"
 
+msgid "Monitor"
+msgstr ""
+
 msgid "Monitoring"
 msgstr "Мониторинг"
 
@@ -2246,6 +2249,9 @@ msgstr "Филиппины"
 msgid "Physical Disks"
 msgstr "Физические диски"
 
+msgid "Physical disk properties"
+msgstr ""
+
 msgid "Pitcairn"
 msgstr "Питкэрн"
 
@@ -2526,6 +2532,11 @@ msgstr "Сброс"
 
 msgid "Reset WebGUI state"
 msgstr "Сброс состояния WebGUI"
+
+msgid ""
+"Reset WebGUI state will restore default settings of grid columns for "
+"example."
+msgstr ""
 
 msgid "Resize"
 msgstr "Изменить размер"
