@@ -35,7 +35,7 @@ class OMVConfigEngine extends OMVObject {
 	private $semaphore = NULL;
 	private $domdoc = NULL;
 	private $filename = "";
-	// These fields must be handled as arrays
+	// These fields must be handled as arrays.
 	private $enums = array(
 		// Usermanagement
 		"user", "group",
@@ -52,7 +52,7 @@ class OMVConfigEngine extends OMVObject {
 		// Shared folder
 		"sharedfolder", "privilege", "share",
 		// Miscellaneous
-		"job", "module", "sslcertificate", "service"
+		"job", "module", "sslcertificate", "service", "device"
 	);
 
 	/**

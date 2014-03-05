@@ -39,9 +39,12 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	 */
 	public function initialize() {
 		$this->registerMethod("enumerateDevices");
+		$this->registerMethod("enumerateMonitoredDevices");
 		$this->registerMethod("getList");
 		$this->registerMethod("getSettings");
 		$this->registerMethod("setSettings");
+		$this->registerMethod("getDeviceSettings");
+		$this->registerMethod("setDeviceSettings");
 		$this->registerMethod("getAttributes");
 		$this->registerMethod("getSelfTestLogs");
 		$this->registerMethod("getInformation");
@@ -57,7 +60,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	 * Enumerate all devices supporting S.M.A.R.T.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
-	 * @return An array containing physical disk device objects with
+	 * @return An array containing disk device objects with the
 	 *   following fields: \em devicename, \em devicefile, \em model,
 	 *   \em size, \em temperature, \em description, \em vendor and
 	 *   \em serialnumber.
@@ -111,6 +114,45 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	}
 
 	/**
+	 * Get list of devices that are monitored.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array containing disk device objects with the
+	 *   following fields: \em devicename, \em devicefile, \em model,
+	 *   \em size, \em temperature, \em description, \em vendor and
+	 *   \em serialnumber.
+	 * @throw E_MISC_FAILURE
+	 */
+	public function enumerateMonitoredDevices($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Enumerate all devices supporting S.M.A.R.T.
+		$objects = $this->callMethod("enumerateDevices", NULL, $context);
+		// Prepare the result list, only return devices that are monitored.
+		$result = array();
+		foreach($objects as $objectk => &$objectv) {
+			// Check if there exists a device configuration object for the
+			// given device. Note, we have to check for 'dev/xxx' and
+			// 'dev/disk/by-id/xxx' entries.
+			$xpath = sprintf("//services/smart/monitor/device[".
+			  "devicefile='%s' or devicefile='%s']",
+			  $objectv['devicefilebyid'], $objectv['devicefile']);
+			$object = $xmlConfig->get($xpath);
+			// If found, then finally get the S.M.A.R.T. device settings
+			// configuration object.
+			if(is_null($object))
+				continue;
+			if(TRUE !== boolval($object['enable']))
+				continue;
+			$result[] = $objectv;
+		}
+		return $result;
+	}
+
+	/**
 	 * Get all devices supporting S.M.A.R.T.
 	 * @param params An array containing the following fields:
 	 *   \em start The index where to start.
@@ -140,6 +182,26 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		  }');
 		// Enumerate all devices supporting S.M.A.R.T.
 		$objects = $this->callMethod("enumerateDevices", NULL, $context);
+		// Append additional configuration data.
+		foreach($objects as $objectk => &$objectv) {
+			$objectv['uuid'] = $GLOBALS['OMV_UUID_UNDEFINED'];
+			$objectv['monitor'] = FALSE;
+			// Check if there exists a device configuration object for the
+			// given device. Note, we have to check for 'dev/xxx' and
+			// 'dev/disk/by-id/xxx' entries.
+			$xpath = sprintf("//services/smart/monitor/device[".
+			  "devicefile='%s' or devicefile='%s']",
+			  $objectv['devicefilebyid'], $objectv['devicefile']);
+			$object = $xmlConfig->get($xpath);
+			// If found, then finally get the S.M.A.R.T. device settings
+			// configuration object.
+			if(!is_null($object)) {
+				$object = $this->callMethod("getDeviceSettings",
+				  array("devicefile" => $object['devicefile']), $context);
+				$objectv['uuid'] = $object['uuid'];
+				$objectv['monitor'] = $object['enable'];
+			}
+		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
@@ -224,6 +286,118 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.smart", $object);
+		// Return the configuration object.
+		return $object;
+	}
+
+	/**
+	 * Get the device settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	public function getDeviceSettings($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{"type":"string","format":"regex",'.
+					'"pattern":"#^/dev(/disk/by-id)?/.+$#i"}
+			  }
+		  }');
+		// Get the configuration object.
+		$xpath = sprintf("//services/smart/monitor/device[devicefile='%s']",
+		  $params['devicefile']);
+		$object = $xmlConfig->get($xpath);
+		if(is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Modify result data.
+		$object['enable'] = boolval($object['enable']);
+		return $object;
+	}
+
+	/**
+	 * Set the device settings.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_MISC_DEVICE_NOT_FOUND
+	 * @throw E_MISC_FAILURE
+	 * @throw E_CONFIG_OBJECT_UNIQUENESS
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
+	 */
+	public function setDeviceSettings($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+				  "devicefile":{"type":"string","format":"regex",'.
+					'"pattern":"#^/dev(/disk/by-id)?/.+$#i"},
+				  "enable":{"type":"boolean"}
+			  }
+		  }');
+		// Check if the given device exists and supports S.M.A.R.T.
+		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		if(is_null($sd) || !$sd->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
+			  $params['devicefile']);
+		}
+		if(FALSE === $sd->hasSMART()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
+			  $sd->getDeviceFile()));
+		}
+		// Prepare the configuration data.
+		$object = array(
+			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+			  OMVUtil::uuid() : $params['uuid'],
+			"devicefile" => $sd->getCanonicalDeviceFile(),
+			"enable" => array_boolval($params, 'enable'),
+			"type" => $sd->getSMARTDeviceType()
+		);
+		// Set the configuration data.
+		$success = FALSE;
+		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			// Check uniqueness.
+			$xpath = sprintf("//services/smart/monitor/device[devicefile='%s']",
+			  $object['devicefile']);
+			if(TRUE === $xmlConfig->exists($xpath)) {
+				throw new OMVException(
+				  OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+				  sprintf("Settings already exist for device '%s'"),
+				  $object['devicefile']);
+			}
+			// Append object to configuration.
+			$success = $xmlConfig->set("//services/smart/monitor",
+			  array("device" => $object));
+		} else {
+			// Update existing configuration object.
+			$success = $xmlConfig->replace(
+			  "//services/smart/monitor/device[uuid='{$params['uuid']}']",
+			  $object);
+		}
+		if(FALSE === $success) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+		}
+		// Notify the configuration changes.
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.services.smart.monitor.device", $object);
 		// Return the configuration object.
 		return $object;
 	}

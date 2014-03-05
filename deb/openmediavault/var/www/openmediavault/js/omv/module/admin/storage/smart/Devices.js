@@ -22,6 +22,7 @@
 // require("js/omv/workspace/form/Panel.js")
 // require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/workspace/panel/Textarea.js")
+// require("js/omv/workspace/window/Form.js")
 // require("js/omv/workspace/window/Tab.js")
 // require("js/omv/util/Format.js")
 // require("js/omv/Rpc.js")
@@ -30,11 +31,65 @@
 // require("js/omv/data/proxy/Rpc.js")
 
 /**
- * @class OMV.module.admin.storage.smart.device.DeviceInformation
+ * @class OMV.module.admin.storage.smart.device.Settings
+ * @derived OMV.workspace.window.Form
+ * @param uuid The UUID of the configuration object.
+ * @param devicefile The device file, e.g. /dev/sda.
+ */
+Ext.define("OMV.module.admin.storage.smart.device.Settings", {
+	extend: "OMV.workspace.window.Form",
+
+	rpcService: "Smart",
+	rpcGetMethod: "getDeviceSettings",
+	rpcSetMethod: "setDeviceSettings",
+	title: _("Device properties"),
+	width: 450,
+
+	initComponent: function() {
+		var me = this;
+		// Do not auto-load configuration data if 'uuid' is undefined
+		// (e.g. no configuration has been set for the given device until
+		// now).
+		Ext.apply(me, {
+			autoLoadData: (me.uuid !== OMV.UUID_UNDEFINED)
+		});
+		me.callParent(arguments);
+	},
+
+	getFormItems: function() {
+		return [{
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Monitor"),
+			checked: false,
+			boxLabel: _("Activate S.M.A.R.T. monitoring.")
+		}];
+	},
+
+	getRpcGetParams: function() {
+		var me = this;
+		return Ext.apply({}, {
+			devicefile: me.devicefile
+		});
+	},
+
+	getRpcSetParams: function() {
+		var me = this;
+		var params = me.callParent(arguments);
+		// Append the given devicefile.
+		return Ext.apply(params || {}, {
+			uuid: me.uuid,
+			devicefile: me.devicefile
+		});
+	}
+});
+
+/**
+ * @class OMV.module.admin.storage.smart.device.information.Information
  * @derived OMV.workspace.form.Panel
  * @param devicefile The device file, e.g. /dev/sda.
  */
-Ext.define("OMV.module.admin.storage.smart.device.DeviceInformation", {
+Ext.define("OMV.module.admin.storage.smart.device.information.Information", {
 	extend: "OMV.workspace.form.Panel",
 
 	title: _("Device information"),
@@ -83,11 +138,11 @@ Ext.define("OMV.module.admin.storage.smart.device.DeviceInformation", {
 });
 
 /**
- * @class OMV.module.admin.storage.smart.device.Attributes
+ * @class OMV.module.admin.storage.smart.device.information.Attributes
  * @derived OMV.workspace.grid.Panel
  * @param devicefile The device file, e.g. /dev/sda.
  */
-Ext.define("OMV.module.admin.storage.smart.device.Attributes", {
+Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 	extend: "OMV.workspace.grid.Panel",
 	requires: [
 		"OMV.data.Store",
@@ -200,11 +255,11 @@ Ext.define("OMV.module.admin.storage.smart.device.Attributes", {
 });
 
 /**
- * @class OMV.module.admin.storage.smart.device.SelfTestLogs
+ * @class OMV.module.admin.storage.smart.device.information.SelfTestLogs
  * @derived OMV.workspace.grid.Panel
  * @param devicefile The device file, e.g. /dev/sda.
  */
-Ext.define("OMV.module.admin.storage.smart.device.SelfTestLogs", {
+Ext.define("OMV.module.admin.storage.smart.device.information.SelfTestLogs", {
 	extend: "OMV.workspace.grid.Panel",
 	requires: [
 		"OMV.data.Store",
@@ -289,11 +344,11 @@ Ext.define("OMV.module.admin.storage.smart.device.SelfTestLogs", {
 });
 
 /**
- * @class OMV.module.admin.storage.smart.device.ExtendedInformation
+ * @class OMV.module.admin.storage.smart.device.information.ExtendedInformation
  * @derived OMV.workspace.panel.Textarea
  * @param devicefile The device file, e.g. /dev/sda.
  */
-Ext.define("OMV.module.admin.storage.smart.device.ExtendedInformation", {
+Ext.define("OMV.module.admin.storage.smart.device.information.ExtendedInformation", {
 	extend: "OMV.workspace.panel.Textarea",
 
 	title: _("Extended information"),
@@ -318,13 +373,13 @@ Ext.define("OMV.module.admin.storage.smart.device.ExtendedInformation", {
  * Display S.M.A.R.T. information about the given device.
  * @param devicefile The device file.
  */
-Ext.define("OMV.module.admin.storage.device.Information", {
+Ext.define("OMV.module.admin.storage.smart.device.Information", {
 	extend: "OMV.workspace.window.Tab",
 	uses: [
-		"OMV.module.admin.storage.smart.device.DeviceInformation",
-		"OMV.module.admin.storage.smart.device.Attributes",
-		"OMV.module.admin.storage.smart.device.SelfTestLogs",
-		"OMV.module.admin.storage.smart.device.ExtendedInformation"
+		"OMV.module.admin.storage.smart.device.information.Information",
+		"OMV.module.admin.storage.smart.device.information.Attributes",
+		"OMV.module.admin.storage.smart.device.information.SelfTestLogs",
+		"OMV.module.admin.storage.smart.device.information.ExtendedInformation"
 	],
 
 	title: _("S.M.A.R.T. information"),
@@ -338,16 +393,16 @@ Ext.define("OMV.module.admin.storage.device.Information", {
 	getTabItems: function() {
 		var me = this;
 		return [
-			Ext.create("OMV.module.admin.storage.smart.device.DeviceInformation", {
+			Ext.create("OMV.module.admin.storage.smart.device.information.Information", {
 				devicefile: me.devicefile
 			}),
-			Ext.create("OMV.module.admin.storage.smart.device.Attributes", {
+			Ext.create("OMV.module.admin.storage.smart.device.information.Attributes", {
 				devicefile: me.devicefile
 			}),
-			Ext.create("OMV.module.admin.storage.smart.device.SelfTestLogs", {
+			Ext.create("OMV.module.admin.storage.smart.device.information.SelfTestLogs", {
 				devicefile: me.devicefile
 			}),
-			Ext.create("OMV.module.admin.storage.smart.device.ExtendedInformation", {
+			Ext.create("OMV.module.admin.storage.smart.device.information.ExtendedInformation", {
 				devicefile: me.devicefile
 			})
 		];
@@ -366,16 +421,27 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 		"OMV.data.proxy.Rpc",
 	],
 	uses: [
-		"OMV.module.admin.storage.device.Information"
+		"OMV.module.admin.storage.smart.device.Settings",
+		"OMV.module.admin.storage.smart.device.Information"
 	],
 
 	hideAddButton: true,
-	hideEditButton: true,
 	hideDeleteButton: true,
 	hidePagingToolbar: false,
 	stateful: true,
 	stateId: "103a18fd-df1c-4934-b5fd-e90b3e08fa91",
 	columns: [{
+		xtype: "booleaniconcolumn",
+		text: _("Monitor"),
+		sortable: true,
+		dataIndex: "monitor",
+		stateId: "monitor",
+		align: "center",
+		width: 80,
+		resizable: false,
+		trueIcon: "switch_on.png",
+		falseIcon: "switch_off.png"
+	},{
 		text: _("Device"),
 		sortable: true,
 		dataIndex: "devicefile",
@@ -420,12 +486,15 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 				model: OMV.data.Model.createImplicit({
 					idProperty: "devicefile",
 					fields: [
+						{ name: "uuid", type: "string" },
 						{ name: "devicefile", type: "string" },
+						{ name: "devicefilebyid", type: "string" },
 						{ name: "model", type: "string" },
 						{ name: "vendor", type: "string" },
 						{ name: "serialnumber", type: "string" },
 						{ name: "size", type: "string" },
-						{ name: "temperature", type: "string" }
+						{ name: "temperature", type: "string" },
+						{ name: "monitor", type: "boolean" }
 					]
 				}),
 				proxy: {
@@ -474,10 +543,25 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 		}
 	},
 
+	onEditButton: function() {
+		var me = this;
+		var record = me.getSelected();
+		Ext.create("OMV.module.admin.storage.smart.device.Settings", {
+			uuid: record.get("uuid"),
+			devicefile: record.get("devicefilebyid"),
+			listeners: {
+				scope: me,
+				submit: function() {
+					this.doReload();
+				}
+			}
+		}).show();
+	},
+
 	onInformationButton: function() {
 		var me = this;
 		var record = me.getSelected();
-		Ext.create("OMV.module.admin.storage.device.Information", {
+		Ext.create("OMV.module.admin.storage.smart.device.Information", {
 			devicefile: record.get("devicefile")
 		}).show();
 	}

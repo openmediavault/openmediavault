@@ -55,7 +55,7 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 	 * @return An array containing physical disk device objects with the
 	 *   fields \em devicename, \em devicefile, \em model, \em size,
 	 *   \em description, \em vendor, \em serialnumber, \em israid,
-	 *   \em hassmart and \em isroot.
+	 *   and \em isroot.
 	 */
 	public function enumerateDevices($params, $context) {
 		// Validate the RPC caller context.
@@ -87,7 +87,6 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 					"vendor" => $sd->getVendor(),
 					"serialnumber" => $sd->getSerialNumber(),
 					"israid" => $sd->isRaid(),
-					"hassmart" => $sd->hasSMART(),
 					"isroot" => (0 === strpos($rootDeviceFile,
 					  $sd->getDeviceFile())) ? TRUE : FALSE
 				);
@@ -129,18 +128,15 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 		  }');
 		// Enumerate all disk devices on the system.
 		$objects = $this->callMethod("enumerateDevices", NULL, $context);
+		// Append additional configuration data.
 		foreach($objects as $objectk => &$objectv) {
 			// Check if there exists a hdparm configuration object for the
 			// given device. Note, we have to check for 'dev/xxx' and
 			// 'dev/disk/by-id/xxx' entries.
-			$xpath = sprintf("//system/storage/hdparm[devicefile='%s']/uuid",
-			  $objectv['devicefilebyid']);
+			$xpath = sprintf("//system/storage/hdparm[devicefile='%s' or ".
+			  "devicefile='%s']/uuid", $objectv['devicefilebyid'],
+			  $objectv['devicefile']);
 			$uuid = $xmlConfig->get($xpath);
-			if(!is_uuid($uuid)) {
-				$xpath = sprintf("//system/storage/hdparm[devicefile='%s']".
-				  "/uuid", $objectv['devicefile']);
-				$uuid = $xmlConfig->get($xpath);
-			}
 			// If found, then finally get the hdparm configuration object.
 			if(is_uuid($uuid)) {
 				$objectv['hdparm'] = $this->callMethod("getHdParm",
@@ -182,7 +178,6 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify the result data.
-		$object['smart'] = boolval($object['smart']['enable']);
 		$object['apm'] = intval($object['apm']);
 		$object['aam'] = intval($object['aam']);
 		$object['spindowntime'] = intval($object['spindowntime']);
@@ -212,7 +207,6 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
 				  "devicefile":{"type":["string","null"],"format":"regex",'.
 					'"pattern":"#^/dev(/disk/by-id)?/.+$#i"},
-				  "smart":{"type":"boolean"},
 				  "apm":{"type":"integer","minimum":0,"maximum":255},
 				  "aam":{"type":"integer","enum":[0,128,254]},
 				  "spindowntime":{"type":"integer","minimum":0,"maximum":254},
@@ -230,10 +224,6 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $params['uuid'],
 			"devicefile" => $sd->getDeviceFileById(),
-			"smart" => array(
-				"enable" => array_boolval($params, 'smart'),
-				"devicetype" => $sd->getSMARTDeviceType()
-			),
 			"apm" => $params['apm'],
 			"aam" => $params['aam'],
 			"spindowntime" => $params['spindowntime'],
@@ -242,7 +232,7 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 		// Set the configuration data.
 		$success = FALSE;
 		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
-			// Check uniqueness
+			// Check uniqueness.
 			$xpath = sprintf("//system/storage/hdparm[devicefile='%s']",
 			  $object['devicefile']);
 			if(TRUE === $xmlConfig->exists($xpath)) {

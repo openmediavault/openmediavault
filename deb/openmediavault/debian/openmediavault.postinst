@@ -279,6 +279,22 @@ case "$1" in
 			a2enmod rewrite || true
 			invoke-rc.d apache2 graceful
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.39"; then
+			omv_config_add_element "/config/services/smart" "monitor" ""
+			xmlstarlet sel -t -m "/config/system/storage/hdparm" \
+			  -v "uuid" \
+			  -i "position() != last()" -n -b \
+			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+			  while read uuid; do
+				  devicefile=$(omv_config_get "/config/system/storage/hdparm[uuid='${uuid}']/devicefile")
+				  enable=$(omv_config_get "/config/system/storage/hdparm[uuid='${uuid}']/smart/enable")
+				  object="<uuid>$(uuid)</uuid>"
+				  object="${object}<devicefile>${devicefile}</devicefile>"
+				  object="${object}<enable>${enable}</enable>"
+				  object="<type></type>"
+				  omv_config_add_element "/config/services/smart/monitor" "device" "${object}" true
+			  done
+		fi
 	;;
 
 	triggered)

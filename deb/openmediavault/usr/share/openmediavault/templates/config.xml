@@ -201,10 +201,6 @@
 			<hdparm>
 				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 				<devicefile>/dev/xxx</devicefile>
-				<smart>
-					<enable>0|1</enable>
-					<devicetype>|sat|cciss|xxx</devicetype>
-				</smart>
 				<apm>0 = disable|1-255<apm>
 				<aam>0|128|254</aam>
 				<spindowntime>0 = disabled|1-254</spindowntime>
@@ -380,6 +376,14 @@
 			<tempdiff>0</tempdiff>
 			<tempinfo>0</tempinfo>
 			<tempcrit>0</tempcrit>
+			<monitor>
+				<device>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<devicefile>/dev/xxx</devicefile>
+					<enable>0|1</enable>
+					<type>|sat|cciss|xxx</type>
+				</device>
+			</monitor>
 			<scheduledtests>
 				<!--
 				<job>

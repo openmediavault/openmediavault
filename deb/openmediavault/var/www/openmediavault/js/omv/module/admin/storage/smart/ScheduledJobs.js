@@ -83,7 +83,7 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Job", {
 					appendSortParams: false,
 					rpcData: {
 						service: "Smart",
-						method: "enumerateDevices"
+						method: "enumerateMonitoredDevices"
 					}
 				},
 				sorters: [{

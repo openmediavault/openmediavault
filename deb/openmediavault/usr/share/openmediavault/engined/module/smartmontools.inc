@@ -103,7 +103,7 @@ class OMVModuleSmartMonTools extends OMVModuleServiceAbstract
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.storage.hdparm",
+		  "org.openmediavault.services.smart.monitor.device",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,

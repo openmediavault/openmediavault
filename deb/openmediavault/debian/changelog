@@ -1,3 +1,9 @@
+openmediavault (0.5.39) stable; urgency=low
+
+  * Improve S.M.A.R.T. WebGUI and RPC backend.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 04 Mar 2014 22:24:42 +0100
+
 openmediavault (0.5.38) stable; urgency=low
 
   * Update locales.

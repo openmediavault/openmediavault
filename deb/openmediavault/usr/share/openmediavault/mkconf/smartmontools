@@ -57,16 +57,16 @@ cat <<EOF > ${OMV_SMARTMONTOOLS_CONFIG}
 
 EOF
 
-xmlstarlet sel -t -m "//system/storage/hdparm[smart/enable=1]" \
+xmlstarlet sel -t -m "//services/smart/monitor/device[enable=1]" \
   -v "uuid" \
   -i "position() != last()" -n -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid; do
 	  xmlstarlet sel -t \
-		-m "//system/storage/hdparm[uuid='${uuid}']" \
+		-m "//services/smart/monitor/device[uuid='${uuid}']" \
 		  -v devicefile \
-		  -i "string-length(smart/devicetype) > 0" \
-			-v "concat(' -d ',smart/devicetype)" \
+		  -i "string-length(type) > 0" \
+			-v "concat(' -d ',type)" \
 		  -b \
 		-b \
 		-o " ${OMV_SMARTMONTOOLS_DEFAULTDIRECTIVES}" \
@@ -75,7 +75,7 @@ xmlstarlet sel -t -m "//system/storage/hdparm[smart/enable=1]" \
 		  -i "tempdiff = '0' and tempinfo = '0' and tempcrit = '0'" -o " -I 194 -I 231" -b \
 		  -v "concat(' -n ',powermode,',q')" \
 		-b \
-		-m "//services/smart/scheduledtests/job[devicefile=//system/storage/hdparm[uuid='${uuid}']/devicefile][enable='1']" \
+		-m "//services/smart/scheduledtests/job[devicefile=//services/smart/monitor/device[uuid='${uuid}']/devicefile][enable='1']" \
 		  -i "position() = 1" -o " -s " -b \
 		  -i "last() > 1 and position() = 1" -o "(" -b \
 		  -i "position() > 1" -o "|" -b \

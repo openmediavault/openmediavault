@@ -31,6 +31,8 @@
 /**
  * @class OMV.module.admin.storage.physicaldisk.Settings
  * @derived OMV.workspace.window.Form
+ * @param uuid The UUID of the configuration object.
+ * @param devicefile The device file, e.g. /dev/sda.
  */
 Ext.define("OMV.module.admin.storage.physicaldisk.Settings", {
 	extend: "OMV.workspace.window.Form",
@@ -41,6 +43,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Settings", {
 	rpcService: "DiskMgmt",
 	rpcGetMethod: "getHdParm",
 	rpcSetMethod: "setHdParm",
+	title: _("Physical disk properties"),
 	plugins: [{
 		ptype: "configobject"
 	}],
@@ -125,12 +128,6 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Settings", {
 			value: 0
 		},{
 			xtype: "checkbox",
-			name: "smart",
-			fieldLabel: _("S.M.A.R.T."),
-			checked: false,
-			boxLabel: _("Activate S.M.A.R.T. monitoring.")
-		},{
-			xtype: "checkbox",
 			name: "writecache",
 			fieldLabel: _("Write cache"),
 			checked: false,
@@ -142,12 +139,13 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Settings", {
 		}];
 	},
 
-	getValues: function() {
+	getRpcSetParams: function() {
 		var me = this;
-		var values = me.callParent(arguments);
+		var params = me.callParent(arguments);
 		// Append the given devicefile.
-		values.devicefile = me.devicefile;
-		return values;
+		return Ext.apply(params || {}, {
+			devicefile: me.devicefile
+		});
 	}
 });
 
@@ -303,7 +301,6 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 		var record = me.getSelected();
 		var hdparm = record.get("hdparm");
 		Ext.create("OMV.module.admin.storage.physicaldisk.Settings", {
-			title: _("Edit physical disk properties"),
 			uuid: Ext.isObject(hdparm) ? hdparm.uuid : OMV.UUID_UNDEFINED,
 			devicefile: record.get("devicefile"),
 			listeners: {
