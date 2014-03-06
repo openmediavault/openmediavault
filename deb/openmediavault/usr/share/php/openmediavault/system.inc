@@ -1117,21 +1117,41 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 */
 	public function getDeviceFileById() {
 		if(!$this->deviceFileById) {
-			// Sort in reverse order, thus SCSI/SATA entries are listed
-			// on top.
-			$cmd = sprintf("export LANG=C; test -d '/dev/disk/by-id' && ".
-			  "ls -ogr '/dev/disk/by-id/' | grep '/%s$' | ".
-			  "awk '{print $7}'", $this->getDeviceName());
-			@OMVUtil::exec($cmd, $output, $result);
-			// Command output:
-			// ata-VMware_Virtual_IDE_Hard_Drive_00000000000000000001
-			// scsi-SATA_VMware_Virtual_00000000000000000001
-			if(($result !== 0) || empty($output)) {
-				$this->deviceFileById = $this->deviceFile;
-			} else {
-				// Use first found entry.
-				$this->deviceFileById = sprintf("/dev/disk/by-id/%s",
-				  $output[0]);
+			// Set the device file by default.
+			$this->deviceFileById = $this->deviceFile;
+			// Now try to find the device file by-id for the given device.
+			$path = "/dev/disk/by-id";
+			if(is_dir($path)) {
+				$deviceFilesById = array();
+				// Process directory:
+				// wwn-0x5000c4002cab3842 -> ../../sda
+				// usb-Generic-_SM_xD_Picture_058F63626420-0:2 -> ../../sde
+				// usb-Generic-_Compact_Flash_058F63626420-0:1 -> ../../sdd
+				// ata-ST31000528AS_7VS3K6EY-part5 -> ../../sdb5
+				// ata-ST31000528AS_7VS3K6EY-part2 -> ../../sdb2
+				// ata-ST31000528AS_7VS3K6EY-part1 -> ../../sdb1
+				// ata-ST31000528AS_7VS3K6EY -> ../../sdb
+				$dir = new DirectoryIterator($path);
+				foreach($dir as $item) {
+					// Skip everything that is not a symlink.
+					if($item->isDot() || !$item->isLink())
+						continue;
+					// Skip files that does not match the device name,
+					// e.g. sdb or sdg.
+					if($this->getDeviceName() !== basename(
+					  $item->getLinkTarget()))
+						continue;
+					$deviceFilesById[] = $item->getPathname();
+				}
+				if(!empty($deviceFilesById)) {
+					// Sort the found device files in natural order, e.g.:
+					// ata-VMware_Virtual_IDE_Hard_Drive_00000000000000000001
+					// scsi-SATA_VMware_Virtual_00000000000000000001
+					natsort($deviceFilesById);
+					// Use the last device file of the list, e.g.
+					// scsi-SATA_VMware_Virtual_00000000000000000001
+					$this->deviceFileById = array_pop($deviceFilesById);
+				}
 			}
 		}
 		return $this->deviceFileById;

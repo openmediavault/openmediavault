@@ -213,6 +213,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 					idProperty: "devicefile",
 					fields: [
 						{ name: "devicefile", type: "string" },
+						{ name: "devicefilebyid", type: "string" },
 						{ name: "model", type: "string" },
 						{ name: "vendor", type: "string" },
 						{ name: "serialnumber", type: "string" },
@@ -302,7 +303,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 		var hdparm = record.get("hdparm");
 		Ext.create("OMV.module.admin.storage.physicaldisk.Settings", {
 			uuid: Ext.isObject(hdparm) ? hdparm.uuid : OMV.UUID_UNDEFINED,
-			devicefile: record.get("devicefile"),
+			devicefile: record.get("devicefilebyid"),
 			listeners: {
 				scope: me,
 				submit: function() {
