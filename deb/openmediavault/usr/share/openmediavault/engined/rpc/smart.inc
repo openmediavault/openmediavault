@@ -622,19 +622,21 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		foreach($objects as $objectk => &$objectv) {
 			// Modify result data.
 			$objectv['enable'] = boolval($objectv['enable']);
-			// Append data.
+			// Append storage device information.
 			$objectv['volume'] = array(
 				"devicefile" => gettext("n/a"),
 				"model" => gettext("n/a"),
 				"size" => "-1" // as string
 			);
-			$hdd = new OMVStorageDeviceHDD($objectv['devicefile']);
-			if($hdd->exists()) {
+			// Get the storage device object.
+			$sd = OMVStorageDeviceFactory::get($objectv['devicefile']);
+			if($sd->exists()) {
+				// Update storage device information.
 				$objectv['volume'] = array(
-					"devicefile" => $hdd->getDeviceFile(),
-					"devicefilebyid" => $hdd->getDeviceFileById(),
-					"model" => $hdd->getModel(),
-					"size" => $hdd->getSize()
+					"devicefile" => $sd->getDeviceFile(),
+					"devicefilebyid" => $sd->getDeviceFileById(),
+					"model" => $sd->getModel(),
+					"size" => $sd->getSize()
 				);
 			}
 		}
@@ -683,6 +685,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
 	 * @throw E_MISC_DEVICE_NOT_FOUND
+	 * @throw E_MISC_FAILURE
 	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	public function setScheduledTest($params, $context) {
@@ -715,6 +718,12 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		if(is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $params['devicefile']);
+		}
+		// Check if the given device exists and supports S.M.A.R.T.
+		if(FALSE === $sd->hasSMART()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Device does not support S.M.A.R.T. (device=%s)",
+			  $sd->getDeviceFile()));
 		}
 		// Prepare configuration data
 		$object = array(
