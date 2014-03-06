@@ -467,20 +467,29 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$cmdArgs[] = "-L";
 			$cmdArgs[] = escapeshellarg($params['label']);
 		}
-		$cmd = sprintf("omv-initfs %s %s 2>&1", implode(" ", $cmdArgs),
-		  $params['devicefile']);
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+
+		// Create a background process that will be used to create the
+		// new filesystem.
+		$pid = $this->fork();
+		if($pid > 0) { // Parent process.
+			// Create the filesystem.
+			$cmd = sprintf("omv-initfs %s %s 2>&1", implode(" ", $cmdArgs),
+			  $params['devicefile']);
+			if(0 !== $this->exec($cmd, $output)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
+			// Notify configuration changes.
+			$dispatcher = &OMVNotifyDispatcher::getInstance();
+			$dispatcher->notify(OMV_NOTIFY_CREATE,
+			  "org.openmediavault.system.storage.filesystem", array(
+				  "devicefile" => $params['devicefile'],
+				  "type" => $params['type'],
+				  "label" => $params['label']
+			  ));
+			exit(0);
 		}
-		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  "org.openmediavault.system.storage.filesystem", array(
-			  "devicefile" => $params['devicefile'],
-			  "type" => $params['type'],
-			  "label" => $params['label']
-		  ));
+		// Child process.
 		// Stupid workaround to ensure that the filesystem creation was
 		// successful (there is no other situation where the WebGUI can be
 		// notified that the creation has been failed):
@@ -488,7 +497,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		// - Check if a error log exists
 		// - Throw an exception if necessary to notify display an error
 		//   message in the WebGUI
-		sleep(2);
+		sleep(10);
 		$fileName = sprintf("omv-initfs@%s", strtr($params['devicefile'],
 		  "/", "_"));
 		$filePath = sprintf("/tmp/%s.fail", $fileName);
