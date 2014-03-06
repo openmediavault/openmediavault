@@ -72,7 +72,9 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get all existing hard disks devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerate())) {
+		if(FALSE === ($devs = OMVStorageDevices::enumerate(
+		  OMV_STORAGE_DEVICE_TYPE_ALL & ~(OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE |
+		  OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID)))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  "Failed to get list of storage devices");
 		}
@@ -291,7 +293,10 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 
 	/**
 	 * Get the device settings.
-	 * @param params The method parameters.
+	 * @param params An array containing the following fields:
+	 *   \em devicefile The device file, e.g.
+	 *     \li /dev/sdb
+	 *     \li /dev/disk/by-id/ata-ST31000528AS_8VI5C2AZ
 	 * @param context The context of the caller.
 	 * @return The configuration object.
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
@@ -325,7 +330,12 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 
 	/**
 	 * Set the device settings.
-	 * @param params The method parameters.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 *   \em devicefile The device file, e.g.
+	 *     \li /dev/sdb
+	 *     \li /dev/disk/by-id/ata-ST31000528AS_8VI5C2AZ
+	 *   \em enable Enable/disable S.M.A.R.T. monitoring.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
 	 * @throw E_MISC_DEVICE_NOT_FOUND
@@ -404,7 +414,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	/**
 	 * Get the extended S.M.A.R.T. information about the given device.
 	 * @param params An array containing the following fields:
-	 *   \em devicefile The device file.
+	 *   \em devicefile The device file, e.g. /dev/sdb.
 	 * @param context The context of the caller.
 	 * @return The requested extended S.M.A.R.T. information as plain text.
 	 * @throw E_MISC_DEVICE_NOT_FOUND
@@ -450,7 +460,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	/**
 	 * Get 'S.M.A.R.T. Attributes Data Structure' about the given device.
 	 * @param params An array containing the following fields:
-	 *   \em devicefile The device file.
+	 *   \em devicefile The device file, e.g. /dev/sdb.
 	 * @param context The context of the caller.
 	 * @return The requested S.M.A.R.T. attributes.
 	 * @throw E_MISC_DEVICE_NOT_FOUND
@@ -495,7 +505,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	/**
 	 * Get 'SMART Self-test log structure' about the given device.
 	 * @param params An array containing the following fields:
-	 *   \em devicefile The device file.
+	 *   \em devicefile The device file, e.g. /dev/sdb.
 	 * @param context The context of the caller.
 	 * @return The requested Self-test logs.
 	 * @throw E_MISC_DEVICE_NOT_FOUND
@@ -541,7 +551,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	/**
 	 * Get all S.M.A.R.T. identity information for the given device.
 	 * @param params An array containing the following fields:
-	 *   \em devicefile The device file.
+	 *   \em devicefile The device file, e.g. /dev/sdb.
 	 * @param context The context of the caller.
 	 * @return The requested S.M.A.R.T. identity information.
 	 * @throw E_MISC_DEVICE_NOT_FOUND

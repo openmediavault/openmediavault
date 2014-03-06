@@ -76,7 +76,7 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 		foreach($devs as $devk => $devv) {
 			$sd = OMVStorageDeviceFactory::get($devv);
 			if(!is_null($sd) && $sd->exists()) {
-				// Prepare device object
+				// Prepare device object.
 				$objects[] = array(
 					"devicename" => $sd->getDeviceName(),
 					"devicefile" => $sd->getDeviceFile(),
@@ -134,12 +134,12 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 			// given device. Note, we have to check for 'dev/xxx' and
 			// 'dev/disk/by-id/xxx' entries.
 			$xpath = sprintf("//system/storage/hdparm[devicefile='%s' or ".
-			  "devicefile='%s']/uuid", $objectv['devicefilebyid'],
+			  "devicefile='%s']", $objectv['devicefilebyid'],
 			  $objectv['devicefile']);
 			// If found, then finally get the hdparm configuration object.
-			if(is_uuid($uuid = $xmlConfig->get($xpath))) {
+			if(!is_null($object = $xmlConfig->get($xpath))) {
 				$objectv['hdparm'] = $this->callMethod("getHdParm",
-				  array("uuid" => $uuid), $context);
+				  array("uuid" => $object['uuid']), $context);
 			}
 		}
 		// Filter result.
