@@ -28,6 +28,7 @@
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/util/Format.js")
+// require("js/omv/window/Execute.js")
 
 /**
  * @class OMV.module.admin.storage.filesystem.Create
@@ -38,12 +39,13 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 	requires: [
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc"
+		"OMV.data.proxy.Rpc",
+		"OMV.window.Execute"
 	],
 
-	rpcService: "FileSystemMgmt",
-	rpcSetMethod: "create",
+	mode: "local",
 	title: _("Create filesystem"),
+	okButtonText: _("OK"),
 	hideResetButton: true,
 	width: 500,
 	plugins: [{
@@ -135,6 +137,32 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 			fn: function(answer) {
 				if(answer === "no")
 					return;
+				// Display dialog showing the file system creation progress.
+				var params = me.getRpcSetParams();
+				var wnd = Ext.create("OMV.window.Execute", {
+					title: _("Create filesystem"),
+					rpcService: "FileSystemMgmt",
+					rpcMethod: "create",
+					rpcParams: params,
+					hideStartButton: true,
+					hideStopButton: true,
+					adaptButtonState: false,
+					listeners: {
+						scope: me,
+						start: function(wnd) {
+							wnd.appendValue(_("Creating filesystem, please wait ...\n"));
+							wnd.setButtonDisabled("close", false);
+							wnd.show();
+						},
+						finish: function(wnd, response) {
+							wnd.appendValue(_("Done ..."));
+							wnd.setButtonDisabled("close", false);
+						},
+						exception: function(wnd, error) {
+							OMV.MessageBox.error(null, error);
+						}
+					}
+				}).start();
 				me.superclass.doSubmit.apply(this, arguments);
 			},
 			scope: me,

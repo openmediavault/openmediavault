@@ -38,6 +38,8 @@
  * @param hideStartButton Hide the 'Start' button. Defaults to FALSE.
  * @param hideStopButton Hide the 'Edit' button. Defaults to FALSE.
  * @param hideCloseButton Hide the 'Close' button. Defaults to FALSE.
+ * @param adaptButtonState Automatically adjust the button states while the
+ *   command is running. Defaults to TRUE.
  * @param progress TRUE to display a progress bar. This is useful when the
  *   executed application does not have any output to be displayed in the
  *   content area. If set to TRUE the content area will not be displayed.
@@ -68,6 +70,7 @@ Ext.define("OMV.window.Execute", {
 	hideStartButton: false,
 	hideStopButton: false,
 	hideCloseButton: false,
+	adaptButtonState: true,
 	progress: false,
 	progressText: _("Please wait ..."),
 	scrollBottom: true,
@@ -256,9 +259,14 @@ Ext.define("OMV.window.Execute", {
 							  this.fireEvent("finish", this, response);
 						  }
 						  // Update button states.
-						  this.setButtonDisabled("start", this.cmdIsRunning);
-						  this.setButtonDisabled("stop", !this.cmdIsRunning);
-						  this.setButtonDisabled("close", this.cmdIsRunning);
+						  if(true === this.adaptButtonState) {
+							  this.setButtonDisabled("start",
+								this.cmdIsRunning);
+							  this.setButtonDisabled("stop",
+								!this.cmdIsRunning);
+							  this.setButtonDisabled("close",
+								this.cmdIsRunning);
+						  }
 					  } else {
 						  var ignore = false;
 						  if(this.rpcIgnoreErrors === true)

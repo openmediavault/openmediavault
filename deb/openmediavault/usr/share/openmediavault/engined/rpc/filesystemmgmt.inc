@@ -430,6 +430,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 	 *   \em label The label of the filesystem.
 	 * @param context The context of the caller.
 	 * @return None.
+	 * @throw E_MISC_DEVICE_NOT_FOUND
 	 * @throw E_CONFIG_OBJECT_UNIQUENESS
 	 * @throw E_EXEC_FAILED
 	 * @throw E_MISC_FAILURE
@@ -450,32 +451,143 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				  "label":{"type":"string"}
 			  }
 		  }');
+		// Get the storage device object.
+		$sd = OMVStorageDeviceFactory::get($params['devicefile']);
+		if (is_null($sd) || !$sd->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
+			  $params['devicefile']);
+		}
 		// Check uniqueness. If there exists a mount point for the given
 		// device then it has already a filesystem that is in usage.
-		if(FALSE !== OMVRpc::exec("FsTab", "getByFsName", array(
-		  "id" => $params['devicefile']), $context)) {
+		if (FALSE !== OMVRpc::exec("FsTab", "getByFsName", array(
+		  "id" => $sd->getDeviceFile()), $context)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
 			  sprintf(gettext("There already exists a mount point for %s"),
-			  $params['devicefile']));
+			  $sd->getDeviceFile()));
 		}
-		// Create the filesystem.
-		$cmdArgs = array();
-		$cmdArgs[] = "-b";
-		$cmdArgs[] = "-t";
-		$cmdArgs[] = $params['type'];
-		if(!empty($params['label'])) {
-			$cmdArgs[] = "-L";
-			$cmdArgs[] = escapeshellarg($params['label']);
+		// Get the storage backend of the device.
+		$sdb = OMVStorageDevices::getBackend($sd->getDeviceFile());
+		if (is_null($sdb)) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+			  "No storage backend exists for device %s",
+			  $sd->getDeviceFile()));
 		}
-
-		// Create a background process that will be used to create the
-		// new filesystem.
+		// Build the filesystem device file name.
+		switch ($sdb->getType()) {
+		case OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID:
+			$fsDeviceFile = $sd->getDeviceFile();
+			break;
+		case OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER:
+			$fsDeviceFile = $sd->getDeviceFile();
+			break;
+		case OMV_STORAGE_DEVICE_TYPE_HBA:
+			// e.g. /dev/cciss/c0d0p1
+			$fsDeviceFile = sprintf("%sp1", $sd->getDeviceFile());
+			break;
+		default:
+			// e.g. /dev/sdb1
+			$fsDeviceFile = sprintf("%s1", $sd->getDeviceFile());
+			break;
+		}
+		// Create a background process.
+		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
+			$this->initializeBgProcStatus($bgStatusFilename, $pid);
+			return $bgStatusFilename;
+		}
+		// Child process.
+		try {
+			$bgOutputFilename = $this->createBgProcOutput();
+			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
+			  $bgOutputFilename);
+			// Create a file that contains the details of the filesystem being
+			// initialized. The file is parsed by the 'FileSystemMgmt.getList'
+			// RPC to display the state of the filesystem initialization
+			// process. There is no other way to detect filesystems being
+			// initialized (blkid detects them after the initialization has
+			// been finished).
+			$fileName = sprintf("/tmp/omv-initfs@%s.build", str_replace(
+			  $sd->getDeviceFile(), "/", "_"));
+			$jsonFile = new OMVJsonFile($fileName);
+			$jsonFile->open("w");
+			$jsonFile->write(array(
+				"devicefile" => $fsDeviceFile,
+				"type" => $params['type'],
+				"label" => $params['label']
+			));
+			$jsonFile->close();
+			// Create partitions if necessary.
+			switch ($sdb->getType()) {
+			case OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID:
+			case OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER:
+				// Wipe existing filesystems.
+				$cmd = sprintf("wipefs -a %s 2>&1", $sd->getDeviceFile());
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+					  $cmd, implode("\n", $output));
+				}
+				// No need to create a partition.
+				break;
+			default:
+				// Wipe existing filesystems.
+				$cmd = sprintf("sgdisk --zap-all %s 2>&1",
+				  $sd->getDeviceFile());
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+					  $cmd, implode("\n", $output));
+				}
+				// Use entire device. Get the start and end sectors of the
+				// largest block. This is necessary to workaround a bug in
+				// sgdisk, otherwise partitions with only 700GiB will be
+				// created on a 3TiB device.
+				// Use the following command in Debian Wheezy:
+				// sgdisk --new=1:0:0 --typecode=1:8300 --print ${device}
+				$cmd = sprintf("sgdisk --first-aligned-in-largest %s ".
+				  "| tail -n 1", $sd->getDeviceFile());
+				if (0 !== $this->exec($cmd, $output)) {
+					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+					  $cmd, implode("\n", $output));
+				}
+				$start = intval($output[0]);
+				$cmd = sprintf("sgdisk --end-of-largest %s | tail -n 1",
+				  $sd->getDeviceFile());
+				if (0 !== $this->exec($cmd, $output)) {
+					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+					  $cmd, implode("\n", $output));
+				}
+				$end = intval($output[0]);
+				$cmd = sprintf("sgdisk --new=1:%d:%d --typecode=1:8300 ".
+				  "--print %s 2>&1", $start, $end, $sd->getDeviceFile());
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+					  $cmd, implode("\n", $output));
+				}
+				sleep(2);
+				break;
+			}
+			// Reread partition table.
+			$cmd = sprintf("partprobe %s", $sd->getDeviceFile());
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
 			// Create the filesystem.
-			$cmd = sprintf("omv-initfs %s %s 2>&1", implode(" ", $cmdArgs),
-			  $params['devicefile']);
-			if(0 !== $this->exec($cmd, $output)) {
+			$fsOptions = array(
+				"ext3" => "-b 4096 -m 0",
+				"ext4" => "-b 4096 -m 0",
+				"xfs" => "-q",
+				"jfs" => "-f"
+			);
+			$cmdArgs = array();
+			$cmdArgs[] = "-V";
+			$cmdArgs[] = sprintf("-t %s", $params['type']);
+			$cmdArgs[] = $fsOptions[strtolower($params['type'])];
+			if (!empty($params['label']))
+				$cmdArgs[] = sprintf("-L %s", escapeshellarg($params['label']));
+			$cmdArgs[] = $fsDeviceFile;
+			$cmd = sprintf("mkfs %s 2>&1", implode(" ", $cmdArgs));
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
@@ -483,30 +595,21 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$dispatcher = &OMVNotifyDispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_CREATE,
 			  "org.openmediavault.system.storage.filesystem", array(
-				  "devicefile" => $params['devicefile'],
+				  "devicefile" => $sd->getDeviceFile(),
 				  "type" => $params['type'],
 				  "label" => $params['label']
 			  ));
+			// Cleanup
+			$jsonFile->unlink();
+			// Finalize background process.
+			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
-		}
-		// Child process.
-		// Stupid workaround to ensure that the filesystem creation was
-		// successful (there is no other situation where the WebGUI can be
-		// notified that the creation has been failed):
-		// - Wait some seconds
-		// - Check if a error log exists
-		// - Throw an exception if necessary to notify display an error
-		//   message in the WebGUI
-		sleep(10);
-		$fileName = sprintf("omv-initfs@%s", strtr($params['devicefile'],
-		  "/", "_"));
-		$filePath = sprintf("/tmp/%s.fail", $fileName);
-		if(@file_exists($filePath)) {
-			$filePath = sprintf("%s/%s.log", $GLOBALS['OMV_LOG_DIR'],
-			  $fileName);
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Failed to create filesystem. Please check the syslog or '%s' for more details."),
-			  $filePath));
+		} catch(Exception $e) {
+			// Cleanup.
+			$jsonFile->unlink();
+			// Finalize background process.
+			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
+			exit(1);
 		}
 	}
 
