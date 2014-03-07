@@ -522,7 +522,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			case OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID:
 			case OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER:
 				// Wipe existing filesystems.
-				$cmd = sprintf("wipefs -a %s 2>&1", $sd->getDeviceFile());
+				$cmd = sprintf("export LANG=C; wipefs -a %s 2>&1",
+				  $sd->getDeviceFile());
 				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 					  $cmd, implode("\n", $output));
@@ -531,7 +532,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				break;
 			default:
 				// Wipe existing filesystems.
-				$cmd = sprintf("sgdisk --zap-all %s 2>&1",
+				$cmd = sprintf("export LANG=C; sgdisk --zap-all %s 2>&1",
 				  $sd->getDeviceFile());
 				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
@@ -557,8 +558,9 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					  $cmd, implode("\n", $output));
 				}
 				$end = intval($output[0]);
-				$cmd = sprintf("sgdisk --new=1:%d:%d --typecode=1:8300 ".
-				  "--print %s 2>&1", $start, $end, $sd->getDeviceFile());
+				$cmd = sprintf("export LANG=C; sgdisk --new=1:%d:%d ".
+				  "--typecode=1:8300 --print %s 2>&1", $start, $end,
+				  $sd->getDeviceFile());
 				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 					  $cmd, implode("\n", $output));
@@ -567,7 +569,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				break;
 			}
 			// Reread partition table.
-			$cmd = sprintf("partprobe %s", $sd->getDeviceFile());
+			$cmd = sprintf("export LANG=C; partprobe %s", $sd->getDeviceFile());
 			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
@@ -586,7 +588,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			if (!empty($params['label']))
 				$cmdArgs[] = sprintf("-L %s", escapeshellarg($params['label']));
 			$cmdArgs[] = $fsDeviceFile;
-			$cmd = sprintf("mkfs %s 2>&1", implode(" ", $cmdArgs));
+			$cmd = sprintf("export LANG=C; mkfs %s 2>&1", implode(" ",
+			  $cmdArgs));
 			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
