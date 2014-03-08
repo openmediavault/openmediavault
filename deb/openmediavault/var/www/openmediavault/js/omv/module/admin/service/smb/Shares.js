@@ -197,7 +197,7 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 			boxLabel: _("Enable store DOS attributes support"),
 			plugins: [{
 				ptype: "fieldinfo",
-				text: _("If this parameter is set, Samba attempts to first read DOS attributes (SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute, before mapping DOS attributes to UNIX permission bits. When set, DOS attributes will be stored onto an extended attribute in the UNIX filesystem, associated with the file or directory.")
+				text: _("If this parameter is set, Samba attempts to first read DOS attributes (SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended attribute, before mapping DOS attributes to UNIX permission bits. When set, DOS attributes will be stored onto an extended attribute in the UNIX file system, associated with the file or directory.")
 			}]
 		},{
 			xtype: "textfield",

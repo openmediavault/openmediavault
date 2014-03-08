@@ -429,7 +429,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 	 *   \em type The filesystem to create, e.g. ext3 or xfs.
 	 *   \em label The label of the filesystem.
 	 * @param context The context of the caller.
-	 * @return None.
+	 * @return The name of the background process status file.
 	 * @throw E_MISC_DEVICE_NOT_FOUND
 	 * @throw E_CONFIG_OBJECT_UNIQUENESS
 	 * @throw E_EXEC_FAILED

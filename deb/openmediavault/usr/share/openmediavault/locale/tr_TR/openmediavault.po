@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 18:12+0100\n"
-"PO-Revision-Date: 2014-03-05 17:29+0000\n"
+"POT-Creation-Date: 2014-03-08 20:23+0100\n"
+"PO-Revision-Date: 2014-03-08 19:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -265,8 +265,8 @@ msgid "Afghanistan"
 msgstr "Afganistan"
 
 msgid ""
-"After the RAID has been grown you can resize the containing filesystem."
-msgstr "RAID aygıtı büyütüldükten sonra taşıdığı dosya sistemini yeniden boyutlandırabilirsiniz."
+"After the RAID has been grown you can resize the containing file system."
+msgstr ""
 
 msgid "Aland Islands"
 msgstr "Aland Adaları"
@@ -600,8 +600,8 @@ msgstr "Temiz"
 msgid "Client"
 msgstr "Kullanıcı"
 
-msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr "Dosya sistemine bağlanma izni olan kullanıcılar, örn. 192.168.178.0/24."
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
 
 msgid "Close"
 msgstr "Kapat"
@@ -695,11 +695,14 @@ msgstr "Yarat"
 msgid "Create RAID device"
 msgstr "RAID aygıtı yarat"
 
-msgid "Create filesystem"
-msgstr "Dosya sistemi yarat"
+msgid "Create file system"
+msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "Kendiliğinden onaylı SSL sertifikası oluştur"
+
+msgid "Creating the file system, please wait ..."
+msgstr ""
 
 msgid "Critical"
 msgstr "Kritik"
@@ -761,11 +764,11 @@ msgstr "Sil"
 msgid "Delete content"
 msgstr "İçeriği sil"
 
+msgid "Delete file system"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Göndericide bulunmayan dosyaları kaydedilen taraftan sil"
-
-msgid "Delete filesystem"
-msgstr "Dosya sistemini sil"
 
 msgid "Deleting selected item(s)"
 msgstr "Seçili öge(leri) sil"
@@ -862,16 +865,16 @@ msgstr "Log dosyasını gerçekten temizlemek istiyor musunuz?"
 msgid "Do you really want to create the RAID device?"
 msgstr "Bir RAID dizisi oluşturmak istediğnize emin misiniz?"
 
-msgid "Do you really want to delete the filesystem? All data will be lost."
-msgstr "Dosya sistemini silmek istediğinizden emin misiniz? Tüm bilgiler kaybolacaktır."
+msgid "Do you really want to delete the file system? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Seçilmiş öge(leri) gerçekten silmek istiyor musunuz? "
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the filesystem creation may take some time."
-msgstr "Bu aygıtı geröekten formatlamak istiyor musunuz? Tüm bilgiler silinecektir. Dosya sistemi kurulumunun süre alabileceğini göz önünde bulundurunuz."
+"Please note that the file system creation may take some time."
+msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Seçilmiş eklenti(ler)i kurak istediğinize emin misiniz?"
@@ -894,9 +897,9 @@ msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "WebGUI durumunu, örneğin sıralı kolon sıralaması şeklinde, sıfırlamak istediğinize emin misiniz?"
 
 msgid ""
-"Do you really want to resize the selected filesystem? You have to do that "
+"Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr "Seçili dosya sistemini yeniden boyutlandırmak istediğinize emin misiniz? bu işlemi örneğin RAID büyütüldüğünde yapmalısınız."
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Sistemi kapatmak istediğinize emin misiniz?"
@@ -1178,11 +1181,6 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP kullanıcı tarafına herhangi bir dosya bilgisi aktarımı olmaksızın iki uzak sunucu arasında aktarıma imkan tanır."
 
-msgid ""
-"Failed to create filesystem. Please check the syslog or '%s' for more "
-"details."
-msgstr "Dosya sistemi yaratılamadı. Daha fazla bilgi için lütfen sistem kayıtlarını ya da '%s' i kontrol ediniz."
-
 msgid "Failed to get filesystems"
 msgstr "Dosya sistemin algılamasında hata"
 
@@ -1225,6 +1223,12 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Dosya"
 
+msgid "File system"
+msgstr ""
+
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "Dosya adı"
 
@@ -1240,9 +1244,6 @@ msgstr "Byte olarak belirlenenden daha büyük dosyalar geri dönüşüm kutusun
 
 msgid "Filesize"
 msgstr "Dosya büyüklüğü"
-
-msgid "Filesystem"
-msgstr "Dosya sistemi"
 
 msgid "Filesystem '%s' not found"
 msgstr "Dosya sistemi '%s' bulunamadı"
@@ -1477,11 +1478,11 @@ msgstr "Bu seçenek aktive edilir ise tüm yükleme girişimleri hata alacaktır
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
-" before mapping DOS attributes to UNIX permission bits. When set, DOS "
-"attributes will be stored onto an extended attribute in the UNIX filesystem,"
-" associated with the file or directory."
-msgstr "Bu değişken seçilir ise, Samba, DOS özniteliklerini UNIX yetki bitlerine bağlamadan önce DOS özniteliklerini (SİSTEM, GİZLİ, ARŞİV veya SADECE-OKUNUR) dosya sistemi genişletilmiş özniteliklerinden okur. Seçildiğinde DOS öznitelikleri ilgili dosya ve klasörlerle ilişkili UNIX dosya sistemi genişletilmiş özniteliklerinde saklanır."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1581,8 +1582,8 @@ msgstr "Arabirim"
 msgid "Invalid domain name"
 msgstr "Geçersiz alan adı"
 
-msgid "Invalid filesystem label"
-msgstr "Geçersiz dosya sistemi etiketi"
+msgid "Invalid file system label"
+msgstr ""
 
 msgid "Invalid group name"
 msgstr "Geçersiz grup adı"
@@ -2306,9 +2307,9 @@ msgid "Please wait ..."
 msgstr "Lütfen bekleyiniz..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a "
-"filesystem."
-msgstr "Dosya sistemi oluşturmadan önce RAID in tam olarak çalıştırılmasını bekleyiniz."
+"Please wait until the RAID has been initialized before creating a file "
+"system."
+msgstr ""
 
 msgid "Plugins"
 msgstr "İlaveler"
@@ -2686,8 +2687,8 @@ msgstr "Aygıt seçiniz ..."
 msgid "Select a directory"
 msgstr "Klasör seç"
 
-msgid "Select a filesystem ..."
-msgstr "Dosya sistemi seçiniz ..."
+msgid "Select a file system ..."
+msgstr ""
 
 msgid "Select a group name..."
 msgstr "Bir grup adı seçiniz..."
@@ -3112,6 +3113,9 @@ msgstr "'%s' alanı erişilemez"
 msgid "The file mode of the shared folder path."
 msgstr "Paylaşılmış klasör adresinin dosya modu."
 
+msgid "The file system creation has completed successfully."
+msgstr ""
+
 msgid "The group '%s' does not exist"
 msgstr "'%s' grubu mevut değil"
 
@@ -3210,8 +3214,8 @@ msgstr "Kullanıcı '%s' mevcut değil"
 msgid "The user '%s' is not allowed"
 msgstr "Kullanıcı '%s' yetkili değil"
 
-msgid "The volume label for the filesystem."
-msgstr "Dosya sistemi için birim etiketi."
+msgid "The volume label for the file system."
+msgstr ""
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "

@@ -44,7 +44,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 	],
 
 	mode: "local",
-	title: _("Create filesystem"),
+	title: _("Create file system"),
 	okButtonText: _("OK"),
 	hideResetButton: true,
 	width: 500,
@@ -56,8 +56,8 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 				{ name: "type", value: "xfs" }
 			],
 			properties: function(valid, field) {
-				// Update the max. length of the filesystem label
-				// depending on the selected filesystem type.
+				// Update the max. length of the file system label
+				// depending on the selected file system type.
 				// XFS = 12, Other = 16
 				field.maxLength = valid ? 12 : 16
 			}
@@ -106,14 +106,14 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 			maxLength: 16,
 			plugins: [{
 				ptype: "fieldinfo",
-				text: _("The volume label for the filesystem."),
+				text: _("The volume label for the file system."),
 			}],
 			vtype: "fslabel"
 		},{
 			xtype: "combo",
 			name: "type",
-			fieldLabel: _("Filesystem"),
-			emptyText: _("Select a filesystem ..."),
+			fieldLabel: _("File system"),
+			emptyText: _("Select a file system ..."),
 			queryMode: "local",
 			store: [
 				[ "ext3", "EXT3" ],
@@ -132,7 +132,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 		var me = this;
 		OMV.MessageBox.show({
 			title: _("Confirmation"),
-			msg: _("Do you really want to format this device? All data on it will be deleted. Please note that the filesystem creation may take some time."),
+			msg: _("Do you really want to format this device? All data on it will be deleted. Please note that the file system creation may take some time."),
 			buttons: Ext.Msg.YESNO,
 			fn: function(answer) {
 				if(answer === "no")
@@ -140,7 +140,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 				// Display dialog showing the file system creation progress.
 				var params = me.getRpcSetParams();
 				var wnd = Ext.create("OMV.window.Execute", {
-					title: _("Create filesystem"),
+					title: _("Create file system"),
 					rpcService: "FileSystemMgmt",
 					rpcMethod: "create",
 					rpcParams: params,
@@ -150,12 +150,13 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 					listeners: {
 						scope: me,
 						start: function(wnd) {
-							wnd.appendValue(_("Creating filesystem, please wait ...\n"));
+							wnd.appendValue(Ext.String.format("{0}\n",
+							  _("Creating the file system, please wait ...")));
 							wnd.setButtonDisabled("close", false);
 							wnd.show();
 						},
 						finish: function(wnd, response) {
-							wnd.appendValue(_("Done ..."));
+							wnd.appendValue(_("The file system creation has completed successfully."));
 							wnd.setButtonDisabled("close", false);
 						},
 						exception: function(wnd, error) {
@@ -174,7 +175,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 /**
  * @class OMV.module.admin.storage.filesystem.Quota
  * @derived OMV.workspace.window.Grid
- * @param uuid The UUID of the filesystem to process.
+ * @param uuid The UUID of the file system to process.
  * @param readOnly TRUE to set the dialog to read-only.
  * Defaults to FALSE.
  */
@@ -391,7 +392,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 		dataIndex: "label",
 		stateId: "label"
 	},{
-		text: _("Filesystem"),
+		text: _("File system"),
 		sortable: true,
 		dataIndex: "type",
 		stateId: "type"
@@ -568,34 +569,34 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			tbarBtnDisabled["delete"] = false;
 			tbarBtnDisabled["mount"] = true;
 			tbarBtnDisabled["unmount"] = true;
-			// Disable the 'Resize' button if filesystem is not supported.
+			// Disable the 'Resize' button if file system is not supported.
 			if([ "ext","ext2","ext3","ext4","xfs","jfs" ].indexOf(
 			  records[0].get("type")) == -1) {
 				tbarBtnDisabled["resize"] = true;
 			}
-			// Disable the 'Quota' button if the filesystem does not have
+			// Disable the 'Quota' button if the file system does not have
 			// a mount point.
 			if(Ext.isEmpty(records[0].get("mountpoint"))) {
 				tbarBtnDisabled["quota"] = true;
 			}
 			// Disable/enable the mount/unmount buttons depending on whether
-			// the selected filesystem is mounted.
+			// the selected file system is mounted.
 			if(true === records[0].get("mounted")) {
 				tbarBtnDisabled["unmount"] = false;
 			} else {
 				tbarBtnDisabled["mount"] = false;
-				// Disable the 'Mount' button if the filesystem does not
+				// Disable the 'Mount' button if the file system does not
 				// provide a UUID.
 				if(Ext.isEmpty(records[0].get("uuid"))) {
 					tbarBtnDisabled["mount"] = true;
 				}
 			}
-			// If the filesystem is in usage, then also disable the unmount
+			// If the file system is in usage, then also disable the unmount
 			// button.
 			if(true === records[0].get("_used")) {
 				tbarBtnDisabled["unmount"] = true;
 			}
-			// Finally disable buttons if a selected filesystem is
+			// Finally disable buttons if a selected file system is
 			// initialized at the moment.
 			if([ 2,3 ].indexOf(records[0].get("status")) !== -1) {
 				tbarBtnDisabled["resize"] = true;
@@ -609,7 +610,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			tbarBtnDisabled["delete"] = false;
 			tbarBtnDisabled["mount"] = true;
 			tbarBtnDisabled["unmount"] = true;
-			// Disable button if one of the selected filesystems is
+			// Disable button if one of the selected file systems is
 			// initialized at the moment.
 			for(var i = 0; i < records.length; i++) {
 				if(2 == records[i].get("status")) {
@@ -617,7 +618,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 				}
 			}
 		}
-		// Disable 'Delete' button if a selected filesystem is in usage
+		// Disable 'Delete' button if a selected file system is in usage
 		// or readonly.
 		for(var i = 0; i < records.length; i++) {
 			if((true == records[i].get("_used")) ||
@@ -652,7 +653,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 
 	onResizeButton: function() {
 		var me = this;
-		var msg = _("Do you really want to resize the selected filesystem? You have to do that after a RAID has been grown for example.");
+		var msg = _("Do you really want to resize the selected file system? You have to do that after a RAID has been grown for example.");
 		OMV.MessageBox.show({
 			title: _("Confirmation"),
 			msg: msg,
@@ -714,8 +715,8 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 	onUnmountButton: function() {
 		var me = this;
 		var record = me.getSelected();
-		// Prefer the filesystem UUID, but in some cases a filesystem does not
-		// have a UUID, then use the devicefile instead.
+		// Prefer the file system UUID, but in some cases a file system does
+		// not have a UUID, then use the devicefile instead.
 		var id = record.get("uuid");
 		if(Ext.isEmpty(id))
 			id = record.get("devicefile");
@@ -742,8 +743,8 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 		if(records.length <= 0)
 			return;
 		OMV.MessageBox.show({
-			title: _("Delete filesystem"),
-			msg: _("Do you really want to delete the filesystem? All data will be lost."),
+			title: _("Delete file system"),
+			msg: _("Do you really want to delete the file system? All data will be lost."),
 			icon: Ext.Msg.WARNING,
 			buttonText: {
 				yes: _("No"),
@@ -764,8 +765,8 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 
 	doDeletion: function(record) {
 		var me = this;
-		// Prefer the filesystem UUID, but in some cases a filesystem does not
-		// have a UUID, then use the devicefile instead.
+		// Prefer the file system UUID, but in some cases a file system does
+		// not have a UUID, then use the devicefile instead.
 		var id = record.get("uuid");
 		if(Ext.isEmpty(id))
 			id = record.get("devicefile");
@@ -787,7 +788,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 OMV.WorkspaceManager.registerNode({
 	id: "filesystem",
 	path: "/storage",
-	text: _("Filesystems"),
+	text: _("File systems"),
 	icon16: "images/filesystem.png",
 	iconSvg: "images/filesystem.svg",
 	position: 40
@@ -796,7 +797,7 @@ OMV.WorkspaceManager.registerNode({
 OMV.WorkspaceManager.registerPanel({
 	id: "filesystems",
 	path: "/storage/filesystem",
-	text: _("Filesystems"),
+	text: _("File systems"),
 	position: 10,
 	className: "OMV.module.admin.storage.filesystem.Filesystems"
 });

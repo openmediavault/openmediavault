@@ -604,7 +604,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			listeners: {
 				submit: function() {
 					me.doReload();
-					OMV.MessageBox.info(null, _("Please wait until the RAID has been initialized before creating a filesystem."));
+					OMV.MessageBox.info(null, _("Please wait until the RAID has been initialized before creating a file system."));
 				}
 			}
 		}).show();
@@ -623,7 +623,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 				scope: me,
 				submit: function() {
 					me.doReload();
-					OMV.MessageBox.info(null, _("After the RAID has been grown you can resize the containing filesystem."));
+					OMV.MessageBox.info(null, _("After the RAID has been grown you can resize the containing file system."));
 				}
 			}
 		}).show();

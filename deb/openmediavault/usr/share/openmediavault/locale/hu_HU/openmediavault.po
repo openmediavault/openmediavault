@@ -4,12 +4,13 @@
 # 
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
+# Grawens <szabolcs.szanyi@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 18:12+0100\n"
-"PO-Revision-Date: 2014-03-05 17:29+0000\n"
+"POT-Creation-Date: 2014-03-08 20:23+0100\n"
+"PO-Revision-Date: 2014-03-08 19:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -100,7 +101,7 @@ msgid "254 - Maximum performance, maximum power usage"
 msgstr "254 - Maximális teljesítmény, teljes energia használat"
 
 msgid "255 - Disabled"
-msgstr ""
+msgstr "255 - Letiltva"
 
 msgid "3 days"
 msgstr "3 nap"
@@ -163,7 +164,7 @@ msgid "ACL"
 msgstr "ACL"
 
 msgid "ASCII"
-msgstr ""
+msgstr "ASCII"
 
 msgid "About"
 msgstr "Névjegy"
@@ -172,7 +173,7 @@ msgid "Access Right Management"
 msgstr "Hozzáférési Jogok Kezelése"
 
 msgid "Access Rights Management"
-msgstr ""
+msgstr "Hozzáférési jog kezelés"
 
 msgid "Access mode"
 msgstr ""
@@ -214,7 +215,7 @@ msgid "Add rule"
 msgstr "Szabály hozzáadása"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Ütemezett feladat hozzáadása"
 
 msgid "Add scheduled test"
 msgstr "Ütemezett teszt hozzáadása"
@@ -265,8 +266,8 @@ msgid "Afghanistan"
 msgstr "Afghanistan"
 
 msgid ""
-"After the RAID has been grown you can resize the containing filesystem."
-msgstr "A RAID tömb növelése után tudod újraméretezni a rajta levő fájlrendszert."
+"After the RAID has been grown you can resize the containing file system."
+msgstr ""
 
 msgid "Aland Islands"
 msgstr "Aland Islands"
@@ -332,7 +333,7 @@ msgid "Anguilla"
 msgstr "Anguilla"
 
 msgid "Anonymous"
-msgstr ""
+msgstr "Anonymous"
 
 msgid "Anonymous FTP"
 msgstr "Anonymous FTP"
@@ -404,7 +405,7 @@ msgid "Authentication and privacy"
 msgstr "Hitelesítés és titkosítás"
 
 msgid "Authentication method"
-msgstr ""
+msgstr "Hitelesítési eljárás"
 
 msgid "Authentication passphrase"
 msgstr "Hitelesítés jelszó"
@@ -568,7 +569,7 @@ msgid "Chad"
 msgstr "Chad"
 
 msgid "Changelog"
-msgstr ""
+msgstr "Változások"
 
 msgid "Check"
 msgstr "Frissítés"
@@ -600,8 +601,8 @@ msgstr "Törlés"
 msgid "Client"
 msgstr "Kliens"
 
-msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr "Kliensek engedélyezése fájlrendszer felcsatoláshoz, pl. 192.168.178.0/24."
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
 
 msgid "Close"
 msgstr "Bezárás"
@@ -631,7 +632,7 @@ msgid "Comoros"
 msgstr "Comoros"
 
 msgid "Complete"
-msgstr ""
+msgstr "Kész"
 
 msgid "Completion status"
 msgstr ""
@@ -643,7 +644,7 @@ msgid "Compress file data during the transfer"
 msgstr "Fájl adat tömörítése az átvitel során"
 
 msgid "Compressed"
-msgstr ""
+msgstr "Tömörített"
 
 msgid "Compression"
 msgstr "Tömörítés"
@@ -667,7 +668,7 @@ msgid "Congo (Kinshasa)"
 msgstr "Congo (Kinshasa)"
 
 msgid "Connections"
-msgstr ""
+msgstr "Kapcsolatok"
 
 msgid "Contact"
 msgstr "Kapcsolat"
@@ -695,11 +696,14 @@ msgstr "Létrehozás"
 msgid "Create RAID device"
 msgstr "RAID tömb létrehozás"
 
-msgid "Create filesystem"
-msgstr "Fájlrendszer létrehozása"
+msgid "Create file system"
+msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "Önmaga aláírt SSL tanúsítvány létrehozása"
+
+msgid "Creating the file system, please wait ..."
+msgstr ""
 
 msgid "Critical"
 msgstr "Kritikus"
@@ -714,7 +718,7 @@ msgid "Current time"
 msgstr "Jelenlegi idő"
 
 msgid "Currently logged in users"
-msgstr ""
+msgstr "Jelenleg bejelentkezett felhasználók"
 
 msgid "Currently logged in users:"
 msgstr "Jelenleg bejelentkezett felhasználók:"
@@ -761,11 +765,11 @@ msgstr "Törlés"
 msgid "Delete content"
 msgstr "Tartalom törlése"
 
+msgid "Delete file system"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Fájlok törlése a fogadó oldalon, ha a feladó nem létezik"
-
-msgid "Delete filesystem"
-msgstr ""
 
 msgid "Deleting selected item(s)"
 msgstr "Kiválasztott tétel(ek) törlése"
@@ -815,13 +819,13 @@ msgid "Device Mapper %s [%s, %s]"
 msgstr ""
 
 msgid "Device information"
-msgstr ""
+msgstr "Eszközinformáció"
 
 msgid "Device model"
 msgstr "Meghajtó modell"
 
 msgid "Device properties"
-msgstr ""
+msgstr "Eszköz tulajdonságai"
 
 msgid "Devices"
 msgstr "Meghajtók"
@@ -862,7 +866,7 @@ msgstr "Valóban törölni szeretnéd a napló fájlt?"
 msgid "Do you really want to create the RAID device?"
 msgstr "Valóban létre szeretnéd hozni a RAID tömböt?"
 
-msgid "Do you really want to delete the filesystem? All data will be lost."
+msgid "Do you really want to delete the file system? All data will be lost."
 msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
@@ -870,8 +874,8 @@ msgstr "Valóban törölni szeretnéd a kiválasztott tétel(eke)t?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the filesystem creation may take some time."
-msgstr "Valóban szeretnéd formázni az eszközt? Az összes adat törlésre kerül. Kérlek vedd figyelembe, hogy a fájlrendszer létrehozása eltarthat egy ideig."
+"Please note that the file system creation may take some time."
+msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Valóban telepíteni szeretnéd a kiválasztott bővítmény(eke)t?"
@@ -894,9 +898,9 @@ msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Valóban vissza szeretnéd állítani a WebGUI állapotot, mint például rács oszlop sorrend?"
 
 msgid ""
-"Do you really want to resize the selected filesystem? You have to do that "
+"Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr "Valóban újra szeretnéd méretezni a kiválasztott fájlrendszert? Ezt megteheted például egy RAID tömb növelés után."
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Valóban le szeretnéd állítani a rendszert?"
@@ -939,7 +943,7 @@ msgid "Download"
 msgstr "Letöltés"
 
 msgid "Downloading package information"
-msgstr ""
+msgstr "Csomag információ letöltése"
 
 msgid "Dronning Maud Land"
 msgstr "Dronning Maud Land"
@@ -989,7 +993,7 @@ msgid "Edit rule"
 msgstr "Szabály szerkesztése"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Ütemezett feladat módosítása"
 
 msgid "Edit scheduled test"
 msgstr "Ütemezett teszt szerkesztése"
@@ -1084,7 +1088,7 @@ msgid ""
 msgstr ""
 
 msgid "Enable transfer log"
-msgstr ""
+msgstr "Átviteli napló engedélyezése"
 
 msgid "Enable user authentication"
 msgstr "Felhasználó hitelesítés engedélyezése"
@@ -1159,7 +1163,7 @@ msgid "Extended attributes"
 msgstr "Kiterjesztett attribútumok"
 
 msgid "Extended information"
-msgstr ""
+msgstr "További információ"
 
 msgid "Extra options"
 msgstr "Extra opciók"
@@ -1168,7 +1172,7 @@ msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - Átviteli napló"
 
 msgid "FXP"
 msgstr "FXP"
@@ -1177,11 +1181,6 @@ msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
 msgstr "FXP lehetővé teszi az átvitelt két távoli szerver között anélkül, hogy az adatfájl átvitelét a kliensnek is kérnie kellene."
-
-msgid ""
-"Failed to create filesystem. Please check the syslog or '%s' for more "
-"details."
-msgstr "A fájlrendszer létrehozása sikertelen. Kérlek tekintsd meg a rendszernaplót vagy a '%s' a további részletekért."
 
 msgid "Failed to get filesystems"
 msgstr "Nem sikerült lekérni a fájlrendszereket"
@@ -1205,7 +1204,7 @@ msgid "Falkland Islands"
 msgstr "Falkland Islands"
 
 msgid "Family"
-msgstr ""
+msgstr "Család"
 
 msgid "Faroe Islands"
 msgstr "Faroe Islands"
@@ -1225,8 +1224,14 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Fájl"
 
-msgid "Filename"
+msgid "File system"
 msgstr ""
+
+msgid "File systems"
+msgstr ""
+
+msgid "Filename"
+msgstr "Fájlnév"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1239,10 +1244,7 @@ msgid ""
 msgstr ""
 
 msgid "Filesize"
-msgstr ""
-
-msgid "Filesystem"
-msgstr "Fájlrendszer"
+msgstr "Fájlméret"
 
 msgid "Filesystem '%s' not found"
 msgstr "Fájlrendszer '%s' nem található"
@@ -1368,7 +1370,7 @@ msgid "Guatemala"
 msgstr "Guatemala"
 
 msgid "Guest"
-msgstr ""
+msgstr "Vendég"
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1434,10 +1436,10 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IPv4"
-msgstr ""
+msgstr "IPv4"
 
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6"
 
 msgid "Iceland"
 msgstr "Iceland"
@@ -1477,11 +1479,11 @@ msgstr "Ha ez az opció aktív, akkor minden feltöltési kísérlet hibás lesz
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
-" before mapping DOS attributes to UNIX permission bits. When set, DOS "
-"attributes will be stored onto an extended attribute in the UNIX filesystem,"
-" associated with the file or directory."
-msgstr "Ha ez a paraméter be van állítva, a Samba megpróbálja először a DOS attribútumokat elolvasni (RENDSZER, REJTETT, ARCHÍV vagy CSAK OLVASHATÓ) egy kiterjesztett fájlrendszer attribútumról, mielőtt feltérképezné a DOS attribútumokat a UNIX engedélyezési biteknek. Ha be van állítva, a DOS attribútumok egy kiterjesztett attribútumon fogják tárolni a UNIX fájlrendszerben,a társított fájl vagy könyvtárral együtt."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1511,10 +1513,10 @@ msgid "Import users"
 msgstr "Felhasználók importálása"
 
 msgid "Importing groups ..."
-msgstr ""
+msgstr "Csoportok importálása ..."
 
 msgid "Importing users ..."
-msgstr ""
+msgstr "Felhasználók importálása ..."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1528,13 +1530,13 @@ msgid ""
 msgstr "Egyes esetekben meg kell adnod passzív port tartományokat a tűzfal korlátozások kikerüléséhez A passzív portok korlátozhatják a portok tartományát, melyből a szerver válogathat, mikor a kliens elküldi a PASV parancsot. A szerver véletlenszerűen választ egy portot a tartományból addig, amíg nyitott portot nem talál. A kiválasztott port tartománynak nem privilegizált tartománynak kell lennie (pl. nagyobb vagy egyenlő mint 1024). Erősen ajánlott olyan nagy tartomány választása, mely elég nagy több passzív kapcsolat egyidejű használatához (például: 49152-65534, az IANA-regisztrált rövid idejű port tartomány)."
 
 msgid "Incoming"
-msgstr ""
+msgstr "Bejövő"
 
 msgid "Incomplete"
-msgstr ""
+msgstr "Befejezetlen"
 
 msgid "Incorrect username or password."
-msgstr ""
+msgstr "Helytelen felhasználónév vagy jelszó."
 
 msgid "India"
 msgstr "India"
@@ -1581,8 +1583,8 @@ msgstr "Interfészek"
 msgid "Invalid domain name"
 msgstr "Érvénytelen domain név"
 
-msgid "Invalid filesystem label"
-msgstr "Érvénytelen fájlrendszer címke"
+msgid "Invalid file system label"
+msgstr ""
 
 msgid "Invalid group name"
 msgstr "Érvénytelen csoport név"
@@ -1672,7 +1674,7 @@ msgid "LBA of first error"
 msgstr "Első LBA hiba"
 
 msgid "LVM logical volume %s [%s, %s]"
-msgstr ""
+msgstr "LVM logikai kötet %s [%s, %s]"
 
 msgid "Label"
 msgstr "Címke"
@@ -1882,7 +1884,7 @@ msgid "Memory usage"
 msgstr "Memória használat"
 
 msgid "Message"
-msgstr ""
+msgstr "Üzenet"
 
 msgid "Messages"
 msgstr "Üzenetek"
@@ -1951,7 +1953,7 @@ msgid "Mongolia"
 msgstr "Mongolia"
 
 msgid "Monitor"
-msgstr ""
+msgstr "Figyelő"
 
 msgid "Monitoring"
 msgstr "Ellenőrzés"
@@ -2038,7 +2040,7 @@ msgid "No access"
 msgstr "Nincs hozzáférés"
 
 msgid "No action"
-msgstr ""
+msgstr "Nincs művelet"
 
 msgid "No authentication and no privacy"
 msgstr "Nincs hitelesítés és nincs titkosítás"
@@ -2047,7 +2049,7 @@ msgid "No certificate request"
 msgstr "Nincs tanúsítvány kérés"
 
 msgid "No connections"
-msgstr ""
+msgstr "Nincsenek kapcsolatok"
 
 msgid "No items to display"
 msgstr "Nincsenek megjeleníthető tételek"
@@ -2086,7 +2088,7 @@ msgid "Not ICMP"
 msgstr "Nem ICMP"
 
 msgid "Not ICMPv6"
-msgstr ""
+msgstr "Nem ICMPv6"
 
 msgid "Not TCP"
 msgstr "Nem TCP"
@@ -2095,10 +2097,10 @@ msgid "Not UDP"
 msgstr "Nem UDP"
 
 msgid "Notification"
-msgstr ""
+msgstr "Értesítés"
 
 msgid "Notifications"
-msgstr ""
+msgstr "Értesítések"
 
 msgid "November"
 msgstr "November"
@@ -2146,7 +2148,7 @@ msgid "Others"
 msgstr "Mások"
 
 msgid "Outgoing"
-msgstr ""
+msgstr "Kimenő"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Kimenő SMTP levél szerver címe, pl. smtp.mycorp.com."
@@ -2245,7 +2247,7 @@ msgid "Physical Disks"
 msgstr "Fizikai Lemezek"
 
 msgid "Physical disk properties"
-msgstr ""
+msgstr "Fizikai lemez tulajdonságok"
 
 msgid "Pitcairn"
 msgstr "Pitcairn"
@@ -2306,8 +2308,8 @@ msgid "Please wait ..."
 msgstr "Kérlek várj ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a "
-"filesystem."
+"Please wait until the RAID has been initialized before creating a file "
+"system."
 msgstr ""
 
 msgid "Plugins"
@@ -2335,10 +2337,10 @@ msgid "Power mode"
 msgstr "Energia mód"
 
 msgid "Pre-released updates."
-msgstr ""
+msgstr "Előre kiadott frissítések."
 
 msgid "Prefix length"
-msgstr ""
+msgstr "Előtag hossza"
 
 msgid "Preserve ACLs"
 msgstr "ACL-ek megőrzése"
@@ -2387,7 +2389,7 @@ msgid "Privileges"
 msgstr "Jogosultságok"
 
 msgid "Process monitoring"
-msgstr ""
+msgstr "Folyamat ellenőrzés"
 
 msgid "Processes"
 msgstr "Folyamatok"
@@ -2426,7 +2428,7 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
 msgstr "RAID 5"
@@ -2438,7 +2440,7 @@ msgid "RAID Management"
 msgstr "RAID Kezelés"
 
 msgid "RFC931"
-msgstr ""
+msgstr "RFC931"
 
 msgid "RSync server"
 msgstr "RSync szerver"
@@ -2483,7 +2485,7 @@ msgid "Refresh"
 msgstr "Frissítés"
 
 msgid "Reload"
-msgstr ""
+msgstr "Újratöltés"
 
 msgid "Remaining"
 msgstr "Hátralévő"
@@ -2576,7 +2578,7 @@ msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. information"
-msgstr ""
+msgstr "S.M.A.R.T. információ"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr "S.M.A.R.T. ellenőrzésnek aktívnak kell lennie a kiválasztott meghajtón."
@@ -2651,7 +2653,7 @@ msgid "Scanning for new devices ..."
 msgstr "Új meghajtók keresése ..."
 
 msgid "Scheduled jobs"
-msgstr ""
+msgstr "Ütemezett feladatok"
 
 msgid "Scheduled tests"
 msgstr "Ütemezett tesztek"
@@ -2686,8 +2688,8 @@ msgstr "Válassz ki egy meghajtót ..."
 msgid "Select a directory"
 msgstr "Válassz ki egy könyvtárat"
 
-msgid "Select a filesystem ..."
-msgstr "Válassz ki egy fájlrendszert ..."
+msgid "Select a file system ..."
+msgstr ""
 
 msgid "Select a group name..."
 msgstr "Válassz ki egy csoport nevet..."
@@ -2765,16 +2767,16 @@ msgid "Service disabled"
 msgstr "Szolgáltatás letiltva"
 
 msgid "Servicename"
-msgstr ""
+msgstr "Szolgáltatásnév"
 
 msgid "Services"
 msgstr "Szolgáltatások"
 
 msgid "Session expired."
-msgstr ""
+msgstr "A munkamenet lejárt."
 
 msgid "Session not authenticated."
-msgstr ""
+msgstr "Munkamenet nem hitelesített."
 
 msgid "Session timeout"
 msgstr "Munkamenet lejárta"
@@ -2823,7 +2825,7 @@ msgid "Show certificate"
 msgstr "Tanúsítvány mutatása"
 
 msgid "Show changelog"
-msgstr ""
+msgstr "Változások megjelenítése"
 
 msgid "Show details"
 msgstr "Részletek megjelenítése"
@@ -2865,10 +2867,10 @@ msgid "Slovenia"
 msgstr "Slovenia"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "Szoftveres RAID"
 
 msgid "Software updates"
-msgstr ""
+msgstr "Szoftverfrissítések"
 
 msgid "Solomon Islands"
 msgstr "Solomon Islands"
@@ -3046,7 +3048,7 @@ msgid "System time"
 msgstr "Rendszer idő"
 
 msgid "TAR"
-msgstr ""
+msgstr "TAR"
 
 msgid "TCP forwarding"
 msgstr "TCP átengedés"
@@ -3088,7 +3090,7 @@ msgid "The changes have been applied successfully."
 msgstr "A változások sikeresen alkalmazva lettek."
 
 msgid "The comment contains invalid characters"
-msgstr ""
+msgstr "A megjegyzés érvénytelen karaktereket tartalmaz"
 
 msgid ""
 "The configuration has been changed. You must apply the changes in order for "
@@ -3111,6 +3113,9 @@ msgstr "A '%s' mező tartalma tiltott."
 
 msgid "The file mode of the shared folder path."
 msgstr "Megosztott mappa útvonalának fájl elérési módja"
+
+msgid "The file system creation has completed successfully."
+msgstr ""
 
 msgid "The group '%s' does not exist"
 msgstr "'%s' csoport nem létezik"
@@ -3185,7 +3190,7 @@ msgid ""
 msgstr ""
 
 msgid "The shared folder is already used by another share."
-msgstr ""
+msgstr "A megosztott mappa már használva van egy másik megosztásban."
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
@@ -3210,8 +3215,8 @@ msgstr "'%s' felhasználó nem létezik"
 msgid "The user '%s' is not allowed"
 msgstr "'%s' felhasználó nincs engedélyezve"
 
-msgid "The volume label for the filesystem."
-msgstr "A kötet címkéje a fájlrendszeren."
+msgid "The volume label for the file system."
+msgstr ""
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3238,13 +3243,13 @@ msgid "This field does not allow blanks"
 msgstr "Ez a mező nem lehet üres"
 
 msgid "This field is required"
-msgstr ""
+msgstr "A mező kitöltése kötelező"
 
 msgid "This field must have the format hh:mm:ss"
 msgstr "Ennek a mezőnek óó:pp:mm formátumúnak kell lennie"
 
 msgid "This field should be a IP network address in CIDR notation"
-msgstr ""
+msgstr "Ennek a mezőnek egy IP hálózati címnek kell lennie CIDR jelölésben"
 
 msgid "This field should be a IPv4 network address"
 msgstr "Ennek a mezőnek IPv4 hálózati címnek kell lennie"
@@ -3253,16 +3258,16 @@ msgid "This field should be a IPv4 network address in CIDR notation"
 msgstr "Ennek a mezőnek egy IPv4 hálózati címnek kell lennie CIDR jelölésben."
 
 msgid "This field should be a IPv6 network address in CIDR notation"
-msgstr ""
+msgstr "Ennek a mezőnek egy IPv6 hálózati címnek kell lennie CIDR jelölésben"
 
 msgid "This field should be a domainname or an IP address"
-msgstr ""
+msgstr "Ennek a mezőnek egy tartománynévnek vagy egy IP címnek kell lennie"
 
 msgid "This field should be a domainname or an IPv4 address"
 msgstr "Ennek a mezőnek egy tartománynévnek vagy egy IPv4 címnek kell lennie."
 
 msgid "This field should be a hostname or an IP address"
-msgstr ""
+msgstr "Ennek a mezőnek hosztnévnek vagy egy IP címnek kell lennie"
 
 msgid "This field should be a hostname or an IPv4 address"
 msgstr "Ennek a mezőnek hosztnévnek vagy egy IPv4 címnek kell lennie"
@@ -3285,13 +3290,13 @@ msgid ""
 msgstr "Ennek a mezőnek egy portnak vagy port sorozatnak (pl. 21 vagy !443 vagy 1024-65535) kell lennie"
 
 msgid "This field should be an IP address"
-msgstr ""
+msgstr "Ennek a mezőnek IP címnek kell lennie"
 
 msgid "This field should be an IPv4 address"
 msgstr "Ennek a mezőnek IPv4 címnek kell lennie"
 
 msgid "This field should be an IPv6 address"
-msgstr ""
+msgstr "Ennek a mezőnek IPv6 címnek kell lennie"
 
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
@@ -3303,7 +3308,7 @@ msgid ""
 "This field should be either a IPv6 network address (with /mask), a IPv6 "
 "range or a plain IPv6 address (e.g. !2001:db8::/96 or "
 "2001:db8::10-2001:db8::20 or 2001:db8::15)"
-msgstr ""
+msgstr "Ennek a mezőnek egy IPv6 hálózati címnek (/maszkkal ellátva), egy IPv6 tartománynak vagy egy egyszerű IPv6 címnek (pl. !2001:db8::/96 or 2001:db8::10-2001:db8::20 or 2001:db8::15) kell lennie."
 
 msgid "This field should only contain numbers"
 msgstr "Ez a mező csak számokat tartalmazhat"
@@ -3456,13 +3461,13 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Transfer log"
-msgstr ""
+msgstr "Átviteli napló"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "Átviteli idő"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "Átviteli típus"
 
 msgid "Traps"
 msgstr "Trap-ek"
@@ -3471,7 +3476,7 @@ msgid "Treshold"
 msgstr "Határérték"
 
 msgid "Trial run"
-msgstr ""
+msgstr "Próbaüzem"
 
 msgid "Trinidad and Tobago"
 msgstr "Trinidad and Tobago"
@@ -3504,7 +3509,7 @@ msgid "U.S. Virgin Islands"
 msgstr "U.S. Virgin Islands"
 
 msgid "UNKNOWN"
-msgstr ""
+msgstr "ISMERETLEN"
 
 msgid "Uganda"
 msgstr "Uganda"
@@ -3513,7 +3518,7 @@ msgid "Ukraine"
 msgstr "Ukraine"
 
 msgid "Uncompressed"
-msgstr ""
+msgstr "Tömörítetlen"
 
 msgid "Uninstall"
 msgstr "Eltávolítás"
@@ -3574,7 +3579,7 @@ msgid "Updated"
 msgstr "Frissítve"
 
 msgid "Updates"
-msgstr ""
+msgstr "Frissítések"
 
 msgid "Updating ACL settings"
 msgstr "ACL beállítások frissítése"
@@ -3717,7 +3722,7 @@ msgid "Web Administrator Password"
 msgstr "Web Adminisztrátor Jelszó"
 
 msgid "Web administration"
-msgstr ""
+msgstr "Web adminisztráció"
 
 msgid "Web administration interface"
 msgstr "Web adminisztrációs felület"

@@ -53,7 +53,7 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 					}
 					return config;
 				}
-				// Create a tab panel for each filesystem.
+				// Create a tab panel for each file system.
 				Ext.Array.each(response, function(item) {
 					me.add(Ext.create("OMV.workspace.panel.RrdGraph",
 					  fnBuildRrdGraphConfig(item)));

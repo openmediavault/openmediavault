@@ -307,11 +307,11 @@ Ext.apply(Ext.form.field.VTypes, {
 	passwordText: _("The password contains invalid characters"),
 	passwordMask: /[a-zA-Z0-9\.\-_]/,
 
-	// String that are used as filesystem label
+	// String that are used as file system label
 	fslabel: function(v) {
 		return /^[a-zA-Z0-9]+$/.test(v);
 	},
-	fslabelText: _("Invalid filesystem label"),
+	fslabelText: _("Invalid file system label"),
 	fslabelMask: /[a-zA-Z0-9]/,
 
 	sharename: function(v) {

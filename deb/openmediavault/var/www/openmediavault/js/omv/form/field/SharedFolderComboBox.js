@@ -140,7 +140,7 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 								var record;
 								records.each(function(r) {
 									// Compare the shared folder name and the
-									// UUID of the used filesystem to identify
+									// UUID of the used file system to identify
 									// it explicit
 									var name = r.get("name");
 									var mntentref = r.get("mntentref");

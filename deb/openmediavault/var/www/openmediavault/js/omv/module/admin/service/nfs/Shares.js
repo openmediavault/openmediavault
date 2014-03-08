@@ -72,7 +72,7 @@ Ext.define("OMV.module.admin.service.nfs.Share", {
 			vtype: "noBlank",
 			plugins: [{
 				ptype: "fieldinfo",
-				text: _("Clients allowed to mount the filesystem, e.g. 192.168.178.0/24.")
+				text: _("Clients allowed to mount the file system, e.g. 192.168.178.0/24.")
 			}]
 		},{
 			xtype: "combo",

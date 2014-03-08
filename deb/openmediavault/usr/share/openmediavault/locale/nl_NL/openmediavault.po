@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 18:12+0100\n"
-"PO-Revision-Date: 2014-03-05 17:29+0000\n"
+"POT-Creation-Date: 2014-03-08 20:23+0100\n"
+"PO-Revision-Date: 2014-03-08 19:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -268,8 +268,8 @@ msgid "Afghanistan"
 msgstr "Afghanistan"
 
 msgid ""
-"After the RAID has been grown you can resize the containing filesystem."
-msgstr "Nadat de RAID is uitgebreid, kunt u de grootte van het bestandssysteem aanpassen."
+"After the RAID has been grown you can resize the containing file system."
+msgstr ""
 
 msgid "Aland Islands"
 msgstr "Aland Eilanden"
@@ -603,8 +603,8 @@ msgstr "Wissen"
 msgid "Client"
 msgstr "Client"
 
-msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr "Clients met toestemming het bestandssysteem te mounten, bv. 192.168.178.0/24."
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
 
 msgid "Close"
 msgstr "Sluiten"
@@ -698,11 +698,14 @@ msgstr "Aanmaken"
 msgid "Create RAID device"
 msgstr "RAID-apparaat aanmaken"
 
-msgid "Create filesystem"
-msgstr "Bestandssysteem aanmaken"
+msgid "Create file system"
+msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "Zelf-gesigneerd SSL-certificaat maken"
+
+msgid "Creating the file system, please wait ..."
+msgstr ""
 
 msgid "Critical"
 msgstr "Kritiek"
@@ -764,11 +767,11 @@ msgstr "Verwijderen"
 msgid "Delete content"
 msgstr "Inhoud verwijderen"
 
+msgid "Delete file system"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Verwijder bestanden aan de ontvangende kant die niet bestaan bij de verzender"
-
-msgid "Delete filesystem"
-msgstr "Bestandssysteem verwijderen"
 
 msgid "Deleting selected item(s)"
 msgstr "Geselecteerde item(s) verwijderen"
@@ -865,16 +868,16 @@ msgstr "Weet u zeker dat u de logbestanden wilt wissen?"
 msgid "Do you really want to create the RAID device?"
 msgstr "Weet u zeker dat u het RAID-apparaat wilt aanmaken?"
 
-msgid "Do you really want to delete the filesystem? All data will be lost."
-msgstr "Weet u zeker dat u het bestandssysteem wilt wissen? Alle data gaat verloren."
+msgid "Do you really want to delete the file system? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Weet u zeker dat u het/de geselecteerde bestand(en) wilt verwijderen?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the filesystem creation may take some time."
-msgstr "Weet u zeker dat u dit apparaat wil formatteren? Alle gegevens zullen worden verwijderd. Gelieve er rekening mee te houden dat het aanmaken van een bestandssysteem enige tijd vergt."
+"Please note that the file system creation may take some time."
+msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Weet u zeker dat u de geselecteerde plug-in(s) wilt installeren?"
@@ -897,9 +900,9 @@ msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Weet u zeker dat u de WebGUI-staat opnieuw in wil stellen, bijv. de rasterkolomvolgorde?"
 
 msgid ""
-"Do you really want to resize the selected filesystem? You have to do that "
+"Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr "Weet u zeker dat u de grootte van het geselecteerde bestandssysteem wil aanpassen? U moet dit bijvoorbeeld doen nadat uw RAID is uitgebreid."
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Weet u zeker dat u het systeem wil afsluiten?"
@@ -1181,11 +1184,6 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP staat transfers tussen twee externe servers toe zonder dat bestandsgegevens naar de cliënt gestuurd worden voor de overdrachtstoestemming.,"
 
-msgid ""
-"Failed to create filesystem. Please check the syslog or '%s' for more "
-"details."
-msgstr "Filesystem kon niet aangemaakt worden. Raadpleeg het systeemlogboek van '%s' voor meer details."
-
 msgid "Failed to get filesystems"
 msgstr "Ophalen van bestandssystemen mislukt"
 
@@ -1228,6 +1226,12 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Bestand"
 
+msgid "File system"
+msgstr ""
+
+msgid "File systems"
+msgstr ""
+
 msgid "Filename"
 msgstr "Bestandsnaam"
 
@@ -1243,9 +1247,6 @@ msgstr "Bestanden groter dan het opgegeven aantal bytes zullen niet in de prulle
 
 msgid "Filesize"
 msgstr "Bestandsgrootte"
-
-msgid "Filesystem"
-msgstr "Bestandssysteem"
 
 msgid "Filesystem '%s' not found"
 msgstr "Bestandssysteem '%s' niet gevonden"
@@ -1480,11 +1481,11 @@ msgstr "Als deze optie is ingesteld, zullen alle uploadpogingen falen."
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
-" before mapping DOS attributes to UNIX permission bits. When set, DOS "
-"attributes will be stored onto an extended attribute in the UNIX filesystem,"
-" associated with the file or directory."
-msgstr "Als deze parameter is ingesteld, probeert Samba eerst DOS-attributen te lezen (systeem, verborgen, archief of alleen-lezen) van een bestandssysteem met uitgebreide kenmerken, voordat het DOS-attributen omzet in UNIX-permissiebits. Indien ingesteld, zullen DOS-kenmerken worden opgeslagen op een verlengd attribuut in het UNIX-bestandssysteem en worden geassocieerd met een bestand of map."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1584,8 +1585,8 @@ msgstr "Interfaces"
 msgid "Invalid domain name"
 msgstr "Ongeldige domeinnaam"
 
-msgid "Invalid filesystem label"
-msgstr "Ongeldige naam voor bestandssysteem"
+msgid "Invalid file system label"
+msgstr ""
 
 msgid "Invalid group name"
 msgstr "Ongeldige groepsnaam"
@@ -2309,9 +2310,9 @@ msgid "Please wait ..."
 msgstr "Even geduld ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a "
-"filesystem."
-msgstr "Wacht totdat de RAID opgestart is voordat u het bestandssysteem aanmaakt."
+"Please wait until the RAID has been initialized before creating a file "
+"system."
+msgstr ""
 
 msgid "Plugins"
 msgstr "Extensies"
@@ -2689,8 +2690,8 @@ msgstr "Selecteer een apparaat ..."
 msgid "Select a directory"
 msgstr "Selecteer een map"
 
-msgid "Select a filesystem ..."
-msgstr "Selecteer een bestandssysteem"
+msgid "Select a file system ..."
+msgstr ""
 
 msgid "Select a group name..."
 msgstr "Selecteer een groepsnaam..."
@@ -3115,6 +3116,9 @@ msgstr "Het veld '%s' bevat verboden"
 msgid "The file mode of the shared folder path."
 msgstr "De bestandsmodus van het pad van de gedeelde map."
 
+msgid "The file system creation has completed successfully."
+msgstr ""
+
 msgid "The group '%s' does not exist"
 msgstr "De groep '%s' bestaat niet"
 
@@ -3213,8 +3217,8 @@ msgstr "Gebruiker '%s' bestaat niet"
 msgid "The user '%s' is not allowed"
 msgstr "Gebruikersnaam '%s' is niet toegestaan"
 
-msgid "The volume label for the filesystem."
-msgstr "De schijfbenaming voor het bestandssysteem."
+msgid "The volume label for the file system."
+msgstr ""
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
