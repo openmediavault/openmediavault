@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Milan Toet <milantoet@gmail.com>, 2012-2013
+# Milan Toet <milantoet@gmail.com>, 2012-2014
 # Seba Kerckhof <seba.kerckhof@gmail.com>, 2012
 # stokerh <stoker.pc@home.nl>, 2012
 # tico <co_ti@hotmail.com>, 2013-2014
@@ -12,8 +12,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-08 20:23+0100\n"
-"PO-Revision-Date: 2014-03-08 19:24+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-03-09 09:34+0000\n"
+"Last-Translator: Milan Toet <milantoet@gmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -269,7 +269,7 @@ msgstr "Afghanistan"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
-msgstr ""
+msgstr "Nadat de RAID is uitgebreid, kunt u de grootte van het bestandssysteem aanpassen."
 
 msgid "Aland Islands"
 msgstr "Aland Eilanden"
@@ -604,7 +604,7 @@ msgid "Client"
 msgstr "Client"
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Gebruikers toestaan om het bestandssysteem te mounten, bv. 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Sluiten"
@@ -699,13 +699,13 @@ msgid "Create RAID device"
 msgstr "RAID-apparaat aanmaken"
 
 msgid "Create file system"
-msgstr ""
+msgstr "Creëer bestandssysteem"
 
 msgid "Create self-signed SSL certificate"
 msgstr "Zelf-gesigneerd SSL-certificaat maken"
 
 msgid "Creating the file system, please wait ..."
-msgstr ""
+msgstr "Het bestandssysteem wordt gecreëerd, een ogenblik geduld ..."
 
 msgid "Critical"
 msgstr "Kritiek"
@@ -768,7 +768,7 @@ msgid "Delete content"
 msgstr "Inhoud verwijderen"
 
 msgid "Delete file system"
-msgstr ""
+msgstr "Verwijder bestandssysteem"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Verwijder bestanden aan de ontvangende kant die niet bestaan bij de verzender"
@@ -821,13 +821,13 @@ msgid "Device Mapper %s [%s, %s]"
 msgstr "Apparaatmapper %s [%s, %s]"
 
 msgid "Device information"
-msgstr ""
+msgstr "Apparaat informatie"
 
 msgid "Device model"
 msgstr "Model van het apparaat"
 
 msgid "Device properties"
-msgstr ""
+msgstr "Apparaat eigenschappen"
 
 msgid "Devices"
 msgstr "Apparaten"
@@ -869,7 +869,7 @@ msgid "Do you really want to create the RAID device?"
 msgstr "Weet u zeker dat u het RAID-apparaat wilt aanmaken?"
 
 msgid "Do you really want to delete the file system? All data will be lost."
-msgstr ""
+msgstr "Weet u zeker dat u het bestandssysteem wilt wissen? Alle data gaat verloren."
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Weet u zeker dat u het/de geselecteerde bestand(en) wilt verwijderen?"
@@ -877,7 +877,7 @@ msgstr "Weet u zeker dat u het/de geselecteerde bestand(en) wilt verwijderen?"
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the file system creation may take some time."
-msgstr ""
+msgstr "Weet u zeker dat u dit apparaat wilt formatteren? Alle gegevens zullen worden verwijderd. Houd er rekening mee dat het creëren van een bestandssysteem enige tijd kan duren"
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Weet u zeker dat u de geselecteerde plug-in(s) wilt installeren?"
@@ -902,7 +902,7 @@ msgstr "Weet u zeker dat u de WebGUI-staat opnieuw in wil stellen, bijv. de rast
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr ""
+msgstr "Weet u zeker dat u het geselecteerde bestandssysteem wilt vergroten of verkleinen? U moet dit bijvoorbeeld doen nadat uw RAID is vergroot."
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Weet u zeker dat u het systeem wil afsluiten?"
@@ -1165,7 +1165,7 @@ msgid "Extended attributes"
 msgstr "Uitgebreide attributen"
 
 msgid "Extended information"
-msgstr ""
+msgstr "Uitgebreide informatie"
 
 msgid "Extra options"
 msgstr "Extra opties"
@@ -1227,10 +1227,10 @@ msgid "File"
 msgstr "Bestand"
 
 msgid "File system"
-msgstr ""
+msgstr "Bestandssysteem"
 
 msgid "File systems"
-msgstr ""
+msgstr "Bestandssystemen"
 
 msgid "Filename"
 msgstr "Bestandsnaam"
@@ -1485,7 +1485,7 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr ""
+msgstr "Als deze parameter is ingesteld, probeert Samba eerst DOS attributen te lezen (systeem, verborgen, archief of alleen-lezen) van een bestandssysteem met uitgebreide kenmerken, voordat het DOS attributen omzet in UNIX permissie bits. Indien ingesteld, zullen DOS kenmerken worden opgeslagen op een verlengd attribuut in het UNIX-bestandssysteem en worden geassocieerd met een bestand of map."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1586,7 +1586,7 @@ msgid "Invalid domain name"
 msgstr "Ongeldige domeinnaam"
 
 msgid "Invalid file system label"
-msgstr ""
+msgstr "Ongeldige naam voor bestandssystem"
 
 msgid "Invalid group name"
 msgstr "Ongeldige groepsnaam"
@@ -1955,7 +1955,7 @@ msgid "Mongolia"
 msgstr "Mongolië"
 
 msgid "Monitor"
-msgstr ""
+msgstr "Monitor"
 
 msgid "Monitoring"
 msgstr "Monitoren"
@@ -2249,7 +2249,7 @@ msgid "Physical Disks"
 msgstr "Fysieke schijven"
 
 msgid "Physical disk properties"
-msgstr ""
+msgstr "Fysieke disk eigenschappen"
 
 msgid "Pitcairn"
 msgstr "Pitcairn"
@@ -2312,7 +2312,7 @@ msgstr "Even geduld ..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
 "system."
-msgstr ""
+msgstr "Wacht totdat de RAID opgestart is voordat u het bestandssysteem aanmaakt."
 
 msgid "Plugins"
 msgstr "Extensies"
@@ -2535,7 +2535,7 @@ msgstr "Herstel de WebGUI "
 msgid ""
 "Reset WebGUI state will restore default settings of grid columns for "
 "example."
-msgstr ""
+msgstr "Terugzetten van de WebGUI status zal de standaard instellingen van bijvoorbeeld de rasterkolommen herstellen"
 
 msgid "Resize"
 msgstr "Grootte aanpassen"
@@ -2691,7 +2691,7 @@ msgid "Select a directory"
 msgstr "Selecteer een map"
 
 msgid "Select a file system ..."
-msgstr ""
+msgstr "Selecteer een bestandssysteem"
 
 msgid "Select a group name..."
 msgstr "Selecteer een groepsnaam..."
@@ -3117,7 +3117,7 @@ msgid "The file mode of the shared folder path."
 msgstr "De bestandsmodus van het pad van de gedeelde map."
 
 msgid "The file system creation has completed successfully."
-msgstr ""
+msgstr "Het bestandssysteem is succesvol aangemaakt."
 
 msgid "The group '%s' does not exist"
 msgstr "De groep '%s' bestaat niet"
@@ -3218,7 +3218,7 @@ msgid "The user '%s' is not allowed"
 msgstr "Gebruikersnaam '%s' is niet toegestaan"
 
 msgid "The volume label for the file system."
-msgstr ""
+msgstr "Het volume label voor het bestandssysteem."
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "

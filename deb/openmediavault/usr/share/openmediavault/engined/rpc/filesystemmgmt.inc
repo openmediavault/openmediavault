@@ -576,10 +576,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			}
 			// Create the filesystem.
 			$fsOptions = array(
-				"ext3" => "-b 4096 -m 0",
-				"ext4" => "-b 4096 -m 0",
-				"xfs" => "-q",
-				"jfs" => "-f"
+				"ext3" => $GLOBALS['OMV_INITFS_OPTIONS_EXT3'],
+				"ext4" => $GLOBALS['OMV_INITFS_OPTIONS_EXT4'],
+				"xfs" => $GLOBALS['OMV_INITFS_OPTIONS_JFS'],
+				"jfs" => $GLOBALS['OMV_INITFS_OPTIONS_XFS']
 			);
 			$cmdArgs = array();
 			$cmdArgs[] = "-V";

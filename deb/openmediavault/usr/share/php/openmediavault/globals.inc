@@ -55,6 +55,7 @@ define("OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE", 0x8);
 define("OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER", 0x10);
 define("OMV_STORAGE_DEVICE_TYPE_ALL", 0xFF);
 
+// Globals that can be modified via /etc/default/openmediavault.
 $GLOBALS['OMV_DEFAULT_FILE'] = "/etc/default/openmediavault";
 $GLOBALS['OMV_DEBUG_PHP_LOGFILE'] = "/tmp/openmediavault_debug_php.log";
 $GLOBALS['OMV_UUID_UNDEFINED'] = "undefined";
@@ -69,6 +70,10 @@ $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE'] = "/var/lib/openmediavault/dirtymodul
 $GLOBALS['OMV_APACHE2_SUEXECUSERGROUP'] = "openmediavault";
 $GLOBALS['OMV_USERMGMT_ENUMERATE_USER_ROOT'] = TRUE;
 $GLOBALS['OMV_PLUGIN_ENUMERATE_GET_REPOSITORY'] = FALSE;
+$GLOBALS['OMV_INITFS_OPTIONS_EXT3'] = "-b 4096 -m 0";
+$GLOBALS['OMV_INITFS_OPTIONS_EXT4'] = "-b 4096 -m 0";
+$GLOBALS['OMV_INITFS_OPTIONS_JFS'] = "-q";
+$GLOBALS['OMV_INITFS_OPTIONS_XFS'] = "-f";
 
 /**
  * Use the following table as reference when defining a regex:
