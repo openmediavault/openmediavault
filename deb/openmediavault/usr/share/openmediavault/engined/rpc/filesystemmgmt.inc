@@ -578,8 +578,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$fsOptions = array(
 				"ext3" => $GLOBALS['OMV_INITFS_OPTIONS_EXT3'],
 				"ext4" => $GLOBALS['OMV_INITFS_OPTIONS_EXT4'],
-				"xfs" => $GLOBALS['OMV_INITFS_OPTIONS_JFS'],
-				"jfs" => $GLOBALS['OMV_INITFS_OPTIONS_XFS']
+				"jfs" => $GLOBALS['OMV_INITFS_OPTIONS_JFS'],
+				"xfs" => $GLOBALS['OMV_INITFS_OPTIONS_XFS']
 			);
 			$cmdArgs = array();
 			$cmdArgs[] = "-V";

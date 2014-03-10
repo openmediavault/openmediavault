@@ -1,3 +1,9 @@
+openmediavault (0.5.40) stable; urgency=low
+
+  * Mantis 0001003: Typo in filesystemmgmt.inc.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 10 Mar 2014 23:30:43 +0100
+
 openmediavault (0.5.39) stable; urgency=low
 
   * Update locales.
