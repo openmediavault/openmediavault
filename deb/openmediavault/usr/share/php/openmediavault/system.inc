@@ -2462,6 +2462,7 @@ class OMVATASMARTInformation extends OMVObject {
 			return FALSE;
 		$result = array();
 		foreach($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
+			// smartctl 5.40 2010-07-12 r3124
 			// SMART Attributes Data Structure
 			// Parse command output:
 			// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
@@ -2482,6 +2483,33 @@ class OMVATASMARTInformation extends OMVObject {
 					"updated" => $matches[8],
 					"whenfailed" => $matches[9],
 					"rawvalue" => $matches[10]
+				);
+				continue;
+			}
+			// smartctl 5.41 2011-06-09 r3365
+			// SMART Attributes Data Structure revision number: 16
+			// Vendor Specific SMART Attributes with Thresholds:
+			// ID# ATTRIBUTE_NAME          FLAGS    VALUE WORST THRESH FAIL RAW_VALUE
+			//   1 Raw_Read_Error_Rate     POSR-K   100   100   051    -    48
+			//   2 Throughput_Performance  -OS--K   055   055   000    -    18907
+			//   3 Spin_Up_Time            PO---K   068   068   025    -    9773
+			//   4 Start_Stop_Count        -O--CK   100   100   000    -    795
+			//   5 Reallocated_Sector_Ct   PO--CK   252   252   010    -    0
+			//   7 Seek_Error_Rate         -OSR-K   252   252   051    -    0
+			$regex = '/^\s*(\d+)\s+(\S+)\s+([POSRCK-]+)\s+(\d+)\s+(\d+)\s+'.
+			  '(\d+)\s+(\S+)\s+(.+)$/i';
+			if(1 == preg_match($regex, $cmdOutputv, $matches)) {
+				$result[] = array(
+					"id" => $matches[1],
+					"attrname" => $matches[2],
+					"flag" => $matches[3],
+					"value" => $matches[4],
+					"worst" => $matches[5],
+					"treshold" => $matches[6],
+					"type" => "",
+					"updated" => "",
+					"whenfailed" => $matches[7],
+					"rawvalue" => $matches[8]
 				);
 			}
 		}
