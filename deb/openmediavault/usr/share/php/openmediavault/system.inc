@@ -2524,8 +2524,10 @@ class OMVATASMARTInformation extends OMVObject {
 	 * @return An array of strings, otherwise FALSE.
 	 */
 	public function getInformation() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
+		// Initialize with default values. Note, the result list may
+		// contain additional key/value pairs.
 		$result = array(
 			"devicemodel" => "",
 			"serialnumber" => "",
@@ -2535,21 +2537,45 @@ class OMVATASMARTInformation extends OMVObject {
 		// INFORMATION SECTION
 		// Parse command output:
 		// === START OF INFORMATION SECTION ===
-		// Model Family:     Hitachi Deskstar T7K500
-		// Device Model:     Hitachi HDT725032VLA360
-		// Serial Number:    VFD200R2CWBTLL
-		// Firmware Version: V54OA52A
-		// User Capacity:    320.072.933.376 bytes
-		$output = implode("|", $this->cmdOutput);
-		$regex = '/^.+\|Device Model:\s+(.+)\|Serial Number:\s+(.+)'.
-		  '\|Firmware Version:\s+(.+)\|User Capacity:\s+(.+) bytes\|.+$/';
-		if(1 == preg_match($regex, $output, $matches)) {
-			$result = array(
-				"devicemodel" => $matches[1],
-				"serialnumber" => $matches[2],
-				"firmwareversion" => $matches[3],
-				"usercapacity" => $matches[4]
-			);
+		// Model Family:     Western Digital RE3 Serial ATA family
+		// Device Model:     WDC WD2502ABYS-02B7A0
+		// Serial Number:    WD-WCAV1B245569
+		// Firmware Version: 02.03B03
+		// User Capacity:    251,059,544,064 bytes
+		// Device is:        In smartctl database [for details use: -P show]
+		// ATA Version is:   8
+		// ATA Standard is:  Exact ATA specification draft version not indicated
+		// Local Time is:    Tue Mar 11 10:18:42 2014 CET
+		// SMART support is: Available - device has SMART capability.
+		// SMART support is: Enabled
+		// 
+		// === START OF READ SMART DATA SECTION ===
+		// ...
+		$sectionFound = FALSE;
+		foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
+			$cmdOutputv = trim($cmdOutputv);
+			// Abort parsing, we are not interested in the information
+			// shown below this line.
+			if ($cmdOutputv == "=== START OF READ SMART DATA SECTION ===")
+				break;
+			// Ignore everything that is not below this line.
+			if ($cmdOutputv == "=== START OF INFORMATION SECTION ===") {
+				$sectionFound = TRUE;
+				continue;
+			}
+			// Have we found the information section?
+			if (FALSE === $sectionFound)
+				continue;
+			// Parse the information section line:
+			// Device Model:     WDC WD2502ABYS-02B7A0
+			$regex = '/^([^:]+):\s+(.+)$/i';
+			if (1 !== preg_match($regex, $cmdOutputv, $matches))
+				continue;
+			// Convert the attribute name, e.g. 'Device Model' to
+			// 'devicemodel'.
+			$attrKey = strtolower(str_replace(" ", "", $matches[1]));
+			// Append key/value to result array.
+			$result[$attrKey] = $matches[2];
 		}
 		return $result;
 	}
