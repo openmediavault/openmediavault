@@ -276,7 +276,7 @@ Ext.define("OMV.module.admin.storage.smart.device.information.SelfTestLogs", {
 		text: _("Num"),
 		dataIndex: "num",
 		stateId: "num",
-		width: 40,
+		width: 45,
 		resizable: false,
 		align: "right"
 	},{
