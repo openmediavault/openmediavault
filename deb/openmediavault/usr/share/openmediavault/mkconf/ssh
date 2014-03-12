@@ -29,11 +29,31 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_SSHD_CONFIG=${OMV_SSHD_CONFIG:-"/etc/ssh/sshd_config"}
+OMV_SSHD_PROTOCOL=${OMV_SSHD_PROTOCOL:-"2"}
 OMV_SSHD_ALLOWGROUPS=${OMV_SSHD_ALLOWGROUPS:-"root ssh"}
 OMV_SSHD_SUBSYSTEM_SFTP=${OMV_SSHD_SUBSYSTEM_SFTP:-"/usr/lib/openssh/sftp-server"}
 OMV_SSHD_ADDRESSFAMILY=${OMV_SSHD_ADDRESSFAMILY:-"any"}
 OMV_SSHD_X11FORWARDING=${OMV_SSHD_X11FORWARDING:-"yes"}
 OMV_SSHD_X11DISPLAYOFFSET=${OMV_SSHD_X11DISPLAYOFFSET:-"10"}
+OMV_SSHD_USEPRIVILEGESEPARATION=${OMV_SSHD_USEPRIVILEGESEPARATION:-"yes"}
+OMV_SSHD_KEYREGENERATIONINTERVAL=${OMV_SSHD_KEYREGENERATIONINTERVAL:-"3600"}
+OMV_SSHD_SERVERKEYBITS=${OMV_SSHD_SERVERKEYBITS:-"768"}
+OMV_SSHD_SYSLOGFACILITY=${OMV_SSHD_SYSLOGFACILITY:-"AUTH"}
+OMV_SSHD_LOGLEVEL=${OMV_SSHD_LOGLEVEL:-"INFO"}
+OMV_SSHD_LOGINGRACETIME=${OMV_SSHD_LOGINGRACETIME:-"120"}
+OMV_SSHD_STRICTMODES=${OMV_SSHD_STRICTMODES:-"yes"}
+OMV_SSHD_RSAAUTHENTICATION=${OMV_SSHD_RSAAUTHENTICATION:-"yes"}
+OMV_SSHD_PUBKEYAUTHENTICATION=${OMV_SSHD_PUBKEYAUTHENTICATION:-"yes"}
+OMV_SSHD_IGNORERHOSTS=${OMV_SSHD_IGNORERHOSTS:-"yes"}
+OMV_SSHD_RHOSTSRSAAUTHENTICATION=${OMV_SSHD_RHOSTSRSAAUTHENTICATION:-"no"}
+OMV_SSHD_HOSTBASEDAUTHENTICATION=${OMV_SSHD_HOSTBASEDAUTHENTICATION:-"no"}
+OMV_SSHD_PERMITEMPTYPASSWORDS=${OMV_SSHD_PERMITEMPTYPASSWORDS:-"no"}
+OMV_SSHD_CHALLENGERESPONSEAUTHENTICATION=${OMV_SSHD_CHALLENGERESPONSEAUTHENTICATION:-"no"}
+OMV_SSHD_PRINTMOTD=${OMV_SSHD_PRINTMOTD:-"no"}
+OMV_SSHD_PRINTLASTLOG=${OMV_SSHD_PRINTLASTLOG:-"yes"}
+OMV_SSHD_TCPKEEPALIVE=${OMV_SSHD_TCPKEEPALIVE:-"yes"}
+OMV_SSHD_ACCEPTENV=${OMV_SSHD_ACCEPTENV:-"LANG LC_*"}
+OMV_SSHD_USEPAM=${OMV_SSHD_USEPAM:-"yes"}
 
 # Limit connections to IPv4 only if IPv6 is disabled.
 if [ ! -f /proc/net/if_inet6 ]; then
@@ -44,31 +64,31 @@ fi
 # /etc/ssh/sshd_config from the Debian ssh package has been used
 # as template.
 xmlstarlet sel -t \
-  -o "Protocol 2" -n \
+  -o "Protocol ${OMV_SSHD_PROTOCOL}" -n \
   -o "HostKey /etc/ssh/ssh_host_rsa_key" -n \
   -o "HostKey /etc/ssh/ssh_host_dsa_key" -n \
-  -o "UsePrivilegeSeparation yes" -n \
-  -o "KeyRegenerationInterval 3600" -n \
-  -o "ServerKeyBits 768" -n \
-  -o "SyslogFacility AUTH" -n \
-  -o "LogLevel INFO" -n \
-  -o "LoginGraceTime 120" -n \
-  -o "StrictModes yes" -n \
-  -o "RSAAuthentication yes" -n \
-  -o "PubkeyAuthentication yes" -n \
-  -o "IgnoreRhosts yes" -n \
-  -o "RhostsRSAAuthentication no" -n \
-  -o "HostbasedAuthentication no" -n \
-  -o "PermitEmptyPasswords no" -n \
-  -o "ChallengeResponseAuthentication no" -n \
+  -o "UsePrivilegeSeparation ${OMV_SSHD_USEPRIVILEGESEPARATION}" -n \
+  -o "KeyRegenerationInterval ${OMV_SSHD_KEYREGENERATIONINTERVAL}" -n \
+  -o "ServerKeyBits ${OMV_SSHD_SERVERKEYBITS}" -n \
+  -o "SyslogFacility ${OMV_SSHD_SYSLOGFACILITY}" -n \
+  -o "LogLevel ${OMV_SSHD_LOGLEVEL}" -n \
+  -o "LoginGraceTime ${OMV_SSHD_LOGINGRACETIME}" -n \
+  -o "StrictModes ${OMV_SSHD_STRICTMODES}" -n \
+  -o "RSAAuthentication ${OMV_SSHD_RSAAUTHENTICATION}" -n \
+  -o "PubkeyAuthentication ${OMV_SSHD_PUBKEYAUTHENTICATION}" -n \
+  -o "IgnoreRhosts ${OMV_SSHD_IGNORERHOSTS}" -n \
+  -o "RhostsRSAAuthentication ${OMV_SSHD_RHOSTSRSAAUTHENTICATION}" -n \
+  -o "HostbasedAuthentication ${OMV_SSHD_HOSTBASEDAUTHENTICATION}" -n \
+  -o "PermitEmptyPasswords ${OMV_SSHD_PERMITEMPTYPASSWORDS}" -n \
+  -o "ChallengeResponseAuthentication ${OMV_SSHD_CHALLENGERESPONSEAUTHENTICATION}" -n \
   -o "X11Forwarding ${OMV_SSHD_X11FORWARDING}" -n \
   -o "X11DisplayOffset ${OMV_SSHD_X11DISPLAYOFFSET}" -n \
-  -o "PrintMotd no" -n \
-  -o "PrintLastLog yes" -n \
-  -o "TCPKeepAlive yes" -n \
-  -o "AcceptEnv LANG LC_*" -n \
+  -o "PrintMotd ${OMV_SSHD_PRINTMOTD}" -n \
+  -o "PrintLastLog ${OMV_SSHD_PRINTLASTLOG}" -n \
+  -o "TCPKeepAlive ${OMV_SSHD_TCPKEEPALIVE}" -n \
+  -o "AcceptEnv ${OMV_SSHD_ACCEPTENV}" -n \
   -o "Subsystem sftp ${OMV_SSHD_SUBSYSTEM_SFTP}" -n \
-  -o "UsePAM yes" -n \
+  -o "UsePAM ${OMV_SSHD_USEPAM}" -n \
   -o "AllowGroups ${OMV_SSHD_ALLOWGROUPS}" -n \
   -o "AddressFamily ${OMV_SSHD_ADDRESSFAMILY}" -n \
   -m "//services/ssh" \

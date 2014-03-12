@@ -37,7 +37,11 @@ set -e
 
 OMV_SNMPD_DEFAULT=${OMV_SNMPD_DEFAULT:-"/etc/default/snmpd"}
 OMV_SNMPD_CONFIG=${OMV_SNMPD_CONFIG:-"/etc/snmp/snmpd.conf"}
-OMV_SNMPD_SNMPDOPTS=${OMV_SNMPD_SNMPDOPTS:-"-Lsd -Lf /dev/null -u snmp -I -smux -p /var/run/snmpd.pid"}
+OMV_SNMPD_SNMPDRUN=${OMV_SNMPD_SNMPDRUN:-"yes"}
+OMV_SNMPD_SNMPDOPTS=${OMV_SNMPD_SNMPDOPTS:-"-Lsd -Lf /dev/null -u snmp -g snmp -I -smux -p /var/run/snmpd.pid"}
+OMV_SNMPD_TRAPDRUN=${OMV_SNMPD_TRAPDRUN:-"no"}
+OMV_SNMPD_TRAPDOPTS=${OMV_SNMPD_TRAPDOPTS:-"-Lsd -p /var/run/snmptrapd.pid"}
+OMV_SNMPD_SNMPDCOMPAT=${SNMPDCOMPAT:-"yes"}
 
 mkconf() {
 	sysname=$(hostname)
@@ -45,10 +49,11 @@ mkconf() {
 	xmlstarlet sel -t -m "//services/snmp" \
 	  -o "# This file controls the activity of snmpd and snmptrapd" -n \
 	  -o "export MIBDIRS=/usr/share/snmp/mibs" -n \
-	  -o "SNMPDRUN=yes" -n \
-	  -o "SNMPDOPTS=\"${OMV_SNMPD_SNMPDOPTS}\"" -n \
-	  -o "TRAPDRUN=no" -n \
-	  -o "SNMPDCOMPAT=yes" -n \
+	  -o "SNMPDRUN=${OMV_SNMPD_SNMPDRUN}" -n \
+	  -o "SNMPDOPTS='${OMV_SNMPD_SNMPDOPTS}'" -n \
+	  -o "TRAPDRUN=${OMV_SNMPD_TRAPDRUN}" -n \
+	  -o "TRAPDOPTS='${OMV_SNMPD_TRAPDOPTS}'" -n \
+	  -o "SNMPDCOMPAT=${OMV_SNMPD_SNMPDCOMPAT}" -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_SNMPD_DEFAULT}
 
 	xmlstarlet sel -t -m "//services/snmp" \
