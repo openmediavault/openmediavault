@@ -23,6 +23,7 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/initscript.inc");
+require_once("openmediavault/log.inc");
 
 class OMVModuleSamba extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
@@ -271,4 +272,33 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleSamba());
+
+// Register new logfile type.
+// Format:
+// Mar 13 23:50:48 vmomv5 smbd[4192]: <username>|<ipaddr>|<clientnetbiosname>|<servicerootdir>|<servicename>|<operation>|<result>|<filename>
+// Mar 13 23:50:48 vmomv5 smbd[4192]: test|192.168.178.30|pc01|/media/1622d31c-7f5d-4add-be13-20e382a9f5cb/test|download|pwrite|ok|xyz.tar.gz
+OMVLogFile::registerType("smbdaudit", array(
+  "filename" => "smbd_audit.log",
+  "filepath" => "/var/log/samba/audit.log",
+  "regex" => "/^(\S+\s+\d+\s+\d{2}:\d{2}:\d{2})\s+(\S+)\ssmbd\[\d+\]:\s+([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)\|([^\|]+)$/",
+  "columns" => array(
+	  "ts" => array(
+		  "index" => 1,
+		  "func" => create_function('$v', 'return strpdate($v,"M j G:i:s");')
+	  ),
+	  "date" => array(
+		  "index" => 1,
+		  "func" => create_function('$v',
+			'return strftime("%c", strpdate($v,"M j G:i:s"));')
+	  ),
+	  "hostname" => 2,
+	  "username" => 3,
+	  "clientipaddr" => 4,
+	  "clientnetbiosname" => 5,
+	  "servicerootdir" => 6,
+	  "servicename" => 7,
+	  "operation" => 8,
+	  "result" => 9,
+	  "filename" => 10
+  )));
 ?>

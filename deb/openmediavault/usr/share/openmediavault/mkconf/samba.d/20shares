@@ -79,7 +79,7 @@ while [ ${index} -gt 0 ]; do
 	  -i "easupport[. = '1']" -o "ea support = yes" -n -b \
 	  -i "storedosattributes[. = '0']" -o "store dos attributes = no" -n -b \
 	  -i "storedosattributes[. = '1']" -o "store dos attributes = yes" -n -b \
-	  -i "recyclebin[. = '1']" -o -i "audit[. = '1']" \
+	  -i "recyclebin[. = '1'] or audit[. = '1']" \
 		  -o "vfs objects =" \
 		  -i "recyclebin[. = '1']" -o " recycle" -b \
 		  -i "audit[. = '1']" -o " full_audit" -b \

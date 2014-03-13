@@ -209,6 +209,7 @@ OMVLogFile::registerType("proftpd", array(
 		  "func" => create_function('$v',
 			'return strftime("%c", strpdate($v,"M j G:i:s"));')
 	  ),
+	  "hostname" => 2,
 	  "message" => 3
   )));
 

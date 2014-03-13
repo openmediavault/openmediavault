@@ -46,6 +46,12 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.ftp.Syslog", {
 			return record.get("date");
 		}
 	},{
+		text: _("Hostname"),
+		hidden: true,
+		sortable: true,
+		dataIndex: "hostname",
+		stateId: "hostname"
+	},{
 		xtype: "whitespacecolumn",
 		text: _("Message"),
 		sortable: true,
@@ -60,6 +66,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.ftp.Syslog", {
 		{ name: "rownum", type: "int" },
 		{ name: "ts", type: "int" },
 		{ name: "date", type: "string" },
+		{ name: "hostname", type: "string" },
 		{ name: "message", type: "string" }
 	]
 });
