@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-08 20:23+0100\n"
-"PO-Revision-Date: 2014-03-08 19:24+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-03-10 08:40+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -266,7 +266,7 @@ msgstr "Afghanistan"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
-msgstr ""
+msgstr "Efter at RAID er vokset, kan du ændre størrelsen på det indeholdende filsystem."
 
 msgid "Aland Islands"
 msgstr "Aland Islands"
@@ -601,7 +601,7 @@ msgid "Client"
 msgstr "Klient"
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Klienter har tilladelse til at montere filsystemet, f.eks. 192.168.178.0/24"
 
 msgid "Close"
 msgstr "Luk"
@@ -696,13 +696,13 @@ msgid "Create RAID device"
 msgstr "Opret RAID enhed"
 
 msgid "Create file system"
-msgstr ""
+msgstr "Opret filsystem"
 
 msgid "Create self-signed SSL certificate"
 msgstr "Opret selvsigneret SSL-certifikat"
 
 msgid "Creating the file system, please wait ..."
-msgstr ""
+msgstr "Opretter filsystem, vent venligst ..."
 
 msgid "Critical"
 msgstr "Kritisk"
@@ -765,7 +765,7 @@ msgid "Delete content"
 msgstr "Slet indhold"
 
 msgid "Delete file system"
-msgstr ""
+msgstr "Slet filsystem"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Slet filer på den modtagende side, der ikke eksisterer på afsender"
@@ -818,13 +818,13 @@ msgid "Device Mapper %s [%s, %s]"
 msgstr "Enheds Mapper %s [%s, %s]"
 
 msgid "Device information"
-msgstr ""
+msgstr "Enheds oplysninger"
 
 msgid "Device model"
 msgstr "Enheds model"
 
 msgid "Device properties"
-msgstr ""
+msgstr "Enheds egenskaber"
 
 msgid "Devices"
 msgstr "Enheder"
@@ -866,7 +866,7 @@ msgid "Do you really want to create the RAID device?"
 msgstr "Er du sikker på at du vil oprette en RAID enhed?"
 
 msgid "Do you really want to delete the file system? All data will be lost."
-msgstr ""
+msgstr "Er du sikker på at du vil slette filsystemet? Alle data vil gå tabt."
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Er du sikker på at du vil slette det/de valgte emne(r)?"
@@ -874,7 +874,7 @@ msgstr "Er du sikker på at du vil slette det/de valgte emne(r)?"
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the file system creation may take some time."
-msgstr ""
+msgstr "Er du sikker på at du vil formatere denne enhed? Alt data på den vil blive slettet. Vær opmærksom på at filsystems opretningen kan tage noget tid."
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Er du sikker på at du vil installer det/de valgte plugin(s)?"
@@ -899,7 +899,7 @@ msgstr "Er du sikker på at du vil resette WebGUI tilstanden, d.v.s gitter kolon
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr ""
+msgstr "Er du sikker på at ændre størrelsen på det valgte filsystem? Du er nødt til at eksempelvis gøre det efter en RAID er vokset ."
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Er du sikker på at du vil lukke systemet ned?"
@@ -1162,7 +1162,7 @@ msgid "Extended attributes"
 msgstr "Udvidede attributter"
 
 msgid "Extended information"
-msgstr ""
+msgstr "Udvidede oplysninger"
 
 msgid "Extra options"
 msgstr "Ekstra valgmuligheder"
@@ -1224,10 +1224,10 @@ msgid "File"
 msgstr "Fil"
 
 msgid "File system"
-msgstr ""
+msgstr "Filsystem"
 
 msgid "File systems"
-msgstr ""
+msgstr "Filsystemer"
 
 msgid "Filename"
 msgstr "Filnavn"
@@ -1482,7 +1482,7 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr ""
+msgstr "Hvis denne parameter er markeret, vil Samba forsøge først at læse DOS attributterne (SYSTEM, SKJULT, ARKIV eller SKRIVEBESKYTTET) fra et filsystems udvidede attribut, før kortlægning af DOS attributterne til UNIX tilladelse bits. Når den er markeret, vil DOS attributterne blive opbevaret på en udvidet attribut i UNIX filsystemet, der er forbundet med filen eller biblioteket."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1583,7 +1583,7 @@ msgid "Invalid domain name"
 msgstr "Ugyldig domæne navn"
 
 msgid "Invalid file system label"
-msgstr ""
+msgstr "Ugyldig filsystem label"
 
 msgid "Invalid group name"
 msgstr "Ugyldig gruppenavn"
@@ -1883,7 +1883,7 @@ msgid "Memory usage"
 msgstr "Hukommelses forbrug"
 
 msgid "Message"
-msgstr ""
+msgstr "Besked"
 
 msgid "Messages"
 msgstr "Beskeder"
@@ -1952,7 +1952,7 @@ msgid "Mongolia"
 msgstr "Mongolia"
 
 msgid "Monitor"
-msgstr ""
+msgstr "Overvåg"
 
 msgid "Monitoring"
 msgstr "Overvåger"
@@ -2246,7 +2246,7 @@ msgid "Physical Disks"
 msgstr "Fysiske Diske"
 
 msgid "Physical disk properties"
-msgstr ""
+msgstr "Fysisk disk egenskaber"
 
 msgid "Pitcairn"
 msgstr "Pitcairn"
@@ -2309,7 +2309,7 @@ msgstr "Vent venligst ..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
 "system."
-msgstr ""
+msgstr "Vent venligst indtil RAIDén er initialiseret inden oprettelse af filsystem."
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -2532,7 +2532,7 @@ msgstr "Reset WebGUI tilstand"
 msgid ""
 "Reset WebGUI state will restore default settings of grid columns for "
 "example."
-msgstr ""
+msgstr "Reset af WebGUI tilstand vil f.eks genskabe standard indstilling af gitter kolonne."
 
 msgid "Resize"
 msgstr "Tilpas størrelsen"
@@ -2688,7 +2688,7 @@ msgid "Select a directory"
 msgstr "Vælg et bibliotek"
 
 msgid "Select a file system ..."
-msgstr ""
+msgstr "Vælg et filsystem ..."
 
 msgid "Select a group name..."
 msgstr "Vælg et gruppenavn ..."
@@ -3114,7 +3114,7 @@ msgid "The file mode of the shared folder path."
 msgstr "Fil tilstand af den delte mappes sti."
 
 msgid "The file system creation has completed successfully."
-msgstr ""
+msgstr "Filsystem oprettelse færdiggjort med succes."
 
 msgid "The group '%s' does not exist"
 msgstr "Gruppen '%s' findes ikke"
@@ -3148,7 +3148,7 @@ msgid "The number of days the certificate is valid for."
 msgstr "Antal dage certifikatet er gyldig i."
 
 msgid "The page will reload now to let the changes take effect."
-msgstr ""
+msgstr "Denne side vil genindlæse nu for at lade ændringerne tage effekt."
 
 #, php-format
 msgid "The parameter '%s' contains forbidden two-dot symbols"
@@ -3215,7 +3215,7 @@ msgid "The user '%s' is not allowed"
 msgstr "Brugeren '%s' er ikke tilladt"
 
 msgid "The volume label for the file system."
-msgstr ""
+msgstr "Drevnavnet til dette filsystem."
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "

@@ -1,5 +1,6 @@
 openmediavault (0.5.40) stable; urgency=low
 
+  * Update locales.
   * Various code improvements.
   * Mantis 0001003: Typo in filesystemmgmt.inc.
 
