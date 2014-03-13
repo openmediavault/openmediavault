@@ -1,0 +1,14 @@
+Source: php-json-schema
+Section: php
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>= 7), unzip
+Standards-Version: 3.8.4
+Homepage: http://code.google.com/p/json-schema-php
+
+Package: php-json-schema
+Architecture: all
+Depends: ${misc:Depends}, php5-cgi | php5-cli
+Description: PHP implementation of JSON schema
+ Validates a JSON string against a schema. The validation works as defined by
+ the schema proposal (see http://www.json-schema.org).

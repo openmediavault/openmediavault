@@ -1,0 +1,383 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2014 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://www.linuxjournal.com/article/2807
+# http://www.linuxjournal.com/article/2460
+# http://www.linuxquestions.org/questions/programming-9/basic-bash-how-to-use-eval-to-evaluate-variable-names-made-of-arbitrary-strings-775622/#post3791337
+# http://linuxgazette.net/101/sunil.html
+
+# Disable flag, otherwise script will exit immediatelly when 'No' is selected
+# in a 'yesno' box.
+#set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_COLLECTD_RRDTOOL_DATADIR=${OMV_COLLECTD_RRDTOOL_DATADIR:-"/var/lib/collectd/rrd"}
+OMV_FIRSTAID_DIALOG=${OMV_FIRSTAID_DIALOG:-"whiptail"}
+
+configure_iface() {
+	local devicename method address netmask gateway
+	# Default values.
+	method="dhcp"
+	method6="manual"
+	netmask6=64
+	wol=false
+	# Get the network interface device.
+	cmd="${OMV_FIRSTAID_DIALOG} --clear --menu 'Please select a network interface. Note, the existing network interface configuration will be deleted.' 15 53 5 "
+	for i in $(ls /sys/class/net | grep -vi "lo"); do
+		cmd="${cmd} '${i}' '${i}'"
+	done
+	eval "${cmd} 2>$tempfile"
+	[ $? -ne 0 ] && return 1
+	devicename=$(cat $tempfile)
+	# Use DHCP?
+	${OMV_FIRSTAID_DIALOG} --clear --yesno "Do you want to use DHCPv4 for this interface?" 8 50
+	if [ $? -eq 1 ]; then
+		method="static"
+		# Get the static IPv4 address.
+		while [ -z "${address}" ]; do
+			${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the IPv4 address." \
+			  8 60 2>$tempfile
+			[ $? -ne 0 ] && return 1
+			address=$(cat $tempfile)
+			if [ -z "${address}" ]; then
+				${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
+				continue
+			fi
+			if ! omv_is_ipaddr4 "${address}"; then
+				${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid IPv4 address." 8 26
+				address=""
+			fi
+		done
+		# Get the IPv4 netmask.
+		while [ -z "${netmask}" ]; do
+			${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the netmask." \
+			  8 60 2>$tempfile
+			[ $? -ne 0 ] && return 1
+			netmask=$(cat $tempfile)
+			if [ -z "${netmask}" ]; then
+				${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
+				continue
+			fi
+			if ! omv_is_netmask4 "${netmask}"; then
+				${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid netmask." 8 22
+				netmask=""
+			fi
+		done
+		# Get default IPv4 gateway.
+		while [ -z "${gateway}" ]; do
+			${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the default gateway." \
+			  8 60 2>$tempfile
+			[ $? -ne 0 ] && return 1
+			gateway=$(cat $tempfile)
+			if [ -n "${gateway}" ]; then
+				if ! omv_is_gateway4 "${gateway}"; then
+					${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid gateway." 8 22
+					gateway=""
+				fi
+			else
+				break
+			fi
+		done
+	fi
+	# Use IPv6?
+	${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno "Do you want to configure IPv6 for this interface?" 8 53
+	if [ $? -eq 0 ]; then
+# Available with Debian Wheezy.
+#		${OMV_FIRSTAID_DIALOG} --clear --yesno "Do you want to enable stateless autoconfiguration?" 8 50
+#		if [ $? -eq 1 ]; then
+#			method6="auto"
+#		else
+			method6="static"
+			# Get static IPv6 address.
+			while [ -z "${address6}" ]; do
+				${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the IPv6 address." \
+				  8 60 2>$tempfile
+				[ $? -ne 0 ] && return 1
+				address6=$(cat $tempfile)
+				if [ -z "${address6}" ]; then
+					${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
+					continue
+				fi
+				if ! omv_is_ipaddr6 "${address6}"; then
+					${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid IPv6 address." 8 26
+					address6=""
+				fi
+			done
+			# Get the prefix length.
+			netmask6=""
+			while [ -z "${netmask6}" ]; do
+				${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the prefix length." \
+				  8 60 64 2>$tempfile
+				[ $? -ne 0 ] && return 1
+				netmask6=$(cat $tempfile)
+				if [ -z "${netmask6}" ]; then
+					${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
+					continue
+				fi
+				if ! omv_is_netmask6 "${netmask6}"; then
+					${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid netmask." 8 22
+					netmask=""
+				fi
+			done
+			# Get default IPv6 gateway.
+			while [ -z "${gateway6}" ]; do
+				${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the default gateway." \
+				  8 60 2>$tempfile
+				[ $? -ne 0 ] && return 1
+				gateway6=$(cat $tempfile)
+				if [ -n "${gateway6}" ]; then
+					if ! omv_is_gateway6 "${gateway6}"; then
+						${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid gateway." 8 22
+						gateway6=""
+					fi
+				else
+					break
+				fi
+			done
+#		fi
+	fi
+	${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno \
+	  "Do you want to enable WOL for this interface?" 8 50
+	if [ $? -eq 0 ]; then
+		wol=true
+	fi
+	echo "Configuring network interface. Please wait ..."
+	# Delete all existing network interface configuration objects.
+	omv_config_delete "//system/network/interfaces/*"
+	# Insert a new network interface configuration object.
+	omv_exec_rpc "Network" "setIface" "{\"uuid\":\"undefined\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"method6\":\"${method6}\",\"address6\":\"${address6}\",\"netmask6\":${netmask6},\"gateway6\":\"${gateway6}\",\"mtu\":\"\",\"wol\":${wol},\"options\":\"\",\"comment\":\"\"}"
+	[ $? -ne 0 ] && return 1
+	omv_exec_rpc "Config" "applyChanges" "{\"modules\":[],\"force\":false}"
+	[ $? -ne 0 ] && return 1
+	return 0
+}
+
+configure_webgui() {
+	local port enablessl sslport forcesslonly sslcertificateref
+	enablessl=false
+	forcesslonly=false
+	while [ -z "${port}" ]; do
+		${OMV_FIRSTAID_DIALOG} --clear --inputbox \
+		  "Please enter the port to access the WebGUI via HTTP." \
+		  8 60 80 2>$tempfile
+		[ $? -ne 0 ] && return 1
+		port=$(cat $tempfile)
+		if [ -z "${port}" ]; then
+			${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
+		elif ! omv_isnumber ${port}; then
+			${OMV_FIRSTAID_DIALOG} --clear --msgbox "Please enter a valid port." 8 32
+			port=""
+		elif [ ${port} -lt 1 -o ${port} -gt 65535 ]; then
+			${OMV_FIRSTAID_DIALOG} --clear --msgbox "Please enter a valid port." 8 32
+			port=""
+		fi
+	done
+	# Before asking to enable HTTPS check if there are any SSL certificates
+	# available.
+	if [ $(omv_config_get_count "//system/certificates/sslcertificate") -gt 0 ]; then
+		${OMV_FIRSTAID_DIALOG} --clear --yesno "Do you want to enable HTTPS?" 8 32
+		if [ $? -eq 0 ]; then
+			enablessl=true
+			# Get the port for HTTPS.
+			while [ -z "${sslport}" ]; do
+				${OMV_FIRSTAID_DIALOG} --clear --inputbox \
+				  "Please enter the port to access the WebGUI via HTTPS." \
+				  8 60 443 2>$tempfile
+				[ $? -ne 0 ] && return 1
+				sslport=$(cat $tempfile)
+				if [ -z "${sslport}" ]; then
+					${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
+				elif ! omv_isnumber ${sslport}; then
+					${OMV_FIRSTAID_DIALOG} --clear --msgbox "Please enter a valid port." 8 32
+					port=""
+				elif [ ${sslport} -lt 1 -o ${sslport} -gt 65535 ]; then
+					${OMV_FIRSTAID_DIALOG} --clear --msgbox "Please enter a valid port." 8 32
+					port=""
+				fi
+			done
+			# Display dialog to choose SSL certificate
+			xmlstarlet sel -t -m "//system/certificates/sslcertificate" \
+			-v "concat(position(),' ',uuid,' ',comment)" -i "position() != last()" -n -b \
+			${OMV_CONFIG_FILE} | xmlstarlet unesc | {
+				local cmd 
+				cmd="${OMV_FIRSTAID_DIALOG} --clear --menu 'Please select an SSL certificate:' 12 70 4 "
+				while read position uuid comment; do
+					# To be posix compliant use fake arrays
+					certs="certs"
+					eval ${certs}${position}=${uuid}
+					# Append menu entry. Use 'position' as 'tag' and 'comment' as
+					# 'item' values.
+					cmd="${cmd} ${position} '${comment}'"
+				done
+				eval "${cmd} 2>$tempfile"
+				[ $? -ne 0 ] && return 1
+				choice=$(cat $tempfile)
+				echo $(eval echo \$$certs${choice}) >$tempfile
+			}
+			[ $? -ne 0 ] && return 1
+			sslcertificateref=$(cat $tempfile)
+			# Enable HTTPS only?
+			${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno \
+			  "Do you want to enable HTTPS only?" 8 40
+			if [ $? -eq 0 ]; then
+				forcesslonly=true
+			fi
+		else
+			sslport=443
+		fi
+	else
+		sslport=443
+	fi
+	echo "Updating web administration settings. Please wait ..."
+	omv_exec_rpc "WebGui" "setSettings" "{\"port\":${port},\"enablessl\":${enablessl},\"sslport\":${sslport},\"forcesslonly\":${forcesslonly},\"sslcertificateref\":\"${sslcertificateref}\",\"timeout\":5}"
+	[ $? -ne 0 ] && return 1
+	omv_exec_rpc "Config" "applyChanges" "{\"modules\":[],\"force\":false}"
+	[ $? -ne 0 ] && return 1
+	return 0
+}
+
+reset_webgui_passwd() {
+	local passwd
+	while [ -z "${passwd}" ]; do
+		${OMV_FIRSTAID_DIALOG} --clear --passwordbox \
+		  "Please enter the new WebGUI administrator password." 8 55 2>$tempfile
+		[ $? -ne 0 ] && return 1
+		passwd=$(cat $tempfile)
+		if [ -z "${passwd}" ]; then
+			${OMV_FIRSTAID_DIALOG} --clear --msgbox "The password must not be empty." 8 35
+		fi
+	done
+	echo "Updating WebGUI administrator password. Please wait ..."
+	omv_exec_rpc "WebGui" "setPassword" "{\"password\":\"${passwd}\"}"
+	[ $? -ne 0 ] && return 1
+	omv_exec_rpc "Config" "applyChanges" "{\"modules\":[],\"force\":false}"
+	[ $? -ne 0 ] && return 1
+	return 0
+}
+
+restore_config_backup()
+{
+	local conifgbak 
+	configbak=${OMV_CONFIG_FILE}.bak
+
+	# Does a auto-generated configuration backup exist?
+	if [ ! -e "${configbak}" ]; then
+		${OMV_FIRSTAID_DIALOG} --clear --msgbox 'No configuration backup found!' 8 34
+		return 1
+	fi
+	# Only show a diff, if there's a difference.
+	if diff --brief "${OMV_CONFIG_FILE}" "${configbak}" >/dev/null; then
+		${OMV_FIRSTAID_DIALOG} --clear --msgbox "There's no difference between the configuration files. Nothing to restore." 8 58
+		return 0
+	fi
+	${OMV_FIRSTAID_DIALOG} --clear --yesno "Do you want to see the differences between the current configuration and the backup." 8 46
+	if [ $? -eq 0 ]; then
+		# Get the differences.
+		cat > ${tempfile} <<EOF
+================================================================
+All lines with '-' will be changed to the lines with '+'
+================================================================
+EOF
+		diff --unified=1 "${OMV_CONFIG_FILE}" "${configbak}" >> ${tempfile}
+		# Show differences.
+		${OMV_FIRSTAID_DIALOG} --clear --title "Diff" --scrolltext --textbox "${tempfile}" 20 72
+	fi
+	# Restore configuration backup?
+	${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno "Do you want to restore the configuration backup? This will overwrite the actual configuration?" 8 57
+	if [ $? -eq 0 ]; then
+		# Replace configuration files.
+		cp "${OMV_CONFIG_FILE}" "${tempfile}" && cp "${configbak}" "${OMV_CONFIG_FILE}" && cp "${tempfile}" "${configbak}"
+		if [ $? -eq 0 ]; then
+			${OMV_FIRSTAID_DIALOG} --clear --msgbox "Configuration backup successfully restored." 7 47
+		fi
+	fi
+	return 0
+}
+
+fix_rrd_database()
+{
+	local invalid dirname basename tsLast tsNow
+	echo "Checking all RRD files. Please wait ..."
+	# Stopping collectd daemon.
+	monit stop collectd
+	# Check RRD database files for invalid timestamps.
+	invalid=0
+	find "${OMV_COLLECTD_RRDTOOL_DATADIR}/localhost/" -name "*.rrd" -print | \
+	  while read filename; do
+		  tsLast=$(rrdtool last "${filename}")
+		  tsNow=$(date '+%s')
+		  if [ "${tsLast}" -gt "${tsNow}" ]; then
+			  invalid=$((invalid + 1))
+			  dirname=$(dirname "${filename}")
+			  basename=$(basename "${filename}")
+			  ${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno "The RRD file '../$(basename "${dirname}")/${basename}' contains timestamps in future. Do you want to delete it?" 8 70
+			  if [ $? -eq 0 ]; then
+				  rm -f "${filename}"
+			  fi
+		  fi
+	  done
+	# Display message if RRD databases are all valid.
+	[ "${invalid}" -eq 0 ] && echo "All RRD database files are valid."
+	# Starting collectd daemon.
+	monit start collectd
+	return 0
+}
+
+tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/omv-setup$$
+trap "rm -f $tempfile; exit" 0 1 2 5 15
+
+# Get some product informations.
+prodname=$(xmlstarlet sel -t -v "//name" "${OMV_PRODUCTINFO_FILE}" | xmlstarlet unesc)
+prodcopyright=$(xmlstarlet sel -t -v "//copyright" "${OMV_PRODUCTINFO_FILE}" | xmlstarlet unesc)
+
+# Display the default menu
+${OMV_FIRSTAID_DIALOG} --nocancel --clear --backtitle "${prodname} - ${prodcopyright}" \
+  --title "First aid" --menu "Please select a menu:" 13 65 6 \
+  "1" "Configure network interface" \
+  "2" "Configure WebGUI" \
+  "3" "Change WebGUI administrator password" \
+  "4" "Restore configuration backup" \
+  "5" "Fix RRD database" \
+  "6" "Exit" 2>$tempfile
+[ $? -ne 0 ] && return 1
+choice=$(cat $tempfile)
+case ${choice} in
+1)
+	configure_iface;
+	;;
+2)
+	configure_webgui;
+	;;
+3)
+	reset_webgui_passwd;
+	;;
+4)
+	restore_config_backup;
+	;;
+5)
+	fix_rrd_database;
+	;;
+esac
+
+exit 0

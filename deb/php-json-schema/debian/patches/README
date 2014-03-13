@@ -1,0 +1,6 @@
+To manually work with the patches it is necessary to export the QUILT_PATCHES
+environment variable.
+
+# export QUILT_PATCHES=debian/patches
+# fakeroot debian/rules extract
+# quilt push xxx

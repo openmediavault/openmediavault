@@ -1,0 +1,182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# zubr139 <zubr139@ukr.net>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-16 13:13+0200\n"
+"PO-Revision-Date: 2013-12-23 16:18+0000\n"
+"Last-Translator: zubr139 <zubr139@ukr.net>\n"
+"Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: uk\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Add backup job"
+msgstr "Додати завдання резервного копіювання"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "Надіслати адміністратору повідомлення електронною поштою за допомогою команди виводу (якщо така присутня)."
+
+msgid "Archive"
+msgstr "Архів"
+
+msgid "Backup jobs"
+msgstr "Завдання резервного копіювання"
+
+msgid "Comment"
+msgstr "Коментар"
+
+msgid "Compress"
+msgstr "Стискати"
+
+msgid "Compress file data during the transfer."
+msgstr "Стиснення файлів даних під час передачі."
+
+msgid "Delete"
+msgstr "Видалити"
+
+msgid "Delete files on the receiving side that don't exist on sender."
+msgstr "Видалити файли на стороні отримувача, які не існують у відправника."
+
+msgid "Device"
+msgstr "Пристрій"
+
+msgid "Device '%s' not found"
+msgstr "Пристрій '%s' не знайдено"
+
+msgid "Edit backup job"
+msgstr "Редагувати завдання резервного копіювання"
+
+msgid "Enable"
+msgstr "Увімкнути"
+
+msgid "Enable archive mode."
+msgstr "Увімкнути режим архівування."
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Увімкнути цей параметр, щоб частково передати файли, в іншому випадку вони будуть вилучені, якщо передача переривається."
+
+msgid "Enabled"
+msgstr "Увімкнено"
+
+msgid "Execute backup job"
+msgstr "Виконати завдання резервного копіювання"
+
+msgid "External storage device"
+msgstr "Зовнішній накопичувач"
+
+msgid "Extra options"
+msgstr "Додаткові опції"
+
+msgid "Failed to get filesystems"
+msgstr "Не вдалося отримати файлові системи"
+
+msgid "Filesystem '%s' not found"
+msgstr "Файлова система '%s' не знайдена"
+
+msgid "From external storage to shared folder"
+msgstr "Із зовнішнього накопичувача до спільної теки"
+
+msgid "From shared folder to external storage"
+msgstr "Зі спільної теки на зовнішній пристрій зберігання"
+
+msgid "Keep partially transferred files"
+msgstr "Зберігати частково передані файли"
+
+msgid "Mode"
+msgstr "Режим"
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Будь ласка, перевірте  <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>сторінку керівництва</a> для більш докладної інформації."
+
+msgid "Preserve ACLs"
+msgstr ""
+
+msgid "Preserve extended attributes"
+msgstr "Зберігати розширені атрибути"
+
+msgid "Preserve modification times."
+msgstr "Зберигти модифіковані пункти."
+
+msgid "Preserve permissions"
+msgstr "Збереження прав доступу"
+
+msgid "Quiet"
+msgstr "Тихий"
+
+msgid "Recurse into directories."
+msgstr ""
+
+msgid "Recursive"
+msgstr "Рекурсивно"
+
+msgid "Run"
+msgstr "Запустити"
+
+msgid "Scan"
+msgstr "Сканувати"
+
+msgid "Select a device ..."
+msgstr "Оберіть пристрій ..."
+
+msgid "Send command output via email."
+msgstr "Надіслати команду виведення електронною поштою."
+
+msgid "Send email"
+msgstr "Надіслати листа"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions."
+msgstr "Встановити дозволи призначення такі ж, як на джерелі."
+
+msgid "Shared folder"
+msgstr "Спільна тека"
+
+msgid "Suppress non-error messages."
+msgstr "Не показувати повідомлення в яких немає інформації про помилки."
+
+msgid "Synchronise from/to directory on external storage device."
+msgstr "Синхронізація з/на каталог на зовнішній запам'ятовуючий пристрій."
+
+msgid "The external storage device."
+msgstr "Зовнішній пристрій зберігання дантх."
+
+msgid ""
+"The shared folder content is synchronised from/to the root of the external "
+"storage device if this option is not set. The name of the directory is taken"
+" from the shared folder."
+msgstr "Якщо ця опція не встановлена, вміст спільної теки синхронізуються з/в корінь зовнішнього накопичувача. Ім'я каталогу береться зі спільної теки."
+
+msgid ""
+"The shared folder to synchronise when the external storage device is "
+"connected."
+msgstr "Спільні теки синхронізуються, коли зовнішній запам'ятовуючий пристрій підключено."
+
+msgid "Times"
+msgstr "Час"
+
+msgid "USB Backup"
+msgstr "Резервне копіювання USB"
+
+msgid "Update the destination ACLs to be the same as the source ACLs."
+msgstr ""
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones."
+msgstr "Оновлювати розширені атрибути призначення, щоб були таким, як у джерела."
+
+msgid "n/a"
+msgstr "н/д"

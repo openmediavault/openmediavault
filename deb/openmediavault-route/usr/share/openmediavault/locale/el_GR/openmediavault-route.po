@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Kostas Moho <kgounaris@hotmail.com>, 2012-2013
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-16 13:12+0200\n"
+"PO-Revision-Date: 2013-09-12 10:08+0000\n"
+"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
+"Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: el_GR\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A route with the network already exists"
+msgstr "Υπάρχει ήδη διαδρομή για το δίκτυο"
+
+msgid "Add static route"
+msgstr "Προσθήκη στατικής διαδρομής"
+
+msgid "Comment"
+msgstr "Σχόλιο"
+
+msgid "Edit static route"
+msgstr "Επεξεργασία στατικής διαδρομής"
+
+msgid "Gateway"
+msgstr "Πύλη"
+
+msgid "Gateway used to reach the above network address."
+msgstr "Πύλη για την πρόσβαση στην ανωτέρω δικτυακή διεύθυνση."
+
+msgid "IP or network address."
+msgstr "Διεύθυνση ΙΡ ή δικτύου."
+
+msgid "Network"
+msgstr "Δίκτυο"
+
+msgid "Static Routes"
+msgstr "Στατικές διαδρομές"

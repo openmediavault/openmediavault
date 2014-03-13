@@ -1,0 +1,123 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# dezi121 <by@songming.me>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-16 13:10+0200\n"
+"PO-Revision-Date: 2013-12-21 09:46+0000\n"
+"Last-Translator: dezi121 <by@songming.me>\n"
+"Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_CN\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Add physical volume"
+msgstr "添加物理卷"
+
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr "逻辑卷扩展后你可以调整包含文件系统的大小。"
+
+msgid "Available"
+msgstr "可用"
+
+msgid "Capacity"
+msgstr "容量"
+
+msgid "Confirmation"
+msgstr "确认"
+
+msgid "Create logical volume"
+msgstr "创建逻辑卷"
+
+msgid "Create volume group"
+msgstr "创建卷组"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "Device"
+msgstr "设备"
+
+msgid "Devices"
+msgstr "设备"
+
+msgid "Do you really want to create the logical volume?"
+msgstr "确认创建逻辑卷？"
+
+msgid "Do you really want to create the physical volume?"
+msgstr "确认创建物理卷？"
+
+msgid "Do you really want to create the volume group?"
+msgstr "确认创建卷组？"
+
+msgid "Edit logical volume"
+msgstr "编辑逻辑卷"
+
+msgid "Edit volume group"
+msgstr "编辑卷组"
+
+msgid "Extend"
+msgstr "扩展"
+
+msgid "Extend logical volume"
+msgstr "扩展逻辑卷"
+
+msgid "Extend volume group"
+msgstr "扩展卷组"
+
+msgid "Free"
+msgstr "空闲"
+
+msgid "Invalid name"
+msgstr "无效名称"
+
+msgid "Logical Volume Management"
+msgstr "逻辑卷管理"
+
+msgid "Logical volumes"
+msgstr "逻辑卷"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "No free space available to create a logical volume."
+msgstr "没有可用空间来创建逻辑卷。"
+
+msgid "No free space available to extend the logical volume."
+msgstr "没有可用空间来扩展逻辑卷。"
+
+msgid "Physical volumes"
+msgstr "物理卷"
+
+msgid "Reduce"
+msgstr "缩减"
+
+msgid "Reduce volume group"
+msgstr "缩减卷组"
+
+msgid "Select a volume group ..."
+msgstr "选择卷组 ..."
+
+msgid "Select an device ..."
+msgstr "选择设备 ..."
+
+msgid "Size"
+msgstr "大小"
+
+msgid "Used"
+msgstr "已使用"
+
+msgid "Volume group"
+msgstr "卷组"
+
+msgid "Volume groups"
+msgstr "卷组"

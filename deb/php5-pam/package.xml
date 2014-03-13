@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package packagerversion="1.7.2" version="2.0" xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+ <name>pam</name>
+ <channel>pecl.php.net</channel>
+ <summary>PAM integration</summary>
+ <description>This extension provides PAM (Pluggable Authentication Modules) integration. PAM is a system of libraries that handle the authentication tasks of applications and services. The library provides a stable API for applications to defer to for authentication tasks.</description>
+ <lead>
+  <name>Mikael Johansson</name>
+  <user>mikl</user>
+  <email>mikael AT synd DOT info</email>
+  <active>yes</active>
+ </lead>
+ <date>2009-11-29</date>
+ <time>11:49:35</time>
+ <version>
+  <release>1.0.3</release>
+  <api>1.0.3</api>
+ </version>
+ <stability>
+  <release>stable</release>
+  <api>stable</api>
+ </stability>
+ <license uri="http://www.php.net/license">PHP</license>
+ <notes>Added checkacctmgmt parameter to enable skipping the pam_acct_mgmt() call (which might require root access)</notes>
+ <contents>
+  <dir name="/">
+   <file md5sum="7184dff56562675d45f2012e119e833d" name="config.m4" role="src" />
+   <file md5sum="0fe1396f05563f855aa3afb8ec171c31" name="CREDITS" role="doc" />
+   <file md5sum="69e40a855b128e303197948c08d47c31" name="pam.c" role="src" />
+   <file md5sum="b5238cb8bcf901692bf60e029bc38225" name="php_pam.h" role="src" />
+   <file md5sum="f55a71a82d2cc5a62c7c11608bcd18aa" name="README" role="doc" />
+  </dir>
+ </contents>
+ <dependencies>
+  <required>
+   <php>
+    <min>4.3.0</min>
+   </php>
+   <pearinstaller>
+    <min>1.4.0b1</min>
+   </pearinstaller>
+  </required>
+ </dependencies>
+ <providesextension>pam</providesextension>
+ <extsrcrelease />
+ <changelog>
+  <release>
+   <date>2009-11-05</date>
+   <time>13:13:59</time>
+   <version>
+    <release>1.0.2</release>
+    <api>1.0.2</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <license uri="http://www.php.net/license">PHP</license>
+   <notes>Added PAM_RHOST param to facilitate RHOST auth (using $_SERVER[&apos;REMOTE_ADDR&apos;])</notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.1</release>
+    <api>1.0.1</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2007-09-22</date>
+   <license uri="http://www.php.net/license">PHP</license>
+   <notes>Error messages specify which pam_* function failed
+Fixed build on lib64 type systems</notes>
+  </release>
+  <release>
+   <version>
+    <release>1.0.0</release>
+    <api>1.0.0</api>
+   </version>
+   <stability>
+    <release>stable</release>
+    <api>stable</api>
+   </stability>
+   <date>2006-11-13</date>
+   <license uri="http://www.php.net/license">PHP</license>
+   <notes>Initial PECL release</notes>
+  </release>
+ </changelog>
+</package>

@@ -1,0 +1,275 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-21 20:56+0200\n"
+"PO-Revision-Date: 2014-01-23 17:56+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Add LUN"
+msgstr ""
+
+msgid "Add target"
+msgstr ""
+
+msgid "Add user"
+msgstr ""
+
+msgid "Alias"
+msgstr ""
+
+msgid "Assign a unique identifier to the iSCSI volume optionally."
+msgstr ""
+
+msgid "Assign a unique serial number to the iSCSI volume optionally."
+msgstr ""
+
+msgid "Authentication"
+msgstr ""
+
+msgid "Block IO"
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid ""
+"Controls the maximum number of data transfers the target may request at "
+"once."
+msgstr ""
+
+msgid "Data PDU in order"
+msgstr ""
+
+msgid "Data digest"
+msgstr ""
+
+msgid "Data sequence in order"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Discovery authentication"
+msgstr ""
+
+msgid "Edit LUN"
+msgstr ""
+
+msgid "Edit target"
+msgstr ""
+
+msgid "Edit user"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Error recovery level"
+msgstr ""
+
+msgid "Extra options"
+msgstr ""
+
+msgid "File IO"
+msgstr ""
+
+msgid "First burst length"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "General settings"
+msgstr ""
+
+msgid "Header digest"
+msgstr ""
+
+msgid "IO threads"
+msgstr ""
+
+msgid "IQN"
+msgstr ""
+
+msgid "Id"
+msgstr ""
+
+msgid "Identifier"
+msgstr ""
+
+msgid ""
+"If a non-zero 'NOP interval' is used to periodically 'ping' the initiator "
+"during phases of inactivity (i.e. no data transfers), the initiator must "
+"respond within N seconds, otherwise the connection will be closed."
+msgstr ""
+
+msgid ""
+"If enabled, the initiator has to wait for the target to solicit SCSI data "
+"before sending it. Disabling it allows the initiator to send a burst of N "
+"bytes unsolicited right after and/or together with the command. Thus "
+"disabling it may improve performance."
+msgstr ""
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's data segment will be protected by a CRC32C "
+"checksum."
+msgstr ""
+
+msgid ""
+"If set to 'CRC32C' and the initiator is configured accordingly, the "
+"integrity of an iSCSI PDU's header segments will be protected by a CRC32C "
+"checksum."
+msgstr ""
+
+msgid ""
+"If value is non-zero, the initiator will be 'ping'ed during phases of "
+"inactivity (i.e. no data transfers) every N seconds to verify the connection"
+" is still alive."
+msgstr ""
+
+msgid "Immediate data"
+msgstr ""
+
+msgid "Incoming"
+msgstr ""
+
+msgid "Initial R2T"
+msgstr ""
+
+msgid "LUN"
+msgstr ""
+
+msgid "Max. burst length"
+msgstr ""
+
+msgid "Max. connections"
+msgstr ""
+
+msgid "Max. outstanding R2T"
+msgstr ""
+
+msgid "Max. receive data segment length"
+msgstr ""
+
+msgid "Max. sessions"
+msgstr ""
+
+msgid "Max. transmit data segment length"
+msgstr ""
+
+msgid "NOP interval"
+msgstr ""
+
+msgid "NOP timeout"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Only one outgoing user per target is supported."
+msgstr ""
+
+msgid "Outgoing"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Queued commands"
+msgstr ""
+
+msgid "R/W mode"
+msgstr ""
+
+msgid "Read-only"
+msgstr ""
+
+msgid "SCSI Id."
+msgstr ""
+
+msgid "SCSI serial no."
+msgstr ""
+
+msgid "Select an device ..."
+msgstr ""
+
+msgid ""
+"Sets the amount of unsolicited data the initiator may transmit in the first "
+"burst of a transfer either with and/or right after the command."
+msgstr ""
+
+msgid ""
+"Sets the maximum amount of either unsolicited or solicited data the "
+"initiator may send in a single burst."
+msgstr ""
+
+msgid "Sets the maximum data segment length that can be received."
+msgstr ""
+
+msgid "Sets the maximum data segment length that can be sent."
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Targets"
+msgstr ""
+
+msgid "The identifier of the target."
+msgstr ""
+
+msgid "The maximum number of sessions for this target."
+msgstr ""
+
+msgid ""
+"The number of commands an initiator may send and that will be buffered by "
+"the target."
+msgstr ""
+
+msgid "The number of connections within a session."
+msgstr ""
+
+msgid "The number of threads to perform block I/O to the device."
+msgstr ""
+
+msgid "The optional alias of the target."
+msgstr ""
+
+msgid ""
+"This allows the initiator to append unsolicited data to a command. To "
+"achieve better performance, this should be enabled."
+msgstr ""
+
+msgid "Transfer mode"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Username"
+msgstr ""
+
+msgid "Users"
+msgstr ""
+
+msgid "Write-back"
+msgstr ""
+
+msgid "Write-through"
+msgstr ""
+
+msgid "iSCSI Target"
+msgstr ""

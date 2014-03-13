@@ -1,0 +1,26 @@
+#!/usr/bin/make -f
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean
+
+binary-indep:
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_installdebconf
+	dh_lintian
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-arch:
+# We have nothing to do by default.
+
+binary: binary-indep binary-arch
+.PHONY: clean binary-indep binary-arch binary

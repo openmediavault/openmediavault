@@ -1,0 +1,93 @@
+openmediavault-usbbackup (0.5.8) stable; urgency=low
+
+  * Update locales.
+  * Adapt plugin to framework changes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 08 Nov 2013 12:17:01 +0100
+
+openmediavault-usbbackup (0.5.7) stable; urgency=low
+
+  * Update locales.
+  * Modify 'Run' button icon.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 04 Sep 2013 00:32:20 +0200
+
+openmediavault-usbbackup (0.5.6) stable; urgency=low
+
+  * Update locales.
+  * Various improvements and bugfixes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 10 Jul 2013 18:17:25 +0200
+
+openmediavault-usbbackup (0.5.5) stable; urgency=low
+
+  * Adapt plugin to new configuration notification API.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 09 Jul 2013 18:19:50 +0200
+
+openmediavault-usbbackup (0.5.4) stable; urgency=low
+
+  * Update locales.
+  * Various improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 06 Jul 2013 22:22:35 +0200
+
+openmediavault-usbbackup (0.5.3) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 22 Jun 2013 12:30:01 +0200
+
+openmediavault-usbbackup (0.5.2) stable; urgency=low
+
+  * Fix bug in RPC UsbBackup::execute().
+  * Mantis 0000758: USB Backup plugins / delete option.
+  * Add ability to backup a shared folder into a directory instead into the
+    root of the USB device.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 14 Jun 2013 19:31:50 +0200
+
+openmediavault-usbbackup (0.5.1) stable; urgency=low
+
+  * Restart omv-engined via trigger.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 31 May 2013 22:17:47 +0200
+
+openmediavault-usbbackup (0.5) stable; urgency=low
+
+  * Adapt plugin to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Feb 2013 17:52:12 +0100
+
+openmediavault-usbbackup (0.4.4) stable; urgency=low
+
+  * Unmount USB device after synchronisation has been finished.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 20 Feb 2013 17:43:46 +0100
+
+openmediavault-usbbackup (0.4.3) stable; urgency=low
+
+  * Update locales.
+  * Improve config scripts (to fix trap issue).
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 17 Feb 2013 03:14:08 +0100
+
+openmediavault-usbbackup (0.4.2) stable; urgency=low
+
+  * Harden sync script. Additionally check if external storage device is
+    mounted before starting synchronisation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 16 Feb 2013 15:15:48 +0100
+
+openmediavault-usbbackup (0.4.1) stable; urgency=low
+
+  * Update locales.
+  * Modify config script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 15 Feb 2013 23:59:46 +0100
+
+openmediavault-usbbackup (0.4) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 11 Feb 2013 19:56:24 +0100

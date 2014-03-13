@@ -1,0 +1,200 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2014 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_OWNCLOUD_APACHE2_SITE_CONFIG=${OMV_OWNCLOUD_APACHE2_SITE_CONFIG:-"/etc/apache2/openmediavault-webgui.d/owncloud.conf"}
+#OMV_OWNCLOUD_APACHE2_SITE_CONFIG=${OMV_OWNCLOUD_APACHE2_SITE_CONFIG:-"/etc/apache2/sites-available/openmediavault-owncloud"}
+OMV_OWNCLOUD_APACHE2_DOCUMENTROOT=${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT:-"/var/www/owncloud"}
+OMV_OWNCLOUD_APACHE2_SERVERNAME=${OMV_OWNCLOUD_APACHE2_SERVERNAME:-"openmediavault-owncloud"}
+OMV_OWNCLOUD_APACHE2_LOGLEVEL=${OMV_OWNCLOUD_APACHE2_LOGLEVEL:-"warn"}
+OMV_OWNCLOUD_CONFIG=${OMV_OWNCLOUD_CONFIG:-"/var/www/owncloud/config/config.php"}
+OMV_OWNCLOUD_CONFIG_DBTYPE=${OMV_OWNCLOUD_CONFIG_DBTYPE:-"sqlite3"}
+OMV_OWNCLOUD_CONFIG_DBNAME=${OMV_OWNCLOUD_CONFIG_DBNAME:-"owncloud"}
+OMV_OWNCLOUD_CONFIG_VERSION=${OMV_OWNCLOUD_CONFIG_VERSION:-"5.0.25"}
+OMV_OWNCLOUD_CONFIG_THEME=${OMV_OWNCLOUD_CONFIG_THEME:-""}
+OMV_OWNCLOUD_CONFIG_BLACKLISTEDFILES=${OMV_OWNCLOUD_CONFIG_BLACKLISTEDFILES:-"'.htaccess'"}
+OMV_OWNCLOUD_CONFIG_KNOWLEDGEBASEENABLED=${OMV_OWNCLOUD_CONFIG_KNOWLEDGEBASEENABLED:-"false"}
+OMV_OWNCLOUD_CONFIG_KNOWLEDGEBASEURL=${OMV_OWNCLOUD_CONFIG_KNOWLEDGEBASEURL:-"http://api.apps.owncloud.com/v1"}
+OMV_OWNCLOUD_CONFIG_APPSTOREENABLED=${OMV_OWNCLOUD_CONFIG_APPSTOREENABLED:-"false"}
+OMV_OWNCLOUD_CONFIG_ALLOWUSERTOCHANGEDISPLAYNAME=${OMV_OWNCLOUD_CONFIG_ALLOWUSERTOCHANGEDISPLAYNAME:-"false"}
+OMV_OWNCLOUD_CONFIG_UPDATECHECKER=${OMV_OWNCLOUD_CONFIG_UPDATECHECKER:-"false"}
+OMV_OWNCLOUD_CONFIG_LOGTYPE=${OMV_OWNCLOUD_CONFIG_LOGTYPE:-"owncloud"}
+OMV_OWNCLOUD_CONFIG_DEBUG=${OMV_OWNCLOUD_CONFIG_DEBUG:-"false"}
+OMV_OWNCLOUD_AUTOCONFIG=${OMV_OWNCLOUD_AUTOCONFIG:-"/var/www/owncloud/config/autoconfig.php"}
+OMV_OWNCLOUD_AUTOCONFIG_ADMINLOGIN=${OMV_OWNCLOUD_AUTOCONFIG_ADMINLOGIN:-"admin"}
+OMV_OWNCLOUD_AUTOCONFIG_ADMINPASS=${OMV_OWNCLOUD_AUTOCONFIG_ADMINPASS:-"openmediavault"}
+
+mkconf() {
+	# !!! NOTE !!!
+	# The plugin uses an alias to access the ownCloud webgui because in this
+	# case we get SSL/TLS support out-of-the-box if the OMV webgui has enabled
+	# secure connection.
+	rm -f ${OMV_OWNCLOUD_APACHE2_SITE_CONFIG}
+	[ "$(omv_config_get "//services/owncloud/enable")" = "0" ] && exit 0
+
+	# Create '/etc/apache2/openmediavault-webgui.d/owncloud.conf' file.
+	cat <<EOF > ${OMV_OWNCLOUD_APACHE2_SITE_CONFIG}
+<IfModule mod_alias.c>
+    Alias /owncloud ${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/
+</IfModule>
+<Directory ${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/>
+    Options FollowSymLinks
+    <FilesMatch \.php$>
+        FcgidWrapper ${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/php-fcgi .php
+        SetHandler fcgid-script
+        Options +ExecCGI
+    </FilesMatch>
+    Order Allow,Deny
+    Allow from All
+    AllowOverride All
+</Directory>
+EOF
+
+#   # Create '/etc/apache2/sites-available/openmediavault-owncloud' file
+#	xmlstarlet sel -t -m "//services/owncloud" \
+#	  -o "<IfModule mod_alias.c>" -n \
+#	  -o "    Alias /owncloud ${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/" -n \
+#	  -o "</IfModule>" -n \
+#	  -o "<Directory ${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/>" -n \
+#	  -o "    Options None" -n \
+#	  -o "    Order Allow,Deny" -n \
+#	  -o "    Allow from All" -n \
+#	  -o "    AllowOverride None" -n \
+#	  -o "</Directory>" -n \
+#	  -v "concat('<VirtualHost *:',port,'>')" -n \
+#	  -o "    Options FollowSymLinks" -n \
+#	  -o "    ServerSignature Off" -n \
+#	  -o "    DocumentRoot ${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}" -n \
+#	  -o "    ServerName ${OMV_OWNCLOUD_APACHE2_SERVERNAME}" -n \
+#	  -o "    LogLevel ${OMV_OWNCLOUD_APACHE2_LOGLEVEL}" -n \
+#	  -o "    ErrorLog \${APACHE_LOG_DIR}/${OMV_OWNCLOUD_APACHE2_SERVERNAME}_error.log" -n \
+#	  -o "    CustomLog \${APACHE_LOG_DIR}/${OMV_OWNCLOUD_APACHE2_SERVERNAME}_access.log combined" -n \
+#	  -o "</VirtualHost>" \
+#	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_APACHE2_SITE_CONFIG}
+
+	# Get the configured location of the data directory. Make sure the
+	# directory exists and has the correct owner permissions.
+	sfref=$(omv_config_get "//services/owncloud/sharedfolderref")
+	datadirectory=$(omv_get_sharedfolder_path "${sfref}")
+	mkdir -p --mode=0770 "${datadirectory}"
+	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} "${datadirectory}"
+
+	# Create a 'tmp' directory which is used for file uploads for example.
+	mkdir -p --mode=0770 "${datadirectory}/tmp"
+	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} "${datadirectory}/tmp"
+
+	# Modify 'php.ini' file.
+	sed -i "s/^upload_tmp_dir.*$/upload_tmp_dir = '$(omv_quotemeta "${datadirectory}/tmp")'/" "${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/cgi/php.ini"
+
+	# Create '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/config/config.php' file.
+	xmlstarlet sel -t -m "//services/owncloud" \
+	  -o "<?php" -n \
+	  -o "define('DEBUG', ${OMV_OWNCLOUD_CONFIG_DEBUG});" -n \
+	  -o "\$CONFIG = array(" -n \
+	  -o "  'instanceid' => '" -v instanceid -o "'," -n \
+	  -o "  'passwordsalt' => '" -v passwordsalt -o "'," -n \
+	  -o "  'version' => '${OMV_OWNCLOUD_CONFIG_VERSION}'," -n \
+	  -o "  'dbtype' => '${OMV_OWNCLOUD_CONFIG_DBTYPE}'," -n \
+	  -o "  'dbname' => '${OMV_OWNCLOUD_CONFIG_DBNAME}'," -n \
+	  -i "//webadmin/enablessl[. = '0']" -o "  'forcessl' => false," -n -b \
+	  -i "//webadmin/enablessl[. = '1']" -o "  'forcessl' => true," -n -b \
+	  -o "  'blacklisted_files' => array(${OMV_OWNCLOUD_CONFIG_BLACKLISTEDFILES})," -n \
+	  -o "  'default_language' => 'en'," -n \
+	  -o "  'defaultapp' => 'files'," -n \
+	  -o "  'knowledgebaseenabled' => ${OMV_OWNCLOUD_CONFIG_KNOWLEDGEBASEENABLED}," -n \
+	  -o "  'knowledgebaseurl' => '${OMV_OWNCLOUD_CONFIG_KNOWLEDGEBASEURL}'," -n \
+	  -o "  'appstoreenabled' => ${OMV_OWNCLOUD_CONFIG_APPSTOREENABLED}," -n \
+	  -o "  'allow_user_to_change_display_name' => ${OMV_OWNCLOUD_CONFIG_ALLOWUSERTOCHANGEDISPLAYNAME}," -n \
+	  -o "  'updatechecker' => ${OMV_OWNCLOUD_CONFIG_UPDATECHECKER}," -n \
+	  -o "  'theme' => '${OMV_OWNCLOUD_CONFIG_THEME}'," -n \
+	  -o "  'log_type' => '${OMV_OWNCLOUD_CONFIG_LOGTYPE}'," -n \
+	  -o "  'datadirectory' => '" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "'" -n \
+	  -o ");" -n \
+	  -o "?>" \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_CONFIG}
+	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} ${OMV_OWNCLOUD_CONFIG}
+
+	# Create '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/config/autoconfig.php' file.
+	cat <<EOF > ${OMV_OWNCLOUD_AUTOCONFIG}
+<?php
+\$AUTOCONFIG = array(
+  'dbtype' => '${OMV_OWNCLOUD_CONFIG_DBTYPE}',
+  'dbname' => '${OMV_OWNCLOUD_CONFIG_DBNAME}',
+  'adminlogin' => '${OMV_OWNCLOUD_AUTOCONFIG_ADMINLOGIN}',
+  'adminpass' => '${OMV_OWNCLOUD_AUTOCONFIG_ADMINPASS}',
+  'directory' => '${datadirectory}'
+);
+?>
+EOF
+
+	# Create '<datadirectory>/mount.json' file.
+	php5 -c /etc/openmediavault <<EOF
+<?php
+require_once("openmediavault/config.inc");
+\$result = array(
+	'group' => array(),
+	'user' => array(
+		'all' => array()
+	)
+);
+\$xmlConfig = new OMVConfigEngine(\$GLOBALS['OMV_CONFIG_FILE']);
+\$xmlConfig->load();
+\$shares = \$xmlConfig->getList("//services/owncloud/shares/share[type='localfs']");
+foreach(\$shares as \$sharek => \$sharev) {
+	\$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']", \$sharev['sharedfolderref']);
+	\$sf = \$xmlConfig->get(\$xpath);
+	\$xpath = sprintf("//system/fstab/mntent[uuid='%s']", \$sf['mntentref']);
+	\$mntent = \$xmlConfig->get(\$xpath);
+	\$datadir = sprintf("%s/%s", \$mntent['dir'], \$sf['reldirpath']);
+	\$foldername = sprintf("/%s/files/%s", '\$user', \$sharev['name']);
+	// Add shared folder to 'admin' group.
+	\$result['group']['admin'][\$foldername] = array(
+		'class' => "\\OC\\Files\\Storage\\Local",
+		'options' => array(
+			'datadir' => \$datadir
+		)
+	);
+	// Add shared folder to configured users.
+	foreach(\$sf['privileges']['privilege'] as \$privk => \$privv) {
+		if(\$privv['perms'] == 0) continue;
+		\$result['user'][\$privv['name']][\$foldername] = array(
+			'class' => "\\OC\\Files\\Storage\\Local",
+			'options' => array(
+				'datadir' => \$datadir
+			)
+		);
+	}
+}
+file_put_contents("${datadirectory}/mount.json", json_encode_safe(\$result, JSON_FORCE_OBJECT))
+?>
+EOF
+	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} "${datadirectory}/mount.json"
+}
+
+case "$1" in
+	mkconf|*)
+		mkconf
+		;;
+esac

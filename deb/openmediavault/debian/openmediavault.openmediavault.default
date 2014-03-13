@@ -1,0 +1,58 @@
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2014 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Default values
+OMV_CONFIG_FILE="/etc/openmediavault/config.xml"
+OMV_CONFIG_TEMPLATE_FILE="/usr/share/openmediavault/templates/config.xml"
+OMV_PRODUCTINFO_FILE="/usr/share/openmediavault/productinfo.xml"
+OMV_SCRIPTS_DIR="/usr/share/openmediavault/scripts"
+OMV_I18N_LOCALE_DIR="/usr/share/openmediavault/locale"
+OMV_MOUNT_DIR="/media"
+OMV_NFSD_EXPORT_DIR="/export"
+OMV_CACHE_DIR="/var/cache/openmediavault"
+OMV_LOG_DIR="/var/log/openmediavault"
+OMV_CERTIFICATE_DIR="/etc/ssl"
+OMV_CERTIFICATE_PREFIX="openmediavault-"
+OMV_DPKGARCHIVE_DIR="/var/cache/openmediavault/archives"
+OMV_DOCUMENTROOT_DIR="/var/www/openmediavault"
+OMV_CRONSCRIPTS_DIR="/var/lib/openmediavault/cron.d"
+OMV_RSYNC_CRONSCRIPTS_DIR="/var/lib/openmediavault/cron.d"
+OMV_CONFIGIMPORT_SCRIPTS_DIR="/usr/share/openmediavault/configimport"
+OMV_MKCONF_SCRIPTS_DIR="/usr/share/openmediavault/mkconf"
+OMV_ENGINED_DIR="/usr/share/openmediavault/engined"
+OMV_ENGINED_SO_ADDRESS="/var/lib/openmediavault/engined.sock"
+OMV_ENGINED_SO_SNDTIMEO=10
+OMV_ENGINED_SO_RCVTIMEO=180
+OMV_ENGINED_DIRTY_MODULES_FILE="/var/lib/openmediavault/dirtymodules.json"
+OMV_INITSYSTEM_SCRIPTS_DIR="/usr/share/openmediavault/initsystem"
+OMV_INITSYSTEM_FILE="/var/lib/openmediavault/initsystem.req"
+OMV_FSTAB_MNTOPS_EXT3="defaults,nofail,acl,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0"
+OMV_FSTAB_MNTOPS_EXT4="defaults,nofail,acl,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0"
+OMV_FSTAB_MNTOPS_JFS="defaults,nofail,noexec,usrquota,grpquota"
+OMV_FSTAB_MNTOPS_XFS="defaults,nofail,noexec,usrquota,grpquota"
+OMV_FSTAB_MNTOPS_VFAT="defaults,nofail"
+OMV_FSTAB_MNTOPS_NTFS="defaults,nofail"
+OMV_FSTAB_MNTOPS_HFSPLUS="defaults,nofail,force"
+OMV_USERMGMT_DEFAULT_GROUP="users"
+OMV_RRDGRAPH_DIR="/var/lib/openmediavault/rrd"
+OMV_RRDGRAPH_ERROR_IMAGE="/usr/share/openmediavault/icons/rrd_graph_error_64.png"
+OMV_APACHE2_SUEXECUSERGROUP="openmediavault"
+OMV_DEBUG_SCRIPT="NO"
+OMV_DEBUG_PHP="NO"
+OMV_DEBUG_EXTJS="NO"

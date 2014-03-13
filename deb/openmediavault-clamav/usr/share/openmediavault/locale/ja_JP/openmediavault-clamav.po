@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# kansuke <kansuke4649@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-01-29 17:56+0100\n"
+"PO-Revision-Date: 2014-01-31 12:00+0000\n"
+"Last-Translator: kansuke <kansuke4649@gmail.com>\n"
+"Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Add job"
+msgstr "ジョブの追加"
+
+msgid "Algorithmic detection"
+msgstr "アルゴリズム的検出"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "コマンドの出力（もしあれば）が管理者へメールで送信されます。"
+
+msgid "Antivirus"
+msgstr "アンチウィルス"
+
+msgid "Be verbose."
+msgstr "詳細に。"
+
+msgid "Comment"
+msgstr "コメント"
+
+msgid "Database checks"
+msgstr "データベースチェック"
+
+msgid "Database mirror"
+msgstr "データベースミラー"
+
+msgid "Date & Time"
+msgstr "日付 & 時間"
+
+msgid "Day of month"
+msgstr "月の日"
+
+msgid "Day of week"
+msgstr "曜日"
+
+msgid "Detect PUA"
+msgstr "PUAの検出"
+
+msgid "Detect broken executables"
+msgstr "壊れた実行ファイルを検出"
+
+msgid "Edit job"
+msgstr "ジョブの編集"
+
+msgid "Enable"
+msgstr "有効"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "HTMLの検出および正規化を有効にします。"
+
+msgid "Enable archive scanning."
+msgstr "圧縮ファイルのスキャンを有効にします。"
+
+msgid "Enable on-access virus scanning"
+msgstr "オン-アクセスのウィルススキャンを有効にします。"
+
+msgid "Enable scanning of ELF files."
+msgstr "ELFファイルのスキャンを有効にします。"
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr " Microsoft Officeドキュメントや、 .msi ファイルなどのOLE2ファイルのスキャンを有効にします。"
+
+msgid "Enable scanning within PDF files."
+msgstr "PDFファイル内のスキャンを有効にします。"
+
+msgid "Enable the algorithmic detection."
+msgstr "アルゴリズム的検出を有効にします。"
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "壊れた実行ファイル（PEとELF両方）の検出を有効にします。"
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "おそらく不要なアプリケーションの検出を有効にします。"
+
+msgid "Enabled"
+msgstr "有効"
+
+msgid "Every N day of month"
+msgstr "毎月N日"
+
+msgid "Every N hour"
+msgstr "N時間ごと"
+
+msgid "Every N minute"
+msgstr "N分ごと"
+
+msgid "Execute cron job"
+msgstr "Cronジョブの実行"
+
+msgid "Extra options"
+msgstr "その他のオプション"
+
+msgid "Follow directory symlinks"
+msgstr "ディレクトリのシンボリックリンクをたどる"
+
+msgid "Follow directory symlinks."
+msgstr "ディレクトリのシンボリックリンクをたどります。"
+
+msgid "Follow file symlinks"
+msgstr "ファイルのシンボリックリンクをたどる"
+
+msgid "Follow regular file symlinks."
+msgstr "通常ファイルのシンボリックリンクをたどります。"
+
+msgid "General settings"
+msgstr "一般設定"
+
+msgid "Hour"
+msgstr "時"
+
+msgid "Jobs"
+msgstr "ジョブ"
+
+msgid "Log clean files"
+msgstr "ログファイルの整形"
+
+msgid "Log clean files. This drastically increases the log size."
+msgstr "ログファイルを整形します。ログファイルのサイズが劇的に大きくなります。"
+
+msgid "Message"
+msgstr "メッセージ"
+
+msgid "Minute"
+msgstr "分"
+
+msgid "Monitor the shared folder and scan new or modified files."
+msgstr "共有フォルダを監視し、新規または変更されたファイルをスキャンします。"
+
+msgid "Month"
+msgstr "月"
+
+msgid "Multiscan"
+msgstr "マルチスキャン"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "データベースの更新を1日に何回確認するかを設定します。0に設定すると確認しません。"
+
+msgid "On-access"
+msgstr "オン-アクセス"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "実行可能ファイルのより詳細な分析を行う。"
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
+"target='_blank'>manual page</a> for more details."
+msgstr "より詳しいことは <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>マニュアルページ</a> を参照してください。"
+
+msgid "Remove"
+msgstr "削除"
+
+msgid "Remove infected files."
+msgstr "感染したファイルを削除します。"
+
+msgid "Run"
+msgstr "実行"
+
+msgid "Scan ELF"
+msgstr "ELFのスキャン"
+
+msgid "Scan HTML"
+msgstr "HTMLのスキャン"
+
+msgid "Scan OLE2"
+msgstr "OLE2のスキャン"
+
+msgid "Scan PDF"
+msgstr "PDFのスキャン"
+
+msgid "Scan Portable Executable"
+msgstr "Portable Executable(PE)のスキャン"
+
+msgid "Scan archives"
+msgstr "圧縮ファイルのスキャン"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr "利用可能なスレッドを使用しディレクトリを並行でスキャンします。"
+
+msgid "Send command output via email"
+msgstr "コマンドの出力を電子メールで送信"
+
+msgid "Send email"
+msgstr "電子メールの送信"
+
+msgid ""
+"Server name where database updates are downloaded from. Get a complete list "
+"of database mirrors <a href='http://www.clamav.net/mirrors.html' "
+"target='_blank'>here</a>."
+msgstr "更新をダウンロードするサーバ名。データベースのミラーリストは  <a href='http://www.clamav.net/mirrors.html' target='_blank'>ここ</a> を参照してください。"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Shared folder"
+msgstr "共有フォルダ"
+
+msgid "The location of the files to scan."
+msgstr "スキャンするファイルの場所。"
+
+msgid "Verbose"
+msgstr "詳細"
+
+msgid "n/a"
+msgstr "n/a"

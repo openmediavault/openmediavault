@@ -1,0 +1,124 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# kochin <kochinc@outlook.com>, 2013
+# kochin <kochinc@outlook.com>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-16 13:10+0200\n"
+"PO-Revision-Date: 2013-11-20 13:13+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Add physical volume"
+msgstr "新增實體磁碟"
+
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr "邏輯磁碟擴展之後，你可以調整內含的檔案系統之大小。"
+
+msgid "Available"
+msgstr "可用"
+
+msgid "Capacity"
+msgstr "容量"
+
+msgid "Confirmation"
+msgstr "確認"
+
+msgid "Create logical volume"
+msgstr "建立邏輯磁碟"
+
+msgid "Create volume group"
+msgstr "建立磁碟群組"
+
+msgid "Description"
+msgstr "敘述"
+
+msgid "Device"
+msgstr "裝置"
+
+msgid "Devices"
+msgstr "裝置"
+
+msgid "Do you really want to create the logical volume?"
+msgstr "你真的要創建該邏輯磁碟？"
+
+msgid "Do you really want to create the physical volume?"
+msgstr "你真的要創建該實體磁碟？"
+
+msgid "Do you really want to create the volume group?"
+msgstr "你真的要創建該磁碟群組？"
+
+msgid "Edit logical volume"
+msgstr "編輯邏輯磁碟"
+
+msgid "Edit volume group"
+msgstr "編輯磁碟群組"
+
+msgid "Extend"
+msgstr "擴展"
+
+msgid "Extend logical volume"
+msgstr "擴展邏輯磁碟"
+
+msgid "Extend volume group"
+msgstr "擴展磁碟群組"
+
+msgid "Free"
+msgstr "未用"
+
+msgid "Invalid name"
+msgstr "不合法的名稱"
+
+msgid "Logical Volume Management"
+msgstr "邏輯磁碟管理"
+
+msgid "Logical volumes"
+msgstr "邏輯磁碟"
+
+msgid "Name"
+msgstr "名稱"
+
+msgid "No free space available to create a logical volume."
+msgstr "沒有未用的空間可用來創建邏輯磁碟。"
+
+msgid "No free space available to extend the logical volume."
+msgstr "沒有未用的空間可用來擴展邏輯磁碟。"
+
+msgid "Physical volumes"
+msgstr "實體磁碟"
+
+msgid "Reduce"
+msgstr "縮減"
+
+msgid "Reduce volume group"
+msgstr "縮減磁碟群組"
+
+msgid "Select a volume group ..."
+msgstr "選擇一個磁碟群組"
+
+msgid "Select an device ..."
+msgstr "選擇一個裝置 ..."
+
+msgid "Size"
+msgstr "大小"
+
+msgid "Used"
+msgstr "已使用"
+
+msgid "Volume group"
+msgstr "磁碟群組"
+
+msgid "Volume groups"
+msgstr "磁碟群組"

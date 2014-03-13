@@ -1,0 +1,3 @@
+locale/ usr/share/javascript/extjs4
+resources/ usr/share/javascript/extjs4
+*.js usr/share/javascript/extjs4

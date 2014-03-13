@@ -1,0 +1,10 @@
+etc/openmediavault
+usr/share/openmediavault
+usr/share/php/openmediavault
+var/lib/openmediavault
+var/lib/openmediavault/cron.d
+var/www/openmediavault
+var/cache/openmediavault
+var/cache/openmediavault/archives
+var/log/openmediavault
+export

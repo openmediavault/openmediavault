@@ -1,0 +1,31 @@
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2014 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Set stripe_cache_size to 8192 to improve performance.
+#
+# Documentation:
+# http://linux.die.net/man/4/md
+# http://peterkieser.com/2009/11/29/raid-mdraid-stripe_cache_size-vs-write-transfer
+# http://www.cyberciti.biz/tips/linux-raid-increase-resync-rebuild-speed.html
+#
+# Test:
+# udevadm control --reload-rules
+# udevadm test /sys/block/mdX
+# cat /sys/block/mdX/md/stripe_cache_size
+SUBSYSTEM=="block", KERNEL=="md*", ACTION=="add|change", TEST=="md/stripe_cache_size", ATTR{md/stripe_cache_size}="8192"
