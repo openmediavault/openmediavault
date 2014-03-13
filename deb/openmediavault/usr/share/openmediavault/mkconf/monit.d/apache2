@@ -24,9 +24,9 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_MONIT_CONFIG=${OMV_MONIT_CONFIG:-"/etc/monit/monitrc"}
+OMV_MONIT_SERVICE_APACHE2_CONFIG=${OMV_MONIT_SERVICE_APACHE2_CONFIG:-"/etc/monit/conf.d/openmediavault-apache2.conf"}
 
-cat <<EOF >> ${OMV_MONIT_CONFIG}
+cat <<EOF > ${OMV_MONIT_SERVICE_APACHE2_CONFIG}
 check process apache2 with pidfile /var/run/apache2.pid
   start program = "/etc/init.d/apache2 start"
   stop program = "/etc/init.d/apache2 stop"
@@ -41,4 +41,4 @@ xmlstarlet sel -t -m "//system/email" \
 	-b \
   -b \
   -n \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_CONFIG}
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_SERVICE_APACHE2_CONFIG}

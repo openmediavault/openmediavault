@@ -140,6 +140,7 @@ case "$1" in
 			omv-mkconf cron-apt
 			omv-mkconf watchdog
 			omv-mkconf monit
+			omv-mkconf rrdcached
 		fi
 		omv-mkconf collectd
 
@@ -150,6 +151,7 @@ case "$1" in
 			echo "Restarting services ..."
 			invoke-rc.d cron restart
 			invoke-rc.d watchdog restart
+			invoke-rc.d rrdcached restart
 			invoke-rc.d collectd restart
 			invoke-rc.d apache2 graceful
 			invoke-rc.d monit restart
@@ -295,6 +297,31 @@ case "$1" in
 				  omv_config_add_element "/config/services/smart/monitor" "device" "${object}" true
 				  omv_config_delete "/config/system/storage/hdparm[uuid='${uuid}']/smart"
 			  done
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.6"; then
+			# Relocate RRD database files.
+			cp -r /var/lib/collectd/rrd/localhost /var/lib/rrdcached/db
+			# Convert database.
+			xmlstarlet sel -t -m "/config/system/fstab/mntent[contains(dir,'/home/ftp')]" \
+			  -v "uuid" \
+			  -i "position() != last()" -n -b \
+			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+			  while read uuid; do
+				  dir=$(omv_config_get "/config/system/fstab/mntent[uuid='${uuid}']/dir" | sed -e 's#^/home/ftp#/srv/ftp#i')
+				  omv_config_update "/config/system/fstab/mntent[uuid='${uuid}']/dir" "${dir}"
+				  mkdir -p "${dir}"
+			  done
+			# Add SMB/CIFS share option.
+			omv_config_add_element "/config/services/smb/shares/share" "audit" "0"
+			# Rebuild configuration files.
+			omv-mkconf collectd
+			omv-mkconf rrdcached
+			omv-mkconf monit
+			omv-mkconf proftpd
+			omv-mkconf fstab
+			# Restart services.
+			monit restart rrdcached
+			monit restart collectd
 		fi
 	;;
 

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-08 20:23+0100\n"
-"PO-Revision-Date: 2014-03-08 19:24+0000\n"
+"POT-Creation-Date: 2014-03-05 18:12+0100\n"
+"PO-Revision-Date: 2014-03-05 17:29+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -265,8 +265,8 @@ msgid "Afghanistan"
 msgstr "Afghanistan"
 
 msgid ""
-"After the RAID has been grown you can resize the containing file system."
-msgstr ""
+"After the RAID has been grown you can resize the containing filesystem."
+msgstr "Αφού μεγαλώσει το RAID, μπορεί να μεταβληθεί το μέγεθος του συστήματος αρχείων που περιέχει."
 
 msgid "Aland Islands"
 msgstr "Aland Islands"
@@ -600,8 +600,8 @@ msgstr "Καθαρισμός"
 msgid "Client"
 msgstr "Πελάτης"
 
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
+msgstr "Πελάτες που επιτρέπεται να προσαρτίσουν το σύστημα αρχείων, π.χ. 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Κλείσιμο"
@@ -695,14 +695,11 @@ msgstr "Δημιουργία"
 msgid "Create RAID device"
 msgstr "Δημιουργία RAID "
 
-msgid "Create file system"
-msgstr ""
+msgid "Create filesystem"
+msgstr "Δημιουργία συστήματος αρχείων"
 
 msgid "Create self-signed SSL certificate"
 msgstr "Δημιουργία πιστοποιητικού SSL"
-
-msgid "Creating the file system, please wait ..."
-msgstr ""
 
 msgid "Critical"
 msgstr "Σημαντικό"
@@ -764,11 +761,11 @@ msgstr "Διαγραφή"
 msgid "Delete content"
 msgstr "Διαγραφή περιεχομένων"
 
-msgid "Delete file system"
-msgstr ""
-
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Διαγραφή αρχείων του λήπτη που δεν υπάρχουν στον αποστολέα"
+
+msgid "Delete filesystem"
+msgstr "Διαγραφή συστήματος αρχείων"
 
 msgid "Deleting selected item(s)"
 msgstr "Διαγραφή επιλεγμένων"
@@ -865,16 +862,16 @@ msgstr "Να καθαριστεί το αρχείο καταγραφής;"
 msgid "Do you really want to create the RAID device?"
 msgstr "Να δημιουργηθεί η συσκευή RAID;"
 
-msgid "Do you really want to delete the file system? All data will be lost."
-msgstr ""
+msgid "Do you really want to delete the filesystem? All data will be lost."
+msgstr "Να διαγραφεί το σύστημα αρχείων; Όλα τα δεδομένα θα χαθούν."
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Να διαγραφούν τα επιλεγμένα;"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the file system creation may take some time."
-msgstr ""
+"Please note that the filesystem creation may take some time."
+msgstr "Να διαμορφωθεί η συσκευή; Όλα τα δεδομένα θα χαθούν. Η διαδικασία μπορεί να διαρκέσει αρκετή ώρα."
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Να εγκατασταθούν τα επιλεγμένα πρόσθετα;"
@@ -897,9 +894,9 @@ msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Να γίνει επαναφορά του γραφικού περιβάλλοντος;"
 
 msgid ""
-"Do you really want to resize the selected file system? You have to do that "
+"Do you really want to resize the selected filesystem? You have to do that "
 "after a RAID has been grown for example."
-msgstr ""
+msgstr "Να αλλαχθεί το μέγεθος του επιλεγμένου συστήματος αρχείων; Αυτό πρέπει να γίνει αν μεγαλώσει ένα RAID για παράδειγμα."
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Να γίνει τερματισμός του συστήματος;"
@@ -1181,6 +1178,11 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "Το FXP επιτρέπει την μεταφορά αρχείων ανάμεσα σε δύο διακομιστές, χωρίς τα δεδομένα να περνάνε από τον πελάτη που ζήτησε την μεταφορά."
 
+msgid ""
+"Failed to create filesystem. Please check the syslog or '%s' for more "
+"details."
+msgstr "Αποτυχία δημιουργίας συστήματος αρχείων. Περισσότερες λεπτομέρειες στην καταγραφή '%s'."
+
 msgid "Failed to get filesystems"
 msgstr "Αποτυχία λήψης συστημάτων αρχείων"
 
@@ -1223,12 +1225,6 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Αρχείο"
 
-msgid "File system"
-msgstr ""
-
-msgid "File systems"
-msgstr ""
-
 msgid "Filename"
 msgstr ""
 
@@ -1244,6 +1240,9 @@ msgstr "Αρχεία μεγαλύτερα από το προσδιορισμέν
 
 msgid "Filesize"
 msgstr ""
+
+msgid "Filesystem"
+msgstr "Σύστημα αρχείων"
 
 msgid "Filesystem '%s' not found"
 msgstr "Το σύστημα αρχείων '%s' δεν βρέθηκε"
@@ -1478,11 +1477,11 @@ msgstr "Αν ενεργοποιηθεί, τότε κάθε αποστολή θα
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
-"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
-"DOS attributes will be stored onto an extended attribute in the UNIX file "
-"system, associated with the file or directory."
-msgstr ""
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
+" before mapping DOS attributes to UNIX permission bits. When set, DOS "
+"attributes will be stored onto an extended attribute in the UNIX filesystem,"
+" associated with the file or directory."
+msgstr "Αν ενεργοποιηθεί αυτό, η Samba επιχειρεί πρώτα να διαβάσει τις DOS ιδιότητες (S/H/A/R) από ενα σύστημα αρχείων εκτεταμένων ιδιοτήτων, πριν αντιστοιχίσει τις DOS ιδιότητες σε καταχωρητές αδειών UNIX. Όταν ζητηθεί, οι DOS ιδιότητες θα αποθηκεύονται σε μία εκτεταμένη ιδιότητα στο σύστημα αρχείων UNIX, συσχετισμένο με το αρχείο ή τον φάκελο."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1582,8 +1581,8 @@ msgstr "Διεπαφές"
 msgid "Invalid domain name"
 msgstr "Άκυρο όνομα τομέα"
 
-msgid "Invalid file system label"
-msgstr ""
+msgid "Invalid filesystem label"
+msgstr "Άκυρη ετικέτα συστήματος αρχείων"
 
 msgid "Invalid group name"
 msgstr "Άκυρη ονομασία ομάδας"
@@ -2307,9 +2306,9 @@ msgid "Please wait ..."
 msgstr "Παρακαλώ περιμένετε ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a file "
-"system."
-msgstr ""
+"Please wait until the RAID has been initialized before creating a "
+"filesystem."
+msgstr "Αναμείνατε την αρχικοποίηση του RAID πριν την δημιουργία συστήματος αρχείων."
 
 msgid "Plugins"
 msgstr "Πρόσθετα"
@@ -2687,8 +2686,8 @@ msgstr "Επιλογή συσκευής ..."
 msgid "Select a directory"
 msgstr "Επιλογή καταλόγου"
 
-msgid "Select a file system ..."
-msgstr ""
+msgid "Select a filesystem ..."
+msgstr "Επιλογή συστήματος αρχείων ..."
 
 msgid "Select a group name..."
 msgstr "Επιλογή ονόματος ομάδας..."
@@ -3113,9 +3112,6 @@ msgstr "Το πεδίο '%s' περιέχει απαγορευμένο"
 msgid "The file mode of the shared folder path."
 msgstr "Η ιδιότητα αρχείου της διαδρομής διαμοιρασμού."
 
-msgid "The file system creation has completed successfully."
-msgstr ""
-
 msgid "The group '%s' does not exist"
 msgstr "Η ομάδα '%s' δεν υπάρχει"
 
@@ -3214,8 +3210,8 @@ msgstr "Ο χρήστης '%s' δεν υπάρχει"
 msgid "The user '%s' is not allowed"
 msgstr "Ο χρήστης '%s' δεν επιτρέπεται"
 
-msgid "The volume label for the file system."
-msgstr ""
+msgid "The volume label for the filesystem."
+msgstr "Η ετικέτα του τόμου για το σύστημα αρχείων."
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "

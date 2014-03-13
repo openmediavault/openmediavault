@@ -339,7 +339,7 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 			$meObject = array(
 				"uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
 				"fsname" => $sfPath,
-				"dir" => sprintf("/home/ftp/%s", $sfObject['name']),
+				"dir" => sprintf("/srv/ftp/%s", $sfObject['name']),
 				"type" => "none",
 				"opts" => "bind",
 				"freq" => 0,

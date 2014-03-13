@@ -23,9 +23,9 @@ set -e
 
 . /etc/default/openmediavault
 
-OMV_MONIT_CONFIG=${OMV_MONIT_CONFIG:-"/etc/monit/monitrc"}
+OMV_MONIT_SERVICE_OMVWEBGUI_CONFIG=${OMV_MONIT_SERVICE_OMVWEBGUI_CONFIG:-"/etc/monit/conf.d/openmediavault-webgui.conf"}
 
-cat <<EOF >> ${OMV_MONIT_CONFIG}
+cat <<EOF > ${OMV_MONIT_SERVICE_OMVWEBGUI_CONFIG}
 # Sometimes it happens that the file permission gets modified
 check file php-fcgi with path "/var/www/openmediavault/php-fcgi"
   if failed permission 700 then exec "/bin/chmod 700 /var/www/openmediavault/php-fcgi"

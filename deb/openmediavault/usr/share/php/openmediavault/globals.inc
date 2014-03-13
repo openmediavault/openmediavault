@@ -141,14 +141,14 @@ $GLOBALS['OMV_JSONSCHEMA_IPV4_NONE'] = '"type":"string","format":"regex","patter
 
 // Read the defaults file.
 if(posix_access($GLOBALS['OMV_DEFAULT_FILE'], POSIX_F_OK | POSIX_R_OK)) {
-	$lines = file($GLOBALS['OMV_DEFAULT_FILE']);
-	foreach($lines as $kline => $vline) {
-		if(1 == preg_match("/^(OMV_[A-Z0-9_]+)=(\")?([^\"]+)(\")?$/",
-		  trim($vline), $matches)) {
-			$GLOBALS[$matches[1]] = $matches[3];
-		}
-		unset($matches);
-	}
-	unset($lines);
+  $lines = file($GLOBALS['OMV_DEFAULT_FILE']);
+  foreach($lines as $kline => $vline) {
+    if(1 == preg_match("/^(OMV_[A-Z0-9_]+)=(\")?([^\"]+)(\")?$/",
+      trim($vline), $matches)) {
+      $GLOBALS[$matches[1]] = $matches[3];
+    }
+    unset($matches);
+  }
+  unset($lines);
 }
 ?>

@@ -24,12 +24,12 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_MONIT_CONFIG=${OMV_MONIT_CONFIG:-"/etc/monit/monitrc"}
+OMV_MONIT_SERVICE_FILESYSTEM_CONFIG=${OMV_MONIT_SERVICE_FILESYSTEM_CONFIG:-"/etc/monit/conf.d/openmediavault-filesystem.conf"}
 OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE=${OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE:-"80"}
 
 if [ "$(omv_config_get "//system/notification/notifications/monitfilesystems")" = "1" ]; then
 	# Monitor root filesystem.
-	cat <<EOF >> ${OMV_MONIT_CONFIG}
+	cat <<EOF > ${OMV_MONIT_SERVICE_FILESYSTEM_CONFIG}
 # Alert if disk space of root filesystem gets low
 check filesystem rootfs with path /
   if space usage > ${OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE}% for 5 times within 15 cycles
@@ -50,13 +50,12 @@ EOF
 		  # Generate a unique identifier.
 		  fscheckname=$(echo "fs${dir}" | tr "/" "_")
 		  progcheckname=$(echo "mp${dir}" | tr "/" "_")
-		  cat <<EOF >> ${OMV_MONIT_CONFIG}
+		  cat <<EOF >> ${OMV_MONIT_SERVICE_FILESYSTEM_CONFIG}
 # Alert if filesystem is missing or disk space gets low
 check filesystem ${fscheckname} with path ${dir}
   if space usage > ${OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE}% for 5 times within 15 cycles
 	then alert else if succeeded for 10 cycles then alert
-#Check requires monit 5.4 (included in Wheezy).
-#check program ${progcheckname} with path "mountpoint -q '${dir}'"
+#check program ${progcheckname} with path "/bin/mountpoint -q '${dir}'"
 #  if status == 1 then alert
 
 EOF

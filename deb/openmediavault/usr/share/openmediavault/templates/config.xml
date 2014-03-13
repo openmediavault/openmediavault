@@ -435,19 +435,20 @@
 					<sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
 					<name>xxx</name>
 					<comment>xxx</comment>
-					<guestok>0</guestok>
-					<readonly>0</readonly>
-					<browseable>1</browseable>
-					<recyclebin>0</recyclebin>
-					<recyclemaxsize>0</recyclemaxsize>
-					<recyclemaxage>0</recyclemaxage>
-					<hidedotfiles>1</hidedotfiles>
-					<inheritacls>1</inheritacls>
-					<inheritpermissions>0</inheritpermissions>
-					<easupport>0</easupport>
-					<storedosattributes>0</storedosattributes>
+					<guestok>0|1</guestok>
+					<readonly>0|1</readonly>
+					<browseable>0|1</browseable>
+					<recyclebin>0|1</recyclebin>
+					<recyclemaxsize>0|1</recyclemaxsize>
+					<recyclemaxage>0|1</recyclemaxage>
+					<hidedotfiles>0|1</hidedotfiles>
+					<inheritacls>0|1</inheritacls>
+					<inheritpermissions>0|1</inheritpermissions>
+					<easupport>0|1</easupport>
+					<storedosattributes>0|1</storedosattributes>
 					<hostsallow></hostsallow>
 					<hostsdeny></hostsdeny>
+					<audit>0|1</audit>
 					<extraoptions></extraoptions>
 				</share>
 				-->

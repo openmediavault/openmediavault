@@ -46,7 +46,7 @@ xmlstarlet sel -t \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_COLLECTD_CONFIG}
 
 # Process configured mount points and the rootfs (/dev/root).
-FILENAME=$(xmlstarlet sel -t \
+DIRNAME=$(xmlstarlet sel -t \
   -o "df-root " \
   -m "//system/fstab/mntent[not(contains(opts,'bind'))]" \
     -v "concat('df',translate(dir,'/','-'),' ')" \
@@ -58,19 +58,19 @@ COLOR_LINE_DF_FREE="#00cc00" # green
 COLOR_LINE_DF_USED="#ff0000" # red
 COLOR_AREA_DF_FREE="#b7efb7" # green
 COLOR_AREA_DF_USED="#f7b7b7" # red
-for filename in ${FILENAME}; do
-	[ ! -e "\${DATA}/df/\${filename}.rrd" ] && continue
+for dirname in ${DIRNAME}; do
+	[ ! -e "\${DATA}/\${dirname}" ] && continue
 EOF
 for ucperiod in HOUR DAY WEEK MONTH YEAR; do
 	lcperiod=$(echo ${ucperiod} | tr '[:upper:]' '[:lower:]')
 	cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
-	rrdtool graph \${IMGDIR}/\${filename}-${lcperiod}.png --start \${${ucperiod}START} \${DEFAULTS} --title "\${TITLE_DF}\${${ucperiod}TITLE}" --slope-mode --lower-limit 0 --vertical-label "Bytes" \
-	  DEF:favg=\${DATA}/df/\${filename}.rrd:free:AVERAGE \
-	  DEF:fmin=\${DATA}/df/\${filename}.rrd:free:MIN \
-	  DEF:fmax=\${DATA}/df/\${filename}.rrd:free:MAX \
-	  DEF:uavg=\${DATA}/df/\${filename}.rrd:used:AVERAGE \
-	  DEF:umin=\${DATA}/df/\${filename}.rrd:used:MIN \
-	  DEF:umax=\${DATA}/df/\${filename}.rrd:used:MAX \
+	rrdtool graph \${IMGDIR}/\${dirname}-${lcperiod}.png --start \${${ucperiod}START} \${DEFAULTS} --title "\${TITLE_DF}\${${ucperiod}TITLE}" --slope-mode --lower-limit 0 --vertical-label "Bytes" \
+	  DEF:favg=\${DATA}/\${dirname}/df_complex-free.rrd:value:AVERAGE \
+	  DEF:fmin=\${DATA}/\${dirname}/df_complex-free.rrd:value:MIN \
+	  DEF:fmax=\${DATA}/\${dirname}/df_complex-free.rrd:value:MAX \
+	  DEF:uavg=\${DATA}/\${dirname}/df_complex-used.rrd:value:AVERAGE \
+	  DEF:umin=\${DATA}/\${dirname}/df_complex-used.rrd:value:MIN \
+	  DEF:umax=\${DATA}/\${dirname}/df_complex-used.rrd:value:MAX \
 	  CDEF:sum=favg,uavg,+ \
 	  AREA:sum\${COLOR_AREA_DF_FREE} \
 	  AREA:uavg\${COLOR_AREA_DF_USED} \

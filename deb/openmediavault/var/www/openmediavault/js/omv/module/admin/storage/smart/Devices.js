@@ -167,9 +167,9 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 		dataIndex: "attrname",
 		stateId: "attrname"
 	},{
-		text: _("Flag"),
-		dataIndex: "flag",
-		stateId: "flag",
+		text: _("Flags"),
+		dataIndex: "flags",
+		stateId: "flags",
 		width: 60,
 		resizable: false,
 		align: "center"
@@ -195,18 +195,6 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 		resizable: false,
 		align: "center"
 	},{
-		text: _("Type"),
-		dataIndex: "type",
-		stateId: "type",
-		align: "center"
-	},{
-		text: _("Updated"),
-		dataIndex: "updated",
-		stateId: "updated",
-		width: 60,
-		resizable: false,
-		align: "center"
-	},{
 		text: _("When failed"),
 		dataIndex: "whenfailed",
 		stateId: "whenfailed",
@@ -225,16 +213,14 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 				model: OMV.data.Model.createImplicit({
 					idProperty: "id",
 					fields: [
-						{ name: "id" },
-						{ name: "attrname" },
-						{ name: "flag" },
-						{ name: "value" },
-						{ name: "worst" },
-						{ name: "treshold" },
-						{ name: "type" },
-						{ name: "updated" },
-						{ name: "whenfailed" },
-						{ name: "rawvalue" }
+						{ name: "id", type: "string" },
+						{ name: "attrname", type: "string" },
+						{ name: "flags", type: "string" },
+						{ name: "value", type: "string" },
+						{ name: "worst", type: "string" },
+						{ name: "treshold", type: "string" },
+						{ name: "whenfailed", type: "string" },
+						{ name: "rawvalue", type: "string" }
 					]
 				}),
 				proxy: {

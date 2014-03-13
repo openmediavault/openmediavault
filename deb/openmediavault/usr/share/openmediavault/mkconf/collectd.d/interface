@@ -56,18 +56,18 @@ cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
 COLOR_INTERFACE_INCOMING="#00cc00" # green
 COLOR_INTERFACE_OUTGOING="#ff0000" # red
 for devicename in ${IFACE}; do
-	[ ! -e "\${DATA}/interface/if_octets-\${devicename}.rrd" ] && continue
+	[ ! -e "\${DATA}/interface-\${devicename}/if_octets.rrd" ] && continue
 EOF
 	for ucperiod in HOUR DAY WEEK MONTH YEAR; do
 		lcperiod=$(echo ${ucperiod} | tr '[:upper:]' '[:lower:]')
 		cat <<EOF >> ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
 	rrdtool graph \${IMGDIR}/interface-\${devicename}-${lcperiod}.png --start \${${ucperiod}START} \${DEFAULTS} --title "\${devicename} traffic\${${ucperiod}TITLE}" --slope-mode --lower-limit 0 --vertical-label "Bits/s" \
-	  DEF:oavgraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:AVERAGE \
-	  DEF:ominraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:MIN \
-	  DEF:omaxraw=\${DATA}/interface/if_octets-\${devicename}.rrd:tx:MAX \
-	  DEF:iavgraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:AVERAGE \
-	  DEF:iminraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:MIN \
-	  DEF:imaxraw=\${DATA}/interface/if_octets-\${devicename}.rrd:rx:MAX \
+	  DEF:oavgraw=\${DATA}/interface-\${devicename}/if_octets.rrd:tx:AVERAGE \
+	  DEF:ominraw=\${DATA}/interface-\${devicename}/if_octets.rrd:tx:MIN \
+	  DEF:omaxraw=\${DATA}/interface-\${devicename}/if_octets.rrd:tx:MAX \
+	  DEF:iavgraw=\${DATA}/interface-\${devicename}/if_octets.rrd:rx:AVERAGE \
+	  DEF:iminraw=\${DATA}/interface-\${devicename}/if_octets.rrd:rx:MIN \
+	  DEF:imaxraw=\${DATA}/interface-\${devicename}/if_octets.rrd:rx:MAX \
 	  CDEF:oavg=oavgraw,8,* \
 	  CDEF:omin=ominraw,8,* \
 	  CDEF:omax=omaxraw,8,* \

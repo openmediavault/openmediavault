@@ -1,6 +1,13 @@
+openmediavault (0.6) stable; urgency=low
+
+  * Adapt to Debian Wheezy.
+  * Use rrdcached to reduce disk I/O of collectd.
+  * Add ability to audit SMB/CIFS file operations per share.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Nov 2013 19:41:31 +0100
+
 openmediavault (0.5.40) stable; urgency=low
 
-  * Update locales.
   * Various code improvements.
   * Mantis 0001003: Typo in filesystemmgmt.inc.
 

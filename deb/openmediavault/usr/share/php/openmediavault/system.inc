@@ -2462,30 +2462,6 @@ class OMVATASMARTInformation extends OMVObject {
 			return FALSE;
 		$result = array();
 		foreach($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
-			// smartctl 5.40 2010-07-12 r3124
-			// SMART Attributes Data Structure
-			// Parse command output:
-			// ID# ATTRIBUTE_NAME          FLAG     VALUE WORST THRESH TYPE      UPDATED  WHEN_FAILED RAW_VALUE
-			//   1 Raw_Read_Error_Rate     0x000b   100   100   016    Pre-fail  Always       -       0
-			//   8 Seek_Time_Performance   0x0005   100   100   020    Pre-fail  Offline      -       0
-			// 194 Temperature_Celsius     0x0002   139   139   000    Old_age   Always       -       43 (Lifetime Min/Max 16/61)
-			$regex = '/^\s*(\d+)\s+(\S+)\s+(0x[0-9a-f]+)\s+(\d+)\s+(\d+)\s+'.
-			  '(\d+)\s+(\S+)\s+(\S+)\s+(\S+)\s+(.+)$/i';
-			if(1 == preg_match($regex, $cmdOutputv, $matches)) {
-				$result[] = array(
-					"id" => $matches[1],
-					"attrname" => $matches[2],
-					"flag" => $matches[3],
-					"value" => $matches[4],
-					"worst" => $matches[5],
-					"treshold" => $matches[6],
-					"type" => $matches[7],
-					"updated" => $matches[8],
-					"whenfailed" => $matches[9],
-					"rawvalue" => $matches[10]
-				);
-				continue;
-			}
 			// smartctl 5.41 2011-06-09 r3365
 			// SMART Attributes Data Structure revision number: 16
 			// Vendor Specific SMART Attributes with Thresholds:
@@ -2502,12 +2478,10 @@ class OMVATASMARTInformation extends OMVObject {
 				$result[] = array(
 					"id" => $matches[1],
 					"attrname" => $matches[2],
-					"flag" => $matches[3],
+					"flags" => $matches[3],
 					"value" => $matches[4],
 					"worst" => $matches[5],
 					"treshold" => $matches[6],
-					"type" => "",
-					"updated" => "",
 					"whenfailed" => $matches[7],
 					"rawvalue" => $matches[8]
 				);

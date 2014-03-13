@@ -24,12 +24,12 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_MONIT_SERVICE_COLLECTD_CONFIG=${OMV_MONIT_SERVICE_COLLECTD_CONFIG:-"/etc/monit/conf.d/openmediavault-collectd.conf"}
+OMV_MONIT_SERVICE_RRDCACHED_CONFIG=${OMV_MONIT_SERVICE_RRDCACHED_CONFIG:-"/etc/monit/conf.d/openmediavault-rrdcached.conf"}
 
-cat <<EOF > ${OMV_MONIT_SERVICE_COLLECTD_CONFIG}
-check process collectd with pidfile /var/run/collectd.pid
-  start program = "/etc/init.d/collectd start"
-  stop program = "/etc/init.d/collectd stop"
+cat <<EOF > ${OMV_MONIT_SERVICE_RRDCACHED_CONFIG}
+check process rrdcached with pidfile /var/run/rrdcached.pid
+  start program = "/etc/init.d/rrdcached start"
+  stop program = "/etc/init.d/rrdcached stop"
   mode manual
 EOF
 
@@ -41,4 +41,4 @@ xmlstarlet sel -t -m "//system/email" \
 	-b \
   -b \
   -n \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_SERVICE_COLLECTD_CONFIG}
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_SERVICE_RRDCACHED_CONFIG}

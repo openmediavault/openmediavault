@@ -1,0 +1,68 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2014 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_RRDCACHED_DEFAULT=${OMV_RRDCACHED_DEFAULT:-"/etc/default/rrdcached"}
+OMV_RRDCACHED_SOCKETFILE=${OMV_RRDCACHED_SOCKETFILE:-"/var/run/rrdcached.sock"}
+OMV_RRDCACHED_JOURNALDIR=${OMV_RRDCACHED_JOURNALDIR:-"/var/lib/rrdcached/journal/"}
+OMV_RRDCACHED_BASEDIR=${OMV_RRDCACHED_BASEDIR:-"/var/lib/rrdcached/db/"}
+OMV_RRDCACHED_WRITEINTERVAL=${OMV_RRDCACHED_WRITEINTERVAL:-"600"}
+OMV_RRDCACHED_FLUSHINTERVAL=${OMV_RRDCACHED_FLUSHINTERVAL:-"3600"}
+OMV_RRDCACHED_DISABLE=${OMV_RRDCACHED_DISABLE:-"0"}
+OMV_RRDCACHED_OPTS=${OMV_RRDCACHED_OPTS:-"-l unix:${OMV_RRDCACHED_SOCKETFILE} -j ${OMV_RRDCACHED_JOURNALDIR} -F -b ${OMV_RRDCACHED_BASEDIR} -B -w ${OMV_RRDCACHED_WRITEINTERVAL} -f ${OMV_RRDCACHED_FLUSHINTERVAL}"}
+OMV_RRDCACHED_MAXWAIT=${OMV_RRDCACHED_MAXWAIT:-"30"}
+OMV_RRDCACHED_ENABLECOREFILES=${OMV_RRDCACHED_ENABLECOREFILES:-"0"}
+
+mkconf() {
+	# Create '/etc/default/rrdcached' file
+	cat <<EOF > ${OMV_RRDCACHED_DEFAULT}
+# /etc/default/rrdcached
+
+# 0: start rrdcached on boot, 1: do not start rrdcached on boot
+# default: 0
+DISABLE=${OMV_RRDCACHED_DISABLE}
+
+# options to be passed to rrdcached
+# (do not specify -p <pidfile> - this is handled by the init script)
+# default: see /etc/init.d/rrdcached
+OPTS="${OMV_RRDCACHED_OPTS}"
+
+# number of seconds to wait for rrdcached to shut down
+# (writing the data to disk may take some time;
+# tune this according to your setup)
+# default: 30
+MAXWAIT=${OMV_RRDCACHED_MAXWAIT}
+
+# 0: do not enable core-files, 1: enable core-files ... if rrdcached crashes
+# default: 0
+ENABLE_COREFILES=${OMV_RRDCACHED_ENABLECOREFILES}
+EOF
+}
+
+case "$1" in
+	mkconf|*)
+		mkconf
+		;;
+esac

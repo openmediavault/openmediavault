@@ -47,27 +47,30 @@ OMV_MONIT_CONFIG=${OMV_MONIT_CONFIG:-"/etc/monit/monitrc"}
 OMV_MONIT_DEFAULT=${OMV_MONIT_DEFAULT:-"/etc/default/monit"}
 OMV_MONIT_CHECK_INTERVAL=${OMV_MONIT_CHECK_INTERVAL:-"30"}
 OMV_MONIT_LOGFILE=${OMV_MONIT_LOGFILE:-"syslog facility log_daemon"}
+OMV_MONIT_IDFILE=${OMV_MONIT_IDFILE:-"/var/lib/monit/id"}
 OMV_MONIT_STATEFILE=${OMV_MONIT_STATEFILE:-"/var/lib/monit/state"}
 OMV_MONIT_PORT=${OMV_MONIT_PORT:-"2812"}
-OMV_MONIT_EVENTQUEUE_BASEDIR=${OMV_MONIT_EVENTQUEUE_BASEDIR:-"/var/spool/monit"}
+OMV_MONIT_EVENTQUEUE_BASEDIR=${OMV_MONIT_EVENTQUEUE_BASEDIR:-"/var/lib/monit/events"}
 OMV_MONIT_EVENTQUEUE_SLOTS=${OMV_MONIT_EVENTQUEUE_SLOTS:-"100"}
 OMV_MONIT_EMAIL_ALERT_NOTEVENTS=${OMV_MONIT_EMAIL_ALERT_NOTEVENTS:-"action, instance"}
 OMV_MONIT_EMAIL_TIMEOUT=${OMV_MONIT_EMAIL_TIMEOUT:-"5"}
 OMV_MONIT_EXTENSIONS_DIR=${OMV_MONIT_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/monit.d"}
+OMV_MONIT_DELAY_SECONDS=${OMV_MONIT_DELAY_SECONDS:-"60"}
 
 # Make sure used directories exists
 mkdir -p ${OMV_MONIT_EVENTQUEUE_BASEDIR}
 
 # /etc/default/monit
 cat > ${OMV_MONIT_DEFAULT} <<EOF
-# Defaults for monit initscript
-startup=1
+# You must set this variable to yes for monit to start
+START=yes
 EOF
 
 # /etc/monit/monitrc
 cat > ${OMV_MONIT_CONFIG} <<EOF
-set daemon ${OMV_MONIT_CHECK_INTERVAL}
+set daemon ${OMV_MONIT_CHECK_INTERVAL} with start delay ${OMV_MONIT_DELAY_SECONDS}
 set logfile ${OMV_MONIT_LOGFILE}
+set idfile ${OMV_MONIT_IDFILE}
 set statefile ${OMV_MONIT_STATEFILE}
 set httpd port ${OMV_MONIT_PORT} and
   use address localhost  # only accept connection from localhost
@@ -90,3 +93,8 @@ xmlstarlet sel -t -m "//system/email" \
 
 # Create the service configuration files.
 run-parts ${OMV_MONIT_EXTENSIONS_DIR}
+
+# Include custom config files.
+cat <<EOF >> ${OMV_MONIT_CONFIG}
+include /etc/monit/conf.d/*
+EOF

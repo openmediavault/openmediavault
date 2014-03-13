@@ -32,7 +32,7 @@
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_COLLECTD_RRDTOOL_DATADIR=${OMV_COLLECTD_RRDTOOL_DATADIR:-"/var/lib/collectd/rrd"}
+OMV_RRDCACHED_BASEDIR=${OMV_RRDCACHED_BASEDIR:-"/var/lib/rrdcached/db/"}
 OMV_FIRSTAID_DIALOG=${OMV_FIRSTAID_DIALOG:-"whiptail"}
 
 configure_iface() {
@@ -319,11 +319,11 @@ fix_rrd_database()
 {
 	local invalid dirname basename tsLast tsNow
 	echo "Checking all RRD files. Please wait ..."
-	# Stopping collectd daemon.
-	monit stop collectd
+	# Stopping rrdcached daemon.
+	monit stop rrdcached
 	# Check RRD database files for invalid timestamps.
 	invalid=0
-	find "${OMV_COLLECTD_RRDTOOL_DATADIR}/localhost/" -name "*.rrd" -print | \
+	find "${OMV_RRDCACHED_BASEDIR}/localhost/" -name "*.rrd" -print | \
 	  while read filename; do
 		  tsLast=$(rrdtool last "${filename}")
 		  tsNow=$(date '+%s')
@@ -339,8 +339,8 @@ fix_rrd_database()
 	  done
 	# Display message if RRD databases are all valid.
 	[ "${invalid}" -eq 0 ] && echo "All RRD database files are valid."
-	# Starting collectd daemon.
-	monit start collectd
+	# Starting rrdcached daemon.
+	monit start rrdcached
 	return 0
 }
 

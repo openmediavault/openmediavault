@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-08 20:23+0100\n"
+"POT-Creation-Date: 2014-03-05 18:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -260,7 +260,7 @@ msgstr ""
 msgid "Afghanistan"
 msgstr ""
 
-msgid "After the RAID has been grown you can resize the containing file system."
+msgid "After the RAID has been grown you can resize the containing filesystem."
 msgstr ""
 
 msgid "Aland Islands"
@@ -587,7 +587,7 @@ msgstr ""
 msgid "Client"
 msgstr ""
 
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
+msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
 msgstr ""
 
 msgid "Close"
@@ -677,13 +677,10 @@ msgstr ""
 msgid "Create RAID device"
 msgstr ""
 
-msgid "Create file system"
+msgid "Create filesystem"
 msgstr ""
 
 msgid "Create self-signed SSL certificate"
-msgstr ""
-
-msgid "Creating the file system, please wait ..."
 msgstr ""
 
 msgid "Critical"
@@ -746,10 +743,10 @@ msgstr ""
 msgid "Delete content"
 msgstr ""
 
-msgid "Delete file system"
+msgid "Delete files on the receiving side that don't exist on sender"
 msgstr ""
 
-msgid "Delete files on the receiving side that don't exist on sender"
+msgid "Delete filesystem"
 msgstr ""
 
 msgid "Deleting selected item(s)"
@@ -842,13 +839,13 @@ msgstr ""
 msgid "Do you really want to create the RAID device?"
 msgstr ""
 
-msgid "Do you really want to delete the file system? All data will be lost."
+msgid "Do you really want to delete the filesystem? All data will be lost."
 msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr ""
 
-msgid "Do you really want to format this device? All data on it will be deleted. Please note that the file system creation may take some time."
+msgid "Do you really want to format this device? All data on it will be deleted. Please note that the filesystem creation may take some time."
 msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
@@ -869,7 +866,7 @@ msgstr ""
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr ""
 
-msgid "Do you really want to resize the selected file system? You have to do that after a RAID has been grown for example."
+msgid "Do you really want to resize the selected filesystem? You have to do that after a RAID has been grown for example."
 msgstr ""
 
 msgid "Do you really want to shutdown the system?"
@@ -1139,6 +1136,9 @@ msgstr ""
 msgid "FXP allows transfers between two remote servers without any file data going to the client asking for the transfer."
 msgstr ""
 
+msgid "Failed to create filesystem. Please check the syslog or '%s' for more details."
+msgstr ""
+
 msgid "Failed to get filesystems"
 msgstr ""
 
@@ -1181,12 +1181,6 @@ msgstr ""
 msgid "File"
 msgstr ""
 
-msgid "File system"
-msgstr ""
-
-msgid "File systems"
-msgstr ""
-
 msgid "Filename"
 msgstr ""
 
@@ -1197,6 +1191,9 @@ msgid "Files that are larger than the specified number of bytes will not be put 
 msgstr ""
 
 msgid "Filesize"
+msgstr ""
+
+msgid "Filesystem"
 msgstr ""
 
 msgid "Filesystem '%s' not found"
@@ -1424,7 +1421,7 @@ msgstr ""
 msgid "If this option is set, then any attempted uploads will fail."
 msgstr ""
 
-msgid "If this parameter is set, Samba attempts to first read DOS attributes (SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended attribute, before mapping DOS attributes to UNIX permission bits. When set, DOS attributes will be stored onto an extended attribute in the UNIX file system, associated with the file or directory."
+msgid "If this parameter is set, Samba attempts to first read DOS attributes (SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute, before mapping DOS attributes to UNIX permission bits. When set, DOS attributes will be stored onto an extended attribute in the UNIX filesystem, associated with the file or directory."
 msgstr ""
 
 msgid "If this parameter is set, then users may not create or modify files in the share."
@@ -1511,7 +1508,7 @@ msgstr ""
 msgid "Invalid domain name"
 msgstr ""
 
-msgid "Invalid file system label"
+msgid "Invalid filesystem label"
 msgstr ""
 
 msgid "Invalid group name"
@@ -2207,7 +2204,7 @@ msgstr ""
 msgid "Please wait ..."
 msgstr ""
 
-msgid "Please wait until the RAID has been initialized before creating a file system."
+msgid "Please wait until the RAID has been initialized before creating a filesystem."
 msgstr ""
 
 msgid "Plugins"
@@ -2570,7 +2567,7 @@ msgstr ""
 msgid "Select a directory"
 msgstr ""
 
-msgid "Select a file system ..."
+msgid "Select a filesystem ..."
 msgstr ""
 
 msgid "Select a group name..."
@@ -2975,9 +2972,6 @@ msgstr ""
 msgid "The file mode of the shared folder path."
 msgstr ""
 
-msgid "The file system creation has completed successfully."
-msgstr ""
-
 msgid "The group '%s' does not exist"
 msgstr ""
 
@@ -3057,7 +3051,7 @@ msgstr ""
 msgid "The user '%s' is not allowed"
 msgstr ""
 
-msgid "The volume label for the file system."
+msgid "The volume label for the filesystem."
 msgstr ""
 
 msgid "The welcome message which will be displayed to the user when they initially login."

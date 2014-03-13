@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-08 20:23+0100\n"
-"PO-Revision-Date: 2014-03-08 20:26+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"POT-Creation-Date: 2014-03-05 18:12+0100\n"
+"PO-Revision-Date: 2014-03-05 17:29+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -172,7 +172,7 @@ msgid "About"
 msgstr "Acerca"
 
 msgid "Access Right Management"
-msgstr "Permisos"
+msgstr "Administración de permisos de acceso"
 
 msgid "Access Rights Management"
 msgstr "Administración de permisos de acceso"
@@ -268,7 +268,7 @@ msgid "Afghanistan"
 msgstr "Afganistán"
 
 msgid ""
-"After the RAID has been grown you can resize the containing file system."
+"After the RAID has been grown you can resize the containing filesystem."
 msgstr "Después de que el RAID haya crecido, puede redimensionar el sistema de archivos."
 
 msgid "Aland Islands"
@@ -603,8 +603,8 @@ msgstr "Limpiar"
 msgid "Client"
 msgstr "Cliente"
 
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "Clientes a los que se permite montar el sistema de Archivos, Ej: 192.168.178.0/24"
+msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
+msgstr "Clientes a los que se permite montar el sistema de archivos, p.ej: 192.168.178.0/24"
 
 msgid "Close"
 msgstr "Cerrar"
@@ -698,14 +698,11 @@ msgstr "Crear"
 msgid "Create RAID device"
 msgstr "Crear un RAID"
 
-msgid "Create file system"
+msgid "Create filesystem"
 msgstr "Crear un sistema de archivos"
 
 msgid "Create self-signed SSL certificate"
 msgstr "Crear un certificado SSL autofirmado"
-
-msgid "Creating the file system, please wait ..."
-msgstr "Creando el sistema de Archivos, Espere ..."
 
 msgid "Critical"
 msgstr "Crítico"
@@ -767,11 +764,11 @@ msgstr "Borrar"
 msgid "Delete content"
 msgstr "Borrar contenido"
 
-msgid "Delete file system"
-msgstr "Borrar un sistema de archivos"
-
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Borrar archivos en la parte receptora que no existan en la parte emisora."
+
+msgid "Delete filesystem"
+msgstr "Borrar un sistema de archivos"
 
 msgid "Deleting selected item(s)"
 msgstr "Borrar elementos selecionado(s)"
@@ -827,7 +824,7 @@ msgid "Device model"
 msgstr "Modelo del dispositivo"
 
 msgid "Device properties"
-msgstr "Propiedades del dispositivo"
+msgstr ""
 
 msgid "Devices"
 msgstr "Dispositivos"
@@ -868,7 +865,7 @@ msgstr "¿Realmente desea borrar el archivo de log?"
 msgid "Do you really want to create the RAID device?"
 msgstr "¿Realmente desea crear un RAID?"
 
-msgid "Do you really want to delete the file system? All data will be lost."
+msgid "Do you really want to delete the filesystem? All data will be lost."
 msgstr "¿Realmente desea borrar el sistema de archivos?. Todos los datos serán borrados"
 
 msgid "Do you really want to delete the selected item(s)?"
@@ -876,8 +873,8 @@ msgstr "¿Realmente desea borrar los elementos seleccionados?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the file system creation may take some time."
-msgstr "¿Realmente desea formatear el dispositivo?, recuerde que la creacción del sistema de archivos lleva un tiempo."
+"Please note that the filesystem creation may take some time."
+msgstr "¿Realmente desea formatear el dispositivo?. Se borrarán todos los datos. Recuerde que la creacción del sistema de archivos puede tardar bastante tiempo."
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "¿Realmente desea instalar el plugin selecionado?"
@@ -900,9 +897,9 @@ msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "¿Seguro que desea reiniciar la WebGUI?, Ej: el orden de las columnas"
 
 msgid ""
-"Do you really want to resize the selected file system? You have to do that "
+"Do you really want to resize the selected filesystem? You have to do that "
 "after a RAID has been grown for example."
-msgstr "¿Realmente desea redimensionar el sistema de archivos?\nDebe hacerlo despues de haber crecido el RAID que lo contiene"
+msgstr "¿Realmente desea redimensionar el sistema de archivos?\nDebe hacerlo después de haber crecido el RAID que lo contiene"
 
 msgid "Do you really want to shutdown the system?"
 msgstr "¿Realmente desea apagar el equipo?"
@@ -1184,6 +1181,11 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP permite transferencias de archivos entre dos servidores remotos sin pasar por el cliente que ejecuta la transferencia."
 
+msgid ""
+"Failed to create filesystem. Please check the syslog or '%s' for more "
+"details."
+msgstr "No se puedo crear el sistema de archivos. Por favor, revise el syslog o '%s' para más detalles."
+
 msgid "Failed to get filesystems"
 msgstr "Falló al obtener los sistemas de archivos"
 
@@ -1226,12 +1228,6 @@ msgstr "Fidji"
 msgid "File"
 msgstr "Archivo"
 
-msgid "File system"
-msgstr "Sistema de Archivos"
-
-msgid "File systems"
-msgstr "Sitemas de Archivos"
-
 msgid "Filename"
 msgstr "Nombre de archivo"
 
@@ -1247,6 +1243,9 @@ msgstr "Archivos de un tamaño superior al nº especificado de bytes, no serán 
 
 msgid "Filesize"
 msgstr "Tamaño del archivo"
+
+msgid "Filesystem"
+msgstr "Sistema de archivos"
 
 msgid "Filesystem '%s' not found"
 msgstr "Sistema de archivos '%s' no encontrado"
@@ -1481,11 +1480,11 @@ msgstr "Si se marca esta opción, cualquier intento de subida fallará."
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
-"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
-"DOS attributes will be stored onto an extended attribute in the UNIX file "
-"system, associated with the file or directory."
-msgstr "Si se activa este parámetro, Samba intenta primero leer los atributos DOS (SYSTEM, HIDDEN, ARCHIVE o READ-ONLY) desde un atributo extendido del sistema de archivos, antes de traducir los atributos DOS a patrón de bits UNIX. Si está activo, los atributos DOS se almacenarán en un atributo extendido del sistema de ficheros UNIX, asociándolos a la carpeta o archivo."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
+" before mapping DOS attributes to UNIX permission bits. When set, DOS "
+"attributes will be stored onto an extended attribute in the UNIX filesystem,"
+" associated with the file or directory."
+msgstr "Si se activa este parámetro, Samba intenta primero leer los atributos DOS (SYSTEM, HIDDEN, ARCHIVE o READ-ONLY) desde un atributo extendido del sistema de archivos, antes de traducir los atributos DOS a patrón de bits UNIX. Si está activo, los atributos DOS se almacenarán en un atributo extendido del sistema de archivos UNIX, asociándolos a la carpeta o archivo."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1585,8 +1584,8 @@ msgstr "Interfaces"
 msgid "Invalid domain name"
 msgstr "Nombre de dominio inválido"
 
-msgid "Invalid file system label"
-msgstr "Etiqueta de sistema de Archivos inválida."
+msgid "Invalid filesystem label"
+msgstr "Etiqueta de sistema de archivos inválida."
 
 msgid "Invalid group name"
 msgstr "Nombre de grupo inválido"
@@ -1955,7 +1954,7 @@ msgid "Mongolia"
 msgstr "Mongolia"
 
 msgid "Monitor"
-msgstr "Monitor"
+msgstr ""
 
 msgid "Monitoring"
 msgstr "Monitorizar"
@@ -2249,7 +2248,7 @@ msgid "Physical Disks"
 msgstr "Discos físicos"
 
 msgid "Physical disk properties"
-msgstr "Propiedades del disco"
+msgstr ""
 
 msgid "Pitcairn"
 msgstr "Isla Pitcairn"
@@ -2310,8 +2309,8 @@ msgid "Please wait ..."
 msgstr "Por favor espere ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a file "
-"system."
+"Please wait until the RAID has been initialized before creating a "
+"filesystem."
 msgstr "Por favor espere a que el RAID sea inicializado, antes de crear un sistema de archivos."
 
 msgid "Plugins"
@@ -2535,7 +2534,7 @@ msgstr "Reiniciar el estado de la WebGUI"
 msgid ""
 "Reset WebGUI state will restore default settings of grid columns for "
 "example."
-msgstr "Reiniciar el estado de la WebGUI restaurará a su valor por defecto el ancho de las columnas entre otras cosas."
+msgstr ""
 
 msgid "Resize"
 msgstr "Redimensionar"
@@ -2690,7 +2689,7 @@ msgstr "Seleccionar un dispositivo ..."
 msgid "Select a directory"
 msgstr "Seleccione un directorio"
 
-msgid "Select a file system ..."
+msgid "Select a filesystem ..."
 msgstr "Seleccionar un sistema de archivos ..."
 
 msgid "Select a group name..."
@@ -3116,9 +3115,6 @@ msgstr "El campo '%s' contiene elementos prohibidos:"
 msgid "The file mode of the shared folder path."
 msgstr "Modo de archivo de la ruta a las carpetas compartidas."
 
-msgid "The file system creation has completed successfully."
-msgstr "Se ha creado satisfactoriamente el sistema de archivos."
-
 msgid "The group '%s' does not exist"
 msgstr "El grupo '%s' no existe"
 
@@ -3217,7 +3213,7 @@ msgstr "El usuario '%s' no existe"
 msgid "The user '%s' is not allowed"
 msgstr "El usuario '%s' no está permitido"
 
-msgid "The volume label for the file system."
+msgid "The volume label for the filesystem."
 msgstr "Etiqueta del volumen para el sistema de archivos."
 
 msgid ""

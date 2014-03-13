@@ -203,6 +203,7 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 			$objectv['easupport'] = boolval($objectv['easupport']);
 			$objectv['storedosattributes'] = boolval(
 			  $objectv['storedosattributes']);
+			$objectv['audit'] = boolval($objectv['audit']);
 			// Get the shared folder configuration object.
 			$sfobject = $xmlConfig->get("//system/shares/sharedfolder[" .
 			  "uuid='{$objectv['sharedfolderref']}']");
@@ -256,6 +257,7 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 		$object['inheritpermissions'] = boolval($object['inheritpermissions']);
 		$object['easupport'] = boolval($object['easupport']);
 		$object['storedosattributes'] = boolval($object['storedosattributes']);
+		$object['audit'] = boolval($object['audit']);
 		return $object;
 	}
 
@@ -294,6 +296,7 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 				  "storedosattributes":{"type":"boolean"},
 				  "hostsallow":{"type":"string"},
 				  "hostsdeny":{"type":"string"},
+				  "audit":{"type":"boolean"},
 				  "extraoptions":{"type":"string"}
 			  }
 		  }');
@@ -319,6 +322,7 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 			  'storedosattributes'),
 			"hostsallow" => $params['hostsallow'],
 			"hostsdeny" => $params['hostsdeny'],
+			"audit" => array_boolval($params, 'audit'),
 			"extraoptions" => $params['extraoptions']
 		);
 		// Set the configuration object.

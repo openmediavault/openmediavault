@@ -218,6 +218,12 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 				text: _("This option is a comma, space, or tab delimited set of host which are NOT permitted to access this share. Where the lists conflict, the allow list takes precedence. In the event that it is necessary to deny all by default, use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify to the hosts allow parameter those hosts that should be permitted access. Leave this field empty to use default settings.")
 			}]
 		},{
+			xtype: "checkbox",
+			name: "audit",
+			fieldLabel: _("Audit"),
+			checked: false,
+			boxLabel: _("Audit file operations.")
+		},{
 			xtype: "textarea",
 			name: "extraoptions",
 			fieldLabel: _("Extra options"),

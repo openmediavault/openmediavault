@@ -46,6 +46,11 @@ OMV_SAMBA_SHARE_CREATEMASK=${OMV_SAMBA_SHARE_CREATEMASK:-"0755"}
 OMV_SAMBA_SHARE_FORCECREATEMODE=${OMV_SAMBA_SHARE_FORCECREATEMODE:-"0644"}
 OMV_SAMBA_SHARE_DIRECTORYMASK=${OMV_SAMBA_SHARE_DIRECTORYMASK:-"0755"}
 OMV_SAMBA_SHARE_FORCEDIRECTORYMODE=${OMV_SAMBA_SHARE_FORCEDIRECTORYMODE:-"0755"}
+OMV_SAMBA_SHARE_AUDIT_PREFIX=${OMV_SAMBA_SHARE_AUDIT_PREFIX:-"%u|%I|%m|%P|%S"}
+OMV_SAMBA_SHARE_AUDIT_SUCCESS=${OMV_SAMBA_SHARE_AUDIT_SUCCESS:-"mkdir rename unlink rmdir pwrite"}
+OMV_SAMBA_SHARE_AUDIT_FAILURE=${OMV_SAMBA_SHARE_AUDIT_FAILURE:-"none"}
+OMV_SAMBA_SHARE_AUDIT_FACILITY=${OMV_SAMBA_SHARE_AUDIT_FACILITY:-"local7"}
+OMV_SAMBA_SHARE_AUDIT_PRIORITY=${OMV_SAMBA_SHARE_AUDIT_PRIORITY:-"NOTICE"}
 
 [ "$(omv_config_get "//services/smb/enable")" = "0" ] && exit 0
 
@@ -74,8 +79,13 @@ while [ ${index} -gt 0 ]; do
 	  -i "easupport[. = '1']" -o "ea support = yes" -n -b \
 	  -i "storedosattributes[. = '0']" -o "store dos attributes = no" -n -b \
 	  -i "storedosattributes[. = '1']" -o "store dos attributes = yes" -n -b \
+	  -i "recyclebin[. = '1']" -o -i "audit[. = '1']" \
+		  -o "vfs objects =" \
+		  -i "recyclebin[. = '1']" -o " recycle" -b \
+		  -i "audit[. = '1']" -o " full_audit" -b \
+		  -n \
+	  -b \
 	  -i "recyclebin[. = '1']" \
-		  -o "vfs objects = recycle" -n \
 		  -o "recycle:repository = ${OMV_SAMBA_SHARE_RECYCLE_REPOSITORY}/%U" -n \
 		  -o "recycle:keeptree = ${OMV_SAMBA_SHARE_RECYCLE_KEEPTREE}" -n \
 		  -o "recycle:versions = ${OMV_SAMBA_SHARE_RECYCLE_VERSIONS}" -n \
@@ -85,6 +95,13 @@ while [ ${index} -gt 0 ]; do
 		  -o "recycle:exclude = ${OMV_SAMBA_SHARE_RECYCLE_EXCLUDE}" -n \
 		  -o "recycle:exclude_dir = ${OMV_SAMBA_SHARE_RECYCLE_EXCLUDEDIR}" -n \
 		  -v "concat('recycle:maxsize = ',recyclemaxsize)" -n \
+	  -b \
+	  -i "audit[. = '1']" \
+		  -o "full_audit:prefix = ${OMV_SAMBA_SHARE_AUDIT_PREFIX}" -n \
+		  -o "full_audit:success = ${OMV_SAMBA_SHARE_AUDIT_SUCCESS}" -n \
+		  -o "full_audit:failure = ${OMV_SAMBA_SHARE_AUDIT_FAILURE}" -n \
+		  -o "full_audit:facility = ${OMV_SAMBA_SHARE_AUDIT_FACILITY}" -n \
+		  -o "full_audit:priority = ${OMV_SAMBA_SHARE_AUDIT_PRIORITY}" -n \
 	  -b \
 	  -o "printable = ${OMV_SAMBA_SHARE_PRINTABLE}" -n \
 	  -o "create mask = ${OMV_SAMBA_SHARE_CREATEMASK}" -n \
