@@ -346,7 +346,7 @@ case "$1" in
 
 				restart-engined)
 					echo "Restarting engine daemon ..."
-					monit restart omv-engined
+					monit restart omv-engined || invoke-rc.d openmediavault-engined restart
 			esac
 		done
 	;;
