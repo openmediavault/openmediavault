@@ -30,7 +30,12 @@ OMV_CRONAPT_SYSLOGON=${OMV_CRONAPT_SYSLOGON:-"always"}
 OMV_CRONAPT_OPTIONS=${OMV_CRONAPT_OPTIONS:-"-o Acquire::http::Dl-Limit=25"}
 
 mkconf() {
-	# Create file
+	# Disable email notification?
+	if [ "$(omv_config_get "//system/notification/notifications/cronapt")" = "0" ]; then
+		OMV_CRONAPT_MAILON="never"
+	fi
+
+	# Create the configuration file.
 	cat <<EOF > ${OMV_CRONAPT_CONFIG}
 # Configuration for cron-apt.
 # The cron config is located in /etc/cron.d/cron-apt
