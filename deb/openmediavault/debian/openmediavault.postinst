@@ -298,6 +298,9 @@ case "$1" in
 				  omv_config_delete "/config/system/storage/hdparm[uuid='${uuid}']/smart"
 			  done
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.41"; then
+			omv-mkconf cron-apt
+		fi
 		if dpkg --compare-versions "$2" lt-nl "0.6"; then
 			# Relocate RRD database files.
 			cp -r /var/lib/collectd/rrd/localhost /var/lib/rrdcached/db
