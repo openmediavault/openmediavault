@@ -302,6 +302,7 @@ case "$1" in
 			omv-mkconf cron-apt
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.6"; then
+			rm -f /etc/monit/monit_delay
 			# Relocate RRD database files.
 			cp -r /var/lib/collectd/rrd/localhost /var/lib/rrdcached/db
 			# Convert database.
