@@ -35,17 +35,18 @@ Ext.define("OMV.grid.column.BooleanIcon", {
 	trueIcon: "yes.png",
 	falseIcon: "no.png",
 	undefinedText: "&#160;",
+	trueValue: [ true, 1, "true", "ok", "1", "y", "yes", "on" ],
 
 	defaultRenderer: function(value, metaData) {
 		var me = this;
 		metaData.tdAttr = 'style="vertical-align: middle;"';
 		if(value === undefined)
 			return me.undefinedText;
-		var img = me.trueIcon;
-		if(!value || value === "false") {
-			img = me.falseIcon;
+		var img = me.falseIcon;
+		if (Ext.Array.contains(me.trueValue, value)) {
+			img = me.trueIcon;
 		}
-		return "<img border='0' src='images/" + img + "' alt='" +
-		  OMV.util.Format.boolean(value) + "'>";
+		return Ext.String.format("<img border='0' src='images/{0}' " +
+		  "alt='{1}'>", img, OMV.util.Format.boolean(value));
 	}
 });

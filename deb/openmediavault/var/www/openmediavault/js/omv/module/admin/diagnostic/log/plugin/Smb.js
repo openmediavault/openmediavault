@@ -90,11 +90,16 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.smb.Audit", {
 		stateId: "operation",
 		width: 80
 	},{
+		xtype: "booleaniconcolumn",
 		text: _("Result"),
 		sortable: true,
 		width: 50,
+		resizable: false,
+		align: "center",
 		dataIndex: "result",
-		stateId: "result"
+		stateId: "result",
+		trueIcon: "led_green.png",
+		falseIcon: "led_red.png"
 	}],
 	rpcParams: {
 		id: "smbdaudit"

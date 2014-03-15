@@ -38,7 +38,10 @@ OMV.util.Format = function() {
 			 * @return The formatted boolean string.
 			 */
 			boolean: function(value) {
-				return ((true === value) || (1 == value)) ? _("Yes") : _("No");
+				var trueValue = [ true, 1, "true", "ok", "1", "y",
+				  "yes", "on" ];
+				return Ext.Array.contains(trueValue, value) ?
+				  _("Yes") : _("No");
 			},
 
 			/**
