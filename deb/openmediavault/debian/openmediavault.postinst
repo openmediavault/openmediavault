@@ -322,6 +322,7 @@ case "$1" in
 			omv-mkconf monit
 			omv-mkconf proftpd
 			omv-mkconf fstab
+			omv-mkconf samba
 			# Restart services.
 			monit restart rrdcached
 			monit restart collectd

@@ -362,6 +362,7 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
 	 * @throw E_CONFIG_DIRTY
+	 * @throw E_EXEC_FAILED
 	 */
 	public function execute($params, $context) {
 		// Validate the RPC caller context.
@@ -378,9 +379,8 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 		// Check if the module is marked as dirty. This is an indication
 		// that the rsync cron script has not been created or updated
 		// until now.
-		if($this->isModuleDirty("rsync")) {
+		if($this->isModuleDirty("rsync"))
 			throw new OMVException(OMVErrorMsg::E_CONFIG_DIRTY);
-		}
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
@@ -395,8 +395,9 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 			  $bgOutputFilename);
 			// Execute the rsync cron script.
 			$cmd = "/bin/sh";
-			$cmdArgs = array(sprintf("%s/rsync-%s", 
-			  $GLOBALS['OMV_RSYNC_CRONSCRIPTS_DIR'], $params['uuid']));
+			$cmdArgs = array();
+			$cmdArgs[] = sprintf("%s/rsync-%s",
+			  $GLOBALS['OMV_RSYNC_CRONSCRIPTS_DIR'], $params['uuid']);
 			if(FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd." ".implode(" ", $cmdArgs), "");

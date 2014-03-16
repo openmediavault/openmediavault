@@ -44,6 +44,7 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 		$this->registerMethod("getShare");
 		$this->registerMethod("setShare");
 		$this->registerMethod("deleteShare");
+		$this->registerMethod("emptyRecycleBin");
 		$this->registerMethod("getStats");
 	}
 
@@ -386,6 +387,59 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 		  $params['uuid']);
 		return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.services.smb.shares.share");
+	}
+
+	/**
+	 * Empty the recycle bin of the given shared folder.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @param context The context of the caller.
+	 * @return The name of the background process status file.
+	 * @throw E_CONFIG_DIRTY
+	 */
+	public function emptyRecycleBin($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
+		// Check if the module is marked as dirty. This can be an indication
+		// that the samba recycle bin cron script has not been created or
+		// updated until now.
+		if($this->isModuleDirty("samba"))
+			throw new OMVException(OMVErrorMsg::E_CONFIG_DIRTY);
+		// Create a background process.
+		$bgStatusFilename = $this->createBgProcStatus();
+		$pid = $this->fork();
+		if($pid > 0) { // Parent process.
+			$this->initializeBgProcStatus($bgStatusFilename, $pid);
+			return $bgStatusFilename;
+		}
+		// Child process.
+		try {
+			$bgOutputFilename = $this->createBgProcOutput();
+			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
+			  $bgOutputFilename);
+			// Execute the rsync cron script.
+			$cmd = "/bin/sh";
+			$cmdArgs = array();
+			$cmdArgs[] = sprintf("%s/samba-recycle-%s",
+			  $GLOBALS['OMV_CRONSCRIPTS_DIR'], $params['uuid']);
+			$cmdArgs[] = "-f";
+			if(FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd." ".implode(" ", $cmdArgs), "");
+			}
+		} catch(Exception $e) {
+			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
+			exit(1);
+		}
 	}
 
 	/**

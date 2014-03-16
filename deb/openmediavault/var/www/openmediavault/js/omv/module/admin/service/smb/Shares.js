@@ -27,6 +27,7 @@
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/form/field/SharedFolderComboBox.js")
+// require("js/omv/window/Execute.js")
 
 /**
  * @class OMV.module.admin.service.smb.Share
@@ -36,7 +37,8 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 	extend: "OMV.workspace.window.Form",
 	requires: [
 	    "OMV.workspace.window.plugin.ConfigObject",
-		"OMV.form.field.SharedFolderComboBox"
+		"OMV.form.field.SharedFolderComboBox",
+		"OMV.window.Execute"
 	],
 
 	rpcService: "SMB",
@@ -53,6 +55,21 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 	 * @fn constructor
 	 * @param uuid The UUID of the database/configuration object. Required.
 	 */
+
+	getFormConfig: function() {
+		return {
+			plugins: [{
+				ptype: "linkedfields",
+				correlations: [{
+					name: "recyclenow",
+					conditions: [
+						{ name: "recyclebin", value: true }
+					],
+					properties: "enabled"
+				}]
+			}]
+		}
+	},
 
 	getFormItems: function() {
 		var me = this;
@@ -172,6 +189,32 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 					text: _("Files in the recycle bin will be deleted automatically after the specified number of days. Set to 0 for manual deletion."),
 				}],
 				value: 0
+			},{
+				xtype: "button",
+				name: "recyclenow",
+				disabled: true,
+				text: _("Empty now"),
+				scope: me,
+				handler: function() {
+					// Empty recycle bin.
+					Ext.create("OMV.window.Execute", {
+						title: _("Empty recycle bin"),
+						rpcService: "SMB",
+						rpcMethod: "emptyRecycleBin",
+						rpcParams: {
+							uuid: me.uuid
+						},
+						listeners: {
+							scope: me,
+							finish: function(wnd, response) {
+								wnd.appendValue(_("Done ..."));
+							},
+							exception: function(wnd, error) {
+								OMV.MessageBox.error(null, error);
+							}
+						}
+					}).show();
+				}
 			}]
 		},{
 			xtype: "checkbox",

@@ -3,6 +3,7 @@ openmediavault (0.6) stable; urgency=low
   * Adapt to Debian Wheezy.
   * Use rrdcached to reduce disk I/O of collectd.
   * Add ability to audit SMB/CIFS file operations per share.
+  * Add button to manually empty the SMB/CIFS recycle bin.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Nov 2013 19:41:31 +0100
 
