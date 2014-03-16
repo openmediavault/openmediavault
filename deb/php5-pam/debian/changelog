@@ -1,4 +1,10 @@
-php-pam (1.0.3-1) stable; urgency=low
+php5-pam (1.0.3-2) stable; urgency=low
+
+  * Build for Debian Wheezy.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Mar 2014 19:27:49 +0100
+
+php5-pam (1.0.3-1) stable; urgency=low
 
   * Initial Release.
 

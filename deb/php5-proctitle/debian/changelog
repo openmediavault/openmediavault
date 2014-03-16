@@ -1,3 +1,9 @@
+php5-proctitle (0.1.2-2) stable; urgency=low
+
+  * Build for Debian Wheezy.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Mar 2014 19:26:37 +0100
+
 php5-proctitle (0.1.2-1) stable; urgency=low
 
   * Initial Release.

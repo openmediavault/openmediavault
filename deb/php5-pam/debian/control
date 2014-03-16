@@ -1,4 +1,4 @@
-Source: php-pam
+Source: php5-pam
 Section: web
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
