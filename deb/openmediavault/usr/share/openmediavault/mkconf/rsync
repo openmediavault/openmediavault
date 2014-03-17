@@ -30,13 +30,12 @@ set -e
 OMV_RSYNC_CRONSCRIPT=${OMV_RSYNC_CRONSCRIPT:-"/etc/cron.d/openmediavault-rsync"}
 OMV_RSYNC_CRONSCRIPT_MASK=${OMV_RSYNC_CRONSCRIPT_MASK:-"755"}
 OMV_RSYNC_CRONSCRIPT_TEMPLATE=${OMV_RSYNC_CRONSCRIPT_TEMPLATE:-"rsync-"}
-OMV_RSYNC_CRONSCRIPTS_DIR=${OMV_RSYNC_CRONSCRIPTS_DIR:-"/var/lib/openmediavault/cron.d"}
 OMV_RSYNC_CRONUSER=${OMV_RSYNC_CRONUSER:-"root"}
 OMV_RSYNC_LOGFILE=${OMV_RSYNC_LOGFILE:-"/var/log/rsync.log"}
 
 # Create the rsync cron jobs. Each job is configured in a seperate script.
-mkdir -p ${OMV_RSYNC_CRONSCRIPTS_DIR}
-rm -f ${OMV_RSYNC_CRONSCRIPTS_DIR}/${OMV_RSYNC_CRONSCRIPT_TEMPLATE}*
+mkdir -p ${OMV_CRONSCRIPTS_DIR}
+rm -f ${OMV_CRONSCRIPTS_DIR}/${OMV_RSYNC_CRONSCRIPT_TEMPLATE}*
 
 # Create the scripts regardless if enabled or disabled.
 xmlstarlet sel -t -m "//services/rsync/jobs/job" \
@@ -45,7 +44,7 @@ xmlstarlet sel -t -m "//services/rsync/jobs/job" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
   while read uuid; do
 	  type=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/type")
-	  filename="${OMV_RSYNC_CRONSCRIPTS_DIR}/${OMV_RSYNC_CRONSCRIPT_TEMPLATE}${uuid}"
+	  filename="${OMV_CRONSCRIPTS_DIR}/${OMV_RSYNC_CRONSCRIPT_TEMPLATE}${uuid}"
 	  runfile="/var/run/${OMV_RSYNC_CRONSCRIPT_TEMPLATE}${uuid}"
 	  srcuri=""
 	  desturi=""
@@ -128,7 +127,7 @@ xmlstarlet sel -t \
 	  -i "everynhour[. = '0']" -v "concat(hour,' ')" -b \
 	  -i "everyndayofmonth[. = '1']" -v "concat('*/',dayofmonth,' ')" -b \
 	  -i "everyndayofmonth[. = '0']" -v "concat(dayofmonth,' ')" -b \
-	  -v "concat(month,' ',dayofweek,' ${OMV_RSYNC_CRONUSER} ${OMV_RSYNC_CRONSCRIPTS_DIR}/${OMV_RSYNC_CRONSCRIPT_TEMPLATE}',uuid)" \
+	  -v "concat(month,' ',dayofweek,' ${OMV_RSYNC_CRONUSER} ${OMV_CRONSCRIPTS_DIR}/${OMV_RSYNC_CRONSCRIPT_TEMPLATE}',uuid)" \
 	  -i "sendemail[. = '0']" \
 		-o " >/dev/null 2>&1" \
 	  -b \
