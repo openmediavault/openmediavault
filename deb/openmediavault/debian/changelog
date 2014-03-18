@@ -1,7 +1,8 @@
 openmediavault (0.6.0.1) stable; urgency=low
 
-  * Fix collectd and rrdcache issue when monitoring disk space of /dev/root,
-    see https://github.com/collectd/collectd/issues/170. Thanks to tekkbebe
+  * Because of a bug in the collectd df plugin the monitoring of the rootfs
+    disk space has been disabled. For more information about the issue see
+    https://github.com/collectd/collectd/issues/170. Thanks to tekkbebe
     and Solo0815 for their research on this issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 18 Mar 2014 21:09:02 +0100

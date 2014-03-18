@@ -37,7 +37,7 @@ OMV_COLLECTD_RRDTOOL_MKGRAPH=${OMV_COLLECTD_RRDTOOL_MKGRAPH:-"/usr/sbin/omv-mkgr
 xmlstarlet sel -t \
   -o "LoadPlugin df" -n \
   -o "<Plugin df>" -n \
-  -o "  Device \"/dev/root\"" -n \
+  -o "# MountPoint \"/\"" -n \
   -m "//system/fstab/mntent[not(contains(opts,'bind'))]" \
 	-v "concat('  MountPoint \"',dir,'\"')" -n \
   -b \
