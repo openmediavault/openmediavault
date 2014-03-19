@@ -499,6 +499,16 @@ class OMVFilesystem extends OMVObject {
 	}
 
 	/**
+	 * Check if the filesystem has a label.
+	 * @return Returns TRUE if the filesystem has a label, otherwise FALSE.
+	 */
+	public function hasLabel() {
+		if($this->getData() === FALSE)
+			return FALSE;
+		return !empty($this->label);
+	}
+
+	/**
 	 * Get the filesystem label.
 	 * @return The filesystem label, otherwise FALSE.
 	 */

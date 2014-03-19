@@ -71,7 +71,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		  ));
 		// Get list of all detected filesystems. Note, the list may also
 		// contain RAID and LVM volumes, so the list must be filtered.
-		if(FALSE === ($objects = OMVFilesystems::get())) {
+		if (FALSE === ($objects = OMVFilesystems::get())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get filesystems"));
 		}
@@ -80,20 +80,20 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		$rootDeviceFile = OMVSystem::getRootDeviceFile();
 		// Process the detected filesystems and skip unwanted ones.
 		$result = array();
-		foreach($objects as $objectk => $objectv) {
+		foreach ($objects as $objectk => $objectv) {
 			// Is it a filesystem of interest?
-			if(!in_array($objectv['type'], array("ext", "ext2", "ext3",
+			if (!in_array($objectv['type'], array("ext", "ext2", "ext3",
 			  "ext4", "xfs", "jfs", "iso9660", "msdos", "ntfs", "udf",
 			  "umsdos", "vfat", "ufs", "reiserfs", "btrfs", "hfsplus",
 			  "zfs")))
 				continue;
 			// Skip the device where the operating system is installed on.
-			if($objectv['devicefile'] === $rootDeviceFile)
+			if ($objectv['devicefile'] === $rootDeviceFile)
 				continue;
 			// Use the devicefile to get the filesystem details because vfat
 			// filesystems do not have a valid UUID. Any idea why?
 			$fs = new OMVFilesystem($objectv['devicefile']);
-			if(!$fs->exists()) {
+			if (!$fs->exists()) {
 //				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 //				  sprintf(gettext("Filesystem '%s' not found"),
 //				  $objectv['devicefile']));
@@ -112,7 +112,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				"available" => "-1", // as string
 				"size" => "-1", // as string
 				"percentage" => -1,
-				"description" => "",
+				"description" => $fs->hasLabel() ? $fs->getLabel() :
+				  $fs->getDeviceFile(),
 				"posixacl" => $fs->hasPosixAclSupport(),
 				"_used" => FALSE
 			);
@@ -120,9 +121,9 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// corresponding mount point configuration object. If such object
 			// exists, then check if it is referenced by any other object,
 			// e.g. by a shared folder configuration object.
-			if(FALSE !== ($meObject = OMVRpc::exec("FsTab", "getByFsName",
+			if (FALSE !== ($meObject = OMVRpc::exec("FsTab", "getByFsName",
 			  array("id" => $fs->getDeviceFile()), $context))) {
-				if(TRUE === $xmlConfig->exists("//mntentref[".
+				if (TRUE === $xmlConfig->exists("//mntentref[".
 				  "contains(.,'{$meObject['uuid']}')]")) {
 					$object['_used'] = TRUE;
 				}
@@ -132,10 +133,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// details from unmounted filesystems, because on most kinds
 			// of systems doing so requires very nonportable intimate
 			// knowledge of filesystem structures. See man (1) df.
-			if(TRUE === $fs->isMounted()) {
+			if (TRUE === $fs->isMounted()) {
 				$object['mounted'] = TRUE;
 				// Get some more filesystem details if possible.
-				if(FALSE !== ($fsStats = $fs->getStatistics())) {
+				if (FALSE !== ($fsStats = $fs->getStatistics())) {
 					$object['used'] = binary_format($fsStats['used']);
 					$object['available'] = $fsStats['available'];
 					$object['percentage'] = $fsStats['percentage'];
@@ -174,7 +175,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		if(!is_null($params))
+		if (!is_null($params))
 			$this->validateMethodParams($params, '{
 				  "type":"object",
 				  "properties":{
@@ -184,12 +185,12 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		// Get list of mount points, except bind mounts.
 		$xpath = "//system/fstab/mntent[not(contains(opts,'bind'))]";
 		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
+		if (is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Append '/dev/root'?
-		if(TRUE === array_boolval($params, "includeRoot", FALSE)) {
+		if (TRUE === array_boolval($params, "includeRoot", FALSE)) {
 			array_unshift($objects, array(
 				"fsname" => "/dev/root",
 				"dir" => "/"
@@ -197,7 +198,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		}
 		// Get the filesystem details for each mount point.
 		$result = array();
-		foreach($objects as $objectk => $objectv) {
+		foreach ($objects as $objectk => $objectv) {
 			$fs = new OMVFilesystem($objectv['fsname']);
 			if(!$fs->exists()) {
 //				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -208,7 +209,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// Check if the given filesystem is mounted based on the configured
 			// mount point. Skip the filesystems that are not mounted at the
 			// moment.
-			if(FALSE === $fs->isMountedEx("mountpoint", $objectv['dir']))
+			if (FALSE === $fs->isMountedEx("mountpoint", $objectv['dir']))
 				continue;
 			// Get the filesystem details.
 			$object = array(
@@ -217,21 +218,21 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				"label" => $fs->getLabel(),
 				"type" => $fs->getType(),
 				"blocks" => "-1", // as string
-				"mountpoint" => "",
+				"mountpoint" => $objectv['dir'],
 				"used" => "-1", // as string
 				"available" => "-1", // as string
 				"size" => "-1", // as string
 				"percentage" => -1,
-				"description" => "",
+				"description" => $fs->hasLabel() ? $fs->getLabel() :
+				  $fs->getDeviceFile(),
 				"posixacl" => $fs->hasPosixAclSupport()
 			);
 			// Get some more filesystem details if possible.
-			if(FALSE !== ($fsStats = $fs->getStatistics())) {
+			if (FALSE !== ($fsStats = $fs->getStatistics())) {
 				$object['used'] = binary_format($fsStats['used']);
 				$object['available'] = $fsStats['available'];
 				$object['percentage'] = $fsStats['percentage'];
 				$object['blocks'] = $fsStats['blocks'];
-				$object['mountpoint'] = $fsStats['mountpoint'];
 				$object['size'] = $fsStats['size'];
 				$object['description'] = sprintf(
 				  gettext("%s (%s available)"), !empty($object['label']) ?
