@@ -632,6 +632,39 @@ class OMVFilesystem extends OMVObject {
 	}
 
 	/**
+	 * Get the mount point of the given filesystem.
+	 * @return The mountpoint of the filesystem or FALSE.
+	 */
+	public function getMountPoint() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		// Get the corresponding block device.
+		$bd = new OMVBlockDevice($this->getDeviceFile());
+		if (!$bd->exists())
+			return FALSE;
+		$devNum = $bd->getDeviceNumber();
+		// See http://man7.org/linux/man-pages/man5/proc.5.html
+		// Parse command output:
+		// 24 20 8:17 / /media/b994e5e8-94ae-482c-ae54-70a0bbb2737e rw,noexec,relatime - ext4 /dev/sdb1 rw,user_xattr,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group
+		// 26 20 8:17 /test /srv/ftp/test rw,noexec,relatime - ext4 /dev/sdb1 rw,user_xattr,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group
+		$result = FALSE;
+		foreach (file("/proc/self/mountinfo") as $rowk => $rowv) {
+			$matches = explode(" ", $rowv);
+			// Extract the mountinfo values:
+			$miDevNum = $matches[2];
+			$miRoot = $matches[3];
+			$miMountPoint = $matches[4];
+			// Find the mountinfo that has the equal device number and is
+			// mounted with root = '/'.
+			if (!(($miDevNum == $devNum) && ($miRoot == "/")))
+				continue;
+			$result = $miMountPoint;
+			break;
+		}
+		return $result;
+	}
+
+	/**
 	 * Get statistics from a mounted filesystem.
 	 * @return The filesystem statistics if successful, otherwise FALSE. The
 	 *   following fields are included: \em devicefile, \em type, \em blocks,
