@@ -171,6 +171,10 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 		  "org.openmediavault.services.afp",
 		  array($moduleMgr->getModule("zeroconf"), "setDirty"));
 		$dispatcher->addListener(
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
+		  "org.openmediavault.services.afp.shares.share",
+		  array($moduleMgr->getModule("zeroconf"), "setDirty"));
+		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.afp",
 		  array($moduleMgr->getModule("monit"), "setDirty"));

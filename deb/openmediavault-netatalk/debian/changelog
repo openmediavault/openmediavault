@@ -1,3 +1,11 @@
+openmediavault-netatalk (0.5.6) stable; urgency=low
+
+  * Update locales.
+  * Mantis 0001008: Apple Filing Service Discovery need to be restarted
+    in order to propagate new Time Machine Shares.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 21 Mar 2014 12:11:52 +0100
+
 openmediavault-netatalk (0.5.5) stable; urgency=low
 
   * Update locales.
