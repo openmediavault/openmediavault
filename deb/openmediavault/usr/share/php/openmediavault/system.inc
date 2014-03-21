@@ -686,9 +686,41 @@ class OMVFilesystem extends OMVObject {
 	 * @return TRUE if the filesystem is mounted, otherwise FALSE.
 	 */
 	public function isMounted() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
-		return self::isMountedEx("filesystem", $this->getDeviceFile());
+		// Get the corresponding block device.
+		$bd = new OMVBlockDevice($this->getDeviceFile());
+		if (!$bd->exists())
+			return FALSE;
+		$devNum = $bd->getDeviceNumber();
+		// See http://man7.org/linux/man-pages/man5/proc.5.html
+		// Parse command output:
+		// 14 20 0:13 / /sys rw,nosuid,nodev,noexec,relatime - sysfs sysfs rw
+		// 15 20 0:3 / /proc rw,nosuid,nodev,noexec,relatime - proc proc rw
+		// 16 20 0:5 / /dev rw,relatime - devtmpfs udev rw,size=10240k,nr_inodes=126269,mode=755
+		// 17 16 0:10 / /dev/pts rw,nosuid,noexec,relatime - devpts devpts rw,gid=5,mode=620,ptmxmode=000
+		// 18 20 0:14 / /run rw,nosuid,noexec,relatime - tmpfs tmpfs rw,size=102356k,mode=755
+		// 20 1 8:1 / / rw,relatime - ext4 /dev/disk/by-uuid/128917b7-718a-4361-ab6f-6b1725564cb8 rw,errors=remount-ro,user_xattr,barrier=1,data=ordered
+		// 21 18 0:16 / /run/lock rw,nosuid,nodev,noexec,relatime - tmpfs tmpfs rw,size=5120k
+		// 22 18 0:17 / /run/shm rw,nosuid,nodev,noexec,relatime - tmpfs tmpfs rw,size=342320k
+		// 23 20 0:18 / /tmp rw,relatime - tmpfs tmpfs rw
+		// 24 20 8:17 / /media/b994e5e8-94ae-482c-ae54-70a0bbb2737e rw,noexec,relatime - ext4 /dev/sdb1 rw,user_xattr,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group
+		// 25 20 0:19 / /var/lib/nfs/rpc_pipefs rw,relatime - rpc_pipefs rpc_pipefs rw
+		// 26 20 8:17 /test /srv/ftp/test rw,noexec,relatime - ext4 /dev/sdb1 rw,user_xattr,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group
+		$result = FALSE;
+		foreach (file("/proc/self/mountinfo") as $rowk => $rowv) {
+			$matches = explode(" ", $rowv);
+			// Extract the mountinfo values:
+			$miDevNum = $matches[2];
+			$miRoot = $matches[3];
+			// Find the mountinfo that has the equal device number and is
+			// mounted with root = '/'.
+			if (!(($miDevNum == $devNum) && ($miRoot == "/")))
+				continue;
+			$result = TRUE;
+			break;
+		}
+		return $result;
 	}
 
 	/**
@@ -730,35 +762,19 @@ class OMVFilesystem extends OMVObject {
 	}
 
 	/**
-	 * Check if a filesystem is mounted.
-	 * @param key The name of the attribute to search for. This can
-	 *  be 'filesystem' or 'mountpoint'.
-	 * @param value The value to be check for.
-	 * @return TRUE if the filesystem is mounted, otherwise FALSE.
+	 * See if a directory is a mountpoint.
+	 * @param 
+	 * @return TRUE if the directory is a mountpoint, otherwise FALSE.
 	 */
-	public static function isMountedEx($key, $value) {
-		$result = FALSE;
-		foreach(file("/proc/mounts") as $rowk => $rowv) {
-			// Parse command output:
-			// rootfs / rootfs rw 0 0
-			// none /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
-			// none /proc proc rw,nosuid,nodev,noexec,relatime 0 0
-			// tmpfs /dev/shm tmpfs rw,nosuid,nodev,relatime 0 0
-			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
-			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
-			$matches = explode(" ", $rowv);
-			switch($key) {
-			case "filesystem":
-				$result = ($matches[0] === $value);
-				break;
-			case "mountpoint":
-				$result = ($matches[1] === $value);
-				break;
-			}
-			if(TRUE === $result)
-				break;
-		}
-		return $result;
+	public static function isMountPoint($dir) {
+		if (!is_dir($dir))
+			return FALSE;
+		if (FALSE === ($stat = stat($dir)))
+			return FALSE;
+		if (FALSE === ($stat2 = stat(sprintf("%s/..", $dir))))
+			return FALSE;
+		return (($stat.dev != $stat2.dev) || (($stat.dev == $stat2.dev) &&
+		  ($stat.ino == $stat2.ino))) ? TRUE : FALSE;
 	}
 
 	/**
@@ -981,6 +997,24 @@ interface OMVIBlockDevice {
 	function getDeviceName($canonical = FALSE);
 
 	/**
+	 * Get the device number, e.g. 8:17.
+	 * @return The device number as string or FALSE on failure.
+	 */
+	function getDeviceNumber();
+
+	/**
+	 * Get the major device number.
+	 * @return The major device number or FALSE on failure.
+	 */
+	function getMajor();
+
+	/**
+	 * Get the minor device number.
+	 * @return The minor device number or FALSE on failure.
+	 */
+	function getMinor();
+
+	/**
 	 * Get the size of the device in bytes.
 	 * @return The size of the device in bytes, otherwise FALSE.
 	 */
@@ -1074,6 +1108,50 @@ abstract class OMVBlockDeviceAbstract extends OMVObject implements
 	 */
 	public function getSectorSize() {
 		return $this->sectorSize;
+	}
+
+	/**
+	 * See interface definition.
+	 */
+	public function getDeviceNumber() {
+		$filename = sprintf("/sys/class/block/%s/dev", $this->getDeviceName());
+		if (!file_exists($filename))
+			return FALSE;
+		return trim(file_get_contents($filename));
+	}
+
+	/**
+	 * See interface definition.
+	 */
+	public function getMajor() {
+		if (FALSE === ($devNum = $this->getDeviceNumber()))
+			return FALSE;
+		$devNumParts = explode(":", $devNum);
+		return intval($devNumParts[0]);
+	}
+
+	/**
+	 * See interface definition.
+	 */
+	public function getMinor() {
+		if (FALSE === ($devNum = $this->getDeviceNumber()))
+			return FALSE;
+		$devNumParts = explode(":", $devNum);
+		return intval($devNumParts[1]);
+	}
+}
+
+/**
+ * This class implements an interface to a generic Linux block device.
+ * @ingroup api
+ */
+class OMVBlockDevice extends OMVBlockDeviceAbstract {
+	/**
+	 * See interface definition.
+	 */
+	public function getDescription() {
+		return sprintf("Block device %s [%s]", $this->getDeviceName(),
+		  $this->getDeviceNumber());
 	}
 }
 

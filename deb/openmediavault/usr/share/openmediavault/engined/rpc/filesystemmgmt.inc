@@ -209,7 +209,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// Check if the given filesystem is mounted based on the configured
 			// mount point. Skip the filesystems that are not mounted at the
 			// moment.
-			if (FALSE === $fs->isMountedEx("mountpoint", $objectv['dir']))
+			if (FALSE === $fs->isMounted())
 				continue;
 			// Get the filesystem details.
 			$object = array(
