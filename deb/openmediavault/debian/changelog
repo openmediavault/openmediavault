@@ -1,5 +1,6 @@
 openmediavault (0.5.41) stable; urgency=low
 
+  * Update locales.
   * Mantis 0001006: Software update notification is disabled but still sent.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 14 Mar 2014 12:06:55 +0100
