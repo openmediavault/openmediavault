@@ -68,7 +68,8 @@ EOF
 
 # /etc/monit/monitrc
 cat > ${OMV_MONIT_CONFIG} <<EOF
-set daemon ${OMV_MONIT_CHECK_INTERVAL} with start delay ${OMV_MONIT_DELAY_SECONDS}
+#set daemon ${OMV_MONIT_CHECK_INTERVAL} with start delay ${OMV_MONIT_DELAY_SECONDS}
+set daemon ${OMV_MONIT_CHECK_INTERVAL}
 set logfile ${OMV_MONIT_LOGFILE}
 set idfile ${OMV_MONIT_IDFILE}
 set statefile ${OMV_MONIT_STATEFILE}
