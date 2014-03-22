@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Mauro Rulli <mauro.rulli@gmail.com>, 2012
-# polxmod <paolo.velati@gmail.com>, 2013
+# Paolo Velati <paolo.velati@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
