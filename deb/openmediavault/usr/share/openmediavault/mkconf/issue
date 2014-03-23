@@ -25,8 +25,13 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_ISSUE_CONFIG=${OMV_ISSUE_CONFIG:-"/etc/issue"}
+OMV_ISSUE_APPLY_PRELOGIN_MESSAGE=${OMV_ISSUE_APPLY_PRELOGIN_MESSAGE:-"yes"}
 
 mkconf() {
+	# Apply prelogin message?
+	! omv_checkyesno "${OMV_ISSUE_APPLY_PRELOGIN_MESSAGE}" && exit 0;
+
+	# Get the product information.
 	prdname=$(xmlstarlet sel -t -v //name ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
 	packagename=$(xmlstarlet sel -t -v //packagename ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
 	version=$(dpkg-query -W -f='${Version}' ${packagename})
@@ -34,6 +39,7 @@ mkconf() {
 	copyright=$(xmlstarlet sel -t -v //copyright ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
 	url=$(xmlstarlet sel -t -v //url ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
 
+	# Write prelogin message to '/etc/issue' file.
 	cat <<EOF > ${OMV_ISSUE_CONFIG}
 ${prdname} ${version} (${versionname}) \n \l
 ${copyright}

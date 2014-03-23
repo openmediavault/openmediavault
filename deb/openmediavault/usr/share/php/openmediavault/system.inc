@@ -1394,13 +1394,23 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	}
 
 	/**
-	 * Check if the given device is a USB device.
+	 * Check if the given device is an USB device.
 	 * @return TRUE if the device is a connected via USB, otherwise FALSE.
 	 */
 	public function isUsb() {
 		if(FALSE === ($property = $this->getUdevProperty("ID_BUS")))
 			return FALSE;
-		return ("usb" === $property);
+		return (0 == strcasecmp("usb" === $property)) ? TRUE : FALSE;
+	}
+
+	/**
+	 * Check if the given device is connected via ATA.
+	 * @return TRUE if the device is connected via ATA, otherwise FALSE.
+	 */
+	public function isAta() {
+		if(FALSE === ($property = $this->getUdevProperty("ID_BUS")))
+			return FALSE;
+		return (0 == strcasecmp("ata" === $property)) ? TRUE : FALSE;
 	}
 
 	/**
