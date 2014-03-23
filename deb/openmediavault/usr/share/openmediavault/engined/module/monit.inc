@@ -55,7 +55,7 @@ class OMVModuleMonit extends OMVModuleServiceAbstract
 	 */
 	public function startService() {
 		$initd = new OMVSysVInitScript("monit", TRUE);
-		$initd->invoke("force-reload");
+		$initd->invoke("reload");
 	}
 
 	/**
