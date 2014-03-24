@@ -148,8 +148,8 @@ xmlstarlet sel -t -m "//services/usbbackup/jobs/job[not(fsuuid=preceding-sibling
 xmlstarlet sel -t \
   -o "# Start at sdb to ignore the system hard drive" -n \
   -o "KERNEL!=\"sd[b-z]*\", SUBSYSTEM!=\"block\", GOTO=\"omv_automount_usb_end\"" -n \
-  -o "# Only process USB devices" -n \
-  -o "ENV{ID_BUS}!=\"usb\", GOTO=\"omv_automount_usb_end\"" -n \
+  -o "# Only process USB/eSATA devices" -n \
+  -o "ENV{ID_BUS}!=\"usb|ata\", GOTO=\"omv_automount_usb_end\"" -n \
   -o "# Skip all filesystems that does not match the given ID_FS_UUID" -n \
   -m "//services/usbbackup/jobs/job[not(fsuuid=preceding-sibling::*/fsuuid)]" \
 	-i "count(../*[enable='1']) > 0" \

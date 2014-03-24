@@ -63,7 +63,7 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 		  ));
 		// Get list of all detected filesystems. Note, the list may also
 		// contain RAID and LVM volumes, so the list must be filtered.
-		if(FALSE === ($objects = OMVFilesystems::get())) {
+		if (FALSE === ($objects = OMVFilesystems::get())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get filesystems"));
 		}
@@ -72,34 +72,34 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 		$rootDeviceFile = OMVSystem::getRootDeviceFile();
 		// Collect volumes that are candidates for a backup job.
 		$result = array();
-		foreach($objects as $objectk => $objectv) {
+		foreach ($objects as $objectk => $objectv) {
 			// Skip filesystem we do not support?
-			if(!in_array($objectv['type'], array("ext3", "ext4", "xfs",
+			if (!in_array($objectv['type'], array("ext3", "ext4", "xfs",
 			  "jfs", "msdos", "ntfs", "vfat", "hfsplus"))) {
 				continue;
 			}
 			// Skip the device where the operating system is installed on.
-			if($objectv['devicefile'] === $rootDeviceFile)
+			if ($objectv['devicefile'] === $rootDeviceFile)
 				continue;
 			// Check if the volume is connected via USB.
 			$fs = new OMVFilesystem($objectv['devicefile']);
-			if(!$fs->exists()) {
+			if (!$fs->exists()) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf(gettext("Filesystem '%s' not found"),
 				  $objectv['devicefile']));
 			}
 			// Get the storage device containing the filesystem.
-			if(FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile())) {
+			if (FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile())) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 				  gettext("Failed to get storage device file from '%s'"),
 				  $objectv['devicefile']));
 			}
 			$sd = OMVStorageDeviceFactory::get($storageDeviceFile);
-			if(is_null($sd) || !$sd->exists()) {
+			if (is_null($sd) || !$sd->exists()) {
 				throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  	  $storageDeviceFile);
 			}
-			if(!$sd->isUsb())
+			if (!($sd->isUsb() || $sd->isAta()))
 				continue;
 			// Prepare result object.
 			$result[] = array(
