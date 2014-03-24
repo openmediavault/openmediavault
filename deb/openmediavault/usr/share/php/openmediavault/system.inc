@@ -673,35 +673,43 @@ class OMVFilesystem extends OMVObject {
 	 *   strings and their unit is 'B' (bytes).
 	 */
 	public function getStatistics() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
-		$data = array();
-		// Get the device file to be processed. Note, '/dev/root' must be
-		// handled differently.
-		$deviceFile = $this->getDeviceFile();
-		if("/dev/root" == $deviceFile)
-			$deviceFile = $this->getCanonicalDeviceFile();
-		$cmd = sprintf("export LANG=C; df -PT %s", escapeshellarg($deviceFile));
-		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		// Get the mount point of the filesystem.
+		if (FALSE === ($mountPoint = $this->getMountPoint()))
+			return FALSE;
+		@OMVUtil::exec("export LANG=C; df -PT", $output, $result);
+		if ($result !== 0) {
 			$this->setLastError($output);
 			return FALSE;
 		}
 		// Parse command output:
-		// Filesystem    Type 1024-blocks      Used Available Capacity Mounted on
-		// /dev/sdb1     ext4      100156      4164     90824       5% /media/f3c61f34-f640-472c-b27e-a8e441caf460
-		$matches = preg_split("/[\s,]+/", array_pop($output));
-		$data = array(
-			"devicefile" => $this->deviceFile,
-			"type" => $matches[1],
-			"blocks" => $matches[2],
-			"size" => bcmul($matches[2], "1024", 0),
-			"used" => binary_convert($matches[3], "KiB", "B"),
-			"available" => binary_convert($matches[4], "KiB", "B"),
-			"percentage" => intval(trim($matches[5], "%")),
-			"mountpoint" => $matches[6]
-		);
-		return $data;
+		// Filesystem                                             Type     1024-blocks    Used Available Capacity Mounted on
+		// rootfs                                                 rootfs      14801380 1392488  12657020      10% /
+		// udev                                                   devtmpfs       10240       0     10240       0% /dev
+		// tmpfs                                                  tmpfs         102356     324    102032       1% /run
+		// /dev/disk/by-uuid/128917b7-718a-4361-ab6f-6b1725564cb8 ext4        14801380 1392488  12657020      10% /
+		// tmpfs                                                  tmpfs           5120       0      5120       0% /run/lock
+		// tmpfs                                                  tmpfs         342320       0    342320       0% /run/shm
+		// tmpfs                                                  tmpfs         511768       4    511764       1% /tmp
+		// /dev/sdb1                                              ext4          100156    4164     95992       5% /media/b994e5e8-94ae-482c-ae54-70a0bbb2737e
+		$result = FALSE;
+		foreach ($output as $outputk => $outputv) {
+			$matches = preg_split("/[\s,]+/", $outputv);
+			if (0 !== strcasecmp($mountPoint, $matches[6]))
+				continue;
+			$result = array(
+				"devicefile" => $this->deviceFile,
+				"type" => $matches[1],
+				"blocks" => $matches[2],
+				"size" => bcmul($matches[2], "1024", 0),
+				"used" => binary_convert($matches[3], "KiB", "B"),
+				"available" => binary_convert($matches[4], "KiB", "B"),
+				"percentage" => intval(trim($matches[5], "%")),
+				"mountpoint" => $matches[6]
+			);
+		}
+		return $result;
 	}
 
 	/**
@@ -1147,7 +1155,11 @@ abstract class OMVBlockDeviceAbstract extends OMVObject implements
 	 * See interface definition.
 	 */
 	public function getDeviceNumber() {
-		$filename = sprintf("/sys/class/block/%s/dev", $this->getDeviceName());
+		// Get the canonical device name, e.g.
+		// /dev/root => /dev/sda1
+		$deviceName = $this->getDeviceName(TRUE);
+		// Get the device number via sysfs.
+		$filename = sprintf("/sys/class/block/%s/dev", $deviceName);
 		if (!file_exists($filename))
 			return FALSE;
 		return trim(file_get_contents($filename));
