@@ -117,7 +117,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 					$fieldvalue = trim($row);
 					if($fieldvalue === ".")
 						$fieldvalue = "\n";
-					$object[$fieldname] .= sprintf("%s\n", $fieldvalue);
+					$object[$fieldname] .= $fieldvalue;
 					continue;
 				}
 				$fieldname = strtolower(str_replace("-", "", $matches[1]));

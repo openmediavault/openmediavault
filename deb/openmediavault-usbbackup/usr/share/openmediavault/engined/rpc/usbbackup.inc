@@ -99,6 +99,7 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 				throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  	  $storageDeviceFile);
 			}
+			// Skip everything which is not an USB or eSATA device.
 			if (!($sd->isUsb() || $sd->isAta()))
 				continue;
 			// Prepare result object.
