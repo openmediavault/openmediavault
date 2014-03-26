@@ -39,7 +39,7 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.nut.Variables", {
 /**
  * @ingroup webgui
  * @class OMV.module.admin.diagnostic.service.plugin.nut.Charge
- * @derived OMV.workspace.panel.Textarea
+ * @derived OMV.workspace.panel.RrdGraph
  */
 Ext.define("OMV.module.admin.diagnostic.service.plugin.nut.Charge", {
 	extend: "OMV.workspace.panel.RrdGraph",
@@ -51,7 +51,7 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.nut.Charge", {
 /**
  * @ingroup webgui
  * @class OMV.module.admin.diagnostic.service.plugin.nut.Load
- * @derived OMV.workspace.panel.Textarea
+ * @derived OMV.workspace.panel.RrdGraph
  */
 Ext.define("OMV.module.admin.diagnostic.service.plugin.nut.Load", {
 	extend: "OMV.workspace.panel.RrdGraph",
@@ -63,7 +63,7 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.nut.Load", {
 /**
  * @ingroup webgui
  * @class OMV.module.admin.diagnostic.service.plugin.nut.Temperature
- * @derived OMV.workspace.panel.Textarea
+ * @derived OMV.workspace.panel.RrdGraph
  */
 Ext.define("OMV.module.admin.diagnostic.service.plugin.nut.Temperature", {
 	extend: "OMV.workspace.panel.RrdGraph",
@@ -75,7 +75,7 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.nut.Temperature", {
 /**
  * @ingroup webgui
  * @class OMV.module.admin.diagnostic.service.plugin.nut.Voltage
- * @derived OMV.workspace.panel.Textarea
+ * @derived OMV.workspace.panel.RrdGraph
  */
 Ext.define("OMV.module.admin.diagnostic.service.plugin.nut.Voltage", {
 	extend: "OMV.workspace.panel.RrdGraph",
