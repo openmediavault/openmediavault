@@ -159,7 +159,7 @@ Ext.define("OMV.module.admin.system.notification.Settings", {
 				fieldLabel: _("SMTP port"),
 				allowBlank: true,
 				allowDecimals: false,
-				minValue: 0,
+				minValue: 1,
 				vtype: "port",
 				value: 25,
 				plugins: [{
