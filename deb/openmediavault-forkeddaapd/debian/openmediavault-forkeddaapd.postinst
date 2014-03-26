@@ -78,6 +78,10 @@ case "$1" in
 			omv_config_delete "//*[userref=/config/system/usermanagement/users/user[name='daapd']/uuid]"
 			omv_config_delete_user "daapd"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.6"; then
+			# Delete old and incompatible database file.
+			rm -f /var/cache/forked-daapd/songs3.db
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

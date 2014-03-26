@@ -24,11 +24,12 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_MONIT_CONFIG=${OMV_MONIT_CONFIG:-"/etc/monit/monitrc"}
+OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG=${OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG:-"/etc/monit/conf.d/openmediavault-forkeddaapd.conf"}
 
+rm -f ${OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG}
 [ "$(omv_config_get "//services/daap/enable")" = "0" ] && exit 0
 
-cat <<EOF >> ${OMV_MONIT_CONFIG}
+cat <<EOF > ${OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG}
 check process forked-daapd with pidfile /var/run/forked-daapd.pid
   start program = "/etc/init.d/forked-daapd start"
   stop program = "/etc/init.d/forked-daapd stop"
@@ -43,4 +44,4 @@ xmlstarlet sel -t -m "//system/email" \
 	-b \
   -b \
   -n \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_CONFIG}
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG}

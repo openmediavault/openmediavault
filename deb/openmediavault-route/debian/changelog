@@ -1,3 +1,9 @@
+openmediavault-route (0.6) stable; urgency=low
+
+  * Adapt plugin to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Mar 2014 12:22:16 +0100
+
 openmediavault-route (0.5.3) stable; urgency=low
 
   * Update locales.

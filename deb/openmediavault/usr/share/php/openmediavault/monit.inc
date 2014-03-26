@@ -117,7 +117,8 @@ class OMVMonit extends OMVObject {
 	/**
 	 * Get the status of a monitored process.
 	 * @param name The name of the service.
-	 * @return The status of the monitored service, e.g. 'running'.
+	 * @return The status of the monitored service, e.g. 'running',
+	 *   'does not exist' or 'not monitored'.
 	 */
 	public function status($name) {
 		$status = "unknown";
@@ -138,7 +139,7 @@ class OMVMonit extends OMVObject {
 			$status = trim($matches[2]);
 			break;
 		}
-		return $status;
+		return strtolower($status);
 	}
 }
 ?>

@@ -788,7 +788,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 OMV.WorkspaceManager.registerNode({
 	id: "filesystem",
 	path: "/storage",
-	text: _("File systems"),
+	text: _("File Systems"),
 	icon16: "images/filesystem.png",
 	iconSvg: "images/filesystem.svg",
 	position: 40
@@ -797,7 +797,7 @@ OMV.WorkspaceManager.registerNode({
 OMV.WorkspaceManager.registerPanel({
 	id: "filesystems",
 	path: "/storage/filesystem",
-	text: _("File systems"),
+	text: _("File Systems"),
 	position: 10,
 	className: "OMV.module.admin.storage.filesystem.Filesystems"
 });

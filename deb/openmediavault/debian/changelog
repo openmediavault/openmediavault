@@ -1,3 +1,9 @@
+openmediavault (0.6.0.2) stable; urgency=low
+
+  * Adapt to Debian Wheezy.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Mar 2014 13:14:47 +0100
+
 openmediavault (0.6.0.1) stable; urgency=low
 
   * Because of a bug in the collectd df plugin the monitoring of the rootfs
