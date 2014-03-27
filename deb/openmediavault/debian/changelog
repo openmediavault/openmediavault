@@ -1,6 +1,7 @@
 openmediavault (0.5.42) stable; urgency=low
 
   * Allow prelogin message customizing.
+  * Various code improvements.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 23 Mar 2014 12:53:16 +0100
 
