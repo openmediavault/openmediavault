@@ -1,3 +1,9 @@
+openmediavault-lvm2 (0.6) stable; urgency=low
+
+  * Adapt plugin to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Mar 2014 12:22:48 +0100
+
 openmediavault-lvm2 (0.5.5) stable; urgency=low
 
   * Mantis 0000895: Mutiple LVM logical volumes.

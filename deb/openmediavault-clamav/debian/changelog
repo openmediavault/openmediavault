@@ -1,3 +1,9 @@
+openmediavault-clamav (0.6) stable; urgency=low
+
+  * Adapt plugin to new framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Mar 2014 12:19:12 +0100
+
 openmediavault-clamav (0.5.9) stable; urgency=low
 
   * Update locales.
