@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-06-16 13:12+0200\n"
-"PO-Revision-Date: 2014-01-23 17:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-01-24 01:10+0000\n"
+"Last-Translator: kansuke <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,28 +18,28 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "A route with the network already exists"
-msgstr ""
+msgstr "ネットワークとのルートがすでに存在しています"
 
 msgid "Add static route"
-msgstr ""
+msgstr "静的ルートの追加"
 
 msgid "Comment"
-msgstr ""
+msgstr "コメント"
 
 msgid "Edit static route"
-msgstr ""
+msgstr "静的ルートの編集"
 
 msgid "Gateway"
-msgstr ""
+msgstr "ゲートウェイ"
 
 msgid "Gateway used to reach the above network address."
-msgstr ""
+msgstr "ゲートウェイは、上記のネットワークアドレスに到達するために使用されます。"
 
 msgid "IP or network address."
-msgstr ""
+msgstr "IPまたはネットワークアドレス。"
 
 msgid "Network"
-msgstr ""
+msgstr "ネットワーク"
 
 msgid "Static Routes"
-msgstr ""
+msgstr "静的ルート"

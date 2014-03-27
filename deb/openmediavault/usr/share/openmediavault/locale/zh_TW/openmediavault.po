@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 18:12+0100\n"
-"PO-Revision-Date: 2014-03-05 17:29+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2014-03-08 20:23+0100\n"
+"PO-Revision-Date: 2014-03-09 02:12+0000\n"
+"Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -266,7 +266,7 @@ msgid "Afghanistan"
 msgstr "阿富汗"
 
 msgid ""
-"After the RAID has been grown you can resize the containing filesystem."
+"After the RAID has been grown you can resize the containing file system."
 msgstr "在 RAID 容量增加後，你可以調整內含檔案系統的大小。"
 
 msgid "Aland Islands"
@@ -601,7 +601,7 @@ msgstr "清除"
 msgid "Client"
 msgstr "客戶端"
 
-msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
 msgstr "允許裝載檔案系統的客戶端，例如 192.168.178.0/24。"
 
 msgid "Close"
@@ -696,11 +696,14 @@ msgstr "新建"
 msgid "Create RAID device"
 msgstr "新建 RAID 裝置"
 
-msgid "Create filesystem"
+msgid "Create file system"
 msgstr "新建檔案系統"
 
 msgid "Create self-signed SSL certificate"
 msgstr "新建自我簽名的 SSL 證書"
+
+msgid "Creating the file system, please wait ..."
+msgstr "創建檔案系統中，請稍待 ..."
 
 msgid "Critical"
 msgstr "嚴重"
@@ -762,11 +765,11 @@ msgstr "刪除"
 msgid "Delete content"
 msgstr "刪除內容"
 
+msgid "Delete file system"
+msgstr "刪除檔案系統"
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "刪除在接收端但不存於發送端的檔案"
-
-msgid "Delete filesystem"
-msgstr "刪除檔案系統"
 
 msgid "Deleting selected item(s)"
 msgstr "刪除所選的項目"
@@ -822,7 +825,7 @@ msgid "Device model"
 msgstr "裝置型號"
 
 msgid "Device properties"
-msgstr ""
+msgstr "裝置屬性"
 
 msgid "Devices"
 msgstr "裝置"
@@ -863,7 +866,7 @@ msgstr "你真的要清除該日誌檔案？"
 msgid "Do you really want to create the RAID device?"
 msgstr "你真的要創建該 RAID 裝置？"
 
-msgid "Do you really want to delete the filesystem? All data will be lost."
+msgid "Do you really want to delete the file system? All data will be lost."
 msgstr "你真的要刪除該檔案系統嗎？所有資料都將失去。"
 
 msgid "Do you really want to delete the selected item(s)?"
@@ -871,7 +874,7 @@ msgstr "你真的要刪除所選的項目？"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the filesystem creation may take some time."
+"Please note that the file system creation may take some time."
 msgstr "你真的要將這個裝置格式化？它上面的所有資料都將被刪除。請注意，檔案系統的創建可能會花費一些時間。"
 
 msgid "Do you really want to install the selected plugin(s)?"
@@ -895,7 +898,7 @@ msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "你真的要重設 WebGUI 的狀態，例如：欄位順序嗎？"
 
 msgid ""
-"Do you really want to resize the selected filesystem? You have to do that "
+"Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
 msgstr "你真的要調整所選擇的檔案系統大小？例如：在擴充 RAID 之後，你需要作此調整。"
 
@@ -1179,11 +1182,6 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP 允許兩個遠端伺服器之間的傳輸，而沒有任何檔案資料送到要求傳送的客戶端。"
 
-msgid ""
-"Failed to create filesystem. Please check the syslog or '%s' for more "
-"details."
-msgstr "無法建立檔案系統。請檢查 syslog 或 '%s' 的詳細資訊。"
-
 msgid "Failed to get filesystems"
 msgstr "無法取得檔案系統"
 
@@ -1226,6 +1224,12 @@ msgstr "斐濟"
 msgid "File"
 msgstr "檔案"
 
+msgid "File system"
+msgstr "檔案系統"
+
+msgid "File systems"
+msgstr "檔案系統"
+
 msgid "Filename"
 msgstr "檔案名稱"
 
@@ -1241,9 +1245,6 @@ msgstr "檔案若其大小超過所指定的位元數，將不會被放進回收
 
 msgid "Filesize"
 msgstr "檔案大小"
-
-msgid "Filesystem"
-msgstr "檔案系統"
 
 msgid "Filesystem '%s' not found"
 msgstr "未找到檔案系統 '%s'"
@@ -1478,10 +1479,10 @@ msgstr "如果這個選項被設定，那麼任何試圖上傳都會失敗。"
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
-" before mapping DOS attributes to UNIX permission bits. When set, DOS "
-"attributes will be stored onto an extended attribute in the UNIX filesystem,"
-" associated with the file or directory."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
 msgstr "如果此參數被設定，Samba 在將 DOS 屬性對應到 UNIX 權限位元之前，會首先嘗試從一個檔案系統的擴展屬性讀出 DOS 屬性(系統、隱藏、存檔或唯讀)。當在設定的狀況下，DOS 屬性將被存儲到 UNIX 檔案系統上相關的檔案或目錄的擴展屬性。"
 
 msgid ""
@@ -1582,7 +1583,7 @@ msgstr "介面"
 msgid "Invalid domain name"
 msgstr "不合法的網域名稱"
 
-msgid "Invalid filesystem label"
+msgid "Invalid file system label"
 msgstr "不合法的檔案系統標籤"
 
 msgid "Invalid group name"
@@ -1952,7 +1953,7 @@ msgid "Mongolia"
 msgstr "蒙古"
 
 msgid "Monitor"
-msgstr ""
+msgstr "監測"
 
 msgid "Monitoring"
 msgstr "監測"
@@ -2246,7 +2247,7 @@ msgid "Physical Disks"
 msgstr "實體磁碟"
 
 msgid "Physical disk properties"
-msgstr ""
+msgstr "實體磁碟屬性"
 
 msgid "Pitcairn"
 msgstr "皮特凱恩"
@@ -2307,8 +2308,8 @@ msgid "Please wait ..."
 msgstr "請稍候 ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a "
-"filesystem."
+"Please wait until the RAID has been initialized before creating a file "
+"system."
 msgstr "請等到 RAID 被啟始化後才建立檔案系統。"
 
 msgid "Plugins"
@@ -2532,7 +2533,7 @@ msgstr "重設 WebGUI 狀態"
 msgid ""
 "Reset WebGUI state will restore default settings of grid columns for "
 "example."
-msgstr ""
+msgstr "重設 WebGUI 狀態將恢復預設的設定，例如欄位。"
 
 msgid "Resize"
 msgstr "調整大小"
@@ -2687,7 +2688,7 @@ msgstr "選擇一個裝置 ..."
 msgid "Select a directory"
 msgstr "選擇一個目錄"
 
-msgid "Select a filesystem ..."
+msgid "Select a file system ..."
 msgstr "選擇一個檔案系統 ..."
 
 msgid "Select a group name..."
@@ -3113,6 +3114,9 @@ msgstr "欄位 '%s' 內含有被禁止的 "
 msgid "The file mode of the shared folder path."
 msgstr "共享檔案夾路徑的文件模式。"
 
+msgid "The file system creation has completed successfully."
+msgstr "檔案系統創建已經成功地完成。"
+
 msgid "The group '%s' does not exist"
 msgstr "群組 '%s' 並不存在"
 
@@ -3211,7 +3215,7 @@ msgstr "用戶 '%s' 並不存在"
 msgid "The user '%s' is not allowed"
 msgstr "用戶 '%s' 是不被允許的"
 
-msgid "The volume label for the filesystem."
+msgid "The volume label for the file system."
 msgstr "該檔案系統的磁碟標籤。"
 
 msgid ""

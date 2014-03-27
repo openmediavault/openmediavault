@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 18:12+0100\n"
-"PO-Revision-Date: 2014-03-05 17:29+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2014-03-08 20:23+0100\n"
+"PO-Revision-Date: 2014-03-09 01:20+0000\n"
+"Last-Translator: dezi121 <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -265,8 +265,8 @@ msgid "Afghanistan"
 msgstr "阿富汗"
 
 msgid ""
-"After the RAID has been grown you can resize the containing filesystem."
-msgstr "在 RAID 容量增加后，可以调整阵列文件系统大小。"
+"After the RAID has been grown you can resize the containing file system."
+msgstr "在扩充RAID后你可以调整文件系统的大小。"
 
 msgid "Aland Islands"
 msgstr "奥兰群岛"
@@ -600,8 +600,8 @@ msgstr "清除"
 msgid "Client"
 msgstr "客户端"
 
-msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr "允许挂载文件系统的客户端，例如：192.168.178.0/24。"
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr "允许客户端挂载文件系统，例如：192.168.178.0/24。"
 
 msgid "Close"
 msgstr "关闭"
@@ -695,11 +695,14 @@ msgstr "创建"
 msgid "Create RAID device"
 msgstr "创建 RAID"
 
-msgid "Create filesystem"
+msgid "Create file system"
 msgstr "创建文件系统"
 
 msgid "Create self-signed SSL certificate"
 msgstr "创建自签名证书"
+
+msgid "Creating the file system, please wait ..."
+msgstr "创建文件系统中，请耐心等待 ..."
 
 msgid "Critical"
 msgstr "严重"
@@ -761,11 +764,11 @@ msgstr "删除"
 msgid "Delete content"
 msgstr "删除内容"
 
+msgid "Delete file system"
+msgstr "删除文件系统"
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "若发送端不存而接收端存在的文件则删除"
-
-msgid "Delete filesystem"
-msgstr "删除文件系统"
 
 msgid "Deleting selected item(s)"
 msgstr "删除选择项目(可复选)"
@@ -821,7 +824,7 @@ msgid "Device model"
 msgstr "设备型号"
 
 msgid "Device properties"
-msgstr ""
+msgstr "设备属性"
 
 msgid "Devices"
 msgstr "设备"
@@ -862,16 +865,16 @@ msgstr "确定清空日志文件？"
 msgid "Do you really want to create the RAID device?"
 msgstr "确定创建 RAID？"
 
-msgid "Do you really want to delete the filesystem? All data will be lost."
-msgstr "确认要删除文件系统，所有数据将丢失？"
+msgid "Do you really want to delete the file system? All data will be lost."
+msgstr "确定要删除文件系统吗？所有数据将丢失。"
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "确定删除选中项(可复选)？"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the filesystem creation may take some time."
-msgstr "确定格式化设备？所有数据将被删除，注意文件系统的创建将会耗费一定的时间。"
+"Please note that the file system creation may take some time."
+msgstr "确定要格式化该设备？所有数据将被删除，注意创建文件系统可能需要较长时间。"
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "确认要安装选中插件吗？"
@@ -894,9 +897,9 @@ msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "确认重设 WebGUI 状态，例如格列顺序？"
 
 msgid ""
-"Do you really want to resize the selected filesystem? You have to do that "
+"Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr "确定调整选中文件系统大小？通常扩充 RAID 后需要做此调整。"
+msgstr "确定要调整选中文件系统大小？通常是在扩充RAID后来进行调整。"
 
 msgid "Do you really want to shutdown the system?"
 msgstr "确定关闭系统？"
@@ -1178,11 +1181,6 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP 允许两个远程服务器之间进行传输，即使客户端没有任何数据请求。"
 
-msgid ""
-"Failed to create filesystem. Please check the syslog or '%s' for more "
-"details."
-msgstr "创建文件系统失败，请检查系统日志或  '%s' 的详情"
-
 msgid "Failed to get filesystems"
 msgstr "无法获取文件系统"
 
@@ -1225,6 +1223,12 @@ msgstr "斐济"
 msgid "File"
 msgstr "文件"
 
+msgid "File system"
+msgstr "文件系统"
+
+msgid "File systems"
+msgstr "文件系统"
+
 msgid "Filename"
 msgstr "文件名"
 
@@ -1240,9 +1244,6 @@ msgstr "超过设定大小的文件将不会被移到回收站，该值设为 0 
 
 msgid "Filesize"
 msgstr "文件大小"
-
-msgid "Filesystem"
-msgstr "文件系统"
 
 msgid "Filesystem '%s' not found"
 msgstr "未找到 ‘%s’ 文件系统"
@@ -1477,11 +1478,11 @@ msgstr "如果设定那么任何上传将失败。"
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
-" before mapping DOS attributes to UNIX permission bits. When set, DOS "
-"attributes will be stored onto an extended attribute in the UNIX filesystem,"
-" associated with the file or directory."
-msgstr "如果此参数被设定，在映射 DOS 属性到 UNIX前，Samba 将首先尝试读取 DOS 文件系统属性(系统、隐藏、存档或只读) 。而后文件或文件夹的DOS 属性将被存储在 UNIX 文件系统。"
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
+msgstr "如果设置此参数，Samba在映射DOS属性到UNIX系统前，首先会读取DOS文件系统扩展属性(系统、隐藏、存档或只读)。设置这项参数可以保存DOS文件系统中文件和文件夹的扩展属性到UNIX文件系统。"
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1581,7 +1582,7 @@ msgstr "网口"
 msgid "Invalid domain name"
 msgstr "无效域名"
 
-msgid "Invalid filesystem label"
+msgid "Invalid file system label"
 msgstr "无效文件系统标签"
 
 msgid "Invalid group name"
@@ -1951,7 +1952,7 @@ msgid "Mongolia"
 msgstr "蒙古"
 
 msgid "Monitor"
-msgstr ""
+msgstr "监听"
 
 msgid "Monitoring"
 msgstr "监测"
@@ -2245,7 +2246,7 @@ msgid "Physical Disks"
 msgstr "物理磁盘"
 
 msgid "Physical disk properties"
-msgstr ""
+msgstr "物理磁盘属性"
 
 msgid "Pitcairn"
 msgstr "皮特凯恩群岛"
@@ -2306,9 +2307,9 @@ msgid "Please wait ..."
 msgstr "请稍等 ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a "
-"filesystem."
-msgstr "请等 RAID 初始化后再创建文件系统。"
+"Please wait until the RAID has been initialized before creating a file "
+"system."
+msgstr "RAID初始化完成后再创建文件系统。"
 
 msgid "Plugins"
 msgstr "插件"
@@ -2531,7 +2532,7 @@ msgstr "重设 WebGUI 状态"
 msgid ""
 "Reset WebGUI state will restore default settings of grid columns for "
 "example."
-msgstr ""
+msgstr "恢复WebGUI状态至默认示例。"
 
 msgid "Resize"
 msgstr "调整大小"
@@ -2686,7 +2687,7 @@ msgstr "选择设备 ..."
 msgid "Select a directory"
 msgstr "选择一个目录"
 
-msgid "Select a filesystem ..."
+msgid "Select a file system ..."
 msgstr "选择文件系统 ..."
 
 msgid "Select a group name..."
@@ -3112,6 +3113,9 @@ msgstr " '%s' 包含禁止字符"
 msgid "The file mode of the shared folder path."
 msgstr "共享文件夹路径的文件模式。"
 
+msgid "The file system creation has completed successfully."
+msgstr "文件系统创建成功。"
+
 msgid "The group '%s' does not exist"
 msgstr "用户组 '%s' 不存在"
 
@@ -3210,8 +3214,8 @@ msgstr "用户 '%s' 不存在"
 msgid "The user '%s' is not allowed"
 msgstr "用户 '%s' 不被允许"
 
-msgid "The volume label for the filesystem."
-msgstr "该文件系统的卷标签。"
+msgid "The volume label for the file system."
+msgstr "文件系统卷标签。"
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "

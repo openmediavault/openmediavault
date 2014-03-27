@@ -6,14 +6,14 @@
 # Alexander Savchenko <>, 2012
 # артур Мудрых <arturmon82@gmail.com>, 2012
 # mictian <ffrants@gmail.com>, 2012
-# артур Мудрых <arturmon82@gmail.com>, 2013
+# артур Мудрых <arturmon82@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-29 16:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-03-09 12:40+0000\n"
+"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -143,7 +143,7 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "Записывать в лог чистые файлы. Это значительно увеличивает размер журнала."
 
 msgid "Message"
-msgstr ""
+msgstr "Сообщение"
 
 msgid "Minute"
 msgstr "Минут"
