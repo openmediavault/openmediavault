@@ -132,6 +132,13 @@ div#headerrlogo {
 	text-align: center;
 }
 /* Tree */
+.x-tree-icon {
+	-webkit-filter: opacity(70%);
+	-moz-filter: opacity(70%);
+	-ms-filter: opacity(70%);
+	-o-filter: opacity(70%);
+	filter: opacity(70%);
+}
 .x-tree-icon-16x16 {
 	background-size: 16px 16px;
 }
