@@ -1412,7 +1412,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	public function isUsb() {
 		if(FALSE === ($property = $this->getUdevProperty("ID_BUS")))
 			return FALSE;
-		return (0 == strcasecmp("usb" === $property)) ? TRUE : FALSE;
+		return (0 == strcasecmp("usb", $property)) ? TRUE : FALSE;
 	}
 
 	/**
@@ -1422,7 +1422,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	public function isAta() {
 		if(FALSE === ($property = $this->getUdevProperty("ID_BUS")))
 			return FALSE;
-		return (0 == strcasecmp("ata" === $property)) ? TRUE : FALSE;
+		return (0 == strcasecmp("ata", $property)) ? TRUE : FALSE;
 	}
 
 	/**
