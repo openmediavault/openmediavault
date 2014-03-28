@@ -327,6 +327,11 @@ case "$1" in
 			monit restart rrdcached
 			monit restart collectd
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.6.0.3"; then
+			# Disable proftpd memcache module, support is not enabled in
+			# the Debian Wheezy package.
+			sed -i -e "s/^\(LoadModule mod_tls_memcache.c\)/#\1/i" /etc/proftpd/modules.conf
+		fi
 	;;
 
 	triggered)

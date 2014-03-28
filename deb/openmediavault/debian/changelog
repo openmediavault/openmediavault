@@ -1,6 +1,6 @@
 openmediavault (0.6.0.3) stable; urgency=low
 
-  * 
+  * Uncomment mod_tls_memcache proftpd module to fix start problem.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 28 Mar 2014 00:55:09 +0100
 
@@ -29,9 +29,16 @@ openmediavault (0.6) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Nov 2013 19:41:31 +0100
 
+openmediavault (0.5.43) stable; urgency=low
+
+  * Fix issue when changing hostname and FTP is enabled.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 28 Mar 2014 12:11:46 +0100
+
 openmediavault (0.5.42) stable; urgency=low
 
   * Allow prelogin message customizing.
+  * Various code improvements.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 23 Mar 2014 12:53:16 +0100
 

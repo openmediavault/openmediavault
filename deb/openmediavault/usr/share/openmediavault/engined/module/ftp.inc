@@ -46,7 +46,7 @@ class OMVModuleFtp extends OMVModuleServiceAbstract
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldStart() { return array("fstab"); }
+	public function shouldStart() { return array("fstab", "hostname"); }
 
 	/**
 	 * Defines the modules that if present should be stopped after the
