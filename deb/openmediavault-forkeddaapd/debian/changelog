@@ -1,7 +1,7 @@
 openmediavault-forkeddaapd (0.6) stable; urgency=low
 
   * Update locales.
-  * Adapt plugin to new framework.
+  * Adapt plugin to Debian Wheezy.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Mar 2014 12:19:49 +0100
 

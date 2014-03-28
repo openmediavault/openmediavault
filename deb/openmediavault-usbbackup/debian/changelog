@@ -1,6 +1,6 @@
 openmediavault-usbbackup (0.6) stable; urgency=low
 
-  * Adapt plugin to new framework.
+  * Adapt plugin to Debian Wheezy.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 24 Mar 2014 21:39:47 +0100
 

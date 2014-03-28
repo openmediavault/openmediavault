@@ -1,7 +1,7 @@
 openmediavault-clamav (0.6) stable; urgency=low
 
   * Update locales.
-  * Adapt plugin to new framework.
+  * Adapt plugin to Debian Wheezy.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Mar 2014 12:19:12 +0100
 
