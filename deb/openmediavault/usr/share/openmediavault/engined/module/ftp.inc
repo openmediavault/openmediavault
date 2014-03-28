@@ -39,7 +39,7 @@ class OMVModuleFtp extends OMVModuleServiceAbstract
 	 * before the service provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldApply() { return array("certificatemgmt", "hosts"); }
+	public function shouldApply() { return array("certificatemgmt"); }
 
 	/**
 	 * Defines the modules that if present should start before the service
