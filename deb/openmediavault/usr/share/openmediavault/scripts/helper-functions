@@ -80,6 +80,12 @@ omv_trim() {
     echo $trimmed
 }
 
+# omv_escapeshellarg value
+# Escape a string to be used as a shell argument.
+omv_escapeshellarg() {
+	php5 -n -r "print escapeshellarg('$@');"
+}
+
 # omv_uuid
 # Create a UUID v4.
 omv_uuid() {

@@ -31,7 +31,8 @@ openmediavault (0.6) stable; urgency=low
 
 openmediavault (0.5.43) stable; urgency=low
 
-  * Fix issue when changing hostname and FTP is enabled.
+  * Fix issues when changing hostname.
+  * Mantis 0001010: Rsync syntax doesn't work.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 28 Mar 2014 12:11:46 +0100
 

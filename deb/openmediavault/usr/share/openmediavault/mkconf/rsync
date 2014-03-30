@@ -54,8 +54,10 @@ xmlstarlet sel -t -m "//services/rsync/jobs/job" \
 	  local)
 		  srcsfref=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/src")
 		  srcuri="$(omv_get_sharedfolder_path "${srcsfref}")/"
+		  srcuriarg=$(omv_escapeshellarg "${srcuri}")
 		  destsfref=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/dest")
 		  desturi=$(omv_get_sharedfolder_path "${destsfref}")
+		  desturiarg=$(omv_escapeshellarg "${desturi}")
 		  destmntdir=$(omv_get_sharedfolder_mount_dir "${destsfref}")
 		  ;;
 	  remote)
@@ -64,12 +66,16 @@ xmlstarlet sel -t -m "//services/rsync/jobs/job" \
 		  push)
 			  srcsfref=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/src")
 			  srcuri="$(omv_get_sharedfolder_path "${srcsfref}")/"
+			  srcuriarg=$(omv_escapeshellarg "${srcuri}")
 			  desturi=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/dest")
+			  desturiarg="${desturi}"
 			  ;;
 		  pull)
 			  srcuri=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/src")
+			  srcuriarg="${srcuri}"
 			  destsfref=$(omv_config_get "//services/rsync/jobs/job[uuid='${uuid}']/dest")
 			  desturi=$(omv_get_sharedfolder_path "${destsfref}")
+			  desturiarg=$(omv_escapeshellarg "${desturi}")
 			  destmntdir=$(omv_get_sharedfolder_mount_dir "${destsfref}")
 			  ;;
 		  esac
@@ -110,7 +116,7 @@ xmlstarlet sel -t -m "//services/rsync/jobs/job" \
 		-i "dryrun = '1'" -o " --dry-run" -b \
 		-i "partial = '1'" -o " --partial" -b \
 		-i "string-length(extraoptions) > 0" -v "concat(' ',extraoptions)" -b \
-		-o " \"${srcuri}\" \"${desturi}\" & wait \$!" \
+		-o " ${srcuriarg} ${desturiarg} & wait \$!" \
 		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${filename}
 	  chmod ${OMV_RSYNC_CRONSCRIPT_MASK} ${filename}
   done
