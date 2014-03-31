@@ -126,11 +126,11 @@ class OMVConfigEngine extends OMVObject {
 	}
 
 	/**
-	 * Get the configuration for the given XPath.
-	 * @param xpath The path to the configuration object(s).
+	 * Get the configuration for the given XPath expression.
+	 * @param xpath The XPath expression to execute.
 	 * @return The requested value or an array containing the requested value
-	 *   if the XPath matches multiple configuration objects. If XPath does not
-	 *   match NULL will be returned.
+	 *   if the XPath expression matches multiple configuration objects. If
+	 *   the XPath expression does not match NULL will be returned.
 	 */
 	public function get($xpath) {
 		$this->reload();
@@ -150,8 +150,8 @@ class OMVConfigEngine extends OMVObject {
 	}
 
 	/**
-	 * Get the configuration for the given XPath as a list.
-	 * @param xpath The path to the configuration object(s).
+	 * Get the configuration for the given XPath expression as a list.
+	 * @param xpath The XPath expression to execute.
 	 * @return An array containing the requested configuration objects,
 	 *   otherwise an empty array.
 	 */
@@ -169,7 +169,7 @@ class OMVConfigEngine extends OMVObject {
 	/**
 	 * Get the XPath location path of the objects addressed by the given
 	 * XPath as a list.
-	 * @param xpath The XPath of the requested configuration object(s).
+	 * @param xpath The XPath expression to execute.
 	 * @return An array containing the XPath to the objects, otherwise an
 	 *   empty array.
 	 */
@@ -185,11 +185,11 @@ class OMVConfigEngine extends OMVObject {
 	}
 
 	/**
-	 * Set the data at the given XPath. This function is protected by mutual
-	 * exclusion, thus the function will be blocked until it can acces the
-	 * protected section.
-	 * @param xpath The path to the configuration data.
-	 * @param data The data to set at the given XPath position.
+	 * Set the data at the given XPath expression. This function is protected
+	 * by mutual exclusion, thus the function will be blocked until it can
+	 * acces the protected section.
+	 * @param xpath The XPath expression to execute.
+	 * @param data The data to set for the given XPath expression.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function set($xpath, $data) {
@@ -211,12 +211,12 @@ class OMVConfigEngine extends OMVObject {
 	}
 
 	/**
-	 * Replace the data at the given XPath. If the given XPath does not
-	 * exist the method will exit immediatelly. This function is protected by
-	 * mutual exclusion, thus the function will be blocked until it can acces
-	 * the protected section.
-	 * @param xpath The path to the configuration data.
-	 * @param data The data to set at the given XPath position.
+	 * Replace the data at the given XPath expression. If the given XPath
+	 * expression does not exist, then the method will exit immediatelly.
+	 * This function is protected by mutual exclusion, thus the function
+	 * will be blocked until it can acces the protected section.
+	 * @param xpath The XPath expression to execute.
+	 * @param data The data to set for the given XPath expression.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function replace($xpath, $data) {
@@ -242,7 +242,7 @@ class OMVConfigEngine extends OMVObject {
 	 * Delete the nodes matching the given XPath expression. This function is
 	 * protected by mutual exclusion, thus the function will be blocked until
 	 * it can acces the protected section.
-	 * @param xpath The XPath expression to delete.
+	 * @param xpath The XPath expression to execute.
 	 * @return Returns the deleted nodes, otherwise FALSE.
 	 */
 	public function delete($xpath) {
@@ -264,7 +264,7 @@ class OMVConfigEngine extends OMVObject {
 	}
 
 	/**
-	 * Check if the data at the given XPath exists.
+	 * Check if the data at the given XPath expression exists.
 	 * @param xpath The XPath expression to execute.
 	 * @return TRUE if data exists, otherwise FALSE. If the XPath expression
 	 *   is malformed FALSE will be returned.
@@ -289,6 +289,37 @@ class OMVConfigEngine extends OMVObject {
 		if(FALSE === $nodeList)
 			return FALSE;
 		return $nodeList->length;
+	}
+
+	/**
+	 * Compare the configuration from the given XPath expression with the
+	 * given data.
+	 * @param expression The XPath expression to execute.
+	 * @param data The data to compare.
+	 * @return Returns 0 if the data is equal, otherwise -1. On error
+	 *   boolean FALSE is returned.
+	 */
+	public function compare($expression, $data) {
+		if (is_null($result = $this->get($xpath)))
+			return FALSE;
+		// Convert everything into an array.
+		if (!is_array($result))
+			$result = array($result);
+		if (!is_array($data))
+			$result = array($data);
+		// Convert all values to strings before comparison. This is necessary
+		// because the values returned from the configuration database are
+		// strings.
+		if (FALSE === array_walk_recursive($data,
+		  create_function('&$item, $key', 'if (is_string($item) { '.
+		  'if (!mb_check_encoding($item, "UTF-8")) { '.
+		  '$item = utf8_encode($item); } } else { '.
+		  '$item = utf8_encode(strval($item)); }')))
+			return FALSE;
+		// Compare the arrays.
+		if (0 == count(array_diff($result, $data)))
+			return 0;
+		return -1;
 	}
 
 	/**
