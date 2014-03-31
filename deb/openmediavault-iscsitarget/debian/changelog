@@ -1,3 +1,9 @@
+openmediavault-iscsitarget (0.6) stable; urgency=low
+
+  * Adapt plugin to Debian Wheezy.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 31 Mar 2014 12:03:33 +0200
+
 openmediavault-iscsitarget (0.5.5) stable; urgency=low
 
   * Various improvements.
