@@ -8,8 +8,7 @@ Homepage: http://www.openmediavault.org
 
 Package: iscsitarget-module-dkms
 Architecture: all
-Depends: patch, iscsitarget-dkms, linux-headers-2.6.32-5-all |
- linux-headers-3.2.0-0.bpo.4-all
+Depends: patch, iscsitarget-dkms
 Provides: iscsitarget-module
 Conflicts: iscsitarget-module
 Replaces: iscsitarget-module

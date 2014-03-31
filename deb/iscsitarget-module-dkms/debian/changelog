@@ -1,3 +1,9 @@
+iscsitarget-module-dkms (0.6) stable; urgency=low
+
+  * Adapt plugin to Debian Wheezy.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 31 Mar 2014 12:02:24 +0200
+
 iscsitarget-module-dkms (0.3) stable; urgency=low
 
   * Support backport kernel.
