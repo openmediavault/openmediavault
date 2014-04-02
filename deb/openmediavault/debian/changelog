@@ -29,6 +29,13 @@ openmediavault (0.6) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Nov 2013 19:41:31 +0100
 
+openmediavault (0.5.44) stable; urgency=low
+
+  * Mantis 0001017: Notification settings - test-email not sent to second
+    email-address.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 02 Apr 2014 12:08:55 +0200
+
 openmediavault (0.5.43) stable; urgency=low
 
   * Fix issues when changing hostname.

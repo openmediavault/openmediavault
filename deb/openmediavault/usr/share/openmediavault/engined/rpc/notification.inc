@@ -302,7 +302,7 @@ class OMVRpcServiceEmailNotification extends OMVRpcServiceAbstract {
 		$hostname = php_uname('n');
 		$to = $object['primaryemail'];
 		if(!empty($object['secondaryemail'])) {
-			$to += sprintf(",%s", $object['secondaryemail']);
+			$to .= sprintf(",%s", $object['secondaryemail']);
 		}
 		$subject = sprintf("Test message from %s", $hostname);
 		$message = sprintf("This is an automatically generated mail message ".
