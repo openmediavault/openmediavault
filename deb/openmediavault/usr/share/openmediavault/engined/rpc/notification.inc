@@ -302,11 +302,11 @@ class OMVRpcServiceEmailNotification extends OMVRpcServiceAbstract {
 		$hostname = php_uname('n');
 		$to = $object['primaryemail'];
 		if(!empty($object['secondaryemail'])) {
-			$to += ",{$object['secondaryemail']}";
+			$to += sprintf(",%s", $object['secondaryemail']);
 		}
-		$subject = "Test message from {$hostname}";
-		$message = "This is an automatically generated mail message from " .
-		  "the system notification service running on {$hostname}.";
+		$subject = sprintf("Test message from %s", $hostname);
+		$message = sprintf("This is an automatically generated mail message ".
+		  "from the system notification service running on %s.", $hostname);
 		if(!OMVUtil::mail($object['sender'], $to, $subject, $message)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  "Failed to send email. Please check the logs.");
