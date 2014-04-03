@@ -28,6 +28,18 @@ require_once("openmediavault/error.inc");
  * @ingroup api
  */
 class OMVMonit extends OMVObject {
+	private $group = FALSE;
+
+	/**
+	 * Set the group option. If set, then the methods start, stop, restart,
+	 * monitor and unmonitor will be applied to the given group name.
+	 * @param value Set to TRUE to use the group option, otherwise FALSE.
+	 * @return None
+	 */
+	final public function setGroup($value) {
+		$this->group = $value;
+	}
+
 	/**
 	 * Start the named service and enable monitoring for it.
 	 * @param name The name of the service.
@@ -86,9 +98,18 @@ class OMVMonit extends OMVObject {
 	 * @return None
 	 */
 	private function action($action, $name, $quiet = FALSE) {
-		$cmd = sprintf("export LANG=C; monit %s %s 2>&1", $action, $name);
+		$cmdArgs = array();
+		if (TRUE === $this->group) {
+			$cmdArgs[] = "-g";
+			$cmdArgs[] = $name;
+			$cmdArgs[] = $action;
+		} else {
+			$cmdArgs[] = $action;
+			$cmdArgs[] = $name;
+		}
+		$cmd = sprintf("export LANG=C; monit %s 2>&1", implode(" ", $cmdArgs));
 		OMVUtil::exec($cmd, $output, $result);
-		if(!$quiet && ($result !== 0)) {
+		if (!$quiet && ($result !== 0)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
