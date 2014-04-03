@@ -66,9 +66,12 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 	public function stopService() {
 		// Disable monitoring of this service.
 		$monit = new OMVMonit();
+		$monit->setGroup(TRUE);
 		$monit->unmonitor("nut", TRUE);
 		// Stop this service and unregister System-V style init script.
-		$initd = new OMVSysVInitScript("nut", FALSE);
+		$initd = new OMVSysVInitScript("nut-client", FALSE);
+		$initd->exec();
+		$initd = new OMVSysVInitScript("nut-server", FALSE);
 		$initd->exec();
 	}
 
@@ -94,10 +97,13 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 			  $cmd, implode("\n", $output));
 		}
 		// Start this service and register System-V style init script.
-		$initd = new OMVSysVInitScript("nut", TRUE);
+		$initd = new OMVSysVInitScript("nut-server", TRUE);
+		$initd->exec();
+		$initd = new OMVSysVInitScript("nut-client", TRUE);
 		$initd->exec();
 		// Enable monitoring of this service.
 		$monit = new OMVMonit();
+		$monit->setGroup(TRUE);
 		$monit->monitor("nut");
 	}
 
@@ -118,7 +124,7 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 			"name" => $this->getName(),
 			"title" => gettext("UPS"),
 			"enabled" => boolval($object['enable']),
-			"running" => ($monit->status("nut") === "running")
+			"running" => ($monit->status("nut-server") === "running")
 		);
 	}
 

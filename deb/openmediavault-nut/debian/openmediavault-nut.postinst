@@ -32,8 +32,10 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Updating init script links and actions"
-			invoke-rc.d --force nut stop
-			update-rc.d nut disable &>/dev/null
+			invoke-rc.d --force nut-server stop
+			update-rc.d nut-server disable &>/dev/null
+			invoke-rc.d --force nut-client stop
+			update-rc.d nut-client disable &>/dev/null
 			invoke-rc.d --force ups-monitor stop
 			update-rc.d ups-monitor disable &>/dev/null
 		fi
@@ -84,7 +86,7 @@ case "$1" in
 		if [ -z "$2" ]; then
 			echo "Restarting services ..."
 			monit restart collectd
-			invoke-rc.d rsyslog restart
+			invoke-rc.d rsyslog force-reload
 		fi
 
 		########################################################################

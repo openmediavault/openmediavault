@@ -36,8 +36,10 @@ omv-mkconf collectd
 monit restart collectd
 
 # Stop service.
-invoke-rc.d --force nut stop
-update-rc.d nut disable &>/dev/null
+invoke-rc.d --force nut-server stop
+update-rc.d nut-server disable &>/dev/null
+invoke-rc.d --force nut-client stop
+update-rc.d nut-client disable &>/dev/null
 invoke-rc.d --force ups-monitor stop
 update-rc.d ups-monitor disable &>/dev/null
 
@@ -49,7 +51,7 @@ case "$1" in
 		rm -f ${OMV_NUT_UDEV_RULE_CONFIG}
 		udevadm control --reload-rules
 		# Reload rsyslog configuration.
-		invoke-rc.d rsyslog reload
+		invoke-rc.d rsyslog force-reload
 	;;
 
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

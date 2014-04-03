@@ -5,13 +5,14 @@
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
 # mersaint <mersaint@gmail.com>, 2012
+# Grawens <szabolcs.szanyi@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-29 16:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-03-08 14:54+0000\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,7 +27,7 @@ msgid "Comment"
 msgstr "Megjegyzés"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Dátum és idő"
 
 msgid "Defines when the shutdown is initiated."
 msgstr "Leállítási szabályok."
@@ -50,13 +51,13 @@ msgid "Load"
 msgstr "Terhelés"
 
 msgid "Message"
-msgstr ""
+msgstr "Üzenet"
 
 msgid "Password"
 msgstr "Jelszó"
 
 msgid "Program"
-msgstr ""
+msgstr "Program"
 
 msgid "Remote monitoring"
 msgstr "Távfelügyelet"
@@ -65,7 +66,7 @@ msgid "Service disabled"
 msgstr "Szolgáltatás kikapcsolva"
 
 msgid "Settings"
-msgstr ""
+msgstr "Beállítások"
 
 msgid "Shutdown mode"
 msgstr "Leállítási üzemmód"

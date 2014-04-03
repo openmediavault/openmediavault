@@ -88,7 +88,7 @@ MAXAGE ${OMV_NUT_UPSD_MAXAGE}
 MAXCONN ${OMV_NUT_UPSD_MAXCONN}
 EOF
 
-	if [ "1" = $(omv_config_get "//services/nut/remotemonitor") ]; then
+	if [ "1" = "$(omv_config_get "//services/nut/remotemonitor")" ]; then
 		# To simplify setup we are listening on ANY network address. To
 		# enhance security this can be limited via iptables rules.
 		echo "LISTEN 0.0.0.0 ${OMV_NUT_UPSD_PORT}" >> ${OMV_NUT_UPSD_CONFIG}
@@ -151,7 +151,7 @@ AT FSD * EXECUTE forced-shutdown
 AT NOPARENT * EXECUTE notify
 AT SHUTDOWN * EXECUTE notify
 EOF
-	if [ "onbatt" = $(omv_config_get "//services/nut/shutdownmode") ]; then
+	if [ "onbatt" = "$(omv_config_get "//services/nut/shutdownmode")" ]; then
 		shutdowntimer=$(omv_config_get "//services/nut/shutdowntimer")
 		cat <<EOF >> ${OMV_NUT_UPSSCHED_CONFIG}
 AT ONLINE * CANCEL-TIMER shutdown
