@@ -31,8 +31,6 @@ OMV_SAMBA_CONFIG=${OMV_SAMBA_CONFIG:-"/etc/samba/smb.conf"}
 OMV_SAMBA_LDAP_SSL=${OMV_SAMBA_LDAP_SSL:-"off"}
 OMV_SAMBA_LDAP_PASSWDSYNC=${OMV_SAMBA_LDAP_PASSWDSYNC:-"yes"}
 OMV_SAMBA_LDAP_LDAPSAMTRUSTED=${OMV_SAMBA_LDAP_LDAPSAMTRUSTED:-"no"}
-OMV_SAMBA_LDAP_IDMAPUID=${OMV_SAMBA_LDAP_IDMAPUID:-"10000-20000"}
-OMV_SAMBA_LDAP_IDMAPGID=${OMV_SAMBA_LDAP_IDMAPGID:-"10000-20000"}
 
 [ "$(omv_config_get "//services/smb/enable")" = "0" -o \
   "$(omv_config_get "//services/ldap/enable")" = "0" ] && exit 0
@@ -50,8 +48,6 @@ xmlstarlet sel -t -m "//services/ldap" \
   -o "ldap ssl = ${OMV_SAMBA_LDAP_SSL}" -n \
   -o "ldap passwd sync = ${OMV_SAMBA_LDAP_PASSWDSYNC}" -n \
   -o "ldapsam:trusted = ${OMV_SAMBA_LDAP_LDAPSAMTRUSTED}" -n \
-  -o "idmap uid = ${OMV_SAMBA_LDAP_IDMAPUID}" -n \
-  -o "idmap gid = ${OMV_SAMBA_LDAP_IDMAPGID}" -n \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
 
 smbpasswd -w "${rootbindpw}" 2>&1

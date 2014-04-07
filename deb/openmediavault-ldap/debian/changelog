@@ -1,3 +1,10 @@
+openmediavault-ldap (0.6.1) stable; urgency=low
+
+  * Remove 'idmap uid' and 'idmap gid' from auto-generated LDAP smb.conf.
+    If required, the settings can be set via the extra options field.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Apr 2014 12:07:43 +0200
+
 openmediavault-ldap (0.6) stable; urgency=low
 
   * Adapt plugin to Debian Wheezy.
