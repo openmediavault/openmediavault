@@ -76,10 +76,10 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 					click: function(c, e) {
 						OMV.MessageBox.show({
 							title: _("Confirmation"),
-							msg: _("Do you really want to apply the configuration?"),
+							msg: _("Do you really want to apply the configuration changes?"),
 							buttons: Ext.Msg.YESNO,
 							fn: function(answer) {
-								if(answer !== "yes")
+								if (answer !== "yes")
 									return;
 								// Hide the toolbar during the process.
 								this.inProgress = true;
@@ -108,7 +108,67 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 											var value = c.getValue();
 											delete this.inProgress;
 											c.close();
-											if(value.length > 0)
+											if (value.length > 0)
+												OMV.MessageBox.error(null, value);
+										},
+										exception: function(c, error) {
+											delete this.inProgress;
+											c.close();
+											OMV.MessageBox.error(null, error);
+										},
+										scope: this
+									}
+								});
+								dlg.start();
+							},
+							scope: this,
+							icon: Ext.Msg.QUESTION
+						});
+					}
+				}
+			},{
+				xtype: "button",
+				text: _("Revert"),
+				icon: "images/undo.png",
+				iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+				tooltip: _("Revert configuration changes"),
+				listeners: {
+					scope: me,
+					click: function(c, e) {
+						OMV.MessageBox.show({
+							title: _("Confirmation"),
+							msg: _("Do you really want to revert the configuration changes?"),
+							buttons: Ext.Msg.YESNO,
+							fn: function(answer) {
+								if (answer !== "yes")
+									return;
+								// Hide the toolbar during the process.
+								this.inProgress = true;
+								this.setVisible(false);
+								// Display a progress bar until the configuration
+								// changes have been applied.
+								var dlg = Ext.create("OMV.window.Execute", {
+									title: _("Revert configuration changes"),
+									width: 350,
+									rpcService: "Config",
+									rpcMethod: "revertChangesBg",
+									rpcParams: {
+										filename: ""
+									},
+									hideStartButton: true,
+									hideStopButton: true,
+									hideCloseButton: true,
+									progress: true,
+									listeners: {
+										start: function(c) {
+											// Show the progress dialog.
+											c.show();
+										},
+										finish: function(c) {
+											var value = c.getValue();
+											delete this.inProgress;
+											c.close();
+											if (value.length > 0)
 												OMV.MessageBox.error(null, value);
 										},
 										exception: function(c, error) {

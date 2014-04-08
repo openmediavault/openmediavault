@@ -226,11 +226,7 @@ class OMVJsonFile extends OMVObject {
 			  sprintf("Failed to rewind file (filename=%s).",
 			  $this->filename));
 		}
-		if(FALSE === ftruncate($this->fh, 0)) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf("Failed to truncate file (filename=%s).",
-			  $this->filename));
-		}
+		$this->truncate(0);
 		if(FALSE === fwrite($this->fh, json_encode_safe($content))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to write file (filename=%s).",
@@ -262,6 +258,20 @@ class OMVJsonFile extends OMVObject {
 			  $this->filename));
 		}
 		return (TRUE === $decode) ? json_decode($content, TRUE) : $content;
+	}
+
+	/**
+	 * Truncates the file to a given length.
+	 * @param size The size to truncate to.
+	 * @return None.
+	 * @throw E_MISC_FAILURE
+	 */
+	public function truncate($size) {
+		if (FALSE === ftruncate($this->fh, $size)) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to truncate file (filename=%s, size=%d).",
+			  $this->filename, $size));
+		}
 	}
 
 	/**

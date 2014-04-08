@@ -281,7 +281,7 @@ restore_config_backup()
 	local configbak
 	# Determine the first revision file which should look like
 	# '<filename>.<revision>'.
-	configbak=$(ls "${OMV_CONFIG_FILE}.*" | sort -fn | head -n 1)
+	configbak=$(ls ${OMV_CONFIG_FILE}.* | sort -fn | head -n 1)
 	# Does a auto-generated configuration backup exist?
 	if [ ! -e "${configbak}" ]; then
 		${OMV_FIRSTAID_DIALOG} --clear --msgbox 'No configuration backup found!' 8 34

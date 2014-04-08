@@ -40,6 +40,8 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		$this->registerMethod("isDirty");
 		$this->registerMethod("applyChanges");
 		$this->registerMethod("applyChangesBg");
+		$this->registerMethod("revertChanges");
+		$this->registerMethod("revertChangesBg");
 	}
 
 	/**
@@ -96,8 +98,7 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		$notifyDispatcher = &OMVNotifyDispatcher::getInstance();
 		// Open the dirty modules file. Lock it to force all writers
 		// to wait until this RPC has been finished.
-		$jsonFile = new OMVJsonFile(
-		  $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile = new OMVJsonFile($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
 		$jsonFile->open("c+");
 		$dirtyModules = $jsonFile->read();
 		// Remove non-existing modules from list. It may happen that the
@@ -209,7 +210,7 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		// Reset list of dirty modules.
 		$jsonFile->write($dirtyModules);
 		$jsonFile->close();
-		// Unlink all config revision file.
+		// Unlink all configuration revision files.
 		$xmlConfig->unlinkRevisions();
 	}
 
@@ -254,6 +255,85 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		try {
 			// Apply the configuration changes.
 			$this->callMethod("applyChanges", $params, $context);
+			$this->finalizeBgProcStatus($bgStatusFilename);
+			exit(0);
+		} catch(Exception $e) {
+			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
+			exit(1);
+		}
+	}
+
+	/**
+	 * Revert the configuration changes.
+	 * @param params An array containing the following fields:
+	 *   \em filename The revision file. Set to empty to automatically detect
+	 *   the correct revision file.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_MISC_FAILURE
+	 */
+	public function revertChanges($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "filename":{"type":"string","optional":true}
+			  }
+		  }');
+		// Open the dirty modules file. Lock it to force all writers
+		// to wait until this RPC has been finished.
+		$jsonFile = new OMVJsonFile($GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE']);
+		$jsonFile->open("c+");
+		// Revert configuration changes. All existing revision files
+		// will be deleted.
+		if (FALSE === $xmlConfig->revert($params['filename'])) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to revert configuration changes: %s",
+			  $xmlConfig->getLastError()));
+		}
+		// Empty the dirty modules file.
+		$jsonFile->write(array());
+		$jsonFile->close();
+	}
+
+	/**
+	 * Revert the configuration changes in a background job. Use this for
+	 * WebGUI interactions.
+	 * @param params An array containing the following fields:
+	 *   \em filename The revision file. Set to empty to automatically detect
+	 *   the correct revision file.
+	 * @param context The context of the caller.
+	 * @return The name of the background process status file if
+	 *   \em background is set to TRUE.
+	 */
+	public function revertChangesBg($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "filename":{"type":"string","optional":true}
+			  }
+		  }');
+		// Create a background process.
+		$bgStatusFilename = $this->createBgProcStatus();
+		$pid = $this->fork();
+		if ($pid > 0) { // Parent process.
+			$this->initializeBgProcStatus($bgStatusFilename, $pid);
+			return $bgStatusFilename;
+		}
+		// Child process.
+		try {
+			// Revert the configuration changes.
+			$this->callMethod("revertChanges", $params, $context);
 			$this->finalizeBgProcStatus($bgStatusFilename);
 			exit(0);
 		} catch(Exception $e) {

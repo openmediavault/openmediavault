@@ -338,15 +338,16 @@ class OMVConfigEngine extends OMVObject {
 	}
 
 	/**
-	 * Revert changes. Note, this only takes action if versioning is enabled.
+	 * Revert changes. All existing revision files will be deleted.
 	 * @param filename The revision file. Defaults to NONE.
+	 * @note This only takes action if versioning is enabled.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function revert($filename) {
-		if (TRUE !== $this->versioning)
-			return FALSE;
 		sem_acquire($this->semaphore);
 		$result = FALSE;
+		if (TRUE !== $this->versioning)
+			goto finish;
 		if (empty($filename)) {
 			// Determine the lowest revision number.
 			$revision = PHP_INT_MAX;
