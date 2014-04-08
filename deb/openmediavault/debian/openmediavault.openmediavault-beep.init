@@ -4,8 +4,8 @@
 # Provides:          openmediavault-beep
 # Required-Start:    $all
 # Required-Stop:     $all
-# Should-Start:      
-# Should-Stop:       
+# Should-Start:
+# Should-Stop:
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
 # Short-Description: Beeps after system start or before shutdown
@@ -19,7 +19,9 @@ case "$1" in
 		beep -f 3000 -l 100 -r 2 -n -f 2000 -l 150
 		;;
 	*)
-		echo "Usage: openmediavault-beep [start|stop]" >&2
-		exit 3
+		echo "Usage: ${0:-} {start|stop}" >&2
+		exit 1
 		;;
 esac
+
+exit 0

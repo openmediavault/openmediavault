@@ -89,8 +89,7 @@ status)
 	fi
 	;;
 *)
-	N=/etc/init.d/$NAME
-	echo "Usage: $N {start|stop|restart|reload|status}" >&2
+	echo "Usage: ${0:-} {start|stop|restart|reload|status}" >&2
 	exit 1
 	;;
 esac

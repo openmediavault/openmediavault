@@ -25,6 +25,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_MONIT_SERVICE_NETATALK_CONFIG=${OMV_MONIT_SERVICE_NETATALK_CONFIG:-"/etc/monit/conf.d/openmediavault-netatalk.conf"}
+OMV_MONIT_SERVICE_NETATALK_MODE=${OMV_MONIT_SERVICE_NETATALK_MODE:-"active"}
 
 rm -f ${OMV_MONIT_SERVICE_NETATALK_CONFIG}
 [ "$(omv_config_get "//services/afp/enable")" = "0" ] && exit 0
@@ -35,7 +36,7 @@ check process netatalk with pidfile /var/run/afpd.pid
   stop program = "/etc/init.d/netatalk stop"
 #  if failed host 127.0.0.1 port 548 type TCP then restart
 #  if 5 restarts within 5 cycles then timeout
-  mode manual
+  mode ${OMV_MONIT_SERVICE_NETATALK_MODE}
 EOF
 
 # Disable event notifications.

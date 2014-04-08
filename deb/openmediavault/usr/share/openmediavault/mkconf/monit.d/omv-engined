@@ -25,12 +25,13 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_MONIT_SERVICE_OMVENGINED_CONFIG=${OMV_MONIT_SERVICE_OMVENGINED_CONFIG:-"/etc/monit/conf.d/openmediavault-engined.conf"}
+OMV_MONIT_SERVICE_OMVENGINED_MODE=${OMV_MONIT_SERVICE_OMVENGINED_MODE:-"active"}
 
 cat <<EOF > ${OMV_MONIT_SERVICE_OMVENGINED_CONFIG}
 check process omv-engined with pidfile /var/run/omv-engined.pid
   start program = "/etc/init.d/openmediavault-engined start"
   stop program = "/etc/init.d/openmediavault-engined stop"
-  mode manual
+  mode ${OMV_MONIT_SERVICE_OMVENGINED_MODE}
 EOF
 
 # Disable event notifications.

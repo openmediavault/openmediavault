@@ -25,6 +25,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG=${OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG:-"/etc/monit/conf.d/openmediavault-forkeddaapd.conf"}
+OMV_MONIT_SERVICE_FORKEDDAAPD_MODE=${OMV_MONIT_SERVICE_FORKEDDAAPD_MODE:-"active"}
 
 rm -f ${OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG}
 [ "$(omv_config_get "//services/daap/enable")" = "0" ] && exit 0
@@ -33,7 +34,7 @@ cat <<EOF > ${OMV_MONIT_SERVICE_FORKEDDAAPD_CONFIG}
 check process forked-daapd with pidfile /var/run/forked-daapd.pid
   start program = "/etc/init.d/forked-daapd start"
   stop program = "/etc/init.d/forked-daapd stop"
-  mode manual
+  mode ${OMV_MONIT_SERVICE_FORKEDDAAPD_MODE}
 EOF
 
 # Disable event notifications.

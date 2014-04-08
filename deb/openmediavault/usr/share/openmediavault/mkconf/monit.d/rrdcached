@@ -25,12 +25,13 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_MONIT_SERVICE_RRDCACHED_CONFIG=${OMV_MONIT_SERVICE_RRDCACHED_CONFIG:-"/etc/monit/conf.d/openmediavault-rrdcached.conf"}
+OMV_MONIT_SERVICE_RRDCACHED_MODE=${OMV_MONIT_SERVICE_RRDCACHED_MODE:-"active"}
 
 cat <<EOF > ${OMV_MONIT_SERVICE_RRDCACHED_CONFIG}
 check process rrdcached with pidfile /var/run/rrdcached.pid
   start program = "/etc/init.d/rrdcached start"
   stop program = "/etc/init.d/rrdcached stop"
-  mode manual
+  mode ${OMV_MONIT_SERVICE_RRDCACHED_MODE}
 EOF
 
 # Disable event notifications.

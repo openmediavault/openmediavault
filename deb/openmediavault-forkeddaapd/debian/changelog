@@ -1,3 +1,9 @@
+openmediavault-forkeddaapd (0.6.1) stable; urgency=low
+
+  * Adapt monit service configuration to new monit behaviour.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 Apr 2014 12:07:22 +0200
+
 openmediavault-forkeddaapd (0.6) stable; urgency=low
 
   * Update locales.

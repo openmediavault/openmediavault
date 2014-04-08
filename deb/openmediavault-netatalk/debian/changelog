@@ -1,3 +1,9 @@
+openmediavault-netatalk (0.6.1) stable; urgency=low
+
+  * Adapt monit service configuration to new monit behaviour.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 Apr 2014 12:03:30 +0200
+
 openmediavault-netatalk (0.6) stable; urgency=low
 
   * Adapt plugin to Debian Wheezy.
