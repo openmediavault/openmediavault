@@ -259,6 +259,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
 	 * @return A string containing the certificate details.
+	 * @throw E_CONFIG_DIRTY
 	 * @throw E_EXEC_FAILED
 	 */
 	public function getDetail($params, $context) {
@@ -273,11 +274,15 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
 			  }
 		  }');
+		// Check if the module is marked as dirty. This is an indication
+		// that the certificate has not been created or updated until now.
+		if ($this->isModuleDirty("certificatemgmt"))
+			throw new OMVException(OMVErrorMsg::E_CONFIG_DIRTY);
 		// Get certificate details.
 		$cmd = sprintf("openssl x509 -text -noout -in ".
 		  "%s/certs/%s%s.crt 2>&1", $GLOBALS['OMV_CERTIFICATE_DIR'],
 		  $GLOBALS['OMV_CERTIFICATE_PREFIX'], $params['uuid']);
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}

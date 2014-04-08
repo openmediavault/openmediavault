@@ -1,3 +1,9 @@
+openmediavault (0.6.0.4) stable; urgency=low
+
+  * Various improvements and modification for Debian Wheezy.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 Apr 2014 09:44:51 +0200
+
 openmediavault (0.6.0.3) stable; urgency=low
 
   * Uncomment mod_tls_memcache proftpd module to fix start problem.

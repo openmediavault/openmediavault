@@ -48,6 +48,7 @@ start)
 	echo -n "Starting $DESC: "
 	start-stop-daemon --start --quiet --pidfile $PIDFILE \
 	  --exec $DAEMON -- $DAEMON_OPTS
+	sleep 1
 	if running ; then
 		echo "$NAME."
 	else
