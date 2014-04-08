@@ -19,7 +19,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-require_once("openmediavault/globals.inc");
+require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/util.inc");
@@ -74,6 +74,7 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 	 * @throw E_MISC_FAILURE
 	 */
 	public function applyChanges($params, $context) {
+		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -208,6 +209,8 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		// Reset list of dirty modules.
 		$jsonFile->write($dirtyModules);
 		$jsonFile->close();
+		// Unlink all config revision file.
+		$xmlConfig->unlinkRevisions();
 	}
 
 	/**

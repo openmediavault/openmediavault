@@ -2,6 +2,7 @@ openmediavault (0.6.0.4) stable; urgency=low
 
   * Various improvements and modification for Debian Wheezy.
   * Adapt monit service configurations to new monit behaviour.
+  * Mantis 0001021: Add feature to revert configuration changes.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 08 Apr 2014 09:44:51 +0200
 

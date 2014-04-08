@@ -278,9 +278,10 @@ reset_webgui_passwd() {
 
 restore_config_backup()
 {
-	local conifgbak 
-	configbak=${OMV_CONFIG_FILE}.bak
-
+	local configbak
+	# Determine the first revision file which should look like
+	# '<filename>.<revision>'.
+	configbak=$(ls "${OMV_CONFIG_FILE}.*" | sort -fn | head -n 1)
 	# Does a auto-generated configuration backup exist?
 	if [ ! -e "${configbak}" ]; then
 		${OMV_FIRSTAID_DIALOG} --clear --msgbox 'No configuration backup found!' 8 34
@@ -307,10 +308,11 @@ EOF
 	${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno "Do you want to restore the configuration backup? This will overwrite the actual configuration?" 8 57
 	if [ $? -eq 0 ]; then
 		# Replace configuration files.
-		cp "${OMV_CONFIG_FILE}" "${tempfile}" && cp "${configbak}" "${OMV_CONFIG_FILE}" && cp "${tempfile}" "${configbak}"
-		if [ $? -eq 0 ]; then
-			${OMV_FIRSTAID_DIALOG} --clear --msgbox "Configuration backup successfully restored." 7 47
-		fi
+		cp "${OMV_CONFIG_FILE}" "${tempfile}" && cp "${configbak}" "${OMV_CONFIG_FILE}"
+		# Remove all revision files.
+		rm -f "${OMV_CONFIG_FILE}.*"
+		# Display success message.
+		${OMV_FIRSTAID_DIALOG} --clear --msgbox "Configuration backup successfully restored." 7 47
 	fi
 	return 0
 }

@@ -32,6 +32,7 @@ require_once("openmediavault/error.inc");
 class OMVConfigEngine extends OMVObject {
 	private $forceReload = TRUE;
 	private $autoCommit = TRUE;
+	private $versioning = FALSE;
 	private $semaphore = NULL;
 	private $domdoc = NULL;
 	private $filename = "";
@@ -63,13 +64,17 @@ class OMVConfigEngine extends OMVObject {
 	 *   TRUE.
 	 * @param autoCommit Set to TRUE to automatically commit the XML document
 	 *   modifications after write-access. Defaults to TRUE.
+	 * @param versioning Set to TRUE to automatically create a revision
+	 *   for all changes. Files will be created like <filename>.<revision>,
+	 *   e.g. <filename>.0015. Defaults to FALSE.
 	 */
 	public function __construct($filename, $forceReload = TRUE,
-	  $autoCommit = TRUE) {
+	  $autoCommit = TRUE, $versioning = FALSE) {
 		libxml_use_internal_errors(true);
 		$this->domdoc = NULL;
 		$this->forceReload = $forceReload;
 		$this->autoCommit = $autoCommit;
+		$this->versioning = $versioning;
 		$this->filename = $filename;
 		$this->semaphore = sem_get(1965);
 	}
@@ -79,6 +84,16 @@ class OMVConfigEngine extends OMVObject {
 	 */
 	public function addEnum($enum) {
 		$this->enums[] = $enum;
+	}
+
+	/**
+	 * Create a revision for all changes.
+	 * @param enable  Set to TRUE to automatically create a revision for
+	 *   all changes. Files will be created like <filename>.<revision>,
+	 *   e.g. <filename>.0015.
+	 */
+	public function setVersioning($enable) {
+		$this->versioning = $enable;
 	}
 
 	/**
@@ -323,18 +338,104 @@ class OMVConfigEngine extends OMVObject {
 	}
 
 	/**
+	 * Revert changes. Note, this only takes action if versioning is enabled.
+	 * @param filename The revision file. Defaults to NONE.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function revert($filename) {
+		if (TRUE !== $this->versioning)
+			return FALSE;
+		sem_acquire($this->semaphore);
+		$result = FALSE;
+		if (empty($filename)) {
+			// Determine the lowest revision number.
+			$revision = PHP_INT_MAX;
+			foreach (new DirectoryIterator(dirname($this->filename)) as $item) {
+				if (!$item->isFile())
+					continue;
+				// Identify files like '<filename>.<revision>'.
+				$pathInfo = pathinfo($item->getFilename());
+				if (0 !== strcasecmp($pathInfo['filename'], basename(
+				  $this->filename)))
+					continue;
+				if (!is_numeric($pathInfo['extension']))
+					continue;
+				$value = intval($pathInfo['extension']);
+				if ($value < $revision) {
+					$revision = $value;
+					$filename = $item->getPathname();
+				}
+			}
+			// Any file found?
+			if (empty($filename))
+				goto finish;
+		} else {
+			// Check if the file exists.
+			if (!file_exists($filename))
+				goto finish;
+		}
+		// Replace the configuration file with the given revision.
+		if (!copy($filename, $this->filename)) {
+			$this->setLastError(error_get_last());
+			goto finish;
+		}
+		// Unlink all revision files.
+		$this->unlinkRevisions();
+		$result = TRUE;
+	finish:
+		sem_release($this->semaphore);
+		return $result;
+	}
+
+	/**
+	 * Unlink all revision files. Note, this only takes action if versioning
+	 * is enabled.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function unlinkRevisions() {
+		if (TRUE !== $this->versioning)
+			return FALSE;
+		$pattern = sprintf("%s.*", $this->filename);
+		array_map('unlink', glob($pattern));
+		return TRUE;
+	}
+
+	/**
 	 * @private
 	 */
 	final private function commit($force = FALSE) {
-		if(!((TRUE === $force) || (TRUE === $this->autoCommit)))
+		if (!((TRUE === $force) || (TRUE === $this->autoCommit)))
 			return TRUE;
-		// Create a copy of the existing document. Exit immediatelly
-		// on failure to do not corrupt the original file. Note, the
-		// current changes can get lost.
-		if(!copy($this->filename, sprintf("%s.bak", $this->filename))) {
-			$error = error_get_last();
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $error['message']);
+		// Create a revision of the XML document.
+		if (TRUE === $this->versioning) {
+			// Determine the current revision number.
+			$revision = 0;
+			foreach (new DirectoryIterator(dirname($this->filename)) as $item) {
+				if (!$item->isFile())
+					continue;
+				// Identify files like '<filename>.<revision>'.
+				$pathInfo = pathinfo($item->getFilename());
+				if (0 !== strcasecmp($pathInfo['filename'], basename(
+				  $this->filename)))
+					continue;
+				if (!is_numeric($pathInfo['extension']))
+					continue;
+				$value = intval($pathInfo['extension']);
+				if ($value > $revision)
+					$revision = $value;
+			}
+			// Calculate the next revision number.
+			$revision += 1;
+			// Build the new filename, e.g. '<filename>.0815'.
+			$filename = sprintf("%s.%04d", $this->filename, $revision);
+			// Create a copy of the existing document. Exit immediatelly
+			// on failure to do not corrupt the original file. Note, the
+			// current changes can get lost.
+			if (!copy($this->filename, $filename)) {
+				$error = error_get_last();
+				throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
+				  $error['message']);
+			}
 		}
 		// Save document.
 		$this->domdoc->encoding = "UTF-8";
@@ -450,6 +551,7 @@ class OMVConfigEngine extends OMVObject {
 
 // Load the configuration file and save it in a global variable.
 $xmlConfig = new OMVConfigEngine($GLOBALS['OMV_CONFIG_FILE']);
+$xmlConfig->setVersioning(TRUE);
 if(FALSE === $xmlConfig->load()) {
 	throw new OMVException(OMVErrorMsg::E_CONFIG_LOAD_FAILED,
 	  $xmlConfig->getError());
