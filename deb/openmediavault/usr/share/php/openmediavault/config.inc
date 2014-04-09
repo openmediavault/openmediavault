@@ -64,9 +64,9 @@ class OMVConfigEngine extends OMVObject {
 	 *   TRUE.
 	 * @param autoCommit Set to TRUE to automatically commit the XML document
 	 *   modifications after write-access. Defaults to TRUE.
-	 * @param versioning Set to TRUE to automatically create a revision
-	 *   for all changes. Files will be created like <filename>.<revision>,
-	 *   e.g. <filename>.0015. Defaults to FALSE.
+	 * @param versioning Set to TRUE to automatically create a revision file
+	 *   for all changes. Files will look like <filename>.<revision>, e.g.
+	 *   <filename>.0015. Defaults to FALSE.
 	 */
 	public function __construct($filename, $forceReload = TRUE,
 	  $autoCommit = TRUE, $versioning = FALSE) {
@@ -88,33 +88,13 @@ class OMVConfigEngine extends OMVObject {
 
 	/**
 	 * Create a revision for all changes.
-	 * @param enable  Set to TRUE to automatically create a revision for
-	 *   all changes. Files will be created like <filename>.<revision>,
-	 *   e.g. <filename>.0015.
+	 * @param enable  Set to TRUE to automatically create a revision file
+	 *   for all changes. Files will be created like <filename>.<revision>,
+	 *   e.g. <filename>.0015. Set to FALSE to disable versioning on
+	 *   changes.
 	 */
 	public function setVersioning($enable) {
 		$this->versioning = $enable;
-	}
-
-	/**
-	 * Retrieve an error description.
-	 * @return The error description if available, otherwise empty string.
-	 */
-	public function getError() {
-		$text = "";
-		$errLevels = array(
-			LIBXML_ERR_WARNING => gettext("Warning"),
-			LIBXML_ERR_ERROR => gettext("Error"),
-			LIBXML_ERR_FATAL => gettext("Fatal error")
-		);
-		foreach(libxml_get_errors() as $errork => $errorv) {
-			if($errork > 0) $text .= "; ";
-			$text .= sprintf("%s %d: %s (line=%d, column=%d)",
-			  $errLevels[$errorv->level], $errorv->code,
-			  trim($errorv->message), $errorv->line, $errorv->column);
-		}
-		libxml_clear_errors();
-		return $text;
 	}
 
 	/**
@@ -123,8 +103,11 @@ class OMVConfigEngine extends OMVObject {
 	 */
 	public function load() {
 		$this->domdoc = new DOMDocument();
-		return $this->domdoc->load($this->filename, LIBXML_NOBLANKS |
-		  LIBXML_NONET);
+		if (FALSE === ($result = $this->domdoc->load($this->filename,
+		  LIBXML_NOBLANKS | LIBXML_NONET))) {
+			$this->setLastError($this->getLibXmlError());
+		}
+		return $result;
 	}
 
 	/**
@@ -367,7 +350,7 @@ class OMVConfigEngine extends OMVObject {
 					$filename = $item->getPathname();
 				}
 			}
-			// Any file found?
+			// Any revision file found?
 			if (empty($filename))
 				goto finish;
 		} else {
@@ -402,7 +385,12 @@ class OMVConfigEngine extends OMVObject {
 	}
 
 	/**
+	 * Commit the changes of the internal XML document to the given
+	 * configuration file. A revision file will be created if versioning
+	 * is enabled.
 	 * @private
+	 * @param force Set to TRUE to force commit.
+	 * @return Returns TRUE on success, otherwise FALSE.
 	 */
 	final private function commit($force = FALSE) {
 		if (!((TRUE === $force) || (TRUE === $this->autoCommit)))
@@ -433,16 +421,40 @@ class OMVConfigEngine extends OMVObject {
 			// on failure to do not corrupt the original file. Note, the
 			// current changes can get lost.
 			if (!copy($this->filename, $filename)) {
-				$error = error_get_last();
-				throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-				  $error['message']);
+				$this->setLastError(error_get_last());
+				return FALSE;
 			}
 		}
 		// Save document.
 		$this->domdoc->encoding = "UTF-8";
 		$this->domdoc->formatOutput = true;
-		return (FALSE === $this->domdoc->save($this->filename,
-		  LIBXML_NOEMPTYTAG)) ? FALSE : TRUE;
+		if (FALSE === ($result = $this->domdoc->save($this->filename,
+		  LIBXML_NOEMPTYTAG))) {
+			$this->setLastError($this->getLibXmlError());
+		}
+		return $result;
+	}
+
+	/**
+	 * Retrieve an error description.
+	 * @private
+	 * @return The error description if available, otherwise empty string.
+	 */
+	final private function getLibXmlError() {
+		$text = "";
+		$errLevels = array(
+			LIBXML_ERR_WARNING => gettext("Warning"),
+			LIBXML_ERR_ERROR => gettext("Error"),
+			LIBXML_ERR_FATAL => gettext("Fatal error")
+		);
+		foreach (libxml_get_errors() as $errork => $errorv) {
+			if($errork > 0) $text .= "; ";
+			$text .= sprintf("%s %d: %s (line=%d, column=%d)",
+			  $errLevels[$errorv->level], $errorv->code,
+			  trim($errorv->message), $errorv->line, $errorv->column);
+		}
+		libxml_clear_errors();
+		return $text;
 	}
 
 	/**
@@ -553,8 +565,8 @@ class OMVConfigEngine extends OMVObject {
 // Load the configuration file and save it in a global variable.
 $xmlConfig = new OMVConfigEngine($GLOBALS['OMV_CONFIG_FILE']);
 $xmlConfig->setVersioning(TRUE);
-if(FALSE === $xmlConfig->load()) {
+if (FALSE === $xmlConfig->load()) {
 	throw new OMVException(OMVErrorMsg::E_CONFIG_LOAD_FAILED,
-	  $xmlConfig->getError());
+	  $xmlConfig->getLastError());
 }
 ?>

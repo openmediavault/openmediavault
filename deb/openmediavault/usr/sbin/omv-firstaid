@@ -307,10 +307,9 @@ EOF
 	# Restore configuration backup?
 	${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno "Do you want to restore the configuration backup? This will overwrite the actual configuration?" 8 57
 	if [ $? -eq 0 ]; then
-		# Replace configuration files.
-		cp "${OMV_CONFIG_FILE}" "${tempfile}" && cp "${configbak}" "${OMV_CONFIG_FILE}"
-		# Remove all revision files.
-		rm -f "${OMV_CONFIG_FILE}.*"
+		# Replace configuration files and unlink all revision files.
+		omv_exec_rpc "Config" "revertChanges" "{\"filename\":\"${configbak}\"}"
+		[ $? -ne 0 ] && return 1
 		# Display success message.
 		${OMV_FIRSTAID_DIALOG} --clear --msgbox "Configuration backup successfully restored." 7 47
 	fi

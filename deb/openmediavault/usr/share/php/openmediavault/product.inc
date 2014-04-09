@@ -50,7 +50,7 @@ class OMVProduct extends OMVObject {
 		if(FALSE === $engine->load()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to load product information (%s): %s",
-			  $GLOBALS['OMV_PRODUCTINFO_FILE'], $xmlConfig->getError()));
+			  $GLOBALS['OMV_PRODUCTINFO_FILE'], $xmlConfig->getLastError()));
 		}
 		$object = $engine->get("/*");
 		if(is_null($object)) {

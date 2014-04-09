@@ -208,7 +208,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 		// Save the configuration.
 		if(FALSE === $xmlConfig->save()) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
-			  $xmlConfig->getError());
+			  $xmlConfig->getLastError());
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
