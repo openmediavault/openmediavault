@@ -333,8 +333,11 @@ case "$1" in
 			sed -i -e "s/^\(LoadModule mod_tls_memcache.c\)/#\1/i" /etc/proftpd/modules.conf
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.6.0.4"; then
+			# Rebuild monit service configuration files.
 			omv-mkconf monit
 			invoke-rc.d monit reload
+			# Unlink configuration backup file.
+			rm -f "${OMV_CONFIG_FILE}.bak"
 		fi
 	;;
 
