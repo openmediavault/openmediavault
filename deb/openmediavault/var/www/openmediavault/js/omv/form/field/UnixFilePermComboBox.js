@@ -24,72 +24,59 @@
 
 /**
  * @ingroup webgui
- * @class OMV.form.field.UserComboBox
+ * @class OMV.form.field.UnixFilePermComboBox
  * @derived Ext.form.field.ComboBox
- * Display user names.
- * @param userType Which users should be displayed, system, normal or all.
- *   Defaults to 'all'.
+ * Display file permissions.
+ * @param valueType The type of the file permission value. This can be
+ *   'octal' or 'string'. Defaults to 'octal'.
  */
-Ext.define("OMV.form.field.UserComboBox", {
+Ext.define("OMV.form.field.UnixFilePermComboBox", {
 	extend: "Ext.form.field.ComboBox",
-	alias: "widget.usercombo",
+	alias: "widget.unixfilepermcombo",
 	requires: [
-		"OMV.data.Store",
-		"OMV.data.Model",
-		"OMV.data.proxy.Rpc"
+		"Ext.data.ArrayStore"
 	],
 
-	userType: "all",
+	valueType: "octal",
 
 	allowBlank: false,
 	editable: false,
-	typeAhead: true,
 	forceSelection: true,
 	selectOnFocus: true,
-	minChars: 1,
-	emptyText: _("Select a user name ..."),
-	valueField: "name",
-	displayField: "name",
-	vtype: "username",
+	triggerAction: "all",
+	emptyText: _("Select a file permission ..."),
+	displayField: "text",
+	valueField: "value",
+	queryMode: "local",
 
 	initComponent: function() {
 		var me = this;
-		var rpcMethod = {
-			"normal": "enumerateUsers",
-			"system": "enumerateSystemUsers",
-			"all": "enumerateAllUsers"
+		var data = {
+			"octal": [
+				[ 0, _("None") ],
+				[ 1, _("Execute only") ],
+				[ 2, _("Write only") ],
+				[ 3, _("Write/Execute") ],
+				[ 4, _("Read only") ],
+				[ 5, _("Read/Execute") ],
+				[ 6, _("Read/Write") ],
+				[ 7, _("Read/Write/Execute") ]
+			],
+			"string": [
+				[ "", _("None") ],
+				[ "x", _("Execute only") ],
+				[ "w", _("Write only") ],
+				[ "wx", _("Write/Execute") ],
+				[ "r", _("Read only") ],
+				[ "rx", _("Read/Execute") ],
+				[ "rw", _("Read/Write") ],
+				[ "rwx", _("Read/Write/Execute") ]
+			]
 		};
 		Ext.apply(me, {
-			store: Ext.create("OMV.data.Store", {
-				autoLoad: true,
-				model: OMV.data.Model.createImplicit({
-					idProperty: "name",
-					fields: [
-						{ name: "name", type: "string" }
-					]
-				}),
-				proxy: {
-					type: "rpc",
-					appendSortParams: false,
-					rpcData: {
-						service: "UserMgmt",
-						method: rpcMethod[me.userType]
-					}
-				},
-				sorters: [{
-					direction: "ASC",
-					property: "name"
-				}],
-				listeners: {
-					scope: me,
-					load: function(store, records, options) {
-						// Switch combobox to queryMode = 'local' to do not
-						// execute an RPC on each query (e.g. typeahead).
-						if(true === me.typeAhead) {
-							me.queryMode = "local";
-						}
-					}
-				}
+			store: Ext.create("Ext.data.ArrayStore", {
+				fields: [ "value", "text" ],
+				data: data[me.valueType]
 			})
 		});
 		me.callParent(arguments);

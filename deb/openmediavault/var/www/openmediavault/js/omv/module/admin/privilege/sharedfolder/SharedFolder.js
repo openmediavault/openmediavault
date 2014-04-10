@@ -33,6 +33,7 @@
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/form/CompositeField.js")
+// require("js/omv/form/field/UnixFilePermComboBox.js")
 
 /**
  * @class OMV.module.admin.privilege.sharedfolder.SharedFolder
@@ -268,7 +269,8 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 		"OMV.grid.Privileges",
 		"OMV.tree.Folder",
 		"OMV.util.Format",
-		"OMV.form.CompositeField"
+		"OMV.form.CompositeField",
+		"OMV.form.field.UnixFilePermComboBox"
 	],
 
 	readOnly: false,
@@ -390,22 +392,8 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 					flex: 1,
 					value: _("n/a")
 				},{
-					xtype: "combo",
+					xtype: "unixfilepermcombo",
 					name: "userperms",
-					queryMode: "local",
-					store: Ext.create("Ext.data.ArrayStore", {
-						fields: [ "value", "text" ],
-						data: [
-							[ 0, _("No access") ],
-							[ 5, _("Read-only") ],
-							[ 7, _("Read/Write") ]
-						]
-					}),
-					displayField: "text",
-					valueField: "value",
-					allowBlank: false,
-					editable: false,
-					triggerAction: "all",
 					flex: 1,
 					value: 7
 				}],
@@ -424,22 +412,8 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 					flex: 1,
 					value: _("n/a")
 				},{
-					xtype: "combo",
+					xtype: "unixfilepermcombo",
 					name: "groupperms",
-					queryMode: "local",
-					store: Ext.create("Ext.data.ArrayStore", {
-						fields: [ "value", "text" ],
-						data: [
-							[ 0, _("No access") ],
-							[ 5, _("Read-only") ],
-							[ 7, _("Read/Write") ]
-						]
-					}),
-					displayField: "text",
-					valueField: "value",
-					allowBlank: false,
-					editable: false,
-					triggerAction: "all",
 					flex: 1,
 					value: 7
 				}],
@@ -448,23 +422,9 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 					text: _("Permissions of group.")
 				}]
 			},{
-				xtype: "combo",
+				xtype: "unixfilepermcombo",
 				name: "otherperms",
 				fieldLabel: _("Others"),
-				queryMode: "local",
-				store: Ext.create("Ext.data.ArrayStore", {
-					fields: [ "value", "text" ],
-					data: [
-						[ 0, _("No access") ],
-						[ 5, _("Read-only") ],
-						[ 7, _("Read/Write") ]
-					]
-				}),
-				displayField: "text",
-				valueField: "value",
-				allowBlank: false,
-				editable: false,
-				triggerAction: "all",
 				value: 0,
 				plugins: [{
 					ptype: "fieldinfo",

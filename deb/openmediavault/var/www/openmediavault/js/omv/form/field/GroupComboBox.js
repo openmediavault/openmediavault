@@ -47,7 +47,7 @@ Ext.define("OMV.form.field.GroupComboBox", {
 	forceSelection: true,
 	selectOnFocus: true,
 	minChars: 1,
-	emptyText: _("Select a group name..."),
+	emptyText: _("Select a group name ..."),
 	valueField: "name",
 	displayField: "name",
 
