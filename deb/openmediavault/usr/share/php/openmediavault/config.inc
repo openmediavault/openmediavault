@@ -351,12 +351,10 @@ class OMVConfigEngine extends OMVObject {
 				}
 			}
 			// Any revision file found?
-			if (empty($filename))
+			if (!file_exists($filename)) {
+				$result = TRUE;
 				goto finish;
-		} else {
-			// Check if the file exists.
-			if (!file_exists($filename))
-				goto finish;
+			}
 		}
 		// Replace the configuration file with the given revision.
 		if (!copy($filename, $this->filename)) {
