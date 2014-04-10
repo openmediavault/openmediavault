@@ -133,8 +133,9 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		// Skip user if it is listed on the ignore list.
 		if(in_array($object['name'], $this->invalidUsers))
 			return;
-		$cmd = sprintf("(echo '%s'; echo '%s') | pdbedit -vat %s 2>&1",
-		  $object['password'], $object['password'], $object['name']);
+		$cmd = sprintf("(echo %s; echo %s) | pdbedit -vat %s 2>&1",
+		  escapeshellarg($object['password']), escapeshellarg(
+		  $object['password']), escapeshellarg($object['name']));
 		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
@@ -167,8 +168,9 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		if(FALSE === $this->existsUser($object['name']))
 			return $this->onAddUser($type, $path, $object);
 		// Modify the user.
-		$cmd = sprintf("(echo '%s'; echo '%s') | smbpasswd -s %s 2>&1",
-		  $object['password'], $object['password'], $object['name']);
+		$cmd = sprintf("(echo %s; echo %s) | smbpasswd -s %s 2>&1",
+		  escapeshellarg($object['password']), escapeshellarg(
+		  $object['password']), escapeshellarg($object['name']));
 		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
@@ -193,7 +195,8 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		if(FALSE === $this->existsUser($object['name']))
 			return;
 		// Delete the user.
-		$cmd = sprintf("export LANG=C; pdbedit -vx %s 2>&1", $object['name']);
+		$cmd = sprintf("export LANG=C; pdbedit -vx %s 2>&1", escapeshellarg(
+		  $object['name']));
 		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
