@@ -46,6 +46,7 @@ openmediavault (0.6) stable; urgency=low
 
 openmediavault (0.5.44) stable; urgency=low
 
+  * Update locales.
   * Mantis 0001017: Notification settings - test-email not sent to second
     email-address.
   * Mantis 0001022: Unable to add user with "'" symbol in password.
