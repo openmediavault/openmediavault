@@ -529,8 +529,12 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 				finish: function(wnd) {
 					var value = wnd.getValue();
 					wnd.close();
-					if(value.length > 0) {
+					if (value.length > 0) {
 						OMV.MessageBox.error(null, value);
+					} else {
+						// Commit all changes to hide the red corners in
+						// the grid cells.
+						this.gp.getStore().commitChanges();
 					}
 				},
 				exception: function(wnd, response) {
