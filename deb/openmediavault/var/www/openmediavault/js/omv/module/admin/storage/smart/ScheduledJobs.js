@@ -202,6 +202,7 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 		"OMV.window.Execute"
 	],
 	uses: [
+		"Ext.XTemplate",
 		"OMV.module.admin.storage.smart.schedule.Job"
 	],
 
@@ -224,7 +225,7 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 		stateId: "device",
 		sortable: true,
 		renderer: function(value, metaData, record) {
-			var tpl = new Ext.XTemplate(
+			var tpl = Ext.create("Ext.XTemplate",
 			  _("Model"),': {volumemodel}<br/>',
 			  _("Device"),': {volumedevicefile}<br/>',
 			  _("Capacity"),': {[OMV.util.Format.binaryUnit(values.volumesize)]}');

@@ -36,6 +36,9 @@ Ext.define("OMV.workspace.panel.RrdGraph", {
 		"OMV.Rpc",
 		"OMV.window.MessageBox"
 	],
+	uses: [
+		"Ext.XTemplate"
+	],
 
 	hideTopToolbar: false,
 	autoLoadData: false,
@@ -53,7 +56,7 @@ Ext.define("OMV.workspace.panel.RrdGraph", {
 	},
 
 	getTemplate: function() {
-		return new Ext.XTemplate(
+		return Ext.create("Ext.XTemplate",
 		  '<div class="x-panel-rrdgraph">',
 		  '  <img src="rrd.php?name={name}-hour.png&time={time}" alt="RRD graph - by hour"/><br/>',
 		  '  <img src="rrd.php?name={name}-day.png&time={time}" alt="RRD graph - by day"/><br/>',

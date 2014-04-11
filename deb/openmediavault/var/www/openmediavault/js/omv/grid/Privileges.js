@@ -36,6 +36,7 @@ Ext.define("OMV.grid.Privileges", {
 	extend: "OMV.grid.Panel",
 	alias: [ "widget.privilegesgrid" ],
 	requires: [
+		"Ext.XTemplate",
 		"Ext.grid.column.CheckColumn",
 		"Ext.grid.feature.Grouping",
 		"OMV.data.Store",
@@ -50,7 +51,23 @@ Ext.define("OMV.grid.Privileges", {
 
 	features: [{
 		ftype: "grouping",
-		groupHeaderTpl: "{renderedGroupValue}"
+		groupHeaderTpl: Ext.create("Ext.XTemplate",
+			"{[this.renderValue(values)]}", {
+			renderValue: function(values) {
+				var result;
+				switch (values.groupField) {
+				case "system":
+					result = values.groupValue ? _("System users/groups") :
+					  _("General users/groups");
+					break;
+				default:
+					result = Ext.String.format("{0}: {1}", values.columnName,
+					  values.name);
+					break;
+				}
+				return result;
+			}
+		})
 	}],
 
 	initComponent: function() {

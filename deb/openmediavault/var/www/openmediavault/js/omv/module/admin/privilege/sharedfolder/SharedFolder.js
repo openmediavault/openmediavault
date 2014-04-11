@@ -371,8 +371,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 			stateful: true,
 			stateId: "dbda0692-aea5-11e2-9c6a-00221568ca88",
 			autoLoadData: false,
-			uuid: me.uuid,
-			hideSystemColumn: false
+			uuid: me.uuid
 		});
 		me.fp = Ext.create("OMV.form.Panel", {
 			title: _("Extra options"),

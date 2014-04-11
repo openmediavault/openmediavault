@@ -724,6 +724,9 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		"OMV.module.admin.system.network.interface.Physical",
 		"OMV.module.admin.system.network.interface.Bond"
 	],
+	uses: [
+		"Ext.XTemplate"
+	],
 
 	hidePagingToolbar: false,
 	stateful: true,
@@ -739,7 +742,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		sortable: true,
 		stateId: "method",
 		renderer: function(value, metaData, record) {
-			var tpl = new Ext.XTemplate(
+			var tpl = Ext.create("Ext.XTemplate",
 			  _("IPv4"),': {[this.renderValue(values.method)]}<br/>',
 			  _("IPv6"),': {[this.renderValue(values.method6)]}',
 			  {
@@ -760,7 +763,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		sortable: true,
 		stateId: "address",
 		renderer: function(value, metaData, record) {
-			var tpl = new Ext.XTemplate(
+			var tpl = Ext.create("Ext.XTemplate",
 			  _("IPv4"),': {[Ext.util.Format.defaultValue(values.address, "-")]}<br/>',
 			  _("IPv6"),': {[Ext.util.Format.defaultValue(values.address6, "-")]}');
 			return tpl.apply(record.data);
@@ -770,7 +773,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		sortable: true,
 		stateId: "netmask",
 		renderer: function(value, metaData, record) {
-			var tpl = new Ext.XTemplate(
+			var tpl = Ext.create("Ext.XTemplate",
 			  _("IPv4"),': {[Ext.util.Format.defaultValue(values.netmask, "-")]}<br/>',
 			  _("IPv6"),': {[Ext.util.Format.defaultValue((values.netmask6 < 0) ? "" : values.netmask6, "-")]}');
 			return tpl.apply(record.data);
@@ -780,7 +783,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		sortable: true,
 		stateId: "gateway",
 		renderer: function(value, metaData, record) {
-			var tpl = new Ext.XTemplate(
+			var tpl = Ext.create("Ext.XTemplate",
 			  _("IPv4"),': {[Ext.util.Format.defaultValue(values.gateway, "-")]}<br/>',
 			  _("IPv6"),': {[Ext.util.Format.defaultValue(values.gateway6, "-")]}');
 			return tpl.apply(record.data);

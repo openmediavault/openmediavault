@@ -36,6 +36,7 @@ Ext.define("OMV.workspace.node.panel.Panel", {
 		"OMV.workspace.node.Model"
 	],
 	uses: [
+		"Ext.XTemplate",
 		"Ext.data.Store"
 	],
 
@@ -59,7 +60,7 @@ Ext.define("OMV.workspace.node.panel.Panel", {
 		me.root.eachChild(function(node) {
 			var config = {
 				title: node.getText(),
-				html: new Ext.XTemplate(
+				html: Ext.create("Ext.XTemplate",
 					'<tpl for=".">',
 						'<div class="thumb-wrap" id="{id:stripTags}" style="float:left; margin:5px">',
 							'<div class="thumb" style="text-align:center;"><img width="32" height="32" src="{icon32}" title="{text:htmlEncode}"></div>',

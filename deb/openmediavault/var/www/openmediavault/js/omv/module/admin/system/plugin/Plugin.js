@@ -43,6 +43,9 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		"OMV.window.Execute",
 		"OMV.window.Upload"
 	],
+	uses: [
+		"Ext.XTemplate"
+	],
 
 	maskBody: true,
 	hidePagingToolbar: false,
@@ -69,7 +72,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		stateId: "info",
 		flex: 1,
 		renderer: function(value, metaData, record) {
-			var tpl = new Ext.XTemplate(
+			var tpl = Ext.create("Ext.XTemplate",
 			  '<b>{name} {version}</b><br/>',
 			  '{description}<br/><br/>',
 			  '<tpl if="!Ext.isEmpty(values.longdescription)">',
