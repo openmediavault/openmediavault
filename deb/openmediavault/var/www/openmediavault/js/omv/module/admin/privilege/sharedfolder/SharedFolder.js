@@ -350,7 +350,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 							method: "getFileACL",
 							params: {
 								uuid: this.uuid,
-								file: me.tp.getNodePath(record)
+								file: me.tp.getPathFromNode(record)
 							}
 						}
 					});
@@ -507,7 +507,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 			rpcMethod: "setFileACL",
 			rpcParams: {
 				uuid: me.uuid,
-				file: me.tp.getNodePath(node),
+				file: me.tp.getPathFromNode(node),
 				recursive: options.recursive,
 				replace: options.replace,
 				user: options.userperms,

@@ -84,7 +84,7 @@ Ext.define("OMV.tree.Folder", {
 					beforeload: function(store, operation) {
 						// Modify the RPC parameters.
 						Ext.apply(store.proxy.rpcData.params, {
-							path: this.getNodePath(operation.node)
+							path: this.getPathFromNode(operation.node)
 						});
 					}
 				}
@@ -103,7 +103,7 @@ Ext.define("OMV.tree.Folder", {
 	 * @return The hierarchical path from the root to the given node,
 	 *   e.g. '/backup/data/private'.
 	 */
-	getNodePath: function(node) {
+	getPathFromNode: function(node) {
 		var path = [ node.get("name") ];
 		var parent = node.parentNode;
 		while (parent) {
