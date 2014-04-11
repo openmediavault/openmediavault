@@ -53,14 +53,13 @@ Ext.define("OMV.tree.Folder", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
 					fields: [
-						{ name: "text", type: "string", mapping: 0 },
-						{ name: "name", type: "string", mapping: 0 },
+						{ name: "text", type: "string", mapping: "name" },
+						{ name: "name", type: "string", defaultValue: "" },
 						{ name: "path", type: "string", defaultValue: "" }
 					]
 				}),
 				proxy: {
 					type: "rpc",
-					reader: "rpcarray",
 					appendSortParams: false,
 					rpcData: {
 						service: "FolderBrowser",
@@ -69,7 +68,7 @@ Ext.define("OMV.tree.Folder", {
 							uuid: me.uuid,
 							type: me.type,
 							path: "" // Will be updated before a node
-									  // is expanded.
+									 // is expanded.
 						}
 					}
 				},
@@ -89,14 +88,6 @@ Ext.define("OMV.tree.Folder", {
 						// Modify the RPC parameters.
 						Ext.apply(store.proxy.rpcData.params, {
 							path: operation.node.get("path")
-						});
-					},
-					load: function(store, node, records, successful) {
-						// Prepare node data.
-						var path = node.get("path");
-						Ext.Array.each(records, function(record) {
-							record.set("path", Ext.String.format(
-							  "{0}{1}/", path, record.get("name")));
 						});
 					}
 				}

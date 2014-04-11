@@ -48,7 +48,8 @@ class OMVRpcServiceFolderBrowser extends OMVRpcServiceAbstract {
 	 *   or 'mntent'.
 	 *   \em path The relative directory path.
 	 * @param context The context of the caller.
-	 * @return The directory contents.
+	 * @return  An array of objects with the following fields: the
+	 *   directory \em name and the relative directory \em path.
 	 * @throw E_RPC_SERVICE_INVALID_PARAM
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
@@ -70,15 +71,15 @@ class OMVRpcServiceFolderBrowser extends OMVRpcServiceAbstract {
 		// The field 'path' may not contain the characters '..'. This is
 		// because of security reasons: the given canonicalized absolute
 		// path MUST be below the given shared folder/mount point.
-		if(1 == preg_match("/\.\./", $params['path'])) {
+		if (1 == preg_match("/\.\./", $params['path'])) {
 			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_INVALID_PARAM,
 			  sprintf(gettext("The field '%s' contains forbidden ".
 			  "two-dot symbols"), "path"));
 		}
-		switch($params['type']) {
+		switch ($params['type']) {
 		case "sharedfolder":
 			// Get the absolute shared folder path.
-			$path = OMVRpc::exec("ShareMgmt", "getPath", array(
+			$rootPath = OMVRpc::exec("ShareMgmt", "getPath", array(
 			  "uuid" => $params['uuid']), $context);
 			break;
 		case "mntent":
@@ -86,22 +87,26 @@ class OMVRpcServiceFolderBrowser extends OMVRpcServiceAbstract {
 			$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
 			  $params['uuid']);
 			$object = $xmlConfig->get($xpath);
-			if(is_null($object)) {
+			if (is_null($object)) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 				  $xpath);
 			}
-			$path = $object['dir'];
+			$rootPath = $object['dir'];
 			break;
 		}
 		// List the directory contents.
 		$result = array();
-		$dirPath = sprintf("%s/%s", $path, rtrim($params['path'], "/"));
-		foreach(new DirectoryIterator($dirPath) as $item) {
-			if($item->isDot())
+		$relativePath = rtrim($params['path'], "/");
+		$fullPath = sprintf("%s/%s", $rootPath, $relativePath);
+		foreach (new DirectoryIterator($fullPath) as $item) {
+			if ($item->isDot())
 				continue;
-			if($item->isDir()) {
-				$result[] = $item->getFilename();
-			}
+			if (!$item->isDir())
+				continue;
+			$result[] = array(
+				"name" => $item->getFilename(),
+				"path" => sprintf("%s/%s", $relativePath, $item->getFilename())
+			);
 		}
 		return $result;
 	}

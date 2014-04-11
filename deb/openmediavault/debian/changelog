@@ -1,6 +1,7 @@
 openmediavault (0.6.0.6) stable; urgency=low
 
   * Various improvements and modification for Debian Wheezy.
+  * Mantis 0001024: ACL dialog treeview does not complete.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Apr 2014 07:37:25 +0200
 
