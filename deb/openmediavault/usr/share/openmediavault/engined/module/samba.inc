@@ -132,12 +132,22 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	final public function onAddUser($type, $path, $object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Skip user if it is listed on the ignore list.
-		if(in_array($object['name'], $this->invalidUsers))
+		if (in_array($object['name'], $this->invalidUsers))
 			return;
-		$cmd = sprintf("(echo %s; echo %s) | pdbedit -vat %s 2>&1",
+		// Add the new user into the database.
+		$cmdArgs = array();
+		$cmdArgs[] = "--create";
+		$cmdArgs[] = "--verbose";
+		$cmdArgs[] = "--password-from-stdin";
+		$cmdArgs[] = sprintf("--fullname=%s", escapeshellarg($object['name']));
+		if (!empty($object['comment']))
+			$cmdArgs[] = sprintf("--account-desc=%s", escapeshellarg(
+			  $object['comment']));
+		$cmdArgs[] = escapeshellarg($object['name']);
+		$cmd = sprintf("export LANG=C; (echo %s; echo %s) | pdbedit %s 2>&1",
 		  escapeshellarg($object['password']), escapeshellarg(
-		  $object['password']), escapeshellarg($object['name']));
-		if(0 !== $this->exec($cmd, $output)) {
+		  $object['password']), implode(" ", $cmdArgs));
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -155,24 +165,37 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	final public function onModifyUser($type, $path, $object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Skip user if it is listed on the ignore list.
-		if(in_array($object['name'], $this->invalidUsers))
+		if (in_array($object['name'], $this->invalidUsers))
 			return;
-		// Check whether the password has been changed (in this case it is
-		// not empty) and update it if necessary, otherwise no action is
-		// required.
-		if(!array_key_exists("password", $object) ||
-		  empty($object['password'])) {
-			return;
-		}
-		// Check if user exists in the database. If it does not exist then
-		// add it to the database (this should never happen).
-		if(FALSE === $this->existsUser($object['name']))
+		// Check if user exists in the database. If it does not exist
+		// then add it to the database (this should never happen).
+		if (FALSE === $this->existsUser($object['name']))
 			return $this->onAddUser($type, $path, $object);
-		// Modify the user.
-		$cmd = sprintf("(echo %s; echo %s) | smbpasswd -s %s 2>&1",
-		  escapeshellarg($object['password']), escapeshellarg(
-		  $object['password']), escapeshellarg($object['name']));
-		if(0 !== $this->exec($cmd, $output)) {
+		// Check whether the password has been changed (in this case
+		// it is not empty).
+		$updatePasswd = (array_key_exists("password", $object) &&
+		  !empty($object['password'])) ? TRUE : FALSE;
+		// Modify the user in the database.
+		$cmdArgs = array();
+		$cmdArgs[] = "export LANG=C;";
+		if (TRUE === $updatePasswd) {
+			$cmdArgs[] = sprintf("(echo %s; echo %s)", escapeshellarg(
+			  $object['password']), escapeshellarg($object['password']));
+			$cmdArgs[] = "|";
+		}
+		$cmdArgs[] = "pdbedit";
+		$cmdArgs[] = "--modify";
+		$cmdArgs[] = "--verbose";
+		if (TRUE === $updatePasswd)
+			$cmdArgs[] = "--password-from-stdin";
+		$cmdArgs[] = sprintf("--fullname=%s", escapeshellarg($object['name']));
+		if (!empty($object['comment']))
+			$cmdArgs[] = sprintf("--account-desc=%s", escapeshellarg(
+			  $object['comment']));
+		$cmdArgs[] = escapeshellarg($object['name']);
+		$cmdArgs[] = "2>&1";
+		$cmd = implode(" ", $cmdArgs);
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -190,15 +213,19 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	final public function onDeleteUser($type, $path, $object) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		// Skip user if it is listed on the ignore list.
-		if(in_array($object['name'], $this->invalidUsers))
+		if (in_array($object['name'], $this->invalidUsers))
 			return;
 		// Check if user exists in the database.
-		if(FALSE === $this->existsUser($object['name']))
+		if (FALSE === $this->existsUser($object['name']))
 			return;
-		// Delete the user.
-		$cmd = sprintf("export LANG=C; pdbedit -vx %s 2>&1", escapeshellarg(
-		  $object['name']));
-		if(0 !== $this->exec($cmd, $output)) {
+		// Delete the user from the database.
+		$cmdArgs = array();
+		$cmdArgs[] = "--delete";
+		$cmdArgs[] = "--verbose";
+		$cmdArgs[] = escapeshellarg($object['name']);
+		$cmd = sprintf("export LANG=C; pdbedit %s 2>&1", implode(" ",
+		  $cmdArgs));
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
