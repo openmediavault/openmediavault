@@ -53,22 +53,20 @@ Ext.define("OMV.tree.Folder", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
 					fields: [
-						{ name: "text", type: "string", mapping: "name" },
-						{ name: "name", type: "string", defaultValue: "" },
-						{ name: "path", type: "string", defaultValue: "" }
+						{ name: "text", type: "string", mapping: 0 },
+						{ name: "name", type: "string", mapping: 0 }
 					]
 				}),
 				proxy: {
 					type: "rpc",
+					reader: "rpcarray",
 					appendSortParams: false,
 					rpcData: {
 						service: "FolderBrowser",
 						method: "get",
 						params: {
 							uuid: me.uuid,
-							type: me.type,
-							path: "" // Will be updated before a node
-									 // is expanded.
+							type: me.type
 						}
 					}
 				},
@@ -79,15 +77,14 @@ Ext.define("OMV.tree.Folder", {
 				root: Ext.apply({
 					expanded: false, // Load children async.
 					text: "",
-					name: "",
-					path: ""
+					name: ""
 				}, me.root || {}),
 				listeners: {
 					scope: me,
 					beforeload: function(store, operation) {
 						// Modify the RPC parameters.
 						Ext.apply(store.proxy.rpcData.params, {
-							path: operation.node.get("path")
+							path: this.getNodePath(operation.node)
 						});
 					}
 				}
@@ -98,5 +95,21 @@ Ext.define("OMV.tree.Folder", {
 		if(Ext.isDefined(me.root))
 			delete me.root;
 		me.callParent(arguments);
+	},
+
+	/**
+	 * Gets the hierarchical path from the root to the given node.
+	 * @param node The node to process.
+	 * @return The hierarchical path from the root to the given node,
+	 *   e.g. '/backup/data/private'.
+	 */
+	getNodePath: function(node) {
+		var path = [ node.get("name") ];
+		var parent = node.parentNode;
+		while (parent) {
+			path.unshift(parent.get("name"));
+			parent = parent.parentNode;
+		}
+		return path.join("/");
 	}
 });

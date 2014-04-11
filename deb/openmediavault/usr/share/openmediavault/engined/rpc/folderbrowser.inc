@@ -48,8 +48,7 @@ class OMVRpcServiceFolderBrowser extends OMVRpcServiceAbstract {
 	 *   or 'mntent'.
 	 *   \em path The relative directory path.
 	 * @param context The context of the caller.
-	 * @return  An array of objects with the following fields: the
-	 *   directory \em name and the relative directory \em path.
+	 * @return An array of directory names.
 	 * @throw E_RPC_SERVICE_INVALID_PARAM
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
@@ -96,17 +95,13 @@ class OMVRpcServiceFolderBrowser extends OMVRpcServiceAbstract {
 		}
 		// List the directory contents.
 		$result = array();
-		$relativePath = rtrim($params['path'], "/");
-		$fullPath = sprintf("%s/%s", $rootPath, $relativePath);
-		foreach (new DirectoryIterator($fullPath) as $item) {
+		$path = sprintf("%s/%s", $rootPath, rtrim($params['path'], "/"));
+		foreach (new DirectoryIterator($path) as $item) {
 			if ($item->isDot())
 				continue;
 			if (!$item->isDir())
 				continue;
-			$result[] = array(
-				"name" => $item->getFilename(),
-				"path" => sprintf("%s/%s", $relativePath, $item->getFilename())
-			);
+			$result[] = $item->getFilename();
 		}
 		return $result;
 	}

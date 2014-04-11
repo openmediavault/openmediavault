@@ -299,7 +299,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 			},
 			listeners: {
 				scope: me,
-				select: function(tree, record, index, eOpts) {
+				select: function(model, record, index, eOpts) {
 					// Display load mask.
 					this.getEl().mask(_("Loading ..."));
 					// Load the ACL list.
@@ -350,7 +350,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 							method: "getFileACL",
 							params: {
 								uuid: this.uuid,
-								file: record.get("path")
+								file: me.tp.getNodePath(record)
 							}
 						}
 					});
@@ -507,7 +507,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 			rpcMethod: "setFileACL",
 			rpcParams: {
 				uuid: me.uuid,
-				file: node.get("path"),
+				file: me.tp.getNodePath(node),
 				recursive: options.recursive,
 				replace: options.replace,
 				user: options.userperms,
