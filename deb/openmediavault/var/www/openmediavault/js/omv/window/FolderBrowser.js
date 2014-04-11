@@ -96,7 +96,7 @@ Ext.define("OMV.window.FolderBrowser", {
 		var selModel = me.tp.getSelectionModel();
 		var node = selModel.getSelection()[0];
 		// Fire event before window is closed.
-		me.fireEvent("select", me, node, node.get("path"));
+		me.fireEvent("select", me, node, me.tp.getNodePath(node));
 		me.close();
 	}
 });

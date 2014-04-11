@@ -297,7 +297,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 			},
 			listeners: {
 				scope: me,
-				select: function(tree, record, index, eOpts) {
+				select: function(model, record, index, eOpts) {
 					// Display load mask.
 					this.getEl().mask(_("Loading ..."));
 					// Load the ACL list.
@@ -348,7 +348,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 							method: "getFileACL",
 							params: {
 								uuid: this.uuid,
-								file: record.get("path")
+								file: me.tp.getNodePath(record)
 							}
 						}
 					});
@@ -369,8 +369,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 			stateful: true,
 			stateId: "dbda0692-aea5-11e2-9c6a-00221568ca88",
 			autoLoadData: false,
-			uuid: me.uuid,
-			hideSystemColumn: false
+			uuid: me.uuid
 		});
 		me.fp = Ext.create("OMV.form.Panel", {
 			title: _("Extra options"),
@@ -548,7 +547,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 			rpcMethod: "setFileACL",
 			rpcParams: {
 				uuid: me.uuid,
-				file: node.get("path"),
+				file: me.tp.getNodePath(node),
 				recursive: options.recursive,
 				replace: options.replace,
 				user: options.userperms,
@@ -569,8 +568,12 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 				finish: function(wnd) {
 					var value = wnd.getValue();
 					wnd.close();
-					if(value.length > 0) {
+					if (value.length > 0) {
 						OMV.MessageBox.error(null, value);
+					} else {
+						// Commit all changes to hide the red corners in
+						// the grid cells.
+						this.gp.getStore().commitChanges();
 					}
 				},
 				exception: function(wnd, response) {
