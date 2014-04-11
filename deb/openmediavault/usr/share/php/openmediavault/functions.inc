@@ -112,21 +112,23 @@ function array_boolval($array, $key) {
  * @param var An array with keys.
  * Returns the boolean value of the given variable.
  */
-function boolval($var) {
-	$result = false;
-	// Boolean 'true' => '1'
-	switch(strtolower(strval($var))) {
-		case "1":
-		case "on":
-		case "yes":
-		case "y":
-		case "true":
-			$result = true;
-			break;
-		default:
-			break;
+if (!function_exists("boolval")) {
+	function boolval($var) {
+		$result = false;
+		// Boolean 'true' => '1'
+		switch (strtolower(strval($var))) {
+			case "1":
+			case "on":
+			case "yes":
+			case "y":
+			case "true":
+				$result = true;
+				break;
+			default:
+				break;
+		}
+		return $result;
 	}
-	return $result;
 }
 
 /**
