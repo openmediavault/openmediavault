@@ -89,11 +89,15 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 								var dlg = Ext.create("OMV.window.Execute", {
 									title: _("Apply configuration changes"),
 									width: 350,
-									rpcService: "Config",
-									rpcMethod: "applyChangesBg",
+									rpcService: "Exec",
+									rpcMethod: "execBg",
 									rpcParams: {
-										modules: [],
-										force: false
+										service: "Config",
+										method: "applyChanges",
+										params: {
+											modules: [],
+											force: false
+										}
 									},
 									hideStartButton: true,
 									hideStopButton: true,
@@ -150,10 +154,14 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 								var dlg = Ext.create("OMV.window.Execute", {
 									title: _("Revert configuration changes"),
 									width: 350,
-									rpcService: "Config",
-									rpcMethod: "revertChangesBg",
+									rpcService: "Exec",
+									rpcMethod: "execBg",
 									rpcParams: {
-										filename: ""
+										service: "Config",
+										method: "revertChanges",
+										params: {
+											filename: ""
+										}
 									},
 									hideStartButton: true,
 									hideStopButton: true,

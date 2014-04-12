@@ -39,9 +39,7 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 	public function initialize() {
 		$this->registerMethod("isDirty");
 		$this->registerMethod("applyChanges");
-		$this->registerMethod("applyChangesBg");
 		$this->registerMethod("revertChanges");
-		$this->registerMethod("revertChangesBg");
 	}
 
 	/**
@@ -215,55 +213,6 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Apply the configuration changes in a background job. Use this for
-	 * WebGUI interactions.
-	 * @param params An array containing the following fields:
-	 *   \em modules The list of modules that should be applied. If empty
-	 *   all dirty modules will be processed.
-	 *   \em force Set to TRUE to update all modules, regardless if marked
-	 *   as dirty or not.
-	 * @param context The context of the caller.
-	 * @return The name of the background process status file if
-	 *   \em background is set to TRUE.
-	 */
-	public function applyChangesBg($params, $context) {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "modules":{
-					  "type":"array",
-					  "items":{
-						  "type":"string"
-					  }
-				  },
-				  "force":{"type":"boolean"}
-			  }
-		  }');
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
-			// Apply the configuration changes.
-			$this->callMethod("applyChanges", $params, $context);
-			$this->finalizeBgProcStatus($bgStatusFilename);
-			exit(0);
-		} catch(Exception $e) {
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
-	}
-
-	/**
 	 * Revert the configuration changes.
 	 * @param params An array containing the following fields:
 	 *   \em filename The revision file. Set to empty to automatically detect
@@ -299,47 +248,6 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		// Empty the dirty modules file.
 		$jsonFile->write(array());
 		$jsonFile->close();
-	}
-
-	/**
-	 * Revert the configuration changes in a background job. Use this for
-	 * WebGUI interactions.
-	 * @param params An array containing the following fields:
-	 *   \em filename The revision file. Set to empty to automatically detect
-	 *   the correct revision file.
-	 * @param context The context of the caller.
-	 * @return The name of the background process status file if
-	 *   \em background is set to TRUE.
-	 */
-	public function revertChangesBg($params, $context) {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "filename":{"type":"string","optional":true}
-			  }
-		  }');
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
-			// Revert the configuration changes.
-			$this->callMethod("revertChanges", $params, $context);
-			$this->finalizeBgProcStatus($bgStatusFilename);
-			exit(0);
-		} catch(Exception $e) {
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
 	}
 }
 
