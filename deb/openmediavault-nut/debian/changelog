@@ -1,3 +1,9 @@
+openmediavault-nut (0.6.2) stable; urgency=low
+
+  * Various code improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 12 Apr 2014 14:50:04 +0200
+
 openmediavault-nut (0.6.1) stable; urgency=low
 
   * Adapt monit service configuration to new monit behaviour.
