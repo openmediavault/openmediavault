@@ -18,6 +18,9 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+// require("js/omv/data/Store.js")
+// require("js/omv/data/Model.js")
+// require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/grid/Panel.js")
 // require("js/omv/grid/column/BooleanText.js")
 

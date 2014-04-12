@@ -38,8 +38,8 @@
  * functions to implement fit your requirements. To implement the 'Add' and
  * 'Edit' functionality overwrite the 'onAdd' and 'onEdit' callback
  * functions. A paging toolbar which is displayed at the bottom of the grid
- * can be displayed also. It is also possible to reload the grid
- * automatically in a given interval.
+ * can be displayed also. It is also possible to reload the grid automatically
+ * at a given interval.
  * @param hideTopToolbar TRUE to hide the whole toolbar. Defaults to FALSE.
  * @param hidePagingToolbar TRUE to hide the paging toolbar at the bottom of
  *   the grid. Defaults to TRUE.
@@ -118,29 +118,27 @@ Ext.define("OMV.workspace.grid.Panel", {
 
 	initComponent: function() {
 		var me = this;
+		me.callParent(arguments);
 		// Initialize toolbars.
-		me.dockedItems = [];
-		if(!me.hideTopToolbar) {
-			me.dockedItems.push(me.topToolbar = Ext.widget({
+		if (!me.hideTopToolbar) {
+			me.topToolbar = Ext.widget({
 				xtype: "toolbar",
 				dock: "top",
 				items: me.getTopToolbarItems(me)
-			}));
-		}
-		if(!me.hidePagingToolbar) {
-			me.dockedItems.push({
-				xtype: "toolbar",
-				dock: "bottom",
-				items: [ me.pagingToolbar = Ext.widget({
-					xtype: "pagingtoolbar",
-					store: me.store,
-					displayInfo: true,
-					displayMsg: _("Displaying items {0} - {1} of {2}"),
-					emptyMsg: _("No items to display")
-				}) ]
 			});
+			me.addDocked(me.topToolbar);
 		}
-		me.callParent(arguments);
+		if (!me.hidePagingToolbar) {
+			me.pagingToolbar = Ext.widget({
+				xtype: "pagingtoolbar",
+				dock: "bottom",
+				store: me.store,
+				displayInfo: true,
+				displayMsg: _("Displaying items {0} - {1} of {2}"),
+				emptyMsg: _("No items to display")
+			});
+			me.addDocked(me.pagingToolbar);
+		}
 		// Register event handler.
 		// Process double clicks in grid.
 		me.on("itemdblclick", me.onItemDblClick, me);
