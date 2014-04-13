@@ -40,7 +40,8 @@
  * functions. A paging toolbar which is displayed at the bottom of the grid
  * can be displayed also. It is also possible to reload the grid automatically
  * at a given interval.
- * @param hideTopToolbar TRUE to hide the whole toolbar. Defaults to FALSE.
+ * @param hideTopToolbar TRUE to hide the toolbar at the top of the grid.
+ *   Defaults to FALSE.
  * @param hidePagingToolbar TRUE to hide the paging toolbar at the bottom of
  *   the grid. Defaults to TRUE.
  * @param hideAddButton Hide the 'Add' button in the top toolbar.

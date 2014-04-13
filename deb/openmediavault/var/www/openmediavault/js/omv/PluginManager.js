@@ -22,6 +22,8 @@
 /**
  * @ingroup webgui
  * @class OMV.PluginManager
+ * Provides a registry of available plugin classes indexed by a mnemonic
+ * code known as the plugin's ptype.
  */
 Ext.define("OMV.PluginManager", {
 	singleton: true,
@@ -33,10 +35,10 @@ Ext.define("OMV.PluginManager", {
 	 * Register a plugin.
 	 * @param config The plugin configuration.An object which may contain
 	 *   the following properties:
-	 *   \em ptype
-	 *   \em id 
-	 *   \em className
-	 *   \em text
+	 *   \em ptype The mnemonic string by which the plugin may be looked up.
+	 *   \em id The id of the item.
+	 *   \em className The class name.
+	 *   \em text The text to be displayed.
 	 * @return None
 	 */
 	register: function(config) {
@@ -62,7 +64,8 @@ Ext.define("OMV.PluginManager", {
 
 	/**
 	 * Get the list of registered plugins of the given type.
-	 * @param ptype The plugin type.
+	 * @param ptype The mnemonic string by which the plugin may be looked up.
+	 * @param id The id of the item.
 	 * @return The list of registered plugins for the given type.
 	 */
 	get: function(ptype, id) {
