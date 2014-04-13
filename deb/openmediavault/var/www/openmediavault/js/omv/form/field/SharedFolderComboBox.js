@@ -136,21 +136,21 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 					Ext.apply(lastOptions, {
 						scope: me,
 						callback: function(records, operation, success) {
-							if(success) {
+							if (success) {
 								var record;
-								records.each(function(r) {
+								Ext.Array.each(records, function(r) {
 									// Compare the shared folder name and the
 									// UUID of the used file system to identify
 									// it explicit
 									var name = r.get("name");
 									var mntentref = r.get("mntentref");
-									if((name === data.name) &&
-									  (mntentref === data.mntentref)) {
+									if ((name === data.name) && (mntentref ===
+									  data.mntentref)) {
 										record = r;
 										return false;
 									}
 								});
-								if(record) {
+								if (record) {
 									this.setValue(record.get(this.valueField));
 								}
 							}
