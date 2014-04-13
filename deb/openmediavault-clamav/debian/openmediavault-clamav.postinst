@@ -44,6 +44,7 @@ case "$1" in
 		#   <services>
 		#     <clamav>
 		#       <enable>0</enable>
+		#       <quarantine.sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</quarantine.sharedfolderref>
 		#       <clamd>
 		#         <logclean>0</logclean>
 		#         <scanpe>1</scanpe>
@@ -84,7 +85,7 @@ case "$1" in
 		#           <dayofweek>[1-7|*]</dayofweek>
 		#           <sendemail>0|1</sendemail>
 		#           <onaccess>0|1</onaccess>
-		#           <remove>0|1</remove>
+		#           <virusaction>nothing|quarantine|delete</virusaction>
 		#           <verbose>0|1</verbose>
 		#           <multiscan>0|1</multiscan>
 		#           <comment></comment>
@@ -98,6 +99,7 @@ case "$1" in
 		if ! omv_config_exists "/config/services/clamav"; then
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
+			object="${object}<quarantine.sharedfolderref>"
 			object="${object}<clamd>"
 			object="${object}<logclean>0</logclean>"
 			object="${object}<scanpe>1</scanpe>"
@@ -149,6 +151,11 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.4.1"; then
 			omv_config_add_element "/config/services/clamav/clamd" "logclean" "0"
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.6.1"; then
+			omv_config_add_element "/config/services/clamav" "quarantine.sharedfolderref" ""
+			omv_config_add_element "/config/services/clamav/jobs/job[remove='0']" "virusaction" "nothing"
+			omv_config_add_element "/config/services/clamav/jobs/job[remove='1']" "virusaction" "delete"
 		fi
 	;;
 

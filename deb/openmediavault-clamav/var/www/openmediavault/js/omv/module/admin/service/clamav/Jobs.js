@@ -194,11 +194,25 @@ Ext.define("OMV.module.admin.service.clamav.Job", {
 				text: _("Monitor the shared folder and scan new or modified files.")
 			}]
 		},{
-			xtype: "checkbox",
-			name: "remove",
-			fieldLabel: _("Remove"),
-			boxLabel: _("Remove infected files."),
-			checked: false
+			xtype: "combo",
+			name: "virusaction",
+			fieldLabel: _("Infected files"),
+			queryMode: "local",
+			store: [
+				[ "nothing", "Perform nothing" ],
+				[ "quarantine", "Move to quarantine" ],
+				[ "delete", "Delete immediately" ]
+			],
+			displayField: "text",
+			valueField: "value",
+			allowBlank: false,
+			editable: false,
+			triggerAction: "all",
+			value: "none",
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("The option, how to handle infected files.")
+			}]
 		},{
 			xtype: "checkbox",
 			name: "multiscan",

@@ -20,6 +20,7 @@
  */
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/form/Panel.js")
+// require("js/omv/form/field/SharedFolderComboBox.js")
 
 /**
  * @class OMV.module.admin.service.clamav.Settings
@@ -27,10 +28,23 @@
  */
 Ext.define("OMV.module.admin.service.clamav.Settings", {
 	extend: "OMV.workspace.form.Panel",
+	uses: [
+		"OMV.form.field.SharedFolderComboBox"
+	],
 
 	rpcService: "ClamAV",
 	rpcGetMethod: "getSettings",
 	rpcSetMethod: "setSettings",
+	plugins: [{
+		ptype: "linkedfields",
+		correlations: [{
+			name: "quarantine.sharedfolderref",
+			conditions: [
+				{ name: "enable", value: true }
+			],
+			properties: "!allowBlank"
+		}]
+	}],
 
 	getFormItems: function() {
 		return [{
@@ -66,6 +80,15 @@ Ext.define("OMV.module.admin.service.clamav.Settings", {
 				plugins: [{
 					ptype: "fieldinfo",
 					text: _("Number of database update checks per day. Set to 0 to disable.")
+				}]
+			},{
+				xtype: "sharedfoldercombo",
+				name: "quarantine.sharedfolderref",
+				fieldLabel: _("Quarantine"),
+				allowNone: true,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The location which is used as quarantine.")
 				}]
 			},{
 				xtype: "checkbox",

@@ -70,6 +70,8 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 			"enable" => boolval($object['enable']),
 			"checks" => intval($object['freshclam']['checks']),
 			"databasemirror" => $object['freshclam']['databasemirror'],
+			"quarantine.sharedfolderref" => $object[
+			  'quarantine.sharedfolderref'],
 			"logclean" => boolval($object['clamd']['logclean']),
 			"scanpe" => boolval($object['clamd']['scanpe']),
 			"scanole2" => boolval($object['clamd']['scanole2']),
@@ -111,6 +113,8 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 				  "enable":{"type":"boolean"},
 				  "databasemirror":{"type":"string"},
 				  "checks":{"type":"integer","minimum":0,"maximum":50},
+				  "quarantine.sharedfolderref":{'.$GLOBALS[
+				    'OMV_JSONSCHEMA_UUID_NONE'].'},
 				  "logclean":{"type":"boolean"},
 				  "scanpe":{"type":"boolean"},
 				  "scanole2":{"type":"boolean"},
@@ -136,6 +140,8 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 		// Update the existing configuration object.
 		$object = array_merge($object, array(
 			"enable" => array_boolval($params, "enable"),
+			"quarantine.sharedfolderref" => $params[
+			  'quarantine.sharedfolderref'],
 			"clamd" => array(
 				"logclean" => array_boolval($params, "logclean"),
 				"scanpe" => array_boolval($params, "scanpe"),
@@ -224,7 +230,6 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 			$objectv['everyndayofmonth'] = boolval($objectv['everyndayofmonth']);
 			$objectv['sendemail'] = boolval($objectv['sendemail']);
 			$objectv['onaccess'] = boolval($objectv['onaccess']);
-			$objectv['remove'] = boolval($objectv['remove']);
 			$objectv['multiscan'] = boolval($objectv['multiscan']);
 			$objectv['verbose'] = boolval($objectv['verbose']);
 		}
@@ -269,7 +274,6 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 		$object['everyndayofmonth'] = boolval($object['everyndayofmonth']);
 		$object['sendemail'] = boolval($object['sendemail']);
 		$object['onaccess'] = boolval($object['onaccess']);
-		$object['remove'] = boolval($object['remove']);
 		$object['multiscan'] = boolval($object['multiscan']);
 		$object['verbose'] = boolval($object['verbose']);
 		return $object;
@@ -311,7 +315,8 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 					'"pattern":"\/^[1-7]|[*]$\/"},
 				  "sendemail":{"type":"boolean"},
 				  "onaccess":{"type":"boolean"},
-				  "remove":{"type":"boolean"},
+				  "virusaction":{"type":"string","enum":["nothing",'.
+				    '"quarantine","delete"]},
 				  "multiscan":{"type":"boolean"},
 				  "verbose":{"type":"boolean"},
 				  "comment":{"type":"string"}
@@ -333,7 +338,7 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 			"dayofweek" => $params['dayofweek'],
 			"sendemail" => array_boolval($params, 'sendemail'),
 			"onaccess" => array_boolval($params, 'onaccess'),
-			"remove" => array_boolval($params, 'remove'),
+			"virusaction" => $params['virusaction'],
 			"multiscan" => array_boolval($params, 'multiscan'),
 			"verbose" => array_boolval($params, 'verbose'),
 			"comment" => $params['comment']

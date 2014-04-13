@@ -1,5 +1,6 @@
 openmediavault-clamav (0.6.1) stable; urgency=low
 
+  * Add quarantine support. Please update your service configuration.
   * Modify package trigger handling. Now the triggers update-fixperms and
     update-locale are only called during package installation.
 
