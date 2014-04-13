@@ -1,3 +1,10 @@
+openmediavault-ldap (0.6.2) stable; urgency=low
+
+  * Modify package trigger handling. Now the triggers update-fixperms and
+    update-locale are only called during package installation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 13 Apr 2014 02:55:55 +0200
+
 openmediavault-ldap (0.6.1) stable; urgency=low
 
   * Remove 'idmap uid' and 'idmap gid' from auto-generated LDAP smb.conf.

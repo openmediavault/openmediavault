@@ -135,6 +135,37 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	}
 
 	/**
+	 * Call the given RPC service method in a background process.
+	 * Registered method hooks will be called after the origin method
+	 * has been successfully called.
+	 * @param name The name of the method.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The name of the background process status file.
+	 * @throw E_RPC_SERVICE_METHOD_NOT_EXISTS
+	 */
+	final public function callMethodBg($name, $params, $context) {
+		// Create a background process.
+		$bgStatusFilename = $this->createBgProcStatus();
+		$pid = $this->fork();
+		if ($pid > 0) { // Parent process.
+			$this->initializeBgProcStatus($bgStatusFilename, $pid);
+			return $bgStatusFilename;
+		}
+		// Child process.
+		try {
+			// Execute the given RPC service method.
+			$this->callMethod($name, $params, $context);
+			// Update the background process status file.
+			$this->finalizeBgProcStatus($bgStatusFilename);
+			exit(0);
+		} catch(Exception $e) {
+			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
+			exit(1);
+		}
+	}
+
+	/**
 	 * Helper function to validate the given method parameters using
 	 * JSON schema.
 	 * @param params The parameters to be validated.

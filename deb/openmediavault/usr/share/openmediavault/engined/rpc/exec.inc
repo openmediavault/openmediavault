@@ -35,52 +35,9 @@ class OMVRpcServiceExec extends OMVRpcServiceAbstract {
 	 * Initialize the RPC service.
 	 */
 	public function initialize() {
-		$this->registerMethod("execBg");
 		$this->registerMethod("stop");
 		$this->registerMethod("getOutput");
 		$this->registerMethod("isRunning");
-	}
-
-	/**
-	 * Execute the given RPC as a background process.
-	 * @param params An array containing the following fields:
-	 *   \em service The name of the service.
-	 *   \em method The name of the method.
-	 *   \em params The parameters hash object to be passed to the method
-	 *   of the given service.
-	 * @param context The context of the caller.
-	 * @return The name of the background process status file if
-	 *   \em background is set to TRUE.
-	 */
-	public function execBg($params, $context) {
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "service":{"type":"string"},
-				  "method":{"type":"string"},
-				  "params":{"type":"any"}
-			  }
-		  }');
-		// Create a background process.
-		$bgStatusFilename = $this->createBgProcStatus();
-		$pid = $this->fork();
-		if ($pid > 0) { // Parent process.
-			$this->initializeBgProcStatus($bgStatusFilename, $pid);
-			return $bgStatusFilename;
-		}
-		// Child process.
-		try {
-			// Execute the given RPC.
-			OMVRpc::exec($params['service'], $params['method'],
-			  $params['params'], $context);
-			// Update the background process status file.
-			$this->finalizeBgProcStatus($bgStatusFilename);
-			exit(0);
-		} catch(Exception $e) {
-			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
-			exit(1);
-		}
 	}
 
 	/**

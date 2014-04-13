@@ -1,3 +1,10 @@
+openmediavault-forkeddaapd (0.6.2) stable; urgency=low
+
+  * Modify package trigger handling. Now the triggers update-fixperms and
+    update-locale are only called during package installation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 13 Apr 2014 02:48:08 +0200
+
 openmediavault-forkeddaapd (0.6.1) stable; urgency=low
 
   * Adapt monit service configuration to new monit behaviour.

@@ -68,6 +68,13 @@ case "$1" in
 		fi
 
 		########################################################################
+		# Activate package triggers. These triggers are only set during the
+		# package installation.
+		########################################################################
+		dpkg-trigger update-fixperms
+		dpkg-trigger update-locale
+
+		########################################################################
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."

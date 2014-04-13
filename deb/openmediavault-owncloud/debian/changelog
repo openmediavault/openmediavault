@@ -1,3 +1,11 @@
+openmediavault-owncloud (0.6) stable; urgency=low
+
+  * Adapt plugin to Debian Wheezy.
+  * Modify package trigger handling. Now the triggers update-fixperms and
+    update-locale are only called during package installation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 13 Apr 2014 03:00:53 +0200
+
 openmediavault-owncloud (0.5.7) stable; urgency=low
 
   * Update locales.

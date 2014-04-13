@@ -39,7 +39,9 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 	public function initialize() {
 		$this->registerMethod("isDirty");
 		$this->registerMethod("applyChanges");
+		$this->registerMethod("applyChangesBg");
 		$this->registerMethod("revertChanges");
+		$this->registerMethod("revertChangesBg");
 	}
 
 	/**
@@ -213,6 +215,16 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 	}
 
 	/**
+	 * Apply the configuration changes in a background process.
+	 * @param params The method parameters. \see applyChanges.
+	 * @param context The context of the caller.
+	 * @return The name of the background process status file.
+	 */
+	public function applyChangesBg($params, $context) {
+		return $this->callMethodBg("applyChanges", $params, $context);
+	}
+
+	/**
 	 * Revert the configuration changes.
 	 * @param params An array containing the following fields:
 	 *   \em filename The revision file. Set to empty to automatically detect
@@ -248,6 +260,16 @@ class OMVRpcServiceConfig extends OMVRpcServiceAbstract {
 		// Empty the dirty modules file.
 		$jsonFile->write(array());
 		$jsonFile->close();
+	}
+
+	/**
+	 * Revert the configuration changes in a background process.
+	 * @param params The method parameters. \see revertChanges.
+	 * @param context The context of the caller.
+	 * @return The name of the background process status file.
+	 */
+	public function revertChangesBg($params, $context) {
+		return $this->callMethodBg("revertChanges", $params, $context);
 	}
 }
 

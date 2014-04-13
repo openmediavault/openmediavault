@@ -1,3 +1,10 @@
+openmediavault-lvm2 (0.6.1) stable; urgency=low
+
+  * Modify package trigger handling. Now the triggers update-fixperms and
+    update-locale are only called during package installation.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 13 Apr 2014 02:56:48 +0200
+
 openmediavault-lvm2 (0.6) stable; urgency=low
 
   * Update locales.
