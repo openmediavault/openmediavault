@@ -172,8 +172,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			}
 			// Is the shared folder referenced by any object? Shared folder
 			// references are named 'sharedfolderref'.
-			$xpath = sprintf("//sharedfolderref[contains(.,'%s')]",
-			  $objectv['uuid']);
+			$xpath = sprintf("//*[contains(name(),'sharedfolderref')]".
+			  "[contains(.,'%s')]", $objectv['uuid']);
 			if(TRUE === $xmlConfig->exists($xpath)) {
 				$objectv['_used'] = true;
 			}
@@ -434,8 +434,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Check if the shared folder is used somewhere.
-		$xpath = sprintf("//sharedfolderref[contains(.,'%s')]",
-		  $params['uuid']);
+		$xpath = sprintf("//*[contains(name(),'sharedfolderref')]".
+		  "[contains(.,'%s')]", $params['uuid']);
 		if(TRUE === $xmlConfig->exists($xpath)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INUSE);
 		}
@@ -1086,8 +1086,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		// Get a list of XPath's to the configuration objects referencing
 		// the given shared folder. Shared folder references are named
 		// 'sharedfolderref'.
-		$xpath = sprintf("//sharedfolderref[contains(.,'%s')]/..",
-		  $params['uuid']);
+		$xpath = sprintf("//*[contains(name(),'sharedfolderref')]".
+		  "[contains(.,'%s')]/..", $params['uuid']);
 		$objects = $xmlConfig->getXPathList($xpath);
 		return $objects;
 	}
