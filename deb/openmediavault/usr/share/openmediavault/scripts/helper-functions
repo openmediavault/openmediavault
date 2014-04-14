@@ -150,7 +150,7 @@ omv_error() {
 # Execute an RPC.
 omv_exec_rpc() {
 	omv_debug "omv_exec_rpc: service=<$1>, method=<$2>, params=<$3>"
-	omv-rpc $1 $2 $3 >/dev/null
+	omv-rpc $@ >/dev/null
 	if [ $? -ne 0 ]; then
 		omv_error "Failed to execute RPC (service=$1, method=$2)."
 		return 1

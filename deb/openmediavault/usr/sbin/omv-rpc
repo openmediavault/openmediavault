@@ -100,7 +100,8 @@ if($argc > 3) {
 	$params = json_decode($argv[3], TRUE);
 }
 
-// Execute the RPC.
+// Execute the RPC and print the response.
+$fh = STDOUT;
 try {
 	$response = OMVRpc::exec($service, $method, $params, $context,
 	  OMV_RPC_MODE_REMOTE);
@@ -113,9 +114,10 @@ try {
 			"trace" => $e->__toString()
 		)
 	);
+	$fh = STDERR;
 	$rc = 1;
 }
-printf("%s\n", json_encode_safe($response));
+fwrite($fh, sprintf("%s\n", json_encode_safe($response)));
 
 exit($rc);
 ?>

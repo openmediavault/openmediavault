@@ -176,7 +176,7 @@ function is_block($filename) {
  * @return TRUE if variable is JSON, otherwise FALSE.
  */
 function is_json($var) {
-	return (is_string($var) && is_object(json_decode($var))) ?
+	return (is_string($var) && !is_null(json_decode($var))) ?
 	  TRUE : FALSE;
 }
 
@@ -250,6 +250,26 @@ function json_encode_safe($value, $options = 0) {
 		$value = utf8_encode($value);
 	}
 	return json_encode($value, $options);
+}
+
+/**
+ * Returns the error string of the last JSON API call.
+ * @return Returns the error message on success or NULL with wrong parameters.
+ */
+if (!function_exists('json_last_error_msg')) {
+    function json_last_error_msg() {
+        static $errorMsg = array(
+            JSON_ERROR_NONE	=> null,
+			JSON_ERROR_DEPTH =>	"The maximum stack depth has been exceeded",
+			JSON_ERROR_STATE_MISMATCH => "Invalid or malformed JSON",
+			JSON_ERROR_CTRL_CHAR => "Control character error, possibly incorrectly encoded",
+			JSON_ERROR_SYNTAX => "Syntax error",
+			JSON_ERROR_UTF8 => "Malformed UTF-8 characters, possibly incorrectly encoded"
+        );
+        $errno = json_last_error();
+        return array_key_exists($errno, $errorMsg) ? $errorMsg[$errno] :
+          sprintf("Unknown error (%d)", $errno);
+    }
 }
 
 /**

@@ -1,0 +1,2 @@
+// Create the plugin index.
+APT::Update::Post-Invoke-Success { "omv-mkaptidx || true" }

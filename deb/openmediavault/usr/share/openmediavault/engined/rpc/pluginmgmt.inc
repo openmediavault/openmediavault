@@ -42,10 +42,11 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 		$this->registerMethod("remove");
 		$this->registerMethod("upload");
 		$this->registerMethod("install");
+		$this->registerMethod("makeIndex");
 	}
 
 	/**
-	 * Enumerate all installed packages/plugins.
+	 * Enumerate all available plugin packages.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array of objects with the following fields: \em name,
@@ -55,144 +56,28 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	 *   \em description, \em homepage, \em installed, \em repository and
 	 *   \em _readOnly. The following fields are optional: \em longdescription,
 	 *   \em depends, \em replaces and \em conflicts.
-	 * @throw E_EXEC_FAILED
+	 * @throw E_MISC_FAILURE
 	 */
 	function enumeratePlugins($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		// Get product informations
-		$prd = new OMVProduct();
-		// List of packages to ignore.
-		$except = array(sprintf("%s-keyring", $prd->getPackageName()));
-		// Get list of available plugin packages.
-		$cmd = sprintf("export LANG=C; apt-cache search %s-",
-		  $prd->getPackageName());
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		// Read the plugin information from the plugin index. This will
+		// be updated automatically via APT trigger.
+		$indexFile = new OMVJsonFile($GLOBALS['OMV_PLUGIN_INDEX_FILE']);
+		if (!$indexFile->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  "Plugin index does not exist.");
 		}
-		$objects = array();
-		foreach($output as $row) {
-			$regex = sprintf("/^(%s-\S+) - (.+)$/", $prd->getPackageName());
-			if(1 !== preg_match($regex, $row, $matches))
-				continue;
-			// Skip packages listed in the ignore list.
-			if(in_array($matches[1], $except))
-				continue;
-			// Set default package informations.
-			$object = array(
-				"name" => $matches[1],
-				"description" => $matches[2],
-				"installed" => FALSE,
-				"_readOnly" => TRUE
-			);
-			// Get additional package informations.
-			$cmd = sprintf("export LANG=C; apt-cache --no-all-versions ".
-			  "show %s 2>&1", $object['name']);
-			if(0 !== $this->exec($cmd, $output2)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output2));
-			}
-			// Parse output:
-			// Package: openmediavault-forkeddaapd
-			// Priority: optional
-			// ...
-			// <fieldname>: <fieldvalue>
-			$fieldname = $fieldvalue = "";
-			foreach($output2 as $row) {
-				$regex = "/^(\S+): (.+)$/";
-				if(1 !== preg_match($regex, $row, $matches)) {
-					// Process folded/multiline fields. See
-					// http://www.debian.org/doc/debian-policy/ch-controlfields.html
-					switch($fieldname) {
-					case "description":
-						$fieldname = "longdescription";
-						$object[$fieldname] = "";
-						break;
-					default:
-						break;
-					}
-					$fieldvalue = trim($row);
-					if($fieldvalue === ".")
-						$fieldvalue = "\n";
-					$object[$fieldname] .= $fieldvalue;
-					continue;
-				}
-				$fieldname = strtolower(str_replace("-", "", $matches[1]));
-				$fieldvalue = trim($matches[2]);
-				$object[$fieldname] = $fieldvalue;
-			}
-			if(TRUE == boolval($GLOBALS['OMV_PLUGIN_ENUMERATE_GET_REPOSITORY'])) {
-				// Get the repository where the package comes from. !!! Note,
-				// this is a really time consuming process. Because parsing
-				// 'apt-cache' output seems to be too difficult, simply
-				// simulate the package installation. The 'apt-get' output
-				// includes the repository where the package comes from.
-				$cmd = sprintf("export LANG=C; apt-get --simulate ".
-				  "--reinstall install %s 2>&1", $object['name']);
-				if(0 !== $this->exec($cmd, $output2)) {
-					// Skip packages that fail, e.g. because of unmet
-					// dependencies.
-					if($result == 100)
-						continue;
-					// Throw an exception for all other errors.
-					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, implode("\n", $output2));
-				}
-				// Parse output:
-				// Inst libisccc60 [1:9.7.3.dfsg-1~squeeze3] (1:9.7.3.dfsg-1~squeeze4 Debian:6.0.4/stable, Debian-Security:6.0/stable [amd64])
-				// Inst file [5.04-5] (5.04-5+squeeze1 Debian-Security:6.0/stable [i386]) []
-				// Inst libxml2 [2.7.8.dfsg-2+squeeze2] (2.7.8.dfsg-2+squeeze3 Debian-Security:6.0/stable [i386])
-				// Inst libssl1.0.0 (1.0.0h-1 localhost [amd64])
-				foreach($output2 as $row) {
-					$regex = "/^Inst\s+(\S+)\s+(\[(\S+)|\])?\s*\((\S+)\s+(.+)".
-					  "\s+\[(\S+)\]\).*$/";
-					if(1 !== preg_match($regex, $row, $matches))
-						continue;
-					if($object['name'] === $matches[1]) {
-						$object['repository'] = $matches[5];
-						break;
-					}
-				}
-			}
-			// Append package information object.
-			$objects[] = $object;
-		}
-		// Get list of installed packages.
-		unset($output);
-		$cmd = sprintf("export LANG=C; dpkg-query --showformat='\${Status}\\t".
-		  "\${Package}\\n' --show '%s-*' 2>&1", $prd->getPackageName());
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-		// Parse output:
-		// unknown ok not-installed	openmediavault-ad
-		// install ok installed	openmediavault-clamav
-		// install ok installed	openmediavault-forkeddaapd
-		foreach($output as $row) {
-			$regex = "/^install ok installed\t(\S+)$/";
-			if(1 !== preg_match($regex, $row, $matches))
-				continue;
-			// Skip packages listed in the ignore list.
-			if(in_array($matches[1], $except))
-				continue;
-			// Mark plugin package as installed?
-			foreach($objects as $objectk => &$objectv) {
-				if($objectv['name'] === $matches[1]) {
-					$objectv['installed'] = TRUE;
-					$objectv['_readOnly'] = FALSE;
-					break;
-				}
-			}
-		}
+		$indexFile->open("r");
+		$objects = $indexFile->read();
+		$indexFile->close();
 		return $objects;
 	}
 
 	/**
-	 * Get list of installed packages/plugins.
+	 * Get list of available plugin packages.
 	 * @param params An array containing the following fields:
 	 *   \em start The index where to start.
 	 *   \em limit The number of objects to process.
@@ -393,6 +278,161 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}
+	}
+
+	/**
+	 * Create an index of all available plugins.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array of objects with the following fields: \em name,
+	 *   \em version, \em oldversion, \em architecture, \em package,
+	 *   \em priority, \em section, \em installedsize, \em maintainer,
+	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
+	 *   \em description, \em homepage, \em installed, \em repository and
+	 *   \em _readOnly. The following fields are optional: \em longdescription,
+	 *   \em depends, \em replaces and \em conflicts.
+	 * @throw E_EXEC_FAILED
+	 * @throw E_MISC_FAILURE
+	 */
+	function makeIndex($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get product information.
+		$prd = new OMVProduct();
+		// List of packages to ignore.
+		$except = array();
+		$except[] = sprintf("%s-keyring", $prd->getPackageName());
+		// Get list of available plugin packages.
+		$cmd = sprintf("export LANG=C; apt-cache search %s-",
+		  $prd->getPackageName());
+		if (0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		$objects = array();
+		foreach ($output as $row) {
+			$regex = sprintf("/^(%s-\S+) - (.+)$/", $prd->getPackageName());
+			if (1 !== preg_match($regex, $row, $matches))
+				continue;
+			// Skip packages listed in the exception/igore list.
+			if (in_array($matches[1], $except))
+				continue;
+			// Set default package informations.
+			$object = array(
+				"name" => $matches[1],
+				"description" => $matches[2],
+				"longdescription" => "",
+				"installed" => FALSE,
+				"repository" => ""
+			);
+			// Get additional package information.
+			$cmd = sprintf("export LANG=C; apt-cache --no-all-versions ".
+			  "show %s 2>&1", escapeshellarg($object['name']));
+			if (0 !== $this->exec($cmd, $output2)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output2));
+			}
+			// Parse output:
+			// Package: openmediavault-forkeddaapd
+			// Priority: optional
+			// ...
+			// <fieldname>: <fieldvalue>
+			$fieldname = $fieldvalue = "";
+			foreach ($output2 as $row) {
+				$regex = "/^(\S+): (.+)$/";
+				if (1 !== preg_match($regex, $row, $matches)) {
+					// Process folded/multiline fields. See
+					// http://www.debian.org/doc/debian-policy/ch-controlfields.html
+					switch ($fieldname) {
+					case "description":
+						$fieldname = "longdescription";
+						$object[$fieldname] = "";
+						break;
+					default:
+						break;
+					}
+					$fieldvalue = trim($row);
+					if ($fieldvalue === ".")
+						$fieldvalue = "\n";
+					$object[$fieldname] .= $fieldvalue;
+					continue;
+				}
+				$fieldname = strtolower(str_replace("-", "", $matches[1]));
+				$fieldvalue = trim($matches[2]);
+				$object[$fieldname] = $fieldvalue;
+			}
+			if (boolval($GLOBALS['OMV_PLUGIN_ENUMERATE_GET_REPOSITORY'])) {
+				// Get the repository where the package comes from. !!! Note,
+				// this is a really time consuming process. Because parsing
+				// 'apt-cache' output seems to be too difficult, simply
+				// simulate the package installation. The 'apt-get' output
+				// includes the repository where the package comes from.
+				$cmd = sprintf("export LANG=C; apt-get --simulate ".
+				  "--reinstall install %s 2>&1", $object['name']);
+				if (0 !== $this->exec($cmd, $output2)) {
+					// Skip packages that fail, e.g. because of unmet
+					// dependencies.
+					if ($result == 100)
+						continue;
+					// Throw an exception for all other errors.
+					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+					  $cmd, implode("\n", $output2));
+				}
+				// Parse output:
+				// Inst libisccc60 [1:9.7.3.dfsg-1~squeeze3] (1:9.7.3.dfsg-1~squeeze4 Debian:6.0.4/stable, Debian-Security:6.0/stable [amd64])
+				// Inst file [5.04-5] (5.04-5+squeeze1 Debian-Security:6.0/stable [i386]) []
+				// Inst libxml2 [2.7.8.dfsg-2+squeeze2] (2.7.8.dfsg-2+squeeze3 Debian-Security:6.0/stable [i386])
+				// Inst libssl1.0.0 (1.0.0h-1 localhost [amd64])
+				foreach ($output2 as $row) {
+					$regex = "/^Inst\s+(\S+)\s+(\[(\S+)|\])?\s*\((\S+)\s+(.+)".
+					  "\s+\[(\S+)\]\).*$/";
+					if (1 !== preg_match($regex, $row, $matches))
+						continue;
+					if (0 == strcasecmp($object['name'], $matches[1])) {
+						$object['repository'] = $matches[5];
+						break;
+					}
+				}
+			}
+			// Append package information object.
+			$objects[] = $object;
+		}
+		// Get list of installed packages.
+		unset($output);
+		$cmd = sprintf("export LANG=C; dpkg-query --showformat='\${Status}\\t".
+		  "\${Package}\\n' --show '%s-*' 2>&1", $prd->getPackageName());
+		if (0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Parse output:
+		// unknown ok not-installed	openmediavault-ad
+		// install ok installed	openmediavault-clamav
+		// install ok installed	openmediavault-forkeddaapd
+		foreach ($output as $row) {
+			$regex = "/^install ok installed\t(\S+)$/";
+			if (1 !== preg_match($regex, $row, $matches))
+				continue;
+			// Skip packages listed in the ignore list.
+			if (in_array($matches[1], $except))
+				continue;
+			// Mark plugin package as installed?
+			foreach ($objects as $objectk => &$objectv) {
+				if (0 == strcasecmp($objectv['name'], $matches[1])) {
+					$objectv['installed'] = TRUE;
+					break;
+				}
+			}
+		}
+		// Write the index file.
+		$indexFile = new OMVJsonFile($GLOBALS['OMV_PLUGIN_INDEX_FILE']);
+		$indexFile->open("c+");
+		$indexFile->write($objects);
+		$indexFile->close();
+		// Return the list of plugins.
+		return $objects;
 	}
 }
 

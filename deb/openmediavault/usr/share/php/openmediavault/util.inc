@@ -221,18 +221,19 @@ class OMVJsonFile extends OMVObject {
 	 * @throw E_MISC_FAILURE
 	 */
 	public function write($content) {
-		if(FALSE === rewind($this->fh)) {
+		if (FALSE === rewind($this->fh)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to rewind file (filename=%s).",
 			  $this->filename));
 		}
 		$this->truncate(0);
-		if(FALSE === fwrite($this->fh, json_encode_safe($content))) {
+		if (FALSE === fwrite($this->fh, json_encode_safe($content,
+		  JSON_PRETTY_PRINT))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to write file (filename=%s).",
 			  $this->filename));
 		}
-		if(FALSE === fflush($this->fh)) {
+		if (FALSE === fflush($this->fh)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to flush file (filename=%s).",
 			  $this->filename));
@@ -247,15 +248,21 @@ class OMVJsonFile extends OMVObject {
 	 * @throw E_MISC_FAILURE
 	 */
 	public function read($decode = TRUE) {
-		if(FALSE === rewind($this->fh)) {
+		if (FALSE === rewind($this->fh)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to rewind file (filename=%s).",
 			  $this->filename));
 		}
-		if(FALSE === ($content = stream_get_contents($this->fh))) {
+		if (FALSE === ($content = stream_get_contents($this->fh))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to read file (filename=%s).",
 			  $this->filename));
+		}
+		// Validate JSON content.
+		if (!is_json($content)) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("File contains invalid JSON (filename=%s): %s",
+			  $this->filename, json_last_error_msg()));
 		}
 		return (TRUE === $decode) ? json_decode($content, TRUE) : $content;
 	}
