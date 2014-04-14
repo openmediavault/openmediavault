@@ -195,17 +195,20 @@ class OMVJsonFile extends OMVObject {
 	}
 
 	/**
-	 * Open the file.
+	 * Close the file.
 	 * @return None.
 	 * @throw E_MISC_FAILURE
 	 */
 	public function close() {
-		if(FALSE === flock($this->fh, LOCK_UN)) {
+/* Unlocking is not necessary, this will be done when the file is
+   closed, see http://perl.plover.com/yak/flock/samples/slide005.html
+		if (FALSE === flock($this->fh, LOCK_UN)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to unlock file (filename=%s).",
 			  $this->filename));
 		}
-		if(FALSE === fclose($this->fh)) {
+*/
+		if (FALSE === fclose($this->fh)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to close file (filename=%s).",
 			  $this->filename));

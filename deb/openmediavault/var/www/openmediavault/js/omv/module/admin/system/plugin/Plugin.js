@@ -74,9 +74,9 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		renderer: function(value, metaData, record) {
 			var tpl = Ext.create("Ext.XTemplate",
 			  '<b>{name} {version}</b><br/>',
-			  '{description}<br/><br/>',
-			  '<tpl if="!Ext.isEmpty(values.longdescription)">',
-				'{[OMV.util.Format.whitespace(values.longdescription)]}<br/><br/>',
+			  '{shortdescription}<br/><br/>',
+			  '<tpl if="!Ext.isEmpty(values.description)">',
+				'{[OMV.util.Format.whitespace(values.description)]}<br/><br/>',
 			  '</tpl>',
 			  '<tpl if="!Ext.isEmpty(values.size)">',
 			    _("Size") + ': {[OMV.util.Format.binaryUnit(values.size)]}<br/>',
@@ -118,13 +118,13 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 	},{
 		text: _("Description"),
 		sortable: true,
-		dataIndex: "description",
-		stateId: "description",
+		dataIndex: "shortdescription",
+		stateId: "shortdescription",
 		renderer: function(value, metaData, record) {
-			var longdescription = record.get("longdescription");
-			if(!Ext.isEmpty(longdescription)) {
+			var description = record.get("description");
+			if (!Ext.isEmpty(description)) {
 				value = Ext.String.format("<b>{0}</b><br/>{1}",
-				  value, Ext.String.htmlEncode(longdescription));
+				  value, Ext.String.htmlEncode(description));
 			}
 			return OMV.util.Format.whitespace(value);
 		},
@@ -167,8 +167,8 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 						{ name: "name", type: "string" },
 						{ name: "version", type: "string" },
 						{ name: "repository", type: "string" },
+						{ name: "shortdescription", type: "string" },
 						{ name: "description", type: "string" },
-						{ name: "longdescription", type: "string" },
 						{ name: "homepage", type: "string" },
 						{ name: "maintainer", type: "string" },
 						{ name: "installed", type: "boolean" },

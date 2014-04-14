@@ -123,8 +123,9 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	 *   \em oldversion, \em repository, \em architecture, \em package,
 	 *   \em priority, \em section, \em installedsize, \em maintainer,
 	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
-	 *   \em description and \em homepage. The following fields are optional:
-	 *   \em longdescription, \em depends, \em replaces and \em conflicts.
+	 *   \em shortdescription and \em homepage. The following fields are
+	 *   optional: \em description, \em depends, \em replaces and
+	 *   \em conflicts.
 	 * @throw E_EXEC_FAILED
 	 */
 	function getUpgraded($params, $context) {
@@ -200,8 +201,8 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 					// Process folded/multiline fields. See
 					// http://www.debian.org/doc/debian-policy/ch-controlfields.html
 					switch ($fieldname) {
-					case "description":
-						$fieldname = "longdescription";
+					case "shortdescription":
+						$fieldname = "description";
 						$object[$fieldname] = "";
 						break;
 					default:
@@ -216,8 +217,9 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 					$fieldname = strtolower($matches[1]);
 					// Map various field names.
 					switch ($fieldname) {
+					case "description":
 					case "description-en":
-						$fieldname = "description";
+						$fieldname = "shortdescription";
 						break;
 					case "filename":
 						// Extract the filename.

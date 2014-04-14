@@ -24,6 +24,23 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+pidfile="/var/run/$(basename $0).pid"
+
+cleanup() {
+	rm -f ${pidfile}
+	exit
+}
+
+# Check if another instance is already running.
+if [ -e ${pidfile} ]; then
+	echo "Another instance is already running" >/dev/stderr
+	exit 1
+fi
+
+# Automatically cleanup PID file.
+trap cleanup 0 1 2 5 15
+echo $$ > ${pidfile}
+
 echo "Creating plugin index ..."
 omv_exec_rpc "Plugin" "makeIndex" "{}"
 [ $? -ne 0 ] && exit 1

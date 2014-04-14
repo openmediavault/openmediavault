@@ -53,9 +53,9 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	 *   \em version, \em oldversion, \em architecture, \em package,
 	 *   \em priority, \em section, \em installedsize, \em maintainer,
 	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
-	 *   \em description, \em homepage, \em installed, \em repository and
-	 *   \em _readOnly. The following fields are optional: \em longdescription,
-	 *   \em depends, \em replaces and \em conflicts.
+	 *   \em shortdescription, \em homepage, \em installed, \em repository
+	 *   and \em _readOnly. The following fields are optional:
+	 *   \em description, \em depends, \em replaces and \em conflicts.
 	 * @throw E_MISC_FAILURE
 	 */
 	function enumeratePlugins($params, $context) {
@@ -89,9 +89,9 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	 *   array. An object contains the following fields: \em name, \em version,
 	 *   \em oldversion, \em architecture, \em package, \em priority,
 	 *   \em section, \em installedsize, \em maintainer, \em filename, \em size,
-	 *   \em md5sum, \em sha1, \em sha256, \em description, \em homepage,
+	 *   \em md5sum, \em sha1, \em sha256, \em shortdescription, \em homepage,
 	 *   \em installed, \em repository and \em _readOnly. The following fields
-	 *   are optional: \em longdescription, \em depends, \em replaces and
+	 *   are optional: \em description, \em depends, \em replaces and
 	 *   \em conflicts. An exception will be thrown in case of an error.
 	 */
 	function getList($params, $context) {
@@ -109,8 +109,12 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
 			  }
 		  }');
-		// Enumerate all installed packages/plugins.
+		// Enumerate all available packages/plugins.
 		$objects = $this->callMethod("enumeratePlugins", NULL, $context);
+		// Add additional information.
+		foreach ($objects as $objectk => &$objectv) {
+			$objectv['_readOnly'] = !$objectv['installed'];
+		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
@@ -288,9 +292,9 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	 *   \em version, \em oldversion, \em architecture, \em package,
 	 *   \em priority, \em section, \em installedsize, \em maintainer,
 	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
-	 *   \em description, \em homepage, \em installed, \em repository and
-	 *   \em _readOnly. The following fields are optional: \em longdescription,
-	 *   \em depends, \em replaces and \em conflicts.
+	 *   \em shortdescription, \em homepage, \em installed, \em repository
+	 *   and \em _readOnly. The following fields are optional:
+	 *   \em description, \em depends, \em replaces and \em conflicts.
 	 * @throw E_EXEC_FAILED
 	 * @throw E_MISC_FAILURE
 	 */
@@ -322,8 +326,8 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			// Set default package informations.
 			$object = array(
 				"name" => $matches[1],
-				"description" => $matches[2],
-				"longdescription" => "",
+				"shortdescription" => $matches[2],
+				"description" => "",
 				"installed" => FALSE,
 				"repository" => ""
 			);
@@ -345,14 +349,6 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 				if (1 !== preg_match($regex, $row, $matches)) {
 					// Process folded/multiline fields. See
 					// http://www.debian.org/doc/debian-policy/ch-controlfields.html
-					switch ($fieldname) {
-					case "description":
-						$fieldname = "longdescription";
-						$object[$fieldname] = "";
-						break;
-					default:
-						break;
-					}
 					$fieldvalue = trim($row);
 					if ($fieldvalue === ".")
 						$fieldvalue = "\n";
