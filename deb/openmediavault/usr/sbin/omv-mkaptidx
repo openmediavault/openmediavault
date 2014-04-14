@@ -41,7 +41,10 @@ fi
 trap cleanup 0 1 2 5 15
 echo $$ > ${pidfile}
 
-echo "Creating plugin index ..."
+# Get the product information.
+prdname=$(xmlstarlet sel -t -v //name ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+
+echo "Creating ${prdname} plugin index ..."
 omv_exec_rpc "Plugin" "makeIndex" "{}"
 [ $? -ne 0 ] && exit 1
 
