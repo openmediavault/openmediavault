@@ -194,6 +194,11 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
+			// Create index of upgradeable packages.
+			$this->writeBgProcOutput($bgOutputFilename, "Create index of ".
+			  "upgradeable packages ...\n");
+			$this->callMethod("createIndex", NULL, $context);
+			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
 		} catch(Exception $e) {

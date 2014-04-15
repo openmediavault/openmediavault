@@ -258,6 +258,17 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	}
 
 	/**
+	 * Helper function to write a string to the background process output.
+	 * @param filename Path to the file where to write the content.
+	 * @param content The content to write.
+	 * @return This function returns the number of bytes that were written
+	 *   to the file, or FALSE on failure.
+	 */
+	final protected function writeBgProcOutput($filename, $content) {
+		return file_put_contents($filename, $content, FILE_APPEND | LOCK_EX);
+	}
+
+	/**
 	 * Helper function to update the background process status file.
 	 * @param filename The name of the status file.
 	 * @param pid The PID of the background process.
@@ -420,8 +431,7 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 						// Redirect command output to file?
 						if(is_string($outputFilename) && !empty(
 						  $outputFilename)) {
-							file_put_contents($outputFilename, $line,
-							  FILE_APPEND | LOCK_EX);
+							$this->writeBgProcOutput($outputFilename, $line);
 						}
 						$output[] = rtrim($line);
 					}
