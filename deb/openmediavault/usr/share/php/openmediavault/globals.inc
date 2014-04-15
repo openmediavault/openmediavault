@@ -70,11 +70,12 @@ $GLOBALS['OMV_ENGINED_DIRTY_MODULES_FILE'] = "/var/lib/openmediavault/dirtymodul
 $GLOBALS['OMV_APACHE2_SUEXECUSERGROUP'] = "openmediavault";
 $GLOBALS['OMV_USERMGMT_ENUMERATE_USER_ROOT'] = TRUE;
 $GLOBALS['OMV_PLUGIN_ENUMERATE_GET_REPOSITORY'] = TRUE;
-$GLOBALS['OMV_PLUGIN_INDEX_FILE'] = "/var/lib/openmediavault/pluginindex.json";
 $GLOBALS['OMV_INITFS_OPTIONS_EXT3'] = "-b 4096 -m 0";
 $GLOBALS['OMV_INITFS_OPTIONS_EXT4'] = "-b 4096 -m 0";
 $GLOBALS['OMV_INITFS_OPTIONS_JFS'] = "-q";
 $GLOBALS['OMV_INITFS_OPTIONS_XFS'] = "-f";
+$GLOBALS['OMV_APT_PLUGINS_INDEX_FILE'] = "/var/lib/openmediavault/apt/pluginsindex.json";
+$GLOBALS['OMV_APT_UPGRADE_INDEX_FILE'] = "/var/lib/openmediavault/apt/upgradeindex.json";
 
 /**
  * Use the following table as reference when defining a regex:

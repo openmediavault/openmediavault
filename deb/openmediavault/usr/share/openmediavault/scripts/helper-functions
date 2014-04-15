@@ -673,3 +673,17 @@ require_once("openmediavault/module.inc");
 ?>
 EOF
 }
+
+# char omv_product_info (char *attrib)
+# Helper function to get information about the product.
+# @param attrib The name of the requested information. This can be<ul>
+#   \li name
+#   \li versionname
+#   \li url
+#   \li copyright
+#   \li packagename
+#   \li distribution
+#   </ul>
+omv_product_info() {
+	xmlstarlet sel -t -v "//$1" "${OMV_PRODUCTINFO_FILE}" | xmlstarlet unesc
+}

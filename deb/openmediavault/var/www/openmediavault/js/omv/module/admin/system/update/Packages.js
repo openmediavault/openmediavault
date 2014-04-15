@@ -48,7 +48,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 	],
 
 	maskBody: true,
-	hidePagingToolbar: true,
+	hidePagingToolbar: false,
 	hideAddButton: true,
 	hideEditButton: true,
 	hideDeleteButton: true,
@@ -64,7 +64,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 		renderer: function(value, metaData, record) {
 			var tpl = Ext.create("Ext.XTemplate",
 			  '<b>{name} {version}</b><br/>',
-			  '{shortdescription}<br/><br/>',
+			  '{abstract}<br/><br/>',
 			  '<tpl if="!Ext.isEmpty(values.description)">',
 				'{[OMV.util.Format.whitespace(values.description)]}<br/><br/>',
 			  '</tpl>',
@@ -104,18 +104,18 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 		width: 160,
 		hidden: true
 	},{
+		text: _("Abstract"),
+		sortable: true,
+		dataIndex: "abstract",
+		stateId: "abstract",
+		width: 340,
+		hidden: true
+	},{
+		xtype: "whitespacecolumn",
 		text: _("Description"),
 		sortable: true,
-		dataIndex: "shortdescription",
-		stateId: "shortdescription",
-		renderer: function(value, metaData, record) {
-			var description = record.get("description");
-			if (!Ext.isEmpty(description)) {
-				value = Ext.String.format("<b>{0}</b><br/>{1}",
-				  value, Ext.String.htmlEncode(description));
-			}
-			return OMV.util.Format.whitespace(value);
-		},
+		dataIndex: "description",
+		stateId: "description",
 		width: 340,
 		hidden: true
 	},{
@@ -154,7 +154,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 						{ name: "name", type: "string" },
 						{ name: "version", type: "string" },
 						{ name: "repository", type: "string" },
-						{ name: "shortdescription", type: "string" },
+						{ name: "abstract", type: "string" },
 						{ name: "description", type: "string" },
 						{ name: "homepage", type: "string" },
 						{ name: "maintainer", type: "string" },

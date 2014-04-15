@@ -29,7 +29,7 @@ OMV_APT_REPOSITORY_URL=${OMV_APT_REPOSITORY_URL:-"http://packages.openmediavault
 
 mkconf() {
 	# Get the distribution name.
-	distribution=$(xmlstarlet sel -t -v "//distribution" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+	distribution=$(omv_product_info "distribution")
 
 	# Create '/etc/apt/sources.list.d/openmediavault.list' file
 	cat <<EOF > ${OMV_APT_SOURCES_LIST_CONFIG}

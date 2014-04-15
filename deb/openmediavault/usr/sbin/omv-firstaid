@@ -349,8 +349,8 @@ tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/omv-setup$$
 trap "rm -f $tempfile; exit" 0 1 2 5 15
 
 # Get some product informations.
-prodname=$(xmlstarlet sel -t -v "//name" "${OMV_PRODUCTINFO_FILE}" | xmlstarlet unesc)
-prodcopyright=$(xmlstarlet sel -t -v "//copyright" "${OMV_PRODUCTINFO_FILE}" | xmlstarlet unesc)
+prodname=$(omv_product_info "name")
+prodcopyright=$(omv_product_info "copyright")
 
 # Display the default menu
 ${OMV_FIRSTAID_DIALOG} --nocancel --clear --backtitle "${prodname} - ${prodcopyright}" \

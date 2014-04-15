@@ -2,6 +2,7 @@ etc/openmediavault
 usr/share/openmediavault
 usr/share/php/openmediavault
 var/lib/openmediavault
+var/lib/openmediavault/apt
 var/lib/openmediavault/cron.d
 var/www/openmediavault
 var/cache/openmediavault

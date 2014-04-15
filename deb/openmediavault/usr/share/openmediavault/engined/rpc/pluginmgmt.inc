@@ -42,18 +42,21 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 		$this->registerMethod("remove");
 		$this->registerMethod("upload");
 		$this->registerMethod("install");
-		$this->registerMethod("makeIndex");
+		$this->registerMethod("createIndex");
 	}
 
 	/**
-	 * Enumerate all available plugin packages.
+	 * Enumerate all available plugin packages. This list is automatically
+	 * generated via an APT trigger which is executed when 'apt-get update'
+	 * is called. Thus it is not necessary to execute the very cost intensive
+	 * code every RPC call.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array of objects with the following fields: \em name,
 	 *   \em version, \em oldversion, \em architecture, \em package,
 	 *   \em priority, \em section, \em installedsize, \em maintainer,
 	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
-	 *   \em shortdescription, \em homepage, \em installed, \em repository
+	 *   \em abstract, \em homepage, \em installed, \em repository
 	 *   and \em _readOnly. The following fields are optional:
 	 *   \em description, \em depends, \em replaces and \em conflicts.
 	 * @throw E_MISC_FAILURE
@@ -65,10 +68,11 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 		  ));
 		// Read the plugin information from the plugin index. This will
 		// be updated automatically via APT trigger.
-		$indexFile = new OMVJsonFile($GLOBALS['OMV_PLUGIN_INDEX_FILE']);
+		$indexFile = new OMVJsonFile($GLOBALS['OMV_APT_PLUGINS_INDEX_FILE']);
 		if (!$indexFile->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  "Plugin index does not exist.");
+			  "The index of available plugins does not exist. Please ".
+			  "re-synchronize the package index files from their sources.");
 		}
 		$indexFile->open("r");
 		$objects = $indexFile->read();
@@ -89,7 +93,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	 *   array. An object contains the following fields: \em name, \em version,
 	 *   \em oldversion, \em architecture, \em package, \em priority,
 	 *   \em section, \em installedsize, \em maintainer, \em filename, \em size,
-	 *   \em md5sum, \em sha1, \em sha256, \em shortdescription, \em homepage,
+	 *   \em md5sum, \em sha1, \em sha256, \em abstract, \em homepage,
 	 *   \em installed, \em repository and \em _readOnly. The following fields
 	 *   are optional: \em description, \em depends, \em replaces and
 	 *   \em conflicts. An exception will be thrown in case of an error.
@@ -292,13 +296,13 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	 *   \em version, \em oldversion, \em architecture, \em package,
 	 *   \em priority, \em section, \em installedsize, \em maintainer,
 	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
-	 *   \em shortdescription, \em homepage, \em installed, \em repository
+	 *   \em abstract, \em homepage, \em installed, \em repository
 	 *   and \em _readOnly. The following fields are optional:
 	 *   \em description, \em depends, \em replaces and \em conflicts.
 	 * @throw E_EXEC_FAILED
 	 * @throw E_MISC_FAILURE
 	 */
-	function makeIndex($params, $context) {
+	function createIndex($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -326,7 +330,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			// Set default package informations.
 			$object = array(
 				"name" => $matches[1],
-				"shortdescription" => $matches[2],
+				"abstract" => $matches[2],
 				"description" => "",
 				"installed" => FALSE,
 				"repository" => ""
@@ -423,7 +427,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 			}
 		}
 		// Write the index file.
-		$indexFile = new OMVJsonFile($GLOBALS['OMV_PLUGIN_INDEX_FILE']);
+		$indexFile = new OMVJsonFile($GLOBALS['OMV_APT_PLUGINS_INDEX_FILE']);
 		$indexFile->open("c+");
 		$indexFile->write($objects);
 		$indexFile->close();

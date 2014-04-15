@@ -43,6 +43,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		$this->registerMethod("update");
 		$this->registerMethod("upload");
 		$this->registerMethod("getChangeLog");
+		$this->registerMethod("createIndex");
 	}
 
 	/**
@@ -116,14 +117,17 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Get a list of all packages that are to be upgraded.
+	 * Get a list of all packages that are to be upgraded. This list is
+	 * automatically generated via an APT trigger which is executed
+	 * when 'apt-get update' is called. Thus it is not necessary to execute
+	 * the very cost intensive code every RPC call.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array of objects containing the fields \em name, \em version,
 	 *   \em oldversion, \em repository, \em architecture, \em package,
 	 *   \em priority, \em section, \em installedsize, \em maintainer,
 	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
-	 *   \em shortdescription and \em homepage. The following fields are
+	 *   \em abstract and \em homepage. The following fields are
 	 *   optional: \em description, \em depends, \em replaces and
 	 *   \em conflicts.
 	 * @throw E_EXEC_FAILED
@@ -133,120 +137,17 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		// Get list of upgraded packages. Use 'dist-upgrade' instead of
-		// 'upgrade' to allow the installation of packages with modified
-		// dependencies.
-		$cmd = "export LANG=C; apt-get --show-upgraded --simulate " .
-		  "dist-upgrade 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		// Read the plugin information from the plugin index. This will
+		// be updated automatically via APT trigger.
+		$indexFile = new OMVJsonFile($GLOBALS['OMV_APT_UPGRADE_INDEX_FILE']);
+		if (!$indexFile->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  "The index of upgradeable packages does not exist. Please ".
+			  "re-synchronize the package index files from their sources.");
 		}
-		// Get the packages to be installed/updated.
-		$objects = array();
-		// Parse output:
-		// Inst libisccc60 [1:9.7.3.dfsg-1~squeeze3] (1:9.7.3.dfsg-1~squeeze4 Debian:6.0.4/stable, Debian-Security:6.0/stable [amd64])
-		// Inst file [5.04-5] (5.04-5+squeeze1 Debian-Security:6.0/stable [i386]) []
-		// Inst libxml2 [2.7.8.dfsg-2+squeeze2] (2.7.8.dfsg-2+squeeze3 Debian-Security:6.0/stable [i386])
-		// Inst libssl1.0.0 (1.0.0h-1 localhost [amd64])
-		foreach($output as $row) {
-			$regex = "/^Inst\s+(\S+)\s+(\[(\S+)|\])?\s*\((\S+)\s+(.+)\s+".
-			  "\[(\S+)\]\).*$/";
-			if(1 !== preg_match($regex, $row, $matches))
-				continue;
-			// Set default package informations.
-			$object = array(
-				"name" => $matches[1],
-				"oldversion" => $matches[3],
-				"version" => $matches[4],
-				"repository" => $matches[5],
-				"architecture" => $matches[6]
-			);
-			// Get additional package informations.
-			$cmd = sprintf("export LANG=C; apt-cache ".
-			  "--no-all-versions show %s 2>&1", $matches[1]);
-			if(0 !== $this->exec($cmd, $output2)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output2));
-			}
-			// Parse output:
-			// <fieldname>: <fieldvalue>
-			//
-			// Package: sudo
-			// Version: 1.7.4p4-2.squeeze.3
-			// Installed-Size: 920
-			// Maintainer: Bdale Garbee <bdale@gag.com>
-			// Architecture: i386
-			// Replaces: sudo-ldap
-			// Depends: libc6 (>= 2.11), libpam0g (>= 0.99.7.1), libpam-modules
-			// Conflicts: sudo-ldap
-			// Description-en: Provide limited super user privileges to specific users
-			//  Sudo is a program designed to allow a sysadmin to give limited root
-			//  privileges to users and log root activity.  The basic philosophy is to give
-			//  as few privileges as possible but still allow people to get their work done.
-			//  .
-			//  This version is built with minimal shared library dependencies, use the
-			//  sudo-ldap package instead if you need LDAP support for sudoers.
-			// Section: admin
-			// Priority: optional
-			// Filename: pool/updates/main/s/sudo/sudo_1.7.4p4-2.squeeze.3_i386.deb
-			// Size: 593224
-			// MD5sum: d60e6f516e63b8542d9ee205b83d4295
-			// SHA1: c134fa071ff9ca9203dabafe9c0737865e47e737
-			// SHA256: 7b5df56299ca8c1e56bb74482f202034eaa40134499baa33a8535ccc366e21e8
-			$fieldname = $fieldvalue = "";
-			foreach($output2 as $row) {
-				$regex = "/^(\S+): (.+)$/";
-				if(1 !== preg_match($regex, $row, $matches)) {
-					// Process folded/multiline fields. See
-					// http://www.debian.org/doc/debian-policy/ch-controlfields.html
-					switch ($fieldname) {
-					case "shortdescription":
-						$fieldname = "description";
-						$object[$fieldname] = "";
-						break;
-					default:
-						break;
-					}
-					$fieldvalue = trim($row);
-					if($fieldvalue === ".")
-						$fieldvalue = "\n";
-					$object[$fieldname] .= sprintf("%s\n", $fieldvalue);
-					continue;
-				} else {
-					$fieldname = strtolower($matches[1]);
-					// Map various field names.
-					switch ($fieldname) {
-					case "description":
-					case "description-en":
-						$fieldname = "shortdescription";
-						break;
-					case "filename":
-						// Extract the filename.
-						$matches[2] = basename($matches[2]);
-						break;
-					default:
-						break;
-					}
-					// Remove '-' character in field name.
-					$fieldname = str_replace("-", "", $fieldname);
-				}
-				$fieldvalue = trim($matches[2]);
-				$object[$fieldname] = $fieldvalue;
-			}
-			// Override 'filename' because it is not the real filename of
-			// the package in the filesystem. Instead it is the name of
-			// it in the package repository, but this does not contain the
-			// epoch of the package and how it is stored in the package
-			// archive at /var/cache/apt/archives.
-			// E.g.:
-			// bind9-host_9.7.3.dfsg-1~squeeze8_amd64.deb (via apt-cache)
-			// bind9-host_1:9.7.3.dfsg-1~squeeze8_amd64.deb (in filesystem)
-			$object['filename'] = sprintf("%s_%s_%s.deb", $object['package'],
-			  $object['version'], $object['architecture']);
-			// Append package information object.
-			$objects[] = $object;
-		}
+		$indexFile->open("r");
+		$objects = $indexFile->read();
+		$indexFile->close();
 		return $objects;
 	}
 
@@ -482,6 +383,147 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
 			exit(1);
 		}
+	}
+
+	/**
+	 * Create an index of all packages that are to be upgraded.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array of objects containing the fields \em name, \em version,
+	 *   \em oldversion, \em repository, \em architecture, \em package,
+	 *   \em priority, \em section, \em installedsize, \em maintainer,
+	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
+	 *   \em abstract and \em homepage. The following fields are
+	 *   optional: \em description, \em depends, \em replaces and
+	 *   \em conflicts.
+	 * @throw E_EXEC_FAILED
+	 */
+	function createIndex($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Get list of upgraded packages. Use 'dist-upgrade' instead of
+		// 'upgrade' to allow the installation of packages with modified
+		// dependencies.
+		$cmd = "export LANG=C; apt-get --show-upgraded --simulate ".
+		  "dist-upgrade 2>&1";
+		if (0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		// Get the packages to be installed/updated.
+		$objects = array();
+		// Parse output:
+		// Inst libisccc60 [1:9.7.3.dfsg-1~squeeze3] (1:9.7.3.dfsg-1~squeeze4 Debian:6.0.4/stable, Debian-Security:6.0/stable [amd64])
+		// Inst file [5.04-5] (5.04-5+squeeze1 Debian-Security:6.0/stable [i386]) []
+		// Inst libxml2 [2.7.8.dfsg-2+squeeze2] (2.7.8.dfsg-2+squeeze3 Debian-Security:6.0/stable [i386])
+		// Inst libssl1.0.0 (1.0.0h-1 localhost [amd64])
+		foreach ($output as $row) {
+			$regex = "/^Inst\s+(\S+)\s+(\[(\S+)|\])?\s*\((\S+)\s+(.+)\s+".
+			  "\[(\S+)\]\).*$/";
+			if (1 !== preg_match($regex, $row, $matches))
+				continue;
+			// Set default package informations.
+			$object = array(
+				"name" => $matches[1],
+				"oldversion" => $matches[3],
+				"version" => $matches[4],
+				"repository" => $matches[5],
+				"architecture" => $matches[6]
+			);
+			// Get additional package informations.
+			$cmd = sprintf("export LANG=C; apt-cache --no-all-versions ".
+			  "show %s 2>&1", $matches[1]);
+			if (0 !== $this->exec($cmd, $output2)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output2));
+			}
+			// Parse output:
+			// <fieldname>: <fieldvalue>
+			//
+			// Package: sudo
+			// Version: 1.7.4p4-2.squeeze.3
+			// Installed-Size: 920
+			// Maintainer: Bdale Garbee <bdale@gag.com>
+			// Architecture: i386
+			// Replaces: sudo-ldap
+			// Depends: libc6 (>= 2.11), libpam0g (>= 0.99.7.1), libpam-modules
+			// Conflicts: sudo-ldap
+			// Description-en: Provide limited super user privileges to specific users
+			//  Sudo is a program designed to allow a sysadmin to give limited root
+			//  privileges to users and log root activity.  The basic philosophy is to give
+			//  as few privileges as possible but still allow people to get their work done.
+			//  .
+			//  This version is built with minimal shared library dependencies, use the
+			//  sudo-ldap package instead if you need LDAP support for sudoers.
+			// Section: admin
+			// Priority: optional
+			// Filename: pool/updates/main/s/sudo/sudo_1.7.4p4-2.squeeze.3_i386.deb
+			// Size: 593224
+			// MD5sum: d60e6f516e63b8542d9ee205b83d4295
+			// SHA1: c134fa071ff9ca9203dabafe9c0737865e47e737
+			// SHA256: 7b5df56299ca8c1e56bb74482f202034eaa40134499baa33a8535ccc366e21e8
+			$fieldname = $fieldvalue = "";
+			foreach ($output2 as $row) {
+				$regex = "/^(\S+): (.+)$/";
+				if (1 !== preg_match($regex, $row, $matches)) {
+					// Process folded/multiline fields. See
+					// http://www.debian.org/doc/debian-policy/ch-controlfields.html
+					switch ($fieldname) {
+					case "abstract":
+						$fieldname = "description";
+						$object[$fieldname] = "";
+						break;
+					default:
+						break;
+					}
+					$fieldvalue = trim($row);
+					if($fieldvalue === ".")
+						$fieldvalue = "\n";
+					$object[$fieldname] .= sprintf("%s\n", $fieldvalue);
+					continue;
+				} else {
+					$fieldname = strtolower($matches[1]);
+					// Map various field names.
+					switch ($fieldname) {
+					case "description":
+					case "description-en":
+						$fieldname = "abstract";
+						break;
+					case "filename":
+						// Extract the filename.
+						$matches[2] = basename($matches[2]);
+						break;
+					default:
+						break;
+					}
+					// Remove '-' character in field name.
+					$fieldname = str_replace("-", "", $fieldname);
+				}
+				$fieldvalue = trim($matches[2]);
+				$object[$fieldname] = $fieldvalue;
+			}
+			// Override 'filename' because it is not the real filename of
+			// the package in the filesystem. Instead it is the name of
+			// it in the package repository, but this does not contain the
+			// epoch of the package and how it is stored in the package
+			// archive at /var/cache/apt/archives.
+			// E.g.:
+			// bind9-host_9.7.3.dfsg-1~squeeze8_amd64.deb (via apt-cache)
+			// bind9-host_1:9.7.3.dfsg-1~squeeze8_amd64.deb (in filesystem)
+			$object['filename'] = sprintf("%s_%s_%s.deb", $object['package'],
+			  $object['version'], $object['architecture']);
+			// Append package information object.
+			$objects[] = $object;
+		}
+		// Write the index file.
+		$indexFile = new OMVJsonFile($GLOBALS['OMV_APT_UPGRADE_INDEX_FILE']);
+		$indexFile->open("c+");
+		$indexFile->write($objects);
+		$indexFile->close();
+		// Return the list of upgradeable packages.
+		return $objects;
 	}
 }
 

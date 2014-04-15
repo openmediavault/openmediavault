@@ -32,12 +32,12 @@ mkconf() {
 	! omv_checkyesno "${OMV_ISSUE_APPLY_PRELOGIN_MESSAGE}" && exit 0;
 
 	# Get the product information.
-	prdname=$(xmlstarlet sel -t -v //name ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
-	packagename=$(xmlstarlet sel -t -v //packagename ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+	prdname=$(omv_product_info "name")
+	packagename=$(omv_product_info "packagename")
 	version=$(dpkg-query -W -f='${Version}' ${packagename})
-	versionname=$(xmlstarlet sel -t -v //versionname ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
-	copyright=$(xmlstarlet sel -t -v //copyright ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
-	url=$(xmlstarlet sel -t -v //url ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+	versionname=$(omv_product_info "versionname")
+	copyright=$(omv_product_info "copyright")
+	url=$(omv_product_info "url")
 
 	# Write prelogin message to '/etc/issue' file.
 	cat <<EOF > ${OMV_ISSUE_CONFIG}

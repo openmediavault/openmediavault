@@ -24,12 +24,37 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-pidfile="/var/run/$(basename $0).pid"
+usage() {
+	cat <<EOF
+Usage:
+  $(basename $0) [options]
+
+Create the indexes of upgradeable packages and ${prdname} plugins.
+
+OPTIONS:
+  -h  Show this message.
+
+EOF
+}
 
 cleanup() {
 	rm -f ${pidfile}
 	exit
 }
+
+pidfile="/var/run/$(basename $0).pid"
+prdname=$(omv_product_info "name")
+
+# Process the command line arguments.
+while getopts "?h" option
+do
+	case ${option} in
+	h|?)
+		usage >&2
+		exit 2
+		;;
+	esac
+done
 
 # Check if another instance is already running.
 if [ -e ${pidfile} ]; then
@@ -41,11 +66,12 @@ fi
 trap cleanup 0 1 2 5 15
 echo $$ > ${pidfile}
 
-# Get the product information.
-prdname=$(xmlstarlet sel -t -v //name ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+echo "Create index of upgradeable packages ..."
+omv_exec_rpc "Apt" "createIndex" "{}"
+[ $? -ne 0 ] && exit 1
 
-echo "Creating ${prdname} plugin index ..."
-omv_exec_rpc "Plugin" "makeIndex" "{}"
+echo "Create index of ${prdname} plugins ..."
+omv_exec_rpc "Plugin" "createIndex" "{}"
 [ $? -ne 0 ] && exit 1
 
 exit 0
