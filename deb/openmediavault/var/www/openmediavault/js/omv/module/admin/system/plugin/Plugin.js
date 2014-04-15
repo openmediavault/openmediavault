@@ -47,7 +47,6 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		"Ext.XTemplate"
 	],
 
-	maskBody: true,
 	hidePagingToolbar: false,
 	hideAddButton: true,
 	hideEditButton: true,

@@ -1,7 +1,14 @@
+openmediavault (0.6.0.7) stable; urgency=low
+
+  * Various improvements and modification for Debian Wheezy.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 15 Apr 2014 22:33:10 +0200
+
 openmediavault (0.6.0.6) stable; urgency=low
 
   * Various improvements and modification for Debian Wheezy.
-  * Automatically index plugin information to increase usability.
+  * Automatically index upgradeable packages and plugins. This will increase
+    WebGUI usability.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Apr 2014 07:37:25 +0200
 
