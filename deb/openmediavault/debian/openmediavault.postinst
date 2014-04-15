@@ -299,6 +299,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.5.41"; then
 			omv-mkconf cron-apt
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.45"; then
+			omv-mkconf rsyncd
+		fi
 	;;
 
 	triggered)

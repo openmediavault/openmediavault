@@ -33,6 +33,7 @@ set -e
 OMV_RSYNCD_DEFAULT=${OMV_RSYNCD_DEFAULT:-"/etc/default/rsync"}
 OMV_RSYNCD_CONFIG=${OMV_RSYNCD_CONFIG:-"/etc/rsyncd.conf"}
 OMV_RSYNCD_SECRETSFILE_DIR=${OMV_RSYNCD_SECRETSFILE_DIR:-"/var/lib/openmediavault"}
+OMV_RSYNCD_LOCKFILE_DIR=${OMV_RSYNCD_LOCKFILE_DIR:-"/var/lock"}
 
 # Create '/etc/default/rsync' file
 xmlstarlet sel -t -m "//services/rsync/server" \
@@ -91,6 +92,7 @@ do
 		-n \
 		-o "secrets file = ${secretsfile}" -n \
 	  -b \
+	  -v "concat('lock file = ${OMV_RSYNCD_LOCKFILE_DIR}/rsyncd-',name)" -n \
 	  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_RSYNCD_CONFIG}
 

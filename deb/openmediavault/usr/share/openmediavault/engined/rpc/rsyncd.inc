@@ -285,6 +285,15 @@ class OMVRpcServiceRsyncd extends OMVRpcServiceAbstract {
 		// Set the configuration object.
 		$success = FALSE;
 		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			// Check uniqueness:
+			// - Module name
+			$xpath = sprintf("//services/rsync/server/modules/module".
+			  "[name='%s']", $params['name']);
+			if (TRUE === $xmlConfig->exists($xpath)) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+				  sprintf(gettext("A module with the name '%s' already exists"),
+				  $params['name']));
+			}
 			// Append object to configuration.
 			$success = $xmlConfig->set("//services/rsync/server/modules",
 			  array("module" => $object));
