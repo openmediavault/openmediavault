@@ -20,7 +20,7 @@
  */
 // require("js/omv/SessionManager.js")
 // require("js/omv/Rpc.js")
-// require("js/omv/window/Execute.js")
+// require("js/omv/window/MessageBox.js")
 
 /**
  * @ingroup webgui
@@ -41,7 +41,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 	requires: [
 		"OMV.SessionManager",
 		"OMV.Rpc",
-		"OMV.window.Execute"
+		"OMV.window.MessageBox"
 	],
 
 	msgText: _("The configuration has been changed. You must apply the changes in order for them to take effect."),
@@ -84,42 +84,24 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 								// Hide the toolbar during the process.
 								this.inProgress = true;
 								this.setVisible(false);
-								// Display a progress bar until the configuration
-								// changes have been applied.
-								var dlg = Ext.create("OMV.window.Execute", {
-									title: _("Apply configuration changes"),
-									width: 350,
-									rpcService: "Config",
-									rpcMethod: "applyChangesBg",
-									rpcParams: {
-										modules: [],
-										force: false
+								OMV.RpcObserver.request({
+									msg: _("Apply configuration changes"),
+									rpcData: {
+										service: "Config",
+										method: "applyChangesBg",
+										params: {
+											modules: [],
+											force: false
+										}
 									},
-									hideStartButton: true,
-									hideStopButton: true,
-									hideCloseButton: true,
-									progress: true,
-									listeners: {
-										start: function(c) {
-											// Show the progress dialog.
-											c.show();
-										},
-										finish: function(c) {
-											var value = c.getValue();
-											delete this.inProgress;
-											c.close();
-											if (value.length > 0)
-												OMV.MessageBox.error(null, value);
-										},
-										exception: function(c, error) {
-											delete this.inProgress;
-											c.close();
-											OMV.MessageBox.error(null, error);
-										},
-										scope: this
-									}
+									finish: function() {
+										delete this.inProgress;
+									},
+									exception: function() {
+										delete this.inProgress;
+									},
+									scope: this
 								});
-								dlg.start();
 							},
 							scope: this,
 							icon: Ext.Msg.QUESTION
@@ -145,41 +127,23 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 								// Hide the toolbar during the process.
 								this.inProgress = true;
 								this.setVisible(false);
-								// Display a progress bar until the configuration
-								// changes have been applied.
-								var dlg = Ext.create("OMV.window.Execute", {
-									title: _("Revert configuration changes"),
-									width: 350,
-									rpcService: "Config",
-									rpcMethod: "revertChangesBg",
-									rpcParams: {
-										filename: ""
+								OMV.RpcObserver.request({
+									msg: _("Revert configuration changes"),
+									rpcData: {
+										service: "Config",
+										method: "revertChangesBg",
+										params: {
+											filename: ""
+										}
 									},
-									hideStartButton: true,
-									hideStopButton: true,
-									hideCloseButton: true,
-									progress: true,
-									listeners: {
-										start: function(c) {
-											// Show the progress dialog.
-											c.show();
-										},
-										finish: function(c) {
-											var value = c.getValue();
-											delete this.inProgress;
-											c.close();
-											if (value.length > 0)
-												OMV.MessageBox.error(null, value);
-										},
-										exception: function(c, error) {
-											delete this.inProgress;
-											c.close();
-											OMV.MessageBox.error(null, error);
-										},
-										scope: this
-									}
+									finish: function() {
+										delete this.inProgress;
+									},
+									exception: function() {
+										delete this.inProgress;
+									},
+									scope: this
 								});
-								dlg.start();
 							},
 							scope: this,
 							icon: Ext.Msg.QUESTION
@@ -231,7 +195,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 	doCheck: function() {
 		var me = this;
 		// Exit immediatelly if configuration is applied at the moment.
-		if(Ext.isDefined(me.inProgress) && (true === me.inProgress))
+		if (Ext.isDefined(me.inProgress) && (true === me.inProgress))
 			return;
 		// Execute RPC in background, this means errors will be ignored and
 		// not forwarded to the caller.

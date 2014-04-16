@@ -214,6 +214,7 @@ Ext.define("OMV.RpcObserver", {
 	 *   \li title The title bar text. Defaults to null.
 	 *   \li msg The message box body text.
 	 *   \li finish The function to be called upon the RPC has been finished.
+	 *   \li exception The function to be called upon the RPC has been failed.
 	 *   \li scope The scope of the callback function. Defaults to the
 	 *     browser window.
 	 *   \li rpcDelay The milliseconds to delay the RPC request. Default is 500.
@@ -233,11 +234,13 @@ Ext.define("OMV.RpcObserver", {
 		OMV.MessageBox.wait(options.title, options.msg);
 		// Execute RPC.
 		var fn = function(id, success, response) {
-			if(!success) {
+			if (!success) {
 				OMV.MessageBox.hide();
 				OMV.MessageBox.error(null, response);
+				if (Ext.isFunction(options.exception))
+					options.exception.call(options.scope || window, response);
 			} else {
-				if(response.running === true) {
+				if (response.running === true) {
 					Ext.Function.defer(function() {
 						// Execute RPC.
 						OMV.Rpc.request({
@@ -255,17 +258,20 @@ Ext.define("OMV.RpcObserver", {
 					}, options.rpcDelay, this);
 				} else {
 					OMV.MessageBox.hide();
-					if(Ext.isFunction(options.finish))
-						options.finish.apply(options.scope || window);
+					if (Ext.isFunction(options.finish))
+						options.finish.call(options.scope || window, response);
 				}
 			}
 		};
 		OMV.Rpc.request({
 			  scope: me,
 			  callback: function(id, success, response) {
-				  if(!success) {
+				  if (!success) {
 					  OMV.MessageBox.hide();
 					  OMV.MessageBox.error(null, response);
+					  if (Ext.isFunction(options.exception))
+						  options.exception.call(options.scope || window,
+						  	response);
 				  } else {
 					  // Execute RPC.
 					  OMV.Rpc.request({
