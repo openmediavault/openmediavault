@@ -174,10 +174,6 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
-			// Create the index of all available plugins.
-			$this->writeBgProcOutput($bgOutputFilename, sprintf("Create ".
-			  "index of %s plugins ...\n", $prd->getName()));
-			$this->callMethod("createIndex", NULL, $context);
 			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);
@@ -285,10 +281,6 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
-			// Create the index of all available plugins.
-			$this->writeBgProcOutput($bgOutputFilename, sprintf("Create ".
-			  "index of %s plugins ...\n", $prd->getName()));
-			$this->callMethod("createIndex", NULL, $context);
 			// Finalize the background process.
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
 			exit(0);

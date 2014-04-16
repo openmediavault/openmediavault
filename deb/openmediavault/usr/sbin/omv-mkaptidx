@@ -66,11 +66,11 @@ fi
 trap cleanup 0 1 2 5 15
 echo $$ > ${pidfile}
 
-echo "Create index of upgradeable packages ..."
+echo "Creating index of upgradeable packages ..."
 omv_exec_rpc "Apt" "createIndex" "{}"
 [ $? -ne 0 ] && exit 1
 
-echo "Create index of ${prdname} plugins ..."
+echo "Creating index of ${prdname} plugins ..."
 omv_exec_rpc "Plugin" "createIndex" "{}"
 [ $? -ne 0 ] && exit 1
 
