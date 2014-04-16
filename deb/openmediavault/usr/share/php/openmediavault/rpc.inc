@@ -90,8 +90,16 @@ class OMVRpc extends OMVObject {
 				  OMVErrorMsg::E_ENGINED_CREATE_SOCKET,
 				  socket_strerror(socket_last_error()));
 			}
-			if(FALSE === @socket_connect($socket,
-			  $GLOBALS['OMV_ENGINED_SO_ADDRESS'])) {
+			// Try to connect to the socket. If the connection fails, then try
+			// to establish the connection the given number of attempts.
+			$attempt = 0;
+			$success = FALSE;
+			while (($GLOBALS['OMV_ENGINED_SO_CONNECT_MAX_ATTEMPT'] >
+			  $attempt++) && (FALSE === ($success = @socket_connect($socket,
+			  $GLOBALS['OMV_ENGINED_SO_ADDRESS'])))) {
+				sleep($attempt);
+			}
+			if (FALSE === $success) {
 				throw new OMVException(
 				  OMVErrorMsg::E_ENGINED_CONNECT_SOCKET,
 				  socket_strerror(socket_last_error()));
