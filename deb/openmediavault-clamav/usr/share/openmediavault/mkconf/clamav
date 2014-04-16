@@ -176,6 +176,10 @@ xmlstarlet sel -t -m "//services/clamav/freshclam" \
   -o "#HTTPProxyPassword password" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CLAMAV_FRESHCLAM_CONFIG}
 
+# Get the quarantine shared folder.
+sfref=$(omv_config_get "//services/clamav/quarantine.sharedfolderref")
+sfpath=$(omv_get_sharedfolder_path "${sfref}")
+
 # Create the cron jobs.
 rm -f ${OMV_CRONSCRIPTS_DIR}/${OMV_CLAMAV_CLAMDSCAN_CRONSCRIPT_TEMPLATE}*
 xmlstarlet sel -t -m "//services/clamav/jobs/job[enable='1']" \
@@ -200,7 +204,8 @@ xmlstarlet sel -t -m "//services/clamav/jobs/job[enable='1']" \
 		-o "touch ${runfile}" -n \
 		-o "echo \"Please wait, scanning shared folder <" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_NAME} -o "> ...\n\"" -n \
 		-o "clamdscan ${OMV_CLAMAV_CLAMDSCAN_CMDARGS}" \
-		-i "remove[. = '1']" -o " --remove" -b \
+		-i "virusaction[. = 'delete']" -o " --remove" -b \
+		-i "virusaction[. = 'quarantine']" -o " --move=\"${sfpath}\"" -b \
 		-i "multiscan[. = '1']" -o " --multiscan" -b \
 		-i "verbose[. = '1']" -o " --verbose" -b \
 		-o " " ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o " & wait \$!" \

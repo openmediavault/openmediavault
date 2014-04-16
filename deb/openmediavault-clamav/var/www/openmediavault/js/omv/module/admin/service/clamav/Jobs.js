@@ -208,7 +208,7 @@ Ext.define("OMV.module.admin.service.clamav.Job", {
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
-			value: "none",
+			value: "nothing",
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The option, how to handle infected files.")
