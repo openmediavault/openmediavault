@@ -148,6 +148,8 @@ Ext.define("OMV.window.Execute", {
 	 */
 	start: function() {
 		var me = this;
+		// Update the button states.
+		me.setButtonDisabled("start", true);
 		// Execute RPC.
 		OMV.Rpc.request({
 			  scope: me,
@@ -167,7 +169,6 @@ Ext.define("OMV.window.Execute", {
 						  });
 					  }
 					  // Update the button states.
-					  this.setButtonDisabled("start", true);
 					  this.setButtonDisabled("stop", false);
 					  this.setButtonDisabled("close", true);
 					  // Fire event.
@@ -176,7 +177,6 @@ Ext.define("OMV.window.Execute", {
 					  this.doGetOutput();
 				  } else {
 					  // Enable 'Close' button to be able to close the dialog.
-					  this.setButtonDisabled("start", true);
 					  this.setButtonDisabled("close", false);
 					  // Fire exception event to notify listeners.
 					  this.fireEvent("exception", this, response);
