@@ -415,13 +415,13 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 		// Check if the module is marked as dirty. This is an indication
 		// that the rsync cron script has not been created or updated
 		// until now.
-		if($this->isModuleDirty("clamav")) {
+		if ($this->isModuleDirty("clamav")) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_DIRTY);
 		}
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
@@ -432,9 +432,10 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 			  $bgOutputFilename);
 			// Execute the clamdscan cron script.
 			$cmd = "/bin/sh";
-			$cmdArgs = array(sprintf("%s/clamdscan-%s",
-			  $GLOBALS['OMV_CRONSCRIPTS_DIR'], $params['uuid']));
-			if(FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
+			$cmdArgs = array();
+			$cmdArgs[] = sprintf("%s/clamdscan-%s",
+			  $GLOBALS['OMV_CRONSCRIPTS_DIR'], $params['uuid']);
+			if (FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd." ".implode(" ", $cmdArgs), "");
 			}
