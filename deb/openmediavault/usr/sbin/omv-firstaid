@@ -35,6 +35,8 @@
 OMV_RRDCACHED_BASEDIR=${OMV_RRDCACHED_BASEDIR:-"/var/lib/rrdcached/db/"}
 OMV_FIRSTAID_DIALOG=${OMV_FIRSTAID_DIALOG:-"whiptail"}
 
+export LANG=C
+
 configure_iface() {
 	local devicename method address netmask gateway
 	# Default values.
@@ -345,6 +347,15 @@ fix_rrd_database()
 	return 0
 }
 
+clean_local_dpkg_repository()
+{
+	echo "Clear out the local repository of uploaded package files. Please wait ..."
+	rm -fv ${OMV_DPKGARCHIVE_DIR}/*.deb
+	cd ${OMV_DPKGARCHIVE_DIR} && apt-ftparchive \
+	  packages . > Packages
+	apt-get update
+}
+
 tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/omv-setup$$
 trap "rm -f $tempfile; exit" 0 1 2 5 15
 
@@ -354,13 +365,14 @@ prodcopyright=$(omv_product_info "copyright")
 
 # Display the default menu
 ${OMV_FIRSTAID_DIALOG} --nocancel --clear --backtitle "${prodname} - ${prodcopyright}" \
-  --title "First aid" --menu "Please select a menu:" 13 65 6 \
+  --title "First aid" --menu "Please select a menu:" 14 65 7 \
   "1" "Configure network interface" \
   "2" "Configure WebGUI" \
   "3" "Change WebGUI administrator password" \
   "4" "Restore configuration backup" \
   "5" "Fix RRD database" \
-  "6" "Exit" 2>$tempfile
+  "6" "Clear local upload package repository" \
+  "7" "Exit" 2>$tempfile
 [ $? -ne 0 ] && return 1
 choice=$(cat $tempfile)
 case ${choice} in
@@ -378,6 +390,9 @@ case ${choice} in
 	;;
 5)
 	fix_rrd_database;
+	;;
+6)
+	clean_local_dpkg_repository;
 	;;
 esac
 

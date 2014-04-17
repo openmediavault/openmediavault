@@ -21,6 +21,8 @@
 
 set -e
 
+export LANG=C
+
 # Update package database and update distribution. This is done via
 # 'dist-upgrade' because newer version have modified package dependencies
 # which can not be resolved by 'upgrade'. Configuration files modified by
