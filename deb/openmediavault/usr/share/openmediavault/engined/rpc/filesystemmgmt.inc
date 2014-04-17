@@ -298,7 +298,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				$fileName = sprintf("/tmp/%s", $file->getFilename());
 				// Read the file content and decode JSON data into an
 				// associative array.
-				$fsInfo = json_decode(file_get_contents($fileName), TRUE);
+				$jsonFile = new OMVJsonFile($fileName);
+				$jsonFile->open("r");
+				$fsInfo = $jsonFile->read();
+				$jsonFile->close();
 				// Check whether the filesystem initialization process has
 				// been finished already. If yes, then unlink the file. The
 				// filesystem has then been already detected by blkid, thus
@@ -511,7 +514,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$fileName = sprintf("/tmp/omv-initfs@%s.build", str_replace(
 			  $sd->getDeviceFile(), "/", "_"));
 			$jsonFile = new OMVJsonFile($fileName);
-			$jsonFile->open("w");
+			$jsonFile->open("c");
 			$jsonFile->write(array(
 				"devicefile" => $fsDeviceFile,
 				"type" => $params['type'],

@@ -520,7 +520,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		}
 		// Write the index file.
 		$indexFile = new OMVJsonFile($GLOBALS['OMV_APT_UPGRADE_INDEX_FILE']);
-		$indexFile->open("c+");
+		$indexFile->open("c");
 		$indexFile->write($objects);
 		$indexFile->close();
 		// Return the list of upgradeable packages.

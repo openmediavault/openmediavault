@@ -259,7 +259,7 @@ class OMVJsonFile extends OMVObject {
 			  $this->filename));
 		}
 		// Validate JSON content.
-		if (!is_json($content)) {
+		if (!empty($content) && !is_json($content)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("File contains invalid JSON (filename=%s): %s",
 			  $this->filename, json_last_error_msg()));
