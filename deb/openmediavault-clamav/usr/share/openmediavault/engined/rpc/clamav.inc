@@ -98,6 +98,7 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @throw E_CONFIG_UNMET_DEPENDENCY
 	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function setSettings($params, $context) {
@@ -167,6 +168,16 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 				"databasemirror" => $params['databasemirror']
 			)
 		));
+		// Do some validations:
+		// - Check if quarantine shared folder is referenced and required.
+		if (empty($object['quarantine.sharedfolderref'])) {
+			if ($xmlConfig->exists("//services/clamav/jobs/job[".
+			  "virusaction='quarantine']")) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_UNMET_DEPENDENCY,
+				  "The quarantine folder is required");
+			}
+		}
+		// Update the configuration object.
 		if(FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
@@ -214,7 +225,7 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		// Add additional informations.
+		// Add additional information.
 		foreach($objects as $objectk => &$objectv) {
 			$objectv['sharedfoldername'] = gettext("n/a");
 			// Get the shared folder configuration object
@@ -284,6 +295,7 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
+	 * @throw E_CONFIG_UNMET_DEPENDENCY
 	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
 	function setJob($params, $context) {
@@ -343,6 +355,15 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 			"verbose" => array_boolval($params, 'verbose'),
 			"comment" => $params['comment']
 		);
+		// Do some validations:
+		// - Check if quarantine shared folder exists when it is referenced.
+		if ("quarantine" === $object['virusaction']) {
+			$settings = $this->callMethod("getSettings", NULL, $context);
+			if (empty($settings['quarantine.sharedfolderref'])) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_UNMET_DEPENDENCY,
+				  "No quarantine folder set");
+			}
+		}
 		// Set configuration object.
 		$success = FALSE;
 		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {

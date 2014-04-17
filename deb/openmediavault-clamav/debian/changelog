@@ -1,3 +1,9 @@
+openmediavault-clamav (0.6.2) stable; urgency=low
+
+  * Make the quarantine folder optional.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 17 Apr 2014 23:36:52 +0200
+
 openmediavault-clamav (0.6.1) stable; urgency=low
 
   * Add quarantine support. Please update your service configuration.

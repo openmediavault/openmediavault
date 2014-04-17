@@ -47,6 +47,7 @@ class OMVErrorMsg {
 	const E_CONFIG_OBJECT_INUSE = 3007;
 	const E_CONFIG_LOAD_FAILED = 3008;
 	const E_CONFIG_DIRTY = 3009;
+	const E_CONFIG_UNMET_DEPENDENCY = 3010;
 	// Exec
 	const E_EXEC_FAILED = 4000;
 	const E_EXEC_MISC = 4001;
@@ -88,6 +89,7 @@ class OMVErrorMsg {
 		self::E_CONFIG_OBJECT_INVALID => "The configuration object is invalid: %s",
 		self::E_CONFIG_OBJECT_INUSE => "The configuration object is in use",
 		self::E_CONFIG_DIRTY => "Please apply the configuration first.", 
+		self::E_CONFIG_UNMET_DEPENDENCY => "Unmet configuration dependency: %s",
 		self::E_EXEC_FAILED => "Failed to execute command '%s': %s",
 		self::E_EXEC_MISC => "%s",
 		self::E_SESSION_NOT_AUTHENTICATED => "Session not authenticated",

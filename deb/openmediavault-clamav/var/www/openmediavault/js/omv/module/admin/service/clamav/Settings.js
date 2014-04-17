@@ -35,16 +35,6 @@ Ext.define("OMV.module.admin.service.clamav.Settings", {
 	rpcService: "ClamAV",
 	rpcGetMethod: "getSettings",
 	rpcSetMethod: "setSettings",
-	plugins: [{
-		ptype: "linkedfields",
-		correlations: [{
-			name: "quarantine.sharedfolderref",
-			conditions: [
-				{ name: "enable", value: true }
-			],
-			properties: "!allowBlank"
-		}]
-	}],
 
 	getFormItems: function() {
 		return [{
@@ -86,6 +76,7 @@ Ext.define("OMV.module.admin.service.clamav.Settings", {
 				name: "quarantine.sharedfolderref",
 				fieldLabel: _("Quarantine"),
 				allowNone: true,
+				allowBlank: true,
 				plugins: [{
 					ptype: "fieldinfo",
 					text: _("The location which is used as quarantine.")
