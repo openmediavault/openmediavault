@@ -770,7 +770,7 @@ class OMVFilesystem extends OMVObject {
 	 */
 	public function mount() {
 		$uuid = $this->getUuid();
-		$cmd = sprintf("export LANG=C; mount -v %s", is_uuid($uuid) ?
+		$cmd = sprintf("export LANG=C; mount -v %s 2>&1", is_uuid($uuid) ?
 		  "-U {$uuid}" : $this->getDeviceFile());
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
@@ -792,7 +792,7 @@ class OMVFilesystem extends OMVObject {
 			$cmdArgs[] = "-f";
 		if(TRUE === $lazy)
 			$cmdArgs[] = "-l";
-		$cmd = sprintf("export LANG=C; umount %s %s", implode(" ",
+		$cmd = sprintf("export LANG=C; umount %s %s 2>&1", implode(" ",
 		  $cmdArgs), $this->getDeviceFile());
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
@@ -882,7 +882,7 @@ class OMVMntEnt extends OMVObject {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function mount() {
-		$cmd = sprintf("export LANG=C; mount -v %s", escapeshellarg(
+		$cmd = sprintf("export LANG=C; mount -v %s 2>&1", escapeshellarg(
 		  $this->dir));
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
@@ -904,7 +904,7 @@ class OMVMntEnt extends OMVObject {
 			$cmdArgs[] = "-f";
 		if(TRUE === $lazy)
 			$cmdArgs[] = "-l";
-		$cmd = sprintf("export LANG=C; umount %s %s", implode(" ",
+		$cmd = sprintf("export LANG=C; umount %s %s 2>&1", implode(" ",
 		  $cmdArgs), escapeshellarg($this->dir));
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {

@@ -99,22 +99,30 @@ abstract class OMVModuleAbstract extends OMVObject {
 	 */
 	final protected function addTask($id, $name, $params) {
 		// Check if class method exists.
-		if(!method_exists($this, $name)) {
+		if (!method_exists($this, $name)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("The method '%s' does not exist for module '%s'",
 			  $name, $this->getName()));
 		}
-		// Add new task to the modules task list.
+		// Add new task to the modules pending task list. Append
+		// the new task if the file already exists, otherwise
+		// create a new file.
 		$filename = sprintf("/var/lib/openmediavault/%s_tasks.json",
 		  $this->getName());
 		$jsonFile = new OMVJsonFile($filename);
+		$exists = $jsonFile->exists();
 		$jsonFile->open("c+");
-		$tasks = $jsonFile->read();
+		if ($exists)
+			$tasks = $jsonFile->read();
+		else 
+			$tasks = array();
+		// Add the new task to the list of pending tasks.
 		$tasks[] = array(
 			"id" => $id,
 			"func" => $name,
 			"params" => $params
 		);
+		// Write the pending task list.
 		$jsonFile->write($tasks);
 		$jsonFile->close();
 	}
@@ -128,11 +136,13 @@ abstract class OMVModuleAbstract extends OMVObject {
 		$filename = sprintf("/var/lib/openmediavault/%s_tasks.json",
 		  $this->getName());
 		$jsonFile = new OMVJsonFile($filename);
+		if (!$jsonFile->exists())
+			return;
 		$jsonFile->open("c+");
 		$tasks = $jsonFile->read();
 		// Get list of tasks to be executed.
 		$runTasks = array_filter_ex($tasks, "id", $id);
-		foreach($runTasks as $taskk => $taskv) {
+		foreach ($runTasks as $taskk => $taskv) {
 			call_user_func_array(array($this, $taskv['func']), array(
 			  $taskv['params']));
 		}
