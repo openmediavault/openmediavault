@@ -99,7 +99,7 @@ case "$1" in
 		if ! omv_config_exists "/config/services/clamav"; then
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
-			object="${object}<quarantine.sharedfolderref>"
+			object="${object}<quarantine.sharedfolderref></quarantine.sharedfolderref>"
 			object="${object}<clamd>"
 			object="${object}<logclean>0</logclean>"
 			object="${object}<scanpe>1</scanpe>"
