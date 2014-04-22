@@ -30,7 +30,6 @@ export LANG=C
 # packages non-interactively.
 apt-get update
 apt-get --yes --force-yes --fix-missing --auto-remove --allow-unauthenticated \
-  --show-upgraded --option DPkg::Options::="--force-confold" \
-  DPkg::Options::="--force-confdef" dist-upgrade
+  --show-upgraded --option DPkg::Options::="--force-confold" dist-upgrade
 
 exit 0
