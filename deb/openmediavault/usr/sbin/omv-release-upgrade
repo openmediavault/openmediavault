@@ -1,0 +1,77 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2013 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+
+OMV_UPGRADE_RELEASEVERSION=${OMV_UPGRADE_RELEASEVERSION:-"0.6"}
+OMV_UPGRADE_RELEASENAME=${OMV_UPGRADE_RELEASENAME:-"Kralizec"}
+OMV_UPGRADE_APTSOURCESLIST=${OMV_UPGRADE_APTSOURCESLIST:-"/etc/apt/sources.list.d/openmediavault.list"}
+OMV_UPGRADE_REINSTALL_PACKAGES=${OMV_UPGRADE_REINSTALL_PACKAGES:-"isc-dhcp-client"}
+
+# Get some product informations.
+prodname=$(xmlstarlet sel -t -v "//name" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+prodcopyright=$(xmlstarlet sel -t -v "//copyright" ${OMV_PRODUCTINFO_FILE} | xmlstarlet unesc)
+
+whiptail --clear --backtitle "${prodname} - ${prodcopyright}" --title "Release upgrade" --yesno "Do you really want to upgrade your system to release version ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME})? Please ensure that all your installed plugins are available for this release." 9 56 6
+[ $? -ne 0 ] && exit 0
+echo "Upgrading system to ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME}) ..."
+
+# Create a configuration backup.
+cp -v ${OMV_CONFIG_FILE} ${OMV_CONFIG_FILE}.05x.bak
+
+# Upgrade source list file.
+relname=$(echo ${OMV_UPGRADE_RELEASENAME} | tr "[:upper:]" "[:lower:]")
+cat <<EOF > ${OMV_UPGRADE_APTSOURCESLIST}
+deb http://packages.openmediavault.org/public ${relname} main
+# deb http://downloads.sourceforge.net/project/openmediavault/packages ${relname} main
+
+## Uncomment the following line to add software from the proposed repository.
+# deb http://packages.openmediavault.org/public ${relname}-proposed main
+# deb http://downloads.sourceforge.net/project/openmediavault/packages ${relname}-proposed main
+
+## This software is not part of OpenMediaVault, but is offered by third-party
+## developers as a service to OpenMediaVault users.
+# deb http://packages.openmediavault.org/public ${relname} partner
+# deb http://downloads.sourceforge.net/project/openmediavault/packages ${relname} partner
+EOF
+
+# Cleanup local package archive.
+rm -fv ${OMV_DPKGARCHIVE_DIR}/*.deb
+cd ${OMV_DPKGARCHIVE_DIR} && apt-ftparchive packages . > Packages
+
+# Update package database and upgrade distribution.
+apt-get update
+apt-get --yes --force-yes --fix-missing --auto-remove --allow-unauthenticated \
+  --show-upgraded --option DPkg::Options::="--force-confold" dist-upgrade
+
+# Reconfigure various packages.
+apt-get --yes --force-yes --purge remove ${OMV_UPGRADE_REINSTALL_PACKAGES}
+apt-get --yes --force-yes --reinstall install ${OMV_UPGRADE_REINSTALL_PACKAGES}
+
+# Remove useless packages.
+apt-get --yes --force-yes autoremove
+
+# Cleanup.
+apt-get clean
+
+exit 0
