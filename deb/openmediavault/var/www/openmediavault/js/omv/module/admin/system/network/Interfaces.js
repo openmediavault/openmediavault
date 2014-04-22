@@ -173,7 +173,7 @@ Ext.define("OMV.module.admin.system.network.interface.Physical", {
 					fields: [ "value", "text" ],
 					data: [
 						[ "manual", _("Manual") ],
-						//[ "auto", _("Auto") ], // Supported in Debian Wheezy
+						[ "auto", _("Auto") ],
 						[ "static", _("Static") ]
 					]
 				}),
@@ -448,7 +448,7 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 					fields: [ "value", "text" ],
 					data: [
 						[ "manual", _("Manual") ],
-						//[ "auto", _("Auto") ], // Supported in Debian Wheezy
+						[ "auto", _("Auto") ],
 						[ "static", _("Static") ]
 					]
 				}),
