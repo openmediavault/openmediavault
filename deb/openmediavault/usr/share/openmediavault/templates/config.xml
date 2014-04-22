@@ -82,7 +82,7 @@
 					<address>xxx.xxx.xxx.xxx</address>
 					<netmask>xxx.xxx.xxx.xxx</netmask>
 					<gateway>xxx.xxx.xxx.xxx</gateway>
-					<method6>auto|static|manual</method6>
+					<method6>auto|dhcp|static|manual</method6>
 					<address6>xxxx:xxxx:...:xxxx</address6>
 					<netmask6>0-128</netmask6>
 					<gateway6>xxxx:xxxx:...:xxxx</gateway6>
@@ -98,7 +98,7 @@
 					<address>xxx.xxx.xxx.xxx</address>
 					<netmask>xxx.xxx.xxx.xxx</netmask>
 					<gateway>xxx.xxx.xxx.xxx</gateway>
-					<method6>auto|static|manual</method6>
+					<method6>auto|dhcp|static|manual</method6>
 					<address6>xxxx:xxxx:...:xxxx</address6>
 					<netmask6>0-128</netmask6>
 					<gateway6>xxxx:xxxx:...:xxxx</gateway6>

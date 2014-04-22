@@ -472,7 +472,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				  "netmask":{"type":"string"},
 				  "gateway":{"type":"string"},
 				  "method6":{"type":"string","enum":["auto","static",'.
-					'"manual"]},
+					'"manual","dhcp"]},
 				  "address6":{"type":"string"},
 				  "netmask6":{"type":"integer","minimum":0,"maximum":128},
 				  "gateway6":{"type":"string"},
@@ -714,7 +714,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				  "netmask":{"type":"string"},
 				  "gateway":{"type":"string"},
 				  "method6":{"type":"string","enum":["auto","static",'.
-					'"manual"]},
+					'"manual","dhcp"]},
 				  "address6":{"type":"string"},
 				  "netmask6":{"type":"integer","minimum":0,"maximum":128},
 				  "gateway6":{"type":"string"},

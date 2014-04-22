@@ -100,11 +100,18 @@ xmlstarlet sel -t \
 				  -v "concat('    gateway ',gateway6)" -n \
 			  -b \
 			  -v "concat('    netmask ',netmask6)" -n \
+			  -o "    privext 2" -n \
 			  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
 		  -b \
 		  -i "method6 = 'auto'" \
 			  -v "concat('iface ',devicename,' inet6 auto')" -n \
+			  -o "    privext 2" -n \
 			  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/autoconf" -n \
+			  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/accept_ra" -n \
+			  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
+		  -b \
+		  -i "method6 = 'dhcp'" \
+			  -v "concat('iface ',devicename,' inet6 dhcp')" -n \
 			  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/accept_ra" -n \
 			  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
 		  -b \
@@ -160,11 +167,18 @@ xmlstarlet sel -t \
 			  -v "concat('    gateway ',gateway6)" -n \
 		  -b \
 		  -v "concat('    netmask ',netmask6)" -n \
+		  -o "    privext 2" -n \
 		  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
 	  -b \
 	  -i "method6 = 'auto'" \
 		  -v "concat('iface ',devicename,' inet6 auto')" -n \
+		  -o "    privext 2" -n \
 		  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/autoconf" -n \
+		  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/accept_ra" -n \
+		  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
+	  -b \
+	  -i "method6 = 'dhcp'" \
+		  -v "concat('iface ',devicename,' dhcp auto')" -n \
 		  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/accept_ra" -n \
 		  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
 	  -b \
