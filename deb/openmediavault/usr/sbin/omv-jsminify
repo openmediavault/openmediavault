@@ -22,7 +22,7 @@
 use strict;
 use Getopt::Long;
 use File::Basename;
-use JavaScript::Minifier qw(minify);
+use JavaScript::Minifier::XS qw(minify);
 
 sub usage {
 	printf "%s [--in=<file>] [--out=<file>]\n", basename($0);
@@ -52,7 +52,7 @@ sub main {
 		open($outFh, ">$outFilename") or die "Can't open '$outFilename': $!";
 	}
 	# Minify javascript code.
-	minify(input => $inFh, outfile => $outFh);
+	print $outFh minify(do { local $/; <$inFh>; });
 	# Close file handles.
 	close($inFh);
 	close($outFh);
