@@ -397,7 +397,7 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 			$cmd = "/bin/sh";
 			$cmdArgs = array();
 			$cmdArgs[] = sprintf("%s/rsync-%s",
-			  $GLOBALS['OMV_RSYNC_CRONSCRIPTS_DIR'], $params['uuid']);
+			  $GLOBALS['OMV_CRONSCRIPTS_DIR'], $params['uuid']);
 			if(FALSE === $this->execve($cmd, $cmdArgs, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd." ".implode(" ", $cmdArgs), "");
