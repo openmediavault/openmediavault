@@ -29,35 +29,34 @@ sub usage {
 }
 
 sub main {
-	my $infile;
-	my $outfile;
+	my $inFilename;
+	my $outFilename;
+	my $inFh = *STDIN;
+	my $outFh = *STDOUT;
 	my $help = 0;
 
 	# Parse options
-	GetOptions('in:s'  => \$infile, 'out:s' => \$outfile, 'help!' => \$help);
+	GetOptions('in:s'  => \$inFilename, 'out:s' => \$outFilename,
+	  'help!' => \$help);
 	# Display usage?
-	if($help) {
+	if ($help) {
 		usage;
 		exit 1;
 	}
 	# Use input file or stdin?
-	if($infile) {
-		open INFILE, "<$infile" or die "Can't open '$infile': $!";
+	if ($inFilename) {
+		open($inFh, "<$inFilename") or die "Can't open '$inFilename': $!";
 	}
 	# Use output file or stdout?
-	if($outfile) {
-		open OUTFILE, ">$outfile" or die "Can't open '$outfile': $!";
+	if ($outFilename) {
+		open($outFh, ">$outFilename") or die "Can't open '$outFilename': $!";
 	}
 	# Minify javascript code.
-	minify(input => $infile ? *INFILE : *STDIN, outfile => $outfile ?
-	  *OUTFILE : *STDOUT);
+	minify(input => $inFh, outfile => $outFh);
 	# Close file handles.
-	if($infile) {
-		close INFILE;
-	}
-	if($outfile) {
-		close OUTFILE;
-	}
+	close($inFh);
+	close($outFh);
+
 	exit 0;
 }
 
