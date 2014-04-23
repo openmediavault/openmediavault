@@ -148,7 +148,7 @@ EOF;
 	 * Get an list of javascript files to be included.
 	 * @return An array of files to be included.
 	 */
-	protected function getJavascriptIncludes() {
+	public function getJavascriptIncludes() {
 		return array();
 	}
 }
@@ -180,7 +180,7 @@ class OMVWebGui extends OMVHtmlPage {
 		$this->mode = $mode;
 	}
 
-	protected function getJavascriptIncludes() {
+	public function getJavascriptIncludes() {
 		$incList = array();
 		$this->scanFiles("js/omv/SessionManager.js", $incList);
 		$this->scanFiles("js/omv/workspace/Workspace.js", $incList);
@@ -247,7 +247,7 @@ EOF;
  * @ingroup api
  */
 class OMVWebGuiLogin extends OMVHtmlPage {
-	protected function getJavascriptIncludes() {
+	public function getJavascriptIncludes() {
 		$incList = array();
 		$this->scanFiles("js/omv/window/Login.js", $incList);
 		return $incList;
