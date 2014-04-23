@@ -51,7 +51,7 @@ do
 	case ${option} in
 	h|?)
 		usage >&2
-		exit 2
+		exit 0
 		;;
 	esac
 done

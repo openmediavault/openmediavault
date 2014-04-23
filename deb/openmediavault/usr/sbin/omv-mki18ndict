@@ -28,6 +28,20 @@ OMV_I18N_JS_DICT_FILE=${OMV_I18N_JS_DICT_FILE:-"${OMV_DOCUMENTROOT_DIR}/js/omv/u
 OMV_I18N_POPULATE_JS_DICT_FILE=${OMV_I18N_POPULATE_JS_DICT_FILE:-"yes"}
 OMV_I18N_MINIFY_JS_DICT_FILE=${OMV_I18N_MINIFY_JS_DICT_FILE:-"yes"}
 
+usage() {
+	cat <<EOF
+Usage:
+  $(basename $0) [options]
+
+Build the language translation dictionary.
+
+OPTIONS:
+  -h  Show this message.
+  -v  Explain what is being done.
+
+EOF
+}
+
 # Print info message.
 printinfo() {
 	if test x${verbose} != x ; then
@@ -38,11 +52,15 @@ printinfo() {
 verbose=
 
 # Process command line arguments.
-while getopts 'v' option
+while getopts 'v?h' option
 do
 	case ${option} in
 	v)
 		verbose=yes
+		;;
+	h|?)
+		usage >&2
+		exit 0
 		;;
 	esac
 done
