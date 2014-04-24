@@ -76,7 +76,7 @@ class OMVConfigEngine extends OMVObject {
 		$this->autoCommit = $autoCommit;
 		$this->versioning = $versioning;
 		$this->filename = $filename;
-		$this->semaphore = sem_get(1965);
+		$this->semaphore = sem_get(ftok($filename, 'x'));
 	}
 
 	/**
