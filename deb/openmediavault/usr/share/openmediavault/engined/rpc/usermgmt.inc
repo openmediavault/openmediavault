@@ -80,13 +80,13 @@ class OMVRpcServiceUserMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "username":{"type":"string"},
-				  "password":{"type":"string"}
-			  }
-		  }');
+		$this->validateMethodParams($params, array(
+			  "type" => "object",
+			  "properties" => array(
+				  "username" => array("type" => "string"),
+				  "password" => array("type" => "string")
+			  )
+		  ));
 		// Get shadow password suite configuration.
 		if(FALSE === ($loginDefs = OMVSystem::getLoginDefs())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
