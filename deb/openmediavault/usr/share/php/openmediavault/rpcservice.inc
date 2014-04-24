@@ -170,14 +170,20 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 	 * JSON schema.
 	 * @param params The parameters to be validated.
 	 * @param schema The JSON schema that describes the method parameters.
+	 *   Can be given as UTF-8 encoded JSON or an associative array.
 	 * @return None.
 	 * @throw E_RPC_SERVICE_METHOD_INVALID_PARAMS
 	 */
 	final protected function validateMethodParams($params, $schema) {
 //		$this->debug(var_export(func_get_args(), TRUE));
+		// Check if the schema is JSON. If it is an associative array,
+		// then auto-convert it into JSON.
+		if (is_array($schema))
+			$schema = json_encode_safe($schema);
+		// Convert the given paramaters into JSON.
+		$params = json_encode_safe($params);
 		// Validate parameters using the defined JSON schema.
-		if(FALSE === json_validate(json_encode_safe($params), $schema,
-		  $errors)) {
+		if (FALSE === json_validate($params, $schema, $errors)) {
 			throw new OMVException(
 			  OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_PARAMS,
 			  implode("; ", $errors));

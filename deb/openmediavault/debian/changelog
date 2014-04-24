@@ -84,6 +84,12 @@ openmediavault (0.6) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Nov 2013 19:41:31 +0100
 
+openmediavault (0.5.46) stable; urgency=low
+
+  * Various code improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 24 Apr 2014 07:23:46 +0200
+
 openmediavault (0.5.45) stable; urgency=low
 
   * Fix bug in the WebGUI shared folder combobox control.
