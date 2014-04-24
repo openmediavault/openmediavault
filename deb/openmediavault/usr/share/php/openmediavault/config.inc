@@ -292,12 +292,12 @@ class OMVConfigEngine extends OMVObject {
 	/**
 	 * Compare the configuration from the given XPath expression with the
 	 * given data.
-	 * @param expression The XPath expression to execute.
+	 * @param xpath The XPath expression to execute.
 	 * @param data The data to compare.
 	 * @return Returns 0 if the data is equal, otherwise -1. On error
 	 *   boolean FALSE is returned.
 	 */
-	public function compare($expression, $data) {
+	public function compare($xpath, $data) {
 		if (is_null($result = $this->get($xpath)))
 			return FALSE;
 		// Convert everything into an array.
@@ -309,7 +309,7 @@ class OMVConfigEngine extends OMVObject {
 		// because the values returned from the configuration database are
 		// strings.
 		if (FALSE === array_walk_recursive($data,
-		  create_function('&$item, $key', 'if (is_string($item) { '.
+		  create_function('&$item, $key', 'if (is_string($item)) { '.
 		  'if (!mb_check_encoding($item, "UTF-8")) { '.
 		  '$item = utf8_encode($item); } } else { '.
 		  '$item = utf8_encode(strval($item)); }')))
