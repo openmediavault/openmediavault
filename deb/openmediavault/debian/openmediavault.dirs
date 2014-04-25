@@ -1,4 +1,5 @@
 etc/openmediavault
+etc/nginx/openmediavault-webgui.d
 usr/share/openmediavault
 usr/share/php/openmediavault
 var/lib/openmediavault
