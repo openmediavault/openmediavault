@@ -595,9 +595,6 @@ omv_install_fixperms() {
 	chown -R ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} ${_docroot}
 	find ${_docroot}/* -type d -exec chmod 775 {} +
 	find ${_docroot}/* -type f -exec chmod 664 {} +
-	chmod 644 ${_docroot}/cgi/php.ini
-	chmod 700 ${_docroot}/php-fcgi
-	#chattr +i ${_docroot}/php-fcgi
 }
 
 # void omv_install_locale ()
