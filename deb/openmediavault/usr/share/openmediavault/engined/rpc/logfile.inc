@@ -200,7 +200,7 @@ class OMVRpcServiceLogFile extends OMVRpcServiceAbstract {
 			  $logfile->getFilePath(), $tmpFilePath));
 		}
 		chmod($tmpFilePath, 0700);
-		chown($tmpFilePath, $GLOBALS['OMV_APACHE2_SUEXECUSERGROUP']);
+		chown($tmpFilePath, $GLOBALS['OMV_WEBGUI_OWNER_USERNAME']);
 		// Return values required by generic download RPC implementation.
 		return array(
 			"filename" => $logfile->getFileName(),

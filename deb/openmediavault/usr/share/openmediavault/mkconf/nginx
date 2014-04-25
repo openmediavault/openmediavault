@@ -1,0 +1,80 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2014 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://wiki.nginx.org/Pitfalls#Taxing_Rewrites
+# http://security.stackexchange.com/questions/54639/nginx-recommended-ssl-ciphers-for-security-compatibility-with-pfs
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_CERTIFICATE_DIR=${OMV_CERTIFICATE_DIR:-"/etc/ssl"}
+OMV_CERTIFICATE_PREFIX=${OMV_CERTIFICATE_PREFIX:-"openmediavault-"}
+
+OMV_NGINX_SERVERNAME=${OMV_NGINX_SERVERNAME:-"openmediavault-webgui"}
+OMV_NGINX_LOG_DIR=${OMV_NGINX_LOG_DIR:-"/var/log/nginx"}
+OMV_NGINX_SITE_OPENMEDIAVAULT_CONFIG=${OMV_NGINX_SITE_OPENMEDIAVAULT_CONFIG:-"/etc/nginx/sites-available/openmediavault-webgui"}
+OMV_NGINX_SITE_OPENMEDIAVAULT_LOGLEVEL=${OMV_NGINX_SITE_OPENMEDIAVAULT_LOGLEVEL:-"error"}
+
+# Create '/etc/nginx/sites-available/openmediavault-webgui' file
+xmlstarlet sel -t -m "//webadmin" \
+  -o "server {" -n \
+  -o "    server_name ${OMV_NGINX_SERVERNAME};" -n \
+  -o "    root ${OMV_DOCUMENTROOT_DIR};" -n \
+  -o "    index index.php;" -n \
+  -o "    autoindex off;" -n \
+  -o "    server_tokens off;" -n \
+  -o "    sendfile on;" -n \
+  -o "    large_client_header_buffers 4 32k;" -n \
+  -o "    error_log ${OMV_NGINX_LOG_DIR}/${OMV_NGINX_SERVERNAME}_error.log ${OMV_NGINX_SITE_OPENMEDIAVAULT_LOGLEVEL};" -n \
+  -o "    access_log ${OMV_NGINX_LOG_DIR}/${OMV_NGINX_SERVERNAME}_access.log combined;" -n \
+  -o "    location /extjs/ {" -n \
+  -o "        alias /usr/share/javascript/extjs4/;" -n \
+  -o "    }" -n \
+  -o "    location /images/ {" -n \
+  -o "        alias ${OMV_DOCUMENTROOT_DIR}/images/;" -n \
+  -o "    }" -n \
+  -o "    location ~ \.php$ {" -n \
+  -o "        try_files \$uri =404;" -n \
+  -o "        fastcgi_split_path_info ^(.+\.php)(/.+)$;" -n \
+  -o "        fastcgi_pass unix:/var/run/php5-fpm-openmediavault-webgui.sock;" -n \
+  -o "        fastcgi_index index.php;" -n \
+  -o "        include fastcgi_params;" -n \
+  -o "    }" -n \
+  -v "concat('    listen ',port,';')" -n \
+  -i "enablessl[. = '1']" \
+    -v "concat('    listen ',sslport,' ssl;')" -n \
+    -v "concat('    ssl_certificate ${OMV_CERTIFICATE_DIR}/certs/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.crt;')" -n \
+    -v "concat('    ssl_certificate_key ${OMV_CERTIFICATE_DIR}/private/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.key;')" -n \
+    -o "    # Perfect Forward Secrecy" -n \
+    -o "    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;" -n \
+    -o "    ssl_prefer_server_ciphers on;" -n \
+    -o "    ssl_ciphers EECDH+ECDSA+AESGCM:EECDH+aRSA+AESGCM:EECDH+ECDSA+SHA384:EECDH+ECDSA+SHA256:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH+aRSA+RC4:EECDH:EDH+aRSA:RC4:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS;" -n \
+  -b \
+  -i "enablessl[. = '1'] and forcesslonly[. = '1']" \
+    -o "    if (\$scheme = http) {" -n \
+    -o "        return 301 https://\$host\$request_uri;" -n \
+    -o "    }" -n \
+  -b \
+  -o "}" \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NGINX_SITE_OPENMEDIAVAULT_CONFIG}

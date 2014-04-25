@@ -61,8 +61,8 @@ Ext.define("OMV.module.public.info.about.About", {
 			name: "ExtJS",
 			url: "http://www.sencha.com"
 		},{
-			name: "Apache",
-			url: "http://httpd.apache.org"
+			name: "nginx",
+			url: "http://www.nginx.net"
 		},{
 			name: "PHP",
 			url: "http://www.php.net"

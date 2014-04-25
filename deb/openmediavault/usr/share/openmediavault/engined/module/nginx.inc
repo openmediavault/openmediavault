@@ -20,41 +20,42 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/functions.inc");
-require_once("openmediavault/log.inc");
+require_once("openmediavault/error.inc");
+require_once("openmediavault/initscript.inc");
 
-class OMVModuleWebadmin extends OMVModuleAbstract
-  implements OMVINotifyListener, OMVIModuleZeroconf {
+class OMVModuleNginx extends OMVModuleServiceAbstract {
 	/**
 	 * Get the module name.
 	 */
 	public function getName() {
-		return "webadmin";
+		return "nginx";
 	}
 
 	/**
-	 * Get the Zeroconf service configuration.
+	 * Defines the modules that if present should build their configuration
+	 * before the service provided by this module.
+	 * @return An array of modules.
 	 */
-	public function getZeroconfConfig() {
-		return array(
-			  "id" => "webadmin",
-			  "title" => gettext("Web administration")
-		  );
+	public function shouldApply() { return array("certificatemgmt"); }
+
+	/**
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
+	 */
+	public function applyConfig() {
+		$cmd = "omv-mkconf nginx 2>&1";
+		if (0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
 	}
 
 	/**
-	 * Bind listeners.
+	 * Start the managed service.
 	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
-		$moduleMgr = &OMVModuleMgr::getInstance();
-		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.webadmin",
-		  array($moduleMgr->getModule("webserver"), "setDirty"));
-    }
+	public function startService() {
+		$initd = new OMVSysVInitScript("nginx", TRUE);
+		$initd->invoke("reload");
+	}
 }
-
-// Register module.
-$moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleWebadmin());
 ?>

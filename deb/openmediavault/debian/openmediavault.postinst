@@ -92,23 +92,12 @@ case "$1" in
 			update-rc.d openmediavault-engined defaults &>/dev/null
 
 			####################################################################
-			# Setup apache configuration
-			####################################################################
-			# Documentation/Howto:
-			# http://www.howtoforge.com/how-to-set-up-apache2-with-mod_fcgid-and-php5-on-debian-lenny
-			# http://www.christophfischer.com/linux/12-apache/47-apache-server-mit-php-fastcgi-und-debian-50-lenny
-			# http://wiki.hetzner.de/index.php/Apache_PHP5_fcgi_und_SuExec
+			# Setup webserver configuration
 			####################################################################
 			echo "Configuring web server"
-			omv-mkconf apache2
-			a2enmod suexec
-			a2enmod alias
-			a2enmod actions
-			a2enmod fastcgi
-			a2enmod ssl
-			a2enmod rewrite
-			a2dissite 000-default
-			a2ensite openmediavault-webgui
+			omv-mkconf nginx
+			rm -f /etc/nginx/sites-enabled/default
+			cd /etc/nginx/sites-enabled && ln -s ../sites-available/openmediavault-webgui openmediavault-webgui
 		fi
 		# Create public/private SSH key pair for user root
 		if [ ! -f "/root/.ssh/id_rsa.pub" ]; then
@@ -118,10 +107,6 @@ case "$1" in
 		########################################################################
 		# Setup permissions
 		########################################################################
-		# Documentation/Howto:
-		# http://www.christophfischer.com/linux/12-apache/47-apache-server-mit-php-fastcgi-und-debian-50-lenny
-		########################################################################
-		# These permissions are required by Apache
 		chown -R openmediavault:openmediavault /etc/openmediavault \
 		  /var/cache/openmediavault ${OMV_DOCUMENTROOT_DIR}
 		chmod 755 /var/www
@@ -155,7 +140,7 @@ case "$1" in
 			invoke-rc.d watchdog restart
 			invoke-rc.d rrdcached restart
 			invoke-rc.d collectd restart
-			invoke-rc.d apache2 graceful
+			invoke-rc.d nginx restart
 			invoke-rc.d monit restart
 		fi
 		dpkg-trigger restart-engined || monit restart omv-engined
@@ -345,16 +330,15 @@ case "$1" in
 			rm -f "${OMV_CONFIG_FILE}.bak"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.6.0.10"; then
-			# Enable FastCGI module.
-			a2dismod fcgid
-			a2enmod alias
-			a2enmod actions
-			a2enmod fastcgi
+			# Set default envionment variables.
+			omv_set_default "OMV_WEBGUI_OWNER_USERNAME" "openmediavault"
+			# Stop apache.
+			monit stop apache2
 			# Rebuild configuration files.
-			omv-mkconf apache2
+			omv-mkconf nginx
 			omv-mkconf monit
 			# Restart services.
-			invoke-rc.d apache2 graceful
+			invoke-rc.d nginx restart
 			invoke-rc.d monit reload
 		fi
 	;;

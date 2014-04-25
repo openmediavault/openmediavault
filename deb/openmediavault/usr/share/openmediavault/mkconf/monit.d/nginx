@@ -24,14 +24,14 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_MONIT_SERVICE_APACHE2_CONFIG=${OMV_MONIT_SERVICE_APACHE2_CONFIG:-"/etc/monit/conf.d/openmediavault-apache2.conf"}
-OMV_MONIT_SERVICE_APACHE2_MODE=${OMV_MONIT_SERVICE_APACHE2_MODE:-"active"}
+OMV_MONIT_SERVICE_NGINX_CONFIG=${OMV_MONIT_SERVICE_NGINX_CONFIG:-"/etc/monit/conf.d/openmediavault-nginx.conf"}
+OMV_MONIT_SERVICE_NGINX_MODE=${OMV_MONIT_SERVICE_NGINX_MODE:-"active"}
 
-cat <<EOF > ${OMV_MONIT_SERVICE_APACHE2_CONFIG}
-check process apache2 with pidfile /var/run/apache2.pid
-  start program = "/etc/init.d/apache2 start"
-  stop program = "/etc/init.d/apache2 stop"
-  mode ${OMV_MONIT_SERVICE_APACHE2_MODE}
+cat <<EOF > ${OMV_MONIT_SERVICE_NGINX_CONFIG}
+check process nginx with pidfile /var/run/nginx.pid
+  start program = "/etc/init.d/nginx start"
+  stop program = "/etc/init.d/nginx stop"
+  mode ${OMV_MONIT_SERVICE_NGINX_MODE}
 EOF
 
 # Disable event notifications.
@@ -42,4 +42,4 @@ xmlstarlet sel -t -m "//system/email" \
 	-b \
   -b \
   -n \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_SERVICE_APACHE2_CONFIG}
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_SERVICE_NGINX_CONFIG}

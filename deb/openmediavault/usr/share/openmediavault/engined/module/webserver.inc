@@ -20,47 +20,17 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/error.inc");
-require_once("openmediavault/initscript.inc");
 
-class OMVModuleApache extends OMVModuleServiceAbstract {
+class OMVModuleWebserver extends OMVModuleNginx {
 	/**
 	 * Get the module name.
 	 */
 	public function getName() {
-		return "apache";
-	}
-
-
-	/**
-	 * Defines the modules that if present should build their configuration
-	 * before the service provided by this module.
-	 * @return An array of modules.
-	 */
-	public function shouldApply() { return array("certificatemgmt"); }
-
-	/**
-	 * Generate the configuration.
-	 * @throw E_EXEC_FAILED
-	 */
-	public function applyConfig() {
-		$cmd = "omv-mkconf apache2 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
-	}
-
-	/**
-	 * Start the managed service.
-	 */
-	public function startService() {
-		$initd = new OMVSysVInitScript("apache2", TRUE);
-		$initd->invoke("graceful");
+		return "webserver";
 	}
 }
 
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleApache());
+$moduleMgr->registerModule(new OMVModuleWebserver());
 ?>
