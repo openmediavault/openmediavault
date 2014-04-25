@@ -24,7 +24,7 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_MONIT_SERVICE_PHP5FPM_CONFIG=${OMV_MONIT_SERVICE_PHP5FPM_CONFIG:-"/etc/monit/conf.d/openmediavault-apache2.conf"}
+OMV_MONIT_SERVICE_PHP5FPM_CONFIG=${OMV_MONIT_SERVICE_PHP5FPM_CONFIG:-"/etc/monit/conf.d/openmediavault-php5fpm.conf"}
 OMV_MONIT_SERVICE_PHP5FPM_MODE=${OMV_MONIT_SERVICE_PHP5FPM_MODE:-"active"}
 
 cat <<EOF > ${OMV_MONIT_SERVICE_PHP5FPM_CONFIG}
