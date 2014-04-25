@@ -45,6 +45,7 @@ OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkco
 
 OMV_MONIT_CONFIG=${OMV_MONIT_CONFIG:-"/etc/monit/monitrc"}
 OMV_MONIT_DEFAULT=${OMV_MONIT_DEFAULT:-"/etc/default/monit"}
+OMV_MONIT_EXTRA_CONFIG_DIR=${OMV_MONIT_EXTRA_CONFIG_DIR:-"/etc/monit/conf.d"}
 OMV_MONIT_CHECK_INTERVAL=${OMV_MONIT_CHECK_INTERVAL:-"30"}
 OMV_MONIT_LOGFILE=${OMV_MONIT_LOGFILE:-"syslog facility log_daemon"}
 OMV_MONIT_IDFILE=${OMV_MONIT_IDFILE:-"/var/lib/monit/id"}
@@ -92,9 +93,10 @@ xmlstarlet sel -t -m "//system/email" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_CONFIG}
 
 # Create the service configuration files.
+rm -f ${OMV_MONIT_EXTRA_CONFIG_DIR}/openmediavault-*.conf
 run-parts ${OMV_MONIT_EXTENSIONS_DIR}
 
 # Include custom config files.
 cat <<EOF >> ${OMV_MONIT_CONFIG}
-include /etc/monit/conf.d/*
+include ${OMV_MONIT_EXTRA_CONFIG_DIR}/*
 EOF
