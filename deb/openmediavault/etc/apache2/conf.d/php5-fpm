@@ -1,0 +1,5 @@
+<IfModule mod_fastcgi.c>
+	AddHandler php5-fcgi .php
+	Action php5-fcgi /php5-fcgi
+	Alias /php5-fcgi /usr/lib/cgi-bin/php5-fcgi
+</IfModule>

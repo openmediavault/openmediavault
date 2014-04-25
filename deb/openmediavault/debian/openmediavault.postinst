@@ -102,7 +102,9 @@ case "$1" in
 			echo "Configuring web server"
 			omv-mkconf apache2
 			a2enmod suexec
-			a2enmod fcgid
+			a2enmod alias
+			a2enmod actions
+			a2enmod fastcgi
 			a2enmod ssl
 			a2enmod rewrite
 			a2dissite 000-default
@@ -341,6 +343,19 @@ case "$1" in
 			invoke-rc.d monit reload
 			# Unlink configuration backup file.
 			rm -f "${OMV_CONFIG_FILE}.bak"
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.6.0.10"; then
+			# Enable FastCGI module.
+			a2dismod fcgid
+			a2enmod alias
+			a2enmod actions
+			a2enmod fastcgi
+			# Rebuild configuration files.
+			omv-mkconf apache2
+			omv-mkconf monit
+			# Restart services.
+			invoke-rc.d apache2 graceful
+			invoke-rc.d monit reload
 		fi
 	;;
 

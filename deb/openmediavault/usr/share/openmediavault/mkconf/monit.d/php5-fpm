@@ -19,15 +19,27 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# References:
-# http://www.dev-smart.com/archives/54
-# http://wherethebitsroam.com/blogs/jeffw/apache-php-fastcgi-and-phpfcgichildren
+set -e
 
-. /etc/default/locale
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
 
-export PHPRC="/var/www/openmediavault/cgi"
-#export PHP_FCGI_CHILDREN=4
-export PHP_FCGI_MAX_REQUESTS=1000
-export LANG
+OMV_MONIT_SERVICE_PHP5FPM_CONFIG=${OMV_MONIT_SERVICE_PHP5FPM_CONFIG:-"/etc/monit/conf.d/openmediavault-apache2.conf"}
+OMV_MONIT_SERVICE_PHP5FPM_MODE=${OMV_MONIT_SERVICE_PHP5FPM_MODE:-"active"}
 
-exec /usr/lib/cgi-bin/php5
+cat <<EOF > ${OMV_MONIT_SERVICE_PHP5FPM_CONFIG}
+check process php5-fpm with pidfile /var/run/php5-fpm.pid
+  start program = "/etc/init.d/php5-fpm start"
+  stop program = "/etc/init.d/php5-fpm stop"
+  mode ${OMV_MONIT_SERVICE_PHP5FPM_MODE}
+EOF
+
+# Disable event notifications.
+xmlstarlet sel -t -m "//system/email" \
+  -i "enable = '1'" \
+	-i "//system/notification/notifications/monitprocevents = '0'" \
+	  -v "concat('  noalert ',primaryemail)" \
+	-b \
+  -b \
+  -n \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_SERVICE_PHP5FPM_CONFIG}
