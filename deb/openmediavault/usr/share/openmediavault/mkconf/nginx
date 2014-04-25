@@ -61,9 +61,9 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "        fastcgi_index index.php;" -n \
   -o "        include fastcgi_params;" -n \
   -o "    }" -n \
-  -v "concat('    listen ',port,';')" -n \
+  -v "concat('    listen [::]:',port,';')" -n \
   -i "enablessl[. = '1']" \
-    -v "concat('    listen ',sslport,' ssl;')" -n \
+    -v "concat('    listen [::]:',sslport,' ssl;')" -n \
     -v "concat('    ssl_certificate ${OMV_CERTIFICATE_DIR}/certs/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.crt;')" -n \
     -v "concat('    ssl_certificate_key ${OMV_CERTIFICATE_DIR}/private/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.key;')" -n \
     -o "    # Perfect Forward Secrecy" -n \
