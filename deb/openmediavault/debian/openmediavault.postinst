@@ -338,6 +338,7 @@ case "$1" in
 			omv-mkconf nginx
 			omv-mkconf monit
 			# Restart services.
+			invoke-rc.d php5-fpm reload
 			invoke-rc.d nginx restart
 			invoke-rc.d monit reload
 		fi
