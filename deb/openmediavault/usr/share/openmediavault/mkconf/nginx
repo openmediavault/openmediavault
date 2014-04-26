@@ -30,7 +30,9 @@ set -e
 
 OMV_CERTIFICATE_DIR=${OMV_CERTIFICATE_DIR:-"/etc/ssl"}
 OMV_CERTIFICATE_PREFIX=${OMV_CERTIFICATE_PREFIX:-"openmediavault-"}
+OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
 
+OMV_NGINX_EXTENSIONS_DIR=${OMV_NGINX_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/nginx.d"}
 OMV_NGINX_LOG_DIR=${OMV_NGINX_LOG_DIR:-"/var/log/nginx"}
 OMV_NGINX_SITE_WEBGUI_SERVERNAME=${OMV_NGINX_SITE_WEBGUI_SERVERNAME:-"openmediavault-webgui"}
 OMV_NGINX_SITE_WEBGUI_CONFIG=${OMV_NGINX_SITE_WEBGUI_CONFIG:-"/etc/nginx/sites-available/openmediavault-webgui"}
@@ -80,3 +82,6 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "    include ${OMV_NGINX_SITE_WEBGUI_CONFIG_DIR}/*.conf;" -n \
   -o "}" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NGINX_SITE_WEBGUI_CONFIG}
+
+# Build additional configuration files.
+run-parts ${OMV_NGINX_EXTENSIONS_DIR}
