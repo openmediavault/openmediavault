@@ -66,13 +66,17 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "    }" -n \
   -v "concat('    listen [::]:',port,';')" -n \
   -i "enablessl[. = '1']" \
-    -v "concat('    listen [::]:',sslport,' ssl;')" -n \
+    -v "concat('    listen [::]:',sslport,' ssl deferred;')" -n \
     -v "concat('    ssl_certificate ${OMV_CERTIFICATE_DIR}/certs/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.crt;')" -n \
     -v "concat('    ssl_certificate_key ${OMV_CERTIFICATE_DIR}/private/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.key;')" -n \
-    -o "    # Perfect Forward Secrecy" -n \
+    -o "    # PFS (Perfect Forward Secrecy)" -n \
     -o "    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;" -n \
     -o "    ssl_prefer_server_ciphers on;" -n \
     -o "    ssl_ciphers EECDH+ECDSA+AESGCM:EECDH+aRSA+AESGCM:EECDH+ECDSA+SHA384:EECDH+ECDSA+SHA256:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH+aRSA+RC4:EECDH:EDH+aRSA:RC4:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS;" -n \
+    -o "    # HSTS (HTTP Strict Transport Security)" -n \
+    -o "    # https://developer.mozilla.org/en-US/docs/Security/HTTP_Strict_Transport_Security" -n \
+    -o "    # https://en.wikipedia.org/wiki/SSL_stripping#SSL_stripping" -n \
+    -o "    add_header Strict-Transport-Security \"max-age=31536000; includeSubdomains;\";" -n \
   -b \
   -i "enablessl[. = '1'] and forcesslonly[. = '1']" \
     -o "    if (\$scheme = http) {" -n \
