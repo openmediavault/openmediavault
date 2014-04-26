@@ -32,7 +32,7 @@ set -e
 OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
 
 OMV_PROFTPD_CONFIG=${OMV_PROFTPD_CONFIG:-"/etc/proftpd/proftpd.conf"}
-OMV_PROFTPD_EXTENSIONSDIR=${OMV_PROFTPD_EXTENSIONSDIR:-"${OMV_MKCONF_SCRIPTS_DIR}/proftpd.d"}
+OMV_PROFTPD_EXTENSIONS_DIR=${OMV_PROFTPD_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/proftpd.d"}
 OMV_PROFTPD_DEFAULTROOT=${OMV_PROFTPD_DEFAULTROOT:-"/srv/ftp"}
 OMV_PROFTPD_DISPLAYLOGIN=${OMV_PROFTPD_DISPLAYLOGIN:-"/srv/ftp/welcome.msg"}
 OMV_PROFTPD_USEIPV6=${OMV_PROFTPD_USEIPV6:-"on"}
@@ -310,5 +310,5 @@ done
 # This will prevent error messages in the system log WebGUI.
 touch "${OMV_PROFTPD_TRANSFERLOG}"
 
-# Add additional extensions to the configuration file
-run-parts ${OMV_PROFTPD_EXTENSIONSDIR}
+# Add additional extensions to the configuration file.
+run-parts ${OMV_PROFTPD_EXTENSIONS_DIR}
