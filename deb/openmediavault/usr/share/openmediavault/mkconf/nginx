@@ -36,7 +36,7 @@ OMV_NGINX_EXTENSIONS_DIR=${OMV_NGINX_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/
 OMV_NGINX_LOG_DIR=${OMV_NGINX_LOG_DIR:-"/var/log/nginx"}
 OMV_NGINX_SITE_WEBGUI_SERVERNAME=${OMV_NGINX_SITE_WEBGUI_SERVERNAME:-"openmediavault-webgui"}
 OMV_NGINX_SITE_WEBGUI_CONFIG=${OMV_NGINX_SITE_WEBGUI_CONFIG:-"/etc/nginx/sites-available/openmediavault-webgui"}
-OMV_NGINX_SITE_WEBGUI_CONFIG_DIR=${OMV_NGINX_SITE_WEBGUI_CONFIG_DIR:-"/etc/nginx/openmediavault-webgui.d"}
+OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR=${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR:-"/etc/nginx/openmediavault-webgui.d"}
 OMV_NGINX_SITE_WEBGUI_LOGLEVEL=${OMV_NGINX_SITE_WEBGUI_LOGLEVEL:-"error"}
 
 # Create '/etc/nginx/sites-available/openmediavault-webgui' file
@@ -84,13 +84,13 @@ xmlstarlet sel -t -m "//webadmin" \
     -o "    }" -n \
   -b \
   -o "    # Content Security Policy (CSP)" -n \
-  -o "    add_header X-Content-Security-Policy \"default-src 'self'; script-src 'self'; img-src 'self'\";" -n \ 
+  -o "    add_header X-Content-Security-Policy \"default-src 'self'; script-src 'self'; img-src 'self';\";" -n \
   -o "    # Various additional headers." -n \
   -o "    add_header X-Frame-Options \"SAMEORIGIN\";" -n \
   -o "    add_header X-Content-Type-Options \"nosniff\";" -n \
-  -o "    add_header X-XSS-Protection \"1; mode=block\";" -n \
+  -o "    add_header X-XSS-Protection \"1; mode=block;\";" -n \
   -o "    # Include optional configuration files." -n \
-  -o "    include ${OMV_NGINX_SITE_WEBGUI_CONFIG_DIR}/*.conf;" -n \
+  -o "    include ${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR}/*.conf;" -n \
   -o "}" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NGINX_SITE_WEBGUI_CONFIG}
 

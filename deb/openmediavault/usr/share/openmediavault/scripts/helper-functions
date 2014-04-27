@@ -592,7 +592,7 @@ omv_install_fixperms() {
 	_docroot=$1
 	[ -z "${_docroot}" ] && _docroot=${OMV_DOCUMENTROOT_DIR}
 	chmod 755 ${_docroot}
-	chown -R ${OMV_WEBGUI_OWNER_USERNAME}:${OMV_WEBGUI_OWNER_USERNAME} ${_docroot}
+	chown -R ${OMV_WEBGUI_FILE_OWNERGROUP_NAME}:${OMV_WEBGUI_FILE_OWNERGROUP_NAME} ${_docroot}
 	find ${_docroot}/* -type d -exec chmod 775 {} +
 	find ${_docroot}/* -type f -exec chmod 664 {} +
 }

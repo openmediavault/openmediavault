@@ -331,9 +331,10 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.6.0.10"; then
 			# Set default envionment variables.
-			omv_set_default "OMV_WEBGUI_OWNER_USERNAME" "openmediavault"
+			omv_set_default "OMV_WEBGUI_FILE_OWNERGROUP_NAME" "openmediavault"
 			# Stop apache.
-			monit stop apache2
+			monit unmonitor apache2
+			invoke-rc.d --force apache2 stop
 			update-rc.d apache2 disable &>/dev/null
 			# Rebuild configuration files.
 			omv-mkconf nginx
