@@ -1,0 +1,81 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2014 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+NGINX_CONFIG_DIR=${NGINX_CONFIG_DIR:-"/etc/nginx"}
+NGINX_AVAILABLE_SITES_DIR=${NGINX_AVAILABLE_SITES_DIR:-"${NGINX_CONFIG_DIR}/sites-available"}
+NGINX_ENABLED_SITES_DIR=${NGINX_ENABLED_SITES_DIR:-"${NGINX_CONFIG_DIR}/sites-enabled"}
+
+usage() {
+	cat <<EOF
+Usage:
+  $(basename $0) site
+
+Enable or disable a nginx site / virtual host.
+
+OPTIONS:
+  -h  Show this message.
+
+EOF
+}
+
+command=${0##*nginx_}
+site=$1
+
+# Process command line arguments.
+while getopts '?h' option
+do
+	case ${option} in
+	h|?)
+		usage >&2
+		exit 0
+		;;
+	esac
+done
+
+if [ -z "${site}" ]; then
+	usage >&2
+	exit 0
+fi
+
+case ${command} in
+ensite)
+	if [ ! -f "${NGINX_AVAILABLE_SITES_DIR}/${site}" ]; then
+		echo "Site configuration file '${site}' not found."
+		exit 1
+	fi
+	if [ -f "${NGINX_ENABLED_SITES_DIR}/${site}" ]; then
+		echo "Site configuration file '${site}' is already enabled."
+		exit 0
+	fi
+	cd "${NGINX_ENABLED_SITES_DIR}" && ln -s "../sites-available/${site}" "${site}"
+	;;
+dissite)
+	if [ ! -f "${NGINX_ENABLED_SITES_DIR}/${site}" ]; then
+		echo "Site configuration file '${site}' not found."
+		exit 1
+	fi
+	rm -f "${NGINX_ENABLED_SITES_DIR}/${site}"
+	;;
+esac
+
+exit 0
