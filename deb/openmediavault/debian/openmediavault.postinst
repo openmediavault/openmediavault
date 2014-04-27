@@ -334,6 +334,7 @@ case "$1" in
 			omv_set_default "OMV_WEBGUI_OWNER_USERNAME" "openmediavault"
 			# Stop apache.
 			monit stop apache2
+			update-rc.d apache2 disable &>/dev/null
 			# Rebuild configuration files.
 			omv-mkconf nginx
 			omv-mkconf monit
