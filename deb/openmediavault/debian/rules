@@ -30,7 +30,6 @@ binary-indep: install omv_clean_scm
 	dh_link
 	dh_compress
 	dh_fixperms
-	chmod 700 debian/openmediavault/var/www/openmediavault/php-fcgi
 	dh_installdeb
 	dh_gencontrol
 	dh_md5sums
