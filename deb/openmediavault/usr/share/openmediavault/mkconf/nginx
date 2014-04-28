@@ -71,7 +71,7 @@ xmlstarlet sel -t -m "//webadmin" \
   -i "enablessl[. = '1'] and forcesslonly[. = '1']" \
     -o "    if (\$scheme = http) {" -n \
     -o "        # Force redirection to HTTPS." -n \
-    -o "        return 301 https://\$host\$request_uri;" -n \
+    -v "concat('        return 301 https://\$host:',sslport,'\$request_uri;')" -n \
     -o "    }" -n \
   -b \
   -i "enablessl[. = '1']" \

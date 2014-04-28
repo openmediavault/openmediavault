@@ -55,7 +55,7 @@ class OMVModuleNginx extends OMVModuleServiceAbstract {
 	 */
 	public function startService() {
 		$initd = new OMVSysVInitScript("nginx", TRUE);
-		$initd->invoke("reload");
+		$initd->invoke("restart");
 	}
 }
 ?>
