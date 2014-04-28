@@ -67,7 +67,7 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "        fastcgi_index index.php;" -n \
   -o "        include fastcgi_params;" -n \
   -o "    }" -n \
-  -v "concat('    listen [::]:',port,' default_server;')" -n \
+  -v "concat('    listen [::]:',port,' default_server ipv6only=off;')" -n \
   -i "enablessl[. = '1'] and forcesslonly[. = '1']" \
     -o "    if (\$scheme = http) {" -n \
     -o "        # Force redirection to HTTPS." -n \
@@ -75,7 +75,7 @@ xmlstarlet sel -t -m "//webadmin" \
     -o "    }" -n \
   -b \
   -i "enablessl[. = '1']" \
-    -v "concat('    listen [::]:',sslport,' default_server ssl deferred;')" -n \
+    -v "concat('    listen [::]:',sslport,' default_server ipv6only=off ssl deferred;')" -n \
     -v "concat('    ssl_certificate ${OMV_CERTIFICATE_DIR}/certs/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.crt;')" -n \
     -v "concat('    ssl_certificate_key ${OMV_CERTIFICATE_DIR}/private/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.key;')" -n \
     -o "    # PFS (Perfect Forward Secrecy)" -n \
