@@ -2,7 +2,16 @@
 # The PAM configuration file for OpenMediaVault
 #
 
+# Deny user access if too many attempts fail.
+auth        required        pam_tally2.so onerr=fail audit deny=3 unlock_time=180
+
+# Standard Un*x authentication.
 @include common-auth
 
-# Deny user access if too many attempts fail.
-#auth        required        pam_tally.so onerr=fail audit deny=3 unlock_time=180
+account     required        pam_tally2.so
+
+# Standard Un*x authorization.
+@include common-account
+
+# Standard Un*x session setup and teardown.
+@include common-session

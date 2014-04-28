@@ -116,7 +116,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 				return;
 			var path = node.getPath();
 			var id = node.getId();
-			if(((path === "/info/about") && (id === "about")) ||
+			if(((path === "/info") && (id === "about")) ||
 			  ((path === "/diagnostic") && (id === "system"))) {
 				// Select the found node delayed to ensure the components
 				// are already rendered (especially the toolbar displaying
