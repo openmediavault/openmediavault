@@ -22,7 +22,7 @@
 # Documentation/Howto:
 # http://wiki.nginx.org/Pitfalls#Taxing_Rewrites
 # http://security.stackexchange.com/questions/54639/nginx-recommended-ssl-ciphers-for-security-compatibility-with-pfs
-# http://de.wikipedia.org/wiki/Liste_der_HTTP-Headerfelder
+# http://en.wikipedia.org/wiki/List_of_HTTP_header_fields
 
 set -e
 
@@ -90,9 +90,13 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "    # Content Security Policy (CSP)" -n \
   -o "    # https://www.owasp.org/index.php/Content_Security_Policy" -n \
   -o "    add_header Content-Security-Policy \"${OMV_NGINX_SITE_WEBGUI_HEADER_CSP}\";" -n \
-  -o "    # Various additional headers." -n \
+  -o "    # Various additional headers:" -n \
+  -o "    # https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options" -n \
   -o "    add_header X-Frame-Options \"SAMEORIGIN\";" -n \
+  -o "    # http://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx" -n \
   -o "    add_header X-Content-Type-Options \"nosniff\";" -n \
+  -o "    # https://wiki.mozilla.org/Security/Features/XSS_Filter" -n \
+  -o "    # http://blogs.msdn.com/b/ieinternals/archive/2011/01/31/controlling-the-internet-explorer-xss-filter-with-the-x-xss-protection-http-header.aspx" -n \
   -o "    add_header X-XSS-Protection \"1; mode=block\";" -n \
   -o "    # Include optional configuration files." -n \
   -o "    include ${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR}/*.conf;" -n \
