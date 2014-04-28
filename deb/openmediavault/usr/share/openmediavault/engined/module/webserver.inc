@@ -20,6 +20,44 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
+require_once("openmediavault/error.inc");
+require_once("openmediavault/initscript.inc");
+
+class OMVModuleNginx extends OMVModuleServiceAbstract {
+	/**
+	 * Get the module name.
+	 */
+	public function getName() {
+		return "nginx";
+	}
+
+	/**
+	 * Defines the modules that if present should build their configuration
+	 * before the service provided by this module.
+	 * @return An array of modules.
+	 */
+	public function shouldApply() { return array("certificatemgmt"); }
+
+	/**
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
+	 */
+	public function applyConfig() {
+		$cmd = "omv-mkconf nginx 2>&1";
+		if (0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+	}
+
+	/**
+	 * Start the managed service.
+	 */
+	public function startService() {
+		$initd = new OMVSysVInitScript("nginx", TRUE);
+		$initd->invoke("restart");
+	}
+}
 
 class OMVModuleWebserver extends OMVModuleNginx {
 	/**
