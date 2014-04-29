@@ -3614,7 +3614,12 @@ class OMVUser extends OMVObject {
 	 * @return TRUE if the authentication was successful, otherwise FALSE.
 	 */
 	public function authenticate($password) {
-		return pam_auth($this->getName(), $password);
+		$error = "";
+		if (FALSE === pam_auth($this->getName(), $password, $error)) {
+			$this->setLastError($error);
+			return FALSE;
+		}
+		return TRUE;
 	}
 }
 
