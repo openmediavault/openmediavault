@@ -61,32 +61,31 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 				  "password":{"type":"string"}
 			  }
 		  }');
-		// Authenticate the given user. Store various web server environment
-		// information in the context to restore them in the backend daemon
-		// to get the PAM framework working correct.
-		$object = OMVRpc::exec("UserMgmt", "authUser", $params,
-		  $this->getAdminContext(TRUE), OMV_RPC_MODE_REMOTE);
 		$authenticated = FALSE;
-		if(!is_null($object) && (TRUE === $object['authenticated'])) {
+		// Authenticate the given user. Note, do not use the OMV engine
+		// RPC called 'UserMgmt::authUser' because it is executed in a
+		// different PHP context ($_SERVER does not contain REMOTE_ADDR)
+		// which causes PAM not to work correct.
+		if (TRUE === pam_auth($params['username'], $params['password'])) {
 			$session = &OMVSession::getInstance();
-			if($session->isAuthenticated()) {
+			if ($session->isAuthenticated()) {
 				// Is the current session registered to the user to be
 				// authenticated?
-				if($session->getUsername() !== $object['username']) {
+				if ($session->getUsername() !== $params['username']) {
 					$session->commit();
 					throw new OMVException(
 					  OMVErrorMsg::E_SESSION_ALREADY_AUTHENTICATED);
 				}
 			} else {
 				// Initialize session.
-				$role = ($object['username'] === "admin") ?
+				$role = ($params['username'] === "admin") ?
 				  OMV_ROLE_ADMINISTRATOR : OMV_ROLE_USER;
-				$session->initialize($object['username'], $role);
+				$session->initialize($params['username'], $role);
 			}
 			$authenticated = $session->isAuthenticated();
 			$session->commit();
 		}
-		if(FALSE === $authenticated) {
+		if (FALSE === $authenticated) {
 			syslog(LOG_ALERT, sprintf("Unauthorized login attempt from %s ".
 			  "[username='%s', user-agent=%s]", $_SERVER['REMOTE_ADDR'],
 			  $params['username'], $_SERVER['HTTP_USER_AGENT']));

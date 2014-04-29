@@ -208,33 +208,13 @@ abstract class OMVRpcServiceAbstract extends OMVObject {
 
 	/**
 	 * Helper function to get the administrator context.
-	 * @param saveEnv Set to TRUE to store various web server and execution
-	 *   environment information. This might be helpful in some cases if
-	 *   these information are required in the backend. The information
-	 *   will be restored automatically in OMVRpc::exec. Defauts to FALSE.
-	 *   Note, only use this feature if you call a RPC from within the
-	 *   web server PHP code.
 	 * @return The context object.
 	 */
-	final protected function getAdminContext($saveEnv = FALSE) {
-		$context = array(
+	final protected function getAdminContext() {
+		return array(
 			  "username" => "admin",
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  );
-		if (TRUE === $saveEnv) {
-			$variables = array("SERVER_PROTOCOL", "GATEWAY_INTERFACE",
-			  "SERVER_SOFTWARE", "REMOTE_ADDR", "REMOTE_PORT", "SERVER_ADDR",
-			  "SERVER_PORT", "SERVER_NAME", "HTTPS", "REDIRECT_STATUS",
-			  "HTTP_HOST", "HTTP_ORIGIN", "HTTP_USER_AGENT",
-			  "HTTP_CONTENT_TYPE", "HTTP_REFERER");
-			$context['_SERVER'] = array();
-			foreach ($variables as $key => $value) {
-				if (!array_key_exists($value, $_SERVER))
-					continue;
-				$context['_SERVER'][$value] = $_SERVER[$value];
-			}
-		}
-		return $context;
 	}
 
 	/**
