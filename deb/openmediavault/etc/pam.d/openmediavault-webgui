@@ -1,5 +1,5 @@
 #
-# The PAM configuration file for OpenMediaVault
+# The PAM configuration file for the OpenMediaVault WebGUI
 #
 
 # Deny user access if too many attempts fail.
