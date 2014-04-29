@@ -62,11 +62,12 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		$authenticated = FALSE;
-		// Authenticate the given user. Note, do not use the OMV engine
-		// RPC called 'UserMgmt::authUser' because it is executed in a
-		// different PHP context ($_SERVER does not contain REMOTE_ADDR)
-		// which causes PAM not to work correct.
-		if (TRUE === pam_auth($params['username'], $params['password'])) {
+		// Authenticate the given user. Note, the OMV engine RPC is
+		// executed in another context which allows reading the shadow
+		// file, otherwise pam_auth() will fail.
+		$object = OMVRpc::exec("UserMgmt", "authUser", $params,
+		  $this->getAdminContext(), OMV_RPC_MODE_REMOTE);
+		if (!is_null($object) && (TRUE === $object['authenticated'])) {
 			$session = &OMVSession::getInstance();
 			if ($session->isAuthenticated()) {
 				// Is the current session registered to the user to be
