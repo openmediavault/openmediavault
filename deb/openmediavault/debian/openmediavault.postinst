@@ -336,7 +336,7 @@ case "$1" in
 			# Stop apache.
 			monit unmonitor apache2
 			invoke-rc.d --force apache2 stop
-			update-rc.d apache2 disable &>/dev/null
+			update-rc.d apache2 remove &>/dev/null
 			# Rebuild configuration files.
 			omv-mkconf nginx
 			omv-mkconf monit
