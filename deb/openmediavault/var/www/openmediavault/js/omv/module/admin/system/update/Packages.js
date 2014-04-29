@@ -169,6 +169,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 						method: "getUpgraded"
 					}
 				},
+				remoteSort: true,
 				sorters: [{
 					direction: "ASC",
 					property: "name"
