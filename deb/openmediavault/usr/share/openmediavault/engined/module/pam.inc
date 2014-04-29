@@ -20,7 +20,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 require_once("openmediavault/module.inc");
-require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
 
 class OMVModulePAM extends OMVModuleServiceAbstract
@@ -43,16 +42,6 @@ class OMVModulePAM extends OMVModuleServiceAbstract
 			  $cmd, implode("\n", $output));
 		}
 	}
-
-	/**
-	 * Bind listeners.
-	 */
-	function bindListeners(OMVNotifyDispatcher $dispatcher) {
-		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.services.ldap",
-		  array($this, "setDirty"));
-    }
 }
 
 // Register module.

@@ -8,6 +8,7 @@ openmediavault (0.6.0.10) stable; urgency=low
   * Improve 'openmediavault' PAM configuration. Block users for 180sec
     after 3 failed WebGUI login attempts. Check the pam_tally2 manual
     page for more information.
+  * Introduce new OMV configuration engine backend for PAM.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 24 Apr 2014 07:18:45 +0200
 

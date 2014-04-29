@@ -1,3 +1,9 @@
+openmediavault-ldap (0.6.3) stable; urgency=low
+
+  * Adapt plugin to new OMV configuration engine backend for PAM.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 29 Apr 2014 21:39:17 +0200
+
 openmediavault-ldap (0.6.2) stable; urgency=low
 
   * Modify package trigger handling. Now the triggers update-fixperms and
