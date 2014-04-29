@@ -22,8 +22,7 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
 
-class OMVModulePAM extends OMVModuleServiceAbstract
-  implements OMVINotifyListener {
+class OMVModulePAM extends OMVModuleServiceAbstract {
 	/**
 	 * Get the module name.
 	 */
