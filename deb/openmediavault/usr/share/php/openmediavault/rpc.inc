@@ -58,6 +58,13 @@ class OMVRpc extends OMVObject {
 			if(FALSE !== ($rpcService = $rpcServiceMgr->getService(
 			  $service))) {
 				if(TRUE === $rpcService->hasMethod($method)) {
+					// Restore server and execution environment information
+					// if exists.
+					if (array_key_exists("_SERVER", $context)) {
+						foreach ($context['_SERVER'] as $key => $value) {
+							$_SERVER[$key] = $value;
+						}
+					}
 					// Execute the RPC service method.
 					return $rpcService->callMethod($method, $params, $context);
 				} else {

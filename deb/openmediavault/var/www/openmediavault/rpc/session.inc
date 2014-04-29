@@ -61,9 +61,11 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 				  "password":{"type":"string"}
 			  }
 		  }');
-		// Authenticate the given user.
+		// Authenticate the given user. Store various web server environment
+		// information in the context to restore them in the backend daemon
+		// to get the PAM framework working correct.
 		$object = OMVRpc::exec("UserMgmt", "authUser", $params,
-		  $this->getAdminContext(), OMV_RPC_MODE_REMOTE);
+		  $this->getAdminContext(TRUE), OMV_RPC_MODE_REMOTE);
 		$authenticated = FALSE;
 		if(!is_null($object) && (TRUE === $object['authenticated'])) {
 			$session = &OMVSession::getInstance();
