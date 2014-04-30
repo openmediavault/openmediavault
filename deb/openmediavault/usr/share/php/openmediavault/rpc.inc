@@ -37,7 +37,16 @@ class OMVRpc extends OMVObject {
 	 *   of the given service.
 	 * @param context The context hash object of the caller containing the
 	 *   fields \em username and \em role.
-	 * @param mode The mode how to execute this RPC. Defaults to local only.
+	 * @param mode The mode how to execute this RPC. The following modes
+	 *   are available:<ul>
+	 *   \li OMV_RPC_MODE_LOCAL
+	 *   \li OMV_RPC_MODE_REMOTE
+	 *   </ul>
+	 *   Defaults to OMV_RPC_MODE_LOCAL.
+	 * @param restoreSrvEnv Restore various web server and execution
+	 *   environment information. This might be helpful in some cases if
+	 *   these information are required in the engine backend. Note, this
+	 *   only takes action when mode is OMV_RPC_MODE_REMOTE. Defauts to FALSE.
 	 * @return The RPC response.
 	 * @throw E_RPC_SERVICE_NOT_FOUND
 	 * @throw E_RPC_SERVICE_METHOD_NOT_EXISTS
@@ -48,7 +57,7 @@ class OMVRpc extends OMVObject {
 	 * @throw E_ENGINED_READ_SOCKET
 	 */
 	public static function exec($service, $method, $params, $context,
-	  $mode = OMV_RPC_MODE_LOCAL) {
+	  $mode = OMV_RPC_MODE_LOCAL, $restoreSrvEnv = FALSE) {
 //		$this->debug(var_export(func_get_args(), TRUE));
 		///////////////////////////////////////////////////////////////////////
 		// Try to execute local RPC first.
@@ -58,6 +67,14 @@ class OMVRpc extends OMVObject {
 			if(FALSE !== ($rpcService = $rpcServiceMgr->getService(
 			  $service))) {
 				if(TRUE === $rpcService->hasMethod($method)) {
+					// Restore server and execution environment information
+					// if exists.
+					if (array_key_exists("_SERVER", $context)) {
+						foreach ($context['_SERVER'] as $key => $value) {
+							$_SERVER[$key] = $value;
+						}
+						unset($context['_SERVER']);
+					}
 					// Execute the RPC service method.
 					return $rpcService->callMethod($method, $params, $context);
 				} else {
@@ -84,6 +101,21 @@ class OMVRpc extends OMVObject {
 		// Redirect RPC to omv-engined daemon to execute it remote.
 		///////////////////////////////////////////////////////////////////////
 		if($mode & OMV_RPC_MODE_REMOTE) {
+			// Store the web server and execution environment information?
+			// The information is stored in the given context.
+			if (TRUE === $restoreSrvEnv) {
+				$variables = array("SERVER_PROTOCOL", "GATEWAY_INTERFACE",
+				  "SERVER_SOFTWARE", "REMOTE_ADDR", "REMOTE_PORT",
+				  "SERVER_ADDR", "SERVER_PORT", "SERVER_NAME", "HTTPS",
+				  "REDIRECT_STATUS", "HTTP_HOST", "HTTP_ORIGIN",
+				  "HTTP_USER_AGENT", "HTTP_CONTENT_TYPE", "HTTP_REFERER");
+				$context['_SERVER'] = array();
+				foreach ($variables as $key => $value) {
+					if (!array_key_exists($value, $_SERVER))
+						continue;
+					$context['_SERVER'][$value] = $_SERVER[$value];
+				}
+			}
 			// Create and connect to the socket.
 			if(FALSE === ($socket = @socket_create(AF_UNIX, SOCK_STREAM, 0))) {
 				throw new OMVException(
