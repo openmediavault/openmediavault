@@ -3608,14 +3608,15 @@ class OMVUser extends OMVObject {
 	}
 
 	/**
-	 * Authenticate user via PAM. Note, the calling process must have the
-	 * privilege to read the user shadow file.
+	 * Authenticate user via PAM. Account expiration and access hours are
+	 * checked, too. Note, the calling process must have the privilege to
+	 * read the user shadow file.
 	 * @param password The password.
 	 * @return TRUE if the authentication was successful, otherwise FALSE.
 	 */
 	public function authenticate($password) {
 		$error = "";
-		if (FALSE === pam_auth($this->getName(), $password, $error)) {
+		if (FALSE === pam_auth($this->getName(), $password, $error, TRUE)) {
 			$this->setLastError($error);
 			return FALSE;
 		}
