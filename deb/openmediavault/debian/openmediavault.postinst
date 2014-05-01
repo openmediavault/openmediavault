@@ -302,6 +302,10 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.5.45"; then
 			omv-mkconf rsyncd
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.5.46"; then
+			deluser openmediavault shadow || :
+			deluser openmediavault sudo || :
+		fi
 	;;
 
 	triggered)
