@@ -4,13 +4,14 @@
 # 
 # Translators:
 # dezi121 <by@songming.me>, 2013-2014
+# dywsdu <dyw.net@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-08 20:23+0100\n"
-"PO-Revision-Date: 2014-03-09 01:20+0000\n"
-"Last-Translator: dezi121 <by@songming.me>\n"
+"PO-Revision-Date: 2014-04-13 06:08+0000\n"
+"Last-Translator: dywsdu <dyw.net@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -908,7 +909,7 @@ msgid "Do you really want to uninstall the selected plugin(s)?"
 msgstr "确定卸载选中插件(可复选)？"
 
 msgid "Do you really want to wipe the selected device?"
-msgstr "确定擦除选中设备？"
+msgstr "确定擦除选中的设备？"
 
 msgid ""
 "Do you want to remove the content of the shared folder recursively? The "
@@ -2649,7 +2650,7 @@ msgid "Scan"
 msgstr "扫描"
 
 msgid "Scanning for new devices ..."
-msgstr "扫描新设备"
+msgstr "正在扫描新设备..."
 
 msgid "Scheduled jobs"
 msgstr "计划任务"
@@ -2691,10 +2692,10 @@ msgid "Select a file system ..."
 msgstr "选择文件系统 ..."
 
 msgid "Select a group name..."
-msgstr "选择组名称"
+msgstr "选择组名称..."
 
 msgid "Select a language ..."
-msgstr "语言选择"
+msgstr "选择一种语言..."
 
 msgid "Select a primary device ..."
 msgstr "选择一个主要设备 ..."
@@ -3239,7 +3240,7 @@ msgid ""
 msgstr "设置后共享会出现在网络的共享列表中。"
 
 msgid "This field does not allow blanks"
-msgstr "此字段不晕空白"
+msgstr "此字段不能为空白"
 
 msgid "This field is required"
 msgstr "此字段是必须的"

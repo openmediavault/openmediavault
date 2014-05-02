@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Андрей Чапалда <ansilent@gmail.com>, 2012
-# zubr139 <zubr139@ukr.net>, 2013-2014
+# zubr139, 2013-2014
 # Андрей Чапалда <ansilent@gmail.com>, 2012
 msgid ""
 msgstr ""
