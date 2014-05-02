@@ -43,7 +43,14 @@ class OMVModuleNginx extends OMVModuleServiceAbstract {
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
+		# Build the configuration.
 		$cmd = "omv-mkconf nginx 2>&1";
+		if (0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		# Test the new configuration.
+		$cmd = "nginx -t 2>&1";
 		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
