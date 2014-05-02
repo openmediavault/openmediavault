@@ -1,4 +1,4 @@
-php-pam for Debian
+php5-pam for Debian
 --------------------------
 
 This extension has been created with dh-make-pecl which is part

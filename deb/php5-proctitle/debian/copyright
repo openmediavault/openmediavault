@@ -15,7 +15,7 @@ License:
 
     PHP License
 
-The Debian packaging is copyright 2009,  and
+The Debian packaging is copyright 2009, Volker Theile <volker.theile@openmediavault.org> and
 is licensed under the GPL, see `/usr/share/common-licenses/GPL'.
 
 -------------------------------------------------------------------- 
