@@ -267,8 +267,15 @@ class OMVWebGuiLogin extends OMVHtmlPage {
 							if(response.authenticated === true) {
 								// Close the window now.
 								wnd.close();
+								// Display loading progress dialog. This will
+								// be displayed until the web administration
+								// interface is loaded and rendered.
+								Ext.create("Ext.LoadMask", {
+									target: Ext.getBody(),
+									msg: _("Loading, please wait ...")
+								}).show();
 								// Reload page to render the web
-								// administration interface
+								// administration interface.
 								document.location.reload(true);
 							} else {
 								OMV.MessageBox.guru({
