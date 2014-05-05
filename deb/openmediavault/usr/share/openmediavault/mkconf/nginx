@@ -19,89 +19,14 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Documentation/Howto:
-# http://wiki.nginx.org/Pitfalls#Taxing_Rewrites
-# http://security.stackexchange.com/questions/54639/nginx-recommended-ssl-ciphers-for-security-compatibility-with-pfs
-# http://en.wikipedia.org/wiki/List_of_HTTP_header_fields
-
 set -e
 
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_CERTIFICATE_DIR=${OMV_CERTIFICATE_DIR:-"/etc/ssl"}
-OMV_CERTIFICATE_PREFIX=${OMV_CERTIFICATE_PREFIX:-"openmediavault-"}
 OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
 
 OMV_NGINX_EXTENSIONS_DIR=${OMV_NGINX_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/nginx.d"}
-OMV_NGINX_LOG_DIR=${OMV_NGINX_LOG_DIR:-"/var/log/nginx"}
-OMV_NGINX_SITE_WEBGUI_SERVERNAME=${OMV_NGINX_SITE_WEBGUI_SERVERNAME:-"openmediavault-webgui"}
-OMV_NGINX_SITE_WEBGUI_CONFIG=${OMV_NGINX_SITE_WEBGUI_CONFIG:-"/etc/nginx/sites-available/openmediavault-webgui"}
-OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR=${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR:-"/etc/nginx/openmediavault-webgui.d"}
-OMV_NGINX_SITE_WEBGUI_LOGLEVEL=${OMV_NGINX_SITE_WEBGUI_LOGLEVEL:-"error"}
-OMV_NGINX_SITE_WEBGUI_HEADER_CSP=${OMV_NGINX_SITE_WEBGUI_HEADER_CSP:-"default-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:"}
-OMV_NGINX_SITE_WEBGUI_HEADER_HSTS=${OMV_NGINX_SITE_WEBGUI_HEADER_HSTS:-"max-age=31536000; includeSubdomains"}
 
-# Create '/etc/nginx/sites-available/openmediavault-webgui' file
-xmlstarlet sel -t -m "//webadmin" \
-  -o "server {" -n \
-  -o "    server_name ${OMV_NGINX_SITE_WEBGUI_SERVERNAME};" -n \
-  -o "    root ${OMV_DOCUMENTROOT_DIR};" -n \
-  -o "    index index.php;" -n \
-  -o "    autoindex off;" -n \
-  -o "    server_tokens off;" -n \
-  -o "    sendfile on;" -n \
-  -o "    large_client_header_buffers 4 32k;" -n \
-  -o "    error_log ${OMV_NGINX_LOG_DIR}/${OMV_NGINX_SITE_WEBGUI_SERVERNAME}_error.log ${OMV_NGINX_SITE_WEBGUI_LOGLEVEL};" -n \
-  -o "    access_log ${OMV_NGINX_LOG_DIR}/${OMV_NGINX_SITE_WEBGUI_SERVERNAME}_access.log combined;" -n \
-  -o "    location /extjs/ {" -n \
-  -o "        alias /usr/share/javascript/extjs4/;" -n \
-  -o "    }" -n \
-  -o "    location /images/ {" -n \
-  -o "        alias ${OMV_DOCUMENTROOT_DIR}/images/;" -n \
-  -o "    }" -n \
-  -o "    location ~ \.php$ {" -n \
-  -o "        try_files \$uri =404;" -n \
-  -o "        fastcgi_split_path_info ^(.+\.php)(/.+)$;" -n \
-  -o "        fastcgi_pass unix:/var/run/php5-fpm-openmediavault-webgui.sock;" -n \
-  -o "        fastcgi_index index.php;" -n \
-  -o "        include fastcgi_params;" -n \
-  -o "    }" -n \
-  -v "concat('    listen [::]:',port,' default_server ipv6only=off;')" -n \
-  -i "enablessl[. = '1'] and forcesslonly[. = '1']" \
-    -o "    if (\$scheme = http) {" -n \
-    -o "        # Force redirection to HTTPS." -n \
-    -v "concat('        return 301 https://\$host:',sslport,'\$request_uri;')" -n \
-    -o "    }" -n \
-  -b \
-  -i "enablessl[. = '1']" \
-    -v "concat('    listen [::]:',sslport,' default_server ipv6only=off ssl deferred;')" -n \
-    -v "concat('    ssl_certificate ${OMV_CERTIFICATE_DIR}/certs/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.crt;')" -n \
-    -v "concat('    ssl_certificate_key ${OMV_CERTIFICATE_DIR}/private/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.key;')" -n \
-    -o "    # PFS (Perfect Forward Secrecy)" -n \
-    -o "    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;" -n \
-    -o "    ssl_prefer_server_ciphers on;" -n \
-    -o "    ssl_ciphers EECDH+ECDSA+AESGCM:EECDH+aRSA+AESGCM:EECDH+ECDSA+SHA384:EECDH+ECDSA+SHA256:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH+aRSA+RC4:EECDH:EDH+aRSA:RC4:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS;" -n \
-    -o "    # HSTS (HTTP Strict Transport Security)" -n \
-    -o "    # https://developer.mozilla.org/en-US/docs/Security/HTTP_Strict_Transport_Security" -n \
-    -o "    # https://en.wikipedia.org/wiki/SSL_stripping#SSL_stripping" -n \
-    -o "    add_header Strict-Transport-Security \"${OMV_NGINX_SITE_WEBGUI_HEADER_HSTS}\";" -n \
-  -b \
-  -o "    # Content Security Policy (CSP)" -n \
-  -o "    # https://www.owasp.org/index.php/Content_Security_Policy" -n \
-  -o "    add_header Content-Security-Policy \"${OMV_NGINX_SITE_WEBGUI_HEADER_CSP}\";" -n \
-  -o "    # Various additional headers:" -n \
-  -o "    # https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options" -n \
-  -o "    add_header X-Frame-Options \"SAMEORIGIN\";" -n \
-  -o "    # http://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx" -n \
-  -o "    add_header X-Content-Type-Options \"nosniff\";" -n \
-  -o "    # https://wiki.mozilla.org/Security/Features/XSS_Filter" -n \
-  -o "    # http://blogs.msdn.com/b/ieinternals/archive/2011/01/31/controlling-the-internet-explorer-xss-filter-with-the-x-xss-protection-http-header.aspx" -n \
-  -o "    add_header X-XSS-Protection \"1; mode=block\";" -n \
-  -o "    # Include optional configuration files." -n \
-  -o "    include ${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR}/*.conf;" -n \
-  -o "}" \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NGINX_SITE_WEBGUI_CONFIG}
-
-# Build additional configuration files.
+# Build the configuration files.
 run-parts ${OMV_NGINX_EXTENSIONS_DIR}
