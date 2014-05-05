@@ -96,7 +96,7 @@ case "$1" in
 			####################################################################
 			echo "Configuring web server"
 			omv-mkconf nginx
-			nginx_dissite default
+			nginx_dissite default || :
 			nginx_ensite openmediavault-webgui
 		fi
 		# Create public/private SSH key pair for user root
@@ -341,7 +341,7 @@ case "$1" in
 			omv-mkconf nginx
 			omv-mkconf monit
 			# Enable openmediavault-webgui site.
-			nginx_dissite default
+			nginx_dissite default || :
 			nginx_ensite openmediavault-webgui
 			# Restart services.
 			invoke-rc.d php5-fpm reload
