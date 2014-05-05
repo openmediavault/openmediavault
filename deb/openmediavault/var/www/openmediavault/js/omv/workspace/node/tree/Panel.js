@@ -108,26 +108,35 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 	afterRender: function() {
 		var me = this;
 		me.callParent(arguments);
-		// Select the 'About' or 'System Information' menu entry per
-		// default after login.
+		// Select the 'About' or 'System Information' tree menu entry
+		// per default after login.
+		var treeNodeToSelect = null;
 		me.getRootNode().cascadeBy(function(treeNode) {
 			var node = treeNode.get("node");
-			if(!Ext.isObject(node) || !node.isNode)
+			if (!Ext.isObject(node) || !node.isNode)
 				return;
 			var path = node.getPath();
 			var id = node.getId();
-			if(((path === "/info") && (id === "about")) ||
-			  ((path === "/diagnostic") && (id === "system"))) {
-				// Select the found node delayed to ensure the components
-				// are already rendered (especially the toolbar displaying
-				// the path of the selected node). Maybe not the best
-				// solution but it works at the moment.
-				Ext.Function.defer(function() {
-					this.getSelectionModel().select(treeNode);
-				}, 500, me);
-				return false;
+			if ((path === "/diagnostic") && (id === "system")) {
+				// The prefered tree node to use.
+				treeNodeToSelect = treeNode;
+			} else if ((path === "/info") && (id === "about")) {
+				// Continue search. This tree node is only a fallback if
+				// the prefered one is not found.
+				if (Ext.isEmpty(treeNodeToSelect))
+					treeNodeToSelect = treeNode;
 			}
 		});
+		// Any tree node found?
+		if (!Ext.isEmpty(treeNodeToSelect) && treeNodeToSelect.isModel) {
+			// Select the found node delayed to ensure the components
+			// are already rendered (especially the toolbar displaying
+			// the path of the selected node). Maybe not the best
+			// solution but it works at the moment.
+			Ext.Function.defer(function() {
+				this.getSelectionModel().select(treeNodeToSelect);
+			}, 500, me);
+		}
 	},
 
 	/**
