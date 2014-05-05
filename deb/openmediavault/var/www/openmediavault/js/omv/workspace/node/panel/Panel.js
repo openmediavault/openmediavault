@@ -31,13 +31,11 @@ Ext.define("OMV.workspace.node.panel.Panel", {
 	extend: "OMV.workspace.panel.Panel",
 	alias: "widget.workspacenodepanel",
 	requires: [
-		"Ext.view.View",
 		"OMV.WorkspaceManager",
 		"OMV.workspace.node.Model"
 	],
 	uses: [
-		"Ext.XTemplate",
-		"Ext.data.Store"
+		"Ext.XTemplate"
 	],
 
 	layout: {
@@ -63,10 +61,17 @@ Ext.define("OMV.workspace.node.panel.Panel", {
 				html: Ext.create("Ext.XTemplate",
 					'<tpl for=".">',
 						'<div class="thumb-wrap" id="{id:stripTags}" style="float:left; margin:5px">',
-							'<div class="thumb" style="text-align:center;"><img width="32" height="32" src="{icon32}" title="{text:htmlEncode}"></div>',
+							'<div class="thumb" style="text-align:center;"><img width="32" height="32" src="{[this.renderIcon(values)]}" title="{text:htmlEncode}"></div>',
 							'<span>{text:htmlEncode}</span>',
 						'</div>',
-					'</tpl>'
+					'</tpl>',
+					{
+						renderIcon: function(values) {
+							var node = Ext.create("OMV.workspace.node.Node",
+							  values);
+							return node.getIcon32();
+						}
+					}
 				).apply(node.getRange())
 			};
 			me.items.push(config);

@@ -35,6 +35,7 @@ Ext.define("OMV.workspace.node.Model", {
 		{ name: "position", type: "int" },
 		{ name: "icon16", type: "string" },
 		{ name: "icon32", type: "string" },
+		{ name: "iconSvg", type: "string" },
 		{ name: "leaf", type: "boolean" }
 	]
 });
