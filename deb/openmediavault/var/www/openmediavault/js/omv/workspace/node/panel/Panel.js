@@ -35,14 +35,10 @@ Ext.define("OMV.workspace.node.panel.Panel", {
 		"OMV.workspace.node.Model"
 	],
 	uses: [
+		"Ext.data.Store",
+		"Ext.view.View",
 		"Ext.XTemplate"
 	],
-
-	layout: {
-		type: "accordion",
-		animate: true,
-		multi: true
-	},
 
 	constructor: function(config) {
 		var me = this;
@@ -54,17 +50,25 @@ Ext.define("OMV.workspace.node.panel.Panel", {
 
 	initComponent: function() {
 		var me = this;
-		me.items = [];
-		me.root.eachChild(function(node) {
-			var config = {
-				title: node.getText(),
-				html: Ext.create("Ext.XTemplate",
-					'<tpl for=".">',
-						'<div class="thumb-wrap" id="{id:stripTags}" style="float:left; margin:5px">',
-							'<div class="thumb" style="text-align:center;"><img width="32" height="32" src="{[this.renderIcon(values)]}" title="{text:htmlEncode}"></div>',
-							'<span>{text:htmlEncode}</span>',
-						'</div>',
-					'</tpl>',
+		Ext.apply(me, {
+			items: Ext.create("Ext.view.View", {
+				multiSelect: false,
+				trackOver: true,
+				overItemCls: Ext.baseCSSPrefix + "item-over",
+				itemSelector: "div.thumb-wrap",
+				store: Ext.create("Ext.data.Store", {
+					model: "OMV.workspace.node.Model",
+					data: me.root.getRange()
+				}),
+				tpl: Ext.create("Ext.XTemplate",
+					'<div class="',Ext.baseCSSPrefix,'workspace-node-view">',
+						'<tpl for=".">',
+							'<div class="thumb-wrap" id="{id:stripTags}">',
+								'<div class="thumb"><img src="{[this.renderIcon(values)]}" title="{text:htmlEncode}"></div>',
+								'<span>{text:htmlEncode}</span>',
+							'</div>',
+						'</tpl>',
+					'</div>',
 					{
 						renderIcon: function(values) {
 							var node = Ext.create("OMV.workspace.node.Node",
@@ -72,9 +76,8 @@ Ext.define("OMV.workspace.node.panel.Panel", {
 							return node.getIcon32();
 						}
 					}
-				).apply(node.getRange())
-			};
-			me.items.push(config);
+				)
+			})
 		});
 		me.callParent(arguments);
 	}

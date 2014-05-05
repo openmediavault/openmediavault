@@ -156,3 +156,34 @@ div#headerrlogo {
 .x-toolbar-applycfg {
 	background: #ffeb99
 }
+/* Workspace node view */
+.x-workspace-node-view .thumb-wrap .thumb {
+	padding: 5px;
+	padding-bottom: 0;
+}
+.x-workspace-node-view .thumb-wrap .thumb img {
+	height: 32px;
+	width: 32px;
+}
+.x-workspace-node-view .thumb-wrap {
+	float: left;
+	margin: 5px;
+	padding: 5px;
+	text-align: center;
+}
+.x-workspace-node-view .thumb-wrap span {
+	display: block;
+	overflow: visible;
+	width: 80px;
+}
+.x-workspace-node-view .x-item-selected {
+	background-color: #e0e0e0;
+}
+.x-workspace-node-view .x-item-over {
+	background-color: #efefef;
+	cursor: pointer;
+}
+/* Workspace node tree */
+.x-workspace-node-tree .x-grid-row-over .x-grid-td {
+	cursor: pointer;
+}

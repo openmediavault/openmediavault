@@ -24,5 +24,6 @@ OMV.WorkspaceManager.registerNode({
 	id: "smb",
 	path: "/service",
 	text: _("SMB/CIFS"),
-	icon16: "images/smb.png"
+	icon16: "images/smb.png",
+	iconSvg: "images/smb.svg"
 });

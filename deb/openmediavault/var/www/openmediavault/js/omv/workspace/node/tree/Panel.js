@@ -37,6 +37,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 		"OMV.WorkspaceManager"
 	],
 
+	cls: Ext.baseCSSPrefix + "workspace-node-tree",
 	stateful: true,
 	stateId: "ee299152-4534-11e3-bbea-0002b3a176b4",
 	stateEvents: [ "afteritemcollapse", "afteritemexpand" ],
