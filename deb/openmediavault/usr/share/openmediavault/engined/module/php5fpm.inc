@@ -32,6 +32,18 @@ class OMVModulePhp5fpm extends OMVModuleServiceAbstract {
 	}
 
 	/**
+	 * Generate the configuration.
+	 * @throw E_EXEC_FAILED
+	 */
+	public function applyConfig() {
+		$cmd = "omv-mkconf php5fpm 2>&1";
+		if(0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+	}
+
+	/**
 	 * Start the managed service.
 	 */
 	public function startService() {
