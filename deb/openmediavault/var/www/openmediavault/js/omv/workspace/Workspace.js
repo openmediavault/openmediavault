@@ -42,8 +42,11 @@ Ext.define("OMV.workspace.Workspace", {
 		"OMV.toolbar.ApplyCfg",
 		"OMV.window.MessageBox",
 		"OMV.form.field.LanguageComboBox",
-		"OMV.workspace.node.tree.Panel",
-		"OMV.workspace.node.panel.Panel"
+		"OMV.workspace.node.tree.Panel"
+	],
+	uses: [
+		"OMV.workspace.node.panel.Panel",
+		"OMV.workspace.tab.Panel"
 	],
 
 	titleSeperator: " | ",
@@ -97,7 +100,7 @@ Ext.define("OMV.workspace.Workspace", {
 
 	buildTree: function() {
 		var me = this;
-		return Ext.create("OMV.workspace.node.tree.Panel", {
+		return me.tp = Ext.create("OMV.workspace.node.tree.Panel", {
 			region: "west",
 			split: true,
 			width: 210,
@@ -110,7 +113,11 @@ Ext.define("OMV.workspace.Workspace", {
 			autoScroll: true,
 			listeners: {
 				scope: me,
-				select: me.onSelectTreeNode
+				select: function(view, record, eOpts) {
+					// Get the workspace node object.
+					var node = record.get("node");
+					this.onSelectNode(node, !record.isLeaf());
+				}
 			}
 		});
 	},
@@ -273,22 +280,19 @@ Ext.define("OMV.workspace.Workspace", {
 	},
 
 	/**
-	 * Handler that is called when a tree node has been selected in
-	 * the tree panel.
+	 * Function that is called when a workspace node has been selected.
+	 * @param node The workspace node object.
+	 * @param iconView Set to TRUE to display the node childen in an
+	 *   icon view panel.
 	 */
-	onSelectTreeNode: function(view, record, eOpts) {
+	onSelectNode: function(node, iconView) {
 		var me = this;
-		// Only process leafs.
-		if(record.get("leaf") !== true)
-			return;
-		// Get the workspace node object.
-		var node = record.get("node");
-		if(!Ext.isObject(node) || !node.isNode)
+		if (!Ext.isObject(node) || !node.isNode)
 			return;
 		// Generate the content page title.
 		var title = "";
 		node.bubble(function(parentNode) {
-			if(parentNode.isRoot())
+			if (parentNode.isRoot())
 				return;
 			title = Ext.String.format("{0} {1} {2}", parentNode.getText(),
 			  (title.length > 0) ? me.titleSeperator : "", title);
@@ -296,15 +300,15 @@ Ext.define("OMV.workspace.Workspace", {
 		// Update content page.
 		var selector = Ext.String.format("#{0}-center", me.getId());
 		var centerPanel = me.query(selector).shift();
-		if(Ext.isDefined(centerPanel)) {
+		if (Ext.isDefined(centerPanel)) {
 			var object;
-			if(record.get("leaf") === true) {
-				if(0 == node.getChildCount()) {
+			if (false == iconView) {
+				if (0 == node.getChildCount()) {
 					object = Ext.create(node.getClassName(), {
 						text: false,
 						title: node.getText()
 					});
-				} else if(1 == node.getChildCount()) {
+				} else if (1 == node.getChildCount()) {
 					// Display a single panel.
 					var childNode = node.getChildAt(0);
 					object = Ext.create(childNode.getClassName(), {
@@ -319,7 +323,7 @@ Ext.define("OMV.workspace.Workspace", {
 					object = Ext.create("OMV.workspace.tab.Panel");
 					// Sort child nodes based on their position.
 					node.eachChild(function(childNode) {
-						if(!childNode.isLeaf())
+						if (!childNode.isLeaf())
 							return;
 						object.add(Ext.create(childNode.getClassName(), {
 							title: childNode.getText()
@@ -329,7 +333,13 @@ Ext.define("OMV.workspace.Workspace", {
 				}
 			} else {
 				object = Ext.create("OMV.workspace.node.panel.Panel", {
-					root: node
+					root: node,
+					listeners: {
+						scope: me,
+						select: function(panel, node) {
+							me.tp.selectPathByNode(node);
+						}
+					}
 				});
 			}
 			// Display the panel.

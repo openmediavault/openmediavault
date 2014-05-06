@@ -164,6 +164,11 @@ div#headerrlogo {
 .x-workspace-node-view .thumb-wrap .thumb img {
 	height: 32px;
 	width: 32px;
+	-webkit-filter: opacity(70%);
+	-moz-filter: opacity(70%);
+	-ms-filter: opacity(70%);
+	-o-filter: opacity(70%);
+	filter: opacity(70%);
 }
 .x-workspace-node-view .thumb-wrap {
 	float: left;

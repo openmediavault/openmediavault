@@ -41,7 +41,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 	stateful: true,
 	stateId: "ee299152-4534-11e3-bbea-0002b3a176b4",
 	stateEvents: [ "afteritemcollapse", "afteritemexpand" ],
-	singleClickExpand: true,
+	singleClickExpand: false,
 
 	constructor: function(config) {
 		var me = this;
@@ -67,6 +67,10 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 			rootVisible: false
 		}, config || {});
 		me.callParent([ config ]);
+		// Automatically deselect the tree node after it has been selected.
+		me.on("select", function(model, record, eOpts) {
+			model.deselect(record);
+		});
 	},
 
 	initComponent: function() {
@@ -74,6 +78,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 		var root = me.getRootNode();
 		OMV.WorkspaceManager.getRootNode().eachChild(function(node) {
 			var treeNode = {
+				id: Ext.id(),
 				text: node.getText(),
 				iconCls: Ext.baseCSSPrefix + "tree-icon-16x16",
 				node: node,
@@ -93,6 +98,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 			}
 			node.eachChild(function(childNode) {
 				var treeChildNode = {
+					id: Ext.id(),
 					text: childNode.getText(),
 					leaf: true,
 					node: childNode,
@@ -128,7 +134,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 					treeNodeToSelect = treeNode;
 			}
 		});
-		// Any tree node found?
+		// Any tree node found that can be selected?
 		if (!Ext.isEmpty(treeNodeToSelect) && treeNodeToSelect.isModel) {
 			// Select the found node delayed to ensure the components
 			// are already rendered (especially the toolbar displaying
@@ -162,15 +168,15 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 		return {
 			expanded: nodeURI
 		};
-    },
+	},
 
-    /**
-     * Applies the state to the tree panel.
-     */
-    applyState: function(state) {
-    	var me = this;
-    	var nodeURI = Ext.apply([], state.expanded);
-    	me.getRootNode().cascadeBy(function(treeNode) {
+	/**
+	 * Applies the state to the tree panel.
+	 */
+	applyState: function(state) {
+		var me = this;
+		var nodeURI = Ext.apply([], state.expanded);
+		me.getRootNode().cascadeBy(function(treeNode) {
 			var node = treeNode.get("node");
 			if(!Ext.isObject(node) || !node.isNode)
 				return;
@@ -180,5 +186,28 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 			if(!Ext.Array.contains(nodeURI, uri))
 				treeNode.collapse();
 		});
-    }
+	},
+
+	/**
+	 * Expand the tree to the path of a particular workspace node,
+	 * then select it.
+	 * @param node The workspace node to select.
+	 */
+	selectPathByNode: function(node) {
+		var me = this;
+		if (!Ext.isObject(node) || !node.isNode)
+			return;
+		var treeNodeToSelect = null;
+		me.getRootNode().cascadeBy(function(treeNode) {
+			var node2 = treeNode.get("node");
+			if (!Ext.isObject(node2) || !node2.isNode)
+				return;
+			if (node.getURI() == node2.getURI())
+				treeNodeToSelect = treeNode;
+		});
+		// Any tree node found that can be selected?
+		if (!Ext.isEmpty(treeNodeToSelect) && treeNodeToSelect.isModel) {
+			me.getSelectionModel().select(treeNodeToSelect);
+		}
+	}
 });

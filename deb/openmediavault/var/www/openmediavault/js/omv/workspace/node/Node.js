@@ -95,6 +95,10 @@ Ext.define("OMV.workspace.node.Node", {
 		return this.childNodes.getCount();
 	},
 
+	getId: function() {
+		return this.id;
+	},
+
 	getDepth: function() {
 		var me = this;
 		var depth = 0;

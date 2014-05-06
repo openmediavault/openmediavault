@@ -23,22 +23,24 @@
 // require("js/omv/workspace/node/Model.js")
 
 /**
- * Display all registered workspace nodes in an accordion panel.
+ * Display all children of the given workspace node with their icon
+ * in a data view.
  * @class OMV.workspace.node.panel.Panel
  * @derived OMV.workspace.panel.Panel
+ * @param root The root workspace node to be displayed.
  */
 Ext.define("OMV.workspace.node.panel.Panel", {
 	extend: "OMV.workspace.panel.Panel",
 	alias: "widget.workspacenodepanel",
 	requires: [
+		"Ext.data.Store",
+		"Ext.view.View",
+		"Ext.XTemplate",
 		"OMV.WorkspaceManager",
 		"OMV.workspace.node.Model"
 	],
-	uses: [
-		"Ext.data.Store",
-		"Ext.view.View",
-		"Ext.XTemplate"
-	],
+
+	cls: Ext.baseCSSPrefix + "workspace-node-panel",
 
 	constructor: function(config) {
 		var me = this;
@@ -46,6 +48,14 @@ Ext.define("OMV.workspace.node.panel.Panel", {
 			root: OMV.WorkspaceManager.getRootNode()
 		}, config || {});
 		me.callParent([ config ]);
+		me.addEvents(
+			/**
+			 * Fires when a node has been selected.
+			 * @param this The panel object.
+			 * @param node The selected node object.
+			 */
+			"select"
+		);
 	},
 
 	initComponent: function() {
@@ -58,7 +68,7 @@ Ext.define("OMV.workspace.node.panel.Panel", {
 				itemSelector: "div.thumb-wrap",
 				store: Ext.create("Ext.data.Store", {
 					model: "OMV.workspace.node.Model",
-					data: me.root.getRange()
+					data: me.getRootNode().getRange()
 				}),
 				tpl: Ext.create("Ext.XTemplate",
 					'<div class="',Ext.baseCSSPrefix,'workspace-node-view">',
@@ -76,9 +86,22 @@ Ext.define("OMV.workspace.node.panel.Panel", {
 							return node.getIcon32();
 						}
 					}
-				)
+				),
+				listeners: {
+					scope: me,
+					select: function(view, record, eOpts) {
+						var node = this.getRootNode().getChild(
+						  record.get("id"));
+						this.fireEvent("select", this, node);
+					}
+				}
 			})
 		});
 		me.callParent(arguments);
+	},
+
+	getRootNode: function() {
+		var me = this;
+		return me.root;
 	}
 });
