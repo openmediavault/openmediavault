@@ -84,6 +84,9 @@ Ext.define("OMV.workspace.Workspace", {
 			me.loadMask.hide();
 	},
 
+	/**
+	 * @private
+	 */
 	buildHeader: function() {
 		var me = this;
 		return Ext.create("Ext.Component", {
@@ -98,6 +101,9 @@ Ext.define("OMV.workspace.Workspace", {
 		});
 	},
 
+	/**
+	 * @private
+	 */
 	buildTree: function() {
 		var me = this;
 		return me.tp = Ext.create("OMV.workspace.node.tree.Panel", {
@@ -122,9 +128,20 @@ Ext.define("OMV.workspace.Workspace", {
 		});
 	},
 
+	/**
+	 * @private
+	 */
+	getTree: function() {
+		var me = this;
+		return me.tp;
+	},
+
+	/**
+	 * @private
+	 */
 	buildView: function() {
 		var me = this;
-		return Ext.create("Ext.panel.Panel", {
+		return me.vp = Ext.create("Ext.panel.Panel", {
 			id: me.getId() + "-center",
 			region: "center",
 			layout: "fit",
@@ -280,6 +297,14 @@ Ext.define("OMV.workspace.Workspace", {
 	},
 
 	/**
+	 * @private
+	 */
+	getView: function() {
+		var me = this;
+		return me.vp;
+	},
+
+	/**
 	 * Function that is called when a workspace node has been selected.
 	 * @param node The workspace node object.
 	 * @param iconView Set to TRUE to display the node childen in an
@@ -337,7 +362,7 @@ Ext.define("OMV.workspace.Workspace", {
 					listeners: {
 						scope: me,
 						select: function(panel, node) {
-							me.tp.selectPathByNode(node);
+							me.getTree().selectPathByNode(node);
 						}
 					}
 				});

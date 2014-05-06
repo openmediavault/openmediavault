@@ -160,6 +160,32 @@ Ext.define("OMV.workspace.node.Node", {
 	},
 
 	/**
+	 * Finds the first child that has the attribute with the specified value.
+	 * @param attribute The name of the attribute.
+	 * @param value The value to search for.
+	 * @param deep Set to TRUE to search through nodes deeper than the
+	 *   immediate children.
+	 * @return The found child node or null if none was found.
+	 */
+	findChild: function(attribute, value, deep) {
+		var me = this;
+		var childNodes = me.childNodes;
+		var length = childNodes.getCount();
+		var i = 0;
+		for (; i < length; i++) {
+			var node = me.getChildAt(i);
+			if (node.get(attribute) == value) {
+				return node;
+			} else if (deep) {
+				var child = node.findChild(attribute, value, deep);
+				if (child !== null)
+					return child;
+			}
+		}
+		return null;
+	},
+
+	/**
 	 * Get the path of the 16x16 icon. If the device supports SVG, then the
 	 *   SVG icon will be returned instead if this is set.
 	 * @return The icon path.
@@ -219,5 +245,15 @@ Ext.define("OMV.workspace.node.Node", {
 	getURI: function() {
 		var me = this;
 		return Ext.String.format("{0}/{1}", me.path, me.id);
-	}
+	},
+
+	/**
+	 * Returns the value of the given attribute.
+	 * @param attribute The attribute to fetch the value for.
+	 * @return The value.
+	 */
+	get: function(attribute) {
+		var me = this;
+        return me[attribute];
+    }
 });

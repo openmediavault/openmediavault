@@ -50,7 +50,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 				model: "OMV.workspace.node.tree.Model",
 				root: {
 					expanded: true,
-					node: null,
+					node: OMV.WorkspaceManager.getRootNode(),
 					text: "root",
 					children: []
 				},
@@ -76,7 +76,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 	initComponent: function() {
 		var me = this;
 		var root = me.getRootNode();
-		OMV.WorkspaceManager.getRootNode().eachChild(function(node) {
+		root.get("node").eachChild(function(node) {
 			var treeNode = {
 				id: Ext.id(),
 				text: node.getText(),
@@ -117,32 +117,26 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 		me.callParent(arguments);
 		// Select the 'About' or 'System Information' tree menu entry
 		// per default after login.
-		var treeNodeToSelect = null;
-		me.getRootNode().cascadeBy(function(treeNode) {
-			var node = treeNode.get("node");
-			if (!Ext.isObject(node) || !node.isNode)
-				return;
-			var path = node.getPath();
-			var id = node.getId();
-			if ((path === "/diagnostic") && (id === "system")) {
-				// The prefered tree node to use.
-				treeNodeToSelect = treeNode;
-			} else if ((path === "/info") && (id === "about")) {
-				// Continue search. This tree node is only a fallback if
-				// the prefered one is not found.
-				if (Ext.isEmpty(treeNodeToSelect))
-					treeNodeToSelect = treeNode;
+		var nodeToSelect = null;
+		me.getRootNode().get("node").cascadeBy(function(node) {
+			if (node.getURI() == "/diagnostic/system") {
+				// The prefered workspace node to use.
+				nodeToSelect = node;
+			} else if (node.getURI() == "/info/about") {
+				// Continue search. This workspace node is only a fallback
+				// if the prefered one is not found.
+				if (Ext.isEmpty(nodeToSelect))
+					nodeToSelect = node;
 			}
 		});
-		// Any tree node found that can be selected?
-		if (!Ext.isEmpty(treeNodeToSelect) && treeNodeToSelect.isModel) {
+		// Any workspace node found that can be selected?
+		if (!Ext.isEmpty(nodeToSelect) && nodeToSelect.isNode) {
 			// Select the found node delayed to ensure the components
 			// are already rendered (especially the toolbar displaying
 			// the path of the selected node). Maybe not the best
 			// solution but it works at the moment.
 			Ext.Function.defer(function() {
-				var path = treeNodeToSelect.getPath();
-				me.selectPath(path);
+				me.selectPathByNode(nodeToSelect);
 			}, 500, me);
 		}
 	},
