@@ -37,7 +37,13 @@ class OMVModulePhp5fpm extends OMVModuleServiceAbstract {
 	 */
 	public function applyConfig() {
 		$cmd = "omv-mkconf php5fpm 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		# Test the new configuration.
+		$cmd = "php5-fpm -t 2>&1";
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
