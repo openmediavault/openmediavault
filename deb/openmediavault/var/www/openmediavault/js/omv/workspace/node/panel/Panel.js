@@ -37,7 +37,8 @@ Ext.define("OMV.workspace.node.panel.Panel", {
 		"Ext.view.View",
 		"Ext.XTemplate",
 		"OMV.WorkspaceManager",
-		"OMV.workspace.node.Model"
+		"OMV.workspace.node.Model",
+		"OMV.workspace.node.Node"
 	],
 
 	cls: Ext.baseCSSPrefix + "workspace-node-panel",
@@ -68,7 +69,17 @@ Ext.define("OMV.workspace.node.panel.Panel", {
 				itemSelector: "div.thumb-wrap",
 				store: Ext.create("Ext.data.Store", {
 					model: "OMV.workspace.node.Model",
-					data: me.getRootNode().getRange()
+					data: me.getRootNode().getRange(),
+					sorters: [{
+						sorterFn: function(a, b) {
+							var getPosition = function(o) {
+								var node = Ext.create("OMV.workspace.node.Node",
+								  o.getData());
+								return node.getPosition();
+							};
+							return getPosition(a) < getPosition(b) ? -1 : 1;
+						}
+					}]
 				}),
 				tpl: Ext.create("Ext.XTemplate",
 					'<div class="',Ext.baseCSSPrefix,'workspace-node-view">',

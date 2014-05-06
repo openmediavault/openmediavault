@@ -175,11 +175,12 @@ div#headerrlogo {
 	margin: 5px;
 	padding: 5px;
 	text-align: center;
+	width: 96px;
+	height: 80px;
 }
 .x-workspace-node-view .thumb-wrap span {
 	display: block;
 	overflow: visible;
-	width: 80px;
 }
 .x-workspace-node-view .x-item-selected {
 	background-color: #e0e0e0;
