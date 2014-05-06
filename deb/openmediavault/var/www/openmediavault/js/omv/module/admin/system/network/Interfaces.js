@@ -637,6 +637,7 @@ Ext.define("OMV.module.admin.system.network.interface.Identify", {
 	],
 
 	title: _("Identify network interface device"),
+	okButtonText: _("Start"),
 	hideResetButton: true,
 	mode: "local",
 
