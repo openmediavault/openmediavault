@@ -141,7 +141,8 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 			// the path of the selected node). Maybe not the best
 			// solution but it works at the moment.
 			Ext.Function.defer(function() {
-				this.getSelectionModel().select(treeNodeToSelect);
+				var path = treeNodeToSelect.getPath();
+				me.selectPath(path);
 			}, 500, me);
 		}
 	},
@@ -207,7 +208,8 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 		});
 		// Any tree node found that can be selected?
 		if (!Ext.isEmpty(treeNodeToSelect) && treeNodeToSelect.isModel) {
-			me.getSelectionModel().select(treeNodeToSelect);
+			var path = treeNodeToSelect.getPath();
+			me.selectPath(path);
 		}
 	}
 });
