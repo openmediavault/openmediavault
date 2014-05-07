@@ -287,9 +287,9 @@ Ext.define("OMV.workspace.Workspace", {
 						}
 					})
 				}]
-			},{
+			}),{
 				xtype: "applycfgtoolbar"
-			}) ]
+			}]
 		});
 	},
 
