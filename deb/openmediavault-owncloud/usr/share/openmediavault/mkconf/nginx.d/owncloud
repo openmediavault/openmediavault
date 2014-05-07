@@ -25,25 +25,27 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR=${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR:-"/etc/nginx/openmediavault-webgui.d"}
+
 OMV_NGINX_SITE_OWNCLOUD_CONFIG=${OMV_NGINX_SITE_OWNCLOUD_CONFIG:-"${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR}/owncloud.conf"}
+OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT=${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT:-"/var/www/owncloud"}
 
-case "$1" in
-	purge)
-		# Remove the configuration data.
-		omv_config_delete "/config/services/owncloud"
-		# Remove the ownCloud nginx config file.
-		rm -f ${OMV_NGINX_SITE_OWNCLOUD_CONFIG}
-		# Reload webserver configuration.
-		invoke-rc.d nginx reload
-	;;
+# !!! NOTE !!!
+# The plugin uses an alias to access the ownCloud webgui because in this
+# case we get SSL/TLS support out-of-the-box if the OMV webgui has enabled
+# secure connection.
+rm -f ${OMV_NGINX_SITE_OWNCLOUD_CONFIG}
+[ "$(omv_config_get "//services/owncloud/enable")" = "0" ] && exit 0
 
-	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
-	;;
-
-	*)
-		echo "postrm called with unknown argument '$1'" >&2
-		exit 1
-	;;
-esac
-
-exit 0
+# Create '/etc/nginx/openmediavault-webgui.d/owncloud.conf' file.
+cat <<EOF > ${OMV_NGINX_SITE_OWNCLOUD_CONFIG}
+location /owncloud {
+	alias ${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT}
+}
+location /owncloud/~ \.php$ {
+    try_files \$uri =404;
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;
+    fastcgi_pass unix:/var/run/php5-fpm-owncloud.sock;
+    fastcgi_index index.php;
+    include fastcgi_params;
+}
+EOF

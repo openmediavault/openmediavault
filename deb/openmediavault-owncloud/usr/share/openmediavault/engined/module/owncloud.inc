@@ -47,7 +47,7 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	public function startBefore() { return array("apache"); }
+	public function startBefore() { return array("webserver"); }
 
 	/**
 	 * Generate the configuration.
@@ -55,7 +55,7 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "omv-mkconf owncloud 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -76,8 +76,8 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 		// Check whether the Apache webserver needs to be restarted because
 		// ownCloud has been enabled/disabled. In this case mark the module
 		// as dirty.
-		if(boolval($oldObject['enable']) != boolval($object['enable']))
-			$this->setDirtyByName("apache");
+		if (boolval($oldObject['enable']) != boolval($object['enable']))
+			$this->setDirtyByName("webserver");
 	}
 
 	/**
@@ -92,7 +92,7 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = sprintf("//services/owncloud/shares/share[".
 		  "sharedfolderref='%s']", $object['uuid']);
-		if(TRUE === $xmlConfig->exists($xpath))
+		if (TRUE === $xmlConfig->exists($xpath))
 			$this->setDirty();
 	}
 
@@ -122,7 +122,7 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.webadmin",
-		  array($moduleMgr->getModule("apache"), "setDirty"));
+		  array($moduleMgr->getModule("webserver"), "setDirty"));
     }
 }
 

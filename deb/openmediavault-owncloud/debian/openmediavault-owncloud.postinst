@@ -24,8 +24,6 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_OWNCLOUD_APACHE2_DOCUMENTROOT=${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT:-"/var/www/owncloud"}
-
 case "$1" in
 	configure)
 		########################################################################
@@ -79,18 +77,6 @@ case "$1" in
 		# Generate required locales.
 		sed -i "s/^# en_US.UTF-8/en_US.UTF-8/" /etc/locale.gen
 		locale-gen --keep-existing
-
-		########################################################################
-		# Setup apache configuration
-		# See http://doc.owncloud.org/server/5.0/admin_manual/installation/installation_source.html
-		########################################################################
-		a2enmod rewrite
-
-		########################################################################
-		# Setup permissions
-		########################################################################
-		# These permissions are required by Apache
-		omv_install_fixperms "${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}"
 
 		########################################################################
 		# Activate package triggers. These triggers are only set during the
