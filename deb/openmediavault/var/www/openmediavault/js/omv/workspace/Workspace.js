@@ -49,8 +49,6 @@ Ext.define("OMV.workspace.Workspace", {
 		"OMV.workspace.tab.Panel"
 	],
 
-	titleSeperator: " | ",
-
 	constructor: function(config) {
 		var me = this;
 		config = Ext.apply({
@@ -376,30 +374,44 @@ Ext.define("OMV.workspace.Workspace", {
 				me.getToolbar().remove(c);
 			});
 			// Add workspace node navigation buttons.
+			var components = [];
 			node.bubble(function(parentNode) {
+				// Insert a button per workspace node.
+				var config = {
+					xtype: "button",
+					cls: Ext.baseCSSPrefix + "workspace-node-toolbar-item"
+				};
 				if (parentNode.isRoot()) {
-					me.getToolbar().insert(0, [ Ext.create(
-					  "Ext.button.Button", {
-						cls: Ext.baseCSSPrefix + "workspace-node-toolbar-item",
-						icon: "images/home.png"
-					}) ]);
+					Ext.apply(config, {
+						icon: parentNode.getIcon16(),
+						iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+						disabled: true
+					});
 				} else {
-					me.getToolbar().insert(0, [ Ext.create(
-					  "Ext.button.Button", {
-						cls: Ext.baseCSSPrefix + "workspace-node-toolbar-item",
+					Ext.apply(config, {
 						text: parentNode.getText(),
 						handler: function() {
 							var iconView = (parentNode.getPath() == "/");
 							me.onSelectNode(parentNode, iconView);
 						}
-					}) ]);
-					me.getToolbar().insert(0, Ext.create(
-					  "Ext.toolbar.TextItem", {
-						cls: Ext.baseCSSPrefix + "workspace-node-toolbar-item",
-						text: me.titleSeperator
-					}));
+					});
+					if (parentNode.hasIcon("raster16")) {
+						Ext.apply(config, {
+							icon: parentNode.getIcon16(),
+							iconCls: Ext.baseCSSPrefix + "btn-icon-16x16"
+						});
+					}
+				}
+				Ext.Array.insert(components, 0, [ config ]);
+				// Insert separator?
+				if (!parentNode.isRoot()) {
+					Ext.Array.insert(components, 0, [{
+						xtype: "tbseparator",
+						cls: Ext.baseCSSPrefix + "workspace-node-toolbar-item"
+					}]);
 				}
 			});
+			me.getToolbar().insert(0, components);
 		}
 	}
 });

@@ -37,7 +37,9 @@ Ext.define("OMV.WorkspaceManager", {
 			id: "root",
 			path: "/",
 			text: "root",
-			leaf: false
+			leaf: false,
+			icon16: "images/home.png",
+			iconSvg: "images/home.svg"
 		});
 	},
 

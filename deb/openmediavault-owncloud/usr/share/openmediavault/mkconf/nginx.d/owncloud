@@ -19,6 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Documentation/Howto:
+# http://doc.owncloud.org/server/6.0/admin_manual/installation/installation_source.html
+# http://www.howtoforge.com/running-owncloud-5.0-on-nginx-lemp-on-debian-wheezy
+
 set -e
 
 . /etc/default/openmediavault
