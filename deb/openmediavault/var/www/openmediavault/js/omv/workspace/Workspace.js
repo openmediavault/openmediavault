@@ -145,8 +145,7 @@ Ext.define("OMV.workspace.Workspace", {
 			id: me.getId() + "-center",
 			region: "center",
 			layout: "fit",
-			dockedItems: [{
-				xtype: "toolbar",
+			dockedItems: [ me.tb = Ext.create("Ext.toolbar.Toolbar", {
 				dock: "top",
 				height: 25,
 				items: [{
@@ -292,7 +291,7 @@ Ext.define("OMV.workspace.Workspace", {
 				}]
 			},{
 				xtype: "applycfgtoolbar"
-			}]
+			}) ]
 		});
 	},
 
@@ -305,6 +304,14 @@ Ext.define("OMV.workspace.Workspace", {
 	},
 
 	/**
+	 * @private
+	 */
+	getToolbar: function() {
+		var me = this;
+		return me.tb;
+	},
+
+	/**
 	 * Function that is called when a workspace node has been selected.
 	 * @param node The workspace node object.
 	 * @param iconView Set to TRUE to display the node childen in an
@@ -314,14 +321,6 @@ Ext.define("OMV.workspace.Workspace", {
 		var me = this;
 		if (!Ext.isObject(node) || !node.isNode)
 			return;
-		// Generate the content page title.
-		var title = "";
-		node.bubble(function(parentNode) {
-			if (parentNode.isRoot())
-				return;
-			title = Ext.String.format("{0} {1} {2}", parentNode.getText(),
-			  (title.length > 0) ? me.titleSeperator : "", title);
-		});
 		// Update content page.
 		var selector = Ext.String.format("#{0}-center", me.getId());
 		var centerPanel = me.query(selector).shift();
@@ -370,9 +369,37 @@ Ext.define("OMV.workspace.Workspace", {
 			// Display the panel.
 			centerPanel.removeAll(true);
 			centerPanel.add(object);
-			// Update the toolbar text.
-			var textItem = me.queryById(me.getId() + "-text");
-			textItem.setText(title);
+			// Remove all  workspace node navigation buttons.
+			Ext.Array.each(me.getToolbar().query("*[cls=" +
+			  Ext.baseCSSPrefix + "workspace-node-toolbar-item]"),
+			  function(c) {
+				me.getToolbar().remove(c);
+			});
+			// Add workspace node navigation buttons.
+			node.bubble(function(parentNode) {
+				if (parentNode.isRoot()) {
+					me.getToolbar().insert(0, [ Ext.create(
+					  "Ext.button.Button", {
+						cls: Ext.baseCSSPrefix + "workspace-node-toolbar-item",
+						icon: "images/home.png"
+					}) ]);
+				} else {
+					me.getToolbar().insert(0, [ Ext.create(
+					  "Ext.button.Button", {
+						cls: Ext.baseCSSPrefix + "workspace-node-toolbar-item",
+						text: parentNode.getText(),
+						handler: function() {
+							var iconView = (parentNode.getPath() == "/");
+							me.onSelectNode(parentNode, iconView);
+						}
+					}) ]);
+					me.getToolbar().insert(0, Ext.create(
+					  "Ext.toolbar.TextItem", {
+						cls: Ext.baseCSSPrefix + "workspace-node-toolbar-item",
+						text: me.titleSeperator
+					}));
+				}
+			});
 		}
 	}
 });

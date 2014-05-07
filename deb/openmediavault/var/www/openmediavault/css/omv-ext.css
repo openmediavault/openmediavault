@@ -193,3 +193,13 @@ div#headerrlogo {
 .x-workspace-node-tree .x-grid-row-over .x-grid-td {
 	cursor: pointer;
 }
+/* Workspace node toolbar */
+.x-workspace-node-toolbar-item .x-btn-icon-el {
+	height: 16px;
+	width: 16px;
+	-webkit-filter: opacity(70%);
+	-moz-filter: opacity(70%);
+	-ms-filter: opacity(70%);
+	-o-filter: opacity(70%);
+	filter: opacity(70%);
+}
