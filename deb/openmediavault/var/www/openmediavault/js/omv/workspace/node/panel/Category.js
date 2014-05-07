@@ -23,15 +23,14 @@
 // require("js/omv/workspace/node/Model.js")
 
 /**
- * Display all children of the given workspace node with their icon
- * in a data view.
- * @class OMV.workspace.node.panel.Panel
+ * Display the child nodes of a workspace category in a data view.
+ * @class OMV.workspace.node.panel.Category
  * @derived OMV.workspace.panel.Panel
- * @param root The root workspace node to be displayed.
+ * @param root The workspace category node to be displayed.
  */
-Ext.define("OMV.workspace.node.panel.Panel", {
+Ext.define("OMV.workspace.node.panel.Category", {
 	extend: "OMV.workspace.panel.Panel",
-	alias: "widget.workspacenodepanel",
+	alias: "widget.workspacenodepanelcategory",
 	requires: [
 		"Ext.data.Store",
 		"Ext.view.View",

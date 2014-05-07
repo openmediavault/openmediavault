@@ -25,7 +25,8 @@
 // require("js/omv/toolbar/ApplyCfg.js")
 // require("js/omv/workspace/tab/Panel.js")
 // require("js/omv/workspace/node/tree/Panel.js")
-// require("js/omv/workspace/node/panel/Panel.js")
+// require("js/omv/workspace/node/panel/Category.js")
+// require("js/omv/workspace/node/panel/Overview.js")
 // require("js/omv/form/field/LanguageComboBox.js")
 
 /**
@@ -45,7 +46,8 @@ Ext.define("OMV.workspace.Workspace", {
 		"OMV.workspace.node.tree.Panel"
 	],
 	uses: [
-		"OMV.workspace.node.panel.Panel",
+		"OMV.workspace.node.panel.Category",
+		"OMV.workspace.node.panel.Overview",
 		"OMV.workspace.tab.Panel"
 	],
 
@@ -354,7 +356,10 @@ Ext.define("OMV.workspace.Workspace", {
 					object.setActiveTab(0);
 				}
 			} else {
-				object = Ext.create("OMV.workspace.node.panel.Panel", {
+				var className = "OMV.workspace.node.panel.Category";
+				if (node.isRoot())
+					className = "OMV.workspace.node.panel.Overview";
+				object = Ext.create(className, {
 					root: node,
 					listeners: {
 						scope: me,
@@ -379,28 +384,22 @@ Ext.define("OMV.workspace.Workspace", {
 				// Insert a button per workspace node.
 				var config = {
 					xtype: "button",
-					cls: Ext.baseCSSPrefix + "workspace-node-toolbar-item"
+					cls: Ext.baseCSSPrefix + "workspace-node-toolbar-item",
+					handler: function() {
+						var iconView = (parentNode.getPath() == "/");
+						me.onSelectNode(parentNode, iconView);
+					}
 				};
-				if (parentNode.isRoot()) {
+				if (!parentNode.isRoot()) {
+					Ext.apply(config, {
+						text: parentNode.getText()
+					});
+				}
+				if (parentNode.hasIcon("raster16")) {
 					Ext.apply(config, {
 						icon: parentNode.getIcon16(),
-						iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
-						disabled: true
+						iconCls: Ext.baseCSSPrefix + "btn-icon-16x16"
 					});
-				} else {
-					Ext.apply(config, {
-						text: parentNode.getText(),
-						handler: function() {
-							var iconView = (parentNode.getPath() == "/");
-							me.onSelectNode(parentNode, iconView);
-						}
-					});
-					if (parentNode.hasIcon("raster16")) {
-						Ext.apply(config, {
-							icon: parentNode.getIcon16(),
-							iconCls: Ext.baseCSSPrefix + "btn-icon-16x16"
-						});
-					}
 				}
 				Ext.Array.insert(components, 0, [ config ]);
 				// Insert separator?
