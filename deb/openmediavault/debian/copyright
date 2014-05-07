@@ -392,6 +392,11 @@ Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/undo.png
-       /var/www/openmediavault/images/undo.png
+       /var/www/openmediavault/images/undo.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/home.png
+       /var/www/openmediavault/images/home.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0

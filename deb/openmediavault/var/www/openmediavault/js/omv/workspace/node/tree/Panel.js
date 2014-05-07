@@ -115,18 +115,23 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 	afterRender: function() {
 		var me = this;
 		me.callParent(arguments);
-		// Select the 'About' or 'System Information' tree menu entry
-		// per default after login.
+		// The list of the nodes to select after login is ordered by
+		// preference.
+		var uri = [ "/diagnostic/system", "/info/about" ];
+		// Find the workspace node to automatically select after login.
 		var nodeToSelect = null;
 		me.getRootNode().get("node").cascadeBy(function(node) {
-			if (node.getURI() == "/diagnostic/system") {
-				// The prefered workspace node to use.
-				nodeToSelect = node;
-			} else if (node.getURI() == "/info/about") {
-				// Continue search. This workspace node is only a fallback
-				// if the prefered one is not found.
-				if (Ext.isEmpty(nodeToSelect))
+			var index = Ext.Array.indexOf(uri, node.getURI());
+			if (0 <= index) {
+				if (0 == index) {
+					// The prefered workspace node to use.
 					nodeToSelect = node;
+				} else {
+					// Continue search. This workspace node is only a fallback
+					// if the prefered one is not found.
+					if (Ext.isEmpty(nodeToSelect))
+						nodeToSelect = node;
+				}
 			}
 		});
 		// Any workspace node found that can be selected?
