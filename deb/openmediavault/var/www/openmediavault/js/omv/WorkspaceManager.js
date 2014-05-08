@@ -26,9 +26,12 @@
  */
 Ext.define("OMV.WorkspaceManager", {
 	singleton: true,
-	requires: [ "Ext.util.MixedCollection" ],
-
-	pathSeparator: "/",
+	requires: [
+		"Ext.util.MixedCollection"
+	],
+	uses: [
+		"OMV.workspace.node.Node"
+	],
 
 	constructor: function(config) {
 		var me = this;
@@ -56,12 +59,7 @@ Ext.define("OMV.WorkspaceManager", {
 	 * @return An array containg the parts of the given path.
 	 */
 	explodeNodePath: function(path) {
-		var me = this;
-		var parts = path.split(me.pathSeparator);
-		parts = Ext.Array.filter(parts, function(part, index, array) {
-			return !Ext.isEmpty(part);
-		});
-		return parts;
+		return OMV.workspace.node.Node.explodeUri(path);
 	},
 
 	/**
@@ -69,8 +67,7 @@ Ext.define("OMV.WorkspaceManager", {
 	 * @return A string containing the node path.
 	 */
 	buildNodePath: function(parts) {
-		var me = this;
-		return me.pathSeparator + parts.join(me.pathSeparator);
+		return OMV.workspace.node.Node.buildUri(parts);
 	},
 
 	/**

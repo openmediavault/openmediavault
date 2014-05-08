@@ -236,8 +236,7 @@ class OMVWebGui extends OMVHtmlPage {
 				expires: new Date(new Date().getTime() + (1000*60*60*24*365))
 			}));
 			Ext.onReady(function() {
-				OMV.viewport = OMV.workspace = Ext.create(
-				  "OMV.workspace.Workspace");
+				OMV.viewport = Ext.create("OMV.workspace.Workspace");
 			});
 		</script>
 EOF;

@@ -51,6 +51,44 @@ Ext.define("OMV.workspace.node.Node", {
 				node = Ext.create("OMV.workspace.node.Node", config);
 			}
 			return node;
+		},
+
+		/**
+		 * Build the node URI.
+		 * @param array The parts of the URI, e.g. [ "/services", "ftp" ].
+		 * @return An array containg the parts of the given path.
+		 */
+		buildUri: function(array) {
+			var parts = [];
+			var uri = "";
+			Ext.Array.each(array, function(item) {
+				Ext.Array.push(parts, this.explodeUri(item));
+			}, this);
+			return Ext.String.format("/{0}", parts.join("/"));
+		},
+
+		/**
+		 * Explode the node URI in seperate parts.
+		 * @param uri The URI to process.
+		 * @return An array containg the parts of the given path.
+		 */
+		explodeUri: function(uri) {
+			var parts = uri.split("/");
+			parts = Ext.Array.filter(parts, function(part, index, array) {
+				return !Ext.isEmpty(part);
+			});
+			return parts;
+		},
+
+		/**
+		 * Compares the 2 URIs using strict equality.
+		 * @param uri1 The first URI.
+		 * @param uri2 The second URI.
+		 * @return TRUE if the URIs are equal.
+		 */
+		compareUri: function(uri1, uri2) {
+			return Ext.Array.equals(this.explodeUri(uri1),
+			  this.explodeUri(uri2));
 		}
 	},
 
@@ -242,9 +280,9 @@ Ext.define("OMV.workspace.node.Node", {
 	 * Get the URI of the node based on its path and id.
 	 * @return The URI of this node.
 	 */
-	getURI: function() {
+	getUri: function() {
 		var me = this;
-		return Ext.String.format("{0}/{1}", me.path, me.id);
+		return me.self.buildUri([ me.path, me.id ]);
 	},
 
 	/**

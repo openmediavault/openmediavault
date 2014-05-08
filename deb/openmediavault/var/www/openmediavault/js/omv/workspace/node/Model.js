@@ -18,6 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+// require("js/omv/workspace/node/Node.js")
 
 /**
  * @ingroup webgui
@@ -26,6 +27,9 @@
  */
 Ext.define("OMV.workspace.node.Model", {
 	extend: "Ext.data.Model",
+	requires: [
+		"OMV.workspace.node.Node"
+	],
 
 	idProperty: "uri",
 	fields: [
@@ -39,8 +43,8 @@ Ext.define("OMV.workspace.node.Model", {
 		{ name: "iconSvg", type: "string" },
 		{ name: "leaf", type: "boolean" },
 		{ name: "uri", type: "string", convert: function(v, rec) {
-			return Ext.String.format("{0}/{1}", rec.get("path"),
-			  rec.get("id"));
+			return OMV.workspace.node.Node.buildUri([ rec.get("path"),
+			  rec.get("id") ]);
 		} }
 	]
 });

@@ -121,7 +121,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 		// Find the workspace node to automatically select after login.
 		var nodeToSelect = null;
 		me.getRootNode().get("node").cascadeBy(function(node) {
-			var index = Ext.Array.indexOf(uri, node.getURI());
+			var index = Ext.Array.indexOf(uri, node.getUri());
 			if (0 <= index) {
 				if (0 == index) {
 					// The prefered workspace node to use.
@@ -162,7 +162,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 				return;
 			if(!treeNode.isExpanded())
 				return;
-			var uri = node.getURI();
+			var uri = node.getUri();
 			nodeURI.push(uri);
 		});
 		return {
@@ -182,7 +182,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 				return;
 			if(node.isLeaf() || !node.hasChildNodes())
 				return;
-			var uri = node.getURI();
+			var uri = node.getUri();
 			if(!Ext.Array.contains(nodeURI, uri))
 				treeNode.collapse();
 		});
@@ -202,7 +202,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 			var node2 = treeNode.get("node");
 			if (!Ext.isObject(node2) || !node2.isNode)
 				return;
-			if (node.getURI() == node2.getURI())
+			if (node.getUri() == node2.getUri())
 				treeNodeToSelect = treeNode;
 		});
 		// Any tree node found that can be selected?

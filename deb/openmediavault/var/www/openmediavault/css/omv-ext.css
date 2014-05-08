@@ -167,12 +167,11 @@ div#headerrlogo {
 .x-workspace-node-view-category {
 	margin: 5px;
 }
-.x-workspace-node-view-category span {
+.x-workspace-node-view-category .x-workspace-node-view-category-header {
+	border-bottom: 1px solid #d8d8d8;
 	font-weight: bold;
 	font-size: small;
-}
-.x-workspace-node-view-category hr {
-	color: #d8d8d8;
+	padding-bottom: 5px;
 }
 .x-workspace-node-view-category-items .thumb-wrap .thumb {
 	padding: 5px;

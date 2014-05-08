@@ -21,6 +21,7 @@
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/panel/Panel.js")
 // require("js/omv/workspace/node/Model.js")
+// require("js/omv/workspace/node/Node.js")
 
 /**
  * Display all workspace categories and their child nodes in an data view.
@@ -60,47 +61,73 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 
 	initComponent: function() {
 		var me = this;
+		var store = Ext.create("Ext.data.Store", {
+			model: "OMV.workspace.node.Model",
+			sorters: [{
+				sorterFn: function(a, b) {
+					var getPosition = function(o) {
+						var node = Ext.create("OMV.workspace.node.Node",
+						  o.getData());
+						return node.getPosition();
+					};
+					return getPosition(a) < getPosition(b) ? -1 : 1;
+				}
+			}]
+		});
+		me.getRootNode().eachChild(function(node) {
+			var model = store.add(node);
+			model[0].set("header", true);
+			node.eachChild(function(subNode) {
+				model = store.add(subNode);
+				model[0].set("header", false);
+			});
+		});
 		Ext.apply(me, {
 			items: Ext.create("Ext.view.View", {
 				multiSelect: false,
 				trackOver: true,
 				overItemCls: Ext.baseCSSPrefix + "item-over",
 				itemSelector: "div.thumb-wrap",
-				store: Ext.create("Ext.data.Store", {
-					model: "OMV.workspace.node.Model",
-					data: me.getRootNode().getRange(),
-					sorters: [{
-						sorterFn: function(a, b) {
-							var getPosition = function(o) {
-								var node = Ext.create("OMV.workspace.node.Node",
-								  o.getData());
-								return node.getPosition();
-							};
-							return getPosition(a) < getPosition(b) ? -1 : 1;
-						}
-					}]
-				}),
+				store: store,
 				tpl: Ext.create("Ext.XTemplate",
 					'<div class="',Ext.baseCSSPrefix,'workspace-node-view-categories">',
 						'<tpl for=".">',
-							'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category">',
-								'<span>{text:htmlEncode}</span><hr>',
-								'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category-items">',
-									'<tpl for="childNodes">',
-										'<div class="thumb-wrap" id="{id:stripTags}">',
+							'<tpl if="values.header == true">',
+								'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category">',
+									'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category-header">',
+										'{text:htmlEncode}',
+									'</div>',
+									'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category-items">',
+										'{[this.renderCategory(values, parent)]}',
+									'</div>',
+								'</div>',
+							'</tpl>',
+							'<div class="x-clear"></div></div>',
+						'</tpl>',
+					'</div>',
+					{
+						renderCategory: function(node, models) {
+							var tpl = Ext.create("Ext.XTemplate",
+								'<tpl for=".">',
+									'<tpl if="this.isRenderNode(values.path)">',
+										'<div class="thumb-wrap" id="{uri:stripTags}">',
 											'<div class="thumb"><img src="{[this.renderIcon(values)]}" title="{text:htmlEncode}"></div>',
 											'<span>{text:htmlEncode}</span>',
 										'</div>',
 									'</tpl>',
-								'</div>',
-							'</div>',
-						'</tpl>',
-					'</div>',
-					{
-						renderIcon: function(values) {
-							var node = Ext.create("OMV.workspace.node.Node",
-							  values);
-							return node.getIcon32();
+								'</tpl>',
+								{
+									isRenderNode: function(path) {
+										return OMV.workspace.node.Node.
+										  compareUri(path, node.uri);
+									},
+									renderIcon: function(values) {
+										var node = Ext.create(
+										  "OMV.workspace.node.Node", values);
+										return node.getIcon32();
+									}
+								});
+							return tpl.apply(models);
 						}
 					}
 				),

@@ -404,12 +404,12 @@ Ext.apply(Ext.data.Store.prototype, {
 });
 
 // Fix modified issue when adding, inserting or removing records from a store.
-Ext.Function.interceptAfter(Ext.data.Store.prototype, "insert",
-  function(index, records) {
+Ext.data.Store.prototype.insert = Ext.Function.createSequence(
+  Ext.data.Store.prototype.insert, function(index, records) {
 	this.markDirty();
 });
-Ext.Function.interceptAfter(Ext.data.Store.prototype, "add",
-  function(records) {
+Ext.data.Store.prototype.add = Ext.Function.createSequence(
+  Ext.data.Store.prototype.add, function(records) {
 	this.markDirty();
 });
 Ext.Function.interceptAfter(Ext.data.Store.prototype, "remove",
