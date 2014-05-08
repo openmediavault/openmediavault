@@ -255,5 +255,32 @@ Ext.define("OMV.workspace.node.Node", {
 	get: function(attribute) {
 		var me = this;
         return me[attribute];
+    },
+
+    /**
+     * Flattens all the nodes into an array.
+     * @return The flattened nodes.
+     */
+    flatten: function() {
+		var me = this;
+		var fn = function(node) {
+			var childNodes = [];
+			var length = node.getChildCount();
+			var i = 0;
+			for (; i < length; i++) {
+				var child = node.getChildAt(i);
+				Ext.Array.push(childNodes, fn(child));
+			}
+			// Duplicate primitive node values.
+			var elem = {};
+			for (attr in node.config) {
+				if (Ext.isPrimitive(node[attr]))
+					elem[attr] = node[attr];
+			}
+			elem.childNodes = childNodes;
+			return elem;
+		}
+		var array = fn(me);
+		return array;
     }
 });
