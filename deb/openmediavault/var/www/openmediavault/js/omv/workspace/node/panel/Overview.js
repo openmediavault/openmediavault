@@ -40,7 +40,7 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 		"OMV.workspace.node.Node"
 	],
 
-	cls: Ext.baseCSSPrefix + "workspace-node-panel-overview",
+	cls: Ext.baseCSSPrefix + "workspace-node-view",
 
 	constructor: function(config) {
 		var me = this;
@@ -83,9 +83,9 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 				tpl: Ext.create("Ext.XTemplate",
 					'<div class="',Ext.baseCSSPrefix,'workspace-node-view-categories">',
 						'<tpl for=".">',
-							'<div class="thumb-wrap" id="{id:stripTags}">',
+							'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category">',
 								'<span>{text:htmlEncode}</span><hr>',
-								'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category">',
+								'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category-items">',
 									'<tpl for="childNodes">',
 										'<div class="thumb-wrap" id="{id:stripTags}">',
 											'<div class="thumb"><img src="{[this.renderIcon(values)]}" title="{text:htmlEncode}"></div>',
@@ -107,8 +107,8 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 				listeners: {
 					scope: me,
 					select: function(view, record, eOpts) {
-						var node = this.getRootNode().getChild(
-						  record.get("id"));
+						var node = OMV.WorkspaceManager.getNodeByPath(
+						  record.get("uri"));
 						this.fireEvent("select", this, node);
 					}
 				}

@@ -19,6 +19,7 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/WorkspaceManager.js")
+// require("js/omv/data/Store.js")
 // require("js/omv/workspace/panel/Panel.js")
 // require("js/omv/workspace/node/Model.js")
 
@@ -32,15 +33,15 @@ Ext.define("OMV.workspace.node.panel.Category", {
 	extend: "OMV.workspace.panel.Panel",
 	alias: "widget.workspacenodepanelcategory",
 	requires: [
-		"Ext.data.Store",
 		"Ext.view.View",
 		"Ext.XTemplate",
+		"OMV.data.Store",
 		"OMV.WorkspaceManager",
 		"OMV.workspace.node.Model",
 		"OMV.workspace.node.Node"
 	],
 
-	cls: Ext.baseCSSPrefix + "workspace-node-panel",
+	cls: Ext.baseCSSPrefix + "workspace-node-view",
 
 	constructor: function(config) {
 		var me = this;
@@ -66,7 +67,7 @@ Ext.define("OMV.workspace.node.panel.Category", {
 				trackOver: true,
 				overItemCls: Ext.baseCSSPrefix + "item-over",
 				itemSelector: "div.thumb-wrap",
-				store: Ext.create("Ext.data.Store", {
+				store: Ext.create("OMV.data.Store", {
 					model: "OMV.workspace.node.Model",
 					data: me.getRootNode().getRange(),
 					sorters: [{
@@ -81,9 +82,9 @@ Ext.define("OMV.workspace.node.panel.Category", {
 					}]
 				}),
 				tpl: Ext.create("Ext.XTemplate",
-					'<div class="',Ext.baseCSSPrefix,'workspace-node-view">',
+					'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category-items">',
 						'<tpl for=".">',
-							'<div class="thumb-wrap" id="{id:stripTags}">',
+							'<div class="thumb-wrap">',
 								'<div class="thumb"><img src="{[this.renderIcon(values)]}" title="{text:htmlEncode}"></div>',
 								'<span>{text:htmlEncode}</span>',
 							'</div>',
@@ -100,8 +101,8 @@ Ext.define("OMV.workspace.node.panel.Category", {
 				listeners: {
 					scope: me,
 					select: function(view, record, eOpts) {
-						var node = this.getRootNode().getChild(
-						  record.get("id"));
+						var node = OMV.WorkspaceManager.getNodeByPath(
+						  record.get("uri"));
 						this.fireEvent("select", this, node);
 					}
 				}

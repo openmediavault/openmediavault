@@ -27,6 +27,7 @@
 Ext.define("OMV.workspace.node.Model", {
 	extend: "Ext.data.Model",
 
+	idProperty: "uri",
 	fields: [
 		{ name: "id", type: "string" },
 		{ name: "path", type: "string" },
@@ -36,6 +37,10 @@ Ext.define("OMV.workspace.node.Model", {
 		{ name: "icon16", type: "string" },
 		{ name: "icon32", type: "string" },
 		{ name: "iconSvg", type: "string" },
-		{ name: "leaf", type: "boolean" }
+		{ name: "leaf", type: "boolean" },
+		{ name: "uri", type: "string", convert: function(v, rec) {
+			return Ext.String.format("{0}/{1}", rec.get("path"),
+			  rec.get("id"));
+		} }
 	]
 });

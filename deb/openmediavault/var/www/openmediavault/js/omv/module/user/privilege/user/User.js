@@ -122,6 +122,7 @@ OMV.WorkspaceManager.registerNode({
 	path: "/privilege",
 	text: _("User"),
 	icon16: "images/user.png",
+	iconSvg: "images/user.svg",
 	position: 10
 });
 
