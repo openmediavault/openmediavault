@@ -89,13 +89,38 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 				overItemCls: Ext.baseCSSPrefix + "item-over",
 				itemSelector: "div.thumb-wrap",
 				store: store,
+				updateIndexes: function(startIndex, endIndex) {
+					// This is a special implementation of this method
+					// because the default one is not able to process the
+					// data structure if the data view tems are out of
+					// order than they are stored in the store.
+			        var nodes = this.all.elements,
+			            records = this.getViewRange(),
+			            i;
+			        startIndex = startIndex || 0;
+			        endIndex = endIndex || ((endIndex === 0) ? 0 :
+			          (nodes.length - 1));
+			        for (i = startIndex; i <= endIndex; i++) {
+			        	var node = Ext.Array.findBy(nodes, function(
+			        	  item, index) {
+			        		return item.id == records[i].get("uri");
+			        	});
+			            node.viewIndex = i;
+			            node.viewRecordId = records[i].internalId;
+			            if (!node.boundView) {
+			                node.boundView = this.id;
+			            }
+			        }
+				},
 				tpl: Ext.create("Ext.XTemplate",
 					'<div class="',Ext.baseCSSPrefix,'workspace-node-view-categories">',
 						'<tpl for=".">',
 							'<tpl if="values.header == true">',
 								'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category">',
-									'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category-header">',
-										'{text:htmlEncode}',
+									'<div class="thumb-wrap" id="{uri:stripTags}">',
+										'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category-header">',
+											'{text:htmlEncode}',
+										'</div>',
 									'</div>',
 									'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category-items">',
 										'{[this.renderCategory(values, parent)]}',

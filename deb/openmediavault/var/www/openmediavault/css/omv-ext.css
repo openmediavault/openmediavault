@@ -172,7 +172,7 @@ div#headerrlogo {
 	font-weight: bold;
 	font-size: small;
 	padding-bottom: 5px;
-	cursor: default;
+	cursor: pointer;
 }
 .x-workspace-node-view-category-items .thumb-wrap .thumb {
 	padding: 5px;
