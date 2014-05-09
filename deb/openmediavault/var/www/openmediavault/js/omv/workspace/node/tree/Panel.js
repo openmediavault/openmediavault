@@ -40,7 +40,8 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 	cls: Ext.baseCSSPrefix + "workspace-node-tree",
 	stateful: true,
 	stateId: "ee299152-4534-11e3-bbea-0002b3a176b4",
-	stateEvents: [ "afteritemcollapse", "afteritemexpand" ],
+	stateEvents: [ "afteritemcollapse", "afteritemexpand",
+	  "collapse", "expand" ],
 	singleClickExpand: false,
 
 	constructor: function(config) {
@@ -153,6 +154,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 	 */
 	getState: function() {
 		var me = this;
+		var state = me.callParent(arguments);
 		var nodeURI = [];
 		me.getRootNode().cascadeBy(function(treeNode) {
 			var node = treeNode.get("node");
@@ -165,9 +167,9 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 			var uri = node.getUri();
 			nodeURI.push(uri);
 		});
-		return {
-			expanded: nodeURI
-		};
+		return Ext.apply(state, {
+			expandedNodes: nodeURI
+		});
 	},
 
 	/**
@@ -175,7 +177,8 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 	 */
 	applyState: function(state) {
 		var me = this;
-		var nodeURI = Ext.apply([], state.expanded);
+		me.callParent(arguments);
+		var nodeURI = Ext.apply([], state.expandedNodes);
 		me.getRootNode().cascadeBy(function(treeNode) {
 			var node = treeNode.get("node");
 			if(!Ext.isObject(node) || !node.isNode)
