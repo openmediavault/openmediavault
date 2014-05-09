@@ -98,6 +98,7 @@ Ext.define("OMV.workspace.node.Node", {
 			id: Ext.id(),
 			childNodes: new Ext.util.MixedCollection()
 		});
+		me.uri = me.getUri();
 	},
 
 	appendChild: function(child) {
@@ -282,7 +283,9 @@ Ext.define("OMV.workspace.node.Node", {
 	 */
 	getUri: function() {
 		var me = this;
-		return me.self.buildUri([ me.path, me.id ]);
+		if (!Ext.isEmpty(me.uri))
+			return me.uri;
+		return me.uri = me.self.buildUri([ me.path, me.id ]);
 	},
 
 	/**
