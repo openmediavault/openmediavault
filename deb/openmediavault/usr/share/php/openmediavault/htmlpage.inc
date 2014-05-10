@@ -102,6 +102,17 @@ class OMVHtmlPage extends OMVObject {
 		<link rel="stylesheet" type="text/css" href="/extjs/resources/css/ext-all.css"/>
 		<link rel="stylesheet" type="text/css" href="/extjs/resources/css/ext-all-gray.css"/>
 		<link rel="stylesheet" type="text/css" href="css/omv-ext.css"/>
+
+EOF;
+
+		// Add additional CSS files.
+		$incList = array_unique($this->getCssIncludes());
+		foreach ($incList as $incListv) {
+			print "<link rel='stylesheet' type='text/css' href='{$incListv}'/>\n";
+		}
+
+		// Add core javascript files.
+echo <<<EOF
 		<script type="application/javascript" src="/extjs/{$extAllFile}"></script>
 		<script type="application/javascript" src="js/omv/util/i18n.js"></script>
 		<script type="application/javascript" src="js/omv/util/i18nDict.js"></script>
@@ -111,9 +122,9 @@ class OMVHtmlPage extends OMVObject {
 
 EOF;
 
-		// Add additionbal javascript files
+		// Add additional javascript files.
 		$incList = array_unique($this->getJavascriptIncludes());
-		foreach($incList as $incListv) {
+		foreach ($incList as $incListv) {
 			print "<script type='application/javascript' src='{$incListv}'></script>\n";
 		}
 
@@ -151,6 +162,19 @@ EOF;
 	 */
 	public function getJavascriptIncludes() {
 		return array();
+	}
+
+	/**
+	 * Get an list of CSS files to be included.
+	 * @return An array of files to be included.
+	 */
+	public function getCssIncludes() {
+		$includes = array();
+		// Add custim CSS file if it exists.
+		$fileName = "css/omv-custom.css";
+		if (file_exists($fileName))
+			$includes[] = $fileName;
+		return $includes;
 	}
 }
 
@@ -253,10 +277,19 @@ class OMVWebGuiLogin extends OMVHtmlPage {
 		return $incList;
 	}
 
+	/**
+	 * Get an list of CSS files to be included.
+	 * @return An array of files to be included.
+	 */
+	public function getCssIncludes() {
+		$includes = parent::getCssIncludes();
+		$includes[] = "css/omv.css";
+		return $includes;
+	}
+
 	protected function getBody() {
 		$prd = new OMVProduct();
 		return <<<EOF
-		<link rel="stylesheet" type="text/css" href="css/omv.css"/>
 		<a title='{$prd->getName()}' href='{$prd->getURL()}' target='_blank'><div id="projectlogo"></div></a>
 		<script type="application/javascript">
 			Ext.QuickTips.init();
