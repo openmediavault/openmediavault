@@ -39,7 +39,7 @@ Ext.define("OMV.WorkspaceManager", {
 		me.root = me.createNode({
 			id: "root",
 			path: "/",
-			text: "root",
+			text: _("Overview"),
 			leaf: false,
 			icon16: "images/home.png",
 			iconSvg: "images/home.svg"

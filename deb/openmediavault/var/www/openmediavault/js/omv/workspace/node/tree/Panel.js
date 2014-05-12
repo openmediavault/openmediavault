@@ -46,13 +46,17 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 
 	constructor: function(config) {
 		var me = this;
+		// Get the workspace root node.
+		var rootNode = OMV.WorkspaceManager.getRootNode();
+		// Create the tree store.
 		config = Ext.apply({
 			store: Ext.create("Ext.data.TreeStore", {
 				model: "OMV.workspace.node.tree.Model",
 				root: {
+					id: Ext.id(),
 					expanded: true,
-					node: OMV.WorkspaceManager.getRootNode(),
-					text: "root",
+					node: rootNode,
+					text: rootNode.getText(),
 					children: []
 				},
 				sorters: [{
