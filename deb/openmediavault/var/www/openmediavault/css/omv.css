@@ -23,7 +23,7 @@
 /* Login page                                                                 */
 /******************************************************************************/
 body#login-page {
-	background: #98b7cf; /* #475668, #98b7cf, #3C404B */
+	background: #98b7cf;
 }
 div#projectlogo {
 	position: absolute;
@@ -36,6 +36,12 @@ div#projectlogo {
 	background-repeat: no-repeat;
 	background-color: transparent;
 	background-position: bottom;
+}
+/******************************************************************************/
+/* Shutdown page                                                                 */
+/******************************************************************************/
+body#shutdown-page {
+	background: #98b7cf;
 }
 div#shutdownlogo {
 	position: absolute;
