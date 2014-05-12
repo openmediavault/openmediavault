@@ -109,7 +109,7 @@ EOF;
 		$incList = array_unique($this->getCssIncludes());
 		$fileName = "css/omv-custom.css";
 		if (file_exists($fileName))
-			$includes[] = $fileName;
+			$incList[] = $fileName;
 		foreach ($incList as $incListv) {
 			print "<link rel='stylesheet' type='text/css' href='{$incListv}'/>\n";
 		}
