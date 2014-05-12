@@ -29,7 +29,7 @@ require_once("openmediavault/system.inc");
  * Base class for a HTML page.
  * @ingroup api
  */
-class OMVHtmlPage extends OMVObject {
+abstract class OMVHtmlPageAbstract extends OMVObject {
 	/**
 	 * Includes the given file
 	 * @param fileName The name of the file to add
@@ -101,7 +101,7 @@ class OMVHtmlPage extends OMVObject {
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
 		<link rel="stylesheet" type="text/css" href="/extjs/resources/css/ext-all.css"/>
 		<link rel="stylesheet" type="text/css" href="/extjs/resources/css/ext-all-gray.css"/>
-		<link rel="stylesheet" type="text/css" href="css/omv-ext.css"/>
+		<link rel="stylesheet" type="text/css" href="css/omv.css"/>
 
 EOF;
 
@@ -132,11 +132,12 @@ EOF;
 		}
 
 		// Get the body code to be rendered
-		$body = $this->getBody();
+		$bodyId = $this->getBodyId();
+		$bodyContent = $this->getBodyContent();
 
 		echo <<<EOF
 	</head>
-	<body>{$body}</body>
+	<body id='{$bodyId}'>{$bodyContent}</body>
 </html>
 EOF;
 	}
@@ -153,11 +154,14 @@ EOF;
 	}
 
 	/**
+	 * Get the body ID.
+	 */
+	abstract protected function getBodyId();
+
+	/**
 	 * Get the HTML body code
 	 */
-	protected function getBody() {
-		return "";
-	}
+	abstract protected function getBodyContent();
 
 	/**
 	 * Get an list of javascript files to be included.
@@ -179,7 +183,7 @@ EOF;
 /**
  * @ingroup api
  */
-class OMVWebGui extends OMVHtmlPage {
+class OMVWebGui extends OMVHtmlPageAbstract {
 	const MODE_ADMINISTRATOR = "admin";
 	const MODE_USER = "user";
 
@@ -212,7 +216,11 @@ class OMVWebGui extends OMVHtmlPage {
 		return $incList;
 	}
 
-	protected function getBody() {
+	protected function getBodyId() {
+		return "workspace-page";
+	}
+
+	protected function getBodyContent() {
 		$prd = new OMVProduct();
 		$session = &OMVSession::getInstance();
 		// Define global constants.
@@ -268,24 +276,18 @@ EOF;
 /**
  * @ingroup api
  */
-class OMVWebGuiLogin extends OMVHtmlPage {
+class OMVWebGuiLogin extends OMVHtmlPageAbstract {
 	public function getJavascriptIncludes() {
 		$incList = array();
 		$this->scanFiles("js/omv/window/Login.js", $incList);
 		return $incList;
 	}
 
-	/**
-	 * Get an list of CSS files to be included.
-	 * @return An array of files to be included.
-	 */
-	public function getCssIncludes() {
-		$includes = parent::getCssIncludes();
-		$includes[] = "css/omv.css";
-		return $includes;
+	protected function getBodyId() {
+		return "login-page";
 	}
 
-	protected function getBody() {
+	protected function getBodyContent() {
 		$prd = new OMVProduct();
 		return <<<EOF
 		<a title='{$prd->getName()}' href='{$prd->getURL()}' target='_blank'><div id="projectlogo"></div></a>

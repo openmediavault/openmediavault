@@ -19,7 +19,10 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 
-body {
+/******************************************************************************/
+/* Login page                                                                 */
+/******************************************************************************/
+body#login-page {
 	background: #98b7cf; /* #475668, #98b7cf, #3C404B */
 }
 div#projectlogo {
@@ -46,4 +49,216 @@ div#shutdownlogo {
 	background-repeat: no-repeat;
 	background-color: transparent;
 	background-position: center;
+}
+/******************************************************************************/
+/* Workspace page                                                             */
+/******************************************************************************/
+div#header {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	height: 80px;
+	background: #98b7cf; /* #475668, #98b7cf, #3C404B */
+}
+div#headerlogo {
+	float: left;
+	margin-left: 20px;
+	height: 100%;
+	width: 304px;
+	background: url("/images/header_logo.png") center left no-repeat;
+}
+div#headerrlogo {
+	float: right;
+	height: 100%;
+	width: 362px;
+	background-image: url("/images/header_rlogo.png");
+	display: none;
+}
+.x-text-center {
+	text-align: center;
+}
+/* Fieldset */
+.x-fieldset-header-text {
+	font-size: 11px;
+	font-weight: bold;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	color: #6F6F6F;
+}
+/* Customize textarea fields */
+.x-form-textarea-monospaced textarea {
+	font-family: monospace;
+	font-size: 11px;
+	padding: 0;
+}
+/* Field info text */
+.x-form-fieldinfo {
+	font-size: 11px;
+	color: #333333;
+	line-height: 14px;
+}
+/* Trigger field */
+.x-form-password-trigger {
+	cursor: pointer;
+	background-image: url("/images/password-trigger.png");
+}
+.x-form-add-trigger {
+    background-image: url("../images/add-trigger.png");
+}
+.x-form-folder-trigger {
+    background-image: url("../images/folder-trigger.png");
+}
+/* About box */
+.x-box-aboutbox {
+	margin: 15px;
+	text-align: left;
+	padding: 5px 10px;
+	background-color: #eee;
+	font-family: "Myriad Pro","Myriad Web","Tahoma","Helvetica","Arial",sans-serif;
+	color: #393939;
+}
+.x-box-aboutbox a {
+	text-decoration: none !important;
+	font-style: italic;
+	color:#444444;
+}
+/* RRD graph panel */
+.x-panel-rrdgraph {
+	margin: 10px 10px 10px 10px;
+	text-align: center;
+}
+.x-panel-rrdgraph img {
+	border: 0 none;
+	font-size: 11px;
+	margin: 1px 1px 1px 1px;
+}
+/* Progress bar */
+.x-progress-bar {
+	background-color: #b3b3b3;
+	background-image: none;
+	border-top-color: #b3b3b3;
+	border-bottom-color: #b3b3b3;
+	border-right-color: #b3b3b3;
+}
+.x-progress-default .x-progress-bar-default {
+	background-color: #98b7cf; /* Cooperate color */
+	background-image: none; /* Flat design */
+}
+/* Tabs */
+.x-tab-bar-default-top {
+	background-image: none;
+	background-color: #d8d8d8; /* Flat design */
+}
+.x-tab-invalid {
+	border: 1px solid #cc3300;
+}
+/* Meditation message box */
+.x-message-box-guru {
+	width: 100%;
+	background-color: #000000;
+	padding: 7px;
+}
+.x-message-box-guru-body {
+	padding: 12px 0px 12px 0px;
+	border: solid 6px #ff0000;
+	color: #f72000;
+	font-family: courier;
+	font-weight: bold;
+	font-size: large;
+	text-align: center;
+}
+/* Tree */
+.x-tree-icon {
+	-webkit-filter: opacity(70%);
+	-moz-filter: opacity(70%);
+	-ms-filter: opacity(70%);
+	-o-filter: opacity(70%);
+	filter: opacity(70%);
+}
+.x-tree-icon-16x16 {
+	background-size: 16px 16px;
+}
+.x-tree-icon-parent {
+	background-image: url("../images/folder.png");
+}
+.x-grid-tree-node-expanded .x-tree-icon-parent {
+	background-image: url("../images/folder-open.png");
+}
+/* Button */
+.x-btn-icon-16x16 {
+	background-size: 16px 16px;
+}
+/* Toolbar */
+.x-toolbar-applycfg {
+	background: #ffeb99
+}
+/* Workspace node view */
+.x-workspace-node-view {
+	-webkit-filter: opacity(70%);
+	-moz-filter: opacity(70%);
+	-ms-filter: opacity(70%);
+	-o-filter: opacity(70%);
+	filter: opacity(70%);
+}
+.x-workspace-node-view-category {
+}
+.x-workspace-node-view-category-header {
+	border-bottom: 1px solid #d8d8d8;
+	font-weight: bold;
+	font-size: small;
+}
+.x-workspace-node-view-category-header .x-item-selected {
+	background-color: #e0e0e0;
+}
+.x-workspace-node-view-category-header .x-item-over {
+	background-color: #efefef;
+	cursor: pointer;
+}
+.x-workspace-node-view-category-header .thumb-wrap {
+	padding: 5px;
+}
+.x-workspace-node-view-category-items .thumb-wrap .thumb {
+	padding: 5px;
+	padding-bottom: 0;
+}
+.x-workspace-node-view-category-items .thumb-wrap .thumb img {
+	height: 32px;
+	width: 32px;
+}
+.x-workspace-node-view-category-items .thumb-wrap {
+	float: left;
+	padding: 5px;
+	text-align: center;
+	width: 96px;
+	height: 80px;
+}
+.x-workspace-node-view-category-items .thumb-wrap span {
+	display: block;
+	overflow: visible;
+	/* http://css-tricks.com/almanac/properties/w/word-break */
+	-ms-word-break: break-all;
+	word-break: break-all;
+	word-break: break-word; /* Non standard for webkit */
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+}
+.x-workspace-node-view-category-items .x-item-selected {
+	background-color: #e0e0e0;
+}
+.x-workspace-node-view-category-items .x-item-over {
+	background-color: #efefef;
+	cursor: pointer;
+}
+/* Workspace node tree */
+.x-workspace-node-tree .x-grid-row-over .x-grid-td {
+	cursor: pointer;
+}
+/* Workspace node toolbar */
+.x-workspace-node-toolbar-item .x-btn-icon-el {
+	height: 16px;
+	width: 16px;
+	-webkit-filter: opacity(70%);
+	-moz-filter: opacity(70%);
+	-ms-filter: opacity(70%);
+	-o-filter: opacity(70%);
+	filter: opacity(70%);
 }

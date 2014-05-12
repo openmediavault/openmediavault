@@ -34,7 +34,7 @@ $title = sprintf("%s - %s", $prd->getName(),
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
 		<link rel="stylesheet" type="text/css" href="css/omv.css"/>
 	</head>
-	<body>
+	<body id="shutdown-page">
 		<a href='/'><div id="shutdownlogo"></div></a>
 		<a title='<?=$prd->getName();?>' href='<?=$prd->getURL();?>' target='_blank'><div id="projectlogo"></div></a>
 	</body>
