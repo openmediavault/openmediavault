@@ -199,6 +199,13 @@ div#headerrlogo {
 .x-workspace-node-view-category-items .thumb-wrap span {
 	display: block;
 	overflow: visible;
+	/* http://css-tricks.com/almanac/properties/w/word-break */
+	-ms-word-break: break-all;
+	word-break: break-all;
+	word-break: break-word; /* Non standard for webkit */
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
 }
 .x-workspace-node-view-category-items .x-item-selected {
 	background-color: #e0e0e0;

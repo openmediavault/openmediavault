@@ -107,6 +107,9 @@ EOF;
 
 		// Add additional CSS files.
 		$incList = array_unique($this->getCssIncludes());
+		$fileName = "css/omv-custom.css";
+		if (file_exists($fileName))
+			$includes[] = $fileName;
 		foreach ($incList as $incListv) {
 			print "<link rel='stylesheet' type='text/css' href='{$incListv}'/>\n";
 		}
@@ -169,12 +172,7 @@ EOF;
 	 * @return An array of files to be included.
 	 */
 	public function getCssIncludes() {
-		$includes = array();
-		// Add custim CSS file if it exists.
-		$fileName = "css/omv-custom.css";
-		if (file_exists($fileName))
-			$includes[] = $fileName;
-		return $includes;
+		return array();
 	}
 }
 

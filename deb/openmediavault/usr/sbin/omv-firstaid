@@ -260,14 +260,35 @@ configure_webgui() {
 }
 
 reset_webgui_passwd() {
-	local passwd
-	while [ -z "${passwd}" ]; do
-		${OMV_FIRSTAID_DIALOG} --clear --passwordbox \
-		  "Please enter the new WebGUI administrator password." 8 55 2>$tempfile
-		[ $? -ne 0 ] && return 1
-		passwd=$(cat $tempfile)
-		if [ -z "${passwd}" ]; then
-			${OMV_FIRSTAID_DIALOG} --clear --msgbox "The password must not be empty." 8 35
+	local passwd passwdconf
+	# Get the password.
+	while [ -z "${passwd}" -o "${passwd}" != "${passwdconf}" ]; do
+		while [ -z "${passwd}" ]; do
+			${OMV_FIRSTAID_DIALOG} --clear --passwordbox \
+			  "Please enter the new WebGUI administrator password." 8 55 2>$tempfile
+			[ $? -ne 0 ] && return 1
+			passwd=$(cat $tempfile)
+			if [ -z "${passwd}" ]; then
+				${OMV_FIRSTAID_DIALOG} --clear --msgbox "The password must not be empty." 7 35
+			fi
+		done
+		# Confirm the entered password.
+		while [ -z "${passwdconf}" ]; do
+			${OMV_FIRSTAID_DIALOG} --clear --passwordbox \
+			  "Please confirm the new WebGUI administrator password." 8 57 2>$tempfile
+			[ $? -ne 0 ] && return 1
+			passwdconf=$(cat $tempfile)
+			if [ -z "${passwdconf}" ]; then
+				${OMV_FIRSTAID_DIALOG} --clear --msgbox "The password must not be empty." 7 35
+			fi
+		done
+		# Compare entered passwords.
+		if [ "${passwd}" != "${passwdconf}" ]; then
+			# Reset values.
+			passwd=""
+			passwdconf=""
+			# Display error message.
+			${OMV_FIRSTAID_DIALOG} --clear --msgbox "The passwords don't match." 7 30
 		fi
 	done
 	echo "Updating WebGUI administrator password. Please wait ..."
