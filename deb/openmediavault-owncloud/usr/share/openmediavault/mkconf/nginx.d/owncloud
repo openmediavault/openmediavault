@@ -60,7 +60,6 @@ location ${OMV_NGINX_SITE_OWNCLOUD_LOCATION} {
 	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/.well-known/carddav ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/remote.php/carddav/ redirect;
 	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/.well-known/caldav ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/remote.php/caldav/ redirect;
 	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}(/core/doc/[^\/]+/)$ ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}\$1/index.html;
-	index index.php;
 	error_page 403 ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/core/templates/403.php;
 	error_page 404 ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/core/templates/404.php;
 	location = ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/robots.txt {
@@ -72,9 +71,8 @@ location ${OMV_NGINX_SITE_OWNCLOUD_LOCATION} {
 		deny all;
 	}
 	location ~ ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}(/.+?\.php)(/.*)?$ {
-		fastcgi_param SCRIPT_FILENAME \$document_root\$1;
+		fastcgi_param SCRIPT_FILENAME ${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT}\$1;
 		fastcgi_param PATH_INFO \$2;
-		fastcgi_param HTTPS on;
 		fastcgi_pass unix:/var/run/php5-fpm-owncloud.sock;
 		include fastcgi_params;
 	}

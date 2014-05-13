@@ -63,7 +63,7 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "        alias ${OMV_DOCUMENTROOT_DIR}/images/;" -n \
   -o "    }" -n \
   -o "    location ~ \.php$ {" -n \
-  -o "        try_files \$uri =404;" -n \
+  -o "        try_files \$uri = 404;" -n \
   -o "        fastcgi_split_path_info ^(.+\.php)(/.+)$;" -n \
   -o "        fastcgi_pass unix:/var/run/php5-fpm-openmediavault-webgui.sock;" -n \
   -o "        fastcgi_index index.php;" -n \
