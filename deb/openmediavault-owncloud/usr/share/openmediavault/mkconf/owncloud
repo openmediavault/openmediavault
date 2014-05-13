@@ -24,12 +24,9 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_OWNCLOUD_APACHE2_SITE_CONFIG=${OMV_OWNCLOUD_APACHE2_SITE_CONFIG:-"/etc/apache2/openmediavault-webgui.d/owncloud.conf"}
-#OMV_OWNCLOUD_APACHE2_SITE_CONFIG=${OMV_OWNCLOUD_APACHE2_SITE_CONFIG:-"/etc/apache2/sites-available/openmediavault-owncloud"}
-OMV_OWNCLOUD_APACHE2_DOCUMENTROOT=${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT:-"/var/www/owncloud"}
-OMV_OWNCLOUD_APACHE2_SERVERNAME=${OMV_OWNCLOUD_APACHE2_SERVERNAME:-"openmediavault-owncloud"}
-OMV_OWNCLOUD_APACHE2_LOGLEVEL=${OMV_OWNCLOUD_APACHE2_LOGLEVEL:-"warn"}
-OMV_OWNCLOUD_CONFIG=${OMV_OWNCLOUD_CONFIG:-"/var/www/owncloud/config/config.php"}
+OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT=${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT:-"/var/www/owncloud"}
+
+OMV_OWNCLOUD_CONFIG=${OMV_OWNCLOUD_CONFIG:-"${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT}/config/config.php"}
 OMV_OWNCLOUD_CONFIG_DBTYPE=${OMV_OWNCLOUD_CONFIG_DBTYPE:-"sqlite3"}
 OMV_OWNCLOUD_CONFIG_DBNAME=${OMV_OWNCLOUD_CONFIG_DBNAME:-"owncloud"}
 OMV_OWNCLOUD_CONFIG_VERSION=${OMV_OWNCLOUD_CONFIG_VERSION:-"5.0.25"}
@@ -42,26 +39,25 @@ OMV_OWNCLOUD_CONFIG_ALLOWUSERTOCHANGEDISPLAYNAME=${OMV_OWNCLOUD_CONFIG_ALLOWUSER
 OMV_OWNCLOUD_CONFIG_UPDATECHECKER=${OMV_OWNCLOUD_CONFIG_UPDATECHECKER:-"false"}
 OMV_OWNCLOUD_CONFIG_LOGTYPE=${OMV_OWNCLOUD_CONFIG_LOGTYPE:-"owncloud"}
 OMV_OWNCLOUD_CONFIG_DEBUG=${OMV_OWNCLOUD_CONFIG_DEBUG:-"false"}
-OMV_OWNCLOUD_AUTOCONFIG=${OMV_OWNCLOUD_AUTOCONFIG:-"/var/www/owncloud/config/autoconfig.php"}
+OMV_OWNCLOUD_AUTOCONFIG=${OMV_OWNCLOUD_AUTOCONFIG:-"${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT}/config/autoconfig.php"}
 OMV_OWNCLOUD_AUTOCONFIG_ADMINLOGIN=${OMV_OWNCLOUD_AUTOCONFIG_ADMINLOGIN:-"admin"}
 OMV_OWNCLOUD_AUTOCONFIG_ADMINPASS=${OMV_OWNCLOUD_AUTOCONFIG_ADMINPASS:-"openmediavault"}
 
 mkconf() {
-	# Get the configured location of the data directory. Make sure the
-	# directory exists and has the correct owner permissions.
+	# Get the configured location of the data directory. Ensure that the
+	# webserver can access the directory.
 	sfref=$(omv_config_get "//services/owncloud/sharedfolderref")
 	datadirectory=$(omv_get_sharedfolder_path "${sfref}")
 	mkdir -p --mode=0770 "${datadirectory}"
-	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} "${datadirectory}"
+	chown www-data:www-data "${datadirectory}"
+	#setfacl -m u:www-data:rwx,g:www-data:rwx "${datadirectory}"
 
 	# Create a 'tmp' directory which is used for file uploads for example.
 	mkdir -p --mode=0770 "${datadirectory}/tmp"
-	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} "${datadirectory}/tmp"
+	chown www-data:www-data "${datadirectory}/tmp"
+	ln -s -f "${datadirectory}/tmp" "/var/www/owncloud/data"
 
-	# Modify 'php.ini' file.
-	sed -i "s/^upload_tmp_dir.*$/upload_tmp_dir = '$(omv_quotemeta "${datadirectory}/tmp")'/" "${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/cgi/php.ini"
-
-	# Create '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/config/config.php' file.
+	# Create '/var/www/owncloud/config/config.php' file.
 	xmlstarlet sel -t -m "//services/owncloud" \
 	  -o "<?php" -n \
 	  -o "define('DEBUG', ${OMV_OWNCLOUD_CONFIG_DEBUG});" -n \
@@ -87,9 +83,9 @@ mkconf() {
 	  -o ");" -n \
 	  -o "?>" \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_CONFIG}
-	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} ${OMV_OWNCLOUD_CONFIG}
+	chown www-data:www-data ${OMV_OWNCLOUD_CONFIG}
 
-	# Create '${OMV_OWNCLOUD_APACHE2_DOCUMENTROOT}/config/autoconfig.php' file.
+	# Create '/var/www/owncloud/config/autoconfig.php' file.
 	cat <<EOF > ${OMV_OWNCLOUD_AUTOCONFIG}
 <?php
 \$AUTOCONFIG = array(
@@ -143,7 +139,7 @@ foreach(\$shares as \$sharek => \$sharev) {
 file_put_contents("${datadirectory}/mount.json", json_encode_safe(\$result, JSON_FORCE_OBJECT))
 ?>
 EOF
-	chown ${OMV_APACHE2_SUEXECUSERGROUP}:${OMV_APACHE2_SUEXECUSERGROUP} "${datadirectory}/mount.json"
+	chown www-data:www-data "${datadirectory}/mount.json"
 }
 
 case "$1" in

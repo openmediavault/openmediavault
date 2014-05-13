@@ -22,6 +22,8 @@
 # Documentation/Howto:
 # http://doc.owncloud.org/server/6.0/admin_manual/installation/installation_source.html
 # http://www.howtoforge.com/running-owncloud-5.0-on-nginx-lemp-on-debian-wheezy
+# http://tech-blog.clericare.com/2013/08/how-to-deploy-owncloud-with-postgresql.html
+# http://stackoverflow.com/questions/21645068/nginx-and-owncloud-in-subfolder
 
 set -e
 
@@ -32,6 +34,9 @@ OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR=${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR:-"/etc/ngi
 
 OMV_NGINX_SITE_OWNCLOUD_CONFIG=${OMV_NGINX_SITE_OWNCLOUD_CONFIG:-"${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR}/owncloud.conf"}
 OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT=${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT:-"/var/www/owncloud"}
+OMV_NGINX_SITE_OWNCLOUD_LOCATION=${OMV_NGINX_SITE_OWNCLOUD_LOCATION:-"/owncloud"}
+OMV_NGINX_SITE_OWNCLOUD_LOG_DIR=${OMV_NGINX_SITE_OWNCLOUD_LOG_DIR:-"/var/log/nginx"}
+OMV_NGINX_SITE_OWNCLOUD_LOGLEVEL=${OMV_NGINX_SITE_OWNCLOUD_LOGLEVEL:-"error"}
 
 # !!! NOTE !!!
 # The plugin uses an alias to access the ownCloud webgui because in this
@@ -42,14 +47,41 @@ rm -f ${OMV_NGINX_SITE_OWNCLOUD_CONFIG}
 
 # Create '/etc/nginx/openmediavault-webgui.d/owncloud.conf' file.
 cat <<EOF > ${OMV_NGINX_SITE_OWNCLOUD_CONFIG}
-location /owncloud {
-	alias ${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT}
-}
-location /owncloud/~ \.php$ {
-    try_files \$uri =404;
-    fastcgi_split_path_info ^(.+\.php)(/.+)$;
-    fastcgi_pass unix:/var/run/php5-fpm-owncloud.sock;
-    fastcgi_index index.php;
-    include fastcgi_params;
+location ${OMV_NGINX_SITE_OWNCLOUD_LOCATION} {
+	alias ${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT};
+	error_log ${OMV_NGINX_SITE_OWNCLOUD_LOG_DIR}/owncloud_error.log ${OMV_NGINX_SITE_OWNCLOUD_LOGLEVEL};
+	access_log ${OMV_NGINX_SITE_OWNCLOUD_LOG_DIR}/owncloud_access.log combined;
+	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/caldav(.*)$ ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/remote.php/caldav\$1 redirect;
+	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/carddav(.*)$ ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/remote.php/carddav\$1 redirect;
+	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/webdav(.*)$ ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/remote.php/webdav\$1 redirect;
+	# The following 2 rules are only needed with webfinger
+	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/.well-known/host-meta ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/public.php?service=host-meta last;
+	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/.well-known/host-meta.json ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/public.php?service=host-meta-json last;
+	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/.well-known/carddav ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/remote.php/carddav/ redirect;
+	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/.well-known/caldav ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/remote.php/caldav/ redirect;
+	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}(/core/doc/[^\/]+/)$ ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}\$1/index.html;
+	index index.php;
+	error_page 403 ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/core/templates/403.php;
+	error_page 404 ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/core/templates/404.php;
+	location = ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/robots.txt {
+		allow all;
+		log_not_found off;
+		access_log off;
+	}
+	location ~ ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/(data|config|\.ht|db_structure\.xml|README) {
+		deny all;
+	}
+	location ~ ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}(/.+?\.php)(/.*)?$ {
+		fastcgi_param SCRIPT_FILENAME \$document_root\$1;
+		fastcgi_param PATH_INFO \$2;
+		fastcgi_param HTTPS on;
+		fastcgi_pass unix:/var/run/php5-fpm-owncloud.sock;
+		include fastcgi_params;
+	}
+	location ~* ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}(/.+\.(jpg|jpeg|gif|bmp|ico|png|css|js|swf))$ {
+		expires 30d;
+		# Optional: Don't log access to assets
+		access_log off;
+	}
 }
 EOF
