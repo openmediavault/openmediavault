@@ -422,6 +422,8 @@ class OMVConfigEngine extends OMVObject {
 				$this->setLastError(error_get_last());
 				return FALSE;
 			}
+			// Update file permissions.
+			chmod($filename, 0600);
 		}
 		// Save document.
 		$this->domdoc->encoding = "UTF-8";
