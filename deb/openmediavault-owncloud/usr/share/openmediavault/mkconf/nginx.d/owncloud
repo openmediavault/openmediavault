@@ -30,6 +30,8 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR=${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR:-"/etc/nginx/openmediavault-webgui.d"}
+
 OMV_NGINX_SITE_OWNCLOUD_CONFIG=${OMV_NGINX_SITE_OWNCLOUD_CONFIG:-"/etc/nginx/sites-enabled/openmediavault-owncloud"}
 OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT=${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT:-"/var/www/owncloud"}
 OMV_NGINX_SITE_OWNCLOUD_LOG_DIR=${OMV_NGINX_SITE_OWNCLOUD_LOG_DIR:-"/var/log/nginx"}
@@ -38,8 +40,10 @@ OMV_NGINX_SITE_OWNCLOUD_SERVERNAME=${OMV_NGINX_SITE_OWNCLOUD_SERVERNAME:-"ownclo
 OMV_NGINX_SITE_OWNCLOUD_SECURITY_CSP=${OMV_NGINX_SITE_OWNCLOUD_SECURITY_CSP:-"default-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:"}
 OMV_NGINX_SITE_OWNCLOUD_SECURITY_XFRAMEOPTIONS=${OMV_NGINX_SITE_OWNCLOUD_SECURITY_XFRAMEOPTIONS:-"SAMEORIGIN"}
 OMV_NGINX_SITE_OWNCLOUD_SECURITY_HSTS=${OMV_NGINX_SITE_OWNCLOUD_SECURITY_HSTS:-"max-age=31536000; includeSubdomains"}
+OMV_NGINX_SITE_OWNCLOUD_REDIRECT_CONFIG=${OMV_NGINX_SITE_OWNCLOUD_REDIRECT_CONFIG:-"${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR}/owncloud.conf"}
 
 rm -f ${OMV_NGINX_SITE_OWNCLOUD_CONFIG}
+rm -f ${OMV_NGINX_SITE_OWNCLOUD_REDIRECT_CONFIG}
 [ "$(omv_config_get "//services/owncloud/enable")" = "0" ] && exit 0
 
 # Create '/etc/nginx/sites-enabled/openmediavault-owncloud' file.
@@ -113,3 +117,10 @@ xmlstarlet sel -t -m "//services/owncloud" \
   -o "    add_header X-XSS-Protection \"1; mode=block\";" -n \
   -o "}" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NGINX_SITE_OWNCLOUD_CONFIG}
+
+# Create '/etc/nginx/openmediavault-webgui.d/owncloud.conf' file.
+xmlstarlet sel -t -m "//services/owncloud" \
+  -o "location /owncloud {" -n \
+  -v "concat('    return 301 https://\$host:',port,';')" -n \
+  -o "}" \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NGINX_SITE_OWNCLOUD_REDIRECT_CONFIG}
