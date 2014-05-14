@@ -300,11 +300,14 @@ class OMVConfigEngine extends OMVObject {
 		// Create a copy of the existing document. Exit immediatelly
 		// on failure to do not corrupt the original file. Note, the
 		// current changes can get lost.
-		if(!copy($this->filename, sprintf("%s.bak", $this->filename))) {
+		$filename = sprintf("%s.bak", $this->filename);
+		if(!copy($this->filename, $filename)) {
 			$error = error_get_last();
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SAVE_FAILED,
 			  $error['message']);
 		}
+		// Update file permissions.
+		chmod($filename, 0600);
 		// Save document.
 		$this->domdoc->encoding = "UTF-8";
 		$this->domdoc->formatOutput = true;
