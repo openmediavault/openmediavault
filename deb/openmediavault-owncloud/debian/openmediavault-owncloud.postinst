@@ -32,6 +32,8 @@ case "$1" in
 		#   <services>
 		#     <owncloud>
 		#       <enable>0</enable>
+		#       <port>8443</port>
+		#       <sslcertificateref></sslcertificateref>
 		#       <instanceid>xxx</instanceid>
 		#       <passwordsalt>xxx</passwordsalt>
 		#       <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
@@ -67,6 +69,8 @@ case "$1" in
 			passwordsalt=$(openssl rand -base64 30)
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
+			object="${object}<port>8443</port>"
+			object="${object}<sslcertificateref></sslcertificateref>"
 			object="${object}<instanceid>${instanceid}</instanceid>"
 			object="${object}<passwordsalt>${passwordsalt}</passwordsalt>"
 			object="${object}<sharedfolderref></sharedfolderref>"
@@ -100,6 +104,10 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.5.6"; then
 			omv_config_add_element "/config/services/owncloud" "sharedfolderref" ""
+		fi
+		if dpkg --compare-versions "$2" lt-nl "0.6"; then
+			omv_config_add_element "/config/services/owncloud" "port" "8443"
+			omv_config_add_element "/config/services/owncloud" "sslcertificateref" ""
 		fi
 	;;
 

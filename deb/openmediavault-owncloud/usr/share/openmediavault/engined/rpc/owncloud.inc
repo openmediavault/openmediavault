@@ -67,6 +67,7 @@ class OMVRpcServiceOwnCloud extends OMVRpcServiceAbstract {
 		}
 		// Modify result object.
 		$object['enable'] = boolval($object['enable']);
+		$object['port'] = intval($object['port']);
 		// Remove useless fields.
 		unset($object['shares']);
 		return $object;
@@ -77,6 +78,7 @@ class OMVRpcServiceOwnCloud extends OMVRpcServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
+	 * @throw E_CONFIG_OBJECT_UNIQUENESS
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 * @throw E_CONFIG_SET_OBJECT_FAILED
 	 */
@@ -91,22 +93,41 @@ class OMVRpcServiceOwnCloud extends OMVRpcServiceAbstract {
 			  "type":"object",
 			  "properties":{
 				  "enable":{"type":"boolean"},
+				  "port":{"type":"integer","minimum":1,"maximum":65535},
+				  "sslcertificateref":{'.
+					$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'},
 				  "sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_NONE'].'}
 			  }
 		  }');
+		// Check uniqueness:
+		// - Is port already used?
+		$xpath = "//webadmin";
+		$object = $xmlConfig->get($xpath);
+		if (is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		if (in_array($params['port'], array(intval($object['port']),
+		  intval($object['sslport'])))) {
+		  	throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+			  sprintf(gettext("The port '%d' is already in use"),
+			  $params['port']));
+		}
 		// Get the existing configuration object.
 		$xpath = "//services/owncloud";
 		$oldObject = $xmlConfig->get($xpath);
-		if(is_null($oldObject)) {
+		if (is_null($oldObject)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Update the configuration object.
 		$object = array_merge($oldObject, array(
 			  "enable" => array_boolval($params, 'enable'),
+			  "port" => $params['port'],
+			  "sslcertificateref" => $params['sslcertificateref'],
 			  "sharedfolderref" => $params['sharedfolderref']
 		  ));
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
+		if (FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.

@@ -73,9 +73,9 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 	final public function onModifySettings($type, $path, $object, $oldObject) {
 		// Mark this module as dirty.
 		$this->setDirty();
-		// Check whether the Apache webserver needs to be restarted because
-		// ownCloud has been enabled/disabled. In this case mark the module
-		// as dirty.
+		// Check whether the webserver needs to be restarted because
+		// ownCloud has been enabled/disabled. In this case mark the
+		// module as dirty.
 		if (boolval($oldObject['enable']) != boolval($object['enable'])) {
 			$this->setDirtyByName("webserver");
 		}
@@ -98,6 +98,22 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 	}
 
 	/**
+	 * Helper function to find out whether the given SSL certificate
+	 * is used by this service. If it is used, then mark the module as
+	 * dirty.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The configuration object.
+	 */
+	final public function onModifySslCertificate($type, $path, $object) {
+		global $xmlConfig;
+		$xpath = sprintf("//services/owncloud[sslcertificateref='%s']",
+		  $object['uuid']);
+		if (TRUE === $xmlConfig->exists($xpath))
+			$this->setDirtyByName("webserver");
+	}
+
+	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
@@ -117,6 +133,10 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder.privileges",
 		  array($this, "onModifySharedFolder"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.certificates.sslcertificate",
+		  array($this, "onModifySslCertificate"));
 		// Changing webgui settings requires recreation of ownCloud
 		// configuration.
 		$moduleMgr = &OMVModuleMgr::getInstance();
@@ -124,7 +144,7 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.webadmin",
 		  array($moduleMgr->getModule("webserver"), "setDirty"));
-    }
+	}
 }
 
 // Register module.

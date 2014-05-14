@@ -67,8 +67,7 @@ mkconf() {
 	  -o "  'version' => '${OMV_OWNCLOUD_CONFIG_VERSION}'," -n \
 	  -o "  'dbtype' => '${OMV_OWNCLOUD_CONFIG_DBTYPE}'," -n \
 	  -o "  'dbname' => '${OMV_OWNCLOUD_CONFIG_DBNAME}'," -n \
-	  -i "//webadmin/enablessl[. = '0']" -o "  'forcessl' => false," -n -b \
-	  -i "//webadmin/enablessl[. = '1']" -o "  'forcessl' => true," -n -b \
+	  -o "  'forcessl' => true," -n \
 	  -o "  'blacklisted_files' => array(${OMV_OWNCLOUD_CONFIG_BLACKLISTEDFILES})," -n \
 	  -o "  'default_language' => 'en'," -n \
 	  -o "  'defaultapp' => 'files'," -n \

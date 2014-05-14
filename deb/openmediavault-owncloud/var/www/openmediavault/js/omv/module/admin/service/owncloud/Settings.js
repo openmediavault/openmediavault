@@ -20,6 +20,7 @@
  */
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/form/Panel.js")
+// require("js/omv/form/field/CertificateComboBox.js")
 // require("js/omv/form/field/SharedFolderComboBox.js")
 
 /**
@@ -29,6 +30,7 @@
 Ext.define("OMV.module.admin.service.owncloud.Settings", {
 	extend: "OMV.workspace.form.Panel",
 	requires: [
+		"OMV.form.field.CertificateComboBox",
 		"OMV.form.field.SharedFolderComboBox"
 	],
 
@@ -38,7 +40,10 @@ Ext.define("OMV.module.admin.service.owncloud.Settings", {
 	plugins: [{
 		ptype: "linkedfields",
 		correlations: [{
-			name: "sharedfolderref",
+			name: [
+				"sharedfolderref",
+				"sslcertificateref"
+			],
 			conditions: [
 				{ name: "enable", value: true }
 			],
@@ -58,6 +63,29 @@ Ext.define("OMV.module.admin.service.owncloud.Settings", {
 				name: "enable",
 				fieldLabel: _("Enable"),
 				checked: false
+			},{
+				xtype: "numberfield",
+				name: "port",
+				fieldLabel: _("Port"),
+				vtype: "port",
+				minValue: 1,
+				maxValue: 65535,
+				allowDecimals: false,
+				allowBlank: false,
+				value: 8443,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The port which is used to access the ownCloud web interface.")
+				}]
+			},{
+				xtype: "certificatecombo",
+				name: "sslcertificateref",
+				fieldLabel: _("Certificate"),
+				allowNone: true,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The SSL certificate.")
+				}]
 			},{
 				xtype: "sharedfoldercombo",
 				name: "sharedfolderref",

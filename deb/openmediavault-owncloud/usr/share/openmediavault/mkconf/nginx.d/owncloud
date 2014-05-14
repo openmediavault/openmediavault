@@ -30,56 +30,86 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR=${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR:-"/etc/nginx/openmediavault-webgui.d"}
-
-OMV_NGINX_SITE_OWNCLOUD_CONFIG=${OMV_NGINX_SITE_OWNCLOUD_CONFIG:-"${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR}/owncloud.conf"}
+OMV_NGINX_SITE_OWNCLOUD_CONFIG=${OMV_NGINX_SITE_OWNCLOUD_CONFIG:-"/etc/nginx/sites-enabled/openmediavault-owncloud"}
 OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT=${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT:-"/var/www/owncloud"}
-OMV_NGINX_SITE_OWNCLOUD_LOCATION=${OMV_NGINX_SITE_OWNCLOUD_LOCATION:-"/owncloud"}
 OMV_NGINX_SITE_OWNCLOUD_LOG_DIR=${OMV_NGINX_SITE_OWNCLOUD_LOG_DIR:-"/var/log/nginx"}
 OMV_NGINX_SITE_OWNCLOUD_LOGLEVEL=${OMV_NGINX_SITE_OWNCLOUD_LOGLEVEL:-"error"}
+OMV_NGINX_SITE_OWNCLOUD_SERVERNAME=${OMV_NGINX_SITE_OWNCLOUD_SERVERNAME:-"owncloud"}
+OMV_NGINX_SITE_OWNCLOUD_SECURITY_CSP=${OMV_NGINX_SITE_OWNCLOUD_SECURITY_CSP:-"default-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:"}
+OMV_NGINX_SITE_OWNCLOUD_SECURITY_XFRAMEOPTIONS=${OMV_NGINX_SITE_OWNCLOUD_SECURITY_XFRAMEOPTIONS:-"SAMEORIGIN"}
+OMV_NGINX_SITE_OWNCLOUD_SECURITY_HSTS=${OMV_NGINX_SITE_OWNCLOUD_SECURITY_HSTS:-"max-age=31536000; includeSubdomains"}
 
-# !!! NOTE !!!
-# The plugin uses an alias to access the ownCloud webgui because in this
-# case we get SSL/TLS support out-of-the-box if the OMV webgui has enabled
-# secure connection.
 rm -f ${OMV_NGINX_SITE_OWNCLOUD_CONFIG}
 [ "$(omv_config_get "//services/owncloud/enable")" = "0" ] && exit 0
 
-# Create '/etc/nginx/openmediavault-webgui.d/owncloud.conf' file.
-cat <<EOF > ${OMV_NGINX_SITE_OWNCLOUD_CONFIG}
-location ${OMV_NGINX_SITE_OWNCLOUD_LOCATION} {
-	alias ${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT};
-	error_log ${OMV_NGINX_SITE_OWNCLOUD_LOG_DIR}/owncloud_error.log ${OMV_NGINX_SITE_OWNCLOUD_LOGLEVEL};
-	access_log ${OMV_NGINX_SITE_OWNCLOUD_LOG_DIR}/owncloud_access.log combined;
-	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/caldav(.*)$ ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/remote.php/caldav\$1 redirect;
-	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/carddav(.*)$ ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/remote.php/carddav\$1 redirect;
-	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/webdav(.*)$ ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/remote.php/webdav\$1 redirect;
-	# The following 2 rules are only needed with webfinger
-	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/.well-known/host-meta ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/public.php?service=host-meta last;
-	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/.well-known/host-meta.json ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/public.php?service=host-meta-json last;
-	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/.well-known/carddav ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/remote.php/carddav/ redirect;
-	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/.well-known/caldav ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/remote.php/caldav/ redirect;
-	rewrite ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}(/core/doc/[^\/]+/)$ ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}\$1/index.html;
-	error_page 403 ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/core/templates/403.php;
-	error_page 404 ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/core/templates/404.php;
-	location = ${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/robots.txt {
-		allow all;
-		log_not_found off;
-		access_log off;
-	}
-	location ~ ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}/(data|config|\.ht|db_structure\.xml|README) {
-		deny all;
-	}
-	location ~ ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}(/.+?\.php)(/.*)?$ {
-		fastcgi_param SCRIPT_FILENAME ${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT}\$1;
-		fastcgi_param PATH_INFO \$2;
-		fastcgi_pass unix:/var/run/php5-fpm-openmediavault-owncloud.sock;
-		include fastcgi_params;
-	}
-	location ~* ^${OMV_NGINX_SITE_OWNCLOUD_LOCATION}(/.+\.(jpg|jpeg|gif|bmp|ico|png|css|js|swf))$ {
-		expires 30d;
-		# Optional: Don't log access to assets
-		access_log off;
-	}
-}
-EOF
+# Create '/etc/nginx/sites-enabled/openmediavault-owncloud' file.
+xmlstarlet sel -t -m "//services/owncloud" \
+  -o "server {" -n \
+  -v "concat('    listen [::]:',port,' default_server ipv6only=off ssl deferred;')" -n \
+  -v "concat('    ssl_certificate ${OMV_CERTIFICATE_DIR}/certs/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.crt;')" -n \
+  -v "concat('    ssl_certificate_key ${OMV_CERTIFICATE_DIR}/private/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.key;')" -n \
+  -o "    server_name ${OMV_NGINX_SITE_OWNCLOUD_SERVERNAME};" -n \
+  -o "    root ${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT};" -n \
+  -o "    index index.php;" -n \
+  -o "    autoindex off;" -n \
+  -o "    server_tokens off;" -n \
+  -o "    sendfile on;" -n \
+  -o "    large_client_header_buffers 4 32k;" -n \
+  -o "    client_max_body_size 10G;" -n \
+  -o "    error_log ${OMV_NGINX_SITE_OWNCLOUD_LOG_DIR}/${OMV_NGINX_SITE_OWNCLOUD_SERVERNAME}_error.log ${OMV_NGINX_SITE_OWNCLOUD_LOGLEVEL};" -n \
+  -o "    access_log ${OMV_NGINX_SITE_OWNCLOUD_LOG_DIR}/${OMV_NGINX_SITE_OWNCLOUD_SERVERNAME}_access.log combined;" -n \
+  -o "    rewrite ^/caldav(.*)$ /remote.php/caldav\$1 redirect;" -n \
+  -o "    rewrite ^/carddav(.*)$ /remote.php/carddav\$1 redirect;" -n \
+  -o "    rewrite ^/webdav(.*)$ /remote.php/webdav\$1 redirect;" -n \
+  -o "    error_page 403 /core/templates/403.php;" -n \
+  -o "    error_page 404 /core/templates/404.php;" -n \
+  -o "    location = /robots.txt {" -n \
+  -o "        allow all;" -n \
+  -o "        log_not_found off;" -n \
+  -o "        access_log off;" -n \
+  -o "    }" -n \
+  -o "    location ~ ^/(data|config|\.ht|db_structure\.xml|README) {" -n \
+  -o "        deny all;" -n \
+  -o "    }" -n \
+  -o "    location / {" -n \
+  -o "        # The following 2 rules are only needed with webfinger" -n \
+  -o "        rewrite ^/.well-known/host-meta /public.php?service=host-meta last;" -n \
+  -o "        rewrite ^/.well-known/host-meta.json /public.php?service=host-meta-json last;" -n \
+  -o "        rewrite ^/.well-known/carddav /remote.php/carddav/ redirect;" -n \
+  -o "        rewrite ^/.well-known/caldav /remote.php/caldav/ redirect;" -n \
+  -o "        rewrite ^(/core/doc/[^\/]+/)$ \$1/index.html;" -n \
+  -o "        try_files \$uri \$uri/ index.php;" -n \
+  -o "    }" -n \
+  -o "    location ~ ^(.+?\.php)(/.*)?$ {" -n \
+  -o "        try_files \$1 = 404;" -n \
+  -o "        include fastcgi_params;" -n \
+  -o "        fastcgi_param SCRIPT_FILENAME \$document_root\$1;" -n \
+  -o "        fastcgi_param PATH_INFO \$2;" -n \
+  -o "        fastcgi_param HTTPS on;" -n \
+  -o "        fastcgi_pass unix:/var/run/php5-fpm-openmediavault-owncloud.sock;" -n \
+  -o "        fastcgi_buffers 64 4K;" -n \
+  -o "    }" -n \
+  -o "    location ~* ^.+\.(jpg|jpeg|gif|bmp|ico|png|css|js|swf)$ {" -n \
+  -o "        expires 30d;" -n \
+  -o "        access_log off;" -n \
+  -o "    }" -n \
+  -o "    # PFS (Perfect Forward Secrecy)" -n \
+  -o "    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;" -n \
+  -o "    ssl_prefer_server_ciphers on;" -n \
+  -o "    ssl_ciphers EECDH+ECDSA+AESGCM:EECDH+aRSA+AESGCM:EECDH+ECDSA+SHA384:EECDH+ECDSA+SHA256:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH+aRSA+RC4:EECDH:EDH+aRSA:RC4:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS;" -n \
+  -o "    # HSTS (HTTP Strict Transport Security)" -n \
+  -o "    # https://developer.mozilla.org/en-US/docs/Security/HTTP_Strict_Transport_Security" -n \
+  -o "    # https://en.wikipedia.org/wiki/SSL_stripping#SSL_stripping" -n \
+  -o "    add_header Strict-Transport-Security \"${OMV_NGINX_SITE_OWNCLOUD_SECURITY_HSTS}\";" -n \
+  -o "    # Content Security Policy (CSP)" -n \
+  -o "    # https://www.owasp.org/index.php/Content_Security_Policy" -n \
+  -o "    add_header Content-Security-Policy \"${OMV_NGINX_SITE_OWNCLOUD_SECURITY_CSP}\";" -n \
+  -o "    # https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options" -n \
+  -o "    add_header X-Frame-Options \"${OMV_NGINX_SITE_OWNCLOUD_SECURITY_XFRAMEOPTIONS}\";" -n \
+  -o "    # http://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx" -n \
+  -o "    add_header X-Content-Type-Options \"nosniff\";" -n \
+  -o "    # https://wiki.mozilla.org/Security/Features/XSS_Filter" -n \
+  -o "    # http://blogs.msdn.com/b/ieinternals/archive/2011/01/31/controlling-the-internet-explorer-xss-filter-with-the-x-xss-protection-http-header.aspx" -n \
+  -o "    add_header X-XSS-Protection \"1; mode=block\";" -n \
+  -o "}" \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NGINX_SITE_OWNCLOUD_CONFIG}
