@@ -34,6 +34,7 @@ case "$1" in
 		# Remove the ownCloud nginx config file.
 		rm -f ${OMV_NGINX_SITE_OWNCLOUD_CONFIG}
 		# Reload webserver configuration.
+		invoke-rc.d php5-fpm reload
 		invoke-rc.d nginx reload
 	;;
 

@@ -77,7 +77,6 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 		// ownCloud has been enabled/disabled. In this case mark the module
 		// as dirty.
 		if (boolval($oldObject['enable']) != boolval($object['enable'])) {
-			$this->setDirtyByName("php5fpm");
 			$this->setDirtyByName("webserver");
 		}
 	}
