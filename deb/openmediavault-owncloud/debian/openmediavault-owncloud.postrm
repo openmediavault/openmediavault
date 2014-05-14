@@ -24,12 +24,16 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR=${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR:-"/etc/nginx/openmediavault-webgui.d"}
+OMV_NGINX_SITE_OWNCLOUD_REDIRECT_CONFIG=${OMV_NGINX_SITE_OWNCLOUD_REDIRECT_CONFIG:-"${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR}/owncloud.conf"}
+
 case "$1" in
 	purge)
 		# Remove the configuration data.
 		omv_config_delete "/config/services/owncloud"
-		# Remove the ownCloud nginx config file.
+		# Remove the ownCloud webserver configuration.
 		nginx_dissite openmediavault-owncloud
+		rm -f ${OMV_NGINX_SITE_OWNCLOUD_REDIRECT_CONFIG}
 		# Reload webserver configuration.
 		invoke-rc.d php5-fpm reload
 		invoke-rc.d nginx reload
