@@ -23,21 +23,7 @@ require_once("openmediavault/module.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/initscript.inc");
 
-class OMVModuleNginx extends OMVModuleServiceAbstract {
-	/**
-	 * Get the module name.
-	 */
-	public function getName() {
-		return "nginx";
-	}
-
-	/**
-	 * Defines the modules that if present should build their configuration
-	 * before the service provided by this module.
-	 * @return An array of modules.
-	 */
-	public function shouldApply() { return array("certificatemgmt"); }
-
+abstract class OMVModuleNginxAbstract extends OMVModuleServiceAbstract {
 	/**
 	 * Generate the configuration.
 	 * @throw E_EXEC_FAILED
@@ -66,12 +52,46 @@ class OMVModuleNginx extends OMVModuleServiceAbstract {
 	}
 }
 
-class OMVModuleWebserver extends OMVModuleNginx {
+class OMVModuleWebserver extends OMVModuleNginxAbstract
+  implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
 	public function getName() {
 		return "webserver";
+	}
+
+	/**
+	 * Defines the modules that if present should build their configuration
+	 * before the service provided by this module.
+	 * @return An array of modules.
+	 */
+	public function shouldApply() { return array("certificatemgmt"); }
+
+	/**
+	 * Helper function to find out whether the given SSL certificate
+	 * is used by this service. If it is used, then mark the module as
+	 * dirty.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The configuration object.
+	 */
+	final public function onModifySslCertificate($type, $path, $object) {
+		global $xmlConfig;
+		$xpath = sprintf("//webadmin[sslcertificateref='%s']",
+		  $object['uuid']);
+		if (TRUE === $xmlConfig->exists($xpath))
+			$this->setDirty();
+	}
+
+	/**
+	 * Bind listeners.
+	 */
+	function bindListeners(OMVNotifyDispatcher $dispatcher) {
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.certificates.sslcertificate",
+		  array($this, "onModifySslCertificate"));
 	}
 }
 

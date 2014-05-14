@@ -94,7 +94,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 			// Remove the certificate and the private key (not needed here).
 			unset($objectv['certificate']);
 			unset($objectv['privatekey']);
-			// Set '_used' flag if filesystem is in usage.
+			// Set '_used' flag if filesystem is in use.
 			if(TRUE === $xmlConfig->exists("//sslcertificateref[".
 			  "contains(.,'{$objectv['uuid']}')]")) {
 				$objectv['_used'] = TRUE;

@@ -591,7 +591,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 					tbarBtnDisabled["mount"] = true;
 				}
 			}
-			// If the file system is in usage, then also disable the unmount
+			// If the file system is in use, then also disable the unmount
 			// button.
 			if(true === records[0].get("_used")) {
 				tbarBtnDisabled["unmount"] = true;
@@ -618,7 +618,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 				}
 			}
 		}
-		// Disable 'Delete' button if a selected file system is in usage
+		// Disable 'Delete' button if a selected file system is in use
 		// or readonly.
 		for(var i = 0; i < records.length; i++) {
 			if((true == records[i].get("_used")) ||

@@ -69,10 +69,6 @@ class OMVRpcServiceWebGui extends OMVRpcServiceAbstract {
 		$object['sslport'] = intval($object['sslport']);
 		$object['forcesslonly'] = boolval($object['forcesslonly']);
 		$object['timeout'] = intval($object['timeout']);
-		$object['dnssdenable'] = boolval($object['dnssd']['enable']);
-		$object['dnssdname'] = $object['dnssd']['name'];
-		// Remove useless data.
-		unset($object['dnssd']);
 		return $object;
 	}
 
@@ -109,11 +105,7 @@ class OMVRpcServiceWebGui extends OMVRpcServiceAbstract {
 			"sslport" => $params['sslport'],
 			"forcesslonly" => array_boolval($params, 'forcesslonly'),
 			"sslcertificateref" => $params['sslcertificateref'],
-			"timeout" => $params['timeout'],
-			"dnssd" => array(
-				"enable" => array_boolval($params, 'dnssdenable'),
-				"name" => $params['dnssdname']
-			)
+			"timeout" => $params['timeout']
 		);
 		// Set the configuration object.
 		$xpath = "//webadmin";

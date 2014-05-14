@@ -284,7 +284,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			tbarBtnDisabled["up"] = false;
 			tbarBtnDisabled["down"] = false;
 		}
-		// Disable 'Delete' button if a selected row is in usage or readonly.
+		// Disable 'Delete' button if a selected row is in use or readonly.
 		Ext.Array.each(records, function(record) {
 			if((true == record.get("_used")) ||
 			  (true == record.get("_readOnly"))) {

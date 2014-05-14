@@ -919,7 +919,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		} else {
 			// Nothing to do here.
 		}
-		// Disable 'Delete' button if a selected interface is in usage or
+		// Disable 'Delete' button if a selected interface is in use or
 		// readonly.
 		for(var i = 0; i < records.length; i++) {
 			if(true == records[i].get("_used")) {

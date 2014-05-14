@@ -462,7 +462,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  $params['devicefile']);
 		}
 		// Check uniqueness. If there exists a mount point for the given
-		// device then it has already a filesystem that is in usage.
+		// device then it has already a filesystem that is in use.
 		if (FALSE !== OMVRpc::exec("FsTab", "getByFsName", array(
 		  "id" => $sd->getDeviceFile()), $context)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
