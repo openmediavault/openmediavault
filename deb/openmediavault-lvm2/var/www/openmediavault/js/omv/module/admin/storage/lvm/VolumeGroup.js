@@ -317,7 +317,7 @@ Ext.define("OMV.module.admin.storage.lvm.vg.Reduce", {
 				listeners: {
 					scope: me,
 					datachanged: function(store) {
-						// Do not display devices that are in usage and not
+						// Do not display devices that are in use and not
 						// removable. Suspend the firing of all events,
 						// otherwise 'datachanged' will be fired which will
 						// result in a invinite loop.
