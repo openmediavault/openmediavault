@@ -22,6 +22,6 @@
 require_once OC_App::getAppPath("user_openmediavault")."/user_openmediavault.php";
 require_once OC_App::getAppPath("user_openmediavault")."/group_openmediavault.php";
 
-OC_User::useBackend("openmediavault");
-OC_Group::useBackend("openmediavault");
+OC_User::useBackend(new OC_User_OpenMediaVault());
+OC_Group::useBackend(new OC_Group_OpenMediaVault());
 ?>
