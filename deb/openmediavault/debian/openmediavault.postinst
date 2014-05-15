@@ -334,9 +334,9 @@ case "$1" in
 			omv_set_default "OMV_WEBGUI_FILE_OWNERGROUP_NAME" "openmediavault"
 			. /etc/default/openmediavault
 			# Stop apache.
-			monit unmonitor apache2
-			invoke-rc.d --force apache2 stop
-			update-rc.d apache2 remove &>/dev/null
+			monit unmonitor apache2 || :
+			invoke-rc.d --force apache2 stop || :
+			update-rc.d apache2 remove &>/dev/null || :
 			# Rebuild configuration files.
 			omv-mkconf nginx
 			omv-mkconf monit
