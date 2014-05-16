@@ -18,7 +18,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/PluginManager.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/workspace/grid/Panel.js")
@@ -30,10 +29,14 @@
  */
 Ext.define("OMV.module.admin.diagnostic.service.plugin.Overview", {
 	extend: "OMV.workspace.grid.Panel",
+	alias: "omv.plugin.diagnostic.service.overview",
 	requires: [
 		"OMV.data.Store",
 		"OMV.data.proxy.Rpc"
 	],
+
+	title: _("Overview"),
+	position: 10,
 
 	constructor: function(config) {
 		var me = this;
@@ -115,12 +118,4 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.Overview", {
 		});
 		me.callParent(arguments);
 	}
-});
-
-OMV.PluginManager.register({
-	ptype: "diagnostic",
-	id: "service",
-	text: _("Overview"),
-	position: 10,
-	className: "OMV.module.admin.diagnostic.service.plugin.Overview"
 });

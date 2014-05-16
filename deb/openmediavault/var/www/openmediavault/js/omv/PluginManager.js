@@ -22,14 +22,13 @@
 /**
  * @ingroup webgui
  * @class OMV.PluginManager
+ * @deprecated
  * Provides a registry of available plugin classes indexed by a mnemonic
  * code known as the plugin's ptype.
  */
 Ext.define("OMV.PluginManager", {
 	singleton: true,
 	alternateClassName: "OMV.PluginMgr",
-
-	items: [],
 
 	/**
 	 * Register a plugin.
@@ -40,44 +39,21 @@ Ext.define("OMV.PluginManager", {
 	 *   \em className The class name.
 	 *   \em text The text to be displayed.
 	 * @return None
+	 * @deprecated
 	 */
 	register: function(config) {
-		var me = this;
-		// Check if the given class exists.
-		if(!Ext.ClassManager.isCreated(config.className)) {
-			Ext.Error.raise(Ext.String.format("Failed to register plugin. " +
-			  "The class '{0}' does not exist.", config.className));
-			return;
-		}
-		var ptype = me.items[config.ptype];
-		if(!ptype)
-			ptype = me.items[config.ptype] = [];
-		// Add new plugin configuration.
-		Ext.Array.push(ptype, Ext.apply({
-			position: 100,
-		}, config));
-		// Sort array items based on their the 'position' field.
-		ptype = Ext.Array.sort(ptype, function(a, b) {
-			return a.position < b.position ? -1 : 1;
-		});
-	},
-
-	/**
-	 * Get the list of registered plugins of the given type.
-	 * @param ptype The mnemonic string by which the plugin may be looked up.
-	 * @param id The id of the item.
-	 * @return The list of registered plugins for the given type.
-	 */
-	get: function(ptype, id) {
-		var me = this;
-		var items = me.items[ptype];
-		if(!items)
-			return [];
-		if(Ext.isDefined(id)) {
-			items = Ext.Array.filter(items, function(item, index, array) {
-				return item.id === id;
-			});
-		}
-		return items;
+		var parts = config.className.split(".");
+		var alias = Ext.String.format("omv.plugin.{0}.{1}.{2}", config.ptype,
+		  config.id, parts.pop().toLowerCase());
+		var classObject = Ext.ClassManager.get(config.className);
+		if (Ext.isDefined(config.position))
+			classObject.position = config.position;
+		if (Ext.isDefined(config.text))
+			classObject.title = config.text;
+		Ext.ClassManager.setAlias(config.className, alias);
+		// Raise an error.
+		Ext.Error.raise(Ext.String.format("Please set an alias for the " +
+		  "class '{0}', e.g. '{1}'. The alias format must look like: " +
+		  "omv.plugin.<ptype>.<id>.<xxx>", config.className, alias));
 	}
 });

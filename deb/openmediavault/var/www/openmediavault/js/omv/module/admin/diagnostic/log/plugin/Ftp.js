@@ -18,7 +18,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/PluginManager.js")
 // require("js/omv/grid/column/WhiteSpace.js")
 // require("js/omv/module/admin/diagnostic/log/plugin/Plugin.js")
 
@@ -29,6 +28,7 @@
  */
 Ext.define("OMV.module.admin.diagnostic.log.plugin.ftp.Syslog", {
 	extend: "OMV.module.admin.diagnostic.log.plugin.Plugin",
+	alias: "omv.plugin.diagnostic.log.ftp.syslog",
 	requires: [
 		"OMV.grid.column.WhiteSpace"
 	],
@@ -78,6 +78,7 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.ftp.Syslog", {
  */
 Ext.define("OMV.module.admin.diagnostic.log.plugin.ftp.Xferlog", {
 	extend: "OMV.module.admin.diagnostic.log.plugin.Plugin",
+	alias: "omv.plugin.diagnostic.log.xferlog",
 
 	id: "proftpd_xferlog",
 	text: _("FTP - Transfer log"),
@@ -240,16 +241,4 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.ftp.Xferlog", {
 		{ name: "authenticateduserid", type: "string" },
 		{ name: "completionstatus", type: "string" }
 	]
-});
-
-OMV.PluginManager.register({
-	ptype: "diagnostic",
-	id: "log",
-	className: "OMV.module.admin.diagnostic.log.plugin.ftp.Syslog"
-});
-
-OMV.PluginManager.register({
-	ptype: "diagnostic",
-	id: "log",
-	className: "OMV.module.admin.diagnostic.log.plugin.ftp.Xferlog"
 });

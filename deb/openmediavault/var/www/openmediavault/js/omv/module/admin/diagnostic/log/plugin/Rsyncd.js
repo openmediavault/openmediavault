@@ -18,7 +18,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/PluginManager.js")
 // require("js/omv/grid/column/WhiteSpace.js")
 // require("js/omv/module/admin/diagnostic/log/plugin/Plugin.js")
 
@@ -29,6 +28,7 @@
  */
 Ext.define("OMV.module.admin.diagnostic.log.plugin.Rsyncd", {
 	extend: "OMV.module.admin.diagnostic.log.plugin.Plugin",
+	alias: "omv.plugin.diagnostic.log.rsyncd",
 	requires: [
 		"OMV.grid.column.WhiteSpace"
 	],
@@ -62,10 +62,4 @@ Ext.define("OMV.module.admin.diagnostic.log.plugin.Rsyncd", {
 		{ name: "date", type: "string" },
 		{ name: "message", type: "string" }
 	]
-});
-
-OMV.PluginManager.register({
-	ptype: "diagnostic",
-	id: "log",
-	className: "OMV.module.admin.diagnostic.log.plugin.Rsyncd"
 });

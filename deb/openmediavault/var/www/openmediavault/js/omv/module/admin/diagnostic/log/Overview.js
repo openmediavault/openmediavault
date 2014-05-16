@@ -19,7 +19,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/WorkspaceManager.js")
-// require("js/omv/PluginManager.js")
 // require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/Rpc.js")
 // require("js/omv/data/Download.js")
@@ -34,6 +33,7 @@
 Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 	extend: "OMV.workspace.grid.Panel",
 	requires: [
+		"Ext.ClassManager",
 		"OMV.Rpc",
 		"OMV.data.Store",
 		"OMV.data.Model",
@@ -50,10 +50,11 @@ Ext.define("OMV.module.admin.diagnostic.log.Logs", {
 
 	initComponent: function() {
 		var me = this;
-		// Initialize the plugins.
-		var plugins = OMV.PluginManager.get("diagnostic", "log");
-		Ext.Array.each(plugins, function(plugin) {
-			me.logPlugins.push(Ext.create(plugin.className));
+		// Get the registered plugins and initialize them.
+		var classes = Ext.ClassManager.getNamesByExpression(
+		  "omv.plugin.diagnostic.log.*");
+		Ext.Array.each(classes, function(name) {
+			me.logPlugins.push(Ext.create(name));
 		});
 		// Display the 'Syslog' per default.
 		me.activePlugin = me.getPluginById("syslog");

@@ -18,7 +18,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/PluginManager.js")
 // require("js/omv/workspace/panel/RrdGraph.js")
 
 /**
@@ -27,13 +26,8 @@
  */
 Ext.define("OMV.module.admin.diagnostic.system.plugin.Load", {
 	extend: "OMV.workspace.panel.RrdGraph",
+	alias: "omv.plugin.diagnostic.system.load",
 
+	title: _("Load average"),
 	rrdGraphName: "load"
-});
-
-OMV.PluginManager.register({
-	ptype: "diagnostic",
-	id: "system",
-	text: _("Load average"),
-	className: "OMV.module.admin.diagnostic.system.plugin.Load"
 });

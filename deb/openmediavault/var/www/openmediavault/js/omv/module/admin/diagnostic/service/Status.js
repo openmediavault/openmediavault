@@ -19,7 +19,6 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/WorkspaceManager.js")
-// require("js/omv/PluginManager.js")
 // require("js/omv/workspace/tab/Panel.js")
 
 /**
@@ -28,15 +27,23 @@
  */
 Ext.define("OMV.module.admin.diagnostic.service.Status", {
 	extend: "OMV.workspace.tab.Panel",
+	requires: [
+		"Ext.ClassManager"
+	],
 
 	initComponent: function() {
 		var me = this;
-		var plugins = OMV.PluginManager.get("diagnostic", "service");
+		// Get the registered plugins and initialize them.
+		var classes = Ext.ClassManager.getNamesByExpression(
+		  "omv.plugin.diagnostic.service.*");
 		me.items = [];
-		Ext.Array.each(plugins, function(plugin) {
-			me.items.push(Ext.create(plugin.className, {
-				title: plugin.text
-			}));
+		Ext.Array.each(classes, function(name) {
+			me.items.push(Ext.create(name));
+		});
+		// Sort the tabs by their position.
+		Ext.Array.sort(me.items, function(a, b) {
+			return a.position > b.position ? 1 : (a.position < b.position ?
+			  -1 : 0);
 		});
 		me.callParent(arguments);
 	}

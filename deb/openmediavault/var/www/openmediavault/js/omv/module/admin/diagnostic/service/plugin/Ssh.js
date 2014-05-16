@@ -18,7 +18,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/PluginManager.js")
 // require("js/omv/workspace/panel/Textarea.js")
 
 /**
@@ -27,14 +26,9 @@
  */
 Ext.define("OMV.module.admin.diagnostic.service.plugin.Ssh", {
 	extend: "OMV.workspace.panel.Textarea",
+	alias: "omv.plugin.diagnostic.service.ssh",
 
+	title: _("SSH"),
 	rpcService: "SSH",
 	rpcMethod: "getStats"
-});
-
-OMV.PluginManager.register({
-	ptype: "diagnostic",
-	id: "service",
-	text: _("SSH"),
-	className: "OMV.module.admin.diagnostic.service.plugin.Ssh"
 });

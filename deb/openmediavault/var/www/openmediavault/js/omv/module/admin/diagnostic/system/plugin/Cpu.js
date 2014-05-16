@@ -18,7 +18,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/PluginManager.js")
 // require("js/omv/workspace/panel/RrdGraph.js")
 
 /**
@@ -27,13 +26,8 @@
  */
 Ext.define("OMV.module.admin.diagnostic.system.plugin.Cpu", {
 	extend: "OMV.workspace.panel.RrdGraph",
+	alias: "omv.plugin.diagnostic.system.cpu",
 
+	title: _("CPU usage"),
 	rrdGraphName: "cpu-0"
-});
-
-OMV.PluginManager.register({
-	ptype: "diagnostic",
-	id: "system",
-	text: _("CPU usage"),
-	className: "OMV.module.admin.diagnostic.system.plugin.Cpu"
 });

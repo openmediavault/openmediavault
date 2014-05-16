@@ -18,7 +18,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/PluginManager.js")
 // require("js/omv/Rpc.js")
 // require("js/omv/workspace/tab/Panel.js")
 
@@ -28,9 +27,12 @@
  */
 Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 	extend: "OMV.workspace.tab.Panel",
+	alias: "omv.plugin.diagnostic.system.diskusage",
 	requires: [
 		"OMV.Rpc"
 	],
+
+	title: _("Disk usage"),
 
 	initComponent: function() {
 		var me = this;
@@ -69,11 +71,4 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 			}
 		});
 	}
-});
-
-OMV.PluginManager.register({
-	ptype: "diagnostic",
-	id: "system",
-	text: _("Disk usage"),
-	className: "OMV.module.admin.diagnostic.system.plugin.DiskUsage"
 });

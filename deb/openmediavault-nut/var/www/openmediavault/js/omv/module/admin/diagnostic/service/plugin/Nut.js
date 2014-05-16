@@ -18,7 +18,6 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/PluginManager.js")
 // require("js/omv/workspace/tab/Panel.js")
 // require("js/omv/workspace/panel/Textarea.js")
 // require("js/omv/workspace/panel/RrdGraph.js")
@@ -91,6 +90,9 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.nut.Voltage", {
  */
 Ext.define("OMV.module.admin.diagnostic.service.plugin.Nut", {
 	extend: "OMV.workspace.tab.Panel",
+	alias: "omv.plugin.diagnostic.service.nut",
+
+	title: _("UPS"),
 
 	initComponent: function() {
 		var me = this;
@@ -103,11 +105,4 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.Nut", {
 		];
 		me.callParent(arguments);
 	}
-});
-
-OMV.PluginManager.register({
-	ptype: "diagnostic",
-	id: "service",
-	text: _("UPS"),
-	className: "OMV.module.admin.diagnostic.service.plugin.Nut"
 });

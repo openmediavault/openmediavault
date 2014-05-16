@@ -588,6 +588,31 @@ Ext.apply(Ext.Array, {
 });
 
 ////////////////////////////////////////////////////////////////////////////////
+// Ext.ClassManager
+////////////////////////////////////////////////////////////////////////////////
+
+Ext.apply(Ext.ClassManager, {
+	/**
+	 * Converts a string expression to an array of matching class names. This
+	 * method is equal to 'getNamesByExpression' but returns also classes
+	 * that do not have an alias.
+	 * @param expression The class name expression to search for.
+	 */
+	getClassNamesByExpression: function(expression) {
+		var names = [], name, regex;
+		if (expression.indexOf('*') !== -1)
+			expression = expression.replace(/\*/g, '(.*?)');
+		regex = new RegExp('^' + expression + '$');
+		for (name in this.classes) {
+			if (name.search(regex) !== -1) {
+				names.push(name);
+			}
+		}
+		return names;
+    }
+});
+
+////////////////////////////////////////////////////////////////////////////////
 // Additional helper functions
 ////////////////////////////////////////////////////////////////////////////////
 
