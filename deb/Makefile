@@ -23,17 +23,17 @@ OMV_SUBDIRS := $(wildcard openmediavault*)
 
 omv_pull_po_all:
 	for dir in $(OMV_SUBDIRS); do \
-		cd $$dir && fakeroot debian/rules omv_pull_po; \
+		cd $(CURDIR)/$$dir && fakeroot debian/rules omv_pull_po; \
 	done
 
 omv_push_pot_all:
 	for dir in $(OMV_SUBDIRS); do \
-		cd $$dir && fakeroot debian/rules omv_push_pot; \
+		cd $(CURDIR)/$$dir && fakeroot debian/rules omv_push_pot; \
 	done
 
 omv_build_pot_all:
 	for dir in $(OMV_SUBDIRS); do \
-		cd $$dir && fakeroot debian/rules omv_build_pot; \
+		cd $(CURDIR)/$$dir && fakeroot debian/rules omv_build_pot; \
 	done
 
 .PHONY: omv_pull_po_all omv_push_pot_all omv_build_pot_all
