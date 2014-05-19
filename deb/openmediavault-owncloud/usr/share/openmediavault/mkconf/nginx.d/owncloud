@@ -37,14 +37,15 @@ OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT=${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT:-"/v
 OMV_NGINX_SITE_OWNCLOUD_LOG_DIR=${OMV_NGINX_SITE_OWNCLOUD_LOG_DIR:-"/var/log/nginx"}
 OMV_NGINX_SITE_OWNCLOUD_LOGLEVEL=${OMV_NGINX_SITE_OWNCLOUD_LOGLEVEL:-"error"}
 OMV_NGINX_SITE_OWNCLOUD_SERVERNAME=${OMV_NGINX_SITE_OWNCLOUD_SERVERNAME:-"owncloud"}
-OMV_NGINX_SITE_OWNCLOUD_SECURITY_CSP=${OMV_NGINX_SITE_OWNCLOUD_SECURITY_CSP:-"default-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:"}
-OMV_NGINX_SITE_OWNCLOUD_SECURITY_XFRAMEOPTIONS=${OMV_NGINX_SITE_OWNCLOUD_SECURITY_XFRAMEOPTIONS:-"SAMEORIGIN"}
-OMV_NGINX_SITE_OWNCLOUD_SECURITY_HSTS=${OMV_NGINX_SITE_OWNCLOUD_SECURITY_HSTS:-"max-age=31536000; includeSubdomains"}
 OMV_NGINX_SITE_OWNCLOUD_REDIRECT_CONFIG=${OMV_NGINX_SITE_OWNCLOUD_REDIRECT_CONFIG:-"${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR}/owncloud.conf"}
 
 rm -f ${OMV_NGINX_SITE_OWNCLOUD_CONFIG}
 rm -f ${OMV_NGINX_SITE_OWNCLOUD_REDIRECT_CONFIG}
 [ "$(omv_config_get "//services/owncloud/enable")" = "0" ] && exit 0
+
+# Get the configured location of the data directory.
+sfref=$(omv_config_get "//services/owncloud/sharedfolderref")
+datadirectory=$(omv_get_sharedfolder_path "${sfref}")
 
 # Create '/etc/nginx/sites-enabled/openmediavault-owncloud' file.
 xmlstarlet sel -t -m "//services/owncloud" \
@@ -90,6 +91,7 @@ xmlstarlet sel -t -m "//services/owncloud" \
   -o "        fastcgi_param SCRIPT_FILENAME \$document_root\$1;" -n \
   -o "        fastcgi_param PATH_INFO \$2;" -n \
   -o "        fastcgi_param HTTPS on;" -n \
+  -o "        fastcgi_param PHP_VALUE \"upload_tmp_dir = $datadirectory\";" -n \
   -o "        fastcgi_pass unix:/var/run/php5-fpm-openmediavault-owncloud.sock;" -n \
   -o "        fastcgi_buffers 64 4K;" -n \
   -o "    }" -n \
@@ -101,20 +103,6 @@ xmlstarlet sel -t -m "//services/owncloud" \
   -o "    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;" -n \
   -o "    ssl_prefer_server_ciphers on;" -n \
   -o "    ssl_ciphers EECDH+ECDSA+AESGCM:EECDH+aRSA+AESGCM:EECDH+ECDSA+SHA384:EECDH+ECDSA+SHA256:EECDH+aRSA+SHA384:EECDH+aRSA+SHA256:EECDH+aRSA+RC4:EECDH:EDH+aRSA:RC4:!aNULL:!eNULL:!LOW:!3DES:!MD5:!EXP:!PSK:!SRP:!DSS;" -n \
-  -o "    # HSTS (HTTP Strict Transport Security)" -n \
-  -o "    # https://developer.mozilla.org/en-US/docs/Security/HTTP_Strict_Transport_Security" -n \
-  -o "    # https://en.wikipedia.org/wiki/SSL_stripping#SSL_stripping" -n \
-  -o "    add_header Strict-Transport-Security \"${OMV_NGINX_SITE_OWNCLOUD_SECURITY_HSTS}\";" -n \
-  -o "    # Content Security Policy (CSP)" -n \
-  -o "    # https://www.owasp.org/index.php/Content_Security_Policy" -n \
-  -o "    add_header Content-Security-Policy \"${OMV_NGINX_SITE_OWNCLOUD_SECURITY_CSP}\";" -n \
-  -o "    # https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options" -n \
-  -o "    add_header X-Frame-Options \"${OMV_NGINX_SITE_OWNCLOUD_SECURITY_XFRAMEOPTIONS}\";" -n \
-  -o "    # http://blogs.msdn.com/b/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx" -n \
-  -o "    add_header X-Content-Type-Options \"nosniff\";" -n \
-  -o "    # https://wiki.mozilla.org/Security/Features/XSS_Filter" -n \
-  -o "    # http://blogs.msdn.com/b/ieinternals/archive/2011/01/31/controlling-the-internet-explorer-xss-filter-with-the-x-xss-protection-http-header.aspx" -n \
-  -o "    add_header X-XSS-Protection \"1; mode=block\";" -n \
   -o "}" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NGINX_SITE_OWNCLOUD_CONFIG}
 
