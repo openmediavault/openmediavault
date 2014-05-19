@@ -5,13 +5,13 @@
 # Translators:
 # Antonio Pelaez Redondo <antorayman@gmail.com>, 2012
 # jmcainzos <jmcainzos@vodafone.es>, 2012
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2013
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-21 20:56+0200\n"
-"PO-Revision-Date: 2013-11-19 16:30+0000\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-02-02 22:44+0000\n"
 "Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -263,7 +263,7 @@ msgid "Type"
 msgstr "Tipo"
 
 msgid "Username"
-msgstr "Nombre de Usuario"
+msgstr "Usuario"
 
 msgid "Users"
 msgstr "Usuarios"

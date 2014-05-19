@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:10+0200\n"
-"PO-Revision-Date: 2013-11-20 13:13+0000\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-19 17:18+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -74,6 +74,15 @@ msgstr "Utöka logisk volym"
 msgid "Extend volume group"
 msgstr "Utöka volymgrupp"
 
+msgid "Failed to remove logical volume: %s"
+msgstr ""
+
+msgid "Failed to remove physical volume: %s"
+msgstr ""
+
+msgid "Failed to remove volume group: %s"
+msgstr ""
+
 msgid "Free"
 msgstr "Ledigt"
 
@@ -93,6 +102,12 @@ msgid "No free space available to create a logical volume."
 msgstr ""
 
 msgid "No free space available to extend the logical volume."
+msgstr ""
+
+msgid "No logical volume found on '%s'"
+msgstr ""
+
+msgid "No physical volume found on '%s'"
 msgstr ""
 
 msgid "Physical volumes"
@@ -118,6 +133,9 @@ msgstr "Använt"
 
 msgid "Volume group"
 msgstr "Volymgrupp"
+
+msgid "Volume group '%s' not found"
+msgstr ""
 
 msgid "Volume groups"
 msgstr "Volymgrupper"

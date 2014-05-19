@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# dezi121 <by@songming.me>, 2013
+# dezi121 <by@songming.me>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-21 20:56+0200\n"
-"PO-Revision-Date: 2013-12-21 13:53+0000\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-11 02:46+0000\n"
 "Last-Translator: dezi121 <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -19,10 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Add LUN"
-msgstr "添加 LUN"
+msgstr "添加LUN"
 
 msgid "Add target"
-msgstr "添加 target"
+msgstr "添加target"
 
 msgid "Add user"
 msgstr "添加用户"
@@ -48,10 +48,10 @@ msgstr "注释"
 msgid ""
 "Controls the maximum number of data transfers the target may request at "
 "once."
-msgstr "控制 target 一次最大请求传输的数目。"
+msgstr "控制target一次最大请求传输的数目。"
 
 msgid "Data PDU in order"
-msgstr "数据 PDU 按顺序"
+msgstr "数据PDU按顺序"
 
 msgid "Data digest"
 msgstr "数据摘要"
@@ -66,10 +66,10 @@ msgid "Discovery authentication"
 msgstr "设备搜索验证"
 
 msgid "Edit LUN"
-msgstr "编辑 LUM"
+msgstr "编辑LUM"
 
 msgid "Edit target"
-msgstr "编辑 target"
+msgstr "编辑target"
 
 msgid "Edit user"
 msgstr "编辑用户"
@@ -84,7 +84,7 @@ msgid "Extra options"
 msgstr "附加选项"
 
 msgid "File IO"
-msgstr "文件 IO"
+msgstr "文件IO"
 
 msgid "First burst length"
 msgstr "首次突发长度"
@@ -99,7 +99,7 @@ msgid "Header digest"
 msgstr "头摘要"
 
 msgid "IO threads"
-msgstr "IO 线程"
+msgstr "IO线程"
 
 msgid "IQN"
 msgstr "IQN"
@@ -114,32 +114,32 @@ msgid ""
 "If a non-zero 'NOP interval' is used to periodically 'ping' the initiator "
 "during phases of inactivity (i.e. no data transfers), the initiator must "
 "respond within N seconds, otherwise the connection will be closed."
-msgstr "在发起者非活动期(如无数据传输)如果使用一个非零的 'NOP interval' 周期性 'ping'，发起者必须在 N 秒内响应，否则就断开连接。"
+msgstr "在发起者非活动期(如无数据传输)如果使用一个非零的'NOP interval'周期性'ping'，发起者必须在N秒内响应，否则就断开连接。"
 
 msgid ""
 "If enabled, the initiator has to wait for the target to solicit SCSI data "
 "before sending it. Disabling it allows the initiator to send a burst of N "
 "bytes unsolicited right after and/or together with the command. Thus "
 "disabling it may improve performance."
-msgstr "如果启用，发起者发送前必须等待 target 请求 SCSI 数据，关闭该项则允许发起者不经请求发送 N 字节的突发数据，或者请求和突发数据同时发出，因此关闭可以提高性能。"
+msgstr "如果启用，发起者发送前必须等待target请求SCSI数据，关闭该项则允许发起者不经请求发送N字节的突发数据，或者请求和突发数据同时发出，因此关闭可以提高性能。"
 
 msgid ""
 "If set to 'CRC32C' and the initiator is configured accordingly, the "
 "integrity of an iSCSI PDU's data segment will be protected by a CRC32C "
 "checksum."
-msgstr "如果设置 'CRC32C' 不起发起者也进行了相应配置，则 iSCSI PDU 数据的完整性将会以 CRC32C 校验保护。"
+msgstr "如果设置'CRC32C'不起发起者也进行了相应配置，则iSCSI PDU数据的完整性将会以CRC32C校验保护。"
 
 msgid ""
 "If set to 'CRC32C' and the initiator is configured accordingly, the "
 "integrity of an iSCSI PDU's header segments will be protected by a CRC32C "
 "checksum."
-msgstr "如果设置 'CRC32C' 不起发起者也进行了相应配置，则 iSCSI PDU 的头文件完整性将会以 CRC32C 校验保护。"
+msgstr "如果设置'CRC32C'不起发起者也进行了相应配置，则iSCSI PDU的头文件完整性将会以CRC32C校验保护。"
 
 msgid ""
 "If value is non-zero, the initiator will be 'ping'ed during phases of "
 "inactivity (i.e. no data transfers) every N seconds to verify the connection"
 " is still alive."
-msgstr "如果值是非零，则发起者将在非活动期(如无数据传输时) ，每 N 秒被 'ping' 以确认在线。"
+msgstr "如果值是非零，则发起者将在非活动期(如无数据传输时) ，每N秒被'ping'以确认在线。"
 
 msgid "Immediate data"
 msgstr "即时数据"
@@ -148,7 +148,7 @@ msgid "Incoming"
 msgstr "输入"
 
 msgid "Initial R2T"
-msgstr "初始 R2T"
+msgstr "初始R2T"
 
 msgid "LUN"
 msgstr "LUN"
@@ -160,7 +160,7 @@ msgid "Max. connections"
 msgstr "最大连接数"
 
 msgid "Max. outstanding R2T"
-msgstr "最多未处理 R2T"
+msgstr "最多未处理R2T"
 
 msgid "Max. receive data segment length"
 msgstr "最大接受资料段长度"
@@ -172,16 +172,16 @@ msgid "Max. transmit data segment length"
 msgstr "最大传输数据段长度"
 
 msgid "NOP interval"
-msgstr "NOP  间隔"
+msgstr "NOP间隔"
 
 msgid "NOP timeout"
-msgstr "NOP 超时"
+msgstr "NOP超时"
 
 msgid "None"
 msgstr "无"
 
 msgid "Only one outgoing user per target is supported."
-msgstr "每个 target 只支持一个传出用户。"
+msgstr "每个target只支持一个传出用户。"
 
 msgid "Outgoing"
 msgstr "传出"
@@ -202,7 +202,7 @@ msgid "SCSI Id."
 msgstr "SCSI Id"
 
 msgid "SCSI serial no."
-msgstr "SCSI 序列号"
+msgstr "SCSI序列号"
 
 msgid "Select an device ..."
 msgstr "选择设备 ..."
@@ -230,24 +230,24 @@ msgid "Targets"
 msgstr "Targets"
 
 msgid "The identifier of the target."
-msgstr "target 标识符"
+msgstr "target标识符"
 
 msgid "The maximum number of sessions for this target."
-msgstr "target 允许最大会话数。"
+msgstr "target允许最大会话数。"
 
 msgid ""
 "The number of commands an initiator may send and that will be buffered by "
 "the target."
-msgstr "发起者发送的指令能够在 target 缓存的条数。"
+msgstr "发起者发送的指令能够在target缓存的条数。"
 
 msgid "The number of connections within a session."
 msgstr "一个会话中的连接数。"
 
 msgid "The number of threads to perform block I/O to the device."
-msgstr "执行设备  block I/O 的线程数。"
+msgstr "执行设备block I/O的线程数。"
 
 msgid "The optional alias of the target."
-msgstr "target 的别名选项。"
+msgstr "target的别名选项。"
 
 msgid ""
 "This allows the initiator to append unsolicited data to a command. To "

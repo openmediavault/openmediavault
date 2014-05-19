@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:10+0200\n"
-"PO-Revision-Date: 2013-11-20 13:13+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-19 17:18+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,6 +77,15 @@ msgstr "Увеличить логический том"
 msgid "Extend volume group"
 msgstr "Увеличить группу томов"
 
+msgid "Failed to remove logical volume: %s"
+msgstr ""
+
+msgid "Failed to remove physical volume: %s"
+msgstr ""
+
+msgid "Failed to remove volume group: %s"
+msgstr ""
+
 msgid "Free"
 msgstr "Свободно"
 
@@ -97,6 +106,12 @@ msgstr "Нет свободного места для создания логи�
 
 msgid "No free space available to extend the logical volume."
 msgstr "Нет свободного места, чтобы расширить логический том."
+
+msgid "No logical volume found on '%s'"
+msgstr ""
+
+msgid "No physical volume found on '%s'"
+msgstr ""
 
 msgid "Physical volumes"
 msgstr "Физические тома"
@@ -121,6 +136,9 @@ msgstr "Использованно"
 
 msgid "Volume group"
 msgstr "Группа томов"
+
+msgid "Volume group '%s' not found"
+msgstr ""
 
 msgid "Volume groups"
 msgstr "Группы томов"

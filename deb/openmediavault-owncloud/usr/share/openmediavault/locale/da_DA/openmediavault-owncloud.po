@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 19:52+0100\n"
-"PO-Revision-Date: 2013-12-21 12:59+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-19 17:17+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,6 +20,9 @@ msgstr ""
 
 msgid "Add share"
 msgstr "Tilføj delemappe"
+
+msgid "Certificate"
+msgstr ""
 
 msgid "Comment"
 msgstr "Kommentar"
@@ -39,6 +42,9 @@ msgstr "Mappenavn"
 msgid "General settings"
 msgstr "Generelle indstillinger"
 
+msgid "Port"
+msgstr ""
+
 msgid "Settings"
 msgstr "Indstillinger"
 
@@ -48,6 +54,9 @@ msgstr "Delt mappe"
 msgid "Shares"
 msgstr "Delte mapper"
 
+msgid "The SSL certificate."
+msgstr ""
+
 msgid "The location of the files to share."
 msgstr "Placeringen af filerne der skal deles."
 
@@ -56,6 +65,12 @@ msgstr "Placeringen, hvor ownCloud gemmer dens filer."
 
 msgid "The name of the share."
 msgstr "Navnet på delt mappe."
+
+msgid "The port '%d' is already in use"
+msgstr ""
+
+msgid "The port which is used to access the ownCloud web interface."
+msgstr ""
 
 msgid "n/a"
 msgstr "n/a"

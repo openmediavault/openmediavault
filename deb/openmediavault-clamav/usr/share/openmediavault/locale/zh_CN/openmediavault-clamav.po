@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-30 12:56+0000\n"
-"Last-Translator: dezi121 <by@songming.me>\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-19 17:17+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,7 +54,7 @@ msgid "Day of week"
 msgstr "周内第几天"
 
 msgid "Detect PUA"
-msgstr "PUA 检测"
+msgstr "PUA检测"
 
 msgid "Detect broken executables"
 msgstr "检测损坏的可执行文件"
@@ -66,7 +66,7 @@ msgid "Enable"
 msgstr "启用"
 
 msgid "Enable HTML detection and normalisation."
-msgstr "启用 HTML 检测与正常化。"
+msgstr "启用HTML检测与正常化。"
 
 msgid "Enable archive scanning."
 msgstr "启用归档扫描。"
@@ -75,15 +75,15 @@ msgid "Enable on-access virus scanning"
 msgstr "开启在存取时扫描"
 
 msgid "Enable scanning of ELF files."
-msgstr "启用扫描 ELF 文件。"
+msgstr "启用扫描ELF文件。"
 
 msgid ""
 "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
 "files."
-msgstr "启用扫描 OLE2 文件，例如微软 Office 文档和 .msi  文档。"
+msgstr "启用扫描OLE2文件，例如微软Office文档和.msi文档。"
 
 msgid "Enable scanning within PDF files."
-msgstr "启用 PDF 文档扫描。"
+msgstr "启用PDF文档扫描。"
 
 msgid "Enable the algorithmic detection."
 msgstr "启用检测算法。"
@@ -98,16 +98,16 @@ msgid "Enabled"
 msgstr "已启用"
 
 msgid "Every N day of month"
-msgstr "每月的第 N 天"
+msgstr "每月的第N天"
 
 msgid "Every N hour"
-msgstr "每 N 小时"
+msgstr "每N小时"
 
 msgid "Every N minute"
-msgstr "每 N 分钟"
+msgstr "每N分钟"
 
 msgid "Execute cron job"
-msgstr "执行 cron 任务"
+msgstr "执行cron任务"
 
 msgid "Extra options"
 msgstr "扩展选项"
@@ -129,6 +129,9 @@ msgstr "常规设置"
 
 msgid "Hour"
 msgstr "时"
+
+msgid "Infected files"
+msgstr ""
 
 msgid "Jobs"
 msgstr "任务"
@@ -155,7 +158,7 @@ msgid "Multiscan"
 msgstr "多线程扫描"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr "每天数据库更新检查次数，0 为不检查。"
+msgstr "每天数据库更新检查次数，0为不检查。"
 
 msgid "On-access"
 msgstr "存取时"
@@ -166,28 +169,25 @@ msgstr "对可执行文件进行深入分析。"
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr "详情请看  <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>指南页</a> 。"
+msgstr "详情请看  <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>手册</a> 。"
 
-msgid "Remove"
-msgstr "移除"
-
-msgid "Remove infected files."
-msgstr "移除被感染文件。"
+msgid "Quarantine"
+msgstr ""
 
 msgid "Run"
 msgstr "运行"
 
 msgid "Scan ELF"
-msgstr "扫描 ELF"
+msgstr "扫描ELF"
 
 msgid "Scan HTML"
-msgstr "扫描 HTML"
+msgstr "扫描HTML"
 
 msgid "Scan OLE2"
-msgstr "扫描 OLE2"
+msgstr "扫描OLE2"
 
 msgid "Scan PDF"
-msgstr "扫描 PDF"
+msgstr "扫描PDF"
 
 msgid "Scan Portable Executable"
 msgstr "扫描便携执行文件"
@@ -202,7 +202,7 @@ msgid "Send command output via email"
 msgstr "通过邮件发送命令输出结果"
 
 msgid "Send email"
-msgstr "发送 Email"
+msgstr "发送Email"
 
 msgid ""
 "Server name where database updates are downloaded from. Get a complete list "
@@ -219,8 +219,14 @@ msgstr "共享文件夹"
 msgid "The location of the files to scan."
 msgstr "要扫描病毒的位置。"
 
+msgid "The location which is used as quarantine."
+msgstr ""
+
+msgid "The option, how to handle infected files."
+msgstr ""
+
 msgid "Verbose"
 msgstr "详细"
 
 msgid "n/a"
-msgstr "N/A"
+msgstr "n/a"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 19:52+0100\n"
-"PO-Revision-Date: 2013-12-18 18:52+0000\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-19 17:17+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/projects/p/openmediavault/language/gl_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -18,46 +18,61 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add share"
+msgstr "Engadir un recurso a compartir"
+
+msgid "Certificate"
 msgstr ""
 
 msgid "Comment"
-msgstr ""
+msgstr "Comentario"
 
 msgid "Data directory"
-msgstr ""
+msgstr "Directorio de datos"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Editar a compartición"
 
 msgid "Enable"
-msgstr ""
+msgstr "Activar"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Nome do cartafol"
 
 msgid "General settings"
+msgstr "Axustes xerais"
+
+msgid "Port"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Axustes"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Cartafol compartido"
 
 msgid "Shares"
+msgstr "Comparticións"
+
+msgid "The SSL certificate."
 msgstr ""
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "A localización dos ficheiros que compartir."
 
 msgid "The location where ownCloud stores its files."
-msgstr ""
+msgstr "O lugar onde ownCloud almacena os ficheiros."
 
 msgid "The name of the share."
+msgstr "O nome do recurso compartido"
+
+msgid "The port '%d' is already in use"
+msgstr ""
+
+msgid "The port which is used to access the ownCloud web interface."
 msgstr ""
 
 msgid "n/a"
-msgstr ""
+msgstr "n/d"
 
 msgid "ownCloud"
-msgstr ""
+msgstr "ownCloud"

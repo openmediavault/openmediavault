@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-usbbackup\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:13+0200\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,9 +47,6 @@ msgstr ""
 msgid "Device"
 msgstr ""
 
-msgid "Device '%s' not found"
-msgstr ""
-
 msgid "Edit backup job"
 msgstr ""
 
@@ -75,6 +72,9 @@ msgid "Extra options"
 msgstr ""
 
 msgid "Failed to get filesystems"
+msgstr ""
+
+msgid "Failed to get storage device file from '%s'"
 msgstr ""
 
 msgid "Filesystem '%s' not found"

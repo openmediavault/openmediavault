@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:13+0200\n"
-"PO-Revision-Date: 2013-07-24 18:36+0000\n"
-"Last-Translator: runesudden <runesudden@gmail.com>\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-19 17:18+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,9 +50,6 @@ msgstr "Slett filer som ikke lenger eksisterer hos avsender."
 msgid "Device"
 msgstr "Enhet"
 
-msgid "Device '%s' not found"
-msgstr "Enhet '%s' ikke funnet"
-
 msgid "Edit backup job"
 msgstr "Rediger sikkerhetskopijobb"
 
@@ -81,6 +78,9 @@ msgstr "Tilleggsfunksjoner"
 
 msgid "Failed to get filesystems"
 msgstr "Kunne ikke hente filsystemer"
+
+msgid "Failed to get storage device file from '%s'"
+msgstr ""
 
 msgid "Filesystem '%s' not found"
 msgstr "Filsystem '%s' ikke funnet"

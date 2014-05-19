@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:13+0200\n"
-"PO-Revision-Date: 2013-09-12 18:21+0000\n"
-"Last-Translator: jmcainzos <jmcainzos@vodafone.es>\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-19 17:18+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,9 +51,6 @@ msgstr "Borrar archivos en la parte receptora que no existan en la parte emisora
 msgid "Device"
 msgstr "Dispositivo"
 
-msgid "Device '%s' not found"
-msgstr "Dispositivo '%s' no encontrado"
-
 msgid "Edit backup job"
 msgstr "Editar tarea de Backup"
 
@@ -82,6 +79,9 @@ msgstr "Opciones Extra"
 
 msgid "Failed to get filesystems"
 msgstr "Falló al obtener los sistemas de ficheros"
+
+msgid "Failed to get storage device file from '%s'"
+msgstr ""
 
 msgid "Filesystem '%s' not found"
 msgstr "Sistema de ficheros '%s' no encontrado"

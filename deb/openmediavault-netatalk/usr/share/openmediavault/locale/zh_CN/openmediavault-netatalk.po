@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# dezi121 <by@songming.me>, 2013
+# dezi121 <by@songming.me>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:10+0200\n"
-"PO-Revision-Date: 2013-12-21 13:54+0000\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-11 02:48+0000\n"
 "Last-Translator: dezi121 <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -55,7 +55,7 @@ msgid "Comment"
 msgstr "注释"
 
 msgid "Don't do :hex translation for dot files."
-msgstr "对点文件不做 :hex 转换。"
+msgstr "对点文件不做:hex转换。"
 
 msgid "Edit share"
 msgstr "编辑共享"
@@ -64,7 +64,7 @@ msgid "Enable"
 msgstr "启用"
 
 msgid "Enable Time Machine support for this share."
-msgstr "在这个共享启用 Time Machine。"
+msgstr "在这个共享启用Time Machine。"
 
 msgid "Enable user home directories."
 msgstr "启用用户主目录。"
@@ -103,7 +103,7 @@ msgid ""
 "Limit the reported volume size to the given value in MiB, thus preventing TM"
 " from using the whole disk space for backup. Set this value to 0 to disable "
 "this option."
-msgstr "限制容量大小单位 MiB，这样可以避免 TM 把全部磁盘空间用来备份，设为 0 表示关闭该选项。"
+msgstr "限制容量大小单位MB，这样可以避免TM把全部磁盘空间用来备份，设为0表示关闭该选项。"
 
 msgid "Lowercases names in both directions"
 msgstr "双向使用小写名称"
@@ -146,7 +146,7 @@ msgstr "共享的名称。"
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."
-msgstr "这将限制文件名只能使用 Windows 的字符集。"
+msgstr "这将限制文件名只能使用Windows的字符集。"
 
 msgid "This option handles, if the case of filenames should be changed."
 msgstr "设置此选项决定是否改变文件名的大小写。"
@@ -161,7 +161,7 @@ msgid "Uppercases names in both directions"
 msgstr "双向使用大写名称"
 
 msgid "Use AFP3 unix privileges."
-msgstr "使用 AFP3 unix 权限"
+msgstr "使用AFP3 unix权限"
 
 msgid "Use dots"
 msgstr "使用点文件"
@@ -169,7 +169,7 @@ msgstr "使用点文件"
 msgid ""
 "When this option gets set, certain file names become illegal. These are "
 ".Parent and anything that starts with .Apple."
-msgstr "如果设置此项，某些文件名将变为非法。比如  .Parent 和任何以 .Apple 开头的文件。"
+msgstr "如果设置此项，某些文件名将变为非法。比如.Parent和任何以.Apple开头的文件。"
 
 msgid "n/a"
-msgstr "N/A"
+msgstr "n/a"

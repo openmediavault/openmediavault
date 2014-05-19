@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2013
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:07+0200\n"
-"PO-Revision-Date: 2013-11-20 12:03+0000\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-04-08 17:43+0000\n"
 "Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -40,7 +40,7 @@ msgid "Port"
 msgstr "Port"
 
 msgid "Port to listen on."
-msgstr "Port der skal lyttes på."
+msgstr "Port, der skal lyttes på."
 
 msgid "Settings"
 msgstr "Indstillinger"
@@ -49,10 +49,10 @@ msgid "Shared folder"
 msgstr "Delt mappe"
 
 msgid "The location of the media files to share."
-msgstr "Placeringen af media filerne der skal deles."
+msgstr "Placeringen af medie filerne, der skal deles."
 
 msgid "The name of the library as displayed by the clients."
-msgstr "Navn på biblioteket som vises ved klienterne."
+msgstr "Navn på biblioteket, som vises hos klienterne."
 
 msgid "iTunes/DAAP"
 msgstr "iTunes/DAAP"

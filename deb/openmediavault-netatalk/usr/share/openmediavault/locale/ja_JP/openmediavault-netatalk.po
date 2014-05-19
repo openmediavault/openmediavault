@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:10+0200\n"
-"PO-Revision-Date: 2014-01-23 17:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-01-24 02:58+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,157 +19,157 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid " "
-msgstr ""
+msgstr " "
 
 msgid "Add share"
-msgstr ""
+msgstr "共有の追加"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "高度な設定"
 
 msgid "Allow guest login."
-msgstr ""
+msgstr "ゲストログインを許可します。"
 
 msgid "Allow guests to create or modify files."
-msgstr ""
+msgstr "ゲストによるファイルの作成、更新を許可します。"
 
 msgid "Allow logins with passwords transmitted in the clear."
-msgstr ""
+msgstr "平文で送信されるパスワードでのログインを許可します。"
 
 msgid "Allow plain passwords"
-msgstr ""
+msgstr "平文パスワードの許可"
 
 msgid "Apple Filing"
-msgstr ""
+msgstr "Apple Filing"
 
 msgid "Case folding"
-msgstr ""
+msgstr "大文字変換"
 
 msgid "Client sees lowercase, server sees uppercase"
-msgstr ""
+msgstr "クライアントは小文字、サーバは大文字で表示"
 
 msgid "Client sees uppercase, server sees lowercase"
-msgstr ""
+msgstr "クライアントは大文字、サーバは小文字で表示"
 
 msgid "Comment"
-msgstr ""
+msgstr "コメント"
 
 msgid "Don't do :hex translation for dot files."
-msgstr ""
+msgstr "ドットファイルに対して :hex 変換をしない。"
 
 msgid "Edit share"
-msgstr ""
+msgstr "共有の編集"
 
 msgid "Enable"
-msgstr ""
+msgstr "有効"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "この共有でTime Machineサポートを有効にします。"
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "ユーザーホームディレクトリを有効にします。"
 
 msgid "Extra options"
-msgstr ""
+msgstr "その他のオプション"
 
 msgid "Forces filename restrictions"
-msgstr ""
+msgstr "強制的にファイル名を制限"
 
 msgid "General settings"
-msgstr ""
+msgstr "一般設定"
 
 msgid "Guest login"
-msgstr ""
+msgstr "ゲストログイン"
 
 msgid "Guests only have read access by default."
-msgstr ""
+msgstr "ゲストはデフォルトで読み取りアクセス権を持っています。"
 
 msgid "Hide dot files"
-msgstr ""
+msgstr "ドットファイルを非表示"
 
 msgid "Home directories"
-msgstr ""
+msgstr "ホームディレクトリ"
 
 msgid ""
 "If this option is set, then a password is required to access the share."
-msgstr ""
+msgstr "このオプションをセットすると、共有にアクセスする際にパスワードを求められます。"
 
 msgid ""
 "If this option is set, then users may not create or modify files in the "
 "share."
-msgstr ""
+msgstr "このオプションを設定すると、ユーザーが共有内のファイルを作成または変更することができません。"
 
 msgid ""
 "Limit the reported volume size to the given value in MiB, thus preventing TM"
 " from using the whole disk space for backup. Set this value to 0 to disable "
 "this option."
-msgstr ""
+msgstr "バックアップのためにTMが全てのディスク容量を使うのを防ぐために、MiB単位で指定した値に通知するボリュームサイズを制限します。0に設定することでこのオプションを無効化できます。"
 
 msgid "Lowercases names in both directions"
-msgstr ""
+msgstr "両方向で名前を小文字に"
 
 msgid "Make dot files invisible."
-msgstr ""
+msgstr "ドットファイルを非表示に。"
 
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgid "None"
-msgstr ""
+msgstr "なし"
 
 msgid "Password"
-msgstr ""
+msgstr "パスワード"
 
 msgid "Quota"
-msgstr ""
+msgstr "クォータ"
 
 msgid "Read only"
-msgstr ""
+msgstr "読み込み専用"
 
 msgid "Set read only."
-msgstr ""
+msgstr "読み込み専用に設定。"
 
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "共有フォルダ"
 
 msgid "Shares"
-msgstr ""
+msgstr "共有"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "共有するファイルの場所。"
 
 msgid "The name of the share."
-msgstr ""
+msgstr "共有の名前。"
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."
-msgstr ""
+msgstr "Windowsで使用される文字セットにファイル名を制限することを強制します。"
 
 msgid "This option handles, if the case of filenames should be changed."
-msgstr ""
+msgstr "このオプションは、ファイル名の大文字、小文字を変更する必要がある場合に使用します。"
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Time Machineサポート"
 
 msgid "Unix privileges"
-msgstr ""
+msgstr "Unixアクセス権"
 
 msgid "Uppercases names in both directions"
-msgstr ""
+msgstr "両方向で名前を大文字に"
 
 msgid "Use AFP3 unix privileges."
-msgstr ""
+msgstr "AFP3のUnixアクセス権を使用する。"
 
 msgid "Use dots"
-msgstr ""
+msgstr "ドットの使用"
 
 msgid ""
 "When this option gets set, certain file names become illegal. These are "
 ".Parent and anything that starts with .Apple."
-msgstr ""
+msgstr "このオプションが設定されると、特定のファイル名が不正となります。それらは .Parent や、 .Appleで始まるものです。"
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"

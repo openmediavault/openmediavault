@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# kansuke <kansuke4649@gmail.com>, 2014
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-08 20:23+0100\n"
-"PO-Revision-Date: 2014-03-10 00:22+0000\n"
-"Last-Translator: kansuke <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2014-03-05 18:12+0100\n"
+"PO-Revision-Date: 2014-05-19 17:17+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -265,8 +265,8 @@ msgid "Afghanistan"
 msgstr "アフガニスタン"
 
 msgid ""
-"After the RAID has been grown you can resize the containing file system."
-msgstr "RAIDの領域を拡張した後で、ファイルシステムのサイズを変更できます。"
+"After the RAID has been grown you can resize the containing filesystem."
+msgstr ""
 
 msgid "Aland Islands"
 msgstr "オーランド諸島"
@@ -600,8 +600,8 @@ msgstr "クリア"
 msgid "Client"
 msgstr "クライアント"
 
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "クライアントからのファイルシステムのマウントを許可 例） 192.168.178.0/24"
+msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
+msgstr ""
 
 msgid "Close"
 msgstr "閉じる"
@@ -695,14 +695,11 @@ msgstr "作成"
 msgid "Create RAID device"
 msgstr "RAIDデバイスの作成"
 
-msgid "Create file system"
-msgstr "ファイルシステムの作成"
+msgid "Create filesystem"
+msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "SSL自己証明書の作成"
-
-msgid "Creating the file system, please wait ..."
-msgstr "ファイルシステムを作成しています。しばらくお待ちください ..."
 
 msgid "Critical"
 msgstr "クリティカル"
@@ -764,11 +761,11 @@ msgstr "削除"
 msgid "Delete content"
 msgstr "コンテンツの削除"
 
-msgid "Delete file system"
-msgstr "ファイルシステムの削除"
-
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "送信側に存在しないものは受信側でファイルを削除します。"
+
+msgid "Delete filesystem"
+msgstr ""
 
 msgid "Deleting selected item(s)"
 msgstr "選択したアイテムを削除"
@@ -865,16 +862,16 @@ msgstr "ログファイルをクリアしてもよろしいですか？"
 msgid "Do you really want to create the RAID device?"
 msgstr "RAIDデバイスを作成してもよろしいですか？"
 
-msgid "Do you really want to delete the file system? All data will be lost."
-msgstr "ファイルシステムを削除してもよろしいですか？ すべてのデータは失われます。"
+msgid "Do you really want to delete the filesystem? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "選択されたアイテムを削除してもよろしいですか？"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the file system creation may take some time."
-msgstr "このデバイスをフォーマットしてもよろしいですか？ すべてのデータが削除されます。ファイルシステムの作成には時間がかかる場合があります。"
+"Please note that the filesystem creation may take some time."
+msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "選択されたプラグインをインストールしてもよろしいですか？"
@@ -897,9 +894,9 @@ msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "WebGUIの状態をリセットしてもよろしいですか？ 例）グリッド列の順序"
 
 msgid ""
-"Do you really want to resize the selected file system? You have to do that "
+"Do you really want to resize the selected filesystem? You have to do that "
 "after a RAID has been grown for example."
-msgstr "選択されたファイルシステムをリサイズしてもよろしいですか？ RAIDの領域を拡張した後にこれを行う必要があります。"
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
 msgstr "システムをシャットダウンしてもよろしいですか？"
@@ -1181,6 +1178,11 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXPはクライアントを経由しなくても２つのリモートサーバ間でデータ転送を行えます。"
 
+msgid ""
+"Failed to create filesystem. Please check the syslog or '%s' for more "
+"details."
+msgstr ""
+
 msgid "Failed to get filesystems"
 msgstr "ファイルシステムの取得に失敗しました"
 
@@ -1223,12 +1225,6 @@ msgstr "フィジー"
 msgid "File"
 msgstr "ファイル"
 
-msgid "File system"
-msgstr "ファイルシステム"
-
-msgid "File systems"
-msgstr "ファイルシステム"
-
 msgid "Filename"
 msgstr "ファイル名"
 
@@ -1244,6 +1240,9 @@ msgstr "指定したバイト数を超えるファイルはごみ箱に入れら
 
 msgid "Filesize"
 msgstr "ファイルサイズ"
+
+msgid "Filesystem"
+msgstr ""
 
 msgid "Filesystem '%s' not found"
 msgstr "ファイルシステム '%s' はありません"
@@ -1478,11 +1477,11 @@ msgstr "このオプションを設定すると、すべてのアップロード
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
-"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
-"DOS attributes will be stored onto an extended attribute in the UNIX file "
-"system, associated with the file or directory."
-msgstr "このパラメータを設定すると、SambaはDOSの属性をUNIXのパーミッションにマップする前に、最初にファイルシステムの拡張属性からDOSの属性(SYSTEM, HIDDEN, ARCHIVE または READ-ONLY)を読み込みます。設定されたとき、DOS属性はファイルまたはディレクトリに関連したUNIXファイルシステムの拡張属性に保存されます。"
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
+" before mapping DOS attributes to UNIX permission bits. When set, DOS "
+"attributes will be stored onto an extended attribute in the UNIX filesystem,"
+" associated with the file or directory."
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1582,8 +1581,8 @@ msgstr "インタフェース"
 msgid "Invalid domain name"
 msgstr "無効なドメイン名"
 
-msgid "Invalid file system label"
-msgstr "無効なファイルシステムラベル"
+msgid "Invalid filesystem label"
+msgstr ""
 
 msgid "Invalid group name"
 msgstr "無効なグループ名"
@@ -2307,9 +2306,9 @@ msgid "Please wait ..."
 msgstr "お待ちください ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a file "
-"system."
-msgstr "ファイルシステムを作成する前に、RAIDが初期化されるまでお待ちください。"
+"Please wait until the RAID has been initialized before creating a "
+"filesystem."
+msgstr ""
 
 msgid "Plugins"
 msgstr "プラグイン"
@@ -2687,8 +2686,8 @@ msgstr "デバイスを選択 ..."
 msgid "Select a directory"
 msgstr "ディレクトリを選択"
 
-msgid "Select a file system ..."
-msgstr "ファイルシステムを選択 ..."
+msgid "Select a filesystem ..."
+msgstr ""
 
 msgid "Select a group name..."
 msgstr "グループ名を選択 ..."
@@ -3113,9 +3112,6 @@ msgstr "フィールド '%s' は禁止を含みます"
 msgid "The file mode of the shared folder path."
 msgstr "共有フォルダパスのファイルモード。"
 
-msgid "The file system creation has completed successfully."
-msgstr "ファイルシステムは正常に作成されました。"
-
 msgid "The group '%s' does not exist"
 msgstr "グループ '%s' は存在しません"
 
@@ -3214,8 +3210,8 @@ msgstr "ユーザー '%s' は存在しません"
 msgid "The user '%s' is not allowed"
 msgstr "ユーザー '%s' は許可されていません"
 
-msgid "The volume label for the file system."
-msgstr "ファイルシステムのボリュームラベル。"
+msgid "The volume label for the filesystem."
+msgstr ""
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "

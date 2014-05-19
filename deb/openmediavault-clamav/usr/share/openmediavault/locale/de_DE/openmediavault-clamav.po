@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-29 17:01+0000\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-19 17:17+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -132,6 +132,9 @@ msgstr "Allgemeine Einstellungen"
 msgid "Hour"
 msgstr "Stunde"
 
+msgid "Infected files"
+msgstr ""
+
 msgid "Jobs"
 msgstr "Aufgaben"
 
@@ -170,11 +173,8 @@ msgid ""
 "target='_blank'>manual page</a> for more details."
 msgstr "Bitte <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>Manual Seiten</a> für mehr Details prüfen."
 
-msgid "Remove"
-msgstr "Entferne"
-
-msgid "Remove infected files."
-msgstr "Entferne infizierte Dateien."
+msgid "Quarantine"
+msgstr ""
 
 msgid "Run"
 msgstr "Ausführen"
@@ -220,6 +220,12 @@ msgstr "Freigegebene Ordner"
 
 msgid "The location of the files to scan."
 msgstr "Der Ort der zu scannenden Dateien."
+
+msgid "The location which is used as quarantine."
+msgstr ""
+
+msgid "The option, how to handle infected files."
+msgstr ""
 
 msgid "Verbose"
 msgstr "Wortreich"

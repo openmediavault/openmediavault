@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-08 20:23+0100\n"
-"PO-Revision-Date: 2014-03-09 08:34+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
+"POT-Creation-Date: 2014-03-05 18:12+0100\n"
+"PO-Revision-Date: 2014-05-19 17:17+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -270,8 +270,8 @@ msgid "Afghanistan"
 msgstr "Afganistan"
 
 msgid ""
-"After the RAID has been grown you can resize the containing file system."
-msgstr "Dopo aver ampliato il RAID sarà possibile ridimensionare il file system in esso contenuto."
+"After the RAID has been grown you can resize the containing filesystem."
+msgstr ""
 
 msgid "Aland Islands"
 msgstr "Isole Åland"
@@ -605,8 +605,8 @@ msgstr "Pulisci"
 msgid "Client"
 msgstr "Client"
 
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "Client col permesso di mount del file system, per esempio 193.168.178.0/24."
+msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
+msgstr ""
 
 msgid "Close"
 msgstr "Chiudi"
@@ -700,14 +700,11 @@ msgstr "Crea"
 msgid "Create RAID device"
 msgstr "Crea dispositivo RAID"
 
-msgid "Create file system"
-msgstr "Crea file system"
+msgid "Create filesystem"
+msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "Crea certificato SSL self-signed"
-
-msgid "Creating the file system, please wait ..."
-msgstr "Creazione del file system, attendere ..."
 
 msgid "Critical"
 msgstr "Critico"
@@ -769,11 +766,11 @@ msgstr "Cancella"
 msgid "Delete content"
 msgstr "Elimina contenuto"
 
-msgid "Delete file system"
-msgstr "Elimina file system"
-
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Cancella i file sulla destinazione che non esistono sulla sorgente"
+
+msgid "Delete filesystem"
+msgstr ""
 
 msgid "Deleting selected item(s)"
 msgstr "Sto cancellando gli oggetti selezionati"
@@ -870,16 +867,16 @@ msgstr "Sicuro di voler svuotare il file di log?"
 msgid "Do you really want to create the RAID device?"
 msgstr "Sicuro di voler creare il dispositivo RAID?"
 
-msgid "Do you really want to delete the file system? All data will be lost."
-msgstr "Vuoi veramente eliminare il file system? Tutti i dati verrano persi."
+msgid "Do you really want to delete the filesystem? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Sicuro di voler cancellare gli elementi selezionati?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the file system creation may take some time."
-msgstr "Sicuro di voler formattare questo dispositivo? Tutti i dati in esso presenti verranno cancellati. Tieni presente che la creazione del file system può richiedere un po' di tempo."
+"Please note that the filesystem creation may take some time."
+msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Sicuro di voler installare i plugin selezionati?"
@@ -902,9 +899,9 @@ msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Sei sicuro di voler ripristinare lo stato della WebGUI, ad es. l'ordine delle colonne nelle griglie?"
 
 msgid ""
-"Do you really want to resize the selected file system? You have to do that "
+"Do you really want to resize the selected filesystem? You have to do that "
 "after a RAID has been grown for example."
-msgstr "Sicuro di voler ridimensionare il file system selezionato? Devi farlo ad esempio dopo che un RAID è stato ampliato."
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Sei sicuro di voler spegnere il sistema?"
@@ -1186,6 +1183,11 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP permette trasferimenti di files tra due server remoti direttamente senza che i dati passino dal client che ha richiesto il trasferimento."
 
+msgid ""
+"Failed to create filesystem. Please check the syslog or '%s' for more "
+"details."
+msgstr ""
+
 msgid "Failed to get filesystems"
 msgstr "Impossibile ottenere i filesystem"
 
@@ -1228,12 +1230,6 @@ msgstr "Fiji"
 msgid "File"
 msgstr "File"
 
-msgid "File system"
-msgstr "File system"
-
-msgid "File systems"
-msgstr "File system"
-
 msgid "Filename"
 msgstr "Nome file"
 
@@ -1249,6 +1245,9 @@ msgstr "I file che sono più grandi del numero specificato in byte non saranno m
 
 msgid "Filesize"
 msgstr "Dimensione file"
+
+msgid "Filesystem"
+msgstr ""
 
 msgid "Filesystem '%s' not found"
 msgstr "Filesystem '%s' non trovato"
@@ -1483,11 +1482,11 @@ msgstr "Se selezionata ogni tentativo di upload fallirà."
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
-"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
-"DOS attributes will be stored onto an extended attribute in the UNIX file "
-"system, associated with the file or directory."
-msgstr "Se impostato, Samba tenterà di leggere gli attributi DOS (SYSTEM, HIDDEN, ARCHIVE o READ-ONLY) da un file system con attributi estesi, prima ancora di mapparli ai bit di permessi UNIX. Quando non impostato, gli attributi DOS verranno memorizzati tramite attributi estesi nel filesystem UNIX associato al file o directory."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
+" before mapping DOS attributes to UNIX permission bits. When set, DOS "
+"attributes will be stored onto an extended attribute in the UNIX filesystem,"
+" associated with the file or directory."
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1587,8 +1586,8 @@ msgstr "Interfacce"
 msgid "Invalid domain name"
 msgstr "Domain name non valido"
 
-msgid "Invalid file system label"
-msgstr "Etichetta del file system non valida"
+msgid "Invalid filesystem label"
+msgstr ""
 
 msgid "Invalid group name"
 msgstr "Nome del gruppo non valido"
@@ -2312,9 +2311,9 @@ msgid "Please wait ..."
 msgstr "Attendere prego ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a file "
-"system."
-msgstr "Per favore attendi che il RAID venga inizializzato prima di creare un file system."
+"Please wait until the RAID has been initialized before creating a "
+"filesystem."
+msgstr ""
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -2692,8 +2691,8 @@ msgstr "Scegli un dispositivo ..."
 msgid "Select a directory"
 msgstr "Seleziona una directory"
 
-msgid "Select a file system ..."
-msgstr "Seleziona un file system ..."
+msgid "Select a filesystem ..."
+msgstr ""
 
 msgid "Select a group name..."
 msgstr "Scegli un nome del gruppo..."
@@ -3118,9 +3117,6 @@ msgstr "Il campo '%s' contiene parameti vietati"
 msgid "The file mode of the shared folder path."
 msgstr "Le impostazioni dei file del percorso della cartella condivisa."
 
-msgid "The file system creation has completed successfully."
-msgstr "La creazione del file system è stata completata con successo."
-
 msgid "The group '%s' does not exist"
 msgstr "Il gruppo '%s' non esiste"
 
@@ -3219,8 +3215,8 @@ msgstr "L'utente '%s' non esiste"
 msgid "The user '%s' is not allowed"
 msgstr "L'utente '%s' non è abilitato"
 
-msgid "The volume label for the file system."
-msgstr "L'etichetta del volume per il file system."
+msgid "The volume label for the filesystem."
+msgstr ""
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "

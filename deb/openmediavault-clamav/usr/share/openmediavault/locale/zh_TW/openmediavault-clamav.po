@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-29 22:26+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-19 17:17+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -130,6 +130,9 @@ msgstr "一般設定"
 msgid "Hour"
 msgstr "時"
 
+msgid "Infected files"
+msgstr ""
+
 msgid "Jobs"
 msgstr "工作"
 
@@ -168,11 +171,8 @@ msgid ""
 "target='_blank'>manual page</a> for more details."
 msgstr "請查閱<a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>手冊頁</a>中之詳細資訊。"
 
-msgid "Remove"
-msgstr "移除"
-
-msgid "Remove infected files."
-msgstr "移除受感染的檔案。"
+msgid "Quarantine"
+msgstr ""
 
 msgid "Run"
 msgstr "執行"
@@ -218,6 +218,12 @@ msgstr "共享檔案夾"
 
 msgid "The location of the files to scan."
 msgstr "要進行掃毒的檔案位置。"
+
+msgid "The location which is used as quarantine."
+msgstr ""
+
+msgid "The option, how to handle infected files."
+msgstr ""
 
 msgid "Verbose"
 msgstr "詳細"

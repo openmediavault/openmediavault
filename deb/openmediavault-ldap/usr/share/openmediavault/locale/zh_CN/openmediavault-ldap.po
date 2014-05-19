@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# dezi121 <by@songming.me>, 2013
+# dezi121 <by@songming.me>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-16 13:09+0200\n"
-"PO-Revision-Date: 2013-12-21 13:53+0000\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-11 02:47+0000\n"
 "Last-Translator: dezi121 <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Base DN"
-msgstr "基本 DN"
+msgstr "基本DN"
 
 msgid "Directory Service"
 msgstr "目录服务"
@@ -45,10 +45,10 @@ msgstr "密码"
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
 "target='_blank'>manual page</a> for more details."
-msgstr "详情请看 <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>指南页</a> 。"
+msgstr "详情请看 <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>手册</a> 。"
 
 msgid "Root Bind DN"
-msgstr "根目录绑定 DN"
+msgstr "根目录绑定DN"
 
 msgid "Settings"
 msgstr "设置"
@@ -56,7 +56,7 @@ msgstr "设置"
 msgid ""
 "Specifies the base distinguished name (DN) to use as search base, e.g. "
 "'dc=example,dc=net'."
-msgstr "指定基本识别名称(DN) 作为搜索基础，例如： 'dc=example,dc=net'。"
+msgstr "指定基本识别名称(DN) 作为搜索基础，例如：'dc=example,dc=net'。"
 
 msgid "Specifies the credentials with which to bind."
 msgstr "指定绑定的凭据。"
@@ -64,7 +64,7 @@ msgstr "指定绑定的凭据。"
 msgid ""
 "Specifies the distinguished name (DN) with which to bind to the directory "
 "server for lookups, e.g. 'cn=manager,dc=example,dc=net'."
-msgstr "指定识别名称 (DN)并与目录服务器绑定用着查询，例如：'cn=manager,dc=example,dc=net'。"
+msgstr "指定识别名称(DN)并与目录服务器绑定用着查询，例如：'cn=manager,dc=example,dc=net'。"
 
 msgid "Specifies the group suffix, e.g. 'ou=Groups'."
 msgstr "指定组后缀，例如：'ou=Groups'。"
@@ -73,10 +73,10 @@ msgid "Specifies the port to connect to."
 msgstr "指定连接端口。"
 
 msgid "Specifies the user suffix, e.g. 'ou=Users'."
-msgstr "指定用户后缀，例如： 'ou=Users'。"
+msgstr "指定用户后缀，例如：'ou=Users'。"
 
 msgid "The FQDN or IP address of the server."
-msgstr "服务器的 FQDN 或 IP 地址。"
+msgstr "服务器的FQDN或IP地址。"
 
 msgid "Users suffix"
 msgstr "用户后缀"

@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-21 20:56+0200\n"
-"PO-Revision-Date: 2014-01-23 17:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-01-24 01:02+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,258 +18,258 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Add LUN"
-msgstr ""
+msgstr "LUNの追加"
 
 msgid "Add target"
-msgstr ""
+msgstr "ターゲットの追加"
 
 msgid "Add user"
-msgstr ""
+msgstr "ユーザーの追加"
 
 msgid "Alias"
-msgstr ""
+msgstr "エイリアス"
 
 msgid "Assign a unique identifier to the iSCSI volume optionally."
-msgstr ""
+msgstr "オプションでiSCSIボリュームにユニークな識別子を割り当てます。"
 
 msgid "Assign a unique serial number to the iSCSI volume optionally."
-msgstr ""
+msgstr "オプションでiSCSIボリュームにユニークなシリアルナンバーを割り当てます。"
 
 msgid "Authentication"
-msgstr ""
+msgstr "認証"
 
 msgid "Block IO"
-msgstr ""
+msgstr "ブロックIO"
 
 msgid "Comment"
-msgstr ""
+msgstr "コメント"
 
 msgid ""
 "Controls the maximum number of data transfers the target may request at "
 "once."
-msgstr ""
+msgstr "ターゲットに一度に要求するデータ転送の最大数を制御します。"
 
 msgid "Data PDU in order"
-msgstr ""
+msgstr "データPDUの順序"
 
 msgid "Data digest"
-msgstr ""
+msgstr "データダイジェスト"
 
 msgid "Data sequence in order"
-msgstr ""
+msgstr "データシーケンスの順序"
 
 msgid "Device"
-msgstr ""
+msgstr "デバイス"
 
 msgid "Discovery authentication"
-msgstr ""
+msgstr "認証のディスカバリー"
 
 msgid "Edit LUN"
-msgstr ""
+msgstr "LUNの編集"
 
 msgid "Edit target"
-msgstr ""
+msgstr "ターゲットの編集"
 
 msgid "Edit user"
-msgstr ""
+msgstr "ユーザーの編集"
 
 msgid "Enable"
-msgstr ""
+msgstr "有効"
 
 msgid "Error recovery level"
-msgstr ""
+msgstr "エラーリカバリレベル"
 
 msgid "Extra options"
-msgstr ""
+msgstr "その他のオプション"
 
 msgid "File IO"
-msgstr ""
+msgstr "ファイルIO"
 
 msgid "First burst length"
-msgstr ""
+msgstr "ファーストバースト長"
 
 msgid "General"
-msgstr ""
+msgstr "一般"
 
 msgid "General settings"
-msgstr ""
+msgstr "一般設定"
 
 msgid "Header digest"
-msgstr ""
+msgstr "ヘッダダイジェスト"
 
 msgid "IO threads"
-msgstr ""
+msgstr "IOスレッド"
 
 msgid "IQN"
-msgstr ""
+msgstr "IQN"
 
 msgid "Id"
-msgstr ""
+msgstr "Id"
 
 msgid "Identifier"
-msgstr ""
+msgstr "識別子"
 
 msgid ""
 "If a non-zero 'NOP interval' is used to periodically 'ping' the initiator "
 "during phases of inactivity (i.e. no data transfers), the initiator must "
 "respond within N seconds, otherwise the connection will be closed."
-msgstr ""
+msgstr "非ゼロの'NOP interval'を定期的な'ping'で非アクティブなイニシエータ使用した場合(すなわち、データ転送していない)、イニシエータは、N秒以内に応答しなければならなりません、そうでなければ接続は閉じられます。"
 
 msgid ""
 "If enabled, the initiator has to wait for the target to solicit SCSI data "
 "before sending it. Disabling it allows the initiator to send a burst of N "
 "bytes unsolicited right after and/or together with the command. Thus "
 "disabling it may improve performance."
-msgstr ""
+msgstr "有効にすると、イニシエータはそれを送信する前にターゲットのsolicit SCSI データを待たなければなりません。無効にすると、イニシエータはunsolicitedでコマンドの直後にNバイトのバースト送信ができます。したがって無効化するとパフォーマンスが向上する場合があります。"
 
 msgid ""
 "If set to 'CRC32C' and the initiator is configured accordingly, the "
 "integrity of an iSCSI PDU's data segment will be protected by a CRC32C "
 "checksum."
-msgstr ""
+msgstr "'CRC32C' に設定し、イニシエータは、それに応じて構成されている場合、iSCSI PDUのデータ·セグメントの完全性はCRC32Cチェックサムによって保護される。"
 
 msgid ""
 "If set to 'CRC32C' and the initiator is configured accordingly, the "
 "integrity of an iSCSI PDU's header segments will be protected by a CRC32C "
 "checksum."
-msgstr ""
+msgstr "'CRC32C' に設定し、イニシエータは、それに応じて構成されている場合、iSCSI PDUのヘッダ·セグメントの完全性はCRC32Cチェックサムによって保護される。"
 
 msgid ""
 "If value is non-zero, the initiator will be 'ping'ed during phases of "
 "inactivity (i.e. no data transfers) every N seconds to verify the connection"
 " is still alive."
-msgstr ""
+msgstr "値が非ゼロの場合、接続がまだ生きているかを確認するために、イニシエータは非アクティブ（つまり、データを転送していない）時に N秒ごとに 'ping' 行います。"
 
 msgid "Immediate data"
-msgstr ""
+msgstr "即値データ"
 
 msgid "Incoming"
-msgstr ""
+msgstr "Incoming"
 
 msgid "Initial R2T"
-msgstr ""
+msgstr "初期R2T"
 
 msgid "LUN"
-msgstr ""
+msgstr "LUN"
 
 msgid "Max. burst length"
-msgstr ""
+msgstr "最大バースト長"
 
 msgid "Max. connections"
-msgstr ""
+msgstr "最大コネクション"
 
 msgid "Max. outstanding R2T"
-msgstr ""
+msgstr "最大R2T"
 
 msgid "Max. receive data segment length"
-msgstr ""
+msgstr "最大受信データセグメント長"
 
 msgid "Max. sessions"
-msgstr ""
+msgstr "最大セッション"
 
 msgid "Max. transmit data segment length"
-msgstr ""
+msgstr "最大送信データセグメント長"
 
 msgid "NOP interval"
-msgstr ""
+msgstr "NOP インターバル"
 
 msgid "NOP timeout"
-msgstr ""
+msgstr "NOP タイムアウト"
 
 msgid "None"
-msgstr ""
+msgstr "なし"
 
 msgid "Only one outgoing user per target is supported."
-msgstr ""
+msgstr "ターゲット毎に1つだけの発信ユーザーがサポートされます。"
 
 msgid "Outgoing"
-msgstr ""
+msgstr "Outgoing"
 
 msgid "Password"
-msgstr ""
+msgstr "パスワード"
 
 msgid "Queued commands"
-msgstr ""
+msgstr "待機コマンド"
 
 msgid "R/W mode"
-msgstr ""
+msgstr "R/Wモード"
 
 msgid "Read-only"
-msgstr ""
+msgstr "読み込み専用"
 
 msgid "SCSI Id."
-msgstr ""
+msgstr "SCSI Id."
 
 msgid "SCSI serial no."
-msgstr ""
+msgstr "SCSI シリアルNo.."
 
 msgid "Select an device ..."
-msgstr ""
+msgstr "デバイスの選択 ..."
 
 msgid ""
 "Sets the amount of unsolicited data the initiator may transmit in the first "
 "burst of a transfer either with and/or right after the command."
-msgstr ""
+msgstr "イニシエータがファーストバーストで送信できる、unsolicited data量を設定します。"
 
 msgid ""
 "Sets the maximum amount of either unsolicited or solicited data the "
 "initiator may send in a single burst."
-msgstr ""
+msgstr "unsolicited または solicited のどちらかのデータの最大量を設定します。イニシエータはシングルバーストで送信することがあります。"
 
 msgid "Sets the maximum data segment length that can be received."
-msgstr ""
+msgstr "受信可能な最大データセグメント長を設定する。"
 
 msgid "Sets the maximum data segment length that can be sent."
-msgstr ""
+msgstr "送信可能な最大データセグメント長を設定する。"
 
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 msgid "Targets"
-msgstr ""
+msgstr "ターゲット"
 
 msgid "The identifier of the target."
-msgstr ""
+msgstr "ターゲットの識別子。"
 
 msgid "The maximum number of sessions for this target."
-msgstr ""
+msgstr "このターゲットのセッションの最大数。"
 
 msgid ""
 "The number of commands an initiator may send and that will be buffered by "
 "the target."
-msgstr ""
+msgstr "イニシエータが送り、ターゲットにバッファされることができるコマンドの数。"
 
 msgid "The number of connections within a session."
-msgstr ""
+msgstr "セッション内の接続の数。"
 
 msgid "The number of threads to perform block I/O to the device."
-msgstr ""
+msgstr "デバイスへのブロックI / Oを実行するスレッド数。"
 
 msgid "The optional alias of the target."
-msgstr ""
+msgstr "ターゲットのオプションエイリアス"
 
 msgid ""
 "This allows the initiator to append unsolicited data to a command. To "
 "achieve better performance, this should be enabled."
-msgstr ""
+msgstr "これは、イニシエータがコマンドにunsolicited dataを追加することができます。"
 
 msgid "Transfer mode"
-msgstr ""
+msgstr "転送モード"
 
 msgid "Type"
-msgstr ""
+msgstr "タイプ"
 
 msgid "Username"
-msgstr ""
+msgstr "ユーザー名"
 
 msgid "Users"
-msgstr ""
+msgstr "ユーザー"
 
 msgid "Write-back"
-msgstr ""
+msgstr "ライトバック"
 
 msgid "Write-through"
-msgstr ""
+msgstr "ライトスルー"
 
 msgid "iSCSI Target"
-msgstr ""
+msgstr "iSCSIターゲット"

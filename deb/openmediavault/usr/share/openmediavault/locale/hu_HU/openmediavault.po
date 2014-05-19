@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-08 20:23+0100\n"
-"PO-Revision-Date: 2014-03-14 14:02+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
+"POT-Creation-Date: 2014-03-05 18:12+0100\n"
+"PO-Revision-Date: 2014-05-19 17:17+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -266,8 +266,8 @@ msgid "Afghanistan"
 msgstr "Afghanistan"
 
 msgid ""
-"After the RAID has been grown you can resize the containing file system."
-msgstr "A RAID tömb növelése után tudod újraméretezni a rajta levő fájlrendszert."
+"After the RAID has been grown you can resize the containing filesystem."
+msgstr ""
 
 msgid "Aland Islands"
 msgstr "Aland Islands"
@@ -534,7 +534,7 @@ msgid "Canada"
 msgstr "Canada"
 
 msgid "Cancel"
-msgstr "Mégse"
+msgstr "Mégsem"
 
 msgid ""
 "Cannot unlink shared folder content because another shared folder is "
@@ -601,8 +601,8 @@ msgstr "Törlés"
 msgid "Client"
 msgstr "Kliens"
 
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "Kliensek engedélyezése fájlrendszer felcsatoláshoz, pl. 192.168.178.0/24."
+msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
+msgstr ""
 
 msgid "Close"
 msgstr "Bezárás"
@@ -696,14 +696,11 @@ msgstr "Létrehozás"
 msgid "Create RAID device"
 msgstr "RAID tömb létrehozás"
 
-msgid "Create file system"
-msgstr "Fájlrendszer létrehozása"
+msgid "Create filesystem"
+msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "Önmaga aláírt SSL tanúsítvány létrehozása"
-
-msgid "Creating the file system, please wait ..."
-msgstr "Fájlrendszer létrehozása, kérlek várj ..."
 
 msgid "Critical"
 msgstr "Kritikus"
@@ -765,11 +762,11 @@ msgstr "Törlés"
 msgid "Delete content"
 msgstr "Tartalom törlése"
 
-msgid "Delete file system"
-msgstr "Fájlrendszer törlése"
-
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Fájlok törlése a fogadó oldalon, ha a feladó nem létezik"
+
+msgid "Delete filesystem"
+msgstr ""
 
 msgid "Deleting selected item(s)"
 msgstr "Kiválasztott tétel(ek) törlése"
@@ -858,7 +855,7 @@ msgid "Djibouti"
 msgstr "Djibouti"
 
 msgid "Do you really want to apply the configuration?"
-msgstr "Valóban alkalmazni szeretnéd a konfigurációt?"
+msgstr "Valóban alkalmazni szeretnéd a változásokat?"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Valóban törölni szeretnéd a napló fájlt?"
@@ -866,16 +863,16 @@ msgstr "Valóban törölni szeretnéd a napló fájlt?"
 msgid "Do you really want to create the RAID device?"
 msgstr "Valóban létre szeretnéd hozni a RAID tömböt?"
 
-msgid "Do you really want to delete the file system? All data will be lost."
-msgstr "Valóban törölni szeretnéd a fájlrendszert? Minden adat elvész."
+msgid "Do you really want to delete the filesystem? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Valóban törölni szeretnéd a kiválasztott tétel(eke)t?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the file system creation may take some time."
-msgstr "Valóban szeretnéd formázni az eszközt? Az összes adat törlésre kerül. Kérlek vedd figyelembe, hogy a fájlrendszer létrehozása eltarthat egy ideig."
+"Please note that the filesystem creation may take some time."
+msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Valóban telepíteni szeretnéd a kiválasztott bővítmény(eke)t?"
@@ -898,9 +895,9 @@ msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Valóban vissza szeretnéd állítani a WebGUI állapotot, mint például rács oszlop sorrend?"
 
 msgid ""
-"Do you really want to resize the selected file system? You have to do that "
+"Do you really want to resize the selected filesystem? You have to do that "
 "after a RAID has been grown for example."
-msgstr "Valóban újra szeretnéd méretezni a kiválasztott fájlrendszert? Ezt megteheted például egy RAID tömb növelés után."
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Valóban le szeretnéd állítani a rendszert?"
@@ -1182,6 +1179,11 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP lehetővé teszi az átvitelt két távoli szerver között anélkül, hogy az adatfájl átvitelét a kliensnek is kérnie kellene."
 
+msgid ""
+"Failed to create filesystem. Please check the syslog or '%s' for more "
+"details."
+msgstr ""
+
 msgid "Failed to get filesystems"
 msgstr "Nem sikerült lekérni a fájlrendszereket"
 
@@ -1224,12 +1226,6 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Fájl"
 
-msgid "File system"
-msgstr "Fájlrendszer"
-
-msgid "File systems"
-msgstr "Fájlrendszerek"
-
 msgid "Filename"
 msgstr "Fájlnév"
 
@@ -1245,6 +1241,9 @@ msgstr "A megadott méretnél nagyobb fájlok nem helyezhetőek a lomtárba. Ál
 
 msgid "Filesize"
 msgstr "Fájlméret"
+
+msgid "Filesystem"
+msgstr ""
 
 msgid "Filesystem '%s' not found"
 msgstr "Fájlrendszer '%s' nem található"
@@ -1479,11 +1478,11 @@ msgstr "Ha ez az opció aktív, akkor minden feltöltési kísérlet hibás lesz
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
-"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
-"DOS attributes will be stored onto an extended attribute in the UNIX file "
-"system, associated with the file or directory."
-msgstr "Ha ez a paraméter be van állítva, a Samba megpróbálja először a DOS attribútumokat elolvasni (RENDSZER, REJTETT, ARCHÍV vagy CSAK OLVASHATÓ) egy kiterjesztett fájlrendszer attribútumról, mielőtt feltérképezné a DOS attribútumokat a UNIX engedélyezési biteknek. Ha be van állítva, a DOS attribútumok egy kiterjesztett attribútumon fogják tárolni a UNIX fájlrendszerben,a társított fájl vagy könyvtárral együtt."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
+" before mapping DOS attributes to UNIX permission bits. When set, DOS "
+"attributes will be stored onto an extended attribute in the UNIX filesystem,"
+" associated with the file or directory."
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1583,8 +1582,8 @@ msgstr "Interfészek"
 msgid "Invalid domain name"
 msgstr "Érvénytelen tartománynév"
 
-msgid "Invalid file system label"
-msgstr "Érvénytelen fájlrendszer címke"
+msgid "Invalid filesystem label"
+msgstr ""
 
 msgid "Invalid group name"
 msgstr "Érvénytelen csoport név"
@@ -2291,7 +2290,7 @@ msgid ""
 msgstr "Kérlek tekintsd meg a <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>kézikönyvet</a> a további részletekért."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr "Válaszd ki a módszert az eszköz törlésére, vagy a 'Mégsem'-et a megszakításhoz."
+msgstr "Válaszd ki a módszert az eszköz formázásához, vagy a 'Mégsem'-et a megszakításhoz."
 
 msgid "Please first select a volume."
 msgstr "Kérlek előbb válassz ki egy kötetet."
@@ -2308,9 +2307,9 @@ msgid "Please wait ..."
 msgstr "Kérlek várj ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a file "
-"system."
-msgstr "Kérlek várj a RAID inicializására a fájlrendszer létrehozása előtt."
+"Please wait until the RAID has been initialized before creating a "
+"filesystem."
+msgstr ""
 
 msgid "Plugins"
 msgstr "Bővítmények"
@@ -2688,8 +2687,8 @@ msgstr "Válassz ki egy meghajtót ..."
 msgid "Select a directory"
 msgstr "Válassz ki egy könyvtárat"
 
-msgid "Select a file system ..."
-msgstr "Válassz ki egy fájlrendszert ..."
+msgid "Select a filesystem ..."
+msgstr ""
 
 msgid "Select a group name..."
 msgstr "Válassz ki egy csoport nevet..."
@@ -3095,7 +3094,7 @@ msgstr "A megjegyzés érvénytelen karaktereket tartalmaz"
 msgid ""
 "The configuration has been changed. You must apply the changes in order for "
 "them to take effect."
-msgstr "A konfiguráció megváltozott. Alkalmazd a változásokat, hogy érvénybe lépjenek."
+msgstr "A konfiguráció megváltozott! Alkalmazd a változásokat, hogy érvénybe léphessenek."
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
 msgstr "Az alapértelmezett SMTP levél szerver portja, pl. 25 vagy 587."
@@ -3113,9 +3112,6 @@ msgstr "A '%s' mező tartalma tiltott."
 
 msgid "The file mode of the shared folder path."
 msgstr "Megosztott mappa útvonalának fájl elérési módja"
-
-msgid "The file system creation has completed successfully."
-msgstr "A fájlrendszer létrehozása sikeresen befejeződött."
 
 msgid "The group '%s' does not exist"
 msgstr "'%s' csoport nem létezik"
@@ -3215,8 +3211,8 @@ msgstr "'%s' felhasználó nem létezik"
 msgid "The user '%s' is not allowed"
 msgstr "'%s' felhasználó nincs engedélyezve"
 
-msgid "The volume label for the file system."
-msgstr "A kötet címkéje a fájlrendszeren."
+msgid "The volume label for the filesystem."
+msgstr ""
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "

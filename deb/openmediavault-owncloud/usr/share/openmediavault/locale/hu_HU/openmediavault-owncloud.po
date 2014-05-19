@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Grawens <szabolcs.szanyi@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 19:52+0100\n"
-"PO-Revision-Date: 2013-12-18 18:52+0000\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-19 17:17+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -18,46 +19,61 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add share"
+msgstr "Megosztás hozzáadása"
+
+msgid "Certificate"
 msgstr ""
 
 msgid "Comment"
-msgstr ""
+msgstr "Megjegyzés"
 
 msgid "Data directory"
-msgstr ""
+msgstr "Adat könyvtár"
 
 msgid "Edit share"
-msgstr ""
+msgstr "Megosztás szerkesztése"
 
 msgid "Enable"
-msgstr ""
+msgstr "Bekapcsolás"
 
 msgid "Folder name"
-msgstr ""
+msgstr "Mappa neve"
 
 msgid "General settings"
+msgstr "Általános beállítások"
+
+msgid "Port"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Beállítások"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Megosztott mappa"
 
 msgid "Shares"
+msgstr "Megosztások"
+
+msgid "The SSL certificate."
 msgstr ""
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "A megosztani kívánt fájlok helye."
 
 msgid "The location where ownCloud stores its files."
-msgstr ""
+msgstr "Az ownCloud átal tárolt fájlok helye."
 
 msgid "The name of the share."
+msgstr "A megosztás neve."
+
+msgid "The port '%d' is already in use"
+msgstr ""
+
+msgid "The port which is used to access the ownCloud web interface."
 msgstr ""
 
 msgid "n/a"
-msgstr ""
+msgstr "n/a"
 
 msgid "ownCloud"
-msgstr ""
+msgstr "ownCloud"

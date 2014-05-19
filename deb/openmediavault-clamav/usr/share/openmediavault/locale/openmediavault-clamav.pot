@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-clamav\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-01-29 17:56+0100\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -125,6 +125,9 @@ msgstr ""
 msgid "Hour"
 msgstr ""
 
+msgid "Infected files"
+msgstr ""
+
 msgid "Jobs"
 msgstr ""
 
@@ -161,10 +164,7 @@ msgstr ""
 msgid "Please check the <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manual page</a> for more details."
 msgstr ""
 
-msgid "Remove"
-msgstr ""
-
-msgid "Remove infected files."
+msgid "Quarantine"
 msgstr ""
 
 msgid "Run"
@@ -207,6 +207,12 @@ msgid "Shared folder"
 msgstr ""
 
 msgid "The location of the files to scan."
+msgstr ""
+
+msgid "The location which is used as quarantine."
+msgstr ""
+
+msgid "The option, how to handle infected files."
 msgstr ""
 
 msgid "Verbose"

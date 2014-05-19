@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-08 20:23+0100\n"
-"PO-Revision-Date: 2014-03-08 19:24+0000\n"
+"POT-Creation-Date: 2014-03-05 18:12+0100\n"
+"PO-Revision-Date: 2014-05-19 17:17+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -265,7 +265,7 @@ msgid "Afghanistan"
 msgstr "Afghanistan"
 
 msgid ""
-"After the RAID has been grown you can resize the containing file system."
+"After the RAID has been grown you can resize the containing filesystem."
 msgstr ""
 
 msgid "Aland Islands"
@@ -600,7 +600,7 @@ msgstr "Rensa"
 msgid "Client"
 msgstr "Klient"
 
-msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
+msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
 msgstr ""
 
 msgid "Close"
@@ -695,14 +695,11 @@ msgstr "Skapa"
 msgid "Create RAID device"
 msgstr "Skapa RAID-enhet"
 
-msgid "Create file system"
+msgid "Create filesystem"
 msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "Skapa självsignerade SSL-certifikat "
-
-msgid "Creating the file system, please wait ..."
-msgstr ""
 
 msgid "Critical"
 msgstr "Kritisk"
@@ -764,11 +761,11 @@ msgstr "Radera"
 msgid "Delete content"
 msgstr "Radera innehåll"
 
-msgid "Delete file system"
-msgstr ""
-
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Radera "
+
+msgid "Delete filesystem"
+msgstr ""
 
 msgid "Deleting selected item(s)"
 msgstr "Ta bort filer på den mottagande sidan som inte finns på avsändarens"
@@ -865,7 +862,7 @@ msgstr "Vill du verkligen rensa loggfilen?"
 msgid "Do you really want to create the RAID device?"
 msgstr "Vill du verkligen skapa RAID-enheten?"
 
-msgid "Do you really want to delete the file system? All data will be lost."
+msgid "Do you really want to delete the filesystem? All data will be lost."
 msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
@@ -873,7 +870,7 @@ msgstr "Vill du verkligen radera markerade objekt?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the file system creation may take some time."
+"Please note that the filesystem creation may take some time."
 msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
@@ -897,7 +894,7 @@ msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Vill du verkligen återställa WebGUI-tillståndet, t.ex. rutnätkolumnens ordning?"
 
 msgid ""
-"Do you really want to resize the selected file system? You have to do that "
+"Do you really want to resize the selected filesystem? You have to do that "
 "after a RAID has been grown for example."
 msgstr ""
 
@@ -1181,6 +1178,11 @@ msgid ""
 "to the client asking for the transfer."
 msgstr "FXP tillåter överföringar mellan två fjärrservrar utan fildata att gå till klienten när den ber om överföringen."
 
+msgid ""
+"Failed to create filesystem. Please check the syslog or '%s' for more "
+"details."
+msgstr ""
+
 msgid "Failed to get filesystems"
 msgstr "Det gick inte att hämta filsystem"
 
@@ -1223,12 +1225,6 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Fil"
 
-msgid "File system"
-msgstr ""
-
-msgid "File systems"
-msgstr ""
-
 msgid "Filename"
 msgstr ""
 
@@ -1243,6 +1239,9 @@ msgid ""
 msgstr ""
 
 msgid "Filesize"
+msgstr ""
+
+msgid "Filesystem"
 msgstr ""
 
 msgid "Filesystem '%s' not found"
@@ -1478,10 +1477,10 @@ msgstr "Om detta alternativ är inställt, kommer alla försök till uppladdning
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
-"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
-"DOS attributes will be stored onto an extended attribute in the UNIX file "
-"system, associated with the file or directory."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
+" before mapping DOS attributes to UNIX permission bits. When set, DOS "
+"attributes will be stored onto an extended attribute in the UNIX filesystem,"
+" associated with the file or directory."
 msgstr ""
 
 msgid ""
@@ -1582,7 +1581,7 @@ msgstr "Gränssnitt"
 msgid "Invalid domain name"
 msgstr "Ogiltigt domännamn"
 
-msgid "Invalid file system label"
+msgid "Invalid filesystem label"
 msgstr ""
 
 msgid "Invalid group name"
@@ -2307,8 +2306,8 @@ msgid "Please wait ..."
 msgstr "Vänligen vänta ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a file "
-"system."
+"Please wait until the RAID has been initialized before creating a "
+"filesystem."
 msgstr ""
 
 msgid "Plugins"
@@ -2687,7 +2686,7 @@ msgstr "Välj en enhet ..."
 msgid "Select a directory"
 msgstr "Välj en mapp"
 
-msgid "Select a file system ..."
+msgid "Select a filesystem ..."
 msgstr ""
 
 msgid "Select a group name..."
@@ -3113,9 +3112,6 @@ msgstr "Fältet '%s' innehåller förbjudna"
 msgid "The file mode of the shared folder path."
 msgstr "Filens läge för den delade mappsökvägen."
 
-msgid "The file system creation has completed successfully."
-msgstr ""
-
 msgid "The group '%s' does not exist"
 msgstr "Gruppen '%s' existerar inte"
 
@@ -3214,7 +3210,7 @@ msgstr "Användaren '%s' finns inte"
 msgid "The user '%s' is not allowed"
 msgstr "Användaren '%s' är inte tillåten"
 
-msgid "The volume label for the file system."
+msgid "The volume label for the filesystem."
 msgstr ""
 
 msgid ""

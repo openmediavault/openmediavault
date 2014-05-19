@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-owncloud\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-12-18 19:52+0100\n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,6 +18,9 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 msgid "Add share"
+msgstr ""
+
+msgid "Certificate"
 msgstr ""
 
 msgid "Comment"
@@ -38,6 +41,9 @@ msgstr ""
 msgid "General settings"
 msgstr ""
 
+msgid "Port"
+msgstr ""
+
 msgid "Settings"
 msgstr ""
 
@@ -47,6 +53,9 @@ msgstr ""
 msgid "Shares"
 msgstr ""
 
+msgid "The SSL certificate."
+msgstr ""
+
 msgid "The location of the files to share."
 msgstr ""
 
@@ -54,6 +63,12 @@ msgid "The location where ownCloud stores its files."
 msgstr ""
 
 msgid "The name of the share."
+msgstr ""
+
+msgid "The port '%d' is already in use"
+msgstr ""
+
+msgid "The port which is used to access the ownCloud web interface."
 msgstr ""
 
 msgid "n/a"
