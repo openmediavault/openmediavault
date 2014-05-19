@@ -19,7 +19,7 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-OMV_SUBDIRS := $(shell find openmediavault* -type d -maxdepth 0)
+OMV_SUBDIRS := $(shell find . -maxdepth 1 -name 'openmediavault*' -type d)
 
 # Targets to process all OpenMediaVault plugin packages.
 clean binary omv_pull_po omv_push_pot omv_build_pot:
@@ -27,4 +27,4 @@ clean binary omv_pull_po omv_push_pot omv_build_pot:
 		cd $(CURDIR)/$$dir && fakeroot debian/rules $@; \
 	done
 
-.PHONY: clean binary omv_pull_po_all omv_push_pot_all omv_build_pot_all
+.PHONY: clean binary omv_pull_po omv_push_pot omv_build_pot

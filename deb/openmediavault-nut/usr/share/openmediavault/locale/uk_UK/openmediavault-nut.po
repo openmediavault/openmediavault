@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# zubr139 <zubr139@ukr.net>, 2013
+# zubr139, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"

@@ -1,5 +1,6 @@
 openmediavault (0.5.48) stable; urgency=low
 
+  * Update locales.
   * Fix file permission of database backups.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 14 May 2014 12:18:59 +0200

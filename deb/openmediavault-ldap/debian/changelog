@@ -1,3 +1,9 @@
+openmediavault-ldap (0.5.4) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 19 May 2014 19:11:31 +0200
+
 openmediavault-ldap (0.5.3) stable; urgency=low
 
   * Update locales.

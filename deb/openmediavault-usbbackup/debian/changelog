@@ -1,3 +1,9 @@
+openmediavault-usbbackup (0.5.10) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 19 May 2014 19:14:05 +0200
+
 openmediavault-usbbackup (0.5.9) stable; urgency=low
 
   * Update locales.

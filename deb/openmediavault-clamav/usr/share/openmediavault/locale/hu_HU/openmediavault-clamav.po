@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Ádám Balajti <balajtiadam@gmail.com>, 2012
+# Grawens <szabolcs.szanyi@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-01-29 17:56+0100\n"
-"PO-Revision-Date: 2014-01-29 16:56+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-03-14 14:14+0000\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -107,7 +108,7 @@ msgid "Every N minute"
 msgstr "Minden N percben"
 
 msgid "Execute cron job"
-msgstr ""
+msgstr "Cron feladat végrehajtása"
 
 msgid "Extra options"
 msgstr "Extra beállítások"
@@ -134,13 +135,13 @@ msgid "Jobs"
 msgstr "Feladatok"
 
 msgid "Log clean files"
-msgstr ""
+msgstr "Megtisztított fájlok naplózása"
 
 msgid "Log clean files. This drastically increases the log size."
-msgstr ""
+msgstr "Megtisztított fájlok naplózása. Ez drasztikusan növeli a napló méretét."
 
 msgid "Message"
-msgstr ""
+msgstr "Üzenet"
 
 msgid "Minute"
 msgstr "Perc"

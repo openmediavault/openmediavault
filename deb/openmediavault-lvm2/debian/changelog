@@ -1,3 +1,9 @@
+openmediavault-lvm2 (0.5.6) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 19 May 2014 19:11:54 +0200
+
 openmediavault-lvm2 (0.5.5) stable; urgency=low
 
   * Mantis 0000895: Mutiple LVM logical volumes.
