@@ -26,7 +26,7 @@
  */
 Ext.define("OMV.module.admin.diagnostic.dashboard.widget.SysInfo", {
 	extend: "OMV.workspace.dashboard.Widget",
-	alias: "omv.plugin.diagnostic.dashboard.sysinfo",
+	alias: "omv.widget.diagnostic.dashboard.sysinfo",
 
 	title: "System information"
 });

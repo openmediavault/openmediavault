@@ -31,7 +31,6 @@
  */
 Ext.define("OMV.workspace.dashboard.Widget", {
 	extend: "OMV.window.Window",
-	alias: "widget.workspace.dashboard.widget",
 	uses: [
 		"Ext.MessageBox"
 	],
