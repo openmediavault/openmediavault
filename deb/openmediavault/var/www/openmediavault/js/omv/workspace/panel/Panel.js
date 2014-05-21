@@ -41,6 +41,7 @@ Ext.define("OMV.workspace.panel.Panel", {
 
 	border: false,
 	autoScroll: true,
+	header: false,
 
 	initComponent: function() {
 		var me = this;

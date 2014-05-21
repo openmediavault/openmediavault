@@ -29,7 +29,7 @@
  */
 Ext.define("OMV.workspace.node.tree.Panel", {
 	extend: "OMV.tree.Panel",
-	alias: "widget.workspacenodetree",
+	alias: "widget.workspace.node.tree",
 	requires: [
 		"OMV.workspace.node.tree.Model"
 	],

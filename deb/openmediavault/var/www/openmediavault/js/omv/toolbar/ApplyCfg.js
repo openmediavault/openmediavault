@@ -179,7 +179,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 
 	beforeDestroy: function() {
 		var me = this;
-		if(!Ext.isEmpty(me.reloadTask)) {
+		if (!Ext.isEmpty(me.reloadTask) && (me.reloadTask.isTask)) {
 			Ext.util.TaskManager.stop(me.reloadTask);
 			delete me.reloadTask;
 		}

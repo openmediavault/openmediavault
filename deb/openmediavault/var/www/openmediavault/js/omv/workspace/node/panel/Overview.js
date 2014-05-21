@@ -31,7 +31,7 @@
  */
 Ext.define("OMV.workspace.node.panel.Overview", {
 	extend: "OMV.workspace.panel.Panel",
-	alias: "widget.workspacenodepaneloverview",
+	alias: "widget.workspace.node.panel.overview",
 	requires: [
 		"Ext.data.Store",
 		"Ext.view.View",
