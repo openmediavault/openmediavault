@@ -45,6 +45,15 @@ Ext.define("OMV.module.admin.privilege.group.Group", {
 	rpcSetMethod: "setGroup",
 	height: 305,
 
+	getFormConfig: function() {
+		return {
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			}
+		};
+	},
+
 	getFormItems: function() {
 		var me = this;
 		return [{
@@ -65,7 +74,7 @@ Ext.define("OMV.module.admin.privilege.group.Group", {
 			name: "members",
 			fieldLabel: _("Members"),
 			valueField: "name",
-			height: 130,
+			flex: 1,
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({

@@ -56,6 +56,15 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Job", {
 	 * @param uuid The UUID of the database/configuration object. Required.
 	 */
 
+	getFormConfig: function() {
+		return {
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			}
+		};
+	},
+
 	getFormItems: function() {
 		return [{
 			xtype: "checkbox",
@@ -182,7 +191,8 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Job", {
 			xtype: "textarea",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			allowBlank: true
+			allowBlank: true,
+			flex: 1
 		}];
 	}
 });

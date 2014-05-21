@@ -62,6 +62,15 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 	 * @param uuid The UUID of the database/configuration object. Required.
 	 */
 
+	getFormConfig: function() {
+		return {
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			}
+		};
+	},
+
 	getFormItems: function() {
 		var me = this;
 		return [{
@@ -179,7 +188,8 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 			xtype: "textarea",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			allowBlank: true
+			allowBlank: true,
+			flex: 1
 		}];
 	}
 });

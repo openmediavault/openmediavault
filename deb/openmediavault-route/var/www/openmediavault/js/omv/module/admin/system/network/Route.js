@@ -51,6 +51,15 @@ Ext.define("OMV.module.admin.system.network.route.Route", {
 	 * @param uuid The UUID of the database/configuration object. Required.
 	 */
 
+	getFormConfig: function() {
+		return {
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			}
+		};
+	},
+
 	getFormItems: function() {
 		return [{
 			xtype: "textfield",
@@ -73,10 +82,11 @@ Ext.define("OMV.module.admin.system.network.route.Route", {
 				text: _("Gateway used to reach the above network address.")
 			}]
 		},{
-			xtype: "textfield",
+			xtype: "textarea",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			allowBlank: true
+			allowBlank: true,
+			flex: 1
 		}];
 	}
 });

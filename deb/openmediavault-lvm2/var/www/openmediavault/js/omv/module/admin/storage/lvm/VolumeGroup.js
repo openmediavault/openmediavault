@@ -57,6 +57,15 @@ Ext.define("OMV.module.admin.storage.lvm.vg.Create", {
 	title: _("Create volume group"),
 	width: 500,
 
+	getFormConfig: function() {
+		return {
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			}
+		};
+	},
+
 	getFormItems: function() {
 		return [{
 			xtype: "textfield",
@@ -69,7 +78,7 @@ Ext.define("OMV.module.admin.storage.lvm.vg.Create", {
 			name: "devices",
 			fieldLabel: _("Devices"),
 			valueField: "devicefile",
-			height: 105,
+			flex: 1,
 			minSelections: 1,
 			useStringValue: true,
 			store: Ext.create("OMV.data.Store", {
@@ -183,6 +192,15 @@ Ext.define("OMV.module.admin.storage.lvm.vg.Extend", {
 	hideResetButton: true,
 	width: 450,
 
+	getFormConfig: function() {
+		return {
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			}
+		};
+	},
+
 	getFormItems: function() {
 		var me = this;
 		return [{
@@ -198,7 +216,7 @@ Ext.define("OMV.module.admin.storage.lvm.vg.Extend", {
 			name: "devices",
 			fieldLabel: _("Devices"),
 			valueField: "devicefile",
-			height: 110,
+			flex: 1,
 			minSelections: 1,
 			useStringValue: true,
 			store: Ext.create("OMV.data.Store", {
@@ -267,6 +285,15 @@ Ext.define("OMV.module.admin.storage.lvm.vg.Reduce", {
 	title: _("Reduce volume group"),
 	width: 450,
 
+	getFormConfig: function() {
+		return {
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			}
+		};
+	},
+
 	getFormItems: function() {
 		var me = this;
 		return [{
@@ -286,7 +313,7 @@ Ext.define("OMV.module.admin.storage.lvm.vg.Reduce", {
 			name: "devices",
 			fieldLabel: _("Devices"),
 			valueField: "devicefile",
-			height: 110,
+			flex: 1,
 			minSelections: 1,
 			useStringValue: true,
 			store: Ext.create("OMV.data.Store", {

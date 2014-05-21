@@ -42,6 +42,15 @@ Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 	width: 550,
 	height: 400,
 
+	getFormConfig: function() {
+		return {
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			}
+		};
+	},
+
 	getFormItems: function() {
 		var me = this;
 		return [{
@@ -157,7 +166,8 @@ Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 			xtype: "textarea",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			allowBlank: true
+			allowBlank: true,
+			flex: 1
 		}];
 	},
 

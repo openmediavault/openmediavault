@@ -441,6 +441,15 @@ Ext.define("OMV.module.admin.system.certificate.Edit", {
 	 * @param uuid The UUID of the database/configuration object. Required.
 	 */
 
+	getFormConfig: function() {
+		return {
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			}
+		};
+	},
+
 	getFormItems: function() {
 		return [{
 			xtype: "textarea",
@@ -448,7 +457,7 @@ Ext.define("OMV.module.admin.system.certificate.Edit", {
 			fieldLabel: _("Private key"),
 			cls: "x-form-textarea-monospaced",
 			allowBlank: false,
-			height: 150,
+			flex: 1,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("Paste an private RSA key in X.509 PEM format here.")
@@ -459,17 +468,17 @@ Ext.define("OMV.module.admin.system.certificate.Edit", {
 			fieldLabel: _("Certificate"),
 			cls: "x-form-textarea-monospaced",
 			allowBlank: false,
-			height: 150,
+			flex: 1,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("Paste a RSA certificate in X.509 PEM format here.")
 			}]
 		},{
-			xtype: "textfield",
+			xtype: "textarea",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			maxLength: 65,
-			allowBlank: false
+			allowBlank: false,
+			flex: 1
 		}];
 	}
 });

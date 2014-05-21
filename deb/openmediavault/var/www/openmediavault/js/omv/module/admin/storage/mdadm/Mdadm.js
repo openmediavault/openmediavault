@@ -49,6 +49,15 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 	width: 550,
 	height: 260,
 
+	getFormConfig: function() {
+		return {
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			}
+		};
+	},
+
 	getFormItems: function() {
 		var me = this;
 		return [{
@@ -109,7 +118,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 			valueField: "devicefile",
 			minSelections: 3, // Min. number of devices for RAID5
 			useStringValue: true,
-			height: 130,
+			flex: 1,
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
@@ -211,6 +220,15 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 	width: 550,
 	height: 270,
 
+	getFormConfig: function() {
+		return {
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			}
+		};
+	},
+
 	getFormItems: function() {
 		var me = this;
 		return [{
@@ -250,6 +268,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 			valueField: "devicefile",
 			useStringValue: true,
 			height: 130,
+//			flex: 1, // Hides the field info due render error
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
