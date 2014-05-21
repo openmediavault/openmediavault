@@ -1,6 +1,7 @@
 openmediavault (0.6.0.11) stable; urgency=low
 
   * Various code improvements.
+  * Add dashboard widget support in the admin WebGUI.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 13 May 2014 00:11:51 +0200
 

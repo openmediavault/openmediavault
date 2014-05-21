@@ -36,18 +36,23 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 		"Ext.MessageBox"
 	],
 
+	isDashboardWidget: true,
 	refreshInterval: 0,
 	hideSettings: true,
 
 	layout: "fit",
 	collapsible: true,
+	expandOnShow: false,
 	constrainHeader: true,
 	closable: false,
-	cls: Ext.baseCSSPrefix + "workspace-dashboard",
+	width: 350,
+	height: 200,
+	cls: Ext.baseCSSPrefix + "workspace-dashboard-widget",
 
 	initComponent: function() {
 		var me = this;
 		me.callParent(arguments);
+		me.initTools();
 		// Add the 'Settings' tool button.
 		if (false === me.hideSettings) {
 			me.addTool({
