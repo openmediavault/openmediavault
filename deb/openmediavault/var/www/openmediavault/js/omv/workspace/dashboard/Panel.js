@@ -61,7 +61,7 @@ Ext.define("OMV.workspace.dashboard.Panel", {
 		});
 		// Get the registered widgets and initialize them.
 		var classes = Ext.ClassManager.getNamesByExpression(
-		  "omv.plugin.diagnostic.dashboard.*");
+		  "omv.widget.diagnostic.dashboard.*");
 		Ext.Array.each(classes, function(name) {
 			var widget = Ext.create(name);
 			if (!Ext.isObject(widget) || !widget.isDashboardWidget)
