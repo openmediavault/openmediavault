@@ -42,11 +42,12 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 	layout: "fit",
 	collapsible: true,
 	expandOnShow: false,
-	constrainHeader: true,
+	constrain: true,
 	closable: false,
 	width: 350,
 	height: 200,
 	cls: Ext.baseCSSPrefix + "workspace-dashboard-widget",
+	icon: "images/puzzle.svg",
 
 	initComponent: function() {
 		var me = this;

@@ -45,13 +45,16 @@ Ext.define("OMV.workspace.dashboard.Panel", {
 		var me = this;
 		var items = me.callParent(arguments);
 		var menu = Ext.create("Ext.menu.Menu", {
+			defaults: {
+				iconCls: Ext.baseCSSPrefix + "menu-item-icon-16x16"
+			},
 			listeners: {
 				scope: me,
 				click: function(menu, item, e, eOpts) {
 					// Create the dashboard widget and add it to the
 					// dashboard panel. Display the widget settings
 					// dialog if it has one.
-					var widget = Ext.create(item.value);
+					var widget = Ext.create(item.className);
 					this.addWidget(widget, true);
 					this.doLayout(true, false);
 					widget.show();
@@ -59,16 +62,17 @@ Ext.define("OMV.workspace.dashboard.Panel", {
 				}
 			}
 		});
-		// Get the registered widgets and initialize them.
-		var classes = Ext.ClassManager.getNamesByExpression(
-		  "omv.widget.diagnostic.dashboard.*");
-		Ext.Array.each(classes, function(name) {
+		// Get the registered dashboard widget classes and fill up the
+		// menu which displayes the available dashboard widgets.
+		var classNames = me.getWidgetClasses();
+		Ext.Array.each(classNames, function(name) {
 			var widget = Ext.create(name);
 			if (!Ext.isObject(widget) || !widget.isDashboardWidget)
 				return;
 			menu.add({
 				text: widget.title,
-				value: name
+				icon: widget.icon,
+				className: name
 			});
 		});
 		// Insert the combobox showing all registered dashboard widgets.
@@ -79,6 +83,15 @@ Ext.define("OMV.workspace.dashboard.Panel", {
 			menu: menu
 		}]);
 		return items;
+	},
+
+	/**
+	 * Get the class names of the dashboard widgets to displayed in the
+	 * dashboard panel.
+	 * @return A list of class names.
+	 */
+	getWidgetClasses: function() {
+		return [];
 	},
 
 	/**
@@ -143,20 +156,24 @@ Ext.define("OMV.workspace.dashboard.Panel", {
 		me.callParent(arguments);
 		if (!Ext.isDefined(state.widgets) || Ext.isEmpty(state.widgets))
 			return;
-		Ext.Array.each(state.widgets, function(widget) {
-			var widget = Ext.create(widget.alias, widget);
+		Ext.Array.each(state.widgets, function(state) {
+			// Create the dashboard widget. Apply the previous widget
+			// state to restore the old size/position.
+			var widget = Ext.create(state.alias, {
+				collapsed: state.collapsed,
+				width: state.size.width,
+				height: state.size.height,
+				x: state.pos[0],
+				y: state.pos[1]
+			});
+			// Display the widget after the dashboard panel has
+			// been rendered. Apply the widget state before it
+			// is shown.
+			me.on("afterrender", function() {
+				this.show();
+			}, widget, { single: true });
+			// Add the widget to the dashboard panel.
 			me.addWidget(widget);
-		});
-	},
-
-	afterRender: function() {
-		var me = this;
-		me.callParent(arguments);
-		// Show the dashboard widgets.
-		Ext.Array.each(me.query(), function(item) {
-			if (item.isDashboardWidget) {
-				item.show();
-			}
 		});
 	}
 });

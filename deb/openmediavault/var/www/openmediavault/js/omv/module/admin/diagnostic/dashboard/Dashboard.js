@@ -26,7 +26,14 @@
  * @derived OMV.workspace.dashboard.Panel
  */
 Ext.define("OMV.module.admin.dashboard.Dashboard", {
-	extend: "OMV.workspace.dashboard.Panel"
+	extend: "OMV.workspace.dashboard.Panel",
+
+	getWidgetClasses: function() {
+		// Get the registered dashboard widgets classes.
+		var classNames = Ext.ClassManager.getNamesByExpression(
+		  "omv.widget.diagnostic.dashboard.*");
+		return classNames;
+	}
 });
 
 OMV.WorkspaceManager.registerPanel({

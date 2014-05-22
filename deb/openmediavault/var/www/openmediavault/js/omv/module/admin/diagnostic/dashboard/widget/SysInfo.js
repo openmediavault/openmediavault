@@ -28,5 +28,6 @@ Ext.define("OMV.module.admin.diagnostic.dashboard.widget.SysInfo", {
 	extend: "OMV.workspace.dashboard.Widget",
 	alias: "omv.widget.diagnostic.dashboard.sysinfo",
 
-	title: "System information"
+	title: "System information",
+	icon: "images/statistics.svg"
 });

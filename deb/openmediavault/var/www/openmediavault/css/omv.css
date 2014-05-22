@@ -189,6 +189,13 @@ div#headerrlogo {
 	background-image: url("../images/folder-open.png");
 }
 /* Button */
+.x-btn-icon-el {
+	-webkit-filter: opacity(70%);
+	-moz-filter: opacity(70%);
+	-ms-filter: opacity(70%);
+	-o-filter: opacity(70%);
+	filter: opacity(70%);
+}
 .x-btn-icon-16x16 {
 	background-size: 16px 16px;
 }
@@ -258,13 +265,14 @@ div#headerrlogo {
 .x-workspace-node-tree .x-grid-row-over .x-grid-td {
 	cursor: pointer;
 }
-/* Workspace node toolbar */
-.x-workspace-node-toolbar-item .x-btn-icon-el {
-	height: 16px;
-	width: 16px;
+/* Menu */
+.x-menu-item-icon {
 	-webkit-filter: opacity(70%);
 	-moz-filter: opacity(70%);
 	-ms-filter: opacity(70%);
 	-o-filter: opacity(70%);
 	filter: opacity(70%);
+}
+.x-menu-item-icon-16x16 {
+	background-size: 16px 16px;
 }
