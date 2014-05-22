@@ -609,6 +609,26 @@ Ext.apply(Ext.ClassManager, {
 			}
 		}
 		return names;
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
+// Ext.window.Window
+////////////////////////////////////////////////////////////////////////////////
+
+// Stateful windows position does not work correct. See:
+// http://www.sencha.com/forum/showthread.php?249459-4.1.3-Stateful-window-position-is-STILL-incorrect
+// http://www.sencha.com/forum/showthread.php?223430-4.1.1-Window-getState-should-respect-the-floatParent-propert-of-a-window
+Ext.override(Ext.window.Window, {
+	getState: function() {
+		var me = this;
+		var state = me.callParent();
+		if (!(!!me.maximized || me.ghostBox)) {
+			Ext.apply(state, {
+				pos: me.getPosition(!!me.floatParent)
+			});
+		}
+		return state;
     }
 });
 
