@@ -30,6 +30,7 @@ Ext.define("OMV.workspace.dashboard.Panel", {
 	alias: "widget.workspace.dashboard.panel",
 	requires: [
 		"Ext.menu.Menu",
+		"Ext.util.MixedCollection"
 	],
 
 	layout: {
@@ -40,6 +41,7 @@ Ext.define("OMV.workspace.dashboard.Panel", {
 	cls: Ext.baseCSSPrefix + "workspace-dashboard",
 	hideTopToolbar: false,
 	hideRefreshButton: true,
+	widgetItems: new Ext.util.MixedCollection(),
 
 	getTopToolbarItems: function(c) {
 		var me = this;
@@ -104,16 +106,15 @@ Ext.define("OMV.workspace.dashboard.Panel", {
 		var me = this;
 		if (Ext.isEmpty(widget) || !widget.isWindow)
 			return;
-		// Update the widget state for the following events:
-		widget.on({
-			  scope: me,
-			  move: me.saveState,
-			  resize: me.saveState,
-			  destroy: me.saveState,
-			  collapse: me.saveState,
-			  expand: me.saveState
-		  });
-		// Add the widget to the parent panel.
+		widget.on("unpin", function(item) {
+			// Remove the dashboard widget from the internal list.
+			this.widgetItems.remove(item);
+			// Update dashboard panel state.
+			this.saveState();
+		}, me);
+		// Add the dashboard widget to the internal list.
+		me.widgetItems.add(widget.stateId, widget);
+		// Add the widget to the dashboard panel.
 		me.add(widget);
 		// Save widget state if necessary.
 		if (saveState)
@@ -128,23 +129,17 @@ Ext.define("OMV.workspace.dashboard.Panel", {
 	getState: function() {
 		var me = this;
 		var state = me.callParent(arguments);
-		var widgetStates = [];
-		Ext.Array.each(me.query(), function(item) {
-			// Ignore various widget states.
-			if (!item.rendered || item.destroying || !item.isDashboardWidget)
-				return;
-			// Get the widget state.
-			var itemState = item.getState();
+		var widgets = [];
+		me.widgetItems.each(function(item) {
 			// Append the dashboard widget config options which are used
 			// to restore the widget if the dashboard is rendered.
-			Ext.apply(itemState, {
+			Ext.Array.push(widgets, {
 				alias: Ext.isArray(item.alias) ? item.alias[0] : item.alias,
-				collapsed: item.collapsed
+				stateId: item.stateId
 			});
-			widgetStates.push(itemState);
 		});
 		return Ext.apply(state || {}, {
-			widgets: widgetStates
+			widgets: widgets
 		});
 	},
 
@@ -154,22 +149,18 @@ Ext.define("OMV.workspace.dashboard.Panel", {
 	applyState: function(state) {
 		var me = this;
 		me.callParent(arguments);
-		if (!Ext.isDefined(state.widgets) || Ext.isEmpty(state.widgets))
+		if (!Ext.isArray(state.widgets))
 			return;
-		Ext.Array.each(state.widgets, function(state) {
-			// Create the dashboard widget. Apply the previous widget
-			// state to restore the old size/position.
-			var widget = Ext.create(state.alias, {
-				collapsed: state.collapsed,
-				width: state.size.width,
-				height: state.size.height,
-				x: state.pos[0],
-				y: state.pos[1]
+		Ext.Array.each(state.widgets, function(config) {
+			// Create the dashboard widget. Reuse the previous state ID
+			// to be able to restore the widget state, e.g. size and
+			// position.
+			var widget = Ext.create(config.alias, {
+				stateId: config.stateId
 			});
 			// Display the widget after the dashboard panel has
-			// been rendered. Apply the widget state before it
-			// is shown.
-			me.on("afterrender", function() {
+			// been layouted.
+			me.on("afterlayout", function() {
 				this.show();
 			}, widget, { single: true });
 			// Add the widget to the dashboard panel.

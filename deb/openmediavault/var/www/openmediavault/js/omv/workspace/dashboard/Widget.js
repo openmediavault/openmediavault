@@ -44,10 +44,27 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 	expandOnShow: false,
 	constrain: true,
 	closable: false,
+	stateful: true,
 	width: 350,
 	height: 200,
 	cls: Ext.baseCSSPrefix + "workspace-dashboard-widget",
 	icon: "images/puzzle.svg",
+
+	constructor: function(config) {
+		var me = this;
+		// Auto-generate a state ID if necessary.
+		config = Ext.apply({
+			stateId: Ext.data.IdGenerator.get("uuid").generate()
+		}, config || {});
+		me.callParent([ config ]);
+		me.addEvents(
+			/**
+			 * Fires before the dashboard widget is unpinned.
+			 * @param this This object.
+			 */
+			"unpin"
+		);
+	},
 
 	initComponent: function() {
 		var me = this;
@@ -85,6 +102,11 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 					fn: function(answer) {
 						if ("yes" !== answer)
 							return;
+						// Remove the state information.
+						Ext.state.Manager.clear(this.stateId);
+						// Fire event.
+						this.fireEvent("unpin", this);
+						// Close the dashboard widget.
 						this.close();
 					}
 				});
@@ -108,6 +130,7 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 
 	beforeDestroy: function() {
 		var me = this;
+		// Stop a running task?
 		if (!Ext.isEmpty(me.refreshTask) && (me.refreshTask.isTask)) {
 			Ext.util.TaskManager.stop(me.refreshTask);
 			delete me.refreshTask;
@@ -124,5 +147,24 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 	/**
 	 * The function that is called to reload the widget content.
 	 */
-	onRefresh: Ext.emptyFn
+	onRefresh: Ext.emptyFn,
+
+	getState: function() {
+		var me = this;
+		var state = me.callParent(arguments);
+		Ext.apply(state, {
+			collapsed: me.collapsed
+		});
+		return state;
+	},
+
+	applyState: function(state) {
+		var me = this;
+		if (!state)
+			return;
+		me.callParent(arguments);
+		Ext.apply(me, {
+			collapsed: state.collapsed
+		});
+	}
 });
