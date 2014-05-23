@@ -45,6 +45,7 @@ Ext.define("OMV.module.admin.diagnostic.dashboard.widget.SysInfo", {
 	width: 400,
 	height: 230,
 	refreshInterval: 5000,
+	showAtStartup: true,
 
 	initComponent: function() {
 		var me = this;

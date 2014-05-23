@@ -97,6 +97,42 @@ Ext.define("OMV.workspace.dashboard.Panel", {
 	},
 
 	/**
+	 * Initializes the state of the object upon construction.
+	 */
+	initState: function() {
+		var me = this;
+		me.callParent(arguments);
+		// Check if the dashboard is displayed the first time. If this
+		// is the case, then automatically display some widgets by default.
+		var id = me.getStateId();
+		var state = Ext.state.Manager.get(id);
+		if (!(Ext.isDefined(state) && Ext.isObject(state))) {
+			// Initialize a state object containing the settings of the
+			// dashboard widgets that are displayed by default.
+			var state = {
+				widgets: []
+			};
+			// Get all registered dashboard widgets.
+			var classNames = me.getWidgetClasses();
+			Ext.Array.each(classNames, function(name) {
+				var widget = Ext.create(name);
+				if (!Ext.isObject(widget) || !widget.isDashboardWidget)
+					return;
+				// Show the widget at startup (e.g. displaying the UI the
+				// first time or clearing the cookie)?
+				if (!widget.showAtStartup)
+					return;
+				Ext.Array.push(state.widgets, {
+					alias: Ext.isArray(widget.alias) ? widget.alias[0] :
+					  widget.alias,
+					stateId: widget.stateId
+				});
+			});
+			me.applyState(state);
+		}
+	},
+
+	/**
 	 * Add the widget to the dashboard.
 	 * @param widget The widget to add.
 	 * @param saveState Set to TRUE to save the widget state after it
