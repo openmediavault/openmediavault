@@ -85,7 +85,7 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 				type: "refresh",
 				tooltip: _("Refresh"),
 				scope: me,
-				handler: me.onRefresh
+				handler: me.doRefresh
 			});
 		}
 		// Add the 'Trashcan' tool button.
@@ -119,7 +119,7 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 		var me = this;
 		if ((me.refreshInterval > 0) && Ext.isEmpty(me.refreshTask)) {
 			me.refreshTask = Ext.util.TaskManager.start({
-				run: me.onRefresh,
+				run: me.doRefresh,
 				scope: me,
 				interval: me.refreshInterval,
 				fireOnStart: true
@@ -147,7 +147,7 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 	/**
 	 * The function that is called to reload the widget content.
 	 */
-	onRefresh: Ext.emptyFn,
+	doRefresh: Ext.emptyFn,
 
 	getState: function() {
 		var me = this;
