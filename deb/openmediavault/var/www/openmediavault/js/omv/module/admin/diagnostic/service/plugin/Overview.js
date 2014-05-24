@@ -19,8 +19,10 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/data/Store.js")
+// require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/workspace/grid/Panel.js")
+// require("js/omv/util/Format.js")
 
 /**
  * @class OMV.module.admin.diagnostic.service.plugin.Overview
@@ -32,7 +34,9 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.Overview", {
 	alias: "omv.plugin.diagnostic.service.overview",
 	requires: [
 		"OMV.data.Store",
-		"OMV.data.proxy.Rpc"
+		"OMV.data.Model",
+		"OMV.data.proxy.Rpc",
+		"OMV.util.Format"
 	],
 
 	title: _("Overview"),
@@ -98,19 +102,23 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.Overview", {
 		var me = this;
 		me.store = Ext.create("OMV.data.Store", {
 			autoLoad: true,
-			fields: [
-				{ name: "name", type: "string" },
-				{ name: "title", type: "string" },
-				{ name: "enabled", type: "boolean" },
-				{ name: "running", type: "boolean" }
-			],
-			proxy: Ext.create("OMV.data.proxy.Rpc", {
+			model: OMV.data.Model.createImplicit({
+				idProperty: "name",
+				fields: [
+					{ name: "name", type: "string" },
+					{ name: "title", type: "string" },
+					{ name: "enabled", type: "boolean" },
+					{ name: "running", type: "boolean" }
+				]
+			}),
+			proxy: {
+				type: "rpc",
 				appendSortParams: false,
 				rpcData: {
 					service: "Services",
 					method: "getStatus"
 				}
-			}),
+			},
 			sorters: [{
 				direction: "ASC",
 				property: "name"
