@@ -62,12 +62,6 @@ Ext.define("OMV.module.admin.service.clamav.Job", {
 			fieldLabel: _("Enable"),
 			checked: true
 		},{
-			xtype: "textfield",
-			name: "comment",
-			fieldLabel: _("Comment"),
-			allowBlank: true,
-			vtype: "comment"
-		},{
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",
 			fieldLabel: _("Shared folder"),
@@ -235,6 +229,12 @@ Ext.define("OMV.module.admin.service.clamav.Job", {
 				ptype: "fieldinfo",
 				text: _("An email message with the command output (if any produced) is send to the administrator.")
 			}]
+		},{
+			xtype: "textfield",
+			name: "comment",
+			fieldLabel: _("Comment"),
+			allowBlank: true,
+			vtype: "comment"
 		}];
 	}
 });

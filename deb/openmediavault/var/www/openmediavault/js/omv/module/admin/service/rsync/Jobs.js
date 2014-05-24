@@ -137,12 +137,6 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 			fieldLabel: _("Enable"),
 			checked: true
 		},{
-			xtype: "textfield",
-			name: "comment",
-			fieldLabel: _("Comment"),
-			allowBlank: true,
-			vtype: "comment"
-		},{
 			xtype: "combo",
 			name: "type",
 			fieldLabel: _("Type"),
@@ -417,6 +411,12 @@ Ext.define("OMV.module.admin.service.rsync.Job", {
 				ptype: "fieldinfo",
 				text: _("Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> for more details.")
 			}]
+		},{
+			xtype: "textfield",
+			name: "comment",
+			fieldLabel: _("Comment"),
+			allowBlank: true,
+			vtype: "comment"
 		}];
 	},
 

@@ -74,6 +74,24 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 	getFormItems: function() {
 		var me = this;
 		return [{
+			xtype: "sharedfoldercombo",
+			name: "sharedfolderref",
+			fieldLabel: _("Shared folder"),
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("The location of the files to share.")
+			}],
+			listeners: {
+				scope: me,
+				select: function(c, records, eOpts) {
+					// Automatically set the share name, except it has
+					// already been entered.
+					var field = this.findField("name");
+					if (Ext.isEmpty(field.getValue()))
+						field.setValue(records[0].get("name"));
+				}
+			}
+		},{
 			xtype: "textfield",
 			name: "name",
 			fieldLabel: _("Name"),
@@ -92,14 +110,6 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("This is a text field that is seen next to a share when a client queries the server.")
-			}]
-		},{
-			xtype: "sharedfoldercombo",
-			name: "sharedfolderref",
-			fieldLabel: _("Shared folder"),
-			plugins: [{
-				ptype: "fieldinfo",
-				text: _("The location of the files to share.")
 			}]
 		},{
 			xtype: "checkbox",

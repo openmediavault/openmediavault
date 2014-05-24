@@ -51,6 +51,25 @@ Ext.define("OMV.module.admin.service.rsyncd.module.General", {
 		var me = this;
 		Ext.apply(me, {
 			items: [{
+				xtype: "sharedfoldercombo",
+				name: "sharedfolderref",
+				readOnly: (me.uuid !== OMV.UUID_UNDEFINED),
+				fieldLabel: _("Shared folder"),
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The location of the files to share.")
+				}],
+				listeners: {
+					scope: me,
+					select: function(c, records, eOpts) {
+						// Automatically set the share name, except it has
+						// already been entered.
+						var field = this.findField("name");
+						if (Ext.isEmpty(field.getValue()))
+							field.setValue(records[0].get("name"));
+					}
+				}
+			},{
 				xtype: "textfield",
 				name: "name",
 				fieldLabel: _("Name"),
@@ -59,21 +78,6 @@ Ext.define("OMV.module.admin.service.rsyncd.module.General", {
 				plugins: [{
 					ptype: "fieldinfo",
 					text: _("The name of the share.")
-				}]
-			},{
-				xtype: "textfield",
-				name: "comment",
-				fieldLabel: _("Comment"),
-				allowBlank: true,
-				vtype: "comment"
-			},{
-				xtype: "sharedfoldercombo",
-				name: "sharedfolderref",
-				readOnly: (me.uuid !== OMV.UUID_UNDEFINED),
-				fieldLabel: _("Shared folder"),
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("The location of the files to share.")
 				}]
 			},{
 				xtype: "usercombo",
@@ -182,6 +186,12 @@ Ext.define("OMV.module.admin.service.rsyncd.module.General", {
 					ptype: "fieldinfo",
 					text: _("Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> for more details.")
 				}]
+			},{
+				xtype: "textfield",
+				name: "comment",
+				fieldLabel: _("Comment"),
+				allowBlank: true,
+				vtype: "comment"
 			}]
 		});
 		me.callParent(arguments);
