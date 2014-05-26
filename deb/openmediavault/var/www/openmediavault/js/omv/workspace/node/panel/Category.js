@@ -70,17 +70,23 @@ Ext.define("OMV.workspace.node.panel.Category", {
 				store: Ext.create("OMV.data.Store", {
 					model: "OMV.workspace.node.Model",
 					data: me.getRootNode().getRange(),
-					sorters: [{ // Snort by text
-						direction: "ASC",
-						property: "text"
-					},{ // Sort by position
+					sorters: [{
 						sorterFn: function(a, b) {
-							var getPosition = function(o) {
+							var getCmpData = function(o) {
 								var node = Ext.create("OMV.workspace.node.Node",
 								  o.getData());
-								return node.getPosition();
+								return {
+									position: node.getPosition(),
+									text: node.getText().toLowerCase()
+								};
 							};
-							return getPosition(a) < getPosition(b) ? -1 : 1;
+							// Get data to compare.
+							a = getCmpData(a);
+							b = getCmpData(b);
+							// Sort by position and text.
+							return a.position > b.position ? 1 :
+							  a.position < b.position ? -1 :
+							  a.text > b.text ? 1 : a.text < b.text ? -1 : 0;
 						}
 					}]
 				}),

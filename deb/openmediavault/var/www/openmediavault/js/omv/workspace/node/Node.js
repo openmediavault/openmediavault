@@ -323,5 +323,5 @@ Ext.define("OMV.workspace.node.Node", {
 		}
 		var array = fn(me);
 		return array;
-    }
+	}
 });
