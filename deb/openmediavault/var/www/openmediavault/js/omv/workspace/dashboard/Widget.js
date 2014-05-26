@@ -28,8 +28,8 @@
  *   updates the shown content. Defaults to 0.
  * @param hideSettings Set to FALSE to show the settings button in the
  *   tool header. Defaults to TRUE.
- * @param showAtStartup Set to TRUE to display the widget by default if
- *   the dashboard panel is displayed the first time or the cookie has
+ * @param showAtFirstStartup Set to TRUE to display the widget by default
+ *   if the dashboard panel is displayed the first time or the cookie has
  *   been cleared. Defaults to FALSE.
  */
 Ext.define("OMV.workspace.dashboard.Widget", {
@@ -42,7 +42,7 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 
 	refreshInterval: 0,
 	hideSettings: true,
-	showAtStartup: false,
+	showAtFirstStartup: false,
 
 	layout: "fit",
 	collapsible: true,

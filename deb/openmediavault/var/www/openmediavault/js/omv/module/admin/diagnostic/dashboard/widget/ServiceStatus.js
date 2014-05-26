@@ -45,7 +45,7 @@ Ext.define("OMV.module.admin.diagnostic.dashboard.widget.ServiceStatus", {
 	width: 400,
 	height: 250,
 	refreshInterval: 5000,
-	showAtStartup: true,
+	showAtFirstStartup: true,
 
 	initComponent: function() {
 		var me = this;

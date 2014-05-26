@@ -59,7 +59,10 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 					text: rootNode.getText(),
 					children: []
 				},
-				sorters: [{
+				sorters: [{ // Snort by text
+					direction: "ASC",
+					property: "text"
+				},{ // Sort by position
 					sorterFn: function(a, b) {
 						var getPosition = function(o) {
 							var node = o.get("node");

@@ -70,7 +70,10 @@ Ext.define("OMV.workspace.node.panel.Category", {
 				store: Ext.create("OMV.data.Store", {
 					model: "OMV.workspace.node.Model",
 					data: me.getRootNode().getRange(),
-					sorters: [{
+					sorters: [{ // Snort by text
+						direction: "ASC",
+						property: "text"
+					},{ // Sort by position
 						sorterFn: function(a, b) {
 							var getPosition = function(o) {
 								var node = Ext.create("OMV.workspace.node.Node",
