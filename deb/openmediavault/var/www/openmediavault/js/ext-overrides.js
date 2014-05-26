@@ -521,6 +521,19 @@ Ext.form.field.ComboBox.prototype.setValue = Ext.Function.createInterceptor(
 	}
 });
 
+Ext.apply(Ext.form.field.ComboBox.prototype, {
+	/**
+	 * Get the record of the current selection.
+	 * @return The matched record or FALSE.
+	 */
+	getRecord: function() {
+		var me = this;
+		var value = me.getValue();
+		var record = me.findRecordByValue(value);
+		return record;
+	}
+});
+
 ////////////////////////////////////////////////////////////////////////////////
 // Ext.Base
 ////////////////////////////////////////////////////////////////////////////////

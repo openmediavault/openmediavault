@@ -26,8 +26,8 @@
  * @ingroup webgui
  * @class OMV.workspace.panel.Textarea
  * @derived OMV.workspace.panel.Panel
- * A panel that contains a textarea.
- * @param readOnly Mark the textarea as readonly. Defaults to TRUE.
+ * A panel that contains a text area.
+ * @param readOnly Mark the text area as readonly. Defaults to TRUE.
  * @param rpcService The RPC service name.
  * @param rpcMethod The RPC method to request the data.
  * @param rpcParams The RPC parameters.

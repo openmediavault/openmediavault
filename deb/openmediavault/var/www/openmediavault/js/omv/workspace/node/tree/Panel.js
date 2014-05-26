@@ -122,7 +122,11 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 		me.callParent(arguments);
 		// The list of the nodes to select after login is ordered by
 		// preference.
-		var uri = [ "/diagnostic/system", "/info/about" ];
+		var uri = [
+//			"/diagnostic/dashboard",
+			"/diagnostic/system",
+			"/info/about"
+		];
 		// Find the workspace node to automatically select after login.
 		var nodeToSelect = null;
 		me.getRootNode().get("node").cascadeBy(function(node) {

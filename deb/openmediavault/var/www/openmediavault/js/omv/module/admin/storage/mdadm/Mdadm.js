@@ -21,6 +21,7 @@
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/workspace/window/Form.js")
+// require("js/omv/workspace/window/TextArea.js")
 // require("js/omv/Rpc.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
@@ -342,43 +343,16 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 
 /**
  * @class OMV.module.admin.storage.mdadm.device.Detail
- * @derived OMV.workspace.window.Form
+ * @derived OMV.workspace.window.TextArea
  */
 Ext.define("OMV.module.admin.storage.mdadm.device.Detail", {
-	extend: "OMV.workspace.window.Form",
+	extend: "OMV.workspace.window.TextArea",
 
-	hideOkButton: true,
-	hideCancelButton: true,
-	hideCloseButton: false,
-	hideResetButton: true,
 	rpcService: "RaidMgmt",
 	rpcGetMethod: "getDetail",
 	title: _("Array details"),
 	width: 600,
-	height: 400,
-	border: false,
-
-	getFormConfig: function() {
-		return {
-			layout: "fit",
-			bodyPadding: ""
-		};
-	},
-
-	getFormItems: function() {
-		return [{
-			xtype: "textarea",
-			name: "detail",
-			readOnly: true,
-			cls: "x-form-textarea-monospaced"
-		}];
-	},
-
-	processLoadResponse: function(response) {
-		return {
-			detail: response
-		};
-	}
+	height: 400
 });
 
 /**

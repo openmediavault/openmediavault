@@ -167,6 +167,12 @@ Ext.define("OMV.form.plugin.LinkedFields", {
 					case "ge":
 						valid = (value >= condition.value);
 						break;
+					case "z": // String is null, that is, has zero length.
+						valid = Ext.isEmpty(value)
+						break;
+					case "n": // String is not null.
+						valid = !Ext.isEmpty(value)
+						break;
 					}
 				} else {
 					valid = Ext.Array.contains(condition.value, value);

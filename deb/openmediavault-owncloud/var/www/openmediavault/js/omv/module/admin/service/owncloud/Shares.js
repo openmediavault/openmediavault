@@ -55,6 +55,30 @@ Ext.define("OMV.module.admin.service.owncloud.Share", {
 	 * @param uuid The UUID of the database/configuration object. Required.
 	 */
 
+	getFormConfig: function() {
+		return {
+			plugins: [{
+				ptype: "linkedfields",
+				correlations: [{
+					// Automatically set the share name, except it has
+					// already been entered.
+					name: "name",
+					conditions: [
+						{ name: "sharedfolderref", op: "n" },
+						{ name: "name", op: "z" }
+					],
+					properties: function(valid, field) {
+						if (!valid)
+							return;
+						var record = this.findField("sharedfolderref").
+						  getRecord();
+						field.setValue(record.get("name"));
+					}
+				}]
+			}]
+		}
+	},
+
 	getFormItems: function() {
 		var me = this;
 		return [{
@@ -64,17 +88,7 @@ Ext.define("OMV.module.admin.service.owncloud.Share", {
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The location of the files to share.")
-			}],
-			listeners: {
-				scope: me,
-				select: function(c, records, eOpts) {
-					// Automatically set the share name, except it has
-					// already been entered.
-					var field = this.findField("name");
-					if (Ext.isEmpty(field.getValue()))
-						field.setValue(records[0].get("name"));
-				}
-			}
+			}]
 		},{
 			xtype: "textfield",
 			name: "name",
