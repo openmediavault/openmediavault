@@ -156,6 +156,28 @@ div#headerrlogo {
 .x-tab-invalid {
 	border: 1px solid #cc3300;
 }
+/* Message box */
+.x-message-box-info, .x-message-box-warning, .x-message-box-question,
+.x-message-box-error {
+	background-size: 32px 32px;
+	-webkit-filter: opacity(70%);
+	-moz-filter: opacity(70%);
+	-ms-filter: opacity(70%);
+	-o-filter: opacity(70%);
+	filter: opacity(70%);
+}
+.x-message-box-info {
+	background-image: url("/images/icon-info.svg");
+}
+.x-message-box-warning {
+	background-image: url("/images/icon-warning.svg");
+}
+.x-message-box-question {
+	background-image: url("/images/icon-question.svg");
+}
+.x-message-box-error {
+	background-image: url("/images/icon-error.svg");
+}
 /* Meditation message box */
 .x-message-box-guru {
 	width: 100%;

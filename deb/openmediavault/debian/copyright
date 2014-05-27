@@ -405,3 +405,19 @@ Files: /var/www/openmediavault/images/grid.png
        /var/www/openmediavault/images/grid.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/icon-info.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/icon-warning.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/icon-question.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/icon-error.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
