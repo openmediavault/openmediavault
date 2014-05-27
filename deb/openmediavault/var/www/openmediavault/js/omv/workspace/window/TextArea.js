@@ -53,10 +53,20 @@ Ext.define("OMV.workspace.window.TextArea", {
 		}];
 	},
 
+	getValues: function() {
+		var me = this;
+		var value = "";
+		// Get the text area component and get the displayed content.
+		var cmp = me.queryById(me.getId() + "-content");
+		if (Ext.isObject(cmp) && cmp.isFormField)
+			value = cmp.getValue();
+		return value;
+	},
+
 	setValues: function(values) {
 		var me = this;
 		// Get the text area component and set the given content.
-		var cmp = me.getComponent(me.getId() + "-content");
+		var cmp = me.queryById(me.getId() + "-content");
 		if (Ext.isObject(cmp) && cmp.isFormField)
 			cmp.setValue(values);
 	}
