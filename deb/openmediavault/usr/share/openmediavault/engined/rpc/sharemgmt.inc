@@ -883,11 +883,11 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 	 *   \em recursive Apply operations to all files and directories
 	 *   \em replace Replace all permissions.
 	 *     recursively.
-	 *   \em user The owner permissions as octal digit. This field is
+	 *   \em userperms The owner permissions as octal digit. This field is
 	 *     optional.
-	 *   \em group The group permissions as octal digit. This field is
+	 *   \em groupperms The group permissions as octal digit. This field is
 	 *     optional.
-	 *   \em other The other permissions as octal digit. This field is
+	 *   \em otherperms The other permissions as octal digit. This field is
 	 *     optional.
 	 *   \em users An array of arrays with the following fiels:
 	 *     \em name The user name.
@@ -914,11 +914,11 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 				  "file":{"type":"string"},
 				  "recursive":{"type":"boolean"},
 				  "replace":{"type":"boolean"},
-				  "user":{"type":"integer","enum":[0,1,2,3,4,5,6,7],'.
+				  "userperms":{"type":"integer","enum":[0,1,2,3,4,5,6,7],'.
 					'"optional":true},
-				  "group":{"type":"integer","enum":[0,1,2,3,4,5,6,7],'.
+				  "groupperms":{"type":"integer","enum":[0,1,2,3,4,5,6,7],'.
 					'"optional":true},
-				  "other":{"type":"integer","enum":[0,1,2,3,4,5,6,7],'.
+				  "otherperms":{"type":"integer","enum":[0,1,2,3,4,5,6,7],'.
 					'"optional":true},
 				  "users":{
 					  "type":"array",
@@ -971,25 +971,25 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			// Set permissions of a named users and groups.
 			foreach(array("user", "group") as $typek => $typev) {
 				foreach($params["{$typev}s"] as $entryk => $entryv) {
-					$aclspec[] = sprintf("default:%s:%s:%d,%s:%s:%d",
+					$aclspec[] = sprintf("%s:%s:%d,%s:%s:%d",
 					  $typev, $entryv['name'], $entryv['perms'],
 					  $typev, $entryv['name'], $entryv['perms']);
 				}
 			}
-			// Set owner permissions.
-			if(array_key_exists("user", $params)) {
-				$aclspec[] = sprintf("default:user::%s,user::%s",
-				  $params['user'], $params['user']);
+			// Set default owner permissions.
+			if(array_key_exists("userperms", $params)) {
+				$aclspec[] = sprintf("default:user::%d,user::%d",
+				  $params['userperms'], $params['userperms']);
 			}
-			// Set ownning group permissions.
-			if(array_key_exists("group", $params)) {
-				$aclspec[] = sprintf("default:group::%s,group::%s",
-				  $params['group'], $params['group']);
+			// Set default owning group permissions.
+			if(array_key_exists("groupperms", $params)) {
+				$aclspec[] = sprintf("default:group::%d,group::%d",
+				  $params['groupperms'], $params['groupperms']);
 			}
-			// Set permissions of others.
-			if(array_key_exists("other", $params)) {
-				$aclspec[] = sprintf("default:other::%s,other::%s",
-				  $params['other'], $params['other']);
+			// Set default permissions of others.
+			if(array_key_exists("otherperms", $params)) {
+				$aclspec[] = sprintf("default:other::%d,other::%d",
+				  $params['otherperms'], $params['otherperms']);
 			}
 			// Build the command arguments.
 			$cmdargs = array();

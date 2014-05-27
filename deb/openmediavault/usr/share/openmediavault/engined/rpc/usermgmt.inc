@@ -537,7 +537,11 @@ finish:
 		if(FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
+		// Prepare command arguments. Note, a user is always in the
+		// group 'users'.
 		$cmdArgs = array();
+		$cmdArgs[] = "--gid";
+		$cmdArgs[] = escapeshellarg($GLOBALS['OMV_USERMGMT_DEFAULT_GROUP']);
 		if(array_key_exists("shell", $params)) {
 			$cmdArgs[] = "--shell";
 			$cmdArgs[] = escapeshellarg($params['shell']);
@@ -561,7 +565,6 @@ finish:
 				  OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 			}
 			// Append additional arguments.
-			$cmdArgs[] = "--user-group";
 			$cmdArgs[] = "--password";
 			$cmdArgs[] = escapeshellarg(crypt($params['password']));
 			if(array_key_exists("uid", $params)) {

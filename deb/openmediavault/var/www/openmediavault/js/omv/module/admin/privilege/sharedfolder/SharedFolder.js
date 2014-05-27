@@ -395,11 +395,11 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 				fieldLabel: _("Owner"),
 				items: [{
 					xtype: "textfield",
-					name: "owner",
+					name: "username",
 					readOnly: true,
 					submitValue: false,
 					flex: 1,
-					value: _("n/a")
+					value: "root"
 				},{
 					xtype: "unixfilepermcombo",
 					name: "userperms",
@@ -415,11 +415,11 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 				fieldLabel: _("Group"),
 				items: [{
 					xtype: "textfield",
-					name: "group",
+					name: "groupname",
 					readOnly: true,
 					submitValue: false,
 					flex: 1,
-					value: _("n/a")
+					value: "users"
 				},{
 					xtype: "unixfilepermcombo",
 					name: "groupperms",
@@ -520,9 +520,9 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.ACL", {
 				file: me.tp.getPathFromNode(node),
 				recursive: options.recursive,
 				replace: options.replace,
-				user: options.userperms,
-				group: options.groupperms,
-				other: options.otherperms,
+				userperms: options.userperms,
+				groupperms: options.groupperms,
+				otherperms: options.otherperms,
 				users: users,
 				groups: groups
 			},

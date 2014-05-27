@@ -2,6 +2,7 @@ openmediavault (0.6.0.11) stable; urgency=low
 
   * Various code improvements.
   * Add dashboard widget support in the admin WebGUI.
+  * Fix default ACL issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 13 May 2014 00:11:51 +0200
 
@@ -100,6 +101,25 @@ openmediavault (0.6) stable; urgency=low
   * Add button to manually empty the SMB/CIFS recycle bin.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Nov 2013 19:41:31 +0100
+
+openmediavault (0.5.49) stable; urgency=low
+
+  * Fix default ACL issue.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 27 May 2014 18:27:44 +0200
+
+openmediavault (0.5.48) stable; urgency=low
+
+  * Update locales.
+  * Fix file permission of database backups.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 14 May 2014 12:18:59 +0200
+
+openmediavault (0.5.47) stable; urgency=low
+
+  * Various code improvements and bug fixes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 06 May 2014 22:42:43 +0200
 
 openmediavault (0.5.46) stable; urgency=low
 
