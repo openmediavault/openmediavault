@@ -57,138 +57,143 @@ OMV_SAMBA_SHARE_AUDIT_PRIORITY=${OMV_SAMBA_SHARE_AUDIT_PRIORITY:-"NOTICE"}
 echo "#======================= Share Definitions =======================" >> ${OMV_SAMBA_CONFIG}
 index=$(omv_config_get_count "//services/smb/shares/share")
 while [ ${index} -gt 0 ]; do
-	# Get the shared folder reference and path
-	sfref=$(omv_config_get "//services/smb/shares/share[position()=${index}]/sharedfolderref")
-	sfpath=$(omv_get_sharedfolder_path "${sfref}")
+	# Get the UUID of the current share.
+	uuid=$(omv_config_get "//services/smb/shares/share[position()=${index}]/uuid")
+	# Process enabled shares.
+	enabled=$(omv_config_get "//services/smb/shares/share[uuid='${uuid}']/enable")
+	if [ "${enabled}" = "1" ]; then
+		# Get the shared folder reference and path
+		sfref=$(omv_config_get "//services/smb/shares/share[uuid='${uuid}']/sharedfolderref")
+		sfpath=$(omv_get_sharedfolder_path "${sfref}")
 
-	xmlstarlet sel -t -m "//services/smb/shares/share[position()=${index}]" \
-	  -v "concat('[',name,']')" -n \
-	  -i "string-length(comment) > 0" -v "concat('comment = ',comment)" -n -b \
-	  -o "path = ${sfpath}" -n \
-	  -i "guestok[. = '0']" -o "guest ok = no" -n -b \
-	  -i "guestok[. = '1']" -o "guest ok = yes" -n -b \
-	  -i "readonly[. = '0']" -o "read only = no" -n -b \
-	  -i "readonly[. = '1']" -o "read only = yes" -n -b \
-	  -i "browseable[. = '0']" -o "browseable = no" -n -b \
-	  -i "browseable[. = '1']" -o "browseable = yes" -n -b \
-	  -i "inheritacls[. = '0']" -o "inherit acls = no" -n -b \
-	  -i "inheritacls[. = '1']" -o "inherit acls = yes" -n -b \
-	  -i "inheritpermissions[. = '0']" -o "inherit permissions = no" -n -b \
-	  -i "inheritpermissions[. = '1']" -o "inherit permissions = yes" -n -b \
-	  -i "easupport[. = '0']" -o "ea support = no" -n -b \
-	  -i "easupport[. = '1']" -o "ea support = yes" -n -b \
-	  -i "storedosattributes[. = '0']" -o "store dos attributes = no" -n -b \
-	  -i "storedosattributes[. = '1']" -o "store dos attributes = yes" -n -b \
-	  -i "recyclebin[. = '1'] or audit[. = '1']" \
-		  -o "vfs objects =" \
-		  -i "recyclebin[. = '1']" -o " recycle" -b \
-		  -i "audit[. = '1']" -o " full_audit" -b \
-		  -n \
-	  -b \
-	  -i "recyclebin[. = '1']" \
-		  -o "recycle:repository = ${OMV_SAMBA_SHARE_RECYCLE_REPOSITORY}/%U" -n \
-		  -o "recycle:keeptree = ${OMV_SAMBA_SHARE_RECYCLE_KEEPTREE}" -n \
-		  -o "recycle:versions = ${OMV_SAMBA_SHARE_RECYCLE_VERSIONS}" -n \
-		  -o "recycle:touch = ${OMV_SAMBA_SHARE_RECYCLE_TOUCH}" -n \
-		  -o "recycle:directory_mode = ${OMV_SAMBA_SHARE_RECYCLE_DIRECTORYMODE}" -n \
-		  -o "recycle:subdir_mode = ${OMV_SAMBA_SHARE_RECYCLE_SUBDIRMODE}" -n \
-		  -o "recycle:exclude = ${OMV_SAMBA_SHARE_RECYCLE_EXCLUDE}" -n \
-		  -o "recycle:exclude_dir = ${OMV_SAMBA_SHARE_RECYCLE_EXCLUDEDIR}" -n \
-		  -v "concat('recycle:maxsize = ',recyclemaxsize)" -n \
-	  -b \
-	  -i "audit[. = '1']" \
-		  -o "full_audit:prefix = ${OMV_SAMBA_SHARE_AUDIT_PREFIX}" -n \
-		  -o "full_audit:success = ${OMV_SAMBA_SHARE_AUDIT_SUCCESS}" -n \
-		  -o "full_audit:failure = ${OMV_SAMBA_SHARE_AUDIT_FAILURE}" -n \
-		  -o "full_audit:facility = ${OMV_SAMBA_SHARE_AUDIT_FACILITY}" -n \
-		  -o "full_audit:priority = ${OMV_SAMBA_SHARE_AUDIT_PRIORITY}" -n \
-	  -b \
-	  -o "printable = ${OMV_SAMBA_SHARE_PRINTABLE}" -n \
-	  -o "create mask = ${OMV_SAMBA_SHARE_CREATEMASK}" -n \
-	  -o "force create mode = ${OMV_SAMBA_SHARE_FORCECREATEMODE}" -n \
-	  -o "directory mask = ${OMV_SAMBA_SHARE_DIRECTORYMASK}" -n \
-	  -o "force directory mode = ${OMV_SAMBA_SHARE_FORCEDIRECTORYMODE}" -n \
-	  -i "string-length(hostsallow) > 0" -v "concat('hosts allow = ',hostsallow)" -n -b \
-	  -i "string-length(hostsdeny) > 0" -v "concat('hosts deny = ',hostsdeny)" -n -b \
-	  -i "hidedotfiles[. = '0']" -o "hide dot files = no" -b \
-	  -i "hidedotfiles[. = '1']" -o "hide dot files = yes" -b \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
+		xmlstarlet sel -t -m "//services/smb/shares/share[uuid='${uuid}']" \
+		  -v "concat('[',name,']')" -n \
+		  -i "string-length(comment) > 0" -v "concat('comment = ',comment)" -n -b \
+		  -o "path = ${sfpath}" -n \
+		  -i "guestok[. = '0']" -o "guest ok = no" -n -b \
+		  -i "guestok[. = '1']" -o "guest ok = yes" -n -b \
+		  -i "readonly[. = '0']" -o "read only = no" -n -b \
+		  -i "readonly[. = '1']" -o "read only = yes" -n -b \
+		  -i "browseable[. = '0']" -o "browseable = no" -n -b \
+		  -i "browseable[. = '1']" -o "browseable = yes" -n -b \
+		  -i "inheritacls[. = '0']" -o "inherit acls = no" -n -b \
+		  -i "inheritacls[. = '1']" -o "inherit acls = yes" -n -b \
+		  -i "inheritpermissions[. = '0']" -o "inherit permissions = no" -n -b \
+		  -i "inheritpermissions[. = '1']" -o "inherit permissions = yes" -n -b \
+		  -i "easupport[. = '0']" -o "ea support = no" -n -b \
+		  -i "easupport[. = '1']" -o "ea support = yes" -n -b \
+		  -i "storedosattributes[. = '0']" -o "store dos attributes = no" -n -b \
+		  -i "storedosattributes[. = '1']" -o "store dos attributes = yes" -n -b \
+		  -i "recyclebin[. = '1'] or audit[. = '1']" \
+			  -o "vfs objects =" \
+			  -i "recyclebin[. = '1']" -o " recycle" -b \
+			  -i "audit[. = '1']" -o " full_audit" -b \
+			  -n \
+		  -b \
+		  -i "recyclebin[. = '1']" \
+			  -o "recycle:repository = ${OMV_SAMBA_SHARE_RECYCLE_REPOSITORY}/%U" -n \
+			  -o "recycle:keeptree = ${OMV_SAMBA_SHARE_RECYCLE_KEEPTREE}" -n \
+			  -o "recycle:versions = ${OMV_SAMBA_SHARE_RECYCLE_VERSIONS}" -n \
+			  -o "recycle:touch = ${OMV_SAMBA_SHARE_RECYCLE_TOUCH}" -n \
+			  -o "recycle:directory_mode = ${OMV_SAMBA_SHARE_RECYCLE_DIRECTORYMODE}" -n \
+			  -o "recycle:subdir_mode = ${OMV_SAMBA_SHARE_RECYCLE_SUBDIRMODE}" -n \
+			  -o "recycle:exclude = ${OMV_SAMBA_SHARE_RECYCLE_EXCLUDE}" -n \
+			  -o "recycle:exclude_dir = ${OMV_SAMBA_SHARE_RECYCLE_EXCLUDEDIR}" -n \
+			  -v "concat('recycle:maxsize = ',recyclemaxsize)" -n \
+		  -b \
+		  -i "audit[. = '1']" \
+			  -o "full_audit:prefix = ${OMV_SAMBA_SHARE_AUDIT_PREFIX}" -n \
+			  -o "full_audit:success = ${OMV_SAMBA_SHARE_AUDIT_SUCCESS}" -n \
+			  -o "full_audit:failure = ${OMV_SAMBA_SHARE_AUDIT_FAILURE}" -n \
+			  -o "full_audit:facility = ${OMV_SAMBA_SHARE_AUDIT_FACILITY}" -n \
+			  -o "full_audit:priority = ${OMV_SAMBA_SHARE_AUDIT_PRIORITY}" -n \
+		  -b \
+		  -o "printable = ${OMV_SAMBA_SHARE_PRINTABLE}" -n \
+		  -o "create mask = ${OMV_SAMBA_SHARE_CREATEMASK}" -n \
+		  -o "force create mode = ${OMV_SAMBA_SHARE_FORCECREATEMODE}" -n \
+		  -o "directory mask = ${OMV_SAMBA_SHARE_DIRECTORYMASK}" -n \
+		  -o "force directory mode = ${OMV_SAMBA_SHARE_FORCEDIRECTORYMODE}" -n \
+		  -i "string-length(hostsallow) > 0" -v "concat('hosts allow = ',hostsallow)" -n -b \
+		  -i "string-length(hostsdeny) > 0" -v "concat('hosts deny = ',hostsdeny)" -n -b \
+		  -i "hidedotfiles[. = '0']" -o "hide dot files = no" -b \
+		  -i "hidedotfiles[. = '1']" -o "hide dot files = yes" -b \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
 
-	# Process the share privileges. Users with '0 = no permission' are added
-	# to 'invalid users' (to deny access), users with '5 = read and execute'
-	# are added to the 'read list'.
-	validusers=""
-	invalidusers=""
-	readlist=""
-	writelist=""
+		# Process the share privileges. Users with '0 = no permission' are added
+		# to 'invalid users' (to deny access), users with '5 = read and execute'
+		# are added to the 'read list'.
+		validusers=""
+		invalidusers=""
+		readlist=""
+		writelist=""
 
-	# Get shared folder user privileges
-	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
-	  -v "concat(perms,':',name)" -n \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
-	IFS="$(printf '\n+')"
-	for privilege in ${privileges}; do
-		[ -z "${privilege}" ] && continue
-		perms=${privilege%:*}
-		name=${privilege#*:}
-		# Append user to list
-		case ${perms} in
-		0)	[ -n "${invalidusers}" ] && invalidusers="${invalidusers},";
-			invalidusers="${invalidusers}\"${name}\"";;
-		5)
-			[ -n "${readlist}" ] && readlist="${readlist},";
-			readlist="${readlist}\"${name}\"";
-			[ -n "${validusers}" ] && validusers="${validusers},";
-			validusers="${validusers}\"${name}\"";;
-		7)
-			[ -n "${writelist}" ] && writelist="${writelist},";
-			writelist="${writelist}\"${name}\"";
-			[ -n "${validusers}" ] && validusers="${validusers},";
-			validusers="${validusers}\"${name}\"";;
-		esac
-	done
-	unset IFS
+		# Get shared folder user privileges
+		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
+		  -v "concat(perms,':',name)" -n \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+		IFS="$(printf '\n+')"
+		for privilege in ${privileges}; do
+			[ -z "${privilege}" ] && continue
+			perms=${privilege%:*}
+			name=${privilege#*:}
+			# Append user to list
+			case ${perms} in
+			0)	[ -n "${invalidusers}" ] && invalidusers="${invalidusers},";
+				invalidusers="${invalidusers}\"${name}\"";;
+			5)
+				[ -n "${readlist}" ] && readlist="${readlist},";
+				readlist="${readlist}\"${name}\"";
+				[ -n "${validusers}" ] && validusers="${validusers},";
+				validusers="${validusers}\"${name}\"";;
+			7)
+				[ -n "${writelist}" ] && writelist="${writelist},";
+				writelist="${writelist}\"${name}\"";
+				[ -n "${validusers}" ] && validusers="${validusers},";
+				validusers="${validusers}\"${name}\"";;
+			esac
+		done
+		unset IFS
 
-	# Get shared folder group privileges
-	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='group']" \
-	  -v "concat(perms,':',name)" -n \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
-	IFS="$(printf '\n+')"
-	for privilege in ${privileges}; do
-		[ -z "${privilege}" ] && continue
-		perms=${privilege%:*}
-		name=${privilege#*:}
-		# Append group to list
-		case ${perms} in
-		0)	[ -n "${invalidusers}" ] && invalidusers="${invalidusers},";
-			invalidusers="${invalidusers}@\"${name}\"";;
-		5)
-			[ -n "${readlist}" ] && readlist="${readlist},";
-			readlist="${readlist}@\"${name}\"";
-			[ -n "${validusers}" ] && validusers="${validusers},";
-			validusers="${validusers}@\"${name}\"";;
-		7)
-			[ -n "${writelist}" ] && writelist="${writelist},";
-			writelist="${writelist}@\"${name}\"";
-			[ -n "${validusers}" ] && validusers="${validusers},";
-			validusers="${validusers}@\"${name}\"";;
-		esac
-	done
-	unset IFS
+		# Get shared folder group privileges
+		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='group']" \
+		  -v "concat(perms,':',name)" -n \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+		IFS="$(printf '\n+')"
+		for privilege in ${privileges}; do
+			[ -z "${privilege}" ] && continue
+			perms=${privilege%:*}
+			name=${privilege#*:}
+			# Append group to list
+			case ${perms} in
+			0)	[ -n "${invalidusers}" ] && invalidusers="${invalidusers},";
+				invalidusers="${invalidusers}@\"${name}\"";;
+			5)
+				[ -n "${readlist}" ] && readlist="${readlist},";
+				readlist="${readlist}@\"${name}\"";
+				[ -n "${validusers}" ] && validusers="${validusers},";
+				validusers="${validusers}@\"${name}\"";;
+			7)
+				[ -n "${writelist}" ] && writelist="${writelist},";
+				writelist="${writelist}@\"${name}\"";
+				[ -n "${validusers}" ] && validusers="${validusers},";
+				validusers="${validusers}@\"${name}\"";;
+			esac
+		done
+		unset IFS
 
-	xmlstarlet sel -t -m "//services/smb/shares/share[position()=${index}]" \
-	  -i "guestok[. = '0']" -o "valid users = ${validusers}" -n -b \
-	  -o "invalid users = ${invalidusers}" -n \
-	  -o "read list = ${readlist}" -n \
-	  -i "readonly[. = '0'] and guestok[. = '0']" \
-		-o "write list = ${writelist}" -n \
-	  -b \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
+		xmlstarlet sel -t -m "//services/smb/shares/share[uuid='${uuid}']" \
+		  -i "guestok[. = '0']" -o "valid users = ${validusers}" -n -b \
+		  -o "invalid users = ${invalidusers}" -n \
+		  -o "read list = ${readlist}" -n \
+		  -i "readonly[. = '0'] and guestok[. = '0']" \
+			-o "write list = ${writelist}" -n \
+		  -b \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
 
-	# Add extra options
-	xmlstarlet sel -t -m "//services/smb/shares/share[position()=${index}]" \
-	  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
-
+		# Add extra options
+		xmlstarlet sel -t -m "//services/smb/shares/share[uuid='${uuid}']" \
+		  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
+	fi
 	index=$(( ${index} - 1 ))
 done

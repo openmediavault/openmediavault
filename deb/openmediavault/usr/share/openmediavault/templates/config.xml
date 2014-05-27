@@ -432,6 +432,7 @@
 				<!--
 				<share>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<enable>0|1</enable>
 					<sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
 					<name>xxx</name>
 					<comment>xxx</comment>
@@ -463,6 +464,7 @@
 					<!--
 					<module>
 						<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+						<enable>0|1</enable>
 						<sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
 						<uid>xxx</uid>
 						<gid>xxx</gid>

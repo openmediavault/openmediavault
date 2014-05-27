@@ -66,6 +66,21 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 						{ name: "recyclebin", value: true }
 					],
 					properties: "enabled"
+				},{
+					// Automatically set the share name, except it has
+					// already been entered.
+					name: "name",
+					conditions: [
+						{ name: "sharedfolderref", op: "n" },
+						{ name: "name", op: "z" }
+					],
+					properties: function(valid, field) {
+						if (!valid)
+							return;
+						var record = this.findField("sharedfolderref").
+						  getRecord();
+						field.setValue(record.get("name"));
+					}
 				}]
 			}]
 		}
@@ -74,23 +89,18 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 	getFormItems: function() {
 		var me = this;
 		return [{
+			xtype: "checkbox",
+			name: "enable",
+			fieldLabel: _("Enable"),
+			checked: true
+		},{
 			xtype: "sharedfoldercombo",
 			name: "sharedfolderref",
 			fieldLabel: _("Shared folder"),
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The location of the files to share.")
-			}],
-			listeners: {
-				scope: me,
-				select: function(c, records, eOpts) {
-					// Automatically set the share name, except it has
-					// already been entered.
-					var field = this.findField("name");
-					if (Ext.isEmpty(field.getValue()))
-						field.setValue(records[0].get("name"));
-				}
-			}
+			}]
 		},{
 			xtype: "textfield",
 			name: "name",
@@ -309,6 +319,17 @@ Ext.define("OMV.module.admin.service.smb.Shares", {
 	stateful: true,
 	stateId: "e0bbeb12-8441-4b70-899e-800e2dab53ee",
 	columns: [{
+		xtype: "booleaniconcolumn",
+		text: _("Enabled"),
+		sortable: true,
+		dataIndex: "enable",
+		stateId: "enable",
+		align: "center",
+		width: 80,
+		resizable: false,
+		trueIcon: "switch_on.png",
+		falseIcon: "switch_off.png"
+	},{
 		text: _("Shared folder"),
 		sortable: true,
 		dataIndex: "sharedfoldername",
@@ -352,6 +373,7 @@ Ext.define("OMV.module.admin.service.smb.Shares", {
 					idProperty: "uuid",
 					fields: [
 						{ name: "uuid", type: "string" },
+						{ name: "enable", type: "boolean" },
 						{ name: "sharedfoldername", type: "string" },
 						{ name: "name", type: "string" },
 						{ name: "comment", type: "string" },

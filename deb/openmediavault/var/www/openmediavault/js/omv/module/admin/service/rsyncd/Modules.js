@@ -47,10 +47,39 @@ Ext.define("OMV.module.admin.service.rsyncd.module.General", {
 
 	title: _("General"),
 
+	getFormConfig: function() {
+		return {
+			plugins: [{
+				ptype: "linkedfields",
+				correlations: [{
+					// Automatically set the share name, except it has
+					// already been entered.
+					name: "name",
+					conditions: [
+						{ name: "sharedfolderref", op: "n" },
+						{ name: "name", op: "z" }
+					],
+					properties: function(valid, field) {
+						if (!valid)
+							return;
+						var record = this.findField("sharedfolderref").
+						  getRecord();
+						field.setValue(record.get("name"));
+					}
+				}]
+			}]
+		}
+	},
+
 	initComponent: function() {
 		var me = this;
 		Ext.apply(me, {
 			items: [{
+				xtype: "checkbox",
+				name: "enable",
+				fieldLabel: _("Enable"),
+				checked: true
+			},{
 				xtype: "sharedfoldercombo",
 				name: "sharedfolderref",
 				readOnly: (me.uuid !== OMV.UUID_UNDEFINED),
@@ -58,17 +87,7 @@ Ext.define("OMV.module.admin.service.rsyncd.module.General", {
 				plugins: [{
 					ptype: "fieldinfo",
 					text: _("The location of the files to share.")
-				}],
-				listeners: {
-					scope: me,
-					select: function(c, records, eOpts) {
-						// Automatically set the share name, except it has
-						// already been entered.
-						var field = this.findField("name");
-						if (Ext.isEmpty(field.getValue()))
-							field.setValue(records[0].get("name"));
-					}
-				}
+				}]
 			},{
 				xtype: "textfield",
 				name: "name",
@@ -433,6 +452,17 @@ Ext.define("OMV.module.admin.service.rsyncd.Modules", {
 	stateful: true,
 	stateId: "72d6ab93-f08d-4d34-820b-fcbb832f723c",
 	columns: [{
+		xtype: "booleaniconcolumn",
+		text: _("Enabled"),
+		sortable: true,
+		dataIndex: "enable",
+		stateId: "enable",
+		align: "center",
+		width: 80,
+		resizable: false,
+		trueIcon: "switch_on.png",
+		falseIcon: "switch_off.png"
+	},{
 		text: _("Shared folder"),
 		sortable: true,
 		dataIndex: "sharedfoldername",
@@ -458,6 +488,7 @@ Ext.define("OMV.module.admin.service.rsyncd.Modules", {
 					idProperty: "uuid",
 					fields: [
 						{ name: "uuid", type: "string" },
+						{ name: "enable", type: "boolean" },
 						{ name: "name", type: "string" },
 						{ name: "sharedfoldername", type: "string" },
 						{ name: "comment", type: "string" }

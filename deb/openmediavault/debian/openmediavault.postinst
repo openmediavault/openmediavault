@@ -348,6 +348,10 @@ case "$1" in
 			invoke-rc.d nginx restart
 			invoke-rc.d monit reload
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.6.0.11"; then
+			omv_config_add_element "/config/services/smb/shares/share" "enable" "1"
+			omv_config_add_element "/config/services/rsync/server/modules/module" "enable" "1"
+		fi
 	;;
 
 	triggered)

@@ -191,6 +191,7 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 		foreach($objects as $objectk => &$objectv) {
 			$objectv['sharedfoldername'] = gettext("n/a");
 			// Modify the result object.
+			$objectv['enable'] = boolval($objectv['enable']);
 			$objectv['guestok'] = boolval($objectv['guestok']);
 			$objectv['readonly'] = boolval($objectv['readonly']);
 			$objectv['browseable'] = boolval($objectv['browseable']);
@@ -247,6 +248,7 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify the result object.
+		$object['enable'] = boolval($object['enable']);
 		$object['guestok'] = boolval($object['guestok']);
 		$object['readonly'] = boolval($object['readonly']);
 		$object['browseable'] = boolval($object['browseable']);
@@ -281,6 +283,7 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 			  "type":"object",
 			  "properties":{
 				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+				  "enable":{"type":"boolean"},
 				  "sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
 				  "name":{'.$GLOBALS['OMV_JSONSCHEMA_SHARENAME'].'},
 				  "comment":{"type":"string"},
@@ -305,6 +308,7 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $params['uuid'],
+			"enable" => array_boolval($params, 'enable'),
 			"sharedfolderref" => $params['sharedfolderref'],
 			"name" => $params['name'],
 			"comment" => $params['comment'],

@@ -55,54 +55,59 @@ rm -f ${OMV_RSYNCD_SECRETSFILE_DIR}/rsyncd-*.secrets
 index=$(omv_config_get_count "//services/rsync/server/modules/module")
 while [ ${index} -gt 0 ]
 do
-	name=$(omv_config_get "//services/rsync/server/modules/module[position()=${index}]/name")
-	authusers=$(omv_config_get "//services/rsync/server/modules/module[position()=${index}]/authusers")
-	secretsfile="${OMV_RSYNCD_SECRETSFILE_DIR}/rsyncd-${name}.secrets"
+	# Get the UUID of the current module.
+	uuid=$(omv_config_get "//services/rsync/server/modules/module[position()=${index}]/uuid")
+	# Process enabled modules.
+	enabled=$(omv_config_get "//services/rsync/server/modules/module[uuid='${uuid}']/enable")
+	if [ "${enabled}" = "1" ]; then
+		name=$(omv_config_get "//services/rsync/server/modules/module[uuid='${uuid}']/name")
+		authusers=$(omv_config_get "//services/rsync/server/modules/module[uuid='${uuid}']/authusers")
+		secretsfile="${OMV_RSYNCD_SECRETSFILE_DIR}/rsyncd-${name}.secrets"
 
-	# Get the shared folder reference and path
-	sfref=$(omv_config_get "//services/rsync/server/modules/module[position()=${index}]/sharedfolderref")
-	sfpath=$(omv_get_sharedfolder_path "${sfref}")
-	# Specify a dot-dir in the module's path to indicate the point where the chroot should occur
-	sfpath="${sfpath%/*}/./${sfpath##*/}"
+		# Get the shared folder reference and path
+		sfref=$(omv_config_get "//services/rsync/server/modules/module[uuid='${uuid}']/sharedfolderref")
+		sfpath=$(omv_get_sharedfolder_path "${sfref}")
+		# Specify a dot-dir in the module's path to indicate the point where the chroot should occur
+		sfpath="${sfpath%/*}/./${sfpath##*/}"
 
-	# Create module configuration
-	xmlstarlet sel -t -m "//services/rsync/server/modules/module[position()=${index}]" \
-	  -v "concat('[',name,']')" -n \
-	  -i "string-length(comment) > 0" -v "concat('comment = ',comment)" -n -b \
-	  -o "path = ${sfpath}" -n \
-	  -v "concat('uid = ',uid)" -n \
-	  -v "concat('gid = ',gid)" -n \
-	  -i "list[. = '0']" -o "list = no" -n -b \
-	  -i "list[. = '1']" -o "list = yes" -n -b \
-	  -i "readonly[. = '0']" -o "read only = no" -n -b \
-	  -i "readonly[. = '1']" -o "read only = yes" -n -b \
-	  -i "writeonly[. = '0']" -o "write only = no" -n -b \
-	  -i "writeonly[. = '1']" -o "write only = yes" -n -b \
-	  -i "usechroot[. = '0']" -o "use chroot = no" -n -b \
-	  -i "usechroot[. = '1']" -o "use chroot = yes" -n -b \
-	  -i "maxconnections[. != '0']" -v "concat('max connections = ',maxconnections)" -n -b \
-	  -i "string-length(hostsallow) > 0" -v "concat('hosts allow = ',hostsallow)" -n -b \
-	  -i "string-length(hostsdeny) > 0" -v "concat('hosts deny = ',hostsdeny)" -n -b \
-	  -i "authusers[. = '1']" \
-		-o "auth users = " \
-		-m "users/user" \
-		  -v "name" \
-		  -i "position() != last()" -o "," -b \
-		-b \
-		-n \
-		-o "secrets file = ${secretsfile}" -n \
-	  -b \
-	  -v "concat('lock file = ${OMV_RSYNCD_LOCKFILE_DIR}/rsyncd-',name)" -n \
-	  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_RSYNCD_CONFIG}
+		# Create module configuration
+		xmlstarlet sel -t -m "//services/rsync/server/modules/module[uuid='${uuid}']" \
+		  -v "concat('[',name,']')" -n \
+		  -i "string-length(comment) > 0" -v "concat('comment = ',comment)" -n -b \
+		  -o "path = ${sfpath}" -n \
+		  -v "concat('uid = ',uid)" -n \
+		  -v "concat('gid = ',gid)" -n \
+		  -i "list[. = '0']" -o "list = no" -n -b \
+		  -i "list[. = '1']" -o "list = yes" -n -b \
+		  -i "readonly[. = '0']" -o "read only = no" -n -b \
+		  -i "readonly[. = '1']" -o "read only = yes" -n -b \
+		  -i "writeonly[. = '0']" -o "write only = no" -n -b \
+		  -i "writeonly[. = '1']" -o "write only = yes" -n -b \
+		  -i "usechroot[. = '0']" -o "use chroot = no" -n -b \
+		  -i "usechroot[. = '1']" -o "use chroot = yes" -n -b \
+		  -i "maxconnections[. != '0']" -v "concat('max connections = ',maxconnections)" -n -b \
+		  -i "string-length(hostsallow) > 0" -v "concat('hosts allow = ',hostsallow)" -n -b \
+		  -i "string-length(hostsdeny) > 0" -v "concat('hosts deny = ',hostsdeny)" -n -b \
+		  -i "authusers[. = '1']" \
+			-o "auth users = " \
+			-m "users/user" \
+			  -v "name" \
+			  -i "position() != last()" -o "," -b \
+			-b \
+			-n \
+			-o "secrets file = ${secretsfile}" -n \
+		  -b \
+		  -v "concat('lock file = ${OMV_RSYNCD_LOCKFILE_DIR}/rsyncd-',name)" -n \
+		  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
+		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_RSYNCD_CONFIG}
 
-	# Create the secrets file containing the usernames and passwords
-	if omv_checkyesno ${authusers}; then
-		xmlstarlet sel -t -m "//services/rsync/server/modules/module[position()=${index}]/users/user" \
-		  -v "concat(name,':',password)" -n \
-		  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${secretsfile}
-		chmod 600 ${secretsfile}
+		# Create the secrets file containing the usernames and passwords
+		if omv_checkyesno ${authusers}; then
+			xmlstarlet sel -t -m "//services/rsync/server/modules/module[uuid='${uuid}']/users/user" \
+			  -v "concat(name,':',password)" -n \
+			  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${secretsfile}
+			chmod 600 ${secretsfile}
+		fi
 	fi
-
 	index=$(( ${index} - 1 ))
 done

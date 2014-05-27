@@ -56,9 +56,41 @@ Ext.define("OMV.module.admin.service.afp.Share", {
 	 * @param uuid The UUID of the database/configuration object. Required.
 	 */
 
+	getFormConfig: function() {
+		return {
+			plugins: [{
+				ptype: "linkedfields",
+				correlations: [{
+					// Automatically set the share name, except it has
+					// already been entered.
+					name: "name",
+					conditions: [
+						{ name: "sharedfolderref", op: "n" },
+						{ name: "name", op: "z" }
+					],
+					properties: function(valid, field) {
+						if (!valid)
+							return;
+						var record = this.findField("sharedfolderref").
+						  getRecord();
+						field.setValue(record.get("name"));
+					}
+				}]
+			}]
+		}
+	},
+
 	getFormItems: function() {
 		var me = this;
 		return [{
+			xtype: "sharedfoldercombo",
+			name: "sharedfolderref",
+			fieldLabel: _("Shared folder"),
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("The location of the files to share.")
+			}]
+		},{
 			xtype: "textfield",
 			name: "name",
 			fieldLabel: _("Name"),
@@ -67,20 +99,6 @@ Ext.define("OMV.module.admin.service.afp.Share", {
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The name of the share.")
-			}]
-		},{
-			xtype: "textfield",
-			name: "comment",
-			fieldLabel: _("Comment"),
-			allowBlank: true,
-			vtype: "comment"
-		},{
-			xtype: "sharedfoldercombo",
-			name: "sharedfolderref",
-			fieldLabel: _("Shared folder"),
-			plugins: [{
-				ptype: "fieldinfo",
-				text: _("The location of the files to share.")
 			}]
 		},{
 			xtype: "passwordfield",
@@ -194,6 +212,12 @@ Ext.define("OMV.module.admin.service.afp.Share", {
 			name: "extraoptions",
 			fieldLabel: _("Extra options"),
 			allowBlank: true
+		},{
+			xtype: "textfield",
+			name: "comment",
+			fieldLabel: _("Comment"),
+			allowBlank: true,
+			vtype: "comment"
 		}];
 	}
 });
