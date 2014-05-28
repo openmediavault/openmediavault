@@ -1,5 +1,7 @@
 openmediavault (0.5.49) stable; urgency=low
 
+  * Various code improvements.
+
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 27 May 2014 18:27:44 +0200
 
 openmediavault (0.5.48) stable; urgency=low
