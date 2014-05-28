@@ -148,7 +148,7 @@ abstract class OMVModuleAbstract extends OMVObject {
 		}
 		// Remove executed tasks from list. Note, the array must be
 		// re-indexed.
-		$tasks = array_values(array_diff($tasks, $runTasks));
+		$tasks = array_values(array_diff_key($tasks, $runTasks));
 		// Write back list of not executed task.
 		$jsonFile->write($tasks);
 		$jsonFile->close();

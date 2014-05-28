@@ -697,24 +697,21 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				  "id":{'.$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_ID'].'}
 			  }
 		  }');
-		// Get filesystem informations.
-		$fs = new OMVFilesystem($params['id']);
-		if(!$fs->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf(gettext("Filesystem '%s' not found"), $params['id']));
-		}
+
+		// !!! Note !!!
+		// If the filesystem is missing some of the following code paths
+		// are ignored. In this case only the configuration is modified.
+
+		// Initialize the default notification object.
 		$fsObject = array(
-			"devicefile" => $fs->getDeviceFile(),
-			"uuid" => $fs->getUuid(),
-			"label" => $fs->getLabel(),
-			"type" => $fs->getType()
+			"devicefile" => is_devicefile($params['id']) ? $params['id'] : "",
+			"uuid" => is_uuid($params['id']) ? $params['id'] : "",
+			"label" => "",
+			"type" => ""
 		);
-		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
-		  "org.openmediavault.system.storage.filesystem", $fsObject);
-		// Delete the associated fstab mount point entry if necessary.
-		if(is_devicefile($params['id'])) {
+		// Get the fstab mount point configuration object that belongs to
+		// the filesystem to be deleted.
+		if (is_devicefile($params['id'])) {
 			// Use the filesystem name to identify the object.
 			$xpath = sprintf("//system/fstab/mntent[fsname='%s']",
 			  $params['id']);
@@ -729,7 +726,25 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  OMVFilesystem::buildMountPath($params['id']));
 		}
 		$meObject = $xmlConfig->get($xpath);
-		if(!is_null($meObject)) {
+		// Get the filesystem if available.
+		$fs = new OMVFilesystem($params['id']);
+		// Update the notification object.
+		if ($fs->exists()) {
+			$fsObject = array(
+				"devicefile" => $fs->getDeviceFile(),
+				"uuid" => $fs->getUuid(),
+				"label" => $fs->getLabel(),
+				"type" => $fs->getType()
+			);
+		} else if (!is_null($meObject)) {
+			$fsObject['type'] = $meObject['type'];
+		}
+		// Notify configuration changes.
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
+		  "org.openmediavault.system.storage.filesystem", $fsObject);
+		// Delete the associated fstab mount point entry.
+		if (!is_null($meObject)) {
 			// Delete the mount point configuration object. Unmount the
 			// filesystem and unlink the mount point. Changes to the fstab
 			// module must not be applied immediately.
@@ -744,20 +759,22 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		// then it is necessary to erase the MBR before, otherwise 'wipefs'
 		// fails, e.g.:
 		// wipefs: error: /dev/sdh1: appears to contain 'dos' partition table
-		if(in_array($fs->getPartitionType(), array("dos", "vfat"))) {
-			// http://en.wikipedia.org/wiki/Master_boot_record
-			$cmd = sprintf("export LANG=C; dd if=/dev/zero of=%s bs=512 ".
-			  "count=1 2>&1", $fs->getDeviceFile());
-			if(0 !== $this->exec($cmd, $output)) {
+		if ($fs->exists()) {
+			if (in_array($fs->getPartitionType(), array("dos", "vfat"))) {
+				// http://en.wikipedia.org/wiki/Master_boot_record
+				$cmd = sprintf("export LANG=C; dd if=/dev/zero of=%s bs=512 ".
+				  "count=1 2>&1", $fs->getDeviceFile());
+				if (0 !== $this->exec($cmd, $output)) {
+					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+					  $cmd, implode("\n", $output));
+				}
+			}
+			$cmd = sprintf("export LANG=C; wipefs -a %s 2>&1",
+			  $fs->getDeviceFile());
+			if (0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
-		}
-		$cmd = sprintf("export LANG=C; wipefs -a %s 2>&1",
-		  $fs->getDeviceFile());
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
 		}
 		// Notify configuration changes.
 		$dispatcher->notify(OMV_NOTIFY_DELETE,

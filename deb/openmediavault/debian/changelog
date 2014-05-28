@@ -2,7 +2,7 @@ openmediavault (0.6.0.11) stable; urgency=low
 
   * Various code improvements.
   * Add dashboard widget support in the admin WebGUI.
-  * Fix default ACL issue.
+  * Missing filesystems can be removed now.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 13 May 2014 00:11:51 +0200
 
@@ -104,7 +104,7 @@ openmediavault (0.6) stable; urgency=low
 
 openmediavault (0.5.49) stable; urgency=low
 
-  * Fix default ACL issue.
+  * Various code improvements.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 27 May 2014 18:27:44 +0200
 

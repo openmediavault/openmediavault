@@ -597,12 +597,17 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 				tbarBtnDisabled["unmount"] = true;
 			}
 			// Finally disable buttons if a selected file system is
-			// initialized at the moment.
-			if([ 2,3 ].indexOf(records[0].get("status")) !== -1) {
+			// initialized (status=2) or missing (status=3) at the
+			// moment.
+			if([ 2, 3 ].indexOf(records[0].get("status")) !== -1) {
 				tbarBtnDisabled["resize"] = true;
 				tbarBtnDisabled["quota"] = true;
-				tbarBtnDisabled["delete"] = true;
 				tbarBtnDisabled["mount"] = true;
+				// Only disable the 'Delete' button if the filesystem
+				// is initialized, otherwise missing filesystems can't
+				// be removed.
+				if (2 == records[0].get("status"))
+					tbarBtnDisabled["delete"] = true;
 			}
 		} else {
 			tbarBtnDisabled["resize"] = true;
@@ -611,7 +616,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			tbarBtnDisabled["mount"] = true;
 			tbarBtnDisabled["unmount"] = true;
 			// Disable button if one of the selected file systems is
-			// initialized at the moment.
+			// initialized (status=2) at the moment.
 			for(var i = 0; i < records.length; i++) {
 				if(2 == records[i].get("status")) {
 					tbarBtnDisabled["delete"] = true;

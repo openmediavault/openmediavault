@@ -971,7 +971,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			// Set permissions of a named users and groups.
 			foreach(array("user", "group") as $typek => $typev) {
 				foreach($params["{$typev}s"] as $entryk => $entryv) {
-					$aclspec[] = sprintf("%s:%s:%d,%s:%s:%d",
+					$aclspec[] = sprintf("default:%s:%s:%d,%s:%s:%d",
 					  $typev, $entryv['name'], $entryv['perms'],
 					  $typev, $entryv['name'], $entryv['perms']);
 				}
