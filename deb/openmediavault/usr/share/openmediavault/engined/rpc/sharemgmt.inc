@@ -971,24 +971,24 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			// Set permissions of a named users and groups.
 			foreach(array("user", "group") as $typek => $typev) {
 				foreach($params["{$typev}s"] as $entryk => $entryv) {
-					$aclspec[] = sprintf("%s:%s:%d,%s:%s:%d",
+					$aclspec[] = sprintf("default:%s:%s:%d,%s:%s:%d",
 					  $typev, $entryv['name'], $entryv['perms'],
 					  $typev, $entryv['name'], $entryv['perms']);
 				}
 			}
 			// Set default owner permissions.
 			if(array_key_exists("user", $params)) {
-				$aclspec[] = sprintf("default:user::%s,user::%s",
+				$aclspec[] = sprintf("default:user::%d,user::%d",
 				  $params['user'], $params['user']);
 			}
 			// Set default owning group permissions.
 			if(array_key_exists("group", $params)) {
-				$aclspec[] = sprintf("default:group::%s,group::%s",
+				$aclspec[] = sprintf("default:group::%d,group::%d",
 				  $params['group'], $params['group']);
 			}
 			// Set default permissions of others.
 			if(array_key_exists("other", $params)) {
-				$aclspec[] = sprintf("default:other::%s,other::%s",
+				$aclspec[] = sprintf("default:other::%d,other::%d",
 				  $params['other'], $params['other']);
 			}
 			// Build the command arguments.
