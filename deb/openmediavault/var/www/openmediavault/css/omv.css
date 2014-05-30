@@ -165,6 +165,7 @@ div#headerrlogo {
 	-ms-filter: opacity(70%);
 	-o-filter: opacity(70%);
 	filter: opacity(70%);
+	opacity: 0.7;
 }
 .x-message-box-info {
 	background-image: url("/images/icon-info.svg");
@@ -200,6 +201,7 @@ div#headerrlogo {
 	-ms-filter: opacity(70%);
 	-o-filter: opacity(70%);
 	filter: opacity(70%);
+	opacity: 0.7;
 }
 .x-tree-icon-16x16 {
 	background-size: 16px 16px;
@@ -217,6 +219,7 @@ div#headerrlogo {
 	-ms-filter: opacity(70%);
 	-o-filter: opacity(70%);
 	filter: opacity(70%);
+	opacity: 0.7;
 }
 .x-btn-icon-16x16 {
 	background-size: 16px 16px;
@@ -232,6 +235,7 @@ div#headerrlogo {
 	-ms-filter: opacity(70%);
 	-o-filter: opacity(70%);
 	filter: opacity(70%);
+	opacity: 0.7;
 }
 .x-workspace-node-view-category {
 }
@@ -294,6 +298,7 @@ div#headerrlogo {
 	-ms-filter: opacity(70%);
 	-o-filter: opacity(70%);
 	filter: opacity(70%);
+	opacity: 0.7;
 }
 .x-menu-item-icon-16x16 {
 	background-size: 16px 16px;
