@@ -126,7 +126,7 @@ Ext.define("OMV.workspace.window.Container", {
 		var me = this;
 		Ext.apply(me, {
 			buttons: me.getButtonItems(me),
-			items: me.getWindowItems()
+			items: me.getWindowItems(me)
 		});
 		me.callParent(arguments);
 		if(Ext.isDefined(me.rpcGetMethod) && me.autoLoadData &&
@@ -141,6 +141,7 @@ Ext.define("OMV.workspace.window.Container", {
 
 	/**
 	 * Initialize the window items.
+	 * @param c This component object.
 	 */
 	getWindowItems: Ext.emptyFn,
 
