@@ -160,11 +160,6 @@ div#headerrlogo {
 .x-message-box-info, .x-message-box-warning, .x-message-box-question,
 .x-message-box-error {
 	background-size: 32px 32px;
-	-webkit-filter: opacity(70%);
-	-moz-filter: opacity(70%);
-	-ms-filter: opacity(70%);
-	-o-filter: opacity(70%);
-	filter: opacity(70%);
 	opacity: 0.7;
 }
 .x-message-box-info {
@@ -196,11 +191,6 @@ div#headerrlogo {
 }
 /* Tree */
 .x-tree-icon {
-	-webkit-filter: opacity(70%);
-	-moz-filter: opacity(70%);
-	-ms-filter: opacity(70%);
-	-o-filter: opacity(70%);
-	filter: opacity(70%);
 	opacity: 0.7;
 }
 .x-tree-icon-16x16 {
@@ -214,11 +204,6 @@ div#headerrlogo {
 }
 /* Button */
 .x-btn-icon-el {
-	-webkit-filter: opacity(70%);
-	-moz-filter: opacity(70%);
-	-ms-filter: opacity(70%);
-	-o-filter: opacity(70%);
-	filter: opacity(70%);
 	opacity: 0.7;
 }
 .x-btn-icon-16x16 {
@@ -230,11 +215,6 @@ div#headerrlogo {
 }
 /* Workspace node view */
 .x-workspace-node-view {
-	-webkit-filter: opacity(70%);
-	-moz-filter: opacity(70%);
-	-ms-filter: opacity(70%);
-	-o-filter: opacity(70%);
-	filter: opacity(70%);
 	opacity: 0.7;
 }
 .x-workspace-node-view-category {
@@ -293,11 +273,6 @@ div#headerrlogo {
 }
 /* Menu */
 .x-menu-item-icon {
-	-webkit-filter: opacity(70%);
-	-moz-filter: opacity(70%);
-	-ms-filter: opacity(70%);
-	-o-filter: opacity(70%);
-	filter: opacity(70%);
 	opacity: 0.7;
 }
 .x-menu-item-icon-16x16 {
