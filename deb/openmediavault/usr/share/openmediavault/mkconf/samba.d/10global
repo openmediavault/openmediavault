@@ -81,7 +81,7 @@ xmlstarlet sel -t -m "//services/smb" \
   -o "wide links = ${OMV_SAMBA_WIDELINKS}" -n \
   -o "create mask = ${OMV_SAMBA_CREATEMASK}" -n \
   -o "directory mask = ${OMV_SAMBA_DIRECTORYMASK}" -n \
-  -i "count(shares/*[guestok = '1']) > 0" -o "map to guest = ${OMV_SAMBA_MAPTOGUEST}" -n -b \
+  -i "count(shares/*[guest != 'no']) > 0" -o "map to guest = ${OMV_SAMBA_MAPTOGUEST}" -n -b \
   -i "usesendfile[. = '1']" -o "use sendfile = yes" -n -b \
   -i "usesendfile[. = '0']" -o "use sendfile = no" -n -b \
   -i "aio[. = '1']" \

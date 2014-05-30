@@ -252,14 +252,15 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Jobs", {
 		renderer: OMV.util.Format.booleanIconRenderer(
 		  "switch_on.png", "switch_off.png")
 	},{
+		xtype: "mapcolumn",
 		text: _("Type"),
 		sortable: true,
 		dataIndex: "type",
 		stateId: "type",
-		renderer: OMV.util.Format.arrayRenderer([
-			[ "reboot", _("Reboot") ],
-			[ "shutdown", _("Shutdown") ]
-		])
+		mapItems: {
+			"reboot": _("Reboot"),
+			"shutdown": _("Shutdown")
+		}
 	},{
 		text: _("Minute"),
 		sortable: true,

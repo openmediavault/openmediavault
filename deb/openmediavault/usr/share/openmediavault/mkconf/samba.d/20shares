@@ -70,8 +70,9 @@ while [ ${index} -gt 0 ]; do
 		  -v "concat('[',name,']')" -n \
 		  -i "string-length(comment) > 0" -v "concat('comment = ',comment)" -n -b \
 		  -o "path = ${sfpath}" -n \
-		  -i "guestok[. = '0']" -o "guest ok = no" -n -b \
-		  -i "guestok[. = '1']" -o "guest ok = yes" -n -b \
+		  -i "guest[. = 'no']" -o "guest ok = no" -n -b \
+		  -i "not(guest[. = 'no'])" -o "guest ok = yes" -n -b \
+		  -i "guest[. = 'only']" -o "guest only = yes" -n -b \
 		  -i "readonly[. = '0']" -o "read only = no" -n -b \
 		  -i "readonly[. = '1']" -o "read only = yes" -n -b \
 		  -i "browseable[. = '0']" -o "browseable = no" -n -b \
@@ -182,15 +183,15 @@ while [ ${index} -gt 0 ]; do
 		unset IFS
 
 		xmlstarlet sel -t -m "//services/smb/shares/share[uuid='${uuid}']" \
-		  -i "guestok[. = '0']" -o "valid users = ${validusers}" -n -b \
-		  -o "invalid users = ${invalidusers}" -n \
-		  -o "read list = ${readlist}" -n \
-		  -i "readonly[. = '0'] and guestok[. = '0']" \
-			-o "write list = ${writelist}" -n \
+		  -i "not(guest[. = 'only'])" \
+		    -o "valid users = ${validusers}" -n \
+		    -o "invalid users = ${invalidusers}" -n \
+		    -o "read list = ${readlist}" -n \
+		    -i "readonly[. = '0']" -o "write list = ${writelist}" -n -b \
 		  -b \
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}
 
-		# Add extra options
+		# Add extra options.
 		xmlstarlet sel -t -m "//services/smb/shares/share[uuid='${uuid}']" \
 		  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_SAMBA_CONFIG}

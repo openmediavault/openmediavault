@@ -21,7 +21,6 @@
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/workspace/window/Form.js")
-// require("js/omv/util/Format.js")
 // require("js/omv/Rpc.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
@@ -207,7 +206,6 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 		"OMV.data.Store",
 		"OMV.data.Model",
 		"OMV.data.proxy.Rpc",
-		"OMV.util.Format",
 		"OMV.module.admin.system.network.firewall.Rule"
 	],
 
@@ -240,14 +238,15 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 		dataIndex: "action",
 		stateId: "action"
 	},{
+		xtype: "mapcolumn",
 		text: _("Family"),
 		sortable: false,
 		dataIndex: "family",
 		stateId: "family",
-		renderer: OMV.util.Format.arrayRenderer([
-			[ "inet", "IPv4" ],
-			[ "inet6", "IPv6" ]
-		])
+		mapItems: {
+			inet: _("IPv4"),
+			inet6: _("IPv6")
+		}
 	},{
 		xtype: "emptycolumn",
 		emptyText: "-",
@@ -277,21 +276,22 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 		dataIndex: "dport",
 		stateId: "dport"
 	},{
+		xtype: "mapcolumn",
 		text: _("Protocol"),
 		sortable: false,
 		dataIndex: "protocol",
 		stateId: "protocol",
-		renderer: OMV.util.Format.arrayRenderer([
-			[ "tcp", "TCP" ],
-			[ "udp", "UDP" ],
-			[ "icmp", "ICMP" ],
-			[ "icmpv6", "ICMPv6" ],
-			[ "all", "All" ],
-			[ "!tcp", "Not TCP" ],
-			[ "!udp", "Not UDP" ],
-			[ "!icmp", "Not ICMP" ],
-			[ "!icmpv6", _("Not ICMPv6") ]
-		])
+		mapItems: {
+			"tcp": "TCP",
+			"udp": "UDP",
+			"icmp": "ICMP",
+			"icmpv6": "ICMPv6",
+			"all": _("All"),
+			"!tcp": _("Not TCP"),
+			"!udp": _("Not UDP"),
+			"!icmp": _("Not ICMP"),
+			"!icmpv6": _("Not ICMPv6")
+		}
 	},{
 		text: _("Comment"),
 		sortable: false,

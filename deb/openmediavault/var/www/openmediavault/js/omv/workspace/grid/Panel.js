@@ -26,6 +26,7 @@
 // require("js/omv/grid/column/Hyperlink.js")
 // require("js/omv/grid/column/UnixTimestamp.js")
 // require("js/omv/grid/column/WhiteSpace.js")
+// require("js/omv/grid/column/Map.js")
 // require("js/omv/window/MessageBox.js")
 
 /**
@@ -85,7 +86,8 @@ Ext.define("OMV.workspace.grid.Panel", {
 		"OMV.grid.column.Empty",
 		"OMV.grid.column.Hyperlink",
 		"OMV.grid.column.UnixTimestamp",
-		"OMV.grid.column.WhiteSpace"
+		"OMV.grid.column.WhiteSpace",
+		"OMV.grid.column.Map"
 	],
 
 	border: false,

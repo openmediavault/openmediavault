@@ -242,16 +242,17 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Jobs", {
 			return tpl.apply(record.data);
 		}
 	},{
+		xtype: "mapcolumn",
 		text: _("Type"),
 		sortable: true,
 		dataIndex: "type",
 		stateId: "type",
-		renderer: OMV.util.Format.arrayRenderer([
-			[ "S", _("Short self-test") ],
-			[ "L", _("Long self-test") ],
-			[ "C", _("Conveyance self-test") ],
-			[ "O", _("Offline immediate test") ]
-		])
+		mapItems: {
+			"S": _("Short self-test"),
+			"L": _("Long self-test"),
+			"C": _("Conveyance self-test"),
+			"O": _("Offline immediate test")
+		}
 	},{
 		text: _("Hour"),
 		sortable: true,

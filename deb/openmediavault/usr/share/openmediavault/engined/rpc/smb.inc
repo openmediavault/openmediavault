@@ -192,7 +192,6 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 			$objectv['sharedfoldername'] = gettext("n/a");
 			// Modify the result object.
 			$objectv['enable'] = boolval($objectv['enable']);
-			$objectv['guestok'] = boolval($objectv['guestok']);
 			$objectv['readonly'] = boolval($objectv['readonly']);
 			$objectv['browseable'] = boolval($objectv['browseable']);
 			$objectv['recyclebin'] = boolval($objectv['recyclebin']);
@@ -249,7 +248,6 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 		}
 		// Modify the result object.
 		$object['enable'] = boolval($object['enable']);
-		$object['guestok'] = boolval($object['guestok']);
 		$object['readonly'] = boolval($object['readonly']);
 		$object['browseable'] = boolval($object['browseable']);
 		$object['recyclebin'] = boolval($object['recyclebin']);
@@ -287,7 +285,7 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 				  "sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
 				  "name":{'.$GLOBALS['OMV_JSONSCHEMA_SHARENAME'].'},
 				  "comment":{"type":"string"},
-				  "guestok":{"type":"boolean"},
+				  "guest":{"type":"string","enum":["no","allow","only"]},
 				  "readonly":{"type":"boolean"},
 				  "browseable":{"type":"boolean"},
 				  "recyclebin":{"type":"boolean"},
@@ -312,7 +310,7 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 			"sharedfolderref" => $params['sharedfolderref'],
 			"name" => $params['name'],
 			"comment" => $params['comment'],
-			"guestok" => array_boolval($params, 'guestok'),
+			"guest" => $params['guest'],
 			"readonly" => array_boolval($params, 'readonly'),
 			"browseable" => array_boolval($params, 'browseable'),
 			"inheritacls" => array_boolval($params, 'inheritacls'),

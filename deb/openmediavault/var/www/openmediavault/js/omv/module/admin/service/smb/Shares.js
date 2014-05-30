@@ -122,11 +122,28 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 				text: _("This is a text field that is seen next to a share when a client queries the server.")
 			}]
 		},{
-			xtype: "checkbox",
-			name: "guestok",
+			xtype: "combo",
+			name: "guest",
 			fieldLabel: _("Public"),
-			checked: false,
-			boxLabel: _("If enabled then no password is required to connect to the share")
+			queryMode: "local",
+			store: Ext.create("Ext.data.ArrayStore", {
+				fields: [ "value", "text" ],
+				data: [
+					[ "no", _("No") ],
+					[ "allow", _("Guests allowed") ],
+					[ "only", _("Only guests") ]
+				]
+			}),
+			displayField: "text",
+			valueField: "value",
+			allowBlank: false,
+			editable: false,
+			triggerAction: "all",
+			value: "no",
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("If 'Guests allowed' is selected and no login credential is provided, then access as guest. Always access as guest when 'Only guests' is selecting; in this case no password is required to connect to the share.")
+			}]
 		},{
 			xtype: "checkbox",
 			name: "readonly",
@@ -345,11 +362,16 @@ Ext.define("OMV.module.admin.service.smb.Shares", {
 		dataIndex: "comment",
 		stateId: "comment"
 	},{
-		xtype: "booleantextcolumn",
+		xtype: "mapcolumn",
 		text: _("Public"),
 		sortable: true,
-		dataIndex: "guestok",
-		stateId: "guestok"
+		dataIndex: "guest",
+		stateId: "guest",
+		mapItems: {
+			"no": _("No"),
+			"allow": _("Guest allowed"),
+			"only": _("Only guests")
+		}
 	},{
 		xtype: "booleantextcolumn",
 		text: _("Read only"),
@@ -379,7 +401,7 @@ Ext.define("OMV.module.admin.service.smb.Shares", {
 						{ name: "comment", type: "string" },
 						{ name: "browseable", type: "boolean" },
 						{ name: "readonly", type: "boolean" },
-						{ name: "guestok", type: "boolean" }
+						{ name: "guest", type: "string" }
 					]
 				}),
 				proxy: {
