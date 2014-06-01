@@ -4,6 +4,8 @@ openmediavault (0.6.0.11) stable; urgency=low
   * Add dashboard widget support in the admin WebGUI.
   * Missing filesystems can be removed now.
   * Mantis 0001041: Allow or force a guest access for SMB shares.
+  * Mantis 0001044: SMART Scheduled tests listing fails to load after
+    drive removal.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 13 May 2014 00:11:51 +0200
 
@@ -106,6 +108,8 @@ openmediavault (0.6) stable; urgency=low
 openmediavault (0.5.49) stable; urgency=low
 
   * Various code improvements.
+  * Mantis 0001044: SMART Scheduled tests listing fails to load after
+    drive removal.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 27 May 2014 18:27:44 +0200
 
