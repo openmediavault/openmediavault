@@ -1,5 +1,6 @@
 openmediavault (0.6.0.11) stable; urgency=low
 
+  * Update locales.
   * Various code improvements.
   * Add dashboard widget support in the admin WebGUI.
   * Missing filesystems can be removed now.
