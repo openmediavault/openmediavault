@@ -640,7 +640,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			);
 			// Get the storage device object.
 			$sd = OMVStorageDeviceFactory::get($objectv['devicefile']);
-			if($sd->exists()) {
+			if (!is_null($sd) && $sd->exists()) {
 				// Update storage device information.
 				$objectv['volume'] = array(
 					"devicefile" => $sd->getDeviceFile(),

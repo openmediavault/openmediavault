@@ -1,6 +1,8 @@
 openmediavault (0.5.49) stable; urgency=low
 
   * Various code improvements.
+  * Mantis 0001044: SMART Scheduled tests listing fails to load after
+    drive removal.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 27 May 2014 18:27:44 +0200
 
