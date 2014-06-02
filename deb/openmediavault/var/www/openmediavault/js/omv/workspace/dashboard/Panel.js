@@ -53,10 +53,14 @@ Ext.define("OMV.workspace.dashboard.Panel", {
 			listeners: {
 				scope: me,
 				click: function(menu, item, e, eOpts) {
+					var box = this.getBox(true, true);
 					// Create the dashboard widget and add it to the
 					// dashboard panel. Display the widget settings
 					// dialog if it has one.
-					var widget = Ext.create(item.className);
+					var widget = Ext.create(item.className, {
+						x: Ext.Number.randomInt(box.left, box.right),
+						y: Ext.Number.randomInt(box.top, box.bottom)
+					});
 					this.addWidget(widget, true);
 					this.doLayout(true, false);
 					widget.show();
