@@ -470,7 +470,8 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 						{ name: "percentage", type: "string" },
 						{ name: "mounted", type: "boolean" },
 						{ name: "mountpoint", type: "string" },
-						{ name: "_used", type: "boolean" }
+						{ name: "_used", type: "boolean" },
+						{ name: "_readOnly", type: "boolean" }
 					]
 				}),
 				proxy: {

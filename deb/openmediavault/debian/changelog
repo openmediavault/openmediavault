@@ -1,3 +1,9 @@
+openmediavault (0.6.0.12) stable; urgency=low
+
+  * Fix dashboard widget issue at first startup.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Jun 2014 19:32:11 +0200
+
 openmediavault (0.6.0.11) stable; urgency=low
 
   * Update locales.

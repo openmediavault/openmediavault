@@ -120,7 +120,7 @@ Ext.define("OMV.workspace.dashboard.Panel", {
 					return;
 				// Show the widget at startup (e.g. displaying the UI the
 				// first time or clearing the cookie)?
-				if (!widget.showAtStartup)
+				if (!widget.showAtFirstStartup)
 					return;
 				Ext.Array.push(state.widgets, {
 					alias: Ext.isArray(widget.alias) ? widget.alias[0] :
