@@ -106,7 +106,12 @@ Ext.define("OMV.module.admin.storage.smart.schedule.Job", {
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("S.M.A.R.T. monitoring must be activated for the selected device.")
-			}]
+			}],
+			validator: function(value) {
+				if (!Ext.isEmpty(value) && !this.findRecordByDisplay(value))
+					return _("The device does not exist");
+				return true;
+			}
 		},{
 			xtype: "combo",
 			name: "type",

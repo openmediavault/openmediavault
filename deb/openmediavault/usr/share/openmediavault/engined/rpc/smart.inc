@@ -197,8 +197,9 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			// If found, then finally get the S.M.A.R.T. device settings
 			// configuration object.
 			if(!is_null($object = $xmlConfig->get($xpath))) {
-				$object = $this->callMethod("getDeviceSettings",
-				  array("devicefile" => $object['devicefile']), $context);
+				$object = $this->callMethod("getDeviceSettings", array(
+					  "devicefile" => $object['devicefile']
+				  ), $context);
 				$objectv['uuid'] = $object['uuid'];
 				$objectv['monitor'] = $object['enable'];
 			}
@@ -395,9 +396,9 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  array("device" => $object));
 		} else {
 			// Update existing configuration object.
-			$success = $xmlConfig->replace(
-			  "//services/smart/monitor/device[uuid='{$params['uuid']}']",
-			  $object);
+			$xpath = sprintf("//services/smart/monitor/device[uuid='%s']",
+			  $object['uuid']);
+			$success = $xmlConfig->replace($xpath, $object);
 		}
 		if(FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
