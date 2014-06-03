@@ -44,18 +44,23 @@ OMV_OWNCLOUD_AUTOCONFIG_ADMINLOGIN=${OMV_OWNCLOUD_AUTOCONFIG_ADMINLOGIN:-"admin"
 OMV_OWNCLOUD_AUTOCONFIG_ADMINPASS=${OMV_OWNCLOUD_AUTOCONFIG_ADMINPASS:-"openmediavault"}
 
 mkconf() {
+	# Set the default directory.
+	datadirectory="${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT}/data"
+
 	# Get the configured location of the data directory. Ensure that the
 	# webserver can access the directory.
 	sfref=$(omv_config_get "//services/owncloud/sharedfolderref")
-	datadirectory=$(omv_get_sharedfolder_path "${sfref}")
-	mkdir -p --mode=0770 "${datadirectory}"
-	chown www-data:www-data "${datadirectory}"
-	#setfacl -m u:www-data:rwx,g:www-data:rwx "${datadirectory}"
+	if [ -n "${sfref}" ]; then
+		datadirectory=$(omv_get_sharedfolder_path "${sfref}")
+		mkdir -p --mode=0770 "${datadirectory}"
+		chown www-data:www-data "${datadirectory}"
+		#setfacl -m u:www-data:rwx,g:www-data:rwx "${datadirectory}"
 
-	# Create a 'tmp' directory which is used for file uploads for example.
-	mkdir -p --mode=0770 "${datadirectory}/tmp"
-	chown www-data:www-data "${datadirectory}/tmp"
-	ln -s -f "${datadirectory}/tmp" "/var/www/owncloud/data"
+		# Create a 'tmp' directory which is used for file uploads for example.
+		mkdir -p --mode=0770 "${datadirectory}/tmp"
+		chown www-data:www-data "${datadirectory}/tmp"
+		ln -s -f "${datadirectory}/tmp" "/var/www/owncloud/data"
+	fi
 
 	# Create '/var/www/owncloud/config/config.php' file.
 	xmlstarlet sel -t -m "//services/owncloud" \
