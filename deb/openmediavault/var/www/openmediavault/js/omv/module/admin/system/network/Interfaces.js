@@ -855,7 +855,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 						{ name: "type", type: "string" },
 						{ name: "comment", type: "string" },
 						{ name: "_used", type: "boolean" },
-						{ name: "_readOnly", type: "boolean" }
+						{ name: "_readonly", type: "boolean" }
 					]
 				}),
 				proxy: {
@@ -926,7 +926,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 				tbarBtnDisabled["edit"] = true;
 				tbarBtnDisabled["delete"] = true;
 			}
-			if(true == records[i].get("_readOnly")) {
+			if(true == records[i].get("_readonly")) {
 				tbarBtnDisabled["delete"] = true;
 			}
 		}
@@ -982,7 +982,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			title: title,
 			uuid: record.get("uuid"),
 			devicename: record.get("devicename"),
-			readOnly: record.get("_readOnly"),
+			readOnly: record.get("_readonly"),
 			listeners: {
 				submit: function() {
 					me.doReload();

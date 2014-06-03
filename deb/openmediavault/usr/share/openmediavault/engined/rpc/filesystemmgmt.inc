@@ -60,7 +60,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 	 * @return An array of objects with the following fields: \em uuid,
 	 *   \em devicefile, \em type, \em label, \em blocks, \em size,
 	 *   \em mountpoint, \em blocks, \em used, \em available, \em description,
-	 *   \em posixacl, \em mounted and \em percentage.
+	 *   \em posixacl, \em mounted and \em percentage. Additional the
+	 *   internal fields \em _used and \em _readonly are set.
 	 * @throw E_MISC_FAILURE
 	 */
 	public function enumerateFilesystems($params, $context) {
@@ -86,9 +87,6 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  "ext4", "xfs", "jfs", "iso9660", "msdos", "ntfs", "udf",
 			  "umsdos", "vfat", "ufs", "reiserfs", "btrfs", "hfsplus",
 			  "zfs")))
-				continue;
-			// Skip the device where the operating system is installed on.
-			if ($objectv['devicefile'] === $rootDeviceFile)
 				continue;
 			// Use the devicefile to get the filesystem details because vfat
 			// filesystems do not have a valid UUID. Any idea why?
@@ -127,6 +125,12 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				  "contains(.,'{$meObject['uuid']}')]")) {
 					$object['_used'] = TRUE;
 				}
+			}
+			// Mark the device where the operating system is installed on
+			// as used and read-only.
+			if ($object['devicefile'] === $rootDeviceFile) {
+				$object['_used'] = TRUE;
+				$object['_readonly'] = TRUE;
 			}
 			// If the filesystem is mounted then try to get more
 			// informations about it. Note,it is not possible to get
@@ -257,10 +261,12 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 	 *   \em devicefile, \em type, \em label, \em blocks, \em size,
 	 *   \em mountpoint, \em blocks, \em used, \em available,
 	 *   \em description, \em mounted, \em percentage and \em status.
-	 *   The field 'status' has the following meaning:
-	 *   1 - Online
-	 *   2 - Initializing in progress
-	 *   3 - Missing
+	 *   The field 'status' has the following meaning:<ul>
+	 *   \li 1 - Online
+	 *   \li 2 - Initializing in progress
+	 *   \li 3 - Missing
+	 *   </ul>
+	 *  Additional the internal fields \em _used and \em _readonly are set.
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	public function getList($params, $context) {

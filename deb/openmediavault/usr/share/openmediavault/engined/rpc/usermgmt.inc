@@ -439,7 +439,7 @@ finish:
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The result object contains the fields \em name, \em comment,
-	 *   \em email and the internal field \em _readOnly.
+	 *   \em email and the internal field \em _readonly.
 	 */
 	function getUserByContext($params, $context) {
 		// Validate the RPC caller context.
@@ -454,8 +454,8 @@ finish:
 			  "name" => $object['name'],
 			  "comment" => $object['comment'],
 			  "email" => $object['email'],
-			  // Hijack the '_readOnly' flag to set the form to read-only.
-			  "_readOnly" => $object['disallowusermod']
+			  // Hijack the '_readonly' flag to set the form to read-only.
+			  "_readonly" => $object['disallowusermod']
 		  );
 	}
 

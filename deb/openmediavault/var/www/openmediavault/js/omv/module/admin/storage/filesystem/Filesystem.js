@@ -471,7 +471,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 						{ name: "mounted", type: "boolean" },
 						{ name: "mountpoint", type: "string" },
 						{ name: "_used", type: "boolean" },
-						{ name: "_readOnly", type: "boolean" }
+						{ name: "_readonly", type: "boolean" }
 					]
 				}),
 				proxy: {
@@ -627,9 +627,13 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 		// Disable 'Delete' button if a selected file system is in use
 		// or readonly.
 		for(var i = 0; i < records.length; i++) {
-			if((true == records[i].get("_used")) ||
-			  (true == records[i].get("_readOnly"))) {
+			if ((true == records[i].get("_used")) ||
+			  (true == records[i].get("_readonly"))) {
 				tbarBtnDisabled["delete"] = true;
+			}
+			if (true == records[i].get("_readonly")) {
+				tbarBtnDisabled["resize"] = true;
+				tbarBtnDisabled["quota"] = true;
 			}
 		}
 		// Update the button controls.

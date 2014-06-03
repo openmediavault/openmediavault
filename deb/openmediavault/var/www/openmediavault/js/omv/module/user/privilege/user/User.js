@@ -110,9 +110,8 @@ Ext.define("OMV.module.user.privilege.user.User", {
 		result = me.callParent(arguments);
 		// Set form to read-only if user is not allowed to modify the user
 		// account data
-		if(values._readOnly === true) {
+		if (values._readonly === true)
 			this.setReadOnly(true);
-		}
 		return result;
 	}
 });

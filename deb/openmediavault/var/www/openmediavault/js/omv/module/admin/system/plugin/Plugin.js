@@ -162,7 +162,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 				model: OMV.data.Model.createImplicit({
 					idProperty: "name",
 					fields: [
-						{ name: "_readOnly", type: "boolean" },
+						{ name: "_readonly", type: "boolean" },
 						{ name: "name", type: "string" },
 						{ name: "version", type: "string" },
 						{ name: "repository", type: "string" },

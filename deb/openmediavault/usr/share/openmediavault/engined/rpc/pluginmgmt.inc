@@ -57,7 +57,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	 *   \em priority, \em section, \em installedsize, \em maintainer,
 	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
 	 *   \em abstract, \em homepage, \em installed, \em repository
-	 *   and \em _readOnly. The following fields are optional:
+	 *   and \em _readonly. The following fields are optional:
 	 *   \em description, \em depends, \em replaces and \em conflicts.
 	 * @throw E_MISC_FAILURE
 	 */
@@ -94,7 +94,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	 *   \em oldversion, \em architecture, \em package, \em priority,
 	 *   \em section, \em installedsize, \em maintainer, \em filename, \em size,
 	 *   \em md5sum, \em sha1, \em sha256, \em abstract, \em homepage,
-	 *   \em installed, \em repository and \em _readOnly. The following fields
+	 *   \em installed, \em repository and \em _readonly. The following fields
 	 *   are optional: \em description, \em depends, \em replaces and
 	 *   \em conflicts. An exception will be thrown in case of an error.
 	 */
@@ -117,7 +117,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 		$objects = $this->callMethod("enumeratePlugins", NULL, $context);
 		// Add additional information.
 		foreach ($objects as $objectk => &$objectv) {
-			$objectv['_readOnly'] = !$objectv['installed'];
+			$objectv['_readonly'] = !$objectv['installed'];
 		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
@@ -299,7 +299,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	 *   \em priority, \em section, \em installedsize, \em maintainer,
 	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
 	 *   \em abstract, \em homepage, \em installed, \em repository
-	 *   and \em _readOnly. The following fields are optional:
+	 *   and \em _readonly. The following fields are optional:
 	 *   \em description, \em depends, \em replaces and \em conflicts.
 	 * @throw E_EXEC_FAILED
 	 * @throw E_MISC_FAILURE

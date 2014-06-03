@@ -243,7 +243,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			$devv['method6'] = "";
 			$devv['comment'] = "";
 			$devv['_used'] = FALSE;
-			$devv['_readOnly'] = FALSE;
+			$devv['_readonly'] = FALSE;
 			// Get network interface type.
 			if(1 !== preg_match("/^([a-z0-9]+)\d+$/i", $devv['devicename'],
 			  $matches)) {
@@ -303,7 +303,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				if(TRUE === $xmlConfig->exists("//bondiface[" .
 				  "contains(slaves,'{$devv['devicename']}')]")) {
 					$devv['_used'] = TRUE;
-					$devv['_readOnly'] = TRUE;
+					$devv['_readonly'] = TRUE;
 					$devv['method'] = "";
 					$devv['method6'] = "";
 				}

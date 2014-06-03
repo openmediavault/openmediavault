@@ -26,12 +26,12 @@
 // require("js/omv/util/Format.js")
 
 /**
- * @class OMV.module.admin.diagnostic.dashboard.widget.ServiceStatus
+ * @class OMV.module.admin.diagnostic.dashboard.widget.FileSystemStatus
  * @derived OMV.workspace.dashboard.Widget
  */
-Ext.define("OMV.module.admin.diagnostic.dashboard.widget.ServiceStatus", {
+Ext.define("OMV.module.admin.diagnostic.dashboard.widget.FileSystemStatus", {
 	extend: "OMV.workspace.dashboard.Widget",
-	alias: "omv.widget.diagnostic.dashboard.servicestatus",
+	alias: "omv.widget.diagnostic.dashboard.filesystemstatus",
 	requires: [
 		"OMV.workspace.grid.Panel",
 		"OMV.data.Store",
@@ -40,12 +40,11 @@ Ext.define("OMV.module.admin.diagnostic.dashboard.widget.ServiceStatus", {
 		"OMV.util.Format"
 	],
 
-	title: "Service status",
-	icon: "images/wrench.svg",
-	width: 400,
-	height: 250,
-	refreshInterval: 10000,
-	showAtFirstStartup: true,
+	title: "File system status",
+	icon: "images/filesystem.svg",
+	width: 300,
+	height: 150,
+	refreshInterval: 60000,
 
 	initComponent: function() {
 		var me = this;
@@ -57,46 +56,28 @@ Ext.define("OMV.module.admin.diagnostic.dashboard.widget.ServiceStatus", {
 				hideHeaders: true,
 				disableSelection: true,
 				stateful: true,
-				stateId: "08ee3b76-e325-11e3-ad0a-00221568ca88",
+				stateId: "778ea266-eaf3-11e3-8211-0002b3a176b4",
 				columns: [{
-					text: _("Service"),
+					xtype: "emptycolumn",
+					text: _("Device"),
 					sortable: true,
-					dataIndex: "title",
-					stateId: "title",
+					dataIndex: "devicefile",
+					stateId: "devicefile",
 					flex: 1
 				},{
-					text: _("Enabled"),
+					text: _("Used"),
 					sortable: true,
-					dataIndex: "enabled",
-					stateId: "enabled",
-					width: 80,
-					resizable: false,
+					dataIndex: "used",
+					stateId: "used",
 					align: "center",
-					renderer: OMV.util.Format.booleanIconRenderer(
-					  "switch_on.png", "switch_off.png")
-				},{
-					text: _("Running"),
-					sortable: true,
-					dataIndex: "running",
-					stateId: "running",
-					width: 80,
-					resizable: false,
-					align: "center",
-					renderer: function(value, metaData, record, rowIndex,
-					  colIndex, store, view) {
-						var img;
-						switch(record.get("enabled")) {
-						case 1:
-						case true:
-							img = (true == value) ? "led_green.png" :
-							  "led_red.png";
-							break;
-						default:
-							img = (true == value) ? "led_green.png" :
-							  "led_gray.png";
-							break;
-						}
-						return "<img border='0' src='images/" + img + "'>";
+					flex: 2,
+					renderer: function(value, metaData, record) {
+						var percentage = parseInt(record.get("percentage"));
+						if(-1 == percentage)
+							return _("n/a");
+						var renderer = OMV.util.Format.progressBarRenderer(
+						  percentage / 100, value);
+						return renderer.apply(this, arguments);
 					}
 				}],
 				viewConfig: {
@@ -105,25 +86,24 @@ Ext.define("OMV.module.admin.diagnostic.dashboard.widget.ServiceStatus", {
 				store: Ext.create("OMV.data.Store", {
 					autoLoad: true,
 					model: OMV.data.Model.createImplicit({
-						idProperty: "name",
+						idProperty: "devicefile",
 						fields: [
-							{ name: "name", type: "string" },
-							{ name: "title", type: "string" },
-							{ name: "enabled", type: "boolean" },
-							{ name: "running", type: "boolean" }
+							{ name: "devicefile", type: "string" },
+							{ name: "used", type: "string" },
+							{ name: "percentage", type: "string" }
 						]
 					}),
 					proxy: {
 						type: "rpc",
 						appendSortParams: false,
 						rpcData: {
-							service: "Services",
-							method: "getStatus"
+							service: "FileSystemMgmt",
+							method: "enumerateFilesystems"
 						}
 					},
 					sorters: [{
 						direction: "ASC",
-						property: "name"
+						property: "devicefile"
 					}]
 				})
 			}) ]
