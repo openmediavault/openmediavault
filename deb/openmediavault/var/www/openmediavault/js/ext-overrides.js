@@ -349,6 +349,57 @@ Ext.apply(Ext.form.field.VTypes, {
 });
 
 ////////////////////////////////////////////////////////////////////////////////
+// Ext.Function
+////////////////////////////////////////////////////////////////////////////////
+
+Ext.apply(Ext.Function, {
+	/**
+	 * Create a combined function call sequence of the original function
+	 * and the passed function. The resulting function returns the results
+	 * of the original function. The passed function is called with the
+	 * parameters of the original function and it's result.
+	 */
+	createSequenceEx: function(originalFn, newFn, scope) {
+		if (!newFn)
+			return originalFn;
+		else {
+			return function() {
+				// Call the original function.
+				var result = originalFn.apply(this, arguments);
+				// Append the result to the end of the arguments list.
+//				arguments[arguments.length] = result;
+//				arguments.length++;
+				var args = Ext.Array.slice(arguments);
+				Ext.Array.push(args, [ result ]);
+				// Call the new function.
+				newFn.apply(scope || this, args);
+				return result;
+			};
+		}
+	},
+
+	/**
+	 * Adds behavior to an existing method that is executed after the
+	 * original behavior of the function. The passed function is called
+	 * with the parameters of the original function and it's result.
+	 */
+	interceptAfterEx: function(object, methodName, fn, scope) {
+		var method = object[methodName] || Ext.emptyFn;
+		return (object[methodName] = function() {
+			// Call the original function.
+			var result = method.apply(this, arguments);
+			// Append the result to the end of the arguments list.
+//			arguments[arguments.length] = result;
+//			arguments.length++;
+			var args = Ext.Array.slice(arguments);
+			Ext.Array.push(args, [ result ]);
+			// Call the new function.
+			return fn.apply(scope || this, args);
+		});
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
 // Ext.LoadMask
 ////////////////////////////////////////////////////////////////////////////////
 
