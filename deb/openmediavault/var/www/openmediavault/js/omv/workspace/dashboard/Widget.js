@@ -45,9 +45,10 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 	showAtFirstStartup: false,
 
 	layout: "fit",
+	shadow: false,
 	collapsible: true,
 	expandOnShow: false,
-	constrain: true,
+	constrainHeader: true,
 	closable: false,
 	stateful: true,
 	width: 350,
@@ -120,7 +121,7 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 		});
 	},
 
-	afterRender: function() {
+	onBoxReady: function() {
 		var me = this;
 		if ((me.refreshInterval > 0) && Ext.isEmpty(me.refreshTask)) {
 			me.refreshTask = Ext.util.TaskManager.start({
@@ -130,7 +131,7 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 				fireOnStart: true
 			});
 		}
-		me.callParent();
+		me.callParent(arguments);
 	},
 
 	beforeDestroy: function() {

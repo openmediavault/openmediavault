@@ -36,6 +36,7 @@ Ext.define("OMV.workspace.dashboard.Panel", {
 	layout: {
 		type: "absolute"
 	},
+	autoScroll: true,
 	stateful: true,
 	stateId: "b1710202-e0ea-11e3-ad39-0002b3a176b4",
 	cls: Ext.baseCSSPrefix + "workspace-dashboard",
