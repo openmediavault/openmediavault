@@ -2,6 +2,7 @@ openmediavault (0.6.0.12) stable; urgency=low
 
   * Fix dashboard widget issue at first startup.
   * Mantis 0001045: User defined cron mailer may send empty emails.
+  * Mantis 0001046: English translation typo.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Jun 2014 19:32:11 +0200
 
