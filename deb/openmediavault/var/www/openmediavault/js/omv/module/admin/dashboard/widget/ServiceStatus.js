@@ -26,12 +26,12 @@
 // require("js/omv/util/Format.js")
 
 /**
- * @class OMV.module.admin.diagnostic.dashboard.widget.ServiceStatus
+ * @class OMV.module.admin.dashboard.widget.ServiceStatus
  * @derived OMV.workspace.dashboard.Widget
  */
-Ext.define("OMV.module.admin.diagnostic.dashboard.widget.ServiceStatus", {
+Ext.define("OMV.module.admin.dashboard.widget.ServiceStatus", {
 	extend: "OMV.workspace.dashboard.Widget",
-	alias: "omv.widget.diagnostic.dashboard.servicestatus",
+	alias: "omv.widget.dashboard.servicestatus",
 	requires: [
 		"OMV.workspace.grid.Panel",
 		"OMV.data.Store",

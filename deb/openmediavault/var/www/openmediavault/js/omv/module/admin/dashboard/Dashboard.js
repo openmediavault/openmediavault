@@ -31,7 +31,7 @@ Ext.define("OMV.module.admin.dashboard.Dashboard", {
 	getWidgetClasses: function() {
 		// Get the registered dashboard widgets classes.
 		var classNames = Ext.ClassManager.getNamesByExpression(
-		  "omv.widget.diagnostic.dashboard.*");
+		  "omv.widget.dashboard.*");
 		return classNames;
 	}
 });

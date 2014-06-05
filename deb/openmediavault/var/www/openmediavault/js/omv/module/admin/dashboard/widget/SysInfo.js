@@ -26,12 +26,12 @@
 // require("js/omv/util/Format.js")
 
 /**
- * @class OMV.module.admin.diagnostic.dashboard.widget.FileSystemStatus
+ * @class OMV.module.admin.dashboard.widget.SysInfo
  * @derived OMV.workspace.dashboard.Widget
  */
-Ext.define("OMV.module.admin.diagnostic.dashboard.widget.FileSystemStatus", {
+Ext.define("OMV.module.admin.dashboard.widget.SysInfo", {
 	extend: "OMV.workspace.dashboard.Widget",
-	alias: "omv.widget.diagnostic.dashboard.filesystemstatus",
+	alias: "omv.widget.dashboard.sysinfo",
 	requires: [
 		"OMV.workspace.grid.Panel",
 		"OMV.data.Store",
@@ -40,11 +40,12 @@ Ext.define("OMV.module.admin.diagnostic.dashboard.widget.FileSystemStatus", {
 		"OMV.util.Format"
 	],
 
-	title: "File system status",
-	icon: "images/filesystem.svg",
-	width: 300,
-	height: 150,
-	refreshInterval: 60000,
+	title: "System information",
+	icon: "images/statistics.svg",
+	width: 400,
+	height: 230,
+	refreshInterval: 5000,
+	showAtFirstStartup: true,
 
 	initComponent: function() {
 		var me = this;
@@ -56,28 +57,43 @@ Ext.define("OMV.module.admin.diagnostic.dashboard.widget.FileSystemStatus", {
 				hideHeaders: true,
 				disableSelection: true,
 				stateful: true,
-				stateId: "778ea266-eaf3-11e3-8211-0002b3a176b4",
+				stateId: "819a071a-e24b-11e3-9915-0002b3a176b4",
 				columns: [{
-					xtype: "emptycolumn",
-					text: _("Device"),
+					text: _("Name"),
 					sortable: true,
-					dataIndex: "devicefile",
-					stateId: "devicefile",
-					flex: 1
+					dataIndex: "name",
+					stateId: "name",
+					width: 150,
+					tdCls: Ext.baseCSSPrefix + "grid-cell-gray",
+					renderer: function(value, metaData, record, rowIndex,
+					  colIndex, store, view) {
+						return _(value);
+					}
 				},{
-					text: _("Used"),
+					text: _("Value"),
 					sortable: true,
-					dataIndex: "used",
-					stateId: "used",
-					align: "center",
-					flex: 2,
-					renderer: function(value, metaData, record) {
-						var percentage = parseInt(record.get("percentage"));
-						if(-1 == percentage)
-							return _("n/a");
-						var renderer = OMV.util.Format.progressBarRenderer(
-						  percentage / 100, value);
-						return renderer.apply(this, arguments);
+					dataIndex: "value",
+					stateId: "value",
+					flex: 1,
+					renderer: function(value, metaData, record, rowIndex,
+					  colIndex, store, view) {
+						var me = this;
+						var result = value;
+						switch(record.get("type")) {
+						case "time":
+							var renderer = OMV.util.Format.localeTimeRenderer();
+							result = renderer.apply(me, arguments);
+							break;
+						case "progress":
+							var renderer = OMV.util.Format.progressBarRenderer(
+							  value.value / 100, value.text);
+							result = renderer.apply(me, arguments);
+							break;
+						default:
+							// Nothing to do here
+							break;
+						}
+						return result;
 					}
 				}],
 				viewConfig: {
@@ -86,24 +102,28 @@ Ext.define("OMV.module.admin.diagnostic.dashboard.widget.FileSystemStatus", {
 				store: Ext.create("OMV.data.Store", {
 					autoLoad: true,
 					model: OMV.data.Model.createImplicit({
-						idProperty: "devicefile",
+						idProperty: "index",
 						fields: [
-							{ name: "devicefile", type: "string" },
-							{ name: "used", type: "string" },
-							{ name: "percentage", type: "string" }
+							{ name: "index", type: "int" },
+							{ name: "type", type: "string" },
+							{ name: "name", type: "string" },
+							{ name: "value", type: "auto" }
 						]
 					}),
 					proxy: {
 						type: "rpc",
 						appendSortParams: false,
 						rpcData: {
-							service: "FileSystemMgmt",
-							method: "enumerateFilesystems"
+							service: "System",
+							method: "getInformation",
+							options: {
+								updatelastaccess: false
+							}
 						}
 					},
 					sorters: [{
 						direction: "ASC",
-						property: "devicefile"
+						property: "index"
 					}]
 				})
 			}) ]
