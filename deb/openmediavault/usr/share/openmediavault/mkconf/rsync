@@ -139,7 +139,7 @@ xmlstarlet sel -t \
 	  -b \
 	  -i "sendemail[. = '1']" \
 		-i "string-length(comment) > 0" \
-		  -v "concat(' | mail -s \"Rsync - ',translate(comment,'\
+		  -v "concat(' | mail -E -s \"Rsync - ',translate(comment,'\
 
 ',' '),'\" -a \"From: Cron Daemon <root>\" root >/dev/null 2>&1')" \
 		-b \

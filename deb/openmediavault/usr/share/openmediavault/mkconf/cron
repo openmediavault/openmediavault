@@ -90,7 +90,7 @@ xmlstarlet sel -t \
 	  -b \
 	  -i "sendemail[. = '1']" \
 		-i "string-length(comment) > 0" \
-		  -v "concat(' | mail -s \"Cron - ',translate(comment,'\
+		  -v "concat(' | mail -E -s \"Cron - ',translate(comment,'\
 
 ',' '),'\" -a \"From: Cron Daemon <',username,'>\" ',username,' >/dev/null 2>&1')" \
 		-b \

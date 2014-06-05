@@ -1,6 +1,7 @@
 openmediavault (0.6.0.12) stable; urgency=low
 
   * Fix dashboard widget issue at first startup.
+  * Mantis 0001045: User defined cron mailer may send empty emails.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 02 Jun 2014 19:32:11 +0200
 
@@ -111,6 +112,12 @@ openmediavault (0.6) stable; urgency=low
   * Add button to manually empty the SMB/CIFS recycle bin.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Nov 2013 19:41:31 +0100
+
+openmediavault (0.5.50) stable; urgency=low
+
+  * Mantis 0001045: User defined cron mailer may send empty emails.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 05 Jun 2014 12:08:17 +0200
 
 openmediavault (0.5.49) stable; urgency=low
 
