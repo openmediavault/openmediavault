@@ -326,6 +326,11 @@ Files: /var/www/openmediavault/images/play.png
 Copyright: Keyamoon <http://icomoon.io>
 License: CC-BY-3.0
 
+Files: /var/www/openmediavault/images/pause.png
+       /var/www/openmediavault/images/pause.svg
+Copyright: Keyamoon <http://icomoon.io>
+License: CC-BY-3.0
+
 Files: /var/www/openmediavault/images/expand.png
        /var/www/openmediavault/images/expand.svg
 Copyright: Keyamoon <http://icomoon.io>

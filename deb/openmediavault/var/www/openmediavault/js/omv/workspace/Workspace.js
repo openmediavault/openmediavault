@@ -174,25 +174,31 @@ Ext.define("OMV.workspace.Workspace", {
 							action: "resetstate",
 							msg: _("Do you really want to reset WebGUI state, e.g. grid column order?"),
 							tooltip: _("Reset WebGUI state will restore default settings of grid columns for example."),
-							icon: "images/refresh.png"
+							icon: Ext.supports.Svg ? "images/refresh.svg" : "images/refresh.png"
 						},{
 							xtype: "menuseparator"
 						},{
 							text: _("Logout"),
 							action: "logout",
 							msg: _("Do you really want to logout?"),
-							icon: "images/logout.png"
+							icon: Ext.supports.Svg ? "images/logout.svg" : "images/logout.png"
 						},{
 							text: _("Reboot"),
 							action: "reboot",
 							msg: _("Do you really want to reboot the system?"),
-							icon: "images/reboot.png",
+							icon: Ext.supports.Svg ? "images/reboot.svg" : "images/reboot.png",
+							hidden: !OMV.SessionManager.isAdministrator()
+						},{
+							text: _("Standby"),
+							action: "standby",
+							msg: _("Do you really want to put the system into standby?"),
+							icon: Ext.supports.Svg ? "images/pause.svg" : "images/pause.png",
 							hidden: !OMV.SessionManager.isAdministrator()
 						},{
 							text: _("Shutdown"),
 							action: "shutdown",
 							msg: _("Do you really want to shutdown the system?"),
-							icon: "images/shutdown.png",
+							icon: Ext.supports.Svg ? "images/shutdown.svg" : "images/shutdown.png",
 							hidden: !OMV.SessionManager.isAdministrator()
 						}],
 						listeners: {
@@ -264,6 +270,7 @@ Ext.define("OMV.workspace.Workspace", {
 												}
 											});
 											break;
+										case "standby":
 										case "shutdown":
 											OMV.Rpc.request({
 												scope: this,
@@ -274,7 +281,7 @@ Ext.define("OMV.workspace.Workspace", {
 												relayErrors: false,
 												rpcData: {
 													service: "System",
-													method: "shutdown"
+													method: item.action
 												}
 											});
 											break;

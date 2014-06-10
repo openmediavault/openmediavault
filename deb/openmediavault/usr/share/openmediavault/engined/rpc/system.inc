@@ -45,6 +45,9 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		$this->registerMethod("getShells");
 		$this->registerMethod("reboot");
 		$this->registerMethod("shutdown");
+		$this->registerMethod("standby");
+		$this->registerMethod("suspend");
+		$this->registerMethod("hibernate");
 		$this->registerMethod("getTimeSettings");
 		$this->registerMethod("setTimeSettings");
 		$this->registerMethod("setDate");
@@ -154,16 +157,16 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Reboot the system now.
-		$cmd = "shutdown -r now 2>&1";
+		$cmd = "export LANG=C; shutdown -r now 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 	}
 
 	/**
-	 * Shutdown the system.
+	 * Shut down the system.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return None.
@@ -176,9 +179,103 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Shutdown the system now.
-		$cmd = "shutdown -h -P now 2>&1";
+		$cmd = "export LANG=C; shutdown -h -P now 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+	}
+
+	/**
+	 * Put the machine in a sleep state. If suspend to disk or RAM is not
+	 * supported the system will be shut down. The system will be put into
+	 * one of the following state depending on the supported mode: <ul>
+	 * \li Hybrid suspend (disk and RAM)
+	 * \li Suspend to disk
+	 * \li Suspend to RAM
+	 * \li Shut down and turn of system
+	 * </ul>
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_EXEC_FAILED
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
+	 */
+	public function standby($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		$cmd = "if ! which pm-is-supported >/dev/null; then ".
+		  "export LANG=C; shutdown -h -P now 2>&1; ".
+		  "elif pm-is-supported --suspend-hybrid; then ".
+		  "export LANG=C; pm-suspend-hybrid 2>&1; ".
+		  "elif pm-is-supported --hibernate; then ".
+		  "export LANG=C; pm-hibernate 2>&1; ".
+		  "elif pm-is-supported --suspend; then ".
+		  "export LANG=C; pm-suspend 2>&1; ".
+		  "else ".
+		  "export LANG=C; shutdown -h -P now 2>&1; ".
+		  "fi";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+	}
+
+	/**
+	 * Put the machine into suspend to RAM mode. If suspend to RAM is not
+	 * supported the system will be shut down.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_EXEC_FAILED
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
+	 */
+	public function suspend($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		$cmd = "if ! which pm-is-supported >/dev/null; then ".
+		  "export LANG=C; shutdown -h -P now 2>&1; ".
+		  "elif pm-is-supported --suspend; then ".
+		  "export LANG=C; pm-suspend 2>&1; ".
+		  "else ".
+		  "export LANG=C; shutdown -h -P now 2>&1; ".
+		  "fi";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+	}
+
+	/**
+	 * Put the machine into suspend to disk mode. If suspend to disk is
+	 * not supported the system will be shut down.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_EXEC_FAILED
+	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
+	 */
+	public function hibernate($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		$cmd = "if ! which pm-is-supported >/dev/null; then ".
+		  "export LANG=C; shutdown -h -P now 2>&1; ".
+		  "elif pm-is-supported --hibernate; then ".
+		  "export LANG=C; pm-hibernate 2>&1; ".
+		  "else ".
+		  "export LANG=C; shutdown -h -P now 2>&1; ".
+		  "fi";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
