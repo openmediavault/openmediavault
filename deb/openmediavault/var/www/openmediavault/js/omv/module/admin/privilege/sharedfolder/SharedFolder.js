@@ -234,7 +234,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.Privileges", {
 				xtype: "tiptoolbar",
 				dock: "bottom",
 				ui: "footer",
-				text: _("These settings are used by the services to configure the user access rights. Please note that these settings do not affect the file system permissions.")
+				text: _("These settings are used by the services to configure the user access rights. Please note that these settings have no effect on file system permissions.")
 			}]
 		};
 	},
