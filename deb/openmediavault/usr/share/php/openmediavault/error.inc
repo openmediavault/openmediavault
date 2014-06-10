@@ -84,7 +84,7 @@ class OMVErrorMsg {
 		self::E_CONFIG_SAVE_FAILED => "Failed to save configuration (%s)",
 		self::E_CONFIG_SET_OBJECT_FAILED => "Failed to set configuration",
 		self::E_CONFIG_GET_OBJECT_FAILED => "Failed to get configuration (xpath=%s)",
-		self::E_CONFIG_INVALID_XPATH => "Invalid XPath",
+		self::E_CONFIG_INVALID_XPATH => "Invalid XPath expression (xpath=%s)",
 		self::E_CONFIG_OBJECT_UNIQUENESS => "The configuration object is not unique: %s",
 		self::E_CONFIG_OBJECT_INVALID => "The configuration object is invalid: %s",
 		self::E_CONFIG_OBJECT_INUSE => "The configuration object is in use",

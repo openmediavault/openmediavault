@@ -207,6 +207,7 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		// Build the command to execute.
 		$cmd = "if ! which pm-is-supported >/dev/null; then ".
 		  "export LANG=C; shutdown -h -P now 2>&1; ".
 		  "elif pm-is-supported --suspend-hybrid; then ".
@@ -239,6 +240,7 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		// Build the command to execute.
 		$cmd = "if ! which pm-is-supported >/dev/null; then ".
 		  "export LANG=C; shutdown -h -P now 2>&1; ".
 		  "elif pm-is-supported --suspend; then ".
@@ -267,6 +269,7 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		// Build the command to execute.
 		$cmd = "if ! which pm-is-supported >/dev/null; then ".
 		  "export LANG=C; shutdown -h -P now 2>&1; ".
 		  "elif pm-is-supported --hibernate; then ".
