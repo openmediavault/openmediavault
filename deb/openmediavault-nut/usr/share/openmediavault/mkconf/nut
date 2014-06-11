@@ -53,7 +53,7 @@ OMV_NUT_UPSMON_NOTIFYCMD=${OMV_NUT_UPSMON_NOTIFYCMD:-"/sbin/upssched"}
 OMV_NUT_UPSMON_POLLFREQ=${OMV_NUT_UPSMON_POLLFREQ:-"5"}
 OMV_NUT_UPSMON_POLLFREQALERT=${OMV_NUT_UPSMON_POLLFREQALERT:-"5"}
 OMV_NUT_UPSMON_HOSTSYNC=${OMV_NUT_UPSMON_HOSTSYNC:-"15"}
-OMV_NUT_UPSMON_DEADTIME=${OMV_NUT_UPSMON_DEADTIME:-"15"}
+OMV_NUT_UPSMON_DEADTIME=${OMV_NUT_UPSMON_DEADTIME:-""}
 OMV_NUT_UPSMON_POWERDOWNFLAG=${OMV_NUT_UPSMON_POWERDOWNFLAG:-"/etc/killpower"}
 OMV_NUT_UPSMON_RBWARNTIME=${OMV_NUT_UPSMON_RBWARNTIME:-"43200"}
 OMV_NUT_UPSMON_NOCOMMWARNTIME=${OMV_NUT_UPSMON_NOCOMMWARNTIME:-"300"}
@@ -69,20 +69,20 @@ UPSD_OPTIONS=""
 UPSMON_OPTIONS=""
 EOF
 
-	# Create '/etc/nut/nut.conf'
+	# Create the '/etc/nut/nut.conf' file.
 	xmlstarlet sel -t -m "//services/nut" \
 	  -i "remotemonitor[. = '0']" -o "MODE=standalone" -b \
 	  -i "remotemonitor[. = '1']" -o "MODE=netserver" -b \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NUT_NUT_CONFIG}
 
-	# Create '/etc/nut/ups.conf'
+	# Create the '/etc/nut/ups.conf'.
 	xmlstarlet sel -t -m "//services/nut" \
 	  -v "concat('[',upsname,']')" -n \
 	  -v driverconf -n \
 	  -i "string-length(comment) > 0" -v "concat('desc = ',comment)" -b \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NUT_UPS_CONFIG}
 
-	# Create '/etc/nut/upsd.conf'
+	# Create the '/etc/nut/upsd.conf' file.
 	cat <<EOF > ${OMV_NUT_UPSD_CONFIG}
 MAXAGE ${OMV_NUT_UPSD_MAXAGE}
 MAXCONN ${OMV_NUT_UPSD_MAXCONN}
@@ -111,7 +111,14 @@ EOF
 	  -b \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NUT_UPSDUSERS_CONFIG}
 
-	# Create '/etc/nut/upsmon.conf'
+	# Create the '/etc/nut/upsmon.conf' file.
+	if [ -z "${OMV_NUT_UPSMON_DEADTIME}" ]; then
+		# Calulate the dead time value: take the larger of the two POLLFREQ
+		# values, and multiply by 3.
+		# See http://www.networkupstools.org/docs/man/upsmon.conf.html
+		OMV_NUT_UPSMON_DEADTIME=$(echo "if (${OMV_NUT_UPSMON_POLLFREQ} > ${OMV_NUT_UPSMON_POLLFREQALERT}) \
+		  ${OMV_NUT_UPSMON_POLLFREQ} * 3 else ${OMV_NUT_UPSMON_POLLFREQALERT} * 3" | bc)
+	fi
 	xmlstarlet sel -t -m "//services/nut" \
 	  -v "concat('MONITOR ',upsname,'@localhost 1 ${OMV_NUT_UPSMON_USER} ${OMV_NUT_UPSMON_PASSWORD} master')" \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NUT_UPSMON_CONFIG}
