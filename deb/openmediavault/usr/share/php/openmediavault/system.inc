@@ -181,9 +181,8 @@ class OMVSystem extends OMVObject {
 		$result['percent'] = round(($result['used'] * 100) / $result['total']);
 */
 		@OMVUtil::exec("free -b", $output, $result);
-		if($result !== 0) {
+		if ($result !== 0)
 			return FALSE;
-		}
 		$result = array(
 			"mem" => array(
 				"total" => 0,
@@ -214,8 +213,8 @@ class OMVSystem extends OMVObject {
 		// -/+ buffers/cache:   46071808  480915456
 		// Swap:    401596416          0  401596416
 		// Total:   928583680  195137536  733446144
-		foreach($output as $outputk => $outputv) {
-			if(preg_match('/^Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/',
+		foreach ($output as $outputk => $outputv) {
+			if (preg_match('/^Mem:\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
 				$result['mem'] = array(
 					"total" => $matches[1],
@@ -225,20 +224,20 @@ class OMVSystem extends OMVObject {
 					"buffers" => $matches[5],
 					"cached" => $matches[6]
 				);
-			} else if(preg_match('/^-\/\+ buffers\/cache:\s+(\d+)\s+(\d+)$/',
+			} else if (preg_match('/^-\/\+ buffers\/cache:\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
 				$result['wobufferscache'] = array(
 					"used" => $matches[1],
 					"free" => $matches[2]
 				);
-			} else if(preg_match('/^Swap:\s+(\d+)\s+(\d+)\s+(\d+)$/',
+			} else if (preg_match('/^Swap:\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
 				$result['swap'] = array(
 					"total" => $matches[1],
 					"used" => $matches[2],
 					"free" => $matches[3]
 				);
-			} else if(preg_match('/^Total:\s+(\d+)\s+(\d+)\s+(\d+)$/',
+			} else if (preg_match('/^Total:\s+(\d+)\s+(\d+)\s+(\d+)$/',
 			  $outputv, $matches)) {
 				$result['swap'] = array(
 					"total" => $matches[1],
@@ -293,6 +292,155 @@ class OMVSystem extends OMVObject {
 			"modelname" => $modelName,
 			"usage" => (($diffTotal - $diffIdle) / $diffTotal) * 100
 		);
+	}
+}
+
+/**
+ * Helper class that implements functions regarding the power management.
+ * @ingroup api
+ */
+class OMVPowerManagement extends OMVObject {
+	const PM_STATE_NONE = 0x0;
+	const PM_STATE_SUSPEND = 0x1;
+	const PM_STATE_HIBERNATE = 0x2;
+	const PM_STATE_SUSPENDHYBRID = 0x4;
+
+	/**
+	 * Checks if the given power management state is supported.
+	 * @param state The state to check for.
+	 * @return TRUE if the state is supported, if not then FALSE. In case
+	 *   of an error NULL is returned.
+	 */
+	public function isStateSupported($state) {
+		$cmdArgs = [];
+		switch ($state) {
+		case self::PM_STATE_SUSPEND:
+			$cmdArgs[] = "--suspend";
+			break;
+		case self::PM_STATE_HIBERNATE:
+			$cmdArgs[] = "--hibernate";
+			break;
+		case self::PM_STATE_SUSPENDHYBRID:
+			$cmdArgs[] = "--suspend-hybrid";
+			break;
+		}
+		$cmd = sprintf("export LANG=C; pm-is-supported %s 2>&1",
+		  implode(" ", $cmdArgs));
+		@OMVUtil::exec($cmd, $output, $result);
+		if (!(($result == 0) || ($result == 1))) {
+			$this->setLastError($output);
+			return NULL;
+		}
+		$supported = ($result == 0) ? TRUE : FALSE;
+		// In case of PM_STATE_HIBERNATE and PM_STATE_SUSPENDHYBRID the
+		// swap space must be greater than the physical memory size to
+		// work correctly.
+		if ((TRUE === $supported) && (self::PM_STATE_SUSPEND !== $state)) {
+			if (FALSE === ($stats = OMVSystem::getMemoryStats()))
+				return NULL;
+			if ($stats['mem']['total'] > $stats['swap']['total'])
+				$supported = FALSE;
+		}
+		return $supported;
+	}
+
+	/**
+	 * Get all supported power management states.
+	 * @return The supported power management states.
+	 */
+	public function getSupportedStates() {
+		$states = self::PM_STATE_NONE;
+		if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPEND))
+			$states |= self::PM_STATE_SUSPEND;
+		if (TRUE === $this->isStateSupported(self::PM_STATE_HIBERNATE))
+			$states |= self::PM_STATE_HIBERNATE;
+		if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPENDHYBRID))
+			$states |= self::PM_STATE_SUSPENDHYBRID;
+		return $states;
+	}
+
+	/**
+	 * Put the machine in a sleep state. If suspend to disk or RAM is not
+	 * supported the system will be shut down. The system will be put into
+	 * one of the following state depending on which state is supported: <ul>
+	 * \li Hybrid suspend (disk and RAM)
+	 * \li Suspend to disk
+	 * \li Suspend to RAM
+	 * \li Shut down and turn of system
+	 * </ul>
+	 * @return TRUE if command has been executed sucessfully, otherwise
+	 *   FALSE.
+	 */
+	public function standby() {
+		$result = FALSE;
+		$cmd = "export LANG=C; shutdown -h -P now 2>&1";
+		if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPENDHYBRID))
+			$cmd = "export LANG=C; pm-suspend-hybrid 2>&1";
+		else if (TRUE === $this->isStateSupported(self::PM_STATE_HIBERNATE))
+			$cmd = "export LANG=C; pm-hibernate 2>&1";
+		else if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPEND))
+			$cmd = "export LANG=C; pm-suspend 2>&1";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
+	 * Put the machine into suspend to RAM (STR) mode. If this state is not
+	 * supported the system will be shut down.
+	 * @return TRUE if command has been executed sucessfully, otherwise
+	 *   FALSE.
+	 */
+	public function suspend() {
+		$result = FALSE;
+		$cmd = "export LANG=C; shutdown -h -P now 2>&1";
+		if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPEND))
+			$cmd = "export LANG=C; pm-suspend 2>&1";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
+	 * Put the machine into suspend to disk (STD) mode. If this state is not
+	 * supported the system will be shut down.
+	 * @return TRUE if command has been executed sucessfully, otherwise
+	 *   FALSE.
+	 */
+	public function hibernate() {
+		$cmd = "export LANG=C; shutdown -h -P now 2>&1";
+		if (TRUE === $this->isStateSupported(self::PM_STATE_HIBERNATE))
+			$cmd = "export LANG=C; pm-hibernate 2>&1";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
+	 * Put the machine into suspend-hybrid mode. If this state is not
+	 * supported the system will be shut down.
+	 * @return TRUE if command has been executed sucessfully, otherwise
+	 *   FALSE.
+	 */
+	public function suspendHybrid() {
+		$cmd = "export LANG=C; shutdown -h -P now 2>&1";
+		if (TRUE === $this->isStateSupported(self::PM_STATE_SUSPENDHYBRID))
+			$cmd = "export LANG=C; pm-suspend-hybrid 2>&1";
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
 	}
 }
 

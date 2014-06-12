@@ -190,7 +190,7 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 	/**
 	 * Put the machine in a sleep state. If suspend to disk or RAM is not
 	 * supported the system will be shut down. The system will be put into
-	 * one of the following state depending on the supported mode: <ul>
+	 * one of the following state depending on which state is supported: <ul>
 	 * \li Hybrid suspend (disk and RAM)
 	 * \li Suspend to disk
 	 * \li Suspend to RAM
@@ -207,27 +207,15 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		// Build the command to execute.
-		$cmd = "if ! which pm-is-supported >/dev/null; then ".
-		  "export LANG=C; shutdown -h -P now 2>&1; ".
-		  "elif pm-is-supported --suspend-hybrid; then ".
-		  "export LANG=C; pm-suspend-hybrid 2>&1; ".
-		  "elif pm-is-supported --hibernate; then ".
-		  "export LANG=C; pm-hibernate 2>&1; ".
-		  "elif pm-is-supported --suspend; then ".
-		  "export LANG=C; pm-suspend 2>&1; ".
-		  "else ".
-		  "export LANG=C; shutdown -h -P now 2>&1; ".
-		  "fi";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		$pm = new OMVPowerManagement();
+		if (FALSE === $pm->standby()) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  $pm->getLastError());
 		}
 	}
 
 	/**
-	 * Put the machine into suspend to RAM mode. If suspend to RAM is not
+	 * Put the machine into suspend to RAM (STR) mode. If this state is not
 	 * supported the system will be shut down.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
@@ -240,28 +228,20 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		// Build the command to execute.
-		$cmd = "if ! which pm-is-supported >/dev/null; then ".
-		  "export LANG=C; shutdown -h -P now 2>&1; ".
-		  "elif pm-is-supported --suspend; then ".
-		  "export LANG=C; pm-suspend 2>&1; ".
-		  "else ".
-		  "export LANG=C; shutdown -h -P now 2>&1; ".
-		  "fi";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		$pm = new OMVPowerManagement();
+		if (FALSE === $pm->suspend()) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  $pm->getLastError());
 		}
 	}
 
 	/**
-	 * Put the machine into suspend to disk mode. If suspend to disk is
-	 * not supported the system will be shut down.
+	 * Put the machine into suspend to disk (STD) mode. If this state is not
+	 * supported the system will be shut down.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_FAILED
+	 * @throw E_EXEC_MISC
 	 * @throw E_RPC_SERVICE_METHOD_INVALID_CONTEXT
 	 */
 	public function hibernate($params, $context) {
@@ -269,18 +249,11 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		// Build the command to execute.
-		$cmd = "if ! which pm-is-supported >/dev/null; then ".
-		  "export LANG=C; shutdown -h -P now 2>&1; ".
-		  "elif pm-is-supported --hibernate; then ".
-		  "export LANG=C; pm-hibernate 2>&1; ".
-		  "else ".
-		  "export LANG=C; shutdown -h -P now 2>&1; ".
-		  "fi";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		// 
+		$pm = new OMVPowerManagement();
+		if (FALSE === $pm->hibernate()) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
+			  $pm->getLastError());
 		}
 	}
 
