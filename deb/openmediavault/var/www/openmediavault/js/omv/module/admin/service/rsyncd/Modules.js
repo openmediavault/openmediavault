@@ -335,9 +335,7 @@ Ext.define("OMV.module.admin.service.rsyncd.module.AuthUsers", {
 						OMV.MessageBox.failure(null, "User already exists.");
 						return;
 					}
-					// Add new record.
-					var record = new this.store.model(values);
-					this.store.add(record);
+					this.store.addData(values);
 				}
 			}
 		}).show();

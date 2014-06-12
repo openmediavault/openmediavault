@@ -414,8 +414,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 						uuid: OMV.UUID_UNDEFINED,
 						rulenum: nextRowNum
 					});
-					var newRecord = new this.store.model(values);
-					this.store.add(newRecord);
+					this.store.addData(values);
 				}
 			}
 		}).show();
