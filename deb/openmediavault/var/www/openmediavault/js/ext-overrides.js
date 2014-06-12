@@ -451,6 +451,32 @@ Ext.apply(Ext.data.Store.prototype, {
 		if(me.getCount() > 0)
 			return true;
 		return false;
+	},
+
+	/**
+	 * Adds data to the store. The model instance will be created
+	 * automatically.
+	 */
+	addData: function(data) {
+		var me = this;
+		var record = me.createModel(data);
+		return me.add(record);
+	},
+
+	/**
+	 * Inserts data into the store at the given index. The model instance
+	 * will be created automatically.
+	 */
+	insertData: function(index, data) {
+		var me = this;
+		var records = [];
+		if (!Ext.isIterable(data))
+			data = [ data ];
+		Ext.Array.each(data, function(item) {
+			var record = me.createModel(item);
+			Ext.Array.push(records, record);
+		});
+		return me.insert(index, records);
 	}
 });
 
