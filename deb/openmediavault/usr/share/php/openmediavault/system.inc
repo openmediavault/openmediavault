@@ -338,8 +338,10 @@ class OMVPowerManagement extends OMVObject {
 		if ((TRUE === $supported) && (self::PM_STATE_SUSPEND !== $state)) {
 			if (FALSE === ($stats = OMVSystem::getMemoryStats()))
 				return NULL;
-			if ($stats['mem']['total'] > $stats['swap']['total'])
+			if ($stats['mem']['total'] > $stats['swap']['total']) {
 				$supported = FALSE;
+				syslog(LOG_NOTICE, gettext("Hybrid-suspend and hibernate mode are supported but ignored because the RAM size is greater than the available swap space."));
+			}
 		}
 		return $supported;
 	}
