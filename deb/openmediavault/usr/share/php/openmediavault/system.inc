@@ -297,6 +297,9 @@ class OMVSystem extends OMVObject {
 
 /**
  * Helper class that implements functions regarding the power management.
+ * References:
+ * https://www.kernel.org/doc/Documentation/power/swsusp.txt
+ * https://wiki.archlinux.org/index.php/Suspend_and_Hibernate
  * @ingroup api
  */
 class OMVPowerManagement extends OMVObject {
@@ -332,6 +335,7 @@ class OMVPowerManagement extends OMVObject {
 			return NULL;
 		}
 		$supported = ($result == 0) ? TRUE : FALSE;
+/*
 		// In case of PM_STATE_HIBERNATE and PM_STATE_SUSPENDHYBRID the
 		// swap space must be greater than the physical memory size to
 		// work correctly.
@@ -343,6 +347,7 @@ class OMVPowerManagement extends OMVObject {
 				syslog(LOG_NOTICE, gettext("Hybrid-suspend and hibernate mode are supported but ignored because the RAM size is greater than the available swap space."));
 			}
 		}
+*/
 		return $supported;
 	}
 
