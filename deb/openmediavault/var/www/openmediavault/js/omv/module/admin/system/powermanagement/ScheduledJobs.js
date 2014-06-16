@@ -38,9 +38,9 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Job", {
 	    "OMV.workspace.window.plugin.ConfigObject"
 	],
 
-	rpcService: "Cron",
-	rpcGetMethod: "get",
-	rpcSetMethod: "setRebootShutdown",
+	rpcService: "PowerMgmt",
+	rpcGetMethod: "getScheduledJob",
+	rpcSetMethod: "setScheduledJob",
 	plugins: [{
 		ptype: "configobject"
 	}],
@@ -75,6 +75,7 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Job", {
 			store: Ext.create("Ext.data.ArrayStore", {
 				fields: [ "value","text" ],
 				data: [
+					[ "standby", _("Standby") ],
 					[ "shutdown", _("Shutdown") ],
 					[ "reboot", _("Reboot") ]
 				]
@@ -259,6 +260,7 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Jobs", {
 		stateId: "type",
 		mapItems: {
 			"reboot": _("Reboot"),
+			"standby": _("Standby"),
 			"shutdown": _("Shutdown")
 		}
 	},{
@@ -349,11 +351,11 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Jobs", {
 				proxy: {
 					type: "rpc",
 					rpcData: {
-						service: "Cron",
-						method: "getList"
+						service: "PowerMgmt",
+						method: "getScheduleList"
 					},
 					extraParams: {
-						"type": [ "reboot", "shutdown" ]
+						"type": [ "reboot", "shutdown", "standby" ]
 					}
 				},
 				remoteSort: true,
@@ -401,8 +403,8 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Jobs", {
 			  scope: me,
 			  callback: me.onDeletion,
 			  rpcData: {
-				  service: "Cron",
-				  method: "delete",
+				  service: "PowerMgmt",
+				  method: "deleteScheduledJob",
 				  params: {
 					  uuid: record.get("uuid")
 				  }
@@ -414,7 +416,7 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Jobs", {
 OMV.WorkspaceManager.registerPanel({
 	id: "scheduledjobs",
 	path: "/system/powermanagement",
-	text: _("Shutdown/Reboot schedule"),
+	text: _("Scheduled Jobs"),
 	position: 20,
 	className: "OMV.module.admin.system.powermanagement.schedule.Jobs"
 });

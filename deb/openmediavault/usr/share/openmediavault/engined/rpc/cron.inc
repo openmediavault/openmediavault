@@ -43,7 +43,6 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 		$this->registerMethod("set");
 		$this->registerMethod("delete");
 		$this->registerMethod("execute");
-		$this->registerMethod("setRebootShutdown");
 	}
 
 	/**
@@ -53,8 +52,8 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 	 *   \em limit The number of objects to process.
 	 *   \em sortfield The name of the column used to sort.
 	 *   \em sortdir The sort direction, ASC or DESC.
-	 *   \em type Array of cron jobs types which are reboot, shutdown
-	 *   or userdefined.
+	 *   \em type Array of cron jobs types which are reboot, shutdown,
+	 *   standby or userdefined.
 	 * @param context The context of the caller.
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
@@ -76,7 +75,7 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
 				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'},
 				  "type":{"type":"array","items":{"type":"string",'.
-					'"format":"regex","pattern":"\/^reboot|shutdown|userdefined$\/i"}}
+					'"format":"regex","pattern":"\/^reboot|shutdown|standby|userdefined$\/i"}}
 			  }
 		  }');
 		// Get configuration data.
@@ -143,7 +142,7 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Set (add/update) a cron job.
+	 * Set (add/update) a cron job configuration object.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
@@ -163,7 +162,7 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 				  "enable":{"type":"boolean"},
 				  "sendemail":{"type":"boolean"},
 				  "type":{"type":["string","null"],"format":"regex",'.
-					'"pattern":"\/^reboot|shutdown|userdefined$\/i"},
+					'"pattern":"\/^reboot|shutdown|standby|userdefined$\/i"},
 				  "minute":{"type":"string","format":"regex",'.
 					'"pattern":"\/^[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|'.
 					'5[0-9]|[*]$\/"},
@@ -223,57 +222,6 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 		  "org.openmediavault.system.crontab.job", $object);
 		// Return the configuration object.
 		return $object;
-	}
-
-	/**
-	 * Set (add/update) a reboot/shutdown cron job.
-	 * @param params The method parameters.
-	 * @param context The context of the caller.
-	 * @return The configuration object.
-	 */
-	public function setRebootShutdown($params, $context) {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
-				  "enable":{"type":"boolean"},
-				  "type":{"type":["string","null"],"format":"regex",'.
-					'"pattern":"\/^reboot|shutdown$\/i"},
-				  "minute":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|'.
-					'5[0-9]|[*]$\/"},
-				  "everynminute":{"type":"boolean"},
-				  "hour":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[0-9]|1[0-9]|2[0-3]|[*]$\/"},
-				  "everynhour":{"type":"boolean"},
-				  "month":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[1-9]|1[0-2]|[*]$\/"},
-				  "dayofmonth":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[1-9]|1[0-9]|2[0-9]|3[0-1]|[*]$\/"},
-				  "everyndayofmonth":{"type":"boolean"},
-				  "dayofweek":{"type":"string","format":"regex",'.
-					'"pattern":"\/^[1-7]|[*]$\/"},
-				  "comment":{"type":"string"}
-			  }
-		  }');
-		// Set missing //system/crontab/job config object fields.
-		$params['username'] = "root";
-		$params['sendemail'] = FALSE;
-		switch($params['type']) {
-		case "reboot":
-			$params['command'] = "shutdown -r now";
-			break;
-		case "shutdown":
-			$params['command'] = "shutdown -h -P now";
-			break;
-		}
-		// Set the cron job using the generic set method.
-		return $this->callMethod("set", $params, $context);
 	}
 
 	/**

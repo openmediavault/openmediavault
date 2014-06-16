@@ -358,6 +358,11 @@ case "$1" in
 			omv_config_add_element "/config/services/smb/shares/share[guestok='1']" "guest" "only"
 			omv_config_delete "/config/services/smb/shares/share/guestok"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "0.6.0.12"; then
+			omv_config_add_element "//system/powermanagement[powerbtn='0']" "powerbtn" "nothing"
+			omv_config_add_element "//system/powermanagement[powerbtn='1']" "powerbtn" "shutdown"
+			omv-mkconf acpid
+		fi
 	;;
 
 	triggered)

@@ -1,0 +1,68 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2014 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+
+usage() {
+	cat <<EOF
+Usage:
+  $(basename $0) [options]
+
+Put the machine in a sleep state. If suspend to disk (STD) or RAM (STR) is
+not supported the system will be shut down. The system will be put into one
+of the following state depending on which state is supported:
+
+* Hybrid suspend (STB)
+* Suspend to disk (STD)
+* Suspend to RAM (STR)
+* Shut down and turn of system
+
+OPTIONS:
+  -h  Show this message.
+
+EOF
+}
+
+while getopts "?h" option
+do
+	case ${option} in
+	h|?)
+		usage >&2
+		exit 2
+		;;
+	esac
+done
+
+if ! which pm-is-supported >/dev/null; then
+	shutdown -h -P now;
+elif pm-is-supported --suspend-hybrid; then
+	pm-suspend-hybrid;
+elif pm-is-supported --hibernate; then
+	pm-hibernate;
+elif pm-is-supported --suspend; then
+	pm-suspend;
+else
+	shutdown -h -P now;
+fi
+
+exit 0

@@ -367,12 +367,13 @@ class OMVPowerManagement extends OMVObject {
 	}
 
 	/**
-	 * Put the machine in a sleep state. If suspend to disk or RAM is not
-	 * supported the system will be shut down. The system will be put into
-	 * one of the following state depending on which state is supported: <ul>
-	 * \li Hybrid suspend (disk and RAM)
-	 * \li Suspend to disk
-	 * \li Suspend to RAM
+	 * Put the machine in a sleep state. If suspend to disk (STD) or RAM (STR)
+	 * is not supported the system will be shut down. The system will be put
+	 * into one of the following state depending on which state is supported:
+	 * <ul>
+	 * \li Hybrid suspend (STB)
+	 * \li Suspend to disk (STD)
+	 * \li Suspend to RAM (STR)
 	 * \li Shut down and turn of system
 	 * </ul>
 	 * @return TRUE if command has been executed sucessfully, otherwise
@@ -433,7 +434,7 @@ class OMVPowerManagement extends OMVObject {
 	}
 
 	/**
-	 * Put the machine into suspend-hybrid mode. If this state is not
+	 * Put the machine into suspend-hybrid (STB) mode. If this state is not
 	 * supported the system will be shut down.
 	 * @return TRUE if command has been executed sucessfully, otherwise
 	 *   FALSE.

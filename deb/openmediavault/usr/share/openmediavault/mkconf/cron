@@ -34,12 +34,12 @@ OMV_CRONTAB_USERDEFINED_CONFIG=${OMV_CRONTAB_USERDEFINED_CONFIG:-"/etc/cron.d/op
 OMV_CRONTAB_CRONSCRIPTS_DIR=${OMV_CRONTAB_CRONSCRIPTS_DIR:-"/var/lib/openmediavault/cron.d"}
 OMV_CRONTAB_CRONSCRIPTS_MASK=${OMV_CRONTAB_CRONSCRIPTS_MASK:-"755"}
 
-# Create the power management cron jobs
+# Create the power management cron jobs.
 xmlstarlet sel -t \
   -o "SHELL=/bin/sh" -n \
   -o "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" -n \
   -o "# m h dom mon dow user    command" -n \
-  -m "//system/crontab/job[type='reboot' or type='shutdown'][enable='1']" \
+  -m "//system/crontab/job[type='reboot' or type='shutdown' or type='standby'][enable='1']" \
 	  -i "everynminute[. = '1']" -v "concat('*/',minute,' ')" -b \
 	  -i "everynminute[. = '0']" -v "concat(minute,' ')" -b \
 	  -i "everynhour[. = '1']" -v "concat('*/',hour,' ')" -b \
@@ -56,7 +56,7 @@ chmod 644 ${OMV_CRONTAB_POWERMNGMT_CONFIG}
 mkdir -p ${OMV_CRONTAB_CRONSCRIPTS_DIR}
 rm -f ${OMV_CRONTAB_CRONSCRIPTS_DIR}/userdefined-*
 
-# Create the scripts
+# Create the user defined scripts.
 xmlstarlet sel -t -m "//system/crontab/job[enable='1' and type='userdefined']" \
   -v "uuid" \
   -i "position() != last()" -n -b \
@@ -72,7 +72,7 @@ xmlstarlet sel -t -m "//system/crontab/job[enable='1' and type='userdefined']" \
 	  chmod ${OMV_CRONTAB_CRONSCRIPTS_MASK} ${filename}
   done
 
-# Create the cron script itself
+# Create the cron script itself.
 xmlstarlet sel -t \
   -o "SHELL=/bin/sh" -n \
   -o "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" -n \

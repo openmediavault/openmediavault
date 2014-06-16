@@ -16,7 +16,7 @@
 		</apt>
 		<powermanagement>
 			<cpufreq>1</cpufreq>
-			<powerbtn>0</powerbtn>
+			<powerbtn>nothing|shutdown|standby</powerbtn>
 		</powermanagement>
 		<time>
 			<timezone>Etc/UTC</timezone>
@@ -170,7 +170,7 @@
 				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 				<enable>0|1</enable>
 				<sendemail>0|1<sendemail>
-				<type>reboot|shutdown|userdefined</type>
+				<type>reboot|shutdown|standby|userdefined</type>
 				<comment>xxx</comment>
 				<minute>[00-59|*]</minute>
 				<everynminute>0|1</everynminute>
