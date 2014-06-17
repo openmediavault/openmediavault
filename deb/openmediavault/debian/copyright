@@ -426,3 +426,8 @@ License: CC-BY-3.0
 Files: /var/www/openmediavault/images/icon-error.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/share.png
+       /var/www/openmediavault/images/share.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
