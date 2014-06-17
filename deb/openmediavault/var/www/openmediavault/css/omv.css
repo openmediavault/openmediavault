@@ -197,10 +197,10 @@ div#headerrlogo {
 	background-size: 16px 16px;
 }
 .x-tree-icon-parent {
-	background-image: url("../images/folder.png");
+	background-image: url("../images/folder.svg");
 }
 .x-grid-tree-node-expanded .x-tree-icon-parent {
-	background-image: url("../images/folder-open.png");
+	background-image: url("../images/folder-open.svg");
 }
 /* Button */
 .x-btn-icon-el {
