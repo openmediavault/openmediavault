@@ -34,8 +34,15 @@ Ext.define("OMV.workspace.window.Tab", {
 	],
 
 	tabClassName: "OMV.tab.Panel",
-	tabConfig: {},
-	tabItems: [],
+
+	constructor: function(config) {
+		var me = this;
+		config = Ext.apply({
+			tabConfig: {},
+			tabItems: []
+		}, config || {});
+		me.callParent([ config ]);
+	},
 
 	getWindowItems: function() {
 		var me = this;

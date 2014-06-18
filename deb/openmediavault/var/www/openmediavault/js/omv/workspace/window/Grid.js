@@ -34,8 +34,15 @@ Ext.define("OMV.workspace.window.Grid", {
 	],
 
 	gridClassName: "OMV.grid.Panel",
-	gridConfig: {},
 	autoLoadData: false, // Done by the store
+
+	constructor: function(config) {
+		var me = this;
+		config = Ext.apply({
+			gridConfig: {}
+		}, config || {});
+		me.callParent([ config ]);
+	},
 
 	getWindowItems: function() {
 		var me = this;

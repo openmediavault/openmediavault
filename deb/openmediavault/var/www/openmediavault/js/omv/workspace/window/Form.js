@@ -34,8 +34,15 @@ Ext.define("OMV.workspace.window.Form", {
 	],
 
 	formClassName: "OMV.form.Panel",
-	formConfig: {},
-	formItems: [],
+
+	constructor: function(config) {
+		var me = this;
+		config = Ext.apply({
+			formConfig: {},
+			formItems: []
+		}, config || {});
+		me.callParent([ config ]);
+	},
 
 	getWindowItems: function() {
 		var me = this;
