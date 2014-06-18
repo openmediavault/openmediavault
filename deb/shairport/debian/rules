@@ -7,6 +7,7 @@ clean:
 	dh_testdir
 	dh_testroot
 	$(MAKE) -C $(SOURCE_DIR) clean
+	(cd $(SOURCE_DIR); rm -f config.h config.mk)
 	dh_clean
 
 configure: configure-stamp
@@ -34,7 +35,6 @@ binary-indep: install
 binary-arch: install
 	dh_testdir
 	dh_testroot
-	dh_install
 	dh_installchangelogs
 	dh_installdebconf
 	dh_lintian
