@@ -1,0 +1,52 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE=1
+SOURCE_DIR=$(shell ls -d shairport-*)
+
+clean:
+	dh_testdir
+	dh_testroot
+	$(MAKE) -C $(SOURCE_DIR) clean
+	dh_clean
+
+configure: configure-stamp
+configure-stamp:
+	dh_testdir
+	(cd $(SOURCE_DIR); ./configure)
+	touch configure-stamp
+
+build: configure build-stamp
+build-stamp:
+	dh_testdir
+	$(MAKE) -C $(SOURCE_DIR)
+	touch build-stamp
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_prep
+	$(MAKE) -C $(SOURCE_DIR) PREFIX=$(CURDIR)/debian/shairport install
+	dh_install --sourcedir=$(SOURCE_DIR)
+
+binary-indep: install
+# Nothing here, move along.
+
+binary-arch: install
+	dh_testdir
+	dh_testroot
+	dh_install
+	dh_installchangelogs
+	dh_installdebconf
+	dh_lintian
+	dh_compress
+	dh_link
+	dh_strip
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install configure
