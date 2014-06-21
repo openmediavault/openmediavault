@@ -863,8 +863,9 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_HFSPLUS'];
 			break;
 		default:
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Filesystem '%s' not supported"), $type));
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf(gettext("Filesystem '%s' not supported"),
+			  $fs->getType()));
 			break;
 		}
 		// Create fstab entry?
