@@ -57,3 +57,8 @@ source_lang = en
 file_filter = openmediavault-owncloud/usr/share/openmediavault/locale/<lang>/openmediavault-owncloud.po
 source_file = openmediavault-owncloud/usr/share/openmediavault/locale/openmediavault-owncloud.pot
 source_lang = en
+
+[openmediavault.openmediavault-shairport]
+file_filter = openmediavault-shairport/usr/share/openmediavault/locale/<lang>/openmediavault-shairport.po
+source_file = openmediavault-shairport/usr/share/openmediavault/locale/openmediavault-shairport.pot
+source_lang = en

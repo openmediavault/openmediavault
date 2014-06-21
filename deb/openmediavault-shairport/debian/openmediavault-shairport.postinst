@@ -27,44 +27,33 @@ set -e
 case "$1" in
 	configure)
 		########################################################################
-		# Set the default settings of the forked-daapd package to those
-		# expected by OpenMediaVault.
+		# Set the default settings of the shairport package to those expected
+		# by OpenMediaVault.
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Updating init script links and actions"
-			invoke-rc.d --force forked-daapd stop
-			update-rc.d forked-daapd disable &>/dev/null
+			invoke-rc.d --force shairport stop
+			update-rc.d shairport disable &>/dev/null
 		fi
 
 		########################################################################
 		# Update the configuration.
 		# <config>
 		#   <services>
-		#     <daap>
-		#       <!--
-		#       <sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
-		#       -->
+		#     <shairport>
 		#       <enable>0|1</enable>
-		#       <libraryname>%h - iTunes/DAAP</libraryname>
-		#       <port>3689</port>
-		#       <sharedfolderref></sharedfolderref>
 		#       <passwordrequired>0|1</passwordrequired>
 		#       <password></password>
-		#       <adminpassword></adminpassword>
-		#     </daap>
+		#     </shairport>
 		#   </services>
 		# </config>
 		########################################################################
-		if ! omv_config_exists "/config/services/daap"; then
+		if ! omv_config_exists "/config/services/shairport"; then
 			echo "Initialize configuration"
 			object="<enable>0</enable>"
-			object="${object}<libraryname>%h - iTunes/DAAP</libraryname>"
-			object="${object}<port>3689</port>"
-			object="${object}<sharedfolderref></sharedfolderref>"
 			object="${object}<passwordrequired>0</passwordrequired>"
 			object="${object}<password></password>"
-			object="${object}<adminpassword>unused</adminpassword>"
-			omv_config_add_element "/config/services" "daap" "${object}" true
+			omv_config_add_element "/config/services" "shairport" "${object}" true
 		fi
 
 		########################################################################
@@ -78,17 +67,6 @@ case "$1" in
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
-		if dpkg --compare-versions "$2" lt-nl "0.2.2"; then
-			rm -f /etc/monit/conf.d/forked-daapd
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.2.4"; then
-			omv_config_delete "//*[userref=/config/system/usermanagement/users/user[name='daapd']/uuid]"
-			omv_config_delete_user "daapd"
-		fi
-		if dpkg --compare-versions "$2" lt-nl "0.6"; then
-			# Delete old and incompatible database file.
-			rm -f /var/cache/forked-daapd/songs3.db
-		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)
