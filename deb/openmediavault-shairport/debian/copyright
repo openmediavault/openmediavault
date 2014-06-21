@@ -8,6 +8,5 @@ License: GPL-3
 
 Files: /var/www/openmediavault/images/airplay.png
        /var/www/openmediavault/images/airplay.svg
-Copyright: WebHostingHub <http://www.webhostinghub.com>
-License: CC-BY-3.0
-
+Copyright: Cole Bemis <http://colebemis.com/feather>
+License: MIT
