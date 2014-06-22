@@ -262,9 +262,8 @@ Ext.define("OMV.workspace.grid.Panel", {
 	 */
 	onSelectionChange: function(model, records) {
 		var me = this;
-		if(me.hideTopToolbar)
+		if (me.hideTopToolbar)
 			return;
-		var tbarBtnName = [ "edit", "delete", "up", "down" ];
 		var tbarBtnDisabled = {
 			"edit": false,
 			"delete": false,
@@ -272,7 +271,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			"down": true
 		};
 		// Enable/disable buttons depending on the number of selected rows.
-		if(records.length <= 0) {
+		if (records.length <= 0) {
 			tbarBtnDisabled["edit"] = true;
 			tbarBtnDisabled["delete"] = true;
 			tbarBtnDisabled["up"] = true;
@@ -290,23 +289,22 @@ Ext.define("OMV.workspace.grid.Panel", {
 		}
 		// Disable 'Delete' button if a selected row is in use or readonly.
 		Ext.Array.each(records, function(record) {
-			if((true == record.get("_used")) ||
+			if ((true == record.get("_used")) ||
 			  (true == record.get("_readonly"))) {
 				tbarBtnDisabled["delete"] = true;
 				return false;
 			}
 		});
 		// Update the button controls.
-		Ext.Array.each(tbarBtnName, function(name) {
-			var tbarBtnCtrl = me.queryById(me.getId() + "-" + name);
-			if(!Ext.isEmpty(tbarBtnCtrl)) {
-				if(true == tbarBtnDisabled[name]) {
+		Ext.Object.each(tbarBtnDisabled, function(key, value) {
+			var tbarBtnCtrl = this.queryById(this.getId() + "-" + key);
+			if (Ext.isObject(tbarBtnCtrl) && tbarBtnCtrl.isButton) {
+				if (true == value)
 					tbarBtnCtrl.disable();
-				} else {
+				else
 					tbarBtnCtrl.enable();
-				}
 			}
-		});
+		}, me);
 	},
 
 	onItemDblClick: function() {

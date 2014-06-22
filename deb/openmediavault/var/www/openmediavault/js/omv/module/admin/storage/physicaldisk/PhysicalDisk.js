@@ -267,14 +267,13 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 	onSelectionChange: function(model, records) {
 		var me = this;
 		me.callParent(arguments);
-		// Process additional buttons
-		var tbarBtnName = [ "edit", "wipe" ];
+		// Process additional buttons.
 		var tbarBtnDisabled = {
 			"edit": true,
 			"wipe": true
 		};
 		// Enable/disable buttons depending on the number of selected rows.
-		if(records.length == 1) {
+		if (records.length == 1) {
 			// If the selected device is a (hardware) RAID, then disable
 			// the 'Edit' button because such devices do not support
 			// this additional customizations.
@@ -284,17 +283,15 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 			tbarBtnDisabled["wipe"] = records[0].get("isroot");
 		}
 		// Update the button controls.
-		for(var i = 0; i < tbarBtnName.length; i++) {
-			var tbarBtnCtrl = me.queryById(me.getId() + "-" +
-			  tbarBtnName[i]);
-			if(!Ext.isEmpty(tbarBtnCtrl)) {
-				if(true == tbarBtnDisabled[tbarBtnName[i]]) {
+		Ext.Object.each(tbarBtnDisabled, function(key, value) {
+			var tbarBtnCtrl = this.queryById(this.getId() + "-" + key);
+			if (Ext.isObject(tbarBtnCtrl) && tbarBtnCtrl.isButton) {
+				if (true == value)
 					tbarBtnCtrl.disable();
-				} else {
+				else
 					tbarBtnCtrl.enable();
-				}
 			}
-		}
+		}, me);
 	},
 
 	onEditButton: function() {
