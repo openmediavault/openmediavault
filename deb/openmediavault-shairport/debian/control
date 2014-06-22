@@ -8,9 +8,9 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-shairport
 Architecture: all
-Depends: openmediavault (>= 0.6.0.11), shairport
+Depends: openmediavault (>= 0.6.0.12), shairport
 Priority: optional
-Description: OpenMediaVault shairport (RAOP server) plugin
+Description: OpenMediaVault shairport (AirPlay/RAOP receiver) plugin
  Shairport emulates an AirPort Express for the purpose of streaming
  music from iTunes and compatible iPods and iPhones. It implements a
  server for the Apple RAOP protocol. ShairPort does not support AirPlay
