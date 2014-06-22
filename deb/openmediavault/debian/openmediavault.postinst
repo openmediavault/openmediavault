@@ -359,6 +359,9 @@ case "$1" in
 			omv_config_delete "/config/services/smb/shares/share/guestok"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.6.0.12"; then
+			# Set default envionment variable for Ext2 mount options.
+			omv_set_default "OMV_FSTAB_MNTOPS_EXT2" "defaults,nofail,acl,user_xattr,noexec"
+			# Convert power button configuration.
 			omv_config_add_element "//system/powermanagement[powerbtn='0']" "powerbtn" "nothing"
 			omv_config_add_element "//system/powermanagement[powerbtn='1']" "powerbtn" "shutdown"
 			omv-mkconf acpid

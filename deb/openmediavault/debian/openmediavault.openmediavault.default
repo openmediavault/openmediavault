@@ -41,6 +41,7 @@ OMV_ENGINED_SO_RCVTIMEO=180
 OMV_ENGINED_DIRTY_MODULES_FILE="/var/lib/openmediavault/dirtymodules.json"
 OMV_INITSYSTEM_SCRIPTS_DIR="/usr/share/openmediavault/initsystem"
 OMV_INITSYSTEM_FILE="/var/lib/openmediavault/initsystem.req"
+OMV_FSTAB_MNTOPS_EXT2="defaults,nofail,acl,user_xattr,noexec"
 OMV_FSTAB_MNTOPS_EXT3="defaults,nofail,acl,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0"
 OMV_FSTAB_MNTOPS_EXT4="defaults,nofail,acl,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0"
 OMV_FSTAB_MNTOPS_JFS="defaults,nofail,noexec,usrquota,grpquota"

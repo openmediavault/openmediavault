@@ -834,6 +834,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		}
 		// Get mount options depending on the filesystem type.
 		switch($fs->getType()) {
+		case "ext2":
+			$fsName = $fs->getUuid();
+			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_EXT2'];
+			break;
 		case "ext3":
 			$fsName = $fs->getUuid();
 			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_EXT3'];

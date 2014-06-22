@@ -1,5 +1,6 @@
 openmediavault (0.6.0.12) stable; urgency=low
 
+  * Support mounting Ext2 file systems via WebGUI.
   * Add ability to put the system into standby via WebGUI.
   * Fix dashboard widget issue at first startup.
   * Mantis 0001045: User defined cron mailer may send empty emails.
