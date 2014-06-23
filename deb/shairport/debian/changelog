@@ -1,3 +1,9 @@
+shairport (1.0.1) stable; urgency=low
+
+  * Improve postinst and postrm scripts.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 23 Jun 2014 22:50:59 +0200
+
 shairport (1.0) stable; urgency=low
 
   * Initial release.

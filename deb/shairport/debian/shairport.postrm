@@ -8,6 +8,7 @@ case "$1" in
 		;;
 
 	purge)
+		deluser shairport
 		if [ -e "/etc/logrotate.d/shairport" ]; then
 			rm -f "/etc/logrotate.d/shairport"
   		fi

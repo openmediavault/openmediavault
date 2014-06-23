@@ -6,6 +6,7 @@ case "$1" in
 	configure)
 		if ! getent passwd shairport >/dev/null 2>&1; then
 			adduser --quiet --system --home /var/lib/shairport --no-create-home shairport
+			adduser shairport audio
 		fi
 		if [ -x "/etc/init.d/shairport" ]; then
 			update-rc.d shairport defaults 25 >/dev/null
