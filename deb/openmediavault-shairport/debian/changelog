@@ -1,3 +1,9 @@
+openmediavault-shairport (0.6.1) stable; urgency=low
+
+  * Do not set AP name manually.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 23 Jun 2014 21:57:31 +0200
+
 openmediavault-shairport (0.6) stable; urgency=low
 
   * Initial release
