@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Volker <votdev@gmx.de>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-21 18:13+0200\n"
+"PO-Revision-Date: 2014-06-23 16:22+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: de\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A password is required to stream audio."
+msgstr "Zum Streamen von Audio wird ein Passwort benötigt."
+
+msgid "Authentication"
+msgstr "Authentifizierung"
+
+msgid "Enable"
+msgstr "Aktivieren"
+
+msgid "General settings"
+msgstr "Allgemeine Einstellungen"
+
+msgid "Password"
+msgstr "Passwort"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Shairport"
+msgstr "Shairport"
