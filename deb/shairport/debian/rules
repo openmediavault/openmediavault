@@ -26,7 +26,7 @@ install: build
 	dh_testdir
 	dh_testroot
 	dh_prep
-	$(MAKE) -C $(SOURCE_DIR) PREFIX=$(CURDIR)/debian/shairport install
+	$(MAKE) -C $(SOURCE_DIR) PREFIX=$(CURDIR)/debian/shairport/usr install
 	dh_install --sourcedir=$(SOURCE_DIR)
 
 binary-indep: install
@@ -37,6 +37,8 @@ binary-arch: install
 	dh_testroot
 	dh_installchangelogs
 	dh_installdebconf
+	dh_installinit -- defaults 25
+	dh_installlogrotate
 	dh_lintian
 	dh_compress
 	dh_link

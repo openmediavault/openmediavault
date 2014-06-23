@@ -1,0 +1,45 @@
+# Shairport Daemon options
+# Uncomment and modify lines to change defaults
+#
+
+# User and group under whihc shairport should be run
+# user should have permission to output sound
+# Check the audio output documentation for details.
+#USER=shairport
+#GROUP=nogroup
+
+# Process' nice on start
+#NICE=0
+
+# File where log messages should be redirected.
+# If a non-default log or error file is used, and logrotate is configured with
+# the provided configuration file, then the paths of the log files should be
+# updated in /etc/logrotate.d/shairport to reflect the value of $LOGFILE and $ERRFILE
+#LOGFILE=/var/log/shairport.log
+
+# If empty, errors are redirected to LOGFILE
+#ERRFILE=/var/log/shairport.err
+
+#PIDFILE=/var/run/shairport.pid
+
+# Set the AirPlay advertised name.
+# Defaults to computer's hostname
+#AP_NAME=
+
+# Set output driver and options
+# Defaults to the first available, depends on the build options
+# Check 'shairport -h' for details
+#OUTPUT=ao
+#OUTPUT_OPTS=
+
+# Force the mDNS backend
+# By default, shairport will try all backends until one works.
+# Check 'shairport -h' for details
+# MDNS=avahi
+
+# Change how many frames re required to start playing
+#BUFFER_FILL=220
+
+#RUN_ONSTART=
+#RUN_ONSTOP=
+

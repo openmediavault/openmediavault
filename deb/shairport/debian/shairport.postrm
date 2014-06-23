@@ -1,0 +1,28 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+	remove)
+		invoke-rc.d shairport stop || :
+		;;
+
+	purge)
+		if [ -e "/etc/logrotate.d/shairport" ]; then
+			rm -f "/etc/logrotate.d/shairport"
+  		fi
+		if [ -d "/var/lib/shairport" ]; then
+			rmdir --ignore-fail-on-non-empty "/var/lib/shairport"
+		fi
+		;;
+
+	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+		;;
+
+	*)
+		echo "postrm called with unknown argument '$1'" >&2
+		exit 1
+		;;
+esac
+
+exit 0
