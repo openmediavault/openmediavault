@@ -32,7 +32,7 @@ case "$1" in
 		########################################################################
 		if [ -z "$2" ]; then
 			echo "Updating init script links and actions"
-			invoke-rc.d --force shairport stop
+			invoke-rc.d --force shairport stop || :
 			update-rc.d shairport disable &>/dev/null
 		fi
 
