@@ -4,9 +4,9 @@
 # 
 # Translators:
 # Milan Toet <milantoet@gmail.com>, 2012-2014
-# Seba Kerckhof <seba.kerckhof@gmail.com>, 2012
+# sebak <seba.kerckhof@gmail.com>, 2012
 # stokerh <stoker.pc@home.nl>, 2012
-# tico <co_ti@hotmail.com>, 2013-2014
+# Tim <co_ti@hotmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"

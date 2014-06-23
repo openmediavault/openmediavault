@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Milan Toet <milantoet@gmail.com>, 2012-2013
-# tico <co_ti@hotmail.com>, 2013-2014
+# Tim <co_ti@hotmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"

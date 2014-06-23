@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Alexander Savchenko <>, 2012
-# az lk <phg.azlk@gmail.com>, 2012
+# Александр <phg.azlk@gmail.com>, 2012
 # артур Мудрых <arturmon82@gmail.com>, 2012
 # mictian <ffrants@gmail.com>, 2012
 # Ichi <ichiperm@gmail.com>, 2012

@@ -1,5 +1,6 @@
 openmediavault-nut (0.6.3) stable; urgency=low
 
+  * Update locales.
   * Adapt WebGUI code to new framework.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 16 May 2014 12:09:33 +0200

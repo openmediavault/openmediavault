@@ -4,9 +4,9 @@
 # 
 # Translators:
 # Mario Varelli <mvarelli@biologia.unipi.it>, 2012
-# Mauro Rulli <mauro.rulli@gmail.com>, 2013
-# Mauro Rulli <mauro.rulli@gmail.com>, 2012
-# Mauro Rulli <mauro.rulli@gmail.com>, 2012
+# maurorulli <mauro.rulli@gmail.com>, 2013
+# maurorulli <mauro.rulli@gmail.com>, 2012
+# maurorulli <mauro.rulli@gmail.com>, 2012
 # Mario Varelli <mvarelli@biologia.unipi.it>, 2012
 # Paolo Velati <paolo.velati@gmail.com>, 2013-2014
 msgid ""
