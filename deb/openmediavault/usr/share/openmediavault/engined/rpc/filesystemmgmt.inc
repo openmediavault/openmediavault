@@ -761,12 +761,12 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				  "force" => TRUE
 			  ), $context);
 		}
-		// Finally erase the filesystem. Whether the partition type is 'dos'
+		// Finally erase the filesystem. Whether the partition schema is 'dos'
 		// then it is necessary to erase the MBR before, otherwise 'wipefs'
 		// fails, e.g.:
 		// wipefs: error: /dev/sdh1: appears to contain 'dos' partition table
 		if ($fs->exists()) {
-			if (in_array($fs->getPartitionType(), array("dos", "vfat"))) {
+			if (in_array($fs->getPartitionScheme(), array("dos", "vfat"))) {
 				// http://en.wikipedia.org/wiki/Master_boot_record
 				$cmd = sprintf("export LANG=C; dd if=/dev/zero of=%s bs=512 ".
 				  "count=1 2>&1", $fs->getDeviceFile());

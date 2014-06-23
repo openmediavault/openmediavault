@@ -466,42 +466,39 @@ class OMVFilesystems extends OMVObject {
 	public static function get() {
 		$cmd = "export LANG=C; blkid -o full";
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if ($result !== 0)
 			return FALSE;
 		$result = array();
-		foreach($output as $outputk => $outputv) {
+		foreach ($output as $outputk => $outputv) {
 			// Parse command output:
 			// /dev/sdb: UUID="e6a0f61e-d969-ffcb-d4c5-06e7711285a3" LABEL="dhcppc4:0" TYPE="linux_raid_member"
 			// /dev/sdg1: LABEL="test" UUID="d19bcea0-a323-4aea-9791-c6578180c129" TYPE="jfs"
+			// /dev/sda5: UUID="902775c7-8250-4630-81eb-2602ac65e136" TYPE="swap" 
+			// /dev/sda1: LABEL="Ubuntu" UUID="4aa77ba3-beb6-45dc-b2c7-e77cffd6c6fd" TYPE="ext4" 
+			// /dev/sdb1: UUID="A27E16CD7E1699DD" TYPE="ntfs" 
+			// /dev/sdc1: UUID="1a03b79f-d347-4a24-8ae2-62f1aa9a4554" TYPE="ext4" 
+			// /dev/sdd1: UUID="cb8f7844-362f-4151-8e9e-3888aab723c2" TYPE="ext4" 
+			// /dev/sda3: UUID="fdca09a8-cbc8-432f-9cba-ce033cb59139" TYPE="ext4" LABEL="Debian"
+			// /dev/sr0: LABEL="Debian 7.5.0 amd64 1" TYPE="iso9660"
 			$regex = '/^(\S+): (.+)$/i';
-			if(1 !== preg_match($regex, $outputv, $matches))
+			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;
+			// Set default values and extract key/value pairs.
 			$data = array(
 				"devicefile" => $matches[1],
 				"uuid" => "",
 				"label" => "",
 				"type" => ""
 			);
-			$output = explode(" ", $matches[2]);
-			foreach($output as $outputk => &$outputv) {
-				$keyValue = explode("=", $outputv);
-				if(count($keyValue) != 2)
+			$parts = preg_split("/(\S+=\\\"[^\\\"]+\\\")|[\s]+/", $matches[2],
+			  -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+			foreach ($parts as $partk => $partv) {
+				$keyValue = explode("=", $partv);
+				if (count($keyValue) != 2)
 					continue;
 				$data[strtolower($keyValue[0])] = substr($keyValue[1], 1, -1);
 			}
 			$result[$data['devicefile']] = $data;
-/*
-			// Alternative implementation:
-			$regex = '/^(\S+): (LABEL="(\S+)" )?UUID="(\S+)" (LABEL="(\S+)" )?TYPE="(\S+)"$/i';
-			if(1 !== preg_match($regex, $outputv, $matches))
-				continue;
-			$result[$matches[1]] = array(
-				"devicefile" => $matches[1],
-				"uuid" => $matches[4],
-				"label" => !empty($matches[3]) ? $matches[3] : $matches[6],
-				"type" => $matches[7]
-			);
-*/
 		}
 		return $result;
 	}
@@ -516,7 +513,7 @@ class OMVFilesystem extends OMVObject {
 	protected $type = "";
 	protected $deviceFile = "";
 	protected $label = "";
-	protected $ptType = "";
+	protected $partEntry = NULL;
 	protected $usage = "";
 	private $dataCached = FALSE;
 
@@ -578,7 +575,8 @@ class OMVFilesystem extends OMVObject {
 			$this->deviceFile = realpath($this->deviceFile);
 
 		// Get the filesystem details.
-		$cmd = sprintf("export LANG=C; blkid -p %s", $this->deviceFile);
+		$cmd = sprintf("export LANG=C; blkid -p -o full %s", escapeshellarg(
+		  $this->deviceFile));
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
 			$this->setLastError($output);
@@ -588,24 +586,33 @@ class OMVFilesystem extends OMVObject {
 		// Parse command output:
 		// /dev/sda1: UUID="3d9be906-d592-449b-93c4-3dd8888801b2" TYPE="ext3"
 		// /dev/sdg1: LABEL="test" UUID="d19bcea0-a323-4aea-9791-c6578180c129" TYPE="jfs"
+		// /dev/sda1: UUID="128917b7-718a-4361-ab6f-6b1725564cb8" VERSION="1.0" TYPE="ext4" USAGE="filesystem" PART_ENTRY_SCHEME="dos" PART_ENTRY_TYPE="0x83" PART_ENTRY_FLAGS="0x80" PART_ENTRY_NUMBER="1" PART_ENTRY_OFFSET="2048" PART_ENTRY_SIZE="30074880" PART_ENTRY_DISK="8:0"
+		// /dev/sdc1: LABEL="xfs" UUID="83d116e4-8b95-4e49-86e4-369615079b33" TYPE="xfs" USAGE="filesystem" PART_ENTRY_SCHEME="gpt" PART_ENTRY_UUID="8856f019-67da-4813-ab75-9fc3c3fe056f" PART_ENTRY_TYPE="0fc63daf-8483-4772-8e79-3d69d8477de4" PART_ENTRY_NUMBER="1" PART_ENTRY_OFFSET="2048" PART_ENTRY_SIZE="206815" PART_ENTRY_DISK="8:32"
+		// /dev/sdg1: LABEL="Traveller" UUID="2218-DF1C" VERSION="FAT32" TYPE="vfat" USAGE="filesystem" PART_ENTRY_SCHEME="dos" PART_ENTRY_TYPE="0xc" PART_ENTRY_FLAGS="0x80" PART_ENTRY_NUMBER="1" PART_ENTRY_OFFSET="62" PART_ENTRY_SIZE="15635532" PART_ENTRY_DISK="8:96"
 		$regex = '/^(\S+): (.+)$/i';
 		if(1 !== preg_match($regex, $output[0], $matches))
 			return FALSE;
-
 		// Set default values and extract key/value pairs.
 		$data = array(
 			"devicefile" => $matches[1],
 			"uuid" => "",
 			"label" => "",
 			"type" => "",
-			"pttype" => "",
+			"part_entry_scheme" => "",
+			"part_entry_uuid" => "",
+			"part_entry_type" => "",
+			"part_entry_flags" => "",
+			"part_entry_number" => "",
+			"part_entry_offset" => "",
+			"part_entry_size" => "",
+			"part_entry_disk" => "",
 			"usage" => ""
 		);
-		$output = preg_split("/(\S+=\\\"[^\\\"]+\\\")|[\s]+/", $matches[2],
+		$parts = preg_split("/(\S+=\\\"[^\\\"]+\\\")|[\s]+/", $matches[2],
 		  -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
-		foreach($output as $outputk => &$outputv) {
-			$keyValue = explode("=", $outputv);
-			if(count($keyValue) != 2)
+		foreach ($parts as $partk => $partv) {
+			$keyValue = explode("=", $partv);
+			if (count($keyValue) != 2)
 				continue;
 			$data[strtolower($keyValue[0])] = substr($keyValue[1], 1, -1);
 		}
@@ -614,8 +621,17 @@ class OMVFilesystem extends OMVObject {
 		$this->uuid = $data['uuid'];
 		$this->label = $data['label'];
 		$this->type = $data['type'];
-		$this->ptType = $data['pttype'];
 		$this->usage = $data['usage'];
+		$this->partEntry = array(
+			"scheme" => $data['part_entry_scheme'],
+			"uuid" => $data['part_entry_uuid'],
+			"type" => $data['part_entry_type'],
+			"flags" => $data['part_entry_flags'],
+			"number" => $data['part_entry_number'],
+			"offset" => $data['part_entry_offset'],
+			"size" => $data['part_entry_size'],
+			"disk" => $data['part_entry_disk']
+		);
 
 		// Set flag to mark information has been successfully read.
 		$this->dataCached = TRUE;
@@ -693,13 +709,22 @@ class OMVFilesystem extends OMVObject {
 	}
 
 	/**
-	 * Get the partition type, e.g. 'dos'.
+	 * Get the partition scheme, e.g. 'gpt', 'mbr', 'apm' or 'dos'.
+	 * @deprecated
 	 * @return The filesystem type, otherwise FALSE.
 	 */
 	public function getPartitionType() {
-		if($this->getData() === FALSE)
+		return $this->getPartitionScheme();
+	}
+
+	/**
+	 * Get the partition scheme, e.g. 'gpt', 'mbr', 'apm' or 'dos'.
+	 * @return The filesystem type, otherwise FALSE.
+	 */
+	public function getPartitionScheme() {
+		if ($this->getData() === FALSE)
 			return FALSE;
-		return $this->ptType;
+		return $this->partEntry['scheme'];
 	}
 
 	/**
@@ -710,6 +735,18 @@ class OMVFilesystem extends OMVObject {
 		if($this->getData() === FALSE)
 			return FALSE;
 		return $this->usage;
+	}
+
+	/**
+	 * Get the partition entry information.
+	 * @return An array with the fields \em scheme, \em uuid, \em type,
+	 *   \em flags, \em number, \em offset, \em size and \em disk,
+	 *   otherwise FALSE.
+	 */
+	public function getPartitionEntry() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		return $this->partEntry;
 	}
 
 	/**
