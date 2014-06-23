@@ -310,42 +310,32 @@ class OMVFilesystems extends OMVObject {
 	public static function get() {
 		$cmd = "export LANG=C; blkid -o full";
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if ($result !== 0)
 			return FALSE;
 		$result = array();
-		foreach($output as $outputk => $outputv) {
+		foreach ($output as $outputk => $outputv) {
 			// Parse command output:
 			// /dev/sdb: UUID="e6a0f61e-d969-ffcb-d4c5-06e7711285a3" LABEL="dhcppc4:0" TYPE="linux_raid_member"
 			// /dev/sdg1: LABEL="test" UUID="d19bcea0-a323-4aea-9791-c6578180c129" TYPE="jfs"
 			$regex = '/^(\S+): (.+)$/i';
-			if(1 !== preg_match($regex, $outputv, $matches))
+			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;
+			// Set default values and extract key/value pairs.
 			$data = array(
 				"devicefile" => $matches[1],
 				"uuid" => "",
 				"label" => "",
 				"type" => ""
 			);
-			$output = explode(" ", $matches[2]);
-			foreach($output as $outputk => &$outputv) {
-				$keyValue = explode("=", $outputv);
-				if(count($keyValue) != 2)
+			$parts = preg_split("/(\S+=\\\"[^\\\"]+\\\")|[\s]+/", $matches[2],
+			  -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+			foreach ($parts as $partk => $partv) {
+				$keyValue = explode("=", $partv);
+				if (count($keyValue) != 2)
 					continue;
 				$data[strtolower($keyValue[0])] = substr($keyValue[1], 1, -1);
 			}
 			$result[$data['devicefile']] = $data;
-/*
-			// Alternative implementation:
-			$regex = '/^(\S+): (LABEL="(\S+)" )?UUID="(\S+)" (LABEL="(\S+)" )?TYPE="(\S+)"$/i';
-			if(1 !== preg_match($regex, $outputv, $matches))
-				continue;
-			$result[$matches[1]] = array(
-				"devicefile" => $matches[1],
-				"uuid" => $matches[4],
-				"label" => !empty($matches[3]) ? $matches[3] : $matches[6],
-				"type" => $matches[7]
-			);
-*/
 		}
 		return $result;
 	}
