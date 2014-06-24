@@ -26,7 +26,7 @@ set -e
 OMV_CONFIG_BACKUP_FILE=${OMV_CONFIG_BACKUP_FILE:-"${OMV_CONFIG_FILE}.05x.bak"}
 
 # Create a configuration backup.
-if [ ! -e "${OMV_CONFIG_BACKUP_FILE}" ]
+if [ ! -e "${OMV_CONFIG_BACKUP_FILE}" ]; then
 	cp -v ${OMV_CONFIG_FILE} ${OMV_CONFIG_BACKUP_FILE}
 fi
 
