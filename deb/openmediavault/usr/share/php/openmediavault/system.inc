@@ -3040,14 +3040,25 @@ class OMVNetworkInterfaces extends OMVObject {
 
 	/**
 	 * Enumerate all network interfaces.
-	 * @return A list of network interfaces, otherwise FALSE.
+	 * @return A list of network interfaces, e.g. eth0 or lo, otherwise FALSE.
 	 */
 	public static function enumerate() {
-		$cmd = "ls /sys/class/net | grep -E '^[a-z]+[0-9]+|lo$'";
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		$result = array();
+		$dir = new DirectoryIterator("/sys/class/net");
+		foreach ($dir as $item) {
+			// Skip everything that is not a symlink.
+			if ($item->isDot() || !$item->isLink())
+				continue;
+			// Validate device names.
+			$regex = '/^[a-z]+[0-9]+|lo$/i';
+			if (1 !== preg_match($regex, $item->getFilename()))
+				continue;
+			$result[] = $item->getFilename();
+		}
+		// Sort the devices using a "natural order" algorithm.
+		if (!natsort($result))
 			return FALSE;
-		return $output;
+		return $result;
 	}
 
 	/**
@@ -3066,11 +3077,19 @@ class OMVNetworkInterfaces extends OMVObject {
 	 * @return A list of network interfaces, otherwise FALSE.
 	 */
 	public static function enumerateByType($type) {
-		$cmd = sprintf("ls /sys/class/net | grep %s", escapeshellarg($type));
-		OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
+		$result = array();
+		$deviceNames = self::enumerate();
+		foreach ($deviceNames as $deviceNamek => $deviceNamev) {
+			// Validate device names.
+			$regex = sprintf('/%s/i', $type);
+			if (1 !== preg_match($regex, $deviceNamev))
+				continue;
+			$result[] = $deviceNamev;
+		}
+		// Sort the devices using a "natural order" algorithm.
+		if (!natsort($result))
 			return FALSE;
-		return $output;
+		return $result;
 	}
 }
 
