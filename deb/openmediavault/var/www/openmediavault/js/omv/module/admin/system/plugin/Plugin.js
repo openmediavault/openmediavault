@@ -226,34 +226,31 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 	onSelectionChange: function(model, records) {
 		var me = this;
 		me.callParent(arguments);
-		var tbarBtnName = [ "install" ];
+		// Process additional buttons.
 		var tbarBtnDisabled = {
 			"install": true
 		};
-		if(records.length <= 0) {
+		if (records.length <= 0) {
 			tbarBtnDisabled["install"] = true;
 		} else {
 			tbarBtnDisabled["install"] = false;
 			// Do not enable the 'Install' button if a plugin is already
 			// installed.
-			for(var i = 0; i < records.length; i++) {
-				if(true === records[i].get("installed")) {
+			Ext.Array.each(records, function(record) {
+				if (true === record.get("installed"))
 					tbarBtnDisabled["install"] = true;
-				}
-			}
+			}, me);
 		}
 		// Update the button states.
-		for(var i = 0; i < tbarBtnName.length; i++) {
-			var tbarBtnCtrl = me.queryById(me.getId() + "-" +
-			  tbarBtnName[i]);
-			if(!Ext.isEmpty(tbarBtnCtrl)) {
-				if(true == tbarBtnDisabled[tbarBtnName[i]]) {
+		Ext.Object.each(tbarBtnDisabled, function(key, value) {
+			var tbarBtnCtrl = this.queryById(this.getId() + "-" + key);
+			if (Ext.isObject(tbarBtnCtrl) && tbarBtnCtrl.isButton) {
+				if (true == value)
 					tbarBtnCtrl.disable();
-				} else {
+				else
 					tbarBtnCtrl.enable();
-				}
 			}
-		}
+		}, me);
 	},
 
 	doReload: function() {

@@ -1,3 +1,10 @@
+openmediavault (0.6.0.13) stable; urgency=low
+
+  * Fix bug when listing packages that are to be upgraded. The RPC called
+    Apt::getUpgraded has been renamed to Apt::enumerateUpgraded.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 24 Jun 2014 07:52:28 +0200
+
 openmediavault (0.6.0.12) stable; urgency=low
 
   * Update locales.

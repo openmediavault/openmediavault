@@ -77,7 +77,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Enumerate all physical volumes on the system.
-		if(FALSE === ($devs = OMVLvmPhysicalVolumes::get())) {
+		if (FALSE === ($devs = OMVLvmPhysicalVolumes::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of physical volumes");
 		}
@@ -285,7 +285,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Enumerate all volume groups on the system.
-		if(FALSE === ($vgs = OMVLvmVolumeGroups::get())) {
+		if (FALSE === ($vgs = OMVLvmVolumeGroups::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of volume groups");
 		}
@@ -367,7 +367,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		// Prepare list of used devices.
 		$usedDevs = array();
 		// Get volume groups to get the used physical volumes.
-		if(FALSE === ($vgs = OMVLvmVolumeGroups::get())) {
+		if (FALSE === ($vgs = OMVLvmVolumeGroups::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of volume groups");
 		}
@@ -378,7 +378,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			$usedDevs = array_merge($usedDevs, $vg->getPVName());
 		}
 		// Get all physical physical volumes.
-		if(FALSE === ($pvs = OMVLvmPhysicalVolumes::get())) {
+		if (FALSE === ($pvs = OMVLvmPhysicalVolumes::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of physical volumes");
 		}
@@ -741,7 +741,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Enumerate all volume groups on the system.
-		if(FALSE === ($lvs = OMVLvmLogicalVolumes::get())) {
+		if (FALSE === ($lvs = OMVLvmLogicalVolumes::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of logical volumes");
 		}

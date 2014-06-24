@@ -1,3 +1,9 @@
+openmediavault-lvm2 (0.6.2) stable; urgency=low
+
+  * Adapt code to new core framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 24 Jun 2014 07:20:48 +0200
+
 openmediavault-lvm2 (0.6.1) stable; urgency=low
 
   * Modify package trigger handling. Now the triggers update-fixperms and

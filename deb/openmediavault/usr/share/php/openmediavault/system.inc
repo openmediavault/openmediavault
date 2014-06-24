@@ -459,11 +459,22 @@ class OMVPowerManagement extends OMVObject {
 class OMVFilesystems extends OMVObject {
 	/**
 	 * Get a list of available/detected file systems.
+	 * @deprecated
 	 * @return A list of file systems, otherwise FALSE. The array elements
 	 *   contain the fields: \em devicefile, \em uuid, \em label and \em type.
 	 *   The devicefile is used as key to access the array elements.
 	 */
 	public static function get() {
+		return self::enumerate();
+	}
+
+	/**
+	 * Enumerate all available/detected file systems.
+	 * @return A list of file systems, otherwise FALSE. The array elements
+	 *   contain the fields: \em devicefile, \em uuid, \em label and \em type.
+	 *   The devicefile is used as key to access the array elements.
+	 */
+	public static function enumerate() {
 		$cmd = "export LANG=C; blkid -o full";
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0)
@@ -3020,26 +3031,44 @@ class OMVNetwork extends OMVObject {
 class OMVNetworkInterfaces extends OMVObject {
 	/**
 	 * Get a list of all network interfaces.
+	 * @deprecated
 	 * @return A list of network interfaces, otherwise FALSE.
 	 */
 	public static function get() {
+		return self::enumerate();
+	}
+
+	/**
+	 * Enumerate all network interfaces.
+	 * @return A list of network interfaces, otherwise FALSE.
+	 */
+	public static function enumerate() {
 		$cmd = "ls /sys/class/net | grep -E '^[a-z]+[0-9]+|lo$'";
-		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0)
 			return FALSE;
 		return $output;
 	}
 
 	/**
 	 * Get a list of network interfaces by type.
+	 * @deprecated
 	 * @param type The type of interface, e.g. eth, lo or bond.
 	 * @return A list of network interfaces, otherwise FALSE.
 	 */
 	public static function getByType($type) {
-		$cmd = sprintf("ls /sys/class/net | grep %s", escapeshellarg(
-		  $type));
+		return self::enumerateByType($type);
+	}
+
+	/**
+	 * Enumerate all network interfaces by type.
+	 * @param type The type of interface, e.g. eth, lo or bond.
+	 * @return A list of network interfaces, otherwise FALSE.
+	 */
+	public static function enumerateByType($type) {
+		$cmd = sprintf("ls /sys/class/net | grep %s", escapeshellarg($type));
 		OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if ($result !== 0)
 			return FALSE;
 		return $output;
 	}
@@ -3337,12 +3366,21 @@ class OMVNetworkInterface extends OMVObject {
 class OMVUserGroups extends OMVObject {
 	/**
 	 * Get a list of system group names.
+	 * @deprecated
 	 * @return An array of system group names, otherwise FALSE.
 	 */
 	public static function get() {
+		return self::enumerate();
+	}
+
+	/**
+	 * Enumerate system group names.
+	 * @return An array of system group names, otherwise FALSE.
+	 */
+	public static function enumerate() {
 		$cmd = "export LANG=C; getent group";
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if ($result !== 0)
 			return FALSE;
 		$list = array();
 		// Parse command output:
@@ -3351,9 +3389,9 @@ class OMVUserGroups extends OMVObject {
 		// sambashare:x:113:
 		// openmediavault:x:999:
 		// nut:x:114:
-		foreach($output as $outputv) {
+		foreach ($output as $outputv) {
 			$data = explode(":", $outputv);
-			if(empty($data))
+			if (empty($data))
 				continue;
 			$list[] = $data[0];
 		}
@@ -3507,12 +3545,21 @@ class OMVUserGroup extends OMVObject {
 class OMVUsers extends OMVObject {
 	/**
 	 * Get a list of system user names.
+	 * @deprecated
 	 * @return An array of system user names, otherwise FALSE.
 	 */
 	public static function get() {
+		return self::enumerate();
+	}
+
+	/**
+	 * Enumerate system user names.
+	 * @return An array of system user names, otherwise FALSE.
+	 */
+	public static function enumerate() {
 		$cmd = "export LANG=C; getent passwd";
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0)
+		if ($result !== 0)
 			return FALSE;
 		$list = array();
 		// Parse command output:
@@ -3522,9 +3569,9 @@ class OMVUsers extends OMVObject {
 		// admin:x:998:100:WebGUI administrator:/home/admin:/usr/sbin/nologin
 		// nut:x:111:114::/var/lib/nut:/bin/false
 		// test:x:1001:100:sdfds:/home/test:/bin/dash
-		foreach($output as $outputv) {
+		foreach ($output as $outputv) {
 			$data = explode(":", $outputv);
-			if(empty($data))
+			if (empty($data))
 				continue;
 			$list[] = $data[0]; // User name
 		}
@@ -3836,6 +3883,7 @@ class OMVUser extends OMVObject {
 class OMVLvmPhysicalVolumes extends OMVObject {
 	/**
 	 * Get a list of physical volumes.
+	 * @deprecated
 	 * @return A list of physical volumes, otherwise FALSE.
 	 * Example: array(
 	 *   0 => /dev/sdb
@@ -3843,6 +3891,18 @@ class OMVLvmPhysicalVolumes extends OMVObject {
 	 * )
 	 */
 	public static function get() {
+		return self::enumerate();
+	}
+
+	/**
+	 * Enumerate LVM physical volumes.
+	 * @return A list of LVM physical volumes, otherwise FALSE.
+	 * Example: array(
+	 *   0 => /dev/sdb
+	 *   1 => /dev/sdd
+	 * )
+	 */
+	public static function enumerate() {
 		$cmd = "export LANG=C; pvdisplay --noheadings -C -o pv_name ".
 		  "2>/dev/null";
 		@OMVUtil::exec($cmd, $output, $result);
@@ -3870,6 +3930,7 @@ class OMVLvmPhysicalVolumes extends OMVObject {
 class OMVLvmLogicalVolumes extends OMVObject {
 	/**
 	 * Get a list of logical volumes.
+	 * @deprecated
 	 * @return A list of logical volumes, otherwise FALSE.
 	 * Example: array(
 	 *   0 => /dev/mapper/vgName-lvName
@@ -3877,6 +3938,18 @@ class OMVLvmLogicalVolumes extends OMVObject {
 	 * )
 	 */
 	public static function get() {
+		return self::enumerate();
+	}
+
+	/**
+	 * Enumerate LVM logical volumes.
+	 * @return A list of LVM logical volumes, otherwise FALSE.
+	 * Example: array(
+	 *   0 => /dev/mapper/vgName-lvName
+	 *   1 => /dev/mapper/...
+	 * )
+	 */
+	public static function enumerate() {
 		$cmd = "export LANG=C; lvdisplay --noheadings --separator '|' ".
 		  "-C -o vg_name,lv_name 2>/dev/null";
 		@OMVUtil::exec($cmd, $output, $result);

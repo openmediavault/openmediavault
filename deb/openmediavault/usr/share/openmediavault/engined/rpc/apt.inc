@@ -38,7 +38,8 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	public function initialize() {
 		$this->registerMethod("getSettings");
 		$this->registerMethod("setSettings");
-		$this->registerMethod("getUpgraded");
+		$this->registerMethod("enumerateUpgraded");
+		$this->registerMethod("getUpgradedList");
 		$this->registerMethod("upgrade");
 		$this->registerMethod("update");
 		$this->registerMethod("upload");
@@ -117,10 +118,10 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Get a list of all packages that are to be upgraded. This list is
+	 * Enumerate all packages that are to be upgraded. This list is
 	 * automatically generated via an APT trigger which is executed
-	 * when 'apt-get update' is called. Thus it is not necessary to execute
-	 * the very cost intensive code every RPC call.
+	 * when 'apt-get update' is called. Thus it is not necessary to
+	 * execute the very cost intensive code every RPC call.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array of objects containing the fields \em name, \em version,
@@ -132,7 +133,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	 *   \em conflicts.
 	 * @throw E_EXEC_FAILED
 	 */
-	function getUpgraded($params, $context) {
+	function enumerateUpgraded($params, $context) {
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
@@ -149,6 +150,47 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		$objects = $indexFile->read();
 		$indexFile->close();
 		return $objects;
+	}
+
+	/**
+	 * Get a list of all packages that are to be upgraded.
+	 * @param params An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @param context The context of the caller.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An object contains the following fields: \em name, \em version,
+	 *   \em oldversion, \em repository, \em architecture, \em package,
+	 *   \em priority, \em section, \em installedsize, \em maintainer,
+	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
+	 *   \em abstract and \em homepage. The following fields are
+	 *   optional: \em description, \em depends, \em replaces and
+	 *   \em conflicts.
+	 * @throw E_EXEC_FAILED
+	 */
+	function getUpgradedList($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "start":{"type":"integer"},
+				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+			  }
+		  }');
+		// Enumerate all packages that are to be upgraded.
+		$objects = $this->callMethod("enumerateUpgraded", NULL, $context);
+		// Filter result.
+		return $this->applyFilter($objects, $params['start'],
+		  $params['limit'], $params['sortfield'], $params['sortdir']);
 	}
 
 	/**

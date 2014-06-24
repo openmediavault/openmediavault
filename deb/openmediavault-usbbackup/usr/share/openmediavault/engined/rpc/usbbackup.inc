@@ -63,7 +63,7 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 		  ));
 		// Get list of all detected filesystems. Note, the list may also
 		// contain RAID and LVM volumes, so the list must be filtered.
-		if (FALSE === ($objects = OMVFilesystems::get())) {
+		if (FALSE === ($objects = OMVFilesystems::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get filesystems"));
 		}

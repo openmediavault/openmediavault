@@ -218,6 +218,7 @@ class OMVLvmPhysicalVolume extends OMVObject {
 class OMVLvmVolumeGroups extends OMVObject {
 	/**
 	 * Get a list of volume groups.
+	 * @deprecated
 	 * @return A list of volume groups or FALSE on failure.
 	 * Example: array(
 	 *   0 => vg0
@@ -226,16 +227,29 @@ class OMVLvmVolumeGroups extends OMVObject {
 	 * )
 	 */
 	public static function get() {
+		return self::enumerate();
+	}
+
+	/**
+	 * Enumerate LVM volume groups.
+	 * @return A list of LVM volume groups or FALSE on failure.
+	 * Example: array(
+	 *   0 => vg0
+	 *   1 => music
+	 *   2 => data
+	 * )
+	 */
+	public static function enumerate() {
 		$cmd = "export LANG=C; vgdisplay --noheadings -C -o vg_name ".
 		  "2>/dev/null";
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
 			return FALSE;
 		}
 		$list = array();
 		// Parse command output:
 		//   vg0
-		foreach($output as $outputk => $outputv) {
+		foreach ($output as $outputk => $outputv) {
 			$list[] = trim($outputv);
 		}
 		return $list;

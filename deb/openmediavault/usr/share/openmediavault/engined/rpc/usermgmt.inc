@@ -134,7 +134,7 @@ finish:
 			  gettext("Failed to get shadow password suite configuration."));
 		}
 		// Get list of user names.
-		if(FALSE === ($users = OMVUsers::get())) {
+		if (FALSE === ($users = OMVUsers::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get list of users."));
 		}
@@ -245,7 +245,7 @@ finish:
 			  gettext("Failed to get shadow password suite configuration."));
 		}
 		// Get list of group names.
-		if(FALSE === ($groups = OMVUserGroups::get())) {
+		if (FALSE === ($groups = OMVUserGroups::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get list of groups."));
 		}

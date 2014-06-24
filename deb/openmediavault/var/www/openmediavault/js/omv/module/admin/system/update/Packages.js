@@ -163,10 +163,9 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 				}),
 				proxy: {
 					type: "rpc",
-					appendSortParams: false,
 					rpcData: {
 						service: "Apt",
-						method: "getUpgraded"
+						method: "getUpgradedList"
 					}
 				},
 				remoteSort: true,
@@ -225,12 +224,11 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 		var me = this;
 		me.callParent(arguments);
 		// Process additional buttons.
-		var tbarBtnName = [ "install", "changelog" ];
 		var tbarBtnDisabled = {
 			"install": true,
 			"changelog": true
 		};
-		if(records.length <= 0) {
+		if (records.length <= 0) {
 			tbarBtnDisabled["install"] = true;
 			tbarBtnDisabled["changelog"] = true;
 		} else if(records.length == 1) {
@@ -241,16 +239,15 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			tbarBtnDisabled["changelog"] = true;
 		}
 		// Update the button states.
-		for(var i = 0; i < tbarBtnName.length; i++) {
-			var tbarBtnCtrl = me.queryById(me.getId() + "-" + tbarBtnName[i]);
-			if(!Ext.isEmpty(tbarBtnCtrl)) {
-				if(true == tbarBtnDisabled[tbarBtnName[i]]) {
+		Ext.Object.each(tbarBtnDisabled, function(key, value) {
+			var tbarBtnCtrl = this.queryById(this.getId() + "-" + key);
+			if (Ext.isObject(tbarBtnCtrl) && tbarBtnCtrl.isButton) {
+				if (true == value)
 					tbarBtnCtrl.disable();
-				} else {
+				else
 					tbarBtnCtrl.enable();
-				}
 			}
-		}
+		}, me);
 	},
 
 	onInstallButton: function() {

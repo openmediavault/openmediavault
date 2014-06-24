@@ -189,13 +189,13 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Enumerate all network interface devices on the system.
-		if(FALSE === ($devs = OMVNetworkInterfaces::get())) {
+		if (FALSE === ($devs = OMVNetworkInterfaces::enumerate())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get list of network interface devices"));
 		}
 		$result = array();
 		// Collect network interface device details.
-		foreach($devs as $devk => $devv) {
+		foreach ($devs as $devk => $devv) {
 			$result[] = $this->getIfaceInfo($devv);
 		}
 		return $result;
