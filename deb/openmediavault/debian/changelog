@@ -1,5 +1,6 @@
 openmediavault (0.6.0.13) stable; urgency=low
 
+  * Update locales.
   * Fix bug when listing packages that are to be upgraded. The RPC called
     Apt::getUpgraded has been renamed to Apt::enumerateUpgraded.
 

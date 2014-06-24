@@ -1,5 +1,7 @@
 openmediavault-clamav (0.6.4) stable; urgency=low
 
+  * Update locales.
+  * Modify package dependencies.
   * Adapt WebGUI code to new framework.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 16 May 2014 12:09:25 +0200

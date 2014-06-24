@@ -8,7 +8,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault
 Architecture: all
-Depends: libjs-extjs4 (>= 4.2.2), nginx, php5-fpm, libpam-modules, pm-utils,
+Depends: libjs-extjs4 (>= 4.2.2), php5-fpm, libpam-modules, pm-utils,
  php5-cgi, php5-cli, php5-pam, php-json-schema, sudo, ethtool, acl, ifenslave,
  resolvconf, iproute, xfsprogs, jfsutils, ntfs-3g, hdparm, sdparm, bootlogd,
  ifupdown, mdadm, postfix, libsasl2-modules, bsd-mailx, ntp, cpufrequtils,
@@ -19,7 +19,7 @@ Depends: libjs-extjs4 (>= 4.2.2), nginx, php5-fpm, libpam-modules, pm-utils,
  cron-apt, quota, quotatool, whiptail, lvm2, watchdog, ca-certificates, perl,
  libjson-perl, liblocale-po-perl, libjavascript-minifier-xs-perl, coreutils,
  xmlstarlet (>= 1.3.1), php5-proctitle, parted, bash, diffutils, lsof, socat,
- rrdcached
+ rrdcached, nginx (>= 1.2.1)
 Description: Open network attached storage solution
  OpenMediaVault is a small and simple to use network attached storage system with
  a smart WebGUI.

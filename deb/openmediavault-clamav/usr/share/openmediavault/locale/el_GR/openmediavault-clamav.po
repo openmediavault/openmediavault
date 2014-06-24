@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Kostas Moho <kgounaris@hotmail.com>, 2012-2013
+# Kostas Moho <kgounaris@hotmail.com>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:17+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-05-27 16:52+0000\n"
+"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -131,7 +131,7 @@ msgid "Hour"
 msgstr "Ώρα"
 
 msgid "Infected files"
-msgstr ""
+msgstr "Μολυσμένα αρχεία"
 
 msgid "Jobs"
 msgstr "Εργασίες"
@@ -143,7 +143,7 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr "Καταγραφή καθαρών αρχείων. Αυξάνει δραστικά το μέγεθος της καταγραφής."
 
 msgid "Message"
-msgstr ""
+msgstr "Μήνυμα"
 
 msgid "Minute"
 msgstr "Λεπτό"
@@ -172,7 +172,7 @@ msgid ""
 msgstr "Περισσότερες λεπτομέρειες <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>εδώ</a>."
 
 msgid "Quarantine"
-msgstr ""
+msgstr "Απομόνωση"
 
 msgid "Run"
 msgstr "Εκτέλεση"
@@ -220,10 +220,10 @@ msgid "The location of the files to scan."
 msgstr "Η τοποθεσία των αρχείων προς έλεγχο."
 
 msgid "The location which is used as quarantine."
-msgstr ""
+msgstr "Η τοποθεσία που θα λειτουργεί ως απομόνωση."
 
 msgid "The option, how to handle infected files."
-msgstr ""
+msgstr "Πώς να χειρίζονται τα μολυσμένα αρχεία."
 
 msgid "Verbose"
 msgstr "Αναλυτικότητα"
