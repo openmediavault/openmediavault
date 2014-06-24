@@ -21,13 +21,8 @@
 
 set -e
 
-. /etc/default/openmediavault
-
-OMV_CONFIG_BACKUP_FILE=${OMV_CONFIG_BACKUP_FILE:-"${OMV_CONFIG_FILE}.05x.bak"}
-
-# Create a configuration backup.
-if [ ! -e "${OMV_CONFIG_BACKUP_FILE}" ]
-	cp -v ${OMV_CONFIG_FILE} ${OMV_CONFIG_BACKUP_FILE}
-fi
+# The home directory of the user 'ftp' is relocated to '/srv/ftp'.
+mkdir -p /srv/ftp
+usermod -d /srv/ftp -m ftp
 
 exit 0
