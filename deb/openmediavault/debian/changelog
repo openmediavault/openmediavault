@@ -126,6 +126,7 @@ openmediavault (0.6) stable; urgency=low
 
 openmediavault (0.5.50) stable; urgency=low
 
+  * Various code improvements.
   * Mantis 0001045: User defined cron mailer may send empty emails.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 05 Jun 2014 12:08:17 +0200
