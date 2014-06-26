@@ -78,8 +78,16 @@ scriptname=$1
 if test -n "${scriptname}" ; then
 	# Test if the script exists.
 	if test ! -f "${OMV_SYSINFO_MODULES_DIR}/${scriptname}" ; then
-		printerror "Unknown script, ${OMV_SYSINFO_MODULES_DIR}/${scriptname} not found."
-		exit 100
+		# Try to find the script that matches the given name.
+		filename=$(find ${OMV_SYSINFO_MODULES_DIR} -maxdepth 1 -type f \
+		  -name "*${scriptname}*" -printf %f)
+		# Check if a file has been found.
+		if test ! -f "${OMV_SYSINFO_MODULES_DIR}/${filename}" ; then
+			printerror "Unknown script, ${OMV_SYSINFO_MODULES_DIR}/${scriptname} not found."
+			exit 100
+		else
+			scriptname=${filename}
+		fi
 	fi
 	# Test if the script is executable.
 	if test ! -x "${OMV_SYSINFO_MODULES_DIR}/${scriptname}" ; then

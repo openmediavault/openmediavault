@@ -23,7 +23,7 @@ set -e
 
 . /usr/share/openmediavault/sysinfo/functions
 
-omv_sysinfo_begin_msg "block device attributes"
+omv_sysinfo_begin_msg "Block device attributes"
 blkid -o full | omv_sysinfo_msg
 omv_sysinfo_end_msg
 
