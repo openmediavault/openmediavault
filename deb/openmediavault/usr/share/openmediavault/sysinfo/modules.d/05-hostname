@@ -24,8 +24,8 @@ set -e
 . /etc/default/locale
 . /usr/share/openmediavault/sysinfo/functions
 
-omv_sysinfo_begin_msg "Locale"
-omv_sysinfo_msg ${LANG}
+omv_sysinfo_begin_msg "Hostname"
+hostname --all-fqdns | omv_sysinfo_msg
 omv_sysinfo_end_msg
 
 exit 0
