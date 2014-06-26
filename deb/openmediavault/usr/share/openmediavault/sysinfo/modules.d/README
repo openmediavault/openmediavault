@@ -1,0 +1,32 @@
+This is the system information module naming schema. Please comply with
+these rules.
+
+Fundamental :-) information modules should be named
+
+00-xxx
+
+Base system settings like date, locale, ...
+
+05-xxx
+
+APT specific modules
+
+10-xxx
+
+System informations like df, blkid, ...
+
+20-xxx
+
+System services like mdadm, lvm, ...
+
+30-xxx
+
+Reserved
+
+40-xxx
+50-xxx
+60-xxx
+
+The rest
+
+> 70-xxx
