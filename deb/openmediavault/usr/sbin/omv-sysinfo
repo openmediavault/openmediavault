@@ -1,0 +1,96 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2014 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_SYSINFO_MODULES_DIR=${OMV_SYSINFO_MODULES_DIR:-"/usr/share/openmediavault/sysinfo/modules.d"}
+
+export LANG=C
+
+# Display usage.
+usage() {
+	cat <<EOF
+Usage:
+  $(basename $0) [options] [basename]
+
+  basename - The name of the diagnostic script to be executed.
+
+OPTIONS:
+  -l  List available diagnostic scripts
+  -h  Print a help text
+EOF
+}
+
+# Print the error message.
+printerror() {
+	if test x${bequiet} = x ; then
+		echo ${*} >&2
+	fi
+	omv_log ${*}
+}
+
+# List available scripts.
+listscripts() {
+	find ${OMV_SYSINFO_MODULES_DIR} -maxdepth 1 -type f -executable \
+	  -printf %f\\n | sort
+}
+
+bequiet=
+
+while getopts 'l?h' option
+do
+	case ${option} in
+	l)
+		listscripts
+		exit 0
+		;;
+	h|?)
+		usage >&2
+		exit 2
+		;;
+	esac
+done
+
+shift $((OPTIND-1))
+scriptname=$1
+
+if test -n "${scriptname}" ; then
+	# Test if the script exists.
+	if test ! -f "${OMV_SYSINFO_MODULES_DIR}/${scriptname}" ; then
+		printerror "Unknown script, ${OMV_SYSINFO_MODULES_DIR}/${scriptname} not found."
+		exit 100
+	fi
+	# Test if the script is executable.
+	if test ! -x "${OMV_SYSINFO_MODULES_DIR}/${scriptname}" ; then
+		printerror "Script ${OMV_SYSINFO_MODULES_DIR}/${scriptname} not executable."
+		exit 101
+	fi
+	# Execute the script.
+	${OMV_SYSINFO_MODULES_DIR}/${scriptname} 2>&1 && exit 0
+else
+	# Execute all scripts.
+	run-parts ${OMV_SYSINFO_MODULES_DIR}
+fi
+
+exit 0

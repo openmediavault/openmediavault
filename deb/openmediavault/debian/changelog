@@ -3,6 +3,8 @@ openmediavault (0.6.0.13) stable; urgency=low
   * Update locales.
   * Fix bug when listing packages that are to be upgraded. The RPC called
     Apt::getUpgraded has been renamed to Apt::enumerateUpgraded.
+  * Introduce omv-sysinfo infrastructure. The CLI tool can be used to collect
+    system information that can be used in support questions or bug reports.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 24 Jun 2014 07:52:28 +0200
 

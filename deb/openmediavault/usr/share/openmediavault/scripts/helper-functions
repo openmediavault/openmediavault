@@ -146,6 +146,12 @@ omv_error() {
 	omv_log $*
 }
 
+# omv_msg message
+# Print the message to stdout.
+omv_msg() {
+	echo $*
+}
+
 # omv_exec_rpc service method params
 # Execute an RPC.
 omv_exec_rpc() {
