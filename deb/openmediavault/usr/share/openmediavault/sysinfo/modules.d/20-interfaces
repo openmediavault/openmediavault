@@ -23,15 +23,16 @@ set -e
 
 . /usr/share/openmediavault/sysinfo/functions
 
-omv_sysinfo_begin_msg "Configured APT data sources"
-omv_sysinfo_msg_caption "/etc/apt/sources.list"
-omv_sysinfo_msg </etc/apt/sources.list
-omv_sysinfo_msg_separator
-omv_sysinfo_msg_caption "/etc/apt/sources.list.d"
-ls -alh /etc/apt/sources.list.d | omv_sysinfo_msg
-omv_sysinfo_msg_separator
-omv_sysinfo_msg_caption "/etc/apt/sources.list.d/openmediavault.list"
-omv_sysinfo_msg </etc/apt/sources.list.d/openmediavault.list
+omv_sysinfo_begin_msg "Network interfaces"
+ip addr show | omv_sysinfo_msg
+for devicefile in $(find /sys/class/net -maxdepth 1 -not -iname "lo" -type l -printf "%f\n") ; do
+	omv_sysinfo_msg_separator
+	omv_sysinfo_msg_caption "Interface information ${devicefile}"
+	ethtool ${devicefile}
+	omv_sysinfo_msg_separator
+	omv_sysinfo_msg_caption "Driver information ${devicefile}"
+	ethtool -i ${devicefile} || : | omv_sysinfo_msg
+done
 omv_sysinfo_end_msg
 
 exit 0

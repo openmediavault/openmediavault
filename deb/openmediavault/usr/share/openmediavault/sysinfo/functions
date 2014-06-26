@@ -37,9 +37,14 @@ omv_sysinfo_msg() {
 }
 
 omv_sysinfo_end_msg() {
-	omv_msg
+	omv_msg ""
 }
 
 omv_sysinfo_msg_separator() {
 	omv_msg "--------------------------------------------------------------------------------"
+}
+
+omv_sysinfo_msg_caption() {
+	omv_msg "$@:"
+	omv_msg "$@:" | sed 's/./=/g'
 }

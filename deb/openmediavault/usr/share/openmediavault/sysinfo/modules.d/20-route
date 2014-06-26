@@ -23,15 +23,8 @@ set -e
 
 . /usr/share/openmediavault/sysinfo/functions
 
-omv_sysinfo_begin_msg "Configured APT data sources"
-omv_sysinfo_msg_caption "/etc/apt/sources.list"
-omv_sysinfo_msg </etc/apt/sources.list
-omv_sysinfo_msg_separator
-omv_sysinfo_msg_caption "/etc/apt/sources.list.d"
-ls -alh /etc/apt/sources.list.d | omv_sysinfo_msg
-omv_sysinfo_msg_separator
-omv_sysinfo_msg_caption "/etc/apt/sources.list.d/openmediavault.list"
-omv_sysinfo_msg </etc/apt/sources.list.d/openmediavault.list
+omv_sysinfo_begin_msg "IP routing table"
+route -n | omv_sysinfo_msg
 omv_sysinfo_end_msg
 
 exit 0
