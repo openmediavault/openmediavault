@@ -3046,8 +3046,8 @@ class OMVNetworkInterfaces extends OMVObject {
 		$result = array();
 		$dir = new DirectoryIterator("/sys/class/net");
 		foreach ($dir as $item) {
-			// Skip everything that is not a symlink.
-			if ($item->isDot() || !$item->isLink())
+			// Skip everything that is not a file.
+			if ($item->isDot() || !$item->isFile())
 				continue;
 			// Validate device names.
 			$regex = '/^[a-z]+[0-9]+|lo$/i';
