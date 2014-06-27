@@ -1,32 +1,29 @@
 This is the system information module naming schema. Please comply with
 these rules.
 
-Fundamental :-) information modules should be named
+00-xxx:
+Release specific information
 
-00-xxx
+10-xxx:
+Base system settings, e.g. date, locale, ...
 
-Base system settings like date, locale, ...
+20-xxx:
+Network informations, e.g. interfaces, iptables, route, ...
 
-05-xxx
+30-xxx:
+System services, e.g. mdadm, lvm, ...
 
-APT specific modules
+40-xxx:
+File system informations, e.g. df, blkid, mount, ...
 
-10-xxx
+50-xxx:
+Package specific information, e.g. APT, dpkg, ...
 
-System informations like df, blkid, ...
+60-xxx:
+Hardware information, e.g. PCI/USB bus or DMI information
 
-20-xxx
+90-xxx:
+Services like SMB/CIFS, FTP, ...
 
-System services like mdadm, lvm, ...
-
-30-xxx
-
+yy-xxx:
 Reserved
-
-40-xxx
-50-xxx
-60-xxx
-
-The rest
-
-> 70-xxx

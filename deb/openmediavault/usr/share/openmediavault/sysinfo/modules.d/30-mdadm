@@ -26,9 +26,14 @@ set -e
 OMV_MDADM_CONFIG=${OMV_MDADM_CONFIG:-"/etc/mdadm/mdadm.conf"}
 
 omv_sysinfo_begin_msg "Linux Software RAID"
-omv_sysinfo_msg </proc/mdstat
-omv_sysinfo_msg_separator
-omv_sysinfo_msg <${OMV_MDADM_CONFIG}
+# Check if a software RAID is used
+if cat /proc/mdstat | egrep "^md"; then
+	omv_sysinfo_msg </proc/mdstat
+	omv_sysinfo_msg_separator
+	omv_sysinfo_msg <${OMV_MDADM_CONFIG}
+else
+	omv_sysinfo_msg "Not used"
+fi
 omv_sysinfo_end_msg
 
 exit 0
