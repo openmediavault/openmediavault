@@ -23,7 +23,7 @@ set -e
 
 . /usr/share/openmediavault/sysinfo/functions
 
-omv_sysinfo_begin_msg "Debian version"
+omv_sysinfo_begin_msg "OS/Debian information"
 lsb_release --all 2>/dev/null | omv_sysinfo_msg
 omv_sysinfo_end_msg
 

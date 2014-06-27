@@ -23,7 +23,7 @@ set -e
 
 . /usr/share/openmediavault/sysinfo/functions
 
-omv_sysinfo_begin_msg "Static information about the filesystems"
+omv_sysinfo_begin_msg "Static information about the file systems"
 omv_sysinfo_msg </etc/fstab
 omv_sysinfo_end_msg
 
