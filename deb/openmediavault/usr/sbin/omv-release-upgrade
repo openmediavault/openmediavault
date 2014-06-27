@@ -42,7 +42,7 @@ whiptail --clear --backtitle "${prodname} - ${prodcopyright}" --title "Release u
 echo "Upgrading system to ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME}) ..."
 
 # Execute scripts before upgrade.
-run-parts --report ${OMV_UPGRADE_SCRIPTS_DIR}/pre.d
+run-parts --exit-on-error ${OMV_UPGRADE_SCRIPTS_DIR}/pre.d
 
 # Update package database and upgrade distribution.
 apt-get update
@@ -50,6 +50,6 @@ apt-get --yes --force-yes --fix-missing --auto-remove --allow-unauthenticated \
   --show-upgraded --option DPkg::Options::="--force-confold" dist-upgrade
 
 # Execute scripts after upgrade.
-run-parts --report ${OMV_UPGRADE_SCRIPTS_DIR}/post.d
+run-parts ${OMV_UPGRADE_SCRIPTS_DIR}/post.d
 
 exit 0

@@ -32,7 +32,7 @@ pluginname="${packagename}-nut"
 if dpkg -l | egrep "${pluginname}" >/dev/null; then
 	echo "The plugin ${pluginname} has been detected. It must be deinstalled before the installation continues."
 	while true; do
-		read -p "Do you want to deinstall this plugin? [y/n]: " choice
+		read -p "Do you want to deinstall this plugin [y/n]? " choice
 		case "${choice}" in
 		[Yy]*)
 			apt-get --yes --force-yes remove "${pluginname}";
