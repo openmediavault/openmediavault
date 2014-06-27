@@ -37,6 +37,7 @@ Usage:
   basename - The name of the diagnostic script to be executed.
 
 OPTIONS:
+  -c  The category of the scripts to be executed, e.g. 20 or 40
   -l  List available diagnostic scripts
   -h  Print a help text
 EOF
@@ -56,11 +57,14 @@ listscripts() {
 	  -printf %f\\n | sort
 }
 
-bequiet=
+category=
 
-while getopts 'l?h' option
+while getopts 'c:l?h' option
 do
 	case ${option} in
+	c)
+		category="${OPTARG}"
+		;;
 	l)
 		listscripts
 		exit 0
@@ -97,8 +101,13 @@ if test -n "${scriptname}" ; then
 	# Execute the script.
 	${OMV_SYSINFO_MODULES_DIR}/${scriptname} 2>&1 && exit 0
 else
-	# Execute all scripts.
-	run-parts ${OMV_SYSINFO_MODULES_DIR}
+	# If there is a category, then execute all scripts related to this,
+	# otherwise execute all scripts.
+	if test -n "${category}" ; then
+		run-parts --regex="${category}-" ${OMV_SYSINFO_MODULES_DIR}
+	else
+		run-parts ${OMV_SYSINFO_MODULES_DIR}
+	fi
 fi
 
 exit 0
