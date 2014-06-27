@@ -21,7 +21,29 @@
 
 set -e
 
-# The home directory of the user 'ftp' is relocated to '/srv/ftp'.
-usermod --home /srv/ftp --move-home ftp || :
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+# Check if the openmediavault-nut plugin is installed. If it is installed,
+# then suggest the deinstallation, otherwise the 0.6.x packages will break
+# the installation.
+packagename=$(omv_product_info "packagename")
+pluginname="${packagename}-nut"
+if dpkg -l | egrep "${pluginname}" >/dev/null; then
+	echo "The plugin ${pluginname} has been detected. It must be deinstalled before the installation continues."
+	while true; do
+		read -p "Do you want to deinstall this plugin? [y/n]: " choice
+		case "${choice}" in
+		[Yy]*)
+			apt-get --yes --force-yes remove "${pluginname}";
+			break;;
+		[Nn]*)
+			echo "Aborting release upgrade"
+			exit 1;;
+		*)
+			echo "Please answer yes or no.";;
+		esac
+	done
+fi
 
 exit 0
