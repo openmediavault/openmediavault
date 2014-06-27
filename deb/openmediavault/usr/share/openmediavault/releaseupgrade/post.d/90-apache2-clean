@@ -30,7 +30,7 @@ OMV_APACHE2_SECURITY_CONFIG=${OMV_APACHE2_SECURITY_CONFIG:-"/etc/apache2/conf.d/
 # Remove Apache2 webserver configuration because it is not needed anymore
 # after switching to nginx.
 rm -f ${OMV_APACHE2_SITE_OPENMEDIAVAULT_CONFIG}
-rm -f ${OMV_APACHE2_WEBGUI_CONFIG_DIR}
+rm -rf ${OMV_APACHE2_WEBGUI_CONFIG_DIR}
 rm -f ${OMV_APACHE2_SECURITY_CONFIG}
 
 exit 0
