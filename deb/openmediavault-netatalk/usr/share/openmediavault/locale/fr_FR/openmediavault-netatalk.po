@@ -4,7 +4,7 @@
 # 
 # Translators:
 # Christophe Lherieau <skimpax@gmail.com>, 2012
-# Nahir Mohamed <nahirmoha@gmail.com>, 2013
+# Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2013
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
 msgid ""

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# dezi121 <by@songming.me>, 2013-2014
+# songming <by@songming.me>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:17+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-05-20 00:10+0000\n"
+"Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgid "Add share"
 msgstr "添加共享"
 
 msgid "Certificate"
-msgstr ""
+msgstr "证书"
 
 msgid "Comment"
 msgstr "注释"
@@ -43,7 +43,7 @@ msgid "General settings"
 msgstr "常规设置"
 
 msgid "Port"
-msgstr ""
+msgstr "端口"
 
 msgid "Settings"
 msgstr "设置"
@@ -55,7 +55,7 @@ msgid "Shares"
 msgstr "共享"
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "SSL证书"
 
 msgid "The location of the files to share."
 msgstr "要共享的本地文件夹位置。"
@@ -67,10 +67,10 @@ msgid "The name of the share."
 msgstr "共享名。"
 
 msgid "The port '%d' is already in use"
-msgstr ""
+msgstr "端口'%d'已被使用"
 
 msgid "The port which is used to access the ownCloud web interface."
-msgstr ""
+msgstr "将用于ownCloud web界面访问端口。"
 
 msgid "n/a"
 msgstr "n/a"

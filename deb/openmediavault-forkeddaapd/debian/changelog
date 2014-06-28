@@ -1,5 +1,6 @@
 openmediavault-forkeddaapd (0.6.2) stable; urgency=low
 
+  * Update locales.
   * Modify package trigger handling. Now the triggers update-fixperms and
     update-locale are only called during package installation.
 

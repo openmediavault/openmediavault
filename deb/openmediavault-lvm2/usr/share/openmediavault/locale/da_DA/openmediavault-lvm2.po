@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2013
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:18+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-06-24 08:55+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,13 +51,13 @@ msgid "Devices"
 msgstr "Enheder"
 
 msgid "Do you really want to create the logical volume?"
-msgstr "Er du sikker på du vil oprette det logisk drev?"
+msgstr "Er du sikker på, du vil oprette det logisk drev?"
 
 msgid "Do you really want to create the physical volume?"
-msgstr "Er du sikker på du vil oprette det fysisk drev?"
+msgstr "Er du sikker på, du vil oprette det fysisk drev?"
 
 msgid "Do you really want to create the volume group?"
-msgstr "Er du sikker på du vil oprette drev gruppen?"
+msgstr "Er du sikker på, du vil oprette drev gruppen?"
 
 msgid "Edit logical volume"
 msgstr "Rediger logisk drev"
@@ -75,13 +75,13 @@ msgid "Extend volume group"
 msgstr "Udvidet drev gruppe"
 
 msgid "Failed to remove logical volume: %s"
-msgstr ""
+msgstr "Lykkedes ikke at fjerne logisk drev: %s"
 
 msgid "Failed to remove physical volume: %s"
-msgstr ""
+msgstr "Lykkedes ikke at fjerne fysisk drev: %s"
 
 msgid "Failed to remove volume group: %s"
-msgstr ""
+msgstr "Lykkedes ikke at fjerne drev gruppe: %s"
 
 msgid "Free"
 msgstr "Fri"
@@ -105,10 +105,10 @@ msgid "No free space available to extend the logical volume."
 msgstr "Der er ingen ledig plads tilgængelig for udvidelse af det logiske drev."
 
 msgid "No logical volume found on '%s'"
-msgstr ""
+msgstr "Intet logisk drev fundet på '%s'"
 
 msgid "No physical volume found on '%s'"
-msgstr ""
+msgstr "Intet fysisk drev fundet på '%s'"
 
 msgid "Physical volumes"
 msgstr "Fysiske drev"
@@ -135,7 +135,7 @@ msgid "Volume group"
 msgstr "Drev gruppe"
 
 msgid "Volume group '%s' not found"
-msgstr ""
+msgstr "Drev gruppe '%s' ikke fundet"
 
 msgid "Volume groups"
 msgstr "Drev grupper"

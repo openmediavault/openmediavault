@@ -1,3 +1,9 @@
+openmediavault-nut (0.6.5) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 28 Jun 2014 16:59:03 +0200
+
 openmediavault-nut (0.6.4) stable; urgency=low
 
   * Update locales.

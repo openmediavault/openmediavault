@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:17+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-05-20 00:24+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgid "Add share"
 msgstr "共有の追加"
 
 msgid "Certificate"
-msgstr ""
+msgstr "証明書"
 
 msgid "Comment"
 msgstr "コメント"
@@ -42,7 +43,7 @@ msgid "General settings"
 msgstr "一般設定"
 
 msgid "Port"
-msgstr ""
+msgstr "ポート"
 
 msgid "Settings"
 msgstr "設定"
@@ -54,7 +55,7 @@ msgid "Shares"
 msgstr "共有"
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "SSL証明書。"
 
 msgid "The location of the files to share."
 msgstr "共有するファイルの場所。"
@@ -66,10 +67,10 @@ msgid "The name of the share."
 msgstr "共有の名前"
 
 msgid "The port '%d' is already in use"
-msgstr ""
+msgstr "ポート '%s' はすでに使用されています"
 
 msgid "The port which is used to access the ownCloud web interface."
-msgstr ""
+msgstr "ownCloudのWebインタフェースにアクセスするために使用されているポート。"
 
 msgid "n/a"
 msgstr "n/a"

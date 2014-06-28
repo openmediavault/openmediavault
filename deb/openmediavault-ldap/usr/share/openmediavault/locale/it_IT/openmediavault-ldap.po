@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Mauro Rulli <mauro.rulli@gmail.com>, 2012
+# maurorulli <mauro.rulli@gmail.com>, 2012
 # Paolo Velati <paolo.velati@gmail.com>, 2013
 msgid ""
 msgstr ""

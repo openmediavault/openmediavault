@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Paolo Velati <paolo.velati@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-21 18:13+0200\n"
-"PO-Revision-Date: 2014-06-23 16:18+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-06-23 17:05+0000\n"
+"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,22 +19,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "A password is required to stream audio."
-msgstr ""
+msgstr "Per lo streaming audio è richiesta una password."
 
 msgid "Authentication"
-msgstr ""
+msgstr "Autenticazione"
 
 msgid "Enable"
-msgstr ""
+msgstr "Abilita"
 
 msgid "General settings"
-msgstr ""
+msgstr "Impostazioni generali"
 
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 msgid "Shairport"
-msgstr ""
+msgstr "Shairport"

@@ -5,14 +5,14 @@
 # Translators:
 # Antonio Pelaez Redondo <antorayman@gmail.com>, 2012
 # jmcainzos <jmcainzos@vodafone.es>, 2012
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2013
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:18+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-05-22 15:12+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -77,13 +77,13 @@ msgid "Extend volume group"
 msgstr "Ampliar grupo de volúmenes"
 
 msgid "Failed to remove logical volume: %s"
-msgstr ""
+msgstr "Fallo al borrar el volúmen lógico: %s"
 
 msgid "Failed to remove physical volume: %s"
-msgstr ""
+msgstr "Fallo al borrar el volúmen físico: %s"
 
 msgid "Failed to remove volume group: %s"
-msgstr ""
+msgstr "Fallo al borrar el grupo de volúmenes: %s"
 
 msgid "Free"
 msgstr "Libre"
@@ -107,10 +107,10 @@ msgid "No free space available to extend the logical volume."
 msgstr "No hay suficiente espacio libre para extender el volumen lógico."
 
 msgid "No logical volume found on '%s'"
-msgstr ""
+msgstr "No se ha encontrado volúmen lógico en '%s'"
 
 msgid "No physical volume found on '%s'"
-msgstr ""
+msgstr "No se ha encontrado volúmen físico en '%s'"
 
 msgid "Physical volumes"
 msgstr "Volúmenes físicos"
@@ -137,7 +137,7 @@ msgid "Volume group"
 msgstr "Grupo de volúmenes"
 
 msgid "Volume group '%s' not found"
-msgstr ""
+msgstr "Grupo de volúmenes '%s' no encontrado"
 
 msgid "Volume groups"
 msgstr "Grupos de volúmenes"

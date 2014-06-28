@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Christophe Lherieau <skimpax@gmail.com>, 2013
+# Christophe Lherieau <skimpax@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:17+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-06-23 15:20+0000\n"
+"Last-Translator: Christophe Lherieau <skimpax@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +22,7 @@ msgid "Add share"
 msgstr "Ajouter un partage"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Certificat"
 
 msgid "Comment"
 msgstr "Commentaire"
@@ -43,7 +43,7 @@ msgid "General settings"
 msgstr "Paramètres généraux"
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Settings"
 msgstr "Paramètres"
@@ -55,7 +55,7 @@ msgid "Shares"
 msgstr "Partages"
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "Le certificat SSL à utiliser."
 
 msgid "The location of the files to share."
 msgstr "L'emplacement des fichers à partager."
@@ -67,10 +67,10 @@ msgid "The name of the share."
 msgstr "Le nom du partage."
 
 msgid "The port '%d' is already in use"
-msgstr ""
+msgstr "Le port '%d' est déjà utilisé"
 
 msgid "The port which is used to access the ownCloud web interface."
-msgstr ""
+msgstr "Le port utilisé pour accéder à l'interface web d'ownCloud."
 
 msgid "n/a"
 msgstr "n/a"

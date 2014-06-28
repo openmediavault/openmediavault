@@ -1,5 +1,6 @@
 openmediavault-usbbackup (0.6.2) stable; urgency=low
 
+  * Update locales.
   * Adapt code to new core framework.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 24 Jun 2014 07:09:06 +0200

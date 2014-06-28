@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Christophe Lherieau <skimpax@gmail.com>, 2013
-# Nahir Mohamed <nahirmoha@gmail.com>, 2013
+# Christophe Lherieau <skimpax@gmail.com>, 2013-2014
+# Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:18+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-06-23 15:18+0000\n"
+"Last-Translator: Christophe Lherieau <skimpax@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,7 +81,7 @@ msgid "Failed to get filesystems"
 msgstr "Echec de lecture du système de fichier"
 
 msgid "Failed to get storage device file from '%s'"
-msgstr ""
+msgstr "Echec de récupération du périphérique de stockage de '%s'"
 
 msgid "Filesystem '%s' not found"
 msgstr "Système de fichier '%s' non trouvé"

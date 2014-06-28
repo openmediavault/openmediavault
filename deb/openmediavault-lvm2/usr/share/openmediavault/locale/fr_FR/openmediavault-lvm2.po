@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Christophe Lherieau <skimpax@gmail.com>, 2012-2013
+# Christophe Lherieau <skimpax@gmail.com>, 2012-2014
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:18+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-06-23 15:15+0000\n"
+"Last-Translator: Christophe Lherieau <skimpax@gmail.com>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -76,13 +76,13 @@ msgid "Extend volume group"
 msgstr "Agrandir le groupe de volumes"
 
 msgid "Failed to remove logical volume: %s"
-msgstr ""
+msgstr "Echec lors de la suppression du volume logique : %s"
 
 msgid "Failed to remove physical volume: %s"
-msgstr ""
+msgstr "Echec lors de la suppression du volumes physique : %s"
 
 msgid "Failed to remove volume group: %s"
-msgstr ""
+msgstr "Echec lors de la suppression du groupe de volume : %s"
 
 msgid "Free"
 msgstr "Libérer"
@@ -106,10 +106,10 @@ msgid "No free space available to extend the logical volume."
 msgstr "Aucun espace libre n'est disponible pour étendre le volume logique."
 
 msgid "No logical volume found on '%s'"
-msgstr ""
+msgstr "Aucun volume logique trouvé sur '%s'"
 
 msgid "No physical volume found on '%s'"
-msgstr ""
+msgstr "Aucun volume physique trouvé sur '%s'"
 
 msgid "Physical volumes"
 msgstr "Volumes physiques"
@@ -136,7 +136,7 @@ msgid "Volume group"
 msgstr "Groupe de volumes"
 
 msgid "Volume group '%s' not found"
-msgstr ""
+msgstr "Groupe de volume '%s' non trouvé"
 
 msgid "Volume groups"
 msgstr "Groupes de volumes"

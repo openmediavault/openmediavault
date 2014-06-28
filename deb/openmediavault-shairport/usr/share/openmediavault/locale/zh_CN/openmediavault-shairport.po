@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# songming <by@songming.me>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-21 18:13+0200\n"
-"PO-Revision-Date: 2014-06-23 16:18+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-06-24 01:28+0000\n"
+"Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,22 +19,22 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "A password is required to stream audio."
-msgstr ""
+msgstr "音频流需要密码。"
 
 msgid "Authentication"
-msgstr ""
+msgstr "验证"
 
 msgid "Enable"
-msgstr ""
+msgstr "启用"
 
 msgid "General settings"
-msgstr ""
+msgstr "常规设置"
 
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 msgid "Shairport"
-msgstr ""
+msgstr "Shairport"

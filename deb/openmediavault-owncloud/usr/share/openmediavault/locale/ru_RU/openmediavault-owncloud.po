@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Alexander Savchenko <a.v.savchenko@mail.ru>, 2014
 # артур Мудрых <arturmon82@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:17+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-06-01 08:02+0000\n"
+"Last-Translator: Alexander Savchenko <a.v.savchenko@mail.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,7 +23,7 @@ msgid "Add share"
 msgstr "Добавить каталог"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Сертификат"
 
 msgid "Comment"
 msgstr "Коментарий"
@@ -43,7 +44,7 @@ msgid "General settings"
 msgstr "Общие параметры"
 
 msgid "Port"
-msgstr ""
+msgstr "Порт"
 
 msgid "Settings"
 msgstr "Настройки"
@@ -55,7 +56,7 @@ msgid "Shares"
 msgstr "Общие ресурсы"
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "Сертификат SSL."
 
 msgid "The location of the files to share."
 msgstr "Расположение файлов общего доступа."
@@ -67,7 +68,7 @@ msgid "The name of the share."
 msgstr "Имя общего ресурса."
 
 msgid "The port '%d' is already in use"
-msgstr ""
+msgstr "Порт '%d' уже используется"
 
 msgid "The port which is used to access the ownCloud web interface."
 msgstr ""
