@@ -43,4 +43,4 @@ EOF
 
 # Add additional extensions to the configuration file
 cat /dev/null > ${OMV_SAMBA_CONFIG}
-run-parts ${OMV_SAMBA_EXTENSIONS_DIR}
+run-parts --exit-on-error ${OMV_SAMBA_EXTENSIONS_DIR}

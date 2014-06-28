@@ -33,7 +33,7 @@ if test $# -gt 0; then
 	done
 else
 	# Execute all scripts.
-	run-parts --report ${OMV_INITSYSTEM_SCRIPTS_DIR} 2>&1 >${OMV_LOG_DIR}/initsystem.log
+	run-parts --exit-on-error ${OMV_INITSYSTEM_SCRIPTS_DIR} 2>&1 >${OMV_LOG_DIR}/initsystem.log
 fi
 
 # Remove the flag.

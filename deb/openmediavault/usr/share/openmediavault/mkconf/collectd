@@ -152,7 +152,7 @@ EOF
 	chmod 755 ${OMV_COLLECTD_RRDTOOL_MKGRAPH}
 
 	# Create '/etc/avahi/services/*.service' files
-	run-parts ${OMV_COLLECTD_PLUGINS_DIR}
+	run-parts --exit-on-error ${OMV_COLLECTD_PLUGINS_DIR}
 
 	cat <<EOF >> ${OMV_COLLECTD_CONFIG}
 Include "/etc/collectd/thresholds.conf"

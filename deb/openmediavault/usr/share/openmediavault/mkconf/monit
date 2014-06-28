@@ -94,7 +94,7 @@ xmlstarlet sel -t -m "//system/email" \
 
 # Create the service configuration files.
 rm -f ${OMV_MONIT_CONFIG_INCLUDE_DIR}/openmediavault-*.conf
-run-parts ${OMV_MONIT_EXTENSIONS_DIR}
+run-parts --exit-on-error ${OMV_MONIT_EXTENSIONS_DIR}
 find ${OMV_MONIT_CONFIG_INCLUDE_DIR} -type f -print0 | xargs -0r chmod 0600
 
 # Include custom config files.

@@ -92,5 +92,5 @@ EOF
 
 # Create '/etc/avahi/services/*.service' files
 if [ "${OMV_AVAHIDAEMON_UPDATEAVAHISERVICES}" = "yes" ]; then
-	run-parts ${OMV_AVAHIDAEMON_AVAHISERVICES_DIR}
+	run-parts --exit-on-error ${OMV_AVAHIDAEMON_AVAHISERVICES_DIR}
 fi

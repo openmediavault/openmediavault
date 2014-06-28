@@ -29,4 +29,4 @@ OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkco
 OMV_PAM_EXTENSIONS_DIR=${OMV_PAM_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/pam.d"}
 
 # Build the PAM module configuration files.
-run-parts ${OMV_PAM_EXTENSIONS_DIR}
+run-parts --exit-on-error ${OMV_PAM_EXTENSIONS_DIR}

@@ -29,4 +29,4 @@ OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkco
 OMV_PHP5FPM_EXTENSIONS_DIR=${OMV_PHP5FPM_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/php5fpm.d"}
 
 # Build the configuration files.
-run-parts ${OMV_PHP5FPM_EXTENSIONS_DIR}
+run-parts --exit-on-error ${OMV_PHP5FPM_EXTENSIONS_DIR}

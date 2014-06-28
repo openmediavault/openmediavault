@@ -311,4 +311,4 @@ done
 touch "${OMV_PROFTPD_TRANSFERLOG}"
 
 # Add additional extensions to the configuration file.
-run-parts ${OMV_PROFTPD_EXTENSIONS_DIR}
+run-parts --exit-on-error ${OMV_PROFTPD_EXTENSIONS_DIR}
