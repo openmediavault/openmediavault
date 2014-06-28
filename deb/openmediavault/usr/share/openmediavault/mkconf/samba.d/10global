@@ -56,7 +56,6 @@ xmlstarlet sel -t -m "//services/smb" \
   -o "[global]" -n \
   -v "concat('workgroup = ',workgroup)" -n \
   -v "concat('server string = ',serverstring)" -n \
-  -o "include = /etc/samba/dhcp.conf" -n \
   -o "dns proxy = ${OMV_SAMBA_DNSPROXY}" -n \
   -v "concat('log level = ',loglevel)" -n \
   -v "concat('syslog = ',loglevel)" -n \
