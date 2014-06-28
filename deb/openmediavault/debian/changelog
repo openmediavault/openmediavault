@@ -1,4 +1,4 @@
-openmediavault (0.5.5) stable; urgency=low
+openmediavault (0.5.51) stable; urgency=low
 
   * Improve release upgrade script.
 
