@@ -1400,6 +1400,19 @@ abstract class OMVBlockDeviceAbstract extends OMVObject implements
 		$devNumParts = explode(":", $devNum);
 		return intval($devNumParts[1]);
 	}
+
+	/**
+	 * Check if the device is of rotational type or non-rotational type.
+	 * See https://www.kernel.org/doc/Documentation/block/queue-sysfs.txt
+	 * @return TRUE if device is of rotational type, otherwise FALSE.
+	 */
+	public function isRotational() {
+		$filename = sprintf("/sys/block/%s/queue/rotational",
+		  $this->getDeviceName());
+		if (!file_exists($filename))
+			return TRUE; // Assume device is rotational if file doesn't exist.
+		return (trim(file_get_contents($filename)) == "1") ? TRUE : FALSE;
+	}
 }
 
 /**
