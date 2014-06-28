@@ -623,6 +623,7 @@ class OMVRpcServiceMgr extends OMVObject {
 			  $name, get_class($service));
 		}
 		$this->map[strtolower($name)] = $service;
+		ksort($this->map);
 		return TRUE;
 	}
 

@@ -317,6 +317,7 @@ class OMVModuleMgr extends OMVObject {
 			  $name, get_class($module)));
 		}
 		$this->map[strtolower($name)] = $module;
+		ksort($this->map);
 		return TRUE;
 	}
 
