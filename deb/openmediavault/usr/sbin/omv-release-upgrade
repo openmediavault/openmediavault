@@ -41,8 +41,14 @@ whiptail --clear --backtitle "${prodname} - ${prodcopyright}" --title "Release u
 [ $? -ne 0 ] && exit 0
 echo "Upgrading system to ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENAME}) ..."
 
+# Backup the release upgrade scripts to a temporary directory. This is
+# necessary because the scripts directory is removed when the package
+# openmediavault 0.6.x is installed (which does not contain these files).
+tmpdir=$(mktemp -d)
+cp -r ${OMV_UPGRADE_SCRIPTS_DIR}/* ${tmpdir}
+
 # Execute scripts before upgrade.
-run-parts --exit-on-error ${OMV_UPGRADE_SCRIPTS_DIR}/pre.d
+run-parts --exit-on-error ${tmpdir}/pre.d
 
 # Update package database and upgrade distribution.
 apt-get update
@@ -50,6 +56,8 @@ apt-get --yes --force-yes --fix-missing --auto-remove --allow-unauthenticated \
   --show-upgraded --option DPkg::Options::="--force-confold" dist-upgrade
 
 # Execute scripts after upgrade.
-run-parts ${OMV_UPGRADE_SCRIPTS_DIR}/post.d
+run-parts ${tmpdir}/post.d
+
+rm -rf ${tmpdir}
 
 exit 0

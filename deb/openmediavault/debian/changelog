@@ -1,3 +1,9 @@
+openmediavault (0.5.5) stable; urgency=low
+
+  * Improve release upgrade script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 28 Jun 2014 16:04:50 +0200
+
 openmediavault (0.5.50) stable; urgency=low
 
   * Various code improvements.
