@@ -1,0 +1,51 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+_omv-sysinfo()
+{
+	local cur prev
+
+	COMPREPLY=()
+	cur="${COMP_WORDS[COMP_CWORD]}"
+	prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+	# Directory where the OMV-sysinfo modules are stored.
+	OMV_SYSINFO_MODULES="/usr/share/openmediavault/sysinfo/modules.d"
+
+	# If previous word is "-c" (category) then print out only numbers.
+	case $prev in
+	-c)  
+		COMPREPLY=( $( command ls --color=never $OMV_SYSINFO_MODULES \
+		  2>/dev/null | egrep '^[0-9]{2}-' | sed 's/[a-z\-]*$//g') )
+		COMPREPLY=( $( compgen -W '${COMPREPLY[@]#$OMV_SYSINFO_MODULES}' \
+		  -- "$cur" ) )
+		;;
+	*)
+		# If the user types "-" print out the CLI arguments.
+		if [[ "$cur" == -* ]]; then
+			COMPREPLY=( $( compgen -W '-c -l -h' -- "$cur" ) )
+		else
+			# Print out all the modules in $OMV_SYSINFO_MODULES starting
+			# with 2 digits and a dash "-".
+			COMPREPLY=( $( command ls --color=never $OMV_SYSINFO_MODULES \
+			  2>/dev/null | egrep '^[0-9]{2}-') )
+			COMPREPLY=( $( compgen -W '${COMPREPLY[@]#$OMV_SYSINFO_MODULES}' \
+			  -- "$cur" ) )
+		fi
+	esac
+} &&
+complete -F _omv-sysinfo omv-sysinfo

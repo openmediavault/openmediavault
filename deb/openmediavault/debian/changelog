@@ -1,3 +1,9 @@
+openmediavault (0.6.0.15) stable; urgency=low
+
+  * Add omv-sysinfo bash completion. Thanks to Ralf Lindlein.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 29 Jun 2014 21:33:12 +0200
+
 openmediavault (0.6.0.14) stable; urgency=low
 
   * Update locales.
