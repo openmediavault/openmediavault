@@ -22,9 +22,16 @@
 set -e
 
 . /usr/share/openmediavault/sysinfo/functions
+. /etc/os-release
+
+release=$(cat /etc/debian_version)
+codename=$(echo ${VERSION} | sed -e 's/.*(\(\S*\))/\1/gi')
 
 omv_sysinfo_begin_msg "OS/Debian information"
-omv_sysinfo_msg </etc/debian_version
+omv_sysinfo_msg "Distributor ID: ${ID}"
+omv_sysinfo_msg "Description: ${PRETTY_NAME}"
+omv_sysinfo_msg "Release: ${release}"
+omv_sysinfo_msg "Codename:	${codename}"
 omv_sysinfo_end_msg
 
 exit 0

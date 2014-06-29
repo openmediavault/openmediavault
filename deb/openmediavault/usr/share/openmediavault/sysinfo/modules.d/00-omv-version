@@ -28,8 +28,9 @@ packagename=$(omv_product_info "packagename")
 versionname=$(omv_product_info "versionname")
 version=$(dpkg-query -W -f='${Version}' ${packagename})
 
-omv_sysinfo_begin_msg "${name} version"
-omv_sysinfo_msg "${versionname} (${version})"
+omv_sysinfo_begin_msg "${name} information"
+omv_sysinfo_msg "Release: ${version}"
+omv_sysinfo_msg "Codename: ${versionname}"
 omv_sysinfo_end_msg
 
 exit 0
