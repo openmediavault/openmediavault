@@ -31,7 +31,7 @@ omv_sysinfo_begin_msg "OS/Debian information"
 omv_sysinfo_msg "Distributor ID: ${ID}"
 omv_sysinfo_msg "Description: ${PRETTY_NAME}"
 omv_sysinfo_msg "Release: ${release}"
-omv_sysinfo_msg "Codename:	${codename}"
+omv_sysinfo_msg "Codename: ${codename}"
 omv_sysinfo_end_msg
 
 exit 0

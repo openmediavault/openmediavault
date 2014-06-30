@@ -1,3 +1,0 @@
-// Do not install recommended and suggested packages.
-APT::Install-Recommends "false";
-APT::Install-Suggests "false";
