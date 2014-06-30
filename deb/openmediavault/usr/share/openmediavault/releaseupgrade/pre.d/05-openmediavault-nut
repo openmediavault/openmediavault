@@ -30,7 +30,9 @@ set -e
 packagename=$(omv_product_info "packagename")
 pluginname="${packagename}-nut"
 if dpkg -l | egrep "${pluginname}" >/dev/null; then
-	echo "The plugin ${pluginname} has been detected. It must be deinstalled before the installation continues."
+	echo "The plugin ${pluginname} has been detected."
+	echo "It must be deinstalled before the installation continues. Please reinstall"
+	echo "it after the system has been successfully upgraded."
 	while true; do
 		read -p "Do you want to deinstall this plugin [y/n]? " choice
 		case "${choice}" in
