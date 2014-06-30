@@ -15,11 +15,12 @@ Depends: libjs-extjs4 (>= 4.2.2), php5-fpm, libpam-modules, pm-utils,
  rsyslog, smartmontools, openssl, openssh-server, openssh-blacklist-extra,
  uuid, tzdata, nfs-kernel-server, proftpd-basic, wget, tftpd-hpa, util-linux,
  samba, samba-common-bin, rsync, apt-utils, snmpd, avahi-daemon, libnss-mdns,
- iptables, monit, acpid, beep, gdisk, rrdtool, collectd, cron, anacron,
- cron-apt, quota, quotatool, whiptail, lvm2, watchdog, ca-certificates, perl,
- libjson-perl, liblocale-po-perl, libjavascript-minifier-xs-perl, coreutils,
- xmlstarlet (>= 1.3.1), php5-proctitle, parted, bash, diffutils, lsof, socat,
- rrdcached, nginx (>= 1.2.1), bash_completion
+ iptables, monit (>= 5.4), acpid, beep, gdisk, rrdtool, collectd (>= 5.1.0),
+ cron, anacron, cron-apt, quota, quotatool, whiptail, lvm2, watchdog,
+ ca-certificates, perl, libjson-perl, liblocale-po-perl,
+ libjavascript-minifier-xs-perl, coreutils, xmlstarlet (>= 1.3.1),
+ php5-proctitle, parted, bash, diffutils, lsof, socat, rrdcached,
+ nginx (>= 1.2.1), bash_completion
 Description: Open network attached storage solution
  OpenMediaVault is a small and simple to use network attached storage system with
  a smart WebGUI.
