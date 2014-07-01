@@ -29,6 +29,7 @@ OMV_UPGRADE_RELEASENAME=${OMV_UPGRADE_RELEASENAME:-"Kralizec"}
 
 export LANG=C
 export DEBIAN_FRONTEND=noninteractive
+export APT_LISTCHANGES_FRONTEND=none
 
 export OMV_UPGRADE_RELEASEVERSION
 export OMV_UPGRADE_RELEASENAME
@@ -53,7 +54,9 @@ run-parts --exit-on-error ${tmpdir}/pre.d
 # Update package database and upgrade distribution.
 apt-get update
 apt-get --yes --force-yes --fix-missing --auto-remove --allow-unauthenticated \
-  --show-upgraded --option DPkg::Options::="--force-confold" dist-upgrade
+  --show-upgraded --option Dpkg::Options::="--force-confdef" \
+  --option DPkg::Options::="--force-confold" --no-install-recommends \
+  dist-upgrade
 
 # Execute scripts after upgrade.
 run-parts ${tmpdir}/post.d
