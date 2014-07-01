@@ -618,7 +618,8 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 						{ name: "reldirpath", type: "string" },
 						{ name: "comment", type: "string" },
 						{ name: "volume", type: "string" },
-						{ name: "posixacl", mapping: "mntent.posixacl" },
+						{ name: "posixacl", mapping: "mntent.posixacl",
+						  type: "boolean" },
 						{ name: "_used", type: "boolean" }
 					]
 				}),
@@ -669,12 +670,11 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 		var me = this;
 		me.callParent(arguments);
 		// Process additional buttons.
-		var tbarBtnName = [ "privileges", "acl" ];
 		var tbarBtnDisabled = {
 			"privileges": true,
 			"acl": true
 		};
-		if(records.length <= 0) {
+		if (records.length <= 0) {
 			tbarBtnDisabled["privileges"] = true;
 			tbarBtnDisabled["acl"] = true;
 		} else if(records.length == 1) {
@@ -684,17 +684,15 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 			tbarBtnDisabled["privileges"] = true;
 			tbarBtnDisabled["acl"] = true;
 		}
-		for(var i = 0; i < tbarBtnName.length; i++) {
-			var tbarBtnCtrl = me.queryById(me.getId() + "-" +
-			  tbarBtnName[i]);
-			if(!Ext.isEmpty(tbarBtnCtrl)) {
-				if(true == tbarBtnDisabled[tbarBtnName[i]]) {
+		Ext.Object.each(tbarBtnDisabled, function(key, value) {
+			var tbarBtnCtrl = this.queryById(this.getId() + "-" + key);
+			if (Ext.isObject(tbarBtnCtrl) && tbarBtnCtrl.isButton) {
+				if (true == value)
 					tbarBtnCtrl.disable();
-				} else {
+				else
 					tbarBtnCtrl.enable();
-				}
 			}
-		}
+		}, me);
 	},
 
 	onAddButton: function() {

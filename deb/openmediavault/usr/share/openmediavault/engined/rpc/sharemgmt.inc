@@ -125,44 +125,44 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		// Get all configured shared folder configuration objects.
 		$xpath = "//system/shares/sharedfolder";
 		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
+		if (is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Add additional informations.
-		foreach($objects as $objectk => &$objectv) {
+		foreach ($objects as $objectk => &$objectv) {
+			// Set the default values.
 			$objectv['_used'] = false;
 			$objectv['description'] = $objectv['name'];
 			$objectv['mntent'] = array(
-				"devicefile" => NULL,
-				"fsname" => NULL,
-				"dir" => NULL,
-				"type" => NULL,
-				"posixacl" => NULL
+				"devicefile" => "",
+				"fsname" => "",
+				"dir" => "",
+				"type" => "",
+				"posixacl" => FALSE
 			);
 			// Get the mount point configuration object to append additional
-			// informations to the returned objects, e.g. the devicefile or
+			// information to the returned objects, e.g. the devicefile or
 			// a modified description.
 			$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
 			  $objectv['mntentref']);
 			$meObject = $xmlConfig->get($xpath);
-			if(!is_null($meObject) && !empty($meObject)) {
-				// Add mount point informations.
-				$objectv['mntent'] = array(
+			if (!is_null($meObject) && !empty($meObject)) {
+				// Add mount point information.
+				$objectv['mntent'] = array_merge($objectv['mntent'], array(
 					"fsname" => $meObject['fsname'],
 					"dir" => $meObject['dir'],
 					"type" => $meObject['type']
-				);
+				));
 				$fs = new OMVFilesystem($meObject['fsname']);
-				if(TRUE === $fs->exists()) {
+				if (TRUE === $fs->exists()) {
 					$devicefile = $fs->getDeviceFile();
 					$label = $fs->getLabel();
 					// Add some filesystem details.
-					$objectv['mntent'] = array_merge($objectv['mntent'],
-					  array(
-						  "devicefile" => $devicefile,
-						  "posixacl" => $fs->hasPosixAclSupport()
-					  ));
+					$objectv['mntent'] = array_merge($objectv['mntent'], array(
+						"devicefile" => $devicefile,
+						"posixacl" => $fs->hasPosixAclSupport()
+					));
 					// Override default values.
 					$objectv['volume'] = !empty($label) ? $label : $devicefile;
 					$objectv['description'] = sprintf(
@@ -174,8 +174,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			// references are named 'sharedfolderref'.
 			$xpath = sprintf("//*[contains(name(),'sharedfolderref')]".
 			  "[contains(.,'%s')]", $objectv['uuid']);
-			if(TRUE === $xmlConfig->exists($xpath)) {
-				$objectv['_used'] = true;
+			if (TRUE === $xmlConfig->exists($xpath)) {
+				$objectv['_used'] = TRUE;
 			}
 		}
 		return $objects;
