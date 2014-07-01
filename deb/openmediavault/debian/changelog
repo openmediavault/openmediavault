@@ -1,3 +1,10 @@
+openmediavault (0.6.0.16) stable; urgency=low
+
+  * Uncomment mod_vroot proftpd module in debian/postinst. Recommended
+    packages are not installed by OMV in general.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 01 Jul 2014 22:00:01 +0200
+
 openmediavault (0.6.0.15) stable; urgency=low
 
   * Update locales.
