@@ -71,7 +71,6 @@ abstract class OMVModuleAbstract extends OMVObject {
 	 *   array will be filled with every line of output from the command.
 	 *   Trailing whitespace, such as \n, is not included in this array.
 	 * @return The exit code of the command.
-	 * @throws E_EXEC_FAILED
 	 */
 	final protected function exec($command, &$output = NULL) {
 		OMVUtil::exec($command, $output, $result);
@@ -114,7 +113,7 @@ abstract class OMVModuleAbstract extends OMVObject {
 		$jsonFile->open("c+");
 		if ($exists)
 			$tasks = $jsonFile->read();
-		else 
+		else
 			$tasks = array();
 		// Add the new task to the list of pending tasks.
 		$tasks[] = array(

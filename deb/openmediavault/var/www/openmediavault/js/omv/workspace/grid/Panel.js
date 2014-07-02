@@ -524,13 +524,15 @@ Ext.define("OMV.workspace.grid.Panel", {
 	 */
 	onDeletion: function(id, success, response) {
 		var me = this;
-		if(!success) {
+		if (!success) {
 			// Remove temporary local variables
 			delete me.delActionInfo;
 			// Hide progress dialog
 			OMV.MessageBox.hide();
 			// Display error message
 			OMV.MessageBox.error(null, response);
+			// Execute the post deletion action.
+			me.afterDeletion(success);
 		} else {
 			if(me.delActionInfo.records.length > 0) {
 				var record = me.delActionInfo.records.pop();
@@ -544,15 +546,18 @@ Ext.define("OMV.workspace.grid.Panel", {
 				// Update and hide progress dialog
 				OMV.MessageBox.updateProgress(1, _("100% completed ..."));
 				OMV.MessageBox.hide();
-				me.afterDeletion();
+				// Execute the post deletion action.
+				me.afterDeletion(success);
 			}
 		}
 	},
 
 	/**
-	 * Function that is called after the deletion has been successful finished.
+	 * Function that is called after the deletion has been successful
+	 * finished.
+	 * @param success TRUE if the deletion was successful, otherwise FALSE.
 	 */
-	afterDeletion: function() {
+	afterDeletion: function(success) {
 		var me = this;
 		if(me.mode === "remote") {
 			me.doReload();

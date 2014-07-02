@@ -448,7 +448,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 		me.onDeletion(null, true, null);
 	},
 
-	afterDeletion: function() {
+	afterDeletion: function(success) {
 		// Do not reload the store but update the 'rulenum' fields.
 		this.updateRuleNums();
 	},

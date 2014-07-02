@@ -800,7 +800,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 		});
 	},
 
-	afterDeletion: function() {
+	afterDeletion: function(success) {
 		var me = this;
 		me.callParent(arguments);
 		// Delete private variable which is not required anymore.

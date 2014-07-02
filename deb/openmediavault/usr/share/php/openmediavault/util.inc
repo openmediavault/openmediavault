@@ -217,7 +217,9 @@ class OMVJsonFile extends OMVObject {
 	 * Write the given content as JSON encoded string to the file.
 	 * The file will be truncated to zero length before the content
 	 * is written.
-	 * @return None.
+	 * @param content The content to be written.
+	 * @return Returns the JSON representation of the content which was
+	 *   written to the file.
 	 * @throw E_MISC_FAILURE
 	 */
 	public function write($content) {
@@ -227,8 +229,14 @@ class OMVJsonFile extends OMVObject {
 			  $this->filename));
 		}
 		$this->truncate(0);
-		if (FALSE === fwrite($this->fh, json_encode_safe($content,
+		// Get the JSON representation of the content.
+		if (FALSE === ($content = json_encode_safe($content,
 		  JSON_PRETTY_PRINT))) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Failed to encode content (filename=%s): %s",
+			  $this->filename, json_last_error_msg()));
+		}
+		if (FALSE === fwrite($this->fh, $content)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to write file (filename=%s).",
 			  $this->filename));
@@ -244,7 +252,8 @@ class OMVJsonFile extends OMVObject {
 	/**
 	 * Read the JSON encoded data from the file.
 	 * @param decode Set to TRUE to decode the JSON content. Defaults to TRUE.
-	 * @return The decoded JSON content.
+	 * @return The content read from the file. If \em decode was set to TRUE
+	 *   the decoded content is returned.
 	 * @throw E_MISC_FAILURE
 	 */
 	public function read($decode = TRUE) {
@@ -264,7 +273,15 @@ class OMVJsonFile extends OMVObject {
 			  sprintf("File contains invalid JSON (filename=%s): %s",
 			  $this->filename, json_last_error_msg()));
 		}
-		return (TRUE === $decode) ? json_decode($content, TRUE) : $content;
+		// Decode the content if requested.
+		if (TRUE === $decode) {
+			if (FALSE === ($content = json_decode($content, TRUE))) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("Failed to decode content (filename=%s): %s",
+				  $this->filename, json_last_error_msg()));
+			}
+		}
+		return $content;
 	}
 
 	/**

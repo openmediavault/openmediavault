@@ -523,7 +523,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.LUNs", {
 		wnd.show();
 	},
 
-	afterDeletion: function() {
+	afterDeletion: function(success) {
 		var me = this;
 		// Renumber all configured LUNs.
 		me.store.each(function(record, index) {
