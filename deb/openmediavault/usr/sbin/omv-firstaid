@@ -375,6 +375,20 @@ clean_local_dpkg_repository()
 	cd ${OMV_DPKGARCHIVE_DIR} && apt-ftparchive \
 	  packages . > Packages
 	apt-get update
+	return 0
+}
+
+submit_sysinfo()
+{
+	if [ "$(omv_config_get "//system/email/enable")" = "0" ]; then
+		echo "Failed to submit the system diagnostic information to the administrator"
+		echo "account because email notification is disabled."
+	else
+		echo "Submitting system diagnostic information to the administrator account."
+		echo "Please check your email mailbox ..."
+		omv-sysinfo | mail -s "System diagnostic information" root
+	fi
+	return 0
 }
 
 tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/omv-setup$$
@@ -386,14 +400,15 @@ prodcopyright=$(omv_product_info "copyright")
 
 # Display the default menu
 ${OMV_FIRSTAID_DIALOG} --nocancel --clear --backtitle "${prodname} - ${prodcopyright}" \
-  --title "First aid" --menu "Please select a menu:" 14 65 7 \
+  --title "First aid" --menu "Please select a menu:" 15 65 8 \
   "1" "Configure network interface" \
   "2" "Configure WebGUI" \
   "3" "Change WebGUI administrator password" \
   "4" "Restore configuration backup" \
   "5" "Fix RRD database" \
   "6" "Clear local upload package repository" \
-  "7" "Exit" 2>$tempfile
+  "7" "Submit system information to administrator" \
+  "8" "Exit" 2>$tempfile
 [ $? -ne 0 ] && return 1
 choice=$(cat $tempfile)
 case ${choice} in
@@ -414,6 +429,9 @@ case ${choice} in
 	;;
 6)
 	clean_local_dpkg_repository;
+	;;
+7)
+	submit_sysinfo;
 	;;
 esac
 
