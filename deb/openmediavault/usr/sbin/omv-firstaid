@@ -382,7 +382,47 @@ submit_sysinfo()
 {
 	if [ "$(omv_config_get "//system/email/enable")" = "0" ]; then
 		echo "Failed to submit the system diagnostic information to the administrator"
-		echo "account because email notification is disabled."
+		echo "account via email because the email notification service is disabled."
+		echo ""
+		read -p "Do you want to copy the system diagnostic information onto an USB device [y/n]? " choice
+		case "${choice}" in
+		[Yy]*)
+			
+			# Create the script that is executed by a UDEV rule which is
+			# triggered when an USB device is connected.
+			sysinfo2usb=$(mktemp)
+			cat > ${sysinfo2usb} <<EOF
+#!/bin/sh
+set -e
+devname=\$1
+mntdir="$(mktemp -d)"
+outfile="\${mntdir}/sysinfo-$(hostname)-$(date +%Y%m%d%H%M).txt"
+finish() {
+	rm -rf \${mntdir}
+	touch \$0.done
+}
+trap finish 0 1 2 5 15
+mount \${devname} \${mntdir}
+omv-sysinfo >\${outfile}
+umount \${mntdir}
+EOF
+			chmod 700 ${sysinfo2usb}
+			cat > "/run/udev/rules.d/99-openmediavault-sysinfo2usb.rules" <<EOF
+ACTION=="add", SUBSYSTEM=="block", KERNEL=="[sh]d[a-z]1", ENV{ID_FS_USAGE}=="filesystem", RUN+="/bin/sh ${sysinfo2usb} %E{DEVNAME}"
+EOF
+			# Wait until the script has been finished.
+			trap "rm -f ${sysinfo2usb}* ${udevrule}" 0 1 2 5 15
+			echo "Please connect now the USB device to start ..."
+			while [ ! -f "${sysinfo2usb}.done" ] ; do
+				sleep 2
+			done
+			echo "Done. You can disconnect the USB device now."
+			;;
+		[Nn]*)
+			;;
+		*)
+			;;
+		esac
 	else
 		echo "Submitting system diagnostic information to the administrator account."
 		echo "Please check your email mailbox ..."
