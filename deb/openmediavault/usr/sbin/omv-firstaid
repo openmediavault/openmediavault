@@ -406,7 +406,7 @@ cleanup() {
 	rm -rf \${mntdir}
 }
 trap cleanup 0 1 2 5 15
-echo "Using device \${devname}. Please wait ..." >${pipe}
+echo "Using device \${devname}, please wait ..." >${pipe}
 mount \${devname} \${mntdir}
 omv-sysinfo >\${outfile}
 umount \${mntdir}
@@ -419,7 +419,7 @@ ACTION=="add", SUBSYSTEM=="block", KERNEL=="[sh]d[a-z]1", ENV{ID_FS_USAGE}=="fil
 EOF
 			# Wait until the USB device has been connected and the script
 			# is executed. Display messages that are send via pipe.
-			echo "Please connect now the USB device to start."
+			echo "Please connect the USB device now."
 			while [ -p "${pipe}" ] ; do
 				if read line <${pipe}; then
 					echo $line
