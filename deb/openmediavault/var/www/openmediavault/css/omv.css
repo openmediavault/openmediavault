@@ -59,6 +59,9 @@ div#shutdownlogo {
 /******************************************************************************/
 /* Workspace page                                                             */
 /******************************************************************************/
+a {
+	color: #7F9ABE;
+}
 div#header {
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
 	font-size: 11px;
