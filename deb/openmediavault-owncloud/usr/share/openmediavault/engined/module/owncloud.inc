@@ -54,11 +54,15 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
+		// Create the configuration.
 		$cmd = "omv-mkconf owncloud 2>&1";
 		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
+		// Update the shared folder ACL to allow the web server to access
+		// the shared folders.
+		$this->execTasks("setfacl");
 	}
 
 	/**
@@ -114,6 +118,105 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 	}
 
 	/**
+	 * Helper function to add a new task when a share has been added. The
+	 * task will ensure that the web server can access the shared folder
+	 * by adding r/w permissions for the user 'www-data'.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The configuration object.
+	 * @return None.
+	 */
+	final public function onCreateShare($type, $path, $object) {
+		global $xmlConfig;
+		// Only process local shared folders.
+		if ($object['type'] !== "localfs")
+			return;
+		// Only modify the shared folder ACL if this is added the
+		// first time by an ownCloud share.
+		$xpath = sprintf("//services/owncloud/shares/share[".
+		  "sharedfolderref='%s']", $object['sharedfolderref']);
+		if (1 < $xmlConfig->count($xpath))
+			return;
+		// Add a new task that modifies the shared folder ACL.
+		$this->addTask("setfacl", "setSharedFolderFacl", array(
+			"mode" => "modify",
+			"object" => $object
+		));
+	}
+
+	/**
+	 * Helper function to add a new task when a share has been remoeved. The
+	 * task will ensure that the web server permissions are removed from the
+	 * shared folder.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The configuration object.
+	 * @return None.
+	 */
+	final public function onDeleteShare($type, $path, $object) {
+		global $xmlConfig;
+		// Only process local shared folders.
+		if ($object['type'] !== "localfs")
+			return;
+		// Only modify/remove the shared folder ACL if this is not still
+		// used by other ownCloud shares.
+		$xpath = sprintf("//services/owncloud/shares/share[".
+		  "sharedfolderref='%s']", $object['sharedfolderref']);
+		if (1 < $xmlConfig->count($xpath))
+			return;
+		// Add a new task that modifies the shared folder ACL.
+		$this->addTask("setfacl", "setSharedFolderFacl", array(
+			"mode" => "remove",
+			"object" => $object
+		));
+	}
+
+	/**
+	 * Helper method to set the ACL for the given shared folder.
+	 * @param params The method parameters.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	final public function setSharedFolderFacl($params) {
+		global $xmlConfig;
+		// Get the shared folder configuration object.
+		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
+		  $params['object']['sharedfolderref']);
+		$sfObject = $xmlConfig->get($xpath);
+		if (is_null($sfObject)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Get the shared folder's mount point configuration object.
+		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
+		  $sfObject['mntentref']);
+		$meObject = $xmlConfig->get($xpath);
+		if (is_null($meObject)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Build the command argument list and set the file ACL.
+		$cmdargs = array();
+		$cmdargs[] = "--recursive";
+		switch ($params['mode']) {
+		case "modify":
+			$cmdargs[] = "--modify";
+			$cmdargs[] = "default:user:www-data:rwx,user:www-data:rwx";
+			break;
+		case "remove":
+			$cmdargs[] = "--remove";
+			$cmdargs[] = "default:user:www-data,user:www-data";
+			break;
+		}
+		$cmd = sprintf("export LANG=C; setfacl %s -- %s 2>&1",
+		  implode(" ", $cmdargs), escapeshellarg(sprintf("%s/%s",
+		  $meObject['dir'], $sfObject['reldirpath'])));
+		if (0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+	}
+
+	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
@@ -125,6 +228,14 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.services.owncloud.shares.share",
 		  array($this, "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_CREATE,
+		  "org.openmediavault.services.owncloud.shares.share",
+		  array($this, "onCreateShare"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_DELETE,
+		  "org.openmediavault.services.owncloud.shares.share",
+		  array($this, "onDeleteShare"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.shares.sharedfolder",

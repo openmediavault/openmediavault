@@ -1,3 +1,10 @@
+openmediavault-owncloud (0.6.1) stable; urgency=low
+
+  * Set correct file permissions to permit user/group 'www-data' access
+    to the configured shared folders.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Jul 2014 12:05:31 +0200
+
 openmediavault-owncloud (0.6) stable; urgency=low
 
   * Update locales.

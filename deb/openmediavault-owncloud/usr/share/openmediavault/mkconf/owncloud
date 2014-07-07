@@ -140,7 +140,8 @@ foreach(\$shares as \$sharek => \$sharev) {
 		);
 	}
 }
-file_put_contents("${datadirectory}/mount.json", json_encode_safe(\$result, JSON_FORCE_OBJECT))
+file_put_contents("${datadirectory}/mount.json", json_encode_safe(\$result,
+  JSON_PRETTY_PRINT | JSON_FORCE_OBJECT))
 ?>
 EOF
 	chown www-data:www-data "${datadirectory}/mount.json"
