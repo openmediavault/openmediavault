@@ -73,6 +73,7 @@ mkconf() {
 	  -o "  'dbtype' => '${OMV_OWNCLOUD_CONFIG_DBTYPE}'," -n \
 	  -o "  'dbname' => '${OMV_OWNCLOUD_CONFIG_DBNAME}'," -n \
 	  -o "  'forcessl' => true," -n \
+	  -o "  'check_for_working_webdav' => false," -n \
 	  -o "  'blacklisted_files' => array(${OMV_OWNCLOUD_CONFIG_BLACKLISTEDFILES})," -n \
 	  -o "  'default_language' => 'en'," -n \
 	  -o "  'defaultapp' => 'files'," -n \
@@ -112,11 +113,11 @@ require_once("openmediavault/config.inc");
 		'all' => array()
 	)
 );
-\$xmlConfig = new OMVConfigEngine(\$GLOBALS['OMV_CONFIG_FILE']);
-\$xmlConfig->load();
-\$shares = \$xmlConfig->getList("//services/owncloud/shares/share[type='localfs']");
-foreach(\$shares as \$sharek => \$sharev) {
-	\$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']", \$sharev['sharedfolderref']);
+\$shares = \$xmlConfig->getList("//services/owncloud/shares/share[".
+  "type='localfs']");
+foreach (\$shares as \$sharek => \$sharev) {
+	\$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
+	  \$sharev['sharedfolderref']);
 	\$sf = \$xmlConfig->get(\$xpath);
 	\$xpath = sprintf("//system/fstab/mntent[uuid='%s']", \$sf['mntentref']);
 	\$mntent = \$xmlConfig->get(\$xpath);
@@ -130,14 +131,17 @@ foreach(\$shares as \$sharek => \$sharev) {
 		)
 	);
 	// Add shared folder to configured users.
-	foreach(\$sf['privileges']['privilege'] as \$privk => \$privv) {
-		if(\$privv['perms'] == 0) continue;
-		\$result['user'][\$privv['name']][\$foldername] = array(
-			'class' => "\\OC\\Files\\Storage\\Local",
-			'options' => array(
-				'datadir' => \$datadir
-			)
-		);
+	if (is_array(\$sf['privileges']) && array_key_exists("privilege",
+	  \$sf['privileges'])) {
+		foreach (\$sf['privileges']['privilege'] as \$privk => \$privv) {
+			if (\$privv['perms'] == 0) continue;
+			\$result['user'][\$privv['name']][\$foldername] = array(
+				'class' => "\\OC\\Files\\Storage\\Local",
+				'options' => array(
+					'datadir' => \$datadir
+				)
+			);
+		}
 	}
 }
 file_put_contents("${datadirectory}/mount.json", json_encode_safe(\$result,

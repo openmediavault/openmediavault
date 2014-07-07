@@ -1,3 +1,9 @@
+openmediavault-owncloud (1.0.1) stable; urgency=low
+
+  * Fix problem with self-signed SSL certificates.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Jul 2014 19:45:01 +0200
+
 openmediavault-owncloud (1.0) stable; urgency=low
 
   * Update locales.
