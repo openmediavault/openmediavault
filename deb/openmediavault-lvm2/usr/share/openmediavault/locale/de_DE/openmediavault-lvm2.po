@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Volker <votdev@gmx.de>, 2014
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2012
 msgid ""
@@ -10,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:18+0000\n"
+"PO-Revision-Date: 2014-07-07 16:28+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add physical volume"
-msgstr ""
+msgstr "Füge ein physikalisches Volume hinzu"
 
 msgid ""
 "After the logical volume has been extended you can resize the containing "
@@ -88,7 +89,7 @@ msgid "Free"
 msgstr "Frei"
 
 msgid "Invalid name"
-msgstr ""
+msgstr "Name ungültig"
 
 msgid "Logical Volume Management"
 msgstr "Logical Volume Management"

@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013-2014
-# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:17+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-06-29 19:30+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -132,7 +132,7 @@ msgid "Hour"
 msgstr "Hora"
 
 msgid "Infected files"
-msgstr ""
+msgstr "Ficheiros infectados"
 
 msgid "Jobs"
 msgstr "Traballos"
@@ -173,7 +173,7 @@ msgid ""
 msgstr "Consulte a <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>páxina do manual</a> para obter máis detalles."
 
 msgid "Quarantine"
-msgstr ""
+msgstr "Corentena"
 
 msgid "Run"
 msgstr "Executar"
@@ -221,10 +221,10 @@ msgid "The location of the files to scan."
 msgstr "A localización dos ficheiros que analizar."
 
 msgid "The location which is used as quarantine."
-msgstr ""
+msgstr "A localización utilizada como  corentena."
 
 msgid "The option, how to handle infected files."
-msgstr ""
+msgstr "A opción para como manexar os ficheiros infectados."
 
 msgid "Verbose"
 msgstr "Detallado"

@@ -1,3 +1,9 @@
+openmediavault (1.0) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Jul 2014 18:37:57 +0200
+
 openmediavault (0.6.0.16) stable; urgency=low
 
   * Uncomment mod_vroot proftpd module in debian/postinst. Recommended

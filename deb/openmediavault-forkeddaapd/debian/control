@@ -8,7 +8,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-forkeddaapd
 Architecture: all
-Depends: openmediavault (>= 0.6.0.4), forked-daapd
+Depends: openmediavault (>= 1.0), forked-daapd
 Priority: optional
 Description: OpenMediaVault forked-daapd (DAAP server) plugin
  forked-daapd is an iTunes-compatible DAAP (Digital Audio Access Protocol)

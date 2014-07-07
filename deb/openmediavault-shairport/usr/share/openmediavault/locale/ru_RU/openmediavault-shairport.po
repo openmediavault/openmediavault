@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Alexander Savchenko, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-21 18:13+0200\n"
-"PO-Revision-Date: 2014-06-23 16:18+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-07-02 10:11+0000\n"
+"Last-Translator: Alexander Savchenko\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,16 +25,16 @@ msgid "Authentication"
 msgstr ""
 
 msgid "Enable"
-msgstr ""
+msgstr "Включить"
 
 msgid "General settings"
-msgstr ""
+msgstr "Общие настройки"
 
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 msgid "Shairport"
 msgstr ""

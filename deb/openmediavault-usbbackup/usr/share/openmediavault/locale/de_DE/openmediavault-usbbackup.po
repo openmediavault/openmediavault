@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Volker <votdev@gmx.de>, 2013
+# Volker <votdev@gmx.de>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:18+0000\n"
+"PO-Revision-Date: 2014-07-07 16:31+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "Add backup job"
-msgstr ""
+msgstr "Backup Auftrag hinzufügen"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -30,7 +30,7 @@ msgid "Archive"
 msgstr "Archiv"
 
 msgid "Backup jobs"
-msgstr ""
+msgstr "Backup Auftrag"
 
 msgid "Comment"
 msgstr "Kommentar"
@@ -48,10 +48,10 @@ msgid "Delete files on the receiving side that don't exist on sender."
 msgstr "Lösche Dateien beim Empfänger die beim Sender nicht existieren."
 
 msgid "Device"
-msgstr ""
+msgstr "Gerät"
 
 msgid "Edit backup job"
-msgstr ""
+msgstr "Backup Auftrag ändern"
 
 msgid "Enable"
 msgstr "Aktivieren"
@@ -68,7 +68,7 @@ msgid "Enabled"
 msgstr "Aktiviert"
 
 msgid "Execute backup job"
-msgstr ""
+msgstr "Backup Auftrag ausführen"
 
 msgid "External storage device"
 msgstr "Externes Speichergerät"
@@ -127,10 +127,10 @@ msgid "Run"
 msgstr "Ausführen"
 
 msgid "Scan"
-msgstr ""
+msgstr "Suchen"
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Wähle ein Gerät ..."
 
 msgid "Send command output via email."
 msgstr "Sende Kommandoausgabe per E-Mail."

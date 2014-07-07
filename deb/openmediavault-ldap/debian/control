@@ -8,7 +8,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-ldap
 Architecture: all
-Depends: openmediavault (>= 0.6.0.10), libnss-ldap, libpam-ldap
+Depends: openmediavault (>= 1.0), libnss-ldap, libpam-ldap
 Conflicts: openmediavault-ad
 Priority: optional
 Description: OpenMediaVault Lightweight Directory Access Protocol (LDAP) plugin

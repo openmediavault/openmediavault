@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Volker <votdev@gmx.de>, 2013
+# Volker <votdev@gmx.de>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:17+0000\n"
+"POT-Creation-Date: 2014-07-07 18:17+0200\n"
+"PO-Revision-Date: 2014-07-07 16:24+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgid "Add share"
 msgstr "Freigabe hinzufügen"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Zertifikat"
 
 msgid "Comment"
 msgstr "Kommentar"
@@ -43,7 +43,7 @@ msgid "General settings"
 msgstr "Allgemeine Einstellungen"
 
 msgid "Port"
-msgstr ""
+msgstr "Port"
 
 msgid "Settings"
 msgstr "Einstellungen"
@@ -55,7 +55,7 @@ msgid "Shares"
 msgstr "Freigaben"
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "Das SSL-Zertifikat."
 
 msgid "The location of the files to share."
 msgstr "Der Speicherort freizugebender Dateien."
@@ -66,11 +66,16 @@ msgstr "Der Ort, an dem ownCloud seine Dateien speichert."
 msgid "The name of the share."
 msgstr "Der Name der Freigabe."
 
+msgid ""
+"The ownCloud web interface can be accessed <a href='/owncloud' "
+"target='_blank'>here</a>."
+msgstr "Die ownCloud Weboberfläche kann <a href='/owncloud' target='_blank'>hier</a> aufgerufen werden."
+
 msgid "The port '%d' is already in use"
-msgstr ""
+msgstr "Der Port '%d' ist bereits in Benutzung"
 
 msgid "The port which is used to access the ownCloud web interface."
-msgstr ""
+msgstr "Der Port, der zum Zugriff auf die ownCloud Weboberfläche verwendet wird."
 
 msgid "n/a"
 msgstr "N/V"
