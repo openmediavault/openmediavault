@@ -1,3 +1,10 @@
+openmediavault-owncloud (1.1) stable; urgency=low
+
+  * Fix problem with self-signed SSL certificates.
+  * Improve Avahi/Zeroconf configuration scripts.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Jul 2014 20:46:42 +0200
+
 openmediavault-owncloud (1.0.1) stable; urgency=low
 
   * Fix problem with self-signed SSL certificates.

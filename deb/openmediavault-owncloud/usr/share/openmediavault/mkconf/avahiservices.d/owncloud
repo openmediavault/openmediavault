@@ -28,30 +28,19 @@ OMV_AVAHIDAEMON_OWNCLOUDSERVICE=${OMV_AVAHIDAEMON_OWNCLOUDSERVICE:-"/etc/avahi/s
 
 # Announce this service via DNS-SD?
 rm -f ${OMV_AVAHIDAEMON_OWNCLOUDSERVICE}
-[ "$(omv_config_get "//services/zeroconf/services/service[id='owncloud']/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//services/owncloud/enable")" != "1" -o "$(omv_config_get "//services/zeroconf/services/service[id='owncloud']/enable")" != "1" ] && exit 0
 
 # Create '/etc/avahi/services/http.service' file.
 xmlstarlet sel -t \
   -o "<?xml version=\"1.0\" standalone=\"no\"?>" -n \
   -o "<!DOCTYPE service-group SYSTEM \"avahi-service.dtd\">" -n \
   -o "<service-group>" -n \
-  -m "//webadmin" \
+  -m "//services/owncloud" \
 	  -v "concat('  <name replace-wildcards=\"yes\">',//services/zeroconf/services/service[id='owncloud']/name,'</name>')" -n \
-	  -i "enablessl[. = '1']" \
-		  -o "  <service>" -n \
-		  -o "    <type>_https._tcp</type>" -n \
-		  -v "concat('    <port>',sslport,'</port>')" -n \
-		  -o "    <txt-record>path=/owncloud/index.php</txt-record>" -n \
-		  -o "  </service>" \
-	  -b \
-	  -i "enablessl[. = '0'] or forcesslonly[. = '0']" \
-		  -i "enablessl[. = '1']" -n -b \
-		  -o "  <service>" -n \
-		  -o "    <type>_http._tcp</type>" -n \
-		  -v "concat('    <port>',port,'</port>')" -n \
-		  -o "    <txt-record>path=/owncloud/index.php</txt-record>" -n \
-		  -o "  </service>" -n \
-	  -b \
+	  -o "  <service>" -n \
+	  -o "    <type>_https._tcp</type>" -n \
+	  -v "concat('    <port>',port,'</port>')" -n \
+	  -o "  </service>" -n \
   -b \
   -o "</service-group>" \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_AVAHIDAEMON_OWNCLOUDSERVICE}

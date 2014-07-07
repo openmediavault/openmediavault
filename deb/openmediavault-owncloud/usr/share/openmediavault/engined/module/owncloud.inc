@@ -248,13 +248,10 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.certificates.sslcertificate",
 		  array($this, "onModifySslCertificate"));
-		// Changing webgui settings requires recreation of ownCloud
-		// configuration.
-		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.webadmin",
-		  array($moduleMgr->getModule("webserver"), "setDirty"));
+		  "org.openmediavault.system.network.hostname",
+		  array($this, "setDirty"));
 	}
 }
 

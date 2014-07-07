@@ -73,7 +73,6 @@ mkconf() {
 	  -o "  'dbtype' => '${OMV_OWNCLOUD_CONFIG_DBTYPE}'," -n \
 	  -o "  'dbname' => '${OMV_OWNCLOUD_CONFIG_DBNAME}'," -n \
 	  -o "  'forcessl' => true," -n \
-	  -o "  'check_for_working_webdav' => false," -n \
 	  -o "  'blacklisted_files' => array(${OMV_OWNCLOUD_CONFIG_BLACKLISTEDFILES})," -n \
 	  -o "  'default_language' => 'en'," -n \
 	  -o "  'defaultapp' => 'files'," -n \
@@ -84,7 +83,11 @@ mkconf() {
 	  -o "  'updatechecker' => ${OMV_OWNCLOUD_CONFIG_UPDATECHECKER}," -n \
 	  -o "  'theme' => '${OMV_OWNCLOUD_CONFIG_THEME}'," -n \
 	  -o "  'log_type' => '${OMV_OWNCLOUD_CONFIG_LOGTYPE}'," -n \
-	  -o "  'datadirectory' => '" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "'" -n \
+	  -o "  'datadirectory' => '" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "'," -n \
+	  -o "  'trusted_domains' => array (" -n \
+	  -v "concat('    0 => \"$(hostname --alias):',port,'\",')" -n \
+	  -v "concat('    1 => \"$(hostname --fqdn):',port,'\",')" -n \
+	  -o "  )," -n \
 	  -o ");" -n \
 	  -o "?>" \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_CONFIG}
