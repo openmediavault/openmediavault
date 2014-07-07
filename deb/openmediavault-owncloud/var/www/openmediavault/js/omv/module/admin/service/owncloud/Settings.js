@@ -62,7 +62,11 @@ Ext.define("OMV.module.admin.service.owncloud.Settings", {
 				xtype: "checkbox",
 				name: "enable",
 				fieldLabel: _("Enable"),
-				checked: false
+				checked: false,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The ownCloud web interface can be accessed <a href='/owncloud' target='_blank'>here</a>.")
+				}]
 			},{
 				xtype: "numberfield",
 				name: "port",
