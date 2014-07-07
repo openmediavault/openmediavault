@@ -28,7 +28,7 @@ OMV_AVAHIDAEMON_TFTPSERVICE=${OMV_AVAHIDAEMON_TFTPSERVICE:-"/etc/avahi/services/
 
 # Is the service enabled? Announce this service via DNS-SD?
 rm -f ${OMV_AVAHIDAEMON_TFTPSERVICE}
-[ "$(omv_config_get "//services/tftp/enable")" = "0" -o "$(omv_config_get "//services/zeroconf/services/service[id='tftp']/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//services/tftp/enable")" != "1" -o "$(omv_config_get "//services/zeroconf/services/service[id='tftp']/enable")" != "1" ] && exit 0
 
 # Create '/etc/avahi/services/tftp.service' file.
 port=$(omv_config_get "//services/tftp/port")

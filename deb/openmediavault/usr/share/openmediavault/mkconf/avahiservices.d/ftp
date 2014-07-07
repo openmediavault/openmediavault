@@ -28,7 +28,7 @@ OMV_AVAHIDAEMON_FTPSERVICE=${OMV_AVAHIDAEMON_FTPSERVICE:-"/etc/avahi/services/ft
 
 # Is the service enabled? Announce this service via DNS-SD?
 rm -f ${OMV_AVAHIDAEMON_FTPSERVICE}
-[ "$(omv_config_get "//services/ftp/enable")" = "0" -o "$(omv_config_get "//services/zeroconf/services/service[id='ftp']/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//services/ftp/enable")" != "1" -o "$(omv_config_get "//services/zeroconf/services/service[id='ftp']/enable")" != "1" ] && exit 0
 
 # Create '/etc/avahi/services/ftp.service' file.
 port=$(omv_config_get "//services/ftp/port")

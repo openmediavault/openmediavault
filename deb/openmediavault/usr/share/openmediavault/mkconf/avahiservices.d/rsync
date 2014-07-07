@@ -28,7 +28,7 @@ OMV_AVAHIDAEMON_RSYNCSERVICE=${OMV_AVAHIDAEMON_RSYNCSERVICE:-"/etc/avahi/service
 
 # Is the service enabled? Announce this service via DNS-SD?
 rm -f ${OMV_AVAHIDAEMON_RSYNCSERVICE}
-[ "$(omv_config_get "//services/rsync/server/enable")" = "0" -o "$(omv_config_get "//services/zeroconf/services/service[id='rsync']/enable")" = "0" ] && exit 0
+[ "$(omv_config_get "//services/rsync/server/enable")" != "1" -o "$(omv_config_get "//services/zeroconf/services/service[id='rsync']/enable")" != "1" ] && exit 0
 
 # Create '/etc/avahi/services/rsync.service' file.
 port=$(omv_config_get "//services/rsync/server/port")
