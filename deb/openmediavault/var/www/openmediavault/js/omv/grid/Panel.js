@@ -142,7 +142,8 @@ Ext.define("OMV.grid.Panel", {
 	 * original value.
 	 */
 	isDirty: function() {
-		return this.store.isDirty();
+		var me = this;
+		return me.getStore().isDirty();
 	},
 
 	/**
@@ -152,9 +153,8 @@ Ext.define("OMV.grid.Panel", {
 	 */
 	setValues: function(values) {
 		var me = this;
-		var store = me.getStore();
-		if(Ext.isDefined(values))
-			store.loadData(values);
+		if (Ext.isDefined(values))
+			me.getStore().loadData(values);
 	},
 
 	/**
@@ -163,12 +163,7 @@ Ext.define("OMV.grid.Panel", {
 	 */
 	getValues: function() {
 		var me = this;
-		var values = [];
-		var store = me.getStore();
-		var records = store.getRange();
-		Ext.Array.each(records, function(record) {
-			values.push(record.getData());
-		});
+		var values = me.getStore().getData();
 		return values;
 	},
 
@@ -177,7 +172,7 @@ Ext.define("OMV.grid.Panel", {
 	 */
 	doLoad: function() {
 		var me = this;
-		me.store.load();
+		me.getStore().load();
 	},
 
 	/**
@@ -185,6 +180,6 @@ Ext.define("OMV.grid.Panel", {
 	 */
 	doReload: function() {
 		var me = this;
-		me.store.reload();
+		me.getStore().reload();
 	}
 });
