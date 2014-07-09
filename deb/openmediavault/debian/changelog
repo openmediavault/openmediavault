@@ -1,6 +1,9 @@
 openmediavault (1.1) stable; urgency=low
 
   * Improve Avahi/Zeroconf configuration scripts.
+  * Various code improvements.
+  * Allow the relocation of shared folders. The shared folder content is not
+    moved automatically, this must be done manually.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Jul 2014 20:59:34 +0200
 
