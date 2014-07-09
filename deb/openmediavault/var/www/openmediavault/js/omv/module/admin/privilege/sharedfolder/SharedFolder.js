@@ -99,7 +99,6 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 			allowBlank: false,
 			allowNone: false,
 			editable: false,
-			readOnly: (me.uuid !== OMV.UUID_UNDEFINED),
 			triggerAction: "all",
 			displayField: "description",
 			valueField: "uuid",
@@ -191,6 +190,43 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 			allowBlank: true,
 			flex: 1
 		}];
+	},
+
+	doSubmit: function() {
+		var me = this;
+		if (OMV.UUID_UNDEFINED == me.uuid) {
+			// Call the parent method if the shared folder is added.
+			me.callParent(arguments);
+		} else {
+			// If the shared folder already exists then check if the volume
+			// or relative path has been changed. In this case the shared
+			// folder will be relocated which requires a confirmation from
+			// the user.
+			var isDirty = false;
+			Ext.Array.each([ "mntentref", "reldirpath" ], function(name) {
+				var field = me.findField(name);
+				if (Ext.isObject(field) && field.isFormField && field.isDirty())
+					isDirty = true;
+			}, me);
+			if (true === isDirty) {
+				OMV.MessageBox.show({
+					title: _("Confirmation"),
+					msg: _("Do you really want to relocate the shared folder? The content of the shared folder will not be moved automatically, this must be done manually."),
+					icon: Ext.Msg.QUESTION,
+					buttons: Ext.Msg.YESNO,
+					fn: function(answer) {
+						if (answer == "yes") // Continue ...
+							me.superclass.doSubmit.apply(this, arguments);
+						else // Close the window and exit.
+							this.close();
+					},
+					scope: me,
+					icon: Ext.Msg.QUESTION
+				});
+			} else {
+				me.callParent(arguments);
+			}
+		}
 	}
 });
 

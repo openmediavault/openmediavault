@@ -56,8 +56,8 @@ Ext.define("OMV.window.Execute", {
 	],
 
 	title: _("Execute command"),
-	width: 600,
-	height: 380,
+	width: 500,
+	height: 300,
 	layout: "fit",
 	modal: true,
 	border: false,
