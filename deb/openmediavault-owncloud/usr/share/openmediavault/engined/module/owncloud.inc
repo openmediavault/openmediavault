@@ -194,6 +194,11 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
+		// Build the shared folder path.
+		$sfPath = sprintf("%s/%s", $meObject['dir'], $sfObject['reldirpath']);
+		// Check whether the shared folder exists.
+		if (!file_exists($sfPath))
+			return;
 		// Build the command argument list and set the file ACL.
 		$cmdargs = array();
 		$cmdargs[] = "--recursive";
@@ -207,9 +212,8 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 			$cmdargs[] = "default:user:www-data,user:www-data";
 			break;
 		}
-		$cmd = sprintf("export LANG=C; setfacl %s -- %s 2>&1",
-		  implode(" ", $cmdargs), escapeshellarg(sprintf("%s/%s",
-		  $meObject['dir'], $sfObject['reldirpath'])));
+		$cmd = sprintf("export LANG=C; setfacl %s -- %s 2>&1", implode(" ",
+		  $cmdargs), escapeshellarg($sfPath));
 		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
