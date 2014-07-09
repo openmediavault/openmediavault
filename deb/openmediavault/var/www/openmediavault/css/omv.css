@@ -200,9 +200,11 @@ div#headerrlogo {
 	background-size: 16px 16px;
 }
 .x-tree-icon-parent {
+	background-size: 16px 16px;
 	background-image: url("../images/folder.svg");
 }
 .x-grid-tree-node-expanded .x-tree-icon-parent {
+	background-size: 16px 16px;
 	background-image: url("../images/folder-open.svg");
 }
 /* Button */

@@ -1,3 +1,9 @@
+openmediavault (1.2) stable; urgency=low
+
+  * Fix SVG icon display issue in tree controls.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 09 Jul 2014 17:33:20 +0200
+
 openmediavault (1.1) stable; urgency=low
 
   * Improve Avahi/Zeroconf configuration scripts.
