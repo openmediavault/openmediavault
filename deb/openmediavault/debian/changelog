@@ -92,7 +92,7 @@ openmediavault (0.6.0.9) stable; urgency=low
   * Supporting stateful address autoconfiguration for IPv6 network interfaces.
   * Disable fancy boot messages.
   * Increase performance of omv-jsminify.
-  * Mantis 0001028: Error trying to start rsync job maually.
+  * Mantis 0001028: Error trying to start rsync job manually.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 18 Apr 2014 00:25:45 +0200
 
@@ -162,6 +162,18 @@ openmediavault (0.6) stable; urgency=low
   * Add button to manually empty the SMB/CIFS recycle bin.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Nov 2013 19:41:31 +0100
+
+openmediavault (0.5.52) stable; urgency=low
+
+  * Improve release upgrade script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 01 Jul 2014 21:55:17 +0200
+
+openmediavault (0.5.51) stable; urgency=low
+
+  * Improve release upgrade script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 28 Jun 2014 16:04:50 +0200
 
 openmediavault (0.5.50) stable; urgency=low
 
