@@ -431,3 +431,13 @@ Files: /var/www/openmediavault/images/share.png
        /var/www/openmediavault/images/share.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/tree-elbow-down.png
+       /var/www/openmediavault/images/tree-elbow-down.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/tree-elbow-right.png
+       /var/www/openmediavault/images/tree-elbow-right.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0

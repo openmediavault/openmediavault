@@ -43,6 +43,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 	stateEvents: [ "afteritemcollapse", "afteritemexpand",
 	  "collapse", "expand" ],
 	singleClickExpand: false,
+	rootVisible: false,
 
 	constructor: function(config) {
 		var me = this;
@@ -77,8 +78,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 						  a.text < b.text ? -1 : 0;
 					}
 				}]
-			}),
-			rootVisible: false
+			})
 		}, config || {});
 		me.callParent([ config ]);
 		// Automatically deselect the tree node after it has been selected.

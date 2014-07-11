@@ -1,3 +1,9 @@
+openmediavault (1.0.3) stable; urgency=low
+
+  * Modify tree style.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Jul 2014 12:08:28 +0200
+
 openmediavault (1.0.2) stable; urgency=low
 
   * Fix SVG icon display issue in tree controls.
