@@ -30,8 +30,11 @@ omv_sysinfo_msg_separator
 omv_sysinfo_msg_caption "/etc/apt/sources.list.d"
 ls -alh /etc/apt/sources.list.d | omv_sysinfo_msg
 omv_sysinfo_msg_separator
-omv_sysinfo_msg_caption "/etc/apt/sources.list.d/openmediavault.list"
-omv_sysinfo_msg </etc/apt/sources.list.d/openmediavault.list
+for path in $(find /etc/apt/sources.list.d -maxdepth 1 -iname "*.list" -type f) ; do
+	omv_sysinfo_msg_caption "${path}"
+	omv_sysinfo_msg <"${path}"
+	omv_sysinfo_msg ""
+done
 omv_sysinfo_end_msg
 
 exit 0

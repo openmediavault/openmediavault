@@ -211,7 +211,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 			if (true === isDirty) {
 				OMV.MessageBox.show({
 					title: _("Confirmation"),
-					msg: _("Do you really want to relocate the shared folder? The content of the shared folder will not be moved automatically, this must be done manually."),
+					msg: _("Do you really want to relocate the shared folder? The content of the shared folder will not be moved automatically, you have to do this yourself."),
 					icon: Ext.Msg.QUESTION,
 					buttons: Ext.Msg.YESNO,
 					fn: function(answer) {
