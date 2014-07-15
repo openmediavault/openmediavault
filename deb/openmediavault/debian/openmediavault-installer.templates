@@ -8,7 +8,7 @@ Description: More than one target storage device detected
 
 Template: openmediavault-installer/finish-install/progress/title
 Type: text
-Description: Initialize system environment
+Description: Configure system environment
 
 Template: openmediavault-installer/finish-install/progress/info/ssh_keygen
 Type: text
