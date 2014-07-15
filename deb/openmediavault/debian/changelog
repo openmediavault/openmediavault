@@ -1,6 +1,10 @@
 openmediavault (1.0.3) stable; urgency=low
 
+  * Update locales.
   * Modify tree style.
+  * Improve sysinfo scripts.
+  * Add openmediavault-installer udeb package. The scripts are executed by
+    the Debian installer d-i during the installation.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 11 Jul 2014 12:08:28 +0200
 

@@ -28,6 +28,7 @@ Description: Open network attached storage solution
 Package: openmediavault-installer
 Package-Type: udeb
 Architecture: all
+Section: debian-installer
 Depends: partman-base, finish-install
-Description: Debian installer scripts for OpenMediaVault
- This udeb contains scripts that are executed by d-i during the installation.
+Description: OpenMediaVault scripts, for debian-installer
+ This package contains scripts that are for use in debian-installer.
