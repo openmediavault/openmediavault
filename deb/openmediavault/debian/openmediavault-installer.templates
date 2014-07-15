@@ -1,0 +1,19 @@
+Template: openmediavault-installer/partman/multiple_target_devices
+Type: error
+Description: More than one target storage device detected
+ There were more than one target storage device detected. Please detach
+ all devices except the device you want to use for installation.
+ .
+ The system will now shut down ...
+
+Template: openmediavault-installer/finish-install/progress/title
+Type: text
+Description: Initialize system environment
+
+Template: openmediavault-installer/finish-install/progress/info/ssh_keygen
+Type: text
+Description: Regenerate SSH key for user 'root'
+
+Template: openmediavault-installer/finish-install/progress/info/init_database
+Type: text
+Description: Initialize database

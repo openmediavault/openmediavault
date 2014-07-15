@@ -1,0 +1,39 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2014 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+. /usr/share/debconf/confmodule
+
+db_progress START 0 2 openmediavault-installer/finish-install/progress/title
+
+# Regenerate SSH key for user 'root'. It was created during the build
+# process of the ISO image.
+db_progress INFO openmediavault-installer/finish-install/progress/info/ssh_keygen
+rm -f /root/.ssh/*
+ssh-keygen -t rsa -b 4096 -f /root/.ssh/id_rsa -N ''
+
+# Syncronize database with system configuration.
+db_progress STEP 1
+db_progress INFO openmediavault-installer/finish-install/progress/info/init_database
+omv-initsystem
+
+db_progress STOP
+
+exit 0

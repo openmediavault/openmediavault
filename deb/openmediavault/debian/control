@@ -25,4 +25,9 @@ Description: Open network attached storage solution
  OpenMediaVault is a small and simple to use network attached storage system with
  a smart WebGUI.
 
-
+Package: openmediavault-installer
+Package-Type: udeb
+Architecture: all
+Depends: partman-base, finish-install
+Description: Debian installer scripts for OpenMediaVault
+ This udeb contains scripts that are executed by d-i during the installation.
