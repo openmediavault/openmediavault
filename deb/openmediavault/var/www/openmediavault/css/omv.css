@@ -218,11 +218,11 @@ div#headerrlogo {
 }
 .x-tree-lines .x-tree-elbow-plus,
 .x-tree-lines .x-tree-elbow-end-plus {
-	background-image: url("../images/tree-elbow-right.svg");
+	background-image: url("../images/circleright.svg");
 }
 .x-tree-lines .x-grid-tree-node-expanded .x-tree-elbow-plus,
 .x-tree-lines .x-grid-tree-node-expanded .x-tree-elbow-end-plus {
-	background-image: url("../images/tree-elbow-down.svg");
+	background-image: url("../images/circledown.svg");
 }
 /* Button */
 .x-btn-icon-el {
