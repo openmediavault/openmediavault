@@ -154,11 +154,18 @@ omv_msg() {
 
 # omv_exec_rpc service method params
 # Execute an RPC.
+# @return Returns 0 if successful, otherwise 1 or the omv-rpc exit code.
 omv_exec_rpc() {
 	omv_debug "omv_exec_rpc: service=<$1>, method=<$2>, params=<$3>"
+	# Check whether the omv-engined daemon is running.
+	if ! omv_is_proc_running "omv-engined"; then
+		omv_error "Failed to execute RPC (service=$1, method=$2): Daemon is not running"
+		return 1
+	fi
+	# Execute the RPC.
 	omv-rpc $@ >/dev/null
 	if [ $? -ne 0 ]; then
-		omv_error "Failed to execute RPC (service=$1, method=$2)."
+		omv_error "Failed to execute RPC (service=$1, method=$2)"
 		return 1
 	fi
 	return $?
@@ -689,4 +696,30 @@ EOF
 #   </ul>
 omv_product_info() {
 	xmlstarlet sel -t -v "//$1" "${OMV_PRODUCTINFO_FILE}" | xmlstarlet unesc
+}
+
+# int omv_is_proc_running (char *name)
+# Checks whether the given process is running. The process state is checked
+# by evaluating the PID file of the given process.
+# @param name The name of the process.
+# @return Returns 0 if the process is running, otherwise 1.
+omv_is_proc_running() {
+	local pidfile pid
+	pidfile=/var/run/$1.pid
+	[ ! -f "${pidfile}" ] && return 1
+	pid=$(cat ${pidfile})
+	omv_is_proc_running_pid ${pid} || return 1
+	return 0
+}
+
+# int omv_is_proc_running_pid (int *pid)
+# Checks whether the given process is running.
+# @param pid The PID of the process.
+# @return Returns 0 if the process is running, otherwise 1.
+omv_is_proc_running_pid() {
+	local pid
+	pid=$1
+	[ -z "${pid}" ] && return 1
+	[ ! -d "/proc/${pid}" ] && return 1
+	return 0
 }

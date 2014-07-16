@@ -1,3 +1,9 @@
+openmediavault (1.0.4) stable; urgency=low
+
+  * Improve helper functions.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 16 Jul 2014 12:03:33 +0200
+
 openmediavault (1.0.3) stable; urgency=low
 
   * Update locales.
