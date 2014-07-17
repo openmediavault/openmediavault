@@ -25,6 +25,10 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 omv-mkconf collectd
-omv-mkgraph
+# Build the RRD graphs if possible. If executed by d-i this might fail
+# because the daemon is not running in this case.
+if omv_is_proc_running "rrdcached"; then
+	omv-mkgraph
+fi
 
 exit 0
