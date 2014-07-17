@@ -27,7 +27,7 @@ db_progress START 0 2 openmediavault-installer/finish-install/progress/title
 # process of the ISO image.
 db_progress INFO openmediavault-installer/finish-install/progress/info/ssh_keygen
 in-target rm -f /root/.ssh/*
-in-target echo 'y' | ssh-keygen -t rsa -b 4096 -f /root/.ssh/id_rsa -N ''
+in-target "echo 'y' | ssh-keygen -t rsa -b 4096 -f /root/.ssh/id_rsa -N ''"
 
 # Syncronize database with system configuration.
 db_progress STEP 1
