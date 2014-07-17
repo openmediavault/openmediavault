@@ -139,15 +139,15 @@ class OMVRpcServiceNetworkUPSTools extends OMVRpcServiceAbstract {
 		// Is service enabled?
 		$xpath = "//services/nut";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if(!boolval($object['enable'])) {
+		if (!boolval($object['enable'])) {
 			$stats = gettext("Service disabled");
 		} else {
-			$cmd = sprintf("upsc %s 2>&1", $object['upsname']);
-			if(0 !== $this->exec($cmd, $output)) {
+			$cmd = sprintf("upsc %s 2>&1", escapeshellarg($object['upsname']));
+			if (0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}

@@ -878,9 +878,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		// In this case optimize the mount options:
 		// - add 'discard' to support the ATA_TRIM command, see
 		//   http://en.wikipedia.org/wiki/TRIM.
-		// Note, 'noatime' and 'nodiratime' will not be set
-		// because this might produce troubles with various
-		// services.
+		// - add 'noatime' to do not update inode access times on the
+		//   filesystem.
+		// - add 'nodiratime' to do not update directory inode access
+		//   times.
 		if (FALSE === $sd->isRotational()) {
 			// File systems that support TRIM.
 			// See https://wiki.archlinux.org/index.php/Solid_State_Drives#TRIM
@@ -892,6 +893,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			case "jfs":
 			case "xfs":
 				$opts = explode(",", $opts);
+				//array_push($opts, "noatime");
+				//array_push($opts, "nodiratime");
 				array_push($opts, "discard");
 				$opts = implode(",", $opts);
 				break;

@@ -1,3 +1,9 @@
+openmediavault-nut (1.0.1) stable; urgency=low
+
+  * Code improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 17 Jul 2014 08:23:34 +0200
+
 openmediavault-nut (1.0) stable; urgency=low
 
   * Update locales.
