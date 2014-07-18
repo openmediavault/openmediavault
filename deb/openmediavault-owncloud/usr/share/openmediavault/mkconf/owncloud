@@ -84,13 +84,24 @@ mkconf() {
 	  -o "  'theme' => '${OMV_OWNCLOUD_CONFIG_THEME}'," -n \
 	  -o "  'log_type' => '${OMV_OWNCLOUD_CONFIG_LOGTYPE}'," -n \
 	  -o "  'datadirectory' => '" ${OMV_XMLSTARLET_GET_SHAREDFOLDER_PATH} -o "'," -n \
-	  -o "  'trusted_domains' => array (" -n \
-	  -v "concat('    0 => \"$(hostname --alias):',port,'\",')" -n \
-	  -v "concat('    1 => \"$(hostname --fqdn):',port,'\",')" -n \
+	  -o "  'trusted_domains' => array (" \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_CONFIG}
+	# Configure all FQDN's and host IP adresses as trusted domains.
+	index=0
+	port=$(omv_config_get "//services/owncloud/port")
+	for ipaddr in $(hostname --all-fqdns); do
+		echo "    ${index} => \"${ipaddr}:${port}\"," >> ${OMV_OWNCLOUD_CONFIG}
+		index=$(( ${index} + 1 ))
+	done
+	for ipaddr in $(hostname --all-ip-addresses); do
+		echo "    ${index} => \"${ipaddr}:${port}\"," >> ${OMV_OWNCLOUD_CONFIG}
+		index=$(( ${index} + 1 ))
+	done
+	xmlstarlet sel -t -m "//services/owncloud" \
 	  -o "  )," -n \
 	  -o ");" -n \
 	  -o "?>" \
-	  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_OWNCLOUD_CONFIG}
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_OWNCLOUD_CONFIG}
 	chown www-data:www-data ${OMV_OWNCLOUD_CONFIG}
 
 	# Create '/var/www/owncloud/config/autoconfig.php' file.

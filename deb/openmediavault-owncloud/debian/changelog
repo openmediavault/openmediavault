@@ -1,3 +1,9 @@
+openmediavault-owncloud (1.1.1) stable; urgency=low
+
+  * Configure all FQDN's and host IP addresses as trusted domains.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 18 Jul 2014 12:07:37 +0200
+
 openmediavault-owncloud (1.1) stable; urgency=low
 
   * Update locales.
