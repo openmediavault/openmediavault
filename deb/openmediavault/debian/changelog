@@ -1,3 +1,9 @@
+openmediavault (1.0.6) stable; urgency=low
+
+  * Improve d-i package.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 20 Jul 2014 19:01:13 +0200
+
 openmediavault (1.0.5) stable; urgency=low
 
   * Harden system init scripts that are executed by d-i.

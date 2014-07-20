@@ -22,15 +22,10 @@
 . /lib/partman/lib/base.sh
 
 if [ $(list-devices disk | wc -l) -gt 1 ]; then
-	logger -t partman "More than one target storage device detected"
 	db_capb
 	db_input critical openmediavault-installer/partman/multiple_target_devices || true
 	db_go || true
 	db_capb backup
-	db_set debian-installer/exit/always_halt false
-	db_set debian-installer/exit/halt false
-	db_set debian-installer/exit/poweroff true
-	/lib/debian-installer/exit
 fi
 
 exit 0

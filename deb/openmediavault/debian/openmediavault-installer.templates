@@ -1,10 +1,10 @@
 Template: openmediavault-installer/partman/multiple_target_devices
-Type: error
-Description: More than one target storage device detected
- There were more than one target storage device detected. Please detach
- all devices except the device you want to use for installation.
- .
- The system will now shut down ...
+Type: note
+Description: More than one storage device has been detected
+ Please ensure you select the correct device for the operating system in
+ the following list to prevent data loss. If you can't identify the correct
+ storage device, then shutdown the system and unplug all storage devices
+ except the one you want to use for the operating system.
 
 Template: openmediavault-installer/finish-install/progress/title
 Type: text
