@@ -720,14 +720,9 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 			tbarBtnDisabled["privileges"] = true;
 			tbarBtnDisabled["acl"] = true;
 		}
+		// Update the button controls.
 		Ext.Object.each(tbarBtnDisabled, function(key, value) {
-			var tbarBtnCtrl = this.queryById(this.getId() + "-" + key);
-			if (Ext.isObject(tbarBtnCtrl) && tbarBtnCtrl.isButton) {
-				if (true == value)
-					tbarBtnCtrl.disable();
-				else
-					tbarBtnCtrl.enable();
-			}
+			this.setToolbarButtonDisabled(key, value);
 		}, me);
 	},
 

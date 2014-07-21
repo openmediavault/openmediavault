@@ -633,36 +633,13 @@ Ext.define("OMV.module.admin.system.certificate.Certificates", {
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onDetailButton, me, [ me ]),
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionChangeConfig: {
+				minSelection: 1,
+				maxSelection: 1
+			}
 		}]);
 		return items;
-	},
-
-	onSelectionChange: function(model, records) {
-		var me = this;
-		me.callParent(arguments);
-		// Process additional buttons.
-		var tbarBtnName = [ "detail" ];
-		var tbarBtnDisabled = {
-			"detail": true
-		};
-		if(records.length <= 0) {
-			tbarBtnDisabled["detail"] = true;
-		} else if(records.length == 1) {
-			tbarBtnDisabled["detail"] = false;
-		} else {
-			tbarBtnDisabled["detail"] = true;
-		}
-		for(var i = 0; i < tbarBtnName.length; i++) {
-			var tbarBtnCtrl = me.queryById(me.getId() + "-" + tbarBtnName[i]);
-			if(!Ext.isEmpty(tbarBtnCtrl)) {
-				if(true == tbarBtnDisabled[tbarBtnName[i]]) {
-					tbarBtnCtrl.disable();
-				} else {
-					tbarBtnCtrl.enable();
-				}
-			}
-		}
 	},
 
 	onAddButton: function(action) {

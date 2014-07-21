@@ -205,7 +205,10 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onInstallButton, me, [ me ]),
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionChangeConfig: {
+				minSelection: 1
+			}
 		}]);
 		Ext.Array.push(items, {
 			id: me.getId() + "-changelog",
@@ -215,39 +218,13 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onChangelogButton, me, [ me ]),
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionChangeConfig: {
+				minSelection: 1,
+				maxSelection: 1
+			}
 		});
 		return items;
-	},
-
-	onSelectionChange: function(model, records) {
-		var me = this;
-		me.callParent(arguments);
-		// Process additional buttons.
-		var tbarBtnDisabled = {
-			"install": true,
-			"changelog": true
-		};
-		if (records.length <= 0) {
-			tbarBtnDisabled["install"] = true;
-			tbarBtnDisabled["changelog"] = true;
-		} else if(records.length == 1) {
-			tbarBtnDisabled["install"] = false;
-			tbarBtnDisabled["changelog"] = false;
-		} else {
-			tbarBtnDisabled["install"] = false;
-			tbarBtnDisabled["changelog"] = true;
-		}
-		// Update the button states.
-		Ext.Object.each(tbarBtnDisabled, function(key, value) {
-			var tbarBtnCtrl = this.queryById(this.getId() + "-" + key);
-			if (Ext.isObject(tbarBtnCtrl) && tbarBtnCtrl.isButton) {
-				if (true == value)
-					tbarBtnCtrl.disable();
-				else
-					tbarBtnCtrl.enable();
-			}
-		}, me);
 	},
 
 	onInstallButton: function() {

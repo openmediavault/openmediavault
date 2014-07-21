@@ -550,7 +550,6 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 		var me = this;
 		me.callParent(arguments);
 		// Process additional buttons.
-		var tbarBtnName = [ "resize", "quota", "delete", "mount", "unmount" ];
 		var tbarBtnDisabled = {
 			"resize": true,
 			"quota": true,
@@ -637,16 +636,9 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			}
 		}
 		// Update the button controls.
-		for(var i = 0; i < tbarBtnName.length; i++) {
-			var tbarBtnCtrl = me.queryById(me.getId() + "-" + tbarBtnName[i]);
-			if(!Ext.isEmpty(tbarBtnCtrl)) {
-				if(true == tbarBtnDisabled[tbarBtnName[i]]) {
-					tbarBtnCtrl.disable();
-				} else {
-					tbarBtnCtrl.enable();
-				}
-			}
-		}
+		Ext.Object.each(tbarBtnDisabled, function(key, value) {
+			this.setToolbarButtonDisabled(key, value);
+		}, me);
 	},
 
 	onCreateButton: function() {

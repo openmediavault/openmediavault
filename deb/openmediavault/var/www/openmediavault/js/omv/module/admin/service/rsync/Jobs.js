@@ -612,22 +612,13 @@ Ext.define("OMV.module.admin.service.rsync.Jobs", {
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onRunButton, me, [ me ]),
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionChangeConfig: {
+				minSelection: 1,
+				maxSelection: 1
+			}
 		}]);
 		return items;
-	},
-
-	onSelectionChange: function(model, records) {
-		var me = this;
-		me.callParent(arguments);
-		// Process additional buttons.
-		var tbarRunCtrl = me.queryById(me.getId() + "-run");
-		if(records.length <= 0)
-			tbarRunCtrl.disable();
-		else if(records.length == 1)
-			tbarRunCtrl.enable();
-		else
-			tbarRunCtrl.disable();
 	},
 
 	onAddButton: function() {

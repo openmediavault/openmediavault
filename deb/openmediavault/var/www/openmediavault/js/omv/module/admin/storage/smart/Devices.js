@@ -511,22 +511,13 @@ Ext.define("OMV.module.admin.storage.smart.device.Devices", {
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: Ext.Function.bind(me.onInformationButton, me, [ me ]),
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionChangeConfig: {
+				minSelection: 1,
+				maxSelection: 1
+			}
 		}]);
 		return items;
-	},
-
-	onSelectionChange: function(model, records) {
-		var me = this;
-		me.callParent(arguments);
-		var tbarInformationCtrl = me.queryById(me.getId() + "-information");
-		if(records.length <= 0) {
-			tbarInformationCtrl.disable();
-		} else if(records.length == 1) {
-			tbarInformationCtrl.enable();
-		} else {
-			tbarInformationCtrl.disable();
-		}
 	},
 
 	onEditButton: function() {

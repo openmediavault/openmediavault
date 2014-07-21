@@ -289,9 +289,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 		}
 		// Update the button controls.
 		Ext.Object.each(tbarBtnDisabled, function(key, value) {
-			var tbarBtnCtrl = this.queryById(this.getId() + "-" + key);
-			if (Ext.isObject(tbarBtnCtrl) && tbarBtnCtrl.isButton)
-				tbarBtnCtrl.setDisabled(value);
+			this.setToolbarButtonDisabled(key, value);
 		}, me);
 	},
 

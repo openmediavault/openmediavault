@@ -898,7 +898,6 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 	onSelectionChange: function(model, records) {
 		var me = this;
 		me.callParent(arguments);
-		var tbarBtnName = [ "edit", "delete", "identify" ];
 		var tbarBtnDisabled = {
 			"edit": true,
 			"delete": true,
@@ -930,17 +929,10 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 				tbarBtnDisabled["delete"] = true;
 			}
 		}
-		for(var i = 0; i < tbarBtnName.length; i++) {
-			var tbarBtnCtrl = me.queryById(me.getId() + "-" +
-			  tbarBtnName[i]);
-			if(!Ext.isEmpty(tbarBtnCtrl)) {
-				if(true == tbarBtnDisabled[tbarBtnName[i]]) {
-					tbarBtnCtrl.disable();
-				} else {
-					tbarBtnCtrl.enable();
-				}
-			}
-		}
+		// Update the button controls.
+		Ext.Object.each(tbarBtnDisabled, function(key, value) {
+			this.setToolbarButtonDisabled(key, value);
+		}, me);
 	},
 
 	onAddButton: function() {

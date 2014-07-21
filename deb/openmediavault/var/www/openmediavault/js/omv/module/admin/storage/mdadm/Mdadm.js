@@ -534,7 +534,6 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 		var me = this;
 		me.callParent(arguments);
 		// Process additional buttons.
-		var tbarBtnName = [ "grow", "recover", "detail" ];
 		var tbarBtnDisabled = {
 			"grow": true,
 			"recover": true,
@@ -558,17 +557,10 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			tbarBtnDisabled["recover"] = true;
 			tbarBtnDisabled["detail"] = true;
 		}
-		for(var i = 0; i < tbarBtnName.length; i++) {
-			var tbarBtnCtrl = me.queryById(me.getId() + "-" +
-			  tbarBtnName[i]);
-			if(!Ext.isEmpty(tbarBtnCtrl)) {
-				if(true == tbarBtnDisabled[tbarBtnName[i]]) {
-					tbarBtnCtrl.disable();
-				} else {
-					tbarBtnCtrl.enable();
-				}
-			}
-		}
+		// Update the button controls.
+		Ext.Object.each(tbarBtnDisabled, function(key, value) {
+			this.setToolbarButtonDisabled(key, value);
+		}, me);
 	},
 
 	onItemDblClick: function() {
