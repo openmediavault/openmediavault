@@ -203,7 +203,11 @@ Ext.define("OMV.workspace.grid.Panel", {
 			hidden: me.hideEditButton,
 			handler: Ext.Function.bind(me.onEditButton, me, [ me ]),
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionChangeConfig: {
+				minSelection: 1,
+				maxSelection: 1
+			}
 		},{
 			id: me.getId() + "-delete",
 			xtype: "button",
@@ -213,7 +217,21 @@ Ext.define("OMV.workspace.grid.Panel", {
 			hidden: me.hideDeleteButton,
 			handler: Ext.Function.bind(me.onDeleteButton, me, [ me ]),
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionChangeConfig: {
+				minSelection: 1,
+				enableFn: function(records) {
+					var result = true;
+					Ext.Array.each(records, function(record) {
+						if ((true == record.get("_used")) || (true ==
+						  record.get("_readonly"))) {
+						  	result = false;
+							return false; // Abort loop
+						}
+					});
+					return result;
+				}
+			}
 		},{
 			id: me.getId() + "-up",
 			xtype: "button",
@@ -223,7 +241,10 @@ Ext.define("OMV.workspace.grid.Panel", {
 			hidden: me.hideUpButton,
 			handler: Ext.Function.bind(me.onUpButton, me, [ me ]),
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionChangeConfig: {
+				minSelection: 1
+			}
 		},{
 			id: me.getId() + "-down",
 			xtype: "button",
@@ -233,7 +254,10 @@ Ext.define("OMV.workspace.grid.Panel", {
 			hidden: me.hideDownButton,
 			handler: Ext.Function.bind(me.onDownButton, me, [ me ]),
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionChangeConfig: {
+				minSelection: 1
+			}
 		},{
 			id: me.getId() + "-apply",
 			xtype: "button",
@@ -264,46 +288,42 @@ Ext.define("OMV.workspace.grid.Panel", {
 		var me = this;
 		if (me.hideTopToolbar)
 			return;
-		var tbarBtnDisabled = {
-			"edit": false,
-			"delete": false,
-			"up": true,
-			"down": true
-		};
-		// Enable/disable buttons depending on the number of selected rows.
-		if (records.length <= 0) {
-			tbarBtnDisabled["edit"] = true;
-			tbarBtnDisabled["delete"] = true;
-			tbarBtnDisabled["up"] = true;
-			tbarBtnDisabled["down"] = true;
-		} else if(records.length == 1) {
-			tbarBtnDisabled["edit"] = false;
-			tbarBtnDisabled["delete"] = false;
-			tbarBtnDisabled["up"] = false;
-			tbarBtnDisabled["down"] = false;
-		} else {
-			tbarBtnDisabled["edit"] = true;
-			tbarBtnDisabled["delete"] = false;
-			tbarBtnDisabled["up"] = false;
-			tbarBtnDisabled["down"] = false;
-		}
-		// Disable 'Delete' button if a selected row is in use or readonly.
-		Ext.Array.each(records, function(record) {
-			if ((true == record.get("_used")) ||
-			  (true == record.get("_readonly"))) {
-				tbarBtnDisabled["delete"] = true;
-				return false;
+		// Process existing selection configurations.
+		me.getTopToolbar().items.each(function(item, index, len) {
+			// Skip toolbar items that do not have the 'selectionChangeConfig'
+			// property.
+			if (!Ext.isDefined(item.selectionChangeConfig))
+				return;
+			// Skip hidden toolbar items.
+			if (true == item.hidden)
+				return;
+			var config = item.selectionChangeConfig;
+			// The default button state is 'enabled'.
+			var enabled = true;
+			// Check whether the 'minSelection' option exists. The number of
+			// selected rows must be greater or equal than the given number
+			// to enable the button.
+			if (enabled && Ext.isDefined(config.minSelection) &&
+			  (records.length < config.minSelection))
+				enabled = false;
+			// Check whether the 'maxSelection' option exists. The number of
+			// selected rows must be less than the given number to enable
+			// the button.
+			if (enabled && Ext.isDefined(config.maxSelection) &&
+			  (records.length > config.maxSelection))
+				enabled = false;
+			// Check whether there is an optional 'enableFn' function. The
+			// function must return TRUE or FALSE, depending on whether the
+			// button should be enabled or disabled.
+			if (enabled && Ext.isDefined(config.enableFn) && Ext.isFunction(
+			  config.enableFn)) {
+			  	var result = config.enableFn.call(this, records);
+			  	if (Ext.isBoolean(result))
+			  		enabled = result;
 			}
-		});
-		// Update the button controls.
-		Ext.Object.each(tbarBtnDisabled, function(key, value) {
-			var tbarBtnCtrl = this.queryById(this.getId() + "-" + key);
-			if (Ext.isObject(tbarBtnCtrl) && tbarBtnCtrl.isButton) {
-				if (true == value)
-					tbarBtnCtrl.disable();
-				else
-					tbarBtnCtrl.enable();
-			}
+			// Enable or disable the toolbar button.
+			if (item.isButton)
+				item.setDisabled(!enabled);
 		}, me);
 	},
 

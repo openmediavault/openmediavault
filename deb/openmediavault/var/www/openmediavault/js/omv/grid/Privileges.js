@@ -28,6 +28,7 @@
  * @ingroup webgui
  * @class OMV.grid.Privileges
  * @derived OMV.grid.Panel
+ * Display the user and group privileges for the given shared folder.
  * @param uuid The UUID of the shared folder.
  * @param autoLoadData TRUE to call the store's load method automatically
  *   creation. Defaults to TRUE.

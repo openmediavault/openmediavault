@@ -251,7 +251,16 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onWipebutton,
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionChangeConfig: {
+				minSelection: 1,
+				maxSelection: 1,
+				enableFn: function(records) {
+					// Disable the 'Wipe' button if the selected device
+					// contains the operating system.
+					return !records[0].get("isroot")
+				}
+			}
 		},{
 			id: me.getId() + "-scan",
 			xtype: "button",
@@ -269,8 +278,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 		me.callParent(arguments);
 		// Process additional buttons.
 		var tbarBtnDisabled = {
-			"edit": true,
-			"wipe": true
+			"edit": true
 		};
 		// Enable/disable buttons depending on the number of selected rows.
 		if (records.length == 1) {
@@ -278,19 +286,12 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 			// the 'Edit' button because such devices do not support
 			// this additional customizations.
 			tbarBtnDisabled["edit"] = records[0].get("israid");
-			// Disable the 'Wipe' button if the selected device contains the
-			// operating system.
-			tbarBtnDisabled["wipe"] = records[0].get("isroot");
 		}
 		// Update the button controls.
 		Ext.Object.each(tbarBtnDisabled, function(key, value) {
 			var tbarBtnCtrl = this.queryById(this.getId() + "-" + key);
-			if (Ext.isObject(tbarBtnCtrl) && tbarBtnCtrl.isButton) {
-				if (true == value)
-					tbarBtnCtrl.disable();
-				else
-					tbarBtnCtrl.enable();
-			}
+			if (Ext.isObject(tbarBtnCtrl) && tbarBtnCtrl.isButton)
+				tbarBtnCtrl.setDisabled(value);
 		}, me);
 	},
 
