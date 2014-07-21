@@ -465,7 +465,11 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 			icon: "images/expand.png",
 			handler: Ext.Function.bind(me.onExtendButton, me, [ me ]),
 			scope: me,
-			disabled: true
+			disabled: true,
+			selectionChangeConfig: {
+				minSelection: 1,
+				maxSelection: 1
+			}
 		},{
 			id: me.getId() + "-reduce",
 			xtype: "button",
@@ -474,42 +478,16 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 			handler: Ext.Function.bind(me.onReduceButton, me, [ me ]),
 			scope: me,
 			disabled: true,
-			hidden: true // Not supported at the moment
+			hidden: true, // Not supported at the moment
+			selectionChangeConfig: {
+				minSelection: 1,
+				maxSelection: 1
+			}
 		}]);
 		return items;
 	},
 
-	onSelectionChange: function(model, records) {
-		var me = this;
-		me.callParent(arguments);
-		// Process additional buttons.
-		var tbarBtnName = [ "extend","reduce" ];
-		var tbarBtnDisabled = {
-			"extend": true,
-			"reduce": true
-		};
-		if(records.length <= 0) {
-			tbarBtnDisabled["extend"] = true;
-			tbarBtnDisabled["reduce"] = true;
-		} else if(records.length == 1) {
-			tbarBtnDisabled["extend"] = false;
-			tbarBtnDisabled["reduce"] = false;
-		} else {
-			tbarBtnDisabled["extend"] = true;
-			tbarBtnDisabled["reduce"] = true;
-		}
-		for(var i = 0; i < tbarBtnName.length; i++) {
-			var tbarBtnCtrl = me.queryById(me.getId() + "-" + tbarBtnName[i]);
-			if(!Ext.isEmpty(tbarBtnCtrl)) {
-				if(true == tbarBtnDisabled[tbarBtnName[i]])
-					tbarBtnCtrl.disable();
-				else
-					tbarBtnCtrl.enable();
-			}
-		}
-	},
-
-	onAddButton : function() {
+	onAddButton: function() {
 		var me = this;
 		Ext.create("OMV.module.admin.storage.lvm.lv.Create", {
 			listeners: {
