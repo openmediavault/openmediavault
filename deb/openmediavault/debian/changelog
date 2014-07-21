@@ -1,3 +1,9 @@
+openmediavault (1.0.7) stable; urgency=low
+
+  * Mantis 0001062: Set shared folder privileges per user or group.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 21 Jul 2014 12:06:29 +0200
+
 openmediavault (1.0.6) stable; urgency=low
 
   * Improve d-i package.

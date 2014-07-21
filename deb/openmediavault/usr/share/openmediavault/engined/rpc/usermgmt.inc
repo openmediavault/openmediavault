@@ -127,7 +127,7 @@ finish:
 	 *   reserved.
 	 * @throw E_MISC_FAILURE
 	 */
-	private function enumerateUsersByType($type) {
+	final private function enumerateUsersByType($type) {
 		// Get shadow password suite configuration.
 		if(FALSE === ($loginDefs = OMVSystem::getLoginDefs())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,

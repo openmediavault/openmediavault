@@ -48,6 +48,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		$this->registerMethod("delete");
 		$this->registerMethod("getPrivileges");
 		$this->registerMethod("setPrivileges");
+		$this->registerMethod("getPrivilegesByRole");
+		$this->registerMethod("setPrivilegesByRole");
 		$this->registerMethod("getFileACL");
 		$this->registerMethod("setFileACL");
 		$this->registerMethod("getPath");
@@ -719,6 +721,108 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		  $object);
 		// Return the configuration object.
 		return $object;
+	}
+
+	/**
+	 * Get the shared folder privileges for the given role.
+	 * @param params An array containing the following fields:
+	 *   \em role The role type, e.g. 'user' or 'group'.
+	 *   \em name The name of the user or group.
+	 * @param context The context of the caller.
+	 * @return An array of objects with the following fields:
+	 *   uuid, name, perms.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	public function getPrivilegesByRole($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "role":{"type":"string","enum":["user","group"]},
+				  "name":{"type":"string"}
+			  }
+		  }');
+		// Get all configured shared folder configuration objects.
+		$xpath = "//system/shares/sharedfolder";
+		$sfObjects = $xmlConfig->getList($xpath);
+		if (is_null($sfObjects)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		$result = array();
+		foreach ($sfObjects as $sfk => $sfv) {
+			foreach ($sfv['privileges']['privilege'] as $privk => $privv) {
+				if ($params['role'] !== $privv['type'])
+					continue;
+				if ($params['name'] !== $privv['name'])
+					continue;
+				$result[] = array(
+					"uuid" => $sfv['uuid'],
+					"name" => $sfv['name'],
+					"perms" => intval($privv['perms'])
+				);
+			}
+		}
+		return $result;
+	}
+
+	/**
+	 * Set the shared folder privileges for the given role.
+	 * @param params An array containing the following fields:
+	 *   \em role The role type, e.g. 'user' or 'group'.
+	 *   \em name The name of the user or group.
+	 *   \em privileges An array of privileges with the fields:
+	 *     \em uuid The shared folder UUID.
+	 *     \em perms The privileges: 0 (none), 5 (r) or 7 (r/w).
+	 * @return An array of the stored configuration objects.
+	 */
+	public function setPrivilegesByRole($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "role":{"type":"string","enum":["user","group"]},
+				  "name":{"type":"string"},
+				  "privileges":{
+					  "type":"array",
+					  "items":{
+						  "type":"object",
+						  "properties":{
+							  "uuid":{"type":"string"},
+							  "perms":{"type":"integer","enum":[0,5,7]}
+						  }
+					  }
+				  }
+			  }
+		  }');
+		$result = array();
+		foreach ($params['privileges'] as $privk => $privv) {
+			// Get the privilege configuration for the given shared folder.
+			$sfPriv = $this->callMethod("getPrivileges", array(
+			  "uuid" => $privv['uuid']), $context);
+			// Modify the shared folder privileges to the given one.
+			foreach ($sfPriv as $sfPrivk => &$sfPrivv) {
+				if ($sfPrivv['type'] !== $params['role'])
+					continue;
+				if ($sfPrivv['name'] !== $params['name'])
+					continue;
+				$sfPrivv['perms'] = $privv['perms'];
+			}
+			// Update the shared folder privileges.
+			$result[] = $this->callMethod("setPrivileges", array(
+			  "uuid" => $privv['uuid'], "privileges" => $sfPriv),
+			  $context);
+		}
+		return $result;
 	}
 
 	/**
