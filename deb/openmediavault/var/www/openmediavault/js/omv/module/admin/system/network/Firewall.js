@@ -325,7 +325,9 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 		return Ext.create("OMV.data.Store", {
 			autoLoad: true,
 			model: OMV.data.Model.createImplicit({
-				idProperty: "uuid",
+				// Use no idProperty, otherwise it is not possible to add
+				// multiple new rules in a bulk.
+				idProperty: null,
 				fields: [
 					{ name: "uuid" },
 					{ name: "rulenum" },
