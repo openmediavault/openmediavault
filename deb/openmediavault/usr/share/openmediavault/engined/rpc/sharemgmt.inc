@@ -785,7 +785,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 	 *   \em name The name of the user or group.
 	 *   \em privileges An array of privileges with the fields:
 	 *     \em uuid The shared folder UUID.
-	 *     \em perms The privileges: 0 (none), 5 (r) or 7 (r/w).
+	 *     \em perms The privileges: -1 (undef), 0 (none), 5 (r) or 7 (r/w).
 	 * @return An array of the stored configuration objects.
 	 */
 	public function setPrivilegesByRole($params, $context) {
@@ -805,7 +805,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 						  "type":"object",
 						  "properties":{
 							  "uuid":{"type":"string"},
-							  "perms":{"type":"integer","enum":[0,5,7]}
+							  "perms":{"type":"integer","enum":[-1,0,5,7]}
 						  }
 					  }
 				  }
@@ -816,17 +816,23 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			// Get the privilege configuration for the given shared folder.
 			$sfPriv = $this->callMethod("getPrivileges", array(
 			  "uuid" => $privv['uuid']), $context);
-			// Modify the shared folder privileges to the given one.
-			foreach ($sfPriv as $sfPrivk => &$sfPrivv) {
-				if ($sfPrivv['type'] !== $params['role'])
-					continue;
-				if ($sfPrivv['name'] !== $params['name'])
-					continue;
-				$sfPrivv['perms'] = $privv['perms'];
+			// Rebuild the shared folder privileges using the given
+			// configuration.
+			$objects = array();
+			foreach ($sfPriv as $sfPrivk => $sfPrivv) {
+				// Do we have to update or delete the processing privilege?
+				if (($sfPrivv['type'] == $params['role']) &&
+				  ($sfPrivv['name'] == $params['name'])) {
+					if (-1 == $privv['perms']) // Delete the privilege.
+						continue;
+					// Update the privilege.
+					$sfPrivv['perms'] = $privv['perms'];
+				}
+				$objects[] = $sfPrivv;
 			}
 			// Update the shared folder privileges.
 			$result[] = $this->callMethod("setPrivileges", array(
-			  "uuid" => $privv['uuid'], "privileges" => $sfPriv),
+			  "uuid" => $privv['uuid'], "privileges" => $objects),
 			  $context);
 		}
 		return $result;

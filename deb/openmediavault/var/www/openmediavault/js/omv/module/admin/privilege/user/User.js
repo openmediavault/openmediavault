@@ -237,6 +237,7 @@ Ext.define("OMV.module.admin.privilege.user.Import", {
 /**
  * @class OMV.module.admin.privilege.user.SharedFolderPrivileges
  * @derived OMV.workspace.window.Form
+ * Display all shared folder privileges from the given user.
  */
 Ext.define("OMV.module.admin.privilege.user.SharedFolderPrivileges", {
 	extend: "OMV.workspace.window.Grid",
@@ -248,10 +249,16 @@ Ext.define("OMV.module.admin.privilege.user.SharedFolderPrivileges", {
 	rpcSetMethod: "setPrivilegesByRole",
 
 	title: _("Shared folder privileges"),
-	width: 580,
+	width: 550,
 	height: 350,
 	hideResetButton: true,
 	gridClassName: "OMV.grid.PrivilegesByRole",
+
+	/**
+	 * The class constructor.
+	 * @fn constructor
+	 * @param roleName The name of the user. Required.
+	 */
 
 	getGridConfig: function() {
 		var me = this;
@@ -269,18 +276,20 @@ Ext.define("OMV.module.admin.privilege.user.SharedFolderPrivileges", {
 		var privileges = [];
 		var items = me.getValues();
 		Ext.Array.each(items, function(item) {
+			// Set default values.
+			var privilege = {
+				uuid: item.uuid,
+				perms: -1
+			};
 			if ((true === item.deny) || (true === item.readonly) ||
 			  (true === item.writeable)) {
-				var perms = 0; // No access
+				privilege.perms = 0; // No access
 				if (true === item.readonly)
-					perms = 5;
+					privilege.perms = 5;
 				else if (true === item.writeable)
-					perms = 7;
-				privileges.push({
-					uuid: item.uuid,
-					perms: perms
-				});
+					privilege.perms = 7;
 			}
+			Ext.Array.push(privileges, privilege);
 		});
 		return {
 			role: "user",
