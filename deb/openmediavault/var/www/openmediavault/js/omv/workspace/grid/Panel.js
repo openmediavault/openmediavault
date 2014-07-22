@@ -179,7 +179,17 @@ Ext.define("OMV.workspace.grid.Panel", {
 	},
 
 	/**
-	 * Returns the items displayed in the top toolbar.
+	 * Returns the items displayed in the top toolbar. The toolbar item
+	 * objects may have an additional property called 'selectionConfig'
+	 * which is evaluated after the grid selection has been changed. Based
+	 * on this configuration the button is disabled or enabled. The following
+	 * properties are available:
+	 * \em minSelections The min. number of selections to enable the button.
+	 * \em maxSelections The max. number of selections allowed to enable
+	 *   the button.
+	 * \em enabledFn A function that is called during evaluation. The function
+	 *   is called with the button object and the selected records as
+	 *   arguments. To enable the button the function must return TRUE.
 	 * @param c This component object.
 	 * @return An array of buttons displayed in the top toolbar.
 	 */
@@ -204,9 +214,9 @@ Ext.define("OMV.workspace.grid.Panel", {
 			handler: Ext.Function.bind(me.onEditButton, me, [ me ]),
 			scope: me,
 			disabled: true,
-			selectionChangeConfig: {
-				minSelection: 1,
-				maxSelection: 1
+			selectionConfig: {
+				minSelections: 1,
+				maxSelections: 1
 			}
 		},{
 			id: me.getId() + "-delete",
@@ -218,9 +228,9 @@ Ext.define("OMV.workspace.grid.Panel", {
 			handler: Ext.Function.bind(me.onDeleteButton, me, [ me ]),
 			scope: me,
 			disabled: true,
-			selectionChangeConfig: {
-				minSelection: 1,
-				enableFn: function(c, records) {
+			selectionConfig: {
+				minSelections: 1,
+				enabledFn: function(c, records) {
 					var result = true;
 					Ext.Array.each(records, function(record) {
 						if ((true == record.get("_used")) || (true ==
@@ -242,8 +252,8 @@ Ext.define("OMV.workspace.grid.Panel", {
 			handler: Ext.Function.bind(me.onUpButton, me, [ me ]),
 			scope: me,
 			disabled: true,
-			selectionChangeConfig: {
-				minSelection: 1
+			selectionConfig: {
+				minSelections: 1
 			}
 		},{
 			id: me.getId() + "-down",
@@ -255,8 +265,8 @@ Ext.define("OMV.workspace.grid.Panel", {
 			handler: Ext.Function.bind(me.onDownButton, me, [ me ]),
 			scope: me,
 			disabled: true,
-			selectionChangeConfig: {
-				minSelection: 1
+			selectionConfig: {
+				minSelections: 1
 			}
 		},{
 			id: me.getId() + "-apply",
@@ -599,7 +609,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 
 	/**
 	 * Update the top toolbar buttons based on the current selected
-	 * records and the buttons 'selectionChangeConfig' configuration.
+	 * records and the buttons 'selectionConfig' configuration.
 	 * @param selected The selected records.
 	 */
 	updateTopToolbarButtons: function(selected) {
@@ -610,34 +620,34 @@ Ext.define("OMV.workspace.grid.Panel", {
 			if ((!Ext.isDefined(item.isButton)) || !item.isButton)
 				return;
 			var fn = function(item) {
-				// Skip toolbar items that do not have the
-				// 'selectionChangeConfig' property.
-				if (!Ext.isDefined(item.selectionChangeConfig))
+				// Skip toolbar items that do not have the 'selectionConfig'
+				// property.
+				if (!Ext.isDefined(item.selectionConfig))
 					return;
 				// Skip hidden toolbar items.
 				if (true == item.hidden)
 					return;
-				var config = item.selectionChangeConfig;
+				var config = item.selectionConfig;
 				// The default button state is 'enabled'.
 				var enabled = true;
-				// Check whether the 'minSelection' option exists. The number
+				// Check whether the 'minSelections' option exists. The number
 				// of selected rows must be greater or equal than the given
 				// number to enable the button.
-				if (enabled && Ext.isDefined(config.minSelection) &&
-				  (selected.length < config.minSelection))
+				if (enabled && Ext.isDefined(config.minSelections) &&
+				  (selected.length < config.minSelections))
 					enabled = false;
-				// Check whether the 'maxSelection' option exists. The number
+				// Check whether the 'maxSelections' option exists. The number
 				// of selected rows must be less than the given number to
 				// enable the button.
-				if (enabled && Ext.isDefined(config.maxSelection) &&
-				  (selected.length > config.maxSelection))
+				if (enabled && Ext.isDefined(config.maxSelections) &&
+				  (selected.length > config.maxSelections))
 					enabled = false;
-				// Check whether there is an optional 'enableFn' function.
+				// Check whether there is an optional 'enabledFn' function.
 				// The function must return TRUE or FALSE, depending on
 				// whether the button should be enabled or disabled.
-				if (enabled && Ext.isDefined(config.enableFn) &&
-				  Ext.isFunction(config.enableFn)) {
-				  	var result = config.enableFn.call(this, item, selected);
+				if (enabled && Ext.isDefined(config.enabledFn) &&
+				  Ext.isFunction(config.enabledFn)) {
+				  	var result = config.enabledFn.call(this, item, selected);
 				  	if (Ext.isBoolean(result))
 				  		enabled = result;
 				}

@@ -634,9 +634,9 @@ Ext.define("OMV.module.admin.system.certificate.Certificates", {
 			handler: Ext.Function.bind(me.onDetailButton, me, [ me ]),
 			scope: me,
 			disabled: true,
-			selectionChangeConfig: {
-				minSelection: 1,
-				maxSelection: 1
+			selectionConfig: {
+				minSelections: 1,
+				maxSelections: 1
 			}
 		}]);
 		return items;

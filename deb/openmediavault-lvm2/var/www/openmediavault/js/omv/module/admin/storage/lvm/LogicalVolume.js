@@ -466,9 +466,9 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 			handler: Ext.Function.bind(me.onExtendButton, me, [ me ]),
 			scope: me,
 			disabled: true,
-			selectionChangeConfig: {
-				minSelection: 1,
-				maxSelection: 1
+			selectionConfig: {
+				minSelections: 1,
+				maxSelections: 1
 			}
 		},{
 			id: me.getId() + "-reduce",
@@ -479,9 +479,9 @@ Ext.define("OMV.module.admin.storage.lvm.LogicalVolumes", {
 			scope: me,
 			disabled: true,
 			hidden: true, // Not supported at the moment
-			selectionChangeConfig: {
-				minSelection: 1,
-				maxSelection: 1
+			selectionConfig: {
+				minSelections: 1,
+				maxSelections: 1
 			}
 		}]);
 		return items;

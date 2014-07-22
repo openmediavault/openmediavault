@@ -206,8 +206,8 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			handler: Ext.Function.bind(me.onInstallButton, me, [ me ]),
 			scope: me,
 			disabled: true,
-			selectionChangeConfig: {
-				minSelection: 1
+			selectionConfig: {
+				minSelections: 1
 			}
 		}]);
 		Ext.Array.push(items, {
@@ -219,9 +219,9 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			handler: Ext.Function.bind(me.onChangelogButton, me, [ me ]),
 			scope: me,
 			disabled: true,
-			selectionChangeConfig: {
-				minSelection: 1,
-				maxSelection: 1
+			selectionConfig: {
+				minSelections: 1,
+				maxSelections: 1
 			}
 		});
 		return items;

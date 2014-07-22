@@ -344,9 +344,9 @@ Ext.define("OMV.module.admin.service.usbbackup.Jobs", {
 			handler: Ext.Function.bind(me.onRunButton, me, [ me ]),
 			scope: me,
 			disabled: true,
-			selectionChangeConfig: {
-				minSelection: 1,
-				maxSelection: 1
+			selectionConfig: {
+				minSelections: 1,
+				maxSelections: 1
 			}
 		}]);
 		return items;
