@@ -158,10 +158,10 @@ omv_msg() {
 omv_exec_rpc() {
 	omv_debug "omv_exec_rpc: service=<$1>, method=<$2>, params=<$3>"
 	# Check whether the omv-engined daemon is running.
-	if ! omv_is_proc_running "omv-engined"; then
-		omv_error "Failed to execute RPC (service=$1, method=$2): Daemon is not running"
-		return 1
-	fi
+#	if ! omv_is_proc_running "omv-engined"; then
+#		omv_error "Failed to execute RPC (service=$1, method=$2): Daemon is not running"
+#		return 1
+#	fi
 	# Execute the RPC.
 	omv-rpc $@ >/dev/null
 	if [ $? -ne 0 ]; then
