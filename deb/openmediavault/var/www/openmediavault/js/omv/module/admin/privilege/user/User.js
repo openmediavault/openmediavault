@@ -412,7 +412,7 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 			id: me.getId() + "-privileges",
 			xtype: "button",
 			text: _("Privileges"),
-			icon: "images/group.png",
+			icon: "images/share.png",
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onPrivilegesButton,
 			scope: me,
