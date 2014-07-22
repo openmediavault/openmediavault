@@ -22,84 +22,57 @@
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/grid/Panel.js")
-// require("js/omv/grid/column/BooleanText.js")
 
 /**
  * @ingroup webgui
- * @class OMV.grid.Privileges
+ * @class OMV.grid.PrivilegesByRole
  * @derived OMV.grid.Panel
- * Display the user and group privileges for the given shared folder.
- * @param uuid The UUID of the shared folder. Required.
+ * Display the user or group privileges for all shared folder.
+ * @param roleType The role type, e.g. 'user' or 'group'. Required.
+ * @param roleName The name of the user or group. Required.
  * @param autoLoadData TRUE to call the store's load method automatically
  *   creation. Defaults to TRUE.
  * @param readOnly Set this grid to read-only. Defaults to FALSE.
- * @param hideSystemColumn TRUE to hide the 'System' column. Defaults
- *   to TRUE.
  */
-Ext.define("OMV.grid.Privileges", {
+Ext.define("OMV.grid.PrivilegesByRole", {
 	extend: "OMV.grid.Panel",
-	alias: [ "widget.privilegesgrid" ],
+	alias: [ "widget.privilegesbyrolegrid" ],
 	requires: [
-		"Ext.XTemplate",
 		"Ext.grid.column.CheckColumn",
-		"Ext.grid.feature.Grouping",
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc",
-		"OMV.grid.column.BooleanText"
+		"OMV.data.proxy.Rpc"
 	],
 
 	autoLoadData: true,
 	readOnly: false,
-	hideSystemColumn: true,
-
-	features: [{
-		ftype: "grouping",
-		groupHeaderTpl: Ext.create("Ext.XTemplate",
-			"{[this.renderValue(values)]}", {
-			renderValue: function(values) {
-				var result;
-				switch (values.groupField) {
-				case "system":
-					result = values.groupValue ? _("System users/groups") :
-					  _("General users/groups");
-					break;
-				default:
-					result = Ext.String.format("{0}: {1}", values.columnName,
-					  values.name);
-					break;
-				}
-				return result;
-			}
-		})
-	}],
 
 	initComponent: function() {
 		var me = this;
 		Ext.apply(me, {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: me.autoLoadData,
-				groupField: "system",
 				model: OMV.data.Model.createImplicit({
+					idProperty: "uuid",
 					fields: [
-						{ name: "type", type: "string" },
+						{ name: "uuid", type: "string" },
 						{ name: "name", type: "string" },
 						{ name: "perms", type: "int", useNull: true, defaultValue: null },
 						{ name: "deny", type: "boolean", defaultValue: false },
 						{ name: "readonly", type: "boolean", defaultValue: false },
-						{ name: "writeable", type: "boolean", defaultValue: false },
-						{ name: "system", type: "boolean" }
+						{ name: "writeable", type: "boolean", defaultValue: false }
 					]
 				}),
 				proxy: {
 					type: "rpc",
 					appendSortParams: false,
 					extraParams: {
-						uuid: me.uuid
+						role: me.roleType,
+						name: me.roleName
 					},
 					rpcData: {
 						service: "ShareMgmt",
-						method: "getPrivileges"
+						method: "getPrivilegesByRole"
 					}
 				},
 				sorters: [{
@@ -111,7 +84,7 @@ Ext.define("OMV.grid.Privileges", {
 					load: function(store, records, successful, eOpts) {
 						Ext.Array.each(records, function(record) {
 							record.beginEdit();
-							switch(record.get("perms")) {
+							switch (record.get("perms")) {
 							case 0:
 								record.set("deny", true);
 								break;
@@ -131,27 +104,6 @@ Ext.define("OMV.grid.Privileges", {
 				}
 			}),
 			columns: [{
-				text: _("Type"),
-				sortable: true,
-				dataIndex: "type",
-				stateId: "type",
-				align: "center",
-				width: 60,
-				resizable: false,
-				renderer: function(value, metaData) {
-					switch(value) {
-					case "user":
-						metaData.tdAttr = "data-qtip='" + _("User") + "'";
-						value = "<img border='0' src='images/user.png'>";
-						break;
-					case "group":
-						metaData.tdAttr = "data-qtip='" + _("Group") + "'";
-						value = "<img border='0' src='images/group.png'>";
-						break;
-					}
-					return value;
-				}
-			},{
 				text: _("Name"),
 				sortable: true,
 				dataIndex: "name",
@@ -196,17 +148,6 @@ Ext.define("OMV.grid.Privileges", {
 					scope: me,
 					checkchange: me.onCheckChange
 				}
-			},{
-				xtype: "booleantextcolumn",
-				text: _("System"),
-				sortable: true,
-				groupable: true,
-				width: 60,
-				hidden: me.hideSystemColumn,
-				dataIndex: "system",
-				stateId: "system",
-				align: "center",
-				flex: 1
 			}]
 		});
 		me.callParent(arguments);
@@ -214,14 +155,14 @@ Ext.define("OMV.grid.Privileges", {
 
 	onCheckChange: function(column, rowIndex, checked, eOpts) {
 		var me = this;
-		if(me.readOnly)
+		if (me.readOnly)
 			return;
 		var record = me.store.getAt(rowIndex);
 		var fieldNames = [ "readonly", "writeable", "deny" ];
 		// Clear all other fields except the current selected one.
 		record.beginEdit();
 		Ext.Array.each(fieldNames, function(fieldName) {
-			if(fieldName == column.dataIndex)
+			if (fieldName == column.dataIndex)
 				return;
 			record.set(fieldName, false);
 		});
