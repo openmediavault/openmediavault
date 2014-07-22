@@ -290,40 +290,53 @@ Ext.define("OMV.workspace.grid.Panel", {
 			return;
 		// Process existing selection configurations.
 		me.getTopToolbar().items.each(function(item, index, len) {
-			// Skip toolbar items that do not have the 'selectionChangeConfig'
-			// property.
-			if (!Ext.isDefined(item.selectionChangeConfig))
+			// Only process toolbar buttons.
+			if ((!Ext.isDefined(item.isButton)) || !item.isButton)
 				return;
-			// Skip hidden toolbar items.
-			if (true == item.hidden)
-				return;
-			var config = item.selectionChangeConfig;
-			// The default button state is 'enabled'.
-			var enabled = true;
-			// Check whether the 'minSelection' option exists. The number of
-			// selected rows must be greater or equal than the given number
-			// to enable the button.
-			if (enabled && Ext.isDefined(config.minSelection) &&
-			  (records.length < config.minSelection))
-				enabled = false;
-			// Check whether the 'maxSelection' option exists. The number of
-			// selected rows must be less than the given number to enable
-			// the button.
-			if (enabled && Ext.isDefined(config.maxSelection) &&
-			  (records.length > config.maxSelection))
-				enabled = false;
-			// Check whether there is an optional 'enableFn' function. The
-			// function must return TRUE or FALSE, depending on whether the
-			// button should be enabled or disabled.
-			if (enabled && Ext.isDefined(config.enableFn) && Ext.isFunction(
-			  config.enableFn)) {
-			  	var result = config.enableFn.call(this, item, records);
-			  	if (Ext.isBoolean(result))
-			  		enabled = result;
+			var fn = function(item) {
+				// Skip toolbar items that do not have the
+				// 'selectionChangeConfig' property.
+				if (!Ext.isDefined(item.selectionChangeConfig))
+					return;
+				// Skip hidden toolbar items.
+				if (true == item.hidden)
+					return;
+				var config = item.selectionChangeConfig;
+				// The default button state is 'enabled'.
+				var enabled = true;
+				// Check whether the 'minSelection' option exists. The number
+				// of selected rows must be greater or equal than the given
+				// number to enable the button.
+				if (enabled && Ext.isDefined(config.minSelection) &&
+				  (records.length < config.minSelection))
+					enabled = false;
+				// Check whether the 'maxSelection' option exists. The number
+				// of selected rows must be less than the given number to
+				// enable the button.
+				if (enabled && Ext.isDefined(config.maxSelection) &&
+				  (records.length > config.maxSelection))
+					enabled = false;
+				// Check whether there is an optional 'enableFn' function.
+				// The function must return TRUE or FALSE, depending on
+				// whether the button should be enabled or disabled.
+				if (enabled && Ext.isDefined(config.enableFn) &&
+				  Ext.isFunction(config.enableFn)) {
+				  	var result = config.enableFn.call(this, item, records);
+				  	if (Ext.isBoolean(result))
+				  		enabled = result;
+				}
+				// Enable/disable the button or menu item.
+				if (Ext.isFunction(item.setDisabled))
+					item.setDisabled(!enabled);
+			};
+			// Check whether the button is a split button and has sub-menus.
+			if (Ext.isDefined(item.menu) && item.menu.isMenu) {
+				item.menu.items.each(function(item) {
+					fn.call(this, item);
+				});
+			} else {
+				fn.call(this, item);
 			}
-			// Enable or disable the toolbar button.
-			if (item.isButton)
-				item.setDisabled(!enabled);
 		}, me);
 	},
 
