@@ -46,7 +46,7 @@ Ext.define("OMV.workspace.window.plugin.ConfigObject", {
 		var me = this;
 		me.callParent(arguments);
 		var client = me.getCmp();
-		// The client must have an 'uuid' property.
+		// The client must have the given id property.
 		if (Ext.isDefined(client[me.idProperty])) {
 			// Apply the 'isNew' function which is used to check whether the
 			// configuration object already exists or is a new one.
@@ -75,7 +75,7 @@ Ext.define("OMV.workspace.window.plugin.ConfigObject", {
 		return (object[methodName] = function() {
 			var o = {};
 			o[me.idProperty] = object[me.idProperty];
-			var params = method.apply(this, arguments);
+			var params = method.apply(me, arguments);
 			params = Ext.apply(params || {}, o);
 			return params;
 		});

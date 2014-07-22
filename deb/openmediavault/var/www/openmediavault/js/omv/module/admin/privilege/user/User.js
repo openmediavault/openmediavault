@@ -170,13 +170,13 @@ Ext.define("OMV.module.admin.privilege.user.User", {
 
 	isValid: function() {
 		var me = this;
-		if(!me.callParent(arguments))
+		if (!me.callParent(arguments))
 			return false;
 		var valid = true;
 		var values = me.getValues();
 		// Check the password.
 		var field = me.findField("passwordconf");
-		if(values.password !== field.getValue()) {
+		if (values.password !== field.getValue()) {
 			var msg = _("Passwords don't match");
 			me.markInvalid([
 				{ id: "password", msg: msg },
@@ -244,7 +244,9 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 		"OMV.data.Store",
 		"OMV.data.Model",
 		"OMV.data.proxy.Rpc",
-		"OMV.util.Format",
+		"OMV.util.Format"
+	],
+	uses: [
 		"OMV.module.admin.privilege.user.User",
 		"OMV.module.admin.privilege.user.Import"
 	],
