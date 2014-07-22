@@ -39,7 +39,9 @@ Ext.define("OMV.workspace.window.Grid", {
 	constructor: function(config) {
 		var me = this;
 		config = Ext.apply({
-			gridConfig: {}
+			gridConfig: {
+				border: false
+			}
 		}, config || {});
 		me.callParent([ config ]);
 	},

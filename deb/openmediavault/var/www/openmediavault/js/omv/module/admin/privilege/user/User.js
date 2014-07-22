@@ -23,6 +23,7 @@
 // require("js/omv/workspace/window/Form.js")
 // require("js/omv/form/field/CheckboxGrid.js")
 // require("js/omv/form/field/Password.js")
+// require("js/omv/grid/PrivilegesByRole.js")
 // require("js/omv/util/Format.js")
 // require("js/omv/Rpc.js")
 // require("js/omv/data/Store.js")
@@ -234,6 +235,34 @@ Ext.define("OMV.module.admin.privilege.user.Import", {
 });
 
 /**
+ * @class OMV.module.admin.privilege.user.SharedFolderPrivileges
+ * @derived OMV.workspace.window.Form
+ */
+Ext.define("OMV.module.admin.privilege.user.SharedFolderPrivileges", {
+	extend: "OMV.workspace.window.Grid",
+	requires: [
+		"OMV.grid.PrivilegesByRole"
+	],
+
+	title: _("Shared folder privileges"),
+	width: 580,
+	height: 350,
+	hideResetButton: true,
+	gridClassName: "OMV.grid.PrivilegesByRole",
+
+	getGridConfig: function() {
+		var me = this;
+		return {
+			border: false,
+			stateful: true,
+			stateId: "41e79486-1192-11e4-baab-0002b3a176b4",
+			roleType: "user",
+			roleName: me.roleName
+		};
+	}
+});
+
+/**
  * @class OMV.module.admin.privilege.user.Users
  * @derived OMV.workspace.grid.Panel
  */
@@ -248,7 +277,8 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 	],
 	uses: [
 		"OMV.module.admin.privilege.user.User",
-		"OMV.module.admin.privilege.user.Import"
+		"OMV.module.admin.privilege.user.Import",
+		"OMV.module.admin.privilege.user.SharedFolderPrivileges"
 	],
 
 	hidePagingToolbar: false,
@@ -340,6 +370,21 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 				}
 			})
 		}]);
+		// Add the 'Privileges' button.
+		Ext.Array.insert(items, 2, [{
+			id: me.getId() + "-privileges",
+			xtype: "button",
+			text: _("Privileges"),
+			icon: "images/group.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			handler: me.onPrivilegesButton,
+			scope: me,
+			disabled: true,
+			selectionChangeConfig: {
+				minSelection: 1,
+				maxSelection: 1
+			}
+		}]);
 		return items;
 	},
 
@@ -386,6 +431,14 @@ Ext.define("OMV.module.admin.privilege.user.Users", {
 					this.doReload();
 				}
 			}
+		}).show();
+	},
+
+	onPrivilegesButton: function() {
+		var me = this;
+		var record = me.getSelected();
+		Ext.create("OMV.module.admin.privilege.user.SharedFolderPrivileges", {
+			roleName: record.get("name")
 		}).show();
 	},
 

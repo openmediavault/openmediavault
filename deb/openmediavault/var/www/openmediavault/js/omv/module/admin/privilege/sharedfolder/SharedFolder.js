@@ -254,7 +254,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.Privileges", {
 	}],
 	gridClassName: "OMV.grid.Privileges",
 
-	title: _("Edit shared folder privileges"),
+	title: _("Shared folder privileges"),
 	width: 550,
 	height: 350,
 

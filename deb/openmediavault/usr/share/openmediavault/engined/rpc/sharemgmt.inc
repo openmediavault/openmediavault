@@ -600,7 +600,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		}
 		// Process non-system groups.
 		$groups = OMVRpc::exec("UserMgmt", "enumerateGroups", NULL, $context);
-		foreach($groups as $groupk => $groupv) {
+		foreach ($groups as $groupk => $groupv) {
+			// Set default values.
 			$privilege = array(
 				"type" => "group",
 				"name" => $groupv['name'],
@@ -608,9 +609,9 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			);
 			// Check if there are any configured privileges for the
 			// given group.
-			if(!empty($object['privileges']['privilege'])) {
-				foreach($object['privileges']['privilege'] as $objectv) {
-					if(($objectv['type'] === $privilege['type']) &&
+			if (!empty($object['privileges']['privilege'])) {
+				foreach ($object['privileges']['privilege'] as $objectv) {
+					if (($objectv['type'] === $privilege['type']) &&
 					  ($objectv['name'] === $privilege['name'])) {
 						$privilege['perms'] = intval($objectv['perms']);
 						break;
@@ -756,17 +757,23 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		}
 		$result = array();
 		foreach ($sfObjects as $sfk => $sfv) {
+			// Set default values.
+			$privilege = array(
+				"uuid" => $sfv['uuid'],
+				"name" => $sfv['name'],
+				"perms" => NULL
+			);
+			// Check if there are any configured privileges for the
+			// given user/group.
 			foreach ($sfv['privileges']['privilege'] as $privk => $privv) {
 				if ($params['role'] !== $privv['type'])
 					continue;
 				if ($params['name'] !== $privv['name'])
 					continue;
-				$result[] = array(
-					"uuid" => $sfv['uuid'],
-					"name" => $sfv['name'],
-					"perms" => intval($privv['perms'])
-				);
+				$privilege['perms'] = intval($privv['perms']);
+				break;
 			}
+			$result[] = $privilege;
 		}
 		return $result;
 	}
