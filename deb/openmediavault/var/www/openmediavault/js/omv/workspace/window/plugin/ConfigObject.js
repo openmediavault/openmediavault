@@ -35,7 +35,7 @@ Ext.define("OMV.workspace.window.plugin.ConfigObject", {
 	alias: [ "plugin.configobject", "plugin.dbobject" ],
 
 	idProperty: "uuid",
-	newIdValue: OMV.UUID_UNDEFINED,
+	newIdValue: String(OMV.UUID_UNDEFINED),
 
 	/**
 	 * The class constructor.

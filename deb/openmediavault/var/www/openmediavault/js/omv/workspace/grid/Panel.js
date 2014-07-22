@@ -220,7 +220,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			disabled: true,
 			selectionChangeConfig: {
 				minSelection: 1,
-				enableFn: function(records) {
+				enableFn: function(c, records) {
 					var result = true;
 					Ext.Array.each(records, function(record) {
 						if ((true == record.get("_used")) || (true ==
@@ -317,7 +317,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 			// button should be enabled or disabled.
 			if (enabled && Ext.isDefined(config.enableFn) && Ext.isFunction(
 			  config.enableFn)) {
-			  	var result = config.enableFn.call(this, records);
+			  	var result = config.enableFn.call(this, item, records);
 			  	if (Ext.isBoolean(result))
 			  		enabled = result;
 			}

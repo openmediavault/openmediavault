@@ -255,7 +255,7 @@ Ext.define("OMV.module.admin.storage.physicaldisk.Devices", {
 			selectionChangeConfig: {
 				minSelection: 1,
 				maxSelection: 1,
-				enableFn: function(records) {
+				enableFn: function(c, records) {
 					// Disable the 'Wipe' button if the selected device
 					// contains the operating system.
 					return !records[0].get("isroot")
