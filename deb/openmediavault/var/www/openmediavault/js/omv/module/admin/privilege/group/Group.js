@@ -168,6 +168,9 @@ Ext.define("OMV.module.admin.privilege.group.SharedFolderPrivileges", {
 		"OMV.grid.PrivilegesByRole"
 	],
 
+	rpcService: "ShareMgmt",
+	rpcSetMethod: "setPrivilegesByRole",
+
 	title: _("Shared folder privileges"),
 	width: 580,
 	height: 350,
@@ -182,6 +185,31 @@ Ext.define("OMV.module.admin.privilege.group.SharedFolderPrivileges", {
 			stateId: "970b4908-1192-11e4-aacb-0002b3a176b4",
 			roleType: "group",
 			roleName: me.roleName
+		};
+	},
+
+	getRpcSetParams: function() {
+		var me = this;
+		var privileges = [];
+		var items = me.getValues();
+		Ext.Array.each(items, function(item) {
+			if ((true === item.deny) || (true === item.readonly) ||
+			  (true === item.writeable)) {
+				var perms = 0; // No access
+				if (true === item.readonly)
+					perms = 5;
+				else if (true === item.writeable)
+					perms = 7;
+				privileges.push({
+					uuid: item.uuid,
+					perms: perms
+				});
+			}
+		});
+		return {
+			role: "group",
+			name: me.roleName,
+			privileges: privileges
 		};
 	}
 });
