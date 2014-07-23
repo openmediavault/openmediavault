@@ -303,8 +303,8 @@ Comment: www.openmediavault.org
 
 Files: /var/www/openmediavault/images/refresh.png
        /var/www/openmediavault/images/refresh.svg
-Copyright: Egemen Kapusuz
-License: GPL-3
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
 
 Files: /var/www/openmediavault/images/refresh.gif
 License: permissive
