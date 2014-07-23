@@ -19,22 +19,13 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-. /usr/share/debconf/confmodule
+set -e
 
-db_progress START 0 2 openmediavault-installer/finish-install/progress/title
-
-# Regenerate SSH key for user 'root'. It was created during the build
-# process of the ISO image.
-db_progress INFO openmediavault-installer/finish-install/progress/info/ssh_keygen
-in-target rm -f /root/.ssh/id_rsa
-in-target rm -f /root/.ssh/id_rsa.pub
-in-target ssh-keygen -t rsa -b 4096 -f /root/.ssh/id_rsa -N ''
-
-# Syncronize database with system configuration.
-db_progress STEP 1
-db_progress INFO openmediavault-installer/finish-install/progress/info/init_database
-in-target omv-initsystem
-
-db_progress STOP
+# Disable CD image in /etc/apt/sources.list.
+if grep -q "^deb \(ht\|f\)tp" /target/etc/apt/sources.list; then
+	logger -t finish-install "Disabling netinst CD in sources.list"
+	sed -i "/^deb cdrom:/s/^/#/" /target/etc/apt/sources.list
+	log-output -t finish-install chroot /target apt-get update
+fi
 
 exit 0

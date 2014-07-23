@@ -1,5 +1,6 @@
 openmediavault (1.0.7) stable; urgency=low
 
+  * Improve d-i package.
   * Fix WebGUI issue when adding multiple firewall rules in a bulk.
   * Mantis 0001062: Set shared folder privileges per user or group.
 
