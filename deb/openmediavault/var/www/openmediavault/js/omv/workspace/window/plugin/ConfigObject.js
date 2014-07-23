@@ -23,12 +23,18 @@
  * @ingroup webgui
  * @class OMV.workspace.window.plugin.ConfigObject
  * @derived Ext.AbstractPlugin
- * A plugin that adds support to the RPC mechanism to load data by a given
- * id. The id must be a property of the parent/owner class.
+ * A plugin for OMV.workspace.window.Container derived classes that
+ * adapts the parent/owner class to automatically load the configuration
+ * data/object via the RPC mechanism based on the given id. The id of the
+ * configuration data/object (e.g. 'uuid') is automatically added to the
+ * RPC get/set parameters. Additional the function 'isNew' is added to the
+ * parent/owner class and returns TRUE if the given id identifies the
+ * configuration data/object as new.
+ * The id must be a property of the parent/owner class.
  * @param idProperty The name of the field treated as this configuration
  *   object's unique id. Defaults to 'uuid'.
- * @param newIdValue The value of the id that identifies a new configuration
- *   object. Defaults to OMV.UUID_UNDEFINED.
+ * @param newIdValue The value of the id that identifies a configuration
+ *   object as new. Defaults to OMV.UUID_UNDEFINED.
  */
 Ext.define("OMV.workspace.window.plugin.ConfigObject", {
 	extend: "Ext.AbstractPlugin",
@@ -75,7 +81,7 @@ Ext.define("OMV.workspace.window.plugin.ConfigObject", {
 		return (object[methodName] = function() {
 			var o = {};
 			o[me.idProperty] = object[me.idProperty];
-			var params = method.apply(me, arguments);
+			var params = method.apply(this, arguments);
 			params = Ext.apply(params || {}, o);
 			return params;
 		});
