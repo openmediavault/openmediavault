@@ -660,9 +660,9 @@ Ext.define("OMV.workspace.grid.Panel", {
 				item.menu.items.each(function(item) {
 					fn.call(this, item);
 				});
-			} else {
-				fn.call(this, item);
 			}
+			// Process the button itself.
+			fn.call(this, item);
 		}, me);
 	}
 });
