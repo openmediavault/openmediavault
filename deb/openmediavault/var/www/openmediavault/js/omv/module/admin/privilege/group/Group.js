@@ -21,6 +21,7 @@
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/workspace/window/Form.js")
+// require("js/omv/workspace/window/Grid.js")
 // require("js/omv/form/field/CheckboxGrid.js")
 // require("js/omv/grid/PrivilegesByRole.js")
 // require("js/omv/util/Format.js")
@@ -160,7 +161,7 @@ Ext.define("OMV.module.admin.privilege.group.Import", {
 
 /**
  * @class OMV.module.admin.privilege.group.SharedFolderPrivileges
- * @derived OMV.workspace.window.Form
+ * @derived OMV.workspace.window.Grid
  * Display all shared folder privileges from the given group.
  */
 Ext.define("OMV.module.admin.privilege.group.SharedFolderPrivileges", {
@@ -173,8 +174,8 @@ Ext.define("OMV.module.admin.privilege.group.SharedFolderPrivileges", {
 	rpcSetMethod: "setPrivilegesByRole",
 
 	title: _("Shared folder privileges"),
-	width: 550,
-	height: 350,
+	width: 500,
+	height: 300,
 	hideResetButton: true,
 	gridClassName: "OMV.grid.PrivilegesByRole",
 
@@ -191,7 +192,13 @@ Ext.define("OMV.module.admin.privilege.group.SharedFolderPrivileges", {
 			stateful: true,
 			stateId: "970b4908-1192-11e4-aacb-0002b3a176b4",
 			roleType: "group",
-			roleName: me.roleName
+			roleName: me.roleName,
+			dockedItems: [{
+				xtype: "tiptoolbar",
+				dock: "bottom",
+				ui: "footer",
+				text: _("These settings are used by the services to configure the user access rights. Please note that these settings have no effect on file system permissions.")
+			}]
 		};
 	},
 
