@@ -272,7 +272,7 @@ class OMVDownloadRpcProxy extends OMVJsonRpcProxy {
 	}
 
 	/**
-	 * @param response The response contains the following fields
+	 * @param response The response must contain the following fields
 	 *   \em filename, \em content or \em filepath and \em contenttype which
 	 *   is optional. The field \em content contains the content to be
 	 *   returned, \em filepath contains the name of the file which content
@@ -284,18 +284,28 @@ class OMVDownloadRpcProxy extends OMVJsonRpcProxy {
 	 *   'text/plain'.
 	 */
 	protected function handleResponse($response) {
-		header("Content-Type: ". (array_key_exists("contenttype", $response) ?
+		// Check if the RPC response is plain text or complies the above
+		// method parameter description. If it is plain text, then generate
+		// the required data structure.
+		if (!is_array($response)) {
+			$response = array(
+				"filename" => sprintf("content%d", time()),
+				"content" => $response
+			);
+		}
+		header("Content-Type: " . (array_key_exists("contenttype", $response) ?
 		  $response['contenttype'] : "text/plain"));
 		header('Expires: 0');
 		header("Content-Disposition: attachment; " .
 		  "filename={$response['filename']}");
-		if(array_key_exists("content", $response)) {
+		if (array_key_exists("content", $response)) {
 			$contentLength = strlen($response['content']);
 			header("Content-Length: {$contentLength}");
 			print($response['content']);
 		} else {
 			@readfile($response['filepath']);
-			if(array_key_exists("unlink", $response) &&
+			// Unlink the file containing the content to be downloaded?
+			if (array_key_exists("unlink", $response) &&
 			  (TRUE === $response['unlink'])) {
 				@unlink($response['filepath']);
 			}
