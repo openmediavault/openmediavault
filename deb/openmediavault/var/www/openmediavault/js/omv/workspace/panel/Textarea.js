@@ -28,9 +28,11 @@
  * @derived OMV.workspace.panel.Panel
  * A panel that contains a text area.
  * @param readOnly Mark the text area as readonly. Defaults to TRUE.
- * @param rpcService The RPC service name.
- * @param rpcMethod The RPC method to request the data.
- * @param rpcParams The RPC parameters.
+ * @param rpcService The RPC service name. Required.
+ * @param rpcMethod The RPC method to request the data. Required.
+ * @param rpcParams The RPC parameters. Optional.
+ * @param hideDownloadButton Hide the 'Download' button in the top toolbar.
+ *   Defaults to FALSE.
  */
 Ext.define("OMV.workspace.panel.Textarea", {
 	extend: "OMV.workspace.panel.Panel",
@@ -41,6 +43,7 @@ Ext.define("OMV.workspace.panel.Textarea", {
 
 	layout: "fit",
 	hideTopToolbar: false,
+	hideDownloadButton: false,
 	autoLoadData: true,
 	readOnly: true,
 	autoScroll: false,
@@ -57,6 +60,22 @@ Ext.define("OMV.workspace.panel.Textarea", {
 			}
 		}]
 		me.callParent(arguments);
+	},
+
+	getTopToolbarItems: function(c) {
+		var me = this;
+		var items = me.callParent(arguments);
+		Ext.Array.push(items, {
+			id: me.getId() + "-download",
+			xtype: "button",
+			text: _("Download"),
+			icon: "images/download.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			hidden: me.hideDownloadButton,
+			handler: Ext.Function.bind(me.onDownloadButton, me, [ me ]),
+			scope: me
+		});
+		return items;
 	},
 
 	doLoad: function() {
@@ -107,5 +126,15 @@ Ext.define("OMV.workspace.panel.Textarea", {
 			value = c.getValue();
 		}
 		return value;
+	},
+
+	/**
+	 * Handler that is called when the 'Download' button in the top toolbar
+	 * is pressed.
+	 */
+	onDownloadButton: function() {
+		var me = this;
+		OMV.Download.request(me.rpcService, me.rpcMethod,
+		  me.rpcParams || null);
 	}
 });

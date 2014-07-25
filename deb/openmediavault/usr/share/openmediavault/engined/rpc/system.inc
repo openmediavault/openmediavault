@@ -54,6 +54,7 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		$this->registerMethod("setNtpDate");
 		$this->registerMethod("getTimeZoneList");
 		$this->registerMethod("getInformation");
+		$this->registerMethod("getDiagnosticReport");
 	}
 
 	/**
@@ -482,6 +483,22 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 				"type" => "progress",
 				"index" => $index++)
 		);
+	}
+
+	/**
+	 * Get the 'omv-sysinfo' diagnostic report.
+	 * @param params The method parameters.
+	 *   The method does not have any paramaters.
+	 * @param context The context of the caller.
+	 * @return A quotation from the Dune novel, which is a string.
+	 */
+	public function getDiagnosticReport($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		OMVUtil::exec("omv-sysinfo", $result);
+		return implode("\n", $result);
 	}
 }
 

@@ -170,7 +170,8 @@ class OMVRpcServiceLogFile extends OMVRpcServiceAbstract {
 	 * @param params An array containing the following fields:
 	 *   \em id The identifier of the registered log file type.
 	 * @param context The context of the caller.
-	 * @return An array with the keys \em filename and \em filepath.
+	 * @return An array with the keys \em filename, \em filepath and
+	 *   \em unlink.
 	 * @throw E_MISC_FAILURE
 	 */
 	function getContent($params, $context) {
