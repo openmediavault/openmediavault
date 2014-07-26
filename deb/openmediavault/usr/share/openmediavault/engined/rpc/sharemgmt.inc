@@ -317,7 +317,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			"name" => $params['name'],
 			"comment" => $params['comment'],
 			"mntentref" => $params['mntentref'],
-			"reldirpath" => $params['reldirpath']
+			"reldirpath" => ltrim($params['reldirpath'], "/")
 		);
 		// Set the configuration object.
 		$success = FALSE;
