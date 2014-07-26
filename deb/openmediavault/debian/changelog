@@ -2,6 +2,8 @@ openmediavault (1.0.8) stable; urgency=low
 
   * Add 'Download' button to OMV.workspace.panel.Textarea panels. 
   * Add 'Diagnostics | System Information | Report' page.
+  * Improve d-i package. Force grub to use the same storage device on which
+    the operating system was installed when it was manually chosen.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 25 Jul 2014 12:58:55 +0200
 
