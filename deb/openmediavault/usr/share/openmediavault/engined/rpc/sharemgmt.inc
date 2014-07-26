@@ -476,7 +476,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 				// Example:
 				// To delete = /media/4ee04694-e849-4b97-b31a-a928cc084e8f/test/
 				// To check  = /media/4ee04694-e849-4b97-b31a-a928cc084e8f/test_folder
-				$absDirPath = rtrim($absDirPath, "/")."/";
+				$absDirPath = sprintf("%s/", rtrim($absDirPath, "/"));
 				foreach($sfObjects as $sfObjectk => $sfObjectv) {
 					// Skip current processed shared folder configuration
 					// object.

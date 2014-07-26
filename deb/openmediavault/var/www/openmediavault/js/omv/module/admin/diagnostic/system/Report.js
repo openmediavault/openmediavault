@@ -28,6 +28,7 @@
 Ext.define("OMV.module.admin.diagnostic.system.Report", {
 	extend: "OMV.workspace.panel.Textarea",
 
+	hideDownloadButton: false,
 	rpcService: "System",
 	rpcMethod: "getDiagnosticReport"
 });

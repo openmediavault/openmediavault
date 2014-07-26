@@ -381,10 +381,10 @@ clean_local_dpkg_repository()
 submit_sysinfo()
 {
 	if [ "$(omv_config_get "//system/email/enable")" = "0" ]; then
-		echo "Failed to submit the system diagnostic information to the administrator"
+		echo "Failed to submit the system diagnostic report to the administrator"
 		echo "account via email because the email notification service is disabled."
 		echo ""
-		read -p "Do you want to copy the system diagnostic information onto an USB device [y/n]? " choice
+		read -p "Do you want to copy the system diagnostic report onto an USB device [y/n]? " choice
 		case "${choice}" in
 		[Yy]*)
 			pipe=$(mktemp --dry-run)
@@ -460,7 +460,7 @@ ${OMV_FIRSTAID_DIALOG} --nocancel --clear --backtitle "${prodname} - ${prodcopyr
   "4" "Restore configuration backup" \
   "5" "Fix RRD database" \
   "6" "Clear local upload package repository" \
-  "7" "Submit system information to administrator" \
+  "7" "Submit diagnostic report to administrator" \
   "8" "Exit" 2>$tempfile
 [ $? -ne 0 ] && return 1
 choice=$(cat $tempfile)

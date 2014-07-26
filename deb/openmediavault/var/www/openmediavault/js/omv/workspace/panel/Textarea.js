@@ -32,7 +32,7 @@
  * @param rpcMethod The RPC method to request the data. Required.
  * @param rpcParams The RPC parameters. Optional.
  * @param hideDownloadButton Hide the 'Download' button in the top toolbar.
- *   Defaults to FALSE.
+ *   Defaults to TRUE.
  */
 Ext.define("OMV.workspace.panel.Textarea", {
 	extend: "OMV.workspace.panel.Panel",
@@ -43,7 +43,7 @@ Ext.define("OMV.workspace.panel.Textarea", {
 
 	layout: "fit",
 	hideTopToolbar: false,
-	hideDownloadButton: false,
+	hideDownloadButton: true,
 	autoLoadData: true,
 	readOnly: true,
 	autoScroll: false,
