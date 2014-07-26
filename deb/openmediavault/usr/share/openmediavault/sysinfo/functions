@@ -28,7 +28,7 @@ omv_sysinfo_begin_msg() {
 
 omv_sysinfo_msg() {
 	if test $# -eq 0 ; then
-		while read msg; do
+		while IFS='' read msg || [ -n "${msg}" ]; do
 			omv_msg "${msg}"
 		done
 	else
