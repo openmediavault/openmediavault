@@ -23,11 +23,20 @@ set -e
 
 . /usr/share/openmediavault/sysinfo/functions
 
+OMV_APT_PLUGINS_INDEX_FILE=${OMV_APT_PLUGINS_INDEX_FILE:-"/var/lib/openmediavault/apt/pluginsindex.json"}
+
 name=$(omv_product_info "name")
 packagename=$(omv_product_info "packagename")
 
 omv_sysinfo_begin_msg "${name} plugins"
 dpkg-query --list "${packagename}-*" | omv_sysinfo_msg
+omv_sysinfo_msg_separator
+omv_sysinfo_msg_caption "Plugins index"
+if [ -e "${OMV_APT_PLUGINS_INDEX_FILE}" ]; then
+	omv_sysinfo_msg <${OMV_APT_PLUGINS_INDEX_FILE}
+else
+	omv_sysinfo_msg "n/a"
+fi
 omv_sysinfo_end_msg
 
 exit 0
