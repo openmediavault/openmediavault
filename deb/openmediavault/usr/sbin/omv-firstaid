@@ -437,9 +437,9 @@ EOF
 			;;
 		esac
 	else
-		echo "Submitting system diagnostic information to the administrator account."
+		echo "Submitting system diagnostic report to the administrator account."
 		echo "Please check your email mailbox ..."
-		omv-sysinfo | mail -s "System diagnostic information" root
+		omv-sysinfo | mail -s "System diagnostic report" root
 	fi
 	return 0
 }
