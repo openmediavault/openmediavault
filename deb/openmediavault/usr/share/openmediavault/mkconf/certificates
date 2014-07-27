@@ -50,4 +50,4 @@ xmlstarlet sel -t -m "//system/certificates/sslcertificate" \
   done
 
 # Create symbolic links to files named by the hash values
-c_rehash ${OMV_CERTIFICATE_DIR}/certs
+update-ca-certificates --fresh
