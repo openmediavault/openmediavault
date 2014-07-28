@@ -41,7 +41,7 @@ omv_build_pot:
 	  -type f -print0 | xargs -0r xgettext --keyword=_ \
 	  --output-dir=$(OMV_POT_DIR) --output=$(OMV_POT_FILE) \
 	  --force-po --no-location --no-wrap --sort-output \
-	  --package-name=$(OMV_PACKAGE) -
+	  --package-name=$(OMV_PACKAGE) --from-code=UTF-8 -
 	# Remove '#, c-format' comments, otherwise manuall upload of translation
 	# files confuses Transifex.
 	sed --in-place '/^#, c-format/d' $(OMV_POT_DIR)/$(OMV_POT_FILE)
