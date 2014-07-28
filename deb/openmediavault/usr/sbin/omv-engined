@@ -287,7 +287,13 @@ set_time_limit(0);
 openlog($cmdName, LOG_PID | LOG_PERROR, LOG_USER);
 
 // Change process name.
-setproctitle($cmdName);
+// Note, this workaround will fix https://bugs.php.net/bug.php?id=67040
+// when PHP 5.5 is used. Remove the dependency to php5-proctitle from
+// openmediavault core package in Debian Jessie.
+if (function_exists("cli_set_process_title"))
+    cli_set_process_title($cmdName);
+else
+    setproctitle($cmdName);
 
 ///////////////////////////////////////////////////////////////////////////////
 // Daemonize the application if running in daemon mode and initialize
