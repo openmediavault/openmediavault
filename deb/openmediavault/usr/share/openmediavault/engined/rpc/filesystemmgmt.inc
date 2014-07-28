@@ -548,29 +548,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 					  $cmd, implode("\n", $output));
 				}
-				// Use entire device. Get the start and end sectors of the
-				// largest block. This is necessary to workaround a bug in
-				// sgdisk, otherwise partitions with only 700GiB will be
-				// created on a 3TiB device.
-				// Use the following command in Debian Wheezy:
-				// sgdisk --new=1:0:0 --typecode=1:8300 --print ${device}
-				$cmd = sprintf("sgdisk --first-aligned-in-largest %s ".
-				  "| tail -n 1", $sd->getDeviceFile());
-				if (0 !== $this->exec($cmd, $output)) {
-					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, implode("\n", $output));
-				}
-				$start = intval($output[0]);
-				$cmd = sprintf("sgdisk --end-of-largest %s | tail -n 1",
-				  $sd->getDeviceFile());
-				if (0 !== $this->exec($cmd, $output)) {
-					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, implode("\n", $output));
-				}
-				$end = intval($output[0]);
-				$cmd = sprintf("export LANG=C; sgdisk --new=1:%d:%d ".
-				  "--typecode=1:8300 --print %s 2>&1", $start, $end,
-				  $sd->getDeviceFile());
+				// Use entire device.
+				$cmd = sprintf("export LANG=C; sgdisk --new=1:0:0 ".
+				  "--typecode=1:8300 --print %s 2>&1", escapeshellarg(
+				  $sd->getDeviceFile()));
 				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 					  $cmd, implode("\n", $output));
