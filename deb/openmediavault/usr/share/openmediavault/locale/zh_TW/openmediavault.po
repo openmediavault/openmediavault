@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 18:12+0100\n"
-"PO-Revision-Date: 2014-06-24 20:16+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
+"POT-Creation-Date: 2014-07-28 22:41+0200\n"
+"PO-Revision-Date: 2014-07-28 20:44+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#, javascript-format
 msgid "% completed ..."
 msgstr "% 完成 ..."
 
@@ -55,6 +56,7 @@ msgstr "10 分鐘"
 msgid "10 years"
 msgstr "10 年"
 
+#, javascript-format
 msgid "100% completed ..."
 msgstr "100% 完成 ..."
 
@@ -154,6 +156,9 @@ msgstr "64 - 中等用電量、待機狀態"
 msgid "9 months"
 msgstr "9 月"
 
+msgid "A module with the name '%s' already exists"
+msgstr ""
+
 msgid "A share with the name '%s' already exists"
 msgstr "名稱為 '%s' 的共享已經存在"
 
@@ -168,6 +173,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "關於"
+
+msgid "Abstract"
+msgstr ""
 
 msgid "Access Right Management"
 msgstr "存取權限管理"
@@ -266,8 +274,8 @@ msgid "Afghanistan"
 msgstr "阿富汗"
 
 msgid ""
-"After the RAID has been grown you can resize the containing filesystem."
-msgstr "在 RAID 容量增加後，你可以調整內含檔案系統的大小。"
+"After the RAID has been grown you can resize the containing file system."
+msgstr ""
 
 msgid "Aland Islands"
 msgstr "奧蘭群島"
@@ -380,6 +388,12 @@ msgstr "屬性名稱"
 msgid "Attributes"
 msgstr "屬性"
 
+msgid "Audit"
+msgstr ""
+
+msgid "Audit file operations."
+msgstr ""
+
 msgid "August"
 msgstr "八月"
 
@@ -415,6 +429,9 @@ msgstr "必須驗證"
 
 msgid "Authentication type"
 msgstr "驗證型式"
+
+msgid "Auto"
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "自動聲響管理"
@@ -601,8 +618,14 @@ msgstr "清除"
 msgid "Client"
 msgstr "客戶端"
 
-msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr "允許裝載檔案系統的客戶端，例如 192.168.178.0/24。"
+msgid "Client NetBIOS name"
+msgstr ""
+
+msgid "Client address"
+msgstr ""
+
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
 
 msgid "Close"
 msgstr "關閉"
@@ -696,11 +719,14 @@ msgstr "新建"
 msgid "Create RAID device"
 msgstr "新建 RAID 裝置"
 
-msgid "Create filesystem"
-msgstr "新建檔案系統"
+msgid "Create file system"
+msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "新建自我簽名的 SSL 證書"
+
+msgid "Creating the file system, please wait ..."
+msgstr ""
 
 msgid "Critical"
 msgstr "嚴重"
@@ -738,6 +764,9 @@ msgstr "DNS 伺服器"
 msgid "Daemon"
 msgstr "幕後服務程式"
 
+msgid "Dashboard"
+msgstr ""
+
 msgid "Date"
 msgstr "日期"
 
@@ -762,11 +791,11 @@ msgstr "刪除"
 msgid "Delete content"
 msgstr "刪除內容"
 
+msgid "Delete file system"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "刪除在接收端但不存於發送端的檔案"
-
-msgid "Delete filesystem"
-msgstr "刪除檔案系統"
 
 msgid "Deleting selected item(s)"
 msgstr "刪除所選的項目"
@@ -854,8 +883,8 @@ msgstr "顯示項目 {0} - {1} 總共 {2}"
 msgid "Djibouti"
 msgstr "吉布提"
 
-msgid "Do you really want to apply the configuration?"
-msgstr "你真的要套用該配置？"
+msgid "Do you really want to apply the configuration changes?"
+msgstr ""
 
 msgid "Do you really want to clear the log file?"
 msgstr "你真的要清除該日誌檔案？"
@@ -863,16 +892,16 @@ msgstr "你真的要清除該日誌檔案？"
 msgid "Do you really want to create the RAID device?"
 msgstr "你真的要創建該 RAID 裝置？"
 
-msgid "Do you really want to delete the filesystem? All data will be lost."
-msgstr "你真的要刪除該檔案系統嗎？所有資料都將失去。"
+msgid "Do you really want to delete the file system? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "你真的要刪除所選的項目？"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the filesystem creation may take some time."
-msgstr "你真的要將這個裝置格式化？它上面的所有資料都將被刪除。請注意，檔案系統的創建可能會花費一些時間。"
+"Please note that the file system creation may take some time."
+msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "你真的想要安裝所選的插件？"
@@ -883,21 +912,35 @@ msgstr "你真的要離開該網頁嗎？"
 msgid "Do you really want to logout?"
 msgstr "你真的要登出嗎？"
 
+msgid "Do you really want to put the system into standby?"
+msgstr ""
+
 msgid "Do you really want to reboot the system?"
 msgstr "你真的要重新啟動系統？"
+
+msgid ""
+"Do you really want to relocate the shared folder? The content of the shared "
+"folder will not be moved automatically, you have to do this yourself."
+msgstr ""
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
 msgstr "你真的要移除的共享檔案夾的內容嗎？它將被永久刪除，無法恢復。"
 
+msgid "Do you really want to remove this widget?"
+msgstr ""
+
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "你真的要重設 WebGUI 的狀態，例如：欄位順序嗎？"
 
 msgid ""
-"Do you really want to resize the selected filesystem? You have to do that "
+"Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr "你真的要調整所選擇檔案系統的大小？例如：在擴充 RAID 之後，你需要作此調整。"
+msgstr ""
+
+msgid "Do you really want to revert the configuration changes?"
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
 msgstr "你真的要將系統關機嗎？"
@@ -1001,9 +1044,6 @@ msgstr "編輯共享"
 msgid "Edit shared folder"
 msgstr "編輯共享檔案夾"
 
-msgid "Edit shared folder privileges"
-msgstr "編輯共享檔案夾的特權"
-
 msgid "Edit user"
 msgstr "編輯用戶"
 
@@ -1015,6 +1055,12 @@ msgstr "薩爾瓦多"
 
 msgid "Email"
 msgstr "電子郵件"
+
+msgid "Empty now"
+msgstr ""
+
+msgid "Empty recycle bin"
+msgstr ""
 
 msgid "Enable"
 msgstr "啟用"
@@ -1147,6 +1193,9 @@ msgstr "執行指令"
 msgid "Execute cron job"
 msgstr "執行 cron 工作"
 
+msgid "Execute only"
+msgstr ""
+
 msgid "Execute rsync job"
 msgstr "執行 rsync 工作"
 
@@ -1178,11 +1227,6 @@ msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
 msgstr "FXP 允許兩個遠端伺服器之間的傳輸，而沒有任何檔案資料送到要求傳送的客戶端。"
-
-msgid ""
-"Failed to create filesystem. Please check the syslog or '%s' for more "
-"details."
-msgstr "無法建立檔案系統。請查看 syslog 或 '%s' 內的詳細資訊。"
 
 msgid "Failed to get filesystems"
 msgstr "無法取得檔案系統"
@@ -1226,6 +1270,12 @@ msgstr "斐濟"
 msgid "File"
 msgstr "檔案"
 
+msgid "File Systems"
+msgstr ""
+
+msgid "File system"
+msgstr ""
+
 msgid "Filename"
 msgstr "檔案名稱"
 
@@ -1241,9 +1291,6 @@ msgstr "檔案若其大小超過所指定的位元數，將不會被放進回收
 
 msgid "Filesize"
 msgstr "檔案大小"
-
-msgid "Filesystem"
-msgstr "檔案系統"
 
 msgid "Filesystem '%s' not found"
 msgstr "未找到檔案系統 '%s'"
@@ -1263,8 +1310,8 @@ msgstr "防火牆"
 msgid "Firmware version"
 msgstr "韌體版本"
 
-msgid "Flag"
-msgstr "旗標"
+msgid "Flags"
+msgstr ""
 
 msgid "Force SSL/TLS"
 msgstr "強制 SSL/TLS"
@@ -1310,6 +1357,9 @@ msgstr "一般設定"
 
 msgid "General settings"
 msgstr "一般設定"
+
+msgid "General users/groups"
+msgstr ""
 
 msgid "Generating graphs ..."
 msgstr "產生圖形 ..."
@@ -1370,6 +1420,12 @@ msgstr "瓜地馬拉"
 
 msgid "Guest"
 msgstr "訪客"
+
+msgid "Guest allowed"
+msgstr ""
+
+msgid "Guests allowed"
+msgstr ""
 
 msgid "Guinea"
 msgstr "幾內亞"
@@ -1455,8 +1511,11 @@ msgstr "辨識網路介面裝置"
 msgid "Idle"
 msgstr "閒置"
 
-msgid "If enabled then no password is required to connect to the share"
-msgstr "如果啟用，則不需要密碼即可連接到共享"
+msgid ""
+"If 'Guests allowed' is selected and no login credential is provided, then "
+"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"this case no password is required to connect to the share."
+msgstr ""
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1478,11 +1537,11 @@ msgstr "如果這個選項被設定，那麼任何試圖上傳都會失敗。"
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
-" before mapping DOS attributes to UNIX permission bits. When set, DOS "
-"attributes will be stored onto an extended attribute in the UNIX filesystem,"
-" associated with the file or directory."
-msgstr "如果此參數被設定，Samba 在將 DOS 屬性對應到 UNIX 權限位元之前，會首先嘗試從一個檔案系統的擴展屬性讀出 DOS 屬性(系統、隱藏、存檔或唯讀)。當在設定的狀況下，DOS 屬性將被存儲到 UNIX 檔案系統上相關的檔案或目錄的擴展屬性。"
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1582,8 +1641,8 @@ msgstr "介面"
 msgid "Invalid domain name"
 msgstr "不合法的網域名稱"
 
-msgid "Invalid filesystem label"
-msgstr "不合法的檔案系統標籤"
+msgid "Invalid file system label"
+msgstr ""
 
 msgid "Invalid group name"
 msgstr "不合法的群組名稱"
@@ -1730,6 +1789,9 @@ msgstr "平均負載"
 
 msgid "Loading ..."
 msgstr "載入中 ..."
+
+msgid "Loading, please wait ..."
+msgstr ""
 
 msgid "Local"
 msgstr "本地"
@@ -2095,6 +2157,9 @@ msgstr "非 TCP"
 msgid "Not UDP"
 msgstr "非 UDP"
 
+msgid "Nothing"
+msgstr ""
+
 msgid "Notification"
 msgstr "通知"
 
@@ -2130,6 +2195,12 @@ msgstr "阿曼"
 
 msgid "Online"
 msgstr "在線"
+
+msgid "Only guests"
+msgstr ""
+
+msgid "Operation"
+msgstr ""
 
 msgid "Operation not allowed for user '%s'."
 msgstr "不允許用戶 '%s' 執行此作業。"
@@ -2307,9 +2378,9 @@ msgid "Please wait ..."
 msgstr "請稍候 ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a "
-"filesystem."
-msgstr "請等到 RAID 被啟始化後才建立檔案系統。"
+"Please wait until the RAID has been initialized before creating a file "
+"system."
+msgstr ""
 
 msgid "Plugins"
 msgstr "插件"
@@ -2335,8 +2406,8 @@ msgstr "電源按鈕"
 msgid "Power mode"
 msgstr "耗電模式"
 
-msgid "Pre-released updates."
-msgstr "預先發佈的更新。"
+msgid "Pre-release updates."
+msgstr ""
 
 msgid "Prefix length"
 msgstr "前綴詞長度"
@@ -2456,8 +2527,14 @@ msgstr "唯讀"
 msgid "Read-only"
 msgstr "唯讀"
 
+msgid "Read/Execute"
+msgstr ""
+
 msgid "Read/Write"
 msgstr "讀/寫"
+
+msgid "Read/Write/Execute"
+msgstr ""
 
 msgid "Real"
 msgstr "實際用戶"
@@ -2498,11 +2575,17 @@ msgstr "遠端主機"
 msgid "Remote syslog"
 msgstr "遠端系統日誌"
 
+msgid "Remove"
+msgstr ""
+
 msgid "Replace"
 msgstr "取代"
 
 msgid "Replace all existing permissions"
 msgstr "取代所有現存的權限"
+
+msgid "Report"
+msgstr ""
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2537,6 +2620,9 @@ msgstr "重設 WebGUI 狀態將恢復預設的設定，例如欄位。"
 msgid "Resize"
 msgstr "調整大小"
 
+msgid "Result"
+msgstr ""
+
 msgid "Resume"
 msgstr "恢復"
 
@@ -2548,6 +2634,12 @@ msgstr "留尼旺"
 
 msgid "Reverse DNS lookup"
 msgstr "反向 DNS 查詢"
+
+msgid "Revert"
+msgstr ""
+
+msgid "Revert configuration changes"
+msgstr ""
 
 msgid "Romania"
 msgstr "羅馬尼亞"
@@ -2584,6 +2676,9 @@ msgstr "必須先啟動所選裝置的 S.M.A.R.T. 監測。"
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
+
+msgid "SMB/CIFS - Audit"
+msgstr ""
 
 msgid "SMTP port"
 msgstr "SMTP 通訊埠"
@@ -2651,8 +2746,8 @@ msgstr "掃視"
 msgid "Scanning for new devices ..."
 msgstr "掃視新裝置 ..."
 
-msgid "Scheduled jobs"
-msgstr "預定工作"
+msgid "Scheduled Jobs"
+msgstr ""
 
 msgid "Scheduled tests"
 msgstr "預定測試"
@@ -2687,11 +2782,14 @@ msgstr "選擇一個裝置 ..."
 msgid "Select a directory"
 msgstr "選擇一個目錄"
 
-msgid "Select a filesystem ..."
-msgstr "選擇一個檔案系統 ..."
+msgid "Select a file permission ..."
+msgstr ""
 
-msgid "Select a group name..."
-msgstr "選擇一個群組名稱..."
+msgid "Select a file system ..."
+msgstr ""
+
+msgid "Select a group name ..."
+msgstr ""
 
 msgid "Select a language ..."
 msgstr "選擇一種語言 ..."
@@ -2708,8 +2806,8 @@ msgstr "選擇一個共享檔案夾 ..."
 msgid "Select a shell ..."
 msgstr "選擇一個指令殼層 ..."
 
-msgid "Select a user name..."
-msgstr "選擇一個用戶名稱 ..."
+msgid "Select a user name ..."
+msgstr ""
 
 msgid "Select a volume ..."
 msgstr "選擇一個磁碟 ..."
@@ -2811,6 +2909,15 @@ msgstr "共享檔案夾"
 msgid "Shared folder must not be equal"
 msgstr "共享檔案夾必須不相同"
 
+msgid "Shared folder name"
+msgstr ""
+
+msgid "Shared folder path"
+msgstr ""
+
+msgid "Shared folder privileges"
+msgstr ""
+
 msgid "Shares"
 msgstr "共享"
 
@@ -2837,12 +2944,6 @@ msgstr "顯示特權"
 
 msgid "Shutdown"
 msgstr "關機"
-
-msgid "Shutdown the system when pressing the power button."
-msgstr "當按下電源按鈕時，將系統關機。"
-
-msgid "Shutdown/Reboot schedule"
-msgstr "關機/重新開機時間表"
 
 msgid "Sierra Leone"
 msgstr "塞拉里昂"
@@ -3046,6 +3147,9 @@ msgstr "系統日誌"
 msgid "System time"
 msgstr "系統時間"
 
+msgid "System users/groups"
+msgstr ""
+
 msgid "TAR"
 msgstr "TAR"
 
@@ -3085,6 +3189,9 @@ msgstr "RSA 密鑰的長度。"
 msgid "The SSL certificate."
 msgstr "SSL 證書。"
 
+msgid "The action to be done when pressing the power button."
+msgstr ""
+
 msgid "The changes have been applied successfully."
 msgstr "變更已被成功地套用。"
 
@@ -3107,11 +3214,17 @@ msgstr "目的地遠端伺服器，例如 [USER@]HOST:DEST，[USER@]HOST::DEST �
 msgid "The destination shared folder."
 msgstr "目的地共享檔案夾。"
 
+msgid "The device does not exist"
+msgstr ""
+
 msgid "The field '%s' contains forbidden "
 msgstr "欄位 '%s' 內含有被禁止的 "
 
 msgid "The file mode of the shared folder path."
 msgstr "共享檔案夾路徑的文件模式。"
+
+msgid "The file system creation has completed successfully."
+msgstr ""
 
 msgid "The group '%s' does not exist"
 msgstr "群組 '%s' 並不存在"
@@ -3211,8 +3324,8 @@ msgstr "用戶 '%s' 並不存在"
 msgid "The user '%s' is not allowed"
 msgstr "用戶 '%s' 是不被允許的"
 
-msgid "The volume label for the filesystem."
-msgstr "該檔案系統的磁碟標籤。"
+msgid "The volume label for the file system."
+msgstr ""
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3227,8 +3340,8 @@ msgstr "目前已經存在一個給 %s 的掛載點"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
-" Please note that these settings do no affect the file system permissions."
-msgstr "這些設定是讓服務使用來設置用戶的存取權限。請注意，這些設定並不會對檔案系統的權限有所影響。"
+" Please note that these settings have no effect on file system permissions."
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3571,9 +3684,6 @@ msgid ""
 "Update the destination extended attributes to be the same as the local ones"
 msgstr "更新目的地的擴展屬性成為與本地相同"
 
-msgid "Updated"
-msgstr "已更新"
-
 msgid "Updates"
 msgstr "更新"
 
@@ -3757,6 +3867,9 @@ msgstr "寫入緩存"
 
 msgid "Write only"
 msgstr "唯寫"
+
+msgid "Write/Execute"
+msgstr ""
 
 msgid "Yemen"
 msgstr "葉門"

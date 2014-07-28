@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 18:12+0100\n"
-"PO-Revision-Date: 2014-06-01 15:24+0000\n"
+"POT-Creation-Date: 2014-07-28 22:41+0200\n"
+"PO-Revision-Date: 2014-07-28 20:51+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -26,6 +26,7 @@ msgstr ""
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#, javascript-format
 msgid "% completed ..."
 msgstr "% abgeschlossen ..."
 
@@ -62,6 +63,7 @@ msgstr "10 Minuten"
 msgid "10 years"
 msgstr "10 jahre"
 
+#, javascript-format
 msgid "100% completed ..."
 msgstr "100% abgeschlossen ..."
 
@@ -161,6 +163,9 @@ msgstr "64 - Durchschnittlicher Energieverbrauch mit Bereitschaft"
 msgid "9 months"
 msgstr "9 Monate"
 
+msgid "A module with the name '%s' already exists"
+msgstr ""
+
 msgid "A share with the name '%s' already exists"
 msgstr "Eine Freigabe mit dem Namen '%s' existiert bereits."
 
@@ -175,6 +180,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "Über"
+
+msgid "Abstract"
+msgstr ""
 
 msgid "Access Right Management"
 msgstr "Zugriffskontrolle"
@@ -273,8 +281,8 @@ msgid "Afghanistan"
 msgstr "Afghanistan"
 
 msgid ""
-"After the RAID has been grown you can resize the containing filesystem."
-msgstr "Nachdem das RAID vergrößert wurde können Sie dies auch für das Dateisystem tun."
+"After the RAID has been grown you can resize the containing file system."
+msgstr ""
 
 msgid "Aland Islands"
 msgstr "Åland"
@@ -387,6 +395,12 @@ msgstr "Attributname"
 msgid "Attributes"
 msgstr "Attribute"
 
+msgid "Audit"
+msgstr ""
+
+msgid "Audit file operations."
+msgstr ""
+
 msgid "August"
 msgstr "August"
 
@@ -422,6 +436,9 @@ msgstr "Authentifizierung erforderlich"
 
 msgid "Authentication type"
 msgstr "Authentifizierungstyp"
+
+msgid "Auto"
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatisches Akustikmanagement"
@@ -608,8 +625,14 @@ msgstr "Lösche"
 msgid "Client"
 msgstr "Client"
 
-msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr "Clients denen erlaubt ist das Dateisystem zu mounten, z.B. 192.168.178.0/24"
+msgid "Client NetBIOS name"
+msgstr ""
+
+msgid "Client address"
+msgstr ""
+
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
 
 msgid "Close"
 msgstr "Schliessen"
@@ -703,11 +726,14 @@ msgstr "Erstellen"
 msgid "Create RAID device"
 msgstr "RAID Datenträger erstellen"
 
-msgid "Create filesystem"
-msgstr "Dateisystem erstellen"
+msgid "Create file system"
+msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "Ein Self-Signed SSL-Zertifikat erstellen"
+
+msgid "Creating the file system, please wait ..."
+msgstr ""
 
 msgid "Critical"
 msgstr "Kritisch"
@@ -745,6 +771,9 @@ msgstr "DNS Server"
 msgid "Daemon"
 msgstr "Daemon"
 
+msgid "Dashboard"
+msgstr ""
+
 msgid "Date"
 msgstr "Datum"
 
@@ -769,11 +798,11 @@ msgstr "Löschen"
 msgid "Delete content"
 msgstr "Lösche Inhalt"
 
+msgid "Delete file system"
+msgstr "Dateisystem löschen"
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Lösche Dateien beim Empfänger die beim Sender nicht existieren"
-
-msgid "Delete filesystem"
-msgstr "Dateisystem löschen"
 
 msgid "Deleting selected item(s)"
 msgstr "Lösche markierte Elemente"
@@ -861,8 +890,8 @@ msgstr "{0} - {1} von {2} angezeigt"
 msgid "Djibouti"
 msgstr "Dschibuti"
 
-msgid "Do you really want to apply the configuration?"
-msgstr "Wollen Sie die Konfiguration wirklich anwenden?"
+msgid "Do you really want to apply the configuration changes?"
+msgstr "Wollen Sie die Änderungen der Konfiguration wirklich anwenden?"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Wollen Sie die Log-Datei wirklich leeren?"
@@ -870,7 +899,7 @@ msgstr "Wollen Sie die Log-Datei wirklich leeren?"
 msgid "Do you really want to create the RAID device?"
 msgstr "Wollen Sie den RAID Verbund wirklich anlegen?"
 
-msgid "Do you really want to delete the filesystem? All data will be lost."
+msgid "Do you really want to delete the file system? All data will be lost."
 msgstr "Wollen Sie das Dateisystem wirklich löschen? Alle Daten gehen verloren."
 
 msgid "Do you really want to delete the selected item(s)?"
@@ -878,8 +907,8 @@ msgstr "Wollen Sie die ausgewählten Einträge wirklich löschen?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the filesystem creation may take some time."
-msgstr "Wollen Sie das Laufwerk wirklich löschen? Sämtliche Daten werden gelöscht. Bitte beachten Sie das die Erzeugung des Dateisystems einige Zeit in Anspruch nehmen kann."
+"Please note that the file system creation may take some time."
+msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Wollen Sie wirklich die markierten Erweiterungen installieren?"
@@ -890,21 +919,35 @@ msgstr "Wollen Sie wirklich diese Seite verlassen?"
 msgid "Do you really want to logout?"
 msgstr "Wollen Sie sich wirklich abmelden?"
 
+msgid "Do you really want to put the system into standby?"
+msgstr "Wollen Sie das System wirklich in den Ruhestand versetzen?"
+
 msgid "Do you really want to reboot the system?"
 msgstr "Wollen Sie wirklich das System neu starten?"
+
+msgid ""
+"Do you really want to relocate the shared folder? The content of the shared "
+"folder will not be moved automatically, you have to do this yourself."
+msgstr ""
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
 msgstr "Soll der Inhalt des freigegebenen Ordners wirklich gelöscht werden? Der Inhalt wird unwiderruflich gelöscht und kann nicht wiederhergestellt werden."
 
+msgid "Do you really want to remove this widget?"
+msgstr ""
+
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Soll das WebGUI (z.B. Spaltenanordnung) wirklich zurückgesetzt werden?"
 
 msgid ""
-"Do you really want to resize the selected filesystem? You have to do that "
+"Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr "Wollen Sie die Größe des ausgewählten Dateisystems wirklich ändern? Dies ist z.B. nötig nachdem ein RAID Verbund vergrößert wurde."
+msgstr ""
+
+msgid "Do you really want to revert the configuration changes?"
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Wollen Sie wirklich das System herunterfahren?"
@@ -1008,9 +1051,6 @@ msgstr "Freigabe bearbeiten"
 msgid "Edit shared folder"
 msgstr "Freigegebenen Ordner bearbeiten"
 
-msgid "Edit shared folder privileges"
-msgstr "Bearbeite Privilegien des freigegebenen Ordners"
-
 msgid "Edit user"
 msgstr "Benutzer bearbeiten"
 
@@ -1022,6 +1062,12 @@ msgstr "El Salvador"
 
 msgid "Email"
 msgstr "E-Mail"
+
+msgid "Empty now"
+msgstr "Jetzt leeren"
+
+msgid "Empty recycle bin"
+msgstr "Papierkorb leeren"
 
 msgid "Enable"
 msgstr "Aktivieren"
@@ -1154,6 +1200,9 @@ msgstr "Befehl ausführen"
 msgid "Execute cron job"
 msgstr "Führe Cron Job aus"
 
+msgid "Execute only"
+msgstr ""
+
 msgid "Execute rsync job"
 msgstr "Führe rsync Job aus"
 
@@ -1185,11 +1234,6 @@ msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
 msgstr "FXP erlaubt Übertragungen zwischen zwei entfernten Servern ohne das dabei Daten über den anfragenden Client fließen."
-
-msgid ""
-"Failed to create filesystem. Please check the syslog or '%s' for more "
-"details."
-msgstr "Konnte das Dateisystem nicht erzeugen. Bitte im Syslog oder '%s' für weitere Details nachsehen."
 
 msgid "Failed to get filesystems"
 msgstr "Konnte Dateisysteme nicht ermitteln"
@@ -1233,6 +1277,12 @@ msgstr "Fidschi"
 msgid "File"
 msgstr "Datei"
 
+msgid "File Systems"
+msgstr ""
+
+msgid "File system"
+msgstr ""
+
 msgid "Filename"
 msgstr "Dateiname"
 
@@ -1248,9 +1298,6 @@ msgstr "Dateien, die größer als die angegebene Anzahl von Bytes sind, werden n
 
 msgid "Filesize"
 msgstr "Dateigröße"
-
-msgid "Filesystem"
-msgstr "Dateisystem"
 
 msgid "Filesystem '%s' not found"
 msgstr "Das Dateisystem '%s' wurde nicht gefunden"
@@ -1270,8 +1317,8 @@ msgstr "Firewall"
 msgid "Firmware version"
 msgstr "Firmware Version"
 
-msgid "Flag"
-msgstr "Flag"
+msgid "Flags"
+msgstr ""
 
 msgid "Force SSL/TLS"
 msgstr "Erzwinge SSL/TLS"
@@ -1317,6 +1364,9 @@ msgstr "Allgemeine Einstellungen"
 
 msgid "General settings"
 msgstr "Allgemeine Einstellungen"
+
+msgid "General users/groups"
+msgstr ""
 
 msgid "Generating graphs ..."
 msgstr "Generiere Diagramme ..."
@@ -1377,6 +1427,12 @@ msgstr "Guatemala"
 
 msgid "Guest"
 msgstr "Gast"
+
+msgid "Guest allowed"
+msgstr ""
+
+msgid "Guests allowed"
+msgstr ""
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1462,8 +1518,11 @@ msgstr "Identifiziere Netzwerkinterface"
 msgid "Idle"
 msgstr "Leerlauf"
 
-msgid "If enabled then no password is required to connect to the share"
-msgstr "Falls aktiviert wird kein Passwort benötigt um die Freigabe einzubinden"
+msgid ""
+"If 'Guests allowed' is selected and no login credential is provided, then "
+"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"this case no password is required to connect to the share."
+msgstr ""
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1485,11 +1544,11 @@ msgstr "Wenn diese Option aktiviert ist wird jeder Uploadversuch fehlschlagen."
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
-" before mapping DOS attributes to UNIX permission bits. When set, DOS "
-"attributes will be stored onto an extended attribute in the UNIX filesystem,"
-" associated with the file or directory."
-msgstr "Wenn dieser Parameter gesetzt ist, probiert Samba zuerst die DOS Attribute (SYSTEM, HIDDEN, ARCHIVE oder READ-ONLY) zu lesen bevor die DOS Attribute in UNIX Zugriffsbits umgewandelt werden. Wenn gesetzt werden DOS Attribute in einem erweiterten UNIX Dateisystem-Attribut der Datei oder des Verzeichnisses gespeichert."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1589,8 +1648,8 @@ msgstr "Schnittstellen"
 msgid "Invalid domain name"
 msgstr "Ungültiger Domainname"
 
-msgid "Invalid filesystem label"
-msgstr "Ungültiges Dateisystemlabel"
+msgid "Invalid file system label"
+msgstr ""
 
 msgid "Invalid group name"
 msgstr "Ungültiger Gruppenname"
@@ -1737,6 +1796,9 @@ msgstr "Durchschnittliche Last"
 
 msgid "Loading ..."
 msgstr "Lade ..."
+
+msgid "Loading, please wait ..."
+msgstr ""
 
 msgid "Local"
 msgstr "Lokal"
@@ -2102,6 +2164,9 @@ msgstr "Nicht TCP"
 msgid "Not UDP"
 msgstr "Nicht UDP"
 
+msgid "Nothing"
+msgstr ""
+
 msgid "Notification"
 msgstr "Benachrichtigung"
 
@@ -2137,6 +2202,12 @@ msgstr "Oman"
 
 msgid "Online"
 msgstr "Online"
+
+msgid "Only guests"
+msgstr ""
+
+msgid "Operation"
+msgstr ""
 
 msgid "Operation not allowed for user '%s'."
 msgstr "Die Operation ist für den Benutzer '%s' nicht erlaubt."
@@ -2314,9 +2385,9 @@ msgid "Please wait ..."
 msgstr "Bitte warten ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a "
-"filesystem."
-msgstr "Bitte warten Sie bis das RAID initialisiert ist bevor Sie ein Dateisystem anlegen."
+"Please wait until the RAID has been initialized before creating a file "
+"system."
+msgstr ""
 
 msgid "Plugins"
 msgstr "Erweiterungen"
@@ -2342,8 +2413,8 @@ msgstr "Einschaltknopf"
 msgid "Power mode"
 msgstr "Powermodus"
 
-msgid "Pre-released updates."
-msgstr "Vorabveröffentlichte Aktualisierungen"
+msgid "Pre-release updates."
+msgstr ""
 
 msgid "Prefix length"
 msgstr "Präfixlänge"
@@ -2463,8 +2534,14 @@ msgstr "Nur lesen"
 msgid "Read-only"
 msgstr "Nur lesen"
 
+msgid "Read/Execute"
+msgstr ""
+
 msgid "Read/Write"
 msgstr "Lesen/Schreiben"
+
+msgid "Read/Write/Execute"
+msgstr ""
 
 msgid "Real"
 msgstr "Real"
@@ -2505,11 +2582,17 @@ msgstr "Entfernter Host"
 msgid "Remote syslog"
 msgstr "Entferntes syslog"
 
+msgid "Remove"
+msgstr ""
+
 msgid "Replace"
 msgstr "Ersetzen"
 
 msgid "Replace all existing permissions"
 msgstr "Alle vorhandenen Berechtigungen ersetzen"
+
+msgid "Report"
+msgstr "Report"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2544,6 +2627,9 @@ msgstr ""
 msgid "Resize"
 msgstr "Größe ändern"
 
+msgid "Result"
+msgstr "Ergebnis"
+
 msgid "Resume"
 msgstr "Fortsetzen"
 
@@ -2555,6 +2641,12 @@ msgstr "Wiedervereinigung"
 
 msgid "Reverse DNS lookup"
 msgstr "Reverse DNS Lookup"
+
+msgid "Revert"
+msgstr "Widerrufen"
+
+msgid "Revert configuration changes"
+msgstr "Änderungen der Konfiguration widerrufen"
 
 msgid "Romania"
 msgstr "Rumänien"
@@ -2591,6 +2683,9 @@ msgstr "S.M.A.R.T. Überwachung muss für das ausgewählte Laufwerk aktiviert we
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
+
+msgid "SMB/CIFS - Audit"
+msgstr ""
 
 msgid "SMTP port"
 msgstr "SMTP Port"
@@ -2658,7 +2753,7 @@ msgstr "Suchen"
 msgid "Scanning for new devices ..."
 msgstr "Suche nach neuen Geräten ..."
 
-msgid "Scheduled jobs"
+msgid "Scheduled Jobs"
 msgstr "Geplante Aufgaben"
 
 msgid "Scheduled tests"
@@ -2694,11 +2789,14 @@ msgstr "Wählen Sie ein Laufwerk aus ..."
 msgid "Select a directory"
 msgstr "Wählen Sie ein Verzeichnis"
 
-msgid "Select a filesystem ..."
-msgstr "Wähle ein Dateisystem ..."
+msgid "Select a file permission ..."
+msgstr ""
 
-msgid "Select a group name..."
-msgstr "Wähle einen Gruppennamen"
+msgid "Select a file system ..."
+msgstr "Wähle Sie ein Dateisystem aus ..."
+
+msgid "Select a group name ..."
+msgstr "Wähle einen Gruppennamen ..."
 
 msgid "Select a language ..."
 msgstr "Wähle eine Sprache ..."
@@ -2715,8 +2813,8 @@ msgstr "Wähle einen freigegebenen Ordner ..."
 msgid "Select a shell ..."
 msgstr "Wähle eine Shell ..."
 
-msgid "Select a user name..."
-msgstr "Wähle einen Benutzernamen"
+msgid "Select a user name ..."
+msgstr "Wähle einen Benutzernamen ..."
 
 msgid "Select a volume ..."
 msgstr "Wähle einen Datenträger ..."
@@ -2818,6 +2916,15 @@ msgstr "Freigegebene Ordner"
 msgid "Shared folder must not be equal"
 msgstr "Freigegebener Ordner darf nicht gleich sein"
 
+msgid "Shared folder name"
+msgstr "Name des freigegebene Ordners"
+
+msgid "Shared folder path"
+msgstr "Pfad des freigegebenen Ordners"
+
+msgid "Shared folder privileges"
+msgstr ""
+
 msgid "Shares"
 msgstr "Freigaben"
 
@@ -2844,12 +2951,6 @@ msgstr "Privilegien anzeigen"
 
 msgid "Shutdown"
 msgstr "Herunterfahren"
-
-msgid "Shutdown the system when pressing the power button."
-msgstr "System herunterfahren wenn der Einschaltknopf gedrückt wird."
-
-msgid "Shutdown/Reboot schedule"
-msgstr "Zeitplan für Herunterfahren/Neustart"
 
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
@@ -3053,6 +3154,9 @@ msgstr "Systemprotokolle"
 msgid "System time"
 msgstr "Systemzeit"
 
+msgid "System users/groups"
+msgstr "System Benutzer/Gruppen"
+
 msgid "TAR"
 msgstr "TAR"
 
@@ -3092,6 +3196,9 @@ msgstr "Die RSA Schlüssel-Länge."
 msgid "The SSL certificate."
 msgstr "Das zu benutzende SSL-Zertifikat."
 
+msgid "The action to be done when pressing the power button."
+msgstr ""
+
 msgid "The changes have been applied successfully."
 msgstr "Die Änderungen wurden erfolgreich angewendet."
 
@@ -3114,11 +3221,17 @@ msgstr "Der entfernte Ziel Server, z.B. [USER@]HOST:DEST, [USER@]HOST::DEST oder
 msgid "The destination shared folder."
 msgstr "Der freigegebene Zielordner."
 
+msgid "The device does not exist"
+msgstr ""
+
 msgid "The field '%s' contains forbidden "
 msgstr "Das Feld '%s' enthält verbotene"
 
 msgid "The file mode of the shared folder path."
 msgstr "Der Dateimodus des freigegebenen Ordner Pfades."
+
+msgid "The file system creation has completed successfully."
+msgstr ""
 
 msgid "The group '%s' does not exist"
 msgstr "Die Gruppe '%s' existiert nicht."
@@ -3218,8 +3331,8 @@ msgstr "Der Benutzer '%s' existiert nicht"
 msgid "The user '%s' is not allowed"
 msgstr "Der Benutzer '%s' ist nicht erlaubt"
 
-msgid "The volume label for the filesystem."
-msgstr "Die Datenträgerbezeichnung für das Dateisystem."
+msgid "The volume label for the file system."
+msgstr ""
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3234,8 +3347,8 @@ msgstr "Es gibt bereits einen Einhängepunkt für %s"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
-" Please note that these settings do no affect the file system permissions."
-msgstr "Diese Einstellungen werden von den Services benutzt um die Benutzer-Zugriffs-Rechte zu konfigurieren. Bitte beachten Sie daß diese Einstellungen nicht die Dateisystem-Berechtigungen betreffen."
+" Please note that these settings have no effect on file system permissions."
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3578,9 +3691,6 @@ msgid ""
 "Update the destination extended attributes to be the same as the local ones"
 msgstr "Erweiterte Ziel-Attribute aktualisieren damit sie den Lokalen entsprechen"
 
-msgid "Updated"
-msgstr "Aktualisiert"
-
 msgid "Updates"
 msgstr "Aktualisierungen"
 
@@ -3764,6 +3874,9 @@ msgstr "Schreibcache"
 
 msgid "Write only"
 msgstr "Nur schreiben"
+
+msgid "Write/Execute"
+msgstr ""
 
 msgid "Yemen"
 msgstr "Jemen"

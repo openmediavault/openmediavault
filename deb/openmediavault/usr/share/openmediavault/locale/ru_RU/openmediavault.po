@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 18:12+0100\n"
-"PO-Revision-Date: 2014-05-21 13:02+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2014-07-28 22:41+0200\n"
+"PO-Revision-Date: 2014-07-28 20:44+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,6 +23,7 @@ msgstr ""
 "Language: ru\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+#, javascript-format
 msgid "% completed ..."
 msgstr "% выполнено..."
 
@@ -59,6 +60,7 @@ msgstr "10 минут"
 msgid "10 years"
 msgstr "10 лет"
 
+#, javascript-format
 msgid "100% completed ..."
 msgstr "100% выполнено..."
 
@@ -158,6 +160,9 @@ msgstr "64 - промежуточное энергопотребление с о
 msgid "9 months"
 msgstr "9 месяц"
 
+msgid "A module with the name '%s' already exists"
+msgstr ""
+
 msgid "A share with the name '%s' already exists"
 msgstr "Общий ресурс с таким именем '%s' уже существует"
 
@@ -172,6 +177,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "О нас"
+
+msgid "Abstract"
+msgstr ""
 
 msgid "Access Right Management"
 msgstr "Управление правами доступа"
@@ -270,8 +278,8 @@ msgid "Afghanistan"
 msgstr "Афганистан"
 
 msgid ""
-"After the RAID has been grown you can resize the containing filesystem."
-msgstr "После того, как RAID был создан, Вы можете изменить размер файловой системы."
+"After the RAID has been grown you can resize the containing file system."
+msgstr ""
 
 msgid "Aland Islands"
 msgstr "Аландские острова"
@@ -384,6 +392,12 @@ msgstr "Имя атрибута"
 msgid "Attributes"
 msgstr "Атрибуты"
 
+msgid "Audit"
+msgstr ""
+
+msgid "Audit file operations."
+msgstr ""
+
 msgid "August"
 msgstr "Август"
 
@@ -419,6 +433,9 @@ msgstr "Требуется аутентификация"
 
 msgid "Authentication type"
 msgstr "Тип аутентификации"
+
+msgid "Auto"
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Автоматическое управление уровнем шума"
@@ -605,8 +622,14 @@ msgstr "Очистить"
 msgid "Client"
 msgstr "Клиент"
 
-msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr "Клиентам позволено смонтировать файловую систему, например, 192.168.178.0/24."
+msgid "Client NetBIOS name"
+msgstr ""
+
+msgid "Client address"
+msgstr ""
+
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
 
 msgid "Close"
 msgstr "Закрыть"
@@ -700,11 +723,14 @@ msgstr "Создать"
 msgid "Create RAID device"
 msgstr "Создать массив RAID"
 
-msgid "Create filesystem"
-msgstr "Создать файловую систему"
+msgid "Create file system"
+msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "Создать самоподписанный SSL сертификат"
+
+msgid "Creating the file system, please wait ..."
+msgstr ""
 
 msgid "Critical"
 msgstr "Критический"
@@ -742,6 +768,9 @@ msgstr "DNS сервер"
 msgid "Daemon"
 msgstr "Сервис"
 
+msgid "Dashboard"
+msgstr ""
+
 msgid "Date"
 msgstr "Дата"
 
@@ -766,11 +795,11 @@ msgstr "Удалить"
 msgid "Delete content"
 msgstr "Удалить содержимое"
 
+msgid "Delete file system"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Удалять файлы на стороне получателя, которые не существуют у отправителя"
-
-msgid "Delete filesystem"
-msgstr "Удалить файловую систему"
 
 msgid "Deleting selected item(s)"
 msgstr "Удалить выделенные элементы"
@@ -858,8 +887,8 @@ msgstr "Отображение пунктов {0} - {1} , {2}"
 msgid "Djibouti"
 msgstr "Джибути"
 
-msgid "Do you really want to apply the configuration?"
-msgstr "Вы действительно хотите, применить конфигурацию?"
+msgid "Do you really want to apply the configuration changes?"
+msgstr ""
 
 msgid "Do you really want to clear the log file?"
 msgstr "Вы действительно хотите очистить лог файл?"
@@ -867,16 +896,16 @@ msgstr "Вы действительно хотите очистить лог ф�
 msgid "Do you really want to create the RAID device?"
 msgstr "Вы действительно хотите создать массив RAID?"
 
-msgid "Do you really want to delete the filesystem? All data will be lost."
-msgstr "Вы действительно хотите удалить файловую систему? Все данные будут потеряны."
+msgid "Do you really want to delete the file system? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Вы действительно хотите удалить выбранные элементы?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the filesystem creation may take some time."
-msgstr "Вы действительно хотите отформатировать это устройство? Все данные будут удалены. Пожалуйста, обратите внимание, что создание файловой системы может занять некоторое время."
+"Please note that the file system creation may take some time."
+msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Вы действительно хотите установить выбранный(е) плагин(ы)?"
@@ -887,21 +916,35 @@ msgstr "Вы действительно хотите покинуть стран
 msgid "Do you really want to logout?"
 msgstr "Вы действительно хотите выйти?"
 
+msgid "Do you really want to put the system into standby?"
+msgstr ""
+
 msgid "Do you really want to reboot the system?"
 msgstr "Вы действительно хотите перезагрузить систему?"
+
+msgid ""
+"Do you really want to relocate the shared folder? The content of the shared "
+"folder will not be moved automatically, you have to do this yourself."
+msgstr ""
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
 msgstr "Вы действительно хотите удалить содержимое общей папки? Она будет навсегда удалена, и  не сможет быть восстановлена."
 
+msgid "Do you really want to remove this widget?"
+msgstr ""
+
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Вы действительно хотите сбросить состояние WebGUI, например, порядок столбцов?"
 
 msgid ""
-"Do you really want to resize the selected filesystem? You have to do that "
+"Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr "Вы действительно хотите изменить размер выбранной файловой системы? Это необходимо делать только после изменения размера RAID (например)."
+msgstr ""
+
+msgid "Do you really want to revert the configuration changes?"
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Вы действительно хотите выключить систему?"
@@ -1005,9 +1048,6 @@ msgstr "Редактировать общий ресурс"
 msgid "Edit shared folder"
 msgstr "Изменить общую папку"
 
-msgid "Edit shared folder privileges"
-msgstr "Изменить привилегии общей папки"
-
 msgid "Edit user"
 msgstr "Редактировать пользователя"
 
@@ -1019,6 +1059,12 @@ msgstr "Сальвадор"
 
 msgid "Email"
 msgstr "Эл. почта"
+
+msgid "Empty now"
+msgstr ""
+
+msgid "Empty recycle bin"
+msgstr ""
 
 msgid "Enable"
 msgstr "Включить"
@@ -1151,6 +1197,9 @@ msgstr "Выполнить команду"
 msgid "Execute cron job"
 msgstr "Выполнение задание cron"
 
+msgid "Execute only"
+msgstr ""
+
 msgid "Execute rsync job"
 msgstr "Выполнить задание rsync"
 
@@ -1182,11 +1231,6 @@ msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
 msgstr "FXP позволяет передавать данные между двумя серверами без запроса передачи данных к клиенту."
-
-msgid ""
-"Failed to create filesystem. Please check the syslog or '%s' for more "
-"details."
-msgstr "Не удалось создать файловую систему. Проверьте syslog или '%s' для получения дополнительной информации."
 
 msgid "Failed to get filesystems"
 msgstr "Не удалось определить файловые системы"
@@ -1230,6 +1274,12 @@ msgstr "Фиджи"
 msgid "File"
 msgstr "Файл"
 
+msgid "File Systems"
+msgstr ""
+
+msgid "File system"
+msgstr ""
+
 msgid "Filename"
 msgstr "Имя файла"
 
@@ -1245,9 +1295,6 @@ msgstr "Файлы, размер которых превышает указан�
 
 msgid "Filesize"
 msgstr "Размер файла"
-
-msgid "Filesystem"
-msgstr "Файловая система"
 
 msgid "Filesystem '%s' not found"
 msgstr "Файловая система '%s' не найдена"
@@ -1267,8 +1314,8 @@ msgstr "Брандмауэр"
 msgid "Firmware version"
 msgstr "Версия прошивки"
 
-msgid "Flag"
-msgstr "Флаг"
+msgid "Flags"
+msgstr ""
 
 msgid "Force SSL/TLS"
 msgstr "Принудительно SSL/TLS"
@@ -1314,6 +1361,9 @@ msgstr "Общие настройки"
 
 msgid "General settings"
 msgstr "Общие настройки"
+
+msgid "General users/groups"
+msgstr ""
 
 msgid "Generating graphs ..."
 msgstr "Создание графики..."
@@ -1374,6 +1424,12 @@ msgstr "Гватемала"
 
 msgid "Guest"
 msgstr "Гость"
+
+msgid "Guest allowed"
+msgstr ""
+
+msgid "Guests allowed"
+msgstr ""
 
 msgid "Guinea"
 msgstr "Гвинея"
@@ -1459,8 +1515,11 @@ msgstr "Определить сетевой интерфейс"
 msgid "Idle"
 msgstr "Бездействие"
 
-msgid "If enabled then no password is required to connect to the share"
-msgstr "Если включено, то для подключения к общему ресурсу пароль не требуется"
+msgid ""
+"If 'Guests allowed' is selected and no login credential is provided, then "
+"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"this case no password is required to connect to the share."
+msgstr ""
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1482,11 +1541,11 @@ msgstr "Если этот параметр установлен, любые по
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
-" before mapping DOS attributes to UNIX permission bits. When set, DOS "
-"attributes will be stored onto an extended attribute in the UNIX filesystem,"
-" associated with the file or directory."
-msgstr "Если этот параметр установлен, Samba пытается сначала прочитать DOS атрибуты (СИСТЕМНЫЙ, СКРЫТЫЙ, АРХИВНЫЙ или ТОЛЬКО ДЛЯ ЧТЕНИЯ) из расширенных атрибутов файловой системы перед сопоставлением DOS атрибутов с разрешениями UNIX. Если установлено, DOS атрибуты будут сохранены в расширенных атрибутах файловой системы UNIX, связанных с файлом или каталогом."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1586,8 +1645,8 @@ msgstr "Интерфейсы"
 msgid "Invalid domain name"
 msgstr "Неверное имя домена"
 
-msgid "Invalid filesystem label"
-msgstr "Недопустимая метка файловой системы"
+msgid "Invalid file system label"
+msgstr ""
 
 msgid "Invalid group name"
 msgstr "Недопустимое название группы"
@@ -1734,6 +1793,9 @@ msgstr "Средняя загрузка"
 
 msgid "Loading ..."
 msgstr "Загрузка ..."
+
+msgid "Loading, please wait ..."
+msgstr ""
 
 msgid "Local"
 msgstr "Локальный"
@@ -2099,6 +2161,9 @@ msgstr "Не TCP"
 msgid "Not UDP"
 msgstr "Не UDP"
 
+msgid "Nothing"
+msgstr ""
+
 msgid "Notification"
 msgstr "Уведомление"
 
@@ -2134,6 +2199,12 @@ msgstr "Оман"
 
 msgid "Online"
 msgstr "Онлайн"
+
+msgid "Only guests"
+msgstr ""
+
+msgid "Operation"
+msgstr ""
 
 msgid "Operation not allowed for user '%s'."
 msgstr "Операция не разрешена для пользователя '%s'."
@@ -2311,9 +2382,9 @@ msgid "Please wait ..."
 msgstr "Пожалуйста, подождите..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a "
-"filesystem."
-msgstr "Пожалуйста, подождите, пока RAID не был инициализирован, перед созданием файловой системы."
+"Please wait until the RAID has been initialized before creating a file "
+"system."
+msgstr ""
 
 msgid "Plugins"
 msgstr "Плагины"
@@ -2339,8 +2410,8 @@ msgstr "Кнопка питания"
 msgid "Power mode"
 msgstr "Режим питания"
 
-msgid "Pre-released updates."
-msgstr "Предварительно выпущенные обновления."
+msgid "Pre-release updates."
+msgstr ""
 
 msgid "Prefix length"
 msgstr "Длина префикса"
@@ -2460,8 +2531,14 @@ msgstr "Только для чтения"
 msgid "Read-only"
 msgstr "Только для чтения"
 
+msgid "Read/Execute"
+msgstr ""
+
 msgid "Read/Write"
 msgstr "Чтение/Запись"
+
+msgid "Read/Write/Execute"
+msgstr ""
 
 msgid "Real"
 msgstr "Настоящий"
@@ -2502,11 +2579,17 @@ msgstr "Удаленный хост"
 msgid "Remote syslog"
 msgstr "Удаленный системный журнал"
 
+msgid "Remove"
+msgstr ""
+
 msgid "Replace"
 msgstr "Заменить"
 
 msgid "Replace all existing permissions"
 msgstr "Заменить все существующие разрешения"
+
+msgid "Report"
+msgstr ""
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2541,6 +2624,9 @@ msgstr "Сброс состояния WebGUI, например будут вос
 msgid "Resize"
 msgstr "Изменить размер"
 
+msgid "Result"
+msgstr ""
+
 msgid "Resume"
 msgstr "Сводка"
 
@@ -2552,6 +2638,12 @@ msgstr "Воссоединение"
 
 msgid "Reverse DNS lookup"
 msgstr "Обратный поиск DNS"
+
+msgid "Revert"
+msgstr ""
+
+msgid "Revert configuration changes"
+msgstr ""
 
 msgid "Romania"
 msgstr "Румыния"
@@ -2588,6 +2680,9 @@ msgstr "S.M.A.R.T. должен быть включен для выбранно�
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
+
+msgid "SMB/CIFS - Audit"
+msgstr ""
 
 msgid "SMTP port"
 msgstr "Порт SMTP"
@@ -2655,8 +2750,8 @@ msgstr "Сканирование"
 msgid "Scanning for new devices ..."
 msgstr "Сканирование новых устройств..."
 
-msgid "Scheduled jobs"
-msgstr "Запланированные задания"
+msgid "Scheduled Jobs"
+msgstr ""
 
 msgid "Scheduled tests"
 msgstr "Запланированные тесты"
@@ -2691,11 +2786,14 @@ msgstr "Выберите устройство..."
 msgid "Select a directory"
 msgstr "Выберите каталог"
 
-msgid "Select a filesystem ..."
-msgstr "Выберите файловую систему..."
+msgid "Select a file permission ..."
+msgstr ""
 
-msgid "Select a group name..."
-msgstr "Выберите имя группы..."
+msgid "Select a file system ..."
+msgstr ""
+
+msgid "Select a group name ..."
+msgstr ""
 
 msgid "Select a language ..."
 msgstr "Выберите язык..."
@@ -2712,8 +2810,8 @@ msgstr "Выберите совместно используемую папку.
 msgid "Select a shell ..."
 msgstr "Выбрать оболочку..."
 
-msgid "Select a user name..."
-msgstr "Выберите имя пользователя..."
+msgid "Select a user name ..."
+msgstr ""
 
 msgid "Select a volume ..."
 msgstr "Выберите том..."
@@ -2815,6 +2913,15 @@ msgstr "Общий каталог"
 msgid "Shared folder must not be equal"
 msgstr "Общий каталог не должен быть равным"
 
+msgid "Shared folder name"
+msgstr ""
+
+msgid "Shared folder path"
+msgstr ""
+
+msgid "Shared folder privileges"
+msgstr ""
+
 msgid "Shares"
 msgstr "Общие ресурсы"
 
@@ -2841,12 +2948,6 @@ msgstr "Показать привилегии"
 
 msgid "Shutdown"
 msgstr "Выключить"
-
-msgid "Shutdown the system when pressing the power button."
-msgstr "Завершение работы системы при нажатии на кнопку питания."
-
-msgid "Shutdown/Reboot schedule"
-msgstr "Расписание завершения работы/перезагрузки"
 
 msgid "Sierra Leone"
 msgstr "Сьерра-Леоне"
@@ -3050,6 +3151,9 @@ msgstr "Системные журналы"
 msgid "System time"
 msgstr "Системное время"
 
+msgid "System users/groups"
+msgstr ""
+
 msgid "TAR"
 msgstr "TAR"
 
@@ -3089,6 +3193,9 @@ msgstr "Длина RSA ключа"
 msgid "The SSL certificate."
 msgstr "Сертификат SSL."
 
+msgid "The action to be done when pressing the power button."
+msgstr ""
+
 msgid "The changes have been applied successfully."
 msgstr "Изменения успешно применены."
 
@@ -3111,11 +3218,17 @@ msgstr "Целевой удаленный сервер, например. [USER@
 msgid "The destination shared folder."
 msgstr "Общая папка назначения."
 
+msgid "The device does not exist"
+msgstr ""
+
 msgid "The field '%s' contains forbidden "
 msgstr " Поле '%s' содержит запрещенные"
 
 msgid "The file mode of the shared folder path."
 msgstr "Разрешения файлов для общего ресурса."
+
+msgid "The file system creation has completed successfully."
+msgstr ""
 
 msgid "The group '%s' does not exist"
 msgstr "Группа '%s' не существует"
@@ -3215,8 +3328,8 @@ msgstr "Пользователь '%s' не существует"
 msgid "The user '%s' is not allowed"
 msgstr "Пользователь '%s' не разрешен"
 
-msgid "The volume label for the filesystem."
-msgstr "Метка тома для файловой системы."
+msgid "The volume label for the file system."
+msgstr ""
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3231,8 +3344,8 @@ msgstr "Точка монтирования уже существует для %
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
-" Please note that these settings do no affect the file system permissions."
-msgstr "Эти параметры используются службами для настройки прав доступа пользователей. Пожалуйста, обратите внимание, что эти параметры не влияют на разрешения файловой системы."
+" Please note that these settings have no effect on file system permissions."
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3575,9 +3688,6 @@ msgid ""
 "Update the destination extended attributes to be the same as the local ones"
 msgstr "Обновляет целевые расширенные атрибуты для синхронизации с локальными"
 
-msgid "Updated"
-msgstr "Обновленный"
-
 msgid "Updates"
 msgstr "Обновления"
 
@@ -3761,6 +3871,9 @@ msgstr "Кэширование записи"
 
 msgid "Write only"
 msgstr "Только запись"
+
+msgid "Write/Execute"
+msgstr ""
 
 msgid "Yemen"
 msgstr "Йемен"

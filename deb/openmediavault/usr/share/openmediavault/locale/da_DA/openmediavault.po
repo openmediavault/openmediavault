@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 18:12+0100\n"
-"PO-Revision-Date: 2014-06-24 08:00+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"POT-Creation-Date: 2014-07-28 22:41+0200\n"
+"PO-Revision-Date: 2014-07-28 20:44+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Language: da\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#, javascript-format
 msgid "% completed ..."
 msgstr "% gennemført ..."
 
@@ -54,6 +55,7 @@ msgstr "10 minutter"
 msgid "10 years"
 msgstr "10 år"
 
+#, javascript-format
 msgid "100% completed ..."
 msgstr "100% gennemført ..."
 
@@ -153,6 +155,9 @@ msgstr "64 - Mellemliggende strømforbrug med standby"
 msgid "9 months"
 msgstr "9 månder"
 
+msgid "A module with the name '%s' already exists"
+msgstr ""
+
 msgid "A share with the name '%s' already exists"
 msgstr "En mappe med navnet '%s' findes allerede"
 
@@ -167,6 +172,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "Om"
+
+msgid "Abstract"
+msgstr ""
 
 msgid "Access Right Management"
 msgstr "Adgangsret Håndtering"
@@ -265,8 +273,8 @@ msgid "Afghanistan"
 msgstr "Afghanistan"
 
 msgid ""
-"After the RAID has been grown you can resize the containing filesystem."
-msgstr "Efter at RAID er vokset, kan du ændre størrelsen på det indeholdende filsystem."
+"After the RAID has been grown you can resize the containing file system."
+msgstr ""
 
 msgid "Aland Islands"
 msgstr "Aland Islands"
@@ -379,6 +387,12 @@ msgstr "Attribut navn"
 msgid "Attributes"
 msgstr "Attributter"
 
+msgid "Audit"
+msgstr ""
+
+msgid "Audit file operations."
+msgstr ""
+
 msgid "August"
 msgstr "August"
 
@@ -414,6 +428,9 @@ msgstr "Godkendelse påkrævet"
 
 msgid "Authentication type"
 msgstr "Godkendelses type"
+
+msgid "Auto"
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatisk Akustisk Håndtering"
@@ -600,8 +617,14 @@ msgstr "Fjern"
 msgid "Client"
 msgstr "Klient"
 
-msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr "Klienter har tilladelse til at montere filsystemet, f.eks. 192.168.178.0/24"
+msgid "Client NetBIOS name"
+msgstr ""
+
+msgid "Client address"
+msgstr ""
+
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
 
 msgid "Close"
 msgstr "Luk"
@@ -695,11 +718,14 @@ msgstr "Opret"
 msgid "Create RAID device"
 msgstr "Opret RAID enhed"
 
-msgid "Create filesystem"
-msgstr "Opret filsystem"
+msgid "Create file system"
+msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "Opret selvsigneret SSL-certifikat"
+
+msgid "Creating the file system, please wait ..."
+msgstr ""
 
 msgid "Critical"
 msgstr "Kritisk"
@@ -737,6 +763,9 @@ msgstr "DNS server"
 msgid "Daemon"
 msgstr "Dæmon"
 
+msgid "Dashboard"
+msgstr ""
+
 msgid "Date"
 msgstr "Dato"
 
@@ -761,11 +790,11 @@ msgstr "Slet"
 msgid "Delete content"
 msgstr "Slet indhold"
 
+msgid "Delete file system"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Slet filer på den modtagende side, der ikke eksisterer på afsender"
-
-msgid "Delete filesystem"
-msgstr "Slet filsystem"
 
 msgid "Deleting selected item(s)"
 msgstr "Slet valgte emne(r)"
@@ -853,8 +882,8 @@ msgstr "Viser emne {0} - {1} af {2}"
 msgid "Djibouti"
 msgstr "Djibouti"
 
-msgid "Do you really want to apply the configuration?"
-msgstr "Er du sikker på at, du vil anvende konfigurationen?"
+msgid "Do you really want to apply the configuration changes?"
+msgstr ""
 
 msgid "Do you really want to clear the log file?"
 msgstr "Er du sikker på at du vil slette log filen?"
@@ -862,16 +891,16 @@ msgstr "Er du sikker på at du vil slette log filen?"
 msgid "Do you really want to create the RAID device?"
 msgstr "Er du sikker på at du vil oprette en RAID enhed?"
 
-msgid "Do you really want to delete the filesystem? All data will be lost."
-msgstr "Er du sikker på at du vil slette filsystemet? Alle data vil gå tabt."
+msgid "Do you really want to delete the file system? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Er du sikker på at du vil slette det/de valgte emne(r)?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the filesystem creation may take some time."
-msgstr "Er du sikker på at du vil formatere denne enhed? Alt data på den vil blive slettet. Vær opmærksom på at filsystems opretningen kan tage noget tid."
+"Please note that the file system creation may take some time."
+msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Er du sikker på at du vil installer det/de valgte plugin(s)?"
@@ -882,21 +911,35 @@ msgstr "Er du sikker på at du vil forlade siden?"
 msgid "Do you really want to logout?"
 msgstr "Er du sikker på at du vil logge ud?"
 
+msgid "Do you really want to put the system into standby?"
+msgstr ""
+
 msgid "Do you really want to reboot the system?"
 msgstr "Er du sikker på at du vil genstarte systemet?"
+
+msgid ""
+"Do you really want to relocate the shared folder? The content of the shared "
+"folder will not be moved automatically, you have to do this yourself."
+msgstr ""
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
 msgstr "Er du sikker på at du vil slette den delte mappes indhold? Det vil blive permanent fjernet og kan ikke genskabes."
 
+msgid "Do you really want to remove this widget?"
+msgstr ""
+
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Er du sikker på at du vil resette WebGUI tilstanden, d.v.s gitter kolonne ordnen?"
 
 msgid ""
-"Do you really want to resize the selected filesystem? You have to do that "
+"Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr "Er du sikker på at ændre størrelsen på det valgte filsystem? Du er nødt til at eksempelvis gøre det efter en RAID er vokset ."
+msgstr ""
+
+msgid "Do you really want to revert the configuration changes?"
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Er du sikker på at du vil lukke systemet ned?"
@@ -1000,9 +1043,6 @@ msgstr "Rediger deling"
 msgid "Edit shared folder"
 msgstr "Rediger delte mapper"
 
-msgid "Edit shared folder privileges"
-msgstr "Rediger delte mapper rettigheder"
-
 msgid "Edit user"
 msgstr "Rediger bruger"
 
@@ -1014,6 +1054,12 @@ msgstr "El Salvador"
 
 msgid "Email"
 msgstr "Email"
+
+msgid "Empty now"
+msgstr ""
+
+msgid "Empty recycle bin"
+msgstr ""
 
 msgid "Enable"
 msgstr "Aktiver"
@@ -1146,6 +1192,9 @@ msgstr "Udfør kommando"
 msgid "Execute cron job"
 msgstr "Udfør cron opgave"
 
+msgid "Execute only"
+msgstr ""
+
 msgid "Execute rsync job"
 msgstr "Udfør rsync opgave"
 
@@ -1177,11 +1226,6 @@ msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
 msgstr "FXP tillader overførsler mellem to eksterne servere uden at fildata tilgår klienten for anmodning af overførslen."
-
-msgid ""
-"Failed to create filesystem. Please check the syslog or '%s' for more "
-"details."
-msgstr "Kunne ikke oprette filsystem. Tjek venligst syslog eller '%s' for flere oplysninger."
 
 msgid "Failed to get filesystems"
 msgstr "Lykkedes ikke at hente filsystemerne"
@@ -1225,6 +1269,12 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Fil"
 
+msgid "File Systems"
+msgstr ""
+
+msgid "File system"
+msgstr ""
+
 msgid "Filename"
 msgstr "Filnavn"
 
@@ -1240,9 +1290,6 @@ msgstr "Filer der er større end det speciefiret antal af bytes vil ikke blive l
 
 msgid "Filesize"
 msgstr "Filstørrelse"
-
-msgid "Filesystem"
-msgstr "Filsystem"
 
 msgid "Filesystem '%s' not found"
 msgstr "Filsystem '%s' blev ikke fundet"
@@ -1262,8 +1309,8 @@ msgstr "Firewall"
 msgid "Firmware version"
 msgstr "Firmware version"
 
-msgid "Flag"
-msgstr "Flag"
+msgid "Flags"
+msgstr ""
 
 msgid "Force SSL/TLS"
 msgstr "Tving SSL/TLS"
@@ -1309,6 +1356,9 @@ msgstr "Generelle Indstillinger"
 
 msgid "General settings"
 msgstr "Generelle indstillinger"
+
+msgid "General users/groups"
+msgstr ""
 
 msgid "Generating graphs ..."
 msgstr "Genererer grafer ..."
@@ -1369,6 +1419,12 @@ msgstr "Guatemala"
 
 msgid "Guest"
 msgstr "Gæst"
+
+msgid "Guest allowed"
+msgstr ""
+
+msgid "Guests allowed"
+msgstr ""
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1454,8 +1510,11 @@ msgstr "Identificer netværks interface enhed"
 msgid "Idle"
 msgstr "Ledig"
 
-msgid "If enabled then no password is required to connect to the share"
-msgstr "Hvis aktiveret behøves der ikke adgangskode for at forbinde til delingen."
+msgid ""
+"If 'Guests allowed' is selected and no login credential is provided, then "
+"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"this case no password is required to connect to the share."
+msgstr ""
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1477,11 +1536,11 @@ msgstr "Hvis denne valgmulighed er markeret, så vil ethvert forsøg på at uplo
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
-" before mapping DOS attributes to UNIX permission bits. When set, DOS "
-"attributes will be stored onto an extended attribute in the UNIX filesystem,"
-" associated with the file or directory."
-msgstr "Hvis denne parameter er markeret, vil Samba forsøge først at læse DOS attributterne (SYSTEM, SKJULT, ARKIV eller SKRIVEBESKYTTET) fra et filsystems udvidede attribut, før kortlægning af DOS attributterne til UNIX tilladelse bits. Når den er markeret, vil DOS attributterne blive opbevaret på en udvidet attribut i UNIX filsystemet, der er forbundet med filen eller biblioteket."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1581,8 +1640,8 @@ msgstr "Interfaces"
 msgid "Invalid domain name"
 msgstr "Ugyldig domæne navn"
 
-msgid "Invalid filesystem label"
-msgstr "Ugyldig filsystem label"
+msgid "Invalid file system label"
+msgstr ""
 
 msgid "Invalid group name"
 msgstr "Ugyldig gruppenavn"
@@ -1729,6 +1788,9 @@ msgstr "Gennemsnitlig belastning"
 
 msgid "Loading ..."
 msgstr "Indlæser ..."
+
+msgid "Loading, please wait ..."
+msgstr ""
 
 msgid "Local"
 msgstr "Lokal"
@@ -2094,6 +2156,9 @@ msgstr "Ikke TCP"
 msgid "Not UDP"
 msgstr "Ikke UDP"
 
+msgid "Nothing"
+msgstr ""
+
 msgid "Notification"
 msgstr "Notifikation"
 
@@ -2129,6 +2194,12 @@ msgstr "Oman"
 
 msgid "Online"
 msgstr "Online"
+
+msgid "Only guests"
+msgstr ""
+
+msgid "Operation"
+msgstr ""
 
 msgid "Operation not allowed for user '%s'."
 msgstr "Handlingen er ikke tilladt for brugeren '%s'."
@@ -2306,9 +2377,9 @@ msgid "Please wait ..."
 msgstr "Vent venligst ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a "
-"filesystem."
-msgstr "Vent venligst indtil RAIDén er initialiseret inden oprettelse af filsystem."
+"Please wait until the RAID has been initialized before creating a file "
+"system."
+msgstr ""
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -2334,8 +2405,8 @@ msgstr "Power knap"
 msgid "Power mode"
 msgstr "Power tilstand"
 
-msgid "Pre-released updates."
-msgstr "Før-udgivet opdateringer."
+msgid "Pre-release updates."
+msgstr ""
 
 msgid "Prefix length"
 msgstr "Fortegn længde"
@@ -2455,8 +2526,14 @@ msgstr "Skrivebeskyttet"
 msgid "Read-only"
 msgstr "Skrivebeskyttet"
 
+msgid "Read/Execute"
+msgstr ""
+
 msgid "Read/Write"
 msgstr "Læse/Skrive"
+
+msgid "Read/Write/Execute"
+msgstr ""
 
 msgid "Real"
 msgstr "Virkelig"
@@ -2497,11 +2574,17 @@ msgstr "Ekstern vært"
 msgid "Remote syslog"
 msgstr "Ekstern syslog"
 
+msgid "Remove"
+msgstr ""
+
 msgid "Replace"
 msgstr "Erstat"
 
 msgid "Replace all existing permissions"
 msgstr "Erstat alle eksisterende tilladelser"
+
+msgid "Report"
+msgstr ""
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2536,6 +2619,9 @@ msgstr "Reset af WebGUI tilstand vil f.eks genskabe standard indstilling af gitt
 msgid "Resize"
 msgstr "Tilpas størrelsen"
 
+msgid "Result"
+msgstr ""
+
 msgid "Resume"
 msgstr "Genoptag"
 
@@ -2547,6 +2633,12 @@ msgstr "Genforening"
 
 msgid "Reverse DNS lookup"
 msgstr "Omvendt DNS opslag"
+
+msgid "Revert"
+msgstr ""
+
+msgid "Revert configuration changes"
+msgstr ""
 
 msgid "Romania"
 msgstr "Romania"
@@ -2583,6 +2675,9 @@ msgstr "S.M.A.R.T. overvågning skal være aktiveret for den valgte enhed."
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
+
+msgid "SMB/CIFS - Audit"
+msgstr ""
 
 msgid "SMTP port"
 msgstr "SMTP port"
@@ -2650,8 +2745,8 @@ msgstr "Scan"
 msgid "Scanning for new devices ..."
 msgstr "Scanner efter nye enheder ..."
 
-msgid "Scheduled jobs"
-msgstr "Planlagte opgaver"
+msgid "Scheduled Jobs"
+msgstr ""
 
 msgid "Scheduled tests"
 msgstr "Planlagte tests"
@@ -2686,11 +2781,14 @@ msgstr "Vælg en enhed ..."
 msgid "Select a directory"
 msgstr "Vælg et bibliotek"
 
-msgid "Select a filesystem ..."
-msgstr "Vælg et filsystem ..."
+msgid "Select a file permission ..."
+msgstr ""
 
-msgid "Select a group name..."
-msgstr "Vælg et gruppenavn ..."
+msgid "Select a file system ..."
+msgstr ""
+
+msgid "Select a group name ..."
+msgstr ""
 
 msgid "Select a language ..."
 msgstr "Vælg et sprog ..."
@@ -2707,8 +2805,8 @@ msgstr "Vælg en delt mappe ..."
 msgid "Select a shell ..."
 msgstr "Vælg en shell ..."
 
-msgid "Select a user name..."
-msgstr "Vælg et brugernavn ..."
+msgid "Select a user name ..."
+msgstr ""
 
 msgid "Select a volume ..."
 msgstr "Vælg et drev ..."
@@ -2810,6 +2908,15 @@ msgstr "Delt mappe"
 msgid "Shared folder must not be equal"
 msgstr "Delt mappe må ikke stemme overens"
 
+msgid "Shared folder name"
+msgstr ""
+
+msgid "Shared folder path"
+msgstr ""
+
+msgid "Shared folder privileges"
+msgstr ""
+
 msgid "Shares"
 msgstr "Delinger"
 
@@ -2836,12 +2943,6 @@ msgstr "Vis rettigheder"
 
 msgid "Shutdown"
 msgstr "Luk ned"
-
-msgid "Shutdown the system when pressing the power button."
-msgstr "Luk systemet ned når power knappen bliver trykket."
-
-msgid "Shutdown/Reboot schedule"
-msgstr "Luk ned/Genstart planlægning"
 
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
@@ -3045,6 +3146,9 @@ msgstr "System Logs"
 msgid "System time"
 msgstr "System tid"
 
+msgid "System users/groups"
+msgstr ""
+
 msgid "TAR"
 msgstr "TAR"
 
@@ -3084,6 +3188,9 @@ msgstr "RSA nøgle længde."
 msgid "The SSL certificate."
 msgstr "SSL certifikat."
 
+msgid "The action to be done when pressing the power button."
+msgstr ""
+
 msgid "The changes have been applied successfully."
 msgstr "Ændringerne er blevet tilføjet med succes."
 
@@ -3106,11 +3213,17 @@ msgstr " Ekstern server destination, f.eks. [USER@]HOST:DEST, [USER@]HOST::DEST 
 msgid "The destination shared folder."
 msgstr "Destinationens delte mappe"
 
+msgid "The device does not exist"
+msgstr ""
+
 msgid "The field '%s' contains forbidden "
 msgstr "Feltet '%s' indeholder forbudte"
 
 msgid "The file mode of the shared folder path."
 msgstr "Fil tilstand af den delte mappes sti."
+
+msgid "The file system creation has completed successfully."
+msgstr ""
 
 msgid "The group '%s' does not exist"
 msgstr "Gruppen '%s' findes ikke"
@@ -3210,8 +3323,8 @@ msgstr "Brugeren '%s' findes ikke"
 msgid "The user '%s' is not allowed"
 msgstr "Brugeren '%s' er ikke tilladt"
 
-msgid "The volume label for the filesystem."
-msgstr "Drevnavn til dette filsystem."
+msgid "The volume label for the file system."
+msgstr ""
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3226,8 +3339,8 @@ msgstr "Der findes allerede et monterings punkt for %s"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
-" Please note that these settings do no affect the file system permissions."
-msgstr "Disse indstillinger anvendes af tjenesterne til at konfigurere brugerens adgangsrettigheder. Bemærk, at disse indstillinger ikke berører filsystemets tilladelser."
+" Please note that these settings have no effect on file system permissions."
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3570,9 +3683,6 @@ msgid ""
 "Update the destination extended attributes to be the same as the local ones"
 msgstr "Opdatere destinationens udvidede attributter til at være de samme som de lokale"
 
-msgid "Updated"
-msgstr "Opdateret"
-
 msgid "Updates"
 msgstr "Opdateringer"
 
@@ -3756,6 +3866,9 @@ msgstr "Skrive cache"
 
 msgid "Write only"
 msgstr "Skriv kun"
+
+msgid "Write/Execute"
+msgstr ""
 
 msgid "Yemen"
 msgstr "Yemen"

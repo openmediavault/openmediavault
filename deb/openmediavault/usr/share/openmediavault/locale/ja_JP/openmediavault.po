@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 18:12+0100\n"
-"PO-Revision-Date: 2014-05-20 00:18+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2014-07-28 22:41+0200\n"
+"PO-Revision-Date: 2014-07-28 20:44+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Language: ja_JP\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#, javascript-format
 msgid "% completed ..."
 msgstr "% 完了しました ..."
 
@@ -54,6 +55,7 @@ msgstr "10 分"
 msgid "10 years"
 msgstr "10 年"
 
+#, javascript-format
 msgid "100% completed ..."
 msgstr "100% 完了しました ..."
 
@@ -153,6 +155,9 @@ msgstr "64 - スタンバイを使った中間的な電力消費レベル"
 msgid "9 months"
 msgstr "9 か月"
 
+msgid "A module with the name '%s' already exists"
+msgstr ""
+
 msgid "A share with the name '%s' already exists"
 msgstr "'%s' の共有名はすでに存在します。"
 
@@ -167,6 +172,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "About"
+
+msgid "Abstract"
+msgstr ""
 
 msgid "Access Right Management"
 msgstr "アクセス権の管理"
@@ -265,8 +273,8 @@ msgid "Afghanistan"
 msgstr "アフガニスタン"
 
 msgid ""
-"After the RAID has been grown you can resize the containing filesystem."
-msgstr "RAIDの領域を拡張した後で、ファイルシステムのサイズを変更できます。"
+"After the RAID has been grown you can resize the containing file system."
+msgstr ""
 
 msgid "Aland Islands"
 msgstr "オーランド諸島"
@@ -379,6 +387,12 @@ msgstr "属性名"
 msgid "Attributes"
 msgstr "属性"
 
+msgid "Audit"
+msgstr ""
+
+msgid "Audit file operations."
+msgstr ""
+
 msgid "August"
 msgstr "8月"
 
@@ -414,6 +428,9 @@ msgstr "認証の要求"
 
 msgid "Authentication type"
 msgstr "認証のタイプ"
+
+msgid "Auto"
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatic Acoustic Management(AAM)"
@@ -600,8 +617,14 @@ msgstr "クリア"
 msgid "Client"
 msgstr "クライアント"
 
-msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr "クライアントからのファイルシステムのマウントを許可 例） 192.168.178.0/24"
+msgid "Client NetBIOS name"
+msgstr ""
+
+msgid "Client address"
+msgstr ""
+
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
 
 msgid "Close"
 msgstr "閉じる"
@@ -695,11 +718,14 @@ msgstr "作成"
 msgid "Create RAID device"
 msgstr "RAIDデバイスの作成"
 
-msgid "Create filesystem"
-msgstr "ファイルシステムの作成"
+msgid "Create file system"
+msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "SSL自己証明書の作成"
+
+msgid "Creating the file system, please wait ..."
+msgstr ""
 
 msgid "Critical"
 msgstr "クリティカル"
@@ -737,6 +763,9 @@ msgstr "DNSサーバー"
 msgid "Daemon"
 msgstr "デーモン"
 
+msgid "Dashboard"
+msgstr ""
+
 msgid "Date"
 msgstr "日付"
 
@@ -761,11 +790,11 @@ msgstr "削除"
 msgid "Delete content"
 msgstr "コンテンツの削除"
 
+msgid "Delete file system"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "送信側に存在しないものは受信側でファイルを削除します。"
-
-msgid "Delete filesystem"
-msgstr "ファイルシステムの削除"
 
 msgid "Deleting selected item(s)"
 msgstr "選択したアイテムを削除"
@@ -853,8 +882,8 @@ msgstr "表示中のアイテム {0} - {1} of {2}"
 msgid "Djibouti"
 msgstr "ジブチ"
 
-msgid "Do you really want to apply the configuration?"
-msgstr "設定を適用してよろしいですか？"
+msgid "Do you really want to apply the configuration changes?"
+msgstr ""
 
 msgid "Do you really want to clear the log file?"
 msgstr "ログファイルをクリアしてもよろしいですか？"
@@ -862,16 +891,16 @@ msgstr "ログファイルをクリアしてもよろしいですか？"
 msgid "Do you really want to create the RAID device?"
 msgstr "RAIDデバイスを作成してもよろしいですか？"
 
-msgid "Do you really want to delete the filesystem? All data will be lost."
-msgstr "ファイルシステムを削除してもよろしいですか？ すべてのデータは失われます。"
+msgid "Do you really want to delete the file system? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "選択されたアイテムを削除してもよろしいですか？"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the filesystem creation may take some time."
-msgstr "このデバイスをフォーマットしてもよろしいですか？ すべてのデータが削除されます。ファイルシステムの作成には時間がかかる場合があります。"
+"Please note that the file system creation may take some time."
+msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "選択されたプラグインをインストールしてもよろしいですか？"
@@ -882,21 +911,35 @@ msgstr "このページから離れてもよろしいですか？"
 msgid "Do you really want to logout?"
 msgstr "ログアウトしますか？"
 
+msgid "Do you really want to put the system into standby?"
+msgstr ""
+
 msgid "Do you really want to reboot the system?"
 msgstr "システムを再起動してよろしいですか？"
+
+msgid ""
+"Do you really want to relocate the shared folder? The content of the shared "
+"folder will not be moved automatically, you have to do this yourself."
+msgstr ""
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
 msgstr "共有フォルダのコンテンツを削除してもよろしいですか？コンテンツは完全に削除され、復元することはできません。"
 
+msgid "Do you really want to remove this widget?"
+msgstr ""
+
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "WebGUIの状態をリセットしてもよろしいですか？ 例）グリッド列の順序"
 
 msgid ""
-"Do you really want to resize the selected filesystem? You have to do that "
+"Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr "選択されたファイルシステムをリサイズしてもよろしいですか？ RAIDの領域を拡張した後にこれを行う必要があります。"
+msgstr ""
+
+msgid "Do you really want to revert the configuration changes?"
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
 msgstr "システムをシャットダウンしてもよろしいですか？"
@@ -1000,9 +1043,6 @@ msgstr "共有の編集"
 msgid "Edit shared folder"
 msgstr "共有フォルダの編集"
 
-msgid "Edit shared folder privileges"
-msgstr "共有フォルダの権限を編集"
-
 msgid "Edit user"
 msgstr "ユーザーを編集"
 
@@ -1014,6 +1054,12 @@ msgstr "エルサルバドル"
 
 msgid "Email"
 msgstr "Email"
+
+msgid "Empty now"
+msgstr ""
+
+msgid "Empty recycle bin"
+msgstr ""
 
 msgid "Enable"
 msgstr "有効"
@@ -1146,6 +1192,9 @@ msgstr "コマンドの実行"
 msgid "Execute cron job"
 msgstr "Cronジョブの実行"
 
+msgid "Execute only"
+msgstr ""
+
 msgid "Execute rsync job"
 msgstr "Rsyncジョブの実行"
 
@@ -1177,11 +1226,6 @@ msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
 msgstr "FXPはクライアントを経由しなくても２つのリモートサーバ間でデータ転送を行えます。"
-
-msgid ""
-"Failed to create filesystem. Please check the syslog or '%s' for more "
-"details."
-msgstr "ファイルシステムの作成に失敗しました。詳細はsyslogまたは '%s' をチェックしてください。"
 
 msgid "Failed to get filesystems"
 msgstr "ファイルシステムの取得に失敗しました"
@@ -1225,6 +1269,12 @@ msgstr "フィジー"
 msgid "File"
 msgstr "ファイル"
 
+msgid "File Systems"
+msgstr ""
+
+msgid "File system"
+msgstr ""
+
 msgid "Filename"
 msgstr "ファイル名"
 
@@ -1240,9 +1290,6 @@ msgstr "指定したバイト数を超えるファイルはごみ箱に入れら
 
 msgid "Filesize"
 msgstr "ファイルサイズ"
-
-msgid "Filesystem"
-msgstr "ファイルシステム"
 
 msgid "Filesystem '%s' not found"
 msgstr "ファイルシステム '%s' はありません"
@@ -1262,8 +1309,8 @@ msgstr "ファイアウォール"
 msgid "Firmware version"
 msgstr "ファームウェアのバージョン"
 
-msgid "Flag"
-msgstr "フラグ"
+msgid "Flags"
+msgstr ""
 
 msgid "Force SSL/TLS"
 msgstr "Force SSL/TLS"
@@ -1309,6 +1356,9 @@ msgstr "一般設定"
 
 msgid "General settings"
 msgstr "一般設定"
+
+msgid "General users/groups"
+msgstr ""
 
 msgid "Generating graphs ..."
 msgstr "グラフ生成中 ..."
@@ -1369,6 +1419,12 @@ msgstr "グアテマラ"
 
 msgid "Guest"
 msgstr "ゲスト"
+
+msgid "Guest allowed"
+msgstr ""
+
+msgid "Guests allowed"
+msgstr ""
 
 msgid "Guinea"
 msgstr "ギニア"
@@ -1454,8 +1510,11 @@ msgstr "ネットワークインタフェイスデバイスを識別する"
 msgid "Idle"
 msgstr "Idle"
 
-msgid "If enabled then no password is required to connect to the share"
-msgstr "有効の場合、共有への接続にパスワードは要求されません"
+msgid ""
+"If 'Guests allowed' is selected and no login credential is provided, then "
+"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"this case no password is required to connect to the share."
+msgstr ""
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1477,11 +1536,11 @@ msgstr "このオプションを設定すると、すべてのアップロード
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
-" before mapping DOS attributes to UNIX permission bits. When set, DOS "
-"attributes will be stored onto an extended attribute in the UNIX filesystem,"
-" associated with the file or directory."
-msgstr "このパラメータを設定すると、SambaはDOSの属性をUNIXのパーミッションにマップする前に、最初にファイルシステムの拡張属性からDOSの属性(SYSTEM, HIDDEN, ARCHIVE または READ-ONLY)を読み込みます。設定されたとき、DOS属性はファイルまたはディレクトリに関連したUNIXファイルシステムの拡張属性に保存されます。"
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1581,8 +1640,8 @@ msgstr "インタフェース"
 msgid "Invalid domain name"
 msgstr "無効なドメイン名"
 
-msgid "Invalid filesystem label"
-msgstr "無効なファイルシステムラベル"
+msgid "Invalid file system label"
+msgstr ""
 
 msgid "Invalid group name"
 msgstr "無効なグループ名"
@@ -1729,6 +1788,9 @@ msgstr "ロードアベレージ"
 
 msgid "Loading ..."
 msgstr "読み込み中 ..."
+
+msgid "Loading, please wait ..."
+msgstr ""
 
 msgid "Local"
 msgstr "ローカル"
@@ -2094,6 +2156,9 @@ msgstr "Not TCP"
 msgid "Not UDP"
 msgstr "Not UDP"
 
+msgid "Nothing"
+msgstr ""
+
 msgid "Notification"
 msgstr "通知"
 
@@ -2129,6 +2194,12 @@ msgstr "オマーン"
 
 msgid "Online"
 msgstr "オンライン"
+
+msgid "Only guests"
+msgstr ""
+
+msgid "Operation"
+msgstr ""
 
 msgid "Operation not allowed for user '%s'."
 msgstr "この操作はユーザー '%s' には許可されていません。"
@@ -2306,9 +2377,9 @@ msgid "Please wait ..."
 msgstr "お待ちください ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a "
-"filesystem."
-msgstr "ファイルシステムを作成する前に、RAIDが初期化されるまでお待ちください。"
+"Please wait until the RAID has been initialized before creating a file "
+"system."
+msgstr ""
 
 msgid "Plugins"
 msgstr "プラグイン"
@@ -2334,8 +2405,8 @@ msgstr "電源ボタン"
 msgid "Power mode"
 msgstr "電源モード"
 
-msgid "Pre-released updates."
-msgstr "プレリリースされたアップデート。"
+msgid "Pre-release updates."
+msgstr ""
 
 msgid "Prefix length"
 msgstr "プレフィックス長"
@@ -2455,8 +2526,14 @@ msgstr "読み込み専用"
 msgid "Read-only"
 msgstr "読み込み専用"
 
+msgid "Read/Execute"
+msgstr ""
+
 msgid "Read/Write"
 msgstr "読み/書き"
+
+msgid "Read/Write/Execute"
+msgstr ""
 
 msgid "Real"
 msgstr "リアル"
@@ -2497,11 +2574,17 @@ msgstr "リモートホスト"
 msgid "Remote syslog"
 msgstr "リモートシスログ"
 
+msgid "Remove"
+msgstr ""
+
 msgid "Replace"
 msgstr "置換"
 
 msgid "Replace all existing permissions"
 msgstr "既存のすべてのアクセス権を置き換える"
+
+msgid "Report"
+msgstr ""
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2536,6 +2619,9 @@ msgstr "WebGUIの状態をリセットします。例えば、グリッド列の
 msgid "Resize"
 msgstr "リサイズ"
 
+msgid "Result"
+msgstr ""
+
 msgid "Resume"
 msgstr "リジューム"
 
@@ -2547,6 +2633,12 @@ msgstr "レユニオン"
 
 msgid "Reverse DNS lookup"
 msgstr "DNSの逆引き"
+
+msgid "Revert"
+msgstr ""
+
+msgid "Revert configuration changes"
+msgstr ""
 
 msgid "Romania"
 msgstr "ルーマニア"
@@ -2583,6 +2675,9 @@ msgstr "S.M.A.R.T.モニタリングは、選択したデバイスのために�
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
+
+msgid "SMB/CIFS - Audit"
+msgstr ""
 
 msgid "SMTP port"
 msgstr "SMTP ポート"
@@ -2650,8 +2745,8 @@ msgstr "スキャン"
 msgid "Scanning for new devices ..."
 msgstr "新しいデバイスをスキャンしています ..."
 
-msgid "Scheduled jobs"
-msgstr "スケジュールされたジョブ"
+msgid "Scheduled Jobs"
+msgstr ""
 
 msgid "Scheduled tests"
 msgstr "スケジュールされたテスト"
@@ -2686,11 +2781,14 @@ msgstr "デバイスを選択 ..."
 msgid "Select a directory"
 msgstr "ディレクトリを選択"
 
-msgid "Select a filesystem ..."
-msgstr "ファイルシステムを選択 ..."
+msgid "Select a file permission ..."
+msgstr ""
 
-msgid "Select a group name..."
-msgstr "グループ名を選択 ..."
+msgid "Select a file system ..."
+msgstr ""
+
+msgid "Select a group name ..."
+msgstr ""
 
 msgid "Select a language ..."
 msgstr "言語を選択 ..."
@@ -2707,8 +2805,8 @@ msgstr "共有フォルダを選択 ..."
 msgid "Select a shell ..."
 msgstr "シェルを選択 ..."
 
-msgid "Select a user name..."
-msgstr "ユーザー名を選択 ..."
+msgid "Select a user name ..."
+msgstr ""
 
 msgid "Select a volume ..."
 msgstr "ボリュームを選択 ..."
@@ -2810,6 +2908,15 @@ msgstr "共有フォルダ"
 msgid "Shared folder must not be equal"
 msgstr "共有フォルダが同じであってはならない"
 
+msgid "Shared folder name"
+msgstr ""
+
+msgid "Shared folder path"
+msgstr ""
+
+msgid "Shared folder privileges"
+msgstr ""
+
 msgid "Shares"
 msgstr "共有"
 
@@ -2836,12 +2943,6 @@ msgstr "特権の表示"
 
 msgid "Shutdown"
 msgstr "シャットダウン"
-
-msgid "Shutdown the system when pressing the power button."
-msgstr "電源ボタンを押したとき、システムをシャットダウンします。"
-
-msgid "Shutdown/Reboot schedule"
-msgstr "シャットダウン/再起動のスケジュール"
 
 msgid "Sierra Leone"
 msgstr "シエラレオネ"
@@ -3045,6 +3146,9 @@ msgstr "システムログ"
 msgid "System time"
 msgstr "システム時間"
 
+msgid "System users/groups"
+msgstr ""
+
 msgid "TAR"
 msgstr "TAR"
 
@@ -3084,6 +3188,9 @@ msgstr "RSAキーの長さ。"
 msgid "The SSL certificate."
 msgstr "SSL証明書。"
 
+msgid "The action to be done when pressing the power button."
+msgstr ""
+
 msgid "The changes have been applied successfully."
 msgstr "変更が正常に適用されました。"
 
@@ -3106,11 +3213,17 @@ msgstr "送信先のリモートサーバ 例） [USER@]HOST:DEST, [USER@]HOST::
 msgid "The destination shared folder."
 msgstr "宛先の共有フォルダ。"
 
+msgid "The device does not exist"
+msgstr ""
+
 msgid "The field '%s' contains forbidden "
 msgstr "フィールド '%s' は禁止を含みます"
 
 msgid "The file mode of the shared folder path."
 msgstr "共有フォルダパスのファイルモード。"
+
+msgid "The file system creation has completed successfully."
+msgstr ""
 
 msgid "The group '%s' does not exist"
 msgstr "グループ '%s' は存在しません"
@@ -3210,8 +3323,8 @@ msgstr "ユーザー '%s' は存在しません"
 msgid "The user '%s' is not allowed"
 msgstr "ユーザー '%s' は許可されていません"
 
-msgid "The volume label for the filesystem."
-msgstr "ファイルシステムのボリュームラベル。"
+msgid "The volume label for the file system."
+msgstr ""
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3226,8 +3339,8 @@ msgstr "マウントポイント %s はすでに存在します"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
-" Please note that these settings do no affect the file system permissions."
-msgstr "これらの設定は、ユーザのアクセス権を設定するためのサービスで使用されます。これらの設定はファイルシステムのアクセス許可に影響を与えないことに注意をして下さい。"
+" Please note that these settings have no effect on file system permissions."
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3570,9 +3683,6 @@ msgid ""
 "Update the destination extended attributes to be the same as the local ones"
 msgstr "ローカルの属性と同じになるように宛先の拡張属性を更新します"
 
-msgid "Updated"
-msgstr "アップデート済み"
-
 msgid "Updates"
 msgstr "アップデート"
 
@@ -3756,6 +3866,9 @@ msgstr "ライトキャッシュ"
 
 msgid "Write only"
 msgstr "書き込み専用"
+
+msgid "Write/Execute"
+msgstr ""
 
 msgid "Yemen"
 msgstr "イエメン"

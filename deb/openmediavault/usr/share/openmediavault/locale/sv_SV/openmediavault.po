@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 18:12+0100\n"
-"PO-Revision-Date: 2014-05-19 17:17+0000\n"
+"POT-Creation-Date: 2014-07-28 22:41+0200\n"
+"PO-Revision-Date: 2014-07-28 20:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,7 @@ msgstr ""
 "Language: sv\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#, javascript-format
 msgid "% completed ..."
 msgstr "% slutförd ..."
 
@@ -54,6 +55,7 @@ msgstr "10 minuter"
 msgid "10 years"
 msgstr "10 år"
 
+#, javascript-format
 msgid "100% completed ..."
 msgstr "100% slutförd ..."
 
@@ -153,6 +155,9 @@ msgstr "64 - Mellanliggande strömförbrukning med viloläge"
 msgid "9 months"
 msgstr "9 månader"
 
+msgid "A module with the name '%s' already exists"
+msgstr ""
+
 msgid "A share with the name '%s' already exists"
 msgstr ""
 
@@ -167,6 +172,9 @@ msgstr ""
 
 msgid "About"
 msgstr "Om"
+
+msgid "Abstract"
+msgstr ""
 
 msgid "Access Right Management"
 msgstr "Åtkomsthantering"
@@ -265,7 +273,7 @@ msgid "Afghanistan"
 msgstr "Afghanistan"
 
 msgid ""
-"After the RAID has been grown you can resize the containing filesystem."
+"After the RAID has been grown you can resize the containing file system."
 msgstr ""
 
 msgid "Aland Islands"
@@ -379,6 +387,12 @@ msgstr "Attributnamn"
 msgid "Attributes"
 msgstr "Attribut"
 
+msgid "Audit"
+msgstr ""
+
+msgid "Audit file operations."
+msgstr ""
+
 msgid "August"
 msgstr "Augusti"
 
@@ -414,6 +428,9 @@ msgstr "Autentisering krävs"
 
 msgid "Authentication type"
 msgstr "Autentiseringstyp"
+
+msgid "Auto"
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatisk akustisk hantering"
@@ -600,7 +617,13 @@ msgstr "Rensa"
 msgid "Client"
 msgstr "Klient"
 
-msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
+msgid "Client NetBIOS name"
+msgstr ""
+
+msgid "Client address"
+msgstr ""
+
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
 msgstr ""
 
 msgid "Close"
@@ -695,11 +718,14 @@ msgstr "Skapa"
 msgid "Create RAID device"
 msgstr "Skapa RAID-enhet"
 
-msgid "Create filesystem"
+msgid "Create file system"
 msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "Skapa självsignerade SSL-certifikat "
+
+msgid "Creating the file system, please wait ..."
+msgstr ""
 
 msgid "Critical"
 msgstr "Kritisk"
@@ -737,6 +763,9 @@ msgstr "DNS-server"
 msgid "Daemon"
 msgstr "Tjänst"
 
+msgid "Dashboard"
+msgstr ""
+
 msgid "Date"
 msgstr "Datum"
 
@@ -761,11 +790,11 @@ msgstr "Radera"
 msgid "Delete content"
 msgstr "Radera innehåll"
 
+msgid "Delete file system"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Radera "
-
-msgid "Delete filesystem"
-msgstr ""
 
 msgid "Deleting selected item(s)"
 msgstr "Ta bort filer på den mottagande sidan som inte finns på avsändarens"
@@ -853,7 +882,7 @@ msgstr "Visar objekt {0} - {1} of {2}"
 msgid "Djibouti"
 msgstr "Djibouti"
 
-msgid "Do you really want to apply the configuration?"
+msgid "Do you really want to apply the configuration changes?"
 msgstr ""
 
 msgid "Do you really want to clear the log file?"
@@ -862,7 +891,7 @@ msgstr "Vill du verkligen rensa loggfilen?"
 msgid "Do you really want to create the RAID device?"
 msgstr "Vill du verkligen skapa RAID-enheten?"
 
-msgid "Do you really want to delete the filesystem? All data will be lost."
+msgid "Do you really want to delete the file system? All data will be lost."
 msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
@@ -870,7 +899,7 @@ msgstr "Vill du verkligen radera markerade objekt?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the filesystem creation may take some time."
+"Please note that the file system creation may take some time."
 msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
@@ -882,20 +911,34 @@ msgstr "Vill du verkligen lämna den här sidan?"
 msgid "Do you really want to logout?"
 msgstr "Vill du verkligen logga ut?"
 
+msgid "Do you really want to put the system into standby?"
+msgstr ""
+
 msgid "Do you really want to reboot the system?"
 msgstr "Vill du verkligen starta om systemet?"
+
+msgid ""
+"Do you really want to relocate the shared folder? The content of the shared "
+"folder will not be moved automatically, you have to do this yourself."
+msgstr ""
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
 msgstr ""
 
+msgid "Do you really want to remove this widget?"
+msgstr ""
+
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Vill du verkligen återställa WebGUI-tillståndet, t.ex. rutnätkolumnens ordning?"
 
 msgid ""
-"Do you really want to resize the selected filesystem? You have to do that "
+"Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
+msgstr ""
+
+msgid "Do you really want to revert the configuration changes?"
 msgstr ""
 
 msgid "Do you really want to shutdown the system?"
@@ -1000,9 +1043,6 @@ msgstr "Redigera utdelning"
 msgid "Edit shared folder"
 msgstr "Redigera delad mapp"
 
-msgid "Edit shared folder privileges"
-msgstr "Redigera privilegier för delad mapp"
-
 msgid "Edit user"
 msgstr "Redigera användare"
 
@@ -1014,6 +1054,12 @@ msgstr "El Salvador"
 
 msgid "Email"
 msgstr "E-post"
+
+msgid "Empty now"
+msgstr ""
+
+msgid "Empty recycle bin"
+msgstr ""
 
 msgid "Enable"
 msgstr "Aktivera"
@@ -1146,6 +1192,9 @@ msgstr "Utför kommandot"
 msgid "Execute cron job"
 msgstr "Utför cron-jobb"
 
+msgid "Execute only"
+msgstr ""
+
 msgid "Execute rsync job"
 msgstr "Utför rsync-jobb"
 
@@ -1177,11 +1226,6 @@ msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
 msgstr "FXP tillåter överföringar mellan två fjärrservrar utan fildata att gå till klienten när den ber om överföringen."
-
-msgid ""
-"Failed to create filesystem. Please check the syslog or '%s' for more "
-"details."
-msgstr ""
 
 msgid "Failed to get filesystems"
 msgstr "Det gick inte att hämta filsystem"
@@ -1225,6 +1269,12 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Fil"
 
+msgid "File Systems"
+msgstr ""
+
+msgid "File system"
+msgstr ""
+
 msgid "Filename"
 msgstr ""
 
@@ -1239,9 +1289,6 @@ msgid ""
 msgstr ""
 
 msgid "Filesize"
-msgstr ""
-
-msgid "Filesystem"
 msgstr ""
 
 msgid "Filesystem '%s' not found"
@@ -1262,8 +1309,8 @@ msgstr "Brandvägg"
 msgid "Firmware version"
 msgstr "Firmware-version"
 
-msgid "Flag"
-msgstr "Flagga"
+msgid "Flags"
+msgstr ""
 
 msgid "Force SSL/TLS"
 msgstr "Tvinga SSL/TLS"
@@ -1309,6 +1356,9 @@ msgstr "Allmänna inställningar"
 
 msgid "General settings"
 msgstr "Allmänna inställningar"
+
+msgid "General users/groups"
+msgstr ""
 
 msgid "Generating graphs ..."
 msgstr "Genererar grafer ..."
@@ -1368,6 +1418,12 @@ msgid "Guatemala"
 msgstr "Guatemala"
 
 msgid "Guest"
+msgstr ""
+
+msgid "Guest allowed"
+msgstr ""
+
+msgid "Guests allowed"
 msgstr ""
 
 msgid "Guinea"
@@ -1454,8 +1510,11 @@ msgstr "Identifiera enhet för nätverksgränssnitt"
 msgid "Idle"
 msgstr "Tomgångsläge"
 
-msgid "If enabled then no password is required to connect to the share"
-msgstr "Om aktiverad så krävs inget lösenord för att ansluta till delningen"
+msgid ""
+"If 'Guests allowed' is selected and no login credential is provided, then "
+"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"this case no password is required to connect to the share."
+msgstr ""
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1477,10 +1536,10 @@ msgstr "Om detta alternativ är inställt, kommer alla försök till uppladdning
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
-" before mapping DOS attributes to UNIX permission bits. When set, DOS "
-"attributes will be stored onto an extended attribute in the UNIX filesystem,"
-" associated with the file or directory."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
 msgstr ""
 
 msgid ""
@@ -1581,7 +1640,7 @@ msgstr "Gränssnitt"
 msgid "Invalid domain name"
 msgstr "Ogiltigt domännamn"
 
-msgid "Invalid filesystem label"
+msgid "Invalid file system label"
 msgstr ""
 
 msgid "Invalid group name"
@@ -1729,6 +1788,9 @@ msgstr "Genomsnittsbelastning"
 
 msgid "Loading ..."
 msgstr "Laddar ..."
+
+msgid "Loading, please wait ..."
+msgstr ""
 
 msgid "Local"
 msgstr "Lokal"
@@ -2094,6 +2156,9 @@ msgstr "Ej TCP"
 msgid "Not UDP"
 msgstr "Ej UDP"
 
+msgid "Nothing"
+msgstr ""
+
 msgid "Notification"
 msgstr ""
 
@@ -2129,6 +2194,12 @@ msgstr "Oman"
 
 msgid "Online"
 msgstr "Tillgänglig"
+
+msgid "Only guests"
+msgstr ""
+
+msgid "Operation"
+msgstr ""
 
 msgid "Operation not allowed for user '%s'."
 msgstr ""
@@ -2306,8 +2377,8 @@ msgid "Please wait ..."
 msgstr "Vänligen vänta ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a "
-"filesystem."
+"Please wait until the RAID has been initialized before creating a file "
+"system."
 msgstr ""
 
 msgid "Plugins"
@@ -2334,7 +2405,7 @@ msgstr "Strömbrytare"
 msgid "Power mode"
 msgstr "Effektläge"
 
-msgid "Pre-released updates."
+msgid "Pre-release updates."
 msgstr ""
 
 msgid "Prefix length"
@@ -2455,8 +2526,14 @@ msgstr "Skrivskydd"
 msgid "Read-only"
 msgstr "Skrivskydd"
 
+msgid "Read/Execute"
+msgstr ""
+
 msgid "Read/Write"
 msgstr "Läsa/Skriva"
+
+msgid "Read/Write/Execute"
+msgstr ""
 
 msgid "Real"
 msgstr ""
@@ -2497,11 +2574,17 @@ msgstr ""
 msgid "Remote syslog"
 msgstr "Fjärrsyslog"
 
+msgid "Remove"
+msgstr ""
+
 msgid "Replace"
 msgstr "Ersätt"
 
 msgid "Replace all existing permissions"
 msgstr "Ersätt alla befintliga behörigheter"
+
+msgid "Report"
+msgstr ""
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2536,6 +2619,9 @@ msgstr ""
 msgid "Resize"
 msgstr "Ändra storlek"
 
+msgid "Result"
+msgstr ""
+
 msgid "Resume"
 msgstr "Återuppta"
 
@@ -2547,6 +2633,12 @@ msgstr "Återförena"
 
 msgid "Reverse DNS lookup"
 msgstr "Omvänd DNS-förfrågan"
+
+msgid "Revert"
+msgstr ""
+
+msgid "Revert configuration changes"
+msgstr ""
 
 msgid "Romania"
 msgstr "Rumänien"
@@ -2583,6 +2675,9 @@ msgstr "S.M.A.R.T.-övervakning måste vara aktiverad för den valda enheten."
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
+
+msgid "SMB/CIFS - Audit"
+msgstr ""
 
 msgid "SMTP port"
 msgstr "SMTP-port"
@@ -2650,7 +2745,7 @@ msgstr "Skanna"
 msgid "Scanning for new devices ..."
 msgstr "Skannar efter nya enheter ..."
 
-msgid "Scheduled jobs"
+msgid "Scheduled Jobs"
 msgstr ""
 
 msgid "Scheduled tests"
@@ -2686,11 +2781,14 @@ msgstr "Välj en enhet ..."
 msgid "Select a directory"
 msgstr "Välj en mapp"
 
-msgid "Select a filesystem ..."
+msgid "Select a file permission ..."
 msgstr ""
 
-msgid "Select a group name..."
-msgstr "Välj ett gruppnamn..."
+msgid "Select a file system ..."
+msgstr ""
+
+msgid "Select a group name ..."
+msgstr ""
 
 msgid "Select a language ..."
 msgstr "Välj ett språk ..."
@@ -2707,8 +2805,8 @@ msgstr "Välj en delad mapp ..."
 msgid "Select a shell ..."
 msgstr "Välj ett skal ..."
 
-msgid "Select a user name..."
-msgstr "Välj ett användarnamn..."
+msgid "Select a user name ..."
+msgstr ""
 
 msgid "Select a volume ..."
 msgstr "Välj en volym ..."
@@ -2810,6 +2908,15 @@ msgstr "Delad mapp"
 msgid "Shared folder must not be equal"
 msgstr "Delad mapp får inte vara lika"
 
+msgid "Shared folder name"
+msgstr ""
+
+msgid "Shared folder path"
+msgstr ""
+
+msgid "Shared folder privileges"
+msgstr ""
+
 msgid "Shares"
 msgstr "Utdelningar"
 
@@ -2836,12 +2943,6 @@ msgstr "Visa privilegier"
 
 msgid "Shutdown"
 msgstr "Stäng av"
-
-msgid "Shutdown the system when pressing the power button."
-msgstr "Stäng av systemet när du trycker på strömbrytaren."
-
-msgid "Shutdown/Reboot schedule"
-msgstr "Stäng av/Starta om-schema"
 
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
@@ -3045,6 +3146,9 @@ msgstr "Systemloggar"
 msgid "System time"
 msgstr "Systemtid"
 
+msgid "System users/groups"
+msgstr ""
+
 msgid "TAR"
 msgstr ""
 
@@ -3084,6 +3188,9 @@ msgstr "RSA nyckellängd."
 msgid "The SSL certificate."
 msgstr "SSL certifikat."
 
+msgid "The action to be done when pressing the power button."
+msgstr ""
+
 msgid "The changes have been applied successfully."
 msgstr "Förändringarna har tillämpats med framgång."
 
@@ -3106,11 +3213,17 @@ msgstr "Destinationens fjärrserver, exempelvis [USER@]HOST:DEST, [USER@]HOST::D
 msgid "The destination shared folder."
 msgstr "Delade mappens destination."
 
+msgid "The device does not exist"
+msgstr ""
+
 msgid "The field '%s' contains forbidden "
 msgstr "Fältet '%s' innehåller förbjudna"
 
 msgid "The file mode of the shared folder path."
 msgstr "Filens läge för den delade mappsökvägen."
+
+msgid "The file system creation has completed successfully."
+msgstr ""
 
 msgid "The group '%s' does not exist"
 msgstr "Gruppen '%s' existerar inte"
@@ -3210,7 +3323,7 @@ msgstr "Användaren '%s' finns inte"
 msgid "The user '%s' is not allowed"
 msgstr "Användaren '%s' är inte tillåten"
 
-msgid "The volume label for the filesystem."
+msgid "The volume label for the file system."
 msgstr ""
 
 msgid ""
@@ -3226,8 +3339,8 @@ msgstr "Det redan finns en monteringspunkt för %s"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
-" Please note that these settings do no affect the file system permissions."
-msgstr "Dessa inställningar används av de tjänster för att konfigurera användarrättigheter. Observera att dessa inställningar inte påverkas av filsystemsbehörigheter."
+" Please note that these settings have no effect on file system permissions."
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3570,9 +3683,6 @@ msgid ""
 "Update the destination extended attributes to be the same as the local ones"
 msgstr "Uppdatera destinationens utökade attribut för att vara detsamma som de lokala"
 
-msgid "Updated"
-msgstr "Uppdaterad"
-
 msgid "Updates"
 msgstr ""
 
@@ -3756,6 +3866,9 @@ msgstr "Skrivcache"
 
 msgid "Write only"
 msgstr "Endast skriva"
+
+msgid "Write/Execute"
+msgstr ""
 
 msgid "Yemen"
 msgstr "Yemen"

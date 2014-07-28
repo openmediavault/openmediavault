@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 18:12+0100\n"
-"PO-Revision-Date: 2014-05-19 17:17+0000\n"
+"POT-Creation-Date: 2014-07-28 22:41+0200\n"
+"PO-Revision-Date: 2014-07-28 20:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,7 @@ msgstr ""
 "Language: nl_NL\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#, javascript-format
 msgid "% completed ..."
 msgstr "% voltooid ..."
 
@@ -57,6 +58,7 @@ msgstr "10 minuten"
 msgid "10 years"
 msgstr "10 jaren"
 
+#, javascript-format
 msgid "100% completed ..."
 msgstr "100% voltooid ..."
 
@@ -156,6 +158,9 @@ msgstr "64 - Intermediair stroomgebruik met stand-by"
 msgid "9 months"
 msgstr "9 maanden"
 
+msgid "A module with the name '%s' already exists"
+msgstr ""
+
 msgid "A share with the name '%s' already exists"
 msgstr "Er bestaat al een gedeelde bron met de naam '%s'"
 
@@ -170,6 +175,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "Over"
+
+msgid "Abstract"
+msgstr ""
 
 msgid "Access Right Management"
 msgstr "Toegangsrechtenbeheer"
@@ -268,7 +276,7 @@ msgid "Afghanistan"
 msgstr "Afghanistan"
 
 msgid ""
-"After the RAID has been grown you can resize the containing filesystem."
+"After the RAID has been grown you can resize the containing file system."
 msgstr ""
 
 msgid "Aland Islands"
@@ -382,6 +390,12 @@ msgstr "Attribuutnaam"
 msgid "Attributes"
 msgstr "Attributen"
 
+msgid "Audit"
+msgstr ""
+
+msgid "Audit file operations."
+msgstr ""
+
 msgid "August"
 msgstr "Augustus"
 
@@ -417,6 +431,9 @@ msgstr "Authenticatie vereist"
 
 msgid "Authentication type"
 msgstr "Authenticatie type"
+
+msgid "Auto"
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatic Acoustic Management"
@@ -603,7 +620,13 @@ msgstr "Wissen"
 msgid "Client"
 msgstr "Client"
 
-msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
+msgid "Client NetBIOS name"
+msgstr ""
+
+msgid "Client address"
+msgstr ""
+
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
 msgstr ""
 
 msgid "Close"
@@ -698,11 +721,14 @@ msgstr "Aanmaken"
 msgid "Create RAID device"
 msgstr "RAID-apparaat aanmaken"
 
-msgid "Create filesystem"
+msgid "Create file system"
 msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "Zelf-gesigneerd SSL-certificaat maken"
+
+msgid "Creating the file system, please wait ..."
+msgstr ""
 
 msgid "Critical"
 msgstr "Kritiek"
@@ -740,6 +766,9 @@ msgstr "DNS-server"
 msgid "Daemon"
 msgstr "Daemon"
 
+msgid "Dashboard"
+msgstr ""
+
 msgid "Date"
 msgstr "Datum"
 
@@ -764,11 +793,11 @@ msgstr "Verwijderen"
 msgid "Delete content"
 msgstr "Inhoud verwijderen"
 
+msgid "Delete file system"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Verwijder bestanden aan de ontvangende kant die niet bestaan bij de verzender"
-
-msgid "Delete filesystem"
-msgstr ""
 
 msgid "Deleting selected item(s)"
 msgstr "Geselecteerde item(s) verwijderen"
@@ -856,8 +885,8 @@ msgstr "Items {0} - {1} van {2} worden getoond"
 msgid "Djibouti"
 msgstr "Djibouti"
 
-msgid "Do you really want to apply the configuration?"
-msgstr "Weet u zeker dat u de configuratie wilt toepassen?"
+msgid "Do you really want to apply the configuration changes?"
+msgstr ""
 
 msgid "Do you really want to clear the log file?"
 msgstr "Weet u zeker dat u de logbestanden wilt wissen?"
@@ -865,7 +894,7 @@ msgstr "Weet u zeker dat u de logbestanden wilt wissen?"
 msgid "Do you really want to create the RAID device?"
 msgstr "Weet u zeker dat u het RAID-apparaat wilt aanmaken?"
 
-msgid "Do you really want to delete the filesystem? All data will be lost."
+msgid "Do you really want to delete the file system? All data will be lost."
 msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
@@ -873,7 +902,7 @@ msgstr "Weet u zeker dat u het/de geselecteerde bestand(en) wilt verwijderen?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the filesystem creation may take some time."
+"Please note that the file system creation may take some time."
 msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
@@ -885,20 +914,34 @@ msgstr "Weet u zeker dat u de pagina wil verlaten?"
 msgid "Do you really want to logout?"
 msgstr "Weet u zeker dat u zich wil afmelden?"
 
+msgid "Do you really want to put the system into standby?"
+msgstr ""
+
 msgid "Do you really want to reboot the system?"
 msgstr "Weet u zeker dat u het systeem wil herstarten?"
+
+msgid ""
+"Do you really want to relocate the shared folder? The content of the shared "
+"folder will not be moved automatically, you have to do this yourself."
+msgstr ""
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
 msgstr "Weet u zeker dat u de inhoud van de gedeelde map wilt verwijderen? De map zal permanent worden verwijderd en kan niet worden hersteld."
 
+msgid "Do you really want to remove this widget?"
+msgstr ""
+
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Weet u zeker dat u de WebGUI-staat opnieuw in wil stellen, bijv. de rasterkolomvolgorde?"
 
 msgid ""
-"Do you really want to resize the selected filesystem? You have to do that "
+"Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
+msgstr ""
+
+msgid "Do you really want to revert the configuration changes?"
 msgstr ""
 
 msgid "Do you really want to shutdown the system?"
@@ -1003,9 +1046,6 @@ msgstr "Gedeelde bron aanpassen"
 msgid "Edit shared folder"
 msgstr "Gedeelde map aanpassen"
 
-msgid "Edit shared folder privileges"
-msgstr "Rechten op gedeelde map aanpassen"
-
 msgid "Edit user"
 msgstr "Gebruiker aanpassen"
 
@@ -1017,6 +1057,12 @@ msgstr "El Salvador"
 
 msgid "Email"
 msgstr "E-mail"
+
+msgid "Empty now"
+msgstr ""
+
+msgid "Empty recycle bin"
+msgstr ""
 
 msgid "Enable"
 msgstr "Inschakelen"
@@ -1149,6 +1195,9 @@ msgstr "Opdracht uitvoeren"
 msgid "Execute cron job"
 msgstr "Geplande taak uitvoeren"
 
+msgid "Execute only"
+msgstr ""
+
 msgid "Execute rsync job"
 msgstr "Uitvoeren rsync-taak"
 
@@ -1180,11 +1229,6 @@ msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
 msgstr "FXP staat transfers tussen twee externe servers toe zonder dat bestandsgegevens naar de cliënt gestuurd worden voor de overdrachtstoestemming.,"
-
-msgid ""
-"Failed to create filesystem. Please check the syslog or '%s' for more "
-"details."
-msgstr ""
 
 msgid "Failed to get filesystems"
 msgstr "Ophalen van bestandssystemen mislukt"
@@ -1228,6 +1272,12 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Bestand"
 
+msgid "File Systems"
+msgstr ""
+
+msgid "File system"
+msgstr ""
+
 msgid "Filename"
 msgstr "Bestandsnaam"
 
@@ -1243,9 +1293,6 @@ msgstr "Bestanden groter dan het opgegeven aantal bytes zullen niet in de prulle
 
 msgid "Filesize"
 msgstr "Bestandsgrootte"
-
-msgid "Filesystem"
-msgstr ""
 
 msgid "Filesystem '%s' not found"
 msgstr "Bestandssysteem '%s' niet gevonden"
@@ -1265,8 +1312,8 @@ msgstr "Firewall"
 msgid "Firmware version"
 msgstr "Firmware versie"
 
-msgid "Flag"
-msgstr "Vlag"
+msgid "Flags"
+msgstr ""
 
 msgid "Force SSL/TLS"
 msgstr "Forceer SSL/TLS"
@@ -1312,6 +1359,9 @@ msgstr "Algemene instellingen"
 
 msgid "General settings"
 msgstr "Algemene instellingen"
+
+msgid "General users/groups"
+msgstr ""
 
 msgid "Generating graphs ..."
 msgstr "Genereren van grafieken ..."
@@ -1372,6 +1422,12 @@ msgstr "Guatemala"
 
 msgid "Guest"
 msgstr "Gast"
+
+msgid "Guest allowed"
+msgstr ""
+
+msgid "Guests allowed"
+msgstr ""
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1457,8 +1513,11 @@ msgstr "Identificeer netwerkinterface"
 msgid "Idle"
 msgstr "Pauzestand"
 
-msgid "If enabled then no password is required to connect to the share"
-msgstr "Indien ingeschakeld is er geen wachtwoord nodig om verbinding te maken met de gedeelde bron"
+msgid ""
+"If 'Guests allowed' is selected and no login credential is provided, then "
+"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"this case no password is required to connect to the share."
+msgstr ""
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1480,10 +1539,10 @@ msgstr "Als deze optie is ingesteld, zullen alle uploadpogingen falen."
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
-" before mapping DOS attributes to UNIX permission bits. When set, DOS "
-"attributes will be stored onto an extended attribute in the UNIX filesystem,"
-" associated with the file or directory."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
 msgstr ""
 
 msgid ""
@@ -1584,7 +1643,7 @@ msgstr "Interfaces"
 msgid "Invalid domain name"
 msgstr "Ongeldige domeinnaam"
 
-msgid "Invalid filesystem label"
+msgid "Invalid file system label"
 msgstr ""
 
 msgid "Invalid group name"
@@ -1732,6 +1791,9 @@ msgstr "Gemiddelde belasting"
 
 msgid "Loading ..."
 msgstr "Laden ..."
+
+msgid "Loading, please wait ..."
+msgstr ""
 
 msgid "Local"
 msgstr "Lokaal"
@@ -2097,6 +2159,9 @@ msgstr "Geen TCP"
 msgid "Not UDP"
 msgstr "Geen UDP"
 
+msgid "Nothing"
+msgstr ""
+
 msgid "Notification"
 msgstr "Melding"
 
@@ -2132,6 +2197,12 @@ msgstr "Omaan"
 
 msgid "Online"
 msgstr "Online"
+
+msgid "Only guests"
+msgstr ""
+
+msgid "Operation"
+msgstr ""
 
 msgid "Operation not allowed for user '%s'."
 msgstr "Bewerking niet toegestaan voor gebruiker '%s'."
@@ -2309,8 +2380,8 @@ msgid "Please wait ..."
 msgstr "Even geduld ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a "
-"filesystem."
+"Please wait until the RAID has been initialized before creating a file "
+"system."
 msgstr ""
 
 msgid "Plugins"
@@ -2337,8 +2408,8 @@ msgstr "Aan/Uit knop"
 msgid "Power mode"
 msgstr "Energiemodus"
 
-msgid "Pre-released updates."
-msgstr "Voor-aangekondigde updates."
+msgid "Pre-release updates."
+msgstr ""
 
 msgid "Prefix length"
 msgstr "Prefix lengte"
@@ -2458,8 +2529,14 @@ msgstr "Alleen lezen"
 msgid "Read-only"
 msgstr "Alleen lezen"
 
+msgid "Read/Execute"
+msgstr ""
+
 msgid "Read/Write"
 msgstr "Lezen/Schrijven"
+
+msgid "Read/Write/Execute"
+msgstr ""
 
 msgid "Real"
 msgstr "Real"
@@ -2500,11 +2577,17 @@ msgstr "Externe host"
 msgid "Remote syslog"
 msgstr "Syslog op afstand"
 
+msgid "Remove"
+msgstr ""
+
 msgid "Replace"
 msgstr "Vervang"
 
 msgid "Replace all existing permissions"
 msgstr "Vervang alle bestaande rechten"
+
+msgid "Report"
+msgstr ""
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2539,6 +2622,9 @@ msgstr "Terugzetten van de WebGUI status zal de standaard instellingen van bijvo
 msgid "Resize"
 msgstr "Grootte aanpassen"
 
+msgid "Result"
+msgstr ""
+
 msgid "Resume"
 msgstr "Hervatten"
 
@@ -2550,6 +2636,12 @@ msgstr "Reünie"
 
 msgid "Reverse DNS lookup"
 msgstr "Reverse DNS-lookup"
+
+msgid "Revert"
+msgstr ""
+
+msgid "Revert configuration changes"
+msgstr ""
 
 msgid "Romania"
 msgstr "Roemenië"
@@ -2586,6 +2678,9 @@ msgstr "S.M.A.R.T.-controle moet worden geactiveerd op het geselecteerde apparaa
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
+
+msgid "SMB/CIFS - Audit"
+msgstr ""
 
 msgid "SMTP port"
 msgstr "SMTP-poort"
@@ -2653,8 +2748,8 @@ msgstr "Doorzoeken"
 msgid "Scanning for new devices ..."
 msgstr "Zoeken naar nieuwe apparaten ..."
 
-msgid "Scheduled jobs"
-msgstr "Ingeplande taken"
+msgid "Scheduled Jobs"
+msgstr ""
 
 msgid "Scheduled tests"
 msgstr "Geplande tests"
@@ -2689,11 +2784,14 @@ msgstr "Selecteer een apparaat ..."
 msgid "Select a directory"
 msgstr "Selecteer een map"
 
-msgid "Select a filesystem ..."
+msgid "Select a file permission ..."
 msgstr ""
 
-msgid "Select a group name..."
-msgstr "Selecteer een groepsnaam..."
+msgid "Select a file system ..."
+msgstr ""
+
+msgid "Select a group name ..."
+msgstr ""
 
 msgid "Select a language ..."
 msgstr "Selecteer een taal ..."
@@ -2710,8 +2808,8 @@ msgstr "Selecteer een gedeelde map ..."
 msgid "Select a shell ..."
 msgstr "Selecteer een shell"
 
-msgid "Select a user name..."
-msgstr "Selecteer een gebruikersnaam..."
+msgid "Select a user name ..."
+msgstr ""
 
 msgid "Select a volume ..."
 msgstr "Selecteer een schijf(deel) ..."
@@ -2813,6 +2911,15 @@ msgstr "Gedeelde map"
 msgid "Shared folder must not be equal"
 msgstr "Gedeelde mappen mogen niet gelijk zijn"
 
+msgid "Shared folder name"
+msgstr ""
+
+msgid "Shared folder path"
+msgstr ""
+
+msgid "Shared folder privileges"
+msgstr ""
+
 msgid "Shares"
 msgstr "Gedeelde bronnen"
 
@@ -2839,12 +2946,6 @@ msgstr "Toegangsrechten tonen"
 
 msgid "Shutdown"
 msgstr "Uitschakelen"
-
-msgid "Shutdown the system when pressing the power button."
-msgstr "Schakel het systeem uit wanneer de aan/uit knop wordt ingedrukt"
-
-msgid "Shutdown/Reboot schedule"
-msgstr "Uitschakel/Opnieuw opstartschema"
 
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
@@ -3048,6 +3149,9 @@ msgstr "Systeemlogbestanden"
 msgid "System time"
 msgstr "Systeemtijd"
 
+msgid "System users/groups"
+msgstr ""
+
 msgid "TAR"
 msgstr "TAR"
 
@@ -3087,6 +3191,9 @@ msgstr "De RSA-sleutellengte."
 msgid "The SSL certificate."
 msgstr "Het SSL-certificaat"
 
+msgid "The action to be done when pressing the power button."
+msgstr ""
+
 msgid "The changes have been applied successfully."
 msgstr "De wijzigingen zijn succesvol doorgevoerd."
 
@@ -3109,11 +3216,17 @@ msgstr "De doelserver, b.v. [GEBRUIKER@]HOST:DOEL, [USER@]HOST::DOEL of rsync://
 msgid "The destination shared folder."
 msgstr "De gedeelde doelmap"
 
+msgid "The device does not exist"
+msgstr ""
+
 msgid "The field '%s' contains forbidden "
 msgstr "Het veld '%s' bevat verboden"
 
 msgid "The file mode of the shared folder path."
 msgstr "De bestandsmodus van het pad van de gedeelde map."
+
+msgid "The file system creation has completed successfully."
+msgstr ""
 
 msgid "The group '%s' does not exist"
 msgstr "De groep '%s' bestaat niet"
@@ -3213,7 +3326,7 @@ msgstr "Gebruiker '%s' bestaat niet"
 msgid "The user '%s' is not allowed"
 msgstr "Gebruikersnaam '%s' is niet toegestaan"
 
-msgid "The volume label for the filesystem."
+msgid "The volume label for the file system."
 msgstr ""
 
 msgid ""
@@ -3229,8 +3342,8 @@ msgstr "Er bestaat al een koppelpunt voor %s"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
-" Please note that these settings do no affect the file system permissions."
-msgstr "Deze instellingen worden gebruikt door de diensten om de gebruikerstoegangsrechten te configureren. Houd er rekening mee dat deze instellingen geen invloed hebben op de bestandssysteempermissies."
+" Please note that these settings have no effect on file system permissions."
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3573,9 +3686,6 @@ msgid ""
 "Update the destination extended attributes to be the same as the local ones"
 msgstr "De uitgebreide attributen op de bestemming bijwerken zodat ze overeenkomen met de lokale attributen."
 
-msgid "Updated"
-msgstr "Bijgewerkt"
-
 msgid "Updates"
 msgstr "Updates"
 
@@ -3759,6 +3869,9 @@ msgstr "Schrijfcache"
 
 msgid "Write only"
 msgstr "Alleen lezen"
+
+msgid "Write/Execute"
+msgstr ""
 
 msgid "Yemen"
 msgstr "Yemen"

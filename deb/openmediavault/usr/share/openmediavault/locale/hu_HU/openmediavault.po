@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 18:12+0100\n"
-"PO-Revision-Date: 2014-05-20 09:28+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
+"POT-Creation-Date: 2014-07-28 22:41+0200\n"
+"PO-Revision-Date: 2014-07-28 20:44+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#, javascript-format
 msgid "% completed ..."
 msgstr "% kész ..."
 
@@ -55,6 +56,7 @@ msgstr "10 perc"
 msgid "10 years"
 msgstr "10 év"
 
+#, javascript-format
 msgid "100% completed ..."
 msgstr "100% kész ..."
 
@@ -154,6 +156,9 @@ msgstr "64 - Közepes energia használat készenléti állapotban"
 msgid "9 months"
 msgstr "9 hónap"
 
+msgid "A module with the name '%s' already exists"
+msgstr ""
+
 msgid "A share with the name '%s' already exists"
 msgstr "Egy megosztás '%s' néven már létezik"
 
@@ -168,6 +173,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "Névjegy"
+
+msgid "Abstract"
+msgstr ""
 
 msgid "Access Right Management"
 msgstr "Hozzáférési jogok kezelése"
@@ -266,8 +274,8 @@ msgid "Afghanistan"
 msgstr "Afghanistan"
 
 msgid ""
-"After the RAID has been grown you can resize the containing filesystem."
-msgstr "A RAID tömb növelése után tudod újraméretezni a rajta levő fájlrendszert."
+"After the RAID has been grown you can resize the containing file system."
+msgstr ""
 
 msgid "Aland Islands"
 msgstr "Aland Islands"
@@ -380,6 +388,12 @@ msgstr "Attribútum név"
 msgid "Attributes"
 msgstr "Attribútumok"
 
+msgid "Audit"
+msgstr ""
+
+msgid "Audit file operations."
+msgstr ""
+
 msgid "August"
 msgstr "Augusztus"
 
@@ -415,6 +429,9 @@ msgstr "Hitelesítés szükséges"
 
 msgid "Authentication type"
 msgstr "Hitelesítés típus"
+
+msgid "Auto"
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatikus Zajszint Kezelés"
@@ -601,8 +618,14 @@ msgstr "Törlés"
 msgid "Client"
 msgstr "Kliens"
 
-msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
-msgstr "Kliensek engedélyezése a fájlrendszer felcsatoláshoz, pl. 192.168.178.0/24."
+msgid "Client NetBIOS name"
+msgstr ""
+
+msgid "Client address"
+msgstr ""
+
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr ""
 
 msgid "Close"
 msgstr "Bezárás"
@@ -696,11 +719,14 @@ msgstr "Létrehozás"
 msgid "Create RAID device"
 msgstr "RAID tömb létrehozás"
 
-msgid "Create filesystem"
-msgstr "Fájlrendszer létrehozása"
+msgid "Create file system"
+msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "Önmaga aláírt SSL tanúsítvány létrehozása"
+
+msgid "Creating the file system, please wait ..."
+msgstr ""
 
 msgid "Critical"
 msgstr "Kritikus"
@@ -738,6 +764,9 @@ msgstr "DNS szerver"
 msgid "Daemon"
 msgstr "Démon"
 
+msgid "Dashboard"
+msgstr ""
+
 msgid "Date"
 msgstr "Dátum"
 
@@ -762,11 +791,11 @@ msgstr "Törlés"
 msgid "Delete content"
 msgstr "Tartalom törlése"
 
+msgid "Delete file system"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Fájlok törlése a fogadó oldalon, ha a feladó nem létezik"
-
-msgid "Delete filesystem"
-msgstr "Fájlrendszer törlése"
 
 msgid "Deleting selected item(s)"
 msgstr "Kiválasztott tétel(ek) törlése"
@@ -854,8 +883,8 @@ msgstr "Tételek megjelenítése {0} - {1} közül {2}"
 msgid "Djibouti"
 msgstr "Djibouti"
 
-msgid "Do you really want to apply the configuration?"
-msgstr "Valóban alkalmazni szeretnéd a változásokat?"
+msgid "Do you really want to apply the configuration changes?"
+msgstr ""
 
 msgid "Do you really want to clear the log file?"
 msgstr "Valóban törölni szeretnéd a napló fájlt?"
@@ -863,16 +892,16 @@ msgstr "Valóban törölni szeretnéd a napló fájlt?"
 msgid "Do you really want to create the RAID device?"
 msgstr "Valóban létre szeretnéd hozni a RAID tömböt?"
 
-msgid "Do you really want to delete the filesystem? All data will be lost."
-msgstr "Valóban törölni szeretnéd a fájlrendszert? Minden adat elvész."
+msgid "Do you really want to delete the file system? All data will be lost."
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Valóban törölni szeretnéd a kiválasztott tétel(eke)t?"
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the filesystem creation may take some time."
-msgstr "Valóban szeretnéd formázni az eszközt? Az összes adat törlésre kerül. Kérlek vedd figyelembe, hogy a fájlrendszer létrehozása eltarthat egy ideig."
+"Please note that the file system creation may take some time."
+msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Valóban telepíteni szeretnéd a kiválasztott bővítmény(eke)t?"
@@ -883,21 +912,35 @@ msgstr "Valóban el szeretnéd hagyni az oldalt?"
 msgid "Do you really want to logout?"
 msgstr "Valóban ki szeretnél jelentkezni?"
 
+msgid "Do you really want to put the system into standby?"
+msgstr ""
+
 msgid "Do you really want to reboot the system?"
 msgstr "Valóban újra szeretnéd indítani a rendszert?"
+
+msgid ""
+"Do you really want to relocate the shared folder? The content of the shared "
+"folder will not be moved automatically, you have to do this yourself."
+msgstr ""
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
 msgstr "Valóban el szeretnéd távolítani a megosztott mappa tartalmát? Véglegesen eltávolításra kerül és nem állítható vissza."
 
+msgid "Do you really want to remove this widget?"
+msgstr ""
+
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Valóban vissza szeretnéd állítani a WebGUI állapotot, mint például rács oszlop sorrend?"
 
 msgid ""
-"Do you really want to resize the selected filesystem? You have to do that "
+"Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr "Valóban újra szeretnéd méretezni a kiválasztott fájlrendszert? Ezt megteheted például egy RAID tömb növelés után."
+msgstr ""
+
+msgid "Do you really want to revert the configuration changes?"
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Valóban le szeretnéd állítani a rendszert?"
@@ -1001,9 +1044,6 @@ msgstr "Megosztás szerkesztése"
 msgid "Edit shared folder"
 msgstr "Megosztott mappa szerkesztése"
 
-msgid "Edit shared folder privileges"
-msgstr "Megosztott mappa jogosultságainak szerkesztése"
-
 msgid "Edit user"
 msgstr "Felhasználó szerkesztése"
 
@@ -1015,6 +1055,12 @@ msgstr "El Salvador"
 
 msgid "Email"
 msgstr "Email"
+
+msgid "Empty now"
+msgstr ""
+
+msgid "Empty recycle bin"
+msgstr ""
 
 msgid "Enable"
 msgstr "Engedélyezés"
@@ -1147,6 +1193,9 @@ msgstr "Parancs végrehajtása"
 msgid "Execute cron job"
 msgstr "Cron feladat végrehajtása"
 
+msgid "Execute only"
+msgstr ""
+
 msgid "Execute rsync job"
 msgstr "Rsync feladat végrehajtása"
 
@@ -1178,11 +1227,6 @@ msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
 msgstr "FXP lehetővé teszi az átvitelt két távoli szerver között anélkül, hogy az adatfájl átvitelét a kliensnek is kérnie kellene."
-
-msgid ""
-"Failed to create filesystem. Please check the syslog or '%s' for more "
-"details."
-msgstr "A fájlrendszer létrehozása sikertelen. Kérlek tekintsd meg a rendszernaplót vagy a '%s' a további részletekért."
 
 msgid "Failed to get filesystems"
 msgstr "Nem sikerült lekérni a fájlrendszereket"
@@ -1226,6 +1270,12 @@ msgstr "Fiji"
 msgid "File"
 msgstr "Fájl"
 
+msgid "File Systems"
+msgstr ""
+
+msgid "File system"
+msgstr ""
+
 msgid "Filename"
 msgstr "Fájlnév"
 
@@ -1241,9 +1291,6 @@ msgstr "A megadott méretnél nagyobb fájlok nem helyezhetőek a lomtárba. Ál
 
 msgid "Filesize"
 msgstr "Fájlméret"
-
-msgid "Filesystem"
-msgstr "Fájlrendszer"
 
 msgid "Filesystem '%s' not found"
 msgstr "Fájlrendszer '%s' nem található"
@@ -1263,8 +1310,8 @@ msgstr "Tűzfal"
 msgid "Firmware version"
 msgstr "Firmware verzió"
 
-msgid "Flag"
-msgstr "Zászló"
+msgid "Flags"
+msgstr ""
 
 msgid "Force SSL/TLS"
 msgstr "SSL/TLS kényszerítés"
@@ -1310,6 +1357,9 @@ msgstr "Általános beállítások"
 
 msgid "General settings"
 msgstr "Általános beállítások"
+
+msgid "General users/groups"
+msgstr ""
 
 msgid "Generating graphs ..."
 msgstr "Grafikonok generálása ..."
@@ -1370,6 +1420,12 @@ msgstr "Guatemala"
 
 msgid "Guest"
 msgstr "Vendég"
+
+msgid "Guest allowed"
+msgstr ""
+
+msgid "Guests allowed"
+msgstr ""
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1455,8 +1511,11 @@ msgstr "Hálózati interfész eszköz azonosítása"
 msgid "Idle"
 msgstr "Tétlen"
 
-msgid "If enabled then no password is required to connect to the share"
-msgstr "Ha engedélyezve van, akkor jelszó megadása nélkül kapcsolódhatnak a megosztáshoz"
+msgid ""
+"If 'Guests allowed' is selected and no login credential is provided, then "
+"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"this case no password is required to connect to the share."
+msgstr ""
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1478,11 +1537,11 @@ msgstr "Ha ez az opció aktív, akkor minden feltöltési kísérlet hibás lesz
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
-" before mapping DOS attributes to UNIX permission bits. When set, DOS "
-"attributes will be stored onto an extended attribute in the UNIX filesystem,"
-" associated with the file or directory."
-msgstr "Ha ez a paraméter be van állítva, a Samba megpróbálja először a DOS attribútumokat elolvasni (RENDSZER, REJTETT, ARCHÍV vagy CSAK OLVASHATÓ) egy kiterjesztett fájlrendszer attribútumról, mielőtt feltérképezné a DOS attribútumokat a UNIX engedélyezési biteknek. Ha be van állítva, a DOS attribútumok egy kiterjesztett attribútumon fogják tárolni a UNIX fájlrendszerben,a társított fájl vagy könyvtárral együtt."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1582,8 +1641,8 @@ msgstr "Interfészek"
 msgid "Invalid domain name"
 msgstr "Érvénytelen tartománynév"
 
-msgid "Invalid filesystem label"
-msgstr "Érvénytelen fájlrendszer címke"
+msgid "Invalid file system label"
+msgstr ""
 
 msgid "Invalid group name"
 msgstr "Érvénytelen csoport név"
@@ -1730,6 +1789,9 @@ msgstr "Terhelési átlag"
 
 msgid "Loading ..."
 msgstr "Betöltés ..."
+
+msgid "Loading, please wait ..."
+msgstr ""
 
 msgid "Local"
 msgstr "Helyi"
@@ -2095,6 +2157,9 @@ msgstr "Nem TCP"
 msgid "Not UDP"
 msgstr "Nem UDP"
 
+msgid "Nothing"
+msgstr ""
+
 msgid "Notification"
 msgstr "Értesítés"
 
@@ -2130,6 +2195,12 @@ msgstr "Oman"
 
 msgid "Online"
 msgstr "Online"
+
+msgid "Only guests"
+msgstr ""
+
+msgid "Operation"
+msgstr ""
 
 msgid "Operation not allowed for user '%s'."
 msgstr "A művelet nem engedélyezett a felhasználó számára '%s'."
@@ -2307,9 +2378,9 @@ msgid "Please wait ..."
 msgstr "Kérlek várj ..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a "
-"filesystem."
-msgstr "Kérlek várj a RAID inicializására a fájlrendszer létrehozása előtt."
+"Please wait until the RAID has been initialized before creating a file "
+"system."
+msgstr ""
 
 msgid "Plugins"
 msgstr "Bővítmények"
@@ -2335,8 +2406,8 @@ msgstr "Bekapcsoló gomb"
 msgid "Power mode"
 msgstr "Energia mód"
 
-msgid "Pre-released updates."
-msgstr "Kiadás előtt álló frissítések."
+msgid "Pre-release updates."
+msgstr ""
 
 msgid "Prefix length"
 msgstr "Előtag hossza"
@@ -2456,8 +2527,14 @@ msgstr "Csak olvasható"
 msgid "Read-only"
 msgstr "Csak olvasható"
 
+msgid "Read/Execute"
+msgstr ""
+
 msgid "Read/Write"
 msgstr "Olvasás/Írás"
+
+msgid "Read/Write/Execute"
+msgstr ""
 
 msgid "Real"
 msgstr "Valós"
@@ -2498,11 +2575,17 @@ msgstr "Távoli állomás"
 msgid "Remote syslog"
 msgstr "Távoli rendszernapló"
 
+msgid "Remove"
+msgstr ""
+
 msgid "Replace"
 msgstr "Eltávolítás"
 
 msgid "Replace all existing permissions"
 msgstr "Minden létező jogosultság eltávolítása"
+
+msgid "Report"
+msgstr ""
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2537,6 +2620,9 @@ msgstr "A WegGUI visszaállításával törlődnek az egyéni rács és oszlop b
 msgid "Resize"
 msgstr "Átméretezés"
 
+msgid "Result"
+msgstr ""
+
 msgid "Resume"
 msgstr "Folytatás"
 
@@ -2548,6 +2634,12 @@ msgstr "Újraegyesítés"
 
 msgid "Reverse DNS lookup"
 msgstr "Fordított DNS figyelés"
+
+msgid "Revert"
+msgstr ""
+
+msgid "Revert configuration changes"
+msgstr ""
 
 msgid "Romania"
 msgstr "Romania"
@@ -2584,6 +2676,9 @@ msgstr "S.M.A.R.T. ellenőrzésnek aktívnak kell lennie a kiválasztott meghajt
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
+
+msgid "SMB/CIFS - Audit"
+msgstr ""
 
 msgid "SMTP port"
 msgstr "SMTP port"
@@ -2651,8 +2746,8 @@ msgstr "Keresés"
 msgid "Scanning for new devices ..."
 msgstr "Új meghajtók keresése ..."
 
-msgid "Scheduled jobs"
-msgstr "Ütemezett feladatok"
+msgid "Scheduled Jobs"
+msgstr ""
 
 msgid "Scheduled tests"
 msgstr "Ütemezett tesztek"
@@ -2687,11 +2782,14 @@ msgstr "Válassz ki egy meghajtót ..."
 msgid "Select a directory"
 msgstr "Válassz ki egy könyvtárat"
 
-msgid "Select a filesystem ..."
-msgstr "Válassz ki egy fájlrendszert ..."
+msgid "Select a file permission ..."
+msgstr ""
 
-msgid "Select a group name..."
-msgstr "Válassz ki egy csoport nevet..."
+msgid "Select a file system ..."
+msgstr ""
+
+msgid "Select a group name ..."
+msgstr ""
 
 msgid "Select a language ..."
 msgstr "Válassz ki egy nyelvet ..."
@@ -2708,8 +2806,8 @@ msgstr "Válassz ki egy megosztott mappát ..."
 msgid "Select a shell ..."
 msgstr "Válassz ki egy héjat ..."
 
-msgid "Select a user name..."
-msgstr "Válassz ki egy felhasználó nevet..."
+msgid "Select a user name ..."
+msgstr ""
 
 msgid "Select a volume ..."
 msgstr "Válassz ki egy kötetet ..."
@@ -2811,6 +2909,15 @@ msgstr "Megosztott mappa"
 msgid "Shared folder must not be equal"
 msgstr "Megosztott mappa nem lehet egyenlő"
 
+msgid "Shared folder name"
+msgstr ""
+
+msgid "Shared folder path"
+msgstr ""
+
+msgid "Shared folder privileges"
+msgstr ""
+
 msgid "Shares"
 msgstr "Megosztások"
 
@@ -2837,12 +2944,6 @@ msgstr "Jogosultságok megjelenítése"
 
 msgid "Shutdown"
 msgstr "Leállítás"
-
-msgid "Shutdown the system when pressing the power button."
-msgstr "Rendszer leállítása a bekapcsológomb megnyomásakor."
-
-msgid "Shutdown/Reboot schedule"
-msgstr "Leállítás/Újraindítás ütemezése"
 
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
@@ -3046,6 +3147,9 @@ msgstr "Rendszernaplók"
 msgid "System time"
 msgstr "Rendszeridő"
 
+msgid "System users/groups"
+msgstr ""
+
 msgid "TAR"
 msgstr "TAR"
 
@@ -3085,6 +3189,9 @@ msgstr "Az RSA kulcs hossza."
 msgid "The SSL certificate."
 msgstr "Az SSL tanúsítvány."
 
+msgid "The action to be done when pressing the power button."
+msgstr ""
+
 msgid "The changes have been applied successfully."
 msgstr "A változások sikeresen alkalmazva lettek."
 
@@ -3107,11 +3214,17 @@ msgstr "A távoli cél szerver, pl. [FELHASZNÁLÓ@]HOSZT:CÉL, [FELHASZNÁLÓ@]
 msgid "The destination shared folder."
 msgstr "Megosztott mappa célállomása."
 
+msgid "The device does not exist"
+msgstr ""
+
 msgid "The field '%s' contains forbidden "
 msgstr "A '%s' mező tartalma tiltott."
 
 msgid "The file mode of the shared folder path."
 msgstr "Megosztott mappa útvonalának fájl elérési módja"
+
+msgid "The file system creation has completed successfully."
+msgstr ""
 
 msgid "The group '%s' does not exist"
 msgstr "'%s' csoport nem létezik"
@@ -3211,8 +3324,8 @@ msgstr "'%s' felhasználó nem létezik"
 msgid "The user '%s' is not allowed"
 msgstr "'%s' felhasználó nincs engedélyezve"
 
-msgid "The volume label for the filesystem."
-msgstr "A kötet címkéje a fájlrendszeren."
+msgid "The volume label for the file system."
+msgstr ""
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3227,8 +3340,8 @@ msgstr "A %s csatolási pont már létezik"
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
-" Please note that these settings do no affect the file system permissions."
-msgstr "Ezeket a beállításokat használják a szolgáltatások konfigurációi a felhasználói jogok hozzáféréséhez. Felhívjuk a figyelmed, hogy ezek a beállítások nem befolyásolják a fájlrendszer engedélyeit."
+" Please note that these settings have no effect on file system permissions."
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3571,9 +3684,6 @@ msgid ""
 "Update the destination extended attributes to be the same as the local ones"
 msgstr "A célállomás kiterjesztett attribútumainak frissítése, hogy megegyezzen a helyiekkel"
 
-msgid "Updated"
-msgstr "Frissítve"
-
 msgid "Updates"
 msgstr "Frissítések"
 
@@ -3757,6 +3867,9 @@ msgstr "Cache írás"
 
 msgid "Write only"
 msgstr "Csak írás"
+
+msgid "Write/Execute"
+msgstr ""
 
 msgid "Yemen"
 msgstr "Yemen"

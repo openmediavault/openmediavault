@@ -74,7 +74,7 @@ Ext.define("OMV.module.admin.system.update.Settings", {
 				xtype: "checkbox",
 				name: "proposed",
 				checked: false,
-				boxLabel: _("Pre-released updates.")
+				boxLabel: _("Pre-release updates.")
 			},{
 				xtype: "checkbox",
 				name: "partner",

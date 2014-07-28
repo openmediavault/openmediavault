@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-05 18:12+0100\n"
-"PO-Revision-Date: 2014-05-19 17:17+0000\n"
+"POT-Creation-Date: 2014-07-28 22:41+0200\n"
+"PO-Revision-Date: 2014-07-28 20:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -20,6 +20,7 @@ msgstr ""
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 
+#, javascript-format
 msgid "% completed ..."
 msgstr "% виконано ..."
 
@@ -56,6 +57,7 @@ msgstr "10 хвилин"
 msgid "10 years"
 msgstr "10 років"
 
+#, javascript-format
 msgid "100% completed ..."
 msgstr "100% виконано"
 
@@ -155,6 +157,9 @@ msgstr "64 - проміжне споживання енергії з очіку�
 msgid "9 months"
 msgstr "9 місяців"
 
+msgid "A module with the name '%s' already exists"
+msgstr ""
+
 msgid "A share with the name '%s' already exists"
 msgstr "Спільний ресурс з ім'ям '%s' вже існує"
 
@@ -169,6 +174,9 @@ msgstr "ASCII"
 
 msgid "About"
 msgstr "Про"
+
+msgid "Abstract"
+msgstr ""
 
 msgid "Access Right Management"
 msgstr "Менеджер прав доступу"
@@ -267,7 +275,7 @@ msgid "Afghanistan"
 msgstr "Афганістан"
 
 msgid ""
-"After the RAID has been grown you can resize the containing filesystem."
+"After the RAID has been grown you can resize the containing file system."
 msgstr ""
 
 msgid "Aland Islands"
@@ -381,6 +389,12 @@ msgstr "Назва атрибуту"
 msgid "Attributes"
 msgstr "Атрибути"
 
+msgid "Audit"
+msgstr ""
+
+msgid "Audit file operations."
+msgstr ""
+
 msgid "August"
 msgstr "Серпень"
 
@@ -416,6 +430,9 @@ msgstr "Потрібна аутентифікація"
 
 msgid "Authentication type"
 msgstr "Тип аутентифікації"
+
+msgid "Auto"
+msgstr ""
 
 msgid "Automatic Acoustic Management"
 msgstr "Автоматичний акустичний контроль"
@@ -602,7 +619,13 @@ msgstr "Очистити"
 msgid "Client"
 msgstr "Клієнт"
 
-msgid "Clients allowed to mount the filesystem, e.g. 192.168.178.0/24."
+msgid "Client NetBIOS name"
+msgstr ""
+
+msgid "Client address"
+msgstr ""
+
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
 msgstr ""
 
 msgid "Close"
@@ -697,11 +720,14 @@ msgstr "Створити"
 msgid "Create RAID device"
 msgstr "Створити RAID"
 
-msgid "Create filesystem"
+msgid "Create file system"
 msgstr ""
 
 msgid "Create self-signed SSL certificate"
 msgstr "Створити самопідписанний SSL сертифікат"
+
+msgid "Creating the file system, please wait ..."
+msgstr ""
 
 msgid "Critical"
 msgstr "Критично"
@@ -739,6 +765,9 @@ msgstr "DNS сервер"
 msgid "Daemon"
 msgstr "Демон"
 
+msgid "Dashboard"
+msgstr ""
+
 msgid "Date"
 msgstr "Дата"
 
@@ -763,11 +792,11 @@ msgstr "Видалити"
 msgid "Delete content"
 msgstr "Видалення контенту"
 
+msgid "Delete file system"
+msgstr ""
+
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Видалити файли на стороні отримувача, які не існують у відправника"
-
-msgid "Delete filesystem"
-msgstr ""
 
 msgid "Deleting selected item(s)"
 msgstr "Видалення вибраних елементів"
@@ -855,8 +884,8 @@ msgstr "Показати значення {0} - {1} of {2}"
 msgid "Djibouti"
 msgstr "Джібуті"
 
-msgid "Do you really want to apply the configuration?"
-msgstr "Ви справді бажаєте, застосувати конфігурацію?"
+msgid "Do you really want to apply the configuration changes?"
+msgstr ""
 
 msgid "Do you really want to clear the log file?"
 msgstr "Ви справді хочете очистити log файл?"
@@ -864,7 +893,7 @@ msgstr "Ви справді хочете очистити log файл?"
 msgid "Do you really want to create the RAID device?"
 msgstr "Ви справді хочете створити RAID?"
 
-msgid "Do you really want to delete the filesystem? All data will be lost."
+msgid "Do you really want to delete the file system? All data will be lost."
 msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
@@ -872,7 +901,7 @@ msgstr "Ви справді хочете видалити виділені об'
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
-"Please note that the filesystem creation may take some time."
+"Please note that the file system creation may take some time."
 msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
@@ -884,20 +913,34 @@ msgstr "Ви справді бажаєте залишити цю сторінк�
 msgid "Do you really want to logout?"
 msgstr "Ви справді хочете вийти?"
 
+msgid "Do you really want to put the system into standby?"
+msgstr ""
+
 msgid "Do you really want to reboot the system?"
 msgstr "Ви дійсно хочете перезавантажити систему?"
+
+msgid ""
+"Do you really want to relocate the shared folder? The content of the shared "
+"folder will not be moved automatically, you have to do this yourself."
+msgstr ""
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
 msgstr "Ви справді бажаєте видалити спільну теку контенту? Вона буде назавжди видалена, і не зможе бути відновлена."
 
+msgid "Do you really want to remove this widget?"
+msgstr ""
+
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Справді хочете скинути стан WebGUI, наприклад, порядку стовпців?"
 
 msgid ""
-"Do you really want to resize the selected filesystem? You have to do that "
+"Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
+msgstr ""
+
+msgid "Do you really want to revert the configuration changes?"
 msgstr ""
 
 msgid "Do you really want to shutdown the system?"
@@ -1002,9 +1045,6 @@ msgstr "Редагувати спільний ресурс"
 msgid "Edit shared folder"
 msgstr "Редагувати спільний каталог"
 
-msgid "Edit shared folder privileges"
-msgstr "Редагувати привілеїв спільного каталогу"
-
 msgid "Edit user"
 msgstr "Редагувати користувача"
 
@@ -1016,6 +1056,12 @@ msgstr "Сальвадор"
 
 msgid "Email"
 msgstr "Email"
+
+msgid "Empty now"
+msgstr ""
+
+msgid "Empty recycle bin"
+msgstr ""
 
 msgid "Enable"
 msgstr "Увімкнути"
@@ -1148,6 +1194,9 @@ msgstr "Виконати команду"
 msgid "Execute cron job"
 msgstr "Виконати завдання Cron"
 
+msgid "Execute only"
+msgstr ""
+
 msgid "Execute rsync job"
 msgstr "Виконати завдання Rsync"
 
@@ -1178,11 +1227,6 @@ msgstr "FXP"
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
-msgstr ""
-
-msgid ""
-"Failed to create filesystem. Please check the syslog or '%s' for more "
-"details."
 msgstr ""
 
 msgid "Failed to get filesystems"
@@ -1227,6 +1271,12 @@ msgstr "Фіджі"
 msgid "File"
 msgstr "Файл"
 
+msgid "File Systems"
+msgstr ""
+
+msgid "File system"
+msgstr ""
+
 msgid "Filename"
 msgstr "Ім'я файлу"
 
@@ -1242,9 +1292,6 @@ msgstr "Файли, розмір яких перевищує вказане чи
 
 msgid "Filesize"
 msgstr "Розмір файлу"
-
-msgid "Filesystem"
-msgstr ""
 
 msgid "Filesystem '%s' not found"
 msgstr "Файлова система '%s' не знайдена"
@@ -1264,8 +1311,8 @@ msgstr "Брандмауер"
 msgid "Firmware version"
 msgstr "Версія прошивки"
 
-msgid "Flag"
-msgstr "Прапор"
+msgid "Flags"
+msgstr ""
 
 msgid "Force SSL/TLS"
 msgstr "Примусово SSL/TLS"
@@ -1311,6 +1358,9 @@ msgstr "Загальні Налаштування"
 
 msgid "General settings"
 msgstr "Загальні налаштування"
+
+msgid "General users/groups"
+msgstr ""
 
 msgid "Generating graphs ..."
 msgstr "Генерація графів..."
@@ -1371,6 +1421,12 @@ msgstr "Гватемала"
 
 msgid "Guest"
 msgstr "Гість"
+
+msgid "Guest allowed"
+msgstr ""
+
+msgid "Guests allowed"
+msgstr ""
 
 msgid "Guinea"
 msgstr "Гвінея"
@@ -1456,7 +1512,10 @@ msgstr "Ідентифікувати мережевий пристрій"
 msgid "Idle"
 msgstr "Бездіяльність"
 
-msgid "If enabled then no password is required to connect to the share"
+msgid ""
+"If 'Guests allowed' is selected and no login credential is provided, then "
+"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"this case no password is required to connect to the share."
 msgstr ""
 
 msgid ""
@@ -1479,10 +1538,10 @@ msgstr ""
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
-"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a filesystem extended attribute,"
-" before mapping DOS attributes to UNIX permission bits. When set, DOS "
-"attributes will be stored onto an extended attribute in the UNIX filesystem,"
-" associated with the file or directory."
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
 msgstr ""
 
 msgid ""
@@ -1583,7 +1642,7 @@ msgstr "Інтерфейси"
 msgid "Invalid domain name"
 msgstr "Невірна назва домену"
 
-msgid "Invalid filesystem label"
+msgid "Invalid file system label"
 msgstr ""
 
 msgid "Invalid group name"
@@ -1731,6 +1790,9 @@ msgstr "Середнє завантаження"
 
 msgid "Loading ..."
 msgstr "Завантаження ..."
+
+msgid "Loading, please wait ..."
+msgstr ""
 
 msgid "Local"
 msgstr "Локальний"
@@ -2096,6 +2158,9 @@ msgstr "Без TCP"
 msgid "Not UDP"
 msgstr "Без UDP"
 
+msgid "Nothing"
+msgstr ""
+
 msgid "Notification"
 msgstr "Повідомлення"
 
@@ -2131,6 +2196,12 @@ msgstr "Оман"
 
 msgid "Online"
 msgstr "Онлайн"
+
+msgid "Only guests"
+msgstr ""
+
+msgid "Operation"
+msgstr ""
 
 msgid "Operation not allowed for user '%s'."
 msgstr "Операція не дозволена для користувача  '%s'."
@@ -2308,8 +2379,8 @@ msgid "Please wait ..."
 msgstr "Зачекайте..."
 
 msgid ""
-"Please wait until the RAID has been initialized before creating a "
-"filesystem."
+"Please wait until the RAID has been initialized before creating a file "
+"system."
 msgstr ""
 
 msgid "Plugins"
@@ -2336,8 +2407,8 @@ msgstr "Кнопка виключення"
 msgid "Power mode"
 msgstr "Режим живлення"
 
-msgid "Pre-released updates."
-msgstr "Попередньо випущені оновлення."
+msgid "Pre-release updates."
+msgstr ""
 
 msgid "Prefix length"
 msgstr ""
@@ -2457,8 +2528,14 @@ msgstr "Лише для читання"
 msgid "Read-only"
 msgstr "Лише для читання"
 
+msgid "Read/Execute"
+msgstr ""
+
 msgid "Read/Write"
 msgstr "Зчитування/Запис"
+
+msgid "Read/Write/Execute"
+msgstr ""
 
 msgid "Real"
 msgstr "Реальний"
@@ -2499,11 +2576,17 @@ msgstr "Віддалений хост"
 msgid "Remote syslog"
 msgstr "Віддалений системний лог"
 
+msgid "Remove"
+msgstr ""
+
 msgid "Replace"
 msgstr "Замінити"
 
 msgid "Replace all existing permissions"
 msgstr "Замінити всі існуючі дозволи"
+
+msgid "Report"
+msgstr ""
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2538,6 +2621,9 @@ msgstr ""
 msgid "Resize"
 msgstr "Зміна розміру"
 
+msgid "Result"
+msgstr ""
+
 msgid "Resume"
 msgstr "Підсумок"
 
@@ -2549,6 +2635,12 @@ msgstr ""
 
 msgid "Reverse DNS lookup"
 msgstr "Зворотний пошук в DNS"
+
+msgid "Revert"
+msgstr ""
+
+msgid "Revert configuration changes"
+msgstr ""
 
 msgid "Romania"
 msgstr "Румунія"
@@ -2585,6 +2677,9 @@ msgstr "S.M.A.R.T. моніторинг має бути активований �
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
+
+msgid "SMB/CIFS - Audit"
+msgstr ""
 
 msgid "SMTP port"
 msgstr "SMTP порт"
@@ -2652,8 +2747,8 @@ msgstr "Сканування"
 msgid "Scanning for new devices ..."
 msgstr "Сканування нових пристроїв ..."
 
-msgid "Scheduled jobs"
-msgstr "Заплановані завдання"
+msgid "Scheduled Jobs"
+msgstr ""
 
 msgid "Scheduled tests"
 msgstr "Заплановані тестування"
@@ -2688,11 +2783,14 @@ msgstr "Виберіть пристрій ..."
 msgid "Select a directory"
 msgstr "Оберіть каталог"
 
-msgid "Select a filesystem ..."
+msgid "Select a file permission ..."
 msgstr ""
 
-msgid "Select a group name..."
-msgstr "Оберіть ім'я групи..."
+msgid "Select a file system ..."
+msgstr ""
+
+msgid "Select a group name ..."
+msgstr ""
 
 msgid "Select a language ..."
 msgstr "Вибір мови..."
@@ -2709,8 +2807,8 @@ msgstr "Оберіть спільну теку ..."
 msgid "Select a shell ..."
 msgstr "Оберіть оболонку ..."
 
-msgid "Select a user name..."
-msgstr "Оберіть ім'я користувача..."
+msgid "Select a user name ..."
+msgstr ""
 
 msgid "Select a volume ..."
 msgstr "Оберіть розділ ..."
@@ -2812,6 +2910,15 @@ msgstr "Спільна тека"
 msgid "Shared folder must not be equal"
 msgstr "Спільні теки не повинні бути рівні"
 
+msgid "Shared folder name"
+msgstr ""
+
+msgid "Shared folder path"
+msgstr ""
+
+msgid "Shared folder privileges"
+msgstr ""
+
 msgid "Shares"
 msgstr "Спільні ресурси"
 
@@ -2838,12 +2945,6 @@ msgstr "Показати привілеїв"
 
 msgid "Shutdown"
 msgstr "Вимкнути"
-
-msgid "Shutdown the system when pressing the power button."
-msgstr "Завершення роботи системи при натисканні на кнопку живлення."
-
-msgid "Shutdown/Reboot schedule"
-msgstr "Розклат Вимкнення/Перезавантаження"
 
 msgid "Sierra Leone"
 msgstr "Сьєрра-Леоне"
@@ -3047,6 +3148,9 @@ msgstr "Системні журнали"
 msgid "System time"
 msgstr "Cистемний час"
 
+msgid "System users/groups"
+msgstr ""
+
 msgid "TAR"
 msgstr "TAR"
 
@@ -3086,6 +3190,9 @@ msgstr "Довжина ключа RSA."
 msgid "The SSL certificate."
 msgstr "Сертифікат SSL."
 
+msgid "The action to be done when pressing the power button."
+msgstr ""
+
 msgid "The changes have been applied successfully."
 msgstr "Зміни успішно застосовані."
 
@@ -3108,10 +3215,16 @@ msgstr ""
 msgid "The destination shared folder."
 msgstr "Спільна тека призначення."
 
+msgid "The device does not exist"
+msgstr ""
+
 msgid "The field '%s' contains forbidden "
 msgstr ""
 
 msgid "The file mode of the shared folder path."
+msgstr ""
+
+msgid "The file system creation has completed successfully."
 msgstr ""
 
 msgid "The group '%s' does not exist"
@@ -3212,7 +3325,7 @@ msgstr "Користувач '%s' не існує"
 msgid "The user '%s' is not allowed"
 msgstr "Недопустимий користувач '%s' "
 
-msgid "The volume label for the filesystem."
+msgid "The volume label for the file system."
 msgstr ""
 
 msgid ""
@@ -3228,8 +3341,8 @@ msgstr ""
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
-" Please note that these settings do no affect the file system permissions."
-msgstr "Ці параметри використовуються службами для налаштування прав доступу користувачів. Будь ласка, зверніть увагу, що ці налаштування не впливають на дозволи файлової системи."
+" Please note that these settings have no effect on file system permissions."
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3572,9 +3685,6 @@ msgid ""
 "Update the destination extended attributes to be the same as the local ones"
 msgstr ""
 
-msgid "Updated"
-msgstr "Оновлено"
-
 msgid "Updates"
 msgstr "Оновлення"
 
@@ -3758,6 +3868,9 @@ msgstr "Кеш запису"
 
 msgid "Write only"
 msgstr "Лише для запису"
+
+msgid "Write/Execute"
+msgstr ""
 
 msgid "Yemen"
 msgstr "Ємен"
