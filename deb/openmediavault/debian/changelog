@@ -1,3 +1,11 @@
+openmediavault (1.0.9) stable; urgency=low
+
+  * Supporting stateful address autoconfiguration (DHCPv6) and stateless
+    address autoconfiguration (SLAAC) for IPv6 network interfaces in
+    omv-firstaid.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 29 Jul 2014 01:03:00 +0200
+
 openmediavault (1.0.8) stable; urgency=low
 
   * Add 'Download' button to OMV.workspace.panel.Textarea panels. 

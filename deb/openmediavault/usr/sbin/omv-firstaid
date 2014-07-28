@@ -53,7 +53,7 @@ configure_iface() {
 	[ $? -ne 0 ] && return 1
 	devicename=$(cat $tempfile)
 	# Use DHCP?
-	${OMV_FIRSTAID_DIALOG} --clear --yesno "Do you want to use DHCPv4 for this interface?" 8 50
+	${OMV_FIRSTAID_DIALOG} --clear --yesno "Do you want to use DHCPv4 for this interface?" 7 49
 	if [ $? -eq 1 ]; then
 		method="static"
 		# Get the static IPv4 address.
@@ -103,61 +103,65 @@ configure_iface() {
 		done
 	fi
 	# Use IPv6?
-	${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno "Do you want to configure IPv6 for this interface?" 8 53
+	${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno "Do you want to configure IPv6 for this interface?" 7 53
 	if [ $? -eq 0 ]; then
-# Available with Debian Wheezy.
-#		${OMV_FIRSTAID_DIALOG} --clear --yesno "Do you want to enable stateless autoconfiguration?" 8 50
-#		if [ $? -eq 1 ]; then
-#			method6="auto"
-#		else
-			method6="static"
-			# Get static IPv6 address.
-			while [ -z "${address6}" ]; do
-				${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the IPv6 address." \
-				  8 60 2>$tempfile
-				[ $? -ne 0 ] && return 1
-				address6=$(cat $tempfile)
-				if [ -z "${address6}" ]; then
-					${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
-					continue
-				fi
-				if ! omv_is_ipaddr6 "${address6}"; then
-					${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid IPv6 address." 8 26
-					address6=""
-				fi
-			done
-			# Get the prefix length.
-			netmask6=""
-			while [ -z "${netmask6}" ]; do
-				${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the prefix length." \
-				  8 60 64 2>$tempfile
-				[ $? -ne 0 ] && return 1
-				netmask6=$(cat $tempfile)
-				if [ -z "${netmask6}" ]; then
-					${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
-					continue
-				fi
-				if ! omv_is_netmask6 "${netmask6}"; then
-					${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid netmask." 8 22
-					netmask=""
-				fi
-			done
-			# Get default IPv6 gateway.
-			while [ -z "${gateway6}" ]; do
-				${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the default gateway." \
-				  8 60 2>$tempfile
-				[ $? -ne 0 ] && return 1
-				gateway6=$(cat $tempfile)
-				if [ -n "${gateway6}" ]; then
-					if ! omv_is_gateway6 "${gateway6}"; then
-						${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid gateway." 8 22
-						gateway6=""
+		${OMV_FIRSTAID_DIALOG} --clear --yesno "Do you want to enable stateful address autoconfiguration (DHCPv6)?" 8 42
+		if [ $? -eq 0 ]; then
+			method6="dhcp"
+		else
+			${OMV_FIRSTAID_DIALOG} --clear --yesno "Do you want to enable stateless address autoconfiguration (SLAAC)?" 8 43
+			if [ $? -eq 0 ]; then
+				method6="auto"
+			else
+				method6="static"
+				# Get static IPv6 address.
+				while [ -z "${address6}" ]; do
+					${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the IPv6 address." \
+					  8 45 2>$tempfile
+					[ $? -ne 0 ] && return 1
+					address6=$(cat $tempfile)
+					if [ -z "${address6}" ]; then
+						${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
+						continue
 					fi
-				else
-					break
-				fi
-			done
-#		fi
+					if ! omv_is_ipaddr6 "${address6}"; then
+						${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid IPv6 address." 8 26
+						address6=""
+					fi
+				done
+				# Get the prefix length.
+				netmask6=""
+				while [ -z "${netmask6}" ]; do
+					${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the prefix length." \
+					  8 45 64 2>$tempfile
+					[ $? -ne 0 ] && return 1
+					netmask6=$(cat $tempfile)
+					if [ -z "${netmask6}" ]; then
+						${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
+						continue
+					fi
+					if ! omv_is_netmask6 "${netmask6}"; then
+						${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid netmask." 8 22
+						netmask=""
+					fi
+				done
+				# Get default IPv6 gateway.
+				while [ -z "${gateway6}" ]; do
+					${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the default gateway." \
+					  8 60 2>$tempfile
+					[ $? -ne 0 ] && return 1
+					gateway6=$(cat $tempfile)
+					if [ -n "${gateway6}" ]; then
+						if ! omv_is_gateway6 "${gateway6}"; then
+							${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid gateway." 8 22
+							gateway6=""
+						fi
+					else
+						break
+					fi
+				done
+			fi
+		fi
 	fi
 	${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno \
 	  "Do you want to enable WOL for this interface?" 8 50
