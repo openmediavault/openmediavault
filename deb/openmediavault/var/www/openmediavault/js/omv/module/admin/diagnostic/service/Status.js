@@ -38,7 +38,14 @@ Ext.define("OMV.module.admin.diagnostic.service.Status", {
 		  "omv.plugin.diagnostic.service.*");
 		me.items = [];
 		Ext.Array.each(classes, function(name) {
-			me.items.push(Ext.create(name));
+			// Create the child panel.
+			var item = Ext.create(name);
+			// Append default position if necessary.
+			Ext.applyIf(item, {
+				position: 100
+			});
+			// Add child to the parent tab panel.
+			me.items.push(item);
 		});
 		// Sort the tabs by their position.
 		Ext.Array.sort(me.items, function(a, b) {
