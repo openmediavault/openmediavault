@@ -596,7 +596,7 @@ Ext.form.field.ComboBox.prototype.setValue = Ext.Function.createInterceptor(
 		if(!Ext.isDefined(me.setValueListeners))
 			me.setValueListeners = [];
 		me.setValueListeners.push(fn);
-		me.store.mon({
+		me.store.on({
 			single: true,
 			load: fn
 		});
@@ -606,7 +606,7 @@ Ext.form.field.ComboBox.prototype.setValue = Ext.Function.createInterceptor(
 	// otherwise they will overwrite the given value.
 	if(Ext.isDefined(me.setValueListeners)) {
 		Ext.Array.each(me.setValueListeners, function(fn) {
-			me.store.mun("load", fn)
+			me.store.un("load", fn)
 		});
 		delete me.setValueListeners;
 	}
