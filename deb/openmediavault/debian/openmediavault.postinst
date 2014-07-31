@@ -366,6 +366,10 @@ case "$1" in
 			omv_config_add_element "//system/powermanagement[powerbtn='1']" "powerbtn" "shutdown"
 			omv-mkconf acpid
 		fi
+		if dpkg --compare-versions "$2" lt-nl "1.0.9"; then
+			# Purge old monit configuration file.
+			rm -f /etc/monit/monit_delay
+		fi
 	;;
 
 	triggered)
