@@ -27,7 +27,6 @@
 // require("js/omv/workspace/node/tree/Panel.js")
 // require("js/omv/workspace/node/panel/Category.js")
 // require("js/omv/workspace/node/panel/Overview.js")
-// require("js/omv/form/field/LanguageComboBox.js")
 
 /**
  * @ingroup webgui
@@ -42,7 +41,6 @@ Ext.define("OMV.workspace.Workspace", {
 		"OMV.Rpc",
 		"OMV.toolbar.ApplyCfg",
 		"OMV.window.MessageBox",
-		"OMV.form.field.LanguageComboBox",
 		"OMV.workspace.node.tree.Panel"
 	],
 	uses: [
@@ -155,10 +153,6 @@ Ext.define("OMV.workspace.Workspace", {
 				},{
 					xtype: "tbfill"
 				},{
-					xtype: "languagecombo"
-				},{
-					xtype: "tbseparator"
-				},{
 					xtype: "splitbutton",
 					icon: "images/menu.png",
 					iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
@@ -170,6 +164,36 @@ Ext.define("OMV.workspace.Workspace", {
 							iconCls: Ext.baseCSSPrefix + "menu-item-icon-16x16"
 						},
 						items: [{
+							text: _("Language"),
+							icon: Ext.supports.Svg ? "images/globe.svg" :
+							  "images/globe.png",
+							menu: {
+								items: function() {
+									var items = [];
+									var locale = OMV.util.i18n.getLocale();
+									Ext.Array.each(OMV.languages,
+									  function(item) {
+										Ext.Array.push(items, {
+											xtype: "menucheckitem",
+											text: item[1],
+											value: item[0],
+											checked: item[0] === locale,
+											group: "locale"
+										})
+									});
+									return items;
+								}(),
+								listeners: {
+									click: function(menu, item) {
+										OMV.util.i18n.setLocale(item.value);
+										// Force rendering of whole page with
+										// selected language.
+										OMV.confirmPageUnload = false;
+										document.location.reload();
+									}
+								}
+							}
+						},{
 							text: _("Reset WebGUI state"),
 							action: "resetstate",
 							msg: _("Do you really want to reset WebGUI state, e.g. grid column order?"),
@@ -181,24 +205,28 @@ Ext.define("OMV.workspace.Workspace", {
 							text: _("Logout"),
 							action: "logout",
 							msg: _("Do you really want to logout?"),
-							icon: Ext.supports.Svg ? "images/logout.svg" : "images/logout.png"
+							icon: Ext.supports.Svg ? "images/logout.svg" :
+							  "images/logout.png"
 						},{
 							text: _("Reboot"),
 							action: "reboot",
 							msg: _("Do you really want to reboot the system?"),
-							icon: Ext.supports.Svg ? "images/reboot.svg" : "images/reboot.png",
+							icon: Ext.supports.Svg ? "images/reboot.svg" :
+							  "images/reboot.png",
 							hidden: !OMV.SessionManager.isAdministrator()
 						},{
 							text: _("Standby"),
 							action: "standby",
 							msg: _("Do you really want to put the system into standby?"),
-							icon: Ext.supports.Svg ? "images/pause.svg" : "images/pause.png",
+							icon: Ext.supports.Svg ? "images/pause.svg" :
+							  "images/pause.png",
 							hidden: !OMV.SessionManager.isAdministrator()
 						},{
 							text: _("Shutdown"),
 							action: "shutdown",
 							msg: _("Do you really want to shutdown the system?"),
-							icon: Ext.supports.Svg ? "images/shutdown.svg" : "images/shutdown.png",
+							icon: Ext.supports.Svg ? "images/shutdown.svg" :
+							  "images/shutdown.png",
 							hidden: !OMV.SessionManager.isAdministrator()
 						}],
 						listeners: {
