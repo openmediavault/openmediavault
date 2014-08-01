@@ -67,7 +67,7 @@ class OMVRpcServiceNfs extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify the result object.
-		$object['enable'] = boolval($object['enable']);
+		$object['enable'] = boolvalEx($object['enable']);
 		$object['numproc'] = intval($object['numproc']);
 		// Remove useless fields from object.
 		unset($object['shares']);

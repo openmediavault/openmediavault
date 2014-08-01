@@ -70,7 +70,7 @@ class OMVRpcServiceIscsiTarget extends OMVRpcServiceAbstract {
 		$object['authentication'] = !empty($object['authentication']['user']) ?
 		  $object['authentication']['user'] : array();
 		// Modify result object.
-		$object['enable'] = boolval($object['enable']);
+		$object['enable'] = boolvalEx($object['enable']);
 		unset($object['targets']);
 		return $object;
 	}

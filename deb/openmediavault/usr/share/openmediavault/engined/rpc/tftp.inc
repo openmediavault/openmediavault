@@ -61,11 +61,11 @@ class OMVRpcServiceTftp extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify the result data.
-		$object['enable'] = boolval($object['enable']);
+		$object['enable'] = boolvalEx($object['enable']);
 		$object['port'] = intval($object['port']);
 		$object['blocksize'] = intval($object['blocksize']);
 		$object['retransmit'] = intval($object['retransmit']);
-		$object['allownewfiles'] = boolval($object['allownewfiles']);
+		$object['allownewfiles'] = boolvalEx($object['allownewfiles']);
 		return $object;
 	}
 

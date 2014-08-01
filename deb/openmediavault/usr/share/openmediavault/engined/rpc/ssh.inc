@@ -64,13 +64,13 @@ class OMVRpcServiceSsh extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result data.
-		$object['enable'] = boolval($object['enable']);
+		$object['enable'] = boolvalEx($object['enable']);
 		$object['port'] = intval($object['port']);
-		$object['passwordauthentication'] = boolval(
+		$object['passwordauthentication'] = boolvalEx(
 		  $object['passwordauthentication']);
-		$object['permitrootlogin'] = boolval($object['permitrootlogin']);
-		$object['tcpforwarding'] = boolval($object['tcpforwarding']);
-		$object['compression'] = boolval($object['compression']);
+		$object['permitrootlogin'] = boolvalEx($object['permitrootlogin']);
+		$object['tcpforwarding'] = boolvalEx($object['tcpforwarding']);
+		$object['compression'] = boolvalEx($object['compression']);
 		return $object;
 	}
 
@@ -144,7 +144,7 @@ class OMVRpcServiceSsh extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if(!boolval($object['enable'])) {
+		if (!boolvalEx($object['enable'])) {
 			$stats = gettext("Service disabled");
 		} else {
 			// Get users currently logged in.

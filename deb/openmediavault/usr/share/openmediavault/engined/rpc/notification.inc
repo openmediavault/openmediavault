@@ -73,7 +73,7 @@ class OMVRpcServiceNotification extends OMVRpcServiceAbstract {
 				foreach($config as $configk => $configv) {
 					$enable = FALSE; // Default value.
 					if(array_key_exists($configv['id'], $object)) {
-						$enable = boolval($object[$configv['id']]);
+						$enable = boolvalEx($object[$configv['id']]);
 					}
 					$result[] = array(
 						  "id" => $configv['id'],
@@ -186,12 +186,12 @@ class OMVRpcServiceEmailNotification extends OMVRpcServiceAbstract {
 		}
 		// Modify the result object.
 		return array(
-			"enable" => boolval($object['enable']),
+			"enable" => boolvalEx($object['enable']),
 			"server" => $object['server'],
 			"port" => intval($object['port']),
-			"tls" => boolval($object['tls']),
+			"tls" => boolvalEx($object['tls']),
 			"sender" => $object['sender'],
-			"authenable" => boolval($object['authentication']['enable']),
+			"authenable" => boolvalEx($object['authentication']['enable']),
 			"username" => $object['authentication']['username'],
 			"password" => $object['authentication']['password'],
 			"primaryemail" => $object['primaryemail'],
@@ -287,7 +287,7 @@ class OMVRpcServiceEmailNotification extends OMVRpcServiceAbstract {
 		}
 		// Do some generic tests to find out if email notification is
 		// already configured.
-		if(!boolval($object['enable'])) {
+		if (!boolvalEx($object['enable'])) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  "Email notification service is disabled.");
 		}

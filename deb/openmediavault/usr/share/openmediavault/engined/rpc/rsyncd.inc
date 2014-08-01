@@ -158,12 +158,12 @@ class OMVRpcServiceRsyncd extends OMVRpcServiceAbstract {
 		foreach($objects as $objectk => &$objectv) {
 			$objectv['sharedfoldername'] = gettext("n/a");
 			// Modify result data.
-			$objectv['enable'] = boolval($objectv['enable']);
-			$objectv['readonly'] = boolval($objectv['readonly']);
-			$objectv['writeonly'] = boolval($objectv['writeonly']);
-			$objectv['list'] = boolval($objectv['list']);
-			$objectv['authusers'] = boolval($objectv['authusers']);
-			$objectv['usechroot'] = boolval($objectv['usechroot']);
+			$objectv['enable'] = boolvalEx($objectv['enable']);
+			$objectv['readonly'] = boolvalEx($objectv['readonly']);
+			$objectv['writeonly'] = boolvalEx($objectv['writeonly']);
+			$objectv['list'] = boolvalEx($objectv['list']);
+			$objectv['authusers'] = boolvalEx($objectv['authusers']);
+			$objectv['usechroot'] = boolvalEx($objectv['usechroot']);
 			$objectv['users'] = !is_array($objectv['users']) ?
 			  array() : $objectv['users']['user'];
 			// Get the shared folder configuration object.
@@ -208,12 +208,12 @@ class OMVRpcServiceRsyncd extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result data.
-		$object['enable'] = boolval($object['enable']);
-		$object['readonly'] = boolval($object['readonly']);
-		$object['writeonly'] = boolval($object['writeonly']);
-		$object['list'] = boolval($object['list']);
-		$object['authusers'] = boolval($object['authusers']);
-		$object['usechroot'] = boolval($object['usechroot']);
+		$object['enable'] = boolvalEx($object['enable']);
+		$object['readonly'] = boolvalEx($object['readonly']);
+		$object['writeonly'] = boolvalEx($object['writeonly']);
+		$object['list'] = boolvalEx($object['list']);
+		$object['authusers'] = boolvalEx($object['authusers']);
+		$object['usechroot'] = boolvalEx($object['usechroot']);
 		$object['users'] = !is_array($object['users']) ?
 		  array() : $object['users']['user'];
 		return $object;

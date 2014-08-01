@@ -286,7 +286,7 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 				"ISO8601" => date("c")
 			),
 			"timezone" => $object['timezone'],
-			"ntpenable" => boolval($object['ntp']['enable']),
+			"ntpenable" => boolvalEx($object['ntp']['enable']),
 			"ntptimeservers" => $object['ntp']['timeservers']
 		);
 	}

@@ -86,7 +86,7 @@ abstract class OMVHtmlPageAbstract extends OMVObject {
 		$title = $this->getTitle();
 		$extAllFile = "ext-all.js";
 
-		if(boolval($GLOBALS['OMV_DEBUG_EXTJS']) === TRUE) {
+		if (boolvalEx($GLOBALS['OMV_DEBUG_EXTJS']) === TRUE) {
 			$extAllFile = "ext-all-debug.js";
 		}
 

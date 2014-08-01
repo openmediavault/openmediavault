@@ -78,7 +78,7 @@ class OMVModuleNfs extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if(FALSE === boolval($object['enable']))
+		if (FALSE === boolvalEx($object['enable']))
 			return;
 		$initd = new OMVSysVInitScript("nfs-kernel-server", TRUE);
 		$initd->exec();
@@ -100,7 +100,7 @@ class OMVModuleNfs extends OMVModuleServiceAbstract
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("NFS"),
-			"enabled" => boolval($object['enable']),
+			"enabled" => boolvalEx($object['enable']),
 			"running" => ($initd->status() == 0)
 		);
 	}

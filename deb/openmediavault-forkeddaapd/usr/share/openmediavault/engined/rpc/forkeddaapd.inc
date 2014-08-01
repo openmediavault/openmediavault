@@ -62,9 +62,9 @@ class OMVRpcServiceForkedDaapd extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result object.
-		$object['enable'] = boolval($object['enable']);
+		$object['enable'] = boolvalEx($object['enable']);
 		$object['port'] = intval($object['port']);
-		$object['passwordrequired'] = boolval($object['passwordrequired']);
+		$object['passwordrequired'] = boolvalEx($object['passwordrequired']);
 		return $object;
 	}
 

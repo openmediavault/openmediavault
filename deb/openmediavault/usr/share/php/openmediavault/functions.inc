@@ -101,34 +101,46 @@ function array_value($array, $key, $default = NULL) {
  * Returns the boolean value of the given key.
  */
 function array_boolval($array, $key) {
-	if(!isset($array[$key]))
+	if (!isset($array[$key]))
 		return false;
-	return boolval($array[$key]);
+	return boolvalEx($array[$key]);
 }
 
 /**
- * Get boolean value of a variable.
+ * Get the boolean value of a variable.
  * @ingroup api
- * @param var An array with keys.
- * Returns the boolean value of the given variable.
+ * @deprecated
+ * @param var The scalar value being converted to a boolean.
+ * Returns the boolean value of the given value.
  */
 if (!function_exists("boolval")) {
-	function boolval($var) {
-		$result = false;
-		// Boolean 'true' => '1'
-		switch (strtolower(strval($var))) {
-			case "1":
-			case "on":
-			case "yes":
-			case "y":
-			case "true":
-				$result = true;
-				break;
-			default:
-				break;
-		}
-		return $result;
+	function boolvalEx($var) {
+		return boolvalEx($var);
 	}
+}
+
+/**
+ * Get the boolean value of a variable. A boolean TRUE will be returned for
+ * the values 1, '1', 'on', 'yes', 'y' and 'true'.
+ * @ingroup api
+ * @param var The scalar value being converted to a boolean.
+ * Returns the boolean value of the given value.
+ */
+function boolvalEx($var) {
+	$result = false;
+	// Boolean 'true' => '1'
+	switch (strtolower(strval($var))) {
+		case "1":
+		case "on":
+		case "yes":
+		case "y":
+		case "true":
+			$result = true;
+			break;
+		default:
+			break;
+	}
+	return $result;
 }
 
 /**

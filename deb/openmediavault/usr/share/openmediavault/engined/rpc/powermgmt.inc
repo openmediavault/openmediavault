@@ -68,7 +68,7 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result data.
-		$object['cpufreq'] = boolval($object['cpufreq']);
+		$object['cpufreq'] = boolvalEx($object['cpufreq']);
 		return $object;
 	}
 

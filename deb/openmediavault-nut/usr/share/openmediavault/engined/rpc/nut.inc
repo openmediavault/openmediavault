@@ -63,8 +63,8 @@ class OMVRpcServiceNetworkUPSTools extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result object.
-		$object['enable'] = boolval($object['enable']);
-		$object['remotemonitor'] = boolval($object['remotemonitor']);
+		$object['enable'] = boolvalEx($object['enable']);
+		$object['remotemonitor'] = boolvalEx($object['remotemonitor']);
 		return $object;
 	}
 
@@ -143,7 +143,7 @@ class OMVRpcServiceNetworkUPSTools extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if (!boolval($object['enable'])) {
+		if (!boolvalEx($object['enable'])) {
 			$stats = gettext("Service disabled");
 		} else {
 			$cmd = sprintf("upsc %s 2>&1", escapeshellarg($object['upsname']));

@@ -68,11 +68,11 @@ class OMVModuleClamAV extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if(FALSE === boolval($object['enable']))
+		if (FALSE === boolvalEx($object['enable']))
 			return;
 		$initd = new OMVSysVInitScript("clamav-daemon", TRUE);
 		$initd->exec();
-		if(TRUE === boolval($object['freshclam']['enable'])) {
+		if (TRUE === boolvalEx($object['freshclam']['enable'])) {
 			$initd = new OMVSysVInitScript("clamav-freshclam", TRUE);
 			$initd->exec();
 		}
@@ -94,7 +94,7 @@ class OMVModuleClamAV extends OMVModuleServiceAbstract
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("Antivirus"),
-			"enabled" => boolval($object['enable']),
+			"enabled" => boolvalEx($object['enable']),
 			"running" => ($initd->status() == 0)
 		);
 	}

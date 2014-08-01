@@ -365,7 +365,7 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 				$fieldvalue = trim($matches[2]);
 				$object[$fieldname] = $fieldvalue;
 			}
-			if (boolval($GLOBALS['OMV_PLUGIN_ENUMERATE_GET_REPOSITORY'])) {
+			if (boolvalEx($GLOBALS['OMV_PLUGIN_ENUMERATE_GET_REPOSITORY'])) {
 				// Get the repository where the package comes from. !!! Note,
 				// this is a really time consuming process. Because parsing
 				// 'apt-cache' output seems to be too difficult, simply

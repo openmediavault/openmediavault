@@ -67,27 +67,27 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		return array(
-			"enable" => boolval($object['enable']),
+			"enable" => boolvalEx($object['enable']),
 			"checks" => intval($object['freshclam']['checks']),
 			"databasemirror" => $object['freshclam']['databasemirror'],
 			"quarantine.sharedfolderref" => $object[
 			  'quarantine.sharedfolderref'],
-			"logclean" => boolval($object['clamd']['logclean']),
-			"scanpe" => boolval($object['clamd']['scanpe']),
-			"scanole2" => boolval($object['clamd']['scanole2']),
-			"scanhtml" => boolval($object['clamd']['scanhtml']),
-			"scanpdf" => boolval($object['clamd']['scanpdf']),
-			"scanelf" => boolval($object['clamd']['scanelf']),
-			"scanarchive" => boolval($object['clamd']['scanarchive']),
-			"detectbrokenexecutables" => boolval(
+			"logclean" => boolvalEx($object['clamd']['logclean']),
+			"scanpe" => boolvalEx($object['clamd']['scanpe']),
+			"scanole2" => boolvalEx($object['clamd']['scanole2']),
+			"scanhtml" => boolvalEx($object['clamd']['scanhtml']),
+			"scanpdf" => boolvalEx($object['clamd']['scanpdf']),
+			"scanelf" => boolvalEx($object['clamd']['scanelf']),
+			"scanarchive" => boolvalEx($object['clamd']['scanarchive']),
+			"detectbrokenexecutables" => boolvalEx(
 			  $object['clamd']['detectbrokenexecutables']),
-			"algorithmicdetection" => boolval(
+			"algorithmicdetection" => boolvalEx(
 			  $object['clamd']['algorithmicdetection']),
-			"followdirectorysymlinks" => boolval(
+			"followdirectorysymlinks" => boolvalEx(
 			  $object['clamd']['followdirectorysymlinks']),
-			"followfilesymlinks" => boolval(
+			"followfilesymlinks" => boolvalEx(
 			  $object['clamd']['followfilesymlinks']),
-			"detectpua" => boolval($object['clamd']['detectpua']),
+			"detectpua" => boolvalEx($object['clamd']['detectpua']),
 			"extraoptions" => $object['clamd']['extraoptions']
 		);
 	}
@@ -235,14 +235,14 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 				$objectv['sharedfoldername'] = $sfobject['name'];
 			}
 			// Modify result data.
-			$objectv['enable'] = boolval($objectv['enable']);
-			$objectv['everynminute'] = boolval($objectv['everynminute']);
-			$objectv['everynhour'] = boolval($objectv['everynhour']);
-			$objectv['everyndayofmonth'] = boolval($objectv['everyndayofmonth']);
-			$objectv['sendemail'] = boolval($objectv['sendemail']);
-			$objectv['onaccess'] = boolval($objectv['onaccess']);
-			$objectv['multiscan'] = boolval($objectv['multiscan']);
-			$objectv['verbose'] = boolval($objectv['verbose']);
+			$objectv['enable'] = boolvalEx($objectv['enable']);
+			$objectv['everynminute'] = boolvalEx($objectv['everynminute']);
+			$objectv['everynhour'] = boolvalEx($objectv['everynhour']);
+			$objectv['everyndayofmonth'] = boolvalEx($objectv['everyndayofmonth']);
+			$objectv['sendemail'] = boolvalEx($objectv['sendemail']);
+			$objectv['onaccess'] = boolvalEx($objectv['onaccess']);
+			$objectv['multiscan'] = boolvalEx($objectv['multiscan']);
+			$objectv['verbose'] = boolvalEx($objectv['verbose']);
 		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
@@ -279,14 +279,14 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result data.
-		$object['enable'] = boolval($object['enable']);
-		$object['everynminute'] = boolval($object['everynminute']);
-		$object['everynhour'] = boolval($object['everynhour']);
-		$object['everyndayofmonth'] = boolval($object['everyndayofmonth']);
-		$object['sendemail'] = boolval($object['sendemail']);
-		$object['onaccess'] = boolval($object['onaccess']);
-		$object['multiscan'] = boolval($object['multiscan']);
-		$object['verbose'] = boolval($object['verbose']);
+		$object['enable'] = boolvalEx($object['enable']);
+		$object['everynminute'] = boolvalEx($object['everynminute']);
+		$object['everynhour'] = boolvalEx($object['everynhour']);
+		$object['everyndayofmonth'] = boolvalEx($object['everyndayofmonth']);
+		$object['sendemail'] = boolvalEx($object['sendemail']);
+		$object['onaccess'] = boolvalEx($object['onaccess']);
+		$object['multiscan'] = boolvalEx($object['multiscan']);
+		$object['verbose'] = boolvalEx($object['verbose']);
 		return $object;
 	}
 

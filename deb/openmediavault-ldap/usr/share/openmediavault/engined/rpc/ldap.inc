@@ -64,7 +64,7 @@ class OMVRpcServiceLDAP extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result object.
-		$object['enable'] = boolval($object['enable']);
+		$object['enable'] = boolvalEx($object['enable']);
 		$object['port'] = intval($object['port']);
 		return $object;
 	}

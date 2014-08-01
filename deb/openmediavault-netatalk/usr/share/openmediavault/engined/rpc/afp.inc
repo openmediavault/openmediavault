@@ -66,9 +66,9 @@ class OMVRpcServiceAFP extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result object.
-		$object['enable'] = boolval($object['enable']);
-		$object['allowclrtxt'] = boolval($object['allowclrtxt']);
-		$object['homesenable'] = boolval($object['homesenable']);
+		$object['enable'] = boolvalEx($object['enable']);
+		$object['allowclrtxt'] = boolvalEx($object['allowclrtxt']);
+		$object['homesenable'] = boolvalEx($object['homesenable']);
 		// Remove useless fields.
 		unset($object['shares']);
 		return $object;
@@ -164,10 +164,10 @@ class OMVRpcServiceAFP extends OMVRpcServiceAbstract {
 			$objectv['sharedfoldername'] = gettext("n/a");
 			// Modify result data
 			$objectv['volsizelimit'] = intval($objectv['volsizelimit']);
-			$objectv['allowguest'] = boolval($objectv['allowguest']);
-			$objectv['guestrw'] = boolval($objectv['guestrw']);
+			$objectv['allowguest'] = boolvalEx($objectv['allowguest']);
+			$objectv['guestrw'] = boolvalEx($objectv['guestrw']);
 			foreach($objectv['options'] as $optionk => &$optionv) {
-				$optionv = boolval($optionv);
+				$optionv = boolvalEx($optionv);
 			}
 			// Get the shared folder configuration object.
 			$sfObject = $xmlConfig->get("//system/shares/sharedfolder[" .
@@ -212,11 +212,11 @@ class OMVRpcServiceAFP extends OMVRpcServiceAbstract {
 		}
 		// Modify result object.
 		$object['volsizelimit'] = intval($object['volsizelimit']);
-		$object['allowguest'] = boolval($object['allowguest']);
-		$object['guestrw'] = boolval($object['guestrw']);
+		$object['allowguest'] = boolvalEx($object['allowguest']);
+		$object['guestrw'] = boolvalEx($object['guestrw']);
 		foreach($object['options'] as $optionk => $optionv) {
 			// Relocate options.
-			$object[$optionk] = boolval($optionv);
+			$object[$optionk] = boolvalEx($optionv);
 		}
 		// Remove useless fields.
 		unset($object['options']);

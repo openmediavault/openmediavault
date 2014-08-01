@@ -60,7 +60,7 @@ abstract class OMVObject {
 	 * Print debug message to stdout and file if debugging is enabled.
 	 */
 	final protected function debug() {
-		if(boolval($GLOBALS['OMV_DEBUG_PHP']) === FALSE)
+		if (boolvalEx($GLOBALS['OMV_DEBUG_PHP']) === FALSE)
 			return;
 
 		$args = func_get_args();

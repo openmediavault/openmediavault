@@ -74,29 +74,29 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify the result object.
-		$object['enable'] = boolval($object['enable']);
+		$object['enable'] = boolvalEx($object['enable']);
 		$object['port'] = intval($object['port']);
 		$object['maxclients'] = intval($object['maxclients']);
 		$object['maxconnectionsperhost'] = intval(
 		  $object['maxconnectionsperhost']);
 		$object['maxloginattempts'] = intval($object['maxloginattempts']);
 		$object['timeoutidle'] = intval($object['timeoutidle']);
-		$object['allowforeignaddress'] = boolval(
+		$object['allowforeignaddress'] = boolvalEx(
 		  $object['allowforeignaddress']);
-		$object['allowrestart'] = boolval($object['allowrestart']);
-		$object['identlookups'] = boolval($object['identlookups']);
-		$object['usereversedns'] = boolval($object['usereversedns']);
-		$object['rootlogin'] = boolval($object['rootlogin']);
-		$object['usepassiveports'] = boolval($object['usepassiveports']);
+		$object['allowrestart'] = boolvalEx($object['allowrestart']);
+		$object['identlookups'] = boolvalEx($object['identlookups']);
+		$object['usereversedns'] = boolvalEx($object['usereversedns']);
+		$object['rootlogin'] = boolvalEx($object['rootlogin']);
+		$object['usepassiveports'] = boolvalEx($object['usepassiveports']);
 		$object['minpassiveports'] = intval($object['minpassiveports']);
 		$object['maxpassiveports'] = intval($object['maxpassiveports']);
-		$object['limittransferrate'] = boolval($object['limittransferrate']);
+		$object['limittransferrate'] = boolvalEx($object['limittransferrate']);
 		$object['maxuptransferrate'] = intval($object['maxuptransferrate']);
 		$object['maxdowntransferrate'] = intval($object['maxdowntransferrate']);
-		$object['anonymous'] = boolval($object['anonymous']);
-		$object['requirevalidshell'] = boolval($object['requirevalidshell']);
+		$object['anonymous'] = boolvalEx($object['anonymous']);
+		$object['requirevalidshell'] = boolvalEx($object['requirevalidshell']);
 		$object['dynmasqrefresh'] = intval($object['dynmasqrefresh']);
-		$object['transferlog'] = boolval($object['transferlog']);
+		$object['transferlog'] = boolvalEx($object['transferlog']);
 		// Remove useless fields from the result object.
 		unset($object['shares']);
 		unset($object['modules']);
@@ -588,12 +588,12 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify the result object.
-		$object['enable'] = boolval($object['enable']);
-		$object['required'] = boolval($object['required']);
-		$object['nocertrequest'] = boolval($object['nocertrequest']);
-		$object['nosessionreuserequired'] = boolval(
+		$object['enable'] = boolvalEx($object['enable']);
+		$object['required'] = boolvalEx($object['required']);
+		$object['nocertrequest'] = boolvalEx($object['nocertrequest']);
+		$object['nosessionreuserequired'] = boolvalEx(
 		  $object['nosessionreuserequired']);
-		$object['useimplicitssl'] = boolval($object['useimplicitssl']);
+		$object['useimplicitssl'] = boolvalEx($object['useimplicitssl']);
 		return $object;
 	}
 
@@ -668,7 +668,7 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if(!boolval($object['enable'])) {
+		if (!boolvalEx($object['enable'])) {
 			$stats = gettext("Service disabled");
 		} else {
 			// Get users currently logged in.

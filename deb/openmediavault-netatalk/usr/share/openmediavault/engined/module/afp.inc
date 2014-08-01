@@ -87,7 +87,7 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if(FALSE === boolval($object['enable']))
+		if (FALSE === boolvalEx($object['enable']))
 			return;
 		// Start this service and register System-V style init script.
 		$initd = new OMVSysVInitScript("netatalk", TRUE);
@@ -114,7 +114,7 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("Apple Filing"),
-			"enabled" => boolval($object['enable']),
+			"enabled" => boolvalEx($object['enable']),
 			"running" => ($monit->status("netatalk") === "running")
 		);
 	}

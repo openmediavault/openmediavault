@@ -74,13 +74,15 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 	 * @param oldObject The previous configuration object.
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	final public function onModifySettings($type, $path, $object, $oldObject) {
+	final public function onModifySettings($type, $path, $object,
+	  $oldObject) {
 		// Mark this module as dirty.
 		$this->setDirty();
 		// Check whether the webserver needs to be restarted because
 		// ownCloud has been enabled/disabled. In this case mark the
 		// module as dirty.
-		if (boolval($oldObject['enable']) != boolval($object['enable'])) {
+		if (boolvalEx($oldObject['enable']) != boolvalEx(
+		  $object['enable'])) {
 			$this->setDirtyByName("webserver");
 		}
 	}

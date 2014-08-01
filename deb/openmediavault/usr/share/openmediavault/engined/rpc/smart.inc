@@ -147,7 +147,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			// configuration object.
 			if(is_null($object))
 				continue;
-			if(TRUE !== boolval($object['enable']))
+			if (TRUE !== boolvalEx($object['enable']))
 				continue;
 			$result[] = $objectv;
 		}
@@ -230,7 +230,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result data.
-		$object['enable'] = boolval($object['enable']);
+		$object['enable'] = boolvalEx($object['enable']);
 		$object['interval'] = intval($object['interval']);
 		$object['tempdiff'] = intval($object['tempdiff']);
 		$object['tempinfo'] = intval($object['tempinfo']);
@@ -325,7 +325,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result data.
-		$object['enable'] = boolval($object['enable']);
+		$object['enable'] = boolvalEx($object['enable']);
 		return $object;
 	}
 
@@ -632,7 +632,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		// Add additional share informations.
 		foreach($objects as $objectk => &$objectv) {
 			// Modify result data.
-			$objectv['enable'] = boolval($objectv['enable']);
+			$objectv['enable'] = boolvalEx($objectv['enable']);
 			// Append storage device information.
 			$objectv['volume'] = array(
 				"devicefile" => gettext("n/a"),
@@ -686,7 +686,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify the result object.
-		$object['enable'] = boolval($object['enable']);
+		$object['enable'] = boolvalEx($object['enable']);
 		return $object;
 	}
 

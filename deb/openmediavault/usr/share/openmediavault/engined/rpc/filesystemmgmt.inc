@@ -884,7 +884,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			}
 		}
 		// Create fstab entry?
-		if(TRUE === boolval($params['fstab'])) {
+		if (TRUE === boolvalEx($params['fstab'])) {
 			// Check for duplicates. Create a new mount point configuration
 			// object if necessary.
 			if(FALSE === OMVRpc::exec("FsTab", "getByFsName",
@@ -960,7 +960,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Remove fstab entry?
-		if(TRUE === boolval($params['fstab'])) {
+		if (TRUE === boolvalEx($params['fstab'])) {
 			// Get the fstab mount point configuration object.
 			if(is_devicefile($params['id'])) {
 				// Use the filesystem name to identify the object.

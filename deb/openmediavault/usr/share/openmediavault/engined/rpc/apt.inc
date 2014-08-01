@@ -68,8 +68,8 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify the result object.
-		$object['proposed'] = boolval($object['proposed']);
-		$object['partner'] = boolval($object['partner']);
+		$object['proposed'] = boolvalEx($object['proposed']);
+		$object['partner'] = boolvalEx($object['partner']);
 		return $object;
 	}
 

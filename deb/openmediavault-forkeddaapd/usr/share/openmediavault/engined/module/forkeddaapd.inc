@@ -84,7 +84,7 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if(FALSE === boolval($object['enable']))
+		if (FALSE === boolvalEx($object['enable']))
 			return;
 		// Start this service and register System-V style init script.
 		$initd = new OMVSysVInitScript("forked-daapd", TRUE);
@@ -110,7 +110,7 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("iTunes/DAAP"),
-			"enabled" => boolval($object['enable']),
+			"enabled" => boolvalEx($object['enable']),
 			"running" => ($monit->status("forked-daapd") === "running")
 		);
 	}

@@ -69,16 +69,16 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify the result object.
-		$object['enable'] = boolval($object['enable']);
+		$object['enable'] = boolvalEx($object['enable']);
 		$object['loglevel'] = intval($object['loglevel']);
-		$object['usesendfile'] = boolval($object['usesendfile']);
-		$object['aio'] = boolval($object['aio']);
-		$object['nullpasswords'] = boolval($object['nullpasswords']);
-		$object['localmaster'] = boolval($object['localmaster']);
-		$object['timeserver'] = boolval($object['timeserver']);
-		$object['winssupport'] = boolval($object['winssupport']);
-		$object['homesenable'] = boolval($object['homesenable']);
-		$object['homesbrowseable'] = boolval($object['homesbrowseable']);
+		$object['usesendfile'] = boolvalEx($object['usesendfile']);
+		$object['aio'] = boolvalEx($object['aio']);
+		$object['nullpasswords'] = boolvalEx($object['nullpasswords']);
+		$object['localmaster'] = boolvalEx($object['localmaster']);
+		$object['timeserver'] = boolvalEx($object['timeserver']);
+		$object['winssupport'] = boolvalEx($object['winssupport']);
+		$object['homesenable'] = boolvalEx($object['homesenable']);
+		$object['homesbrowseable'] = boolvalEx($object['homesbrowseable']);
 		return $object;
 	}
 
@@ -191,20 +191,20 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 		foreach($objects as $objectk => &$objectv) {
 			$objectv['sharedfoldername'] = gettext("n/a");
 			// Modify the result object.
-			$objectv['enable'] = boolval($objectv['enable']);
-			$objectv['readonly'] = boolval($objectv['readonly']);
-			$objectv['browseable'] = boolval($objectv['browseable']);
-			$objectv['recyclebin'] = boolval($objectv['recyclebin']);
+			$objectv['enable'] = boolvalEx($objectv['enable']);
+			$objectv['readonly'] = boolvalEx($objectv['readonly']);
+			$objectv['browseable'] = boolvalEx($objectv['browseable']);
+			$objectv['recyclebin'] = boolvalEx($objectv['recyclebin']);
 			$objectv['recyclemaxsize'] = intval($objectv['recyclemaxsize']);
 			$objectv['recyclemaxage'] = intval($objectv['recyclemaxage']);
-			$objectv['hidedotfiles'] = boolval($objectv['hidedotfiles']);
-			$objectv['inheritacls'] = boolval($objectv['inheritacls']);
-			$objectv['inheritpermissions'] = boolval(
+			$objectv['hidedotfiles'] = boolvalEx($objectv['hidedotfiles']);
+			$objectv['inheritacls'] = boolvalEx($objectv['inheritacls']);
+			$objectv['inheritpermissions'] = boolvalEx(
 			  $objectv['inheritpermissions']);
-			$objectv['easupport'] = boolval($objectv['easupport']);
-			$objectv['storedosattributes'] = boolval(
+			$objectv['easupport'] = boolvalEx($objectv['easupport']);
+			$objectv['storedosattributes'] = boolvalEx(
 			  $objectv['storedosattributes']);
-			$objectv['audit'] = boolval($objectv['audit']);
+			$objectv['audit'] = boolvalEx($objectv['audit']);
 			// Get the shared folder configuration object.
 			$sfobject = $xmlConfig->get("//system/shares/sharedfolder[" .
 			  "uuid='{$objectv['sharedfolderref']}']");
@@ -247,18 +247,18 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify the result object.
-		$object['enable'] = boolval($object['enable']);
-		$object['readonly'] = boolval($object['readonly']);
-		$object['browseable'] = boolval($object['browseable']);
-		$object['recyclebin'] = boolval($object['recyclebin']);
+		$object['enable'] = boolvalEx($object['enable']);
+		$object['readonly'] = boolvalEx($object['readonly']);
+		$object['browseable'] = boolvalEx($object['browseable']);
+		$object['recyclebin'] = boolvalEx($object['recyclebin']);
 		$object['recyclemaxsize'] = intval($object['recyclemaxsize']);
 		$object['recyclemaxage'] = intval($object['recyclemaxage']);
-		$object['hidedotfiles'] = boolval($object['hidedotfiles']);
-		$object['inheritacls'] = boolval($object['inheritacls']);
-		$object['inheritpermissions'] = boolval($object['inheritpermissions']);
-		$object['easupport'] = boolval($object['easupport']);
-		$object['storedosattributes'] = boolval($object['storedosattributes']);
-		$object['audit'] = boolval($object['audit']);
+		$object['hidedotfiles'] = boolvalEx($object['hidedotfiles']);
+		$object['inheritacls'] = boolvalEx($object['inheritacls']);
+		$object['inheritpermissions'] = boolvalEx($object['inheritpermissions']);
+		$object['easupport'] = boolvalEx($object['easupport']);
+		$object['storedosattributes'] = boolvalEx($object['storedosattributes']);
+		$object['audit'] = boolvalEx($object['audit']);
 		return $object;
 	}
 
@@ -467,7 +467,7 @@ class OMVRpcServiceSmb extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if(!boolval($object['enable'])) {
+		if (!boolvalEx($object['enable'])) {
 			$stats = gettext("Service disabled");
 		} else {
 			$cmd = "smbstatus -u 2>&1";

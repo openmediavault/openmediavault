@@ -65,9 +65,9 @@ class OMVRpcServiceWebGui extends OMVRpcServiceAbstract {
 		}
 		// Modify the result object.
 		$object['port'] = intval($object['port']);
-		$object['enablessl'] = boolval($object['enablessl']);
+		$object['enablessl'] = boolvalEx($object['enablessl']);
 		$object['sslport'] = intval($object['sslport']);
-		$object['forcesslonly'] = boolval($object['forcesslonly']);
+		$object['forcesslonly'] = boolvalEx($object['forcesslonly']);
 		$object['timeout'] = intval($object['timeout']);
 		return $object;
 	}

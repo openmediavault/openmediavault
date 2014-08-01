@@ -74,7 +74,7 @@ class OMVModuleSmartMonTools extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if(FALSE === boolval($object['enable']))
+		if (FALSE === boolvalEx($object['enable']))
 			return;
 		$initd = new OMVSysVInitScript("smartmontools", TRUE);
 		$initd->exec();

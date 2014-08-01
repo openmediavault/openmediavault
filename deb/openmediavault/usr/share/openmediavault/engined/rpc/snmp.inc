@@ -63,8 +63,8 @@ class OMVRpcServiceSnmp extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result data.
-		$object['enable'] = boolval($object['enable']);
-		$object['trapenable'] = boolval($object['trap']['enable']);
+		$object['enable'] = boolvalEx($object['enable']);
+		$object['trapenable'] = boolvalEx($object['trap']['enable']);
 		$object['trapcommunity'] = $object['trap']['community'];
 		$object['traphost'] = $object['trap']['host'];
 		$object['trapport'] = intval($object['trap']['port']);

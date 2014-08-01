@@ -450,7 +450,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Delete shared folder content recursively?
-		$recursive = boolval($params['recursive']);
+		$recursive = boolvalEx($params['recursive']);
 		// Do some more checks before a shared folder is deleted. Do not
 		// delete the shared folder content if a sub-directory is part of
 		// another shared folder.
@@ -1110,10 +1110,10 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			}
 			// Build the command arguments.
 			$cmdargs = array();
-			if(TRUE === boolval($params['replace'])) {
+			if (TRUE === boolvalEx($params['replace'])) {
 				$cmdargs[] = "--remove-all";
 			}
-			if(TRUE === boolval($params['recursive'])) {
+			if (TRUE === boolvalEx($params['recursive'])) {
 				$cmdargs[] = "--recursive";
 			}
 			if(!empty($aclspec)) {

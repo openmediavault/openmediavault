@@ -88,7 +88,7 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if(FALSE === boolval($object['enable']))
+		if (FALSE === boolvalEx($object['enable']))
 			return;
 		// Request device events from the kernel.
 		$cmd = "udevadm trigger 2>&1";
@@ -123,7 +123,7 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("UPS"),
-			"enabled" => boolval($object['enable']),
+			"enabled" => boolvalEx($object['enable']),
 			"running" => ($monit->status("nut-server") === "running")
 		);
 	}
@@ -145,7 +145,7 @@ class OMVModuleNetworkUPSTools extends OMVModuleServiceAbstract
 			  $xpath);
 		}
 		// Is remote monitoring enabled?
-		if(TRUE === boolval($object2['remotemonitor'])) {
+		if (TRUE === boolvalEx($object2['remotemonitor'])) {
 			$this->setDirty();
 		}
 	}

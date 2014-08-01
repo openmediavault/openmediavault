@@ -180,7 +180,7 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 		$object['apm'] = intval($object['apm']);
 		$object['aam'] = intval($object['aam']);
 		$object['spindowntime'] = intval($object['spindowntime']);
-		$object['writecache'] = boolval($object['writecache']);
+		$object['writecache'] = boolvalEx($object['writecache']);
 		return $object;
 	}
 
@@ -297,7 +297,7 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
 			// Wipe the device.
-			if(TRUE === boolval($params['secure'])) {
+			if (TRUE === boolvalEx($params['secure'])) {
 				// Secure wipe the device.
 				$cmd = sprintf("export LANG=C; shred -v -n 1 %s 2>&1",
 				  escapeshellarg($params['devicefile']));

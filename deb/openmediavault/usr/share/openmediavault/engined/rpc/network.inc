@@ -440,7 +440,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		}
 		// Modify result data.
 		$object['netmask6'] = intval($object['netmask6']);
-		$object['wol'] = boolval($object['wol']);
+		$object['wol'] = boolvalEx($object['wol']);
 		if(!empty($object['mtu']))
 			$object['mtu'] = intval($object['mtu']);
 		return $object;
@@ -679,7 +679,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		}
 		// Modify result data.
 		$object['netmask6'] = intval($object['netmask6']);
-		$object['wol'] = boolval($object['wol']);
+		$object['wol'] = boolvalEx($object['wol']);
 		if(!empty($object['mtu']))
 			$object['mtu'] = intval($object['mtu']);
 		$object['bondmode'] = intval($object['bondmode']);

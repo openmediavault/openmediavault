@@ -65,7 +65,7 @@ class OMVModuleSnmp extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if(FALSE === boolval($object['enable']))
+		if (FALSE === boolvalEx($object['enable']))
 			return;
 		$initd = new OMVSysVInitScript("snmpd", TRUE);
 		$initd->exec();
@@ -91,7 +91,7 @@ class OMVModuleSnmp extends OMVModuleServiceAbstract
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("SNMP"),
-			"enabled" => boolval($object['enable']),
+			"enabled" => boolvalEx($object['enable']),
 			"running" => !empty($output[0])
 		);
 	}

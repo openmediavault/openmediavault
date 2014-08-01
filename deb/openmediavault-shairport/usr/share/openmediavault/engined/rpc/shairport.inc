@@ -62,8 +62,8 @@ class OMVRpcServiceShairport extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result object.
-		$object['enable'] = boolval($object['enable']);
-		$object['passwordrequired'] = boolval($object['passwordrequired']);
+		$object['enable'] = boolvalEx($object['enable']);
+		$object['passwordrequired'] = boolvalEx($object['passwordrequired']);
 		return $object;
 	}
 

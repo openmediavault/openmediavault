@@ -69,7 +69,7 @@ class OMVModuleCPUFreqUtils extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if(FALSE === boolval($object['cpufreq']))
+		if (FALSE === boolvalEx($object['cpufreq']))
 			return;
 		$initd = new OMVSysVInitScript("loadcpufreq", TRUE, FALSE);
 		$initd->exec();

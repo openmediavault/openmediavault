@@ -145,7 +145,7 @@ finish:
 			if(!$user->exists())
 				continue;
 			// Append user 'root'?
-			if(0 == strcasecmp("root", $user->getName()) && FALSE == boolval(
+			if (0 == strcasecmp("root", $user->getName()) && FALSE == boolvalEx(
 			  $GLOBALS['OMV_USERMGMT_ENUMERATE_USER_ROOT']))
 				continue;
 			// Check if the current user is requested.
@@ -366,7 +366,7 @@ finish:
 			$object = $xmlConfig->get($xpath);
 			if(!is_null($object)) {
 				$userv['email'] = $object['email'];
-				$userv['disallowusermod'] = boolval(
+				$userv['disallowusermod'] = boolvalEx(
 				  $object['disallowusermod']);
 			}
 		}
@@ -427,7 +427,7 @@ finish:
 		$object = $xmlConfig->get($xpath);
 		if(!is_null($object)) {
 			$result['email'] = $object['email'];
-			$result['disallowusermod'] = boolval(
+			$result['disallowusermod'] = boolvalEx(
 			  $object['disallowusermod']);
 		}
 		return $result;
@@ -571,7 +571,7 @@ finish:
 				$cmdArgs[] = "--uid";
 				$cmdArgs[] = $params['uid'];
 			}
-			if(TRUE === boolval($hdsobject['enable'])) {
+			if (TRUE === boolvalEx($hdsobject['enable'])) {
 				// Get the absolute shared folder path.
 				$sfpath = OMVRpc::exec("ShareMgmt", "getPath", array(
 				  "uuid" => $hdsobject['sharedfolderref']), $context);
@@ -750,7 +750,7 @@ finish:
 					"email" => $matches[4],
 					"password" => $matches[5],
 					"groups" => explode(",", $matches[6]),
-					"disallowusermod" => boolval($matches[7]),
+					"disallowusermod" => boolvalEx($matches[7]),
 					"shell" => "/bin/dash"
 				);
 				if(!empty($matches[2]) && is_numeric($matches[2]))
@@ -1134,7 +1134,7 @@ finish:
 			  $xpath);
 		}
 		// Modify result data.
-		$object['enable'] = boolval($object['enable']);
+		$object['enable'] = boolvalEx($object['enable']);
 		return $object;
 	}
 
@@ -1172,7 +1172,7 @@ finish:
 		}
 		// Build the home directory path.
 		$homeDirPath = "";
-		if(TRUE === boolval($params['enable'])) {
+		if (TRUE === boolvalEx($params['enable'])) {
 			// Get the absolute shared folder path.
 			$homeDirPath = OMVRpc::exec("ShareMgmt", "getPath", array(
 			  "uuid" => $object['sharedfolderref']), $context);

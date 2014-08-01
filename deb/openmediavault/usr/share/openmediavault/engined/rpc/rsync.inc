@@ -121,20 +121,20 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 				break;
 			}
 			// Modify result data.
-			$objectv['enable'] = boolval($objectv['enable']);
-			$objectv['sendemail'] = boolval($objectv['sendemail']);
-			$objectv['recursive'] = boolval($objectv['recursive']);
-			$objectv['times'] = boolval($objectv['times']);
-			$objectv['compress'] = boolval($objectv['compress']);
-			$objectv['archive'] = boolval($objectv['archive']);
-			$objectv['delete'] = boolval($objectv['delete']);
-			$objectv['quiet'] = boolval($objectv['quiet']);
-			$objectv['perms'] = boolval($objectv['perms']);
-			$objectv['acls'] = boolval($objectv['acls']);
-			$objectv['xattrs'] = boolval($objectv['xattrs']);
-			$objectv['everynminute'] = boolval($objectv['everynminute']);
-			$objectv['everynhour'] = boolval($objectv['everynhour']);
-			$objectv['everyndayofmonth'] = boolval(
+			$objectv['enable'] = boolvalEx($objectv['enable']);
+			$objectv['sendemail'] = boolvalEx($objectv['sendemail']);
+			$objectv['recursive'] = boolvalEx($objectv['recursive']);
+			$objectv['times'] = boolvalEx($objectv['times']);
+			$objectv['compress'] = boolvalEx($objectv['compress']);
+			$objectv['archive'] = boolvalEx($objectv['archive']);
+			$objectv['delete'] = boolvalEx($objectv['delete']);
+			$objectv['quiet'] = boolvalEx($objectv['quiet']);
+			$objectv['perms'] = boolvalEx($objectv['perms']);
+			$objectv['acls'] = boolvalEx($objectv['acls']);
+			$objectv['xattrs'] = boolvalEx($objectv['xattrs']);
+			$objectv['everynminute'] = boolvalEx($objectv['everynminute']);
+			$objectv['everynhour'] = boolvalEx($objectv['everynhour']);
+			$objectv['everyndayofmonth'] = boolvalEx(
 			  $objectv['everyndayofmonth']);
 		}
 		// Filter result.
@@ -190,22 +190,22 @@ class OMVRpcServiceRsync extends OMVRpcServiceAbstract {
 			break;
 		}
 		// Modify result data.
-		$object['enable'] = boolval($object['enable']);
-		$object['sendemail'] = boolval($object['sendemail']);
-		$object['recursive'] = boolval($object['recursive']);
-		$object['times'] = boolval($object['times']);
-		$object['compress'] = boolval($object['compress']);
-		$object['archive'] = boolval($object['archive']);
-		$object['delete'] = boolval($object['delete']);
-		$object['quiet'] = boolval($object['quiet']);
-		$object['perms'] = boolval($object['perms']);
-		$object['acls'] = boolval($object['acls']);
-		$object['xattrs'] = boolval($object['xattrs']);
-		$object['dryrun'] = boolval($object['dryrun']);
-		$object['partial'] = boolval($object['partial']);
-		$object['everynminute'] = boolval($object['everynminute']);
-		$object['everynhour'] = boolval($object['everynhour']);
-		$object['everyndayofmonth'] = boolval($object['everyndayofmonth']);
+		$object['enable'] = boolvalEx($object['enable']);
+		$object['sendemail'] = boolvalEx($object['sendemail']);
+		$object['recursive'] = boolvalEx($object['recursive']);
+		$object['times'] = boolvalEx($object['times']);
+		$object['compress'] = boolvalEx($object['compress']);
+		$object['archive'] = boolvalEx($object['archive']);
+		$object['delete'] = boolvalEx($object['delete']);
+		$object['quiet'] = boolvalEx($object['quiet']);
+		$object['perms'] = boolvalEx($object['perms']);
+		$object['acls'] = boolvalEx($object['acls']);
+		$object['xattrs'] = boolvalEx($object['xattrs']);
+		$object['dryrun'] = boolvalEx($object['dryrun']);
+		$object['partial'] = boolvalEx($object['partial']);
+		$object['everynminute'] = boolvalEx($object['everynminute']);
+		$object['everynhour'] = boolvalEx($object['everynhour']);
+		$object['everyndayofmonth'] = boolvalEx($object['everyndayofmonth']);
 		return $object;
 	}
 

@@ -75,7 +75,7 @@ class OMVJsonRpcProxy extends OMVObject {
 		if(array_key_exists("options", $this->params) && !is_null(
 		  $this->params['options']) && array_key_exists("updatelastaccess",
 		  $this->params['options'])) {
-			$updateLastAccess = boolval(
+			$updateLastAccess = boolvalEx(
 			  $this->params['options']['updatelastaccess']);
 		}
 

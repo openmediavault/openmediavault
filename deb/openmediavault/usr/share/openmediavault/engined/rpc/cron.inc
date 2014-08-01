@@ -90,11 +90,11 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 		foreach($objects as $objectk => $objectv) {
 			if(in_array($objectv['type'], $params['type'])) {
 				// Modify result data.
-				$objectv['enable'] = boolval($objectv['enable']);
-				$objectv['sendemail'] = boolval($objectv['sendemail']);
-				$objectv['everynminute'] = boolval($objectv['everynminute']);
-				$objectv['everynhour'] = boolval($objectv['everynhour']);
-				$objectv['everyndayofmonth'] = boolval(
+				$objectv['enable'] = boolvalEx($objectv['enable']);
+				$objectv['sendemail'] = boolvalEx($objectv['sendemail']);
+				$objectv['everynminute'] = boolvalEx($objectv['everynminute']);
+				$objectv['everynhour'] = boolvalEx($objectv['everynhour']);
+				$objectv['everyndayofmonth'] = boolvalEx(
 				  $objectv['everyndayofmonth']);
 				$jobs[] = $objectv;
 			}
@@ -133,11 +133,11 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify the result object.
-		$object['enable'] = boolval($object['enable']);
-		$object['sendemail'] = boolval($object['sendemail']);
-		$object['everynminute'] = boolval($object['everynminute']);
-		$object['everynhour'] = boolval($object['everynhour']);
-		$object['everyndayofmonth'] = boolval($object['everyndayofmonth']);
+		$object['enable'] = boolvalEx($object['enable']);
+		$object['sendemail'] = boolvalEx($object['sendemail']);
+		$object['everynminute'] = boolvalEx($object['everynminute']);
+		$object['everynhour'] = boolvalEx($object['everynhour']);
+		$object['everyndayofmonth'] = boolvalEx($object['everyndayofmonth']);
 		return $object;
 	}
 

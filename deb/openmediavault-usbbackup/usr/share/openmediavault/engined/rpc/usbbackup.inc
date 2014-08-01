@@ -162,18 +162,18 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 			$objectv['running'] = file_exists(sprintf("/var/run/sync-%s",
 			  $objectv['fsuuid']));
 			// Modify result object.
-			$objectv['enable'] = boolval($objectv['enable']);
-			$objectv['sendemail'] = boolval($objectv['sendemail']);
-			$objectv['usesubdir'] = boolval($objectv['usesubdir']);
-			$objectv['recursive'] = boolval($objectv['recursive']);
-			$objectv['times'] = boolval($objectv['times']);
-			$objectv['compress'] = boolval($objectv['compress']);
-			$objectv['archive'] = boolval($objectv['archive']);
-			$objectv['delete'] = boolval($objectv['delete']);
-			$objectv['quiet'] = boolval($objectv['quiet']);
-			$objectv['perms'] = boolval($objectv['perms']);
-			$objectv['acls'] = boolval($objectv['acls']);
-			$objectv['xattrs'] = boolval($objectv['xattrs']);
+			$objectv['enable'] = boolvalEx($objectv['enable']);
+			$objectv['sendemail'] = boolvalEx($objectv['sendemail']);
+			$objectv['usesubdir'] = boolvalEx($objectv['usesubdir']);
+			$objectv['recursive'] = boolvalEx($objectv['recursive']);
+			$objectv['times'] = boolvalEx($objectv['times']);
+			$objectv['compress'] = boolvalEx($objectv['compress']);
+			$objectv['archive'] = boolvalEx($objectv['archive']);
+			$objectv['delete'] = boolvalEx($objectv['delete']);
+			$objectv['quiet'] = boolvalEx($objectv['quiet']);
+			$objectv['perms'] = boolvalEx($objectv['perms']);
+			$objectv['acls'] = boolvalEx($objectv['acls']);
+			$objectv['xattrs'] = boolvalEx($objectv['xattrs']);
 		}
 		// Filter the result.
 		return $this->applyFilter($objects, $params['start'],
@@ -210,19 +210,19 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		// Modify result object.
-		$object['enable'] = boolval($object['enable']);
-		$object['sendemail'] = boolval($object['sendemail']);
-		$object['usesubdir'] = boolval($object['usesubdir']);
-		$object['recursive'] = boolval($object['recursive']);
-		$object['times'] = boolval($object['times']);
-		$object['compress'] = boolval($object['compress']);
-		$object['archive'] = boolval($object['archive']);
-		$object['delete'] = boolval($object['delete']);
-		$object['quiet'] = boolval($object['quiet']);
-		$object['perms'] = boolval($object['perms']);
-		$object['acls'] = boolval($object['acls']);
-		$object['xattrs'] = boolval($object['xattrs']);
-		$object['partial'] = boolval($object['partial']);
+		$object['enable'] = boolvalEx($object['enable']);
+		$object['sendemail'] = boolvalEx($object['sendemail']);
+		$object['usesubdir'] = boolvalEx($object['usesubdir']);
+		$object['recursive'] = boolvalEx($object['recursive']);
+		$object['times'] = boolvalEx($object['times']);
+		$object['compress'] = boolvalEx($object['compress']);
+		$object['archive'] = boolvalEx($object['archive']);
+		$object['delete'] = boolvalEx($object['delete']);
+		$object['quiet'] = boolvalEx($object['quiet']);
+		$object['perms'] = boolvalEx($object['perms']);
+		$object['acls'] = boolvalEx($object['acls']);
+		$object['xattrs'] = boolvalEx($object['xattrs']);
+		$object['partial'] = boolvalEx($object['partial']);
 		return $object;
 	}
 
