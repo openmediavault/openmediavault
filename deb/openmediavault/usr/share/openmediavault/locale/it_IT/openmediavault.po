@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-28 22:41+0200\n"
-"PO-Revision-Date: 2014-07-28 20:44+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-07-29 13:51+0000\n"
+"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -435,7 +435,7 @@ msgid "Authentication type"
 msgstr "Tipo di autenticazione"
 
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 msgid "Automatic Acoustic Management"
 msgstr "Gestione Automatica della Rumorosità"
@@ -623,10 +623,10 @@ msgid "Client"
 msgstr "Client"
 
 msgid "Client NetBIOS name"
-msgstr ""
+msgstr "Nome Client NetBIOS"
 
 msgid "Client address"
-msgstr ""
+msgstr "Indirizzo Client"
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
 msgstr ""
@@ -724,7 +724,7 @@ msgid "Create RAID device"
 msgstr "Crea dispositivo RAID"
 
 msgid "Create file system"
-msgstr ""
+msgstr "Crea file system"
 
 msgid "Create self-signed SSL certificate"
 msgstr "Crea certificato SSL self-signed"
@@ -769,7 +769,7 @@ msgid "Daemon"
 msgstr "Demone"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Cruscotto"
 
 msgid "Date"
 msgstr "Data"
@@ -796,7 +796,7 @@ msgid "Delete content"
 msgstr "Elimina contenuto"
 
 msgid "Delete file system"
-msgstr ""
+msgstr "Elimina file system"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Cancella i file sulla destinazione che non esistono sulla sorgente"
@@ -897,7 +897,7 @@ msgid "Do you really want to create the RAID device?"
 msgstr "Sicuro di voler creare il dispositivo RAID?"
 
 msgid "Do you really want to delete the file system? All data will be lost."
-msgstr ""
+msgstr "Vuoi veramente eliminare il file system? Tutti i dati verrano persi."
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Sicuro di voler cancellare gli elementi selezionati?"
@@ -905,7 +905,7 @@ msgstr "Sicuro di voler cancellare gli elementi selezionati?"
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the file system creation may take some time."
-msgstr ""
+msgstr "Sei sicuro di voler formattare questo dispositivo? Tutti i dati in esso presenti verranno cancellati. Tieni presente che la creazione del file system può richiedere un po' di tempo."
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Sicuro di voler installare i plugin selezionati?"
@@ -917,7 +917,7 @@ msgid "Do you really want to logout?"
 msgstr "Sicuro di voler effettuare il logout?"
 
 msgid "Do you really want to put the system into standby?"
-msgstr ""
+msgstr "Sei sicuro di voler mandare il sistema in standby?"
 
 msgid "Do you really want to reboot the system?"
 msgstr "Sicuro di voler riavviare il sistema?"
@@ -925,7 +925,7 @@ msgstr "Sicuro di voler riavviare il sistema?"
 msgid ""
 "Do you really want to relocate the shared folder? The content of the shared "
 "folder will not be moved automatically, you have to do this yourself."
-msgstr ""
+msgstr "Sicuro di voler trasferire il contenuto della cartella condivisa? Il contenuto della cartella condivisa non sarà trasferito automaticamente, è necessario farlo a mano."
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
@@ -933,7 +933,7 @@ msgid ""
 msgstr "Sicuro di voler eliminare il contenuto della cartella condivisa? Sarà definitivamente cancellato e non potrà essere recuperato."
 
 msgid "Do you really want to remove this widget?"
-msgstr ""
+msgstr "Sei sicuro di voler rimuovere questo widget?"
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Sei sicuro di voler ripristinare lo stato della WebGUI, ad es. l'ordine delle colonne nelle griglie?"
@@ -1061,10 +1061,10 @@ msgid "Email"
 msgstr "Email"
 
 msgid "Empty now"
-msgstr ""
+msgstr "Svuota adesso"
 
 msgid "Empty recycle bin"
-msgstr ""
+msgstr "Svuota cestino"
 
 msgid "Enable"
 msgstr "Abilita"
@@ -1198,7 +1198,7 @@ msgid "Execute cron job"
 msgstr "Esegui processo pianificato"
 
 msgid "Execute only"
-msgstr ""
+msgstr "Esegui solamente"
 
 msgid "Execute rsync job"
 msgstr "Esegui processo rsync"
@@ -2204,7 +2204,7 @@ msgid "Only guests"
 msgstr ""
 
 msgid "Operation"
-msgstr ""
+msgstr "Operazione"
 
 msgid "Operation not allowed for user '%s'."
 msgstr "Operazione non permessa all'utente '%s'."
@@ -2532,13 +2532,13 @@ msgid "Read-only"
 msgstr "Sola lettura"
 
 msgid "Read/Execute"
-msgstr ""
+msgstr "Lettura/Esecuzione"
 
 msgid "Read/Write"
 msgstr "Lettura/Scrittura"
 
 msgid "Read/Write/Execute"
-msgstr ""
+msgstr "Lettura/Scrittura/Esecuzione"
 
 msgid "Real"
 msgstr "Reale"
@@ -2580,7 +2580,7 @@ msgid "Remote syslog"
 msgstr "Syslog remoto"
 
 msgid "Remove"
-msgstr ""
+msgstr "Rimuovi"
 
 msgid "Replace"
 msgstr "Sostituisci"
@@ -2625,7 +2625,7 @@ msgid "Resize"
 msgstr "Ridimensiona"
 
 msgid "Result"
-msgstr ""
+msgstr "Risultato"
 
 msgid "Resume"
 msgstr "Riprendi"
@@ -2914,7 +2914,7 @@ msgid "Shared folder must not be equal"
 msgstr "Le cartelle condivise non possono essere uguali"
 
 msgid "Shared folder name"
-msgstr ""
+msgstr "Nome Cartella Condivisa"
 
 msgid "Shared folder path"
 msgstr ""
@@ -3873,7 +3873,7 @@ msgid "Write only"
 msgstr "Sola scrittura"
 
 msgid "Write/Execute"
-msgstr ""
+msgstr "Scrittura/Esecuzione"
 
 msgid "Yemen"
 msgstr "Yemen"

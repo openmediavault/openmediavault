@@ -29,6 +29,6 @@ Package: openmediavault-installer
 Package-Type: udeb
 Architecture: all
 Section: debian-installer
-Depends: partman-base, finish-install
+Depends: ${misc:Depends}, partman-base, finish-install
 Description: OpenMediaVault scripts, for debian-installer
  This package contains scripts that are for use in debian-installer.

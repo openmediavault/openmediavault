@@ -1,9 +1,13 @@
 openmediavault (1.0.9) stable; urgency=low
 
+  * Update locales.
   * Supporting stateful address autoconfiguration (DHCPv6) and stateless
     address autoconfiguration (SLAAC) for IPv6 network interfaces in
     omv-firstaid.
   * Improve partitioning of the storage device when creating a file system.
+  * Rename PHP function boolval to boolvalEx because this function is
+    introduced with PHP 5.5 and will conflict with the OMV implemented
+    function.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 29 Jul 2014 01:03:00 +0200
 
