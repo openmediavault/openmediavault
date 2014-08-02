@@ -114,7 +114,7 @@ function array_boolval($array, $key) {
  * Returns the boolean value of the given value.
  */
 if (!function_exists("boolval")) {
-	function boolvalEx($var) {
+	function boolval($var) {
 		return boolvalEx($var);
 	}
 }
