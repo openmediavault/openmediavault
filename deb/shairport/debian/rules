@@ -1,7 +1,7 @@
 #!/usr/bin/make -f
 
 #export DH_VERBOSE=1
-SOURCE_DIR=$(shell ls -d shairport-*)
+SOURCE_DIR=$(shell ls -d shairport*)
 
 clean:
 	dh_testdir

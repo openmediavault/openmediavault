@@ -1,4 +1,9 @@
 #! /bin/sh
+
+# To use this script, you must create a shairport user in the audio group:
+#   sudo useradd -g audio shairport
+
+
 ### BEGIN INIT INFO
 # Provides:          shairport
 # Required-Start:    $remote_fs $networking
@@ -14,11 +19,11 @@
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="Shairport Airtunes emulator"
 NAME=shairport
-DAEMON=/usr/bin/shairport
+DAEMON=/usr/local/bin/shairport
 
 # Configuration defaults
 USER=shairport
-GROUP=nogroup
+GROUP=audio
 LOGFILE=/var/log/$NAME.log
 ERRFILE=/var/log/$NAME.err
 PIDFILE=/var/run/$NAME.pid
@@ -40,6 +45,7 @@ DAEMON_ARGS="--daemon --pidfile $PIDFILE --log $LOGFILE"
 
 # Exit if the package is not installed
 [ -x "$DAEMON" ] || { echo "$NAME is not installed" >&2 ; exit 1; }
+id -u "$USER" >/dev/null 2>&1 || { echo "User $USER does not exist" >&2; exit 1; }
 
 # Load the VERBOSE setting and other rcS variables
 . /lib/init/vars.sh

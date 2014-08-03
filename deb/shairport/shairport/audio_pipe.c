@@ -28,45 +28,98 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <memory.h>
+#include <errno.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <sys/time.h>
 #include "common.h"
 #include "audio.h"
 
 static int fd = -1;
-
-char *pipename = NULL;
-
-static void start(int sample_rate) {
-    fd = open(pipename, O_WRONLY);
-    if (fd < 0) {
-        perror("open");
-        die("could not open specified pipe for writing");
-    }
-}
-
-static void play(short buf[], int samples) {
-    write(fd, buf, samples*4);
-}
+static char *pipename = NULL;
+static int Fs;
+static long long starttime, samples_played;
 
 static void stop(void) {
     close(fd);
+    fd = -1;
+}
+
+static void start(int sample_rate) {
+    if (fd >= 0)
+        stop();
+
+    fd = open(pipename, O_WRONLY | O_NONBLOCK);
+    if ((fd < 0) && (errno != ENXIO)) {
+        perror("open");
+        die("could not open specified pipe for writing");
+    }
+
+    // The other end is ready, reopen with blocking
+    if (fd >= 0) {
+        close(fd);
+        fd = open(pipename, O_WRONLY);
+    }
+
+    Fs = sample_rate;
+    starttime = 0;
+    samples_played = 0;
+}
+
+// Wait procedure taken from audio_dummy.c
+static void wait_samples(int samples) {
+    struct timeval tv;
+
+    // this is all a bit expensive but it's long-term stable.
+    gettimeofday(&tv, NULL);
+
+    long long nowtime = tv.tv_usec + 1e6*tv.tv_sec;
+
+    if (!starttime)
+        starttime = nowtime;
+
+    samples_played += samples;
+
+    long long finishtime = starttime + samples_played * 1e6 / Fs;
+
+    usleep(finishtime - nowtime);
+}
+
+static void play(short buf[], int samples) {
+    if (fd < 0) {
+        wait_samples(samples);
+
+        // check if the other end is ready every 5 seconds
+        if (samples_played > 5 * Fs)
+            start(Fs);
+
+        return;
+    }
+
+    if (write(fd, buf, samples*4) < 0)
+        stop();
 }
 
 static int init(int argc, char **argv) {
+    struct stat sb;
+
     if (argc != 1)
         die("bad argument(s) to pipe");
 
     pipename = strdup(argv[0]);
 
-    // test open pipe so we error on startup if it's going to fail
-    start(44100);
-    stop();
+    if (stat(pipename, &sb) < 0)
+        die("could not stat() pipe");
+
+    if (!S_ISFIFO(sb.st_mode))
+        die("not a pipe");
 
     return 0;
 }
 
 static void deinit(void) {
-    if (fd > 0)
-        close(fd);
+    if (fd >= 0)
+        stop();
     if (pipename)
         free(pipename);
 }

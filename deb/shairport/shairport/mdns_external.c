@@ -64,7 +64,7 @@ static int fork_execvp(const char *file, char *const argv[]) {
 
         // If we reach this point then execve has failed.
         // Write erno's value into the pipe and exit.
-        write(execpipe[1], &errno, sizeof(errno));
+        write_unchecked(execpipe[1], &errno, sizeof(errno));
 
         _exit(-1);
         return 0; // Just to make the compiler happy.
@@ -94,13 +94,12 @@ static int mdns_external_avahi_register(char *apname, int port) {
 
     argv[0] = "avahi-publish-service";
     int pid = fork_execvp(argv[0], argv);
-    if (pid >= 0)
-    {
+    if (pid >= 0) {
         mdns_pid = pid;
         return 0;
     }
     else
-        warn("Calling %s failed !", argv[0]);
+        debug(1, "Calling %s failed", argv[0]);
 
     argv[0] = "mDNSPublish";
     pid = fork_execvp(argv[0], argv);
@@ -110,7 +109,7 @@ static int mdns_external_avahi_register(char *apname, int port) {
         return 0;
     }
     else
-        warn("Calling %s failed !", argv[0]);
+        debug(1, "Calling %s failed", argv[0]);
     
     // If we reach here, both execvp calls failed.
     return -1;
@@ -130,7 +129,7 @@ static int mdns_external_dns_sd_register(char *apname, int port) {
         return 0;
     }
     else
-        warn("Calling %s failed !", argv[0]);
+        debug(1, "Calling %s failed", argv[0]);
 
     return -1;
 }

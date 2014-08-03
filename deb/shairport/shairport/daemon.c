@@ -56,7 +56,7 @@ void daemon_init() {
             exit(1);
         } else if (buf[0] != 0) {
             // First byte is non zero, child sent error message
-            write(STDERR_FILENO, buf, ret);
+            write_unchecked(STDERR_FILENO, buf, ret);
             fprintf(stderr, "\n");
             exit(1);
         } else {
@@ -86,7 +86,7 @@ void daemon_init() {
 
 void daemon_ready() {
     char ok = 0;
-    write(daemon_pipe[1], &ok, 1);
+    write_unchecked(daemon_pipe[1], &ok, 1);
     close(daemon_pipe[1]);
     daemon_pipe[1] = -1;
 }
@@ -100,7 +100,7 @@ void daemon_fail(const char *format, va_list arg) {
 
 void daemon_exit() {
     if (lock_fd > 0) {
-        lockf(lock_fd, F_ULOCK, 0);
+        lockf_unchecked(lock_fd, F_ULOCK, 0);
         close(lock_fd);
         unlink(config.pidfile);
         lock_fd = -1;
