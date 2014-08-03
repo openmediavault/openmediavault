@@ -1,0 +1,5 @@
+/shairport
+/*.o
+/config.mk
+/config.h
+/version.h
