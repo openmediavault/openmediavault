@@ -887,6 +887,17 @@ class OMVMntEnt extends OMVObject {
 	}
 
 	/**
+	 * See if the directory is a mount point.
+	 * @return TRUE if the directory is a mount point, FALSE if not.
+	 */
+	public function isMountPoint() {
+		$cmd = sprintf("export LANG=C; mountpoint %s 2>&1", escapeshellarg(
+		  $this->dir));
+		@OMVUtil::exec($cmd, $output, $result);
+		return ($result == 0) ? TRUE : FALSE;
+	}
+
+	/**
 	 * Get the OMVFilesystem object for the given mount point.
 	 * @param dir The filesystem path prefix.
 	 * @return The class object or NULL on failure.
