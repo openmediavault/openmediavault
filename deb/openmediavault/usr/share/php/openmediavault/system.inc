@@ -1079,21 +1079,22 @@ class OMVFilesystem extends OMVObject {
  * @ingroup api
  */
 class OMVMntEnt extends OMVObject {
-	private $fsname;
+	private $device;
 	private $dir;
 
 	/**
 	 * Constructor
-	 * @param fsname The name of the mounted filesystem.
-	 * @param dir The filesystem path prefix.
+	 * @param device The block special device or remote file system,
+	 *   e.g. /dev/sde1 or rootfs.
+	 * @param dir The mount point for the file system.
 	 */
-	public function __construct($fsname, $dir) {
-		$this->fsname = $fsname;
+	public function __construct($device, $dir) {
+		$this->device = $device;
 		$this->dir = $dir;
 	}
 
 	/**
-	 * Mount the given filesystem.
+	 * Mount the given file system.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function mount() {
@@ -1109,7 +1110,7 @@ class OMVMntEnt extends OMVObject {
 	}
 
 	/**
-	 * Unmount the given filesystem.
+	 * Unmount the given file system.
 	 * @param force Set to TRUE to force unmount. Defaults to FALSE.
 	 * @param lazy Set to TRUE to lazy unmount. Defaults to FALSE.
 	 * @return TRUE if successful, otherwise FALSE.
@@ -1131,17 +1132,17 @@ class OMVMntEnt extends OMVObject {
 	}
 
 	/**
-	 * Create the mount point of the filesystem.
+	 * Create the mount point of the file system.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function mkDir() {
-		if(is_dir($this->dir))
+		if (is_dir($this->dir))
 			return TRUE;
 		return mkdir($this->dir, 0700, TRUE);
 	}
 
 	/**
-	 * Unlink the mount point of the filesystem.
+	 * Unlink the mount point of the file system.
 	 * @param force Set to TRUE to ignore nonexistent files. Defaults to TRUE.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
@@ -1149,7 +1150,7 @@ class OMVMntEnt extends OMVObject {
 		$cmd = sprintf("export LANG=C; rm -rf %s 2>&1", escapeshellarg(
 		  $this->dir));
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
 			$this->setLastError($output);
 			return FALSE;
 		}
@@ -1157,12 +1158,12 @@ class OMVMntEnt extends OMVObject {
 	}
 
 	/**
-	 * Check if the given filesystem is mounted.
-	 * @return TRUE if the filesystem is mounted, otherwise FALSE.
+	 * Check if the given file system is mounted.
+	 * @return TRUE if the file system is mounted, otherwise FALSE.
 	 */
 	public function isMounted() {
 		$result = FALSE;
-		foreach(file("/proc/mounts") as $rowk => $rowv) {
+		foreach (file("/proc/mounts") as $rowk => $rowv) {
 			// Parse command output:
 			// rootfs / rootfs rw 0 0
 			// none /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
@@ -1171,7 +1172,7 @@ class OMVMntEnt extends OMVObject {
 			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			$matches = explode(" ", $rowv);
-			if(($matches[0] == $this->fsname) || ($matches[1] == $this->dir)) {
+			if (($matches[0] == $this->device) || ($matches[1] == $this->dir)) {
 				$result = TRUE;
 				break;
 			}
@@ -1180,13 +1181,24 @@ class OMVMntEnt extends OMVObject {
 	}
 
 	/**
+	 * See if the directory is a mount point.
+	 * @return TRUE if the directory is a mount point, FALSE if not.
+	 */
+	public function isMountPoint() {
+		$cmd = sprintf("export LANG=C; mountpoint %s 2>&1", escapeshellarg(
+		  $this->dir));
+		@OMVUtil::exec($cmd, $output, $result);
+		return ($result == 0) ? TRUE : FALSE;
+	}
+
+	/**
 	 * Get the OMVFilesystem object for the given mount point.
-	 * @param dir The filesystem path prefix.
+	 * @param dir The file system path prefix.
 	 * @return The class object or NULL on failure.
 	 */
 	public static function getFilesystemByDir($dir) {
 		$result = NULL;
-		foreach(file("/proc/mounts") as $rowk => $rowv) {
+		foreach (file("/proc/mounts") as $rowk => $rowv) {
 			// Parse command output:
 			// rootfs / rootfs rw 0 0
 			// none /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
@@ -1195,7 +1207,7 @@ class OMVMntEnt extends OMVObject {
 			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			$matches = explode(" ", $rowv);
-			if($matches[1] == $dir) {
+			if ($matches[1] == $dir) {
 				$result = new OMVFilesystem($matches[0]);
 				break;
 			}
@@ -1210,7 +1222,7 @@ class OMVMntEnt extends OMVObject {
 	 */
 	public static function getFilesystemByName($name) {
 		$result = NULL;
-		foreach(file("/proc/mounts") as $rowk => $rowv) {
+		foreach (file("/proc/mounts") as $rowk => $rowv) {
 			// Parse command output:
 			// rootfs / rootfs rw 0 0
 			// none /sys sysfs rw,nosuid,nodev,noexec,relatime 0 0
@@ -1219,7 +1231,7 @@ class OMVMntEnt extends OMVObject {
 			// /dev/sde1 /home/ftp/data ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			$matches = explode(" ", $rowv);
-			if($matches[0] == $name) {
+			if ($matches[0] == $name) {
 				$result = new OMVFilesystem($matches[0]);
 				break;
 			}

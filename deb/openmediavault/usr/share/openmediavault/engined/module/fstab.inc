@@ -113,14 +113,26 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 	 */
 	final public function deleteEntry($params) {
 		$me = new OMVMntEnt($params['fsname'], $params['dir']);
-		if(TRUE === $me->isMounted()) {
-			if(FALSE === $me->umount(TRUE, TRUE)) {
+		// Check whether the file system is mounted and unmount it if
+		// necessary.
+		if (TRUE === $me->isMounted()) {
+			if (FALSE === $me->umount(TRUE, TRUE)) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("Failed to unmount '%s': %s", $params['fsname'],
 				  $me->getLastError()));
 			}
 		}
-		if(FALSE === $me->unlinkDir()) {
+		// Check whether the directory is still a mount point. If this is
+		// the case, then throw an error, otherwise unlinking the
+		// directory might delete the file systems data. This can happen
+		// when the file system is unmounted by busy (e.g. NFS exports).
+		if (TRUE === $me->isMountPoint()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Removing the directory '%s' has been aborted, ".
+			  "the resource is busy", $params['dir']));
+		}
+		// Unlink the mount point directory.
+		if (FALSE === $me->unlinkDir()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to unlink the directory '%s': %s",
 			  $params['dir'], $me->getLastError()));
