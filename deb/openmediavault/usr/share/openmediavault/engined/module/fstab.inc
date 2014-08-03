@@ -125,7 +125,7 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 		// Check whether the directory is still a mount point. If this is
 		// the case, then throw an error, otherwise unlinking the
 		// directory might delete the file systems data. This can happen
-		// when the file system is unmounted by busy (e.g. NFS exports).
+		// when the file system is unmounted but busy (e.g. NFS exports).
 		if (TRUE === $me->isMountPoint()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Removing the directory '%s' has been aborted, ".

@@ -241,6 +241,20 @@ openmediavault (0.6) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Nov 2013 19:41:31 +0100
 
+openmediavault (0.5.54) stable; urgency=low
+
+  * Check whether a directory is still used as mount point before
+    unlinking. This is done to prevent data loss when the device or
+    resource is busy.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 03 Aug 2014 23:50:03 +0200
+
+openmediavault (0.5.53) stable; urgency=low
+
+  * Improve release upgrade script.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 15 Jul 2014 12:07:14 +0200
+
 openmediavault (0.5.52) stable; urgency=low
 
   * Improve release upgrade script.
