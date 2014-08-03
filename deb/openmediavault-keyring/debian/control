@@ -1,8 +1,10 @@
 Source: openmediavault-keyring
+Priority: important
 Section: misc
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>= 5), gnupg
 Standards-Version: 3.7.3
+Homepage: http://www.openmediavault.org
 
 Package: openmediavault-keyring
 Priority: important
