@@ -4,15 +4,15 @@
 # 
 # Translators:
 # mattjes04 <mattjes04@googlemail.com>, 2012
-# Volker <votdev@gmx.de>, 2013
+# Volker <votdev@gmx.de>, 2013-2014
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2013-06-16 11:11+0000\n"
+"POT-Creation-Date: 2014-08-06 16:30+0200\n"
+"PO-Revision-Date: 2014-08-06 14:30+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -20,9 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: de\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-
-msgid " "
-msgstr ""
 
 msgid "Add share"
 msgstr "Freigabe hinzufügen"
@@ -83,6 +80,9 @@ msgstr "Allgemeine Einstellungen"
 
 msgid "Guest login"
 msgstr "Gastanmeldung"
+
+msgid "Guest permissions"
+msgstr "Gastberechtigungen"
 
 msgid "Guests only have read access by default."
 msgstr "Gäste haben standardmäßig nur lesenden Zugriff."

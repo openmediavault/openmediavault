@@ -1,3 +1,9 @@
+openmediavault-netatalk (1.1.1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 06 Aug 2014 16:30:48 +0200
+
 openmediavault-netatalk (1.1) stable; urgency=low
 
   * Improve Avahi/Zeroconf configuration scripts.

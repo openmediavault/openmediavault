@@ -133,7 +133,7 @@ Ext.define("OMV.module.admin.service.afp.Share", {
 		},{
 			xtype: "checkbox",
 			name: "guestrw",
-			fieldLabel: _(" "),
+			fieldLabel: _("Guest permissions"),
 			checked: false,
 			boxLabel: _("Allow guests to create or modify files.")
 		},{
