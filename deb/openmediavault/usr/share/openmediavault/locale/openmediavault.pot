@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 22:41+0200\n"
+"POT-Creation-Date: 2014-08-08 01:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1546,16 +1546,16 @@ msgstr ""
 msgid "Install"
 msgstr ""
 
-msgid "Install plugins ..."
-msgstr ""
-
-msgid "Install updates ..."
-msgstr ""
-
 msgid "Install updates from"
 msgstr ""
 
 msgid "Installed"
+msgstr ""
+
+msgid "Installing plugins ..."
+msgstr ""
+
+msgid "Installing updates ..."
 msgstr ""
 
 msgid "Interfaces"
@@ -3465,6 +3465,9 @@ msgid "Updates"
 msgstr ""
 
 msgid "Updating ACL settings"
+msgstr ""
+
+msgid "Upgrade"
 msgstr ""
 
 msgid "Upload"

@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 22:41+0200\n"
-"PO-Revision-Date: 2014-07-29 13:51+0000\n"
-"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
+"POT-Creation-Date: 2014-08-08 01:26+0200\n"
+"PO-Revision-Date: 2014-08-07 23:27+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1275,10 +1275,10 @@ msgid "File"
 msgstr "File"
 
 msgid "File Systems"
-msgstr ""
+msgstr "File System"
 
 msgid "File system"
-msgstr ""
+msgstr "File system"
 
 msgid "Filename"
 msgstr "Nome file"
@@ -1315,7 +1315,7 @@ msgid "Firmware version"
 msgstr "Versione del firmware"
 
 msgid "Flags"
-msgstr ""
+msgstr "Flag"
 
 msgid "Force SSL/TLS"
 msgstr "Forza SSL/TLS"
@@ -1426,10 +1426,10 @@ msgid "Guest"
 msgstr "Guest"
 
 msgid "Guest allowed"
-msgstr ""
+msgstr "Ospite consentito"
 
 msgid "Guests allowed"
-msgstr ""
+msgstr "Ospiti consentiti"
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1627,17 +1627,17 @@ msgstr "Inizializzazione in corso"
 msgid "Install"
 msgstr "Installa"
 
-msgid "Install plugins ..."
-msgstr "Installa i plugins..."
-
-msgid "Install updates ..."
-msgstr "Installa gli update..."
-
 msgid "Install updates from"
 msgstr "Installa aggiornamenti da"
 
 msgid "Installed"
 msgstr "Installato"
+
+msgid "Installing plugins ..."
+msgstr ""
+
+msgid "Installing updates ..."
+msgstr ""
 
 msgid "Interfaces"
 msgstr "Interfacce"
@@ -1795,7 +1795,7 @@ msgid "Loading ..."
 msgstr "Caricamento ..."
 
 msgid "Loading, please wait ..."
-msgstr ""
+msgstr "Caricamento, attendere ..."
 
 msgid "Local"
 msgstr "Locale"
@@ -2201,7 +2201,7 @@ msgid "Online"
 msgstr "Online"
 
 msgid "Only guests"
-msgstr ""
+msgstr "Solo ospiti"
 
 msgid "Operation"
 msgstr "Operazione"
@@ -2411,7 +2411,7 @@ msgid "Power mode"
 msgstr "Modo alimentazione"
 
 msgid "Pre-release updates."
-msgstr ""
+msgstr "Aggiornamenti pre-rilascio."
 
 msgid "Prefix length"
 msgstr "Lunghezza Prefisso"
@@ -3329,7 +3329,7 @@ msgid "The user '%s' is not allowed"
 msgstr "L'utente '%s' non è abilitato"
 
 msgid "The volume label for the file system."
-msgstr ""
+msgstr "L'etichetta del volume per il file system."
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3345,7 +3345,7 @@ msgstr "Esiste già un mount point per %s"
 msgid ""
 "These settings are used by the services to configure the user access rights."
 " Please note that these settings have no effect on file system permissions."
-msgstr ""
+msgstr "Queste impostazioni vengono usate dai servizi per configurare i permessi dell'utente. Tenere presente che queste impostazioni non hanno effetto sul file system."
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3693,6 +3693,9 @@ msgstr "Aggiornamenti"
 
 msgid "Updating ACL settings"
 msgstr "Sto aggiornando le impostazioni delle ACL"
+
+msgid "Upgrade"
+msgstr ""
 
 msgid "Upload"
 msgstr "Upload"

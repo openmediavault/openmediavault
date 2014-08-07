@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 22:41+0200\n"
-"PO-Revision-Date: 2014-07-28 20:44+0000\n"
+"POT-Creation-Date: 2014-08-08 01:26+0200\n"
+"PO-Revision-Date: 2014-08-07 23:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -1623,17 +1623,17 @@ msgstr "A inicializar"
 msgid "Install"
 msgstr "Instalar"
 
-msgid "Install plugins ..."
-msgstr "Instalar plugins..."
-
-msgid "Install updates ..."
-msgstr "Instalar atualizações..."
-
 msgid "Install updates from"
 msgstr "Instalar actualizações de"
 
 msgid "Installed"
 msgstr "Instalado"
+
+msgid "Installing plugins ..."
+msgstr ""
+
+msgid "Installing updates ..."
+msgstr ""
 
 msgid "Interfaces"
 msgstr "Interfaces"
@@ -3689,6 +3689,9 @@ msgstr "Actualizações"
 
 msgid "Updating ACL settings"
 msgstr "A atualizar as definições ACL"
+
+msgid "Upgrade"
+msgstr ""
 
 msgid "Upload"
 msgstr "Carregar"

@@ -16,8 +16,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 22:41+0200\n"
-"PO-Revision-Date: 2014-07-30 22:32+0000\n"
+"POT-Creation-Date: 2014-08-08 01:26+0200\n"
+"PO-Revision-Date: 2014-08-07 23:27+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -438,7 +438,7 @@ msgid "Authentication type"
 msgstr "Authentifizierungstyp"
 
 msgid "Auto"
-msgstr ""
+msgstr "Auto"
 
 msgid "Automatic Acoustic Management"
 msgstr "Automatisches Akustikmanagement"
@@ -626,7 +626,7 @@ msgid "Client"
 msgstr "Client"
 
 msgid "Client NetBIOS name"
-msgstr ""
+msgstr "Client NetBIOS-Name"
 
 msgid "Client address"
 msgstr "Client-Adresse"
@@ -772,7 +772,7 @@ msgid "Daemon"
 msgstr "Daemon"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Dashboard"
 
 msgid "Date"
 msgstr "Datum"
@@ -1630,17 +1630,17 @@ msgstr "Initialisierend"
 msgid "Install"
 msgstr "Installieren"
 
-msgid "Install plugins ..."
-msgstr "Installiere Erweiterungen ..."
-
-msgid "Install updates ..."
-msgstr "Installiere Aktualisierungen ..."
-
 msgid "Install updates from"
 msgstr "Installiere Aktualisierungen von"
 
 msgid "Installed"
 msgstr "Installiert"
+
+msgid "Installing plugins ..."
+msgstr "Installiere Erweiterungen ..."
+
+msgid "Installing updates ..."
+msgstr "Installiere Aktualisierungen ..."
 
 msgid "Interfaces"
 msgstr "Schnittstellen"
@@ -3696,6 +3696,9 @@ msgstr "Aktualisierungen"
 
 msgid "Updating ACL settings"
 msgstr "ACL Einstellungen aktualisieren"
+
+msgid "Upgrade"
+msgstr "Aktualisieren"
 
 msgid "Upload"
 msgstr "Hochladen"

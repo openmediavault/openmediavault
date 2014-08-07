@@ -198,12 +198,12 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			handler: Ext.Function.bind(me.onUploadButton, me, [ me ]),
 			scope: me
 		},{
-			id: me.getId() + "-install",
+			id: me.getId() + "-upgrade",
 			xtype: "button",
-			text: _("Install"),
+			text: _("Upgrade"),
 			icon: "images/add.png",
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
-			handler: Ext.Function.bind(me.onInstallButton, me, [ me ]),
+			handler: Ext.Function.bind(me.onUpgradeButton, me, [ me ]),
 			scope: me,
 			disabled: true,
 			selectionConfig: {
@@ -227,7 +227,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 		return items;
 	},
 
-	onInstallButton: function() {
+	onUpgradeButton: function() {
 		var me = this;
 		var records = me.getSelection();
 		var packages = [];
@@ -242,7 +242,7 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 			}
 		});
 		var wnd = Ext.create("OMV.window.Execute", {
-			title: _("Install updates ..."),
+			title: _("Installing updates ..."),
 			rpcService: "Apt",
 			rpcMethod: "upgrade",
 			rpcParams: { "packages": packages },

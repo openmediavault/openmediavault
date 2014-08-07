@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 22:41+0200\n"
-"PO-Revision-Date: 2014-07-29 01:02+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2014-08-08 01:26+0200\n"
+"PO-Revision-Date: 2014-08-07 23:27+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1622,17 +1622,17 @@ msgstr "初期化"
 msgid "Install"
 msgstr "インストール"
 
-msgid "Install plugins ..."
-msgstr "プラグインをインストール ..."
-
-msgid "Install updates ..."
-msgstr "アップデートをインストール ..."
-
 msgid "Install updates from"
 msgstr "アップデートのインストール方法"
 
 msgid "Installed"
 msgstr "インストール済み"
+
+msgid "Installing plugins ..."
+msgstr ""
+
+msgid "Installing updates ..."
+msgstr ""
 
 msgid "Interfaces"
 msgstr "インタフェース"
@@ -3688,6 +3688,9 @@ msgstr "アップデート"
 
 msgid "Updating ACL settings"
 msgstr "ACL設定のアップデート"
+
+msgid "Upgrade"
+msgstr ""
 
 msgid "Upload"
 msgstr "アップロード"

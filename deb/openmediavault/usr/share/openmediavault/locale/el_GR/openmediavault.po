@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 22:41+0200\n"
-"PO-Revision-Date: 2014-07-28 20:44+0000\n"
+"POT-Creation-Date: 2014-08-08 01:26+0200\n"
+"PO-Revision-Date: 2014-08-07 23:26+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -1622,17 +1622,17 @@ msgstr "Αρχικοποίηση"
 msgid "Install"
 msgstr "Εγκατάσταση"
 
-msgid "Install plugins ..."
-msgstr "Εγκατάσταση προσθηκών ..."
-
-msgid "Install updates ..."
-msgstr "Εγκατάσταση ενημερώσεων ..."
-
 msgid "Install updates from"
 msgstr "Εγκατάσταση ενημερώσεων από"
 
 msgid "Installed"
 msgstr "Εγκατεστημένο"
+
+msgid "Installing plugins ..."
+msgstr ""
+
+msgid "Installing updates ..."
+msgstr ""
 
 msgid "Interfaces"
 msgstr "Διεπαφές"
@@ -3688,6 +3688,9 @@ msgstr "Ενημερώσεις"
 
 msgid "Updating ACL settings"
 msgstr "Ενημέρωση ρυθμίσεων λιστών πρόσβασης"
+
+msgid "Upgrade"
+msgstr ""
 
 msgid "Upload"
 msgstr "Αποστολή"

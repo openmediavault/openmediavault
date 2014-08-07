@@ -350,7 +350,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 				if(answer !== "yes")
 					return;
 				var wnd = Ext.create("OMV.window.Execute", {
-					title: _("Install plugins ..."),
+					title: _("Installing plugins ..."),
 					rpcService: "Plugin",
 					rpcMethod: "install",
 					rpcParams: { "packages": packages },

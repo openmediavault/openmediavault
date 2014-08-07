@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-28 22:41+0200\n"
-"PO-Revision-Date: 2014-07-29 16:55+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
+"POT-Creation-Date: 2014-08-08 01:26+0200\n"
+"PO-Revision-Date: 2014-08-07 23:27+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1623,17 +1623,17 @@ msgstr "進行初始化"
 msgid "Install"
 msgstr "安裝"
 
-msgid "Install plugins ..."
-msgstr "安裝插件 ..."
-
-msgid "Install updates ..."
-msgstr "安裝更新 ..."
-
 msgid "Install updates from"
 msgstr "安裝更新來源"
 
 msgid "Installed"
 msgstr "已安裝"
+
+msgid "Installing plugins ..."
+msgstr ""
+
+msgid "Installing updates ..."
+msgstr ""
 
 msgid "Interfaces"
 msgstr "介面"
@@ -3689,6 +3689,9 @@ msgstr "更新"
 
 msgid "Updating ACL settings"
 msgstr "正在更新 ACL 設定中"
+
+msgid "Upgrade"
+msgstr ""
 
 msgid "Upload"
 msgstr "上傳"
