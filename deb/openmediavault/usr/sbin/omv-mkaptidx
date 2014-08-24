@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env python3
 #
 # This file is part of OpenMediaVault.
 #
@@ -19,59 +19,110 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-set -e
+import sys
+import apt
+import apt_pkg
+import json
+import re
+import openmediavault
 
-. /etc/default/openmediavault
-. /usr/share/openmediavault/scripts/helper-functions
+pi = openmediavault.ProductInfo()
 
-usage() {
-	cat <<EOF
-Usage:
-  $(basename $0) [options]
+class OpenMediaVaultPluginsFilter(apt.cache.Filter):
+	def apply(self, pkg):
+		m = re.match(r"^%s-(\S+)$" % pi.getPackageName(), pkg.name)
+		if not m:
+			return False
+		if m.group(1) == "keyring":
+			return False
+		return True
 
-Create the indexes of upgradeable packages and ${prdname} plugins.
+cache = apt.cache.Cache()
 
-OPTIONS:
-  -h  Show this message.
+# Create the '/var/lib/openmediavault/apt/upgradeindex.json' file.
+print("Creating index of upgradeable packages ...")
+data = []
+cache.upgrade(True)
+for pkg in cache.get_changes():
+	repository = ""
+	if pkg.candidate.origins:
+		repository = "%s:%s" % (pkg.candidate.origins[0].label,
+			pkg.candidate.origins[0].archive)
+	data.append({
+		"name": pkg.name,
+		"oldversion": pkg.installed.version,
+		"repository": repository,
+		"package": pkg.candidate.record.get("Package"),
+		"source": pkg.candidate.source_name,
+		"sourceversion": pkg.candidate.source_version,
+		"version": pkg.candidate.version,
+		"installedsize": pkg.candidate.size,
+		"maintainer": pkg.candidate.record.get("Maintainer", ""),
+		"architecture": pkg.candidate.architecture,
+		"depends": pkg.candidate.record.get("Depends", ""),
+		"suggests": pkg.candidate.record.get("Suggests", ""),
+		"conflicts": pkg.candidate.record.get("Conflicts", ""),
+		"breaks": pkg.candidate.record.get("Breaks", ""),
+		"abstract": pkg.candidate.summary, # Deprecated
+		"summary": pkg.candidate.summary,
+		"description": pkg.candidate.record.get("Description", ""),
+		"homepage": pkg.candidate.homepage,
+		"descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
+		"multiarch": pkg.candidate.record.get("Multi-Arch", ""),
+		"predepends": pkg.candidate.record.get("Pre-Depends", ""),
+		"section": pkg.candidate.section,
+		"priority": pkg.candidate.priority,
+		"filename": pkg.candidate.filename,
+		"size": pkg.candidate.size,
+		"md5sum": pkg.candidate.md5,
+		"sha1": pkg.candidate.sha1,
+		"sha256": pkg.candidate.sha256,
+		"uri": pkg.candidate.uri,
+		"uris": pkg.candidate.uris
+	})
+with open(openmediavault.APT_UPGRADE_INDEX_FILE, "w") as outfile:
+	json.dump(data, outfile, sort_keys=True, indent=4)
 
-EOF
-}
+# Create the '/var/lib/openmediavault/apt/pluginsindex.json' file.
+print("Creating index of %s plugins ..." % pi.getName())
+data = []
+cache = apt.cache.Cache()
+fcache = apt.cache.FilteredCache(cache)
+fcache.set_filter(OpenMediaVaultPluginsFilter())
+for pkg in fcache:
+	repository = ""
+	if pkg.candidate.origins:
+		repository = "%s:%s" % (pkg.candidate.origins[0].label,
+			pkg.candidate.origins[0].archive)
+	data.append({
+		"name": pkg.name,
+		"repository": repository,
+		"package": pkg.candidate.record.get("Package"),
+		"version": pkg.candidate.version,
+		"installedsize": pkg.candidate.size,
+		"maintainer": pkg.candidate.record.get("Maintainer", ""),
+		"architecture": pkg.candidate.architecture,
+		"depends": pkg.candidate.record.get("Depends", ""),
+		"suggests": pkg.candidate.record.get("Suggests", ""),
+		"conflicts": pkg.candidate.record.get("Conflicts", ""),
+		"breaks": pkg.candidate.record.get("Breaks", ""),
+		"abstract": pkg.candidate.summary, # Deprecated
+		"summary": pkg.candidate.summary,
+		"description": pkg.candidate.record.get("Description", ""),
+		"homepage": pkg.candidate.homepage,
+		"descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
+		"multiarch": pkg.candidate.record.get("Multi-Arch", ""),
+		"predepends": pkg.candidate.record.get("Pre-Depends", ""),
+		"section": pkg.candidate.section,
+		"priority": pkg.candidate.priority,
+		"filename": pkg.candidate.filename,
+		"size": pkg.candidate.size,
+		"md5sum": pkg.candidate.md5,
+		"sha1": pkg.candidate.sha1,
+		"sha256": pkg.candidate.sha256,
+		"installed": pkg.is_installed
+	})
+with open(openmediavault.APT_PLUGINS_INDEX_FILE, "w") as outfile:
+	json.dump(data, outfile, sort_keys=True, indent=4)
 
-cleanup() {
-	rm -f ${pidfile}
-	exit
-}
-
-pidfile="/var/run/$(basename $0).pid"
-prdname=$(omv_product_info "name")
-
-# Process the command line arguments.
-while getopts "?h" option
-do
-	case ${option} in
-	h|?)
-		usage >&2
-		exit 0
-		;;
-	esac
-done
-
-# Check if another instance is already running.
-if [ -e ${pidfile} ]; then
-	echo "Another instance is already running" >/dev/stderr
-	exit 1
-fi
-
-# Automatically cleanup PID file.
-trap cleanup 0 1 2 5 15
-echo $$ > ${pidfile}
-
-echo "Creating index of upgradeable packages ..."
-omv_exec_rpc "Apt" "createIndex" "{}"
-[ $? -ne 0 ] && exit 1
-
-echo "Creating index of ${prdname} plugins ..."
-omv_exec_rpc "Plugin" "createIndex" "{}"
-[ $? -ne 0 ] && exit 1
-
-exit 0
+sys.exit(0)

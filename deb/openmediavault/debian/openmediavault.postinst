@@ -370,6 +370,9 @@ case "$1" in
 			# Purge old monit configuration file.
 			rm -f /etc/monit/monit_delay
 		fi
+		if dpkg --compare-versions "$2" lt-nl "1.0.10"; then
+			rm -f /etc/apt/apt.conf.d/99openmediavault-index
+		fi
 	;;
 
 	triggered)
