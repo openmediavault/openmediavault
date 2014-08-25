@@ -76,9 +76,6 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get filesystems"));
 		}
-		// Get the root partition (the filesystem containing the operation
-		// system) to filter it out.
-		$rootDeviceFile = OMVSystem::getRootDeviceFile();
 		// Process the detected filesystems and skip unwanted ones.
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
@@ -128,7 +125,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			}
 			// Mark the device where the operating system is installed on
 			// as used and read-only.
-			if ($object['devicefile'] === $rootDeviceFile) {
+			if (OMVSystem::isRootDeviceFile($object['devicefile'])) {
 				$object['_used'] = TRUE;
 				$object['_readonly'] = TRUE;
 			}

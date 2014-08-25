@@ -44,9 +44,11 @@
  *   executed application does not have any output to be displayed in the
  *   content area. If set to TRUE the content area will not be displayed.
  *   Defaults to FALSE.
- * @param progressText The progress bar text. Defaults to 'Please wait ...".
+ * @param progressText The progress bar text. Defaults to 'Please wait ...'.
  * @param scrollBottom Set to TRUE to automatically scroll down the content.
  *   Defaults to TRUE.
+ * @param welcomeText The text that is displayed when the dialog is shown.
+ *   The text is only shown if \em progress is set to FALSE. Defaults to ''.
  */
 Ext.define("OMV.window.Execute", {
 	extend: "OMV.window.Window",
@@ -74,6 +76,7 @@ Ext.define("OMV.window.Execute", {
 	progress: false,
 	progressText: _("Please wait ..."),
 	scrollBottom: true,
+	welcomeText: "",
 
 	cmdIsRunning: false,
 	getContentAllowed: false,
@@ -104,9 +107,10 @@ Ext.define("OMV.window.Execute", {
 
 	initComponent: function() {
 		var me = this;
-		if(false === me.progress) {
+		if (false === me.progress) {
 			me.contentCtrl = Ext.create("Ext.form.field.TextArea", {
-				name: "content"
+				name: "content",
+				value: me.welcomeText
 			});
 		} else {
 			me.height = 58;

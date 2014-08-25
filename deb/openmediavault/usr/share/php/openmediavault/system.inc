@@ -40,6 +40,18 @@ class OMVSystem extends OMVObject {
 	}
 
 	/**
+	 * Check if the given device file contains the operating system.
+	 * @param devicefile The devicefile to check.
+	 * @return Returns TRUE if the device file contains the operating system,
+	 *   otherwise FALSE.
+	 */
+	public static function isRootDeviceFile($devicefile) {
+		if ("/dev/root" == $devicefile)
+			return TRUE;
+		return (realpath("/dev/root") == $devicefile) ? TRUE : FALSE;
+	}
+
+	/**
 	 * Get the /etc/login.defs configuration
 	 * @return Array containing the configuration as key/value pairs or
 	 *   FALSE on failure.
