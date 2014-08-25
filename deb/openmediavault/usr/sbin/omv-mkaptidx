@@ -46,7 +46,7 @@ cache.upgrade(True)
 for pkg in cache.get_changes():
 	repository = ""
 	if pkg.candidate.origins:
-		repository = "%s:%s" % (pkg.candidate.origins[0].label,
+		repository = "%s/%s" % (pkg.candidate.origins[0].label,
 			pkg.candidate.origins[0].archive)
 	data.append({
 		"name": pkg.name,
@@ -92,7 +92,7 @@ fcache.set_filter(OpenMediaVaultPluginsFilter())
 for pkg in fcache:
 	repository = ""
 	if pkg.candidate.origins:
-		repository = "%s:%s" % (pkg.candidate.origins[0].label,
+		repository = "%s/%s" % (pkg.candidate.origins[0].label,
 			pkg.candidate.origins[0].archive)
 	data.append({
 		"name": pkg.name,
