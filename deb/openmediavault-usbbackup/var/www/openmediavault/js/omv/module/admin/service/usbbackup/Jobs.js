@@ -402,6 +402,7 @@ Ext.define("OMV.module.admin.service.usbbackup.Jobs", {
 		var record = me.getSelected();
 		Ext.create("OMV.window.Execute", {
 			title: _("Execute backup job"),
+			welcomeText: _("Please note that the web interface is blocked until the manually started backup job has been finished. However the backup job is automatically executed in the background when the storage device is connected to the host."),
 			rpcService: "UsbBackup",
 			rpcMethod: "execute",
 			rpcParams: {

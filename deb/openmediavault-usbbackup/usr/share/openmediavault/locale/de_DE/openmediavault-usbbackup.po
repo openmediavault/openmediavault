@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Stephan Steiner, 2014
 # Volker <votdev@gmx.de>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-07-07 16:31+0000\n"
+"POT-Creation-Date: 2014-08-25 22:54+0200\n"
+"PO-Revision-Date: 2014-08-25 20:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -80,7 +81,7 @@ msgid "Failed to get filesystems"
 msgstr "Konnte Dateisysteme nicht ermitteln"
 
 msgid "Failed to get storage device file from '%s'"
-msgstr ""
+msgstr "Konnte die Speichergerätedatei von '%s' nicht ermitteln"
 
 msgid "Filesystem '%s' not found"
 msgstr "Das Dateisystem '%s' wurde nicht gefunden"
@@ -101,6 +102,12 @@ msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
 msgstr "Bitte die <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>Hilfeseiten</a> für weitere Details lesen."
+
+msgid ""
+"Please note that the web interface is blocked until the manually started "
+"backup job has been finished. However the backup job is automatically "
+"executed in the background when the storage device is connected to the host."
+msgstr "Bitte beachten Sie dass die Benutzeroberfläche solange blockiert ist bis der manuell gestartete Backup-Auftrag beendet ist. Der Backup-Auftrag wird hingegen automatisch im Hintergrund ausgeführt sobald Sie das Speichergerät mit dem Hostsystem verbinden."
 
 msgid "Preserve ACLs"
 msgstr "Erhalte ACLs"
@@ -149,7 +156,7 @@ msgid "Suppress non-error messages."
 msgstr "Unterdrücke Nicht-Fehlermeldungen."
 
 msgid "Synchronise from/to directory on external storage device."
-msgstr ""
+msgstr "Synchronisiere von/in das Verzeichnis auf dem externen Speichergerät."
 
 msgid "The external storage device."
 msgstr "Das externe Speichergerät."
@@ -158,7 +165,7 @@ msgid ""
 "The shared folder content is synchronised from/to the root of the external "
 "storage device if this option is not set. The name of the directory is taken"
 " from the shared folder."
-msgstr ""
+msgstr "Der Inhalt des freigegebenen Ordners wird von/in das Wurzelverzeichnis des externen Speichergerätes synchronisiert wenn diese Option nicht ausgewählt ist. Der Name des Verzeichnis wird vom freigegebenen Ordner übernommen."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "

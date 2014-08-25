@@ -67,9 +67,6 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get filesystems"));
 		}
-		// Get the root partition (the filesystem containing the operation
-		// system) to filter it out.
-		$rootDeviceFile = OMVSystem::getRootDeviceFile();
 		// Collect volumes that are candidates for a backup job.
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
@@ -79,7 +76,7 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 				continue;
 			}
 			// Skip the device where the operating system is installed on.
-			if ($objectv['devicefile'] === $rootDeviceFile)
+			if (OMVSystem::isRootDeviceFile($objectv['devicefile']))
 				continue;
 			// Check if the volume is connected via USB.
 			$fs = new OMVFilesystem($objectv['devicefile']);
