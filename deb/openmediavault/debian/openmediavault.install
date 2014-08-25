@@ -1,5 +1,6 @@
-usr/sbin/* usr/sbin
-usr/share/openmediavault/* usr/share/openmediavault
-usr/share/php/openmediavault/* usr/share/php/openmediavault
-etc/* etc
-var/www/openmediavault var/www
+usr/sbin/* usr/sbin/
+usr/share/openmediavault/* usr/share/openmediavault/
+usr/share/php/openmediavault/* usr/share/php/openmediavault/
+usr/lib/python3/* usr/lib/python3/
+etc/* etc/
+var/www/openmediavault var/www/
