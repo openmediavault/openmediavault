@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-08 01:26+0200\n"
-"PO-Revision-Date: 2014-08-07 23:27+0000\n"
+"POT-Creation-Date: 2014-08-26 18:41+0200\n"
+"PO-Revision-Date: 2014-08-26 16:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -157,7 +157,7 @@ msgid "9 months"
 msgstr "9月"
 
 msgid "A module with the name '%s' already exists"
-msgstr ""
+msgstr "模块名'%s'已经存在"
 
 msgid "A share with the name '%s' already exists"
 msgstr "共享名 '%s' 已经存在"
@@ -175,7 +175,7 @@ msgid "About"
 msgstr "关于"
 
 msgid "Abstract"
-msgstr ""
+msgstr "摘要"
 
 msgid "Access Right Management"
 msgstr "权限管理"
@@ -275,7 +275,7 @@ msgstr "阿富汗"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
-msgstr ""
+msgstr "在扩充RAID后你可以调整文件系统的大小。"
 
 msgid "Aland Islands"
 msgstr "奥兰群岛"
@@ -389,10 +389,10 @@ msgid "Attributes"
 msgstr "属性"
 
 msgid "Audit"
-msgstr ""
+msgstr "审核"
 
 msgid "Audit file operations."
-msgstr ""
+msgstr "审核文件操作。"
 
 msgid "August"
 msgstr "八月"
@@ -431,7 +431,7 @@ msgid "Authentication type"
 msgstr "验证类型"
 
 msgid "Auto"
-msgstr ""
+msgstr "自动"
 
 msgid "Automatic Acoustic Management"
 msgstr "自动声音管理"
@@ -619,13 +619,13 @@ msgid "Client"
 msgstr "客户端"
 
 msgid "Client NetBIOS name"
-msgstr ""
+msgstr "客户端NetBIOS名称"
 
 msgid "Client address"
-msgstr ""
+msgstr "客户端地址"
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "客户端可以挂载文件系统，如192.168.178.0/24。"
 
 msgid "Close"
 msgstr "关闭"
@@ -720,13 +720,13 @@ msgid "Create RAID device"
 msgstr "创建RAID"
 
 msgid "Create file system"
-msgstr ""
+msgstr "创建文件系统"
 
 msgid "Create self-signed SSL certificate"
 msgstr "创建自签名证书"
 
 msgid "Creating the file system, please wait ..."
-msgstr ""
+msgstr "创建文件系统，请等待..."
 
 msgid "Critical"
 msgstr "严重"
@@ -765,7 +765,7 @@ msgid "Daemon"
 msgstr "守护进程"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "仪表盘"
 
 msgid "Date"
 msgstr "日期"
@@ -792,7 +792,7 @@ msgid "Delete content"
 msgstr "删除内容"
 
 msgid "Delete file system"
-msgstr ""
+msgstr "删除文件系统"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "若发送端不存而接收端存在的文件则删除"
@@ -884,7 +884,7 @@ msgid "Djibouti"
 msgstr "吉布提"
 
 msgid "Do you really want to apply the configuration changes?"
-msgstr ""
+msgstr "确定要应用变更配置？"
 
 msgid "Do you really want to clear the log file?"
 msgstr "确定清空日志文件？"
@@ -893,7 +893,7 @@ msgid "Do you really want to create the RAID device?"
 msgstr "确定创建RAID？"
 
 msgid "Do you really want to delete the file system? All data will be lost."
-msgstr ""
+msgstr "确定要删除文件系统？所有数据将丢失。"
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "确定删除选中项(可复选)？"
@@ -901,7 +901,7 @@ msgstr "确定删除选中项(可复选)？"
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the file system creation may take some time."
-msgstr ""
+msgstr "确定要格式化该设备？该设备所有数据将被删除，注意创建文件系统可能需要较长时间。"
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "确认要安装选中插件吗？"
@@ -913,7 +913,7 @@ msgid "Do you really want to logout?"
 msgstr "确定注销？"
 
 msgid "Do you really want to put the system into standby?"
-msgstr ""
+msgstr "确定要让系统进入待机状态？"
 
 msgid "Do you really want to reboot the system?"
 msgstr "确定重启系统？"
@@ -921,7 +921,7 @@ msgstr "确定重启系统？"
 msgid ""
 "Do you really want to relocate the shared folder? The content of the shared "
 "folder will not be moved automatically, you have to do this yourself."
-msgstr ""
+msgstr "确定要重定位共享文件夹？共享文件夹中的文件不会自动移动，你需要手动操作。"
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
@@ -929,7 +929,7 @@ msgid ""
 msgstr "确定删除共享文件夹的内容？删除后将无法恢复。"
 
 msgid "Do you really want to remove this widget?"
-msgstr ""
+msgstr "确定要删除这个小工具？"
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "确认重设WebGUI状态，例如栏位顺序？"
@@ -937,10 +937,10 @@ msgstr "确认重设WebGUI状态，例如栏位顺序？"
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr ""
+msgstr "确定要调整选中文件系统大小？通常是在扩充RAID后来进行调整。"
 
 msgid "Do you really want to revert the configuration changes?"
-msgstr ""
+msgstr "确定要恢复配置变更？"
 
 msgid "Do you really want to shutdown the system?"
 msgstr "确定关闭系统？"
@@ -1057,10 +1057,10 @@ msgid "Email"
 msgstr "Email"
 
 msgid "Empty now"
-msgstr ""
+msgstr "立即清空"
 
 msgid "Empty recycle bin"
-msgstr ""
+msgstr "清空回收站"
 
 msgid "Enable"
 msgstr "启用"
@@ -1194,7 +1194,7 @@ msgid "Execute cron job"
 msgstr "执行cron任务"
 
 msgid "Execute only"
-msgstr ""
+msgstr "仅执行"
 
 msgid "Execute rsync job"
 msgstr "执行rsync任务"
@@ -1271,10 +1271,10 @@ msgid "File"
 msgstr "文件"
 
 msgid "File Systems"
-msgstr ""
+msgstr "文件系统"
 
 msgid "File system"
-msgstr ""
+msgstr "文件系统"
 
 msgid "Filename"
 msgstr "文件名"
@@ -1311,7 +1311,7 @@ msgid "Firmware version"
 msgstr "固件版本"
 
 msgid "Flags"
-msgstr ""
+msgstr "标签"
 
 msgid "Force SSL/TLS"
 msgstr "强制使用SSL/TLS"
@@ -1359,7 +1359,7 @@ msgid "General settings"
 msgstr "常规设置"
 
 msgid "General users/groups"
-msgstr ""
+msgstr "常规用户/组"
 
 msgid "Generating graphs ..."
 msgstr "生成图形 ..."
@@ -1422,10 +1422,10 @@ msgid "Guest"
 msgstr "访客"
 
 msgid "Guest allowed"
-msgstr ""
+msgstr "允许访客"
 
 msgid "Guests allowed"
-msgstr ""
+msgstr "允许访客"
 
 msgid "Guinea"
 msgstr "几内亚"
@@ -1515,7 +1515,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selecting; in "
 "this case no password is required to connect to the share."
-msgstr ""
+msgstr "如果选择“允许访客”，用户没有提供登录凭证，那么让其以访客权限读写。如果选择“仅访客”，则全部用户以访客读写，用户不需要密码便可以连接共享。"
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1541,7 +1541,7 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr ""
+msgstr "如果设置此参数，Samba在映射DOS属性到UNIX系统前，首先会读取DOS文件系统扩展属性(系统、隐藏、存档或只读)。设置这项参数可以保存DOS文件系统中文件和文件夹的扩展属性到UNIX文件系统。"
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1630,10 +1630,10 @@ msgid "Installed"
 msgstr "已安装"
 
 msgid "Installing plugins ..."
-msgstr ""
+msgstr "安装插件中 ..."
 
 msgid "Installing updates ..."
-msgstr ""
+msgstr "安装更新中 ..."
 
 msgid "Interfaces"
 msgstr "网口"
@@ -1642,7 +1642,7 @@ msgid "Invalid domain name"
 msgstr "无效域名"
 
 msgid "Invalid file system label"
-msgstr ""
+msgstr "无效文件系统标签"
 
 msgid "Invalid group name"
 msgstr "无效组名称"
@@ -1791,7 +1791,7 @@ msgid "Loading ..."
 msgstr "载入中 ..."
 
 msgid "Loading, please wait ..."
-msgstr ""
+msgstr "载入中，请稍等 ..."
 
 msgid "Local"
 msgstr "本地"
@@ -2158,7 +2158,7 @@ msgid "Not UDP"
 msgstr "非UDP"
 
 msgid "Nothing"
-msgstr ""
+msgstr "没有"
 
 msgid "Notification"
 msgstr "通告"
@@ -2197,10 +2197,10 @@ msgid "Online"
 msgstr "在线"
 
 msgid "Only guests"
-msgstr ""
+msgstr "仅访客"
 
 msgid "Operation"
-msgstr ""
+msgstr "操作"
 
 msgid "Operation not allowed for user '%s'."
 msgstr "不允许用户 '%s' 操作。"
@@ -2380,7 +2380,7 @@ msgstr "请稍等 ..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
 "system."
-msgstr ""
+msgstr "RAID初始化完成后再创建文件系统。"
 
 msgid "Plugins"
 msgstr "插件"
@@ -2407,7 +2407,7 @@ msgid "Power mode"
 msgstr "电源模式"
 
 msgid "Pre-release updates."
-msgstr ""
+msgstr "预发布更新。"
 
 msgid "Prefix length"
 msgstr "前缀长度"
@@ -2528,13 +2528,13 @@ msgid "Read-only"
 msgstr "只读"
 
 msgid "Read/Execute"
-msgstr ""
+msgstr "读/执行"
 
 msgid "Read/Write"
 msgstr "读/写"
 
 msgid "Read/Write/Execute"
-msgstr ""
+msgstr "读/写/执行"
 
 msgid "Real"
 msgstr "实际用户"
@@ -2576,7 +2576,7 @@ msgid "Remote syslog"
 msgstr "远程系统日志"
 
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 msgid "Replace"
 msgstr "取代"
@@ -2585,7 +2585,7 @@ msgid "Replace all existing permissions"
 msgstr "取代显存所有权限"
 
 msgid "Report"
-msgstr ""
+msgstr "报告"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2621,7 +2621,7 @@ msgid "Resize"
 msgstr "调整大小"
 
 msgid "Result"
-msgstr ""
+msgstr "结果"
 
 msgid "Resume"
 msgstr "恢复"
@@ -2636,10 +2636,10 @@ msgid "Reverse DNS lookup"
 msgstr "反向DNS查找"
 
 msgid "Revert"
-msgstr ""
+msgstr "恢复"
 
 msgid "Revert configuration changes"
-msgstr ""
+msgstr "恢复配置变更"
 
 msgid "Romania"
 msgstr "罗马尼亚"
@@ -2678,7 +2678,7 @@ msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
 
 msgid "SMB/CIFS - Audit"
-msgstr ""
+msgstr "SMB/CIFS - 审核"
 
 msgid "SMTP port"
 msgstr "SMTP端口"
@@ -2747,7 +2747,7 @@ msgid "Scanning for new devices ..."
 msgstr "正在扫描新设备..."
 
 msgid "Scheduled Jobs"
-msgstr ""
+msgstr "计划任务"
 
 msgid "Scheduled tests"
 msgstr "测试计划"
@@ -2783,13 +2783,13 @@ msgid "Select a directory"
 msgstr "选择一个目录"
 
 msgid "Select a file permission ..."
-msgstr ""
+msgstr "选择文件权限 ..."
 
 msgid "Select a file system ..."
-msgstr ""
+msgstr "选择文件系统 ..."
 
 msgid "Select a group name ..."
-msgstr ""
+msgstr "选择组名称 ..."
 
 msgid "Select a language ..."
 msgstr "选择一种语言..."
@@ -2807,7 +2807,7 @@ msgid "Select a shell ..."
 msgstr "选择shell ..."
 
 msgid "Select a user name ..."
-msgstr ""
+msgstr "选择用户名 ..."
 
 msgid "Select a volume ..."
 msgstr "选择卷 ..."
@@ -2910,13 +2910,13 @@ msgid "Shared folder must not be equal"
 msgstr "共享文件夹不能相同"
 
 msgid "Shared folder name"
-msgstr ""
+msgstr "共享文件夹名称"
 
 msgid "Shared folder path"
-msgstr ""
+msgstr "共享文件夹路径"
 
 msgid "Shared folder privileges"
-msgstr ""
+msgstr "共享文件夹权限"
 
 msgid "Shares"
 msgstr "共享"
@@ -3148,7 +3148,7 @@ msgid "System time"
 msgstr "系统时间"
 
 msgid "System users/groups"
-msgstr ""
+msgstr "系统用户/组"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3190,7 +3190,7 @@ msgid "The SSL certificate."
 msgstr "SSL证书。"
 
 msgid "The action to be done when pressing the power button."
-msgstr ""
+msgstr "按下电源时要执行的动作。"
 
 msgid "The changes have been applied successfully."
 msgstr "变更已成功应用。"
@@ -3215,7 +3215,7 @@ msgid "The destination shared folder."
 msgstr "目标共享文件夹。"
 
 msgid "The device does not exist"
-msgstr ""
+msgstr "设备不存在"
 
 msgid "The field '%s' contains forbidden "
 msgstr " '%s' 包含禁止字符"
@@ -3224,7 +3224,7 @@ msgid "The file mode of the shared folder path."
 msgstr "共享文件夹路径的文件模式。"
 
 msgid "The file system creation has completed successfully."
-msgstr ""
+msgstr "文件系统创建成功。"
 
 msgid "The group '%s' does not exist"
 msgstr "用户组 '%s' 不存在"
@@ -3325,7 +3325,7 @@ msgid "The user '%s' is not allowed"
 msgstr "用户 '%s' 不被允许"
 
 msgid "The volume label for the file system."
-msgstr ""
+msgstr "文件系统卷标签"
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3341,7 +3341,7 @@ msgstr "目前已经存在了一个 %s 的挂载点"
 msgid ""
 "These settings are used by the services to configure the user access rights."
 " Please note that these settings have no effect on file system permissions."
-msgstr ""
+msgstr "这些设置用来配置用户访问服务器的权限，不会对文件系统的权限有影响。"
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3530,6 +3530,9 @@ msgstr "此参数表示如果在指定时间内发生N次事件，那么自动�
 msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "当选择的事件发生时这项规则会被触发。"
 
+msgid "This specifies what to do if the packet matches."
+msgstr ""
+
 msgid "This will create a recycle bin on the share."
 msgstr "在共享上创建回收站。"
 
@@ -3691,7 +3694,7 @@ msgid "Updating ACL settings"
 msgstr "更新ACL设置中"
 
 msgid "Upgrade"
-msgstr ""
+msgstr "升级"
 
 msgid "Upload"
 msgstr "上传"
@@ -3872,7 +3875,7 @@ msgid "Write only"
 msgstr "只写"
 
 msgid "Write/Execute"
-msgstr ""
+msgstr "写/执行"
 
 msgid "Yemen"
 msgstr "也门"

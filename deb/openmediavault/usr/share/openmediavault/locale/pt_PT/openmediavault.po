@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-08 01:26+0200\n"
-"PO-Revision-Date: 2014-08-07 23:26+0000\n"
+"POT-Creation-Date: 2014-08-26 18:41+0200\n"
+"PO-Revision-Date: 2014-08-26 16:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -3529,6 +3529,9 @@ msgstr "This parameter says that if N occurrences of the event happen within the
 
 msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "Esta regra é acionada sempre que o evento selecionado ocorrer."
+
+msgid "This specifies what to do if the packet matches."
+msgstr ""
 
 msgid "This will create a recycle bin on the share."
 msgstr "Isto irá criar uma reciclagem na partilha."

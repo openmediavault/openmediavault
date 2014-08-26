@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-08 01:26+0200\n"
+"POT-Creation-Date: 2014-08-26 18:41+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3306,6 +3306,9 @@ msgid "This parameter says that if N occurrences of the event happen within the 
 msgstr ""
 
 msgid "This rule is triggered whenever the selected event directive occurs."
+msgstr ""
+
+msgid "This specifies what to do if the packet matches."
 msgstr ""
 
 msgid "This will create a recycle bin on the share."

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-08 01:26+0200\n"
-"PO-Revision-Date: 2014-08-07 23:27+0000\n"
+"POT-Creation-Date: 2014-08-26 18:41+0200\n"
+"PO-Revision-Date: 2014-08-26 16:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -1630,10 +1630,10 @@ msgid "Installed"
 msgstr "已安裝"
 
 msgid "Installing plugins ..."
-msgstr ""
+msgstr "安裝插件中 ..."
 
 msgid "Installing updates ..."
-msgstr ""
+msgstr "安裝更新中 ..."
 
 msgid "Interfaces"
 msgstr "介面"
@@ -3530,6 +3530,9 @@ msgstr "此參數表示，如果在給定的時間間隔內發生 N 次事件，
 msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "當所選定的事件指示發生時，此規則會被觸發。"
 
+msgid "This specifies what to do if the packet matches."
+msgstr ""
+
 msgid "This will create a recycle bin on the share."
 msgstr "這將在共享上建立一個回收筒。"
 
@@ -3691,7 +3694,7 @@ msgid "Updating ACL settings"
 msgstr "正在更新 ACL 設定中"
 
 msgid "Upgrade"
-msgstr ""
+msgstr "升級"
 
 msgid "Upload"
 msgstr "上傳"

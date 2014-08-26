@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-08 01:26+0200\n"
-"PO-Revision-Date: 2014-08-07 23:27+0000\n"
+"POT-Creation-Date: 2014-08-26 18:41+0200\n"
+"PO-Revision-Date: 2014-08-26 16:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -1629,10 +1629,10 @@ msgid "Installed"
 msgstr "インストール済み"
 
 msgid "Installing plugins ..."
-msgstr ""
+msgstr "プラグインをインストールしています ..."
 
 msgid "Installing updates ..."
-msgstr ""
+msgstr "アップデートをインストールしています ..."
 
 msgid "Interfaces"
 msgstr "インタフェース"
@@ -3529,6 +3529,9 @@ msgstr "このパラメータは、イベント中が与えられた時間内に
 msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "選択したイベントディレクティブが発生するたびに、このルールがトリガされます。"
 
+msgid "This specifies what to do if the packet matches."
+msgstr ""
+
 msgid "This will create a recycle bin on the share."
 msgstr "これは共有上にごみ箱が作成されます。"
 
@@ -3690,7 +3693,7 @@ msgid "Updating ACL settings"
 msgstr "ACL設定のアップデート"
 
 msgid "Upgrade"
-msgstr ""
+msgstr "アップグレード"
 
 msgid "Upload"
 msgstr "アップロード"

@@ -1,5 +1,6 @@
 openmediavault (1.0.10) stable; urgency=low
 
+  * Update locales.
   * Check whether a directory is still used as mount point before
     unlinking. This is done to prevent data loss when the device or
     resource is busy.

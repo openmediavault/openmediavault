@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-08 01:26+0200\n"
-"PO-Revision-Date: 2014-08-07 23:27+0000\n"
+"POT-Creation-Date: 2014-08-26 18:41+0200\n"
+"PO-Revision-Date: 2014-08-26 16:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -1632,10 +1632,10 @@ msgid "Installed"
 msgstr "Instaladas"
 
 msgid "Installing plugins ..."
-msgstr ""
+msgstr "Instalando Plugins ..."
 
 msgid "Installing updates ..."
-msgstr ""
+msgstr "Instalando actualizaciones ..."
 
 msgid "Interfaces"
 msgstr "Interfaces"
@@ -3532,6 +3532,9 @@ msgstr "Si N ocurrencias del evento suceden en el intervalo de tiempo especifica
 msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "Esta regla se disparará en cuanto ocurra el evento seleccionado."
 
+msgid "This specifies what to do if the packet matches."
+msgstr ""
+
 msgid "This will create a recycle bin on the share."
 msgstr "Creará una papelera de reciclaje en la compartición."
 
@@ -3693,7 +3696,7 @@ msgid "Updating ACL settings"
 msgstr "Actualizando configuración de las ACL"
 
 msgid "Upgrade"
-msgstr ""
+msgstr "Upgrade"
 
 msgid "Upload"
 msgstr "Cargar"

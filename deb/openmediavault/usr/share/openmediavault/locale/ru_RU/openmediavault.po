@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-08 01:26+0200\n"
-"PO-Revision-Date: 2014-08-07 23:27+0000\n"
+"POT-Creation-Date: 2014-08-26 18:41+0200\n"
+"PO-Revision-Date: 2014-08-26 16:42+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/openmediavault/language/ru/)\n"
 "MIME-Version: 1.0\n"
@@ -279,7 +279,7 @@ msgstr "Афганистан"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
-msgstr ""
+msgstr "После того, как RAID был создан, Вы можете изменить размер файловой системы."
 
 msgid "Aland Islands"
 msgstr "Аландские острова"
@@ -626,10 +626,10 @@ msgid "Client NetBIOS name"
 msgstr ""
 
 msgid "Client address"
-msgstr ""
+msgstr "Адрес клиента"
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Клиентам позволено смонтировать файловую систему, например, 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Закрыть"
@@ -724,13 +724,13 @@ msgid "Create RAID device"
 msgstr "Создать массив RAID"
 
 msgid "Create file system"
-msgstr ""
+msgstr "Создать файловую систему"
 
 msgid "Create self-signed SSL certificate"
 msgstr "Создать самоподписанный SSL сертификат"
 
 msgid "Creating the file system, please wait ..."
-msgstr ""
+msgstr "Создание файловой системы, пожалуйста, подождите ..."
 
 msgid "Critical"
 msgstr "Критический"
@@ -796,7 +796,7 @@ msgid "Delete content"
 msgstr "Удалить содержимое"
 
 msgid "Delete file system"
-msgstr ""
+msgstr "Удалить файловую систему"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Удалять файлы на стороне получателя, которые не существуют у отправителя"
@@ -897,7 +897,7 @@ msgid "Do you really want to create the RAID device?"
 msgstr "Вы действительно хотите создать массив RAID?"
 
 msgid "Do you really want to delete the file system? All data will be lost."
-msgstr ""
+msgstr "Вы действительно хотите удалить файловую систему? Все данные будут потеряны."
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Вы действительно хотите удалить выбранные элементы?"
@@ -905,7 +905,7 @@ msgstr "Вы действительно хотите удалить выбран
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the file system creation may take some time."
-msgstr ""
+msgstr "Вы действительно хотите отформатировать это устройство? Все данные будут удалены. Пожалуйста, обратите внимание, что создание файловой системы может занять некоторое время."
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Вы действительно хотите установить выбранный(е) плагин(ы)?"
@@ -941,7 +941,7 @@ msgstr "Вы действительно хотите сбросить состо
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr ""
+msgstr "Вы действительно хотите изменить размер выбранной файловой системы? Например это необходимо делать только после изменения размера RAID."
 
 msgid "Do you really want to revert the configuration changes?"
 msgstr ""
@@ -1061,10 +1061,10 @@ msgid "Email"
 msgstr "Эл. почта"
 
 msgid "Empty now"
-msgstr ""
+msgstr "Очистить сейчас"
 
 msgid "Empty recycle bin"
-msgstr ""
+msgstr "Очистить корзину"
 
 msgid "Enable"
 msgstr "Включить"
@@ -1198,7 +1198,7 @@ msgid "Execute cron job"
 msgstr "Выполнение задание cron"
 
 msgid "Execute only"
-msgstr ""
+msgstr "Выполнить только"
 
 msgid "Execute rsync job"
 msgstr "Выполнить задание rsync"
@@ -1275,10 +1275,10 @@ msgid "File"
 msgstr "Файл"
 
 msgid "File Systems"
-msgstr ""
+msgstr "Файловые системы"
 
 msgid "File system"
-msgstr ""
+msgstr "Файловая система"
 
 msgid "Filename"
 msgstr "Имя файла"
@@ -1315,7 +1315,7 @@ msgid "Firmware version"
 msgstr "Версия прошивки"
 
 msgid "Flags"
-msgstr ""
+msgstr "Флаг"
 
 msgid "Force SSL/TLS"
 msgstr "Принудительно SSL/TLS"
@@ -1363,7 +1363,7 @@ msgid "General settings"
 msgstr "Общие настройки"
 
 msgid "General users/groups"
-msgstr ""
+msgstr "Общие пользователи/группы"
 
 msgid "Generating graphs ..."
 msgstr "Создание графики..."
@@ -1634,10 +1634,10 @@ msgid "Installed"
 msgstr "установленный"
 
 msgid "Installing plugins ..."
-msgstr ""
+msgstr "Установка плагинов ..."
 
 msgid "Installing updates ..."
-msgstr ""
+msgstr "Установка обновлений ..."
 
 msgid "Interfaces"
 msgstr "Интерфейсы"
@@ -1646,7 +1646,7 @@ msgid "Invalid domain name"
 msgstr "Неверное имя домена"
 
 msgid "Invalid file system label"
-msgstr ""
+msgstr "Недопустимая метка файловой системы"
 
 msgid "Invalid group name"
 msgstr "Недопустимое название группы"
@@ -1795,7 +1795,7 @@ msgid "Loading ..."
 msgstr "Загрузка ..."
 
 msgid "Loading, please wait ..."
-msgstr ""
+msgstr "Подождите, идет загрузка ..."
 
 msgid "Local"
 msgstr "Локальный"
@@ -2201,7 +2201,7 @@ msgid "Online"
 msgstr "Онлайн"
 
 msgid "Only guests"
-msgstr ""
+msgstr "Только гости"
 
 msgid "Operation"
 msgstr ""
@@ -2384,7 +2384,7 @@ msgstr "Пожалуйста, подождите..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
 "system."
-msgstr ""
+msgstr "Пожалуйста, подождите, пока RAID не был инициализирован, перед созданием файловой системы."
 
 msgid "Plugins"
 msgstr "Плагины"
@@ -2411,7 +2411,7 @@ msgid "Power mode"
 msgstr "Режим питания"
 
 msgid "Pre-release updates."
-msgstr ""
+msgstr "Предварительно выпущенные обновления."
 
 msgid "Prefix length"
 msgstr "Длина префикса"
@@ -2580,7 +2580,7 @@ msgid "Remote syslog"
 msgstr "Удаленный системный журнал"
 
 msgid "Remove"
-msgstr ""
+msgstr "Удалить"
 
 msgid "Replace"
 msgstr "Заменить"
@@ -2625,7 +2625,7 @@ msgid "Resize"
 msgstr "Изменить размер"
 
 msgid "Result"
-msgstr ""
+msgstr "Результат"
 
 msgid "Resume"
 msgstr "Сводка"
@@ -2640,10 +2640,10 @@ msgid "Reverse DNS lookup"
 msgstr "Обратный поиск DNS"
 
 msgid "Revert"
-msgstr ""
+msgstr "Вернуть"
 
 msgid "Revert configuration changes"
-msgstr ""
+msgstr "Отменить изменения конфигурации"
 
 msgid "Romania"
 msgstr "Румыния"
@@ -3533,6 +3533,9 @@ msgstr "Этот параметр определяет, что при насту
 
 msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "Это правило выполняется, если происходит выбранное событие."
+
+msgid "This specifies what to do if the packet matches."
+msgstr ""
 
 msgid "This will create a recycle bin on the share."
 msgstr "Это создает корзину на общем ресурсе."
