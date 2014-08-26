@@ -372,6 +372,8 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "1.0.10"; then
 			rm -f /etc/apt/apt.conf.d/99openmediavault-index
+			rm -f /etc/network/if-pre-up.d/iptables
+			omv-mkconf iptables
 		fi
 	;;
 

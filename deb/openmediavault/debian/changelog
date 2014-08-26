@@ -6,6 +6,7 @@ openmediavault (1.0.10) stable; urgency=low
   * Remove deprecated RPC Apt::createIndex and Plugin::createIndex.
   * Improve omv-mkaptindex command. The index creation has now better
     performance.
+  * Mantis 0001081: Allow writing iptables rules without choosing an action.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 03 Aug 2014 23:27:31 +0200
 

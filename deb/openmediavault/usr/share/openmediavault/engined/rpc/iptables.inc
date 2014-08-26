@@ -173,7 +173,7 @@ class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
 					  "rulenum":{"type":"integer"},
 					  "chain":{"type":"string","enum":["INPUT","OUTPUT"]},
 					  "action":{"type":"string","enum":["ACCEPT","REJECT",'.
-						'"DROP","LOG"]},
+						'"DROP","LOG",""]},
 					  "family":{"type":"string","enum":["inet"]},
 					  "source":{"type":"string"},
 					  "sport":{"type":"string"},
@@ -211,7 +211,7 @@ class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
 					  "rulenum":{"type":"integer"},
 					  "chain":{"type":"string","enum":["INPUT","OUTPUT"]},
 					  "action":{"type":"string","enum":["ACCEPT","REJECT",'.
-						'"DROP","LOG"]},
+						'"DROP","LOG",""]},
 					  "family":{"type":"string","enum":["inet6"]},
 					  "source":{"type":"string"},
 					  "sport":{"type":"string"},
@@ -283,7 +283,7 @@ class OMVRpcServiceIptables extends OMVRpcServiceAbstract {
 				  "rulenum":{"type":"integer","minimum":1},
 				  "chain":{"type":"string","enum":["INPUT","OUTPUT"]},
 				  "action":{"type":"string","enum":["ACCEPT","REJECT",'.
-					'"DROP","LOG"]},
+					'"DROP","LOG",""]},
 				  "family":{"type":"string","enum":["inet","inet6"]},
 				  "source":{"type":"string"},
 				  "sport":{"type":"string"},

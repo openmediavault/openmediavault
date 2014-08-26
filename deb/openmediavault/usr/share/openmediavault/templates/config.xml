@@ -127,7 +127,7 @@
 					<family>inet|inet6</family>
 					<rulenum>1...x</rulenum>
 					<chain>INPUT|OUTPUT</chain>
-					<action>ACCEPT|REJECT|DROP|LOG</action>
+					<action>ACCEPT|REJECT|DROP|LOG|</action>
 					<source>[!]?xxx.xxx.xxx.xxx|[!]?xxx.xxx.xxx.xxx/xx|xxx.xxx.xxx.xxx-yyy.yyy.yyy.yyy</source>
 					<sport>xxx|xxx-yyy</sport>
 					<destination>[!]?xxx.xxx.xxx.xxx|[!]?xxx.xxx.xxx.xxx/xx|xxx.xxx.xxx.xxx-yyy.yyy.yyy.yyy</destination>

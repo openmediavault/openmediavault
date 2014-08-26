@@ -90,12 +90,17 @@ Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 				[ "ACCEPT", "ACCEPT" ],
 				[ "REJECT", "REJECT" ],
 				[ "DROP", "DROP" ],
-				[ "LOG", "LOG" ]
+				[ "LOG", "LOG" ],
+				[ "", _("Nothing") ]
 			],
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
-			value: "REJECT"
+			value: "REJECT",
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("This specifies what to do if the packet matches.")
+			}]
 		},{
 			xtype: "textfield",
 			name: "source",
@@ -233,6 +238,8 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 		dataIndex: "chain",
 		stateId: "chain"
 	},{
+		xtype: "emptycolumn",
+		emptyText: "-",
 		text: _("Action"),
 		sortable: false,
 		dataIndex: "action",
