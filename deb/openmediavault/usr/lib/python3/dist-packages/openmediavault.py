@@ -32,7 +32,7 @@ APT_UPGRADE_INDEX_FILE = "/var/lib/openmediavault/apt/upgradeindex.json"
 APT_PLUGINS_INDEX_FILE = "/var/lib/openmediavault/apt/pluginsindex.json"
 
 # Import global variables from '/etc/default/openmediavault'.
-__etcDefaultDict = {}
+__etc_default_dict = {}
 with open(DEFAULT_FILE) as reader:
 	for line in reader.readlines():
 		m = re.match(r"^(OMV_([A-Z0-9_]+))=(\")?([^\"]+)(\")?$",
@@ -40,12 +40,12 @@ with open(DEFAULT_FILE) as reader:
 		if not m:
 			continue
 		# Append variable, e.g. SCRIPTS_DIR
-		__etcDefaultDict[m.group(2)] = m.group(4)
+		__etc_default_dict[m.group(2)] = m.group(4)
 		# !!! DEPRECATED !!!
 		# Append variable, e.g. OMV_SCRIPTS_DIR (equal to PHP OMV framework)
-		__etcDefaultDict[m.group(1)] = m.group(4)
+		__etc_default_dict[m.group(1)] = m.group(4)
 		
-locals().update(__etcDefaultDict)
+locals().update(__etc_default_dict)
 
 ################################################################################
 # Functions
@@ -77,45 +77,45 @@ class ProductInfo(object):
 		for child in tree.iter():
 			self.__dict[child.tag] = child.text
 
-	def getName(self):
+	def get_name(self):
 		"""
 		Get the product name.
 		"""
 		return self.__dict["name"]
 
-	def getVersion(self):
+	def get_version(self):
 		"""
 		Get the product version.
 		"""
 		cache = apt.cache.Cache()
-		package = cache[self.getPackageName()]
+		package = cache[self.get_package_name()]
 		return package.candidate.version
 
-	def getVersionName(self):
+	def get_version_name(self):
 		"""
 		Get the product version/release name.
 		"""
 		return self.__dict["versionname"]
 
-	def getURL(self):
+	def get_url(self):
 		"""
 		Get the URL to the product homepage.
 		"""
 		return self.__dict["url"]
 
-	def getCopyright(self):
+	def get_copyright(self):
 		"""
 		Get the copyright text.
 		"""
 		return self.__dict["copyright"]
 
-	def getPackageName(self):
+	def get_package_name(self):
 		"""
 		Get the Debian package name.
 		"""
 		return self.__dict["packagename"]
 
-	def getDistributionName(self):
+	def get_distribution_name(self):
 		"""
 		Get the package repository distribution name.
 		"""
