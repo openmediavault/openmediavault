@@ -118,10 +118,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// e.g. by a shared folder configuration object.
 			if (FALSE !== ($meObject = OMVRpc::exec("FsTab", "getByFsName",
 			  array("id" => $fs->getDeviceFile()), $context))) {
-				if (TRUE === $xmlConfig->exists("//mntentref[".
-				  "contains(.,'{$meObject['uuid']}')]")) {
+			  	$xpath = sprintf("//mntentref[contains(.,'%s')]",
+			  	  $meObject['uuid']);
+				if (TRUE === $xmlConfig->exists($xpath))
 					$object['_used'] = TRUE;
-				}
 			}
 			// Mark the device where the operating system is installed on
 			// as used and read-only.

@@ -41,14 +41,15 @@ class OMVSystem extends OMVObject {
 
 	/**
 	 * Check if the given device file contains the operating system.
-	 * @param devicefile The devicefile to check.
+	 * @param deviceFile The devicefile to check, e.g. /dev/sda1.
 	 * @return Returns TRUE if the device file contains the operating system,
 	 *   otherwise FALSE.
 	 */
-	public static function isRootDeviceFile($devicefile) {
-		if ("/dev/root" == $devicefile)
+	public static function isRootDeviceFile($deviceFile) {
+		if ("/dev/root" == $deviceFile)
 			return TRUE;
-		return (realpath("/dev/root") == $devicefile) ? TRUE : FALSE;
+		$rootDeviceFile = self::getRootDeviceFile();
+		return ($rootDeviceFile == $deviceFile) ? TRUE : FALSE;
 	}
 
 	/**
@@ -1057,15 +1058,15 @@ class OMVFilesystem extends OMVObject {
 
 	/**
 	 * Check if the given device file contains a file system.
-	 * @param devicefile The devicefile to check.
+	 * @param deviceFile The devicefile to check.
 	 * @return TRUE if the devicefile has a file system, otherwise FALSE.
 	 */
-	public static function hasFileSystem($devicefile) {
+	public static function hasFileSystem($deviceFile) {
 		// An alternative implementation is:
 		// blkid -p -u filesystem <devicefile>
 		// Scan output for tag PTTYPE.
 		$cmd = sprintf("export LANG=C; blkid | grep -E '^%s[0-9]*:.+$'",
-		  $devicefile);
+		  $deviceFile);
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0)
 			return FALSE;

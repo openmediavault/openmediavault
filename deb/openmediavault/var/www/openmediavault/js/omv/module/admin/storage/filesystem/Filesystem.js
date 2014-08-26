@@ -429,6 +429,13 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 		dataIndex: "mounted",
 		stateId: "mounted"
 	},{
+		xtype: "booleantextcolumn",
+		text: _("Referenced"),
+		sortable: true,
+		hidden: true,
+		dataIndex: "_used",
+		stateId: "referenced"
+	},{
 		text: _("Status"),
 		sortable: true,
 		dataIndex: "status",
