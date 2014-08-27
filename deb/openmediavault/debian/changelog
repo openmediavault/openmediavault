@@ -1,5 +1,6 @@
 openmediavault (1.0.11) stable; urgency=low
 
+  * Update locales.
   * Mantis 0001084: Fix bug in omv-mkaptidx.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 26 Aug 2014 18:56:32 +0200
