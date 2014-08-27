@@ -49,7 +49,7 @@ for pkg in cache.get_changes():
 	data.append({
 		"name": pkg.name,
 		"oldversion": pkg.installed.version
-			if pkg.installed is not None
+			if pkg.is_installed and pkg.installed is not None
 			else "",
 		"repository": "%s/%s" % (pkg.candidate.origins[0].label,
 			pkg.candidate.origins[0].archive)
