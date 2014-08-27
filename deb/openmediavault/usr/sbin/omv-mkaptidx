@@ -44,6 +44,8 @@ print("Creating index of upgradeable packages ...")
 data = []
 cache.upgrade(True)
 for pkg in cache.get_changes():
+	if pkg.candidate is None:
+		continue
 	data.append({
 		"name": pkg.name,
 		"oldversion": pkg.installed.version
@@ -91,6 +93,8 @@ cache = apt.cache.Cache()
 fcache = apt.cache.FilteredCache(cache)
 fcache.set_filter(OpenMediaVaultPluginsFilter())
 for pkg in fcache:
+	if pkg.candidate is None:
+		continue
 	data.append({
 		"name": pkg.name,
 		"repository": "%s/%s" % (pkg.candidate.origins[0].label,
