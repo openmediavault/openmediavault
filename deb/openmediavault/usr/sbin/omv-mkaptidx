@@ -44,14 +44,15 @@ print("Creating index of upgradeable packages ...")
 data = []
 cache.upgrade(True)
 for pkg in cache.get_changes():
-	repository = ""
-	if pkg.candidate.origins:
-		repository = "%s/%s" % (pkg.candidate.origins[0].label,
-			pkg.candidate.origins[0].archive)
 	data.append({
 		"name": pkg.name,
-		"oldversion": pkg.installed.version,
-		"repository": repository,
+		"oldversion": pkg.installed.version
+			if pkg.installed is not None
+			else "",
+		"repository": "%s/%s" % (pkg.candidate.origins[0].label,
+			pkg.candidate.origins[0].archive)
+			if pkg.candidate.origins is not None
+			else "",
 		"package": pkg.candidate.record.get("Package"),
 		"source": pkg.candidate.source_name,
 		"sourceversion": pkg.candidate.source_version,
@@ -90,13 +91,12 @@ cache = apt.cache.Cache()
 fcache = apt.cache.FilteredCache(cache)
 fcache.set_filter(OpenMediaVaultPluginsFilter())
 for pkg in fcache:
-	repository = ""
-	if pkg.candidate.origins:
-		repository = "%s/%s" % (pkg.candidate.origins[0].label,
-			pkg.candidate.origins[0].archive)
 	data.append({
 		"name": pkg.name,
-		"repository": repository,
+		"repository": "%s/%s" % (pkg.candidate.origins[0].label,
+			pkg.candidate.origins[0].archive)
+			if pkg.candidate.origins is not None
+			else "",
 		"package": pkg.candidate.record.get("Package"),
 		"version": pkg.candidate.version,
 		"installedsize": pkg.candidate.size,
