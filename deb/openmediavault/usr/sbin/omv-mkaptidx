@@ -51,7 +51,7 @@ for pkg in cache.get_changes():
 			else "",
 		"repository": "%s/%s" % (pkg.candidate.origins[0].label,
 			pkg.candidate.origins[0].archive)
-			if pkg.candidate.origins is not None
+			if pkg.candidate is not None and pkg.candidate.origins is not None
 			else "",
 		"package": pkg.candidate.record.get("Package"),
 		"source": pkg.candidate.source_name,
@@ -95,7 +95,7 @@ for pkg in fcache:
 		"name": pkg.name,
 		"repository": "%s/%s" % (pkg.candidate.origins[0].label,
 			pkg.candidate.origins[0].archive)
-			if pkg.candidate.origins is not None
+			if pkg.candidate is not None and pkg.candidate.origins is not None
 			else "",
 		"package": pkg.candidate.record.get("Package"),
 		"version": pkg.candidate.version,
