@@ -136,14 +136,15 @@ class OMVModuleFtp extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = sprintf("//services/ftp/shares/share[sharedfolderref='%s']",
 		  $object['uuid']);
-		if(TRUE === $xmlConfig->exists($xpath))
+		if (TRUE === $xmlConfig->exists($xpath)) {
 			$this->setDirty();
-		switch($path) {
-		case "org.openmediavault.system.shares.sharedfolder":
-			$this->setDirtyByName("fstab");
-			break;
-		default:
-			break;
+			switch($path) {
+			case "org.openmediavault.system.shares.sharedfolder":
+				$this->setDirtyByName("fstab");
+				break;
+			default:
+				break;
+			}
 		}
 	}
 
