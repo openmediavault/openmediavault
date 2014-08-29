@@ -234,7 +234,6 @@ while [ ${index} -gt 0 ]; do
 	# Get the shared folder reference and path
 	sfref=$(omv_config_get "//services/ftp/shares/share[position()=${index}]/sharedfolderref")
 	sfname=$(omv_get_sharedfolder_name "${sfref}")
-	sfpath="${OMV_PROFTPD_DEFAULTROOT}/${sfname}"
 
 	# Get shared folder user privileges
 	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
@@ -283,7 +282,7 @@ while [ ${index} -gt 0 ]; do
 	unset IFS
 
 	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
-<Directory ${sfpath}>
+<Directory ${OMV_PROFTPD_DEFAULTROOT}/${sfname}>
   <Limit ALL>
 EOF
 	[ -n "${limitall_allowuser}" ] && echo "    AllowUser OR ${limitall_allowuser}" >> ${OMV_PROFTPD_CONFIG}
