@@ -25,7 +25,7 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/initscript.inc");
 require_once("openmediavault/log.inc");
 
-class OMVModuleFtp extends OMVModuleServiceAbstract
+class OMVModuleProftpd extends OMVModuleServiceAbstract
   implements OMVINotifyListener, OMVIModuleServiceStatus, OMVIModuleZeroconf {
 	/**
 	 * Get the module name.
@@ -175,7 +175,7 @@ class OMVModuleFtp extends OMVModuleServiceAbstract
 
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleFtp());
+$moduleMgr->registerModule(new OMVModuleProftpd());
 
 // Register new logfile type.
 // Format:
