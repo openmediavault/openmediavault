@@ -71,14 +71,34 @@ omv_isfsuuid() {
     return 1
 }
 
-# omv_trim value
-# Strip whitespace from the beginning and end of a string.
+# omv_trim value [char]
+# Strip a character from the beginning and end of a string.
+# @param value The string that will be trimmed.
+# @param char Optionally, the stripped character. Defaults to an
+#   ordinary space.
+# @return The trimmed string.
 omv_trim() {
-    trimmed=$1
-    trimmed=${trimmed%% }
-    trimmed=${trimmed## }
-    echo $trimmed
+	value=$(omv_ltrim "$@")
+	value=$(omv_rtrim "${value}" "$2")
+	echo "$value"
 }
+
+omv_rtrim() {
+	value=$1
+	char=" "
+	[ $# -eq 2 ] && char=$2
+	value=${value%%${char}}
+	echo "$value"
+}
+
+omv_ltrim() {
+	value=$1
+	char=" "
+	[ $# -eq 2 ] && char=$2
+	value=${value##${char}}
+	echo "$value"
+}
+
 
 # omv_escapeshellarg value
 # Escape a string to be used as a shell argument.
