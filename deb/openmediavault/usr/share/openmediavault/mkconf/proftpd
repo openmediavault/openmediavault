@@ -79,6 +79,8 @@ OMV_PROFTPD_MODTLS_TLSRSACERTIFICATEFILE=${OMV_PROFTPD_MODTLS_TLSRSACERTIFICATEF
 OMV_PROFTPD_MODTLS_TLSRSACERTIFICATEKEYFILE=${OMV_PROFTPD_MODTLS_TLSRSACERTIFICATEKEYFILE:-"/etc/ssl/private/proftpd.key"}
 OMV_PROFTPD_MODTLS_TLSVERIFYCLIENT=${OMV_PROFTPD_MODTLS_TLSVERIFYCLIENT:-"off"}
 OMV_PROFTPD_MODTLS_TLSRENEGOTIATE=${OMV_PROFTPD_MODTLS_TLSRENEGOTIATE:-"required off"}
+OMV_PROFTPD_MODVROOT_VROOTENGINE=${OMV_PROFTPD_MODVROOT_VROOTENGINE:-"on"}
+OMV_PROFTPD_MODVROOT_VROOTLOG=${OMV_PROFTPD_MODVROOT_VROOTLOG:-"/var/log/proftpd/vroot.log"}
 
 # Create welcome message file
 displaylogin=$(omv_config_get "//services/ftp/displaylogin")
@@ -139,6 +141,10 @@ xmlstarlet sel -t \
   -o "</IfModule>" -n \
   -o "<IfModule mod_ctrls_admin.c>" -n \
   -o "  AdminControlsEngine ${OMV_PROFTPD_MODCTRLSADMIN_ADMINCONTROLSENGINE}" -n \
+  -o "</IfModule>" -n \
+  -o "<IfModule mod_vroot.c>" -n \
+  -o "  VRootEngine ${OMV_PROFTPD_MODVROOT_VROOTENGINE}" -n \
+  -o "  VRootLog ${OMV_PROFTPD_MODVROOT_VROOTLOG}" -n \
   -o "</IfModule>" -n \
   -m "//services/ftp" \
 	  -o "<IfModule mod_ban.c>" -n \
@@ -217,7 +223,7 @@ xmlstarlet sel -t \
 # Is it allowed to login as superuser directly?
 rootlogin=$(omv_config_get "//services/ftp/rootlogin")
 
-# Process FTP shares
+# Process FTP shares.
 index=$(omv_config_get_count "//services/ftp/shares/share")
 while [ ${index} -gt 0 ]; do
 	limitall_allowuser=""
@@ -231,11 +237,12 @@ while [ ${index} -gt 0 ]; do
 		limitall_allowgroup="root"
 	fi
 
-	# Get the shared folder reference and path
+	# Get the shared folder reference and path.
 	sfref=$(omv_config_get "//services/ftp/shares/share[position()=${index}]/sharedfolderref")
 	sfname=$(omv_get_sharedfolder_name "${sfref}")
+	sfpath=$(omv_get_sharedfolder_path "${sfref}")
 
-	# Get shared folder user privileges
+	# Get shared folder user privileges.
 	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
 	  -v "concat(perms,':',name)" -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
@@ -258,7 +265,7 @@ while [ ${index} -gt 0 ]; do
 	done
 	unset IFS
 
-	# Get shared folder group privileges
+	# Get shared folder group privileges.
 	privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='group']" \
 	  -v "concat(perms,':',name)" -n \
 	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
@@ -267,9 +274,9 @@ while [ ${index} -gt 0 ]; do
 		[ -z "${privilege}" ] && continue
 		perms=${privilege%:*}
 		name=${privilege#*:}
-		# Skip 'No access' entries
+		# Skip 'No access' entries.
 		[ ${perms} -eq 0 ] && continue
-		# Append group to list
+		# Append group to list.
 		case ${perms} in
 		5)
 			[ -n "${limitread_allowgroup}" ] && limitread_allowgroup="${limitread_allowgroup},";
@@ -282,6 +289,9 @@ while [ ${index} -gt 0 ]; do
 	unset IFS
 
 	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
+<IfModule mod_vroot.c>
+  VRootAlias $(omv_rtrim "${sfpath}" "/") ${sfname}
+</IfModule>
 <Directory ${OMV_PROFTPD_DEFAULTROOT}/${sfname}>
   <Limit ALL>
 EOF

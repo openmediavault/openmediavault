@@ -338,7 +338,6 @@
 				<share>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 					<sharedfolderref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</sharedfolderref>
-					<mntentref>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</mntentref>
 					<comment>xxx</comment>
 				</share>
 				-->

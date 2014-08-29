@@ -375,6 +375,22 @@ case "$1" in
 			rm -f /etc/network/if-pre-up.d/iptables
 			omv-mkconf iptables
 		fi
+		if dpkg --compare-versions "$2" lt-nl "1.0.12"; then
+			# Enable various proftpd modules.
+			sed -i -e "s/^#\(LoadModule mod_vroot.c\)/\1/i" /etc/proftpd/modules.conf
+			# Delete useless configuration entries.
+			xmlstarlet sel -t -m "/config/services/ftp/shares/share" \
+			  -v "mntentref" \
+			  -i "position() != last()" -n -b \
+			  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+			  while read uuid; do
+				  omv_config_delete "/config/system/fstab/mntent[uuid='${uuid}']"
+			  done
+			omv_config_delete "/config/services/ftp/shares/share/mntentref"
+			omv-mkconf fstab
+			omv-mkconf proftpd
+			service proftpd reload
+		fi
 	;;
 
 	triggered)

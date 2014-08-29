@@ -315,40 +315,14 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 		);
 		// Set the configuration object.
 		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
 			// Check uniqueness. A shared folder can only be configured once
 			// for FTP.
-			if(TRUE === $xmlConfig->exists("//services/ftp/shares/share[" .
+			if (TRUE === $xmlConfig->exists("//services/ftp/shares/share[" .
 			  "sharedfolderref='{$params['sharedfolderref']}']")) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
 				  gettext("The shared folder is already used by another share."));
 			}
-			// Get the shared folder object.
-			$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
-			  $params['sharedfolderref']);
-			$sfObject = $xmlConfig->get($xpath);
-			if(is_null($sfObject)) {
-				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-				  $xpath);
-			}
-			// Get the absolute shared folder path.
-			$sfPath = OMVRpc::exec("ShareMgmt", "getPath", array(
-			  "uuid" => $params['sharedfolderref']), $context);
-			// Prepare fstab mount point entry configuration object to bind
-			// the shared folder directory into the FTP users home directory.
-			$meObject = array(
-				"uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
-				"fsname" => $sfPath,
-				"dir" => sprintf("/srv/ftp/%s", $sfObject['name']),
-				"type" => "none",
-				"opts" => "bind",
-				"freq" => 0,
-				"passno" => 0
-			);
-			// Append assosiated fstab mount point entry configuration object.
-			$meObject = OMVRpc::exec("FsTab", "set", $meObject, $context);
-			// Modify the share configuration object.
-			$object['mntentref'] = $meObject['uuid'];
 			// Append the configuration object.
 			$success = $xmlConfig->set("//services/ftp/shares",
 			  array("share" => $object));
@@ -357,7 +331,7 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 			$success = $xmlConfig->replace("//services/ftp/shares/share[" .
 			  "uuid='{$params['uuid']}']", $object);
 		}
-		if(FALSE === $success) {
+		if (FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
@@ -391,13 +365,8 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 		// Delete the configuration object.
 		$xpath = sprintf("//services/ftp/shares/share[uuid='%s']",
 		  $params['uuid']);
-		$object = $this->deleteConfigObjectByPath($xpath,
+		return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.services.ftp.shares.share");
-		// Delete the associated fstab mount point entry.
-		OMVRpc::exec("FsTab", "delete", array("uuid" => $object['mntentref']),
-		  $context);
-		// Return the deleted configuration object.
-		return $object;
 	}
 
 	/**

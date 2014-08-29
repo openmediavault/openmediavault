@@ -46,14 +46,7 @@ class OMVModuleFtp extends OMVModuleServiceAbstract
 	 * provided by this module.
 	 * @return An array of modules.
 	 */
-	public function shouldStart() { return array("fstab", "hostname"); }
-
-	/**
-	 * Defines the modules that if present should be stopped after the
-	 * service provided by this module.
-	 * @return An array of modules.
-	 */
-	function shouldStop() { return array("fstab"); }
+	public function shouldStart() { return array("hostname"); }
 
 	/**
 	 * Generate the configuration.
@@ -83,7 +76,7 @@ class OMVModuleFtp extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/ftp";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -101,7 +94,7 @@ class OMVModuleFtp extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/ftp";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -136,16 +129,8 @@ class OMVModuleFtp extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = sprintf("//services/ftp/shares/share[sharedfolderref='%s']",
 		  $object['uuid']);
-		if (TRUE === $xmlConfig->exists($xpath)) {
+		if (TRUE === $xmlConfig->exists($xpath))
 			$this->setDirty();
-			switch($path) {
-			case "org.openmediavault.system.shares.sharedfolder":
-				$this->setDirtyByName("fstab");
-				break;
-			default:
-				break;
-			}
-		}
 	}
 
 	/**
