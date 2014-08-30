@@ -1,3 +1,9 @@
+openmediavault-nut (1.0.2) stable; urgency=low
+
+  * Mantis 0001087: Modify package dependencies.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 30 Aug 2014 12:41:49 +0200
+
 openmediavault-nut (1.0.1) stable; urgency=low
 
   * Code improvements.

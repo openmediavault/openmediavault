@@ -8,7 +8,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-nut
 Architecture: all
-Depends: openmediavault (>= 1.0), nut (>= 2.6.4), udev
+Depends: openmediavault (>= 1.0), nut (>= 2.6.4), udev, bc
 Priority: optional
 Description: OpenMediaVault Network UPS Tools (NUT) plugin
  Network UPS Tools (NUT) is a client/server monitoring system that
