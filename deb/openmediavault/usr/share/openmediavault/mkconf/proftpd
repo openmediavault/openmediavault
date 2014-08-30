@@ -96,6 +96,7 @@ fi
 # Create /etc/proftpd/proftpd.conf configuration
 xmlstarlet sel -t \
   -o "Include /etc/proftpd/modules.conf" -n \
+  -o "LoadModule mod_vroot.c" -n \
   -o "UseIPv6 ${OMV_PROFTPD_USEIPV6}" -n \
   -v "concat('ServerName \"',//system/network/hostname,'\"')" -n \
   -o "ServerType standalone" -n \
