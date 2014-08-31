@@ -336,7 +336,10 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	 * Get the changelog of an Debian package. The package is downloaded
 	 * if necessary to be able to extract the changelog file.
 	 * @param params An array containing the following fields:
-	 *   \em filename The name of the file, e.g. openssl_0.9.8o-4squeeze13_i386.deb.
+	 *   \em filename The name of the file, e.g. <ul>
+	 *   \li openssl_0.9.8o-4squeeze13_i386.deb
+	 *   \li pool/updates/main/e/eglibc/libc6_2.13-38+deb7u4_amd64.deb
+	 *   </ul>
 	 * @param context The context of the caller.
 	 * @return The name of the background process status file.
 	 * @throw E_EXEC_FAILED
@@ -357,7 +360,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
@@ -366,25 +369,28 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			$bgOutputFilename = $this->createBgProcOutput();
 			$this->updateBgProcStatus($bgStatusFilename, "outputfilename",
 			  $bgOutputFilename);
-			// Replace special characters in filename.
-			$params['filename'] = str_replace(":", "%3a",
-			  $params['filename']);
+			// Extract the filename if a full path to the repo is given, e.g.
+			// pool/updates/main/e/eglibc/libc6_2.13-38+deb7u4_amd64.deb, and
+			// replace special characters in filename.
+			$params['filename'] = str_replace(":", "%3a", basename(
+			  $params['filename']));
 			// Get the package name.
 			$parts = explode("_", $params['filename']);
 			$packageName = $parts[0];
 			// Force download of the package, thus we are sure it exists in
-			// /var/cache/apt/archives. Do not redirect the command output to
-			// the backgropund output file. Only the changelog will be
-			// redirected to this file.
+			// /var/cache/apt/archives and we surely extract the changelog
+			// from the latest package version. Do not redirect the command
+			// output to the backgropund output file. Only the changelog will
+			// be redirected to this file.
 			$cmd = sprintf("export LANG=C; apt-get --yes --force-yes ".
 			  "--download-only --reinstall install %s 2>&1",
 			  escapeshellarg($packageName));
-			if(0 !== $this->exec($cmd, $output)) {
+			if (0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
 			// Extract the changelog from the Debian package.
-			if(FALSE === ($tmpDir = mkdtemp())) {
+			if (FALSE === ($tmpDir = mkdtemp())) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  "Failed to created temporary directory.");
 			}
@@ -392,17 +398,17 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			  "tar -x --wildcards -C %s ./usr/share/doc/%s/changelog* 2>&1",
 			  "/var/cache/apt/archives", $params['filename'], $tmpDir,
 			  $packageName);
-			if(0 !== $this->exec($cmd, $output)) {
+			if (0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
 			// Process the extracted changelog. Note, the file is also
 			// compressed.
 			$found = FALSE;
-			foreach(array("changelog.Debian.gz", "changelog.gz") as $filename) {
+			foreach (array("changelog.Debian.gz", "changelog.gz") as $filename) {
 				$filepath = sprintf("%s/usr/share/doc/%s/%s", $tmpDir,
 				  $packageName, $filename);
-				if(file_exists($filepath)) {
+				if (file_exists($filepath)) {
 					// Extract the changelog content and redirect it to the
 					// background output file.
 					$cmd = sprintf("export LANG=C; gzip -dc < %s", $filepath);
@@ -415,7 +421,7 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 				}
 			}
 			// Changelog found?
-			if(FALSE === $found) {
+			if (FALSE === $found) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  "No changelog found.");
 			}
