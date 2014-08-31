@@ -376,8 +376,6 @@ case "$1" in
 			omv-mkconf iptables
 		fi
 		if dpkg --compare-versions "$2" lt-nl "1.0.12"; then
-			# Enable various proftpd modules.
-			sed -i -e "s/^#\(LoadModule mod_vroot.c\)/\1/i" /etc/proftpd/modules.conf
 			# Delete useless configuration entries.
 			xmlstarlet sel -t -m "/config/services/ftp/shares/share" \
 			  -v "mntentref" \
@@ -390,6 +388,11 @@ case "$1" in
 			omv-mkconf fstab
 			omv-mkconf proftpd
 			service proftpd reload
+		fi
+		if dpkg --compare-versions "$2" lt-nl "1.0.13"; then
+			# Make sure that the 'LoadModule mod_vroot.c' line is removed
+			# from '/etc/proftpd/modules.conf'.
+			sed -i -e "s/^\(LoadModule mod_vroot.c\)//i" /etc/proftpd/modules.conf
 		fi
 	;;
 

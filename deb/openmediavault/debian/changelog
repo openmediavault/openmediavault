@@ -1,6 +1,7 @@
 openmediavault (1.0.13) stable; urgency=low
 
   * Mantis 0001090: Changelog for updates not working.
+  * Mantis 0001091: Ensure that 'mod_vroot.c' is not declared twice.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 31 Aug 2014 17:57:34 +0200
 
