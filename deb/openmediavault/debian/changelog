@@ -1,3 +1,9 @@
+openmediavault (1.0.13.1) stable; urgency=low
+
+  * Mantis 0001092: FTP rights not respected.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 31 Aug 2014 19:40:24 +0200
+
 openmediavault (1.0.13) stable; urgency=low
 
   * Update locales.
