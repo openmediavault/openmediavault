@@ -1,6 +1,7 @@
-openmediavault (1.0.13.1) stable; urgency=low
+openmediavault (1.0.14) stable; urgency=low
 
   * Mantis 0001092: FTP rights not respected.
+  * Mantis 0001096: Reconnecting external drives.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 31 Aug 2014 19:40:24 +0200
 
