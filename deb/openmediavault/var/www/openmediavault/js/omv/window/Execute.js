@@ -166,11 +166,14 @@ Ext.define("OMV.window.Execute", {
 					  this.cmdContentPos = 0;
 					  // Reset controls.
 					  this.setValue("");
-					  if(true === this.progress) {
+					  if (true === this.progress) {
 						  this.contentCtrl.reset();
 						  this.contentCtrl.wait({
 							  text: this.progressText
 						  });
+					  } else {
+						  // Display waiting mask.
+						  this.contentCtrl.getEl().mask(_("Please wait ..."));
 					  }
 					  // Update the button states.
 					  this.setButtonDisabled("stop", false);
@@ -205,10 +208,11 @@ Ext.define("OMV.window.Execute", {
 		OMV.Rpc.request({
 			  scope: me,
 			  callback: function(id, success, response) {
-				  if(true === this.progress) {
+				  if (true === this.progress)
 					  this.contentCtrl.reset();
-				  }
-				  if(success) {
+				  else
+					  this.contentCtrl.getEl().unmask();
+				  if (success) {
 					  // Update the button states.
 					  this.setButtonDisabled("start", false);
 					  this.setButtonDisabled("stop", true);
@@ -249,6 +253,10 @@ Ext.define("OMV.window.Execute", {
 					  if(success) {
 						  this.cmdContentPos = response.pos;
 						  this.cmdIsRunning = response.running;
+						  // Hide the waiting mask if the first content is
+						  // transmitted.
+						  if ((false === this.progress) && (0 < response.pos))
+							  this.contentCtrl.getEl().unmask();
 						  // Update the command content.
 						  this.appendValue(response.output);
 						  // If command is still running then do another RPC
@@ -257,9 +265,10 @@ Ext.define("OMV.window.Execute", {
 							  Ext.Function.defer(this.doGetOutput,
 								this.rpcDelay, this);
 						  } else {
-							  if(true === this.progress) {
+							  if (true === this.progress)
 								  this.contentCtrl.reset();
-							  }
+							  else
+								  this.contentCtrl.getEl().unmask();
 							  this.fireEvent("finish", this, response);
 						  }
 						  // Update button states.
