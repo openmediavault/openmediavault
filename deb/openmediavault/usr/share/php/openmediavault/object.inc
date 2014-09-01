@@ -36,24 +36,25 @@ abstract class OMVObject {
 
 	/**
 	 * Set the last error.
-	 * @param error The error description.
+	 * @param error The error description. This may be a string
+	 *   or an array.
 	 * @return Returns the previous error.
 	 */
 	final protected function setLastError($error) {
-		$lastError = $this->lastError;
+		$result = $this->lastError;
 		$this->lastError = $error;
-		return $lastError;
+		return $result;
 	}
 
 	/**
 	 * Get the last error.
 	 * @return The error description of the last error if set.
+	 *   If the last error was an array of strings, then they
+	 *   are merged into one string.
 	 */
 	final public function getLastError() {
-		$lastError = $this->lastError;
-		if(is_array($lastError))
-			$lastError = implode("\n", $lastError);
-		return $lastError;
+		return (is_array($this->lastError)) ? implode("\n",
+		  $this->lastError) : $this->lastError;
 	}
 
 	/**

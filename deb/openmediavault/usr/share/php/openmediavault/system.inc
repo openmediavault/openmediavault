@@ -1008,7 +1008,7 @@ class OMVFilesystem extends OMVObject {
 		$cmd = sprintf("export LANG=C; mount %s 2>&1", implode(" ", $cmdArgs));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
-			$this->setLastError($output[0]);
+			$this->setLastError($output);
 			return FALSE;
 		}
 		return TRUE;
@@ -1144,7 +1144,7 @@ class OMVMntEnt extends OMVObject {
 		$cmd = sprintf("export LANG=C; mount %s 2>&1", implode(" ", $cmdArgs));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
-			$this->setLastError($output[0]);
+			$this->setLastError($output);
 			return FALSE;
 		}
 		return TRUE;
