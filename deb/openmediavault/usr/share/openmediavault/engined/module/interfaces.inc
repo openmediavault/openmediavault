@@ -49,6 +49,10 @@ class OMVModuleInterfaces extends OMVModuleServiceAbstract
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.network.hostname",
+		  array($this, "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.dnsnameservers",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
