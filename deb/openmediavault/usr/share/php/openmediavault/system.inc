@@ -990,11 +990,17 @@ class OMVFilesystem extends OMVObject {
 	}
 
 	/**
-	 * Mount the filesystem.
+	 * Mount the filesystem by its device file or UUID.
+	 * @param options Additional mount options. Defaults to "".
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
-	public function mount() {
+	public function mount($options = "") {
 		$cmdArgs = array("-v");
+		if (!empty($options)) {
+			if (!is_array($options))
+				$options = array($options);
+			$cmdArgs[] = sprintf("-o %s", implode(",", $options));
+		}
 		if (TRUE === $this->hasUuid())
 			$cmdArgs[] = sprintf("-U %s", $this->getUuid());
 		else 
@@ -1002,7 +1008,7 @@ class OMVFilesystem extends OMVObject {
 		$cmd = sprintf("export LANG=C; mount %s 2>&1", implode(" ", $cmdArgs));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
-			$this->setLastError($output);
+			$this->setLastError($output[0]);
 			return FALSE;
 		}
 		return TRUE;
@@ -1092,14 +1098,14 @@ class OMVFilesystem extends OMVObject {
  * @ingroup api
  */
 class OMVMntEnt extends OMVObject {
-	private $device;
-	private $dir;
+	private $device = "";
+	private $dir = "";
 
 	/**
 	 * Constructor
 	 * @param device The block special device or remote file system,
-	 *   e.g. /dev/sde1 or rootfs.
-	 * @param dir The mount point for the file system.
+	 *   e.g. /dev/sde1, /dev/disk/by-uuid/2218-DF1C or rootfs.
+	 * @param dir The mount point for the file system, e.g. /media/2218-DF1C.
 	 */
 	public function __construct($device, $dir) {
 		$this->device = $device;
@@ -1107,16 +1113,38 @@ class OMVMntEnt extends OMVObject {
 	}
 
 	/**
+	 * Get the device.
+	 * @return The device, otherwise FALSE.
+	 */
+	public function getDevice() {
+		return empty($this->device) ? FALSE : $this->device;
+	}
+
+	/**
+	 * Get the mount point.
+	 * @return The mount point of the filesystem or FALSE.
+	 */
+	public function getMountPoint() {
+		return empty($this->dir) ? FALSE : $this->dir;
+	}
+
+	/**
 	 * Mount the given file system.
+	 * @param options Additional mount options. Defaults to "".
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
-	public function mount() {
+	public function mount($options = "") {
 		$cmdArgs = array("-v");
+		if (!empty($options)) {
+			if (!is_array($options))
+				$options = array($options);
+			$cmdArgs[] = sprintf("-o %s", implode(",", $options));
+		}
 		$cmdArgs[] = escapeshellarg($this->dir);
 		$cmd = sprintf("export LANG=C; mount %s 2>&1", implode(" ", $cmdArgs));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
-			$this->setLastError($output);
+			$this->setLastError($output[0]);
 			return FALSE;
 		}
 		return TRUE;
