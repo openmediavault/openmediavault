@@ -377,27 +377,30 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 			// Get the package name.
 			$parts = explode("_", $params['filename']);
 			$packageName = $parts[0];
-			// Force download of the package, thus we are sure it exists in
-			// /var/cache/apt/archives and we surely extract the changelog
-			// from the latest package version. Do not redirect the command
-			// output to the backgropund output file. Only the changelog will
-			// be redirected to this file.
-			$cmd = sprintf("export LANG=C; apt-get --yes --force-yes ".
-			  "--download-only --reinstall install %s 2>&1",
-			  escapeshellarg($packageName));
-			if (0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
+			// Build the path to the archive.
+			$packageArchivePath = sprintf("%s/%s", "/var/cache/apt/archives",
+			  $params['filename']);
+			// Force download of the package if it does not exist in the
+			// package archive (/var/cache/apt/archives). Do not redirect
+			// the command output to the backgropund output file. Only the
+			// changelog will be redirected to this file.
+			if (!file_exists($packageArchivePath)) {
+				$cmd = sprintf("export LANG=C; apt-get --yes --force-yes ".
+				  "--download-only --reinstall install %s 2>&1",
+				  escapeshellarg($packageName));
+				if (0 !== $this->exec($cmd, $output)) {
+					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+					  $cmd, implode("\n", $output));
+				}
 			}
 			// Extract the changelog from the Debian package.
 			if (FALSE === ($tmpDir = mkdtemp())) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  "Failed to created temporary directory.");
 			}
-			$cmd = sprintf("export LANG=C; dpkg-deb --fsys-tarfile %s/%s | ".
+			$cmd = sprintf("export LANG=C; dpkg-deb --fsys-tarfile %s | ".
 			  "tar -x --wildcards -C %s ./usr/share/doc/%s/changelog* 2>&1",
-			  "/var/cache/apt/archives", $params['filename'], $tmpDir,
-			  $packageName);
+			  escapeshellarg($packageArchivePath), $tmpDir, $packageName);
 			if (0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
