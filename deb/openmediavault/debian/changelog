@@ -1,5 +1,7 @@
 openmediavault (1.0.14) stable; urgency=low
 
+  * Update locales.
+  * Various improvements.
   * Mantis 0001092: FTP rights not respected.
   * Mantis 0001096: Reconnecting external drives.
 

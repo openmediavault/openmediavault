@@ -48,7 +48,7 @@ class OMVModuleIptables extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function startService() {
-		$cmd = "/etc/network/if-pre-up.d/iptables 2>&1";
+		$cmd = "/etc/network/if-pre-up.d/openmediavault-iptables 2>&1";
 		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
