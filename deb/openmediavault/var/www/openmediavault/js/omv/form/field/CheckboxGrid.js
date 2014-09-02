@@ -87,7 +87,6 @@ Ext.define("OMV.form.field.CheckboxGrid", {
 		Ext.apply(config, {
 			selType: "checkboxmodel",
 			selModel: {
-				mode: "SIMPLE",
 				showHeaderCheckbox: true
 			}
 		});
