@@ -30,6 +30,8 @@
 # Testing:
 # echo "Test" | mail -s "Test subject" -a "From: xxx@yyy.zzz" root
 # hostname | mailx -s "root `hostname` `date`" root
+# mailq
+# postcat -q A705238B4C
 
 # Working with CA certificates:
 # - Add new CA certificate to /etc/ssl/certs

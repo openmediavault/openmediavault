@@ -394,6 +394,10 @@ case "$1" in
 			# from '/etc/proftpd/modules.conf'.
 			sed -i -e "s/^\(LoadModule mod_vroot.c\)//i" /etc/proftpd/modules.conf
 		fi
+		if dpkg --compare-versions "$2" lt-nl "1.0.15"; then
+			rm -f /etc/rsyslog.d/remote.conf
+			omv-mkconf rsyslog
+		fi
 	;;
 
 	triggered)

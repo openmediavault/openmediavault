@@ -1,6 +1,7 @@
 openmediavault (1.0.15) stable; urgency=low
 
-  * 
+  * Send a notification email to the administrator if an unauthorized WebGUI
+    login attempt has been occured.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 02 Sep 2014 22:55:17 +0200
 

@@ -24,7 +24,7 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_RSYSLOG_CONFIG=${OMV_RSYSLOG_CONFIG:-"/etc/rsyslog.d/remote.conf"}
+OMV_RSYSLOG_CONFIG=${OMV_RSYSLOG_CONFIG:-"/etc/rsyslog.d/openmediavault-remote.conf"}
 
 xmlstarlet sel -t \
   -i "//system/syslog/remote[enable='1']" \
