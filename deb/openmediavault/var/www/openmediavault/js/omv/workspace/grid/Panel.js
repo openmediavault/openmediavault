@@ -161,16 +161,16 @@ Ext.define("OMV.workspace.grid.Panel", {
 				me.previousSelected = selModel.getSelection();
 			});
 			me.getView().on("refresh", function(view) {
-				if(Ext.isEmpty(me.previousSelected))
+				if (Ext.isEmpty(me.previousSelected))
 					return;
 				var select = [];
 				Ext.Array.each(me.previousSelected, function(r) {
 					var record = me.getStore().getById(r.getId());
-					if(!Ext.isEmpty(record))
+					if (Ext.isObject(record) && record.isModel)
 						select.push(record);
 				});
 				delete me.previousSelected;
-				if(select.length > 0) {
+				if (select.length > 0) {
 					selModel.select(select, false, false);
 					selModel.view.focusNode(select[0]);
 				}
