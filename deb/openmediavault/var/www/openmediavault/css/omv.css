@@ -291,6 +291,27 @@ div#headerrlogo {
 .x-workspace-node-tree .x-grid-row-over .x-grid-td {
 	cursor: pointer;
 }
+.x-workspace-node-tree .x-grid-body {
+	background: #98b7cf;
+}
+.x-workspace-node-tree .x-grid-cell {
+	background-color: transparent;
+}
+.x-workspace-node-tree .x-tree-node-text {
+	color: white;
+}
+.x-workspace-node-tree .x-tree-icon, .x-tree-elbow-img {
+	opacity: 1;
+	filter: invert(100%);
+	-webkit-filter: invert(100%);
+}
+.x-workspace-node-tree .x-grid-tree-node-leaf .x-grid-cell {
+	background-color: rgba(255,255,255,0.1);
+}
+.x-workspace-node-tree .x-grid-row-focused .x-grid-td,
+.x-workspace-node-tree .x-grid-row-over .x-grid-td {
+	background-color: rgba(0,0,0,0.2);
+}
 /* Menu */
 .x-menu-item-icon {
 	opacity: 0.7;
