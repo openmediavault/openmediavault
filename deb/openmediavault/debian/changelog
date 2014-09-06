@@ -1,6 +1,12 @@
+openmediavault (0.5.56) stable; urgency=low
+
+  * Improve pre upgrade scripts.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Sep 2014 01:25:31 +0200
+
 openmediavault (0.5.55) stable; urgency=low
 
-  * Improve post upgrade scripts.
+  * Improve pre upgrade scripts.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 06 Sep 2014 20:46:05 +0200
 

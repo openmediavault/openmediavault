@@ -23,7 +23,7 @@ set -e
 
 . /etc/default/openmediavault
 
-if [ -e "/etc/apt/apt.conf" ];
+if [ -e "/etc/apt/apt.conf" ]; then
 	sed -i 's/oldstable/stable/g' /etc/apt/apt.conf
 else
 	cat <<EOF > /etc/apt/apt.conf.d/99openmediavault-release
