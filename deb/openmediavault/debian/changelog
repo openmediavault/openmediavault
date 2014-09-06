@@ -1,3 +1,9 @@
+openmediavault (0.5.55) stable; urgency=low
+
+  * Improve post upgrade scripts.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 06 Sep 2014 20:46:05 +0200
+
 openmediavault (0.5.54) stable; urgency=low
 
   * Check whether a directory is still used as mount point before
