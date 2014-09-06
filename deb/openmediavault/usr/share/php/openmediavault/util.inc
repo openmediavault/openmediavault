@@ -228,7 +228,6 @@ class OMVJsonFile extends OMVObject {
 			  sprintf("Failed to rewind file (filename=%s).",
 			  $this->filename));
 		}
-		$this->truncate(0);
 		// Get the JSON representation of the content.
 		if (FALSE === ($content = json_encode_safe($content,
 		  JSON_PRETTY_PRINT))) {
@@ -236,6 +235,9 @@ class OMVJsonFile extends OMVObject {
 			  sprintf("Failed to encode content (filename=%s): %s",
 			  $this->filename, json_last_error_msg()));
 		}
+		// Empty the whole file.
+		$this->truncate(0);
+		// Now write the new content.
 		if (FALSE === fwrite($this->fh, $content)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Failed to write file (filename=%s).",
