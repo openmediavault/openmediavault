@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-07-07 16:28+0000\n"
+"PO-Revision-Date: 2014-08-06 14:36+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -77,13 +77,13 @@ msgid "Extend volume group"
 msgstr "Volumegruppe erweitern"
 
 msgid "Failed to remove logical volume: %s"
-msgstr ""
+msgstr "Das Logical Volume konnte nicht entfernt werden: %s"
 
 msgid "Failed to remove physical volume: %s"
-msgstr ""
+msgstr "Das Physical Volume konnte nicht entfernt werden: %s"
 
 msgid "Failed to remove volume group: %s"
-msgstr ""
+msgstr "Die Volume Group konnte nicht entfernt werden: %s"
 
 msgid "Free"
 msgstr "Frei"
@@ -107,10 +107,10 @@ msgid "No free space available to extend the logical volume."
 msgstr "Es steht kein freier Speicherplatz zur Verfügung um das Logical Volume zu erweitern."
 
 msgid "No logical volume found on '%s'"
-msgstr ""
+msgstr "Es wurde kein Logical Volume auf '%s' gefunden"
 
 msgid "No physical volume found on '%s'"
-msgstr ""
+msgstr "Es wurde kein Physical Volume auf '%s' gefunden"
 
 msgid "Physical volumes"
 msgstr "Physical Volumes"
@@ -137,7 +137,7 @@ msgid "Volume group"
 msgstr "Volumegruppe"
 
 msgid "Volume group '%s' not found"
-msgstr ""
+msgstr "Die Volume Group '%s' wurde nicht gefunden"
 
 msgid "Volume groups"
 msgstr "Volumegruppen"

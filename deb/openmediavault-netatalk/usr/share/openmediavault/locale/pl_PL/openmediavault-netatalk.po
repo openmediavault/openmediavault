@@ -4,15 +4,15 @@
 # 
 # Translators:
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012
-# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013
+# Cyryl Sochacki <cyrylsochacki@gmail.com>, 2013-2014
 # Jacek Niedziółka <>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-06 16:30+0200\n"
-"PO-Revision-Date: 2014-08-06 14:30+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-08-15 20:50+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -81,7 +81,7 @@ msgid "Guest login"
 msgstr "Login gościa"
 
 msgid "Guest permissions"
-msgstr ""
+msgstr "Uprawnienia gościa"
 
 msgid "Guests only have read access by default."
 msgstr "Goście mają prawo tylko do odczytu - domyślnie."

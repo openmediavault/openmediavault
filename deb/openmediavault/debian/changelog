@@ -1,5 +1,6 @@
 openmediavault (1.0.15) stable; urgency=low
 
+  * Update locales.
   * Send a notification email to the administrator if an unauthorized WebGUI
     login attempt has been occured.
 
