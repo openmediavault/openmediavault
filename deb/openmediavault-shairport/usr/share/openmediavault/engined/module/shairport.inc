@@ -22,6 +22,7 @@
 require_once("openmediavault/module.inc");
 require_once("openmediavault/config.inc");
 require_once("openmediavault/error.inc");
+require_once("openmediavault/monit.inc");
 require_once("openmediavault/initscript.inc");
 
 class OMVModuleShairport extends OMVModuleServiceAbstract
@@ -32,6 +33,20 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 	public function getName() {
 		return "shairport";
 	}
+
+	/**
+	 * Defines the modules that if present should start before the service
+	 * provided by this module.
+	 * @return An array of modules.
+	 */
+	public function shouldStart() { return array("monit"); }
+
+	/**
+	 * Defines the modules that if present should be stopped after the
+	 * service provided by this module.
+	 * @return An array of modules.
+	 */
+	function shouldStop() { return array("monit"); }
 
 	/**
 	 * Generate the configuration.
@@ -49,6 +64,10 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 	 * Stop the managed service.
 	 */
 	public function stopService() {
+		// Disable monitoring of this service.
+		$monit = new OMVMonit();
+		$monit->unmonitor("shairport", TRUE);
+		// Stop this service and unregister System-V style init script.
 		$initd = new OMVSysVInitScript("shairport", FALSE);
 		$initd->exec();
 	}
@@ -67,8 +86,12 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 		}
 		if (FALSE === boolvalEx($object['enable']))
 			return;
+		// Start this service and register System-V style init script.
 		$initd = new OMVSysVInitScript("shairport", TRUE);
 		$initd->exec();
+		// Enable monitoring of this service.
+		$monit = new OMVMonit();
+		$monit->monitor("shairport");
 	}
 
 	/**
@@ -104,6 +127,11 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.hostname",
 		  array($this, "setDirty"));
+		$moduleMgr = &OMVModuleMgr::getInstance();
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.services.shairport",
+		  array($moduleMgr->getModule("monit"), "setDirty"));
 	}
 }
 

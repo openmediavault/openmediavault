@@ -1,3 +1,9 @@
+openmediavault-shairport (1.1) stable; urgency=low
+
+  * Monitor service with monit to restart it in case of an crashes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Sep 2014 13:28:58 +0200
+
 openmediavault-shairport (1.0.2) stable; urgency=low
 
   * Update locales.
