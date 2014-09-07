@@ -144,7 +144,7 @@ class OMVMonit extends OMVObject {
 	public function status($name) {
 		$status = "unknown";
 		// Get status summary of monitored services. 
-		$cmd = "export LANG=C; monit summary";
+		$cmd = "export LANG=C; monit summary 2>&1";
 		OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,

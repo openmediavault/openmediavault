@@ -325,7 +325,7 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "0.6.0.4"; then
 			# Rebuild monit service configuration files.
 			omv-mkconf monit
-			invoke-rc.d monit force-reload
+			invoke-rc.d monit reload
 			# Unlink configuration backup file.
 			rm -f "${OMV_CONFIG_FILE}.bak"
 		fi
@@ -346,7 +346,7 @@ case "$1" in
 			# Restart services.
 			invoke-rc.d php5-fpm reload
 			invoke-rc.d nginx restart
-			invoke-rc.d monit force-reload
+			invoke-rc.d monit reload
 		fi
 		if dpkg --compare-versions "$2" lt-nl "0.6.0.11"; then
 			# Add service enable/disable flag.
@@ -397,6 +397,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "1.0.15"; then
 			rm -f /etc/rsyslog.d/remote.conf
 			omv-mkconf rsyslog
+		fi
+		if dpkg --compare-versions "$2" lt-nl "1.0.17"; then
+			rm -f /etc/apt/apt.conf.d/99openmediavault-install
 		fi
 	;;
 

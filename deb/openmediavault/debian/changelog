@@ -1,3 +1,10 @@
+openmediavault (1.0.17) stable; urgency=low
+
+  * Modify package postinst script.
+  * Improve monit error debugging.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Sep 2014 10:40:38 +0200
+
 openmediavault (1.0.16) stable; urgency=low
 
   * Modify package postinst script.
