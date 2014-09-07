@@ -1,3 +1,9 @@
+shairport (1.1.1-1) stable; urgency=low
+
+  * Improve init script. Set password command line option if set.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Sep 2014 19:57:25 +0200
+
 shairport (1.1.1) stable; urgency=low
 
   * New upstream version.
