@@ -24,7 +24,7 @@ set -e
 . /etc/default/openmediavault
 
 OMV_UPGRADE_SCRIPTS_DIR=${OMV_UPGRADE_SCRIPTS_DIR:-"/usr/share/openmediavault/releaseupgrade"}
-OMV_UPGRADE_RELEASEVERSION=${OMV_UPGRADE_RELEASEVERSION:-"0.6"}
+OMV_UPGRADE_RELEASEVERSION=${OMV_UPGRADE_RELEASEVERSION:-"1.0"}
 OMV_UPGRADE_RELEASENAME=${OMV_UPGRADE_RELEASENAME:-"Kralizec"}
 
 export LANG=C
@@ -44,7 +44,7 @@ echo "Upgrading system to ${OMV_UPGRADE_RELEASEVERSION} (${OMV_UPGRADE_RELEASENA
 
 # Backup the release upgrade scripts to a temporary directory. This is
 # necessary because the scripts directory is removed when the package
-# openmediavault 0.6.x is installed (which does not contain these files).
+# openmediavault 1.0.x is installed (which does not contain these files).
 tmpdir=$(mktemp -d)
 cp -r ${OMV_UPGRADE_SCRIPTS_DIR}/* ${tmpdir}
 
