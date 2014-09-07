@@ -49,7 +49,7 @@ class OMVModuleZeroconf extends OMVModuleServiceAbstract
 	 */
 	public function startService() {
 		$initd = new OMVSysVInitScript("avahi-daemon");
-		$initd->restart();
+		$initd->reload();
 	}
 
 	/**

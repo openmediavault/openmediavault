@@ -1,3 +1,10 @@
+openmediavault (1.0.18) stable; urgency=low
+
+  * Reload avahi-daemon configuration on changes instead of restarting
+    the daemon.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Sep 2014 11:35:24 +0200
+
 openmediavault (1.0.17) stable; urgency=low
 
   * Modify package postinst script.

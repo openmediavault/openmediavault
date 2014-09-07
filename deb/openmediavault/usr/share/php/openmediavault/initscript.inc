@@ -156,6 +156,13 @@ class OMVSysVInitScript extends OMVObject {
 	}
 
 	/**
+	 * Invoke init script with parameter 'reload'.
+	 */
+	public function reload() {
+		$this->invoke("reload");
+	}
+
+	/**
 	 * Invoke init script with the given aktion. Throws an exception in case
 	 * of an error.
 	 * @param action The action to be executed.
