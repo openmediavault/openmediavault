@@ -36,18 +36,18 @@ abstract class OMVHtmlPageAbstract extends OMVObject {
 	 * @param incList The list where to add the files to include
 	 */
 	protected function scanFiles($fileName, &$incList) {
+		// Add the given file to the list of files to be included. Note,
+		// the file must be inserted at the beginning of the list to respect
+		// the prerequisite order.
 		array_unshift($incList, $fileName);
 		$fh = fopen($fileName, "r");
-		if($fh === FALSE) {
+		if ($fh === FALSE)
 			throw new Exception(sprintf("Failed to open file '%s'", $fileName));
-		}
-		for($row = 0; $row < 100 && !feof($fh); ++$row) {
+		for ($row = 0; $row < 100 && !feof($fh); ++$row) {
 			$content = rtrim(fgets($fh));
-			if(preg_match("/\/\/\s+require\(\"([^\s]+)\"\)/", $content,
-				$matches)) {
-				array_unshift($incList, $matches[1]);
+			if (preg_match("/\/\/\s+require\(\"([^\s]+)\"\)/", $content,
+			  $matches))
 				$this->scanFiles($matches[1], $incList);
-			}
 		}
 		fclose($fh);
 	}

@@ -43,6 +43,7 @@ OMV_NGINX_SITE_WEBGUI_SECURITY_CSP=${OMV_NGINX_SITE_WEBGUI_SECURITY_CSP:-"defaul
 OMV_NGINX_SITE_WEBGUI_SECURITY_XFRAMEOPTIONS_ENABLE=${OMV_NGINX_SITE_WEBGUI_SECURITY_XFRAMEOPTIONS_ENABLE:-"yes"}
 OMV_NGINX_SITE_WEBGUI_SECURITY_XFRAMEOPTIONS=${OMV_NGINX_SITE_WEBGUI_SECURITY_XFRAMEOPTIONS:-"SAMEORIGIN"}
 OMV_NGINX_SITE_WEBGUI_SECURITY_HSTS=${OMV_NGINX_SITE_WEBGUI_SECURITY_HSTS:-"max-age=31536000; includeSubdomains"}
+OMV_NGINX_SITE_WEBGUI_FASTCGI_READ_TIMEOUT=${OMV_NGINX_SITE_WEBGUI_FASTCGI_READ_TIMEOUT:-"60s"}
 
 # Create '/etc/nginx/sites-available/openmediavault-webgui' file
 xmlstarlet sel -t -m "//webadmin" \
@@ -67,6 +68,7 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "        fastcgi_split_path_info ^(.+\.php)(/.+)$;" -n \
   -o "        fastcgi_pass unix:/var/run/php5-fpm-openmediavault-webgui.sock;" -n \
   -o "        fastcgi_index index.php;" -n \
+  -o "        fastcgi_read_timeout ${OMV_NGINX_SITE_WEBGUI_FASTCGI_READ_TIMEOUT};" -n \
   -o "        include fastcgi_params;" -n \
   -o "    }" -n \
   -v "concat('    listen [::]:',port,' default_server ipv6only=off;')" -n \
