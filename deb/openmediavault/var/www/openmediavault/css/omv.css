@@ -291,6 +291,7 @@ div#headerrlogo {
 .x-workspace-node-tree .x-grid-row-over .x-grid-td {
 	cursor: pointer;
 }
+/*
 @supports ((filter: invert()) or (-webkit-filter: invert())) {
 	.x-workspace-node-tree .x-grid-body {
 		background: #98b7cf;
@@ -314,6 +315,7 @@ div#headerrlogo {
 		background-color: rgba(0,0,0,0.2);
 	}
 }
+*/
 /* Menu */
 .x-menu-item-icon {
 	opacity: 0.7;
