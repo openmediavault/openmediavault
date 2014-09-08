@@ -43,13 +43,18 @@ abstract class OMVHtmlPageAbstract extends OMVObject {
 		$fh = fopen($fileName, "r");
 		if ($fh === FALSE)
 			throw new Exception(sprintf("Failed to open file '%s'", $fileName));
+		$scanList = array();
 		for ($row = 0; $row < 100 && !feof($fh); ++$row) {
 			$content = rtrim(fgets($fh));
-			if (preg_match("/\/\/\s+require\(\"([^\s]+)\"\)/", $content,
+			if (1 !== preg_match("/\/\/\s+require\(\"([^\s]+)\"\)/", $content,
 			  $matches))
-				$this->scanFiles($matches[1], $incList);
+				continue;
+			$scanList[] = $matches[1];
 		}
 		fclose($fh);
+		// Process all files that are included in the given file.
+		foreach ($scanList as $fileName)
+			$this->scanFiles($fileName, $incList);
 	}
 
 	/**
