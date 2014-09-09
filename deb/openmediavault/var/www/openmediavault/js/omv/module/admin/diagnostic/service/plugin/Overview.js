@@ -83,11 +83,11 @@ Ext.define("OMV.module.admin.diagnostic.service.plugin.Overview", {
 					switch(record.get("enabled")) {
 					case 1:
 					case true:
-						img = (true == value) ? "led_green.png" :
+						img = (true == value) ? "led_blue.png" :
 						  "led_red.png";
 						break;
 					default:
-						img = (true == value) ? "led_green.png" :
+						img = (true == value) ? "led_blue.png" :
 						  "led_gray.png";
 						break;
 					}
