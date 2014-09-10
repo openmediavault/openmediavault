@@ -90,7 +90,6 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 	hideEditButton: false,
 	hideDeleteButton: false,
 	hideRefreshButton: true,
-	hidePagingToolbar: false,
 	columns: [{
 		xtype: "mapcolumn",
 		text: _("Type"),
