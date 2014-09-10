@@ -158,8 +158,9 @@ Ext.define("OMV.grid.Panel", {
 	},
 
 	/**
-	 * Get the records from the grids store as key/value pairs.
-	 * @return The records from the grids store as key/value pairs.
+	 * Gets all values for each record in this store and returns an object
+	 * containing the current record values as described in the store's model.
+	 * @return An array of object hash containing all the values.
 	 */
 	getValues: function() {
 		var me = this;

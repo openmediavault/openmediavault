@@ -127,14 +127,14 @@ Ext.define("OMV.form.field.Grid", {
 	convertData: function(records) {
 		var me = this;
 		var writer = me.getStore().getProxy().getWriter();
-		var value = [];
+		var result = [];
 		Ext.Array.each(records, function(record) {
 			// Use the configured writer to get the records data. Thus we
 			// get exactly the result as defined by the data model.
 			var data = writer.getRecordData(record);
-			value.push(data);
+			result.push(data);
 		});
-		return value;
+		return result;
 	},
 
 	setValue: function(value) {

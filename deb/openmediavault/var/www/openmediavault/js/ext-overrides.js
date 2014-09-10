@@ -480,14 +480,16 @@ Ext.apply(Ext.data.Store.prototype, {
 	},
 
 	/**
-	 * Gets all values for each record in this store.
+	 * Gets all values for each record in this store according the model
+	 * definition.
 	 * @return An array of object hash containing all the record's values.
 	 */
 	getData: function() {
 		var me = this;
 		var result = [];
+		var writer = me.getProxy().getWriter();
 		me.each(function(record) {
-			var data = record.getData();
+			var data = writer.getRecordData(record);
 			Ext.Array.push(result, [ data ]);
 		});
 		return result;

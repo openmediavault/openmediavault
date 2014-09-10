@@ -332,10 +332,9 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 		return Ext.create("OMV.data.Store", {
 			autoLoad: true,
 			model: OMV.data.Model.createImplicit({
-				// Use no idProperty, otherwise it is not possible to add
-				// multiple new rules in a bulk.
-				idProperty: null,
+				idgen: "uuid", // Populate 'id' field automatically.
 				fields: [
+					{ name: "id", type: "string", persist: false },
 					{ name: "uuid" },
 					{ name: "rulenum" },
 					{ name: "chain" },
@@ -358,6 +357,10 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 				},
 				extraParams: {
 					type: [ "userdefined" ]
+				},
+				writer: {
+					type: "json",
+					writeRecordId: false
 				}
 			},
 			sorters: [{
@@ -470,11 +473,8 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 
 	onApplyButton: function() {
 		var me = this;
-		var records = me.store.getRange();
-		var params = [];
-		Ext.Array.each(records, function(record) {
-			params.push(record.getData());
-		});
+		// Get the rules.
+		var params = me.getValues();
 		// Execute RPC.
 		OMV.Rpc.request({
 			scope: me,
@@ -496,13 +496,12 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 	 */
 	updateRuleNums: function() {
 		var me = this;
-		me.store.suspendEvents();
 		me.store.each(function(record, index) {
 			record.beginEdit();
 			record.set("rulenum", index);
 			record.endEdit();
+			record.commit();
 		});
-		me.store.resumeEvents();
 	}
 });
 
