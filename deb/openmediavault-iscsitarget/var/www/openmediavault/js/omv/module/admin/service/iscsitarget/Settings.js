@@ -100,7 +100,11 @@ Ext.define("OMV.module.admin.service.iscsitarget.Settings", {
 					}]
 				}),
 */
-				gridClass: "OMV.module.admin.service.iscsitarget.AuthUsers"
+				gridClass: "OMV.module.admin.service.iscsitarget.AuthUsers",
+				gridConfig: {
+					stateful: true,
+					stateId: "54af0f59-ef4e-4c1f-a3c3-1efaa1ea02fd"
+				}
 			}]
 		}];
 	}

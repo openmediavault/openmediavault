@@ -333,6 +333,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 			autoLoad: true,
 			model: OMV.data.Model.createImplicit({
 				idgen: "uuid", // Populate 'id' field automatically.
+				idProperty: "id",
 				fields: [
 					{ name: "id", type: "string", persist: false },
 					{ name: "uuid" },

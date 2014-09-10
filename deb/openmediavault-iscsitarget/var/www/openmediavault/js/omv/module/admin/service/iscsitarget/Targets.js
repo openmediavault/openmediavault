@@ -282,6 +282,31 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.General", {
 });
 
 /**
+ * @class OMV.module.admin.service.iscsitarget.target.AuthUsers
+ * @derived OMV.module.admin.service.iscsitarget.AuthUsers
+ */
+Ext.define("OMV.module.admin.service.iscsitarget.target.AuthUsers", {
+	extend: "OMV.module.admin.service.iscsitarget.AuthUsers",
+
+	title: _("Authentication"),
+	stateful: true,
+	stateId: "c3f1c6ec-38eb-11e4-97b9-0002b3a176b4",
+
+	setValues: function(values) {
+		var me = this;
+		return me.callParent([ values.authentication ]);
+	},
+
+	getValues: function() {
+		var me = this;
+		var values = me.callParent(arguments);
+		return {
+			authentication: values
+		};
+	}
+});
+
+/**
  * @class OMV.module.admin.service.iscsitarget.target.LUN
  * @derived OMV.workspace.window.Form
  */
@@ -397,8 +422,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.LUNs", {
 	extend: "OMV.workspace.grid.Panel",
 	requires: [
 		"OMV.data.Store",
-		"OMV.data.Model",
-		"OMV.util.Format"
+		"OMV.data.Model"
 	],
 	uses: [
 		"OMV.module.admin.service.iscsitarget.target.LUN"
@@ -429,24 +453,26 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.LUNs", {
 		dataIndex: "scsisn",
 		stateId: "scsisn"
 	},{
+		xtype: "mapcolumn",
 		text: _("R/W mode"),
 		sortable: true,
 		dataIndex: "iomode",
 		stateId: "iomode",
-		renderer: OMV.util.Format.arrayRenderer([
-			[ "wt", _("Write-through") ],
-			[ "wb", _("Write-back") ],
-			[ "ro", _("Read-only") ]
-		])
+		mapItems: {
+			"wt": _("Write-through"),
+			"wb": _("Write-back"),
+			"ro": _("Read-only")
+		}
 	},{
+		xtype: "mapcolumn",
 		text: _("Transfer mode"),
 		sortable: true,
 		dataIndex: "type",
 		stateId: "type",
-		renderer: OMV.util.Format.arrayRenderer([
-			[ "fileio", _("File IO") ],
-			[ "blockio", _("Block IO") ]
-		])
+		mapItems: {
+			"fileio": _("File IO"),
+			"blockio": _("Block IO")
+		}
 	}],
 
 	initComponent: function() {
@@ -494,11 +520,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.LUNs", {
 					var lastRowNum = store.getCount();
 					values.id = lastRowNum;
 					// Create and insert new record.
-					var newRecord = new store.model;
-					newRecord.beginEdit();
-					newRecord.set(values);
-					newRecord.endEdit();
-					store.insert(lastRowNum, [ newRecord ]);
+					store.insertData(lastRowNum, values);
 				}
 			}
 		}).show();
@@ -582,21 +604,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.target.Target", {
 	getTabItems: function() {
 		return [
 			Ext.create("OMV.module.admin.service.iscsitarget.target.General"),
-			Ext.create("OMV.module.admin.service.iscsitarget.AuthUsers", {
-				title: _("Authentication"),
-				getValues: function() {
-					var me = this;
-					var values = me.callPrototype("getValues", arguments);
-					return {
-						authentication: values
-					};
-				},
-				setValues: function(values) {
-					var me = this;
-					return me.callPrototype("setValues",
-					  [ values.authentication ]);
-				}
-			}),
+			Ext.create("OMV.module.admin.service.iscsitarget.target.AuthUsers"),
 			Ext.create("OMV.module.admin.service.iscsitarget.target.LUNs")
 		]
 	}

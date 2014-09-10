@@ -35,6 +35,9 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUser", {
 
 	mode: "local",
 	width: 500,
+	plugins: [{
+		ptype: "configobject"
+	}],
 
 	getFormItems: function() {
 		var me = this;
@@ -76,8 +79,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 	extend: "OMV.workspace.grid.Panel",
 	requires: [
 		"OMV.data.Store",
-		"OMV.data.Model",
-		"OMV.data.proxy.Rpc"
+		"OMV.data.Model"
 	],
 	uses: [
 		"OMV.module.admin.service.iscsitarget.AuthUser"
@@ -89,8 +91,6 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 	hideDeleteButton: false,
 	hideRefreshButton: true,
 	hidePagingToolbar: false,
-	stateful: true,
-	stateId: "54af0f59-ef4e-4c1f-a3c3-1efaa1ea02fd",
 	columns: [{
 		xtype: "mapcolumn",
 		text: _("Type"),
@@ -115,6 +115,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 				autoLoad: false,
 				model: OMV.data.Model.createImplicit({
 					idgen: "uuid", // Populate 'id' field automatically.
+					idProperty: "id",
 					fields: [
 						{ name: "id", type: "string", persist: false },
 						{ name: "uuid", type: "string" },
@@ -147,9 +148,6 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 		Ext.create("OMV.module.admin.service.iscsitarget.AuthUser", {
 			title: _("Add user"),
 			uuid: OMV.UUID_UNDEFINED,
-			plugins: [{
-				ptype: "configobject"
-			}],
 			listeners: {
 				scope: me,
 				submit: function(wnd, values) {
@@ -174,9 +172,6 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 		var wnd = Ext.create("OMV.module.admin.service.iscsitarget.AuthUser", {
 			title: _("Edit user"),
 			uuid: record.get("uuid"),
-			plugins: [{
-				ptype: "configobject"
-			}],
 			listeners: {
 				scope: me,
 				submit: function(wnd, values) {
