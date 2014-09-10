@@ -77,8 +77,7 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 	requires: [
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc",
-		"OMV.util.Format"
+		"OMV.data.proxy.Rpc"
 	],
 	uses: [
 		"OMV.module.admin.service.iscsitarget.AuthUser"
@@ -93,14 +92,15 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 	stateful: true,
 	stateId: "54af0f59-ef4e-4c1f-a3c3-1efaa1ea02fd",
 	columns: [{
+		xtype: "mapcolumn",
 		text: _("Type"),
 		sortable: true,
 		dataIndex: "type",
 		stateId: "type",
-		renderer: OMV.util.Format.arrayRenderer([
-			[ "incoming", _("Incoming") ],
-			[ "outgoing", _("Outgoing") ]
-		])
+		mapItems: {
+			"incoming": _("Incoming"),
+			"outgoing": _("Outgoing")
+		}
 	},{
 		text: _("Username"),
 		sortable: true,
@@ -114,8 +114,9 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: false,
 				model: OMV.data.Model.createImplicit({
-					idProperty: "uuid",
+					idgen: "uuid", // Populate 'id' field automatically.
 					fields: [
+						{ name: "id", type: "string", persist: false },
 						{ name: "uuid", type: "string" },
 						{ name: "type", type: "string" },
 						{ name: "username", type: "string" },
@@ -126,6 +127,10 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 					type: "memory",
 					reader: {
 						type: "json"
+					},
+					writer: {
+						type: "json",
+						writeRecordId: false
 					}
 				},
 				sorters: [{
@@ -150,18 +155,14 @@ Ext.define("OMV.module.admin.service.iscsitarget.AuthUsers", {
 				submit: function(wnd, values) {
 					var store = this.getStore();
 					// Do some checks before adding the new user.
-					if(values.type === "outgoing") {
+					if (values.type === "outgoing") {
 						var qr = store.query("type", "outgoing");
-						if(qr.getCount() > 0) {
+						if (qr.getCount() > 0) {
 							OMV.MessageBox.failure(null, _("Only one outgoing user per target is supported."));
 							return;
 						}
 					}
-					var newRecord = new store.model;
-					newRecord.beginEdit();
-					newRecord.set(values);
-					newRecord.endEdit();
-					store.add(newRecord);
+					store.addData(values);
 				}
 			}
 		}).show();
