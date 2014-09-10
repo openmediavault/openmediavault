@@ -119,15 +119,20 @@ Ext.define("OMV.form.field.Grid", {
 
 	/**
 	 * The function that is called whenever the store has been modified.
-	 * It is used to convert the data as itis stored in the store into the
+	 * It is used to convert the data stored in the store into the
 	 * structure that is required by the form field.
-	 * @param records An array of all records from the store.
+	 * @param records An array of records to be processed.
 	 * @return The value as it should be stored by the form field.
 	 */
 	convertData: function(records) {
+		var me = this;
+		var writer = me.getStore().getProxy().getWriter();
 		var value = [];
 		Ext.Array.each(records, function(record) {
-			value.push(record.getData());
+			// Use the configured writer to get the records data. Thus we
+			// get exactly the result as defined by the data model.
+			var data = writer.getRecordData(record);
+			value.push(data);
 		});
 		return value;
 	},
