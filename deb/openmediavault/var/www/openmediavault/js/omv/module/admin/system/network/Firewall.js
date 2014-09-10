@@ -434,8 +434,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 
 	onEditButton: function() {
 		var me = this;
-		var selModel = this.getSelectionModel();
-		var record = selModel.getSelection()[0];
+		var record = me.getSelected();
 		var wnd = Ext.create("OMV.module.admin.system.network.firewall.Rule", {
 			title: _("Edit firewall rule"),
 			family: me.family,
@@ -474,7 +473,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 	onApplyButton: function() {
 		var me = this;
 		// Get the rules.
-		var params = me.getValues();
+		var params = me.store.getData();
 		// Execute RPC.
 		OMV.Rpc.request({
 			scope: me,

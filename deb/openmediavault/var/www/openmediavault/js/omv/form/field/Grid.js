@@ -84,7 +84,7 @@ Ext.define("OMV.form.field.Grid", {
 		var me = this;
 		var syncValue = function(store) {
 			var records = store.getRange();
-			me.mixins.field.setValue.call(me, me.convertData(records));
+			me.mixins.field.setValue.call(me, me.convertRecordData(records));
 		};
 		return {
 			datachanged: syncValue,
@@ -124,7 +124,7 @@ Ext.define("OMV.form.field.Grid", {
 	 * @param records An array of records to be processed.
 	 * @return The value as it should be stored by the form field.
 	 */
-	convertData: function(records) {
+	convertRecordData: function(records) {
 		var me = this;
 		var writer = me.getStore().getProxy().getWriter();
 		var result = [];
