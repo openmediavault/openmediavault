@@ -168,7 +168,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 					// Override default values.
 					$objectv['volume'] = !empty($label) ? $label : $devicefile;
 					$objectv['description'] = sprintf(
-					  gettext("%s [on %s, %s ]"), $objectv['description'],
+					  gettext("%s [on %s, %s]"), $objectv['description'],
 					  $objectv['volume'], $objectv['reldirpath']);
 				}
 			}

@@ -63,6 +63,7 @@ Ext.define("OMV.form.field.Grid", {
 	layout: "anchor",
 	border: false,
 	fieldBodyCls: Ext.baseCSSPrefix + "form-gridfield-body",
+	invalidCls: Ext.baseCSSPrefix + "form-gridfield-invalid",
 
 	initComponent: function() {
 		var me = this;

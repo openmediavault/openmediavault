@@ -323,3 +323,9 @@ div#headerrlogo {
 .x-menu-item-icon-16x16 {
 	background-size: 16px 16px;
 }
+/* Form grid field */
+.x-form-gridfield-invalid .x-form-gridfield-body .x-grid {
+	border-width: 1px;
+	border-color: #cc3300;
+	border-style: solid;
+}
