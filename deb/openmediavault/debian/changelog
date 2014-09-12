@@ -2,6 +2,7 @@ openmediavault (1.0.21) stable; urgency=low
 
   * Fix typo.
   * Various UI improvements.
+  * Hide the welcome.msg for FTP users.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 11 Sep 2014 12:09:30 +0200
 

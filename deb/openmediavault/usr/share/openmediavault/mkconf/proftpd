@@ -198,7 +198,7 @@ xmlstarlet sel -t \
 	  -i "maxconnectionsperhost[. > '0']" -v "concat('MaxConnectionsPerHost ',maxconnectionsperhost)" -n -b \
 	  -i "maxloginattempts[. > '0']" -v "concat('MaxLoginAttempts ',maxloginattempts )" -n -b \
 	  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
-	  -o "<Directory ${OMV_PROFTPD_DEFAULTROOT}>" -n \
+	  -o "<Directory />" -n \
 	  -o "  HideFiles (welcome.msg)" -n \
 	  -o "</Directory>" -n \
 	  -i "anonymous[. = '1']" \
