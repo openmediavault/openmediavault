@@ -401,6 +401,10 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "1.0.17"; then
 			rm -f /etc/apt/apt.conf.d/99openmediavault-install
 		fi
+		if dpkg --compare-versions "$2" lt-nl "1.0.21"; then
+			omv-mkconf proftpd
+			service proftpd reload
+		fi
 	;;
 
 	triggered)
