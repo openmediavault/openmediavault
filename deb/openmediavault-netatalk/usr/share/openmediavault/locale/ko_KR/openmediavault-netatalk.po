@@ -1,0 +1,174 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-08-06 16:30+0200\n"
+"PO-Revision-Date: 2014-09-12 15:19+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Add share"
+msgstr ""
+
+msgid "Advanced settings"
+msgstr ""
+
+msgid "Allow guest login."
+msgstr ""
+
+msgid "Allow guests to create or modify files."
+msgstr ""
+
+msgid "Allow logins with passwords transmitted in the clear."
+msgstr ""
+
+msgid "Allow plain passwords"
+msgstr ""
+
+msgid "Apple Filing"
+msgstr ""
+
+msgid "Case folding"
+msgstr ""
+
+msgid "Client sees lowercase, server sees uppercase"
+msgstr ""
+
+msgid "Client sees uppercase, server sees lowercase"
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid "Don't do :hex translation for dot files."
+msgstr ""
+
+msgid "Edit share"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enable Time Machine support for this share."
+msgstr ""
+
+msgid "Enable user home directories."
+msgstr ""
+
+msgid "Extra options"
+msgstr ""
+
+msgid "Forces filename restrictions"
+msgstr ""
+
+msgid "General settings"
+msgstr ""
+
+msgid "Guest login"
+msgstr ""
+
+msgid "Guest permissions"
+msgstr ""
+
+msgid "Guests only have read access by default."
+msgstr ""
+
+msgid "Hide dot files"
+msgstr ""
+
+msgid "Home directories"
+msgstr ""
+
+msgid ""
+"If this option is set, then a password is required to access the share."
+msgstr ""
+
+msgid ""
+"If this option is set, then users may not create or modify files in the "
+"share."
+msgstr ""
+
+msgid ""
+"Limit the reported volume size to the given value in MiB, thus preventing TM"
+" from using the whole disk space for backup. Set this value to 0 to disable "
+"this option."
+msgstr ""
+
+msgid "Lowercases names in both directions"
+msgstr ""
+
+msgid "Make dot files invisible."
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Quota"
+msgstr ""
+
+msgid "Read only"
+msgstr ""
+
+msgid "Set read only."
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "Shares"
+msgstr ""
+
+msgid "The location of the files to share."
+msgstr ""
+
+msgid "The name of the share."
+msgstr ""
+
+msgid ""
+"This forces filenames to be restricted to the character set used by Windows."
+msgstr ""
+
+msgid "This option handles, if the case of filenames should be changed."
+msgstr ""
+
+msgid "Time Machine support"
+msgstr ""
+
+msgid "Unix privileges"
+msgstr ""
+
+msgid "Uppercases names in both directions"
+msgstr ""
+
+msgid "Use AFP3 unix privileges."
+msgstr ""
+
+msgid "Use dots"
+msgstr ""
+
+msgid ""
+"When this option gets set, certain file names become illegal. These are "
+".Parent and anything that starts with .Apple."
+msgstr ""
+
+msgid "n/a"
+msgstr ""

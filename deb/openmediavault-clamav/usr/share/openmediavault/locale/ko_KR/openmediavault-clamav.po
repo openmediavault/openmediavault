@@ -1,0 +1,231 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-09-12 15:19+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Add job"
+msgstr ""
+
+msgid "Algorithmic detection"
+msgstr ""
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr ""
+
+msgid "Antivirus"
+msgstr ""
+
+msgid "Be verbose."
+msgstr ""
+
+msgid "Comment"
+msgstr ""
+
+msgid "Database checks"
+msgstr ""
+
+msgid "Database mirror"
+msgstr ""
+
+msgid "Date & Time"
+msgstr ""
+
+msgid "Day of month"
+msgstr ""
+
+msgid "Day of week"
+msgstr ""
+
+msgid "Detect PUA"
+msgstr ""
+
+msgid "Detect broken executables"
+msgstr ""
+
+msgid "Edit job"
+msgstr ""
+
+msgid "Enable"
+msgstr ""
+
+msgid "Enable HTML detection and normalisation."
+msgstr ""
+
+msgid "Enable archive scanning."
+msgstr ""
+
+msgid "Enable on-access virus scanning"
+msgstr ""
+
+msgid "Enable scanning of ELF files."
+msgstr ""
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr ""
+
+msgid "Enable scanning within PDF files."
+msgstr ""
+
+msgid "Enable the algorithmic detection."
+msgstr ""
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr ""
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr ""
+
+msgid "Enabled"
+msgstr ""
+
+msgid "Every N day of month"
+msgstr ""
+
+msgid "Every N hour"
+msgstr ""
+
+msgid "Every N minute"
+msgstr ""
+
+msgid "Execute cron job"
+msgstr ""
+
+msgid "Extra options"
+msgstr ""
+
+msgid "Follow directory symlinks"
+msgstr ""
+
+msgid "Follow directory symlinks."
+msgstr ""
+
+msgid "Follow file symlinks"
+msgstr ""
+
+msgid "Follow regular file symlinks."
+msgstr ""
+
+msgid "General settings"
+msgstr ""
+
+msgid "Hour"
+msgstr ""
+
+msgid "Infected files"
+msgstr ""
+
+msgid "Jobs"
+msgstr ""
+
+msgid "Log clean files"
+msgstr ""
+
+msgid "Log clean files. This drastically increases the log size."
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Minute"
+msgstr ""
+
+msgid "Monitor the shared folder and scan new or modified files."
+msgstr ""
+
+msgid "Month"
+msgstr ""
+
+msgid "Multiscan"
+msgstr ""
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr ""
+
+msgid "On-access"
+msgstr ""
+
+msgid "Perform a deeper analysis of executable files."
+msgstr ""
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid "Quarantine"
+msgstr ""
+
+msgid "Run"
+msgstr ""
+
+msgid "Scan ELF"
+msgstr ""
+
+msgid "Scan HTML"
+msgstr ""
+
+msgid "Scan OLE2"
+msgstr ""
+
+msgid "Scan PDF"
+msgstr ""
+
+msgid "Scan Portable Executable"
+msgstr ""
+
+msgid "Scan archives"
+msgstr ""
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr ""
+
+msgid "Send command output via email"
+msgstr ""
+
+msgid "Send email"
+msgstr ""
+
+msgid ""
+"Server name where database updates are downloaded from. Get a complete list "
+"of database mirrors <a href='http://www.clamav.net/mirrors.html' "
+"target='_blank'>here</a>."
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Shared folder"
+msgstr ""
+
+msgid "The location of the files to scan."
+msgstr ""
+
+msgid "The location which is used as quarantine."
+msgstr ""
+
+msgid "The option, how to handle infected files."
+msgstr ""
+
+msgid "Verbose"
+msgstr ""
+
+msgid "n/a"
+msgstr ""
