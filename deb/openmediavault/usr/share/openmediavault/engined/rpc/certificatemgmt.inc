@@ -359,7 +359,7 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 		$keyfile = tempnam(sys_get_temp_dir(), "cert");
 		$crtfile = tempnam(sys_get_temp_dir(), "cert");
 		$cmd = sprintf("export LANG=C; openssl req -x509 -nodes -days %d ".
-		  "-batch -newkey rsa:%d -keyout %s -out %s",
+		  "-sha256 -batch -newkey rsa:%d -keyout %s -out %s",
 		  $params['days'], $params['size'], $keyfile, $crtfile);
 		if(!empty($subject)) {
 			$cmd .= sprintf(" -subj '%s'", $subject);

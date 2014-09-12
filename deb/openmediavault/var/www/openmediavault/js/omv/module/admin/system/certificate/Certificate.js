@@ -21,6 +21,7 @@
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/workspace/window/Form.js")
+// require("js/omv/workspace/window/TextArea.js")
 // require("js/omv/workspace/window/plugin/ConfigObject.js")
 // require("js/omv/util/Format.js")
 // require("js/omv/Rpc.js")
@@ -485,43 +486,16 @@ Ext.define("OMV.module.admin.system.certificate.Edit", {
 
 /**
  * @class OMV.module.admin.system.certificate.Detail
- * @derived OMV.workspace.window.Form
+ * @derived OMV.workspace.window.TextArea
  */
 Ext.define("OMV.module.admin.system.certificate.Detail", {
-	extend: "OMV.workspace.window.Form",
+	extend: "OMV.workspace.window.TextArea",
 
-	hideOkButton: true,
-	hideCancelButton: true,
-	hideCloseButton: false,
-	hideResetButton: true,
 	rpcService: "CertificateMgmt",
 	rpcGetMethod: "getDetail",
 	title: _("Certificate details"),
 	width: 600,
-	height: 400,
-	border: false,
-
-	getFormConfig: function() {
-		return {
-			layout: "fit",
-			bodyPadding: ""
-		};
-	},
-
-	getFormItems: function() {
-		return [{
-			xtype: "textarea",
-			name: "detail",
-			readOnly: true,
-			cls: "x-form-textarea-monospaced"
-		}];
-	},
-
-	processLoadResponse: function(response) {
-		return {
-			detail: response
-		};
-	}
+	height: 400
 });
 
 /**
