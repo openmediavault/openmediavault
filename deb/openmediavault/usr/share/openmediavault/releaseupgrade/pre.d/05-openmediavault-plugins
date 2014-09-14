@@ -28,7 +28,7 @@ set -e
 # installed, then suggest the deinstallation, otherwise the 1.x packages
 # will break the installation.
 packagename=$(omv_product_info "packagename")
-pluginnames="${packagename}-nut ${packagename}-ldap"
+pluginnames="${packagename}-nut ${packagename}-ldap ${packagename}-iscsitarget"
 for pluginname in ${pluginnames}; do
 	if dpkg -l | egrep "${pluginname}" >/dev/null; then
 		echo "The plugin ${pluginname} has been detected."
