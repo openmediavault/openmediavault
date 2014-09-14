@@ -43,6 +43,6 @@ deb http://packages.openmediavault.org/public ${relname} main
 EOF
 
 # Upgrade Debian source list file.
-sed -i 's/squeeze/wheezy/g' /etc/apt/sources.list
+sed -i -r 's/squeeze(-lts)?/wheezy/g' /etc/apt/sources.list
 
 exit 0
