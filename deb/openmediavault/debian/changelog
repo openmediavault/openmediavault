@@ -1,3 +1,10 @@
+openmediavault (0.5.58) stable; urgency=low
+
+  * Improve upgrade script. The nut and ldap plugins must be deinstalled
+    before upgrade, otherwise the installation fails.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 14 Sep 2014 19:42:06 +0200
+
 openmediavault (0.5.57) stable; urgency=low
 
   * Modify help text in omv-release-upgrade script.

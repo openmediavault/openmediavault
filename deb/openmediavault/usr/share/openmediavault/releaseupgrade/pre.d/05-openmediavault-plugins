@@ -24,28 +24,30 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-# Check if the openmediavault-nut plugin is installed. If it is installed,
-# then suggest the deinstallation, otherwise the 0.6.x packages will break
-# the installation.
+# Check if one of the given OpenMediaVault plugins is installed. If it is
+# installed, then suggest the deinstallation, otherwise the 1.x packages
+# will break the installation.
 packagename=$(omv_product_info "packagename")
-pluginname="${packagename}-nut"
-if dpkg -l | egrep "${pluginname}" >/dev/null; then
-	echo "The plugin ${pluginname} has been detected."
-	echo "It must be deinstalled before the installation continues. Please reinstall"
-	echo "it after the system has been successfully upgraded."
-	while true; do
-		read -p "Do you want to deinstall this plugin [y/n]? " choice
-		case "${choice}" in
-		[Yy]*)
-			apt-get --yes --force-yes remove "${pluginname}";
-			break;;
-		[Nn]*)
-			echo "Aborting release upgrade"
-			exit 1;;
-		*)
-			echo "Please answer yes or no.";;
-		esac
-	done
-fi
+pluginnames="${packagename}-nut ${packagename}-ldap"
+for pluginname in ${pluginnames}; do
+	if dpkg -l | egrep "${pluginname}" >/dev/null; then
+		echo "The plugin ${pluginname} has been detected."
+		echo "It must be deinstalled before the installation continues. Please reinstall"
+		echo "it after the system has been successfully upgraded."
+		while true; do
+			read -p "Do you want to deinstall this plugin [y/n]? " choice
+			case "${choice}" in
+			[Yy]*)
+				apt-get --yes --force-yes remove "${pluginname}";
+				break;;
+			[Nn]*)
+				echo "Aborting release upgrade"
+				exit 1;;
+			*)
+				echo "Please answer yes or no.";;
+			esac
+		done
+	fi
+done
 
 exit 0
