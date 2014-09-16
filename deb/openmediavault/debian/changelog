@@ -1,3 +1,10 @@
+openmediavault (1.0.22) stable; urgency=low
+
+  * Cleanup proftpd config script.
+  * Mantis 0001101: Linux Softraid - Raid 1 does not survive reboot.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 16 Sep 2014 12:04:17 +0200
+
 openmediavault (1.0.21) stable; urgency=low
 
   * Fix typo.

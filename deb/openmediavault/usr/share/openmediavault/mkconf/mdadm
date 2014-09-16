@@ -107,3 +107,7 @@ xmlstarlet sel -t -m "//system/email" \
 	-o "MAILFROM ${OMV_MDADM_MAILFROM}" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MDADM_CONFIG}
+
+# Update initramfs.
+rm -f /var/lib/mdadm/CONF-UNCHECKED
+update-initramfs -u -k all
