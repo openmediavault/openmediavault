@@ -166,8 +166,8 @@ class OMVRpcServiceApt extends OMVRpcServiceAbstract {
 	 *   \em priority, \em section, \em installedsize, \em maintainer,
 	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
 	 *   \em abstract and \em homepage. The following fields are
-	 *   optional: \em description, \em depends, \em replaces and
-	 *   \em conflicts.
+	 *   optional: \em description, \em extendeddescription, \em depends,
+	 *   \em replaces and \em conflicts.
 	 * @throw E_EXEC_FAILED
 	 */
 	function getUpgradedList($params, $context) {

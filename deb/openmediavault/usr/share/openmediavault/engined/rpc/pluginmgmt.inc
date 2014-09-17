@@ -57,7 +57,8 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
 	 *   \em abstract, \em homepage, \em installed, \em repository
 	 *   and \em _readonly. The following fields are optional:
-	 *   \em description, \em depends, \em replaces and \em conflicts.
+	 *   \em description, \em extendeddescription, \em depends, \em replaces
+	 *   and \em conflicts.
 	 * @throw E_MISC_FAILURE
 	 */
 	function enumeratePlugins($params, $context) {

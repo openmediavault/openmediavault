@@ -37,6 +37,21 @@ class OpenMediaVaultPluginsFilter(apt.cache.Filter):
 			return False
 		return True
 
+def get_extended_description(raw_description):
+	"""
+	Return the extended description according to the Debian policy
+	(Chapter 5.6.13).
+	See http://www.debian.org/doc/debian-policy/ch-controlfields.html
+	for more information.
+	"""
+	parts = raw_description.partition("\n");
+	lines = parts[2].split("\n");
+	for i, line in enumerate(lines):
+		lines[i] = line.strip();
+		if lines[i] == ".":
+			lines[i] = "\n"
+	return "\n".join(lines)
+
 cache = apt.cache.Cache()
 
 # Create the '/var/lib/openmediavault/apt/upgradeindex.json' file.
@@ -69,6 +84,8 @@ for pkg in cache.get_changes():
 		"abstract": pkg.candidate.summary, # Deprecated
 		"summary": pkg.candidate.summary,
 		"description": pkg.candidate.record.get("Description", ""),
+		"extendeddescription": get_extended_description(
+		  pkg.candidate.raw_description),
 		"homepage": pkg.candidate.homepage,
 		"descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
 		"multiarch": pkg.candidate.record.get("Multi-Arch", ""),
@@ -113,6 +130,8 @@ for pkg in fcache:
 		"abstract": pkg.candidate.summary, # Deprecated
 		"summary": pkg.candidate.summary,
 		"description": pkg.candidate.record.get("Description", ""),
+		"extendeddescription": get_extended_description(
+		  pkg.candidate.raw_description),
 		"homepage": pkg.candidate.homepage,
 		"descriptionmd5": pkg.candidate.record.get("Description-md5", ""),
 		"multiarch": pkg.candidate.record.get("Multi-Arch", ""),
