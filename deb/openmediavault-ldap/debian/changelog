@@ -1,3 +1,9 @@
+openmediavault-ldap (1.0.2) stable; urgency=low
+
+  * Allow setting multiple lines in the 'Extra options' field.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 18 Sep 2014 12:02:51 +0200
+
 openmediavault-ldap (1.0.1) stable; urgency=low
 
   * Update locales.

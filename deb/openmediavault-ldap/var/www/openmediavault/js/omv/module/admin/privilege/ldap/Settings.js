@@ -116,7 +116,7 @@ Ext.define("OMV.module.admin.privilege.ldap.Settings", {
 				}],
 				value: "ou=Groups"
 			},{
-				xtype: "textfield",
+				xtype: "textarea",
 				name: "extraoptions",
 				fieldLabel: _("Extra options"),
 				allowBlank: true,
