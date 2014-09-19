@@ -48,8 +48,35 @@ Ext.define("OMV.module.admin.service.owncloud.Settings", {
 				{ name: "enable", value: true }
 			],
 			properties: "!allowBlank"
+		},{
+			conditions: [
+				{ name: "enable", value: true }
+			],
+			properties: function(valid, field) {
+				this.setButtonDisabled("show", !valid);
+			}
 		}]
 	}],
+
+	getButtonItems: function() {
+		var me = this;
+		var items = me.callParent(arguments);
+		// Add 'Show' button to open the ownCloud web interface in
+		// a new browser window.
+		items.push({
+			id: me.getId() + "-show",
+			xtype: "button",
+			text: _("Show"),
+			icon: "images/search.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			disabled: true,
+			scope: me,
+			handler: function() {
+				window.open("/owncloud", "_blank");
+			}
+		});
+		return items;
+	},
 
 	getFormItems: function() {
 		return [{
@@ -62,11 +89,7 @@ Ext.define("OMV.module.admin.service.owncloud.Settings", {
 				xtype: "checkbox",
 				name: "enable",
 				fieldLabel: _("Enable"),
-				checked: false,
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("The ownCloud web interface can be accessed <a href='/owncloud' target='_blank'>here</a>.")
-				}]
+				checked: false
 			},{
 				xtype: "numberfield",
 				name: "port",

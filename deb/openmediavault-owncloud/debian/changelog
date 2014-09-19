@@ -1,3 +1,9 @@
+openmediavault-owncloud (1.1.3) stable; urgency=low
+
+  * Add a button to open the ownCloud WebGUI in a new browser window.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 19 Sep 2014 12:10:39 +0200
+
 openmediavault-owncloud (1.1.2) stable; urgency=low
 
   * Update locales.
