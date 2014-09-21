@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-26 22:28+0200\n"
-"PO-Revision-Date: 2014-08-26 20:28+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-09-13 07:30+0000\n"
+"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -156,7 +156,7 @@ msgid "9 months"
 msgstr "9 μήνες"
 
 msgid "A module with the name '%s' already exists"
-msgstr ""
+msgstr "Υπάρχει ήδη πρόσθετο με το όνομα '%s'"
 
 msgid "A share with the name '%s' already exists"
 msgstr "Υπάρχει ήδη κοινόχρηστο με το όνομα '%s'"
@@ -174,7 +174,7 @@ msgid "About"
 msgstr "Σχετικά"
 
 msgid "Abstract"
-msgstr ""
+msgstr "Επιτομή"
 
 msgid "Access Right Management"
 msgstr "Διαχείριση Δικαιωμάτων Πρόσβασης"
@@ -274,7 +274,7 @@ msgstr "Afghanistan"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
-msgstr ""
+msgstr "Αφού επεκταθεί το RAID μπορεί να αλλαχτεί το μέγεθος του συστήματος αρχείων."
 
 msgid "Aland Islands"
 msgstr "Aland Islands"
@@ -388,10 +388,10 @@ msgid "Attributes"
 msgstr "Χαρακτηριστικά"
 
 msgid "Audit"
-msgstr ""
+msgstr "Έλεγχος"
 
 msgid "Audit file operations."
-msgstr ""
+msgstr "Έλεγχος εργασιών αρχείων."
 
 msgid "August"
 msgstr "Αύγουστος"
@@ -430,7 +430,7 @@ msgid "Authentication type"
 msgstr "Τύπος πιστοποίησης"
 
 msgid "Auto"
-msgstr ""
+msgstr "Αυτόματο"
 
 msgid "Automatic Acoustic Management"
 msgstr "Αυτόματη Ακουστική Διαχείριση"
@@ -618,13 +618,13 @@ msgid "Client"
 msgstr "Πελάτης"
 
 msgid "Client NetBIOS name"
-msgstr ""
+msgstr "Όνομα πελάτη NetBIOS"
 
 msgid "Client address"
-msgstr ""
+msgstr "Διεύθυνση πελάτη"
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Πελάτες που επιτρέπεται να συνδεθούν στο σύστημα αρχείων, π.χ. 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Κλείσιμο"
@@ -719,13 +719,13 @@ msgid "Create RAID device"
 msgstr "Δημιουργία RAID "
 
 msgid "Create file system"
-msgstr ""
+msgstr "Δημιουργία συστήματος αρχείων"
 
 msgid "Create self-signed SSL certificate"
 msgstr "Δημιουργία πιστοποιητικού SSL"
 
 msgid "Creating the file system, please wait ..."
-msgstr ""
+msgstr "Δημιουργείται το σύστημα αρχείων, παρακαλώ περιμένετε..."
 
 msgid "Critical"
 msgstr "Σημαντικό"
@@ -764,7 +764,7 @@ msgid "Daemon"
 msgstr "Δαίμονας"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Ταμπλό"
 
 msgid "Date"
 msgstr "Ημερομηνία"
@@ -791,7 +791,7 @@ msgid "Delete content"
 msgstr "Διαγραφή περιεχομένων"
 
 msgid "Delete file system"
-msgstr ""
+msgstr "Διαγραφή συστήματος αρχείων"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Διαγραφή αρχείων του λήπτη που δεν υπάρχουν στον αποστολέα"
@@ -883,7 +883,7 @@ msgid "Djibouti"
 msgstr "Djibouti"
 
 msgid "Do you really want to apply the configuration changes?"
-msgstr ""
+msgstr "Να εφαρμοστούν οι αλλαγές στις ρυθμίσεις;"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Να καθαριστεί το αρχείο καταγραφής;"
@@ -892,7 +892,7 @@ msgid "Do you really want to create the RAID device?"
 msgstr "Να δημιουργηθεί η συσκευή RAID;"
 
 msgid "Do you really want to delete the file system? All data will be lost."
-msgstr ""
+msgstr "Να διαγραφεί το σύστημα αρχείων; Όλα τα δεδομένα θα χαθούν."
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Να διαγραφούν τα επιλεγμένα;"
@@ -900,7 +900,7 @@ msgstr "Να διαγραφούν τα επιλεγμένα;"
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the file system creation may take some time."
-msgstr ""
+msgstr "Να διαμορφωθεί η συσκευή; Όλα τα δεδομένα θα διαγραφούν. Η δημιουργία του συστήματος αρχείων μπορεί να πάρει χρόνο."
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Να εγκατασταθούν τα επιλεγμένα πρόσθετα;"
@@ -912,7 +912,7 @@ msgid "Do you really want to logout?"
 msgstr "Να γίνει αποσύνδεση;"
 
 msgid "Do you really want to put the system into standby?"
-msgstr ""
+msgstr "Να μπει το σύστημα σε κατάσταση αναμονής;"
 
 msgid "Do you really want to reboot the system?"
 msgstr "Να γίνει επανεκκίνηση του συστήματος;"
@@ -920,7 +920,7 @@ msgstr "Να γίνει επανεκκίνηση του συστήματος;"
 msgid ""
 "Do you really want to relocate the shared folder? The content of the shared "
 "folder will not be moved automatically, you have to do this yourself."
-msgstr ""
+msgstr "Να μετατοπιστεί ο κοινόχρηστος φάκελος; Τα περιεχόμενά του δεν θα μεταφερθούν αυτόματα, θα πρέπει να μεταφερθούν χειροκίνητα."
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
@@ -928,7 +928,7 @@ msgid ""
 msgstr "Να διαγραφούν τα περιεχόμενα του κοινόχρηστου φακέλου; Θα χαθούν οριστικά χωρίς δυνατότητα ανάκτησης."
 
 msgid "Do you really want to remove this widget?"
-msgstr ""
+msgstr "Να αφαιρεθεί αυτό το όργανο;"
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Να γίνει επαναφορά του γραφικού περιβάλλοντος;"
@@ -936,10 +936,10 @@ msgstr "Να γίνει επαναφορά του γραφικού περιβά�
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr ""
+msgstr "Να μεταβληθεί το μέγεθος του επιλεγμένου συστήματος αρχείων. Αυτό χρειάζεται συνήθως μετά την επέκταση ενός RAID για παράδειγμα."
 
 msgid "Do you really want to revert the configuration changes?"
-msgstr ""
+msgstr "Να αναστραφούν οι αλλαγές των ρυθμίσεων;"
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Να γίνει τερματισμός του συστήματος;"
@@ -1056,10 +1056,10 @@ msgid "Email"
 msgstr "Ηλεκτρονικό ταχυδρομείο"
 
 msgid "Empty now"
-msgstr ""
+msgstr "Άδειασμα τώρα"
 
 msgid "Empty recycle bin"
-msgstr ""
+msgstr "Άδειασμα κάδου"
 
 msgid "Enable"
 msgstr "Ενεργοποίηση"
@@ -1193,7 +1193,7 @@ msgid "Execute cron job"
 msgstr "Εκτέλεση προγραμματισμένης εργασίας"
 
 msgid "Execute only"
-msgstr ""
+msgstr "Μόνο εκτέλεση"
 
 msgid "Execute rsync job"
 msgstr "Εκτέλεση εργασίας συγχρονισμού"
@@ -1270,10 +1270,10 @@ msgid "File"
 msgstr "Αρχείο"
 
 msgid "File Systems"
-msgstr ""
+msgstr "Συστήματα Αρχείων"
 
 msgid "File system"
-msgstr ""
+msgstr "Σύστημα αρχείων"
 
 msgid "Filename"
 msgstr "Όνομα αρχείου"
@@ -1310,7 +1310,7 @@ msgid "Firmware version"
 msgstr "Έκδοση λογισμικού"
 
 msgid "Flags"
-msgstr ""
+msgstr "Σημάνσεις"
 
 msgid "Force SSL/TLS"
 msgstr "Επιβολή SSL/TLS"
@@ -1358,7 +1358,7 @@ msgid "General settings"
 msgstr "Γενικές ρυθμίσεις"
 
 msgid "General users/groups"
-msgstr ""
+msgstr "Γενικοί χρήστες/ομάδες"
 
 msgid "Generating graphs ..."
 msgstr "Δημιουργία γραφημάτων ..."
@@ -1421,10 +1421,10 @@ msgid "Guest"
 msgstr "Επισκέπτης"
 
 msgid "Guest allowed"
-msgstr ""
+msgstr "Επιτρέπεται επισκέπτης"
 
 msgid "Guests allowed"
-msgstr ""
+msgstr "Επιτρέπονται επισκέπτες"
 
 msgid "Guinea"
 msgstr "Guinea"
@@ -1514,7 +1514,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selecting; in "
 "this case no password is required to connect to the share."
-msgstr ""
+msgstr "Αν είναι επιλεγμένο το 'Επιτρέπονται επισκέπτες' και δεν δωθούν στοιχεία σύνδεσης, τότε η πρόσβαση γίνεται ως επισκέπτης. Αν είναι επιλεγμένο το 'Μόνο επισκέπτες' τότε η πρόσβαση γίνεται πάντα ως επισκέπτης, χωρίς να χρειάζεται συνθηματικό για την σύνδεση."
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1540,7 +1540,7 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr ""
+msgstr "Αν ενεργοποιηθεί αυτό, η Samba επιχειρεί πρώτα να διαβάσει τις DOS ιδιότητες (S/H/A/R) από ενα σύστημα αρχείων εκτεταμένων ιδιοτήτων, πριν αντιστοιχίσει τις DOS ιδιότητες σε καταχωρητές αδειών UNIX. Όταν ζητηθεί, οι DOS ιδιότητες θα αποθηκεύονται σε μία εκτεταμένη ιδιότητα στο σύστημα αρχείων UNIX, συσχετισμένο με το αρχείο ή τον φάκελο."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1629,10 +1629,10 @@ msgid "Installed"
 msgstr "Εγκατεστημένο"
 
 msgid "Installing plugins ..."
-msgstr ""
+msgstr "Εγκατάσταση προσθηκών ..."
 
 msgid "Installing updates ..."
-msgstr ""
+msgstr "Εγκατατάσταση ενημερώσεων ..."
 
 msgid "Interfaces"
 msgstr "Διεπαφές"
@@ -1641,7 +1641,7 @@ msgid "Invalid domain name"
 msgstr "Άκυρο όνομα τομέα"
 
 msgid "Invalid file system label"
-msgstr ""
+msgstr "Άκυρη ονομασία συστήματος αρχείων"
 
 msgid "Invalid group name"
 msgstr "Άκυρη ονομασία ομάδας"
@@ -1790,7 +1790,7 @@ msgid "Loading ..."
 msgstr "Φόρτωση ..."
 
 msgid "Loading, please wait ..."
-msgstr ""
+msgstr "Φόρτωση, παρακαλώ περιμένετε..."
 
 msgid "Local"
 msgstr "Τοπικό"
@@ -2157,7 +2157,7 @@ msgid "Not UDP"
 msgstr "Όχι UDP"
 
 msgid "Nothing"
-msgstr ""
+msgstr "Τίποτα"
 
 msgid "Notification"
 msgstr "Ειδοποίηση"
@@ -2196,10 +2196,10 @@ msgid "Online"
 msgstr "Συνδεδεμένο"
 
 msgid "Only guests"
-msgstr ""
+msgstr "Μόνο επισκέπτες"
 
 msgid "Operation"
-msgstr ""
+msgstr "Λειτουργία"
 
 msgid "Operation not allowed for user '%s'."
 msgstr "Δεν επιτρέπεται η λειτουργία στον χρήστη '%s'."
@@ -2379,7 +2379,7 @@ msgstr "Παρακαλώ περιμένετε ..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
 "system."
-msgstr ""
+msgstr "Πρέπει πρώτα να αρχικοποιηθεί το RAID πριν δημιουργηθεί σύστημα αρχείων."
 
 msgid "Plugins"
 msgstr "Πρόσθετα"
@@ -2406,7 +2406,7 @@ msgid "Power mode"
 msgstr "Κατάστασης ενέργειας"
 
 msgid "Pre-release updates."
-msgstr ""
+msgstr "Πρώιμες ενημερώσεις."
 
 msgid "Prefix length"
 msgstr "Μήκος προθέματος"
@@ -2527,13 +2527,13 @@ msgid "Read-only"
 msgstr "Μόνο για ανάγνωση"
 
 msgid "Read/Execute"
-msgstr ""
+msgstr "Ανάγνωση/Εκτέλεση"
 
 msgid "Read/Write"
 msgstr "Ανάγνωση & εγγραφή"
 
 msgid "Read/Write/Execute"
-msgstr ""
+msgstr "Ανάγνωση/Εγγραφή/Εκτέλεση"
 
 msgid "Real"
 msgstr "Πραγματικό"
@@ -2557,7 +2557,7 @@ msgid "Recycle bin"
 msgstr "Κάδος ανακύκλωσης"
 
 msgid "Referenced"
-msgstr ""
+msgstr "Αναφερόμενα"
 
 msgid "Refresh"
 msgstr "Ανανέωση"
@@ -2578,7 +2578,7 @@ msgid "Remote syslog"
 msgstr "Απομακρυσμένη καταγραφη"
 
 msgid "Remove"
-msgstr ""
+msgstr "Αφαίρεση"
 
 msgid "Replace"
 msgstr "Αντικατάσταση"
@@ -2587,7 +2587,7 @@ msgid "Replace all existing permissions"
 msgstr "Αντικατάσταση όλων των υπαρχόντων δικαιωμάτων"
 
 msgid "Report"
-msgstr ""
+msgstr "Αναφορά"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2623,7 +2623,7 @@ msgid "Resize"
 msgstr "Προσαρμογή"
 
 msgid "Result"
-msgstr ""
+msgstr "Αποτέλεσμα"
 
 msgid "Resume"
 msgstr "Συνέχιση"
@@ -2638,10 +2638,10 @@ msgid "Reverse DNS lookup"
 msgstr "Ανάστροφη αναζήτηση DNS"
 
 msgid "Revert"
-msgstr ""
+msgstr "Αναίρεση"
 
 msgid "Revert configuration changes"
-msgstr ""
+msgstr "Αναίρεση αλλαγών στις ρυθμίσεις"
 
 msgid "Romania"
 msgstr "Romania"
@@ -2680,7 +2680,7 @@ msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
 
 msgid "SMB/CIFS - Audit"
-msgstr ""
+msgstr "SMB/CIFS - Έλεγχος"
 
 msgid "SMTP port"
 msgstr "Θύρα SMTP"
@@ -2749,7 +2749,7 @@ msgid "Scanning for new devices ..."
 msgstr "Ανίχνευση νέων συσκευών ..."
 
 msgid "Scheduled Jobs"
-msgstr ""
+msgstr "Προγραμματισμένες εργασίες"
 
 msgid "Scheduled tests"
 msgstr "Προγραμματισμένοι έλεγχοι"
@@ -2785,13 +2785,13 @@ msgid "Select a directory"
 msgstr "Επιλογή καταλόγου"
 
 msgid "Select a file permission ..."
-msgstr ""
+msgstr "Επιλογή δικαιωμάτων αρχείου ..."
 
 msgid "Select a file system ..."
-msgstr ""
+msgstr "Επιλογή συστήματος αρχείων ..."
 
 msgid "Select a group name ..."
-msgstr ""
+msgstr "Επιλογή ονόματος ομάδας ..."
 
 msgid "Select a language ..."
 msgstr "Επιλογή γλώσσας ..."
@@ -2809,7 +2809,7 @@ msgid "Select a shell ..."
 msgstr "Επιλογή κελύφους ..."
 
 msgid "Select a user name ..."
-msgstr ""
+msgstr "Επιλογή ονόματος χρήστη ..."
 
 msgid "Select a volume ..."
 msgstr "Επιλογή τόμου ..."
@@ -2912,13 +2912,13 @@ msgid "Shared folder must not be equal"
 msgstr "Ο κοινόχρηστος φάκελος δνε πρέπει να είναι ίδιος"
 
 msgid "Shared folder name"
-msgstr ""
+msgstr "Όνομα κοινόχρηστου φακέλου"
 
 msgid "Shared folder path"
-msgstr ""
+msgstr "Διαδρομή κοινόχρηστου φακέλου"
 
 msgid "Shared folder privileges"
-msgstr ""
+msgstr "Προνόμια κοινόχρηστου φακέλου"
 
 msgid "Shares"
 msgstr "Κοινόχρηστα"
@@ -3150,7 +3150,7 @@ msgid "System time"
 msgstr "Ώρα συστήματος"
 
 msgid "System users/groups"
-msgstr ""
+msgstr "Χρήστες/ομάδες συστήματος"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3192,7 +3192,7 @@ msgid "The SSL certificate."
 msgstr "Το πιστοποιητικό SSL."
 
 msgid "The action to be done when pressing the power button."
-msgstr ""
+msgstr "Η ενέργεια που λαμβάνεται με το πάτημα του πλήκτρου λειτουργίας."
 
 msgid "The changes have been applied successfully."
 msgstr "Οι αλλαγές εφαρμόστηκαν επιτυχώς."
@@ -3217,7 +3217,7 @@ msgid "The destination shared folder."
 msgstr "Ο κοινόχρηστος φάκελος προορισμού."
 
 msgid "The device does not exist"
-msgstr ""
+msgstr "Η συσκευή δεν υπάρχει"
 
 msgid "The field '%s' contains forbidden "
 msgstr "Το πεδίο '%s' περιέχει απαγορευμένο"
@@ -3226,7 +3226,7 @@ msgid "The file mode of the shared folder path."
 msgstr "Η ιδιότητα αρχείου της διαδρομής διαμοιρασμού."
 
 msgid "The file system creation has completed successfully."
-msgstr ""
+msgstr "Η δημιουργία του συστήματος αρχείων ολοκληρώθηκε επιτυχώς."
 
 msgid "The group '%s' does not exist"
 msgstr "Η ομάδα '%s' δεν υπάρχει"
@@ -3327,7 +3327,7 @@ msgid "The user '%s' is not allowed"
 msgstr "Ο χρήστης '%s' δεν επιτρέπεται"
 
 msgid "The volume label for the file system."
-msgstr ""
+msgstr "Η ετικέτα του τόμου για το σύστημα αρχείων."
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3343,7 +3343,7 @@ msgstr "Υπάρχει ήδη σημείο προσάρτησης για το '%
 msgid ""
 "These settings are used by the services to configure the user access rights."
 " Please note that these settings have no effect on file system permissions."
-msgstr ""
+msgstr "Αυτές οι ρυθμίσεις χρησιμοποιούνται για τον καθορισμό των δικαιωμάτων πρόσβασης των χρηστών. Δεν επιρρεάζουν τα δικαιώματα του συστήματος αρχείων."
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3533,7 +3533,7 @@ msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "Αυτός ο κανόνας ενεργοποιείται όταν συμβεί το επιλεγμένο γεγονός."
 
 msgid "This specifies what to do if the packet matches."
-msgstr ""
+msgstr "Εδώ ορίζεται η δράση για όταν ταιριάζει το πακέτο."
 
 msgid "This will create a recycle bin on the share."
 msgstr "Αυτό θα δημιουργήσει έναν κάδο ανακύκλωσης στο κοινόχρηστο."
@@ -3696,7 +3696,7 @@ msgid "Updating ACL settings"
 msgstr "Ενημέρωση ρυθμίσεων λιστών πρόσβασης"
 
 msgid "Upgrade"
-msgstr ""
+msgstr "Αναβάθμιση"
 
 msgid "Upload"
 msgstr "Αποστολή"
@@ -3877,7 +3877,7 @@ msgid "Write only"
 msgstr "Μόνο εγγραφή"
 
 msgid "Write/Execute"
-msgstr ""
+msgstr "Εγγραφή/Εκτέλεση"
 
 msgid "Yemen"
 msgstr "Yemen"

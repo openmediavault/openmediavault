@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-26 22:28+0200\n"
-"PO-Revision-Date: 2014-08-26 20:28+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-09-14 06:43+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -156,7 +156,7 @@ msgid "9 months"
 msgstr "9 ay"
 
 msgid "A module with the name '%s' already exists"
-msgstr ""
+msgstr "'%s' isimli modül zaten mevcut"
 
 msgid "A share with the name '%s' already exists"
 msgstr "'%s' isimli paylaşım zaten mevcut"
@@ -174,7 +174,7 @@ msgid "About"
 msgstr "Hakkında"
 
 msgid "Abstract"
-msgstr ""
+msgstr "Özet"
 
 msgid "Access Right Management"
 msgstr "Erişim Hak Yönetimi"
@@ -274,7 +274,7 @@ msgstr "Afganistan"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
-msgstr ""
+msgstr "RAID büyütüldükten sonra içerdiği dosya sisteminin kapasitesi arttırılabilir."
 
 msgid "Aland Islands"
 msgstr "Aland Adaları"
@@ -388,10 +388,10 @@ msgid "Attributes"
 msgstr "Özellikler"
 
 msgid "Audit"
-msgstr ""
+msgstr "Denetleme"
 
 msgid "Audit file operations."
-msgstr ""
+msgstr "Dosya işlemlerini denetle."
 
 msgid "August"
 msgstr "Ağustos"
@@ -430,7 +430,7 @@ msgid "Authentication type"
 msgstr "Onaylana tipi"
 
 msgid "Auto"
-msgstr ""
+msgstr "Otomatik"
 
 msgid "Automatic Acoustic Management"
 msgstr "Otomatik Akustik Yönetimi"
@@ -618,13 +618,13 @@ msgid "Client"
 msgstr "Kullanıcı"
 
 msgid "Client NetBIOS name"
-msgstr ""
+msgstr "İstemci NetBIOS adı"
 
 msgid "Client address"
-msgstr ""
+msgstr "İstemci adresi"
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Dosya sistemine bağlanmasına izin verilen kullanıcılar, örneğin 192.168.178.0/24"
 
 msgid "Close"
 msgstr "Kapat"
@@ -719,13 +719,13 @@ msgid "Create RAID device"
 msgstr "RAID aygıtı yarat"
 
 msgid "Create file system"
-msgstr ""
+msgstr "Dosya sistemi yarat"
 
 msgid "Create self-signed SSL certificate"
 msgstr "Kendiliğinden onaylı SSL sertifikası oluştur"
 
 msgid "Creating the file system, please wait ..."
-msgstr ""
+msgstr "Dosya sistemi oluşturuluyor, lütfen bekleyiniz ..."
 
 msgid "Critical"
 msgstr "Kritik"
@@ -764,7 +764,7 @@ msgid "Daemon"
 msgstr "Program"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Gösterge Paneli"
 
 msgid "Date"
 msgstr "Tarih"
@@ -791,7 +791,7 @@ msgid "Delete content"
 msgstr "İçeriği sil"
 
 msgid "Delete file system"
-msgstr ""
+msgstr "Dosya sistemini sil"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr "Göndericide bulunmayan dosyaları kaydedilen taraftan sil"
@@ -883,7 +883,7 @@ msgid "Djibouti"
 msgstr "Cibuti"
 
 msgid "Do you really want to apply the configuration changes?"
-msgstr ""
+msgstr "Konfigurasyon değişikliklerini gerçekten uygulamak istiyor musunuz?"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Log dosyasını gerçekten temizlemek istiyor musunuz?"
@@ -892,7 +892,7 @@ msgid "Do you really want to create the RAID device?"
 msgstr "Bir RAID dizisi oluşturmak istediğnize emin misiniz?"
 
 msgid "Do you really want to delete the file system? All data will be lost."
-msgstr ""
+msgstr "Dosya sistemini silmek istediğinizden emin misiniz? Tüm bilgiler kaybolacaktır."
 
 msgid "Do you really want to delete the selected item(s)?"
 msgstr "Seçilmiş öge(leri) gerçekten silmek istiyor musunuz? "
@@ -900,7 +900,7 @@ msgstr "Seçilmiş öge(leri) gerçekten silmek istiyor musunuz? "
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the file system creation may take some time."
-msgstr ""
+msgstr "Bu aygıtı geröekten formatlamak istiyor musunuz? Tüm bilgiler silinecektir. Dosya sistemi kurulumunun süre alabileceğini göz önünde bulundurunuz."
 
 msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Seçilmiş eklenti(ler)i kurak istediğinize emin misiniz?"
@@ -912,7 +912,7 @@ msgid "Do you really want to logout?"
 msgstr "Çıkış yapmak istediğinize emin misiniz?"
 
 msgid "Do you really want to put the system into standby?"
-msgstr ""
+msgstr "Sistemi bekleme konumuna almak istediğinize emin misiniz?"
 
 msgid "Do you really want to reboot the system?"
 msgstr "Sistemi yeniden başlatmak istediğinize emin misiniz?"
@@ -920,7 +920,7 @@ msgstr "Sistemi yeniden başlatmak istediğinize emin misiniz?"
 msgid ""
 "Do you really want to relocate the shared folder? The content of the shared "
 "folder will not be moved automatically, you have to do this yourself."
-msgstr ""
+msgstr "Paylaşılmış klasörü gerçekten taşımak istiyor musunuz? Paylaşılmış klasör içeriği otomatik olarak taşınmayacağından bunu sizin yapmanız gerekecektir."
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
@@ -928,7 +928,7 @@ msgid ""
 msgstr "Paylaşılmış klasör içeriğini gerçekten kaldırmak istiyor musunuz? Klasör kalıcı olarak silinecek ve içerik kurtarılamayacaktır."
 
 msgid "Do you really want to remove this widget?"
-msgstr ""
+msgstr "Bu programcığı gerçekten kaldırmak istiyor musunuz?"
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "WebGUI durumunu, örneğin sıralı kolon sıralaması şeklinde, sıfırlamak istediğinize emin misiniz?"
@@ -936,10 +936,10 @@ msgstr "WebGUI durumunu, örneğin sıralı kolon sıralaması şeklinde, sıfı
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr ""
+msgstr "Seçili dosya sistemini yeniden boyutlandırmak istediğinize emin misiniz? Bu işlemi örneğin RAID büyütüldüğünde yapmalısınız."
 
 msgid "Do you really want to revert the configuration changes?"
-msgstr ""
+msgstr "Konfigurasyon değişikliklerini gerçekten geri almak istiyor musunuz?"
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Sistemi kapatmak istediğinize emin misiniz?"
@@ -1056,10 +1056,10 @@ msgid "Email"
 msgstr "E-posta"
 
 msgid "Empty now"
-msgstr ""
+msgstr "Şimdi boş"
 
 msgid "Empty recycle bin"
-msgstr ""
+msgstr "Geri dönüşüm kutusunu boşalt"
 
 msgid "Enable"
 msgstr "Açık"
@@ -1193,7 +1193,7 @@ msgid "Execute cron job"
 msgstr "Cron görevi çalıştır"
 
 msgid "Execute only"
-msgstr ""
+msgstr "Sadece çalıştır"
 
 msgid "Execute rsync job"
 msgstr "Rsync görevi çalıştır"
@@ -1270,10 +1270,10 @@ msgid "File"
 msgstr "Dosya"
 
 msgid "File Systems"
-msgstr ""
+msgstr "Dosya sistemleri"
 
 msgid "File system"
-msgstr ""
+msgstr "Dosya sistemi"
 
 msgid "Filename"
 msgstr "Dosya adı"
@@ -1310,7 +1310,7 @@ msgid "Firmware version"
 msgstr "Gömülü yazılım sürümü"
 
 msgid "Flags"
-msgstr ""
+msgstr "Flamalar"
 
 msgid "Force SSL/TLS"
 msgstr "SSL/TLS i zorunlu kıl"
@@ -1358,7 +1358,7 @@ msgid "General settings"
 msgstr "Genel ayarlar"
 
 msgid "General users/groups"
-msgstr ""
+msgstr "Genel kullanıcılar/gruplar"
 
 msgid "Generating graphs ..."
 msgstr "Grafik oluşturuluyor ..."
@@ -1421,10 +1421,10 @@ msgid "Guest"
 msgstr "Misafir"
 
 msgid "Guest allowed"
-msgstr ""
+msgstr "Misafir müsaade edilmiştir"
 
 msgid "Guests allowed"
-msgstr ""
+msgstr "Misafirler müsaade edilmiştir"
 
 msgid "Guinea"
 msgstr "Gine"
@@ -1514,7 +1514,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selecting; in "
 "this case no password is required to connect to the share."
-msgstr ""
+msgstr "Eğer 'Misafirler müsade edilmiştir' seçilmiş ve herhangi bir giriş bilgisi verilmemişse misafir olarak giriş yapınız. 'Sadece misafirler' seçili ise misafir olarak giriş yapınız; bu durumda paylaşıma ulaşmak için şifreye ihtiyacınız olmayacaktır."
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1540,7 +1540,7 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr ""
+msgstr "Bu değişken seçilir ise, Samba, DOS özniteliklerini UNIX yetki bitlerine bağlamadan önce DOS özniteliklerini (SİSTEM, GİZLİ, ARŞİV veya SADECE-OKUNUR) dosya sistemi genişletilmiş özniteliklerinden okur. Seçildiğinde DOS öznitelikleri ilgili dosya ve klasörlerle ilişkili UNIX dosya sistemi genişletilmiş özniteliklerinde saklanır."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1629,10 +1629,10 @@ msgid "Installed"
 msgstr "Kuruldu"
 
 msgid "Installing plugins ..."
-msgstr ""
+msgstr "Eklentiler kuruluyor ..."
 
 msgid "Installing updates ..."
-msgstr ""
+msgstr "Güncellemeler kuruluyor ..."
 
 msgid "Interfaces"
 msgstr "Arabirim"
@@ -1641,7 +1641,7 @@ msgid "Invalid domain name"
 msgstr "Geçersiz alan adı"
 
 msgid "Invalid file system label"
-msgstr ""
+msgstr "Geçersiz dosya sistemi etiketi"
 
 msgid "Invalid group name"
 msgstr "Geçersiz grup adı"
@@ -1790,7 +1790,7 @@ msgid "Loading ..."
 msgstr "Yükleniyor..."
 
 msgid "Loading, please wait ..."
-msgstr ""
+msgstr "Yükleniyor, lütfen bekleyiniz ..."
 
 msgid "Local"
 msgstr "Lokal"
@@ -2157,7 +2157,7 @@ msgid "Not UDP"
 msgstr "UDP değil"
 
 msgid "Nothing"
-msgstr ""
+msgstr "Hiçbirşey"
 
 msgid "Notification"
 msgstr "Uyarı"
@@ -2196,10 +2196,10 @@ msgid "Online"
 msgstr "Çalışır"
 
 msgid "Only guests"
-msgstr ""
+msgstr "Sadece misafirler"
 
 msgid "Operation"
-msgstr ""
+msgstr "Operasyon"
 
 msgid "Operation not allowed for user '%s'."
 msgstr "'%s' kullanıcısı bu işlemi yapamaz."
@@ -2379,7 +2379,7 @@ msgstr "Lütfen bekleyiniz..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
 "system."
-msgstr ""
+msgstr "Dosya sistemi oluşturmadan önce RAID in tam olarak çalıştırılmasını bekleyiniz."
 
 msgid "Plugins"
 msgstr "İlaveler"
@@ -2406,7 +2406,7 @@ msgid "Power mode"
 msgstr "Güç modu"
 
 msgid "Pre-release updates."
-msgstr ""
+msgstr "Ön sürüm güncellemeleri."
 
 msgid "Prefix length"
 msgstr "Önek uzunluğu"
@@ -2527,13 +2527,13 @@ msgid "Read-only"
 msgstr "Sadece okunabilir"
 
 msgid "Read/Execute"
-msgstr ""
+msgstr "Oku/Çalıştır"
 
 msgid "Read/Write"
 msgstr "Yazma / Okuma"
 
 msgid "Read/Write/Execute"
-msgstr ""
+msgstr "Oku/Yaz/Çalıştır"
 
 msgid "Real"
 msgstr "Gerçek"
@@ -2557,7 +2557,7 @@ msgid "Recycle bin"
 msgstr "Gerş dönüşüm kutusu"
 
 msgid "Referenced"
-msgstr ""
+msgstr "Başvurulmuş"
 
 msgid "Refresh"
 msgstr "Yenile"
@@ -2578,7 +2578,7 @@ msgid "Remote syslog"
 msgstr "Uzak sistem kaydı"
 
 msgid "Remove"
-msgstr ""
+msgstr "Kaldır"
 
 msgid "Replace"
 msgstr "Değiştir"
@@ -2587,7 +2587,7 @@ msgid "Replace all existing permissions"
 msgstr "Mevcut tüm yetkileri değiştir"
 
 msgid "Report"
-msgstr ""
+msgstr "Rapor"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2623,7 +2623,7 @@ msgid "Resize"
 msgstr "Yeniden boyutlandır"
 
 msgid "Result"
-msgstr ""
+msgstr "Sonuç"
 
 msgid "Resume"
 msgstr "Devam et"
@@ -2638,10 +2638,10 @@ msgid "Reverse DNS lookup"
 msgstr "Ters DNS sorgulaması"
 
 msgid "Revert"
-msgstr ""
+msgstr "Geri al"
 
 msgid "Revert configuration changes"
-msgstr ""
+msgstr "Konfigürasyon değişikliklerini geri al"
 
 msgid "Romania"
 msgstr "Romanya"
@@ -2680,7 +2680,7 @@ msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
 
 msgid "SMB/CIFS - Audit"
-msgstr ""
+msgstr "SMB/CIFS - Denetleme"
 
 msgid "SMTP port"
 msgstr "SMTP portu"
@@ -2749,7 +2749,7 @@ msgid "Scanning for new devices ..."
 msgstr "Yeni aygıtlar taranıyor ..."
 
 msgid "Scheduled Jobs"
-msgstr ""
+msgstr "Zamanlanmış görevler"
 
 msgid "Scheduled tests"
 msgstr "Zamanlanmış testler"
@@ -2785,13 +2785,13 @@ msgid "Select a directory"
 msgstr "Klasör seç"
 
 msgid "Select a file permission ..."
-msgstr ""
+msgstr "Dosya yetkilerini seçiniz ..."
 
 msgid "Select a file system ..."
-msgstr ""
+msgstr "Dosya sistemi seçiniz ..."
 
 msgid "Select a group name ..."
-msgstr ""
+msgstr "Bir grup adı seçiniz..."
 
 msgid "Select a language ..."
 msgstr "Bir dil seçiniz ..."
@@ -2809,7 +2809,7 @@ msgid "Select a shell ..."
 msgstr "Bir kabuk seçin ..."
 
 msgid "Select a user name ..."
-msgstr ""
+msgstr "Bir kullanıcı adı seçiniz..."
 
 msgid "Select a volume ..."
 msgstr "Bir birim seçiniz ..."
@@ -2912,13 +2912,13 @@ msgid "Shared folder must not be equal"
 msgstr "Paylaşılan klasör eşit olmamalıdır"
 
 msgid "Shared folder name"
-msgstr ""
+msgstr "Paylaşılmış klasör adı"
 
 msgid "Shared folder path"
-msgstr ""
+msgstr "Paylaşılmış klasör yolu"
 
 msgid "Shared folder privileges"
-msgstr ""
+msgstr "Paylaşılmış klasör hakları"
 
 msgid "Shares"
 msgstr "Paylaşımlar"
@@ -3150,7 +3150,7 @@ msgid "System time"
 msgstr "Sistem zamanı"
 
 msgid "System users/groups"
-msgstr ""
+msgstr "Sistem kullanıcıları/grupları"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3192,7 +3192,7 @@ msgid "The SSL certificate."
 msgstr "SSL sertifikası."
 
 msgid "The action to be done when pressing the power button."
-msgstr ""
+msgstr "Güç düğmesine basıldığında yapılacak işlem."
 
 msgid "The changes have been applied successfully."
 msgstr "Değişiklikler başarılı bir şekilde uygulandı."
@@ -3217,7 +3217,7 @@ msgid "The destination shared folder."
 msgstr "Hedef paylaşım klasörü."
 
 msgid "The device does not exist"
-msgstr ""
+msgstr "Aygıt mevcut değil"
 
 msgid "The field '%s' contains forbidden "
 msgstr "'%s' alanı erişilemez"
@@ -3226,7 +3226,7 @@ msgid "The file mode of the shared folder path."
 msgstr "Paylaşılmış klasör adresinin dosya modu."
 
 msgid "The file system creation has completed successfully."
-msgstr ""
+msgstr "Dosya sistemi başarıyla oluşturuldu."
 
 msgid "The group '%s' does not exist"
 msgstr "'%s' grubu mevut değil"
@@ -3327,7 +3327,7 @@ msgid "The user '%s' is not allowed"
 msgstr "Kullanıcı '%s' yetkili değil"
 
 msgid "The volume label for the file system."
-msgstr ""
+msgstr "Dosya sistemi için birim etiketi."
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
@@ -3343,7 +3343,7 @@ msgstr "%s için zaten bir bağlantı noktası mevcut"
 msgid ""
 "These settings are used by the services to configure the user access rights."
 " Please note that these settings have no effect on file system permissions."
-msgstr ""
+msgstr "Bu ayarlar kullanıcı erişim haklarını düzenleyen servisler tarafından kullanılır.\nLütfen bu ayarların dosya sistemi yetkileri ile ilgili olmadıklarını dikkate alınız."
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
@@ -3533,7 +3533,7 @@ msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "Bu kural, seçili olay talimatları gerçekleştiğinde tetiklenir."
 
 msgid "This specifies what to do if the packet matches."
-msgstr ""
+msgstr "Paketler eşleştiğinde ne yapılacağını belirler."
 
 msgid "This will create a recycle bin on the share."
 msgstr "Bu seçenek paylaşımda bir geri dönüşüm kutusu yaratır."
@@ -3696,7 +3696,7 @@ msgid "Updating ACL settings"
 msgstr "ACL ayarları güncelleniyor"
 
 msgid "Upgrade"
-msgstr ""
+msgstr "Yükseltme"
 
 msgid "Upload"
 msgstr "Yükle"
@@ -3877,7 +3877,7 @@ msgid "Write only"
 msgstr "Sadece yazılabilir"
 
 msgid "Write/Execute"
-msgstr ""
+msgstr "Yaz/Çalıştır"
 
 msgid "Yemen"
 msgstr "Yemen"

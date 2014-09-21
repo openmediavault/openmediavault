@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-26 22:28+0200\n"
-"PO-Revision-Date: 2014-09-12 15:19+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-09-12 19:44+0000\n"
+"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -19,155 +20,155 @@ msgstr ""
 
 #, javascript-format
 msgid "% completed ..."
-msgstr ""
+msgstr "% completed ..."
 
 msgid "%s (%s available)"
-msgstr ""
+msgstr "%s (%s available)"
 
 msgid "%s [on %s, %s ]"
-msgstr ""
+msgstr "%s [on %s, %s ]"
 
 msgid "'All' is not allowed"
-msgstr ""
+msgstr "\"모두\"는 허용되지 않습니다."
 
 msgid "0 KiB/s means unlimited."
-msgstr ""
+msgstr "0 KiB/s는 제한이 없음을 뜻합니다."
 
 msgid "1 - Minimum power usage with standby (spindown)"
-msgstr ""
+msgstr "1 - 대기와 최소 전력 사용량 (스핀다운)"
 
 msgid "1 day"
-msgstr ""
+msgstr "1일"
 
 msgid "1 month"
-msgstr ""
+msgstr "1개월"
 
 msgid "1 week"
-msgstr ""
+msgstr "1주"
 
 msgid "1 year"
-msgstr ""
+msgstr "1년"
 
 msgid "10 minutes"
-msgstr ""
+msgstr "10분"
 
 msgid "10 years"
-msgstr ""
+msgstr "10년"
 
 #, javascript-format
 msgid "100% completed ..."
-msgstr ""
+msgstr "100% completed ..."
 
 msgid "120 minutes"
-msgstr ""
+msgstr "120분"
 
 msgid "127 - Intermediate power usage with standby"
-msgstr ""
+msgstr "127 - 대기와 보통의 전력 사용량"
 
 msgid "128 - Minimum power usage without standby (no spindown)"
-msgstr ""
+msgstr "128 - 대기 없이 최소 전력 사용량 (스핀다운 없음)"
 
 msgid "15 years"
-msgstr ""
+msgstr "15년"
 
 msgid "180 minutes"
-msgstr ""
+msgstr "180분"
 
 msgid "192 - Intermediate power usage without standby"
-msgstr ""
+msgstr "192 - 대기 없이 보통 전력 사용량"
 
 msgid "2 days"
-msgstr ""
+msgstr "2일"
 
 msgid "2 weeks"
-msgstr ""
+msgstr "2주"
 
 msgid "2 years"
-msgstr ""
+msgstr "2년"
 
 msgid "20 minutes"
-msgstr ""
+msgstr "20분"
 
 msgid "20 years"
-msgstr ""
+msgstr "20년"
 
 msgid "240 minutes"
-msgstr ""
+msgstr "240분"
 
 msgid "25 years"
-msgstr ""
+msgstr "25년"
 
 msgid "254 - Maximum performance, maximum power usage"
-msgstr ""
+msgstr "254 - 최대 성능 및 최대 전력 사용량"
 
 msgid "255 - Disabled"
-msgstr ""
+msgstr "255 - 비활성화"
 
 msgid "3 days"
-msgstr ""
+msgstr "3일"
 
 msgid "3 months"
-msgstr ""
+msgstr "3개월"
 
 msgid "3 weeks"
-msgstr ""
+msgstr "3주"
 
 msgid "3 years"
-msgstr ""
+msgstr "3년"
 
 msgid "30 minutes"
-msgstr ""
+msgstr "30분"
 
 msgid "300 minutes"
-msgstr ""
+msgstr "300분"
 
 msgid "360 minutes"
-msgstr ""
+msgstr "360분"
 
 msgid "4 days"
-msgstr ""
+msgstr "4일"
 
 msgid "4 years"
-msgstr ""
+msgstr "4년"
 
 msgid "5 days"
-msgstr ""
+msgstr "5일"
 
 msgid "5 minutes"
-msgstr ""
+msgstr "5분"
 
 msgid "5 years"
-msgstr ""
+msgstr "5년"
 
 msgid "6 days"
-msgstr ""
+msgstr "6일"
 
 msgid "6 months"
-msgstr ""
+msgstr "6개월"
 
 msgid "60 minutes"
-msgstr ""
+msgstr "60분"
 
 msgid "64 - Intermediate power usage with standby"
-msgstr ""
+msgstr "64 - 대기와 보통 전력 사용량"
 
 msgid "9 months"
-msgstr ""
+msgstr "9개월"
 
 msgid "A module with the name '%s' already exists"
-msgstr ""
+msgstr "'%s' 는 이미 존재하는 모듈 이름입니다."
 
 msgid "A share with the name '%s' already exists"
-msgstr ""
+msgstr "'%s'는 이미 존재하는 공유 이름입니다."
 
 msgid "A shared folder with the given name already exists"
-msgstr ""
+msgstr "해당 공유 폴더의 이름을 가진 폴더가 이미 존재합니다."
 
 msgid "ACL"
-msgstr ""
+msgstr "접근 제어 목록"
 
 msgid "ASCII"
-msgstr ""
+msgstr "아스키"
 
 msgid "About"
 msgstr ""
@@ -176,100 +177,100 @@ msgid "Abstract"
 msgstr ""
 
 msgid "Access Right Management"
-msgstr ""
+msgstr "접근 권한 관리"
 
 msgid "Access Rights Management"
-msgstr ""
+msgstr "접근 권한 관리"
 
 msgid "Access mode"
-msgstr ""
+msgstr "접근 모드"
 
 msgid "Act as a WINS server."
-msgstr ""
+msgstr "WINS 서버로 동작"
 
 msgid "Action"
 msgstr ""
 
 msgid "Activate S.M.A.R.T. monitoring."
-msgstr ""
+msgstr "S.M.A.R.T. 모니터링을 활성화"
 
 msgid "Add"
-msgstr ""
+msgstr "추가"
 
 msgid "Add bonded interface"
-msgstr ""
+msgstr "본딩된 인터페이스를 추가"
 
 msgid "Add devices to RAID device"
-msgstr ""
+msgstr "RAID 장치에 디바이스를 추가"
 
 msgid "Add firewall rule"
-msgstr ""
+msgstr "방화벽 규칙을 추가"
 
 msgid "Add group"
-msgstr ""
+msgstr "그룹 추가"
 
 msgid "Add hot spares / recover RAID device"
-msgstr ""
+msgstr "핫 스패어 추가 / RAID 장치 복구"
 
 msgid "Add module"
-msgstr ""
+msgstr "모듈 추가"
 
 msgid "Add rsync job"
-msgstr ""
+msgstr "rsync 작업 추가"
 
 msgid "Add rule"
-msgstr ""
+msgstr "규칙 추가"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "예약된 작업 추가"
 
 msgid "Add scheduled test"
-msgstr ""
+msgstr "예약된 검사 추가"
 
 msgid "Add share"
-msgstr ""
+msgstr "공유 추가"
 
 msgid "Add shared folder"
-msgstr ""
+msgstr "공유 폴더 추가"
 
 msgid "Add user"
-msgstr ""
+msgstr "사용자 추가"
 
 msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
 " href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 "for more details."
-msgstr ""
+msgstr "부가 장치 설정. 예를 들어, 'autoneg off speed 100 duplex full'. 자세한 정보는 <a href='http://linux.die.net/man/8/ethtool' target='_blank'>매뉴얼 페이지</a> 를 참고하세요."
 
 msgid "Address"
-msgstr ""
+msgstr "주소"
 
 msgid "Administrator password"
-msgstr ""
+msgstr "관리자 암호"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
-msgstr ""
+msgstr "관리자: 읽기/쓰기, 사용자: 권한 없음, 기타: 권한 없음"
 
 msgid "Administrator: read/write, Users: read-only, Others: no access"
-msgstr ""
+msgstr "관리자: 읽기/쓰기, 사용자: 읽기 전용, 기타: 권한 없음"
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
-msgstr ""
+msgstr "관리자: 읽기/쓰기, 사용자: 읽기 전용, 기타: 읽기 전용"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
-msgstr ""
+msgstr "관리자: 읽기/쓰기, 사용자: 읽기/쓰기, 기타: 권한 없음"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr ""
+msgstr "관리자: 읽기/쓰기, 사용자: 읽기/쓰기, 기타: 읽기 전용"
 
 msgid "Advanced Power Management"
-msgstr ""
+msgstr "고급 전원 관리"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "고급 설정"
 
 msgid "Afghanistan"
-msgstr ""
+msgstr "아프가니스탄"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
@@ -3891,28 +3892,28 @@ msgid "Zimbabwe"
 msgstr ""
 
 msgid "day"
-msgstr ""
+msgstr "일"
 
 msgid "days"
-msgstr ""
+msgstr "일"
 
 msgid "hour"
-msgstr ""
+msgstr "시간"
 
 msgid "hours"
-msgstr ""
+msgstr "시간"
 
 msgid "minute"
-msgstr ""
+msgstr "분"
 
 msgid "minutes"
-msgstr ""
+msgstr "분"
 
 msgid "n/a"
-msgstr ""
+msgstr "해당 없음"
 
 msgid "seconds"
-msgstr ""
+msgstr "초"
 
 msgid "web administration interface"
-msgstr ""
+msgstr "웹 관리자 인터페이스"
