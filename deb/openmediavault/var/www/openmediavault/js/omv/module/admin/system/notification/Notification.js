@@ -61,11 +61,21 @@ Ext.define("OMV.module.admin.system.notification.Settings", {
 				"password"
 			],
 			conditions: [
+				{ name: "authenable", value: true }
+			],
+			properties: [
+				"!readOnly"
+			]
+		},{
+			name: [
+				"username",
+				"password"
+			],
+			conditions: [
 				{ name: "enable", value: true },
 				{ name: "authenable", value: true }
 			],
 			properties: [
-				"!readOnly",
 				"!allowBlank"
 			]
 		}]

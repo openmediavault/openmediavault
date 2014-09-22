@@ -1,3 +1,10 @@
+openmediavault (1.0.23) stable; urgency=low
+
+  * Mantis 0001114: Entry of username/password for email-notification
+    not possible.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 22 Sep 2014 12:05:19 +0200
+
 openmediavault (1.0.22) stable; urgency=low
 
   * Update locales.
