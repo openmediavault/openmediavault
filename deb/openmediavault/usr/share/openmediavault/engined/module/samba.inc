@@ -171,23 +171,12 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		// then add it to the database (this should never happen).
 		if (FALSE === $this->existsUser($object['name']))
 			return $this->onAddUser($type, $path, $object);
-		// Check whether the password has been changed (in this case
-		// it is not empty).
-		$updatePasswd = (array_key_exists("password", $object) &&
-		  !empty($object['password'])) ? TRUE : FALSE;
 		// Modify the user in the database.
 		$cmdArgs = array();
 		$cmdArgs[] = "export LANG=C;";
-		if (TRUE === $updatePasswd) {
-			$cmdArgs[] = sprintf("(echo %s; echo %s)", escapeshellarg(
-			  $object['password']), escapeshellarg($object['password']));
-			$cmdArgs[] = "|";
-		}
 		$cmdArgs[] = "pdbedit";
 		$cmdArgs[] = "--modify";
 		$cmdArgs[] = "--verbose";
-		if (TRUE === $updatePasswd)
-			$cmdArgs[] = "--password-from-stdin";
 		$cmdArgs[] = sprintf("--fullname=%s", escapeshellarg($object['name']));
 		if (!empty($object['comment']))
 			$cmdArgs[] = sprintf("--account-desc=%s", escapeshellarg(
@@ -198,6 +187,25 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
+		}
+		// Update the user password. Check whether the password has been
+		// changed (in this case it is not empty).
+		if (array_key_exists("password", $object) &&
+		  !empty($object['password'])) {
+			$cmdArgs = array();
+			$cmdArgs[] = "export LANG=C;";
+			$cmdArgs[] = sprintf("(echo %s; echo %s)", escapeshellarg(
+			  $object['password']), escapeshellarg($object['password']));
+			$cmdArgs[] = "|";
+			$cmdArgs[] = "smbpasswd";
+			$cmdArgs[] = "-s";
+			$cmdArgs[] = escapeshellarg($object['name']);
+			$cmdArgs[] = "2>&1";
+			$cmd = implode(" ", $cmdArgs);
+			if (0 !== $this->exec($cmd, $output)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+				  $cmd, implode("\n", $output));
+			}
 		}
 		// Start/Reload service.
 		$this->startService();
