@@ -1,5 +1,6 @@
 openmediavault (1.0.23) stable; urgency=low
 
+  * Mantis 0001112: Failed to setup multiple bonding interfaces.
   * Mantis 0001114: Entry of username/password for email-notification
     not possible.
   * Mantis 0001115: Samba password does not change.

@@ -92,7 +92,7 @@ class OMVSystem extends OMVObject {
 	public static function getNextDevice($type, $name) {
 		$cmdList = array(
 			"disk" => "cat /proc/partitions | awk '{print $4}'",
-			"iface" => "netstat -i"
+			"iface" => "netstat -i | awk '{print $1}'"
 		);
 		$cmd = sprintf("%s | grep '^%s[0-9]\{1,\}$' | sort -r | " .
 		  "head -n 1", $cmdList[$type], $name);
