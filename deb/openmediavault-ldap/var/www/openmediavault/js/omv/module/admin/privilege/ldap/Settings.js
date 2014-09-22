@@ -69,6 +69,12 @@ Ext.define("OMV.module.admin.privilege.ldap.Settings", {
 				}],
 				value: 389
 			},{
+				xtype: "checkbox",
+				name: "enablessl",
+				fieldLabel: _("Enable SSL/TLS"),
+				checked: false,
+				boxLabel: _("Enable secure connection.")
+			},{
 				xtype: "textfield",
 				name: "base",
 				fieldLabel: _("Base DN"),

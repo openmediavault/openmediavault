@@ -1,3 +1,9 @@
+openmediavault-ldap (1.0.3) stable; urgency=low
+
+  * Add SSL/TLS support.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 22 Sep 2014 12:32:13 +0200
+
 openmediavault-ldap (1.0.2) stable; urgency=low
 
   * Allow setting multiple lines in the 'Extra options' field.

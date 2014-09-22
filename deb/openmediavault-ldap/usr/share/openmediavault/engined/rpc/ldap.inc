@@ -59,12 +59,13 @@ class OMVRpcServiceLDAP extends OMVRpcServiceAbstract {
 		// Get the configuration object.
 		$xpath = "//services/ldap";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Modify result object.
 		$object['enable'] = boolvalEx($object['enable']);
+		$object['enablessl'] = boolvalEx($object['enablessl']);
 		$object['port'] = intval($object['port']);
 		return $object;
 	}
@@ -97,6 +98,7 @@ class OMVRpcServiceLDAP extends OMVRpcServiceAbstract {
 				  "enable":{"type":"boolean"},
 				  "host":{"type":"string"},
 				  "port":{"type":"integer","minimum":1,"maximum":65535},
+				  "enablessl":{"type":"boolean"},
 				  "base":{"type":"string"},
 				  "rootbinddn":{"type":"string"},
 				  "rootbindpw":{"type":"string"},
@@ -110,6 +112,7 @@ class OMVRpcServiceLDAP extends OMVRpcServiceAbstract {
 			"enable" => array_boolval($params, 'enable'),
 			"host" => trim($params['host']),
 			"port" => $params['port'],
+			"enablessl" => array_boolval($params, 'enablessl'),
 			"base" => trim($params['base']),
 			"rootbinddn" => trim($params['rootbinddn']),
 			"rootbindpw" => $params['rootbindpw'],
@@ -119,7 +122,7 @@ class OMVRpcServiceLDAP extends OMVRpcServiceAbstract {
 		);
 		// Set the configuration object.
 		$xpath = "//services/ldap";
-		if(FALSE === $xmlConfig->replace($xpath, $object)) {
+		if (FALSE === $xmlConfig->replace($xpath, $object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
