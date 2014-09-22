@@ -1,3 +1,9 @@
+openmediavault (0.5.60) stable; urgency=low
+
+  * Mantis 0001112: Failed to setup multiple bonding interfaces.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 22 Sep 2014 17:46:26 +0200
+
 openmediavault (0.5.59) stable; urgency=low
 
   * Fix bug in omv-update command.
