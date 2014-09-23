@@ -82,7 +82,6 @@ Ext.define("OMV.window.Login", {
 					fieldLabel: _("Username"),
 					name: "username",
 					blankText: _("Enter your username"),
-					autoComplete: false,
 					autoCapitalize: false,
 					allowBlank: false
 				},{
@@ -90,8 +89,7 @@ Ext.define("OMV.window.Login", {
 					xtype: "passwordfield",
 					fieldLabel: _("Password"),
 					name: "password",
-					blankText: _("Enter your password"),
-					autoComplete: false
+					blankText: _("Enter your password")
 				}]
 			}) ]
 		});
@@ -99,9 +97,8 @@ Ext.define("OMV.window.Login", {
 		me.on("show", function() {
 			// Set focus to field 'Username'.
 			var field = me.fp.findField("username");
-			if(!Ext.isEmpty(field)) {
+			if (!Ext.isEmpty(field))
 				field.focus(false, 500);
-			}
 		}, me);
 	},
 
@@ -124,7 +121,7 @@ Ext.define("OMV.window.Login", {
 	 */
 	onLogin: function() {
 		var me = this;
-		if(!me.fp.isValid())
+		if (!me.fp.isValid())
 			return;
 		// Get the username and password.
 		var params = me.fp.getValues();
@@ -135,7 +132,7 @@ Ext.define("OMV.window.Login", {
 			scope: me,
 			callback: function(id, success, response) {
 				Ext.getBody().unmask();
-				if(!success)
+				if (!success)
 					OMV.MessageBox.error(null, response);
 				else
 					// Fire event but do not close the window.

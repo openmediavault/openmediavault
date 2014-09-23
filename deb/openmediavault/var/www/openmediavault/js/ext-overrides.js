@@ -568,6 +568,21 @@ Ext.Function.createInterceptor(Ext.form.field.Field.prototype, "reset",
 });
 
 ////////////////////////////////////////////////////////////////////////////////
+// Ext.form.field.Text
+////////////////////////////////////////////////////////////////////////////////
+
+Ext.form.field.Text.prototype.afterRender = Ext.Function.createInterceptor(
+  Ext.form.field.Text.prototype.afterRender, function() {
+	var me = this;
+	// Set 'autocomplete="on"' if the property autoComplete is set to TRUE.
+	if (Ext.isDefined(me.autoComplete) && me.autoComplete) {
+		me.inputEl.set({
+			autocomplete: "on"
+		});
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
 // Ext.form.field.Trigger
 ////////////////////////////////////////////////////////////////////////////////
 

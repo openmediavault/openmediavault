@@ -1,3 +1,9 @@
+openmediavault (1.0.24) stable; urgency=low
+
+  * Modify package dependency.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 23 Sep 2014 09:32:49 +0200
+
 openmediavault (1.0.23) stable; urgency=low
 
   * Mantis 0001112: Failed to setup multiple bonding interfaces.
