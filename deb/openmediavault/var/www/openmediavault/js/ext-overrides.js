@@ -563,7 +563,7 @@ Ext.apply(Ext.form.CheckboxGroup.prototype, {
 // Do not reset a form field that is read-only.
 Ext.Function.createInterceptor(Ext.form.field.Field.prototype, "reset",
   function() {
-	if(this.readOnly)
+	if (this.readOnly)
 		return false;
 });
 
@@ -574,10 +574,23 @@ Ext.Function.createInterceptor(Ext.form.field.Field.prototype, "reset",
 Ext.form.field.Text.prototype.afterRender = Ext.Function.createInterceptor(
   Ext.form.field.Text.prototype.afterRender, function() {
 	var me = this;
-	// Set 'autocomplete="on"' if the property autoComplete is set to TRUE.
-	if (Ext.isDefined(me.autoComplete) && me.autoComplete) {
+	// Set 'autocomplete="on|off"' if the property autoComplete is set.
+	if (Ext.isDefined(me.autoComplete)) {
 		me.inputEl.set({
-			autocomplete: "on"
+			autocomplete: me.autoComplete ? "on" : "off"
+		});
+	}
+	// Set 'autocapitalize="on|off"' if the property autoCapitalize is set.
+	if (Ext.isDefined(me.autoCapitalize)) {
+		// See https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/Attributes.html
+		me.inputEl.set({
+			autocapitalize: me.autoCapitalize ? "sentences" : "none"
+		});
+	}
+	// Set 'autocorrect="on|off"' if the property autoCorrect is set.
+	if (Ext.isDefined(me.autoCorrect)) {
+		me.inputEl.set({
+			autocorrect: me.autoCorrect ? "on" : "off"
 		});
 	}
 });

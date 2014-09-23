@@ -89,7 +89,8 @@ Ext.define("OMV.window.Login", {
 					xtype: "passwordfield",
 					fieldLabel: _("Password"),
 					name: "password",
-					blankText: _("Enter your password")
+					blankText: _("Enter your password"),
+					autoCapitalize: false
 				}]
 			}) ]
 		});
