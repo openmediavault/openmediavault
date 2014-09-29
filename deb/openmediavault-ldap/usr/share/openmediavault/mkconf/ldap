@@ -36,6 +36,9 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_LDAP_CONFIG=${OMV_LDAP_CONFIG:-"/etc/ldap/ldap.conf"}
+OMV_LDAP_CONFIG_TLS_CACERTDIR=${OMV_LDAP_CONFIG_TLS_CACERTDIR:-"/etc/ssl/certs"}
+OMV_LDAP_CONFIG_TLS_CACERT=${OMV_LDAP_CONFIG_TLS_CACERT:-"/etc/ssl/certs/ca-certificates.crt"}
+OMV_LDAP_CONFIG_TLS_REQCERT=${OMV_LDAP_CONFIG_TLS_REQCERT:-"demand"}
 OMV_LDAP_LDAPVERSION=${OMV_LDAP_LDAPVERSION:-"3"}
 OMV_LDAP_LIBNSS_CONFIG=${OMV_LDAP_LIBNSS_CONFIG:-"/etc/libnss-ldap.conf"}
 OMV_LDAP_LIBNSS_SECRET=${OMV_LDAP_LIBNSS_SECRET:-"/etc/libnss-ldap.secret"}
@@ -58,6 +61,11 @@ xmlstarlet sel -t \
   -m "//services/ldap" \
 	-v "concat('BASE ',base)" -n \
 	-o "URI ldap" -i "enablessl[. = '1']" -o "s" -b -o "://" -v host -i "string-length(port) > 0" -v "concat(':',port)" -b -n \
+	-i "enablessl[. = '1']" \
+	  -o "TLS_CACERTDIR ${OMV_LDAP_CONFIG_TLS_CACERTDIR}" -n \
+	  -o "TLS_CACERT ${OMV_LDAP_CONFIG_TLS_CACERT}" -n \
+	  -o "TLS_REQCERT ${OMV_LDAP_CONFIG_TLS_REQCERT}" -n \
+	-b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_LDAP_CONFIG}
 
