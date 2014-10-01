@@ -25,7 +25,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 xmlstarlet sel -t \
-  -m "//system/fstab/mntent[not(contains(opts,'bind') or contains(opts,'loop'))]" \
+  -m "//system/fstab/mntent[hidden='0' and not(contains(opts,'bind') or contains(opts,'loop'))]" \
 	-v uuid \
 	-i "position() != last()" -n -b \
   -b \

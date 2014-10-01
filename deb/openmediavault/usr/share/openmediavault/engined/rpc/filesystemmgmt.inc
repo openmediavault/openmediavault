@@ -893,7 +893,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					  "type" => $fs->getType(),
 					  "opts" => $opts,
 					  "freq" => 0,
-					  "passno" => 2
+					  "passno" => 2,
+					  "hidden" => 0
 				  ), $context);
 				// Apply the changes to the '/etc/fstab' file immediately
 				// to mount the filesystem.

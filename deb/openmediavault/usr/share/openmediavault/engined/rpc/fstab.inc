@@ -101,6 +101,7 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 		// Modify result object.
 		$object['freq'] = intval($object['freq']);
 		$object['passno'] = intval($object['passno']);
+		$object['hidden'] = intval($object['hidden']);
 		return $object;
 	}
 
@@ -117,6 +118,7 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 	 *   command to determine which filesystems need to be dumped.
 	 *   \em passno This field is used by the fsck(8) program to determine
 	 *   the order in which filesystem checks are done at reboot time.
+	 *   \em hidden Set to 0 to write the mount point entry to /etc/fstab.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
 	 * @throw E_EXEC_FAILED
@@ -138,7 +140,8 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 				  "type":{"type":"string"},
 				  "opts":{"type":"string"},
 				  "freq":{"type":"integer"},
-				  "passno":{"type":"integer","enum":[0,1,2]}
+				  "passno":{"type":"integer","enum":[0,1,2]},
+				  "hidden":{"type":"integer","enum":[0,1]}
 			  }
 		  }');
 		// Prepare the configuration object.
@@ -150,7 +153,8 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 			  "type" => $params['type'],
 			  "opts" => $params['opts'],
 			  "freq" => $params['freq'],
-			  "passno" => $params['passno']
+			  "passno" => $params['passno'],
+			  "hidden" => $params['hidden']
 		  );
 		// Set the configuration object.
 		$success = FALSE;

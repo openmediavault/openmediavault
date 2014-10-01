@@ -278,7 +278,8 @@ class OMVRpcServiceNfs extends OMVRpcServiceAbstract {
 					"type" => "none",
 					"opts" => "bind",
 					"freq" => 0,
-					"passno" => 0
+					"passno" => 0,
+					"hidden" => 0
 				);
 				// Append associated fstab mount point entry configuration
 				// object.

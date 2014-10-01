@@ -249,6 +249,7 @@
 				<opts></opts>
 				<freq>0</freq>
 				<passno>0|1|2</passno>
+				<hidden>0|1</hidden>
 			</mntent>
 			-->
 		</fstab>
