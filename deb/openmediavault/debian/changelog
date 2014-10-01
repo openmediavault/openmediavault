@@ -1,5 +1,6 @@
 openmediavault (1.0.24) stable; urgency=low
 
+  * Update locales.
   * Allow plugin developers to create hidden mntent database entries. Those
     entries won't be written to /etc/fstab.
   * Fix update-initramfs issue on various platforms that do not use that.
