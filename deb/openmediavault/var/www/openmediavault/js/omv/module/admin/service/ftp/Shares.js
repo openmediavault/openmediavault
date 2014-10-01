@@ -69,10 +69,6 @@ Ext.define("OMV.module.admin.service.ftp.Share", {
 			fieldLabel: _("Comment"),
 			allowBlank: true,
 			vtype: "comment"
-		},{
-			xtype: "hidden",
-			name: "mntentref",
-			value: OMV.UUID_UNDEFINED
 		}];
 	}
 });

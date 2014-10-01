@@ -405,6 +405,9 @@ case "$1" in
 			omv-mkconf proftpd
 			service proftpd reload
 		fi
+		if dpkg --compare-versions "$2" lt-nl "1.0.24"; then
+			omv_config_delete "/config/services/ftp/shares/share/mntentref"
+		fi
 	;;
 
 	triggered)

@@ -301,7 +301,6 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 			  "properties":{
 				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
 				  "sharedfolderref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'},
-				  "mntentref":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
 				  "comment":{"type":"string"}
 			  }
 		  }');
@@ -310,7 +309,6 @@ class OMVRpcServiceFtp extends OMVRpcServiceAbstract {
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $params['uuid'],
 			"sharedfolderref" => $params['sharedfolderref'],
-			"mntentref" => $params['mntentref'],
 			"comment" => $params['comment']
 		);
 		// Set the configuration object.
