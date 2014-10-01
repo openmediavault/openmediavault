@@ -1,6 +1,7 @@
 openmediavault (1.0.24) stable; urgency=low
 
   * Fix update-initramfs issue on various platforms that do not use that.
+  * Mantis 0001129: WebGUI shows incorrect MDADM information during recovery.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 23 Sep 2014 09:32:49 +0200
 

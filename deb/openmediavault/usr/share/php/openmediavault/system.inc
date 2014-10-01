@@ -2585,7 +2585,7 @@ class OMVStorageDeviceMdadm extends OMVStorageDeviceAbstract {
 	}
 
 	public function getState() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		// Parse command output:
 		// Personalities : [linear] [multipath] [raid0] [raid1] [raid6] [raid5] [raid4] [raid10]
@@ -2601,6 +2601,10 @@ class OMVStorageDeviceMdadm extends OMVStorageDeviceAbstract {
 		//       311808 blocks super 1.2 level 5, 512k chunk, algorithm 2 [5/5] [UUUUU]
 		//       [====>................]  reshape = 20.5% (21504/103936) finish=0.0min speed=21504K/sec
 		//
+		// md0 : active raid1 sdc[2] sdd[0]
+		//       2930135360 blocks super 1.2 [2/1] [U_]
+		//       [>....................]  recovery = 1.1% (33131904/2930135360) finish=266.5min speed=181134K/sec
+		//
 		// md0 : inactive sdb[0](S) sdc[2](S) sdd[1](S)
 		//       311808 blocks super 1.2
 		//
@@ -2613,18 +2617,17 @@ class OMVStorageDeviceMdadm extends OMVStorageDeviceAbstract {
 		  $matches))
 			return FALSE;
 		$mdstat = $matches[1];
-		// Extract the resync state.
-		$resyncState = "unknown";
-		if(1 == preg_match("/^.+(resync|reshape)\s*=\s*(.+)$/im", $mdstat,
-		  $matches)) {
-			$resyncState = trim($matches[2]);
-		}
+		// Extract the resync|reshape|recovery progress state.
+		$progress = "unknown";
+		if (1 == preg_match("/^.+(resync|reshape|recovery)\s*=\s*(.+)$/im",
+		  $mdstat, $matches))
+			$progress = trim($matches[2]);
 		$state = $this->state;
-		if((FALSE !== stristr($state, "resyncing")) ||
+		if ((FALSE !== stristr($state, "resyncing")) ||
 		  (FALSE !== stristr($state, "recovering"))) {
-			$state = sprintf("%s (%s)", $state, $resyncState);
-		} else if(FALSE !== stristr($mdstat, "resync")) {
-			$state = sprintf("%s, resyncing (%s)", $state, $resyncState);
+			$state = sprintf("%s (%s)", $state, $progress);
+		} else if (FALSE !== stristr($mdstat, "resync")) {
+			$state = sprintf("%s, resyncing (%s)", $state, $progress);
 		}
 		return $state;
 	}
