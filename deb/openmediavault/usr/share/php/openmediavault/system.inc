@@ -470,8 +470,59 @@ class OMVPowerManagement extends OMVObject {
  * @ingroup api
  */
 class OMVFilesystems extends OMVObject {
+	static private $types = array(
+		"none" => array("fstabent" => TRUE),
+		"ext" => array("fstabent" => TRUE),
+		"ext2" => array("fstabent" => TRUE),
+		"ext3" => array("fstabent" => TRUE),
+		"ext4" => array("fstabent" => TRUE),
+		"xfs" => array("fstabent" => TRUE),
+		"jfs" => array("fstabent" => TRUE),
+		"iso9660" => array("fstabent" => TRUE),
+		"msdos" => array("fstabent" => TRUE),
+		"ntfs" => array("fstabent" => TRUE),
+		"udf" => array("fstabent" => TRUE),
+		"umsdos" => array("fstabent" => TRUE),
+		"vfat" => array("fstabent" => TRUE),
+		"ufs" => array("fstabent" => TRUE),
+		"reiserfs" => array("fstabent" => TRUE),
+		"btrfs" => array("fstabent" => TRUE),
+		"hfsplus" => array("fstabent" => TRUE)
+	);
+
 	/**
-	 * Get a list of available/detected file systems.
+	 * Register a file system type.
+	 * @param type The file system type, e.g. 'xfs', 'jfs', ...
+	 * @param config Additional file system properties.
+	 */
+	public static function register($type, $config) {
+		self::$types[$type] = $config;
+	}
+
+	/**
+	 * Check whether the given file system type is supported.
+	 * @param type The file system type, e.g. 'ext4', 'iso9660', ...
+	 * @return TRUE if the file system is supported, otherwise FALSE.
+	 */
+	public static function isSupported($type) {
+		return array_key_exists($type, self::$types);
+	}
+
+	/**
+	 * Returns the value of the given configuration property.
+	 * @param type The file system type, e.g. 'vfat', 'hfsplus', ...
+	 * @param name The property name to fetch the value for.
+	 * @return The requested property value.
+	 */
+	public static function getProperty($type, $name) {
+		// Check if the given type is registered.
+		if (!array_key_exists($type, self::$types))
+			return FALSE;
+		return self::$types[$type][$name];
+	}
+
+	/**
+	 * Get a list of all detected file systems.
 	 * @deprecated
 	 * @return A list of file systems, otherwise FALSE. The array elements
 	 *   contain the fields: \em devicefile, \em uuid, \em label and \em type.

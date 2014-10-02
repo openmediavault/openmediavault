@@ -80,10 +80,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
 			// Is it a filesystem of interest?
-			if (!in_array($objectv['type'], array("ext", "ext2", "ext3",
-			  "ext4", "xfs", "jfs", "iso9660", "msdos", "ntfs", "udf",
-			  "umsdos", "vfat", "ufs", "reiserfs", "btrfs", "hfsplus",
-			  "zfs", "zfs_member")))
+			if (!OMVFilesystems::isSupported($objectv['type']))
 				continue;
 			// Use the devicefile to get the filesystem details because vfat
 			// filesystems do not have a valid UUID. Any idea why?
@@ -893,8 +890,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					  "type" => $fs->getType(),
 					  "opts" => $opts,
 					  "freq" => 0,
-					  "passno" => 2,
-					  "hidden" => 0
+					  "passno" => 2
 				  ), $context);
 				// Apply the changes to the '/etc/fstab' file immediately
 				// to mount the filesystem.

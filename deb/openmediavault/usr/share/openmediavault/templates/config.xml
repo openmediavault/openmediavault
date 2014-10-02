@@ -245,7 +245,7 @@
 				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 				<fsname>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx|xxxx-xxxx|/dev/xxx</fsname>
 				<dir>/xxx/yyy/zzz</dir>
-				<type>ext2|ext3|ext4|xfs|jfs|iso9660|udf</type>
+				<type>none|ext2|ext3|ext4|xfs|jfs|iso9660|udf|...</type>
 				<opts></opts>
 				<freq>0</freq>
 				<passno>0|1|2</passno>

@@ -140,8 +140,7 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 				  "type":{"type":"string"},
 				  "opts":{"type":"string"},
 				  "freq":{"type":"integer"},
-				  "passno":{"type":"integer","enum":[0,1,2]},
-				  "hidden":{"type":"integer","enum":[0,1]}
+				  "passno":{"type":"integer","enum":[0,1,2]}
 			  }
 		  }');
 		// Prepare the configuration object.
@@ -154,7 +153,8 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 			  "opts" => $params['opts'],
 			  "freq" => $params['freq'],
 			  "passno" => $params['passno'],
-			  "hidden" => $params['hidden']
+			  "hidden" => OMVFilesystems::getProperty($params['type'],
+			  	"fstabent") ? 0 : 1
 		  );
 		// Set the configuration object.
 		$success = FALSE;
