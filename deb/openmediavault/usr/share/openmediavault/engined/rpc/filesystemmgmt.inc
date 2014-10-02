@@ -83,7 +83,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			if (!in_array($objectv['type'], array("ext", "ext2", "ext3",
 			  "ext4", "xfs", "jfs", "iso9660", "msdos", "ntfs", "udf",
 			  "umsdos", "vfat", "ufs", "reiserfs", "btrfs", "hfsplus",
-			  "zfs")))
+			  "zfs", "zfs_member")))
 				continue;
 			// Use the devicefile to get the filesystem details because vfat
 			// filesystems do not have a valid UUID. Any idea why?
