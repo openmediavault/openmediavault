@@ -477,6 +477,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 						{ name: "percentage", type: "string" },
 						{ name: "mounted", type: "boolean" },
 						{ name: "mountpoint", type: "string" },
+						{ name: "mountable", type: "boolean" },
 						{ name: "_used", type: "boolean" },
 						{ name: "_readonly", type: "boolean" }
 					]
@@ -564,7 +565,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			"mount": true,
 			"unmount": true
 		};
-		if(records.length <= 0) {
+		if (records.length <= 0) {
 			tbarBtnDisabled["resize"] = true;
 			tbarBtnDisabled["quota"] = true;
 			tbarBtnDisabled["delete"] = true;
@@ -577,18 +578,17 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			tbarBtnDisabled["mount"] = true;
 			tbarBtnDisabled["unmount"] = true;
 			// Disable the 'Resize' button if file system is not supported.
-			if([ "ext","ext2","ext3","ext4","xfs","jfs" ].indexOf(
+			if ([ "ext","ext2","ext3","ext4","xfs","jfs" ].indexOf(
 			  records[0].get("type")) == -1) {
 				tbarBtnDisabled["resize"] = true;
 			}
 			// Disable the 'Quota' button if the file system does not have
 			// a mount point.
-			if(Ext.isEmpty(records[0].get("mountpoint"))) {
+			if (Ext.isEmpty(records[0].get("mountpoint")))
 				tbarBtnDisabled["quota"] = true;
-			}
 			// Disable/enable the mount/unmount buttons depending on whether
 			// the selected file system is mounted.
-			if(true === records[0].get("mounted")) {
+			if (true === records[0].get("mounted")) {
 				tbarBtnDisabled["unmount"] = false;
 			} else {
 				tbarBtnDisabled["mount"] = false;
@@ -600,13 +600,12 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			}
 			// If the file system is in use, then also disable the unmount
 			// button.
-			if(true === records[0].get("_used")) {
+			if (true === records[0].get("_used"))
 				tbarBtnDisabled["unmount"] = true;
-			}
-			// Finally disable buttons if a selected file system is
+			// Disable buttons if a selected file system is
 			// initialized (status=2) or missing (status=3) at the
 			// moment.
-			if([ 2, 3 ].indexOf(records[0].get("status")) !== -1) {
+			if ([ 2, 3 ].indexOf(records[0].get("status")) !== -1) {
 				tbarBtnDisabled["resize"] = true;
 				tbarBtnDisabled["quota"] = true;
 				tbarBtnDisabled["mount"] = true;
@@ -616,6 +615,13 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 				if (2 == records[0].get("status"))
 					tbarBtnDisabled["delete"] = true;
 			}
+			// If the filesystem does not support fstab mount entries,
+			// then disable the 'Delete', 'Mount' and 'Unmount' buttons.
+			if (false === records[0].get("mountable")) {
+				tbarBtnDisabled["delete"] = true;
+				tbarBtnDisabled["mount"] = true;
+				tbarBtnDisabled["unmount"] = true;
+			}
 		} else {
 			tbarBtnDisabled["resize"] = true;
 			tbarBtnDisabled["quota"] = true;
@@ -624,7 +630,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			tbarBtnDisabled["unmount"] = true;
 			// Disable button if one of the selected file systems is
 			// initialized (status=2) at the moment.
-			for(var i = 0; i < records.length; i++) {
+			for (var i = 0; i < records.length; i++) {
 				if(2 == records[i].get("status")) {
 					tbarBtnDisabled["delete"] = true;
 				}
@@ -632,7 +638,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 		}
 		// Disable 'Delete' button if a selected file system is in use
 		// or readonly.
-		for(var i = 0; i < records.length; i++) {
+		for (var i = 0; i < records.length; i++) {
 			if ((true == records[i].get("_used")) ||
 			  (true == records[i].get("_readonly"))) {
 				tbarBtnDisabled["delete"] = true;

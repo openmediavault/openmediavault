@@ -243,8 +243,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Get the list of filesystems that have been detected, except the
-	 * filesystem containing the operation system.
+	 * Get the list of filesystems that have been detected.
 	 * @param params An array containing the following fields:
 	 *   \em start The index where to start.
 	 *   \em limit The number of objects to process.
@@ -254,7 +253,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 	 * @return An array of objects with the following fields: \em uuid,
 	 *   \em devicefile, \em type, \em label, \em blocks, \em size,
 	 *   \em mountpoint, \em blocks, \em used, \em available,
-	 *   \em description, \em mounted, \em percentage and \em status.
+	 *   \em description, \em mounted, \em percentage, \em status and
+	 *   \em mountable.
 	 *   The field 'status' has the following meaning:<ul>
 	 *   \li 1 - Online
 	 *   \li 2 - Initializing in progress
@@ -279,10 +279,17 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
 			  }
 		  }');
-		// Enumerate all detected filesystems. Mark each as initialized.
+		// Enumerate all detected filesystems.
 		$objects = $this->callMethod("enumerateFilesystems", NULL, $context);
-		foreach($objects as $objectk => &$objectv) {
+		foreach ($objects as $objectk => &$objectv) {
+			// Mark each as initialized.
 			$objectv['status'] = 1;
+			// Mark the device as mountable if the filesystem supports
+			// mount entries in '/etc/fstab'.
+			$objectv['mountable'] = FALSE;
+			$opts = OMVFilesystems::getProperty($objectv['type'], "opts");
+			if ($opts & OMVFilesystems::FS_OPT_MNTENT)
+				$objectv['mountable'] = TRUE;
 		}
 		// Try to detect filesystems that are being initialized.
 		foreach(new DirectoryIterator("/tmp") as $file) {

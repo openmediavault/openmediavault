@@ -470,24 +470,27 @@ class OMVPowerManagement extends OMVObject {
  * @ingroup api
  */
 class OMVFilesystems extends OMVObject {
+	const FS_OPT_NONE = 0x0;
+	const FS_OPT_MNTENT = 0x1;
+
 	static private $types = array(
-		"none" => array("fstabent" => TRUE),
-		"ext" => array("fstabent" => TRUE),
-		"ext2" => array("fstabent" => TRUE),
-		"ext3" => array("fstabent" => TRUE),
-		"ext4" => array("fstabent" => TRUE),
-		"xfs" => array("fstabent" => TRUE),
-		"jfs" => array("fstabent" => TRUE),
-		"iso9660" => array("fstabent" => TRUE),
-		"msdos" => array("fstabent" => TRUE),
-		"ntfs" => array("fstabent" => TRUE),
-		"udf" => array("fstabent" => TRUE),
-		"umsdos" => array("fstabent" => TRUE),
-		"vfat" => array("fstabent" => TRUE),
-		"ufs" => array("fstabent" => TRUE),
-		"reiserfs" => array("fstabent" => TRUE),
-		"btrfs" => array("fstabent" => TRUE),
-		"hfsplus" => array("fstabent" => TRUE)
+		"none" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"ext" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"ext2" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"ext3" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"ext4" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"xfs" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"jfs" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"iso9660" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"msdos" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"ntfs" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"udf" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"umsdos" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"vfat" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"ufs" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"reiserfs" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"btrfs" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
+		"hfsplus" => array("opts" => OMVFilesystems::FS_OPT_MNTENT)
 	);
 
 	/**
