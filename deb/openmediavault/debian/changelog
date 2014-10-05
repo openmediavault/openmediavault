@@ -1,3 +1,10 @@
+openmediavault (1.0.26) stable; urgency=low
+
+  * Mantis 0001132: Filesystem not written to fstab when there is no 'hidden'
+    attribute.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 05 Oct 2014 10:02:32 +0200
+
 openmediavault (1.0.25) stable; urgency=low
 
   * Improve filesystem backend.

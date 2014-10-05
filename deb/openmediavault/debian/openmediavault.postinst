@@ -408,6 +408,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "1.0.24"; then
 			omv_config_delete "/config/services/ftp/shares/share/mntentref"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "1.0.26"; then
+			omv_config_add_element "/config/system/fstab/mntent" "hidden" "0"
+		fi
 	;;
 
 	triggered)
