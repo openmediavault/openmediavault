@@ -153,8 +153,8 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 			  "opts" => $params['opts'],
 			  "freq" => $params['freq'],
 			  "passno" => $params['passno'],
-			  "hidden" => OMVFilesystems::getProperty($params['type'],
-			  	"fstabent") ? 0 : 1
+			  "hidden" => (OMVFilesystems::getProperty($params['type'],
+			  	"opts") & OMVFilesystems::FS_OPT_MNTENT) ? 0 : 1
 		  );
 		// Set the configuration object.
 		$success = FALSE;
