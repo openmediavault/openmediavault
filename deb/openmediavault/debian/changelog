@@ -1,3 +1,11 @@
+openmediavault (1.0.27) stable; urgency=low
+
+  * Improve filesystem handling in backend.
+  * Auto-detect browser language.
+  * Mantis 0001119: Can't mount HDD to file systems.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 06 Oct 2014 08:29:23 +0200
+
 openmediavault (1.0.26) stable; urgency=low
 
   * Mantis 0001132: Filesystem not written to fstab when there is no 'hidden'

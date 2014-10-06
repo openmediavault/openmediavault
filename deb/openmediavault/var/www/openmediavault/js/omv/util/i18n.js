@@ -31,6 +31,18 @@ OMV.util.i18n = function() {
 	dictionary = {};
 	return {
 		getLocale: function() {
+			if (Ext.isString(locale))
+				return locale;
+			// Auto-detect browser language.
+			if (Ext.isDefined(navigator.languages)) {
+				Ext.Array.each(navigator.languages, function(lang) {
+					lang = lang.replace("-", "_");
+					if (Ext.isDefined(dictionary[lang])) {
+						locale = lang;
+						return false;
+					}
+				});
+			}
 			return locale || "en";
 		},
 

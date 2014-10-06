@@ -917,11 +917,11 @@ class OMVFilesystem extends OMVObject {
 	public function getMountPoint() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		// Get the corresponding block device.
-		$bd = new OMVBlockDevice($this->getDeviceFile());
-		if (!$bd->exists())
+		// Get the corresponding storage device.
+		$sd = OMVStorageDeviceFactory::get($this->getDeviceFile());
+		if (is_null($sd) || !$sd->exists())
 			return FALSE;
-		$devNum = $bd->getDeviceNumber();
+		$devNum = $sd->getDeviceNumber();
 		// See http://man7.org/linux/man-pages/man5/proc.5.html
 		// Parse command output:
 		// 24 20 8:17 / /media/b994e5e8-94ae-482c-ae54-70a0bbb2737e rw,noexec,relatime - ext4 /dev/sdb1 rw,user_xattr,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group
@@ -1008,11 +1008,11 @@ class OMVFilesystem extends OMVObject {
 	public function isMounted() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		// Get the corresponding block device.
-		$bd = new OMVBlockDevice($this->getDeviceFile());
-		if (!$bd->exists())
+		// Get the corresponding storage device.
+		$sd = OMVStorageDeviceFactory::get($this->getDeviceFile());
+		if (is_null($sd) || !$sd->exists())
 			return FALSE;
-		$devNum = $bd->getDeviceNumber();
+		$devNum = $sd->getDeviceNumber();
 		// See http://man7.org/linux/man-pages/man5/proc.5.html
 		// Parse command output:
 		// 14 20 0:13 / /sys rw,nosuid,nodev,noexec,relatime - sysfs sysfs rw
@@ -1362,18 +1362,24 @@ interface OMVIBlockDevice {
 
 	/**
 	 * Get the device number, e.g. 8:17.
+	 * @link See https://www.kernel.org/doc/Documentation/devices.txt for
+	 *   more information. @endlink
 	 * @return The device number as string or FALSE on failure.
 	 */
 	function getDeviceNumber();
 
 	/**
 	 * Get the major device number.
+	 * @link See https://www.kernel.org/doc/Documentation/devices.txt for
+	 *   more information. @endlink
 	 * @return The major device number or FALSE on failure.
 	 */
 	function getMajor();
 
 	/**
 	 * Get the minor device number.
+	 * @link See https://www.kernel.org/doc/Documentation/devices.txt for
+	 *   more information. @endlink
 	 * @return The minor device number or FALSE on failure.
 	 */
 	function getMinor();
