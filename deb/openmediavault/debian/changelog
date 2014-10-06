@@ -1,3 +1,9 @@
+openmediavault (1.0.27.2) stable; urgency=low
+
+  * Mantis 0001137: Can't access the web interface, permanent refresh.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 06 Oct 2014 23:21:19 +0200
+
 openmediavault (1.0.27.1) stable; urgency=low
 
   * Fix bug in fstab RPC.

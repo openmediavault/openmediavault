@@ -31,19 +31,22 @@ OMV.util.i18n = function() {
 	dictionary = {};
 	return {
 		getLocale: function() {
+			// Return the locale stored in the cookie.
 			if (Ext.isString(locale))
 				return locale;
-			// Auto-detect browser language.
-			if (Ext.isDefined(navigator.languages)) {
+			// Auto-detect browser language. Note, the locale stored in
+			// the cookie is not updated.
+			var result = "en";
+			if (Ext.isArray(navigator.languages)) {
 				Ext.Array.each(navigator.languages, function(lang) {
 					lang = lang.replace("-", "_");
-					if (Ext.isDefined(dictionary[lang])) {
-						locale = lang;
+					if (Ext.Object.hasProperty(dictionary, lang)) {
+						result = lang;
 						return false;
 					}
-				});
+				}, this);
 			}
-			return locale || "en";
+			return result;
 		},
 
 		setLocale: function(v) {
