@@ -31,22 +31,7 @@ OMV.util.i18n = function() {
 	dictionary = {};
 	return {
 		getLocale: function() {
-			// Return the locale stored in the cookie.
-			if (Ext.isString(locale))
-				return locale;
-			// Auto-detect browser language. Note, the locale stored in
-			// the cookie is not updated.
-			var result = "en";
-			if (Ext.isArray(navigator.languages)) {
-				Ext.Array.each(navigator.languages, function(lang) {
-					lang = lang.replace("-", "_");
-					if (Ext.Object.hasProperty(dictionary, lang)) {
-						result = lang;
-						return false;
-					}
-				}, this);
-			}
-			return result;
+			return locale || "en";
 		},
 
 		setLocale: function(v) {
@@ -63,14 +48,13 @@ OMV.util.i18n = function() {
 
 		/**
 		 * Lookup a string in the current domain.
-		 * @return Returns a translated string if one is found in the translation
-		 * table, or the submitted message if not found.
+		 * @return Returns a translated string if one is found in the
+		 *   translation table, or the submitted message if not found.
 		 */
 		gettext: function(str, params) {
-			if(Ext.isDefined(dictionary[locale]) && Ext.isDefined(
-			  dictionary[locale][str])) {
+			if (dictionary.hasOwnProperty(locale) && dictionary[locale].
+			  hasOwnProperty(str))
 				str = dictionary[locale][str];
-			}
 			return str;
 		}
 	};

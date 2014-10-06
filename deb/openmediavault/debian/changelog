@@ -1,3 +1,10 @@
+openmediavault (1.0.27.3) stable; urgency=low
+
+  * Remove browser language auto-detection.
+  * Mantis 0001137: Can't access the web interface, permanent refresh.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Oct 2014 00:27:42 +0200
+
 openmediavault (1.0.27.2) stable; urgency=low
 
   * Mantis 0001137: Can't access the web interface, permanent refresh.
