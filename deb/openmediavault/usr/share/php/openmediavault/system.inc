@@ -1577,21 +1577,24 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	/**
 	 * Get the device path by ID, e.g.
 	 * \li /dev/disk/by-id/wwn-0x5000cca211cc703c
+	 * \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
 	 * \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML
 	 * @return The device path (/dev/disk/by-id/xxx) if available,
 	 *   otherwise /dev/xxx will be returned. In case of an error FALSE
 	 *   will be returned.
 	 */
 	public function getDeviceFileById() {
-		if(!$this->deviceFileById) {
+		if (!$this->deviceFileById) {
 			// Set the device file by default.
 			$this->deviceFileById = $this->deviceFile;
 			// Now try to find the device file by-id for the given device.
 			$path = "/dev/disk/by-id";
-			if(is_dir($path)) {
+			if (is_dir($path)) {
 				$deviceFilesById = array();
 				// Process directory:
-				// wwn-0x5000c4002cab3842 -> ../../sda
+				// ata-WDC_WD2002FAEX-007BA0_WD-WCAY01065572 -> ../../sda
+				// scsi-SATA_WDC_WD2002FAEX-_WD-WCAY01065572 -> ../../sda
+				// wwn-0x50014ee25d4cdecd -> ../../sda
 				// usb-Generic-_SM_xD_Picture_058F63626420-0:2 -> ../../sde
 				// usb-Generic-_Compact_Flash_058F63626420-0:1 -> ../../sdd
 				// ata-ST31000528AS_7VS3K6EY-part5 -> ../../sdb5
@@ -1599,24 +1602,41 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 				// ata-ST31000528AS_7VS3K6EY-part1 -> ../../sdb1
 				// ata-ST31000528AS_7VS3K6EY -> ../../sdb
 				$dir = new DirectoryIterator($path);
-				foreach($dir as $item) {
+				foreach ($dir as $item) {
 					// Skip everything that is not a symlink.
-					if($item->isDot() || !$item->isLink())
+					if ($item->isDot() || !$item->isLink())
 						continue;
 					// Skip files that does not match the device name,
 					// e.g. sdb or sdg.
-					if($this->getDeviceName() !== basename(
+					if ($this->getDeviceName() !== basename(
 					  $item->getLinkTarget()))
 						continue;
 					$deviceFilesById[] = $item->getPathname();
 				}
-				if(!empty($deviceFilesById)) {
-					// Sort the found device files in natural order, e.g.:
-					// ata-VMware_Virtual_IDE_Hard_Drive_00000000000000000001
-					// scsi-SATA_VMware_Virtual_00000000000000000001
-					natsort($deviceFilesById);
-					// Use the last device file of the list, e.g.
-					// scsi-SATA_VMware_Virtual_00000000000000000001
+				if (!empty($deviceFilesById)) {
+					// Sort the device files in the following order:
+					// |      | $a=s | $a=a | $a=x |
+					// |------|------|------|------|
+					// | $b=s |   0  |  -1  |  -1  |
+					// | $b=a |   1  |   0  |  -1  |
+					// | $b=x |   1  |   1  |   x  |
+					//
+					// Example:
+					// xxx...
+					// yyy...
+					// wwn-0x50014ee25d4cdecd
+					// ata-WDC_WD2002FAEX-007BA0_WD-WCAY01065572
+					// scsi-SATA_WDC_WD2002FAEX-_WD-WCAY01065572
+					usort($deviceFilesById, create_function('$a, $b',
+						'if (($a[0] == "s") && ($b[0] == "s")) return 0;'.
+						'if (($a[0] == "s") && ($b[0] == "a")) return 1;'.
+						'if (($a[0] == "s") && (($b[0] !== "a") && ($b[0] !== "s"))) return 1;'.
+						'if (($a[0] == "a") && ($b[0] == "s")) return -1;'.
+						'if (($a[0] == "a") && ($b[0] == "a")) return 0;'.
+						'if (($a[0] == "a") && (($b[0] !== "a") && ($b[0] !== "s"))) return 1;'.
+						'if ((($a[0] !== "a") && ($a[0] !== "s")) && ($b[0] == "s")) return -1;'.
+						'if ((($a[0] !== "a") && ($a[0] !== "s")) && ($b[0] == "a")) return -1;'.
+						'return strnatcmp($a, $b);'));
 					$this->deviceFileById = array_pop($deviceFilesById);
 				}
 			}

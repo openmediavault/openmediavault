@@ -3,6 +3,7 @@ openmediavault (1.0.28) stable; urgency=low
   * Refactor browser language auto-detection.
   * Improve the OMVFilesystem::getMountPoint and OMVFilesystem::isMounted
     methods.
+  * Mantis 0001141: smartd: Reference disks by ATA-/SCSI-Id.
   * Mantis 0001142: Shares with spaces in the path/directory don't appear
     when using FTP/FTPS.
 
