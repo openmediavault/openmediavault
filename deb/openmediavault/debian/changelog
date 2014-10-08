@@ -3,6 +3,8 @@ openmediavault (1.0.28) stable; urgency=low
   * Refactor browser language auto-detection.
   * Improve the OMVFilesystem::getMountPoint and OMVFilesystem::isMounted
     methods.
+  * Mantis 0001142: Shares with spaces in the path/directory don't appear
+    when using FTP/FTPS.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Oct 2014 09:57:31 +0200
 
