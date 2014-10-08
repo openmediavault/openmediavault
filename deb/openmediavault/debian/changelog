@@ -1,6 +1,8 @@
 openmediavault (1.0.28) stable; urgency=low
 
   * Refactor browser language auto-detection.
+  * Improve the OMVFilesystem::getMountPoint and OMVFilesystem::isMounted
+    methods.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 07 Oct 2014 09:57:31 +0200
 

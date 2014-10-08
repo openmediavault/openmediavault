@@ -917,27 +917,37 @@ class OMVFilesystem extends OMVObject {
 	public function getMountPoint() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		// Get the corresponding storage device.
-		$sd = OMVStorageDeviceFactory::get($this->getDeviceFile());
-		if (is_null($sd) || !$sd->exists())
+		$cmd = sprintf("export LANG=C; findmnt -cnrv -o SOURCE,UUID,".
+		  "TARGET 2>&1");
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
 			return FALSE;
-		$devNum = $sd->getDeviceNumber();
-		// See http://man7.org/linux/man-pages/man5/proc.5.html
+		}
 		// Parse command output:
-		// 24 20 8:17 / /media/b994e5e8-94ae-482c-ae54-70a0bbb2737e rw,noexec,relatime - ext4 /dev/sdb1 rw,user_xattr,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group
-		// 26 20 8:17 /test /srv/ftp/test rw,noexec,relatime - ext4 /dev/sdb1 rw,user_xattr,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group
+		// sysfs  /sys
+		// proc  /proc
+		// udev  /dev
+		// devpts  /dev/pts
+		// tmpfs  /run
+		// /dev/sda1 df68201c-c816-4228-9bf9-5563b03e6bc1 /
+		// tmpfs  /run/lock
+		// tmpfs  /run/shm
+		// tmpfs  /tmp
+		// /dev/sde1 8c982ec2-8aa7-4fe2-a912-7478f0429e06 /media/8c982ec2-8aa7-4fe2-a912-7478f0429e06
+		// /dev/sdc1 ea792ccb-cce6-409d-ab9b-0e3fd2bfbfc4 /media/ea792ccb-cce6-409d-ab9b-0e3fd2bfbfc4
+		// /dev/md0 2853402e-fe8f-443b-abd5-c42892f25be1 /media/2853402e-fe8f-443b-abd5-c42892f25be1
+		// rpc_pipefs  /var/lib/nfs/rpc_pipefs
+		// /dev/sdf1 7A48-BA97 /media/7A48-BA97
 		$result = FALSE;
-		foreach (file("/proc/self/mountinfo") as $rowk => $rowv) {
-			$matches = explode(" ", $rowv);
-			// Extract the mountinfo values:
-			$miDevNum = $matches[2];
-			$miRoot = $matches[3];
-			$miMountPoint = $matches[4];
-			// Find the mountinfo that has the equal device number and is
-			// mounted with root = '/'.
-			if (!(($miDevNum == $devNum) && ($miRoot == "/")))
+		foreach ($output as $outputk => $outputv) {
+			// Skip everything that does not look like '/dev/xxx'.
+			$regex = '/^(\/dev\/\S+)\s+(\S+)\s+(\S+)$/i';
+			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;
-			$result = $miMountPoint;
+			if ($matches[2] !== $this->getUuid())
+				continue;
+			$result = $matches[3];
 			break;
 		}
 		return $result;
@@ -1008,34 +1018,29 @@ class OMVFilesystem extends OMVObject {
 	public function isMounted() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		// Get the corresponding storage device.
-		$sd = OMVStorageDeviceFactory::get($this->getDeviceFile());
-		if (is_null($sd) || !$sd->exists())
+		$cmd = sprintf("export LANG=C; findmnt -cnrv -o SOURCE,UUID 2>&1");
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
 			return FALSE;
-		$devNum = $sd->getDeviceNumber();
-		// See http://man7.org/linux/man-pages/man5/proc.5.html
+		}
 		// Parse command output:
-		// 14 20 0:13 / /sys rw,nosuid,nodev,noexec,relatime - sysfs sysfs rw
-		// 15 20 0:3 / /proc rw,nosuid,nodev,noexec,relatime - proc proc rw
-		// 16 20 0:5 / /dev rw,relatime - devtmpfs udev rw,size=10240k,nr_inodes=126269,mode=755
-		// 17 16 0:10 / /dev/pts rw,nosuid,noexec,relatime - devpts devpts rw,gid=5,mode=620,ptmxmode=000
-		// 18 20 0:14 / /run rw,nosuid,noexec,relatime - tmpfs tmpfs rw,size=102356k,mode=755
-		// 20 1 8:1 / / rw,relatime - ext4 /dev/disk/by-uuid/128917b7-718a-4361-ab6f-6b1725564cb8 rw,errors=remount-ro,user_xattr,barrier=1,data=ordered
-		// 21 18 0:16 / /run/lock rw,nosuid,nodev,noexec,relatime - tmpfs tmpfs rw,size=5120k
-		// 22 18 0:17 / /run/shm rw,nosuid,nodev,noexec,relatime - tmpfs tmpfs rw,size=342320k
-		// 23 20 0:18 / /tmp rw,relatime - tmpfs tmpfs rw
-		// 24 20 8:17 / /media/b994e5e8-94ae-482c-ae54-70a0bbb2737e rw,noexec,relatime - ext4 /dev/sdb1 rw,user_xattr,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group
-		// 25 20 0:19 / /var/lib/nfs/rpc_pipefs rw,relatime - rpc_pipefs rpc_pipefs rw
-		// 26 20 8:17 /test /srv/ftp/test rw,noexec,relatime - ext4 /dev/sdb1 rw,user_xattr,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group
-		$result = FALSE;
-		foreach (file("/proc/self/mountinfo") as $rowk => $rowv) {
-			$matches = explode(" ", $rowv);
-			// Extract the mountinfo values:
-			$miDevNum = $matches[2];
-			$miRoot = $matches[3];
-			// Find the mountinfo that has the equal device number and is
-			// mounted with root = '/'.
-			if (!(($miDevNum == $devNum) && ($miRoot == "/")))
+		// sysfs
+		// proc
+		// udev
+		// devpts
+		// tmpfs
+		// /dev/sda1 df68201c-c816-4228-9bf9-5563b03e6bc1
+		// /dev/sde1 8c982ec2-8aa7-4fe2-a912-7478f0429e06
+		// /dev/sdc1 ea792ccb-cce6-409d-ab9b-0e3fd2bfbfc4
+		// /dev/md0 2853402e-fe8f-443b-abd5-c42892f25be1
+		// /dev/sdf1 7A48-BA97
+		foreach ($output as $outputk => $outputv) {
+			// Skip everything that does not look like '/dev/xxx'.
+			$regex = '/^(\/dev\/\S+)\s+(\S+)$/i';
+			if (1 !== preg_match($regex, $outputv, $matches))
+				continue;
+			if ($matches[2] !== $this->getUuid())
 				continue;
 			$result = TRUE;
 			break;

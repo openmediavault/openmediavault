@@ -25,6 +25,8 @@ set -e
 
 omv_sysinfo_begin_msg "Mount information"
 omv_sysinfo_msg </proc/self/mountinfo
+omv_sysinfo_msg_separator
+findmnt -cnrv -o MAJ:MIN,SOURCE,UUID,TARGET | omv_sysinfo_msg
 omv_sysinfo_end_msg
 
 exit 0
