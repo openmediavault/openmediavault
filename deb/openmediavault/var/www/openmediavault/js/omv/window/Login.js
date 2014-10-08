@@ -75,7 +75,17 @@ Ext.define("OMV.window.Login", {
 				items: [{
 					xtype: "languagecombo",
 					fieldLabel: _("Language"),
-					submitValue: false
+					submitValue: false,
+					listeners: {
+						scope: me,
+						localechange: function(combo, locale) {
+							OMV.util.i18n.setLocale(locale);
+							// Force rendering of the whole page with the
+							// selected language.
+							OMV.confirmPageUnload = false;
+							document.location.reload();
+						}
+					}
 				},{
 					id: "username",
 					xtype: "textfield",

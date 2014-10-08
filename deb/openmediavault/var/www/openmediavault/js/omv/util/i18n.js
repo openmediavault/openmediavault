@@ -27,9 +27,24 @@ Ext.ns("OMV.util");
  * is stored in a browser cookie.
  */
 OMV.util.i18n = function() {
-	locale = Ext.util.Cookies.get("locale");
-	dictionary = {};
+	var locale, dictionary = {};
 	return {
+		initialize: function() {
+			locale = Ext.util.Cookies.get("locale");
+			// Auto-detect browser language if locale is not set via cookie.
+			if (!Ext.isString(locale)) {
+				if (Ext.isArray(navigator.languages)) {
+					Ext.Array.each(navigator.languages, function(lang) {
+						lang = lang.replace("-", "_");
+						if (dictionary.hasOwnProperty(lang)) {
+							locale = lang;
+							return false;
+						}
+					});
+				}
+			}
+		},
+
 		getLocale: function() {
 			return locale || "en";
 		},

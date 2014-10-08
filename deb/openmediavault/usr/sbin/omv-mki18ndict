@@ -90,6 +90,7 @@ fi
 
 cat <<EOF >> ${OMV_I18N_JS_DICT_FILE}
 OMV.util.i18n.loadDictionary(OMV.util.i18nDict);
+OMV.util.i18n.initialize();
 EOF
 
 # Compress/minify translation dictionary?

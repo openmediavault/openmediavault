@@ -40,6 +40,19 @@ Ext.define("OMV.form.field.LanguageComboBox", {
 	editable: false,
 	forceSelection: true,
 
+	constructor: function() {
+		var me = this;
+		me.callParent(arguments);
+		me.addEvents(
+			/**
+			 * Fires when the locale name has been changed.
+			 * @param this This combo box.
+			 * @param locale The selected locale name.
+			 */
+			"localechange"
+		);
+	},
+
 	initComponent: function() {
 		var me = this;
 		Ext.apply(me, {
@@ -48,17 +61,13 @@ Ext.define("OMV.form.field.LanguageComboBox", {
 				fields: [ "value", "text" ],
 				data: OMV.languages
 			},
-			listeners: {
-				scope: me,
-				change: function(combo, newValue, oldValue, eOpts) {
-					OMV.util.i18n.setLocale(newValue);
-					// Force rendering of whole page with selected language.
-					OMV.confirmPageUnload = false;
-					document.location.reload();
-				}
-			},
 			value: OMV.util.i18n.getLocale()
 		});
 		me.callParent(arguments);
+		me.on("change", function(combo, newValue, oldValue, eOpts) {
+			if (!Ext.isString(newValue))
+				return;
+			this.fireEvent("localechange", this, newValue);
+		}, me);
 	}
 });
