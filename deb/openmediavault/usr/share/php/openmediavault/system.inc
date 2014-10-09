@@ -1615,11 +1615,15 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 				}
 				if (!empty($deviceFilesById)) {
 					// Sort the device files in the following order:
+					// s=[s]csi-xxx
+					// a=[a]ta-xxx
+					// x=any other device file name
+					// fn=call strnatcmp function
 					// |      | $a=s | $a=a | $a=x |
 					// |------|------|------|------|
-					// | $b=s |   0  |  -1  |  -1  |
-					// | $b=a |   1  |   0  |  -1  |
-					// | $b=x |   1  |   1  |   x  |
+					// | $b=s |  fn  |  -1  |  -1  |
+					// | $b=a |   1  |  fn  |  -1  |
+					// | $b=x |   1  |   1  |  fn  |
 					//
 					// Example:
 					// xxx...
@@ -1628,11 +1632,9 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 					// ata-WDC_WD2002FAEX-007BA0_WD-WCAY01065572
 					// scsi-SATA_WDC_WD2002FAEX-_WD-WCAY01065572
 					usort($deviceFilesById, create_function('$a, $b',
-						'if (($a[0] == "s") && ($b[0] == "s")) return 0;'.
 						'if (($a[0] == "s") && ($b[0] == "a")) return 1;'.
 						'if (($a[0] == "s") && (($b[0] !== "a") && ($b[0] !== "s"))) return 1;'.
 						'if (($a[0] == "a") && ($b[0] == "s")) return -1;'.
-						'if (($a[0] == "a") && ($b[0] == "a")) return 0;'.
 						'if (($a[0] == "a") && (($b[0] !== "a") && ($b[0] !== "s"))) return 1;'.
 						'if ((($a[0] !== "a") && ($a[0] !== "s")) && ($b[0] == "s")) return -1;'.
 						'if ((($a[0] !== "a") && ($a[0] !== "s")) && ($b[0] == "a")) return -1;'.
