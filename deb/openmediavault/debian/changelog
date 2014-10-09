@@ -1,5 +1,6 @@
 openmediavault (1.0.28) stable; urgency=low
 
+  * Update locales.
   * Refactor browser language auto-detection.
   * Improve the OMVFilesystem::getMountPoint and OMVFilesystem::isMounted
     methods.

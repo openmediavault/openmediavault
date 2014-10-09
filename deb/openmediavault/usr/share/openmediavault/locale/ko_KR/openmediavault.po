@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-26 22:28+0200\n"
-"PO-Revision-Date: 2014-09-12 19:44+0000\n"
+"PO-Revision-Date: 2014-10-05 18:33+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -20,10 +20,10 @@ msgstr ""
 
 #, javascript-format
 msgid "% completed ..."
-msgstr "% completed ..."
+msgstr "% 완료 ..."
 
 msgid "%s (%s available)"
-msgstr "%s (%s available)"
+msgstr "%s (%s 사용 가능)"
 
 msgid "%s [on %s, %s ]"
 msgstr "%s [on %s, %s ]"
@@ -171,10 +171,10 @@ msgid "ASCII"
 msgstr "아스키"
 
 msgid "About"
-msgstr ""
+msgstr "대하여"
 
 msgid "Abstract"
-msgstr ""
+msgstr "추상적인"
 
 msgid "Access Right Management"
 msgstr "접근 권한 관리"
@@ -189,7 +189,7 @@ msgid "Act as a WINS server."
 msgstr "WINS 서버로 동작"
 
 msgid "Action"
-msgstr ""
+msgstr "행동"
 
 msgid "Activate S.M.A.R.T. monitoring."
 msgstr "S.M.A.R.T. 모니터링을 활성화"
@@ -274,142 +274,142 @@ msgstr "아프가니스탄"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
-msgstr ""
+msgstr "RAID를 확장한 후에 해당 RAID에 포함된 파일 시스템을 확장시킬 수 있습니다."
 
 msgid "Aland Islands"
-msgstr ""
+msgstr "올란드 제도"
 
 msgid "Albania"
-msgstr ""
+msgstr "알바니아"
 
 msgid "Algeria"
-msgstr ""
+msgstr "알제리"
 
 msgid "All"
-msgstr ""
+msgstr "모두"
 
 msgid "Allow"
-msgstr ""
+msgstr "허용"
 
 msgid "Allow client access to accounts that have null passwords"
-msgstr ""
+msgstr "널 패스워드를 갖는 계정에 대한 클라이언트 접근을 허용합니다."
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
-msgstr ""
+msgstr "공유에 대해 OS/2 형식의 확장 속성(EA)을 클라이언트가 저장할 수 있도록 합니다."
 
 msgid "Allow clients to resume interrupted uploads and downloads"
-msgstr ""
+msgstr "중단된 올려주기와 내려받기를 이어서 할 수 있게 합니다."
 
 msgid "Allow new files"
-msgstr ""
+msgstr "새 파일을 허용합니다."
 
 msgid "Allow new files to be created."
-msgstr ""
+msgstr "새로운 파일이 생성되도록 합니다."
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
-msgstr ""
+msgstr "이 서버가 Windows 클라이언트에게 자신을 시간 서버로 알리는 것을 가능하게 합니다."
 
 msgid "Allow this server to try and become a local master browser"
-msgstr ""
+msgstr "이 서버가 로컬 마스터 브라우저(LMB)로 되려고 시도하는 것을 가능하게 합니다."
 
 msgid "American Samoa"
-msgstr ""
+msgstr "아메리칸 사모아"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "관리자에게 명령행 출력(있다면)을 전자 메일에 포함하여 전송합니다."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr ""
+msgstr "해당 작업을 수행하는 사용자에게 명령행 출력(있다면)을 전자 메일에 포함하여 전송합니다."
 
 msgid "An error has occured"
-msgstr ""
+msgstr "오류가 발생했습니다."
 
 msgid "Andorra"
-msgstr ""
+msgstr "안도라"
 
 msgid "Angola"
-msgstr ""
+msgstr "앙골라"
 
 msgid "Anguilla"
-msgstr ""
+msgstr "앙귈라"
 
 msgid "Anonymous"
-msgstr ""
+msgstr "익명"
 
 msgid "Anonymous FTP"
-msgstr ""
+msgstr "익명 FTP"
 
 msgid "Antarctica"
-msgstr ""
+msgstr "남극"
 
 msgid "Antigua and Barbuda"
-msgstr ""
+msgstr "앤티카 바부다"
 
 msgid "Apply"
-msgstr ""
+msgstr "적용"
 
 msgid "Apply configuration changes"
-msgstr ""
+msgstr "설정 변경 적용"
 
 msgid "Apply permissions to files and subfolders"
-msgstr ""
+msgstr "파일과 디렉터리에 권한을 적용"
 
 msgid "April"
-msgstr ""
+msgstr "4월"
 
 msgid "Archive"
-msgstr ""
+msgstr "아카이브"
 
 msgid "Argentina"
-msgstr ""
+msgstr "아르헨티나"
 
 msgid "Armenia"
-msgstr ""
+msgstr "아르메니아"
 
 msgid "Array details"
-msgstr ""
+msgstr "배열 정보"
 
 msgid "Aruba"
-msgstr ""
+msgstr "아루바"
 
 msgid "Asynchronous I/O"
-msgstr ""
+msgstr "비동기 입출력"
 
 msgid "Attribute name"
-msgstr ""
+msgstr "속성 이름"
 
 msgid "Attributes"
-msgstr ""
+msgstr "속성"
 
 msgid "Audit"
-msgstr ""
+msgstr "감사"
 
 msgid "Audit file operations."
-msgstr ""
+msgstr "파일 연산 감사"
 
 msgid "August"
-msgstr ""
+msgstr "8월"
 
 msgid "Australia"
-msgstr ""
+msgstr "호주"
 
 msgid "Austria"
-msgstr ""
+msgstr "오스트리아"
 
 msgid "Authenticate users"
-msgstr ""
+msgstr "사용자 인증"
 
 msgid "Authenticated user ID"
-msgstr ""
+msgstr "인증된 사용자 식별자"
 
 msgid "Authentication"
-msgstr ""
+msgstr "인증"
 
 msgid "Authentication and no privacy"
 msgstr ""
@@ -418,210 +418,210 @@ msgid "Authentication and privacy"
 msgstr ""
 
 msgid "Authentication method"
-msgstr ""
+msgstr "인증 방법"
 
 msgid "Authentication passphrase"
-msgstr ""
+msgstr "인증 암호"
 
 msgid "Authentication required"
-msgstr ""
+msgstr "인증 요구"
 
 msgid "Authentication type"
-msgstr ""
+msgstr "인증 유형"
 
 msgid "Auto"
-msgstr ""
+msgstr "자동"
 
 msgid "Automatic Acoustic Management"
-msgstr ""
+msgstr "자동 음향 관리(AAM)"
 
 msgid "Available"
-msgstr ""
+msgstr "사용 가능"
 
 msgid "Azerbaijan"
-msgstr ""
+msgstr "아제르바이잔"
 
 msgid "Bahamas"
-msgstr ""
+msgstr "바하마"
 
 msgid "Bahrain"
-msgstr ""
+msgstr "바레인"
 
 msgid "Ban list"
-msgstr ""
+msgstr "차단 목록"
 
 msgid "Ban statistics:"
-msgstr ""
+msgstr "차단 통계:"
 
 msgid "Bandwidth restriction"
-msgstr ""
+msgstr "대역폭 제한"
 
 msgid "Bangladesh"
-msgstr ""
+msgstr "방글라데시"
 
 msgid "Barbados"
-msgstr ""
+msgstr "바베이도스"
 
 msgid "Belarus"
-msgstr ""
+msgstr "벨라루스"
 
 msgid "Belgium"
-msgstr ""
+msgstr "벨기에"
 
 msgid "Belize"
-msgstr ""
+msgstr "벨리즈"
 
 msgid "Benin"
-msgstr ""
+msgstr "베냉"
 
 msgid "Bermuda"
-msgstr ""
+msgstr "버뮤다"
 
 msgid "Bhutan"
-msgstr ""
+msgstr "부탄"
 
 msgid "Binary"
-msgstr ""
+msgstr "이진"
 
 msgid "Block layer cache [%s, %s]"
-msgstr ""
+msgstr "블럭 계층 캐시 [%s, %s]"
 
 msgid "Blocksize"
-msgstr ""
+msgstr "블럭 크기"
 
 msgid "Bolivia"
-msgstr ""
+msgstr "볼리비아"
 
 msgid "Bond options"
-msgstr ""
+msgstr "본드 옵션"
 
 msgid "Boot"
-msgstr ""
+msgstr "부트"
 
 msgid "Bosnia and Herzegovina"
-msgstr ""
+msgstr "보스니아-헤르체고비나"
 
 msgid "Botswana"
-msgstr ""
+msgstr "보츠와나"
 
 msgid "Bouvet Island"
-msgstr ""
+msgstr "부베 섬"
 
 msgid "Brazil"
-msgstr ""
+msgstr "브라질"
 
 msgid "British Antarctic Territory"
-msgstr ""
+msgstr "영국령 남극 영토"
 
 msgid "British Indian Ocean Territory"
-msgstr ""
+msgstr "영국령 인도양 영토"
 
 msgid "British Virgin Islands"
-msgstr ""
+msgstr "영국령 버진아일랜드"
 
 msgid "Browseable"
-msgstr ""
+msgstr "검색 가능한"
 
 msgid "Brunei"
-msgstr ""
+msgstr "브루나이"
 
 msgid "Bulgaria"
-msgstr ""
+msgstr "불가리아"
 
 msgid "Burkina Faso"
-msgstr ""
+msgstr "브루키나 파소"
 
 msgid "Burundi"
-msgstr ""
+msgstr "부룬디"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr ""
+msgstr "기본적으로, 이미 존재하는 파일만 올려주기될 수 있습니다."
 
 msgid "CPU usage"
-msgstr ""
+msgstr "CPU 사용량"
 
 msgid "Cambodia"
-msgstr ""
+msgstr "캄보디아"
 
 msgid "Cameroon"
-msgstr ""
+msgstr "카메룬"
 
 msgid "Canada"
-msgstr ""
+msgstr "캐나다"
 
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 msgid ""
 "Cannot unlink shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "다른 공유 폴더가 해당 폴더의 하위 디렉터리를 참조하고 있기 때문에 이 공유 폴더를 삭제할 수가 없습니다."
 
 msgid "Canton and Enderbury Islands"
-msgstr ""
+msgstr "피닉스 제도"
 
 msgid "Capacity"
-msgstr ""
+msgstr "용량"
 
 msgid "Cape Verde"
-msgstr ""
+msgstr "카보베르데"
 
 msgid "Cayman Islands"
-msgstr ""
+msgstr "케이멘 섬"
 
 msgid "Central African Republic"
-msgstr ""
+msgstr "중앙 아프리카 공화국"
 
 msgid "Certificate"
-msgstr ""
+msgstr "증명"
 
 msgid "Certificate details"
-msgstr ""
+msgstr "증명 정보"
 
 msgid "Certificates"
-msgstr ""
+msgstr "증명"
 
 msgid "Chad"
-msgstr ""
+msgstr "차드"
 
 msgid "Changelog"
-msgstr ""
+msgstr "변경 내역"
 
 msgid "Check"
-msgstr ""
+msgstr "검사"
 
 msgid "Check interval"
-msgstr ""
+msgstr "검사 주기"
 
 msgid "Checking for new plugins ..."
-msgstr ""
+msgstr "새로운 플러그인을 확인하는 중입니다 ..."
 
 msgid "Checking for new updates ..."
-msgstr ""
+msgstr "새로운 업데이트를 확인하는 중입니다 ..."
 
 msgid "Chile"
-msgstr ""
+msgstr "칠레"
 
 msgid "China"
-msgstr ""
+msgstr "중국"
 
 msgid "Christmas Island"
-msgstr ""
+msgstr "크리스마스 섬"
 
 msgid "City"
-msgstr ""
+msgstr "도시"
 
 msgid "Clear"
-msgstr ""
+msgstr "정리"
 
 msgid "Client"
-msgstr ""
+msgstr "클라이언트"
 
 msgid "Client NetBIOS name"
-msgstr ""
+msgstr "클라이언트 NetBIOS 이름"
 
 msgid "Client address"
-msgstr ""
+msgstr "클라이언트 주소"
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
 msgstr ""
