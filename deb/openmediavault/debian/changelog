@@ -1,3 +1,9 @@
+openmediavault (1.0.29) stable; urgency=low
+
+  * Mantis 0000876: Daily mdadm cron job exited with return code 1.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 10 Oct 2014 08:27:47 +0200
+
 openmediavault (1.0.28) stable; urgency=low
 
   * Update locales.

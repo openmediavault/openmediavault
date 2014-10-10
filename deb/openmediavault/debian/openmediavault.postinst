@@ -415,6 +415,10 @@ case "$1" in
 			omv-mkconf proftpd
 			service proftpd reload
 		fi
+		if dpkg --compare-versions "$2" lt-nl "1.0.29"; then
+			rm -f /etc/cron.daily/mdadm
+			rm -f /etc/cron.daily/cron-apt
+		fi
 	;;
 
 	triggered)

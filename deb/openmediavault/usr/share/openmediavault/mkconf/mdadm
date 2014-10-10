@@ -39,7 +39,7 @@ OMV_MDADM_DAEMONOPTIONS=${OMV_MDADM_DAEMONOPTIONS:-"--syslog"}
 OMV_MDADM_VERBOSE=${OMV_MDADM_VERBOSE:-"false"}
 OMV_MDADM_MAILFROM=${OMV_MDADM_MAILFROM:-"root"}
 
-# Create /etc/default/mdadm
+# Create the '/etc/default/mdadm' file.
 cat > ${OMV_MDADM_DEFAULT} <<EOF
 # INITRDSTART:
 #   list of arrays (or 'all') to start automatically when the initial ramdisk
@@ -71,7 +71,7 @@ DAEMON_OPTIONS="${OMV_MDADM_DAEMONOPTIONS}"
 VERBOSE=${OMV_MDADM_VERBOSE}
 EOF
 
-# Create /etc/mdadm/mdadm.conf
+# Create the '/etc/mdadm/mdadm.conf' file.
 cat > ${OMV_MDADM_CONFIG} <<EOF
 # mdadm.conf
 #
@@ -94,11 +94,10 @@ HOMEHOST <system>
 # definitions of existing MD arrays
 EOF
 
-# Append definition of existing arrays
+# Append definition of existing arrays.
 mdadm --detail --scan >> ${OMV_MDADM_CONFIG}
-#update-initramfs -u
 
-# Set email configuration
+# Set email configuration.
 xmlstarlet sel -t -m "//system/email" \
   -i "enable[. = '1'] and //system/notification/notifications/mdadm[. = '1']" \
 	-n \
