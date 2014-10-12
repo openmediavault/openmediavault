@@ -53,16 +53,35 @@ Ext.define("OMV.module.admin.dashboard.widget.FileSystemStatus", {
 				disableLoadMaskOnLoad: true,
 				hideTopToolbar: true,
 				hidePagingToolbar: true,
-				hideHeaders: true,
 				disableSelection: true,
 				stateful: true,
 				stateId: "778ea266-eaf3-11e3-8211-0002b3a176b4",
 				columns: [{
 					xtype: "emptycolumn",
+					text: _("Device/Label"),
+					sortable: true,
+					dataIndex: "devicefile",
+					stateId: "devicelabel",
+					flex: 1,
+					renderer: function(value, metaData, record) {
+						if (!Ext.isEmpty(record.get("label")))
+							return record.get("label");
+						return value;
+					}
+				},{
+					xtype: "emptycolumn",
 					text: _("Device"),
 					sortable: true,
 					dataIndex: "devicefile",
 					stateId: "devicefile",
+					hidden: true,
+					flex: 1
+				},{
+					text: _("Label"),
+					sortable: true,
+					dataIndex: "label",
+					stateId: "label",
+					hidden: true,
 					flex: 1
 				},{
 					text: _("Used"),
@@ -73,7 +92,7 @@ Ext.define("OMV.module.admin.dashboard.widget.FileSystemStatus", {
 					flex: 2,
 					renderer: function(value, metaData, record) {
 						var percentage = parseInt(record.get("percentage"));
-						if(-1 == percentage)
+						if (-1 == percentage)
 							return _("n/a");
 						var renderer = OMV.util.Format.progressBarRenderer(
 						  percentage / 100, value);
@@ -89,6 +108,7 @@ Ext.define("OMV.module.admin.dashboard.widget.FileSystemStatus", {
 						idProperty: "devicefile",
 						fields: [
 							{ name: "devicefile", type: "string" },
+							{ name: "label", type: "string" },
 							{ name: "used", type: "string" },
 							{ name: "percentage", type: "string" }
 						]
