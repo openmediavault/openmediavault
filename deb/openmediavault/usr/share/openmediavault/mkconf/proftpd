@@ -205,6 +205,9 @@ rootlogin=$(omv_config_get "//services/ftp/rootlogin")
 # Process FTP shares.
 index=$(omv_config_get_count "//services/ftp/shares/share")
 while [ ${index} -gt 0 ]; do
+	# Get the UUID of the current share.
+	uuid=$(omv_config_get "//services/ftp/shares/share[position()=${index}]/uuid")
+
 	limitall_allowuser=""
 	limitall_allowgroup=""
 	limitread_allowuser=""
@@ -217,7 +220,7 @@ while [ ${index} -gt 0 ]; do
 	fi
 
 	# Get the shared folder reference and path.
-	sfref=$(omv_config_get "//services/ftp/shares/share[position()=${index}]/sharedfolderref")
+	sfref=$(omv_config_get "//services/ftp/shares/share[uuid='${uuid}']/sharedfolderref")
 	sfname=$(omv_get_sharedfolder_name "${sfref}")
 	sfpath=$(omv_get_sharedfolder_path "${sfref}")
 
@@ -288,6 +291,11 @@ EOF
 	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
     DenyAll
   </Limit>
+EOF
+	xmlstarlet sel -t -m "//services/ftp/shares/share[uuid='${uuid}']" \
+	  -i "string-length(extraoptions) > 0" -v extraoptions -n -b \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_PROFTPD_CONFIG}
+	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
 </Directory>
 EOF
 

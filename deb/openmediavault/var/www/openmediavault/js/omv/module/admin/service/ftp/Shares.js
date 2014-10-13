@@ -64,6 +64,15 @@ Ext.define("OMV.module.admin.service.ftp.Share", {
 				text: _("The location of the files to share.")
 			}]
 		},{
+			xtype: "textarea",
+			name: "extraoptions",
+			fieldLabel: _("Extra options"),
+			allowBlank: true,
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>manual page</a> for more details.")
+			}]
+		},{
 			xtype: "textfield",
 			name: "comment",
 			fieldLabel: _("Comment"),
