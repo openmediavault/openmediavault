@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-26 22:28+0200\n"
+"POT-Creation-Date: 2014-10-13 22:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "%s (%s available)"
 msgstr ""
 
-msgid "%s [on %s, %s ]"
+msgid "%s [on %s, %s]"
 msgstr ""
 
 msgid "'All' is not allowed"
@@ -827,6 +827,9 @@ msgid "Device model"
 msgstr ""
 
 msgid "Device properties"
+msgstr ""
+
+msgid "Device/Label"
 msgstr ""
 
 msgid "Devices"
@@ -2246,6 +2249,9 @@ msgid "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.htm
 msgstr ""
 
 msgid "Please check the <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manual page</a> for more details."
+msgstr ""
+
+msgid "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>manual page</a> for more details."
 msgstr ""
 
 msgid "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> for more details."
