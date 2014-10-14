@@ -1,6 +1,8 @@
 openmediavault (1.0.29) stable; urgency=low
 
   * Update locales.
+  * Fix bug when using PHP >= 5.4.13. Enable the ability to load external
+    XML entities.
   * Mantis 0000876: Daily mdadm cron job exited with return code 1.
   * Mantis 0001135: Anacron mdadm Notifications Emails.
   * Mantis 0001145: Proftpd: Ability to add directives into shares.

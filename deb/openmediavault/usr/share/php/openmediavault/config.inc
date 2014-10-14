@@ -70,7 +70,12 @@ class OMVConfigEngine extends OMVObject {
 	 */
 	public function __construct($filename, $forceReload = TRUE,
 	  $autoCommit = TRUE, $versioning = FALSE) {
+	  	// Enable libxml errors to fetch error information as needed.
 		libxml_use_internal_errors(true);
+		// Enable the ability to load external entities.
+		// See https://bugs.php.net/bug.php?id=64938 for more information.
+		libxml_disable_entity_loader(false);
+		// Initialize member variables.
 		$this->domdoc = NULL;
 		$this->forceReload = $forceReload;
 		$this->autoCommit = $autoCommit;
