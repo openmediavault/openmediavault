@@ -333,6 +333,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					"type" => $fsInfo['type'],
 					"blocks" => "-1", // as string
 					"mounted" => FALSE,
+					"mountable" => FALSE,
 					"mountpoint" => "",
 					"used" => "-1", // as string
 					"available" => "-1", // as string
@@ -373,6 +374,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				"type" => $mntentv['type'],
 				"blocks" => "-1", // as string
 				"mounted" => FALSE,
+				"mountable" => TRUE,
 				"mountpoint" => $mntentv['dir'],
 				"used" => "-1", // as string
 				"available" => "-1", // as string
