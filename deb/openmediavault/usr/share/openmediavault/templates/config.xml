@@ -378,12 +378,14 @@
 			<tempinfo>0</tempinfo>
 			<tempcrit>0</tempcrit>
 			<monitor>
+				<!--
 				<device>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 					<devicefile>/dev/xxx</devicefile>
 					<enable>0|1</enable>
 					<type>|sat|cciss|xxx</type>
 				</device>
+				-->
 			</monitor>
 			<scheduledtests>
 				<!--

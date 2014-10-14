@@ -147,7 +147,7 @@ function boolvalEx($var) {
  * Finds out whether a variable is an UUID v4.
  * @ingroup api
  * @param var The variable being evaluated.
- * @return TRUE if variable is a UUID, otherwise FALSE.
+ * @return TRUE if the variable is an UUID, otherwise FALSE.
  */
 function is_uuid($var) {
 	if(!is_string($var))
@@ -160,7 +160,7 @@ function is_uuid($var) {
  * Finds out whether a variable describes a devicefile, e.g. /dev/sda1.
  * @ingroup api
  * @param var The variable being evaluated.
- * @return TRUE if variable describes a devicefile, otherwise FALSE.
+ * @return TRUE if the variable describes a devicefile, otherwise FALSE.
  */
 function is_devicefile($var) {
 	return preg_match('/^\/dev\/.+$/i', $var) ? TRUE : FALSE;
@@ -185,7 +185,7 @@ function is_block($filename) {
  * Finds out whether a variable is JSON.
  * @ingroup api
  * @param var The variable being evaluated.
- * @return TRUE if variable is JSON, otherwise FALSE.
+ * @return TRUE if the variable is JSON, otherwise FALSE.
  */
 function is_json($var) {
 	return (is_string($var) && !is_null(json_decode($var))) ?
@@ -196,7 +196,7 @@ function is_json($var) {
  * Finds out whether a variable is an IP address.
  * @ingroup api
  * @param var The variable being evaluated.
- * @return TRUE if variable is an IP address, otherwise FALSE.
+ * @return TRUE if the variable is an IP address, otherwise FALSE.
  */
 function is_ipaddr($var) {
 	if(!is_string($var))
@@ -208,7 +208,7 @@ function is_ipaddr($var) {
  * Finds out whether a variable is an IPv4 address.
  * @ingroup api
  * @param var The variable being evaluated.
- * @return TRUE if variable is an IPv4 address, otherwise FALSE.
+ * @return TRUE if the variable is an IPv4 address, otherwise FALSE.
  */
 function is_ipaddr4($var) {
 	if(!is_string($var))
@@ -220,12 +220,24 @@ function is_ipaddr4($var) {
  * Finds out whether a variable is an IPv6 address.
  * @ingroup api
  * @param var The variable being evaluated.
- * @return TRUE if variable is an IPv6 address, otherwise FALSE.
+ * @return TRUE if the variable is an IPv6 address, otherwise FALSE.
  */
 function is_ipaddr6($var) {
 	if(!is_string($var))
 		return FALSE;
 	return filter_var($var, FILTER_VALIDATE_IP, FILTER_FLAG_IPV6);
+}
+
+/**
+ * Finds out whether a variable is a multidimensional array.
+ * @ingroup api
+ * @param var The variable being evaluated.
+ * @return TRUE if the variable is a multidimensional array, otherwise FALSE.
+ */
+function is_multiarray($var) {
+	if (count($var, COUNT_RECURSIVE) !== count($var))
+		return TRUE;
+	return FALSE;
 }
 
 /**

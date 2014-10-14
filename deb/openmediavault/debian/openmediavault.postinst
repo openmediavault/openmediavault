@@ -416,7 +416,8 @@ case "$1" in
 			service proftpd reload
 		fi
 		if dpkg --compare-versions "$2" lt-nl "1.0.29"; then
-			omv_config_add_element "//services/ftp/shares/share" "extraoptions" ""
+			omv_config_delete "/config/services/smart/monitor/device[uuid='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx']"
+			omv_config_add_element "/config/services/ftp/shares/share" "extraoptions" ""
 			rm -f /etc/cron.daily/mdadm
 			rm -f /etc/cron.daily/cron-apt
 		fi

@@ -1779,9 +1779,20 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return TRUE if the device is a connected via USB, otherwise FALSE.
 	 */
 	public function isUsb() {
-		if(FALSE === ($property = $this->getUdevProperty("ID_BUS")))
-			return FALSE;
-		return (0 == strcasecmp("usb", $property)) ? TRUE : FALSE;
+		// Identify USB devices via 'ID_BUS=usb'.
+		if (FALSE !== ($property = $this->getUdevProperty("ID_BUS"))) {
+			if (0 == strcasecmp("usb", $property))
+				return TRUE;
+		}
+		// Identify USB devices via 'ID_PATH=xxx-usb-xxx'.
+		// Example:
+		// ID_PATH=pci-0000:02:02.0-usb-0:1:1.0-scsi-0:0:0:0
+		// ID_PATH=pci-0000:00:12.2-usb-0:3:1.0-scsi-0:0:0:0
+		if (FALSE !== ($property = $this->getUdevProperty("ID_PATH"))) {
+			if (1 == preg_match('/^.+-usb-.+$/i', $property))
+				return TRUE;
+		}
+		return FALSE;
 	}
 
 	/**

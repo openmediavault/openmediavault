@@ -165,6 +165,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 	 * @return An array containing the requested objects. The field \em total
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
+	 * @throw E_CONFIG_OBJECT_INVALID
 	 */
 	public function getList($params, $context) {
 		global $xmlConfig;
@@ -185,7 +186,7 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 		// Enumerate all devices supporting S.M.A.R.T.
 		$objects = $this->callMethod("enumerateDevices", NULL, $context);
 		// Append additional configuration data.
-		foreach($objects as $objectk => &$objectv) {
+		foreach ($objects as $objectk => &$objectv) {
 			$objectv['uuid'] = $GLOBALS['OMV_UUID_UNDEFINED'];
 			$objectv['monitor'] = FALSE;
 			// Check if there exists a device configuration object for the
@@ -196,7 +197,14 @@ class OMVRpcServiceSmart extends OMVRpcServiceAbstract {
 			  $objectv['devicefilebyid'], $objectv['devicefile']);
 			// If found, then finally get the S.M.A.R.T. device settings
 			// configuration object.
-			if(!is_null($object = $xmlConfig->get($xpath))) {
+			if (!is_null($object = $xmlConfig->get($xpath))) {
+				// Ensure the retured value is an object, otherwise throw
+				// an error.
+				if (is_multiarray($object)) {
+					throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INVALID,
+					  "A single object is expected");
+				}
+				// Get the S.M.A.R.T. settings of this device.
 				$object = $this->callMethod("getDeviceSettings", array(
 					  "devicefile" => $object['devicefile']
 				  ), $context);
