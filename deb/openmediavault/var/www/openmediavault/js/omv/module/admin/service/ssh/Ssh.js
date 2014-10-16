@@ -57,16 +57,19 @@ Ext.define("OMV.module.admin.service.ssh.Settings", {
 				name: "permitrootlogin",
 				fieldLabel: _("Permit root login"),
 				checked: true,
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("Specifies whether it is allowed to login as superuser.")
-				}]
+				boxLabel: _("Specifies whether it is allowed to login as superuser.")
 			},{
 				xtype: "checkbox",
 				name: "passwordauthentication",
 				fieldLabel: _("Password authentication"),
 				checked: true,
 				boxLabel: _("Enable keyboard-interactive authentication")
+			},{
+				xtype: "checkbox",
+				name: "pubkeyauthentication",
+				fieldLabel: _("Public key authentication"),
+				checked: true,
+				boxLabel: _("Enable public key authentication")
 			},{
 				xtype: "checkbox",
 				name: "tcpforwarding",

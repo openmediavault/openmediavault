@@ -288,6 +288,7 @@
 			<port>22</port>
 			<extraoptions></extraoptions>
 			<passwordauthentication>1</passwordauthentication>
+			<pubkeyauthentication>1</pubkeyauthentication>
 			<permitrootlogin>1</permitrootlogin>
 			<tcpforwarding>0</tcpforwarding>
 			<compression>0</compression>

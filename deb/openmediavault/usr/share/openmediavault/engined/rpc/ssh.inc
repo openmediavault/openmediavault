@@ -68,6 +68,8 @@ class OMVRpcServiceSsh extends OMVRpcServiceAbstract {
 		$object['port'] = intval($object['port']);
 		$object['passwordauthentication'] = boolvalEx(
 		  $object['passwordauthentication']);
+		$object['pubkeyauthentication'] = boolvalEx(
+		  $object['pubkeyauthentication']);
 		$object['permitrootlogin'] = boolvalEx($object['permitrootlogin']);
 		$object['tcpforwarding'] = boolvalEx($object['tcpforwarding']);
 		$object['compression'] = boolvalEx($object['compression']);
@@ -94,6 +96,7 @@ class OMVRpcServiceSsh extends OMVRpcServiceAbstract {
 				  "enable":{"type":"boolean"},
 				  "port":{"type":"integer","minimum":1,"maximum":65535},
 				  "passwordauthentication":{"type":"boolean"},
+				  "pubkeyauthentication":{"type":"boolean"},
 				  "permitrootlogin":{"type":"boolean"},
 				  "tcpforwarding":{"type":"boolean"},
 				  "compression":{"type":"boolean"},
@@ -108,6 +111,8 @@ class OMVRpcServiceSsh extends OMVRpcServiceAbstract {
 			"extraoptions" => $params['extraoptions'],
 			"passwordauthentication" => array_boolval($params,
 			  'passwordauthentication'),
+			"pubkeyauthentication" => array_boolval($params,
+			  'pubkeyauthentication'),
 			"permitrootlogin" => array_boolval($params, 'permitrootlogin'),
 			"tcpforwarding" => array_boolval($params, 'tcpforwarding'),
 			"compression" => array_boolval($params, 'compression')

@@ -54,6 +54,7 @@ OMV_SSHD_PRINTLASTLOG=${OMV_SSHD_PRINTLASTLOG:-"yes"}
 OMV_SSHD_TCPKEEPALIVE=${OMV_SSHD_TCPKEEPALIVE:-"yes"}
 OMV_SSHD_ACCEPTENV=${OMV_SSHD_ACCEPTENV:-"LANG LC_*"}
 OMV_SSHD_USEPAM=${OMV_SSHD_USEPAM:-"yes"}
+OMV_SSHD_AUTHORIZEDKEYSFILE=${OMV_SSHD_AUTHORIZEDKEYSFILE:-".ssh/authorized_keys .ssh/authorized_keys2 /var/lib/openmediavault/ssh/authorized_keys/%u"}
 
 # Limit connections to IPv4 only if IPv6 is disabled.
 if [ ! -f /proc/net/if_inet6 ]; then
@@ -102,7 +103,10 @@ xmlstarlet sel -t \
 	  -i "passwordauthentication = 0" -o "PasswordAuthentication no" -n -b \
 	  -i "passwordauthentication = 1" -o "PasswordAuthentication yes" -n -b \
 	  -i "pubkeyauthentication = 0" -o "PubkeyAuthentication no" -n -b \
-	  -i "pubkeyauthentication = 1" -o "PubkeyAuthentication yes" -n -b \
+	  -i "pubkeyauthentication = 1" \
+	    -o "AuthorizedKeysFile ${OMV_SSHD_AUTHORIZEDKEYSFILE}" -n \
+	    -o "PubkeyAuthentication yes" -n \
+	  -b \
 	  -i "string-length(extraoptions) > 0" -v "extraoptions" -n -b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_SSHD_CONFIG}

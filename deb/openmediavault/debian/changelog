@@ -8,6 +8,7 @@ openmediavault (1.0.29) stable; urgency=low
   * Mantis 0001145: Proftpd: Ability to add directives into shares.
   * Mantis 0001146: Dashboard: Use file system label on status widget.
   * Mantis 0001149: SMART data unavailable for external USB disks.
+  * Mantis 0001150: Add support for public key authentication on SSH.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 10 Oct 2014 08:27:47 +0200
 
