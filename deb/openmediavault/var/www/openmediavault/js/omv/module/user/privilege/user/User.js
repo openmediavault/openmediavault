@@ -73,6 +73,11 @@ Ext.define("OMV.module.user.privilege.user.User", {
 				fieldLabel: _("Confirm password"),
 				allowBlank: true,
 				submitValue: false
+			},{
+				xtype: "textfield",
+				name: "sshpubkey",
+				fieldLabel: _("Public key"),
+				allowBlank: true
 			}]
 		}];
 	},

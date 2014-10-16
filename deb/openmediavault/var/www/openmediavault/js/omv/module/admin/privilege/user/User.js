@@ -162,6 +162,11 @@ Ext.define("OMV.module.admin.privilege.user.User", {
 			},
 			value: [ "users" ]
 		},{
+			xtype: "textfield",
+			name: "sshpubkey",
+			fieldLabel: _("Public key"),
+			allowBlank: true
+		},{
 			xtype: "checkbox",
 			name: "disallowusermod",
 			fieldLabel: _("Modify account"),

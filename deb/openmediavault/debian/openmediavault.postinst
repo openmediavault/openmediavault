@@ -419,6 +419,7 @@ case "$1" in
 			omv_config_delete "/config/services/smart/monitor/device[uuid='xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx']"
 			omv_config_add_element "/config/services/ftp/shares/share" "extraoptions" ""
 			omv_config_add_element "/config/services/ssh" "pubkeyauthentication" "1"
+			omv_config_add_element "/config/system/usermanagement/users/user" "sshpubkey" ""
 			rm -f /etc/cron.daily/mdadm
 			rm -f /etc/cron.daily/cron-apt
 		fi

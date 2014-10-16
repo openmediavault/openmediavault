@@ -249,7 +249,7 @@ finish:
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get list of groups."));
 		}
-		// Get group informations.
+		// Get group information.
 		$result = array();
 		foreach($groups as $groupk => $groupv) {
 			$group = new OMVUserGroup($groupv);
@@ -357,17 +357,18 @@ finish:
 		  }');
 		// Get the list of non-system user.
 		$users = $this->enumerateUsersByType("normal");
-		// Process users and append additional informations stored in
+		// Process users and append additional information stored in
 		// the database.
-		foreach($users as $userk => &$userv) {
-			// Get additional informations stored in database.
+		foreach ($users as $userk => &$userv) {
+			// Get additional information stored in database.
 			$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
 			  $userv['name']);
 			$object = $xmlConfig->get($xpath);
-			if(!is_null($object)) {
+			if (!is_null($object)) {
 				$userv['email'] = $object['email'];
 				$userv['disallowusermod'] = boolvalEx(
 				  $object['disallowusermod']);
+				$userv['sshpubkey'] = $object['sshpubkey'];
 			}
 		}
 		// Filter result.
@@ -396,9 +397,9 @@ finish:
 				  "name":{"type":"string"}
 			  }
 		  }');
-		// Get the user informations.
+		// Get the user information.
 		$user = new OMVUser($params['name']);
-		if(!$user->exists()) {
+		if (!$user->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf(gettext("User '%s' does not exist"),
 			  $params['name']));
@@ -419,27 +420,28 @@ finish:
 			"reserved" => $user->getReserved(),
 			"groups" => $user->getGroups(),
 			"email" => "",
-			"disallowusermod" => FALSE
+			"disallowusermod" => FALSE,
+			"sshpubkey" => ""
 		);
-		// Get additional informations stored in database.
+		// Get additional user information stored in database.
 		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
 		  $result['name']);
 		$object = $xmlConfig->get($xpath);
-		if(!is_null($object)) {
+		if (!is_null($object)) {
 			$result['email'] = $object['email'];
-			$result['disallowusermod'] = boolvalEx(
-			  $object['disallowusermod']);
+			$result['disallowusermod'] = boolvalEx($object['disallowusermod']);
+			$result['sshpubkey'] = $object['sshpubkey'];
 		}
 		return $result;
 	}
 
 	/**
 	 * Get the user configuration from the current context user. The
-	 * returned object contains only a limited number of user informations.
+	 * returned object contains only a limited number of user information.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The result object contains the fields \em name, \em comment,
-	 *   \em email and the internal field \em _readonly.
+	 *   \em email, \em sshpubkey and the internal field \em _readonly.
 	 */
 	function getUserByContext($params, $context) {
 		// Validate the RPC caller context.
@@ -454,6 +456,7 @@ finish:
 			  "name" => $object['name'],
 			  "comment" => $object['comment'],
 			  "email" => $object['email'],
+			  "sshpubkey" => $object['sshpubkey'],
 			  // Hijack the '_readonly' flag to set the form to read-only.
 			  "_readonly" => $object['disallowusermod']
 		  );
@@ -465,13 +468,14 @@ finish:
 	 *   \em name The name of the user.
 	 *   \em uid The user ID. This field is optional.
 	 *   \em groups A list of groups which the user is a member of as an
-	 *   array of strings.
+	 *     array of strings.
 	 *   \em shell The name of the users login shell. This field is optional.
 	 *   \em password The plain password to use.
 	 *   \em email The users email address.
 	 *   \em comment Any text string. This field is optional.
 	 *   \em disallowusermod Set to FALSE to disallow the user to modify his
-	 *   account.
+	 *     account.
+	 *   \em sshpubkey The users SSH public key.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
 	 * @throw E_CONFIG_SET_OBJECT_FAILED
@@ -501,7 +505,8 @@ finish:
 				  "password":{"type":"string"},
 				  "email":{'.$GLOBALS['OMV_JSONSCHEMA_EMAIL'].'},
 				  "comment":{"type":"string","optional":true},
-				  "disallowusermod":{"type":"boolean"}
+				  "disallowusermod":{"type":"boolean"},
+				  "sshpubkey":{"type":"string"}
 			  }
 		  }');
 		// Do not allow to modify user 'root' via RPC.
@@ -510,19 +515,20 @@ finish:
 			  gettext("Operation not allowed for user '%s'."),
 			  $params['name']));
 		}
-		// Get additional informations stored in database.
+		// Get additional information stored in database.
 		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
 		  $params['name']);
 		$object = $xmlConfig->get($xpath);
 		// Set configuration object.
 		$success = FALSE;
-		if(is_null($object)) {
+		if (is_null($object)) {
 			$object = array(
 				"uuid" => OMVUtil::uuid(),
 				"name" => $params['name'],
 				"email" => $params['email'],
 				"disallowusermod" => array_boolval($params,
-				  "disallowusermod")
+				  "disallowusermod"),
+				"sshpubkey" => $params['sshpubkey']
 			);
 			// Append new configuration object.
 			$success = $xmlConfig->set("//system/usermanagement/users",
@@ -531,43 +537,43 @@ finish:
 			$object['email'] = $params['email'];
 			$object['disallowusermod'] = array_boolval($params,
 			  "disallowusermod");
+			$object['sshpubkey'] = $params['sshpubkey'];
 			// Update existing configuration object.
 			$success = $xmlConfig->replace($xpath, $object);
 		}
-		if(FALSE === $success) {
+		if (FALSE === $success)
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
 		// Prepare command arguments. Note, a user is always in the
 		// group 'users'.
 		$cmdArgs = array();
 		$cmdArgs[] = "--gid";
 		$cmdArgs[] = escapeshellarg($GLOBALS['OMV_USERMGMT_DEFAULT_GROUP']);
-		if(array_key_exists("shell", $params)) {
+		if (array_key_exists("shell", $params)) {
 			$cmdArgs[] = "--shell";
 			$cmdArgs[] = escapeshellarg($params['shell']);
 		}
-		if(array_key_exists("comment", $params)) {
+		if (array_key_exists("comment", $params)) {
 			$cmdArgs[] = "--comment";
 			$cmdArgs[] = escapeshellarg($params['comment']);
 		}
-		if(array_key_exists("groups", $params)) {
+		if (array_key_exists("groups", $params)) {
 			$cmdArgs[] = "--groups";
 			$cmdArgs[] = escapeshellarg(implode(",", $params['groups']));
 		}
 		// Does the user already exist?
 		$user = new OMVUser($params['name']);
-		if(!$user->exists()) {
+		if (!$user->exists()) {
 			// Get user management settings.
 			$xpath = "//system/usermanagement/homedirectory";
 			$hdsobject = $xmlConfig->get($xpath);
-			if(is_null($hdsobject)) {
+			if (is_null($hdsobject)) {
 				throw new OMVException(
 				  OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED, $xpath);
 			}
 			// Append additional arguments.
 			$cmdArgs[] = "--password";
 			$cmdArgs[] = escapeshellarg(crypt($params['password']));
-			if(array_key_exists("uid", $params)) {
+			if (array_key_exists("uid", $params)) {
 				$cmdArgs[] = "--uid";
 				$cmdArgs[] = $params['uid'];
 			}
@@ -583,13 +589,13 @@ finish:
 			// Create a new user.
 			$cmd = sprintf("export LANG=C; useradd %s %s 2>&1",
 			  implode(" ", $cmdArgs), escapeshellarg($params['name']));
-			if(0 !== $this->exec($cmd, $output)) {
+			if (0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
 		} else {
 			// Append additional arguments.
-			if(array_key_exists("password", $params) &&
+			if (array_key_exists("password", $params) &&
 			  !empty($params['password'])) {
 				$cmdArgs[] = "--password";
 				$cmdArgs[] = escapeshellarg(crypt($params['password']));
@@ -597,12 +603,12 @@ finish:
 			// Modify existing user.
 			$cmd = sprintf("export LANG=C; usermod %s %s 2>&1",
 			  implode(" ", $cmdArgs), escapeshellarg($params['name']));
-			if(0 !== $this->exec($cmd, $output)) {
+			if (0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
 		}
-		// Append some more informations to the notification object.
+		// Append some more information to the notification object.
 		$object = array_merge($object, $params);
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
@@ -619,6 +625,7 @@ finish:
 	 *   \em password The password. Empty passwords are ignored.
 	 *   \em email The email address.
 	 *   \em comment The comment.
+	 *   \em sshpubkey The users SSH public key.
 	 * @param context The context of the caller.
 	 * @return None.
 	 */
@@ -633,7 +640,8 @@ finish:
 				"properties":{
 					"password":{"type":"string"},
 					"email":{'.$GLOBALS['OMV_JSONSCHEMA_EMAIL'].'},
-					"comment":{"type":"string"}
+					"comment":{"type":"string"},
+					"sshpubkey":{"type":"string"}
 				}
 			}');
 		// Get the user configuration object.
@@ -646,6 +654,7 @@ finish:
 		  "groups" => $object['groups'],
 		  "comment" => $params['comment'],
 		  "email" => $params['email'],
+		  "sshpubkey" => $params['sshpubkey'],
 		  "password" => $params['password']), $this->getAdminContext());
 	}
 
@@ -681,7 +690,7 @@ finish:
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
-		// Delete additional user informations stored in database.
+		// Delete additional user information stored in database.
 		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
 		  $params['name']);
 		$xmlConfig->delete($xpath);
@@ -751,7 +760,8 @@ finish:
 					"password" => $matches[5],
 					"groups" => explode(",", $matches[6]),
 					"disallowusermod" => boolvalEx($matches[7]),
-					"shell" => "/bin/dash"
+					"shell" => "/bin/dash",
+					"sshpubkey" => ""
 				);
 				if(!empty($matches[2]) && is_numeric($matches[2]))
 					$object['uid'] = intval($matches[2]);
@@ -819,7 +829,7 @@ finish:
 		// Get the list of non-system groups.
 		$groups = $this->enumerateGroupsByType("normal");
 		foreach($groups as $groupk => &$groupv) {
-			// Get additional informations stored in database.
+			// Get additional information stored in database.
 			$xpath = sprintf("//system/usermanagement/groups/group[name='%s']",
 			  $groupv['name']);
 			$object = $xmlConfig->get($xpath);
@@ -853,7 +863,7 @@ finish:
 				  "name":{"type":"string"}
 			  }
 		  }');
-		// Get the group informations.
+		// Get the group information.
 		$group = new OMVUserGroup($params['name']);
 		if(!$group->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -865,13 +875,12 @@ finish:
 			"gid" => $group->getGid(),
 			"members" => $group->getMembers()
 		);
-		// Get additional informations stored in database.
+		// Get additional information stored in database.
 		$xpath = sprintf("//system/usermanagement/groups/group[name='%s']",
 		  $result['name']);
 		$object = $xmlConfig->get($xpath);
-		if(!is_null($object)) {
+		if (!is_null($object))
 			$result['comment'] = $object['comment'];
-		}
 		return $result;
 	}
 
