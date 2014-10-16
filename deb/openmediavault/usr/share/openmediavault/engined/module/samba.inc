@@ -110,7 +110,7 @@ class OMVModuleSamba extends OMVModuleServiceAbstract
 	}
 
 	/**
-	 * Helper functio to check whether the given user exists in the
+	 * Helper function to check whether the given user exists in the
 	 * SMB/CIFS user database.
 	 * @param username The name of the user.
 	 * @return TRUE if the user exists, otherwise FALSE.

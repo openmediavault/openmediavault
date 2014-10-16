@@ -39,7 +39,7 @@ class OMVModuleSsh extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "omv-mkconf ssh 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -61,7 +61,7 @@ class OMVModuleSsh extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/ssh";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -79,7 +79,7 @@ class OMVModuleSsh extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/ssh";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -103,6 +103,29 @@ class OMVModuleSsh extends OMVModuleServiceAbstract
 	}
 
 	/**
+	 * Helper function that is called whenever a user has been created,
+	 * modified or deleted.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The configuration object.
+	 */
+	final public function onUser($type, $path, $object) {
+		switch ($type) {
+		case OMV_NOTIFY_CREATE:
+		case OMV_NOTIFY_MODIFY:
+			// If the 'sshpubkey' is set, then set this module to dirty.
+			// Note, it would be better to set the module to dirty only
+			// if the 'sshpubkey' field has been modified, but the
+			// current faremwork does not have the capability to do that.
+			if (!empty($object['sshpubkey']))
+				$this->setDirty();
+			break;
+		case OMV_NOTIFY_DELETE:
+			break;
+		}
+	}
+
+	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
@@ -110,6 +133,10 @@ class OMVModuleSsh extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.services.ssh",
 		  array($this, "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+		  "org.openmediavault.system.usermanagement.users.user",
+		  array($this, "onUser"));
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
