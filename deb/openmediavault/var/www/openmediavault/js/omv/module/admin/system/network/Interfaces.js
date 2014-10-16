@@ -125,7 +125,7 @@ Ext.define("OMV.module.admin.system.network.interface.Physical", {
 				store: Ext.create("Ext.data.ArrayStore", {
 					fields: [ "value", "text" ],
 					data: [
-						[ "manual", _("Manual") ],
+						[ "manual", _("Disabled") ],
 						[ "dhcp", _("DHCP") ],
 						[ "static", _("Static") ]
 					]
@@ -172,7 +172,7 @@ Ext.define("OMV.module.admin.system.network.interface.Physical", {
 				store: Ext.create("Ext.data.ArrayStore", {
 					fields: [ "value", "text" ],
 					data: [
-						[ "manual", _("Manual") ],
+						[ "manual", _("Disabled") ],
 						[ "dhcp", _("DHCP") ],
 						[ "auto", _("Auto") ],
 						[ "static", _("Static") ]
@@ -401,7 +401,7 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 				store: Ext.create("Ext.data.ArrayStore", {
 					fields: [ "value", "text" ],
 					data: [
-						[ "manual", _("Manual") ],
+						[ "manual", _("Disabled") ],
 						[ "dhcp", _("DHCP") ],
 						[ "static", _("Static") ]
 					]
@@ -448,7 +448,7 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 				store: Ext.create("Ext.data.ArrayStore", {
 					fields: [ "value", "text" ],
 					data: [
-						[ "manual", _("Manual") ],
+						[ "manual", _("Disabled") ],
 						[ "dhcp", _("DHCP") ],
 						[ "auto", _("Auto") ],
 						[ "static", _("Static") ]
@@ -751,7 +751,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			  {
 				  renderValue: function(value) {
 					  var methods = {
-						  manual: _("Manual"),
+						  manual: _("Disabled"),
 						  dhcp: _("DHCP"),
 						  static: _("Static")
 					  };
