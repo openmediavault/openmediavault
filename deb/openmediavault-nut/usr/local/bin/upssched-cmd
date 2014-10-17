@@ -82,5 +82,5 @@ logger -t upssched-cmd "${message}"
 if omv_checkyesno ${OMV_NUT_UPSSCHEDCMD_EMAIL_ENABLE}; then
 	# Substitute special characters in subject
 	subject=$(echo ${OMV_NUT_UPSSCHEDCMD_EMAIL_SUBJECT} | sed "s/%h/$(hostname)/" | sed "s/%d/$(date)/")
-	echo ${message} | mail -s "${subject}" ${OMV_NUT_UPSSCHEDCMD_EMAIL_RECIPIENTS}
+	echo ${message} | mail -s "${subject}" ${OMV_NUT_UPSSCHEDCMD_EMAIL_RECIPIENTS} root
 fi
