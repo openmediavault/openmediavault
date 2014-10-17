@@ -41,11 +41,13 @@
  */
 Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 	extend: "OMV.workspace.window.Form",
+	requires: [
+		"OMV.workspace.window.plugin.ConfigObject"
+	],
 	uses: [
 		"OMV.data.Model",
 		"OMV.data.Store",
-		"OMV.window.FolderBrowser",
-		"OMV.workspace.window.plugin.ConfigObject"
+		"OMV.window.FolderBrowser"
 	],
 
 	rpcService: "ShareMgmt",

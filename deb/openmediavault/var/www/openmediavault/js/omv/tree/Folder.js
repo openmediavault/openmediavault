@@ -26,7 +26,7 @@
 /**
  * @class OMV.tree.Folder
  * @derived OMV.tree.Panel
- * @param uuid The UUID of the volume to process. Required.
+ * @param uuid The UUID of the volume or shared folder to process. Required.
  * @param type The type of the configuration object. This can be "mntent"
  *   or "sharedfolder". Defaults to "mntent".
  * @param root The root node for this panel. This can be used to override

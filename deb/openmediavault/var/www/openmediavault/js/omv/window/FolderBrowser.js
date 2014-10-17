@@ -25,7 +25,9 @@
 /**
  * @class OMV.window.FolderBrowser
  * @derived OMV.window.Window
- * @param uuid The UUID of the volume to process. Required.
+ * @param uuid The UUID of the volume or shared folder to process. Required.
+ * @param type The type of the configuration object. This can be "mntent"
+ *   or "sharedfolder". Defaults to "mntent".
  */
 Ext.define("OMV.window.FolderBrowser", {
 	extend: "OMV.window.Window",
@@ -33,6 +35,8 @@ Ext.define("OMV.window.FolderBrowser", {
 		"OMV.tree.Folder",
 		"OMV.window.MessageBox"
 	],
+
+	type: "mntent",
 
 	title: _("Select a directory"),
 	width: 300,
@@ -73,6 +77,7 @@ Ext.define("OMV.window.FolderBrowser", {
 			}],
 			items: [ me.tp = Ext.create("OMV.tree.Folder", {
 				uuid: me.uuid,
+				type: me.type,
 				border: false,
 				listeners: {
 					scope: me,
