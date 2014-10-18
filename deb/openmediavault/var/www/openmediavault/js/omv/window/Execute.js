@@ -257,13 +257,16 @@ Ext.define("OMV.window.Execute", {
 						  this.cmdIsRunning = response.running;
 						  // Hide the waiting mask if the first content is
 						  // transmitted.
-						  if ((false === this.progress) && (0 < response.pos))
-							  this.contentCtrl.getEl().unmask();
+						  if ((false === this.progress) && (0 < response.pos)) {
+							  var el = this.contentCtrl.getEl();
+							  if (el)
+								  el.unmask();
+						  }
 						  // Update the command content.
 						  this.appendValue(response.output);
 						  // If command is still running then do another RPC
 						  // request.
-						  if(this.cmdIsRunning === true) {
+						  if (this.cmdIsRunning === true) {
 							  Ext.Function.defer(this.doGetOutput,
 								this.rpcDelay, this);
 						  } else {
