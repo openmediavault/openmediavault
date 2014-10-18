@@ -1,6 +1,7 @@
 openmediavault (1.0.30) stable; urgency=low
 
   * Fix various issues.
+  * Remove SSLv2 and SSLv3 support in proftpd. Use only TLSv1 now.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 18 Oct 2014 14:22:40 +0200
 
