@@ -1,5 +1,6 @@
 openmediavault-nut (1.0.3) stable; urgency=low
 
+  * Update locales.
   * Fix bug when sending notification emails. Currently emails are send from
     user 'nut' which can't be resolved by postfix.
 
