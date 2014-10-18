@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 22:46+0200\n"
-"PO-Revision-Date: 2014-10-13 20:46+0000\n"
+"POT-Creation-Date: 2014-10-18 13:08+0200\n"
+"PO-Revision-Date: 2014-10-18 11:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -1108,6 +1108,9 @@ msgstr "Module lijst inschakelen"
 
 msgid "Enable permission inheritance"
 msgstr "Permissie erfenis inschakelen"
+
+msgid "Enable public key authentication"
+msgstr ""
 
 msgid "Enable recycle bin"
 msgstr "Prullenbak inschakelen"
@@ -2482,6 +2485,12 @@ msgstr "Protocol"
 
 msgid "Public"
 msgstr "Publiek"
+
+msgid "Public key"
+msgstr ""
+
+msgid "Public key authentication"
+msgstr ""
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"

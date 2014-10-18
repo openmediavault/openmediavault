@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 22:46+0200\n"
-"PO-Revision-Date: 2014-10-13 20:46+0000\n"
+"POT-Creation-Date: 2014-10-18 13:08+0200\n"
+"PO-Revision-Date: 2014-10-18 11:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgid "%s (%s available)"
 msgstr "%s (%s disponibile)"
 
 msgid "%s [on %s, %s]"
-msgstr ""
+msgstr "%s [su %s, %s]"
 
 msgid "'All' is not allowed"
 msgstr "'Tutti' non è consentito"
@@ -161,7 +161,7 @@ msgid "9 months"
 msgstr "9 mesi"
 
 msgid "A module with the name '%s' already exists"
-msgstr ""
+msgstr "Esiste già un modulo di nome '%s'"
 
 msgid "A share with the name '%s' already exists"
 msgstr "Esiste già una condivisione con nome '%s'"
@@ -279,7 +279,7 @@ msgstr "Afganistan"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
-msgstr ""
+msgstr "Dopo aver ampliato il RAID sarà possibile ridimensionare il file system in esso contenuto."
 
 msgid "Aland Islands"
 msgstr "Isole Åland"
@@ -629,7 +629,7 @@ msgid "Client address"
 msgstr "Indirizzo Client"
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Client col permesso di mount del file system, per esempio 193.168.178.0/24."
 
 msgid "Close"
 msgstr "Chiudi"
@@ -730,7 +730,7 @@ msgid "Create self-signed SSL certificate"
 msgstr "Crea certificato SSL self-signed"
 
 msgid "Creating the file system, please wait ..."
-msgstr ""
+msgstr "Creazione del file system, attendere ..."
 
 msgid "Critical"
 msgstr "Critico"
@@ -858,7 +858,7 @@ msgid "Device properties"
 msgstr "Proprietà dispositivo"
 
 msgid "Device/Label"
-msgstr ""
+msgstr "Dispositivo/Etichetta"
 
 msgid "Devices"
 msgstr "Dispositivi"
@@ -891,7 +891,7 @@ msgid "Djibouti"
 msgstr "Gibuti"
 
 msgid "Do you really want to apply the configuration changes?"
-msgstr ""
+msgstr "Vuoi veramente applicare le modifiche alla configurazione?"
 
 msgid "Do you really want to clear the log file?"
 msgstr "Sicuro di voler svuotare il file di log?"
@@ -944,10 +944,10 @@ msgstr "Sei sicuro di voler ripristinare lo stato della WebGUI, ad es. l'ordine 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr ""
+msgstr "Sicuro di voler ridimensionare il file system selezionato? Devi farlo ad esempio dopo che un RAID è stato ampliato."
 
 msgid "Do you really want to revert the configuration changes?"
-msgstr ""
+msgstr "Vuoi veramente ripristinare le modifiche alla configurazione?"
 
 msgid "Do you really want to shutdown the system?"
 msgstr "Sei sicuro di voler spegnere il sistema?"
@@ -1110,6 +1110,9 @@ msgstr "Abilita visibilità dei moduli"
 
 msgid "Enable permission inheritance"
 msgstr "Abilita l'ereditarietà dei permessi"
+
+msgid "Enable public key authentication"
+msgstr ""
 
 msgid "Enable recycle bin"
 msgstr "Abilita il cestino"
@@ -1548,7 +1551,7 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr ""
+msgstr "Se impostato, Samba tenterà di leggere gli attributi DOS (SYSTEM, HIDDEN, ARCHIVE o READ-ONLY) da un file system con attributi estesi, prima ancora di mapparli ai bit di permessi UNIX. Quando non impostato, gli attributi DOS verranno memorizzati tramite attributi estesi nel filesystem UNIX associato al file o directory."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1637,10 +1640,10 @@ msgid "Installed"
 msgstr "Installato"
 
 msgid "Installing plugins ..."
-msgstr ""
+msgstr "Installazione plugins..."
 
 msgid "Installing updates ..."
-msgstr ""
+msgstr "Installazione aggiornamenti..."
 
 msgid "Interfaces"
 msgstr "Interfacce"
@@ -1649,7 +1652,7 @@ msgid "Invalid domain name"
 msgstr "Domain name non valido"
 
 msgid "Invalid file system label"
-msgstr ""
+msgstr "Etichetta del file system non valida"
 
 msgid "Invalid group name"
 msgstr "Nome del gruppo non valido"
@@ -2165,7 +2168,7 @@ msgid "Not UDP"
 msgstr "Non UDP"
 
 msgid "Nothing"
-msgstr ""
+msgstr "Niente"
 
 msgid "Notification"
 msgstr "Notifica"
@@ -2354,7 +2357,7 @@ msgstr "Si prega di verificare la <a href='http://www.proftpd.org/docs/directive
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
 "name.html' target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Si prega di verificare la <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>pagina del manuale</a>per maggiori dettagli."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -2392,7 +2395,7 @@ msgstr "Attendere prego ..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
 "system."
-msgstr ""
+msgstr "Per favore attendi che il RAID venga inizializzato prima di creare un file system."
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -2484,6 +2487,12 @@ msgstr "Protocollo"
 
 msgid "Public"
 msgstr "Pubblico"
+
+msgid "Public key"
+msgstr ""
+
+msgid "Public key authentication"
+msgstr ""
 
 msgid "Puerto Rico"
 msgstr "Porto Rico"
@@ -2693,7 +2702,7 @@ msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
 
 msgid "SMB/CIFS - Audit"
-msgstr ""
+msgstr "SMB/CIFS - Audit"
 
 msgid "SMTP port"
 msgstr "Porta SMTP"
@@ -2801,10 +2810,10 @@ msgid "Select a file permission ..."
 msgstr ""
 
 msgid "Select a file system ..."
-msgstr ""
+msgstr "Seleziona un file system ..."
 
 msgid "Select a group name ..."
-msgstr ""
+msgstr "Scegli un nome del gruppo..."
 
 msgid "Select a language ..."
 msgstr "Seleziona una lingua..."
@@ -2822,7 +2831,7 @@ msgid "Select a shell ..."
 msgstr "Scegli una shell ..."
 
 msgid "Select a user name ..."
-msgstr ""
+msgstr "Scegli un nome utente..."
 
 msgid "Select a volume ..."
 msgstr "Scegli un volume ..."
@@ -2928,10 +2937,10 @@ msgid "Shared folder name"
 msgstr "Nome Cartella Condivisa"
 
 msgid "Shared folder path"
-msgstr ""
+msgstr "Percorso cartella condivisa"
 
 msgid "Shared folder privileges"
-msgstr ""
+msgstr "Privilegi di accesso della directory condivisa"
 
 msgid "Shares"
 msgstr "Condivisioni"
@@ -3163,7 +3172,7 @@ msgid "System time"
 msgstr "Ora di sistema"
 
 msgid "System users/groups"
-msgstr ""
+msgstr "Utente/gruppo di sistema"
 
 msgid "TAR"
 msgstr "TAR"
@@ -3230,7 +3239,7 @@ msgid "The destination shared folder."
 msgstr "La cartella condivisa di destinazione."
 
 msgid "The device does not exist"
-msgstr ""
+msgstr "Il dispositivo non esiste"
 
 msgid "The field '%s' contains forbidden "
 msgstr "Il campo '%s' contiene parameti vietati"
@@ -3239,7 +3248,7 @@ msgid "The file mode of the shared folder path."
 msgstr "Le impostazioni dei file del percorso della cartella condivisa."
 
 msgid "The file system creation has completed successfully."
-msgstr ""
+msgstr "La creazione del file system è stata completata con successo."
 
 msgid "The group '%s' does not exist"
 msgstr "Il gruppo '%s' non esiste"
@@ -3546,7 +3555,7 @@ msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "Questa regola viene richiamata al verificarsi dell'evento selezionato."
 
 msgid "This specifies what to do if the packet matches."
-msgstr ""
+msgstr "Questo specifica cosa fare se il pacchetto combacia."
 
 msgid "This will create a recycle bin on the share."
 msgstr "Questo creerà il cestino sulla condivisione."
@@ -3709,7 +3718,7 @@ msgid "Updating ACL settings"
 msgstr "Sto aggiornando le impostazioni delle ACL"
 
 msgid "Upgrade"
-msgstr ""
+msgstr "Upgrade"
 
 msgid "Upload"
 msgstr "Upload"

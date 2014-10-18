@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 22:46+0200\n"
-"PO-Revision-Date: 2014-10-13 20:47+0000\n"
+"POT-Creation-Date: 2014-10-18 13:08+0200\n"
+"PO-Revision-Date: 2014-10-18 11:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgid "%s (%s available)"
 msgstr "%s (%s tilgængelig)"
 
 msgid "%s [on %s, %s]"
-msgstr ""
+msgstr "%s [til %s, %s]"
 
 msgid "'All' is not allowed"
 msgstr "'Alle' er ikke tilladt"
@@ -853,7 +853,7 @@ msgid "Device properties"
 msgstr "Enheds egenskaber"
 
 msgid "Device/Label"
-msgstr ""
+msgstr "Enhed/Label"
 
 msgid "Devices"
 msgstr "Enheder"
@@ -1105,6 +1105,9 @@ msgstr "Aktiver modul liste"
 
 msgid "Enable permission inheritance"
 msgstr "Aktiver tilladelse nedarvning"
+
+msgid "Enable public key authentication"
+msgstr ""
 
 msgid "Enable recycle bin"
 msgstr "Aktiver papirkurv"
@@ -2349,7 +2352,7 @@ msgstr "Kontroller venligst <a href='http://www.proftpd.org/docs/directives/conf
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
 "name.html' target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Kontroller venligdt <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>manual page</a> for flere detaljer."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -2479,6 +2482,12 @@ msgstr "Protokol"
 
 msgid "Public"
 msgstr "Offentlig"
+
+msgid "Public key"
+msgstr ""
+
+msgid "Public key authentication"
+msgstr ""
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"

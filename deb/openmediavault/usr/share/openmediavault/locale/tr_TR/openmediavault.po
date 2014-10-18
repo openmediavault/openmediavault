@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 22:46+0200\n"
-"PO-Revision-Date: 2014-10-13 20:47+0000\n"
+"POT-Creation-Date: 2014-10-18 13:08+0200\n"
+"PO-Revision-Date: 2014-10-18 11:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgid "%s (%s available)"
 msgstr "%s (%s kullanılabilir)"
 
 msgid "%s [on %s, %s]"
-msgstr ""
+msgstr "%s [%s de, %s]"
 
 msgid "'All' is not allowed"
 msgstr "'Tamamı' geçerli değil"
@@ -853,7 +853,7 @@ msgid "Device properties"
 msgstr "Aygıt özellikleri"
 
 msgid "Device/Label"
-msgstr ""
+msgstr "Aygıt/Etiket"
 
 msgid "Devices"
 msgstr "Aygıtlar"
@@ -1105,6 +1105,9 @@ msgstr "Modül listelemesine izin ver"
 
 msgid "Enable permission inheritance"
 msgstr "Yetkilerin alttaki seviyelere aktarımına izin ver"
+
+msgid "Enable public key authentication"
+msgstr ""
 
 msgid "Enable recycle bin"
 msgstr "Geri dönüşüm kutusunu aktive et"
@@ -2349,7 +2352,7 @@ msgstr "Daha fazla bilgi için lütfen <a href='http://www.proftpd.org/docs/dire
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
 "name.html' target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Lütfen daha fazla detay için <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>kullanıcı kılavuzu</a> sayfasını ziyaret ediniz."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -2479,6 +2482,12 @@ msgstr "Protokol"
 
 msgid "Public"
 msgstr "Herkese açık"
+
+msgid "Public key"
+msgstr ""
+
+msgid "Public key authentication"
+msgstr ""
 
 msgid "Puerto Rico"
 msgstr "Porto Riko"

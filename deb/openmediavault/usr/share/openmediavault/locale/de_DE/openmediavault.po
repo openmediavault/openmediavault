@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 22:46+0200\n"
-"PO-Revision-Date: 2014-10-13 20:49+0000\n"
+"POT-Creation-Date: 2014-10-18 13:08+0200\n"
+"PO-Revision-Date: 2014-10-18 11:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -1114,6 +1114,9 @@ msgstr "Aktiviere Auflistung der Module"
 
 msgid "Enable permission inheritance"
 msgstr "Aktiviere Vererbung von Berechtigungen"
+
+msgid "Enable public key authentication"
+msgstr "Aktiviere Authentifizierung durch öffentliche Schlüssel"
 
 msgid "Enable recycle bin"
 msgstr "Aktiviere Papierkorb"
@@ -2488,6 +2491,12 @@ msgstr "Protokoll"
 
 msgid "Public"
 msgstr "Öffentlich"
+
+msgid "Public key"
+msgstr "Öffentlicher Schlüssel"
+
+msgid "Public key authentication"
+msgstr "Authentifizierung durch öffentliche Schlüssel"
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"

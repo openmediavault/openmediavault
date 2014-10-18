@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 22:46+0200\n"
-"PO-Revision-Date: 2014-10-13 20:46+0000\n"
+"POT-Creation-Date: 2014-10-18 13:08+0200\n"
+"PO-Revision-Date: 2014-10-18 11:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -1106,6 +1106,9 @@ msgstr "Aktiver opplisting av moduler"
 
 msgid "Enable permission inheritance"
 msgstr "Aktiver arving av rettigheter"
+
+msgid "Enable public key authentication"
+msgstr ""
 
 msgid "Enable recycle bin"
 msgstr "Aktiver papirkurv"
@@ -2480,6 +2483,12 @@ msgstr "Protokoll"
 
 msgid "Public"
 msgstr "Offentlig"
+
+msgid "Public key"
+msgstr ""
+
+msgid "Public key authentication"
+msgstr ""
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"

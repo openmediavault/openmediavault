@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 22:46+0200\n"
-"PO-Revision-Date: 2014-10-13 20:47+0000\n"
+"POT-Creation-Date: 2014-10-18 13:08+0200\n"
+"PO-Revision-Date: 2014-10-18 11:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgid "%s (%s available)"
 msgstr "%s (%s 有効)"
 
 msgid "%s [on %s, %s]"
-msgstr ""
+msgstr "%s [%s 上, %s]"
 
 msgid "'All' is not allowed"
 msgstr "'すべて' は有効ではありません"
@@ -853,7 +853,7 @@ msgid "Device properties"
 msgstr "デバイスプロパティ"
 
 msgid "Device/Label"
-msgstr ""
+msgstr "デバイス/ラベル"
 
 msgid "Devices"
 msgstr "デバイス"
@@ -1105,6 +1105,9 @@ msgstr "モジュールリスティングを有効化"
 
 msgid "Enable permission inheritance"
 msgstr "パーミッションの継承を有効化"
+
+msgid "Enable public key authentication"
+msgstr ""
 
 msgid "Enable recycle bin"
 msgstr "ごみ箱を有効化"
@@ -2349,7 +2352,7 @@ msgstr "詳細については <a href='http://www.proftpd.org/docs/directives/co
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
 "name.html' target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "詳細については<a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>マニュアルページ</a> を確認してください。"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -2479,6 +2482,12 @@ msgstr "プロトコル"
 
 msgid "Public"
 msgstr "パブリック"
+
+msgid "Public key"
+msgstr ""
+
+msgid "Public key authentication"
+msgstr ""
 
 msgid "Puerto Rico"
 msgstr "プエルトリコ"

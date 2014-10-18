@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-13 22:46+0200\n"
-"PO-Revision-Date: 2014-10-13 20:47+0000\n"
+"POT-Creation-Date: 2014-10-18 13:08+0200\n"
+"PO-Revision-Date: 2014-10-18 11:08+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -27,7 +27,7 @@ msgid "%s (%s available)"
 msgstr "%s (%s 可用)"
 
 msgid "%s [on %s, %s]"
-msgstr ""
+msgstr "%s [on %s, %s]"
 
 msgid "'All' is not allowed"
 msgstr "不允许\"全部\"选项"
@@ -854,7 +854,7 @@ msgid "Device properties"
 msgstr "设备属性"
 
 msgid "Device/Label"
-msgstr ""
+msgstr "设备/标签"
 
 msgid "Devices"
 msgstr "设备"
@@ -1106,6 +1106,9 @@ msgstr "启用模块列表"
 
 msgid "Enable permission inheritance"
 msgstr "启用权限继承"
+
+msgid "Enable public key authentication"
+msgstr ""
 
 msgid "Enable recycle bin"
 msgstr "启用回收站"
@@ -2350,7 +2353,7 @@ msgstr "详情请看 <a href='http://www.proftpd.org/docs/directives/configurati
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
 "name.html' target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "详情请看 <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>指南页</a>。"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -2480,6 +2483,12 @@ msgstr "协议"
 
 msgid "Public"
 msgstr "公开"
+
+msgid "Public key"
+msgstr ""
+
+msgid "Public key authentication"
+msgstr ""
 
 msgid "Puerto Rico"
 msgstr "波多黎各"
