@@ -158,7 +158,7 @@ Ext.define("OMV.window.Execute", {
 		OMV.Rpc.request({
 			  scope: me,
 			  callback: function(id, success, response) {
-				  if(success) {
+				  if (success) {
 					  this.getContentAllowed = true;
 					  // Command has been executed successfully. Remember the
 					  // execution command identifier.
@@ -173,7 +173,9 @@ Ext.define("OMV.window.Execute", {
 						  });
 					  } else {
 						  // Display waiting mask.
-						  this.contentCtrl.getEl().mask(_("Please wait ..."));
+						  var el = this.contentCtrl.getEl();
+						  if (el)
+							  el.mask(_("Please wait ..."));
 					  }
 					  // Update the button states.
 					  this.setButtonDisabled("stop", false);
@@ -245,12 +247,12 @@ Ext.define("OMV.window.Execute", {
 		// Is command still running? It might happen that the function is
 		// called after the 'stop' RPC has been executed because the function
 		// is called delayed. In this case simply do not execute the RPC.
-		if(me.getContentAllowed === true) {
+		if (me.getContentAllowed === true) {
 			// Execute RPC.
 			OMV.Rpc.request({
 				  scope: me,
 				  callback: function(id, success, response) {
-					  if(success) {
+					  if (success) {
 						  this.cmdContentPos = response.pos;
 						  this.cmdIsRunning = response.running;
 						  // Hide the waiting mask if the first content is
@@ -272,7 +274,7 @@ Ext.define("OMV.window.Execute", {
 							  this.fireEvent("finish", this, response);
 						  }
 						  // Update button states.
-						  if(true === this.adaptButtonState) {
+						  if (true === this.adaptButtonState) {
 							  this.setButtonDisabled("start",
 								this.cmdIsRunning);
 							  this.setButtonDisabled("stop",
@@ -282,16 +284,16 @@ Ext.define("OMV.window.Execute", {
 						  }
 					  } else {
 						  var ignore = false;
-						  if(this.rpcIgnoreErrors === true)
+						  if (this.rpcIgnoreErrors === true)
 							  ignore = true;
-						  else if(Ext.isArray(this.rpcIgnoreErrors)) {
+						  else if (Ext.isArray(this.rpcIgnoreErrors)) {
 							  // Check if there are defined some special error
 							  // codes that should be ignored.
 							  ignore = Ext.Array.contains(this.rpcIgnoreErrors,
 								response.code);
 						  }
 						  // Ignore RPC errors?
-						  if(ignore === true) {
+						  if (ignore === true) {
 							  // Execute another RPC.
 							  Ext.Function.defer(this.doGetOutput,
 								this.rpcDelay, this);
@@ -300,6 +302,8 @@ Ext.define("OMV.window.Execute", {
 							  // dialog.
 							  this.setButtonDisabled("stop", true);
 							  this.setButtonDisabled("close", false);
+							  // Hide the waiting mask.
+							  this.contentCtrl.getEl().unmask();
 							  // Fire exception to allow listeners to react
 							  // on errors.
 							  this.fireEvent("exception", this, response);

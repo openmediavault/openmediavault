@@ -287,7 +287,7 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
@@ -301,7 +301,7 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 				// Secure wipe the device.
 				$cmd = sprintf("export LANG=C; shred -v -n 1 %s 2>&1",
 				  escapeshellarg($params['devicefile']));
-				if(0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 					  $cmd, implode("\n", $output));
 				}
@@ -309,22 +309,22 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 				// Quick wipe the device (see omv-initfs).
 				$cmd = sprintf("export LANG=C; sgdisk --zap-all ".
 				  "%s 2>&1", escapeshellarg($params['devicefile']));
-				if(0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 					  $cmd, implode("\n", $output));
 				}
 				// To make sure really everything is wiped ...
 				$cmd = sprintf("export LANG=C; dd if=/dev/zero of=%s bs=1M ".
 				  "count=1 2>&1", escapeshellarg($params['devicefile']));
-				if(0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 					  $cmd, implode("\n", $output));
 				}
 			}
 			// Reread partition table.
-			$cmd = sprintf("export LANG=C; blockdev --rereadpt %s",
+			$cmd = sprintf("export LANG=C; blockdev --rereadpt %s 2>&1",
 			  escapeshellarg($params['devicefile']));
-			if(0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
+			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
