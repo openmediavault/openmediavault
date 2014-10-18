@@ -111,7 +111,8 @@ Ext.define("OMV.module.admin.system.certificate.Create", {
 			xtype: "textfield",
 			name: "cn",
 			fieldLabel: _("Common Name"),
-			allowBlank: false
+			allowBlank: false,
+			value: location.hostname
 		},{
 			xtype: "textfield",
 			name: "o",
