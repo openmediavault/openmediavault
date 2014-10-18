@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-18 13:08+0200\n"
-"PO-Revision-Date: 2014-10-18 11:14+0000\n"
+"POT-Creation-Date: 2014-10-19 01:18+0200\n"
+"PO-Revision-Date: 2014-10-18 23:20+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -2492,9 +2492,6 @@ msgstr "Protokoll"
 msgid "Public"
 msgstr "Öffentlich"
 
-msgid "Public key"
-msgstr "Öffentlicher Schlüssel"
-
 msgid "Public key authentication"
 msgstr "Authentifizierung durch öffentliche Schlüssel"
 
@@ -2728,6 +2725,9 @@ msgstr "SNMP version 3"
 
 msgid "SSH"
 msgstr "SSH"
+
+msgid "SSH public key"
+msgstr "Öffentlicher SSH-Schlüssel"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
