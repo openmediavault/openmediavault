@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Testing:
+# rrdtool info /var/lib/rrdcached/db/localhost/<xxx>/<xxx>.rrd
+
 set -e
 
 . /etc/default/openmediavault
