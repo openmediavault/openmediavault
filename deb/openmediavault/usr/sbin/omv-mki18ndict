@@ -73,7 +73,7 @@ OMV.util.i18nDict = {};
 EOF
 
 # Convert .po files and append them to the translation dictionary?
-if omv_checkyesno ${OMV_I18N_POPULATE_JS_DICT_FILE}; then
+if omv_checkyesno "${OMV_I18N_POPULATE_JS_DICT_FILE}"; then
 	printinfo -n "Converting .po files ..."
 	for language in $(find ${OMV_I18N_LOCALE_DIR} -maxdepth 1 -type d ! -iname ".*" -printf "%P\n"); do
 		# Skip empty directories.
@@ -94,7 +94,7 @@ OMV.util.i18n.initialize();
 EOF
 
 # Compress/minify translation dictionary?
-if omv_checkyesno ${OMV_I18N_MINIFY_JS_DICT_FILE}; then
+if omv_checkyesno "${OMV_I18N_MINIFY_JS_DICT_FILE}"; then
 	printinfo "Compressing translation dictionary ..."
 	tmpdict=$(tempfile)
 	omv-jsminify --in=${OMV_I18N_JS_DICT_FILE} --out=${tmpdict}

@@ -102,7 +102,7 @@ do
 		  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_RSYNCD_CONFIG}
 
 		# Create the secrets file containing the usernames and passwords
-		if omv_checkyesno ${authusers}; then
+		if omv_checkyesno "${authusers}"; then
 			xmlstarlet sel -t -m "//services/rsync/server/modules/module[uuid='${uuid}']/users/user" \
 			  -v "concat(name,':',password)" -n \
 			  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${secretsfile}

@@ -104,7 +104,7 @@ xmlstarlet sel -t -m "//webadmin" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_NGINX_SITE_WEBGUI_SECURITY_CONFIG}
 
-if omv_checkyesno ${OMV_NGINX_SITE_WEBGUI_SECURITY_CSP_ENABLE}; then
+if omv_checkyesno "${OMV_NGINX_SITE_WEBGUI_SECURITY_CSP_ENABLE}"; then
 	cat <<EOF >> ${OMV_NGINX_SITE_WEBGUI_SECURITY_CONFIG}
 # Content Security Policy (CSP)
 # https://www.owasp.org/index.php/Content_Security_Policy
@@ -113,7 +113,7 @@ add_header Content-Security-Policy "${OMV_NGINX_SITE_WEBGUI_SECURITY_CSP}";
 EOF
 fi
 
-if omv_checkyesno ${OMV_NGINX_SITE_WEBGUI_SECURITY_XFRAMEOPTIONS_ENABLE}; then
+if omv_checkyesno "${OMV_NGINX_SITE_WEBGUI_SECURITY_XFRAMEOPTIONS_ENABLE}"; then
 	cat <<EOF >> ${OMV_NGINX_SITE_WEBGUI_SECURITY_CONFIG}
 # https://developer.mozilla.org/en-US/docs/Web/HTTP/X-Frame-Options
 add_header X-Frame-Options "${OMV_NGINX_SITE_WEBGUI_SECURITY_XFRAMEOPTIONS}";

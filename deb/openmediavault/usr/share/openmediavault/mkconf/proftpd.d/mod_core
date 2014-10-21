@@ -40,7 +40,7 @@ else
 fi
 
 # Display the welcome message at login?
-if omv_checkyesno ${OMV_PROFTPD_SHOW_DISPLAYLOGIN}; then
+if omv_checkyesno "${OMV_PROFTPD_SHOW_DISPLAYLOGIN}"; then
 	cat >> ${OMV_PROFTPD_CONFIG} <<EOF
 DisplayLogin ${OMV_PROFTPD_DISPLAYLOGIN}
 EOF
