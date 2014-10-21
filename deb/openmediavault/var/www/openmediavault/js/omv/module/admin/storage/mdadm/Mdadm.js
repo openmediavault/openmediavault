@@ -27,6 +27,8 @@
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/form/field/CheckboxGrid.js")
+// require("js/omv/grid/column/BinaryUnit.js")
+// require("js/omv/grid/column/Empty.js")
 // require("js/omv/util/Format.js")
 
 /**
@@ -39,7 +41,9 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 		"OMV.data.Store",
 		"OMV.data.Model",
 		"OMV.data.proxy.Rpc",
-		"OMV.form.field.CheckboxGrid"
+		"OMV.form.field.CheckboxGrid",
+		"OMV.grid.column.BinaryUnit",
+		"OMV.grid.column.Empty"
 	],
 
 	rpcService: "RaidMgmt",
@@ -148,6 +152,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 				stateful: true,
 				stateId: "efd6463f-db6a-4d9d-9e77-411fc02e4b22",
 				columns: [{
+					xtype: "emptycolumn",
 					text: _("Device"),
 					sortable: true,
 					dataIndex: "devicefile",
@@ -162,12 +167,14 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 					width: 50,
 					flex: 1
 				},{
+					xtype: "emptycolumn",
 					text: _("Vendor"),
 					sortable: true,
 					dataIndex: "vendor",
 					stateId: "vendor",
 					flex: 1
 				},{
+					xtype: "emptycolumn",
 					text: _("Serial Number"),
 					sortable: true,
 					dataIndex: "serialnumber",
