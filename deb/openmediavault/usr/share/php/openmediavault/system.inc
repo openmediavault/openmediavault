@@ -473,15 +473,18 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	const PROP_NONE = 0x0;
 	const PROP_MNTENT = 0x1;
 	const PROP_POSIX_ACL = 0x2;
+	const PROP_DISCARD = 0x4;
 
 	protected $type;
 	protected $properties = self::PROP_NONE;
+	protected $mkfsOptions = "";
+	protected $mntOptions = array();
 
 	/**
 	 * Get the type of the filesystem, e.g. 'ext3' or 'btrfs'.
 	 */
 	public function getType() {
-		return $this->type;
+		return strtolower($this->type);
 	}
 
 	/**
@@ -502,6 +505,17 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	}
 
 	/**
+	 * Check whether the filesystem supports the discard/TRIM commands to
+	 * the underlying block device when blocks are freed.
+	 * See https://wiki.archlinux.org/index.php/Solid_State_Drives#TRIM.
+	 * @return TRUE if the filesystem supports the discard/TRIM commands,
+	 *   otherwise FALSE.
+	 */
+	public function hasDiscardSupport() {
+		return $this->hasProperty(self::PROP_DISCARD);
+	}
+
+	/**
 	 * Does the filesystem support POSIX ACL.
 	 * @return TRUE if the filesystem supports POSIX ACL, otherwise FALSE.
 	 */
@@ -511,11 +525,29 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 
 	/**
 	 * Is the filesystem mounted via /etc/fstab?
-	 * @return TRUE if the filesystem is mounted via /etc/fstab,
+	 * @return TRUE if the filesystem is mounted via '/etc/fstab',
 	 *   otherwise FALSE.
 	 */
 	public function hasFstabSupport() {
 		return $this->hasProperty(self::PROP_MNTENT);
+	}
+
+	/**
+	 * Get filesystem mount options used in '/etc/fstab'.
+	 * See http://linux.die.net/man/8/mount.
+	 * @return An array of mount options.
+	 */
+	public function getFstabMntOptions() {
+		return $this->mntOptions;
+	}
+
+	/**
+	 * Get additional 'mkfs' command options used to create the
+	 * filesystem. See http://linux.die.net/man/8/mkfs.
+	 * @return The additional command options string.
+	 */
+	public function getMkfsOptions() {
+		return $this->mkfsOptions;
 	}
 }
 
@@ -537,34 +569,47 @@ class OMVFilesystemBackendExt2 extends OMVFilesystemBackendAbstract {
 	public function __construct() {
 		$this->type = "ext2";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT2']);
 	}
 }
 
 class OMVFilesystemBackendExt3 extends OMVFilesystemBackendAbstract {
 	public function __construct() {
 		$this->type = "ext3";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
+		  self::PROP_DISCARD;
+		$this->mkfsOptions = $GLOBALS['OMV_INITFS_OPTIONS_EXT3'];
+		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT3']);
 	}
 }
 
 class OMVFilesystemBackendExt4 extends OMVFilesystemBackendAbstract {
 	public function __construct() {
 		$this->type = "ext4";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
+		  self::PROP_DISCARD;
+		$this->mkfsOptions = $GLOBALS['OMV_INITFS_OPTIONS_EXT4'];
+		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT4']);
 	}
 }
 
 class OMVFilesystemBackendXfs extends OMVFilesystemBackendAbstract {
 	public function __construct() {
 		$this->type = "xfs";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
+		  self::PROP_DISCARD;
+		$this->mkfsOptions = $GLOBALS['OMV_INITFS_OPTIONS_XFS'];
+		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_XFS']);
 	}
 }
 
 class OMVFilesystemBackendJfs extends OMVFilesystemBackendAbstract {
 	public function __construct() {
 		$this->type = "jfs";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
+		  self::PROP_DISCARD;
+		$this->mkfsOptions = $GLOBALS['OMV_INITFS_OPTIONS_JFS'];
+		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_JFS']);
 	}
 }
 
@@ -585,7 +630,8 @@ class OMVFilesystemBackendMsdos extends OMVFilesystemBackendAbstract {
 class OMVFilesystemBackendVfat extends OMVFilesystemBackendAbstract {
 	public function __construct() {
 		$this->type = "vfat";
-		$this->properties = self::PROP_MNTENT;
+		$this->properties = self::PROP_MNTENT | self::PROP_DISCARD;
+		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_VFAT']);
 	}
 }
 
@@ -593,6 +639,7 @@ class OMVFilesystemBackendNtfs extends OMVFilesystemBackendAbstract {
 	public function __construct() {
 		$this->type = "ntfs";
 		$this->properties = self::PROP_MNTENT;
+		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_NTFS']);
 	}
 }
 
@@ -627,7 +674,8 @@ class OMVFilesystemBackendReiserfs extends OMVFilesystemBackendAbstract {
 class OMVFilesystemBackendBtrfs extends OMVFilesystemBackendAbstract {
 	public function __construct() {
 		$this->type = "btrfs";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
+		  self::PROP_DISCARD;
 	}
 }
 
@@ -635,6 +683,7 @@ class OMVFilesystemBackendHfsplus extends OMVFilesystemBackendAbstract {
 	public function __construct() {
 		$this->type = "hfsplus";
 		$this->properties = self::PROP_MNTENT;
+		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_HFSPLUS']);
 	}
 }
 
@@ -912,7 +961,7 @@ class OMVFilesystem extends OMVObject {
 	 * @return The UUID of the filesystem, otherwise FALSE.
 	 */
 	public function getUuid() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->uuid;
 	}
@@ -932,17 +981,17 @@ class OMVFilesystem extends OMVObject {
 	 * @return The filesystem label, otherwise FALSE.
 	 */
 	public function getLabel() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->label;
 	}
 
 	/**
-	 * Get the filesystem type.
+	 * Get the filesystem type, e.g. 'ext3' or 'vfat'.
 	 * @return The filesystem type, otherwise FALSE.
 	 */
 	public function getType() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->type;
 	}

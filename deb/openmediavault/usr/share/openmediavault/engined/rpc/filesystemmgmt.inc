@@ -287,6 +287,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// Mark the device as mountable if the filesystem supports
 			// mount entries in '/etc/fstab'.
 			$objectv['mountable'] = FALSE;
+			// Get the corresponding filesystem backend.
 			$fsb = OMVFilesystems::getBackend($objectv['type']);
 			if (!is_null($fsb))
 				$objectv['mountable'] = $fsb->hasFstabSupport();
@@ -459,8 +460,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  "type":"object",
 			  "properties":{
 				  "devicefile":{"type":"string"},
-				  "type":{"type":"string","enum":["ext3","ext4",'.
-					'"jfs","xfs"]},
+				  "type":{"type":"string"},
 				  "label":{"type":"string"}
 			  }
 		  }');
@@ -478,14 +478,21 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  sprintf(gettext("There already exists a mount point for %s"),
 			  $sd->getDeviceFile()));
 		}
-		// Get the storage backend of the device.
+		// Get the storage device backend of the given device.
 		$sdb = OMVStorageDevices::getBackend($sd->getDeviceFile());
 		if (is_null($sdb)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  "No storage backend exists for device %s",
+			  "No storage device backend exists for device %s",
 			  $sd->getDeviceFile()));
 		}
-		// Build the filesystem device file name.
+		// Get the corresponding filesystem backend.
+		$fsb = OMVFilesystems::getBackend($params['type']);
+		if (is_null($fsb)) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+			  "No filesystem backend exists for type %s", $params['type']));
+		}
+		// Get the filesystem device file name from the storage device
+		// backend (this may differ depending on the storage device).
 		$fsDeviceFile = $sdb->fsDeviceFile($sd->getDeviceFile());
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
@@ -511,7 +518,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$jsonFile->open("c");
 			$jsonFile->write(array(
 				"devicefile" => $fsDeviceFile,
-				"type" => $params['type'],
+				"type" => $fsb->getType(),
 				"label" => $params['label']
 			));
 			$jsonFile->close();
@@ -554,16 +561,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				  $cmd, implode("\n", $output));
 			}
 			// Create the filesystem.
-			$fsOptions = array(
-				"ext3" => $GLOBALS['OMV_INITFS_OPTIONS_EXT3'],
-				"ext4" => $GLOBALS['OMV_INITFS_OPTIONS_EXT4'],
-				"jfs" => $GLOBALS['OMV_INITFS_OPTIONS_JFS'],
-				"xfs" => $GLOBALS['OMV_INITFS_OPTIONS_XFS']
-			);
 			$cmdArgs = array();
 			$cmdArgs[] = "-V";
-			$cmdArgs[] = sprintf("-t %s", $params['type']);
-			$cmdArgs[] = $fsOptions[strtolower($params['type'])];
+			$cmdArgs[] = sprintf("-t %s", $fsb->getType());
+			$cmdArgs[] = $fsb->getMkfsOptions();
 			if (!empty($params['label']))
 				$cmdArgs[] = sprintf("-L %s", escapeshellarg($params['label']));
 			$cmdArgs[] = $fsDeviceFile;
@@ -578,7 +579,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$dispatcher->notify(OMV_NOTIFY_CREATE,
 			  "org.openmediavault.system.storage.filesystem", array(
 				  "devicefile" => $sd->getDeviceFile(),
-				  "type" => $params['type'],
+				  "type" => $fsb->getType(),
 				  "label" => $params['label']
 			  ));
 			// Cleanup
@@ -785,55 +786,43 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		  }');
 		// Get the filesystem.
 		$fs = new OMVFilesystem($params['id']);
-		if(!$fs->exists()) {
+		if (!$fs->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf(gettext("Filesystem '%s' not found"),
 			  $params['id']));
 		}
+		// Get the corresponding filesystem backend.
+		$fsb = OMVFilesystems::getBackend($fs->getType());
+		if (is_null($fsb)) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+			  "No filesystem backend exists for type %s", $fs->getType()));
+		}
 		// Get the storage device containing the filesystem.
-		if(FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile())) {
+		if (FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  gettext("Failed to get storage device file from '%s'"),
 			  $fs->getDeviceFile()));
 		}
 		$sd = OMVStorageDeviceFactory::get($storageDeviceFile);
-		if(is_null($sd) || !$sd->exists()) {
+		if (is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  $storageDeviceFile);
 		}
 		// Get mount options depending on the filesystem type.
-		switch($fs->getType()) {
+		switch ($fs->getType()) {
 		case "ext2":
-			$fsName = $fs->getUuid();
-			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_EXT2'];
-			break;
 		case "ext3":
-			$fsName = $fs->getUuid();
-			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_EXT3'];
-			break;
 		case "ext4":
-			$fsName = $fs->getUuid();
-			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_EXT4'];
-			break;
 		case "jfs":
-			$fsName = $fs->getUuid();
-			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_JFS'];
-			break;
 		case "xfs":
-			$fsName = $fs->getUuid();
-			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_XFS'];
-			break;
-		case "vfat":
-			$fsName = $fs->getDeviceFileByUuid();
-			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_VFAT'];
-			break;
-		case "ntfs":
-			$fsName = $fs->getDeviceFileByUuid();
-			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_NTFS'];
-			break;
 		case "hfsplus":
 			$fsName = $fs->getUuid();
-			$opts = $GLOBALS['OMV_FSTAB_MNTOPS_HFSPLUS'];
+			$opts = $fsb->getFstabMntOptions();
+			break;
+		case "vfat":
+		case "ntfs":
+			$fsName = $fs->getDeviceFileByUuid();
+			$opts = $fsb->getFstabMntOptions();
 			break;
 		default:
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
@@ -841,7 +830,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  $fs->getType()));
 			break;
 		}
-		// Check if the device, which contains the file system to
+		// Check if the device, which contains the filesystem to
 		// be mounted, is of non-rotational type (e.g. SSD, DOM,
 		// CF card, USB stick, ...).
 		// In this case optimize the mount options:
@@ -854,22 +843,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		if (FALSE === $sd->isRotational()) {
 			// File systems that support TRIM.
 			// See https://wiki.archlinux.org/index.php/Solid_State_Drives#TRIM
-			switch ($fs->getType()) {
-			case "ext3":
-			case "ext4":
-			case "btrfs":
-			case "vfat":
-			case "jfs":
-			case "xfs":
-				$opts = explode(",", $opts);
-				//array_push($opts, "noatime");
-				//array_push($opts, "nodiratime");
+			if ($fsb->hasDiscardSupport())
 				array_push($opts, "discard");
-				$opts = implode(",", $opts);
-				break;
-			default:
-				break;
-			}
+			//array_push($opts, "noatime");
+			//array_push($opts, "nodiratime");
 		}
 		// Create fstab entry?
 		if (TRUE === boolvalEx($params['fstab'])) {
@@ -882,7 +859,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					  "fsname" => $fsName,
 					  "dir" => OMVFilesystem::buildMountPath($fs->getUuid()),
 					  "type" => $fs->getType(),
-					  "opts" => $opts,
+					  "opts" => implode(",", $opts),
 					  "freq" => 0,
 					  "passno" => 2
 				  ), $context);
