@@ -466,40 +466,212 @@ class OMVPowerManagement extends OMVObject {
 }
 
 /**
+ * The generic class that represents a filesystem backend.
+ * @ingroup api
+ */
+abstract class OMVFilesystemBackendAbstract extends OMVObject {
+	const PROP_NONE = 0x0;
+	const PROP_MNTENT = 0x1;
+	const PROP_POSIX_ACL = 0x2;
+
+	protected $type;
+	protected $properties = self::PROP_NONE;
+
+	/**
+	 * Get the type of the filesystem, e.g. 'ext3' or 'btrfs'.
+	 */
+	public function getType() {
+		return $this->type;
+	}
+
+	/**
+	 * Get the filesystem properties.
+	 * @return The properties defined for this filesystem.
+	 */
+	public function getProperties() {
+		return $this->properties;
+	}
+
+	/**
+	 * Check whether the filesystem has the given property.
+	 * @param property The property to check for, e.g. PROP_POSIX_ACL.
+	 * @return TRUE if the given property is set, otherwise FALSE.
+	 */
+	public function hasProperty($property) {
+		return ($this->properties & $property) === $property;
+	}
+
+	/**
+	 * Does the filesystem support POSIX ACL.
+	 * @return TRUE if the filesystem supports POSIX ACL, otherwise FALSE.
+	 */
+	public function hasPosixAclSupport() {
+		return $this->hasProperty(self::PROP_POSIX_ACL);
+	}
+
+	/**
+	 * Is the filesystem mounted via /etc/fstab?
+	 * @return TRUE if the filesystem is mounted via /etc/fstab,
+	 *   otherwise FALSE.
+	 */
+	public function hasFstabSupport() {
+		return $this->hasProperty(self::PROP_MNTENT);
+	}
+}
+
+class OMVFilesystemBackendNone extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "none";
+		$this->properties = self::PROP_MNTENT;
+	}
+}
+
+class OMVFilesystemBackendExt extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "ext";
+		$this->properties = self::PROP_MNTENT;
+	}
+}
+
+class OMVFilesystemBackendExt2 extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "ext2";
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+	}
+}
+
+class OMVFilesystemBackendExt3 extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "ext3";
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+	}
+}
+
+class OMVFilesystemBackendExt4 extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "ext4";
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+	}
+}
+
+class OMVFilesystemBackendXfs extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "xfs";
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+	}
+}
+
+class OMVFilesystemBackendJfs extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "jfs";
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+	}
+}
+
+class OMVFilesystemBackendIso9660 extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "iso9660";
+		$this->properties = self::PROP_MNTENT;
+	}
+}
+
+class OMVFilesystemBackendMsdos extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "msdos";
+		$this->properties = self::PROP_MNTENT;
+	}
+}
+
+class OMVFilesystemBackendVfat extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "vfat";
+		$this->properties = self::PROP_MNTENT;
+	}
+}
+
+class OMVFilesystemBackendNtfs extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "ntfs";
+		$this->properties = self::PROP_MNTENT;
+	}
+}
+
+class OMVFilesystemBackendUmsdos extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "umsdos";
+		$this->properties = self::PROP_MNTENT;
+	}
+}
+
+class OMVFilesystemBackendUdf extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "udf";
+		$this->properties = self::PROP_MNTENT;
+	}
+}
+
+class OMVFilesystemBackendUfs extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "ufs";
+		$this->properties = self::PROP_MNTENT;
+	}
+}
+
+class OMVFilesystemBackendReiserfs extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "reiserfs";
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+	}
+}
+
+class OMVFilesystemBackendBtrfs extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "btrfs";
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+	}
+}
+
+class OMVFilesystemBackendHfsplus extends OMVFilesystemBackendAbstract {
+	public function __construct() {
+		$this->type = "hfsplus";
+		$this->properties = self::PROP_MNTENT;
+	}
+}
+
+/**
  * Helper class that implements functions regarding filesystems.
  * @ingroup api
  */
 class OMVFilesystems extends OMVObject {
-	const FS_OPT_NONE = 0x0;
-	const FS_OPT_MNTENT = 0x1;
-
-	static private $types = array(
-		"none" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"ext" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"ext2" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"ext3" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"ext4" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"xfs" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"jfs" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"iso9660" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"msdos" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"ntfs" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"udf" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"umsdos" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"vfat" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"ufs" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"reiserfs" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"btrfs" => array("opts" => OMVFilesystems::FS_OPT_MNTENT),
-		"hfsplus" => array("opts" => OMVFilesystems::FS_OPT_MNTENT)
-	);
+	static private $backends = array();
 
 	/**
-	 * Register a file system type.
-	 * @param type The file system type, e.g. 'xfs', 'jfs', ...
-	 * @param config Additional file system properties.
+	 * Register a filesystem backend.
+	 * @param backend The filesystem backend object to register.
+	 * @return TRUE if successful, otherwise FALSE.
 	 */
-	public static function register($type, $config) {
-		self::$types[$type] = $config;
+	final static function registerBackend(OMVFilesystemBackendAbstract $backend) {
+		if (!isset($backend))
+			return FALSE;
+		self::$backends[] = $backend;
+		return TRUE;
+	}
+
+	/**
+	 * Get the backend of the given device.
+	 * @param type Specifies the filesystem type.
+	 * @return The backend that implements the given filesystem, otherwise
+	 *   NULL.
+	 */
+	final static function getBackend($type) {
+		$result = NULL;
+		foreach (self::$backends as $backendk => $backendv) {
+			if (strtolower($type) !== strtolower($backendv->getType()))
+				continue;
+			$result = $backendv;
+			break;
+		}
+		return $result;
 	}
 
 	/**
@@ -507,8 +679,10 @@ class OMVFilesystems extends OMVObject {
 	 * @param type The file system type, e.g. 'ext4', 'iso9660', ...
 	 * @return TRUE if the file system is supported, otherwise FALSE.
 	 */
-	public static function isSupported($type) {
-		return array_key_exists($type, self::$types);
+	final static function isSupported($type) {
+		if (NULL == ($backend = self::getBackend($type)))
+			return FALSE;
+		return TRUE;
 	}
 
 	/**
@@ -1006,7 +1180,7 @@ class OMVFilesystem extends OMVObject {
 	 * @return TRUE if the filesystem supports POSIX ACL, otherwise FALSE.
 	 */
 	public function hasPosixAclSupport() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return self::hasPosixAclSupportByType($this->getType());
 	}
@@ -1147,8 +1321,9 @@ class OMVFilesystem extends OMVObject {
 		// The list of POSIX ACL supporting filesystems. See:
 		// - http://de.wikipedia.org/wiki/Access_Control_List
 		// - http://www.suse.de/~agruen/acl/linux-acls/online
-		return in_array(strtolower($type), array("ext2", "ext3",
-		  "ext4", "xfs", "jfs", "reiserfs", "btrfs"));
+		if (NULL == ($backend = OMVFilesystems::getBackend($type)))
+			return FALSE;
+		return $backend->hasPosixAclSupport();
 	}
 }
 
@@ -2256,7 +2431,7 @@ class OMVStorageDevices extends OMVObject {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	final static function registerBackend(OMVStorageDeviceBackendAbstract $backend) {
-		if(!isset($backend))
+		if (!isset($backend))
 			return FALSE;
 		self::$backends[] = $backend;
 		return TRUE;
@@ -2270,8 +2445,8 @@ class OMVStorageDevices extends OMVObject {
 	 */
 	final static function getBackend($deviceFile) {
 		$result = NULL;
-		foreach(self::$backends as $backendk => $backendv) {
-			if(FALSE === $backendv->isTypeOf($deviceFile))
+		foreach (self::$backends as $backendk => $backendv) {
+			if (FALSE === $backendv->isTypeOf($deviceFile))
 				continue;
 			$result = $backendv;
 			break;
@@ -2391,7 +2566,7 @@ class OMVStorageDevices extends OMVObject {
 	 *   otherwise NULL.
 	 */
 	public static function getImpl($deviceFile) {
-		if(NULL == ($backend = self::getBackend($deviceFile)))
+		if (NULL == ($backend = self::getBackend($deviceFile)))
 			return NULL;
 		return $backend->getImpl($deviceFile);
 	}
@@ -4316,4 +4491,25 @@ OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLVM());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendDM());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLoop());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendBcache());
+
+///////////////////////////////////////////////////////////////////////////////
+// Register default filesystem backends.
+///////////////////////////////////////////////////////////////////////////////
+OMVFilesystems::registerBackend(new OMVFilesystemBackendNone);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendExt);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendExt2);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendExt3);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendExt4);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendXfs);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendJfs);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendIso9660);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendMsdos);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendVfat);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendNtfs);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendUmsdos);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendUdf);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendUfs);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendReiserfs);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendBtrfs);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendHfsplus);
 ?>

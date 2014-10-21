@@ -123,6 +123,7 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 	 * @return The stored configuration object.
 	 * @throw E_EXEC_FAILED
 	 * @throw E_CONFIG_SET_OBJECT_FAILED
+	 * @throw E_MISC_FAILURE
 	 */
 	public function set($params, $context) {
 		global $xmlConfig;
@@ -143,6 +144,12 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 				  "passno":{"type":"integer","enum":[0,1,2]}
 			  }
 		  }');
+		// Get the filesystem backend.
+		$fsb = OMVFilesystems::getBackend($params['type']);
+		if (is_null($fsb)) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+			  "No filesystem backend exists for type %s", $params['type']));
+		}
 		// Prepare the configuration object.
 		$object = array(
 			  "uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
@@ -153,8 +160,7 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 			  "opts" => $params['opts'],
 			  "freq" => $params['freq'],
 			  "passno" => $params['passno'],
-			  "hidden" => (OMVFilesystems::getProperty($params['type'],
-			  	"opts") & OMVFilesystems::FS_OPT_MNTENT) ? 0 : 1
+			  "hidden" => $fsb->hasFstabSupport() ? 0 : 1
 		  );
 		// Set the configuration object.
 		$success = FALSE;

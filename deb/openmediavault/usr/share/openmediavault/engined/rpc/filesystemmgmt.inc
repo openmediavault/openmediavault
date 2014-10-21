@@ -287,9 +287,9 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// Mark the device as mountable if the filesystem supports
 			// mount entries in '/etc/fstab'.
 			$objectv['mountable'] = FALSE;
-			$opts = OMVFilesystems::getProperty($objectv['type'], "opts");
-			if ($opts & OMVFilesystems::FS_OPT_MNTENT)
-				$objectv['mountable'] = TRUE;
+			$fsb = OMVFilesystems::getBackend($objectv['type']);
+			if (!is_null($fsb))
+				$objectv['mountable'] = $fsb->hasFstabSupport();
 		}
 		// Try to detect filesystems that are being initialized.
 		foreach(new DirectoryIterator("/tmp") as $file) {
