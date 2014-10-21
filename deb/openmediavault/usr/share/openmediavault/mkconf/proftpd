@@ -34,7 +34,6 @@ OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkco
 OMV_PROFTPD_CONFIG=${OMV_PROFTPD_CONFIG:-"/etc/proftpd/proftpd.conf"}
 OMV_PROFTPD_EXTENSIONS_DIR=${OMV_PROFTPD_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/proftpd.d"}
 OMV_PROFTPD_DEFAULTROOT=${OMV_PROFTPD_DEFAULTROOT:-"/srv/ftp"}
-OMV_PROFTPD_DISPLAYLOGIN=${OMV_PROFTPD_DISPLAYLOGIN:-"/srv/ftp/welcome.msg"}
 OMV_PROFTPD_USEIPV6=${OMV_PROFTPD_USEIPV6:-"on"}
 OMV_PROFTPD_DEFERWELCOME=${OMV_PROFTPD_DEFERWELCOME:-"off"}
 OMV_PROFTPD_MULTILINERFC2228=${OMV_PROFTPD_MULTILINERFC2228:-"on"}
@@ -71,17 +70,6 @@ OMV_PROFTPD_MODTLS_CONFIG=${OMV_PROFTPD_MODTLS_CONFIG:-"/etc/proftpd/tls.conf"}
 OMV_PROFTPD_MODVROOT_VROOTENGINE=${OMV_PROFTPD_MODVROOT_VROOTENGINE:-"on"}
 OMV_PROFTPD_MODVROOT_VROOTLOG=${OMV_PROFTPD_MODVROOT_VROOTLOG:-"/var/log/proftpd/vroot.log"}
 
-# Create welcome message file
-displaylogin=$(omv_config_get "//services/ftp/displaylogin")
-if [ -z "${displaylogin}" ]; then
-	cat <<EOF > ${OMV_PROFTPD_DISPLAYLOGIN}
-Welcome user %U@%R to %L FTP server.
-The local time is: %T
-EOF
-else
-	echo ${displaylogin} > ${OMV_PROFTPD_DISPLAYLOGIN}
-fi
-
 # Create /etc/proftpd/proftpd.conf configuration
 xmlstarlet sel -t \
   -o "Include /etc/proftpd/modules.conf" -n \
@@ -93,7 +81,6 @@ xmlstarlet sel -t \
   -o "MultilineRFC2228 ${OMV_PROFTPD_MULTILINERFC2228}" -n \
   -o "DefaultServer ${OMV_PROFTPD_DEFAULTSERVER}" -n \
   -o "ShowSymlinks ${OMV_PROFTPD_SHOWSYMLINKS}" -n \
-  -o "DisplayLogin ${OMV_PROFTPD_DISPLAYLOGIN}" -n \
   -o "DisplayChdir .message true" -n \
   -o "ListOptions \"${OMV_PROFTPD_LISTOPTIONS}\"" -n \
   -o "MaxInstances ${OMV_PROFTPD_MAXINSTANCES}" -n \

@@ -6,6 +6,9 @@ openmediavault (1.0.30) stable; urgency=low
     All supported filesystems must extend this class. Backends must be
     registered via OMVFilesystems::registerBackend.
   * Enhance OMVStorageDeviceBackendAbstract class.
+  * Mantis 0001159: Allow to disable FTP login message. To disable the
+    welcome message set OMV_PROFTPD_SHOW_DISPLAYLOGIN="no" in the file
+    /etc/default/openmediavault.
   * Mantis 0001161: Send cron email about samba-recycle.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 18 Oct 2014 14:22:40 +0200

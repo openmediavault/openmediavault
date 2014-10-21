@@ -1,0 +1,47 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2014 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_PROFTPD_CONFIG=${OMV_PROFTPD_CONFIG:-"/etc/proftpd/proftpd.conf"}
+OMV_PROFTPD_DISPLAYLOGIN=${OMV_PROFTPD_DISPLAYLOGIN:-"/srv/ftp/welcome.msg"}
+OMV_PROFTPD_SHOW_DISPLAYLOGIN=${OMV_PROFTPD_SHOW_DISPLAYLOGIN:-"yes"}
+
+# Create welcome message file.
+displaylogin=$(omv_config_get "//services/ftp/displaylogin")
+if [ -z "${displaylogin}" ]; then
+	cat <<EOF > ${OMV_PROFTPD_DISPLAYLOGIN}
+Welcome user %U@%R to %L FTP server.
+The local time is: %T
+EOF
+else
+	echo ${displaylogin} > ${OMV_PROFTPD_DISPLAYLOGIN}
+fi
+
+# Display the welcome message at login?
+if omv_checkyesno ${OMV_PROFTPD_SHOW_DISPLAYLOGIN}; then
+	cat >> ${OMV_PROFTPD_CONFIG} <<EOF
+DisplayLogin ${OMV_PROFTPD_DISPLAYLOGIN}
+EOF
+fi
