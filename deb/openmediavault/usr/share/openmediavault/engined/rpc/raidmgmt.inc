@@ -139,7 +139,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return An array containing objects with the following fields:
-	 *   devicefile, size and description.
+	 *   devicefile, size, vendor, serialnumber and description.
 	 * @throw E_EXEC_MISC
 	 */
 	public function getCandidates($params, $context) {
@@ -174,6 +174,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 				"devicefile" => $sd->getDeviceFile(),
 				"size" => $sd->getSize(),
 				"vendor" => $sd->getVendor(),
+				"serialnumber" => $sd->getSerialNumber(),
 				"description" => $sd->getDescription()
 			);
 		}

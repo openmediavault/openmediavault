@@ -10,6 +10,8 @@ openmediavault (1.0.30) stable; urgency=low
     welcome message set OMV_PROFTPD_SHOW_DISPLAYLOGIN="no" in the file
     /etc/default/openmediavault.
   * Mantis 0001161: Send cron email about samba-recycle.
+  * Mantis 0001162: Disk overview from raid creation screen has empty
+    column serial number and vendor ATA.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 18 Oct 2014 14:22:40 +0200
 
