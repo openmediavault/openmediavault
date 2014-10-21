@@ -6,6 +6,7 @@ openmediavault (1.0.30) stable; urgency=low
     All supported filesystems must extend this class. Backends must be
     registered via OMVFilesystems::registerBackend.
   * Enhance OMVStorageDeviceBackendAbstract class.
+  * Mantis 0001161: Send cron email about samba-recycle.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 18 Oct 2014 14:22:40 +0200
 
