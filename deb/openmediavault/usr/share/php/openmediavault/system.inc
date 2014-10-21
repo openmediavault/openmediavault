@@ -686,19 +686,6 @@ class OMVFilesystems extends OMVObject {
 	}
 
 	/**
-	 * Returns the value of the given configuration property.
-	 * @param type The file system type, e.g. 'vfat', 'hfsplus', ...
-	 * @param name The property name to fetch the value for.
-	 * @return The requested property value.
-	 */
-	public static function getProperty($type, $name) {
-		// Check if the given type is registered.
-		if (!array_key_exists($type, self::$types))
-			return FALSE;
-		return self::$types[$type][$name];
-	}
-
-	/**
 	 * Get a list of all detected file systems.
 	 * @deprecated
 	 * @return A list of file systems, otherwise FALSE. The array elements
@@ -2127,6 +2114,21 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	function baseDeviceFile($deviceFile) { return $deviceFile; }
 
 	/**
+	 * Return the device file to be used to create a filesystem. Note,
+	 * only one partition per storage device is supported.
+	 * @param deviceFile Specifies the device file, e.g.
+	 *   <ul>
+	 *   \li /dev/sdb => /dev/sdb1
+	 *   \li /dev/cciss/c0d0 => /dev/cciss/c0d0p1
+	 *   \li /dev/mapper/vg0-lv0 => /dev/mapper/vg0-lv0
+	 *   \li /dev/dm-0 => /dev/dm-0
+	 *   \li /dev/md0 => /dev/md0
+	 *   </ul>
+	 * @return The device file. Defaults to /dev/xxx1.
+	 */
+	function fsDeviceFile($deviceFile) { return sprintf("%s1", $deviceFile); }
+
+	/**
 	 * Helper function to enumerate the devices represented by this storage
 	 * device backend via the /proc filesystem.
 	 * @param regex The regular expression used to identify the devices
@@ -2265,6 +2267,10 @@ class OMVStorageDeviceBackendDM extends OMVStorageDeviceBackendAbstract {
 	function getImpl($args) {
 		return new OMVStorageDeviceDM($args);
 	}
+
+	function fsDeviceFile($deviceFile) {
+		return $deviceFile;
+	}
 }
 
 /**
@@ -2356,6 +2362,10 @@ class OMVStorageDeviceBackendMdadm extends OMVStorageDeviceBackendAbstract {
 	function getImpl($args) {
 		return new OMVStorageDeviceMdadm($args);
 	}
+
+	function fsDeviceFile($deviceFile) {
+		return $deviceFile;
+	}
 }
 
 /**
@@ -2385,6 +2395,11 @@ class OMVStorageDeviceBackendCCISS extends OMVStorageDeviceBackendAbstract {
 
 	function baseDeviceFile($deviceFile) {
 		return preg_replace("/(p\d+)$/", "", $deviceFile);
+	}
+
+	function fsDeviceFile($deviceFile) {
+		// E.g. /dev/cciss/c0d0p1
+		return sprintf("%sp1", $deviceFile);
 	}
 }
 

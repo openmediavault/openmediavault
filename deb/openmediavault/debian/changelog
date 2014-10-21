@@ -5,6 +5,7 @@ openmediavault (1.0.30) stable; urgency=low
   * Refactor filesystem backend. Introduce class OMVFilesystemBackendAbstract.
     All supported filesystems must extend this class. Backends must be
     registered via OMVFilesystems::registerBackend.
+  * Enhance OMVStorageDeviceBackendAbstract class.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 18 Oct 2014 14:22:40 +0200
 

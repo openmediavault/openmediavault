@@ -486,22 +486,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  $sd->getDeviceFile()));
 		}
 		// Build the filesystem device file name.
-		switch ($sdb->getType()) {
-		case OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID:
-			$fsDeviceFile = $sd->getDeviceFile();
-			break;
-		case OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER:
-			$fsDeviceFile = $sd->getDeviceFile();
-			break;
-		case OMV_STORAGE_DEVICE_TYPE_HBA:
-			// e.g. /dev/cciss/c0d0p1
-			$fsDeviceFile = sprintf("%sp1", $sd->getDeviceFile());
-			break;
-		default:
-			// e.g. /dev/sdb1
-			$fsDeviceFile = sprintf("%s1", $sd->getDeviceFile());
-			break;
-		}
+		$fsDeviceFile = $sdb->fsDeviceFile($sd->getDeviceFile());
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
