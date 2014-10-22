@@ -37,6 +37,7 @@ OMV_NGINX_SITE_WEBGUI_SERVERNAME=${OMV_NGINX_SITE_WEBGUI_SERVERNAME:-"openmediav
 OMV_NGINX_SITE_WEBGUI_CONFIG=${OMV_NGINX_SITE_WEBGUI_CONFIG:-"/etc/nginx/sites-available/openmediavault-webgui"}
 OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR=${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR:-"/etc/nginx/openmediavault-webgui.d"}
 OMV_NGINX_SITE_WEBGUI_LOGLEVEL=${OMV_NGINX_SITE_WEBGUI_LOGLEVEL:-"error"}
+OMV_NGINX_SITE_WEBGUI_CLIENT_MAX_BODY_SIZE=${OMV_NGINX_SITE_WEBGUI_CLIENT_MAX_BODY_SIZE:-"25M"}
 OMV_NGINX_SITE_WEBGUI_SECURITY_CONFIG=${OMV_NGINX_SITE_WEBGUI_SECURITY_CONFIG:-"${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR}/security.conf"}
 OMV_NGINX_SITE_WEBGUI_SECURITY_CSP_ENABLE=${OMV_NGINX_SITE_WEBGUI_SECURITY_CSP_ENABLE:-"yes"}
 OMV_NGINX_SITE_WEBGUI_SECURITY_CSP=${OMV_NGINX_SITE_WEBGUI_SECURITY_CSP:-"default-src 'self' 'unsafe-inline' 'unsafe-eval'; img-src 'self' data:"}
@@ -55,6 +56,7 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "    server_tokens off;" -n \
   -o "    sendfile on;" -n \
   -o "    large_client_header_buffers 4 32k;" -n \
+  -o "    client_max_body_size ${OMV_NGINX_SITE_WEBGUI_CLIENT_MAX_BODY_SIZE};" -n \
   -o "    error_log ${OMV_NGINX_SITE_WEBGUI_LOG_DIR}/${OMV_NGINX_SITE_WEBGUI_SERVERNAME}_error.log ${OMV_NGINX_SITE_WEBGUI_LOGLEVEL};" -n \
   -o "    access_log ${OMV_NGINX_SITE_WEBGUI_LOG_DIR}/${OMV_NGINX_SITE_WEBGUI_SERVERNAME}_access.log combined;" -n \
   -o "    location /extjs/ {" -n \

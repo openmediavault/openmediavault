@@ -145,6 +145,14 @@ Ext.define("OMV.window.Upload", {
 	 * @param action The Action object which performed the operation.
 	 */
 	onUploadFailure: function(form, action) {
-		OMV.MessageBox.error(null, action.result);
+		var msg = action.response.responseText;
+		try {
+			// Try to decode JSON error messages.
+			msg = Ext.JSON.decode(msg);
+		} catch(e) {
+			// Error message is plain text, e.g. error message from the
+			// web server.
+		}
+		OMV.MessageBox.error(null, msg);
 	}
 });

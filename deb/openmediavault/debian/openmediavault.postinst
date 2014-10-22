@@ -423,6 +423,10 @@ case "$1" in
 			rm -f /etc/cron.daily/mdadm
 			rm -f /etc/cron.daily/cron-apt
 		fi
+		if dpkg --compare-versions "$2" lt-nl "1.0.30"; then
+			omv-mkconf nginx
+			invoke-rc.d nginx reload
+		fi
 	;;
 
 	triggered)
