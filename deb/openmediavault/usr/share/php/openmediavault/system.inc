@@ -553,6 +553,7 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 
 class OMVFilesystemBackendNone extends OMVFilesystemBackendAbstract {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "none";
 		$this->properties = self::PROP_MNTENT;
 	}
@@ -560,21 +561,24 @@ class OMVFilesystemBackendNone extends OMVFilesystemBackendAbstract {
 
 class OMVFilesystemBackendExt extends OMVFilesystemBackendAbstract {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "ext";
 		$this->properties = self::PROP_MNTENT;
 	}
 }
 
-class OMVFilesystemBackendExt2 extends OMVFilesystemBackendAbstract {
+class OMVFilesystemBackendExt2 extends OMVFilesystemBackendExt {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "ext2";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT2']);
 	}
 }
 
-class OMVFilesystemBackendExt3 extends OMVFilesystemBackendAbstract {
+class OMVFilesystemBackendExt3 extends OMVFilesystemBackendExt2 {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "ext3";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
 		  self::PROP_DISCARD;
@@ -583,11 +587,10 @@ class OMVFilesystemBackendExt3 extends OMVFilesystemBackendAbstract {
 	}
 }
 
-class OMVFilesystemBackendExt4 extends OMVFilesystemBackendAbstract {
+class OMVFilesystemBackendExt4 extends OMVFilesystemBackendExt3 {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "ext4";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-		  self::PROP_DISCARD;
 		$this->mkfsOptions = $GLOBALS['OMV_INITFS_OPTIONS_EXT4'];
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT4']);
 	}
@@ -595,6 +598,7 @@ class OMVFilesystemBackendExt4 extends OMVFilesystemBackendAbstract {
 
 class OMVFilesystemBackendXfs extends OMVFilesystemBackendAbstract {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "xfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
 		  self::PROP_DISCARD;
@@ -605,6 +609,7 @@ class OMVFilesystemBackendXfs extends OMVFilesystemBackendAbstract {
 
 class OMVFilesystemBackendJfs extends OMVFilesystemBackendAbstract {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "jfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
 		  self::PROP_DISCARD;
@@ -615,6 +620,7 @@ class OMVFilesystemBackendJfs extends OMVFilesystemBackendAbstract {
 
 class OMVFilesystemBackendIso9660 extends OMVFilesystemBackendAbstract {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "iso9660";
 		$this->properties = self::PROP_MNTENT;
 	}
@@ -622,6 +628,7 @@ class OMVFilesystemBackendIso9660 extends OMVFilesystemBackendAbstract {
 
 class OMVFilesystemBackendMsdos extends OMVFilesystemBackendAbstract {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "msdos";
 		$this->properties = self::PROP_MNTENT;
 	}
@@ -629,6 +636,7 @@ class OMVFilesystemBackendMsdos extends OMVFilesystemBackendAbstract {
 
 class OMVFilesystemBackendVfat extends OMVFilesystemBackendAbstract {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "vfat";
 		$this->properties = self::PROP_MNTENT | self::PROP_DISCARD;
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_VFAT']);
@@ -637,6 +645,7 @@ class OMVFilesystemBackendVfat extends OMVFilesystemBackendAbstract {
 
 class OMVFilesystemBackendNtfs extends OMVFilesystemBackendAbstract {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "ntfs";
 		$this->properties = self::PROP_MNTENT;
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_NTFS']);
@@ -645,6 +654,7 @@ class OMVFilesystemBackendNtfs extends OMVFilesystemBackendAbstract {
 
 class OMVFilesystemBackendUmsdos extends OMVFilesystemBackendAbstract {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "umsdos";
 		$this->properties = self::PROP_MNTENT;
 	}
@@ -652,6 +662,7 @@ class OMVFilesystemBackendUmsdos extends OMVFilesystemBackendAbstract {
 
 class OMVFilesystemBackendUdf extends OMVFilesystemBackendAbstract {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "udf";
 		$this->properties = self::PROP_MNTENT;
 	}
@@ -659,6 +670,7 @@ class OMVFilesystemBackendUdf extends OMVFilesystemBackendAbstract {
 
 class OMVFilesystemBackendUfs extends OMVFilesystemBackendAbstract {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "ufs";
 		$this->properties = self::PROP_MNTENT;
 	}
@@ -666,6 +678,7 @@ class OMVFilesystemBackendUfs extends OMVFilesystemBackendAbstract {
 
 class OMVFilesystemBackendReiserfs extends OMVFilesystemBackendAbstract {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "reiserfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
 	}
@@ -673,6 +686,7 @@ class OMVFilesystemBackendReiserfs extends OMVFilesystemBackendAbstract {
 
 class OMVFilesystemBackendBtrfs extends OMVFilesystemBackendAbstract {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "btrfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
 		  self::PROP_DISCARD;
@@ -681,6 +695,7 @@ class OMVFilesystemBackendBtrfs extends OMVFilesystemBackendAbstract {
 
 class OMVFilesystemBackendHfsplus extends OMVFilesystemBackendAbstract {
 	public function __construct() {
+		parent::__construct();
 		$this->type = "hfsplus";
 		$this->properties = self::PROP_MNTENT;
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_HFSPLUS']);
