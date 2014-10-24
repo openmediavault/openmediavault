@@ -84,8 +84,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				continue;
 			// Use the devicefile to get the filesystem details because vfat
 			// filesystems do not have a valid UUID. Any idea why?
-			$fs = new OMVFilesystem($objectv['devicefile']);
-			if (!$fs->exists()) {
+			$fs = OMVFilesystemFactory::get($objectv['devicefile']);
+			if (is_null($fs) || !$fs->exists()) {
 //				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 //				  sprintf(gettext("Filesystem '%s' not found"),
 //				  $objectv['devicefile']));
@@ -197,8 +197,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		// Get the filesystem details for each mount point.
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
-			$fs = new OMVFilesystem($objectv['fsname']);
-			if(!$fs->exists()) {
+			$fs = OMVFilesystemFactory::get($objectv['fsname']);
+			if (is_null($fs) || !$fs->exists()) {
 //				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 //				  sprintf(gettext("Filesystem '%s' not found"),
 //				  $objectv['fsname']));
@@ -293,10 +293,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				$objectv['mountable'] = $fsb->hasFstabSupport();
 		}
 		// Try to detect filesystems that are being initialized.
-		foreach(new DirectoryIterator("/tmp") as $file) {
-			if($file->isDot())
+		foreach (new DirectoryIterator("/tmp") as $file) {
+			if ($file->isDot())
 				continue;
-			if($file->isFile()) {
+			if ($file->isFile()) {
 				// Check if it is a file we are interested in. The filename
 				// must look like omv-initfs@<device>.build, e.g.
 				// omv-initfs@_dev_sdb.build
@@ -352,15 +352,15 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		$xpath = "//system/fstab/mntent[not(contains(opts,'bind') or ".
 		  "contains(opts,'loop'))]";
 		$mntents = $xmlConfig->getList($xpath);
-		if(is_null($mntents)) {
+		if (is_null($mntents)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		foreach($mntents as $mntentk => $mntentv) {
+		foreach ($mntents as $mntentk => $mntentv) {
 			// Skip valid mount point configuration objects (the filesystem
 			// exists in this case).
-			$fs = new OMVFilesystem($mntentv['fsname']);
-			if($fs->exists())
+			$fs = OMVFilesystemFactory::get($mntentv['fsname']);
+			if (!is_null($fs) && $fs->exists())
 				continue;
 			// Check if the mount point configuration object is referenced by
 			// any other object, e.g. by a shared folder configuration object.
@@ -406,24 +406,24 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get a list of all potential usable devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerateUnused())) {
+		if (FALSE === ($devs = OMVStorageDevices::enumerateUnused())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of unused devices");
 		}
 		// Prepare the result list.
 		$result = array();
-		foreach($devs as $devk => $devv) {
+		foreach ($devs as $devk => $devv) {
 			// Get the object that implements the given storage device.
 			$sd = OMVStorageDeviceFactory::get($devv);
-			if(is_null($sd) || !$sd->exists())
+			if (is_null($sd) || !$sd->exists())
 				continue;
 			// Check if device is referenced/used by a plugin.
 			$xpath = sprintf("//services/devicefile[contains(.,'%s')]",
 			  $sd->getDeviceFile());
-			if(TRUE === $xmlConfig->exists($xpath))
+			if (TRUE === $xmlConfig->exists($xpath))
 				continue;
 			// Does this device already contain a filesystem?
-			if(FALSE !== OMVFilesystem::hasFileSystem($sd->getDeviceFile()))
+			if (FALSE !== OMVFilesystem::hasFileSystem($sd->getDeviceFile()))
 				continue;
 			// The device is a potential candidate to create a filesystem
 			// on it.
@@ -619,13 +619,13 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get filesystem informations.
-		$fs = new OMVFilesystem($params['id']);
-		if(!$fs->exists()) {
+		$fs = OMVFilesystemFactory::get($params['id']);
+		if (is_null($fs) || !$fs->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf(gettext("Filesystem '%s' not found"), $params['id']));
 		}
 		// Grow the filesystem
-		switch(strtolower($fs->getType())) {
+		switch (strtolower($fs->getType())) {
 		case "ext":
 		case "ext2":
 		case "ext3":
@@ -703,9 +703,9 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		}
 		$meObject = $xmlConfig->get($xpath);
 		// Get the filesystem if available.
-		$fs = new OMVFilesystem($params['id']);
+		$fs = OMVFilesystemFactory::get($params['id']);
 		// Update the notification object.
-		if ($fs->exists()) {
+		if (!is_null($fs) && $fs->exists()) {
 			$fsObject = array(
 				"devicefile" => $fs->getDeviceFile(),
 				"uuid" => $fs->getUuid(),
@@ -933,7 +933,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		// Remove fstab entry?
 		if (TRUE === boolvalEx($params['fstab'])) {
 			// Get the fstab mount point configuration object.
-			if(is_devicefile($params['id'])) {
+			if (is_devicefile($params['id'])) {
 				// Use the filesystem name to identify the object.
 				$xpath = sprintf("//system/fstab/mntent[fsname='%s']",
 				  $params['id']);
@@ -948,7 +948,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				  OMVFilesystem::buildMountPath($params['id']));
 			}
 			$object = $xmlConfig->get($xpath);
-			if(is_null($object)) {
+			if (is_null($object)) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 				  $xpath);
 			}
@@ -962,14 +962,14 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				  "force" => TRUE
 			  ), $context);
 		} else { // Only unmount the filesystem.
-			$fs = new OMVFilesystem($params['id']);
-			if(!$fs->exists()) {
+			$fs = OMVFilesystemFactory::get($params['id']);
+			if (is_null($fs) || !$fs->exists()) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf(gettext("Filesystem '%s' not found"),
 				  $params['id']));
 			}
-			if(TRUE === $fs->isMounted()) {
-				if(FALSE === $fs->umount(TRUE)) {
+			if (TRUE === $fs->isMounted()) {
+				if (FALSE === $fs->umount(TRUE)) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 					  $cmd, $fs->getLastError());
 				}
