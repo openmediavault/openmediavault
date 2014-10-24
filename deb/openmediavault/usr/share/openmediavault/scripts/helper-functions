@@ -104,7 +104,7 @@ omv_trim() {
 	if test $# -eq 0 ; then
 		value=$(cat)
 	else
-		value=$1
+		value=$*
 	fi
 	_cmdargs=""
 	[ ${_left} -eq 1 ] && _cmdargs="${_cmdargs} -e s/$^(omv_quotemeta ${_char})*//"
@@ -113,11 +113,11 @@ omv_trim() {
 }
 
 omv_rtrim() {
-	omv_trim -r $*
+	omv_trim -r $@
 }
 
 omv_ltrim() {
-	omv_trim -l $*
+	omv_trim -l $@
 }
 
 # omv_escapeshellarg value

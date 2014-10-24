@@ -425,7 +425,9 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "1.0.30"; then
 			omv-mkconf nginx
-			invoke-rc.d nginx reload
+			service nginx reload
+			omv-mkconf proftpd
+			service proftpd reload
 		fi
 	;;
 

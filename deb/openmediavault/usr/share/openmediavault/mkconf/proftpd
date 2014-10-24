@@ -259,7 +259,7 @@ while [ ${index} -gt 0 ]; do
 
 	cat <<EOF >> ${OMV_PROFTPD_CONFIG}
 <IfModule mod_vroot.c>
-  VRootAlias "$(omv_rtrim "${sfpath}" "/")" "${sfname}"
+  VRootAlias "$(omv_rtrim -c "/" "${sfpath}")" "${sfname}"
 </IfModule>
 <Directory /${sfname}>
   <Limit ALL>
