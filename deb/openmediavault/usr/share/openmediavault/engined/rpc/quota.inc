@@ -67,8 +67,8 @@ class OMVRpcServiceQuota extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get filesystem details.
-		$fs = new OMVFilesystem($params['uuid']);
-		if(!$fs->exists()) {
+		$fs = OMVFilesystemFactory::get($params['uuid']);
+		if (is_null($fs) || !$fs->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf(gettext("Filesystem '%s' not found"), $params['uuid']));
 		}

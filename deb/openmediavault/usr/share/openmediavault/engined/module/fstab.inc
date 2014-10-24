@@ -79,14 +79,14 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 			if(FALSE === $me->isMounted()) {
 				// If it's no loop or bind mount then skip mounting if the
 				// filesystem does not exist.
-				if(is_uuid($objectv['fsname']) || is_devicefile(
+				if (is_uuid($objectv['fsname']) || is_devicefile(
 				  $objectv['fsname'])) {
-					$fs = new OMVFilesystem($objectv['fsname']);
-					if(!$fs->exists())
+					$fs = OMVFilesystemFactory::get($objectv['fsname']);
+					if (is_null($fs) || !$fs->exists())
 						continue;
 				}
 				// Mount it.
-				if(FALSE === $me->mount()) {
+				if (FALSE === $me->mount()) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf("Failed to mount '%s': %s", $objectv['fsname'],
 					  $me->getLastError()));

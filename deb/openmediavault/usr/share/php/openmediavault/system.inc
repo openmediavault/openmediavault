@@ -907,10 +907,10 @@ class OMVFilesystemFactory extends OMVObject {
 }
 
 /**
- * Class to get detailed information about a given filesystem.
+ * Abstract class implementing generic filesystems.
  * @ingroup api
  */
-class OMVFilesystem extends OMVObject {
+class OMVFilesystemAbstract extends OMVObject {
 	protected $uuid = "";
 	protected $type = "";
 	protected $deviceFile = "";
@@ -935,7 +935,7 @@ class OMVFilesystem extends OMVObject {
 	 *   </ul>
 	 */
 	public function __construct($id) {
-		if(!is_devicefile($id))
+		if (!is_devicefile($id))
 			$this->uuid = $id;
 		else
 			$this->deviceFile = $id;
@@ -947,10 +947,10 @@ class OMVFilesystem extends OMVObject {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	private function getData() {
-		if($this->dataCached !== FALSE)
+		if ($this->dataCached !== FALSE)
 			return TRUE;
 
-		if(!empty($this->uuid)) {
+		if (!empty($this->uuid)) {
 			// Get the device name containing the file system. This is
 			// required for the blkid low-level probing mode.
 			// Do not use /dev/disk/by-uuid/xxx because this will cause
@@ -962,7 +962,7 @@ class OMVFilesystem extends OMVObject {
 			//   /dev/mapper which is prefered.
 			$cmd = sprintf("export LANG=C; findfs UUID=%s", $this->uuid);
 			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0) {
+			if ($result !== 0) {
 				$this->setLastError($output);
 				return FALSE;
 			}
@@ -975,14 +975,14 @@ class OMVFilesystem extends OMVObject {
 		// Note, limit this to the given types, otherwise unexpected behaviors
 		// might occur, e.g. the name of the LVM device /dev/mapper/vg0-lv0
 		// will be replaced by /dev/dm-0.
-		if(1 == preg_match("/^\/dev\/disk\/by-.+$/", $this->deviceFile))
+		if (1 == preg_match("/^\/dev\/disk\/by-.+$/", $this->deviceFile))
 			$this->deviceFile = realpath($this->deviceFile);
 
 		// Get the filesystem details.
 		$cmd = sprintf("export LANG=C; blkid -p -o full %s", escapeshellarg(
 		  $this->deviceFile));
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
 			$this->setLastError($output);
 			return FALSE;
 		}
@@ -994,7 +994,7 @@ class OMVFilesystem extends OMVObject {
 		// /dev/sdc1: LABEL="xfs" UUID="83d116e4-8b95-4e49-86e4-369615079b33" TYPE="xfs" USAGE="filesystem" PART_ENTRY_SCHEME="gpt" PART_ENTRY_UUID="8856f019-67da-4813-ab75-9fc3c3fe056f" PART_ENTRY_TYPE="0fc63daf-8483-4772-8e79-3d69d8477de4" PART_ENTRY_NUMBER="1" PART_ENTRY_OFFSET="2048" PART_ENTRY_SIZE="206815" PART_ENTRY_DISK="8:32"
 		// /dev/sdg1: LABEL="Traveller" UUID="2218-DF1C" VERSION="FAT32" TYPE="vfat" USAGE="filesystem" PART_ENTRY_SCHEME="dos" PART_ENTRY_TYPE="0xc" PART_ENTRY_FLAGS="0x80" PART_ENTRY_NUMBER="1" PART_ENTRY_OFFSET="62" PART_ENTRY_SIZE="15635532" PART_ENTRY_DISK="8:96"
 		$regex = '/^(\S+): (.+)$/i';
-		if(1 !== preg_match($regex, $output[0], $matches))
+		if (1 !== preg_match($regex, $output[0], $matches))
 			return FALSE;
 		// Set default values and extract key/value pairs.
 		$data = array(
@@ -1049,7 +1049,7 @@ class OMVFilesystem extends OMVObject {
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return TRUE;
 	}
@@ -1059,7 +1059,7 @@ class OMVFilesystem extends OMVObject {
 	 * @return TRUE if the device exists, otherwise FALSE.
 	 */
 	public function exists() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return TRUE;
 	}
@@ -1136,7 +1136,7 @@ class OMVFilesystem extends OMVObject {
 	 * @return The filesystem type, otherwise FALSE.
 	 */
 	public function getUsage() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->usage;
 	}
@@ -1158,7 +1158,7 @@ class OMVFilesystem extends OMVObject {
 	 * @return The device name, otherwise FALSE.
 	 */
 	public function getDeviceFile() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->deviceFile;
 	}
@@ -1179,11 +1179,11 @@ class OMVFilesystem extends OMVObject {
 	 *   will be returned.
 	 */
 	public function getDeviceFileByUuid() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		$deviceFileByUuid = sprintf("/dev/disk/by-uuid/%s",
 		  $this->getUuid());
-		if(is_block($deviceFileByUuid))
+		if (is_block($deviceFileByUuid))
 			return $deviceFileByUuid;
 		return $this->getDeviceFile();
 	}
@@ -1199,13 +1199,13 @@ class OMVFilesystem extends OMVObject {
 	 *   otherwise FALSE.
 	 */
 	public function getStorageDeviceFile() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		$deviceFile = $this->getDeviceFile();
 		// The following line is not necessary but will be kept to be safe.
 		// If the device file looks like /dev/disk/by-(id|label|path|uuid)/*
 		// then it is necessary to get the /dev/xxx equivalent.
-		if(1 == preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile))
+		if (1 == preg_match("/^\/dev\/disk\/by-.+$/", $deviceFile))
 			$deviceFile = realpath($deviceFile);
 		// Truncate the partition appendix, e.g.:
 		// - /dev/sdb1 => /dev/sdb
@@ -1214,7 +1214,7 @@ class OMVFilesystem extends OMVObject {
 		// - /dev/dm-0 => /dev/dm-0
 		// - /dev/md0 => /dev/md0
 		// - /dev/loop0 => /dev/loop0
-		if(NULL === ($backend = OMVStorageDevices::getBackend($deviceFile)))
+		if (NULL === ($backend = OMVStorageDevices::getBackend($deviceFile)))
 			return FALSE;
 		return $backend->baseDeviceFile($deviceFile);
 	}
@@ -1224,12 +1224,12 @@ class OMVFilesystem extends OMVObject {
 	 * @return The block size, otherwise FALSE.
 	 */
 	public function getBlockSize() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		$cmd = sprintf("export LANG=C; blockdev --getbsz %s",
 		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
 			$this->setLastError($output);
 			return FALSE;
 		}
@@ -1334,7 +1334,13 @@ class OMVFilesystem extends OMVObject {
 	public function hasPosixAclSupport() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		return self::hasPosixAclSupportByType($this->getType());
+		if (NULL == ($backend = OMVFilesystems::getBackendByType(
+		  $this->getType())))
+			return FALSE;
+		// The list of POSIX ACL supporting filesystems. See:
+		// - http://de.wikipedia.org/wiki/Access_Control_List
+		// - http://www.suse.de/~agruen/acl/linux-acls/online
+		return $backend->hasPosixAclSupport();
 	}
 
 	/**
@@ -1438,10 +1444,11 @@ class OMVFilesystem extends OMVObject {
 	}
 
 	/**
-	 * Get the directory where the filesystem should be mounted to.
+	 * Get the directory where the filesystem should be mounted to. Note,
+	 * this path is OMV specific: /media/<FSUUID>.
 	 * @param uuid The UUID of the filesystem.
 	 * @return The path where to mount the filesystem, e.g.
-	 * /media/85732966-949a-4d8b-87d7-d7e6681f787e.
+	 *   /media/85732966-949a-4d8b-87d7-d7e6681f787e.
 	 */
 	public static function buildMountPath($uuid) {
 		return sprintf("%s/%s", $GLOBALS['OMV_MOUNT_DIR'], $uuid);
@@ -1463,20 +1470,13 @@ class OMVFilesystem extends OMVObject {
 			return FALSE;
 		return TRUE;
 	}
+}
 
-	/**
-	 * Does the filesystem support POSIX ACL.
-	 * @param type The type of the filesystem, e.g. ext3, msdos.
-	 * @return TRUE if the filesystem supports POSIX ACL, otherwise FALSE.
-	 */
-	public static function hasPosixAclSupportByType($type) {
-		// The list of POSIX ACL supporting filesystems. See:
-		// - http://de.wikipedia.org/wiki/Access_Control_List
-		// - http://www.suse.de/~agruen/acl/linux-acls/online
-		if (NULL == ($backend = OMVFilesystems::getBackendByType($type)))
-			return FALSE;
-		return $backend->hasPosixAclSupport();
-	}
+/**
+ * Class to get detailed information about a filesystem.
+ * @ingroup api
+ */
+class OMVFilesystem extends OMVFilesystemAbstract {
 }
 
 /**
@@ -1635,7 +1635,7 @@ class OMVMntEnt extends OMVObject {
 			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			$matches = explode(" ", $rowv);
 			if ($matches[1] == $dir) {
-				$result = new OMVFilesystem($matches[0]);
+				$result = OMVFilesystemFactory::get($matches[0]);
 				break;
 			}
 		}
@@ -1659,7 +1659,7 @@ class OMVMntEnt extends OMVObject {
 			// /dev/sde1 /media/46607e80-dc8e-427e-9939-7909985dfe5b ext4 rw,noexec,relatime,user_xattr,acl,barrier=1,data=ordered,jqfmt=vfsv0,usrjquota=aquota.user,grpjquota=aquota.group 0 0
 			$matches = explode(" ", $rowv);
 			if ($matches[0] == $name) {
-				$result = new OMVFilesystem($matches[0]);
+				$result = OMVFilesystemFactory::get($matches[0]);
 				break;
 			}
 		}
@@ -4539,7 +4539,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	private function getData() {
-		if($this->dataCached !== FALSE)
+		if ($this->dataCached !== FALSE)
 			return TRUE;
 
 		// Parse command output:
@@ -4549,7 +4549,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 		  "lv_kernel_major,lv_kernel_minor --unit b %s",
 		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
 			$this->setLastError($output);
 			return FALSE;
 		}
@@ -4576,7 +4576,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return TRUE;
 	}
@@ -4586,7 +4586,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	 * @return TRUE if the logical volume exists, otherwise FALSE.
 	 */
 	public function exists() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return !empty($this->uuid);
 	}
@@ -4596,7 +4596,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	 * @return The volume group name, FALSE on failure.
 	 */
 	public function getVGName() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->vgName;
 	}
@@ -4606,7 +4606,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	 * @return The logical volume name, e.g. lvol0, or FALSE on failure.
 	 */
 	public function getName() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->lvName;
 	}
@@ -4617,7 +4617,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	 * failure.
 	 */
 	public function getPath() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return sprintf("/dev/%s/%s", $this->getVGName(), $this->getName());
 	}
@@ -4628,7 +4628,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	 * FALSE on failure.
 	 */
 	public function getSize() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return parent::getSize();
 	}
@@ -4638,7 +4638,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	 * @return The UUID of the array, FALSE on failure.
 	 */
 	public function getUuid() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return $this->uuid;
 	}
@@ -4648,7 +4648,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	 * @return The logical volume description, FALSE on failure.
 	 */
 	public function getDescription() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return sprintf(gettext("LVM logical volume %s [%s, %s]"),
 		  $this->getName(), $this->getDeviceFile(),
@@ -4663,7 +4663,7 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 		$cmd = sprintf("export LANG=C; lvremove --force %s 2>&1",
 		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
 			$this->setLastError($output);
 			return FALSE;
 		}

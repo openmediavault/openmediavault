@@ -245,33 +245,32 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 		// If the function parameter is a device file, then try to get the
 		// file system UUID and add it to the search argument list. This is
 		// done to increase the probability to find the fstab config object.
-		if(is_devicefile($params['id'])) {
-			$fs = new OMVFilesystem($params['id']);
-			if($fs->exists()) {
+		if (is_devicefile($params['id'])) {
+			$fs = OMVFilesystemFactory::get($params['id']);
+			if (!is_null($fs) && $fs->exists())
 				$args[] = $fs->getUuid();
-			}
 		}
 		// Try to find the configuration object matching the given search
 		// arguments. Note, the field 'fsname' may contain a device file
 		// or a file system UUID.
 		$result = FALSE;
-		foreach($objects as $objectk => $objectv) {
-			foreach($args as $argk => $argv) {
+		foreach ($objects as $objectk => $objectv) {
+			foreach ($args as $argk => $argv) {
 				// Device files must be handled seperate because the device
 				// may contain partitions.
-				if(is_devicefile($argv)) {
-					if(FALSE !== strpos($objectv['fsname'], $argv)) {
+				if (is_devicefile($argv)) {
+					if (FALSE !== strpos($objectv['fsname'], $argv)) {
 						$result = $objectv;
 						break;
 					}
 				} else {
-					if($argv === $objectv['fsname']) {
+					if ($argv === $objectv['fsname']) {
 						$result = $objectv;
 						break;
 					}
 				}
 			}
-			if(FALSE !== $result)
+			if (FALSE !== $result)
 				break;
 		}
 		return $result;

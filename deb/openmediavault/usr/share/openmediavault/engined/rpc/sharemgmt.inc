@@ -74,22 +74,22 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		// Get a list of mount points, except bind mounts.
 		$xpath = "//system/fstab/mntent[not(contains(opts,'bind'))]";
 		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
+		if (is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Get the filesystem details for each mount point.
 		$result = array();
 		foreach($objects as $objectk => $objectv) {
-			$fs = new OMVFilesystem($objectv['fsname']);
-			if(!$fs->exists()) {
+			$fs = OMVFilesystemFactory::get($objectv['fsname']);
+			if (is_null($fs) || !$fs->exists()) {
 //				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 //				  sprintf(gettext("Filesystem '%s' not found"),
 //				  $objectv['fsname']));
 				continue;
 			}
 			// Skip the filesystems that are not mounted at the moment.
-			if(FALSE === $fs->isMounted())
+			if (FALSE === $fs->isMounted())
 				continue;
 			// Get some filesystem details.
 			$devicefile = $fs->getDeviceFile();
@@ -101,7 +101,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 				"description" => !empty($label) ? $label : $devicefile
 			);
 			// Get some more filesystem details if possible.
-			if(FALSE !== ($fsStats = $fs->getStatistics())) {
+			if (FALSE !== ($fsStats = $fs->getStatistics())) {
 				$object['description'] = sprintf(
 				  gettext("%s (%s available)"), $object['description'],
 				  binary_format($fsStats['available']));
@@ -156,8 +156,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 					"dir" => $meObject['dir'],
 					"type" => $meObject['type']
 				));
-				$fs = new OMVFilesystem($meObject['fsname']);
-				if (TRUE === $fs->exists()) {
+				$fs = OMVFilesystemFactory::get($meObject['fsname']);
+				if (!is_null($fs) && $fs->exists()) {
 					$devicefile = $fs->getDeviceFile();
 					$label = $fs->getLabel();
 					// Add some filesystem details.
