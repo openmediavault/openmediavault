@@ -483,7 +483,7 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	/**
 	 * Get the type of the filesystem, e.g. 'ext3' or 'btrfs'.
 	 */
-	public function getType() {
+	final public function getType() {
 		return strtolower($this->type);
 	}
 
@@ -491,7 +491,7 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	 * Get the filesystem properties.
 	 * @return The properties defined for this filesystem.
 	 */
-	public function getProperties() {
+	final public function getProperties() {
 		return $this->properties;
 	}
 
@@ -500,7 +500,7 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	 * @param property The property to check for, e.g. PROP_POSIX_ACL.
 	 * @return TRUE if the given property is set, otherwise FALSE.
 	 */
-	public function hasProperty($property) {
+	final public function hasProperty($property) {
 		return ($this->properties & $property) === $property;
 	}
 
@@ -548,6 +548,17 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	 */
 	public function getMkfsOptions() {
 		return $this->mkfsOptions;
+	}
+
+	/**
+	 * Get the object of the class that represents and implements a filesystem
+	 * of this filesystem backend.
+	 * @param args The arguments to the class constructor.
+	 * @return The object of the class implementing the given filesystem type,
+	 *   otherwise NULL.
+	 */
+	function getImpl($args) {
+		return new OMVFilesystem($args);
 	}
 }
 
@@ -722,15 +733,53 @@ class OMVFilesystems extends OMVObject {
 	}
 
 	/**
-	 * Get the backend of the given device.
-	 * @param type Specifies the filesystem type.
+	 * Get the backend of the given filesystem.
+	 * @param id The UUID or device path of the filesystem, e.g.
+	 *   <ul>
+	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+	 *   \li 7A48-BA97 (DOS)
+	 *   \li 2ED43920D438EC29 (NTFS)
+	 *   \li /dev/sde1
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
+	 *   \li /dev/disk/by-label/DATA
+	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
+	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+	 *   \li /dev/cciss/c0d0p2
+	 *   </ul>
 	 * @return The backend that implements the given filesystem, otherwise
 	 *   NULL.
 	 */
-	final static function getBackend($type) {
+	final static function getBackend($id) {
+		if (!is_devicefile($id)) {
+			// Get the device file containing the file system. This is
+			// required for the blkid low-level probing mode.
+			$cmd = sprintf("export LANG=C; findfs UUID=%s", $id);
+			@OMVUtil::exec($cmd, $output, $result);
+			if ($result !== 0)
+				return NULL;
+			$id = $output[0];
+			unset($output);
+		}
+		// Get the filesystem type.
+		$cmd = sprintf("export LANG=C; blkid -p -o value -s TYPE %s",
+		  escapeshellarg($id));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0)
+			return NULL;
+		// Get the backend of the given filesystem type.
+		return self::getBackendByType($output[0]);
+	}
+
+	/**
+	 * Get the backend of the given filesystem type.
+	 * @param type Specifies the filesystem type, e.g. 'ext3', 'vfat', ...
+	 * @return The backend that implements the given filesystem, otherwise
+	 *   NULL.
+	 */
+	final static function getBackendByType($type) {
 		$result = NULL;
 		foreach (self::$backends as $backendk => $backendv) {
-			if (strtolower($type) !== strtolower($backendv->getType()))
+			if (strtolower($type) !== $backendv->getType())
 				continue;
 			$result = $backendv;
 			break;
@@ -744,7 +793,7 @@ class OMVFilesystems extends OMVObject {
 	 * @return TRUE if the file system is supported, otherwise FALSE.
 	 */
 	final static function isSupported($type) {
-		if (NULL == ($backend = self::getBackend($type)))
+		if (NULL == ($backend = self::getBackendByType($type)))
 			return FALSE;
 		return TRUE;
 	}
@@ -805,6 +854,56 @@ class OMVFilesystems extends OMVObject {
 		}
 		return $result;
 	}
+
+	/**
+	 * Get the object of the class implementing the given filesystem.
+	 * @param id The UUID or device path of the filesystem, e.g.
+	 *   <ul>
+	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+	 *   \li 7A48-BA97 (DOS)
+	 *   \li 2ED43920D438EC29 (NTFS)
+	 *   \li /dev/sde1
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
+	 *   \li /dev/disk/by-label/DATA
+	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
+	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+	 *   \li /dev/cciss/c0d0p2
+	 *   </ul>
+	 * @return The object of the class implementing the given filesystem,
+	 *   otherwise NULL.
+	 */
+	public static function getImpl($id) {
+		if (NULL == ($backend = self::getBackend($id)))
+			return NULL;
+		return $backend->getImpl($id);
+	}
+}
+
+/**
+ * Factory to create objects of filesystem classes.
+ * @ingroup api
+ */
+class OMVFilesystemFactory extends OMVObject {
+	/**
+	 * Get the object of the class implementing the given filesystem.
+	 * @param id The UUID or device path of the filesystem, e.g.
+	 *   <ul>
+	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+	 *   \li 7A48-BA97 (DOS)
+	 *   \li 2ED43920D438EC29 (NTFS)
+	 *   \li /dev/sde1
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
+	 *   \li /dev/disk/by-label/DATA
+	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
+	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+	 *   \li /dev/cciss/c0d0p2
+	 *   </ul>
+	 * @return The object of the class implementing the given filesystem,
+	 *   otherwise NULL.
+	 */
+	public static function get($id) {
+		return OMVFilesystems::getImpl($id);
+	}
 }
 
 /**
@@ -823,6 +922,7 @@ class OMVFilesystem extends OMVObject {
 	/**
 	 * Constructor
 	 * @param id The UUID or device path of the filesystem, e.g.
+	 *   <ul>
 	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
 	 *   \li 7A48-BA97 (DOS)
 	 *   \li 2ED43920D438EC29 (NTFS)
@@ -832,6 +932,7 @@ class OMVFilesystem extends OMVObject {
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   \li /dev/cciss/c0d0p2
+	 *   </ul>
 	 */
 	public function __construct($id) {
 		if(!is_devicefile($id))
@@ -1372,7 +1473,7 @@ class OMVFilesystem extends OMVObject {
 		// The list of POSIX ACL supporting filesystems. See:
 		// - http://de.wikipedia.org/wiki/Access_Control_List
 		// - http://www.suse.de/~agruen/acl/linux-acls/online
-		if (NULL == ($backend = OMVFilesystems::getBackend($type)))
+		if (NULL == ($backend = OMVFilesystems::getBackendByType($type)))
 			return FALSE;
 		return $backend->hasPosixAclSupport();
 	}
@@ -2134,7 +2235,9 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	 * storage device backend.
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
-	function enumerateSlaves() { return array(); }
+	public function enumerateSlaves() {
+		return array();
+	}
 
 	/**
 	 * Check whether the given device is represented by this storage
@@ -2151,7 +2254,9 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	 *   </ul>
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
-	function isTypeOf($deviceFile) { return FALSE; }
+	public function isTypeOf($deviceFile) {
+		return FALSE;
+	}
 
 	/**
 	 * Get the object of the class that represents and implements a device
@@ -2160,7 +2265,9 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	 * @return The object of the class implementing the given device type,
 	 *   otherwise NULL.
 	 */
-	function getImpl($args) { return NULL; }
+	public function getImpl($args) {
+		return NULL;
+	}
 
 	/**
 	 * Returns base device file by stripping the partition appendix.
@@ -2175,7 +2282,9 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	 *   </ul>
 	 * @return The base device file.
 	 */
-	function baseDeviceFile($deviceFile) { return $deviceFile; }
+	public function baseDeviceFile($deviceFile) {
+		return $deviceFile;
+	}
 
 	/**
 	 * Return the device file to be used to create a filesystem. Note,
@@ -2190,7 +2299,9 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	 *   </ul>
 	 * @return The device file. Defaults to /dev/xxx1.
 	 */
-	function fsDeviceFile($deviceFile) { return sprintf("%s1", $deviceFile); }
+	public function fsDeviceFile($deviceFile) {
+		return sprintf("%s1", $deviceFile);
+	}
 
 	/**
 	 * Helper function to enumerate the devices represented by this storage
@@ -2630,7 +2741,7 @@ class OMVStorageDevices extends OMVObject {
 	}
 
 	/**
-	 * Get the object of the class which implements the given storage backend.
+	 * Get the object of the class which implements the given storage device.
 	 * @param deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb
@@ -2641,7 +2752,7 @@ class OMVStorageDevices extends OMVObject {
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   </ul>
-	 * @return The object of the class implementing the given storage backend,
+	 * @return The object of the class implementing the given storage device,
 	 *   otherwise NULL.
 	 */
 	public static function getImpl($deviceFile) {
@@ -2657,7 +2768,7 @@ class OMVStorageDevices extends OMVObject {
  */
 class OMVStorageDeviceFactory extends OMVObject {
 	/**
-	 * Get the object of the class implementing the given device type.
+	 * Get the object of the class implementing the given storage device.
 	 * @param deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb
@@ -2668,7 +2779,7 @@ class OMVStorageDeviceFactory extends OMVObject {
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   </ul>
-	 * @return The object of the class implementing the given device type,
+	 * @return The object of the class implementing the given storage device,
 	 *   otherwise NULL.
 	 */
 	public static function get($deviceFile) {

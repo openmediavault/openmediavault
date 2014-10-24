@@ -288,7 +288,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// mount entries in '/etc/fstab'.
 			$objectv['mountable'] = FALSE;
 			// Get the corresponding filesystem backend.
-			$fsb = OMVFilesystems::getBackend($objectv['type']);
+			$fsb = OMVFilesystems::getBackendByType($objectv['type']);
 			if (!is_null($fsb))
 				$objectv['mountable'] = $fsb->hasFstabSupport();
 		}
@@ -486,10 +486,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  $sd->getDeviceFile()));
 		}
 		// Get the corresponding filesystem backend.
-		$fsb = OMVFilesystems::getBackend($params['type']);
+		$fsb = OMVFilesystems::getBackendByType($params['type']);
 		if (is_null($fsb)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  "No filesystem backend exists for type %s", $params['type']));
+			  "No filesystem backend exists for type '%s'", $params['type']));
 		}
 		// Get the filesystem device file name from the storage device
 		// backend (this may differ depending on the storage device).
@@ -784,18 +784,19 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				  "fstab":{"type":"boolean"}
 			  }
 		  }');
-		// Get the filesystem.
-		$fs = new OMVFilesystem($params['id']);
-		if (!$fs->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf(gettext("Filesystem '%s' not found"),
-			  $params['id']));
-		}
 		// Get the corresponding filesystem backend.
-		$fsb = OMVFilesystems::getBackend($fs->getType());
+		$fsb = OMVFilesystems::getBackend($params['id']);
 		if (is_null($fsb)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  "No filesystem backend exists for type %s", $fs->getType()));
+			  "Filesystem '%s' not found or no backend exists",
+			  $params['id']));
+		}
+		// Get the filesystem.
+		$fs = $fsb->getImpl($params['id']);
+		if (is_null($fs) || !$fs->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+			  "Failed to get the '%s' filesystem implementation for '%s'",
+			  $fsb->getType(), $params['id']));
 		}
 		// Get the storage device containing the filesystem.
 		if (FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile())) {
@@ -809,7 +810,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  $storageDeviceFile);
 		}
 		// Get mount options depending on the filesystem type.
-		switch ($fs->getType()) {
+		switch (strtolower($fs->getType())) {
 		case "ext2":
 		case "ext3":
 		case "ext4":

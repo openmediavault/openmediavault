@@ -145,10 +145,11 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 			  }
 		  }');
 		// Get the filesystem backend.
-		$fsb = OMVFilesystems::getBackend($params['type']);
+		$fsb = OMVFilesystems::getBackendByType($params['type']);
 		if (is_null($fsb)) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  "No filesystem backend exists for type %s", $params['type']));
+			  "No filesystem backend exists for type '%s'",
+			  $params['type']));
 		}
 		// Prepare the configuration object.
 		$object = array(
@@ -164,7 +165,7 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 		  );
 		// Set the configuration object.
 		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
 			// Append object to configuration.
 			$success = $xmlConfig->set("//system/fstab",
 			  array("mntent" => $object));
@@ -173,7 +174,7 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 			$success = $xmlConfig->replace("//system/fstab/mntent" .
 			  "[uuid='{$params['uuid']}']", $object);
 		}
-		if(FALSE === $success) {
+		if (FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
