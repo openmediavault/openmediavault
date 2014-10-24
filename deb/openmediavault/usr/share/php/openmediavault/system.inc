@@ -488,6 +488,47 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	}
 
 	/**
+	 * Check whether the given filesystem identifier is represented by this
+	 * filesystem backend.
+	 * @param id The filesystem identifier (e.g. UUID or device path), e.g.
+	 *   <ul>
+	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+	 *   \li 7A48-BA97 (DOS)
+	 *   \li 2ED43920D438EC29 (NTFS)
+	 *   \li /dev/sde1
+	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
+	 *   \li /dev/disk/by-label/DATA
+	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
+	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
+	 *   \li /dev/cciss/c0d0p2
+	 *   </ul>
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function isTypeOf($id) {
+		if (!is_devicefile($id)) {
+			// Get the device file containing the file system. This is
+			// required for the blkid low-level probing mode.
+			$cmd = sprintf("export LANG=C; findfs UUID=%s", $id);
+			@OMVUtil::exec($cmd, $output, $result);
+			if ($result !== 0)
+				return FALSE;
+			$id = $output[0];
+			unset($output);
+		}
+		// Get the filesystem type.
+		// !!! Note, do not use the '-p' option here. !!!
+		$cmd = sprintf("export LANG=C; blkid -o value -s TYPE %s",
+		  escapeshellarg($id));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0)
+			return FALSE;
+		if (empty($output))
+			return FALSE;
+		// Compare the filesystem type.
+		return ($output[0] == $this->getType()) ? TRUE : FALSE;
+	}
+
+	/**
 	 * Get the filesystem properties.
 	 * @return The properties defined for this filesystem.
 	 */
@@ -750,24 +791,14 @@ class OMVFilesystems extends OMVObject {
 	 *   NULL.
 	 */
 	final static function getBackend($id) {
-		if (!is_devicefile($id)) {
-			// Get the device file containing the file system. This is
-			// required for the blkid low-level probing mode.
-			$cmd = sprintf("export LANG=C; findfs UUID=%s", $id);
-			@OMVUtil::exec($cmd, $output, $result);
-			if ($result !== 0)
-				return NULL;
-			$id = $output[0];
-			unset($output);
+		$result = NULL;
+		foreach (self::$backends as $backendk => $backendv) {
+			if (FALSE === $backendv->isTypeOf($id))
+				continue;
+			$result = $backendv;
+			break;
 		}
-		// Get the filesystem type.
-		$cmd = sprintf("export LANG=C; blkid -p -o value -s TYPE %s",
-		  escapeshellarg($id));
-		@OMVUtil::exec($cmd, $output, $result);
-		if ($result !== 0)
-			return NULL;
-		// Get the backend of the given filesystem type.
-		return self::getBackendByType($output[0]);
+		return $result;
 	}
 
 	/**
