@@ -4716,21 +4716,21 @@ OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendBcache());
 ///////////////////////////////////////////////////////////////////////////////
 // Register default filesystem backends.
 ///////////////////////////////////////////////////////////////////////////////
-OMVFilesystems::registerBackend(new OMVFilesystemBackendNone);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendExt);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendExt2);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendExt3);
 OMVFilesystems::registerBackend(new OMVFilesystemBackendExt4);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendExt3);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendExt2);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendExt);
 OMVFilesystems::registerBackend(new OMVFilesystemBackendXfs);
 OMVFilesystems::registerBackend(new OMVFilesystemBackendJfs);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendIso9660);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendMsdos);
 OMVFilesystems::registerBackend(new OMVFilesystemBackendVfat);
 OMVFilesystems::registerBackend(new OMVFilesystemBackendNtfs);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendUmsdos);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendUdf);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendUfs);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendReiserfs);
-OMVFilesystems::registerBackend(new OMVFilesystemBackendBtrfs);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendMsdos);
 OMVFilesystems::registerBackend(new OMVFilesystemBackendHfsplus);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendBtrfs);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendIso9660);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendUdf);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendReiserfs);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendUmsdos);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendUfs);
+OMVFilesystems::registerBackend(new OMVFilesystemBackendNone);
 ?>
