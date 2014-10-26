@@ -33,6 +33,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_SAMBA_CONFIG=${OMV_SAMBA_CONFIG:-"/etc/samba/smb.conf"}
+OMV_SAMBA_GUESTACCOUNT=${OMV_SAMBA_GUESTACCOUNT:-"nobody"}
 OMV_SAMBA_SHARE_RECYCLE_REPOSITORY=${OMV_SAMBA_SHARE_RECYCLE_REPOSITORY:-".recycle"}
 OMV_SAMBA_SHARE_RECYCLE_DIRECTORYMODE=${OMV_SAMBA_SHARE_RECYCLE_DIRECTORYMODE:-"0777"}
 OMV_SAMBA_SHARE_RECYCLE_SUBDIRMODE=${OMV_SAMBA_SHARE_RECYCLE_SUBDIRMODE:-"0700"}
@@ -127,6 +128,12 @@ while [ ${index} -gt 0 ]; do
 		invalidusers=""
 		readlist=""
 		writelist=""
+
+		# Append user 'nobody' to valid users if share is public.
+		if [ "no" != "$(omv_config_get "//services/smb/shares/share[uuid='${uuid}']/guest")" ]; then
+			validusers="\"${OMV_SAMBA_GUESTACCOUNT}\""
+			writelist="\"${OMV_SAMBA_GUESTACCOUNT}\""
+		fi
 
 		# Get shared folder user privileges
 		privileges=$(xmlstarlet sel -t -m "//system/shares/sharedfolder[uuid='${sfref}']/privileges/privilege[type='user']" \
