@@ -2171,11 +2171,11 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return The requested property, otherwise FALSE.
 	 */
 	protected function getUdevProperty($id) {
-		if($this->udevInfo === FALSE) {
+		if ($this->udevInfo === FALSE) {
 			$cmd = sprintf("export LANG=C; udevadm info --query=property ".
 			  "--name=%s", escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0) {
+			if ($result !== 0) {
 				$this->setLastError($output);
 				return FALSE;
 			}
@@ -2192,14 +2192,47 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			// ID_VENDOR_ENC=VMware\x2c\x20
 			// ID_MODEL=VMware_Virtual_S
 			// ID_MODEL_ENC=VMware\x20Virtual\x20S
-			foreach($output as $row) {
+			//
+			// DEVLINKS=/dev/disk/by-id/ata-IBM-DTTA-341050_WF0WABH1579 /dev/disk/by-id/scsi-SATA_IBM-DTTA-341050_WF0WABH1579 /dev/disk/by-path/pci-0000:00:02.5-scsi-0:0:0:0
+			// DEVNAME=/dev/sda
+			// DEVPATH=/devices/pci0000:00/0000:00:02.5/host0/target0:0:0/0:0:0:0/block/sda
+			// DEVTYPE=disk
+			// ID_ATA=1
+			// ID_ATA_FEATURE_SET_HPA=1
+			// ID_ATA_FEATURE_SET_HPA_ENABLED=1
+			// ID_ATA_FEATURE_SET_PM=1
+			// ID_ATA_FEATURE_SET_PM_ENABLED=1
+			// ID_ATA_FEATURE_SET_SECURITY=1
+			// ID_ATA_FEATURE_SET_SECURITY_ENABLED=0
+			// ID_ATA_FEATURE_SET_SECURITY_ERASE_UNIT_MIN=22
+			// ID_ATA_FEATURE_SET_SMART=1
+			// ID_ATA_FEATURE_SET_SMART_ENABLED=0
+			// ID_ATA_WRITE_CACHE=1
+			// ID_ATA_WRITE_CACHE_ENABLED=1
+			// ID_BUS=ata
+			// ID_MODEL=IBM-DTTA-351010
+			// ID_MODEL_ENC=IBM-DTTA-351010\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20
+			// ID_PART_TABLE_TYPE=dos
+			// ID_PATH=pci-0000:00:02.5-scsi-0:0:0:0
+			// ID_PATH_TAG=pci-0000_00_02_5-scsi-0_0_0_0
+			// ID_REVISION=T56OA7A3
+			// ID_SCSI_COMPAT=SATA_IBM-DTTA-341050_WF0WABH1579
+			// ID_SERIAL=IBM-DTTA-341050_WF0WABH1579
+			// ID_SERIAL_SHORT=WF0WFJH1486
+			// ID_TYPE=disk
+			// MAJOR=8
+			// MINOR=0
+			// SUBSYSTEM=block
+			// UDEV_LOG=3
+			// USEC_INITIALIZED=16872806
+			foreach ($output as $row) {
 				$data = explode("=", $row);
-				if(empty($data))
+				if (empty($data))
 					continue;
 				$this->udevInfo[$data[0]] = $data[1];
 			}
 		}
-		if(!array_key_exists($id, $this->udevInfo))
+		if (!array_key_exists($id, $this->udevInfo))
 			return FALSE;
 		return $this->udevInfo[$id];
 	}
