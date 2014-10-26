@@ -62,6 +62,12 @@ OMV_POSTFIX_CRON_CONFIG=${OMV_POSTFIX_CRON_CONFIG:-"/etc/cron.hourly/openmediava
 # Ensure various required directories exist.
 [ ! -e "/var/spool/postfix/public/pickup" ] &&  mkfifo /var/spool/postfix/public/pickup
 
+# Build the full qualified domain name based on the network configuration.
+fqdn=$(xmlstarlet sel -t -m "//system/network" \
+  -v "hostname" \
+  -i "string-length(domainname) > 0" -v "concat('.',domainname)" \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+
 # Create '/etc/postfix/main.cf' configuration file
 xmlstarlet sel -t -m "//system/email" \
   -o "mydestination = ${OMV_POSTFIX_MYDESTINATION}" -n \
@@ -97,7 +103,6 @@ postmap ${OMV_POSTFIX_SMTP_SASL_PASSWORD_MAPS}
 # Create '/etc/postfix/generic' configuration file. Add a catch-all recipient,
 # thus all emails send to an user/address not existing will be redirected to
 # the configured primary recipient address.
-myhostname=$(postconf -h myhostname)
 xmlstarlet sel -t \
   -i "//system/email/enable[. = '1']" \
 	-v "concat('root ',//system/email/primaryemail)" -n \
@@ -105,7 +110,7 @@ xmlstarlet sel -t \
 	-m "//system/usermanagement/users/user[email != '']" \
 	  -v "concat(name,' ',email)" -n \
 	-b \
-	-v "concat('@${myhostname} ',//system/email/primaryemail)" \
+	-v "concat('@',//system/network/hostname,'.localdomain ',//system/email/primaryemail)" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 chown root:root ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
@@ -122,7 +127,7 @@ postmap ${OMV_POSTFIX_SMTP_GENERIC_MAPS}
 #   logged in user {mp030} (in reply to MAIL FROM command))
 xmlstarlet sel -t \
   -i "//system/email/enable[. = '1']" \
-	-v "concat('@${myhostname} ',//system/email/sender)" -n \
+	-v "concat('@',//system/network/hostname,'.localdomain ',//system/email/sender)" -n \
 	-v "concat('\"\" ',//system/email/sender)" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_POSTFIX_SENDER_CANONICAL_MAPS}
@@ -143,7 +148,7 @@ postmap ${OMV_POSTFIX_RECIPIENT_BCC_MAPS}
 # Create '/etc/postfix/smtp_header_checks' configuration file
 cat <<EOF > ${OMV_POSTFIX_SMTP_HEADER_CHECKS}
 # Append the hostname to the email subject
-/^Subject: (.*)/ REPLACE Subject: \${1} [$(hostname)]
+/^Subject: (.*)/ REPLACE Subject: \${1} [${fqdn}]
 EOF
 chown root:root ${OMV_POSTFIX_SMTP_HEADER_CHECKS}
 chmod 0600 ${OMV_POSTFIX_SMTP_HEADER_CHECKS}
