@@ -272,8 +272,11 @@ Ext.define("OMV.window.Execute", {
 						  } else {
 							  if (true === this.progress)
 								  this.contentCtrl.reset();
-							  else
-								  this.contentCtrl.getEl().unmask();
+							  else {
+								  var el = this.contentCtrl.getEl();
+								  if (el)
+									  el.unmask();
+							  }
 							  this.fireEvent("finish", this, response);
 						  }
 						  // Update button states.
