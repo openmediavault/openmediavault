@@ -2906,14 +2906,50 @@ class OMVStorageDeviceFactory extends OMVObject {
  */
 class OMVStorageDeviceHDD extends OMVStorageDeviceSMARTAbstract {
 	/**
+	 * Get the current power mode status.
+	 * @return The current power mode status which can be
+	 *   <ul>
+	 *   \li unknown
+	 *   \li active/idle
+	 *   \li standby
+	 *   \li sleeping
+	 *   </ul>
+	 *   or FALSE on failure.
+	 */
+	public function getPowerModeState() {
+		$result = FALSE;
+		$cmd = sprintf("export LANG=C; hdparm -C %s", escapeshellarg(
+		  $this->getDeviceFile()));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		// Parse command output:
+		// /dev/sda:
+		//  drive state is:  active/idle
+		//
+		// /dev/sdb:
+		//  drive state is:  standby
+		foreach ($output as $outputk => $outputv) {
+			$regex = "/^\s+drive state is:\s+(\S+)$/i";
+			if (1 == preg_match(, $outputv, $matches)) {
+				$result = $matches[1];
+				break;
+			}
+		}
+		return $result;
+	}
+
+	/**
 	 * Identify the device type required by the smartctl command.
 	 * @return Returns the identified device type or an empty string.
 	 */
 	public function getSMARTDeviceType() {
 		$type = parent::getSMARTDeviceType();
-		if(empty($type)) {
+		if (empty($type)) {
 			// TODO: The device type identification must be improved.
-			if(TRUE === $this->isUsb())
+			if (TRUE === $this->isUsb())
 				$type = $this->setSMARTDeviceType("sat");
 		}
 		return $type;
