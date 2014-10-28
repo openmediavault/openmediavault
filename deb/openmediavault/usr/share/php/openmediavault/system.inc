@@ -869,7 +869,6 @@ class OMVFilesystems extends OMVObject {
 	 *   The devicefile is used as key to access the array elements.
 	 */
 	public static function enumerate() {
-		$result = array();
 		// Get all filesystems that are identified by the block device
 		// identification library.
 		// !!! Note !!!
@@ -922,7 +921,7 @@ class OMVFilesystems extends OMVObject {
 		// Get the filesystems that are not identified by the block device
 		// identification library.
 		foreach (self::$backends as $backendk => $backendv) {
-			if (TRUE == $backend->isBlkidEnumerated())
+			if (TRUE === $backend->isBlkidEnumerated())
 				continue;
 			if (FALSE === ($data = $backendv->enumerate()))
 				return FALSE;
