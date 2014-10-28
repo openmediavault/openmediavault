@@ -481,7 +481,7 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	protected $mntOptions = array();
 
 	/**
-	 * Get the type of the filesystem, e.g. 'ext3' or 'btrfs'.
+	 * Get the type of the filesystem, e.g. 'ext3', 'vfat' or 'btrfs'.
 	 */
 	final public function getType() {
 		return strtolower($this->type);
@@ -489,63 +489,24 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 
 	/**
 	 * Get a list of filesystem devices of the given filesystem backend.
+	 * Override this method if the filesystem implemented by this backend
+	 * is not identified by the block device identification library.
 	 * @return A list of devicefile names, otherwise FALSE.
 	 */
 	public function enumerate() {
-		return $this->enumerateBlkid($this->getType());
+		return FALSE;
 	}
 
 	/**
-	 * Helper function to enumerate the filesystem devices of the type
-	 * implemented by this filesystem backend.
-	 * @param type Specifies the filesystem type, e.g. 'ext3', 'vfat', ...
-	 * @return A list of filesystems, otherwise FALSE. The array elements
-	 *   contain the fields: \em devicefile, \em uuid, \em label and \em type.
-	 *   The devicefile is used as key to access the array elements.
+	 * Check whether the filesystem implemented by this backend is
+	 * identified by the block device identification library. If this is
+	 * not the case, then the backend must override the \ref enumerate
+	 * method.
+	 * @return TRUE if the filesystem is identified by the block device
+	 *   identification library, otherwise FALSE.
 	 */
-	final protected function enumerateBlkid($type) {
-		$cmd = sprintf("export LANG=C; blkid -t TYPE=%s -o full",
-		  escapeshellarg($type));
-		@OMVUtil::exec($cmd, $output, $result);
-		// Return code:
-		// 0 - The specified filesystem type was found.
-		// 2 - The specified filesystem type was not found, or no (specified)
-		//     devices could be identified.
-		if (!(($result == 0) || ($result == 2)))
-			return FALSE;
-		$result = array();
-		foreach ($output as $outputk => $outputv) {
-			// Parse command output:
-			// /dev/sdb: UUID="e6a0f61e-d969-ffcb-d4c5-06e7711285a3" LABEL="dhcppc4:0" TYPE="linux_raid_member"
-			// /dev/sdg1: LABEL="test" UUID="d19bcea0-a323-4aea-9791-c6578180c129" TYPE="jfs"
-			// /dev/sda5: UUID="902775c7-8250-4630-81eb-2602ac65e136" TYPE="swap" 
-			// /dev/sda1: LABEL="Ubuntu" UUID="4aa77ba3-beb6-45dc-b2c7-e77cffd6c6fd" TYPE="ext4" 
-			// /dev/sdb1: UUID="A27E16CD7E1699DD" TYPE="ntfs" 
-			// /dev/sdc1: UUID="1a03b79f-d347-4a24-8ae2-62f1aa9a4554" TYPE="ext4" 
-			// /dev/sdd1: UUID="cb8f7844-362f-4151-8e9e-3888aab723c2" TYPE="ext4" 
-			// /dev/sda3: UUID="fdca09a8-cbc8-432f-9cba-ce033cb59139" TYPE="ext4" LABEL="Debian"
-			// /dev/sr0: LABEL="Debian 7.5.0 amd64 1" TYPE="iso9660"
-			$regex = '/^(\S+): (.+)$/i';
-			if (1 !== preg_match($regex, $outputv, $matches))
-				continue;
-			// Set default values and extract key/value pairs.
-			$data = array(
-				"devicefile" => $matches[1],
-				"uuid" => "",
-				"label" => "",
-				"type" => ""
-			);
-			$parts = preg_split("/(\S+=\\\"[^\\\"]+\\\")|[\s]+/", $matches[2],
-			  -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
-			foreach ($parts as $partk => $partv) {
-				$keyValue = explode("=", $partv);
-				if (count($keyValue) != 2)
-					continue;
-				$data[strtolower($keyValue[0])] = substr($keyValue[1], 1, -1);
-			}
-			$result[$data['devicefile']] = $data;
-		}
-		return $result;
+	public function isBlkidEnumerated() {
+		return TRUE;
 	}
 
 	/**
@@ -909,7 +870,60 @@ class OMVFilesystems extends OMVObject {
 	 */
 	public static function enumerate() {
 		$result = array();
+		// Get all filesystems that are identified by the block device
+		// identification library.
+		// !!! Note !!!
+		// Filesystems that are identified by the block device identification
+		// library are processed in one step to increase performance. Otherwise
+		// each backend must implement the \ref enumerate method and call the
+		// command 'blkid -t TYPE=<xxx> -o full'.
+		$cmd = "export LANG=C; blkid -o full";
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0)
+			return FALSE;
+		$result = array();
+		foreach ($output as $outputk => $outputv) {
+			// Parse command output:
+			// /dev/sdb: UUID="e6a0f61e-d969-ffcb-d4c5-06e7711285a3" LABEL="dhcppc4:0" TYPE="linux_raid_member"
+			// /dev/sdg1: LABEL="test" UUID="d19bcea0-a323-4aea-9791-c6578180c129" TYPE="jfs"
+			// /dev/sda5: UUID="902775c7-8250-4630-81eb-2602ac65e136" TYPE="swap" 
+			// /dev/sda1: LABEL="Ubuntu" UUID="4aa77ba3-beb6-45dc-b2c7-e77cffd6c6fd" TYPE="ext4" 
+			// /dev/sdb1: UUID="A27E16CD7E1699DD" TYPE="ntfs" 
+			// /dev/sdc1: UUID="1a03b79f-d347-4a24-8ae2-62f1aa9a4554" TYPE="ext4" 
+			// /dev/sdd1: UUID="cb8f7844-362f-4151-8e9e-3888aab723c2" TYPE="ext4" 
+			// /dev/sda3: UUID="fdca09a8-cbc8-432f-9cba-ce033cb59139" TYPE="ext4" LABEL="Debian"
+			// /dev/sr0: LABEL="Debian 7.5.0 amd64 1" TYPE="iso9660"
+			$regex = '/^(\S+): (.+)$/i';
+			if (1 !== preg_match($regex, $outputv, $matches))
+				continue;
+			// Set default values and extract key/value pairs.
+			$data = array(
+				"devicefile" => $matches[1],
+				"uuid" => "",
+				"label" => "",
+				"type" => ""
+			);
+			$parts = preg_split("/(\S+=\\\"[^\\\"]+\\\")|[\s]+/", $matches[2],
+			  -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+			foreach ($parts as $partk => $partv) {
+				$keyValue = explode("=", $partv);
+				if (count($keyValue) != 2)
+					continue;
+				$data[strtolower($keyValue[0])] = substr($keyValue[1], 1, -1);
+			}
+			// Is this filesystem processed via blkid?
+			if (NULL == ($backend = self::getBackendByType($data['type'])))
+				continue;
+			if (FALSE == $backend->isBlkidEnumerated())
+				continue;
+			// Append filesystem.
+			$result[$data['devicefile']] = $data;
+		}
+		// Get the filesystems that are not identified by the block device
+		// identification library.
 		foreach (self::$backends as $backendk => $backendv) {
+			if (TRUE == $backend->isBlkidEnumerated())
+				continue;
 			if (FALSE === ($data = $backendv->enumerate()))
 				return FALSE;
 			if (empty($data))
