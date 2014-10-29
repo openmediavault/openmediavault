@@ -26,6 +26,7 @@
 # http://oreilly.com/catalog/samba/chapter/book/ch06_02.html
 # https://www.bsi.bund.de/ContentBSI/grundschutz/kataloge/m/m04/m04332.html
 # http://www.redhat.com/advice/tips/sambatrash.html
+# http://askubuntu.com/questions/258284/setting-up-an-anonymous-public-samba-share-to-be-accessed-via-windows-7-and-xbmc
 
 set -e
 

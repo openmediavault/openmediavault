@@ -2932,7 +2932,7 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceSMARTAbstract {
 		//  drive state is:  standby
 		foreach ($output as $outputk => $outputv) {
 			$regex = "/^\s+drive state is:\s+(\S+)$/i";
-			if (1 == preg_match(, $outputv, $matches)) {
+			if (1 == preg_match($regex, $outputv, $matches)) {
 				$result = $matches[1];
 				break;
 			}
