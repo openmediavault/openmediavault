@@ -173,9 +173,7 @@ Ext.define("OMV.window.Execute", {
 						  });
 					  } else {
 						  // Display waiting mask.
-						  var el = this.contentCtrl.getEl();
-						  if (el)
-							  el.mask(_("Please wait ..."));
+						  this.getEl().mask(_("Please wait ..."));
 					  }
 					  // Update the button states.
 					  this.setButtonDisabled("stop", false);
@@ -213,7 +211,7 @@ Ext.define("OMV.window.Execute", {
 				  if (true === this.progress)
 					  this.contentCtrl.reset();
 				  else
-					  this.contentCtrl.getEl().unmask();
+					  this.getEl().unmask();
 				  if (success) {
 					  // Update the button states.
 					  this.setButtonDisabled("start", false);
@@ -257,11 +255,8 @@ Ext.define("OMV.window.Execute", {
 						  this.cmdIsRunning = response.running;
 						  // Hide the waiting mask if the first content is
 						  // transmitted.
-						  if ((false === this.progress) && (0 < response.pos)) {
-							  var el = this.contentCtrl.getEl();
-							  if (el)
-								  el.unmask();
-						  }
+						  if ((false === this.progress) && (0 < response.pos))
+							  this.getEl().unmask();
 						  // Update the command content.
 						  this.appendValue(response.output);
 						  // If command is still running then do another RPC
@@ -272,11 +267,8 @@ Ext.define("OMV.window.Execute", {
 						  } else {
 							  if (true === this.progress)
 								  this.contentCtrl.reset();
-							  else {
-								  var el = this.contentCtrl.getEl();
-								  if (el)
-									  el.unmask();
-							  }
+							  else
+								  this.getEl().unmask();
 							  this.fireEvent("finish", this, response);
 						  }
 						  // Update button states.
@@ -309,7 +301,7 @@ Ext.define("OMV.window.Execute", {
 							  this.setButtonDisabled("stop", true);
 							  this.setButtonDisabled("close", false);
 							  // Hide the waiting mask.
-							  this.contentCtrl.getEl().unmask();
+							  this.getEl().unmask();
 							  // Fire exception to allow listeners to react
 							  // on errors.
 							  this.fireEvent("exception", this, response);

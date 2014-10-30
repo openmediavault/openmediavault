@@ -21,6 +21,7 @@ openmediavault (1.0.30) stable; urgency=low
     login when privileges are set.
   * Mantis 0001167: /etc/postfix/smtp_header_checks is not updated during
     hostname changing.
+  * Mantis 0001169: Empty progress text output in Windows IE.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 18 Oct 2014 14:22:40 +0200
 
