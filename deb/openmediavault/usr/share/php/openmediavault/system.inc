@@ -814,12 +814,21 @@ class OMVFilesystems extends OMVObject {
 	 */
 	final static function getBackend($id) {
 		$result = NULL;
+		$enums = self::enumerate();
+		foreach ($enums as $enumk => $enumv) {
+			if (($id == $enumv['devicefile']) || ($id == $enumv['uuid'])) {
+				$result = self::getBackendByType($enumv['type']);
+				break;
+			}
+		}
+		/* Slow, but the more correct implementation.
 		foreach (self::$backends as $backendk => $backendv) {
 			if (FALSE === $backendv->isTypeOf($id))
 				continue;
 			$result = $backendv;
 			break;
 		}
+		*/
 		return $result;
 	}
 
@@ -859,7 +868,7 @@ class OMVFilesystems extends OMVObject {
 	 *   The devicefile is used as key to access the array elements.
 	 */
 	public static function get() {
-		return self::enumerate();
+		return $this->enumerate();
 	}
 
 	/**
@@ -1995,6 +2004,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 			$path = "/dev/disk/by-id";
 			if (is_dir($path)) {
 				$deviceFilesById = array();
+				$deviceName = $this->getDeviceName();
 				// Process directory:
 				// ata-WDC_WD2002FAEX-007BA0_WD-WCAY01065572 -> ../../sda
 				// scsi-SATA_WDC_WD2002FAEX-_WD-WCAY01065572 -> ../../sda
@@ -2012,8 +2022,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 						continue;
 					// Skip files that does not match the device name,
 					// e.g. sdb or sdg.
-					if ($this->getDeviceName() !== basename(
-					  $item->getLinkTarget()))
+					if (basename($item->getLinkTarget()) !== $deviceName)
 						continue;
 					$deviceFilesById[] = $item->getPathname();
 				}
