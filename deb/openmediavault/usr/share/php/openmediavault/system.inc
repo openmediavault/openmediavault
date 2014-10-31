@@ -3440,7 +3440,9 @@ class OMVATASMARTInformation extends OMVObject {
 	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0
 	 *   </ul>
-	 * @param type Specifies the type of the device, e.g. ata, cciss or 3ware.
+	 * @param type Specifies the type of the device, e.g. 'ata', 'cciss'
+	 *   or '3ware'. For more details please check the option '-d' in
+	 *   http://smartmontools.sourceforge.net/man5/smartd.conf.5.html.
 	 */
 	public function __construct($deviceFile, $type) {
 		$this->deviceFile = $deviceFile;
@@ -3453,20 +3455,20 @@ class OMVATASMARTInformation extends OMVObject {
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	private function getData() {
-		if($this->dataCached !== FALSE)
+		if ($this->dataCached !== FALSE)
 			return TRUE;
 
 		// Get all available S.M.A.R.T. information.
 		$cmdArgs = array();
 		$cmdArgs[] = sprintf("-x %s", escapeshellarg($this->deviceFile));
-		if(!empty($this->type))
+		if (!empty($this->type))
 			$cmdArgs[] = sprintf("-d %s", $this->type);
 		$cmd = sprintf("export LANG=C; smartctl %s", implode(" ", $cmdArgs));
 		@OMVUtil::exec($cmd, $output, $result);
 		// Bit 0: Command line did not parse
 		// Bit 1: Device open failed, or device did not return an
 		//        IDENTIFY DEVICE structure
-		if(($result !== 0) && (($result & 0) || ($result & 1))) {
+		if (($result !== 0) && (($result & 0) || ($result & 1))) {
 			$this->setLastError($output);
 			return FALSE;
 		}
@@ -3484,7 +3486,7 @@ class OMVATASMARTInformation extends OMVObject {
 	 */
 	public function refresh() {
 		$this->dataCached = FALSE;
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return TRUE;
 	}
@@ -3494,7 +3496,7 @@ class OMVATASMARTInformation extends OMVObject {
 	 * @return The command output, otherwise FALSE.
 	 */
 	public function getExtendedInformation() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		return implode("\n", $this->cmdOutput);
 	}
@@ -3504,10 +3506,10 @@ class OMVATASMARTInformation extends OMVObject {
 	 * @return An array of S.M.A.R.T. attributes data, otherwise FALSE.
 	 */
 	public function getAttributes() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		$result = array();
-		foreach($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
+		foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
 			// smartctl 5.41 2011-06-09 r3365
 			// SMART Attributes Data Structure revision number: 16
 			// Vendor Specific SMART Attributes with Thresholds:
@@ -3520,7 +3522,7 @@ class OMVATASMARTInformation extends OMVObject {
 			//   7 Seek_Error_Rate         -OSR-K   252   252   051    -    0
 			$regex = '/^\s*(\d+)\s+(\S+)\s+([POSRCK-]+)\s+(\d+)\s+(\d+)\s+'.
 			  '(\d+)\s+(\S+)\s+(.+)$/i';
-			if(1 == preg_match($regex, $cmdOutputv, $matches)) {
+			if (1 == preg_match($regex, $cmdOutputv, $matches)) {
 				$result[] = array(
 					"id" => $matches[1],
 					"attrname" => $matches[2],
@@ -3541,10 +3543,10 @@ class OMVATASMARTInformation extends OMVObject {
 	 * @return An array of S.M.A.R.T. self-test logs, otherwise FALSE.
 	 */
 	public function getSelfTestLogs() {
-		if($this->getData() === FALSE)
+		if ($this->getData() === FALSE)
 			return FALSE;
 		$result = array();
-		foreach($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
+		foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
 			// SMART Self-test log structure
 			// Parse command output:
 			// Num  Test_Description    Status                  Remaining  LifeTime(hours)  LBA_of_first_error
@@ -3553,7 +3555,7 @@ class OMVATASMARTInformation extends OMVObject {
 			$regex = '/^#\s*(\d+)\s+(Short offline|Extended offline|'.
 			  'Short captive|Extended captive)\s+(.+)\s+(\d+)%\s+(\d+)'.
 			  '\s+(.+)$/';
-			if(1 == preg_match($regex, $cmdOutputv, $matches)) {
+			if (1 == preg_match($regex, $cmdOutputv, $matches)) {
 				$result[] = array(
 					"num" => $matches[1],
 					"description" => $matches[2],
@@ -3633,24 +3635,24 @@ class OMVATASMARTInformation extends OMVObject {
 	 * @return The temperature value, otherwise FALSE.
 	 */
 	public function getTemperature() {
-		if(FALSE === ($attributes = $this->getAttributes()))
+		if (FALSE === ($attributes = $this->getAttributes()))
 			return FALSE;
 		$temp = FALSE;
 		$found = FALSE;
 		// Process the attributes to get the temperature value.
-		foreach($attributes as $attrk => $attrv) {
-			switch($attrv['id']) {
+		foreach ($attributes as $attrk => $attrv) {
+			switch ($attrv['id']) {
 			case 194:
 			case 231:
 				// The value may look like: '43 (Lifetime Min/Max 16/61)'
 				$regex = '/^(\d+)(\s+(.+))*$/';
-				if(1 !== preg_match($regex, $attrv['rawvalue'], $matches))
+				if (1 !== preg_match($regex, $attrv['rawvalue'], $matches))
 					continue;
 				$temp = $matches[1];
 				$found = TRUE;
 				break;
 			}
-			if($found)
+			if ($found)
 				break;
 		}
 		// If the SMART attributes are not present then it may be an older
@@ -3666,10 +3668,10 @@ class OMVATASMARTInformation extends OMVObject {
 		// Current Drive Temperature:     34 C
 		// Drive Trip Temperature:        65 C
 		// ...
-		if(FALSE === $found) {
-			foreach($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
+		if (FALSE === $found) {
+			foreach ($this->cmdOutput as $cmdOutputk => $cmdOutputv) {
 				$regex = '/^Current Drive Temperature:\s+(\d+)\s+C$/';
-				if(1 == preg_match($regex, $cmdOutputv, $matches)) {
+				if (1 == preg_match($regex, $cmdOutputv, $matches)) {
 					$temp = $matches[1];
 					break;
 				}
