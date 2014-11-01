@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chang-Eon Byeon <ksna0827@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-07 18:17+0200\n"
-"PO-Revision-Date: 2014-09-12 15:19+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-11-01 06:55+0000\n"
+"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,43 +19,43 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Add share"
-msgstr ""
+msgstr "공유 추가"
 
 msgid "Certificate"
-msgstr ""
+msgstr "증명"
 
 msgid "Comment"
-msgstr ""
+msgstr "설명"
 
 msgid "Data directory"
-msgstr ""
+msgstr "데이터 경로"
 
 msgid "Edit share"
-msgstr ""
+msgstr "공유 편집"
 
 msgid "Enable"
-msgstr ""
+msgstr "활성화"
 
 msgid "Folder name"
-msgstr ""
+msgstr "폴더 이름"
 
 msgid "General settings"
-msgstr ""
+msgstr "일반 설정"
 
 msgid "Port"
-msgstr ""
+msgstr "포트"
 
 msgid "Settings"
-msgstr ""
+msgstr "설정"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "공유 폴더"
 
 msgid "Shares"
-msgstr ""
+msgstr "공유"
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "SSL 증명"
 
 msgid "The location of the files to share."
 msgstr ""
@@ -68,10 +69,10 @@ msgstr ""
 msgid ""
 "The ownCloud web interface can be accessed <a href='/owncloud' "
 "target='_blank'>here</a>."
-msgstr ""
+msgstr "ownCloud 웹 인터페이스는 <a href='/owncloud' target='_blank'>여기</a>에서 접근할 수 있습니다."
 
 msgid "The port '%d' is already in use"
-msgstr ""
+msgstr "'%d'는 이미 사용중인 포트입니다."
 
 msgid "The port which is used to access the ownCloud web interface."
 msgstr ""
@@ -80,4 +81,4 @@ msgid "n/a"
 msgstr ""
 
 msgid "ownCloud"
-msgstr ""
+msgstr "ownCloud"

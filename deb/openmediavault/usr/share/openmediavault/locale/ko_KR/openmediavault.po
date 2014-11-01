@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-11-01 00:52+0000\n"
+"PO-Revision-Date: 2014-11-01 10:19+0000\n"
 "Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -416,7 +416,7 @@ msgid "Authentication and no privacy"
 msgstr ""
 
 msgid "Authentication and privacy"
-msgstr ""
+msgstr "인증 및 개인 정보 보호"
 
 msgid "Authentication method"
 msgstr "인증 방법"
@@ -637,10 +637,10 @@ msgid "Colombia"
 msgstr "컬럼비아"
 
 msgid "Command"
-msgstr ""
+msgstr "명령"
 
 msgid "Comment"
-msgstr ""
+msgstr "설명"
 
 msgid "Common Name"
 msgstr ""
@@ -652,7 +652,7 @@ msgid "Community-maintained updates."
 msgstr ""
 
 msgid "Comoros"
-msgstr ""
+msgstr "코모로"
 
 msgid "Complete"
 msgstr ""
@@ -661,16 +661,16 @@ msgid "Completion status"
 msgstr ""
 
 msgid "Compress"
-msgstr ""
+msgstr "압축"
 
 msgid "Compress file data during the transfer"
 msgstr ""
 
 msgid "Compressed"
-msgstr ""
+msgstr "압축됨"
 
 msgid "Compression"
-msgstr ""
+msgstr "압축"
 
 msgid ""
 "Compression is worth using if your connection is slow. The efficiency of the"
@@ -679,22 +679,22 @@ msgid ""
 msgstr ""
 
 msgid "Confirm password"
-msgstr ""
+msgstr "암호 확인"
 
 msgid "Confirmation"
-msgstr ""
+msgstr "확인"
 
 msgid "Congo (Brazzaville)"
-msgstr ""
+msgstr "콩고 (브라자빌)"
 
 msgid "Congo (Kinshasa)"
-msgstr ""
+msgstr "콩고 (킨샤사)"
 
 msgid "Connections"
-msgstr ""
+msgstr "연결"
 
 msgid "Contact"
-msgstr ""
+msgstr "연락"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
@@ -711,7 +711,7 @@ msgid "Costa Rica"
 msgstr "코스타리카"
 
 msgid "Country"
-msgstr ""
+msgstr "국가"
 
 msgid "Create"
 msgstr "생성"
@@ -723,37 +723,37 @@ msgid "Create file system"
 msgstr "파일 시스템 생성"
 
 msgid "Create self-signed SSL certificate"
-msgstr "자가 서명 SSL 인증 생성"
+msgstr "자가 서명 SSL 증명 생성"
 
 msgid "Creating the file system, please wait ..."
-msgstr ""
+msgstr "파일 시스템을 만드는 중입니다. 잠시 기다려주십시오 ..."
 
 msgid "Critical"
 msgstr ""
 
 msgid "Croatia"
-msgstr ""
+msgstr "크로아티아"
 
 msgid "Cuba"
-msgstr ""
+msgstr "쿠바"
 
 msgid "Current time"
-msgstr ""
+msgstr "현재 시간"
 
 msgid "Currently logged in users"
-msgstr ""
+msgstr "현재 로그인 된 사용자"
 
 msgid "Currently logged in users:"
-msgstr ""
+msgstr "현재 로그인 된 사용자:"
 
 msgid "Cyprus"
-msgstr ""
+msgstr "키프로스"
 
 msgid "Czech Republic"
-msgstr ""
+msgstr "체코"
 
 msgid "DHCP"
-msgstr ""
+msgstr "DHCP"
 
 msgid "DNS Server"
 msgstr "DNS 서버"
@@ -771,7 +771,7 @@ msgid "Date"
 msgstr ""
 
 msgid "Date & Time"
-msgstr ""
+msgstr "날짜 및 시간"
 
 msgid "Day of month"
 msgstr ""
@@ -780,19 +780,19 @@ msgid "Day of week"
 msgstr ""
 
 msgid "Debug"
-msgstr ""
+msgstr "디버그"
 
 msgid "December"
-msgstr ""
+msgstr "12월"
 
 msgid "Delete"
-msgstr ""
+msgstr "삭제"
 
 msgid "Delete content"
 msgstr ""
 
 msgid "Delete file system"
-msgstr ""
+msgstr "파일 시스템 삭제"
 
 msgid "Delete files on the receiving side that don't exist on sender"
 msgstr ""
@@ -801,7 +801,7 @@ msgid "Deleting selected item(s)"
 msgstr ""
 
 msgid "Denmark"
-msgstr ""
+msgstr "덴마크"
 
 msgid "Deny"
 msgstr ""
@@ -822,13 +822,13 @@ msgid ""
 msgstr ""
 
 msgid "Destination port"
-msgstr ""
+msgstr "대상 포트"
 
 msgid "Destination server"
-msgstr ""
+msgstr "대상 서버"
 
 msgid "Destination shared folder"
-msgstr ""
+msgstr "대상 공유 폴더"
 
 msgid "Detail"
 msgstr ""
@@ -839,28 +839,28 @@ msgid ""
 msgstr ""
 
 msgid "Device"
-msgstr ""
+msgstr "장치"
 
 msgid "Device Mapper %s [%s, %s]"
 msgstr ""
 
 msgid "Device information"
-msgstr ""
+msgstr "장치 정보"
 
 msgid "Device model"
-msgstr ""
+msgstr "장치 모델"
 
 msgid "Device properties"
-msgstr ""
+msgstr "장치 속성"
 
 msgid "Device/Label"
-msgstr ""
+msgstr "장치/라벨"
 
 msgid "Devices"
-msgstr ""
+msgstr "장치"
 
 msgid "Diagnostics"
-msgstr ""
+msgstr "진단"
 
 msgid "Difference"
 msgstr ""
@@ -872,19 +872,19 @@ msgid "Directory"
 msgstr ""
 
 msgid "Disabled"
-msgstr ""
+msgstr "비활성화"
 
 msgid "Disallow the user to modify his account."
 msgstr ""
 
 msgid "Disk usage"
-msgstr ""
+msgstr "디스크 사용량"
 
 msgid "Displaying items {0} - {1} of {2}"
 msgstr ""
 
 msgid "Djibouti"
-msgstr ""
+msgstr "지부티"
 
 msgid "Do you really want to apply the configuration changes?"
 msgstr ""
@@ -962,16 +962,16 @@ msgid ""
 msgstr ""
 
 msgid "Domain name"
-msgstr ""
+msgstr "도메인 이름"
 
 msgid "Dominica"
-msgstr ""
+msgstr "도미니카"
 
 msgid "Dominican Republic"
-msgstr ""
+msgstr "도미니카 공화국"
 
 msgid "Donate"
-msgstr ""
+msgstr "기부"
 
 msgid "Done ..."
 msgstr ""
@@ -983,10 +983,10 @@ msgid "Down delay"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "내려받기"
 
 msgid "Downloading package information"
-msgstr ""
+msgstr "패키지 정보 내려받는 중"
 
 msgid "Dronning Maud Land"
 msgstr ""
@@ -1006,58 +1006,58 @@ msgid "Ecuador"
 msgstr ""
 
 msgid "Edit"
-msgstr ""
+msgstr "편집"
 
 msgid "Edit SSL certificate"
-msgstr ""
+msgstr "SSL 증명 편집"
 
 msgid "Edit bonded interface"
-msgstr ""
+msgstr "본딩된 인터페이스 편집"
 
 msgid "Edit firewall rule"
-msgstr ""
+msgstr "방화벽 규칙 편집"
 
 msgid "Edit group"
-msgstr ""
+msgstr "그룹 편집"
 
 msgid "Edit module"
-msgstr ""
+msgstr "모듈 편집"
 
 msgid "Edit physical interface"
-msgstr ""
+msgstr "물리 인터페이스 편집"
 
 msgid "Edit quota"
-msgstr ""
+msgstr "할당량 편집"
 
 msgid "Edit rsync job"
-msgstr ""
+msgstr "rsync 작업 편집"
 
 msgid "Edit rule"
-msgstr ""
+msgstr "규칙 편집"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "예약된 작업 편집"
 
 msgid "Edit scheduled test"
-msgstr ""
+msgstr "예약된 검사 편집"
 
 msgid "Edit share"
-msgstr ""
+msgstr "공유 편집"
 
 msgid "Edit shared folder"
-msgstr ""
+msgstr "공유 폴더 편집"
 
 msgid "Edit user"
-msgstr ""
+msgstr "사용자 편집"
 
 msgid "Egypt"
-msgstr ""
+msgstr "이집트"
 
 msgid "El Salvador"
-msgstr ""
+msgstr "엘살바도르"
 
 msgid "Email"
-msgstr ""
+msgstr "이메일"
 
 msgid "Empty now"
 msgstr ""
@@ -1066,22 +1066,22 @@ msgid "Empty recycle bin"
 msgstr ""
 
 msgid "Enable"
-msgstr ""
+msgstr "활성화"
 
 msgid "Enable FXP protocol"
-msgstr ""
+msgstr "FXP 프로토콜 활성화"
 
 msgid "Enable SSL/TLS"
-msgstr ""
+msgstr "SSL/TLS 활성화"
 
 msgid "Enable SSL/TLS connections"
-msgstr ""
+msgstr "SSL/TLS 연결 활성화"
 
 msgid "Enable WINS server"
-msgstr ""
+msgstr "WINS 서버 활성화"
 
 msgid "Enable anonymous FTP"
-msgstr ""
+msgstr "익명 FTP 활성화"
 
 msgid "Enable archive mode"
 msgstr ""
@@ -1090,7 +1090,7 @@ msgid "Enable asynchronous I/O (AIO) support."
 msgstr ""
 
 msgid "Enable chroot."
-msgstr ""
+msgstr "chroot 활성화"
 
 msgid "Enable compression"
 msgstr ""
@@ -1137,10 +1137,10 @@ msgid ""
 msgstr ""
 
 msgid "Enable transfer log"
-msgstr ""
+msgstr "전송 기록 활성화"
 
 msgid "Enable user authentication"
-msgstr ""
+msgstr "사용자 인증 활성화"
 
 msgid "Enable user home directories"
 msgstr ""
@@ -1173,10 +1173,10 @@ msgid "Error #%d"
 msgstr ""
 
 msgid "Estonia"
-msgstr ""
+msgstr "에스토니아"
 
 msgid "Ethiopia"
-msgstr ""
+msgstr "에티오피아"
 
 msgid "Event"
 msgstr ""
@@ -1221,13 +1221,13 @@ msgid "Extra options"
 msgstr ""
 
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr ""
+msgstr "FTP - 전송 기록"
 
 msgid "FXP"
-msgstr ""
+msgstr "FXP"
 
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
@@ -1259,31 +1259,31 @@ msgid "Family"
 msgstr ""
 
 msgid "Faroe Islands"
-msgstr ""
+msgstr "페로 제도"
 
 msgid "Fatal error"
 msgstr ""
 
 msgid "February"
-msgstr ""
+msgstr "2월"
 
 msgid "Fields must be exclusive"
 msgstr ""
 
 msgid "Fiji"
-msgstr ""
+msgstr "피지"
 
 msgid "File"
-msgstr ""
+msgstr "파일"
 
 msgid "File Systems"
-msgstr ""
+msgstr "파일 시스템"
 
 msgid "File system"
-msgstr ""
+msgstr "파일 시스템"
 
 msgid "Filename"
-msgstr ""
+msgstr "파일 이름"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
@@ -1296,118 +1296,118 @@ msgid ""
 msgstr ""
 
 msgid "Filesize"
-msgstr ""
+msgstr "파일 크기"
 
 msgid "Filesystem '%s' not found"
-msgstr ""
+msgstr "'%s' 파일 시스템을 찾을 수 없습니다."
 
 msgid "Filesystem '%s' not supported"
-msgstr ""
+msgstr "'%s' 파일 시스템은 지원되지 않습니다."
 
 msgid "Filesystems"
-msgstr ""
+msgstr "파일 시스템"
 
 msgid "Finland"
-msgstr ""
+msgstr "핀란드"
 
 msgid "Firewall"
-msgstr ""
+msgstr "방화벽"
 
 msgid "Firmware version"
-msgstr ""
+msgstr "펌웨어 버전"
 
 msgid "Flags"
 msgstr ""
 
 msgid "Force SSL/TLS"
-msgstr ""
+msgstr "강제 SSL/TLS"
 
 msgid "Force secure connection only."
 msgstr ""
 
 msgid "France"
-msgstr ""
+msgstr "프랑스"
 
 msgid "French Guiana"
-msgstr ""
+msgstr "프랑스령 기아나"
 
 msgid "French Polynesia"
-msgstr ""
+msgstr "프랑스령 폴리네시아"
 
 msgid "French Southern Territories"
-msgstr ""
+msgstr "프랑스 남부 지역"
 
 msgid "French Southern and Antarctic Territories"
-msgstr ""
+msgstr "프랑스령 남부와 남극 지역"
 
 msgid "Friday"
-msgstr ""
+msgstr "금요일"
 
 msgid "Full"
 msgstr ""
 
 msgid "Gabon"
-msgstr ""
+msgstr "가봉"
 
 msgid "Gambia"
-msgstr ""
+msgstr "감비아"
 
 msgid "Gateway"
-msgstr ""
+msgstr "게이트웨이"
 
 msgid "General"
-msgstr ""
+msgstr "일반"
 
 msgid "General Settings"
-msgstr ""
+msgstr "일반 설정"
 
 msgid "General settings"
-msgstr ""
+msgstr "일반 설정"
 
 msgid "General users/groups"
 msgstr ""
 
 msgid "Generating graphs ..."
-msgstr ""
+msgstr "그래프 생성 중 ..."
 
 msgid "Georgia"
-msgstr ""
+msgstr "그루지야"
 
 msgid "Germany"
-msgstr ""
+msgstr "독일"
 
 msgid "Ghana"
-msgstr ""
+msgstr "가나"
 
 msgid "GiB"
-msgstr ""
+msgstr "GiB"
 
 msgid "Gibraltar"
-msgstr ""
+msgstr "지브롤터"
 
 msgid "Greece"
-msgstr ""
+msgstr "그리스"
 
 msgid "Greenland"
-msgstr ""
+msgstr "그린란드"
 
 msgid "Grenada"
-msgstr ""
+msgstr "그레나다"
 
 msgid "Group"
-msgstr ""
+msgstr "그룹"
 
 msgid "Group '%s' already exist"
-msgstr ""
+msgstr " '%s' 는 이미 존재하는 그룹입니다."
 
 msgid "Group '%s' does not exist"
-msgstr ""
+msgstr "그룹 '%s'은(는) 존재하지 않습니다."
 
 msgid "Group ID '%d' already exist"
-msgstr ""
+msgstr "'%d'는 이미 존재하는 그룹 ID입니다."
 
 msgid "Groups"
-msgstr ""
+msgstr "그룹"
 
 msgid "Grow"
 msgstr ""
@@ -1416,13 +1416,13 @@ msgid "Grow RAID device"
 msgstr ""
 
 msgid "Guadeloupe"
-msgstr ""
+msgstr "과들루프"
 
 msgid "Guam"
-msgstr ""
+msgstr "괌"
 
 msgid "Guatemala"
-msgstr ""
+msgstr "과테말라"
 
 msgid "Guest"
 msgstr ""
@@ -1434,76 +1434,76 @@ msgid "Guests allowed"
 msgstr ""
 
 msgid "Guinea"
-msgstr ""
+msgstr "기니"
 
 msgid "Guinea-Bissau"
-msgstr ""
+msgstr "기니비사우"
 
 msgid "Guyana"
-msgstr ""
+msgstr "가이아나"
 
 msgid "Haiti"
-msgstr ""
+msgstr "아이티"
 
 msgid "Heard Island and McDonald Islands"
-msgstr ""
+msgstr "허드 섬 및 맥도널드 제도"
 
 msgid "Hide details"
-msgstr ""
+msgstr "정보 숨기기"
 
 msgid "Hide dot files"
-msgstr ""
+msgstr "점(.) 파일 숨기기"
 
 msgid "Home directories"
-msgstr ""
+msgstr "홈 경로"
 
 msgid "Homepage"
-msgstr ""
+msgstr "홈페이지"
 
 msgid "Honduras"
-msgstr ""
+msgstr "온두라스"
 
 msgid "Hong Kong S.A.R., China"
-msgstr ""
+msgstr "홍콩"
 
 msgid "Honor existing ACLs"
 msgstr ""
 
 msgid "Host"
-msgstr ""
+msgstr "호스트"
 
 msgid "Host access control"
 msgstr ""
 
 msgid "Hostname"
-msgstr ""
+msgstr "호스트 이름"
 
 msgid "Hosts"
-msgstr ""
+msgstr "호스트"
 
 msgid "Hosts allow"
-msgstr ""
+msgstr "호스트 허용"
 
 msgid "Hosts deny"
-msgstr ""
+msgstr "호스트 거부"
 
 msgid "Hour"
 msgstr ""
 
 msgid "Hungary"
-msgstr ""
+msgstr "헝가리"
 
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 msgid "IPv4"
-msgstr ""
+msgstr "IPv4"
 
 msgid "IPv6"
-msgstr ""
+msgstr "IPv6"
 
 msgid "Iceland"
-msgstr ""
+msgstr "아이슬란드"
 
 msgid "Ident protocol"
 msgstr ""
@@ -1565,16 +1565,16 @@ msgid "Implicit SSL"
 msgstr ""
 
 msgid "Import"
-msgstr ""
+msgstr "불러오기"
 
 msgid "Import SSL certificate"
-msgstr ""
+msgstr "SSL 증명 불러오기"
 
 msgid "Import groups"
-msgstr ""
+msgstr "그룹 불러오기"
 
 msgid "Import users"
-msgstr ""
+msgstr "사용자 불러오기"
 
 msgid "Importing groups ..."
 msgstr ""
@@ -1603,10 +1603,10 @@ msgid "Incorrect username or password."
 msgstr ""
 
 msgid "India"
-msgstr ""
+msgstr "인도"
 
 msgid "Indonesia"
-msgstr ""
+msgstr "인도네시아"
 
 msgid "Info"
 msgstr ""
@@ -1615,7 +1615,7 @@ msgid "Informal"
 msgstr ""
 
 msgid "Information"
-msgstr ""
+msgstr "정보"
 
 msgid "Inherit ACLs"
 msgstr ""
@@ -1627,133 +1627,133 @@ msgid "Initializing"
 msgstr ""
 
 msgid "Install"
-msgstr ""
+msgstr "설치"
 
 msgid "Install updates from"
 msgstr ""
 
 msgid "Installed"
-msgstr ""
+msgstr "설치됨"
 
 msgid "Installing plugins ..."
-msgstr ""
+msgstr "플러그인 설치 중 ..."
 
 msgid "Installing updates ..."
-msgstr ""
+msgstr "업데이트 설치 중 ..."
 
 msgid "Interfaces"
-msgstr ""
+msgstr "인터페이스"
 
 msgid "Invalid domain name"
-msgstr ""
+msgstr "잘못된 도메인 이름"
 
 msgid "Invalid file system label"
-msgstr ""
+msgstr "잘못된 파일 시스템 라벨"
 
 msgid "Invalid group name"
-msgstr ""
+msgstr "잘못된 그룹 이름"
 
 msgid "Invalid hostname"
-msgstr ""
+msgstr "잘못된 호스트명"
 
 msgid "Invalid line: %s"
-msgstr ""
+msgstr "잘못된 줄: %s"
 
 msgid "Invalid name"
-msgstr ""
+msgstr "잘못된 이름"
 
 msgid "Invalid user name"
-msgstr ""
+msgstr "잘못된 유저 이름"
 
 msgid "Iran"
-msgstr ""
+msgstr "이란"
 
 msgid "Iraq"
-msgstr ""
+msgstr "이라크"
 
 msgid "Ireland"
-msgstr ""
+msgstr "아일랜드"
 
 msgid "Israel"
-msgstr ""
+msgstr "이스라엘"
 
 msgid "Italy"
-msgstr ""
+msgstr "이탈리아"
 
 msgid "Ivory Coast"
-msgstr ""
+msgstr "상아 해안"
 
 msgid "Jamaica"
-msgstr ""
+msgstr "자메이카"
 
 msgid "January"
-msgstr ""
+msgstr "1월"
 
 msgid "Japan"
-msgstr ""
+msgstr "일본"
 
 msgid "Jobs"
-msgstr ""
+msgstr "작업"
 
 msgid "Johnston Island"
-msgstr ""
+msgstr "존스턴 섬"
 
 msgid "Jordan"
-msgstr ""
+msgstr "요르단"
 
 msgid "July"
-msgstr ""
+msgstr "7월"
 
 msgid "June"
-msgstr ""
+msgstr "6월"
 
 msgid "Kazakhstan"
-msgstr ""
+msgstr "카자흐스탄"
 
 msgid "Keep partially transferred files"
 msgstr ""
 
 msgid "Kenya"
-msgstr ""
+msgstr "케냐"
 
 msgid "Kernel"
-msgstr ""
+msgstr "커널"
 
 msgid "Key size"
 msgstr ""
 
 msgid "KiB"
-msgstr ""
+msgstr "KiB"
 
 msgid "Kiribati"
-msgstr ""
+msgstr "키리바시"
 
 msgid "Kuwait"
-msgstr ""
+msgstr "쿠웨이트"
 
 msgid "Kyrgyzstan"
-msgstr ""
+msgstr "키리기스스탄"
 
 msgid "LBA of first error"
 msgstr ""
 
 msgid "LVM logical volume %s [%s, %s]"
-msgstr ""
+msgstr "LVM 논리 볼륨 %s [%s, %s]"
 
 msgid "Label"
-msgstr ""
+msgstr "라벨"
 
 msgid "Language"
 msgstr "언어"
 
 msgid "Laos"
-msgstr ""
+msgstr "라오스"
 
 msgid "Latvia"
-msgstr ""
+msgstr "라트비아"
 
 msgid "Lebanon"
-msgstr ""
+msgstr "레바논"
 
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
@@ -1761,19 +1761,19 @@ msgid ""
 msgstr ""
 
 msgid "Lesotho"
-msgstr ""
+msgstr "레소토"
 
 msgid "Level"
 msgstr ""
 
 msgid "Liberia"
-msgstr ""
+msgstr "라이베리아"
 
 msgid "Libya"
-msgstr ""
+msgstr "리비아"
 
 msgid "Liechtenstein"
-msgstr ""
+msgstr "리히텐슈타인"
 
 msgid "Lifetime"
 msgstr ""
@@ -1788,16 +1788,16 @@ msgid "List"
 msgstr ""
 
 msgid "Lithuania"
-msgstr ""
+msgstr "리투아니아"
 
 msgid "Load average"
-msgstr ""
+msgstr "평균 부하량"
 
 msgid "Loading ..."
-msgstr ""
+msgstr "로딩 중 ..."
 
 msgid "Loading, please wait ..."
-msgstr ""
+msgstr "로딩 중입니다, 잠시 기다려주십시오 ..."
 
 msgid "Local"
 msgstr ""
@@ -1806,7 +1806,7 @@ msgid "Local master browser"
 msgstr ""
 
 msgid "Location"
-msgstr ""
+msgstr "위치"
 
 msgid "Location information, e.g. physical location of this system."
 msgstr ""
@@ -1818,7 +1818,7 @@ msgid "Login"
 msgstr "로그인"
 
 msgid "Logout"
-msgstr ""
+msgstr "로그아웃"
 
 msgid "Logs"
 msgstr ""
@@ -1830,55 +1830,55 @@ msgid "Loop device [%s, %s]"
 msgstr ""
 
 msgid "Luxembourg"
-msgstr ""
+msgstr "룩셈부르크"
 
 msgid "MAC address"
-msgstr ""
+msgstr "MAC 주소"
 
 msgid "MII monitoring frequency"
 msgstr ""
 
 msgid "MTU"
-msgstr ""
+msgstr "MTU"
 
 msgid "Macao S.A.R., China"
-msgstr ""
+msgstr "마카오"
 
 msgid "Macedonia"
-msgstr ""
+msgstr "마케도니아"
 
 msgid "Madagascar"
-msgstr ""
+msgstr "마다가스카르"
 
 msgid "Maintainer"
 msgstr ""
 
 msgid "Malawi"
-msgstr ""
+msgstr "말라위"
 
 msgid "Malaysia"
-msgstr ""
+msgstr "말레이시아"
 
 msgid "Maldives"
-msgstr ""
+msgstr "몰디브"
 
 msgid "Mali"
-msgstr ""
+msgstr "말리"
 
 msgid "Malta"
-msgstr ""
+msgstr "몰타"
 
 msgid "Manual"
 msgstr ""
 
 msgid "March"
-msgstr ""
+msgstr "3월"
 
 msgid "Marshall Islands"
-msgstr ""
+msgstr "마셜 제도"
 
 msgid "Martinique"
-msgstr ""
+msgstr "마르티니크"
 
 msgid "Masquerade address"
 msgstr ""
@@ -1894,25 +1894,25 @@ msgid ""
 msgstr ""
 
 msgid "Mauritania"
-msgstr ""
+msgstr "모리타니"
 
 msgid "Mauritius"
-msgstr ""
+msgstr "모리셔스"
 
 msgid "Max. clients"
-msgstr ""
+msgstr "최대 클라이언트"
 
 msgid "Max. connections"
-msgstr ""
+msgstr "최대 연결"
 
 msgid "Max. connections per host"
-msgstr ""
+msgstr "호스트 당 최대 연결"
 
 msgid "Max. login attempts"
-msgstr ""
+msgstr "최대 로그인 시도"
 
 msgid "Maximum download rate (KiB/s)"
-msgstr ""
+msgstr "최대 내려받기 속도 (KiB/s)"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
@@ -1939,16 +1939,16 @@ msgid "Maximum {0} selected item(s) allowed"
 msgstr ""
 
 msgid "May"
-msgstr ""
+msgstr "5월"
 
 msgid "Mayotte"
-msgstr ""
+msgstr "마요트 섬"
 
 msgid "Members"
 msgstr ""
 
 msgid "Memory usage"
-msgstr ""
+msgstr "메모리 사용량"
 
 msgid "Message"
 msgstr ""
@@ -1960,22 +1960,22 @@ msgid "Method"
 msgstr ""
 
 msgid "Metropolitan France"
-msgstr ""
+msgstr "프랑스 본국"
 
 msgid "Mexico"
-msgstr ""
+msgstr "멕시코"
 
 msgid "MiB"
-msgstr ""
+msgstr "MiB"
 
 msgid "Micronesia"
-msgstr ""
+msgstr "미크로네시아"
 
 msgid "Midway Islands"
-msgstr ""
+msgstr "미드웨이 섬"
 
 msgid "Minimum"
-msgstr ""
+msgstr "최소"
 
 msgid "Minimum performance, Minimum acoustic output"
 msgstr ""
@@ -1996,7 +1996,7 @@ msgid "Mode"
 msgstr ""
 
 msgid "Model"
-msgstr ""
+msgstr "모델"
 
 msgid "Modify account"
 msgstr ""
@@ -2008,16 +2008,16 @@ msgid "Modules"
 msgstr ""
 
 msgid "Moldova"
-msgstr ""
+msgstr "몰도바"
 
 msgid "Monaco"
-msgstr ""
+msgstr "모나코"
 
 msgid "Monday"
-msgstr ""
+msgstr "월요일"
 
 msgid "Mongolia"
-msgstr ""
+msgstr "몽골리아"
 
 msgid "Monitor"
 msgstr ""
@@ -2029,10 +2029,10 @@ msgid "Month"
 msgstr ""
 
 msgid "Montserrat"
-msgstr ""
+msgstr "몬세라트"
 
 msgid "Morocco"
-msgstr ""
+msgstr "모로코"
 
 msgid "Mount"
 msgstr ""
@@ -2041,64 +2041,64 @@ msgid "Mounted"
 msgstr ""
 
 msgid "Mozambique"
-msgstr ""
+msgstr "모잠비크"
 
 msgid "Myanmar"
-msgstr ""
+msgstr "미얀마"
 
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
 msgid "Name"
-msgstr ""
+msgstr "이름"
 
 msgid "Namibia"
-msgstr ""
+msgstr "나미비아"
 
 msgid "Nauru"
-msgstr ""
+msgstr "나우루"
 
 msgid "Nepal"
-msgstr ""
+msgstr "네팔"
 
 msgid "Netherlands"
-msgstr ""
+msgstr "네덜란드"
 
 msgid "Netherlands Antilles"
-msgstr ""
+msgstr "네덜란드령 앤틸리스 제도"
 
 msgid "Netmask"
-msgstr ""
+msgstr "넷마스크"
 
 msgid "Network"
-msgstr ""
+msgstr "네트워크"
 
 msgid "Network interface '%s' already exists"
-msgstr ""
+msgstr "'%s'는 이미 존재하는 네트워크 인터페이스입니다."
 
 msgid "Neutral Zone"
-msgstr ""
+msgstr "뉴트럴 존"
 
 msgid "Never"
 msgstr ""
 
 msgid "New Caledonia"
-msgstr ""
+msgstr "뉴칼레도니아"
 
 msgid "New Zealand"
-msgstr ""
+msgstr "뉴질랜드"
 
 msgid "Nicaragua"
-msgstr ""
+msgstr "니카라과"
 
 msgid "Niger"
-msgstr ""
+msgstr "니제르"
 
 msgid "Nigeria"
-msgstr ""
+msgstr "나이지리아"
 
 msgid "Niue"
-msgstr ""
+msgstr "니우에"
 
 msgid "No"
 msgstr ""
@@ -2134,22 +2134,22 @@ msgid "None"
 msgstr ""
 
 msgid "Norfolk Island"
-msgstr ""
+msgstr "노퍽 섬"
 
 msgid "Normal"
 msgstr ""
 
 msgid "North Korea"
-msgstr ""
+msgstr "북한"
 
 msgid "North Vietnam"
-msgstr ""
+msgstr "북베트남"
 
 msgid "Northern Mariana Islands"
-msgstr ""
+msgstr "북 마리아나 제도"
 
 msgid "Norway"
-msgstr ""
+msgstr "노르웨이"
 
 msgid "Not ICMP"
 msgstr ""
@@ -2173,7 +2173,7 @@ msgid "Notifications"
 msgstr ""
 
 msgid "November"
-msgstr ""
+msgstr "11월"
 
 msgid "Null passwords"
 msgstr ""
@@ -2191,13 +2191,13 @@ msgid "Occurrence"
 msgstr ""
 
 msgid "October"
-msgstr ""
+msgstr "10월"
 
 msgid "Offline immediate test"
 msgstr ""
 
 msgid "Oman"
-msgstr ""
+msgstr "오만"
 
 msgid "Online"
 msgstr ""
@@ -2236,43 +2236,43 @@ msgid "Overview"
 msgstr ""
 
 msgid "Owner"
-msgstr ""
+msgstr "소유자"
 
 msgid "Pacific Islands Trust Territory"
 msgstr ""
 
 msgid "Package information"
-msgstr ""
+msgstr "패키지 정보"
 
 msgid "Pakistan"
-msgstr ""
+msgstr "파키스탄"
 
 msgid "Palau"
-msgstr ""
+msgstr "팔라우"
 
 msgid "Palestinian Territory"
-msgstr ""
+msgstr "팔레스타인 자치지구"
 
 msgid "Panama"
-msgstr ""
+msgstr "파나마"
 
 msgid "Panama Canal Zone"
-msgstr ""
+msgstr "파나마 운하"
 
 msgid "Papua New Guinea"
-msgstr ""
+msgstr "파푸아 뉴기니"
 
 msgid "Paraguay"
-msgstr ""
+msgstr "파라과이"
 
 msgid "Passive FTP"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "암호"
 
 msgid "Password authentication"
-msgstr ""
+msgstr "암호 인증"
 
 msgid "Passwords don't match"
 msgstr "암호가 일치하지 않습니다."
@@ -2284,10 +2284,10 @@ msgid "Paste an private RSA key in X.509 PEM format here."
 msgstr ""
 
 msgid "Path"
-msgstr ""
+msgstr "경로"
 
 msgid "People's Democratic Republic of Yemen"
-msgstr ""
+msgstr "예멘 인민 민주 공화국"
 
 msgid "Perform a trial run with no changes made"
 msgstr ""
@@ -2296,16 +2296,16 @@ msgid "Period of validity"
 msgstr ""
 
 msgid "Permissions"
-msgstr ""
+msgstr "권한"
 
 msgid "Permissions of group."
-msgstr ""
+msgstr "그룹 권한"
 
 msgid "Permissions of others (e.g. anonymous FTP users)."
 msgstr ""
 
 msgid "Permissions of owner."
-msgstr ""
+msgstr "소유자 권한"
 
 msgid "Permit root login"
 msgstr ""
@@ -2314,62 +2314,62 @@ msgid "Permit to do SSH tunneling"
 msgstr ""
 
 msgid "Peru"
-msgstr ""
+msgstr "페루"
 
 msgid "Philippines"
-msgstr ""
+msgstr "필리핀"
 
 msgid "Physical Disks"
-msgstr ""
+msgstr "물리 디스크"
 
 msgid "Physical disk properties"
-msgstr ""
+msgstr "물리 디스크 속성"
 
 msgid "Pitcairn"
-msgstr ""
+msgstr "핏케언 섬"
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "자세한 내용은 <a href='http://linux.die.net/man/5/exports' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
 
 msgid ""
 "Please check the <a href='http://www.openbsd.org/cgi-"
 "bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
 " more details."
-msgstr ""
+msgstr "자세한 내용은 <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>매뉴얼 페이지<a>를 참고하세요."
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "자세한 내용은 <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>매뉴얼 페이지</a> 를 참고하세요."
 
 msgid ""
 "Please check the <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "자세한 내용은 <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
 "name.html' target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "자세한 내용은 <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "자세한 내용은 <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "자세한 내용은 <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
 
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "자세한 내용은 <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr ""
@@ -2386,7 +2386,7 @@ msgid "Please reload the page to let the changes take effect."
 msgstr ""
 
 msgid "Please wait ..."
-msgstr ""
+msgstr "잠시 기다려주십시오 ..."
 
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
@@ -2394,28 +2394,28 @@ msgid ""
 msgstr ""
 
 msgid "Plugins"
-msgstr ""
+msgstr "플러그인"
 
 msgid "Poland"
-msgstr ""
+msgstr "폴란드"
 
 msgid "Port"
-msgstr ""
+msgstr "포트"
 
 msgid "Port to listen on."
 msgstr ""
 
 msgid "Portugal"
-msgstr ""
+msgstr "포르투갈"
 
 msgid "Power Management"
-msgstr ""
+msgstr "전원 관리"
 
 msgid "Power button"
-msgstr ""
+msgstr "전원 버튼"
 
 msgid "Power mode"
-msgstr ""
+msgstr "전원모드"
 
 msgid "Pre-release updates."
 msgstr ""
@@ -2473,22 +2473,22 @@ msgid "Process monitoring"
 msgstr ""
 
 msgid "Processes"
-msgstr ""
+msgstr "프로세스"
 
 msgid "Processor"
-msgstr ""
+msgstr "프로세서"
 
 msgid "Protocol"
-msgstr ""
+msgstr "프로토콜"
 
 msgid "Public"
 msgstr ""
 
 msgid "Public key authentication"
-msgstr ""
+msgstr "공개 키 인증"
 
 msgid "Puerto Rico"
-msgstr ""
+msgstr "푸에르토리코"
 
 msgid "Pull"
 msgstr ""
@@ -2509,25 +2509,25 @@ msgid "Quota"
 msgstr ""
 
 msgid "RAID 10"
-msgstr ""
+msgstr "RAID 10"
 
 msgid "RAID 4"
-msgstr ""
+msgstr "RAID 4"
 
 msgid "RAID 5"
-msgstr ""
+msgstr "RAID 5"
 
 msgid "RAID 6"
-msgstr ""
+msgstr "RAID 6"
 
 msgid "RAID Management"
-msgstr ""
+msgstr "RAID 관리"
 
 msgid "RFC931"
 msgstr ""
 
 msgid "RSync server"
-msgstr ""
+msgstr "RSync 서버"
 
 msgid "Ranges of numbers are not allowed"
 msgstr ""
@@ -2536,31 +2536,31 @@ msgid "Raw value"
 msgstr ""
 
 msgid "Read only"
-msgstr ""
+msgstr "읽기 전용"
 
 msgid "Read-only"
-msgstr ""
+msgstr "읽기 전용"
 
 msgid "Read/Execute"
-msgstr ""
+msgstr "읽기/실행"
 
 msgid "Read/Write"
-msgstr ""
+msgstr "읽기/쓰기"
 
 msgid "Read/Write/Execute"
-msgstr ""
+msgstr "읽기/쓰기/실행"
 
 msgid "Real"
 msgstr ""
 
 msgid "Reboot"
-msgstr ""
+msgstr "재시작"
 
 msgid "Recipient"
 msgstr ""
 
 msgid "Recover"
-msgstr ""
+msgstr "복구"
 
 msgid "Recurse into directories"
 msgstr ""
@@ -2569,25 +2569,25 @@ msgid "Recursive"
 msgstr ""
 
 msgid "Recycle bin"
-msgstr ""
+msgstr "휴지통"
 
 msgid "Referenced"
 msgstr ""
 
 msgid "Refresh"
-msgstr ""
+msgstr "새로 고침"
 
 msgid "Reload"
-msgstr ""
+msgstr "다시 불러오기"
 
 msgid "Remaining"
 msgstr ""
 
 msgid "Remote"
-msgstr ""
+msgstr "원격"
 
 msgid "Remote host"
-msgstr ""
+msgstr "원격 호스트"
 
 msgid "Remote syslog"
 msgstr ""
@@ -2596,13 +2596,13 @@ msgid "Remove"
 msgstr ""
 
 msgid "Replace"
-msgstr ""
+msgstr "대체"
 
 msgid "Replace all existing permissions"
-msgstr ""
+msgstr "기존의 모든 권한 대체"
 
 msgid "Report"
-msgstr ""
+msgstr "보고"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
@@ -2624,10 +2624,10 @@ msgid "Required"
 msgstr ""
 
 msgid "Reset"
-msgstr ""
+msgstr "재설정"
 
 msgid "Reset WebGUI state"
-msgstr ""
+msgstr "WebGUI 상태 재설정"
 
 msgid ""
 "Reset WebGUI state will restore default settings of grid columns for "
@@ -2635,10 +2635,10 @@ msgid ""
 msgstr ""
 
 msgid "Resize"
-msgstr ""
+msgstr "크기 조정"
 
 msgid "Result"
-msgstr ""
+msgstr "결과"
 
 msgid "Resume"
 msgstr ""
@@ -2647,28 +2647,28 @@ msgid "Retry timeout"
 msgstr ""
 
 msgid "Reunion"
-msgstr ""
+msgstr "재결합"
 
 msgid "Reverse DNS lookup"
-msgstr ""
+msgstr "역방향 DNS 룩업"
 
 msgid "Revert"
-msgstr ""
+msgstr "되돌리기"
 
 msgid "Revert configuration changes"
-msgstr ""
+msgstr "변경된 설정 되돌리기"
 
 msgid "Romania"
-msgstr ""
+msgstr "루마니아"
 
 msgid "Rsync"
-msgstr ""
+msgstr "Rsync"
 
 msgid "Rsync - Jobs"
-msgstr ""
+msgstr "Rsync - 작업"
 
 msgid "Rsync - Server"
-msgstr ""
+msgstr "Rsync - 서버"
 
 msgid "Run"
 msgstr ""
@@ -2677,82 +2677,82 @@ msgid "Running"
 msgstr ""
 
 msgid "Russia"
-msgstr ""
+msgstr "러시아"
 
 msgid "Rwanda"
-msgstr ""
+msgstr "르완다"
 
 msgid "S.M.A.R.T."
-msgstr ""
+msgstr "S.M.A.R.T"
 
 msgid "S.M.A.R.T. information"
-msgstr ""
+msgstr "S.M.A.R.T. 정보"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
 msgstr ""
 
 msgid "SMB/CIFS"
-msgstr ""
+msgstr "SMB/CIFS"
 
 msgid "SMB/CIFS - Audit"
 msgstr ""
 
 msgid "SMTP port"
-msgstr ""
+msgstr "SMTP 포트"
 
 msgid "SMTP server"
-msgstr ""
+msgstr "SMTP 서버"
 
 msgid "SMTP settings"
-msgstr ""
+msgstr "SMTP 설정"
 
 msgid "SNMP"
-msgstr ""
+msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr ""
+msgstr "SNMP 버전 1/2c"
 
 msgid "SNMP version 3"
-msgstr ""
+msgstr "SNMP 버전 3"
 
 msgid "SSH"
-msgstr ""
+msgstr "SSH"
 
 msgid "SSH public key"
-msgstr ""
+msgstr "SSH 공개 키"
 
 msgid "SSL/TLS"
-msgstr ""
+msgstr "SSL/TLS"
 
 msgid "Saint Helena"
-msgstr ""
+msgstr "세인트 헬레나"
 
 msgid "Saint Kitts and Nevis"
-msgstr ""
+msgstr "세인트키츠 네비스"
 
 msgid "Saint Lucia"
-msgstr ""
+msgstr "세인트 루시아"
 
 msgid "Saint Pierre and Miquelon"
-msgstr ""
+msgstr "생피에르 미클롱"
 
 msgid "Saint Vincent and the Grenadines"
-msgstr ""
+msgstr "세인트빈센트 그레나딘"
 
 msgid "Samoa"
-msgstr ""
+msgstr "사모아"
 
 msgid "San Marino"
-msgstr ""
+msgstr "산마리노"
 
 msgid "Sao Tome and Principe"
-msgstr ""
+msgstr "상투메프린시페"
 
 msgid "Saturday"
-msgstr ""
+msgstr "토요일"
 
 msgid "Saudi Arabia"
-msgstr ""
+msgstr "사우디아라비아"
 
 msgid "Save"
 msgstr ""
@@ -2761,16 +2761,16 @@ msgid "Saving ..."
 msgstr ""
 
 msgid "Scan"
-msgstr ""
+msgstr "검색"
 
 msgid "Scanning for new devices ..."
-msgstr ""
+msgstr "새로운 장치 검색 중 ..."
 
 msgid "Scheduled Jobs"
-msgstr ""
+msgstr "예약된 작업"
 
 msgid "Scheduled tests"
-msgstr ""
+msgstr "예약된 검사"
 
 msgid "Secondary"
 msgstr ""
@@ -2779,16 +2779,16 @@ msgid "Secondary email"
 msgstr ""
 
 msgid "Seconds"
-msgstr ""
+msgstr "초"
 
 msgid "Secure"
-msgstr ""
+msgstr "보안"
 
 msgid "Secure connection"
-msgstr ""
+msgstr "보안 연결"
 
 msgid "Security level"
-msgstr ""
+msgstr "보안 수준"
 
 msgid "Select a SSL certificate ..."
 msgstr ""
@@ -2833,7 +2833,7 @@ msgid "Select a volume ..."
 msgstr ""
 
 msgid "Select devices to be added to the RAID device"
-msgstr ""
+msgstr "RAID 장치에 추가될 장치를 선택하세요"
 
 msgid "Select or enter a user name ..."
 msgstr ""
@@ -2857,89 +2857,89 @@ msgid "Sending test email ..."
 msgstr ""
 
 msgid "Senegal"
-msgstr ""
+msgstr "세네갈"
 
 msgid "September"
-msgstr ""
+msgstr "9월"
 
 msgid "Serbia And Montenegro"
-msgstr ""
+msgstr "세르비아-몬테네그로"
 
 msgid "Serial Number"
-msgstr ""
+msgstr "시리얼 번호"
 
 msgid "Serial number"
-msgstr ""
+msgstr "시리얼 번호"
 
 msgid "Server"
-msgstr ""
+msgstr "서버"
 
 msgid "Service"
-msgstr ""
+msgstr "서비스"
 
 msgid "Service Discovery"
-msgstr ""
+msgstr "서비스 검색"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "서비스 비활성화됨"
 
 msgid "Servicename"
-msgstr ""
+msgstr "서비스 이름"
 
 msgid "Services"
-msgstr ""
+msgstr "서비스"
 
 msgid "Session expired."
-msgstr ""
+msgstr "세션 만료됨."
 
 msgid "Session not authenticated."
-msgstr ""
+msgstr "세션 인증되지 않음."
 
 msgid "Session timeout"
-msgstr ""
+msgstr "세션 만료"
 
 msgid "Set browseable"
-msgstr ""
+msgstr "검색 가능하게 설정"
 
 msgid "Set read only"
-msgstr ""
+msgstr "읽기 전용으로 설정"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
 msgstr ""
 
 msgid "Set write only"
-msgstr ""
+msgstr "쓰기 전용으로 설정"
 
 msgid "Sets the interval between disk checks to N seconds."
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "설정"
 
 msgid "Seychelles"
-msgstr ""
+msgstr "세이셸"
 
 msgid "Shared Folders"
-msgstr ""
+msgstr "공유 폴더"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "공유 폴더"
 
 msgid "Shared folder must not be equal"
 msgstr ""
 
 msgid "Shared folder name"
-msgstr ""
+msgstr "공유 폴더 이름"
 
 msgid "Shared folder path"
-msgstr ""
+msgstr "공유 폴더 경로"
 
 msgid "Shared folder privileges"
-msgstr ""
+msgstr "공유 폴더 권한"
 
 msgid "Shares"
-msgstr ""
+msgstr "공유"
 
 msgid "Shell"
 msgstr ""
@@ -2948,7 +2948,7 @@ msgid "Short self-test"
 msgstr ""
 
 msgid "Show certificate"
-msgstr ""
+msgstr "증명 보이기"
 
 msgid "Show changelog"
 msgstr ""
@@ -2957,22 +2957,22 @@ msgid "Show details"
 msgstr ""
 
 msgid "Show password"
-msgstr ""
+msgstr "암호 보이기"
 
 msgid "Show privileges"
-msgstr ""
+msgstr "권한 보이기"
 
 msgid "Shutdown"
 msgstr ""
 
 msgid "Sierra Leone"
-msgstr ""
+msgstr "시에라리온"
 
 msgid "Singapore"
-msgstr ""
+msgstr "싱가포르"
 
 msgid "Size"
-msgstr ""
+msgstr "크기"
 
 msgid "Slaves"
 msgstr ""
@@ -2981,22 +2981,22 @@ msgid "Sleep"
 msgstr ""
 
 msgid "Slovakia"
-msgstr ""
+msgstr "슬로바키아"
 
 msgid "Slovenia"
-msgstr ""
+msgstr "슬로베니아"
 
 msgid "Software RAID"
-msgstr ""
+msgstr "소프트웨어 RAID"
 
 msgid "Software updates"
-msgstr ""
+msgstr "소프트웨어 업데이트"
 
 msgid "Solomon Islands"
-msgstr ""
+msgstr "솔로몬 제도"
 
 msgid "Somalia"
-msgstr ""
+msgstr "소말리아"
 
 msgid "Source"
 msgstr ""
@@ -3017,16 +3017,16 @@ msgid "Source shared folder"
 msgstr ""
 
 msgid "South Africa"
-msgstr ""
+msgstr "남아프리카"
 
 msgid "South Georgia and the South Sandwich Islands"
-msgstr ""
+msgstr "사우스 조지아 및 사우스 샌드위치 제도"
 
 msgid "South Korea"
-msgstr ""
+msgstr "대한민국"
 
 msgid "Spain"
-msgstr ""
+msgstr "스페인"
 
 msgid "Special action flag"
 msgstr ""
@@ -3087,7 +3087,7 @@ msgid "Spindown time"
 msgstr ""
 
 msgid "Sri Lanka"
-msgstr ""
+msgstr "스리랑카"
 
 msgid "Standby"
 msgstr ""
@@ -3105,7 +3105,7 @@ msgid "Static"
 msgstr ""
 
 msgid "Status"
-msgstr ""
+msgstr "상태"
 
 msgid "Stop"
 msgstr ""
@@ -3123,82 +3123,82 @@ msgid "Success"
 msgstr ""
 
 msgid "Sudan"
-msgstr ""
+msgstr "수단"
 
 msgid "Sunday"
-msgstr ""
+msgstr "일요일"
 
 msgid "Support"
-msgstr ""
+msgstr "지원"
 
 msgid "Suppress non-error messages"
 msgstr ""
 
 msgid "Suriname"
-msgstr ""
+msgstr "수리남"
 
 msgid "Svalbard and Jan Mayen"
-msgstr ""
+msgstr "스발바르 얀마옌 제도"
 
 msgid "Swaziland"
-msgstr ""
+msgstr "스와질랜드"
 
 msgid "Sweden"
-msgstr ""
+msgstr "스웨덴"
 
 msgid "Switzerland"
-msgstr ""
+msgstr "스위스"
 
 msgid "Syria"
-msgstr ""
+msgstr "시리아"
 
 msgid "Syslog"
-msgstr ""
+msgstr "Syslog"
 
 msgid "System"
-msgstr ""
+msgstr "시스템"
 
 msgid "System Information"
-msgstr ""
+msgstr "시스템 정보"
 
 msgid "System Logs"
-msgstr ""
+msgstr "시스템 로그"
 
 msgid "System time"
-msgstr ""
+msgstr "시스템 시간"
 
 msgid "System users/groups"
-msgstr ""
+msgstr "시스템 사용자/그룹"
 
 msgid "TAR"
-msgstr ""
+msgstr "TAR"
 
 msgid "TCP forwarding"
-msgstr ""
+msgstr "TCP 포워드"
 
 msgid "TFTP"
-msgstr ""
+msgstr "TFTP"
 
 msgid "Taiwan"
-msgstr ""
+msgstr "대만"
 
 msgid "Tajikistan"
-msgstr ""
+msgstr "타지키스탄"
 
 msgid "Tanzania"
-msgstr ""
+msgstr "탄자니아"
 
 msgid "Temperature"
-msgstr ""
+msgstr "온도"
 
 msgid "Temperature monitoring"
-msgstr ""
+msgstr "온도 감시"
 
 msgid "Test description"
 msgstr ""
 
 msgid "Thailand"
-msgstr ""
+msgstr "태국"
 
 msgid "The NT description field."
 msgstr ""
@@ -3207,7 +3207,7 @@ msgid "The RSA key length."
 msgstr ""
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "SSL 증명"
 
 msgid "The action to be done when pressing the power button."
 msgstr ""
@@ -3235,7 +3235,7 @@ msgid "The destination shared folder."
 msgstr ""
 
 msgid "The device does not exist"
-msgstr ""
+msgstr "장치가 존재하지 않습니다."
 
 msgid "The field '%s' contains forbidden "
 msgstr ""
@@ -3247,7 +3247,7 @@ msgid "The file system creation has completed successfully."
 msgstr ""
 
 msgid "The group '%s' does not exist"
-msgstr ""
+msgstr "그룹 '%s'은(는) 존재하지 않습니다."
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr ""
@@ -3557,49 +3557,49 @@ msgid "This will create a recycle bin on the share."
 msgstr ""
 
 msgid "Thursday"
-msgstr ""
+msgstr "목요일"
 
 msgid "TiB"
-msgstr ""
+msgstr "TiB"
 
 msgid "Time"
-msgstr ""
+msgstr "시간"
 
 msgid "Time interval"
-msgstr ""
+msgstr "시간 주기"
 
 msgid "Time server"
-msgstr ""
+msgstr "시간 서버"
 
 msgid "Time servers"
-msgstr ""
+msgstr "시간 서버"
 
 msgid "Time zone"
-msgstr ""
+msgstr "시간대"
 
 msgid "Timeout"
-msgstr ""
+msgstr "타임아웃"
 
 msgid "Times"
 msgstr ""
 
 msgid "Togo"
-msgstr ""
+msgstr "토고"
 
 msgid "Tokelau"
-msgstr ""
+msgstr "토켈라우"
 
 msgid "Tonga"
-msgstr ""
+msgstr "통가"
 
 msgid "Transfer log"
-msgstr ""
+msgstr "전송 기록"
 
 msgid "Transfer time"
-msgstr ""
+msgstr "전송 시간"
 
 msgid "Transfer type"
-msgstr ""
+msgstr "전송 유형"
 
 msgid "Traps"
 msgstr ""
@@ -3611,43 +3611,43 @@ msgid "Trial run"
 msgstr ""
 
 msgid "Trinidad and Tobago"
-msgstr ""
+msgstr "트리니다드토바고"
 
 msgid "Tuesday"
-msgstr ""
+msgstr "화요일"
 
 msgid "Tunisia"
-msgstr ""
+msgstr "튀니지"
 
 msgid "Turkey"
-msgstr ""
+msgstr "터키"
 
 msgid "Turkmenistan"
-msgstr ""
+msgstr "투르크메니스탄"
 
 msgid "Turks and Caicos Islands"
-msgstr ""
+msgstr "터크스 케이커스 제도"
 
 msgid "Tuvalu"
-msgstr ""
+msgstr "투발루"
 
 msgid "Type"
-msgstr ""
+msgstr "방식"
 
 msgid "U.S. Miscellaneous Pacific Islands"
 msgstr ""
 
 msgid "U.S. Virgin Islands"
-msgstr ""
+msgstr "미국령 버진아일랜드"
 
 msgid "UNKNOWN"
 msgstr ""
 
 msgid "Uganda"
-msgstr ""
+msgstr "우간다"
 
 msgid "Ukraine"
-msgstr ""
+msgstr "우크라이나"
 
 msgid "Uncompressed"
 msgstr ""
@@ -3659,31 +3659,31 @@ msgid "Uninstall plugins ..."
 msgstr ""
 
 msgid "Union of Soviet Socialist Republics"
-msgstr ""
+msgstr "소비에트 사회주의 공화국 연방"
 
 msgid "Unit"
 msgstr ""
 
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "아랍에미리트"
 
 msgid "United Kingdom"
-msgstr ""
+msgstr "영국"
 
 msgid "United States"
-msgstr ""
+msgstr "미국"
 
 msgid "United States Minor Outlying Islands"
-msgstr ""
+msgstr "미국령 군소 제도"
 
 msgid "Unknown filesystem '%s'"
-msgstr ""
+msgstr "알 수 없는 파일 시스템 '%s'"
 
 msgid "Unknown log file type (id=%s)"
-msgstr ""
+msgstr "알 수 없는 로그 파일 형식 (id=%s)"
 
 msgid "Unknown network interface type."
-msgstr ""
+msgstr "알 수 없는 네트워크 인터페이스 형식"
 
 msgid "Unmount"
 msgstr ""
@@ -3695,10 +3695,10 @@ msgid "Up delay"
 msgstr ""
 
 msgid "Update Manager"
-msgstr ""
+msgstr "업데이트 관리자"
 
 msgid "Update now"
-msgstr ""
+msgstr "지금 업데이트"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
 msgstr ""
@@ -3708,13 +3708,13 @@ msgid ""
 msgstr ""
 
 msgid "Updates"
-msgstr ""
+msgstr "업데이트"
 
 msgid "Updating ACL settings"
 msgstr ""
 
 msgid "Upgrade"
-msgstr ""
+msgstr "업그레이드"
 
 msgid "Upload"
 msgstr ""
@@ -3732,19 +3732,19 @@ msgid "Uploading file ..."
 msgstr ""
 
 msgid "Uptime"
-msgstr ""
+msgstr "가동 시간"
 
 msgid "Uruguay"
-msgstr ""
+msgstr "우루과이"
 
 msgid "Use NTP server"
-msgstr ""
+msgstr "NTP 서버 사용"
 
 msgid "Use SSL/TLS secure connection"
-msgstr ""
+msgstr "SSL/TLS 보안 연결 사용"
 
 msgid "Use chroot"
-msgstr ""
+msgstr "chroot 사용"
 
 msgid "Use sendfile"
 msgstr ""
@@ -3764,40 +3764,40 @@ msgid "Use the specified WINS server."
 msgstr ""
 
 msgid "Used"
-msgstr ""
+msgstr "사용됨"
 
 msgid "Used capacity"
 msgstr ""
 
 msgid "User"
-msgstr ""
+msgstr "사용자"
 
 msgid "User '%s' already exist"
-msgstr ""
+msgstr "'%s'는 이미 존재하는 사용자입니다."
 
 msgid "User '%s' does not exist"
-msgstr ""
+msgstr "사용자 '%s'은(는) 존재하지 않습니다."
 
 msgid "User ID '%d' already exist"
-msgstr ""
+msgstr "'%d'는 이미 존재하는 사용자 ID입니다."
 
 msgid "User home directory"
-msgstr ""
+msgstr "사용자 홈 경로"
 
 msgid "User information"
-msgstr ""
+msgstr "사용자 정보"
 
 msgid "User/Group permissions"
-msgstr ""
+msgstr "사용자/그룹 권한"
 
 msgid "Username"
-msgstr ""
+msgstr "사용자 이름"
 
 msgid "Users"
-msgstr ""
+msgstr "사용자"
 
 msgid "Uzbekistan"
-msgstr ""
+msgstr "우즈베키스탄"
 
 msgid "Valid to"
 msgstr ""
@@ -3806,49 +3806,49 @@ msgid "Value"
 msgstr ""
 
 msgid "Vanuatu"
-msgstr ""
+msgstr "바누아투"
 
 msgid "Vatican"
-msgstr ""
+msgstr "바티칸시국"
 
 msgid "Vendor"
-msgstr ""
+msgstr "제작사"
 
 msgid "Venezuela"
-msgstr ""
+msgstr "베네수엘라"
 
 msgid "Version"
-msgstr ""
+msgstr "버전"
 
 msgid "Vietnam"
-msgstr ""
+msgstr "베트남"
 
 msgid "Volume"
-msgstr ""
+msgstr "볼륨"
 
 msgid "WINS"
-msgstr ""
+msgstr "WINS"
 
 msgid "WINS server"
-msgstr ""
+msgstr "WINS 서버"
 
 msgid "WINS support"
-msgstr ""
+msgstr "WINS 지원"
 
 msgid "Wake Island"
-msgstr ""
+msgstr "웨이크 섬"
 
 msgid "Wake-on-LAN"
-msgstr ""
+msgstr "Wake-on-LAN"
 
 msgid "Wallis and Futuna"
-msgstr ""
+msgstr "월리스푸투나제도"
 
 msgid "Warning"
-msgstr ""
+msgstr "경고"
 
 msgid "Web Administration"
-msgstr ""
+msgstr "웹 관리"
 
 msgid "Web Administrator Password"
 msgstr "웹 관리자 암호"
@@ -3857,16 +3857,16 @@ msgid "Web administration"
 msgstr "웹 관리자"
 
 msgid "Web administration interface"
-msgstr ""
+msgstr "웹 관리 인터페이스"
 
 msgid "Wednesday"
-msgstr ""
+msgstr "수요일"
 
 msgid "Welcome message"
-msgstr ""
+msgstr "환영 메시지"
 
 msgid "Western Sahara"
-msgstr ""
+msgstr "서 사하라"
 
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
@@ -3883,31 +3883,31 @@ msgid "Wiping device ..."
 msgstr ""
 
 msgid "Workgroup"
-msgstr ""
+msgstr "작업 그룹"
 
 msgid "Worst"
 msgstr ""
 
 msgid "Write cache"
-msgstr ""
+msgstr "쓰기 캐시"
 
 msgid "Write only"
-msgstr ""
+msgstr "쓰기 전용"
 
 msgid "Write/Execute"
-msgstr ""
+msgstr "쓰기/실행"
 
 msgid "Yemen"
-msgstr ""
+msgstr "예맨"
 
 msgid "Yes"
 msgstr ""
 
 msgid "Zambia"
-msgstr ""
+msgstr "잠비아"
 
 msgid "Zimbabwe"
-msgstr ""
+msgstr "짐바브웨"
 
 msgid "day"
 msgstr "일"
