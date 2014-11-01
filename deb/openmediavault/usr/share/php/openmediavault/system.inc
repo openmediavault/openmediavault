@@ -930,7 +930,7 @@ class OMVFilesystems extends OMVObject {
 		// Get the filesystems that are not identified by the block device
 		// identification library.
 		foreach (self::$backends as $backendk => $backendv) {
-			if (TRUE === $backend->isBlkidEnumerated())
+			if (TRUE === $backendv->isBlkidEnumerated())
 				continue;
 			if (FALSE === ($data = $backendv->enumerate()))
 				return FALSE;
