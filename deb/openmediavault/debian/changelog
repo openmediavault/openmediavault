@@ -1,5 +1,6 @@
 openmediavault (1.0.30) stable; urgency=low
 
+  * Update locales.
   * Fix various issues.
   * Remove SSLv2 and SSLv3 support in proftpd. Use only TLSv1 now.
   * Refactor filesystem backend. Introduce class OMVFilesystemBackendAbstract,
