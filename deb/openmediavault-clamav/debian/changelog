@@ -1,3 +1,11 @@
+openmediavault-clamav (1.0.2) stable; urgency=low
+
+  * Update locales.
+  * Quote shared folder paths in cron script to fix bug when the path
+    contains white spaces.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 01 Nov 2014 01:46:43 +0100
+
 openmediavault-clamav (1.0.1) stable; urgency=low
 
   * Update locales.
