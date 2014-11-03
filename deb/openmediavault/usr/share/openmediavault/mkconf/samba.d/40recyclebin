@@ -68,11 +68,11 @@ done
 [ -e ${runfile} ] && exit 1
 trap "rm -f ${runfile}; exit" 0 1 2 5 15
 touch ${runfile}
-[ ! -e ${recyclerepository} ] && exit 1
+[ ! -e "${recyclerepository}" ] && exit 1
 echo "Please wait, empty recyle bin of <$sfpath> ..."
-find ${recyclerepository} -mindepth 1 -amin +\${amin} -print0 | xargs -0r rm -rfv
+find "${recyclerepository}" -mindepth 1 -amin +\${amin} -print0 | xargs -0r rm -rfv
 # Do a second run to remove empty directories.
-find ${recyclerepository} -mindepth 1 -type d -empty -print0 | xargs -0r rm -rfv
+find "${recyclerepository}" -mindepth 1 -type d -empty -print0 | xargs -0r rm -rfv
 EOF
 	  chmod ${OMV_SAMBA_SHARE_RECYCLE_CRONSCRIPT_MASK} ${filename}
   done
