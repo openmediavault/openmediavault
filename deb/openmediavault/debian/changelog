@@ -1,5 +1,7 @@
 openmediavault (1.0.31) stable; urgency=low
 
+  * Update locales.
+  * Recreate /etc/fstab after updating the config database.
   * Mantis 0001182: Cron Daily empty recycle bin fails due to spaces in paths.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 03 Nov 2014 12:24:51 +0100
