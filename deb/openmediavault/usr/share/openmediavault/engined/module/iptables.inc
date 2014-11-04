@@ -36,8 +36,8 @@ class OMVModuleIptables extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "omv-mkconf iptables 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		$cmd = "export LANG=C; omv-mkconf iptables 2>&1";
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -48,8 +48,8 @@ class OMVModuleIptables extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function startService() {
-		$cmd = "/etc/network/if-pre-up.d/openmediavault-iptables 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		$cmd = "export LANG=C; /etc/network/if-pre-up.d/openmediavault-iptables 2>&1";
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}

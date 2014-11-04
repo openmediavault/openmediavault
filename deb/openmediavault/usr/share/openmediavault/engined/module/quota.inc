@@ -37,7 +37,7 @@ class OMVModuleQuota extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "omv-mkconf quota 2>&1";
+		$cmd = "export LANG=C; omv-mkconf quota 2>&1";
 		if(0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));

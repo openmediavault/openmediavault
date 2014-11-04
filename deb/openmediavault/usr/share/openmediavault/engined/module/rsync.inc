@@ -51,8 +51,8 @@ class OMVModuleRsync extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "omv-mkconf rsync 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		$cmd = "export LANG=C; omv-mkconf rsync 2>&1";
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -70,7 +70,7 @@ class OMVModuleRsync extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = sprintf("//services/rsync/jobs/job[src='%s' or dest='%s']",
 		  $object['uuid']);
-		if(TRUE === $xmlConfig->exists($xpath))
+		if (TRUE === $xmlConfig->exists($xpath))
 			$this->setDirty();
 	}
 

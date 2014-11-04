@@ -38,8 +38,8 @@ class OMVModuleSnmp extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "omv-mkconf snmpd 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		$cmd = "export LANG=C; omv-mkconf snmpd 2>&1";
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -61,7 +61,7 @@ class OMVModuleSnmp extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/snmp";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -79,14 +79,14 @@ class OMVModuleSnmp extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/snmp";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Check if process is running. Init script can't be used because
 		// it also checks snmptrapd which is not used. Do not check the
 		// command result.
-		$cmd = "ps --no-heading -C snmpd";
+		$cmd = "export LANG=C; ps --no-heading -C snmpd";
 		$this->exec($cmd, $output);
 		return array(
 			"name" => $this->getName(),

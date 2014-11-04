@@ -38,8 +38,8 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "omv-mkconf tftpd-hpa 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		$cmd = "export LANG=C; omv-mkconf tftpd-hpa 2>&1";
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -61,7 +61,7 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = "//services/tftp";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -80,7 +80,7 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 		// Get the configuration object
 		$xpath = "//services/tftp";
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -115,7 +115,7 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 		global $xmlConfig;
 		$xpath = sprintf("//services/tftp[sharedfolderref='%s']",
 		  $object['uuid']);
-		if(TRUE === $xmlConfig->exists($xpath))
+		if (TRUE === $xmlConfig->exists($xpath))
 			$this->setDirty();
 	}
 

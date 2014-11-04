@@ -36,13 +36,13 @@ class OMVModulePhp5fpm extends OMVModuleServiceAbstract {
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "omv-mkconf php5fpm 2>&1";
+		$cmd = "export LANG=C; omv-mkconf php5fpm 2>&1";
 		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 		# Test the new configuration.
-		$cmd = "php5-fpm -t 2>&1";
+		$cmd = "export LANG=C; php5-fpm -t 2>&1";
 		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
