@@ -2728,6 +2728,36 @@ class OMVStorageDeviceBackendHDD extends OMVStorageDeviceBackendAbstract {
 }
 
 /**
+ * Implements the storage device backend for FusionIO devices.
+ * @ingroup api
+ */
+class OMVStorageDeviceBackendFIO extends OMVStorageDeviceBackendAbstract {
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_HDD;
+	}
+
+	function enumerate() {
+		// major minor  #blocks  name
+		//    8        0  312571224 sda
+		//    8        1    1052226 sda1
+		//    8        2    8393962 sda2
+		//  253        0  314993344 fioa
+		return $this->enumerateProcFs("fio[a-z]+");
+	}
+
+	function isTypeOf($deviceFile) {
+		// Examples:
+		// - /dev/fioa
+		$regex = "fio[a-z]+";
+		return $this->isTypeOfByName($deviceFile, $regex);
+	}
+
+	function getImpl($args) {
+		return new OMVStorageDeviceHDD($args);
+	}
+}
+
+/**
  * Helper class to get all existing devices of the given storage type.
  * @ingroup api
  */
@@ -4838,6 +4868,7 @@ OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLVM());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendDM());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLoop());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendBcache());
+OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendFIO());
 
 ///////////////////////////////////////////////////////////////////////////////
 // Register default filesystem backends.
