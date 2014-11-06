@@ -135,7 +135,8 @@ EOF;
 		// list of include files will be cached.
 		$jsonFile = new OMVJsonFile(sprintf("%s/cache.%s_js.json",
 		  $GLOBALS['OMV_CACHE_DIR'], strtolower(get_class($this))));
-		if ($jsonFile->exists()) {
+		if ($jsonFile->exists() && !(boolvalEx($GLOBALS['OMV_DEBUG_PHP']) ||
+		  boolvalEx($GLOBALS['OMV_DEBUG_EXTJS']))) {
 			$jsonFile->open("r");
 			$incList = $jsonFile->read();
 		} else {
