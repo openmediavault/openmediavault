@@ -1,5 +1,6 @@
 openmediavault (1.0.32) stable; urgency=low
 
+  * Improve WebGUI loading performance via caching.
   * Add FusionIO storage backend.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 04 Nov 2014 18:16:08 +0100
