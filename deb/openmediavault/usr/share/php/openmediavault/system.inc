@@ -515,7 +515,7 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	 * @param id The filesystem identifier (e.g. UUID or device path), e.g.
 	 *   <ul>
 	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
-	 *   \li 7A48-BA97 (DOS)
+	 *   \li 7A48-BA97 (FAT)
 	 *   \li 2ED43920D438EC29 (NTFS)
 	 *   \li /dev/sde1
 	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
@@ -800,7 +800,7 @@ class OMVFilesystems extends OMVObject {
 	 * @param id The UUID or device path of the filesystem, e.g.
 	 *   <ul>
 	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
-	 *   \li 7A48-BA97 (DOS)
+	 *   \li 7A48-BA97 (FAT)
 	 *   \li 2ED43920D438EC29 (NTFS)
 	 *   \li /dev/sde1
 	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
@@ -946,7 +946,7 @@ class OMVFilesystems extends OMVObject {
 	 * @param id The UUID or device path of the filesystem, e.g.
 	 *   <ul>
 	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
-	 *   \li 7A48-BA97 (DOS)
+	 *   \li 7A48-BA97 (FAT)
 	 *   \li 2ED43920D438EC29 (NTFS)
 	 *   \li /dev/sde1
 	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
@@ -975,7 +975,7 @@ class OMVFilesystemFactory extends OMVObject {
 	 * @param id The UUID or device path of the filesystem, e.g.
 	 *   <ul>
 	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
-	 *   \li 7A48-BA97 (DOS)
+	 *   \li 7A48-BA97 (FAT)
 	 *   \li 2ED43920D438EC29 (NTFS)
 	 *   \li /dev/sde1
 	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
@@ -1010,7 +1010,7 @@ class OMVFilesystemAbstract extends OMVObject {
 	 * @param id The UUID or device path of the filesystem, e.g.
 	 *   <ul>
 	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
-	 *   \li 7A48-BA97 (DOS)
+	 *   \li 7A48-BA97 (FAT)
 	 *   \li 2ED43920D438EC29 (NTFS)
 	 *   \li /dev/sde1
 	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
@@ -1151,11 +1151,22 @@ class OMVFilesystemAbstract extends OMVObject {
 	}
 
 	/**
-	 * Check if the filesystem has an UUID.
+	 * Check if the filesystem has an UUID, e.g. <ul>
+	 * \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+	 * \li 7A48-BA97 (FAT)
+	 * \li 2ED43920D438EC29 (NTFS)
+	 * </ul>
 	 * @return Returns TRUE if the filesystem has an UUID, otherwise FALSE.
 	 */
 	public function hasUuid() {
-		return is_uuid($this->getUuid());
+		// Check if it is a UUID v4.
+		if (is_uuid($this->getUuid()))
+			return TRUE;
+		// Check if it is a NTFS or DOS filesystem identifier.
+		$regex = '/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16})$/i';
+		if (1 == preg_match($regex, $this->getUuid()))
+			return TRUE;
+		return FALSE;
 	}
 
 	/**
@@ -1250,7 +1261,10 @@ class OMVFilesystemAbstract extends OMVObject {
 	}
 
 	/**
-	 * Get the canonical device file, e.g. /dev/root -> /dev/sde1
+	 * Get the canonical device file, e.g. <ul>
+	 * \li /dev/root -> /dev/sde1
+	 * \li /dev/disk/by-uuid/4B04EA317E4AA567 -> /dev/sdd1
+	 * </ul>
 	 */
 	public function getCanonicalDeviceFile() {
 		return realpath($this->deviceFile);
@@ -1267,11 +1281,14 @@ class OMVFilesystemAbstract extends OMVObject {
 	public function getDeviceFileByUuid() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		$deviceFileByUuid = sprintf("/dev/disk/by-uuid/%s",
-		  $this->getUuid());
-		if (is_block($deviceFileByUuid))
-			return $deviceFileByUuid;
-		return $this->getDeviceFile();
+		$deviceFile = $this->getDeviceFile();
+		if ($this->hasUuid()) {
+			$deviceFileByUuid = sprintf("/dev/disk/by-uuid/%s",
+			  $this->getUuid());
+			if (is_block($deviceFileByUuid))
+				$deviceFile = $deviceFileByUuid;
+		}
+		return $deviceFile;
 	}
 
 	/**
@@ -1563,6 +1580,7 @@ class OMVFilesystemAbstract extends OMVObject {
  * @ingroup api
  */
 class OMVFilesystem extends OMVFilesystemAbstract {
+	// Nothing to do here.
 }
 
 /**
