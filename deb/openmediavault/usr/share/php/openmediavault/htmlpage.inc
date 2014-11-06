@@ -24,6 +24,7 @@ require_once("openmediavault/session.inc");
 require_once("openmediavault/error.inc");
 require_once("openmediavault/product.inc");
 require_once("openmediavault/system.inc");
+require_once("openmediavault/util.inc");
 
 /**
  * Base class for a HTML page.
@@ -130,8 +131,21 @@ echo <<<EOF
 
 EOF;
 
-		// Add additional javascript files.
-		$incList = array_unique($this->getJavascriptIncludes());
+		// Get additional Javascript files. To improve loading speed the
+		// list of include files will be cached.
+		$jsonFile = new OMVJsonFile(sprintf("%s/cache.%s_js.json",
+		  $GLOBALS['OMV_CACHE_DIR'], strtolower(get_class($this))));
+		if ($jsonFile->exists()) {
+			$jsonFile->open("r");
+			$incList = $jsonFile->read();
+		} else {
+			$incList = array_values(array_unique(
+			  $this->getJavascriptIncludes()));
+			$jsonFile->open("w+");
+			$jsonFile->write($incList);
+		}
+		$jsonFile->close();
+		// Append the additional Javascript files.
 		foreach ($incList as $incListv) {
 			print "<script type='application/javascript' src='{$incListv}'></script>\n";
 		}

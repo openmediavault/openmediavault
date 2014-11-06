@@ -656,6 +656,12 @@ omv_install_locale() {
 	omv-mki18ndict
 }
 
+# void omv_purge_internal_cache ()
+# Purge the internal cache, e.g. used to speedup WebGUI loading.
+omv_purge_internal_cache() {
+	rm -f ${OMV_CACHE_DIR}/cache.*.json
+}
+
 # void omv_set_default (char *key, char* value)
 # Set a default value in /etc/default/openmediavault.
 omv_set_default() {

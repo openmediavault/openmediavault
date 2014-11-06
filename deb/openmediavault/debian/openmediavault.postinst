@@ -444,8 +444,14 @@ case "$1" in
 				;;
 
 				update-fixperms)
+					# Update the file permissions of new installed files.
 					echo "Updating file permissions ..."
 					omv_install_fixperms
+					# Purge cached files. In most cases this is necessary
+					# because Debian package updates may install or remove
+					# files.
+					echo "Purging internal cache ..."
+					omv_purge_internal_cache
 				;;
 
 				restart-engined)
