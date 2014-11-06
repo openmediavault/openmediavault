@@ -2741,14 +2741,16 @@ class OMVStorageDeviceBackendFIO extends OMVStorageDeviceBackendAbstract {
 		//    8        0  312571224 sda
 		//    8        1    1052226 sda1
 		//    8        2    8393962 sda2
-		//  253        0  314993344 fioa
+		//  252        0  157143584 fioa
+		//  252        1  157139766 fioa1
 		return $this->enumerateProcFs("fio[a-z]+");
 	}
 
 	function isTypeOf($deviceFile) {
 		// Examples:
 		// - /dev/fioa
-		$regex = "fio[a-z]+";
+		// - /dev/fioa1
+		$regex = "fio[a-z]+[0-9]*";
 		return $this->isTypeOfByName($deviceFile, $regex);
 	}
 
