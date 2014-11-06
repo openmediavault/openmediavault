@@ -816,7 +816,17 @@ class OMVFilesystems extends OMVObject {
 		$result = NULL;
 		$enums = self::enumerate();
 		foreach ($enums as $enumk => $enumv) {
-			if (($id == $enumv['devicefile']) || ($id == $enumv['uuid'])) {
+			$found = FALSE;
+			if (is_devicefile($id)) {
+				// Compare the device file names. Use the canonical device
+				// file for an additional check.
+				$found = (($id == $enumv['devicefile']) ||
+				  (realpath($id) == $enumv['devicefile']));
+			} else {
+				// Compare the filesystem UUIDs.
+				$found = ($id == $enumv['uuid']);
+			}
+			if (TRUE === $found) {
 				$result = self::getBackendByType($enumv['type']);
 				break;
 			}

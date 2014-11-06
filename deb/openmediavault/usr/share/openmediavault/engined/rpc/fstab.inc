@@ -63,7 +63,7 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 		// Get the configuration object.
 		$xpath = "//system/fstab/mntent";
 		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
+		if (is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
@@ -220,7 +220,14 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 	 * Get a mount point configuration object by the given file system name,
 	 * which may be a UUID or block special device.
 	 * @param params An array containing the following fields:
-	 *   \em id The file system identifier, e.g. UUID or block special device.
+	 *   \em id The file system identifier, e.g. the UUID or block special
+	 *   device file like <ul>
+	 *   \li /dev/sda1
+	 *   \li 02532317-cc35-421e-b750-c6a484fb109a
+	 *   \li /dev/disk/by-uuid/02532317-cc35-421e-b750-c6a484fb109a
+	 *   \li 4B04EA317E4AA567
+	 *   \li /dev/disk/by-uuid/4B04EA317E4AA567
+	 *   </ul>
 	 * @param context The context of the caller.
 	 * @return The mount point configuration object if exists, otherwise FALSE.
 	 */
@@ -259,6 +266,9 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 				// Device files must be handled seperate because the device
 				// may contain partitions.
 				if (is_devicefile($argv)) {
+					// Check the name of the device special file, e.g.
+					// - /dev/sdd1
+					// - /dev/disk/by-uuid/4B04EA317E4AA567
 					if (FALSE !== strpos($objectv['fsname'], $argv)) {
 						$result = $objectv;
 						break;
