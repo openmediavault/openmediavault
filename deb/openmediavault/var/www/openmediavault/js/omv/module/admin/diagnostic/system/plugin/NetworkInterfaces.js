@@ -41,7 +41,15 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.NetworkInterfaces", {
 		// Execute RPC to get the information required to add tab panels.
 		OMV.Rpc.request({
 			callback: function(id, success, response) {
-				Ext.Array.each(response, function(item) {
+				// Sort the list of network interfaces by name.
+				var items = new Ext.util.MixedCollection();
+				items.addAll(response);
+				items.sort([{
+					property: "devicename",
+					direction: "ASC"
+				}]);
+				// Create a RRD graph panel per network interface.
+				items.each(function(item) {
 					me.add(Ext.create("OMV.workspace.panel.RrdGraph", {
 						title: item.devicename,
 						rrdGraphName: "interface-" + item.devicename
