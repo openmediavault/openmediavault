@@ -75,12 +75,18 @@ case "$1" in
 		########################################################################
 		if ! omv_config_exists "/config/services/afp"; then
 			echo "Initialize configuration"
+			# Add the default service configuration.
 			object="<enable>0</enable>"
 			object="${object}<allowclrtxt>0</allowclrtxt>"
 			object="${object}<homesenable>0</homesenable>"
 			object="${object}<extraoptions></extraoptions>"
 			object="${object}<shares></shares>"
 			omv_config_add_element "/config/services" "afp" "${object}" true
+			# Add Zeroconf configuration.
+			object="<id>afp</id>"
+			object="${object}<enable>1</enable>"
+			object="${object}<name>%h - AFP</name>"
+			omv_config_add_element "/config/services/zeroconf/services" "service" "${object}" true
 		fi
 
 		########################################################################

@@ -39,7 +39,6 @@ OMV_NETATALK_AFPD_CONFIG=${OMV_NETATALK_AFPD_CONFIG:-"/etc/netatalk/afpd.conf"}
 OMV_NETATALK_AVDEFAULT_CONFIG=${OMV_NETATALK_AVDEFAULT_CONFIG:-"/etc/netatalk/AppleVolumes.default"}
 OMV_NETATALK_AVDEFAULT_HOMEDIR_OPTIONS=${OMV_NETATALK_AVDEFAULT_HOMEDIR_OPTIONS:-"\"\$u\" deny:nobody"}
 OMV_NETATALK_AFPD_MAX_CLIENTS=${OMV_NETATALK_AFPD_MAX_CLIENTS:-"20"}
-OMV_NETATALK_ATALK_NAME=${OMV_NETATALK_ATALK_NAME:-"\`/bin/hostname --short\`"}
 OMV_NETATALK_ATALK_MAC_CHARSET=${OMV_NETATALK_ATALK_MAC_CHARSET:-"MAC_ROMAN"}
 OMV_NETATALK_ATALK_UNIX_CHARSET=${OMV_NETATALK_ATALK_UNIX_CHARSET:-"LOCALE"}
 OMV_NETATALK_AFPD_GUEST=${OMV_NETATALK_AFPD_GUEST:-"nobody"}
@@ -53,6 +52,11 @@ OMV_NETATALK_AFPD_RUN=${OMV_NETATALK_AFPD_RUN:-"yes"}
 OMV_NETATALK_AFPD_UAMLIST=${OMV_NETATALK_AFPD_UAMLIST:-"uams_dhx.so,uams_dhx2.so"}
 
 mkconf() {
+	# Get the system hostname.
+	hostname=$(xmlstarlet sel -t -m "//system/network" \
+	  -v "hostname" \
+	  ${OMV_CONFIG_FILE} | xmlstarlet unesc)
+
 	# Create '/etc/default/netatalk' file
 	cat <<EOF > ${OMV_NETATALK_DEFAULT}
 # Netatalk configuration
@@ -60,7 +64,7 @@ mkconf() {
 AFPD_MAX_CLIENTS=${OMV_NETATALK_AFPD_MAX_CLIENTS}
 
 # Change this to set the machine's atalk name.
-ATALK_NAME=${OMV_NETATALK_ATALK_NAME}
+ATALK_NAME=${hostname}
 
 # specify the Mac and unix charsets to be used
 ATALK_MAC_CHARSET='${OMV_NETATALK_ATALK_MAC_CHARSET}'
