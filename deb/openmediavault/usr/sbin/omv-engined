@@ -80,13 +80,12 @@ function signalHandler($signal) {
 function handleSigChld() {
 	global $sigChld, $children;
 
-	$pid = pcntl_waitpid(-1, $status, WNOHANG);
-	if($pid > 0) {
-		foreach($children as $childk => $childv) {
-			if($childv !== $pid)
+	while (($pid = pcntl_waitpid(-1, $status, WNOHANG)) > 0) {
+		foreach ($children as $childk => $childv) {
+			if ($childv !== $pid)
 				continue;
 			unset($children[$childk]);
-			if(pcntl_wifexited($status)) {
+			if (pcntl_wifexited($status)) {
 				debug("Child (pid=%d) terminated with exit code %d\n",
 				  $pid, pcntl_wexitstatus($status));
 			} else {

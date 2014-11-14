@@ -2,6 +2,7 @@ openmediavault (1.0.32) stable; urgency=low
 
   * Improve WebGUI loading performance via caching.
   * Add FusionIO storage backend.
+  * Mantis 0001070: OMV spawning [omv-engined] <defunc> processes.
   * Mantis 0001178: OMV installation fails because "collectd" needs IP and
     host name in /etc/hosts.
 
