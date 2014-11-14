@@ -71,7 +71,7 @@
 			-->
 		</certificates>
 		<network>
-			<hostname>OpenMediaVault</hostname>
+			<hostname>openmediavault</hostname>
 			<domainname></domainname>
 			<interfaces>
 				<!--
