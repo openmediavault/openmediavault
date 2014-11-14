@@ -150,10 +150,32 @@ function boolvalEx($var) {
  * @return TRUE if the variable is an UUID, otherwise FALSE.
  */
 function is_uuid($var) {
-	if(!is_string($var))
+	if (!is_string($var))
 		return FALSE;
 	return preg_match('/^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-'.
 	  '[a-f0-9]{12}$/i', $var) ? TRUE : FALSE;
+}
+
+/**
+ * Finds out whether a variable is a filesystem UUID, e.g. <ul>
+ * \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
+ * \li 7A48-BA97 (FAT)
+ * \li 2ED43920D438EC29 (NTFS)
+ * </ul>
+ * @see http://wiki.ubuntuusers.de/UUID
+ * @ingroup api
+ * @param var The variable being evaluated.
+ * @return TRUE if the variable is a filesystem UUID, otherwise FALSE.
+ */
+function is_fs_uuid($var) {
+	// Check if it is an UUID v4.
+	if (is_uuid($var))
+		return TRUE;
+	// Check if it is a NTFS or FAT filesystem identifier.
+	$regex = '/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16})$/i';
+	if (1 == preg_match($regex, $var))
+		return TRUE;
+	return FALSE;
 }
 
 /**

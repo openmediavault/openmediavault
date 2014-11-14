@@ -808,6 +808,7 @@ class OMVFilesystems extends OMVObject {
 	 *   \li /dev/disk/by-path/pci-0000:00:10.0-scsi-0:0:0:0-part2
 	 *   \li /dev/disk/by-uuid/ad3ee177-777c-4ad3-8353-9562f85c0895
 	 *   \li /dev/cciss/c0d0p2
+	 *   \li tank/multimedia/movies
 	 *   </ul>
 	 * @return The backend that implements the given filesystem, otherwise
 	 *   NULL.
@@ -818,13 +819,15 @@ class OMVFilesystems extends OMVObject {
 		foreach ($enums as $enumk => $enumv) {
 			$found = FALSE;
 			if (is_devicefile($id)) {
-				// Compare the device file names. Use the canonical device
+				// Compare the device file name. Use the canonical device
 				// file for an additional check.
 				$found = (($id == $enumv['devicefile']) ||
 				  (realpath($id) == $enumv['devicefile']));
-			} else {
-				// Compare the filesystem UUIDs.
+			else if (is_fs_uuid($id)) {
+				// Compare the filesystem UUID.
 				$found = ($id == $enumv['uuid']);
+			} else {
+				$found = ($id == $enumv['devicefile']);
 			}
 			if (TRUE === $found) {
 				$result = self::getBackendByType($enumv['type']);
@@ -1166,21 +1169,18 @@ class OMVFilesystemAbstract extends OMVObject {
 	 * \li 7A48-BA97 (FAT)
 	 * \li 2ED43920D438EC29 (NTFS)
 	 * </ul>
+	 * @see http://wiki.ubuntuusers.de/UUID
 	 * @return Returns TRUE if the filesystem has an UUID, otherwise FALSE.
 	 */
 	public function hasUuid() {
-		// Check if it is a UUID v4.
-		if (is_uuid($this->getUuid()))
-			return TRUE;
-		// Check if it is a NTFS or DOS filesystem identifier.
-		$regex = '/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16})$/i';
-		if (1 == preg_match($regex, $this->getUuid()))
-			return TRUE;
-		return FALSE;
+		if (FALSE === ($uuid = $this->getUuid()))
+			return FALSE;
+		return is_fs_uuid($uuid);
 	}
 
 	/**
 	 * Get the UUID of the filesystem.
+	 * @see http://wiki.ubuntuusers.de/UUID
 	 * @return The UUID of the filesystem, otherwise FALSE.
 	 */
 	public function getUuid() {
