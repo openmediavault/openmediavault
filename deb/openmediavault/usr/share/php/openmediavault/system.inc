@@ -2653,7 +2653,7 @@ class OMVStorageDeviceBackendLVM extends OMVStorageDeviceBackendDM {
  * @ingroup api
  */
 class OMVStorageDeviceBackendMdadm extends OMVStorageDeviceBackendAbstract {
-	protected $regex = "md\d+";
+	protected $regex = "md\d+(p\d+)*";
 
 	function getType() {
 		return OMV_STORAGE_DEVICE_TYPE_SOFTWARERAID;
