@@ -1,5 +1,6 @@
 openmediavault (1.0.32) stable; urgency=low
 
+  * Update locales.
   * Improve WebGUI loading performance via caching.
   * Add FusionIO storage backend.
   * Mantis 0001159: Defer welcome message as security improvement.

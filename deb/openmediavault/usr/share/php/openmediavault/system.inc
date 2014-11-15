@@ -823,7 +823,7 @@ class OMVFilesystems extends OMVObject {
 				// file for an additional check.
 				$found = (($id == $enumv['devicefile']) ||
 				  (realpath($id) == $enumv['devicefile']));
-			else if (is_fs_uuid($id)) {
+			} else if (is_fs_uuid($id)) {
 				// Compare the filesystem UUID.
 				$found = ($id == $enumv['uuid']);
 			} else {
