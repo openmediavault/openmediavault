@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chang-Eon Byeon <ksna0827@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-06 16:30+0200\n"
-"PO-Revision-Date: 2014-09-12 15:19+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-11-02 10:04+0000\n"
+"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,25 +19,25 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Add share"
-msgstr ""
+msgstr "공유 추가"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "고급 설정"
 
 msgid "Allow guest login."
-msgstr ""
+msgstr "게스트 로그인 허용"
 
 msgid "Allow guests to create or modify files."
-msgstr ""
+msgstr "게스트가 파일을 생성 또는 수정하도록 허용"
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr ""
 
 msgid "Allow plain passwords"
-msgstr ""
+msgstr "평문 암호 허용"
 
 msgid "Apple Filing"
-msgstr ""
+msgstr "애플 파일링"
 
 msgid "Case folding"
 msgstr ""
@@ -48,46 +49,46 @@ msgid "Client sees uppercase, server sees lowercase"
 msgstr ""
 
 msgid "Comment"
-msgstr ""
+msgstr "설명"
 
 msgid "Don't do :hex translation for dot files."
 msgstr ""
 
 msgid "Edit share"
-msgstr ""
+msgstr "공유 편집"
 
 msgid "Enable"
-msgstr ""
+msgstr "활성화"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "이 공유에 타임 머신 지원 활성화"
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "사용자 홈 경로 활성화"
 
 msgid "Extra options"
-msgstr ""
+msgstr "추가 옵션"
 
 msgid "Forces filename restrictions"
-msgstr ""
+msgstr "강제 파일 이름 제한"
 
 msgid "General settings"
-msgstr ""
+msgstr "일반 설정"
 
 msgid "Guest login"
-msgstr ""
+msgstr "게스트 로그인"
 
 msgid "Guest permissions"
-msgstr ""
+msgstr "게스트 권한"
 
 msgid "Guests only have read access by default."
-msgstr ""
+msgstr "기본적으로 게스트는 읽기 권한만을 가집니다."
 
 msgid "Hide dot files"
-msgstr ""
+msgstr "점(.) 파일 숨기기"
 
 msgid "Home directories"
-msgstr ""
+msgstr "홈 경로"
 
 msgid ""
 "If this option is set, then a password is required to access the share."
@@ -111,37 +112,37 @@ msgid "Make dot files invisible."
 msgstr ""
 
 msgid "Name"
-msgstr ""
+msgstr "이름"
 
 msgid "None"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "암호"
 
 msgid "Quota"
-msgstr ""
+msgstr "할당량"
 
 msgid "Read only"
-msgstr ""
+msgstr "읽기 전용"
 
 msgid "Set read only."
-msgstr ""
+msgstr "읽기 전용으로 설정"
 
 msgid "Settings"
-msgstr ""
+msgstr "설정"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "공유 폴더"
 
 msgid "Shares"
-msgstr ""
+msgstr "공유"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "공유할 파일 위치"
 
 msgid "The name of the share."
-msgstr ""
+msgstr "공유 이름"
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."
@@ -151,19 +152,19 @@ msgid "This option handles, if the case of filenames should be changed."
 msgstr ""
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "타임 머신 지원"
 
 msgid "Unix privileges"
-msgstr ""
+msgstr "UNIX 권한"
 
 msgid "Uppercases names in both directions"
 msgstr ""
 
 msgid "Use AFP3 unix privileges."
-msgstr ""
+msgstr "AFP3 UNIX 권한 사용"
 
 msgid "Use dots"
-msgstr ""
+msgstr "점(.) 사용"
 
 msgid ""
 "When this option gets set, certain file names become illegal. These are "
@@ -171,4 +172,4 @@ msgid ""
 msgstr ""
 
 msgid "n/a"
-msgstr ""
+msgstr "해당 없음"

@@ -1,5 +1,6 @@
 openmediavault-netatalk (1.2) stable; urgency=low
 
+  * Update locales.
   * Set AFP Zeroconf configuration at plugin installation.
   * Set the correct machine's atalk name.
 
