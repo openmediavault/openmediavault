@@ -4276,20 +4276,19 @@ class OMVUserGroup extends OMVObject {
 	 */
 	public function getQuotas() {
 		$cmd = sprintf("export LANG=C; EDITOR=cat edquota -g %s",
-		  $this->getName());
+		  escapeshellarg($this->getName()));
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
 			$this->setLastError($output);
 			return FALSE;
 		}
-
 		// Parse command output:
 		// Filesystem                   blocks       soft       hard     inodes     soft     hard
 		// /dev/sdb1                     10188          0      12288          4        0        0
 		// /dev/sdc1                         0          0      45056          0        0        0
 		$result = array();
-		foreach($output as $outputk => $outputv) {
-			if(preg_match("/^\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+".
+		foreach ($output as $outputk => $outputv) {
+			if (preg_match("/^\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+".
 			  "(\d+)\s+(\d+)$/i", $outputv, $matches)) {
 				$result[$matches[1]] = array(
 					"devicefile" => $matches[1],
@@ -4598,20 +4597,19 @@ class OMVUser extends OMVObject {
 	 */
 	public function getQuotas() {
 		$cmd = sprintf("export LANG=C; EDITOR=cat edquota -u %s",
-		  $this->getName());
+		  escapeshellarg($this->getName()));
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
 			$this->setLastError($output);
 			return FALSE;
 		}
-
 		// Parse command output:
 		// Filesystem                   blocks       soft       hard     inodes     soft     hard
 		// /dev/sdb1                     10188          0      12288          4        0        0
 		// /dev/sdc1                         0          0      45056          0        0        0
 		$result = array();
-		foreach($output as $outputk => $outputv) {
-			if(preg_match("/^\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+".
+		foreach ($output as $outputk => $outputv) {
+			if (preg_match("/^\s+(\S+)\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\s+".
 			  "(\d+)\s+(\d+)$/i", $outputv, $matches)) {
 				$result[$matches[1]] = array(
 					"devicefile" => $matches[1],
