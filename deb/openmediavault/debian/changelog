@@ -1,6 +1,7 @@
 openmediavault (1.1) stable; urgency=low
 
   * Show equal named user/group entries in filesystem quota dialog.
+  * Fix bug in WebGUI caching feature which improves page load.
   * Mantis 0001195: WebGUI can't mount mdadm partitions.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 16 Nov 2014 00:49:21 +0100

@@ -112,7 +112,7 @@ abstract class OMVHtmlPageAbstract extends OMVObject {
 EOF;
 
 		// Add additional CSS files.
-		$incList = array_unique($this->getCssIncludes());
+		$incList = array_values(array_unique($this->getCssIncludes()));
 		$fileName = "css/omv-custom.css";
 		if (file_exists($fileName))
 			$incList[] = $fileName;
@@ -133,8 +133,12 @@ EOF;
 
 		// Get additional Javascript files. To improve loading speed the
 		// list of include files will be cached.
-		$jsonFile = new OMVJsonFile(sprintf("%s/cache.%s_js.json",
-		  $GLOBALS['OMV_CACHE_DIR'], strtolower(get_class($this))));
+		$parts = array();
+		$parts[] = strtolower(get_class($this));
+		$parts[] = $this->getCacheFileId();
+		$parts[] = "js";
+		$jsonFile = new OMVJsonFile(sprintf("%s/cache.%s.json",
+		  $GLOBALS['OMV_CACHE_DIR'], implode("_", array_filter($parts))));
 		if ($jsonFile->exists() && !(boolvalEx($GLOBALS['OMV_DEBUG_PHP']) ||
 		  boolvalEx($GLOBALS['OMV_DEBUG_EXTJS']))) {
 			$jsonFile->open("r");
@@ -171,6 +175,15 @@ EOF;
 		return sprintf("%s %s - %s", $prd->getName(),
 		  gettext("web administration interface"),
 		  OMVNetwork::getHostname("--fqdn"));
+	}
+
+	/**
+	 * Get the identifier to make the cache file unique, e.g. "xyz".
+	 * Defaults to empty.
+	 * @return The cache file identifier.
+	 */
+	protected function getCacheFileId() {
+		return "";
 	}
 
 	/**
@@ -234,6 +247,10 @@ class OMVWebGui extends OMVHtmlPageAbstract {
 		$this->scanDir("js/omv/module/public", $incList, TRUE);
 		$this->scanDir("js/omv/module/{$this->mode}", $incList, TRUE);
 		return $incList;
+	}
+
+	protected function getCacheFileId() {
+		return $this->mode;
 	}
 
 	protected function getBodyId() {
