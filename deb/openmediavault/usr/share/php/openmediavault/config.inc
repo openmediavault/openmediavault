@@ -362,6 +362,8 @@ class OMVConfigEngine extends OMVObject {
 			}
 		}
 		// Replace the configuration file with the given revision.
+		// !!! Note, the file permissions of the target file will
+		// not be touched when using the copy operation.
 		if (!copy($filename, $this->filename)) {
 			$this->setLastError(error_get_last());
 			goto finish;
