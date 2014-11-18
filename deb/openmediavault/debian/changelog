@@ -1,3 +1,10 @@
+openmediavault (1.1.1) stable; urgency=low
+
+  * Improve OMVHtmlPageAbstract::scanFiles() method to improve page
+    loading speed.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 18 Nov 2014 11:18:21 +0100
+
 openmediavault (1.1) stable; urgency=low
 
   * Update locales.

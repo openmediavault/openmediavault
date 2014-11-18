@@ -44,9 +44,23 @@ abstract class OMVHtmlPageAbstract extends OMVObject {
 		$fh = fopen($fileName, "r");
 		if ($fh === FALSE)
 			throw new Exception(sprintf("Failed to open file '%s'", $fileName));
+		$abort = FALSE;
 		$scanList = array();
-		for ($row = 0; $row < 100 && !feof($fh); ++$row) {
-			$content = rtrim(fgets($fh));
+		$regex = "/^(\/\/\s+require\(\"([^\s]+)\"\)|\/\*+|\*\/|\*.*|\s*)$/";
+		while (!feof($fh)) {
+			// Read line by line. Strip whitespace or other characters from
+			// the beginning and end of the line.
+			$content = trim(fgets($fh));
+			// Abort scanning this file if we find the first line that does
+			// not match the regex. Accepted lines are:
+			// - /**
+			// - *
+			// - * xyz abc
+			// - */
+			// - // require("xyz")
+			// - Blank lines
+			if (1 !== preg_match($regex, $content))
+				break;
 			if (1 !== preg_match("/\/\/\s+require\(\"([^\s]+)\"\)/", $content,
 			  $matches))
 				continue;
@@ -66,18 +80,18 @@ abstract class OMVHtmlPageAbstract extends OMVObject {
 	 */
 	protected function scanDir($dirPath, &$incList, $recursive = TRUE) {
 		$dir = new DirectoryIterator($dirPath);
-		foreach($dir as $item) {
-			if($item->isDot())
+		foreach ($dir as $item) {
+			if ($item->isDot())
 				continue;
-			if($item->isFile()) {
+			if ($item->isFile()) {
 				$pathInfo = pathinfo($item->getFilename());
-				if(array_key_exists("extension", $pathInfo) &&
+				if (array_key_exists("extension", $pathInfo) &&
 				  (strtolower($pathInfo['extension']) === "js")) {
 					$this->scanFiles("{$dirPath}/{$pathInfo['basename']}",
 					  $incList);
 				}
 			}
-			if($item->isDir() && (TRUE === $recursive)) {
+			if ($item->isDir() && (TRUE === $recursive)) {
 				$newIncPath = $dirPath . "/" . $item->getFilename();
 				$this->scanDir($item->getPathname(), $incList, $recursive);
 				continue;
