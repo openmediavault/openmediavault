@@ -431,6 +431,9 @@ case "$1" in
 			omv-mkconf proftpd
 			service proftpd reload
 		fi
+		if dpkg --compare-versions "$2" lt-nl "1.2"; then
+			omv_config_delete "/config/system/network/hostac"
+		fi
 	;;
 
 	triggered)

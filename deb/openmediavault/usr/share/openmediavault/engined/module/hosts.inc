@@ -49,10 +49,6 @@ class OMVModuleHosts extends OMVModuleServiceAbstract
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.hostac",
-		  array($this, "setDirty"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.network.hostname",
 		  array($this, "setDirty"));
     }

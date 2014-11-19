@@ -115,10 +115,6 @@
 				</bondiface>
 				-->
 			</interfaces>
-			<hostac>
-				<allow></allow>
-				<deny></deny>
-			</hostac>
 			<dnsnameservers></dnsnameservers>
 			<iptables>
 				<!--

@@ -52,8 +52,6 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$this->registerMethod("getBondIface");
 		$this->registerMethod("setBondIface");
 		$this->registerMethod("deleteBondIface");
-		$this->registerMethod("getHostAccessControl");
-		$this->registerMethod("setHostAccessControl");
 		$this->registerMethod("getDNSNameServers");
 		$this->registerMethod("setDNSNameServers");
 	}
@@ -815,70 +813,6 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		  $params['uuid']);
 		return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.system.network.interfaces.bondiface");
-	}
-
-	/**
-	 * Get the host access control configuration.
-	 * @param params The method parameters.
-	 * @param context The context of the caller.
-	 * @return The configuration object.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 */
-	function getHostAccessControl($params, $context) {
-		global $xmlConfig;
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
-		// Get the configuration object.
-		$xpath = "//system/network/hostac";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		return array(
-			"hostacallow" => $object['allow'],
-			"hostacdeny" => $object['deny'],
-		);
-	}
-
-	/**
-	 * Set the host access control configuration.
-	 * @param params The method parameters.
-	 * @param context The context of the caller.
-	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
-	 */
-	function setHostAccessControl($params, $context) {
-		global $xmlConfig;
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "hostacallow":{"type":"string"},
-				  "hostacdeny":{"type":"string"}
-			  }
-		  }');
-		// Prepare the configuration object.
-		$object = array(
-			"allow" => $params['hostacallow'],
-			"deny" => $params['hostacdeny']
-		);
-		$success = $xmlConfig->replace("//system/network/hostac", $object);
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
-		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.hostac", $object);
-		// Return the configuration object.
-		return $object;
 	}
 
 	/**

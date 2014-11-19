@@ -28,8 +28,6 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_HOSTS_CONFIG=${OMV_HOSTS_CONFIG:-"/etc/hosts"}
-OMV_HOSTS_ALLOW_CONFIG=${OMV_HOSTS_ALLOW_CONFIG:-"/etc/hosts.allow"}
-OMV_HOSTS_DENY_CONFIG=${OMV_HOSTS_DENY_CONFIG:-"/etc/hosts.deny"}
 
 # If the hostname is a FQDN, then extract the hostname part and store it
 # in the alias variable.
@@ -73,13 +71,3 @@ xmlstarlet sel -t -m "//system/network/interfaces/*" \
 		  echo "${address} ${fqdn}" >> ${OMV_HOSTS_CONFIG}
 	  fi
   done
-
-# Create /etc/hosts.allow file
-xmlstarlet sel -t \
-  -v "//system/network/hostac/allow" -n \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_HOSTS_ALLOW_CONFIG}
-
-# Create /etc/hosts.deny file
-xmlstarlet sel -t \
-  -v "//system/network/hostac/deny" -n \
-  ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_HOSTS_DENY_CONFIG}
