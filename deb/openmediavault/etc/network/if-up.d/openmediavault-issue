@@ -30,5 +30,8 @@ set -e
 if [ "$IFACE" = "lo" ]; then
 	exit 0
 fi
+if [ "$ADDRFAM" != "inet" ] && [ "$ADDRFAM" != "inet6" ]; then
+	exit 0
+fi
 
 omv-mkconf issue

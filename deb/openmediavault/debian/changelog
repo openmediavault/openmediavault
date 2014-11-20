@@ -4,6 +4,7 @@ openmediavault (1.2) stable; urgency=low
     loading speed.
   * Drop TCP wrapper support via WebGUI 'System | Network | Hosts' because
     this is no longer supported by most applications. Use iptables instead.
+  * Mantis 0001194: Device "bonding_masters" does not exist.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 18 Nov 2014 11:18:21 +0100
 

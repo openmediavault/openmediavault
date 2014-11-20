@@ -49,7 +49,7 @@ interface via a web browser:
 
 EOF
 
-	ifaces=$(ls /sys/class/net | grep -vi "lo")
+	ifaces=$(ifquery --list -X lo)
 	if [ -n "${ifaces}" ]; then
 		for iface in ${ifaces} ; do
 			ipaddr=$(omv_get_ipaddr ${iface})
