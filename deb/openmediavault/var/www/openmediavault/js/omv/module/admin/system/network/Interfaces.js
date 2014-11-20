@@ -731,6 +731,8 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		"Ext.XTemplate"
 	],
 
+	autoReload: true,
+	rememberSelected: true,
 	hidePagingToolbar: false,
 	stateful: true,
 	stateId: "85093f5d-9f9f-45bf-a46f-ead6bc36884a",
