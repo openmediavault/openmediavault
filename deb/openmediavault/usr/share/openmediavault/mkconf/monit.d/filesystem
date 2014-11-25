@@ -52,7 +52,7 @@ EOF
 		  progcheckname=$(echo "mp${dir}" | tr "/ " "_")
 		  cat <<EOF >> ${OMV_MONIT_SERVICE_FILESYSTEM_CONFIG}
 # Alert if filesystem is missing or disk space gets low
-check filesystem ${fscheckname} with path ${dir}
+check filesystem ${fscheckname} with path "${dir}"
   if space usage > ${OMV_MONIT_SERVICE_FILESYSTEM_SPACEUSAGE}% for 5 times within 15 cycles
 	then alert else if succeeded for 10 cycles then alert
 #check program ${progcheckname} with path "/bin/mountpoint -q '${dir}'"
