@@ -3,1495 +3,1494 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# kochin <kochinc@outlook.com>, 2013-2014
-# kochin <kochinc@outlook.com>, 2012-2013
+# Jan Štourač <wormsik666@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-11-25 16:06+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
-"Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
+"PO-Revision-Date: 2014-11-26 22:26+0000\n"
+"Last-Translator: Jan Štourač <wormsik666@gmail.com>\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: zh_TW\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #, javascript-format
 msgid "% completed ..."
-msgstr "% 完成 ..."
+msgstr ""
 
 msgid "%s (%s available)"
-msgstr "%s (%s 可用)"
+msgstr ""
 
 msgid "%s [on %s, %s]"
-msgstr "%s [位於 %s, %s]"
+msgstr ""
 
 msgid "'All' is not allowed"
-msgstr "不允許 '全部' 選項"
+msgstr ""
 
 msgid "0 KiB/s means unlimited."
-msgstr "0 KiB/s 表示無限制。"
+msgstr ""
 
 msgid "1 - Minimum power usage with standby (spindown)"
-msgstr "1 - 最低用電量、待機狀態 (停止轉動)"
+msgstr ""
 
 msgid "1 day"
-msgstr "1 天"
+msgstr "1 den"
 
 msgid "1 month"
-msgstr "1 月"
+msgstr "1 měsíc"
 
 msgid "1 week"
-msgstr "1 週"
+msgstr "1 týden"
 
 msgid "1 year"
-msgstr "1 年"
+msgstr "1 rok"
 
 msgid "10 minutes"
-msgstr "10 分鐘"
+msgstr "10 minut"
 
 msgid "10 years"
-msgstr "10 年"
+msgstr "10 let"
 
 #, javascript-format
 msgid "100% completed ..."
-msgstr "100% 完成 ..."
+msgstr ""
 
 msgid "120 minutes"
-msgstr "120 分鐘"
+msgstr "120 minut"
 
 msgid "127 - Intermediate power usage with standby"
-msgstr "127 - 中等用電量、待機狀態"
+msgstr ""
 
 msgid "128 - Minimum power usage without standby (no spindown)"
-msgstr "128 - 最低用電量、非待機狀態(未停止轉動)"
+msgstr ""
 
 msgid "15 years"
-msgstr "15 年"
+msgstr "15 let"
 
 msgid "180 minutes"
-msgstr "180 分鐘"
+msgstr "180 minut"
 
 msgid "192 - Intermediate power usage without standby"
-msgstr "192 - 中等用電量、非待機狀態"
+msgstr ""
 
 msgid "2 days"
-msgstr "2 天"
+msgstr "2 dny"
 
 msgid "2 weeks"
-msgstr "2 週"
+msgstr "2 týdny"
 
 msgid "2 years"
-msgstr "2 年"
+msgstr "2 roky"
 
 msgid "20 minutes"
-msgstr "20 分鐘"
+msgstr "20 minut"
 
 msgid "20 years"
-msgstr "20 年"
+msgstr "20 let"
 
 msgid "240 minutes"
-msgstr "240 分鐘"
+msgstr "240 minut"
 
 msgid "25 years"
-msgstr "25 年"
+msgstr "25 let"
 
 msgid "254 - Maximum performance, maximum power usage"
-msgstr "254 - 最高性能、最大用電量"
+msgstr "254 - Maximální výkon, maximální spotřeba"
 
 msgid "255 - Disabled"
-msgstr "255 - 停用"
+msgstr ""
 
 msgid "3 days"
-msgstr "3 天"
+msgstr "3 dny"
 
 msgid "3 months"
-msgstr "3 月"
+msgstr "3 měsíce"
 
 msgid "3 weeks"
-msgstr "3 週"
+msgstr "3 týdny"
 
 msgid "3 years"
-msgstr "3 年"
+msgstr "3 roky"
 
 msgid "30 minutes"
-msgstr "30 分鐘"
+msgstr "30 minut"
 
 msgid "300 minutes"
-msgstr "300 分鐘"
+msgstr "300 minut"
 
 msgid "360 minutes"
-msgstr "360 分鐘"
+msgstr "360 minut"
 
 msgid "4 days"
-msgstr "4 天"
+msgstr "4 dny"
 
 msgid "4 years"
-msgstr "4 年"
+msgstr "4 roky"
 
 msgid "5 days"
-msgstr "5 天"
+msgstr "5 dní"
 
 msgid "5 minutes"
-msgstr "5 分鐘"
+msgstr "5 minut"
 
 msgid "5 years"
-msgstr "5 年"
+msgstr "5 let"
 
 msgid "6 days"
-msgstr "6 天"
+msgstr "6 dní"
 
 msgid "6 months"
-msgstr "6 月"
+msgstr "6 měsíců"
 
 msgid "60 minutes"
-msgstr "60 分鐘"
+msgstr "60 minut"
 
 msgid "64 - Intermediate power usage with standby"
-msgstr "64 - 中等用電量、待機狀態"
+msgstr ""
 
 msgid "9 months"
-msgstr "9 月"
+msgstr "9 měsíců"
 
 msgid "A module with the name '%s' already exists"
-msgstr "名稱為 '%s' 的模組已經存在"
+msgstr "Modul s názvem \"%s\" již existuje"
 
 msgid "A share with the name '%s' already exists"
-msgstr "名稱為 '%s' 的共享已經存在"
+msgstr ""
 
 msgid "A shared folder with the given name already exists"
-msgstr "所給名稱的共享檔案夾已經存在"
+msgstr "Sdílená složka s daným názvem již existuje"
 
 msgid "ACL"
-msgstr "ACL"
+msgstr ""
 
 msgid "ASCII"
 msgstr "ASCII"
 
 msgid "About"
-msgstr "關於"
+msgstr ""
 
 msgid "Abstract"
-msgstr "摘要"
+msgstr "Abstrakt"
 
 msgid "Access Right Management"
-msgstr "存取權限管理"
+msgstr ""
 
 msgid "Access Rights Management"
-msgstr "存取權限管理"
+msgstr ""
 
 msgid "Access mode"
-msgstr "存取模式"
+msgstr ""
 
 msgid "Act as a WINS server."
-msgstr "作為一個 WINS 伺服器。"
+msgstr ""
 
 msgid "Action"
-msgstr "動作"
+msgstr "Akce"
 
 msgid "Activate S.M.A.R.T. monitoring."
-msgstr "啟動 S.M.A.R.T. 監測。"
+msgstr "Aktivovat monitorování S.M.A.R.T."
 
 msgid "Add"
-msgstr "新增"
+msgstr "Přidat"
 
 msgid "Add bonded interface"
-msgstr "新增結合介面"
+msgstr ""
 
 msgid "Add devices to RAID device"
-msgstr "新增裝置到 RAID 裝置中"
+msgstr ""
 
 msgid "Add firewall rule"
-msgstr "新增防火牆規則"
+msgstr "Přidat pravidlo firewallu"
 
 msgid "Add group"
-msgstr "新增群組"
+msgstr "Přidat skupinu"
 
 msgid "Add hot spares / recover RAID device"
-msgstr "新增熱備用 / 復原 RAID 裝置"
+msgstr ""
 
 msgid "Add module"
-msgstr "新增模組"
+msgstr "Přidat modul"
 
 msgid "Add rsync job"
-msgstr "新增 rsync 工作"
+msgstr ""
 
 msgid "Add rule"
-msgstr "新增規則"
+msgstr "Přidat pravidlo"
 
 msgid "Add scheduled job"
-msgstr "新增預定工作"
+msgstr ""
 
 msgid "Add scheduled test"
-msgstr "新增預定測試"
+msgstr ""
 
 msgid "Add share"
-msgstr "新增共享"
+msgstr ""
 
 msgid "Add shared folder"
-msgstr "新增共享檔案夾"
+msgstr "Přidat sdílenou složku"
 
 msgid "Add user"
-msgstr "新增用戶"
+msgstr "Přidat uživatele"
 
 msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
 " href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 "for more details."
-msgstr "額外的裝置設定，例如：'autoneg off speed 100 duplex full'。詳情請見<a href='http://linux.die.net/man/8/ethtool' target='_blank'>手冊頁</a>。"
+msgstr ""
 
 msgid "Address"
-msgstr "網址"
+msgstr "Adresa"
 
 msgid "Administrator password"
-msgstr "管理員密碼"
+msgstr "Administrátorské heslo"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
-msgstr "管理員：讀/寫，用戶：不能存取，其他：不能存取"
+msgstr "Administrátor: čtení/zápis, Uživatelé: žádný přístup, Ostatní: žádný přístup"
 
 msgid "Administrator: read/write, Users: read-only, Others: no access"
-msgstr "管理員：讀/寫，用戶：只能讀取，其他：不能存取"
+msgstr "Administrátor: čtení/zápis, Uživatelé: pouze pro čtení, Ostatní: žádný přístup"
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
-msgstr "管理員：讀/寫，用戶：只能讀取，其他：只能讀取"
+msgstr "Administrátor: čtení/zápis, Uživatelé: pouze pro čtení, Ostatní: pouze pro čtení"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
-msgstr "管理員：讀/寫，用戶：讀/寫，其他：不能存取"
+msgstr "Administrátor: čtení/zápis, Uživatelé: čtení/zápis, Ostatní: žádný přístup"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr "管理員：讀/寫，用戶：讀/寫，其他：只能讀取"
+msgstr "Administrátor: čtení/zápis, Uživatelé: čtení/zápis, Ostatní: pouze pro čtení"
 
 msgid "Advanced Power Management"
-msgstr "進階電源管理"
+msgstr ""
 
 msgid "Advanced settings"
-msgstr "進階設定"
+msgstr "Pokročilá nastavení"
 
 msgid "Afghanistan"
-msgstr "阿富汗"
+msgstr "Afghánistán"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
-msgstr "在 RAID 容量增加後，你可以調整內含檔案系統的大小。"
+msgstr ""
 
 msgid "Aland Islands"
-msgstr "奧蘭群島"
+msgstr "Alandy"
 
 msgid "Albania"
-msgstr "阿爾巴尼亞"
+msgstr "Albánie"
 
 msgid "Algeria"
-msgstr "阿爾及利亞"
+msgstr "Alžírsko"
 
 msgid "All"
-msgstr "全部"
+msgstr "Vše"
 
 msgid "Allow"
-msgstr "允許"
+msgstr "Povolit"
 
 msgid "Allow client access to accounts that have null passwords"
-msgstr "允許客戶取用擁有空密碼的帳戶"
+msgstr ""
 
 msgid ""
 "Allow clients to attempt to store OS/2 style extended attributes on a share."
-msgstr "允許客戶試著在一項共存上儲存 OS/2 形式的擴展屬性。"
+msgstr ""
 
 msgid "Allow clients to resume interrupted uploads and downloads"
-msgstr "允許客戶恢復被中斷的上傳和下載"
+msgstr ""
 
 msgid "Allow new files"
-msgstr "允許新檔案"
+msgstr "Povolit nové soubory"
 
 msgid "Allow new files to be created."
-msgstr "允許新檔案被建立"
+msgstr "Povolit vytváření nových souborů"
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
-msgstr "允許此伺服器對 Windows 客戶端宣告自己為時間伺服器"
+msgstr ""
 
 msgid "Allow this server to try and become a local master browser"
-msgstr "允許此伺服器嘗試成為本地網路的主控瀏覽器"
+msgstr ""
 
 msgid "American Samoa"
-msgstr "美屬薩摩亞"
+msgstr "Americká Samoa"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr "一封含有指令輸出(如有產生)的電子信件會被送給管理員。"
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr "一封含有指令輸出(如有產生)的電子信件會被送給執行該指令的用戶。"
+msgstr ""
 
 msgid "An error has occured"
-msgstr "發生了一個錯誤"
+msgstr ""
 
 msgid "Andorra"
-msgstr "安道爾"
+msgstr "Andorra"
 
 msgid "Angola"
-msgstr "安哥拉"
+msgstr "Angola"
 
 msgid "Anguilla"
-msgstr "安圭拉"
+msgstr "Anguilla"
 
 msgid "Anonymous"
-msgstr "匿名"
+msgstr "Anonymní"
 
 msgid "Anonymous FTP"
-msgstr "匿名 FTP"
+msgstr "Anonymní FTP"
 
 msgid "Antarctica"
-msgstr "南極洲"
+msgstr "Antarktida"
 
 msgid "Antigua and Barbuda"
-msgstr "安提瓜與巴布達"
+msgstr "Antigua a Barbuda"
 
 msgid "Apply"
-msgstr "套用"
+msgstr ""
 
 msgid "Apply configuration changes"
-msgstr "套用配置的變更"
+msgstr ""
 
 msgid "Apply permissions to files and subfolders"
-msgstr "將權限套用到檔案與子檔案夾"
+msgstr ""
 
 msgid "April"
-msgstr "四月"
+msgstr "Duben"
 
 msgid "Archive"
-msgstr "歸檔"
+msgstr "Archiv"
 
 msgid "Argentina"
-msgstr "阿根廷"
+msgstr "Argentina"
 
 msgid "Armenia"
-msgstr "亞美尼亞"
+msgstr "Arménie"
 
 msgid "Array details"
-msgstr "陣列詳細資料"
+msgstr ""
 
 msgid "Aruba"
-msgstr "阿魯巴"
+msgstr "Aruba"
 
 msgid "Asynchronous I/O"
-msgstr "非同步 I/O"
+msgstr ""
 
 msgid "Attribute name"
-msgstr "屬性名稱"
+msgstr "Název atributu"
 
 msgid "Attributes"
-msgstr "屬性"
+msgstr "Atributy"
 
 msgid "Audit"
-msgstr "審核"
+msgstr ""
 
 msgid "Audit file operations."
-msgstr "審核檔案操作。"
+msgstr ""
 
 msgid "August"
-msgstr "八月"
+msgstr "Srpen"
 
 msgid "Australia"
-msgstr "澳洲"
+msgstr "Austrálie"
 
 msgid "Austria"
-msgstr "奧地利"
+msgstr "Rakousko"
 
 msgid "Authenticate users"
-msgstr "驗證用戶"
+msgstr ""
 
 msgid "Authenticated user ID"
-msgstr "驗證過的用戶 ID"
+msgstr ""
 
 msgid "Authentication"
-msgstr "驗證"
+msgstr ""
 
 msgid "Authentication and no privacy"
-msgstr "驗證及無隱私"
+msgstr ""
 
 msgid "Authentication and privacy"
-msgstr "驗證及隱私"
+msgstr ""
 
 msgid "Authentication method"
-msgstr "驗證方式"
+msgstr ""
 
 msgid "Authentication passphrase"
-msgstr "驗證密語"
+msgstr ""
 
 msgid "Authentication required"
-msgstr "必須驗證"
+msgstr ""
 
 msgid "Authentication type"
-msgstr "驗證型式"
+msgstr ""
 
 msgid "Auto"
-msgstr "自動"
+msgstr ""
 
 msgid "Automatic Acoustic Management"
-msgstr "自動聲響管理"
+msgstr ""
 
 msgid "Available"
-msgstr "可用"
+msgstr ""
 
 msgid "Azerbaijan"
-msgstr "阿塞拜疆"
+msgstr "Ázerbájdžán"
 
 msgid "Bahamas"
-msgstr "巴哈馬"
+msgstr "Bahamy"
 
 msgid "Bahrain"
-msgstr "巴林"
+msgstr "Bahrajn"
 
 msgid "Ban list"
-msgstr "禁止清單"
+msgstr ""
 
 msgid "Ban statistics:"
-msgstr "禁止統計："
+msgstr ""
 
 msgid "Bandwidth restriction"
-msgstr "頻寬限制"
+msgstr ""
 
 msgid "Bangladesh"
-msgstr "孟加拉"
+msgstr "Bangladéš"
 
 msgid "Barbados"
-msgstr "巴貝多斯"
+msgstr "Barbados"
 
 msgid "Belarus"
-msgstr "白俄羅斯"
+msgstr "Bělorusko"
 
 msgid "Belgium"
-msgstr "比利時"
+msgstr "Belgie"
 
 msgid "Belize"
-msgstr "伯利茲"
+msgstr "Belize"
 
 msgid "Benin"
-msgstr "貝寧"
+msgstr "Benin"
 
 msgid "Bermuda"
-msgstr "百慕達"
+msgstr "Bermudy"
 
 msgid "Bhutan"
-msgstr "不丹"
+msgstr "Bhútán"
 
 msgid "Binary"
-msgstr "二進位碼"
+msgstr "Binární"
 
 msgid "Block layer cache [%s, %s]"
-msgstr "區塊層緩存 [%s, %s]"
+msgstr ""
 
 msgid "Blocksize"
-msgstr "區塊大小"
+msgstr "Velikost bloku"
 
 msgid "Bolivia"
-msgstr "玻利維亞"
+msgstr "Bolívie"
 
 msgid "Bond options"
-msgstr "結合選項"
+msgstr ""
 
 msgid "Boot"
-msgstr "系統啟動"
+msgstr "Boot"
 
 msgid "Bosnia and Herzegovina"
-msgstr "波斯尼亞與黑塞哥維那"
+msgstr "Bosna a Hercegovina"
 
 msgid "Botswana"
-msgstr "博茨瓦納"
+msgstr "Botswana"
 
 msgid "Bouvet Island"
-msgstr "布維島"
+msgstr "Bouvetův ostrov"
 
 msgid "Brazil"
-msgstr "巴西"
+msgstr "Brazílie"
 
 msgid "British Antarctic Territory"
-msgstr "英屬南極領地"
+msgstr "Britské antarktické území"
 
 msgid "British Indian Ocean Territory"
-msgstr "英屬印度洋領地"
+msgstr "Britské indickooceánské území"
 
 msgid "British Virgin Islands"
-msgstr "英屬維爾京群島"
+msgstr "Britské Panenské ostrovy"
 
 msgid "Browseable"
-msgstr "可瀏覽"
+msgstr ""
 
 msgid "Brunei"
-msgstr "汶萊"
+msgstr "Brunej"
 
 msgid "Bulgaria"
-msgstr "保加利亞"
+msgstr "Bulharsko"
 
 msgid "Burkina Faso"
-msgstr "布基納法索"
+msgstr "Burkina Faso"
 
 msgid "Burundi"
-msgstr "布隆迪"
+msgstr "Burundi"
 
 msgid "By default, only files that already exist are allowed to be uploaded."
-msgstr "預設是只有已經存在的檔案才被允許上傳。"
+msgstr ""
 
 msgid "CPU usage"
-msgstr "CPU 使用量"
+msgstr "Využití procesoru"
 
 msgid "Cambodia"
-msgstr "柬埔寨"
+msgstr "Kambodža"
 
 msgid "Cameroon"
-msgstr "喀麥隆"
+msgstr "Kamerun"
 
 msgid "Canada"
-msgstr "加拿大"
+msgstr "Kanada"
 
 msgid "Cancel"
-msgstr "取消"
+msgstr "Zrušit"
 
 msgid ""
 "Cannot unlink shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "無法切斷共享檔案夾內容的連結，因為令一個共享檔案夾引用到一個子檔案夾"
+msgstr ""
 
 msgid "Canton and Enderbury Islands"
-msgstr "坎吞與恩得伯利島"
+msgstr "Canton a Enderbury"
 
 msgid "Capacity"
-msgstr "容量"
+msgstr "Kapacita"
 
 msgid "Cape Verde"
-msgstr "維德角"
+msgstr "Kapverdy"
 
 msgid "Cayman Islands"
-msgstr "開曼群島"
+msgstr "Kajmanské ostrovy"
 
 msgid "Central African Republic"
-msgstr "中非共和國"
+msgstr "Středoafrická republika"
 
 msgid "Certificate"
-msgstr "證書"
+msgstr "Certifikát"
 
 msgid "Certificate details"
-msgstr "證書詳細資訊"
+msgstr "Detaily certifikátu"
 
 msgid "Certificates"
-msgstr "證書"
+msgstr "Certifikáty"
 
 msgid "Chad"
-msgstr "查德"
+msgstr "Čad"
 
 msgid "Changelog"
-msgstr "變更日誌"
+msgstr ""
 
 msgid "Check"
-msgstr "檢查"
+msgstr ""
 
 msgid "Check interval"
-msgstr "檢查間隔時間"
+msgstr ""
 
 msgid "Checking for new plugins ..."
-msgstr "檢查是否有新的插件 ..."
+msgstr "Hledám nové doplňky ..."
 
 msgid "Checking for new updates ..."
-msgstr "檢查是否有新的更新 ..."
+msgstr ""
 
 msgid "Chile"
-msgstr "智利"
+msgstr "Chile"
 
 msgid "China"
-msgstr "中國"
+msgstr "Čína"
 
 msgid "Christmas Island"
-msgstr "聖誕島"
+msgstr "Vánoční ostrov"
 
 msgid "City"
-msgstr "城市"
+msgstr "Město"
 
 msgid "Clear"
-msgstr "清除"
+msgstr ""
 
 msgid "Client"
-msgstr "客戶端"
+msgstr "Klient"
 
 msgid "Client NetBIOS name"
-msgstr "客戶端 NetBIOS 名稱"
+msgstr ""
 
 msgid "Client address"
-msgstr "客戶端位址"
+msgstr ""
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr "允許裝載檔案系統的客戶端，例如 192.168.178.0/24。"
+msgstr ""
 
 msgid "Close"
-msgstr "關閉"
+msgstr "Zavřít"
 
 msgid "Cocos (Keeling) Islands"
-msgstr "科科斯(基林)群島"
+msgstr "Kokosové (Keelingovy) ostrovy"
 
 msgid "Colombia"
-msgstr "哥倫比亞"
+msgstr "Kolumbie"
 
 msgid "Command"
-msgstr "指令"
+msgstr "Příkaz"
 
 msgid "Comment"
-msgstr "註釋"
+msgstr "Komentář"
 
 msgid "Common Name"
-msgstr "通用名稱"
+msgstr ""
 
 msgid "Community"
-msgstr "社群"
+msgstr "Komunita"
 
 msgid "Community-maintained updates."
-msgstr "社群維護的更新。"
+msgstr ""
 
 msgid "Comoros"
-msgstr "科摩羅"
+msgstr ""
 
 msgid "Complete"
-msgstr "完成"
+msgstr "Hotovo"
 
 msgid "Completion status"
-msgstr "完成狀態"
+msgstr ""
 
 msgid "Compress"
-msgstr "壓縮"
+msgstr "Komprimovat"
 
 msgid "Compress file data during the transfer"
-msgstr "在傳輸過程中壓縮檔案資料"
+msgstr "Komprimovat data během přenosu"
 
 msgid "Compressed"
-msgstr "經過壓縮"
+msgstr ""
 
 msgid "Compression"
-msgstr "壓縮"
+msgstr "Komprese"
 
 msgid ""
 "Compression is worth using if your connection is slow. The efficiency of the"
 " compression depends on the type of the file, and varies widely. Useful for "
 "internet transfer only."
-msgstr "如果你的連線速度很慢，則壓縮是值得一用的。壓縮的效率根據文件的類型會有很大差異。這僅對於網際網路傳輸有用。"
+msgstr ""
 
 msgid "Confirm password"
-msgstr "確認密碼"
+msgstr "Potvrdit heslo"
 
 msgid "Confirmation"
-msgstr "確認"
+msgstr "Potvrzení"
 
 msgid "Congo (Brazzaville)"
-msgstr "剛果(布拉柴維爾)"
+msgstr "Kongo (Brazzaville)"
 
 msgid "Congo (Kinshasa)"
-msgstr "剛果(金沙薩)"
+msgstr "Demokratická republika Kongo (Kinhasa)"
 
 msgid "Connections"
-msgstr "連線"
+msgstr "Spojení"
 
 msgid "Contact"
-msgstr "聯絡"
+msgstr "Kontakt"
 
 msgid ""
 "Contact information, e.g. name or email address of the person responsible "
 "for this system."
-msgstr "聯絡資料，例如此系統負責人的姓名或電子郵件地址。"
+msgstr "Kontaktní informace, např. jméno nebo emailová adresa osoby zodpovědné za tento systém"
 
 msgid "Conveyance self-test"
-msgstr "運送自我測試"
+msgstr ""
 
 msgid "Cook Islands"
-msgstr "庫克群島"
+msgstr "Cookovy ostrovy"
 
 msgid "Costa Rica"
-msgstr "哥斯達黎加"
+msgstr "Kostarika"
 
 msgid "Country"
-msgstr "國家"
+msgstr ""
 
 msgid "Create"
-msgstr "新建"
+msgstr "Vytvořit"
 
 msgid "Create RAID device"
-msgstr "新建 RAID 裝置"
+msgstr "Vytvořit RAID zařízení"
 
 msgid "Create file system"
-msgstr "新建檔案系統"
+msgstr "Vytvořit souborový systém"
 
 msgid "Create self-signed SSL certificate"
-msgstr "新建自我簽名的 SSL 證書"
+msgstr "Vytvořit SSL certifikát podepsaný sám sebou (self-signed)"
 
 msgid "Creating the file system, please wait ..."
-msgstr "創建檔案系統中，請稍待 ..."
+msgstr "Vytváření souborového systému, čekejte prosím ..."
 
 msgid "Critical"
-msgstr "嚴重"
+msgstr "Kritické"
 
 msgid "Croatia"
-msgstr "克羅埃西亞"
+msgstr "Chorvatsko"
 
 msgid "Cuba"
-msgstr "古巴"
+msgstr "Kuba"
 
 msgid "Current time"
-msgstr "當前時間"
+msgstr "Aktuální čas"
 
 msgid "Currently logged in users"
-msgstr "當前登入的用戶"
+msgstr "Aktuálně přihlášení uživatelé"
 
 msgid "Currently logged in users:"
-msgstr "當前登入的用戶："
+msgstr "Aktuálně přihlášení uživatelé:"
 
 msgid "Cyprus"
-msgstr "塞浦路斯"
+msgstr "Kypr"
 
 msgid "Czech Republic"
-msgstr "捷克共和國"
+msgstr "Česká republika"
 
 msgid "DHCP"
 msgstr "DHCP"
 
 msgid "DNS Server"
-msgstr "DNS 伺服器"
+msgstr "DNS server"
 
 msgid "DNS server"
-msgstr "DNS 伺服器"
+msgstr "DNS server"
 
 msgid "Daemon"
-msgstr "幕後服務程式"
+msgstr "Démon"
 
 msgid "Dashboard"
-msgstr "儀表板"
+msgstr ""
 
 msgid "Date"
-msgstr "日期"
+msgstr "Datum"
 
 msgid "Date & Time"
-msgstr "日期與時間"
+msgstr "Datu & čas"
 
 msgid "Day of month"
-msgstr "月內第幾日"
+msgstr "Den v měsíci"
 
 msgid "Day of week"
-msgstr "週內第幾日"
+msgstr "Den v týdnu"
 
 msgid "Debug"
-msgstr "偵錯"
+msgstr ""
 
 msgid "December"
-msgstr "十二月"
+msgstr "Prosinec"
 
 msgid "Delete"
-msgstr "刪除"
+msgstr "Smazat"
 
 msgid "Delete content"
-msgstr "刪除內容"
+msgstr "Smazat obsah"
 
 msgid "Delete file system"
-msgstr "刪除檔案系統"
+msgstr "Smazat souborový systém"
 
 msgid "Delete files on the receiving side that don't exist on sender"
-msgstr "刪除在接收端但不存於發送端的檔案"
+msgstr ""
 
 msgid "Deleting selected item(s)"
-msgstr "刪除所選的項目"
+msgstr "Smazat vybrané soubory"
 
 msgid "Denmark"
-msgstr "丹麥"
+msgstr "Dánsko"
 
 msgid "Deny"
-msgstr "拒絕"
+msgstr "Zakázat"
 
 msgid "Deny logins which do not have a valid shell"
-msgstr "拒絕缺少可用指令殼層(shell)的登入"
+msgstr ""
 
 msgid "Description"
-msgstr "敘述"
+msgstr "Popis"
 
 msgid "Destination"
-msgstr "目的地"
+msgstr "Cíl"
 
 msgid ""
 "Destination address can be either a network IP address (with /mask), a IP "
 "range or a plain IP address. A '!' argument before the address specification"
 " inverts the sense of the address."
-msgstr "目的位址可以是網路 IP 位址(與 /遮罩)，IP 範圍或一個普通的 IP 位址。位址前可有 '!' 來反轉位址的意義。"
+msgstr ""
 
 msgid "Destination port"
-msgstr "目的地通訊埠"
+msgstr "Cílový port"
 
 msgid "Destination server"
-msgstr "目的地伺服器"
+msgstr "Cílový server"
 
 msgid "Destination shared folder"
-msgstr "目的地共享檔案夾"
+msgstr "Cílová sdílená složka"
 
 msgid "Detail"
-msgstr "詳細資料"
+msgstr "Detaily"
 
 msgid ""
 "Determine the default timeout, in microseconds, before the first packet is "
 "retransmitted."
-msgstr "決定在重新傳送第一個數據包之前的預設逾時時間，這是以微秒計算。"
+msgstr ""
 
 msgid "Device"
-msgstr "裝置"
+msgstr "Zařízení"
 
 msgid "Device Mapper %s [%s, %s]"
-msgstr "裝置對應器 %s [%s, %s]"
+msgstr ""
 
 msgid "Device information"
-msgstr "裝置資訊"
+msgstr "Informace o zařízení"
 
 msgid "Device model"
-msgstr "裝置型號"
+msgstr ""
 
 msgid "Device properties"
-msgstr "裝置屬性"
+msgstr "Vlastnosti zařízení"
 
 msgid "Device/Label"
-msgstr "裝置/標籤"
+msgstr ""
 
 msgid "Devices"
-msgstr "裝置"
+msgstr "Zařízení"
 
 msgid "Diagnostics"
-msgstr "診斷"
+msgstr ""
 
 msgid "Difference"
-msgstr "差異"
+msgstr "Rozdíl"
 
 msgid "Direction"
-msgstr "方向"
+msgstr "Směr"
 
 msgid "Directory"
-msgstr "檔案目錄"
+msgstr "Složka"
 
 msgid "Disabled"
-msgstr "已停用"
+msgstr ""
 
 msgid "Disallow the user to modify his account."
-msgstr "不允許用戶修改自己的帳戶。"
+msgstr ""
 
 msgid "Disk usage"
-msgstr "磁碟使用量"
+msgstr "Využití disku"
 
 msgid "Displaying items {0} - {1} of {2}"
-msgstr "顯示項目 {0} - {1} 總共 {2}"
+msgstr ""
 
 msgid "Djibouti"
-msgstr "吉布提"
+msgstr ""
 
 msgid "Do you really want to apply the configuration changes?"
-msgstr "你真的要套用此配置變更？"
+msgstr ""
 
 msgid "Do you really want to clear the log file?"
-msgstr "你真的要清除該日誌檔案？"
+msgstr ""
 
 msgid "Do you really want to create the RAID device?"
-msgstr "你真的要創建該 RAID 裝置？"
+msgstr ""
 
 msgid "Do you really want to delete the file system? All data will be lost."
-msgstr "你真的要刪除該檔案系統嗎？所有資料都將失去。"
+msgstr ""
 
 msgid "Do you really want to delete the selected item(s)?"
-msgstr "你真的要刪除所選的項目？"
+msgstr ""
 
 msgid ""
 "Do you really want to format this device? All data on it will be deleted. "
 "Please note that the file system creation may take some time."
-msgstr "你真的要將這個裝置格式化？它上面的所有資料都將被刪除。請注意，檔案系統的創建可能會花費一些時間。"
+msgstr ""
 
 msgid "Do you really want to install the selected plugin(s)?"
-msgstr "你真的想要安裝所選的插件？"
+msgstr "Opravdu chcete nainstalovat vybrané doplňky?"
 
 msgid "Do you really want to leave the page?"
-msgstr "你真的要離開該網頁嗎？"
+msgstr ""
 
 msgid "Do you really want to logout?"
-msgstr "你真的要登出嗎？"
+msgstr "Opravdu se chcete odhlásit?"
 
 msgid "Do you really want to put the system into standby?"
-msgstr "你真的要讓系統進入待機狀態嗎？"
+msgstr ""
 
 msgid "Do you really want to reboot the system?"
-msgstr "你真的要重新啟動系統？"
+msgstr ""
 
 msgid ""
 "Do you really want to relocate the shared folder? The content of the shared "
 "folder will not be moved automatically, you have to do this yourself."
-msgstr "你真的要將該共享檔案夾重新定位嗎？該共享檔案夾的內容並不會被自動遷移，你必須自己做遷移。"
+msgstr ""
 
 msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
-msgstr "你真的要移除的共享檔案夾的內容嗎？它將被永久刪除，無法恢復。"
+msgstr ""
 
 msgid "Do you really want to remove this widget?"
-msgstr "你真的要移除這件小工具嗎？"
+msgstr ""
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
-msgstr "你真的要重設 WebGUI 的狀態，例如：欄位順序嗎？"
+msgstr ""
 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr "你真的要調整所選擇的檔案系統大小？例如：在擴充 RAID 之後，你需要作此調整。"
+msgstr ""
 
 msgid "Do you really want to revert the configuration changes?"
-msgstr "你真的要還原此配置變更？"
+msgstr ""
 
 msgid "Do you really want to shutdown the system?"
-msgstr "你真的要將系統關機嗎？"
+msgstr ""
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr "你真的要將所選定的插件移除安裝？"
+msgstr "Opravdu chcete odebrat vybrané doplňky?"
 
 msgid "Do you really want to wipe the selected device?"
-msgstr "你真的要抹除所選定的裝置嗎？"
+msgstr ""
 
 msgid ""
 "Do you want to remove the content of the shared folder recursively? The "
 "shared folder content will be permanently removed and cannot be recovered. "
 "Select 'No' to delete the shared folder configuration only or 'Cancel' to "
 "abort."
-msgstr "你要以遞歸方式移除共享檔案夾的內容？共享檔案夾的內容將被永久移除，無法恢復。選擇 '否' 則只刪除的共享檔案夾的配置，或選擇 '取消' 來中止此操作。"
+msgstr ""
 
 msgid "Domain name"
-msgstr "網域名稱"
+msgstr "Doménové jméno"
 
 msgid "Dominica"
-msgstr "多明尼加"
+msgstr "Dominika"
 
 msgid "Dominican Republic"
-msgstr "多明尼加共和國"
+msgstr "Dominikánská republika"
 
 msgid "Donate"
-msgstr "捐助"
+msgstr "Přispět"
 
 msgid "Done ..."
-msgstr "完成 ..."
+msgstr "Hotovo ..."
 
 msgid "Down"
-msgstr "下移"
+msgstr ""
 
 msgid "Down delay"
-msgstr "停用延遲"
+msgstr ""
 
 msgid "Download"
-msgstr "下載"
+msgstr "Stáhnout"
 
 msgid "Downloading package information"
-msgstr "下載套件資訊中"
+msgstr "Stahuji informace o balíku"
 
 msgid "Dronning Maud Land"
-msgstr "德龍寧·毛德地"
+msgstr ""
 
 msgid "Each line represents one group."
-msgstr "每一行代表一個群組。"
+msgstr "Každý řádek reprezentuje jednu skupinu"
 
 msgid ""
 "Each line represents one user. Note, the password must be entered in plain "
 "text."
-msgstr "每一行代表一個用戶。請注意，必須以純文字輸入密碼。"
+msgstr ""
 
 msgid "East Timor"
-msgstr "東帝汶"
+msgstr ""
 
 msgid "Ecuador"
-msgstr "厄瓜多爾"
+msgstr ""
 
 msgid "Edit"
-msgstr "編輯"
+msgstr "Upravit"
 
 msgid "Edit SSL certificate"
-msgstr "編輯 SSL 證書"
+msgstr "Upravit SSL certifikát"
 
 msgid "Edit bonded interface"
-msgstr "編輯結合介面"
+msgstr ""
 
 msgid "Edit firewall rule"
-msgstr "編輯防火牆規則"
+msgstr "Upravit pravidlo firewallu"
 
 msgid "Edit group"
-msgstr "編輯群組"
+msgstr "Upravit skupinu"
 
 msgid "Edit module"
-msgstr "編輯模組"
+msgstr "Upravit modul"
 
 msgid "Edit physical interface"
-msgstr "編輯實體介面"
+msgstr ""
 
 msgid "Edit quota"
-msgstr "編輯限額"
+msgstr "Změnit kvótu"
 
 msgid "Edit rsync job"
-msgstr "編輯 rsync 工作"
+msgstr ""
 
 msgid "Edit rule"
-msgstr "編輯規則"
+msgstr "Upravit pravidlo"
 
 msgid "Edit scheduled job"
-msgstr "編輯預定工作"
+msgstr ""
 
 msgid "Edit scheduled test"
-msgstr "編輯預定測試"
+msgstr ""
 
 msgid "Edit share"
-msgstr "編輯共享"
+msgstr ""
 
 msgid "Edit shared folder"
-msgstr "編輯共享檔案夾"
+msgstr ""
 
 msgid "Edit user"
-msgstr "編輯用戶"
+msgstr ""
 
 msgid "Egypt"
-msgstr "埃及"
+msgstr "Egypt"
 
 msgid "El Salvador"
-msgstr "薩爾瓦多"
+msgstr ""
 
 msgid "Email"
-msgstr "電子郵件"
+msgstr "Email"
 
 msgid "Empty now"
-msgstr "立即清空"
+msgstr ""
 
 msgid "Empty recycle bin"
-msgstr "清空回收筒"
+msgstr "Vysypat koš"
 
 msgid "Enable"
-msgstr "啟用"
+msgstr "Povolit"
 
 msgid "Enable FXP protocol"
-msgstr "啟用 FXP 通訊協定"
+msgstr "Povolit FXP protokol"
 
 msgid "Enable SSL/TLS"
-msgstr "啟用 SSL/TLS"
+msgstr "Povolit SSL/TLS"
 
 msgid "Enable SSL/TLS connections"
-msgstr "啟用 SSL/TLS 連線"
+msgstr "Povolit SSL/TLS připojení"
 
 msgid "Enable WINS server"
-msgstr "啟用 WINS 伺服器"
+msgstr "Povolit WINS server"
 
 msgid "Enable anonymous FTP"
-msgstr "啟用匿名 FTP"
+msgstr "Povolit anonymní FTP"
 
 msgid "Enable archive mode"
-msgstr "啟用歸檔模式"
+msgstr ""
 
 msgid "Enable asynchronous I/O (AIO) support."
-msgstr "啟用對非同步 I/O (AIO) 的支援。"
+msgstr ""
 
 msgid "Enable chroot."
-msgstr "啟用 chroot。"
+msgstr "Povolit chroot."
 
 msgid "Enable compression"
-msgstr "啟用壓縮"
+msgstr "Povolit kompresi"
 
 msgid "Enable extended attribute support"
-msgstr "啟用擴展屬性支援"
+msgstr "Povolit podporu rozšířených atributů"
 
 msgid "Enable keyboard-interactive authentication"
-msgstr "啟用鍵盤互動認證"
+msgstr ""
 
 msgid "Enable module listing"
-msgstr "啟用模組列表"
+msgstr ""
 
 msgid "Enable permission inheritance"
-msgstr "啟用權限繼承"
+msgstr "Povolit dědičnost oprávnění"
 
 msgid "Enable public key authentication"
-msgstr "啟用公鑰驗證"
+msgstr "Povolit autentizaci veřejným klíčem"
 
 msgid "Enable recycle bin"
-msgstr "啟用回收筒"
+msgstr "Povolit Koš"
 
 msgid "Enable reverse DNS lookup"
-msgstr "啟用反向 DNS 查詢"
+msgstr "Povolit reverzní DNS dotazy"
 
 msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
 "connections."
-msgstr "啟用對遠端主機 IP 位址的反向 DNS 查詢，用於傳入的主動模式資料連線及傳出的被動模式資料連線。"
+msgstr ""
 
 msgid "Enable secure connection."
-msgstr "啟用安全連線。"
+msgstr "Povolit zabezpečené připojení"
 
 msgid "Enable store DOS attributes support"
-msgstr "啟用存儲 DOS 屬性的支持"
+msgstr ""
 
 msgid "Enable the ident protocol (RFC1413)"
-msgstr "啟用 ident 通訊協定(RFC1413)"
+msgstr ""
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr "啟用此選項來保留部分傳送的的檔案，否則如果傳送中斷，它們將被刪除。"
+msgstr ""
 
 msgid "Enable transfer log"
-msgstr "啟用傳輸日誌"
+msgstr "Povolit protokol přenosů"
 
 msgid "Enable user authentication"
-msgstr "啟用用戶驗證"
+msgstr ""
 
 msgid "Enable user home directories"
-msgstr "啟用用戶的家目錄"
+msgstr "Povolit domovské složky uživatelů"
 
 msgid "Enable write-cache."
-msgstr "啟用寫入緩存。"
+msgstr ""
 
 msgid "Enabled"
-msgstr "已啟用"
+msgstr ""
 
 msgid "Enter your password"
-msgstr "輸入你的密碼"
+msgstr "Zadejte své heslo"
 
 msgid "Enter your username"
-msgstr "輸入你的用戶名稱"
+msgstr "Vložte své uživatelské jméno"
 
 msgid "Equatorial Guinea"
-msgstr "赤道幾內亞"
+msgstr "Rovníková Guinea"
 
 msgid "Eritrea"
-msgstr "厄立特里亞"
+msgstr "Eritrea"
 
 msgid "Error"
-msgstr "錯誤"
+msgstr "Chyba"
 
 msgid "Error #"
-msgstr "錯誤 #"
+msgstr "Chyba #"
 
 msgid "Error #%d"
-msgstr "錯誤 #%d"
+msgstr "Chyba #%d"
 
 msgid "Estonia"
-msgstr "愛沙尼亞"
+msgstr "Estonsko"
 
 msgid "Ethiopia"
-msgstr "衣索比亞"
+msgstr "Etiopie"
 
 msgid "Event"
-msgstr "事件"
+msgstr ""
 
 msgid "Every N day of month"
-msgstr "月內每 N 日"
+msgstr ""
 
 msgid "Every N hour"
-msgstr "每 N 小時"
+msgstr ""
 
 msgid "Every N minute"
-msgstr "每 N 分鐘"
+msgstr ""
 
 msgid "Everyone: read/write"
-msgstr "每個人：讀/寫"
+msgstr "Kdokoliv: čtení/zápis"
 
 msgid "Execute command"
-msgstr "執行指令"
+msgstr "Spustit příkaz"
 
 msgid "Execute cron job"
-msgstr "執行 cron 工作"
+msgstr "Spustit cron úlohu"
 
 msgid "Execute only"
-msgstr "只可執行"
+msgstr "Pouze spustit"
 
 msgid "Execute rsync job"
-msgstr "執行 rsync 工作"
+msgstr "Spustit rsync úlohu"
 
 msgid "Execute scheduled test"
-msgstr "執行預定測試"
+msgstr "Spustit naplánovaný test"
 
 msgid "Expire"
-msgstr "過期"
+msgstr "Expirovat"
 
 msgid "Extended attributes"
-msgstr "擴展屬性"
+msgstr "Rozšířené atributy"
 
 msgid "Extended information"
-msgstr "延伸資訊"
+msgstr "Rozšířené informace"
 
 msgid "Extra options"
-msgstr "額外選項"
+msgstr ""
 
 msgid "FTP"
 msgstr "FTP"
 
 msgid "FTP - Transfer log"
-msgstr "FTP - 傳輸日誌"
+msgstr "FTP - Protokol přenosů"
 
 msgid "FXP"
-msgstr "FXP"
+msgstr ""
 
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
-msgstr "FXP 允許兩個遠端伺服器之間的傳輸，而沒有任何檔案資料送到要求傳送的客戶端。"
+msgstr ""
 
 msgid "Failed to get filesystems"
-msgstr "無法取得檔案系統"
+msgstr ""
 
 msgid "Failed to get list of groups."
-msgstr "無法取得群組的列表。"
+msgstr ""
 
 msgid "Failed to get list of network interface devices"
-msgstr "無法取得網路介面裝置的列表"
+msgstr ""
 
 msgid "Failed to get list of users."
-msgstr "無法取得用戶的列表。"
+msgstr ""
 
 msgid "Failed to get shadow password suite configuration."
-msgstr "無法取得 shadow password suite 的配置。"
+msgstr ""
 
 msgid "Failed to get storage device file from '%s'"
-msgstr "無法由 '%s' 取得儲存裝置檔案"
+msgstr ""
 
 msgid "Falkland Islands"
-msgstr "福克蘭群島"
+msgstr "Falklandy"
 
 msgid "Family"
-msgstr "系列"
+msgstr "Rodina"
 
 msgid "Faroe Islands"
-msgstr "法羅群島"
+msgstr "Faerské ostrovy"
 
 msgid "Fatal error"
-msgstr "致命錯誤"
+msgstr "Fatální chyba"
 
 msgid "February"
-msgstr "二月"
+msgstr "Únor"
 
 msgid "Fields must be exclusive"
-msgstr "欄位必須是唯一的"
+msgstr ""
 
 msgid "Fiji"
-msgstr "斐濟"
+msgstr "Fidži"
 
 msgid "File"
-msgstr "檔案"
+msgstr "Soubor"
 
 msgid "File Systems"
-msgstr "檔案系統"
+msgstr "Souborové systémy"
 
 msgid "File system"
-msgstr "檔案系統"
+msgstr "Souborový systém"
 
 msgid "Filename"
-msgstr "檔案名稱"
+msgstr "Název souboru"
 
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
-msgstr "在回收桶內的檔案將會於所指定的天數後自動被刪除。設定為 0 來用手動刪除。"
+msgstr "Soubory v koši budou automaticky smazány po zadaném počtu dní. Zadejte 0 pro ruční mazání."
 
 msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
-msgstr "檔案若其大小超過所指定的位元數，將不會被放進回收桶內。設定為 0 則不限制檔案大小。"
+msgstr "Soubory větší než zadané množství bytů nebudou vloženy do koše. Zadejte 0 pro neomezenou velikost souboru."
 
 msgid "Filesize"
-msgstr "檔案大小"
+msgstr "Velikost souboru"
 
 msgid "Filesystem '%s' not found"
-msgstr "未找到檔案系統 '%s'"
+msgstr "Souborový systém \"%s\" nebyl nalezen"
 
 msgid "Filesystem '%s' not supported"
-msgstr "不支援檔案系統 '%s'"
+msgstr "Souborový systém \"%s\" není podporován"
 
 msgid "Filesystems"
-msgstr "檔案系統"
+msgstr "Souborové systémy"
 
 msgid "Finland"
-msgstr "芬蘭"
+msgstr "Finsko"
 
 msgid "Firewall"
-msgstr "防火牆"
+msgstr "Firewall"
 
 msgid "Firmware version"
-msgstr "韌體版本"
+msgstr "Verze firmware"
 
 msgid "Flags"
-msgstr "旗標"
+msgstr ""
 
 msgid "Force SSL/TLS"
-msgstr "強制 SSL/TLS"
+msgstr ""
 
 msgid "Force secure connection only."
-msgstr "強制只能進行安全連線。"
+msgstr ""
 
 msgid "France"
-msgstr "法國"
+msgstr "Francie"
 
 msgid "French Guiana"
-msgstr "法屬圭亞那"
+msgstr "Francouzská Guyana"
 
 msgid "French Polynesia"
-msgstr "法屬波利尼西亞"
+msgstr "Francouzská Polynésie"
 
 msgid "French Southern Territories"
-msgstr "法國南方領地"
+msgstr "Francouzská jižní území"
 
 msgid "French Southern and Antarctic Territories"
-msgstr "法國南方與南極領地"
+msgstr "Francouzská jižní a antarktická území"
 
 msgid "Friday"
-msgstr "星期五"
+msgstr "Pátek"
 
 msgid "Full"
-msgstr "完整"
+msgstr "Plný"
 
 msgid "Gabon"
-msgstr "加彭"
+msgstr "Gabon"
 
 msgid "Gambia"
-msgstr "岡比亞"
+msgstr "Gambie"
 
 msgid "Gateway"
-msgstr "閘道器"
+msgstr "Brána"
 
 msgid "General"
-msgstr "一般"
+msgstr "Obecné"
 
 msgid "General Settings"
-msgstr "一般設定"
+msgstr "Obecná nastavení"
 
 msgid "General settings"
-msgstr "一般設定"
+msgstr "Obecná nastavení"
 
 msgid "General users/groups"
-msgstr "一般用戶/群組"
+msgstr ""
 
 msgid "Generating graphs ..."
-msgstr "產生圖形 ..."
+msgstr "Generuji grafy ..."
 
 msgid "Georgia"
-msgstr "喬治亞"
+msgstr "Gruzie"
 
 msgid "Germany"
-msgstr "德國"
+msgstr "Německo"
 
 msgid "Ghana"
-msgstr "迦納"
+msgstr "Ghana"
 
 msgid "GiB"
 msgstr "GiB"
 
 msgid "Gibraltar"
-msgstr "直布羅陀"
+msgstr "Gibraltar"
 
 msgid "Greece"
-msgstr "希臘"
+msgstr "Řecko"
 
 msgid "Greenland"
-msgstr "格陵蘭"
+msgstr "Grónsko"
 
 msgid "Grenada"
-msgstr "格瑞那達"
+msgstr "Grenada"
 
 msgid "Group"
-msgstr "群組"
+msgstr "Skupina"
 
 msgid "Group '%s' already exist"
-msgstr "群組 '%s' 已經存在"
+msgstr "Skupina \"%s\" již existuje"
 
 msgid "Group '%s' does not exist"
-msgstr "群組 '%s' 並不存在"
+msgstr "Skupina \"%s\" neexistuje"
 
 msgid "Group ID '%d' already exist"
-msgstr "群組 ID '%d' 已經存在"
+msgstr "ID skupiny \"%d\" již existuje"
 
 msgid "Groups"
-msgstr "群組"
+msgstr "Skupiny"
 
 msgid "Grow"
-msgstr "增長"
+msgstr ""
 
 msgid "Grow RAID device"
-msgstr "增長 RAID 裝置的容量"
+msgstr ""
 
 msgid "Guadeloupe"
-msgstr "瓜德羅普島"
+msgstr "Guadeloupe"
 
 msgid "Guam"
-msgstr "關島"
+msgstr "Guam"
 
 msgid "Guatemala"
-msgstr "瓜地馬拉"
+msgstr "Guatemala"
 
 msgid "Guest"
-msgstr "訪客"
+msgstr "Host"
 
 msgid "Guest allowed"
-msgstr "允許訪客"
+msgstr ""
 
 msgid "Guests allowed"
-msgstr "允許訪客"
+msgstr ""
 
 msgid "Guinea"
-msgstr "幾內亞"
+msgstr "Guinea"
 
 msgid "Guinea-Bissau"
-msgstr "幾內亞比紹"
+msgstr "Guinea-Bissau"
 
 msgid "Guyana"
-msgstr "圭亞那"
+msgstr "Guyana"
 
 msgid "Haiti"
-msgstr "海地"
+msgstr "Haiti"
 
 msgid "Heard Island and McDonald Islands"
-msgstr "赫德島與麥當勞群島"
+msgstr "Heardův ostrov a McDonaldovy ostrovy"
 
 msgid "Hide details"
-msgstr "隱藏詳細資訊"
+msgstr "Skrýt detaily"
 
 msgid "Hide dot files"
-msgstr "隱藏點檔案"
+msgstr "Skrýt soubory začínající tečkou"
 
 msgid "Home directories"
-msgstr "家目錄"
+msgstr "Domovské složky"
 
 msgid "Homepage"
-msgstr "首頁"
+msgstr "Domovská stránka"
 
 msgid "Honduras"
-msgstr "宏都拉斯"
+msgstr "Honduras"
 
 msgid "Hong Kong S.A.R., China"
-msgstr "中國香港特別行政區"
+msgstr "Hongkong, Čína"
 
 msgid "Honor existing ACLs"
-msgstr "遵循現存的 ACLs"
+msgstr ""
 
 msgid "Host"
-msgstr "主機"
+msgstr "Hostitel"
 
 msgid "Host access control"
-msgstr "主機存取控制"
+msgstr ""
 
 msgid "Hostname"
-msgstr "主機名稱"
+msgstr ""
 
 msgid "Hosts"
-msgstr "主機"
+msgstr ""
 
 msgid "Hosts allow"
-msgstr "允許主機"
+msgstr ""
 
 msgid "Hosts deny"
-msgstr "拒絕主機"
+msgstr ""
 
 msgid "Hour"
-msgstr "時"
+msgstr "Hodina"
 
 msgid "Hungary"
-msgstr "匈牙利"
+msgstr "Maďarsko"
 
 msgid "ID"
 msgstr "ID"
@@ -1503,43 +1502,43 @@ msgid "IPv6"
 msgstr "IPv6"
 
 msgid "Iceland"
-msgstr "冰島"
+msgstr "Island"
 
 msgid "Ident protocol"
-msgstr "Ident 通訊協定"
+msgstr ""
 
 msgid "Identify"
-msgstr "辨識"
+msgstr "Identifikovat"
 
 msgid "Identify network interface device"
-msgstr "辨識網路介面裝置"
+msgstr ""
 
 msgid "Idle"
-msgstr "閒置"
+msgstr ""
 
 msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selecting; in "
 "this case no password is required to connect to the share."
-msgstr "如果 '允許訪客' 被選用，但用戶沒提供登入憑證，則會讓他以訪客身分存取。當 '只允許訪客' 被選用，則永遠讓用戶以訪客身分存取；在這情況下，不需要密碼即可連接上共享。"
+msgstr ""
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
 "to connect to the module."
-msgstr "如果設定，則客戶端將面臨挑戰，需要提供用戶名稱和密碼以連接到模組。"
+msgstr ""
 
 msgid ""
 "If this option is set, the daemon will chroot to the shared folder path "
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr "如果此選項被設定，背景服務程序於開始檔案傳送之前，將會先 chroot 到共享檔案夾的路徑。如此將無法用名稱來對應到用戶與群組，並且背景服務程序將無法追隨絕對路徑或新的根目錄之外的符號連結。"
+msgstr ""
 
 msgid "If this option is set, then any attempted downloads will fail."
-msgstr "如果此選項被設定，那麼任何試圖下載都將失敗。"
+msgstr ""
 
 msgid "If this option is set, then any attempted uploads will fail."
-msgstr "如果這個選項被設定，那麼任何試圖上傳都會失敗。"
+msgstr ""
 
 msgid ""
 "If this parameter is set, Samba attempts to first read DOS attributes "
@@ -1547,40 +1546,40 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr "如果此參數被設定，Samba 在將 DOS 屬性對應到 UNIX 權限位元之前，會首先嘗試從一個檔案系統的擴展屬性讀出 DOS 屬性(系統、隱藏、存檔或唯讀)。當在設定的狀況下，DOS 屬性將被存儲到 UNIX 檔案系統上相關的檔案或目錄的擴展屬性。"
+msgstr ""
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
 "share."
-msgstr "如果該參數被設定，那麼用戶將無法創建或修改共享內的檔案。"
+msgstr ""
 
 msgid ""
 "If your host is acting as a NAT gateway or port forwarder for the server, "
 "this option is useful in order to allow passive tranfers to work. You have "
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
-msgstr "如果你的主機是作為一個 NAT 閘道器或伺服器的通訊埠轉接，則這個選項對讓被動傳送順利作業是很有用的。你必須使用你的公開網址，並且開放在你的防火牆的被動通訊埠。"
+msgstr ""
 
 msgid "Implicit SSL"
-msgstr "隱式 SSL"
+msgstr "Implicitní SSL"
 
 msgid "Import"
-msgstr "匯入"
+msgstr "Importovat"
 
 msgid "Import SSL certificate"
-msgstr "匯入 SSL 證書"
+msgstr "Importovat SSL certifikát"
 
 msgid "Import groups"
-msgstr "匯入群組"
+msgstr "Importovat skupiny"
 
 msgid "Import users"
-msgstr "匯入用戶"
+msgstr "Importovat uživatele"
 
 msgid "Importing groups ..."
-msgstr "匯入群組 ..."
+msgstr "Importuji skupiny ..."
 
 msgid "Importing users ..."
-msgstr "匯入用戶 ..."
+msgstr "Importuji uživatele ..."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1591,849 +1590,849 @@ msgid ""
 "greater than or equal to 1024). It is strongly recommended that the chosen "
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr "在某些情況下，你必須指定被動通訊埠範圍來避開防火牆的限制。當客戶端送來 PASV 指令時，被動通訊埠限制了伺服器選用通訊埠的範圍。伺服器將在指定範圍內隨機選擇一個號碼，直到找到一個開放的通訊埠。所選的通訊埠範圍必須是在非特權的範圍內(例如：大於或等於1024)。我們強烈建議，選擇的範圍應大到足以處理許多同時發生的被動連線(例如：49152-65534，這是 IANA 註冊的短暫使用通訊埠範圍)。"
+msgstr ""
 
 msgid "Incoming"
-msgstr "傳入"
+msgstr "Příchozí"
 
 msgid "Incomplete"
-msgstr "未完成"
+msgstr ""
 
 msgid "Incorrect username or password."
-msgstr "用戶名稱或密碼不正確。"
+msgstr "Špatné uživatelské jméno nebo heslo."
 
 msgid "India"
-msgstr "印度"
+msgstr "Indie"
 
 msgid "Indonesia"
-msgstr "印尼"
+msgstr "Indonésie"
 
 msgid "Info"
-msgstr "資訊"
+msgstr "Info"
 
 msgid "Informal"
-msgstr "非正式"
+msgstr ""
 
 msgid "Information"
-msgstr "資訊"
+msgstr "Informace"
 
 msgid "Inherit ACLs"
-msgstr "繼承 ACLs"
+msgstr ""
 
 msgid "Inherit permissions"
-msgstr "繼承權限"
+msgstr "Zdědit oprávnění"
 
 msgid "Initializing"
-msgstr "進行初始化"
+msgstr "Inicializuji"
 
 msgid "Install"
-msgstr "安裝"
+msgstr "Instalovat"
 
 msgid "Install updates from"
-msgstr "安裝更新來源"
+msgstr "Instalovat aktualizace z"
 
 msgid "Installed"
-msgstr "已安裝"
+msgstr "Instalováno"
 
 msgid "Installing plugins ..."
-msgstr "安裝插件中 ..."
+msgstr "Instaluji doplňky ..."
 
 msgid "Installing updates ..."
-msgstr "安裝更新中 ..."
+msgstr "Instaluji aktualizace ..."
 
 msgid "Interfaces"
-msgstr "介面"
+msgstr "Rozhraní"
 
 msgid "Invalid domain name"
-msgstr "不合法的網域名稱"
+msgstr "Neplatné doménové jméno"
 
 msgid "Invalid file system label"
-msgstr "不合法的檔案系統標籤"
+msgstr "Neplatný popisek souborového systému"
 
 msgid "Invalid group name"
-msgstr "不合法的群組名稱"
+msgstr "Neplatný název skupiny"
 
 msgid "Invalid hostname"
-msgstr "不合法的主機名稱"
+msgstr ""
 
 msgid "Invalid line: %s"
-msgstr "不合法的匯入行：%s"
+msgstr "Neplatný řádek: %s"
 
 msgid "Invalid name"
-msgstr "不合法的名稱"
+msgstr "Neplatné jméno"
 
 msgid "Invalid user name"
-msgstr "不合法的用戶名稱"
+msgstr "Neplatné uživatelské jméno"
 
 msgid "Iran"
-msgstr "伊朗"
+msgstr "Írán"
 
 msgid "Iraq"
-msgstr "伊拉克"
+msgstr "Irák"
 
 msgid "Ireland"
-msgstr "愛爾蘭"
+msgstr "Irsko"
 
 msgid "Israel"
-msgstr "以色列"
+msgstr "Izrael"
 
 msgid "Italy"
-msgstr "意大利"
+msgstr "Itálie"
 
 msgid "Ivory Coast"
-msgstr "象牙海岸"
+msgstr "Pobřeží slonoviny"
 
 msgid "Jamaica"
-msgstr "牙買加"
+msgstr "Jamajka"
 
 msgid "January"
-msgstr "一月"
+msgstr "Leden"
 
 msgid "Japan"
-msgstr "日本"
+msgstr "Japonsko"
 
 msgid "Jobs"
-msgstr "工作"
+msgstr "Úlohy"
 
 msgid "Johnston Island"
-msgstr "約翰斯頓島"
+msgstr "Johnstonův atol"
 
 msgid "Jordan"
-msgstr "約旦"
+msgstr "Jordán"
 
 msgid "July"
-msgstr "七月"
+msgstr "Červenec"
 
 msgid "June"
-msgstr "六月"
+msgstr "Červen"
 
 msgid "Kazakhstan"
-msgstr "哈薩克斯坦"
+msgstr "Kazachstán"
 
 msgid "Keep partially transferred files"
-msgstr "保留部分傳送的檔案"
+msgstr "Zachovat částečně přenesené soubory"
 
 msgid "Kenya"
-msgstr "肯亞"
+msgstr "Keňa"
 
 msgid "Kernel"
-msgstr "核心"
+msgstr "Jádro"
 
 msgid "Key size"
-msgstr "密鑰長度"
+msgstr "Velikost klíče"
 
 msgid "KiB"
 msgstr "KiB"
 
 msgid "Kiribati"
-msgstr "基里巴斯"
+msgstr "Kiribati"
 
 msgid "Kuwait"
-msgstr "科威特"
+msgstr "Kuvajt"
 
 msgid "Kyrgyzstan"
-msgstr "吉爾吉斯坦"
+msgstr "Kyrgyzstán"
 
 msgid "LBA of first error"
-msgstr "第一個錯誤的 LBA"
+msgstr ""
 
 msgid "LVM logical volume %s [%s, %s]"
-msgstr "LVM 邏輯磁碟 %s [%s, %s]"
+msgstr ""
 
 msgid "Label"
-msgstr "標籤"
+msgstr "Popisek"
 
 msgid "Language"
-msgstr "語言"
+msgstr "Jazyk"
 
 msgid "Laos"
-msgstr "寮國"
+msgstr "Laos"
 
 msgid "Latvia"
-msgstr "拉托維亞"
+msgstr "Lotyšsko"
 
 msgid "Lebanon"
-msgstr "黎巴嫩"
+msgstr "Libanon"
 
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
 " port."
-msgstr "閃爍一個或多個在特定以太網通訊埠上的 LED，時間是以秒計算。"
+msgstr ""
 
 msgid "Lesotho"
-msgstr "賴索托"
+msgstr "Lesotho"
 
 msgid "Level"
-msgstr "層級"
+msgstr "Úroveň"
 
 msgid "Liberia"
-msgstr "賴比瑞亞"
+msgstr "Libérie"
 
 msgid "Libya"
-msgstr "利比亞"
+msgstr "Libye"
 
 msgid "Liechtenstein"
-msgstr "列支敦士登"
+msgstr "Lichtenštejnsko"
 
 msgid "Lifetime"
-msgstr "壽命"
+msgstr ""
 
 msgid "Linear"
-msgstr "線性"
+msgstr "Lineární"
 
 msgid "Link"
-msgstr "連接"
+msgstr "Odkaz"
 
 msgid "List"
-msgstr "列表"
+msgstr "Seznam"
 
 msgid "Lithuania"
-msgstr "立陶宛"
+msgstr "Litva"
 
 msgid "Load average"
-msgstr "平均負載"
+msgstr ""
 
 msgid "Loading ..."
-msgstr "載入中 ..."
+msgstr "Načítání ..."
 
 msgid "Loading, please wait ..."
-msgstr "載入中，請稍候 ..."
+msgstr "Načítání, čekejte prosím ..."
 
 msgid "Local"
-msgstr "本地"
+msgstr "Lokální"
 
 msgid "Local master browser"
-msgstr "本地主控瀏覽器"
+msgstr ""
 
 msgid "Location"
-msgstr "位置"
+msgstr "Umístění"
 
 msgid "Location information, e.g. physical location of this system."
-msgstr "位置資訊，例如：本系統的實體位置。"
+msgstr "Informace o umístění, např. fyzické umístění systému"
 
 msgid "Log level"
-msgstr "日誌層級"
+msgstr "Úroveň logování"
 
 msgid "Login"
-msgstr "登入"
+msgstr "Přihlášení"
 
 msgid "Logout"
-msgstr "登出"
+msgstr "Odhlášení"
 
 msgid "Logs"
-msgstr "日誌"
+msgstr ""
 
 msgid "Long self-test"
-msgstr "延展自我測試"
+msgstr ""
 
 msgid "Loop device [%s, %s]"
-msgstr "迴路裝置 [%s, %s]"
+msgstr ""
 
 msgid "Luxembourg"
-msgstr "盧森堡"
+msgstr "Lucembursko"
 
 msgid "MAC address"
-msgstr "MAC 位址"
+msgstr "MAC adresa"
 
 msgid "MII monitoring frequency"
-msgstr "MII 監測頻率"
+msgstr ""
 
 msgid "MTU"
 msgstr "MTU"
 
 msgid "Macao S.A.R., China"
-msgstr "中國澳門特別行政區"
+msgstr "Macao, Čína"
 
 msgid "Macedonia"
-msgstr "馬其頓"
+msgstr "Makedonie"
 
 msgid "Madagascar"
-msgstr "馬達加斯加"
+msgstr "Madagaskar"
 
 msgid "Maintainer"
-msgstr "維護者"
+msgstr ""
 
 msgid "Malawi"
-msgstr "馬拉威"
+msgstr "Malawi"
 
 msgid "Malaysia"
-msgstr "馬來西亞"
+msgstr "Malajsie"
 
 msgid "Maldives"
-msgstr "馬爾地夫"
+msgstr "Maledivy"
 
 msgid "Mali"
-msgstr "馬里"
+msgstr "Mali"
 
 msgid "Malta"
-msgstr "馬爾他"
+msgstr "Malta"
 
 msgid "Manual"
-msgstr "手動調整"
+msgstr "Návod"
 
 msgid "March"
-msgstr "三月"
+msgstr "Březen"
 
 msgid "Marshall Islands"
-msgstr "馬紹爾群島"
+msgstr "Marshallovy ostrovy"
 
 msgid "Martinique"
-msgstr "馬提尼克"
+msgstr "Martinik"
 
 msgid "Masquerade address"
-msgstr "偽裝位址"
+msgstr ""
 
 msgid ""
 "Match if the destination port is one of the given ports. E.g. 21 or !443 or "
 "1024-65535."
-msgstr "如果目的通訊埠是其中一個給定的通訊埠才配用此規則。例如：21或 !443 或 1024-65535。"
+msgstr ""
 
 msgid ""
 "Match if the source port is one of the given ports. E.g. 21 or !443 or "
 "1024-65535."
-msgstr "如果來源通訊埠是其中一個給定的通訊埠才配用此規則。例如：21或 !443 或 1024-65535。"
+msgstr ""
 
 msgid "Mauritania"
-msgstr "毛里塔尼亞"
+msgstr "Mauritánie"
 
 msgid "Mauritius"
-msgstr "模里西斯"
+msgstr "Mauricius"
 
 msgid "Max. clients"
-msgstr "最多客戶端數目"
+msgstr "Max. počet klientů"
 
 msgid "Max. connections"
-msgstr "最多連線數目"
+msgstr "Max. počet připojení"
 
 msgid "Max. connections per host"
-msgstr "每個主機最多連線數目"
+msgstr "Max. počet připojení na hostitele"
 
 msgid "Max. login attempts"
-msgstr "最多登入嘗試次數"
+msgstr "Max. počet pokusů o přihlášení"
 
 msgid "Maximum download rate (KiB/s)"
-msgstr "最大下載速度 (KiB/s)"
+msgstr "Maximální rychlost stahování dat (KiB/s)"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
 "timer completely (clients can stay connected for ever, without sending "
 "data)."
-msgstr "以秒為單位的最大閒置時間。閒置逾時時間若設定為 0，則完全停用閒置計時器(客戶可以永遠保持連線，即使不傳送資料）。"
+msgstr ""
 
 msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "最多允許密碼嘗試的次數，超過後切斷連線。"
+msgstr "Maximální počet pokusů o zadání hesla před odpojením"
 
 msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "每個 IP 最多連線數目 (0 = 無限制)。"
+msgstr "Maximální počet spojení na IP adresu (0 = neomezeno)."
 
 msgid "Maximum number of simultaneous clients."
-msgstr "同時進行的最多客戶數量。"
+msgstr "Maximální počet souběžně připojených klientů."
 
 msgid "Maximum performance, maximum acoustic output"
-msgstr "最高性能，最大聲響輸出"
+msgstr "Maximální výkon, maximální hluk."
 
 msgid "Maximum upload rate (KiB/s)"
-msgstr "最大上傳速度 (KiB/s)"
+msgstr "Maximální rychlost odesílání dat (KiB/s)"
 
 msgid "Maximum {0} selected item(s) allowed"
-msgstr "允許最多 {0} 個選擇項目"
+msgstr "Maximální počet vybraných položek je {0}"
 
 msgid "May"
-msgstr "五月"
+msgstr "Květen"
 
 msgid "Mayotte"
-msgstr "馬約特"
+msgstr "Mayotte"
 
 msgid "Members"
-msgstr "成員"
+msgstr "Členové"
 
 msgid "Memory usage"
-msgstr "記憶體使用量"
+msgstr "Využití paměti"
 
 msgid "Message"
-msgstr "訊息"
+msgstr "Zpráva"
 
 msgid "Messages"
-msgstr "訊息"
+msgstr "Zprávy"
 
 msgid "Method"
-msgstr "方式"
+msgstr "Metoda"
 
 msgid "Metropolitan France"
-msgstr "法國本土"
+msgstr "Metropolitní Francie"
 
 msgid "Mexico"
-msgstr "墨西哥"
+msgstr "Mexiko"
 
 msgid "MiB"
 msgstr "MiB"
 
 msgid "Micronesia"
-msgstr "密克羅尼西亞"
+msgstr "Mikronésie"
 
 msgid "Midway Islands"
-msgstr "中途島"
+msgstr "Ostrovy Midway"
 
 msgid "Minimum"
-msgstr "最少"
+msgstr "Minimum"
 
 msgid "Minimum performance, Minimum acoustic output"
-msgstr "最低性能，最小聲響輸出"
+msgstr "Minimální výkon, minimální hluk"
 
 msgid "Minimum {0} selected item(s) required"
-msgstr "允許最少 {0} 個選擇項目"
+msgstr "Je vyžadováno alespoň {0} položek"
 
 msgid "Minute"
-msgstr "分"
+msgstr "Minuta"
 
 msgid "Mirror"
-msgstr "鏡像"
+msgstr "Zrcadlo"
 
 msgid "Missing"
-msgstr "失踪"
+msgstr "Chybějící"
 
 msgid "Mode"
-msgstr "模式"
+msgstr "Mód"
 
 msgid "Model"
-msgstr "型號"
+msgstr "Model"
 
 msgid "Modify account"
-msgstr "修改帳戶"
+msgstr "Upravit účet"
 
 msgid "Modify shared folder ACL"
-msgstr "修改共享檔案夾的 ACL"
+msgstr ""
 
 msgid "Modules"
-msgstr "模組"
+msgstr "Moduly"
 
 msgid "Moldova"
-msgstr "摩爾多瓦"
+msgstr "Moldavsko"
 
 msgid "Monaco"
-msgstr "摩納哥"
+msgstr "Monako"
 
 msgid "Monday"
-msgstr "星期一"
+msgstr "Pondělí"
 
 msgid "Mongolia"
-msgstr "蒙古"
+msgstr "Mongolsko"
 
 msgid "Monitor"
-msgstr "監測"
+msgstr "Monitor"
 
 msgid "Monitoring"
-msgstr "監測"
+msgstr "Monitorování"
 
 msgid "Month"
-msgstr "月"
+msgstr "Měsíc"
 
 msgid "Montserrat"
-msgstr "蒙特塞拉特"
+msgstr "Montserrat"
 
 msgid "Morocco"
-msgstr "摩洛哥"
+msgstr "Maroko"
 
 msgid "Mount"
-msgstr "掛載"
+msgstr "Připojit"
 
 msgid "Mounted"
-msgstr "已掛載"
+msgstr "Připojeno"
 
 msgid "Mozambique"
-msgstr "莫桑比克"
+msgstr "Mosambik"
 
 msgid "Myanmar"
-msgstr "緬甸"
+msgstr "Myanmar"
 
 msgid "NFS"
 msgstr "NFS"
 
 msgid "Name"
-msgstr "名稱"
+msgstr "Jméno"
 
 msgid "Namibia"
-msgstr "納米比亞"
+msgstr "Namibie"
 
 msgid "Nauru"
-msgstr "諾魯"
+msgstr "Nauru"
 
 msgid "Nepal"
-msgstr "尼泊爾"
+msgstr "Nepál"
 
 msgid "Netherlands"
-msgstr "荷蘭"
+msgstr "Nizozemsko"
 
 msgid "Netherlands Antilles"
-msgstr "荷屬安地列斯"
+msgstr "Nizozemské Antily"
 
 msgid "Netmask"
-msgstr "網路遮罩"
+msgstr "Síťová maska"
 
 msgid "Network"
-msgstr "網路"
+msgstr "Síť"
 
 msgid "Network interface '%s' already exists"
-msgstr "網路介面 '%s' 已經存在"
+msgstr "Síťové rozhraní \"%s\" již existuje"
 
 msgid "Neutral Zone"
-msgstr "中立區"
+msgstr "Neutrální zóna"
 
 msgid "Never"
-msgstr "永不"
+msgstr "Nikdy"
 
 msgid "New Caledonia"
-msgstr "新卡里多尼亞"
+msgstr "Nová Kaledonie"
 
 msgid "New Zealand"
-msgstr "紐西蘭"
+msgstr "Nový Zéland"
 
 msgid "Nicaragua"
-msgstr "尼加拉瓜"
+msgstr "Nikaragua"
 
 msgid "Niger"
-msgstr "尼日爾"
+msgstr "Niger"
 
 msgid "Nigeria"
-msgstr "奈及利亞"
+msgstr "Nigérie"
 
 msgid "Niue"
-msgstr "紐埃"
+msgstr "Niue"
 
 msgid "No"
-msgstr "否"
+msgstr "Ne"
 
 msgid "No access"
-msgstr "禁止存取"
+msgstr "Žádný přístup"
 
 msgid "No action"
-msgstr "無動作"
+msgstr "Žádná akce"
 
 msgid "No authentication and no privacy"
-msgstr "無驗證及無隱私"
+msgstr ""
 
 msgid "No certificate request"
-msgstr "不提出證書請求"
+msgstr ""
 
 msgid "No connections"
-msgstr "沒有連線"
+msgstr "Žádná spojení"
 
 msgid "No items to display"
-msgstr "無項目可顯示"
+msgstr "Žádné položky k zobrazení"
 
 msgid "No session reuse required"
-msgstr "無須重用作業階段"
+msgstr ""
 
 msgid "No users connected"
-msgstr "沒有用戶連線"
+msgstr "Žádní připojení uživatelé"
 
 msgid "No users defined"
-msgstr "沒有定義好的用戶"
+msgstr "Žádní definovaní uživatelé"
 
 msgid "None"
-msgstr "無"
+msgstr ""
 
 msgid "Norfolk Island"
-msgstr "諾福克島"
+msgstr "Norfolk"
 
 msgid "Normal"
-msgstr "正常"
+msgstr "Normální"
 
 msgid "North Korea"
-msgstr "北韓"
+msgstr "Severní Korea"
 
 msgid "North Vietnam"
-msgstr "北越"
+msgstr "Vietnamská demokratická republika"
 
 msgid "Northern Mariana Islands"
-msgstr "北馬里亞納群島"
+msgstr "Severní Mariany"
 
 msgid "Norway"
-msgstr "挪威"
+msgstr "Norsko"
 
 msgid "Not ICMP"
-msgstr "非 ICMP"
+msgstr ""
 
 msgid "Not ICMPv6"
-msgstr "非 ICMPv6"
+msgstr ""
 
 msgid "Not TCP"
-msgstr "非 TCP"
+msgstr ""
 
 msgid "Not UDP"
-msgstr "非 UDP"
+msgstr ""
 
 msgid "Nothing"
-msgstr "無任何"
+msgstr "Nic"
 
 msgid "Notification"
-msgstr "通知"
+msgstr "Oznámení"
 
 msgid "Notifications"
-msgstr "通知"
+msgstr "Oznámení"
 
 msgid "November"
-msgstr "十一月"
+msgstr "Listopad"
 
 msgid "Null passwords"
-msgstr "空密碼"
+msgstr "Prázdná hesla"
 
 msgid "Num"
-msgstr "號碼"
+msgstr ""
 
 msgid "Number of servers"
-msgstr "伺服器的數量"
+msgstr "Počet serverů"
 
 msgid "OK"
 msgstr "OK"
 
 msgid "Occurrence"
-msgstr "發生次數"
+msgstr "Výskyt"
 
 msgid "October"
-msgstr "十月"
+msgstr "Říjen"
 
 msgid "Offline immediate test"
-msgstr "離線即時測試"
+msgstr "Okamžitý offline test"
 
 msgid "Oman"
-msgstr "阿曼"
+msgstr "Omán"
 
 msgid "Online"
-msgstr "在線"
+msgstr "Online"
 
 msgid "Only guests"
-msgstr "只允許訪客"
+msgstr "Pouze hosté"
 
 msgid "Operation"
-msgstr "操作"
+msgstr "Operace"
 
 msgid "Operation not allowed for user '%s'."
-msgstr "不允許用戶 '%s' 執行此作業。"
+msgstr "Operace není povolena uživateli \"%s\""
 
 msgid "Options"
-msgstr "選項"
+msgstr "Možnosti"
 
 msgid "Organization Name"
-msgstr "機構名稱"
+msgstr "Název organizace"
 
 msgid "Organizational Unit"
-msgstr "機構單位"
+msgstr ""
 
 msgid "Others"
-msgstr "其他"
+msgstr "Ostatní"
 
 msgid "Outgoing"
-msgstr "傳出"
+msgstr "Odchozí"
 
 msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
-msgstr "對外發送 SMTP 郵件伺服器位址，例如：smtp.mycorp.com。"
+msgstr "Adresa odchozího SMTP serveru, např. smtp.mycorp.com."
 
 msgid "Outlying Oceania"
-msgstr "外圍大洋洲"
+msgstr ""
 
 msgid "Overview"
-msgstr "概覽"
+msgstr "Přehled"
 
 msgid "Owner"
-msgstr "所有者"
+msgstr "Vlastník"
 
 msgid "Pacific Islands Trust Territory"
-msgstr "太平洋島嶼託管領地"
+msgstr "Poručenské území Tichomořské ostrovy"
 
 msgid "Package information"
-msgstr "套件資訊"
+msgstr "Informace o balíku"
 
 msgid "Pakistan"
-msgstr "巴基斯坦"
+msgstr "Pákistán"
 
 msgid "Palau"
-msgstr "帛琉"
+msgstr "Palau"
 
 msgid "Palestinian Territory"
-msgstr "巴勒斯坦領地"
+msgstr "Palestinské teritorium"
 
 msgid "Panama"
-msgstr "巴拿馬"
+msgstr "Panama"
 
 msgid "Panama Canal Zone"
-msgstr "巴拿馬運河區"
+msgstr "Panamské průplavové pásmo"
 
 msgid "Papua New Guinea"
-msgstr "巴布亞新幾內亞"
+msgstr "Papua-Nová Guinea"
 
 msgid "Paraguay"
-msgstr "巴拉圭"
+msgstr "Paraguay"
 
 msgid "Passive FTP"
-msgstr "被動式 FTP"
+msgstr "Pasivní FTP"
 
 msgid "Password"
-msgstr "密碼"
+msgstr "Hesl"
 
 msgid "Password authentication"
-msgstr "密碼驗證"
+msgstr "Autentizace heslem"
 
 msgid "Passwords don't match"
-msgstr "密碼不相符"
+msgstr "Hesla se neshodují"
 
 msgid "Paste a RSA certificate in X.509 PEM format here."
-msgstr "貼上 X.509 PEM 格式的 RSA 證書。"
+msgstr "Sem vložte RSA certifikát ve formátu X.509 PEM."
 
 msgid "Paste an private RSA key in X.509 PEM format here."
-msgstr "貼上私人 X.509 PEM 格式的 RSA 密鑰。"
+msgstr "Sem vložte privátní RSA klíč ve formátu X.509 PEM."
 
 msgid "Path"
-msgstr "路徑"
+msgstr "Cesta"
 
 msgid "People's Democratic Republic of Yemen"
-msgstr "葉門人民民主共和國"
+msgstr "Jemenská lidová demokratická republika"
 
 msgid "Perform a trial run with no changes made"
-msgstr "執行一次試行，不作做任何更改"
+msgstr ""
 
 msgid "Period of validity"
-msgstr "有效期間"
+msgstr "Doba platnosti"
 
 msgid "Permissions"
-msgstr "權限"
+msgstr "Oprávnění"
 
 msgid "Permissions of group."
-msgstr "群組的權限。"
+msgstr "Oprávnění skupiny."
 
 msgid "Permissions of others (e.g. anonymous FTP users)."
-msgstr "其他人的權限(例如：匿名 FTP 用戶)。"
+msgstr "Oprávnění ostatních (např. anonymní uživatelé FTP)."
 
 msgid "Permissions of owner."
-msgstr "所有者的權限。"
+msgstr "Oprávnění vlastníka."
 
 msgid "Permit root login"
-msgstr "允許 root 登入"
+msgstr "Povolit přihlášení uživatele root"
 
 msgid "Permit to do SSH tunneling"
-msgstr "允許做 SSH 穿隧"
+msgstr "Povolit SSH tunelování"
 
 msgid "Peru"
-msgstr "秘魯"
+msgstr "Peru"
 
 msgid "Philippines"
-msgstr "菲律賓"
+msgstr "Filipíny"
 
 msgid "Physical Disks"
-msgstr "實體磁碟"
+msgstr "Fyzické disky"
 
 msgid "Physical disk properties"
-msgstr "實體磁碟屬性"
+msgstr "Vlastnosti fyzického disku"
 
 msgid "Pitcairn"
-msgstr "皮特凱恩"
+msgstr "Pitcairnovy ostrovy"
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/exports' "
 "target='_blank'>manual page</a> for more details."
-msgstr "詳情請查看<a href='http://linux.die.net/man/5/exports' target='_blank'>手冊頁</a>。"
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://www.openbsd.org/cgi-"
 "bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
 " more details."
-msgstr "詳情請查看<a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>手冊頁</a>。"
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "詳情請查看<a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>手冊頁</a>。"
+msgstr ""
 
 msgid ""
 "Please check the <a "
 "href='http://www.proftpd.org/docs/directives/configuration_full.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "詳情請查看<a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>我們的手冊頁</a>。"
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
 "name.html' target='_blank'>manual page</a> for more details."
-msgstr "詳情請參閱 <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>手册頁</a>。"
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "詳情請查看<a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>手冊頁</a>。"
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "詳情請查看<a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>手冊頁</a>。"
+msgstr ""
 
 msgid ""
 "Please check the <a "
 "href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "詳情請查看<a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>手冊頁</a>。"
+msgstr ""
 
 msgid "Please choose the method to wipe the device or 'Cancel' to abort."
-msgstr "請選擇抹除裝置的方式或選 '取消' 來中止。"
+msgstr ""
 
 msgid "Please first select a volume."
-msgstr "請先選擇一個磁碟。"
+msgstr "Vyberte prosím první svazek."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
 "test."
-msgstr "請注意，在此測試期間，是不可能與系統通訊的。"
+msgstr ""
 
 msgid "Please reload the page to let the changes take effect."
-msgstr "請重新載入頁面以讓更改生效。"
+msgstr ""
 
 msgid "Please wait ..."
-msgstr "請稍候 ..."
+msgstr "Čekejte prosím ..."
 
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
 "system."
-msgstr "請等到 RAID 被啟始化後才建立檔案系統。"
+msgstr ""
 
 msgid "Plugins"
-msgstr "插件"
+msgstr "Doplňky"
 
 msgid "Poland"
-msgstr "波蘭"
+msgstr "Polsko"
 
 msgid "Port"
-msgstr "通訊埠"
+msgstr "Port"
 
 msgid "Port to listen on."
-msgstr "要監聽的通訊埠。"
+msgstr ""
 
 msgid "Portugal"
-msgstr "葡萄牙"
+msgstr "Portugalsko"
 
 msgid "Power Management"
-msgstr "電量管理"
+msgstr "Správce napájení"
 
 msgid "Power button"
-msgstr "電源按鈕"
+msgstr "Tlačítko napájení"
 
 msgid "Power mode"
-msgstr "耗電模式"
+msgstr ""
 
 msgid "Pre-release updates."
-msgstr "預先發佈的更新。"
+msgstr ""
 
 msgid "Prefix length"
-msgstr "前綴詞長度"
+msgstr "Délka předpony"
 
 msgid "Preserve ACLs"
-msgstr "保存 ACLs"
+msgstr "Zachovat ACL"
 
 msgid "Preserve extended attributes"
-msgstr "保存擴展屬性"
+msgstr "Zachovat rozšířené atributy"
 
 msgid "Preserve modification times"
-msgstr "保存修改的時間"
+msgstr "Zachovat čas úpravy"
 
 msgid "Preserve permissions"
-msgstr "保存權限"
+msgstr "Zachovat oprávnění"
 
 msgid ""
 "Prevent a disk from being spun-up when it is periodically "
@@ -2446,67 +2445,67 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr "當定時查驗磁碟時，避免它開始轉動。<br/><ul><li>允不 - 查驗裝置，不論它的耗電模式是什麼。當進行檢查時，這可能會造成已經停止轉動的磁碟開始轉動。</li><li>睡眠 - 檢查裝置，除非它正處於睡眠模式。</li><li>待機 - 檢查裝置，除非它正處於睡眠或待機模式。在這些模式下大多數磁碟都沒有轉動，所以如果你想避免磁碟在每次查驗時開始轉動，這可能就是你想要的。</li><li>閒置 - 檢查裝置，除非它正處於睡眠、待機或閒置模式。在閒置狀態下，大多數磁碟都還在轉動，所以這可能不是你想要的。</li></ul>"
+msgstr ""
 
 msgid "Primary"
-msgstr "主要"
+msgstr "Primární"
 
 msgid "Primary email"
-msgstr "主要電子郵件"
+msgstr "Primární email"
 
 msgid "Privacy passphrase"
-msgstr "隱私密語"
+msgstr ""
 
 msgid "Privacy type"
-msgstr "隱私型式"
+msgstr ""
 
 msgid "Private key"
-msgstr "私有密鑰"
+msgstr "Soukromý klíč"
 
 msgid "Privilege"
-msgstr "特權"
+msgstr "Privilegium"
 
 msgid "Privileges"
-msgstr "特權"
+msgstr "Privilegia"
 
 msgid "Process monitoring"
-msgstr "程序監測"
+msgstr "Monitorování procesů"
 
 msgid "Processes"
-msgstr "程序"
+msgstr "Procesy"
 
 msgid "Processor"
-msgstr "處理器"
+msgstr "Procesor"
 
 msgid "Protocol"
-msgstr "通訊協定"
+msgstr "Protokol"
 
 msgid "Public"
-msgstr "公開"
+msgstr "Veřejný"
 
 msgid "Public key authentication"
-msgstr "公鑰驗證"
+msgstr "Autentizace veřejným klíčem"
 
 msgid "Puerto Rico"
-msgstr "波多黎各"
+msgstr "Portoriko"
 
 msgid "Pull"
-msgstr "拉取"
+msgstr ""
 
 msgid "Push"
-msgstr "推給"
+msgstr ""
 
 msgid "Qatar"
-msgstr "卡達"
+msgstr "Katar"
 
 msgid "Quick"
-msgstr "快速"
+msgstr "Rychlý"
 
 msgid "Quiet"
-msgstr "安靜"
+msgstr "Tichý"
 
 msgid "Quota"
-msgstr "配額"
+msgstr "Kvóta"
 
 msgid "RAID 10"
 msgstr "RAID 10"
@@ -2521,960 +2520,960 @@ msgid "RAID 6"
 msgstr "RAID 6"
 
 msgid "RAID Management"
-msgstr "RAID 管理"
+msgstr "Správa RAID"
 
 msgid "RFC931"
 msgstr "RFC931"
 
 msgid "RSync server"
-msgstr "RSync 伺服器"
+msgstr "RSync server"
 
 msgid "Ranges of numbers are not allowed"
-msgstr "數字範圍不被允許"
+msgstr ""
 
 msgid "Raw value"
-msgstr "原始值"
+msgstr ""
 
 msgid "Read only"
-msgstr "唯讀"
+msgstr "Pouze ke čtení"
 
 msgid "Read-only"
-msgstr "唯讀"
+msgstr "Pouze ke čtení"
 
 msgid "Read/Execute"
-msgstr "讀/執行"
+msgstr "Čtení/spouštění"
 
 msgid "Read/Write"
-msgstr "讀/寫"
+msgstr "Čtení/zápis"
 
 msgid "Read/Write/Execute"
-msgstr "讀/寫/執行"
+msgstr "Čtení/zápis/spouštění"
 
 msgid "Real"
-msgstr "實際用戶"
+msgstr "Reálný"
 
 msgid "Reboot"
-msgstr "重新啟動"
+msgstr "Restartovat"
 
 msgid "Recipient"
-msgstr "收件者"
+msgstr "Příjemce"
 
 msgid "Recover"
-msgstr "復原"
+msgstr "Obnovit"
 
 msgid "Recurse into directories"
-msgstr "遞歸進入目錄"
+msgstr ""
 
 msgid "Recursive"
-msgstr "遞歸"
+msgstr "Rekurzivní"
 
 msgid "Recycle bin"
-msgstr "回收筒"
+msgstr "Koš"
 
 msgid "Referenced"
-msgstr "被引用"
+msgstr ""
 
 msgid "Refresh"
-msgstr "更新"
+msgstr "Aktualizovat"
 
 msgid "Reload"
-msgstr "重新載入"
+msgstr "Znovu načíst"
 
 msgid "Remaining"
-msgstr "剩餘"
+msgstr "Zbývající"
 
 msgid "Remote"
-msgstr "遠端"
+msgstr "Vzdálený"
 
 msgid "Remote host"
-msgstr "遠端主機"
+msgstr "Vzdálený hostitel"
 
 msgid "Remote syslog"
-msgstr "遠端系統日誌"
+msgstr "Vzdálený syslog"
 
 msgid "Remove"
-msgstr "移除"
+msgstr "Odstranit"
 
 msgid "Replace"
-msgstr "取代"
+msgstr "Nahradit"
 
 msgid "Replace all existing permissions"
-msgstr "取代所有現存的權限"
+msgstr "Nahradit všechna existující oprávnění"
 
 msgid "Report"
-msgstr "報告"
+msgstr "Nahlásit"
 
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report. Set to 0 to disable this report."
-msgstr "報告如果自上次報告以來，至少有攝氏 N 度的溫度變化。將它設為 0 則停止這份報告。"
+msgstr ""
 
 msgid ""
 "Report if the temperature is greater or equal than N degrees Celsius. Set to"
 " 0 to disable this report."
-msgstr "報告如果溫度大於或等於攝氏 N 度。將它設為 0 則停止這份報告。"
+msgstr ""
 
 msgid "Repository"
-msgstr "軟體套件庫"
+msgstr "Repozitář"
 
 msgid "Require valid shell"
-msgstr "需要可用的指令殼層(shell)"
+msgstr "Vyžadovat platný shell"
 
 msgid "Required"
-msgstr "必要"
+msgstr "Povinný"
 
 msgid "Reset"
-msgstr "重設"
+msgstr "Resetovat"
 
 msgid "Reset WebGUI state"
-msgstr "重設 WebGUI 狀態"
+msgstr "Resetovat stav WebGUI"
 
 msgid ""
 "Reset WebGUI state will restore default settings of grid columns for "
 "example."
-msgstr "重設 WebGUI 狀態將恢復預設的設定，例如欄位。"
+msgstr ""
 
 msgid "Resize"
-msgstr "調整大小"
+msgstr "Změnit velikost"
 
 msgid "Result"
-msgstr "結果"
+msgstr "Výsledek"
 
 msgid "Resume"
-msgstr "恢復"
+msgstr "Pokračovat"
 
 msgid "Retry timeout"
-msgstr "重試逾時時間"
+msgstr ""
 
 msgid "Reunion"
-msgstr "留尼旺"
+msgstr ""
 
 msgid "Reverse DNS lookup"
-msgstr "反向 DNS 查詢"
+msgstr "Reverzní DNS dotaz"
 
 msgid "Revert"
-msgstr "還原"
+msgstr "Vrátit zpět"
 
 msgid "Revert configuration changes"
-msgstr "還原設置變更"
+msgstr "Vrátit zpět změny v konfiguraci"
 
 msgid "Romania"
-msgstr "羅馬尼亞"
+msgstr "Rumunsko"
 
 msgid "Rsync"
 msgstr "Rsync"
 
 msgid "Rsync - Jobs"
-msgstr "Rsync - 工作"
+msgstr "Rsync - úlohy"
 
 msgid "Rsync - Server"
-msgstr "Rsync - 伺服器"
+msgstr "Rsync - server"
 
 msgid "Run"
-msgstr "執行"
+msgstr "Spustit"
 
 msgid "Running"
-msgstr "執行中"
+msgstr "Běžící"
 
 msgid "Russia"
-msgstr "俄國"
+msgstr "Rusko"
 
 msgid "Rwanda"
-msgstr "盧安達"
+msgstr "Rwanda"
 
 msgid "S.M.A.R.T."
 msgstr "S.M.A.R.T."
 
 msgid "S.M.A.R.T. information"
-msgstr "S.M.A.R.T. 資訊"
+msgstr "S.M.A.R.T. informace"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr "必須先啟動所選裝置的 S.M.A.R.T. 監測。"
+msgstr "Monitorování S.M.A.R.T. musí být aktivní pro vybrané zařízení."
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
 
 msgid "SMB/CIFS - Audit"
-msgstr "SMB/CIFS - 審核"
+msgstr "SMB/CIFS - audit"
 
 msgid "SMTP port"
-msgstr "SMTP 通訊埠"
+msgstr "SMTP port"
 
 msgid "SMTP server"
-msgstr "SMTP 伺服器"
+msgstr "SMTP server"
 
 msgid "SMTP settings"
-msgstr "SMTP 設定"
+msgstr "SMTP nastavení"
 
 msgid "SNMP"
 msgstr "SNMP"
 
 msgid "SNMP version 1/2c"
-msgstr "SNMP 第 1/2c 版"
+msgstr "SNMP verze 1/2c"
 
 msgid "SNMP version 3"
-msgstr "SNMP 第 3 版"
+msgstr "SNMP verze 3"
 
 msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH public key"
-msgstr "SSH 公鑰"
+msgstr "SSH veřejný klíč"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
 msgid "Saint Helena"
-msgstr "聖海倫娜"
+msgstr "Svatá Helena"
 
 msgid "Saint Kitts and Nevis"
-msgstr "聖基茨與尼維斯"
+msgstr "Svatý Kryštof a Nevis"
 
 msgid "Saint Lucia"
-msgstr "聖露西亞"
+msgstr "Svatá Lucie"
 
 msgid "Saint Pierre and Miquelon"
-msgstr "聖皮埃爾與密克隆"
+msgstr "Saint-Pierre a Miquelon"
 
 msgid "Saint Vincent and the Grenadines"
-msgstr "聖文森特與格林納丁斯"
+msgstr "Svatý Vincenc a Grenadiny"
 
 msgid "Samoa"
-msgstr "薩摩亞"
+msgstr "Samoa"
 
 msgid "San Marino"
-msgstr "聖馬利諾"
+msgstr "San Marino"
 
 msgid "Sao Tome and Principe"
-msgstr "聖多美與普林西比"
+msgstr "Svatý Tomáš a Princův ostrov"
 
 msgid "Saturday"
-msgstr "星期六"
+msgstr "Sobota"
 
 msgid "Saudi Arabia"
-msgstr "沙特阿拉伯"
+msgstr "Saudská Arábie"
 
 msgid "Save"
-msgstr "儲存"
+msgstr "Uložit"
 
 msgid "Saving ..."
-msgstr "儲存中 ..."
+msgstr "Ukládání ..."
 
 msgid "Scan"
-msgstr "掃視"
+msgstr ""
 
 msgid "Scanning for new devices ..."
-msgstr "掃視新裝置 ..."
+msgstr "Hledání nových zařízení ..."
 
 msgid "Scheduled Jobs"
-msgstr "預定工作"
+msgstr "Načasované úlohy"
 
 msgid "Scheduled tests"
-msgstr "預定測試"
+msgstr "Načasované testy"
 
 msgid "Secondary"
-msgstr "次要"
+msgstr "Sekundární"
 
 msgid "Secondary email"
-msgstr "次要電子郵件"
+msgstr "Sekundární emai"
 
 msgid "Seconds"
-msgstr "秒"
+msgstr "Sekundy"
 
 msgid "Secure"
-msgstr "安全"
+msgstr "Bezpečný"
 
 msgid "Secure connection"
-msgstr "安全連線"
+msgstr "Bezpečné spojení"
 
 msgid "Security level"
-msgstr "安全性層級"
+msgstr "Úroveň zabezpečení"
 
 msgid "Select a SSL certificate ..."
-msgstr "選擇一份 SSL 證書 ..."
+msgstr "Vyberte SSL certifikát"
 
 msgid "Select a country ..."
-msgstr "選擇一個國家 ..."
+msgstr "Vyberte zemi ..."
 
 msgid "Select a device ..."
-msgstr "選擇一個裝置 ..."
+msgstr "Vyberte zařízení ..."
 
 msgid "Select a directory"
-msgstr "選擇一個目錄"
+msgstr "Vyberte adresář"
 
 msgid "Select a file permission ..."
-msgstr "選擇一個檔案權限 ..."
+msgstr "Vyberte oprávnění souboru ..."
 
 msgid "Select a file system ..."
-msgstr "選擇一個檔案系統 ..."
+msgstr "Vyberte souborový systém ..."
 
 msgid "Select a group name ..."
-msgstr "選擇一個群組名稱..."
+msgstr "Vyberte název skupiny"
 
 msgid "Select a language ..."
-msgstr "選擇一種語言 ..."
+msgstr "Vyberte jazyk ..."
 
 msgid "Select a primary device ..."
-msgstr "選擇一個主要裝置 ..."
+msgstr "Vyberte primární zařízení ..."
 
 msgid "Select a protocol ..."
-msgstr "選擇一個通訊協定 ..."
+msgstr "Vyberte protokol ..."
 
 msgid "Select a shared folder ..."
-msgstr "選擇一個共享檔案夾 ..."
+msgstr "Vyberte sdílenou složku ..."
 
 msgid "Select a shell ..."
-msgstr "選擇一個指令殼層 ..."
+msgstr "Vyberte shell ..."
 
 msgid "Select a user name ..."
-msgstr "選擇一個用戶名稱 ..."
+msgstr "Vyberte uživatelské jméno ..."
 
 msgid "Select a volume ..."
-msgstr "選擇一個磁碟 ..."
+msgstr "Vyberte svazek ..."
 
 msgid "Select devices to be added to the RAID device"
-msgstr "選擇將被添加到 RAID 的裝置"
+msgstr "Vyberte zařízení pro přídání do RAID zařízení"
 
 msgid "Select or enter a user name ..."
-msgstr "選擇或輸入一個用戶名稱 ..."
+msgstr "Vyberte nebo zadejte uživatelské jméno ..."
 
 msgid "Self-test logs"
-msgstr "自我測試日誌"
+msgstr ""
 
 msgid "Send a test email"
-msgstr "發送一份測試電子郵件"
+msgstr "Odeslat testovací email"
 
 msgid "Send command output via email"
-msgstr "經由電子郵件發送指令執行結果輸出"
+msgstr "Odeslat výstup příkazu pomocí emailu"
 
 msgid "Send email"
-msgstr "發送電子郵件"
+msgstr "Odeslat email"
 
 msgid "Sender email"
-msgstr "寄件者電子郵件"
+msgstr "Adresa odesílatele"
 
 msgid "Sending test email ..."
-msgstr "發送測試電子郵件中 ..."
+msgstr "Odesílání testovacího emailu ..."
 
 msgid "Senegal"
-msgstr "塞內加爾"
+msgstr "Senegal"
 
 msgid "September"
-msgstr "九月"
+msgstr "Září"
 
 msgid "Serbia And Montenegro"
-msgstr "塞爾維亞與蒙特內哥羅"
+msgstr "Srbsko a Černá Hora"
 
 msgid "Serial Number"
-msgstr "序號"
+msgstr "Sériové číslo"
 
 msgid "Serial number"
-msgstr "序號"
+msgstr "Sériové číslo"
 
 msgid "Server"
-msgstr "伺服器"
+msgstr "Server"
 
 msgid "Service"
-msgstr "服務"
+msgstr "Služba"
 
 msgid "Service Discovery"
-msgstr "服務搜索"
+msgstr ""
 
 msgid "Service disabled"
-msgstr "服務已停用"
+msgstr "Služba zakázána"
 
 msgid "Servicename"
-msgstr "服務名稱"
+msgstr "Název služby"
 
 msgid "Services"
-msgstr "服務"
+msgstr "Služby"
 
 msgid "Session expired."
-msgstr "作業階段已逾時"
+msgstr "Relace vypršela."
 
 msgid "Session not authenticated."
-msgstr "作業階段未通過驗證"
+msgstr ""
 
 msgid "Session timeout"
-msgstr "作業階段逾時時間"
+msgstr ""
 
 msgid "Set browseable"
-msgstr "設為可瀏覽"
+msgstr ""
 
 msgid "Set read only"
-msgstr "設為唯讀"
+msgstr "Povolit pouze ke čtení"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions"
-msgstr "將目的地的權限設定為與來源的權限相同"
+msgstr ""
 
 msgid "Set write only"
-msgstr "設為只准寫入"
+msgstr "Povolit pouze pro zápis"
 
 msgid "Sets the interval between disk checks to N seconds."
-msgstr "設定磁盤檢查之時間間隔為 N 秒。"
+msgstr "Nastavit interval kontroly disků na N sekund"
 
 msgid "Settings"
-msgstr "設定"
+msgstr "Nastavení"
 
 msgid "Seychelles"
-msgstr "塞席爾"
+msgstr "Seychely"
 
 msgid "Shared Folders"
-msgstr "共享檔案夾"
+msgstr "Sdílené složky"
 
 msgid "Shared folder"
-msgstr "共享檔案夾"
+msgstr "Sdílená složka"
 
 msgid "Shared folder must not be equal"
-msgstr "共享檔案夾必須不相同"
+msgstr "Sdílená složka se nesmí shodovat"
 
 msgid "Shared folder name"
-msgstr "共享檔案夾名稱"
+msgstr "Název sdílené složky"
 
 msgid "Shared folder path"
-msgstr "共享檔案夾路徑"
+msgstr "Cesta ke sdílené složce"
 
 msgid "Shared folder privileges"
-msgstr "共享檔案夾特權"
+msgstr "Oprávnění sdílené složky"
 
 msgid "Shares"
-msgstr "共享"
+msgstr "Sdílení"
 
 msgid "Shell"
-msgstr "指令殼層"
+msgstr "Shell"
 
 msgid "Short self-test"
-msgstr "簡短自我測試"
+msgstr ""
 
 msgid "Show certificate"
-msgstr "顯示證書"
+msgstr "Zobrazit certifikát"
 
 msgid "Show changelog"
-msgstr "顯示變更日誌"
+msgstr ""
 
 msgid "Show details"
-msgstr "顯示詳細資料"
+msgstr "Zobrazit detaily"
 
 msgid "Show password"
-msgstr "顯示密碼"
+msgstr "Zobrazit heslo"
 
 msgid "Show privileges"
-msgstr "顯示特權"
+msgstr "Zobrazit oprávnění"
 
 msgid "Shutdown"
-msgstr "關機"
+msgstr "Vypnout"
 
 msgid "Sierra Leone"
-msgstr "塞拉里昂"
+msgstr "Sierra Leone"
 
 msgid "Singapore"
-msgstr "新加坡"
+msgstr "Singapur"
 
 msgid "Size"
-msgstr "大小"
+msgstr "Velikost"
 
 msgid "Slaves"
-msgstr "隸屬"
+msgstr ""
 
 msgid "Sleep"
-msgstr "睡眠"
+msgstr "Spát"
 
 msgid "Slovakia"
-msgstr "斯洛伐克"
+msgstr "Slovensko"
 
 msgid "Slovenia"
-msgstr "斯洛維尼亞"
+msgstr "Slovinsko"
 
 msgid "Software RAID"
-msgstr "軟體 RAID"
+msgstr "Softwarový RAID"
 
 msgid "Software updates"
-msgstr "軟體更新"
+msgstr "Aktualizace softwaru"
 
 msgid "Solomon Islands"
-msgstr "索羅門群島"
+msgstr "Šalamounovy ostrovy"
 
 msgid "Somalia"
-msgstr "索馬利亞"
+msgstr "Somálsko"
 
 msgid "Source"
-msgstr "來源"
+msgstr "Zdroj"
 
 msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
 "or a plain IP address. A '!' argument before the address specification "
 "inverts the sense of the address."
-msgstr "來源位址可以是網路 IP 位址(與 /掩碼)，IP 範圍或一個普通的 IP 位址。位址前可有 '!' 來反轉位址的意義。"
+msgstr "Zdrojová adresa může být adresa podsítě (s /maskou), rozmezí IP adres nebo jedna IP adresa. Vykřičník před adresou znamená její inverzi."
 
 msgid "Source port"
-msgstr "來源通訊埠"
+msgstr "Zdrojový port"
 
 msgid "Source server"
-msgstr "來源伺服器"
+msgstr "Zdrojový server"
 
 msgid "Source shared folder"
-msgstr "來源共享檔案夾"
+msgstr "Zdrojová sdílená složka"
 
 msgid "South Africa"
-msgstr "南非"
+msgstr ""
 
 msgid "South Georgia and the South Sandwich Islands"
-msgstr "南喬治亞與南桑威奇群島"
+msgstr "Jižní Georgie a Jižní Sandwichovy ostrovy"
 
 msgid "South Korea"
-msgstr "南韓"
+msgstr "Jižní Korea"
 
 msgid "Spain"
-msgstr "西班牙"
+msgstr "Španělsko"
 
 msgid "Special action flag"
-msgstr "特殊動作旗標"
+msgstr ""
 
 msgid "Specifies how many server threads to create."
-msgstr "指定創建多少個伺服器執行緒。"
+msgstr ""
 
 msgid "Specifies one of the bonding policies."
-msgstr "指定一個結合策略。"
+msgstr ""
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
-msgstr "指定 MII 連接的監測頻率，單位為毫秒。"
+msgstr ""
 
 msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
 "masquerade address by resolving the IP address. Set this value to 0 to "
 "disable this option."
-msgstr "指定經由解析 IP 位址來做偽裝位址的檢查與更新之間的時間，以秒為單位。設此值為 0 來停用這選項。"
+msgstr ""
 
 msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "
 "parameter is from 512 to 65464."
-msgstr "指定最大允許的區塊大小。這個參數的允許範圍是從 512 到 65464。"
+msgstr ""
 
 msgid "Specifies the time in hh:mm:ss after which the ban expires."
-msgstr "以 hh:mm:ss 的格式來指定時間。在這時間之後，禁止就過期了。"
+msgstr ""
 
 msgid ""
 "Specifies the time interval in hh:mm:ss in which the given number of "
 "occurrences must happen to add the ban."
-msgstr "以 hh:mm:ss 的格式來指定時間間隔。在這段時間之內，必須發生被給定的次數，才會加入禁止。"
+msgstr ""
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
 "a link failure has been detected."
-msgstr "指定檢測到連接故障後，在停用隸屬介面之前，以毫秒為單位的等待時間。"
+msgstr ""
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
 " link recovery has been detected."
-msgstr "指定檢測到連接恢復後，在啟用隸屬介面之前，以毫秒為單位的等待時間。"
+msgstr ""
 
 msgid "Specifies whether it is allowed to login as superuser directly"
-msgstr "指定是否允許以超級用戶的身份直接登入"
+msgstr ""
 
 msgid "Specifies whether it is allowed to login as superuser."
-msgstr "指定是否允許以超級用戶身份登入。"
+msgstr ""
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
-msgstr "指定是否監測系統狀態，並選擇最合適的 CPU 層級。"
+msgstr ""
 
 msgid "Specifies which slave is the primary device."
-msgstr "指定哪個隸屬介面是主要的裝置。"
+msgstr ""
 
 msgid "Spindown time"
-msgstr "旋轉停止時間"
+msgstr ""
 
 msgid "Sri Lanka"
-msgstr "斯里蘭卡"
+msgstr "Srí Lanka"
 
 msgid "Standby"
-msgstr "待機"
+msgstr ""
 
 msgid "Start"
-msgstr "開始"
+msgstr "Start"
 
 msgid "State"
-msgstr "狀態"
+msgstr ""
 
 msgid "State/Province"
-msgstr "州/省"
+msgstr "Stát/Provincie"
 
 msgid "Static"
-msgstr "靜態"
+msgstr "Statický"
 
 msgid "Status"
-msgstr "狀態"
+msgstr "Status"
 
 msgid "Stop"
-msgstr "停止"
+msgstr "Stop"
 
 msgid "Storage"
-msgstr "儲存裝置"
+msgstr "Úložiště"
 
 msgid "Store DOS attributes"
-msgstr "儲存 DOS 屬性"
+msgstr "Uchovat DOS atributy"
 
 msgid "Stripe"
-msgstr "分條"
+msgstr ""
 
 msgid "Success"
-msgstr "成功"
+msgstr ""
 
 msgid "Sudan"
-msgstr "蘇丹"
+msgstr "Súdán"
 
 msgid "Sunday"
-msgstr "星期日"
+msgstr "Neděle"
 
 msgid "Support"
-msgstr "支援"
+msgstr "Podpora"
 
 msgid "Suppress non-error messages"
-msgstr "抑制非錯誤訊息"
+msgstr ""
 
 msgid "Suriname"
-msgstr "蘇里南"
+msgstr "Surinam"
 
 msgid "Svalbard and Jan Mayen"
-msgstr "斯瓦爾巴與揚馬延"
+msgstr "Špicberky a Jan Mayen"
 
 msgid "Swaziland"
-msgstr "史瓦濟蘭"
+msgstr "Svazijsko"
 
 msgid "Sweden"
-msgstr "瑞典"
+msgstr "Švédsko"
 
 msgid "Switzerland"
-msgstr "瑞士"
+msgstr "Švýcarsko"
 
 msgid "Syria"
-msgstr "敘利亞"
+msgstr "Sýrie"
 
 msgid "Syslog"
-msgstr "系統日誌"
+msgstr "Syslog"
 
 msgid "System"
-msgstr "系統"
+msgstr "Systém"
 
 msgid "System Information"
-msgstr "系統資訊"
+msgstr "Informace o systému"
 
 msgid "System Logs"
-msgstr "系統日誌"
+msgstr ""
 
 msgid "System time"
-msgstr "系統時間"
+msgstr "Systémový čas"
 
 msgid "System users/groups"
-msgstr "系統用戶/群組"
+msgstr "Systémové účty/skupiny"
 
 msgid "TAR"
 msgstr "TAR"
 
 msgid "TCP forwarding"
-msgstr "TCP 轉送"
+msgstr ""
 
 msgid "TFTP"
 msgstr "TFTP"
 
 msgid "Taiwan"
-msgstr "台灣"
+msgstr "Taiwan"
 
 msgid "Tajikistan"
-msgstr "塔吉克斯坦"
+msgstr "Tádžikistán"
 
 msgid "Tanzania"
-msgstr "坦尚尼亞"
+msgstr "Tanzanie"
 
 msgid "Temperature"
-msgstr "溫度"
+msgstr "Teplota"
 
 msgid "Temperature monitoring"
-msgstr "溫度監測"
+msgstr "Sledování teploty"
 
 msgid "Test description"
-msgstr "測試說明"
+msgstr "Popis testu"
 
 msgid "Thailand"
-msgstr "泰國"
+msgstr "Thajsko"
 
 msgid "The NT description field."
-msgstr "NT 的敘述欄位。"
+msgstr ""
 
 msgid "The RSA key length."
-msgstr "RSA 密鑰的長度。"
+msgstr "Délka RSA klíče."
 
 msgid "The SSL certificate."
-msgstr "SSL 證書。"
+msgstr "SSL certifikát."
 
 msgid "The action to be done when pressing the power button."
-msgstr "當按下電源按鈕時，將執行的動作。"
+msgstr "Akce, která se provede při stisku tlačítka napájení."
 
 msgid "The changes have been applied successfully."
-msgstr "變更已被成功地套用。"
+msgstr "Změny byly úspěšně provedeny."
 
 msgid "The comment contains invalid characters"
-msgstr "註釋內含有無效字符"
+msgstr "Komentář obsahuje nepovolené znaky"
 
 msgid ""
 "The configuration has been changed. You must apply the changes in order for "
 "them to take effect."
-msgstr "配置已被改變。您必須套用那些變更，才會使它們生效。"
+msgstr ""
 
 msgid "The default SMTP mail server port, e.g. 25 or 587."
-msgstr "預設的 SMTP 郵件伺服器通訊埠，例如 25 或 587。"
+msgstr "Výchozí port SMTP serveru, např. 25 nebo 587."
 
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
 "rsync://[USER@]HOST[:PORT]/DEST."
-msgstr "目的地遠端伺服器，例如 [USER@]HOST:DEST，[USER@]HOST::DEST 或 rsync://[USER@]HOST[:PORT]/DEST。"
+msgstr ""
 
 msgid "The destination shared folder."
-msgstr "目的地共享檔案夾。"
+msgstr "Cílová sdílena složka."
 
 msgid "The device does not exist"
-msgstr "裝置 '%s' 並不存在"
+msgstr "Zařízení neexistuje"
 
 msgid "The field '%s' contains forbidden "
-msgstr "欄位 '%s' 內含有被禁止的 "
+msgstr "Pole \"%s\" obsahuje zakázané"
 
 msgid "The file mode of the shared folder path."
-msgstr "共享檔案夾路徑的文件模式。"
+msgstr ""
 
 msgid "The file system creation has completed successfully."
-msgstr "檔案系統創建已經成功地完成。"
+msgstr "Inicializace souborového systému byla úspěšně dokončena."
 
 msgid "The group '%s' does not exist"
-msgstr "群組 '%s' 並不存在"
+msgstr "Skupina \"%s\" neexistuje"
 
 msgid "The hostname is a label that identifies the system to the network."
-msgstr "主機名稱是一個用以於網路上識別系統的標籤。"
+msgstr ""
 
 msgid ""
 "The information about available software is out-of-date. You need to reload "
 "the information about available software."
-msgstr "有關可用軟體的資訊已過時。你需要重新載入可用軟體的資訊。"
+msgstr ""
 
 msgid "The interface '%s' is already used by a bonding interface"
-msgstr "介面 '%s' 已被一個結合介面使用"
+msgstr ""
 
 msgid "The location of the files to share."
-msgstr "用來共享之檔案的位置。"
+msgstr "Umístění souborů ke sdílení."
 
 msgid ""
 "The location of the files to share. The share will be accessible at "
 "/export/<name>."
-msgstr "用來共享之檔案的位置。該共享將在 /export/<name> 可供存取。"
+msgstr ""
 
 msgid "The location of the user home directories."
-msgstr "用戶之家目錄的位置。"
+msgstr "Umístění domovských složek uživatelů."
 
 msgid "The name of the share."
-msgstr "該共享的名稱。"
+msgstr ""
 
 msgid "The number of days the certificate is valid for."
-msgstr "證書有效的天數。"
+msgstr "Počet dní platnosti certifikátu"
 
 msgid "The page will reload now to let the changes take effect."
-msgstr "現在網頁將重新載入頁面以讓更改生效。"
+msgstr ""
 
 #, php-format
 msgid "The parameter '%s' contains forbidden two-dot symbols"
-msgstr "參數 '%s' 含有被禁用的兩點符號"
+msgstr ""
 
 msgid "The password contains invalid characters"
-msgstr "密碼中包含無效字符"
+msgstr "Heslo obsahuje neplatné znaky"
 
 msgid ""
 "The password that is used for access via rsync daemon. Note, this is not "
 "used for remote shell transport such as ssh."
-msgstr "該密碼是用在經由 rsync 幕後服務程式來存取。請注意，這並非用在遠端指令殼層傳輸，像是 ssh。"
+msgstr ""
 
 msgid ""
 "The path of the folder to share. The specified folder will be created if it "
 "does not already exist."
-msgstr "共享檔案夾的路徑。如果它並不存在，則將建立所指定的檔案夾。"
+msgstr ""
 
 msgid ""
 "The permissions on new files and directories are normally governed by create"
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
-msgstr "新檔案和目錄的權限通常是由創建掩碼和目錄掩碼來控制，但繼承權限參數會蓋換它們。當系統上有許多用戶，並允許單一共享有彈性地被每一用戶使用時，這會特別有用處。"
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
 "packages."
-msgstr "將對軟體套件庫查看新增、已移除或已升級的軟體套件。"
+msgstr ""
 
 msgid ""
 "The requirement that the SSL session from the control connection is reused "
 "for data connections is not required."
-msgstr "從控制連線來的 SSL 作業階段須被重用做資料連線的需求將不被要求。"
+msgstr ""
 
 msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "作業階段的逾時時間，以分鐘為單位。設定為 0 來停用自動登出。"
+msgstr ""
 
 msgid "The shared folder is already used by another share."
-msgstr "共享檔案夾已被另一個共享使用"
+msgstr ""
 
 msgid ""
 "The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
 "rsync://[USER@]HOST[:PORT]/SRC."
-msgstr "來源遠端伺服器，例如 [USER@]HOST:SRC，[USER@]HOST::SRC 或 rsync://[USER@]HOST[:PORT]/SRC。"
+msgstr ""
 
 msgid "The source shared folder."
-msgstr "來源共享檔案夾。"
+msgstr ""
 
 msgid "The specified quota exceeds the max. possible value of 4TiB."
-msgstr "指定的配額超出了最大的可能值 4TiB。"
+msgstr ""
 
 msgid "The system will reboot now. This may take some time ..."
-msgstr "系統將立即重新啟動。這可能需要一些時間 ..."
+msgstr ""
 
 msgid "The test email has been sent successfully. Please check your mailbox."
-msgstr "測試郵件已被成功地發送。請檢查您的郵箱。"
+msgstr "Testovací email byl úspěšně odeslán. Zkontrolujte si prosím svoji emailovou schránku."
 
 msgid "The user '%s' does not exist"
-msgstr "用戶 '%s' 並不存在"
+msgstr "Uživatel \"%s\" neexistuje"
 
 msgid "The user '%s' is not allowed"
-msgstr "用戶 '%s' 是不被允許的"
+msgstr ""
 
 msgid "The volume label for the file system."
-msgstr "該檔案系統的磁碟標籤。"
+msgstr ""
 
 msgid ""
 "The welcome message which will be displayed to the user when they initially "
 "login."
-msgstr "當用戶首次登入時，將顯示給他們的歡迎訊息。"
+msgstr ""
 
 msgid "The workgroup the server will appear to be in when queried by clients."
-msgstr "當客戶端查詢時，伺服器將會顯現所在的工作群組。"
+msgstr ""
 
 msgid "There already exists a mount point for %s"
-msgstr "目前已經存在一個給 %s 的掛載點"
+msgstr ""
 
 msgid ""
 "These settings are used by the services to configure the user access rights."
 " Please note that these settings have no effect on file system permissions."
-msgstr "這些設定是讓服務使用來設置用戶的存取權限。請注意，這些設定並不會對檔案系統的權限有所影響。"
+msgstr ""
 
 msgid ""
 "This controls whether this share is seen in the list of available shares in "
 "a net view and in the browse list."
-msgstr "這控制是否此共享會在網路顯示及瀏覽列表中，出現於可用共享的清單上。"
+msgstr ""
 
 msgid "This field does not allow blanks"
-msgstr "此欄位不允許空白"
+msgstr "Toto pole nemůže obsahovat bílé znaky."
 
 msgid "This field is required"
-msgstr "此欄位是必須的"
+msgstr "Pole je povinné"
 
 msgid "This field must have the format hh:mm:ss"
-msgstr "此欄位的格式必須為 hh:mm:ss"
+msgstr "Pole musí být ve formátu hh:mm:ss"
 
 msgid "This field should be a IP network address in CIDR notation"
-msgstr "此欄位應該是一個以 CIDR 表示法的 IP 網路位址"
+msgstr "Pole by mělo obsahovat IP adresu ve formátu CIDR"
 
 msgid "This field should be a IPv4 network address"
-msgstr "此欄位應該是一個 IPv4 網路位址"
+msgstr "Pole by mělo obsahovat IPv4 adresu"
 
 msgid "This field should be a IPv4 network address in CIDR notation"
-msgstr "此欄位應該是一個以 CIDR 表示法的 IPv4 網路位址"
+msgstr ""
 
 msgid "This field should be a IPv6 network address in CIDR notation"
-msgstr "此欄位應該是一個以 CIDR 表示法的 IPv6 網路位址"
+msgstr ""
 
 msgid "This field should be a domainname or an IP address"
-msgstr "此欄位應該是一個網域名稱或 IP 位址"
+msgstr ""
 
 msgid "This field should be a domainname or an IPv4 address"
-msgstr "此欄位應該是一個網域名稱或 IPv4 位址"
+msgstr ""
 
 msgid "This field should be a hostname or an IP address"
-msgstr "此欄位應該是一個主機名稱或 IP 位址"
+msgstr ""
 
 msgid "This field should be a hostname or an IPv4 address"
-msgstr "此欄位應該是一個主機名稱或 IPv4 位址"
+msgstr ""
 
 msgid "This field should be a list of domainnames or IP addresses"
-msgstr "此欄位應該是一網域名稱或 IP 位址的列表"
+msgstr ""
 
 msgid "This field should be a list of hostnames or IP addresses"
-msgstr "此欄位應該是一主機名稱或 IP 位址的列表"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
-msgstr "此欄位應該是一個在 128.0.0.0 - 255.255.255.252 範圍內的網路遮罩"
+msgstr ""
 
 msgid "This field should be a port in the range of 1 - 65535"
-msgstr "此欄位應該是一個範圍在 1- 65535 之間的通訊埠"
+msgstr ""
 
 msgid ""
 "This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
-msgstr "此欄位應該是一個通訊埠或通訊埠範圍(例如：21 或 !443 或 1024-65535)"
+msgstr ""
 
 msgid "This field should be an IP address"
-msgstr "此欄位應該是一個 IP 位址"
+msgstr ""
 
 msgid "This field should be an IPv4 address"
-msgstr "此欄位應該是一個 IPv4 位址"
+msgstr ""
 
 msgid "This field should be an IPv6 address"
-msgstr "此欄位應該是一個 IPv6 位址"
+msgstr ""
 
 msgid ""
 "This field should be either a IPv4 network address (with /mask), a IPv4 "
 "range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
 "192.168.178.20-192.168.178.254)"
-msgstr "此欄位應該是一個 IPv4 網路位址(與 /遮罩)、一個 IPv4 範圍或一個普通的 IPv4 位址(例如：172.16.76.4 或 !192.168.178.87/24 或 192.168.178.20-192.168.178.254)"
+msgstr ""
 
 msgid ""
 "This field should be either a IPv6 network address (with /mask), a IPv6 "
 "range or a plain IPv6 address (e.g. !2001:db8::/96 or "
 "2001:db8::10-2001:db8::20 or 2001:db8::15)"
-msgstr "此欄位應該是一個 IPv6 網路位址(與 /遮罩)、一個 IPv6 範圍或一個普通的 IPv6 位址(例如：!2001:db8::/96 或 2001:db8::10-2001:db8::20 或 2001:db8::15)"
+msgstr ""
 
 msgid "This field should only contain numbers"
-msgstr "此欄位應該只包含數字"
+msgstr ""
 
 msgid "This field should only contain numbers seperated by <,> or <;>"
-msgstr "此欄位應該只包含以 <,> 或 <;> 分隔的數字"
+msgstr ""
 
 msgid ""
 "This field should only contain ports (0 - 65535) seperated by <,> or <;>"
-msgstr "此欄位應該只包含以 <,> 或 <;> 分隔的通訊埠(0 - 65535)"
+msgstr ""
 
 msgid "This field should only contain strings seperated by <,> or <;>"
-msgstr "此欄位應該只包含以 <,> 或 <;> 分隔的字串"
+msgstr ""
 
 msgid "This function is effective only if the hard drive supports it."
-msgstr "此功能只有當硬碟提供支援才有效。"
+msgstr ""
 
 msgid ""
 "This is a text field that is seen next to a share when a client queries the "
 "server."
-msgstr "這是一個文字欄位，當一個客戶端探詢伺服器時，它會在共享的旁邊顯示出來。"
+msgstr ""
 
 msgid ""
 "This may make more efficient use of the system CPU's and cause Samba to be "
 "faster. Samba automatically turns this off for clients that use protocol "
 "levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
-msgstr "這可更有效率地使用系統的 CPU，並使 Samba 執行更快。面對客戶端使用低於 NT LM 0.12 及偵測到客戶端是 Windows 9x 時，Samba 會自動將此功能關閉。"
+msgstr ""
 
 msgid ""
 "This option causes the server to not send a certificate request during a SSL"
 " handshake."
-msgstr "此選項會導致伺服器在 SSL 握手過程不要發送證書請求。"
+msgstr ""
 
 msgid ""
 "This option determines if this module should be listed when the client asks "
 "for a listing of available modules."
-msgstr "此選項決定當客戶端要求一份可用模組列表時，是否這個模組應該被列出。"
+msgstr ""
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3483,7 +3482,7 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "此選項是一個以逗號、空格或跳位字元分隔的一組主機，這些主機不允許取用這個模組。當不同列表有衝突時，允許列表將有優先權。如有需要預設為拒絕所有主機，則使用關鍵字 ALL (或網路遮掩 0.0.0.0/0)，然後在允許參數中明確地指定應該被允許取用的主機。將此欄位留空則使用預設的設定。"
+msgstr ""
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3492,446 +3491,446 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr "此選項是一個以逗號、空格或跳位字元分隔的一組主機，這些主機不允許取用這個共享。當不同列表有衝突時，允許列表將有優先權。如有需要預設為拒絕所有主機，則使用關鍵字 ALL (或網路遮掩 0.0.0.0/0)，然後在允許參數中明確地指定應該被允許取用的主機。將此欄位留空則使用預設的設定。"
+msgstr ""
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this module. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr "此選項是一個以逗號、空格或跳位字元分隔的一組主機，這些主機被允許取用這個模組。你可用名稱或 IP 數值來指定主機。將此欄位留空則使用預設的設定。"
+msgstr ""
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this share. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr "此選項是一個以逗號、空格或跳位字元分隔的一組主機，這些主機被允許取用這個共享。你可用名稱或 IP 數值來指定主機。將此欄位留空則使用預設的設定。"
+msgstr ""
 
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
 "server."
-msgstr "此選項要求客戶端使用 FTP over TLS 來與該伺服器交談。"
+msgstr ""
 
 msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
-msgstr "此選項指定群組名稱，它是當與該模組做來往檔案傳送時應採用的。"
+msgstr ""
 
 msgid ""
 "This option specifies the maximum number of simultaneous connections. 0 "
 "means no limit."
-msgstr "此選項指定的最大同時連線的數量。0 表示沒有限制。"
+msgstr ""
 
 msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
-msgstr "此選項指定用戶名稱，它是當與該模組做來往檔案傳送時應採用的。"
+msgstr ""
 
 msgid ""
 "This option will handle all connections as if they are SSL connections "
 "implicitly."
-msgstr "此選項將所有的連線默認是 SSL 連線來處理。"
+msgstr ""
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr "此參數可以用來確保當上層目錄有預設 ACLs 存在，在這些上層目錄內建立新檔案和子目錄時，它們總是會被遵循。"
+msgstr ""
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
-msgstr "此參數控制是否要把名稱開頭是一點的檔案當成隱藏檔案"
+msgstr ""
 
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
 "given time interval, then a ban is automatically added."
-msgstr "此參數表示，如果在給定的時間間隔內發生 N 次事件，那麼會自動加進一項禁止。"
+msgstr ""
 
 msgid "This rule is triggered whenever the selected event directive occurs."
-msgstr "當所選定的事件指示發生時，此規則會被觸發。"
+msgstr ""
 
 msgid "This specifies what to do if the packet matches."
-msgstr "這指明如果數據包符合時要做什麼。"
+msgstr ""
 
 msgid "This will create a recycle bin on the share."
-msgstr "這將在共享上建立一個回收筒。"
+msgstr ""
 
 msgid "Thursday"
-msgstr "星期四"
+msgstr "Čtvrtek"
 
 msgid "TiB"
 msgstr "TiB"
 
 msgid "Time"
-msgstr "時間"
+msgstr "Čas"
 
 msgid "Time interval"
-msgstr "時間間隔"
+msgstr "Časový interval"
 
 msgid "Time server"
-msgstr "時間伺服器"
+msgstr "Časový server"
 
 msgid "Time servers"
-msgstr "時間伺服器"
+msgstr "Časové servery"
 
 msgid "Time zone"
-msgstr "時區"
+msgstr "Časové pásmo"
 
 msgid "Timeout"
-msgstr "逾時"
+msgstr ""
 
 msgid "Times"
-msgstr "時間"
+msgstr ""
 
 msgid "Togo"
-msgstr "托戈"
+msgstr "Togo"
 
 msgid "Tokelau"
-msgstr "托克勞"
+msgstr "Tokelau"
 
 msgid "Tonga"
-msgstr "東加"
+msgstr "Tonga"
 
 msgid "Transfer log"
-msgstr "傳輸日誌"
+msgstr ""
 
 msgid "Transfer time"
-msgstr "傳輸時間"
+msgstr "Přenosový čas"
 
 msgid "Transfer type"
-msgstr "傳輸型式"
+msgstr "Typ přenosu"
 
 msgid "Traps"
-msgstr "捕捉"
+msgstr ""
 
 msgid "Treshold"
-msgstr "臨界值"
+msgstr ""
 
 msgid "Trial run"
-msgstr "試行"
+msgstr ""
 
 msgid "Trinidad and Tobago"
-msgstr "特里尼達與托巴哥"
+msgstr "Trinidad a Tobago"
 
 msgid "Tuesday"
-msgstr "星期二"
+msgstr "Úterý"
 
 msgid "Tunisia"
-msgstr "突尼西亞"
+msgstr "Tunisko"
 
 msgid "Turkey"
-msgstr "土耳其"
+msgstr "Turecko"
 
 msgid "Turkmenistan"
-msgstr "土庫曼斯坦"
+msgstr "Turkmenistán"
 
 msgid "Turks and Caicos Islands"
-msgstr "特克斯與凱科斯群島"
+msgstr "Turks a Caicos"
 
 msgid "Tuvalu"
-msgstr "圖瓦盧"
+msgstr "Tuvalu"
 
 msgid "Type"
-msgstr "類型"
+msgstr "Typ"
 
 msgid "U.S. Miscellaneous Pacific Islands"
-msgstr "美屬其他太平洋島嶼"
+msgstr ""
 
 msgid "U.S. Virgin Islands"
-msgstr "美屬維爾京群島"
+msgstr "Americké Panenské ostrovy"
 
 msgid "UNKNOWN"
-msgstr "未知"
+msgstr "NEZNÁMÝ"
 
 msgid "Uganda"
-msgstr "烏干達"
+msgstr "Uganda"
 
 msgid "Ukraine"
-msgstr "烏克蘭"
+msgstr "Ukrajina"
 
 msgid "Uncompressed"
-msgstr "未經壓縮"
+msgstr ""
 
 msgid "Uninstall"
-msgstr "移除安裝"
+msgstr "Odinstalovat"
 
 msgid "Uninstall plugins ..."
-msgstr "移除插件 ..."
+msgstr "Odinstalovat doplňky ..."
 
 msgid "Union of Soviet Socialist Republics"
-msgstr "蘇維埃社會主義共和國聯盟"
+msgstr "Sovětský svaz"
 
 msgid "Unit"
-msgstr "單位"
+msgstr "Jednotka"
 
 msgid "United Arab Emirates"
-msgstr "阿拉伯聯合大公國"
+msgstr "Spojené arabské emiráty"
 
 msgid "United Kingdom"
-msgstr "英國"
+msgstr "Spojené království"
 
 msgid "United States"
-msgstr "美國"
+msgstr "Spojené státy americké"
 
 msgid "United States Minor Outlying Islands"
-msgstr "美國本土外小島嶼"
+msgstr "Menší odlehlé ostrovy Spojených států amerických"
 
 msgid "Unknown filesystem '%s'"
-msgstr "未知的檔案系統 '%s'"
+msgstr "Neznámý souborový systém \"%s\""
 
 msgid "Unknown log file type (id=%s)"
-msgstr "未知的日誌檔案類型(id=%s)"
+msgstr ""
 
 msgid "Unknown network interface type."
-msgstr "未知的網路介面類型。"
+msgstr "Neznámý typ síťového rozhraní"
 
 msgid "Unmount"
-msgstr "卸載"
+msgstr "Odpojit"
 
 msgid "Up"
-msgstr "上移"
+msgstr ""
 
 msgid "Up delay"
-msgstr "啟用延遲"
+msgstr ""
 
 msgid "Update Manager"
-msgstr "更新管理員"
+msgstr "Správce aktualizací"
 
 msgid "Update now"
-msgstr "立即更新"
+msgstr "Aktualizovat teď"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
-msgstr "更新目的地的 ACLs 成為與來源的 ACLs 相同"
+msgstr ""
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones"
-msgstr "更新目的地的擴展屬性成為與本地相同"
+msgstr ""
 
 msgid "Updates"
-msgstr "更新"
+msgstr "Aktualizace"
 
 msgid "Updating ACL settings"
-msgstr "正在更新 ACL 設定中"
+msgstr ""
 
 msgid "Upgrade"
-msgstr "升級"
+msgstr ""
 
 msgid "Upload"
-msgstr "上傳"
+msgstr "Nahrát"
 
 msgid "Upload file"
-msgstr "上傳檔案"
+msgstr "Nahrát soubor"
 
 msgid "Upload package"
-msgstr "上傳套件"
+msgstr "Nahrát balík"
 
 msgid "Upload plugin"
-msgstr "上傳插件"
+msgstr "Nahrát doplněk"
 
 msgid "Uploading file ..."
-msgstr "上傳檔案中 ..."
+msgstr "Nahrávám soubor ..."
 
 msgid "Uptime"
-msgstr "運行時間"
+msgstr "Uptime"
 
 msgid "Uruguay"
-msgstr "烏拉圭"
+msgstr "Uruguay"
 
 msgid "Use NTP server"
-msgstr "使用 NTP 伺服器"
+msgstr "Použít NTP server"
 
 msgid "Use SSL/TLS secure connection"
-msgstr "使用 SSL / TLS 安全連線"
+msgstr "Použít zabezpečené SSL/TLS spojení"
 
 msgid "Use chroot"
-msgstr "使用 chroot"
+msgstr "Použít chroot"
 
 msgid "Use sendfile"
-msgstr "使用 sendfile"
+msgstr "Použít sendfile"
 
 msgid "Use the following bandwidth restriction:"
-msgstr "使用以下頻寬限制："
+msgstr "Použít následující omezení šířky pásma:"
 
 msgid "Use the following port range:"
-msgstr "使用以下通訊埠範圍："
+msgstr "Použít následující rozsah portů:"
 
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked"
-msgstr "對被獨占 oplocked 的檔案，使用更高效的 sendfile 系統呼叫"
+msgstr ""
 
 msgid "Use the specified WINS server."
-msgstr "使用指定的 WINS 伺服器。"
+msgstr "Použít uvedený WINS server."
 
 msgid "Used"
-msgstr "已使用"
+msgstr "Použitý"
 
 msgid "Used capacity"
-msgstr "已用容量"
+msgstr "Využitá kapacita"
 
 msgid "User"
-msgstr "用戶"
+msgstr "Uživatel"
 
 msgid "User '%s' already exist"
-msgstr "用戶 '%s' 已經存在"
+msgstr "Uživatel \"%s\" již existuje"
 
 msgid "User '%s' does not exist"
-msgstr "用戶 '%s' 並不存在"
+msgstr "Uživatel \"%s\" neexistuje"
 
 msgid "User ID '%d' already exist"
-msgstr "用戶 ID '%d' 已經存在"
+msgstr "ID uživatele \"%d\" již existuje"
 
 msgid "User home directory"
-msgstr "用戶家目錄"
+msgstr "Domovská složka uživatele"
 
 msgid "User information"
-msgstr "用戶資料"
+msgstr "Informace o uživateli"
 
 msgid "User/Group permissions"
-msgstr "用戶/群組權限"
+msgstr "Oprávnění uživatele/skupiny"
 
 msgid "Username"
-msgstr "用戶名稱"
+msgstr "Uživatelské jméno"
 
 msgid "Users"
-msgstr "用戶"
+msgstr "Uživatelé"
 
 msgid "Uzbekistan"
-msgstr "烏茲別克斯坦"
+msgstr "Uzbekistán"
 
 msgid "Valid to"
-msgstr "有效期到"
+msgstr "Platné do"
 
 msgid "Value"
-msgstr "數值"
+msgstr "Hodnota"
 
 msgid "Vanuatu"
-msgstr "瓦努阿圖"
+msgstr "Vanuatu"
 
 msgid "Vatican"
-msgstr "梵蒂岡"
+msgstr "Vatikán"
 
 msgid "Vendor"
-msgstr "供應商"
+msgstr "Výrobce"
 
 msgid "Venezuela"
-msgstr "委內瑞拉"
+msgstr "Venezuela"
 
 msgid "Version"
-msgstr "版本"
+msgstr "Verze"
 
 msgid "Vietnam"
-msgstr "越南"
+msgstr "Vietnam"
 
 msgid "Volume"
-msgstr "磁碟"
+msgstr "Hlasitost"
 
 msgid "WINS"
 msgstr "WINS"
 
 msgid "WINS server"
-msgstr "WINS 伺服器"
+msgstr "WINS server"
 
 msgid "WINS support"
-msgstr "WINS 支援"
+msgstr "Podpora WINS"
 
 msgid "Wake Island"
-msgstr "維克島"
+msgstr "Wake"
 
 msgid "Wake-on-LAN"
-msgstr "網路喚醒"
+msgstr "Wake-on-LAN"
 
 msgid "Wallis and Futuna"
-msgstr "瓦利斯與富圖納群島"
+msgstr "Wallis a Futuna"
 
 msgid "Warning"
-msgstr "警告"
+msgstr "Varování"
 
 msgid "Web Administration"
-msgstr "網站管理"
+msgstr "Webová administrace"
 
 msgid "Web Administrator Password"
-msgstr "網站管理員密碼"
+msgstr "Heslo administrátora webu"
 
 msgid "Web administration"
-msgstr "網站管理"
+msgstr "Webová administrace"
 
 msgid "Web administration interface"
-msgstr "網站管理介面"
+msgstr "Rozhraní webové administrace"
 
 msgid "Wednesday"
-msgstr "星期三"
+msgstr "Středa"
 
 msgid "Welcome message"
-msgstr "歡迎訊息"
+msgstr "Uvítací zpráva"
 
 msgid "Western Sahara"
-msgstr "西撒哈拉"
+msgstr "Západní Sahara"
 
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote username."
-msgstr "當一個客戶端初始連接到伺服器時，使用 ident 協定來試圖識別遠端的用戶名稱。"
+msgstr ""
 
 msgid "When failed"
-msgstr "何時故障"
+msgstr "Při selhání"
 
 msgid "Wipe"
-msgstr "抹除"
+msgstr ""
 
 msgid "Wiping device ..."
-msgstr "抹除裝置中 ..."
+msgstr ""
 
 msgid "Workgroup"
-msgstr "工作群組"
+msgstr "Pracovní skupina"
 
 msgid "Worst"
-msgstr "最差"
+msgstr "Nejhorší"
 
 msgid "Write cache"
-msgstr "寫入緩存"
+msgstr ""
 
 msgid "Write only"
-msgstr "唯寫"
+msgstr "Pouze pro zápis"
 
 msgid "Write/Execute"
-msgstr "寫/執行"
+msgstr "Zápis/spouštění"
 
 msgid "Yemen"
-msgstr "葉門"
+msgstr "Jemen"
 
 msgid "Yes"
-msgstr "是"
+msgstr "Ano"
 
 msgid "Zambia"
-msgstr "尚比亞"
+msgstr "Zambie"
 
 msgid "Zimbabwe"
-msgstr "辛巴威"
+msgstr "Zimbabwe"
 
 msgid "day"
-msgstr "天"
+msgstr "den"
 
 msgid "days"
-msgstr "天"
+msgstr "dny"
 
 msgid "hour"
-msgstr "時"
+msgstr "hodina"
 
 msgid "hours"
-msgstr "時"
+msgstr "hodiny"
 
 msgid "minute"
-msgstr "分"
+msgstr "minuta"
 
 msgid "minutes"
-msgstr "分"
+msgstr "minuty"
 
 msgid "n/a"
 msgstr "n/a"
 
 msgid "seconds"
-msgstr "秒"
+msgstr "sekundy"
 
 msgid "web administration interface"
-msgstr "Web 管理界面"
+msgstr "webová administrace"

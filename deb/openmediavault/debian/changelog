@@ -1,5 +1,6 @@
 openmediavault (1.2) stable; urgency=low
 
+  * Update locales.
   * Improve OMVHtmlPageAbstract::scanFiles() method to improve page
     loading speed.
   * Drop TCP wrapper support via WebGUI 'System | Network | Hosts' because
