@@ -1,5 +1,6 @@
 openmediavault-route (1.1) stable; urgency=low
 
+  * Update locales.
   * Mantis 0001203: Can only have one static route.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 26 Nov 2014 12:02:13 +0100
