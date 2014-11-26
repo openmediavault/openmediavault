@@ -58,6 +58,9 @@ case "$1" in
 		# Action to be done depending on the previous version.
 		########################################################################
 		echo "Updating configuration ..."
+		if dpkg --compare-versions "$2" lt-nl "1.1"; then
+			omv-mkconf route
+		fi
 	;;
 
 	abort-upgrade|abort-remove|abort-deconfigure)

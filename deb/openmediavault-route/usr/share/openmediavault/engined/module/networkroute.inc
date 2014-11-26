@@ -38,7 +38,7 @@ class OMVModuleNetworkRoute extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "omv-mkconf route 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -61,14 +61,14 @@ class OMVModuleNetworkRoute extends OMVModuleServiceAbstract
 		// Get the configuration objects.
 		$xpath = "//services/staticroutes/route";
 		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
+		if (is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		foreach($objects as $objectk => $objectv) {
-			$cmd = sprintf("ip route add %s via %s 2>&1", $objectv['network'],
+		foreach ($objects as $objectk => $objectv) {
+			$cmd = sprintf("ip route replace %s via %s 2>&1", $objectv['network'],
 			  $objectv['gateway']);
-			if(0 !== $this->exec($cmd, $output)) {
+			if (0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
 			}
@@ -93,7 +93,7 @@ class OMVModuleNetworkRoute extends OMVModuleServiceAbstract
 		// Delete the static route.
 		$cmd = sprintf("ip route delete %s via %s 2>&1", $object['network'],
 		  $object['gateway']);
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 // Ignore errors
 //			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 //			  $cmd, implode("\n", $output));
