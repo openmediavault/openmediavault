@@ -204,7 +204,22 @@ class OMVLvmPhysicalVolume extends OMVObject {
 		$cmd = sprintf("export LANG=C; pvremove --yes --force %s 2>&1",
 		  escapeshellarg($this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
+	 * Resize the physical volume.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function resize() {
+		$cmd = sprintf("export LANG=C; pvresize %s 2>&1", escapeshellarg(
+		  $this->getDeviceFile()));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
 			$this->setLastError($output);
 			return FALSE;
 		}

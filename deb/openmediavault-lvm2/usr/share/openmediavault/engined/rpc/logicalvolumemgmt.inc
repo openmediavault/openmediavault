@@ -43,6 +43,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		$this->registerMethod("getPhysicalVolumeCandidates");
 		$this->registerMethod("createPhysicalVolume");
 		$this->registerMethod("deletePhysicalVolume");
+		$this->registerMethod("resizePhysicalVolume");
 		$this->registerMethod("enumerateVolumeGroups");
 		$this->registerMethod("getVolumeGroupsList");
 		$this->registerMethod("getVolumeGroupCandidates");
@@ -246,19 +247,15 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
 			  }
 		  }');
-		// Prepare the notification object.
-		$object = array(
-			  "devicefile" => $params['devicefile']
-		  );
 		// Check if the physical volume exists.
-		$pv = new OMVLvmPhysicalVolume($object['devicefile']);
-		if(!$pv->exists()) {
+		$pv = new OMVLvmPhysicalVolume($params['devicefile']);
+		if (!$pv->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf(gettext("No physical volume found on '%s'"),
-			  $object['devicefile']));
+			  $params['devicefile']));
 		}
 		// Remove the physical volume.
-		if(!$pv->remove()) {
+		if (!$pv->remove()) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
 			  gettext("Failed to remove physical volume: %s"),
 			  $pv->getLastError()));
@@ -266,7 +263,51 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.storage.lvm.physicalvolume", $object);
+		  "org.openmediavault.system.storage.lvm.physicalvolume", array(
+			  "devicefile" => $params['devicefile']
+		  ));
+	}
+
+	/**
+	 * Resize a physical volume.
+	 * @param params An array containing the following fields:
+	 *   \em devicefile The devicefile of the physical volume.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_MISC_FAILURE
+	 * @throw E_EXEC_MISC
+	 */
+	public function resizePhysicalVolume($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+			  }
+		  }');
+		// Check if the physical volume exists.
+		$pv = new OMVLvmPhysicalVolume($params['devicefile']);
+		if (FALSE === $pv->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf(gettext("No physical volume found on '%s'"),
+			  $params['devicefile']));
+		}
+		// Resize the physical volume.
+		if (!$pv->resize()) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
+			  gettext("Failed to resize physical volume: %s"),
+			  $pv->getLastError()));
+		}
+		// Notify configuration changes.
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher->notify(OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.storage.lvm.physicalvolume", array(
+			  "devicefile" => $params['devicefile']
+		  ));
 	}
 
 	/**

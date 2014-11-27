@@ -175,6 +175,26 @@ Ext.define("OMV.module.admin.storage.lvm.PhysicalVolumes", {
 		me.callParent(arguments);
 	},
 
+	getTopToolbarItems: function() {
+		var me = this;
+		var items = me.callParent(arguments);
+		Ext.Array.insert(items, 1, [{
+			id: me.getId() + "-resize",
+			xtype: "button",
+			text: _("Resize"),
+			icon: "images/expand.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			handler: Ext.Function.bind(me.onResizeButton, me, [ me ]),
+			scope: me,
+			disabled: true,
+			selectionConfig: {
+				minSelections: 1,
+				maxSelections: 1
+			}
+		}]);
+		return items;
+	},
+
 	onAddButton: function() {
 		var me = this;
 		Ext.create("OMV.module.admin.storage.lvm.pv.Create", {
@@ -186,6 +206,38 @@ Ext.define("OMV.module.admin.storage.lvm.PhysicalVolumes", {
 				}
 			}
 		}).show();
+	},
+
+	onResizeButton: function() {
+		var me = this;
+		var msg = _("Do you really want to resize the selected physical volume?");
+		OMV.MessageBox.show({
+			title: _("Confirmation"),
+			msg: msg,
+			buttons: Ext.Msg.YESNO,
+			icon: Ext.Msg.QUESTION,
+			scope: me,
+			fn: function(answer) {
+				if (answer !== "yes")
+					return;
+				var record = me.getSelected();
+				// Execute RPC.
+				OMV.Rpc.request({
+					scope: this,
+					callback: function(id, success, response) {
+						this.doReload();
+					},
+					relayErrors: false,
+					rpcData: {
+						service: "LogicalVolumeMgmt",
+						method: "resizePhysicalVolume",
+						params: {
+							devicefile: record.get("devicefile")
+						}
+					}
+				});
+			}
+		});
 	},
 
 	doDeletion: function(record) {
