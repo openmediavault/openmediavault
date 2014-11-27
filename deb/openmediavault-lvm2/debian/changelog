@@ -1,5 +1,6 @@
 openmediavault-lvm2 (1.1) stable; urgency=low
 
+  * Update locales.
   * Mantis 0001204: Add support for pvresize.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 27 Nov 2014 12:20:28 +0100
