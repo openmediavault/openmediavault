@@ -640,7 +640,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			if (!$vg->rename($params['name'])) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
 				  gettext("Failed to rename volume group: %s"),
-				  $pv->getLastError()));
+				  $vg->getLastError()));
 			}
 			// Notify configuration changes.
 			$dispatcher = &OMVNotifyDispatcher::getInstance();
@@ -692,7 +692,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			if (!$vg->extend($extendPV)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
 				  gettext("Failed to extend volume group: %s"),
-				  $pv->getLastError()));
+				  $vg->getLastError()));
 			}
 			// Notify configuration changes.
 			$dispatcher = &OMVNotifyDispatcher::getInstance();
@@ -743,7 +743,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			if (!$vg->reduce($reducePV)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
 				  gettext("Failed to reduce volume group: %s"),
-				  $pv->getLastError()));
+				  $vg->getLastError()));
 			}
 			// Notify configuration changes.
 			$dispatcher = &OMVNotifyDispatcher::getInstance();
@@ -876,25 +876,23 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 				  "vgname":{"type":"string"}
 			  }
 		  }');
-		// Prepare the notification object.
-		$object = array(
-			  "name" => $params['name'],
-			  "size" => $params['size'],
-			  "vgname" => $params['vgname']
-		  );
 		// Create the logical volume. Convert size to KiB to ensure it is
 		// a multiple of 512.
-		$cmd = sprintf("lvcreate --size %sK -n %s %s 2>&1",
-		  binary_convert($object['size'], "B", "KiB"), $object['name'],
-		  $object['vgname']);
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		$lv = new OMVLvmLogicalVolume();
+		if (!$lv->create($params['name'], $params['size'],
+		  $params['vgname'])) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
+			  gettext("Failed to create logical volume: %s"),
+			  $lv->getLastError()));
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  "org.openmediavault.system.storage.lvm.logicalvolume", $object);
+		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
+			  "name" => $params['name'],
+			  "size" => $params['size'],
+			  "vgname" => $params['vgname']
+		  ));
 	}
 
 	/**
@@ -920,28 +918,25 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		  }');
 		// Check if logical volume exists.
 		$lv = new OMVLvmLogicalVolume($params['devicefile']);
-		if(FALSE === $lv->exists()) {
+		if (FALSE === $lv->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("No logical volume found on '%s'",
 			  $params['devicefile']));
 		}
-		// Prepare the notification object.
-		$object = array(
-			  "devicefile" => $params['devicefile'],
-			  "name" => $params['name']
-		  );
 		// Rename the logical volume.
-		if($object['name'] !== $lv->getName()) {
-			$cmd = sprintf("lvrename %s %s 2>&1", $lv->getPath(),
-			  $object['name']);
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
+		if ($params['name'] !== $lv->getName()) {
+			if (!$lv->rename($params['name'])) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
+				  gettext("Failed to rename logical volume: %s"),
+				  $lv->getLastError()));
 			}
 			// Notify configuration changes.
 			$dispatcher = &OMVNotifyDispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_MODIFY,
-			  "org.openmediavault.system.storage.lvm.logicalvolume", $object);
+			  "org.openmediavault.system.storage.lvm.logicalvolume", array(
+				  "devicefile" => $params['devicefile'],
+				  "name" => $params['name']
+			  ));
 		}
 	}
 
@@ -966,19 +961,15 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
 			  }
 		  }');
-		// Prepare the notification object.
-		$object = array(
-			  "devicefile" => $params['devicefile']
-		  );
 		// Check if logical volume exists.
-		$lv = new OMVLvmLogicalVolume($object['devicefile']);
-		if(!$lv->exists()) {
+		$lv = new OMVLvmLogicalVolume($params['devicefile']);
+		if (!$lv->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf(gettext("No logical volume found on '%s'"),
-			  $object['devicefile']));
+			  $params['devicefile']));
 		}
 		// Delete the logical volume.
-		if(!$lv->remove()) {
+		if (!$lv->remove()) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
 			  gettext("Failed to remove logical volume: %s"),
 			  $lv->getLastError()));
@@ -986,7 +977,9 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.storage.lvm.logicalvolume", $object);
+		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
+			  "devicefile" => $params['devicefile']
+		  ));
 	}
 
 	/**
@@ -1015,50 +1008,42 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		  }');
 		// Check if logical volume exists.
 		$lv = new OMVLvmLogicalVolume($params['devicefile']);
-		if(FALSE === $lv->exists()) {
+		if (FALSE === $lv->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("No logical volume found on '%s'",
 			  $params['devicefile']));
 		}
-		// Prepare the notification object.
-		$object = array(
-			  "devicefile" => $params['devicefile'],
-			  "size" => $params['size']
-		  );
 		// Calculate the new size of the logical volume to decide
 		// whether it must be extended or reduced.
 		$vg = new OMVLvmVolumeGroup($lv->getVGName());
-		if(FALSE === $vg->exists()) {
+		if (FALSE === $vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("Volume group '%s' not found", $lv->getVGName()));
 		}
 		// Extend or reduce volume size?
-		switch(bccomp($lv->getSize(), $object['size'])) {
+		switch (bccomp($lv->getSize(), $params['size'])) {
 		case -1: // Extend
-			// Convert size to KiB to ensure it is a multiple of 512.
-			$cmd = sprintf("lvextend --size %sK %s 2>&1",
-			  binary_convert($object['size'], "B", "KiB"),
-			  $object['devicefile']);
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
+			if (!$lv->extend($params['size'])) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
+				  gettext("Failed to extend logical volume: %s"),
+				  $lv->getLastError()));
 			}
 			break;
 		case 1: // Reduce
-			// Convert size to KiB to ensure it is a multiple of 512.
-			$cmd = sprintf("lvreduce --size %sK %s 2>&1",
-			  binary_convert($object['size'], "B", "KiB"),
-			  $object['devicefile']);
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
+			if (!$lv->reduce($params['size'])) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
+				  gettext("Failed to reduce logical volume: %s"),
+				  $lv->getLastError()));
 			}
 			break;
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.storage.lvm.logicalvolume", $object);
+		  "org.openmediavault.system.storage.lvm.logicalvolume", array(
+			  "devicefile" => $params['devicefile'],
+			  "size" => $params['size']
+		  ));
 	}
 }
 

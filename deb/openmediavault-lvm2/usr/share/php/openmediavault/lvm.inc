@@ -579,8 +579,8 @@ class OMVLvmVolumeGroup extends OMVObject {
 	public function rename($name) {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		$cmd = sprintf("export LANG=C; vgrename %s %s 2>&1", $this->getUuid(),
-		  escapeshellarg($name));
+		$cmd = sprintf("export LANG=C; vgrename %s %s 2>&1", escapeshellarg(
+		  $this->getUuid()), escapeshellarg($name));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			$this->setLastError($output);
