@@ -189,6 +189,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return None.
 	 * @throw E_EXEC_FAILED
+	 * @throw E_EXEC_MISC
 	 */
 	public function createPhysicalVolume($params, $context) {
 		// Validate the RPC caller context.
@@ -202,28 +203,27 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
 			  }
 		  }');
-		// Prepare the notification object.
-		$object = array(
-			  "devicefile" => $params['devicefile']
-		  );
 		// Make sure the disk device is clean, no partition table
 		// should exist, otherwise pvcreate fails.
 		$cmd = sprintf("dd if=/dev/zero of=%s bs=512 count=1 2>&1",
-		  $object['devicefile']);
-		if(0 !== $this->exec($cmd, $output)) {
+		  $params['devicefile']);
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
 		// Create the physical volume.
-		$cmd = sprintf("pvcreate %s 2>&1", $object['devicefile']);
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		$pv = new OMVLvmPhysicalVolume($params['devicefile']);
+		if (!$pv->create()) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
+			  gettext("Failed to create physical volume: %s"),
+			  $pv->getLastError()));
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  "org.openmediavault.system.storage.lvm.physicalvolume", $object);
+		  "org.openmediavault.system.storage.lvm.physicalvolume", array(
+			  "devicefile" => $params['devicefile']
+		  ));
 	}
 
 	/**
@@ -444,7 +444,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return None.
-	 * @throw E_EXEC_FAILED
+	 * @throw E_EXEC_MISC
 	 */
 	public function createVolumeGroup($params, $context) {
 		// Validate the RPC caller context.
@@ -459,22 +459,22 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 				  "devices":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE_LIST'].'}
 			  }
 		  }');
-		// Prepare the notification object.
-		$object = array(
-			  "name" => $params['name'],
-			  "devices" => preg_split("/[,;]/", $params['devices'])
-		  );
+		// Get the physical volumes to be used.
+		$devices = preg_split("/[,;]/", $params['devices']);
 		// Create the volume group.
-		$cmd = sprintf("vgcreate %s %s 2>&1", $object['name'],
-		  implode(" ", $object['devices']));
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+		$vg = new OMVLvmVolumeGroup($params['name']);
+		if (!$vg->create($devices)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
+			  gettext("Failed to create volume group: %s"),
+			  $vg->getLastError()));
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_CREATE,
-		  "org.openmediavault.system.storage.lvm.volumegroup", $object);
+		  "org.openmediavault.system.storage.lvm.volumegroup", array(
+			  "name" => $params['name'],
+			  "devices" => $devices
+		  ));
 	}
 
 	/**
@@ -542,18 +542,14 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 				  "name":{"type":"string"}
 			  }
 		  }');
-		// Prepare the notification object.
-		$object = array(
-			  "name" => $params['name']
-		  );
 		// Check if the volume group exists.
-		$vg = new OMVLvmVolumeGroup($object['name']);
-		if(!$vg->exists()) {
+		$vg = new OMVLvmVolumeGroup($params['name']);
+		if (!$vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  gettext("Volume group '%s' not found", $object['name'])));
+			  gettext("Volume group '%s' not found", $params['name'])));
 		}
 		// Remove the volume group.
-		if(!$vg->remove()) {
+		if (!$vg->remove()) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
 			  gettext("Failed to remove volume group: %s"),
 			  $vg->getLastError()));
@@ -561,7 +557,9 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.storage.lvm.volumegroup", $object);
+		  "org.openmediavault.system.storage.lvm.volumegroup", array(
+			  "name" => $params['name']
+		  ));
 	}
 
 	/**
@@ -615,6 +613,7 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 	 * @return None.
 	 * @throw E_MISC_FAILURE
 	 * @throw E_EXEC_FAILED
+	 * @throw E_EXEC_MISC
 	 */
 	public function renameVolumeGroup($params, $context) {
 		// Validate the RPC caller context.
@@ -631,28 +630,25 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		  }');
 		// Check if the volume group exists.
 		$vg = new OMVLvmVolumeGroup($params['devicefile']);
-		if(FALSE === $vg->exists()) {
+		if (FALSE === $vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("No volume group found on '%s'",
 			  $params['devicefile']));
 		}
-		// Prepare the notification object.
-		$object = array(
-			  "devicefile" => $params['devicefile'],
-			  "name" => $params['name']
-		  );
 		// Rename the volume group.
-		if($object['name'] !== $vg->getName()) {
-			$cmd = sprintf("vgrename %s %s 2>&1", $vg->getUuid(),
-			  $object['name']);
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
+		if ($params['name'] !== $vg->getName()) {
+			if (!$vg->rename($params['name'])) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
+				  gettext("Failed to rename volume group: %s"),
+				  $pv->getLastError()));
 			}
 			// Notify configuration changes.
 			$dispatcher = &OMVNotifyDispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_MODIFY,
-			  "org.openmediavault.system.storage.lvm.volumegroup", $object);
+			  "org.openmediavault.system.storage.lvm.volumegroup", array(
+				  "devicefile" => $params['devicefile'],
+				  "name" => $params['name']
+			  ));
 		}
 	}
 
@@ -679,36 +675,32 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		  }');
 		// Check if the volume group exists.
 		$vg = new OMVLvmVolumeGroup($params['devicefile']);
-		if(FALSE === $vg->exists()) {
+		if (FALSE === $vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("No volume group found on '%s'",
 			  $params['devicefile']));
 		}
 		// Get the physical volumes assigned to the volume group.
-		if(FALSE === ($pvs = $vg->getPVName())) {
+		if (FALSE === ($pvs = $vg->getPVName())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of physical volumes");
 		}
-		// Prepare the notification object.
-		$object = array(
-			  "devicefile" => $params['devicefile'],
-			  "devices" => array_merge(preg_split("/[,;]/",
-				$params['devices']), $pvs)
-		  );
 		// Get the new assigned physical volumes.
-		$extendPV = array_diff($object['devices'], $pvs);
+		$extendPV = preg_split("/[,;]/", $params['devices']);
 		// Extend the volume group.
-		if(!empty($extendPV)) {
-			$cmd = sprintf("vgextend %s %s 2>&1", $vg->getName(),
-			  implode(" ", $extendPV));
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
+		if (!empty($extendPV)) {
+			if (!$vg->extend($extendPV)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
+				  gettext("Failed to extend volume group: %s"),
+				  $pv->getLastError()));
 			}
 			// Notify configuration changes.
 			$dispatcher = &OMVNotifyDispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_MODIFY,
-			  "org.openmediavault.system.storage.lvm.volumegroup", $object);
+			  "org.openmediavault.system.storage.lvm.volumegroup", array(
+				  "devicefile" => $params['devicefile'],
+				  "devices" => array_merge($extendPV, $pvs)
+			  ));
 		}
 	}
 
@@ -734,36 +726,32 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 		  }');
 		// Check if the volume group exists.
 		$vg = new OMVLvmVolumeGroup($params['devicefile']);
-		if(FALSE === $vg->exists()) {
+		if (FALSE === $vg->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  sprintf("No volume group found on '%s'",
 			  $params['devicefile']));
 		}
 		// Get the physical volumes assigned to the volume group.
-		if(FALSE === ($pvs = $vg->getPVName())) {
+		if (FALSE === ($pvs = $vg->getPVName())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of physical volumes");
 		}
-		// Prepare the notification object.
-		$object = array(
-			  "devicefile" => $params['devicefile'],
-			  "devices" => array_diff($pvs, preg_split("/[,;]/",
-				$params['devices']))
-		  );
 		// Get the removed physical volumes.
-		$reducePV = array_diff($pvs, $object['devices']);
+		$reducePV = preg_split("/[,;]/", $params['devices']);
 		// Reduce the volume group.
-		if(!empty($reducePV)) {
-			$cmd = sprintf("vgreduce %s %s 2>&1", $vg->getName(),
-			  implode(" ", $reducePV));
-			if(0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
+		if (!empty($reducePV)) {
+			if (!$vg->reduce($reducePV)) {
+				throw new OMVException(OMVErrorMsg::E_EXEC_MISC, sprintf(
+				  gettext("Failed to reduce volume group: %s"),
+				  $pv->getLastError()));
 			}
 			// Notify configuration changes.
 			$dispatcher = &OMVNotifyDispatcher::getInstance();
 			$dispatcher->notify(OMV_NOTIFY_MODIFY,
-			  "org.openmediavault.system.storage.lvm.volumegroup", $object);
+			  "org.openmediavault.system.storage.lvm.volumegroup", array(
+				  "devicefile" => $params['devicefile'],
+				  "devices" => array_diff($pvs, $reducePV)
+			  ));
 		}
 	}
 

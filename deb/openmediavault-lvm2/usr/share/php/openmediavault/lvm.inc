@@ -197,6 +197,21 @@ class OMVLvmPhysicalVolume extends OMVObject {
 	}
 
 	/**
+	 * Create the physical volume.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function create() {
+		$cmd = sprintf("export LANG=C; pvcreate %s 2>&1", escapeshellarg(
+		  $this->getDeviceFile()));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
 	 * Remove the physical volume.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
@@ -526,6 +541,22 @@ class OMVLvmVolumeGroup extends OMVObject {
 	}
 
 	/**
+	 * Create the volume group.
+	 * @param devices An array containing the physical device paths.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function create($devices) {
+		$cmd = sprintf("export LANG=C; vgcreate %s %s 2>&1", escapeshellarg(
+		  $this->getName()), implode(" ", $devices));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
 	 * Remove the volume group.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
@@ -533,7 +564,59 @@ class OMVLvmVolumeGroup extends OMVObject {
 		$cmd = sprintf("export LANG=C; vgremove --force %s 2>&1",
 		  escapeshellarg($this->getName()));
 		@OMVUtil::exec($cmd, $output, $result);
-		if($result !== 0) {
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
+	 * Rename the volume group.
+	 * @param name The new volume group path/name.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function rename($name) {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		$cmd = sprintf("export LANG=C; vgrename %s %s 2>&1", $this->getUuid(),
+		  escapeshellarg($name));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
+	 * Extend the volume group.
+	 * @param devices An array containing the physical device paths to be
+	 *   added.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function extend($devices) {
+		$cmd = sprintf("export LANG=C; vgextend %s %s 2>&1", escapeshellarg(
+		  $this->getName()), implode(" ", $devices));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
+	 * Reduce the volume group.
+	 * @param devices An array containing the physical device paths to
+	 *   be removed.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function reduce($devices) {
+		$cmd = sprintf("export LANG=C; vgreduce %s %s 2>&1", escapeshellarg(
+		  $this->getName()), implode(" ", $devices));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
 			$this->setLastError($output);
 			return FALSE;
 		}
