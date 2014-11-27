@@ -56,7 +56,8 @@ if(array_keys_exists(array("service", "method"), $_POST)) {
 		$server->handle();
 		$server->cleanup();
 	} catch(Exception $e) {
-		$server->cleanup();
+		if (isset($server))
+			$server->cleanup();
 		header("Content-Type: text/html");
 		printf("Error #".$e->getCode().":<br/>%s", str_replace("\n", "<br/>",
 		  $e->__toString()));

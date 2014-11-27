@@ -51,7 +51,8 @@ try {
 	$server->handle();
 	$server->cleanup();
 } catch(Exception $e) {
-	$server->cleanup();
+	if (isset($server))
+		$server->cleanup();
 	header("Content-Type: text/html");
 	print json_encode_safe(array(
 		"success" => false, // required by ExtJS

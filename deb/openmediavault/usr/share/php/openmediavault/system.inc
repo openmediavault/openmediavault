@@ -3420,7 +3420,7 @@ class OMVStorageDeviceDM extends OMVStorageDeviceAbstract {
 	}
 
 	/**
-	 * Get the description of the logical volume.
+	 * Get the description of the device mapper device.
 	 * @return The logical volume description, FALSE on failure.
 	 */
 	public function getDescription() {
@@ -4871,12 +4871,87 @@ class OMVLvmLogicalVolume extends OMVStorageDeviceDM {
 	}
 
 	/**
+	 * Create the logical volume.
+	 * @param name The name for the new logical volume.
+	 * @param size Gives the size of bytes to allocate for the new
+	 *   logical volume.
+	 * @param vgName The name of the volume group where to create the
+	 *   logical volume.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function create($name, $size, $vgName) {
+		$cmd = sprintf("export LANG=C; lvcreate --name %s --size %sK %s 2>&1",
+		  escapeshellarg($name), binary_convert($size, "B", "KiB"),
+		  escapeshellarg($vgName));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
 	 * Remove the logical volume.
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
 	public function remove() {
 		$cmd = sprintf("export LANG=C; lvremove --force %s 2>&1",
 		  escapeshellarg($this->getDeviceFile()));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
+	 * Rename the logical volume.
+	 * @param name The new logical volume path/name.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function rename($name) {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		$cmd = sprintf("export LANG=C; lvrename %s %s 2>&1", escapeshellarg(
+		  $this->getPath()), escapeshellarg($name));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
+	 * Extend the logical volume.
+	 * @param size Gives the size of bytes to extend the logical volume.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function extend($size) {
+		// Convert size to KiB to ensure it is a multiple of 512.
+		$cmd = sprintf("export LANG=C; lvextend --size %sK %s 2>&1",
+		  binary_convert($size, "B", "KiB"), escapeshellarg(
+		  $this->getDeviceFile()));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
+	 * Reduce the logical volume.
+	 * @param size Gives the size of bytes to extend the logical volume.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function reduce($size) {
+		// Convert size to KiB to ensure it is a multiple of 512.
+		$cmd = sprintf("export LANG=C; lvreduce --size %sK %s 2>&1",
+		  binary_convert($size, "B", "KiB"), escapeshellarg(
+		  $this->getDeviceFile()));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			$this->setLastError($output);

@@ -32,7 +32,8 @@ try {
 	$server->handle();
 	$server->cleanup();
 } catch(Exception $e) {
-	$server->cleanup();
+	if (isset($server))
+		$server->cleanup();
 	header("Content-Type: application/json");
 	print json_encode_safe(array(
 		"response" => null,
