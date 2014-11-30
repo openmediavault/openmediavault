@@ -1,3 +1,10 @@
+openmediavault-owncloud (1.2) stable; urgency=low
+
+  * Update locales.
+  * Fix bug in writing trusted domains.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 30 Nov 2014 12:30:56 +0100
+
 openmediavault-owncloud (1.1.4) stable; urgency=low
 
   * Mantis 0001172: Add package 'locales' as dependency.

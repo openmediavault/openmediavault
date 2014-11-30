@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Tim <co_ti@hotmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-07-07 18:17+0200\n"
-"PO-Revision-Date: 2014-07-07 16:18+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-11-16 11:58+0000\n"
+"Last-Translator: Tim <co_ti@hotmail.com>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +22,7 @@ msgid "Add share"
 msgstr "Gedeelde bron toevoegen"
 
 msgid "Certificate"
-msgstr ""
+msgstr "Certificaat"
 
 msgid "Comment"
 msgstr "Opmerkingen"
@@ -42,7 +43,7 @@ msgid "General settings"
 msgstr "Algemene instellingen"
 
 msgid "Port"
-msgstr ""
+msgstr "poort"
 
 msgid "Settings"
 msgstr "Instellingen"
@@ -54,7 +55,7 @@ msgid "Shares"
 msgstr "Gedeelde bronnen"
 
 msgid "The SSL certificate."
-msgstr ""
+msgstr "Het SSL-certificaat"
 
 msgid "The location of the files to share."
 msgstr "Locatie van de te delen bestanden."
@@ -68,13 +69,13 @@ msgstr "Naam van de gedeelde bron"
 msgid ""
 "The ownCloud web interface can be accessed <a href='/owncloud' "
 "target='_blank'>here</a>."
-msgstr ""
+msgstr "Toegang tot frownCloud webtoepassing krijgt u <a href='/owncloud' target='_blank'>hier</a>."
 
 msgid "The port '%d' is already in use"
-msgstr ""
+msgstr "Poort '%d' is al in gebruik"
 
 msgid "The port which is used to access the ownCloud web interface."
-msgstr ""
+msgstr "De poort die gebruikt wordt voor toegang tot de ownCloud webtoepassing."
 
 msgid "n/a"
 msgstr "n.v.t."
