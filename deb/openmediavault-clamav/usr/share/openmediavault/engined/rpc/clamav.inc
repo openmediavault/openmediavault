@@ -69,7 +69,6 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 		return array(
 			"enable" => boolvalEx($object['enable']),
 			"checks" => intval($object['freshclam']['checks']),
-			"databasemirror" => $object['freshclam']['databasemirror'],
 			"quarantine.sharedfolderref" => $object[
 			  'quarantine.sharedfolderref'],
 			"logclean" => boolvalEx($object['clamd']['logclean']),
@@ -112,7 +111,6 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 			  "type":"object",
 			  "properties":{
 				  "enable":{"type":"boolean"},
-				  "databasemirror":{"type":"string"},
 				  "checks":{"type":"integer","minimum":0,"maximum":50},
 				  "quarantine.sharedfolderref":{'.$GLOBALS[
 				    'OMV_JSONSCHEMA_UUID_NONE'].'},
@@ -164,8 +162,7 @@ class OMVRpcServiceClamAV extends OMVRpcServiceAbstract {
 			),
 			"freshclam" => array(
 				"enable" => ($params['checks'] > 0) ? TRUE : FALSE,
-				"checks" => $params['checks'],
-				"databasemirror" => $params['databasemirror']
+				"checks" => $params['checks']
 			)
 		));
 		// Do some validations:

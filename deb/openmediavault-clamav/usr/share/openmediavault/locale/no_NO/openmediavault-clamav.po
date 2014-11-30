@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:17+0000\n"
+"POT-Creation-Date: 2014-11-30 02:09+0100\n"
+"PO-Revision-Date: 2014-11-30 01:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -41,9 +41,6 @@ msgstr "Kommentar"
 
 msgid "Database checks"
 msgstr "Databasekontroll"
-
-msgid "Database mirror"
-msgstr "Databasespeil"
 
 msgid "Date & Time"
 msgstr "Dato & Tid"
@@ -204,12 +201,6 @@ msgstr "Send kommandoproduksjon via epost"
 
 msgid "Send email"
 msgstr "Send epost"
-
-msgid ""
-"Server name where database updates are downloaded from. Get a complete list "
-"of database mirrors <a href='http://www.clamav.net/mirrors.html' "
-"target='_blank'>here</a>."
-msgstr "Servernavn der databaseoppdateringer lastes ned fra. Få en komplett liste over databasespeil <a href='http://www.clamav.net/mirrors.html' target='_blank'>her</a>."
 
 msgid "Settings"
 msgstr "Innstillinger"

@@ -49,16 +49,6 @@ Ext.define("OMV.module.admin.service.clamav.Settings", {
 				fieldLabel: _("Enable"),
 				checked: false
 			},{
-				xtype: "textfield",
-				name: "databasemirror",
-				fieldLabel: _("Database mirror"),
-				allowBlank: false,
-				value: "db.local.clamav.net",
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("Server name where database updates are downloaded from. Get a complete list of database mirrors <a href='http://www.clamav.net/mirrors.html' target='_blank'>here</a>.")
-				}]
-			},{
 				xtype: "numberfield",
 				name: "checks",
 				fieldLabel: _("Database checks"),

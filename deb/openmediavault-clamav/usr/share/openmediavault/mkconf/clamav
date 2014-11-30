@@ -68,6 +68,7 @@ OMV_CLAMAV_CLAMD_VIRUSEVENT=${OMV_CLAMAV_CLAMD_VIRUSEVENT:-"/bin/run-parts --lsb
 OMV_CLAMAV_FRESHCLAM_CONFIG=${OMV_CLAMAV_FRESHCLAM_CONFIG:-"/etc/clamav/freshclam.conf"}
 OMV_CLAMAV_FRESHCLAM_COMPRESSLOCALDATABASE=${OMV_CLAMAV_FRESHCLAM_COMPRESSLOCALDATABASE:-"no"}
 OMV_CLAMAV_FRESHCLAM_DATABASEOWNER=${OMV_CLAMAV_FRESHCLAM_DATABASEOWNER:-"root"}
+OMV_CLAMAV_FRESHCLAM_DATABASEMIRROR=${OMV_CLAMAV_FRESHCLAM_DATABASEMIRROR:-"database.clamav.net"}
 OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE=${OMV_CLAMAV_FRESHCLAM_UPDATELOGFILE:-"/var/log/clamav/clamav.log"}
 OMV_CLAMAV_FRESHCLAM_LOGSYSLOG=${OMV_CLAMAV_FRESHCLAM_LOGSYSLOG:-"false"}
 OMV_CLAMAV_FRESHCLAM_LOGVERBOSE=${OMV_CLAMAV_FRESHCLAM_LOGVERBOSE:-"false"}
@@ -168,8 +169,7 @@ xmlstarlet sel -t -m "//services/clamav/freshclam" \
   -o "Bytecode true" -n \
   -o "NotifyClamd ${OMV_CLAMAV_FRESHCLAM_NOTIFYCLAMD}" -n \
   -v "concat('Checks ',checks)" -n \
-  -v "concat('DatabaseMirror ',databasemirror)" -n \
-  -o "DatabaseMirror database.clamav.net" -n \
+  -o "DatabaseMirror ${OMV_CLAMAV_FRESHCLAM_DATABASEMIRROR}" -n \
   -o "#HTTPProxyServer proxy" -n \
   -o "#HTTPProxyPort port" -n \
   -o "#HTTPProxyUsername username" -n \

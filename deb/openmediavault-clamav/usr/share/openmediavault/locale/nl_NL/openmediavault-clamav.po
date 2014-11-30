@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-19 17:17+0000\n"
+"POT-Creation-Date: 2014-11-30 02:09+0100\n"
+"PO-Revision-Date: 2014-11-30 01:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -42,9 +42,6 @@ msgstr "Opmerking"
 
 msgid "Database checks"
 msgstr "Databasecontroles"
-
-msgid "Database mirror"
-msgstr "Database mirror"
 
 msgid "Date & Time"
 msgstr "Datum en tijd"
@@ -133,7 +130,7 @@ msgid "Hour"
 msgstr "Uur"
 
 msgid "Infected files"
-msgstr ""
+msgstr "Besmette bestanden"
 
 msgid "Jobs"
 msgstr "Taken"
@@ -174,7 +171,7 @@ msgid ""
 msgstr "Ga naar de <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>handleidingspagina</a> voor verdere details."
 
 msgid "Quarantine"
-msgstr ""
+msgstr "Quarantaine"
 
 msgid "Run"
 msgstr "Uitvoeren"
@@ -206,12 +203,6 @@ msgstr "Verzend de uitvoer van de opdrachten via e-mail"
 msgid "Send email"
 msgstr "E-mail verzenden"
 
-msgid ""
-"Server name where database updates are downloaded from. Get a complete list "
-"of database mirrors <a href='http://www.clamav.net/mirrors.html' "
-"target='_blank'>here</a>."
-msgstr "De servernaam waar vandaan de database updates gedownload worden. Een volledige lijst van database mirrors vindt u <a href='http://www.clamav.net/mirrors.html' target='_blank'>hier</a>"
-
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -222,10 +213,10 @@ msgid "The location of the files to scan."
 msgstr "De locatie van de af te tasten bestanden"
 
 msgid "The location which is used as quarantine."
-msgstr ""
+msgstr "De locatie die als quarantaine wordt gebruikt."
 
 msgid "The option, how to handle infected files."
-msgstr ""
+msgstr "De optie, hoe om te gaan met besmette bestanden."
 
 msgid "Verbose"
 msgstr "Uitgebreide informatie"

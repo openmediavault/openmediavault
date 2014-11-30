@@ -66,7 +66,6 @@ case "$1" in
 		#         <checks>0 = disable, 1..50</checks>
 		#         -->
 		#         <enable>1</enable>
-		#         <databasemirror>db.local.clamav.net<databasemirror>
 		#         <checks>24</checks>
 		#       </freshclam>
 		#       <jobs>
@@ -117,7 +116,6 @@ case "$1" in
 			object="${object}</clamd>"
 			object="${object}<freshclam>"
 			object="${object}<enable>1</enable>"
-			object="${object}<databasemirror>db.local.clamav.net</databasemirror>"
 			object="${object}<checks>24</checks>"
 			object="${object}</freshclam>"
 			object="${object}<jobs></jobs>"

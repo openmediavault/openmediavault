@@ -3,12 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chang-Eon Byeon <ksna0827@gmail.com>, 2014
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-09-12 15:19+0000\n"
+"POT-Creation-Date: 2014-11-30 02:09+0100\n"
+"PO-Revision-Date: 2014-11-30 01:10+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,10 +20,10 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "Add job"
-msgstr ""
+msgstr "작업 추가"
 
 msgid "Algorithmic detection"
-msgstr ""
+msgstr "알고리즘적 감지"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -29,22 +31,19 @@ msgid ""
 msgstr ""
 
 msgid "Antivirus"
-msgstr ""
+msgstr "안티바이러스"
 
 msgid "Be verbose."
 msgstr ""
 
 msgid "Comment"
-msgstr ""
+msgstr "설명"
 
 msgid "Database checks"
-msgstr ""
-
-msgid "Database mirror"
-msgstr ""
+msgstr "데이터베이스 검사"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "날짜 및 시간"
 
 msgid "Day of month"
 msgstr ""
@@ -53,63 +52,63 @@ msgid "Day of week"
 msgstr ""
 
 msgid "Detect PUA"
-msgstr ""
+msgstr "PUA 검색"
 
 msgid "Detect broken executables"
 msgstr ""
 
 msgid "Edit job"
-msgstr ""
+msgstr "작업 편집"
 
 msgid "Enable"
-msgstr ""
+msgstr "활성화"
 
 msgid "Enable HTML detection and normalisation."
-msgstr ""
+msgstr "HTML 탐지 및 정상화 활성화"
 
 msgid "Enable archive scanning."
-msgstr ""
+msgstr "아카이브 검색 활성화"
 
 msgid "Enable on-access virus scanning"
 msgstr ""
 
 msgid "Enable scanning of ELF files."
-msgstr ""
+msgstr "ELF파일 검색 활성화"
 
 msgid ""
 "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
 "files."
-msgstr ""
+msgstr "마이크로오피스와 .msi파일과 같은 OLE2파일 검색 활성화"
 
 msgid "Enable scanning within PDF files."
-msgstr ""
+msgstr "PDF파일 내부 검색 활성화"
 
 msgid "Enable the algorithmic detection."
-msgstr ""
+msgstr "알고리즘 검색 활성화"
 
 msgid "Enable the detection of broken executables (both PE and ELF)."
 msgstr ""
 
 msgid "Enable the detection of possibly unwanted applications."
-msgstr ""
+msgstr "원하지 않을 수 있는 응용 프로그램 탐색 활성화"
 
 msgid "Enabled"
-msgstr ""
+msgstr "활성화됨"
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "매달 N일마다"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "매 N시간마다"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "매 N분마다"
 
 msgid "Execute cron job"
-msgstr ""
+msgstr "cron 작업 실행"
 
 msgid "Extra options"
-msgstr ""
+msgstr "추가 옵션"
 
 msgid "Follow directory symlinks"
 msgstr ""
@@ -124,16 +123,16 @@ msgid "Follow regular file symlinks."
 msgstr ""
 
 msgid "General settings"
-msgstr ""
+msgstr "일반 설정"
 
 msgid "Hour"
-msgstr ""
+msgstr "시간"
 
 msgid "Infected files"
-msgstr ""
+msgstr "감염된 파일"
 
 msgid "Jobs"
-msgstr ""
+msgstr "작업"
 
 msgid "Log clean files"
 msgstr ""
@@ -142,19 +141,19 @@ msgid "Log clean files. This drastically increases the log size."
 msgstr ""
 
 msgid "Message"
-msgstr ""
+msgstr "메시지"
 
 msgid "Minute"
-msgstr ""
+msgstr "분"
 
 msgid "Monitor the shared folder and scan new or modified files."
 msgstr ""
 
 msgid "Month"
-msgstr ""
+msgstr "달"
 
 msgid "Multiscan"
-msgstr ""
+msgstr "다중 검색"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr ""
@@ -171,55 +170,49 @@ msgid ""
 msgstr ""
 
 msgid "Quarantine"
-msgstr ""
+msgstr "격리"
 
 msgid "Run"
-msgstr ""
+msgstr "실행"
 
 msgid "Scan ELF"
-msgstr ""
+msgstr "ELF 검색"
 
 msgid "Scan HTML"
-msgstr ""
+msgstr "HTML 검색"
 
 msgid "Scan OLE2"
-msgstr ""
+msgstr "OLE2 검색"
 
 msgid "Scan PDF"
-msgstr ""
+msgstr "PDF 검색"
 
 msgid "Scan Portable Executable"
-msgstr ""
+msgstr "포터블 실행 검색"
 
 msgid "Scan archives"
-msgstr ""
+msgstr "아카이브 검색"
 
 msgid "Scan the directory contents in parallel using available threads."
 msgstr ""
 
 msgid "Send command output via email"
-msgstr ""
+msgstr "이메일로 명령 결과 전송"
 
 msgid "Send email"
-msgstr ""
-
-msgid ""
-"Server name where database updates are downloaded from. Get a complete list "
-"of database mirrors <a href='http://www.clamav.net/mirrors.html' "
-"target='_blank'>here</a>."
-msgstr ""
+msgstr "이메일 전송"
 
 msgid "Settings"
-msgstr ""
+msgstr "설정"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "공유 폴더"
 
 msgid "The location of the files to scan."
-msgstr ""
+msgstr "스캔할 파일 위치"
 
 msgid "The location which is used as quarantine."
-msgstr ""
+msgstr "격리될 위치"
 
 msgid "The option, how to handle infected files."
 msgstr ""
@@ -228,4 +221,4 @@ msgid "Verbose"
 msgstr ""
 
 msgid "n/a"
-msgstr ""
+msgstr "해당 없음"
