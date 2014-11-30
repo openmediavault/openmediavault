@@ -27,7 +27,7 @@ set -e
 # Set hostname and domain name which is set by the user during the
 # installation.
 hostname=$(hostname --short)
-domainname=$(hostname --domain)
+domainname=$(dnsdomainname)
 omv_config_update "//system/network/hostname" "${hostname}"
 omv_config_update "//system/network/domainname" "${domainname}"
 
