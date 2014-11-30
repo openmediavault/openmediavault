@@ -8,7 +8,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-clamav
 Architecture: all
-Depends: openmediavault (>= 1.0.7), clamav-daemon (>= 0.98.1),
+Depends: openmediavault (>= 1.3), clamav-daemon (>= 0.98.1),
  clamav-freshclam (>= 0.98.1)
 Priority: optional
 Description: OpenMediaVault ClamAV plugin
