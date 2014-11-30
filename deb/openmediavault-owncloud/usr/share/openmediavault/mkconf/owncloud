@@ -89,7 +89,7 @@ mkconf() {
 	# Configure all FQDN's and host IP adresses as trusted domains.
 	index=0
 	port=$(omv_config_get "//services/owncloud/port")
-	for hostname in "$(hostname).local" $(hostname --all-fqdns); do
+	for hostname in "$(hostname --short).local" $(hostname --all-fqdns); do
 		echo "    ${index} => \"${hostname}:${port}\"," >> ${OMV_OWNCLOUD_CONFIG}
 		index=$(( ${index} + 1 ))
 	done
