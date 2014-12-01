@@ -317,7 +317,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			"name" => $params['name'],
 			"comment" => $params['comment'],
 			"mntentref" => $params['mntentref'],
-			"reldirpath" => ltrim($params['reldirpath'], "/")
+			"reldirpath" => sprintf("%s/", trim($params['reldirpath'], "/"))
 		);
 		// Set the configuration object.
 		$success = FALSE;
@@ -327,9 +327,18 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			// example.
 			$xpath = sprintf("//system/shares/sharedfolder[name='%s']",
 			  $params['name']);
-			if(TRUE === $xmlConfig->exists($xpath)) {
+			if (TRUE === $xmlConfig->exists($xpath)) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
 				gettext("A shared folder with the given name already exists"));
+			}
+			// Check if there already exists a shared folder on the same
+			// volume with the same relative directory path.
+			$xpath = sprintf("//system/shares/sharedfolder[mntentref='%s' ".
+			  "and reldirpath='%s']", $object['mntentref'],
+			  $object['reldirpath']);
+			if (TRUE === $xmlConfig->exists($xpath)) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+				gettext("A shared folder with the given path already exists"));
 			}
 			// Add empty list of privileges per default.
 			$object['privileges'] = array();
