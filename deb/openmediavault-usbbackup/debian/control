@@ -1,5 +1,6 @@
 Source: openmediavault-usbbackup
 Section: net
+XB-Plugin-Section: backup
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>> 7), gettext

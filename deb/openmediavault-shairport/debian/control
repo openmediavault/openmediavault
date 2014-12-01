@@ -1,5 +1,6 @@
 Source: openmediavault-shairport
 Section: sound
+XB-Plugin-Section: multimedia
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>> 7), gettext

@@ -1,5 +1,6 @@
 Source: openmediavault-route
 Section: net
+XB-Plugin-Section: network
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>> 7), gettext

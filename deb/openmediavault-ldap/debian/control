@@ -1,5 +1,6 @@
 Source: openmediavault-ldap
-Section: net
+Section: admin
+XB-Plugin-Section: network
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>> 7), gettext

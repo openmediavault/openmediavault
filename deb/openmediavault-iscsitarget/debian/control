@@ -1,5 +1,6 @@
 Source: openmediavault-iscsitarget
 Section: net
+XB-Plugin-Section: filesystems
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>> 7), gettext

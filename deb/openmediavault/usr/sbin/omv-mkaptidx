@@ -137,6 +137,7 @@ for pkg in fcache:
 		"multiarch": pkg.candidate.record.get("Multi-Arch", ""),
 		"predepends": pkg.candidate.record.get("Pre-Depends", ""),
 		"section": pkg.candidate.section,
+		"pluginsection": pkg.candidate.record.get("Plugin-Section", ""),
 		"priority": pkg.candidate.priority,
 		"filename": pkg.candidate.filename,
 		"size": pkg.candidate.size,

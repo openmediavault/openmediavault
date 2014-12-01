@@ -1,5 +1,6 @@
 Source: openmediavault-nut
 Section: admin
+XB-Plugin-Section: utilities
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>> 7), gettext
