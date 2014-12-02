@@ -605,11 +605,15 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	}
 
 	/**
-	 * Get additional 'mkfs' command options used to create the
-	 * filesystem. See http://linux.die.net/man/8/mkfs.
-	 * @return The additional command options string.
+	 * Get 'mkfs' command options used to create the filesystem.
+	 * See http://linux.die.net/man/8/mkfs.
+	 * If a storage device backend is given the result command option list
+	 * can contain specific options for the given storage device.
+	 * @param backend A optional storage device backend object. Defaults
+	 *   to NULL.
+	 * @return An array of 'mkfs' options.
 	 */
-	public function getMkfsOptions() {
+	public function getMkfsOptions(OMVStorageDeviceBackendAbstract $backend = null) {
 		return $this->mkfsOptions;
 	}
 
@@ -656,7 +660,7 @@ class OMVFilesystemBackendExt3 extends OMVFilesystemBackendExt2 {
 		$this->type = "ext3";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
 		  self::PROP_DISCARD;
-		$this->mkfsOptions = $GLOBALS['OMV_INITFS_OPTIONS_EXT3'];
+		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_EXT3'];
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT3']);
 	}
 }
@@ -665,8 +669,20 @@ class OMVFilesystemBackendExt4 extends OMVFilesystemBackendExt3 {
 	public function __construct() {
 		parent::__construct();
 		$this->type = "ext4";
-		$this->mkfsOptions = $GLOBALS['OMV_INITFS_OPTIONS_EXT4'];
+		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_EXT4'];
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT4']);
+	}
+
+	public function getMkfsOptions(OMVStorageDeviceBackendAbstract $backend = null) {
+		$options = parent::getMkfsOptions($backend);
+		if (is_a($backend, "OMVStorageDeviceBackendMdadm")) {
+			// Append extra options for mdadm software RAID devices.
+			// http://article.gmane.org/gmane.comp.file-systems.ext4/33938
+			// http://serverfault.com/a/419628
+			$options .= sprintf(" %s",
+			  $GLOBALS['OMV_MKFS_EXTRAOPTIONS_EXT4_MDADM']);
+		}
+		return $options;
 	}
 }
 
@@ -676,7 +692,7 @@ class OMVFilesystemBackendXfs extends OMVFilesystemBackendAbstract {
 		$this->type = "xfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
 		  self::PROP_DISCARD;
-		$this->mkfsOptions = $GLOBALS['OMV_INITFS_OPTIONS_XFS'];
+		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_XFS'];
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_XFS']);
 	}
 }
@@ -687,7 +703,7 @@ class OMVFilesystemBackendJfs extends OMVFilesystemBackendAbstract {
 		$this->type = "jfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
 		  self::PROP_DISCARD;
-		$this->mkfsOptions = $GLOBALS['OMV_INITFS_OPTIONS_JFS'];
+		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_JFS'];
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_JFS']);
 	}
 }

@@ -564,7 +564,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$cmdArgs = array();
 			$cmdArgs[] = "-V";
 			$cmdArgs[] = sprintf("-t %s", $fsb->getType());
-			$cmdArgs[] = $fsb->getMkfsOptions();
+			$cmdArgs[] = $fsb->getMkfsOptions($sdb);
 			if (!empty($params['label']))
 				$cmdArgs[] = sprintf("-L %s", escapeshellarg($params['label']));
 			$cmdArgs[] = $fsDeviceFile;

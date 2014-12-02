@@ -1,6 +1,9 @@
 openmediavault (1.4) stable; urgency=low
 
   * Prevent the creation of shared folders that point to the same directory.
+  * Mantis 0001211: Formatting larger than 16TB arrays. Additional mkfs
+    command options for mdadm software RAID devices can be customized via
+    the OMV_MKFS_EXTRAOPTIONS_EXT4_MDADM environment variable.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 01 Dec 2014 12:27:08 +0100
 
