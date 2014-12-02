@@ -185,8 +185,20 @@ class OMVModuleOwnCloud extends OMVModuleServiceAbstract
 		  $params['object']['sharedfolderref']);
 		$sfObject = $xmlConfig->get($xpath);
 		if (is_null($sfObject)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
+			// Depending on the current mode there must be different actions
+			// when a shared folder configuration object does not exist.
+			// In case of removing the ACL settings from a shared folder it
+			// might happen that the shared folder has been deleted within
+			// the same config apply transaction.
+			switch ($params['mode']) {
+			case "modify":
+				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+				  $xpath);
+				break;
+			case "remove":
+				return;
+				break;
+			}
 		}
 		// Get the shared folder's mount point configuration object.
 		$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
