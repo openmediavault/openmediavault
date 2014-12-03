@@ -321,7 +321,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		);
 		// Set the configuration object.
 		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
 			// Check uniqueness. The share name must be global unique because
 			// the name is also used when exporting a shared folder via NFS for
 			// example.
@@ -331,6 +331,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
 				gettext("A shared folder with the given name already exists"));
 			}
+/*
 			// Check if there already exists a shared folder on the same
 			// volume with the same relative directory path.
 			$xpath = sprintf("//system/shares/sharedfolder[mntentref='%s' ".
@@ -340,16 +341,29 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
 				gettext("A shared folder with the given path already exists"));
 			}
+*/
 			// Add empty list of privileges per default.
 			$object['privileges'] = array();
 			// Append object to configuration.
 			$success = $xmlConfig->set("//system/shares",
 			  array("sharedfolder" => $object));
 		} else {
-			// Get existing configuration object.
-			$xpath = "//system/shares/sharedfolder[uuid='{$params['uuid']}']";
+/*
+			// Check if there already exists a shared folder on the same
+			// volume with the same relative directory path.
+			$xpath = sprintf("//system/shares/sharedfolder[uuid!='%s' and ".
+			  "mntentref='%s' and reldirpath='%s']", $object['uuid'],
+			  $object['mntentref'], $object['reldirpath']);
+			if (TRUE === $xmlConfig->exists($xpath)) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+				gettext("A shared folder with the given path already exists"));
+			}
+*/
+			// Get the existing configuration object.
+			$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
+			  $params['uuid']);
 			$oldObject = $xmlConfig->get($xpath);
-			if(is_null($oldObject)) {
+			if (is_null($oldObject)) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 				  $xpath);
 			}
@@ -447,33 +461,42 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		// Check if the shared folder is used somewhere.
 		$xpath = sprintf("//*[contains(name(),'sharedfolderref')]".
 		  "[contains(.,'%s')]", $params['uuid']);
-		if(TRUE === $xmlConfig->exists($xpath)) {
+		if (TRUE === $xmlConfig->exists($xpath)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_INUSE);
 		}
 		// Get the configuration object.
 		$xpath = sprintf("//system/shares/sharedfolder[uuid='%s']",
 		  $params['uuid']);
 		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
+		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Delete shared folder content recursively?
 		$recursive = boolvalEx($params['recursive']);
-		// Do some more checks before a shared folder is deleted. Do not
-		// delete the shared folder content if a sub-directory is part of
-		// another shared folder.
-		if(TRUE === $recursive) {
+		// Do some more checks before a shared folder is deleted.
+		if (TRUE === $recursive) {
+			// Do not delete the shared folder content if another shared
+			// folder points to the same directory.
+			$xpath = sprintf("//system/shares/sharedfolder[uuid!='%s' and ".
+			  "mntentref='%s' and reldirpath='%s']", $object['uuid'],
+			  $object['mntentref'], $object['reldirpath']);
+			if (TRUE === $xmlConfig->exists($xpath)) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  gettext("Cannot unlink the shared folder content because another shared folder also refers to it"));
+			}
+			// Do not delete the shared folder content if a sub-directory
+			// is part of another shared folder.
 			$xpath = sprintf("//system/shares/sharedfolder[mntentref='%s']",
 			  $object['mntentref']);
 			$sfObjects = $xmlConfig->getList($xpath);
-			if(!is_null($sfObjects)) {
+			if (!is_null($sfObjects)) {
 				// Get the mount point configuration object to build the
 				// absolute shared folder path.
 				$xpath = sprintf("//system/fstab/mntent[uuid='%s']",
 				  $object['mntentref']);
 				$meObject = $xmlConfig->get($xpath);
-				if(is_null($meObject)) {
+				if (is_null($meObject)) {
 					throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 					  $xpath);
 				}
@@ -486,10 +509,10 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 				// To delete = /media/4ee04694-e849-4b97-b31a-a928cc084e8f/test/
 				// To check  = /media/4ee04694-e849-4b97-b31a-a928cc084e8f/test_folder
 				$absDirPath = sprintf("%s/", rtrim($absDirPath, "/"));
-				foreach($sfObjects as $sfObjectk => $sfObjectv) {
+				foreach ($sfObjects as $sfObjectk => $sfObjectv) {
 					// Skip current processed shared folder configuration
 					// object.
-					if($sfObjectv['uuid'] === $object['uuid'])
+					if ($sfObjectv['uuid'] === $object['uuid'])
 						continue;
 					// Check if the shared folder to be deleted is a top
 					// directory of another shared folder configuration object.
@@ -509,9 +532,9 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 					// is used by another shared folder.
 					$sfAbsDirPath = OMVUtil::readlink(sprintf("%s/%s",
 					  $meObject['dir'], $sfObjectv['reldirpath']));
-					if(0 === stripos($sfAbsDirPath, $absDirPath)) {
+					if (0 === stripos($sfAbsDirPath, $absDirPath)) {
 						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-						  gettext("Cannot unlink shared folder content because another shared folder is referencing a subdirectory"));
+						  gettext("Cannot unlink the shared folder content because another shared folder is referencing a subdirectory"));
 					}
 				}
 			}
