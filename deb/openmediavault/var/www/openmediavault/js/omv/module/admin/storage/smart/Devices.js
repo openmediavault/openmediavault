@@ -165,7 +165,8 @@ Ext.define("OMV.module.admin.storage.smart.device.information.Attributes", {
 	},{
 		text: _("Attribute name"),
 		dataIndex: "attrname",
-		stateId: "attrname"
+		stateId: "attrname",
+		flex: 1
 	},{
 		text: _("Flags"),
 		dataIndex: "flags",
@@ -269,10 +270,12 @@ Ext.define("OMV.module.admin.storage.smart.device.information.SelfTestLogs", {
 		text: _("Test description"),
 		dataIndex: "description",
 		stateId: "description",
+		flex: 1
 	},{
 		text: _("Status"),
 		dataIndex: "status",
-		stateId: "status"
+		stateId: "status",
+		flex: 1
 	},{
 		text: _("Remaining"),
 		dataIndex: "remaining",

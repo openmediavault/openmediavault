@@ -9,7 +9,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-shairport
 Architecture: all
-Depends: openmediavault (>= 1.0), shairport, alsa-utils
+Depends: openmediavault (>= 1.5), shairport, alsa-utils
 Priority: optional
 Description: OpenMediaVault shairport (AirPlay/RAOP receiver) plugin
  Shairport emulates an AirPort Express for the purpose of streaming

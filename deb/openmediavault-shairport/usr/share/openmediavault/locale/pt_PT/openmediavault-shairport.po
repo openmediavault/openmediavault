@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Nelson Rosado <nelsontrosado@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-21 18:13+0200\n"
-"PO-Revision-Date: 2014-06-23 16:18+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-09-16 11:20+0000\n"
+"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,22 +19,22 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 msgid "A password is required to stream audio."
-msgstr ""
+msgstr "É necessário uma senha para fazer streaming de audio."
 
 msgid "Authentication"
-msgstr ""
+msgstr "Autenticação"
 
 msgid "Enable"
-msgstr ""
+msgstr "Ativo"
 
 msgid "General settings"
-msgstr ""
+msgstr "Definições gerais"
 
 msgid "Password"
-msgstr ""
+msgstr "Senha de acesso"
 
 msgid "Settings"
-msgstr ""
+msgstr "Definições"
 
 msgid "Shairport"
-msgstr ""
+msgstr "Shairport"

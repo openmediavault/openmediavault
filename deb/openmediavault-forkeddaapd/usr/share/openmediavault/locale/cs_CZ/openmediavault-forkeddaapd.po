@@ -3,56 +3,55 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Chang-Eon Byeon <ksna0827@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-11-02 10:03+0000\n"
-"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>\n"
-"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
+"PO-Revision-Date: 2012-03-17 01:49+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko_KR\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 msgid "A password is required to access the library."
-msgstr "라이브러리에 접근하려면 암호가 필요합니다."
+msgstr ""
 
 msgid "Authentication"
-msgstr "인증"
+msgstr ""
 
 msgid "Enable"
-msgstr "활성화"
+msgstr ""
 
 msgid "General settings"
-msgstr "일반 설정"
+msgstr ""
 
 msgid "Library name"
-msgstr "라이브러리 이름"
+msgstr ""
 
 msgid "Password"
-msgstr "암호"
+msgstr ""
 
 msgid "Port"
-msgstr "포트"
+msgstr ""
 
 msgid "Port to listen on."
 msgstr ""
 
 msgid "Settings"
-msgstr "설정"
+msgstr ""
 
 msgid "Shared folder"
-msgstr "공유 폴더"
+msgstr ""
 
 msgid "The location of the media files to share."
-msgstr "공유할 미디어 파일 위치"
+msgstr ""
 
 msgid "The name of the library as displayed by the clients."
-msgstr "클라이언트에 보여질 라이브러리 이름"
+msgstr ""
 
 msgid "iTunes/DAAP"
-msgstr "iTunes/DAAP"
+msgstr ""

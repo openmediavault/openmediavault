@@ -1,3 +1,10 @@
+openmediavault-iscsitarget (1.1) stable; urgency=low
+
+  * Update locales.
+  * Introduce custom field XB-Plugin-Section in debian/control.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Dec 2014 12:55:08 +0100
+
 openmediavault-iscsitarget (1.0.1) stable; urgency=low
 
   * Fix some UI issues.

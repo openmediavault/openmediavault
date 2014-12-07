@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Chang-Eon Byeon <ksna0827@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-06-21 18:13+0200\n"
-"PO-Revision-Date: 2014-09-12 15:19+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-11-01 18:30+0000\n"
+"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,22 +19,22 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 msgid "A password is required to stream audio."
-msgstr ""
+msgstr "오디오를 스트리밍하려면 암호가 필요합니다."
 
 msgid "Authentication"
-msgstr ""
+msgstr "인증"
 
 msgid "Enable"
-msgstr ""
+msgstr "활성화"
 
 msgid "General settings"
-msgstr ""
+msgstr "일반 설정"
 
 msgid "Password"
-msgstr ""
+msgstr "암호"
 
 msgid "Settings"
-msgstr ""
+msgstr "설정"
 
 msgid "Shairport"
-msgstr ""
+msgstr "Shairport"

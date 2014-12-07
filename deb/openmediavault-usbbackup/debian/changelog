@@ -1,3 +1,10 @@
+openmediavault-usbbackup (1.1) stable; urgency=low
+
+  * Update locales.
+  * Introduce custom field XB-Plugin-Section in debian/control.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Dec 2014 13:02:39 +0100
+
 openmediavault-usbbackup (1.0.2) stable; urgency=low
 
   * Update locales.

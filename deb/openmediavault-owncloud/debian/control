@@ -9,7 +9,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault-owncloud
 Architecture: all
-Depends: openmediavault (>= 1.0), owncloud (>= 6.0.4), locales
+Depends: openmediavault (>= 1.5), owncloud (>= 6.0.4), locales
 Priority: optional
 Description: OpenMediaVault ownCloud plugin
  ownCloud gives you universal access to your files through a web interface

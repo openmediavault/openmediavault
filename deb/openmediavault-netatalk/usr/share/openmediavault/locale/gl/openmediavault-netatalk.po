@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-06 16:30+0200\n"
-"PO-Revision-Date: 2014-08-06 14:30+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-12-05 08:45+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -79,7 +79,7 @@ msgid "Guest login"
 msgstr "Acceso como convidado"
 
 msgid "Guest permissions"
-msgstr ""
+msgstr "Permisos de convidado"
 
 msgid "Guests only have read access by default."
 msgstr "De xeito predeterminado os convidados só teñen acceso para lectura."

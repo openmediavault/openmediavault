@@ -3,24 +3,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Chang-Eon Byeon <ksna0827@gmail.com>, 2014
-# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-25 22:54+0200\n"
-"PO-Revision-Date: 2014-11-05 18:15+0000\n"
-"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>\n"
-"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
+"PO-Revision-Date: 2013-02-15 12:55+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko_KR\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 msgid "Add backup job"
-msgstr "백업 작업 추가"
+msgstr ""
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
@@ -28,37 +26,37 @@ msgid ""
 msgstr ""
 
 msgid "Archive"
-msgstr "아카이브"
+msgstr ""
 
 msgid "Backup jobs"
-msgstr "백업 작업"
+msgstr ""
 
 msgid "Comment"
-msgstr "설명"
+msgstr ""
 
 msgid "Compress"
-msgstr "압축"
+msgstr ""
 
 msgid "Compress file data during the transfer."
-msgstr "전송 중 파일 데이터 압축"
+msgstr ""
 
 msgid "Delete"
-msgstr "삭제"
+msgstr ""
 
 msgid "Delete files on the receiving side that don't exist on sender."
 msgstr ""
 
 msgid "Device"
-msgstr "장치"
+msgstr ""
 
 msgid "Edit backup job"
-msgstr "백업 작업 편집"
+msgstr ""
 
 msgid "Enable"
-msgstr "활성화"
+msgstr ""
 
 msgid "Enable archive mode."
-msgstr "아카이브 모드 활성화"
+msgstr ""
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
@@ -66,42 +64,42 @@ msgid ""
 msgstr ""
 
 msgid "Enabled"
-msgstr "활성화됨"
+msgstr ""
 
 msgid "Execute backup job"
-msgstr "백업 작업 실행"
+msgstr ""
 
 msgid "External storage device"
-msgstr "외부 저장 장치"
+msgstr ""
 
 msgid "Extra options"
-msgstr "추가 옵션"
+msgstr ""
 
 msgid "Failed to get filesystems"
-msgstr "파일시스템을 가져오는 데 실패했습니다."
+msgstr ""
 
 msgid "Failed to get storage device file from '%s'"
-msgstr "'%s'에서 저장 장치 파일을 가져오는 데 실패했습니다."
+msgstr ""
 
 msgid "Filesystem '%s' not found"
-msgstr "'%s' 파일 시스템을 찾을 수 없습니다."
+msgstr ""
 
 msgid "From external storage to shared folder"
-msgstr "외부 저장소에서 공유 폴더로"
+msgstr ""
 
 msgid "From shared folder to external storage"
-msgstr "공유 폴더에서 외부 저장소로"
+msgstr ""
 
 msgid "Keep partially transferred files"
-msgstr "부분적으로 전송된 파일 유지"
+msgstr ""
 
 msgid "Mode"
-msgstr "모드"
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr "자세한 내용은 <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
+msgstr ""
 
 msgid ""
 "Please note that the web interface is blocked until the manually started "
@@ -110,80 +108,80 @@ msgid ""
 msgstr ""
 
 msgid "Preserve ACLs"
-msgstr "ACL 보존"
+msgstr ""
 
 msgid "Preserve extended attributes"
-msgstr "확장 속성 보존"
+msgstr ""
 
 msgid "Preserve modification times."
-msgstr "수정 시간 보존"
+msgstr ""
 
 msgid "Preserve permissions"
-msgstr "권한 보존"
+msgstr ""
 
 msgid "Quiet"
-msgstr "조용한"
+msgstr ""
 
 msgid "Recurse into directories."
-msgstr "디렉터리 안으로 순회"
+msgstr ""
 
 msgid "Recursive"
-msgstr "재귀"
+msgstr ""
 
 msgid "Run"
-msgstr "실행"
+msgstr ""
 
 msgid "Scan"
-msgstr "검색"
+msgstr ""
 
 msgid "Select a device ..."
-msgstr "장치를 선택하세요 ..."
+msgstr ""
 
 msgid "Send command output via email."
-msgstr "이메일로 명령 결과 전송"
+msgstr ""
 
 msgid "Send email"
-msgstr "이메일 전송"
+msgstr ""
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr "목적 권한을 원본 권한과 같게 설정"
+msgstr ""
 
 msgid "Shared folder"
-msgstr "공유 폴더"
+msgstr ""
 
 msgid "Suppress non-error messages."
-msgstr "오류가 아닌 메시지를 숨깁니다."
+msgstr ""
 
 msgid "Synchronise from/to directory on external storage device."
-msgstr "외부 저장 장치에서/로 디렉터리 동기화"
+msgstr ""
 
 msgid "The external storage device."
-msgstr "외부 저장 장치"
+msgstr ""
 
 msgid ""
 "The shared folder content is synchronised from/to the root of the external "
 "storage device if this option is not set. The name of the directory is taken"
 " from the shared folder."
-msgstr "이 옵션이 비활성화되면, 해당 공유 폴더 내용은 외부 저장 장치의 최상위로(혹은 그로부터) 동기화됩니다. 디렉터리의 이름은 공유 폴더와 같습니다."
+msgstr ""
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
 "connected."
-msgstr "외부 저장 장치가 연결되었을 때 공유 폴더를 동기화합니다."
+msgstr ""
 
 msgid "Times"
-msgstr "시간"
+msgstr ""
 
 msgid "USB Backup"
-msgstr "USB 백업"
+msgstr ""
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr "대상 ACL을 원본 ACL과 같게 업데이트"
+msgstr ""
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr "확장 속성을 로컬과 같게 업데이트"
+msgstr ""
 
 msgid "n/a"
-msgstr "해당 없음"
+msgstr ""

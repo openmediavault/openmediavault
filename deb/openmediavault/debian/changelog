@@ -1,12 +1,24 @@
-openmediavault (1.4) stable; urgency=low
+openmediavault (1.5) stable; urgency=low
 
+  * Update locales.
+  * Modify default grid column settings in S.M.A.R.T. dialog.
   * Prevent the deletion of the shared folders content if another shared
     folder also refers to it.
   * Mantis 0001211: Formatting larger than 16TB arrays. Additional mkfs
     command options for mdadm software RAID devices can be customized via
     the OMV_MKFS_EXTRAOPTIONS_EXT4_MDADM environment variable.
+  * Introduce custom field XB-Plugin-Section in debian/control. The following
+    values are supported: administration, backup, downloaders, filesystems,
+    gaming, multimedia, network, remote, sharing, utilities, virtualization.
 
- -- Volker Theile <volker.theile@openmediavault.org>  Mon, 01 Dec 2014 12:27:08 +0100
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 30 Nov 2014 12:55:05 +0100
+
+openmediavault (1.4) stable; urgency=low
+
+  * Update locales.
+  * Improve framework.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 30 Nov 2014 12:38:45 +0100
 
 openmediavault (1.3) stable; urgency=low
 
@@ -291,7 +303,7 @@ openmediavault (1.0.9) stable; urgency=low
 
 openmediavault (1.0.8) stable; urgency=low
 
-  * Add 'Download' button to OMV.workspace.panel.Textarea panels. 
+  * Add 'Download' button to OMV.workspace.panel.Textarea panels.
   * Add 'Diagnostics | System Information | Report' page.
   * Improve various omv-sysinfo scripts.
   * Improve d-i package. Force grub to use the same storage device on which

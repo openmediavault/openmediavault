@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Jan Štourač <wormsik666@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2012-08-31 18:46+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-12-03 09:40+0000\n"
+"Last-Translator: Jan Štourač <wormsik666@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,28 +19,28 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 msgid "A route with the network already exists"
-msgstr ""
+msgstr "Cesta s danou sítí již existuje"
 
 msgid "Add static route"
-msgstr ""
+msgstr "Přidat statickou cestu"
 
 msgid "Comment"
-msgstr ""
+msgstr "Komentář"
 
 msgid "Edit static route"
-msgstr ""
+msgstr "Upravit statickou cestu"
 
 msgid "Gateway"
-msgstr ""
+msgstr "Brána"
 
 msgid "Gateway used to reach the above network address."
-msgstr ""
+msgstr "Brána použitá pro dosažení výše uvedené síťové adresy."
 
 msgid "IP or network address."
-msgstr ""
+msgstr "IP nebo síťová adresa."
 
 msgid "Network"
-msgstr ""
+msgstr "Síť"
 
 msgid "Static Routes"
-msgstr ""
+msgstr "Statické směrování"

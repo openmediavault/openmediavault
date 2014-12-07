@@ -3,48 +3,46 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Chang-Eon Byeon <ksna0827@gmail.com>, 2014
-# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-11-09 13:31+0000\n"
-"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>\n"
-"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
+"PO-Revision-Date: 2012-03-17 01:50+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko_KR\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 msgid "Add LUN"
-msgstr "LUN 추가"
+msgstr ""
 
 msgid "Add target"
-msgstr "대상 추가"
+msgstr ""
 
 msgid "Add user"
-msgstr "사용자 추가"
+msgstr ""
 
 msgid "Alias"
-msgstr "별칭"
+msgstr ""
 
 msgid "Assign a unique identifier to the iSCSI volume optionally."
-msgstr "iSCSI 볼륨에 선택적으로 고유 식별자를 할당합니다."
+msgstr ""
 
 msgid "Assign a unique serial number to the iSCSI volume optionally."
-msgstr "iSCSI 볼륨에 선택적으로 고유 일련번호를 할당합니다."
+msgstr ""
 
 msgid "Authentication"
-msgstr "인증"
+msgstr ""
 
 msgid "Block IO"
-msgstr "블록 입출력"
+msgstr ""
 
 msgid "Comment"
-msgstr "설명"
+msgstr ""
 
 msgid ""
 "Controls the maximum number of data transfers the target may request at "
@@ -55,61 +53,61 @@ msgid "Data PDU in order"
 msgstr ""
 
 msgid "Data digest"
-msgstr "데이터 다이제스트"
+msgstr ""
 
 msgid "Data sequence in order"
 msgstr ""
 
 msgid "Device"
-msgstr "장치"
+msgstr ""
 
 msgid "Discovery authentication"
-msgstr "탐색 인증"
+msgstr ""
 
 msgid "Edit LUN"
-msgstr "LUN 편집"
+msgstr ""
 
 msgid "Edit target"
-msgstr "대사 편집"
+msgstr ""
 
 msgid "Edit user"
-msgstr "사용자 편집"
+msgstr ""
 
 msgid "Enable"
-msgstr "활성화"
+msgstr ""
 
 msgid "Error recovery level"
-msgstr "오류 복구 수준"
+msgstr ""
 
 msgid "Extra options"
-msgstr "추가 옵션"
+msgstr ""
 
 msgid "File IO"
-msgstr "파일 입출력"
+msgstr ""
 
 msgid "First burst length"
-msgstr "첫번째 버스트 길이"
+msgstr ""
 
 msgid "General"
-msgstr "일반"
+msgstr ""
 
 msgid "General settings"
-msgstr "일반 설정"
+msgstr ""
 
 msgid "Header digest"
-msgstr "헤더 다이제스트"
+msgstr ""
 
 msgid "IO threads"
-msgstr "입출력 스레드"
+msgstr ""
 
 msgid "IQN"
-msgstr "IQN"
+msgstr ""
 
 msgid "Id"
-msgstr "식별자"
+msgstr ""
 
 msgid "Identifier"
-msgstr "식별자"
+msgstr ""
 
 msgid ""
 "If a non-zero 'NOP interval' is used to periodically 'ping' the initiator "
@@ -143,70 +141,70 @@ msgid ""
 msgstr ""
 
 msgid "Immediate data"
-msgstr "즉시 데이터"
+msgstr ""
 
 msgid "Incoming"
-msgstr "수신"
+msgstr ""
 
 msgid "Initial R2T"
-msgstr "초기 R2T(Ready-to-Transfer)"
+msgstr ""
 
 msgid "LUN"
-msgstr "LUN"
+msgstr ""
 
 msgid "Max. burst length"
-msgstr "최대 버스트 길이"
+msgstr ""
 
 msgid "Max. connections"
-msgstr "최대 연결수"
+msgstr ""
 
 msgid "Max. outstanding R2T"
-msgstr "최대 미발행 R2T(Ready-to-Transfer)"
+msgstr ""
 
 msgid "Max. receive data segment length"
-msgstr "최대 수신 데이터 세그먼트 길이"
+msgstr ""
 
 msgid "Max. sessions"
-msgstr "최대 세션수"
+msgstr ""
 
 msgid "Max. transmit data segment length"
-msgstr "최대 전송 데이터 세그먼트 길이"
+msgstr ""
 
 msgid "NOP interval"
-msgstr "NOP 주기"
+msgstr ""
 
 msgid "NOP timeout"
-msgstr "NOP 타임아웃"
+msgstr ""
 
 msgid "None"
-msgstr "없음"
+msgstr ""
 
 msgid "Only one outgoing user per target is supported."
-msgstr "타겟당 하나의 발신 사용자만 지원됩니다."
+msgstr ""
 
 msgid "Outgoing"
-msgstr "발신"
+msgstr ""
 
 msgid "Password"
-msgstr "암호"
+msgstr ""
 
 msgid "Queued commands"
-msgstr "대기 중인 명령"
+msgstr ""
 
 msgid "R/W mode"
-msgstr "읽기/쓰기 모드"
+msgstr ""
 
 msgid "Read-only"
-msgstr "읽기 전용"
+msgstr ""
 
 msgid "SCSI Id."
-msgstr "SCSI 식별자"
+msgstr ""
 
 msgid "SCSI serial no."
-msgstr "SCSI 일련번호"
+msgstr ""
 
 msgid "Select an device ..."
-msgstr "장치를 선택하세요 ..."
+msgstr ""
 
 msgid ""
 "Sets the amount of unsolicited data the initiator may transmit in the first "
@@ -216,25 +214,25 @@ msgstr ""
 msgid ""
 "Sets the maximum amount of either unsolicited or solicited data the "
 "initiator may send in a single burst."
-msgstr "초기자가 단일 버스트에 보낼 수 있는 요청되거나 요청되지 않은 데이터의 최대량을 설정합니다."
+msgstr ""
 
 msgid "Sets the maximum data segment length that can be received."
-msgstr "받을 수 있는 데이터 세그먼트의 최대 길이를 설정합니다."
+msgstr ""
 
 msgid "Sets the maximum data segment length that can be sent."
-msgstr "보낼 수 있는 데이터 세그먼트의 최대 길이를 설정합니다."
+msgstr ""
 
 msgid "Settings"
-msgstr "설정"
+msgstr ""
 
 msgid "Targets"
-msgstr "대상"
+msgstr ""
 
 msgid "The identifier of the target."
-msgstr "대상의 식별자"
+msgstr ""
 
 msgid "The maximum number of sessions for this target."
-msgstr "대상의 최대 세션수"
+msgstr ""
 
 msgid ""
 "The number of commands an initiator may send and that will be buffered by "
@@ -242,36 +240,36 @@ msgid ""
 msgstr ""
 
 msgid "The number of connections within a session."
-msgstr "세션 내에서 연결의 수"
+msgstr ""
 
 msgid "The number of threads to perform block I/O to the device."
-msgstr "장치에 블럭 입출력을 하기 위한 스레드의 수"
+msgstr ""
 
 msgid "The optional alias of the target."
-msgstr "대상의 부가적인 별칭"
+msgstr ""
 
 msgid ""
 "This allows the initiator to append unsolicited data to a command. To "
 "achieve better performance, this should be enabled."
-msgstr "초기자가 예외 데이터를 명령에 덧붙일 수 있도록 합니다. 이 설정을 활성화하는 것은 성능 향상에 도움이 됩니다."
+msgstr ""
 
 msgid "Transfer mode"
-msgstr "전송 모드"
+msgstr ""
 
 msgid "Type"
-msgstr "방식"
+msgstr ""
 
 msgid "Username"
-msgstr "사용자 이름"
+msgstr ""
 
 msgid "Users"
-msgstr "사용자"
+msgstr ""
 
 msgid "Write-back"
-msgstr "후기입"
+msgstr ""
 
 msgid "Write-through"
-msgstr "연속 기입"
+msgstr ""
 
 msgid "iSCSI Target"
-msgstr "iSCSI Target"
+msgstr ""

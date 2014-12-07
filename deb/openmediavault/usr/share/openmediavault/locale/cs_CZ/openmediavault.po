@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-11-27 21:42+0000\n"
+"PO-Revision-Date: 2014-11-28 17:00+0000\n"
 "Last-Translator: Jan Štourač <wormsik666@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -171,7 +171,7 @@ msgid "ASCII"
 msgstr "ASCII"
 
 msgid "About"
-msgstr ""
+msgstr "O programu"
 
 msgid "Abstract"
 msgstr "Abstrakt"
@@ -192,7 +192,7 @@ msgid "Action"
 msgstr "Akce"
 
 msgid "Activate S.M.A.R.T. monitoring."
-msgstr "Aktivovat monitorování S.M.A.R.T."
+msgstr "Aktivovat sledování S.M.A.R.T."
 
 msgid "Add"
 msgstr "Přidat"
@@ -222,10 +222,10 @@ msgid "Add rule"
 msgstr "Přidat pravidlo"
 
 msgid "Add scheduled job"
-msgstr ""
+msgstr "Naplánovat úlohu"
 
 msgid "Add scheduled test"
-msgstr ""
+msgstr "Naplánovat test"
 
 msgid "Add share"
 msgstr ""
@@ -325,7 +325,7 @@ msgstr ""
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr ""
+msgstr "Emailová zpráva obsahující výstup příkazu (pokud nějaký existuje) je odeslána uživateli, který úlohu spustil."
 
 msgid "An error has occured"
 msgstr ""
@@ -352,10 +352,10 @@ msgid "Antigua and Barbuda"
 msgstr "Antigua a Barbuda"
 
 msgid "Apply"
-msgstr "Použít"
+msgstr "Potvrdit"
 
 msgid "Apply configuration changes"
-msgstr "Použít změny v nastavení"
+msgstr "Provádění změn v nastavení"
 
 msgid "Apply permissions to files and subfolders"
 msgstr "Použít přístupová oprávnění na soubory a podsložky."
@@ -621,10 +621,10 @@ msgid "Client NetBIOS name"
 msgstr ""
 
 msgid "Client address"
-msgstr ""
+msgstr "Adresa klienta"
 
 msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
-msgstr ""
+msgstr "Klienti s oprávněním k připojení souborového systému, např. 192.168.178.0/24."
 
 msgid "Close"
 msgstr "Zavřít"
@@ -648,7 +648,7 @@ msgid "Community"
 msgstr "Komunita"
 
 msgid "Community-maintained updates."
-msgstr ""
+msgstr "Community-maintained updates."
 
 msgid "Comoros"
 msgstr ""
@@ -701,7 +701,7 @@ msgid ""
 msgstr "Kontaktní informace, např. jméno nebo emailová adresa osoby zodpovědné za tento systém"
 
 msgid "Conveyance self-test"
-msgstr ""
+msgstr "Přepravní (conveyance) test"
 
 msgid "Cook Islands"
 msgstr "Cookovy ostrovy"
@@ -806,7 +806,7 @@ msgid "Deny"
 msgstr "Zakázat"
 
 msgid "Deny logins which do not have a valid shell"
-msgstr ""
+msgstr "Zakázat přihlašování bez platného shellu"
 
 msgid "Description"
 msgstr "Popis"
@@ -859,7 +859,7 @@ msgid "Devices"
 msgstr "Zařízení"
 
 msgid "Diagnostics"
-msgstr ""
+msgstr "Diagnostika"
 
 msgid "Difference"
 msgstr "Rozdíl"
@@ -939,7 +939,7 @@ msgstr ""
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
 "after a RAID has been grown for example."
-msgstr ""
+msgstr "Opravdu chcete změnit velikost vybraného souborového systému? Změna je vhodná např. po zvětšení pole RAID."
 
 msgid "Do you really want to revert the configuration changes?"
 msgstr "Opravdu chcete vrátit zpět změny v nastavení?"
@@ -1035,10 +1035,10 @@ msgid "Edit rule"
 msgstr "Upravit pravidlo"
 
 msgid "Edit scheduled job"
-msgstr ""
+msgstr "Upravit naplánovanou úlohu"
 
 msgid "Edit scheduled test"
-msgstr ""
+msgstr "Upravit naplánovaný test"
 
 msgid "Edit share"
 msgstr ""
@@ -1181,13 +1181,13 @@ msgid "Event"
 msgstr ""
 
 msgid "Every N day of month"
-msgstr ""
+msgstr "Každých N dní v měsíci"
 
 msgid "Every N hour"
-msgstr ""
+msgstr "Každých N hodin"
 
 msgid "Every N minute"
-msgstr ""
+msgstr "Každých N minut"
 
 msgid "Everyone: read/write"
 msgstr "Kdokoliv: čtení/zápis"
@@ -1316,7 +1316,7 @@ msgid "Firmware version"
 msgstr "Verze firmware"
 
 msgid "Flags"
-msgstr ""
+msgstr "Příznaky"
 
 msgid "Force SSL/TLS"
 msgstr "Vynutit SSL/TLS"
@@ -1734,7 +1734,7 @@ msgid "Kyrgyzstan"
 msgstr "Kyrgyzstán"
 
 msgid "LBA of first error"
-msgstr ""
+msgstr "Logická adresa bloku (LBA) první chyby"
 
 msgid "LVM logical volume %s [%s, %s]"
 msgstr ""
@@ -1823,7 +1823,7 @@ msgid "Logs"
 msgstr ""
 
 msgid "Long self-test"
-msgstr ""
+msgstr "Dlouhý test"
 
 msgid "Loop device [%s, %s]"
 msgstr ""
@@ -2019,10 +2019,10 @@ msgid "Mongolia"
 msgstr "Mongolsko"
 
 msgid "Monitor"
-msgstr "Monitor"
+msgstr "Sledovat"
 
 msgid "Monitoring"
-msgstr "Monitorování"
+msgstr "Sledování"
 
 msgid "Month"
 msgstr "Měsíc"
@@ -2130,7 +2130,7 @@ msgid "No users defined"
 msgstr "Žádní definovaní uživatelé"
 
 msgid "None"
-msgstr ""
+msgstr "Žádný"
 
 msgid "Norfolk Island"
 msgstr "Norfolk"
@@ -2151,16 +2151,16 @@ msgid "Norway"
 msgstr "Norsko"
 
 msgid "Not ICMP"
-msgstr ""
+msgstr "Mimo ICMP"
 
 msgid "Not ICMPv6"
-msgstr ""
+msgstr "Mimo ICMPv6"
 
 msgid "Not TCP"
-msgstr ""
+msgstr "Mimo TCP"
 
 msgid "Not UDP"
-msgstr ""
+msgstr "Mimo UDP"
 
 msgid "Nothing"
 msgstr "Nic"
@@ -2178,7 +2178,7 @@ msgid "Null passwords"
 msgstr "Prázdná hesla"
 
 msgid "Num"
-msgstr ""
+msgstr "Číslo"
 
 msgid "Number of servers"
 msgstr "Počet serverů"
@@ -2463,7 +2463,7 @@ msgid "Private key"
 msgstr "Soukromý klíč"
 
 msgid "Privilege"
-msgstr "Privilegium"
+msgstr "Oprávnění"
 
 msgid "Privileges"
 msgstr "Oprávnění"
@@ -2606,12 +2606,12 @@ msgstr "Nahlásit"
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report. Set to 0 to disable this report."
-msgstr ""
+msgstr "Hlásit, pokud se teplota od posledního hlášení změní alespoň o N stupňů Celsia. Zadejte 0 pro vypnutí hlášení."
 
 msgid ""
 "Report if the temperature is greater or equal than N degrees Celsius. Set to"
 " 0 to disable this report."
-msgstr ""
+msgstr "Hlásit, pokud je teplota rovná nebo vyšší než N stupňů Celsia. Zadejte 0 pro vypnutí hlášení."
 
 msgid "Repository"
 msgstr "Repozitář"
@@ -2688,7 +2688,7 @@ msgid "S.M.A.R.T. information"
 msgstr "S.M.A.R.T. informace"
 
 msgid "S.M.A.R.T. monitoring must be activated for the selected device."
-msgstr "Monitorování S.M.A.R.T. musí být aktivní pro vybrané zařízení."
+msgstr "Pro vybrané zařízení musí být aktivované sledování S.M.A.R.T."
 
 msgid "SMB/CIFS"
 msgstr "SMB/CIFS"
@@ -2766,10 +2766,10 @@ msgid "Scanning for new devices ..."
 msgstr "Hledání nových zařízení ..."
 
 msgid "Scheduled Jobs"
-msgstr "Načasované úlohy"
+msgstr "Naplánované úlohy"
 
 msgid "Scheduled tests"
-msgstr "Načasované testy"
+msgstr "Naplánované testy"
 
 msgid "Secondary"
 msgstr "Sekundární"
@@ -2844,7 +2844,7 @@ msgid "Send a test email"
 msgstr "Odeslat testovací email"
 
 msgid "Send command output via email"
-msgstr "Odeslat výstup příkazu pomocí emailu"
+msgstr "Odeslat výstup příkazu v emailové zprávě"
 
 msgid "Send email"
 msgstr "Odeslat email"
@@ -2944,7 +2944,7 @@ msgid "Shell"
 msgstr "Shell"
 
 msgid "Short self-test"
-msgstr ""
+msgstr "Krátký test"
 
 msgid "Show certificate"
 msgstr "Zobrazit certifikát"
@@ -3069,7 +3069,7 @@ msgid ""
 msgstr ""
 
 msgid "Specifies whether it is allowed to login as superuser directly"
-msgstr ""
+msgstr "Umožnit přímé přihlášení jako superuživatel."
 
 msgid "Specifies whether it is allowed to login as superuser."
 msgstr ""
@@ -3604,7 +3604,7 @@ msgid "Traps"
 msgstr ""
 
 msgid "Treshold"
-msgstr ""
+msgstr "Práh"
 
 msgid "Trial run"
 msgstr ""
