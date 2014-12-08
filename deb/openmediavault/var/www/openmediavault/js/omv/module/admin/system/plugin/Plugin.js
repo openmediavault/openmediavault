@@ -55,6 +55,9 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 	stateful: true,
 	stateId: "2bd3835f-56c4-4047-942b-7d7b5163de2a",
 	selType: "checkboxmodel",
+	features: [{
+		ftype: "grouping"
+	}],
 	columns: [{
 		xtype: "booleaniconcolumn",
 		text: _("Installed"),
@@ -69,7 +72,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		sortable: true,
 		dataIndex: "name",
 		stateId: "info",
-		flex: 1,
+		flex: 2,
 		renderer: function(value, metaData, record) {
 			var tpl = Ext.create("Ext.XTemplate",
 			  '<b>{name} {version}</b><br/>',
@@ -93,6 +96,13 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 			value = tpl.apply(record.data);
 			return value;
 		}
+	},{
+		text: _("Section"),
+		sortable: true,
+		dataIndex: "pluginsection",
+		stateId: "pluginsection",
+		flex: 1,
+		hidden: true
 	},{
 		text: _("Name"),
 		sortable: true,
@@ -159,6 +169,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		Ext.apply(me, {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
+				groupField: "pluginsection",
 				model: OMV.data.Model.createImplicit({
 					idProperty: "name",
 					fields: [
@@ -171,7 +182,15 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 						{ name: "homepage", type: "string" },
 						{ name: "maintainer", type: "string" },
 						{ name: "installed", type: "boolean" },
-						{ name: "size", type: "string" }
+						{ name: "size", type: "string" },
+						{
+							name: "pluginsection",
+							type: "string",
+							defaultValue: "utilities",
+							convert: function(value, record) {
+								return Ext.String.capitalize(value);
+							}
+						}
 					]
 				}),
 				proxy: {
