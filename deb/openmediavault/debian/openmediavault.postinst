@@ -433,6 +433,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "1.2"; then
 			omv_config_delete "/config/system/network/hostac"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "1.6"; then
+			omv-mkconf samba
+		fi
 	;;
 
 	triggered)

@@ -1,6 +1,7 @@
 openmediavault (1.6) stable; urgency=low
 
   * Display plugins sorted by their XB-Plugin-Section value.
+  * Mantis 0001213: SMB/CIFS guest permissions.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 08 Dec 2014 12:04:25 +0100
 
