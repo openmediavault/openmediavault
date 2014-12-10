@@ -56,6 +56,7 @@ OMV_SSHD_ACCEPTENV=${OMV_SSHD_ACCEPTENV:-"LANG LC_*"}
 OMV_SSHD_USEPAM=${OMV_SSHD_USEPAM:-"yes"}
 OMV_SSHD_AUTHORIZEDKEYSFILE_DIR=${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR:-"/var/lib/openmediavault/ssh/authorized_keys"}
 OMV_SSHD_AUTHORIZEDKEYSFILE=${OMV_SSHD_AUTHORIZEDKEYSFILE:-".ssh/authorized_keys .ssh/authorized_keys2 ${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR}/%u"}
+OMV_SSHD_AUTHORIZEDKEYSFILE_MASK=${OMV_SSHD_AUTHORIZEDKEYSFILE_MASK:-"600"}
 
 # Limit connections to IPv4 only if IPv6 is disabled.
 if [ ! -f /proc/net/if_inet6 ]; then
@@ -124,5 +125,6 @@ xmlstarlet sel -t \
 	  name=$(omv_config_get "//system/usermanagement/users/user[uuid='${uuid}']/name")
 	  filename="${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR}/${name}"
 	  omv_config_get "//system/usermanagement/users/user[uuid='${uuid}']/sshpubkey" > "${filename}"
+	  chmod ${OMV_SSHD_AUTHORIZEDKEYSFILE_MASK} "${filename}"
 	  chown "${name}" "${filename}"
   done

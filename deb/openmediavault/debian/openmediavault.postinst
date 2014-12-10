@@ -435,6 +435,7 @@ case "$1" in
 		fi
 		if dpkg --compare-versions "$2" lt-nl "1.6"; then
 			omv-mkconf samba
+			omv-mkconf ssh
 		fi
 	;;
 
