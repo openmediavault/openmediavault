@@ -1,5 +1,6 @@
 openmediavault-iscsitarget (1.2) stable; urgency=low
 
+  * Update locales.
   * Fix package dependencies. The kernel header files are now installed
     automatically.
 
