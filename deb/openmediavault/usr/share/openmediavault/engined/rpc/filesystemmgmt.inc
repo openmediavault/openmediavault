@@ -564,7 +564,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$cmdArgs = array();
 			$cmdArgs[] = "-V";
 			$cmdArgs[] = sprintf("-t %s", $fsb->getType());
-			$cmdArgs[] = $fsb->getMkfsOptions($sdb);
+			$cmdArgs[] = $fsb->getMkfsOptions($sd);
 			if (!empty($params['label']))
 				$cmdArgs[] = sprintf("-L %s", escapeshellarg($params['label']));
 			$cmdArgs[] = $fsDeviceFile;
@@ -798,12 +798,14 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  "Failed to get the '%s' filesystem implementation for '%s'",
 			  $fsb->getType(), $params['id']));
 		}
-		// Get the storage device containing the filesystem.
+		// Get the storage device containing the filesystem, e.g. /dev/sdb or
+		// /dev/cciss/c0d0.
 		if (FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile())) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  gettext("Failed to get storage device file from '%s'"),
 			  $fs->getDeviceFile()));
 		}
+		// Get the according storage device object.
 		$sd = OMVStorageDeviceFactory::get($storageDeviceFile);
 		if (is_null($sd) || !$sd->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
@@ -817,13 +819,14 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		case "jfs":
 		case "xfs":
 		case "hfsplus":
+		case "btrfs":
 			$fsName = $fs->getUuid();
-			$opts = $fsb->getFstabMntOptions();
+			$opts = $fsb->getFstabMntOptions($sd);
 			break;
 		case "vfat":
 		case "ntfs":
 			$fsName = $fs->getDeviceFileByUuid();
-			$opts = $fsb->getFstabMntOptions();
+			$opts = $fsb->getFstabMntOptions($sd);
 			break;
 		default:
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,

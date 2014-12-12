@@ -598,22 +598,29 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	/**
 	 * Get filesystem mount options used in '/etc/fstab'.
 	 * See http://linux.die.net/man/8/mount.
-	 * @return An array of mount options.
+	 * If a storage device is given the result mount option list can contain
+	 * specific options for the given storage device.
+	 * @param sd A optional storage device object. Defaults to NULL.
+	 * @return An array of 'mount' options.
 	 */
-	public function getFstabMntOptions() {
-		return $this->mntOptions;
+	public function getFstabMntOptions(OMVStorageDeviceAbstract $sd = null) {
+		$options = $this->mntOptions;
+		// Append the mount option 'acl' by default if the filesystem
+		// supports POSIX ACL.
+		if ($this->hasPosixAclSupport())
+			$options[] = "acl";
+		return $options;
 	}
 
 	/**
 	 * Get 'mkfs' command options used to create the filesystem.
 	 * See http://linux.die.net/man/8/mkfs.
-	 * If a storage device backend is given the result command option list
-	 * can contain specific options for the given storage device.
-	 * @param backend A optional storage device backend object. Defaults
-	 *   to NULL.
+	 * If a storage device is given the result command option list can contain
+	 * specific options for the given storage device.
+	 * @param sd A optional storage device object. Defaults to NULL.
 	 * @return An array of 'mkfs' options.
 	 */
-	public function getMkfsOptions(OMVStorageDeviceBackendAbstract $backend = null) {
+	public function getMkfsOptions(OMVStorageDeviceAbstract $sd = null) {
 		return $this->mkfsOptions;
 	}
 
@@ -673,9 +680,9 @@ class OMVFilesystemBackendExt4 extends OMVFilesystemBackendExt3 {
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT4']);
 	}
 
-	public function getMkfsOptions(OMVStorageDeviceBackendAbstract $backend = null) {
-		$options = parent::getMkfsOptions($backend);
-		if (is_a($backend, "OMVStorageDeviceBackendMdadm")) {
+	public function getMkfsOptions(OMVStorageDeviceAbstract $sd = null) {
+		$options = parent::getMkfsOptions($sd);
+		if (is_a($sd, "OMVStorageDeviceMdadm")) {
 			// Append extra options for mdadm software RAID devices.
 			// http://article.gmane.org/gmane.comp.file-systems.ext4/33938
 			// http://serverfault.com/a/419628
@@ -780,6 +787,16 @@ class OMVFilesystemBackendBtrfs extends OMVFilesystemBackendAbstract {
 		$this->type = "btrfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
 		  self::PROP_DISCARD;
+		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_BTRFS']);
+	}
+
+	public function getFstabMntOptions(OMVStorageDeviceAbstract $sd = null) {
+		$options = parent::getFstabMntOptions($sd);
+		if (!is_null($sd)) {
+			if (!$sd->isRotational())
+				$options[] = "ssd";
+		}
+		return $options;
 	}
 }
 
@@ -923,11 +940,11 @@ class OMVFilesystems extends OMVObject {
 			// Parse command output:
 			// /dev/sdb: UUID="e6a0f61e-d969-ffcb-d4c5-06e7711285a3" LABEL="dhcppc4:0" TYPE="linux_raid_member"
 			// /dev/sdg1: LABEL="test" UUID="d19bcea0-a323-4aea-9791-c6578180c129" TYPE="jfs"
-			// /dev/sda5: UUID="902775c7-8250-4630-81eb-2602ac65e136" TYPE="swap" 
-			// /dev/sda1: LABEL="Ubuntu" UUID="4aa77ba3-beb6-45dc-b2c7-e77cffd6c6fd" TYPE="ext4" 
-			// /dev/sdb1: UUID="A27E16CD7E1699DD" TYPE="ntfs" 
-			// /dev/sdc1: UUID="1a03b79f-d347-4a24-8ae2-62f1aa9a4554" TYPE="ext4" 
-			// /dev/sdd1: UUID="cb8f7844-362f-4151-8e9e-3888aab723c2" TYPE="ext4" 
+			// /dev/sda5: UUID="902775c7-8250-4630-81eb-2602ac65e136" TYPE="swap"
+			// /dev/sda1: LABEL="Ubuntu" UUID="4aa77ba3-beb6-45dc-b2c7-e77cffd6c6fd" TYPE="ext4"
+			// /dev/sdb1: UUID="A27E16CD7E1699DD" TYPE="ntfs"
+			// /dev/sdc1: UUID="1a03b79f-d347-4a24-8ae2-62f1aa9a4554" TYPE="ext4"
+			// /dev/sdd1: UUID="cb8f7844-362f-4151-8e9e-3888aab723c2" TYPE="ext4"
 			// /dev/sda3: UUID="fdca09a8-cbc8-432f-9cba-ce033cb59139" TYPE="ext4" LABEL="Debian"
 			// /dev/sr0: LABEL="Debian 7.5.0 amd64 1" TYPE="iso9660"
 			$regex = '/^(\S+): (.+)$/i';
@@ -1523,7 +1540,7 @@ class OMVFilesystemAbstract extends OMVObject {
 		}
 		if (TRUE === $this->hasUuid())
 			$cmdArgs[] = sprintf("-U %s", $this->getUuid());
-		else 
+		else
 			$cmdArgs[] = $this->getDeviceFile();
 		$cmd = sprintf("export LANG=C; mount %s 2>&1", implode(" ", $cmdArgs));
 		@OMVUtil::exec($cmd, $output, $result);
@@ -1558,7 +1575,7 @@ class OMVFilesystemAbstract extends OMVObject {
 
 	/**
 	 * See if a directory is a mountpoint.
-	 * @param 
+	 * @param dir The directory path to check.
 	 * @return TRUE if the directory is a mountpoint, otherwise FALSE.
 	 */
 	public static function isMountPoint($dir) {
@@ -2405,7 +2422,7 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	/**
 	 * Check whether the given device is represented by this storage
 	 * device backend.
-	 * @param deviceFile Specifies the device file, e.g. 
+	 * @param deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb
 	 *   \li /dev/md1
@@ -3156,23 +3173,23 @@ class OMVStorageDeviceMdadm extends OMVStorageDeviceAbstract {
 		//    Raid Devices : 3
 		//   Total Devices : 3
 		//     Persistence : Superblock is persistent
-		// 
+		//
 		//   Intent Bitmap : Internal
-		// 
+		//
 		//     Update Time : Tue Dec 25 22:31:32 2012
 		//           State : active
 		//  Active Devices : 3
 		// Working Devices : 3
 		//  Failed Devices : 0
 		//   Spare Devices : 0
-		// 
+		//
 		//          Layout : left-symmetric
 		//      Chunk Size : 512K
-		// 
+		//
 		//            Name : dhcppc2:0  (local to host dhcppc2)
 		//            UUID : 9d85a4f6:afff2cb6:b8a5f4dc:75f3cfd3
 		//          Events : 37
-		// 
+		//
 		//     Number   Major   Minor   RaidDevice State
 		//        0       8       16        0      active sync   /dev/sdb
 		//        1       8       48        1      active sync   /dev/sdd
@@ -3674,7 +3691,7 @@ class OMVATASMARTInformation extends OMVObject {
 		// Local Time is:    Tue Mar 11 10:18:42 2014 CET
 		// SMART support is: Available - device has SMART capability.
 		// SMART support is: Enabled
-		// 
+		//
 		// === START OF READ SMART DATA SECTION ===
 		// ...
 		$sectionFound = FALSE;
@@ -4034,7 +4051,7 @@ class OMVNetworkInterface extends OMVObject {
 			return FALSE;
 		$output = implode("\n", $output);
 		// Parse command output:
-		// 192.168.178.0/24  proto kernel  scope link  src 192.168.178.21 
+		// 192.168.178.0/24  proto kernel  scope link  src 192.168.178.21
 		// default via 192.168.178.1
 		$regex = sprintf('/default via\s+(%s)/im', $this->regex['ipv4']);
 		if(1 !== preg_match($regex, $output, $matches))
@@ -4692,8 +4709,8 @@ class OMVLvmPhysicalVolumes extends OMVObject {
 			return FALSE;
 		$list = array();
 		// Parse command output:
-		//   /dev/sdc      
-		//   /dev/sdd      
+		//   /dev/sdc
+		//   /dev/sdd
 		//   unknown device
 		foreach($output as $outputk => $outputv) {
 			$deviceFile = trim($outputv);

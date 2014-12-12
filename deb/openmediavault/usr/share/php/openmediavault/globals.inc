@@ -75,6 +75,15 @@ $GLOBALS['OMV_MKFS_OPTIONS_EXT4'] = "-b 4096 -m 0";
 $GLOBALS['OMV_MKFS_OPTIONS_JFS'] = "-q";
 $GLOBALS['OMV_MKFS_OPTIONS_XFS'] = "-f";
 $GLOBALS['OMV_MKFS_EXTRAOPTIONS_EXT4_MDADM'] = "-E stride=128,stripe-width=256";
+$GLOBALS['OMV_FSTAB_MNTOPS_EXT2'] = "defaults,nofail,user_xattr,noexec";
+$GLOBALS['OMV_FSTAB_MNTOPS_EXT3'] = "defaults,nofail,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0";
+$GLOBALS['OMV_FSTAB_MNTOPS_EXT4'] = "defaults,nofail,user_xattr,noexec,usrjquota=aquota.user,grpjquota=aquota.group,jqfmt=vfsv0";
+$GLOBALS['OMV_FSTAB_MNTOPS_JFS'] = "defaults,nofail,noexec,usrquota,grpquota";
+$GLOBALS['OMV_FSTAB_MNTOPS_XFS'] = "defaults,nofail,noexec,usrquota,grpquota";
+$GLOBALS['OMV_FSTAB_MNTOPS_VFAT'] = "defaults,nofail";
+$GLOBALS['OMV_FSTAB_MNTOPS_NTFS'] = "defaults,nofail";
+$GLOBALS['OMV_FSTAB_MNTOPS_HFSPLUS'] = "defaults,nofail,force";
+$GLOBALS['OMV_FSTAB_MNTOPS_BTRFS'] = "defaults,nofail";
 $GLOBALS['OMV_APT_PLUGINS_INDEX_FILE'] = "/var/lib/openmediavault/apt/pluginsindex.json";
 $GLOBALS['OMV_APT_UPGRADE_INDEX_FILE'] = "/var/lib/openmediavault/apt/upgradeindex.json";
 
