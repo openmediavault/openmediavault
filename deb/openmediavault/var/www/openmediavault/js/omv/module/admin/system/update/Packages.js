@@ -113,8 +113,8 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 		xtype: "whitespacecolumn",
 		text: _("Description"),
 		sortable: true,
-		dataIndex: "description",
-		stateId: "description",
+		dataIndex: "extendeddescription",
+		stateId: "extendeddescription",
 		width: 340,
 		hidden: true
 	},{

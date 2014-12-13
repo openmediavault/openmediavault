@@ -135,8 +135,8 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		xtype: "whitespacecolumn",
 		text: _("Description"),
 		sortable: true,
-		dataIndex: "description",
-		stateId: "description",
+		dataIndex: "extendeddescription",
+		stateId: "extendeddescription",
 		width: 340,
 		hidden: true
 	},{
