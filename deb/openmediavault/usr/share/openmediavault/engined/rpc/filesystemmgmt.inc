@@ -834,24 +834,6 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  $fs->getType()));
 			break;
 		}
-		// Check if the device, which contains the filesystem to
-		// be mounted, is of non-rotational type (e.g. SSD, DOM,
-		// CF card, USB stick, ...).
-		// In this case optimize the mount options:
-		// - add 'discard' to support the ATA_TRIM command, see
-		//   http://en.wikipedia.org/wiki/TRIM.
-		// - add 'noatime' to do not update inode access times on the
-		//   filesystem.
-		// - add 'nodiratime' to do not update directory inode access
-		//   times.
-		if (FALSE === $sd->isRotational()) {
-			// File systems that support TRIM.
-			// See https://wiki.archlinux.org/index.php/Solid_State_Drives#TRIM
-			if ($fsb->hasDiscardSupport())
-				array_push($opts, "discard");
-			//array_push($opts, "noatime");
-			//array_push($opts, "nodiratime");
-		}
 		// Create fstab entry?
 		if (TRUE === boolvalEx($params['fstab'])) {
 			// Check for duplicates. Create a new mount point configuration

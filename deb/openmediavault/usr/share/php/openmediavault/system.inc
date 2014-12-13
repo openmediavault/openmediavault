@@ -609,7 +609,26 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 		// supports POSIX ACL.
 		if ($this->hasPosixAclSupport())
 			$options[] = "acl";
-		return $options;
+		// Check if the device is a non-rotational type (e.g. SSD, DOM,
+		// CF card, USB stick, ...).
+		// In this case optimize the mount options:
+		// - add 'discard' to support the ATA_TRIM command, see
+		//   http://en.wikipedia.org/wiki/TRIM.
+		// - add 'noatime' to do not update inode access times on the
+		//   filesystem.
+		// - add 'nodiratime' to do not update directory inode access
+		//   times.
+		if (!is_null($sd)) {
+			if (FALSE === $sd->isRotational()) {
+				// File systems that support TRIM.
+				// See https://wiki.archlinux.org/index.php/Solid_State_Drives#TRIM
+				if ($this->hasDiscardSupport())
+					array_push($opts, "discard");
+				//array_push($opts, "noatime");
+				//array_push($opts, "nodiratime");
+			}
+		}
+		return array_unique($options);
 	}
 
 	/**
