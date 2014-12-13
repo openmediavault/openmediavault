@@ -188,6 +188,8 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 							type: "string",
 							defaultValue: "utilities",
 							convert: function(value, record) {
+								if (Ext.isEmpty(value))
+									value = this.defaultValue;
 								return Ext.String.capitalize(value);
 							}
 						}
