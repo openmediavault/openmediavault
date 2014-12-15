@@ -206,6 +206,9 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 				sorters: [{
 					direction: "ASC",
 					property: "name"
+				},{
+					direction: "ASC",
+					property: "pluginsection"
 				}]
 			})
 		});
