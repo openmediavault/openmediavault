@@ -474,6 +474,7 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	const PROP_MNTENT = 0x1;
 	const PROP_POSIX_ACL = 0x2;
 	const PROP_DISCARD = 0x4;
+	const PROP_QUOTA = 0x8;
 
 	protected $type;
 	protected $properties = self::PROP_NONE;
@@ -596,6 +597,14 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	}
 
 	/**
+	* Does the filesystem support disc quota.
+	* @return TRUE if the filesystem supports disc quota, otherwise FALSE.
+	*/
+	public function hasQuotaSupport() {
+		return $this->hasProperty(self::PROP_QUOTA);
+	}
+
+	/**
 	 * Get filesystem mount options used in '/etc/fstab'.
 	 * See http://linux.die.net/man/8/mount.
 	 * If a storage device is given the result mount option list can contain
@@ -675,7 +684,8 @@ class OMVFilesystemBackendExt2 extends OMVFilesystemBackendExt {
 	public function __construct() {
 		parent::__construct();
 		$this->type = "ext2";
-		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
+		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
+		  self::PROP_QUOTA;
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT2']);
 	}
 }
@@ -685,7 +695,7 @@ class OMVFilesystemBackendExt3 extends OMVFilesystemBackendExt2 {
 		parent::__construct();
 		$this->type = "ext3";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-		  self::PROP_DISCARD;
+		  self::PROP_DISCARD | self::PROP_QUOTA;
 		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_EXT3'];
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT3']);
 	}
@@ -717,7 +727,7 @@ class OMVFilesystemBackendXfs extends OMVFilesystemBackendAbstract {
 		parent::__construct();
 		$this->type = "xfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-		  self::PROP_DISCARD;
+		  self::PROP_DISCARD | self::PROP_QUOTA;
 		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_XFS'];
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_XFS']);
 	}
@@ -728,7 +738,7 @@ class OMVFilesystemBackendJfs extends OMVFilesystemBackendAbstract {
 		parent::__construct();
 		$this->type = "jfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-		  self::PROP_DISCARD;
+		  self::PROP_DISCARD | self::PROP_QUOTA;
 		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_JFS'];
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_JFS']);
 	}
