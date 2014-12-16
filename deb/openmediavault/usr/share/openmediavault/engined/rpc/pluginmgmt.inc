@@ -55,9 +55,9 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	 *   \em version, \em oldversion, \em architecture, \em package,
 	 *   \em priority, \em section, \em installedsize, \em maintainer,
 	 *   \em filename, \em size, \em md5sum, \em sha1, \em sha256,
-	 *   \em abstract, \em homepage, \em installed, \em repository
-	 *   and \em _readonly. The following fields are optional:
-	 *   \em description, \em extendeddescription, \em depends, \em replaces
+	 *   \em abstract, \em homepage, \em installed and \em repository.
+	 *   The following fields are optional: \em description,
+	 *   \em extendeddescription, \em depends, \em replaces
 	 *   and \em conflicts.
 	 * @throw E_MISC_FAILURE
 	 */
@@ -94,9 +94,9 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 	 *   \em oldversion, \em architecture, \em package, \em priority,
 	 *   \em section, \em installedsize, \em maintainer, \em filename, \em size,
 	 *   \em md5sum, \em sha1, \em sha256, \em abstract, \em homepage,
-	 *   \em installed, \em repository and \em _readonly. The following fields
-	 *   are optional: \em description, \em depends, \em replaces and
-	 *   \em conflicts. An exception will be thrown in case of an error.
+	 *   \em installed and \em repository. The following fields are optional:
+	 *   \em description, \em depends, \em replaces and \em conflicts. An
+	 *   exception will be thrown in case of an error.
 	 */
 	function getList($params, $context) {
 		// Validate the RPC caller context.
@@ -115,10 +115,6 @@ class OMVRpcServicePluginMgmt extends OMVRpcServiceAbstract {
 		  }');
 		// Enumerate all available packages/plugins.
 		$objects = $this->callMethod("enumeratePlugins", NULL, $context);
-		// Add additional information.
-		foreach ($objects as $objectk => &$objectv) {
-			$objectv['_readonly'] = !$objectv['installed'];
-		}
 		// Filter result.
 		return $this->applyFilter($objects, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);

@@ -47,7 +47,6 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 		"Ext.XTemplate"
 	],
 
-	hidePagingToolbar: false,
 	hideAddButton: true,
 	hideEditButton: true,
 	hideDeleteButton: true,
@@ -165,10 +164,9 @@ Ext.define("OMV.module.admin.system.update.Packages", {
 					type: "rpc",
 					rpcData: {
 						service: "Apt",
-						method: "getUpgradedList"
+						method: "enumerateUpgraded"
 					}
 				},
-				remoteSort: true,
 				sorters: [{
 					direction: "ASC",
 					property: "name"

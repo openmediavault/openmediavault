@@ -47,7 +47,6 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		"Ext.XTemplate"
 	],
 
-	hidePagingToolbar: false,
 	hideAddButton: true,
 	hideEditButton: true,
 	deleteButtonText: _("Uninstall"),
@@ -173,7 +172,13 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 				model: OMV.data.Model.createImplicit({
 					idProperty: "name",
 					fields: [
-						{ name: "_readonly", type: "boolean" },
+						{
+							name: "_readonly",
+							type: "boolean",
+							convert: function(value, record) {
+								return !record.get("installed");
+							}
+						},
 						{ name: "name", type: "string" },
 						{ name: "version", type: "string" },
 						{ name: "repository", type: "string" },
@@ -199,10 +204,9 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 					type: "rpc",
 					rpcData: {
 						service: "Plugin",
-						method: "getList"
+						method: "enumeratePlugins"
 					}
 				},
-				remoteSort: true,
 				sorters: [{
 					direction: "ASC",
 					property: "name"
