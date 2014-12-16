@@ -30,8 +30,10 @@ monit reload
 
 case "$1" in
 	purge)
-		# Remove the configuration data
+		# Remove the configuration data.
 		omv_config_delete "/config/services/afp"
+		# Remove Zeroconf configuration.
+		omv_config_delete "/config/services/zeroconf/services/service[id='afp']"
 	;;
 
 	remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
