@@ -582,6 +582,8 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 
 	/**
 	 * Does the filesystem support POSIX ACL.
+	 * @see http://de.wikipedia.org/wiki/Access_Control_List
+	 * @see http://www.suse.de/~agruen/acl/linux-acls/online
 	 * @return TRUE if the filesystem supports POSIX ACL, otherwise FALSE.
 	 */
 	public function hasPosixAclSupport() {
@@ -1510,22 +1512,6 @@ class OMVFilesystemAbstract extends OMVObject {
 			);
 		}
 		return $result;
-	}
-
-	/**
-	 * Does the filesystem support POSIX ACL.
-	 * @return TRUE if the filesystem supports POSIX ACL, otherwise FALSE.
-	 */
-	public function hasPosixAclSupport() {
-		if ($this->getData() === FALSE)
-			return FALSE;
-		if (NULL == ($backend = OMVFilesystems::getBackendByType(
-		  $this->getType())))
-			return FALSE;
-		// The list of POSIX ACL supporting filesystems. See:
-		// - http://de.wikipedia.org/wiki/Access_Control_List
-		// - http://www.suse.de/~agruen/acl/linux-acls/online
-		return $backend->hasPosixAclSupport();
 	}
 
 	/**

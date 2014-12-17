@@ -117,6 +117,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return The list of configured shared folders.
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @throw E_MISC_FAILURE
 	 */
 	public function enumerateSharedFolders($params, $context) {
 		global $xmlConfig;
@@ -150,20 +151,31 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  $objectv['mntentref']);
 			$meObject = $xmlConfig->get($xpath);
 			if (!is_null($meObject) && !empty($meObject)) {
-				// Add mount point information.
+				// Add some mount point information.
 				$objectv['mntent'] = array_merge($objectv['mntent'], array(
 					"fsname" => $meObject['fsname'],
 					"dir" => $meObject['dir'],
 					"type" => $meObject['type']
 				));
-				$fs = OMVFilesystemFactory::get($meObject['fsname']);
+				// Get the filesystem backend.
+				$fsb = OMVFilesystems::getBackendByType($meObject['type']);
+				if (is_null($fsb)) {
+					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+					  sprintf("No filesystem backend exists for '%s'",
+					  $meObject['type']));
+				}
+				// Does the filesystem support POSIX ACL?
+				$objectv['mntent'] = array_merge($objectv['mntent'], array(
+					"posixacl" => $fsb->hasPosixAclSupport()
+				));
+				// Get the filesystem implementation.
+				$fs = $fsb->getImpl($meObject['fsname']);
 				if (!is_null($fs) && $fs->exists()) {
 					$devicefile = $fs->getDeviceFile();
 					$label = $fs->getLabel();
 					// Add some filesystem details.
 					$objectv['mntent'] = array_merge($objectv['mntent'], array(
-						"devicefile" => $devicefile,
-						"posixacl" => $fs->hasPosixAclSupport()
+						"devicefile" => $devicefile
 					));
 					// Override default values.
 					$objectv['volume'] = !empty($label) ? $label : $devicefile;
@@ -176,9 +188,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			// references are named 'sharedfolderref'.
 			$xpath = sprintf("//*[contains(name(),'sharedfolderref')]".
 			  "[contains(.,'%s')]", $objectv['uuid']);
-			if (TRUE === $xmlConfig->exists($xpath)) {
+			if (TRUE === $xmlConfig->exists($xpath))
 				$objectv['_used'] = TRUE;
-			}
 		}
 		return $objects;
 	}
@@ -544,7 +555,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		$dispatcher->notify(OMV_NOTIFY_PREDELETE,
 		  "org.openmediavault.system.shares.sharedfolder", $object,
 		  $recursive);
-		// Remove the shared folder and its content recursively? 
+		// Remove the shared folder and its content recursively?
 		if(TRUE === $recursive) {
 			// Get the mount point configuration object to build the absolute
 			// shared folder path.
