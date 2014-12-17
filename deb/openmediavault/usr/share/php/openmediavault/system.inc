@@ -475,6 +475,7 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	const PROP_POSIX_ACL = 0x2;
 	const PROP_DISCARD = 0x4;
 	const PROP_QUOTA = 0x8;
+	const PROP_RESIZE = 0x10;
 
 	protected $type;
 	protected $properties = self::PROP_NONE;
@@ -597,11 +598,20 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	}
 
 	/**
-	* Does the filesystem support disc quota.
+	* Does the filesystem support disc quota?
 	* @return TRUE if the filesystem supports disc quota, otherwise FALSE.
 	*/
 	public function hasQuotaSupport() {
 		return $this->hasProperty(self::PROP_QUOTA);
+	}
+
+	/**
+	* Does the filesystem support the capability to resize it online?
+	* @see http://wiki.ubuntuusers.de/Dateisystemgr%C3%B6%C3%9Fe_%C3%A4ndern
+	* @return TRUE if the filesystem supports online resizing, otherwise FALSE.
+	*/
+	public function hasResizeSupport() {
+		return $this->hasProperty(self::PROP_RESIZE);
 	}
 
 	/**
@@ -685,7 +695,7 @@ class OMVFilesystemBackendExt2 extends OMVFilesystemBackendExt {
 		parent::__construct();
 		$this->type = "ext2";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-		  self::PROP_QUOTA;
+		  self::PROP_QUOTA | self::PROP_RESIZE;
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT2']);
 	}
 }
@@ -695,7 +705,7 @@ class OMVFilesystemBackendExt3 extends OMVFilesystemBackendExt2 {
 		parent::__construct();
 		$this->type = "ext3";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-		  self::PROP_DISCARD | self::PROP_QUOTA;
+		  self::PROP_DISCARD | self::PROP_QUOTA | self::PROP_RESIZE;
 		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_EXT3'];
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT3']);
 	}
@@ -727,7 +737,7 @@ class OMVFilesystemBackendXfs extends OMVFilesystemBackendAbstract {
 		parent::__construct();
 		$this->type = "xfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-		  self::PROP_DISCARD | self::PROP_QUOTA;
+		  self::PROP_DISCARD | self::PROP_QUOTA | self::PROP_RESIZE;
 		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_XFS'];
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_XFS']);
 	}
@@ -738,7 +748,7 @@ class OMVFilesystemBackendJfs extends OMVFilesystemBackendAbstract {
 		parent::__construct();
 		$this->type = "jfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL |
-		  self::PROP_DISCARD | self::PROP_QUOTA;
+		  self::PROP_DISCARD | self::PROP_QUOTA | self::PROP_RESIZE;
 		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_JFS'];
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_JFS']);
 	}

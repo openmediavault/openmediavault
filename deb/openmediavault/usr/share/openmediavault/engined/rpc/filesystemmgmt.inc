@@ -60,8 +60,9 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 	 * @return An array of objects with the following fields: \em uuid,
 	 *   \em devicefile, \em type, \em label, \em blocks, \em size,
 	 *   \em mountpoint, \em blocks, \em used, \em available, \em description,
-	 *   \em posixacl, \em mounted and \em percentage. Additional the
-	 *   internal fields \em _used and \em _readonly are set.
+	 *   \em propposixacl, \em propquota, \em propresize, \em propfstab,
+	 *   \em mounted and \em percentage. Additional the internal fields
+	 *   \em _used and \em _readonly are set.
 	 * @throw E_MISC_FAILURE
 	 */
 	public function enumerateFilesystems($params, $context) {
@@ -82,14 +83,21 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// Is it a filesystem of interest?
 			if (!OMVFilesystems::isSupported($objectv['type']))
 				continue;
-			// Use the devicefile to get the filesystem details because vfat
-			// filesystems do not have a valid UUID. Any idea why?
-			$fs = OMVFilesystemFactory::get($objectv['devicefile']);
+			// Get the filesystem backend.
+			$fsb = OMVFilesystems::getBackendByType($objectv['type']);
+			if (is_null($fsb)) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("No filesystem backend exists for '%s'",
+				  $objectv['type']));
+			}
+			// Get the filesystem implementation. Use the devicefile to get
+			// the filesystem details because VFAT filesystems do not have
+			// a valid UUID.
+			$fs = $fsb->getImpl($objectv['devicefile']);
 			if (is_null($fs) || !$fs->exists()) {
-//				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-//				  sprintf(gettext("Filesystem '%s' not found"),
-//				  $objectv['devicefile']));
-				continue;
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+				"Failed to get the '%s' filesystem implementation for '%s'",
+				$fsb->getType(), $objectv['devicefile']));
 			}
 			// Set default values.
 			$object = array(
@@ -106,7 +114,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				"percentage" => -1,
 				"description" => $fs->hasLabel() ? $fs->getLabel() :
 				  $fs->getDeviceFile(),
-				"posixacl" => $fs->hasPosixAclSupport(),
+				"propposixacl" => $fsb->hasPosixAclSupport(),
+				"propquota" => $fsb->hasQuotaSupport(),
+				"propresize" => $fsb->hasResizeSupport(),
+				"propfstab" => $fsb->hasFstabSupport(),
 				"_used" => FALSE
 			);
 			// Check if the filesystem is used. First try to get the
@@ -155,7 +166,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 
 	/**
 	 * Enumerate all filesystems that have a mount point configuration
-	 * object, except binds, and are actually mounted.
+	 * object, except binds, and that are actually mounted.
 	 * @param params The method parameters.
 	 *   \em includeRoot TRUE to append the filesystem '/dev/root' if mounted.
 	 *     Defaults to FALSE.
@@ -163,8 +174,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 	 * @return An array of objects with the following fields: \em uuid,
 	 *   \em devicefile, \em type, \em label, \em blocks, \em size,
 	 *   \em mountpoint, \em blocks, \em used, \em available,
-	 *   \em description and \em percentage.
+	 *   \em description, \em percentage, \em propposixacl, \em propquota,
+	 *   \em propresize and \em propfstab.
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 * @throw E_MISC_FAILURE
 	 */
 	public function enumerateMountedFilesystems($params, $context) {
 		global $xmlConfig;
@@ -197,12 +210,19 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		// Get the filesystem details for each mount point.
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
-			$fs = OMVFilesystemFactory::get($objectv['fsname']);
+			// Get the filesystem backend.
+			$fsb = OMVFilesystems::getBackendByType($objectv['type']);
+			if (is_null($fsb)) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("No filesystem backend exists for '%s'",
+				  $objectv['type']));
+			}
+			// Get the filesystem implementation.
+			$fs = $fsb->getImpl($objectv['fsname']);
 			if (is_null($fs) || !$fs->exists()) {
-//				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-//				  sprintf(gettext("Filesystem '%s' not found"),
-//				  $objectv['fsname']));
-				continue;
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+				  "Failed to get the '%s' filesystem implementation for '%s'",
+				  $fsb->getType(), $objectv['fsname']));
 			}
 			// Check if the given filesystem is mounted based on the configured
 			// mount point. Skip the filesystems that are not mounted at the
@@ -223,7 +243,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				"percentage" => -1,
 				"description" => $fs->hasLabel() ? $fs->getLabel() :
 				  $fs->getDeviceFile(),
-				"posixacl" => $fs->hasPosixAclSupport()
+				"propposixacl" => $fsb->hasPosixAclSupport(),
+				"propquota" => $fsb->hasQuotaSupport(),
+				"propresize" => $fsb->hasResizeSupport(),
+				"propfstab" => $fsb->hasFstabSupport(),
 			);
 			// Get some more filesystem details if possible.
 			if (FALSE !== ($fsStats = $fs->getStatistics())) {
@@ -253,8 +276,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 	 * @return An array of objects with the following fields: \em uuid,
 	 *   \em devicefile, \em type, \em label, \em blocks, \em size,
 	 *   \em mountpoint, \em blocks, \em used, \em available,
-	 *   \em description, \em mounted, \em percentage, \em status and
-	 *   \em mountable.
+	 *   \em description, \em mounted, \em percentage, \em status,
+	 *   \em propposixacl, \em propquota, \em propresize and \em propfstab.
 	 *   The field 'status' has the following meaning:<ul>
 	 *   \li 1 - Online
 	 *   \li 2 - Initializing in progress
@@ -282,15 +305,9 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		// Enumerate all detected filesystems.
 		$objects = $this->callMethod("enumerateFilesystems", NULL, $context);
 		foreach ($objects as $objectk => &$objectv) {
-			// Mark each as initialized.
+			// Mark each filesystem as as initialized and 'Online'
+			// by default.
 			$objectv['status'] = 1;
-			// Mark the device as mountable if the filesystem supports
-			// mount entries in '/etc/fstab'.
-			$objectv['mountable'] = FALSE;
-			// Get the corresponding filesystem backend.
-			$fsb = OMVFilesystems::getBackendByType($objectv['type']);
-			if (!is_null($fsb))
-				$objectv['mountable'] = $fsb->hasFstabSupport();
 		}
 		// Try to detect filesystems that are being initialized.
 		foreach (new DirectoryIterator("/tmp") as $file) {
@@ -315,16 +332,23 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				// filesystem has then been already detected by blkid, thus
 				// it is already in the list of detected filesystems.
 				$initialized = FALSE;
-				foreach($objects as $objectk => &$objectv) {
-					if($objectv['devicefile'] === $fsInfo['devicefile']) {
+				foreach ($objects as $objectk => &$objectv) {
+					if ($objectv['devicefile'] === $fsInfo['devicefile']) {
 						$initialized = TRUE;
 						break;
 					}
 				}
-				if(TRUE === $initialized) {
-					if(TRUE === file_exists($fileName))
+				if (TRUE === $initialized) {
+					if (TRUE === file_exists($fileName))
 						unlink($fileName);
 					continue;
+				}
+				// Get the filesystem backend.
+				$fsb = OMVFilesystems::getBackendByType($fsInfo['type']);
+				if (is_null($fsb)) {
+					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+					  sprintf("No filesystem backend exists for '%s'",
+					  $fsInfo['type']));
 				}
 				// Add the filesystem to the result list.
 				$objects[] = array(
@@ -341,6 +365,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					"size" => "-1", // as string
 					"percentage" => -1,
 					"description" => "",
+					"propposixacl" => $fsb->hasPosixAclSupport(),
+					"propquota" => $fsb->hasQuotaSupport(),
+					"propresize" => $fsb->hasResizeSupport(),
+					"propfstab" => $fsb->hasFstabSupport(),
 					"status" => 2,
 					"_used" => FALSE
 				);
@@ -357,9 +385,16 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  $xpath);
 		}
 		foreach ($mntents as $mntentk => $mntentv) {
+			// Get the filesystem backend.
+			$fsb = OMVFilesystems::getBackendByType($mntentv['type']);
+			if (is_null($fsb)) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("No filesystem backend exists for '%s'",
+				  $mntentv['type']));
+			}
 			// Skip valid mount point configuration objects (the filesystem
 			// exists in this case).
-			$fs = OMVFilesystemFactory::get($mntentv['fsname']);
+			$fs = $fsb->getImpl($mntentv['fsname']);
 			if (!is_null($fs) && $fs->exists())
 				continue;
 			// Check if the mount point configuration object is referenced by
@@ -382,6 +417,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				"size" => "-1", // as string
 				"percentage" => -1,
 				"description" => "",
+				"propposixacl" => $fsb->hasPosixAclSupport(),
+				"propquota" => $fsb->hasQuotaSupport(),
+				"propresize" => $fsb->hasResizeSupport(),
+				"propfstab" => $fsb->hasFstabSupport(),
 				"status" => 3,
 				"_used" => $xmlConfig->exists($xpath)
 			);
