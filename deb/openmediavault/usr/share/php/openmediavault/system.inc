@@ -626,10 +626,6 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	 */
 	public function getFstabMntOptions(OMVStorageDeviceAbstract $sd = null) {
 		$options = $this->mntOptions;
-		// Append the mount option 'acl' by default if the filesystem
-		// supports POSIX ACL.
-		if ($this->hasPosixAclSupport())
-			$options[] = "acl";
 		// Check if the device is a non-rotational type (e.g. SSD, DOM,
 		// CF card, USB stick, ...).
 		// In this case optimize the mount options:
@@ -700,6 +696,22 @@ class OMVFilesystemBackendExt2 extends OMVFilesystemBackendExt {
 		  self::PROP_QUOTA | self::PROP_RESIZE;
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT2']);
 	}
+
+	/**
+	 * See parent class definition.
+	 */
+	public function getFstabMntOptions(OMVStorageDeviceAbstract $sd = null) {
+		$options = parent::getFstabMntOptions($sd);
+		$options[] = "acl";
+		return $options;
+	}
+
+	/**
+	 * See parent class definition.
+	 */
+	function getImpl($args) {
+		return new OMVFilesystemExt($args);
+	}
 }
 
 class OMVFilesystemBackendExt3 extends OMVFilesystemBackendExt2 {
@@ -721,6 +733,9 @@ class OMVFilesystemBackendExt4 extends OMVFilesystemBackendExt3 {
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_EXT4']);
 	}
 
+	/**
+	 * See parent class definition.
+	 */
 	public function getMkfsOptions(OMVStorageDeviceAbstract $sd = null) {
 		$options = parent::getMkfsOptions($sd);
 		if (is_a($sd, "OMVStorageDeviceMdadm")) {
@@ -743,6 +758,13 @@ class OMVFilesystemBackendXfs extends OMVFilesystemBackendAbstract {
 		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_XFS'];
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_XFS']);
 	}
+
+	/**
+	 * See parent class definition.
+	 */
+	function getImpl($args) {
+		return new OMVFilesystemXfs($args);
+	}
 }
 
 class OMVFilesystemBackendJfs extends OMVFilesystemBackendAbstract {
@@ -753,6 +775,13 @@ class OMVFilesystemBackendJfs extends OMVFilesystemBackendAbstract {
 		  self::PROP_DISCARD | self::PROP_QUOTA | self::PROP_RESIZE;
 		$this->mkfsOptions = $GLOBALS['OMV_MKFS_OPTIONS_JFS'];
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_JFS']);
+	}
+
+	/**
+	 * See parent class definition.
+	 */
+	function getImpl($args) {
+		return new OMVFilesystemJfs($args);
 	}
 }
 
@@ -820,6 +849,15 @@ class OMVFilesystemBackendReiserfs extends OMVFilesystemBackendAbstract {
 		$this->type = "reiserfs";
 		$this->properties = self::PROP_MNTENT | self::PROP_POSIX_ACL;
 	}
+
+	/**
+	 * See parent class definition.
+	 */
+	public function getFstabMntOptions(OMVStorageDeviceAbstract $sd = null) {
+		$options = parent::getFstabMntOptions($sd);
+		$options[] = "acl";
+		return $options;
+	}
 }
 
 class OMVFilesystemBackendBtrfs extends OMVFilesystemBackendAbstract {
@@ -831,6 +869,9 @@ class OMVFilesystemBackendBtrfs extends OMVFilesystemBackendAbstract {
 		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_BTRFS']);
 	}
 
+	/**
+	 * See parent class definition.
+	 */
 	public function getFstabMntOptions(OMVStorageDeviceAbstract $sd = null) {
 		$options = parent::getFstabMntOptions($sd);
 		if (!is_null($sd)) {
@@ -1119,7 +1160,7 @@ class OMVFilesystemAbstract extends OMVObject {
 	 * @private
 	 * @return TRUE if successful, otherwise FALSE.
 	 */
-	private function getData() {
+	protected function getData() {
 		if ($this->dataCached !== FALSE)
 			return TRUE;
 
@@ -1424,6 +1465,53 @@ class OMVFilesystemAbstract extends OMVObject {
 	}
 
 	/**
+	 * Grow the filesystem.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function grow() {
+		return FALSE;
+	}
+
+	/**
+	 * Shrink the filesystem.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function shrink() {
+		return FALSE;
+	}
+
+	/**
+	 * Remove the filesystem.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	public function remove() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		// Whether the partition schema is 'dos' then it is necessary to
+		// erase the MBR before, otherwise 'wipefs' fails, e.g.:
+		// wipefs: error: /dev/sdh1: appears to contain 'dos' partition table
+		if (in_array($this->getPartitionScheme(), array("dos", "vfat"))) {
+			// http://en.wikipedia.org/wiki/Master_boot_record
+			$cmd = sprintf("export LANG=C; dd if=/dev/zero of=%s bs=512 ".
+			  "count=1 2>&1", escapeshellarg($this->getDeviceFile()));
+			@OMVUtil::exec($cmd, $output, $result);
+			if ($result !== 0) {
+				$this->setLastError($output);
+				return FALSE;
+			}
+		}
+		// Finally remove the filesystem.
+		$cmd = sprintf("export LANG=C; wipefs -a %s 2>&1", escapeshellarg(
+		  $this->getDeviceFile()));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+
+	/**
 	 * Get the mount point of the given filesystem.
 	 * @return The mountpoint of the filesystem or FALSE.
 	 */
@@ -1649,6 +1737,63 @@ class OMVFilesystemAbstract extends OMVObject {
  */
 class OMVFilesystem extends OMVFilesystemAbstract {
 	// Nothing to do here.
+}
+
+class OMVFilesystemExt extends OMVFilesystem {
+	/**
+	 * Grow the filesystem.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	final public function grow() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		$cmd = sprintf("export LANG=C; resize2fs %s 2>&1", escapeshellarg(
+		  $this->getDeviceFile()));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+}
+
+class OMVFilesystemXfs extends OMVFilesystem {
+	/**
+	 * Grow the filesystem.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	final public function grow() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		$cmd = sprintf("export LANG=C; xfs_growfs %s 2>&1",
+		escapeshellarg(OMVFilesystem::buildMountPath($this->getUuid())));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
+}
+
+class OMVFilesystemJfs extends OMVFilesystem {
+	/**
+	 * Grow the filesystem.
+	 * @return TRUE if successful, otherwise FALSE.
+	 */
+	final public function grow() {
+		if ($this->getData() === FALSE)
+			return FALSE;
+		$cmd = sprintf("export LANG=C; mount -o remount,resize %s 2>&1",
+		  escapeshellarg(OMVFilesystem::buildMountPath($this->getUuid())));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		return TRUE;
+	}
 }
 
 /**

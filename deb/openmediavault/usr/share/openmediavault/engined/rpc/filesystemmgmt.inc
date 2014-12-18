@@ -96,8 +96,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$fs = $fsb->getImpl($objectv['devicefile']);
 			if (is_null($fs) || !$fs->exists()) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-				"Failed to get the '%s' filesystem implementation for '%s'",
-				$fsb->getType(), $objectv['devicefile']));
+				  "Failed to get the '%s' filesystem implementation or '%s' ".
+				  "does not exist", $fsb->getType(), $objectv['devicefile']));
 			}
 			// Set default values.
 			$object = array(
@@ -221,8 +221,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$fs = $fsb->getImpl($objectv['fsname']);
 			if (is_null($fs) || !$fs->exists()) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-				  "Failed to get the '%s' filesystem implementation for '%s'",
-				  $fsb->getType(), $objectv['fsname']));
+				  "Failed to get the '%s' filesystem implementation or '%s' ".
+				  "does not exist", $fsb->getType(), $objectv['fsname']));
 			}
 			// Check if the given filesystem is mounted based on the configured
 			// mount point. Skip the filesystems that are not mounted at the
@@ -657,36 +657,31 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				  "id":{'.$GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_UUID'].'}
 			  }
 		  }');
-		// Get filesystem informations.
-		$fs = OMVFilesystemFactory::get($params['id']);
+		// Get the filesystem backend.
+		$fsb = OMVFilesystems::getBackend($params['id']);
+		if (is_null($fsb)) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("No filesystem backend exists for '%s'",
+			  $params['id']));
+		}
+		// Check if the filesystem supports online resizing.
+		if (!$fsb->hasResizeSupport()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("The filesystem '%s' (type=%s) does not support ".
+			  "online resizing", $params['id'], $fsb->getType()));
+		}
+		// Get the filesystem implementation.
+		$fs = $fsb->getImpl($params['id']);
 		if (is_null($fs) || !$fs->exists()) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf(gettext("Filesystem '%s' not found"), $params['id']));
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+			  "Failed to get the '%s' filesystem implementation or '%s' ".
+			  "does not exist", $fsb->getType(), $params['id']));
 		}
-		// Grow the filesystem
-		switch (strtolower($fs->getType())) {
-		case "ext":
-		case "ext2":
-		case "ext3":
-		case "ext4":
-			$cmd = sprintf("resize2fs %s", $fs->getDeviceFile());
-			break;
-		case "xfs":
-			$cmd = sprintf("xfs_growfs %s",
-			  OMVFilesystem::buildMountPath($fs->getUuid()));
-			break;
-		case "jfs":
-			$cmd = sprintf("mount -o remount,resize %s",
-			  OMVFilesystem::buildMountPath($fs->getUuid()));
-			break;
-		default:
+		// Grow the filesystem.
+		if (!$fs->grow()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  sprintf(gettext("Unknown filesystem '%s'"), $fs->getType()));
-			break;
-		}
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
+			  sprintf("Failed to grow the filesystem '%s': %s",
+			  $fs->getDeviceFile(), $fs->getLastError()));
 		}
 	}
 
@@ -770,25 +765,12 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				  "force" => TRUE
 			  ), $context);
 		}
-		// Finally erase the filesystem. Whether the partition schema is 'dos'
-		// then it is necessary to erase the MBR before, otherwise 'wipefs'
-		// fails, e.g.:
-		// wipefs: error: /dev/sdh1: appears to contain 'dos' partition table
+		// Finally erase the filesystem.
 		if ($fs->exists()) {
-			if (in_array($fs->getPartitionScheme(), array("dos", "vfat"))) {
-				// http://en.wikipedia.org/wiki/Master_boot_record
-				$cmd = sprintf("export LANG=C; dd if=/dev/zero of=%s bs=512 ".
-				  "count=1 2>&1", $fs->getDeviceFile());
-				if (0 !== $this->exec($cmd, $output)) {
-					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-					  $cmd, implode("\n", $output));
-				}
-			}
-			$cmd = sprintf("export LANG=C; wipefs -a %s 2>&1",
-			  $fs->getDeviceFile());
-			if (0 !== $this->exec($cmd, $output)) {
-				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-				  $cmd, implode("\n", $output));
+			if (FALSE === $fs->remove()) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("Failed to remove filesystem '%s': %s",
+				  $fs->getDeviceFile(), $fs->getLastError()));
 			}
 		}
 		// Notify configuration changes.
@@ -834,8 +816,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		$fs = $fsb->getImpl($params['id']);
 		if (is_null($fs) || !$fs->exists()) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-			  "Failed to get the '%s' filesystem implementation for '%s'",
-			  $fsb->getType(), $params['id']));
+			  "Failed to get the '%s' filesystem implementation or '%s' ".
+			  "does not exist", $fsb->getType(), $params['id']));
 		}
 		// Get the storage device containing the filesystem, e.g. /dev/sdb or
 		// /dev/cciss/c0d0.
