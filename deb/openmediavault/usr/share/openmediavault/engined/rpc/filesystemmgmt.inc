@@ -692,7 +692,6 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 	 * @param context The context of the caller.
 	 * @return None.
 	 * @throw E_MISC_FAILURE
-	 * @throw E_EXEC_FAILED
 	 */
 	public function delete($params, $context) {
 		global $xmlConfig;
