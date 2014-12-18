@@ -137,12 +137,12 @@ Ext.define("OMV.window.Login", {
 		// Get the username and password.
 		var params = me.fp.getValues();
 		// Display waiting mask.
-		Ext.getBody().mask(_("Please wait ..."));
+		me.mask(_("Please wait ..."));
 		// Execute RPC.
 		OMV.Rpc.request({
 			scope: me,
 			callback: function(id, success, response) {
-				Ext.getBody().unmask();
+				me.unmask();
 				if (!success)
 					OMV.MessageBox.error(null, response);
 				else
