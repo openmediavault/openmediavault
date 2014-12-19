@@ -1722,8 +1722,8 @@ class OMVFilesystemAbstract extends OMVObject {
 		// An alternative implementation is:
 		// blkid -p -u filesystem <devicefile>
 		// Scan output for tag PTTYPE.
-		$cmd = sprintf("export LANG=C; blkid | grep -E '^%s[0-9]*:.+$'",
-		  $deviceFile);
+		$cmd = sprintf("export LANG=C; blkid | grep -E '^%s[0-9]*:".
+		  ".+\sTYPE=.+$'", $deviceFile);
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0)
 			return FALSE;

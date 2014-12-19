@@ -220,9 +220,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// Get the filesystem implementation.
 			$fs = $fsb->getImpl($objectv['fsname']);
 			if (is_null($fs) || !$fs->exists()) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-				  "Failed to get the '%s' filesystem implementation or '%s' ".
-				  "does not exist", $fsb->getType(), $objectv['fsname']));
+//				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+//				  "Failed to get the '%s' filesystem implementation or '%s' ".
+//				  "does not exist", $fsb->getType(), $objectv['fsname']));
+				continue;
 			}
 			// Check if the given filesystem is mounted based on the configured
 			// mount point. Skip the filesystems that are not mounted at the

@@ -621,6 +621,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 		dataIndex: "name",
 		stateId: "name"
 	},{
+		xtype: "emptycolumn",
 		text: _("Volume"),
 		sortable: true,
 		dataIndex: "volume",

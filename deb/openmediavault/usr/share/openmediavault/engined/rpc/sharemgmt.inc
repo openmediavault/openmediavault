@@ -136,6 +136,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 		foreach ($objects as $objectk => &$objectv) {
 			// Set the default values.
 			$objectv['_used'] = false;
+			$objectv['volume'] = "";
 			$objectv['description'] = $objectv['name'];
 			$objectv['mntent'] = array(
 				"devicefile" => "",
