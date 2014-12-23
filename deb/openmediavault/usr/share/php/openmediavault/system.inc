@@ -2190,8 +2190,11 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 
 	/**
 	 * Constructor
-	 * @param deviceFile The device file, e.g. /dev/sdb or /dev/md1 or
-	 * /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6.
+	 * @param deviceFile The device file, e.g.
+	 * \li /dev/sdb
+	 * \li /dev/md1
+	 * \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6
+	 * \li /dev/disk/by-id/wwn-0x5000cca211cc703c
 	 */
 	public function __construct($deviceFile) {
 		if(preg_match("/^\/dev\/disk\/by-id\/.+$/", $deviceFile)) {
@@ -2213,7 +2216,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * See interface definition.
 	 */
 	public function getDeviceFile() {
-		if(!$this->deviceFile)
+		if (!$this->deviceFile)
 			$this->deviceFile = realpath($this->deviceFileById);
 		return $this->deviceFile;
 	}
@@ -2223,71 +2226,83 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * \li /dev/disk/by-id/wwn-0x5000cca211cc703c
 	 * \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
 	 * \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML
+	 * The following order of paths will be retured if available:
+	 * \li scsi-xxx
+	 * \li ata-xxx
+	 * \li wwn-xxx, ...
 	 * @return The device path (/dev/disk/by-id/xxx) if available,
 	 *   otherwise /dev/xxx will be returned. In case of an error FALSE
 	 *   will be returned.
 	 */
 	public function getDeviceFileById() {
 		if (!$this->deviceFileById) {
+			if (FALSE === ($devLinks = $this->getDeviceFileSymlinks()))
+				return FALSE;
 			// Set the device file by default.
-			$this->deviceFileById = $this->deviceFile;
-			// Now try to find the device file by-id for the given device.
-			$path = "/dev/disk/by-id";
-			if (is_dir($path)) {
-				$deviceFilesById = array();
-				$deviceName = $this->getDeviceName();
-				// Process directory:
-				// ata-WDC_WD2002FAEX-007BA0_WD-WCAY01065572 -> ../../sda
-				// scsi-SATA_WDC_WD2002FAEX-_WD-WCAY01065572 -> ../../sda
-				// wwn-0x50014ee25d4cdecd -> ../../sda
-				// usb-Generic-_SM_xD_Picture_058F63626420-0:2 -> ../../sde
-				// usb-Generic-_Compact_Flash_058F63626420-0:1 -> ../../sdd
-				// ata-ST31000528AS_7VS3K6EY-part5 -> ../../sdb5
-				// ata-ST31000528AS_7VS3K6EY-part2 -> ../../sdb2
-				// ata-ST31000528AS_7VS3K6EY-part1 -> ../../sdb1
-				// ata-ST31000528AS_7VS3K6EY -> ../../sdb
-				$dir = new DirectoryIterator($path);
-				foreach ($dir as $item) {
-					// Skip everything that is not a symlink.
-					if ($item->isDot() || !$item->isLink())
-						continue;
-					// Skip files that does not match the device name,
-					// e.g. sdb or sdg.
-					if (basename($item->getLinkTarget()) !== $deviceName)
-						continue;
-					$deviceFilesById[] = $item->getPathname();
-				}
-				if (!empty($deviceFilesById)) {
-					// Sort the device files in the following order:
-					// s=[s]csi-xxx
-					// a=[a]ta-xxx
-					// x=any other device file name
-					// fn=call strnatcmp function
-					// |      | $a=s | $a=a | $a=x |
-					// |------|------|------|------|
-					// | $b=s |  fn  |  -1  |  -1  |
-					// | $b=a |   1  |  fn  |  -1  |
-					// | $b=x |   1  |   1  |  fn  |
-					//
-					// Example:
-					// xxx...
-					// yyy...
-					// wwn-0x50014ee25d4cdecd
-					// ata-WDC_WD2002FAEX-007BA0_WD-WCAY01065572
-					// scsi-SATA_WDC_WD2002FAEX-_WD-WCAY01065572
-					usort($deviceFilesById, create_function('$a, $b',
-						'if (($a[0] == "s") && ($b[0] == "a")) return 1;'.
-						'if (($a[0] == "s") && (($b[0] !== "a") && ($b[0] !== "s"))) return 1;'.
-						'if (($a[0] == "a") && ($b[0] == "s")) return -1;'.
-						'if (($a[0] == "a") && (($b[0] !== "a") && ($b[0] !== "s"))) return 1;'.
-						'if ((($a[0] !== "a") && ($a[0] !== "s")) && ($b[0] == "s")) return -1;'.
-						'if ((($a[0] !== "a") && ($a[0] !== "s")) && ($b[0] == "a")) return -1;'.
-						'return strnatcmp($a, $b);'));
-					$this->deviceFileById = array_pop($deviceFilesById);
-				}
+			$this->deviceFileById = $this->getDeviceFile();
+			// Get the 'by-id' device file symlinks.
+			$deviceNamesById = array();
+			$regex = "/^\/dev\/disk\/by-id\/(.+)$/";
+			foreach ($devLinks as $devLinkk => $devLinkv) {
+				if (1 == preg_match($regex, $devLinkv, $matches))
+					$deviceNamesById[] = $matches[1];
+			}
+			if (!empty($deviceNamesById)) {
+				// Sort the device names in the following order:
+				// s=[s]csi-xxx
+				// a=[a]ta-xxx
+				// x=any other device file name
+				// fn=call strnatcmp function
+				// |      | $a=s | $a=a | $a=x |
+				// |------|------|------|------|
+				// | $b=s |  fn  |  -1  |  -1  |
+				// | $b=a |   1  |  fn  |  -1  |
+				// | $b=x |   1  |   1  |  fn  |
+				//
+				// Example:
+				// xxx...
+				// yyy...
+				// wwn-0x50014ee25d4cdecd
+				// ata-WDC_WD2002FAEX-007BA0_WD-WCAY01065572
+				// scsi-SATA_WDC_WD2002FAEX-_WD-WCAY01065572
+				usort($deviceNamesById, create_function('$a, $b',
+				  'if (($a[0] == "s") && ($b[0] == "a")) return 1;'.
+				  'if (($a[0] == "s") && (($b[0] !== "a") && ($b[0] !== "s"))) return 1;'.
+				  'if (($a[0] == "a") && ($b[0] == "s")) return -1;'.
+				  'if (($a[0] == "a") && (($b[0] !== "a") && ($b[0] !== "s"))) return 1;'.
+				  'if ((($a[0] !== "a") && ($a[0] !== "s")) && ($b[0] == "s")) return -1;'.
+				  'if ((($a[0] !== "a") && ($a[0] !== "s")) && ($b[0] == "a")) return -1;'.
+				  'return strnatcmp($a, $b);'));
+				// Finally build the whole path of the device file.
+				$this->deviceFileById = sprintf("/dev/disk/by-id/%s",
+				  array_pop($deviceNamesById));
 			}
 		}
 		return $this->deviceFileById;
+	}
+
+	/**
+	* Get all device file symlinks via UDEV, e.g.
+	* \li /dev/disk/by-id/wwn-0x5000cca211cc703c
+	* \li /dev/disk/by-id/scsi-SATA_IBM-DHEA-36481_SG0SGF08038
+	* \li /dev/disk/by-id/ata-Hitachi_HDT725032VLA360_VFD200R2CWB7ML
+	* \li /dev/disk/by-path/pci-0000:00:02.5-scsi-0:0:0:0
+	* @return The device file symlinks as an array of strings. In case
+	*   of an error FALSE will be returned.
+	*/
+	public function getDeviceFileSymlinks() {
+		$cmd = sprintf("export LANG=C; udevadm info --query=symlink ".
+		  "--name=%s", escapeshellarg($this->getDeviceFile()));
+		@OMVUtil::exec($cmd, $output, $result);
+		if ($result !== 0) {
+			$this->setLastError($output);
+			return FALSE;
+		}
+		$result = explode(" ", $output[0]);
+		foreach ($result as &$deviceFile) {
+			$deviceFile = sprintf("/dev/%s", $deviceFile);
+		}
+		return $result;
 	}
 
 	/**
@@ -2295,11 +2310,11 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return The size (64bit) of the device in bytes as string.
 	 */
 	public function getSize() {
-		if($this->size === FALSE) {
+		if ($this->size === FALSE) {
 			$cmd = sprintf("export LANG=C; blockdev --getsize64 %s",
 			  escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0) {
+			if ($result !== 0) {
 				$this->setLastError($output);
 				return FALSE;
 			}
@@ -2313,11 +2328,11 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return The blocksize of the device in bytes, otherwise FALSE.
 	 */
 	public function getBlockSize() {
-		if($this->blockSize === FALSE) {
+		if ($this->blockSize === FALSE) {
 			$cmd = sprintf("export LANG=C; blockdev --getbsz %s",
 			  escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0) {
+			if ($result !== 0) {
 				$this->setLastError($output);
 				return FALSE;
 			}
@@ -2331,11 +2346,11 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return The sectorsize of the device in bytes, otherwise FALSE.
 	 */
 	public function getSectorSize() {
-		if($this->sectorSize === FALSE) {
+		if ($this->sectorSize === FALSE) {
 			$cmd = sprintf("export LANG=C; blockdev --getss %s",
 			  escapeshellarg($this->getDeviceFile()));
 			@OMVUtil::exec($cmd, $output, $result);
-			if($result !== 0) {
+			if ($result !== 0) {
 				$this->setLastError($output);
 				return FALSE;
 			}
@@ -2349,10 +2364,10 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return The device model, otherwise an empty string.
 	 */
 	public function getModel() {
-		if($this->model === FALSE) {
+		if ($this->model === FALSE) {
 			$filename = sprintf("/sys/block/%s/device/model",
 			  $this->getDeviceName());
-			if(file_exists($filename)) {
+			if (file_exists($filename)) {
 				$this->model = trim(file_get_contents($filename));
 			} else {
 				$this->model = "";
@@ -2366,10 +2381,10 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return The device vendor, otherwise an empty string.
 	 */
 	public function getVendor() {
-		if($this->vendor === FALSE) {
+		if ($this->vendor === FALSE) {
 			$filename = sprintf("/sys/block/%s/device/vendor",
 			  $this->getDeviceName());
-			if(file_exists($filename)) {
+			if (file_exists($filename)) {
 				$this->vendor = trim(file_get_contents($filename));
 			} else {
 				$this->vendor = "";
@@ -2383,7 +2398,7 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return The device serial number, otherwise an empty string.
 	 */
 	public function getSerialNumber() {
-		if(FALSE === ($property = $this->getUdevProperty("ID_SERIAL_SHORT")))
+		if (FALSE === ($property = $this->getUdevProperty("ID_SERIAL_SHORT")))
 			return "";
 		return str_replace("_", " ", $property);
 	}
