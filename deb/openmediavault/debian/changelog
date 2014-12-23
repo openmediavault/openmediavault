@@ -1,6 +1,8 @@
 openmediavault (1.7) stable; urgency=low
 
+  * Update locales.
   * Display plugins and update packages in one page.
+  * Improve PHP RPC backend.
   * Mantis 0001221: Add basic support for Btrfs.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Fri, 12 Dec 2014 02:56:34 +0100
