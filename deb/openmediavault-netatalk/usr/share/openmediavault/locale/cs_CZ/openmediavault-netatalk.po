@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-06 16:30+0200\n"
-"PO-Revision-Date: 2012-03-17 01:51+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2014-12-22 21:57+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,22 +19,22 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 msgid "Add share"
-msgstr ""
+msgstr "Přidat sdílení"
 
 msgid "Advanced settings"
-msgstr ""
+msgstr "Pokročilá nastavení"
 
 msgid "Allow guest login."
-msgstr ""
+msgstr "Povolit přihlášení hosta."
 
 msgid "Allow guests to create or modify files."
-msgstr ""
+msgstr "Umožnit hostům vytvářet nové a upravovat obsah stávajících souborů"
 
 msgid "Allow logins with passwords transmitted in the clear."
-msgstr ""
+msgstr "Umožnit přihlašování hesly přenášenými nešifrovaně (nezabezpečeně)."
 
 msgid "Allow plain passwords"
-msgstr ""
+msgstr "Povolit hesla v holém textu"
 
 msgid "Apple Filing"
 msgstr ""
@@ -42,128 +43,128 @@ msgid "Case folding"
 msgstr ""
 
 msgid "Client sees lowercase, server sees uppercase"
-msgstr ""
+msgstr "Klient vidí malá písmena, server velká"
 
 msgid "Client sees uppercase, server sees lowercase"
-msgstr ""
+msgstr "Klient uvidí velká písmena, server malá"
 
 msgid "Comment"
-msgstr ""
+msgstr "Komentář"
 
 msgid "Don't do :hex translation for dot files."
-msgstr ""
+msgstr "Neprovádět :hex překlady pro soubory, jejichž názvy začínají tečkou."
 
 msgid "Edit share"
-msgstr ""
+msgstr "Upravit sdílení"
 
 msgid "Enable"
-msgstr ""
+msgstr "Povolit"
 
 msgid "Enable Time Machine support for this share."
-msgstr ""
+msgstr "Pro toto sdílení povolit podporu aplikace Time Machine"
 
 msgid "Enable user home directories."
-msgstr ""
+msgstr "Povolit domovské složky uživatelů."
 
 msgid "Extra options"
-msgstr ""
+msgstr "Další možnosti"
 
 msgid "Forces filename restrictions"
-msgstr ""
+msgstr "Vynucení omezení v názvech souborů"
 
 msgid "General settings"
-msgstr ""
+msgstr "Obecná nastavení"
 
 msgid "Guest login"
-msgstr ""
+msgstr "Přihlášení hosta"
 
 msgid "Guest permissions"
-msgstr ""
+msgstr "Práva hosta"
 
 msgid "Guests only have read access by default."
-msgstr ""
+msgstr "Ve výchozím nastavení mohou hosté pouze číst."
 
 msgid "Hide dot files"
-msgstr ""
+msgstr "Nezobrazovat skryté soubory (s názvy začínajícími tečku)"
 
 msgid "Home directories"
-msgstr ""
+msgstr "Domovské složky"
 
 msgid ""
 "If this option is set, then a password is required to access the share."
-msgstr ""
+msgstr "Je-li tato volba nastavena, pak je pro přístup ke sdílení vyžadováno heslo."
 
 msgid ""
 "If this option is set, then users may not create or modify files in the "
 "share."
-msgstr ""
+msgstr "Je-li tato volba nastavena, pak uživatelé nebudou na sdílení moci vytvářet či upravovat soubory."
 
 msgid ""
 "Limit the reported volume size to the given value in MiB, thus preventing TM"
 " from using the whole disk space for backup. Set this value to 0 to disable "
 "this option."
-msgstr ""
+msgstr "Omezit hlášenou velikost svazku na zadanou hodnotu v MiB a tím zabránit TM zabrat pro zálohování celou kapacitu úložiště. Pro vyřazení zadejte 0."
 
 msgid "Lowercases names in both directions"
-msgstr ""
+msgstr "Obousměrný převod na názvy malými písmeny"
 
 msgid "Make dot files invisible."
-msgstr ""
+msgstr "Nezobrazovat skryté soubory (ty s názvem začínajícím tečkou)."
 
 msgid "Name"
-msgstr ""
+msgstr "Název"
 
 msgid "None"
-msgstr ""
+msgstr "Žádné"
 
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 msgid "Quota"
-msgstr ""
+msgstr "Kvóta"
 
 msgid "Read only"
-msgstr ""
+msgstr "Pouze pro čtení"
 
 msgid "Set read only."
-msgstr ""
+msgstr "Nastavit pouze pro čtení"
 
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Sdílená složka"
 
 msgid "Shares"
-msgstr ""
+msgstr "Sdílení"
 
 msgid "The location of the files to share."
-msgstr ""
+msgstr "Umístění souborů ke sdílení."
 
 msgid "The name of the share."
-msgstr ""
+msgstr "Název sdílení."
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."
-msgstr ""
+msgstr "Toto vynutí, aby znaky v názvech souborů byly omezeny na sadu používanou systémem Windows."
 
 msgid "This option handles, if the case of filenames should be changed."
-msgstr ""
+msgstr "Tato volba určuje zda by měla být měněna velikost písmen v názvech souborů."
 
 msgid "Time Machine support"
-msgstr ""
+msgstr "Podpora pro aplikaci Time Machine"
 
 msgid "Unix privileges"
-msgstr ""
+msgstr "Unixová pověření"
 
 msgid "Uppercases names in both directions"
-msgstr ""
+msgstr "Názvy s velkými písmeny v obou směrech"
 
 msgid "Use AFP3 unix privileges."
-msgstr ""
+msgstr "Použít unixová pověření dle AFP3."
 
 msgid "Use dots"
-msgstr ""
+msgstr "Použít tečky"
 
 msgid ""
 "When this option gets set, certain file names become illegal. These are "
