@@ -1,6 +1,9 @@
 openmediavault (1.8) stable; urgency=low
 
   * Mantis 0001141: smartd: Reference disks by ATA-/SCSI-Id.
+  * Mantis 0001230: Filesystems (EXT4) need to be initialized as 64bit
+    filesystems to be able to grow >16TiB. This is not supported on
+    32bit systems.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 23 Dec 2014 19:20:45 +0100
 

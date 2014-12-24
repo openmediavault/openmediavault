@@ -263,6 +263,14 @@ function is_multiarray($var) {
 }
 
 /**
+ * Check if the platform is 64bit.
+ * @return TRUE if 64bit, otherwise FALSE.
+ */
+function is_64bits() {
+	return (PHP_INT_SIZE == 8);
+}
+
+/**
  * Validate JSON data via JSON schema.
  * @ingroup api
  * @param json The JSON string to validate.

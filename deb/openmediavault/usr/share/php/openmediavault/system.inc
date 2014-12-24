@@ -745,6 +745,9 @@ class OMVFilesystemBackendExt4 extends OMVFilesystemBackendExt3 {
 			$options .= sprintf(" %s",
 			  $GLOBALS['OMV_MKFS_EXTRAOPTIONS_EXT4_MDADM']);
 		}
+		// Always use 64-bit support on 64bit systems.
+		if (TRUE === is_64bits())
+			$options .= " -O 64bit";
 		return $options;
 	}
 }
