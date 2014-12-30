@@ -1,5 +1,7 @@
 openmediavault (1.8) stable; urgency=low
 
+  * Improve omv-config command. Use --show to display the configuration
+    data as JSON from the given XPath.
   * Mantis 0001141: smartd: Reference disks by ATA-/SCSI-Id.
   * Mantis 0001230: Filesystems (EXT4) need to be initialized as 64bit
     filesystems to be able to grow >16TiB. This is not supported on

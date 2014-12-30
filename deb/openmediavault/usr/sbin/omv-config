@@ -34,17 +34,23 @@ require_once("openmediavault/error.inc");
  */
 function usage() {
     global $argv;
-    $text = <<<EOF
+    $basename = basename($argv[0]);
+    print <<<EOF
 Usage:
-  %s [options] <xpath> <jsondata>
+  ${basename} [options] <xpath> [jsondata]
 
 OPTIONS:
   -i --insert=element  Insert to the given XPath
   -m --modify          Modify the given XPath
+  -s --show            Show the given XPath
   -h --help            Print a help text
 
+Examples:
+  ${basename} -i "a" /config/system/apt '{"b":{"c":"d"}}'
+  ${basename} -m /config/system/apt/distribution/partner "1"
+  ${basename} -s /config/system/time
+
 EOF;
-    printf($text, basename($argv[0]));
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -54,6 +60,7 @@ EOF;
 $cmdargs = array(
 	  "i:" => "insert:",
 	  "m::" => "modify::",
+      "s" => "show",
 	  "h::" => "help::"
   );
 $mode = "";
@@ -63,8 +70,8 @@ $rc = 0;
 // Check the command line arguments. Exit and display usage if
 // nessecary.
 $options = getopt(implode("", array_keys($cmdargs)), $cmdargs);
-foreach($options as $optionk => $optionv) {
-	switch($optionk) {
+foreach ($options as $optionk => $optionv) {
+	switch ($optionk) {
 	case "h":
 	case "help":
 		usage();
@@ -83,40 +90,60 @@ foreach($options as $optionk => $optionv) {
 		$argc -= 1;
 		array_splice($argv, 1, 1);
 		break;
+    case "s":
+    case "show":
+        $mode = "show";
+        $argc -= 1;
+        array_splice($argv, 1, 1);
+        break;
 	}
 }
-if($argc != 3) {
-	print gettext("ERROR: Invalid number of arguments\n");
-	usage();
-	exit(1);
+if (empty($mode)) {
+    print gettext("ERROR: No operation mode given\n");
+    usage();
+    exit(1);
 }
-if(empty($mode)) {
-	print gettext("ERROR: No operation mode given\n");
-	usage();
-	exit(1);
-}
-if(!is_json($argv[2])) {
-	print gettext("ERROR: Invalid JSON\n");
-	exit(1);
-}
-// Process command arguments.
+// Process generic command arguments.
 $xpath = $argv[1];
-$object = json_decode($argv[2], TRUE);
-
+// Process additional command arguments.
+switch ($mode) {
+case "insert":
+case "modify":
+    if ($argc != 3) {
+    	print gettext("ERROR: Invalid number of arguments\n");
+    	usage();
+    	exit(1);
+    }
+    if (!is_json($argv[2])) {
+    	printf("%s: %s\n", gettext("ERROR: Invalid JSON"),
+          json_last_error_msg());
+    	exit(1);
+    }
+    $object = json_decode($argv[2], TRUE);
+    break;
+case "show":
+    break;
+}
 try {
-	$success = FALSE;
-	switch($mode) {
+	switch ($mode) {
 	case "insert":
-		$success = $xmlConfig->set($xpath, array($element => $object));
+		if (!$xmlConfig->set($xpath, array($element => $object)))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		break;
 	case "modify":
-		$success = $xmlConfig->replace($xpath, $object);
+		if (!$xmlConfig->replace($xpath, $object))
+            throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		break;
+    case "show":
+        $object = $xmlConfig->get($xpath);
+        if (is_null($object)) {
+            throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+              $xpath);
+        }
+        printf("%s\n", json_encode($object, JSON_PRETTY_PRINT));
+        break;
 	}
-	if(FALSE === $success) {
-		throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-	}
-} catch(Exception $e) {
+} catch (Exception $e) {
 	printf("%s\n", json_encode_safe(array(
 		  "response" => null,
 		  "error" => array(
