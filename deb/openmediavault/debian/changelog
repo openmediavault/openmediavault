@@ -1,5 +1,6 @@
 openmediavault (1.8) stable; urgency=low
 
+  * Update locales.
   * Improve omv-config command. Use --show to display the configuration
     data as JSON from the given XPath.
   * Mantis 0001141: smartd: Reference disks by ATA-/SCSI-Id.

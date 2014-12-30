@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-12-22 21:45+0000\n"
+"PO-Revision-Date: 2014-12-30 09:18+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -30,10 +30,10 @@ msgid "%s [on %s, %s]"
 msgstr "%s [na %s, %s]"
 
 msgid "'All' is not allowed"
-msgstr "Hodnota „All“ (vše) není možná"
+msgstr "Hodnota All (vše) není možná"
 
 msgid "0 KiB/s means unlimited."
-msgstr "0 KiB/s znamená neomezené."
+msgstr "0 (nula) KiB/s znamená neomezené."
 
 msgid "1 - Minimum power usage with standby (spindown)"
 msgstr "1 - nejnižší spotřeba energie s pohotovostním režimem (zastavení otáčení)"
@@ -100,7 +100,7 @@ msgid "25 years"
 msgstr "25 let"
 
 msgid "254 - Maximum performance, maximum power usage"
-msgstr "254 - Maximální výkon, maximální spotřeba"
+msgstr "254 - Nejvyšší výkon, ale také nejvyšší spotřeba energie"
 
 msgid "255 - Disabled"
 msgstr "255 - zakázáno"
@@ -157,13 +157,13 @@ msgid "9 months"
 msgstr "9 měsíců"
 
 msgid "A module with the name '%s' already exists"
-msgstr "Modul s názvem \"%s\" již existuje"
+msgstr "Modul s názvem %s již existuje"
 
 msgid "A share with the name '%s' already exists"
 msgstr "Název %s je již používán pro jiné sdílení"
 
 msgid "A shared folder with the given name already exists"
-msgstr "Sdílená složka s daným názvem již existuje"
+msgstr "Sdílená složka s takovým názvem již existuje"
 
 msgid "ACL"
 msgstr ""
@@ -241,28 +241,28 @@ msgid ""
 "Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
 " href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
 "for more details."
-msgstr "Další nastavování zařízení, např. \"autoneg off speed 100 duplex full\". Podrobnosti viz <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manuálové stránky</a>."
+msgstr "Další nastavování zařízení, např. „autoneg off speed 100 duplex full“. Podrobnosti viz <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manuálové stránky</a>."
 
 msgid "Address"
 msgstr "Adresa"
 
 msgid "Administrator password"
-msgstr "Heslo administrátora"
+msgstr "Heslo správce"
 
 msgid "Administrator: read/write, Users: no access, Others: no access"
-msgstr "Administrátor: čtení/zápis, Uživatelé: žádný přístup, Ostatní: žádný přístup"
+msgstr "Správce: čtení/zápis, Uživatelé: žádný přístup, Ostatní: žádný přístup"
 
 msgid "Administrator: read/write, Users: read-only, Others: no access"
-msgstr "Administrátor: čtení/zápis, Uživatelé: pouze pro čtení, Ostatní: žádný přístup"
+msgstr "Správce: čtení/zápis, Uživatelé: pouze pro čtení, Ostatní: žádný přístup"
 
 msgid "Administrator: read/write, Users: read-only, Others: read-only"
-msgstr "Administrátor: čtení/zápis, Uživatelé: pouze pro čtení, Ostatní: pouze pro čtení"
+msgstr "Správce: čtení/zápis, Uživatelé: pouze pro čtení, Ostatní: pouze pro čtení"
 
 msgid "Administrator: read/write, Users: read/write, Others: no access"
-msgstr "Administrátor: čtení/zápis, Uživatelé: čtení/zápis, Ostatní: žádný přístup"
+msgstr "Správce: čtení/zápis, Uživatelé: čtení/zápis, Ostatní: žádný přístup"
 
 msgid "Administrator: read/write, Users: read/write, Others: read-only"
-msgstr "Administrátor: čtení/zápis, Uživatelé: čtení/zápis, Ostatní: pouze pro čtení"
+msgstr "Správce: čtení/zápis, Uživatelé: čtení/zápis, Ostatní: pouze pro čtení"
 
 msgid "Advanced Power Management"
 msgstr "Pokročilá správa napájení"
@@ -275,7 +275,7 @@ msgstr "Afghánistán"
 
 msgid ""
 "After the RAID has been grown you can resize the containing file system."
-msgstr "Po zvětšení RAID pole je možné změnit i velikost souborového systému, které nese."
+msgstr "Poté, co bylo RAID pole rozšířeno, je možné zvětšit i souborový systém, které nese."
 
 msgid "Aland Islands"
 msgstr "Alandy"
@@ -306,7 +306,7 @@ msgid "Allow new files"
 msgstr "Povolit nové soubory"
 
 msgid "Allow new files to be created."
-msgstr "Povolit vytváření nových souborů"
+msgstr "Povolit vytváření nových souborů."
 
 msgid ""
 "Allow this server to advertise itself as a time server to Windows clients"
@@ -321,12 +321,12 @@ msgstr "Americká Samoa"
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "E-mail, obsahující výstup příkazu (pokud nějaký existuje) byl odeslán správci systému."
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "user who performs the job."
-msgstr "Emailová zpráva obsahující výstup příkazu (pokud nějaký existuje) je odeslána uživateli, který úlohu spustil."
+msgstr "E-mail, obsahující výstup příkazu (pokud nějaký vznikl), byl odeslán uživateli, který úlohu provádí."
 
 msgid "An error has occured"
 msgstr "Došlo k chybě"
@@ -356,7 +356,7 @@ msgid "Apply"
 msgstr "Potvrdit"
 
 msgid "Apply configuration changes"
-msgstr "Provádění změn v nastavení"
+msgstr "Promítnout změny v nastavení"
 
 msgid "Apply permissions to files and subfolders"
 msgstr "Použít přístupová oprávnění na soubory a podsložky."
@@ -652,7 +652,7 @@ msgid "Community-maintained updates."
 msgstr "Community-maintained updates."
 
 msgid "Comoros"
-msgstr ""
+msgstr "Komory"
 
 msgid "Complete"
 msgstr "Hotovo"
@@ -842,7 +842,7 @@ msgid "Device"
 msgstr "Zařízení"
 
 msgid "Device Mapper %s [%s, %s]"
-msgstr ""
+msgstr "Mapovač zařízení %s [%s, %s]"
 
 msgid "Device information"
 msgstr "Informace o zařízení"
@@ -884,7 +884,7 @@ msgid "Displaying items {0} - {1} of {2}"
 msgstr "Zobrazeno položek {0} - {1} z {2}"
 
 msgid "Djibouti"
-msgstr ""
+msgstr "Džibutsko"
 
 msgid "Do you really want to apply the configuration changes?"
 msgstr "Opravdu chcete použít změny v konfiguraci?"
@@ -910,16 +910,16 @@ msgid "Do you really want to install the selected plugin(s)?"
 msgstr "Opravdu chcete nainstalovat vybrané doplňky?"
 
 msgid "Do you really want to leave the page?"
-msgstr "Opravdu opustit stránku?"
+msgstr "Opravdu chcete stránku opustit?"
 
 msgid "Do you really want to logout?"
 msgstr "Opravdu se chcete odhlásit?"
 
 msgid "Do you really want to put the system into standby?"
-msgstr "Opravdu uvést systém do pohotovostního režimu?"
+msgstr "Opravdu chcete uvést systém do pohotovostního režimu?"
 
 msgid "Do you really want to reboot the system?"
-msgstr "Opravdu restartovat systém?"
+msgstr "Opravdu chcete restartovat systém?"
 
 msgid ""
 "Do you really want to relocate the shared folder? The content of the shared "
@@ -935,7 +935,7 @@ msgid "Do you really want to remove this widget?"
 msgstr "Opravdu chcete odebrat tento widget?"
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
-msgstr "Opravdu chcete obnovit výchozí stav webového grafického uživatelského rozhraní (WebGUI), jako je např. pořadí mřížky sloupce?"
+msgstr "Opravdu chcete obnovit výchozí stav webového rozhraní (WebGUI), jako je např. pořadí sloupců mřížky?"
 
 msgid ""
 "Do you really want to resize the selected file system? You have to do that "
@@ -959,7 +959,7 @@ msgid ""
 "shared folder content will be permanently removed and cannot be recovered. "
 "Select 'No' to delete the shared folder configuration only or 'Cancel' to "
 "abort."
-msgstr ""
+msgstr "Opravdu chcete kompletně smazat obsah sdílené složky? Obsah sdílené složky bude trvale odebrán a nepůjde obnovit. Pro smazání pouze nastavení sdílené složky, nebo Zrušit pro zrušení."
 
 msgid "Domain name"
 msgstr "Doménové jméno"
@@ -977,19 +977,19 @@ msgid "Done ..."
 msgstr "Hotovo ..."
 
 msgid "Down"
-msgstr ""
+msgstr "Vypnout"
 
 msgid "Down delay"
-msgstr ""
+msgstr "Prodleva vypnutí"
 
 msgid "Download"
 msgstr "Stáhnout"
 
 msgid "Downloading package information"
-msgstr "Stahuji informace o balíku"
+msgstr "Stahování informací o balíčku …"
 
 msgid "Dronning Maud Land"
-msgstr ""
+msgstr "Země královny Maud"
 
 msgid "Each line represents one group."
 msgstr "Každý řádek reprezentuje jednu skupinu"
@@ -1054,16 +1054,16 @@ msgid "Egypt"
 msgstr "Egypt"
 
 msgid "El Salvador"
-msgstr ""
+msgstr "Salvador"
 
 msgid "Email"
-msgstr "Email"
+msgstr "E-mail"
 
 msgid "Empty now"
 msgstr "Vyprázdnit nyní"
 
 msgid "Empty recycle bin"
-msgstr "Vysypat koš"
+msgstr "Vysypat Koš"
 
 msgid "Enable"
 msgstr "Povolit"
@@ -1090,7 +1090,7 @@ msgid "Enable asynchronous I/O (AIO) support."
 msgstr "Zapnout podporu pro asynchronní vstup/výstup (AIO)."
 
 msgid "Enable chroot."
-msgstr "Povolit chroot."
+msgstr "Povolit vyhrazené prostředí (chroot)."
 
 msgid "Enable compression"
 msgstr "Povolit kompresi"
@@ -1099,7 +1099,7 @@ msgid "Enable extended attribute support"
 msgstr "Povolit podporu rozšířených atributů"
 
 msgid "Enable keyboard-interactive authentication"
-msgstr ""
+msgstr "Povolit ověřování pomocí interaktivní klávesnice"
 
 msgid "Enable module listing"
 msgstr "Povolit výpis modulů"
@@ -1108,7 +1108,7 @@ msgid "Enable permission inheritance"
 msgstr "Povolit dědičnost oprávnění"
 
 msgid "Enable public key authentication"
-msgstr "Povolit autentizaci veřejným klíčem"
+msgstr "Povolit ověřování veřejným klíčem"
 
 msgid "Enable recycle bin"
 msgstr "Povolit Koš"
@@ -1120,10 +1120,10 @@ msgid ""
 "Enable reverse DNS lookup performed on the remote host's IP address for "
 "incoming active mode data connections and outgoing passive mode data "
 "connections."
-msgstr ""
+msgstr "Povolit zpětné DNS dotazy na IP adresu pro datová spojení v aktivním režimu a odchozí spojení v pasivním režimu."
 
 msgid "Enable secure connection."
-msgstr "Povolit zabezpečené připojení"
+msgstr "Povolit zabezpečené připojení."
 
 msgid "Enable store DOS attributes support"
 msgstr "Povolit ukládání atributů systému DOS"
@@ -1134,7 +1134,7 @@ msgstr "Povolit protokol ident (RFC1413)"
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Zapnutím této volby budou zachovávány i jen částečně přenesené soubory, které by jinak byly v případě přerušení přenosu smazány."
 
 msgid "Enable transfer log"
 msgstr "Povolit protokol přenosů"
@@ -1155,7 +1155,7 @@ msgid "Enter your password"
 msgstr "Zadejte své heslo"
 
 msgid "Enter your username"
-msgstr "Vložte své uživatelské jméno"
+msgstr "Zadejte své uživatelské jméno"
 
 msgid "Equatorial Guinea"
 msgstr "Rovníková Guinea"
@@ -1167,7 +1167,7 @@ msgid "Error"
 msgstr "Chyba"
 
 msgid "Error #"
-msgstr "Chyba #"
+msgstr "Chyba č."
 
 msgid "Error #%d"
 msgstr "Chyba #%d"
@@ -1182,10 +1182,10 @@ msgid "Event"
 msgstr "Událost"
 
 msgid "Every N day of month"
-msgstr "Každých N dní v měsíci"
+msgstr "Každý Ntý den v měsíci"
 
 msgid "Every N hour"
-msgstr "Každých N hodin"
+msgstr "Každou Ntou hodinu"
 
 msgid "Every N minute"
 msgstr "Každých N minut"
@@ -1215,10 +1215,10 @@ msgid "Extended attributes"
 msgstr "Rozšířené atributy"
 
 msgid "Extended information"
-msgstr "Rozšířené informace"
+msgstr "Další informace"
 
 msgid "Extra options"
-msgstr "Extra parametry"
+msgstr "Další možnosti"
 
 msgid "FTP"
 msgstr "FTP"
@@ -1247,10 +1247,10 @@ msgid "Failed to get list of users."
 msgstr "Nelze získat seznam uživatelů."
 
 msgid "Failed to get shadow password suite configuration."
-msgstr ""
+msgstr "Nelze získat nastavení nástrojů pro šifrovaná hesla."
 
 msgid "Failed to get storage device file from '%s'"
-msgstr ""
+msgstr "Z %s nelze získat soubor, představující úložné zařízení"
 
 msgid "Falkland Islands"
 msgstr "Falklandy"
@@ -1288,21 +1288,21 @@ msgstr "Název souboru"
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
-msgstr "Soubory v koši budou automaticky smazány po zadaném počtu dní. Zadejte 0 pro ruční mazání."
+msgstr "Soubory v koši budou automaticky smazány po zadaném počtu dní. Pokud chcete raději mazat ručně, zadejte 0 (nula)."
 
 msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
-msgstr "Soubory větší než zadané množství bytů nebudou vloženy do koše. Zadejte 0 pro neomezenou velikost souboru."
+msgstr "Soubory větší než zadané množství bajtů nebudou při mazání přesunuty do koše, ale rovnou odstraněny. Pokud chcete do koše přesouvat raději všechny soubory, jakkoli velké, nastavte na 0 (nula)."
 
 msgid "Filesize"
 msgstr "Velikost souboru"
 
 msgid "Filesystem '%s' not found"
-msgstr "Souborový systém \"%s\" nebyl nalezen"
+msgstr "Souborový systém %s nebyl nalezen"
 
 msgid "Filesystem '%s' not supported"
-msgstr "Souborový systém \"%s\" není podporován"
+msgstr "Souborový systém %s není podporován"
 
 msgid "Filesystems"
 msgstr "Souborové systémy"
@@ -1323,7 +1323,7 @@ msgid "Force SSL/TLS"
 msgstr "Vynutit SSL/TLS"
 
 msgid "Force secure connection only."
-msgstr "Vynutit použití zabezpečeného spojení."
+msgstr "Vynutit použití výhradně zabezpečeného spojení."
 
 msgid "France"
 msgstr "Francie"
@@ -1368,7 +1368,7 @@ msgid "General users/groups"
 msgstr "Obecní uživatelé/skupiny"
 
 msgid "Generating graphs ..."
-msgstr "Generuji grafy ..."
+msgstr "Generování grafů ..."
 
 msgid "Georgia"
 msgstr "Gruzie"
@@ -1398,13 +1398,13 @@ msgid "Group"
 msgstr "Skupina"
 
 msgid "Group '%s' already exist"
-msgstr "Skupina \"%s\" již existuje"
+msgstr "Skupina %s již existuje"
 
 msgid "Group '%s' does not exist"
-msgstr "Skupina \"%s\" neexistuje"
+msgstr "Skupina %s neexistuje"
 
 msgid "Group ID '%d' already exist"
-msgstr "ID skupiny \"%d\" již existuje"
+msgstr "ID skupiny %d již existuje"
 
 msgid "Groups"
 msgstr "Skupiny"
@@ -1449,10 +1449,10 @@ msgid "Heard Island and McDonald Islands"
 msgstr "Heardův ostrov a McDonaldovy ostrovy"
 
 msgid "Hide details"
-msgstr "Skrýt detaily"
+msgstr "Skrýt podrobnosti"
 
 msgid "Hide dot files"
-msgstr "Skrýt soubory začínající tečkou"
+msgstr "Skrýt soubory s názvy začínajícími tečkou"
 
 msgid "Home directories"
 msgstr "Domovské složky"
@@ -1467,7 +1467,7 @@ msgid "Hong Kong S.A.R., China"
 msgstr "Hongkong, Čína"
 
 msgid "Honor existing ACLs"
-msgstr "Ctít existující seznmy ACL"
+msgstr "Respektovat existující seznamy ACL"
 
 msgid "Host"
 msgstr "Hostitel"
@@ -1521,7 +1521,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selecting; in "
 "this case no password is required to connect to the share."
-msgstr ""
+msgstr "Je-li zvoleno Hosté dovoleni a přihlášení proběhne bez hesla, pak přistupovat jako host. Vždy přistupovat jako host když je zvoleno Pouze hosté - v takovém případě pro připojení ke sdílení není vyžadováno heslo."
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1533,7 +1533,7 @@ msgid ""
 "before starting the file transfer with the client. Then it is not possible "
 "to map users and groups by name and the daemon is not being able to follow "
 "symbolic links that are either absolute or outside of the new root path."
-msgstr ""
+msgstr "Je-li tato volba nastavena, služba se před zahájením přenosu souboru přepne do vyhrazeného prostředí (chroot), tvořeného sdílenou složkou. Tím je znemožněno mapovat uživatele či skupiny pomocí jejich názvů a služba nemůže následovat symbolické odkazy, které jsou absolutní či mimo tuto novou kořenovou složku."
 
 msgid "If this option is set, then any attempted downloads will fail."
 msgstr "Je-li tato volba zapnuta, pak veškeré pokusy o stahování skončí nezdarem."
@@ -1547,7 +1547,7 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr ""
+msgstr "Je-li tento parametr nastaven, Samba se nejprve pokusí z rozšířených atributů načíst DOS atributy (SYSTEM - systémové, HIDDEN - skryté, ARCHIVE - archivovat nebo READ-ONLY - pouze pro čtení) ještě před mapováním DOS atributů na unixová práva. Je-li nastaveno, DOS atributy budou uloženy do rozšířených atributů unixového souborového systému a přiřazeny souboru či složce."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1559,10 +1559,10 @@ msgid ""
 "this option is useful in order to allow passive tranfers to work. You have "
 "to use your public address and opening the passive ports used on your "
 "firewall as well."
-msgstr ""
+msgstr "V případě, že tento systém plní funkci NAT brány či přesměrovává porty pro server, je tato volba užitečná pro fungování pasivních přenosů. Je třeba použít vaší veřejné adresy a otevření pasivních portů, které mají být používání též na firewallu."
 
 msgid "Implicit SSL"
-msgstr "Implicitní SSL"
+msgstr "Výslovné SSL"
 
 msgid "Import"
 msgstr "Importovat"
@@ -1577,10 +1577,10 @@ msgid "Import users"
 msgstr "Importovat uživatele"
 
 msgid "Importing groups ..."
-msgstr "Importuji skupiny ..."
+msgstr "Import skupiny ..."
 
 msgid "Importing users ..."
-msgstr "Importuji uživatele ..."
+msgstr "Import uživatele ..."
 
 msgid ""
 "In some cases you have to specify passive ports range to by-pass firewall "
@@ -1591,7 +1591,7 @@ msgid ""
 "greater than or equal to 1024). It is strongly recommended that the chosen "
 "range be large enough to handle many simultaneous passive connections (for "
 "example, 49152-65534, the IANA-registered ephemeral port range)."
-msgstr ""
+msgstr "V některých případech je obejít omezení firewallu zadáním rozsahu pasivních portů. Pasivní porty omezují rozsah portů ze kterých bude server volit při obržení příkazu PASV od klienta. Server náhodně volí číslo ze zadaného rozsahu, dokud se nepovede otevřený port. Rozsah portů musí ležet v neprivilegovaném rozsahu (např. výše nebo rovno 1024). Je silně doporučováno, aby tyto zvolené rozsahy byly dostatečné pro obsluhu mnoha současných pasivníchspojení (např. 49152-65534 - rozsah dle IANA)."
 
 msgid "Incoming"
 msgstr "Příchozí"
@@ -1600,7 +1600,7 @@ msgid "Incomplete"
 msgstr "Nedokončeno"
 
 msgid "Incorrect username or password."
-msgstr "Špatné uživatelské jméno nebo heslo."
+msgstr "Nesprávné uživatelské jméno nebo heslo."
 
 msgid "India"
 msgstr "Indie"
@@ -1612,7 +1612,7 @@ msgid "Info"
 msgstr "Info"
 
 msgid "Informal"
-msgstr ""
+msgstr "Neformální"
 
 msgid "Information"
 msgstr "Informace"
@@ -1621,10 +1621,10 @@ msgid "Inherit ACLs"
 msgstr "Převzít seznamy ACL"
 
 msgid "Inherit permissions"
-msgstr "Zdědit oprávnění"
+msgstr "Převzít oprávnění"
 
 msgid "Initializing"
-msgstr "Inicializuji"
+msgstr "Inicializace"
 
 msgid "Install"
 msgstr "Instalovat"
@@ -1633,13 +1633,13 @@ msgid "Install updates from"
 msgstr "Instalovat aktualizace z"
 
 msgid "Installed"
-msgstr "Instalováno"
+msgstr "Nainstalováno"
 
 msgid "Installing plugins ..."
-msgstr "Instaluji doplňky ..."
+msgstr "Instalace doplňků ..."
 
 msgid "Installing updates ..."
-msgstr "Instaluji aktualizace ..."
+msgstr "Instalace aktualizací ..."
 
 msgid "Interfaces"
 msgstr "Rozhraní"
@@ -1758,7 +1758,7 @@ msgstr "Libanon"
 msgid ""
 "Length of time in seconds to blink one or more LEDs on the specific ethernet"
 " port."
-msgstr "Počet sekund, po které bude blikat jedna nebo více LED diod na daném ethernetovém rozhraní."
+msgstr "Počet sekund, po které bude blikat jedna nebo více kontrolek na daném ethernetovém rozhraní."
 
 msgid "Lesotho"
 msgstr "Lesotho"
@@ -1800,7 +1800,7 @@ msgid "Loading, please wait ..."
 msgstr "Načítání, čekejte prosím ..."
 
 msgid "Local"
-msgstr "Lokální"
+msgstr "Místní"
 
 msgid "Local master browser"
 msgstr "Místní hlavní prohlížeč (WINS)"
@@ -1812,7 +1812,7 @@ msgid "Location information, e.g. physical location of this system."
 msgstr "Informace o umístění, např. fyzické umístění systému"
 
 msgid "Log level"
-msgstr "Úroveň logování"
+msgstr "Jak moc podrobně protokolovat"
 
 msgid "Login"
 msgstr "Přihlášení"
@@ -1821,10 +1821,10 @@ msgid "Logout"
 msgstr "Odhlášení"
 
 msgid "Logs"
-msgstr "Záznamy o provozu"
+msgstr "Protokoly o provozu"
 
 msgid "Long self-test"
-msgstr "Dlouhý test"
+msgstr "Dlouhý samotest"
 
 msgid "Loop device [%s, %s]"
 msgstr "Zpětnovazební (loop) zařízení  [%s, %s]"
@@ -1836,7 +1836,7 @@ msgid "MAC address"
 msgstr "MAC adresa"
 
 msgid "MII monitoring frequency"
-msgstr "Četnost dohledování MII"
+msgstr "Četnost kontrol MII"
 
 msgid "MTU"
 msgstr "MTU"
@@ -1881,7 +1881,7 @@ msgid "Martinique"
 msgstr "Martinik"
 
 msgid "Masquerade address"
-msgstr ""
+msgstr "Adresa maškarády"
 
 msgid ""
 "Match if the destination port is one of the given ports. E.g. 21 or !443 or "
@@ -1900,43 +1900,43 @@ msgid "Mauritius"
 msgstr "Mauricius"
 
 msgid "Max. clients"
-msgstr "Max. počet klientů"
+msgstr "Nejvýše klientů"
 
 msgid "Max. connections"
-msgstr "Max. počet připojení"
+msgstr "Nejvýše připojení"
 
 msgid "Max. connections per host"
-msgstr "Max. počet připojení na hostitele"
+msgstr "Nejvýše připojení z jednoho hostitele"
 
 msgid "Max. login attempts"
-msgstr "Max. počet pokusů o přihlášení"
+msgstr "Nejvýše pokusů o přihlášení"
 
 msgid "Maximum download rate (KiB/s)"
-msgstr "Maximální rychlost stahování dat (KiB/s)"
+msgstr "Nejvyšší umožněná rychlost stahování dat (KiB/s)"
 
 msgid ""
 "Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
 "timer completely (clients can stay connected for ever, without sending "
 "data)."
-msgstr "Nejdelší přijatelný čas nečinnosti. Nastavení na 0 jej zcela vypíná (i když nepřenášejí žádná data, mohou klienti zůstat připojeni napořád)."
+msgstr "Nejdelší přijatelný čas nečinnosti. Nastavení na 0 (nula) tento limit zcela vypíná (tzn. i když nepřenášejí žádná data, mohou klienti zůstat připojeni napořád)."
 
 msgid "Maximum number of allowed password attempts before disconnection."
-msgstr "Maximální počet pokusů o zadání hesla před odpojením"
+msgstr "Nejvyšší umožněný počet pokusů o zadání hesla, po jehož vyčerpání bude relace uživatele ukončena."
 
 msgid "Maximum number of connections per IP (0 = unlimited)."
-msgstr "Maximální počet spojení na IP adresu (0 = neomezeno)."
+msgstr "Nejvyšší umožněný počet spojení z jedné IP adresy. 0 (nula) znamená neomezený."
 
 msgid "Maximum number of simultaneous clients."
-msgstr "Maximální počet souběžně připojených klientů."
+msgstr "Nejvyšší umožněný počet souběžně připojených klientů."
 
 msgid "Maximum performance, maximum acoustic output"
-msgstr "Maximální výkon, maximální hluk."
+msgstr "Nejvyšší výkon, ale také nejvyšší hlučnost."
 
 msgid "Maximum upload rate (KiB/s)"
-msgstr "Maximální rychlost odesílání dat (KiB/s)"
+msgstr "Nejvyšší umožněná rychlost nahrávání dat (KiB/s)"
 
 msgid "Maximum {0} selected item(s) allowed"
-msgstr "Maximální počet vybraných položek je {0}"
+msgstr "Je umožněno nejvýše {0} označených položek"
 
 msgid "May"
 msgstr "Květen"
@@ -1981,7 +1981,7 @@ msgid "Minimum performance, Minimum acoustic output"
 msgstr "Minimální výkon, minimální hluk"
 
 msgid "Minimum {0} selected item(s) required"
-msgstr "Je vyžadováno alespoň {0} položek"
+msgstr "Je vyžadováno alespoň {0} označených položek"
 
 msgid "Minute"
 msgstr "Minuta"
@@ -1993,7 +1993,7 @@ msgid "Missing"
 msgstr "Chybějící"
 
 msgid "Mode"
-msgstr "Mód"
+msgstr "Režim"
 
 msgid "Model"
 msgstr "Model"
@@ -2002,7 +2002,7 @@ msgid "Modify account"
 msgstr "Upravit účet"
 
 msgid "Modify shared folder ACL"
-msgstr "Upravit seznamy ACL sdílené složky"
+msgstr "Upravit ACL seznamy sdílené složky"
 
 msgid "Modules"
 msgstr "Moduly"
@@ -2068,13 +2068,13 @@ msgid "Netherlands Antilles"
 msgstr "Nizozemské Antily"
 
 msgid "Netmask"
-msgstr "Síťová maska"
+msgstr "Maska sítě"
 
 msgid "Network"
 msgstr "Síť"
 
 msgid "Network interface '%s' already exists"
-msgstr "Síťové rozhraní \"%s\" již existuje"
+msgstr "Síťové rozhraní %s již existuje"
 
 msgid "Neutral Zone"
 msgstr "Neutrální zóna"
@@ -2113,7 +2113,7 @@ msgid "No authentication and no privacy"
 msgstr "Žádné ověřování a soukromí"
 
 msgid "No certificate request"
-msgstr "Bez požadavku na certifikát"
+msgstr "Žádný požadavek na certifikát"
 
 msgid "No connections"
 msgstr "Žádná spojení"
@@ -2128,7 +2128,7 @@ msgid "No users connected"
 msgstr "Žádní připojení uživatelé"
 
 msgid "No users defined"
-msgstr "Žádní definovaní uživatelé"
+msgstr "Nebyli určeni žádní uživatelé."
 
 msgid "None"
 msgstr "Žádný"
@@ -2209,7 +2209,7 @@ msgid "Operation"
 msgstr "Operace"
 
 msgid "Operation not allowed for user '%s'."
-msgstr "Operace není povolena uživateli \"%s\""
+msgstr "Uživateli %s není tato operace povolena."
 
 msgid "Options"
 msgstr "Možnosti"
@@ -2230,7 +2230,7 @@ msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
 msgstr "Adresa odchozího SMTP serveru, např. smtp.mycorp.com."
 
 msgid "Outlying Oceania"
-msgstr ""
+msgstr "Menší odlehlé ostrovy USA"
 
 msgid "Overview"
 msgstr "Přehled"
@@ -2242,7 +2242,7 @@ msgid "Pacific Islands Trust Territory"
 msgstr "Poručenské území Tichomořské ostrovy"
 
 msgid "Package information"
-msgstr "Informace o balíku"
+msgstr "Informace o balíčku"
 
 msgid "Pakistan"
 msgstr "Pákistán"
@@ -2272,7 +2272,7 @@ msgid "Password"
 msgstr "Heslo"
 
 msgid "Password authentication"
-msgstr "Autentizace heslem"
+msgstr "Ověření heslem"
 
 msgid "Passwords don't match"
 msgstr "Hesla se neshodují"
@@ -2293,7 +2293,7 @@ msgid "Perform a trial run with no changes made"
 msgstr "Vyzkoušet bez provedení změn"
 
 msgid "Period of validity"
-msgstr "Doba platnosti"
+msgstr "Období platnosti"
 
 msgid "Permissions"
 msgstr "Oprávnění"
@@ -2375,7 +2375,7 @@ msgid "Please choose the method to wipe the device or 'Cancel' to abort."
 msgstr "Zvolte způsob kompletního smazání zařízení nebo akci zrušte kliknutím na Zrušit."
 
 msgid "Please first select a volume."
-msgstr "Nejdříve prosím zvolte svazek."
+msgstr "Nejprve je třeba zvolit svazek."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2446,7 +2446,7 @@ msgid ""
 "want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
 " mode. In the IDLE state, most disks are still spinning, so this is probably"
 " not what you want.</li></ul>"
-msgstr ""
+msgstr "Zabraňuje disku, aby se roztočil při pravidelném dotazování.<br/><ul><li>Nikdy - Dotázat zařízení bez ohledu na režim napájení, ve kterém se nachází. Může způsobovat, že bude způsobovat roztáčení stojícího disku.</li><li>Spánek - Zkontrolovat zařízení jen pokud se nenachází v režimu SPÁNKU.</li><li>Pohotovost - Zkontrolovat zařízení jen pokud se nenachází v režimu SPÁNKU či POHOTOVOSTI. V těchto režimech bývá většina disků zastavena, takže když chcete zabránit zbytečnému roztáčení disků, je tato volba nejspíš nejvhodnější.</li><li>Nečinnost - Zkontrolovat zařízení pouze pokud se nenachází v režimu SPÁNKU, POHOTOVOSTI či NEČINNOSTI. Ve stavu NEČINNOSTI, se většina disků stejně točí, takže toto nejspíš není to, co potřebujete.</li></ul>"
 
 msgid "Primary"
 msgstr "Primární"
@@ -2461,7 +2461,7 @@ msgid "Privacy type"
 msgstr "Typ soukromí"
 
 msgid "Private key"
-msgstr "Soukromý klíč"
+msgstr "Soukromá část klíče"
 
 msgid "Privilege"
 msgstr "Oprávnění"
@@ -2470,7 +2470,7 @@ msgid "Privileges"
 msgstr "Oprávnění"
 
 msgid "Process monitoring"
-msgstr "Monitorování procesů"
+msgstr "Sledování procesů"
 
 msgid "Processes"
 msgstr "Procesy"
@@ -2500,10 +2500,10 @@ msgid "Qatar"
 msgstr "Katar"
 
 msgid "Quick"
-msgstr "Rychlý"
+msgstr "Rychlé"
 
 msgid "Quiet"
-msgstr "Tichý"
+msgstr "Tiché"
 
 msgid "Quota"
 msgstr "Kvóta"
@@ -2607,12 +2607,12 @@ msgstr "Nahlásit"
 msgid ""
 "Report if the temperature had changed by at least N degrees Celsius since "
 "last report. Set to 0 to disable this report."
-msgstr "Hlásit, pokud se teplota od posledního hlášení změní alespoň o N stupňů Celsia. Zadejte 0 pro vypnutí hlášení."
+msgstr "Hlásit, pokud se teplota od posledního hlášení změní alespoň o zadaný počet stupňů Celsia. Hlášení vypnete zadáním 0 (nula)."
 
 msgid ""
 "Report if the temperature is greater or equal than N degrees Celsius. Set to"
 " 0 to disable this report."
-msgstr "Hlásit, pokud je teplota rovná nebo vyšší než N stupňů Celsia. Zadejte 0 pro vypnutí hlášení."
+msgstr "Hlásit, pokud je teplota rovna nebo vyšší než zadaný počet stupňů Celsia. Hlášení vypnete zadáním 0 (nula)."
 
 msgid "Repository"
 msgstr "Repozitář"
@@ -2621,7 +2621,7 @@ msgid "Require valid shell"
 msgstr "Vyžadovat platný shell"
 
 msgid "Required"
-msgstr "Povinný"
+msgstr "Povinné"
 
 msgid "Reset"
 msgstr "Resetovat"
@@ -2632,7 +2632,7 @@ msgstr "Resetovat stav WebGUI"
 msgid ""
 "Reset WebGUI state will restore default settings of grid columns for "
 "example."
-msgstr ""
+msgstr "Reset stavu webového rozhraní obnoví výchozí nastavení např. sloupců mřížky."
 
 msgid "Resize"
 msgstr "Změnit velikost"
@@ -2650,13 +2650,13 @@ msgid "Reunion"
 msgstr "Znovuspojení"
 
 msgid "Reverse DNS lookup"
-msgstr "Reverzní DNS dotaz"
+msgstr "Zpětný DNS dotaz"
 
 msgid "Revert"
 msgstr "Vrátit zpět"
 
 msgid "Revert configuration changes"
-msgstr "Vrátit zpět změny v konfiguraci"
+msgstr "Vrátit zpět změny v nastavení"
 
 msgid "Romania"
 msgstr "Rumunsko"
@@ -2704,7 +2704,7 @@ msgid "SMTP server"
 msgstr "SMTP server"
 
 msgid "SMTP settings"
-msgstr "Nastavení SMTP"
+msgstr "Nastavení protokolu SMTP"
 
 msgid "SNMP"
 msgstr "SNMP"
@@ -2719,7 +2719,7 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH public key"
-msgstr "SSH veřejný klíč"
+msgstr "Veřejná část SSH klíče"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2773,16 +2773,16 @@ msgid "Scheduled tests"
 msgstr "Naplánované testy"
 
 msgid "Secondary"
-msgstr "Sekundární"
+msgstr "Náhradní"
 
 msgid "Secondary email"
-msgstr "Sekundární email"
+msgstr "Náhradní e-mail"
 
 msgid "Seconds"
 msgstr "Sekundy"
 
 msgid "Secure"
-msgstr "Bezpečný"
+msgstr "Bezpečné"
 
 msgid "Secure connection"
 msgstr "Bezpečné spojení"
@@ -2791,7 +2791,7 @@ msgid "Security level"
 msgstr "Úroveň zabezpečení"
 
 msgid "Select a SSL certificate ..."
-msgstr "Vyberte SSL certifikát"
+msgstr "Vyberte SSL certifikát …"
 
 msgid "Select a country ..."
 msgstr "Vyberte zemi ..."
@@ -2800,7 +2800,7 @@ msgid "Select a device ..."
 msgstr "Vyberte zařízení ..."
 
 msgid "Select a directory"
-msgstr "Vyberte adresář"
+msgstr "Vyberte složku"
 
 msgid "Select a file permission ..."
 msgstr "Vyberte oprávnění souboru ..."
@@ -2809,13 +2809,13 @@ msgid "Select a file system ..."
 msgstr "Vyberte souborový systém ..."
 
 msgid "Select a group name ..."
-msgstr "Vyberte název skupiny"
+msgstr "Vyberte název skupiny …"
 
 msgid "Select a language ..."
 msgstr "Vyberte jazyk ..."
 
 msgid "Select a primary device ..."
-msgstr "Vyberte primární zařízení ..."
+msgstr "Vyberte hlavní zařízení ..."
 
 msgid "Select a protocol ..."
 msgstr "Vyberte protokol ..."
@@ -2839,22 +2839,22 @@ msgid "Select or enter a user name ..."
 msgstr "Vyberte nebo zadejte uživatelské jméno ..."
 
 msgid "Self-test logs"
-msgstr "Záznamy ze samotestů"
+msgstr "Protokoly ze samotestů"
 
 msgid "Send a test email"
-msgstr "Odeslat testovací email"
+msgstr "Odeslat zkušební e-mail"
 
 msgid "Send command output via email"
-msgstr "Odeslat výstup příkazu v emailové zprávě"
+msgstr "Odeslat výstup příkazu v e-mailové zprávě"
 
 msgid "Send email"
-msgstr "Odeslat email"
+msgstr "Odeslat e-mail"
 
 msgid "Sender email"
 msgstr "Adresa odesílatele"
 
 msgid "Sending test email ..."
-msgstr "Odesílání testovacího emailu ..."
+msgstr "Odesílání zkušebního e-mailu ..."
 
 msgid "Senegal"
 msgstr "Senegal"
@@ -2927,7 +2927,7 @@ msgid "Shared folder"
 msgstr "Sdílená složka"
 
 msgid "Shared folder must not be equal"
-msgstr "Sdílená složka se nesmí shodovat"
+msgstr "Sdílená složka nesmí být stejná"
 
 msgid "Shared folder name"
 msgstr "Název sdílené složky"
@@ -2945,16 +2945,16 @@ msgid "Shell"
 msgstr "Shell"
 
 msgid "Short self-test"
-msgstr "Krátký test"
+msgstr "Krátký samotest"
 
 msgid "Show certificate"
 msgstr "Zobrazit certifikát"
 
 msgid "Show changelog"
-msgstr "Zobrazit seznam změn"
+msgstr "Zobrazit protokol změn"
 
 msgid "Show details"
-msgstr "Zobrazit detaily"
+msgstr "Zobrazit podobnosti"
 
 msgid "Show password"
 msgstr "Zobrazit heslo"
@@ -3005,7 +3005,7 @@ msgid ""
 "Source address can be either a network IP address (with /mask), a IP range "
 "or a plain IP address. A '!' argument before the address specification "
 "inverts the sense of the address."
-msgstr "Zdrojová adresa může být zapsána jako adresa podsítě (s /maskou), rozmezí IP adres nebo jedna IP adresa. Vykřičník před adresou znamená její inverzi."
+msgstr "Zdrojová adresa může být zapsána jako adresa podsítě (s /maskou), rozmezí IP adres nebo jedna IP adresa. Vykřičník před adresou znamená inverzi významu."
 
 msgid "Source port"
 msgstr "Zdrojový port"
@@ -3032,7 +3032,7 @@ msgid "Special action flag"
 msgstr "Příznak zvláštní akce"
 
 msgid "Specifies how many server threads to create."
-msgstr "Určuje kolik vytvořit vláken serveru."
+msgstr "Určuje, kolik vláken serveru vytvořit."
 
 msgid "Specifies one of the bonding policies."
 msgstr "Určuje jedno z pravidel spřažení."
@@ -3044,7 +3044,7 @@ msgid ""
 "Specifies the amount of time, in seconds, between checking and updating the "
 "masquerade address by resolving the IP address. Set this value to 0 to "
 "disable this option."
-msgstr ""
+msgstr "Určuje časové rozmezí jednotlivých zjišťování a aktualizací vnější veřejné IP adresy (dotazem do jmenné služby DNS), na které probíhá překlad na vnitřní, neveřejné (NAT). Pokud se adresa nemění, můžete toto zjišťování vypnout nastavením na 0 (nula)."
 
 msgid ""
 "Specifies the maximum permitted block size. The permitted range for this "
@@ -3057,12 +3057,12 @@ msgstr "Určuje čas (ve formátu hh:mm:ss), po jehož uplynutí skončí platno
 msgid ""
 "Specifies the time interval in hh:mm:ss in which the given number of "
 "occurrences must happen to add the ban."
-msgstr ""
+msgstr "Určuje časový interval v hh:mm:ss ve kterém se musí stát udaný počet výskytů, aby bylo přidáno vyloučení."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before disabling a slave after "
 "a link failure has been detected."
-msgstr ""
+msgstr "Určuje čas, v milisekundách, po který čekat před zakázáním podřízeného zařízení po zjištění selhání linky."
 
 msgid ""
 "Specifies the time, in milliseconds, to wait before enabling a slave after a"
@@ -3078,13 +3078,13 @@ msgstr "Určuje, zda je dovoleno přihlašovat se jako správce systému (root).
 msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
-msgstr "Povolení monitorování stavu systému a výběru nejvhodnější úrovně procesoru."
+msgstr "Povolení sledování stavu systému a výběru nejvhodnější úrovně běhu procesoru."
 
 msgid "Specifies which slave is the primary device."
 msgstr "Určuje, které ze zpřažených zařízení je hlavní."
 
 msgid "Spindown time"
-msgstr "Prodleva zastavení"
+msgstr "Prodleva zastavení rotace"
 
 msgid "Sri Lanka"
 msgstr "Srí Lanka"
@@ -3102,13 +3102,13 @@ msgid "State/Province"
 msgstr "Stát/provincie"
 
 msgid "Static"
-msgstr "Statický"
+msgstr "Statické"
 
 msgid "Status"
 msgstr "Stav"
 
 msgid "Stop"
-msgstr "Stop"
+msgstr "Zastavit"
 
 msgid "Storage"
 msgstr "Úložiště"
@@ -3162,7 +3162,7 @@ msgid "System Information"
 msgstr "Informace o systému"
 
 msgid "System Logs"
-msgstr "Záznamy o provozu systému"
+msgstr "Protokoly o provozu systému"
 
 msgid "System time"
 msgstr "Systémový čas"
@@ -3210,7 +3210,7 @@ msgid "The SSL certificate."
 msgstr "SSL certifikát."
 
 msgid "The action to be done when pressing the power button."
-msgstr "Akce, která se provede při stisku tlačítka napájení."
+msgstr "Akce, která bude provedena při stisku tlačítka napájení."
 
 msgid "The changes have been applied successfully."
 msgstr "Změny byly úspěšně provedeny."
@@ -3229,16 +3229,16 @@ msgstr "Výchozí port SMTP serveru, např. 25 nebo 587."
 msgid ""
 "The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
 "rsync://[USER@]HOST[:PORT]/DEST."
-msgstr ""
+msgstr "Cílový vzdálený server, např. [UZIVATEL@]SYSTEM:CIL, [USIVATEL@]SYSTEM::CIL nebo rsync://[UZIVATEL@]SYSTEM[:PORT]/CIL."
 
 msgid "The destination shared folder."
-msgstr "Cílová sdílena složka."
+msgstr "Cílová sdílená složka."
 
 msgid "The device does not exist"
 msgstr "Zařízení neexistuje"
 
 msgid "The field '%s' contains forbidden "
-msgstr "Pole \"%s\" obsahuje zakázané"
+msgstr "Pole %s obsahuje nepovolené"
 
 msgid "The file mode of the shared folder path."
 msgstr "Přístupová práva k umístění sdílené složky."
@@ -3247,7 +3247,7 @@ msgid "The file system creation has completed successfully."
 msgstr "Inicializace souborového systému byla úspěšně dokončena."
 
 msgid "The group '%s' does not exist"
-msgstr "Skupina \"%s\" neexistuje"
+msgstr "Skupina %s neexistuje"
 
 msgid "The hostname is a label that identifies the system to the network."
 msgstr "Hostname je název identifikující systém v síti."
@@ -3302,7 +3302,7 @@ msgid ""
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
-msgstr ""
+msgstr "Oprávnění pro nově vytvářené soubory a složky jsou běžně řízeny maskou pro vytváření a maskou složky, ale parametr pro přebírání oprávnění toto přebíjí. Užitečné zejména na systémech, sloužících mnoha uživatelům, kdy je třeba, aby sdílení mohla být pružně používána každým z uživatelů."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3316,7 +3316,7 @@ msgstr "Není vyžadováno, aby řídící SSL relace byla použita i pro data."
 
 msgid ""
 "The session timeout time in minutes. Set to 0 to disable automatic logout."
-msgstr "Prodleva vypršení relace v minutách. Pro vypnutí samočinného odhlašování nastavte na 0."
+msgstr "Prodleva vypršení relace v minutách. Toto samočinné odhlašování vypnete nastavením na 0 (nula)."
 
 msgid "The shared folder is already used by another share."
 msgstr "Sdílenou složku již používá jiné sdílení."
@@ -3339,7 +3339,7 @@ msgid "The test email has been sent successfully. Please check your mailbox."
 msgstr "Testovací email byl úspěšně odeslán. Zkontrolujte si prosím svoji emailovou schránku."
 
 msgid "The user '%s' does not exist"
-msgstr "Uživatel \"%s\" neexistuje"
+msgstr "Uživatel %s neexistuje"
 
 msgid "The user '%s' is not allowed"
 msgstr "Název uživatelského účtu %s není možné použít"
@@ -3369,7 +3369,7 @@ msgid ""
 msgstr "Toto ovlivňuje zda bude toto sdílení viditelné v seznamu dostupných v síťovém pohledu a v seznamu k procházení."
 
 msgid "This field does not allow blanks"
-msgstr "Toto pole nemůže obsahovat bílé znaky."
+msgstr "Toto pole nemůže obsahovat znaky, představující prázdné místo (whitespace)."
 
 msgid "This field is required"
 msgstr "Pole je povinné"
@@ -3443,7 +3443,7 @@ msgid "This field should only contain numbers"
 msgstr "Toto pole by mělo obsahovat pouze čísla"
 
 msgid "This field should only contain numbers seperated by <,> or <;>"
-msgstr "Toto pole by mělo obsahovat pouze čísla oddělená <,> nebo <;>"
+msgstr "Toto pole by mělo obsahovat pouze číslice oddělené <,> nebo <;>"
 
 msgid ""
 "This field should only contain ports (0 - 65535) seperated by <,> or <;>"
@@ -3464,7 +3464,7 @@ msgid ""
 "This may make more efficient use of the system CPU's and cause Samba to be "
 "faster. Samba automatically turns this off for clients that use protocol "
 "levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
-msgstr ""
+msgstr "Toto může zlepšit efektivitu využívání procesoru a zrychlit službu Samba. Samba to ovšem samočinně vypne pro klienty, kteří používají verzi protokolu nižší než NT LM 0.12 a když zjistí, že klientem je systém Windows 9x."
 
 msgid ""
 "This option causes the server to not send a certificate request during a SSL"
@@ -3483,7 +3483,7 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr ""
+msgstr "Tato volba je čárkami, mezerami či tabulátory oddělený seznam systémů, ze kterých NENÍ umožněno přistupovat k tomuto modulu. V případě, že je systém uveden zároveň i v seznamu povolených, pak je přístup z něj přesto povolen. V případě, že je třeba všechny jako výchozí odepřít, použijte klíčové slovo ALL (případně síťovou masku 0.0.0.0/0) a poté výslovně uvést do povolených systémů ty, ze kterých by měl být přístup umožněn. Pro výchozí nastavení ponechejte nevyplněné."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of host which are NOT "
@@ -3492,19 +3492,19 @@ msgid ""
 "use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
 "to the hosts allow parameter those hosts that should be permitted access. "
 "Leave this field empty to use default settings."
-msgstr ""
+msgstr "Tato volba je čárkami, mezerami či tabulátory oddělený seznam systémů, ze kterých NENÍ umožněno přistupovat k tomuto sdílení. V případě, že je systém uveden zároveň i v seznamu povolených, pak je přístup z něj přesto povolen. V případě, že je třeba všechny jako výchozí odepřít, použijte klíčové slovo ALL (případně síťovou masku 0.0.0.0/0) a poté výslovně uvést do povolených systémů ty, ze kterých by měl být přístup umožněn. Pro výchozí nastavení ponechejte nevyplněné."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this module. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr ""
+msgstr "Tato volba je čárkami, mezerami či tabulátory oddělený seznam systémů, ze kterých je dovoleno přistupovat k tomuto modulu. Systémy mohou být uvedeny dle jejich názvu či IP adresy. Pokud není nic vyplněno, jsou použita výchozí nastavení."
 
 msgid ""
 "This option is a comma, space, or tab delimited set of hosts which are "
 "permitted to access this share. You can specify the hosts by name or IP "
 "number. Leave this field empty to use default settings."
-msgstr ""
+msgstr "Tato volba je čárkami, mezerami či tabulátory oddělený seznam systémů, ze kterých je dovoleno přistupovat k tomuto sdílení. Systémy mohou být uvedeny dle jejich názvu či IP adresy. Pokud není nic vyplněno, jsou použita výchozí nastavení."
 
 msgid ""
 "This option requires clients to use FTP over TLS when talking to this "
@@ -3514,47 +3514,47 @@ msgstr "Tato volba vyžaduje, aby klienti k serveru přistupovali protokolem FTP
 msgid ""
 "This option specifies the group name that file transfers to and from that "
 "module should take place."
-msgstr ""
+msgstr "Tato volba určuje skupinu, pod kterou se budou dít přenosy souboru do a z modulu."
 
 msgid ""
 "This option specifies the maximum number of simultaneous connections. 0 "
 "means no limit."
-msgstr "Tato volba určuje nejvyšší povolený počet současný spojení. 0 znamená neomezeno."
+msgstr "Touto volbou je možné stanovit hranici počtu současných spojení. 0 (nula) znamená neomezeně."
 
 msgid ""
 "This option specifies the user name that file transfers to and from that "
 "module should take place."
-msgstr "Tato volba určuje uživatelské jméno, pod kterým se budou dít přenosy souboru do a z modulu."
+msgstr "Tato volba určuje uživatelské jméno, kterým se budou dít přenosy souborů do a z modulu."
 
 msgid ""
 "This option will handle all connections as if they are SSL connections "
 "implicitly."
-msgstr "Tato volba zachází se všemi spojeními jako by se výslovně jednalo o SSL spojení."
+msgstr "Tato volba znamená, že se všemi spojeními bude zacházeno tak, jako by se výslovně jednalo o SSL spojení."
 
 msgid ""
 "This parameter can be used to ensure that if default acls exist on parent "
 "directories, they are always honored when creating a new file or "
 "subdirectory in these parent directories."
-msgstr ""
+msgstr "Tento parametru lze použít pro zajištění toho, že pokud na nadřazených složkách existují acl seznamy, budou při vytváření nových souborů či podsložek zde vždy respektovány."
 
 msgid ""
 "This parameter controls whether files starting with a dot appear as hidden "
 "files"
-msgstr "Tento parametr určuje, zda budou soubory, jejichž názvy začínají tečkou považovány za skryté"
+msgstr "Tento parametr řídí, zda budou soubory, jejichž názvy začínají tečkou, považovány za skryté"
 
 msgid ""
 "This parameter says that if N occurrences of the event happen within the "
 "given time interval, then a ban is automatically added."
-msgstr ""
+msgstr "Tento parametr znamená, že když v daném časovém rozmezí nastene N výskytů události, je samočinně přidáno vyloučení."
 
 msgid "This rule is triggered whenever the selected event directive occurs."
 msgstr "Toto pravidlo je spuštěno kdykoli dojde k označené události."
 
 msgid "This specifies what to do if the packet matches."
-msgstr "Specifikuje akci, která se provede, pokud paket vyhovuje pravidlu."
+msgstr "Určuje akci, která bude provedena v případě, že paket vyhovuje pravidlu."
 
 msgid "This will create a recycle bin on the share."
-msgstr "Toto na sdílení vytvoří \"Koš\"."
+msgstr "Toto na sdílení vytvoří objekt Koš."
 
 msgid "Thursday"
 msgstr "Čtvrtek"
@@ -3593,16 +3593,16 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Transfer log"
-msgstr "Záznam o přenosech"
+msgstr "Protokol o přenosu"
 
 msgid "Transfer time"
-msgstr "Přenosový čas"
+msgstr "Čas přenosu"
 
 msgid "Transfer type"
 msgstr "Typ přenosu"
 
 msgid "Traps"
-msgstr "Pasti"
+msgstr "Hlášení událostí (SNMP trap)"
 
 msgid "Treshold"
 msgstr "Práh"
@@ -3641,7 +3641,7 @@ msgid "U.S. Virgin Islands"
 msgstr "Americké Panenské ostrovy"
 
 msgid "UNKNOWN"
-msgstr "NEZNÁMÝ"
+msgstr "NEZNÁMÉ"
 
 msgid "Uganda"
 msgstr "Uganda"
@@ -3677,7 +3677,7 @@ msgid "United States Minor Outlying Islands"
 msgstr "Menší odlehlé ostrovy Spojených států amerických"
 
 msgid "Unknown filesystem '%s'"
-msgstr "Neznámý souborový systém \"%s\""
+msgstr "Neznámý souborový systém %s"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "Neznámý typ souboru s provozními záznamy (id=%s)"
@@ -3689,7 +3689,7 @@ msgid "Unmount"
 msgstr "Odpojit"
 
 msgid "Up"
-msgstr ""
+msgstr "Zapnuto"
 
 msgid "Up delay"
 msgstr "Prodleva zapnutí"
@@ -3701,11 +3701,11 @@ msgid "Update now"
 msgstr "Aktualizovat teď"
 
 msgid "Update the destination ACLs to be the same as the source ACLs"
-msgstr "Aktualizovat seznamy ACL v cíli tak, aby byly stejné s těmi na zdroji"
+msgstr "Aktualizovat seznamy ACL v cíli tak, aby byly stejné, jako ty na zdroji"
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones"
-msgstr "Aktualizovat rozšířené atributy v cíli tak, aby byly shodné jako ty místní"
+msgstr "Aktualizovat rozšířené atributy v cíli tak, aby byly stejné, jako ty místní"
 
 msgid "Updates"
 msgstr "Aktualizace"
@@ -3714,7 +3714,7 @@ msgid "Updating ACL settings"
 msgstr "Aktualizace nastavení seznamů ACL"
 
 msgid "Upgrade"
-msgstr "Povýšit na novější verzi"
+msgstr "Přejít na novější vydání"
 
 msgid "Upload"
 msgstr "Nahrát"
@@ -3744,13 +3744,13 @@ msgid "Use SSL/TLS secure connection"
 msgstr "Použít zabezpečené SSL/TLS spojení"
 
 msgid "Use chroot"
-msgstr "Použít omezené prostředí (chroot)"
+msgstr "Použít vyhrazené prostředí (chroot)"
 
 msgid "Use sendfile"
-msgstr "Použít sendfile"
+msgstr "Použít příkaz sendfile"
 
 msgid "Use the following bandwidth restriction:"
-msgstr "Použít následující omezení šířky pásma:"
+msgstr "Použít následující omezení šířky přenosového pásma:"
 
 msgid "Use the following port range:"
 msgstr "Použít následující rozsah portů:"
@@ -3758,7 +3758,7 @@ msgstr "Použít následující rozsah portů:"
 msgid ""
 "Use the more efficient sendfile system call for files that are exclusively "
 "oplocked"
-msgstr ""
+msgstr "Pro oportunisticky zamčené soubory použít efektivnější systémové volání sendfile"
 
 msgid "Use the specified WINS server."
 msgstr "Použít uvedený WINS server."
@@ -3773,13 +3773,13 @@ msgid "User"
 msgstr "Uživatel"
 
 msgid "User '%s' already exist"
-msgstr "Uživatel \"%s\" již existuje"
+msgstr "Uživatel %s již existuje"
 
 msgid "User '%s' does not exist"
-msgstr "Uživatel \"%s\" neexistuje"
+msgstr "Uživatel %s neexistuje"
 
 msgid "User ID '%d' already exist"
-msgstr "ID uživatele \"%d\" již existuje"
+msgstr "ID uživatele %d je již použito"
 
 msgid "User home directory"
 msgstr "Domovská složka uživatele"
@@ -3827,16 +3827,16 @@ msgid "Volume"
 msgstr "Svazek"
 
 msgid "WINS"
-msgstr "WINS"
+msgstr "Jmenná služba WINS"
 
 msgid "WINS server"
-msgstr "WINS server"
+msgstr "server služby WINS"
 
 msgid "WINS support"
-msgstr "Podpora WINS"
+msgstr "Podpora služby WINS"
 
 msgid "Wake Island"
-msgstr "Wake"
+msgstr "Wake Island"
 
 msgid "Wake-on-LAN"
 msgstr "Probouzení po síti (WoL)"
@@ -3848,16 +3848,16 @@ msgid "Warning"
 msgstr "Varování"
 
 msgid "Web Administration"
-msgstr "Webová správa"
+msgstr "Správa webu"
 
 msgid "Web Administrator Password"
-msgstr "Heslo administrátora webu"
+msgstr "Heslo správce webu"
 
 msgid "Web administration"
-msgstr "Webové správní rozhraní"
+msgstr "Správa webu"
 
 msgid "Web administration interface"
-msgstr "Webové správní rozhraní"
+msgstr "Webové rozhraní pro správu"
 
 msgid "Wednesday"
 msgstr "Středa"
@@ -3871,7 +3871,7 @@ msgstr "Západní Sahara"
 msgid ""
 "When a client initially connects to the server the ident protocol is used to"
 " attempt to identify the remote username."
-msgstr "Při prvním připojení klienta k serveru dojde k pokusu o zjištění jeho vzdáleného uživatelského jména pomocí protokolu ident."
+msgstr "Na úvod připojení klienta k serveru dojde k pokusu o zjištění jeho uživatelského jména na systému, ze kterého přistupuje, a to pomocí protokolu ident."
 
 msgid "When failed"
 msgstr "Při selhání"
@@ -3880,7 +3880,7 @@ msgid "Wipe"
 msgstr "Kompletní smazání"
 
 msgid "Wiping device ..."
-msgstr "Kompletní smazání zařízení..."
+msgstr "Kompletní smazání zařízení …"
 
 msgid "Workgroup"
 msgstr "Pracovní skupina"
@@ -3934,4 +3934,4 @@ msgid "seconds"
 msgstr "sekundy"
 
 msgid "web administration interface"
-msgstr "webové správní rozhraní"
+msgstr "webové rozhraní pro správu"
