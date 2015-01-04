@@ -1725,7 +1725,7 @@ class OMVFilesystemAbstract extends OMVObject {
 		// An alternative implementation is:
 		// blkid -p -u filesystem <devicefile>
 		// Scan output for tag PTTYPE.
-		$cmd = sprintf("export LANG=C; blkid | grep -E '^%s[0-9]*:".
+		$cmd = sprintf("export LANG=C; blkid | grep -E '^%s.*:".
 		  ".+\sTYPE=.+$'", $deviceFile);
 		@OMVUtil::exec($cmd, $output, $result);
 		if($result !== 0)
@@ -2667,8 +2667,8 @@ abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	}
 
 	/**
-	 * Return the device file to be used to create a filesystem. Note,
-	 * only one partition per storage device is supported.
+	 * Return the device file to be used to create a filesystem.
+	 * @note Only one partition per storage device is supported.
 	 * @param deviceFile Specifies the device file, e.g.
 	 *   <ul>
 	 *   \li /dev/sdb => /dev/sdb1
@@ -2998,6 +2998,9 @@ class OMVStorageDeviceBackendMMC extends OMVStorageDeviceBackendAbstract {
 	}
 
 	function enumerate() {
+		// major minor  #blocks  name
+		// 179        0   30948352 mmcblk0
+		// 179        1   30947328 mmcblk0p1
 		return $this->enumerateProcFs("mmcblk[0-9]+");
 	}
 
@@ -3015,6 +3018,11 @@ class OMVStorageDeviceBackendMMC extends OMVStorageDeviceBackendAbstract {
 
 	function baseDeviceFile($deviceFile) {
 		return preg_replace("/(p\d+)$/", "", $deviceFile);
+	}
+
+	function fsDeviceFile($deviceFile) {
+		// E.g. /dev/mmcblk0p1
+		return sprintf("%sp1", $deviceFile);
 	}
 }
 
