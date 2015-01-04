@@ -3,7 +3,7 @@
 	<name>OpenMediaVault</name>
 	<versionname>Kralizec</versionname>
 	<url>http://www.openmediavault.org</url>
-	<copyright>Copyright (C) 2009-2014 by Volker Theile. All rights reserved.</copyright>
+	<copyright>Copyright (C) 2009-2015 by Volker Theile. All rights reserved.</copyright>
 	<packagename>openmediavault</packagename>
 	<distribution>kralizec</distribution>
 </productinfo>

@@ -1,5 +1,7 @@
 openmediavault (1.9) stable; urgency=low
 
+  * Update locales.
+  * Fix 'Gateway 502' error after manual installation of OMV.
   * Mantis 0001233: Add on crontab option @reboot.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Jan 2015 00:10:44 +0100
