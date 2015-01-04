@@ -1,3 +1,3 @@
 // Create the plugin index.
-APT::Update::Post-Invoke-Success { "which omv-mkaptidx || exit 0; omv-mkaptidx || true"; };
-DPkg::Post-Invoke { "which omv-mkaptidx || exit 0; omv-mkaptidx || true"; };
+APT::Update::Post-Invoke-Success { "which omv-mkaptidx >/dev/null 2>&1 || exit 0; omv-mkaptidx || true"; };
+DPkg::Post-Invoke { "which omv-mkaptidx >/dev/null 2>&1 || exit 0; omv-mkaptidx || true"; };
