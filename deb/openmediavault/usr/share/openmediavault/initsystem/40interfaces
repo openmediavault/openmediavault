@@ -27,7 +27,7 @@ set -e
 OMV_INTERFACES_CONFIG=${OMV_INTERFACES_CONFIG:-"/etc/network/interfaces"}
 
 # Configure network interfaces.
-grep -Pi "^iface\s+(eth|wlan)[0-9]+\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INTERFACES_CONFIG} |
+grep -Pi "^\s*iface\s+(eth|wlan)[0-9]+\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INTERFACES_CONFIG} |
   while read type devname family method; do
 	  # Skip IPv6.
 	  [ "inet6" = "${family}" ] && continue
