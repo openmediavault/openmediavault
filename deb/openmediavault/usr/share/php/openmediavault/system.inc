@@ -2429,6 +2429,18 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	}
 
 	/**
+	* Check if the device is removable.
+	* @return TRUE if device is removable, otherwise FALSE.
+	*/
+	public function isRemovable() {
+		$filename = sprintf("/sys/block/%s/removable",
+		  $this->getDeviceName());
+		if (!file_exists($filename))
+			return FALSE;
+		return (trim(file_get_contents($filename)) == "1") ? TRUE : FALSE;
+	}
+
+	/**
 	 * Check if the given device is a hardware/software RAID device.
 	 * @return TRUE if the device is a hardware/software RAID, otherwise FALSE.
 	 */
