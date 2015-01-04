@@ -437,6 +437,9 @@ case "$1" in
 			omv-mkconf samba
 			omv-mkconf ssh
 		fi
+		if dpkg --compare-versions "$2" lt-nl "1.9"; then
+			omv_config_add_element "/config/system/crontab/job" "execution" "exactly"
+		fi
 	;;
 
 	triggered)

@@ -160,6 +160,8 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 			  "properties":{
 				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
 				  "enable":{"type":"boolean"},
+				  "execution":{"type":"string","enum":["exactly","hourly",'.
+					'"daily","weekly","monthly","yearly","reboot"]},
 				  "sendemail":{"type":"boolean"},
 				  "type":{"type":["string","null"],"format":"regex",'.
 					'"pattern":"\/^reboot|shutdown|standby|userdefined$\/i"},
@@ -187,6 +189,7 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
 			  OMVUtil::uuid() : $params['uuid'],
 			"enable" => array_boolval($params, 'enable'),
+			"execution" => $params['execution'],
 			"sendemail" => array_boolval($params, 'sendemail'),
 			"type" => $params['type'],
 			"minute" => $params['minute'],
@@ -203,7 +206,7 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 		);
 		// Set the configuration data.
 		$success = FALSE;
-		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
 			// Append object to configuration.
 			$success = $xmlConfig->set("//system/crontab",
 			  array("job" => $object));
@@ -212,9 +215,8 @@ class OMVRpcServiceCron extends OMVRpcServiceAbstract {
 			$success = $xmlConfig->replace(
 			  "//system/crontab/job[uuid='{$params['uuid']}']", $object);
 		}
-		if(FALSE === $success) {
+		if (FALSE === $success)
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?

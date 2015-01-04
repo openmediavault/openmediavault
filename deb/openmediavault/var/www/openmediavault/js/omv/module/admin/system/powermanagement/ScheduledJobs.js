@@ -57,7 +57,26 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Job", {
 			layout: {
 				type: "vbox",
 				align: "stretch"
-			}
+			},
+			plugins: [{
+				ptype: "linkedfields",
+				correlations: [{
+					name: [
+						"minutecf",
+						"hourcf",
+						"dayofmonthcf",
+						"month",
+						"dayofweek"
+					],
+					conditions: [{
+						name: "execution",
+						value: "exactly"
+					}],
+					properties: [
+						"show"
+					]
+				}]
+			}]
 		};
 	},
 
@@ -87,7 +106,25 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Job", {
 			triggerAction: "all",
 			value: "reboot"
 		},{
+			xtype: "combo",
+			name: "execution",
+			fieldLabel: _("Time of execution"),
+			queryMode: "local",
+			store: [
+				[ "exactly", _("Exactly") ],
+				[ "hourly", _("Hourly") ],
+				[ "daily", _("Daily") ],
+				[ "weekly", _("Weekly") ],
+				[ "monthly", _("Monthly") ],
+				[ "yearly", _("Yearly") ]
+			],
+			allowBlank: false,
+			editable: false,
+			triggerAction: "all",
+			value: "exactly"
+		},{
 			xtype: "compositefield",
+			id: "minutecf",
 			fieldLabel: _("Minute"),
 			combineErrors: false,
 			items: [{
@@ -111,6 +148,7 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Job", {
 			}]
 		},{
 			xtype: "compositefield",
+			id: "hourcf",
 			fieldLabel: _("Hour"),
 			combineErrors: false,
 			items: [{
@@ -138,6 +176,7 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Job", {
 			}]
 		},{
 			xtype: "compositefield",
+			id: "dayofmonthcf",
 			fieldLabel: _("Day of month"),
 			combineErrors: false,
 			items: [{
@@ -264,61 +303,10 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Jobs", {
 			"shutdown": _("Shutdown")
 		}
 	},{
-		text: _("Minute"),
+		xtype: "cronscheduling",
+		text: _("Scheduling"),
 		sortable: true,
-		dataIndex: "minute",
-		stateId: "minute",
-		renderer: function(value, metaData, record, rowIndex, colIndex,
-		  store, view) {
-			var everynminute = record.get("everynminute");
-			if(everynminute == true) {
-				value = "*/" + value;
-			}
-			return value;
-		}
-	},{
-		text: _("Hour"),
-		sortable: true,
-		dataIndex: "hour",
-		stateId: "hour",
-		renderer: function(value, metaData, record, rowIndex, colIndex,
-		  store, view) {
-			var everynhour = record.get("everynhour");
-			var func = OMV.util.Format.arrayRenderer(Date.mapHour);
-			value = func(value);
-			if(everynhour == true) {
-				value = "*/" + value;
-			}
-			return value;
-		}
-	},{
-		text: _("Day of month"),
-		sortable: true,
-		dataIndex: "dayofmonth",
-		stateId: "dayofmonth",
-		renderer: function(value, metaData, record, rowIndex, colIndex,
-		  store, view) {
-			var everyndayofmonth = record.get("everyndayofmonth");
-			var func = OMV.util.Format.arrayRenderer(
-			  Date.mapDayOfMonth);
-			value = func(value);
-			if(everyndayofmonth == true) {
-				value = "*/" + value;
-			}
-			return value;
-		}
-	},{
-		text: _("Month"),
-		sortable: true,
-		dataIndex: "month",
-		stateId: "month",
-		renderer: OMV.util.Format.arrayRenderer(Date.mapMonth)
-	},{
-		text: _("Day of week"),
-		sortable: true,
-		dataIndex: "dayofweek",
-		stateId: "dayofweek",
-		renderer: OMV.util.Format.arrayRenderer(Date.mapDayOfWeek)
+		stateId: "scheduling"
 	},{
 		text: _("Comment"),
 		sortable: true,
@@ -337,6 +325,7 @@ Ext.define("OMV.module.admin.system.powermanagement.schedule.Jobs", {
 						{ name: "uuid", type: "string" },
 						{ name: "enable", type: "boolean" },
 						{ name: "type", type: "string" },
+						{ name: "execution", type: "string" },
 						{ name: "minute", type: "string" },
 						{ name: "everynminute", type: "boolean" },
 						{ name: "hour", type: "string" },

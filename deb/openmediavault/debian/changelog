@@ -1,3 +1,9 @@
+openmediavault (1.9) stable; urgency=low
+
+  * Mantis 0001233: Add on crontab option @reboot.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 04 Jan 2015 00:10:44 +0100
+
 openmediavault (1.8) stable; urgency=low
 
   * Update locales.

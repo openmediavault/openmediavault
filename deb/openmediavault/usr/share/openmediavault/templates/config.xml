@@ -166,6 +166,7 @@
 			<job>
 				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
 				<enable>0|1</enable>
+				<execution>exactly|hourly|daily|weekly|monthly|yearly|reboot</execution>
 				<sendemail>0|1<sendemail>
 				<type>reboot|shutdown|standby|userdefined</type>
 				<comment>xxx</comment>

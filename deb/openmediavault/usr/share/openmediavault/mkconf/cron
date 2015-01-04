@@ -40,13 +40,19 @@ xmlstarlet sel -t \
   -o "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" -n \
   -o "# m h dom mon dow user    command" -n \
   -m "//system/crontab/job[type='reboot' or type='shutdown' or type='standby'][enable='1']" \
-	  -i "everynminute[. = '1']" -v "concat('*/',minute,' ')" -b \
+    -i "execution[. = 'exactly']" \
+  	  -i "everynminute[. = '1']" -v "concat('*/',minute,' ')" -b \
 	  -i "everynminute[. = '0']" -v "concat(minute,' ')" -b \
 	  -i "everynhour[. = '1']" -v "concat('*/',hour,' ')" -b \
 	  -i "everynhour[. = '0']" -v "concat(hour,' ')" -b \
 	  -i "everyndayofmonth[. = '1']" -v "concat('*/',dayofmonth,' ')" -b \
 	  -i "everyndayofmonth[. = '0']" -v "concat(dayofmonth,' ')" -b \
-	  -v "concat(month,' ',dayofweek,' ',username,' ',command,' >/dev/null 2>&1')" -n \
+	  -v "concat(month,' ',dayofweek)" \
+    -b \
+    -i "execution[. != 'exactly']" \
+      -v "concat('@',execution)" \
+    -b \
+    -v "concat(' ',username,' ',command,' >/dev/null 2>&1')" -n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CRONTAB_POWERMNGMT_CONFIG}
 chmod 644 ${OMV_CRONTAB_POWERMNGMT_CONFIG}
@@ -78,24 +84,30 @@ xmlstarlet sel -t \
   -o "PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin" -n \
   -o "# m h dom mon dow user    command" -n \
   -m "//system/crontab/job[enable='1' and type='userdefined']" \
+    -i "execution[. = 'exactly']" \
 	  -i "everynminute[. = '1']" -v "concat('*/',minute,' ')" -b \
 	  -i "everynminute[. = '0']" -v "concat(minute,' ')" -b \
 	  -i "everynhour[. = '1']" -v "concat('*/',hour,' ')" -b \
 	  -i "everynhour[. = '0']" -v "concat(hour,' ')" -b \
 	  -i "everyndayofmonth[. = '1']" -v "concat('*/',dayofmonth,' ')" -b \
 	  -i "everyndayofmonth[. = '0']" -v "concat(dayofmonth,' ')" -b \
-	  -v "concat(month,' ',dayofweek,' ',username,' ${OMV_CRONTAB_CRONSCRIPTS_DIR}/userdefined-',uuid)" \
-	  -i "sendemail[. = '0']" \
-		  -o " >/dev/null 2>&1" \
-	  -b \
-	  -i "sendemail[. = '1']" \
-		-i "string-length(comment) > 0" \
-		  -v "concat(' | mail -E -s \"Cron - ',translate(comment,'\
+      -v "concat(month,' ',dayofweek)" \
+    -b \
+    -i "execution[. != 'exactly']" \
+      -v "concat('@',execution)" \
+    -b \
+    -v "concat(' ',username,' ${OMV_CRONTAB_CRONSCRIPTS_DIR}/userdefined-',uuid)" \
+	-i "sendemail[. = '0']" \
+	  -o " >/dev/null 2>&1" \
+	-b \
+	-i "sendemail[. = '1']" \
+	  -i "string-length(comment) > 0" \
+	    -v "concat(' | mail -E -s \"Cron - ',translate(comment,'\
 
 ',' '),'\" -a \"From: Cron Daemon <',username,'>\" ',username,' >/dev/null 2>&1')" \
-		-b \
 	  -b \
-	  -n \
+	-b \
+	-n \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_CRONTAB_USERDEFINED_CONFIG}
 chmod 644 ${OMV_CRONTAB_USERDEFINED_CONFIG}

@@ -162,6 +162,8 @@ class OMVRpcServicePowerMgmt extends OMVRpcServiceAbstract {
 				  "enable":{"type":"boolean"},
 				  "type":{"type":["string","null"],"format":"regex",'.
 					'"pattern":"\/^reboot|shutdown|standby$\/i"},
+				  "execution":{"type":"string","enum":["exactly","hourly",'.
+					'"daily","weekly","monthly","yearly"]},
 				  "minute":{"type":"string","format":"regex",'.
 					'"pattern":"\/^[0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9]|'.
 					'5[0-9]|[*]$\/"},
