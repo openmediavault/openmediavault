@@ -2989,6 +2989,36 @@ class OMVStorageDeviceBackendHDD extends OMVStorageDeviceBackendAbstract {
 }
 
 /**
+ * Implements the storage device backend for Multimedia Card (MMC) devices.
+ * @ingroup api
+ */
+class OMVStorageDeviceBackendMMC extends OMVStorageDeviceBackendAbstract {
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_HDD;
+	}
+
+	function enumerate() {
+		return $this->enumerateProcFs("mmcblk[0-9]+");
+	}
+
+	function isTypeOf($deviceFile) {
+		// Examples:
+		// - /dev/mmcblk0
+		// - /dev/mmcblk0p1
+		$regex = "mmcblk[0-9]+(p[0-9]+)*";
+		return $this->isTypeOfByName($deviceFile, $regex);
+	}
+
+	function getImpl($args) {
+		return new OMVStorageDeviceMMC($args);
+	}
+
+	function baseDeviceFile($deviceFile) {
+		return preg_replace("/(p\d+)$/", "", $deviceFile);
+	}
+}
+
+/**
  * Implements the storage device backend for FusionIO devices.
  * @ingroup api
  */
@@ -3255,6 +3285,14 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceSMARTAbstract {
 		}
 		return $type;
 	}
+}
+
+/**
+ * This class provides a simple interface to handle Multimedia Card
+ * (MMC) devices.
+ * @ingroup api
+ */
+class OMVStorageDeviceMMC extends OMVStorageDeviceAbstract {
 }
 
 /**
@@ -5205,6 +5243,7 @@ OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendDM());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLoop());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendBcache());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendFIO());
+OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendMMC());
 
 ///////////////////////////////////////////////////////////////////////////////
 // Register default filesystem backends.
