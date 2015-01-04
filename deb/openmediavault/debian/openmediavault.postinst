@@ -140,6 +140,7 @@ case "$1" in
 			invoke-rc.d watchdog restart
 			invoke-rc.d rrdcached restart
 			invoke-rc.d collectd restart
+			invoke-rc.d php5-fpm restart
 			invoke-rc.d nginx restart
 			invoke-rc.d monit restart
 		fi
