@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-10-18 23:18+0000\n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
+"PO-Revision-Date: 2015-01-06 13:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -290,9 +290,6 @@ msgstr "Алжир"
 msgid "All"
 msgstr "Всі"
 
-msgid "Allow"
-msgstr "Дозволити"
-
 msgid "Allow client access to accounts that have null passwords"
 msgstr "Дозволити клієнтам доступ до аккаунта з нульовим паролем"
 
@@ -381,6 +378,9 @@ msgid "Aruba"
 msgstr "Аруба"
 
 msgid "Asynchronous I/O"
+msgstr ""
+
+msgid "At reboot"
 msgstr ""
 
 msgid "Attribute name"
@@ -555,7 +555,12 @@ msgid "Cancel"
 msgstr "Скасувати"
 
 msgid ""
-"Cannot unlink shared folder content because another shared folder is "
+"Cannot unlink the shared folder content because another shared folder also "
+"refers to it"
+msgstr ""
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
 msgstr ""
 
@@ -573,6 +578,9 @@ msgstr "Кайманові острови"
 
 msgid "Central African Republic"
 msgstr "Центрально-Африканська Республіка"
+
+msgid "Certain date"
+msgstr ""
 
 msgid "Certificate"
 msgstr "Cертифікат"
@@ -765,6 +773,9 @@ msgstr "DNS сервер"
 msgid "Daemon"
 msgstr "Демон"
 
+msgid "Daily"
+msgstr ""
+
 msgid "Dashboard"
 msgstr ""
 
@@ -803,9 +814,6 @@ msgstr "Видалення вибраних елементів"
 
 msgid "Denmark"
 msgstr "Данія"
-
-msgid "Deny"
-msgstr "Заборонити"
 
 msgid "Deny logins which do not have a valid shell"
 msgstr ""
@@ -1194,6 +1202,9 @@ msgstr "Кожну N хвилину"
 msgid "Everyone: read/write"
 msgstr "Всі: читання/запис"
 
+msgid "Exactly"
+msgstr ""
+
 msgid "Execute command"
 msgstr "Виконати команду"
 
@@ -1473,14 +1484,8 @@ msgstr ""
 msgid "Host"
 msgstr "Хост"
 
-msgid "Host access control"
-msgstr "Хост контроль доступу"
-
 msgid "Hostname"
 msgstr "Ім'я хоста"
-
-msgid "Hosts"
-msgstr "Хости"
 
 msgid "Hosts allow"
 msgstr "Хости дозволені"
@@ -1490,6 +1495,9 @@ msgstr "Хости заборонені"
 
 msgid "Hour"
 msgstr "Година"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hungary"
 msgstr "Угорщина"
@@ -2028,6 +2036,9 @@ msgstr "Моніторинг"
 
 msgid "Month"
 msgstr "Місяць"
+
+msgid "Monthly"
+msgstr ""
 
 msgid "Montserrat"
 msgstr "Монтсеррат"
@@ -2773,6 +2784,9 @@ msgstr ""
 msgid "Scheduled tests"
 msgstr "Заплановані тестування"
 
+msgid "Scheduling"
+msgstr ""
+
 msgid "Secondary"
 msgstr "Вторинний"
 
@@ -2781,6 +2795,9 @@ msgstr "Вторинний email"
 
 msgid "Seconds"
 msgstr "Секунди"
+
+msgid "Section"
+msgstr ""
 
 msgid "Secure"
 msgstr ""
@@ -3569,6 +3586,9 @@ msgstr "Час"
 msgid "Time interval"
 msgstr "Інтервал часу"
 
+msgid "Time of execution"
+msgstr ""
+
 msgid "Time server"
 msgstr "Сервер часу"
 
@@ -3676,9 +3696,6 @@ msgstr "Сполучені Штати"
 
 msgid "United States Minor Outlying Islands"
 msgstr "Сполучені Штати Америки Зовнішні малі острови"
-
-msgid "Unknown filesystem '%s'"
-msgstr "Невідома файлова система '%s'"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "Невідомий тип log-файлу (id=%s)"
@@ -3863,6 +3880,9 @@ msgstr "Веб-інтерфейс адміністрування"
 msgid "Wednesday"
 msgstr "Середа"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Welcome message"
 msgstr "Вітаємо повідомлення"
 
@@ -3896,6 +3916,9 @@ msgid "Write only"
 msgstr "Лише для запису"
 
 msgid "Write/Execute"
+msgstr ""
+
+msgid "Yearly"
 msgstr ""
 
 msgid "Yemen"

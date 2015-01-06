@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-10-18 23:18+0000\n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
+"PO-Revision-Date: 2015-01-06 13:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -289,9 +289,6 @@ msgstr "Algeri"
 msgid "All"
 msgstr "Alle"
 
-msgid "Allow"
-msgstr "Tillat"
-
 msgid "Allow client access to accounts that have null passwords"
 msgstr "Tillat klienttilang til kontoer uten passord"
 
@@ -381,6 +378,9 @@ msgstr "Aruba"
 
 msgid "Asynchronous I/O"
 msgstr "Asynkron I/O"
+
+msgid "At reboot"
+msgstr ""
 
 msgid "Attribute name"
 msgstr "Attributtnavn"
@@ -554,9 +554,14 @@ msgid "Cancel"
 msgstr "Avbryt"
 
 msgid ""
-"Cannot unlink shared folder content because another shared folder is "
+"Cannot unlink the shared folder content because another shared folder also "
+"refers to it"
+msgstr ""
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "Kan ikke fjerne delt mappe link fordi en annen delt mappe refererer til en undermappe"
+msgstr ""
 
 msgid "Canton and Enderbury Islands"
 msgstr "Canton- og Enderburyøyene"
@@ -572,6 +577,9 @@ msgstr "Caymanøyene"
 
 msgid "Central African Republic"
 msgstr "Den sentralafrikanske republikk"
+
+msgid "Certain date"
+msgstr ""
 
 msgid "Certificate"
 msgstr "Sertifikat"
@@ -764,6 +772,9 @@ msgstr "DNS server"
 msgid "Daemon"
 msgstr "Deamon"
 
+msgid "Daily"
+msgstr ""
+
 msgid "Dashboard"
 msgstr ""
 
@@ -802,9 +813,6 @@ msgstr "Sletter valgte element(er)"
 
 msgid "Denmark"
 msgstr "Danmark"
-
-msgid "Deny"
-msgstr "Forby"
 
 msgid "Deny logins which do not have a valid shell"
 msgstr "Nekt tilgang uten gyldig shell"
@@ -1193,6 +1201,9 @@ msgstr "Hvert N minutt"
 msgid "Everyone: read/write"
 msgstr "Alle: les/skriv"
 
+msgid "Exactly"
+msgstr ""
+
 msgid "Execute command"
 msgstr "Utfør kommando"
 
@@ -1472,14 +1483,8 @@ msgstr "Hensynta eksisterende ACLs"
 msgid "Host"
 msgstr "Vert"
 
-msgid "Host access control"
-msgstr "Vert adgangskontroll"
-
 msgid "Hostname"
 msgstr "Vertsnavn"
-
-msgid "Hosts"
-msgstr "Verter"
 
 msgid "Hosts allow"
 msgstr "Verter tillatt"
@@ -1489,6 +1494,9 @@ msgstr "Nektede verter"
 
 msgid "Hour"
 msgstr "Time"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hungary"
 msgstr "Ungarn"
@@ -2027,6 +2035,9 @@ msgstr "Overvåkning"
 
 msgid "Month"
 msgstr "Måned"
+
+msgid "Monthly"
+msgstr ""
 
 msgid "Montserrat"
 msgstr "Montserrat"
@@ -2772,6 +2783,9 @@ msgstr ""
 msgid "Scheduled tests"
 msgstr "Planlagte tester"
 
+msgid "Scheduling"
+msgstr ""
+
 msgid "Secondary"
 msgstr "Sekundær"
 
@@ -2780,6 +2794,9 @@ msgstr "Sekundær epsot"
 
 msgid "Seconds"
 msgstr "Sekunder"
+
+msgid "Section"
+msgstr ""
 
 msgid "Secure"
 msgstr "Sikker"
@@ -3568,6 +3585,9 @@ msgstr "Tid"
 msgid "Time interval"
 msgstr "TIdsintervall"
 
+msgid "Time of execution"
+msgstr ""
+
 msgid "Time server"
 msgstr "Tidsserver"
 
@@ -3675,9 +3695,6 @@ msgstr "USA"
 
 msgid "United States Minor Outlying Islands"
 msgstr "USAs ytre småøyer"
-
-msgid "Unknown filesystem '%s'"
-msgstr "Ukjent filsystem '%s'"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "Ukjent loggfiltype (id=%s)"
@@ -3862,6 +3879,9 @@ msgstr "Web administrasjonsgrensesnitt"
 msgid "Wednesday"
 msgstr "Onsdag"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Welcome message"
 msgstr "Velkomstmelding"
 
@@ -3895,6 +3915,9 @@ msgid "Write only"
 msgstr "Kun skrive"
 
 msgid "Write/Execute"
+msgstr ""
+
+msgid "Yearly"
 msgstr ""
 
 msgid "Yemen"

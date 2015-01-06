@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-12-02 18:14+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
+"PO-Revision-Date: 2015-01-06 13:50+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -289,9 +289,6 @@ msgstr "阿爾及利亞"
 msgid "All"
 msgstr "全部"
 
-msgid "Allow"
-msgstr "允許"
-
 msgid "Allow client access to accounts that have null passwords"
 msgstr "允許客戶取用擁有空密碼的帳戶"
 
@@ -381,6 +378,9 @@ msgstr "阿魯巴"
 
 msgid "Asynchronous I/O"
 msgstr "非同步 I/O"
+
+msgid "At reboot"
+msgstr ""
 
 msgid "Attribute name"
 msgstr "屬性名稱"
@@ -554,9 +554,14 @@ msgid "Cancel"
 msgstr "取消"
 
 msgid ""
-"Cannot unlink shared folder content because another shared folder is "
+"Cannot unlink the shared folder content because another shared folder also "
+"refers to it"
+msgstr ""
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "無法切斷共享檔案夾內容的連結，因為令一個共享檔案夾引用到一個子檔案夾"
+msgstr ""
 
 msgid "Canton and Enderbury Islands"
 msgstr "坎吞與恩得伯利島"
@@ -572,6 +577,9 @@ msgstr "開曼群島"
 
 msgid "Central African Republic"
 msgstr "中非共和國"
+
+msgid "Certain date"
+msgstr ""
 
 msgid "Certificate"
 msgstr "證書"
@@ -764,6 +772,9 @@ msgstr "DNS 伺服器"
 msgid "Daemon"
 msgstr "幕後服務程式"
 
+msgid "Daily"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "儀表板"
 
@@ -802,9 +813,6 @@ msgstr "刪除所選的項目"
 
 msgid "Denmark"
 msgstr "丹麥"
-
-msgid "Deny"
-msgstr "拒絕"
 
 msgid "Deny logins which do not have a valid shell"
 msgstr "拒絕缺少可用指令殼層(shell)的登入"
@@ -1193,6 +1201,9 @@ msgstr "每 N 分鐘"
 msgid "Everyone: read/write"
 msgstr "每個人：讀/寫"
 
+msgid "Exactly"
+msgstr ""
+
 msgid "Execute command"
 msgstr "執行指令"
 
@@ -1472,14 +1483,8 @@ msgstr "遵循現存的存取控制表(ACLs)"
 msgid "Host"
 msgstr "主機"
 
-msgid "Host access control"
-msgstr "主機存取控制"
-
 msgid "Hostname"
 msgstr "主機名稱"
-
-msgid "Hosts"
-msgstr "主機"
 
 msgid "Hosts allow"
 msgstr "允許主機"
@@ -1489,6 +1494,9 @@ msgstr "拒絕主機"
 
 msgid "Hour"
 msgstr "時"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hungary"
 msgstr "匈牙利"
@@ -2027,6 +2035,9 @@ msgstr "監測"
 
 msgid "Month"
 msgstr "月"
+
+msgid "Monthly"
+msgstr ""
 
 msgid "Montserrat"
 msgstr "蒙特塞拉特"
@@ -2772,6 +2783,9 @@ msgstr "預定工作"
 msgid "Scheduled tests"
 msgstr "預定測試"
 
+msgid "Scheduling"
+msgstr ""
+
 msgid "Secondary"
 msgstr "次要"
 
@@ -2780,6 +2794,9 @@ msgstr "次要電子郵件"
 
 msgid "Seconds"
 msgstr "秒"
+
+msgid "Section"
+msgstr ""
 
 msgid "Secure"
 msgstr "安全"
@@ -3568,6 +3585,9 @@ msgstr "時間"
 msgid "Time interval"
 msgstr "時間間隔"
 
+msgid "Time of execution"
+msgstr ""
+
 msgid "Time server"
 msgstr "時間伺服器"
 
@@ -3675,9 +3695,6 @@ msgstr "美國"
 
 msgid "United States Minor Outlying Islands"
 msgstr "美國本土外小島嶼"
-
-msgid "Unknown filesystem '%s'"
-msgstr "未知的檔案系統 '%s'"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "未知的日誌檔案類型(id=%s)"
@@ -3862,6 +3879,9 @@ msgstr "網站管理介面"
 msgid "Wednesday"
 msgstr "星期三"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Welcome message"
 msgstr "歡迎訊息"
 
@@ -3896,6 +3916,9 @@ msgstr "唯寫"
 
 msgid "Write/Execute"
 msgstr "寫/執行"
+
+msgid "Yearly"
+msgstr ""
 
 msgid "Yemen"
 msgstr "葉門"

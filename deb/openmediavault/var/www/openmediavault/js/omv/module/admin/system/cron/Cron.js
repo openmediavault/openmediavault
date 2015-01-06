@@ -95,7 +95,7 @@ Ext.define("OMV.module.admin.system.cron.Job", {
 			fieldLabel: _("Time of execution"),
 			queryMode: "local",
 			store: [
-				[ "exactly", _("Exactly") ],
+				[ "exactly", _("Certain date") ],
 				[ "hourly", _("Hourly") ],
 				[ "daily", _("Daily") ],
 				[ "weekly", _("Weekly") ],

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-10-18 23:18+0000\n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
+"PO-Revision-Date: 2015-01-06 13:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -291,9 +291,6 @@ msgstr "Algérie"
 msgid "All"
 msgstr "Tous"
 
-msgid "Allow"
-msgstr "Autoriser"
-
 msgid "Allow client access to accounts that have null passwords"
 msgstr "Autoriser l'accès aux clients sans mot de passe"
 
@@ -383,6 +380,9 @@ msgstr "Aruba"
 
 msgid "Asynchronous I/O"
 msgstr "E/S asynchrones"
+
+msgid "At reboot"
+msgstr ""
 
 msgid "Attribute name"
 msgstr "Nom de l'attribut"
@@ -556,9 +556,14 @@ msgid "Cancel"
 msgstr "Annuler"
 
 msgid ""
-"Cannot unlink shared folder content because another shared folder is "
+"Cannot unlink the shared folder content because another shared folder also "
+"refers to it"
+msgstr ""
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "Impossible de détacher le contenu du dossier partagé car un autre dossier partagé référence un sous-répertoire"
+msgstr ""
 
 msgid "Canton and Enderbury Islands"
 msgstr "Îles Canton et Enderbury"
@@ -574,6 +579,9 @@ msgstr "Îles Cayman"
 
 msgid "Central African Republic"
 msgstr "Centrafrique"
+
+msgid "Certain date"
+msgstr ""
 
 msgid "Certificate"
 msgstr "Certificat"
@@ -766,6 +774,9 @@ msgstr "Serveur DNS"
 msgid "Daemon"
 msgstr "Daemon"
 
+msgid "Daily"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "Tableau de bord"
 
@@ -804,9 +815,6 @@ msgstr "Suppression de(s) élément(s) sélectionné(s)"
 
 msgid "Denmark"
 msgstr "Danemark"
-
-msgid "Deny"
-msgstr "Refuser"
 
 msgid "Deny logins which do not have a valid shell"
 msgstr "Refuser les logins qui non pas de shell valide"
@@ -1195,6 +1203,9 @@ msgstr "Toutes les N minutes"
 msgid "Everyone: read/write"
 msgstr "Tous : lecture/écriture"
 
+msgid "Exactly"
+msgstr ""
+
 msgid "Execute command"
 msgstr "Exécute la commande"
 
@@ -1474,14 +1485,8 @@ msgstr "Prendre en compte les listes de contrôle d'accès"
 msgid "Host"
 msgstr "Hôtes"
 
-msgid "Host access control"
-msgstr "Contrôle d'accès à l'hôte"
-
 msgid "Hostname"
 msgstr "Nom de l'hôte"
-
-msgid "Hosts"
-msgstr "Hôtes"
 
 msgid "Hosts allow"
 msgstr "Hôtes autorisés"
@@ -1491,6 +1496,9 @@ msgstr "Hôtes interdits"
 
 msgid "Hour"
 msgstr "Heure"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hungary"
 msgstr "Hongrie"
@@ -2029,6 +2037,9 @@ msgstr "Surveillance"
 
 msgid "Month"
 msgstr "Mois"
+
+msgid "Monthly"
+msgstr ""
 
 msgid "Montserrat"
 msgstr "Montserrat"
@@ -2774,6 +2785,9 @@ msgstr "Tâches planifiées"
 msgid "Scheduled tests"
 msgstr "Tests programmés"
 
+msgid "Scheduling"
+msgstr ""
+
 msgid "Secondary"
 msgstr "Secondaire"
 
@@ -2782,6 +2796,9 @@ msgstr "Mail secondaire"
 
 msgid "Seconds"
 msgstr "Secondes"
+
+msgid "Section"
+msgstr ""
 
 msgid "Secure"
 msgstr "Sécurisé"
@@ -3570,6 +3587,9 @@ msgstr "Heure"
 msgid "Time interval"
 msgstr "Intervalle de temps"
 
+msgid "Time of execution"
+msgstr ""
+
 msgid "Time server"
 msgstr "Serveur de temps"
 
@@ -3677,9 +3697,6 @@ msgstr "États-Unis d'Amérique"
 
 msgid "United States Minor Outlying Islands"
 msgstr "Îles mineures éloignées des États-Unis"
-
-msgid "Unknown filesystem '%s'"
-msgstr "Système de fichier inconnu '%s'"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "Type de fichier de trace inconnu (id=%s)"
@@ -3864,6 +3881,9 @@ msgstr "Interface de l'administration Web"
 msgid "Wednesday"
 msgstr "Mercredi"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Welcome message"
 msgstr "Message de bienvenue"
 
@@ -3898,6 +3918,9 @@ msgstr "Ecriture seule"
 
 msgid "Write/Execute"
 msgstr "Ecrire/Exécuter"
+
+msgid "Yearly"
+msgstr ""
 
 msgid "Yemen"
 msgstr "Yémen"

@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-12-18 08:30+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
+"PO-Revision-Date: 2015-01-06 13:50+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -288,9 +288,6 @@ msgstr "アルジェリア"
 msgid "All"
 msgstr "すべて"
 
-msgid "Allow"
-msgstr "許可"
-
 msgid "Allow client access to accounts that have null passwords"
 msgstr "ヌルパスワードを持つアカウントへのクライアントアクセスを許可"
 
@@ -380,6 +377,9 @@ msgstr "アルバ"
 
 msgid "Asynchronous I/O"
 msgstr "非同期I/O"
+
+msgid "At reboot"
+msgstr ""
 
 msgid "Attribute name"
 msgstr "属性名"
@@ -553,9 +553,14 @@ msgid "Cancel"
 msgstr "キャンセル"
 
 msgid ""
-"Cannot unlink shared folder content because another shared folder is "
+"Cannot unlink the shared folder content because another shared folder also "
+"refers to it"
+msgstr ""
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "別の共有フォルダがサブディレクトリを参照しているため、共有フォルダのコンテンツを削除することはできません"
+msgstr ""
 
 msgid "Canton and Enderbury Islands"
 msgstr "カントン島・エンダーバリ島"
@@ -571,6 +576,9 @@ msgstr "ケイマン諸島"
 
 msgid "Central African Republic"
 msgstr "中央アフリカ共和国"
+
+msgid "Certain date"
+msgstr ""
 
 msgid "Certificate"
 msgstr "証明書"
@@ -763,6 +771,9 @@ msgstr "DNSサーバー"
 msgid "Daemon"
 msgstr "デーモン"
 
+msgid "Daily"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
@@ -801,9 +812,6 @@ msgstr "選択したアイテムを削除"
 
 msgid "Denmark"
 msgstr "デンマーク"
-
-msgid "Deny"
-msgstr "拒否"
 
 msgid "Deny logins which do not have a valid shell"
 msgstr "有効なシェルを持っていないログインを拒否する"
@@ -1192,6 +1200,9 @@ msgstr "毎N分"
 msgid "Everyone: read/write"
 msgstr "みんな:読み/書き"
 
+msgid "Exactly"
+msgstr ""
+
 msgid "Execute command"
 msgstr "コマンドの実行"
 
@@ -1255,7 +1266,7 @@ msgid "Falkland Islands"
 msgstr "フォークランド諸島"
 
 msgid "Family"
-msgstr "家族"
+msgstr "ファミリ"
 
 msgid "Faroe Islands"
 msgstr "フェロー諸島"
@@ -1471,14 +1482,8 @@ msgstr "既存のACLを優先"
 msgid "Host"
 msgstr "ホスト"
 
-msgid "Host access control"
-msgstr "ホストアクセスコントロール"
-
 msgid "Hostname"
 msgstr "ホスト名"
-
-msgid "Hosts"
-msgstr "ホスト"
 
 msgid "Hosts allow"
 msgstr "許可するホスト"
@@ -1488,6 +1493,9 @@ msgstr "拒否するホスト"
 
 msgid "Hour"
 msgstr "時"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hungary"
 msgstr "ハンガリー"
@@ -2026,6 +2034,9 @@ msgstr "モニタリング"
 
 msgid "Month"
 msgstr "月"
+
+msgid "Monthly"
+msgstr ""
 
 msgid "Montserrat"
 msgstr "モントセラト"
@@ -2771,6 +2782,9 @@ msgstr "スケジュールされたジョブ"
 msgid "Scheduled tests"
 msgstr "スケジュールされたテスト"
 
+msgid "Scheduling"
+msgstr ""
+
 msgid "Secondary"
 msgstr "セカンダリ"
 
@@ -2779,6 +2793,9 @@ msgstr "セカンダリメール"
 
 msgid "Seconds"
 msgstr "秒"
+
+msgid "Section"
+msgstr ""
 
 msgid "Secure"
 msgstr "セキュア"
@@ -3567,6 +3584,9 @@ msgstr "時刻"
 msgid "Time interval"
 msgstr "タイムインターバル"
 
+msgid "Time of execution"
+msgstr ""
+
 msgid "Time server"
 msgstr "時刻サーバ"
 
@@ -3674,9 +3694,6 @@ msgstr "アメリカ合衆国"
 
 msgid "United States Minor Outlying Islands"
 msgstr "合衆国領有小離島"
-
-msgid "Unknown filesystem '%s'"
-msgstr "未知のファイルシステム '%s'"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "未知のログファイルタイプ (id=%s)"
@@ -3861,6 +3878,9 @@ msgstr "ウェブ管理インタフェース"
 msgid "Wednesday"
 msgstr "水曜"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Welcome message"
 msgstr "ウェルカムメッセージ"
 
@@ -3895,6 +3915,9 @@ msgstr "書き込み専用"
 
 msgid "Write/Execute"
 msgstr "書き込み/実行"
+
+msgid "Yearly"
+msgstr ""
 
 msgid "Yemen"
 msgstr "イエメン"

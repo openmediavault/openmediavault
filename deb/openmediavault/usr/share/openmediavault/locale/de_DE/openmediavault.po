@@ -8,7 +8,7 @@
 # mattjes04 <mattjes04@googlemail.com>, 2013
 # mattjes04 <mattjes04@googlemail.com>, 2012
 # Stephan Steiner, 2014
-# Volker <votdev@gmx.de>, 2013-2014
+# Volker <votdev@gmx.de>, 2013-2015
 # Volker <votdev@gmx.de>, 2012
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2013
@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-10-18 23:20+0000\n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
+"PO-Revision-Date: 2015-01-06 13:51+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -297,9 +297,6 @@ msgstr "Algerien"
 msgid "All"
 msgstr "Alle"
 
-msgid "Allow"
-msgstr "Zulassen"
-
 msgid "Allow client access to accounts that have null passwords"
 msgstr "Erlaube Client Zugriff auf passwortlose Zugänge."
 
@@ -389,6 +386,9 @@ msgstr "Aruba"
 
 msgid "Asynchronous I/O"
 msgstr "Asynchrones I/O"
+
+msgid "At reboot"
+msgstr "Beim Neustart"
 
 msgid "Attribute name"
 msgstr "Attributname"
@@ -562,9 +562,14 @@ msgid "Cancel"
 msgstr "Abbrechen"
 
 msgid ""
-"Cannot unlink shared folder content because another shared folder is "
+"Cannot unlink the shared folder content because another shared folder also "
+"refers to it"
+msgstr "Der freigegebene Ordner kann nicht gelöscht werden da ein anderer freigegebener Ordner diesen ebenfalls referenziert."
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "Der freigegebene Ordner kann nicht gelöscht werden weil ein anderer freigegebener Ordner auf ein Unterverzeichnis referenziert."
+msgstr "Der freigegebene Ordner kann nicht gelöscht werden da ein anderer freigegebener Ordner auf ein Unterverzeichnis referenziert."
 
 msgid "Canton and Enderbury Islands"
 msgstr "Phoenixinseln"
@@ -580,6 +585,9 @@ msgstr "Kaimaninseln"
 
 msgid "Central African Republic"
 msgstr "Zentralafrikanische Republik"
+
+msgid "Certain date"
+msgstr "Bestimmter Zeitpunkt"
 
 msgid "Certificate"
 msgstr "Zertifikat"
@@ -772,6 +780,9 @@ msgstr "DNS Server"
 msgid "Daemon"
 msgstr "Daemon"
 
+msgid "Daily"
+msgstr "Täglich"
+
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -810,9 +821,6 @@ msgstr "Lösche markierte Elemente"
 
 msgid "Denmark"
 msgstr "Dänemark"
-
-msgid "Deny"
-msgstr "Verbieten"
 
 msgid "Deny logins which do not have a valid shell"
 msgstr "Verweigere Zugang ohne gültige Shell"
@@ -1201,6 +1209,9 @@ msgstr "Jede Nte Minute"
 msgid "Everyone: read/write"
 msgstr "Jeder: lesen/schreiben"
 
+msgid "Exactly"
+msgstr "Genau"
+
 msgid "Execute command"
 msgstr "Befehl ausführen"
 
@@ -1480,14 +1491,8 @@ msgstr "Berücksichtigt vorhandenen ACLs"
 msgid "Host"
 msgstr "Host"
 
-msgid "Host access control"
-msgstr "Host-Zugriffskontrolle"
-
 msgid "Hostname"
 msgstr "Hostname"
-
-msgid "Hosts"
-msgstr "Hosts"
 
 msgid "Hosts allow"
 msgstr "Erlaubte Hosts"
@@ -1497,6 +1502,9 @@ msgstr "Verweigerte Hosts"
 
 msgid "Hour"
 msgstr "Stunde"
+
+msgid "Hourly"
+msgstr "Stündlich"
 
 msgid "Hungary"
 msgstr "Ungarn"
@@ -2035,6 +2043,9 @@ msgstr "Überwachung"
 
 msgid "Month"
 msgstr "Monat"
+
+msgid "Monthly"
+msgstr "Monatlich"
 
 msgid "Montserrat"
 msgstr "Montserrat"
@@ -2780,6 +2791,9 @@ msgstr "Geplante Aufgaben"
 msgid "Scheduled tests"
 msgstr "Planmäßige Tests"
 
+msgid "Scheduling"
+msgstr "Terminplanung"
+
 msgid "Secondary"
 msgstr "Sekundär"
 
@@ -2788,6 +2802,9 @@ msgstr "Sekundäre E-Mail"
 
 msgid "Seconds"
 msgstr "Sekunden"
+
+msgid "Section"
+msgstr "Sektion"
 
 msgid "Secure"
 msgstr "Sicher"
@@ -3576,6 +3593,9 @@ msgstr "Zeit"
 msgid "Time interval"
 msgstr "Zeitintervall"
 
+msgid "Time of execution"
+msgstr "Zeitpunkt der Ausführung"
+
 msgid "Time server"
 msgstr "Zeitserver"
 
@@ -3683,9 +3703,6 @@ msgstr "Vereinigte Staaten"
 
 msgid "United States Minor Outlying Islands"
 msgstr "United States Minor Outlying Islands"
-
-msgid "Unknown filesystem '%s'"
-msgstr "Unbekanntes Dateisystem '%s'"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "Unbekannter Log-Dateityp (id=%s)"
@@ -3870,6 +3887,9 @@ msgstr "Web Administrationsoberfläche"
 msgid "Wednesday"
 msgstr "Mittwoch"
 
+msgid "Weekly"
+msgstr "Wöchentlich"
+
 msgid "Welcome message"
 msgstr "Willkommens-nachricht"
 
@@ -3904,6 +3924,9 @@ msgstr "Nur schreiben"
 
 msgid "Write/Execute"
 msgstr "Schreiben/Ausführen"
+
+msgid "Yearly"
+msgstr "Jährlich"
 
 msgid "Yemen"
 msgstr "Jemen"

@@ -11,9 +11,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-10-26 12:39+0000\n"
-"Last-Translator: Tim <co_ti@hotmail.com>\n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
+"PO-Revision-Date: 2015-01-06 13:50+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -291,9 +291,6 @@ msgstr "Algerije"
 msgid "All"
 msgstr "Iedereen"
 
-msgid "Allow"
-msgstr "Toestaan"
-
 msgid "Allow client access to accounts that have null passwords"
 msgstr "Cliënten toegang tot accounts met \"null\" (blanco) wachtwoord toestaan"
 
@@ -383,6 +380,9 @@ msgstr "Aruba"
 
 msgid "Asynchronous I/O"
 msgstr "Asynchrone I/O"
+
+msgid "At reboot"
+msgstr ""
 
 msgid "Attribute name"
 msgstr "Attribuutnaam"
@@ -556,9 +556,14 @@ msgid "Cancel"
 msgstr "Annuleren"
 
 msgid ""
-"Cannot unlink shared folder content because another shared folder is "
+"Cannot unlink the shared folder content because another shared folder also "
+"refers to it"
+msgstr ""
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "De inhoud van de gedeelde map kan niet losgekoppeld worden, omdat een andere gedeelde map naar een onderliggende map verwijst"
+msgstr ""
 
 msgid "Canton and Enderbury Islands"
 msgstr "Canton en Enderbury Eilanden"
@@ -574,6 +579,9 @@ msgstr "Kaaimaneilanden"
 
 msgid "Central African Republic"
 msgstr "Centraal Afrikaanse Republiek"
+
+msgid "Certain date"
+msgstr ""
 
 msgid "Certificate"
 msgstr "Certificaat"
@@ -766,6 +774,9 @@ msgstr "DNS-server"
 msgid "Daemon"
 msgstr "Daemon"
 
+msgid "Daily"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "Bedieningspaneel"
 
@@ -804,9 +815,6 @@ msgstr "Geselecteerde item(s) verwijderen"
 
 msgid "Denmark"
 msgstr "Denemarken"
-
-msgid "Deny"
-msgstr "Weigeren"
 
 msgid "Deny logins which do not have a valid shell"
 msgstr "Aanmelden weigeren als er geen geldige shell is."
@@ -1195,6 +1203,9 @@ msgstr "Iedere N minuten"
 msgid "Everyone: read/write"
 msgstr "Iedereen: lezen/schrijven"
 
+msgid "Exactly"
+msgstr ""
+
 msgid "Execute command"
 msgstr "Opdracht uitvoeren"
 
@@ -1474,14 +1485,8 @@ msgstr "Bestaande ACL's gebruiken"
 msgid "Host"
 msgstr "Host"
 
-msgid "Host access control"
-msgstr "Host toegangscontrole"
-
 msgid "Hostname"
 msgstr "Hostnaam"
-
-msgid "Hosts"
-msgstr "Hosts"
 
 msgid "Hosts allow"
 msgstr "Hosts toestaan"
@@ -1491,6 +1496,9 @@ msgstr "Hosts weigeren"
 
 msgid "Hour"
 msgstr "Uur"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hungary"
 msgstr "Hongarije"
@@ -2029,6 +2037,9 @@ msgstr "Monitoren"
 
 msgid "Month"
 msgstr "Maand"
+
+msgid "Monthly"
+msgstr ""
 
 msgid "Montserrat"
 msgstr "Montserrat"
@@ -2774,6 +2785,9 @@ msgstr "Ingeplande taken"
 msgid "Scheduled tests"
 msgstr "Geplande tests"
 
+msgid "Scheduling"
+msgstr ""
+
 msgid "Secondary"
 msgstr "Secundair"
 
@@ -2782,6 +2796,9 @@ msgstr "Secundair e-mailadres"
 
 msgid "Seconds"
 msgstr "Seconden"
+
+msgid "Section"
+msgstr ""
 
 msgid "Secure"
 msgstr "Veilig"
@@ -3570,6 +3587,9 @@ msgstr "Tijd"
 msgid "Time interval"
 msgstr "Tijdinterval"
 
+msgid "Time of execution"
+msgstr ""
+
 msgid "Time server"
 msgstr "Tijdserver"
 
@@ -3677,9 +3697,6 @@ msgstr "Verenigde Staten"
 
 msgid "United States Minor Outlying Islands"
 msgstr "Amerikaanse Kleine Buitengelegen Eilanden"
-
-msgid "Unknown filesystem '%s'"
-msgstr "Onbekend bestandssysteem '%s'"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "Onbekend bestandstype van de log (id=%s)"
@@ -3864,6 +3881,9 @@ msgstr "Web administration interface"
 msgid "Wednesday"
 msgstr "Woensdag"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Welcome message"
 msgstr "Welkomstbericht"
 
@@ -3898,6 +3918,9 @@ msgstr "Alleen lezen"
 
 msgid "Write/Execute"
 msgstr "Schrijven/Uitvoeren"
+
+msgid "Yearly"
+msgstr ""
 
 msgid "Yemen"
 msgstr "Yemen"

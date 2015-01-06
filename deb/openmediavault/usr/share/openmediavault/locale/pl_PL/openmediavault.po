@@ -12,9 +12,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-10-27 21:19+0000\n"
-"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
+"PO-Revision-Date: 2015-01-06 13:50+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -292,9 +292,6 @@ msgstr "Algeria"
 msgid "All"
 msgstr "Wszystkie"
 
-msgid "Allow"
-msgstr "Pozwól"
-
 msgid "Allow client access to accounts that have null passwords"
 msgstr "Zezwalaj na dostęp klientów do kont, które mają puste hasła"
 
@@ -384,6 +381,9 @@ msgstr "Aruba"
 
 msgid "Asynchronous I/O"
 msgstr "Asynchroniczne I/O"
+
+msgid "At reboot"
+msgstr ""
 
 msgid "Attribute name"
 msgstr "Nazwa atrybutu"
@@ -557,9 +557,14 @@ msgid "Cancel"
 msgstr "Anuluj"
 
 msgid ""
-"Cannot unlink shared folder content because another shared folder is "
+"Cannot unlink the shared folder content because another shared folder also "
+"refers to it"
+msgstr ""
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "Nie można odłączyć zawartość folderu udostępnionego, ponieważ inny folder udostępniony odwołuje się do podkatalogu"
+msgstr ""
 
 msgid "Canton and Enderbury Islands"
 msgstr "Canton and Enderbury Islands"
@@ -575,6 +580,9 @@ msgstr "Cayman Islands"
 
 msgid "Central African Republic"
 msgstr "Central African Republic"
+
+msgid "Certain date"
+msgstr ""
 
 msgid "Certificate"
 msgstr "Certyfikat"
@@ -767,6 +775,9 @@ msgstr "serwer DNS"
 msgid "Daemon"
 msgstr "Demon"
 
+msgid "Daily"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "Panel"
 
@@ -805,9 +816,6 @@ msgstr "Kasowanie wybranego elementu(ów)"
 
 msgid "Denmark"
 msgstr "Denmark"
-
-msgid "Deny"
-msgstr "Zabroń"
 
 msgid "Deny logins which do not have a valid shell"
 msgstr "Odrzuć użytkowników nie posiadających odpowiedniej powłoki"
@@ -1196,6 +1204,9 @@ msgstr "Każdej N minuty"
 msgid "Everyone: read/write"
 msgstr "Wszyscy: odczyt/zapis"
 
+msgid "Exactly"
+msgstr ""
+
 msgid "Execute command"
 msgstr "Wykonaj polecenie"
 
@@ -1475,14 +1486,8 @@ msgstr "Honoruj istniejące ACL-ele"
 msgid "Host"
 msgstr "Host"
 
-msgid "Host access control"
-msgstr "Kontrola dostępu do hosta"
-
 msgid "Hostname"
 msgstr "Nazwa Hosta"
-
-msgid "Hosts"
-msgstr "Hosty"
 
 msgid "Hosts allow"
 msgstr "Hosty dopuszczone"
@@ -1492,6 +1497,9 @@ msgstr "Hosty odrzucone"
 
 msgid "Hour"
 msgstr "Godzina"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hungary"
 msgstr "Hungary"
@@ -2030,6 +2038,9 @@ msgstr "Monitoring"
 
 msgid "Month"
 msgstr "Miesiąc"
+
+msgid "Monthly"
+msgstr ""
 
 msgid "Montserrat"
 msgstr "Montserrat"
@@ -2775,6 +2786,9 @@ msgstr "Zaplanowane zadania"
 msgid "Scheduled tests"
 msgstr "Zaplanowane testy"
 
+msgid "Scheduling"
+msgstr ""
+
 msgid "Secondary"
 msgstr "Pomocniczy"
 
@@ -2783,6 +2797,9 @@ msgstr "Drugi email"
 
 msgid "Seconds"
 msgstr "Sekund"
+
+msgid "Section"
+msgstr ""
 
 msgid "Secure"
 msgstr "Bezpieczeństwo"
@@ -3571,6 +3588,9 @@ msgstr "Czas"
 msgid "Time interval"
 msgstr "Przedział czasu"
 
+msgid "Time of execution"
+msgstr ""
+
 msgid "Time server"
 msgstr "Serwer czasu"
 
@@ -3678,9 +3698,6 @@ msgstr "United States"
 
 msgid "United States Minor Outlying Islands"
 msgstr "United States Minor Outlying Islands"
-
-msgid "Unknown filesystem '%s'"
-msgstr "Nieznany system plików  '%s'"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "Typ pliku dziennika nieznany  (id=%s)"
@@ -3865,6 +3882,9 @@ msgstr "Interfejs panelu administracyjnego"
 msgid "Wednesday"
 msgstr "Środa"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Welcome message"
 msgstr "Wiadomość powitalna"
 
@@ -3899,6 +3919,9 @@ msgstr "Tyko zapis"
 
 msgid "Write/Execute"
 msgstr "Zapis/Wykonanie"
+
+msgid "Yearly"
+msgstr ""
 
 msgid "Yemen"
 msgstr "Yemen"

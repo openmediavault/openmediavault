@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-10-18 23:18+0000\n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
+"PO-Revision-Date: 2015-01-06 13:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -288,9 +288,6 @@ msgstr "Algeriet"
 msgid "All"
 msgstr "Alla"
 
-msgid "Allow"
-msgstr "Tillåt"
-
 msgid "Allow client access to accounts that have null passwords"
 msgstr "Tillåt klientåtkomst till konton som inte har något lösenord"
 
@@ -379,6 +376,9 @@ msgid "Aruba"
 msgstr "Aruba"
 
 msgid "Asynchronous I/O"
+msgstr ""
+
+msgid "At reboot"
 msgstr ""
 
 msgid "Attribute name"
@@ -553,9 +553,14 @@ msgid "Cancel"
 msgstr "Avbryt"
 
 msgid ""
-"Cannot unlink shared folder content because another shared folder is "
+"Cannot unlink the shared folder content because another shared folder also "
+"refers to it"
+msgstr ""
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "Kan inte koppla bort den delade mappens innehåll eftersom en annan delad mapp refererar en underkatalog"
+msgstr ""
 
 msgid "Canton and Enderbury Islands"
 msgstr "Canton och Enderburyöarna"
@@ -571,6 +576,9 @@ msgstr "Caymanöarna"
 
 msgid "Central African Republic"
 msgstr "Centralafrikanska republiken"
+
+msgid "Certain date"
+msgstr ""
 
 msgid "Certificate"
 msgstr "Certifikat"
@@ -763,6 +771,9 @@ msgstr "DNS-server"
 msgid "Daemon"
 msgstr "Tjänst"
 
+msgid "Daily"
+msgstr ""
+
 msgid "Dashboard"
 msgstr ""
 
@@ -801,9 +812,6 @@ msgstr "Ta bort filer på den mottagande sidan som inte finns på avsändarens"
 
 msgid "Denmark"
 msgstr "Danmark"
-
-msgid "Deny"
-msgstr "Neka"
 
 msgid "Deny logins which do not have a valid shell"
 msgstr "Neka inloggningar som inte har ett giltigt skal"
@@ -1192,6 +1200,9 @@ msgstr "Varje N minut"
 msgid "Everyone: read/write"
 msgstr "Alla: läsa/skriva"
 
+msgid "Exactly"
+msgstr ""
+
 msgid "Execute command"
 msgstr "Utför kommandot"
 
@@ -1471,14 +1482,8 @@ msgstr "Hedra befintliga ACL"
 msgid "Host"
 msgstr "Värd"
 
-msgid "Host access control"
-msgstr "Värd åtkomstkontroll"
-
 msgid "Hostname"
 msgstr "Värdnamn"
-
-msgid "Hosts"
-msgstr "Värdar"
 
 msgid "Hosts allow"
 msgstr "Tillåtna värdar"
@@ -1488,6 +1493,9 @@ msgstr "Nekade värdar"
 
 msgid "Hour"
 msgstr "Timme"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hungary"
 msgstr "Ungern"
@@ -2026,6 +2034,9 @@ msgstr "Övervakning"
 
 msgid "Month"
 msgstr "Månad"
+
+msgid "Monthly"
+msgstr ""
 
 msgid "Montserrat"
 msgstr "Montserrat"
@@ -2771,6 +2782,9 @@ msgstr ""
 msgid "Scheduled tests"
 msgstr "Schemalagda tester"
 
+msgid "Scheduling"
+msgstr ""
+
 msgid "Secondary"
 msgstr "Sekundär"
 
@@ -2779,6 +2793,9 @@ msgstr "Sekundär e-post"
 
 msgid "Seconds"
 msgstr "Sekunder"
+
+msgid "Section"
+msgstr ""
 
 msgid "Secure"
 msgstr "Säker"
@@ -3567,6 +3584,9 @@ msgstr "Tid"
 msgid "Time interval"
 msgstr "Tidsintervall"
 
+msgid "Time of execution"
+msgstr ""
+
 msgid "Time server"
 msgstr "Tidsserver"
 
@@ -3674,9 +3694,6 @@ msgstr "United States"
 
 msgid "United States Minor Outlying Islands"
 msgstr "Förenta staternas avlägset belägna öar"
-
-msgid "Unknown filesystem '%s'"
-msgstr "Okänt filsystem \"%s'"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "Okänd loggfilstyp (id=%s)"
@@ -3861,6 +3878,9 @@ msgstr "Gränssnitt för webbadministration"
 msgid "Wednesday"
 msgstr "Onsdag"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Welcome message"
 msgstr "Välkomstmeddelande"
 
@@ -3894,6 +3914,9 @@ msgid "Write only"
 msgstr "Endast skriva"
 
 msgid "Write/Execute"
+msgstr ""
+
+msgid "Yearly"
 msgstr ""
 
 msgid "Yemen"

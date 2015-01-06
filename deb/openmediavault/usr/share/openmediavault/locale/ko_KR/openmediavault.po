@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-11-25 10:16+0000\n"
-"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>\n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
+"PO-Revision-Date: 2015-01-06 13:50+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -290,9 +290,6 @@ msgstr "알제리"
 msgid "All"
 msgstr "모두"
 
-msgid "Allow"
-msgstr "허용"
-
 msgid "Allow client access to accounts that have null passwords"
 msgstr "널 패스워드를 갖는 계정에 대한 클라이언트 접근을 허용합니다."
 
@@ -382,6 +379,9 @@ msgstr "아루바"
 
 msgid "Asynchronous I/O"
 msgstr "비동기 입출력"
+
+msgid "At reboot"
+msgstr ""
 
 msgid "Attribute name"
 msgstr "속성 이름"
@@ -555,9 +555,14 @@ msgid "Cancel"
 msgstr "취소"
 
 msgid ""
-"Cannot unlink shared folder content because another shared folder is "
+"Cannot unlink the shared folder content because another shared folder also "
+"refers to it"
+msgstr ""
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "다른 공유 폴더가 해당 폴더의 하위 디렉터리를 참조하고 있기 때문에 이 공유 폴더를 삭제할 수 없습니다."
+msgstr ""
 
 msgid "Canton and Enderbury Islands"
 msgstr "피닉스 제도"
@@ -573,6 +578,9 @@ msgstr "케이멘 섬"
 
 msgid "Central African Republic"
 msgstr "중앙 아프리카 공화국"
+
+msgid "Certain date"
+msgstr ""
 
 msgid "Certificate"
 msgstr "인증"
@@ -765,6 +773,9 @@ msgstr "DNS 서버"
 msgid "Daemon"
 msgstr "데몬"
 
+msgid "Daily"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "대시보드"
 
@@ -803,9 +814,6 @@ msgstr "선택된 파일(들) 삭제"
 
 msgid "Denmark"
 msgstr "덴마크"
-
-msgid "Deny"
-msgstr "거부"
 
 msgid "Deny logins which do not have a valid shell"
 msgstr "유효한 쉘이 아닌 경우에 대해 로그인을 거부합니다."
@@ -1194,6 +1202,9 @@ msgstr "매 N분마다"
 msgid "Everyone: read/write"
 msgstr "모두: 읽기/쓰기"
 
+msgid "Exactly"
+msgstr ""
+
 msgid "Execute command"
 msgstr "명령 실행"
 
@@ -1473,14 +1484,8 @@ msgstr "기존 ACL을 존중합니다."
 msgid "Host"
 msgstr "호스트"
 
-msgid "Host access control"
-msgstr "호스트 접근 제어"
-
 msgid "Hostname"
 msgstr "호스트 이름"
-
-msgid "Hosts"
-msgstr "호스트"
 
 msgid "Hosts allow"
 msgstr "호스트 허용"
@@ -1490,6 +1495,9 @@ msgstr "호스트 거부"
 
 msgid "Hour"
 msgstr "시간"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hungary"
 msgstr "헝가리"
@@ -2028,6 +2036,9 @@ msgstr "감시"
 
 msgid "Month"
 msgstr "달"
+
+msgid "Monthly"
+msgstr ""
 
 msgid "Montserrat"
 msgstr "몬세라트"
@@ -2773,6 +2784,9 @@ msgstr "예약된 작업"
 msgid "Scheduled tests"
 msgstr "예약된 검사"
 
+msgid "Scheduling"
+msgstr ""
+
 msgid "Secondary"
 msgstr "보조"
 
@@ -2781,6 +2795,9 @@ msgstr "보조 전자우편"
 
 msgid "Seconds"
 msgstr "초"
+
+msgid "Section"
+msgstr ""
 
 msgid "Secure"
 msgstr "보안"
@@ -3569,6 +3586,9 @@ msgstr "시간"
 msgid "Time interval"
 msgstr "시간 주기"
 
+msgid "Time of execution"
+msgstr ""
+
 msgid "Time server"
 msgstr "시간 서버"
 
@@ -3676,9 +3696,6 @@ msgstr "미국"
 
 msgid "United States Minor Outlying Islands"
 msgstr "미국령 군소 제도"
-
-msgid "Unknown filesystem '%s'"
-msgstr "알 수 없는 파일 시스템 '%s'"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "알 수 없는 로그 파일 형식 (id=%s)"
@@ -3863,6 +3880,9 @@ msgstr "웹 관리 인터페이스"
 msgid "Wednesday"
 msgstr "수요일"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Welcome message"
 msgstr "환영 메시지"
 
@@ -3897,6 +3917,9 @@ msgstr "쓰기 전용"
 
 msgid "Write/Execute"
 msgstr "쓰기/실행"
+
+msgid "Yearly"
+msgstr ""
 
 msgid "Yemen"
 msgstr "예맨"

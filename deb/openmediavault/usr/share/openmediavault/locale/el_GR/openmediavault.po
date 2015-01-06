@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-11-11 16:58+0000\n"
-"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
+"PO-Revision-Date: 2015-01-06 13:50+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -288,9 +288,6 @@ msgstr "Algeria"
 msgid "All"
 msgstr "Όλα"
 
-msgid "Allow"
-msgstr "Επιτρέπεται"
-
 msgid "Allow client access to accounts that have null passwords"
 msgstr "Επιτρέπεται πρόσβαση σε χρήστες χωρίς κωδικό"
 
@@ -380,6 +377,9 @@ msgstr "Aruba"
 
 msgid "Asynchronous I/O"
 msgstr "Ασύγχρονες μεταφορές"
+
+msgid "At reboot"
+msgstr ""
 
 msgid "Attribute name"
 msgstr "Απόδοση ονόματος"
@@ -553,9 +553,14 @@ msgid "Cancel"
 msgstr "Ακύρωση"
 
 msgid ""
-"Cannot unlink shared folder content because another shared folder is "
+"Cannot unlink the shared folder content because another shared folder also "
+"refers to it"
+msgstr ""
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "Αδύνατη η αποσύνδεση των περιεχομένων του κοινόχρηστου φακέλου, διότι ένας άλλος κοινόχρηστος φάκελος συνδεέται με κάποιο από αυτά."
+msgstr ""
 
 msgid "Canton and Enderbury Islands"
 msgstr "Canton and Enderbury Islands"
@@ -571,6 +576,9 @@ msgstr "Cayman Islands"
 
 msgid "Central African Republic"
 msgstr "Central African Republic"
+
+msgid "Certain date"
+msgstr ""
 
 msgid "Certificate"
 msgstr "Πιστοποιητικό"
@@ -763,6 +771,9 @@ msgstr "Διακομιστής DNS"
 msgid "Daemon"
 msgstr "Δαίμονας"
 
+msgid "Daily"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "Ταμπλό"
 
@@ -801,9 +812,6 @@ msgstr "Διαγραφή επιλεγμένων"
 
 msgid "Denmark"
 msgstr "Denmark"
-
-msgid "Deny"
-msgstr "Απόρριψη"
 
 msgid "Deny logins which do not have a valid shell"
 msgstr "Απόρριψη συνδέσεων χωρίς κέλυφος"
@@ -1192,6 +1200,9 @@ msgstr "Κάθε Ν λεπτό"
 msgid "Everyone: read/write"
 msgstr "Όλοι : ανάγνωση & εγγραφή"
 
+msgid "Exactly"
+msgstr ""
+
 msgid "Execute command"
 msgstr "Εκτέλεση εντολής"
 
@@ -1471,14 +1482,8 @@ msgstr "Τήρηση υπαρχόντων λιστών πρόσβασης"
 msgid "Host"
 msgstr "Σύστημα"
 
-msgid "Host access control"
-msgstr "Έλεγχος πρόσβασης συστημάτων"
-
 msgid "Hostname"
 msgstr "Όνομα συστήματος"
-
-msgid "Hosts"
-msgstr "Συστήματα"
 
 msgid "Hosts allow"
 msgstr "Επιτρεπόμενα συστήματα"
@@ -1488,6 +1493,9 @@ msgstr "Αποκλεισμένα συστήματα"
 
 msgid "Hour"
 msgstr "Ώρα"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hungary"
 msgstr "Hungary"
@@ -2026,6 +2034,9 @@ msgstr "Παρακολούθηση"
 
 msgid "Month"
 msgstr "Μήνας"
+
+msgid "Monthly"
+msgstr ""
 
 msgid "Montserrat"
 msgstr "Montserrat"
@@ -2771,6 +2782,9 @@ msgstr "Προγραμματισμένες εργασίες"
 msgid "Scheduled tests"
 msgstr "Προγραμματισμένοι έλεγχοι"
 
+msgid "Scheduling"
+msgstr ""
+
 msgid "Secondary"
 msgstr "Δευτερεύον"
 
@@ -2779,6 +2793,9 @@ msgstr "Εφεδρικό"
 
 msgid "Seconds"
 msgstr "Δευτερόλεπτα"
+
+msgid "Section"
+msgstr ""
 
 msgid "Secure"
 msgstr "Ασφαλής"
@@ -3567,6 +3584,9 @@ msgstr "Ώρα"
 msgid "Time interval"
 msgstr "Χρονικό διάστημα"
 
+msgid "Time of execution"
+msgstr ""
+
 msgid "Time server"
 msgstr "Διακομιστής ώρας"
 
@@ -3674,9 +3694,6 @@ msgstr "United States"
 
 msgid "United States Minor Outlying Islands"
 msgstr "United States Minor Outlying Islands"
-
-msgid "Unknown filesystem '%s'"
-msgstr "Άγνωστο σύστημα αρχείων '%s'"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "Άγνωστο αρχείο καταγραφής (%s)"
@@ -3861,6 +3878,9 @@ msgstr "Περιβάλλον διαχείρισης"
 msgid "Wednesday"
 msgstr "Τετάρτη"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Welcome message"
 msgstr "Μήνυμα καλωσορίσματος"
 
@@ -3895,6 +3915,9 @@ msgstr "Μόνο εγγραφή"
 
 msgid "Write/Execute"
 msgstr "Εγγραφή/Εκτέλεση"
+
+msgid "Yearly"
+msgstr ""
 
 msgid "Yemen"
 msgstr "Yemen"

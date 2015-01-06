@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:18+0200\n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -283,9 +283,6 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-msgid "Allow"
-msgstr ""
-
 msgid "Allow client access to accounts that have null passwords"
 msgstr ""
 
@@ -368,6 +365,9 @@ msgid "Aruba"
 msgstr ""
 
 msgid "Asynchronous I/O"
+msgstr ""
+
+msgid "At reboot"
 msgstr ""
 
 msgid "Attribute name"
@@ -541,7 +541,10 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-msgid "Cannot unlink shared folder content because another shared folder is referencing a subdirectory"
+msgid "Cannot unlink the shared folder content because another shared folder also refers to it"
+msgstr ""
+
+msgid "Cannot unlink the shared folder content because another shared folder is referencing a subdirectory"
 msgstr ""
 
 msgid "Canton and Enderbury Islands"
@@ -557,6 +560,9 @@ msgid "Cayman Islands"
 msgstr ""
 
 msgid "Central African Republic"
+msgstr ""
+
+msgid "Certain date"
 msgstr ""
 
 msgid "Certificate"
@@ -745,6 +751,9 @@ msgstr ""
 msgid "Daemon"
 msgstr ""
 
+msgid "Daily"
+msgstr ""
+
 msgid "Dashboard"
 msgstr ""
 
@@ -782,9 +791,6 @@ msgid "Deleting selected item(s)"
 msgstr ""
 
 msgid "Denmark"
-msgstr ""
-
-msgid "Deny"
 msgstr ""
 
 msgid "Deny logins which do not have a valid shell"
@@ -1150,6 +1156,9 @@ msgstr ""
 msgid "Everyone: read/write"
 msgstr ""
 
+msgid "Exactly"
+msgstr ""
+
 msgid "Execute command"
 msgstr ""
 
@@ -1423,13 +1432,7 @@ msgstr ""
 msgid "Host"
 msgstr ""
 
-msgid "Host access control"
-msgstr ""
-
 msgid "Hostname"
-msgstr ""
-
-msgid "Hosts"
 msgstr ""
 
 msgid "Hosts allow"
@@ -1439,6 +1442,9 @@ msgid "Hosts deny"
 msgstr ""
 
 msgid "Hour"
+msgstr ""
+
+msgid "Hourly"
 msgstr ""
 
 msgid "Hungary"
@@ -1940,6 +1946,9 @@ msgid "Monitoring"
 msgstr ""
 
 msgid "Month"
+msgstr ""
+
+msgid "Monthly"
 msgstr ""
 
 msgid "Montserrat"
@@ -2647,6 +2656,9 @@ msgstr ""
 msgid "Scheduled tests"
 msgstr ""
 
+msgid "Scheduling"
+msgstr ""
+
 msgid "Secondary"
 msgstr ""
 
@@ -2654,6 +2666,9 @@ msgid "Secondary email"
 msgstr ""
 
 msgid "Seconds"
+msgstr ""
+
+msgid "Section"
 msgstr ""
 
 msgid "Secure"
@@ -3344,6 +3359,9 @@ msgstr ""
 msgid "Time interval"
 msgstr ""
 
+msgid "Time of execution"
+msgstr ""
+
 msgid "Time server"
 msgstr ""
 
@@ -3450,9 +3468,6 @@ msgid "United States"
 msgstr ""
 
 msgid "United States Minor Outlying Islands"
-msgstr ""
-
-msgid "Unknown filesystem '%s'"
 msgstr ""
 
 msgid "Unknown log file type (id=%s)"
@@ -3635,6 +3650,9 @@ msgstr ""
 msgid "Wednesday"
 msgstr ""
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Welcome message"
 msgstr ""
 
@@ -3666,6 +3684,9 @@ msgid "Write only"
 msgstr ""
 
 msgid "Write/Execute"
+msgstr ""
+
+msgid "Yearly"
 msgstr ""
 
 msgid "Yemen"

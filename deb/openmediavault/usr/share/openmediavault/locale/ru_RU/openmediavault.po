@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-10-18 23:18+0000\n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
+"PO-Revision-Date: 2015-01-06 13:50+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -293,9 +293,6 @@ msgstr "Алжир"
 msgid "All"
 msgstr "Все"
 
-msgid "Allow"
-msgstr "Разрешенные"
-
 msgid "Allow client access to accounts that have null passwords"
 msgstr "Разрешить клиенту доступ к аккаунтам, которые имеют нулевой пароль"
 
@@ -385,6 +382,9 @@ msgstr "Аруба"
 
 msgid "Asynchronous I/O"
 msgstr "Асинхронный ввод/вывод"
+
+msgid "At reboot"
+msgstr ""
 
 msgid "Attribute name"
 msgstr "Имя атрибута"
@@ -558,9 +558,14 @@ msgid "Cancel"
 msgstr "Отмена"
 
 msgid ""
-"Cannot unlink shared folder content because another shared folder is "
+"Cannot unlink the shared folder content because another shared folder also "
+"refers to it"
+msgstr ""
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "Не удается удалить ссылку на содержимое папки общего доступа, так как другая общая папка ссылается на подкаталог"
+msgstr ""
 
 msgid "Canton and Enderbury Islands"
 msgstr "Кантон и острова Эндербери"
@@ -576,6 +581,9 @@ msgstr "Каймановы острова"
 
 msgid "Central African Republic"
 msgstr "Центрально-Африканская Республика"
+
+msgid "Certain date"
+msgstr ""
 
 msgid "Certificate"
 msgstr "Сертификат"
@@ -768,6 +776,9 @@ msgstr "DNS сервер"
 msgid "Daemon"
 msgstr "Сервис"
 
+msgid "Daily"
+msgstr ""
+
 msgid "Dashboard"
 msgstr ""
 
@@ -806,9 +817,6 @@ msgstr "Удалить выделенные элементы"
 
 msgid "Denmark"
 msgstr "Дания"
-
-msgid "Deny"
-msgstr "Запрещенные"
 
 msgid "Deny logins which do not have a valid shell"
 msgstr "Отклонять вход в систему для пользователей, у которых нет допустимой оболочки"
@@ -1197,6 +1205,9 @@ msgstr "Каждую N минуту"
 msgid "Everyone: read/write"
 msgstr "Все: чтение/запись"
 
+msgid "Exactly"
+msgstr ""
+
 msgid "Execute command"
 msgstr "Выполнить команду"
 
@@ -1476,14 +1487,8 @@ msgstr "Соблюдать существующие ACLs"
 msgid "Host"
 msgstr "Хост"
 
-msgid "Host access control"
-msgstr "Контроль доступа хостов"
-
 msgid "Hostname"
 msgstr "Имя хоста"
-
-msgid "Hosts"
-msgstr "Хосты"
 
 msgid "Hosts allow"
 msgstr "Разрешенные хосты"
@@ -1493,6 +1498,9 @@ msgstr "Запрещенные хосты"
 
 msgid "Hour"
 msgstr "Час"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hungary"
 msgstr "Венгрия"
@@ -2031,6 +2039,9 @@ msgstr "Мониторинг"
 
 msgid "Month"
 msgstr "Месяц"
+
+msgid "Monthly"
+msgstr ""
 
 msgid "Montserrat"
 msgstr "Монтсеррат"
@@ -2776,6 +2787,9 @@ msgstr ""
 msgid "Scheduled tests"
 msgstr "Запланированные тесты"
 
+msgid "Scheduling"
+msgstr ""
+
 msgid "Secondary"
 msgstr "Дополнительный"
 
@@ -2784,6 +2798,9 @@ msgstr "Дополнительный email"
 
 msgid "Seconds"
 msgstr "Секунды"
+
+msgid "Section"
+msgstr ""
 
 msgid "Secure"
 msgstr "Безопасный"
@@ -3572,6 +3589,9 @@ msgstr "Время"
 msgid "Time interval"
 msgstr "Временной интервал"
 
+msgid "Time of execution"
+msgstr ""
+
 msgid "Time server"
 msgstr "Сервер времени"
 
@@ -3679,9 +3699,6 @@ msgstr "Соединенные Штаты"
 
 msgid "United States Minor Outlying Islands"
 msgstr "США Внешние малые острова"
-
-msgid "Unknown filesystem '%s'"
-msgstr "Неизвестная файловая система '%s'"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "Неизвестный тип файла журнала (id=%s)"
@@ -3866,6 +3883,9 @@ msgstr "Интерфейс Web Администратора"
 msgid "Wednesday"
 msgstr "Среда"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Welcome message"
 msgstr "Приветственное сообщение"
 
@@ -3899,6 +3919,9 @@ msgid "Write only"
 msgstr "Только запись"
 
 msgid "Write/Execute"
+msgstr ""
+
+msgid "Yearly"
 msgstr ""
 
 msgid "Yemen"

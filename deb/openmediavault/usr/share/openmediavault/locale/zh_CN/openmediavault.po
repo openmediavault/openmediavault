@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-10-19 01:18+0200\n"
-"PO-Revision-Date: 2014-10-19 03:27+0000\n"
-"Last-Translator: songming <by@songming.me>\n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
+"PO-Revision-Date: 2015-01-06 13:50+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -289,9 +289,6 @@ msgstr "阿尔及利亚"
 msgid "All"
 msgstr "全部"
 
-msgid "Allow"
-msgstr "允许"
-
 msgid "Allow client access to accounts that have null passwords"
 msgstr "允许空密码账户访问"
 
@@ -381,6 +378,9 @@ msgstr "阿鲁巴"
 
 msgid "Asynchronous I/O"
 msgstr "异步I/O"
+
+msgid "At reboot"
+msgstr ""
 
 msgid "Attribute name"
 msgstr "属性名称"
@@ -554,9 +554,14 @@ msgid "Cancel"
 msgstr "取消"
 
 msgid ""
-"Cannot unlink shared folder content because another shared folder is "
+"Cannot unlink the shared folder content because another shared folder also "
+"refers to it"
+msgstr ""
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr "不能取消连接到共享文件夹的连接，因为另外共享文件夹引用了一个子文件夹"
+msgstr ""
 
 msgid "Canton and Enderbury Islands"
 msgstr "坎吞与恩德伯里岛屿"
@@ -572,6 +577,9 @@ msgstr "开曼群岛"
 
 msgid "Central African Republic"
 msgstr "中非共和国"
+
+msgid "Certain date"
+msgstr ""
 
 msgid "Certificate"
 msgstr "证书"
@@ -764,6 +772,9 @@ msgstr "DNS服务器"
 msgid "Daemon"
 msgstr "守护进程"
 
+msgid "Daily"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "仪表盘"
 
@@ -802,9 +813,6 @@ msgstr "删除选择项目(可复选)"
 
 msgid "Denmark"
 msgstr "丹麦"
-
-msgid "Deny"
-msgstr "拒绝"
 
 msgid "Deny logins which do not have a valid shell"
 msgstr "拒绝无效shell登录"
@@ -1193,6 +1201,9 @@ msgstr "每N分钟"
 msgid "Everyone: read/write"
 msgstr "每个人：读/写"
 
+msgid "Exactly"
+msgstr ""
+
 msgid "Execute command"
 msgstr "执行命令"
 
@@ -1472,14 +1483,8 @@ msgstr "遵循现有ACLs"
 msgid "Host"
 msgstr "主机"
 
-msgid "Host access control"
-msgstr "主机访问控制"
-
 msgid "Hostname"
 msgstr "主机名"
-
-msgid "Hosts"
-msgstr "主机"
 
 msgid "Hosts allow"
 msgstr "允许主机"
@@ -1489,6 +1494,9 @@ msgstr "拒绝主机"
 
 msgid "Hour"
 msgstr "小时"
+
+msgid "Hourly"
+msgstr ""
 
 msgid "Hungary"
 msgstr "匈牙利"
@@ -2027,6 +2035,9 @@ msgstr "监测"
 
 msgid "Month"
 msgstr "月"
+
+msgid "Monthly"
+msgstr ""
 
 msgid "Montserrat"
 msgstr "蒙塞拉特岛"
@@ -2772,6 +2783,9 @@ msgstr "计划任务"
 msgid "Scheduled tests"
 msgstr "测试计划"
 
+msgid "Scheduling"
+msgstr ""
+
 msgid "Secondary"
 msgstr "次要"
 
@@ -2780,6 +2794,9 @@ msgstr "次要Email"
 
 msgid "Seconds"
 msgstr "秒"
+
+msgid "Section"
+msgstr ""
 
 msgid "Secure"
 msgstr "安全"
@@ -3568,6 +3585,9 @@ msgstr "时间"
 msgid "Time interval"
 msgstr "时间间隔"
 
+msgid "Time of execution"
+msgstr ""
+
 msgid "Time server"
 msgstr "时间服务器"
 
@@ -3675,9 +3695,6 @@ msgstr "美国"
 
 msgid "United States Minor Outlying Islands"
 msgstr "美国本土外小岛屿"
-
-msgid "Unknown filesystem '%s'"
-msgstr "未知文件系统 '%s'"
 
 msgid "Unknown log file type (id=%s)"
 msgstr "未知日志文件类型 (id=%s)"
@@ -3862,6 +3879,9 @@ msgstr "Web管理员界面"
 msgid "Wednesday"
 msgstr "星期三"
 
+msgid "Weekly"
+msgstr ""
+
 msgid "Welcome message"
 msgstr "欢迎消息"
 
@@ -3896,6 +3916,9 @@ msgstr "只写"
 
 msgid "Write/Execute"
 msgstr "写/执行"
+
+msgid "Yearly"
+msgstr ""
 
 msgid "Yemen"
 msgstr "也门"
