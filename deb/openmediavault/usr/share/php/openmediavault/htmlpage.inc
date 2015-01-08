@@ -165,8 +165,10 @@ EOF;
 		}
 		$jsonFile->close();
 		// Append the additional Javascript files.
-		foreach ($incList as $incListv) {
-			print "<script type='application/javascript' src='{$incListv}'></script>\n";
+		if (is_array($incList)) {
+			foreach ($incList as $incListv) {
+				print "<script type='application/javascript' src='{$incListv}'></script>\n";
+			}
 		}
 
 		// Get the body code to be rendered
