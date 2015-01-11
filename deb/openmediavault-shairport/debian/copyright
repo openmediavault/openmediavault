@@ -3,7 +3,7 @@ Upstream-Contact: Volker Theile <volker.theile@openmediavault.org>
 Source: http://www.openmediavault.org
 
 Files: *
-Copyright: 2009-2014 Volker Theile <volker.theile@openmediavault.org>
+Copyright: 2009-2015 Volker Theile <volker.theile@openmediavault.org>
 License: GPL-3
 
 Files: /var/www/openmediavault/images/airplay.png
