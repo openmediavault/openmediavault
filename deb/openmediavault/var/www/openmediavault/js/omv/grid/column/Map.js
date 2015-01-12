@@ -25,7 +25,9 @@
  * @class OMV.grid.column.Map
  * @derived Ext.grid.column.Column
  * @param mapItems The object containing the key/value pairs used to map
- *   the value to be rendered.
+ *   the value to be rendered or an array. Defaults to empty object.
+ * @param undefinedText The text displayed if the value to be rendered
+ *   does not exist in the \em mapItems config property.
  */
 Ext.define("OMV.grid.column.Map", {
 	extend: "Ext.grid.column.Column",
@@ -36,8 +38,18 @@ Ext.define("OMV.grid.column.Map", {
 
 	defaultRenderer: function(value) {
 		var me = this;
-		if (!Ext.isDefined(me.mapItems[value]))
-			return me.undefinedText;
-		return me.mapItems[value];
+		var result = me.undefinedText;
+		if (Ext.isObject(me.mapItems)) {
+			if (Ext.isDefined(me.mapItems[value]))
+				result = me.mapItems[value];
+		} else if (Ext.isArray(me.mapItems)) {
+			Ext.Array.each(me.mapItems, function(item) {
+				if (item[0] == value) {
+					result = item[1];
+					return false;
+				}
+			});
+		}
+		return result;
 	}
 });

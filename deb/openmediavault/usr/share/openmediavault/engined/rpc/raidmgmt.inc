@@ -45,6 +45,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		$this->registerMethod("create");
 		$this->registerMethod("grow");
 		$this->registerMethod("add");
+		$this->registerMethod("remove");
 		$this->registerMethod("delete");
 		$this->registerMethod("getDetail");
 	}
@@ -184,6 +185,11 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 	/**
 	 * Create a RAID device.
 	 * @param params The method parameters.
+	 *   \em devices The devices to be used. The devices must be seperated
+	 *   by comma.
+	 *   \em name The name of the RAID device. Can be empty.
+	 *   \em level The RAID level, e.g. stripe, mirror, linear ,raid10,
+	 *   raid5 or raid6.
 	 * @param context The context of the caller.
 	 * @return None.
 	 * @throw E_EXEC_FAILED
@@ -215,7 +221,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 		$cmdArgs[] = count($devices);
 		if(!empty($params['name'])) {
 			$cmdArgs[] = "-N";
-			$cmdArgs[] = $params['name'];  
+			$cmdArgs[] = $params['name'];
 		}
 		$cmdArgs[] = implode(" ", $devices);
 		$cmd = sprintf("omv-mkraid %s 2>&1", implode(" ", $cmdArgs));
@@ -238,6 +244,9 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 	/**
 	 * Grow a RAID device.
 	 * @param params The method parameters.
+	 *   \em devicefile The RAID device file, e.g. /dev/md0.
+	 *   \em devices The devices to be added. The devices must be seperated
+	 *   by comma.
 	 * @param context The context of the caller.
 	 * @return None.
 	 * @throw E_MISC_DEVICE_NOT_FOUND
@@ -302,6 +311,9 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 	/**
 	 * Add devices to a RAID device.
 	 * @param params The method parameters.
+	 *   \em devicefile The RAID device file, e.g. /dev/md0.
+	 *   \em devices The devices to be added. The devices must be seperated
+	 *   by comma.
 	 * @param context The context of the caller.
 	 * @return None.
 	 * @throw E_MISC_DEVICE_NOT_FOUND
@@ -351,9 +363,71 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 	}
 
 	/**
+	 * Remove devices from a RAID device.
+	 * @param params The method parameters.
+	 *   \em devicefile The RAID device file, e.g. /dev/md0.
+	 *   \em devices The devices to be removed. The devices must be seperated
+	 *   by comma.
+	 * @param context The context of the caller.
+	 * @return None.
+	 * @throw E_MISC_DEVICE_NOT_FOUND
+	 * @throw E_EXEC_FAILED
+	 */
+	public function remove($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			"role" => OMV_ROLE_ADMINISTRATOR
+		));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			"type":"object",
+			"properties":{
+				"devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'},
+				"devices":{"type":"string"}
+			}
+		}');
+		// Get software RAID device details to create notification message.
+		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
+		if (FALSE === $raid->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
+			  $raid->getDeviceFile());
+		}
+		$numDevices = $raid->getNumDevices();
+		$devices = $raid->getSlaves();
+		// Calculate new number of devices.
+		$rmDevices = explode(",", $params['devices']);
+		$numDevices += count($rmDevices);
+		// Remove the devices from the RAID device. The devices to remove
+		// must be marked as failed before they can be removed from the
+		// RAID device.
+		$cmd = sprintf("export LANG=C; mdadm --manage %s --fail %s 2>&1",
+		  $raid->getDeviceFile(), implode(" ", $rmDevices));
+		if (0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		$cmd = sprintf("export LANG=C; mdadm --manage %s --remove %s 2>&1",
+		  $raid->getDeviceFile(), implode(" ", $rmDevices));
+		if (0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			$cmd, implode("\n", $output));
+		}
+		// Notify configuration changes.
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher->notify(OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.storage.raid.device", array(
+			  "name" => $raid->getName(),
+			  "devicefile" => $raid->getDeviceFile(),
+			  "level" => $raid->getLevel(),
+			  "numdevices" => $numDevices,
+			  "devices" => array_diff($devices, $rmDevices)
+		  ));
+	}
+
+	/**
 	 * Delete a RAID device.
 	 * @param params An array containing the following fields:
-	 *   \em devicefile The RAID device file to be deleted.
+	 *   \em devicefile The RAID device file to be deleted, e.g. /dev/md0.
 	 * @param context The context of the caller.
 	 * @return None.
 	 * @throw E_MISC_DEVICE_NOT_FOUND

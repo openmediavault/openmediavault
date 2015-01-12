@@ -31,6 +31,20 @@
 // require("js/omv/grid/column/Empty.js")
 // require("js/omv/util/Format.js")
 
+Ext.ns("OMV.module.admin.storage.mdadm");
+
+OMV.module.admin.storage.mdadm.mapRaidLevels = [
+	[ "stripe", _("Stripe") ],
+	[ "raid0", _("Stripe") ],
+	[ "mirror", _("Mirror") ],
+	[ "raid1", _("Mirror") ],
+	[ "linear", _("Linear") ],
+	[ "raid4", _("RAID 4") ],
+	[ "raid5", _("RAID 5") ],
+	[ "raid6", _("RAID 6") ],
+	[ "raid10", _("RAID 10") ]
+];
+
 /**
  * @class OMV.module.admin.storage.mdadm.device.Create
  * @derived OMV.workspace.window.Form
@@ -96,7 +110,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 				scope: me,
 				change: function(combo, value) {
 					var devicesField = this.findField("devices");
-					switch(value) {
+					switch (value) {
 					case "stripe":
 					case "linear":
 					case "mirror":
@@ -252,15 +266,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 			queryMode: "local",
 			store: Ext.create("Ext.data.ArrayStore", {
 				fields: [ "value", "text" ],
-				data: [
-					[ "stripe", _("Stripe") ],
-					[ "raid0", _("Stripe") ],
-					[ "mirror", _("Mirror") ],
-					[ "raid1", _("Mirror") ],
-					[ "linear", _("Linear") ],
-					[ "raid5", _("RAID 5") ],
-					[ "raid6", _("RAID 6") ]
-				]
+				data: OMV.module.admin.storage.mdadm.mapRaidLevels
 			}),
 			displayField: "text",
 			valueField: "value",
@@ -349,6 +355,117 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 });
 
 /**
+* @class OMV.module.admin.storage.mdadm.device.Remove
+* @derived OMV.workspace.window.Form
+* @param devicefile The devicefile of the RAID.
+* @param name The name of the array.
+* @param level The level of the array.
+* @param devices The RAID slave/component devices.
+*/
+Ext.define("OMV.module.admin.storage.mdadm.device.Remove", {
+	extend: "OMV.workspace.window.Form",
+	requires: [
+		"OMV.data.Store",
+		"OMV.data.proxy.Rpc",
+		"OMV.form.field.CheckboxGrid"
+	],
+
+	rpcService: "RaidMgmt",
+	rpcSetMethod: "remove",
+	title: _("Remove devices from RAID device"),
+	autoLoadData: false,
+	hideResetButton: true,
+	width: 550,
+	height: 270,
+
+	getFormConfig: function() {
+		return {
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			}
+		};
+	},
+
+	getFormItems: function() {
+		var me = this;
+		return [{
+			xtype: "textfield",
+			name: "name",
+			fieldLabel: _("Name"),
+			readOnly: true,
+			value: me.name
+		},{
+			xtype: "combo",
+			name: "level",
+			fieldLabel: _("Level"),
+			queryMode: "local",
+			store: Ext.create("Ext.data.ArrayStore", {
+				fields: [ "value", "text" ],
+				data: OMV.module.admin.storage.mdadm.mapRaidLevels
+			}),
+			displayField: "text",
+			valueField: "value",
+			allowBlank: false,
+			editable: false,
+			triggerAction: "all",
+			readOnly: true,
+			value: me.level
+		},{
+			xtype: "checkboxgridfield",
+			name: "devices",
+			fieldLabel: _("Devices"),
+			valueField: "devicefile",
+			useStringValue: true,
+			height: 130,
+//			flex: 1, // Hides the field info due render error
+			store: Ext.create("OMV.data.Store", {
+				autoLoad: false,
+				model: OMV.data.Model.createImplicit({
+					idProperty: "devicefile",
+					fields: [{
+						name: "devicefile",
+						type: "string",
+						convert: function(value, record) {
+							return record.raw;
+						}
+					}]
+				}),
+				data: me.devices,
+				sorters: [{
+					direction: "ASC",
+					property: "devicefile"
+				}]
+			}),
+			gridConfig: {
+				stateful: true,
+				stateId: "2b1120a4-9a92-11e4-aee9-00221568ca88",
+				columns: [{
+					text: _("Device"),
+					sortable: true,
+					dataIndex: "devicefile",
+					stateId: "devicefile",
+					flex: 1
+				}]
+			},
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("Select devices to be removed from the RAID device")
+			}]
+		}];
+	},
+
+	getValues: function() {
+		var me = this;
+		var values = me.callParent(arguments);;
+		return {
+			"devicefile": me.devicefile,
+			"devices": values.devices
+		};
+	}
+});
+
+/**
  * @class OMV.module.admin.storage.mdadm.device.Detail
  * @derived OMV.workspace.window.TextArea
  */
@@ -378,6 +495,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 		"Ext.XTemplate",
 		"OMV.module.admin.storage.mdadm.device.Create",
 		"OMV.module.admin.storage.mdadm.device.Add",
+		"OMV.module.admin.storage.mdadm.device.Remove",
 		"OMV.module.admin.storage.mdadm.device.Detail"
 	],
 
@@ -408,38 +526,12 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 		dataIndex: "state",
 		stateId: "state"
 	},{
+		xtype: "mapcolumn",
 		text: _("Level"),
 		sortable: true,
 		dataIndex: "level",
 		stateId: "level",
-		renderer: function(value) {
-			switch(value) {
-			case "raid0":
-			case "stripe":
-				value = _("Stripe");
-				break;
-			case "raid1":
-			case "mirror":
-				value = _("Mirror");
-				break;
-			case "linear":
-				value = _("Linear");
-				break;
-			case "raid10":
-				value = _("RAID 10");
-				break;
-			case "raid4":
-				value = _("RAID 4");
-				break;
-			case "raid5":
-				value = _("RAID 5");
-				break;
-			case "raid6":
-				value = _("RAID 6");
-				break;
-			}
-			return value;
-		}
+		mapItems: OMV.module.admin.storage.mdadm.mapRaidLevels
 	},{
 		xtype: "binaryunitcolumn",
 		text: _("Capacity"),
@@ -452,7 +544,8 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 		dataIndex: "devices",
 		stateId: "devices",
 		renderer: function(value, metaData, record) {
-			var tpl = Ext.create("Ext.XTemplate", '<tpl for=".">{.}<br/></tpl>');
+			var tpl = Ext.create("Ext.XTemplate",
+			  '<tpl for=".">{.}<br/></tpl>');
 			return tpl.apply(record.get("devices"));
 		}
 	}],
@@ -525,6 +618,15 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			scope: me,
 			disabled: true
 		},{
+			id: me.getId() + "-remove",
+			xtype: "button",
+			text: _("Remove"),
+			icon: "images/minus.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			handler: me.onRemoveButton,
+			scope: me,
+			disabled: true
+		},{
 			id: me.getId() + "-detail",
 			xtype: "button",
 			text: _("Detail"),
@@ -544,15 +646,18 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 		var tbarBtnDisabled = {
 			"grow": true,
 			"recover": true,
-			"detail": true
+			"detail": true,
+			"remove": true
 		};
-		if(records.length <= 0) {
+		if (records.length <= 0) {
 			tbarBtnDisabled["grow"] = true;
 			tbarBtnDisabled["recover"] = true;
 			tbarBtnDisabled["detail"] = true;
+			tbarBtnDisabled["remove"] = true;
 		} else if(records.length == 1) {
 			tbarBtnDisabled["detail"] = false;
 			tbarBtnDisabled["recover"] = false;
+			tbarBtnDisabled["remove"] = false;
 			// Only RAID level 1/4/5/6 are able to grow.
 			var level = records[0].get("level");
 			var state = records[0].get("state");
@@ -563,6 +668,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			tbarBtnDisabled["grow"] = true;
 			tbarBtnDisabled["recover"] = true;
 			tbarBtnDisabled["detail"] = true;
+			tbarBtnDisabled["remove"] = true;
 		}
 		// Update the button controls.
 		Ext.Object.each(tbarBtnDisabled, function(key, value) {
@@ -630,6 +736,17 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			devicefile: record.get("devicefile"),
 			name: record.get("name"),
 			level: record.get("level")
+		}).show();
+	},
+
+	onRemoveButton: function() {
+		var me = this;
+		var record = me.getSelected();
+		Ext.create("OMV.module.admin.storage.mdadm.device.Remove", {
+			devicefile: record.get("devicefile"),
+			name: record.get("name"),
+			level: record.get("level"),
+			devices: record.get("devices")
 		}).show();
 	},
 
