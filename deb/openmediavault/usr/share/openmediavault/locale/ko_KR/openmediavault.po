@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Chang-Eon Byeon <ksna0827@gmail.com>, 2014
+# Chang-Eon Byeon <ksna0827@gmail.com>, 2014-2015
 # Ji-Hyeon Gim <potatogim@potatogim.net>, 2014
 # Volker <votdev@gmx.de>, 2014
 msgid ""
@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-01-06 13:50+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-01-06 14:17+0000\n"
+"Last-Translator: Chang-Eon Byeon <ksna0827@gmail.com>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -381,7 +381,7 @@ msgid "Asynchronous I/O"
 msgstr "비동기 입출력"
 
 msgid "At reboot"
-msgstr ""
+msgstr "재시작시"
 
 msgid "Attribute name"
 msgstr "속성 이름"
@@ -557,12 +557,12 @@ msgstr "취소"
 msgid ""
 "Cannot unlink the shared folder content because another shared folder also "
 "refers to it"
-msgstr ""
+msgstr "다른 공유폴더도 참조하고 있기 때문에 공유 폴더 컨텐츠를 연결해제할 수 없습니다."
 
 msgid ""
 "Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "다른 공유 폴더가 서브 디렉토리를 참조하기 때문에 공유 폴더 컨텐츠를 연결해제 할 수 없습니다."
 
 msgid "Canton and Enderbury Islands"
 msgstr "피닉스 제도"
@@ -774,7 +774,7 @@ msgid "Daemon"
 msgstr "데몬"
 
 msgid "Daily"
-msgstr ""
+msgstr "매일"
 
 msgid "Dashboard"
 msgstr "대시보드"
@@ -1244,7 +1244,7 @@ msgstr "FXP"
 msgid ""
 "FXP allows transfers between two remote servers without any file data going "
 "to the client asking for the transfer."
-msgstr "FXP는 전송을 요청하는 클라이언트로 가는 어떤 파일 데이터도 없이 두 원격 서버 간에 파일 데이터를 전송할 수 있습니다."
+msgstr "FXP는 전송을 요청하는 클라이언트로 가는 어떤 파일 데이터 없이 두 원격 서버 간에 파일 데이터를 전송할 수 있습니다."
 
 msgid "Failed to get filesystems"
 msgstr "파일 시스템을 가져오지 못했습니다."
@@ -1497,7 +1497,7 @@ msgid "Hour"
 msgstr "시간"
 
 msgid "Hourly"
-msgstr ""
+msgstr "매시간"
 
 msgid "Hungary"
 msgstr "헝가리"
@@ -1530,7 +1530,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selecting; in "
 "this case no password is required to connect to the share."
-msgstr "\"게스트 허용\"이 선택되고 로그인 자격 증명이 제공되지 않는 경우, 게스트로 접근됩니다. \"게스트만\"이 선택된 경우, 항상 게스트로 접근이 되며 공유에 연결하기 위한 암호가 필요하지 않습니다."
+msgstr "\"게스트 허용\"이 선택되고 로그인 자격 증명이 제공되지 않는 경우, 게스트로 접근됩니다. \"게스트만\"이 선택된 경우, 항상 게스트로 접근되며 공유에 연결하기 위한 암호가 필요하지 않습니다."
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1561,7 +1561,7 @@ msgstr "이 매개변수가 설정되면, 삼바는 DOS 속성들(시스템, 숨
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
 "share."
-msgstr "이 매개변수가 설정되면, 사용자는 공유 내에서 파일들을 생성하거나 수정할 수가 없게 될 것입니다."
+msgstr "이 매개변수가 설정되면, 사용자는 공유 내에서 파일들을 생성하거나 수정할 수 없게 됩니다."
 
 msgid ""
 "If your host is acting as a NAT gateway or port forwarder for the server, "
@@ -2038,7 +2038,7 @@ msgid "Month"
 msgstr "달"
 
 msgid "Monthly"
-msgstr ""
+msgstr "매월"
 
 msgid "Montserrat"
 msgstr "몬세라트"
@@ -2785,7 +2785,7 @@ msgid "Scheduled tests"
 msgstr "예약된 검사"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "일정"
 
 msgid "Secondary"
 msgstr "보조"
@@ -3587,7 +3587,7 @@ msgid "Time interval"
 msgstr "시간 주기"
 
 msgid "Time of execution"
-msgstr ""
+msgstr "실행 시간"
 
 msgid "Time server"
 msgstr "시간 서버"
@@ -3881,7 +3881,7 @@ msgid "Wednesday"
 msgstr "수요일"
 
 msgid "Weekly"
-msgstr ""
+msgstr "매주"
 
 msgid "Welcome message"
 msgstr "환영 메시지"
@@ -3919,7 +3919,7 @@ msgid "Write/Execute"
 msgstr "쓰기/실행"
 
 msgid "Yearly"
-msgstr ""
+msgstr "매년"
 
 msgid "Yemen"
 msgstr "예맨"

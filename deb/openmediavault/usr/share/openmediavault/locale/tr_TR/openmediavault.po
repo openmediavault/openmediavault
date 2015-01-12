@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Serhat SUT <serhat.sut@gmail.com>, 2012-2014
+# Serhat SUT <serhat.sut@gmail.com>, 2012-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-01-06 13:50+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-01-07 21:38+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -379,7 +379,7 @@ msgid "Asynchronous I/O"
 msgstr "Asenkron I/O"
 
 msgid "At reboot"
-msgstr ""
+msgstr "Yeniden başlatma sırasında"
 
 msgid "Attribute name"
 msgstr "Özellik adı"
@@ -555,12 +555,12 @@ msgstr "İptal"
 msgid ""
 "Cannot unlink the shared folder content because another shared folder also "
 "refers to it"
-msgstr ""
+msgstr "Bir başka paylaşılmış klasör de referans gösterdiği için bu paylaşılan klasör bağlantısı kesilemiyor."
 
 msgid ""
 "Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "Bir başka paylaşılmış klasör alt dizini referans gösterdiği için bu paylaşılan klasör bağlantısı kesilemiyor."
 
 msgid "Canton and Enderbury Islands"
 msgstr "Canton ve Enderbury Adaları"
@@ -578,7 +578,7 @@ msgid "Central African Republic"
 msgstr "Orta Afrika Cumhuriyeti"
 
 msgid "Certain date"
-msgstr ""
+msgstr "Güncel tarih"
 
 msgid "Certificate"
 msgstr "Sertifika"
@@ -772,7 +772,7 @@ msgid "Daemon"
 msgstr "Program"
 
 msgid "Daily"
-msgstr ""
+msgstr "Günlük"
 
 msgid "Dashboard"
 msgstr "Gösterge Paneli"
@@ -1201,7 +1201,7 @@ msgid "Everyone: read/write"
 msgstr "Herkes:oku/yaz"
 
 msgid "Exactly"
-msgstr ""
+msgstr "Kesinlikle"
 
 msgid "Execute command"
 msgstr "Komutu çalıştır"
@@ -1495,7 +1495,7 @@ msgid "Hour"
 msgstr "Saat"
 
 msgid "Hourly"
-msgstr ""
+msgstr "Saat başı"
 
 msgid "Hungary"
 msgstr "Macaristan"
@@ -2036,7 +2036,7 @@ msgid "Month"
 msgstr "Ay"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Ayda bir"
 
 msgid "Montserrat"
 msgstr "Montserrat"
@@ -2783,7 +2783,7 @@ msgid "Scheduled tests"
 msgstr "Zamanlanmış testler"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Zamanlama"
 
 msgid "Secondary"
 msgstr "İkincil"
@@ -2795,7 +2795,7 @@ msgid "Seconds"
 msgstr "Saniye"
 
 msgid "Section"
-msgstr ""
+msgstr "Bölüm"
 
 msgid "Secure"
 msgstr "Güvenli"
@@ -3585,7 +3585,7 @@ msgid "Time interval"
 msgstr "Zaman aralığı"
 
 msgid "Time of execution"
-msgstr ""
+msgstr "Çalıştırma zamanı"
 
 msgid "Time server"
 msgstr "Zaman sunucusu"
@@ -3879,7 +3879,7 @@ msgid "Wednesday"
 msgstr "Çarşamba"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Haftalık"
 
 msgid "Welcome message"
 msgstr "Hoşgeldiniz mesajı"
@@ -3917,7 +3917,7 @@ msgid "Write/Execute"
 msgstr "Yaz/Çalıştır"
 
 msgid "Yearly"
-msgstr ""
+msgstr "Yılda bir"
 
 msgid "Yemen"
 msgstr "Yemen"

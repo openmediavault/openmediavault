@@ -5,15 +5,15 @@
 # Translators:
 # jmcainzos <jmcainzos@vodafone.es>, 2013
 # jmcainzos <jmcainzos@vodafone.es>, 2012
-# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2014
+# Raul Fernandez Garcia <raulfg3@gmail.com>, 2012-2015
 # Volker <votdev@gmx.de>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-01-06 13:50+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-01-07 21:40+0000\n"
+"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -382,7 +382,7 @@ msgid "Asynchronous I/O"
 msgstr "E/S asíncrona"
 
 msgid "At reboot"
-msgstr ""
+msgstr "Al Reiniciar"
 
 msgid "Attribute name"
 msgstr "Nombre del atributo"
@@ -558,12 +558,12 @@ msgstr "Cancelar"
 msgid ""
 "Cannot unlink the shared folder content because another shared folder also "
 "refers to it"
-msgstr ""
+msgstr "No se puede desenlazar la carpeta compartida, porque otra carpeta compartida hace referencia a ella."
 
 msgid ""
 "Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "No se puede desenlazar la carpeta compartida, porque otra carpeta compartida esta apuntando a algun subdirectorio"
 
 msgid "Canton and Enderbury Islands"
 msgstr "Islas Cantón y Enderbury"
@@ -581,7 +581,7 @@ msgid "Central African Republic"
 msgstr "República Centroafricana"
 
 msgid "Certain date"
-msgstr ""
+msgstr "En una Fecha concreta"
 
 msgid "Certificate"
 msgstr "Certificado"
@@ -775,7 +775,7 @@ msgid "Daemon"
 msgstr "Demonio"
 
 msgid "Daily"
-msgstr ""
+msgstr "a Diario"
 
 msgid "Dashboard"
 msgstr "Dashboard"
@@ -1192,10 +1192,10 @@ msgid "Event"
 msgstr "Evento"
 
 msgid "Every N day of month"
-msgstr "Cada día N del mes"
+msgstr "El dia seleccionado"
 
 msgid "Every N hour"
-msgstr "Cada hora N"
+msgstr "En la hora seleccionada"
 
 msgid "Every N minute"
 msgstr "Cada minuto N"
@@ -1204,7 +1204,7 @@ msgid "Everyone: read/write"
 msgstr "Todo el mundo: Lectura/Escritura"
 
 msgid "Exactly"
-msgstr ""
+msgstr "Exactamente a"
 
 msgid "Execute command"
 msgstr "Ejecutar comando"
@@ -1498,7 +1498,7 @@ msgid "Hour"
 msgstr "Hora"
 
 msgid "Hourly"
-msgstr ""
+msgstr "Cada hora"
 
 msgid "Hungary"
 msgstr "Hungría"
@@ -2039,7 +2039,7 @@ msgid "Month"
 msgstr "mes"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Cada mes"
 
 msgid "Montserrat"
 msgstr "Montserrat"
@@ -2786,7 +2786,7 @@ msgid "Scheduled tests"
 msgstr "Pruebas programadas"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "programación"
 
 msgid "Secondary"
 msgstr "Secundario"
@@ -2798,7 +2798,7 @@ msgid "Seconds"
 msgstr "Segundos"
 
 msgid "Section"
-msgstr ""
+msgstr "Sección"
 
 msgid "Secure"
 msgstr "Seguro"
@@ -3588,7 +3588,7 @@ msgid "Time interval"
 msgstr "Intervalo"
 
 msgid "Time of execution"
-msgstr ""
+msgstr "Se ejecutará:"
 
 msgid "Time server"
 msgstr "Servidor de hora"
@@ -3882,7 +3882,7 @@ msgid "Wednesday"
 msgstr "Miércoles"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Semanalmente"
 
 msgid "Welcome message"
 msgstr "Mensaje de bienvenida"
@@ -3920,7 +3920,7 @@ msgid "Write/Execute"
 msgstr "Escribir/Ejecutar"
 
 msgid "Yearly"
-msgstr ""
+msgstr "Anualmente"
 
 msgid "Yemen"
 msgstr "Yemen"

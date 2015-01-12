@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2014
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-01-06 13:50+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-01-06 14:51+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -379,7 +379,7 @@ msgid "Asynchronous I/O"
 msgstr "Asynkron I/O"
 
 msgid "At reboot"
-msgstr ""
+msgstr "Ved genstart"
 
 msgid "Attribute name"
 msgstr "Attribut navn"
@@ -555,12 +555,12 @@ msgstr "Annuller"
 msgid ""
 "Cannot unlink the shared folder content because another shared folder also "
 "refers to it"
-msgstr ""
+msgstr "Kan ikke fjerne linket af den delte mappes indhold, fordi en anden delt mappe også henviser til den"
 
 msgid ""
 "Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "Kan ikke fjerne linket af den delte mappes indhold, fordi en anden delt mappe henviser til en undermappe"
 
 msgid "Canton and Enderbury Islands"
 msgstr "Canton og Enderbury Islands"
@@ -578,7 +578,7 @@ msgid "Central African Republic"
 msgstr "Central African Republic"
 
 msgid "Certain date"
-msgstr ""
+msgstr "Given dato"
 
 msgid "Certificate"
 msgstr "Certifikat"
@@ -772,7 +772,7 @@ msgid "Daemon"
 msgstr "Dæmon"
 
 msgid "Daily"
-msgstr ""
+msgstr "Dagligt"
 
 msgid "Dashboard"
 msgstr "Dashboard"
@@ -1201,7 +1201,7 @@ msgid "Everyone: read/write"
 msgstr "Alle: læse/skrive"
 
 msgid "Exactly"
-msgstr ""
+msgstr "Præcis"
 
 msgid "Execute command"
 msgstr "Udfør kommando"
@@ -1495,7 +1495,7 @@ msgid "Hour"
 msgstr "Time"
 
 msgid "Hourly"
-msgstr ""
+msgstr "Hver time"
 
 msgid "Hungary"
 msgstr "Hungary"
@@ -2036,7 +2036,7 @@ msgid "Month"
 msgstr "Måned"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Måndeligt"
 
 msgid "Montserrat"
 msgstr "Montserrat"
@@ -2783,7 +2783,7 @@ msgid "Scheduled tests"
 msgstr "Planlagte tests"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Planlægning"
 
 msgid "Secondary"
 msgstr "Sekundær"
@@ -2795,7 +2795,7 @@ msgid "Seconds"
 msgstr "Sekunder"
 
 msgid "Section"
-msgstr ""
+msgstr "Sektion"
 
 msgid "Secure"
 msgstr "Sikkert"
@@ -3585,7 +3585,7 @@ msgid "Time interval"
 msgstr "Tids interval"
 
 msgid "Time of execution"
-msgstr ""
+msgstr "Gennemførings tid"
 
 msgid "Time server"
 msgstr "Tids server"
@@ -3879,7 +3879,7 @@ msgid "Wednesday"
 msgstr "Onsdag"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Ugenligt"
 
 msgid "Welcome message"
 msgstr "Velkomst besked"
@@ -3917,7 +3917,7 @@ msgid "Write/Execute"
 msgstr "Skriv/Udfør"
 
 msgid "Yearly"
-msgstr ""
+msgstr "Årligt"
 
 msgid "Yemen"
 msgstr "Yemen"

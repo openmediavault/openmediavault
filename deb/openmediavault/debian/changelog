@@ -1,5 +1,8 @@
 openmediavault (1.10) stable; urgency=low
 
+  * Update locales.
+  * Mantis 0001234: Power button doesn't work.
+
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 08 Jan 2015 14:47:35 +0100
 
 openmediavault (1.9) stable; urgency=low

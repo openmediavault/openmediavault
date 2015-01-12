@@ -578,7 +578,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			default:
 				// Wipe existing filesystems.
 				$cmd = sprintf("export LANG=C; sgdisk --zap-all %s 2>&1",
-				  $sd->getDeviceFile());
+				  escapeshellarg($sd->getDeviceFile()));
 				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 					  $cmd, implode("\n", $output));
@@ -595,7 +595,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				break;
 			}
 			// Reread partition table.
-			$cmd = sprintf("export LANG=C; partprobe %s", $sd->getDeviceFile());
+			$cmd = sprintf("export LANG=C; partprobe %s", escapeshellarg(
+			  $sd->getDeviceFile()));
 			if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));
@@ -605,8 +606,10 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			$cmdArgs[] = "-V";
 			$cmdArgs[] = sprintf("-t %s", $fsb->getType());
 			$cmdArgs[] = $fsb->getMkfsOptions($sd);
-			if (!empty($params['label']))
-				$cmdArgs[] = sprintf("-L %s", escapeshellarg($params['label']));
+			if (!empty($params['label'])) {
+				$cmdArgs[] = sprintf("-L %s", escapeshellarg(
+				  $params['label']));
+			}
 			$cmdArgs[] = $fsDeviceFile;
 			$cmd = sprintf("export LANG=C; mkfs %s 2>&1", implode(" ",
 			  $cmdArgs));
