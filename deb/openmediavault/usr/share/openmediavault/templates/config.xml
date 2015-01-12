@@ -15,8 +15,12 @@
 			</distribution>
 		</apt>
 		<powermanagement>
-			<cpufreq>1</cpufreq>
+			<!--
+			<cpufreq>0|1</cpufreq>
 			<powerbtn>nothing|shutdown|standby</powerbtn>
+			-->
+			<cpufreq>1</cpufreq>
+			<powerbtn>nothing</powerbtn>
 		</powermanagement>
 		<time>
 			<timezone>Etc/UTC</timezone>
