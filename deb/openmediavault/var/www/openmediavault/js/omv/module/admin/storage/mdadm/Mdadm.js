@@ -39,6 +39,8 @@ OMV.module.admin.storage.mdadm.mapRaidLevels = [
 	[ "mirror", _("Mirror") ],
 	[ "raid1", _("Mirror") ],
 	[ "linear", _("Linear") ],
+	[ "raid2", _("RAID 2") ],
+	[ "raid3", _("RAID 3") ],
 	[ "raid4", _("RAID 4") ],
 	[ "raid5", _("RAID 5") ],
 	[ "raid6", _("RAID 6") ],
@@ -109,6 +111,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Create", {
 			listeners: {
 				scope: me,
 				change: function(combo, value) {
+					// See http://en.wikipedia.org/wiki/Standard_RAID_levels
 					var devicesField = this.findField("devices");
 					switch (value) {
 					case "stripe":
@@ -391,6 +394,25 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Remove", {
 
 	getFormItems: function() {
 		var me = this;
+		// Set the max. number of devices that can be removed. See for fault
+		// tolerance at http://en.wikipedia.org/wiki/Standard_RAID_levels
+		var maxSelections = 1;
+		switch (me.level) {
+		case "mirror":
+		case "raid1":
+		case "raid2":
+		case "raid3":
+		case "raid4":
+		case "raid5":
+			maxSelections = 1;
+			break;
+		case "raid6":
+			maxSelections = 2;
+			break;
+		case "raid10":
+			maxSelections = 1;
+			break;
+		}
 		return [{
 			xtype: "textfield",
 			name: "name",
@@ -419,7 +441,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Remove", {
 			fieldLabel: _("Devices"),
 			valueField: "devicefile",
 			minSelections: 1,
-			maxSelections: 1,
+			maxSelections: maxSelections,
 			useStringValue: true,
 			height: 130,
 //			flex: 1, // Hides the field info due render error
@@ -692,13 +714,18 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 		} else if(records.length == 1) {
 			tbarBtnDisabled["detail"] = false;
 			tbarBtnDisabled["recover"] = false;
-			tbarBtnDisabled["remove"] = false;
 			// Only RAID level 1/4/5/6 are able to grow.
 			var level = records[0].get("level");
 			var state = records[0].get("state");
 			tbarBtnDisabled["grow"] = !(([ "raid1", "stripe", "raid4", "raid5",
 			  "raid6" ].indexOf(level) !== -1) &&
 			  ([ "clean", "active" ].indexOf(state) !== -1));
+			// Only RAID level 1/2/3/4/5/6/10 are tolerant enough to be able
+			// to remove slave/component devices without loosing the whole
+			// array.
+			tbarBtnDisabled["remove"] = !(([ "raid1", "mirror", "raid2",
+			  "raid3", "raid4", "raid5", "raid6", "raid10" ].indexOf(level)
+			  !== -1) && ([ "clean", "active" ].indexOf(state) !== -1));
 		} else {
 			tbarBtnDisabled["grow"] = true;
 			tbarBtnDisabled["recover"] = true;
