@@ -311,6 +311,7 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 				stateful: true,
 				stateId: "11333089-7a71-4b49-931d-6ddf4bad77ed",
 				columns: [{
+					xtype: "emptycolumn",
 					text: _("Device"),
 					sortable: true,
 					dataIndex: "devicefile",
@@ -324,12 +325,14 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 					stateId: "size",
 					flex: 1
 				},{
+					xtype: "emptycolumn",
 					text: _("Vendor"),
 					sortable: true,
 					dataIndex: "vendor",
 					stateId: "vendor",
 					flex: 1
 				},{
+					xtype: "emptycolumn",
 					text: _("Serial Number"),
 					sortable: true,
 					dataIndex: "serialnumber",
@@ -360,7 +363,6 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Add", {
 * @param devicefile The devicefile of the RAID.
 * @param name The name of the array.
 * @param level The level of the array.
-* @param devices The RAID slave/component devices.
 */
 Ext.define("OMV.module.admin.storage.mdadm.device.Remove", {
 	extend: "OMV.workspace.window.Form",
@@ -416,22 +418,33 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Remove", {
 			name: "devices",
 			fieldLabel: _("Devices"),
 			valueField: "devicefile",
+			minSelections: 1,
+			maxSelections: 1,
 			useStringValue: true,
 			height: 130,
 //			flex: 1, // Hides the field info due render error
 			store: Ext.create("OMV.data.Store", {
-				autoLoad: false,
+				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
 					idProperty: "devicefile",
-					fields: [{
-						name: "devicefile",
-						type: "string",
-						convert: function(value, record) {
-							return record.raw;
-						}
-					}]
+					fields: [
+						{ name: "devicefile", type: "string" },
+						{ name: "size", type: "string" }, // This is a string
+						{ name: "vendor", type: "string" },
+						{ name: "serialnumber", type: "string" }
+					]
 				}),
-				data: me.devices,
+				proxy: {
+					type: "rpc",
+					appendSortParams: false,
+					extraParams: {
+						devicefile: me.devicefile
+					},
+					rpcData: {
+						service: "RaidMgmt",
+						method: "getSlaves"
+					}
+				},
 				sorters: [{
 					direction: "ASC",
 					property: "devicefile"
@@ -441,16 +454,38 @@ Ext.define("OMV.module.admin.storage.mdadm.device.Remove", {
 				stateful: true,
 				stateId: "2b1120a4-9a92-11e4-aee9-00221568ca88",
 				columns: [{
+					xtype: "emptycolumn",
 					text: _("Device"),
 					sortable: true,
 					dataIndex: "devicefile",
 					stateId: "devicefile",
 					flex: 1
+				},{
+					xtype: "binaryunitcolumn",
+					text: _("Capacity"),
+					sortable: true,
+					dataIndex: "size",
+					stateId: "size",
+					flex: 1
+				},{
+					xtype: "emptycolumn",
+					text: _("Vendor"),
+					sortable: true,
+					dataIndex: "vendor",
+					stateId: "vendor",
+					flex: 1
+				},{
+					xtype: "emptycolumn",
+					text: _("Serial Number"),
+					sortable: true,
+					dataIndex: "serialnumber",
+					stateId: "serialnumber",
+					flex: 1
 				}]
 			},
 			plugins: [{
 				ptype: "fieldinfo",
-				text: _("Select devices to be removed from the RAID device")
+				text: _("Select devices to be removed from the RAID device.")
 			}]
 		}];
 	},
@@ -609,21 +644,21 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 			scope: me,
 			disabled: true
 		},{
-			id: me.getId() + "-recover",
-			xtype: "button",
-			text: _("Recover"),
-			icon: "images/aid.png",
-			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
-			handler: me.onRecoverButton,
-			scope: me,
-			disabled: true
-		},{
 			id: me.getId() + "-remove",
 			xtype: "button",
 			text: _("Remove"),
 			icon: "images/minus.png",
 			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
 			handler: me.onRemoveButton,
+			scope: me,
+			disabled: true
+		},{
+			id: me.getId() + "-recover",
+			xtype: "button",
+			text: _("Recover"),
+			icon: "images/aid.png",
+			iconCls: Ext.baseCSSPrefix + "btn-icon-16x16",
+			handler: me.onRecoverButton,
 			scope: me,
 			disabled: true
 		},{
@@ -745,8 +780,7 @@ Ext.define("OMV.module.admin.storage.mdadm.Devices", {
 		Ext.create("OMV.module.admin.storage.mdadm.device.Remove", {
 			devicefile: record.get("devicefile"),
 			name: record.get("name"),
-			level: record.get("level"),
-			devices: record.get("devices")
+			level: record.get("level")
 		}).show();
 	},
 

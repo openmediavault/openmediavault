@@ -41,6 +41,7 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 	public function initialize() {
 		$this->registerMethod("enumerateDevices");
 		$this->registerMethod("getList");
+		$this->registerMethod("getSlaves");
 		$this->registerMethod("getCandidates");
 		$this->registerMethod("create");
 		$this->registerMethod("grow");
@@ -136,6 +137,51 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 	}
 
 	/**
+	 * Get list of slave/component devices from the given RAID device.
+	 * @param params The method parameters.
+	 *   \em devicefile The RAID device file, e.g. /dev/md0.
+	 * @param context The context of the caller.
+	 * @return An array containing objects with the following fields:
+	 *   devicefile, size, vendor, serialnumber and description.
+	 * @throw E_EXEC_MISC
+	 */
+	public function getSlaves($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			"role" => OMV_ROLE_ADMINISTRATOR
+		));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "devicefile":{'.$GLOBALS['OMV_JSONSCHEMA_DEVICEFILE'].'}
+			  }
+		  }');
+		// Get the slave/component devices of the given RAID.
+		$raid = new OMVStorageDeviceMdadm($params['devicefile']);
+		if (FALSE === $raid->exists()) {
+			throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
+			  $raid->getDeviceFile());
+		}
+		$devs = $raid->getSlaves();
+		// Prepare the result list.
+		$result = array();
+		foreach ($devs as $devk => $devv) {
+			$sd = OMVStorageDeviceFactory::get($devv);
+			if (is_null($sd) || !$sd->exists())
+				continue;
+			$result[] = array(
+				"devicefile" => $sd->getDeviceFile(),
+				"size" => $sd->getSize(),
+				"vendor" => $sd->getVendor(),
+				"serialnumber" => $sd->getSerialNumber(),
+				"description" => $sd->getDescription()
+			);
+		}
+		return $result;
+	}
+
+	/**
 	 * Get list of devices that can be used to create a RAID.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
@@ -150,24 +196,24 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get a list of all potential usable devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerateUnused())) {
+		if (FALSE === ($devs = OMVStorageDevices::enumerateUnused())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of unused devices");
 		}
 		// Prepare the result list.
 		$result = array();
-		foreach($devs as $devk => $devv) {
+		foreach ($devs as $devk => $devv) {
 			// Get the object that implements the given storage device.
 			$sd = OMVStorageDeviceFactory::get($devv);
-			if(is_null($sd) || !$sd->exists())
+			if (is_null($sd) || !$sd->exists())
 				continue;
 			// Check if device is referenced/used by a plugin.
 			$xpath = sprintf("//services/devicefile[contains(.,'%s')]",
 			  $sd->getDeviceFile());
-			if(TRUE === $xmlConfig->exists($xpath))
+			if (TRUE === $xmlConfig->exists($xpath))
 				continue;
 			// Does this device already contain a filesystem?
-			if(FALSE !== OMVFilesystem::hasFileSystem($sd->getDeviceFile()))
+			if (FALSE !== OMVFilesystem::hasFileSystem($sd->getDeviceFile()))
 				continue;
 			// The device is a potential candidate to be a member of a
 			// Software RAID.
