@@ -41,7 +41,7 @@ Ext.apply(Ext.form.field.VTypes, {
 	  "({9}:){1,3}(:{10}){1,4}|" +           // 1::5:6:7:8         1:2:3::5:6:7:8   1:2:3::8
 	  "({11}:){1,2}(:{12}){1,5}|" +          // 1::4:5:6:7:8       1:2::4:5:6:7:8   1:2::8
 	  "{13}:((:{14}){1,6})|" +               // 1::3:4:5:6:7:8     1::3:4:5:6:7:8   1::8
-	  ":((:{15}){1,7}|:)|" +                 // ::2:3:4:5:6:7:8    ::2:3:4:5:6:7:8  ::8       ::       
+	  ":((:{15}){1,7}|:)|" +                 // ::2:3:4:5:6:7:8    ::2:3:4:5:6:7:8  ::8       ::
 	  "fe80:(:{16}){0,4}%[0-9a-zA-Z]{1,}|" + // fe80::7:8%eth0     fe80::7:8%1  (link-local IPv6 addresses with zone index)
 	  "::(ffff(:0{1,4}){0,1}:){0,1}{17}|" +  // ::255.255.255.255  ::ffff:255.255.255.255  ::ffff:0:255.255.255.255 (IPv4-mapped IPv6 addresses and IPv4-translated addresses)
 	  "({18}:){1,4}:{19}" +                  // 2001:db8:3:4::192.0.2.33  64:ff9b::192.0.2.33 (IPv4-Embedded IPv6 Address)
@@ -616,39 +616,6 @@ Ext.apply(Ext.form.field.Trigger.prototype, {
 ////////////////////////////////////////////////////////////////////////////////
 // Ext.form.field.ComboBox
 ////////////////////////////////////////////////////////////////////////////////
-
-Ext.form.field.ComboBox.prototype.setValue = Ext.Function.createInterceptor(
-  Ext.form.field.ComboBox.prototype.setValue, function() {
-	var me = this;
-	// Check if the store has already been loaded. If not, then call this
-	// function again after the store has been loaded. Note, if the store
-	// is already loading then do nothing, the base implementation will
-	// handle this for us.
-	// Note, in some situations it occurs that the setValue function is
-	// called multiple times before the store has been loaded. To ensure
-	// that unfired listeners do not overwrite the value which is
-	// successfully set after the store has been loaded it is necessary
-	// to remove all of them.
-	if(!me.store.isLoading() && !me.store.isLoaded()) {
-		var fn = Ext.Function.bind(me.setValue, me, arguments);
-		if(!Ext.isDefined(me.setValueListeners))
-			me.setValueListeners = [];
-		me.setValueListeners.push(fn);
-		me.store.on({
-			single: true,
-			load: fn
-		});
-		return false;
-	}
-	// Remove buffered listeners (which have not been fired until now),
-	// otherwise they will overwrite the given value.
-	if(Ext.isDefined(me.setValueListeners)) {
-		Ext.Array.each(me.setValueListeners, function(fn) {
-			me.store.un("load", fn)
-		});
-		delete me.setValueListeners;
-	}
-});
 
 Ext.apply(Ext.form.field.ComboBox.prototype, {
 	/**
