@@ -103,10 +103,6 @@ class OMVModuleMonit extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.notification.notifications",
 		  array($this, "setDirty"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.fstab.mntent",
-		  array($this, "setDirty"));
     }
 }
 

@@ -151,6 +151,11 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.fstab.mntent",
 		  array($this, "onDelete"));
+        $moduleMgr = &OMVModuleMgr::getInstance();
+        $dispatcher->addListener(
+          OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
+          "org.openmediavault.system.fstab.mntent",
+          array($moduleMgr->getModule("monit"), "setDirty"));
 	}
 }
 
