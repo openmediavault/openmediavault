@@ -3,6 +3,7 @@ openmediavault (1.10) stable; urgency=low
   * Update locales.
   * Mantis 0001234: Power button doesn't work.
   * Mantis 0001239: Add feature to fail a drive in a mdadm array.
+  * Mantis 0001244: Improve the nginx monit configuration.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 08 Jan 2015 14:47:35 +0100
 

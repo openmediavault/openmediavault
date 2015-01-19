@@ -19,6 +19,10 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Testing:
+# iptables -A INPUT -p tcp --dport 80 -j DROP
+# iptables -A INPUT -p tcp --dport 443 -j DROP
+
 set -e
 
 . /etc/default/openmediavault
@@ -32,7 +36,19 @@ check process nginx with pidfile /var/run/nginx.pid
   start program = "/etc/init.d/nginx start"
   stop program = "/etc/init.d/nginx stop"
   mode ${OMV_MONIT_SERVICE_NGINX_MODE}
+  if cpu is greater than 40% for 2 cycles then alert
+  if cpu is greater than 80% for 5 cycles then restart
 EOF
+
+# Append additional test cases based on the current configuration.
+xmlstarlet sel -t -m "//webadmin" \
+  -i "forcesslonly[. = '0']" \
+    -v "concat('  if failed host 127.0.0.1 port ',port,' protocol http then restart')" -n \
+  -b \
+  -i "enablessl[. = '1']" \
+    -v "concat('  if failed host 127.0.0.1 port ',sslport,' type tcpssl protocol http then restart')" -n \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_MONIT_SERVICE_NGINX_CONFIG}
 
 # Disable event notifications.
 xmlstarlet sel -t -m "//system/email" \
