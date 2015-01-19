@@ -185,8 +185,10 @@ while [ ${index} -gt 0 ]; do
 
 		xmlstarlet sel -t -m "//services/smb/shares/share[uuid='${uuid}']" \
 		  -i "not(guest[. = 'only'])" \
-		    -o "valid users = ${validusers}" -n \
-		    -o "invalid users = ${invalidusers}" -n \
+		    -i "guest[. = 'no']" \
+		      -o "valid users = ${validusers}" -n \
+		      -o "invalid users = ${invalidusers}" -n \
+			-b \
 		    -o "read list = ${readlist}" -n \
 		    -i "readonly[. = '0']" -o "write list = ${writelist}" -n -b \
 		  -b \

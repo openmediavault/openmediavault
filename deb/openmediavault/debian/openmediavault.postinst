@@ -441,6 +441,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "1.9"; then
 			omv_config_add_element "/config/system/crontab/job" "execution" "exactly"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "1.10"; then
+			omv-mkconf samba
+		fi
 	;;
 
 	triggered)

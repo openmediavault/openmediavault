@@ -738,6 +738,10 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolders", {
 				scope: me,
 				submit: function() {
 					me.doReload();
+				},
+				exception: function(c) {
+					// Reload the grid content in case of a failure, too.
+					me.doReload();
 				}
 			}
 		}).show();
