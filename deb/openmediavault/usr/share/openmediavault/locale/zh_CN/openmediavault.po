@@ -4,14 +4,14 @@
 # 
 # Translators:
 # songming <by@songming.me>, 2013-2014
-# Wei Ding <dyw.net@gmail.com>, 2014
+# Wei Ding <dyw.net@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-01-06 13:50+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-01-18 11:17+0000\n"
+"Last-Translator: Wei Ding <dyw.net@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -380,7 +380,7 @@ msgid "Asynchronous I/O"
 msgstr "异步I/O"
 
 msgid "At reboot"
-msgstr ""
+msgstr "在重启时"
 
 msgid "Attribute name"
 msgstr "属性名称"
@@ -556,12 +556,12 @@ msgstr "取消"
 msgid ""
 "Cannot unlink the shared folder content because another shared folder also "
 "refers to it"
-msgstr ""
+msgstr "不能取消连接到该共享文件夹的连接，因为其他共享文件夹也引用了它。"
 
 msgid ""
 "Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "不能取消连接到该共享文件夹的连接，因为有其他共享文件夹引用了它的一个子文件夹。"
 
 msgid "Canton and Enderbury Islands"
 msgstr "坎吞与恩德伯里岛屿"
@@ -579,7 +579,7 @@ msgid "Central African Republic"
 msgstr "中非共和国"
 
 msgid "Certain date"
-msgstr ""
+msgstr "特定日期"
 
 msgid "Certificate"
 msgstr "证书"
@@ -773,7 +773,7 @@ msgid "Daemon"
 msgstr "守护进程"
 
 msgid "Daily"
-msgstr ""
+msgstr "每天"
 
 msgid "Dashboard"
 msgstr "仪表盘"
@@ -1202,7 +1202,7 @@ msgid "Everyone: read/write"
 msgstr "每个人：读/写"
 
 msgid "Exactly"
-msgstr ""
+msgstr "精确地"
 
 msgid "Execute command"
 msgstr "执行命令"
@@ -1496,7 +1496,7 @@ msgid "Hour"
 msgstr "小时"
 
 msgid "Hourly"
-msgstr ""
+msgstr "每小时"
 
 msgid "Hungary"
 msgstr "匈牙利"
@@ -2037,7 +2037,7 @@ msgid "Month"
 msgstr "月"
 
 msgid "Monthly"
-msgstr ""
+msgstr "每月"
 
 msgid "Montserrat"
 msgstr "蒙塞拉特岛"
@@ -2784,7 +2784,7 @@ msgid "Scheduled tests"
 msgstr "测试计划"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "调度"
 
 msgid "Secondary"
 msgstr "次要"
@@ -2796,7 +2796,7 @@ msgid "Seconds"
 msgstr "秒"
 
 msgid "Section"
-msgstr ""
+msgstr "段"
 
 msgid "Secure"
 msgstr "安全"
@@ -3586,7 +3586,7 @@ msgid "Time interval"
 msgstr "时间间隔"
 
 msgid "Time of execution"
-msgstr ""
+msgstr "执行的时间"
 
 msgid "Time server"
 msgstr "时间服务器"
@@ -3880,7 +3880,7 @@ msgid "Wednesday"
 msgstr "星期三"
 
 msgid "Weekly"
-msgstr ""
+msgstr "每周"
 
 msgid "Welcome message"
 msgstr "欢迎消息"
@@ -3918,7 +3918,7 @@ msgid "Write/Execute"
 msgstr "写/执行"
 
 msgid "Yearly"
-msgstr ""
+msgstr "每年"
 
 msgid "Yemen"
 msgstr "也门"
