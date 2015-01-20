@@ -274,9 +274,8 @@ class OMVSystem extends OMVObject {
 		// Get the CPU model name. Take care about CPUs with multiple cores.
 		@OMVUtil::exec("grep -Em1 '^(model name|Processor)' /proc/cpuinfo",
 		  $output, $result);
-		if($result !== 0) {
+		if ($result !== 0)
 			return FALSE;
-		}
 		$output = explode(":", $output[0]);
 		$modelName = trim($output[1]);
 		$tprev = file("/proc/stat");
@@ -303,7 +302,8 @@ class OMVSystem extends OMVObject {
 		$diffTotal = $tnowTotal - $tprevTotal;
 		return array(
 			"modelname" => $modelName,
-			"usage" => (($diffTotal - $diffIdle) / $diffTotal) * 100
+			"usage" => (0 == $diffTotal) ? 0 : (($diffTotal - $diffIdle) /
+			  $diffTotal) * 100
 		);
 	}
 }

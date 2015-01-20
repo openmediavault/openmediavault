@@ -1,3 +1,9 @@
+openmediavault (1.11) stable; urgency=low
+
+  * Mantis 0001247: Fix division by zero in OMVSystem::getCPUStats().
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Tue, 20 Jan 2015 09:53:42 +0100
+
 openmediavault (1.10) stable; urgency=low
 
   * Update locales.
