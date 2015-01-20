@@ -729,6 +729,15 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				  "bondupdelay":{"type":"integer","minimum":0}
 			  }
 		  }');
+		// Do some additional tests.
+		// - The primary option is only valid for active-backup(1),
+		//   balance-tlb (5) and balance-alb (6) mode.
+		//   See https://www.kernel.org/doc/Documentation/networking/bonding.txt
+		if (empty($params['bondprimary']) && in_array($params['bondmode'],
+		  array(1, 5, 6))) {
+			throw new OMVException(OMVErrorMsg::E_RPC_SERVICE_METHOD_INVALID_PARAMS,
+			  "bondprimary; bondmode");
+		}
 		// Prepare the configuration object.
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?

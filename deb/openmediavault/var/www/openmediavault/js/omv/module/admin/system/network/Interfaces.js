@@ -303,6 +303,14 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 						{ name: "method6", value: "static" }
 					],
 					properties: "!readOnly"
+				},{
+					name: "bondprimary",
+					conditions: [
+						{ name: "bondmode", value: [ 1, 5, 6 ] }
+					],
+					properties: [
+						"!allowBlank"
+					]
 				}]
 			}]
 		}
@@ -372,19 +380,7 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 			listeners: {
 				scope: me,
 				selectionchange: function(grid, model, selected, value) {
-					var field = this.findField("bondprimary");
-					var fieldValue = field.getValue();
-					// Clear selected value and the whole store.
-					field.clearValue();
-					field.store.removeAll();
-					// Add all checked interfaces to the 'Primary'
-					// combobox.
-					Ext.Array.each(selected, function(record) {
-						field.store.add(record);
-					});
-					// Reselect the old value if it is still in the list.
-					if(field.findRecordByValue(fieldValue))
-						field.setValue(fieldValue);
+					this.updatePrimaryField();
 				}
 			}
 		},{
@@ -539,6 +535,12 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 				editable: false,
 				triggerAction: "all",
 				value: 1,
+				listeners: {
+					scope: me,
+					select: function(combo, records) {
+						this.updatePrimaryField();
+					}
+				},
 				plugins: [{
 					ptype: "fieldinfo",
 					text: _("Specifies one of the bonding policies.")
@@ -550,34 +552,26 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 				emptyText: _("Select a primary device ..."),
 				queryMode: "local",
 				store: Ext.create("OMV.data.Store", {
-					autoLoad: true,
 					model: OMV.data.Model.createImplicit({
 						idProperty: "devicename",
 						fields: [
+							{ name: "text", type: "string" },
 							{ name: "devicename", type: "string" }
 						]
 					}),
-					proxy: {
-						type: "rpc",
-						rpcData: {
-							service: "Network",
-							method: "enumerateBondSlaves"
-						},
-						extraParams: {
-							uuid: me.uuid,
-							unused: false
-						},
-						appendSortParams: false
-					},
+					data: [{
+						text: _("None"),
+						devicename: ""
+					}],
 					sorters: [{
 						direction: "ASC",
 						property: "devicename"
 					}]
 				}),
-				displayField: "devicename",
+				displayField: "text",
 				valueField: "devicename",
-				allowBlank: false,
 				editable: false,
+				forceSelection: true,
 				triggerAction: "all",
 				plugins: [{
 					ptype: "fieldinfo",
@@ -621,6 +615,45 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 				}]
 			}]
 		}];
+	},
+
+	updatePrimaryField: function() {
+		var field;
+		// Get the 'slaves' field component.
+		field = this.findField("slaves");
+		var slaves = field.getValue();
+		// Get the 'bondmode' field component.
+		field = this.findField("bondmode");
+		var bondmode = field.getValue();
+		// Get the 'bondprimary' field component.
+		field = this.findField("bondprimary");
+		var bondprimary = field.getValue();
+		// Clear selected value and the whole store.
+		field.clearValue();
+		field.store.removeAll();
+		// Prepare the data to be displayed in the combobox.
+		// The primary option is only valid for active-backup(1),
+		// balance-tlb (5) and balance-alb (6) mode.
+		var data = [];
+		if (!Ext.Array.contains([ 1, 5, 6 ], bondmode)) {
+			Ext.Array.push(data, [{
+				text: _("None"),
+				devicename: ""
+			}]);
+			bondprimary = "";
+		}
+		if (Ext.Array.contains([ 1, 5, 6 ], bondmode)) {
+			Ext.Array.each(slaves, function(slave) {
+				Ext.Array.push(data, [{
+					text: slave,
+					devicename: slave
+				}]);
+			});
+		}
+		field.store.loadData(data);
+		// Reselect the old value if it is still in the list.
+		if (field.findRecordByValue(bondprimary))
+			field.setValue(bondprimary);
 	}
 });
 

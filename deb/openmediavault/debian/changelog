@@ -1,5 +1,7 @@
 openmediavault (1.11) stable; urgency=low
 
+  * Mantis 0001246: Bonded Interface with 802.3ad-style link aggregation
+    problem.
   * Mantis 0001247: Fix division by zero in OMVSystem::getCPUStats().
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 20 Jan 2015 09:53:42 +0100
