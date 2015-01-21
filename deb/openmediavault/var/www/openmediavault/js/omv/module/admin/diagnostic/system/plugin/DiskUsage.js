@@ -41,22 +41,34 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.DiskUsage", {
 		// Execute RPC to get the information required to add tab panels.
 		OMV.Rpc.request({
 			callback: function(id, success, response) {
+				// The function used to create the tab configuration.
 				var fnBuildRrdGraphConfig = function(item) {
 					var config = {
-						title: item.label || item.devicefile,
+						title: item.title,
 						rrdGraphName: "df-" + item.mountpoint.substr(1).
 						  replace(/\//g, "-")
 					};
-					if("/dev/root" === item.devicefile) {
+					if ("/dev/root" === item.devicefile) {
 						Ext.apply(config, {
-							title: _("System"),
 							rrdGraphName: "df-root"
 						});
 					}
 					return config;
 				}
-				// Create a tab panel for each file system.
-				Ext.Array.each(response, function(item) {
+				// Sort the list of filesystems by devicefile or label.
+				var items = new Ext.util.MixedCollection();
+				items.addAll(response);
+				items.each(function(item) {
+					item.title = item.label || item.devicefile;
+					if ("/dev/root" === item.devicefile)
+						item.title = _("System");
+				});
+				items.sort([{
+					property: "title",
+					direction: "ASC"
+				}]);
+				// Create a tab panel for each filesystem.
+				items.each(function(item) {
 					me.add(Ext.create("OMV.workspace.panel.RrdGraph",
 					  fnBuildRrdGraphConfig(item)));
 				});
