@@ -26,7 +26,7 @@ set -e
 
 OMV_INTERFACES_CONFIG=${OMV_INTERFACES_CONFIG:-"/etc/network/interfaces"}
 
-cat <<EOF > ${OMV_INTERFACES_CONFIG}
+cat <<EOF >> ${OMV_INTERFACES_CONFIG}
 # The loopback network interface
 auto lo
 iface lo inet loopback
