@@ -24,11 +24,11 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
-
-OMV_INTERFACES_EXTENSIONS_DIR=${OMV_INTERFACES_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/interfaces.d"}
 OMV_INTERFACES_CONFIG=${OMV_INTERFACES_CONFIG:-"/etc/network/interfaces"}
 
-# Build the configuration file.
-cat /dev/null > ${OMV_INTERFACES_CONFIG}
-run-parts --exit-on-error ${OMV_INTERFACES_EXTENSIONS_DIR}
+cat <<EOF > ${OMV_INTERFACES_CONFIG}
+# The loopback network interface
+auto lo
+iface lo inet loopback
+iface lo inet6 loopback
+EOF
