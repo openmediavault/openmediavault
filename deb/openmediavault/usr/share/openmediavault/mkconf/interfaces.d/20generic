@@ -20,14 +20,9 @@
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
 # Documentation/Howto:
-# http://www.kernel.org/doc/Documentation/networking/bonding.txt
 # http://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt
 # http://www.cyberciti.biz/tips/configuring-static-routes-in-debian-or-red-hat-linux-systems.html
 # http://www.itsyourip.com/networking/add-persistent-static-routes-in-debian-linux
-# http://wiki.debian.org/Bonding
-# http://www.thomas-krenn.com/de/wiki/NIC_Bonding_unter_Debian
-# http://www.linuxfoundation.org/collaborate/workgroups/networking/bonding
-# http://www.howtoforge.com/nic-bonding-on-debian-lenny
 # http://wiki.linuxmce.org/index.php/MTU
 # http://www.simpledns.com/private-ipv6.aspx
 
