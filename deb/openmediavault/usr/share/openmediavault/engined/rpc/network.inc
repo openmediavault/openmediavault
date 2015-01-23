@@ -61,7 +61,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	 * @param devicename The name of the network interface device.
 	 * @return An array containing the network interface details. The following
 	 *   fields are returned: devicename, gateway, gateway6, address, address6,
-	 *   netmask, netmask6, ether, mtu, state and link.
+	 *   netmask, netmask6, ether, mtu, state, link, vlan and vlanid.
 	 */
 	private function getIfaceInfo($devicename) {
 		$obj = array();
@@ -76,8 +76,10 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$obj['mtu'] = "";
 		$obj['state'] = "";
 		$obj['link'] = FALSE;
+		$obj['vlan'] = FALSE;
+		$obj['vlanid'] = -1;
 		$iface = new OMVNetworkInterface($devicename);
-		if($iface->exists()) {
+		if ($iface->exists()) {
 			$gateway = $iface->getGateway();
 			$gateway6 = $iface->getGateway6();
 			$address = $iface->getIP();
@@ -96,6 +98,8 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			$obj['mtu'] = $iface->getMTU();
 			$obj['state'] = !$state ? gettext("UNKNOWN") : $state;
 			$obj['link'] = $iface->getLink();
+			$obj['vlan'] = $iface->isVlan();
+			$obj['vlanid'] = $iface->isVlan() ? $iface->getVlanId() : -1;
 		}
 		return $obj;
 	}
@@ -178,7 +182,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	 * @return An array of objects. Each object represents a network interface
 	 *   device with the following properties: \em devicename, \em gateway,
 	 *   \em gateway6, \em address, \em address6, \em netmask, \em netmask6,
-	 *   \em ether, \em mtu, \em state and \em link.
+	 *   \em ether, \em mtu, \em state, \em link, \em vlan and \em vlanid.
 	 * @throw E_MISC_FAILURE
 	 */
 	public function enumerateDevices($params, $context) {
@@ -231,9 +235,9 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		// Enumerate all network interface devices on the system.
 		$devs = $this->callMethod("enumerateDevices", NULL, $context);
 		$result = array();
-		foreach($devs as $devk => &$devv) {
+		foreach ($devs as $devk => &$devv) {
 			// Skip loopback network interface.
-			if($devv['devicename'] == "lo")
+			if ($devv['devicename'] == "lo")
 				continue;
 			// Set defaults.
 			$devv['uuid'] = $GLOBALS['OMV_UUID_UNDEFINED'];
@@ -243,62 +247,66 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			$devv['_used'] = FALSE;
 			$devv['_readonly'] = FALSE;
 			// Get network interface type.
-			if(1 !== preg_match("/^([a-z0-9]+)\d+$/i", $devv['devicename'],
-			  $matches)) {
+			// Accept interfaces like: eth0, wlan1, bond0, eth1.1 or bond2.99
+			$regex = "/^(([a-z]+)\d+)(\.\d+)?$/i";
+			if (1 !== preg_match($regex, $devv['devicename'], $matches)) {
 				throw new OMVException(
 				  OMVErrorMsg::E_MISC_DEVICE_NOT_SUPPORTED,
 				  $devv['devicename']);
 			}
-			// Check if there exists a network interface configuration
-			// object for the given device.
-			switch($matches[1]) {
+			// Categorize the network interface.
+			switch ($matches[2]) {
 			case "bond":
 				$devv['type'] = "bond";
-				$xpath = sprintf("//system/network/interfaces/bondiface[".
-				  "devicename='%s']", $devv['devicename']);
 				break;
 			case "eth":
 			case "wlan":
 				$devv['type'] = "physical";
-				$xpath = sprintf("//system/network/interfaces/iface[".
-				  "devicename='%s']", $devv['devicename']);
-				// Check if it is used by a bonding interface.
-				if(TRUE === $xmlConfig->exists("//bondiface[" .
-				  "contains(slaves,'{$devv['devicename']}')]")) {
-					$devv['_used'] = TRUE;
-				}
 				break;
 			default:
 				$devv['type'] = "unknown";
+				break;
+			}
+			if (TRUE === $devv['vlan'])
+				$devv['type'] = "vlan";
+			// Check if there exists a network interface configuration
+			// object for the given device.
+			switch ($devv['type']) {
+			case "bond":
+				$xpath = sprintf("//system/network/interfaces/bondiface[".
+				  "devicename='%s']", $devv['devicename']);
+				break;
+			case "physical":
+			default:
 				$xpath = sprintf("//system/network/interfaces/iface[".
 				  "devicename='%s']", $devv['devicename']);
 				break;
 			}
 			$cfgObject = $xmlConfig->get($xpath);
-			if(!is_null($cfgObject)) {
+			if (!is_null($cfgObject)) {
 				$devv['uuid'] = $cfgObject['uuid'];
 				$devv['method'] = array_value($cfgObject, "method", "manual");
 				$devv['method6'] = array_value($cfgObject, "method6", "manual");
 				$devv['comment'] = array_value($cfgObject, "comment", "");
 			}
 			// Do some more checks.
-			switch($matches[1]) {
+			switch ($devv['type']) {
 			case "bond":
 				// Is bonded interface somewhere referenced?
-				if(TRUE === $xmlConfig->exists("//bondifaceref[" .
+				if (TRUE === $xmlConfig->exists("//bondifaceref[".
 				  "contains(.,'{$devv['uuid']}')]")) {
 					$devv['_used'] = TRUE;
 				}
 				break;
-			case "eth":
+			case "physical":
 			default:
 				// Is network interface device somewhere referenced?
-				if(TRUE === $xmlConfig->exists("//ifaceref[" .
+				if (TRUE === $xmlConfig->exists("//ifaceref[".
 				  "contains(.,'{$devv['uuid']}')]")) {
 					$devv['_used'] = TRUE;
 				}
 				// Check if it is used by a bonding interface.
-				if(TRUE === $xmlConfig->exists("//bondiface[" .
+				if (TRUE === $xmlConfig->exists("//bondiface[".
 				  "contains(slaves,'{$devv['devicename']}')]")) {
 					$devv['_used'] = TRUE;
 					$devv['_readonly'] = TRUE;

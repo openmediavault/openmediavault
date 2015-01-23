@@ -1,6 +1,7 @@
 openmediavault (1.11) stable; urgency=low
 
   * Sort tabs in 'Diagnostics | System Information | Status | Disk usage'.
+  * Mantis 0001227: Show VLANs within the network interface GUI.
   * Mantis 0001246: Bonded Interface with 802.3ad-style link aggregation
     problem.
   * Mantis 0001247: Fix division by zero in OMVSystem::getCPUStats().

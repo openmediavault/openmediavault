@@ -940,14 +940,15 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		};
 		// Disable 'Delete' button if the selected interface has a
 		// configuration (uuid !== OMV.UUID_UNDEFINED).
-		if(records.length <= 0) {
+		if (records.length <= 0) {
 			// Nothing to do here.
-		} else if(records.length == 1) {
-			tbarBtnDisabled["edit"] = false;
-			if(records[0].get("type") == "physical") {
+		} else if (records.length == 1) {
+			tbarBtnDisabled["edit"] = !Ext.Array.contains([ "physical",
+			  "bond" ], records[0].get("type"));
+			if (records[0].get("type") == "physical") {
 				tbarBtnDisabled["identify"] = false;
 			}
-			if(records[0].get("uuid") !== OMV.UUID_UNDEFINED) {
+			if (records[0].get("uuid") !== OMV.UUID_UNDEFINED) {
 				tbarBtnDisabled["delete"] = false;
 			}
 		} else {
@@ -955,12 +956,12 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		}
 		// Disable 'Delete' button if a selected interface is in use or
 		// readonly.
-		for(var i = 0; i < records.length; i++) {
-			if(true == records[i].get("_used")) {
+		for (var i = 0; i < records.length; i++) {
+			if (true == records[i].get("_used")) {
 				tbarBtnDisabled["edit"] = true;
 				tbarBtnDisabled["delete"] = true;
 			}
-			if(true == records[i].get("_readonly")) {
+			if (true == records[i].get("_readonly")) {
 				tbarBtnDisabled["delete"] = true;
 			}
 		}

@@ -4152,43 +4152,47 @@ class OMVNetworkInterface extends OMVObject {
 	 */
 	private function getData($type) {
 		$result = FALSE;
-		switch($type) {
+		switch ($type) {
 		case "ifconfig":
-			if(!is_null($this->ifconfig))
+			if (!is_null($this->ifconfig))
 				return TRUE;
 			$cmd = sprintf("export LANG=C; ifconfig %s",
 			  $this->getDeviceName());
 			@OMVUtil::exec($cmd, $output, $result);
-			if(($result !== 0) || empty($output[0]))
+			if (($result !== 0) || empty($output[0])) {
+				$this->setLastError($output);
 				return FALSE;
+			}
 			$this->ifconfig = implode("|", $output);
 			$result = TRUE;
 			break;
 		case "ip":
-			if(!is_null($this->ip))
+			if (!is_null($this->ip))
 				return TRUE;
 			$cmd = sprintf("export LANG=C; ip addr show dev %s",
 			  $this->getDeviceName());
 			@OMVUtil::exec($cmd, $output, $result);
-			if(($result !== 0) || empty($output[0]))
+			if (($result !== 0) || empty($output[0])) {
+				$this->setLastError($output);
 				return FALSE;
-			foreach($output as $outputk => &$outputv) {
-				$outputv = trim($outputv);
 			}
+			foreach ($output as $outputk => &$outputv)
+				$outputv = trim($outputv);
 			$this->ip = implode("|", $output);
 			$result = TRUE;
 			break;
 		case "ethtool":
-			if(!is_null($this->ethtool))
+			if (!is_null($this->ethtool))
 				return TRUE;
 			$cmd = sprintf("export LANG=C; ethtool %s",
 			  $this->getDeviceName());
 			@OMVUtil::exec($cmd, $output, $result);
-			if(($result !== 0) || empty($output[0]))
+			if (($result !== 0) || empty($output[0])) {
+				$this->setLastError($output);
 				return FALSE;
-			foreach($output as $outputk => &$outputv) {
-				$outputv = trim($outputv);
 			}
+			foreach ($output as $outputk => &$outputv)
+				$outputv = trim($outputv);
 			$this->ethtool = implode("|", $output);
 			$result = TRUE;
 			break;
@@ -4403,6 +4407,29 @@ class OMVNetworkInterface extends OMVObject {
 			  "tx_carrier_errors" => $data[14],
 			  "tx_compressed" => $data[15]
 		  );
+	}
+
+	/**
+	 * Check if the network interface is a VLAN (802.1q) device.
+	 * @return TRUE if the network interface is a VLAN (802.1q) device,
+	 *   otherwise FALSE.
+	 */
+	public function isVlan() {
+		$regex = "/^(\S+\d+)\.(\d+)$/i";
+		if (1 !== preg_match($regex, $this->getDeviceName(), $matches))
+			return FALSE;
+		return TRUE;
+	}
+
+	/**
+	* Get VLAN ID of the network interface.
+	* @return The VLAN id, otherwise FALSE.
+	*/
+	public function getVlanId() {
+		$regex = "/^(\S+\d+)\.(\d+)$/i";
+		if (1 !== preg_match($regex, $this->getDeviceName(), $matches))
+			return FALSE;
+		return !empty($matches[2]) ? intval($matches[2]) : FALSE;
 	}
 }
 
