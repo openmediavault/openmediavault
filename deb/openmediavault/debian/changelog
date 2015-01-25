@@ -1,5 +1,6 @@
 openmediavault (1.11) stable; urgency=low
 
+  * Update locales.
   * Sort tabs in 'Diagnostics | System Information | Status | Disk usage'.
   * Mantis 0001227: Show bridge and VLAN network interface devices within
     the GUI.
