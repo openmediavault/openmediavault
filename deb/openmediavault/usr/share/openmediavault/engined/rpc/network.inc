@@ -259,6 +259,9 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			case "bond":
 				$devv['type'] = "bond";
 				break;
+			case "br":
+				$devv['type'] = "bridge";
+				break;
 			case "eth":
 			case "wlan":
 				$devv['type'] = "physical";
@@ -298,7 +301,6 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 					$devv['_used'] = TRUE;
 				}
 				break;
-			case "physical":
 			default:
 				// Is network interface device somewhere referenced?
 				if (TRUE === $xmlConfig->exists("//ifaceref[".
