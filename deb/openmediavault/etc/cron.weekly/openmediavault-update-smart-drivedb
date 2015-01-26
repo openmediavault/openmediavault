@@ -39,9 +39,9 @@ which update-smart-drivedb >/dev/null || exit 0
 
 # Note, the script shipped with the Debian Wheezy smartmontools package
 # contains a wrong URL. Because of that this must be modified to get the
-# script working. To do not modify the original script which is under
-# APT control we simply create a copy of the script, modify the URL and
-# finaly execute it.
+# script working. To do not modify the original script, which is under
+# APT control, we simply create a copy of the script, modify the URL and
+# finally execute it.
 cp -p $(which update-smart-drivedb) ${tmpscript}
 sed -i "/^SRCEXPR/{s#=.*#='http://sourceforge.net/p/smartmontools/code/HEAD/tree/\$location/smartmontools/drivedb.h?format=raw'#}" ${tmpscript}
 echo "Updating smartmontools drive database ..."
