@@ -247,8 +247,9 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			$devv['_used'] = FALSE;
 			$devv['_readonly'] = FALSE;
 			// Get network interface type.
-			// Accept interfaces like: eth0, wlan1, bond0, eth1.1 or bond2.99
-			$regex = "/^(([a-z]+)\d+)(\.\d+)?$/i";
+			// Accept interfaces like: eth0, wlan1, tun0, bond0, eth1.1,
+			// bond2.99, tun0 or as0t0.
+			$regex = "/^(([a-z0-9]+)\d+)(\.\d+)?$/i";
 			if (1 !== preg_match($regex, $devv['devicename'], $matches)) {
 				throw new OMVException(
 				  OMVErrorMsg::E_MISC_DEVICE_NOT_SUPPORTED,
@@ -265,6 +266,10 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			case "eth":
 			case "wlan":
 				$devv['type'] = "physical";
+				break;
+			case "tap":
+			case "tun":
+				$devv['type'] = "virtual";
 				break;
 			default:
 				$devv['type'] = "unknown";

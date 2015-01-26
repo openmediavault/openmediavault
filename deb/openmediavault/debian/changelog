@@ -1,6 +1,7 @@
 openmediavault (1.12) stable; urgency=low
 
   * Update the smartmontools drive database once a week.
+  * Don't be too restrictive in RPC Network::enumerateDevicesList().
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 26 Jan 2015 12:12:07 +0100
 
