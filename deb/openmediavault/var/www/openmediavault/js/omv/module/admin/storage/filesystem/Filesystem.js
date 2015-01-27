@@ -587,9 +587,9 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 			if (true === record.get("propresize"))
 				tbarBtnDisabled["resize"] = false;
 			// Enable the 'Quota' button if the filesystem supports this
-			// feature.
+			// feature and if it is mounted.
 			if (true === record.get("propquota"))
-				tbarBtnDisabled["quota"] = false;
+				tbarBtnDisabled["quota"] = !record.get("mounted");
 			// Disable/enable the mount/unmount buttons depending on whether
 			// the selected file system is mounted.
 			if (true === record.get("mounted")) {
