@@ -254,9 +254,10 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 			id: me.getId() + "-searchtext",
 			xtype: "triggerfield",
 			flex: 1,
-			trigger2Cls: Ext.baseCSSPrefix + "form-search-trigger",
 			trigger1Cls: Ext.baseCSSPrefix + "form-clear-trigger",
+			trigger2Cls: Ext.baseCSSPrefix + "form-search-trigger",
 			onTrigger1Click: function() {
+				// Reset the filter settings.
 				this.reset();
 				this.onTrigger2Click();
 			},
@@ -264,9 +265,13 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 				// Get the entered text that should be searched for.
 				var pattern = this.getValue();
 				var store = me.getStore();
-				// Clear the previous filter.
+				// Reset the filter settings.
 				store.clearFilter(!Ext.isEmpty(pattern));
+				// Prepare the new filter settings.
 				if (!Ext.isEmpty(pattern)) {
+					// Check if the entered text matches one of the given
+					// plugin record fields. Note, the text must match only
+					// one plugin record field to be accepted.
 					var regex = new RegExp(pattern, "i");
 					store.filterBy(function(record, id) {
 						var isMatch = false;
