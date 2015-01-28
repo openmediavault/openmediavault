@@ -248,6 +248,48 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 			scope: me,
 			disabled: true
 		}]);
+		Ext.Array.push(items, [{
+			xtype: "tbseparator"
+		},{
+			id: me.getId() + "-searchtext",
+			xtype: "triggerfield",
+			flex: 1,
+			trigger2Cls: Ext.baseCSSPrefix + "form-search-trigger",
+			trigger1Cls: Ext.baseCSSPrefix + "form-clear-trigger",
+			onTrigger1Click: function() {
+				this.reset();
+				this.onTrigger2Click();
+			},
+			onTrigger2Click: function() {
+				// Get the entered text that should be searched for.
+				var pattern = this.getValue();
+				var store = me.getStore();
+				// Clear the previous filter.
+				store.clearFilter(!Ext.isEmpty(pattern));
+				if (!Ext.isEmpty(pattern)) {
+					var regex = new RegExp(pattern, "i");
+					store.filterBy(function(record, id) {
+						var isMatch = false;
+						Ext.Array.each([ "name", "summary",
+						  "extendeddescription" ], function(property) {
+							  var value = record.get(property);
+							  if (regex.test(value)) {
+								isMatch = true;
+								return false;
+							  }
+						  });
+						return isMatch;
+					});
+				}
+			},
+			listeners: {
+				specialkey: function(field, e){
+					if (e.getKey() == e.ENTER) {
+						field.onTrigger2Click();
+					}
+				}
+			}
+		}]);
 		return items;
 	},
 
