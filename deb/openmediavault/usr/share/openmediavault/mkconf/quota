@@ -21,6 +21,7 @@
 
 # Documentation/Howto:
 # http://www.ibm.com/developerworks/linux/library/l-lpic1-v3-104-4/index.html
+# https://wiki.archlinux.org/index.php/disk_quota
 
 set -e
 
@@ -35,6 +36,8 @@ xmlstarlet sel -t -m "//system/storage/filesystem/quota" \
 	  # Get the device file from the given filesystem UUID.
 	  devicefile=$(blkid -U ${fsuuid}) || true
 	  if [ -n "${devicefile}" ]; then
+          # Get the filesystem type, e.g. ext4 or xfs.
+          fstype=$(blkid -o value -s TYPE ${devicefile})
 		  # Turn filesystem quotas off.
 		  quotaoff -gu ${devicefile}
 		  # Check if there exists any user or group quota, otherwise it is not
@@ -45,7 +48,15 @@ xmlstarlet sel -t -m "//system/storage/filesystem/quota" \
 			${OMV_CONFIG_FILE})
 		  [ ${quotaon} -eq 0 ] && continue;
 		  # Create the quota files.
-		  quotacheck -cugnv ${devicefile}
+          case ${fstype} in
+          xfs|XFS)
+              # XFS considers quota information as filesystem metadata, thus
+              # the quotacheck command has no effect on XFS filesystems.
+              ;;
+          *)
+	          quotacheck -cugnv ${devicefile}
+              ;;
+          esac
 		  # Set the user quotas.
 		  xmlstarlet sel -t -m "//system/storage/filesystem/quota[uuid='${uuid}']/usrquota" \
 			-v "concat(name,' ',bsoftlimit,' ',bhardlimit,' ',isoftlimit,' ',ihardlimit)" \

@@ -3,6 +3,7 @@ openmediavault (1.12) stable; urgency=low
   * Update the smartmontools drive database once a week.
   * Don't be too restrictive in RPC Network::enumerateDevicesList().
   * Mantis 0001254: Error with as0t0 device created for OpenVPN Access Server.
+  * Mantis 0001255: Can't set user quota on XFS filesystem.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 26 Jan 2015 12:12:07 +0100
 
