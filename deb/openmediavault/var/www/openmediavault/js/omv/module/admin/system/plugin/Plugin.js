@@ -265,9 +265,9 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 				// Get the entered text that should be searched for.
 				var pattern = this.getValue();
 				var store = me.getStore();
-				// Reset the filter settings.
+				// Reset the filter setting.
 				store.clearFilter(!Ext.isEmpty(pattern));
-				// Prepare the new filter settings.
+				// Prepare the new filter setting.
 				if (!Ext.isEmpty(pattern)) {
 					// Check if the entered text matches one of the given
 					// plugin record fields. Note, the text must match only
