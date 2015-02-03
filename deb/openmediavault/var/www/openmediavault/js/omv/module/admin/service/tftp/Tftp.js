@@ -78,7 +78,9 @@ Ext.define("OMV.module.admin.service.tftp.Settings", {
 				allowNone: true,
 				plugins: [{
 					ptype: "fieldinfo",
-					text: _("The location of the files to share.")
+					text: Ext.String.format("{0} {1}",
+					  _("The location of the files to share."),
+					  _("Please make sure that the shared folder is publicly writable if new files are allowed."))
 				}]
 			},{
 				xtype: "numberfield",
