@@ -1,0 +1,18 @@
+Source: openmediavault-shairport
+Section: sound
+XB-Plugin-Section: multimedia
+Priority: optional
+Maintainer: Volker Theile <volker.theile@openmediavault.org>
+Build-Depends: debhelper (>> 7), gettext
+Standards-Version: 3.6.10
+Homepage: http://www.openmediavault.org
+
+Package: openmediavault-shairport
+Architecture: all
+Depends: openmediavault (>= 1.5), shairport, alsa-utils
+Priority: optional
+Description: OpenMediaVault shairport (AirPlay/RAOP receiver) plugin
+ Shairport emulates an AirPort Express for the purpose of streaming
+ music from iTunes and compatible iPods and iPhones. It implements a
+ server for the Apple RAOP protocol. ShairPort does not support AirPlay
+ v2 (video and photo streaming).

@@ -1,0 +1,143 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Ichi <ichiperm@gmail.com>, 2012
+# mictian <ffrants@gmail.com>, 2012
+# артур Мудрых <arturmon82@gmail.com>, 2012
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-19 17:18+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/openmediavault/language/ru_RU/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Add physical volume"
+msgstr "Добавить физические тома"
+
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr "После того как логический том был расширен вы можете изменить размер файловой системы."
+
+msgid "Available"
+msgstr "Доступно"
+
+msgid "Capacity"
+msgstr "Емкость"
+
+msgid "Confirmation"
+msgstr "Подтверждение"
+
+msgid "Create logical volume"
+msgstr "Создание логического тома"
+
+msgid "Create volume group"
+msgstr "Создать группу томов"
+
+msgid "Description"
+msgstr "Описание"
+
+msgid "Device"
+msgstr "Устройство"
+
+msgid "Devices"
+msgstr "Устройства"
+
+msgid "Do you really want to create the logical volume?"
+msgstr "Вы действительно хотите создать логический том?"
+
+msgid "Do you really want to create the physical volume?"
+msgstr "Вы действительно хотите создать физический том?"
+
+msgid "Do you really want to create the volume group?"
+msgstr "Вы действительно хотите создать группу томов?"
+
+msgid "Edit logical volume"
+msgstr "Редактирование логического тома"
+
+msgid "Edit volume group"
+msgstr "Редактировать группу томов"
+
+msgid "Extend"
+msgstr "Увеличить"
+
+msgid "Extend logical volume"
+msgstr "Увеличить логический том"
+
+msgid "Extend volume group"
+msgstr "Увеличить группу томов"
+
+msgid "Failed to remove logical volume: %s"
+msgstr ""
+
+msgid "Failed to remove physical volume: %s"
+msgstr ""
+
+msgid "Failed to remove volume group: %s"
+msgstr ""
+
+msgid "Free"
+msgstr "Свободно"
+
+msgid "Invalid name"
+msgstr "Недопустимое имя"
+
+msgid "Logical Volume Management"
+msgstr "Управление логическими томами"
+
+msgid "Logical volumes"
+msgstr "Логические тома"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "No free space available to create a logical volume."
+msgstr "Нет свободного места для создания логический томов."
+
+msgid "No free space available to extend the logical volume."
+msgstr "Нет свободного места, чтобы расширить логический том."
+
+msgid "No logical volume found on '%s'"
+msgstr ""
+
+msgid "No physical volume found on '%s'"
+msgstr ""
+
+msgid "Physical volumes"
+msgstr "Физические тома"
+
+msgid "Reduce"
+msgstr "Уменьшить"
+
+msgid "Reduce volume group"
+msgstr "Уменьшить группу томов"
+
+msgid "Select a volume group ..."
+msgstr "Выберите группу томов ..."
+
+msgid "Select an device ..."
+msgstr "Выберите устройство ..."
+
+msgid "Size"
+msgstr "Размер"
+
+msgid "Used"
+msgstr "Использованно"
+
+msgid "Volume group"
+msgstr "Группа томов"
+
+msgid "Volume group '%s' not found"
+msgstr ""
+
+msgid "Volume groups"
+msgstr "Группы томов"

@@ -1,0 +1,10 @@
+/var/log/samba/audit.log {
+        weekly
+        missingok
+        rotate 7
+        postrotate
+                /etc/init.d/samba reload > /dev/null
+        endscript
+        compress
+        notifempty
+}

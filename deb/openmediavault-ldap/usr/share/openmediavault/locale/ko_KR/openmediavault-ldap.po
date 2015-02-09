@@ -1,0 +1,83 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Chang-Eon Byeon <ksna0827@gmail.com>, 2014
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-11-03 12:09+0000\n"
+"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Base DN"
+msgstr "기본 DN"
+
+msgid "Directory Service"
+msgstr "디렉터리 서비스"
+
+msgid "Enable"
+msgstr "활성화"
+
+msgid "Extra options"
+msgstr "추가 옵션"
+
+msgid "General settings"
+msgstr "일반 설정"
+
+msgid "Groups suffix"
+msgstr "그룹 접미사"
+
+msgid "Host"
+msgstr "호스트"
+
+msgid "Password"
+msgstr "암호"
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
+"target='_blank'>manual page</a> for more details."
+msgstr "자세한 내용은 <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>매뉴얼 페이지</a>를 참고하세요."
+
+msgid "Root Bind DN"
+msgstr "루트 바인드 DN"
+
+msgid "Settings"
+msgstr "설정"
+
+msgid ""
+"Specifies the base distinguished name (DN) to use as search base, e.g. "
+"'dc=example,dc=net'."
+msgstr ""
+
+msgid "Specifies the credentials with which to bind."
+msgstr ""
+
+msgid ""
+"Specifies the distinguished name (DN) with which to bind to the directory "
+"server for lookups, e.g. 'cn=manager,dc=example,dc=net'."
+msgstr ""
+
+msgid "Specifies the group suffix, e.g. 'ou=Groups'."
+msgstr ""
+
+msgid "Specifies the port to connect to."
+msgstr ""
+
+msgid "Specifies the user suffix, e.g. 'ou=Users'."
+msgstr ""
+
+msgid "The FQDN or IP address of the server."
+msgstr ""
+
+msgid "Users suffix"
+msgstr "유저 접미사"

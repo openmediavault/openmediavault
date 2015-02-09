@@ -1,0 +1,223 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Jan Štourač <wormsik666@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-30 02:09+0100\n"
+"PO-Revision-Date: 2014-11-30 01:10+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgid "Add job"
+msgstr "Přidat úlohu"
+
+msgid "Algorithmic detection"
+msgstr "Algoritmická detekce"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "Emailová zpráva obsahující výstup příkazu (pokud nějaký existuje) je odeslána administrátorovi."
+
+msgid "Antivirus"
+msgstr "Antivirus"
+
+msgid "Be verbose."
+msgstr ""
+
+msgid "Comment"
+msgstr "Komentář"
+
+msgid "Database checks"
+msgstr "Frekvence kontroly databáze"
+
+msgid "Date & Time"
+msgstr "Datum & čas"
+
+msgid "Day of month"
+msgstr "Den v měsíci"
+
+msgid "Day of week"
+msgstr "Den v týdnu"
+
+msgid "Detect PUA"
+msgstr "Detekovat PNA"
+
+msgid "Detect broken executables"
+msgstr "Detekovat poškozené spustitelné soubory"
+
+msgid "Edit job"
+msgstr "Upravit úlohu"
+
+msgid "Enable"
+msgstr "Povolit"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "Povolit detekování a normalizaci HTML"
+
+msgid "Enable archive scanning."
+msgstr "Povolit kontrolu archivů"
+
+msgid "Enable on-access virus scanning"
+msgstr "Povolit hledávání virů při přístupu (on-access)"
+
+msgid "Enable scanning of ELF files."
+msgstr "Povolit kontrolu ELF souborů."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Povolit kontrolu OLE2 souborů, jako jsou dokumenty Microsoft Office a .msi soubory."
+
+msgid "Enable scanning within PDF files."
+msgstr "Povolit kontrolu v PDF souborech."
+
+msgid "Enable the algorithmic detection."
+msgstr "Povolit algoritmickou detekci."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Povolit rozpoznávání poškozených spustitelných souborů (PE i ELF)."
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Povolit detekci potenciálně nechtěných aplikací."
+
+msgid "Enabled"
+msgstr "Povolené"
+
+msgid "Every N day of month"
+msgstr "Každých N dní v měsíci"
+
+msgid "Every N hour"
+msgstr "Každých N hodin"
+
+msgid "Every N minute"
+msgstr "Každých N minut"
+
+msgid "Execute cron job"
+msgstr "Spustit cron úlohu"
+
+msgid "Extra options"
+msgstr "Extra parametry"
+
+msgid "Follow directory symlinks"
+msgstr "Následovat odkazy na adresáře"
+
+msgid "Follow directory symlinks."
+msgstr "Následovat odkazy na adresáře."
+
+msgid "Follow file symlinks"
+msgstr "Následovat odkazy na soubory"
+
+msgid "Follow regular file symlinks."
+msgstr "Následovat běžné odkazy na soubory."
+
+msgid "General settings"
+msgstr "Obecná nastavení"
+
+msgid "Hour"
+msgstr "Hodina"
+
+msgid "Infected files"
+msgstr "Infikované soubory"
+
+msgid "Jobs"
+msgstr "Úlohy"
+
+msgid "Log clean files"
+msgstr "Zaznamenávat čisté soubory"
+
+msgid "Log clean files. This drastically increases the log size."
+msgstr "Zaznamenávat čisté soubory. Drasticky zvyšuje velikost záznamového souboru."
+
+msgid "Message"
+msgstr "Zpráva"
+
+msgid "Minute"
+msgstr "Minuta"
+
+msgid "Monitor the shared folder and scan new or modified files."
+msgstr "Sledovat sdílené složky a kontrolovat nové nebo upravené soubory."
+
+msgid "Month"
+msgstr "Měsíc"
+
+msgid "Multiscan"
+msgstr "Multiscan"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "Denní počet vyhledání aktualizace databáze. Nastavte 0 pro zakázání."
+
+msgid "On-access"
+msgstr "Při přístupu (on-access)"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Provádět hloubkové kontroly spustitelných souborů."
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Pro více detailů prosím navštivte <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manuálovou stránku</a>."
+
+msgid "Quarantine"
+msgstr "Karanténa"
+
+msgid "Run"
+msgstr "Spustit"
+
+msgid "Scan ELF"
+msgstr "Kontrolovat ELF"
+
+msgid "Scan HTML"
+msgstr "Kontrolovat HTML"
+
+msgid "Scan OLE2"
+msgstr "Kontrolovat OLE2"
+
+msgid "Scan PDF"
+msgstr "Kontrolovat PDF"
+
+msgid "Scan Portable Executable"
+msgstr "Kontrolovat přenositelné spustitelné soubory"
+
+msgid "Scan archives"
+msgstr "Kontrolovat archivy"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr "Kontrolovat obsah složky paralelně s využitím dostupných vláken."
+
+msgid "Send command output via email"
+msgstr "Odeslat výstup příkazu emailovou zprávou"
+
+msgid "Send email"
+msgstr "Odeslat email"
+
+msgid "Settings"
+msgstr "Nastavení"
+
+msgid "Shared folder"
+msgstr "Sdílená složka"
+
+msgid "The location of the files to scan."
+msgstr "Umístění souborů pro kontrolu."
+
+msgid "The location which is used as quarantine."
+msgstr "Umístění, které je využito jako karanténa."
+
+msgid "The option, how to handle infected files."
+msgstr "Způsob, jak zacházet s nakaženými soubory."
+
+msgid "Verbose"
+msgstr ""
+
+msgid "n/a"
+msgstr "n/a"

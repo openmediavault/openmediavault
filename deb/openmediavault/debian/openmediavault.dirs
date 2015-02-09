@@ -1,0 +1,13 @@
+etc/openmediavault
+etc/nginx/openmediavault-webgui.d
+usr/share/openmediavault
+usr/share/php/openmediavault
+var/lib/openmediavault
+var/lib/openmediavault/apt
+var/lib/openmediavault/cron.d
+var/lib/openmediavault/ssh/authorized_keys
+var/www/openmediavault
+var/cache/openmediavault
+var/cache/openmediavault/archives
+var/log/openmediavault
+export

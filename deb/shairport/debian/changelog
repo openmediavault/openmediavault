@@ -1,0 +1,23 @@
+shairport (1.1.1-1) stable; urgency=low
+
+  * Improve init script. Set password command line option if set.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Sep 2014 19:57:25 +0200
+
+shairport (1.1.1) stable; urgency=low
+
+  * New upstream version.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 03 Aug 2014 13:45:17 +0200
+
+shairport (1.0.1) stable; urgency=low
+
+  * Improve postinst and postrm scripts.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 23 Jun 2014 22:50:59 +0200
+
+shairport (1.0) stable; urgency=low
+
+  * Initial release.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 18 Jun 2014 12:04:15 +0000

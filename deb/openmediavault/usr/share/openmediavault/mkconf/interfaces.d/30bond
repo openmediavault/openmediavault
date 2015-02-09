@@ -1,0 +1,112 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2015 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://www.kernel.org/doc/Documentation/networking/bonding.txt
+# http://www.kernel.org/doc/Documentation/networking/ip-sysctl.txt
+# http://www.cyberciti.biz/tips/configuring-static-routes-in-debian-or-red-hat-linux-systems.html
+# http://www.itsyourip.com/networking/add-persistent-static-routes-in-debian-linux
+# http://wiki.debian.org/Bonding
+# http://www.thomas-krenn.com/de/wiki/NIC_Bonding_unter_Debian
+# http://www.linuxfoundation.org/collaborate/workgroups/networking/bonding
+# http://www.howtoforge.com/nic-bonding-on-debian-lenny
+# http://wiki.linuxmce.org/index.php/MTU
+# http://www.simpledns.com/private-ipv6.aspx
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_INTERFACES_CONFIG=${OMV_INTERFACES_CONFIG:-"/etc/network/interfaces"}
+OMV_INTERFACES_WOL_OPTION=${OMV_INTERFACES_WOL_OPTION:-"g"}
+
+xmlstarlet sel -t \
+  -m "//system/network/interfaces/bondiface" \
+	  -n \
+	  -v "concat('# ',devicename,' network interface')" -n \
+	  -v "concat('auto ',devicename)" -n \
+	  -i "method = 'manual'" \
+		  -v "concat('iface ',devicename,' inet manual')" -n \
+		  -v "concat('    pre-down ip -4 addr flush dev ',devicename)" -n \
+	  -b \
+	  -i "method = 'static'" \
+		  -v "concat('iface ',devicename,' inet static')" -n \
+		  -v "concat('    address ',address)" -n \
+		  -i "string-length(gateway) > 0" \
+			  -v "concat('    gateway ',gateway)" -n \
+		  -b \
+		  -v "concat('    netmask ',netmask)" -n \
+	  -b \
+	  -i "method = 'dhcp'" \
+		  -v "concat('iface ',devicename,' inet dhcp')" -n \
+	  -b \
+	  -i "string-length(mtu) > 0" \
+		  -v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
+	  -b \
+	  -i "string-length(//system/network/dnsnameservers) > 0" \
+		  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
+	  -b \
+	  -i "string-length(//system/network/domainname) > 0 and //system/network/domainname != 'local'" \
+		  -v "concat('    dns-search ',//system/network/domainname)" -n \
+	  -b \
+	  -i "wol = 1" \
+		  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
+	  -b \
+	  -i "string-length(options) > 0" \
+		  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
+	  -b \
+	  -v "concat('    bond-slaves ',translate(slaves,',',' '))" -n \
+	  -i "string-length(bondprimary) > 0" \
+		  -v "concat('    bond-primary ',bondprimary)" -n \
+	  -b \
+	  -v "concat('    bond-mode ',bondmode)" -n \
+	  -v "concat('    bond-miimon ',bondmiimon)" -n \
+	  -v "concat('    bond-downdelay ',bonddowndelay)" -n \
+	  -v "concat('    bond-updelay ',bondupdelay)" -n \
+	  -i "method6 = 'manual'" \
+		  -v "concat('iface ',devicename,' inet6 manual')" -n \
+		  -v "concat('    pre-down ip -6 addr flush dev ',devicename)" -n \
+	  -b \
+	  -i "method6 = 'static'" \
+		  -v "concat('iface ',devicename,' inet6 static')" -n \
+		  -v "concat('    address ',address6)" -n \
+		  -i "string-length(gateway6) > 0" \
+			  -v "concat('    gateway ',gateway6)" -n \
+		  -b \
+		  -v "concat('    netmask ',netmask6)" -n \
+		  -o "    privext 2" -n \
+		  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
+	  -b \
+	  -i "method6 = 'auto'" \
+		  -v "concat('iface ',devicename,' inet6 auto')" -n \
+		  -o "    privext 2" -n \
+		  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/autoconf" -n \
+		  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/accept_ra" -n \
+		  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
+	  -b \
+	  -i "method6 = 'dhcp'" \
+		  -v "concat('iface ',devicename,' dhcp auto')" -n \
+		  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/accept_ra" -n \
+		  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
+	  -b \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc >> ${OMV_INTERFACES_CONFIG}

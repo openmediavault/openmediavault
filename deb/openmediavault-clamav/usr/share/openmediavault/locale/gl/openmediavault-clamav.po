@@ -1,0 +1,224 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013-2014
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013-2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-11-30 02:09+0100\n"
+"PO-Revision-Date: 2014-11-30 01:10+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
+"Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: gl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add job"
+msgstr "Engadir un traballo"
+
+msgid "Algorithmic detection"
+msgstr "Detección algorítmica"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "Enviaráselle ao administrador unha mensaxe de correo coa saída da orde (se é que se produce)."
+
+msgid "Antivirus"
+msgstr "Antivirus"
+
+msgid "Be verbose."
+msgstr "Saída detallada."
+
+msgid "Comment"
+msgstr "Comentario"
+
+msgid "Database checks"
+msgstr "Comprobacións da base de datos"
+
+msgid "Date & Time"
+msgstr "Data e hora"
+
+msgid "Day of month"
+msgstr "Día do mes"
+
+msgid "Day of week"
+msgstr "Día da semana"
+
+msgid "Detect PUA"
+msgstr "Detectar PUA"
+
+msgid "Detect broken executables"
+msgstr "Detectar executábeis quebrados"
+
+msgid "Edit job"
+msgstr "Editar o traballo"
+
+msgid "Enable"
+msgstr "Activar"
+
+msgid "Enable HTML detection and normalisation."
+msgstr "Activa a detección e a normalización HTML"
+
+msgid "Enable archive scanning."
+msgstr "Activa a análise de arquivos."
+
+msgid "Enable on-access virus scanning"
+msgstr "Activa a análise de virus no acceso"
+
+msgid "Enable scanning of ELF files."
+msgstr "Activa a análise de ficheiros ELF."
+
+msgid ""
+"Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
+"files."
+msgstr "Activa a análise de ficheiros OLE2, como os documentos de Microsoft Office e os ficheiros .msi"
+
+msgid "Enable scanning within PDF files."
+msgstr "Activa a análise dentro dos ficheiros PDF."
+
+msgid "Enable the algorithmic detection."
+msgstr "Activa a detección algorítmica."
+
+msgid "Enable the detection of broken executables (both PE and ELF)."
+msgstr "Activa a detección de executábeis quebrados (tanto os PE como os ELF)"
+
+msgid "Enable the detection of possibly unwanted applications."
+msgstr "Activa a detección de aplicativos posíbelmente non desexados."
+
+msgid "Enabled"
+msgstr "Activado"
+
+msgid "Every N day of month"
+msgstr "Cada día N do mes"
+
+msgid "Every N hour"
+msgstr "Cada N horas"
+
+msgid "Every N minute"
+msgstr "Cada N minutos"
+
+msgid "Execute cron job"
+msgstr "Executar un traballo de cron"
+
+msgid "Extra options"
+msgstr "Opcións adicionais"
+
+msgid "Follow directory symlinks"
+msgstr "Seguir as ligazóns simbólicas a directorios"
+
+msgid "Follow directory symlinks."
+msgstr "Seguir as ligazóns simbólicas a directorios."
+
+msgid "Follow file symlinks"
+msgstr "Seguir as ligazóns simbólicas a ficheiros"
+
+msgid "Follow regular file symlinks."
+msgstr "Seguir as ligazóns simbólicas normais a ficheiros"
+
+msgid "General settings"
+msgstr "Axustes xerais"
+
+msgid "Hour"
+msgstr "Hora"
+
+msgid "Infected files"
+msgstr "Ficheiros infectados"
+
+msgid "Jobs"
+msgstr "Traballos"
+
+msgid "Log clean files"
+msgstr "Rexistrar os ficheiros limpos"
+
+msgid "Log clean files. This drastically increases the log size."
+msgstr "Rexistrar os ficheiros limpos. Isto aumenta drasticamente o tamaño do rexistro."
+
+msgid "Message"
+msgstr "Mensaxe"
+
+msgid "Minute"
+msgstr "Minuto"
+
+msgid "Monitor the shared folder and scan new or modified files."
+msgstr "Supervisar o cartafol compartido e analizar os ficheiros novos ou modificados."
+
+msgid "Month"
+msgstr "Mes"
+
+msgid "Multiscan"
+msgstr "Múltiplas análises"
+
+msgid "Number of database update checks per day. Set to 0 to disable."
+msgstr "Número de actualizacións da bases de datos que comprobar por día. Estabelecer a 0 para desactivar."
+
+msgid "On-access"
+msgstr "No acceso"
+
+msgid "Perform a deeper analysis of executable files."
+msgstr "Realizar unha análise máis profunda dos ficheiros executábeis."
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Consulte a <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>páxina do manual</a> para obter máis detalles."
+
+msgid "Quarantine"
+msgstr "Corentena"
+
+msgid "Run"
+msgstr "Executar"
+
+msgid "Scan ELF"
+msgstr "Analizar ELF"
+
+msgid "Scan HTML"
+msgstr "Analizar HTML"
+
+msgid "Scan OLE2"
+msgstr "Analizar OLE2"
+
+msgid "Scan PDF"
+msgstr "Analizar PDF"
+
+msgid "Scan Portable Executable"
+msgstr "Analizar os executábeis portábeis"
+
+msgid "Scan archives"
+msgstr "Analizar os arquivos"
+
+msgid "Scan the directory contents in parallel using available threads."
+msgstr "Analizar os contidos dos directorios usando os fíos dispoñíbeis."
+
+msgid "Send command output via email"
+msgstr "Enviar a saída da orde por correo"
+
+msgid "Send email"
+msgstr "Enviar por correo"
+
+msgid "Settings"
+msgstr "Axustes"
+
+msgid "Shared folder"
+msgstr "Cartafol compartido"
+
+msgid "The location of the files to scan."
+msgstr "A localización dos ficheiros que analizar."
+
+msgid "The location which is used as quarantine."
+msgstr "A localización utilizada como  corentena."
+
+msgid "The option, how to handle infected files."
+msgstr "A opción para como manexar os ficheiros infectados."
+
+msgid "Verbose"
+msgstr "Detallado"
+
+msgid "n/a"
+msgstr "n/d"

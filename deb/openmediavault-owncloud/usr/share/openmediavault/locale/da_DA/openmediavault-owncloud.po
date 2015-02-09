@@ -1,0 +1,84 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2013-2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-07-07 18:17+0200\n"
+"PO-Revision-Date: 2014-07-07 19:02+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Add share"
+msgstr "Tilføj deling"
+
+msgid "Certificate"
+msgstr "Certifikat"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Data directory"
+msgstr "Data bibliotek"
+
+msgid "Edit share"
+msgstr "Rediger delemappe"
+
+msgid "Enable"
+msgstr "Aktiver"
+
+msgid "Folder name"
+msgstr "Mappenavn"
+
+msgid "General settings"
+msgstr "Generelle indstillinger"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Settings"
+msgstr "Indstillinger"
+
+msgid "Shared folder"
+msgstr "Delt mappe"
+
+msgid "Shares"
+msgstr "Delinger"
+
+msgid "The SSL certificate."
+msgstr "SSL certifikat."
+
+msgid "The location of the files to share."
+msgstr "Placeringen af filerne der skal deles."
+
+msgid "The location where ownCloud stores its files."
+msgstr "Placeringen, hvor ownCloud gemmer dens filer."
+
+msgid "The name of the share."
+msgstr "Navnet på delingen."
+
+msgid ""
+"The ownCloud web interface can be accessed <a href='/owncloud' "
+"target='_blank'>here</a>."
+msgstr "ownCloud web interface kan tilgås <a href='/owncloud' target='_blank'>her</a>."
+
+msgid "The port '%d' is already in use"
+msgstr "Porten '%s' er allerede i brug"
+
+msgid "The port which is used to access the ownCloud web interface."
+msgstr "Porten, der bruges til at tilgå ownCloud web interface."
+
+msgid "n/a"
+msgstr "n/a"
+
+msgid "ownCloud"
+msgstr "ownCloud"

@@ -1,0 +1,3959 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2015
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-06 14:50+0100\n"
+"PO-Revision-Date: 2015-01-06 14:51+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: da\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#, javascript-format
+msgid "% completed ..."
+msgstr "% gennemført ..."
+
+msgid "%s (%s available)"
+msgstr "%s (%s tilgængelig)"
+
+msgid "%s [on %s, %s]"
+msgstr "%s [til %s, %s]"
+
+msgid "'All' is not allowed"
+msgstr "'Alle' er ikke tilladt"
+
+msgid "0 KiB/s means unlimited."
+msgstr "0 KiB/s betyder ubegrænset."
+
+msgid "1 - Minimum power usage with standby (spindown)"
+msgstr "1 - Minimum strømforbrug med standby (spindown)"
+
+msgid "1 day"
+msgstr "1 dag"
+
+msgid "1 month"
+msgstr "1 måned"
+
+msgid "1 week"
+msgstr "1 uge"
+
+msgid "1 year"
+msgstr "1 år"
+
+msgid "10 minutes"
+msgstr "10 minutter"
+
+msgid "10 years"
+msgstr "10 år"
+
+#, javascript-format
+msgid "100% completed ..."
+msgstr "100% gennemført ..."
+
+msgid "120 minutes"
+msgstr "120 minutter"
+
+msgid "127 - Intermediate power usage with standby"
+msgstr "127 - Mellemliggende strømforbrug med standby"
+
+msgid "128 - Minimum power usage without standby (no spindown)"
+msgstr "128 - Minimum strømforbrug uden standby (ingen spindown)"
+
+msgid "15 years"
+msgstr "15 år"
+
+msgid "180 minutes"
+msgstr "180 minutter"
+
+msgid "192 - Intermediate power usage without standby"
+msgstr "192 - Mellemliggende strømforbrug uden standby"
+
+msgid "2 days"
+msgstr "2 dage"
+
+msgid "2 weeks"
+msgstr "2 uge"
+
+msgid "2 years"
+msgstr "2 år"
+
+msgid "20 minutes"
+msgstr "20 minutter"
+
+msgid "20 years"
+msgstr "20 år"
+
+msgid "240 minutes"
+msgstr "240 minutter"
+
+msgid "25 years"
+msgstr "25 år"
+
+msgid "254 - Maximum performance, maximum power usage"
+msgstr "254 - Maksimal ydeevne, maksimal strømforbrug"
+
+msgid "255 - Disabled"
+msgstr "255 - Deaktiveret"
+
+msgid "3 days"
+msgstr "3 dage"
+
+msgid "3 months"
+msgstr "3 måneder"
+
+msgid "3 weeks"
+msgstr "3 uger"
+
+msgid "3 years"
+msgstr "3 år"
+
+msgid "30 minutes"
+msgstr "30 minutter"
+
+msgid "300 minutes"
+msgstr "300 minutter"
+
+msgid "360 minutes"
+msgstr "360 minutter"
+
+msgid "4 days"
+msgstr "4 dage"
+
+msgid "4 years"
+msgstr "4 år"
+
+msgid "5 days"
+msgstr "5 dage"
+
+msgid "5 minutes"
+msgstr "5 minutter"
+
+msgid "5 years"
+msgstr "5 år"
+
+msgid "6 days"
+msgstr "6 dage"
+
+msgid "6 months"
+msgstr "6 månder"
+
+msgid "60 minutes"
+msgstr "60 minutter"
+
+msgid "64 - Intermediate power usage with standby"
+msgstr "64 - Mellemliggende strømforbrug med standby"
+
+msgid "9 months"
+msgstr "9 månder"
+
+msgid "A module with the name '%s' already exists"
+msgstr "Et modul med navnet '%s' findes allerede"
+
+msgid "A share with the name '%s' already exists"
+msgstr "En mappe med navnet '%s' findes allerede"
+
+msgid "A shared folder with the given name already exists"
+msgstr "En delt mappe med det givne navn findes allerede"
+
+msgid "ACL"
+msgstr "ACL"
+
+msgid "ASCII"
+msgstr "ASCII"
+
+msgid "About"
+msgstr "Om"
+
+msgid "Abstract"
+msgstr "Abstrakt"
+
+msgid "Access Right Management"
+msgstr "Adgangsret Håndtering"
+
+msgid "Access Rights Management"
+msgstr "Adgangsret Håndtering"
+
+msgid "Access mode"
+msgstr "Adgangs tilstand"
+
+msgid "Act as a WINS server."
+msgstr "Optræd som en WINS-server."
+
+msgid "Action"
+msgstr "Handling"
+
+msgid "Activate S.M.A.R.T. monitoring."
+msgstr "Aktiver S.M.A.R.T. overvågning."
+
+msgid "Add"
+msgstr "Tilføj"
+
+msgid "Add bonded interface"
+msgstr "Tilføj bundet interface"
+
+msgid "Add devices to RAID device"
+msgstr "Tilføj enheder til RAID enhed"
+
+msgid "Add firewall rule"
+msgstr "Tilføj firewall regl"
+
+msgid "Add group"
+msgstr "Tilføj gruppe"
+
+msgid "Add hot spares / recover RAID device"
+msgstr "Tilføj hot spare / genskab RAID enhed"
+
+msgid "Add module"
+msgstr "Tilføj modul"
+
+msgid "Add rsync job"
+msgstr "Tilføj rsync opgave"
+
+msgid "Add rule"
+msgstr "Tilføj regl"
+
+msgid "Add scheduled job"
+msgstr "Tilføj planlagt opgave"
+
+msgid "Add scheduled test"
+msgstr "Tilføj planlagt test"
+
+msgid "Add share"
+msgstr "Tilføj mappe"
+
+msgid "Add shared folder"
+msgstr "Tilføj delt mappe"
+
+msgid "Add user"
+msgstr "Tilføj bruger"
+
+msgid ""
+"Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a"
+" href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> "
+"for more details."
+msgstr "Yderligere enheds indstillinger, f.eks 'autoneg off speed 100 duplex full'. Se <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</ a> for flere detaljer."
+
+msgid "Address"
+msgstr "Adresse"
+
+msgid "Administrator password"
+msgstr "Administrator adgangskode"
+
+msgid "Administrator: read/write, Users: no access, Others: no access"
+msgstr "Administrator: læse/skrive, Brugere: ingen adgang, Andre: ingen adgang"
+
+msgid "Administrator: read/write, Users: read-only, Others: no access"
+msgstr "Administrator: læse/skrive, Brugere: skrivebeskyttet, Andre: ingen adgang"
+
+msgid "Administrator: read/write, Users: read-only, Others: read-only"
+msgstr "Administrator: læse/skrive, Brugere: skrivebeskyttet, Andre: skrivebeskyttet"
+
+msgid "Administrator: read/write, Users: read/write, Others: no access"
+msgstr "Administrator: læse/skrive, Bruger: læse/skrive, Andre: ingen adgang"
+
+msgid "Administrator: read/write, Users: read/write, Others: read-only"
+msgstr "Administrator: læse/skrive, Brugere: læse/skrive, Andre: skrivebeskyttet"
+
+msgid "Advanced Power Management"
+msgstr "Avanceret Strøm Håndtering"
+
+msgid "Advanced settings"
+msgstr "Avanceret indstillinger"
+
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+msgid ""
+"After the RAID has been grown you can resize the containing file system."
+msgstr "Efter at RAID er vokset, kan du ændre størrelsen på det indeholdende filsystem."
+
+msgid "Aland Islands"
+msgstr "Aland Islands"
+
+msgid "Albania"
+msgstr "Albania"
+
+msgid "Algeria"
+msgstr "Algeria"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Allow client access to accounts that have null passwords"
+msgstr "Tillad klient adgang til kontoer uden adgangskode"
+
+msgid ""
+"Allow clients to attempt to store OS/2 style extended attributes on a share."
+msgstr "Tillad klienter, at forsøge at gemme OS/2 stil udvidede attributter på en deling."
+
+msgid "Allow clients to resume interrupted uploads and downloads"
+msgstr "Tillad klienter, at genoptage afbrudte uploads og downloads"
+
+msgid "Allow new files"
+msgstr "Tillad nye filer"
+
+msgid "Allow new files to be created."
+msgstr "Tillad nye filer at blive oprettet."
+
+msgid ""
+"Allow this server to advertise itself as a time server to Windows clients"
+msgstr "Tillad at denne server annoncere sig selv som en tidsserver til Windows klienter"
+
+msgid "Allow this server to try and become a local master browser"
+msgstr "Tillad at denne server forsøger at blive en lokal master browser"
+
+msgid "American Samoa"
+msgstr "American Samoa"
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"administrator."
+msgstr "En e-mail besked med kommandoens output (hvis nogen produceret) er sendt til administratoren."
+
+msgid ""
+"An email message with the command output (if any produced) is send to the "
+"user who performs the job."
+msgstr "En e-mail besked med kommandoens output (hvis nogen produceret) er sendt til brugeren der udfører opgaven."
+
+msgid "An error has occured"
+msgstr "Der opstod en fejl"
+
+msgid "Andorra"
+msgstr "Andorra"
+
+msgid "Angola"
+msgstr "Angola"
+
+msgid "Anguilla"
+msgstr "Anguilla"
+
+msgid "Anonymous"
+msgstr "Anonym"
+
+msgid "Anonymous FTP"
+msgstr "Anonym FTP"
+
+msgid "Antarctica"
+msgstr "Antarctica"
+
+msgid "Antigua and Barbuda"
+msgstr "Antigua og Barbuda"
+
+msgid "Apply"
+msgstr "Anvend"
+
+msgid "Apply configuration changes"
+msgstr "Anvend konfiguration ændringer"
+
+msgid "Apply permissions to files and subfolders"
+msgstr "Tilføj tilladelser til filer og undermapper"
+
+msgid "April"
+msgstr "April"
+
+msgid "Archive"
+msgstr "Arkiver"
+
+msgid "Argentina"
+msgstr "Argentina"
+
+msgid "Armenia"
+msgstr "Armenia"
+
+msgid "Array details"
+msgstr "Array detaljer"
+
+msgid "Aruba"
+msgstr "Aruba"
+
+msgid "Asynchronous I/O"
+msgstr "Asynkron I/O"
+
+msgid "At reboot"
+msgstr "Ved genstart"
+
+msgid "Attribute name"
+msgstr "Attribut navn"
+
+msgid "Attributes"
+msgstr "Attributter"
+
+msgid "Audit"
+msgstr "Godkend"
+
+msgid "Audit file operations."
+msgstr "Godkend fil handlinger."
+
+msgid "August"
+msgstr "August"
+
+msgid "Australia"
+msgstr "Australia"
+
+msgid "Austria"
+msgstr "Austria"
+
+msgid "Authenticate users"
+msgstr "Godkend brugere"
+
+msgid "Authenticated user ID"
+msgstr "Godkendt bruger ID"
+
+msgid "Authentication"
+msgstr "Godkendelse"
+
+msgid "Authentication and no privacy"
+msgstr "Godkendelse og intet privatliv"
+
+msgid "Authentication and privacy"
+msgstr "Godkendelse og privatliv"
+
+msgid "Authentication method"
+msgstr "Godkendelses metode"
+
+msgid "Authentication passphrase"
+msgstr "Godkendelses løsen"
+
+msgid "Authentication required"
+msgstr "Godkendelse påkrævet"
+
+msgid "Authentication type"
+msgstr "Godkendelses type"
+
+msgid "Auto"
+msgstr "Auto"
+
+msgid "Automatic Acoustic Management"
+msgstr "Automatisk Akustisk Håndtering"
+
+msgid "Available"
+msgstr "Tilgængelig"
+
+msgid "Azerbaijan"
+msgstr "Azerbaijan"
+
+msgid "Bahamas"
+msgstr "Bahamas"
+
+msgid "Bahrain"
+msgstr "Bahrain"
+
+msgid "Ban list"
+msgstr "Sort liste"
+
+msgid "Ban statistics:"
+msgstr "Sort liste statistikker::"
+
+msgid "Bandwidth restriction"
+msgstr "Båndbredde begrænsning"
+
+msgid "Bangladesh"
+msgstr "Bangladesh"
+
+msgid "Barbados"
+msgstr "Barbados"
+
+msgid "Belarus"
+msgstr "Belarus"
+
+msgid "Belgium"
+msgstr "Belgium"
+
+msgid "Belize"
+msgstr "Belize"
+
+msgid "Benin"
+msgstr "Benin"
+
+msgid "Bermuda"
+msgstr "Bermuda"
+
+msgid "Bhutan"
+msgstr "Bhutan"
+
+msgid "Binary"
+msgstr "Binære"
+
+msgid "Block layer cache [%s, %s]"
+msgstr "Bloker lag cache [%s, %s]"
+
+msgid "Blocksize"
+msgstr "Blokstørrelse"
+
+msgid "Bolivia"
+msgstr "Bolivia"
+
+msgid "Bond options"
+msgstr "Bunden valgmuligheder"
+
+msgid "Boot"
+msgstr "Boot"
+
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnia og Herzegovina"
+
+msgid "Botswana"
+msgstr "Botswana"
+
+msgid "Bouvet Island"
+msgstr "Bouvet Island"
+
+msgid "Brazil"
+msgstr "Brazil"
+
+msgid "British Antarctic Territory"
+msgstr "British Antarctic Territory"
+
+msgid "British Indian Ocean Territory"
+msgstr "British Indian Ocean Territory"
+
+msgid "British Virgin Islands"
+msgstr "British Virgin Islands"
+
+msgid "Browseable"
+msgstr "Søgebar"
+
+msgid "Brunei"
+msgstr "Brunei"
+
+msgid "Bulgaria"
+msgstr "Bulgaria"
+
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+msgid "Burundi"
+msgstr "Burundi"
+
+msgid "By default, only files that already exist are allowed to be uploaded."
+msgstr "Som standard, har kun filer der allerede eksisterer lov til at blive uploadet."
+
+msgid "CPU usage"
+msgstr "CPU forbrug"
+
+msgid "Cambodia"
+msgstr "Cambodia"
+
+msgid "Cameroon"
+msgstr "Cameroon"
+
+msgid "Canada"
+msgstr "Canada"
+
+msgid "Cancel"
+msgstr "Annuller"
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder also "
+"refers to it"
+msgstr "Kan ikke fjerne linket af den delte mappes indhold, fordi en anden delt mappe også henviser til den"
+
+msgid ""
+"Cannot unlink the shared folder content because another shared folder is "
+"referencing a subdirectory"
+msgstr "Kan ikke fjerne linket af den delte mappes indhold, fordi en anden delt mappe henviser til en undermappe"
+
+msgid "Canton and Enderbury Islands"
+msgstr "Canton og Enderbury Islands"
+
+msgid "Capacity"
+msgstr "Kapacitet"
+
+msgid "Cape Verde"
+msgstr "Cape Verde"
+
+msgid "Cayman Islands"
+msgstr "Cayman Islands"
+
+msgid "Central African Republic"
+msgstr "Central African Republic"
+
+msgid "Certain date"
+msgstr "Given dato"
+
+msgid "Certificate"
+msgstr "Certifikat"
+
+msgid "Certificate details"
+msgstr "Certifikat detaljer"
+
+msgid "Certificates"
+msgstr "Certifikater"
+
+msgid "Chad"
+msgstr "Chad"
+
+msgid "Changelog"
+msgstr "Changelog"
+
+msgid "Check"
+msgstr "Kontroller"
+
+msgid "Check interval"
+msgstr "Kontrol interval"
+
+msgid "Checking for new plugins ..."
+msgstr "Kontroller efter nye plugins ..."
+
+msgid "Checking for new updates ..."
+msgstr "Kontroller efter nye opdateringer ..."
+
+msgid "Chile"
+msgstr "Chile"
+
+msgid "China"
+msgstr "China"
+
+msgid "Christmas Island"
+msgstr "Christmas Island"
+
+msgid "City"
+msgstr "By"
+
+msgid "Clear"
+msgstr "Fjern"
+
+msgid "Client"
+msgstr "Klient"
+
+msgid "Client NetBIOS name"
+msgstr "Klient NetBIOS navn"
+
+msgid "Client address"
+msgstr "Klient adresse"
+
+msgid "Clients allowed to mount the file system, e.g. 192.168.178.0/24."
+msgstr "Klienter har tilladelse til at montere filsystemet, f.eks. 192.168.178.0/24"
+
+msgid "Close"
+msgstr "Luk"
+
+msgid "Cocos (Keeling) Islands"
+msgstr "Cocos (Keeling) Islands"
+
+msgid "Colombia"
+msgstr "Colombia"
+
+msgid "Command"
+msgstr "Kommando"
+
+msgid "Comment"
+msgstr "Kommentar"
+
+msgid "Common Name"
+msgstr "Fælles Navn"
+
+msgid "Community"
+msgstr "Fællesskab"
+
+msgid "Community-maintained updates."
+msgstr "Fællesskab-vedligeholdes opdateringer."
+
+msgid "Comoros"
+msgstr "Comoros"
+
+msgid "Complete"
+msgstr "Gennemført"
+
+msgid "Completion status"
+msgstr "Gennemførelses status"
+
+msgid "Compress"
+msgstr "Komprimer"
+
+msgid "Compress file data during the transfer"
+msgstr "Komprimer fil data under overførelsen"
+
+msgid "Compressed"
+msgstr "Komprimeret"
+
+msgid "Compression"
+msgstr "Komprimering"
+
+msgid ""
+"Compression is worth using if your connection is slow. The efficiency of the"
+" compression depends on the type of the file, and varies widely. Useful for "
+"internet transfer only."
+msgstr "Komprimering er værd at anvende, hvis din forbindelse er langsom. Effektiviteten af kompressionen afhænger af filtypen, og varierer meget. Nyttigt ved kun internet overførsel."
+
+msgid "Confirm password"
+msgstr "Bekræft adgangskode"
+
+msgid "Confirmation"
+msgstr "Bekræftelse"
+
+msgid "Congo (Brazzaville)"
+msgstr "Congo (Brazzaville)"
+
+msgid "Congo (Kinshasa)"
+msgstr "Congo (Kinshasa)"
+
+msgid "Connections"
+msgstr "Forbindelser"
+
+msgid "Contact"
+msgstr "Kontakt"
+
+msgid ""
+"Contact information, e.g. name or email address of the person responsible "
+"for this system."
+msgstr "Kontakt oplysninger f.eks. navn eller email adresse på den person der er ansvarlig for systemet."
+
+msgid "Conveyance self-test"
+msgstr "Overførings selvtest"
+
+msgid "Cook Islands"
+msgstr "Cook Islands"
+
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+msgid "Country"
+msgstr "Land"
+
+msgid "Create"
+msgstr "Opret"
+
+msgid "Create RAID device"
+msgstr "Opret RAID enhed"
+
+msgid "Create file system"
+msgstr "Opret filsystem"
+
+msgid "Create self-signed SSL certificate"
+msgstr "Opret selvsigneret SSL-certifikat"
+
+msgid "Creating the file system, please wait ..."
+msgstr "Opretter filsystem, vent venligst ..."
+
+msgid "Critical"
+msgstr "Kritisk"
+
+msgid "Croatia"
+msgstr "Croatia"
+
+msgid "Cuba"
+msgstr "Cuba"
+
+msgid "Current time"
+msgstr "Nuværende tid"
+
+msgid "Currently logged in users"
+msgstr "Nuværende brugere der er logget ind"
+
+msgid "Currently logged in users:"
+msgstr "Nuværende brugere, der er logget ind:"
+
+msgid "Cyprus"
+msgstr "Cyprus"
+
+msgid "Czech Republic"
+msgstr "Czech Republic"
+
+msgid "DHCP"
+msgstr "DHCP"
+
+msgid "DNS Server"
+msgstr "DNS Server"
+
+msgid "DNS server"
+msgstr "DNS server"
+
+msgid "Daemon"
+msgstr "Dæmon"
+
+msgid "Daily"
+msgstr "Dagligt"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Date"
+msgstr "Dato"
+
+msgid "Date & Time"
+msgstr "Dato & Tid"
+
+msgid "Day of month"
+msgstr "Månedsdag"
+
+msgid "Day of week"
+msgstr "Ugedag"
+
+msgid "Debug"
+msgstr "Debug"
+
+msgid "December"
+msgstr "December"
+
+msgid "Delete"
+msgstr "Slet"
+
+msgid "Delete content"
+msgstr "Slet indhold"
+
+msgid "Delete file system"
+msgstr "Slet filsystem"
+
+msgid "Delete files on the receiving side that don't exist on sender"
+msgstr "Slet filer på den modtagende side, der ikke eksisterer på afsender"
+
+msgid "Deleting selected item(s)"
+msgstr "Slet valgte emne(r)"
+
+msgid "Denmark"
+msgstr "Denmark"
+
+msgid "Deny logins which do not have a valid shell"
+msgstr "Nægt log ind der ikke har en gyldig shell"
+
+msgid "Description"
+msgstr "Beskrivelse"
+
+msgid "Destination"
+msgstr "Destination"
+
+msgid ""
+"Destination address can be either a network IP address (with /mask), a IP "
+"range or a plain IP address. A '!' argument before the address specification"
+" inverts the sense of the address."
+msgstr "Destinations adressen kan entet være en netværks IP adresse (med /maske), en IP række eller en ren IP adresse. Et '!' argument før adresse specifikationen inverterer betydningen af adressen."
+
+msgid "Destination port"
+msgstr "Destination port"
+
+msgid "Destination server"
+msgstr "Destination server"
+
+msgid "Destination shared folder"
+msgstr "Destination delt mappe"
+
+msgid "Detail"
+msgstr "Detaljer"
+
+msgid ""
+"Determine the default timeout, in microseconds, before the first packet is "
+"retransmitted."
+msgstr "Bestem den standard timeout, i mikrosekunder, før den første pakke bliver gensendt."
+
+msgid "Device"
+msgstr "Enhed"
+
+msgid "Device Mapper %s [%s, %s]"
+msgstr "Enheds Mapper %s [%s, %s]"
+
+msgid "Device information"
+msgstr "Enheds oplysninger"
+
+msgid "Device model"
+msgstr "Enheds model"
+
+msgid "Device properties"
+msgstr "Enheds egenskaber"
+
+msgid "Device/Label"
+msgstr "Enhed/Label"
+
+msgid "Devices"
+msgstr "Enheder"
+
+msgid "Diagnostics"
+msgstr "Diagnosticering"
+
+msgid "Difference"
+msgstr "Forskel"
+
+msgid "Direction"
+msgstr "Retning"
+
+msgid "Directory"
+msgstr "Bibliotek"
+
+msgid "Disabled"
+msgstr "Deaktiver"
+
+msgid "Disallow the user to modify his account."
+msgstr "Forbyd brugeren at ændre hans konto."
+
+msgid "Disk usage"
+msgstr "Disk forbrug"
+
+msgid "Displaying items {0} - {1} of {2}"
+msgstr "Viser emne {0} - {1} af {2}"
+
+msgid "Djibouti"
+msgstr "Djibouti"
+
+msgid "Do you really want to apply the configuration changes?"
+msgstr "Er du sikker på, at du vil anvende konfigurations ændringerne?"
+
+msgid "Do you really want to clear the log file?"
+msgstr "Er du sikker på at du vil slette log filen?"
+
+msgid "Do you really want to create the RAID device?"
+msgstr "Er du sikker på at du vil oprette en RAID enhed?"
+
+msgid "Do you really want to delete the file system? All data will be lost."
+msgstr "Er du sikker på at du vil slette filsystemet? Alle data vil gå tabt."
+
+msgid "Do you really want to delete the selected item(s)?"
+msgstr "Er du sikker på at du vil slette det/de valgte emne(r)?"
+
+msgid ""
+"Do you really want to format this device? All data on it will be deleted. "
+"Please note that the file system creation may take some time."
+msgstr "Er du sikker på at du vil formatere denne enhed? Alt data på den vil blive slettet. Vær opmærksom på at filsystems opretningen kan tage noget tid."
+
+msgid "Do you really want to install the selected plugin(s)?"
+msgstr "Er du sikker på at du vil installer det/de valgte plugin(s)?"
+
+msgid "Do you really want to leave the page?"
+msgstr "Er du sikker på at du vil forlade siden?"
+
+msgid "Do you really want to logout?"
+msgstr "Er du sikker på at du vil logge ud?"
+
+msgid "Do you really want to put the system into standby?"
+msgstr "Er du sikker på, at du vil sætte systemet på standby?"
+
+msgid "Do you really want to reboot the system?"
+msgstr "Er du sikker på at du vil genstarte systemet?"
+
+msgid ""
+"Do you really want to relocate the shared folder? The content of the shared "
+"folder will not be moved automatically, you have to do this yourself."
+msgstr "Er du sikker på, at du vil flytte den delte mappe? Indholdet i den delte mappe vil ikke automatisk blive flyttet, det skal du gøre selv."
+
+msgid ""
+"Do you really want to remove the shared folder content? It will be "
+"permanently removed and cannot be recovered."
+msgstr "Er du sikker på at du vil slette den delte mappes indhold? Det vil blive permanent fjernet og kan ikke genskabes."
+
+msgid "Do you really want to remove this widget?"
+msgstr "Er du sikker på, at du vil slette denne widget?"
+
+msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
+msgstr "Er du sikker på at du vil resette WebGUI tilstanden, d.v.s gitter kolonne ordnen?"
+
+msgid ""
+"Do you really want to resize the selected file system? You have to do that "
+"after a RAID has been grown for example."
+msgstr "Er du sikker på, at ændre størrelsen på det valgte filsystem? Du er nødt til at eksempelvis gøre det efter en RAID er vokset ."
+
+msgid "Do you really want to revert the configuration changes?"
+msgstr "Er du sikker på, at du vil fortryde konfigurations ændringerne?"
+
+msgid "Do you really want to shutdown the system?"
+msgstr "Er du sikker på at du vil lukke systemet ned?"
+
+msgid "Do you really want to uninstall the selected plugin(s)?"
+msgstr "Er du sikker på at du vil afinstallere det/de valgte plugin(s)?"
+
+msgid "Do you really want to wipe the selected device?"
+msgstr "Er du sikker på at du vil rydde den valgte enhed?"
+
+msgid ""
+"Do you want to remove the content of the shared folder recursively? The "
+"shared folder content will be permanently removed and cannot be recovered. "
+"Select 'No' to delete the shared folder configuration only or 'Cancel' to "
+"abort."
+msgstr "Vil du fjerne indholdet af den delte mappe rekursivt? Den delte mappes indhold vil blive fjernet permanent og kan ikke gendannes. Vælg 'Nej' for kun at slette den delte mappes konfiguration eller 'Annuller' for at afbryde."
+
+msgid "Domain name"
+msgstr "Domæne navn"
+
+msgid "Dominica"
+msgstr "Dominica"
+
+msgid "Dominican Republic"
+msgstr "Dominican Republic"
+
+msgid "Donate"
+msgstr "Donere"
+
+msgid "Done ..."
+msgstr "Færdig ..."
+
+msgid "Down"
+msgstr "Nede"
+
+msgid "Down delay"
+msgstr "Nede forsinkelse"
+
+msgid "Download"
+msgstr "Download"
+
+msgid "Downloading package information"
+msgstr "Downloader pakke oplysninger"
+
+msgid "Dronning Maud Land"
+msgstr "Dronning Maud Land"
+
+msgid "Each line represents one group."
+msgstr "Hver linie repræsenterer en gruppe."
+
+msgid ""
+"Each line represents one user. Note, the password must be entered in plain "
+"text."
+msgstr "Hver linie repræsenterer en bruger. Bemærk, adgangskoden skal indtastes i ren tekst."
+
+msgid "East Timor"
+msgstr "East Timor"
+
+msgid "Ecuador"
+msgstr "Ecuador"
+
+msgid "Edit"
+msgstr "Rediger"
+
+msgid "Edit SSL certificate"
+msgstr "Rediger SSL certifikat"
+
+msgid "Edit bonded interface"
+msgstr "Rediger bundet interface"
+
+msgid "Edit firewall rule"
+msgstr "Rediger firewall regl"
+
+msgid "Edit group"
+msgstr "Rediger gruppe"
+
+msgid "Edit module"
+msgstr "Rediger modul"
+
+msgid "Edit physical interface"
+msgstr "Rediger fysisk interface"
+
+msgid "Edit quota"
+msgstr "Rediger kvote"
+
+msgid "Edit rsync job"
+msgstr "Rediger rsync opgave"
+
+msgid "Edit rule"
+msgstr "Rediger regl"
+
+msgid "Edit scheduled job"
+msgstr "Rediger planlagt opgave"
+
+msgid "Edit scheduled test"
+msgstr "Rediger planlagt test"
+
+msgid "Edit share"
+msgstr "Rediger deling"
+
+msgid "Edit shared folder"
+msgstr "Rediger delte mapper"
+
+msgid "Edit user"
+msgstr "Rediger bruger"
+
+msgid "Egypt"
+msgstr "Egypt"
+
+msgid "El Salvador"
+msgstr "El Salvador"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Empty now"
+msgstr "Tøm nu"
+
+msgid "Empty recycle bin"
+msgstr "Tøm papirkurv"
+
+msgid "Enable"
+msgstr "Aktiver"
+
+msgid "Enable FXP protocol"
+msgstr "Aktiver FXP protokol"
+
+msgid "Enable SSL/TLS"
+msgstr "Aktiver SSL/TLS"
+
+msgid "Enable SSL/TLS connections"
+msgstr "Aktiver SSL/TLS forbindelser"
+
+msgid "Enable WINS server"
+msgstr "Aktiver WINS-server"
+
+msgid "Enable anonymous FTP"
+msgstr "Aktiver anonym FTP"
+
+msgid "Enable archive mode"
+msgstr "Aktiver arkiv tilstand"
+
+msgid "Enable asynchronous I/O (AIO) support."
+msgstr "Aktiver asynkron I/O (AIO) understøttelse."
+
+msgid "Enable chroot."
+msgstr "Aktiver chroot."
+
+msgid "Enable compression"
+msgstr "Aktiver komprimering"
+
+msgid "Enable extended attribute support"
+msgstr "Aktiver udvidet attribut understøttelse"
+
+msgid "Enable keyboard-interactive authentication"
+msgstr "Aktiver tastatur-interaktiv godkendelse"
+
+msgid "Enable module listing"
+msgstr "Aktiver modul liste"
+
+msgid "Enable permission inheritance"
+msgstr "Aktiver tilladelse nedarvning"
+
+msgid "Enable public key authentication"
+msgstr "Aktiver offentlig nøgle godkendelse"
+
+msgid "Enable recycle bin"
+msgstr "Aktiver papirkurv"
+
+msgid "Enable reverse DNS lookup"
+msgstr "Aktiver omvendt DNS-opslag"
+
+msgid ""
+"Enable reverse DNS lookup performed on the remote host's IP address for "
+"incoming active mode data connections and outgoing passive mode data "
+"connections."
+msgstr "Aktiver omvendt DNS-opslag udført på den eksterne værts IP-adresse til indgående aktiv tilstands dataforbindelser og udgående passiv tilstands dataforbindelser."
+
+msgid "Enable secure connection."
+msgstr "Aktiver sikker forbindelse"
+
+msgid "Enable store DOS attributes support"
+msgstr "Aktiver gem DOS attributter understøttelse"
+
+msgid "Enable the ident protocol (RFC1413)"
+msgstr "Aktiver ident protokollen (RFC1413)"
+
+msgid ""
+"Enable this option to keep partially transferred files, otherwise they will "
+"be deleted if the transfer is interrupted."
+msgstr "Aktiver denne mulighed for at beholde delvis overførte filer, ellers vil de blive slettet hvis overførelsen afbrydes."
+
+msgid "Enable transfer log"
+msgstr "Aktiver overførelses log"
+
+msgid "Enable user authentication"
+msgstr "Aktiver bruger godkendelse"
+
+msgid "Enable user home directories"
+msgstr "Aktiver bruger hjemme bibliotekker"
+
+msgid "Enable write-cache."
+msgstr "Aktiver skrive-cache."
+
+msgid "Enabled"
+msgstr "Aktiveret"
+
+msgid "Enter your password"
+msgstr "Indtast din adgangskode"
+
+msgid "Enter your username"
+msgstr "Indtast dit brugernavn"
+
+msgid "Equatorial Guinea"
+msgstr "Equatorial Guinea"
+
+msgid "Eritrea"
+msgstr "Eritrea"
+
+msgid "Error"
+msgstr "Fejl"
+
+msgid "Error #"
+msgstr "Fejl #"
+
+msgid "Error #%d"
+msgstr "Fejl #%d"
+
+msgid "Estonia"
+msgstr "Estonia"
+
+msgid "Ethiopia"
+msgstr "Ethiopia"
+
+msgid "Event"
+msgstr "Begivenhed"
+
+msgid "Every N day of month"
+msgstr "Hver N månedsdag"
+
+msgid "Every N hour"
+msgstr "Hver N time"
+
+msgid "Every N minute"
+msgstr "Hver N minut"
+
+msgid "Everyone: read/write"
+msgstr "Alle: læse/skrive"
+
+msgid "Exactly"
+msgstr "Præcis"
+
+msgid "Execute command"
+msgstr "Udfør kommando"
+
+msgid "Execute cron job"
+msgstr "Udfør cron opgave"
+
+msgid "Execute only"
+msgstr "Udfør kun"
+
+msgid "Execute rsync job"
+msgstr "Udfør rsync opgave"
+
+msgid "Execute scheduled test"
+msgstr "Udfør planlagt test"
+
+msgid "Expire"
+msgstr "Udløb"
+
+msgid "Extended attributes"
+msgstr "Udvidede attributter"
+
+msgid "Extended information"
+msgstr "Udvidede oplysninger"
+
+msgid "Extra options"
+msgstr "Ekstra valgmuligheder"
+
+msgid "FTP"
+msgstr "FTP"
+
+msgid "FTP - Transfer log"
+msgstr "FTP - Overførelses log"
+
+msgid "FXP"
+msgstr "FXP"
+
+msgid ""
+"FXP allows transfers between two remote servers without any file data going "
+"to the client asking for the transfer."
+msgstr "FXP tillader overførsler mellem to eksterne servere uden at fildata tilgår klienten for anmodning af overførslen."
+
+msgid "Failed to get filesystems"
+msgstr "Lykkedes ikke at hente filsystemerne"
+
+msgid "Failed to get list of groups."
+msgstr "Lykkedes ikke at hente liste over grupper."
+
+msgid "Failed to get list of network interface devices"
+msgstr "Lykkedes ikke at hente liste over netværks interface enheder"
+
+msgid "Failed to get list of users."
+msgstr "Lykkedes ikke at hente liste over brugere."
+
+msgid "Failed to get shadow password suite configuration."
+msgstr "Lykkedes ikke at hente tildækket adgangskode suite konfiguration."
+
+msgid "Failed to get storage device file from '%s'"
+msgstr "Lykkedes ikke at hente lager enheds fil fra '%s'"
+
+msgid "Falkland Islands"
+msgstr "Falkland Islands"
+
+msgid "Family"
+msgstr "Familie"
+
+msgid "Faroe Islands"
+msgstr "Faroe Islands"
+
+msgid "Fatal error"
+msgstr "Alvorlig fejl"
+
+msgid "February"
+msgstr "Februar"
+
+msgid "Fields must be exclusive"
+msgstr "Felter skal være eksklusive"
+
+msgid "Fiji"
+msgstr "Fiji"
+
+msgid "File"
+msgstr "Fil"
+
+msgid "File Systems"
+msgstr "Filsystemer"
+
+msgid "File system"
+msgstr "Filsystem"
+
+msgid "Filename"
+msgstr "Filnavn"
+
+msgid ""
+"Files in the recycle bin will be deleted automatically after the specified "
+"number of days. Set to 0 for manual deletion."
+msgstr "Filer i papirkurven vil blive automatisk slettet efter det speciefiret antal dage. Sæt til 0 for manuel sletning."
+
+msgid ""
+"Files that are larger than the specified number of bytes will not be put "
+"into the recycle bin. Set to 0 for unrestricted file size."
+msgstr "Filer der er større end det speciefiret antal af bytes vil ikke blive lagt i papirkurven. Sæt til 0 for uendelig størrelse."
+
+msgid "Filesize"
+msgstr "Filstørrelse"
+
+msgid "Filesystem '%s' not found"
+msgstr "Filsystem '%s' blev ikke fundet"
+
+msgid "Filesystem '%s' not supported"
+msgstr "Filsystem '%s' er ikke understøttet"
+
+msgid "Filesystems"
+msgstr "Filsystemer"
+
+msgid "Finland"
+msgstr "Finland"
+
+msgid "Firewall"
+msgstr "Firewall"
+
+msgid "Firmware version"
+msgstr "Firmware version"
+
+msgid "Flags"
+msgstr "Flag"
+
+msgid "Force SSL/TLS"
+msgstr "Tving SSL/TLS"
+
+msgid "Force secure connection only."
+msgstr "Tving kun sikker forbindelse"
+
+msgid "France"
+msgstr "France"
+
+msgid "French Guiana"
+msgstr "French Guiana"
+
+msgid "French Polynesia"
+msgstr "French Polynesia"
+
+msgid "French Southern Territories"
+msgstr "French Southern Territories"
+
+msgid "French Southern and Antarctic Territories"
+msgstr "French Southern og Antarctic Territories"
+
+msgid "Friday"
+msgstr "Fredag"
+
+msgid "Full"
+msgstr "Fuld"
+
+msgid "Gabon"
+msgstr "Gabon"
+
+msgid "Gambia"
+msgstr "Gambia"
+
+msgid "Gateway"
+msgstr "Gateway"
+
+msgid "General"
+msgstr "Generelt"
+
+msgid "General Settings"
+msgstr "Generelle Indstillinger"
+
+msgid "General settings"
+msgstr "Generelle indstillinger"
+
+msgid "General users/groups"
+msgstr "Generelle brugere/grupper"
+
+msgid "Generating graphs ..."
+msgstr "Genererer grafer ..."
+
+msgid "Georgia"
+msgstr "Georgia"
+
+msgid "Germany"
+msgstr "Germany"
+
+msgid "Ghana"
+msgstr "Ghana"
+
+msgid "GiB"
+msgstr "GiB"
+
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+msgid "Greece"
+msgstr "Greece"
+
+msgid "Greenland"
+msgstr "Greenland"
+
+msgid "Grenada"
+msgstr "Grenada"
+
+msgid "Group"
+msgstr "Gruppe"
+
+msgid "Group '%s' already exist"
+msgstr "Gruppen '%s' findes allerede"
+
+msgid "Group '%s' does not exist"
+msgstr "Gruppe '%s' eksisterer ikke"
+
+msgid "Group ID '%d' already exist"
+msgstr "Gruppe ID '%d' findes allerede"
+
+msgid "Groups"
+msgstr "Grupper"
+
+msgid "Grow"
+msgstr "Forøg"
+
+msgid "Grow RAID device"
+msgstr "Forøg RAID enhed"
+
+msgid "Guadeloupe"
+msgstr "Guadeloupe"
+
+msgid "Guam"
+msgstr "Guam"
+
+msgid "Guatemala"
+msgstr "Guatemala"
+
+msgid "Guest"
+msgstr "Gæst"
+
+msgid "Guest allowed"
+msgstr "Gæst tilladt"
+
+msgid "Guests allowed"
+msgstr "Gæster tilladt"
+
+msgid "Guinea"
+msgstr "Guinea"
+
+msgid "Guinea-Bissau"
+msgstr "Guinea-Bissau"
+
+msgid "Guyana"
+msgstr "Guyana"
+
+msgid "Haiti"
+msgstr "Haiti"
+
+msgid "Heard Island and McDonald Islands"
+msgstr "Heard Island og McDonald Islands"
+
+msgid "Hide details"
+msgstr "Gem detajler"
+
+msgid "Hide dot files"
+msgstr "Vis ikke dot filer"
+
+msgid "Home directories"
+msgstr "Hjemme biblioteker"
+
+msgid "Homepage"
+msgstr "Hjemmeside"
+
+msgid "Honduras"
+msgstr "Honduras"
+
+msgid "Hong Kong S.A.R., China"
+msgstr "Hong Kong S.A.R., China"
+
+msgid "Honor existing ACLs"
+msgstr "Hædre eksisterende ACL'er"
+
+msgid "Host"
+msgstr "Vært"
+
+msgid "Hostname"
+msgstr "Værtsnavn"
+
+msgid "Hosts allow"
+msgstr "Tillad værter"
+
+msgid "Hosts deny"
+msgstr "Nægt værter"
+
+msgid "Hour"
+msgstr "Time"
+
+msgid "Hourly"
+msgstr "Hver time"
+
+msgid "Hungary"
+msgstr "Hungary"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "IPv4"
+msgstr "IPv4"
+
+msgid "IPv6"
+msgstr "IPv6"
+
+msgid "Iceland"
+msgstr "Iceland"
+
+msgid "Ident protocol"
+msgstr "Ident protokol"
+
+msgid "Identify"
+msgstr "Identificer"
+
+msgid "Identify network interface device"
+msgstr "Identificer netværks interface enhed"
+
+msgid "Idle"
+msgstr "Ledig"
+
+msgid ""
+"If 'Guests allowed' is selected and no login credential is provided, then "
+"access as guest. Always access as guest when 'Only guests' is selecting; in "
+"this case no password is required to connect to the share."
+msgstr "Hvis 'Gæster tilladt' er valgt og ingen log ind legitimationsoplysninger er fastsat vil tilgang være som gæst. Tilgå altid som gæst når 'Kun gæster' bliver valgt; i dette tilfælde er ingen adgangkode nødvendig for at forbinde til delingen."
+
+msgid ""
+"If set then the client will be challenged to supply a username and password "
+"to connect to the module."
+msgstr "Hvis markeret så vil klienten blive opfordret til at give et brugernavn og en adgangskode til modulet."
+
+msgid ""
+"If this option is set, the daemon will chroot to the shared folder path "
+"before starting the file transfer with the client. Then it is not possible "
+"to map users and groups by name and the daemon is not being able to follow "
+"symbolic links that are either absolute or outside of the new root path."
+msgstr "Hvis denne mulighed bliver sat, vil dæmonen chroot til den delte mappes sti før den starter fil overførelse med klienten. Derefter er det ikke muligt at tilknytte bruger og grupper med navn og dæmonen er ikke i stand til at følge symbolske links, der enten er forældet eller udenfor den nye rod sti.  "
+
+msgid "If this option is set, then any attempted downloads will fail."
+msgstr "Hvis denne valgmulighed er markeret, så vil ethvert forsøg på at downloade fejle."
+
+msgid "If this option is set, then any attempted uploads will fail."
+msgstr "Hvis denne valgmulighed er markeret, så vil ethvert forsøg på at uploade fejle."
+
+msgid ""
+"If this parameter is set, Samba attempts to first read DOS attributes "
+"(SYSTEM, HIDDEN, ARCHIVE or READ-ONLY) from a file system extended "
+"attribute, before mapping DOS attributes to UNIX permission bits. When set, "
+"DOS attributes will be stored onto an extended attribute in the UNIX file "
+"system, associated with the file or directory."
+msgstr "Hvis denne parameter er markeret, vil Samba forsøge først at læse DOS attributterne (SYSTEM, SKJULT, ARKIV eller SKRIVEBESKYTTET) fra et filsystems udvidede attribut, før kortlægning af DOS attributterne til UNIX tilladelse bits. Når den er markeret, vil DOS attributterne blive opbevaret på en udvidet attribut i UNIX filsystemet, der er forbundet med filen eller biblioteket."
+
+msgid ""
+"If this parameter is set, then users may not create or modify files in the "
+"share."
+msgstr "Hvis denne parameter er markeret, så kan brugere ikke oprette eller ændre filer i delingen."
+
+msgid ""
+"If your host is acting as a NAT gateway or port forwarder for the server, "
+"this option is useful in order to allow passive tranfers to work. You have "
+"to use your public address and opening the passive ports used on your "
+"firewall as well."
+msgstr "Hvis din vært fungerer som en NAT-gateway eller port forwarder for serveren, er denne valgmulighed nyttig for at tillade passive overførelser. Du skal bruge din offentlige adresse og åbne de passive porte, der bruges af din firewall."
+
+msgid "Implicit SSL"
+msgstr "Indirekte SSL"
+
+msgid "Import"
+msgstr "Importer"
+
+msgid "Import SSL certificate"
+msgstr "Importer SSL certifikat"
+
+msgid "Import groups"
+msgstr "Importer grupper"
+
+msgid "Import users"
+msgstr "Importer brugere"
+
+msgid "Importing groups ..."
+msgstr "Importere grupper ..."
+
+msgid "Importing users ..."
+msgstr "Importere brugere ..."
+
+msgid ""
+"In some cases you have to specify passive ports range to by-pass firewall "
+"limitations. Passive ports restricts the range of ports from which the "
+"server will select when sent the PASV command from a client. The server will"
+" randomly choose a number from within the specified range until an open port"
+" is found. The port range selected must be in the non-privileged range (eg. "
+"greater than or equal to 1024). It is strongly recommended that the chosen "
+"range be large enough to handle many simultaneous passive connections (for "
+"example, 49152-65534, the IANA-registered ephemeral port range)."
+msgstr "I nogle tilfælde skal du angive passive port områder for at by-passe firewall begrænsninger. Passive porte begrænser området af porte, som serveren vil vælge, når PASV kommandoen bliver sendt fra en klient. Serveren vil tilfældigt vælge et nummer indenfor for det angivne område, indtil en åben port er fundet. Det valgte port område skal være i det ikke-privilegeret område (f.eks større end eller lig med 1024). Det anbefales kraftigt, at det valgte område skal være stort nok til at håndtere mange samtidige passive forbindelser (eksempelvis, 49152-65534, det IANA-registrerede kortvarige port område)."
+
+msgid "Incoming"
+msgstr "Indgående"
+
+msgid "Incomplete"
+msgstr "Ukomplet"
+
+msgid "Incorrect username or password."
+msgstr "Forkert brugernavn eller adgangskode."
+
+msgid "India"
+msgstr "India"
+
+msgid "Indonesia"
+msgstr "Indonesia"
+
+msgid "Info"
+msgstr "Oplysninger"
+
+msgid "Informal"
+msgstr "Uformelt"
+
+msgid "Information"
+msgstr "Oplysning"
+
+msgid "Inherit ACLs"
+msgstr "Nedarv ACL'er"
+
+msgid "Inherit permissions"
+msgstr "Nedarv tilladelser"
+
+msgid "Initializing"
+msgstr "Initialiserer"
+
+msgid "Install"
+msgstr "Installer"
+
+msgid "Install updates from"
+msgstr "Installer opdateringer fra"
+
+msgid "Installed"
+msgstr "Installeret"
+
+msgid "Installing plugins ..."
+msgstr "Installer plugins ..."
+
+msgid "Installing updates ..."
+msgstr "Installer opdateringer ..."
+
+msgid "Interfaces"
+msgstr "Interfaces"
+
+msgid "Invalid domain name"
+msgstr "Ugyldig domæne navn"
+
+msgid "Invalid file system label"
+msgstr "Ugyldig filsystem label"
+
+msgid "Invalid group name"
+msgstr "Ugyldig gruppenavn"
+
+msgid "Invalid hostname"
+msgstr "Ugyldig værtsnavn"
+
+msgid "Invalid line: %s"
+msgstr "Ugyldig linie: %s"
+
+msgid "Invalid name"
+msgstr "Ugyldig navn"
+
+msgid "Invalid user name"
+msgstr "Ugyldig brugernavn"
+
+msgid "Iran"
+msgstr "Iran"
+
+msgid "Iraq"
+msgstr "Iraq"
+
+msgid "Ireland"
+msgstr "Ireland"
+
+msgid "Israel"
+msgstr "Israel"
+
+msgid "Italy"
+msgstr "Italy"
+
+msgid "Ivory Coast"
+msgstr "Ivory Coast"
+
+msgid "Jamaica"
+msgstr "Jamaica"
+
+msgid "January"
+msgstr "Januar"
+
+msgid "Japan"
+msgstr "Japan"
+
+msgid "Jobs"
+msgstr "Opgaver"
+
+msgid "Johnston Island"
+msgstr "Johnston Island"
+
+msgid "Jordan"
+msgstr "Jordan"
+
+msgid "July"
+msgstr "Juli"
+
+msgid "June"
+msgstr "Juni"
+
+msgid "Kazakhstan"
+msgstr "Kazakhstan"
+
+msgid "Keep partially transferred files"
+msgstr "Behold delvis overførte filer"
+
+msgid "Kenya"
+msgstr "Kenya"
+
+msgid "Kernel"
+msgstr "Kerne"
+
+msgid "Key size"
+msgstr "Nøgle størrelse"
+
+msgid "KiB"
+msgstr "KiB"
+
+msgid "Kiribati"
+msgstr "Kiribati"
+
+msgid "Kuwait"
+msgstr "Kuwait"
+
+msgid "Kyrgyzstan"
+msgstr "Kyrgyzstan"
+
+msgid "LBA of first error"
+msgstr "LBA af første fejl"
+
+msgid "LVM logical volume %s [%s, %s]"
+msgstr "LVM logisk drev %s [%s, %s]"
+
+msgid "Label"
+msgstr "Etiket"
+
+msgid "Language"
+msgstr "Sprog"
+
+msgid "Laos"
+msgstr "Laos"
+
+msgid "Latvia"
+msgstr "Latvia"
+
+msgid "Lebanon"
+msgstr "Lebanon"
+
+msgid ""
+"Length of time in seconds to blink one or more LEDs on the specific ethernet"
+" port."
+msgstr "Længde af tid i sekunder for at blinke en eller flere lysdioder på den specifikke Ethernet port."
+
+msgid "Lesotho"
+msgstr "Lesotho"
+
+msgid "Level"
+msgstr "Niveau"
+
+msgid "Liberia"
+msgstr "Liberia"
+
+msgid "Libya"
+msgstr "Libya"
+
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+msgid "Lifetime"
+msgstr "Livstid"
+
+msgid "Linear"
+msgstr "Liniær"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "List"
+msgstr "Liste"
+
+msgid "Lithuania"
+msgstr "Lithuania"
+
+msgid "Load average"
+msgstr "Gennemsnitlig belastning"
+
+msgid "Loading ..."
+msgstr "Indlæser ..."
+
+msgid "Loading, please wait ..."
+msgstr "Indlæser, vent venligst ..."
+
+msgid "Local"
+msgstr "Lokal"
+
+msgid "Local master browser"
+msgstr "Lokal master browser"
+
+msgid "Location"
+msgstr "Placering"
+
+msgid "Location information, e.g. physical location of this system."
+msgstr "Placerings oplysninger, f.eks. fysisk placering af dette system."
+
+msgid "Log level"
+msgstr "Log niveau"
+
+msgid "Login"
+msgstr "Log ind"
+
+msgid "Logout"
+msgstr "Log ud"
+
+msgid "Logs"
+msgstr "Logs"
+
+msgid "Long self-test"
+msgstr "Lang selvtest"
+
+msgid "Loop device [%s, %s]"
+msgstr "Loop enhed [%s, %s]"
+
+msgid "Luxembourg"
+msgstr "Luxembourg"
+
+msgid "MAC address"
+msgstr "MAC adresse"
+
+msgid "MII monitoring frequency"
+msgstr "MII overvågnings frekvens"
+
+msgid "MTU"
+msgstr "MTU"
+
+msgid "Macao S.A.R., China"
+msgstr "Macao S.A.R., China"
+
+msgid "Macedonia"
+msgstr "Macedonia"
+
+msgid "Madagascar"
+msgstr "Madagascar"
+
+msgid "Maintainer"
+msgstr "Vedligeholder"
+
+msgid "Malawi"
+msgstr "Malawi"
+
+msgid "Malaysia"
+msgstr "Malaysia"
+
+msgid "Maldives"
+msgstr "Maldives"
+
+msgid "Mali"
+msgstr "Mali"
+
+msgid "Malta"
+msgstr "Malta"
+
+msgid "Manual"
+msgstr "Manuel"
+
+msgid "March"
+msgstr "Marts"
+
+msgid "Marshall Islands"
+msgstr "Marshall Islands"
+
+msgid "Martinique"
+msgstr "Martinique"
+
+msgid "Masquerade address"
+msgstr "Maskerede adresse"
+
+msgid ""
+"Match if the destination port is one of the given ports. E.g. 21 or !443 or "
+"1024-65535."
+msgstr "Match hvis destinationen er en af de givne porte. F.eks 21 eller !443 eller 1024-65535."
+
+msgid ""
+"Match if the source port is one of the given ports. E.g. 21 or !443 or "
+"1024-65535."
+msgstr "Match hvis kilden er en af de givne porte. F.eks 21 eller! 443 eller 1024-65535."
+
+msgid "Mauritania"
+msgstr "Mauritania"
+
+msgid "Mauritius"
+msgstr "Mauritius"
+
+msgid "Max. clients"
+msgstr "Maks. klienter"
+
+msgid "Max. connections"
+msgstr "Maks. forbindelser"
+
+msgid "Max. connections per host"
+msgstr "Maks. forbindelser pr vært"
+
+msgid "Max. login attempts"
+msgstr "Maks. log ind forsøg"
+
+msgid "Maximum download rate (KiB/s)"
+msgstr "Maksimal download rate (KiB/s)"
+
+msgid ""
+"Maximum idle time in seconds. Setting idle timeout to 0 disables the idle "
+"timer completely (clients can stay connected for ever, without sending "
+"data)."
+msgstr "Maksimal ledig tid i sekunder. Sættes ledig timeout til 0 deaktiveres ledig tiden helt (klienter kan holde forbindelsen for altid, uden at sende data)."
+
+msgid "Maximum number of allowed password attempts before disconnection."
+msgstr "Maksimal antal tilladte adgangskode forsøg, før afbrydelse."
+
+msgid "Maximum number of connections per IP (0 = unlimited)."
+msgstr "Maksimal antal forbindelser pr IP (0 = ubegrænset)."
+
+msgid "Maximum number of simultaneous clients."
+msgstr "Maksimal antal klienter på samme tid."
+
+msgid "Maximum performance, maximum acoustic output"
+msgstr "Maksimal ydelse, maksimal akustisk output"
+
+msgid "Maximum upload rate (KiB/s)"
+msgstr "Maksimal upload rate (KiB/s)"
+
+msgid "Maximum {0} selected item(s) allowed"
+msgstr "Maksimal {0} valgte emne(r) tilladt"
+
+msgid "May"
+msgstr "Maj"
+
+msgid "Mayotte"
+msgstr "Mayotte"
+
+msgid "Members"
+msgstr "Medlemmer"
+
+msgid "Memory usage"
+msgstr "Hukommelses forbrug"
+
+msgid "Message"
+msgstr "Besked"
+
+msgid "Messages"
+msgstr "Beskeder"
+
+msgid "Method"
+msgstr "Metode"
+
+msgid "Metropolitan France"
+msgstr "Metropolitan France"
+
+msgid "Mexico"
+msgstr "Mexico"
+
+msgid "MiB"
+msgstr "MiB"
+
+msgid "Micronesia"
+msgstr "Micronesia"
+
+msgid "Midway Islands"
+msgstr "Midway Islands"
+
+msgid "Minimum"
+msgstr "Minimum"
+
+msgid "Minimum performance, Minimum acoustic output"
+msgstr "Minimum ydelse, Minimum akustisk output"
+
+msgid "Minimum {0} selected item(s) required"
+msgstr "Minimum {0} valgt(e) emne(r) krævet"
+
+msgid "Minute"
+msgstr "Minut"
+
+msgid "Mirror"
+msgstr "Spejl"
+
+msgid "Missing"
+msgstr "Mangler"
+
+msgid "Mode"
+msgstr "Tilstand"
+
+msgid "Model"
+msgstr "Model"
+
+msgid "Modify account"
+msgstr "Rediger konto"
+
+msgid "Modify shared folder ACL"
+msgstr "Rediger delt mappe ACL"
+
+msgid "Modules"
+msgstr "Moduler"
+
+msgid "Moldova"
+msgstr "Moldova"
+
+msgid "Monaco"
+msgstr "Monaco"
+
+msgid "Monday"
+msgstr "Mandag"
+
+msgid "Mongolia"
+msgstr "Mongolia"
+
+msgid "Monitor"
+msgstr "Overvåg"
+
+msgid "Monitoring"
+msgstr "Overvåger"
+
+msgid "Month"
+msgstr "Måned"
+
+msgid "Monthly"
+msgstr "Måndeligt"
+
+msgid "Montserrat"
+msgstr "Montserrat"
+
+msgid "Morocco"
+msgstr "Morocco"
+
+msgid "Mount"
+msgstr "Monter"
+
+msgid "Mounted"
+msgstr "Monteret"
+
+msgid "Mozambique"
+msgstr "Mozambique"
+
+msgid "Myanmar"
+msgstr "Myanmar"
+
+msgid "NFS"
+msgstr "NFS"
+
+msgid "Name"
+msgstr "Navn"
+
+msgid "Namibia"
+msgstr "Namibia"
+
+msgid "Nauru"
+msgstr "Nauru"
+
+msgid "Nepal"
+msgstr "Nepal"
+
+msgid "Netherlands"
+msgstr "Netherlands"
+
+msgid "Netherlands Antilles"
+msgstr "Netherlands Antilles"
+
+msgid "Netmask"
+msgstr "Netmaske"
+
+msgid "Network"
+msgstr "Netværk"
+
+msgid "Network interface '%s' already exists"
+msgstr "Netværks interface '%s' findes allerede"
+
+msgid "Neutral Zone"
+msgstr "Neutral Zone"
+
+msgid "Never"
+msgstr "Aldrig"
+
+msgid "New Caledonia"
+msgstr "New Caledonia"
+
+msgid "New Zealand"
+msgstr "New Zealand"
+
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+msgid "Niger"
+msgstr "Niger"
+
+msgid "Nigeria"
+msgstr "Nigeria"
+
+msgid "Niue"
+msgstr "Niue"
+
+msgid "No"
+msgstr "Nej"
+
+msgid "No access"
+msgstr "Ingen adgang"
+
+msgid "No action"
+msgstr "Ingen handling"
+
+msgid "No authentication and no privacy"
+msgstr "Ingen godkendelse og intet privatliv"
+
+msgid "No certificate request"
+msgstr "Ingen certifikat forespørgsel"
+
+msgid "No connections"
+msgstr "Ingen forbindelser"
+
+msgid "No items to display"
+msgstr "Ingen emner til visning"
+
+msgid "No session reuse required"
+msgstr "Intet session genbrug nødvendig"
+
+msgid "No users connected"
+msgstr "Ingen bruger forbundet"
+
+msgid "No users defined"
+msgstr "Ingen bruger defineret"
+
+msgid "None"
+msgstr "Ingen"
+
+msgid "Norfolk Island"
+msgstr "Norfolk Island"
+
+msgid "Normal"
+msgstr "Normal"
+
+msgid "North Korea"
+msgstr "North Korea"
+
+msgid "North Vietnam"
+msgstr "North Vietnam"
+
+msgid "Northern Mariana Islands"
+msgstr "Northern Mariana Islands"
+
+msgid "Norway"
+msgstr "Norway"
+
+msgid "Not ICMP"
+msgstr "Ikke ICMP"
+
+msgid "Not ICMPv6"
+msgstr "Ikke ICMPv6"
+
+msgid "Not TCP"
+msgstr "Ikke TCP"
+
+msgid "Not UDP"
+msgstr "Ikke UDP"
+
+msgid "Nothing"
+msgstr "Ingenting"
+
+msgid "Notification"
+msgstr "Notifikation"
+
+msgid "Notifications"
+msgstr "Notifikationer"
+
+msgid "November"
+msgstr "November"
+
+msgid "Null passwords"
+msgstr "Ingen adgangskode"
+
+msgid "Num"
+msgstr "Num"
+
+msgid "Number of servers"
+msgstr "Antal servere"
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Occurrence"
+msgstr "Hændelse"
+
+msgid "October"
+msgstr "Oktober"
+
+msgid "Offline immediate test"
+msgstr "Offline øjeblikkelig test"
+
+msgid "Oman"
+msgstr "Oman"
+
+msgid "Online"
+msgstr "Online"
+
+msgid "Only guests"
+msgstr "Kun gæster"
+
+msgid "Operation"
+msgstr "Handling"
+
+msgid "Operation not allowed for user '%s'."
+msgstr "Handlingen er ikke tilladt for brugeren '%s'."
+
+msgid "Options"
+msgstr "Valgmuligheder"
+
+msgid "Organization Name"
+msgstr "Organisationens Navn"
+
+msgid "Organizational Unit"
+msgstr "Organisatorisk Enhed"
+
+msgid "Others"
+msgstr "Andre"
+
+msgid "Outgoing"
+msgstr "Udgående"
+
+msgid "Outgoing SMTP mail server address, e.g. smtp.mycorp.com."
+msgstr "Udgående SMTP server adresse, f.eks smtp.mycorp.com."
+
+msgid "Outlying Oceania"
+msgstr "Outlying Oceania"
+
+msgid "Overview"
+msgstr "Oversigt"
+
+msgid "Owner"
+msgstr "Ejer"
+
+msgid "Pacific Islands Trust Territory"
+msgstr "Pacific Islands Trust Territory"
+
+msgid "Package information"
+msgstr "Pakke oplysning"
+
+msgid "Pakistan"
+msgstr "Pakistan"
+
+msgid "Palau"
+msgstr "Palau"
+
+msgid "Palestinian Territory"
+msgstr "Palestinian Territory"
+
+msgid "Panama"
+msgstr "Panama"
+
+msgid "Panama Canal Zone"
+msgstr "Panama Canal Zone"
+
+msgid "Papua New Guinea"
+msgstr "Papua New Guinea"
+
+msgid "Paraguay"
+msgstr "Paraguay"
+
+msgid "Passive FTP"
+msgstr "Passiv FTP"
+
+msgid "Password"
+msgstr "Adgangskode"
+
+msgid "Password authentication"
+msgstr "Adgangskode godkendelse"
+
+msgid "Passwords don't match"
+msgstr "Adgangskode stemmer ikke overens"
+
+msgid "Paste a RSA certificate in X.509 PEM format here."
+msgstr "Indsæt et RSA certifikat i X.509 PEM format her."
+
+msgid "Paste an private RSA key in X.509 PEM format here."
+msgstr "Indsæt en privat RSA nøgle i X.509 PEM format her."
+
+msgid "Path"
+msgstr "Sti"
+
+msgid "People's Democratic Republic of Yemen"
+msgstr "People's Democratic Republic of Yemen"
+
+msgid "Perform a trial run with no changes made"
+msgstr "Udfør en test uden at tilføje ændringer"
+
+msgid "Period of validity"
+msgstr "Gyldighedsperiode"
+
+msgid "Permissions"
+msgstr "Tilladelser"
+
+msgid "Permissions of group."
+msgstr "Gruppetilladelser"
+
+msgid "Permissions of others (e.g. anonymous FTP users)."
+msgstr "Tilladelser af andre (f.eks anonyme FTP-brugere)."
+
+msgid "Permissions of owner."
+msgstr "Tilladelser af ejeren."
+
+msgid "Permit root login"
+msgstr "Tillad root log ind"
+
+msgid "Permit to do SSH tunneling"
+msgstr "Tillad at lave SSH tunnel"
+
+msgid "Peru"
+msgstr "Peru"
+
+msgid "Philippines"
+msgstr "Philippines"
+
+msgid "Physical Disks"
+msgstr "Fysiske Diske"
+
+msgid "Physical disk properties"
+msgstr "Fysisk disk egenskaber"
+
+msgid "Pitcairn"
+msgstr "Pitcairn"
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/exports' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Kontroller venligst <a href='http://linux.die.net/man/5/exports' target='_blank'>manual page</a> for flere detaljer."
+
+msgid ""
+"Please check the <a href='http://www.openbsd.org/cgi-"
+"bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for"
+" more details."
+msgstr "Kontroller venligst <a href='http://www.openbsd.org/cgi-bin/man.cgi?query=sshd_config&sektion=5' target='_blank'>manual page</a> for flere detaljer."
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Kontroller venligst <a href='http://www.proftpd.org/docs/contrib/mod_tls.html' target='_blank'>manual page</a> for flere oplysninger."
+
+msgid ""
+"Please check the <a "
+"href='http://www.proftpd.org/docs/directives/configuration_full.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Kontroller venligst <a href='http://www.proftpd.org/docs/directives/configuration_full.html' target='_blank'>manual page</a> for flere detaljer."
+
+msgid ""
+"Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
+"name.html' target='_blank'>manual page</a> for more details."
+msgstr "Kontroller venligdt <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>manual page</a> for flere detaljer."
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Kontroller venligst <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manual page</a> for flere detaljer."
+
+msgid ""
+"Please check the <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Kontroller venligst <a href='http://www.samba.org/ftp/rsync/rsyncd.conf.html' target='_blank'>manual page</a> for flere detaljer."
+
+msgid ""
+"Please check the <a "
+"href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' "
+"target='_blank'>manual page</a> for more details."
+msgstr "Kontroller venligst <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for flere detaljer."
+
+msgid "Please choose the method to wipe the device or 'Cancel' to abort."
+msgstr "Vælg en metode til rydning af enheden eller tryk 'Annuller' for at afbryde."
+
+msgid "Please first select a volume."
+msgstr "Vælg venligst først et drev."
+
+msgid ""
+"Please note that no communication with the system is possible during this "
+"test."
+msgstr "Bemærk, at ingen kommunikation med systemet er muligt under denne test."
+
+msgid "Please reload the page to let the changes take effect."
+msgstr "Genindlæs venligst siden for, at lade ændringerne træde i kraft."
+
+msgid "Please wait ..."
+msgstr "Vent venligst ..."
+
+msgid ""
+"Please wait until the RAID has been initialized before creating a file "
+"system."
+msgstr "Vent venligst indtil RAIDén er initialiseret inden oprettelse af filsystem."
+
+msgid "Plugins"
+msgstr "Plugins"
+
+msgid "Poland"
+msgstr "Poland"
+
+msgid "Port"
+msgstr "Port"
+
+msgid "Port to listen on."
+msgstr "Port der skal lyttes på."
+
+msgid "Portugal"
+msgstr "Portugal"
+
+msgid "Power Management"
+msgstr "Strøm Håndtering"
+
+msgid "Power button"
+msgstr "Power knap"
+
+msgid "Power mode"
+msgstr "Power tilstand"
+
+msgid "Pre-release updates."
+msgstr "Før-udgivet opdateringer."
+
+msgid "Prefix length"
+msgstr "Fortegn længde"
+
+msgid "Preserve ACLs"
+msgstr "Bevar ACL'er"
+
+msgid "Preserve extended attributes"
+msgstr "Bevar udvidede attributter"
+
+msgid "Preserve modification times"
+msgstr "Bevar modifikations antal"
+
+msgid "Preserve permissions"
+msgstr "Bevar tilladelser"
+
+msgid ""
+"Prevent a disk from being spun-up when it is periodically "
+"polled.<br/><ul><li>Never - Poll (check) the device regardless of its power "
+"mode. This may cause a disk which is spun-down to be spun-up when it is "
+"checked.</li><li>Sleep - Check the device unless it is in SLEEP "
+"mode.</li><li>Standby - Check the device unless it is in SLEEP or STANDBY "
+"mode. In these modes most disks are not spinning, so if you want to prevent "
+"a disk from spinning up each poll, this is probably what you "
+"want.</li><li>Idle - Check the device unless it is in SLEEP, STANDBY or IDLE"
+" mode. In the IDLE state, most disks are still spinning, so this is probably"
+" not what you want.</li></ul>"
+msgstr "Forhindre en disk i at blive spundet op, når den periodisk bliver adspurgt.<br/><ul><li>Aldrig - Spørg (kontroller) enheden uanset dens strøm tilstand. Dette kan medføre en disk, der er spundet ned i at blive spundet op, når den kontrolleres.</li><li>Dvale - Kontroller enheden medmindre den er i DVALE tilstand.</li><li>Standby - Kontroller enheden medmindre den er i DVALE eller STANDBY tilstand. I disse tilstande spinder de fleste diske ikke, så hvis du ønsker at forhindre en disk i at spinde op ved hver adspørgelse, er det nok det du vil.</li><li>Ledig - Kontroller enheden medmindre den er i DVALE, STANDBY eller LEDIG tilstand. I LEDIG tilstand, spinder de fleste diske stadig, så det er sandsynligvis nok ikke det du vil.</li></ul>"
+
+msgid "Primary"
+msgstr "Primær"
+
+msgid "Primary email"
+msgstr "Primær email"
+
+msgid "Privacy passphrase"
+msgstr "Fortroligheds løsen"
+
+msgid "Privacy type"
+msgstr "Fortroligheds type"
+
+msgid "Private key"
+msgstr "Privat nøgle"
+
+msgid "Privilege"
+msgstr "Rettighed"
+
+msgid "Privileges"
+msgstr "Rettigheder"
+
+msgid "Process monitoring"
+msgstr "Proces overvågning"
+
+msgid "Processes"
+msgstr "Processer"
+
+msgid "Processor"
+msgstr "Processor"
+
+msgid "Protocol"
+msgstr "Protokol"
+
+msgid "Public"
+msgstr "Offentlig"
+
+msgid "Public key authentication"
+msgstr "Offentlig nøgle godkendelse"
+
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+msgid "Pull"
+msgstr "Træk"
+
+msgid "Push"
+msgstr "Skub"
+
+msgid "Qatar"
+msgstr "Qatar"
+
+msgid "Quick"
+msgstr "Hurtig"
+
+msgid "Quiet"
+msgstr "Stille"
+
+msgid "Quota"
+msgstr "Kvote"
+
+msgid "RAID 10"
+msgstr "RAID 10"
+
+msgid "RAID 4"
+msgstr "RAID 4"
+
+msgid "RAID 5"
+msgstr "RAID 5"
+
+msgid "RAID 6"
+msgstr "RAID 6"
+
+msgid "RAID Management"
+msgstr "RAID Håndtering"
+
+msgid "RFC931"
+msgstr "RFC931"
+
+msgid "RSync server"
+msgstr "RSync server"
+
+msgid "Ranges of numbers are not allowed"
+msgstr "Serier af numre er ikke tilladt"
+
+msgid "Raw value"
+msgstr "Rå værdi"
+
+msgid "Read only"
+msgstr "Skrivebeskyttet"
+
+msgid "Read-only"
+msgstr "Skrivebeskyttet"
+
+msgid "Read/Execute"
+msgstr "Læs/Udfør"
+
+msgid "Read/Write"
+msgstr "Læse/Skrive"
+
+msgid "Read/Write/Execute"
+msgstr "Læs/Skriv/Udfør"
+
+msgid "Real"
+msgstr "Virkelig"
+
+msgid "Reboot"
+msgstr "Genstart"
+
+msgid "Recipient"
+msgstr "Modtager"
+
+msgid "Recover"
+msgstr "Genskab"
+
+msgid "Recurse into directories"
+msgstr "Rekursive i biblioteker"
+
+msgid "Recursive"
+msgstr "Rekursive"
+
+msgid "Recycle bin"
+msgstr "Papirkurv"
+
+msgid "Referenced"
+msgstr "Refereres"
+
+msgid "Refresh"
+msgstr "Genopfrisk"
+
+msgid "Reload"
+msgstr "Genindlæs"
+
+msgid "Remaining"
+msgstr "Resterende"
+
+msgid "Remote"
+msgstr "Ekstern"
+
+msgid "Remote host"
+msgstr "Ekstern vært"
+
+msgid "Remote syslog"
+msgstr "Ekstern syslog"
+
+msgid "Remove"
+msgstr "Fjern"
+
+msgid "Replace"
+msgstr "Erstat"
+
+msgid "Replace all existing permissions"
+msgstr "Erstat alle eksisterende tilladelser"
+
+msgid "Report"
+msgstr "Rapport"
+
+msgid ""
+"Report if the temperature had changed by at least N degrees Celsius since "
+"last report. Set to 0 to disable this report."
+msgstr "Rapporter hvis temperaturen har ændret sig med mindst N grader Celsius siden sidste rapport. Sæt til 0 for at deaktivere denne rapport."
+
+msgid ""
+"Report if the temperature is greater or equal than N degrees Celsius. Set to"
+" 0 to disable this report."
+msgstr "Rapporter, hvis temperaturen er større end eller lig med N grader Celsius. Sæt til 0 for at deaktivere denne rapport."
+
+msgid "Repository"
+msgstr "Arkiv"
+
+msgid "Require valid shell"
+msgstr "Kræv gyldig shell"
+
+msgid "Required"
+msgstr "Krævet"
+
+msgid "Reset"
+msgstr "Reset"
+
+msgid "Reset WebGUI state"
+msgstr "Reset WebGUI tilstand"
+
+msgid ""
+"Reset WebGUI state will restore default settings of grid columns for "
+"example."
+msgstr "Reset af WebGUI tilstand vil f.eks genskabe standard indstilling af gitter kolonne."
+
+msgid "Resize"
+msgstr "Tilpas størrelsen"
+
+msgid "Result"
+msgstr "Resultat"
+
+msgid "Resume"
+msgstr "Genoptag"
+
+msgid "Retry timeout"
+msgstr "Forsøg timeout igen"
+
+msgid "Reunion"
+msgstr "Genforening"
+
+msgid "Reverse DNS lookup"
+msgstr "Omvendt DNS opslag"
+
+msgid "Revert"
+msgstr "Fortryd"
+
+msgid "Revert configuration changes"
+msgstr "Fortryd konfigurations ændringer"
+
+msgid "Romania"
+msgstr "Romania"
+
+msgid "Rsync"
+msgstr "Rsync"
+
+msgid "Rsync - Jobs"
+msgstr "Rsync - Opgaver"
+
+msgid "Rsync - Server"
+msgstr "Rsync - Server"
+
+msgid "Run"
+msgstr "Kør"
+
+msgid "Running"
+msgstr "Kører"
+
+msgid "Russia"
+msgstr "Russia"
+
+msgid "Rwanda"
+msgstr "Rwanda"
+
+msgid "S.M.A.R.T."
+msgstr "S.M.A.R.T."
+
+msgid "S.M.A.R.T. information"
+msgstr "S.M.A.R.T. oplysning"
+
+msgid "S.M.A.R.T. monitoring must be activated for the selected device."
+msgstr "S.M.A.R.T. overvågning skal være aktiveret for den valgte enhed."
+
+msgid "SMB/CIFS"
+msgstr "SMB/CIFS"
+
+msgid "SMB/CIFS - Audit"
+msgstr "SMB/CIFS - Godkend"
+
+msgid "SMTP port"
+msgstr "SMTP port"
+
+msgid "SMTP server"
+msgstr "SMTP server"
+
+msgid "SMTP settings"
+msgstr "SMTP indstillinger"
+
+msgid "SNMP"
+msgstr "SNMP"
+
+msgid "SNMP version 1/2c"
+msgstr "SNMP version 1/2c"
+
+msgid "SNMP version 3"
+msgstr "SNMP version 3"
+
+msgid "SSH"
+msgstr "SSH"
+
+msgid "SSH public key"
+msgstr "SSH offentlig nøgle"
+
+msgid "SSL/TLS"
+msgstr "SSL/TLS"
+
+msgid "Saint Helena"
+msgstr "Saint Helena"
+
+msgid "Saint Kitts and Nevis"
+msgstr "Saint Kitts and Nevis"
+
+msgid "Saint Lucia"
+msgstr "Saint Lucia"
+
+msgid "Saint Pierre and Miquelon"
+msgstr "Saint Pierre and Miquelon"
+
+msgid "Saint Vincent and the Grenadines"
+msgstr "Saint Vincent and Grenadines"
+
+msgid "Samoa"
+msgstr "Samoa"
+
+msgid "San Marino"
+msgstr "San Marino"
+
+msgid "Sao Tome and Principe"
+msgstr "Sao Tome and Principe"
+
+msgid "Saturday"
+msgstr "Lørdag"
+
+msgid "Saudi Arabia"
+msgstr "Saudi Arabia"
+
+msgid "Save"
+msgstr "Gem"
+
+msgid "Saving ..."
+msgstr "Gemmer ..."
+
+msgid "Scan"
+msgstr "Scan"
+
+msgid "Scanning for new devices ..."
+msgstr "Scanner efter nye enheder ..."
+
+msgid "Scheduled Jobs"
+msgstr "Planlagte opgaver"
+
+msgid "Scheduled tests"
+msgstr "Planlagte tests"
+
+msgid "Scheduling"
+msgstr "Planlægning"
+
+msgid "Secondary"
+msgstr "Sekundær"
+
+msgid "Secondary email"
+msgstr "Sekundær email"
+
+msgid "Seconds"
+msgstr "Sekunder"
+
+msgid "Section"
+msgstr "Sektion"
+
+msgid "Secure"
+msgstr "Sikkert"
+
+msgid "Secure connection"
+msgstr "Sikker forbindelse"
+
+msgid "Security level"
+msgstr "Sikkerhedsniveau"
+
+msgid "Select a SSL certificate ..."
+msgstr "Vælg et SSL certifikat ..."
+
+msgid "Select a country ..."
+msgstr "Vælg et land ..."
+
+msgid "Select a device ..."
+msgstr "Vælg en enhed ..."
+
+msgid "Select a directory"
+msgstr "Vælg et bibliotek"
+
+msgid "Select a file permission ..."
+msgstr "Vælg en fil tilladelse ..."
+
+msgid "Select a file system ..."
+msgstr "Vælg et filsystem ..."
+
+msgid "Select a group name ..."
+msgstr "Vælg et gruppenavn ..."
+
+msgid "Select a language ..."
+msgstr "Vælg et sprog ..."
+
+msgid "Select a primary device ..."
+msgstr "Vælg en primær enhed ..."
+
+msgid "Select a protocol ..."
+msgstr "Vælg en protokol ..."
+
+msgid "Select a shared folder ..."
+msgstr "Vælg en delt mappe ..."
+
+msgid "Select a shell ..."
+msgstr "Vælg en shell ..."
+
+msgid "Select a user name ..."
+msgstr "Vælg et brugernavn ..."
+
+msgid "Select a volume ..."
+msgstr "Vælg et drev ..."
+
+msgid "Select devices to be added to the RAID device"
+msgstr "Vælg enheder, der skal tilføjes til RAID enheden"
+
+msgid "Select or enter a user name ..."
+msgstr "Vælg eller indtast et brugenavn ..."
+
+msgid "Self-test logs"
+msgstr "Selvtest logs"
+
+msgid "Send a test email"
+msgstr "Send en test email"
+
+msgid "Send command output via email"
+msgstr "Send kommando output via email"
+
+msgid "Send email"
+msgstr "Send email"
+
+msgid "Sender email"
+msgstr "Sender email"
+
+msgid "Sending test email ..."
+msgstr "Sender test email ..."
+
+msgid "Senegal"
+msgstr "Senegal"
+
+msgid "September"
+msgstr "September"
+
+msgid "Serbia And Montenegro"
+msgstr "Serbia and Montenegro"
+
+msgid "Serial Number"
+msgstr "Serie Nummer"
+
+msgid "Serial number"
+msgstr "Serie nummer"
+
+msgid "Server"
+msgstr "Server"
+
+msgid "Service"
+msgstr "Tjeneste"
+
+msgid "Service Discovery"
+msgstr "Tjeneste Opdagelse"
+
+msgid "Service disabled"
+msgstr "Tjeneste deaktiveret"
+
+msgid "Servicename"
+msgstr "Tjenestenavn"
+
+msgid "Services"
+msgstr "Tjenester"
+
+msgid "Session expired."
+msgstr "Session udløbet"
+
+msgid "Session not authenticated."
+msgstr "Session ikke godkendt"
+
+msgid "Session timeout"
+msgstr "Session udløbstid"
+
+msgid "Set browseable"
+msgstr "Gør søgebar"
+
+msgid "Set read only"
+msgstr "Sæt skrivebeskyttet"
+
+msgid ""
+"Set the destination permissions to be the same as the source permissions"
+msgstr "Sæt destination tilladelser til at være de samme som kilde tilladelser"
+
+msgid "Set write only"
+msgstr "Sæt kun skrivning"
+
+msgid "Sets the interval between disk checks to N seconds."
+msgstr "Indstiller intervallet mellem disk kontrol til N sekunder."
+
+msgid "Settings"
+msgstr "Indstillinger"
+
+msgid "Seychelles"
+msgstr "Seychelles"
+
+msgid "Shared Folders"
+msgstr "Delte Mapper"
+
+msgid "Shared folder"
+msgstr "Delt mappe"
+
+msgid "Shared folder must not be equal"
+msgstr "Delt mappe må ikke stemme overens"
+
+msgid "Shared folder name"
+msgstr "Delt mappe navn"
+
+msgid "Shared folder path"
+msgstr "Delt mappe sti"
+
+msgid "Shared folder privileges"
+msgstr "Delt mappe rettigheder"
+
+msgid "Shares"
+msgstr "Delinger"
+
+msgid "Shell"
+msgstr "Shell"
+
+msgid "Short self-test"
+msgstr "Kort selv-test"
+
+msgid "Show certificate"
+msgstr "Vis certifikat"
+
+msgid "Show changelog"
+msgstr "Vis changelog"
+
+msgid "Show details"
+msgstr "Vis detajler"
+
+msgid "Show password"
+msgstr "Vis adgangskode"
+
+msgid "Show privileges"
+msgstr "Vis rettigheder"
+
+msgid "Shutdown"
+msgstr "Luk ned"
+
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+msgid "Singapore"
+msgstr "Singapore"
+
+msgid "Size"
+msgstr "Størrelse"
+
+msgid "Slaves"
+msgstr "Slaver"
+
+msgid "Sleep"
+msgstr "Dvale"
+
+msgid "Slovakia"
+msgstr "Slovakia"
+
+msgid "Slovenia"
+msgstr "Slovenia"
+
+msgid "Software RAID"
+msgstr "Software RAID"
+
+msgid "Software updates"
+msgstr "Software opdateringer"
+
+msgid "Solomon Islands"
+msgstr "Solomon Islands"
+
+msgid "Somalia"
+msgstr "Somalia"
+
+msgid "Source"
+msgstr "Kilde"
+
+msgid ""
+"Source address can be either a network IP address (with /mask), a IP range "
+"or a plain IP address. A '!' argument before the address specification "
+"inverts the sense of the address."
+msgstr "Kildeadresse kan enten være en IP adresse (med /maske), en IP række eller en ren IP adresse. Et '!' argument før adresse specifikationen vender meningen af ​​adressen."
+
+msgid "Source port"
+msgstr "Kilde port"
+
+msgid "Source server"
+msgstr "Kilde server"
+
+msgid "Source shared folder"
+msgstr "Kilde delt mappe"
+
+msgid "South Africa"
+msgstr "South Africa"
+
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "South Georgia and the South Sandwich Islands"
+
+msgid "South Korea"
+msgstr "South Korea"
+
+msgid "Spain"
+msgstr "Spain"
+
+msgid "Special action flag"
+msgstr "Speciel handlings flag"
+
+msgid "Specifies how many server threads to create."
+msgstr "Angiver, hvor mange server tråde der skal oprettes."
+
+msgid "Specifies one of the bonding policies."
+msgstr "Angiver en af ​​bindings politikkerne."
+
+msgid "Specifies the MII link monitoring frequency in milliseconds."
+msgstr "Angiver MII linkets overvågningsfrekvens i millisekunder."
+
+msgid ""
+"Specifies the amount of time, in seconds, between checking and updating the "
+"masquerade address by resolving the IP address. Set this value to 0 to "
+"disable this option."
+msgstr "Angiver mængden af tid, i sekunder, mellem kontrol og opdatering af den maskeret adresse ved at frigive IP adressen. Sæt værdien til 0 for at deaktivere denne valgmulighed."
+
+msgid ""
+"Specifies the maximum permitted block size. The permitted range for this "
+"parameter is from 512 to 65464."
+msgstr "Angiver den maksimale tilladte blokstørrelse. Det tilladte område for denne parameter er fra 512 til 65464."
+
+msgid "Specifies the time in hh:mm:ss after which the ban expires."
+msgstr "Angiver tiden i hh:mm:ss, hvorefter forbuddet udløber."
+
+msgid ""
+"Specifies the time interval in hh:mm:ss in which the given number of "
+"occurrences must happen to add the ban."
+msgstr "Angiver i tidsintervallet hh:mm:ss, det givne antal af hændelser der skal ske for at tilføje forbuddet."
+
+msgid ""
+"Specifies the time, in milliseconds, to wait before disabling a slave after "
+"a link failure has been detected."
+msgstr "Angiver tiden, i millisekunder, der skal ventes før deaktivering af en slave, efter en link fejl er blevet opdaget."
+
+msgid ""
+"Specifies the time, in milliseconds, to wait before enabling a slave after a"
+" link recovery has been detected."
+msgstr "Angiver tiden, i millisekunder, der skal ventes før aktivering af en slave, efter en link genopretning er blevet opdaget."
+
+msgid "Specifies whether it is allowed to login as superuser directly"
+msgstr "Angiver om det er tilladt at logge ind direkte som superbruger"
+
+msgid "Specifies whether it is allowed to login as superuser."
+msgstr "Angiver om det er tilladt at logge ind som superbruger"
+
+msgid ""
+"Specifies whether to monitor the system status and select the most "
+"appropriate CPU level."
+msgstr "Angiver overvågning af systemets status og vælger det mest hensigtsmæssige CPU niveau."
+
+msgid "Specifies which slave is the primary device."
+msgstr "Angiver hvilken slave der er den primære enhed."
+
+msgid "Spindown time"
+msgstr "Spindown tid"
+
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+msgid "Standby"
+msgstr "Standby"
+
+msgid "Start"
+msgstr "Start"
+
+msgid "State"
+msgstr "Stat"
+
+msgid "State/Province"
+msgstr "Stat/Provins"
+
+msgid "Static"
+msgstr "Statisk"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Stop"
+msgstr "Stop"
+
+msgid "Storage"
+msgstr "Lager"
+
+msgid "Store DOS attributes"
+msgstr "Gem DOS attributter"
+
+msgid "Stripe"
+msgstr "Strip"
+
+msgid "Success"
+msgstr "Succes"
+
+msgid "Sudan"
+msgstr "Sudan"
+
+msgid "Sunday"
+msgstr "Søndag"
+
+msgid "Support"
+msgstr "Support"
+
+msgid "Suppress non-error messages"
+msgstr "Undertryk beskeder uden fejl"
+
+msgid "Suriname"
+msgstr "Suriname"
+
+msgid "Svalbard and Jan Mayen"
+msgstr "Svalbard and Jan Mayen"
+
+msgid "Swaziland"
+msgstr "Swaziland"
+
+msgid "Sweden"
+msgstr "Sweden"
+
+msgid "Switzerland"
+msgstr "Switzerland"
+
+msgid "Syria"
+msgstr "Syria"
+
+msgid "Syslog"
+msgstr "Syslog"
+
+msgid "System"
+msgstr "System"
+
+msgid "System Information"
+msgstr "System Oplysninger"
+
+msgid "System Logs"
+msgstr "System Logs"
+
+msgid "System time"
+msgstr "System tid"
+
+msgid "System users/groups"
+msgstr "Systembrugere/grupper"
+
+msgid "TAR"
+msgstr "TAR"
+
+msgid "TCP forwarding"
+msgstr "TCP forwarding"
+
+msgid "TFTP"
+msgstr "TFTP"
+
+msgid "Taiwan"
+msgstr "Taiwan"
+
+msgid "Tajikistan"
+msgstr "Tajikistan"
+
+msgid "Tanzania"
+msgstr "Tanzania"
+
+msgid "Temperature"
+msgstr "Temperatur"
+
+msgid "Temperature monitoring"
+msgstr "Temperatur overvågning"
+
+msgid "Test description"
+msgstr "Test beskrivelse"
+
+msgid "Thailand"
+msgstr "Thailand"
+
+msgid "The NT description field."
+msgstr "NT beskrivelses felt."
+
+msgid "The RSA key length."
+msgstr "RSA nøgle længde."
+
+msgid "The SSL certificate."
+msgstr "SSL certifikat."
+
+msgid "The action to be done when pressing the power button."
+msgstr "Handling der skal ske, når der bliver trykket på slukknappen."
+
+msgid "The changes have been applied successfully."
+msgstr "Ændringerne er blevet tilføjet med succes."
+
+msgid "The comment contains invalid characters"
+msgstr "Kommentaren indeholder ugyldige tegn"
+
+msgid ""
+"The configuration has been changed. You must apply the changes in order for "
+"them to take effect."
+msgstr "Konfigurationen er blevet ændret. Du skal trykke 'Anvend' for, at ændringerne kan tage effekt."
+
+msgid "The default SMTP mail server port, e.g. 25 or 587."
+msgstr "Standard SMTP mail server port, f.eks 25 eller 587."
+
+msgid ""
+"The destination remote server, e.g. [USER@]HOST:DEST, [USER@]HOST::DEST or "
+"rsync://[USER@]HOST[:PORT]/DEST."
+msgstr " Ekstern server destination, f.eks. [USER@]HOST:DEST, [USER@]HOST::DEST eller rsync://[USER@]HOST[:PORT]/DEST."
+
+msgid "The destination shared folder."
+msgstr "Destinationens delte mappe"
+
+msgid "The device does not exist"
+msgstr "Enheden findes ikke"
+
+msgid "The field '%s' contains forbidden "
+msgstr "Feltet '%s' indeholder forbudte"
+
+msgid "The file mode of the shared folder path."
+msgstr "Fil tilstand af den delte mappes sti."
+
+msgid "The file system creation has completed successfully."
+msgstr "Filsystem oprettelse færdiggjort med succes."
+
+msgid "The group '%s' does not exist"
+msgstr "Gruppen '%s' findes ikke"
+
+msgid "The hostname is a label that identifies the system to the network."
+msgstr "Værtsnavnet er en label, der identificerer systemet til netværket."
+
+msgid ""
+"The information about available software is out-of-date. You need to reload "
+"the information about available software."
+msgstr "Oplysningerne om tilgængelig software er ikke opdateret. Du skal genindlæse oplysningerne om tilgængelig software."
+
+msgid "The interface '%s' is already used by a bonding interface"
+msgstr "Interfacet '%s' bliver allerede brugt af et bundet interface"
+
+msgid "The location of the files to share."
+msgstr "Placeringen af filerne der skal deles."
+
+msgid ""
+"The location of the files to share. The share will be accessible at "
+"/export/<name>."
+msgstr "Placeringen af filerne der skal deles. Delt mappe vil være tilgængelig på /export/<navn>."
+
+msgid "The location of the user home directories."
+msgstr "Placering af brugerens hjemme biblioteker."
+
+msgid "The name of the share."
+msgstr "Navnet på delingen."
+
+msgid "The number of days the certificate is valid for."
+msgstr "Antal dage certifikatet er gyldig i."
+
+msgid "The page will reload now to let the changes take effect."
+msgstr "Denne side vil genindlæses nu for, at lade ændringerne tage effekt."
+
+#, php-format
+msgid "The parameter '%s' contains forbidden two-dot symbols"
+msgstr "Parameteren '%s' indeholder ugyldige to-punkts symboler"
+
+msgid "The password contains invalid characters"
+msgstr "Adgangskoden indeholder ugyldige tegn"
+
+msgid ""
+"The password that is used for access via rsync daemon. Note, this is not "
+"used for remote shell transport such as ssh."
+msgstr "Adgangskoden der bliver brugt til adgang via rsync dæmon. Vær opmærksom på at den ikke bliver brugt til ekstern skal transport såsom ssh."
+
+msgid ""
+"The path of the folder to share. The specified folder will be created if it "
+"does not already exist."
+msgstr "Stien til mappen der skal deles. Den angivne mappe vil blive oprettet, hvis den ikke allerede findes."
+
+msgid ""
+"The permissions on new files and directories are normally governed by create"
+" mask and directory mask but the inherit permissions parameter overrides "
+"this. This can be particularly useful on systems with many users to allow a "
+"single share to be used flexibly by each user."
+msgstr "Rettighederne på nye filer og mapper er normalt styret af oprette-maske og biblioteks-maske, men nedarv tilladelser parameteren tilsidesætter dette. Dette kan være særligt nyttigt på systemer med mange brugere for at tillade en enkelt deling i at blive anvendt fleksibelt af hver enkelt bruger."
+
+msgid ""
+"The repository will be checked for new, removed or upgraded software "
+"packages."
+msgstr "Arkivet vil blive kontrolleret for ny, fjernet eller opgraderet software pakker."
+
+msgid ""
+"The requirement that the SSL session from the control connection is reused "
+"for data connections is not required."
+msgstr "Kravet om, at SSL-sessionen fra kontrolforbindelsen bliver genanvendt til dataforbindelser er ikke nødvendig."
+
+msgid ""
+"The session timeout time in minutes. Set to 0 to disable automatic logout."
+msgstr "Session udløbstid i minutter. Sæt til 0 for at deaktivere automatisk log ud."
+
+msgid "The shared folder is already used by another share."
+msgstr "Den delte mappe bliver allerede brugt af en anden delt mappe"
+
+msgid ""
+"The source remote server, e.g. [USER@]HOST:SRC, [USER@]HOST::SRC or "
+"rsync://[USER@]HOST[:PORT]/SRC."
+msgstr "Ekstern kilde server, f.eks. [USER@]HOST:SRC, [USER@]HOST::SRC eller rsync://[USER@]HOST[:PORT]/SRC."
+
+msgid "The source shared folder."
+msgstr "Delt mappe kilde"
+
+msgid "The specified quota exceeds the max. possible value of 4TiB."
+msgstr "Den angivne kvote overstiger den maks. mulige værdi af 4TiB."
+
+msgid "The system will reboot now. This may take some time ..."
+msgstr "Systemet vil genstarte nu. Dette kan tage noget tid ..."
+
+msgid "The test email has been sent successfully. Please check your mailbox."
+msgstr "Test mailen er sendt med succes. Kontroller venligst din mailboks."
+
+msgid "The user '%s' does not exist"
+msgstr "Brugeren '%s' findes ikke"
+
+msgid "The user '%s' is not allowed"
+msgstr "Brugeren '%s' er ikke tilladt"
+
+msgid "The volume label for the file system."
+msgstr "Drevnavnet til dette filsystem."
+
+msgid ""
+"The welcome message which will be displayed to the user when they initially "
+"login."
+msgstr "Velkomstbeskeden, der vil blive vist første gang en bruger logger ind."
+
+msgid "The workgroup the server will appear to be in when queried by clients."
+msgstr "Arbejdsgruppen, som serveren vil fremstå i, når den forespørges af klienter."
+
+msgid "There already exists a mount point for %s"
+msgstr "Der findes allerede et monterings punkt for %s"
+
+msgid ""
+"These settings are used by the services to configure the user access rights."
+" Please note that these settings have no effect on file system permissions."
+msgstr "Disse indstillinger anvendes af tjenesterne til at konfigurere brugerens adgangsrettigheder. Bemærk, at disse indstillinger ikke berører filsystemets tilladelser."
+
+msgid ""
+"This controls whether this share is seen in the list of available shares in "
+"a net view and in the browse list."
+msgstr "Dette kontrollerer, om den delte mappe kan ses i listen over tilgængelige netværksdrev og på browselisten."
+
+msgid "This field does not allow blanks"
+msgstr "Dette felt må ikke være tomt"
+
+msgid "This field is required"
+msgstr "Dette felt er påkrævet"
+
+msgid "This field must have the format hh:mm:ss"
+msgstr "Dette felt skal have formatet hh:mm:ss"
+
+msgid "This field should be a IP network address in CIDR notation"
+msgstr "Dette felt skal være en IP netværks adresse i CIDR betegnelse"
+
+msgid "This field should be a IPv4 network address"
+msgstr "Dette felt skal være en IPv4 netværks adresse"
+
+msgid "This field should be a IPv4 network address in CIDR notation"
+msgstr "Dette felt skal være en IPv4 netværks adresse i CIDR betegnelse"
+
+msgid "This field should be a IPv6 network address in CIDR notation"
+msgstr "Dette felt skal være en IPv6 netværks adresse i CIDR betegnelse"
+
+msgid "This field should be a domainname or an IP address"
+msgstr "Dette felt skal være et domænenavn eller en IP adresse"
+
+msgid "This field should be a domainname or an IPv4 address"
+msgstr "Dette felt skal være et domænenavn eller en IPv4 adresse"
+
+msgid "This field should be a hostname or an IP address"
+msgstr "Dette felt skal være et værtsnavn eller en IP adresse"
+
+msgid "This field should be a hostname or an IPv4 address"
+msgstr "Dette felt skal være et værtsnavn eller en IPv4 adresse"
+
+msgid "This field should be a list of domainnames or IP addresses"
+msgstr "Dette felt skal være en liste af domænenavne eller IP adresser"
+
+msgid "This field should be a list of hostnames or IP addresses"
+msgstr "Dette felt skal være en liste af værtsnavne eller IP adresser"
+
+msgid ""
+"This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
+msgstr "Dette felt skal være en netmaske indenfor området 128.0.0.0 - 255.255.255.252"
+
+msgid "This field should be a port in the range of 1 - 65535"
+msgstr "Dette felt skal være en port i området fra 1 - 65535"
+
+msgid ""
+"This field should be a port or port range (e.g. 21 or !443 or 1024-65535)"
+msgstr "Dette felt skal være en port eller port område (f.eks 21 eller !443 eller 1024-65535)"
+
+msgid "This field should be an IP address"
+msgstr "Dette felt skal være en IP adresse"
+
+msgid "This field should be an IPv4 address"
+msgstr "Dette felt skal være en IPv4 adresse"
+
+msgid "This field should be an IPv6 address"
+msgstr "Dette felt skal være en IPv6 adresse"
+
+msgid ""
+"This field should be either a IPv4 network address (with /mask), a IPv4 "
+"range or a plain IPv4 address (e.g. 172.16.76.4 or !192.168.178.87/24 or "
+"192.168.178.20-192.168.178.254)"
+msgstr "Dette felt skal være enten en IPv4 netværks adresse (med /maske), et IPv4 område eller en ren IPv4 adresse (f.eks 172.16.76.4 eller !192.168.178.87/24 eller 192.168.178.20-192.168.178.254)"
+
+msgid ""
+"This field should be either a IPv6 network address (with /mask), a IPv6 "
+"range or a plain IPv6 address (e.g. !2001:db8::/96 or "
+"2001:db8::10-2001:db8::20 or 2001:db8::15)"
+msgstr "Dette felt skal være enten en IPv6 netværks adresse (med /maske), et IPv6 område eller en ren IPv6 adresse (f.eks !2001:db8::/96 eller 2001:db8::10-2001:db8::20 eller 2001:db8::15)"
+
+msgid "This field should only contain numbers"
+msgstr "Dette felt kan kun indeholde tal"
+
+msgid "This field should only contain numbers seperated by <,> or <;>"
+msgstr "Dette felt kan kun indeholde tal adskilt af <,> eller <;>"
+
+msgid ""
+"This field should only contain ports (0 - 65535) seperated by <,> or <;>"
+msgstr "Dette felt kan kun indeholde porte (0 - 65535) adskilt af <,> eller <;>"
+
+msgid "This field should only contain strings seperated by <,> or <;>"
+msgstr "Dette felt kan kun indeholde strenge adskilt af <,> eller <;>"
+
+msgid "This function is effective only if the hard drive supports it."
+msgstr "Denne funktion er kun effektiv hvis harddisken understøtter det."
+
+msgid ""
+"This is a text field that is seen next to a share when a client queries the "
+"server."
+msgstr "Dette er et tekstfelt, som ses ved siden af ​​en delt mappe når en klient forespørger serveren."
+
+msgid ""
+"This may make more efficient use of the system CPU's and cause Samba to be "
+"faster. Samba automatically turns this off for clients that use protocol "
+"levels lower than NT LM 0.12 and when it detects a client is Windows 9x."
+msgstr "Dette kan få en mere effektiv udnyttelse af systemets CPU'er og få Samba til at være hurtigere. Samba deaktiverer automatisk dette for klienter, der bruger et protokol niveau lavere end NT LM 0.12 og når den registrerer at en klient er Windows 9x."
+
+msgid ""
+"This option causes the server to not send a certificate request during a SSL"
+" handshake."
+msgstr "Denne valgmulighed får serveren til ikke at sende en certifikat anmodning under et SSL håndtryk."
+
+msgid ""
+"This option determines if this module should be listed when the client asks "
+"for a listing of available modules."
+msgstr "Denne valgmulighed bestemmer om dette modul må vises, når en klient beder om en liste over tilgængelige moduler."
+
+msgid ""
+"This option is a comma, space, or tab delimited set of host which are NOT "
+"permitted to access this module. Where the lists conflict, the allow list "
+"takes precedence. In the event that it is necessary to deny all by default, "
+"use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
+"to the hosts allow parameter those hosts that should be permitted access. "
+"Leave this field empty to use default settings."
+msgstr "Denne valgmulighed er et komma, mellemrum eller tabulatorsepareret række af værter, som IKKE har tilladelse til at få adgang til dette modul. Der hvor listerne konfliktter har tilladelisten forrang. I tilfælde af at det er nødvendigt at afvise alle som standard, skal du bruge søgeordet ALL (eller netmaske 0.0.0.0/0) og derefter udtrykkeligt angive i værters tillade parameter de værter, der tillades adgang. Lad dette felt være tomt for at bruge standardindstillingerne."
+
+msgid ""
+"This option is a comma, space, or tab delimited set of host which are NOT "
+"permitted to access this share. Where the lists conflict, the allow list "
+"takes precedence. In the event that it is necessary to deny all by default, "
+"use the keyword ALL (or the netmask 0.0.0.0/0) and then explicitly specify "
+"to the hosts allow parameter those hosts that should be permitted access. "
+"Leave this field empty to use default settings."
+msgstr "Denne valgmulighed er et komma, mellemrum eller tabulatorsepareret række af værter, som IKKE har tilladelse til at få adgang til denne delte mappe. Der hvor listerne konfliktter har tilladelisten forrang. I tilfælde af at det er nødvendigt at afvise alle som standard, skal du bruge søgeordet ALLE (eller netmaske 0.0.0.0/0) og derefter udtrykkeligt angive i værters tillade parameter de værter, der tillades adgang. Lad dette felt være tomt for at bruge standardindstillingerne."
+
+msgid ""
+"This option is a comma, space, or tab delimited set of hosts which are "
+"permitted to access this module. You can specify the hosts by name or IP "
+"number. Leave this field empty to use default settings."
+msgstr "Denne valgmulighed er et komma, mellemrum eller tabulatorsepareret række af værter, som har tilladelse til at få adgang til dette modul. Du kan angive værtsnavn eller IP nummer. Lad dette felt være tomt for at bruge standardindstillingerne."
+
+msgid ""
+"This option is a comma, space, or tab delimited set of hosts which are "
+"permitted to access this share. You can specify the hosts by name or IP "
+"number. Leave this field empty to use default settings."
+msgstr "Denne valgmulighed er et komma, mellemrum eller tabulatorsepareret række af værter, som har tilladelse til at få adgang til denne delte mappe. Du kan angive værtsnavn eller IP nummer. Lad dette felt være tomt for at bruge standardindstillingerne."
+
+msgid ""
+"This option requires clients to use FTP over TLS when talking to this "
+"server."
+msgstr "Denne valgmulighed kræver at klienterne bruger FTP over TLS, når der kommunikeres med denne server."
+
+msgid ""
+"This option specifies the group name that file transfers to and from that "
+"module should take place."
+msgstr "Denne valgmulighed angiver det gruppenavn som filoverførsler til og fra dette modul skal finde sted."
+
+msgid ""
+"This option specifies the maximum number of simultaneous connections. 0 "
+"means no limit."
+msgstr "Denne valgmulighed angiver det maksimale antal af samtidige forbindelser. 0 betyder ingen grænse."
+
+msgid ""
+"This option specifies the user name that file transfers to and from that "
+"module should take place."
+msgstr "Denne valgmulighed angiver det brugernavn som filoverførsler til og fra dette modul skal finde sted."
+
+msgid ""
+"This option will handle all connections as if they are SSL connections "
+"implicitly."
+msgstr "Denne valgmulighed vil håndtere alle forbindelser, som om de indirekte er SSL-forbindelser."
+
+msgid ""
+"This parameter can be used to ensure that if default acls exist on parent "
+"directories, they are always honored when creating a new file or "
+"subdirectory in these parent directories."
+msgstr "Denne parameter kan bruges til at sikre, at hvis standard ACL'er findes på rod mapperne, at de altid hædret, når der oprettes en ny fil eller undermappe i disse rod mapper."
+
+msgid ""
+"This parameter controls whether files starting with a dot appear as hidden "
+"files"
+msgstr "Denne parameter kontrollerer om filer der starter med en dot optræder som skjulte filer"
+
+msgid ""
+"This parameter says that if N occurrences of the event happen within the "
+"given time interval, then a ban is automatically added."
+msgstr "Denne parameter fortæller at hvis N forekomster af begivenheden sker inden for det givne tidsinterval, så bliver et forbud automatisk tilføjet."
+
+msgid "This rule is triggered whenever the selected event directive occurs."
+msgstr "Denne regel udløses, når den valgte hændelse direktivet forekommer."
+
+msgid "This specifies what to do if the packet matches."
+msgstr "Dette specificere, hvad der skal gøres hvis pakken matcher. "
+
+msgid "This will create a recycle bin on the share."
+msgstr "Dette vil oprette en papirkurv på delingen."
+
+msgid "Thursday"
+msgstr "Torsdag"
+
+msgid "TiB"
+msgstr "TiB"
+
+msgid "Time"
+msgstr "Tid"
+
+msgid "Time interval"
+msgstr "Tids interval"
+
+msgid "Time of execution"
+msgstr "Gennemførings tid"
+
+msgid "Time server"
+msgstr "Tids server"
+
+msgid "Time servers"
+msgstr "Tids servere"
+
+msgid "Time zone"
+msgstr "Tidszone"
+
+msgid "Timeout"
+msgstr "Timeout"
+
+msgid "Times"
+msgstr "Antal gange"
+
+msgid "Togo"
+msgstr "Togo"
+
+msgid "Tokelau"
+msgstr "Tokelau"
+
+msgid "Tonga"
+msgstr "Tonga"
+
+msgid "Transfer log"
+msgstr "Overførelses log"
+
+msgid "Transfer time"
+msgstr "Overførelses tid"
+
+msgid "Transfer type"
+msgstr "Overførelses type"
+
+msgid "Traps"
+msgstr "Fælder"
+
+msgid "Treshold"
+msgstr "Tærskel"
+
+msgid "Trial run"
+msgstr "Test"
+
+msgid "Trinidad and Tobago"
+msgstr "Trinidad and Tobago"
+
+msgid "Tuesday"
+msgstr "Tirsdag"
+
+msgid "Tunisia"
+msgstr "Tunisia"
+
+msgid "Turkey"
+msgstr "Turkey"
+
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+msgid "Turks and Caicos Islands"
+msgstr "Turks and Caicos Islands"
+
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "U.S. Miscellaneous Pacific Islands"
+msgstr "U.S. Miscellaneous Pacific Islands"
+
+msgid "U.S. Virgin Islands"
+msgstr "U.S. Virgin Islands"
+
+msgid "UNKNOWN"
+msgstr "UKENDT"
+
+msgid "Uganda"
+msgstr "Uganda"
+
+msgid "Ukraine"
+msgstr "Ukraine"
+
+msgid "Uncompressed"
+msgstr "Ukomprimeret"
+
+msgid "Uninstall"
+msgstr "Afinstaller"
+
+msgid "Uninstall plugins ..."
+msgstr "Afinstaller plugins ..."
+
+msgid "Union of Soviet Socialist Republics"
+msgstr "Union of Soviet Socialist Republics"
+
+msgid "Unit"
+msgstr "Enhed"
+
+msgid "United Arab Emirates"
+msgstr "United Arab Emirates"
+
+msgid "United Kingdom"
+msgstr "United Kingdom"
+
+msgid "United States"
+msgstr "United States"
+
+msgid "United States Minor Outlying Islands"
+msgstr "United States Minor Outlying Islands"
+
+msgid "Unknown log file type (id=%s)"
+msgstr "Ukendt log filtype (id=%s)"
+
+msgid "Unknown network interface type."
+msgstr "Ukendt netværks interface type."
+
+msgid "Unmount"
+msgstr "Afmonter"
+
+msgid "Up"
+msgstr "Oppe"
+
+msgid "Up delay"
+msgstr "Oppe forsinkelse"
+
+msgid "Update Manager"
+msgstr "Opdaterings Manager"
+
+msgid "Update now"
+msgstr "Opdater nu"
+
+msgid "Update the destination ACLs to be the same as the source ACLs"
+msgstr "Opdatere destinationens ACLér til at være den samme som kildens ACLér"
+
+msgid ""
+"Update the destination extended attributes to be the same as the local ones"
+msgstr "Opdatere destinationens udvidede attributter til at være de samme som de lokale"
+
+msgid "Updates"
+msgstr "Opdateringer"
+
+msgid "Updating ACL settings"
+msgstr "Opdater ACL indstillinger"
+
+msgid "Upgrade"
+msgstr "Opgrader"
+
+msgid "Upload"
+msgstr "Upload"
+
+msgid "Upload file"
+msgstr "Upload fil"
+
+msgid "Upload package"
+msgstr "Upload pakke"
+
+msgid "Upload plugin"
+msgstr "Upload plugin"
+
+msgid "Uploading file ..."
+msgstr "Uploader fil ..."
+
+msgid "Uptime"
+msgstr "Oppetid"
+
+msgid "Uruguay"
+msgstr "Uruguay"
+
+msgid "Use NTP server"
+msgstr "Brug NTP server"
+
+msgid "Use SSL/TLS secure connection"
+msgstr "Brug SSL/TLS sikker forbindelse"
+
+msgid "Use chroot"
+msgstr "Brug chroot"
+
+msgid "Use sendfile"
+msgstr "Brug sendfil"
+
+msgid "Use the following bandwidth restriction:"
+msgstr "Brug følgende båndbredde begrænsning:"
+
+msgid "Use the following port range:"
+msgstr "Brug følgende port område:"
+
+msgid ""
+"Use the more efficient sendfile system call for files that are exclusively "
+"oplocked"
+msgstr "Brug den mere effektive sendfile system kald til filer, der udelukkende er oplåste"
+
+msgid "Use the specified WINS server."
+msgstr "Brug den angivne WINS server."
+
+msgid "Used"
+msgstr "Brugt"
+
+msgid "Used capacity"
+msgstr "Brugt kapacitet"
+
+msgid "User"
+msgstr "Bruger"
+
+msgid "User '%s' already exist"
+msgstr "Bruger '%s' findes allerede"
+
+msgid "User '%s' does not exist"
+msgstr "Bruger '%s' findes ikke"
+
+msgid "User ID '%d' already exist"
+msgstr "Bruger ID '%d' findes allerede"
+
+msgid "User home directory"
+msgstr "Bruger hjemme bibliotek"
+
+msgid "User information"
+msgstr "Bruger oplysninger"
+
+msgid "User/Group permissions"
+msgstr "Bruger/Gruppe tilladelser"
+
+msgid "Username"
+msgstr "Brugernavn"
+
+msgid "Users"
+msgstr "Brugere"
+
+msgid "Uzbekistan"
+msgstr "Uzbekistan"
+
+msgid "Valid to"
+msgstr "Gyldig til"
+
+msgid "Value"
+msgstr "Værdi"
+
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+msgid "Vatican"
+msgstr "Vatican"
+
+msgid "Vendor"
+msgstr "Producent"
+
+msgid "Venezuela"
+msgstr "Venezuela"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "Vietnam"
+msgstr "Vietnam"
+
+msgid "Volume"
+msgstr "Drev"
+
+msgid "WINS"
+msgstr "WINS"
+
+msgid "WINS server"
+msgstr "WINS server"
+
+msgid "WINS support"
+msgstr "WINS understøttelse"
+
+msgid "Wake Island"
+msgstr "Wake Island"
+
+msgid "Wake-on-LAN"
+msgstr "Wake-on-LAN"
+
+msgid "Wallis and Futuna"
+msgstr "Wallis and Futuna"
+
+msgid "Warning"
+msgstr "Advarsel"
+
+msgid "Web Administration"
+msgstr "Web Administration"
+
+msgid "Web Administrator Password"
+msgstr "Web Administrator Adgangskode"
+
+msgid "Web administration"
+msgstr "Web administration"
+
+msgid "Web administration interface"
+msgstr "Web administration interface"
+
+msgid "Wednesday"
+msgstr "Onsdag"
+
+msgid "Weekly"
+msgstr "Ugenligt"
+
+msgid "Welcome message"
+msgstr "Velkomst besked"
+
+msgid "Western Sahara"
+msgstr "Western Sahara"
+
+msgid ""
+"When a client initially connects to the server the ident protocol is used to"
+" attempt to identify the remote username."
+msgstr "Når en klient første gang opretter forbindelse til serveren anvendes ident protokollen til at forsøge at identificere det eksterne brugernavn."
+
+msgid "When failed"
+msgstr "Når fejlet"
+
+msgid "Wipe"
+msgstr "Ryd"
+
+msgid "Wiping device ..."
+msgstr "Formatere enhed ..."
+
+msgid "Workgroup"
+msgstr "Arbejdsgruppe"
+
+msgid "Worst"
+msgstr "Værste"
+
+msgid "Write cache"
+msgstr "Skrive cache"
+
+msgid "Write only"
+msgstr "Skriv kun"
+
+msgid "Write/Execute"
+msgstr "Skriv/Udfør"
+
+msgid "Yearly"
+msgstr "Årligt"
+
+msgid "Yemen"
+msgstr "Yemen"
+
+msgid "Yes"
+msgstr "Ja"
+
+msgid "Zambia"
+msgstr "Zambia"
+
+msgid "Zimbabwe"
+msgstr "Zimbabwe"
+
+msgid "day"
+msgstr "dag"
+
+msgid "days"
+msgstr "dage"
+
+msgid "hour"
+msgstr "time"
+
+msgid "hours"
+msgstr "timer"
+
+msgid "minute"
+msgstr "minut"
+
+msgid "minutes"
+msgstr "minutter"
+
+msgid "n/a"
+msgstr "n/a"
+
+msgid "seconds"
+msgstr "sekunder"
+
+msgid "web administration interface"
+msgstr "web administration interface"

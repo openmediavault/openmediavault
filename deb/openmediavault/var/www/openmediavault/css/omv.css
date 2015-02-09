@@ -1,0 +1,332 @@
+/**
+ * This file is part of OpenMediaVault.
+ *
+ * @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+ * @author    Volker Theile <volker.theile@openmediavault.org>
+ * @copyright Copyright (c) 2009-2015 Volker Theile
+ *
+ * OpenMediaVault is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * OpenMediaVault is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+ */
+
+/******************************************************************************/
+/* Login page                                                                 */
+/******************************************************************************/
+body#login-page {
+	background: #98b7cf;
+}
+div#projectlogo {
+	position: absolute;
+	width: 304px;
+	height: 43px;
+	right: 20px;
+	bottom: 20px;
+	background: url("/images/header_logo.png");
+	background-attachment: scroll;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-position: bottom;
+}
+/******************************************************************************/
+/* Shutdown page                                                                 */
+/******************************************************************************/
+body#shutdown-page {
+	background: #98b7cf;
+}
+div#shutdownlogo {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0px;
+	top: 0px;
+	right: 0px;
+	background: url("/images/shutdown_64.png");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-position: center;
+}
+/******************************************************************************/
+/* Workspace page                                                             */
+/******************************************************************************/
+a {
+	color: #7F9ABE;
+}
+div#header {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	height: 80px;
+	background: #98b7cf; /* #475668, #98b7cf, #3C404B */
+}
+div#headerlogo {
+	float: left;
+	margin-left: 20px;
+	height: 100%;
+	width: 304px;
+	background: url("/images/header_logo.png") center left no-repeat;
+}
+div#headerrlogo {
+	float: right;
+	height: 100%;
+	width: 362px;
+	background-image: url("/images/header_rlogo.png");
+	display: none;
+}
+.x-text-center {
+	text-align: center;
+}
+/* Fieldset */
+.x-fieldset-header-text {
+	font-size: 11px;
+	font-weight: bold;
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	color: #6F6F6F;
+}
+/* Customize textarea fields */
+.x-form-textarea-monospaced textarea {
+	font-family: monospace;
+	font-size: 11px;
+	padding: 0;
+}
+/* Field info text */
+.x-form-fieldinfo {
+	font-size: 11px;
+	color: #333333;
+	line-height: 14px;
+}
+/* Trigger field */
+.x-form-password-trigger {
+	cursor: pointer;
+	background-image: url("/images/password-trigger.png");
+}
+.x-form-add-trigger {
+    background-image: url("../images/add-trigger.png");
+}
+.x-form-folder-trigger {
+    background-image: url("../images/folder-trigger.png");
+}
+/* About box */
+.x-box-aboutbox {
+	margin: 15px;
+	text-align: left;
+	padding: 5px 10px;
+	background-color: #eee;
+	font-family: "Myriad Pro","Myriad Web","Tahoma","Helvetica","Arial",sans-serif;
+	color: #393939;
+}
+.x-box-aboutbox a {
+	text-decoration: none !important;
+	font-style: italic;
+	color:#444444;
+}
+/* RRD graph panel */
+.x-panel-rrdgraph {
+	margin: 10px 10px 10px 10px;
+	text-align: center;
+}
+.x-panel-rrdgraph img {
+	border: 0 none;
+	font-size: 11px;
+	margin: 1px 1px 1px 1px;
+}
+/* Progress bar */
+.x-progress-bar {
+	background-color: #b3b3b3;
+	background-image: none;
+	border-top-color: #b3b3b3;
+	border-bottom-color: #b3b3b3;
+	border-right-color: #b3b3b3;
+}
+.x-progress-default .x-progress-bar-default {
+	background-color: #98b7cf; /* Cooperate color */
+	background-image: none; /* Flat design */
+}
+/* Tabs */
+.x-tab-bar-default-top {
+	background-image: none;
+	background-color: #d8d8d8; /* Flat design */
+}
+.x-tab-invalid {
+	border: 1px solid #cc3300;
+}
+/* Message box */
+.x-message-box-info, .x-message-box-warning, .x-message-box-question,
+.x-message-box-error {
+	background-size: 32px 32px;
+	opacity: 0.7;
+}
+.x-message-box-info {
+	background-image: url("/images/icon-info.svg");
+}
+.x-message-box-warning {
+	background-image: url("/images/icon-warning.svg");
+}
+.x-message-box-question {
+	background-image: url("/images/icon-question.svg");
+}
+.x-message-box-error {
+	background-image: url("/images/icon-error.svg");
+}
+/* Meditation message box */
+.x-message-box-guru {
+	width: 100%;
+	background-color: #000000;
+	padding: 7px;
+}
+.x-message-box-guru-body {
+	padding: 12px 0px 12px 0px;
+	border: solid 6px #ff0000;
+	color: #f72000;
+	font-family: courier;
+	font-weight: bold;
+	font-size: large;
+	text-align: center;
+}
+/* Tree */
+.x-tree-icon, .x-tree-elbow-img {
+	opacity: 0.7;
+}
+.x-tree-icon-16x16 {
+	background-size: 16px 16px;
+}
+.x-tree-icon-parent,
+.x-grid-tree-node-expanded .x-tree-icon-parent {
+	background-size: 16px 16px;
+}
+.x-tree-icon-parent {
+	background-image: url("../images/folder.svg");
+}
+.x-grid-tree-node-expanded .x-tree-icon-parent {
+	background-image: url("../images/folder-open.svg");
+}
+.x-tree-lines .x-tree-elbow-plus,
+.x-tree-lines .x-tree-elbow-end-plus,
+.x-tree-lines .x-grid-tree-node-expanded .x-tree-elbow-plus,
+.x-tree-lines .x-grid-tree-node-expanded .x-tree-elbow-end-plus {
+	background-size: 12px 12px;
+	background-position: center center;
+}
+.x-tree-lines .x-tree-elbow-plus,
+.x-tree-lines .x-tree-elbow-end-plus {
+	background-image: url("../images/circleright.svg");
+}
+.x-tree-lines .x-grid-tree-node-expanded .x-tree-elbow-plus,
+.x-tree-lines .x-grid-tree-node-expanded .x-tree-elbow-end-plus {
+	background-image: url("../images/circledown.svg");
+}
+/* Button */
+.x-btn-icon-el {
+	opacity: 0.7;
+}
+.x-btn-icon-16x16 {
+	background-size: 16px 16px;
+}
+/* Configuration activation toolbar */
+.x-toolbar-applycfg {
+	background: #ffeb99
+}
+/* Workspace node view */
+.x-workspace-node-view {
+	opacity: 0.7;
+}
+.x-workspace-node-view-category {
+}
+.x-workspace-node-view-category-header {
+	border-bottom: 1px solid #d8d8d8;
+	font-weight: bold;
+	font-size: small;
+}
+.x-workspace-node-view-category-header .x-item-selected {
+	background-color: #e0e0e0;
+}
+.x-workspace-node-view-category-header .x-item-over {
+	background-color: #efefef;
+	cursor: pointer;
+}
+.x-workspace-node-view-category-header .thumb-wrap {
+	padding: 5px;
+}
+.x-workspace-node-view-category-items .thumb-wrap .thumb {
+	padding: 5px;
+	padding-bottom: 0;
+}
+.x-workspace-node-view-category-items .thumb-wrap .thumb img {
+	height: 32px;
+	width: 32px;
+}
+.x-workspace-node-view-category-items .thumb-wrap {
+	float: left;
+	padding: 5px;
+	text-align: center;
+	width: 96px;
+	height: 80px;
+}
+.x-workspace-node-view-category-items .thumb-wrap span {
+	display: block;
+	overflow: visible;
+	word-break: break-word; /* Non standard for webkit */
+	overflow-wrap: break-word;
+	-webkit-hyphens: auto;
+	-moz-hyphens: auto;
+	hyphens: auto;
+}
+.x-workspace-node-view-category-items .x-item-selected {
+	background-color: #e0e0e0;
+}
+.x-workspace-node-view-category-items .x-item-over {
+	background-color: #efefef;
+	cursor: pointer;
+}
+/* Workspace node tree */
+.x-workspace-node-tree .x-grid-row-over .x-grid-td {
+	cursor: pointer;
+}
+/*
+@supports ((filter: invert()) or (-webkit-filter: invert())) {
+	.x-workspace-node-tree .x-grid-body {
+		background: #98b7cf;
+	}
+	.x-workspace-node-tree .x-grid-cell {
+		background-color: transparent;
+	}
+	.x-workspace-node-tree .x-tree-node-text {
+		color: white;
+	}
+	.x-workspace-node-tree .x-tree-icon, .x-tree-elbow-img {
+		opacity: 1;
+		filter: invert(100%);
+		-webkit-filter: invert(100%);
+	}
+	.x-workspace-node-tree .x-grid-tree-node-leaf .x-grid-cell {
+		background-color: rgba(255,255,255,0.1);
+	}
+	.x-workspace-node-tree .x-grid-row-focused .x-grid-td,
+	.x-workspace-node-tree .x-grid-row-over .x-grid-td {
+		background-color: rgba(0,0,0,0.2);
+	}
+}
+*/
+/* Menu */
+.x-menu-item-icon {
+	opacity: 0.7;
+}
+.x-menu-item-icon-16x16 {
+	background-size: 16px 16px;
+}
+/* Form grid field */
+.x-form-invalid .x-form-gridfield-body .x-grid {
+  border: 1px solid #cc3300;
+  background-image: url("/extjs/resources/ext-theme-gray/images/grid/invalid_line.gif");
+  background-repeat: repeat-x;
+  background-position: bottom;
+}

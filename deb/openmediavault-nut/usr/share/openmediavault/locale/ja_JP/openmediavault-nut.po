@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2014-05-20 00:22+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ja_JP\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Charge"
+msgstr "充電"
+
+msgid "Comment"
+msgstr "コメント"
+
+msgid "Date & Time"
+msgstr "日付 & 時刻"
+
+msgid "Defines when the shutdown is initiated."
+msgstr "シャットダウンが開始されるときの定義。"
+
+msgid "Driver configuration directives"
+msgstr "ドライバの設定ディレクティブ"
+
+msgid "Enable"
+msgstr "有効"
+
+msgid "Enable remote monitoring of the local connected UPS."
+msgstr "ローカル接続されたUPSのリモート監視を有効にします。"
+
+msgid "General settings"
+msgstr "一般設定"
+
+msgid "Identifier"
+msgstr "識別子"
+
+msgid "Load"
+msgstr "ロード"
+
+msgid "Message"
+msgstr "メッセージ"
+
+msgid "PID"
+msgstr "PID"
+
+msgid "Password"
+msgstr "パスワード"
+
+msgid "Program"
+msgstr "プログラム"
+
+msgid "Remote monitoring"
+msgstr "リモート監視"
+
+msgid "Service disabled"
+msgstr "サービスは無効"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Shutdown mode"
+msgstr "シャットダウンモード"
+
+msgid "Shutdown timer"
+msgstr "シャットダウンタイマー"
+
+msgid "Temperature"
+msgstr "温度"
+
+msgid "The name used to uniquely identify your UPS on this system."
+msgstr "名前は一意にこのシステム上のUPSを識別するために使用されます。"
+
+msgid ""
+"The time in seconds until shutdown is initiated. If the UPS happens to come "
+"back before the time is up the shutdown is canceled."
+msgstr "シャットダウンまでの時間（秒）が開始されます。タイムアップまでに回復すればシャットダウンはキャンセルされます。"
+
+msgid ""
+"To get more information how to configure your UPS please check the Network "
+"UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
+"target='_blank'>documentation</a>."
+msgstr "詳細や、あなたのUPSについての設定方法についてはNetwork UPS Toolsの <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>ドキュメント</a> を参照してください。"
+
+msgid "UPS"
+msgstr "UPS"
+
+msgid "UPS goes on battery"
+msgstr "UPSがバッテリモードへ移行した時"
+
+msgid "UPS reaches low battery"
+msgstr "UPSがローバッテリーになった時"
+
+msgid "Used for remote authentication."
+msgstr "リモート認証を使用します。"
+
+msgid "Username"
+msgstr "ユーザー名"
+
+msgid "Variables"
+msgstr "変数"
+
+msgid "Voltage"
+msgstr "電圧"

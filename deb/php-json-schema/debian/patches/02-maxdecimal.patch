@@ -1,0 +1,17 @@
+Index: php-json-schema/php/JsonSchema.php
+===================================================================
+--- php-json-schema.orig/php/JsonSchema.php	2011-06-17 09:14:12.689583807 +0200
++++ php-json-schema/php/JsonSchema.php	2011-06-17 09:14:20.777852012 +0200
+@@ -395,6 +395,12 @@
+ 					break;
+ 				}
+ 			}
++			if (isset($schema['maxDecimal']) && is_float($value)) {
++				if (($value * pow(10, $schema['maxDecimal'])) != (int)($value * pow(10, $schema['maxDecimal']))) {
++					$this->addError(sprintf('%f may only have %d decimal places.', $value, $schema['maxDecimal']));
++					break;
++				}
++			}
+             $isVali = true;
+         } while (false);
+ 

@@ -1,0 +1,140 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"PO-Revision-Date: 2012-03-17 01:49+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgid "Add physical volume"
+msgstr ""
+
+msgid ""
+"After the logical volume has been extended you can resize the containing "
+"filesystem."
+msgstr ""
+
+msgid "Available"
+msgstr ""
+
+msgid "Capacity"
+msgstr ""
+
+msgid "Confirmation"
+msgstr ""
+
+msgid "Create logical volume"
+msgstr ""
+
+msgid "Create volume group"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Device"
+msgstr ""
+
+msgid "Devices"
+msgstr ""
+
+msgid "Do you really want to create the logical volume?"
+msgstr ""
+
+msgid "Do you really want to create the physical volume?"
+msgstr ""
+
+msgid "Do you really want to create the volume group?"
+msgstr ""
+
+msgid "Edit logical volume"
+msgstr ""
+
+msgid "Edit volume group"
+msgstr ""
+
+msgid "Extend"
+msgstr ""
+
+msgid "Extend logical volume"
+msgstr ""
+
+msgid "Extend volume group"
+msgstr ""
+
+msgid "Failed to remove logical volume: %s"
+msgstr ""
+
+msgid "Failed to remove physical volume: %s"
+msgstr ""
+
+msgid "Failed to remove volume group: %s"
+msgstr ""
+
+msgid "Free"
+msgstr ""
+
+msgid "Invalid name"
+msgstr ""
+
+msgid "Logical Volume Management"
+msgstr ""
+
+msgid "Logical volumes"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "No free space available to create a logical volume."
+msgstr ""
+
+msgid "No free space available to extend the logical volume."
+msgstr ""
+
+msgid "No logical volume found on '%s'"
+msgstr ""
+
+msgid "No physical volume found on '%s'"
+msgstr ""
+
+msgid "Physical volumes"
+msgstr ""
+
+msgid "Reduce"
+msgstr ""
+
+msgid "Reduce volume group"
+msgstr ""
+
+msgid "Select a volume group ..."
+msgstr ""
+
+msgid "Select an device ..."
+msgstr ""
+
+msgid "Size"
+msgstr ""
+
+msgid "Used"
+msgstr ""
+
+msgid "Volume group"
+msgstr ""
+
+msgid "Volume group '%s' not found"
+msgstr ""
+
+msgid "Volume groups"
+msgstr ""

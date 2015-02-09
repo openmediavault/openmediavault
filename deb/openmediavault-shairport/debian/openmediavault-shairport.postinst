@@ -1,0 +1,89 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2015 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+case "$1" in
+	configure)
+		########################################################################
+		# Set the default settings of the shairport package to those expected
+		# by OpenMediaVault.
+		########################################################################
+		if [ -z "$2" ]; then
+			echo "Updating init script links and actions"
+			invoke-rc.d --force shairport stop || :
+			update-rc.d shairport disable &>/dev/null
+		fi
+
+		########################################################################
+		# ALSA mixer is muted by default.
+		########################################################################
+		if [ -z "$2" ]; then
+			amixer set Master 100% unmute || :
+			amixer set PCM 100% unmute || :
+		fi
+
+		########################################################################
+		# Update the configuration.
+		# <config>
+		#   <services>
+		#     <shairport>
+		#       <enable>0|1</enable>
+		#       <passwordrequired>0|1</passwordrequired>
+		#       <password></password>
+		#     </shairport>
+		#   </services>
+		# </config>
+		########################################################################
+		if ! omv_config_exists "/config/services/shairport"; then
+			echo "Initialize configuration"
+			object="<enable>0</enable>"
+			object="${object}<passwordrequired>0</passwordrequired>"
+			object="${object}<password></password>"
+			omv_config_add_element "/config/services" "shairport" "${object}" true
+		fi
+
+		########################################################################
+		# Activate package triggers. These triggers are only set during the
+		# package installation.
+		########################################################################
+		dpkg-trigger update-fixperms
+		dpkg-trigger update-locale
+
+		########################################################################
+		# Action to be done depending on the previous version.
+		########################################################################
+		echo "Updating configuration ..."
+	;;
+
+	abort-upgrade|abort-remove|abort-deconfigure)
+	;;
+
+	*)
+		echo "postinst called with unknown argument '$1'" >&2
+		exit 1
+	;;
+esac
+
+exit 0

@@ -1,0 +1,41 @@
+#!/usr/bin/make -f
+
+# Documentation/Howto:
+# http://www.debian.org/doc/manuals/maint-guide/dother.en.html#install
+
+include ../openmediavault.mk
+
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean
+
+install:
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+	dh_install
+
+binary-indep: install omv_clean_scm
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_installdebconf
+	dh_installinit -r --no-start --name=openmediavault
+	dh_installinit -r --no-start --name=openmediavault-beep
+	dh_installinit -r --no-start --name=openmediavault-engined
+	dh_lintian
+	dh_link
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-arch:
+# We have nothing to do by default.
+
+binary: binary-indep binary-arch
+.PHONY: clean binary-indep binary-arch binary install

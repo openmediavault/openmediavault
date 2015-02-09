@@ -1,0 +1,8 @@
+/var/log/rsync.log {
+        weekly
+        missingok
+        rotate 4
+        compress
+        notifempty
+        create 640 root adm
+}

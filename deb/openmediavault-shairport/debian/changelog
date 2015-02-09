@@ -1,0 +1,48 @@
+openmediavault-shairport (1.2) stable; urgency=low
+
+  * Update locales.
+  * Introduce custom field XB-Plugin-Section in debian/control.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Dec 2014 13:01:59 +0100
+
+openmediavault-shairport (1.1) stable; urgency=low
+
+  * Monitor service with monit to restart it in case of an crashes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 07 Sep 2014 13:28:58 +0200
+
+openmediavault-shairport (1.0.2) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 06 Sep 2014 20:36:49 +0200
+
+openmediavault-shairport (1.0.1) stable; urgency=low
+
+  * Unmute master and PCM channels during package setup.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 03 Aug 2014 14:46:53 +0200
+
+openmediavault-shairport (1.0) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 07 Jul 2014 18:42:43 +0200
+
+openmediavault-shairport (0.6.2) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 28 Jun 2014 17:00:32 +0200
+
+openmediavault-shairport (0.6.1) stable; urgency=low
+
+  * Do not set AP name manually.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 23 Jun 2014 21:57:31 +0200
+
+openmediavault-shairport (0.6) stable; urgency=low
+
+  * Initial release
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sat, 21 Jun 2014 16:31:25 +0200

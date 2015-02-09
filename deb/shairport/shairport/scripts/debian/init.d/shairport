@@ -1,0 +1,130 @@
+#! /bin/sh
+
+# To use this script, you must create a shairport user in the audio group:
+#   sudo useradd -g audio shairport
+
+
+### BEGIN INIT INFO
+# Provides:          shairport
+# Required-Start:    $remote_fs $networking
+# Required-Stop:     $remote_fs $networking
+# Should-Start:      pulseaudio alsa-utils hostname avahi
+# Should-Stop:       pulseaudio alsa-utils hostname avahi
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+### END INIT INFO
+
+# Do not modify this file. Edit /etc/default/shairport instead !
+
+PATH=/sbin:/usr/sbin:/bin:/usr/bin
+DESC="Shairport Airtunes emulator"
+NAME=shairport
+DAEMON=/usr/local/bin/shairport
+
+# Configuration defaults
+USER=shairport
+GROUP=audio
+LOGFILE=/var/log/$NAME.log
+ERRFILE=/var/log/$NAME.err
+PIDFILE=/var/run/$NAME.pid
+AP_NAME=$(hostname)
+NICE=0
+
+test -f /etc/default/shairport && . /etc/default/shairport
+
+DAEMON_ARGS="--daemon --pidfile $PIDFILE --log $LOGFILE"
+
+[ -z "$ERRFILE" ]     || DAEMON_ARGS="$DAEMON_ARGS --error $ERRFILE"
+[ -z "$AP_NAME" ]     || DAEMON_ARGS="$DAEMON_ARGS --name $AP_NAME"
+[ -z "$BUFFER_FILL" ] || DAEMON_ARGS="$DAEMON_ARGS -b $BUFFER_FILL"
+[ -z "$RUN_ONSTART" ]    || DAEMON_ARGS="$DAEMON_ARGS --on-start \"$RUN_ONSTART\""
+[ -z "$RUN_ONSTOP" ]     || DAEMON_ARGS="$DAEMON_ARGS --on-stop \"$RUN_ONSTOP\""
+[ -z "$OUTPUT" ]      || DAEMON_ARGS="$DAEMON_ARGS --output $OUTPUT"
+[ -z "$MDNS" ]        || DAEMON_ARGS="$DAEMON_ARGS --mdns $MDNS"
+[ -z "$OUTPUT_OPTS" ] || DAEMON_ARGS="$DAEMON_ARGS -- $OUTPUT_OPTS"
+
+# Exit if the package is not installed
+[ -x "$DAEMON" ] || { echo "$NAME is not installed" >&2 ; exit 1; }
+id -u "$USER" >/dev/null 2>&1 || { echo "User $USER does not exist" >&2; exit 1; }
+
+# Load the VERBOSE setting and other rcS variables
+. /lib/init/vars.sh
+
+# Define LSB log_* functions.
+# Depend on lsb-base (>= 3.2-14) to ensure that this file is present
+# and status_of_proc is working.
+. /lib/lsb/init-functions
+
+do_start()
+{
+    # Let the daemon write to the pid/log/error files
+    touch $PIDFILE $LOGFILE $ERRFILE
+    chown root:$GROUP $PIDFILE $LOGFILE $ERRFILE
+    chmod 660 $PIDFILE $LOGFILE $ERRFILE
+
+    start-stop-daemon --start --quiet \
+        --pidfile $PIDFILE \
+        --exec $DAEMON \
+        --chuid $USER:$GROUP \
+        --nicelevel $NICE \
+        -- $DAEMON_ARGS
+}
+
+do_stop()
+{
+    start-stop-daemon --stop --quiet \
+        --pidfile $PIDFILE \
+        --exec $DAEMON \
+        --name $NAME \
+        --retry=TERM/10/KILL/5
+}
+
+do_reload()
+{
+    [ -f $PIDFILE ] && kill -HUP $(cat $PIDFILE) || return 1
+}
+
+case "$1" in
+  start)
+	log_daemon_msg "Starting $DESC" "$NAME"
+	do_start
+        log_end_msg $?
+	;;
+  stop)
+	log_daemon_msg "Stopping $DESC" "$NAME"
+	do_stop
+        log_end_msg $?
+	;;
+  reload)
+        log_daemon_msg "Reloading $DESC" "$NAME"
+        do_reload
+        log_end_msg $?
+        ;;
+  status)
+	status_of_proc "$DAEMON" "$NAME" && exit 0 || exit $?
+	;;
+  restart|force-reload)
+	log_daemon_msg "Restarting $DESC" "$NAME"
+	do_stop
+	case "$?" in
+	  0|1)
+		do_start
+		case "$?" in
+			0) log_end_msg 0 ;;
+			1) log_end_msg 1 ;; # Old process is still running
+			*) log_end_msg 1 ;; # Failed to start
+		esac
+		;;
+	  *)
+		# Failed to stop
+		log_end_msg 1
+		;;
+	esac
+	;;
+  *)
+	echo "Usage: $0 {start|stop|status|restart|force-reload}" >&2
+	exit 3
+	;;
+esac
+
+:

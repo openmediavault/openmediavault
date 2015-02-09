@@ -1,0 +1,40 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2014
+msgid ""
+msgstr ""
+"Project-Id-Version: openmediavault\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-06-21 18:13+0200\n"
+"PO-Revision-Date: 2014-06-29 19:41+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
+"Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: gl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A password is required to stream audio."
+msgstr "Requírese un contrasinal para o fluxo de son."
+
+msgid "Authentication"
+msgstr "Autenticación"
+
+msgid "Enable"
+msgstr "Activar"
+
+msgid "General settings"
+msgstr "Axustes xerais"
+
+msgid "Password"
+msgstr "Contrasinal"
+
+msgid "Settings"
+msgstr "Axustes"
+
+msgid "Shairport"
+msgstr "Shairport"
