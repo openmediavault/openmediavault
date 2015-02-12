@@ -4772,8 +4772,8 @@ class OMVUser extends OMVObject {
 	}
 
 	/**
-	 * Get the group name.
-	 * @return The group name.
+	 * Get the user name.
+	 * @return The user name.
 	 */
 	public function getName() {
 		if(!is_null($this->name))
