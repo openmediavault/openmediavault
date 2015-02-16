@@ -46,9 +46,11 @@ Ext.define("OMV.module.admin.service.rsyncd.module.General", {
 	],
 
 	title: _("General"),
+	bodyPadding: "5 5 0",
 
-	getFormConfig: function() {
-		return {
+	constructor: function(config) {
+		var me = this;
+		config = Ext.apply({
 			plugins: [{
 				ptype: "linkedfields",
 				correlations: [{
@@ -68,7 +70,8 @@ Ext.define("OMV.module.admin.service.rsyncd.module.General", {
 					}
 				}]
 			}]
-		}
+		}, config || {});
+		me.callParent([ config ]);
 	},
 
 	initComponent: function() {
@@ -404,8 +407,7 @@ Ext.define("OMV.module.admin.service.rsyncd.Module", {
 		var me = this;
 		return [
 			Ext.create("OMV.module.admin.service.rsyncd.module.General", {
-				uuid: me.uuid,
-				bodyPadding: "5 5 0"
+				uuid: me.uuid
 			}),
 			Ext.create("OMV.module.admin.service.rsyncd.module.AuthUsers")
 		];

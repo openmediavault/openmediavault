@@ -617,6 +617,39 @@ Ext.apply(Ext.form.field.Trigger.prototype, {
 // Ext.form.field.ComboBox
 ////////////////////////////////////////////////////////////////////////////////
 
+Ext.form.field.ComboBox.prototype.setValue = Ext.Function.createInterceptor(
+  Ext.form.field.ComboBox.prototype.setValue, function() {
+	var me = this;
+	// Check if the store has already been loaded. If not, then call this
+	// function again after the store has been loaded. Note, if the store
+	// is already loading then do nothing, the base implementation will
+	// handle this for us.
+	// Note, in some situations it occurs that the setValue function is
+	// called multiple times before the store has been loaded. To ensure
+	// that unfired listeners do not overwrite the value which is
+	// successfully set after the store has been loaded it is necessary
+	// to remove all of them.
+	if (!me.store.isLoading() && !me.store.isLoaded()) {
+		var fn = Ext.Function.bind(me.setValue, me, arguments);
+		if (!Ext.isDefined(me.setValueListeners))
+			me.setValueListeners = [];
+		me.setValueListeners.push(fn);
+		me.store.on({
+			single: true,
+			load: fn
+		});
+		return false;
+	}
+	// Remove buffered listeners (which have not been fired until now),
+	// otherwise they will overwrite the given value.
+	if (Ext.isDefined(me.setValueListeners)) {
+		Ext.Array.each(me.setValueListeners, function(fn) {
+			me.store.un("load", fn)
+		});
+		delete me.setValueListeners;
+	}
+});
+
 Ext.apply(Ext.form.field.ComboBox.prototype, {
 	/**
 	 * Get the record of the current selection.

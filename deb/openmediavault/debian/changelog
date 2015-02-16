@@ -1,5 +1,6 @@
 openmediavault (1.13) stable; urgency=low
 
+  * Various improvements is the WebGUI.
   * Display a info message in the TFTP service page to make sure that the
     shared folder is publicly writable if new files are allowed.
 

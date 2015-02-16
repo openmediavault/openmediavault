@@ -42,7 +42,7 @@ Ext.define("OMV.form.field.UserComboBox", {
 	userType: "all",
 
 	allowBlank: false,
-	editable: false,
+	editable: true,
 	typeAhead: true,
 	forceSelection: true,
 	selectOnFocus: true,
