@@ -3,6 +3,7 @@ openmediavault (1.13) stable; urgency=low
   * Various improvements is the WebGUI.
   * Display a info message in the TFTP service page to make sure that the
     shared folder is publicly writable if new files are allowed.
+  * Mantis 0001133: File contains invalid JSON.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Feb 2015 18:27:05 +0100
 

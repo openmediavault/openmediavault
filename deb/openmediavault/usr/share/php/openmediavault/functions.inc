@@ -210,7 +210,7 @@ function is_block($filename) {
  * @return TRUE if the variable is JSON, otherwise FALSE.
  */
 function is_json($var) {
-	return (is_string($var) && !is_null(json_decode($var))) ?
+	return (is_string($var) && !is_null(json_decode_safe($var))) ?
 	  TRUE : FALSE;
 }
 
@@ -296,14 +296,36 @@ function json_validate($json, $schema, &$errors = NULL) {
  * @return Returns a string containing the JSON representation of \em value.
  */
 function json_encode_safe($value, $options = 0) {
-	if(is_array($value)) {
+	if (is_array($value)) {
 		array_walk_recursive($value, create_function('&$item, $key',
-		  'if(is_string($item) && !mb_check_encoding($item, "UTF-8")) '.
+		  'if (is_string($item) && !mb_check_encoding($item, "UTF-8")) '.
 		  '{ $item = utf8_encode($item); }'));
-	} else if(is_string($value)) {
+	} else if (is_string($value)) {
 		$value = utf8_encode($value);
 	}
 	return json_encode($value, $options);
+}
+
+/**
+* Decodes a JSON string. The JSON string being decoded will be encoded
+* to UTF-8 before.
+* @ingroup api
+* @param json The JSON string being decoded.
+* @param assoc When TRUE, returned objects will be converted into
+*   associative arrays.
+* @param depth User specified recursion depth.
+* @param options Bitmask of JSON decode options.
+* @return Returns the \em value encoded in json in appropriate PHP type.
+*/
+function json_decode_safe($json, $assoc = false, $depth = 512, $options = 0) {
+	if (is_array($json)) {
+		array_walk_recursive($json, create_function('&$item, $key',
+		  'if (is_string($item) && !mb_check_encoding($item, "UTF-8")) '.
+		  '{ $item = utf8_encode($item); }'));
+	} else if (is_string($json)) {
+		$json = utf8_encode($json);
+	}
+	return json_decode($json, $assoc, $depth, $options);
 }
 
 /**

@@ -277,7 +277,7 @@ class OMVJsonFile extends OMVObject {
 		}
 		// Decode the content if requested.
 		if (TRUE === $decode) {
-			if (FALSE === ($content = json_decode($content, TRUE))) {
+			if (FALSE === ($content = json_decode_safe($content, TRUE))) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("Failed to decode content (filename=%s): %s",
 				  $this->filename, json_last_error_msg()));
