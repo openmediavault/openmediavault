@@ -110,10 +110,10 @@ div#headerrlogo {
 	background-image: url("/images/password-trigger.png");
 }
 .x-form-add-trigger {
-    background-image: url("../images/add-trigger.png");
+	background-image: url("../images/add-trigger.png");
 }
 .x-form-folder-trigger {
-    background-image: url("../images/folder-trigger.png");
+	background-image: url("../images/folder-trigger.png");
 }
 /* About box */
 .x-box-aboutbox {
@@ -329,4 +329,20 @@ div#headerrlogo {
   background-image: url("/extjs/resources/ext-theme-gray/images/grid/invalid_line.gif");
   background-repeat: repeat-x;
   background-position: bottom;
+}
+/******************************************************************************/
+/* Tablet optimization                                                        */
+/******************************************************************************/
+@media only screen
+/* iPads */
+and (min-device-width: 768px) and (max-device-width: 1024px) {
+	.x-tree-lines .x-tree-elbow,
+	.x-tree-lines .x-tree-elbow-line,
+	.x-tree-lines .x-tree-elbow-end {
+		background: transparent;
+	}
+	.x-workspace-node-tree .x-grid-td {
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
 }
