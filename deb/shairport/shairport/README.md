@@ -1,5 +1,15 @@
-ShairPort
+ShairPort is no longer maintained
 =========
+
+As I no longer use Shairport myself, I am no longer maintaining or supporting Shairport.
+Thanks to everyone who has contributed over the years; it's been a great experience.
+For the ongoing user, there are a great many forks and ports to choose from now, many of which are of a very high quality and well maintained.
+
+— James
+
+ShairPort
+---------
+
 By [James Laird](mailto:jhl@mafipulation.org) ([announcement](http://mafipulation.org/blagoblig/2011/04/08#shairport))
 
 What it is
