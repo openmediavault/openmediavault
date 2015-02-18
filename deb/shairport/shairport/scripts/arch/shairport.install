@@ -1,0 +1,11 @@
+post_install() {
+  getent group shairport &>/dev/null || groupadd -r shairport >/dev/null
+  getent passwd shairport &> /dev/null || useradd -r -M -g shairport -s /usr/bin/nologin -G audio shairport >/dev/null
+  true
+}
+
+post_remove() {
+  getent passwd shairport &>/dev/null && userdel shairport >/dev/null
+  getent group shairport &>/dev/null && groupdel shairport >/dev/null
+  true
+}

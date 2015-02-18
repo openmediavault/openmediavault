@@ -54,8 +54,13 @@ static int mdns_tinysvcmdns_register(char *apname, int port) {
     // according to POSIX, this may be truncated without a final NULL !
     hostname[99] = 0;
 
-    // will not work on iOS if the hostname doesn't end in .local
-    strcat(hostname, ".local");
+    // will not work if the hostname doesn't end in .local
+    char *hostend = hostname + strlen(hostname);
+    if ((strlen(hostname) > 6) &&
+        strcmp(hostend - 6, ".local"))
+    {
+        strcat(hostname, ".local");
+    }
 
     if (getifaddrs(&ifalist) < 0)
     {
