@@ -1,2 +1,2 @@
 version=3
-https://github.com/abrasive/shairport/archive/master.zip
+https://github.com/mikebrady/shairport-sync/archive/(.*).tar.gz
