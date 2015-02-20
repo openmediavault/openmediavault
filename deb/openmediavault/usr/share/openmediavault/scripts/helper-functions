@@ -107,7 +107,7 @@ omv_trim() {
 		value=$*
 	fi
 	_cmdargs=""
-	[ ${_left} -eq 1 ] && _cmdargs="${_cmdargs} -e s/$^(omv_quotemeta ${_char})*//"
+	[ ${_left} -eq 1 ] && _cmdargs="${_cmdargs} -e s/^$(omv_quotemeta ${_char})*//"
 	[ ${_right} -eq 1 ] && _cmdargs="${_cmdargs} -e s/$(omv_quotemeta ${_char})*\$//"
 	echo $value | sed ${_cmdargs}
 }
