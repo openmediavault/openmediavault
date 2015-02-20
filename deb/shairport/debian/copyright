@@ -1,6 +1,6 @@
 Format: http://dep.debian.net/deps/dep5
 Upstream-Contact: Volker Theile <volker.theile@openmediavault.org>
-Source: https://github.com/abrasive/shairport/archive/26e9cadd826245b6931eb9a6523c70a0f9c1af3f.zip
+Source: https://github.com/mikebrady/shairport-sync/releases
 
 Files: alac.c
 Copyright (c) 2005, David Hammerton

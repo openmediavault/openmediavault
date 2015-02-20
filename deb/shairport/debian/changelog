@@ -1,3 +1,9 @@
+shairport (2.2.2) stable; urgency=low
+
+  * New upstream version. Using code from shairport-sync now.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Thu, 19 Feb 2015 12:30:12 +0100
+
 shairport (1.1.1-23-gd65b8e8) stable; urgency=low
 
   * New upstream version.

@@ -7,31 +7,29 @@
 # Should-Stop:       pulseaudio alsa-utils hostname avahi
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
+# Short-Description: Shairport Synchronous AirPlay
+# Description:       Implements a synchronous (multi-room-capable) AirPlay receiver
 ### END INIT INFO
 
-# Do not modify this file. Edit /etc/default/shairport instead !
+# Do not modify this file. Edit /etc/default/shairport-sync instead !
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
-DESC="Shairport Airtunes emulator"
+DESC="AirPlay Synchronous Audio Service"
 NAME=shairport
-DAEMON=/usr/bin/shairport
+DAEMON=/usr/bin/$NAME-sync
 
 # Configuration defaults
 USER=shairport
 GROUP=nogroup
-LOGFILE=/var/log/$NAME.log
-ERRFILE=/var/log/$NAME.err
-PIDFILE=/var/run/$NAME.pid
+PIDFILE=/var/run/$NAME-sync.pid
 AP_NAME=$(hostname)
 NICE=0
 
-test -f /etc/default/shairport && . /etc/default/shairport
+test -f /etc/default/$NAME && . /etc/default/$NAME
 
-DAEMON_ARGS="--daemon --pidfile $PIDFILE --log $LOGFILE"
+DAEMON_ARGS="--daemon"
 
-[ -z "$ERRFILE" ]     || DAEMON_ARGS="$DAEMON_ARGS --error $ERRFILE"
 [ -z "$AP_NAME" ]     || DAEMON_ARGS="$DAEMON_ARGS --name $AP_NAME"
-[ -z "$BUFFER_FILL" ] || DAEMON_ARGS="$DAEMON_ARGS -b $BUFFER_FILL"
 [ -z "$RUN_ONSTART" ]    || DAEMON_ARGS="$DAEMON_ARGS --on-start \"$RUN_ONSTART\""
 [ -z "$RUN_ONSTOP" ]     || DAEMON_ARGS="$DAEMON_ARGS --on-stop \"$RUN_ONSTOP\""
 [ -z "$OUTPUT" ]      || DAEMON_ARGS="$DAEMON_ARGS --output $OUTPUT"
@@ -52,11 +50,6 @@ DAEMON_ARGS="--daemon --pidfile $PIDFILE --log $LOGFILE"
 
 do_start()
 {
-    # Let the daemon write to the pid/log/error files
-    touch $PIDFILE $LOGFILE $ERRFILE
-    chown root:$GROUP $PIDFILE $LOGFILE $ERRFILE
-    chmod 660 $PIDFILE $LOGFILE $ERRFILE
-
     start-stop-daemon --start --quiet \
         --pidfile $PIDFILE \
         --exec $DAEMON \

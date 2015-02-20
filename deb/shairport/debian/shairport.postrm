@@ -9,11 +9,8 @@ case "$1" in
 
 	purge)
 		deluser shairport
-		if [ -e "/etc/logrotate.d/shairport" ]; then
-			rm -f "/etc/logrotate.d/shairport"
-  		fi
 		if [ -d "/var/lib/shairport" ]; then
-			rmdir --ignore-fail-on-non-empty "/var/lib/shairport"
+			rmdir --ignore-fail-on-non-empty "/var/lib/shairport
 		fi
 		;;
 
