@@ -11,7 +11,7 @@
 # Description:       Implements a synchronous (multi-room-capable) AirPlay receiver
 ### END INIT INFO
 
-# Do not modify this file. Edit /etc/default/shairport-sync instead !
+# Do not modify this file. Edit /etc/default/shairport instead !
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="AirPlay Synchronous Audio Service"
@@ -19,8 +19,6 @@ NAME=shairport
 DAEMON=/usr/bin/$NAME-sync
 
 # Configuration defaults
-USER=shairport
-GROUP=nogroup
 PIDFILE=/var/run/$NAME-sync.pid
 AP_NAME=$(hostname)
 NICE=0
@@ -51,25 +49,26 @@ DAEMON_ARGS="--daemon"
 do_start()
 {
     start-stop-daemon --start --quiet \
-        --pidfile $PIDFILE \
-        --exec $DAEMON \
-        --chuid $USER:$GROUP \
-        --nicelevel $NICE \
-        -- $DAEMON_ARGS
+      --pidfile $PIDFILE \
+      --exec $DAEMON \
+      --nicelevel $NICE \
+      -- $DAEMON_ARGS
 }
 
 do_stop()
 {
     start-stop-daemon --stop --quiet \
-        --pidfile $PIDFILE \
-        --exec $DAEMON \
-        --name $NAME \
-        --retry=TERM/10/KILL/5
+      --pidfile $PIDFILE \
+      --exec $DAEMON \
+      --name $NAME \
+      --retry=TERM/10/KILL/5
 }
 
 do_reload()
 {
-    [ -f $PIDFILE ] && kill -HUP $(cat $PIDFILE) || return 1
+    start-stop-daemon --stop --signal 1 --quiet \
+      --pidfile $PIDFILE \
+      --name $NAME
 }
 
 case "$1" in

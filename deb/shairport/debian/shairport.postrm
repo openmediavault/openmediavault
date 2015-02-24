@@ -8,10 +8,6 @@ case "$1" in
 		;;
 
 	purge)
-		deluser shairport
-		if [ -d "/var/lib/shairport" ]; then
-			rmdir --ignore-fail-on-non-empty "/var/lib/shairport
-		fi
 		;;
 
 	upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)

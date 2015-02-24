@@ -2,12 +2,6 @@
 # Uncomment and modify lines to change defaults
 #
 
-# User and group under which shairport should be run
-# user should have permission to output sound
-# Check the audio output documentation for details.
-#USER=shairport
-#GROUP=nogroup
-
 # Process' nice on start
 #NICE=0
 
