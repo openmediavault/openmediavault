@@ -6,10 +6,12 @@ openmediavault (2.0) stable; urgency=low
 
 openmediavault (1.13) stable; urgency=low
 
+  * Update locales.
   * Various improvements is the WebGUI.
   * Display a info message in the TFTP service page to make sure that the
     shared folder is publicly writable if new files are allowed.
   * Mantis 0001133: File contains invalid JSON.
+  * Mantis 0001266: 40interfaces error on omv-initsystem.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 03 Feb 2015 18:27:05 +0100
 

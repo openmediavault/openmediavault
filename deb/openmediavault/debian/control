@@ -1,5 +1,5 @@
 Source: openmediavault
-Section: web net
+Section: admin
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
 Build-Depends: debhelper (>> 7), gettext
@@ -8,7 +8,7 @@ Homepage: http://www.openmediavault.org
 
 Package: openmediavault
 Architecture: all
-Depends: libjs-extjs4 (>= 4.2.2), php5-fpm, libpam-modules, pm-utils,
+Depends: ${perl:Depends}, libjs-extjs4 (>= 4.2.2), php5-fpm, libpam-modules,
  php5-cgi, php5-cli, php5-pam, php-json-schema, sudo, ethtool, acl, ifenslave,
  resolvconf, iproute, xfsprogs, jfsutils, ntfs-3g, hdparm, sdparm, bootlogd,
  ifupdown, mdadm, postfix, libsasl2-modules, bsd-mailx, ntp, cpufrequtils,
@@ -20,7 +20,7 @@ Depends: libjs-extjs4 (>= 4.2.2), php5-fpm, libpam-modules, pm-utils,
  ca-certificates, perl, libjson-perl, liblocale-po-perl, proftpd-mod-vroot,
  libjavascript-minifier-xs-perl, coreutils, xmlstarlet (>= 1.3.1),
  php5-proctitle, parted, bash, diffutils, lsof, socat, rrdcached,
- nginx (>= 1.2.1), bash-completion, python3, python3-apt
+ nginx (>= 1.2.1), bash-completion, python3, python3-apt, pm-utils
 Description: Open network attached storage solution
  OpenMediaVault is a small and simple to use network attached storage system with
  a smart WebGUI.
