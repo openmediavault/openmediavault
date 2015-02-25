@@ -35,6 +35,11 @@ Ext.define("OMV.SessionManager", {
 		role: 0
 	},
 
+	constructor: function(config) {
+		var me = this;
+		me.initConfig(config);
+	},
+
 	/**
 	 * Check whether the user has administrator privileges.
 	 * Note, this is only used to show/hide elements in the WebGUI that
