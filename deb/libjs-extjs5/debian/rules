@@ -4,7 +4,7 @@
 EXTJSVERSION=5.1.0
 
 %:
-	dh $@
+	dh $@ --with quilt
 
 override_dh_auto_clean:
 	find . -maxdepth 1 -not -iname "debian" -not -name ".*" \
@@ -17,18 +17,21 @@ extract-stamp:
 	rm -rf $(CURDIR)/ext-$(EXTJSVERSION)
 	touch extract-stamp
 
-override_dh_auto_build: extract
+override_dh_quilt_patch: extract
+	dh_quilt_patch
+
+override_dh_auto_build:
 
 override_dh_prep:
 	dh_prep
 	# Relocate files from <pkgname>/build/ to <pkgname>/.
 	find build/packages/ -type d -iname "build" -print0 | \
 	  for path in $$(xargs -0r); do \
-		  mv -v $$path/* $$path/..; \
-		  rm -rfv $$path; \
+		  mv $$path/* $$path/..; \
+		  rm -rf $$path; \
 	  done
 	# Remove useless files.
 	find build/packages/ \( -iname "*.rb" -o -iname "*.scss" \
-	  -o -iname "*.md" \) -exec rm -r -v '{}' \;
+	  -o -iname "*.md" \) -exec rm -r '{}' \;
 
 .PHONY: extract
