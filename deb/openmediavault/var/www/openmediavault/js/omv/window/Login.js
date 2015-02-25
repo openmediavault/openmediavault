@@ -142,7 +142,7 @@ Ext.define("OMV.window.Login", {
 		OMV.Rpc.request({
 			scope: me,
 			callback: function(id, success, response) {
-				me.unmask();
+				this.unmask();
 				if (!success)
 					OMV.MessageBox.error(null, response);
 				else

@@ -184,9 +184,8 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 			var uri = node.getUri();
 			nodeURI.push(uri);
 		});
-		return Ext.apply(state, {
-			expandedNodes: nodeURI
-		});
+		state = me.addPropertyToState(state, "expandedNodes", nodeURI);
+		return state;
 	},
 
 	/**

@@ -146,7 +146,6 @@ Ext.define("OMV.workspace.Workspace", {
 			layout: "fit",
 			dockedItems: [ me.tb = Ext.create("Ext.toolbar.Toolbar", {
 				dock: "top",
-				height: 25,
 				items: [{
 					xtype: "tbtext",
 					id: me.getId() + "-text",

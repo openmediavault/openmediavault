@@ -356,10 +356,8 @@ class OMVWebGuiLogin extends OMVHtmlPageAbstract {
 								// Display loading progress dialog. This will
 								// be displayed until the web administration
 								// interface is loaded and rendered.
-								Ext.create("Ext.LoadMask", {
-									target: Ext.getBody(),
-									msg: _("Loading, please wait ...")
-								}).show();
+								Ext.getBody().mask(
+								  _("Loading, please wait ..."));
 								// Reload page to render the web
 								// administration interface.
 								document.location.reload(true);
