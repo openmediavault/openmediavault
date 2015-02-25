@@ -47,7 +47,7 @@ Ext.define("OMV.form.field.Grid", {
 		"OMV.grid.Panel"
 	],
 	mixins: {
-		bindable: "Ext.util.Bindable",
+		storeHolder: "Ext.util.StoreHolder",
 		field: "Ext.form.field.Field"
 	},
 

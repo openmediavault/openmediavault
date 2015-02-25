@@ -49,14 +49,12 @@ Ext.define("OMV.workspace.node.panel.Category", {
 			root: OMV.WorkspaceManager.getRootNode()
 		}, config || {});
 		me.callParent([ config ]);
-		me.addEvents(
-			/**
-			 * Fires when a node has been selected.
-			 * @param this The panel object.
-			 * @param node The selected node object.
-			 */
-			"select"
-		);
+		/**
+		 * @event select
+		 * Fires when a node has been selected.
+		 * @param this The panel object.
+		 * @param node The selected node object.
+		 */
 	},
 
 	initComponent: function() {

@@ -1,6 +1,6 @@
 openmediavault (2.0) stable; urgency=low
 
-  * Adapt OMV to Debian Jessie.
+  * Adapt WebGUI to Sencha ExtJS 5.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Feb 2015 09:50:29 +0100
 

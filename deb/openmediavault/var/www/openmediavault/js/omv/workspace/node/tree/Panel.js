@@ -60,6 +60,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 					text: rootNode.getText(),
 					children: []
 				},
+				applyState: Ext.emptyFn, // Fails with sorter functions.
 				sorters: [{
 					sorterFn: function(a, b) {
 						var getCmpData = function(o) {
@@ -184,9 +185,8 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 			var uri = node.getUri();
 			nodeURI.push(uri);
 		});
-		return Ext.apply(state, {
-			expandedNodes: nodeURI
-		});
+		state = me.addPropertyToState(state, "expandedNodes", nodeURI);
+		return state;
 	},
 
 	/**

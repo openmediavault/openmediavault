@@ -74,37 +74,35 @@ Ext.define("OMV.workspace.form.Panel", {
 	constructor: function() {
 		var me = this;
 		me.callParent(arguments);
-		me.addEvents(
-			/**
-			 * Fires before the form content is loaded.
-			 * @param this The form object.
-			 * @param options The RPC options.
-			 */
-			"beforeload",
-			/**
-			 * Fires after the form content has been loaded successful.
-			 * @param this The form object.
-			 * @response The RPC response.
-			 */
-			"load",
-			/**
-			 * Fires before the form is submitted.
-			 * @param this The form object.
-			 * @param options The RPC options.
-			 */
-			"beforesubmit",
-			/**
-			 * Fires after the form has been submitted successful.
-			 * @param this The form object.
-			 * @param values The form values.
-			 * @response The RPC response.
-			 */
-			"submit",
-			/**
-			 * Fires when the form submittion has been failed.
-			 */
-			"exception"
-		);
+		/**
+		 * @event beforeload
+		 * Fires before the form content is loaded.
+		 * @param this The form object.
+		 * @param options The RPC options.
+		 */
+		/**
+		 * @event load
+		 * Fires after the form content has been loaded successful.
+		 * @param this The form object.
+		 * @response The RPC response.
+		 */
+		/**
+		 * @event beforesubmit
+		 * Fires before the form is submitted.
+		 * @param this The form object.
+		 * @param options The RPC options.
+		 */
+		/**
+		 * @event submit
+		 * Fires after the form has been submitted successful.
+		 * @param this The form object.
+		 * @param values The form values.
+		 * @response The RPC response.
+		 */
+		/**
+		 * @event exception
+		 * Fires when the form submittion has been failed.
+		 */
 	},
 
 	initComponent: function() {

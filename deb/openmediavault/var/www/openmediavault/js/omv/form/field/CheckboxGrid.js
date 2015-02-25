@@ -51,17 +51,14 @@ Ext.define("OMV.form.field.CheckboxGrid", {
 	constructor: function(config) {
 		var me = this;
 		me.callParent(arguments);
-		me.addEvents(
-			/**
-			 * @event selectionchange
-			 * Fires when the selection changes
-			 * @param this OMV.form.field.CheckboxGrid
-			 * @param model The grid selection model.
-			 * @param selected The selected records.
-			 * @param value The new field value.
-			 */
-			"selectionchange"
-		);
+		/**
+		 * @event selectionchange
+		 * Fires when the selection changes
+		 * @param this OMV.form.field.CheckboxGrid
+		 * @param model The grid selection model.
+		 * @param selected The selected records.
+		 * @param value The new field value.
+		 */
 	},
 
 	initComponent: function() {

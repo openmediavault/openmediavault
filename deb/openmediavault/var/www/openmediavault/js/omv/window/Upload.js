@@ -48,14 +48,12 @@ Ext.define("OMV.window.Upload", {
 	constructor: function() {
 		var me = this;
 		me.callParent(arguments);
-		me.addEvents(
-			/**
-			 * Fires after the installation has been finished successful.
-			 * @param this The window object.
-			 * @param response The response from the form submit action.
-			 */
-			"success"
-		);
+		/**
+		 * @event success
+		 * Fires after the installation has been finished successful.
+		 * @param this The window object.
+		 * @param response The response from the form submit action.
+		 */
 	},
 
 	initComponent: function() {

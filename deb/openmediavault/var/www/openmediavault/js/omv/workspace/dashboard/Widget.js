@@ -63,13 +63,11 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 			stateId: Ext.data.IdGenerator.get("uuid").generate()
 		}, config || {});
 		me.callParent([ config ]);
-		me.addEvents(
-			/**
-			 * Fires before the dashboard widget is unpinned.
-			 * @param this This object.
-			 */
-			"unpin"
-		);
+		/**
+		 * @event unpin
+		 * Fires before the dashboard widget is unpinned.
+		 * @param this This object.
+		 */
 	},
 
 	initComponent: function() {

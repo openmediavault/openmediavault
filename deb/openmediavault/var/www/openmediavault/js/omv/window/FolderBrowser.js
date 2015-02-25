@@ -49,16 +49,14 @@ Ext.define("OMV.window.FolderBrowser", {
 	constructor: function() {
 		var me = this;
 		me.callParent(arguments);
-		me.addEvents(
-			/**
-			 * Fires after the dialog has been closed by pressing the
-			 * 'OK' button.
-			 * @param this The window object.
-			 * @param node The selected tree node.
-			 * @param path The selected directory path.
-			 */
-			"select"
-		);
+		/**
+		 * @event select
+		 * Fires after the dialog has been closed by pressing the
+		 * 'OK' button.
+		 * @param this The window object.
+		 * @param node The selected tree node.
+		 * @param path The selected directory path.
+		 */
 	},
 
 	initComponent: function() {

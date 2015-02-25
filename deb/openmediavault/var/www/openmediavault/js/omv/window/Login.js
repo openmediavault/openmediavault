@@ -50,15 +50,13 @@ Ext.define("OMV.window.Login", {
 	constructor: function() {
 		var me = this;
 		me.callParent(arguments);
-		me.addEvents(
-			/**
-			 * Fires when the 'Login' button has been pressed and the RPC
-			 * has been executed.
-			 * @param this The window object.
-			 * @param response The RPC response.
-			 */
-			"login"
-		);
+		/**
+		 * @event login
+		 * Fires when the 'Login' button has been pressed and the RPC
+		 * has been executed.
+		 * @param this The window object.
+		 * @param response The RPC response.
+		 */
 	},
 
 	initComponent: function() {
@@ -142,7 +140,7 @@ Ext.define("OMV.window.Login", {
 		OMV.Rpc.request({
 			scope: me,
 			callback: function(id, success, response) {
-				me.unmask();
+				this.unmask();
 				if (!success)
 					OMV.MessageBox.error(null, response);
 				else

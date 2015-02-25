@@ -54,8 +54,16 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 	triggerAction: "all",
 	displayField: "description",
 	valueField: "uuid",
-	trigger2Cls: Ext.baseCSSPrefix + "form-add-trigger",
-	trigger3Cls: Ext.baseCSSPrefix + "form-search-trigger",
+	triggers: {
+		add: {
+			cls: Ext.baseCSSPrefix + "form-add-trigger",
+			handler: "onTrigger2Click"
+		},
+		show: {
+			cls: Ext.baseCSSPrefix + "form-search-trigger",
+			handler: "onTrigger3Click"
+		}
+	},
 
 	initComponent: function() {
 		var me = this;
@@ -103,14 +111,14 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 		var me = this;
 		me.callParent(arguments);
 		// Add tooltip to trigger button.
-		var trigger2El = me.getTriggerButtonEl(me.trigger2Cls);
+		var trigger = me.getTrigger("add");
 		Ext.tip.QuickTipManager.register({
-			target: trigger2El.id,
+			target: trigger.getEl(),
 			text: _("Add")
 		});
-		var trigger3El = me.getTriggerButtonEl(me.trigger3Cls);
+		trigger = me.getTrigger("show");
 		Ext.tip.QuickTipManager.register({
-			target: trigger3El.id,
+			target: trigger.getEl(),
 			text: _("Show privileges")
 		});
 	},

@@ -94,6 +94,7 @@ Ext.define("OMV.workspace.node.Node", {
 
 	constructor: function(config) {
 		var me = this;
+		me.initConfig(config);
 		Ext.apply(me, config || {}, {
 			id: Ext.id(),
 			childNodes: new Ext.util.MixedCollection()

@@ -87,39 +87,37 @@ Ext.define("OMV.workspace.window.Container", {
 	constructor: function(config) {
 		var me = this;
 		me.callParent(arguments);
-		me.addEvents(
-			/**
-			 * Fires before the loading RPC is executed.
-			 * @param this The window object.
-			 * @param options The RPC options.
-			 */
-			"beforeload",
-			/**
-			 * Fires after the content has been loaded successful.
-			 * @param this The window object.
-			 * @response The RPC response.
-			 */
-			"load",
-			/**
-			 * Fires before the saving RPC is executed.
-			 * @param this The window object.
-			 * @param options The RPC options.
-			 */
-			"beforesubmit",
-			/**
-			 * Fires after the content has been submitted successful.
-			 * @param this The window object.
-			 * @param values The values displayed in the window.
-			 * @response The RPC response.
-			 */
-			"submit",
-			/**
-			 * Fires when the RPC has been failed.
-			 * @param this The window object.
-			 * @response The RPC response.
-			 */
-			"exception"
-		);
+		/**
+		 * @event beforeload
+		 * Fires before the loading RPC is executed.
+		 * @param this The window object.
+		 * @param options The RPC options.
+		 */
+		/**
+		 * @event load
+		 * Fires after the content has been loaded successful.
+		 * @param this The window object.
+		 * @response The RPC response.
+		 */
+		/**
+		 * @event beforesubmit
+		 * Fires before the saving RPC is executed.
+		 * @param this The window object.
+		 * @param options The RPC options.
+		 */
+		/**
+		 * @event submit
+		 * Fires after the content has been submitted successful.
+		 * @param this The window object.
+		 * @param values The values displayed in the window.
+		 * @response The RPC response.
+		 */
+		/**
+		 * @event exception
+		 * Fires when the RPC has been failed.
+		 * @param this The window object.
+		 * @response The RPC response.
+		 */
 	},
 
 	initComponent: function() {

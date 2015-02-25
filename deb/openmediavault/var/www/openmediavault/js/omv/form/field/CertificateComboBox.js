@@ -52,7 +52,12 @@ Ext.define("OMV.form.field.CertificateComboBox", {
 	displayField: "comment",
 	valueField: "uuid",
 	forceSelection: true,
-	trigger2Cls: Ext.baseCSSPrefix + "form-search-trigger",
+	triggers: {
+		search: {
+			cls: Ext.baseCSSPrefix + "form-search-trigger",
+			handler: "onTrigger2Click"
+		}
+	},
 
 	initComponent: function() {
 		var me = this;
@@ -95,9 +100,9 @@ Ext.define("OMV.form.field.CertificateComboBox", {
 		var me = this;
 		me.callParent(arguments);
 		// Add tooltip to trigger button.
-		var trigger2El = me.getTriggerButtonEl(me.trigger2Cls);
+		var trigger = me.getTrigger("search");
 		Ext.tip.QuickTipManager.register({
-			target: trigger2El.id,
+			target: trigger.getEl(),
 			text: _("Show certificate")
 		});
 	},

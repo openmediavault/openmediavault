@@ -60,7 +60,7 @@ xmlstarlet sel -t -m "//webadmin" \
   -o "    error_log ${OMV_NGINX_SITE_WEBGUI_LOG_DIR}/${OMV_NGINX_SITE_WEBGUI_SERVERNAME}_error.log ${OMV_NGINX_SITE_WEBGUI_LOGLEVEL};" -n \
   -o "    access_log ${OMV_NGINX_SITE_WEBGUI_LOG_DIR}/${OMV_NGINX_SITE_WEBGUI_SERVERNAME}_access.log combined;" -n \
   -o "    location /extjs/ {" -n \
-  -o "        alias /usr/share/javascript/extjs4/;" -n \
+  -o "        alias /usr/share/javascript/extjs5/;" -n \
   -o "    }" -n \
   -o "    location /images/ {" -n \
   -o "        alias ${OMV_DOCUMENTROOT_DIR}/images/;" -n \

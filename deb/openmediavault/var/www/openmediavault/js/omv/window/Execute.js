@@ -84,25 +84,23 @@ Ext.define("OMV.window.Execute", {
 	constructor: function() {
 		var me = this;
 		me.callParent(arguments);
-		me.addEvents(
-			/**
-			 * Fires when the command execution has been started.
-			 * @param this The window object.
-			 */
-			"start",
-			/**
-			 * Fires when the command execution has been finished.
-			 * @param this The window object.
-			 * @param response The RPC response object.
-			 */
-			"finish",
-			/**
-			 * Fires when the command execution has been failed.
-			 * @param this The window object.
-			 * @param response The RPC response object.
-			 */
-			"exception"
-		);
+		/**
+		 * @event start
+		 * Fires when the command execution has been started.
+		 * @param this The window object.
+		 */
+		/**
+		 * @event finish
+		 * Fires when the command execution has been finished.
+		 * @param this The window object.
+		 * @param response The RPC response object.
+		 */
+		/**
+		 * @event exception
+		 * Fires when the command execution has been failed.
+		 * @param this The window object.
+		 * @param response The RPC response object.
+		 */
 	},
 
 	initComponent: function() {

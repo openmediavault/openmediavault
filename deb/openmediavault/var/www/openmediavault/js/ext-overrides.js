@@ -440,15 +440,15 @@ Ext.apply(Ext.data.Store.prototype, {
 		// Note, this method may be incorrect in some cases, but in
 		// most cases the following indications should be suitable to
 		// find out whether a store has been loaded or not.
-		if(me.isLoading())
+		if (me.isLoading())
 			return false;
-		if(Ext.isDefined(me.totalCount))
+		if (Ext.isDefined(me.totalCount))
 			return true;
-		if(Ext.isDefined(me.lastOptions))
+		if (Ext.isDefined(me.lastOptions))
 			return true;
 		// Note, if the store has been loaded but no content has been
 		// received the following test returns an incorrect result.
-		if(me.getCount() > 0)
+		if (me.getCount() > 0)
 			return true;
 		return false;
 	},
@@ -459,8 +459,7 @@ Ext.apply(Ext.data.Store.prototype, {
 	 */
 	addData: function(data) {
 		var me = this;
-		var record = me.createModel(data);
-		return me.add(record);
+		return me.add(data);
 	},
 
 	/**
@@ -469,30 +468,7 @@ Ext.apply(Ext.data.Store.prototype, {
 	 */
 	insertData: function(index, data) {
 		var me = this;
-		var records = [];
-		if (!Ext.isIterable(data))
-			data = [ data ];
-		Ext.Array.each(data, function(item) {
-			var record = me.createModel(item);
-			Ext.Array.push(records, record);
-		});
-		return me.insert(index, records);
-	},
-
-	/**
-	 * Gets all values for each record in this store according the model
-	 * definition.
-	 * @return An array of object hash containing all the record's values.
-	 */
-	getData: function() {
-		var me = this;
-		var result = [];
-		var writer = me.getProxy().getWriter();
-		me.each(function(record) {
-			var data = writer.getRecordData(record);
-			Ext.Array.push(result, [ data ]);
-		});
-		return result;
+		return me.insert(index, data);
 	}
 });
 
@@ -595,14 +571,13 @@ Ext.form.field.Text.prototype.afterRender = Ext.Function.createInterceptor(
 	}
 });
 
-////////////////////////////////////////////////////////////////////////////////
-// Ext.form.field.Trigger
-////////////////////////////////////////////////////////////////////////////////
-
-Ext.apply(Ext.form.field.Trigger.prototype, {
+Ext.apply(Ext.form.field.Text.prototype, {
+	/**
+	 * @deprecated
+	 */
 	getTriggerButtonEl: function(id) {
 		var me = this, el = null;
-		if(Ext.isNumber(id)) {
+		if (Ext.isNumber(id)) {
 			el = me.triggerEl.item(id);
 		} else if(Ext.isString(id)) {
 			// Search by the given CSS class.

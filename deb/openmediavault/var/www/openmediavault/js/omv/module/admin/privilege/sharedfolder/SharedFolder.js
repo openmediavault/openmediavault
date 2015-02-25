@@ -128,11 +128,16 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 				}]
 			})
 		},{
-			xtype: "trigger",
+			xtype: "text",
 			name: "reldirpath",
 			fieldLabel: _("Path"),
 			allowBlank: false,
-			triggerCls: "x-form-folder-trigger",
+			triggers: {
+				folder: {
+					cls: Ext.baseCSSPrefix + "form-folder-trigger",
+					handler: "onTriggerClick"
+				}
+			},
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The path of the folder to share. The specified folder will be created if it does not already exist."),
@@ -141,7 +146,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 				// Get the UUID of the selected volume.
 				var field = me.findField("mntentref");
 				var value = field.getValue();
-				if(Ext.isUUID(value)) {
+				if (Ext.isUUID(value)) {
 					Ext.create("OMV.window.FolderBrowser", {
 						uuid: value,
 						listeners: {

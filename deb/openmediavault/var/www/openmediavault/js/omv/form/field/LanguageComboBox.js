@@ -43,14 +43,12 @@ Ext.define("OMV.form.field.LanguageComboBox", {
 	constructor: function() {
 		var me = this;
 		me.callParent(arguments);
-		me.addEvents(
-			/**
-			 * Fires when the locale name has been changed.
-			 * @param this This combo box.
-			 * @param locale The selected locale name.
-			 */
-			"localechange"
-		);
+		/**
+		 * @event localechange
+		 * Fires when the locale name has been changed.
+		 * @param this This combo box.
+		 * @param locale The selected locale name.
+		 */
 	},
 
 	initComponent: function() {

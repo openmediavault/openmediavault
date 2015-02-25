@@ -104,11 +104,6 @@ abstract class OMVHtmlPageAbstract extends OMVObject {
 	 */
 	public function render() {
 		$title = $this->getTitle();
-		$extAllFile = "ext-all.js";
-
-		if (boolvalEx($GLOBALS['OMV_DEBUG_EXTJS']) === TRUE) {
-			$extAllFile = "ext-all-debug.js";
-		}
 
 		echo <<<EOF
 <!DOCTYPE html>
@@ -119,34 +114,50 @@ abstract class OMVHtmlPageAbstract extends OMVObject {
 		<meta name="ROBOTS" content="NOINDEX, NOFOLLOW"/>
 		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
 		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
-		<link rel="stylesheet" type="text/css" href="/extjs/resources/css/ext-all.css"/>
-		<link rel="stylesheet" type="text/css" href="/extjs/resources/css/ext-all-gray.css"/>
-		<link rel="stylesheet" type="text/css" href="css/omv.css"/>
 
 EOF;
 
+		// Set core CSS files.
+		$cssList = array(
+			"/extjs/packages/ext-theme-crisp/resources/ext-theme-crisp-all.css",
+			"css/omv.css"
+		);
 		// Add additional CSS files.
-		$incList = array_values(array_unique($this->getCssIncludes()));
+		$cssList = array_merge($cssList, array_values(array_unique(
+		  $this->getCssIncludes())));
 		$fileName = "css/omv-custom.css";
 		if (file_exists($fileName))
-			$incList[] = $fileName;
-		foreach ($incList as $incListv) {
-			print "<link rel='stylesheet' type='text/css' href='{$incListv}'/>\n";
+			$cssList[] = $fileName;
+		foreach ($cssList as $cssListv) {
+			print "<link rel='stylesheet' type='text/css' href='{$cssListv}'/>\n";
 		}
 
 		// Add core javascript files.
-echo <<<EOF
-		<script type="application/javascript" src="/extjs/{$extAllFile}"></script>
-		<script type="application/javascript" src="js/omv/util/i18n.js"></script>
-		<script type="application/javascript" src="js/omv/util/i18nDict.js"></script>
-		<script type="application/javascript" src="js/ext-overrides.js"></script>
-		<script type="application/javascript" src="js/js-overrides.js"></script>
-		<script type="application/javascript" src="js/omv/globals.js"></script>
-
-EOF;
+		$jsList = array(
+			"js/omv/util/i18n.js",
+			"js/omv/util/i18nDict.js",
+			"js/ext-overrides.js",
+			"js/js-overrides.js",
+			"js/omv/globals.js"
+		);
+		if (TRUE === boolvalEx($GLOBALS['OMV_DEBUG_EXTJS'])) {
+			$jsList = array_merge(array(
+				"/extjs/ext-all-debug.js",
+				"/extjs/packages/ext-theme-crisp/ext-theme-crisp-debug.js"
+			), $jsList);
+		} else {
+			$jsList = array_merge(array(
+				"/extjs/ext-all.js",
+				"/extjs/packages/ext-theme-crisp/ext-theme-crisp.js"
+			), $jsList);
+		}
+		foreach ($jsList as $jsListv) {
+			print "<script type='application/javascript' src='{$jsListv}'></script>\n";
+		}
 
 		// Get additional Javascript files. To improve loading speed the
 		// list of include files will be cached.
+		$jsList = array();
 		$parts = array();
 		$parts[] = strtolower(get_class($this));
 		$parts[] = $this->getCacheFileId();
@@ -156,18 +167,18 @@ EOF;
 		if ($jsonFile->exists() && !(boolvalEx($GLOBALS['OMV_DEBUG_PHP']) ||
 		  boolvalEx($GLOBALS['OMV_DEBUG_EXTJS']))) {
 			$jsonFile->open("r");
-			$incList = $jsonFile->read();
+			$jsList = $jsonFile->read();
 		} else {
-			$incList = array_values(array_unique(
+			$jsList = array_values(array_unique(
 			  $this->getJavascriptIncludes()));
 			$jsonFile->open("w+");
-			$jsonFile->write($incList);
+			$jsonFile->write($jsList);
 		}
 		$jsonFile->close();
 		// Append the additional Javascript files.
-		if (is_array($incList)) {
-			foreach ($incList as $incListv) {
-				print "<script type='application/javascript' src='{$incListv}'></script>\n";
+		if (is_array($jsList)) {
+			foreach ($jsList as $jsListv) {
+				print "<script type='application/javascript' src='{$jsListv}'></script>\n";
 			}
 		}
 
@@ -356,10 +367,8 @@ class OMVWebGuiLogin extends OMVHtmlPageAbstract {
 								// Display loading progress dialog. This will
 								// be displayed until the web administration
 								// interface is loaded and rendered.
-								Ext.create("Ext.LoadMask", {
-									target: Ext.getBody(),
-									msg: _("Loading, please wait ...")
-								}).show();
+								Ext.getBody().mask(
+								  _("Loading, please wait ..."));
 								// Reload page to render the web
 								// administration interface.
 								document.location.reload(true);

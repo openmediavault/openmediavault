@@ -22,32 +22,37 @@
 /**
  * @ingroup webgui
  * @class OMV.form.field.Password
- * @derived Ext.form.field.Trigger
+ * @derived Ext.form.field.Text
  */
 Ext.define("OMV.form.field.Password", {
-	extend: "Ext.form.field.Trigger",
+	extend: "Ext.form.field.Text",
 	alias: "widget.passwordfield",
 
 	inputType: "password",
-	triggerCls: "x-form-password-trigger",
+	triggers: {
+		show: {
+			cls: Ext.baseCSSPrefix + "form-password-trigger",
+			handler: "onTrigger1Click"
+		}
+	},
 
 	onRender: function() {
 		var me = this;
 		me.callParent(arguments);
 		// Add tooltip to trigger button.
-		var triggerEl = me.getTriggerButtonEl(0);
+		var trigger = me.getTrigger("show");
 		Ext.tip.QuickTipManager.register({
-			target: triggerEl.id,
+			target: trigger.getEl(),
 			text: _("Show password")
 		});
 	},
 
-	onTriggerClick: function() {
-		if(this.disabled) {
+	onTrigger1Click: function() {
+		var me = this;
+		if (me.disabled)
 			return;
-		}
-		var el = this.inputEl;
-		if(!Ext.isIE) {
+		var el = me.inputEl;
+		if (!Ext.isIE) {
 			// Firefox, Chrome, ... can change the field type dynamically.
 			el.dom.type = (el.dom.type == "text") ? "password" : "text";
 		} else {
@@ -56,12 +61,12 @@ Ext.define("OMV.form.field.Password", {
 			var newEl = document.createElement("input");
 			newEl.type = (el.dom.type == "text") ? "password" : "text";
 			// Copy various attributes from the origin object.
-			if(el.dom.value) newEl.value = el.dom.value;
-			if(el.dom.name) newEl.name = el.dom.name;
-			if(el.dom.id) newEl.id = el.dom.id;
-			if(el.dom.className) newEl.className = el.dom.className;
-			if(el.dom.readOnly) newEl.readOnly = el.dom.readOnly;
-			if(el.dom.style.width) newEl.style.width = el.dom.style.width;
+			if (el.dom.value) newEl.value = el.dom.value;
+			if (el.dom.name) newEl.name = el.dom.name;
+			if (el.dom.id) newEl.id = el.dom.id;
+			if (el.dom.className) newEl.className = el.dom.className;
+			if (el.dom.readOnly) newEl.readOnly = el.dom.readOnly;
+			if (el.dom.style.width) newEl.style.width = el.dom.style.width;
 			el.replaceWith(newEl);
 		}
 	}

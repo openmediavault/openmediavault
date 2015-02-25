@@ -49,17 +49,18 @@ Ext.define("OMV.workspace.Workspace", {
 		"OMV.workspace.tab.Panel"
 	],
 
-	constructor: function(config) {
+	layout: "border",
+
+	initComponent: function() {
 		var me = this;
-		config = Ext.apply({
-			layout: "border",
+		Ext.apply(me, {
 			items: [
 				me.header = me.buildHeader(),
 				me.tree = me.buildTree(),
 				me.view = me.buildView()
- 			],
-		}, config || {});
-		me.callParent([ config ]);
+ 			]
+		});
+		me.callParent(arguments);
 	},
 
 	mask: function(config) {
@@ -145,7 +146,6 @@ Ext.define("OMV.workspace.Workspace", {
 			layout: "fit",
 			dockedItems: [ me.tb = Ext.create("Ext.toolbar.Toolbar", {
 				dock: "top",
-				height: 25,
 				items: [{
 					xtype: "tbtext",
 					id: me.getId() + "-text",
