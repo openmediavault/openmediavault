@@ -21,6 +21,13 @@ override_dh_auto_build: extract
 
 override_dh_prep:
 	dh_prep
+	# Relocate files from <pkgname>/build/ to <pkgname>/.
+	find build/packages/ -type d -iname "build" -print0 | \
+	  for path in $$(xargs -0r); do \
+		  mv -v $$path/* $$path/..; \
+		  rm -rfv $$path; \
+	  done
+	# Remove useless files.
 	find build/packages/ \( -iname "*.rb" -o -iname "*.scss" \
 	  -o -iname "*.md" \) -exec rm -r -v '{}' \;
 
