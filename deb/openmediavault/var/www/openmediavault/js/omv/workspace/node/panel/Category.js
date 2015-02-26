@@ -73,8 +73,9 @@ Ext.define("OMV.workspace.node.panel.Category", {
 					sorters: [{
 						sorterFn: function(a, b) {
 							var getCmpData = function(o) {
+								var data = o.getData();
 								var node = Ext.create("OMV.workspace.node.Node",
-								  o.getData());
+								  data);
 								return {
 									position: node.getPosition(),
 									text: node.getText().toLowerCase()
