@@ -117,12 +117,11 @@ Ext.define("OMV.WorkspaceManager", {
 		// Finally create/update the given node.
 		if(parent.containsChild(config.id)) {
 			result = parent.getChild(config.id);
-			Ext.apply(result, Ext.apply(config, {
+			result.setConfig(Ext.apply(config, {
 				leaf: false
 			}));
 		} else {
-			result = parent.appendChild(me.createNode(
-			  Ext.apply(config, {
+			result = parent.appendChild(me.createNode(Ext.apply(config, {
 				leaf: false
 			})));
 		}

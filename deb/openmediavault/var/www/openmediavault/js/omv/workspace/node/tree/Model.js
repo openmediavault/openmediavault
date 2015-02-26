@@ -18,17 +18,18 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+// require("js/omv/data/Model.js")
 
 /**
  * @ingroup webgui
  * @class OMV.workspace.node.tree.Model
- * @derived Ext.data.Model
+ * @derived OMV.data.Model
  */
 Ext.define("OMV.workspace.node.tree.Model", {
-	extend: "Ext.data.Model",
+	extend: "OMV.data.Model",
 
 	fields: [
-		{ name: "node", type: "auto" },
+		{ name: "node", type: "object" },
 		{ name: "text", type: "string" }
 	]
 });

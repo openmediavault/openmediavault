@@ -18,34 +18,18 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/data/Model.js")
-// require("js/omv/workspace/node/Node.js")
 
 /**
  * @ingroup webgui
- * @class OMV.workspace.node.Model
- * @derived OMV.data.Model
+ * @class OMV.data.field.Object
+ * @derived Ext.data.field.Field
  */
-Ext.define("OMV.workspace.node.Model", {
-	extend: "OMV.data.Model",
-	requires: [
-		"OMV.workspace.node.Node"
-	],
+Ext.define("OMV.data.field.Object", {
+    extend: "Ext.data.field.Field",
 
-	idProperty: "uri",
-	fields: [
-		{ name: "id", type: "string" },
-		{ name: "path", type: "string" },
-		{ name: "className", type: "string" },
-		{ name: "text", type: "string" },
-		{ name: "position", type: "int" },
-		{ name: "icon16", type: "string" },
-		{ name: "icon32", type: "string" },
-		{ name: "iconSvg", type: "string" },
-		{ name: "leaf", type: "boolean" },
-		{ name: "uri", type: "string", convert: function(v, rec) {
-			return OMV.workspace.node.Node.buildUri([ rec.get("path"),
-			  rec.get("id") ]);
-		} }
-	]
+    alias: "data.field.object",
+
+    getType: function() {
+        return "object";
+    }
 });

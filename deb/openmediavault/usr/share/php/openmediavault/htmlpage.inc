@@ -120,7 +120,8 @@ EOF;
 		// Set core CSS files.
 		$cssList = array(
 			"/extjs/packages/ext-theme-crisp/resources/ext-theme-crisp-all.css",
-			"css/omv.css"
+			"css/omv.css",
+			"css/omv-theme-crisp-all.css"
 		);
 		// Add additional CSS files.
 		$cssList = array_merge($cssList, array_values(array_unique(

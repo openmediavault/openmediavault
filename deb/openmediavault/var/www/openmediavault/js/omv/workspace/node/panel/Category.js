@@ -71,8 +71,7 @@ Ext.define("OMV.workspace.node.panel.Category", {
 					sorters: [{
 						sorterFn: function(a, b) {
 							var getCmpData = function(o) {
-								var node = Ext.create("OMV.workspace.node.Node",
-								  o.getData());
+								var node = o.getData();
 								return {
 									position: node.getPosition(),
 									text: node.getText().toLowerCase()
@@ -93,18 +92,19 @@ Ext.define("OMV.workspace.node.panel.Category", {
 						'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category-items">',
 							'<tpl for=".">',
 								'<div class="thumb-wrap" id="{uri:stripTags}">',
-									'<div class="thumb"><img src="{[this.renderIcon(values)]}" title="{text:htmlEncode}"></div>',
-									'<span>{text:htmlEncode}</span>',
+									'<div class="thumb"><img src="{[this.renderIcon(values)]}" title="{[this.renderText(values)]}"></div>',
+									'<span>{[this.renderText(values)]}</span>',
 								'</div>',
 							'</tpl>',
 						'</div>',
 					'</div>',
 					'<div class="x-clear"></div>',
 					{
-						renderIcon: function(values) {
-							var node = Ext.create("OMV.workspace.node.Node",
-							  values);
-							return node.getIcon32();
+						renderText: function(node) {
+							return Ext.String.htmlEncode(node.getText());
+						},
+						renderIcon: function(node) {
+							return node.getProperIcon32();
 						}
 					}
 				),

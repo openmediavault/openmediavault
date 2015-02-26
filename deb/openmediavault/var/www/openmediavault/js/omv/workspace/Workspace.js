@@ -431,7 +431,7 @@ Ext.define("OMV.workspace.Workspace", {
 				}
 				if (parentNode.hasIcon("raster16")) {
 					Ext.apply(config, {
-						icon: parentNode.getIcon16(),
+						icon: parentNode.getProperIcon16(),
 						iconCls: Ext.baseCSSPrefix + "btn-icon-16x16"
 					});
 				}

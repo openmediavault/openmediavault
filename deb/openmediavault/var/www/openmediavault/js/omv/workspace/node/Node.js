@@ -47,9 +47,8 @@ Ext.define("OMV.workspace.node.Node", {
 		 * @static
 		 */
 		create: function(config) {
-			if(!config.isNode) {
+			if (!config.isNode)
 				node = Ext.create("OMV.workspace.node.Node", config);
-			}
 			return node;
 		},
 
@@ -94,45 +93,45 @@ Ext.define("OMV.workspace.node.Node", {
 
 	constructor: function(config) {
 		var me = this;
-		me.initConfig(config);
-		Ext.apply(me, config || {}, {
+		// Append default values.
+		config = Ext.apply({
 			id: Ext.id(),
 			childNodes: new Ext.util.MixedCollection()
-		});
-		me.uri = me.getUri();
+		}, config);
+		me.initConfig(config);
 	},
 
 	appendChild: function(child) {
 		var me = this;
-		if(!child.isNode) {
+		if (!child.isNode)
 			child = me.create(child);
-		}
-		child.parentNode = me;
-		return me.childNodes.add(child.id, child);
+		child.setParentNode(me);
+		return me.getChildNodes().add(child.getId(), child);
 	},
 
 	getChild: function(key) {
-		return this.childNodes.get(key);
+		return this.getChildNodes().get(key);
 	},
 
 	getChildAt: function(index) {
-		return this.childNodes.getAt(index);
+		return this.getChildNodes().getAt(index);
 	},
 
 	getRange: function(start, end) {
-		return this.childNodes.getRange(start, end);
+		return this.getChildNodes().getRange(start, end);
 	},
 
 	containsChild: function(key) {
-		return this.childNodes.containsKey(key);
+		return this.getChildNodes().containsKey(key);
 	},
 
 	hasChildNodes: function() {
-		return !this.isLeaf() && (this.childNodes.getCount() > 0);
+		var me = this;
+		return !me.isLeaf() && (me.getChildNodes().getCount() > 0);
 	},
 
 	getChildCount: function() {
-		return this.childNodes.getCount();
+		return this.getChildNodes().getCount();
 	},
 
 	getDepth: function() {
@@ -145,37 +144,36 @@ Ext.define("OMV.workspace.node.Node", {
 	},
 
 	isRoot: function() {
-		return !this.parentNode;
+		return !this.getParentNode();
 	},
 
 	isLeaf: function() {
-		return (this.leaf === true);
+		return (true === this.getLeaf());
 	},
 
 	eachChild: function(fn, scope, origArgs) {
 		var me = this;
-		var childNodes = me.childNodes;
+		var childNodes = me.getChildNodes();
 		var length = childNodes.getCount();
 		var i = 0;
-		for(; i < length; i++) {
+		for (; i < length; i++) {
 			var child = me.getChildAt(i);
 			var args = origArgs ? origArgs.concat(child) : [child];
-//			if(fn.apply(scope || me, args || [me]) === false) {
-			if(fn.apply(scope || me, args) === false) {
+//			if (fn.apply(scope || me, args || [me]) === false)
+			if (fn.apply(scope || me, args) === false)
 				break;
-			}
 		}
 	},
 
 	cascadeBy: function(fn, scope, origArgs) {
 		var me = this;
 		var args = origArgs ? origArgs.concat(me) : [me];
-//		if(fn.apply(scope || me, args) !== false) {
-		if(fn.apply(scope || me, args || [me]) !== false) {
-			var childNodes = me.childNodes;
+//		if (fn.apply(scope || me, args) !== false) {
+		if (fn.apply(scope || me, args || [me]) !== false) {
+			var childNodes = me.getChildNodes();
 			var length = childNodes.getCount();
 			var i = 0;
-			for(; i < length; i++) {
+			for (; i < length; i++) {
 				var child = me.getChildAt(i);
 				child.cascadeBy(fn, scope, origArgs);
 			}
@@ -185,18 +183,17 @@ Ext.define("OMV.workspace.node.Node", {
 	bubble: function(fn, scope, origArgs) {
 		var me = this;
 		var p = me;
-		while(p) {
+		while (p) {
 			var args = origArgs ? origArgs.concat(p) : [p];
-//			if(fn.apply(scope || p, args || [p]) === false) {
-			if(fn.apply(scope || p, args) === false) {
+//			if (fn.apply(scope || p, args || [p]) === false)
+			if (fn.apply(scope || p, args) === false)
 				break;
-			}
-			p = p.parentNode;
+			p = p.getParentNode();
 		}
 	},
 
 	sort: function(sorters, direction, where, doSort) {
-		return this.childNodes.sort(sorters, direction, where, doSort);
+		return this.getChildNodes().sort(sorters, direction, where, doSort);
 	},
 
 	/**
@@ -209,12 +206,12 @@ Ext.define("OMV.workspace.node.Node", {
 	 */
 	findChild: function(attribute, value, deep) {
 		var me = this;
-		var childNodes = me.childNodes;
+		var childNodes = me.getChildNodes();
 		var length = childNodes.getCount();
 		var i = 0;
 		for (; i < length; i++) {
 			var node = me.getChildAt(i);
-			if (node.get(attribute) == value) {
+			if (node.getConfig(attribute) == value) {
 				return node;
 			} else if (deep) {
 				var child = node.findChild(attribute, value, deep);
@@ -227,26 +224,26 @@ Ext.define("OMV.workspace.node.Node", {
 
 	/**
 	 * Get the path of the 16x16 icon. If the device supports SVG, then the
-	 *   SVG icon will be returned instead if this is set.
+	 * SVG icon will be returned instead if this is set.
 	 * @return The icon path.
 	 */
-	getIcon16: function() {
+	getProperIcon16: function() {
 		var me = this;
-		if(me.hasIcon("svg"))
-			return me.iconSvg;
-		return me.icon16;
+		if (me.hasIcon("svg"))
+			return me.getIconSvg();
+		return me.getIcon16();
 	},
 
 	/**
 	 * Get the path of the 32x32 icon. If the device supports SVG, then the
-	 *   SVG icon will be returned instead if this is set.
+	 * SVG icon will be returned instead if this is set.
 	 * @return The icon path.
 	 */
-	getIcon32: function() {
+	getProperIcon32: function() {
 		var me = this;
-		if(me.hasIcon("svg"))
-			return me.iconSvg;
-		return me.icon32;
+		if (me.hasIcon("svg"))
+			return me.getIconSvg();
+		return me.getIcon32();
 	},
 
 	/**
@@ -257,22 +254,24 @@ Ext.define("OMV.workspace.node.Node", {
 	hasIcon: function(type) {
 		var me = this;
 		var result = false;
-		switch(type) {
+		switch (type) {
 		case "svg":
-			result = !Ext.isEmpty(me.iconSvg) && Ext.supports.Svg;
+			result = !Ext.isEmpty(me.getIconSvg()) && Ext.supports.Svg;
 			break;
 		case "raster16":
-			result = !Ext.isEmpty(me.icon16);
+			result = !Ext.isEmpty(me.getIcon16());
 			break;
 		case "raster32":
-			result = !Ext.isEmpty(me.icon32);
+			result = !Ext.isEmpty(me.getIcon32());
 			break;
 		case "raster":
-			result = !Ext.isEmpty(me.icon16) || !Ext.isEmpty(me.icon32);
+			result = !Ext.isEmpty(me.getIcon16()) || !Ext.isEmpty(
+			  me.getIcon32());
 			break;
 		default:
-			result = !Ext.isEmpty(me.icon16) || !Ext.isEmpty(me.icon32) ||
-			  (!Ext.isEmpty(me.iconSvg) && Ext.supports.Svg);
+			result = !Ext.isEmpty(me.getIcon16()) || !Ext.isEmpty(
+			  me.getIcon32()) || (!Ext.isEmpty(me.getIconSvg()) &&
+			  Ext.supports.Svg);
 			break;
 		}
 		return result;
@@ -284,20 +283,8 @@ Ext.define("OMV.workspace.node.Node", {
 	 */
 	getUri: function() {
 		var me = this;
-		if (!Ext.isEmpty(me.uri))
-			return me.uri;
-		return me.uri = me.self.buildUri([ me.path, me.id ]);
+		return me.self.buildUri([ me.getPath(), me.getId() ]);
 	},
-
-	/**
-	 * Returns the value of the given attribute.
-	 * @param attribute The attribute to fetch the value for.
-	 * @return The value.
-	 */
-	get: function(attribute) {
-		var me = this;
-        return me[attribute];
-    },
 
     /**
      * Flattens all the nodes into an array.
@@ -317,7 +304,7 @@ Ext.define("OMV.workspace.node.Node", {
 			var elem = {};
 			for (attr in node.config) {
 				if (Ext.isPrimitive(node[attr]))
-					elem[attr] = node[attr];
+					elem[attr] = node.getConfig(attr);
 			}
 			elem.childNodes = childNodes;
 			return elem;

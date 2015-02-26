@@ -159,10 +159,6 @@ div#headerrlogo {
 .x-tab-invalid {
 	border: 1px solid #cc3300;
 }
-.x-tab.x-tab-active.x-tab-default {
-	border-color: #98b7cf;
-	background-color: #98b7cf;
-}
 /* Message box */
 .x-message-box-info, .x-message-box-warning, .x-message-box-question,
 .x-message-box-error {

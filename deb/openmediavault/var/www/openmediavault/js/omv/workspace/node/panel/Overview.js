@@ -64,8 +64,7 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 			sorters: [{
 				sorterFn: function(a, b) {
 					var getCmpData = function(o) {
-						var node = Ext.create("OMV.workspace.node.Node",
-						  o.getData());
+						var node = o.getData();
 						return {
 							position: node.getPosition(),
 							text: node.getText().toLowerCase()
@@ -96,29 +95,6 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 				overItemCls: Ext.baseCSSPrefix + "item-over",
 				itemSelector: "div.thumb-wrap",
 				store: store,
-				updateIndexes: function(startIndex, endIndex) {
-					// This is a special implementation of this method
-					// because the default one is not able to process the
-					// data structure if the data view tems are out of
-					// order than they are stored in the store.
-			        var nodes = this.all.elements,
-			            records = this.getViewRange(),
-			            i;
-			        startIndex = startIndex || 0;
-			        endIndex = endIndex || ((endIndex === 0) ? 0 :
-			          (nodes.length - 1));
-			        for (i = startIndex; i <= endIndex; i++) {
-			        	var node = Ext.Array.findBy(nodes, function(
-			        	  item, index) {
-			        		return item.id == records[i].get("uri");
-			        	});
-			            node.viewIndex = i;
-			            node.viewRecordId = records[i].internalId;
-			            if (!node.boundView) {
-			                node.boundView = this.id;
-			            }
-			        }
-				},
 				tpl: Ext.create("Ext.XTemplate",
 					'<div class="',Ext.baseCSSPrefix,'workspace-node-view-categories">',
 						'<tpl for=".">',
@@ -126,7 +102,7 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 								'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category">',
 									'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category-header">',
 										'<div class="thumb-wrap" id="{uri:stripTags}">',
-											'{text:htmlEncode}',
+											'{[this.renderCategoryHeaderText(values)]}',
 										'</div>',
 									'</div>',
 									'<div class="',Ext.baseCSSPrefix,'workspace-node-view-category-items">',
@@ -138,25 +114,31 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 						'</tpl>',
 					'</div>',
 					{
-						renderCategory: function(node, models) {
+						renderCategoryHeaderText: function(node) {
+							return Ext.String.htmlEncode(node.getText());
+						},
+						renderCategory: function(categoryNode, models) {
 							var tpl = Ext.create("Ext.XTemplate",
 								'<tpl for=".">',
-									'<tpl if="this.isRenderNode(values.path)">',
+									'<tpl if="this.isRenderNode(values)">',
 										'<div class="thumb-wrap" id="{uri:stripTags}">',
-											'<div class="thumb"><img src="{[this.renderIcon(values)]}" title="{text:htmlEncode}"></div>',
-											'<span>{text:htmlEncode}</span>',
+											'<div class="thumb"><img src="{[this.renderIcon(values)]}" title="{[this.renderText(values)]}"></div>',
+											'<span>{[this.renderText(values)]}</span>',
 										'</div>',
 									'</tpl>',
 								'</tpl>',
 								{
-									isRenderNode: function(path) {
+									isRenderNode: function(node) {
 										return OMV.workspace.node.Node.
-										  compareUri(path, node.uri);
+										  compareUri(node.getPath(),
+										  categoryNode.getUri());
 									},
-									renderIcon: function(values) {
-										var node = Ext.create(
-										  "OMV.workspace.node.Node", values);
-										return node.getIcon32();
+									renderText: function(node) {
+										return Ext.String.htmlEncode(
+										  node.getText());
+									},
+									renderIcon: function(node) {
+										return node.getProperIcon32();
 									}
 								});
 							return tpl.apply(models);
@@ -166,8 +148,7 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 				listeners: {
 					scope: me,
 					select: function(view, record, eOpts) {
-						var node = OMV.WorkspaceManager.getNodeByPath(
-						  record.get("uri"));
+						var node = record.getData();
 						this.fireEvent("select", this, node);
 					}
 				}

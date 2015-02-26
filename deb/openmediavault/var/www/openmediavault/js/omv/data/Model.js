@@ -18,6 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+// require("js/omv/data/field/Object.js")
 
 /**
  * @ingroup webgui
@@ -26,6 +27,10 @@
  */
 Ext.define("OMV.data.Model", {
 	extend: "Ext.data.Model",
+	requires: [
+		"OMV.data.field.Object"
+	],
+
 	statics: {
 		createImplicit: function(config) {
 			var className = "OMV.data.Store.ImplicitModel-" + Ext.id();
