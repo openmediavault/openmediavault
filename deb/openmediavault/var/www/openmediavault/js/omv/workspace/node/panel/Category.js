@@ -111,8 +111,7 @@ Ext.define("OMV.workspace.node.panel.Category", {
 				listeners: {
 					scope: me,
 					select: function(view, record, eOpts) {
-						var node = OMV.WorkspaceManager.getNodeByPath(
-						  record.get("uri"));
+						var node = record.getData();
 						this.fireEvent("select", this, node);
 					}
 				}
