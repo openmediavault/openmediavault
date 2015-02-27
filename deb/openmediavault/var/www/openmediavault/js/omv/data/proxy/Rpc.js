@@ -26,6 +26,8 @@
  * @ingroup webgui
  * @class OMV.data.proxy.Rpc
  * @derived Ext.data.proxy.Ajax
+ * This proxy uses AJAX requests to load data from the server delivered via
+ * the OMV RPC engine.
  * @param config An array containing the following fields:
  *   \li rpcData The RPC parameters. \see OMV.Rpc.request
  *     for more details.
@@ -88,12 +90,12 @@ Ext.define("OMV.data.proxy.Rpc", {
 		var me = this, request = null, rpcData = me.rpcData;
 		rpcData.params = Ext.applyIf(rpcData.params || {},
 		  me.extraParams || {});
-		if(me.appendSortParams) {
+		if (me.appendSortParams) {
 			rpcData.params = Ext.apply(rpcData.params,
 			  me.getParams(operation));
 		}
 		request = Ext.create("Ext.data.Request", {
-			action: operation.action,
+			action: operation.getAction(),
 			operation: operation,
 			proxy: me,
 			rpcData: rpcData,
@@ -104,24 +106,30 @@ Ext.define("OMV.data.proxy.Rpc", {
 	},
 
 	getParams: function(operation) {
-		var me = this, params = {};
-		if(me.startParam && Ext.isDefined(operation.start)) {
-			params[me.startParam] = operation.start;
-		}
-		if(me.limitParam && Ext.isDefined(operation.limit)) {
-			params[me.limitParam] = operation.limit;
-		}
-		if(me.sortParam && operation.sorters &&
-		  (operation.sorters.length > 0)) {
-			if(me.simpleSortMode) {
-				params[me.sortParam] = operation.sorters[0].property;
-				params[me.directionParam] = operation.sorters[0].direction;
+		var me = this,
+		  params = {},
+		  start = operation.getStart(),
+		  limit = operation.getLimit(),
+		  sorters = operation.getSorters(),
+		  startParam = me.getStartParam(),
+          limitParam = me.getLimitParam(),
+		  sortParam = me.getSortParam(),
+		  simpleSortMode = me.getSimpleSortMode(),
+		  directionParam = me.getDirectionParam();
+		if (startParam && Ext.isDefined(start))
+			params[startParam] = start;
+		if (limitParam && Ext.isDefined(limit))
+			params[limitParam] = limit;
+		if (sortParam && sorters && (sorters.length > 0)) {
+			if (simpleSortMode) {
+				params[sortParam] = sorters[0].getProperty();
+				params[directionParam] = sorters[0].getDirection();
 			} else {
-				params[me.sortParam] = me.encodeSorters(operation.sorters);
+				params[sortParam] = me.encodeSorters(sorters);
 			}
 		} else {
-			params[me.sortParam] = null;
-			params[me.directionParam] = null;
+			params[sortParam] = null;
+			params[directionParam] = null;
 		}
 		return params;
 	}

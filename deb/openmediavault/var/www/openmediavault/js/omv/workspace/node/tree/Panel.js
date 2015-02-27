@@ -124,7 +124,6 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 			});
 			root.appendChild(treeNode);
 		});
-		root.sort();
 		me.callParent(arguments);
 	},
 
