@@ -40,12 +40,11 @@ Ext.define("OMV.grid.column.BooleanIcon", {
 	defaultRenderer: function(value, metaData) {
 		var me = this;
 		metaData.tdAttr = 'style="vertical-align: middle;"';
-		if(value === undefined)
+		if (!Ext.isDefined(value))
 			return me.undefinedText;
 		var img = me.falseIcon;
-		if (Ext.Array.contains(me.trueValue, value)) {
+		if (Ext.Array.contains(me.trueValue, value))
 			img = me.trueIcon;
-		}
 		return Ext.String.format("<img border='0' src='images/{0}' " +
 		  "alt='{1}'>", img, OMV.util.Format.boolean(value));
 	}
