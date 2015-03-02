@@ -47,7 +47,7 @@ Ext.define("OMV.module.admin.system.cron.Job", {
 	plugins: [{
 		ptype: "configobject"
 	}],
-	height: 415,
+	height: 450,
 
 	/**
 	 * The class constructor.

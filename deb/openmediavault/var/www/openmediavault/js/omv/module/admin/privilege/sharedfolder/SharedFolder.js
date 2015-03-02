@@ -128,7 +128,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.SharedFolder", {
 				}]
 			})
 		},{
-			xtype: "text",
+			xtype: "textfield",
 			name: "reldirpath",
 			fieldLabel: _("Path"),
 			allowBlank: false,

@@ -98,6 +98,7 @@ Ext.define("OMV.workspace.grid.Panel", {
 	rowLines: false,
 	columnLines: true,
 	selModel: {
+		type: "rowmodel",
 		allowDeselect: true,
 		mode: "MULTI"
 	},
