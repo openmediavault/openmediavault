@@ -60,7 +60,7 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 		var me = this;
 		// Auto-generate a state ID if necessary.
 		config = Ext.apply({
-			stateId: Ext.data.IdGenerator.get("uuid").generate()
+			stateId: Ext.data.identifier.Uuid.Global.generate()
 		}, config || {});
 		me.callParent([ config ]);
 		/**

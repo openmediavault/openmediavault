@@ -286,7 +286,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Quota", {
 			}],
 			store: Ext.create("Ext.data.JsonStore", {
 				model: OMV.data.Model.createImplicit({
-					idgen: "uuid", // Populate 'id' field automatically.
+					identifier: "uuid", // Populate 'id' field automatically.
 					idProperty: "id",
 					fields: [
 						{ name: "type", type: "string" },

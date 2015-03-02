@@ -45,12 +45,14 @@ Ext.define("OMV.data.proxy.Rpc", {
 	],
 	uses: [ "Ext.data.Request" ],
 
-	defaultReaderType: "rpcjson",
-	simpleSortMode: true,
-	idParam: "uuid",
-	sortParam: "sortfield",
-	directionParam: "sortdir",
-	appendSortParams: true,
+	config: {
+		reader: "rpcjson",
+		simpleSortMode: true,
+		idParam: "uuid",
+		sortParam: "sortfield",
+		directionParam: "sortdir",
+		appendSortParams: true
+	},
 
 	constructor: function() {
 		var me = this;
@@ -90,7 +92,7 @@ Ext.define("OMV.data.proxy.Rpc", {
 		var me = this, request = null, rpcData = me.rpcData;
 		rpcData.params = Ext.applyIf(rpcData.params || {},
 		  me.extraParams || {});
-		if (me.appendSortParams) {
+		if (me.getAppendSortParams()) {
 			rpcData.params = Ext.apply(rpcData.params,
 			  me.getParams(operation));
 		}

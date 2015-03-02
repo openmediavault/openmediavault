@@ -65,6 +65,7 @@ Ext.define("OMV.module.admin.dashboard.widget.ServiceStatus", {
 					stateId: "title",
 					flex: 1
 				},{
+					xtype: "booleaniconcolumn",
 					text: _("Enabled"),
 					sortable: true,
 					dataIndex: "enabled",
@@ -72,8 +73,8 @@ Ext.define("OMV.module.admin.dashboard.widget.ServiceStatus", {
 					width: 80,
 					resizable: false,
 					align: "center",
-					renderer: OMV.util.Format.booleanIconRenderer(
-					  "switch_on.png", "switch_off.png")
+					trueIcon: "switch_on.png",
+					falseIcon: "switch_off.png"
 				},{
 					text: _("Running"),
 					sortable: true,

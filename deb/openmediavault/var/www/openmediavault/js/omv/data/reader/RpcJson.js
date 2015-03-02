@@ -28,5 +28,8 @@ Ext.define("OMV.data.reader.RpcJson", {
 	extend: "Ext.data.reader.Json",
 	alternateClassName: "Ext.data.RpcJsonReader",
 	alias: "reader.rpcjson",
-	root: "data"
+
+	config: {
+		rootProperty: "data"
+	}
 });
