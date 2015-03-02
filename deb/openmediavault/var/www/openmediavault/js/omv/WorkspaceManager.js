@@ -125,13 +125,7 @@ Ext.define("OMV.WorkspaceManager", {
 				leaf: false
 			})));
 		}
-		parent.sort([{
-			property : "position",
-			direction: "ASC"
-		},{
-			property : "text",
-			direction: "DESC"
-		}]);
+		parent.sort();
 		return result;
 	},
 
@@ -185,13 +179,7 @@ Ext.define("OMV.WorkspaceManager", {
 		var node = parent.appendChild(me.createNode(Ext.apply(config, {
 			leaf: true
 		})));
-		parent.sort([{
-			property : "position",
-			direction: "ASC"
-		},{
-			property : "text",
-			direction: "DESC"
-		}]);
+		parent.sort();
 		return node;
 	},
 

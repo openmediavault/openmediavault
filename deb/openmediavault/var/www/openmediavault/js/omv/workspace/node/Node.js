@@ -193,6 +193,18 @@ Ext.define("OMV.workspace.node.Node", {
 	},
 
 	sort: function(sorters, direction, where, doSort) {
+		// Set the default sorters. Note, use the internal property names,
+		// otherwise the Ext.util.Sorter::sortFn() method may not access
+		// the property values.
+		if (!Ext.isDefined(sorters)) {
+			sorters = [{
+				property : "_position",
+				direction: "ASC"
+			},{
+				property : "_text",
+				direction: "DESC"
+			}];
+        }
 		return this.getChildNodes().sort(sorters, direction, where, doSort);
 	},
 
