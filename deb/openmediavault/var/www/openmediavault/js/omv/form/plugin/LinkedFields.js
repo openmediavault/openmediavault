@@ -291,12 +291,14 @@ Ext.define("OMV.form.plugin.LinkedFields", {
 	 */
 	findField: function(id) {
 		var me = this;
+		if (!Ext.isDefined(id))
+			return null;
 		var selector = Ext.String.format("[name={0}], #{0}", id);
 		var field = me.getForm().query(selector)[0];
 		// Check if the field is a compomnent. Note, do not use 'isFormField',
 		// otherwise it is not possible to query for Ext.button.Button
 		// components for example.
-		if(!Ext.isObject(field) || !field.isComponent)
+		if (!Ext.isObject(field) || !field.isComponent)
 			return null;
 		return field;
 	}
