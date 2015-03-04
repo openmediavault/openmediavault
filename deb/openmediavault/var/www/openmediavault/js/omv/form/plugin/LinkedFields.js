@@ -22,7 +22,7 @@
 /**
  * @ingroup webgui
  * @class OMV.form.plugin.LinkedFields
- * @derived Ext.AbstractPlugin
+ * @derived Ext.plugin.Abstract
  * Using this plugin it is possible to link various form fields together,
  * thus you can apply properties to a field if others have been modified,
  * e.g. checking a checkbox may show/hide a text field.
@@ -38,7 +38,7 @@
  *   the configured fields when the form is initialized. Defaults to TRUE.
  */
 Ext.define("OMV.form.plugin.LinkedFields", {
-	extend: "Ext.AbstractPlugin",
+	extend: "Ext.plugin.Abstract",
 	alias: "plugin.linkedfields",
 
 	fp: null,

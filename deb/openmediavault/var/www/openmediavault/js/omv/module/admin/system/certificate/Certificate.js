@@ -60,7 +60,7 @@ Ext.define("OMV.module.admin.system.certificate.Create", {
 			allowBlank: false,
 			editable: false,
 			triggerAction: "all",
-			value: 2048,
+			value: 4096,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("The RSA key length.")

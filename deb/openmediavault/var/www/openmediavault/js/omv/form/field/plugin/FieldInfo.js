@@ -22,10 +22,10 @@
 /**
  * @ingroup webgui
  * @class OMV.form.field.plugin.FieldInfo
- * @derived Ext.AbstractPlugin
+ * @derived Ext.plugin.Abstract
  */
 Ext.define("OMV.form.field.plugin.FieldInfo", {
-	extend: "Ext.AbstractPlugin",
+	extend: "Ext.plugin.Abstract",
 	alias: "plugin.fieldinfo",
 
 	config: {

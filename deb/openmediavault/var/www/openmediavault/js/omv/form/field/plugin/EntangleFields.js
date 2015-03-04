@@ -22,14 +22,14 @@
 /**
  * @ingroup webgui
  * @class OMV.form.field.plugin.EntangleFields
- * @derived Ext.AbstractPlugin
+ * @derived Ext.plugin.Abstract
  * Using this plugin it is possible to entangle various form fields together.
  * Changing the origin form field will automatically update the entangled
  * fields.
  * @param members An array of fields that are entangled with this one.
  */
 Ext.define("OMV.form.field.plugin.EntangleFields", {
-	extend: "Ext.AbstractPlugin",
+	extend: "Ext.plugin.Abstract",
 	alias: "plugin.entanglefields",
 
 	members: [],
