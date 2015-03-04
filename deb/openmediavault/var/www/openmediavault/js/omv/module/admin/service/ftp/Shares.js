@@ -52,6 +52,15 @@ Ext.define("OMV.module.admin.service.ftp.Share", {
 	 * @param uuid The UUID of the database/configuration object. Required.
 	 */
 
+	getFormConfig: function() {
+		return {
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			}
+		};
+	},
+
 	getFormItems: function() {
 		var me = this;
 		return [{
@@ -68,6 +77,7 @@ Ext.define("OMV.module.admin.service.ftp.Share", {
 			name: "extraoptions",
 			fieldLabel: _("Extra options"),
 			allowBlank: true,
+			flex: 1,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>manual page</a> for more details.")

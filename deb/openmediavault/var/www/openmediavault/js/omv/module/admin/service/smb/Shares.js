@@ -58,6 +58,10 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 
 	getFormConfig: function() {
 		return {
+			layout: {
+				type: "vbox",
+				align: "stretch"
+			},
 			plugins: [{
 				ptype: "linkedfields",
 				correlations: [{
@@ -308,6 +312,7 @@ Ext.define("OMV.module.admin.service.smb.Share", {
 			name: "extraoptions",
 			fieldLabel: _("Extra options"),
 			allowBlank: true,
+			flex: 1,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("Please check the <a href='http://www.samba.org/samba/docs/man/manpages-3/smb.conf.5.html' target='_blank'>manual page</a> for more details.")

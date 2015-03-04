@@ -25,6 +25,7 @@
  */
 Ext.define("OMV.workspace.node.Node", {
 	isNode: true,
+	$configPrefixed: false,
 
 	config: {
 		id: null,
@@ -198,10 +199,10 @@ Ext.define("OMV.workspace.node.Node", {
 		// the property values.
 		if (!Ext.isDefined(sorters)) {
 			sorters = [{
-				property : "_position",
+				property : "position",
 				direction: "ASC"
 			},{
-				property : "_text",
+				property : "text",
 				direction: "DESC"
 			}];
         }
