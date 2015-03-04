@@ -31,7 +31,7 @@
  */
 Ext.define("OMV.module.admin.dashboard.widget.FileSystemStatus", {
 	extend: "OMV.workspace.dashboard.Widget",
-	alias: "omv.widget.dashboard.filesystemstatus",
+	alias: "widget.dashboard.filesystemstatus",
 	requires: [
 		"OMV.workspace.grid.Panel",
 		"OMV.data.Store",
@@ -42,7 +42,6 @@ Ext.define("OMV.module.admin.dashboard.widget.FileSystemStatus", {
 
 	title: "File system status",
 	icon: "images/filesystem.svg",
-	width: 300,
 	height: 150,
 	refreshInterval: 60000,
 

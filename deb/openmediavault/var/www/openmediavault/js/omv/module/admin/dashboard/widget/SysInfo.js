@@ -31,7 +31,7 @@
  */
 Ext.define("OMV.module.admin.dashboard.widget.SysInfo", {
 	extend: "OMV.workspace.dashboard.Widget",
-	alias: "omv.widget.dashboard.sysinfo",
+	alias: "widget.dashboard.sysinfo",
 	requires: [
 		"OMV.workspace.grid.Panel",
 		"OMV.data.Store",
@@ -42,7 +42,6 @@ Ext.define("OMV.module.admin.dashboard.widget.SysInfo", {
 
 	title: "System information",
 	icon: "images/statistics.svg",
-	width: 400,
 	height: 230,
 	refreshInterval: 5000,
 	showAtFirstStartup: true,

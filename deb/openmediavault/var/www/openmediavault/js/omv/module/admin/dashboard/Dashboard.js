@@ -19,20 +19,20 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/WorkspaceManager.js")
-// require("js/omv/workspace/dashboard/Panel.js")
+// require("js/omv/workspace/dashboard/Dashboard.js")
 
 /**
  * @class OMV.module.admin.system.general.AdminPasswd
  * @derived OMV.workspace.dashboard.Panel
  */
 Ext.define("OMV.module.admin.dashboard.Dashboard", {
-	extend: "OMV.workspace.dashboard.Panel",
+	extend: "OMV.workspace.dashboard.Dashboard",
 
-	getWidgetClasses: function() {
-		// Get the registered dashboard widgets classes.
-		var classNames = Ext.ClassManager.getNamesByExpression(
-		  "omv.widget.dashboard.*");
-		return classNames;
+	getWidgetAliases: function() {
+		// Get the registered dashboard widgets aliases.
+		var aliases = Ext.ClassManager.getAliasesByExpression(
+		  "widget.dashboard.*");
+		return aliases;
 	}
 });
 

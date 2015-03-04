@@ -133,7 +133,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 		// The list of the nodes to select after login is ordered by
 		// preference.
 		var uri = [
-//			"/diagnostic/dashboard",
+			"/diagnostic/dashboard",
 			"/diagnostic/system",
 			"/info/about"
 		];

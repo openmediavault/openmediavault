@@ -31,7 +31,7 @@
  */
 Ext.define("OMV.module.admin.dashboard.widget.ServiceStatus", {
 	extend: "OMV.workspace.dashboard.Widget",
-	alias: "omv.widget.dashboard.servicestatus",
+	alias: "widget.dashboard.servicestatus",
 	requires: [
 		"OMV.workspace.grid.Panel",
 		"OMV.data.Store",
@@ -42,7 +42,6 @@ Ext.define("OMV.module.admin.dashboard.widget.ServiceStatus", {
 
 	title: "Service status",
 	icon: "images/wrench.svg",
-	width: 400,
 	height: 250,
 	refreshInterval: 10000,
 	showAtFirstStartup: true,

@@ -363,18 +363,15 @@ Ext.define("OMV.workspace.Workspace", {
 			if (false == iconView) {
 				if (0 == node.getChildCount()) {
 					object = Ext.create(node.getClassName(), {
-						text: false,
+						header: false,
 						title: node.getText()
 					});
 				} else if (1 == node.getChildCount()) {
 					// Display a single panel.
 					var childNode = node.getChildAt(0);
 					object = Ext.create(childNode.getClassName(), {
-						text: false,
-						// Note, do not set the title here, otherwise it
-						// will be rendered automatically what is not
-						// wanted here.
-						//title: childNode.getText()
+						header: false,
+						title: childNode.getText()
 					});
 				} else {
 					// Create a tab panel containg all registered panels.

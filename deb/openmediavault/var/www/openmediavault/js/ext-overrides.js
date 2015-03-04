@@ -721,11 +721,32 @@ Ext.apply(Ext.ClassManager, {
 			expression = expression.replace(/\*/g, '(.*?)');
 		regex = new RegExp('^' + expression + '$');
 		for (name in this.classes) {
-			if (name.search(regex) !== -1) {
+			if (name.search(regex) !== -1)
 				names.push(name);
-			}
 		}
 		return names;
+	},
+
+	/**
+	 * Converts a string expression to an array of matching aliases.
+	 * @param expression The alias expression to search for.
+	 */
+	getAliasesByExpression: function(expression) {
+		var aliases = [], name, regex;
+		if (expression.indexOf('*') !== -1)
+			expression = expression.replace(/\*/g, '(.*?)');
+		regex = new RegExp('^' + expression + '$');
+		for (name in this.classes) {
+			var object = this.classes[name];
+			if (!Ext.isDefined(object.prototype) || !Ext.isArray(
+			  object.prototype.alias))
+				continue;
+			Ext.Array.each(object.prototype.alias, function(alias) {
+				if (alias.search(regex) !== -1)
+					aliases.push(alias);
+			});
+		}
+		return aliases;
 	}
 });
 
