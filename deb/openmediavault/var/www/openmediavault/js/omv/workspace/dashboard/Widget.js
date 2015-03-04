@@ -55,6 +55,7 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 	height: 200,
 	cls: Ext.baseCSSPrefix + "workspace-dashboard-widget",
 	icon: "images/puzzle.svg",
+	iconCls: Ext.baseCSSPrefix + "workspace-dashboard-widget-icon",
 
 	constructor: function(config) {
 		var me = this;

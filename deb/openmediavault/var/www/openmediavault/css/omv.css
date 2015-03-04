@@ -330,6 +330,11 @@ div#headerrlogo {
   background-repeat: repeat-x;
   background-position: bottom;
 }
+/* Dashboard */
+.x-workspace-dashboard-widget-icon {
+	opacity: 0.7;
+	background-size: 16px 16px;
+}
 /******************************************************************************/
 /* Tablet optimization                                                        */
 /******************************************************************************/
