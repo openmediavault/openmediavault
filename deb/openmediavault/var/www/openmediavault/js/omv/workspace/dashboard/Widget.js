@@ -21,9 +21,8 @@
 // require("js/omv/window/Window.js")
 
 /**
- * Display the child nodes of a workspace category in a data view.
- * @class OMV.workspace.dashboard.Panel
- * @derived OMV.workspace.panel.Panel
+ * @class OMV.workspace.dashboard.Widget
+ * @derived OMV.window.Window
  * @param refreshInterval The frequency in milliseconds in which the widget
  *   updates the shown content. Defaults to 0.
  * @param hideSettings Set to FALSE to show the settings button in the
