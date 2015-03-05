@@ -714,11 +714,12 @@ Ext.apply(Ext.ClassManager, {
 	 * method is equal to 'getNamesByExpression' but returns also classes
 	 * that do not have an alias.
 	 * @param expression The class name expression to search for.
+	 * @return An array of class names.
 	 */
 	getClassNamesByExpression: function(expression) {
 		var names = [], name, regex;
-		if (expression.indexOf('*') !== -1)
-			expression = expression.replace(/\*/g, '(.*?)');
+		expression = Ext.String.escapeRegex(expression);
+		expression = expression.replace(/\\\*/g, '(.*?)');
 		regex = new RegExp('^' + expression + '$');
 		for (name in this.classes) {
 			if (name.search(regex) !== -1)
@@ -730,11 +731,12 @@ Ext.apply(Ext.ClassManager, {
 	/**
 	 * Converts a string expression to an array of matching aliases.
 	 * @param expression The alias expression to search for.
+	 * @return An array of aliases.
 	 */
 	getAliasesByExpression: function(expression) {
 		var aliases = [], name, regex;
-		if (expression.indexOf('*') !== -1)
-			expression = expression.replace(/\*/g, '(.*?)');
+		expression = Ext.String.escapeRegex(expression);
+		expression = expression.replace(/\\\*/g, '(.*?)');
 		regex = new RegExp('^' + expression + '$');
 		for (name in this.classes) {
 			var object = this.classes[name];
@@ -747,28 +749,6 @@ Ext.apply(Ext.ClassManager, {
 			});
 		}
 		return aliases;
-	}
-});
-
-////////////////////////////////////////////////////////////////////////////////
-// Ext.window.Window
-////////////////////////////////////////////////////////////////////////////////
-
-Ext.override(Ext.window.Window, {
-	/**
-	 * Stateful windows position does not work correct. See:
-	 * http://www.sencha.com/forum/showthread.php?249459-4.1.3-Stateful-window-position-is-STILL-incorrect
-	 * http://www.sencha.com/forum/showthread.php?223430-4.1.1-Window-getState-should-respect-the-floatParent-propert-of-a-window
-	 */
-	getState: function() {
-		var me = this;
-		var state = me.callParent();
-		if (!(!!me.maximized || me.ghostBox)) {
-			Ext.apply(state, {
-				pos: me.getPosition(!!me.floatParent)
-			});
-		}
-		return state;
 	}
 });
 

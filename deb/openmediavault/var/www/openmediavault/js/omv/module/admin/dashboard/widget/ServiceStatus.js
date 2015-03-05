@@ -31,7 +31,7 @@
  */
 Ext.define("OMV.module.admin.dashboard.widget.ServiceStatus", {
 	extend: "OMV.workspace.dashboard.Widget",
-	alias: "widget.dashboard.servicestatus",
+	alias: "widget.module.admin.dashboard.widget.servicestatus",
 	requires: [
 		"OMV.workspace.grid.Panel",
 		"OMV.data.Store",

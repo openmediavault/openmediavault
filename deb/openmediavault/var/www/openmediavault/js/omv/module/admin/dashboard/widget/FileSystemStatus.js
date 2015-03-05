@@ -31,7 +31,7 @@
  */
 Ext.define("OMV.module.admin.dashboard.widget.FileSystemStatus", {
 	extend: "OMV.workspace.dashboard.Widget",
-	alias: "widget.dashboard.filesystemstatus",
+	alias: "widget.module.admin.dashboard.widget.filesystemstatus",
 	requires: [
 		"OMV.workspace.grid.Panel",
 		"OMV.data.Store",

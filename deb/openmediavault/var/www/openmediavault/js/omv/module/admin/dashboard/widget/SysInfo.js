@@ -31,7 +31,7 @@
  */
 Ext.define("OMV.module.admin.dashboard.widget.SysInfo", {
 	extend: "OMV.workspace.dashboard.Widget",
-	alias: "widget.dashboard.sysinfo",
+	alias: "widget.module.admin.dashboard.widget.sysinfo",
 	requires: [
 		"OMV.workspace.grid.Panel",
 		"OMV.data.Store",

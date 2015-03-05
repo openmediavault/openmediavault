@@ -38,7 +38,8 @@ Ext.define("OMV.workspace.node.Node", {
 		iconSvg: null,
 		childNodes: null,
 		parentNode: null,
-		leaf: false
+		leaf: false,
+		uri: null
 	},
 
 	statics: {
@@ -100,6 +101,8 @@ Ext.define("OMV.workspace.node.Node", {
 			childNodes: new Ext.util.MixedCollection()
 		}, config);
 		me.initConfig(config);
+		// Finally build/generate the 'uri' config attribute.
+		me.setConfig("uri", me.getUri());
 	},
 
 	appendChild: function(child) {

@@ -23,7 +23,7 @@
 
 /**
  * @class OMV.module.admin.system.general.AdminPasswd
- * @derived OMV.workspace.dashboard.Panel
+ * @derived OMV.workspace.dashboard.Dashboard
  */
 Ext.define("OMV.module.admin.dashboard.Dashboard", {
 	extend: "OMV.workspace.dashboard.Dashboard",
@@ -31,7 +31,7 @@ Ext.define("OMV.module.admin.dashboard.Dashboard", {
 	getWidgetAliases: function() {
 		// Get the registered dashboard widgets aliases.
 		var aliases = Ext.ClassManager.getAliasesByExpression(
-		  "widget.dashboard.*");
+		  "widget.module.admin.dashboard.widget.*");
 		return aliases;
 	}
 });
