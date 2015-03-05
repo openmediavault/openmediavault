@@ -26,7 +26,6 @@
  */
 Ext.define("OMV.workspace.dashboard.Dashboard", {
 	extend: "Ext.dashboard.Dashboard",
-	alias: "widget.workspace.dashboard.panel",
 	requires: [
 		"Ext.menu.Menu"
 	],
@@ -49,30 +48,20 @@ Ext.define("OMV.workspace.dashboard.Dashboard", {
 			items: me.getTopToolbarItems(me)
 		}));
 		// Setup the dashboard widgets that can be displayed.
-		var aliases = me.getWidgetAliases();
+		var aliases = me.getPartAliases();
 		var parts = {};
 		Ext.Array.each(aliases, function(alias) {
-			var widget = Ext.create(alias);
-			if (!Ext.isObject(widget) || !widget.isDashboardWidget)
+			var part = Ext.create(alias);
+			if (!Ext.isObject(part) || !part.isPart)
 				return;
-			var type = widget.getType();
-			parts[type] = {
-				viewTemplate: {
-					frame: false,
-					icon: widget.icon,
-					iconCls: Ext.baseCSSPrefix + "workspace-dashboard-widget-icon",
-                    title: widget.title,
-                    items: [{
-                        xtype: widget.xtype
-                    }]
-                }
-			};
+			var type = part.getType();
+			parts[type] = alias.replace(/^part\./, "");
 		}, me);
 		me.setParts(parts);
 		me.callParent(arguments);
 	},
 
-	getWidgetAliases: function() {
+	getPartAliases: function() {
 		return [];
 	},
 
@@ -92,15 +81,15 @@ Ext.define("OMV.workspace.dashboard.Dashboard", {
 		});
 		// Get the registered dashboard widget aliases and fill up the
 		// menu which displayes the available dashboard widgets.
-		var aliases = me.getWidgetAliases();
+		var aliases = me.getPartAliases();
 		Ext.Array.each(aliases, function(alias) {
-			var widget = Ext.create(alias);
-			if (!Ext.isObject(widget) || !widget.isDashboardWidget)
+			var part = Ext.create(alias);
+			if (!Ext.isObject(part) || !part.isPart)
 				return;
 			menu.add({
-				text: widget.title,
-				icon: widget.icon,
-				type: widget.getType()
+				text: part.getTitle(),
+				icon: part.getIcon(),
+				type: part.getType()
 			});
 		});
 		// Insert the combobox showing all registered dashboard widgets.
@@ -125,16 +114,16 @@ Ext.define("OMV.workspace.dashboard.Dashboard", {
 		var state = Ext.state.Manager.get(id);
 		if (!(Ext.isDefined(state) && Ext.isObject(state))) {
 			// Get all registered dashboard widgets.
-			var aliases = me.getWidgetAliases();
+			var aliases = me.getPartAliases();
 			Ext.Array.each(aliases, function(alias) {
-				var widget = Ext.create(alias);
-				if (!Ext.isObject(widget) || !widget.isDashboardWidget)
+				var part = Ext.create(alias);
+				if (!Ext.isObject(part) || !part.isPart)
 					return;
 				// Show the widget at startup (e.g. displaying the UI the
 				// first time or clearing the cookie)?
-				if (!widget.showAtFirstStartup)
+				if (!part.getShowAtFirstStartup())
 					return;
-				this.addNew(widget.getType());
+				this.addNew(part.getType());
 			}, me);
 		}
 	}
