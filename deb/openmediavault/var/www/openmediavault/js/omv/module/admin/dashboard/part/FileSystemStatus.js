@@ -18,30 +18,19 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/WorkspaceManager.js")
-// require("js/omv/workspace/dashboard/Dashboard.js")
+// require("js/omv/workspace/dashboard/Part.js")
 
 /**
- * @class OMV.module.admin.system.general.AdminPasswd
- * @derived OMV.workspace.dashboard.Dashboard
+ * @class OMV.module.admin.dashboard.part.FileSystemStatus
+ * @derived OMV.workspace.dashboard.Part
  */
-Ext.define("OMV.module.admin.dashboard.Dashboard", {
-	extend: "OMV.workspace.dashboard.Dashboard",
+Ext.define("OMV.module.admin.dashboard.part.FileSystemStatus", {
+	extend: "OMV.workspace.dashboard.Part",
+	alias: "part.module.admin.dashboard.part.filesystemstatus",
 
-	getPartAliases: function() {
-		// Get the registered dashboard widgets aliases.
-		var aliases = Ext.ClassManager.getAliasesByExpression(
-		  "part.module.admin.dashboard.part.*");
-		return aliases;
+	config: {
+		title: "File system status",
+		icon: "images/filesystem.svg",
+		viewXType: "module.admin.dashboard.view.filesystemstatus"
 	}
-});
-
-OMV.WorkspaceManager.registerPanel({
-	id: "dashboard",
-	path: "/diagnostic",
-	text: _("Dashboard"),
-	position: 1,
-	icon16: "images/grid.png",
-	iconSvg: "images/grid.svg",
-	className: "OMV.module.admin.dashboard.Dashboard"
 });

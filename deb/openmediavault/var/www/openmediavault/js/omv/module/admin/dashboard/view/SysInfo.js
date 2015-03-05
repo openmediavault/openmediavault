@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/workspace/dashboard/Widget.js")
+// require("js/omv/workspace/dashboard/View.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
@@ -26,12 +26,12 @@
 // require("js/omv/util/Format.js")
 
 /**
- * @class OMV.module.admin.dashboard.widget.SysInfo
- * @derived OMV.workspace.dashboard.Widget
+ * @class OMV.module.admin.dashboard.view.SysInfo
+ * @derived OMV.workspace.dashboard.View
  */
-Ext.define("OMV.module.admin.dashboard.widget.SysInfo", {
-	extend: "OMV.workspace.dashboard.Widget",
-	alias: "widget.module.admin.dashboard.widget.sysinfo",
+Ext.define("OMV.module.admin.dashboard.view.SysInfo", {
+	extend: "OMV.workspace.dashboard.View",
+	alias: "widget.module.admin.dashboard.view.sysinfo",
 	requires: [
 		"OMV.workspace.grid.Panel",
 		"OMV.data.Store",
@@ -40,11 +40,8 @@ Ext.define("OMV.module.admin.dashboard.widget.SysInfo", {
 		"OMV.util.Format"
 	],
 
-	title: "System information",
-	icon: "images/statistics.svg",
 	height: 200,
 	refreshInterval: 5000,
-	showAtFirstStartup: true,
 
 	initComponent: function() {
 		var me = this;

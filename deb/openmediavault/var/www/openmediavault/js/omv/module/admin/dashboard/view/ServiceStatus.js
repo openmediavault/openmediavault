@@ -18,7 +18,7 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/workspace/dashboard/Widget.js")
+// require("js/omv/workspace/dashboard/View.js")
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
@@ -26,12 +26,12 @@
 // require("js/omv/util/Format.js")
 
 /**
- * @class OMV.module.admin.dashboard.widget.FileSystemStatus
- * @derived OMV.workspace.dashboard.Widget
+ * @class OMV.module.admin.dashboard.view.ServiceStatus
+ * @derived OMV.workspace.dashboard.View
  */
-Ext.define("OMV.module.admin.dashboard.widget.FileSystemStatus", {
-	extend: "OMV.workspace.dashboard.Widget",
-	alias: "widget.module.admin.dashboard.widget.filesystemstatus",
+Ext.define("OMV.module.admin.dashboard.view.ServiceStatus", {
+	extend: "OMV.workspace.dashboard.View",
+	alias: "widget.module.admin.dashboard.view.servicestatus",
 	requires: [
 		"OMV.workspace.grid.Panel",
 		"OMV.data.Store",
@@ -40,10 +40,9 @@ Ext.define("OMV.module.admin.dashboard.widget.FileSystemStatus", {
 		"OMV.util.Format"
 	],
 
-	title: "File system status",
-	icon: "images/filesystem.svg",
-	height: 150,
-	refreshInterval: 60000,
+	height: 200,
+	refreshInterval: 10000,
+	showAtFirstStartup: true,
 
 	initComponent: function() {
 		var me = this;
@@ -52,50 +51,50 @@ Ext.define("OMV.module.admin.dashboard.widget.FileSystemStatus", {
 				disableLoadMaskOnLoad: true,
 				hideTopToolbar: true,
 				hidePagingToolbar: true,
+				hideHeaders: true,
 				disableSelection: true,
 				stateful: true,
-				stateId: "778ea266-eaf3-11e3-8211-0002b3a176b4",
+				stateId: "08ee3b76-e325-11e3-ad0a-00221568ca88",
 				columns: [{
-					xtype: "emptycolumn",
-					text: _("Device/Label"),
+					text: _("Service"),
 					sortable: true,
-					dataIndex: "devicefile",
-					stateId: "devicelabel",
-					flex: 1,
-					renderer: function(value, metaData, record) {
-						if (!Ext.isEmpty(record.get("label")))
-							return record.get("label");
-						return value;
-					}
-				},{
-					xtype: "emptycolumn",
-					text: _("Device"),
-					sortable: true,
-					dataIndex: "devicefile",
-					stateId: "devicefile",
-					hidden: true,
+					dataIndex: "title",
+					stateId: "title",
 					flex: 1
 				},{
-					text: _("Label"),
+					xtype: "booleaniconcolumn",
+					text: _("Enabled"),
 					sortable: true,
-					dataIndex: "label",
-					stateId: "label",
-					hidden: true,
-					flex: 1
-				},{
-					text: _("Used"),
-					sortable: true,
-					dataIndex: "used",
-					stateId: "used",
+					dataIndex: "enabled",
+					stateId: "enabled",
+					width: 80,
+					resizable: false,
 					align: "center",
-					flex: 2,
-					renderer: function(value, metaData, record) {
-						var percentage = parseInt(record.get("percentage"));
-						if (-1 == percentage)
-							return _("n/a");
-						var renderer = OMV.util.Format.progressBarRenderer(
-						  percentage / 100, value);
-						return renderer.apply(this, arguments);
+					trueIcon: "switch_on.png",
+					falseIcon: "switch_off.png"
+				},{
+					text: _("Running"),
+					sortable: true,
+					dataIndex: "running",
+					stateId: "running",
+					width: 80,
+					resizable: false,
+					align: "center",
+					renderer: function(value, metaData, record, rowIndex,
+					  colIndex, store, view) {
+						var img;
+						switch(record.get("enabled")) {
+						case 1:
+						case true:
+							img = (true == value) ? "led_blue.png" :
+							  "led_red.png";
+							break;
+						default:
+							img = (true == value) ? "led_blue.png" :
+							  "led_gray.png";
+							break;
+						}
+						return "<img border='0' src='images/" + img + "'>";
 					}
 				}],
 				viewConfig: {
@@ -104,25 +103,25 @@ Ext.define("OMV.module.admin.dashboard.widget.FileSystemStatus", {
 				store: Ext.create("OMV.data.Store", {
 					autoLoad: true,
 					model: OMV.data.Model.createImplicit({
-						idProperty: "devicefile",
+						idProperty: "name",
 						fields: [
-							{ name: "devicefile", type: "string" },
-							{ name: "label", type: "string" },
-							{ name: "used", type: "string" },
-							{ name: "percentage", type: "string" }
+							{ name: "name", type: "string" },
+							{ name: "title", type: "string" },
+							{ name: "enabled", type: "boolean" },
+							{ name: "running", type: "boolean" }
 						]
 					}),
 					proxy: {
 						type: "rpc",
 						appendSortParams: false,
 						rpcData: {
-							service: "FileSystemMgmt",
-							method: "enumerateFilesystems"
+							service: "Services",
+							method: "getStatus"
 						}
 					},
 					sorters: [{
 						direction: "ASC",
-						property: "devicefile"
+						property: "name"
 					}]
 				})
 			}) ]
