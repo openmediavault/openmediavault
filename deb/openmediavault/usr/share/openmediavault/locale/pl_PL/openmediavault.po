@@ -6,7 +6,7 @@
 # Cyryl Sochacki <>, 2012
 # Cyryl Sochacki <cyrylsochacki@gmail.com>, 2012-2015
 # Jacek Niedziółka <>, 2012
-# jacekniedziolka71 <jacnie@wp.pl>, 2012
+# jacekniedziolka71 <lucas71@interia.pl>, 2012
 # Jakub Górny <jakub@world.pl>, 2012
 msgid ""
 msgstr ""
