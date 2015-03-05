@@ -18,27 +18,18 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
-// require("js/omv/data/field/Array.js")
-// require("js/omv/data/field/Object.js")
 
 /**
  * @ingroup webgui
- * @class OMV.data.Model
- * @derived Ext.data.Model
+ * @class OMV.data.field.Array
+ * @derived Ext.data.field.Field
  */
-Ext.define("OMV.data.Model", {
-	extend: "Ext.data.Model",
-	requires: [
-		"OMV.data.field.Array",
-		"OMV.data.field.Object"
-	],
+Ext.define("OMV.data.field.Array", {
+    extend: "Ext.data.field.Field",
 
-	statics: {
-		createImplicit: function(config) {
-			var className = "OMV.data.Store.ImplicitModel-" + Ext.id();
-			return Ext.define(className, Ext.apply(config, {
-				extend: "OMV.data.Model"
-			}));
-		}
-	}
+    alias: "data.field.array",
+
+    getType: function() {
+        return "array";
+    }
 });

@@ -42,7 +42,7 @@ Ext.define("OMV.module.admin.dashboard.widget.SysInfo", {
 
 	title: "System information",
 	icon: "images/statistics.svg",
-	height: 230,
+	height: 200,
 	refreshInterval: 5000,
 	showAtFirstStartup: true,
 

@@ -72,6 +72,12 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 	 */
 	doRefresh: Ext.emptyFn,
 
+	/**
+	 * Helper function to generate a type ID based on the widget alias name.
+	 * This is used by the Ext.dashboard.Dashboard 'parts' config.
+	 * @private
+	 * @return The type ID.
+	 */
 	getType: function() {
 		var me = this;
 		var type = me.alias[0];

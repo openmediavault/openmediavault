@@ -34,6 +34,7 @@ Ext.define("OMV.workspace.window.TextArea", {
 	],
 
 	readOnly: true,
+	border: false,
 
 	hideOkButton: true,
 	hideCancelButton: true,

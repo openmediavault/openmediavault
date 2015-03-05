@@ -42,7 +42,7 @@ Ext.define("OMV.module.admin.dashboard.widget.ServiceStatus", {
 
 	title: "Service status",
 	icon: "images/wrench.svg",
-	height: 250,
+	height: 200,
 	refreshInterval: 10000,
 	showAtFirstStartup: true,
 
