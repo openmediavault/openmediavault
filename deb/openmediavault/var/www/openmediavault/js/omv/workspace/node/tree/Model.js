@@ -28,7 +28,7 @@ Ext.define("OMV.workspace.node.tree.Model", {
 	extend: "Ext.data.Model",
 
 	fields: [
-		{ name: "node", type: "auto" },
+		{ name: "node", type: "object" },
 		{ name: "text", type: "string" }
 	]
 });

@@ -1,5 +1,6 @@
 openmediavault (1.14) stable; urgency=low
 
+  * Update locales.
   * Fix various ExtJS issues.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 25 Feb 2015 13:18:23 +0100
