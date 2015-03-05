@@ -739,18 +739,41 @@ Ext.apply(Ext.ClassManager, {
 	 * method is equal to 'getNamesByExpression' but returns also classes
 	 * that do not have an alias.
 	 * @param expression The class name expression to search for.
+	 * @return An array of class names.
 	 */
 	getClassNamesByExpression: function(expression) {
 		var names = [], name, regex;
-		if (expression.indexOf('*') !== -1)
-			expression = expression.replace(/\*/g, '(.*?)');
+		expression = Ext.String.escapeRegex(expression);
+		expression = expression.replace(/\\\*/g, '(.*?)');
 		regex = new RegExp('^' + expression + '$');
 		for (name in this.classes) {
-			if (name.search(regex) !== -1) {
+			if (name.search(regex) !== -1)
 				names.push(name);
-			}
 		}
 		return names;
+	},
+
+	/**
+	 * Converts a string expression to an array of matching aliases.
+	 * @param expression The alias expression to search for.
+	 * @return An array of aliases.
+	 */
+	getAliasesByExpression: function(expression) {
+		var aliases = [], name, regex;
+		expression = Ext.String.escapeRegex(expression);
+		expression = expression.replace(/\\\*/g, '(.*?)');
+		regex = new RegExp('^' + expression + '$');
+		for (name in this.classes) {
+			var object = this.classes[name];
+			if (!Ext.isDefined(object.prototype) || !Ext.isArray(
+			  object.prototype.alias))
+				continue;
+			Ext.Array.each(object.prototype.alias, function(alias) {
+				if (alias.search(regex) !== -1)
+					aliases.push(alias);
+			});
+		}
+		return aliases;
 	}
 });
 

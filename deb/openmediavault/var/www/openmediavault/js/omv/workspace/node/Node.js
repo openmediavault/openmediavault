@@ -94,11 +94,13 @@ Ext.define("OMV.workspace.node.Node", {
 
 	constructor: function(config) {
 		var me = this;
+		// Append default values.
 		me.initConfig(config);
 		Ext.apply(me, config || {}, {
 			id: Ext.id(),
 			childNodes: new Ext.util.MixedCollection()
 		});
+		// Finally build/generate the 'uri' config attribute.
 		me.uri = me.getUri();
 	},
 
