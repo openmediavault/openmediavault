@@ -42,7 +42,7 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 	stateId: "ee299152-4534-11e3-bbea-0002b3a176b4",
 	stateEvents: [ "afteritemcollapse", "afteritemexpand",
 	  "collapse", "expand" ],
-	singleClickExpand: false,
+	singleExpand: false,
 	rootVisible: false,
 
 	constructor: function(config) {
