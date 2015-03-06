@@ -444,6 +444,10 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "1.10"; then
 			omv-mkconf samba
 		fi
+		if dpkg --compare-versions "$2" lt-nl "2.0"; then
+			omv-mkconf nginx
+			service nginx reload
+		fi
 	;;
 
 	triggered)
