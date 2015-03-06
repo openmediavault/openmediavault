@@ -37,6 +37,7 @@
 Ext.define("OMV.workspace.Workspace", {
 	extend: "Ext.container.Viewport",
 	requires: [
+		"OMV.WorkspaceManager",
 		"OMV.SessionManager",
 		"OMV.Rpc",
 		"OMV.toolbar.ApplyCfg",
@@ -106,6 +107,13 @@ Ext.define("OMV.workspace.Workspace", {
 	buildTree: function() {
 		var me = this;
 		return me.tp = Ext.create("OMV.workspace.node.tree.Panel", {
+			plugins: "responsive",
+			responsiveConfig: {
+				"tablet || phone || touch": {
+					collapsed: true,
+					singleClickExpand: true
+				}
+			},
 			region: "west",
 			split: true,
 			width: 210,
@@ -443,5 +451,26 @@ Ext.define("OMV.workspace.Workspace", {
 			});
 			me.getToolbar().insert(0, components);
 		}
+	},
+
+	afterRender: function() {
+		var me = this;
+		me.callParent(arguments);
+		// The list of the nodes to select after login is ordered by
+		// preference.
+		var uris = [
+			"/diagnostic/dashboard",
+			"/diagnostic/system",
+			"/info/about"
+		];
+		// Find and select the workspace node to automatically select
+		// after login.
+		Ext.Array.each(uris, function(uri) {
+			var node = OMV.WorkspaceManager.getNodeByPath(uri);
+			if (!Ext.isEmpty(node) && node.isNode) {
+				this.onSelectNode(node, false);
+				return false;
+			}
+		}, me);
 	}
 });

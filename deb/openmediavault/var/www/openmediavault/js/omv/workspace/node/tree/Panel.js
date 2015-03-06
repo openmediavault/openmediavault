@@ -127,44 +127,6 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 		me.callParent(arguments);
 	},
 
-	afterRender: function() {
-		var me = this;
-		me.callParent(arguments);
-		// The list of the nodes to select after login is ordered by
-		// preference.
-		var uri = [
-			"/diagnostic/dashboard",
-			"/diagnostic/system",
-			"/info/about"
-		];
-		// Find the workspace node to automatically select after login.
-		var nodeToSelect = null;
-		me.getRootNode().get("node").cascadeBy(function(node) {
-			var index = Ext.Array.indexOf(uri, node.getUri());
-			if (0 <= index) {
-				if (0 == index) {
-					// The prefered workspace node to use.
-					nodeToSelect = node;
-				} else {
-					// Continue search. This workspace node is only a fallback
-					// if the prefered one is not found.
-					if (Ext.isEmpty(nodeToSelect))
-						nodeToSelect = node;
-				}
-			}
-		});
-		// Any workspace node found that can be selected?
-		if (!Ext.isEmpty(nodeToSelect) && nodeToSelect.isNode) {
-			// Select the found node delayed to ensure the components
-			// are already rendered (especially the toolbar displaying
-			// the path of the selected node). Maybe not the best
-			// solution but it works at the moment.
-			Ext.Function.defer(function() {
-				me.selectPathByNode(nodeToSelect);
-			}, 500, me);
-		}
-	},
-
 	/**
 	 * Gets the current state of the tree panel. It contains an array of
 	 * expanded nodes.
