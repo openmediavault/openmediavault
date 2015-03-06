@@ -22,6 +22,9 @@
 /**
  * @class OMV.workspace.dashboard.Part
  * @derived Ext.dashboard.Part
+ * @param title The title text to be used to display in the panel header.
+ * @param icon Path to image for an icon.
+ * @param viewXType The xtype of the component to be displayed in the view.
  * @param showAtFirstStartup Set to TRUE to display the widget by default
  *   if the dashboard panel is displayed the first time or the cookie has
  *   been cleared. Defaults to FALSE.

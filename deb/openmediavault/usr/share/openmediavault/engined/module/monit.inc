@@ -43,8 +43,15 @@ class OMVModuleMonit extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
+        # Build the configuration.
 		$cmd = "export LANG=C; omv-mkconf monit 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
+			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
+			  $cmd, implode("\n", $output));
+		}
+		# Test the new configuration.
+		$cmd = "export LANG=C; monit -t 2>&1";
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
