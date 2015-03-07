@@ -107,13 +107,6 @@ Ext.define("OMV.workspace.Workspace", {
 	buildTree: function() {
 		var me = this;
 		return me.tp = Ext.create("OMV.workspace.node.tree.Panel", {
-			plugins: "responsive",
-			responsiveConfig: {
-				"tablet || phone || touch": {
-					collapsed: true,
-					singleClickExpand: true
-				}
-			},
 			region: "west",
 			split: true,
 			width: 210,

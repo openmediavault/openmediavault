@@ -42,7 +42,6 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 	stateId: "ee299152-4534-11e3-bbea-0002b3a176b4",
 	stateEvents: [ "afteritemcollapse", "afteritemexpand",
 	  "collapse", "expand" ],
-	singleExpand: false,
 	rootVisible: false,
 
 	constructor: function(config) {
@@ -190,7 +189,10 @@ Ext.define("OMV.workspace.node.tree.Panel", {
 		// Any tree node found that can be selected?
 		if (!Ext.isEmpty(treeNodeToSelect) && treeNodeToSelect.isModel) {
 			var path = treeNodeToSelect.getPath();
-			me.selectPath(path);
+			me.expandPath(path, {
+				select: true,
+				focus: true
+			});
 		}
 	}
 });
