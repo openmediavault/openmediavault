@@ -1,8 +1,6 @@
-Index: shairport-2.2.2/Makefile.am
-===================================================================
---- shairport-2.2.2.orig/Makefile.am	2015-02-20 13:53:39.772641795 +0000
-+++ shairport-2.2.2/Makefile.am	2015-02-20 13:53:53.556641663 +0000
-@@ -35,7 +35,3 @@
+--- shairport-2.2.2.orig/Makefile.am
++++ shairport-2.2.2/Makefile.am
+@@ -35,7 +35,3 @@ endif
  if USE_DNS_SD
  shairport_sync_SOURCES += mdns_dns_sd.c
  endif
