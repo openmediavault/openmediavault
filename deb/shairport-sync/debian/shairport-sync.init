@@ -1,6 +1,6 @@
 #! /bin/sh
 ### BEGIN INIT INFO
-# Provides:          shairport
+# Provides:          shairport-sync
 # Required-Start:    $remote_fs $networking
 # Required-Stop:     $remote_fs $networking
 # Should-Start:      pulseaudio alsa-utils hostname avahi
@@ -11,15 +11,15 @@
 # Description:       Implements a synchronous (multi-room-capable) AirPlay receiver
 ### END INIT INFO
 
-# Do not modify this file. Edit /etc/default/shairport instead !
+# Do not modify this file. Edit /etc/default/shairport-sync instead !
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 DESC="AirPlay Synchronous Audio Service"
-NAME=shairport
-DAEMON=/usr/bin/$NAME-sync
+NAME=shairport-sync
+DAEMON=/usr/bin/$NAME
 
 # Configuration defaults
-PIDFILE=/var/run/$NAME-sync.pid
+PIDFILE=/var/run/$NAME.pid
 AP_NAME=$(hostname)
 NICE=0
 

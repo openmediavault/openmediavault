@@ -1,4 +1,4 @@
-# shairport Daemon options
+# shairport-sync Daemon options
 # Uncomment and modify lines to change defaults
 #
 
@@ -13,13 +13,13 @@
 
 # Set output driver and options
 # Defaults to the first available, depends on the build options
-# Check 'shairport -h' for details
+# Check 'shairport-sync -h' for details
 #OUTPUT=ao
 #OUTPUT_OPTS=
 
 # Force the mDNS backend
-# By default, shairport will try all backends until one works.
-# Check 'shairport -h' for details
+# By default, shairport-sync will try all backends until one works.
+# Check 'shairport-sync -h' for details
 # MDNS=avahi
 
 #RUN_ONSTART=

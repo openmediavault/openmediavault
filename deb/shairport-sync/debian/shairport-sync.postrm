@@ -4,7 +4,7 @@ set -e
 
 case "$1" in
 	remove)
-		invoke-rc.d shairport stop || :
+		invoke-rc.d shairport-sync stop || :
 		;;
 
 	purge)

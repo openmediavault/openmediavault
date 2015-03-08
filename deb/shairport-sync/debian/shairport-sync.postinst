@@ -4,9 +4,9 @@ set -e
 
 case "$1" in
 	configure)
-		if [ -x "/etc/init.d/shairport" ]; then
-			update-rc.d shairport defaults 25 >/dev/null
-			invoke-rc.d shairport start || exit $?
+		if [ -x "/etc/init.d/shairport-sync" ]; then
+			update-rc.d shairport-sync defaults 25 >/dev/null
+			invoke-rc.d shairport-sync start || exit $?
 		fi
 		;;
 

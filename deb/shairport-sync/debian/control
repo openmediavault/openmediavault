@@ -1,4 +1,4 @@
-Source: shairport
+Source: shairport-sync
 Section: sound
 Priority: optional
 Maintainer: Volker Theile <volker.theile@openmediavault.org>
@@ -7,7 +7,7 @@ Build-Depends: debhelper (>= 7), libavahi-client-dev, libssl-dev,
 Standards-Version: 3.9.4
 Homepage: https://github.com/mikebrady/shairport-sync
 
-Package: shairport
+Package: shairport-sync
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, avahi-daemon
 Description: An AirPlay-compatible audio receiver
