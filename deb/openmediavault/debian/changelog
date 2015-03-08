@@ -1,3 +1,9 @@
+openmediavault (2.0.1) stable; urgency=low
+
+  * Adapt WebGUI to Sencha ExtJS 5.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 08 Mar 2015 12:06:37 +0100
+
 openmediavault (2.0) stable; urgency=low
 
   * Adapt WebGUI to Sencha ExtJS 5.

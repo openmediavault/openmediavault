@@ -252,10 +252,18 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 			xtype: "tbseparator"
 		},{
 			id: me.getId() + "-searchtext",
-			xtype: "triggerfield",
+			xtype: "textfield",
 			flex: 1,
-			trigger1Cls: Ext.baseCSSPrefix + "form-clear-trigger",
-			trigger2Cls: Ext.baseCSSPrefix + "form-search-trigger",
+			triggers: {
+				clear: {
+					cls: Ext.baseCSSPrefix + "form-clear-trigger",
+					handler: "onTrigger1Click"
+				},
+				search: {
+					cls: Ext.baseCSSPrefix + "form-search-trigger",
+					handler: "onTrigger2Click"
+				}
+			},
 			onTrigger1Click: function() {
 				// Reset the filter settings.
 				this.reset();
