@@ -59,14 +59,14 @@ Ext.define("OMV.workspace.dashboard.Part", {
 	},
 
 	/**
-	 * Helper function to generate a type ID based on the alias name.
+	 * Helper function to generate a type ID based on the class name.
 	 * This is used by the Ext.dashboard.Dashboard 'parts' config.
 	 * @private
 	 * @return The type ID.
 	 */
 	getType: function() {
 		var me = this;
-		var type = me.alias[0];
+		var type = Ext.getClassName(me).toLowerCase();
 		return type.replace(/\./g, "");
 	}
 });

@@ -152,10 +152,6 @@ div#headerrlogo {
 	background-image: none; /* Flat design */
 }
 /* Tabs */
-.x-tab-bar-default-top {
-	background-image: none;
-	background-color: #d8d8d8; /* Flat design */
-}
 .x-tab-invalid {
 	border: 1px solid #cc3300;
 }
@@ -334,20 +330,4 @@ div#headerrlogo {
 .x-workspace-dashboard-widget-icon {
 	opacity: 0.7;
 	background-size: 16px 16px;
-}
-/******************************************************************************/
-/* Tablet optimization                                                        */
-/******************************************************************************/
-@media only screen
-/* iPads */
-and (min-device-width: 768px) and (max-device-width: 1024px) {
-	.x-tree-lines .x-tree-elbow,
-	.x-tree-lines .x-tree-elbow-line,
-	.x-tree-lines .x-tree-elbow-end {
-		background: transparent;
-	}
-	.x-workspace-node-tree .x-grid-td {
-		padding-top: 5px;
-		padding-bottom: 5px;
-	}
 }

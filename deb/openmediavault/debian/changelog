@@ -4,6 +4,12 @@ openmediavault (2.0) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Feb 2015 09:50:29 +0100
 
+openmediavault (1.15) stable; urgency=low
+
+  * Mantis 0001279: Client field for NFS exports must not be forced.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Sun, 08 Mar 2015 00:21:26 +0100
+
 openmediavault (1.14) stable; urgency=low
 
   * Update locales.

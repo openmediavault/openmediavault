@@ -68,7 +68,7 @@ Ext.define("OMV.module.admin.service.nfs.Share", {
 			xtype: "textfield",
 			name: "client",
 			fieldLabel: _("Client"),
-			allowBlank: false,
+			allowBlank: true,
 			vtype: "noBlank",
 			plugins: [{
 				ptype: "fieldinfo",
