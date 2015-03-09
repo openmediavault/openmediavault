@@ -166,22 +166,23 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 
 	afterRender: function() {
 		var me = this;
-		if(Ext.isEmpty(me.reloadTask)) {
-			me.reloadTask = Ext.util.TaskManager.start({
+		if (Ext.isEmpty(me.reloadTask)) {
+			me.reloadTask = Ext.util.TaskManager.newTask({
 				run: me.doCheck,
 				scope: me,
 				interval: me.reloadInterval,
 				fireOnStart: true
 			});
+			me.reloadTask.start();
 		}
 		me.callParent();
 	},
 
-	beforeDestroy: function() {
+	destroy: function() {
 		var me = this;
 		if (!Ext.isEmpty(me.reloadTask) && (me.reloadTask.isTask)) {
-			Ext.util.TaskManager.stop(me.reloadTask);
-			delete me.reloadTask;
+			me.reloadTask.destroy();
+			me.reloadTask = null;
 		}
 		me.callParent();
 	},

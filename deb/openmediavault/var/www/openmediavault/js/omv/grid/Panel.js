@@ -92,19 +92,20 @@ Ext.define("OMV.grid.Panel", {
 		// Auto-reload the grid content?
 		if(me.autoReload) {
 			var fnActivateTask = function() {
-				if(Ext.isEmpty(me.reloadTask)) {
-					me.reloadTask = Ext.util.TaskManager.start({
+				if (Ext.isEmpty(me.reloadTask)) {
+					me.reloadTask = Ext.util.TaskManager.newTask({
 						run: me.doReload,
 						scope: me,
 						interval: me.reloadInterval,
 						fireOnStart: true
 					});
+					me.reloadTask.start();
 				}
 			};
 			var fnDeactivateTask = function() {
-				if(!Ext.isEmpty(me.reloadTask)) {
-					Ext.util.TaskManager.stop(me.reloadTask);
-					delete me.reloadTask;
+				if (!Ext.isEmpty(me.reloadTask)) {
+					me.reloadTask.destroy();
+					me.reloadTask = null;
 				}
 			}
 			me.on({
