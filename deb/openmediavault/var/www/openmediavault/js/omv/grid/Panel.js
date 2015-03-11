@@ -103,7 +103,7 @@ Ext.define("OMV.grid.Panel", {
 				}
 			};
 			var fnDeactivateTask = function() {
-				if (!Ext.isEmpty(me.reloadTask)) {
+				if (!Ext.isEmpty(me.reloadTask) && (me.reloadTask.isTask)) {
 					me.reloadTask.destroy();
 					me.reloadTask = null;
 				}

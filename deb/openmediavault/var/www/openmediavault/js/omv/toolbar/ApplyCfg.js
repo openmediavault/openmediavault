@@ -180,6 +180,7 @@ Ext.define("OMV.toolbar.ApplyCfg", {
 
 	destroy: function() {
 		var me = this;
+		// Stop a running task?
 		if (!Ext.isEmpty(me.reloadTask) && (me.reloadTask.isTask)) {
 			me.reloadTask.destroy();
 			me.reloadTask = null;
