@@ -124,22 +124,23 @@ Ext.define("OMV.workspace.dashboard.Widget", {
 	onBoxReady: function() {
 		var me = this;
 		if ((me.refreshInterval > 0) && Ext.isEmpty(me.refreshTask)) {
-			me.refreshTask = Ext.util.TaskManager.start({
+			me.refreshTask = Ext.util.TaskManager.newTask({
 				run: me.doRefresh,
 				scope: me,
 				interval: me.refreshInterval,
 				fireOnStart: true
 			});
+			me.refreshTask.start();
 		}
 		me.callParent(arguments);
 	},
 
-	beforeDestroy: function() {
+	destroy: function() {
 		var me = this;
 		// Stop a running task?
 		if (!Ext.isEmpty(me.refreshTask) && (me.refreshTask.isTask)) {
-			Ext.util.TaskManager.stop(me.refreshTask);
-			delete me.refreshTask;
+			me.refreshTask.destroy();
+			me.refreshTask = null;
 		}
 		me.callParent();
 	},
