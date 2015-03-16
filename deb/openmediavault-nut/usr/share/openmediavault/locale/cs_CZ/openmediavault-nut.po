@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2012-03-17 01:51+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-02-04 16:42+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,96 +19,96 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 msgid "Charge"
-msgstr ""
+msgstr "Nabití"
 
 msgid "Comment"
-msgstr ""
+msgstr "Komentář"
 
 msgid "Date & Time"
-msgstr ""
+msgstr "Datum a čas"
 
 msgid "Defines when the shutdown is initiated."
-msgstr ""
+msgstr "Určuje, v jakém okamžiku je zahájeno vypínání."
 
 msgid "Driver configuration directives"
-msgstr ""
+msgstr "Pokyny nastavení ovladače"
 
 msgid "Enable"
-msgstr ""
+msgstr "Zapnout"
 
 msgid "Enable remote monitoring of the local connected UPS."
-msgstr ""
+msgstr "Zapnout vzdálené dohledování přímo připojené UPS."
 
 msgid "General settings"
-msgstr ""
+msgstr "Obecná nastavení"
 
 msgid "Identifier"
-msgstr ""
+msgstr "Identifikátor"
 
 msgid "Load"
-msgstr ""
+msgstr "Zátěž"
 
 msgid "Message"
-msgstr ""
+msgstr "Zpráva"
 
 msgid "PID"
 msgstr ""
 
 msgid "Password"
-msgstr ""
+msgstr "Heslo"
 
 msgid "Program"
 msgstr ""
 
 msgid "Remote monitoring"
-msgstr ""
+msgstr "Vzdálené dohledování"
 
 msgid "Service disabled"
-msgstr ""
+msgstr "Služba je zakázána"
 
 msgid "Settings"
-msgstr ""
+msgstr "Nastavení"
 
 msgid "Shutdown mode"
-msgstr ""
+msgstr "Kdy vypínat"
 
 msgid "Shutdown timer"
-msgstr ""
+msgstr "Časovač vypnutí"
 
 msgid "Temperature"
-msgstr ""
+msgstr "Teplota"
 
 msgid "The name used to uniquely identify your UPS on this system."
-msgstr ""
+msgstr "Název pro jednoznačnou identifikaci UPS zdroje tohoto stroje."
 
 msgid ""
 "The time in seconds until shutdown is initiated. If the UPS happens to come "
 "back before the time is up the shutdown is canceled."
-msgstr ""
+msgstr "Čas v sekundách do zahájení vypínání. Pokud je do uplynutí této lhůty obnoveno napájení z rozvodné sítě, vypínat se nebude."
 
 msgid ""
 "To get more information how to configure your UPS please check the Network "
 "UPS Tools <a href='http://www.networkupstools.org/docs/man/ups.conf.html' "
 "target='_blank'>documentation</a>."
-msgstr ""
+msgstr "Více informací o nastavování zdrojů nepřerušovaného napájení je uvedeno <a href='http://www.networkupstools.org/docs/man/ups.conf.html' target='_blank'>dokumentaci</a> k systému Network UPS Tools."
 
 msgid "UPS"
-msgstr ""
+msgstr "Zdroj nepřerušovaného napájení (UPS)"
 
 msgid "UPS goes on battery"
-msgstr ""
+msgstr "UPS je v provozu na akumulátor"
 
 msgid "UPS reaches low battery"
-msgstr ""
+msgstr "Akumulátor v UPS je již téměř vybitý"
 
 msgid "Used for remote authentication."
-msgstr ""
+msgstr "Použito pro vzdálené ověření."
 
 msgid "Username"
-msgstr ""
+msgstr "Přihlašovací jméno"
 
 msgid "Variables"
-msgstr ""
+msgstr "Proměnné"
 
 msgid "Voltage"
-msgstr ""
+msgstr "Napětí"

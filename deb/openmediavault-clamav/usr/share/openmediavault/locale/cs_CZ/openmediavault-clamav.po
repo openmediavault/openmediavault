@@ -4,13 +4,14 @@
 # 
 # Translators:
 # Jan Štourač <wormsik666@gmail.com>, 2014
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-11-30 02:09+0100\n"
-"PO-Revision-Date: 2014-11-30 01:10+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2014-12-31 14:24+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,24 +23,24 @@ msgid "Add job"
 msgstr "Přidat úlohu"
 
 msgid "Algorithmic detection"
-msgstr "Algoritmická detekce"
+msgstr "Algoritmické zjištění"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr "Emailová zpráva obsahující výstup příkazu (pokud nějaký existuje) je odeslána administrátorovi."
+msgstr "E-mail, obsahující výstup z příkazu (pokud nějaký vznikl), byl odeslán správci systému."
 
 msgid "Antivirus"
 msgstr "Antivirus"
 
 msgid "Be verbose."
-msgstr ""
+msgstr "Obsáhlejší výstup."
 
 msgid "Comment"
 msgstr "Komentář"
 
 msgid "Database checks"
-msgstr "Frekvence kontroly databáze"
+msgstr "Četnost kontrol databáze"
 
 msgid "Date & Time"
 msgstr "Datum & čas"
@@ -51,10 +52,10 @@ msgid "Day of week"
 msgstr "Den v týdnu"
 
 msgid "Detect PUA"
-msgstr "Detekovat PNA"
+msgstr "Zjišťovat PUA"
 
 msgid "Detect broken executables"
-msgstr "Detekovat poškozené spustitelné soubory"
+msgstr "Zjišťovat poškozené spustitelné soubory"
 
 msgid "Edit job"
 msgstr "Upravit úlohu"
@@ -63,7 +64,7 @@ msgid "Enable"
 msgstr "Povolit"
 
 msgid "Enable HTML detection and normalisation."
-msgstr "Povolit detekování a normalizaci HTML"
+msgstr "Povolit zjišťování a normalizaci HTML"
 
 msgid "Enable archive scanning."
 msgstr "Povolit kontrolu archivů"
@@ -72,7 +73,7 @@ msgid "Enable on-access virus scanning"
 msgstr "Povolit hledávání virů při přístupu (on-access)"
 
 msgid "Enable scanning of ELF files."
-msgstr "Povolit kontrolu ELF souborů."
+msgstr "Povolit kontrolu ELF (spustitelných) souborů."
 
 msgid ""
 "Enable scanning of OLE2 files, such as Microsoft Office documents and .msi "
@@ -95,7 +96,7 @@ msgid "Enabled"
 msgstr "Povolené"
 
 msgid "Every N day of month"
-msgstr "Každých N dní v měsíci"
+msgstr "Každý N-tý den v měsíci"
 
 msgid "Every N hour"
 msgstr "Každých N hodin"
@@ -107,13 +108,13 @@ msgid "Execute cron job"
 msgstr "Spustit cron úlohu"
 
 msgid "Extra options"
-msgstr "Extra parametry"
+msgstr "Další možnosti"
 
 msgid "Follow directory symlinks"
-msgstr "Následovat odkazy na adresáře"
+msgstr "Následovat odkazy na složky"
 
 msgid "Follow directory symlinks."
-msgstr "Následovat odkazy na adresáře."
+msgstr "Následovat odkazy na složky."
 
 msgid "Follow file symlinks"
 msgstr "Následovat odkazy na soubory"
@@ -134,10 +135,10 @@ msgid "Jobs"
 msgstr "Úlohy"
 
 msgid "Log clean files"
-msgstr "Zaznamenávat čisté soubory"
+msgstr "Protokolovat i čisté soubory"
 
 msgid "Log clean files. This drastically increases the log size."
-msgstr "Zaznamenávat čisté soubory. Drasticky zvyšuje velikost záznamového souboru."
+msgstr "Zaznamenávat do protokolu i čisté soubory. Pozor - opravdu výrazně zvětší velikost souboru s protokolem."
 
 msgid "Message"
 msgstr "Zpráva"
@@ -155,7 +156,7 @@ msgid "Multiscan"
 msgstr "Multiscan"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
-msgstr "Denní počet vyhledání aktualizace databáze. Nastavte 0 pro zakázání."
+msgstr "Kolikrát za den aktualizovat databázi. Nastavení na 0 (nula) zakáže samočinnou aktualizaci."
 
 msgid "On-access"
 msgstr "Při přístupu (on-access)"
@@ -166,7 +167,7 @@ msgstr "Provádět hloubkové kontroly spustitelných souborů."
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/clamd.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr "Pro více detailů prosím navštivte <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manuálovou stránku</a>."
+msgstr "Další informace naleznete v <a href='http://linux.die.net/man/5/clamd.conf' target='_blank'>manuálové stránce</a>."
 
 msgid "Quarantine"
 msgstr "Karanténa"
@@ -196,7 +197,7 @@ msgid "Scan the directory contents in parallel using available threads."
 msgstr "Kontrolovat obsah složky paralelně s využitím dostupných vláken."
 
 msgid "Send command output via email"
-msgstr "Odeslat výstup příkazu emailovou zprávou"
+msgstr "Odeslat výstup příkazu e-mailem"
 
 msgid "Send email"
 msgstr "Odeslat email"
@@ -208,16 +209,16 @@ msgid "Shared folder"
 msgstr "Sdílená složka"
 
 msgid "The location of the files to scan."
-msgstr "Umístění souborů pro kontrolu."
+msgstr "Umístění souborů, které mají být zkontrolovány."
 
 msgid "The location which is used as quarantine."
 msgstr "Umístění, které je využito jako karanténa."
 
 msgid "The option, how to handle infected files."
-msgstr "Způsob, jak zacházet s nakaženými soubory."
+msgstr "Volba způsobu, jakým zacházet s nakaženými soubory."
 
 msgid "Verbose"
-msgstr ""
+msgstr "Obsáhlejší výstup"
 
 msgid "n/a"
 msgstr "n/a"

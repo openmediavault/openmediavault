@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014
-# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-25 22:54+0200\n"
-"PO-Revision-Date: 2014-11-05 18:15+0000\n"
+"PO-Revision-Date: 2015-02-08 10:14+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgstr "백업 작업 추가"
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "관리자에게 명령행 출력(있다면)을 전자 메일에 포함하여 전송합니다."
 
 msgid "Archive"
 msgstr "아카이브"
@@ -46,7 +46,7 @@ msgid "Delete"
 msgstr "삭제"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "수신 측에서 송신 측에 존재하지 않는 파일을 삭제합니다."
 
 msgid "Device"
 msgstr "장치"
@@ -63,7 +63,7 @@ msgstr "아카이브 모드 활성화"
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "전송된 파일을 부분적으로 유지하려면 이 옵션을 활성화합니다. 비활성화 할 경우, 전송이 중단되면 파일이 삭제될 것입니다."
 
 msgid "Enabled"
 msgstr "활성화됨"
@@ -107,7 +107,7 @@ msgid ""
 "Please note that the web interface is blocked until the manually started "
 "backup job has been finished. However the backup job is automatically "
 "executed in the background when the storage device is connected to the host."
-msgstr ""
+msgstr "시작된 백업 작업이 완료될 때까지 직접 웹 인터페이스를 확인해주세요.  호스트에 저장 장치가 연결되면 자동으로 백업 작업이 시작됩니다."
 
 msgid "Preserve ACLs"
 msgstr "ACL 보존"

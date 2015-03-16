@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Kostas Moho <kgounaris@hotmail.com>, 2012-2014
+# Kostas Moho <kgounaris@hotmail.com>, 2012-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-01-06 13:50+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-03-10 17:59+0000\n"
+"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -379,7 +379,7 @@ msgid "Asynchronous I/O"
 msgstr "Ασύγχρονες μεταφορές"
 
 msgid "At reboot"
-msgstr ""
+msgstr "Κατά την επανεκκίνηση"
 
 msgid "Attribute name"
 msgstr "Απόδοση ονόματος"
@@ -555,12 +555,12 @@ msgstr "Ακύρωση"
 msgid ""
 "Cannot unlink the shared folder content because another shared folder also "
 "refers to it"
-msgstr ""
+msgstr "Αδύνατη η αποσύνδεση των περιεχομένων του κοινόχρηστου φακέλου, διότι κάποιος άλλος κοινόχρηστος φάκελος συνδέεται με κάποιο από αυτά."
 
 msgid ""
 "Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "Αδύνατη η αποσύνδεση των περιεχομένων του κοινόχρηστου φακέλου, διότι κάποιος άλλος κοινόχρηστος φάκελος συνδέεται με κάποιο από αυτά."
 
 msgid "Canton and Enderbury Islands"
 msgstr "Canton and Enderbury Islands"
@@ -578,7 +578,7 @@ msgid "Central African Republic"
 msgstr "Central African Republic"
 
 msgid "Certain date"
-msgstr ""
+msgstr "Ορισμένη ημερομηνία"
 
 msgid "Certificate"
 msgstr "Πιστοποιητικό"
@@ -772,7 +772,7 @@ msgid "Daemon"
 msgstr "Δαίμονας"
 
 msgid "Daily"
-msgstr ""
+msgstr "Καθημερινά"
 
 msgid "Dashboard"
 msgstr "Ταμπλό"
@@ -1201,7 +1201,7 @@ msgid "Everyone: read/write"
 msgstr "Όλοι : ανάγνωση & εγγραφή"
 
 msgid "Exactly"
-msgstr ""
+msgstr "Ακριβώς"
 
 msgid "Execute command"
 msgstr "Εκτέλεση εντολής"
@@ -1495,7 +1495,7 @@ msgid "Hour"
 msgstr "Ώρα"
 
 msgid "Hourly"
-msgstr ""
+msgstr "Ωριαία"
 
 msgid "Hungary"
 msgstr "Hungary"
@@ -2036,7 +2036,7 @@ msgid "Month"
 msgstr "Μήνας"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Μηνιαία"
 
 msgid "Montserrat"
 msgstr "Montserrat"
@@ -2783,7 +2783,7 @@ msgid "Scheduled tests"
 msgstr "Προγραμματισμένοι έλεγχοι"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Προγραμματισμός"
 
 msgid "Secondary"
 msgstr "Δευτερεύον"
@@ -2795,7 +2795,7 @@ msgid "Seconds"
 msgstr "Δευτερόλεπτα"
 
 msgid "Section"
-msgstr ""
+msgstr "Τμήμα"
 
 msgid "Secure"
 msgstr "Ασφαλής"
@@ -3585,7 +3585,7 @@ msgid "Time interval"
 msgstr "Χρονικό διάστημα"
 
 msgid "Time of execution"
-msgstr ""
+msgstr "Χρόνος εκτέλεσης"
 
 msgid "Time server"
 msgstr "Διακομιστής ώρας"
@@ -3879,7 +3879,7 @@ msgid "Wednesday"
 msgstr "Τετάρτη"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Εβδομαδιαία"
 
 msgid "Welcome message"
 msgstr "Μήνυμα καλωσορίσματος"
@@ -3917,7 +3917,7 @@ msgid "Write/Execute"
 msgstr "Εγγραφή/Εκτέλεση"
 
 msgid "Yearly"
-msgstr ""
+msgstr "Ετήσια"
 
 msgid "Yemen"
 msgstr "Yemen"

@@ -3,13 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-08-25 22:54+0200\n"
-"PO-Revision-Date: 2013-02-15 12:55+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"PO-Revision-Date: 2015-01-06 17:24+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,170 +19,170 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 msgid "Add backup job"
-msgstr ""
+msgstr "Přidat zálohovací úlohu"
 
 msgid ""
 "An email message with the command output (if any produced) is send to the "
 "administrator."
-msgstr ""
+msgstr "E-mail, obsahující výstup z příkazu (pokud nějaký vznikl), byl odeslán správci systému."
 
 msgid "Archive"
-msgstr ""
+msgstr "Archiv"
 
 msgid "Backup jobs"
-msgstr ""
+msgstr "Zálohovací úlohy"
 
 msgid "Comment"
-msgstr ""
+msgstr "Komentář"
 
 msgid "Compress"
-msgstr ""
+msgstr "Komprimovat"
 
 msgid "Compress file data during the transfer."
-msgstr ""
+msgstr "Komprimovat data během přenosu."
 
 msgid "Delete"
-msgstr ""
+msgstr "Smazat"
 
 msgid "Delete files on the receiving side that don't exist on sender."
-msgstr ""
+msgstr "Smazat ty soubory v cíli, které neexistují na zdroji."
 
 msgid "Device"
-msgstr ""
+msgstr "Zařízení"
 
 msgid "Edit backup job"
-msgstr ""
+msgstr "Upravit zálohovací úlohu"
 
 msgid "Enable"
-msgstr ""
+msgstr "Povolit"
 
 msgid "Enable archive mode."
-msgstr ""
+msgstr "Povolit archivní režim"
 
 msgid ""
 "Enable this option to keep partially transferred files, otherwise they will "
 "be deleted if the transfer is interrupted."
-msgstr ""
+msgstr "Tuto volbu zapněte, pokud si přejete zachovávat i jen částečně přenesené soubory. V opačném případě budou takové soubory v případě přerušení přenosu mazány."
 
 msgid "Enabled"
-msgstr ""
+msgstr "Povoleno"
 
 msgid "Execute backup job"
-msgstr ""
+msgstr "Spustit zálohovací úlohu"
 
 msgid "External storage device"
-msgstr ""
+msgstr "Vnější úložné zařízení"
 
 msgid "Extra options"
-msgstr ""
+msgstr "Další možnosti"
 
 msgid "Failed to get filesystems"
-msgstr ""
+msgstr "Nelze získat souborové systémy"
 
 msgid "Failed to get storage device file from '%s'"
-msgstr ""
+msgstr "Nelze získat soubor představující úložné zařízení z %s"
 
 msgid "Filesystem '%s' not found"
-msgstr ""
+msgstr "Souborový systém %s nenalezen"
 
 msgid "From external storage to shared folder"
-msgstr ""
+msgstr "Z vnějšího úložiště na sdílenou složku"
 
 msgid "From shared folder to external storage"
-msgstr ""
+msgstr "Ze sdílené složky na vnější úložiště"
 
 msgid "Keep partially transferred files"
-msgstr ""
+msgstr "Zachovat částečně přenesené soubory"
 
 msgid "Mode"
-msgstr ""
+msgstr "Režim"
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Podrobnosti viz <a href='http://www.samba.org/ftp/rsync/rsync.html' target='_blank'>manuálová stránka</a>."
 
 msgid ""
 "Please note that the web interface is blocked until the manually started "
 "backup job has been finished. However the backup job is automatically "
 "executed in the background when the storage device is connected to the host."
-msgstr ""
+msgstr "Nezapomeňte, že do doby než bude dokončeno, ručně spuštěné zálohování znepřístupní webové rozhraní. Oproti tomu samočinně spuštěné zálohování (připojením vnějšího úložného zařízení) poběží na pozadí a webové rozhraní tak blokovat nebude."
 
 msgid "Preserve ACLs"
-msgstr ""
+msgstr "Zachovat ACL práva"
 
 msgid "Preserve extended attributes"
-msgstr ""
+msgstr "Zachovat rozšířené atributy"
 
 msgid "Preserve modification times."
-msgstr ""
+msgstr "Zachovat časy úprav."
 
 msgid "Preserve permissions"
-msgstr ""
+msgstr "Zachovat oprávnění"
 
 msgid "Quiet"
-msgstr ""
+msgstr "Ukončit"
 
 msgid "Recurse into directories."
-msgstr ""
+msgstr "Včetně vnořených složek."
 
 msgid "Recursive"
-msgstr ""
+msgstr "Rekurzivní"
 
 msgid "Run"
-msgstr ""
+msgstr "Spustit"
 
 msgid "Scan"
-msgstr ""
+msgstr "Skenovat"
 
 msgid "Select a device ..."
-msgstr ""
+msgstr "Zvolte zařízení..."
 
 msgid "Send command output via email."
-msgstr ""
+msgstr "Zaslat výstup příkazu e-mailem."
 
 msgid "Send email"
-msgstr ""
+msgstr "Zaslat e-mail"
 
 msgid ""
 "Set the destination permissions to be the same as the source permissions."
-msgstr ""
+msgstr "Nastavit oprávnění v cíli na shodná se zdrojem."
 
 msgid "Shared folder"
-msgstr ""
+msgstr "Sdílená složka"
 
 msgid "Suppress non-error messages."
-msgstr ""
+msgstr "Hlásit pouze chyby, ostatní potlačit."
 
 msgid "Synchronise from/to directory on external storage device."
-msgstr ""
+msgstr "Synchronizovat z/do složky na vnějším úložném zařízení."
 
 msgid "The external storage device."
-msgstr ""
+msgstr "Vnější úložné zařízení."
 
 msgid ""
 "The shared folder content is synchronised from/to the root of the external "
 "storage device if this option is not set. The name of the directory is taken"
 " from the shared folder."
-msgstr ""
+msgstr "Obsah sdílené složky je synchronizován z/do kořenové složky vnejšího úložného zařízení, pokud tato volba není nastavena. Název složky je převzata od sdílené složky."
 
 msgid ""
 "The shared folder to synchronise when the external storage device is "
 "connected."
-msgstr ""
+msgstr "Sdílená složka, jejíž obsah má být synchronizován s vnějším úložným zařízením, když je připojeno."
 
 msgid "Times"
-msgstr ""
+msgstr "Časy"
 
 msgid "USB Backup"
-msgstr ""
+msgstr "Záloha na USB úložiště"
 
 msgid "Update the destination ACLs to be the same as the source ACLs."
-msgstr ""
+msgstr "Aktualizovat ACL seznamy v cíli tak, aby byly stejné jako na zdroji."
 
 msgid ""
 "Update the destination extended attributes to be the same as the local ones."
-msgstr ""
+msgstr "Aktualizovat rozšířené atributy v cíli tak, aby byly stejné jako ty místní."
 
 msgid "n/a"
 msgstr ""
