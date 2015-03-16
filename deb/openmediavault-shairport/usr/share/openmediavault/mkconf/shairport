@@ -24,7 +24,7 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_SHAIRPORT_DEFAULT=${OMV_SHAIRPORT_DEFAULT:-"/etc/default/shairport-sync"}
+OMV_SHAIRPORT_DEFAULT=${OMV_SHAIRPORT_DEFAULT:-"/etc/default/shairport"}
 
 mkconf() {
 	# Create '/etc/default/shairport' file

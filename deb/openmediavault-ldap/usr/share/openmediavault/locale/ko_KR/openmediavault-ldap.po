@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Chang-Eon Byeon <ksna0827@gmail.com>, 2014
-# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014
+# Ji-Hyeon Gim <potatogim@potatogim.net>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-11-03 12:09+0000\n"
+"PO-Revision-Date: 2015-02-09 04:21+0000\n"
 "Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -57,27 +57,27 @@ msgstr "설정"
 msgid ""
 "Specifies the base distinguished name (DN) to use as search base, e.g. "
 "'dc=example,dc=net'."
-msgstr ""
+msgstr "검색을 위한 기본 식별 이름(DN)을 지정합니다. 예를 들어, 'dc=example,dc=net'."
 
 msgid "Specifies the credentials with which to bind."
-msgstr ""
+msgstr "바인드를 위한 자격 증명을 지정합니다."
 
 msgid ""
 "Specifies the distinguished name (DN) with which to bind to the directory "
 "server for lookups, e.g. 'cn=manager,dc=example,dc=net'."
-msgstr ""
+msgstr "검색 시 디렉터리 서버와의 바인드를 위한 식별 이름(DN)을 지정합니다. 예를 들어, 'cn=manager,dc=example,dc=net'."
 
 msgid "Specifies the group suffix, e.g. 'ou=Groups'."
-msgstr ""
+msgstr "그룹 접미사를 지정합니다. 예를 들어, 'ou=Groups'."
 
 msgid "Specifies the port to connect to."
-msgstr ""
+msgstr "연결할 포트를 지정합니다."
 
 msgid "Specifies the user suffix, e.g. 'ou=Users'."
-msgstr ""
+msgstr "사용자 접미사를 지정합니다. 예를 들어, 'ou=Users'."
 
 msgid "The FQDN or IP address of the server."
-msgstr ""
+msgstr "서버의 IP 주소나 FQDN"
 
 msgid "Users suffix"
 msgstr "유저 접미사"

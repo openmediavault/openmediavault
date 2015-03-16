@@ -29,8 +29,8 @@ OMV_MONIT_SERVICE_SHAIRPORT_MODE=${OMV_MONIT_SERVICE_SHAIRPORT_MODE:-"active"}
 
 cat <<EOF > ${OMV_MONIT_SERVICE_SHAIRPORT_CONFIG}
 check process shairport with pidfile /var/run/shairport.pid
-  start program = "/etc/init.d/shairport-sync start"
-  stop program = "/etc/init.d/shairport-sync stop"
+  start program = "/etc/init.d/shairport start"
+  stop program = "/etc/init.d/shairport stop"
   mode ${OMV_MONIT_SERVICE_SHAIRPORT_MODE}
 EOF
 

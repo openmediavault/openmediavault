@@ -19,6 +19,9 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
+# Update changelog via CLI:
+# export DEBEMAIL=volker.theile@openmediavault.org; export DEBFULLNAME="Volker Theile"; dch -i -D stable -u low
+
 OMV_SUBDIRS := $(shell find . -maxdepth 1 -name 'openmediavault*' -type d)
 
 # Targets to process all OpenMediaVault plugin packages.

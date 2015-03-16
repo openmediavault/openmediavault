@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# songming <by@songming.me>, 2013-2014
+# songming <by@songming.me>, 2013-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-11 02:46+0000\n"
+"PO-Revision-Date: 2015-02-28 02:58+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -267,10 +267,10 @@ msgid "Users"
 msgstr "用户"
 
 msgid "Write-back"
-msgstr "回写"
+msgstr "回写式"
 
 msgid "Write-through"
-msgstr "直写"
+msgstr "直写式"
 
 msgid "iSCSI Target"
 msgstr "iSCSI Target"

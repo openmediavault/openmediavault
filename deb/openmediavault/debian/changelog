@@ -12,7 +12,9 @@ openmediavault (2.0) stable; urgency=low
 
 openmediavault (1.15) stable; urgency=low
 
+  * Update locales.
   * Fix various ExtJS issues.
+  * Add update scripts for 2.0 (Stone Burner).
   * Mantis 0001277: Set default language in WebUI to english.
   * Mantis 0001279: Client field for NFS exports must not be forced.
 
