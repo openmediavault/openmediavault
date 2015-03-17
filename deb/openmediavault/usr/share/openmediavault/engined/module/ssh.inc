@@ -116,7 +116,7 @@ class OMVModuleSsh extends OMVModuleServiceAbstract
 			// If the 'sshpubkey' is set, then set this module to dirty.
 			// Note, it would be better to set the module to dirty only
 			// if the 'sshpubkey' field has been modified, but the
-			// current faremwork does not have the capability to do that.
+			// current framework does not have the capability to do that.
 			if (!empty($object['sshpubkey']))
 				$this->setDirty();
 			break;

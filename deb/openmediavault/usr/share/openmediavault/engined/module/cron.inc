@@ -78,6 +78,10 @@ class OMVModuleCron extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.crontab.job",
 		  array($this, "setDirty"));
+        $dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.time",
+		  array($this, "setDirty"));
     }
 }
 
