@@ -99,7 +99,7 @@ Ext.define("OMV.module.admin.system.network.interface.Physical", {
 					properties: "!readOnly"
 				}]
 			}]
-		}
+		};
 	},
 
 	getFormItems: function() {

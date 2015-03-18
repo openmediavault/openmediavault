@@ -48,21 +48,26 @@ Ext.define("OMV.module.admin.storage.filesystem.Create", {
 	okButtonText: _("OK"),
 	hideResetButton: true,
 	width: 500,
-	plugins: [{
-		ptype: "linkedfields",
-		correlations: [{
-			name: "label",
-			conditions: [
-				{ name: "type", value: "xfs" }
-			],
-			properties: function(valid, field) {
-				// Update the max. length of the file system label
-				// depending on the selected file system type.
-				// XFS = 12, Other = 16
-				field.maxLength = valid ? 12 : 16
-			}
-		}]
-	}],
+
+	getFormConfig: function() {
+		return {
+			plugins: [{
+				ptype: "linkedfields",
+				correlations: [{
+					name: "label",
+					conditions: [
+						{ name: "type", value: "xfs" }
+					],
+					properties: function(valid, field) {
+						// Update the max. length of the file system label
+						// depending on the selected file system type.
+						// XFS = 12, Other = 16
+						field.maxLength = valid ? 12 : 16
+					}
+				}]
+			}]
+		};
+	},
 
 	getFormItems: function() {
 		var me = this;
