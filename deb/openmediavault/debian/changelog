@@ -1,6 +1,8 @@
 openmediavault (1.16) stable; urgency=low
 
   * Restart cron daemon after changing system time.
+  * Mantis 0001283: Recreate /var/cache/openmediavault/packages when file is
+    missing instead of causing error.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 17 Mar 2015 09:01:49 +0100
 
