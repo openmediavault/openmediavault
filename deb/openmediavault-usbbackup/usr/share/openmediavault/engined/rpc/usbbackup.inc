@@ -70,11 +70,9 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 		// Collect volumes that are candidates for a backup job.
 		$result = array();
 		foreach ($objects as $objectk => $objectv) {
-			// Skip filesystem we do not support?
-			if (!in_array($objectv['type'], array("ext3", "ext4", "xfs",
-			  "jfs", "msdos", "ntfs", "vfat", "hfsplus"))) {
+			// Skip filesystem we do not support.
+			if (!OMVFilesystems::isSupported($objectv['type']))
 				continue;
-			}
 			// Skip the device where the operating system is installed on.
 			if (OMVSystem::isRootDeviceFile($objectv['devicefile']))
 				continue;
