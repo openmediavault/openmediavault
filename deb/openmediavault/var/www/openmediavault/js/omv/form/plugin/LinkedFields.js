@@ -182,17 +182,20 @@ Ext.define("OMV.form.plugin.LinkedFields", {
 			if(!valid)
 				return false;
 		});
-		// Get the field control.
+		// Get the field control. Note, there might be conditions that do
+		// not have a 'name' property. In most cases these are conditions
+		// that are using a properties function.
 		var field = me.findField(correlation.name);
-		if(!field)
-			return;
 		// Apply the configured properties.
-		if(Ext.isFunction(correlation.properties)) {
+		if (Ext.isFunction(correlation.properties)) {
 			// Execute the properties function. The condition result and the
 			// form field are passed to the function.
 			Ext.callback(correlation.properties, me.getForm(),
 			  [ valid, field ]);
 		} else {
+			// In this code path a valid field control is required.
+			if (!field)
+				return;
 			Ext.Array.each(correlation.properties, function(property) {
 				switch(property) {
 				case "submitValue":
@@ -272,9 +275,8 @@ Ext.define("OMV.form.plugin.LinkedFields", {
 				}
 			});
 		}
-		if(Ext.isFunction(field.clearInvalid)) {
+		if (field && Ext.isFunction(field.clearInvalid))
 			field.clearInvalid();
-		}
 	},
 
 	/**
