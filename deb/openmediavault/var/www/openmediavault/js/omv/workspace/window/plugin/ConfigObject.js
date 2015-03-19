@@ -22,7 +22,7 @@
 /**
  * @ingroup webgui
  * @class OMV.workspace.window.plugin.ConfigObject
- * @derived Ext.AbstractPlugin
+ * @derived Ext.plugin.Abstract
  * A plugin for OMV.workspace.window.Container derived classes that
  * adapts the parent/owner class to automatically load the configuration
  * data/object via the RPC mechanism based on the given id. The id of the
@@ -37,7 +37,7 @@
  *   object as new. Defaults to OMV.UUID_UNDEFINED.
  */
 Ext.define("OMV.workspace.window.plugin.ConfigObject", {
-	extend: "Ext.AbstractPlugin",
+	extend: "Ext.plugin.Abstract",
 	alias: [ "plugin.configobject", "plugin.dbobject" ],
 
 	idProperty: "uuid",
