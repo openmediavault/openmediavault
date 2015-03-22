@@ -26,7 +26,9 @@ set -e
 
 OMV_NUT_UDEV_RULE_CONFIG=${OMV_NUT_UDEV_RULE_CONFIG:-"/etc/udev/rules.d/99-openmediavault-nut-serialups.rules"}
 
-# Generate configuration files and reinitialize monit.
+# Force the creation of the monit service configuration files. This way we
+# can simply purge this service configuration file. Finally reload the monit
+# configuration.
 omv-mkconf monit
 monit reload
 
