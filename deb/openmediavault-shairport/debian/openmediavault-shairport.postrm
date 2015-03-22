@@ -24,6 +24,12 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+# Force the creation of the monit service configuration files. This way we
+# can simply purge this service configuration file. Finally reload the monit
+# configuration.
+omv-mkconf monit
+monit reload
+
 case "$1" in
 	purge)
 		# Remove the configuration data

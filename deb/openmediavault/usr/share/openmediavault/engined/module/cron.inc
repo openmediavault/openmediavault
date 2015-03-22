@@ -69,8 +69,8 @@ class OMVModuleCron extends OMVModuleServiceAbstract
         // It is necessary to restart the service if the system time or
         // timezone has been changed, so a simple 'reload' can't be
         // used here.
-        $initd = new OMVSysVInitScript("cron");
-        $initd->restart();
+		$initd = new OMVSysVInitScript("cron");
+		$initd->restart();
 	}
 
 	/**
@@ -81,7 +81,7 @@ class OMVModuleCron extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.crontab.job",
 		  array($this, "setDirty"));
-        $dispatcher->addListener(
+		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.time",
 		  array($this, "setDirty"));
