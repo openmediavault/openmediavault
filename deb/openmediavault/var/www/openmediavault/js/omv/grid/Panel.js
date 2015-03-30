@@ -165,12 +165,7 @@ Ext.define("OMV.grid.Panel", {
 	 */
 	getValues: function() {
 		var me = this;
-		var values = [];
-		// ToDo: Is there a better solution available?
-		me.getStore().each(function(model) {
-			var data = model.getData();
-			Ext.Array.push(values, data);
-		});
+		var values = me.getStore().getModelData();
 		return values;
 	},
 

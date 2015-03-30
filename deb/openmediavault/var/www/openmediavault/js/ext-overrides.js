@@ -469,6 +469,21 @@ Ext.apply(Ext.data.Store.prototype, {
 	insertData: function(index, data) {
 		var me = this;
 		return me.insert(index, data);
+	},
+
+	/**
+	 * Gets all values for each record in this store according the model
+	 * definition.
+	 * @return An array of object hash containing all the model's values.
+	 */
+	getModelData: function() {
+		var me = this;
+		var result = [];
+		me.each(function(model) {
+			var data = model.getData();
+			Ext.Array.push(result, data);
+		});
+		return result;
 	}
 });
 
