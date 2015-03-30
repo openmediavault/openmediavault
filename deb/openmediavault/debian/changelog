@@ -1,3 +1,10 @@
+openmediavault (1.17) stable; urgency=low
+
+  * Mantis 0001290: Log authenticated und unauthenticated WebGUI logins
+    to LOG_AUTH.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 30 Mar 2015 08:52:34 +0200
+
 openmediavault (1.16) stable; urgency=low
 
   * Restart cron daemon after changing system time.

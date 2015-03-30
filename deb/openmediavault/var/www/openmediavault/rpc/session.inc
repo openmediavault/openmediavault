@@ -86,11 +86,17 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 			$authenticated = $session->isAuthenticated();
 			$session->commit();
 		}
-		if (FALSE === $authenticated) {
+		openlog("omv-webgui", LOG_PID | LOG_PERROR, LOG_AUTH);
+		if (TRUE === $authenticated) {
+			syslog(LOG_ALERT, sprintf("Authorized login from %s ".
+			  "[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],
+			  $params['username'], $_SERVER['HTTP_USER_AGENT']));
+		} else {
 			syslog(LOG_ALERT, sprintf("Unauthorized login attempt from %s ".
-			  "[username='%s', user-agent=%s]", $_SERVER['REMOTE_ADDR'],
+			  "[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],
 			  $params['username'], $_SERVER['HTTP_USER_AGENT']));
 		}
+		closelog();
 		return array(
 			"authenticated" => $authenticated,
 			"username" => $params['username']
