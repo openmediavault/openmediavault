@@ -844,6 +844,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		case "xfs":
 		case "hfsplus":
 		case "btrfs":
+		case "reiserfs":
 			$fsName = $fs->getUuid();
 			$opts = $fsb->getFstabMntOptions($sd);
 			break;
