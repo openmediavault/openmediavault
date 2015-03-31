@@ -1,6 +1,6 @@
 openmediavault (2.0.3) stable; urgency=low
 
-  *
+  * Modify Javascript code to fix EXTJS-13864.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 17 Mar 2015 09:08:29 +0100
 
