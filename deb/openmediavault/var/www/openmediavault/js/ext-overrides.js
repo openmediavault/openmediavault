@@ -411,7 +411,7 @@ Ext.apply(Ext.LoadMask.prototype, {
 // Ext.window.MessageBox
 ////////////////////////////////////////////////////////////////////////////////
 
-Ext.apply(Ext.window.MessageBox, {
+Ext.apply(Ext.window.MessageBox.prototype, {
 	buttonText: {
 		ok: _("OK"),
 		cancel: _("Cancel"),

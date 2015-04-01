@@ -55,9 +55,8 @@ Ext.define("OMV.workspace.panel.Textarea", {
 			xtype: "textarea",
 			readOnly: me.readOnly,
 			cls: Ext.baseCSSPrefix + "form-textarea-monospaced",
-			fieldStyle: {
-				border: "0px"
-			}
+			inputWrapCls: Ext.form.field.TextArea.prototype.inputWrapCls +
+			  " " + Ext.baseCSSPrefix + "form-text-wrap-noborder"
 		}]
 		me.callParent(arguments);
 	},

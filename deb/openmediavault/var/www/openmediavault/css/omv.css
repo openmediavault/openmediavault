@@ -85,6 +85,10 @@ div#headerrlogo {
 .x-text-center {
 	text-align: center;
 }
+/* Customize form fields */
+.x-form-text-wrap-noborder {
+	border-width: 0px
+}
 /* Customize textarea fields */
 .x-form-textarea-monospaced textarea {
 	font-family: monospace;
