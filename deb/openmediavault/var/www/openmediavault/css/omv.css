@@ -197,10 +197,12 @@ div#headerrlogo {
 	background-size: 16px 16px;
 }
 .x-tree-icon-parent {
-	background-image: url("../images/folder.svg");
+	background-image: url("../images/folder.png");
+	background-image: url("../images/folder.svg"), none;
 }
 .x-grid-tree-node-expanded .x-tree-icon-parent {
-	background-image: url("../images/folder-open.svg");
+	background-image: url("../images/folder-open.png");
+	background-image: url("../images/folder-open.svg"), none;
 }
 .x-tree-lines .x-tree-elbow-plus,
 .x-tree-lines .x-tree-elbow-end-plus,
@@ -211,11 +213,13 @@ div#headerrlogo {
 }
 .x-tree-lines .x-tree-elbow-plus,
 .x-tree-lines .x-tree-elbow-end-plus {
-	background-image: url("../images/circleright.svg");
+	background-image: url("../images/circleright.png");
+	background-image: url("../images/circleright.svg"), none;
 }
 .x-tree-lines .x-grid-tree-node-expanded .x-tree-elbow-plus,
 .x-tree-lines .x-grid-tree-node-expanded .x-tree-elbow-end-plus {
-	background-image: url("../images/circledown.svg");
+	background-image: url("../images/circledown.png");
+	background-image: url("../images/circledown.svg"), none;
 }
 /* Button */
 .x-btn-icon-el {
@@ -332,20 +336,25 @@ div#headerrlogo {
 .x-tbar-page-first,
 .x-item-disabled .x-tbar-page-first {
 	background-image: url("../images/page-first.png");
+	background-image: url("../images/page-first.svg"), none;
 }
 .x-tbar-page-prev,
 .x-item-disabled .x-tbar-page-prev {
 	background-image: url("../images/page-prev.png");
+	background-image: url("../images/page-prev.svg"), none;
 }
 .x-tbar-page-next,
 .x-item-disabled .x-tbar-page-next {
 	background-image: url("../images/page-next.png");
+	background-image: url("../images/page-next.svg"), none;
 }
 .x-tbar-page-last,
 .x-item-disabled .x-tbar-page-last {
 	background-image: url("../images/page-last.png");
+	background-image: url("../images/page-last.svg"), none;
 }
 .x-tbar-loading,
 .x-item-disabled .x-tbar-loading {
 	background-image: url("../images/page-refresh.png");
+	background-image: url("../images/page-refresh.svg"), none;
 }
