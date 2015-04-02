@@ -328,3 +328,24 @@ div#headerrlogo {
 	opacity: 0.7;
 	background-size: 16px 16px;
 }
+/* Paging toolbar */
+.x-tbar-page-first,
+.x-item-disabled .x-tbar-page-first {
+	background-image: url("../images/page-first.png");
+}
+.x-tbar-page-prev,
+.x-item-disabled .x-tbar-page-prev {
+	background-image: url("../images/page-prev.png");
+}
+.x-tbar-page-next,
+.x-item-disabled .x-tbar-page-next {
+	background-image: url("../images/page-next.png");
+}
+.x-tbar-page-last,
+.x-item-disabled .x-tbar-page-last {
+	background-image: url("../images/page-last.png");
+}
+.x-tbar-loading,
+.x-item-disabled .x-tbar-loading {
+	background-image: url("../images/refresh.png");
+}

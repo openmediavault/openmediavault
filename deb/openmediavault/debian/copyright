@@ -447,3 +447,23 @@ Files: /var/www/openmediavault/images/globe.png
        /var/www/openmediavault/images/globe.svg
 Copyright: WebHostingHub <http://www.webhostinghub.com>
 License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/page-first.png
+       /var/www/openmediavault/images/page-first.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/page-last.png
+       /var/www/openmediavault/images/page-last.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/page-next.png
+       /var/www/openmediavault/images/page-next.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
+
+Files: /var/www/openmediavault/images/page-prev.png
+       /var/www/openmediavault/images/page-prev.svg
+Copyright: WebHostingHub <http://www.webhostinghub.com>
+License: CC-BY-3.0
