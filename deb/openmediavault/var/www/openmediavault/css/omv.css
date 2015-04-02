@@ -347,5 +347,5 @@ div#headerrlogo {
 }
 .x-tbar-loading,
 .x-item-disabled .x-tbar-loading {
-	background-image: url("../images/refresh.png");
+	background-image: url("../images/page-refresh.png");
 }
