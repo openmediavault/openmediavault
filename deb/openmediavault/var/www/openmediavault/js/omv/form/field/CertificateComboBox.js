@@ -21,6 +21,7 @@
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
+// require("js/omv/data/identifier/Empty.js")
 // require("js/omv/module/admin/system/certificate/Certificate.js")
 
 /**
@@ -38,7 +39,8 @@ Ext.define("OMV.form.field.CertificateComboBox", {
 	requires: [
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc"
+		"OMV.data.proxy.Rpc",
+		"OMV.data.identifier.Empty"
 	],
 	uses: [
 		"OMV.module.admin.system.certificate.Detail"
@@ -65,6 +67,7 @@ Ext.define("OMV.form.field.CertificateComboBox", {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
+					identifier: "empty",
 					idProperty: "uuid",
 					fields: [
 						{ name: "uuid", type: "string" },

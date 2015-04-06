@@ -21,6 +21,7 @@
 // require("js/omv/data/Store.js")
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
+// require("js/omv/data/identifier/Empty.js")
 
 /**
  * @ingroup webgui
@@ -37,7 +38,8 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 	requires: [
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.proxy.Rpc"
+		"OMV.data.proxy.Rpc",
+		"OMV.data.identifier.Empty"
 	],
 	uses: [
 		"OMV.module.admin.privilege.sharedfolder.SharedFolder",
@@ -71,6 +73,7 @@ Ext.define("OMV.form.field.SharedFolderComboBox", {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
+					identifier: "empty",
 					idProperty: "uuid",
 					fields: [
 						{ name: "uuid", type: "string" },
