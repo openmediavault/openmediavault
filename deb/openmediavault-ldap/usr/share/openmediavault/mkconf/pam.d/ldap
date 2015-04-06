@@ -29,7 +29,7 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 # PAM profiles are stored below /usr/share/pam-configs
-if [ "$(omv_config_get "//services/ldap/enable")" = "1" ]; then
+if [ "$(omv_config_get "//services/ldap/enable")" = "1" -a "$(omv_config_get "//services/ldap/enablepam")" = "1" ]; then
 	pam-auth-update --force --package ldap
 else
 	pam-auth-update --force --package --remove ldap

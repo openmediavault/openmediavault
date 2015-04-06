@@ -104,7 +104,9 @@ class OMVRpcServiceLDAP extends OMVRpcServiceAbstract {
 				  "rootbindpw":{"type":"string"},
 				  "usersuffix":{"type":"string"},
 				  "groupsuffix":{"type":"string"},
-				  "extraoptions":{"type":"string"}
+				  "enablepam":{"type":"boolean"},
+				  "extraoptions":{"type":"string"},
+				  "extraclientoptions":{"type":"string"}
 			  }
 		  }');
 		// Prepare the configuration object.
@@ -118,7 +120,9 @@ class OMVRpcServiceLDAP extends OMVRpcServiceAbstract {
 			"rootbindpw" => $params['rootbindpw'],
 			"usersuffix" => trim($params['usersuffix']),
 			"groupsuffix" => trim($params['groupsuffix']),
-			"extraoptions" => $params['extraoptions']
+			"enablepam" => array_boolval($params, 'enablepam'),
+			"extraoptions" => $params['extraoptions'],
+			"extraclientoptions" => $params['extraclientoptions']
 		);
 		// Set the configuration object.
 		$xpath = "//services/ldap";

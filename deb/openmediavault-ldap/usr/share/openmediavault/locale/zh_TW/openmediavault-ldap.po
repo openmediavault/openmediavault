@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-06-24 20:17+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
+"POT-Creation-Date: 2015-04-06 14:07+0200\n"
+"PO-Revision-Date: 2015-04-06 12:07+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,6 +28,18 @@ msgstr "目錄服務"
 msgid "Enable"
 msgstr "啟用"
 
+msgid "Enable PAM"
+msgstr ""
+
+msgid "Enable SSL/TLS"
+msgstr ""
+
+msgid "Enable secure connection."
+msgstr ""
+
+msgid "Extra client options"
+msgstr ""
+
 msgid "Extra options"
 msgstr "額外選項"
 
@@ -42,6 +54,11 @@ msgstr "主機"
 
 msgid "Password"
 msgstr "密碼"
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/ldap.conf' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
@@ -78,6 +95,11 @@ msgstr "指定用戶後置詞，例如：'ou=Users'。"
 
 msgid "The FQDN or IP address of the server."
 msgstr "伺服器的 FQDN 或 IP 地址。"
+
+msgid ""
+"Use LDAP for authentication system-wide along with other authentication "
+"sources."
+msgstr ""
 
 msgid "Users suffix"
 msgstr "用戶後置詞"

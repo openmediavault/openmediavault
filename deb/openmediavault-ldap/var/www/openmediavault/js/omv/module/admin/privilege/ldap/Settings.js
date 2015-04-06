@@ -122,13 +122,28 @@ Ext.define("OMV.module.admin.privilege.ldap.Settings", {
 				}],
 				value: "ou=Groups"
 			},{
+				xtype: "checkbox",
+				name: "enablepam",
+				fieldLabel: _("Enable PAM"),
+				checked: true,
+				boxLabel: _("Use LDAP for authentication system-wide along with other authentication sources.")
+			},{
 				xtype: "textarea",
 				name: "extraoptions",
 				fieldLabel: _("Extra options"),
 				allowBlank: true,
 				plugins: [{
 					ptype: "fieldinfo",
-					text: _("Please check the <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>manual page</a> for more details."),
+					text: _("Please check the <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>manual page</a> for more details.")
+				}]
+			},{
+				xtype: "textarea",
+				name: "extraclientoptions",
+				fieldLabel: _("Extra client options"),
+				allowBlank: true,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("Please check the <a href='http://linux.die.net/man/5/ldap.conf' target='_blank'>manual page</a> for more details.")
 				}]
 			}]
 		}];

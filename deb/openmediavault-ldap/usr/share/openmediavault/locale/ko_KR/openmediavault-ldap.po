@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2015-02-09 04:21+0000\n"
-"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>\n"
+"POT-Creation-Date: 2015-04-06 14:07+0200\n"
+"PO-Revision-Date: 2015-04-06 12:07+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,6 +28,18 @@ msgstr "디렉터리 서비스"
 msgid "Enable"
 msgstr "활성화"
 
+msgid "Enable PAM"
+msgstr ""
+
+msgid "Enable SSL/TLS"
+msgstr ""
+
+msgid "Enable secure connection."
+msgstr ""
+
+msgid "Extra client options"
+msgstr ""
+
 msgid "Extra options"
 msgstr "추가 옵션"
 
@@ -42,6 +54,11 @@ msgstr "호스트"
 
 msgid "Password"
 msgstr "암호"
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/ldap.conf' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
@@ -78,6 +95,11 @@ msgstr "사용자 접미사를 지정합니다. 예를 들어, 'ou=Users'."
 
 msgid "The FQDN or IP address of the server."
 msgstr "서버의 IP 주소나 FQDN"
+
+msgid ""
+"Use LDAP for authentication system-wide along with other authentication "
+"sources."
+msgstr ""
 
 msgid "Users suffix"
 msgstr "유저 접미사"

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2013-06-16 11:09+0000\n"
+"POT-Creation-Date: 2015-04-06 14:07+0200\n"
+"PO-Revision-Date: 2015-04-06 12:07+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -27,6 +27,18 @@ msgstr "Katalogtjänst"
 msgid "Enable"
 msgstr "Aktivera"
 
+msgid "Enable PAM"
+msgstr ""
+
+msgid "Enable SSL/TLS"
+msgstr ""
+
+msgid "Enable secure connection."
+msgstr ""
+
+msgid "Extra client options"
+msgstr ""
+
 msgid "Extra options"
 msgstr "Extra alternativ"
 
@@ -41,6 +53,11 @@ msgstr "Värd"
 
 msgid "Password"
 msgstr "Lösenord"
+
+msgid ""
+"Please check the <a href='http://linux.die.net/man/5/ldap.conf' "
+"target='_blank'>manual page</a> for more details."
+msgstr ""
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
@@ -77,6 +94,11 @@ msgstr "Specificerar användarsuffix, ex. 'ou=Users'. "
 
 msgid "The FQDN or IP address of the server."
 msgstr "FQDN eller IP-adress till servern."
+
+msgid ""
+"Use LDAP for authentication system-wide along with other authentication "
+"sources."
+msgstr ""
 
 msgid "Users suffix"
 msgstr "Användar-suffix"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-ldap\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"POT-Creation-Date: 2015-04-06 14:07+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,6 +26,18 @@ msgstr ""
 msgid "Enable"
 msgstr ""
 
+msgid "Enable PAM"
+msgstr ""
+
+msgid "Enable SSL/TLS"
+msgstr ""
+
+msgid "Enable secure connection."
+msgstr ""
+
+msgid "Extra client options"
+msgstr ""
+
 msgid "Extra options"
 msgstr ""
 
@@ -39,6 +51,9 @@ msgid "Host"
 msgstr ""
 
 msgid "Password"
+msgstr ""
+
+msgid "Please check the <a href='http://linux.die.net/man/5/ldap.conf' target='_blank'>manual page</a> for more details."
 msgstr ""
 
 msgid "Please check the <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>manual page</a> for more details."
@@ -69,6 +84,9 @@ msgid "Specifies the user suffix, e.g. 'ou=Users'."
 msgstr ""
 
 msgid "The FQDN or IP address of the server."
+msgstr ""
+
+msgid "Use LDAP for authentication system-wide along with other authentication sources."
 msgstr ""
 
 msgid "Users suffix"

@@ -65,6 +65,7 @@ xmlstarlet sel -t \
 	  -o "TLS_CACERTDIR ${OMV_LDAP_CONFIG_TLS_CACERTDIR}" -n \
 	  -o "TLS_CACERT ${OMV_LDAP_CONFIG_TLS_CACERT}" -n \
 	  -o "TLS_REQCERT ${OMV_LDAP_CONFIG_TLS_REQCERT}" -n \
+	  -i "string-length(extraclientoptions) > 0" -v "extraclientoptions" -n \
 	-b \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc > ${OMV_LDAP_CONFIG}
