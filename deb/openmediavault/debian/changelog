@@ -1,3 +1,9 @@
+openmediavault (2.0.4) stable; urgency=low
+
+  * Adapt WebGUI to Sencha ExtJS 5.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 06 Apr 2015 16:58:08 +0200
+
 openmediavault (2.0.3) stable; urgency=low
 
   * Modify Javascript code to fix EXTJS-13864.
