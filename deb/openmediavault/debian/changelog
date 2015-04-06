@@ -1,5 +1,6 @@
 openmediavault (1.17) stable; urgency=low
 
+  * Update locales.
   * Mantis 0001286: Unable to mount ReiserFS disk.
   * Mantis 0001289: Interfaces can't be edited on OpenVZ.
   * Mantis 0001290: Log authenticated und unauthenticated WebGUI logins
