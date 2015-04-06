@@ -28,6 +28,8 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_MKCONF_SCRIPTS_DIR=${OMV_MKCONF_SCRIPTS_DIR:-"/usr/share/openmediavault/mkconf"}
+
 OMV_SSHD_CONFIG=${OMV_SSHD_CONFIG:-"/etc/ssh/sshd_config"}
 OMV_SSHD_PROTOCOL=${OMV_SSHD_PROTOCOL:-"2"}
 OMV_SSHD_ALLOWGROUPS=${OMV_SSHD_ALLOWGROUPS:-"root ssh"}
@@ -57,6 +59,7 @@ OMV_SSHD_USEPAM=${OMV_SSHD_USEPAM:-"yes"}
 OMV_SSHD_AUTHORIZEDKEYSFILE_DIR=${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR:-"/var/lib/openmediavault/ssh/authorized_keys"}
 OMV_SSHD_AUTHORIZEDKEYSFILE=${OMV_SSHD_AUTHORIZEDKEYSFILE:-".ssh/authorized_keys .ssh/authorized_keys2 ${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR}/%u"}
 OMV_SSHD_AUTHORIZEDKEYSFILE_MASK=${OMV_SSHD_AUTHORIZEDKEYSFILE_MASK:-"600"}
+OMV_SSHD_EXTENSIONS_DIR=${OMV_SSHD_EXTENSIONS_DIR:-"${OMV_MKCONF_SCRIPTS_DIR}/ssh.d"}
 
 # Limit connections to IPv4 only if IPv6 is disabled.
 if [ ! -f /proc/net/if_inet6 ]; then
@@ -128,3 +131,6 @@ xmlstarlet sel -t \
 	  chmod ${OMV_SSHD_AUTHORIZEDKEYSFILE_MASK} "${filename}"
 	  chown "${name}" "${filename}"
   done
+
+# Execute additional scripts.
+run-parts --exit-on-error ${OMV_SSHD_EXTENSIONS_DIR}
