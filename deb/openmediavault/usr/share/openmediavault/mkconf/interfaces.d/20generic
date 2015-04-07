@@ -71,7 +71,7 @@ xmlstarlet sel -t \
 		  -i "string-length(dnsnameservers) > 0" \
 			  -v "concat('    dns-nameservers ',dnsnameservers)" -n \
 		  -b \
-          -i "string-length(dnssearch) > 0" \
+		  -i "string-length(dnssearch) > 0" \
 			  -v "concat('    dns-search ',dnssearch)" -n \
 		  -b \
 		  -i "string-length(dnssearch) = 0 and string-length(//system/network/domainname) > 0 and //system/network/domainname != 'local'" \
