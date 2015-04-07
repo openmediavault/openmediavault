@@ -47,7 +47,7 @@ Ext.define("OMV.module.admin.system.network.interface.Physical", {
 	plugins: [{
 		ptype: "configobject"
 	}],
-	height: 340,
+	height: 420,
 
 	/**
 	 * The class constructor.
