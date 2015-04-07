@@ -209,6 +209,18 @@ Ext.define("OMV.module.admin.system.network.interface.Physical", {
 				allowBlank: true
 			}]
 		},{
+			xtype: "textfield",
+			name: "dnsnameservers",
+			fieldLabel: _("DNS servers"),
+			vtype: "IPList",
+			allowBlank: true
+		},{
+			xtype: "textfield",
+			name: "dnssearch",
+			fieldLabel: _("Search domains"),
+			vtype: "domainnameList",
+			allowBlank: true
+		},{
 			xtype: "numberfield",
 			name: "mtu",
 			fieldLabel: _("MTU"),
@@ -480,6 +492,18 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 				readOnly: true,
 				allowBlank: true
 			}]
+		},{
+			xtype: "textfield",
+			name: "dnsnameservers",
+			fieldLabel: _("DNS servers"),
+			vtype: "IPList",
+			allowBlank: true
+		},{
+			xtype: "textfield",
+			name: "dnssearch",
+			fieldLabel: _("Search domains"),
+			vtype: "domainnameList",
+			allowBlank: true
 		},{
 			xtype: "numberfield",
 			name: "mtu",

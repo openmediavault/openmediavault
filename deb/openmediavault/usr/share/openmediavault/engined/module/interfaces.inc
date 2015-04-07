@@ -52,10 +52,6 @@ class OMVModuleInterfaces extends OMVModuleServiceAbstract
 		  "org.openmediavault.system.network.hostname",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.dnsnameservers",
-		  array($this, "setDirty"));
-		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.network.interfaces.iface",
 		  array($this, "setDirty"));
@@ -64,10 +60,6 @@ class OMVModuleInterfaces extends OMVModuleServiceAbstract
 		  "org.openmediavault.system.network.interfaces.bondiface",
 		  array($this, "setDirty"));
 		$moduleMgr = &OMVModuleMgr::getInstance();
-		$dispatcher->addListener(
-		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.dnsnameservers",
-		  array($moduleMgr->getModule("networking"), "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.network.interfaces.iface",

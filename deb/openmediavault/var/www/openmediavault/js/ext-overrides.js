@@ -68,6 +68,21 @@ Ext.apply(Ext.form.field.VTypes, {
 	IPText: _("This field should be an IP address"),
 	IPMask: /[0-9a-f\.:]/i,
 
+	IPList:  function(v) {
+		var valid = true;
+		// Split string into several IP addresses.
+		Ext.each(v.split(/[,;]/), function(ip) {
+			// Is it a valid IPv4 or IPv6 address?
+			if (!Ext.form.field.VTypes.IP(ip)) {
+				valid = false;
+				return false;
+			}
+		});
+		return valid;
+	},
+	IPListText: "This field should be a list of IP addresses",
+	IPMask: /[0-9a-f\.:,;]/i,
+
 	IPNetCIDR: function(v) {
 		if(Ext.form.field.VTypes.IPv4NetCIDR(v) ||
 		  Ext.form.field.VTypes.IPv6NetCIDR(v))
@@ -247,6 +262,20 @@ Ext.apply(Ext.form.field.VTypes, {
 	},
 	domainnameText: _("Invalid domain name"),
 	domainnameMask: /[a-z0-9\-\.]/i,
+
+	domainnameList: function(v) {
+		var valid = true;
+		var parts = v.split(new RegExp('[,;]')) || [];
+		Ext.Array.each(parts, function(part) {
+			if (!Ext.form.VTypes.domainname(part)) {
+				valid = false;
+				return false;
+			}
+		}, this);
+		return valid;
+	},
+	domainnameListText: _("This field should be a list of domainnames or IP addresses"),
+	domainnameListMask: /[a-z0-9:\-\.,;]/i,
 
 	domainnameIP: function(v) {
 		if(Ext.form.field.VTypes.domainname(v))

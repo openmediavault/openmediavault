@@ -47,9 +47,6 @@ xmlstarlet sel -t \
 			  -i "string-length(mtu) > 0" \
 				  -v "concat('    mtu ',mtu)" -n \
 			  -b \
-			  -i "string-length(//system/network/dnsnameservers) > 0" \
-				  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
-			  -b \
 			  -i "wol = 1" \
 				  -o "    pre-down ethtool -s \$IFACE wol ${OMV_INTERFACES_WOL_OPTION}" -n \
 			  -b \
@@ -71,10 +68,13 @@ xmlstarlet sel -t \
 		  -i "string-length(mtu) > 0" \
 			  -v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
 		  -b \
-		  -i "string-length(//system/network/dnsnameservers) > 0" \
-			  -v "concat('    dns-nameservers ',//system/network/dnsnameservers)" -n \
+		  -i "string-length(dnsnameservers) > 0" \
+			  -v "concat('    dns-nameservers ',dnsnameservers)" -n \
 		  -b \
-		  -i "string-length(//system/network/domainname) > 0 and //system/network/domainname != 'local'" \
+          -i "string-length(dnssearch) > 0" \
+			  -v "concat('    dns-search ',dnssearch)" -n \
+		  -b \
+		  -i "string-length(dnssearch) = 0 and string-length(//system/network/domainname) > 0 and //system/network/domainname != 'local'" \
 			  -v "concat('    dns-search ',//system/network/domainname)" -n \
 		  -b \
 		  -i "wol = 1" \

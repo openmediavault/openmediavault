@@ -52,8 +52,6 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$this->registerMethod("getBondIface");
 		$this->registerMethod("setBondIface");
 		$this->registerMethod("deleteBondIface");
-		$this->registerMethod("getDNSNameServers");
-		$this->registerMethod("setDNSNameServers");
 	}
 
 	/**
@@ -457,6 +455,9 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$object['wol'] = boolvalEx($object['wol']);
 		if(!empty($object['mtu']))
 			$object['mtu'] = intval($object['mtu']);
+		$object['dnsnameservers'] = str_replace(" ", ",",
+		  $object['dnsnameservers']);
+		$object['dnssearch'] = str_replace(" ", ",", $object['dnssearch']);
 		return $object;
 	}
 
@@ -490,6 +491,8 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				  "address6":{"type":"string"},
 				  "netmask6":{"type":"integer","minimum":0,"maximum":128},
 				  "gateway6":{"type":"string"},
+				  "dnsnameservers":{"type":"string"},
+				  "dnssearch":{"type":"string"},
 				  "mtu":{"type":["integer","string"]},
 				  "wol":{"type":"boolean"},
 				  "options":{"type":"string"},
@@ -509,6 +512,9 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			"address6" => $params['address6'],
 			"netmask6" => $params['netmask6'],
 			"gateway6" => $params['gateway6'],
+			"dnsnameservers" => preg_replace("/[,;]/", " ",
+			  $params['dnsnameservers']),
+			"dnssearch" => preg_replace("/[,;]/", " ", $params['dnssearch']),
 			"mtu" => $params['mtu'],
 			"wol" => array_boolval($params, 'wol'),
 			"options" => $params['options'],
@@ -700,6 +706,9 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$object['bondmiimon'] = intval($object['bondmiimon']);
 		$object['bonddowndelay'] = intval($object['bonddowndelay']);
 		$object['bondupdelay'] = intval($object['bondupdelay']);
+		$object['dnsnameservers'] = str_replace(" ", ",",
+		  $object['dnsnameservers']);
+		$object['dnssearch'] = str_replace(" ", ",", $object['dnssearch']);
 		return $object;
 	}
 
@@ -732,6 +741,8 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				  "address6":{"type":"string"},
 				  "netmask6":{"type":"integer","minimum":0,"maximum":128},
 				  "gateway6":{"type":"string"},
+				  "dnsnameservers":{"type":"string"},
+				  "dnssearch":{"type":"string"},
 				  "mtu":{"type":["integer","string"]},
 				  "wol":{"type":"boolean"},
 				  "options":{"type":"string"},
@@ -766,6 +777,9 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			"address6" => $params['address6'],
 			"netmask6" => $params['netmask6'],
 			"gateway6" => $params['gateway6'],
+			"dnsnameservers" => preg_replace("/[,;]/", " ",
+			  $params['dnsnameservers']),
+			"dnssearch" => preg_replace("/[,;]/", " ", $params['dnssearch']),
 			"mtu" => $params['mtu'],
 			"wol" => array_boolval($params, 'wol'),
 			"options" => $params['options'],
@@ -838,71 +852,6 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		  $params['uuid']);
 		return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.system.network.interfaces.bondiface");
-	}
-
-	/**
-	 * Get the DNS name server configuration.
-	 * @param params The method parameters.
-	 * @param context The context of the caller.
-	 * @return An array containing the configured DNS name servers.
-	 * @throw E_CONFIG_GET_OBJECT_FAILED
-	 */
-	function getDNSNameServers($params, $context) {
-		global $xmlConfig;
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
-		// Get the configuration object.
-		$xpath = "//system/network";
-		$object = $xmlConfig->get($xpath);
-		if(is_null($object)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Explode the DNS nameservers string.
-		return explode(" ", $object['dnsnameservers']);
-	}
-
-	/**
-	 * Set the DNS name server configuration.
-	 * @param params An array containing the following fields:
-	 *   \em dnsnameservers An array containing the DNS name servers.
-	 * @param context The context of the caller.
-	 * @return The stored configuration object.
-	 * @throw E_CONFIG_SET_OBJECT_FAILED
-	 */
-	function setDNSNameServers($params, $context) {
-		global $xmlConfig;
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "dnsnameservers":{
-					  "type":"array",
-					  "items":{
-						  '.$GLOBALS['OMV_JSONSCHEMA_IPV4'].'
-					  }
-				  }
-			  }
-		  }');
-		// Prepare the configuration object.
-		$object = implode(" ", $params['dnsnameservers']);
-		$success = $xmlConfig->replace("//system/network/dnsnameservers",
-		  $object);
-		if(FALSE === $success) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
-		}
-		// Notify configuration changes.
-		$dispatcher = &OMVNotifyDispatcher::getInstance();
-		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.network.dnsnameservers", $object);
-		// Return the configuration object.
-		return $object;
 	}
 }
 

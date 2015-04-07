@@ -90,6 +90,8 @@
 					<address6>xxxx:xxxx:...:xxxx</address6>
 					<netmask6>0-128</netmask6>
 					<gateway6>xxxx:xxxx:...:xxxx</gateway6>
+					<dnsnameservers></dnsnameservers>
+					<dnssearch></dnssearch>
 					<mtu></mtu>
 					<wol>0|1</wol>
 					<options></options>
@@ -106,6 +108,8 @@
 					<address6>xxxx:xxxx:...:xxxx</address6>
 					<netmask6>0-128</netmask6>
 					<gateway6>xxxx:xxxx:...:xxxx</gateway6>
+					<dnsnameservers></dnsnameservers>
+					<dnssearch></dnssearch>
 					<mtu></mtu>
 					<wol>0|1</wol>
 					<options></options>
@@ -119,7 +123,6 @@
 				</bondiface>
 				-->
 			</interfaces>
-			<dnsnameservers></dnsnameservers>
 			<iptables>
 				<!--
 				<rule>

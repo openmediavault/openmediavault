@@ -51,7 +51,7 @@ class OMVModuleNetworking extends OMVModuleServiceAbstract
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
-		// Bind listeners from withing your modules. Check the 'interfaces'
+		// Bind listeners from within your modules. Check the 'interfaces'
 		// module for example.
 	}
 }
