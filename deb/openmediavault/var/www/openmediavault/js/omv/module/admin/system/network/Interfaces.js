@@ -47,7 +47,7 @@ Ext.define("OMV.module.admin.system.network.interface.Physical", {
 	plugins: [{
 		ptype: "configobject"
 	}],
-	height: 420,
+	height: 450,
 
 	/**
 	 * The class constructor.
@@ -213,7 +213,11 @@ Ext.define("OMV.module.admin.system.network.interface.Physical", {
 			name: "dnsnameservers",
 			fieldLabel: _("DNS servers"),
 			vtype: "IPList",
-			allowBlank: true
+			allowBlank: true,
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("The name servers are used to look up host names on the network.")
+			}]
 		},{
 			xtype: "textfield",
 			name: "dnssearch",
@@ -497,7 +501,11 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 			name: "dnsnameservers",
 			fieldLabel: _("DNS servers"),
 			vtype: "IPList",
-			allowBlank: true
+			allowBlank: true,
+			plugins: [{
+				ptype: "fieldinfo",
+				text: _("The name servers are used to look up host names on the network.")
+			}]
 		},{
 			xtype: "textfield",
 			name: "dnssearch",

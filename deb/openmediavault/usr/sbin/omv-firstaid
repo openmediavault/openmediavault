@@ -38,12 +38,13 @@ OMV_FIRSTAID_DIALOG=${OMV_FIRSTAID_DIALOG:-"whiptail"}
 export LANG=C
 
 configure_iface() {
-	local devicename method address netmask gateway
+	local devicename method method6 address address6 netmask netmask6 gateway gateway6 wol dnsnameservers valid
 	# Default values.
 	method="dhcp"
 	method6="manual"
 	netmask6=64
 	wol=false
+	dnsnameservers=""
 	# Get the network interface device.
 	cmd="${OMV_FIRSTAID_DIALOG} --clear --menu 'Please select a network interface. Note, the existing network interface configuration will be deleted.' 15 53 5 "
 	for i in $(ls /sys/class/net | grep -vi "lo"); do
@@ -163,6 +164,32 @@ configure_iface() {
 			fi
 		fi
 	fi
+	# Get the DNS name servers. Note, only one IP address is supported here.
+	if [ ${method} = "static" -o ${method6} = "static" ]; then
+		valid=false
+		while ! ${valid}; do
+			${OMV_FIRSTAID_DIALOG} --clear --inputbox \
+			  "Please enter the DNS name server. If you don't want to use any name server, just leave this field blank." \
+			  9 60 2>$tempfile
+			[ $? -ne 0 ] && return 1
+			dnsnameservers=$(cat $tempfile)
+			if [ -z "${address}" ]; then
+				${OMV_FIRSTAID_DIALOG} --clear --msgbox \
+				  "The field must not be empty." 8 32
+				continue
+			fi
+			if [ -z ${dnsnameservers} ]; then
+				valid=true
+			else
+				if omv_is_ipaddr4 "${dnsnameservers}" -o omv_is_ipaddr6 "${dnsnameservers}"; then
+					valid=true
+				else
+					${OMV_FIRSTAID_DIALOG} --clear --msgbox "Invalid IP address." 8 26
+					dnsnameservers=""
+				fi
+			fi
+		done
+	fi
 	${OMV_FIRSTAID_DIALOG} --clear --defaultno --yesno \
 	  "Do you want to enable WOL for this interface?" 8 50
 	if [ $? -eq 0 ]; then
@@ -172,7 +199,7 @@ configure_iface() {
 	# Delete all existing network interface configuration objects.
 	omv_config_delete "//system/network/interfaces/*"
 	# Insert a new network interface configuration object.
-	omv_exec_rpc "Network" "setIface" "{\"uuid\":\"undefined\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"method6\":\"${method6}\",\"address6\":\"${address6}\",\"netmask6\":${netmask6},\"gateway6\":\"${gateway6}\",\"mtu\":\"\",\"wol\":${wol},\"options\":\"\",\"comment\":\"\"}"
+	omv_exec_rpc "Network" "setIface" "{\"uuid\":\"undefined\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"method6\":\"${method6}\",\"address6\":\"${address6}\",\"netmask6\":${netmask6},\"gateway6\":\"${gateway6}\",\"dnsnameservers\":\"${dnsnameservers}\",\"dnssearch\":\"\",\"mtu\":\"\",\"wol\":${wol},\"options\":\"\",\"comment\":\"\"}"
 	[ $? -ne 0 ] && return 1
 	omv_exec_rpc "Config" "applyChanges" "{\"modules\":[],\"force\":false}"
 	[ $? -ne 0 ] && return 1
@@ -226,7 +253,7 @@ configure_webgui() {
 			xmlstarlet sel -t -m "//system/certificates/sslcertificate" \
 			-v "concat(position(),' ',uuid,' ',comment)" -i "position() != last()" -n -b \
 			${OMV_CONFIG_FILE} | xmlstarlet unesc | {
-				local cmd 
+				local cmd
 				cmd="${OMV_FIRSTAID_DIALOG} --clear --menu 'Please select an SSL certificate:' 12 70 4 "
 				while read position uuid comment; do
 					# To be posix compliant use fake arrays
