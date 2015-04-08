@@ -80,7 +80,7 @@ Ext.apply(Ext.form.field.VTypes, {
 		});
 		return valid;
 	},
-	IPListText: "This field should be a list of IP addresses",
+	IPListText: "This field should be a list of IP addresses seperated by <,> or <;>",
 	IPMask: /[0-9a-f\.:,;]/i,
 
 	IPNetCIDR: function(v) {
@@ -219,7 +219,7 @@ Ext.apply(Ext.form.field.VTypes, {
 	hostname: function(v) {
 		return /^[a-zA-Z]([-a-zA-Z0-9]{0,61}[a-zA-Z0-9]){0,1}$/.test(v);
 	},
-	hostnameText: _("Invalid hostname"),
+	hostnameText: _("Invalid host name"),
 	hostnameMask: /[a-z0-9\-]/i,
 
 	hostnameIP: function(v) {
@@ -229,7 +229,7 @@ Ext.apply(Ext.form.field.VTypes, {
 			return true;
 		return false;
 	},
-	hostnameIPText: _("This field should be a hostname or an IP address"),
+	hostnameIPText: _("This field should be a host name or an IP address"),
 	hostnameIPMask: /[a-z0-9:\-\.]/i,
 
 	hostnameIPv4: function(v) {
@@ -239,7 +239,7 @@ Ext.apply(Ext.form.field.VTypes, {
 			return true;
 		return false;
 	},
-	hostnameIPv4Text: _("This field should be a hostname or an IPv4 address"),
+	hostnameIPv4Text: _("This field should be a host name or an IPv4 address"),
 	hostnameIPv4Mask: /[a-z0-9\-\.]/i,
 
 	hostnameIPList: function(v) {
@@ -253,7 +253,7 @@ Ext.apply(Ext.form.field.VTypes, {
 		}, this);
 		return valid;
 	},
-	hostnameIPListText: _("This field should be a list of hostnames or IP addresses"),
+	hostnameIPListText: _("This field should be a list of host names or IP addresses"),
 	hostnameIPListMask: /[a-z0-9:\-\.,;]/i,
 
 	domainname: function(v) {
@@ -274,7 +274,7 @@ Ext.apply(Ext.form.field.VTypes, {
 		}, this);
 		return valid;
 	},
-	domainnameListText: _("This field should be a list of domainnames or IP addresses"),
+	domainnameListText: _("This field should be a list of domain names or IP addresses seperated by <,> or <;>"),
 	domainnameListMask: /[a-z0-9:\-\.,;]/i,
 
 	domainnameIP: function(v) {
@@ -284,7 +284,7 @@ Ext.apply(Ext.form.field.VTypes, {
 			return true;
 		return false;
 	},
-	domainnameIPText: _("This field should be a domainname or an IP address"),
+	domainnameIPText: _("This field should be a domain name or an IP address"),
 	domainnameIPMask: /[a-z0-9:\-\.]/i,
 
 	domainnameIPv4: function(v) {
@@ -294,7 +294,7 @@ Ext.apply(Ext.form.field.VTypes, {
 			return true;
 		return false;
 	},
-	domainnameIPv4Text: _("This field should be a domainname or an IPv4 address"),
+	domainnameIPv4Text: _("This field should be a domain name or an IPv4 address"),
 	domainnameIPv4Mask: /[a-z0-9\-\.]/i,
 
 	domainnameIPList: function(v) {
@@ -308,7 +308,7 @@ Ext.apply(Ext.form.field.VTypes, {
 		}, this);
 		return valid;
 	},
-	domainnameIPListText: _("This field should be a list of domainnames or IP addresses"),
+	domainnameIPListText: _("This field should be a list of domain names or IP addresses"),
 	domainnameIPListMask: /[a-z0-9:\-\.,;]/i,
 
 	groupname: function(v) {
