@@ -159,16 +159,20 @@ div#headerrlogo {
 	opacity: 0.7;
 }
 .x-message-box-info {
-	background-image: url("/images/icon-info.svg");
+	background-image: url("/images/icon-info.png");
+	background-image: url("/images/icon-info.svg"), none;
 }
 .x-message-box-warning {
-	background-image: url("/images/icon-warning.svg");
+	background-image: url("/images/icon-warning.png");
+	background-image: url("/images/icon-warning.svg"), none;
 }
 .x-message-box-question {
-	background-image: url("/images/icon-question.svg");
+	background-image: url("/images/icon-question.png");
+	background-image: url("/images/icon-question.svg"), none;
 }
 .x-message-box-error {
-	background-image: url("/images/icon-error.svg");
+	background-image: url("/images/icon-error.png");
+	background-image: url("/images/icon-error.svg"), none;
 }
 /* Meditation message box */
 .x-message-box-guru {

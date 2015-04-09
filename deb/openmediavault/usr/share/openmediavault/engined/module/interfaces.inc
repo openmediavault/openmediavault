@@ -59,6 +59,10 @@ class OMVModuleInterfaces extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.network.interfaces.bondiface",
 		  array($this, "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+		  "org.openmediavault.system.network.interfaces.vlaniface",
+		  array($this, "setDirty"));
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
@@ -67,6 +71,10 @@ class OMVModuleInterfaces extends OMVModuleServiceAbstract
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.network.interfaces.bondiface",
+		  array($moduleMgr->getModule("networking"), "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
+		  "org.openmediavault.system.network.interfaces.vlaniface",
 		  array($moduleMgr->getModule("networking"), "setDirty"));
     }
 }

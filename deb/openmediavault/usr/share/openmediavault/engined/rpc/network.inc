@@ -52,6 +52,10 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$this->registerMethod("getBondIface");
 		$this->registerMethod("setBondIface");
 		$this->registerMethod("deleteBondIface");
+		$this->registerMethod("getVlanCandidates");
+		$this->registerMethod("getVlanIface");
+		$this->registerMethod("setVlanIface");
+		$this->registerMethod("deleteVlanIface");
 	}
 
 	/**
@@ -283,6 +287,10 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				$xpath = sprintf("//system/network/interfaces/bondiface[".
 				  "devicename='%s']", $devv['devicename']);
 				break;
+			case "vlan":
+				$xpath = sprintf("//system/network/interfaces/vlaniface[".
+				  "devicename='%s']", $devv['devicename']);
+				break;
 			case "physical":
 			default:
 				$xpath = sprintf("//system/network/interfaces/iface[".
@@ -301,6 +309,13 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			case "bond":
 				// Is bonded interface somewhere referenced?
 				if (TRUE === $xmlConfig->exists("//bondifaceref[".
+				  "contains(.,'{$devv['uuid']}')]")) {
+					$devv['_used'] = TRUE;
+				}
+				break;
+			case "vlan":
+				// Is bonded interface somewhere referenced?
+				if (TRUE === $xmlConfig->exists("//vlanifaceref[".
 				  "contains(.,'{$devv['uuid']}')]")) {
 					$devv['_used'] = TRUE;
 				}
@@ -525,7 +540,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		if($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
 			// Check uniqueness.
 			$xpath = sprintf("//system/network/interfaces/iface[".
-			  "devicename='%s']", $params['devicename']);
+			  "devicename='%s']", $object['devicename']);
 			if(TRUE === $xmlConfig->exists($xpath)) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
 				  sprintf(gettext("Network interface '%s' already exists"),
@@ -609,24 +624,27 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		  }');
 		// Get list of network interfaces.
 		$result = array();
-		if(array_key_exists("unused", $params) && $params['unused'] === TRUE) {
+		if (array_key_exists("unused", $params) && $params['unused'] === TRUE) {
 			// Enumerate all network interface devices on the system.
 			$devs = $this->callMethod("enumerateDevices", NULL, $context);
 			// Get a list of configured physical network interfaces that are
 			// not used by any other config object.
 			foreach($devs as $devk => $devv) {
 				// Skip loopback network interface.
-				if($devv['devicename'] == "lo")
+				if ("lo" == $devv['devicename'])
+					continue;
+				// Skip VLAN interfaces.
+				if (TRUE === $devv['vlan'])
 					continue;
 				// Get network interface type.
-				if(1 !== preg_match("/^([a-z]+)\d+$/i", $devv['devicename'],
+				if (1 !== preg_match("/^([a-z]+)\d+$/i", $devv['devicename'],
 				  $matches)) {
 					throw new OMVException(
 					  OMVErrorMsg::E_MISC_DEVICE_NOT_SUPPORTED,
 					  $devv['devicename']);
 				}
 				// Is network interface device referenced somewhere?
-				switch($matches[1]) {
+				switch ($matches[1]) {
 				case "bond":
 					// Skip bond interfaces.
 					break;
@@ -636,7 +654,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 					// interface.
 					$xpath = sprintf("//system/network/interfaces/bondiface".
 					  "[contains(slaves,'%s')]", $devv['devicename']);
-					if(TRUE === $xmlConfig->exists($xpath))
+					if (TRUE === $xmlConfig->exists($xpath))
 						break;
 					// Does a configuration object exists for the given
 					// network interface device? In this case this
@@ -644,7 +662,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 					$xpath = sprintf("//system/network/interfaces/iface[".
 					  "devicename='%s']", $devv['devicename']);
 					$object = $xmlConfig->get($xpath);
-					if(is_null($object))
+					if (is_null($object))
 						$result[] = $devv;
 					break;
 				}
@@ -852,6 +870,193 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		  $params['uuid']);
 		return $this->deleteConfigObjectByPath($xpath,
 		  "org.openmediavault.system.network.interfaces.bondiface");
+	}
+
+	/**
+	 * Get list of devices that can be used to create a VLAN network
+	 * interface.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return An array containing network interface objects.
+	 * @throw E_EXEC_MISC
+	 */
+	public function getVlanCandidates($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		$result = array();
+		// Enumerate all network interface devices on the system.
+		$devs = $this->callMethod("enumerateDevices", NULL, $context);
+		foreach ($devs as $devk => $devv) {
+			if (TRUE === $devv['vlan'])
+				continue;
+			$result[] = $devv;
+		}
+		return $result;
+	}
+
+	/**
+	 * Get a VLAN network interface configuration object.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @param context The context of the caller.
+	 * @return The requested configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+	function getVlanIface($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
+		// Get the configuration object.
+		$xpath = sprintf("//system/network/interfaces/vlaniface[uuid='%s']",
+		  $params['uuid']);
+		$object = $xmlConfig->get($xpath);
+		if (is_null($object)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
+		}
+		// Modify result data.
+		$object['netmask6'] = intval($object['netmask6']);
+		$object['vlanid'] = intval($object['vlanid']);
+		$object['wol'] = boolvalEx($object['wol']);
+		if (!empty($object['mtu']))
+			$object['mtu'] = intval($object['mtu']);
+		$object['dnsnameservers'] = str_replace(" ", ",",
+		  $object['dnsnameservers']);
+		$object['dnssearch'] = str_replace(" ", ",", $object['dnssearch']);
+		return $object;
+	}
+
+	/**
+	 * Set (add/update) a VLAN network interface configuration object.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_CONFIG_OBJECT_UNIQUENESS
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
+	 */
+	function setVlanIface($params, $context) {
+		global $xmlConfig;
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+				  "devicename":{"type":"string"},
+				  "method":{"type":"string","enum":["dhcp","static",'.
+					'"manual"]},
+				  "address":{"type":"string"},
+				  "netmask":{"type":"string"},
+				  "gateway":{"type":"string"},
+				  "method6":{"type":"string","enum":["auto","static",'.
+					'"manual","dhcp"]},
+				  "address6":{"type":"string"},
+				  "netmask6":{"type":"integer","minimum":0,"maximum":128},
+				  "gateway6":{"type":"string"},
+				  "dnsnameservers":{"type":"string"},
+				  "dnssearch":{"type":"string"},
+				  "mtu":{"type":["integer","string"]},
+				  "wol":{"type":"boolean"},
+				  "options":{"type":"string"},
+				  "comment":{"type":"string"},
+				  "vlanid":{"type":"integer","minimum":1,"maximum":4095},
+				  "vlanrawdevice":{"type":"string"}
+			  }
+		  }');
+		// Prepare configuration object.
+		$object = array(
+			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+			  OMVUtil::uuid() : $params['uuid'],
+			"devicename" => sprintf("%s.%d", $params['vlanrawdevice'],
+			  $params['vlanid']),
+			"method" => $params['method'],
+			"address" => $params['address'],
+			"netmask" => $params['netmask'],
+			"gateway" => $params['gateway'],
+			"method6" => $params['method6'],
+			"address6" => $params['address6'],
+			"netmask6" => $params['netmask6'],
+			"gateway6" => $params['gateway6'],
+			"dnsnameservers" => preg_replace("/[,;]/", " ",
+			  $params['dnsnameservers']),
+			"dnssearch" => preg_replace("/[,;]/", " ", $params['dnssearch']),
+			"mtu" => $params['mtu'],
+			"wol" => array_boolval($params, 'wol'),
+			"options" => $params['options'],
+			"comment" => $params['comment'],
+			"vlanid" => $params['vlanid'],
+			"vlanrawdevice" => $params['vlanrawdevice']
+		);
+		// Set configuration data
+		$success = FALSE;
+		if ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) {
+			// Check uniqueness.
+			$xpath = sprintf("//system/network/interfaces/vlaniface[".
+			  "devicename='%s']", $object['devicename']);
+			if (TRUE === $xmlConfig->exists($xpath)) {
+				throw new OMVException(OMVErrorMsg::E_CONFIG_OBJECT_UNIQUENESS,
+				  sprintf(gettext("Network interface '%s' already exists"),
+				  $object['devicename']));
+			}
+			// Append object to configuration.
+			$success = $xmlConfig->set("//system/network/interfaces",
+			  array("vlaniface" => $object));
+		} else {
+			// Update existing configuration object.
+			$xpath = sprintf("//system/network/interfaces/vlaniface[uuid='%s']",
+			  $params['uuid']);
+			$success = $xmlConfig->replace($xpath, $object);
+		}
+		if (FALSE === $success)
+			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
+		// Notify configuration changes.
+		$dispatcher = &OMVNotifyDispatcher::getInstance();
+		$dispatcher->notify(($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
+		  OMV_NOTIFY_CREATE : OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.network.interfaces.vlaniface", $object);
+		// Return the configuration object.
+		return $object;
+	}
+
+	/**
+	 * Delete a VLAN network interface configuration object.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @param context The context of the caller.
+	 * @return The deleted configuration object.
+	 */
+	function deleteVlanIface($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID'].'}
+			  }
+		  }');
+		// Delete the configuration object.
+		$xpath = sprintf("//system/network/interfaces/vlaniface[uuid='%s']",
+		  $params['uuid']);
+		return $this->deleteConfigObjectByPath($xpath,
+		  "org.openmediavault.system.network.interfaces.vlaniface");
 	}
 }
 

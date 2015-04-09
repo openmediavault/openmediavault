@@ -121,6 +121,26 @@
 					<bonddowndelay>0</bonddowndelay>
 					<bondupdelay>0</bondupdelay>
 				</bondiface>
+				<vlaniface>
+					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+					<devicename>(eth|wlan|bond)\d+.\d+</devicename>
+					<method>dhcp|static|manual</method>
+					<address>xxx.xxx.xxx.xxx</address>
+					<netmask>xxx.xxx.xxx.xxx</netmask>
+					<gateway>xxx.xxx.xxx.xxx</gateway>
+					<method6>auto|dhcp|static|manual</method6>
+					<address6>xxxx:xxxx:...:xxxx</address6>
+					<netmask6>0-128</netmask6>
+					<gateway6>xxxx:xxxx:...:xxxx</gateway6>
+					<dnsnameservers></dnsnameservers>
+					<dnssearch></dnssearch>
+					<mtu></mtu>
+					<wol>0|1</wol>
+					<options></options>
+					<comment>xxx</comment>
+					<vlanid>1-4095</vlanid>
+					<vlanrawdevice>(eth|wlan|bond)\d+</vlanrawdevice>
+				</vlaniface>
 				-->
 			</interfaces>
 			<iptables>

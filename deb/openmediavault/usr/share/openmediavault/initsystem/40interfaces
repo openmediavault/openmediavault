@@ -26,23 +26,30 @@ set -e
 
 OMV_INTERFACES_CONFIG=${OMV_INTERFACES_CONFIG:-"/etc/network/interfaces"}
 
-# Configure network interfaces.
+# Configure IPv4 network interfaces.
 grep -Pi "^\s*iface\s+(eth|wlan)[0-9]+\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INTERFACES_CONFIG} |
   while read type devname family method; do
 	  # Skip IPv6.
 	  [ "inet6" = "${family}" ] && continue
 	  # Init 'iface' configuration object.
-	  object="<uuid>$(uuid)</uuid><devicename>${devname}</devicename>"
+	  object="<uuid>$(uuid)</uuid>"
+      object="${object}<devicename>${devname}</devicename>"
+      object="${object}<method6>manual</method6>"
+      object="${object}<address6></address6>"
+      object="${object}<netmask6>64</netmask6>"
+      object="${object}<gateway6></gateway6>"
+      object="${object}<dnsnameservers></dnsnameservers>"
+      object="${object}<dnssearch></dnssearch>"
+      object="${object}<wol>0</wol>"
+      object="${object}<mtu></mtu>"
+      object="${object}<options></options>"
+      object="${object}<comment></comment>"
 	  # DHCP or static?
 	  if [ "dhcp" = "${method}" ]; then
 		  object="${object}<method>dhcp</method>"
-		  object="${object}<wol>0</wol>"
 		  object="${object}<address></address>"
 		  object="${object}<netmask></netmask>"
 		  object="${object}<gateway></gateway>"
-          object="${object}<dnsnameservers></dnsnameservers>"
-          object="${object}<dnssearch></dnssearch>"
-		  object="${object}<mtu></mtu>"
 	  else
 		  # Get interface configuration.
 		  value=$(ip -4 -o addr show dev ${devname} | awk '{print $4}')
@@ -51,13 +58,9 @@ grep -Pi "^\s*iface\s+(eth|wlan)[0-9]+\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INT
 		  gateway=$(omv_get_gateway ${devname})
 		  # Prepare 'iface' configuration object.
 		  object="${object}<method>static</method>"
-		  object="${object}<wol>0</wol>"
 		  object="${object}<address>${address}</address>"
 		  object="${object}<netmask>${netmask}</netmask>"
 		  object="${object}<gateway>${gateway}</gateway>"
-          object="${object}<dnsnameservers></dnsnameservers>"
-          object="${object}<dnssearch></dnssearch>"
-		  object="${object}<mtu></mtu>"
 	  fi
 	  # Add interface if it does not already exist.
 	  if ! omv_config_exists "/config/system/network/interfaces/iface[devicename='${devname}']"; then
