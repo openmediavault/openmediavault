@@ -581,7 +581,7 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 				xtype: "combo",
 				name: "bondprimary",
 				fieldLabel: _("Primary"),
-				emptyText: _("Select a primary device ..."),
+				emptyText: _("Select a primary interface ..."),
 				queryMode: "local",
 				store: Ext.create("OMV.data.Store", {
 					model: OMV.data.Model.createImplicit({
@@ -772,8 +772,8 @@ Ext.define("OMV.module.admin.system.network.interface.Vlan", {
 		},{
 			xtype: "combo",
 			name: "vlanrawdevice",
-			fieldLabel: _("Parent"),
-			emptyText: _("Select a parent device ..."),
+			fieldLabel: _("Parent interface"),
+			emptyText: _("Select a parent interface ..."),
 			queryMode: "local",
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
@@ -802,11 +802,7 @@ Ext.define("OMV.module.admin.system.network.interface.Vlan", {
 			readOnly: me.uuid !== OMV.UUID_UNDEFINED,
 			editable: false,
 			forceSelection: true,
-			triggerAction: "all",
-			plugins: [{
-				ptype: "fieldinfo",
-				text: _("Specifies the device to create the VLAN on.")
-			}]
+			triggerAction: "all"
 		},{
 			xtype: "numberfield",
 			name: "vlanid",
@@ -1298,7 +1294,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		switch (action) {
 		case "bond":
 			Ext.create("OMV.module.admin.system.network.interface.Bond", {
-				title: _("Add bonded interface"),
+				title: _("Add bond interface"),
 				uuid: OMV.UUID_UNDEFINED,
 				listeners: {
 					submit: function() {
@@ -1332,7 +1328,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		switch(record.get("type")) {
 		case "physical":
 			className = "OMV.module.admin.system.network.interface.Physical";
-			title = _("Edit physical interface");
+			title = _("Edit ethernet interface");
 			break;
 		case "bond":
 			className = "OMV.module.admin.system.network.interface.Bond";
