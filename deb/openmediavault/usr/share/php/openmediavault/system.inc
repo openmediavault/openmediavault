@@ -2596,6 +2596,14 @@ abstract class OMVStorageDeviceSMARTAbstract extends OMVStorageDeviceAbstract {
 /**
  * The generic class that represents a storage device backend.
  * @ingroup api
+ *
+ * To implement a new storage backend the following information are
+ * necessary:
+ * # cat /proc/partitions
+ * # export LANG=C; blkid
+ * # export LANG=C; udevadm info --query=property --name=/dev/<DEVNAME>
+ * # cat /sys/block/<DEVNAME>/device/model
+ * # cat /sys/block/<DEVNAME>/device/vendor
  */
 abstract class OMVStorageDeviceBackendAbstract extends OMVObject {
 	/**
