@@ -41,9 +41,9 @@ xmlstarlet sel -t \
 		  -v "concat('# ',devicename,' network interface')" -n \
 		  -v "concat('auto ',devicename)" -n \
 		  -v "concat('allow-hotplug ',devicename)" -n \
+          -v "concat('iface ',devicename,' inet ',method)" -n \
 		  -i "method = 'manual'" \
-			  -v "concat('iface ',devicename,' inet manual')" -n \
-			  -v "concat('    pre-down ip -4 addr flush dev ',devicename)" -n \
+			  -o "    pre-down ip -4 addr flush dev \$IFACE" -n \
 			  -i "string-length(mtu) > 0" \
 				  -v "concat('    mtu ',mtu)" -n \
 			  -b \
@@ -55,7 +55,6 @@ xmlstarlet sel -t \
 			  -b \
 		  -b \
 		  -i "method = 'static'" \
-			  -v "concat('iface ',devicename,' inet static')" -n \
 			  -v "concat('    address ',address)" -n \
 			  -i "string-length(gateway) > 0" \
 				  -v "concat('    gateway ',gateway)" -n \
@@ -63,7 +62,6 @@ xmlstarlet sel -t \
 			  -v "concat('    netmask ',netmask)" -n \
 		  -b \
 		  -i "method = 'dhcp'" \
-			  -v "concat('iface ',devicename,' inet dhcp')" -n \
 		  -b \
 		  -i "string-length(mtu) > 0" \
 			  -v "concat('    post-up /sbin/ifconfig \$IFACE mtu ',mtu)" -n \
@@ -83,12 +81,11 @@ xmlstarlet sel -t \
 		  -i "string-length(options) > 0" \
 			  -v "concat('    pre-up ethtool -s \$IFACE ',options)" -n \
 		  -b \
+          -v "concat('iface ',devicename,' inet6 ',method6)" -n \
 		  -i "method6 = 'manual'" \
-			  -v "concat('iface ',devicename,' inet6 manual')" -n \
-			  -v "concat('    pre-down ip -6 addr flush dev ',devicename)" -n \
+			  -o "    pre-down ip -6 addr flush dev \$IFACE" -n \
 		  -b \
 		  -i "method6 = 'static'" \
-			  -v "concat('iface ',devicename,' inet6 static')" -n \
 			  -v "concat('    address ',address6)" -n \
 			  -i "string-length(gateway6) > 0" \
 				  -v "concat('    gateway ',gateway6)" -n \
@@ -98,14 +95,12 @@ xmlstarlet sel -t \
 			  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
 		  -b \
 		  -i "method6 = 'auto'" \
-			  -v "concat('iface ',devicename,' inet6 auto')" -n \
 			  -o "    privext 2" -n \
 			  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/autoconf" -n \
 			  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/accept_ra" -n \
 			  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
 		  -b \
 		  -i "method6 = 'dhcp'" \
-			  -v "concat('iface ',devicename,' inet6 dhcp')" -n \
 			  -o "    pre-up echo 1 > /proc/sys/net/ipv6/conf/\$IFACE/accept_ra" -n \
 			  -o "    pre-up echo 0 > /proc/sys/net/ipv6/conf/\$IFACE/disable_ipv6" -n \
 		  -b \
