@@ -3059,6 +3059,44 @@ class OMVStorageDeviceBackendFIO extends OMVStorageDeviceBackendAbstract {
 }
 
 /**
+ * Implements the storage device backend for KVM VirtIO devices.
+ * @ingroup api
+ */
+class OMVStorageDeviceBackendVirtIO extends OMVStorageDeviceBackendAbstract {
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_HDD;
+	}
+
+	function enumerate() {
+		// major minor  #blocks  name
+		//  254        0  976762584 vda
+		//  254       16  976762584 vdb
+		//   11        0     355328 sr0
+		//    8        0    8388608 sda
+		//    8        1    7993344 sda1
+		//    8        2          1 sda2
+		//    8        5     392192 sda5
+		return $this->enumerateProcFs("vd[a-z]+");
+	}
+
+	function isTypeOf($deviceFile) {
+		// Examples:
+		// - /dev/vda
+		// - /dev/vda1
+		$regex = "vd[a-z]+[0-9]*";
+		return $this->isTypeOfByName($deviceFile, $regex);
+	}
+
+	function getImpl($args) {
+		return new OMVStorageDeviceVirtIO($args);
+	}
+
+	function baseDeviceFile($deviceFile) {
+		return preg_replace("/(\d+)$/", "", $deviceFile);
+	}
+}
+
+/**
  * Helper class to get all existing devices of the given storage type.
  * @ingroup api
  */
@@ -3757,6 +3795,14 @@ class OMVStorageDeviceBcache extends OMVStorageDeviceAbstract {
 		return sprintf(gettext("Block layer cache [%s, %s]"),
 		  $this->getDeviceFile(), binary_format($this->getSize()));
 	}
+}
+
+/**
+ * This class provides a simple interface to handle KVM VirtIO devices.
+ * @ingroup api
+ */
+class OMVStorageDeviceVirtIO extends OMVStorageDeviceSMARTAbstract {
+	protected $smartDeviceType = "sat";
 }
 
 /**
@@ -5279,6 +5325,7 @@ OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendLoop());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendBcache());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendFIO());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendMMC());
+OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendVirtIO());
 
 ///////////////////////////////////////////////////////////////////////////////
 // Register default filesystem backends.
