@@ -34,8 +34,16 @@ openmediavault (2.0) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Feb 2015 09:50:29 +0100
 
+openmediavault (1.18) stable; urgency=low
+
+  * Mantis 0001302: Increase "wipe" size to also remove other file
+    systems from disks.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 10 Apr 2015 8:43:52 +0200
+
 openmediavault (1.17) stable; urgency=low
 
+  * Update locales.
   * Mantis 0001286: Unable to mount ReiserFS disk.
   * Mantis 0001289: Interfaces can't be edited on OpenVZ.
   * Mantis 0001290: Log authenticated und unauthenticated WebGUI logins
