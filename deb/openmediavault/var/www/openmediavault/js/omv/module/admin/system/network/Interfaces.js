@@ -32,10 +32,10 @@
 // require("js/omv/toolbar/Tip.js")
 
 /**
- * @class OMV.module.admin.system.network.interface.Physical
+ * @class OMV.module.admin.system.network.interface.Ethernet
  * @derived OMV.workspace.window.Form
  */
-Ext.define("OMV.module.admin.system.network.interface.Physical", {
+Ext.define("OMV.module.admin.system.network.interface.Ethernet", {
 	extend: "OMV.workspace.window.Form",
 	requires: [
 	    "OMV.workspace.window.plugin.ConfigObject"
@@ -1055,7 +1055,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		"OMV.data.proxy.Rpc",
 		"OMV.util.Format",
 		"OMV.module.admin.system.network.interface.Identify",
-		"OMV.module.admin.system.network.interface.Physical",
+		"OMV.module.admin.system.network.interface.Ethernet",
 		"OMV.module.admin.system.network.interface.Bond"
 	],
 	uses: [
@@ -1261,9 +1261,9 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		if (records.length <= 0) {
 			// Nothing to do here.
 		} else if (records.length == 1) {
-			tbarBtnDisabled["edit"] = !Ext.Array.contains([ "physical",
+			tbarBtnDisabled["edit"] = !Ext.Array.contains([ "ethernet",
 			  "bond", "vlan" ], records[0].get("type"));
-			if (records[0].get("type") == "physical") {
+			if (records[0].get("type") == "ethernet") {
 				tbarBtnDisabled["identify"] = false;
 			}
 			if (records[0].get("uuid") !== OMV.UUID_UNDEFINED) {
@@ -1326,8 +1326,8 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		// Display a different dialog depending on the type of the selected
 		// interface.
 		switch(record.get("type")) {
-		case "physical":
-			className = "OMV.module.admin.system.network.interface.Physical";
+		case "ethernet":
+			className = "OMV.module.admin.system.network.interface.Ethernet";
 			title = _("Edit ethernet interface");
 			break;
 		case "bond":
@@ -1370,7 +1370,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		var me = this;
 		var rpcMethod;
 		switch(record.get("type")) {
-		case "physical":
+		case "ethernet":
 			rpcMethod = "deleteIface";
 			break;
 		case "bond":

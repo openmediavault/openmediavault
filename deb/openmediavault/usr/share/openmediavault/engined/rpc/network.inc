@@ -265,10 +265,12 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			case "br":
 				$devv['type'] = "bridge";
 				break;
-			case "eth":
 			case "wlan":
+				$devv['type'] = "wireless";
+				break;
+			case "eth":
 			case "venet":
-				$devv['type'] = "physical";
+				$devv['type'] = "ethernet";
 				break;
 			case "tap":
 			case "tun":
@@ -291,7 +293,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				$xpath = sprintf("//system/network/interfaces/vlaniface[".
 				  "devicename='%s']", $devv['devicename']);
 				break;
-			case "physical":
+			case "ethernet":
 			default:
 				$xpath = sprintf("//system/network/interfaces/iface[".
 				  "devicename='%s']", $devv['devicename']);
@@ -357,23 +359,24 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		$result = array();
-		// Get all configured physical network interface devices.
+		// Get all configured ethernet network interface devices.
 		$xpath = "//system/network/interfaces/iface/uuid";
 		$uuids = $xmlConfig->getList($xpath);
-		foreach($uuids as $uuid) {
+		foreach ($uuids as $uuid) {
 			$object = $this->callMethod("getIface", array("uuid" => $uuid),
 			  $context);
 			// Check if it is used by a bonding interface.
-			if(FALSE === $xmlConfig->exists("//bondiface[" .
-			  "contains(slaves,'{$object['devicename']}')]")) {
-				$object['type'] = "physical";
+			$xpath = sprintf("//bondiface[contains(slaves,'%s')]",
+			  $object['devicename']);
+			if (FALSE === $xmlConfig->exists($xpath)) {
+				$object['type'] = "ethernet";
 				$result[] = $object;
 			}
 		}
 		// Get all configured bonded network interface devices.
 		$xpath = "//system/network/interfaces/bondiface/uuid";
 		$uuids = $xmlConfig->getList($xpath);
-		foreach($uuids as $uuid) {
+		foreach ($uuids as $uuid) {
 			$object = $this->callMethod("getBondIface",
 			  array("uuid" => $uuid), $context);
 			$object['type'] = "bond";
@@ -437,7 +440,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Get a physical network interface configuration object.
+	 * Get a ethernet network interface configuration object.
 	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
@@ -477,7 +480,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Set (add/update) a physical network interface configuration object.
+	 * Set (add/update) a ethernet network interface configuration object.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
@@ -568,7 +571,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Delete a physical network interface configuration object.
+	 * Delete a ethernet network interface configuration object.
 	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the configuration object.
 	 * @param context The context of the caller.
@@ -597,13 +600,13 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	 * Enumerate all interfaces from a bonded interface object.
 	 * @param params An array containing the following fields:
 	 *   \em uuid The UUID of the bonded interface configuration object.
-	 *   \em unused If TRUE then the physical network interfaces that are
+	 *   \em unused If TRUE then the ethernet network interfaces that are
 	 *   not configured nor used will be appended to the result list.
 	 *   Defaults to TRUE.
 	 * @param context The context of the caller.
 	 * @return If \em uuid is set to OMV_UUID_UNDEFINED a list of available
-	 *   physical network interfaces (iface class objects) is returned,
-	 *   otherwise the bonded interface slaves plus the unreferenced physical
+	 *   ethernet network interfaces (iface class objects) is returned,
+	 *   otherwise the bonded interface slaves plus the unreferenced ethernet
 	 *   network interfaces are returned.
 	 * @throw E_MISC_DEVICE_NOT_SUPPORTED
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
@@ -627,9 +630,9 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		if (array_key_exists("unused", $params) && $params['unused'] === TRUE) {
 			// Enumerate all network interface devices on the system.
 			$devs = $this->callMethod("enumerateDevices", NULL, $context);
-			// Get a list of configured physical network interfaces that are
+			// Get a list of configured ethernet network interfaces that are
 			// not used by any other config object.
-			foreach($devs as $devk => $devv) {
+			foreach ($devs as $devk => $devv) {
 				// Skip loopback network interface.
 				if ("lo" == $devv['devicename'])
 					continue;
@@ -668,18 +671,18 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				}
 			}
 		}
-		if($params['uuid'] !== $GLOBALS['OMV_UUID_UNDEFINED']) {
+		if ($params['uuid'] !== $GLOBALS['OMV_UUID_UNDEFINED']) {
 			// Get network interfaces already assigned to the bonding
 			// interface device.
 			$xpath = sprintf("//system/network/interfaces/bondiface[uuid='%s']",
 			  $params['uuid']);
 			$object = $xmlConfig->get($xpath);
-			if(is_null($object)) {
+			if (is_null($object)) {
 				throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 				  $xpath);
 			}
 			// Get interface details of the bonding slaves.
-			foreach(explode(",", $object['slaves']) as $slavek => $slavev) {
+			foreach (explode(",", $object['slaves']) as $slavek => $slavev) {
 				$result[] = $this->getIfaceInfo($slavev);
 			}
 		}

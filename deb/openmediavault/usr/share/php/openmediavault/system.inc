@@ -1769,8 +1769,8 @@ class OMVFilesystemXfs extends OMVFilesystem {
 	final public function grow() {
 		if ($this->getData() === FALSE)
 			return FALSE;
-		$cmd = sprintf("export LANG=C; xfs_growfs %s 2>&1",
-		escapeshellarg(OMVFilesystem::buildMountPath($this->getUuid())));
+		$cmd = sprintf("export LANG=C; xfs_growfs %s 2>&1", escapeshellarg(
+		  OMVFilesystem::buildMountPath($this->getUuid())));
 		@OMVUtil::exec($cmd, $output, $result);
 		if ($result !== 0) {
 			$this->setLastError($output);
