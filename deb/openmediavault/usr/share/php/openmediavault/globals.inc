@@ -55,6 +55,14 @@ define("OMV_STORAGE_DEVICE_TYPE_LOOPDEVICE", 0x8);
 define("OMV_STORAGE_DEVICE_TYPE_DEVICEMAPPER", 0x10);
 define("OMV_STORAGE_DEVICE_TYPE_ALL", 0xFF);
 
+define("OMV_NETWORK_INTERFACE_TYPE_ETHERNET", 0x1);
+define("OMV_NETWORK_INTERFACE_TYPE_BOND", 0x2);
+define("OMV_NETWORK_INTERFACE_TYPE_VLAN", 0x4);
+define("OMV_NETWORK_INTERFACE_TYPE_BRIDGE", 0x8);
+define("OMV_NETWORK_INTERFACE_TYPE_WIRELESS", 0x10);
+define("OMV_NETWORK_INTERFACE_TYPE_VIRTUAL", 0x20);
+define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
+
 // Globals that can be modified via /etc/default/openmediavault.
 $GLOBALS['OMV_DEFAULT_FILE'] = "/etc/default/openmediavault";
 $GLOBALS['OMV_DEBUG_PHP_LOGFILE'] = "/tmp/openmediavault_debug_php.log";

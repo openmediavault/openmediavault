@@ -4107,24 +4107,332 @@ class OMVNetwork extends OMVObject {
 }
 
 /**
+ * The generic class that represents a network interface backend.
+ * @ingroup api
+ */
+abstract class OMVNetworkInterfaceBackendAbstract extends OMVObject {
+	/**
+	 * Get the type of the network interface backend, e.g.
+	 * OMV_NETWORK_INTERFACE_TYPE_ETHERNET, OMV_NETWORK_INTERFACE_TYPE_BOND,
+	 * OMV_NETWORK_INTERFACE_TYPE_VLAN, ...
+	 */
+	abstract function getType();
+
+	/**
+	 * Get a list of devices of the given network interface backend.
+	 * @return A list of devicefile names, otherwise FALSE.
+	 */
+	abstract function enumerate();
+
+	/**
+	 * Get a list of all devices that are used by devices of this
+	 * network interface backend.
+	 * @return A list of devicefile names, otherwise FALSE.
+	 */
+	public function enumerateSlaves() {
+		return array();
+	}
+
+	/**
+	* Check whether the given device is represented by this network
+	* interface backend.
+	* @param deviceName Specifies the device file, e.g.
+	*   <ul>
+	*   \li eth1
+	*   \li bond0
+	*   \li eth0.1
+	*   \li venet2
+	*   </ul>
+	* @return TRUE if successful, otherwise FALSE.
+	*/
+	public function isTypeOf($deviceName) {
+		return FALSE;
+	}
+
+	/**
+	 * Get the object of the class implementing the given network interface.
+	 * @param args The arguments to the class constructor.
+	 * @return The object of the class implementing the given network
+	 *   interface type, otherwise NULL.
+	 */
+	public function getImpl($args) {
+		return new OMVNetworkInterface($args);
+	}
+}
+
+/**
+ * Implements the network interface backend for ethernet devices.
+ * @ingroup api
+ */
+class OMVNetworkInterfaceBackendEthernet extends OMVNetworkInterfaceBackendAbstract {
+	protected $regex = "(eth|venet)[0-9]+";
+
+	function getType() {
+		return OMV_NETWORK_INTERFACE_TYPE_ETHERNET;
+	}
+
+	function enumerate() {
+		return $this->enumerateSysFs($this->regex);
+	}
+
+	function isTypeOf($deviceName) {
+		return $this->isTypeOfByName($deviceName, $this->regex);
+	}
+}
+
+/**
+ * Implements the network interface backend for bond devices.
+ * @ingroup api
+ */
+class OMVNetworkInterfaceBackendBond extends OMVNetworkInterfaceBackendAbstract {
+	protected $regex = "bond[0-9]+";
+
+	function getType() {
+		return OMV_NETWORK_INTERFACE_TYPE_BOND;
+	}
+
+	function enumerate() {
+		return $this->enumerateSysFs($this->regex);
+	}
+
+	function isTypeOf($deviceName) {
+		return $this->isTypeOfByName($deviceName, $this->regex);
+	}
+
+	function enumerateSlaves() {
+		$devs = $this->enumerate();
+		if (FALSE === $devs)
+			return FALSE;
+		$result = array();
+		foreach ($devs as $devk => $devv) {
+			// Get the bond slaves.
+			$slaves = file(sprintf("/sys/class/net/%s/bonding/slaves", $devv));
+			$result = array_merge($result, $slaves);
+		}
+		return $result;
+	}
+}
+
+/**
+ * Implements the network interface backend for VLAN devices.
+ * @ingroup api
+ */
+class OMVNetworkInterfaceBackendVlan extends OMVNetworkInterfaceBackendAbstract {
+	protected $regex = "/^(\S+\d+)\.(\d+)$/i";
+
+	function getType() {
+		return OMV_NETWORK_INTERFACE_TYPE_VLAN;
+	}
+
+	function enumerate() {
+		return $this->enumerateSysFs($this->regex);
+	}
+
+	function isTypeOf($deviceName) {
+		return $this->isTypeOfByName($deviceName, $this->regex);
+	}
+}
+
+/**
+ * Implements the network interface backend for bridge devices.
+ * @ingroup api
+ */
+class OMVNetworkInterfaceBackendBridge extends OMVNetworkInterfaceBackendAbstract {
+	protected $regex = "br[0-9]+";
+
+	function getType() {
+		return OMV_NETWORK_INTERFACE_TYPE_BRIDGE;
+	}
+
+	function enumerate() {
+		return $this->enumerateSysFs($this->regex);
+	}
+
+	function isTypeOf($deviceName) {
+		return $this->isTypeOfByName($deviceName, $this->regex);
+	}
+}
+
+/**
+ * Implements the network interface backend for bridge devices.
+ * @ingroup api
+ */
+class OMVNetworkInterfaceBackendWireless extends OMVNetworkInterfaceBackendAbstract {
+	protected $regex = "wlan[0-9]+";
+
+	function getType() {
+		return OMV_NETWORK_INTERFACE_TYPE_WIRELESS;
+	}
+
+	function enumerate() {
+		return $this->enumerateSysFs($this->regex);
+	}
+
+	function isTypeOf($deviceName) {
+		return $this->isTypeOfByName($deviceName, $this->regex);
+	}
+}
+
+/**
+ * Implements the network interface backend for TUN/TAP devices.
+ * @ingroup api
+ */
+class OMVNetworkInterfaceBackendVirtual extends OMVNetworkInterfaceBackendAbstract {
+	protected $regex = "(tun|tap)[0-9]+";
+
+	function getType() {
+		return OMV_NETWORK_INTERFACE_TYPE_VIRTUAL;
+	}
+
+	function enumerate() {
+		return $this->enumerateSysFs($this->regex);
+	}
+
+	function isTypeOf($deviceName) {
+		return $this->isTypeOfByName($deviceName, $this->regex);
+	}
+}
+
+/**
  * Helper class to get all existing Linux network interfaces.
  * @ingroup api
  */
 class OMVNetworkInterfaces extends OMVObject {
+	static private $backends = array();
+
 	/**
-	 * Get a list of all network interfaces.
-	 * @deprecated
-	 * @return A list of network interfaces, otherwise FALSE.
+	 * Register a storage device backend.
+	 * @param backend The storage device backend object to register.
+	 * @return TRUE if successful, otherwise FALSE.
 	 */
-	public static function get() {
-		return self::enumerate();
+	final static function registerBackend(OMVNetworkInterfaceBackendAbstract $backend) {
+		if (!isset($backend))
+			return FALSE;
+		self::$backends[] = $backend;
+		return TRUE;
+	}
+
+	/**
+	 * Get the backend of the given network interface.
+	 * @param deviceName Specifies the device name, e.g.
+	 *   <ul>
+	 *   \li eth0
+	 *   \li wlan2
+	 *   \li eth2.1
+	 *   \li bond0
+	 *   </ul>
+	 * @return The backend that implements the given device, otherwise NULL.
+	 */
+	final static function getBackend($deviceName) {
+		$result = NULL;
+		foreach (self::$backends as $backendk => $backendv) {
+			if (FALSE === $backendv->isTypeOf($deviceName))
+				continue;
+			$result = $backendv;
+			break;
+		}
+		return $result;
 	}
 
 	/**
 	 * Enumerate all network interfaces.
+	 * @param type Defines the network interface type, e.g. ethernet, vlan or
+	 *   bond. Defaults to OMV_NETWORK_INTERFACE_TYPE_ALL.
 	 * @return A list of network interfaces, e.g. eth0 or lo, otherwise FALSE.
 	 */
-	public static function enumerate() {
+	public static function enumerate($type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
+		$result = array();
+		foreach (self::$backends as $backendk => $backendv) {
+			if (!($type & $backendv->getType()))
+				continue;
+			if (FALSE === ($devs = $backendv->enumerate()))
+				return FALSE;
+			$result = array_unique(array_merge($result, $devs));
+		}
+		// Sort the devices using a "natural order" algorithm.
+		if (!natsort($result))
+			return FALSE;
+		return $result;
+	}
+
+	/**
+	 * Enumerate all unused devices. This list contains all devices of the
+	 * given type except the devices that are used by other network interfaces
+	 * (e.g. bond interfaces).
+	 * @param type Defines the network interface type. Defaults to
+	 *   OMV_NETWORK_INTERFACE_TYPE_ALL.
+	 * @return A list of network interfaces, otherwise FALSE.
+	 */
+	final public function enumerateUnused($type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
+		// Append all available storage devices.
+		if (FALSE === ($result = self::enumerate($type)))
+			return FALSE;
+		// Remove used network interfaces.
+		foreach (self::$backends as $backendk => $backendv) {
+			if (!($type & $backendv->getType()))
+				continue;
+			if (FALSE === ($devs = $backendv->enumerateSlaves()))
+				return FALSE;
+			if (empty($devs))
+				continue;
+			$result = array_diff($result, $devs);
+		}
+		// Sort the devices using a "natural order" algorithm.
+		if (!natsort($result))
+			return FALSE;
+		return $result;
+	}
+
+	/**
+	 * Enumerate all used devices. The list contains all those devices that
+	 * are used by the given network interfaces, e.g. all members of a bond
+	 * interface.
+	 * @param type Defines the network interface type. Defaults to
+	 *   OMV_NETWORK_INTERFACE_TYPE_ALL.
+	 * @return A list of network interfaces, otherwise FALSE.
+	 */
+	final public function enumerateUsed($type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
+		$result = array();
+		// Remove used devices.
+		foreach (self::$backends as $backendk => $backendv) {
+			if (!($type & $backendv->getType()))
+				continue;
+			if (FALSE === ($devs = $backendv->enumerateSlaves()))
+				return FALSE;
+			$result = array_unique(array_merge($result, $devs));
+		}
+		// Sort the devices using a "natural order" algorithm.
+		if (!natsort($result))
+			return FALSE;
+		return $result;
+	}
+
+	/**
+	 * Get the object of the class implementing the given filesystem.
+	 * @param deviceName Specifies the device name, e.g.
+	 *   <ul>
+	 *   \li eth0
+	 *   \li wlan2
+	 *   \li eth2.1
+	 *   \li bond0
+	 *   </ul>
+	 * @return The object of the class implementing the given network
+	 *   interface, otherwise NULL.
+	 */
+	public static function getImpl($deviceName) {
+		if (NULL == ($backend = self::getBackend($deviceName)))
+			return NULL;
+		return $backend->getImpl($deviceName);
+	}
+
+	/**
+	 * Helper function to enumerate the devices represented by this backend
+	 * via the /sys filesystem.
+	 * @param regex The regular expression used to identify the devices
+	 *   represented by this backend.
+	 * @return A list of devicefile names, otherwise FALSE.
+	 */
+	final protected function enumerateSysFs($regex) {
 		$result = array();
 		$dir = new DirectoryIterator("/sys/class/net");
 		foreach ($dir as $item) {
@@ -4132,46 +4440,23 @@ class OMVNetworkInterfaces extends OMVObject {
 			if ($item->isDot() || !$item->isLink())
 				continue;
 			// Validate device names.
-			$regex = '/^[a-z]+[0-9]+|lo$/i';
 			if (1 !== preg_match($regex, $item->getFilename()))
 				continue;
 			$result[] = $item->getFilename();
 		}
-		// Sort the devices using a "natural order" algorithm.
-		if (!natsort($result))
-			return FALSE;
 		return $result;
 	}
 
 	/**
-	 * Get a list of network interfaces by type.
-	 * @deprecated
-	 * @param type The type of interface, e.g. eth, lo or bond.
-	 * @return A list of network interfaces, otherwise FALSE.
+	 * Helper function to check whether the given device is represented by
+	 * this backend.
+	 * @param deviceFile Specifies the device file.
+	 * @param regex The regular expression used to identify the devices
+	 *   represented by this storage backend.
 	 */
-	public static function getByType($type) {
-		return self::enumerateByType($type);
-	}
-
-	/**
-	 * Enumerate all network interfaces by type.
-	 * @param type The type of interface, e.g. eth, lo or bond.
-	 * @return A list of network interfaces, otherwise FALSE.
-	 */
-	public static function enumerateByType($type) {
-		$result = array();
-		$deviceNames = self::enumerate();
-		foreach ($deviceNames as $deviceNamek => $deviceNamev) {
-			// Validate device names.
-			$regex = sprintf('/%s/i', $type);
-			if (1 !== preg_match($regex, $deviceNamev))
-				continue;
-			$result[] = $deviceNamev;
-		}
-		// Sort the devices using a "natural order" algorithm.
-		if (!natsort($result))
-			return FALSE;
-		return $result;
+	final protected function isTypeOfByName($deviceName, $regex) {
+		// Check if the device name matches the given regular expression.
+		return (1 == preg_match("/^{$regex}$/i", $deviceName));
 	}
 }
 
@@ -5355,4 +5640,14 @@ OMVFilesystems::registerBackend(new OMVFilesystemBackendReiserfs);
 OMVFilesystems::registerBackend(new OMVFilesystemBackendUmsdos);
 OMVFilesystems::registerBackend(new OMVFilesystemBackendUfs);
 OMVFilesystems::registerBackend(new OMVFilesystemBackendNone);
+
+///////////////////////////////////////////////////////////////////////////////
+// Register default network interface backends.
+///////////////////////////////////////////////////////////////////////////////
+OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendEthernet);
+OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendBond);
+OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendVlan);
+OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendBridge);
+OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendWireless);
+OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendVirtual);
 ?>
