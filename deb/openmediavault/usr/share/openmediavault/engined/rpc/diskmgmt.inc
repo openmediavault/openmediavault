@@ -314,7 +314,7 @@ class OMVRpcServiceDiskMgmt extends OMVRpcServiceAbstract {
 					  $cmd, implode("\n", $output));
 				}
 				// To make sure really everything is wiped ...
-				$cmd = sprintf("export LANG=C; dd if=/dev/zero of=%s bs=1M ".
+				$cmd = sprintf("export LANG=C; dd if=/dev/zero of=%s bs=4M ".
 				  "count=1 2>&1", escapeshellarg($params['devicefile']));
 				if (0 !== $this->exec($cmd, $output, $bgOutputFilename)) {
 					throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
