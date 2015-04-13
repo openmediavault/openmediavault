@@ -76,12 +76,19 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 			// Skip the device where the operating system is installed on.
 			if (OMVSystem::isRootDeviceFile($objectv['devicefile']))
 				continue;
-			// Check if the volume is connected via USB.
-			$fs = new OMVFilesystem($objectv['devicefile']);
-			if (!$fs->exists()) {
+			// Get the filesystem backend.
+			$fsb = OMVFilesystems::getBackendByType($objectv['type']);
+			if (is_null($fsb)) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-				  sprintf(gettext("Filesystem '%s' not found"),
-				  $objectv['devicefile']));
+				  sprintf("No filesystem backend exists for '%s'",
+				  $objectv['type']));
+			}
+			// Get the filesystem implementation.
+			$fs = $fsb->getImpl($objectv['devicefile']);
+			if (is_null($fs) || !$fs->exists()) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+				  "Failed to get the '%s' filesystem implementation or '%s' ".
+				  "does not exist", $fsb->getType(), $objectv['devicefile']));
 			}
 			// Get the storage device containing the filesystem.
 			if (FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile())) {

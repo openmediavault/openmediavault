@@ -1,3 +1,9 @@
+openmediavault-usbbackup (1.4) stable; urgency=low
+
+  * Use the filesystem backend to get the implementation class.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 13 Apr 2015 13:08:12 +0200
+
 openmediavault-usbbackup (1.3) stable; urgency=low
 
   * Mantis 0001284: Use OMVFilesystems backend to support additional
