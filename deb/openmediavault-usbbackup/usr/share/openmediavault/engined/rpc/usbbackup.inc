@@ -92,9 +92,10 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 			}
 			// Get the storage device containing the filesystem.
 			if (FALSE === ($storageDeviceFile = $fs->getStorageDeviceFile())) {
-				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
-				  gettext("Failed to get storage device file from '%s'"),
-				  $objectv['devicefile']));
+//				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
+//				  gettext("Failed to get storage device file from '%s'"),
+//				  $objectv['devicefile']));
+				continue;
 			}
 			$sd = OMVStorageDeviceFactory::get($storageDeviceFile);
 			if (is_null($sd) || !$sd->exists()) {

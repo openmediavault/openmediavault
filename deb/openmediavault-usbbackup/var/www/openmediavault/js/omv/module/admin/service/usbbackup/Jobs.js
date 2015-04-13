@@ -103,7 +103,12 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 			triggerAction: "all",
 			displayField: "description",
 			valueField: "uuid",
-			trigger2Cls: Ext.baseCSSPrefix + "form-search-trigger",
+			triggers: {
+				search: {
+					cls: Ext.baseCSSPrefix + "form-search-trigger",
+					handler: "onTrigger2Click"
+				}
+			},
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
 				model: OMV.data.Model.createImplicit({
@@ -137,9 +142,9 @@ Ext.define("OMV.module.admin.service.usbbackup.Job", {
 				scope: me,
 				afterrender: function(c, eOpts) {
 					// Add tooltip to trigger button.
-					var trigger2El = c.getTriggerButtonEl(c.trigger2Cls);
+					var trigger = c.getTrigger("search");
 					Ext.tip.QuickTipManager.register({
-						target: trigger2El.id,
+						target: trigger.getEl(),
 						text: _("Scan")
 					});
 				}
