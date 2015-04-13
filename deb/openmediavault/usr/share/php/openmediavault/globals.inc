@@ -61,6 +61,7 @@ define("OMV_NETWORK_INTERFACE_TYPE_VLAN", 0x4);
 define("OMV_NETWORK_INTERFACE_TYPE_BRIDGE", 0x8);
 define("OMV_NETWORK_INTERFACE_TYPE_WIRELESS", 0x10);
 define("OMV_NETWORK_INTERFACE_TYPE_VIRTUAL", 0x20);
+define("OMV_NETWORK_INTERFACE_TYPE_LOOPBACK", 0x40);
 define("OMV_NETWORK_INTERFACE_TYPE_ALL", 0xFF);
 
 // Globals that can be modified via /etc/default/openmediavault.

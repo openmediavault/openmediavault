@@ -178,6 +178,29 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	}
 
 	/**
+	 * Enumerate all network interface devices.
+	 * @param type The type of the interfaces to query for.
+	 * @return An array of objects. Each object represents a network interface
+	 *   device with the following properties: \em devicename, \em gateway,
+	 *   \em gateway6, \em address, \em address6, \em netmask, \em netmask6,
+	 *   \em ether, \em mtu, \em state, \em link, \em vlan and \em vlanid.
+	 * @throw E_MISC_FAILURE
+	 */
+	final private function enumerateDevicesByType($type) {
+		// Enumerate all network interface devices on the system.
+		if (FALSE === ($devs = OMVNetworkInterfaces::enumerate($type))) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  gettext("Failed to get list of network interface devices"));
+		}
+		$result = array();
+		// Collect network interface device details.
+		foreach ($devs as $devk => $devv) {
+			$result[] = $this->getIfaceInfo($devv);
+		}
+		return $result;
+	}
+
+	/**
 	 * Enumerate all network interface devices on the system.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
@@ -192,17 +215,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		// Enumerate all network interface devices on the system.
-		if (FALSE === ($devs = OMVNetworkInterfaces::enumerate())) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  gettext("Failed to get list of network interface devices"));
-		}
-		$result = array();
-		// Collect network interface device details.
-		foreach ($devs as $devk => $devv) {
-			$result[] = $this->getIfaceInfo($devv);
-		}
-		return $result;
+		return $this->enumerateDevicesByType(OMV_NETWORK_INTERFACE_TYPE_ALL);
 	}
 
 	/**
@@ -217,6 +230,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	 *   contains the total number of objects, \em data contains the object
 	 *   array. An exception will be thrown in case of an error.
 	 * @throw E_MISC_DEVICE_NOT_SUPPORTED
+	 * @throw E_MISC_FAILURE
 	 */
 	function enumerateDevicesList($params, $context) {
 		global $xmlConfig;
@@ -234,13 +248,19 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
 			  }
 		  }');
-		// Enumerate all network interface devices on the system.
-		$devs = $this->callMethod("enumerateDevices", NULL, $context);
+		// Enumerate all network interface devices on the system, except
+		// loopback devices.
+		$devs = $this->enumerateDevicesByType(OMV_NETWORK_INTERFACE_TYPE_ALL &
+		  ~(OMV_NETWORK_INTERFACE_TYPE_LOOPBACK));
 		$result = array();
 		foreach ($devs as $devk => &$devv) {
-			// Skip loopback network interface.
-			if ($devv['devicename'] == "lo")
-				continue;
+			// Get the network interface backend.
+			$nib = OMVNetworkInterfaces::getBackend($devv['devicename']);
+			if (is_null($nib)) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  sprintf("No network interface backend exists for '%s'",
+				  $devv['devicename']));
+			}
 			// Set defaults.
 			$devv['uuid'] = $GLOBALS['OMV_UUID_UNDEFINED'];
 			$devv['method'] = "";
@@ -248,52 +268,41 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			$devv['comment'] = "";
 			$devv['_used'] = FALSE;
 			$devv['_readonly'] = FALSE;
-			// Get network interface type.
-			// Accept interfaces like: eth0, wlan1, tun0, bond0, eth1.1,
-			// bond2.99, tun0, venet0 or as0t0.
-			$regex = "/^(([a-z0-9]+)\d+)(\.\d+)?$/i";
-			if (1 !== preg_match($regex, $devv['devicename'], $matches)) {
-				throw new OMVException(
-				  OMVErrorMsg::E_MISC_DEVICE_NOT_SUPPORTED,
-				  $devv['devicename']);
-			}
 			// Categorize the network interface.
-			switch ($matches[2]) {
-			case "bond":
+			switch ($nib->getType()) {
+			case OMV_NETWORK_INTERFACE_TYPE_BOND:
 				$devv['type'] = "bond";
 				break;
-			case "br":
+			case OMV_NETWORK_INTERFACE_TYPE_BRIDGE:
 				$devv['type'] = "bridge";
 				break;
-			case "wlan":
+			case OMV_NETWORK_INTERFACE_TYPE_WIRELESS:
 				$devv['type'] = "wireless";
 				break;
-			case "eth":
-			case "venet":
+			case OMV_NETWORK_INTERFACE_TYPE_ETHERNET:
 				$devv['type'] = "ethernet";
 				break;
-			case "tap":
-			case "tun":
+			case OMV_NETWORK_INTERFACE_TYPE_VIRTUAL:
 				$devv['type'] = "virtual";
+				break;
+			case OMV_NETWORK_INTERFACE_TYPE_VLAN:
+				$devv['type'] = "vlan";
 				break;
 			default:
 				$devv['type'] = "unknown";
 				break;
 			}
-			if (TRUE === $devv['vlan'])
-				$devv['type'] = "vlan";
 			// Check if there exists a network interface configuration
 			// object for the given device.
-			switch ($devv['type']) {
-			case "bond":
+			switch ($nib->getType()) {
+			case OMV_NETWORK_INTERFACE_TYPE_BOND:
 				$xpath = sprintf("//system/network/interfaces/bondiface[".
 				  "devicename='%s']", $devv['devicename']);
 				break;
-			case "vlan":
+			case OMV_NETWORK_INTERFACE_TYPE_VLAN:
 				$xpath = sprintf("//system/network/interfaces/vlaniface[".
 				  "devicename='%s']", $devv['devicename']);
 				break;
-			case "ethernet":
 			default:
 				$xpath = sprintf("//system/network/interfaces/iface[".
 				  "devicename='%s']", $devv['devicename']);
@@ -307,16 +316,16 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				$devv['comment'] = array_value($cfgObject, "comment", "");
 			}
 			// Do some more checks.
-			switch ($devv['type']) {
-			case "bond":
-				// Is bonded interface somewhere referenced?
+			switch ($nib->getType()) {
+			case OMV_NETWORK_INTERFACE_TYPE_BOND:
+				// Is the bond interface somewhere referenced?
 				if (TRUE === $xmlConfig->exists("//bondifaceref[".
 				  "contains(.,'{$devv['uuid']}')]")) {
 					$devv['_used'] = TRUE;
 				}
 				break;
-			case "vlan":
-				// Is bonded interface somewhere referenced?
+			case OMV_NETWORK_INTERFACE_TYPE_VLAN:
+				// Is the VLAN interface somewhere referenced?
 				if (TRUE === $xmlConfig->exists("//vlanifaceref[".
 				  "contains(.,'{$devv['uuid']}')]")) {
 					$devv['_used'] = TRUE;
@@ -628,47 +637,39 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		// Get list of network interfaces.
 		$result = array();
 		if (array_key_exists("unused", $params) && $params['unused'] === TRUE) {
-			// Enumerate all network interface devices on the system.
-			$devs = $this->callMethod("enumerateDevices", NULL, $context);
+			// Get all unused network interface devices, except loopback and
+			// VLAN network interfaces.
+			if (FALSE === ($devs = OMVNetworkInterfaces::enumerateUnused(
+			  OMV_NETWORK_INTERFACE_TYPE_ALL & ~(OMV_NETWORK_INTERFACE_TYPE_VLAN |
+			  OMV_NETWORK_INTERFACE_TYPE_LOOPBACK)))) {
+				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+				  gettext("Failed to get list of unused network interface devices"));
+			}
 			// Get a list of configured ethernet network interfaces that are
 			// not used by any other config object.
 			foreach ($devs as $devk => $devv) {
-				// Skip loopback network interface.
-				if ("lo" == $devv['devicename'])
+				// Is network interface device referenced somewhere:
+				// - Check if the interface is already used by a bond
+				//   interface.
+				$xpath = sprintf("//system/network/interfaces/bondiface".
+				  "[contains(slaves,'%s')]", $devv);
+				if (TRUE === $xmlConfig->exists($xpath))
 					continue;
-				// Skip VLAN interfaces.
-				if (TRUE === $devv['vlan'])
+				// - Check if the interface is already used by a VLAN
+				//   interface.
+				$xpath = sprintf("//system/network/interfaces/vlaniface".
+				  "[contains(vlanrawdevice,'%s')]", $devv);
+				if (TRUE === $xmlConfig->exists($xpath))
 					continue;
-				// Get network interface type.
-				if (1 !== preg_match("/^([a-z]+)\d+$/i", $devv['devicename'],
-				  $matches)) {
-					throw new OMVException(
-					  OMVErrorMsg::E_MISC_DEVICE_NOT_SUPPORTED,
-					  $devv['devicename']);
-				}
-				// Is network interface device referenced somewhere?
-				switch ($matches[1]) {
-				case "bond":
-					// Skip bond interfaces.
-					break;
-				default:
-					// First check if the interface is already used by
-					// a bonding interface. If used, then do not add this
-					// interface.
-					$xpath = sprintf("//system/network/interfaces/bondiface".
-					  "[contains(slaves,'%s')]", $devv['devicename']);
-					if (TRUE === $xmlConfig->exists($xpath))
-						break;
-					// Does a configuration object exists for the given
-					// network interface device? In this case this
-					// interface can't be used for bonding.
-					$xpath = sprintf("//system/network/interfaces/iface[".
-					  "devicename='%s']", $devv['devicename']);
-					$object = $xmlConfig->get($xpath);
-					if (is_null($object))
-						$result[] = $devv;
-					break;
-				}
+				// - Does a configuration object exists for the given
+				//   network interface device?
+				$xpath = sprintf("//system/network/interfaces/iface[".
+				  "devicename='%s']", $devv);
+				$object = $xmlConfig->get($xpath);
+				if (!is_null($object))
+					continue;
+				// Get the network interface information.
+				$result[] = $this->getIfaceInfo($devv);
 			}
 		}
 		if ($params['uuid'] !== $GLOBALS['OMV_UUID_UNDEFINED']) {
@@ -889,13 +890,18 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
+		// Get all unused network interface devices, except loopback and
+		// VLAN network interfaces.
+		if (FALSE === ($devs = OMVNetworkInterfaces::enumerateUnused(
+		  OMV_NETWORK_INTERFACE_TYPE_ALL & ~(OMV_NETWORK_INTERFACE_TYPE_VLAN |
+		  OMV_NETWORK_INTERFACE_TYPE_LOOPBACK)))) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			gettext("Failed to get list of unused network interface devices"));
+		}
+		// Get the network interface information.
 		$result = array();
-		// Enumerate all network interface devices on the system.
-		$devs = $this->callMethod("enumerateDevices", NULL, $context);
 		foreach ($devs as $devk => $devv) {
-			if (TRUE === $devv['vlan'])
-				continue;
-			$result[] = $devv;
+			$result[] = $this->getIfaceInfo($devv);
 		}
 		return $result;
 	}

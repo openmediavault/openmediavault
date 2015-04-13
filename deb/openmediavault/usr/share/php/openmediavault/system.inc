@@ -2773,14 +2773,17 @@ class OMVStorageDeviceBackendBcache extends OMVStorageDeviceBackendAbstract {
 
 	function enumerateSlaves() {
 		$devs = $this->enumerate();
-		if(FALSE === $devs)
+		if (FALSE === $devs)
 			return FALSE;
 		$result = array();
 		foreach($devs as $devk => $devv) {
-			$object = new OMVStorageDeviceBcache($devv);
-			if(!$object->exists())
+			$object = $this->getImpl($devv);
+			if (!$object->exists())
 				continue;
-			$result = array_merge($result, $object->getSlaves());
+			$slaves = $object->getSlaves();
+			if (FALSE === $slaves)
+				continue;
+			$result = array_merge($result, $slaves);
 		}
 		return $result;
 	}
@@ -2811,14 +2814,17 @@ class OMVStorageDeviceBackendDM extends OMVStorageDeviceBackendAbstract {
 
 	function enumerateSlaves() {
 		$devs = $this->enumerate();
-		if(FALSE === $devs)
+		if (FALSE === $devs)
 			return FALSE;
 		$result = array();
 		foreach($devs as $devk => $devv) {
-			$object = new OMVStorageDeviceDM($devv);
-			if(!$object->exists())
+			$object = $this->getImpl($devv);
+			if (!$object->exists())
 				continue;
-			$result = array_merge($result, $object->getSlaves());
+			$slaves = $object->getSlaves();
+			if (FALSE === $slaves)
+				continue;
+			$result = array_merge($result, $slaves);
 		}
 		return $result;
 	}
@@ -2863,11 +2869,13 @@ class OMVStorageDeviceBackendLVM extends OMVStorageDeviceBackendDM {
 		$result = array();
 		foreach($devs as $devk => $devv) {
 			// Process LVM logical volumes.
-			$object = new OMVLvmLogicalVolume($devv);
-			if(!$object->exists())
+			$object = $this->getImpl($devv);
+			if (!$object->exists())
 				continue;
 			// Get the physical volumes.
-			$result = array_merge($result, $object->getSlaves());
+			$slaves = $object->getSlaves();
+			if (FALSE !== $slaves)
+				$result = array_merge($result, $slaves);
 			// Get the volume group.
 			$result[] = sprintf("/dev/%s", $object->getVGName());
 		}
@@ -2906,14 +2914,17 @@ class OMVStorageDeviceBackendMdadm extends OMVStorageDeviceBackendAbstract {
 
 	function enumerateSlaves() {
 		$devs = $this->enumerate();
-		if(FALSE === $devs)
+		if (FALSE === $devs)
 			return FALSE;
 		$result = array();
-		foreach($devs as $devk => $devv) {
-			$object = new OMVStorageDeviceMdadm($devv);
-			if(!$object->exists())
+		foreach ($devs as $devk => $devv) {
+			$object = $this->getImpl($devv);
+			if (!$object->exists())
 				continue;
-			$result = array_merge($result, $object->getSlaves());
+			$slaves = $object->getSlaves();
+			if (FALSE === $slaves)
+				continue;
+			$result = array_merge($result, $slaves);
 		}
 		return $result;
 	}
@@ -4136,7 +4147,7 @@ abstract class OMVNetworkInterfaceBackendAbstract extends OMVObject {
 	/**
 	* Check whether the given device is represented by this network
 	* interface backend.
-	* @param deviceName Specifies the device file, e.g.
+	* @param deviceName Specifies the device name, e.g.
 	*   <ul>
 	*   \li eth1
 	*   \li bond0
@@ -4158,6 +4169,41 @@ abstract class OMVNetworkInterfaceBackendAbstract extends OMVObject {
 	public function getImpl($args) {
 		return new OMVNetworkInterface($args);
 	}
+
+	/**
+	 * Helper function to enumerate the network interfaces represented by
+	 * this backend via the /sys filesystem.
+	 * @param regex The regular expression used to identify the devices
+	 *   represented by this backend.
+	 * @return A list of network interface names, otherwise FALSE.
+	 */
+	final protected function enumerateSysFs($regex) {
+		$result = array();
+		$dir = new DirectoryIterator("/sys/class/net");
+		foreach ($dir as $item) {
+			// Skip everything that is not a symlink.
+			if ($item->isDot() || !$item->isLink())
+				continue;
+			// Validate network interface name.
+			if (1 !== preg_match($regex, $item->getFilename()))
+				continue;
+			$result[] = $item->getFilename();
+		}
+		return $result;
+	}
+
+	/**
+	 * Helper function to check whether the given device is represented by
+	 * this backend.
+	 * @param deviceName Specifies the network interface name.
+	 * @param regex The regular expression used to identify the devices
+	 *   represented by this storage backend.
+	 */
+	final protected function isTypeOfByName($deviceName, $regex) {
+		// Check if the network interface name matches the given regular
+		// expression.
+		return (1 == preg_match($regex, $deviceName));
+	}
 }
 
 /**
@@ -4165,7 +4211,7 @@ abstract class OMVNetworkInterfaceBackendAbstract extends OMVObject {
  * @ingroup api
  */
 class OMVNetworkInterfaceBackendEthernet extends OMVNetworkInterfaceBackendAbstract {
-	protected $regex = "(eth|venet)[0-9]+";
+	protected $regex = "/^(eth|venet)[0-9]+$/i";
 
 	function getType() {
 		return OMV_NETWORK_INTERFACE_TYPE_ETHERNET;
@@ -4185,7 +4231,7 @@ class OMVNetworkInterfaceBackendEthernet extends OMVNetworkInterfaceBackendAbstr
  * @ingroup api
  */
 class OMVNetworkInterfaceBackendBond extends OMVNetworkInterfaceBackendAbstract {
-	protected $regex = "bond[0-9]+";
+	protected $regex = "/^bond[0-9]+$/i";
 
 	function getType() {
 		return OMV_NETWORK_INTERFACE_TYPE_BOND;
@@ -4200,16 +4246,23 @@ class OMVNetworkInterfaceBackendBond extends OMVNetworkInterfaceBackendAbstract 
 	}
 
 	function enumerateSlaves() {
-		$devs = $this->enumerate();
-		if (FALSE === $devs)
+		if (FALSE === ($devs = $this->enumerate()))
 			return FALSE;
 		$result = array();
 		foreach ($devs as $devk => $devv) {
-			// Get the bond slaves.
-			$slaves = file(sprintf("/sys/class/net/%s/bonding/slaves", $devv));
+			$object = $this->getImpl($devv);
+			if (!$object->exists())
+				continue;
+			$slaves = $object->getSlaves();
+			if (FALSE === $slaves)
+				continue;
 			$result = array_merge($result, $slaves);
 		}
 		return $result;
+	}
+
+	function getImpl($args) {
+		return new OMVNetworkInterfaceBond($args);
 	}
 }
 
@@ -4238,7 +4291,7 @@ class OMVNetworkInterfaceBackendVlan extends OMVNetworkInterfaceBackendAbstract 
  * @ingroup api
  */
 class OMVNetworkInterfaceBackendBridge extends OMVNetworkInterfaceBackendAbstract {
-	protected $regex = "br[0-9]+";
+	protected $regex = "/^br[0-9]+$/i";
 
 	function getType() {
 		return OMV_NETWORK_INTERFACE_TYPE_BRIDGE;
@@ -4258,7 +4311,7 @@ class OMVNetworkInterfaceBackendBridge extends OMVNetworkInterfaceBackendAbstrac
  * @ingroup api
  */
 class OMVNetworkInterfaceBackendWireless extends OMVNetworkInterfaceBackendAbstract {
-	protected $regex = "wlan[0-9]+";
+	protected $regex = "/^wlan[0-9]+$/i";
 
 	function getType() {
 		return OMV_NETWORK_INTERFACE_TYPE_WIRELESS;
@@ -4278,10 +4331,30 @@ class OMVNetworkInterfaceBackendWireless extends OMVNetworkInterfaceBackendAbstr
  * @ingroup api
  */
 class OMVNetworkInterfaceBackendVirtual extends OMVNetworkInterfaceBackendAbstract {
-	protected $regex = "(tun|tap)[0-9]+";
+	protected $regex = "/^(tun|tap)[0-9]+$/i";
 
 	function getType() {
 		return OMV_NETWORK_INTERFACE_TYPE_VIRTUAL;
+	}
+
+	function enumerate() {
+		return $this->enumerateSysFs($this->regex);
+	}
+
+	function isTypeOf($deviceName) {
+		return $this->isTypeOfByName($deviceName, $this->regex);
+	}
+}
+
+/**
+ * Implements the network interface backend for loopback devices.
+ * @ingroup api
+ */
+class OMVNetworkInterfaceBackendLoopback extends OMVNetworkInterfaceBackendAbstract {
+	protected $regex = "/^lo[0-9]*$/i";
+
+	function getType() {
+		return OMV_NETWORK_INTERFACE_TYPE_LOOPBACK;
 	}
 
 	function enumerate() {
@@ -4364,18 +4437,16 @@ class OMVNetworkInterfaces extends OMVObject {
 	 * @return A list of network interfaces, otherwise FALSE.
 	 */
 	final public function enumerateUnused($type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
-		// Append all available storage devices.
+		// Get all existing network interfaces of the given type.
 		if (FALSE === ($result = self::enumerate($type)))
 			return FALSE;
 		// Remove used network interfaces.
 		foreach (self::$backends as $backendk => $backendv) {
-			if (!($type & $backendv->getType()))
-				continue;
-			if (FALSE === ($devs = $backendv->enumerateSlaves()))
+			if (FALSE === ($slaves = $backendv->enumerateSlaves()))
 				return FALSE;
-			if (empty($devs))
+			if (empty($slaves))
 				continue;
-			$result = array_diff($result, $devs);
+			$result = array_diff($result, $slaves);
 		}
 		// Sort the devices using a "natural order" algorithm.
 		if (!natsort($result))
@@ -4423,40 +4494,6 @@ class OMVNetworkInterfaces extends OMVObject {
 		if (NULL == ($backend = self::getBackend($deviceName)))
 			return NULL;
 		return $backend->getImpl($deviceName);
-	}
-
-	/**
-	 * Helper function to enumerate the devices represented by this backend
-	 * via the /sys filesystem.
-	 * @param regex The regular expression used to identify the devices
-	 *   represented by this backend.
-	 * @return A list of devicefile names, otherwise FALSE.
-	 */
-	final protected function enumerateSysFs($regex) {
-		$result = array();
-		$dir = new DirectoryIterator("/sys/class/net");
-		foreach ($dir as $item) {
-			// Skip everything that is not a symlink.
-			if ($item->isDot() || !$item->isLink())
-				continue;
-			// Validate device names.
-			if (1 !== preg_match($regex, $item->getFilename()))
-				continue;
-			$result[] = $item->getFilename();
-		}
-		return $result;
-	}
-
-	/**
-	 * Helper function to check whether the given device is represented by
-	 * this backend.
-	 * @param deviceFile Specifies the device file.
-	 * @param regex The regular expression used to identify the devices
-	 *   represented by this storage backend.
-	 */
-	final protected function isTypeOfByName($deviceName, $regex) {
-		// Check if the device name matches the given regular expression.
-		return (1 == preg_match("/^{$regex}$/i", $deviceName));
 	}
 }
 
@@ -4749,6 +4786,18 @@ class OMVNetworkInterface extends OMVObject {
 	}
 
 	/**
+	 * Get the network interface operation state.
+	 * @return The network interface operation state, otherwise FALSE.
+	 */
+	public function getOperState() {
+		$filename = sprintf("/sys/class/net/%s/operstate",
+		  $this->getDeviceName());
+		if (!file_exists($filename))
+			return FALSE;
+		return trim(file_get_contents($filename));
+	}
+
+	/**
 	 * Check if the network interface is a VLAN (802.1q) device.
 	 * @return TRUE if the network interface is a VLAN (802.1q) device,
 	 *   otherwise FALSE.
@@ -4769,6 +4818,25 @@ class OMVNetworkInterface extends OMVObject {
 		if (1 !== preg_match($regex, $this->getDeviceName(), $matches))
 			return FALSE;
 		return !empty($matches[2]) ? intval($matches[2]) : FALSE;
+	}
+}
+
+/**
+ * This class provides a interface to handle Linux bond network interfaces.
+ * @ingroup api
+ */
+class OMVNetworkInterfaceBond extends OMVNetworkInterface {
+	/**
+	 * Get the slave devices.
+	 * @return A list of device names used in the array, otherwise FALSE.
+	 */
+	public function getSlaves() {
+		$filename = sprintf("/sys/class/net/%s/bonding/slaves",
+		  $this->getDeviceName());
+		if (!file_exists($filename))
+			return FALSE;
+		$slaves = file($filename);
+		return $slaves;
 	}
 }
 
@@ -5650,4 +5718,5 @@ OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendVlan);
 OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendBridge);
 OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendWireless);
 OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendVirtual);
+OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendLoopback);
 ?>
