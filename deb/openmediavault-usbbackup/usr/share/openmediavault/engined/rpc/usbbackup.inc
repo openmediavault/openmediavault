@@ -83,6 +83,11 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 				  sprintf("No filesystem backend exists for '%s'",
 				  $objectv['type']));
 			}
+			// Skip filesystems that support union mounts, e.g. UnionFS,
+			// aufs or mhddfs. Such filesystems do not have a device file
+			// which is required to write the UDEV rule.
+			if (!$fsb->hasDeviceFile())
+				continue;
 			// Get the filesystem implementation.
 			$fs = $fsb->getImpl($objectv['devicefile']);
 			if (is_null($fs) || !$fs->exists()) {
@@ -102,8 +107,9 @@ class OMVRpcServiceUsbBackup extends OMVRpcServiceAbstract {
 				throw new OMVException(OMVErrorMsg::E_MISC_DEVICE_NOT_FOUND,
 			  	  $storageDeviceFile);
 			}
-			// Skip everything which is not an USB or eSATA device.
-			if (!($sd->isUsb() || $sd->isAta()))
+			// Skip everything which is not an USB or eSATA device or is a
+			// read-only medium.
+			if (!($sd->isUsb() || $sd->isAta()) || $sd->isReadOnly())
 				continue;
 			// Prepare result object.
 			$result[] = array(

@@ -617,6 +617,16 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	}
 
 	/**
+	* Does the filesystem have a device file? E.g. union mount or overlay
+	* filesystems like UnionFS, aufs or mhddfs do not have such a device
+	* file.
+	* @return TRUE if the filesystem has a device file, otherwise FALSE.
+	*/
+	public function hasDeviceFile() {
+		return TRUE;
+	}
+
+	/**
 	 * Get filesystem mount options used in '/etc/fstab'.
 	 * See http://linux.die.net/man/8/mount.
 	 * If a storage device is given the result mount option list can contain
