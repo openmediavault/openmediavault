@@ -2480,6 +2480,14 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	}
 
 	/**
+	 * Check if the given device is read-only.
+	 * @return TRUE if the device is read-only, otherwise FALSE.
+	 */
+	public function isReadOnly() {
+		return FALSE;
+	}
+
+	/**
 	 * Queries the udev database for device information stored in the udev
 	 * database.
 	 * @param id The name of the property, e.g. ID_VENDOR, ID_MODEL or
@@ -3008,6 +3016,32 @@ class OMVStorageDeviceBackendHDD extends OMVStorageDeviceBackendAbstract {
 }
 
 /**
+ * Implements the storage device backend for CD-ROM devices.
+ * @ingroup api
+ */
+class OMVStorageDeviceBackendCDROM extends OMVStorageDeviceBackendAbstract {
+	protected $regex = "sr[0-9]+";
+
+	function getType() {
+		return OMV_STORAGE_DEVICE_TYPE_HDD;
+	}
+
+	function enumerate() {
+		return $this->enumerateProcFs($this->regex);
+	}
+
+	function isTypeOf($deviceFile) {
+		// Examples:
+		// - /dev/sr0
+		return $this->isTypeOfByName($deviceFile, $this->regex);
+	}
+
+	function getImpl($args) {
+		return new OMVStorageDeviceCDROM($args);
+	}
+}
+
+/**
  * Implements the storage device backend for Multimedia Card (MMC) devices.
  * @ingroup api
  */
@@ -3349,6 +3383,16 @@ class OMVStorageDeviceHDD extends OMVStorageDeviceSMARTAbstract {
 				$type = $this->setSMARTDeviceType("sat");
 		}
 		return $type;
+	}
+}
+
+/**
+ * This class provides a simple interface to handle CD-ROM devices.
+ * @ingroup api
+ */
+class OMVStorageDeviceCDROM extends OMVStorageDeviceAbstract {
+	public function isReadOnly() {
+		return TRUE;
 	}
 }
 
@@ -5687,6 +5731,7 @@ OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendBcache());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendFIO());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendMMC());
 OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendVirtIO());
+OMVStorageDevices::registerBackend(new OMVStorageDeviceBackendCDROM());
 
 ///////////////////////////////////////////////////////////////////////////////
 // Register default filesystem backends.
