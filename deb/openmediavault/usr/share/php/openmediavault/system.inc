@@ -3227,13 +3227,14 @@ class OMVStorageDevices extends OMVObject {
 			return FALSE;
 		// Remove used devices.
 		foreach (self::$backends as $backendk => $backendv) {
-			if (!($type & $backendv->getType()))
-				continue;
-			if (FALSE === ($devs = $backendv->enumerateSlaves()))
+// Always collect and remove all slave devices.
+//			if (!($type & $backendv->getType()))
+//				continue;
+			if (FALSE === ($slaves = $backendv->enumerateSlaves()))
 				return FALSE;
-			if (empty($devs))
+			if (empty($slaves))
 				continue;
-			$result = array_diff($result, $devs);
+			$result = array_diff($result, $slaves);
 		}
 		return $result;
 	}
@@ -3248,13 +3249,14 @@ class OMVStorageDevices extends OMVObject {
 	 */
 	final public function enumerateUsed($type = OMV_STORAGE_DEVICE_TYPE_ALL) {
 		$result = array();
-		// Remove used devices.
 		foreach (self::$backends as $backendk => $backendv) {
 			if (!($type & $backendv->getType()))
 				continue;
-			if (FALSE === ($devs = $backendv->enumerateSlaves()))
+			if (FALSE === ($slaves = $backendv->enumerateSlaves()))
 				return FALSE;
-			$result = array_unique(array_merge($result, $devs));
+			if (empty($slaves))
+				continue;
+			$result = array_unique(array_merge($result, $slaves));
 		}
 		return $result;
 	}
@@ -3281,9 +3283,9 @@ class OMVStorageDevices extends OMVObject {
 		foreach (self::$backends as $backendk => $backendv) {
 			if (!($type & $backendv->getType()))
 				continue;
-			if (FALSE === ($devs = $backendv->enumerateSlaves()))
+			if (FALSE === ($slaves = $backendv->enumerateSlaves()))
 				return FALSE;
-			if (in_array($deviceFile, $devs)) {
+			if (in_array($deviceFile, $slaves)) {
 				$result = TRUE;
 				break;
 			}
@@ -4496,6 +4498,9 @@ class OMVNetworkInterfaces extends OMVObject {
 			return FALSE;
 		// Remove used network interfaces.
 		foreach (self::$backends as $backendk => $backendv) {
+// Always collect and remove all slave devices.
+//			if (!($type & $backendv->getType()))
+//				continue;
 			if (FALSE === ($slaves = $backendv->enumerateSlaves()))
 				return FALSE;
 			if (empty($slaves))
@@ -4518,17 +4523,47 @@ class OMVNetworkInterfaces extends OMVObject {
 	 */
 	final public function enumerateUsed($type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
 		$result = array();
-		// Remove used devices.
 		foreach (self::$backends as $backendk => $backendv) {
 			if (!($type & $backendv->getType()))
 				continue;
-			if (FALSE === ($devs = $backendv->enumerateSlaves()))
+			if (FALSE === ($slaves = $backendv->enumerateSlaves()))
 				return FALSE;
-			$result = array_unique(array_merge($result, $devs));
+			if (empty($slaves))
+				continue;
+			$result = array_unique(array_merge($result, $slaves));
 		}
 		// Sort the devices using a "natural order" algorithm.
 		if (!natsort($result))
 			return FALSE;
+		return $result;
+	}
+
+	/**
+	 * Check if the given device is used by another network interface.
+	 * @param deviceName Specifies the device name, e.g.
+	 *   <ul>
+	 *   \li eth0
+	 *   \li wlan2
+	 *   \li eth2.1
+	 *   \li bond0
+	 *   </ul>
+	 * @param type Defines the network interface type. Defaults to
+	 *   OMV_NETWORK_INTERFACE_TYPE_ALL.
+	 * @return TRUE if the given device is used by another network
+	 *   interface, otherwise FALSE.
+	 */
+	final public function isUsed($deviceName, $type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
+		$result = FALSE;
+		foreach (self::$backends as $backendk => $backendv) {
+			if (!($type & $backendv->getType()))
+				continue;
+			if (FALSE === ($slaves = $backendv->enumerateSlaves()))
+				return FALSE;
+			if (in_array($deviceName, $slaves)) {
+				$result = TRUE;
+				break;
+			}
+		}
 		return $result;
 	}
 
