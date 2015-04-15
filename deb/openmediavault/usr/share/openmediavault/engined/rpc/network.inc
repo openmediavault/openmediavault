@@ -60,14 +60,14 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 
 	/**
 	 * Helper function to get details of the given network interface device.
-	 * @param devicename The name of the network interface device.
+	 * @param deviceName The name of the network interface device.
 	 * @return An array containing the network interface details. The following
 	 *   fields are returned: devicename, gateway, gateway6, address, address6,
 	 *   netmask, netmask6, ether, mtu, state, link, vlan and vlanid.
 	 */
-	private function getIfaceInfo($devicename) {
+	private function getIfaceInfo($deviceName) {
 		$obj = array();
-		$obj['devicename'] = $devicename;
+		$obj['devicename'] = $deviceName;
 		$obj['gateway'] = "";
 		$obj['gateway6'] = "";
 		$obj['address'] = "";
@@ -76,12 +76,12 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$obj['netmask6'] = -1;
 		$obj['ether'] = "";
 		$obj['mtu'] = "";
-		$obj['state'] = "";
+		$obj['state'] = gettext("UNKNOWN");
 		$obj['link'] = FALSE;
 		$obj['vlan'] = FALSE;
 		$obj['vlanid'] = -1;
-		$iface = new OMVNetworkInterface($devicename);
-		if ($iface->exists()) {
+		$iface = OMVNetworkInterfaces::getImpl($deviceName);
+		if (!is_null($iface) && $iface->exists()) {
 			$gateway = $iface->getGateway();
 			$gateway6 = $iface->getGateway6();
 			$address = $iface->getIP();
