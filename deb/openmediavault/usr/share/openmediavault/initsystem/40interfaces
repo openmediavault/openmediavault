@@ -80,4 +80,7 @@ if [ -n "${dnsnameservers}" ]; then
     omv_config_update "/config/system/network/interfaces/iface/dnsnameservers" "${dnsnameservers}"
 fi
 
+# Create a backup of the original configuration file.
+cp "${OMV_INTERFACES_CONFIG}" "${OMV_INTERFACES_CONFIG}.bak"
+
 exit 0
