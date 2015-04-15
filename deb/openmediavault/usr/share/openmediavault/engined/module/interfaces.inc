@@ -32,6 +32,14 @@ class OMVModuleInterfaces extends OMVModuleServiceAbstract
 	}
 
 	/**
+	 * Defines the modules that if present should stop before the service
+	 * provided by this module.
+	 * @return An array of modules. Returns an empty array if no
+	 *   dependencies exist.
+	 */
+	function stopAfter() { return array("networking"); }
+
+	/**
 	 * Generate the configuration.
 	 * @throw E_EXEC_FAILED
 	 */
