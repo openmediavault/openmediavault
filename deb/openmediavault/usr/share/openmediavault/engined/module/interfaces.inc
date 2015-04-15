@@ -44,6 +44,35 @@ class OMVModuleInterfaces extends OMVModuleServiceAbstract
 	}
 
 	/**
+	 * Stop the managed service.
+	 */
+	public function stopService() {
+		$this->execTasks("delete");
+	}
+
+	/**
+	 * Helper function to add a new task when a bond interface is deleted.
+	 * @param type The event message type.
+	 * @param path The event message path.
+	 * @param object The configuration object.
+	 * @return None.
+	 */
+	final public function onDeleteBondInterface($type, $path, $object) {
+		$this->addTask("delete", "deleteBondInterface", $object);
+	}
+
+	/**
+	 * Helper method to remove a bond interface.
+	 * @param params The method parameters.
+	 */
+	final public function deleteBondInterface($params) {
+		// See http://backdrift.org/manage-linux-bonding-without-ifenslave-using-sysfs
+        $cmd = sprintf("echo '-%s' > /sys/class/net/bonding_masters",
+          $params['devicename']);
+		$this->exec($cmd);
+	}
+
+	/**
 	 * Bind listeners.
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
@@ -72,6 +101,10 @@ class OMVModuleInterfaces extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.network.interfaces.bondiface",
 		  array($moduleMgr->getModule("networking"), "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_DELETE,
+		  "org.openmediavault.system.network.interfaces.bondiface",
+		  array($this, "onDeleteBondInterface"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.network.interfaces.vlaniface",

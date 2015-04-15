@@ -603,7 +603,9 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 				displayField: "text",
 				valueField: "devicename",
 				editable: false,
-				forceSelection: true,
+// Do not force selection, otherwise the value will not be displayed
+// when the dialog is displayed in edit mode.
+//				forceSelection: true,
 				triggerAction: "all",
 				plugins: [{
 					ptype: "fieldinfo",

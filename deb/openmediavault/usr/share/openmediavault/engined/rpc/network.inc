@@ -250,105 +250,104 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		  }');
 		// Enumerate all network interface devices on the system, except
 		// loopback devices.
-		$devs = $this->enumerateDevicesByType(OMV_NETWORK_INTERFACE_TYPE_ALL &
-		  ~(OMV_NETWORK_INTERFACE_TYPE_LOOPBACK));
+		if (FALSE === ($devs = OMVNetworkInterfaces::enumerate(
+		  OMV_NETWORK_INTERFACE_TYPE_ALL &
+		  ~(OMV_NETWORK_INTERFACE_TYPE_LOOPBACK)))) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  gettext("Failed to get list of network interface devices"));
+		}
+		// Now get the devicename of all configured network interfaces.
+		$xpath = "//system/network/interfaces//devicename";
+		$configDevs = $xmlConfig->getList($xpath);
+		// Finally merge both arrays.
+		$devs = array_unique(array_merge($devs, $configDevs));
+		// Now prepare the result objects including all information
+		// about the network interface.
 		$result = array();
-		foreach ($devs as $devk => &$devv) {
+		foreach ($devs as $devk => $devv) {
 			// Get the network interface backend.
-			$nib = OMVNetworkInterfaces::getBackend($devv['devicename']);
+			$nib = OMVNetworkInterfaces::getBackend($devv);
 			if (is_null($nib)) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("No network interface backend exists for '%s'",
-				  $devv['devicename']));
+				  $devv));
 			}
-			// Set defaults.
-			$devv['uuid'] = $GLOBALS['OMV_UUID_UNDEFINED'];
-			$devv['method'] = "";
-			$devv['method6'] = "";
-			$devv['comment'] = "";
-			$devv['_used'] = FALSE;
-			$devv['_readonly'] = FALSE;
+			// Get the network interface information.
+			$object = $this->getIfaceInfo($devv);
+			// Append additional attributes.
+			$object['uuid'] = $GLOBALS['OMV_UUID_UNDEFINED'];
+			$object['method'] = "";
+			$object['method6'] = "";
+			$object['comment'] = "";
+			$object['type'] = "unknown";
+			$object['_used'] = FALSE;
+			$object['_readonly'] = FALSE;
 			// Categorize the network interface.
 			switch ($nib->getType()) {
 			case OMV_NETWORK_INTERFACE_TYPE_BOND:
-				$devv['type'] = "bond";
+				$object['type'] = "bond";
 				break;
 			case OMV_NETWORK_INTERFACE_TYPE_BRIDGE:
-				$devv['type'] = "bridge";
+				$object['type'] = "bridge";
 				break;
 			case OMV_NETWORK_INTERFACE_TYPE_WIRELESS:
-				$devv['type'] = "wireless";
+				$object['type'] = "wireless";
 				break;
 			case OMV_NETWORK_INTERFACE_TYPE_ETHERNET:
-				$devv['type'] = "ethernet";
+				$object['type'] = "ethernet";
 				break;
 			case OMV_NETWORK_INTERFACE_TYPE_VIRTUAL:
-				$devv['type'] = "virtual";
+				$object['type'] = "virtual";
 				break;
 			case OMV_NETWORK_INTERFACE_TYPE_VLAN:
-				$devv['type'] = "vlan";
-				break;
-			default:
-				$devv['type'] = "unknown";
+				$object['type'] = "vlan";
 				break;
 			}
-			// Check if there exists a network interface configuration
-			// object for the given device.
-			switch ($nib->getType()) {
-			case OMV_NETWORK_INTERFACE_TYPE_BOND:
-				$xpath = sprintf("//system/network/interfaces/bondiface[".
-				  "devicename='%s']", $devv['devicename']);
-				break;
-			case OMV_NETWORK_INTERFACE_TYPE_VLAN:
-				$xpath = sprintf("//system/network/interfaces/vlaniface[".
-				  "devicename='%s']", $devv['devicename']);
-				break;
-			default:
-				$xpath = sprintf("//system/network/interfaces/iface[".
-				  "devicename='%s']", $devv['devicename']);
-				break;
-			}
+			// Append the network interface configuration.
+			$xpath = sprintf("//system/network/interfaces/*[devicename='%s']",
+			  $devv);
 			$cfgObject = $xmlConfig->get($xpath);
 			if (!is_null($cfgObject)) {
-				$devv['uuid'] = $cfgObject['uuid'];
-				$devv['method'] = array_value($cfgObject, "method", "manual");
-				$devv['method6'] = array_value($cfgObject, "method6", "manual");
-				$devv['comment'] = array_value($cfgObject, "comment", "");
+				$object['uuid'] = $cfgObject['uuid'];
+				$object['method'] = array_value($cfgObject, "method", "manual");
+				$object['method6'] = array_value($cfgObject, "method6", "manual");
+				$object['comment'] = array_value($cfgObject, "comment", "");
 			}
 			// Do some more checks.
 			switch ($nib->getType()) {
 			case OMV_NETWORK_INTERFACE_TYPE_BOND:
 				// Is the bond interface somewhere referenced?
-				if (TRUE === $xmlConfig->exists("//bondifaceref[".
-				  "contains(.,'{$devv['uuid']}')]")) {
-					$devv['_used'] = TRUE;
-				}
+				$xpath = sprintf("//bondifaceref[contains(.,'%s')]",
+				  $object['uuid']);
+				if (TRUE === $xmlConfig->exists($xpath))
+					$object['_used'] = TRUE;
 				break;
 			case OMV_NETWORK_INTERFACE_TYPE_VLAN:
 				// Is the VLAN interface somewhere referenced?
-				if (TRUE === $xmlConfig->exists("//vlanifaceref[".
-				  "contains(.,'{$devv['uuid']}')]")) {
-					$devv['_used'] = TRUE;
-				}
+				$xpath = sprintf("//vlanifaceref[contains(.,'%s')]",
+				  $object['uuid']);
+				if (TRUE === $xmlConfig->exists($xpath))
+					$object['_used'] = TRUE;
 				break;
 			default:
-				// Is network interface device somewhere referenced?
-				if (TRUE === $xmlConfig->exists("//ifaceref[".
-				  "contains(.,'{$devv['uuid']}')]")) {
-					$devv['_used'] = TRUE;
-				}
+				// Is the ethernet interface device somewhere referenced?
+				$xpath = sprintf("//ifaceref[contains(.,'%s')]",
+				  $object['uuid']);
+				if (TRUE === $xmlConfig->exists($xpath))
+					$object['_used'] = TRUE;
 				// Check if it is used by a bonding interface.
-				if (TRUE === $xmlConfig->exists("//bondiface[".
-				  "contains(slaves,'{$devv['devicename']}')]")) {
-					$devv['_used'] = TRUE;
-					$devv['_readonly'] = TRUE;
-					$devv['method'] = "";
-					$devv['method6'] = "";
+				$xpath = sprintf("//bondiface[contains(slaves,'%s')]",
+				  $object['devicename']);
+				if (TRUE === $xmlConfig->exists($xpath)) {
+					$object['_used'] = TRUE;
+					$object['_readonly'] = TRUE;
+					$object['method'] = "";
+					$object['method6'] = "";
 				}
 				break;
 			}
 			// Append network interface device to result list.
-			$result[] = $devv;
+			$result[] = $object;
 		}
 		// Filter the result.
 		return $this->applyFilter($result, $params['start'],
