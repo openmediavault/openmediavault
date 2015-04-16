@@ -80,6 +80,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$obj['link'] = FALSE;
 		$obj['vlan'] = FALSE;
 		$obj['vlanid'] = -1;
+		$obj['speed'] = -1;
 		$iface = OMVNetworkInterfaces::getImpl($deviceName);
 		if (!is_null($iface) && $iface->exists()) {
 			$gateway = $iface->getGateway();
@@ -90,6 +91,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			$netmask6 = $iface->getMask6();
 			$ether = $iface->getMAC();
 			$state = $iface->getState();
+			$speed = $iface->getSpeed();
 			$obj['gateway'] = !$gateway ? "" : $gateway;
 			$obj['gateway6'] = !$gateway6 ? "" : $gateway6;
 			$obj['address'] = !$address ? "" : $address;
@@ -102,6 +104,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			$obj['link'] = $iface->getLink();
 			$obj['vlan'] = $iface->isVlan();
 			$obj['vlanid'] = $iface->isVlan() ? $iface->getVlanId() : -1;
+			$obj['speed'] = !$speed ? -1 : $speed;
 		}
 		return $obj;
 	}

@@ -1138,6 +1138,16 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		stateId: "mtu",
 		width: 45
 	},{
+		text: _("Speed"),
+		sortable: true,
+		dataIndex: "speed",
+		stateId: "speed",
+		renderer: function(value) {
+			if (-1 == value)
+				return _("n/a");
+			return Ext.String.format("{0} Mbits/sec", value);
+		}
+	},{
 		text: _("Link"),
 		sortable: true,
 		dataIndex: "link",
@@ -1188,6 +1198,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 						{ name: "state", type: "string" },
 						{ name: "link", type: "boolean" },
 						{ name: "type", type: "string" },
+						{ name: "speed", type: "int" },
 						{ name: "comment", type: "string" },
 						{ name: "_used", type: "boolean" },
 						{ name: "_readonly", type: "boolean" }

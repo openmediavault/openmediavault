@@ -4812,12 +4812,9 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return TRUE if link is established, otherwise FALSE.
 	 */
 	public function getLink() {
-		if($this->getData("ethtool") === FALSE)
+		if (FALSE === ($carrier = $this->getCarrier()))
 			return FALSE;
-		if(1 !== preg_match("/Link detected: yes/i",
-		  $this->ethtool, $matches))
-			return FALSE;
-		return TRUE;
+		return (1 == $carrier) ? TRUE : FALSE;
 	}
 
 	/**
@@ -4884,6 +4881,46 @@ class OMVNetworkInterface extends OMVObject {
 		if (!file_exists($filename))
 			return FALSE;
 		return trim(file_get_contents($filename));
+	}
+
+	/**
+	 * Get the network interface duplex value.
+	 * @see https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-net
+	 * @return The network interface duplex value as string, otherwise FALSE.
+	 */
+	public function getDuplex() {
+		$filename = sprintf("/sys/class/net/%s/duplex",
+		  $this->getDeviceName());
+		if (!file_exists($filename))
+			return FALSE;
+		return trim(file_get_contents($filename));
+	}
+
+	/**
+	 * Get the network interface speed value.
+	 * @see https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-net
+	 * @return The network interface speed as number in Mbits/sec,
+	 *   otherwise FALSE.
+	 */
+	public function getSpeed() {
+		$filename = sprintf("/sys/class/net/%s/speed",
+		  $this->getDeviceName());
+		if (!file_exists($filename))
+			return FALSE;
+		return intval(file_get_contents($filename));
+	}
+
+	/**
+	 * Get the network interface physical link state.
+	 * @see https://www.kernel.org/doc/Documentation/ABI/testing/sysfs-class-net
+	 * @return The network interface physical link state, otherwise FALSE.
+	 */
+	public function getCarrier() {
+		$filename = sprintf("/sys/class/net/%s/carrier",
+		  $this->getDeviceName());
+		if (!file_exists($filename))
+			return FALSE;
+		return intval(file_get_contents($filename));
 	}
 
 	/**
