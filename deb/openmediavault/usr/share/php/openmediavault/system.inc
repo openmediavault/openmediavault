@@ -4267,7 +4267,7 @@ abstract class OMVNetworkInterfaceBackendAbstract extends OMVObject {
  * @ingroup api
  */
 class OMVNetworkInterfaceBackendEthernet extends OMVNetworkInterfaceBackendAbstract {
-	protected $regex = "/^(eth|venet)[0-9]+$/i";
+	protected $regex = "/^(eth|venet)[0-9]+|veth[a-z0-9]+$/i";
 
 	function getType() {
 		return OMV_NETWORK_INTERFACE_TYPE_ETHERNET;

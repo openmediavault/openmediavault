@@ -1,6 +1,7 @@
 openmediavault (2.0.4) stable; urgency=low
 
   * Adapt WebGUI to Sencha ExtJS 5.
+  * Introduce network interface backend API.
   * Mantis 0000022: Support VLAN.
   * Mantis 0001288: Create a backup of /etc/network/interfaces during
     omv-initsystem.
