@@ -688,6 +688,15 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			foreach (explode(",", $object['slaves']) as $slavek => $slavev) {
 				$result[] = $this->getIfaceInfo($slavev);
 			}
+			// Remove the bond interface itself from the result list.
+			foreach ($result as $resultk => $resultv) {
+				if ($resultv['devicename'] !== $object['devicename'])
+					continue;
+				// Remove the item and re-index array.
+				unset($result[$resultk]);
+				$result = array_values($result);
+				break;
+			}
 		}
 		return $result;
 	}
