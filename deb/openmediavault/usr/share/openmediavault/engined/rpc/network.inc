@@ -181,29 +181,6 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Enumerate all network interface devices.
-	 * @param type The type of the interfaces to query for.
-	 * @return An array of objects. Each object represents a network interface
-	 *   device with the following properties: \em devicename, \em gateway,
-	 *   \em gateway6, \em address, \em address6, \em netmask, \em netmask6,
-	 *   \em ether, \em mtu, \em state, \em link, \em vlan and \em vlanid.
-	 * @throw E_MISC_FAILURE
-	 */
-	final private function enumerateDevicesByType($type) {
-		// Enumerate all network interface devices on the system.
-		if (FALSE === ($devs = OMVNetworkInterfaces::enumerate($type))) {
-			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-			  gettext("Failed to get list of network interface devices"));
-		}
-		$result = array();
-		// Collect network interface device details.
-		foreach ($devs as $devk => $devv) {
-			$result[] = $this->getIfaceInfo($devv);
-		}
-		return $result;
-	}
-
-	/**
 	 * Enumerate all network interface devices on the system.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
@@ -214,48 +191,14 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	 * @throw E_MISC_FAILURE
 	 */
 	public function enumerateDevices($params, $context) {
-		// Validate the RPC caller context.
-		$this->validateMethodContext($context, array(
-			  "role" => OMV_ROLE_ADMINISTRATOR
-		  ));
-		return $this->enumerateDevicesByType(OMV_NETWORK_INTERFACE_TYPE_ALL);
-	}
-
-	/**
-	 * Enumerate all network interface devices on the system, except loopback.
-	 * @param params An array containing the following fields:
-	 *   \em start The index where to start.
-	 *   \em limit The number of objects to process.
-	 *   \em sortfield The name of the column used to sort.
-	 *   \em sortdir The sort direction, ASC or DESC.
-	 * @param context The context of the caller.
-	 * @return An array containing the requested objects. The field \em total
-	 *   contains the total number of objects, \em data contains the object
-	 *   array. An exception will be thrown in case of an error.
-	 * @throw E_MISC_DEVICE_NOT_SUPPORTED
-	 * @throw E_MISC_FAILURE
-	 */
-	function enumerateDevicesList($params, $context) {
 		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		// Validate the parameters of the RPC service method.
-		$this->validateMethodParams($params, '{
-			  "type":"object",
-			  "properties":{
-				  "start":{"type":"integer"},
-				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
-				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
-				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
-			  }
-		  }');
-		// Enumerate all network interface devices on the system, except
-		// loopback devices.
+		// Enumerate all network interface devices on the system.
 		if (FALSE === ($devs = OMVNetworkInterfaces::enumerate(
-		  OMV_NETWORK_INTERFACE_TYPE_ALL &
-		  ~(OMV_NETWORK_INTERFACE_TYPE_LOOPBACK)))) {
+		  OMV_NETWORK_INTERFACE_TYPE_ALL))) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get list of network interface devices"));
 		}
@@ -305,17 +248,16 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			case OMV_NETWORK_INTERFACE_TYPE_VLAN:
 				$object['type'] = "vlan";
 				break;
+			case OMV_NETWORK_INTERFACE_TYPE_LOOPBACK:
+				$object['type'] = "loopback";
+				break;
 			}
 			// Append the network interface configuration.
 			$xpath = sprintf("//system/network/interfaces/*[devicename='%s']",
 			  $devv);
 			$cfgObject = $xmlConfig->get($xpath);
-			if (!is_null($cfgObject)) {
-				$object['uuid'] = $cfgObject['uuid'];
-				$object['method'] = array_value($cfgObject, "method", "manual");
-				$object['method6'] = array_value($cfgObject, "method6", "manual");
-				$object['comment'] = array_value($cfgObject, "comment", "");
-			}
+			if (!is_null($cfgObject))
+				$object = array_merge($object, $cfgObject);
 			// Do some more checks.
 			switch ($nib->getType()) {
 			case OMV_NETWORK_INTERFACE_TYPE_BOND:
@@ -352,6 +294,38 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			// Append network interface device to result list.
 			$result[] = $object;
 		}
+		return $result;
+	}
+
+	/**
+	 * Enumerate all network interface devices on the system, except loopback.
+	 * @param params An array containing the following fields:
+	 *   \em start The index where to start.
+	 *   \em limit The number of objects to process.
+	 *   \em sortfield The name of the column used to sort.
+	 *   \em sortdir The sort direction, ASC or DESC.
+	 * @param context The context of the caller.
+	 * @return An array containing the requested objects. The field \em total
+	 *   contains the total number of objects, \em data contains the object
+	 *   array. An exception will be thrown in case of an error.
+	 */
+	function enumerateDevicesList($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the parameters of the RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+				  "start":{"type":"integer"},
+				  "limit":{'.$GLOBALS['OMV_JSONSCHEMA_COUNTFIELD'].'},
+				  "sortfield":{'.$GLOBALS['OMV_JSONSCHEMA_SORTFIELD'].'},
+				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
+			  }
+		  }');
+		// Get the system network interface devices.
+		$result = $this->callMethod("enumerateDevices", NULL, $context);
 		// Filter the result.
 		return $this->applyFilter($result, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);
@@ -362,6 +336,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return A list of applicable network interfaces devices.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
 	function enumerateApplicableDevices($params, $context) {
 		global $xmlConfig;
@@ -370,28 +345,21 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		$result = array();
-		// Get all configured ethernet network interface devices.
-		$xpath = "//system/network/interfaces/iface/uuid";
+		// Get all network interface configuration object UUID's.
+		$xpath = "//system/network/interfaces//uuid";
 		$uuids = $xmlConfig->getList($xpath);
-		foreach ($uuids as $uuid) {
-			$object = $this->callMethod("getIface", array("uuid" => $uuid),
-			  $context);
-			// Check if it is used by a bonding interface.
-			$xpath = sprintf("//bondiface[contains(slaves,'%s')]",
-			  $object['devicename']);
-			if (FALSE === $xmlConfig->exists($xpath)) {
-				$object['type'] = "ethernet";
-				$result[] = $object;
-			}
+		if (is_null($uuids)) {
+			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
+			  $xpath);
 		}
-		// Get all configured bonded network interface devices.
-		$xpath = "//system/network/interfaces/bondiface/uuid";
-		$uuids = $xmlConfig->getList($xpath);
-		foreach ($uuids as $uuid) {
-			$object = $this->callMethod("getBondIface",
-			  array("uuid" => $uuid), $context);
-			$object['type'] = "bond";
-			$result[] = $object;
+		// Get the system network interface devices. Only process those
+		// network interfaces that have a valid UUID attribute (this means
+		// there is a configuration object in the database).
+		$objects = $this->callMethod("enumerateDevices", NULL, $context);
+		foreach ($objects as $objectk => $objectv) {
+			if (!in_array($objectv['uuid'], $uuids))
+				continue;
+			$result[] = $objectv;
 		}
 		return $result;
 	}

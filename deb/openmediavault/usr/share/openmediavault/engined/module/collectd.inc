@@ -76,6 +76,10 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.network.interfaces.bondiface",
 		  array($this, "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
+		  "org.openmediavault.system.network.interfaces.vlaniface",
+		  array($this, "setDirty"));
 	}
 }
 

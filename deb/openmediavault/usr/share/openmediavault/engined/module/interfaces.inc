@@ -74,6 +74,7 @@ class OMVModuleInterfaces extends OMVModuleServiceAbstract
 	 * @param params The method parameters.
 	 */
 	final public function deleteBondInterface($params) {
+        // Note, this may not be necessary in Debian Jessie.
 		// See http://backdrift.org/manage-linux-bonding-without-ifenslave-using-sysfs
         $cmd = sprintf("echo '-%s' > /sys/class/net/bonding_masters",
           $params['devicename']);

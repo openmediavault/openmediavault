@@ -36,6 +36,9 @@ IFACE=$(xmlstarlet sel -t \
   -m "//system/network/interfaces/bondiface" \
 	-v "concat(devicename,' ')" \
   -b \
+  -m "//system/network/interfaces/vlaniface" \
+	-v "concat(devicename,' ')" \
+  -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc)
 
 cat <<EOF >> ${OMV_COLLECTD_CONFIG}
