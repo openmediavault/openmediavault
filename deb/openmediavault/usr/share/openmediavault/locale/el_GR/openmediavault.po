@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-03-10 17:59+0000\n"
-"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
+"POT-Creation-Date: 2015-04-18 01:40+0200\n"
+"PO-Revision-Date: 2015-04-17 23:41+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -197,8 +197,11 @@ msgstr "Ενεργοποίηση επίβλεψης S.M.A.R.T."
 msgid "Add"
 msgstr "Προσθήκη"
 
-msgid "Add bonded interface"
-msgstr "Προσθήκη συνδιασμένης διεπαφής"
+msgid "Add VLAN interface"
+msgstr ""
+
+msgid "Add bond interface"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "Προσθήκη συσκευών σε συστοιχία RAID"
@@ -492,6 +495,9 @@ msgstr "Μέγεθος τμήματος"
 msgid "Bolivia"
 msgstr "Bolivia"
 
+msgid "Bond"
+msgstr ""
+
 msgid "Bond options"
 msgstr "Επιλογές ζεύξης"
 
@@ -762,11 +768,8 @@ msgstr "Czech Republic"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "DNS Server"
-msgstr "Διακομιστής DNS"
-
-msgid "DNS server"
-msgstr "Διακομιστής DNS"
+msgid "DNS servers"
+msgstr ""
 
 msgid "Daemon"
 msgstr "Δαίμονας"
@@ -938,9 +941,6 @@ msgid ""
 "permanently removed and cannot be recovered."
 msgstr "Να διαγραφούν τα περιεχόμενα του κοινόχρηστου φακέλου; Θα χαθούν οριστικά χωρίς δυνατότητα ανάκτησης."
 
-msgid "Do you really want to remove this widget?"
-msgstr "Να αφαιρεθεί αυτό το όργανο;"
-
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Να γίνει επαναφορά του γραφικού περιβάλλοντος;"
 
@@ -1018,8 +1018,14 @@ msgstr "Αλλαγή"
 msgid "Edit SSL certificate"
 msgstr "Αλλαγή"
 
-msgid "Edit bonded interface"
-msgstr "Μεταβολή συνδιασμένης διεπαφής"
+msgid "Edit VLAN interface"
+msgstr ""
+
+msgid "Edit bond interface"
+msgstr ""
+
+msgid "Edit ethernet interface"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "Επεξεργασία κανονισμού ασφαλείας"
@@ -1029,9 +1035,6 @@ msgstr "Επεξεργασία ομάδας"
 
 msgid "Edit module"
 msgstr "Επεξεργασία μονάδας"
-
-msgid "Edit physical interface"
-msgstr "Μεταβολή διεπαφής"
 
 msgid "Edit quota"
 msgstr "Μεταβολή ποσοστού"
@@ -1252,6 +1255,9 @@ msgstr "Απέτυχε η λήψη της λίστας των ομάδων."
 
 msgid "Failed to get list of network interface devices"
 msgstr "Απέτυχε η λήψη της λίστας των συσκευών δικτύου"
+
+msgid "Failed to get list of unused network interface devices"
+msgstr ""
 
 msgid "Failed to get list of users."
 msgstr "Απέτυχε η λήψη της λίστας των χρηστών."
@@ -1660,8 +1666,8 @@ msgstr "Άκυρη ονομασία συστήματος αρχείων"
 msgid "Invalid group name"
 msgstr "Άκυρη ονομασία ομάδας"
 
-msgid "Invalid hostname"
-msgstr "Άκυρο όνομα συστήματος"
+msgid "Invalid host name"
+msgstr ""
 
 msgid "Invalid line: %s"
 msgstr "Άκυρη γραμμή : %s"
@@ -2275,6 +2281,9 @@ msgstr "Papua New Guinea"
 msgid "Paraguay"
 msgstr "Paraguay"
 
+msgid "Parent interface"
+msgstr ""
+
 msgid "Passive FTP"
 msgstr "Παθητικό FTP"
 
@@ -2386,6 +2395,11 @@ msgstr "Επιλογή μεθόδου εκκένωσης της συσκευής
 
 msgid "Please first select a volume."
 msgstr "Πρώτα πρέπει να επιλεχθεί ένας τόμος."
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2521,6 +2535,12 @@ msgstr "Ποσοστό"
 msgid "RAID 10"
 msgstr "RAID 10"
 
+msgid "RAID 2"
+msgstr ""
+
+msgid "RAID 3"
+msgstr ""
+
 msgid "RAID 4"
 msgstr "RAID 4"
 
@@ -2604,6 +2624,9 @@ msgstr "Απομακρυσμένη καταγραφη"
 
 msgid "Remove"
 msgstr "Αφαίρεση"
+
+msgid "Remove devices from RAID device"
+msgstr ""
 
 msgid "Replace"
 msgstr "Αντικατάσταση"
@@ -2785,8 +2808,8 @@ msgstr "Προγραμματισμένοι έλεγχοι"
 msgid "Scheduling"
 msgstr "Προγραμματισμός"
 
-msgid "Secondary"
-msgstr "Δευτερεύον"
+msgid "Search domains"
+msgstr ""
 
 msgid "Secondary email"
 msgstr "Εφεδρικό"
@@ -2830,8 +2853,11 @@ msgstr "Επιλογή ονόματος ομάδας ..."
 msgid "Select a language ..."
 msgstr "Επιλογή γλώσσας ..."
 
-msgid "Select a primary device ..."
-msgstr "Επιλογή κύριας συσκευής ..."
+msgid "Select a parent interface ..."
+msgstr ""
+
+msgid "Select a primary interface ..."
+msgstr ""
 
 msgid "Select a protocol ..."
 msgstr "Επιλογή πρωτοκόλου ..."
@@ -2850,6 +2876,9 @@ msgstr "Επιλογή τόμου ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Επιλογή συσκευών για προσθήκη σε συσκευή RAID"
+
+msgid "Select devices to be removed from the RAID device."
+msgstr ""
 
 msgid "Select or enter a user name ..."
 msgstr "Επιλογή ή εισαγώγή ονόματος χρήστη ..."
@@ -3099,6 +3128,9 @@ msgstr "Ορίζει το αν θα παρακολουθείται η κατάσ
 msgid "Specifies which slave is the primary device."
 msgstr "Καθορίζει ποιό συστατικό είναι η πρωτεύουσα συσκευή."
 
+msgid "Speed"
+msgstr ""
+
 msgid "Spindown time"
 msgstr "Χρόνος καταστολής"
 
@@ -3290,6 +3322,9 @@ msgstr "Η θέση των φακέλων των χρηστών."
 msgid "The name of the share."
 msgstr "Το όνομα του κοινόχρηστου."
 
+msgid "The name servers are used to look up host names on the network."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "Ο αριθμός των ημερών για τις οποίες ισχύει το πιστοποιητικό."
 
@@ -3405,23 +3440,28 @@ msgstr "Το πεδίο πρέπει να περιέχει διεύθυνση δ
 msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Αυτό το πεδίο δέχεται διεύθυνση ΙΡv6 σε μορφή CIDR"
 
-msgid "This field should be a domainname or an IP address"
-msgstr "Αυτό το πεδίο δέχεται όνομα τομέα ή διεύθυνση ΙΡ."
+msgid "This field should be a domain name or an IP address"
+msgstr ""
 
-msgid "This field should be a domainname or an IPv4 address"
-msgstr "Αυτό το πεδίο δέχεται όνομα τομέα ή διεύθυνση IPv4"
+msgid "This field should be a domain name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a hostname or an IP address"
-msgstr "Αυτό το πεδίο δέχεται όνομα υπολογιστή ή διεύθυνση ΙΡ."
+msgid "This field should be a host name or an IP address"
+msgstr ""
 
-msgid "This field should be a hostname or an IPv4 address"
-msgstr "Το πεδίο πρέπει να περιέχει όνομα συστήματος ή διεύθυνση IPv4"
+msgid "This field should be a host name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a list of domainnames or IP addresses"
-msgstr "Αυτό το πεδίο δέχεται λίστα ονομάτων τομέα ή διευθύνσεις ΙΡ"
+msgid "This field should be a list of domain names or IP addresses"
+msgstr ""
 
-msgid "This field should be a list of hostnames or IP addresses"
-msgstr "Αυτό το πεδίο δέχεται λίστα ονομάτων ή διευθύνσεις ΙΡ"
+msgid ""
+"This field should be a list of domain names or IP addresses seperated by <,>"
+" or <;>"
+msgstr ""
+
+msgid "This field should be a list of host names or IP addresses"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3814,6 +3854,12 @@ msgstr "Χρήστες"
 
 msgid "Uzbekistan"
 msgstr "Uzbekistan"
+
+msgid "VLAN"
+msgstr ""
+
+msgid "VLAN id"
+msgstr ""
 
 msgid "Valid to"
 msgstr "Ισχύει εώς"

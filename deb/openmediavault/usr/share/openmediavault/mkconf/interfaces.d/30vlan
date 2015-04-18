@@ -30,8 +30,8 @@ OMV_INTERFACES_WOL_OPTION=${OMV_INTERFACES_WOL_OPTION:-"g"}
 xmlstarlet sel -t \
   -m "//system/network/interfaces/vlaniface" \
 	  -n \
-	  -v "concat('# ',vlanrawdevice,'.',vlanid,' network interface')" -n \
-	  -v "concat('auto ',vlanrawdevice,'.',vlanid)" -n \
+      -v "concat('# ',vlanrawdevice,'.',vlanid,' network interface')" -n \
+      -v "concat('auto ',vlanrawdevice,'.',vlanid)" -n \
       -v "concat('iface ',vlanrawdevice,'.',vlanid,' inet ',method)" -n \
       -v "concat('    vlan-raw-device ',vlanrawdevice)" -n \
 	  -i "method = 'manual'" \

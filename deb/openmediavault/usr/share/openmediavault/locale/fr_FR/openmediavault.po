@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Christophe Lherieau <skimpax@gmail.com>, 2012-2014
+# Christophe Lherieau <skimpax@gmail.com>, 2012-2015
 # Nadley-Nahir Mohamed <nahirmoha@gmail.com>, 2012-2013
 # Stéphane BOCQUET <sbocquet4772@gmail.com>, 2012-2013
 # Stéphane BOCQUET <stephane_bocquet@hotmail.com>, 2012
@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-01-06 13:50+0000\n"
+"POT-Creation-Date: 2015-04-18 01:40+0200\n"
+"PO-Revision-Date: 2015-04-17 23:41+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgid "%s (%s available)"
 msgstr "%s (%s disponible)"
 
 msgid "%s [on %s, %s]"
-msgstr ""
+msgstr "%s [le %s, %s]"
 
 msgid "'All' is not allowed"
 msgstr "'Tous' n'est pas autorisé"
@@ -200,8 +200,11 @@ msgstr "Activer la surveillance S.M.A.R.T."
 msgid "Add"
 msgstr "Ajouter"
 
-msgid "Add bonded interface"
-msgstr "Ajouter une interface liée"
+msgid "Add VLAN interface"
+msgstr ""
+
+msgid "Add bond interface"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "Ajouter des disques durs au périphérique RAID"
@@ -382,7 +385,7 @@ msgid "Asynchronous I/O"
 msgstr "E/S asynchrones"
 
 msgid "At reboot"
-msgstr ""
+msgstr "Au redémarrage"
 
 msgid "Attribute name"
 msgstr "Nom de l'attribut"
@@ -495,6 +498,9 @@ msgstr "Taille de block"
 msgid "Bolivia"
 msgstr "Bolivie"
 
+msgid "Bond"
+msgstr ""
+
 msgid "Bond options"
 msgstr "Options de liaison"
 
@@ -558,12 +564,12 @@ msgstr "Annuler"
 msgid ""
 "Cannot unlink the shared folder content because another shared folder also "
 "refers to it"
-msgstr ""
+msgstr "Impossible de détacher le contenu du dossier partagé car un autre dossier partagé possède une référence vers celui-ci"
 
 msgid ""
 "Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "Impossible de détacher le contenu du dossier partagé car un autre dossier partagé référence un sous-répertoire"
 
 msgid "Canton and Enderbury Islands"
 msgstr "Îles Canton et Enderbury"
@@ -581,7 +587,7 @@ msgid "Central African Republic"
 msgstr "Centrafrique"
 
 msgid "Certain date"
-msgstr ""
+msgstr "A date précise"
 
 msgid "Certificate"
 msgstr "Certificat"
@@ -765,17 +771,14 @@ msgstr "République Tchèque"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "DNS Server"
-msgstr "Serveur DNS"
-
-msgid "DNS server"
-msgstr "Serveur DNS"
+msgid "DNS servers"
+msgstr ""
 
 msgid "Daemon"
 msgstr "Daemon"
 
 msgid "Daily"
-msgstr ""
+msgstr "Quotidiennement"
 
 msgid "Dashboard"
 msgstr "Tableau de bord"
@@ -864,7 +867,7 @@ msgid "Device properties"
 msgstr "Propriétés du périphérique"
 
 msgid "Device/Label"
-msgstr ""
+msgstr "Périphérique/Label"
 
 msgid "Devices"
 msgstr "Périphériques"
@@ -940,9 +943,6 @@ msgid ""
 "Do you really want to remove the shared folder content? It will be "
 "permanently removed and cannot be recovered."
 msgstr "Voulez-vous vraiment supprimer le contenu du dossier partagé ? Le contenu ne pourra être récupéré."
-
-msgid "Do you really want to remove this widget?"
-msgstr "Voulez-vous vraiment supprimer ce widget ?"
 
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Voulez-vous vraiment réinitialiser l'interface Web (ex: l'ordre des colonnes) ?"
@@ -1021,8 +1021,14 @@ msgstr "Modifier"
 msgid "Edit SSL certificate"
 msgstr "Modifier le certificat SSL"
 
-msgid "Edit bonded interface"
-msgstr "Modifier l'interface de liaison"
+msgid "Edit VLAN interface"
+msgstr ""
+
+msgid "Edit bond interface"
+msgstr ""
+
+msgid "Edit ethernet interface"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "Modifier les règles de pare-feu"
@@ -1032,9 +1038,6 @@ msgstr "Modifier le groupe"
 
 msgid "Edit module"
 msgstr "Modifier le module"
-
-msgid "Edit physical interface"
-msgstr "Modifier l'interface physique"
 
 msgid "Edit quota"
 msgstr "Modifier les quotas"
@@ -1118,7 +1121,7 @@ msgid "Enable permission inheritance"
 msgstr "Activer l'héritages des permissions"
 
 msgid "Enable public key authentication"
-msgstr ""
+msgstr "Activer l'authentification par clef publique"
 
 msgid "Enable recycle bin"
 msgstr "Activer la poubelle"
@@ -1204,7 +1207,7 @@ msgid "Everyone: read/write"
 msgstr "Tous : lecture/écriture"
 
 msgid "Exactly"
-msgstr ""
+msgstr "Exactement"
 
 msgid "Execute command"
 msgstr "Exécute la commande"
@@ -1255,6 +1258,9 @@ msgstr "Echec à la récupération de la liste des groupes."
 
 msgid "Failed to get list of network interface devices"
 msgstr "Echec de récupération de la liste des périphériques réseaux"
+
+msgid "Failed to get list of unused network interface devices"
+msgstr ""
 
 msgid "Failed to get list of users."
 msgstr "Echec à la récupération de la liste des utilisateurs."
@@ -1498,7 +1504,7 @@ msgid "Hour"
 msgstr "Heure"
 
 msgid "Hourly"
-msgstr ""
+msgstr "Une fois par heure"
 
 msgid "Hungary"
 msgstr "Hongrie"
@@ -1663,8 +1669,8 @@ msgstr "Label du système de fichiers non valide"
 msgid "Invalid group name"
 msgstr "Nom de groupe invalide"
 
-msgid "Invalid hostname"
-msgstr "Nom d'hôte invalide"
+msgid "Invalid host name"
+msgstr ""
 
 msgid "Invalid line: %s"
 msgstr "Ligne invalide : %s"
@@ -2039,7 +2045,7 @@ msgid "Month"
 msgstr "Mois"
 
 msgid "Monthly"
-msgstr ""
+msgstr "Une fois par mois"
 
 msgid "Montserrat"
 msgstr "Montserrat"
@@ -2278,6 +2284,9 @@ msgstr "Papouasie-Nouvelle-Guinée"
 msgid "Paraguay"
 msgstr "Paraguay"
 
+msgid "Parent interface"
+msgstr ""
+
 msgid "Passive FTP"
 msgstr "FTP passif"
 
@@ -2366,7 +2375,7 @@ msgstr "Voir la <a href='http://www.proftpd.org/docs/directives/configuration_fu
 msgid ""
 "Please check the <a href='http://www.proftpd.org/docs/directives/linked/by-"
 "name.html' target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Voir la <a href='http://www.proftpd.org/docs/directives/linked/by-name.html' target='_blank'>page d'aide</a> pour plus de détails."
 
 msgid ""
 "Please check the <a href='http://www.samba.org/ftp/rsync/rsync.html' "
@@ -2389,6 +2398,11 @@ msgstr "Choisir la méthode pour nettoyer le périphérique ou sur 'Annuler' pou
 
 msgid "Please first select a volume."
 msgstr "Sélectionnez un volume en premier."
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2498,7 +2512,7 @@ msgid "Public"
 msgstr "Public"
 
 msgid "Public key authentication"
-msgstr ""
+msgstr "Authentification par clef publique"
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"
@@ -2523,6 +2537,12 @@ msgstr "Quota"
 
 msgid "RAID 10"
 msgstr "RAID 10"
+
+msgid "RAID 2"
+msgstr ""
+
+msgid "RAID 3"
+msgstr ""
 
 msgid "RAID 4"
 msgstr "RAID 4"
@@ -2607,6 +2627,9 @@ msgstr "Syslog distant"
 
 msgid "Remove"
 msgstr "Supprimer"
+
+msgid "Remove devices from RAID device"
+msgstr ""
 
 msgid "Replace"
 msgstr "Remplace"
@@ -2732,7 +2755,7 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH public key"
-msgstr ""
+msgstr "Clef publique SSH"
 
 msgid "SSL/TLS"
 msgstr "SSH/TLS"
@@ -2786,10 +2809,10 @@ msgid "Scheduled tests"
 msgstr "Tests programmés"
 
 msgid "Scheduling"
-msgstr ""
+msgstr "Planification"
 
-msgid "Secondary"
-msgstr "Secondaire"
+msgid "Search domains"
+msgstr ""
 
 msgid "Secondary email"
 msgstr "Mail secondaire"
@@ -2798,7 +2821,7 @@ msgid "Seconds"
 msgstr "Secondes"
 
 msgid "Section"
-msgstr ""
+msgstr "Section"
 
 msgid "Secure"
 msgstr "Sécurisé"
@@ -2833,8 +2856,11 @@ msgstr "Sélectionnez un nom de groupe..."
 msgid "Select a language ..."
 msgstr "Choisir une langue ..."
 
-msgid "Select a primary device ..."
-msgstr "Sélectionnez un périphérique primaire ..."
+msgid "Select a parent interface ..."
+msgstr ""
+
+msgid "Select a primary interface ..."
+msgstr ""
 
 msgid "Select a protocol ..."
 msgstr "Sélectionnez un protocole ..."
@@ -2853,6 +2879,9 @@ msgstr "Sélectionnez un volume ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Sélectionnez le périphérique à ajouter au groupement RAID"
+
+msgid "Select devices to be removed from the RAID device."
+msgstr ""
 
 msgid "Select or enter a user name ..."
 msgstr "Sélectionnez ou saisissez un nom d'utilisateur ..."
@@ -3102,6 +3131,9 @@ msgstr "Surveiller l'état ​​du système et sélectionner le niveau d'utilis
 msgid "Specifies which slave is the primary device."
 msgstr "Indique quel esclave est le premier périphérique."
 
+msgid "Speed"
+msgstr ""
+
 msgid "Spindown time"
 msgstr "Temps de ralentissement"
 
@@ -3293,6 +3325,9 @@ msgstr "L'emplacement des répertoires des utilisateurs."
 msgid "The name of the share."
 msgstr "Le nom du partage."
 
+msgid "The name servers are used to look up host names on the network."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "La durée de validité du certificat."
 
@@ -3408,23 +3443,28 @@ msgstr "Ce champ doit être une adresse réseau IPv4 en notation CIDR"
 msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Ce champ doit être une adresse réseau IPv6 en notation CIDR"
 
-msgid "This field should be a domainname or an IP address"
-msgstr "Ce champ doit contenir un nom de domaine ou une adresse IP"
+msgid "This field should be a domain name or an IP address"
+msgstr ""
 
-msgid "This field should be a domainname or an IPv4 address"
-msgstr "Ce champ doit contenir un nom de domaine ou une adresse IPv4"
+msgid "This field should be a domain name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a hostname or an IP address"
-msgstr "Ce champ doit contenir un nom d'hôte ou une adresse IP"
+msgid "This field should be a host name or an IP address"
+msgstr ""
 
-msgid "This field should be a hostname or an IPv4 address"
-msgstr "Ce champ doit être un nom d'hôte ou une adresse réseau IPv4"
+msgid "This field should be a host name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a list of domainnames or IP addresses"
-msgstr "Ce champ doit contenir une liste de noms de domaines ou d'adresses IP"
+msgid "This field should be a list of domain names or IP addresses"
+msgstr ""
 
-msgid "This field should be a list of hostnames or IP addresses"
-msgstr "Ce champ doit contenir une liste de noms d'hôtes ou d'adresses IP"
+msgid ""
+"This field should be a list of domain names or IP addresses seperated by <,>"
+" or <;>"
+msgstr ""
+
+msgid "This field should be a list of host names or IP addresses"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3588,7 +3628,7 @@ msgid "Time interval"
 msgstr "Intervalle de temps"
 
 msgid "Time of execution"
-msgstr ""
+msgstr "Date d'exécution"
 
 msgid "Time server"
 msgstr "Serveur de temps"
@@ -3818,6 +3858,12 @@ msgstr "Utilisateurs"
 msgid "Uzbekistan"
 msgstr "Ouzbékistan"
 
+msgid "VLAN"
+msgstr ""
+
+msgid "VLAN id"
+msgstr ""
+
 msgid "Valid to"
 msgstr "Valide jusqu'au"
 
@@ -3882,7 +3928,7 @@ msgid "Wednesday"
 msgstr "Mercredi"
 
 msgid "Weekly"
-msgstr ""
+msgstr "Hebdomadaire"
 
 msgid "Welcome message"
 msgstr "Message de bienvenue"
@@ -3920,7 +3966,7 @@ msgid "Write/Execute"
 msgstr "Ecrire/Exécuter"
 
 msgid "Yearly"
-msgstr ""
+msgstr "Annuellement"
 
 msgid "Yemen"
 msgstr "Yémen"

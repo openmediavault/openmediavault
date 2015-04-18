@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-01-06 13:50+0000\n"
+"POT-Creation-Date: 2015-04-18 01:40+0200\n"
+"PO-Revision-Date: 2015-04-17 23:41+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -197,8 +197,11 @@ msgstr "Aktivera S.M.A.R.T-övervakning"
 msgid "Add"
 msgstr "Lägg till"
 
-msgid "Add bonded interface"
-msgstr "Lägg till bundet gränssnitt"
+msgid "Add VLAN interface"
+msgstr ""
+
+msgid "Add bond interface"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "Lägg till enheter till RAID-enhet"
@@ -492,6 +495,9 @@ msgstr "Blockstorlek"
 msgid "Bolivia"
 msgstr "Bolivia"
 
+msgid "Bond"
+msgstr ""
+
 msgid "Bond options"
 msgstr "Band-inställningar"
 
@@ -762,11 +768,8 @@ msgstr "Tjeckien"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "DNS Server"
-msgstr "DNS-server"
-
-msgid "DNS server"
-msgstr "DNS-server"
+msgid "DNS servers"
+msgstr ""
 
 msgid "Daemon"
 msgstr "Tjänst"
@@ -938,9 +941,6 @@ msgid ""
 "permanently removed and cannot be recovered."
 msgstr ""
 
-msgid "Do you really want to remove this widget?"
-msgstr ""
-
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Vill du verkligen återställa WebGUI-tillståndet, t.ex. rutnätkolumnens ordning?"
 
@@ -1018,8 +1018,14 @@ msgstr "Redigera"
 msgid "Edit SSL certificate"
 msgstr "Redigera SSL-certifikat"
 
-msgid "Edit bonded interface"
-msgstr "Redigera bundet gränssnitt"
+msgid "Edit VLAN interface"
+msgstr ""
+
+msgid "Edit bond interface"
+msgstr ""
+
+msgid "Edit ethernet interface"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "Redigera brandväggsregel"
@@ -1029,9 +1035,6 @@ msgstr "Redigera grupp"
 
 msgid "Edit module"
 msgstr "Redigera modul"
-
-msgid "Edit physical interface"
-msgstr "Redigera fysiskt gränssnitt"
 
 msgid "Edit quota"
 msgstr "Redigera kvot"
@@ -1251,6 +1254,9 @@ msgid "Failed to get list of groups."
 msgstr ""
 
 msgid "Failed to get list of network interface devices"
+msgstr ""
+
+msgid "Failed to get list of unused network interface devices"
 msgstr ""
 
 msgid "Failed to get list of users."
@@ -1660,8 +1666,8 @@ msgstr ""
 msgid "Invalid group name"
 msgstr "Ogiltigt gruppnamn"
 
-msgid "Invalid hostname"
-msgstr "Ogiltigt värdnamn"
+msgid "Invalid host name"
+msgstr ""
 
 msgid "Invalid line: %s"
 msgstr "Felaktig rad: %s"
@@ -2275,6 +2281,9 @@ msgstr "Papua Nya Guinea"
 msgid "Paraguay"
 msgstr "Paraguay"
 
+msgid "Parent interface"
+msgstr ""
+
 msgid "Passive FTP"
 msgstr "Passiv FTP"
 
@@ -2386,6 +2395,11 @@ msgstr "Välj en metod för att radera enheten eller välj 'Avbryt' "
 
 msgid "Please first select a volume."
 msgstr "Välj först en volym."
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2521,6 +2535,12 @@ msgstr "Kvot"
 msgid "RAID 10"
 msgstr "RAID 10"
 
+msgid "RAID 2"
+msgstr ""
+
+msgid "RAID 3"
+msgstr ""
+
 msgid "RAID 4"
 msgstr ""
 
@@ -2603,6 +2623,9 @@ msgid "Remote syslog"
 msgstr "Fjärrsyslog"
 
 msgid "Remove"
+msgstr ""
+
+msgid "Remove devices from RAID device"
 msgstr ""
 
 msgid "Replace"
@@ -2785,8 +2808,8 @@ msgstr "Schemalagda tester"
 msgid "Scheduling"
 msgstr ""
 
-msgid "Secondary"
-msgstr "Sekundär"
+msgid "Search domains"
+msgstr ""
 
 msgid "Secondary email"
 msgstr "Sekundär e-post"
@@ -2830,8 +2853,11 @@ msgstr ""
 msgid "Select a language ..."
 msgstr "Välj ett språk ..."
 
-msgid "Select a primary device ..."
-msgstr "Välj en primär enhet ..."
+msgid "Select a parent interface ..."
+msgstr ""
+
+msgid "Select a primary interface ..."
+msgstr ""
 
 msgid "Select a protocol ..."
 msgstr "Välj ett protokoll ..."
@@ -2850,6 +2876,9 @@ msgstr "Välj en volym ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Välj enheter som ska läggas till i RAID-enheten"
+
+msgid "Select devices to be removed from the RAID device."
+msgstr ""
 
 msgid "Select or enter a user name ..."
 msgstr "Välj eller ange ett användarnamn ..."
@@ -3099,6 +3128,9 @@ msgstr "Välj om du vill övervaka systemets status för att bestämma den mest 
 msgid "Specifies which slave is the primary device."
 msgstr "Anger vilken slav som är den primära enheten."
 
+msgid "Speed"
+msgstr ""
+
 msgid "Spindown time"
 msgstr "Tid för nerspinning"
 
@@ -3290,6 +3322,9 @@ msgstr "Placeringen för hemkataloger."
 msgid "The name of the share."
 msgstr "Namnet på delningen."
 
+msgid "The name servers are used to look up host names on the network."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "Antalet dagar som certifikatet är giltigt för."
 
@@ -3405,22 +3440,27 @@ msgstr "Detta fält bör vara en IPv4-nätverksadress i CIDR notation"
 msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr ""
 
-msgid "This field should be a domainname or an IP address"
+msgid "This field should be a domain name or an IP address"
 msgstr ""
 
-msgid "This field should be a domainname or an IPv4 address"
-msgstr "Detta fält ska vara ett domännamn eller en IPv4-adress"
-
-msgid "This field should be a hostname or an IP address"
+msgid "This field should be a domain name or an IPv4 address"
 msgstr ""
 
-msgid "This field should be a hostname or an IPv4 address"
-msgstr "Detta fält ska vara en värdnamn eller en IPv4-adress"
-
-msgid "This field should be a list of domainnames or IP addresses"
+msgid "This field should be a host name or an IP address"
 msgstr ""
 
-msgid "This field should be a list of hostnames or IP addresses"
+msgid "This field should be a host name or an IPv4 address"
+msgstr ""
+
+msgid "This field should be a list of domain names or IP addresses"
+msgstr ""
+
+msgid ""
+"This field should be a list of domain names or IP addresses seperated by <,>"
+" or <;>"
+msgstr ""
+
+msgid "This field should be a list of host names or IP addresses"
 msgstr ""
 
 msgid ""
@@ -3814,6 +3854,12 @@ msgstr "Användare"
 
 msgid "Uzbekistan"
 msgstr "Uzbekistan"
+
+msgid "VLAN"
+msgstr ""
+
+msgid "VLAN id"
+msgstr ""
 
 msgid "Valid to"
 msgstr "Giltig till"

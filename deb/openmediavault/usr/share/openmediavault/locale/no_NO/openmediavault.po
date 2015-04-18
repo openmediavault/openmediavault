@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-01-06 13:50+0000\n"
+"POT-Creation-Date: 2015-04-18 01:40+0200\n"
+"PO-Revision-Date: 2015-04-17 23:41+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -198,8 +198,11 @@ msgstr "Aktiver S.M.A.R.T. overvåkning"
 msgid "Add"
 msgstr "Legg til"
 
-msgid "Add bonded interface"
-msgstr "Legg til knyttet nettverksgrensesnitt"
+msgid "Add VLAN interface"
+msgstr ""
+
+msgid "Add bond interface"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "Legg til enhet til RAID enheten"
@@ -493,6 +496,9 @@ msgstr "Blokkstørrelse"
 msgid "Bolivia"
 msgstr "Bolivia"
 
+msgid "Bond"
+msgstr ""
+
 msgid "Bond options"
 msgstr "Knytningsalternativer"
 
@@ -763,11 +769,8 @@ msgstr "Tsjekkiske Republikk"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "DNS Server"
-msgstr "DNS Server"
-
-msgid "DNS server"
-msgstr "DNS server"
+msgid "DNS servers"
+msgstr ""
 
 msgid "Daemon"
 msgstr "Deamon"
@@ -939,9 +942,6 @@ msgid ""
 "permanently removed and cannot be recovered."
 msgstr "Ønsker du virkelig å fjerne innholdet i den delte mappen? Det vil bli permanent fjernet og kan ikke gjenopprettes."
 
-msgid "Do you really want to remove this widget?"
-msgstr ""
-
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Vil du virkelig tilbakestille WebGUI tilstand, f.eks grid kolonnerekkefølge?"
 
@@ -1019,8 +1019,14 @@ msgstr "Endre"
 msgid "Edit SSL certificate"
 msgstr "Endre SSL-sertifikat"
 
-msgid "Edit bonded interface"
-msgstr "Endre knyttet nettverksgrensesnitt"
+msgid "Edit VLAN interface"
+msgstr ""
+
+msgid "Edit bond interface"
+msgstr ""
+
+msgid "Edit ethernet interface"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "Endre brannmurregel"
@@ -1030,9 +1036,6 @@ msgstr "Endre gruppe"
 
 msgid "Edit module"
 msgstr "Endre modul"
-
-msgid "Edit physical interface"
-msgstr "Endre fysisk grensesnitt"
 
 msgid "Edit quota"
 msgstr "Endre quota"
@@ -1253,6 +1256,9 @@ msgstr "Klarte ikke å hente listen over grupper."
 
 msgid "Failed to get list of network interface devices"
 msgstr "Klarte ikke å hente listen over nettverksenheter"
+
+msgid "Failed to get list of unused network interface devices"
+msgstr ""
 
 msgid "Failed to get list of users."
 msgstr "Klarte ikke å hente listen over brukere."
@@ -1661,8 +1667,8 @@ msgstr ""
 msgid "Invalid group name"
 msgstr "Ugyldig gruppenavn"
 
-msgid "Invalid hostname"
-msgstr "Ugyldig vertsnavn"
+msgid "Invalid host name"
+msgstr ""
 
 msgid "Invalid line: %s"
 msgstr "Ugyldig linje: %s"
@@ -2276,6 +2282,9 @@ msgstr "Papua Ny-Guinea"
 msgid "Paraguay"
 msgstr "Paraguay"
 
+msgid "Parent interface"
+msgstr ""
+
 msgid "Passive FTP"
 msgstr "Passiv FTP"
 
@@ -2387,6 +2396,11 @@ msgstr "Velg en metode for å rense enheten eller 'Avbryt' for å avbryte."
 
 msgid "Please first select a volume."
 msgstr "Velg først et volum."
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2522,6 +2536,12 @@ msgstr "Kvote"
 msgid "RAID 10"
 msgstr "RAID 10"
 
+msgid "RAID 2"
+msgstr ""
+
+msgid "RAID 3"
+msgstr ""
+
 msgid "RAID 4"
 msgstr "RAID 4"
 
@@ -2604,6 +2624,9 @@ msgid "Remote syslog"
 msgstr "Ekstern systemlogg"
 
 msgid "Remove"
+msgstr ""
+
+msgid "Remove devices from RAID device"
 msgstr ""
 
 msgid "Replace"
@@ -2786,8 +2809,8 @@ msgstr "Planlagte tester"
 msgid "Scheduling"
 msgstr ""
 
-msgid "Secondary"
-msgstr "Sekundær"
+msgid "Search domains"
+msgstr ""
 
 msgid "Secondary email"
 msgstr "Sekundær epsot"
@@ -2831,8 +2854,11 @@ msgstr ""
 msgid "Select a language ..."
 msgstr "Velg et språk ..."
 
-msgid "Select a primary device ..."
-msgstr "Velg en primærenhet ..."
+msgid "Select a parent interface ..."
+msgstr ""
+
+msgid "Select a primary interface ..."
+msgstr ""
 
 msgid "Select a protocol ..."
 msgstr "Velg en protokoll ..."
@@ -2851,6 +2877,9 @@ msgstr "Velg et volum ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Velg en enhet som skal bli lagt til RAID enheten"
+
+msgid "Select devices to be removed from the RAID device."
+msgstr ""
 
 msgid "Select or enter a user name ..."
 msgstr "Velg eller skriv inn ett brukernavn ..."
@@ -3100,6 +3129,9 @@ msgstr "Angir om systemets status skal overvåkes og velge passende CPU nivå"
 msgid "Specifies which slave is the primary device."
 msgstr "Angir hvilken slave som er primærenhet."
 
+msgid "Speed"
+msgstr ""
+
 msgid "Spindown time"
 msgstr "Spindown tid"
 
@@ -3291,6 +3323,9 @@ msgstr "Plasseringen av brukerens hjemmeområder."
 msgid "The name of the share."
 msgstr "Navnet på det delte området."
 
+msgid "The name servers are used to look up host names on the network."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "Antallet dager sertifikatet er gyldig."
 
@@ -3406,23 +3441,28 @@ msgstr "Dette feltet bør være en IPv4 nettverk adresse i CIDR"
 msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Dette feltet burde være en IPv6 nettverksadresse i CIDR noteringen"
 
-msgid "This field should be a domainname or an IP address"
-msgstr "Dette feltet burde være et domenenavn eller en IP adresse"
+msgid "This field should be a domain name or an IP address"
+msgstr ""
 
-msgid "This field should be a domainname or an IPv4 address"
-msgstr "Dette feltet burde være et domenenavn eller en IPv4 adresse"
+msgid "This field should be a domain name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a hostname or an IP address"
-msgstr "Dette feltet burde være et værtsnavn eller en IP adresse"
+msgid "This field should be a host name or an IP address"
+msgstr ""
 
-msgid "This field should be a hostname or an IPv4 address"
-msgstr "Dette feltet bør være et vertsnavn eller en IPv4-adresse"
+msgid "This field should be a host name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a list of domainnames or IP addresses"
-msgstr "Dette feltet burde være en liste med domenenavn eller IP adresser"
+msgid "This field should be a list of domain names or IP addresses"
+msgstr ""
 
-msgid "This field should be a list of hostnames or IP addresses"
-msgstr "Dette feltet burde være en liste med domenenavn eller IP adresser"
+msgid ""
+"This field should be a list of domain names or IP addresses seperated by <,>"
+" or <;>"
+msgstr ""
+
+msgid "This field should be a list of host names or IP addresses"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3815,6 +3855,12 @@ msgstr "Brukere"
 
 msgid "Uzbekistan"
 msgstr "Usbekistan"
+
+msgid "VLAN"
+msgstr ""
+
+msgid "VLAN id"
+msgstr ""
 
 msgid "Valid to"
 msgstr "Gyldig til"

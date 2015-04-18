@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-03-01 13:54+0000\n"
-"Last-Translator: Jan Štourač <wormsik666@gmail.com>\n"
+"POT-Creation-Date: 2015-04-18 01:40+0200\n"
+"PO-Revision-Date: 2015-04-17 23:41+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -198,8 +198,11 @@ msgstr "Zapnout sledování S.M.A.R.T."
 msgid "Add"
 msgstr "Přidat"
 
-msgid "Add bonded interface"
-msgstr "Přidat spřažené síťové rozhraní"
+msgid "Add VLAN interface"
+msgstr ""
+
+msgid "Add bond interface"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "Přidat zařízení do RAID pole"
@@ -493,6 +496,9 @@ msgstr "Velikost bloku"
 msgid "Bolivia"
 msgstr "Bolívie"
 
+msgid "Bond"
+msgstr ""
+
 msgid "Bond options"
 msgstr "Možnosti spřažení"
 
@@ -763,11 +769,8 @@ msgstr "Česká republika"
 msgid "DHCP"
 msgstr "Samočinné (DHCP)"
 
-msgid "DNS Server"
-msgstr "DNS server"
-
-msgid "DNS server"
-msgstr "DNS server"
+msgid "DNS servers"
+msgstr ""
 
 msgid "Daemon"
 msgstr "Služba"
@@ -939,9 +942,6 @@ msgid ""
 "permanently removed and cannot be recovered."
 msgstr "Opravdu chcete odstranit obsah sdílené složky? Odstranění bude trvalé, tj. nelze vzít zpět."
 
-msgid "Do you really want to remove this widget?"
-msgstr "Opravdu chcete tento ovládací prvek odebrat?"
-
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Opravdu chcete obnovit výchozí stav webového rozhraní, jako např. pořadí sloupců mřížky?"
 
@@ -1019,8 +1019,14 @@ msgstr "Upravit"
 msgid "Edit SSL certificate"
 msgstr "Upravit SSL certifikát"
 
-msgid "Edit bonded interface"
-msgstr "Upravit spřažené síťové zařízení"
+msgid "Edit VLAN interface"
+msgstr ""
+
+msgid "Edit bond interface"
+msgstr ""
+
+msgid "Edit ethernet interface"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "Upravit pravidlo firewallu"
@@ -1030,9 +1036,6 @@ msgstr "Upravit skupinu"
 
 msgid "Edit module"
 msgstr "Upravit modul"
-
-msgid "Edit physical interface"
-msgstr "Upravit fyzické rozhraní"
 
 msgid "Edit quota"
 msgstr "Změnit kvótu"
@@ -1253,6 +1256,9 @@ msgstr "Nelze získat seznam skupin."
 
 msgid "Failed to get list of network interface devices"
 msgstr "Nelze získat seznam síťových rozhraní"
+
+msgid "Failed to get list of unused network interface devices"
+msgstr ""
 
 msgid "Failed to get list of users."
 msgstr "Nelze získat seznam uživatelů."
@@ -1661,8 +1667,8 @@ msgstr "Neplatný popisek souborového systému"
 msgid "Invalid group name"
 msgstr "Neplatný název skupiny"
 
-msgid "Invalid hostname"
-msgstr "Neplatný název stroje"
+msgid "Invalid host name"
+msgstr ""
 
 msgid "Invalid line: %s"
 msgstr "Neplatný řádek: %s"
@@ -2276,6 +2282,9 @@ msgstr "Papua-Nová Guinea"
 msgid "Paraguay"
 msgstr "Paraguay"
 
+msgid "Parent interface"
+msgstr ""
+
 msgid "Passive FTP"
 msgstr "Pasivní FTP"
 
@@ -2387,6 +2396,11 @@ msgstr "Zvolte způsob kompletního smazání zařízení nebo celou akci zrušt
 
 msgid "Please first select a volume."
 msgstr "Nejprve je třeba zvolit svazek."
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2522,6 +2536,12 @@ msgstr "Kvóta"
 msgid "RAID 10"
 msgstr "RAID 10 (zrcadlení a rozložení zápisů)"
 
+msgid "RAID 2"
+msgstr ""
+
+msgid "RAID 3"
+msgstr ""
+
 msgid "RAID 4"
 msgstr "RAID 4"
 
@@ -2605,6 +2625,9 @@ msgstr "Vzdálený záznam protokolů syslog"
 
 msgid "Remove"
 msgstr "Odstranit"
+
+msgid "Remove devices from RAID device"
+msgstr ""
 
 msgid "Replace"
 msgstr "Nahradit"
@@ -2786,8 +2809,8 @@ msgstr "Naplánované kontroly"
 msgid "Scheduling"
 msgstr "Naplánováno"
 
-msgid "Secondary"
-msgstr "Náhradní"
+msgid "Search domains"
+msgstr ""
 
 msgid "Secondary email"
 msgstr "Náhradní e-mail"
@@ -2831,8 +2854,11 @@ msgstr "Vyberte název skupiny …"
 msgid "Select a language ..."
 msgstr "Vyberte jazyk ..."
 
-msgid "Select a primary device ..."
-msgstr "Vyberte hlavní zařízení ..."
+msgid "Select a parent interface ..."
+msgstr ""
+
+msgid "Select a primary interface ..."
+msgstr ""
 
 msgid "Select a protocol ..."
 msgstr "Vyberte protokol ..."
@@ -2851,6 +2877,9 @@ msgstr "Vyberte svazek ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Vyberte zařízení, které má být přidáno do RAID pole"
+
+msgid "Select devices to be removed from the RAID device."
+msgstr ""
 
 msgid "Select or enter a user name ..."
 msgstr "Vyberte nebo zadejte uživatelské jméno ..."
@@ -3100,6 +3129,9 @@ msgstr "Povolení sledování stavu systému a výběru nejvhodnější úrovně
 msgid "Specifies which slave is the primary device."
 msgstr "Určuje, které ze zpřažených zařízení je hlavní."
 
+msgid "Speed"
+msgstr ""
+
 msgid "Spindown time"
 msgstr "Prodleva zastavení rotace"
 
@@ -3291,6 +3323,9 @@ msgstr "Umístění domovských složek uživatelů."
 msgid "The name of the share."
 msgstr "Název sdílení."
 
+msgid "The name servers are used to look up host names on the network."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "Počet dní platnosti certifikátu"
 
@@ -3406,23 +3441,28 @@ msgstr "Toto pole by mělo obsahovat IPv4 adresu v CIDR zápisu"
 msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Toto pole by mělo obsahovat IPv6 adresu v CIDR zápisu"
 
-msgid "This field should be a domainname or an IP address"
-msgstr "Toto pole by mělo obsahovat doménový název či IP adresu"
+msgid "This field should be a domain name or an IP address"
+msgstr ""
 
-msgid "This field should be a domainname or an IPv4 address"
-msgstr "Toto pole by mělo obsahovat doménový název či IPv4 adresu"
+msgid "This field should be a domain name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a hostname or an IP address"
-msgstr "Toto pole by mělo obsahovat název stroje či jeho IP adresu"
+msgid "This field should be a host name or an IP address"
+msgstr ""
 
-msgid "This field should be a hostname or an IPv4 address"
-msgstr "Toto pole by mělo obsahovat název stroje či jeho IPv4 adresu"
+msgid "This field should be a host name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a list of domainnames or IP addresses"
-msgstr "Toto pole by mělo obsahovat seznam názvů systémů či jejich IP adres"
+msgid "This field should be a list of domain names or IP addresses"
+msgstr ""
 
-msgid "This field should be a list of hostnames or IP addresses"
-msgstr "Toto pole by mělo obsahovat seznam názvů systémů či jejich IP adres"
+msgid ""
+"This field should be a list of domain names or IP addresses seperated by <,>"
+" or <;>"
+msgstr ""
+
+msgid "This field should be a list of host names or IP addresses"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3815,6 +3855,12 @@ msgstr "Uživatelé"
 
 msgid "Uzbekistan"
 msgstr "Uzbekistán"
+
+msgid "VLAN"
+msgstr ""
+
+msgid "VLAN id"
+msgstr ""
 
 msgid "Valid to"
 msgstr "Platné do"

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-01-07 20:29+0000\n"
-"Last-Translator: kochin <kochinc@outlook.com>\n"
+"POT-Creation-Date: 2015-04-18 01:40+0200\n"
+"PO-Revision-Date: 2015-04-17 23:41+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -198,8 +198,11 @@ msgstr "啟動 S.M.A.R.T. 監測。"
 msgid "Add"
 msgstr "新增"
 
-msgid "Add bonded interface"
-msgstr "新增結合介面"
+msgid "Add VLAN interface"
+msgstr ""
+
+msgid "Add bond interface"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "新增裝置到 RAID 裝置中"
@@ -493,6 +496,9 @@ msgstr "區塊大小"
 msgid "Bolivia"
 msgstr "玻利維亞"
 
+msgid "Bond"
+msgstr ""
+
 msgid "Bond options"
 msgstr "結合選項"
 
@@ -763,11 +769,8 @@ msgstr "捷克共和國"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "DNS Server"
-msgstr "DNS 伺服器"
-
-msgid "DNS server"
-msgstr "DNS 伺服器"
+msgid "DNS servers"
+msgstr ""
 
 msgid "Daemon"
 msgstr "幕後服務程式"
@@ -939,9 +942,6 @@ msgid ""
 "permanently removed and cannot be recovered."
 msgstr "你真的要移除的共享檔案夾的內容嗎？它將被永久刪除，無法恢復。"
 
-msgid "Do you really want to remove this widget?"
-msgstr "你真的要移除這件小工具嗎？"
-
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "你真的要重設 WebGUI 的狀態，例如：欄位順序嗎？"
 
@@ -1019,8 +1019,14 @@ msgstr "編輯"
 msgid "Edit SSL certificate"
 msgstr "編輯 SSL 證書"
 
-msgid "Edit bonded interface"
-msgstr "編輯結合介面"
+msgid "Edit VLAN interface"
+msgstr ""
+
+msgid "Edit bond interface"
+msgstr ""
+
+msgid "Edit ethernet interface"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "編輯防火牆規則"
@@ -1030,9 +1036,6 @@ msgstr "編輯群組"
 
 msgid "Edit module"
 msgstr "編輯模組"
-
-msgid "Edit physical interface"
-msgstr "編輯實體介面"
 
 msgid "Edit quota"
 msgstr "編輯限額"
@@ -1253,6 +1256,9 @@ msgstr "無法取得群組的列表。"
 
 msgid "Failed to get list of network interface devices"
 msgstr "無法取得網路介面裝置的列表"
+
+msgid "Failed to get list of unused network interface devices"
+msgstr ""
 
 msgid "Failed to get list of users."
 msgstr "無法取得用戶的列表。"
@@ -1661,8 +1667,8 @@ msgstr "不合法的檔案系統標籤"
 msgid "Invalid group name"
 msgstr "不合法的群組名稱"
 
-msgid "Invalid hostname"
-msgstr "不合法的主機名稱"
+msgid "Invalid host name"
+msgstr ""
 
 msgid "Invalid line: %s"
 msgstr "不合法的匯入行：%s"
@@ -2276,6 +2282,9 @@ msgstr "巴布亞新幾內亞"
 msgid "Paraguay"
 msgstr "巴拉圭"
 
+msgid "Parent interface"
+msgstr ""
+
 msgid "Passive FTP"
 msgstr "被動式 FTP"
 
@@ -2387,6 +2396,11 @@ msgstr "請選擇抹除裝置的方式或選 '取消' 來中止。"
 
 msgid "Please first select a volume."
 msgstr "請先選擇一個磁碟。"
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2522,6 +2536,12 @@ msgstr "配額"
 msgid "RAID 10"
 msgstr "RAID 10"
 
+msgid "RAID 2"
+msgstr ""
+
+msgid "RAID 3"
+msgstr ""
+
 msgid "RAID 4"
 msgstr "RAID 4"
 
@@ -2605,6 +2625,9 @@ msgstr "遠端系統日誌"
 
 msgid "Remove"
 msgstr "移除"
+
+msgid "Remove devices from RAID device"
+msgstr ""
 
 msgid "Replace"
 msgstr "取代"
@@ -2786,8 +2809,8 @@ msgstr "預定測試"
 msgid "Scheduling"
 msgstr "工作排程"
 
-msgid "Secondary"
-msgstr "次要"
+msgid "Search domains"
+msgstr ""
 
 msgid "Secondary email"
 msgstr "次要電子郵件"
@@ -2831,8 +2854,11 @@ msgstr "選擇一個群組名稱..."
 msgid "Select a language ..."
 msgstr "選擇一種語言 ..."
 
-msgid "Select a primary device ..."
-msgstr "選擇一個主要裝置 ..."
+msgid "Select a parent interface ..."
+msgstr ""
+
+msgid "Select a primary interface ..."
+msgstr ""
 
 msgid "Select a protocol ..."
 msgstr "選擇一個通訊協定 ..."
@@ -2851,6 +2877,9 @@ msgstr "選擇一個磁碟 ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "選擇將被添加到 RAID 的裝置"
+
+msgid "Select devices to be removed from the RAID device."
+msgstr ""
 
 msgid "Select or enter a user name ..."
 msgstr "選擇或輸入一個用戶名稱 ..."
@@ -3100,6 +3129,9 @@ msgstr "指定是否監測系統狀態，並選擇最合適的 CPU 層級。"
 msgid "Specifies which slave is the primary device."
 msgstr "指定哪個隸屬介面是主要的裝置。"
 
+msgid "Speed"
+msgstr ""
+
 msgid "Spindown time"
 msgstr "旋轉停止時間"
 
@@ -3291,6 +3323,9 @@ msgstr "用戶之家目錄的位置。"
 msgid "The name of the share."
 msgstr "該共享的名稱。"
 
+msgid "The name servers are used to look up host names on the network."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "證書有效的天數。"
 
@@ -3406,23 +3441,28 @@ msgstr "此欄位應該是一個以 CIDR 表示法的 IPv4 網路位址"
 msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "此欄位應該是一個以 CIDR 表示法的 IPv6 網路位址"
 
-msgid "This field should be a domainname or an IP address"
-msgstr "此欄位應該是一個網域名稱或 IP 位址"
+msgid "This field should be a domain name or an IP address"
+msgstr ""
 
-msgid "This field should be a domainname or an IPv4 address"
-msgstr "此欄位應該是一個網域名稱或 IPv4 位址"
+msgid "This field should be a domain name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a hostname or an IP address"
-msgstr "此欄位應該是一個主機名稱或 IP 位址"
+msgid "This field should be a host name or an IP address"
+msgstr ""
 
-msgid "This field should be a hostname or an IPv4 address"
-msgstr "此欄位應該是一個主機名稱或 IPv4 位址"
+msgid "This field should be a host name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a list of domainnames or IP addresses"
-msgstr "此欄位應該是一網域名稱或 IP 位址的列表"
+msgid "This field should be a list of domain names or IP addresses"
+msgstr ""
 
-msgid "This field should be a list of hostnames or IP addresses"
-msgstr "此欄位應該是一主機名稱或 IP 位址的列表"
+msgid ""
+"This field should be a list of domain names or IP addresses seperated by <,>"
+" or <;>"
+msgstr ""
+
+msgid "This field should be a list of host names or IP addresses"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3815,6 +3855,12 @@ msgstr "用戶"
 
 msgid "Uzbekistan"
 msgstr "烏茲別克斯坦"
+
+msgid "VLAN"
+msgstr ""
+
+msgid "VLAN id"
+msgstr ""
 
 msgid "Valid to"
 msgstr "有效期到"

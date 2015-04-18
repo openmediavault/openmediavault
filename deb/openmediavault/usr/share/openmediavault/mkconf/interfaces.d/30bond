@@ -44,7 +44,7 @@ xmlstarlet sel -t \
 	  -n \
 	  -v "concat('# ',devicename,' network interface')" -n \
 	  -v "concat('auto ',devicename)" -n \
-      -v "concat('iface ',devicename,' inet ',method)" -n \
+	  -v "concat('iface ',devicename,' inet ',method)" -n \
 	  -i "method = 'manual'" \
 		  -o "    pre-down ip -4 addr flush dev \$IFACE" -n \
 	  -b \
@@ -83,7 +83,7 @@ xmlstarlet sel -t \
 	  -v "concat('    bond-miimon ',bondmiimon)" -n \
 	  -v "concat('    bond-downdelay ',bonddowndelay)" -n \
 	  -v "concat('    bond-updelay ',bondupdelay)" -n \
-      -v "concat('iface ',devicename,' inet6 ',method6)" -n \
+	  -v "concat('iface ',devicename,' inet6 ',method6)" -n \
 	  -i "method6 = 'manual'" \
 		  -o "    pre-down ip -6 addr flush dev \$IFACE" -n \
 	  -b \

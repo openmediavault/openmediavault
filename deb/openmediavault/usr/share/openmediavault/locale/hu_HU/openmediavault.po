@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-03-10 07:34+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
+"POT-Creation-Date: 2015-04-18 01:40+0200\n"
+"PO-Revision-Date: 2015-04-17 23:41+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -198,8 +198,11 @@ msgstr "S.M.A.R.T. ellenőrzés aktiválása."
 msgid "Add"
 msgstr "Hozzáadás"
 
-msgid "Add bonded interface"
-msgstr "Összekötött interfész hozzáadása"
+msgid "Add VLAN interface"
+msgstr ""
+
+msgid "Add bond interface"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "Meghajtó hozzáadása a RAID tömbhöz"
@@ -493,6 +496,9 @@ msgstr "Blokkméret"
 msgid "Bolivia"
 msgstr "Bolívia"
 
+msgid "Bond"
+msgstr ""
+
 msgid "Bond options"
 msgstr "Kötési opciók"
 
@@ -763,11 +769,8 @@ msgstr "Cseh Köztársaság"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "DNS Server"
-msgstr "DNS szerver"
-
-msgid "DNS server"
-msgstr "DNS szerver"
+msgid "DNS servers"
+msgstr ""
 
 msgid "Daemon"
 msgstr "Démon"
@@ -939,9 +942,6 @@ msgid ""
 "permanently removed and cannot be recovered."
 msgstr "Valóban el szeretnéd távolítani a megosztott mappa tartalmát? Véglegesen eltávolításra kerül és nem állítható vissza."
 
-msgid "Do you really want to remove this widget?"
-msgstr "Valóban be szeretnéd zárni az ablakot?"
-
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Valóban vissza szeretnéd állítani a WebGUI állapotot, mint például rács oszlop sorrend?"
 
@@ -1019,8 +1019,14 @@ msgstr "Szerkesztés"
 msgid "Edit SSL certificate"
 msgstr "SSL tanúsítvány szerkesztése"
 
-msgid "Edit bonded interface"
-msgstr "Összekötött interfész szerkesztése"
+msgid "Edit VLAN interface"
+msgstr ""
+
+msgid "Edit bond interface"
+msgstr ""
+
+msgid "Edit ethernet interface"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "Tűzfal szabály szerkesztése"
@@ -1030,9 +1036,6 @@ msgstr "Csoport szerkesztése"
 
 msgid "Edit module"
 msgstr "Modul szerkesztése"
-
-msgid "Edit physical interface"
-msgstr "Fizikai interfész szerkesztése"
 
 msgid "Edit quota"
 msgstr "Kvóta szerkesztése"
@@ -1253,6 +1256,9 @@ msgstr "A csoportok listájának lekérése sikertelen."
 
 msgid "Failed to get list of network interface devices"
 msgstr "Hálózati eszközök listájának lekérdezése sikertelen."
+
+msgid "Failed to get list of unused network interface devices"
+msgstr ""
 
 msgid "Failed to get list of users."
 msgstr "A felhasználók listájának lekérése sikertelen."
@@ -1661,8 +1667,8 @@ msgstr "Érvénytelen fájlrendszer címke"
 msgid "Invalid group name"
 msgstr "Érvénytelen csoport név"
 
-msgid "Invalid hostname"
-msgstr "Érvénytelen hosztnév"
+msgid "Invalid host name"
+msgstr ""
 
 msgid "Invalid line: %s"
 msgstr "Érvénytelen sor: %s"
@@ -2276,6 +2282,9 @@ msgstr "Pápua Új-Guinea"
 msgid "Paraguay"
 msgstr "Paraguay"
 
+msgid "Parent interface"
+msgstr ""
+
 msgid "Passive FTP"
 msgstr "Passzív FTP"
 
@@ -2387,6 +2396,11 @@ msgstr "Válaszd ki a módszert a meghajtó törlésére, vagy a 'Mégsem'-et a 
 
 msgid "Please first select a volume."
 msgstr "Kérlek előbb válassz ki egy kötetet."
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2522,6 +2536,12 @@ msgstr "Kvóta"
 msgid "RAID 10"
 msgstr "RAID 10"
 
+msgid "RAID 2"
+msgstr ""
+
+msgid "RAID 3"
+msgstr ""
+
 msgid "RAID 4"
 msgstr "RAID 4"
 
@@ -2605,6 +2625,9 @@ msgstr "Távoli rendszernapló"
 
 msgid "Remove"
 msgstr "Eltávolítás"
+
+msgid "Remove devices from RAID device"
+msgstr ""
 
 msgid "Replace"
 msgstr "Eltávolítás"
@@ -2786,8 +2809,8 @@ msgstr "Ütemezett tesztek"
 msgid "Scheduling"
 msgstr "Ütemezés"
 
-msgid "Secondary"
-msgstr "Másodlagos"
+msgid "Search domains"
+msgstr ""
 
 msgid "Secondary email"
 msgstr "Másodlagos e-mail cím"
@@ -2831,8 +2854,11 @@ msgstr "Válassz ki egy csoport nevet..."
 msgid "Select a language ..."
 msgstr "Válassz ki egy nyelvet ..."
 
-msgid "Select a primary device ..."
-msgstr "Válassz ki egy elsődleges meghajtót ..."
+msgid "Select a parent interface ..."
+msgstr ""
+
+msgid "Select a primary interface ..."
+msgstr ""
 
 msgid "Select a protocol ..."
 msgstr "Válassz ki egy protokollt ..."
@@ -2851,6 +2877,9 @@ msgstr "Válassz ki egy kötetet ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "Kiválasztott meghajtók hozzáadása a RAID tömbhöz"
+
+msgid "Select devices to be removed from the RAID device."
+msgstr ""
 
 msgid "Select or enter a user name ..."
 msgstr "Válassz ki vagy írj be egy felhasználó nevet"
@@ -3100,6 +3129,9 @@ msgstr "Rendszer állapot ellenőrzése és a legoptimálisabb CPU szint kivála
 msgid "Specifies which slave is the primary device."
 msgstr "Annak meghatározása, melyik kiszolgáló legyen az elsődleges eszköz."
 
+msgid "Speed"
+msgstr ""
+
 msgid "Spindown time"
 msgstr "Leállítási idő"
 
@@ -3291,6 +3323,9 @@ msgstr "A felhasználói saját könyvtár útvonala."
 msgid "The name of the share."
 msgstr "A megosztás neve."
 
+msgid "The name servers are used to look up host names on the network."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "A tanúsítvány érvényességének ideje."
 
@@ -3406,23 +3441,28 @@ msgstr "Ennek a mezőnek egy IPv4 hálózati címnek kell lennie CIDR jelölésb
 msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Ennek a mezőnek egy IPv6 hálózati címnek kell lennie CIDR jelölésben"
 
-msgid "This field should be a domainname or an IP address"
-msgstr "Ennek a mezőnek egy tartománynévnek vagy egy IP címnek kell lennie"
+msgid "This field should be a domain name or an IP address"
+msgstr ""
 
-msgid "This field should be a domainname or an IPv4 address"
-msgstr "Ennek a mezőnek egy tartománynévnek vagy egy IPv4 címnek kell lennie."
+msgid "This field should be a domain name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a hostname or an IP address"
-msgstr "Ennek a mezőnek hosztnévnek vagy egy IP címnek kell lennie"
+msgid "This field should be a host name or an IP address"
+msgstr ""
 
-msgid "This field should be a hostname or an IPv4 address"
-msgstr "Ennek a mezőnek hosztnévnek vagy egy IPv4 címnek kell lennie"
+msgid "This field should be a host name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a list of domainnames or IP addresses"
-msgstr "Ennek a mezőnek egy tartománynév listának vagy egy IP címnek kell lennie"
+msgid "This field should be a list of domain names or IP addresses"
+msgstr ""
 
-msgid "This field should be a list of hostnames or IP addresses"
-msgstr "Ennek a mezőnek hosztnév listának vagy egy IP címnek kell lennie"
+msgid ""
+"This field should be a list of domain names or IP addresses seperated by <,>"
+" or <;>"
+msgstr ""
+
+msgid "This field should be a list of host names or IP addresses"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3815,6 +3855,12 @@ msgstr "Felhasználók"
 
 msgid "Uzbekistan"
 msgstr "Üzbegisztán"
+
+msgid "VLAN"
+msgstr ""
+
+msgid "VLAN id"
+msgstr ""
 
 msgid "Valid to"
 msgstr "Érvényes"

@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-03-24 11:40+0000\n"
-"Last-Translator: Ji-Hyeon Gim <potatogim@potatogim.net>\n"
+"POT-Creation-Date: 2015-04-18 01:40+0200\n"
+"PO-Revision-Date: 2015-04-17 23:41+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -199,8 +199,11 @@ msgstr "S.M.A.R.T. 모니터링을 활성화"
 msgid "Add"
 msgstr "추가"
 
-msgid "Add bonded interface"
-msgstr "본딩된 인터페이스를 추가"
+msgid "Add VLAN interface"
+msgstr ""
+
+msgid "Add bond interface"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "RAID 장치에 디바이스를 추가"
@@ -494,6 +497,9 @@ msgstr "블록 크기"
 msgid "Bolivia"
 msgstr "볼리비아"
 
+msgid "Bond"
+msgstr ""
+
 msgid "Bond options"
 msgstr "본드 옵션"
 
@@ -764,11 +770,8 @@ msgstr "체코"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "DNS Server"
-msgstr "DNS 서버"
-
-msgid "DNS server"
-msgstr "DNS 서버"
+msgid "DNS servers"
+msgstr ""
 
 msgid "Daemon"
 msgstr "데몬"
@@ -940,9 +943,6 @@ msgid ""
 "permanently removed and cannot be recovered."
 msgstr "공유 폴더 내용을 정말 삭제하시겠습니까? 영구적으로 삭제되며 복구할 수 없습니다."
 
-msgid "Do you really want to remove this widget?"
-msgstr "이 위젯을 정말 삭제하시겠습니까?"
-
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "그리드 열 순서와 같은 WebGUI 상태를 재설정하시겠습니까?"
 
@@ -1020,8 +1020,14 @@ msgstr "편집"
 msgid "Edit SSL certificate"
 msgstr "SSL 인증 편집"
 
-msgid "Edit bonded interface"
-msgstr "결합된 인터페이스 편집"
+msgid "Edit VLAN interface"
+msgstr ""
+
+msgid "Edit bond interface"
+msgstr ""
+
+msgid "Edit ethernet interface"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "방화벽 규칙 편집"
@@ -1031,9 +1037,6 @@ msgstr "그룹 편집"
 
 msgid "Edit module"
 msgstr "모듈 편집"
-
-msgid "Edit physical interface"
-msgstr "물리 인터페이스 편집"
 
 msgid "Edit quota"
 msgstr "할당량 편집"
@@ -1254,6 +1257,9 @@ msgstr "그룹 목록을 가져오지 못했습니다"
 
 msgid "Failed to get list of network interface devices"
 msgstr "네트워크 인터페이스 장치 목록을 가져오지 못했습니다"
+
+msgid "Failed to get list of unused network interface devices"
+msgstr ""
 
 msgid "Failed to get list of users."
 msgstr "사용자 목록을 가져오지 못했습니다."
@@ -1662,8 +1668,8 @@ msgstr "잘못된 파일 시스템 레이블"
 msgid "Invalid group name"
 msgstr "잘못된 그룹 이름"
 
-msgid "Invalid hostname"
-msgstr "잘못된 호스트 이름"
+msgid "Invalid host name"
+msgstr ""
 
 msgid "Invalid line: %s"
 msgstr "잘못된 줄: %s"
@@ -2277,6 +2283,9 @@ msgstr "파푸아 뉴기니"
 msgid "Paraguay"
 msgstr "파라과이"
 
+msgid "Parent interface"
+msgstr ""
+
 msgid "Passive FTP"
 msgstr "수동 FTP"
 
@@ -2388,6 +2397,11 @@ msgstr "장치를 지우기 위한 방법을 선택하거나 '취소'를 눌러 
 
 msgid "Please first select a volume."
 msgstr "먼저 볼륨을 선택하세요."
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2523,6 +2537,12 @@ msgstr "할당량"
 msgid "RAID 10"
 msgstr "RAID 10"
 
+msgid "RAID 2"
+msgstr ""
+
+msgid "RAID 3"
+msgstr ""
+
 msgid "RAID 4"
 msgstr "RAID 4"
 
@@ -2606,6 +2626,9 @@ msgstr "원격 syslog"
 
 msgid "Remove"
 msgstr "제거"
+
+msgid "Remove devices from RAID device"
+msgstr ""
 
 msgid "Replace"
 msgstr "대체"
@@ -2787,8 +2810,8 @@ msgstr "예약된 검사"
 msgid "Scheduling"
 msgstr "일정"
 
-msgid "Secondary"
-msgstr "보조"
+msgid "Search domains"
+msgstr ""
 
 msgid "Secondary email"
 msgstr "보조 전자우편"
@@ -2832,8 +2855,11 @@ msgstr "그룹 이름을 선택하세요 ..."
 msgid "Select a language ..."
 msgstr "언어를 선택하세요 ..."
 
-msgid "Select a primary device ..."
-msgstr "주 장치를 선택하세요 ..."
+msgid "Select a parent interface ..."
+msgstr ""
+
+msgid "Select a primary interface ..."
+msgstr ""
 
 msgid "Select a protocol ..."
 msgstr "프로토콜을 선택하세요 ..."
@@ -2852,6 +2878,9 @@ msgstr "볼륨을 선택하세요 ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "RAID 장치에 추가될 장치를 선택하세요"
+
+msgid "Select devices to be removed from the RAID device."
+msgstr ""
 
 msgid "Select or enter a user name ..."
 msgstr "사용자 이름을 선택 또는 입력하세요 ..."
@@ -3101,6 +3130,9 @@ msgstr "시스템 상태를 감시하고 가장 적절한 CPU 단계를 선택�
 msgid "Specifies which slave is the primary device."
 msgstr "주 장치의 보조를 지정합니다."
 
+msgid "Speed"
+msgstr ""
+
 msgid "Spindown time"
 msgstr "스핀다운 시간"
 
@@ -3292,6 +3324,9 @@ msgstr "사용자 홈 디렉터리 위치"
 msgid "The name of the share."
 msgstr "공유 이름"
 
+msgid "The name servers are used to look up host names on the network."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "이 인증서가 유효한 일수"
 
@@ -3407,23 +3442,28 @@ msgstr "이 영역은 CIDR 표기법으로 표기된 IPv4 네트워크 주소여
 msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "이 영역은 CIDR 표기법으로 표기된 IPv6 네트워크 주소여야 합니다."
 
-msgid "This field should be a domainname or an IP address"
-msgstr "이 영역은 도메인 이름 또는 IP주소여야 합니다."
+msgid "This field should be a domain name or an IP address"
+msgstr ""
 
-msgid "This field should be a domainname or an IPv4 address"
-msgstr "이 영역은 도메인 이름 또는 IPv4주소여야 합니다."
+msgid "This field should be a domain name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a hostname or an IP address"
-msgstr "이 영역은 호스트 이름 또는 IP주소여야 합니다."
+msgid "This field should be a host name or an IP address"
+msgstr ""
 
-msgid "This field should be a hostname or an IPv4 address"
-msgstr "이 영역은 호스트 이름 또는 IPv4주소여야 합니다."
+msgid "This field should be a host name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a list of domainnames or IP addresses"
-msgstr "이 영역은 도메인 이름 또는 IP주소의 목록이어야 합니다."
+msgid "This field should be a list of domain names or IP addresses"
+msgstr ""
 
-msgid "This field should be a list of hostnames or IP addresses"
-msgstr "이 영역은 호스트 이름 또는 IP주소의 목록이어야 합니다."
+msgid ""
+"This field should be a list of domain names or IP addresses seperated by <,>"
+" or <;>"
+msgstr ""
+
+msgid "This field should be a list of host names or IP addresses"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3816,6 +3856,12 @@ msgstr "사용자"
 
 msgid "Uzbekistan"
 msgstr "우즈베키스탄"
+
+msgid "VLAN"
+msgstr ""
+
+msgid "VLAN id"
+msgstr ""
 
 msgid "Valid to"
 msgstr "유효"

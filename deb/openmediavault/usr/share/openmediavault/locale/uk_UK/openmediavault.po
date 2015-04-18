@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-01-06 13:50+0000\n"
+"POT-Creation-Date: 2015-04-18 01:40+0200\n"
+"PO-Revision-Date: 2015-04-17 23:41+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -199,8 +199,11 @@ msgstr "Активація S.M.A.R.T. моніторингу"
 msgid "Add"
 msgstr "Додати"
 
-msgid "Add bonded interface"
-msgstr "Додати пов'язаний інтерфейс"
+msgid "Add VLAN interface"
+msgstr ""
+
+msgid "Add bond interface"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "Додати диск до RAID"
@@ -494,6 +497,9 @@ msgstr "Розмір блоку"
 msgid "Bolivia"
 msgstr "Болівія"
 
+msgid "Bond"
+msgstr ""
+
 msgid "Bond options"
 msgstr ""
 
@@ -764,11 +770,8 @@ msgstr "Чеська республіка"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "DNS Server"
-msgstr "DNS Сервер"
-
-msgid "DNS server"
-msgstr "DNS сервер"
+msgid "DNS servers"
+msgstr ""
 
 msgid "Daemon"
 msgstr "Демон"
@@ -940,9 +943,6 @@ msgid ""
 "permanently removed and cannot be recovered."
 msgstr "Ви справді бажаєте видалити спільну теку контенту? Вона буде назавжди видалена, і не зможе бути відновлена."
 
-msgid "Do you really want to remove this widget?"
-msgstr ""
-
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "Справді хочете скинути стан WebGUI, наприклад, порядку стовпців?"
 
@@ -1020,8 +1020,14 @@ msgstr "Редагувати"
 msgid "Edit SSL certificate"
 msgstr "Редагувати SSL сертифікат"
 
-msgid "Edit bonded interface"
-msgstr "Редагувати пов'язаний інтерфейс"
+msgid "Edit VLAN interface"
+msgstr ""
+
+msgid "Edit bond interface"
+msgstr ""
+
+msgid "Edit ethernet interface"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "Редагувати правило брандмауера"
@@ -1031,9 +1037,6 @@ msgstr "Редагувати групу"
 
 msgid "Edit module"
 msgstr "Редагувати модуль"
-
-msgid "Edit physical interface"
-msgstr "Редагувати фізичний інтерфейс"
 
 msgid "Edit quota"
 msgstr "Редагувати квоту"
@@ -1254,6 +1257,9 @@ msgstr "Не вдалося одержати список груп."
 
 msgid "Failed to get list of network interface devices"
 msgstr "Не вдалося отримати список інтерфейсних пристроїв мережі"
+
+msgid "Failed to get list of unused network interface devices"
+msgstr ""
 
 msgid "Failed to get list of users."
 msgstr "Не вдалося одержати список користувачів."
@@ -1662,8 +1668,8 @@ msgstr ""
 msgid "Invalid group name"
 msgstr "Невірна назва групи"
 
-msgid "Invalid hostname"
-msgstr "Невірна назва хоста"
+msgid "Invalid host name"
+msgstr ""
 
 msgid "Invalid line: %s"
 msgstr "Помилка в рядку: %s"
@@ -2277,6 +2283,9 @@ msgstr "Папуа-Нова Гвінея"
 msgid "Paraguay"
 msgstr "Парагвай"
 
+msgid "Parent interface"
+msgstr ""
+
 msgid "Passive FTP"
 msgstr "Пасивний режим FTP"
 
@@ -2388,6 +2397,11 @@ msgstr ""
 
 msgid "Please first select a volume."
 msgstr "Будь ласка, оберіть спочатку розділ."
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2523,6 +2537,12 @@ msgstr "Квота"
 msgid "RAID 10"
 msgstr "RAID 10"
 
+msgid "RAID 2"
+msgstr ""
+
+msgid "RAID 3"
+msgstr ""
+
 msgid "RAID 4"
 msgstr "RAID 4"
 
@@ -2605,6 +2625,9 @@ msgid "Remote syslog"
 msgstr "Віддалений системний лог"
 
 msgid "Remove"
+msgstr ""
+
+msgid "Remove devices from RAID device"
 msgstr ""
 
 msgid "Replace"
@@ -2787,8 +2810,8 @@ msgstr "Заплановані тестування"
 msgid "Scheduling"
 msgstr ""
 
-msgid "Secondary"
-msgstr "Вторинний"
+msgid "Search domains"
+msgstr ""
 
 msgid "Secondary email"
 msgstr "Вторинний email"
@@ -2832,8 +2855,11 @@ msgstr ""
 msgid "Select a language ..."
 msgstr "Вибір мови..."
 
-msgid "Select a primary device ..."
-msgstr "Оберіть основний пристрій ..."
+msgid "Select a parent interface ..."
+msgstr ""
+
+msgid "Select a primary interface ..."
+msgstr ""
 
 msgid "Select a protocol ..."
 msgstr "Оберіть протокол ..."
@@ -2851,6 +2877,9 @@ msgid "Select a volume ..."
 msgstr "Оберіть розділ ..."
 
 msgid "Select devices to be added to the RAID device"
+msgstr ""
+
+msgid "Select devices to be removed from the RAID device."
 msgstr ""
 
 msgid "Select or enter a user name ..."
@@ -3101,6 +3130,9 @@ msgstr "Визначає, чи слід контролювати стан сис
 msgid "Specifies which slave is the primary device."
 msgstr ""
 
+msgid "Speed"
+msgstr ""
+
 msgid "Spindown time"
 msgstr ""
 
@@ -3292,6 +3324,9 @@ msgstr "Розташування домашнього каталога кори�
 msgid "The name of the share."
 msgstr "Назва спільного ресурсу"
 
+msgid "The name servers are used to look up host names on the network."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr ""
 
@@ -3407,23 +3442,28 @@ msgstr ""
 msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Це поле повинне містити адресу мережі IPv6 в нотації CIDR"
 
-msgid "This field should be a domainname or an IP address"
-msgstr "Це поле має містити ім'я домену або IP-адресу"
+msgid "This field should be a domain name or an IP address"
+msgstr ""
 
-msgid "This field should be a domainname or an IPv4 address"
-msgstr "Це поле повинно містити ім'я домену або адресу IPv4"
+msgid "This field should be a domain name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a hostname or an IP address"
-msgstr "Це поле повинне містити ім'я хоста або IP-адресу"
+msgid "This field should be a host name or an IP address"
+msgstr ""
 
-msgid "This field should be a hostname or an IPv4 address"
-msgstr "Це поле повинно містити назву хоста, або IPv4 адресу"
+msgid "This field should be a host name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a list of domainnames or IP addresses"
-msgstr "Це поле повинно містити список доменнів або IP адреси"
+msgid "This field should be a list of domain names or IP addresses"
+msgstr ""
 
-msgid "This field should be a list of hostnames or IP addresses"
-msgstr "Це поле має бути списком імен хостів або IP-адрес"
+msgid ""
+"This field should be a list of domain names or IP addresses seperated by <,>"
+" or <;>"
+msgstr ""
+
+msgid "This field should be a list of host names or IP addresses"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3816,6 +3856,12 @@ msgstr "Користувачі"
 
 msgid "Uzbekistan"
 msgstr "Узбекистан"
+
+msgid "VLAN"
+msgstr ""
+
+msgid "VLAN id"
+msgstr ""
 
 msgid "Valid to"
 msgstr "Дійсний до"

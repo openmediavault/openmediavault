@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-01-07 00:14+0000\n"
-"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
+"POT-Creation-Date: 2015-04-18 01:40+0200\n"
+"PO-Revision-Date: 2015-04-17 23:41+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -197,8 +197,11 @@ msgstr "S.M.A.R.T. モニタリングの有効化。"
 msgid "Add"
 msgstr "追加"
 
-msgid "Add bonded interface"
-msgstr "ボンディングインタフェイスの追加"
+msgid "Add VLAN interface"
+msgstr ""
+
+msgid "Add bond interface"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "RAIDデバイスへの追加"
@@ -492,6 +495,9 @@ msgstr "ブロックサイズ"
 msgid "Bolivia"
 msgstr "ボリビア"
 
+msgid "Bond"
+msgstr ""
+
 msgid "Bond options"
 msgstr "ボンディングのオプション"
 
@@ -762,11 +768,8 @@ msgstr "チェコ"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "DNS Server"
-msgstr "DNSサーバー"
-
-msgid "DNS server"
-msgstr "DNSサーバー"
+msgid "DNS servers"
+msgstr ""
 
 msgid "Daemon"
 msgstr "デーモン"
@@ -938,9 +941,6 @@ msgid ""
 "permanently removed and cannot be recovered."
 msgstr "共有フォルダのコンテンツを削除してもよろしいですか？コンテンツは完全に削除され、復元することはできません。"
 
-msgid "Do you really want to remove this widget?"
-msgstr "このウィジェットを削除してもよろしいですか？"
-
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "WebGUIの状態をリセットしてもよろしいですか？ 例）グリッド列の順序"
 
@@ -1018,8 +1018,14 @@ msgstr "編集"
 msgid "Edit SSL certificate"
 msgstr "SSL証明書の編集"
 
-msgid "Edit bonded interface"
-msgstr "ボンディングインタフェースの編集"
+msgid "Edit VLAN interface"
+msgstr ""
+
+msgid "Edit bond interface"
+msgstr ""
+
+msgid "Edit ethernet interface"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "ファイアウォールルールの編集"
@@ -1029,9 +1035,6 @@ msgstr "グループの編集"
 
 msgid "Edit module"
 msgstr "モジュールの編集"
-
-msgid "Edit physical interface"
-msgstr "物理インタフェースの編集"
 
 msgid "Edit quota"
 msgstr "クォータの編集"
@@ -1252,6 +1255,9 @@ msgstr "グループリストの取得に失敗しました。"
 
 msgid "Failed to get list of network interface devices"
 msgstr "ネットワークインタフェースデバイスのリスト取得に失敗しました"
+
+msgid "Failed to get list of unused network interface devices"
+msgstr ""
 
 msgid "Failed to get list of users."
 msgstr "ユーザーリストの取得に失敗しました。"
@@ -1660,8 +1666,8 @@ msgstr "無効なファイルシステムラベル"
 msgid "Invalid group name"
 msgstr "無効なグループ名"
 
-msgid "Invalid hostname"
-msgstr "ホスト名が不正です"
+msgid "Invalid host name"
+msgstr ""
 
 msgid "Invalid line: %s"
 msgstr "%s 行が不正です"
@@ -2275,6 +2281,9 @@ msgstr "パプアニューギニア"
 msgid "Paraguay"
 msgstr "パラグアイ"
 
+msgid "Parent interface"
+msgstr ""
+
 msgid "Passive FTP"
 msgstr "パッシブFTP"
 
@@ -2386,6 +2395,11 @@ msgstr "デバイスをワイプする方法を選択してください。中止
 
 msgid "Please first select a volume."
 msgstr "最初のボリュームを選択してください。"
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2521,6 +2535,12 @@ msgstr "クォータ"
 msgid "RAID 10"
 msgstr "RAID 10"
 
+msgid "RAID 2"
+msgstr ""
+
+msgid "RAID 3"
+msgstr ""
+
 msgid "RAID 4"
 msgstr "RAID 4"
 
@@ -2604,6 +2624,9 @@ msgstr "リモートシスログ"
 
 msgid "Remove"
 msgstr "削除"
+
+msgid "Remove devices from RAID device"
+msgstr ""
 
 msgid "Replace"
 msgstr "置換"
@@ -2785,8 +2808,8 @@ msgstr "スケジュールされたテスト"
 msgid "Scheduling"
 msgstr "スケジューリング"
 
-msgid "Secondary"
-msgstr "セカンダリ"
+msgid "Search domains"
+msgstr ""
 
 msgid "Secondary email"
 msgstr "セカンダリメール"
@@ -2830,8 +2853,11 @@ msgstr "グループ名を選択 ..."
 msgid "Select a language ..."
 msgstr "言語を選択 ..."
 
-msgid "Select a primary device ..."
-msgstr "プライマリデバイスを選択 ..."
+msgid "Select a parent interface ..."
+msgstr ""
+
+msgid "Select a primary interface ..."
+msgstr ""
 
 msgid "Select a protocol ..."
 msgstr "プロトコルを選択 ..."
@@ -2850,6 +2876,9 @@ msgstr "ボリュームを選択 ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "RAIDデバイスに追加するデバイスを選択"
+
+msgid "Select devices to be removed from the RAID device."
+msgstr ""
 
 msgid "Select or enter a user name ..."
 msgstr "ユーザー名を選択するか入力してください ..."
@@ -3099,6 +3128,9 @@ msgstr "システムの状態を監視し、最も適切なCPUレベルを選択
 msgid "Specifies which slave is the primary device."
 msgstr "どのスレーブがプライマリデバイスかを指定します。"
 
+msgid "Speed"
+msgstr ""
+
 msgid "Spindown time"
 msgstr "スピンダウンタイム"
 
@@ -3290,6 +3322,9 @@ msgstr "ユーザーのホームディレクトリの場所。"
 msgid "The name of the share."
 msgstr "共有の名前。"
 
+msgid "The name servers are used to look up host names on the network."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "この日数だけ証明書は有効です。"
 
@@ -3405,23 +3440,28 @@ msgstr "このフィールドは、CIDR表記のIPv4ネットワークアドレ�
 msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "このフィールドは、CIDR表記のIPv6ネットワークアドレスである必要があります"
 
-msgid "This field should be a domainname or an IP address"
-msgstr "このフィールドはドメイン名かIPアドレスである必要があります"
+msgid "This field should be a domain name or an IP address"
+msgstr ""
 
-msgid "This field should be a domainname or an IPv4 address"
-msgstr "このフィールドはドメイン名かIPv4アドレスである必要があります"
+msgid "This field should be a domain name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a hostname or an IP address"
-msgstr "このフィールドはホスト名かIPアドレスである必要があります"
+msgid "This field should be a host name or an IP address"
+msgstr ""
 
-msgid "This field should be a hostname or an IPv4 address"
-msgstr "このフィールドはホスト名かIPv4アドレスである必要があります"
+msgid "This field should be a host name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a list of domainnames or IP addresses"
-msgstr "このフィールドはドメイン名かIPアドレスのリストである必要があります"
+msgid "This field should be a list of domain names or IP addresses"
+msgstr ""
 
-msgid "This field should be a list of hostnames or IP addresses"
-msgstr "このフィールドはホスト名かIPアドレスのリストである必要があります"
+msgid ""
+"This field should be a list of domain names or IP addresses seperated by <,>"
+" or <;>"
+msgstr ""
+
+msgid "This field should be a list of host names or IP addresses"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3814,6 +3854,12 @@ msgstr "ユーザー"
 
 msgid "Uzbekistan"
 msgstr "ウズベキスタン"
+
+msgid "VLAN"
+msgstr ""
+
+msgid "VLAN id"
+msgstr ""
 
 msgid "Valid to"
 msgstr "有効期限"

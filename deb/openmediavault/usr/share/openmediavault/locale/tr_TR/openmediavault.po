@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-06 14:50+0100\n"
-"PO-Revision-Date: 2015-01-07 21:38+0000\n"
-"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
+"POT-Creation-Date: 2015-04-18 01:40+0200\n"
+"PO-Revision-Date: 2015-04-17 23:41+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -197,8 +197,11 @@ msgstr "S.M.A.R.T. izlemeyi etkinleştir."
 msgid "Add"
 msgstr "Ekle"
 
-msgid "Add bonded interface"
-msgstr "Birleştirilmiş arabirim ekle"
+msgid "Add VLAN interface"
+msgstr ""
+
+msgid "Add bond interface"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "RAID aygıtına ekle"
@@ -492,6 +495,9 @@ msgstr "Blok ebadı"
 msgid "Bolivia"
 msgstr "Bolivya"
 
+msgid "Bond"
+msgstr ""
+
 msgid "Bond options"
 msgstr "Birleştirme opsiyonları"
 
@@ -762,11 +768,8 @@ msgstr "Çek Cumhuriyeti"
 msgid "DHCP"
 msgstr "DHCP"
 
-msgid "DNS Server"
-msgstr "DNS Sunucu"
-
-msgid "DNS server"
-msgstr "DNS Sunucu"
+msgid "DNS servers"
+msgstr ""
 
 msgid "Daemon"
 msgstr "Program"
@@ -938,9 +941,6 @@ msgid ""
 "permanently removed and cannot be recovered."
 msgstr "Paylaşılmış klasör içeriğini gerçekten kaldırmak istiyor musunuz? Klasör kalıcı olarak silinecek ve içerik kurtarılamayacaktır."
 
-msgid "Do you really want to remove this widget?"
-msgstr "Bu programcığı gerçekten kaldırmak istiyor musunuz?"
-
 msgid "Do you really want to reset WebGUI state, e.g. grid column order?"
 msgstr "WebGUI durumunu, örneğin sıralı kolon sıralaması şeklinde, sıfırlamak istediğinize emin misiniz?"
 
@@ -1018,8 +1018,14 @@ msgstr "Düzenleme"
 msgid "Edit SSL certificate"
 msgstr "SSL sertifikasını düzenle"
 
-msgid "Edit bonded interface"
-msgstr "Birleştirilmiş arabirimi düzenle"
+msgid "Edit VLAN interface"
+msgstr ""
+
+msgid "Edit bond interface"
+msgstr ""
+
+msgid "Edit ethernet interface"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "Güvenlik duvarı kuralını düzenle"
@@ -1029,9 +1035,6 @@ msgstr "Grubu düzenle"
 
 msgid "Edit module"
 msgstr "Modülü düzenle"
-
-msgid "Edit physical interface"
-msgstr "Fiziksel arabirimi düzenle"
 
 msgid "Edit quota"
 msgstr "Kota düzenle"
@@ -1252,6 +1255,9 @@ msgstr "Grup listesi okuma hatası."
 
 msgid "Failed to get list of network interface devices"
 msgstr "Ağ arabirim aygıt listesi okuma hatası"
+
+msgid "Failed to get list of unused network interface devices"
+msgstr ""
 
 msgid "Failed to get list of users."
 msgstr "Kullanıcı listesi okuma hatası."
@@ -1660,8 +1666,8 @@ msgstr "Geçersiz dosya sistemi etiketi"
 msgid "Invalid group name"
 msgstr "Geçersiz grup adı"
 
-msgid "Invalid hostname"
-msgstr "Geçersiz cihaz adı"
+msgid "Invalid host name"
+msgstr ""
 
 msgid "Invalid line: %s"
 msgstr "Geçersiz satır : %s"
@@ -2275,6 +2281,9 @@ msgstr "Papua Yeni Gine"
 msgid "Paraguay"
 msgstr "Paraguay"
 
+msgid "Parent interface"
+msgstr ""
+
 msgid "Passive FTP"
 msgstr "Pasif FTP"
 
@@ -2386,6 +2395,11 @@ msgstr "Lütfen aygıtı silmek için bir metod seçiniz ya da iptal etmek için
 
 msgid "Please first select a volume."
 msgstr "Lütfen önce bir volüm seçiniz."
+
+msgid ""
+"Please make sure that the shared folder is publicly writable if new files "
+"are allowed."
+msgstr ""
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2521,6 +2535,12 @@ msgstr "Kota"
 msgid "RAID 10"
 msgstr "RAID 10"
 
+msgid "RAID 2"
+msgstr ""
+
+msgid "RAID 3"
+msgstr ""
+
 msgid "RAID 4"
 msgstr "RAID 4"
 
@@ -2604,6 +2624,9 @@ msgstr "Uzak sistem kaydı"
 
 msgid "Remove"
 msgstr "Kaldır"
+
+msgid "Remove devices from RAID device"
+msgstr ""
 
 msgid "Replace"
 msgstr "Değiştir"
@@ -2785,8 +2808,8 @@ msgstr "Zamanlanmış testler"
 msgid "Scheduling"
 msgstr "Zamanlama"
 
-msgid "Secondary"
-msgstr "İkincil"
+msgid "Search domains"
+msgstr ""
 
 msgid "Secondary email"
 msgstr "İkincil e-posta"
@@ -2830,8 +2853,11 @@ msgstr "Bir grup adı seçiniz..."
 msgid "Select a language ..."
 msgstr "Bir dil seçiniz ..."
 
-msgid "Select a primary device ..."
-msgstr "Birincil bir cihaz seçin ..."
+msgid "Select a parent interface ..."
+msgstr ""
+
+msgid "Select a primary interface ..."
+msgstr ""
 
 msgid "Select a protocol ..."
 msgstr "Bir iletişim kuralı seçin ..."
@@ -2850,6 +2876,9 @@ msgstr "Bir birim seçiniz ..."
 
 msgid "Select devices to be added to the RAID device"
 msgstr "RAID e eklemecek yeni aygıtları seçiniz"
+
+msgid "Select devices to be removed from the RAID device."
+msgstr ""
 
 msgid "Select or enter a user name ..."
 msgstr "Bir kullanıcı adı seçiniz ya da giriniz..."
@@ -3099,6 +3128,9 @@ msgstr "Sistem durumunu izlemeyi ve buna en uygun işlemci düzeyinin seçilece�
 msgid "Specifies which slave is the primary device."
 msgstr "Hangi yedeğin birincil aygıt olacağını belirler."
 
+msgid "Speed"
+msgstr ""
+
 msgid "Spindown time"
 msgstr "Dönüş durma zamanı"
 
@@ -3290,6 +3322,9 @@ msgstr "Kullanıcı ana dizinlerinin yeri"
 msgid "The name of the share."
 msgstr "Paylaşımın adı."
 
+msgid "The name servers are used to look up host names on the network."
+msgstr ""
+
 msgid "The number of days the certificate is valid for."
 msgstr "Sertifikanın geçerli olduğu gün sayısı."
 
@@ -3405,23 +3440,28 @@ msgstr "Bu alan SIDR notasyonu ile yazılmış IPv4 network adresi olmalıdır"
 msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Bu alan CIDR notasyonu ile yazılmış IPv6 network adresi olmalıdır"
 
-msgid "This field should be a domainname or an IP address"
-msgstr "Bu alan domain adı ya da IP adresi olmalıdır."
+msgid "This field should be a domain name or an IP address"
+msgstr ""
 
-msgid "This field should be a domainname or an IPv4 address"
-msgstr "Bu alan domain adı ya da IPv4 adresi olmalıdır."
+msgid "This field should be a domain name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a hostname or an IP address"
-msgstr "Bu alan sistem adı veya IP adresi olmalıdır"
+msgid "This field should be a host name or an IP address"
+msgstr ""
 
-msgid "This field should be a hostname or an IPv4 address"
-msgstr "Bu alan sistem adı veya IPv4 adresi olmalıdır"
+msgid "This field should be a host name or an IPv4 address"
+msgstr ""
 
-msgid "This field should be a list of domainnames or IP addresses"
-msgstr "Bu alan domain adları ya da IP adresleri listesi olmalıdır"
+msgid "This field should be a list of domain names or IP addresses"
+msgstr ""
 
-msgid "This field should be a list of hostnames or IP addresses"
-msgstr "Bu alan sistem adları ya da IP adresleri listesi olmalıdır"
+msgid ""
+"This field should be a list of domain names or IP addresses seperated by <,>"
+" or <;>"
+msgstr ""
+
+msgid "This field should be a list of host names or IP addresses"
+msgstr ""
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3814,6 +3854,12 @@ msgstr "Kullanıcılar"
 
 msgid "Uzbekistan"
 msgstr "Özbekistan"
+
+msgid "VLAN"
+msgstr ""
+
+msgid "VLAN id"
+msgstr ""
 
 msgid "Valid to"
 msgstr "Geçerlilik süresi"
