@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-18 01:40+0200\n"
-"PO-Revision-Date: 2015-04-17 23:41+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-04-20 20:08+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -198,10 +198,10 @@ msgid "Add"
 msgstr "Ekle"
 
 msgid "Add VLAN interface"
-msgstr ""
+msgstr "VLAN Arabirimi Ekle"
 
 msgid "Add bond interface"
-msgstr ""
+msgstr "Birleştirilmiş arabirim ekle"
 
 msgid "Add devices to RAID device"
 msgstr "RAID aygıtına ekle"
@@ -496,7 +496,7 @@ msgid "Bolivia"
 msgstr "Bolivya"
 
 msgid "Bond"
-msgstr ""
+msgstr "Birleştir"
 
 msgid "Bond options"
 msgstr "Birleştirme opsiyonları"
@@ -769,7 +769,7 @@ msgid "DHCP"
 msgstr "DHCP"
 
 msgid "DNS servers"
-msgstr ""
+msgstr "DNS sunucular"
 
 msgid "Daemon"
 msgstr "Program"
@@ -1019,13 +1019,13 @@ msgid "Edit SSL certificate"
 msgstr "SSL sertifikasını düzenle"
 
 msgid "Edit VLAN interface"
-msgstr ""
+msgstr "VLAN arabirimini düzenle"
 
 msgid "Edit bond interface"
-msgstr ""
+msgstr "Birleştirilmiş arabirimi düzenle"
 
 msgid "Edit ethernet interface"
-msgstr ""
+msgstr "Eternet arabirimini düzenle"
 
 msgid "Edit firewall rule"
 msgstr "Güvenlik duvarı kuralını düzenle"
@@ -1257,7 +1257,7 @@ msgid "Failed to get list of network interface devices"
 msgstr "Ağ arabirim aygıt listesi okuma hatası"
 
 msgid "Failed to get list of unused network interface devices"
-msgstr ""
+msgstr "Kullanılmayan ağ arabirim cihaz listesi görüntülenemiyor"
 
 msgid "Failed to get list of users."
 msgstr "Kullanıcı listesi okuma hatası."
@@ -1667,7 +1667,7 @@ msgid "Invalid group name"
 msgstr "Geçersiz grup adı"
 
 msgid "Invalid host name"
-msgstr ""
+msgstr "Geçersiz cihaz adı"
 
 msgid "Invalid line: %s"
 msgstr "Geçersiz satır : %s"
@@ -2282,7 +2282,7 @@ msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent interface"
-msgstr ""
+msgstr "Ana arabirim"
 
 msgid "Passive FTP"
 msgstr "Pasif FTP"
@@ -2399,7 +2399,7 @@ msgstr "Lütfen önce bir volüm seçiniz."
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
 "are allowed."
-msgstr ""
+msgstr "Yeni dosyalara izin verilmiş ise paylaşılan klasörün herkes tarafından yazılabilir olduğundan emin olunuz."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2536,10 +2536,10 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
 msgstr "RAID 4"
@@ -2626,7 +2626,7 @@ msgid "Remove"
 msgstr "Kaldır"
 
 msgid "Remove devices from RAID device"
-msgstr ""
+msgstr "RAID aygıtından cihaz çıkart"
 
 msgid "Replace"
 msgstr "Değiştir"
@@ -2809,7 +2809,7 @@ msgid "Scheduling"
 msgstr "Zamanlama"
 
 msgid "Search domains"
-msgstr ""
+msgstr "Domainleri ara"
 
 msgid "Secondary email"
 msgstr "İkincil e-posta"
@@ -2854,10 +2854,10 @@ msgid "Select a language ..."
 msgstr "Bir dil seçiniz ..."
 
 msgid "Select a parent interface ..."
-msgstr ""
+msgstr "Ana arabirimi seç ..."
 
 msgid "Select a primary interface ..."
-msgstr ""
+msgstr "Birincil arabirimi seç ..."
 
 msgid "Select a protocol ..."
 msgstr "Bir iletişim kuralı seçin ..."
@@ -2878,7 +2878,7 @@ msgid "Select devices to be added to the RAID device"
 msgstr "RAID e eklemecek yeni aygıtları seçiniz"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "RAID aygıtından kaldırılacak cihazları seçiniz."
 
 msgid "Select or enter a user name ..."
 msgstr "Bir kullanıcı adı seçiniz ya da giriniz..."
@@ -3129,7 +3129,7 @@ msgid "Specifies which slave is the primary device."
 msgstr "Hangi yedeğin birincil aygıt olacağını belirler."
 
 msgid "Speed"
-msgstr ""
+msgstr "Hız"
 
 msgid "Spindown time"
 msgstr "Dönüş durma zamanı"
@@ -3323,7 +3323,7 @@ msgid "The name of the share."
 msgstr "Paylaşımın adı."
 
 msgid "The name servers are used to look up host names on the network."
-msgstr ""
+msgstr "İsim sunucuları ağdaki cihaz isimlerini aramak için kullanılır."
 
 msgid "The number of days the certificate is valid for."
 msgstr "Sertifikanın geçerli olduğu gün sayısı."
@@ -3441,27 +3441,27 @@ msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Bu alan CIDR notasyonu ile yazılmış IPv6 network adresi olmalıdır"
 
 msgid "This field should be a domain name or an IP address"
-msgstr ""
+msgstr "Bu alan domain adı ya da IP adresi olmalıdır."
 
 msgid "This field should be a domain name or an IPv4 address"
-msgstr ""
+msgstr "Bu alan domain adı ya da IPv4 adresi olmalıdır."
 
 msgid "This field should be a host name or an IP address"
-msgstr ""
+msgstr "Bu alan sistem adı veya IP adresi olmalıdır"
 
 msgid "This field should be a host name or an IPv4 address"
-msgstr ""
+msgstr "Bu alan sistem adı veya IPv4 adresi olmalıdır"
 
 msgid "This field should be a list of domain names or IP addresses"
-msgstr ""
+msgstr "Bu alan domain adları ya da IP adresleri listesi olmalıdır"
 
 msgid ""
 "This field should be a list of domain names or IP addresses seperated by <,>"
 " or <;>"
-msgstr ""
+msgstr "Bu alan <,> ya da  <;> ile ayrılmış domain adları ya da IP adresleri listesi olmalıdır"
 
 msgid "This field should be a list of host names or IP addresses"
-msgstr ""
+msgstr "Bu alan sistem adları ya da IP adresleri listesi olmalıdır"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3856,10 +3856,10 @@ msgid "Uzbekistan"
 msgstr "Özbekistan"
 
 msgid "VLAN"
-msgstr ""
+msgstr "VLAN"
 
 msgid "VLAN id"
-msgstr ""
+msgstr "VLAN id"
 
 msgid "Valid to"
 msgstr "Geçerlilik süresi"

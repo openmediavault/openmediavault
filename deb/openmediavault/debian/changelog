@@ -9,6 +9,7 @@ openmediavault (2.0.4) stable; urgency=low
   * Mantis 0001295: Network interfaces window with DNS entries.
   * Mantis 0001299: Add KVM VirtIO storage backend.
   * Mantis 0001303: Display connection link speed.
+  * Mantis 0001306: Fix french translation issue.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 06 Apr 2015 16:58:08 +0200
 

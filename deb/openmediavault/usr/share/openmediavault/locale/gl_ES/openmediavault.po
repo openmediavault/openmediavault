@@ -5,14 +5,15 @@
 # Translators:
 # Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013
 # Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013
-# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013,2015
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-18 01:40+0200\n"
-"PO-Revision-Date: 2015-04-17 23:41+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-04-22 09:57+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (Spain) (http://www.transifex.com/projects/p/openmediavault/language/gl_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -200,10 +201,10 @@ msgid "Add"
 msgstr "Engadir"
 
 msgid "Add VLAN interface"
-msgstr ""
+msgstr "Engadir unha interface VLAN"
 
 msgid "Add bond interface"
-msgstr ""
+msgstr "Engadir unha interface vinculada"
 
 msgid "Add devices to RAID device"
 msgstr "Engadir dispositivos ao dispositivo RAID"
@@ -498,7 +499,7 @@ msgid "Bolivia"
 msgstr "Bolivia"
 
 msgid "Bond"
-msgstr ""
+msgstr "Vínculo"
 
 msgid "Bond options"
 msgstr "Opcións de vinculo"
@@ -771,7 +772,7 @@ msgid "DHCP"
 msgstr "DHCP"
 
 msgid "DNS servers"
-msgstr ""
+msgstr "Servidores de DNS"
 
 msgid "Daemon"
 msgstr "Servizo"
@@ -1021,13 +1022,13 @@ msgid "Edit SSL certificate"
 msgstr "Editar o certificado SSL"
 
 msgid "Edit VLAN interface"
-msgstr ""
+msgstr "Editar a interface VLAN"
 
 msgid "Edit bond interface"
-msgstr ""
+msgstr "Editar a interface vinculada"
 
 msgid "Edit ethernet interface"
-msgstr ""
+msgstr "Editar a interface ethernet"
 
 msgid "Edit firewall rule"
 msgstr "Editar regra na devasa"
@@ -1259,7 +1260,7 @@ msgid "Failed to get list of network interface devices"
 msgstr "Non foi posíbel obter a lista de dispositivos de rede"
 
 msgid "Failed to get list of unused network interface devices"
-msgstr ""
+msgstr "Non foi posíbel obter a lista de dispositivos de rede non usados"
 
 msgid "Failed to get list of users."
 msgstr "Non foi posíbel obter a lista de usuarios."
@@ -1669,7 +1670,7 @@ msgid "Invalid group name"
 msgstr "Nome de grupo incorrecto"
 
 msgid "Invalid host name"
-msgstr ""
+msgstr "Nome de máquina incorrecto"
 
 msgid "Invalid line: %s"
 msgstr "Liña incorrecta: %s"
@@ -2284,7 +2285,7 @@ msgid "Paraguay"
 msgstr "Paraguai"
 
 msgid "Parent interface"
-msgstr ""
+msgstr "Interface principal"
 
 msgid "Passive FTP"
 msgstr "FTP pasivo"
@@ -2401,7 +2402,7 @@ msgstr "Primeiro seleccione un volume."
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
 "are allowed."
-msgstr ""
+msgstr "Asegúrese de que o cartafol compartido é de escritura pública se permite novos ficheiros"
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2475,10 +2476,10 @@ msgid ""
 msgstr "Evitar que o disco xire cando sexa comprobado periodicamente.<br/><ul><li>Nunca - Non revisar nunca o dispositivo independentemente do modo de enerxía seleccionado. Isto pode facer que o disco deixe de xirar e comece a xirar cando se comprobe.</li><li>Hibernar - Comproba o dispositivo a a non ser que estea no modo HIBERNAR.</li><li>Suspender - Comproba o dispositivo a non ser que estea no modo HIBERNAR ou SUSPENDER. Nestes modos a maioría dos discos non están xirando, así que se quere evitar que o disco xire en cada revisión, seguramente sexa iso o que ten que axustar.</li><li>Desocupado - Comproba o dispositivo a a non ser que estea no modo HIBERNAR, SUSPENDER ou DESOCUPADO, no caso DESOCUPADO a maioría dos discos están xirando, así que probablemente no sexa isto o que quere.</li></ul>"
 
 msgid "Primary"
-msgstr "Pricipal"
+msgstr "Primario"
 
 msgid "Primary email"
-msgstr "Enderezo de correo principal"
+msgstr "Enderezo de correo primario"
 
 msgid "Privacy passphrase"
 msgstr "Contrasinal de intimidade"
@@ -2538,10 +2539,10 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
 msgstr "RAID 4"
@@ -2628,7 +2629,7 @@ msgid "Remove"
 msgstr "Retirar"
 
 msgid "Remove devices from RAID device"
-msgstr ""
+msgstr "Retirar dispositivos do dispositivo RAID"
 
 msgid "Replace"
 msgstr "Substituír"
@@ -2811,7 +2812,7 @@ msgid "Scheduling"
 msgstr "Segundo o programado"
 
 msgid "Search domains"
-msgstr ""
+msgstr "Buscar dominios"
 
 msgid "Secondary email"
 msgstr "Enderezo de correo adicional"
@@ -2856,10 +2857,10 @@ msgid "Select a language ..."
 msgstr "Seleccione o idioma ..."
 
 msgid "Select a parent interface ..."
-msgstr ""
+msgstr "Seleccione a interface principal ..."
 
 msgid "Select a primary interface ..."
-msgstr ""
+msgstr "Seleccione a interface primaria ..."
 
 msgid "Select a protocol ..."
 msgstr "Seleccione o protocolo ..."
@@ -2880,7 +2881,7 @@ msgid "Select devices to be added to the RAID device"
 msgstr "Seleccione os dispositivos que engadir ao dispositivo RAID"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Seleccione os dispositivos que retirar do dispositivo RAID"
 
 msgid "Select or enter a user name ..."
 msgstr "Seleccione ou escriba un nome de usuario ..."
@@ -3131,7 +3132,7 @@ msgid "Specifies which slave is the primary device."
 msgstr "Especifica que o escravo é o dispositivo principal."
 
 msgid "Speed"
-msgstr ""
+msgstr "Velocidade"
 
 msgid "Spindown time"
 msgstr "Tempo de parada do disco"
@@ -3325,7 +3326,7 @@ msgid "The name of the share."
 msgstr "O nome do recurso compartido"
 
 msgid "The name servers are used to look up host names on the network."
-msgstr ""
+msgstr "Os servidores de nomes utilízanse para buscar nomes de máquinas na rede."
 
 msgid "The number of days the certificate is valid for."
 msgstr "O número de días para os que ten vixencia o certificado."
@@ -3443,27 +3444,27 @@ msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Este campo debe ser un enderezo de rede IPv6 en notación CIDR"
 
 msgid "This field should be a domain name or an IP address"
-msgstr ""
+msgstr "Este campo debe ser un nome de dominio ou un enderezo IP"
 
 msgid "This field should be a domain name or an IPv4 address"
-msgstr ""
+msgstr "Este campo debe ser un nome de dominio ou un enderezo IPv4"
 
 msgid "This field should be a host name or an IP address"
-msgstr ""
+msgstr "Este campo debe ser un nome de máquina ou un enderezo IP"
 
 msgid "This field should be a host name or an IPv4 address"
-msgstr ""
+msgstr "Este campo debe ser un nome de máquina ou un enderezo IPv4"
 
 msgid "This field should be a list of domain names or IP addresses"
-msgstr ""
+msgstr "Este campo debe ser unha lista de nomes de dominio ou enderezos IP"
 
 msgid ""
 "This field should be a list of domain names or IP addresses seperated by <,>"
 " or <;>"
-msgstr ""
+msgstr "Este campo debe ser unha lista de nomes de dominio ou enderezos IP separados por «,» ou «;»"
 
 msgid "This field should be a list of host names or IP addresses"
-msgstr ""
+msgstr "Este campo debe ser unha lista de nomes de máquina ou enderezos IP"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3858,10 +3859,10 @@ msgid "Uzbekistan"
 msgstr "Uzbequistán"
 
 msgid "VLAN"
-msgstr ""
+msgstr "VLAN"
 
 msgid "VLAN id"
-msgstr ""
+msgstr "VLAN id"
 
 msgid "Valid to"
 msgstr "Válido ata"
