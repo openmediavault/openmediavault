@@ -45,11 +45,7 @@ Ext.define("OMV.module.admin.diagnostic.system.Overview", {
 	hidePagingToolbar: true,
 	hideHeaders: true,
 	disableSelection: true,
-	stateful: true,
-	stateId: "eda034fd-aa2e-4a7a-9f75-e054d26bcd31",
 	columns: [{
-		text: _("Name"),
-		sortable: true,
 		dataIndex: "name",
 		stateId: "name",
 		width: 150,
@@ -59,8 +55,6 @@ Ext.define("OMV.module.admin.diagnostic.system.Overview", {
 			return _(value);
 		}
 	},{
-		text: _("Value"),
-		sortable: true,
 		dataIndex: "value",
 		stateId: "value",
 		flex: 1,

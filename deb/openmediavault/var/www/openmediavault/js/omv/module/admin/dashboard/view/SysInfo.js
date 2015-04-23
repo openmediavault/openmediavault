@@ -52,11 +52,7 @@ Ext.define("OMV.module.admin.dashboard.view.SysInfo", {
 				hidePagingToolbar: true,
 				hideHeaders: true,
 				disableSelection: true,
-				stateful: true,
-				stateId: "819a071a-e24b-11e3-9915-0002b3a176b4",
 				columns: [{
-					text: _("Name"),
-					sortable: true,
 					dataIndex: "name",
 					stateId: "name",
 					width: 150,
@@ -66,8 +62,6 @@ Ext.define("OMV.module.admin.dashboard.view.SysInfo", {
 						return _(value);
 					}
 				},{
-					text: _("Value"),
-					sortable: true,
 					dataIndex: "value",
 					stateId: "value",
 					flex: 1,
