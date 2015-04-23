@@ -4741,8 +4741,11 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return The network interface MAC address, otherwise FALSE.
 	 */
 	public function getMAC() {
-		return trim(file_get_contents(sprintf("/sys/class/net/%s/address",
-		  $this->getDeviceName())));
+		$filename = sprintf("/sys/class/net/%s/address",
+		  $this->getDeviceName());
+		if (!file_exists($filename))
+			return FALSE;
+		return trim(file_get_contents($filename));
 	}
 
 	/**
@@ -4750,8 +4753,11 @@ class OMVNetworkInterface extends OMVObject {
 	 * @return The network interface MTU, otherwise FALSE.
 	 */
 	public function getMTU() {
-		return trim(file_get_contents(sprintf("/sys/class/net/%s/mtu",
-		  $this->getDeviceName())));
+		$filename = sprintf("/sys/class/net/%s/mtu",
+		  $this->getDeviceName());
+		if (!file_exists($filename))
+			return FALSE;
+		return trim(file_get_contents($filename));
 	}
 
 	/**

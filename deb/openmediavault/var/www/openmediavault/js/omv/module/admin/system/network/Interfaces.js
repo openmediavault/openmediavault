@@ -1127,11 +1127,13 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			return tpl.apply(record.data);
 		}
 	},{
+		xtype: "emptycolumn",
 		text: _("MAC address"),
 		sortable: true,
 		dataIndex: "ether",
 		stateId: "ether"
 	},{
+		xtype: "emptycolumn",
 		text: _("MTU"),
 		sortable: true,
 		dataIndex: "mtu",
