@@ -2,6 +2,8 @@ openmediavault (2.0.5) stable; urgency=low
 
   * Various JS code improvements in the WebGUI.
   * Mantis 0001303: Display connection link speed.
+  * Mantis 0001312: Prefer Ext.state.LocalStorageProvider over
+    Ext.state.CookieProvider to avoid large headers.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Apr 2015 21:59:39 +0200
 

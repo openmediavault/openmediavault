@@ -326,9 +326,19 @@ class OMVWebGui extends OMVHtmlPageAbstract {
 				role: "{$session->getRole()}"
 			});
 			Ext.QuickTips.init();
-			Ext.state.Manager.setProvider(new Ext.state.CookieProvider({
-				expires: new Date(new Date().getTime() + (1000*60*60*24*365))
-			}));
+			// Use LocalStorage API if available, otherwise use
+			// cookies to store the state of the UI components.
+			var provider;
+			if (Ext.util.LocalStorage.supported) {
+				provider = new Ext.state.LocalStorageProvider();
+			} else {
+				provider = new Ext.state.CookieProvider({
+					expires: new Date(new Date().getTime() +
+					  (1000*60*60*24*365))
+				});
+			}
+			Ext.state.Manager.setProvider(provider);
+			// Create the viewport if the page is ready.
 			Ext.onReady(function() {
 				OMV.viewport = Ext.create("OMV.workspace.Workspace");
 			});
