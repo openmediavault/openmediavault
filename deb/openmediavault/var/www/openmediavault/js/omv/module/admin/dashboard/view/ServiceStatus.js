@@ -51,7 +51,6 @@ Ext.define("OMV.module.admin.dashboard.view.ServiceStatus", {
 				disableLoadMaskOnLoad: true,
 				hideTopToolbar: true,
 				hidePagingToolbar: true,
-				hideHeaders: true,
 				disableSelection: true,
 				stateful: true,
 				stateId: "08ee3b76-e325-11e3-ad0a-00221568ca88",
