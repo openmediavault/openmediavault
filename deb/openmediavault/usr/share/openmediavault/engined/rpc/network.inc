@@ -218,7 +218,16 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				  sprintf("No network interface backend exists for '%s'",
 				  $devv));
 			}
-			$object = array();
+			// Set default attributes.
+			$object = array(
+				"uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
+				"method" =>  "",
+				"method6" =>  "",
+				"comment" =>  "",
+				"type" =>  "unknown",
+				"_used" =>  FALSE,
+				"_readonly" =>  FALSE
+			);
 			// Get the network interface configuration.
 			$xpath = sprintf("//system/network/interfaces/*[devicename='%s']",
 			  $devv);
@@ -228,14 +237,6 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			// Get the current network interface information. Note, this will
 			// override various configuration values.
 			$object = array_merge($object, $this->getIfaceInfo($devv));
-			// Append additional attributes.
-			$object['uuid'] = $GLOBALS['OMV_UUID_UNDEFINED'];
-			$object['method'] = "";
-			$object['method6'] = "";
-			$object['comment'] = "";
-			$object['type'] = "unknown";
-			$object['_used'] = FALSE;
-			$object['_readonly'] = FALSE;
 			// Categorize the network interface.
 			switch ($nib->getType()) {
 			case OMV_NETWORK_INTERFACE_TYPE_BOND:

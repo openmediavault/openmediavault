@@ -3878,6 +3878,16 @@ class OMVStorageDeviceBcache extends OMVStorageDeviceAbstract {
  */
 class OMVStorageDeviceVirtIO extends OMVStorageDeviceSMARTAbstract {
 	protected $smartDeviceType = "sat";
+
+	/**
+	 * See interface definition.
+	 */
+	public function getDescription() {
+		$model = $this->getModel();
+		return sprintf("%s [%s, %s]", !empty($model) ? $model :
+		  gettext("VirtIO device"), $this->getDeviceFile(),
+		  binary_format($this->getSize()));
+	}
 }
 
 /**
