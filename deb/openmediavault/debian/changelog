@@ -1,6 +1,8 @@
 openmediavault (2.0.5) stable; urgency=low
 
   * Various JS code improvements in the WebGUI.
+  * Check if IPv6 is enabled/available and build the correct nginx
+    WebGUI configuration.
   * Mantis 0001299: Improve KVM VirtIO storage backend.
   * Mantis 0001303: Display connection link speed.
   * Mantis 0001312: Prefer Ext.state.LocalStorageProvider over

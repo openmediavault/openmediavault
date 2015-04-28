@@ -577,6 +577,14 @@ omv_is_gateway6() {
 	return ${_valid}
 }
 
+# omv_is_ipv6_enabled (void)
+# Check if IPv6 is enabled.
+# @return 0 if enabled, otherwise 1.
+omv_is_ipv6_enabled() {
+	[ -f /proc/net/if_inet6 ] && return 0
+	return 1
+}
+
 # void omv_get_sharedfolder_name (char *uuid)
 # Get the name of the given shared folder
 # @param The UUID of the shared folder

@@ -29,7 +29,7 @@ OMV_TFTPD_USERNAME=${OMV_TFTPD_USERNAME:-"tftp"}
 OMV_TFTPD_OPTIONS=${OMV_TFTPD_OPTIONS:-"--secure"}
 
 # Workaround for bug http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=544089
-if [ ! -f /proc/net/if_inet6 ]; then
+if ! omv_is_ipv6_enabled; then
 	OMV_TFTPD_OPTIONS="--ipv4 ${OMV_TFTPD_OPTIONS}"
 fi
 
