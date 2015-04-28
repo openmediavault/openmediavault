@@ -3005,14 +3005,21 @@ class OMVStorageDeviceBackendHDD extends OMVStorageDeviceBackendAbstract {
 	}
 
 	function enumerate() {
-		return $this->enumerateProcFs("(h|s|x?v)d[a-z]+");
+		// Examples:
+		// - /dev/hda
+		// - /dev/sdb
+		// - /dev/xvda
+		return $this->enumerateProcFs("(h|s|xv)d[a-z]+");
 	}
 
 	function isTypeOf($deviceFile) {
 		// Examples:
+		// - /dev/hdc2
 		// - /dev/sdb
 		// - /dev/sda1
-		$regex = "(h|s|x?v)d[a-z]+[0-9]*";
+		// - /dev/xvda
+		// - /dev/xvdb2
+		$regex = "(h|s|xv)d[a-z]+[0-9]*";
 		return $this->isTypeOfByName($deviceFile, $regex);
 	}
 
