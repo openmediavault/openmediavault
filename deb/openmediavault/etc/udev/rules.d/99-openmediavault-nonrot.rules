@@ -27,3 +27,6 @@
 
 # TRANSCEND DOM (http://ec.transcendusa.com/product/product_memory.asp?Cid=59&indexnum=13)
 SUBSYSTEM=="block", KERNEL=="[sh]d[a-z]", ENV{ID_ATA}=="1", ENV{ID_TYPE}=="disk", ENV{ID_BUS}=="ata", ENV{ID_MODEL}=="TRANSCEND", ATTR{queue/rotational}="0"
+
+# Samsung 840 SSD (http://www.samsung.com/global/business/semiconductor/product/flash-ssd/detail?productId=7760&iaId=831)
+SUBSYSTEM=="block", KERNEL=="[sh]d[a-z]", ENV{ID_ATA}=="1", ENV{ID_TYPE}=="disk", ENV{ID_BUS}=="ata", ENV{ID_MODEL}=="SAMSUNG_MZ7TD256HAFV-000L7", ATTR{queue/rotational}="0"

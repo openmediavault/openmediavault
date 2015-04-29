@@ -7,6 +7,8 @@ openmediavault (2.0.5) stable; urgency=low
   * Mantis 0001303: Display connection link speed.
   * Mantis 0001312: Prefer Ext.state.LocalStorageProvider over
     Ext.state.CookieProvider to avoid large headers.
+  * Mantis 0001315: Add udev rule to populate rotational flag for
+    Samsung 840 SSD.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Apr 2015 21:59:39 +0200
 
