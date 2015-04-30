@@ -781,3 +781,22 @@ omv_is_proc_running_pid() {
 	[ ! -d "/proc/${pid}" ] && return 1
 	return 0
 }
+
+# void omv_is_device_nonrotational (char *devicefile)
+# @param name The name of the device, e.g. /dev/sdc.
+# @return Returns 0 if the device is non-rotational, otherwise 1.
+omv_is_device_nonrotational() {
+	local _result
+	_result=$(php5 -c /etc/openmediavault <<EOF
+<?php
+require_once("openmediavault/system.inc");
+\$result = TRUE;
+\$sd = OMVStorageDevices::getImpl("$1");
+if (!is_null(\$sd))
+	\$result = \$sd->isRotational();
+print \$result ? 1 : 0;
+?>
+EOF
+)
+	return ${_result}
+}

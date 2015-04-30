@@ -9,6 +9,7 @@ openmediavault (2.0.5) stable; urgency=low
     Ext.state.CookieProvider to avoid large headers.
   * Mantis 0001315: Add udev rule to populate rotational flag for
     Samsung 840 SSD.
+  * Mantis 0001318: Improve non-rotational device detection.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Thu, 23 Apr 2015 21:59:39 +0200
 

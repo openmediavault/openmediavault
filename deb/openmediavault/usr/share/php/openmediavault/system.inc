@@ -2431,11 +2431,23 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 * @return TRUE if device is of rotational type, otherwise FALSE.
 	 */
 	public function isRotational() {
+		// Use udev property.
+		if (FALSE !== ($property = $this->getUdevProperty("ID_SSD"))) {
+			if (0 == strcasecmp("1", $property))
+				return FALSE;
+		}
+		// Use kernel attribute.
 		$filename = sprintf("/sys/block/%s/queue/rotational",
 		  $this->getDeviceName());
-		if (!file_exists($filename))
-			return TRUE; // Assume device is rotational if file doesn't exist.
-		return (trim(file_get_contents($filename)) == "1") ? TRUE : FALSE;
+		if (file_exists($filename)) {
+			if ("0" == trim(file_get_contents($filename)))
+				return FALSE;
+		}
+		// Use heuristic.
+		$model = $this->getModel();
+		if (is_string($model) && (FALSE !== strstr($model, "SSD")))
+			return FALSE;
+		return TRUE;
 	}
 
 	/**
