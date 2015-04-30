@@ -2432,8 +2432,14 @@ abstract class OMVStorageDeviceAbstract extends OMVBlockDeviceAbstract {
 	 */
 	public function isRotational() {
 		// Use udev property.
-		if (FALSE !== ($property = $this->getUdevProperty("ID_SSD"))) {
+		if (FALSE !== ($property = $this->getUdevProperty(
+		  "ID_SSD"))) {
 			if (0 == strcasecmp("1", $property))
+				return FALSE;
+		}
+		if (FALSE !== ($property = $this->getUdevProperty(
+		  "ID_ATA_ROTATION_RATE_RPM"))) {
+			if (0 == strcasecmp("0", $property))
 				return FALSE;
 		}
 		// Use kernel attribute.
