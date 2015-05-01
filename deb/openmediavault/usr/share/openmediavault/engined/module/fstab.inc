@@ -62,21 +62,21 @@ class OMVModuleFsTab extends OMVModuleServiceAbstract
 		// Make sure all mount points are mounted.
 		$xpath = "//system/fstab/mntent";
 		$objects = $xmlConfig->getList($xpath);
-		if(is_null($objects)) {
+		if (is_null($objects)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Process all configured mount points and mount them if necessary.
-		foreach($objects as $objectk => $objectv) {
+		foreach ($objects as $objectk => $objectv) {
 			$me = new OMVMntEnt($objectv['fsname'], $objectv['dir']);
-			// Does the directory exists.
-			if(FALSE === $me->mkDir()) {
+			// Does the directory exist?
+			if (FALSE === $me->mkDir()) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 				  sprintf("Failed to create the directory '%s'",
-				  $objectv['dir']));
+				  $me->getMountPoint()));
 			}
 			// Is it mounted?
-			if(FALSE === $me->isMounted()) {
+			if (FALSE === $me->isMounted()) {
 				// If it's no loop or bind mount then skip mounting if the
 				// filesystem does not exist.
 				if (is_uuid($objectv['fsname']) || is_devicefile(

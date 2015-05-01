@@ -893,6 +893,13 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 						  $object['dir'], $me->getLastError()));
 					}
 				}
+				// Does the mount directory exist?
+				if (FALSE === $me->mkDir()) {
+					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+					  sprintf("Failed to create the directory '%s'",
+					  $me->getMountPoint()));
+				}
+				// Mount the filesystem.
 				if (FALSE === $fs->mount()) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf("Failed to mount '%s': %s",
