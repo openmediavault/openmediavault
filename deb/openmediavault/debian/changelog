@@ -1,3 +1,9 @@
+openmediavault (1.19) stable; urgency=low
+
+  * Various code improvements.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 01 May 2015 19:31:23 +0200
+
 openmediavault (1.18) stable; urgency=low
 
   * Mantis 0001302: Increase "wipe" size to also remove other file

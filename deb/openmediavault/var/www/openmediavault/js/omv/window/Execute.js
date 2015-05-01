@@ -110,6 +110,7 @@ Ext.define("OMV.window.Execute", {
 		if (false === me.progress) {
 			me.contentCtrl = Ext.create("Ext.form.field.TextArea", {
 				name: "content",
+				cls: "x-form-textarea-monospaced",
 				value: me.welcomeText
 			});
 		} else {
@@ -292,6 +293,22 @@ Ext.define("OMV.window.Execute", {
 						  }
 						  // Ignore RPC errors?
 						  if (ignore === true) {
+							  // To do not annoy the user with repeating
+							  // error message dialogs simply display the
+							  // message in the output window.
+							  var message = Ext.String.format(
+								"\n" +
+								"================= Error =================\n" +
+								"{0}" +
+								"=========================================\n",
+								response.message);
+							  this.appendValue(message);
+							  // Enable 'Close' button to be able to close the
+							  // dialog.
+							  this.setButtonDisabled("stop", true);
+							  this.setButtonDisabled("close", false);
+							  // Hide the waiting mask.
+							  this.getEl().unmask();
 							  // Execute another RPC.
 							  Ext.Function.defer(this.doGetOutput,
 								this.rpcDelay, this);
