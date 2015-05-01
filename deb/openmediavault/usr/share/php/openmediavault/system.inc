@@ -3439,6 +3439,9 @@ class OMVStorageDeviceCDROM extends OMVStorageDeviceAbstract {
  * @ingroup api
  */
 class OMVStorageDeviceMMC extends OMVStorageDeviceAbstract {
+	public function isRotational() {
+		return FALSE;
+	}
 }
 
 /**
