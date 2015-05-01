@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-04-18 01:40+0200\n"
-"PO-Revision-Date: 2015-04-17 23:41+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-04-26 20:38+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -199,10 +199,10 @@ msgid "Add"
 msgstr "Přidat"
 
 msgid "Add VLAN interface"
-msgstr ""
+msgstr "Přidat rozhraní virtuální sítě (VLAN)"
 
 msgid "Add bond interface"
-msgstr ""
+msgstr "Přidat spřažení rozhraní"
 
 msgid "Add devices to RAID device"
 msgstr "Přidat zařízení do RAID pole"
@@ -497,7 +497,7 @@ msgid "Bolivia"
 msgstr "Bolívie"
 
 msgid "Bond"
-msgstr ""
+msgstr "Spřažení"
 
 msgid "Bond options"
 msgstr "Možnosti spřažení"
@@ -562,12 +562,12 @@ msgstr "Zrušit"
 msgid ""
 "Cannot unlink the shared folder content because another shared folder also "
 "refers to it"
-msgstr ""
+msgstr "Nelze zrušit odkaz na obsah sdílené složky, protože na ni odkazuje též jiná sdílená složka"
 
 msgid ""
 "Cannot unlink the shared folder content because another shared folder is "
 "referencing a subdirectory"
-msgstr ""
+msgstr "Nelze zrušit odkaz na obsah sdílené složky, protože na její podsložku odkazuje jiná sdílená složka"
 
 msgid "Canton and Enderbury Islands"
 msgstr "Canton a Enderbury"
@@ -585,7 +585,7 @@ msgid "Central African Republic"
 msgstr "Středoafrická republika"
 
 msgid "Certain date"
-msgstr ""
+msgstr "Určité datum"
 
 msgid "Certificate"
 msgstr "Certifikát"
@@ -770,7 +770,7 @@ msgid "DHCP"
 msgstr "Samočinné (DHCP)"
 
 msgid "DNS servers"
-msgstr ""
+msgstr "DNS servery"
 
 msgid "Daemon"
 msgstr "Služba"
@@ -1020,13 +1020,13 @@ msgid "Edit SSL certificate"
 msgstr "Upravit SSL certifikát"
 
 msgid "Edit VLAN interface"
-msgstr ""
+msgstr "Upravit rozhraní virtuální sítě"
 
 msgid "Edit bond interface"
-msgstr ""
+msgstr "Upravit spřažení rozhraní"
 
 msgid "Edit ethernet interface"
-msgstr ""
+msgstr "Upravit nastavení ethernetového rozhraní"
 
 msgid "Edit firewall rule"
 msgstr "Upravit pravidlo firewallu"
@@ -1258,7 +1258,7 @@ msgid "Failed to get list of network interface devices"
 msgstr "Nelze získat seznam síťových rozhraní"
 
 msgid "Failed to get list of unused network interface devices"
-msgstr ""
+msgstr "Nezdařilo se získat seznam nevyužívaných síťových rozhraní"
 
 msgid "Failed to get list of users."
 msgstr "Nelze získat seznam uživatelů."
@@ -1358,7 +1358,7 @@ msgid "French Southern and Antarctic Territories"
 msgstr "Francouzská jižní a antarktická území"
 
 msgid "Friday"
-msgstr "Pátek"
+msgstr "pátek"
 
 msgid "Full"
 msgstr "Plný"
@@ -1623,7 +1623,7 @@ msgid "Indonesia"
 msgstr "Indonésie"
 
 msgid "Info"
-msgstr "Info"
+msgstr ""
 
 msgid "Informal"
 msgstr "Pro informaci"
@@ -1668,7 +1668,7 @@ msgid "Invalid group name"
 msgstr "Neplatný název skupiny"
 
 msgid "Invalid host name"
-msgstr ""
+msgstr "Neplatný název stroje"
 
 msgid "Invalid line: %s"
 msgstr "Neplatný řádek: %s"
@@ -1853,7 +1853,7 @@ msgid "MII monitoring frequency"
 msgstr "Četnost hlídání rozhraní MII"
 
 msgid "MTU"
-msgstr "MTU"
+msgstr ""
 
 msgid "Macao S.A.R., China"
 msgstr "Macao, Čína"
@@ -1980,7 +1980,7 @@ msgid "Mexico"
 msgstr "Mexiko"
 
 msgid "MiB"
-msgstr "MiB"
+msgstr ""
 
 msgid "Micronesia"
 msgstr "Mikronésie"
@@ -2010,7 +2010,7 @@ msgid "Mode"
 msgstr "Režim"
 
 msgid "Model"
-msgstr "Model"
+msgstr ""
 
 msgid "Modify account"
 msgstr "Upravit účet"
@@ -2028,7 +2028,7 @@ msgid "Monaco"
 msgstr "Monako"
 
 msgid "Monday"
-msgstr "Pondělí"
+msgstr "pondělí"
 
 msgid "Mongolia"
 msgstr "Mongolsko"
@@ -2046,13 +2046,13 @@ msgid "Monthly"
 msgstr "Měsíčně"
 
 msgid "Montserrat"
-msgstr "Montserrat"
+msgstr ""
 
 msgid "Morocco"
 msgstr "Maroko"
 
 msgid "Mount"
-msgstr "Připojit"
+msgstr "Připojit (mount)"
 
 msgid "Mounted"
 msgstr "Připojeno"
@@ -2061,10 +2061,10 @@ msgid "Mozambique"
 msgstr "Mosambik"
 
 msgid "Myanmar"
-msgstr "Myanmar"
+msgstr "Barma"
 
 msgid "NFS"
-msgstr "NFS"
+msgstr ""
 
 msgid "Name"
 msgstr "Název"
@@ -2202,7 +2202,7 @@ msgid "Number of servers"
 msgstr "Počet serverů"
 
 msgid "OK"
-msgstr "OK"
+msgstr ""
 
 msgid "Occurrence"
 msgstr "Výskyt"
@@ -2283,7 +2283,7 @@ msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent interface"
-msgstr ""
+msgstr "Nadřazené rozhraní"
 
 msgid "Passive FTP"
 msgstr "Pasivní FTP"
@@ -2400,7 +2400,7 @@ msgstr "Nejprve je třeba zvolit svazek."
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
 "are allowed."
-msgstr ""
+msgstr "V případě, že zde umožníte vytváření nových souborů, ověřte, zda do sdílené složky mohou všichni zapisovat."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2425,7 +2425,7 @@ msgid "Poland"
 msgstr "Polsko"
 
 msgid "Port"
-msgstr "Port"
+msgstr ""
 
 msgid "Port to listen on."
 msgstr "Port, na kterém očekávat spojení."
@@ -2543,19 +2543,19 @@ msgid "RAID 3"
 msgstr ""
 
 msgid "RAID 4"
-msgstr "RAID 4"
+msgstr ""
 
 msgid "RAID 5"
-msgstr "RAID 5"
+msgstr ""
 
 msgid "RAID 6"
-msgstr "RAID 6"
+msgstr ""
 
 msgid "RAID Management"
 msgstr "Správa RAID"
 
 msgid "RFC931"
-msgstr "RFC931"
+msgstr ""
 
 msgid "RSync server"
 msgstr "RSync server"
@@ -2627,7 +2627,7 @@ msgid "Remove"
 msgstr "Odstranit"
 
 msgid "Remove devices from RAID device"
-msgstr ""
+msgstr "Odebrat zařízení z RAID pole"
 
 msgid "Replace"
 msgstr "Nahradit"
@@ -2741,7 +2741,7 @@ msgid "SMTP settings"
 msgstr "Nastavení protokolu SMTP"
 
 msgid "SNMP"
-msgstr "SNMP"
+msgstr ""
 
 msgid "SNMP version 1/2c"
 msgstr "SNMP verze 1/2c"
@@ -2756,7 +2756,7 @@ msgid "SSH public key"
 msgstr "Veřejná část SSH klíče"
 
 msgid "SSL/TLS"
-msgstr "SSL/TLS"
+msgstr ""
 
 msgid "Saint Helena"
 msgstr "Svatá Helena"
@@ -2810,7 +2810,7 @@ msgid "Scheduling"
 msgstr "Naplánováno"
 
 msgid "Search domains"
-msgstr ""
+msgstr "Prohledávat domény"
 
 msgid "Secondary email"
 msgstr "Náhradní e-mail"
@@ -2855,10 +2855,10 @@ msgid "Select a language ..."
 msgstr "Vyberte jazyk ..."
 
 msgid "Select a parent interface ..."
-msgstr ""
+msgstr "Vyberte nadřazené rozhraní"
 
 msgid "Select a primary interface ..."
-msgstr ""
+msgstr "Vyberte hlavní rozhraní…"
 
 msgid "Select a protocol ..."
 msgstr "Vyberte protokol ..."
@@ -2879,7 +2879,7 @@ msgid "Select devices to be added to the RAID device"
 msgstr "Vyberte zařízení, které má být přidáno do RAID pole"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Vyberte zařízení, které má být odebráno z RAID pole."
 
 msgid "Select or enter a user name ..."
 msgstr "Vyberte nebo zadejte uživatelské jméno ..."
@@ -2918,7 +2918,7 @@ msgid "Serial number"
 msgstr "Sériové číslo"
 
 msgid "Server"
-msgstr "Server"
+msgstr ""
 
 msgid "Service"
 msgstr "Služba"
@@ -3130,7 +3130,7 @@ msgid "Specifies which slave is the primary device."
 msgstr "Určuje, které ze zpřažených zařízení je hlavní."
 
 msgid "Speed"
-msgstr ""
+msgstr "Rychlost"
 
 msgid "Spindown time"
 msgstr "Prodleva zastavení rotace"
@@ -3226,7 +3226,7 @@ msgid "TCP forwarding"
 msgstr "Přeposílání TCP"
 
 msgid "TFTP"
-msgstr "TFTP"
+msgstr ""
 
 msgid "Taiwan"
 msgstr "Taiwan"
@@ -3324,7 +3324,7 @@ msgid "The name of the share."
 msgstr "Název sdílení."
 
 msgid "The name servers are used to look up host names on the network."
-msgstr ""
+msgstr "Jmenné servery slouží k dohledání názvů strojů na síti."
 
 msgid "The number of days the certificate is valid for."
 msgstr "Počet dní platnosti certifikátu"
@@ -3442,27 +3442,27 @@ msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Toto pole by mělo obsahovat IPv6 adresu v CIDR zápisu"
 
 msgid "This field should be a domain name or an IP address"
-msgstr ""
+msgstr "Toto pole by mělo obsahovat doménový název nebo IP adresu"
 
 msgid "This field should be a domain name or an IPv4 address"
-msgstr ""
+msgstr "Toto pole by mělo obsahovat doménový název nebo IPv4 adresu"
 
 msgid "This field should be a host name or an IP address"
-msgstr ""
+msgstr "Toto pole by mělo obsahovat název stroje nebo jeho IP adresu"
 
 msgid "This field should be a host name or an IPv4 address"
-msgstr ""
+msgstr "Toto pole by mělo obsahovat název stroje nebo jeho IPv4 adresu"
 
 msgid "This field should be a list of domain names or IP addresses"
-msgstr ""
+msgstr "Toto pole by mělo obsahovat seznam doménových názvů nebo IP adres"
 
 msgid ""
 "This field should be a list of domain names or IP addresses seperated by <,>"
 " or <;>"
-msgstr ""
+msgstr "Toto pole by mělo obsahovat seznam doménových názvů nebo IP adres, oddělených <,> nebo <;>"
 
 msgid "This field should be a list of host names or IP addresses"
-msgstr ""
+msgstr "Toto pole by mělo obsahovat seznam názvů strojů nebo jejich IP adres"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"

@@ -1,5 +1,6 @@
 openmediavault (2.0.5) stable; urgency=low
 
+  * Update locales.
   * Various JS code improvements in the WebGUI.
   * Check if IPv6 is enabled/available and build the correct nginx
     WebGUI configuration.
