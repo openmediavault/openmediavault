@@ -1,3 +1,9 @@
+openmediavault (2.0.6) stable; urgency=low
+
+  * Mantis 0001320: Recreate mount paths if they're don't exist.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 04 May 2015 14:09:15 +0200
+
 openmediavault (2.0.5) stable; urgency=low
 
   * Update locales.

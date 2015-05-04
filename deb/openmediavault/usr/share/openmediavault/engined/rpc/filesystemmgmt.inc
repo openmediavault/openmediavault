@@ -859,12 +859,14 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			  $fs->getType()));
 			break;
 		}
+		// Try to obtain the mount point configuration object if this exists.
+		$meObject = OMVRpc::exec("FsTab", "getByFsName", array(
+		  "id" => $fsName), $context);
 		// Create fstab entry?
 		if (TRUE === boolvalEx($params['fstab'])) {
 			// Check for duplicates. Create a new mount point configuration
 			// object if necessary.
-			if (FALSE === ($object = OMVRpc::exec("FsTab", "getByFsName",
-			  array("id" => $fsName), $context))) {
+			if (FALSE === $meObject) {
 				OMVRpc::exec("FsTab", "set", array(
 					  "uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
 					  "fsname" => $fsName,
@@ -881,8 +883,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					  "force" => TRUE
 				  ), $context);
 			} else {
-				// Mount the file system.
-				$me = new OMVMntEnt($object['fsname'], $object['dir']);
+				$me = new OMVMntEnt($meObject['fsname'], $meObject['dir']);
 				// Umount the mount point if it is already in use, which
 				// is the case when an USB device is unplugged without
 				// unmounting it.
@@ -890,23 +891,35 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 					if (FALSE === $me->umount()) {
 						throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 						  sprintf("Failed to umount '%s': %s",
-						  $object['dir'], $me->getLastError()));
+						  $me->getMountPoint(), $me->getLastError()));
 					}
 				}
-				// Does the mount directory exist?
+				// Does the mount directory exist? Re-create it if
+				// necessary.
 				if (FALSE === $me->mkDir()) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
-					  sprintf("Failed to create the directory '%s'",
+					  sprintf("Failed to create the mount directory '%s'",
 					  $me->getMountPoint()));
 				}
 				// Mount the filesystem.
-				if (FALSE === $fs->mount()) {
+				if (FALSE === $me->mount()) {
 					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 					  sprintf("Failed to mount '%s': %s",
-					  $object['fsname'], $fs->getLastError()));
+					  $me->getDevice(), $me->getLastError()));
 				}
 			}
 		} else {
+			// Try to create/re-create the mount directory. This is only
+			// possible if a appropriate mount point configuration object
+			// exists.
+			if ((FALSE !== $meObject) && is_object($meObject)) {
+				$me = new OMVMntEnt($meObject['fsname'], $meObject['dir']);
+				if (FALSE === $me->mkDir()) {
+					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+					  sprintf("Failed to create the mount directory '%s'",
+					  $me->getMountPoint()));
+				}
+			}
 			// Mount the filesystem.
 			if (TRUE === $fs->isMounted()) {
 				throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
