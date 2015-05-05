@@ -39,13 +39,13 @@ xmlstarlet sel -t -m "//system/certificates/sslcertificate" \
 	  crtfile="${OMV_CERTIFICATE_DIR}/certs/${OMV_CERTIFICATE_PREFIX}${uuid}.crt"
 	  xmlstarlet sel -t -m "//system/certificates/sslcertificate[uuid='${uuid}']" \
 		-v certificate \
-		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${crtfile}
+		${OMV_CONFIG_FILE} | xmlstarlet unesc >"${crtfile}"
 	  chmod 0640 ${crtfile}
 
 	  keyfile="${OMV_CERTIFICATE_DIR}/private/${OMV_CERTIFICATE_PREFIX}${uuid}.key"
 	  xmlstarlet sel -t -m "//system/certificates/sslcertificate[uuid='${uuid}']" \
 		-v privatekey \
-		${OMV_CONFIG_FILE} | xmlstarlet unesc > ${keyfile}
+		${OMV_CONFIG_FILE} | xmlstarlet unesc >"${keyfile}"
 	  chmod 0600 ${keyfile}
   done
 

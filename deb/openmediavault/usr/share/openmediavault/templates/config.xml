@@ -174,7 +174,7 @@
 					<name>xxx</name>
 					<email>xxx</email>
 					<disallowusermod>0</disallowusermod>
-					<sshpubkey></sshpubkey>
+					<sshpubkey>|xxx</sshpubkey>
 				</user>
 				-->
 			</users>

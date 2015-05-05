@@ -114,10 +114,16 @@ Ext.define("OMV.module.admin.privilege.user.user.General", {
 				displayField: "path",
 				value: "/bin/dash"
 			},{
-				xtype: "textfield",
+				xtype: "textarea",
 				name: "sshpubkey",
 				fieldLabel: _("SSH public key"),
-				allowBlank: true
+				cls: "x-form-textarea-monospaced",
+				allowBlank: true,
+				flex: 1,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The public key in RFC 4716 SSH public key file format.")
+				}]
 			},{
 				xtype: "checkbox",
 				name: "disallowusermod",
@@ -243,7 +249,7 @@ Ext.define("OMV.module.admin.privilege.user.User", {
 	rpcSetMethod: "setUser",
 
 	width: 420,
-	height: 340,
+	height: 350,
 
 	getTabItems: function() {
 		var me = this;

@@ -119,7 +119,7 @@ xmlstarlet sel -t \
 # Create the users authorized_keys files.
 rm -f ${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR}/*
 xmlstarlet sel -t \
-  -m "//system/usermanagement/users/user[sshpubkey!='']" \
+  -m "//system/usermanagement/users/user[string-length(sshpubkey) > 0]" \
 	-v uuid \
 	-i "position() != last()" -n -b \
   -b \
@@ -127,7 +127,11 @@ xmlstarlet sel -t \
   while read uuid; do
 	  name=$(omv_config_get "//system/usermanagement/users/user[uuid='${uuid}']/name")
 	  filename="${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR}/${name}"
-	  omv_config_get "//system/usermanagement/users/user[uuid='${uuid}']/sshpubkey" > "${filename}"
+	  xmlstarlet sel -t -m "//system/usermanagement/users/user[uuid='${uuid}']" \
+	    -v sshpubkey \
+		${OMV_CONFIG_FILE} | xmlstarlet unesc >"${filename}.tmp"
+	  ssh-keygen -i -f "${filename}.tmp" >"${filename}"
+	  rm -f "${filename}.tmp"
 	  chmod ${OMV_SSHD_AUTHORIZEDKEYSFILE_MASK} "${filename}"
 	  chown "${name}" "${filename}"
   done

@@ -1,5 +1,7 @@
 openmediavault (2.0.6) stable; urgency=low
 
+  * The public key of the user must now be specified in the
+    RFC 4716 SSH public key file format.
   * Mantis 0001312: Prefer Ext.state.LocalStorageProvider over
     Ext.state.CookieProvider to avoid large headers.
   * Mantis 0001320: Recreate mount paths if they're don't exist.
