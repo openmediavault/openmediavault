@@ -42,7 +42,6 @@ Ext.define("OMV.form.field.UnixFilePermComboBox", {
 	allowBlank: false,
 	editable: false,
 	forceSelection: true,
-	selectOnFocus: true,
 	triggerAction: "all",
 	emptyText: _("Select a file permission ..."),
 	displayField: "text",

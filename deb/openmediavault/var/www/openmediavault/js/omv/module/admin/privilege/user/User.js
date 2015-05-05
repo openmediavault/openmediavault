@@ -184,7 +184,8 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
 					model: OMV.data.Model.createImplicit({
 						idProperty: "name",
 						fields: [
-							{ name: "name", type: "string" }
+							{ name: "name", type: "string" },
+							{ name: "system", type: "boolean" }
 						]
 					}),
 					proxy: {
@@ -208,6 +209,15 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
 						sortable: true,
 						dataIndex: "name",
 						stateId: "name",
+						flex: 2
+					},{
+						xtype: "booleantextcolumn",
+						text: _("System"),
+						sortable: true,
+						dataIndex: "system",
+						stateId: "system",
+						align: "center",
+						hidden: true,
 						flex: 1
 					}]
 				},
