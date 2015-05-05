@@ -299,9 +299,11 @@ function json_encode_safe($value, $options = 0) {
 	if (is_array($value)) {
 		array_walk_recursive($value, create_function('&$item, $key',
 		  'if (is_string($item) && !mb_check_encoding($item, "UTF-8")) '.
-		  '{ $item = mb_convert_encoding($item, "UTF-8"); }'));
+		  '{ $item = mb_convert_encoding($item, "UTF-8", '.
+		  'mb_detect_encoding($item)); }'));
 	} else if (is_string($value) && !mb_check_encoding($value, "UTF-8")) {
-		$value = mb_convert_encoding($value, "UTF-8");
+		$value = mb_convert_encoding($value, "UTF-8",
+		  mb_detect_encoding($value));
 	}
 	return json_encode($value, $options);
 }
