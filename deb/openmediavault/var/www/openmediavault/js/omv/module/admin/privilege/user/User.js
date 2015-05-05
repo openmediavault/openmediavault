@@ -22,6 +22,7 @@
 // require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/workspace/window/Form.js")
 // require("js/omv/workspace/window/Grid.js")
+// require("js/omv/form/Panel.js")
 // require("js/omv/form/field/CheckboxGrid.js")
 // require("js/omv/form/field/Password.js")
 // require("js/omv/grid/PrivilegesByRole.js")
@@ -33,146 +34,99 @@
 // require("js/omv/data/reader/RpcArray.js")
 
 /**
- * @class OMV.module.admin.privilege.user.User
- * @derived OMV.workspace.window.Form
+ * @class OMV.module.admin.privilege.user.user.General
+ * @derived OMV.form.Panel
  */
-Ext.define("OMV.module.admin.privilege.user.User", {
-	extend: "OMV.workspace.window.Form",
+Ext.define("OMV.module.admin.privilege.user.user.General", {
+	extend: "OMV.form.Panel",
 	uses: [
 		"OMV.data.Store",
 		"OMV.data.Model",
 		"OMV.data.proxy.Rpc",
 		"OMV.data.reader.RpcArray",
-		"OMV.form.field.CheckboxGrid",
 		"OMV.form.field.Password"
 	],
 
-	rpcService: "UserMgmt",
-	rpcSetMethod: "setUser",
-	width: 420,
+	title: _("General"),
+	bodyPadding: "5 5 0",
 
-	getFormConfig: function() {
-		return {
-			layout: {
-				type: "vbox",
-				align: "stretch"
-			}
-		};
-	},
-
-	getFormItems: function() {
+	initComponent: function() {
 		var me = this;
-		return [{
-			xtype: "textfield",
-			name: "name",
-			fieldLabel: _("Name"),
-			allowBlank: false,
-			vtype: "username",
-			readOnly: Ext.isDefined(me.rpcGetMethod)
-		},{
-			xtype: "textfield",
-			name: "comment",
-			fieldLabel: _("Comment"),
-			maxLength: 65,
-			vtype: "comment"
-		},{
-			xtype: "textfield",
-			name: "email",
-			fieldLabel: _("Email"),
-			allowBlank: true,
-			vtype: "email"
-		},{
-			xtype: "passwordfield",
-			name: "password",
-			fieldLabel: _("Password"),
-			allowBlank: Ext.isDefined(me.rpcGetMethod)
-		},{
-			xtype: "passwordfield",
-			name: "passwordconf",
-			fieldLabel: _("Confirm password"),
-			allowBlank: Ext.isDefined(me.rpcGetMethod),
-			submitValue: false
-		},{
-			xtype: "combo",
-			name: "shell",
-			fieldLabel: _("Shell"),
-			allowBlank: false,
-			editable: false,
-			triggerAction: "all",
-			store: Ext.create("OMV.data.Store", {
-				autoLoad: true,
-				fields: [
-					{ name: "path", type: "string" }
-				],
-				proxy: {
-					type: "rpc",
-					reader: "rpcarray",
-					appendSortParams: false,
-					rpcData: {
-						service: "System",
-						method: "getShells"
-					}
-				},
-				sorters: [{
-					direction: "ASC",
-					property: "path"
-				}]
-			}),
-			emptyText: _("Select a shell ..."),
-			valueField: "path",
-			displayField: "path",
-			value: "/bin/dash"
-		},{
-			xtype: "checkboxgridfield",
-			name: "groups",
-			fieldLabel: _("Groups"),
-			valueField: "name",
-			flex: 1,
-			store: Ext.create("OMV.data.Store", {
-				autoLoad: true,
-				model: OMV.data.Model.createImplicit({
-					idProperty: "name",
+		Ext.apply(me, {
+			items: [{
+				xtype: "textfield",
+				name: "name",
+				fieldLabel: _("Name"),
+				allowBlank: false,
+				vtype: "username",
+				readOnly: "edit" == me.displayMode
+			},{
+				xtype: "textfield",
+				name: "comment",
+				fieldLabel: _("Comment"),
+				maxLength: 65,
+				vtype: "comment"
+			},{
+				xtype: "textfield",
+				name: "email",
+				fieldLabel: _("Email"),
+				allowBlank: true,
+				vtype: "email"
+			},{
+				xtype: "passwordfield",
+				name: "password",
+				fieldLabel: _("Password"),
+				allowBlank: "edit" == me.displayMode
+			},{
+				xtype: "passwordfield",
+				name: "passwordconf",
+				fieldLabel: _("Confirm password"),
+				allowBlank: "edit" == me.displayMode,
+				submitValue: false
+			},{
+				xtype: "combo",
+				name: "shell",
+				fieldLabel: _("Shell"),
+				allowBlank: false,
+				editable: false,
+				triggerAction: "all",
+				store: Ext.create("OMV.data.Store", {
+					autoLoad: true,
 					fields: [
-						{ name: "name", type: "string" }
-					]
+						{ name: "path", type: "string" }
+					],
+					proxy: {
+						type: "rpc",
+						reader: "rpcarray",
+						appendSortParams: false,
+						rpcData: {
+							service: "System",
+							method: "getShells"
+						}
+					},
+					sorters: [{
+						direction: "ASC",
+						property: "path"
+					}]
 				}),
-				proxy: {
-					type: "rpc",
-					appendSortParams: false,
-					rpcData: {
-						service: "UserMgmt",
-						method: "enumerateAllGroups"
-					}
-				},
-				sorters: [{
-					direction: "ASC",
-					property: "name"
-				}]
-			}),
-			gridConfig: {
-				stateful: true,
-				stateId: "e44f12ea-b1ed-11e2-9a57-00221568ca88",
-				columns: [{
-					text: _("Name"),
-					sortable: true,
-					dataIndex: "name",
-					stateId: "name",
-					flex: 1
-				}]
-			},
-			value: [ "users" ]
-		},{
-			xtype: "textfield",
-			name: "sshpubkey",
-			fieldLabel: _("SSH public key"),
-			allowBlank: true
-		},{
-			xtype: "checkbox",
-			name: "disallowusermod",
-			fieldLabel: _("Modify account"),
-			checked: false,
-			boxLabel: _("Disallow the user to modify his account.")
-		}];
+				emptyText: _("Select a shell ..."),
+				valueField: "path",
+				displayField: "path",
+				value: "/bin/dash"
+			},{
+				xtype: "textfield",
+				name: "sshpubkey",
+				fieldLabel: _("SSH public key"),
+				allowBlank: true
+			},{
+				xtype: "checkbox",
+				name: "disallowusermod",
+				fieldLabel: _("Modify account"),
+				checked: false,
+				boxLabel: _("Disallow the user to modify his account.")
+			}]
+		});
+		me.callParent(arguments);
 	},
 
 	isValid: function() {
@@ -192,6 +146,104 @@ Ext.define("OMV.module.admin.privilege.user.User", {
 			valid = false;
 		}
 		return valid;
+	}
+});
+
+/**
+ * @class OMV.module.admin.privilege.user.user.Groups
+ * @derived OMV.form.Panel
+ */
+Ext.define("OMV.module.admin.privilege.user.user.Groups", {
+	extend: "OMV.form.Panel",
+	uses: [
+		"OMV.data.Store",
+		"OMV.data.Model",
+		"OMV.data.proxy.Rpc",
+		"OMV.form.field.CheckboxGrid"
+	],
+
+	title: _("Groups"),
+	bodyPadding: "5 5 0",
+	layout: {
+		type: "vbox",
+		align: "stretch"
+	},
+
+	initComponent: function() {
+		var me = this;
+		Ext.apply(me, {
+			items: [{
+				xtype: "checkboxgridfield",
+				name: "groups",
+				fieldLabel: _("Groups"),
+				hideLabel: true,
+				valueField: "name",
+				flex: 1,
+				store: Ext.create("OMV.data.Store", {
+					autoLoad: true,
+					model: OMV.data.Model.createImplicit({
+						idProperty: "name",
+						fields: [
+							{ name: "name", type: "string" }
+						]
+					}),
+					proxy: {
+						type: "rpc",
+						appendSortParams: false,
+						rpcData: {
+							service: "UserMgmt",
+							method: "enumerateAllGroups"
+						}
+					},
+					sorters: [{
+						direction: "ASC",
+						property: "name"
+					}]
+				}),
+				gridConfig: {
+					stateful: true,
+					stateId: "e44f12ea-b1ed-11e2-9a57-00221568ca88",
+					columns: [{
+						text: _("Name"),
+						sortable: true,
+						dataIndex: "name",
+						stateId: "name",
+						flex: 1
+					}]
+				},
+				value: [ "users" ]
+			}]
+		});
+		me.callParent(arguments);
+	}
+});
+
+/**
+ * @class OMV.module.admin.privilege.user.User
+ * @derived OMV.workspace.window.Tab
+ */
+Ext.define("OMV.module.admin.privilege.user.User", {
+	extend: "OMV.workspace.window.Tab",
+	uses: [
+		"OMV.module.admin.privilege.user.user.General",
+		"OMV.module.admin.privilege.user.user.Groups"
+	],
+
+	rpcService: "UserMgmt",
+	rpcSetMethod: "setUser",
+
+	width: 420,
+	height: 320,
+
+	getTabItems: function() {
+		var me = this;
+		var displayMode = Ext.isDefined(me.rpcGetMethod) ? "edit" : "add";
+		return [
+			Ext.create("OMV.module.admin.privilege.user.user.General", {
+				displayMode: displayMode
+			}),
+			Ext.create("OMV.module.admin.privilege.user.user.Groups")
+		];
 	}
 });
 

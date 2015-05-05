@@ -35,7 +35,7 @@
 
 /**
  * @class OMV.module.admin.service.rsyncd.module.General
- * @derived OMV.workspace.form.Panel
+ * @derived OMV.form.Panel
  */
 Ext.define("OMV.module.admin.service.rsyncd.module.General", {
 	extend: "OMV.form.Panel",
