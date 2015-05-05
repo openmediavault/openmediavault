@@ -243,7 +243,7 @@ Ext.define("OMV.module.admin.privilege.user.User", {
 	rpcSetMethod: "setUser",
 
 	width: 420,
-	height: 320,
+	height: 340,
 
 	getTabItems: function() {
 		var me = this;
