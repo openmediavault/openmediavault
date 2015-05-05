@@ -1,6 +1,7 @@
 openmediavault (2.0.6) stable; urgency=low
 
   * Mantis 0001320: Recreate mount paths if they're don't exist.
+  * Mantis 0001322: File is still created with unparsable JSON.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 04 May 2015 14:09:15 +0200
 
