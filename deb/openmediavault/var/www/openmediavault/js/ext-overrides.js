@@ -846,3 +846,27 @@ Ext.applyIf(Ext, {
 		return /^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/i.test(value);
 	}
 });
+
+////////////////////////////////////////////////////////////////////////////////
+// Bugfixes
+////////////////////////////////////////////////////////////////////////////////
+
+// The event 'selectionchange' is not fired when a grid checkbox is deselected.
+Ext.define("Ext.overrides.selection.CheckboxModel", {
+    override: "Ext.selection.CheckboxModel",
+    compatibility: "5.1.0",
+    privates: {
+        selectWithEventMulti: function(record, e, isSelected) {
+            var me = this;
+            if (!e.shiftKey && !e.ctrlKey && e.getTarget(me.checkSelector)) {
+                if (isSelected) {
+                    me.doDeselect(record);
+                } else {
+                    me.doSelect(record, true);
+                }
+            } else {
+                me.callParent([ record, e, isSelected ]);
+            }
+        }
+    }
+});
