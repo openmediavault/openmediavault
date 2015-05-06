@@ -33,7 +33,7 @@ Ext.define("OMV.module.admin.system.powermanagement.Settings", {
 	getFormItems: function() {
 		return [{
 			xtype: "fieldset",
-			title: _("General Settings"),
+			title: _("General settings"),
 			fieldDefaults: {
 				labelSeparator: ""
 			},

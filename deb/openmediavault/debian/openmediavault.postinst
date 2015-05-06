@@ -455,6 +455,10 @@ case "$1" in
 			omv_config_delete "/config/system/network/dnsnameservers"
 		fi
 		if dpkg --compare-versions "$2" lt-nl "2.0.6"; then
+			# Add monitoring configuration.
+			omv_config_add_element "/config/system" "monitoring" ""
+			omv_config_add_element "/config/system/monitoring" "perfstats" "1"
+			# Convert public SSH key.
 			xmlstarlet sel -t -m "/config/system/usermanagement/users/user[string-length(sshpubkey) > 0]" \
 			  -v "uuid" \
 			  -i "position() != last()" -n -b \

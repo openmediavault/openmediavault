@@ -22,6 +22,12 @@
 			<cpufreq>1</cpufreq>
 			<powerbtn>nothing</powerbtn>
 		</powermanagement>
+		<monitoring>
+			<!--
+			<perfstats>0|1</perfstats>
+			-->
+			<perfstats>1</perfstats>
+		</monitoring>
 		<time>
 			<timezone>Etc/UTC</timezone>
 			<ntp>

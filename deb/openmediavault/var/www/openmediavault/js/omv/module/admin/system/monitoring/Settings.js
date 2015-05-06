@@ -19,39 +19,39 @@
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
 // require("js/omv/WorkspaceManager.js")
-// require("js/omv/workspace/tab/Panel.js")
+// require("js/omv/workspace/form/Panel.js")
 
 /**
- * @class OMV.module.admin.diagnostic.system.PerfStats
- * @derived OMV.workspace.tab.Panel
+ * @class OMV.module.admin.system.monitoring.Settings
+ * @derived OMV.workspace.form.Panel
  */
-Ext.define("OMV.module.admin.diagnostic.system.PerfStats", {
-	extend: "OMV.workspace.tab.Panel",
-	requires: [
-		"Ext.ClassManager"
-	],
+Ext.define("OMV.module.admin.system.monitoring.Settings", {
+	extend: "OMV.workspace.form.Panel",
 
-	initComponent: function() {
-		var me = this;
-		// Get the registered plugins and initialize them.
-		var classes = Ext.ClassManager.getNamesByExpression(
-		  "omv.plugin.diagnostic.system.*");
-		me.items = [];
-		Ext.Array.each(classes, function(name) {
-			me.items.push(Ext.create(name));
-		});
-		// Sort the tabs by their title.
-		Ext.Array.sort(me.items, function(a, b) {
-			return a.title > b.title ? 1 : (a.title < b.title ? -1 : 0);
-		});
-		me.callParent(arguments);
+	rpcService: "Monitoring",
+
+	getFormItems: function() {
+		return [{
+			xtype: "fieldset",
+			title: _("General settings"),
+			fieldDefaults: {
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "checkbox",
+				name: "perfstats",
+				fieldLabel: _("Performance statistics"),
+				checked: true,
+				boxLabel: _("Specifies whether the system performance statistics are collected periodically.")
+			}]
+		}];
 	}
 });
 
 OMV.WorkspaceManager.registerPanel({
-	id: "perfstats",
-	path: "/diagnostic/system",
-	text: _("Performance statistics"),
-	position: 30,
-	className: "OMV.module.admin.diagnostic.system.PerfStats"
+	id: "settings",
+	path: "/system/monitoring",
+	text: _("Settings"),
+	position: 10,
+	className: "OMV.module.admin.system.monitoring.Settings"
 });
