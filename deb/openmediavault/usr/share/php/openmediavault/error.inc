@@ -88,7 +88,7 @@ class OMVErrorMsg {
 		self::E_CONFIG_OBJECT_UNIQUENESS => "The configuration object is not unique: %s",
 		self::E_CONFIG_OBJECT_INVALID => "The configuration object is invalid: %s",
 		self::E_CONFIG_OBJECT_INUSE => "The configuration object is in use",
-		self::E_CONFIG_DIRTY => "Please apply the configuration first.", 
+		self::E_CONFIG_DIRTY => "Please apply the configuration first.",
 		self::E_CONFIG_UNMET_DEPENDENCY => "Unmet configuration dependency: %s",
 		self::E_EXEC_FAILED => "Failed to execute command '%s': %s",
 		self::E_EXEC_MISC => "%s",

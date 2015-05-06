@@ -54,13 +54,13 @@ class OMVRpcServiceRrd extends OMVRpcServiceAbstract {
 		// Create a background process.
 		$bgStatusFilename = $this->createBgProcStatus();
 		$pid = $this->fork();
-		if($pid > 0) { // Parent process.
+		if ($pid > 0) { // Parent process.
 			$this->initializeBgProcStatus($bgStatusFilename, $pid);
 			return $bgStatusFilename;
 		}
 		// Child process.
 		try {
-			$cmd = "omv-mkgraph 2>&1";
+			$cmd = "export LANG=C; omv-mkgraph 2>&1";
 			if(0 !== $this->exec($cmd, $output)) {
 				throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 				  $cmd, implode("\n", $output));

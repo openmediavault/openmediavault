@@ -92,7 +92,7 @@ class OMVSystem extends OMVObject {
 	public static function getNextDevice($type, $name) {
 		$cmdList = array(
 			"disk" => "cat /proc/partitions | awk '{print $4}'",
-			"iface" => "netstat -i | awk '{print $1}'"
+			"iface" => "export LANG=C; netstat -i | awk '{print $1}'"
 		);
 		$cmd = sprintf("%s | grep '^%s[0-9]\{1,\}$' | sort -r | " .
 		  "head -n 1", $cmdList[$type], $name);
@@ -193,7 +193,7 @@ class OMVSystem extends OMVObject {
 		$result['used'] = $result['total'] - $result['free'];
 		$result['percent'] = round(($result['used'] * 100) / $result['total']);
 */
-		@OMVUtil::exec("free -b", $output, $result);
+		@OMVUtil::exec("export LANG=C; free -b", $output, $result);
 		if ($result !== 0)
 			return FALSE;
 		$result = array(
@@ -272,8 +272,8 @@ class OMVSystem extends OMVObject {
 	 */
 	public static function getCPUStats() {
 		// Get the CPU model name. Take care about CPUs with multiple cores.
-		@OMVUtil::exec("grep -Em1 '^(model name|Processor)' /proc/cpuinfo",
-		  $output, $result);
+		@OMVUtil::exec("export LANG=C; grep -Em1 '^(model name|Processor)' ".
+		  "/proc/cpuinfo", $output, $result);
 		if ($result !== 0)
 			return FALSE;
 		$output = explode(":", $output[0]);
