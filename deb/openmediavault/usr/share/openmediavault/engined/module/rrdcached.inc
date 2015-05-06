@@ -25,21 +25,35 @@ require_once("openmediavault/error.inc");
 require_once("openmediavault/monit.inc");
 require_once("openmediavault/initscript.inc");
 
-class OMVModuleCollectd extends OMVModuleServiceAbstract
+class OMVModuleRrdCached extends OMVModuleServiceAbstract
   implements OMVINotifyListener {
 	/**
 	 * Get the module name.
 	 */
 	public function getName() {
-		return "collectd";
+		return "rrdcached";
 	}
+
+    /**
+	 * Defines the modules that if present should start after the service
+	 * provided by this module.
+	 * @return An array of modules.
+	 */
+	function startBefore() { return array("collectd"); }
+
+    /**
+	 * Defines the modules that if present should stop before the service
+	 * provided by this module.
+	 * @return An array of modules.
+	 */
+	function stopAfter() { return array("collectd"); }
 
 	/**
 	 * Generate the configuration.
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "export LANG=C; omv-mkconf collectd 2>&1";
+		$cmd = "export LANG=C; omv-mkconf rrdcached 2>&1";
 		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
@@ -52,9 +66,9 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 	public function stopService() {
 		// Disable monitoring of this service.
 		$monit = new OMVMonit();
-		$monit->unmonitor("collectd", TRUE);
+		$monit->unmonitor("rrdcached", TRUE);
 		// Stop this service and unregister System-V style init script.
-		$initd = new OMVSysVInitScript("collectd", FALSE);
+		$initd = new OMVSysVInitScript("rrdcached", FALSE);
 		$initd->exec();
 	}
 
@@ -73,18 +87,11 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 		if (FALSE === boolvalEx($object['perfstats']))
 			return;
 		// Start this service and register System-V style init script.
-		$initd = new OMVSysVInitScript("collectd", TRUE);
+		$initd = new OMVSysVInitScript("rrdcached", TRUE);
 		$initd->exec();
 		// Enable monitoring of this service.
 		$monit = new OMVMonit();
-		$monit->monitor("collectd");
-		// Generate RRD graph images based on the latest configuration as a
-		// background job (rendering may take some time).
-		$cmd = "export LANG=C; omv-mkgraph 2>&1 &";
-		if(0 !== $this->exec($cmd, $output)) {
-			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
-			  $cmd, implode("\n", $output));
-		}
+		$monit->monitor("rrdcached");
 	}
 
 	/**
@@ -95,26 +102,10 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.monitoring",
 		  array($this, "setDirty"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.fstab.mntent",
-		  array($this, "setDirty"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.iface",
-		  array($this, "setDirty"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.bondiface",
-		  array($this, "setDirty"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.vlaniface",
-		  array($this, "setDirty"));
 	}
 }
 
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
-$moduleMgr->registerModule(new OMVModuleCollectd());
+$moduleMgr->registerModule(new OMVModuleRrdCached());
 ?>
