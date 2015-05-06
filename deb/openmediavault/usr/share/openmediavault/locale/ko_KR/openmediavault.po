@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-18 01:40+0200\n"
-"PO-Revision-Date: 2015-04-17 23:41+0000\n"
+"POT-Creation-Date: 2015-05-06 17:14+0200\n"
+"PO-Revision-Date: 2015-05-06 15:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -2313,6 +2313,9 @@ msgstr "예멘 인민 민주 공화국"
 msgid "Perform a trial run with no changes made"
 msgstr "변경이 생기지 않는 시동작을 수행합니다."
 
+msgid "Performance statistics"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "유효성 주기"
 
@@ -3123,6 +3126,11 @@ msgid "Specifies whether it is allowed to login as superuser."
 msgstr "수퍼유저로 로그인이 가능하게 할 것인지 지정합니다."
 
 msgid ""
+"Specifies whether the system performance statistics are collected "
+"periodically."
+msgstr ""
+
+msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
 msgstr "시스템 상태를 감시하고 가장 적절한 CPU 단계를 선택할지 지정합니다."
@@ -3356,6 +3364,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "새로운 파일과 경로의 권한은 기본적으로 생성 마스크와 디렉터리 마스크가 지배하지만 권한 상속 패러미터가 이것을 덮어씁니다. 많은 사용자에게 단일 공유를 허용하고 각 사용자에 의해 유동적으로 사용되는 시스템에 부분적으로 유용할 수 있습니다."
+
+msgid "The public key in RFC 4716 SSH public key file format."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3886,6 +3897,9 @@ msgstr "버전"
 
 msgid "Vietnam"
 msgstr "베트남"
+
+msgid "VirtIO device"
+msgstr ""
 
 msgid "Volume"
 msgstr "볼륨"

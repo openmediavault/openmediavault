@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-18 01:40+0200\n"
-"PO-Revision-Date: 2015-04-17 23:41+0000\n"
+"POT-Creation-Date: 2015-05-06 17:14+0200\n"
+"PO-Revision-Date: 2015-05-06 15:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -2311,6 +2311,9 @@ msgstr "People's Democratic Republic of Yemen"
 msgid "Perform a trial run with no changes made"
 msgstr "Δοκιμαστική εκτέλεση χωρίς έλευση αλλαγών"
 
+msgid "Performance statistics"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Περίοδος ισχύως"
 
@@ -3121,6 +3124,11 @@ msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Ορίζει το αν επιτρέπεται η είσοδος ως υπερχρήστης"
 
 msgid ""
+"Specifies whether the system performance statistics are collected "
+"periodically."
+msgstr ""
+
+msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
 msgstr "Ορίζει το αν θα παρακολουθείται η κατάσταση του συστήματος για να επιλέγεται το πιο κατάλληλο επίπεδο του επεξεργαστή."
@@ -3354,6 +3362,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Οι άδειες σε καινούργια αρχεία και φακέλους ρυθμίζονται κανονικά από την μάσκα δημιουργίας και φακέλου, αλλά η κληρονομικότητα το παρακάμπτει αυτό. Ιδιαίτερα χρήσιμο σε συστήματα με πολλούς χρήστες, καθώς τους προσφέρει ευελιξία."
+
+msgid "The public key in RFC 4716 SSH public key file format."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3884,6 +3895,9 @@ msgstr "Έκδοση"
 
 msgid "Vietnam"
 msgstr "Vietnam"
+
+msgid "VirtIO device"
+msgstr ""
 
 msgid "Volume"
 msgstr "Τόμος"

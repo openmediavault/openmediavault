@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-18 01:40+0200\n"
-"PO-Revision-Date: 2015-04-17 23:41+0000\n"
+"POT-Creation-Date: 2015-05-06 17:14+0200\n"
+"PO-Revision-Date: 2015-05-06 15:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -2311,6 +2311,9 @@ msgstr "People's Democratic Republic of Yemen"
 msgid "Perform a trial run with no changes made"
 msgstr "Udfør en test uden at tilføje ændringer"
 
+msgid "Performance statistics"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Gyldighedsperiode"
 
@@ -3121,6 +3124,11 @@ msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Angiver om det er tilladt at logge ind som superbruger"
 
 msgid ""
+"Specifies whether the system performance statistics are collected "
+"periodically."
+msgstr ""
+
+msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
 msgstr "Angiver overvågning af systemets status og vælger det mest hensigtsmæssige CPU niveau."
@@ -3354,6 +3362,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Rettighederne på nye filer og mapper er normalt styret af oprette-maske og biblioteks-maske, men nedarv tilladelser parameteren tilsidesætter dette. Dette kan være særligt nyttigt på systemer med mange brugere for at tillade en enkelt deling i at blive anvendt fleksibelt af hver enkelt bruger."
+
+msgid "The public key in RFC 4716 SSH public key file format."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3884,6 +3895,9 @@ msgstr "Version"
 
 msgid "Vietnam"
 msgstr "Vietnam"
+
+msgid "VirtIO device"
+msgstr ""
 
 msgid "Volume"
 msgstr "Drev"

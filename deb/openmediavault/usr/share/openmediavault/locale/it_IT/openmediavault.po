@@ -13,9 +13,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-18 01:40+0200\n"
-"PO-Revision-Date: 2015-04-17 23:41+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2015-05-06 17:14+0200\n"
+"PO-Revision-Date: 2015-05-06 15:17+0000\n"
+"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -203,7 +203,7 @@ msgid "Add"
 msgstr "Aggiungi"
 
 msgid "Add VLAN interface"
-msgstr ""
+msgstr "Aggiungi interfaccia VLAN"
 
 msgid "Add bond interface"
 msgstr ""
@@ -1024,7 +1024,7 @@ msgid "Edit SSL certificate"
 msgstr "Modifica il certificato SSL"
 
 msgid "Edit VLAN interface"
-msgstr ""
+msgstr "Modifica interfaccia VLAN"
 
 msgid "Edit bond interface"
 msgstr ""
@@ -2316,6 +2316,9 @@ msgstr "Repubblica Democratica Popolare dello Yemen (Yemen del Sud)"
 msgid "Perform a trial run with no changes made"
 msgstr "Esegue un'esecuzione di prova senza apportare cambiamenti"
 
+msgid "Performance statistics"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Periodo di validità"
 
@@ -2541,10 +2544,10 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
 msgstr "RAID 4"
@@ -2814,7 +2817,7 @@ msgid "Scheduling"
 msgstr ""
 
 msgid "Search domains"
-msgstr ""
+msgstr "Domini di ricerca"
 
 msgid "Secondary email"
 msgstr "Email secondaria"
@@ -2862,7 +2865,7 @@ msgid "Select a parent interface ..."
 msgstr ""
 
 msgid "Select a primary interface ..."
-msgstr ""
+msgstr "Scegli un'interfaccia primaria ..."
 
 msgid "Select a protocol ..."
 msgstr "Scegli un protocollo ..."
@@ -3126,6 +3129,11 @@ msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Specifica se è consentito effettuare il login come superuser."
 
 msgid ""
+"Specifies whether the system performance statistics are collected "
+"periodically."
+msgstr ""
+
+msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
 msgstr "Specifica se monitorare lo stato del sistema per impostare il livello di CPU più adatto."
@@ -3134,7 +3142,7 @@ msgid "Specifies which slave is the primary device."
 msgstr "Specificare quale disco secondario è il device primario."
 
 msgid "Speed"
-msgstr ""
+msgstr "Velocità"
 
 msgid "Spindown time"
 msgstr "Tempo di arresto della rotazione."
@@ -3359,6 +3367,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "I permessi sui nuovi file e directory sono normalmente impostati dal create mask e directory mask ma i parametri dei permessi ereditati li sovrascrivono. Questo può essere particolarmente utile sui sistemi con molti utenti per usare una singola condivisione con flessibilità da ogni utente."
+
+msgid "The public key in RFC 4716 SSH public key file format."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3861,10 +3872,10 @@ msgid "Uzbekistan"
 msgstr "Uzbekistan"
 
 msgid "VLAN"
-msgstr ""
+msgstr "VLAN"
 
 msgid "VLAN id"
-msgstr ""
+msgstr "VLAN id"
 
 msgid "Valid to"
 msgstr "Valido fino a"
@@ -3889,6 +3900,9 @@ msgstr "Versione"
 
 msgid "Vietnam"
 msgstr "Vietnam"
+
+msgid "VirtIO device"
+msgstr "Periferica VirtIO"
 
 msgid "Volume"
 msgstr "Volume"

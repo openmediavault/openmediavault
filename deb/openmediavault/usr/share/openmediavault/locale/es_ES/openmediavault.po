@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-18 01:40+0200\n"
-"PO-Revision-Date: 2015-04-17 23:41+0000\n"
+"POT-Creation-Date: 2015-05-06 17:14+0200\n"
+"PO-Revision-Date: 2015-05-06 15:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -201,10 +201,10 @@ msgid "Add"
 msgstr "Añadir"
 
 msgid "Add VLAN interface"
-msgstr ""
+msgstr "Añadir VLAN"
 
 msgid "Add bond interface"
-msgstr ""
+msgstr "Añadir interfaz acopladas"
 
 msgid "Add devices to RAID device"
 msgstr "Añadir dispositivos al RAID"
@@ -499,7 +499,7 @@ msgid "Bolivia"
 msgstr "Bolivia"
 
 msgid "Bond"
-msgstr ""
+msgstr "Bond=acopladas"
 
 msgid "Bond options"
 msgstr "Opciones de vinculación"
@@ -772,7 +772,7 @@ msgid "DHCP"
 msgstr "DHCP"
 
 msgid "DNS servers"
-msgstr ""
+msgstr "Servidores DNS"
 
 msgid "Daemon"
 msgstr "Demonio"
@@ -1022,13 +1022,13 @@ msgid "Edit SSL certificate"
 msgstr "Editar certificado SSL"
 
 msgid "Edit VLAN interface"
-msgstr ""
+msgstr "Editar VLAN"
 
 msgid "Edit bond interface"
-msgstr ""
+msgstr "Editar interfaz acopladas"
 
 msgid "Edit ethernet interface"
-msgstr ""
+msgstr "Editar Interfaz Ethernet"
 
 msgid "Edit firewall rule"
 msgstr " Editar reglas del Firewall"
@@ -1260,7 +1260,7 @@ msgid "Failed to get list of network interface devices"
 msgstr "Falló al obtener la lista de los dispositivos de red"
 
 msgid "Failed to get list of unused network interface devices"
-msgstr ""
+msgstr "Falló la creacción de una lista de interfaces de red sin uso."
 
 msgid "Failed to get list of users."
 msgstr "Fallo al obtener la lista de usuarios."
@@ -1670,7 +1670,7 @@ msgid "Invalid group name"
 msgstr "Nombre de grupo inválido"
 
 msgid "Invalid host name"
-msgstr ""
+msgstr "Nombre de host inválido"
 
 msgid "Invalid line: %s"
 msgstr "Línea inválida: %s"
@@ -2285,7 +2285,7 @@ msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent interface"
-msgstr ""
+msgstr "Interfaz padre"
 
 msgid "Passive FTP"
 msgstr "FTP Pasivo"
@@ -2313,6 +2313,9 @@ msgstr "Republica Democratica del Yemen"
 
 msgid "Perform a trial run with no changes made"
 msgstr "Realizar una prueba sin realizar cambios"
+
+msgid "Performance statistics"
+msgstr ""
 
 msgid "Period of validity"
 msgstr "Periodo de validez"
@@ -2402,7 +2405,7 @@ msgstr "Seleccione primero un volumen"
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
 "are allowed."
-msgstr ""
+msgstr "Por favor verifique que la carpeta compartida tiene permisos de escritura por si nuevos archivos fuesen necesarios."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2539,10 +2542,10 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
 msgstr "RAID 4"
@@ -2629,7 +2632,7 @@ msgid "Remove"
 msgstr "Eliminar"
 
 msgid "Remove devices from RAID device"
-msgstr ""
+msgstr "Eliminar dispositivos del RAID"
 
 msgid "Replace"
 msgstr "Reemplazar"
@@ -2812,7 +2815,7 @@ msgid "Scheduling"
 msgstr "programación"
 
 msgid "Search domains"
-msgstr ""
+msgstr "Buscar dominios"
 
 msgid "Secondary email"
 msgstr "E-mail secundario"
@@ -2857,10 +2860,10 @@ msgid "Select a language ..."
 msgstr "Seleccione un idioma ..."
 
 msgid "Select a parent interface ..."
-msgstr ""
+msgstr "Seleccionar un interfaz padre ..."
 
 msgid "Select a primary interface ..."
-msgstr ""
+msgstr "Seleccionar un interfaz primario ..."
 
 msgid "Select a protocol ..."
 msgstr "Seleccionar un protocolo ..."
@@ -2881,7 +2884,7 @@ msgid "Select devices to be added to the RAID device"
 msgstr "Seleccionar dispositivos a añadir al RAID"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Seleecione dispositivos a eliminar del RAID."
 
 msgid "Select or enter a user name ..."
 msgstr "Seleccione o escriba un nombre de usuario ..."
@@ -3124,6 +3127,11 @@ msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Especifica si está permitido el login como superusuario"
 
 msgid ""
+"Specifies whether the system performance statistics are collected "
+"periodically."
+msgstr ""
+
+msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
 msgstr "Especifica si se monitoriza el estado del sistema y selecciona el nivel de CPU más apropiado."
@@ -3132,7 +3140,7 @@ msgid "Specifies which slave is the primary device."
 msgstr "Especifica qué esclavo es el dispositivo primario."
 
 msgid "Speed"
-msgstr ""
+msgstr "Velocidad"
 
 msgid "Spindown time"
 msgstr "Tiempo para detener el disco"
@@ -3326,7 +3334,7 @@ msgid "The name of the share."
 msgstr "El nombre del compartido"
 
 msgid "The name servers are used to look up host names on the network."
-msgstr ""
+msgstr "Los servidores de nombres para resolver nombres en la red."
 
 msgid "The number of days the certificate is valid for."
 msgstr "El número de días de validez del certificado."
@@ -3357,6 +3365,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Los permisos sobre los nuevos archivos y directorios se establecen por la máscara de creación y la máscara de directorio, pero el parámetro de herencia de permisos prevalece. Puede ser útil especialmente en sistemas con muchos usuarios para permitir una utilización de una misma compartición de una forma flexible para cada usuario."
+
+msgid "The public key in RFC 4716 SSH public key file format."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3444,27 +3455,27 @@ msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Debería ser una dirección de red IPv46en notación CIDR."
 
 msgid "This field should be a domain name or an IP address"
-msgstr ""
+msgstr "El campo debe ser un dominio o una IP."
 
 msgid "This field should be a domain name or an IPv4 address"
-msgstr ""
+msgstr "El campo debe ser un dominio o un IP tipo IPV4"
 
 msgid "This field should be a host name or an IP address"
-msgstr ""
+msgstr "El campo debe ser un nombre de host o una IP"
 
 msgid "This field should be a host name or an IPv4 address"
-msgstr ""
+msgstr "El campo debe ser un nombre de host o una IP tipo IPV4"
 
 msgid "This field should be a list of domain names or IP addresses"
-msgstr ""
+msgstr "El campo debe ser una lista de dominios o de direcciones IP"
 
 msgid ""
 "This field should be a list of domain names or IP addresses seperated by <,>"
 " or <;>"
-msgstr ""
+msgstr "El campo debe ser una lista de dominios o de direcciones IP separados por <,> o <;>"
 
 msgid "This field should be a list of host names or IP addresses"
-msgstr ""
+msgstr "El campo debe ser una lista de nombres de host o de direcciones IP"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3859,10 +3870,10 @@ msgid "Uzbekistan"
 msgstr "Uzbekistán"
 
 msgid "VLAN"
-msgstr ""
+msgstr "VLAN"
 
 msgid "VLAN id"
-msgstr ""
+msgstr "VLAN id"
 
 msgid "Valid to"
 msgstr "Válido hasta"
@@ -3887,6 +3898,9 @@ msgstr "Versión"
 
 msgid "Vietnam"
 msgstr "Vietnam"
+
+msgid "VirtIO device"
+msgstr ""
 
 msgid "Volume"
 msgstr "Volumen"

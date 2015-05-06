@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-18 01:40+0200\n"
-"PO-Revision-Date: 2015-04-23 19:11+0000\n"
+"POT-Creation-Date: 2015-05-06 17:14+0200\n"
+"PO-Revision-Date: 2015-05-06 15:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -2315,6 +2315,9 @@ msgstr "Yémen"
 msgid "Perform a trial run with no changes made"
 msgstr "Effectue un essai sans aucun changement"
 
+msgid "Performance statistics"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Validité"
 
@@ -3125,6 +3128,11 @@ msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Se connecter en tant que superutilisateur."
 
 msgid ""
+"Specifies whether the system performance statistics are collected "
+"periodically."
+msgstr ""
+
+msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
 msgstr "Surveiller l'état ​​du système et sélectionner le niveau d'utilisation du processeur mieux approprié."
@@ -3358,6 +3366,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Les permissions sur les nouveaux fichiers et répertoires sont normalement régies par le masque de création de fichier et le masque de répertoire, mais le paramètre d'héritage des autorisations les écrase. Cela peut être utile sur les systèmes avec de nombreux utilisateurs afin de permettre à un dossier partagé d'être utilisé avec souplesse par chaque utilisateur."
+
+msgid "The public key in RFC 4716 SSH public key file format."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3888,6 +3899,9 @@ msgstr "Version"
 
 msgid "Vietnam"
 msgstr "Vietnam"
+
+msgid "VirtIO device"
+msgstr ""
 
 msgid "Volume"
 msgstr "Volume"

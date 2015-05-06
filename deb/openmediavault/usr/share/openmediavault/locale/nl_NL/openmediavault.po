@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-18 01:40+0200\n"
-"PO-Revision-Date: 2015-04-17 23:41+0000\n"
+"POT-Creation-Date: 2015-05-06 17:14+0200\n"
+"PO-Revision-Date: 2015-05-06 15:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -2314,6 +2314,9 @@ msgstr "Democratische Volksrepubliek Jemen"
 msgid "Perform a trial run with no changes made"
 msgstr "Voer een test uit zonder gemaakte aanpassingen"
 
+msgid "Performance statistics"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Geldigheidsperiode"
 
@@ -3124,6 +3127,11 @@ msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Geeft aan of het toegestaan is als hoofdgebruiker aan te melden."
 
 msgid ""
+"Specifies whether the system performance statistics are collected "
+"periodically."
+msgstr ""
+
+msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
 msgstr "Geeft aan of de status van het systeem gecontroleerd wordt en kies het meest geschikte CPU-niveau."
@@ -3357,6 +3365,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "De rechten op nieuwe bestanden en mappen worden normaal toegekend door het aanmaak- en mapmasker, maar de parameter voor het erven van rechten overschrijft dit. Dit is in het bijzonder handig voor het flexibel gebruik van een gedeelde bron op een systeem met veel gebruikers."
+
+msgid "The public key in RFC 4716 SSH public key file format."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3887,6 +3898,9 @@ msgstr "Versie"
 
 msgid "Vietnam"
 msgstr "Vietnam"
+
+msgid "VirtIO device"
+msgstr ""
 
 msgid "Volume"
 msgstr "Schijf(deel)"

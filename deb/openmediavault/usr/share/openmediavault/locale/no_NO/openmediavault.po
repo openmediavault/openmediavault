@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-18 01:40+0200\n"
-"PO-Revision-Date: 2015-04-17 23:41+0000\n"
+"POT-Creation-Date: 2015-05-06 17:14+0200\n"
+"PO-Revision-Date: 2015-05-06 15:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -2312,6 +2312,9 @@ msgstr "Sør-Jemen"
 msgid "Perform a trial run with no changes made"
 msgstr "Kjør en test uten at noen faktiske endringer blir skrevet"
 
+msgid "Performance statistics"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Gyldighetsperiode"
 
@@ -3122,6 +3125,11 @@ msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Angir om det er tillatt å logge inn som superbruker."
 
 msgid ""
+"Specifies whether the system performance statistics are collected "
+"periodically."
+msgstr ""
+
+msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
 msgstr "Angir om systemets status skal overvåkes og velge passende CPU nivå"
@@ -3355,6 +3363,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Tillatelsene på nye filer og kataloger er normalt styrt av Opprett maske og Mappemaske men parameteren  Arv tillatelser overstyrer denne. Dette kan være spesielt nyttig på systemer med mange brukere for å tillate et enkelt område å bli brukt fleksibelt av alle brukere."
+
+msgid "The public key in RFC 4716 SSH public key file format."
+msgstr ""
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3885,6 +3896,9 @@ msgstr "Versjon"
 
 msgid "Vietnam"
 msgstr "Vietnam"
+
+msgid "VirtIO device"
+msgstr ""
 
 msgid "Volume"
 msgstr "Volum"

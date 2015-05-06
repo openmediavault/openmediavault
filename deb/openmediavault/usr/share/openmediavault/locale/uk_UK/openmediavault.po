@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-18 01:40+0200\n"
-"PO-Revision-Date: 2015-04-17 23:41+0000\n"
+"POT-Creation-Date: 2015-05-06 17:14+0200\n"
+"PO-Revision-Date: 2015-05-06 15:14+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -2313,6 +2313,9 @@ msgstr "Народна Демократична Республіка Ємен"
 msgid "Perform a trial run with no changes made"
 msgstr "Виконайте пробний запуск без внесення будь-яких змін"
 
+msgid "Performance statistics"
+msgstr ""
+
 msgid "Period of validity"
 msgstr "Термін дії"
 
@@ -3123,6 +3126,11 @@ msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Визначає чи дозволено увійти в систему, як адміністратор."
 
 msgid ""
+"Specifies whether the system performance statistics are collected "
+"periodically."
+msgstr ""
+
+msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
 msgstr "Визначає, чи слід контролювати стан системи і вибрати найбільш підходящий рівень процесора."
@@ -3355,6 +3363,9 @@ msgid ""
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
+msgstr ""
+
+msgid "The public key in RFC 4716 SSH public key file format."
 msgstr ""
 
 msgid ""
@@ -3886,6 +3897,9 @@ msgstr "Версія"
 
 msgid "Vietnam"
 msgstr "В'єтнам"
+
+msgid "VirtIO device"
+msgstr ""
 
 msgid "Volume"
 msgstr "Об'єм"

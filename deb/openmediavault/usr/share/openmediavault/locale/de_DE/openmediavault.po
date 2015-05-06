@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-18 01:40+0200\n"
-"PO-Revision-Date: 2015-04-18 00:04+0000\n"
+"POT-Creation-Date: 2015-05-06 17:14+0200\n"
+"PO-Revision-Date: 2015-05-06 15:17+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -2320,6 +2320,9 @@ msgstr "Volksdemokratische Republik Jemen"
 msgid "Perform a trial run with no changes made"
 msgstr "Führe eine Probelauf ohne Änderungen durch"
 
+msgid "Performance statistics"
+msgstr "Leistungsdaten"
+
 msgid "Period of validity"
 msgstr "Gültigkeitsdauer"
 
@@ -3130,6 +3133,11 @@ msgid "Specifies whether it is allowed to login as superuser."
 msgstr "Legt fest ob ein Login als Superuser erlaubt ist."
 
 msgid ""
+"Specifies whether the system performance statistics are collected "
+"periodically."
+msgstr "Gibt an, ob die Leistungsdaten des Systems regelmäßig gesammelt werden sollen."
+
+msgid ""
 "Specifies whether to monitor the system status and select the most "
 "appropriate CPU level."
 msgstr "Legt fest ob der Systemstatus überwacht und der geeignete CPU Level gewählt wird."
@@ -3363,6 +3371,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Die Zugriffsrechte neuer Dateien und Verzeichnisse sind normalerweise durch die Create- und Directory-Maske geregelt aber der Berechtigungen erben Parameter überschreibt dies. Das kann besonders auf Systemen mit vielen Benutzern nützlich sein um eine einzelne Freigabe flexibel von jedem Benutzer benutzbar zu machen."
+
+msgid "The public key in RFC 4716 SSH public key file format."
+msgstr "Der öffentliche Schlüssel im RFC 4716 SSH Public-Key-Dateiformat."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3893,6 +3904,9 @@ msgstr "Version"
 
 msgid "Vietnam"
 msgstr "Vietnam"
+
+msgid "VirtIO device"
+msgstr "VirtIO Laufwerk"
 
 msgid "Volume"
 msgstr "Datenträger"
