@@ -35,6 +35,20 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 	}
 
 	/**
+	 * Defines the modules that if present should start before the service
+	 * provided by this module.
+	 * @return An array of modules.
+	 */
+	public function shouldStart() { return array("monit"); }
+
+	/**
+	 * Defines the modules that if present should be stopped after the
+	 * service provided by this module.
+	 * @return An array of modules.
+	 */
+	function shouldStop() { return array("monit"); }
+
+	/**
 	 * Generate the configuration.
 	 * @throw E_EXEC_FAILED
 	 */
@@ -64,13 +78,13 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 	 */
 	public function startService() {
 		global $xmlConfig;
-		$xpath = "//system/monitoring";
+		$xpath = "//system/monitoring/perfstats";
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if (FALSE === boolvalEx($object['perfstats']))
+		if (FALSE === boolvalEx($object['enable']))
 			return;
 		// Start this service and register System-V style init script.
 		$initd = new OMVSysVInitScript("collectd", TRUE);
@@ -81,7 +95,7 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 		// Generate RRD graph images based on the latest configuration as a
 		// background job (rendering may take some time).
 		$cmd = "export LANG=C; omv-mkgraph 2>&1 &";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -93,7 +107,7 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.monitoring",
+		  "org.openmediavault.system.monitoring.perfstats",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
@@ -111,6 +125,11 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
 		  "org.openmediavault.system.network.interfaces.vlaniface",
 		  array($this, "setDirty"));
+		$moduleMgr = &OMVModuleMgr::getInstance();
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.monitoring.perfstats",
+		  array($moduleMgr->getModule("monit"), "setDirty"));
 	}
 }
 

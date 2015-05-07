@@ -22,13 +22,13 @@
 // require("js/omv/workspace/form/Panel.js")
 
 /**
- * @class OMV.module.admin.system.monitoring.Settings
+ * @class OMV.module.admin.system.monitoring.PerfStats
  * @derived OMV.workspace.form.Panel
  */
-Ext.define("OMV.module.admin.system.monitoring.Settings", {
+Ext.define("OMV.module.admin.system.monitoring.PerfStats", {
 	extend: "OMV.workspace.form.Panel",
 
-	rpcService: "Monitoring",
+	rpcService: "PerfStats",
 
 	getFormItems: function() {
 		return [{
@@ -39,8 +39,8 @@ Ext.define("OMV.module.admin.system.monitoring.Settings", {
 			},
 			items: [{
 				xtype: "checkbox",
-				name: "perfstats",
-				fieldLabel: _("Performance statistics"),
+				name: "enable",
+				fieldLabel: _("Enable"),
 				checked: true,
 				boxLabel: _("Specifies whether the system performance statistics are collected periodically.")
 			}]
@@ -49,9 +49,9 @@ Ext.define("OMV.module.admin.system.monitoring.Settings", {
 });
 
 OMV.WorkspaceManager.registerPanel({
-	id: "settings",
+	id: "perfstats",
 	path: "/system/monitoring",
-	text: _("Settings"),
+	text: _("Performance statistics"),
 	position: 10,
-	className: "OMV.module.admin.system.monitoring.Settings"
+	className: "OMV.module.admin.system.monitoring.PerfStats"
 });

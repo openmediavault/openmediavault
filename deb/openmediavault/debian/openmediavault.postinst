@@ -457,7 +457,8 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "2.0.6"; then
 			# Add monitoring configuration.
 			omv_config_add_element "/config/system" "monitoring" ""
-			omv_config_add_element "/config/system/monitoring" "perfstats" "1"
+			omv_config_add_element "/config/system/monitoring" "perfstats" ""
+			omv_config_add_element "/config/system/monitoring/perfstats" "enable" "1"
 			# Convert public SSH key.
 			xmlstarlet sel -t -m "/config/system/usermanagement/users/user[string-length(sshpubkey) > 0]" \
 			  -v "uuid" \

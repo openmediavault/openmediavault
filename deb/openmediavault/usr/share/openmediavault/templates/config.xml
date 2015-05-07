@@ -23,10 +23,12 @@
 			<powerbtn>nothing</powerbtn>
 		</powermanagement>
 		<monitoring>
-			<!--
-			<perfstats>0|1</perfstats>
-			-->
-			<perfstats>1</perfstats>
+			<perfstats>
+				<!--
+				<enable>0|1</enable>
+				-->
+				<enable>1</enable>
+			</perfstats>
 		</monitoring>
 		<time>
 			<timezone>Etc/UTC</timezone>

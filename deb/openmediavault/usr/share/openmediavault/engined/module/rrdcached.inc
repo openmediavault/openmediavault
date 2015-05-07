@@ -34,6 +34,20 @@ class OMVModuleRrdCached extends OMVModuleServiceAbstract
 		return "rrdcached";
 	}
 
+	/**
+	 * Defines the modules that if present should start before the service
+	 * provided by this module.
+	 * @return An array of modules.
+	 */
+	public function shouldStart() { return array("monit"); }
+
+	/**
+	 * Defines the modules that if present should be stopped after the
+	 * service provided by this module.
+	 * @return An array of modules.
+	 */
+	function shouldStop() { return array("monit"); }
+
     /**
 	 * Defines the modules that if present should start after the service
 	 * provided by this module.
@@ -78,13 +92,13 @@ class OMVModuleRrdCached extends OMVModuleServiceAbstract
 	 */
 	public function startService() {
 		global $xmlConfig;
-		$xpath = "//system/monitoring";
+		$xpath = "//system/monitoring/perfstats";
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		if (FALSE === boolvalEx($object['perfstats']))
+		if (FALSE === boolvalEx($object['enable']))
 			return;
 		// Start this service and register System-V style init script.
 		$initd = new OMVSysVInitScript("rrdcached", TRUE);
@@ -100,8 +114,13 @@ class OMVModuleRrdCached extends OMVModuleServiceAbstract
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.monitoring",
+		  "org.openmediavault.system.monitoring.perfstats",
 		  array($this, "setDirty"));
+		$moduleMgr = &OMVModuleMgr::getInstance();
+		$dispatcher->addListener(
+		  OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.monitoring.perfstats",
+		  array($moduleMgr->getModule("monit"), "setDirty"));
 	}
 }
 

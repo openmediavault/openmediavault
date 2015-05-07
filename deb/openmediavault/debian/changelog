@@ -1,5 +1,6 @@
 openmediavault (2.0.6) stable; urgency=low
 
+  * Update locales.
   * The public key of the user must now be specified in the
     RFC 4716 SSH public key file format.
   * Mantis 0001193: Option to turn off the collection of system

@@ -26,12 +26,12 @@ require_once("openmediavault/functions.inc");
 require_once("openmediavault/rpcservice.inc");
 require_once("openmediavault/notify.inc");
 
-class OMVRpcServiceMonitoring extends OMVRpcServiceAbstract {
+class OMVRpcServicePerfStats extends OMVRpcServiceAbstract {
 	/**
 	 * Get the RPC service name.
 	 */
 	public function getName() {
-		return "Monitoring";
+		return "PerfStats";
 	}
 
 	/**
@@ -56,14 +56,14 @@ class OMVRpcServiceMonitoring extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get the configuration object.
-		$xpath = "//system/monitoring";
+		$xpath = "//system/monitoring/perfstats";
 		$object = $xmlConfig->get($xpath);
 		if (is_null($object)) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
 		// Modify result data.
-		$object['perfstats'] = boolvalEx($object['perfstats']);
+		$object['enable'] = boolvalEx($object['enable']);
 		return $object;
 	}
 
@@ -84,22 +84,23 @@ class OMVRpcServiceMonitoring extends OMVRpcServiceAbstract {
 		$this->validateMethodParams($params, '{
 			  "type":"object",
 			  "properties":{
-				  "perfstats":{"type":"boolean"}
+				  "enable":{"type":"boolean"}
 			  }
 		  }');
 		// Update the configuration object.
 		$object = array(
-			"perfstats" => array_boolval($params, "perfstats")
+			"enable" => array_boolval($params, "enable")
 		);
 		// Set the configuration object.
-		$success = $xmlConfig->replace("//system/monitoring", $object);
+		$success = $xmlConfig->replace("//system/monitoring/perfstats",
+		  $object);
 		if (FALSE === $success) {
 			throw new OMVException(OMVErrorMsg::E_CONFIG_SET_OBJECT_FAILED);
 		}
 		// Notify configuration changes.
 		$dispatcher = &OMVNotifyDispatcher::getInstance();
 		$dispatcher->notify(OMV_NOTIFY_MODIFY,
-		  "org.openmediavault.system.monitoring", $object);
+		  "org.openmediavault.system.monitoring.perfstats", $object);
 		// Return the configuration object.
 		return $object;
 	}
@@ -107,5 +108,5 @@ class OMVRpcServiceMonitoring extends OMVRpcServiceAbstract {
 
 // Register the RPC service.
 $rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
-$rpcServiceMgr->registerService(new OMVRpcServiceMonitoring());
+$rpcServiceMgr->registerService(new OMVRpcServicePerfStats());
 ?>

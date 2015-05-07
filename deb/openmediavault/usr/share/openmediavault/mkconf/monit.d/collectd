@@ -27,6 +27,9 @@ set -e
 OMV_MONIT_SERVICE_COLLECTD_CONFIG=${OMV_MONIT_SERVICE_COLLECTD_CONFIG:-"/etc/monit/conf.d/openmediavault-collectd.conf"}
 OMV_MONIT_SERVICE_COLLECTD_MODE=${OMV_MONIT_SERVICE_COLLECTD_MODE:-"active"}
 
+rm -f ${OMV_MONIT_SERVICE_COLLECTD_CONFIG}
+[ "$(omv_config_get "//system/monitoring/perfstats/enable")" = "0" ] && exit 0
+
 cat <<EOF > ${OMV_MONIT_SERVICE_COLLECTD_CONFIG}
 check process collectd with pidfile /var/run/collectd.pid
   start program = "/etc/init.d/collectd start"
