@@ -214,7 +214,16 @@ OMV.util.Format = function() {
 						Ext.widget("progressbar", {
 							renderTo: id,
 							value: percentage,
-							text: text
+							text: text,
+							listeners: {
+								afterrender: function(c) {
+									// This is a workaround because the
+									// text is only set if the progress bar
+									// component is rendered.
+									if (null != text)
+										c.updateText(text);
+								}
+							}
 						});
 					};
 					fn.apply(this);
