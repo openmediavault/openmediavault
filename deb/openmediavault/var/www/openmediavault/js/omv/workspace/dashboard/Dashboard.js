@@ -18,6 +18,8 @@
  * You should have received a copy of the GNU General Public License
  * along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
  */
+// require("js/omv/data/Store.js")
+// require("js/omv/data/Model.js")
 
 /**
  * Display the child nodes of a workspace category in a data view.
@@ -27,7 +29,9 @@
 Ext.define("OMV.workspace.dashboard.Dashboard", {
 	extend: "Ext.dashboard.Dashboard",
 	requires: [
-		"Ext.menu.Menu"
+		"Ext.menu.Menu",
+		"OMV.data.Store",
+		"OMV.data.Model"
 	],
 
 	border: false,
@@ -82,15 +86,35 @@ Ext.define("OMV.workspace.dashboard.Dashboard", {
 		// Get the registered dashboard widget aliases and fill up the
 		// menu which displayes the available dashboard widgets.
 		var aliases = me.getPartAliases();
+		// Create a store to be able to display a sort list of the
+		// widgets in the combobox.
+		var store = Ext.create("OMV.data.Store", {
+			model: OMV.data.Model.createImplicit({
+				idProperty: "text",
+				fields: [
+					{ name: "text", type: "string" },
+					{ name: "icon", type: "string" },
+					{ name: "type", type: "string" }
+				]
+			}),
+			sorters: [{
+				direction: "ASC",
+				property: "text"
+			}]
+		});
 		Ext.Array.each(aliases, function(alias) {
 			var part = Ext.create(alias);
 			if (!Ext.isObject(part) || !part.isPart)
 				return;
-			menu.add({
+			store.addData({
 				text: part.getTitle(),
 				icon: part.getIcon(),
 				type: part.getType()
-			});
+			})
+		});
+		store.each(function(record) {
+			var data = record.getData();
+			menu.add(data);
 		});
 		// Insert the combobox showing all registered dashboard widgets.
 		Ext.Array.insert(items, 0, [{
