@@ -42,7 +42,6 @@ Ext.define("OMV.module.admin.dashboard.view.ServiceStatus", {
 
 	height: 200,
 	refreshInterval: 10000,
-	showAtFirstStartup: true,
 
 	initComponent: function() {
 		var me = this;

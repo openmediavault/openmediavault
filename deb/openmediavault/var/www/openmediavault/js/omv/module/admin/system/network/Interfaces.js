@@ -1105,7 +1105,8 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			  _("IPv4"),': {[Ext.util.Format.defaultValue(values.address, "-")]}<br/>',
 			  _("IPv6"),': {[Ext.util.Format.defaultValue(values.address6, "-")]}');
 			return tpl.apply(record.data);
-		}
+		},
+		flex: 1
 	},{
 		text: _("Netmask"),
 		sortable: true,
@@ -1115,7 +1116,8 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			  _("IPv4"),': {[Ext.util.Format.defaultValue(values.netmask, "-")]}<br/>',
 			  _("IPv6"),': {[Ext.util.Format.defaultValue((values.netmask6 < 0) ? "" : values.netmask6, "-")]}');
 			return tpl.apply(record.data);
-		}
+		},
+		flex: 1
 	},{
 		text: _("Gateway"),
 		sortable: true,
@@ -1125,13 +1127,15 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			  _("IPv4"),': {[Ext.util.Format.defaultValue(values.gateway, "-")]}<br/>',
 			  _("IPv6"),': {[Ext.util.Format.defaultValue(values.gateway6, "-")]}');
 			return tpl.apply(record.data);
-		}
+		},
+		flex: 1
 	},{
 		xtype: "emptycolumn",
 		text: _("MAC address"),
 		sortable: true,
 		dataIndex: "ether",
-		stateId: "ether"
+		stateId: "ether",
+		flex: 1
 	},{
 		xtype: "emptycolumn",
 		text: _("MTU"),
@@ -1148,7 +1152,8 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			if (-1 == value)
 				return _("n/a");
 			return Ext.String.format("{0} Mbits/sec", value);
-		}
+		},
+		flex: 1
 	},{
 		text: _("Link"),
 		sortable: true,
@@ -1212,7 +1217,11 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 						service: "Network",
 						method: "enumerateDevicesList"
 					}
-				}
+				},
+				sorters: [{
+					direction: "ASC",
+					property: "devicename"
+				}]
 			})
 		});
 		me.callParent(arguments);

@@ -1,6 +1,7 @@
 openmediavault (2.0.7) stable; urgency=low
 
   * Fix various issues.
+  * Add network interface dashboard widget.
   * Mantis 0001328: Does not show real RAM usage, only percentage.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sat, 09 May 2015 02:03:32 +0200
