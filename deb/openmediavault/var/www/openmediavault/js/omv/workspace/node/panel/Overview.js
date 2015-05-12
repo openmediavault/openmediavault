@@ -105,7 +105,6 @@ Ext.define("OMV.workspace.node.panel.Overview", {
 					    records = this.getViewRange(),
 					    i,
 					    myId = this.id;
-
 					startIndex = startIndex || 0;
 					endIndex = endIndex || ((endIndex === 0) ?
 					  0 : (nodes.length - 1));

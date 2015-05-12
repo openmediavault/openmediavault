@@ -57,24 +57,28 @@ Ext.define("OMV.workspace.node.Node", {
 		/**
 		 * Build the node URI.
 		 * @param array The parts of the URI, e.g. [ "/services", "ftp" ].
+		 * @param separator The separator to use. Defaults to '/'.
 		 * @return An array containg the parts of the given path.
 		 */
-		buildUri: function(array) {
+		buildUri: function(array, separator) {
+			separator = separator || "/";
 			var parts = [];
 			var uri = "";
 			Ext.Array.each(array, function(item) {
 				Ext.Array.push(parts, this.explodeUri(item));
 			}, this);
-			return Ext.String.format("/{0}", parts.join("/"));
+			return separator + parts.join(separator);
 		},
 
 		/**
 		 * Explode the node URI in seperate parts.
 		 * @param uri The URI to process.
+		 * @param separator The separator to use. Defaults to '/'.
 		 * @return An array containg the parts of the given path.
 		 */
-		explodeUri: function(uri) {
-			var parts = uri.split("/");
+		explodeUri: function(uri, separator) {
+			separator = separator || "/";
+			var parts = uri.split(separator);
 			parts = Ext.Array.filter(parts, function(part, index, array) {
 				return !Ext.isEmpty(part);
 			});
@@ -85,11 +89,13 @@ Ext.define("OMV.workspace.node.Node", {
 		 * Compares the 2 URIs using strict equality.
 		 * @param uri1 The first URI.
 		 * @param uri2 The second URI.
+		 * @param separator The separator to use. Defaults to '/'.
 		 * @return TRUE if the URIs are equal.
 		 */
-		compareUri: function(uri1, uri2) {
-			return Ext.Array.equals(this.explodeUri(uri1),
-			  this.explodeUri(uri2));
+		compareUri: function(uri1, uri2, separator) {
+			separator = separator || "/";
+			return Ext.Array.equals(this.explodeUri(uri1, separator),
+			  this.explodeUri(uri2, separator));
 		}
 	},
 
@@ -295,11 +301,13 @@ Ext.define("OMV.workspace.node.Node", {
 
 	/**
 	 * Get the URI of the node based on its path and id.
+	 * @param separator The separator to use. Defaults to '/'.
 	 * @return The URI of this node.
 	 */
-	getUri: function() {
+	getUri: function(separator) {
+		separator = separator || "/";
 		var me = this;
-		return me.self.buildUri([ me.getPath(), me.getId() ]);
+		return me.self.buildUri([ me.getPath(), me.getId() ], separator);
 	},
 
     /**
