@@ -81,6 +81,20 @@ Ext.define("OMV.module.admin.dashboard.view.FileSystemStatus", {
 					hidden: true,
 					flex: 1
 				},{
+					xtype: "binaryunitcolumn",
+					text: _("Total"),
+					sortable: true,
+					dataIndex: "size",
+					stateId: "size",
+					flex: 1
+				},{
+					xtype: "binaryunitcolumn",
+					text: _("Available"),
+					sortable: true,
+					dataIndex: "available",
+					stateId: "available",
+					flex: 1
+				},{
 					text: _("Used"),
 					sortable: true,
 					dataIndex: "used",
@@ -91,8 +105,10 @@ Ext.define("OMV.module.admin.dashboard.view.FileSystemStatus", {
 						var percentage = parseInt(record.get("percentage"));
 						if (-1 == percentage)
 							return _("n/a");
+						var text = Ext.String.format("{0}% [{1}]",
+						  percentage, value);
 						var renderer = OMV.util.Format.progressBarRenderer(
-						  percentage / 100, value);
+						  percentage / 100, text);
 						return renderer.apply(this, arguments);
 					}
 				}],
@@ -106,6 +122,8 @@ Ext.define("OMV.module.admin.dashboard.view.FileSystemStatus", {
 						fields: [
 							{ name: "devicefile", type: "string" },
 							{ name: "label", type: "string" },
+							{ name: "size", type: "string" },
+							{ name: "available", type: "string" },
 							{ name: "used", type: "string" },
 							{ name: "percentage", type: "string" }
 						]

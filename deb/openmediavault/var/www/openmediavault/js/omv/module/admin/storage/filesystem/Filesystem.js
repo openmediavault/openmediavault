@@ -404,7 +404,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 		stateId: "type"
 	},{
 		xtype: "binaryunitcolumn",
-		text: _("Capacity"),
+		text: _("Total"),
 		sortable: true,
 		dataIndex: "size",
 		stateId: "size"
@@ -422,7 +422,7 @@ Ext.define("OMV.module.admin.storage.filesystem.Filesystems", {
 		align: "center",
 		renderer: function(value, metaData, record) {
 			var percentage = parseInt(record.get("percentage"));
-			if(-1 == percentage)
+			if (-1 == percentage)
 				return _("n/a");
 			var renderer = OMV.util.Format.progressBarRenderer(
 			  percentage / 100, value);

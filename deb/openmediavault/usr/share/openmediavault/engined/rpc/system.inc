@@ -250,7 +250,6 @@ class OMVRpcServiceSystem extends OMVRpcServiceAbstract {
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
-		// 
 		$pm = new OMVPowerManagement();
 		if (FALSE === $pm->hibernate()) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
