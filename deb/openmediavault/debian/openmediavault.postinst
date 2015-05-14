@@ -444,6 +444,9 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "1.10"; then
 			omv-mkconf samba
 		fi
+		if dpkg --compare-versions "$2" lt-nl "1.19"; then
+			rm -f /etc/apt/apt.conf.d/99openmediavault-release
+		fi
 	;;
 
 	triggered)
