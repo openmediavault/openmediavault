@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-06 17:14+0200\n"
+"POT-Creation-Date: 2015-05-14 10:53+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -3429,6 +3429,9 @@ msgid "Tokelau"
 msgstr ""
 
 msgid "Tonga"
+msgstr ""
+
+msgid "Total"
 msgstr ""
 
 msgid "Transfer log"
