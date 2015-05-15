@@ -53,7 +53,7 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 	 * @throw E_EXEC_FAILED
 	 */
 	public function applyConfig() {
-		$cmd = "omv-mkconf shairport 2>&1";
+		$cmd = "omv-mkconf shairport-sync 2>&1";
 		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
@@ -66,9 +66,9 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 	public function stopService() {
 		// Disable monitoring of this service.
 		$monit = new OMVMonit();
-		$monit->unmonitor("shairport", TRUE);
+		$monit->unmonitor("shairport-sync", TRUE);
 		// Stop this service and unregister System-V style init script.
-		$initd = new OMVSysVInitScript("shairport", FALSE);
+		$initd = new OMVSysVInitScript("shairport-sync", FALSE);
 		$initd->exec();
 	}
 
@@ -87,11 +87,11 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 		if (FALSE === boolvalEx($object['enable']))
 			return;
 		// Start this service and register System-V style init script.
-		$initd = new OMVSysVInitScript("shairport", TRUE);
+		$initd = new OMVSysVInitScript("shairport-sync", TRUE);
 		$initd->exec();
 		// Enable monitoring of this service.
 		$monit = new OMVMonit();
-		$monit->monitor("shairport");
+		$monit->monitor("shairport-sync");
 	}
 
 	/**
@@ -106,7 +106,7 @@ class OMVModuleShairport extends OMVModuleServiceAbstract
 			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
 			  $xpath);
 		}
-		$initd = new OMVSysVInitScript("shairport");
+		$initd = new OMVSysVInitScript("shairport-sync");
 		return array(
 			"name" => $this->getName(),
 			"title" => gettext("Shairport"),

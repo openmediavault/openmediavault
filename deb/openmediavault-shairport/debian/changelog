@@ -1,4 +1,11 @@
-openmediavault-shairport (1.5) stable; urgency=low
+openmediavault-shairport (2.1) stable; urgency=low
+
+  * Update locales.
+  * Adapt plugin to shairport-sync.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 15 May 2015 10:07:25 +0200
+
+openmediavault-shairport (2.0) stable; urgency=low
 
   * Adapt plugin to shairport-sync.
 

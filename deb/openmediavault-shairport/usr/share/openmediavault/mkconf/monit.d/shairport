@@ -24,7 +24,7 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_MONIT_SERVICE_SHAIRPORT_CONFIG=${OMV_MONIT_SERVICE_SHAIRPORT_CONFIG:-"/etc/monit/conf.d/openmediavault-shairport.conf"}
+OMV_MONIT_SERVICE_SHAIRPORT_CONFIG=${OMV_MONIT_SERVICE_SHAIRPORT_CONFIG:-"/etc/monit/conf.d/openmediavault-shairportsync.conf"}
 OMV_MONIT_SERVICE_SHAIRPORT_MODE=${OMV_MONIT_SERVICE_SHAIRPORT_MODE:-"active"}
 
 cat <<EOF > ${OMV_MONIT_SERVICE_SHAIRPORT_CONFIG}
