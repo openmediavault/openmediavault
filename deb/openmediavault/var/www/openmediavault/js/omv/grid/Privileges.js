@@ -84,7 +84,7 @@ Ext.define("OMV.grid.Privileges", {
 					fields: [
 						{ name: "type", type: "string" },
 						{ name: "name", type: "string" },
-						{ name: "perms", type: "int", useNull: true, defaultValue: null },
+						{ name: "perms", type: "int", allowNull: true, defaultValue: null },
 						{ name: "deny", type: "boolean", defaultValue: false },
 						{ name: "readonly", type: "boolean", defaultValue: false },
 						{ name: "writeable", type: "boolean", defaultValue: false },
