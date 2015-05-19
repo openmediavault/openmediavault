@@ -656,33 +656,56 @@ Ext.apply(Ext.form.field.Text.prototype, {
 Ext.form.field.ComboBox.prototype.setValue = Ext.Function.createInterceptor(
   Ext.form.field.ComboBox.prototype.setValue, function() {
 	var me = this;
+	// Create the internal list of scheduled function calls.
+	if (!Ext.isDefined(me.setValueSchedules)) {
+		me.setValueSchedules = {
+			ignore: false,
+			items: []
+		}
+	}
+	// Extract the function call arguments.
+	var callArgs = Ext.Array.slice(arguments);
 	// Check if the store has already been loaded. If not, then call this
-	// function again after the store has been loaded. Note, if the store
-	// is already loading then do nothing, the base implementation will
-	// handle this for us.
-	// Note, in some situations it occurs that the setValue function is
+	// function again after the store has been loaded. If the store is
+	// already loading then do nothing, the base implementation will handle
+	// this for us.
+	// Note, in some situations it happens that the setValue function is
 	// called multiple times before the store has been loaded. To ensure
 	// that unfired listeners do not overwrite the value which is
 	// successfully set after the store has been loaded it is necessary
-	// to remove all of them.
+	// to ignore all scheduled calls after then.
 	if (!me.store.isLoading() && !me.store.isLoaded()) {
-		var fn = Ext.Function.bind(me.setValue, me, arguments);
-		if (!Ext.isDefined(me.setValueListeners))
-			me.setValueListeners = [];
-		me.setValueListeners.push(fn);
+		var id = Ext.id();
+		// Add the scheduled function call to the internal list.
+		Ext.Array.push(me.setValueSchedules.items, id);
+		// Call this function again if the store's 'load' event is
+		// triggered. Append the ID to the function call arguments.
+		Ext.Array.push(callArgs, id);
 		me.store.on({
 			single: true,
-			load: fn
+			load: Ext.Function.bind(me.setValue, me, callArgs)
 		});
 		return false;
 	}
 	// Remove buffered listeners (which have not been fired until now),
 	// otherwise they will overwrite the given value.
-	if (Ext.isDefined(me.setValueListeners)) {
-		Ext.Array.each(me.setValueListeners, function(fn) {
-			me.store.un("load", fn)
-		});
-		delete me.setValueListeners;
+	if (Ext.isDefined(me.setValueSchedules)) {
+		// Extract the schedule id from the function call.
+		var id = (2 <= arguments.length) ? callArgs.pop() : null;
+		// Update internal state if the call was scheduled.
+		if (Ext.Array.contains(me.setValueSchedules.items, id)) {
+			// Remove the scheduled function call ID from the internal list.
+			Ext.Array.remove(me.setValueSchedules.items, id);
+			// Remember current state for later use.
+			var ignore = me.setValueSchedules.ignore;
+			// Ignore all remaining scheduled function calls?
+			me.setValueSchedules.ignore = !Ext.isEmpty(
+			  me.setValueSchedules.items);
+			// Exit if the current function call was scheduled and the
+			// ignore flag was set.
+			if (id && (true === ignore))
+				return false;
+		}
 	}
 });
 
