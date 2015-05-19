@@ -112,6 +112,10 @@ div#headerrlogo {
 .x-form-folder-trigger {
 	background-image: url("../images/folder-trigger.png");
 }
+/* Checkbox field */
+.x-form-type-checkbox input.x-form-invalid-field {
+	border: 1px solid #cc3300;
+}
 /* About box */
 .x-box-aboutbox {
 	margin: 15px;
