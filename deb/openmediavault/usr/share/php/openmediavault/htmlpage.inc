@@ -188,7 +188,9 @@ EOF;
 
 		echo <<<EOF
 	</head>
-	<body id='{$bodyId}'>{$bodyContent}</body>
+	<body id='{$bodyId}'>
+{$bodyContent}
+	</body>
 </html>
 EOF;
 	}
@@ -325,7 +327,6 @@ class OMVWebGui extends OMVHtmlPageAbstract {
 				username: "{$session->getUsername()}",
 				role: "{$session->getRole()}"
 			});
-			Ext.QuickTips.init();
 			// Use LocalStorage API if available, otherwise use
 			// cookies to store the state of the UI components.
 			var provider;
@@ -340,6 +341,7 @@ class OMVWebGui extends OMVHtmlPageAbstract {
 			Ext.state.Manager.setProvider(provider);
 			// Create the viewport if the page is ready.
 			Ext.onReady(function() {
+				Ext.tip.QuickTipManager.init();
 				OMV.viewport = Ext.create("OMV.workspace.Workspace");
 			});
 		</script>
@@ -366,8 +368,8 @@ class OMVWebGuiLogin extends OMVHtmlPageAbstract {
 		return <<<EOF
 		<a title='{$prd->getName()}' href='{$prd->getURL()}' target='_blank'><div id="projectlogo"></div></a>
 		<script type="application/javascript">
-			Ext.QuickTips.init();
 			Ext.onReady(function() {
+				Ext.tip.QuickTipManager.init();
 				Ext.create("OMV.window.Login", {
 					listeners: {
 						login: function(wnd, response) {
