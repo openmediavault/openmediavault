@@ -72,6 +72,8 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$this->registerMethod("getVlanCandidates");
 		$this->registerMethod("getVlanIface");
 		$this->registerMethod("setVlanIface");
+		$this->registerMethod("getWirelessIface");
+		$this->registerMethod("setWirelessIface");
 	}
 
 	/**
@@ -337,26 +339,20 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				$object['type'] = "loopback";
 				break;
 			}
-			// Do some more checks.
-			switch ($nib->getType()) {
-			case OMV_NETWORK_INTERFACE_TYPE_BOND:
-			case OMV_NETWORK_INTERFACE_TYPE_VLAN:
-			default:
-				// Is the ethernet interface device somewhere referenced?
-				$xpath = sprintf("//interfaceref[contains(.,'%s')]",
-				  $object['uuid']);
-				if (TRUE === $xmlConfig->exists($xpath))
-					$object['_used'] = TRUE;
-				// Check if it is used by a bonding interface.
-				$xpath = sprintf("//interfaceref[type='bond' and ".
-				  "contains(slaves,'%s')]", $object['devicename']);
-				if (TRUE === $xmlConfig->exists($xpath)) {
-					$object['_used'] = TRUE;
-					$object['_readonly'] = TRUE;
-					$object['method'] = "";
-					$object['method6'] = "";
-				}
-				break;
+			// Do some more checks:
+			// - Is the ethernet interface device somewhere referenced?
+			$xpath = sprintf("//interfaceref[contains(.,'%s')]",
+			  $object['uuid']);
+			if (TRUE === $xmlConfig->exists($xpath))
+				$object['_used'] = TRUE;
+			// Check if it is used by a bonding interface.
+			$xpath = sprintf("//interface[type='bond' and ".
+			  "contains(slaves,'%s')]", $object['devicename']);
+			if (TRUE === $xmlConfig->exists($xpath)) {
+				$object['_used'] = TRUE;
+				$object['_readonly'] = TRUE;
+				$object['method'] = "";
+				$object['method6'] = "";
 			}
 			// Append network interface device to result list.
 			$result[] = $object;
@@ -855,6 +851,53 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			"vlanrawdevice" => $params['vlanrawdevice']
 		));
 	}
+
+	/**
+	 * Get a wireless network interface configuration object.
+	 * @param params An array containing the following fields:
+	 *   \em uuid The UUID of the configuration object.
+	 * @param context The context of the caller.
+	 * @return The requested configuration object.
+	 * @throw E_CONFIG_GET_OBJECT_FAILED
+	 */
+    function getWirelessIface($params, $context) {
+		// Get the configuration object.
+		$object = $this->callMethod("getInterface", $params, $context);
+		// Modify result data.
+		return $object;
+	}
+
+	/**
+	 * Set (add/update) a wireless network interface configuration object.
+	 * @param params The method parameters.
+	 * @param context The context of the caller.
+	 * @return The stored configuration object.
+	 * @throw E_CONFIG_OBJECT_UNIQUENESS
+	 * @throw E_CONFIG_SET_OBJECT_FAILED
+	 */
+    function setWirelessIface($params, $context) {
+		// Validate the RPC caller context.
+		$this->validateMethodContext($context, array(
+			  "role" => OMV_ROLE_ADMINISTRATOR
+		  ));
+		// Validate the network interface specific parameters of the
+		// RPC service method.
+		$this->validateMethodParams($params, '{
+			  "type":"object",
+			  "properties":{
+                  "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
+				  '.$GLOBALS['OMV_JSONSCHEMA_NETWORK_INTERFACE_GENERIC'].',
+				  "wpassid":{"type":"string"}
+				  "wpapassphrase":{"type":"string"}
+			  }
+		  }');
+		// Set the configuration object.
+		return $this->setInterfaceConfig($params, array(
+            "type" => "wireless",
+			"wpassid" => $params['wpassid'],
+			"wpapassphrase" => $params['wpapassphrase']
+		));
+    }
 }
 
 // Register the RPC service.

@@ -89,7 +89,7 @@
 				<!--
 				<interface>
 					<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
-					<type>ethernet|bond|vlan|...</type>
+					<type>ethernet|bond|vlan|wireless|...</type>
 					<devicename>xxx</devicename>
 					<method>dhcp|static|manual</method>
 					<address>xxx.xxx.xxx.xxx</address>
@@ -117,6 +117,9 @@
 					# - vlan
 					<vlanid>1-4095</vlanid>
 					<vlanrawdevice>(eth|wlan|bond)\d+</vlanrawdevice>
+					# - wireless
+					<wpassid>xxx</wpassid>
+					<wpapassphrase>xxx</wpapassphrase>
 				</interface>
 				-->
 			</interfaces>
