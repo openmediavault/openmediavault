@@ -391,8 +391,34 @@ omv_config_add_element() {
 	rm -f -- "${tmpconfig}"
 }
 
+# void omv_config_rename (char *xpath, char *name)
+# Rename the attribute at the given XPath in the configuration file.
+# @param xpath The XPath to use.
+# @param name The new name.
+# @return None
+omv_config_rename() {
+	local tmpconfig xpath name
+
+	tmpconfig=$(tempfile)
+	xpath=$1
+	name=$2
+
+	# !Attention! It is necessary to redirect the modified XML data to another
+	# file because xmlstarlet does not like to use the same file
+	# for input and output in a pipe like xmlstarlet ... file > file
+	xmlstarlet edit -P -r "${xpath}" -v "${name}" "${OMV_CONFIG_FILE}" | \
+	  tee "${tmpconfig}" >/dev/null
+
+	# Copy temporary file content to config file. Note, the config file
+	# permissions must be kept.
+	cat "${tmpconfig}" | tee "${OMV_CONFIG_FILE}" >/dev/null
+
+	# Remove temporary file.
+	rm -f -- "${tmpconfig}"
+}
+
 # void omv_config_update (char *xpath, char *value)
-# Update the elements at the given XPath in the configuration file
+# Update the elements at the given XPath in the configuration file.
 # @param xpath The XPath to use
 # @param value The element value. Special XML characters MUST be escaped.
 # @param xml Set to true when the value contains XML data. Defaults to false.

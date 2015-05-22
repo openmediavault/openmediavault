@@ -28,7 +28,7 @@ OMV_INTERFACES_CONFIG=${OMV_INTERFACES_CONFIG:-"/etc/network/interfaces"}
 OMV_INTERFACES_WOL_OPTION=${OMV_INTERFACES_WOL_OPTION:-"g"}
 
 xmlstarlet sel -t \
-  -m "//system/network/interfaces/vlaniface" \
+  -m "//system/network/interfaces/interface[type='vlan']" \
 	  -n \
       -v "concat('# ',vlanrawdevice,'.',vlanid,' network interface')" -n \
       -v "concat('auto ',vlanrawdevice,'.',vlanid)" -n \

@@ -28,15 +28,12 @@ OMV_COLLECTD_CONFIG=${OMV_COLLECTD_CONFIG:-"/etc/collectd/collectd.conf"}
 OMV_COLLECTD_RRDTOOL_MKGRAPH=${OMV_COLLECTD_RRDTOOL_MKGRAPH:-"/usr/sbin/omv-mkgraph"}
 
 IFACE=$(xmlstarlet sel -t \
-  -m "//system/network/interfaces/iface" \
-	-i "count(//system/network/interfaces//slaves[contains(.,current()/devicename)]) = 0" \
+  -m "//system/network/interfaces/interface[type='ethernet']" \
+	-i "count(//system/network/interfaces/interface/slaves[contains(.,current()/devicename)]) = 0" \
 		-v "concat(devicename,' ')" \
 	-b \
   -b \
-  -m "//system/network/interfaces/bondiface" \
-	-v "concat(devicename,' ')" \
-  -b \
-  -m "//system/network/interfaces/vlaniface" \
+  -m "//system/network/interfaces/interface[type='bond' or type='vlan']" \
 	-v "concat(devicename,' ')" \
   -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc)

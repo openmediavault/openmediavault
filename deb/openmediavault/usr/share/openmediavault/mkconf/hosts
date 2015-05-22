@@ -58,16 +58,22 @@ ff02::3 ip6-allhosts
 EOF
 
 xmlstarlet sel -t -m "//system/network/interfaces/*" \
-  -v "concat(devicename,' ',method,' ',address)" \
+  -v "concat(devicename,' ',address,' ',address6)" \
   -i "position() != last()" -n -b \
   ${OMV_CONFIG_FILE} | xmlstarlet unesc |
-  while read devicename method address; do
-	  if [ "${method}" = "dhcp" ]; then
-		  address=$(omv_get_ipaddr ${devicename})
+  while read devicename address address6; do
+	  if [ -n "${address}" ]; then
+		  if [ -n "${alias}" ]; then
+			  echo "${address} ${fqdn} ${alias}" >> ${OMV_HOSTS_CONFIG}
+		  else
+			  echo "${address} ${fqdn}" >> ${OMV_HOSTS_CONFIG}
+		  fi
 	  fi
-	  if [ -n "${alias}" ]; then
-		  echo "${address} ${fqdn} ${alias}" >> ${OMV_HOSTS_CONFIG}
-	  else
-		  echo "${address} ${fqdn}" >> ${OMV_HOSTS_CONFIG}
+	  if [ -n "${address6}" ]; then
+		  if [ -n "${alias}" ]; then
+			  echo "${address6} ${fqdn} ${alias}" >> ${OMV_HOSTS_CONFIG}
+		  else
+			  echo "${address6} ${fqdn}" >> ${OMV_HOSTS_CONFIG}
+		  fi
 	  fi
   done

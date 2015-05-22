@@ -476,6 +476,12 @@ case "$1" in
 			  done
 			omv-mkconf ssh
 		fi
+		if dpkg --compare-versions "$2" lt-nl "2.0.8"; then
+			omv_config_add_element "/config/system/network/interfaces/iface" "type" "ethernet"
+			omv_config_add_element "/config/system/network/interfaces/bondiface" "type" "bond"
+			omv_config_add_element "/config/system/network/interfaces/vlaniface" "type" "vlan"
+			omv_config_rename "/config/system/network/interfaces/*[name()='iface' or name()='bondiface' or name()='vlaniface']" "interface"
+		fi
 	;;
 
 	triggered)

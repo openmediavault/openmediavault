@@ -41,7 +41,7 @@ class OMVConfigEngine extends OMVObject {
 		// Usermanagement
 		"user", "group",
 		// Network interfaces
-		"iface", "ifaceref", "bondiface", "bondifaceref", "bondslave",
+		"interface", "interfaceref", "bondslave",
 		// Iptables
 		"rule",
 		// Storage

@@ -42,8 +42,8 @@ Ext.define("OMV.module.admin.system.network.interface.Ethernet", {
 	],
 
 	rpcService: "Network",
-	rpcGetMethod: "getIface",
-	rpcSetMethod: "setIface",
+	rpcGetMethod: "getEthernetIface",
+	rpcSetMethod: "setEthernetIface",
 	plugins: [{
 		ptype: "configobject"
 	}],
@@ -1392,30 +1392,13 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 
 	doDeletion: function(record) {
 		var me = this;
-		var rpcMethod;
-		switch(record.get("type")) {
-		case "ethernet":
-			rpcMethod = "deleteIface";
-			break;
-		case "bond":
-			rpcMethod = "deleteBondIface";
-			break;
-		case "vlan":
-			rpcMethod = "deleteVlanIface";
-			break;
-		default:
-			OMV.MessageBox.error(null, _("Unknown network interface type."));
-			break;
-		}
-		if(Ext.isEmpty(rpcMethod))
-			return;
 		// Execute RPC.
 		OMV.Rpc.request({
 			scope: me,
 			callback: me.onDeletion,
 			rpcData: {
 				service: "Network",
-				method: rpcMethod,
+				method: "deleteInterface",
 				params: {
 					uuid: record.get("uuid")
 				}

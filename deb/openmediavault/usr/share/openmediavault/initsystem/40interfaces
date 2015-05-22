@@ -33,6 +33,7 @@ grep -Pi "^\s*iface\s+(eth|wlan)[0-9]+\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INT
 	  [ "inet6" = "${family}" ] && continue
 	  # Init 'iface' configuration object.
 	  object="<uuid>$(uuid)</uuid>"
+      object="${object}<type>ethernet</type>"
 	  object="${object}<devicename>${devname}</devicename>"
 	  object="${object}<method6>manual</method6>"
 	  object="${object}<address6></address6>"
@@ -63,8 +64,8 @@ grep -Pi "^\s*iface\s+(eth|wlan)[0-9]+\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INT
 		  object="${object}<gateway>${gateway}</gateway>"
 	  fi
 	  # Add interface if it does not already exist.
-	  if ! omv_config_exists "/config/system/network/interfaces/iface[devicename='${devname}']"; then
-		  omv_config_add_element "/config/system/network/interfaces" "iface" \
+	  if ! omv_config_exists "/config/system/network/interfaces/interface[type='ethernet' and devicename='${devname}']"; then
+		  omv_config_add_element "/config/system/network/interfaces" "interface" \
 			"${object}" true
 	  fi
   done

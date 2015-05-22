@@ -115,15 +115,7 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.iface",
-		  array($this, "setDirty"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.bondiface",
-		  array($this, "setDirty"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.vlaniface",
+		  "org.openmediavault.system.network.interfaces.interface",
 		  array($this, "setDirty"));
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(

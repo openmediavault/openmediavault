@@ -40,7 +40,7 @@ HALT=${OMV_HALT_HALT}
 EOF
 
 	xmlstarlet sel -t \
-	  -i "count(//system/network/interfaces//*[wol='1']) > 0" \
+	  -i "count(//system/network/interfaces/interface[wol='1']) > 0" \
 		-n -o "# Do not shut down network interfaces, needed to use wake-on-lan" -n \
 		-o "NETDOWN=${OMV_HALT_NETDOWN}" -n \
 	  -b  \

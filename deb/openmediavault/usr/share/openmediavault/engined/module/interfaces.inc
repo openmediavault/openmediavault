@@ -45,7 +45,7 @@ class OMVModuleInterfaces extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "export LANG=C; omv-mkconf interfaces 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -59,14 +59,15 @@ class OMVModuleInterfaces extends OMVModuleServiceAbstract
 	}
 
 	/**
-	 * Helper function to add a new task when a bond interface is deleted.
+	 * Helper function to add a new task when an interface is deleted.
 	 * @param type The event message type.
 	 * @param path The event message path.
 	 * @param object The configuration object.
 	 * @return None.
 	 */
-	final public function onDeleteBondInterface($type, $path, $object) {
-		$this->addTask("delete", "deleteBondInterface", $object);
+	final public function onDeleteInterface($type, $path, $object) {
+		if ("bond" == $object['type'])
+			$this->addTask("delete", "deleteBondInterface", $object);
 	}
 
 	/**
@@ -76,8 +77,8 @@ class OMVModuleInterfaces extends OMVModuleServiceAbstract
 	final public function deleteBondInterface($params) {
 		// Note, this may not be necessary in Debian Jessie.
 		// See http://backdrift.org/manage-linux-bonding-without-ifenslave-using-sysfs
-	        $cmd = sprintf("echo '-%s' > /sys/class/net/bonding_masters",
-	          $params['devicename']);
+		$cmd = sprintf("echo '-%s' > /sys/class/net/bonding_masters",
+		  $params['devicename']);
 		$this->exec($cmd);
 	}
 
@@ -91,32 +92,16 @@ class OMVModuleInterfaces extends OMVModuleServiceAbstract
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.iface",
+		  "org.openmediavault.system.network.interfaces.interface",
 		  array($this, "setDirty"));
 		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.bondiface",
-		  array($this, "setDirty"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.vlaniface",
-		  array($this, "setDirty"));
+		  OMV_NOTIFY_DELETE,
+		  "org.openmediavault.system.network.interfaces.interface",
+		  array($this, "onDeleteInterface"));
 		$moduleMgr = &OMVModuleMgr::getInstance();
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.iface",
-		  array($moduleMgr->getModule("networking"), "setDirty"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.bondiface",
-		  array($moduleMgr->getModule("networking"), "setDirty"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.bondiface",
-		  array($this, "onDeleteBondInterface"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.vlaniface",
+		  "org.openmediavault.system.network.interfaces.interface",
 		  array($moduleMgr->getModule("networking"), "setDirty"));
     }
 }

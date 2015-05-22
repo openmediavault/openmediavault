@@ -197,9 +197,9 @@ configure_iface() {
 	fi
 	echo "Configuring network interface. Please wait ..."
 	# Delete all existing network interface configuration objects.
-	omv_config_delete "//system/network/interfaces/*"
+	omv_config_delete "//system/network/interfaces/interface"
 	# Insert a new network interface configuration object.
-	omv_exec_rpc "Network" "setIface" "{\"uuid\":\"undefined\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"method6\":\"${method6}\",\"address6\":\"${address6}\",\"netmask6\":${netmask6},\"gateway6\":\"${gateway6}\",\"dnsnameservers\":\"${dnsnameservers}\",\"dnssearch\":\"\",\"mtu\":\"\",\"wol\":${wol},\"options\":\"\",\"comment\":\"\"}"
+	omv_exec_rpc "Network" "setEthernetIface" "{\"uuid\":\"undefined\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"method6\":\"${method6}\",\"address6\":\"${address6}\",\"netmask6\":${netmask6},\"gateway6\":\"${gateway6}\",\"dnsnameservers\":\"${dnsnameservers}\",\"dnssearch\":\"\",\"mtu\":\"\",\"wol\":${wol},\"options\":\"\",\"comment\":\"\"}"
 	[ $? -ne 0 ] && return 1
 	omv_exec_rpc "Config" "applyChanges" "{\"modules\":[],\"force\":false}"
 	[ $? -ne 0 ] && return 1

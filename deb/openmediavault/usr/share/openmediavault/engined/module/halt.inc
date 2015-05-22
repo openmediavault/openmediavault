@@ -37,7 +37,7 @@ class OMVModuleHalt extends OMVModuleServiceAbstract
 	 */
 	public function applyConfig() {
 		$cmd = "export LANG=C; omv-mkconf halt 2>&1";
-		if(0 !== $this->exec($cmd, $output)) {
+		if (0 !== $this->exec($cmd, $output)) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_FAILED,
 			  $cmd, implode("\n", $output));
 		}
@@ -49,11 +49,7 @@ class OMVModuleHalt extends OMVModuleServiceAbstract
 	function bindListeners(OMVNotifyDispatcher $dispatcher) {
 		$dispatcher->addListener(
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.iface",
-		  array($this, "setDirty"));
-		$dispatcher->addListener(
-		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY | OMV_NOTIFY_DELETE,
-		  "org.openmediavault.system.network.interfaces.bondiface",
+		  "org.openmediavault.system.network.interfaces.interface",
 		  array($this, "setDirty"));
 	}
 }
