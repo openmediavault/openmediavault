@@ -119,7 +119,7 @@
 					<vlanrawdevice>(eth|wlan|bond)\d+</vlanrawdevice>
 					# - wireless
 					<wpassid>xxx</wpassid>
-					<wpapassphrase>xxx</wpapassphrase>
+					<wpapsk>xxx</wpapsk>
 				</interface>
 				-->
 			</interfaces>

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:53+0200\n"
-"PO-Revision-Date: 2015-05-14 08:53+0000\n"
+"POT-Creation-Date: 2015-05-22 21:54+0200\n"
+"PO-Revision-Date: 2015-05-22 19:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -198,10 +198,10 @@ msgstr "S.M.A.R.T. ellenőrzés aktiválása."
 msgid "Add"
 msgstr "Hozzáadás"
 
-msgid "Add VLAN interface"
+msgid "Add VLAN connection"
 msgstr ""
 
-msgid "Add bond interface"
+msgid "Add bond connection"
 msgstr ""
 
 msgid "Add devices to RAID device"
@@ -498,9 +498,6 @@ msgstr "Bolívia"
 
 msgid "Bond"
 msgstr "Köteg"
-
-msgid "Bond options"
-msgstr "Kötési opciók"
 
 msgid "Boot"
 msgstr "Boot"
@@ -1019,13 +1016,16 @@ msgstr "Szerkesztés"
 msgid "Edit SSL certificate"
 msgstr "SSL tanúsítvány szerkesztése"
 
-msgid "Edit VLAN interface"
+msgid "Edit VLAN connection"
 msgstr ""
 
-msgid "Edit bond interface"
+msgid "Edit Wi-Fi connection"
 msgstr ""
 
-msgid "Edit ethernet interface"
+msgid "Edit bond connection"
+msgstr ""
+
+msgid "Edit ethernet connection"
 msgstr ""
 
 msgid "Edit firewall rule"
@@ -2090,8 +2090,8 @@ msgstr "Netmaszk"
 msgid "Network"
 msgstr "Hálózat"
 
-msgid "Network interface '%s' already exists"
-msgstr "'%s' hálózati interfész már létezik"
+msgid "Network interface '%s' (type=%s) already exists"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "Semleges övezet"
@@ -2757,6 +2757,9 @@ msgstr "SSH"
 
 msgid "SSH public key"
 msgstr "SSH nyilvános kulcs"
+
+msgid "SSID"
+msgstr ""
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3958,6 +3961,9 @@ msgstr "Mikor egy kliens először csatlakozik a szerverhez, akkor az azonosít�
 
 msgid "When failed"
 msgstr "Mikor sikertelen"
+
+msgid "Wi-Fi"
+msgstr ""
 
 msgid "Wipe"
 msgstr "Törlés"

@@ -887,15 +887,15 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			  "properties":{
                   "uuid":{'.$GLOBALS['OMV_JSONSCHEMA_UUID_UNDEFINED'].'},
 				  '.$GLOBALS['OMV_JSONSCHEMA_NETWORK_INTERFACE_GENERIC'].',
-				  "wpassid":{"type":"string"}
-				  "wpapassphrase":{"type":"string"}
+				  "wpassid":{"type":"string"},
+				  "wpapsk":{"type":"string"}
 			  }
 		  }');
 		// Set the configuration object.
 		return $this->setInterfaceConfig($params, array(
             "type" => "wireless",
 			"wpassid" => $params['wpassid'],
-			"wpapassphrase" => $params['wpapassphrase']
+			"wpapsk" => $params['wpapsk']
 		));
     }
 }

@@ -29,6 +29,7 @@
 // require("js/omv/util/Format.js")
 // require("js/omv/window/Execute.js")
 // require("js/omv/form/field/CheckboxGrid.js")
+// require("js/omv/form/field/Password.js")
 // require("js/omv/toolbar/Tip.js")
 
 /**
@@ -614,6 +615,46 @@ Ext.define("OMV.module.admin.system.network.interface.window.Vlan", {
 });
 
 /**
+ * @class OMV.module.admin.system.network.interface.window.Wireless
+ * @derived OMV.module.admin.system.network.interface.window.Generic
+ */
+Ext.define("OMV.module.admin.system.network.interface.window.Wireless", {
+	extend: "OMV.module.admin.system.network.interface.window.Generic",
+	requires: [
+		"OMV.form.field.Password",
+	],
+
+	rpcGetMethod: "getWirelessIface",
+	rpcSetMethod: "setWirelessIface",
+
+	getFormItems: function() {
+		var me = this;
+		var items = me.callParent(arguments);
+		Ext.Array.push(items, [{
+			xtype: "fieldset",
+			title: _("Wi-Fi"),
+			fieldDefaults: {
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "textfield",
+				name: "wpassid",
+				fieldLabel: _("SSID"),
+				allowBlank: false,
+				value: ""
+			},{
+				xtype: "passwordfield",
+				name: "wpapsk",
+				fieldLabel: _("Password"),
+				allowBlank: false,
+				value: ""
+			}]
+		}]);
+		return items;
+	}
+});
+
+/**
  * @class OMV.module.admin.system.network.interface.Identify
  * @derived OMV.workspace.window.Form
  * @param devicename The name of the network interface device, e.g. eth0.
@@ -901,7 +942,8 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			menu: Ext.create("Ext.menu.Menu", {
 				items: [
 					{ text: _("Bond"), value: "bond" },
-					{ text: _("VLAN"), value: "vlan" }
+					{ text: _("VLAN"), value: "vlan" },
+					{ text: _("Wi-Fi"), value: "wireless" }
 				],
 				listeners: {
 					scope: me,
@@ -943,7 +985,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			// Nothing to do here.
 		} else if (records.length == 1) {
 			tbarBtnDisabled["edit"] = !Ext.Array.contains([ "ethernet",
-			  "bond", "vlan" ], records[0].get("type"));
+			  "bond", "vlan", "wireless" ], records[0].get("type"));
 			if (records[0].get("type") == "ethernet") {
 				tbarBtnDisabled["identify"] = false;
 			}
@@ -972,32 +1014,32 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 
 	onAddButton: function(action) {
 		var me = this;
+		var className, title;
 		switch (action) {
 		case "bond":
-			Ext.create("OMV.module.admin.system.network.interface.window.Bond", {
-				title: _("Add bond interface"),
-				uuid: OMV.UUID_UNDEFINED,
-				listeners: {
-					submit: function() {
-						me.doReload();
-					},
-					scope: me
-				}
-			}).show();
+			clsName = "OMV.module.admin.system.network.interface.window.Bond";
+			title = _("Add bond connection");
 			break;
 		case "vlan":
-			Ext.create("OMV.module.admin.system.network.interface.window.Vlan", {
-				title: _("Add VLAN interface"),
-				uuid: OMV.UUID_UNDEFINED,
-				listeners: {
-					submit: function() {
-						me.doReload();
-					},
-					scope: me
-				}
-			}).show();
+			clsName = "OMV.module.admin.system.network.interface.window.Vlan";
+			title = _("Add VLAN connection");
+			break;
+		default:
+			OMV.MessageBox.error(null, _("Unknown network interface type."));
 			break;
 		}
+		if (Ext.isEmpty(clsName))
+			return;
+		Ext.create(clsName, {
+			title: title,
+			uuid: OMV.UUID_UNDEFINED,
+			listeners: {
+				submit: function() {
+					me.doReload();
+				},
+				scope: me
+			}
+		}).show();
 	},
 
 	onEditButton: function() {
@@ -1008,24 +1050,28 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		// interface.
 		switch (record.get("type")) {
 		case "ethernet":
-			className = "OMV.module.admin.system.network.interface.window.Ethernet";
-			title = _("Edit ethernet interface");
+			clsName = "OMV.module.admin.system.network.interface.window.Ethernet";
+			title = _("Edit ethernet connection");
 			break;
 		case "bond":
-			className = "OMV.module.admin.system.network.interface.window.Bond";
-			title = _("Edit bond interface");
+			clsName = "OMV.module.admin.system.network.interface.window.Bond";
+			title = _("Edit bond connection");
 			break;
 		case "vlan":
-			className = "OMV.module.admin.system.network.interface.window.Vlan";
-			title = _("Edit VLAN interface");
+			clsName = "OMV.module.admin.system.network.interface.window.Vlan";
+			title = _("Edit VLAN connection");
+			break;
+		case "wireless":
+			clsName = "OMV.module.admin.system.network.interface.window.Wireless";
+			title = _("Edit Wi-Fi connection");
 			break;
 		default:
 			OMV.MessageBox.error(null, _("Unknown network interface type."));
 			break;
 		}
-		if (Ext.isEmpty(className))
+		if (Ext.isEmpty(clsName))
 			return;
-		Ext.create(className, {
+		Ext.create(clsName, {
 			title: title,
 			uuid: record.get("uuid"),
 			devicename: record.get("devicename"),

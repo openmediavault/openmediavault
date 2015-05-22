@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:53+0200\n"
-"PO-Revision-Date: 2015-05-14 08:53+0000\n"
+"POT-Creation-Date: 2015-05-22 21:54+0200\n"
+"PO-Revision-Date: 2015-05-22 19:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -199,11 +199,11 @@ msgstr "S.M.A.R.T. 모니터링을 활성화"
 msgid "Add"
 msgstr "추가"
 
-msgid "Add VLAN interface"
-msgstr "VLAN 인터페이스 추가"
+msgid "Add VLAN connection"
+msgstr ""
 
-msgid "Add bond interface"
-msgstr "결합 인터페이스 추가"
+msgid "Add bond connection"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "RAID 장치에 디바이스를 추가"
@@ -499,9 +499,6 @@ msgstr "볼리비아"
 
 msgid "Bond"
 msgstr "결합"
-
-msgid "Bond options"
-msgstr "본드 옵션"
 
 msgid "Boot"
 msgstr "부트"
@@ -1020,14 +1017,17 @@ msgstr "편집"
 msgid "Edit SSL certificate"
 msgstr "SSL 인증 편집"
 
-msgid "Edit VLAN interface"
-msgstr "VLAN 인터페이스 편집"
+msgid "Edit VLAN connection"
+msgstr ""
 
-msgid "Edit bond interface"
-msgstr "결합 인터페이스 편집"
+msgid "Edit Wi-Fi connection"
+msgstr ""
 
-msgid "Edit ethernet interface"
-msgstr "이더넷 인터페이스 편집"
+msgid "Edit bond connection"
+msgstr ""
+
+msgid "Edit ethernet connection"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "방화벽 규칙 편집"
@@ -2091,8 +2091,8 @@ msgstr "넷마스크"
 msgid "Network"
 msgstr "네트워크"
 
-msgid "Network interface '%s' already exists"
-msgstr "'%s'는 이미 존재하는 네트워크 인터페이스입니다."
+msgid "Network interface '%s' (type=%s) already exists"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "뉴트럴 존"
@@ -2758,6 +2758,9 @@ msgstr "SSH"
 
 msgid "SSH public key"
 msgstr "SSH 공개 키"
+
+msgid "SSID"
+msgstr ""
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3959,6 +3962,9 @@ msgstr "클라이언트가 처음으로 서버에 접속할 때, 원격지 사�
 
 msgid "When failed"
 msgstr "실패 시"
+
+msgid "Wi-Fi"
+msgstr ""
 
 msgid "Wipe"
 msgstr "지우기"

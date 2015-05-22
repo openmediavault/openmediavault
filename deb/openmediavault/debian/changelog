@@ -4,6 +4,7 @@ openmediavault (2.0.8) stable; urgency=low
   * Fix checkbox bug in the privilege grid panels.
   * Change network interface format in database to be able to add new
     types like WLAN/bridge/... very easy.
+  * Add support to configure Wi-Fi connections. Only WPA & WPA2 is supported.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 11 May 2015 21:53:52 +0200
 

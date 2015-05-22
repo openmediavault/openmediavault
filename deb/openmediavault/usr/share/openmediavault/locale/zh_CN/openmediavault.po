@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:53+0200\n"
-"PO-Revision-Date: 2015-05-14 08:53+0000\n"
+"POT-Creation-Date: 2015-05-22 21:54+0200\n"
+"PO-Revision-Date: 2015-05-22 19:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -198,11 +198,11 @@ msgstr "激活S.M.A.R.T.监测。"
 msgid "Add"
 msgstr "添加"
 
-msgid "Add VLAN interface"
-msgstr "添加VLAN接口"
+msgid "Add VLAN connection"
+msgstr ""
 
-msgid "Add bond interface"
-msgstr "添加绑定接口"
+msgid "Add bond connection"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "添加设备到RAID阵列中"
@@ -498,9 +498,6 @@ msgstr "玻利维亚"
 
 msgid "Bond"
 msgstr "绑定"
-
-msgid "Bond options"
-msgstr "Bond绑定选项"
 
 msgid "Boot"
 msgstr "启动"
@@ -1019,14 +1016,17 @@ msgstr "编辑"
 msgid "Edit SSL certificate"
 msgstr "编辑SSL证书"
 
-msgid "Edit VLAN interface"
-msgstr "编辑VLAN接口"
+msgid "Edit VLAN connection"
+msgstr ""
 
-msgid "Edit bond interface"
-msgstr "编辑绑定接口"
+msgid "Edit Wi-Fi connection"
+msgstr ""
 
-msgid "Edit ethernet interface"
-msgstr "编辑网络接口"
+msgid "Edit bond connection"
+msgstr ""
+
+msgid "Edit ethernet connection"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "编辑防火墙规则"
@@ -2090,8 +2090,8 @@ msgstr "子网掩码"
 msgid "Network"
 msgstr "网络"
 
-msgid "Network interface '%s' already exists"
-msgstr "接口 '%s' 已经存在"
+msgid "Network interface '%s' (type=%s) already exists"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "中立区"
@@ -2313,7 +2313,7 @@ msgid "Perform a trial run with no changes made"
 msgstr "执行试运行而不做改变"
 
 msgid "Performance statistics"
-msgstr ""
+msgstr "性能统计"
 
 msgid "Period of validity"
 msgstr "有效时间"
@@ -2758,6 +2758,9 @@ msgstr "SSH"
 msgid "SSH public key"
 msgstr "SSH公钥"
 
+msgid "SSID"
+msgstr ""
+
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
 
@@ -3127,7 +3130,7 @@ msgstr "指定是否允许以超级用户登录。"
 msgid ""
 "Specifies whether the system performance statistics are collected "
 "periodically."
-msgstr ""
+msgstr "指定系统是否定期收集性能统计信息。"
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
@@ -3365,7 +3368,7 @@ msgid ""
 msgstr "新文件和目录的权限一般是由创建掩码和目录掩码决定，但权限继承会复写它们。当系统有许多用户使用单一共享时这种方案会很灵活。"
 
 msgid "The public key in RFC 4716 SSH public key file format."
-msgstr ""
+msgstr "RFC 4716格式的SSH公钥。"
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3664,7 +3667,7 @@ msgid "Tonga"
 msgstr "汤加"
 
 msgid "Total"
-msgstr ""
+msgstr "总计"
 
 msgid "Transfer log"
 msgstr "传输日志"
@@ -3901,7 +3904,7 @@ msgid "Vietnam"
 msgstr "越南"
 
 msgid "VirtIO device"
-msgstr ""
+msgstr "VirtIO设备"
 
 msgid "Volume"
 msgstr "卷"
@@ -3958,6 +3961,9 @@ msgstr "当一个客户端首次连接到服务器时，使用ident协议来尝�
 
 msgid "When failed"
 msgstr "故障时间"
+
+msgid "Wi-Fi"
+msgstr ""
 
 msgid "Wipe"
 msgstr "擦除"

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:53+0200\n"
-"PO-Revision-Date: 2015-05-14 08:53+0000\n"
+"POT-Creation-Date: 2015-05-22 21:54+0200\n"
+"PO-Revision-Date: 2015-05-22 19:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -199,10 +199,10 @@ msgstr "Активація S.M.A.R.T. моніторингу"
 msgid "Add"
 msgstr "Додати"
 
-msgid "Add VLAN interface"
+msgid "Add VLAN connection"
 msgstr ""
 
-msgid "Add bond interface"
+msgid "Add bond connection"
 msgstr ""
 
 msgid "Add devices to RAID device"
@@ -498,9 +498,6 @@ msgid "Bolivia"
 msgstr "Болівія"
 
 msgid "Bond"
-msgstr ""
-
-msgid "Bond options"
 msgstr ""
 
 msgid "Boot"
@@ -1020,13 +1017,16 @@ msgstr "Редагувати"
 msgid "Edit SSL certificate"
 msgstr "Редагувати SSL сертифікат"
 
-msgid "Edit VLAN interface"
+msgid "Edit VLAN connection"
 msgstr ""
 
-msgid "Edit bond interface"
+msgid "Edit Wi-Fi connection"
 msgstr ""
 
-msgid "Edit ethernet interface"
+msgid "Edit bond connection"
+msgstr ""
+
+msgid "Edit ethernet connection"
 msgstr ""
 
 msgid "Edit firewall rule"
@@ -2091,8 +2091,8 @@ msgstr "Маска мережі"
 msgid "Network"
 msgstr "Мережа"
 
-msgid "Network interface '%s' already exists"
-msgstr "Мережевий інтерфейс '%s' вже існує"
+msgid "Network interface '%s' (type=%s) already exists"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "Нейтральна зона"
@@ -2757,6 +2757,9 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSH public key"
+msgstr ""
+
+msgid "SSID"
 msgstr ""
 
 msgid "SSL/TLS"
@@ -3958,6 +3961,9 @@ msgid ""
 msgstr ""
 
 msgid "When failed"
+msgstr ""
+
+msgid "Wi-Fi"
 msgstr ""
 
 msgid "Wipe"

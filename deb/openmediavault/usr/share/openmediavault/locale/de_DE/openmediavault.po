@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:53+0200\n"
-"PO-Revision-Date: 2015-05-14 08:55+0000\n"
+"POT-Creation-Date: 2015-05-22 21:54+0200\n"
+"PO-Revision-Date: 2015-05-22 20:01+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -206,11 +206,11 @@ msgstr "Aktiviere S.M.A.R.T. Überwachung"
 msgid "Add"
 msgstr "Hinzufügen"
 
-msgid "Add VLAN interface"
-msgstr "VLAN Schnittstelle hinzufügen"
+msgid "Add VLAN connection"
+msgstr "VLAN-Verbindung hinzufügen"
 
-msgid "Add bond interface"
-msgstr "Gebündelte Schnittstelle hinzufügen"
+msgid "Add bond connection"
+msgstr "Bündel-Verbindung hinzufügen"
 
 msgid "Add devices to RAID device"
 msgstr "Laufwerk zu RAID hinzufügen"
@@ -506,9 +506,6 @@ msgstr "Bolivien"
 
 msgid "Bond"
 msgstr "Gebündelt"
-
-msgid "Bond options"
-msgstr "Bond Optionen"
 
 msgid "Boot"
 msgstr "Booten"
@@ -1027,14 +1024,17 @@ msgstr "Bearbeiten"
 msgid "Edit SSL certificate"
 msgstr "SSL-Zertifikat bearbeiten"
 
-msgid "Edit VLAN interface"
-msgstr "VLAN Schnittstelle bearbeiten"
+msgid "Edit VLAN connection"
+msgstr "VLAN-Verbindung bearbeiten"
 
-msgid "Edit bond interface"
-msgstr "Gebündelte Schnittstelle bearbeiten"
+msgid "Edit Wi-Fi connection"
+msgstr "Funknetzwerkverbindung bearbeiten"
 
-msgid "Edit ethernet interface"
-msgstr "Ethernet Schnittstelle bearbeiten"
+msgid "Edit bond connection"
+msgstr "Bündel-Verbindung bearbeiten"
+
+msgid "Edit ethernet connection"
+msgstr "Kabelnetzverbindung bearbeiten"
 
 msgid "Edit firewall rule"
 msgstr "Firewall-Regel bearbeiten"
@@ -2098,8 +2098,8 @@ msgstr "Netzmaske"
 msgid "Network"
 msgstr "Netzwerk"
 
-msgid "Network interface '%s' already exists"
-msgstr "Netzwerk-Interface '%s' existiert bereits"
+msgid "Network interface '%s' (type=%s) already exists"
+msgstr "Netzwerk-Interface '%s' (Typ=%s) existiert bereits"
 
 msgid "Neutral Zone"
 msgstr "Neutrale Zone"
@@ -2765,6 +2765,9 @@ msgstr "SSH"
 
 msgid "SSH public key"
 msgstr "Öffentlicher SSH-Schlüssel"
+
+msgid "SSID"
+msgstr "SSID"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3966,6 +3969,9 @@ msgstr "Wenn ein Client sich mit dem Server verbindet wird, mithilfe des Ident P
 
 msgid "When failed"
 msgstr "Fehlgeschlagen am"
+
+msgid "Wi-Fi"
+msgstr "Funknetzwerk"
 
 msgid "Wipe"
 msgstr "Löschen"

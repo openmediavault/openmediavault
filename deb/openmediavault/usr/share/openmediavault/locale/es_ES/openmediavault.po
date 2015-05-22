@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:53+0200\n"
-"PO-Revision-Date: 2015-05-14 08:53+0000\n"
+"POT-Creation-Date: 2015-05-22 21:54+0200\n"
+"PO-Revision-Date: 2015-05-22 19:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
@@ -200,11 +200,11 @@ msgstr "Activar monitorizacion S.M.A.R.T."
 msgid "Add"
 msgstr "Añadir"
 
-msgid "Add VLAN interface"
-msgstr "Añadir VLAN"
+msgid "Add VLAN connection"
+msgstr ""
 
-msgid "Add bond interface"
-msgstr "Añadir interfaz acopladas"
+msgid "Add bond connection"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "Añadir dispositivos al RAID"
@@ -500,9 +500,6 @@ msgstr "Bolivia"
 
 msgid "Bond"
 msgstr "Bond=acopladas"
-
-msgid "Bond options"
-msgstr "Opciones de vinculación"
 
 msgid "Boot"
 msgstr "Boot (Arranque)"
@@ -1021,14 +1018,17 @@ msgstr "Editar"
 msgid "Edit SSL certificate"
 msgstr "Editar certificado SSL"
 
-msgid "Edit VLAN interface"
-msgstr "Editar VLAN"
+msgid "Edit VLAN connection"
+msgstr ""
 
-msgid "Edit bond interface"
-msgstr "Editar interfaz acopladas"
+msgid "Edit Wi-Fi connection"
+msgstr ""
 
-msgid "Edit ethernet interface"
-msgstr "Editar Interfaz Ethernet"
+msgid "Edit bond connection"
+msgstr ""
+
+msgid "Edit ethernet connection"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr " Editar reglas del Firewall"
@@ -2092,8 +2092,8 @@ msgstr "Mascara de Red"
 msgid "Network"
 msgstr "Red"
 
-msgid "Network interface '%s' already exists"
-msgstr "El interfaz de red '%s' ya existe"
+msgid "Network interface '%s' (type=%s) already exists"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "Zona neutra"
@@ -2759,6 +2759,9 @@ msgstr "SSH"
 
 msgid "SSH public key"
 msgstr "Llave pública SSH"
+
+msgid "SSID"
+msgstr ""
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3960,6 +3963,9 @@ msgstr "Cuando un cliente intenta conectar con el servidor, se utiliza el protoc
 
 msgid "When failed"
 msgstr "Cuando falle"
+
+msgid "Wi-Fi"
+msgstr ""
 
 msgid "Wipe"
 msgstr "Borrar"

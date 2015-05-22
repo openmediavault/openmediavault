@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:53+0200\n"
+"POT-Creation-Date: 2015-05-22 21:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -196,10 +196,10 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-msgid "Add VLAN interface"
+msgid "Add VLAN connection"
 msgstr ""
 
-msgid "Add bond interface"
+msgid "Add bond connection"
 msgstr ""
 
 msgid "Add devices to RAID device"
@@ -485,9 +485,6 @@ msgid "Bolivia"
 msgstr ""
 
 msgid "Bond"
-msgstr ""
-
-msgid "Bond options"
 msgstr ""
 
 msgid "Boot"
@@ -979,13 +976,16 @@ msgstr ""
 msgid "Edit SSL certificate"
 msgstr ""
 
-msgid "Edit VLAN interface"
+msgid "Edit VLAN connection"
 msgstr ""
 
-msgid "Edit bond interface"
+msgid "Edit Wi-Fi connection"
 msgstr ""
 
-msgid "Edit ethernet interface"
+msgid "Edit bond connection"
+msgstr ""
+
+msgid "Edit ethernet connection"
 msgstr ""
 
 msgid "Edit firewall rule"
@@ -2002,7 +2002,7 @@ msgstr ""
 msgid "Network"
 msgstr ""
 
-msgid "Network interface '%s' already exists"
+msgid "Network interface '%s' (type=%s) already exists"
 msgstr ""
 
 msgid "Neutral Zone"
@@ -2627,6 +2627,9 @@ msgid "SSH"
 msgstr ""
 
 msgid "SSH public key"
+msgstr ""
+
+msgid "SSID"
 msgstr ""
 
 msgid "SSL/TLS"
@@ -3720,6 +3723,9 @@ msgid "When a client initially connects to the server the ident protocol is used
 msgstr ""
 
 msgid "When failed"
+msgstr ""
+
+msgid "Wi-Fi"
 msgstr ""
 
 msgid "Wipe"

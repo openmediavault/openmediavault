@@ -71,7 +71,7 @@ xmlstarlet sel -t \
 	  -b \
 	  -v "concat('    wpa-ssid ',wpassid)" -n \
       -o "    wpa-key-mgmt ${OMV_INTERFACES_WIRELESS_WPAKEYMGMT}" -n \
-	  -v "concat('    wpa-passphrase ',wpapassphrase)" -n \
+	  -v "concat('    wpa-psk ',wpapsk)" -n \
 	  -v "concat('iface ',devicename,' inet6 ',method6)" -n \
 	  -i "method6 = 'manual'" \
 		  -o "    pre-down ip -6 addr flush dev \$IFACE" -n \

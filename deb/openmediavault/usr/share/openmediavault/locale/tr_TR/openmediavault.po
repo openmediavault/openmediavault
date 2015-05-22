@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:53+0200\n"
-"PO-Revision-Date: 2015-05-14 08:53+0000\n"
+"POT-Creation-Date: 2015-05-22 21:54+0200\n"
+"PO-Revision-Date: 2015-05-22 19:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -197,11 +197,11 @@ msgstr "S.M.A.R.T. izlemeyi etkinleştir."
 msgid "Add"
 msgstr "Ekle"
 
-msgid "Add VLAN interface"
-msgstr "VLAN Arabirimi Ekle"
+msgid "Add VLAN connection"
+msgstr ""
 
-msgid "Add bond interface"
-msgstr "Birleştirilmiş arabirim ekle"
+msgid "Add bond connection"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "RAID aygıtına ekle"
@@ -497,9 +497,6 @@ msgstr "Bolivya"
 
 msgid "Bond"
 msgstr "Birleştir"
-
-msgid "Bond options"
-msgstr "Birleştirme opsiyonları"
 
 msgid "Boot"
 msgstr "Boot"
@@ -1018,14 +1015,17 @@ msgstr "Düzenleme"
 msgid "Edit SSL certificate"
 msgstr "SSL sertifikasını düzenle"
 
-msgid "Edit VLAN interface"
-msgstr "VLAN arabirimini düzenle"
+msgid "Edit VLAN connection"
+msgstr ""
 
-msgid "Edit bond interface"
-msgstr "Birleştirilmiş arabirimi düzenle"
+msgid "Edit Wi-Fi connection"
+msgstr ""
 
-msgid "Edit ethernet interface"
-msgstr "Eternet arabirimini düzenle"
+msgid "Edit bond connection"
+msgstr ""
+
+msgid "Edit ethernet connection"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "Güvenlik duvarı kuralını düzenle"
@@ -2089,8 +2089,8 @@ msgstr "Ağ maskesi"
 msgid "Network"
 msgstr "Ağ"
 
-msgid "Network interface '%s' already exists"
-msgstr "Ağ arabirimi '%s' zaten mevcut"
+msgid "Network interface '%s' (type=%s) already exists"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "Tarafsız Bölge"
@@ -2756,6 +2756,9 @@ msgstr "SSH"
 
 msgid "SSH public key"
 msgstr "SSH açık anahtarı"
+
+msgid "SSID"
+msgstr ""
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3663,7 +3666,7 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Total"
-msgstr ""
+msgstr "Toplam"
 
 msgid "Transfer log"
 msgstr "Altarım kaydı"
@@ -3957,6 +3960,9 @@ msgstr "Kullanıcı sunucuya ilk bağlandığında ident protokolü uzak kullan�
 
 msgid "When failed"
 msgstr "Hata oluşunca"
+
+msgid "Wi-Fi"
+msgstr ""
 
 msgid "Wipe"
 msgstr "Sil"

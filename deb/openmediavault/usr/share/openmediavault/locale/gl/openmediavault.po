@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:53+0200\n"
-"PO-Revision-Date: 2015-05-14 08:53+0000\n"
+"POT-Creation-Date: 2015-05-22 21:54+0200\n"
+"PO-Revision-Date: 2015-05-22 19:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
@@ -200,11 +200,11 @@ msgstr "Activar a supervisión S.M.A.R.T."
 msgid "Add"
 msgstr "Engadir"
 
-msgid "Add VLAN interface"
-msgstr "Engadir unha interface VLAN"
+msgid "Add VLAN connection"
+msgstr ""
 
-msgid "Add bond interface"
-msgstr "Engadir unha interface vinculada"
+msgid "Add bond connection"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "Engadir dispositivos ao dispositivo RAID"
@@ -500,9 +500,6 @@ msgstr "Bolivia"
 
 msgid "Bond"
 msgstr "Vínculo"
-
-msgid "Bond options"
-msgstr "Opcións de vinculo"
 
 msgid "Boot"
 msgstr "Arrinque"
@@ -1021,14 +1018,17 @@ msgstr "Editar"
 msgid "Edit SSL certificate"
 msgstr "Editar o certificado SSL"
 
-msgid "Edit VLAN interface"
-msgstr "Editar a interface VLAN"
+msgid "Edit VLAN connection"
+msgstr ""
 
-msgid "Edit bond interface"
-msgstr "Editar a interface vinculada"
+msgid "Edit Wi-Fi connection"
+msgstr ""
 
-msgid "Edit ethernet interface"
-msgstr "Editar a interface ethernet"
+msgid "Edit bond connection"
+msgstr ""
+
+msgid "Edit ethernet connection"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "Editar regra na devasa"
@@ -2092,8 +2092,8 @@ msgstr "Máscara de rede"
 msgid "Network"
 msgstr "Rede"
 
-msgid "Network interface '%s' already exists"
-msgstr "A interface de rede «%s» xa esiste"
+msgid "Network interface '%s' (type=%s) already exists"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "Zona neutral"
@@ -2759,6 +2759,9 @@ msgstr "SSH"
 
 msgid "SSH public key"
 msgstr "Chave SSH pública"
+
+msgid "SSID"
+msgstr ""
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3960,6 +3963,9 @@ msgstr "Cando un cliente se conecta inicialmente ao servidor o protocolo de iden
 
 msgid "When failed"
 msgstr "Cando se produza un fallo"
+
+msgid "Wi-Fi"
+msgstr ""
 
 msgid "Wipe"
 msgstr "Varrido"

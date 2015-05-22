@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:53+0200\n"
-"PO-Revision-Date: 2015-05-14 08:53+0000\n"
+"POT-Creation-Date: 2015-05-22 21:54+0200\n"
+"PO-Revision-Date: 2015-05-22 19:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -200,10 +200,10 @@ msgstr "S.M.A.R.T. controle activeren"
 msgid "Add"
 msgstr "Toevoegen"
 
-msgid "Add VLAN interface"
+msgid "Add VLAN connection"
 msgstr ""
 
-msgid "Add bond interface"
+msgid "Add bond connection"
 msgstr ""
 
 msgid "Add devices to RAID device"
@@ -500,9 +500,6 @@ msgstr "Bolivia"
 
 msgid "Bond"
 msgstr ""
-
-msgid "Bond options"
-msgstr "Gebonden opties"
 
 msgid "Boot"
 msgstr "Opstart"
@@ -1021,13 +1018,16 @@ msgstr "Aanpassen"
 msgid "Edit SSL certificate"
 msgstr "SSL-certificaat aanpassen"
 
-msgid "Edit VLAN interface"
+msgid "Edit VLAN connection"
 msgstr ""
 
-msgid "Edit bond interface"
+msgid "Edit Wi-Fi connection"
 msgstr ""
 
-msgid "Edit ethernet interface"
+msgid "Edit bond connection"
+msgstr ""
+
+msgid "Edit ethernet connection"
 msgstr ""
 
 msgid "Edit firewall rule"
@@ -2092,8 +2092,8 @@ msgstr "Netmask"
 msgid "Network"
 msgstr "Netwerk"
 
-msgid "Network interface '%s' already exists"
-msgstr "Netwerkinterface '%s' bestaat al"
+msgid "Network interface '%s' (type=%s) already exists"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "Neutrale Zone"
@@ -2759,6 +2759,9 @@ msgstr "SSH"
 
 msgid "SSH public key"
 msgstr "SSH public key"
+
+msgid "SSID"
+msgstr ""
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3960,6 +3963,9 @@ msgstr "Wanneer een client een verbinding opzet gebruikt de server het ident pro
 
 msgid "When failed"
 msgstr "Indien mislukt"
+
+msgid "Wi-Fi"
+msgstr ""
 
 msgid "Wipe"
 msgstr "Wissen"

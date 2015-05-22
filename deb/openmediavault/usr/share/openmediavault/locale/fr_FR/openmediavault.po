@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:53+0200\n"
-"PO-Revision-Date: 2015-05-14 08:53+0000\n"
+"POT-Creation-Date: 2015-05-22 21:54+0200\n"
+"PO-Revision-Date: 2015-05-22 19:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: French (France) (http://www.transifex.com/projects/p/openmediavault/language/fr_FR/)\n"
 "MIME-Version: 1.0\n"
@@ -201,10 +201,10 @@ msgstr "Activer la surveillance S.M.A.R.T."
 msgid "Add"
 msgstr "Ajouter"
 
-msgid "Add VLAN interface"
+msgid "Add VLAN connection"
 msgstr ""
 
-msgid "Add bond interface"
+msgid "Add bond connection"
 msgstr ""
 
 msgid "Add devices to RAID device"
@@ -501,9 +501,6 @@ msgstr "Bolivie"
 
 msgid "Bond"
 msgstr ""
-
-msgid "Bond options"
-msgstr "Options de liaison"
 
 msgid "Boot"
 msgstr "Boot"
@@ -1022,13 +1019,16 @@ msgstr "Modifier"
 msgid "Edit SSL certificate"
 msgstr "Modifier le certificat SSL"
 
-msgid "Edit VLAN interface"
+msgid "Edit VLAN connection"
 msgstr ""
 
-msgid "Edit bond interface"
+msgid "Edit Wi-Fi connection"
 msgstr ""
 
-msgid "Edit ethernet interface"
+msgid "Edit bond connection"
+msgstr ""
+
+msgid "Edit ethernet connection"
 msgstr ""
 
 msgid "Edit firewall rule"
@@ -2093,8 +2093,8 @@ msgstr "Masque réseau"
 msgid "Network"
 msgstr "Réseau"
 
-msgid "Network interface '%s' already exists"
-msgstr "L'interface réseau '%s' existe déjà"
+msgid "Network interface '%s' (type=%s) already exists"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "Zone neutre"
@@ -2760,6 +2760,9 @@ msgstr "SSH"
 
 msgid "SSH public key"
 msgstr "Clef publique SSH"
+
+msgid "SSID"
+msgstr ""
 
 msgid "SSL/TLS"
 msgstr "SSH/TLS"
@@ -3961,6 +3964,9 @@ msgstr "Quand un client se connecte au serveur, le protocole d'identification es
 
 msgid "When failed"
 msgstr "Quand"
+
+msgid "Wi-Fi"
+msgstr ""
 
 msgid "Wipe"
 msgstr "Effacer"

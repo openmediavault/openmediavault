@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:53+0200\n"
-"PO-Revision-Date: 2015-05-14 08:53+0000\n"
+"POT-Creation-Date: 2015-05-22 21:54+0200\n"
+"PO-Revision-Date: 2015-05-22 19:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -198,11 +198,11 @@ msgstr "啟動 S.M.A.R.T. 監測。"
 msgid "Add"
 msgstr "新增"
 
-msgid "Add VLAN interface"
-msgstr "新增 VLAN 介面"
+msgid "Add VLAN connection"
+msgstr ""
 
-msgid "Add bond interface"
-msgstr "新增結合介面"
+msgid "Add bond connection"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "新增裝置到 RAID 裝置中"
@@ -498,9 +498,6 @@ msgstr "玻利維亞"
 
 msgid "Bond"
 msgstr "結合"
-
-msgid "Bond options"
-msgstr "結合選項"
 
 msgid "Boot"
 msgstr "系統啟動"
@@ -1019,14 +1016,17 @@ msgstr "編輯"
 msgid "Edit SSL certificate"
 msgstr "編輯 SSL 證書"
 
-msgid "Edit VLAN interface"
-msgstr "編輯 VLAN 介面"
+msgid "Edit VLAN connection"
+msgstr ""
 
-msgid "Edit bond interface"
-msgstr "編輯結合介面"
+msgid "Edit Wi-Fi connection"
+msgstr ""
 
-msgid "Edit ethernet interface"
-msgstr "編輯乙太網路介面"
+msgid "Edit bond connection"
+msgstr ""
+
+msgid "Edit ethernet connection"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "編輯防火牆規則"
@@ -2090,8 +2090,8 @@ msgstr "網路遮罩"
 msgid "Network"
 msgstr "網路"
 
-msgid "Network interface '%s' already exists"
-msgstr "網路介面 '%s' 已經存在"
+msgid "Network interface '%s' (type=%s) already exists"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "中立區"
@@ -2757,6 +2757,9 @@ msgstr "SSH"
 
 msgid "SSH public key"
 msgstr "SSH 公鑰"
+
+msgid "SSID"
+msgstr ""
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3664,7 +3667,7 @@ msgid "Tonga"
 msgstr "東加"
 
 msgid "Total"
-msgstr ""
+msgstr "總計"
 
 msgid "Transfer log"
 msgstr "傳輸日誌"
@@ -3958,6 +3961,9 @@ msgstr "當一個客戶端初始連接到伺服器時，使用 ident 協定來�
 
 msgid "When failed"
 msgstr "何時故障"
+
+msgid "Wi-Fi"
+msgstr ""
 
 msgid "Wipe"
 msgstr "抹除"

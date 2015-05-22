@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:53+0200\n"
-"PO-Revision-Date: 2015-05-14 08:53+0000\n"
+"POT-Creation-Date: 2015-05-22 21:54+0200\n"
+"PO-Revision-Date: 2015-05-22 19:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -197,11 +197,11 @@ msgstr "S.M.A.R.T. モニタリングの有効化。"
 msgid "Add"
 msgstr "追加"
 
-msgid "Add VLAN interface"
-msgstr "VLANインタフェイスの追加"
+msgid "Add VLAN connection"
+msgstr ""
 
-msgid "Add bond interface"
-msgstr "ボンディングインタフェイスの追加"
+msgid "Add bond connection"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "RAIDデバイスへの追加"
@@ -497,9 +497,6 @@ msgstr "ボリビア"
 
 msgid "Bond"
 msgstr "ボンディング"
-
-msgid "Bond options"
-msgstr "ボンディングのオプション"
 
 msgid "Boot"
 msgstr "Boot"
@@ -1018,14 +1015,17 @@ msgstr "編集"
 msgid "Edit SSL certificate"
 msgstr "SSL証明書の編集"
 
-msgid "Edit VLAN interface"
-msgstr "VLANインタフェースの編集"
+msgid "Edit VLAN connection"
+msgstr ""
 
-msgid "Edit bond interface"
-msgstr "ボンディングインタフェースの編集"
+msgid "Edit Wi-Fi connection"
+msgstr ""
 
-msgid "Edit ethernet interface"
-msgstr "イーサネットインタフェースの編集"
+msgid "Edit bond connection"
+msgstr ""
+
+msgid "Edit ethernet connection"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "ファイアウォールルールの編集"
@@ -2089,8 +2089,8 @@ msgstr "ネットマスク"
 msgid "Network"
 msgstr "ネットワーク"
 
-msgid "Network interface '%s' already exists"
-msgstr "ネットワークインタフェース '%s' はすでに存在します"
+msgid "Network interface '%s' (type=%s) already exists"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "ニュートラルゾーン"
@@ -2756,6 +2756,9 @@ msgstr "SSH"
 
 msgid "SSH public key"
 msgstr "SSH公開鍵"
+
+msgid "SSID"
+msgstr ""
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3663,7 +3666,7 @@ msgid "Tonga"
 msgstr "トンガ"
 
 msgid "Total"
-msgstr ""
+msgstr "トータル"
 
 msgid "Transfer log"
 msgstr "転送ログ"
@@ -3957,6 +3960,9 @@ msgstr "クライアントが最初にサーバへ接続するとき、identプ�
 
 msgid "When failed"
 msgstr "失敗したとき"
+
+msgid "Wi-Fi"
+msgstr ""
 
 msgid "Wipe"
 msgstr "ワイプ"

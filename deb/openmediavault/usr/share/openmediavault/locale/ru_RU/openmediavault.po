@@ -15,8 +15,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-14 10:53+0200\n"
-"PO-Revision-Date: 2015-05-14 08:53+0000\n"
+"POT-Creation-Date: 2015-05-22 21:54+0200\n"
+"PO-Revision-Date: 2015-05-22 19:54+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
@@ -204,11 +204,11 @@ msgstr "Активировать мониторинг S.M.A.R.T."
 msgid "Add"
 msgstr "Добавить"
 
-msgid "Add VLAN interface"
-msgstr "Добавить интерфейс VLAN"
+msgid "Add VLAN connection"
+msgstr ""
 
-msgid "Add bond interface"
-msgstr "Добавить интерфейс bond"
+msgid "Add bond connection"
+msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "Добавить устройство в RAID массив"
@@ -504,9 +504,6 @@ msgstr "Боливия"
 
 msgid "Bond"
 msgstr "Bond"
-
-msgid "Bond options"
-msgstr "Настройки связанного интерфейса"
 
 msgid "Boot"
 msgstr "Загрузка"
@@ -1025,14 +1022,17 @@ msgstr "Редактировать"
 msgid "Edit SSL certificate"
 msgstr "Редактировать SSL сертификат"
 
-msgid "Edit VLAN interface"
-msgstr "Редактировать интерфейс VLAN"
+msgid "Edit VLAN connection"
+msgstr ""
 
-msgid "Edit bond interface"
-msgstr "Редактировать интрфейс bond"
+msgid "Edit Wi-Fi connection"
+msgstr ""
 
-msgid "Edit ethernet interface"
-msgstr "Редактировать интрфейс ethernet"
+msgid "Edit bond connection"
+msgstr ""
+
+msgid "Edit ethernet connection"
+msgstr ""
 
 msgid "Edit firewall rule"
 msgstr "Изменить правила брандмауэра"
@@ -2096,8 +2096,8 @@ msgstr "Сетевая маска"
 msgid "Network"
 msgstr "Сеть"
 
-msgid "Network interface '%s' already exists"
-msgstr "Сетевой интерфейс '%s' уже существует"
+msgid "Network interface '%s' (type=%s) already exists"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "Нейтральная зона"
@@ -2763,6 +2763,9 @@ msgstr "SSH"
 
 msgid "SSH public key"
 msgstr "Открытый ключ SSH"
+
+msgid "SSID"
+msgstr ""
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3964,6 +3967,9 @@ msgstr "Когда клиент первоначально соединяетс�
 
 msgid "When failed"
 msgstr "При отказе"
+
+msgid "Wi-Fi"
+msgstr ""
 
 msgid "Wipe"
 msgstr "Очистить"
