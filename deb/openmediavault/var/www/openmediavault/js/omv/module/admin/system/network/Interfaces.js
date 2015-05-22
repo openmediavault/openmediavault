@@ -32,18 +32,16 @@
 // require("js/omv/toolbar/Tip.js")
 
 /**
- * @class OMV.module.admin.system.network.interface.Ethernet
+ * @class OMV.module.admin.system.network.interface.window.Generic
  * @derived OMV.workspace.window.Form
  */
-Ext.define("OMV.module.admin.system.network.interface.Ethernet", {
+Ext.define("OMV.module.admin.system.network.interface.window.Generic", {
 	extend: "OMV.workspace.window.Form",
 	requires: [
 	    "OMV.workspace.window.plugin.ConfigObject"
 	],
 
 	rpcService: "Network",
-	rpcGetMethod: "getEthernetIface",
-	rpcSetMethod: "setEthernetIface",
 	plugins: [{
 		ptype: "configobject"
 	}],
@@ -57,67 +55,77 @@ Ext.define("OMV.module.admin.system.network.interface.Ethernet", {
 	 *   Required.
 	 */
 
+	getFieldCorrelations: function() {
+		return [{
+			name: [
+				"address",
+				"netmask"
+			],
+			conditions: [
+				{ name: "method", value: "static" }
+			],
+			properties: [
+				"!allowBlank",
+				"!readOnly"
+			]
+		},{
+			name: "gateway", // Optional in 'Static' mode.
+			conditions: [
+				{ name: "method", value: "static" }
+			],
+			properties: "!readOnly"
+		},{
+			name: [
+				"address6",
+				"netmask6"
+			],
+			conditions: [
+				{ name: "method6", value: "static" }
+			],
+			properties: [
+				"!allowBlank",
+				"!readOnly"
+			]
+		},{
+			name: "gateway6", // Optional in 'Static' mode.
+			conditions: [
+				{ name: "method6", value: "static" }
+			],
+			properties: "!readOnly"
+		}];
+	},
+
 	getFormConfig: function() {
+		var me = this;
 		return {
 			plugins: [{
 				ptype: "linkedfields",
-				correlations: [{
-					name: [
-						"address",
-						"netmask"
-					],
-					conditions: [
-						{ name: "method", value: "static" }
-					],
-					properties: [
-						"!allowBlank",
-						"!readOnly"
-					]
-				},{
-					name: "gateway", // Optional in 'Static' mode.
-					conditions: [
-						{ name: "method", value: "static" }
-					],
-					properties: "!readOnly"
-				},{
-					name: [
-						"address6",
-						"netmask6"
-					],
-					conditions: [
-						{ name: "method6", value: "static" }
-					],
-					properties: [
-						"!allowBlank",
-						"!readOnly"
-					]
-				},{
-					name: "gateway6", // Optional in 'Static' mode.
-					conditions: [
-						{ name: "method6", value: "static" }
-					],
-					properties: "!readOnly"
-				}]
+				correlations: me.getFieldCorrelations()
 			}]
 		};
 	},
 
-	getFormItems: function() {
+	getFormItemsBySection: function(name) {
 		var me = this;
-		return [{
-			xtype: "textfield",
-			name: "devicename",
-			fieldLabel: _("Name"),
-			readOnly: true,
-			allowBlank: true,
-			value: me.devicename
-		},{
-			xtype: "fieldset",
-			title: _("IPv4"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
+		var items = [];
+		switch (name) {
+		case "general":
+			Ext.Array.push(items, [{
+				xtype: "textfield",
+				name: "devicename",
+				fieldLabel: _("Name"),
+				readOnly: true,
+				allowBlank: true,
+				value: me.devicename
+			},{
+				xtype: "textfield",
+				name: "comment",
+				fieldLabel: _("Comment"),
+				allowBlank: true
+			}]);
+			break;
+		case "ipv4":
+			Ext.Array.push(items, [{
 				xtype: "combo",
 				name: "method",
 				fieldLabel: _("Method"),
@@ -157,14 +165,10 @@ Ext.define("OMV.module.admin.system.network.interface.Ethernet", {
 				vtype: "IPv4",
 				readOnly: true,
 				allowBlank: true
-			}]
-		},{
-			xtype: "fieldset",
-			title: _("IPv6"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
+			}]);
+			break;
+		case "ipv6":
+			Ext.Array.push(items, [{
 				xtype: "combo",
 				name: "method6",
 				fieldLabel: _("Method"),
@@ -207,344 +211,193 @@ Ext.define("OMV.module.admin.system.network.interface.Ethernet", {
 				vtype: "IPv6",
 				readOnly: true,
 				allowBlank: true
-			}]
+			}]);
+			break;
+		case "advanced":
+			Ext.Array.push(items, [{
+				xtype: "textfield",
+				name: "dnsnameservers",
+				fieldLabel: _("DNS servers"),
+				vtype: "IPList",
+				allowBlank: true,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("The name servers are used to look up host names on the network.")
+				}]
+			},{
+				xtype: "textfield",
+				name: "dnssearch",
+				fieldLabel: _("Search domains"),
+				vtype: "domainnameList",
+				allowBlank: true
+			},{
+				xtype: "numberfield",
+				name: "mtu",
+				fieldLabel: _("MTU"),
+				allowBlank: true,
+				allowDecimals: false,
+				minValue: 0
+			},{
+				xtype: "checkbox",
+				name: "wol",
+				fieldLabel: _("Wake-on-LAN"),
+				checked: false
+			},{
+				xtype: "textfield",
+				name: "options",
+				fieldLabel: _("Options"),
+				allowBlank: true,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> for more details.")
+				}]
+			}]);
+			break;
+		}
+		return items;
+	},
+
+	getFormItems: function() {
+		var me = this;
+		return [{
+			xtype: "fieldset",
+			title: _("General settings"),
+			fieldDefaults: {
+				labelSeparator: ""
+			},
+			items: me.getFormItemsBySection("general")
 		},{
-			xtype: "textfield",
-			name: "dnsnameservers",
-			fieldLabel: _("DNS servers"),
-			vtype: "IPList",
-			allowBlank: true,
-			plugins: [{
-				ptype: "fieldinfo",
-				text: _("The name servers are used to look up host names on the network.")
-			}]
+			xtype: "fieldset",
+			title: _("IPv4"),
+			fieldDefaults: {
+				labelSeparator: ""
+			},
+			items: me.getFormItemsBySection("ipv4")
 		},{
-			xtype: "textfield",
-			name: "dnssearch",
-			fieldLabel: _("Search domains"),
-			vtype: "domainnameList",
-			allowBlank: true
+			xtype: "fieldset",
+			title: _("IPv6"),
+			fieldDefaults: {
+				labelSeparator: ""
+			},
+			items: me.getFormItemsBySection("ipv6")
 		},{
-			xtype: "numberfield",
-			name: "mtu",
-			fieldLabel: _("MTU"),
-			allowBlank: true,
-			allowDecimals: false,
-			minValue: 0
-		},{
-			xtype: "textfield",
-			name: "options",
-			fieldLabel: _("Options"),
-			allowBlank: true,
-			plugins: [{
-				ptype: "fieldinfo",
-				text: _("Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> for more details.")
-			}]
-		},{
-			xtype: "checkbox",
-			name: "wol",
-			fieldLabel: _("Wake-on-LAN"),
-			checked: false
-		},{
-			xtype: "textfield",
-			name: "comment",
-			fieldLabel: _("Comment"),
-			allowBlank: true
+			xtype: "fieldset",
+			title: _("Advanced settings"),
+			fieldDefaults: {
+				labelSeparator: ""
+			},
+			items: me.getFormItemsBySection("advanced")
 		}];
 	}
 });
 
 /**
- * @class OMV.module.admin.system.network.interface.Bond
- * @derived OMV.workspace.window.Form
+ * @class OMV.module.admin.system.network.interface.window.Ethernet
+ * @derived OMV.module.admin.system.network.interface.window.Generic
  */
-Ext.define("OMV.module.admin.system.network.interface.Bond", {
-	extend: "OMV.workspace.window.Form",
+Ext.define("OMV.module.admin.system.network.interface.window.Ethernet", {
+	extend: "OMV.module.admin.system.network.interface.window.Generic",
+
+	rpcGetMethod: "getEthernetIface",
+	rpcSetMethod: "setEthernetIface"
+});
+
+/**
+ * @class OMV.module.admin.system.network.interface.window.Bond
+ * @derived OMV.module.admin.system.network.interface.window.Generic
+ */
+Ext.define("OMV.module.admin.system.network.interface.window.Bond", {
+	extend: "OMV.module.admin.system.network.interface.window.Generic",
 	uses: [
-		"OMV.form.field.CheckboxGrid",
-		"OMV.workspace.window.plugin.ConfigObject"
+		"OMV.form.field.CheckboxGrid"
 	],
 
-	rpcService: "Network",
 	rpcGetMethod: "getBondIface",
 	rpcSetMethod: "setBondIface",
-	plugins: [{
-		ptype: "configobject"
-	}],
-	height: 400,
 
-	/**
-	 * The class constructor.
-	 * @fn constructor
-	 * @param uuid The UUID of the database/configuration object. Required.
-	 */
-
-	getFormConfig: function() {
-		return {
-			plugins: [{
-				ptype: "linkedfields",
-				correlations: [{
-					name: [
-						"address",
-						"netmask"
-					],
-					conditions: [
-						{ name: "method", value: "static" }
-					],
-					properties: [
-						"!allowBlank",
-						"!readOnly"
-					]
-				},{
-					name: "gateway", // Optional in 'Static' mode.
-					conditions: [
-						{ name: "method", value: "static" }
-					],
-					properties: "!readOnly"
-				},{
-					name: [
-						"address6",
-						"netmask6"
-					],
-					conditions: [
-						{ name: "method6", value: "static" }
-					],
-					properties: [
-						"!allowBlank",
-						"!readOnly"
-					]
-				},{
-					name: "gateway6", // Optional in 'Static' mode.
-					conditions: [
-						{ name: "method6", value: "static" }
-					],
-					properties: "!readOnly"
-				},{
-					name: "bondprimary",
-					conditions: [
-						{ name: "bondmode", value: [ 1, 5, 6 ] }
-					],
-					properties: [
-						"!allowBlank"
-					]
-				}]
-			}]
-		}
+	getFieldCorrelations: function() {
+		var me = this;
+		var correlations = me.callParent(arguments);
+		Ext.Array.push(correlations, [{
+			name: "bondprimary",
+			conditions: [
+				{ name: "bondmode", value: [ 1, 5, 6 ] }
+			],
+			properties: [
+				"!allowBlank"
+			]
+		}]);
+		return correlations;
 	},
 
 	getFormItems: function() {
 		var me = this;
-		return [{
-			xtype: "textfield",
-			name: "devicename",
-			fieldLabel: _("Name"),
-			readOnly: true,
-			allowBlank: true,
-			value: ""
-		},{
-			xtype: "checkboxgridfield",
-			name: "slaves",
-			fieldLabel: _("Slaves"),
-			height: 105,
-			minSelections: 1,
-			allowBlank: false,
-			valueField: "devicename",
-			useStringValue: true,
-			store: Ext.create("OMV.data.Store", {
-				autoLoad: true,
-				model: OMV.data.Model.createImplicit({
-					idProperty: "devicename",
-					fields: [
-						{ name: "devicename", type: "string" },
-						{ name: "ether", type: "string" }
-					]
+		var items = me.callParent(arguments);
+		Ext.Array.push(items, [{
+			xtype: "fieldset",
+			title: _("Bond"),
+			fieldDefaults: {
+				labelSeparator: ""
+			},
+			items: [{
+				xtype: "checkboxgridfield",
+				name: "slaves",
+				fieldLabel: _("Slaves"),
+				height: 105,
+				minSelections: 1,
+				allowBlank: false,
+				valueField: "devicename",
+				useStringValue: true,
+				store: Ext.create("OMV.data.Store", {
+					autoLoad: true,
+					model: OMV.data.Model.createImplicit({
+						idProperty: "devicename",
+						fields: [
+							{ name: "devicename", type: "string" },
+							{ name: "ether", type: "string" }
+						]
+					}),
+					proxy: {
+						type: "rpc",
+						rpcData: {
+							service: "Network",
+							method: "enumerateBondSlaves"
+						},
+						extraParams: {
+							uuid: me.uuid,
+							unused: true
+						},
+						appendSortParams: false
+					},
+					sorters: [{
+						direction: "ASC",
+						property: "devicename"
+					}]
 				}),
-				proxy: {
-					type: "rpc",
-					rpcData: {
-						service: "Network",
-						method: "enumerateBondSlaves"
-					},
-					extraParams: {
-						uuid: me.uuid,
-						unused: true
-					},
-					appendSortParams: false
+				gridConfig: {
+					stateful: true,
+					stateId: "0c92444c-a911-11e2-ba78-00221568ca88",
+					columns: [{
+						text: _("Device"),
+						sortable: true,
+						dataIndex: "devicename",
+						stateId: "devicename",
+						flex: 1
+					},{
+						text: _("MAC address"),
+						sortable: true,
+						dataIndex: "ether",
+						stateId: "ether",
+						flex: 1
+					}]
 				},
-				sorters: [{
-					direction: "ASC",
-					property: "devicename"
-				}]
-			}),
-			gridConfig: {
-				stateful: true,
-				stateId: "0c92444c-a911-11e2-ba78-00221568ca88",
-				columns: [{
-					text: _("Device"),
-					sortable: true,
-					dataIndex: "devicename",
-					stateId: "devicename",
-					flex: 1
-				},{
-					text: _("MAC address"),
-					sortable: true,
-					dataIndex: "ether",
-					stateId: "ether",
-					flex: 1
-				}]
-			},
-			listeners: {
-				scope: me,
-				selectionchange: function(grid, model, selected, value) {
-					this.updatePrimaryField();
+				listeners: {
+					scope: me,
+					selectionchange: function(grid, model, selected, value) {
+						me.updatePrimaryField();
+					}
 				}
-			}
-		},{
-			xtype: "fieldset",
-			title: _("IPv4"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
-				xtype: "combo",
-				name: "method",
-				fieldLabel: _("Method"),
-				queryMode: "local",
-				store: Ext.create("Ext.data.ArrayStore", {
-					fields: [ "value", "text" ],
-					data: [
-						[ "manual", _("Disabled") ],
-						[ "dhcp", _("DHCP") ],
-						[ "static", _("Static") ]
-					]
-				}),
-				displayField: "text",
-				valueField: "value",
-				allowBlank: false,
-				editable: false,
-				triggerAction: "all",
-				value: "dhcp"
 			},{
-				xtype: "textfield",
-				name: "address",
-				fieldLabel: _("Address"),
-				vtype: "IPv4",
-				readOnly: true,
-				allowBlank: true
-			},{
-				xtype: "textfield",
-				name: "netmask",
-				fieldLabel: _("Netmask"),
-				vtype: "netmask",
-				readOnly: true,
-				allowBlank: true
-			},{
-				xtype: "textfield",
-				name: "gateway",
-				fieldLabel: _("Gateway"),
-				vtype: "IPv4",
-				readOnly: true,
-				allowBlank: true
-			}]
-		},{
-			xtype: "fieldset",
-			title: _("IPv6"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
-				xtype: "combo",
-				name: "method6",
-				fieldLabel: _("Method"),
-				queryMode: "local",
-				store: Ext.create("Ext.data.ArrayStore", {
-					fields: [ "value", "text" ],
-					data: [
-						[ "manual", _("Disabled") ],
-						[ "dhcp", _("DHCP") ],
-						[ "auto", _("Auto") ],
-						[ "static", _("Static") ]
-					]
-				}),
-				displayField: "text",
-				valueField: "value",
-				allowBlank: false,
-				editable: false,
-				triggerAction: "all",
-				value: "manual"
-			},{
-				xtype: "textfield",
-				name: "address6",
-				fieldLabel: _("Address"),
-				vtype: "IPv6",
-				readOnly: true,
-				allowBlank: true
-			},{
-				xtype: "numberfield",
-				name: "netmask6",
-				fieldLabel: _("Prefix length"),
-				allowBlank: true,
-				allowDecimals: false,
-				minValue: 0,
-				maxValue: 128,
-				value: 64
-			},{
-				xtype: "textfield",
-				name: "gateway6",
-				fieldLabel: _("Gateway"),
-				vtype: "IPv6",
-				readOnly: true,
-				allowBlank: true
-			}]
-		},{
-			xtype: "textfield",
-			name: "dnsnameservers",
-			fieldLabel: _("DNS servers"),
-			vtype: "IPList",
-			allowBlank: true,
-			plugins: [{
-				ptype: "fieldinfo",
-				text: _("The name servers are used to look up host names on the network.")
-			}]
-		},{
-			xtype: "textfield",
-			name: "dnssearch",
-			fieldLabel: _("Search domains"),
-			vtype: "domainnameList",
-			allowBlank: true
-		},{
-			xtype: "numberfield",
-			name: "mtu",
-			fieldLabel: _("MTU"),
-			allowBlank: true,
-			allowDecimals: false,
-			minValue: 0
-		},{
-			xtype: "textfield",
-			name: "options",
-			fieldLabel: _("Options"),
-			allowBlank: true,
-			plugins: [{
-				ptype: "fieldinfo",
-				text: _("Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> for more details.")
-			}]
-		},{
-			xtype: "checkbox",
-			name: "wol",
-			fieldLabel: _("Wake-on-LAN"),
-			checked: false
-		},{
-			xtype: "textfield",
-			name: "comment",
-			fieldLabel: _("Comment"),
-			allowBlank: true
-		},{
-			xtype: "fieldset",
-			title: _("Bond options"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
 				xtype: "combo",
 				name: "bondmode",
 				fieldLabel: _("Mode"),
@@ -570,7 +423,7 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 				listeners: {
 					scope: me,
 					select: function(combo, records) {
-						this.updatePrimaryField();
+						me.updatePrimaryField();
 					}
 				},
 				plugins: [{
@@ -648,7 +501,8 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 					text: _("Specifies the time, in milliseconds, to wait before enabling a slave after a link recovery has been detected.")
 				}]
 			}]
-		}];
+		}]);
+		return items;
 	},
 
 	updatePrimaryField: function() {
@@ -692,268 +546,70 @@ Ext.define("OMV.module.admin.system.network.interface.Bond", {
 });
 
 /**
- * @class OMV.module.admin.system.network.interface.Vlan
- * @derived OMV.workspace.window.Form
+ * @class OMV.module.admin.system.network.interface.window.Vlan
+ * @derived OMV.module.admin.system.network.interface.window.Generic
  */
-Ext.define("OMV.module.admin.system.network.interface.Vlan", {
-	extend: "OMV.workspace.window.Form",
-	requires: [
-	    "OMV.workspace.window.plugin.ConfigObject"
-	],
+Ext.define("OMV.module.admin.system.network.interface.window.Vlan", {
+	extend: "OMV.module.admin.system.network.interface.window.Generic",
 
-	rpcService: "Network",
 	rpcGetMethod: "getVlanIface",
 	rpcSetMethod: "setVlanIface",
-	plugins: [{
-		ptype: "configobject"
-	}],
-	height: 400,
-
-	/**
-	 * The class constructor.
-	 * @fn constructor
-	 * @param uuid The UUID of the database/configuration object. Required.
-	 * @param devicename The name of the network interface device, e.g. eth0.1.
-	 *   Required.
-	 */
-
-	getFormConfig: function() {
-		return {
-			plugins: [{
-				ptype: "linkedfields",
-				correlations: [{
-					name: [
-						"address",
-						"netmask"
-					],
-					conditions: [
-						{ name: "method", value: "static" }
-					],
-					properties: [
-						"!allowBlank",
-						"!readOnly"
-					]
-				},{
-					name: "gateway", // Optional in 'Static' mode.
-					conditions: [
-						{ name: "method", value: "static" }
-					],
-					properties: "!readOnly"
-				},{
-					name: [
-						"address6",
-						"netmask6"
-					],
-					conditions: [
-						{ name: "method6", value: "static" }
-					],
-					properties: [
-						"!allowBlank",
-						"!readOnly"
-					]
-				},{
-					name: "gateway6", // Optional in 'Static' mode.
-					conditions: [
-						{ name: "method6", value: "static" }
-					],
-					properties: "!readOnly"
-				}]
-			}]
-		};
-	},
 
 	getFormItems: function() {
 		var me = this;
-		return [{
-			xtype: "textfield",
-			name: "devicename",
-			fieldLabel: _("Name"),
-			readOnly: true,
-			allowBlank: true,
-			value: me.devicename
-		},{
-			xtype: "combo",
-			name: "vlanrawdevice",
-			fieldLabel: _("Parent interface"),
-			emptyText: _("Select a parent interface ..."),
-			queryMode: "local",
-			store: Ext.create("OMV.data.Store", {
-				autoLoad: true,
-				model: OMV.data.Model.createImplicit({
-					idProperty: "devicename",
-					fields: [
-						{ name: "devicename", type: "string" }
-					]
-				}),
-				proxy: {
-					type: "rpc",
-					appendSortParams: false,
-					rpcData: {
-						service: "Network",
-						method: "getVlanCandidates"
-					}
-				},
-				sorters: [{
-					direction: "ASC",
-					property: "devicename"
-				}]
-			}),
-			displayField: "devicename",
-			valueField: "devicename",
-			allowBlank: false,
-			readOnly: me.uuid !== OMV.UUID_UNDEFINED,
-			editable: false,
-			forceSelection: true,
-			triggerAction: "all"
-		},{
-			xtype: "numberfield",
-			name: "vlanid",
-			fieldLabel: _("VLAN id"),
-			readOnly: me.uuid !== OMV.UUID_UNDEFINED,
-			allowDecimals: false,
-			minValue: 1,
-			maxValue: 4095,
-			value: 1
-		},{
+		var items = me.callParent(arguments);
+		Ext.Array.push(items, [{
 			xtype: "fieldset",
-			title: _("IPv4"),
+			title: _("VLAN"),
 			fieldDefaults: {
 				labelSeparator: ""
 			},
 			items: [{
 				xtype: "combo",
-				name: "method",
-				fieldLabel: _("Method"),
+				name: "vlanrawdevice",
+				fieldLabel: _("Parent interface"),
+				emptyText: _("Select a parent interface ..."),
 				queryMode: "local",
-				store: Ext.create("Ext.data.ArrayStore", {
-					fields: [ "value", "text" ],
-					data: [
-						[ "manual", _("Disabled") ],
-						[ "dhcp", _("DHCP") ],
-						[ "static", _("Static") ]
-					]
+				store: Ext.create("OMV.data.Store", {
+					autoLoad: true,
+					model: OMV.data.Model.createImplicit({
+						idProperty: "devicename",
+						fields: [
+							{ name: "devicename", type: "string" }
+						]
+					}),
+					proxy: {
+						type: "rpc",
+						appendSortParams: false,
+						rpcData: {
+							service: "Network",
+							method: "getVlanCandidates"
+						}
+					},
+					sorters: [{
+						direction: "ASC",
+						property: "devicename"
+					}]
 				}),
-				displayField: "text",
-				valueField: "value",
+				displayField: "devicename",
+				valueField: "devicename",
 				allowBlank: false,
+				readOnly: me.uuid !== OMV.UUID_UNDEFINED,
 				editable: false,
-				triggerAction: "all",
-				value: "manual"
-			},{
-				xtype: "textfield",
-				name: "address",
-				fieldLabel: _("Address"),
-				vtype: "IPv4",
-				readOnly: true,
-				allowBlank: true
-			},{
-				xtype: "textfield",
-				name: "netmask",
-				fieldLabel: _("Netmask"),
-				vtype: "netmask",
-				readOnly: true,
-				allowBlank: true
-			},{
-				xtype: "textfield",
-				name: "gateway",
-				fieldLabel: _("Gateway"),
-				vtype: "IPv4",
-				readOnly: true,
-				allowBlank: true
-			}]
-		},{
-			xtype: "fieldset",
-			title: _("IPv6"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
-				xtype: "combo",
-				name: "method6",
-				fieldLabel: _("Method"),
-				queryMode: "local",
-				store: Ext.create("Ext.data.ArrayStore", {
-					fields: [ "value", "text" ],
-					data: [
-						[ "manual", _("Disabled") ],
-						[ "dhcp", _("DHCP") ],
-						[ "auto", _("Auto") ],
-						[ "static", _("Static") ]
-					]
-				}),
-				displayField: "text",
-				valueField: "value",
-				allowBlank: false,
-				editable: false,
-				triggerAction: "all",
-				value: "manual"
-			},{
-				xtype: "textfield",
-				name: "address6",
-				fieldLabel: _("Address"),
-				vtype: "IPv6",
-				readOnly: true,
-				allowBlank: true
+				forceSelection: true,
+				triggerAction: "all"
 			},{
 				xtype: "numberfield",
-				name: "netmask6",
-				fieldLabel: _("Prefix length"),
-				allowBlank: true,
+				name: "vlanid",
+				fieldLabel: _("VLAN id"),
+				readOnly: me.uuid !== OMV.UUID_UNDEFINED,
 				allowDecimals: false,
-				minValue: 0,
-				maxValue: 128,
-				value: 64
-			},{
-				xtype: "textfield",
-				name: "gateway6",
-				fieldLabel: _("Gateway"),
-				vtype: "IPv6",
-				readOnly: true,
-				allowBlank: true
+				minValue: 1,
+				maxValue: 4095,
+				value: 1
 			}]
-		},{
-			xtype: "textfield",
-			name: "dnsnameservers",
-			fieldLabel: _("DNS servers"),
-			vtype: "IPList",
-			allowBlank: true,
-			plugins: [{
-				ptype: "fieldinfo",
-				text: _("The name servers are used to look up host names on the network.")
-			}]
-		},{
-			xtype: "textfield",
-			name: "dnssearch",
-			fieldLabel: _("Search domains"),
-			vtype: "domainnameList",
-			allowBlank: true
-		},{
-			xtype: "numberfield",
-			name: "mtu",
-			fieldLabel: _("MTU"),
-			allowBlank: true,
-			allowDecimals: false,
-			minValue: 0
-		},{
-			xtype: "textfield",
-			name: "options",
-			fieldLabel: _("Options"),
-			allowBlank: true,
-			plugins: [{
-				ptype: "fieldinfo",
-				text: _("Additional device settings, e.g. 'autoneg off speed 100 duplex full'. See <a href='http://linux.die.net/man/8/ethtool' target='_blank'>manual pages</a> for more details.")
-			}]
-		},{
-			xtype: "checkbox",
-			name: "wol",
-			fieldLabel: _("Wake-on-LAN"),
-			checked: false
-		},{
-			xtype: "textfield",
-			name: "comment",
-			fieldLabel: _("Comment"),
-			allowBlank: true
-		}];
+		}]);
+		return items;
 	}
 });
 
@@ -1057,8 +713,9 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		"OMV.data.proxy.Rpc",
 		"OMV.util.Format",
 		"OMV.module.admin.system.network.interface.Identify",
-		"OMV.module.admin.system.network.interface.Ethernet",
-		"OMV.module.admin.system.network.interface.Bond"
+		"OMV.module.admin.system.network.interface.window.Ethernet",
+		"OMV.module.admin.system.network.interface.window.Bond",
+		"OMV.module.admin.system.network.interface.window.Vlan"
 	],
 	uses: [
 		"Ext.XTemplate"
@@ -1163,7 +820,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		width: 80,
 		resizable: false,
 		renderer: function(value) {
-			switch(value) {
+			switch (value) {
 			case true:
 				img = "iflinkyes.png";
 				break;
@@ -1317,7 +974,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		var me = this;
 		switch (action) {
 		case "bond":
-			Ext.create("OMV.module.admin.system.network.interface.Bond", {
+			Ext.create("OMV.module.admin.system.network.interface.window.Bond", {
 				title: _("Add bond interface"),
 				uuid: OMV.UUID_UNDEFINED,
 				listeners: {
@@ -1329,7 +986,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			}).show();
 			break;
 		case "vlan":
-			Ext.create("OMV.module.admin.system.network.interface.Vlan", {
+			Ext.create("OMV.module.admin.system.network.interface.window.Vlan", {
 				title: _("Add VLAN interface"),
 				uuid: OMV.UUID_UNDEFINED,
 				listeners: {
@@ -1349,24 +1006,24 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		var record = me.getSelected();
 		// Display a different dialog depending on the type of the selected
 		// interface.
-		switch(record.get("type")) {
+		switch (record.get("type")) {
 		case "ethernet":
-			className = "OMV.module.admin.system.network.interface.Ethernet";
+			className = "OMV.module.admin.system.network.interface.window.Ethernet";
 			title = _("Edit ethernet interface");
 			break;
 		case "bond":
-			className = "OMV.module.admin.system.network.interface.Bond";
+			className = "OMV.module.admin.system.network.interface.window.Bond";
 			title = _("Edit bond interface");
 			break;
 		case "vlan":
-			className = "OMV.module.admin.system.network.interface.Vlan";
+			className = "OMV.module.admin.system.network.interface.window.Vlan";
 			title = _("Edit VLAN interface");
 			break;
 		default:
 			OMV.MessageBox.error(null, _("Unknown network interface type."));
 			break;
 		}
-		if(Ext.isEmpty(className))
+		if (Ext.isEmpty(className))
 			return;
 		Ext.create(className, {
 			title: title,
