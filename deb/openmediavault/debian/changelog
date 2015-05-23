@@ -1,3 +1,10 @@
+openmediavault (2.0.9) stable; urgency=low
+
+  * Update locales.
+  * Fix various issues.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 22 May 2015 22:28:24 +0200
+
 openmediavault (2.0.8) stable; urgency=low
 
   * Update locales.

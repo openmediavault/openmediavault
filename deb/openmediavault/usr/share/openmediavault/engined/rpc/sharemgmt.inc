@@ -1042,8 +1042,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 	 *   \em uuid The UUID of the shared folder object.
 	 *   \em file The relative path to the file.
 	 *   \em recursive Apply operations to all files and directories
-	 *   \em replace Replace all permissions.
 	 *     recursively.
+	 *   \em replace Replace all permissions.
 	 *   \em userperms The owner permissions as octal digit. This field is
 	 *     optional.
 	 *   \em groupperms The group permissions as octal digit. This field is

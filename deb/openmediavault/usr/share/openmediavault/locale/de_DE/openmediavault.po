@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 21:54+0200\n"
-"PO-Revision-Date: 2015-05-22 20:01+0000\n"
+"POT-Creation-Date: 2015-05-23 09:30+0200\n"
+"PO-Revision-Date: 2015-05-23 07:33+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -977,6 +977,9 @@ msgstr "Soll der Inhalt des freigegebenen Ordners wirklich rekursiv gelöscht we
 msgid "Domain name"
 msgstr "Domainname"
 
+msgid "Domains used when resolving host names."
+msgstr "Beim Auflösen von Rechnernamen verwendete Domänen."
+
 msgid "Dominica"
 msgstr "Dominica"
 
@@ -1517,6 +1520,9 @@ msgstr "Ungarn"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IP addresses of domain name servers used to resolve host names."
+msgstr "IP-Adressen von Domänennamen-Server, die zum Auflösen von Rechnernamen verwendet werden."
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -3341,9 +3347,6 @@ msgstr "Der Speicherort der Heimatverzeichnisse der Benutzer."
 
 msgid "The name of the share."
 msgstr "Der Name der Freigabe."
-
-msgid "The name servers are used to look up host names on the network."
-msgstr "Die Name-Server werden verwendet um Hostnamen im Netzwerk aufzulösen."
 
 msgid "The number of days the certificate is valid for."
 msgstr "Anzahl Tage die das Zertifikat gültig ist."

@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 21:54+0200\n"
-"PO-Revision-Date: 2015-05-22 19:54+0000\n"
+"POT-Creation-Date: 2015-05-23 09:30+0200\n"
+"PO-Revision-Date: 2015-05-23 07:30+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/openmediavault/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -970,6 +970,9 @@ msgstr "공유 폴더의 내용을 재귀적으로 삭제하시겠습니까? 이
 msgid "Domain name"
 msgstr "도메인 이름"
 
+msgid "Domains used when resolving host names."
+msgstr ""
+
 msgid "Dominica"
 msgstr "도미니카"
 
@@ -1510,6 +1513,9 @@ msgstr "헝가리"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IP addresses of domain name servers used to resolve host names."
+msgstr ""
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -3334,9 +3340,6 @@ msgstr "사용자 홈 디렉터리 위치"
 
 msgid "The name of the share."
 msgstr "공유 이름"
-
-msgid "The name servers are used to look up host names on the network."
-msgstr "이름 서버는 네트워크 상에서 호스트 이름을 검색할 때 사용됩니다."
 
 msgid "The number of days the certificate is valid for."
 msgstr "이 인증서가 유효한 일수"

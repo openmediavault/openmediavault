@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 21:54+0200\n"
-"PO-Revision-Date: 2015-05-22 19:54+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2015-05-23 09:30+0200\n"
+"PO-Revision-Date: 2015-05-23 08:42+0000\n"
+"Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -199,10 +199,10 @@ msgid "Add"
 msgstr "添加"
 
 msgid "Add VLAN connection"
-msgstr ""
+msgstr "添加VLAN链接"
 
 msgid "Add bond connection"
-msgstr ""
+msgstr "添加绑定链接"
 
 msgid "Add devices to RAID device"
 msgstr "添加设备到RAID阵列中"
@@ -969,6 +969,9 @@ msgstr "确认要以递归方式删除共享文件内容吗？该共享文件的
 msgid "Domain name"
 msgstr "域名"
 
+msgid "Domains used when resolving host names."
+msgstr ""
+
 msgid "Dominica"
 msgstr "多米尼加"
 
@@ -1017,16 +1020,16 @@ msgid "Edit SSL certificate"
 msgstr "编辑SSL证书"
 
 msgid "Edit VLAN connection"
-msgstr ""
+msgstr "编辑VLAN链接"
 
 msgid "Edit Wi-Fi connection"
-msgstr ""
+msgstr "编辑Wi-Fi链接"
 
 msgid "Edit bond connection"
-msgstr ""
+msgstr "编辑绑定链接"
 
 msgid "Edit ethernet connection"
-msgstr ""
+msgstr "编辑网络连接"
 
 msgid "Edit firewall rule"
 msgstr "编辑防火墙规则"
@@ -1509,6 +1512,9 @@ msgstr "匈牙利"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IP addresses of domain name servers used to resolve host names."
+msgstr ""
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -2091,7 +2097,7 @@ msgid "Network"
 msgstr "网络"
 
 msgid "Network interface '%s' (type=%s) already exists"
-msgstr ""
+msgstr "网口'%s' (type=%s)已经存在"
 
 msgid "Neutral Zone"
 msgstr "中立区"
@@ -2759,7 +2765,7 @@ msgid "SSH public key"
 msgstr "SSH公钥"
 
 msgid "SSID"
-msgstr ""
+msgstr " SSID"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3333,9 +3339,6 @@ msgstr "用户主目录位置。"
 
 msgid "The name of the share."
 msgstr "共享名称。"
-
-msgid "The name servers are used to look up host names on the network."
-msgstr "该服务器名称是用来网络查询的主机名。"
 
 msgid "The number of days the certificate is valid for."
 msgstr "证书有效期天数。"
@@ -3963,7 +3966,7 @@ msgid "When failed"
 msgstr "故障时间"
 
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 msgid "Wipe"
 msgstr "擦除"

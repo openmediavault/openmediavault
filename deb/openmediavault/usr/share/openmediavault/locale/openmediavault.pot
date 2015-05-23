@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 21:54+0200\n"
+"POT-Creation-Date: 2015-05-23 09:30+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -931,6 +931,9 @@ msgstr ""
 msgid "Domain name"
 msgstr ""
 
+msgid "Domains used when resolving host names."
+msgstr ""
+
 msgid "Dominica"
 msgstr ""
 
@@ -1457,6 +1460,9 @@ msgid "Hungary"
 msgstr ""
 
 msgid "ID"
+msgstr ""
+
+msgid "IP addresses of domain name servers used to resolve host names."
 msgstr ""
 
 msgid "IPv4"
@@ -3176,9 +3182,6 @@ msgid "The location of the user home directories."
 msgstr ""
 
 msgid "The name of the share."
-msgstr ""
-
-msgid "The name servers are used to look up host names on the network."
 msgstr ""
 
 msgid "The number of days the certificate is valid for."

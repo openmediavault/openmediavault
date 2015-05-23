@@ -119,7 +119,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Generic", {
 				allowBlank: true,
 				value: me.devicename
 			},{
-				xtype: "textfield",
+				xtype: "textarea",
 				name: "comment",
 				fieldLabel: _("Comment"),
 				allowBlank: true
@@ -223,14 +223,18 @@ Ext.define("OMV.module.admin.system.network.interface.window.Generic", {
 				allowBlank: true,
 				plugins: [{
 					ptype: "fieldinfo",
-					text: _("The name servers are used to look up host names on the network.")
+					text: _("IP addresses of domain name servers used to resolve host names.")
 				}]
 			},{
 				xtype: "textfield",
 				name: "dnssearch",
 				fieldLabel: _("Search domains"),
 				vtype: "domainnameList",
-				allowBlank: true
+				allowBlank: true,
+				plugins: [{
+					ptype: "fieldinfo",
+					text: _("Domains used when resolving host names.")
+				}]
 			},{
 				xtype: "numberfield",
 				name: "mtu",
@@ -1014,7 +1018,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 
 	onAddButton: function(action) {
 		var me = this;
-		var className, title;
+		var clsName, title;
 		switch (action) {
 		case "bond":
 			clsName = "OMV.module.admin.system.network.interface.window.Bond";
@@ -1044,7 +1048,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 
 	onEditButton: function() {
 		var me = this;
-		var className, title;
+		var clsName, title;
 		var record = me.getSelected();
 		// Display a different dialog depending on the type of the selected
 		// interface.

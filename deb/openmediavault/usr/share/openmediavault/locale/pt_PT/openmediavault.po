@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 21:54+0200\n"
-"PO-Revision-Date: 2015-05-22 19:54+0000\n"
+"POT-Creation-Date: 2015-05-23 09:30+0200\n"
+"PO-Revision-Date: 2015-05-23 07:30+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
@@ -969,6 +969,9 @@ msgstr "Você quer remover o conteúdo da pasta partilhada definitivamente? O co
 msgid "Domain name"
 msgstr "Nome de domínio"
 
+msgid "Domains used when resolving host names."
+msgstr ""
+
 msgid "Dominica"
 msgstr "Dominica"
 
@@ -1509,6 +1512,9 @@ msgstr "Hungria"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IP addresses of domain name servers used to resolve host names."
+msgstr ""
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -3333,9 +3339,6 @@ msgstr "A localização dos diretórios de raiz dos usuários."
 
 msgid "The name of the share."
 msgstr "O nome da partilha."
-
-msgid "The name servers are used to look up host names on the network."
-msgstr ""
 
 msgid "The number of days the certificate is valid for."
 msgstr "O numero de dias de validade do certificado."

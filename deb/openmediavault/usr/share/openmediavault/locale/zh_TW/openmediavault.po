@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 21:54+0200\n"
-"PO-Revision-Date: 2015-05-22 19:54+0000\n"
+"POT-Creation-Date: 2015-05-23 09:30+0200\n"
+"PO-Revision-Date: 2015-05-23 07:30+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -199,10 +199,10 @@ msgid "Add"
 msgstr "新增"
 
 msgid "Add VLAN connection"
-msgstr ""
+msgstr "新增 VLAN 連線"
 
 msgid "Add bond connection"
-msgstr ""
+msgstr "新增結合連線"
 
 msgid "Add devices to RAID device"
 msgstr "新增裝置到 RAID 裝置中"
@@ -969,6 +969,9 @@ msgstr "你要以遞歸方式移除共享檔案夾的內容？共享檔案夾的
 msgid "Domain name"
 msgstr "網域名稱"
 
+msgid "Domains used when resolving host names."
+msgstr ""
+
 msgid "Dominica"
 msgstr "多明尼加"
 
@@ -1017,16 +1020,16 @@ msgid "Edit SSL certificate"
 msgstr "編輯 SSL 證書"
 
 msgid "Edit VLAN connection"
-msgstr ""
+msgstr "編輯 VLAN 連線"
 
 msgid "Edit Wi-Fi connection"
-msgstr ""
+msgstr "編輯 Wi-Fi 連線"
 
 msgid "Edit bond connection"
-msgstr ""
+msgstr "編輯結合連線"
 
 msgid "Edit ethernet connection"
-msgstr ""
+msgstr "編輯乙太網路連線"
 
 msgid "Edit firewall rule"
 msgstr "編輯防火牆規則"
@@ -1509,6 +1512,9 @@ msgstr "匈牙利"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IP addresses of domain name servers used to resolve host names."
+msgstr ""
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -2091,7 +2097,7 @@ msgid "Network"
 msgstr "網路"
 
 msgid "Network interface '%s' (type=%s) already exists"
-msgstr ""
+msgstr "網路介面 '%s' (型式=%s) 已經存在"
 
 msgid "Neutral Zone"
 msgstr "中立區"
@@ -2759,7 +2765,7 @@ msgid "SSH public key"
 msgstr "SSH 公鑰"
 
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3333,9 +3339,6 @@ msgstr "用戶之家目錄的位置。"
 
 msgid "The name of the share."
 msgstr "該共享的名稱。"
-
-msgid "The name servers are used to look up host names on the network."
-msgstr "這些名稱伺服器是被用來在網路上查詢主機名稱。"
 
 msgid "The number of days the certificate is valid for."
 msgstr "證書有效的天數。"
@@ -3963,7 +3966,7 @@ msgid "When failed"
 msgstr "何時故障"
 
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 msgid "Wipe"
 msgstr "抹除"

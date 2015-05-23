@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 21:54+0200\n"
-"PO-Revision-Date: 2015-05-22 19:54+0000\n"
+"POT-Creation-Date: 2015-05-23 09:30+0200\n"
+"PO-Revision-Date: 2015-05-23 07:30+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -969,6 +969,9 @@ msgstr "El szeretnéd távolítani a rekurzívan megosztott mappa tartalmát? A 
 msgid "Domain name"
 msgstr "Tartománynév"
 
+msgid "Domains used when resolving host names."
+msgstr ""
+
 msgid "Dominica"
 msgstr "Dominika"
 
@@ -1509,6 +1512,9 @@ msgstr "Magyarország"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IP addresses of domain name servers used to resolve host names."
+msgstr ""
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -3333,9 +3339,6 @@ msgstr "A felhasználói saját könyvtár útvonala."
 
 msgid "The name of the share."
 msgstr "A megosztás neve."
-
-msgid "The name servers are used to look up host names on the network."
-msgstr ""
 
 msgid "The number of days the certificate is valid for."
 msgstr "A tanúsítvány érvényességének ideje."

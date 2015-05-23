@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 21:54+0200\n"
-"PO-Revision-Date: 2015-05-22 19:54+0000\n"
+"POT-Creation-Date: 2015-05-23 09:30+0200\n"
+"PO-Revision-Date: 2015-05-23 07:30+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -968,6 +968,9 @@ msgstr "Vil du fjerne indholdet af den delte mappe rekursivt? Den delte mappes i
 msgid "Domain name"
 msgstr "Domæne navn"
 
+msgid "Domains used when resolving host names."
+msgstr ""
+
 msgid "Dominica"
 msgstr "Dominica"
 
@@ -1508,6 +1511,9 @@ msgstr "Hungary"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IP addresses of domain name servers used to resolve host names."
+msgstr ""
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -3332,9 +3338,6 @@ msgstr "Placering af brugerens hjemme biblioteker."
 
 msgid "The name of the share."
 msgstr "Navnet på delingen."
-
-msgid "The name servers are used to look up host names on the network."
-msgstr ""
 
 msgid "The number of days the certificate is valid for."
 msgstr "Antal dage certifikatet er gyldig i."

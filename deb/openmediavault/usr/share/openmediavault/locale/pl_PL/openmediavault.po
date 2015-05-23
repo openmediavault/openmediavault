@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 21:54+0200\n"
-"PO-Revision-Date: 2015-05-22 19:54+0000\n"
+"POT-Creation-Date: 2015-05-23 09:30+0200\n"
+"PO-Revision-Date: 2015-05-23 07:30+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
@@ -972,6 +972,9 @@ msgstr "Czy chcesz usunąć zawartość folderu udostępnionego rekurencyjnie? Z
 msgid "Domain name"
 msgstr "Nazwa domeny"
 
+msgid "Domains used when resolving host names."
+msgstr ""
+
 msgid "Dominica"
 msgstr "Dominica"
 
@@ -1512,6 +1515,9 @@ msgstr "Hungary"
 
 msgid "ID"
 msgstr "ID"
+
+msgid "IP addresses of domain name servers used to resolve host names."
+msgstr ""
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -3336,9 +3342,6 @@ msgstr "Lokalizacja katalogów domowych użytkownika."
 
 msgid "The name of the share."
 msgstr "Nazwa zasobu."
-
-msgid "The name servers are used to look up host names on the network."
-msgstr ""
 
 msgid "The number of days the certificate is valid for."
 msgstr "Ilość dni, przez jaką jest ważny certyfikat.."
