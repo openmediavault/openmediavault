@@ -156,7 +156,10 @@ Ext.define("OMV.module.admin.dashboard.view.NetworkInterfaces", {
 						type: "rpc",
 						rpcData: {
 							service: "Network",
-							method: "enumerateDevicesList"
+							method: "enumerateDevicesList",
+							options: {
+								updatelastaccess: false
+							}
 						}
 					},
 					sorters: [{

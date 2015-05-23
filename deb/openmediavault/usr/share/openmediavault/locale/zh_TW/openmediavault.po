@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-23 09:30+0200\n"
-"PO-Revision-Date: 2015-05-23 07:30+0000\n"
+"POT-Creation-Date: 2015-05-24 01:26+0200\n"
+"PO-Revision-Date: 2015-05-23 23:27+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -201,11 +201,17 @@ msgstr "新增"
 msgid "Add VLAN connection"
 msgstr "新增 VLAN 連線"
 
+msgid "Add Wi-Fi connection"
+msgstr ""
+
 msgid "Add bond connection"
 msgstr "新增結合連線"
 
 msgid "Add devices to RAID device"
 msgstr "新增裝置到 RAID 裝置中"
+
+msgid "Add ethernet connection"
+msgstr ""
 
 msgid "Add firewall rule"
 msgstr "新增防火牆規則"
@@ -1188,6 +1194,9 @@ msgstr "錯誤 #%d"
 
 msgid "Estonia"
 msgstr "愛沙尼亞"
+
+msgid "Ethernet"
+msgstr ""
 
 msgid "Ethiopia"
 msgstr "衣索比亞"
@@ -3920,6 +3929,9 @@ msgstr "WINS 伺服器"
 
 msgid "WINS support"
 msgstr "WINS 支援"
+
+msgid "WOL"
+msgstr ""
 
 msgid "Wake Island"
 msgstr "維克島"

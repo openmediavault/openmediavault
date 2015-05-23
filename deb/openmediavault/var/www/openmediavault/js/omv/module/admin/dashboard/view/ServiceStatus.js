@@ -114,7 +114,10 @@ Ext.define("OMV.module.admin.dashboard.view.ServiceStatus", {
 						appendSortParams: false,
 						rpcData: {
 							service: "Services",
-							method: "getStatus"
+							method: "getStatus",
+							options: {
+								updatelastaccess: false
+							}
 						}
 					},
 					sorters: [{

@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-23 09:30+0200\n"
-"PO-Revision-Date: 2015-05-23 13:10+0000\n"
-"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
+"POT-Creation-Date: 2015-05-24 01:26+0200\n"
+"PO-Revision-Date: 2015-05-23 23:27+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -207,11 +207,17 @@ msgstr "Добавить"
 msgid "Add VLAN connection"
 msgstr "Добавить соединение VLAN "
 
+msgid "Add Wi-Fi connection"
+msgstr ""
+
 msgid "Add bond connection"
 msgstr "Добавить bond соединение"
 
 msgid "Add devices to RAID device"
 msgstr "Добавить устройство в RAID массив"
+
+msgid "Add ethernet connection"
+msgstr ""
 
 msgid "Add firewall rule"
 msgstr "Добавить правило в брандмауэр"
@@ -1194,6 +1200,9 @@ msgstr "Ошибка #%d"
 
 msgid "Estonia"
 msgstr "Эстония"
+
+msgid "Ethernet"
+msgstr ""
 
 msgid "Ethiopia"
 msgstr "Эфиопия"
@@ -3926,6 +3935,9 @@ msgstr "Сервер WINS"
 
 msgid "WINS support"
 msgstr "Поддержка WINS"
+
+msgid "WOL"
+msgstr ""
 
 msgid "Wake Island"
 msgstr "Атолл Уэйк"

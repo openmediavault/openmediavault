@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-23 09:30+0200\n"
+"POT-Creation-Date: 2015-05-24 01:26+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -199,10 +199,16 @@ msgstr ""
 msgid "Add VLAN connection"
 msgstr ""
 
+msgid "Add Wi-Fi connection"
+msgstr ""
+
 msgid "Add bond connection"
 msgstr ""
 
 msgid "Add devices to RAID device"
+msgstr ""
+
+msgid "Add ethernet connection"
 msgstr ""
 
 msgid "Add firewall rule"
@@ -1142,6 +1148,9 @@ msgid "Error #%d"
 msgstr ""
 
 msgid "Estonia"
+msgstr ""
+
+msgid "Ethernet"
 msgstr ""
 
 msgid "Ethiopia"
@@ -3684,6 +3693,9 @@ msgid "WINS server"
 msgstr ""
 
 msgid "WINS support"
+msgstr ""
+
+msgid "WOL"
 msgstr ""
 
 msgid "Wake Island"

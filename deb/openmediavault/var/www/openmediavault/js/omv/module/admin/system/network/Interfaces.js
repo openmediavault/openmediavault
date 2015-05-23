@@ -56,54 +56,79 @@ Ext.define("OMV.module.admin.system.network.interface.window.Generic", {
 	 *   Required.
 	 */
 
-	getFieldCorrelations: function() {
-		return [{
-			name: [
-				"address",
-				"netmask"
-			],
-			conditions: [
-				{ name: "method", value: "static" }
-			],
-			properties: [
-				"!allowBlank",
-				"!readOnly"
-			]
-		},{
-			name: "gateway", // Optional in 'Static' mode.
-			conditions: [
-				{ name: "method", value: "static" }
-			],
-			properties: "!readOnly"
-		},{
-			name: [
-				"address6",
-				"netmask6"
-			],
-			conditions: [
-				{ name: "method6", value: "static" }
-			],
-			properties: [
-				"!allowBlank",
-				"!readOnly"
-			]
-		},{
-			name: "gateway6", // Optional in 'Static' mode.
-			conditions: [
-				{ name: "method6", value: "static" }
-			],
-			properties: "!readOnly"
-		}];
-	},
-
 	getFormConfig: function() {
 		var me = this;
+		var correlations = [];
+		var config = me.getFormSectionConfig();
+		Ext.Array.each(config, function(item) {
+			Ext.Array.push(correlations, item.correlations);
+		});
 		return {
 			plugins: [{
 				ptype: "linkedfields",
-				correlations: me.getFieldCorrelations()
+				correlations: correlations
 			}]
 		};
+	},
+
+	getFormSectionConfig: function(name) {
+		return [{
+			id: "general",
+			position: 10,
+			title: _("General settings"),
+			correlations: []
+		},{
+			id: "ipv4",
+			position: 20,
+			title: _("IPv4"),
+			correlations: [{
+				name: [
+					"address",
+					"netmask"
+				],
+				conditions: [
+					{ name: "method", value: "static" }
+				],
+				properties: [
+					"!allowBlank",
+					"!readOnly"
+				]
+			},{
+				name: "gateway", // Optional in 'Static' mode.
+				conditions: [
+					{ name: "method", value: "static" }
+				],
+				properties: "!readOnly"
+			}]
+		},{
+			id: "ipv6",
+			position: 30,
+			title: _("IPv6"),
+			correlations: [{
+				name: [
+					"address6",
+					"netmask6"
+				],
+				conditions: [
+					{ name: "method6", value: "static" }
+				],
+				properties: [
+					"!allowBlank",
+					"!readOnly"
+				]
+			},{
+				name: "gateway6", // Optional in 'Static' mode.
+				conditions: [
+					{ name: "method6", value: "static" }
+				],
+				properties: "!readOnly"
+			}]
+		},{
+			id: "advanced",
+			position: 40,
+			title: _("Advanced settings"),
+			correlations: []
+		}];
 	},
 
 	getFormItemsBySection: function(name) {
@@ -119,7 +144,7 @@ Ext.define("OMV.module.admin.system.network.interface.window.Generic", {
 				allowBlank: true,
 				value: me.devicename
 			},{
-				xtype: "textarea",
+				xtype: "textfield",
 				name: "comment",
 				fieldLabel: _("Comment"),
 				allowBlank: true
@@ -264,35 +289,24 @@ Ext.define("OMV.module.admin.system.network.interface.window.Generic", {
 
 	getFormItems: function() {
 		var me = this;
-		return [{
-			xtype: "fieldset",
-			title: _("General settings"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: me.getFormItemsBySection("general")
-		},{
-			xtype: "fieldset",
-			title: _("IPv4"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: me.getFormItemsBySection("ipv4")
-		},{
-			xtype: "fieldset",
-			title: _("IPv6"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: me.getFormItemsBySection("ipv6")
-		},{
-			xtype: "fieldset",
-			title: _("Advanced settings"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: me.getFormItemsBySection("advanced")
-		}];
+		var items = [];
+		var config = me.getFormSectionConfig();
+		var coll = new Ext.util.MixedCollection();
+		Ext.Array.each(config, function(item) {
+			coll.add(item.id, item);
+		});
+		coll.sort("position", "ASC");
+		coll.eachKey(function(key, item) {
+			Ext.Array.push(items, {
+				xtype: "fieldset",
+				title: item.title,
+				fieldDefaults: {
+					labelSeparator: ""
+				},
+				items: me.getFormItemsBySection(key)
+			});
+		});
+		return items;
 	}
 });
 
@@ -304,7 +318,56 @@ Ext.define("OMV.module.admin.system.network.interface.window.Ethernet", {
 	extend: "OMV.module.admin.system.network.interface.window.Generic",
 
 	rpcGetMethod: "getEthernetIface",
-	rpcSetMethod: "setEthernetIface"
+	rpcSetMethod: "setEthernetIface",
+
+	getFormItemsBySection: function(name) {
+		var me = this;
+		var items = me.callParent(arguments);
+		switch (name) {
+		case "general":
+			if (me.uuid == OMV.UUID_UNDEFINED) {
+				items = [{
+					xtype: "combo",
+					name: "devicename",
+					fieldLabel: _("Name"),
+					emptyText: _("Select a device ..."),
+					queryMode: "local",
+					store: Ext.create("OMV.data.Store", {
+						autoLoad: true,
+						model: OMV.data.Model.createImplicit({
+							idProperty: "devicename",
+							fields: [
+								{ name: "devicename", type: "string" }
+							]
+						}),
+						proxy: {
+							type: "rpc",
+							rpcData: {
+								service: "Network",
+								method: "getEthernetCandidates"
+							}
+						},
+						sorters: [{
+							direction: "ASC",
+							property: "devicename"
+						}]
+					}),
+					displayField: "devicename",
+					valueField: "devicename",
+					allowBlank: false,
+					forceSelection: true,
+					triggerAction: "all"
+				},{
+					xtype: "textfield",
+					name: "comment",
+					fieldLabel: _("Comment"),
+					allowBlank: true
+				}];
+			}
+			break;
+		}
+		return items;
+	}
 });
 
 /**
@@ -320,31 +383,32 @@ Ext.define("OMV.module.admin.system.network.interface.window.Bond", {
 	rpcGetMethod: "getBondIface",
 	rpcSetMethod: "setBondIface",
 
-	getFieldCorrelations: function() {
+	getFormSectionConfig: function() {
 		var me = this;
-		var correlations = me.callParent(arguments);
-		Ext.Array.push(correlations, [{
-			name: "bondprimary",
-			conditions: [
-				{ name: "bondmode", value: [ 1, 5, 6 ] }
-			],
-			properties: [
-				"!allowBlank"
-			]
-		}]);
-		return correlations;
+		var config = me.callParent(arguments);
+		Ext.Array.push(config, {
+			id: "bond",
+			position: 15,
+			title: _("Bond"),
+			correlations: [{
+				name: "bondprimary",
+				conditions: [
+					{ name: "bondmode", value: [ 1, 5, 6 ] }
+				],
+				properties: [
+					"!allowBlank"
+				]
+			}]
+		});
+		return config;
 	},
 
-	getFormItems: function() {
+	getFormItemsBySection: function(name) {
 		var me = this;
 		var items = me.callParent(arguments);
-		Ext.Array.push(items, [{
-			xtype: "fieldset",
-			title: _("Bond"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
+		switch (name) {
+		case "bond":
+			Ext.Array.push(items, [{
 				xtype: "checkboxgridfield",
 				name: "slaves",
 				fieldLabel: _("Slaves"),
@@ -505,8 +569,9 @@ Ext.define("OMV.module.admin.system.network.interface.window.Bond", {
 					ptype: "fieldinfo",
 					text: _("Specifies the time, in milliseconds, to wait before enabling a slave after a link recovery has been detected.")
 				}]
-			}]
-		}]);
+			}]);
+			break;
+		}
 		return items;
 	},
 
@@ -560,16 +625,24 @@ Ext.define("OMV.module.admin.system.network.interface.window.Vlan", {
 	rpcGetMethod: "getVlanIface",
 	rpcSetMethod: "setVlanIface",
 
-	getFormItems: function() {
+	getFormSectionConfig: function() {
+		var me = this;
+		var config = me.callParent(arguments);
+		Ext.Array.push(config, {
+			id: "vlan",
+			position: 15,
+			title: _("VLAN"),
+			correlations: []
+		});
+		return config;
+	},
+
+	getFormItemsBySection: function(name) {
 		var me = this;
 		var items = me.callParent(arguments);
-		Ext.Array.push(items, [{
-			xtype: "fieldset",
-			title: _("VLAN"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
+		switch (name) {
+		case "vlan":
+			Ext.Array.push(items, [{
 				xtype: "combo",
 				name: "vlanrawdevice",
 				fieldLabel: _("Parent interface"),
@@ -612,8 +685,9 @@ Ext.define("OMV.module.admin.system.network.interface.window.Vlan", {
 				minValue: 1,
 				maxValue: 4095,
 				value: 1
-			}]
-		}]);
+			}]);
+			break;
+		}
 		return items;
 	}
 });
@@ -631,16 +705,65 @@ Ext.define("OMV.module.admin.system.network.interface.window.Wireless", {
 	rpcGetMethod: "getWirelessIface",
 	rpcSetMethod: "setWirelessIface",
 
-	getFormItems: function() {
+	getFormSectionConfig: function() {
+		var me = this;
+		var config = me.callParent(arguments);
+		Ext.Array.push(config, {
+			id: "wireless",
+			position: 15,
+			title: _("Wi-Fi"),
+			correlations: []
+		});
+		return config;
+	},
+
+	getFormItemsBySection: function(name) {
 		var me = this;
 		var items = me.callParent(arguments);
-		Ext.Array.push(items, [{
-			xtype: "fieldset",
-			title: _("Wi-Fi"),
-			fieldDefaults: {
-				labelSeparator: ""
-			},
-			items: [{
+		switch (name) {
+		case "general":
+			if (me.uuid == OMV.UUID_UNDEFINED) {
+				items = [{
+					xtype: "combo",
+					name: "devicename",
+					fieldLabel: _("Name"),
+					emptyText: _("Select a device ..."),
+					queryMode: "local",
+					store: Ext.create("OMV.data.Store", {
+						autoLoad: true,
+						model: OMV.data.Model.createImplicit({
+							idProperty: "devicename",
+							fields: [
+								{ name: "devicename", type: "string" }
+							]
+						}),
+						proxy: {
+							type: "rpc",
+							rpcData: {
+								service: "Network",
+								method: "getWirelessCandidates"
+							}
+						},
+						sorters: [{
+							direction: "ASC",
+							property: "devicename"
+						}]
+					}),
+					displayField: "devicename",
+					valueField: "devicename",
+					allowBlank: false,
+					forceSelection: true,
+					triggerAction: "all"
+				},{
+					xtype: "textfield",
+					name: "comment",
+					fieldLabel: _("Comment"),
+					allowBlank: true
+				}];
+			}
+			break;
+		case "wireless":
+			Ext.Array.push(items, [{
 				xtype: "textfield",
 				name: "wpassid",
 				fieldLabel: _("SSID"),
@@ -652,8 +775,9 @@ Ext.define("OMV.module.admin.system.network.interface.window.Wireless", {
 				fieldLabel: _("Password"),
 				allowBlank: false,
 				value: ""
-			}]
-		}]);
+			}]);
+			break;
+		}
 		return items;
 	}
 });
@@ -766,8 +890,6 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		"Ext.XTemplate"
 	],
 
-	autoReload: true,
-	rememberSelected: true,
 	hidePagingToolbar: false,
 	stateful: true,
 	stateId: "85093f5d-9f9f-45bf-a46f-ead6bc36884a",
@@ -776,7 +898,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		sortable: true,
 		dataIndex: "devicename",
 		stateId: "devicename",
-		width: 45
+		flex: 1
 	},{
 		text: _("Method"),
 		sortable: true,
@@ -797,7 +919,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			  });
 			return tpl.apply(record.data);
 		},
-		width: 45
+		flex: 1
 	},{
 		text: _("Address"),
 		sortable: true,
@@ -833,49 +955,18 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		flex: 1
 	},{
 		xtype: "emptycolumn",
-		text: _("MAC address"),
-		sortable: true,
-		dataIndex: "ether",
-		stateId: "ether",
-		flex: 1
-	},{
-		xtype: "emptycolumn",
 		text: _("MTU"),
 		sortable: true,
 		dataIndex: "mtu",
 		stateId: "mtu",
 		width: 45
 	},{
-		text: _("Speed"),
+		xtype: "booleantextcolumn",
+		text: _("WOL"),
 		sortable: true,
-		dataIndex: "speed",
-		stateId: "speed",
-		renderer: function(value) {
-			if (-1 == value)
-				return _("n/a");
-			return Ext.String.format("{0} Mbits/sec", value);
-		},
-		flex: 1
-	},{
-		text: _("Link"),
-		sortable: true,
-		dataIndex: "link",
-		stateId: "link",
-		align: "center",
-		width: 80,
-		resizable: false,
-		renderer: function(value) {
-			switch (value) {
-			case true:
-				img = "iflinkyes.png";
-				break;
-			default:
-				img = "iflinkno.png";
-				break;
-			}
-			return "<img border='0' src='images/" + img +
-			  "' alt='" + value + "'>";
-		}
+		dataIndex: "wol",
+		stateId: "wol",
+		width: 45
 	},{
 		text: _("Comment"),
 		sortable: true,
@@ -893,6 +984,7 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 					idProperty: "devicename",
 					fields: [
 						{ name: "uuid", type: "string" },
+						{ name: "type", type: "string" },
 						{ name: "devicename", type: "string" },
 						{ name: "method", type: "string" },
 						{ name: "address", type: "string" },
@@ -902,22 +994,19 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 						{ name: "address6", type: "string" },
 						{ name: "netmask6", type: "int" },
 						{ name: "gateway6", type: "string" },
-						{ name: "ether", type: "string" },
+						{ name: "dnsnameservers", type: "string" },
+						{ name: "dnssearch", type: "string" },
 						{ name: "mtu", type: "string" },
-						{ name: "state", type: "string" },
-						{ name: "link", type: "boolean" },
-						{ name: "type", type: "string" },
-						{ name: "speed", type: "int" },
-						{ name: "comment", type: "string" },
-						{ name: "_used", type: "boolean" },
-						{ name: "_readonly", type: "boolean" }
+						{ name: "wol", type: "boolean" },
+						{ name: "options", type: "string" },
+						{ name: "comment", type: "string" }
 					]
 				}),
 				proxy: {
 					type: "rpc",
 					rpcData: {
 						service: "Network",
-						method: "enumerateDevicesList"
+						method: "getInterfaceList"
 					}
 				},
 				sorters: [{
@@ -945,9 +1034,10 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 			},
 			menu: Ext.create("Ext.menu.Menu", {
 				items: [
+					{ text: _("Ethernet"), value: "ethernet" },
+					{ text: _("Wi-Fi"), value: "wireless" },
 					{ text: _("Bond"), value: "bond" },
-					{ text: _("VLAN"), value: "vlan" },
-					{ text: _("Wi-Fi"), value: "wireless" }
+					{ text: _("VLAN"), value: "vlan" }
 				],
 				listeners: {
 					scope: me,
@@ -988,14 +1078,11 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		if (records.length <= 0) {
 			// Nothing to do here.
 		} else if (records.length == 1) {
-			tbarBtnDisabled["edit"] = !Ext.Array.contains([ "ethernet",
-			  "bond", "vlan", "wireless" ], records[0].get("type"));
+			tbarBtnDisabled["edit"] = false;
 			if (records[0].get("type") == "ethernet") {
 				tbarBtnDisabled["identify"] = false;
 			}
-			if (records[0].get("uuid") !== OMV.UUID_UNDEFINED) {
-				tbarBtnDisabled["delete"] = false;
-			}
+			tbarBtnDisabled["delete"] = false;
 		} else {
 			// Nothing to do here.
 		}
@@ -1016,10 +1103,14 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		}, me);
 	},
 
-	onAddButton: function(action) {
+	onAddButton: function(type) {
 		var me = this;
 		var clsName, title;
-		switch (action) {
+		switch (type) {
+		case "ethernet":
+			clsName = "OMV.module.admin.system.network.interface.window.Ethernet";
+			title = _("Add ethernet connection");
+			break;
 		case "bond":
 			clsName = "OMV.module.admin.system.network.interface.window.Bond";
 			title = _("Add bond connection");
@@ -1027,6 +1118,10 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		case "vlan":
 			clsName = "OMV.module.admin.system.network.interface.window.Vlan";
 			title = _("Add VLAN connection");
+			break;
+		case "wireless":
+			clsName = "OMV.module.admin.system.network.interface.window.Wireless";
+			title = _("Add Wi-Fi connection");
 			break;
 		default:
 			OMV.MessageBox.error(null, _("Unknown network interface type."));
@@ -1078,7 +1173,6 @@ Ext.define("OMV.module.admin.system.network.interface.Interfaces", {
 		Ext.create(clsName, {
 			title: title,
 			uuid: record.get("uuid"),
-			devicename: record.get("devicename"),
 			readOnly: record.get("_readonly"),
 			listeners: {
 				submit: function() {

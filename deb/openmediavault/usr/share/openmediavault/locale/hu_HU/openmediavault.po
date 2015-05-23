@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-23 09:30+0200\n"
-"PO-Revision-Date: 2015-05-23 07:30+0000\n"
+"POT-Creation-Date: 2015-05-24 01:26+0200\n"
+"PO-Revision-Date: 2015-05-23 23:27+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -201,11 +201,17 @@ msgstr "Hozzáadás"
 msgid "Add VLAN connection"
 msgstr ""
 
+msgid "Add Wi-Fi connection"
+msgstr ""
+
 msgid "Add bond connection"
 msgstr ""
 
 msgid "Add devices to RAID device"
 msgstr "Meghajtó hozzáadása a RAID tömbhöz"
+
+msgid "Add ethernet connection"
+msgstr ""
 
 msgid "Add firewall rule"
 msgstr "Tűzfal szabály hozzáadása"
@@ -1188,6 +1194,9 @@ msgstr "Hiba #%d"
 
 msgid "Estonia"
 msgstr "Észtország"
+
+msgid "Ethernet"
+msgstr ""
 
 msgid "Ethiopia"
 msgstr "Etiópia"
@@ -3920,6 +3929,9 @@ msgstr "WINS szerver"
 
 msgid "WINS support"
 msgstr "WINS támogatás"
+
+msgid "WOL"
+msgstr ""
 
 msgid "Wake Island"
 msgstr "Wake-sziget"

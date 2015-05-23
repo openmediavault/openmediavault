@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-23 09:30+0200\n"
-"PO-Revision-Date: 2015-05-23 07:30+0000\n"
+"POT-Creation-Date: 2015-05-24 01:26+0200\n"
+"PO-Revision-Date: 2015-05-23 23:27+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -198,13 +198,19 @@ msgid "Add"
 msgstr "Tilføj"
 
 msgid "Add VLAN connection"
+msgstr "Tilføj VLAN forbindelse"
+
+msgid "Add Wi-Fi connection"
 msgstr ""
 
 msgid "Add bond connection"
-msgstr ""
+msgstr "Tilføj binding forbindelse"
 
 msgid "Add devices to RAID device"
 msgstr "Tilføj enheder til RAID enhed"
+
+msgid "Add ethernet connection"
+msgstr ""
 
 msgid "Add firewall rule"
 msgstr "Tilføj firewall regl"
@@ -231,7 +237,7 @@ msgid "Add scheduled test"
 msgstr "Tilføj planlagt test"
 
 msgid "Add share"
-msgstr "Tilføj mappe"
+msgstr "Tilføj deling"
 
 msgid "Add shared folder"
 msgstr "Tilføj delt mappe"
@@ -454,7 +460,7 @@ msgid "Ban list"
 msgstr "Sort liste"
 
 msgid "Ban statistics:"
-msgstr "Sort liste statistikker::"
+msgstr "Sort liste statistikker:"
 
 msgid "Bandwidth restriction"
 msgstr "Båndbredde begrænsning"
@@ -496,7 +502,7 @@ msgid "Bolivia"
 msgstr "Bolivia"
 
 msgid "Bond"
-msgstr ""
+msgstr "Bind"
 
 msgid "Boot"
 msgstr "Boot"
@@ -766,7 +772,7 @@ msgid "DHCP"
 msgstr "DHCP"
 
 msgid "DNS servers"
-msgstr ""
+msgstr "DNS servere"
 
 msgid "Daemon"
 msgstr "Dæmon"
@@ -950,13 +956,13 @@ msgid "Do you really want to revert the configuration changes?"
 msgstr "Er du sikker på, at du vil fortryde konfigurations ændringerne?"
 
 msgid "Do you really want to shutdown the system?"
-msgstr "Er du sikker på at du vil lukke systemet ned?"
+msgstr "Er du sikker på, at du vil lukke systemet ned?"
 
 msgid "Do you really want to uninstall the selected plugin(s)?"
-msgstr "Er du sikker på at du vil afinstallere det/de valgte plugin(s)?"
+msgstr "Er du sikker på, at du vil afinstallere det/de valgte plugin(s)?"
 
 msgid "Do you really want to wipe the selected device?"
-msgstr "Er du sikker på at du vil rydde den valgte enhed?"
+msgstr "Er du sikker på, at du vil rydde den valgte enhed?"
 
 msgid ""
 "Do you want to remove the content of the shared folder recursively? The "
@@ -966,10 +972,10 @@ msgid ""
 msgstr "Vil du fjerne indholdet af den delte mappe rekursivt? Den delte mappes indhold vil blive fjernet permanent og kan ikke gendannes. Vælg 'Nej' for kun at slette den delte mappes konfiguration eller 'Annuller' for at afbryde."
 
 msgid "Domain name"
-msgstr "Domæne navn"
+msgstr "Domænenavn"
 
 msgid "Domains used when resolving host names."
-msgstr ""
+msgstr "Domæner brugt til opslag af værtsnavne."
 
 msgid "Dominica"
 msgstr "Dominica"
@@ -1019,16 +1025,16 @@ msgid "Edit SSL certificate"
 msgstr "Rediger SSL certifikat"
 
 msgid "Edit VLAN connection"
-msgstr ""
+msgstr "Rediger VLAN forbindelse"
 
 msgid "Edit Wi-Fi connection"
-msgstr ""
+msgstr "Rediger Wi-Fi forbindelse"
 
 msgid "Edit bond connection"
-msgstr ""
+msgstr "Rediger binding forbindelse"
 
 msgid "Edit ethernet connection"
-msgstr ""
+msgstr "Rediger ethernet forbindelse"
 
 msgid "Edit firewall rule"
 msgstr "Rediger firewall regl"
@@ -1188,6 +1194,9 @@ msgstr "Fejl #%d"
 msgid "Estonia"
 msgstr "Estonia"
 
+msgid "Ethernet"
+msgstr ""
+
 msgid "Ethiopia"
 msgstr "Ethiopia"
 
@@ -1260,7 +1269,7 @@ msgid "Failed to get list of network interface devices"
 msgstr "Lykkedes ikke at hente liste over netværks interface enheder"
 
 msgid "Failed to get list of unused network interface devices"
-msgstr ""
+msgstr "Lykkedes ikke at hente liste over ubrugte netværks interface enheder"
 
 msgid "Failed to get list of users."
 msgstr "Lykkedes ikke at hente liste over brugere."
@@ -1307,12 +1316,12 @@ msgstr "Filnavn"
 msgid ""
 "Files in the recycle bin will be deleted automatically after the specified "
 "number of days. Set to 0 for manual deletion."
-msgstr "Filer i papirkurven vil blive automatisk slettet efter det speciefiret antal dage. Sæt til 0 for manuel sletning."
+msgstr "Filer i papirkurven vil blive automatisk slettet efter det specificeret antal dage. Sæt til 0 for manuel sletning."
 
 msgid ""
 "Files that are larger than the specified number of bytes will not be put "
 "into the recycle bin. Set to 0 for unrestricted file size."
-msgstr "Filer der er større end det speciefiret antal af bytes vil ikke blive lagt i papirkurven. Sæt til 0 for uendelig størrelse."
+msgstr "Filer der er større end det specificeret antal af bytes vil ikke blive lagt i papirkurven. Sæt til 0 for uendelig størrelse."
 
 msgid "Filesize"
 msgstr "Filstørrelse"
@@ -1513,7 +1522,7 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IP addresses of domain name servers used to resolve host names."
-msgstr ""
+msgstr "IP adresser af domænenavne servere brugt til opslag af værtsnavne."
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -1664,7 +1673,7 @@ msgid "Interfaces"
 msgstr "Interfaces"
 
 msgid "Invalid domain name"
-msgstr "Ugyldig domæne navn"
+msgstr "Ugyldig domænenavn"
 
 msgid "Invalid file system label"
 msgstr "Ugyldig filsystem label"
@@ -1673,7 +1682,7 @@ msgid "Invalid group name"
 msgstr "Ugyldig gruppenavn"
 
 msgid "Invalid host name"
-msgstr ""
+msgstr "Ugyldig værtsnavn"
 
 msgid "Invalid line: %s"
 msgstr "Ugyldig linie: %s"
@@ -2096,7 +2105,7 @@ msgid "Network"
 msgstr "Netværk"
 
 msgid "Network interface '%s' (type=%s) already exists"
-msgstr ""
+msgstr "Netværks interface '%s' (type=%s) findes allerede"
 
 msgid "Neutral Zone"
 msgstr "Neutral Zone"
@@ -2189,10 +2198,10 @@ msgid "Nothing"
 msgstr "Ingenting"
 
 msgid "Notification"
-msgstr "Notifikation"
+msgstr "Underretning"
 
 msgid "Notifications"
-msgstr "Notifikationer"
+msgstr "Underretninger"
 
 msgid "November"
 msgstr "November"
@@ -2288,7 +2297,7 @@ msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent interface"
-msgstr ""
+msgstr "Overordnet interface"
 
 msgid "Passive FTP"
 msgstr "Passiv FTP"
@@ -2318,7 +2327,7 @@ msgid "Perform a trial run with no changes made"
 msgstr "Udfør en test uden at tilføje ændringer"
 
 msgid "Performance statistics"
-msgstr ""
+msgstr "Ydeevne statistikker"
 
 msgid "Period of validity"
 msgstr "Gyldighedsperiode"
@@ -2408,7 +2417,7 @@ msgstr "Vælg venligst først et drev."
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
 "are allowed."
-msgstr ""
+msgstr "Vær venligst sikker, at den delte mappe er offentlig skrivebar hvis nye filer er tilladt."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2424,7 +2433,7 @@ msgstr "Vent venligst ..."
 msgid ""
 "Please wait until the RAID has been initialized before creating a file "
 "system."
-msgstr "Vent venligst indtil RAIDén er initialiseret inden oprettelse af filsystem."
+msgstr "Vent venligst indtil RAID er initialiseret inden oprettelse af filsystem."
 
 msgid "Plugins"
 msgstr "Plugins"
@@ -2436,7 +2445,7 @@ msgid "Port"
 msgstr "Port"
 
 msgid "Port to listen on."
-msgstr "Port der skal lyttes på."
+msgstr "Port, der skal lyttes på."
 
 msgid "Portugal"
 msgstr "Portugal"
@@ -2463,7 +2472,7 @@ msgid "Preserve extended attributes"
 msgstr "Bevar udvidede attributter"
 
 msgid "Preserve modification times"
-msgstr "Bevar modifikations antal"
+msgstr "Bevar ændrings antal"
 
 msgid "Preserve permissions"
 msgstr "Bevar tilladelser"
@@ -2545,10 +2554,10 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
 msgstr "RAID 4"
@@ -2635,7 +2644,7 @@ msgid "Remove"
 msgstr "Fjern"
 
 msgid "Remove devices from RAID device"
-msgstr ""
+msgstr "Fjern enheder fra RAID enhed"
 
 msgid "Replace"
 msgstr "Erstat"
@@ -2764,7 +2773,7 @@ msgid "SSH public key"
 msgstr "SSH offentlig nøgle"
 
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2821,7 +2830,7 @@ msgid "Scheduling"
 msgstr "Planlægning"
 
 msgid "Search domains"
-msgstr ""
+msgstr "Søg domæner"
 
 msgid "Secondary email"
 msgstr "Sekundær email"
@@ -2866,10 +2875,10 @@ msgid "Select a language ..."
 msgstr "Vælg et sprog ..."
 
 msgid "Select a parent interface ..."
-msgstr ""
+msgstr "Vælg et overordnet interface ..."
 
 msgid "Select a primary interface ..."
-msgstr ""
+msgstr "Vælg et primær interface ..."
 
 msgid "Select a protocol ..."
 msgstr "Vælg en protokol ..."
@@ -2890,7 +2899,7 @@ msgid "Select devices to be added to the RAID device"
 msgstr "Vælg enheder, der skal tilføjes til RAID enheden"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Vælg enheder der skal fjernes fra RAID enheden."
 
 msgid "Select or enter a user name ..."
 msgstr "Vælg eller indtast et brugenavn ..."
@@ -3135,7 +3144,7 @@ msgstr "Angiver om det er tilladt at logge ind som superbruger"
 msgid ""
 "Specifies whether the system performance statistics are collected "
 "periodically."
-msgstr ""
+msgstr "Angiver forvidt system ydeevne statistikker bliver opsamlet periodisk."
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
@@ -3146,7 +3155,7 @@ msgid "Specifies which slave is the primary device."
 msgstr "Angiver hvilken slave der er den primære enhed."
 
 msgid "Speed"
-msgstr ""
+msgstr "Hastighed"
 
 msgid "Spindown time"
 msgstr "Spindown tid"
@@ -3323,10 +3332,10 @@ msgid ""
 msgstr "Oplysningerne om tilgængelig software er ikke opdateret. Du skal genindlæse oplysningerne om tilgængelig software."
 
 msgid "The interface '%s' is already used by a bonding interface"
-msgstr "Interfacet '%s' bliver allerede brugt af et bundet interface"
+msgstr "Interface '%s' bliver allerede brugt af et bundet interface"
 
 msgid "The location of the files to share."
-msgstr "Placeringen af filerne der skal deles."
+msgstr "Placeringen af filerne, der skal deles."
 
 msgid ""
 "The location of the files to share. The share will be accessible at "
@@ -3370,7 +3379,7 @@ msgid ""
 msgstr "Rettighederne på nye filer og mapper er normalt styret af oprette-maske og biblioteks-maske, men nedarv tilladelser parameteren tilsidesætter dette. Dette kan være særligt nyttigt på systemer med mange brugere for at tillade en enkelt deling i at blive anvendt fleksibelt af hver enkelt bruger."
 
 msgid "The public key in RFC 4716 SSH public key file format."
-msgstr ""
+msgstr "Den offentlige nøgle i RFC 4716 SSH offentlig nøgle filformat."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3458,27 +3467,27 @@ msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Dette felt skal være en IPv6 netværks adresse i CIDR betegnelse"
 
 msgid "This field should be a domain name or an IP address"
-msgstr ""
+msgstr "Dette felt skal være et domænenavn eller en IP adresse"
 
 msgid "This field should be a domain name or an IPv4 address"
-msgstr ""
+msgstr "Dette felt skal være et domænenavn eller en IPv4 adresse"
 
 msgid "This field should be a host name or an IP address"
-msgstr ""
+msgstr "Dette felt skal være et værtsnavn eller en IP adresse"
 
 msgid "This field should be a host name or an IPv4 address"
-msgstr ""
+msgstr "Dette felt skal være et værtsnavn eller en IPv4 adresse"
 
 msgid "This field should be a list of domain names or IP addresses"
-msgstr ""
+msgstr "Dette felt skal være en liste af domænenavne eller IP adresser"
 
 msgid ""
 "This field should be a list of domain names or IP addresses seperated by <,>"
 " or <;>"
-msgstr ""
+msgstr "Dette felt skal være en liste af domænenavne eller IP adresser adskilt med <,> eller <;>"
 
 msgid "This field should be a list of host names or IP addresses"
-msgstr ""
+msgstr "Dette felt skal være en liste af værtsnavne eller IP adresser"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3669,7 +3678,7 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Transfer log"
 msgstr "Overførelses log"
@@ -3876,10 +3885,10 @@ msgid "Uzbekistan"
 msgstr "Uzbekistan"
 
 msgid "VLAN"
-msgstr ""
+msgstr "VLAN"
 
 msgid "VLAN id"
-msgstr ""
+msgstr "VLAN id"
 
 msgid "Valid to"
 msgstr "Gyldig til"
@@ -3906,7 +3915,7 @@ msgid "Vietnam"
 msgstr "Vietnam"
 
 msgid "VirtIO device"
-msgstr ""
+msgstr "VirtIO enhed"
 
 msgid "Volume"
 msgstr "Drev"
@@ -3919,6 +3928,9 @@ msgstr "WINS server"
 
 msgid "WINS support"
 msgstr "WINS understøttelse"
+
+msgid "WOL"
+msgstr ""
 
 msgid "Wake Island"
 msgstr "Wake Island"
@@ -3965,7 +3977,7 @@ msgid "When failed"
 msgstr "Når fejlet"
 
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 msgid "Wipe"
 msgstr "Ryd"

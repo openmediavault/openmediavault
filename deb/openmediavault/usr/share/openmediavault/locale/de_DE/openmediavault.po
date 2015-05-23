@@ -17,8 +17,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-23 09:30+0200\n"
-"PO-Revision-Date: 2015-05-23 07:33+0000\n"
+"POT-Creation-Date: 2015-05-24 01:26+0200\n"
+"PO-Revision-Date: 2015-05-23 23:29+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -209,11 +209,17 @@ msgstr "Hinzufügen"
 msgid "Add VLAN connection"
 msgstr "VLAN-Verbindung hinzufügen"
 
+msgid "Add Wi-Fi connection"
+msgstr "Funknetzwerkverbindung hinzufügen"
+
 msgid "Add bond connection"
 msgstr "Bündel-Verbindung hinzufügen"
 
 msgid "Add devices to RAID device"
 msgstr "Laufwerk zu RAID hinzufügen"
+
+msgid "Add ethernet connection"
+msgstr "Kabelnetzverbindung hinzufügen"
 
 msgid "Add firewall rule"
 msgstr "Firewall Regel hinzufügen"
@@ -1196,6 +1202,9 @@ msgstr "Fehler #%d"
 
 msgid "Estonia"
 msgstr "Estland"
+
+msgid "Ethernet"
+msgstr "Ethernet"
 
 msgid "Ethiopia"
 msgstr "Äthiopien"
@@ -3928,6 +3937,9 @@ msgstr "WINS Server"
 
 msgid "WINS support"
 msgstr "WINS Unterstützung"
+
+msgid "WOL"
+msgstr "WOL"
 
 msgid "Wake Island"
 msgstr "Wake"

@@ -133,7 +133,10 @@ Ext.define("OMV.module.admin.dashboard.view.FileSystemStatus", {
 						appendSortParams: false,
 						rpcData: {
 							service: "FileSystemMgmt",
-							method: "enumerateFilesystems"
+							method: "enumerateFilesystems",
+							options: {
+								updatelastaccess: false
+							}
 						}
 					},
 					sorters: [{
