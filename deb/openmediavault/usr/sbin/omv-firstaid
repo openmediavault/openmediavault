@@ -37,14 +37,15 @@ OMV_FIRSTAID_DIALOG=${OMV_FIRSTAID_DIALOG:-"whiptail"}
 
 export LANG=C
 
-configure_iface() {
-	local devicename method method6 address address6 netmask netmask6 gateway gateway6 wol dnsnameservers valid
+configure_network() {
+	local devicename method method6 address address6 netmask netmask6 gateway gateway6 wol dnsnameservers valid wpassid wpapsk rpcmethod rpcparams
 	# Default values.
 	method="dhcp"
 	method6="manual"
 	netmask6=64
 	wol=false
 	dnsnameservers=""
+	rpcmethod="setEthernetIface"
 	# Get the network interface device.
 	cmd="${OMV_FIRSTAID_DIALOG} --clear --menu 'Please select a network interface. Note, the existing network interface configuration will be deleted.' 15 53 5 "
 	for i in $(ls /sys/class/net | grep -vi "lo"); do
@@ -195,11 +196,41 @@ configure_iface() {
 	if [ $? -eq 0 ]; then
 		wol=true
 	fi
+	# Build the RPC parameters for an ethernet network interface.
+	rpcparams="\"uuid\":\"undefined\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"method6\":\"${method6}\",\"address6\":\"${address6}\",\"netmask6\":${netmask6},\"gateway6\":\"${gateway6}\",\"dnsnameservers\":\"${dnsnameservers}\",\"dnssearch\":\"\",\"mtu\":\"\",\"wol\":${wol},\"options\":\"\",\"comment\":\"\""
+	# Do we process a wireless network interface?
+	if omv_is_wlan "${devicename}"; then
+		# Get the SSID.
+		while [ -z "${wpassid}" ]; do
+			${OMV_FIRSTAID_DIALOG} --clear --inputbox "Please enter the name of the wireless network (SSID)." \
+			  8 60 2>$tempfile
+			[ $? -ne 0 ] && return 1
+			wpassid=$(cat $tempfile)
+			if [ -z "${wpassid}" ]; then
+				${OMV_FIRSTAID_DIALOG} --clear --msgbox "The field must not be empty." 8 32
+				continue
+			fi
+		done
+		# Get the pre-shared key.
+		while [ -z "${wpapsk}" ]; do
+			${OMV_FIRSTAID_DIALOG} --clear --passwordbox \
+			  "Please enter the pre-shared key (PSK)." 8 45 2>$tempfile
+			[ $? -ne 0 ] && return 1
+			wpapsk=$(cat $tempfile)
+			if [ -z "${wpapsk}" ]; then
+				${OMV_FIRSTAID_DIALOG} --clear --msgbox "The password must not be empty." 7 35
+			fi
+		done
+		# Set the name of the RPC method.
+		rpcmethod="setWirelessIface"
+		# Append the wireless RPC parameters.
+		rpcparams="${rpcparams},\"wpassid\":\"${wpassid}\",\"wpapsk\":\"${wpapsk}\""
+	fi
 	echo "Configuring network interface. Please wait ..."
 	# Delete all existing network interface configuration objects.
 	omv_config_delete "//system/network/interfaces/interface"
 	# Insert a new network interface configuration object.
-	omv_exec_rpc "Network" "setEthernetIface" "{\"uuid\":\"undefined\",\"devicename\":\"${devicename}\",\"method\":\"${method}\",\"address\":\"${address}\",\"netmask\":\"${netmask}\",\"gateway\":\"${gateway}\",\"method6\":\"${method6}\",\"address6\":\"${address6}\",\"netmask6\":${netmask6},\"gateway6\":\"${gateway6}\",\"dnsnameservers\":\"${dnsnameservers}\",\"dnssearch\":\"\",\"mtu\":\"\",\"wol\":${wol},\"options\":\"\",\"comment\":\"\"}"
+	omv_exec_rpc "Network" "${rpcmethod}" "{${rpcparams}}"
 	[ $? -ne 0 ] && return 1
 	omv_exec_rpc "Config" "applyChanges" "{\"modules\":[],\"force\":false}"
 	[ $? -ne 0 ] && return 1
@@ -497,7 +528,7 @@ ${OMV_FIRSTAID_DIALOG} --nocancel --clear --backtitle "${prodname} - ${prodcopyr
 choice=$(cat $tempfile)
 case ${choice} in
 1)
-	configure_iface;
+	configure_network;
 	;;
 2)
 	configure_webgui;

@@ -611,6 +611,15 @@ omv_is_ipv6_enabled() {
 	return 1
 }
 
+# omv_is_wlan (chare devicename)
+# Check if the given device is a wireless network interface.
+# @return 0 if wireless, otherwise 1.
+omv_is_wlan() {
+	echo $1 | grep -Eq "^wlan[0-9]+$"
+	[ $? -ne 0 ] && return 1
+	return 0
+}
+
 # void omv_get_sharedfolder_name (char *uuid)
 # Get the name of the given shared folder
 # @param The UUID of the shared folder
