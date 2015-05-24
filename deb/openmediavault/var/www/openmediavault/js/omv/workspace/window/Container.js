@@ -122,11 +122,15 @@ Ext.define("OMV.workspace.window.Container", {
 
 	initComponent: function() {
 		var me = this;
+		// Apply the button configuration.
 		Ext.apply(me, {
-			buttons: me.getButtonItems(me),
-			items: me.getWindowItems(me)
+			buttons: me.getButtonItems(me)
 		});
 		me.callParent(arguments);
+		// Add the child components after the parent method has been
+		// called, otherwise the plugins are not initialized for example.
+		me.add(me.getWindowItems(me));
+		// Trigger the load method after the window has been rendered?
 		if(Ext.isDefined(me.rpcGetMethod) && me.autoLoadData &&
 		  (me.mode === "remote")) {
 			// Force loading after the component markup is rendered.
