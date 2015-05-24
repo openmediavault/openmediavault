@@ -60,7 +60,7 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 		$this->registerMethod("setGeneralSettings");
 		$this->registerMethod("enumerateDevices");
 		$this->registerMethod("enumerateDevicesList");
-		$this->registerMethod("enumerateApplicableDevices");
+		$this->registerMethod("enumerateConfiguredDevices");
 		$this->registerMethod("identify");
 		$this->registerMethod("getInterfaceList");
 		$this->registerMethod("getInterface");
@@ -283,13 +283,8 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
 			  gettext("Failed to get list of network interface devices"));
 		}
-		// Now get the devicename of all configured network interfaces.
-		$xpath = "//system/network/interfaces//devicename";
-		$configDevs = $xmlConfig->getList($xpath);
-		// Finally merge both arrays.
-		$devs = array_unique(array_merge($devs, $configDevs));
-		// Now prepare the result objects including all information
-		// about the network interfaces.
+		// Generate the result objects including all information about
+		// the network interfaces.
 		$result = array();
 		foreach ($devs as $devk => $devv) {
 			// Get the network interface backend.
@@ -299,17 +294,14 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				  sprintf("No network interface backend exists for '%s'",
 				  $devv));
 			}
-			// Set default attributes.
+			// Set the default attributes.
 			$object = array(
 				"uuid" => $GLOBALS['OMV_UUID_UNDEFINED'],
-				"method" =>  "",
-				"method6" =>  "",
 				"comment" =>  "",
-				"type" =>  "unknown",
 				"_used" =>  FALSE,
 				"_readonly" =>  FALSE
 			);
-			// Get the network interface configuration.
+			// Is there any configuration for the given network interface?
 			$xpath = sprintf("//system/network/interfaces/*[devicename='%s']",
 			  $devv);
 			$cfgObject = $xmlConfig->get($xpath);
@@ -319,38 +311,21 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 			// override various configuration values.
 			$object = array_merge($object, $this->getIfaceInfo($devv));
 			// Categorize the network interface.
-			switch ($nib->getType()) {
-			case OMV_NETWORK_INTERFACE_TYPE_BOND:
-				$object['type'] = "bond";
-				break;
-			case OMV_NETWORK_INTERFACE_TYPE_BRIDGE:
-				$object['type'] = "bridge";
-				break;
-			case OMV_NETWORK_INTERFACE_TYPE_WIRELESS:
-				$object['type'] = "wireless";
-				break;
-			case OMV_NETWORK_INTERFACE_TYPE_ETHERNET:
-				$object['type'] = "ethernet";
-				break;
-			case OMV_NETWORK_INTERFACE_TYPE_VIRTUAL:
-				$object['type'] = "virtual";
-				break;
-			case OMV_NETWORK_INTERFACE_TYPE_VLAN:
-				$object['type'] = "vlan";
-				break;
-			case OMV_NETWORK_INTERFACE_TYPE_LOOPBACK:
-				$object['type'] = "loopback";
-				break;
+			$typeNames = $GLOBALS['OMV_NETWORK_INTERFACE_TYPE_NAMES'];
+			if (array_key_exists($nib->getType(), $typeNames)) {
+				$object['type'] = $typeNames[$nib->getType()];
+			} else {
+				$object['type'] = "unknown";
 			}
-			// Do some more checks:
+			// Do some configuration checks?
 			// - Is the ethernet interface device somewhere referenced?
 			$xpath = sprintf("//interfaceref[contains(.,'%s')]",
 			  $object['uuid']);
 			if (TRUE === $xmlConfig->exists($xpath))
 				$object['_used'] = TRUE;
-			// Check if it is used by a bonding interface.
-			$xpath = sprintf("//interface[type='bond' and ".
-			  "contains(slaves,'%s')]", $object['devicename']);
+			// - Check if it is used by a bonding interface.
+			$xpath = sprintf("//system/network/interfaces/interface[".
+			  "type='bond' and contains(slaves,'%s')]", $devv);
 			if (TRUE === $xmlConfig->exists($xpath)) {
 				$object['_used'] = TRUE;
 				$object['_readonly'] = TRUE;
@@ -398,34 +373,44 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 	}
 
 	/**
-	 * Get all applicable network interfaces devices.
+	 * Get all configured network interfaces devices.
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return A list of applicable network interfaces devices.
 	 * @throw E_CONFIG_GET_OBJECT_FAILED
 	 */
-	function enumerateApplicableDevices($params, $context) {
+	function enumerateConfiguredDevices($params, $context) {
 		global $xmlConfig;
 		// Validate the RPC caller context.
 		$this->validateMethodContext($context, array(
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		$result = array();
-		// Get all network interface configuration object UUID's.
-		$xpath = "//system/network/interfaces//uuid";
+        // Get all network interface configuration object UUID's.
+		$xpath = "//system/network/interfaces/interface/uuid";
 		$uuids = $xmlConfig->getList($xpath);
-		if (is_null($uuids)) {
-			throw new OMVException(OMVErrorMsg::E_CONFIG_GET_OBJECT_FAILED,
-			  $xpath);
-		}
-		// Get the system network interface devices. Only process those
-		// network interfaces that have a valid UUID attribute (this means
-		// there is a configuration object in the database).
-		$objects = $this->callMethod("enumerateDevices", NULL, $context);
-		foreach ($objects as $objectk => $objectv) {
-			if (!in_array($objectv['uuid'], $uuids))
-				continue;
-			$result[] = $objectv;
+		// Now get the network interface configuration objects.
+		$result = array();
+		foreach ($uuids as $uuidk => $uuidv) {
+			// Get the configuration object.
+			$object = $this->callMethod("getInterface", array(
+				  "uuid" => $uuidv
+			  ), $context);
+			// Append some additional information, e.g. whether this
+			// interface is referenced and used:
+			$object['_used'] = FALSE;
+			$object['_readonly'] = FALSE;
+			$xpath = sprintf("//interfaceref[contains(.,'%s')]",
+			$object['uuid']);
+			if (TRUE === $xmlConfig->exists($xpath))
+				$object['_used'] = TRUE;
+			$xpath = sprintf("//interface[type='bond' and ".
+			  "contains(slaves,'%s')]", $object['devicename']);
+			if (TRUE === $xmlConfig->exists($xpath)) {
+				$object['_used'] = TRUE;
+				$object['_readonly'] = TRUE;
+			}
+			$result[] = $object;
 		}
 		return $result;
 	}
@@ -514,32 +499,9 @@ class OMVRpcServiceNetwork extends OMVRpcServiceAbstract {
 				  "sortdir":{'.$GLOBALS['OMV_JSONSCHEMA_SORTDIR'].'}
 			  }
 		  }');
-		// Get all network interface configuration object UUID's.
-		$xpath = "//system/network/interfaces/interface/uuid";
-		$uuids = $xmlConfig->getList($xpath);
-		// Now get the network interface configuration objects.
-		$result = array();
-		foreach ($uuids as $uuidk => $uuidv) {
-			// Get the configuration object.
-			$object = $this->callMethod("getInterface", array(
-				  "uuid" => $uuidv
-			  ), $context);
-			// Append some additional information, e.g. whether this
-			// interface is referenced and used:
-			$object['_used'] = FALSE;
-			$object['_readonly'] = FALSE;
-			$xpath = sprintf("//interfaceref[contains(.,'%s')]",
-			$object['uuid']);
-			if (TRUE === $xmlConfig->exists($xpath))
-				$object['_used'] = TRUE;
-			$xpath = sprintf("//interface[type='bond' and ".
-			  "contains(slaves,'%s')]", $object['devicename']);
-			if (TRUE === $xmlConfig->exists($xpath)) {
-				$object['_used'] = TRUE;
-				$object['_readonly'] = TRUE;
-			}
-			$result[] = $object;
-		}
+		// Get all network interface configuration objects.
+		$result = $this->callMethod("enumerateConfiguredDevices",
+		  $params, $context);
 		// Filter the result.
 		return $this->applyFilter($result, $params['start'],
 		  $params['limit'], $params['sortfield'], $params['sortdir']);

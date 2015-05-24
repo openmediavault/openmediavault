@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-24 01:26+0200\n"
-"PO-Revision-Date: 2015-05-23 23:27+0000\n"
+"POT-Creation-Date: 2015-05-24 10:02+0200\n"
+"PO-Revision-Date: 2015-05-24 08:02+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -202,7 +202,7 @@ msgid "Add VLAN connection"
 msgstr "新增 VLAN 連線"
 
 msgid "Add Wi-Fi connection"
-msgstr ""
+msgstr "新增 Wi-Fi 連線"
 
 msgid "Add bond connection"
 msgstr "新增結合連線"
@@ -211,7 +211,7 @@ msgid "Add devices to RAID device"
 msgstr "新增裝置到 RAID 裝置中"
 
 msgid "Add ethernet connection"
-msgstr ""
+msgstr "新增乙太網路連線"
 
 msgid "Add firewall rule"
 msgstr "新增防火牆規則"
@@ -976,7 +976,7 @@ msgid "Domain name"
 msgstr "網域名稱"
 
 msgid "Domains used when resolving host names."
-msgstr ""
+msgstr "解析主機名稱時所用的網域"
 
 msgid "Dominica"
 msgstr "多明尼加"
@@ -1196,7 +1196,7 @@ msgid "Estonia"
 msgstr "愛沙尼亞"
 
 msgid "Ethernet"
-msgstr ""
+msgstr "乙太網路"
 
 msgid "Ethiopia"
 msgstr "衣索比亞"
@@ -1523,7 +1523,7 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IP addresses of domain name servers used to resolve host names."
-msgstr ""
+msgstr "用以解析主機名稱的網域名稱伺服器之 IP 地址"
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -2107,6 +2107,9 @@ msgstr "網路"
 
 msgid "Network interface '%s' (type=%s) already exists"
 msgstr "網路介面 '%s' (型式=%s) 已經存在"
+
+msgid "Network interfaces"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "中立區"
@@ -3931,7 +3934,7 @@ msgid "WINS support"
 msgstr "WINS 支援"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "Wake Island"
 msgstr "維克島"

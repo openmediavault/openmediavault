@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-24 01:26+0200\n"
+"POT-Creation-Date: 2015-05-24 10:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2018,6 +2018,9 @@ msgid "Network"
 msgstr ""
 
 msgid "Network interface '%s' (type=%s) already exists"
+msgstr ""
+
+msgid "Network interfaces"
 msgstr ""
 
 msgid "Neutral Zone"

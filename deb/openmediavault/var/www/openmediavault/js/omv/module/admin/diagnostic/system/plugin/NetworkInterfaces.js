@@ -32,7 +32,7 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.NetworkInterfaces", {
 		"OMV.Rpc"
 	],
 
-	title: _("Interfaces"),
+	title: _("Network interfaces"),
 
 	initComponent: function() {
 		var me = this;
@@ -59,7 +59,7 @@ Ext.define("OMV.module.admin.diagnostic.system.plugin.NetworkInterfaces", {
 			relayErrors: false,
 			rpcData: {
 				service: "Network",
-				method: "enumerateApplicableDevices"
+				method: "enumerateConfiguredDevices"
 			}
 		});
 	}

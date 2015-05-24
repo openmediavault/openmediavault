@@ -95,6 +95,15 @@ $GLOBALS['OMV_FSTAB_MNTOPS_HFSPLUS'] = "defaults,nofail,force";
 $GLOBALS['OMV_FSTAB_MNTOPS_BTRFS'] = "defaults,nofail";
 $GLOBALS['OMV_APT_PLUGINS_INDEX_FILE'] = "/var/lib/openmediavault/apt/pluginsindex.json";
 $GLOBALS['OMV_APT_UPGRADE_INDEX_FILE'] = "/var/lib/openmediavault/apt/upgradeindex.json";
+$GLOBALS['OMV_NETWORK_INTERFACE_TYPE_NAMES'] = array(
+    OMV_NETWORK_INTERFACE_TYPE_ETHERNET => "bond",
+    OMV_NETWORK_INTERFACE_TYPE_BOND => "bridge",
+    OMV_NETWORK_INTERFACE_TYPE_VLAN => "wireless",
+    OMV_NETWORK_INTERFACE_TYPE_BRIDGE => "ethernet",
+    OMV_NETWORK_INTERFACE_TYPE_WIRELESS => "virtual",
+    OMV_NETWORK_INTERFACE_TYPE_VIRTUAL => "vlan",
+    OMV_NETWORK_INTERFACE_TYPE_LOOPBACK => "loopback"
+);
 
 /**
  * Use the following table as reference when defining a regex:

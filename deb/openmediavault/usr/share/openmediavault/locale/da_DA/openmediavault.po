@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-24 01:26+0200\n"
-"PO-Revision-Date: 2015-05-23 23:27+0000\n"
+"POT-Creation-Date: 2015-05-24 10:02+0200\n"
+"PO-Revision-Date: 2015-05-24 08:02+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
@@ -201,7 +201,7 @@ msgid "Add VLAN connection"
 msgstr "Tilføj VLAN forbindelse"
 
 msgid "Add Wi-Fi connection"
-msgstr ""
+msgstr "Tilføj Wi-Fi forbindelse"
 
 msgid "Add bond connection"
 msgstr "Tilføj binding forbindelse"
@@ -210,7 +210,7 @@ msgid "Add devices to RAID device"
 msgstr "Tilføj enheder til RAID enhed"
 
 msgid "Add ethernet connection"
-msgstr ""
+msgstr "Tilføj ethernet forbindelse"
 
 msgid "Add firewall rule"
 msgstr "Tilføj firewall regl"
@@ -1195,7 +1195,7 @@ msgid "Estonia"
 msgstr "Estonia"
 
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 msgid "Ethiopia"
 msgstr "Ethiopia"
@@ -2106,6 +2106,9 @@ msgstr "Netværk"
 
 msgid "Network interface '%s' (type=%s) already exists"
 msgstr "Netværks interface '%s' (type=%s) findes allerede"
+
+msgid "Network interfaces"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "Neutral Zone"
@@ -3930,7 +3933,7 @@ msgid "WINS support"
 msgstr "WINS understøttelse"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "Wake Island"
 msgstr "Wake Island"

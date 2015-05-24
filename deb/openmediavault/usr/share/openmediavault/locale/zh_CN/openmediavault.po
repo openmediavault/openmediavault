@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-24 01:26+0200\n"
-"PO-Revision-Date: 2015-05-23 23:27+0000\n"
+"POT-Creation-Date: 2015-05-24 10:02+0200\n"
+"PO-Revision-Date: 2015-05-24 08:02+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -202,16 +202,16 @@ msgid "Add VLAN connection"
 msgstr "添加VLAN链接"
 
 msgid "Add Wi-Fi connection"
-msgstr ""
+msgstr "添加Wi-Fi连接"
 
 msgid "Add bond connection"
-msgstr "添加绑定链接"
+msgstr "添加链路汇聚"
 
 msgid "Add devices to RAID device"
 msgstr "添加设备到RAID阵列中"
 
 msgid "Add ethernet connection"
-msgstr ""
+msgstr "添加网络连接"
 
 msgid "Add firewall rule"
 msgstr "添加防火墙规则"
@@ -503,7 +503,7 @@ msgid "Bolivia"
 msgstr "玻利维亚"
 
 msgid "Bond"
-msgstr "绑定"
+msgstr "汇聚"
 
 msgid "Boot"
 msgstr "启动"
@@ -976,7 +976,7 @@ msgid "Domain name"
 msgstr "域名"
 
 msgid "Domains used when resolving host names."
-msgstr ""
+msgstr "解析主机名时候使用的域。"
 
 msgid "Dominica"
 msgstr "多米尼加"
@@ -1032,7 +1032,7 @@ msgid "Edit Wi-Fi connection"
 msgstr "编辑Wi-Fi链接"
 
 msgid "Edit bond connection"
-msgstr "编辑绑定链接"
+msgstr "编辑链路汇聚"
 
 msgid "Edit ethernet connection"
 msgstr "编辑网络连接"
@@ -1196,7 +1196,7 @@ msgid "Estonia"
 msgstr "爱沙尼亚"
 
 msgid "Ethernet"
-msgstr ""
+msgstr "以太网"
 
 msgid "Ethiopia"
 msgstr "埃塞俄比亚"
@@ -1523,7 +1523,7 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IP addresses of domain name servers used to resolve host names."
-msgstr ""
+msgstr "解析域名服务器的IP地址为主机名。"
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -2107,6 +2107,9 @@ msgstr "网络"
 
 msgid "Network interface '%s' (type=%s) already exists"
 msgstr "网口'%s' (type=%s)已经存在"
+
+msgid "Network interfaces"
+msgstr ""
 
 msgid "Neutral Zone"
 msgstr "中立区"
@@ -3102,7 +3105,7 @@ msgid "Specifies how many server threads to create."
 msgstr "指定创建多少个服务器线程。"
 
 msgid "Specifies one of the bonding policies."
-msgstr "指定一个绑定策略。"
+msgstr "指定一个汇聚策略。"
 
 msgid "Specifies the MII link monitoring frequency in milliseconds."
 msgstr "指定MII连接的监控频率，单位是毫秒。"
@@ -3333,7 +3336,7 @@ msgid ""
 msgstr "可用软件信息已过期，你需要重载获取最新可用软件包信息。"
 
 msgid "The interface '%s' is already used by a bonding interface"
-msgstr "接口 '%s' 已经被绑定使用"
+msgstr "接口 '%s' 已经被汇聚使用"
 
 msgid "The location of the files to share."
 msgstr "共享文件的位置。"
@@ -3931,7 +3934,7 @@ msgid "WINS support"
 msgstr "WINS支持"
 
 msgid "WOL"
-msgstr ""
+msgstr "网络唤醒"
 
 msgid "Wake Island"
 msgstr "威克岛"

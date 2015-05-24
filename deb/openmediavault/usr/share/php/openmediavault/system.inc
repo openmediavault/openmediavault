@@ -4606,38 +4606,6 @@ class OMVNetworkInterfaces extends OMVObject {
 	}
 
 	/**
-	 * Enumerate all unconfigured devices. This list contains all devices of
-	 * the given type that do not have an assigned IPv4/IPv6 address and
-	 * the operation state 'down'.
-	 * @param type Defines the network interface type. Defaults to
-	 *   OMV_NETWORK_INTERFACE_TYPE_ALL.
-	 * @return A list of network interfaces, otherwise FALSE.
-	 */
-	final public function enumerateUnconfigured($type = OMV_NETWORK_INTERFACE_TYPE_ALL) {
-		$result = array();
-		foreach (self::$backends as $backendk => $backendv) {
-			if (!($type & $backendv->getType()))
-				continue;
-			if (FALSE === ($devs = $backendv->enumerate()))
-				return FALSE;
-			foreach ($devs as $devk => $devv) {
-				$iface = self::getImpl($devv);
-				if (is_null($iface))
-					continue;
-				if (("down" == $iface->getOperState()) && !$iface->getIP() &&
-				  !$iface->getIP6()) {
-					array_push($result, $devv);
-					$result = array_unique($result);
-				}
-			}
-		}
-		// Sort the devices using a "natural order" algorithm.
-		if (!natsort($result))
-			return FALSE;
-		return $result;
-	}
-
-	/**
 	 * Get the object of the class implementing the given filesystem.
 	 * @param deviceName Specifies the device name, e.g.
 	 *   <ul>
