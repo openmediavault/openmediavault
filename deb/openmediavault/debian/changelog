@@ -1,5 +1,14 @@
+openmediavault (2.0.11) stable; urgency=low
+
+  *
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 25 May 2015 16:59:09 +0200
+
 openmediavault (2.0.10) stable; urgency=low
 
+  * Update locales.
+  * Fix bug in OMV.workspace.window.Container. Append child components
+    after the parent initComponent method has been called.
   * Configure a Wi-Fi connection via omv-firstaid.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Sun, 24 May 2015 12:38:49 +0200

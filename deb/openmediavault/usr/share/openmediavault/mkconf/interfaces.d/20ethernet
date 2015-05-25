@@ -41,7 +41,7 @@ xmlstarlet sel -t \
 		  -v "concat('# ',devicename,' network interface')" -n \
 		  -v "concat('auto ',devicename)" -n \
 		  -v "concat('allow-hotplug ',devicename)" -n \
-	          -v "concat('iface ',devicename,' inet ',method)" -n \
+          -v "concat('iface ',devicename,' inet ',method)" -n \
 		  -i "method = 'manual'" \
 			  -o "    pre-down ip -4 addr flush dev \$IFACE" -n \
 			  -i "string-length(mtu) > 0" \
