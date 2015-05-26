@@ -430,14 +430,25 @@ Ext.define("OMV.workspace.grid.Panel", {
 		if(!Ext.isNumber(index))
 			return;
 		records = Ext.Array.from(records);
-		me.store.suspendEvents();
+		// Suspend all events while moving the rows.
+		me.store.suspendEvents(true);
+		// Remember the current auto-sort state and deny it, otherwise
+		// the store is automatically sorted when an item is moved.
+		var autoSort = me.store.getData().getAutoSort();
+		me.store.getData().setAutoSort(false);
 		Ext.Array.each(records, function(record) {
 			me.store.remove(record);
 			me.store.insert(index, record);
 		});
-		me.store.resumeEvents();
+		// Restore auto-sort to previous state.
+		me.store.getData().setAutoSort(autoSort);
+		// Call custom method to allow derived classes to process
+		// the store after movement.
 		me.afterMoveRows(records, index);
-		me.getView().refresh();
+		// Resume all events after moving the rows. The suspended
+		// events will be triggered, thus the grid view will be
+		// updated automatically after inserting/deleting items.
+		me.store.resumeEvents();
 	},
 
 	/**

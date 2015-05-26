@@ -505,11 +505,11 @@ Ext.apply(Ext.data.Store.prototype, {
 	 * definition.
 	 * @return An array of object hash containing all the model's values.
 	 */
-	getModelData: function() {
+	getModelData: function(options) {
 		var me = this;
 		var result = [];
 		me.each(function(model) {
-			var data = model.getData();
+			var data = model.getData(options);
 			Ext.Array.push(result, data);
 		});
 		return result;

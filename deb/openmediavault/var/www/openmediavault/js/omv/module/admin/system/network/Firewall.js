@@ -41,15 +41,6 @@ Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 	width: 550,
 	height: 400,
 
-	getFormConfig: function() {
-		return {
-			layout: {
-				type: "vbox",
-				align: "stretch"
-			}
-		};
-	},
-
 	getFormItems: function() {
 		var me = this;
 		return [{
@@ -170,8 +161,7 @@ Ext.define("OMV.module.admin.system.network.firewall.Rule", {
 			xtype: "textarea",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			allowBlank: true,
-			flex: 1
+			allowBlank: true
 		}];
 	},
 
@@ -474,7 +464,9 @@ Ext.define("OMV.module.admin.system.network.firewall.Rules", {
 	onApplyButton: function() {
 		var me = this;
 		// Get the rules.
-		var params = me.store.getData();
+		var params = me.store.getModelData({
+			persist: true
+		});
 		// Execute RPC.
 		OMV.Rpc.request({
 			scope: me,
