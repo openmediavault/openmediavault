@@ -17,9 +17,12 @@
 # You should have received a copy of the GNU General Public License
 # along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
 
-# Set 'noop' scheduler for non-rotating devices.
-#
-# Documentation:
+# Documentation/Howto:
 # http://wiki.ubuntuusers.de/SSD/Scheduler
-SUBSYSTEM=="block", KERNEL=="[sh]d[a-z]", ACTION=="add|change", TEST!="queue/rotational", ATTR{queue/scheduler}="noop"
-SUBSYSTEM=="block", KERNEL=="[sh]d[a-z]", ACTION=="add|change", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="noop"
+
+# Set 'cfq' scheduler for rotating devices.
+SUBSYSTEM=="block", KERNEL=="[sh]d[a-z]", ACTION=="add|change", ATTR{queue/rotational}=="1", ATTR{queue/scheduler}="cfq"
+
+# Set 'deadline' scheduler for non-rotating devices.
+SUBSYSTEM=="block", KERNEL=="[sh]d[a-z]", ACTION=="add|change", TEST!="queue/rotational", ATTR{queue/scheduler}="deadline"
+SUBSYSTEM=="block", KERNEL=="[sh]d[a-z]", ACTION=="add|change", ATTR{queue/rotational}=="0", ATTR{queue/scheduler}="deadline"

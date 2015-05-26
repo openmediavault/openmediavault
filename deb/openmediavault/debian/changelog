@@ -1,6 +1,6 @@
 openmediavault (2.0.11) stable; urgency=low
 
-  *
+  * Use 'deadline' I/O scheduler for non-rotating devices.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 25 May 2015 16:59:09 +0200
 
