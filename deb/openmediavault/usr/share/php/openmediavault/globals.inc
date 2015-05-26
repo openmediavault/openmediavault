@@ -93,6 +93,7 @@ $GLOBALS['OMV_FSTAB_MNTOPS_VFAT'] = "defaults,nofail";
 $GLOBALS['OMV_FSTAB_MNTOPS_NTFS'] = "defaults,nofail";
 $GLOBALS['OMV_FSTAB_MNTOPS_HFSPLUS'] = "defaults,nofail,force";
 $GLOBALS['OMV_FSTAB_MNTOPS_BTRFS'] = "defaults,nofail";
+$GLOBALS['OMV_FSTAB_MNTOPS_ISO9660'] = "ro";
 $GLOBALS['OMV_APT_PLUGINS_INDEX_FILE'] = "/var/lib/openmediavault/apt/pluginsindex.json";
 $GLOBALS['OMV_APT_UPGRADE_INDEX_FILE'] = "/var/lib/openmediavault/apt/upgradeindex.json";
 $GLOBALS['OMV_NETWORK_INTERFACE_TYPE_NAMES'] = array(
@@ -148,14 +149,17 @@ $GLOBALS['OMV_JSONSCHEMA_EMAIL'] = '"type":"string","format":"regex","pattern":'
 // EXT(2|3|4)/JFS/XFS: 7725c816-00d8-11e1-ad4c-00221568ca88
 // DOS: 7A48-BA97
 // NTFS: 2ED43920D438EC29
+// ISO9660: 2015-04-25-12-52-13-00
 $GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_UUID'] = '"type":"string","format":"regex",'.
   '"pattern":"\/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
-  '[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16})$\/i"';
+  '[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16}|[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}-'.
+  '[0-9]{2}-[0-9]{2}-[0-9]{2})$\/i"';
 // JSON schema describing a file system identifier. This can be a UUID or
 // the devicefile of the file system.
 $GLOBALS['OMV_JSONSCHEMA_FILESYSTEM_ID'] = '"type":"string","format":"regex",'.
   '"pattern":"\/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-'.
-  '[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16}|\\\/dev\\\/.+)$\/i"';
+  '[a-f0-9]{4}-[a-f0-9]{12}|[a-f0-9]{16}|[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{2}-'.
+  '[0-9]{2}-[0-9]{2}-[0-9]{2}|\\\/dev\\\/.+)$\/i"';
 $GLOBALS['OMV_JSONSCHEMA_SHARENAME'] ='"type":["string","null"],"format":"regex",'.
   '"pattern":"\/^[^\\\.]([^\"\\\/\\\\\\\[\\\]\\\:\\\+\\\|\\\<\\\>=;,\\\*'.
   '\\\?\\\. ]+){0,1}([.][^\"\\\/\\\\\\\[\\\]\\\:\\\+\\\|\\\<\\\>=;,\\\*'.

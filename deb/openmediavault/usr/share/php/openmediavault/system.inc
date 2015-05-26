@@ -476,6 +476,7 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	const PROP_DISCARD = 0x4;
 	const PROP_QUOTA = 0x8;
 	const PROP_RESIZE = 0x10;
+	const PROP_READ_ONLY = 0x20;
 
 	protected $type;
 	protected $properties = self::PROP_NONE;
@@ -600,28 +601,36 @@ abstract class OMVFilesystemBackendAbstract extends OMVObject {
 	}
 
 	/**
-	* Does the filesystem support disc quota?
-	* @return TRUE if the filesystem supports disc quota, otherwise FALSE.
-	*/
+	 * Does the filesystem support disc quota?
+	 * @return TRUE if the filesystem supports disc quota, otherwise FALSE.
+	 */
 	public function hasQuotaSupport() {
 		return $this->hasProperty(self::PROP_QUOTA);
 	}
 
 	/**
-	* Does the filesystem support the capability to resize it online?
-	* @see http://wiki.ubuntuusers.de/Dateisystemgr%C3%B6%C3%9Fe_%C3%A4ndern
-	* @return TRUE if the filesystem supports online resizing, otherwise FALSE.
-	*/
+	 * Does the filesystem support the capability to resize it online?
+	 * @see http://wiki.ubuntuusers.de/Dateisystemgr%C3%B6%C3%9Fe_%C3%A4ndern
+	 * @return TRUE if the filesystem supports online resizing, otherwise FALSE.
+	 */
 	public function hasResizeSupport() {
 		return $this->hasProperty(self::PROP_RESIZE);
 	}
 
 	/**
-	* Does the filesystem have a device file? E.g. union mount or overlay
-	* filesystems like UnionFS, aufs or mhddfs do not have such a device
-	* file.
-	* @return TRUE if the filesystem has a device file, otherwise FALSE.
-	*/
+	 * Is the filesystem read-only, e.g. ISO9660?
+	 * @return TRUE if the filesystem is read-only, otherwise FALSE.
+	 */
+	public function hasReadOnlySupport() {
+		return $this->hasProperty(self::PROP_READ_ONLY);
+	}
+
+	/**
+	 * Does the filesystem have a device file? E.g. union mount or overlay
+	 * filesystems like UnionFS, aufs or mhddfs do not have such a device
+	 * file.
+	 * @return TRUE if the filesystem has a device file, otherwise FALSE.
+	 */
 	public function hasDeviceFile() {
 		return TRUE;
 	}
@@ -802,7 +811,8 @@ class OMVFilesystemBackendIso9660 extends OMVFilesystemBackendAbstract {
 	public function __construct() {
 		parent::__construct();
 		$this->type = "iso9660";
-		$this->properties = self::PROP_MNTENT;
+		$this->properties = self::PROP_MNTENT | self::PROP_READ_ONLY;
+		$this->mntOptions = explode(",", $GLOBALS['OMV_FSTAB_MNTOPS_ISO9660']);
 	}
 }
 
@@ -930,6 +940,7 @@ class OMVFilesystems extends OMVObject {
 	 *   \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
 	 *   \li 7A48-BA97 (FAT)
 	 *   \li 2ED43920D438EC29 (NTFS)
+	 *   \li 2015-01-13-21-48-46-00 (ISO9660)
 	 *   \li /dev/sde1
 	 *   \li /dev/disk/by-id/scsi-SATA_ST3200XXXX2AS_5XWXXXR6-part1
 	 *   \li /dev/disk/by-label/DATA
@@ -1042,6 +1053,7 @@ class OMVFilesystems extends OMVObject {
 			// /dev/sdd1: UUID="cb8f7844-362f-4151-8e9e-3888aab723c2" TYPE="ext4"
 			// /dev/sda3: UUID="fdca09a8-cbc8-432f-9cba-ce033cb59139" TYPE="ext4" LABEL="Debian"
 			// /dev/sr0: LABEL="Debian 7.5.0 amd64 1" TYPE="iso9660"
+			// /dev/sr0: UUID="2015-04-25-12-52-13-00" LABEL="Debian 8.0.0 amd64 1" TYPE="iso9660" PTUUID="5e97595e" PTTYPE="dos"
 			$regex = '/^(\S+): (.+)$/i';
 			if (1 !== preg_match($regex, $outputv, $matches))
 				continue;

@@ -161,6 +161,7 @@ function is_uuid($var) {
  * \li 78b669c1-9183-4ca3-a32c-80a4e2c61e2d (EXT2/3/4, JFS, XFS)
  * \li 7A48-BA97 (FAT)
  * \li 2ED43920D438EC29 (NTFS)
+ * \li 2015-01-13-21-48-46-00 (ISO9660)
  * </ul>
  * @see http://wiki.ubuntuusers.de/UUID
  * @ingroup api
@@ -171,8 +172,9 @@ function is_fs_uuid($var) {
 	// Check if it is an UUID v4.
 	if (is_uuid($var))
 		return TRUE;
-	// Check if it is a NTFS or FAT filesystem identifier.
-	$regex = '/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16})$/i';
+	// Check if it is a NTFS, FAT or ISO9660 filesystem identifier.
+	$regex = '/^([a-f0-9]{4}-[a-f0-9]{4}|[a-f0-9]{16}|[0-9]{4}-[0-9]{2}-'.
+	  '[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2})$/i';
 	if (1 == preg_match($regex, $var))
 		return TRUE;
 	return FALSE;

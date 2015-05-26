@@ -118,6 +118,8 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				"propquota" => $fsb->hasQuotaSupport(),
 				"propresize" => $fsb->hasResizeSupport(),
 				"propfstab" => $fsb->hasFstabSupport(),
+				"propreadonly" => $fsb->hasReadOnlySupport(),
+				"_readonly" => $fsb->hasReadOnlySupport(),
 				"_used" => FALSE
 			);
 			// Check if the filesystem is used. First try to get the
@@ -845,6 +847,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		case "hfsplus":
 		case "btrfs":
 		case "reiserfs":
+		case "iso9660":
 			$fsName = $fs->getUuid();
 			$opts = $fsb->getFstabMntOptions($sd);
 			break;
