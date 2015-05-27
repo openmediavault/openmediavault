@@ -848,6 +848,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 		case "btrfs":
 		case "reiserfs":
 		case "iso9660":
+		case "udf":
 			$fsName = $fs->getUuid();
 			$opts = $fsb->getFstabMntOptions($sd);
 			break;
@@ -977,6 +978,7 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 				// /media/D81A-F053 (VFAT)
 				// /media/74A225C8A2258F (NTFS)
 				// /media/9e8aaee0-ab3a-467f-9bdb-7cced3b8afc4 (EXT2/3/4, JFS, XFS)
+				// /media/2015-04-25-12-52-13-00 (ISO9660, UDF)
 				$xpath = sprintf("//system/fstab/mntent[dir='%s']",
 				  OMVFilesystem::buildMountPath($params['id']));
 			}

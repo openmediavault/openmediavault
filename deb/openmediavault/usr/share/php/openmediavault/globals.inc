@@ -94,6 +94,7 @@ $GLOBALS['OMV_FSTAB_MNTOPS_NTFS'] = "defaults,nofail";
 $GLOBALS['OMV_FSTAB_MNTOPS_HFSPLUS'] = "defaults,nofail,force";
 $GLOBALS['OMV_FSTAB_MNTOPS_BTRFS'] = "defaults,nofail";
 $GLOBALS['OMV_FSTAB_MNTOPS_ISO9660'] = "ro";
+$GLOBALS['OMV_FSTAB_MNTOPS_UDF'] = "ro";
 $GLOBALS['OMV_APT_PLUGINS_INDEX_FILE'] = "/var/lib/openmediavault/apt/pluginsindex.json";
 $GLOBALS['OMV_APT_UPGRADE_INDEX_FILE'] = "/var/lib/openmediavault/apt/upgradeindex.json";
 $GLOBALS['OMV_NETWORK_INTERFACE_TYPE_NAMES'] = array(

@@ -29,6 +29,8 @@ if(!is_null($object)) {
 	if(in_array($object['timezone'], timezone_identifiers_list())) {
 		date_default_timezone_set($object['timezone']);
 	} else {
+		// See http://php.net/manual/en/timezones.others.php for more
+		// information.
 		syslog(LOG_ERR, sprintf("Unknown or unsupported timezone [tz=%s]",
 		  $object['timezone']));
 	}

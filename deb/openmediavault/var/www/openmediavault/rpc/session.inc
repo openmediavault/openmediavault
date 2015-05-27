@@ -86,7 +86,7 @@ class OMVRpcServiceSession extends OMVRpcServiceAbstract {
 			$authenticated = $session->isAuthenticated();
 			$session->commit();
 		}
-		openlog("omv-webgui", LOG_PID | LOG_PERROR, LOG_AUTH);
+		openlog("openmediavault-webgui", LOG_PID | LOG_PERROR, LOG_AUTH);
 		if (TRUE === $authenticated) {
 			syslog(LOG_ALERT, sprintf("Authorized login from %s ".
 			  "[username=%s, user-agent=%s]", $_SERVER['REMOTE_ADDR'],
