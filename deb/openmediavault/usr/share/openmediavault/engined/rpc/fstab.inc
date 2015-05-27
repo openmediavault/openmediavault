@@ -254,7 +254,7 @@ class OMVRpcServiceFsTab extends OMVRpcServiceAbstract {
 		// done to increase the probability to find the fstab config object.
 		if (is_devicefile($params['id'])) {
 			$fs = OMVFilesystemFactory::get($params['id']);
-			if (!is_null($fs) && $fs->exists())
+			if (!is_null($fs) && $fs->exists() && $fs->hasUuid())
 				$args[] = $fs->getUuid();
 		}
 		// Try to find the configuration object matching the given search

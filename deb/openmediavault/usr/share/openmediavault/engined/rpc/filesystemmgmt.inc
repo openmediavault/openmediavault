@@ -126,8 +126,16 @@ class OMVRpcServiceFileSystemMgmt extends OMVRpcServiceAbstract {
 			// corresponding mount point configuration object. If such object
 			// exists, then check if it is referenced by any other object,
 			// e.g. by a shared folder configuration object.
+			//
+			// Use the device file by default, but ask the backend if the
+			// filesystem supports this. If not, the use the UUID instead.
+			// If the device file is used then FsTab::getByFsName will
+			// add the UUID automatically if the filesystem supports this.
+			$fsId = $fs->getDeviceFile();
+			if (FALSE === $fsb->hasDeviceFile())
+				$fsId = $fs->getUuid();
 			if (FALSE !== ($meObject = OMVRpc::exec("FsTab", "getByFsName",
-			  array("id" => $fs->getDeviceFile()), $context))) {
+			  array("id" => $fsId), $context))) {
 			  	$xpath = sprintf("//mntentref[contains(.,'%s')]",
 			  	  $meObject['uuid']);
 				if (TRUE === $xmlConfig->exists($xpath))
