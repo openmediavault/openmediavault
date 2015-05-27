@@ -32,15 +32,22 @@ grep -Pi "^\s*iface\s+(eth|wlan)[0-9]+\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INT
 	  # Skip IPv6.
 	  [ "inet6" = "${family}" ] && continue
 	  # Init 'iface' configuration object.
-	  object="<uuid>$(uuid)</uuid><devicename>${devname}</devicename>"
+	  object="<uuid>$(uuid)</uuid>"
+	  object="${object}<devicename>${devname}</devicename>"
+	  object="${object}<method6>manual</method6>"
+	  object="${object}<address6></address6>"
+	  object="${object}<netmask6>64</netmask6>"
+	  object="${object}<gateway6></gateway6>"
+	  object="${object}<wol>0</wol>"
+	  object="${object}<mtu></mtu>"
+	  object="${object}<options></options>"
+	  object="${object}<comment></comment>"
 	  # DHCP or static?
 	  if [ "dhcp" = "${method}" ]; then
 		  object="${object}<method>dhcp</method>"
-		  object="${object}<wol>0</wol>"
 		  object="${object}<address></address>"
 		  object="${object}<netmask></netmask>"
 		  object="${object}<gateway></gateway>"
-		  object="${object}<mtu></mtu>"
 	  else
 		  # Get interface configuration.
 		  value=$(ip -4 -o addr show dev ${devname} | awk '{print $4}')
@@ -49,11 +56,9 @@ grep -Pi "^\s*iface\s+(eth|wlan)[0-9]+\s+(inet|inet6)\s+(static|dhcp)" ${OMV_INT
 		  gateway=$(omv_get_gateway ${devname})
 		  # Prepare 'iface' configuration object.
 		  object="${object}<method>static</method>"
-		  object="${object}<wol>0</wol>"
 		  object="${object}<address>${address}</address>"
 		  object="${object}<netmask>${netmask}</netmask>"
 		  object="${object}<gateway>${gateway}</gateway>"
-		  object="${object}<mtu></mtu>"
 	  fi
 	  # Add interface if it does not already exist.
 	  if ! omv_config_exists "//system/network/interfaces/iface[devicename='${devname}']"; then
@@ -70,5 +75,8 @@ done
 if [ -n "${dnsnameservers}" ]; then
 	omv_config_update "//system/network/dnsnameservers" "${dnsnameservers}"
 fi
+
+# Create a backup of the original configuration file.
+cp "${OMV_INTERFACES_CONFIG}" "${OMV_INTERFACES_CONFIG}.bak"
 
 exit 0
