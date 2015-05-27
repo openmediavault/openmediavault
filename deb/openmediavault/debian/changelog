@@ -118,6 +118,12 @@ openmediavault (2.0) stable; urgency=low
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 09 Feb 2015 09:50:29 +0100
 
+openmediavault (1.20) stable; urgency=low
+
+  * Fix interface configuration. Add missing IPv6 attributes.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 27 May 2015 12:07:45 +0200
+
 openmediavault (1.19) stable; urgency=low
 
   * Various code improvements.
