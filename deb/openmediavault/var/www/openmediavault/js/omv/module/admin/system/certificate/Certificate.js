@@ -39,6 +39,7 @@ Ext.define("OMV.module.admin.system.certificate.Create", {
 	rpcService: "CertificateMgmt",
 	rpcSetMethod: "create",
 	hideResetButton: true,
+	closeIfNotDirty: false,
 
 	getFormItems: function() {
 		return [{
@@ -459,7 +460,7 @@ Ext.define("OMV.module.admin.system.certificate.Edit", {
 			fieldLabel: _("Private key"),
 			cls: "x-form-textarea-monospaced",
 			allowBlank: false,
-			flex: 1,
+			flex: 2,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("Paste an private RSA key in X.509 PEM format here.")
@@ -470,7 +471,7 @@ Ext.define("OMV.module.admin.system.certificate.Edit", {
 			fieldLabel: _("Certificate"),
 			cls: "x-form-textarea-monospaced",
 			allowBlank: false,
-			flex: 1,
+			flex: 2,
 			plugins: [{
 				ptype: "fieldinfo",
 				text: _("Paste a RSA certificate in X.509 PEM format here.")
