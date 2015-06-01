@@ -1,3 +1,9 @@
+openmediavault-usbbackup (2.1) stable; urgency=low
+
+  * Update locales.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 01 Jun 2015 21:51:15 +0200
+
 openmediavault-usbbackup (2.0) stable; urgency=low
 
   * Adapt WebGUI to Sencha ExtJS 5.

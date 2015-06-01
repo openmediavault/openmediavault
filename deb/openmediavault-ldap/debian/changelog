@@ -1,3 +1,10 @@
+openmediavault-ldap (2.1) stable; urgency=low
+
+  * Update locales.
+  * Adapt WebGUI to Sencha ExtJS 5.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 01 Jun 2015 21:47:18 +0200
+
 openmediavault-ldap (2.0) stable; urgency=low
 
   * Update locales.

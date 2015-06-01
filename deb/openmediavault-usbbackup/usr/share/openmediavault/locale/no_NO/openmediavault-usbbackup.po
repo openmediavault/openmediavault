@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-25 22:54+0200\n"
-"PO-Revision-Date: 2014-08-25 20:54+0000\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-01 19:40+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Norwegian (http://www.transifex.com/projects/p/openmediavault/language/no/)\n"
 "MIME-Version: 1.0\n"
@@ -78,12 +78,6 @@ msgstr "Tilleggsfunksjoner"
 
 msgid "Failed to get filesystems"
 msgstr "Kunne ikke hente filsystemer"
-
-msgid "Failed to get storage device file from '%s'"
-msgstr ""
-
-msgid "Filesystem '%s' not found"
-msgstr "Filsystem '%s' ikke funnet"
 
 msgid "From external storage to shared folder"
 msgstr "Fra ekstern lagring til delt mappe"

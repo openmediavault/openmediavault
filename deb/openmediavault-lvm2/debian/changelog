@@ -1,3 +1,10 @@
+openmediavault-lvm2 (2.0) stable; urgency=low
+
+  * Update locales.
+  * Adapt WebGUI to Sencha ExtJS 5.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 01 Jun 2015 21:48:10 +0200
+
 openmediavault-lvm2 (1.3) stable; urgency=low
 
   * Update locales.

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-07-07 18:17+0200\n"
-"PO-Revision-Date: 2014-07-07 16:18+0000\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-01 19:40+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -54,6 +54,9 @@ msgstr "Спільна тека"
 msgid "Shares"
 msgstr "Спільні ресурси"
 
+msgid "Show"
+msgstr ""
+
 msgid "The SSL certificate."
 msgstr ""
 
@@ -65,11 +68,6 @@ msgstr "Місце, куди ownCloud зберігає свої файли."
 
 msgid "The name of the share."
 msgstr "Назва спільної теки"
-
-msgid ""
-"The ownCloud web interface can be accessed <a href='/owncloud' "
-"target='_blank'>here</a>."
-msgstr ""
 
 msgid "The port '%d' is already in use"
 msgstr ""

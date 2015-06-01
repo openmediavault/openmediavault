@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2013
+# Stefan Thrane Overby <stoverby@gmail.com>, 2012-2013,2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 14:07+0200\n"
-"PO-Revision-Date: 2015-04-06 12:07+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-05-23 19:40+0000\n"
+"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,16 +28,16 @@ msgid "Enable"
 msgstr "Aktiver"
 
 msgid "Enable PAM"
-msgstr ""
+msgstr "Aktiver PAM"
 
 msgid "Enable SSL/TLS"
-msgstr ""
+msgstr "Aktiver SSL/TLS"
 
 msgid "Enable secure connection."
-msgstr ""
+msgstr "Aktiver sikker forbindelse"
 
 msgid "Extra client options"
-msgstr ""
+msgstr "Ekstra klient valgmuligheder"
 
 msgid "Extra options"
 msgstr "Ekstra valgmuligheder"
@@ -57,7 +57,7 @@ msgstr "Adgangskode"
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/ldap.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Kontroller venligst <a href='http://linux.die.net/man/5/ldap.conf' target='_blank'>manual page</a> for flere detajler."
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
@@ -65,7 +65,7 @@ msgid ""
 msgstr "Kontroller venligst <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>manual page</a> for flere detaljer."
 
 msgid "Root Bind DN"
-msgstr "Rod Bind DN"
+msgstr "Rod Binding DN"
 
 msgid "Settings"
 msgstr "Indstillinger"
@@ -98,7 +98,7 @@ msgstr "FQDNén eller IP adressen på serveren"
 msgid ""
 "Use LDAP for authentication system-wide along with other authentication "
 "sources."
-msgstr ""
+msgstr "Brug LDAP til godkendelse for hele systemet sammen med andre godkendelses kilder."
 
 msgid "Users suffix"
 msgstr "Brugers endelse"

@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-06-24 08:55+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-01 19:40+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -59,6 +59,9 @@ msgstr "Er du sikker på, du vil oprette det fysisk drev?"
 msgid "Do you really want to create the volume group?"
 msgstr "Er du sikker på, du vil oprette drev gruppen?"
 
+msgid "Do you really want to resize the selected physical volume?"
+msgstr ""
+
 msgid "Edit logical volume"
 msgstr "Rediger logisk drev"
 
@@ -74,6 +77,27 @@ msgstr "Udvidet logisk drev"
 msgid "Extend volume group"
 msgstr "Udvidet drev gruppe"
 
+msgid "Failed to create logical volume: %s"
+msgstr ""
+
+msgid "Failed to create physical volume: %s"
+msgstr ""
+
+msgid "Failed to create volume group: %s"
+msgstr ""
+
+msgid "Failed to extend logical volume: %s"
+msgstr ""
+
+msgid "Failed to extend volume group: %s"
+msgstr ""
+
+msgid "Failed to reduce logical volume: %s"
+msgstr ""
+
+msgid "Failed to reduce volume group: %s"
+msgstr ""
+
 msgid "Failed to remove logical volume: %s"
 msgstr "Lykkedes ikke at fjerne logisk drev: %s"
 
@@ -82,6 +106,15 @@ msgstr "Lykkedes ikke at fjerne fysisk drev: %s"
 
 msgid "Failed to remove volume group: %s"
 msgstr "Lykkedes ikke at fjerne drev gruppe: %s"
+
+msgid "Failed to rename logical volume: %s"
+msgstr ""
+
+msgid "Failed to rename volume group: %s"
+msgstr ""
+
+msgid "Failed to resize physical volume: %s"
+msgstr ""
 
 msgid "Free"
 msgstr "Fri"
@@ -118,6 +151,9 @@ msgstr "Reducer"
 
 msgid "Reduce volume group"
 msgstr "Reducer drev gruppe"
+
+msgid "Resize"
+msgstr ""
 
 msgid "Select a volume group ..."
 msgstr "Vælg en drev gruppe ..."

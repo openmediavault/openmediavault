@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-25 22:54+0200\n"
-"PO-Revision-Date: 2014-08-25 20:54+0000\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-01 19:40+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -79,12 +79,6 @@ msgstr "Erweiterte Optionen"
 
 msgid "Failed to get filesystems"
 msgstr "Konnte Dateisysteme nicht ermitteln"
-
-msgid "Failed to get storage device file from '%s'"
-msgstr "Konnte die Speichergerätedatei von '%s' nicht ermitteln"
-
-msgid "Filesystem '%s' not found"
-msgstr "Das Dateisystem '%s' wurde nicht gefunden"
 
 msgid "From external storage to shared folder"
 msgstr "Von externem Speichermedium in freigegebenen Ordner"

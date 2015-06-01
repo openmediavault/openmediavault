@@ -4,14 +4,14 @@
 # 
 # Translators:
 # maurorulli <mauro.rulli@gmail.com>, 2012
-# Paolo Velati <paolo.velati@gmail.com>, 2013-2014
+# Paolo Velati <paolo.velati@gmail.com>, 2013-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-30 02:09+0100\n"
-"PO-Revision-Date: 2014-11-30 01:10+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-05-25 17:31+0000\n"
+"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -34,13 +34,13 @@ msgid "Antivirus"
 msgstr "Antivirus"
 
 msgid "Be verbose."
-msgstr "Attiva verbose."
+msgstr "Attiva modalità verbosa."
 
 msgid "Comment"
 msgstr "Commento"
 
 msgid "Database checks"
-msgstr "Verifiche del database"
+msgstr "Verifiche al database"
 
 msgid "Date & Time"
 msgstr "Data & Ora"
@@ -111,16 +111,16 @@ msgid "Extra options"
 msgstr "Opzioni extra"
 
 msgid "Follow directory symlinks"
-msgstr "Segui directory symlinks"
+msgstr "Segui link simbolici di cartelle"
 
 msgid "Follow directory symlinks."
-msgstr "Segui directory symlinks."
+msgstr "Segui link simbolici di cartelle."
 
 msgid "Follow file symlinks"
-msgstr "Segui file symlinks"
+msgstr "Segui link simbolici di file"
 
 msgid "Follow regular file symlinks."
-msgstr "Segui symlinks dei file regolari."
+msgstr "Segui link simbolici di file regolari."
 
 msgid "General settings"
 msgstr "Impostazioni generali"
@@ -138,7 +138,7 @@ msgid "Log clean files"
 msgstr "Logga i file puliti"
 
 msgid "Log clean files. This drastically increases the log size."
-msgstr "Log clean files. Questa operazione aumenterà drasticamente la dimensione del file di log."
+msgstr "Logga i file puliti. Questa operazione aumenterà drasticamente la dimensione del file di log."
 
 msgid "Message"
 msgstr "Messaggio"
@@ -147,13 +147,13 @@ msgid "Minute"
 msgstr "Minuto"
 
 msgid "Monitor the shared folder and scan new or modified files."
-msgstr "Monitorizza le cartelle condivise e scansione i file nuovi o modificati."
+msgstr "Monitora le cartelle condivise e scansione i file nuovi o modificati."
 
 msgid "Month"
 msgstr "Mese"
 
 msgid "Multiscan"
-msgstr "Multiscan"
+msgstr "Multiscansione"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Numero di controlli di aggiornamenti del database giornalieri. Impostare a 0 per disabilitarli."
@@ -194,7 +194,7 @@ msgid "Scan archives"
 msgstr "Scan archivi"
 
 msgid "Scan the directory contents in parallel using available threads."
-msgstr "Scan del contenuto della directory in parallelo utilizzando i thread disponibili."
+msgstr "Scansione del contenuto della directory in parallelo utilizzando i thread disponibili."
 
 msgid "Send command output via email"
 msgstr "Invia l'output del comando via email"
@@ -218,7 +218,7 @@ msgid "The option, how to handle infected files."
 msgstr "L'opzione, come gestire i file infetti."
 
 msgid "Verbose"
-msgstr "Verbose"
+msgstr "Verboso"
 
 msgid "n/a"
-msgstr "n/c"
+msgstr "n/d"

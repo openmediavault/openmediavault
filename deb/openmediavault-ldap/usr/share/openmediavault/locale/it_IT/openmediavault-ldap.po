@@ -4,14 +4,14 @@
 # 
 # Translators:
 # maurorulli <mauro.rulli@gmail.com>, 2012
-# Paolo Velati <paolo.velati@gmail.com>, 2013
+# Paolo Velati <paolo.velati@gmail.com>, 2013,2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 14:07+0200\n"
-"PO-Revision-Date: 2015-04-06 12:07+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-05-25 17:26+0000\n"
+"Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -29,16 +29,16 @@ msgid "Enable"
 msgstr "Abilita"
 
 msgid "Enable PAM"
-msgstr ""
+msgstr "Abilita PAM"
 
 msgid "Enable SSL/TLS"
-msgstr ""
+msgstr "Abilita SSL/TLS"
 
 msgid "Enable secure connection."
-msgstr ""
+msgstr "Abilita connessione sicura."
 
 msgid "Extra client options"
-msgstr ""
+msgstr "Opzioni client extra"
 
 msgid "Extra options"
 msgstr "Opzioni aggiuntive"
@@ -58,7 +58,7 @@ msgstr "Password"
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/ldap.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "Per favore consulta la  <a href='http://linux.die.net/man/5/ldap.conf' target='_blank'>pagina del manuale</a> per ulteriori dettagli."
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
@@ -66,7 +66,7 @@ msgid ""
 msgstr "Controlla la <a href='http://linux.die.net/man/5/nss_ldap' target='_blank'>pagina del manuale</a> per maggiori dettagli."
 
 msgid "Root Bind DN"
-msgstr "Root Bind DN"
+msgstr "Collega radice DN"
 
 msgid "Settings"
 msgstr "Impostazioni"
@@ -99,7 +99,7 @@ msgstr "L'FQDN o indirizzo IP del server."
 msgid ""
 "Use LDAP for authentication system-wide along with other authentication "
 "sources."
-msgstr ""
+msgstr "Utilizza LDAP per l'autenticazione per il sistema insieme ad altre fonti di autenticazione."
 
 msgid "Users suffix"
 msgstr "Suffisso utenti"

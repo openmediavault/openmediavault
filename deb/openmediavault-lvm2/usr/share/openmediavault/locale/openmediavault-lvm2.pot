@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault-lvm2\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -56,6 +56,9 @@ msgstr ""
 msgid "Do you really want to create the volume group?"
 msgstr ""
 
+msgid "Do you really want to resize the selected physical volume?"
+msgstr ""
+
 msgid "Edit logical volume"
 msgstr ""
 
@@ -71,6 +74,27 @@ msgstr ""
 msgid "Extend volume group"
 msgstr ""
 
+msgid "Failed to create logical volume: %s"
+msgstr ""
+
+msgid "Failed to create physical volume: %s"
+msgstr ""
+
+msgid "Failed to create volume group: %s"
+msgstr ""
+
+msgid "Failed to extend logical volume: %s"
+msgstr ""
+
+msgid "Failed to extend volume group: %s"
+msgstr ""
+
+msgid "Failed to reduce logical volume: %s"
+msgstr ""
+
+msgid "Failed to reduce volume group: %s"
+msgstr ""
+
 msgid "Failed to remove logical volume: %s"
 msgstr ""
 
@@ -78,6 +102,15 @@ msgid "Failed to remove physical volume: %s"
 msgstr ""
 
 msgid "Failed to remove volume group: %s"
+msgstr ""
+
+msgid "Failed to rename logical volume: %s"
+msgstr ""
+
+msgid "Failed to rename volume group: %s"
+msgstr ""
+
+msgid "Failed to resize physical volume: %s"
 msgstr ""
 
 msgid "Free"
@@ -114,6 +147,9 @@ msgid "Reduce"
 msgstr ""
 
 msgid "Reduce volume group"
+msgstr ""
+
+msgid "Resize"
 msgstr ""
 
 msgid "Select a volume group ..."

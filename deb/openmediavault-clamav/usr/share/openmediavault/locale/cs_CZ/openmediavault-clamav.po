@@ -4,13 +4,13 @@
 # 
 # Translators:
 # Jan Štourač <wormsik666@gmail.com>, 2014
-# Pavel Borecki <pavel.borecki@gmail.com>, 2014
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-30 02:09+0100\n"
-"PO-Revision-Date: 2014-12-31 14:24+0000\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-04-26 20:37+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -31,7 +31,7 @@ msgid ""
 msgstr "E-mail, obsahující výstup z příkazu (pokud nějaký vznikl), byl odeslán správci systému."
 
 msgid "Antivirus"
-msgstr "Antivirus"
+msgstr ""
 
 msgid "Be verbose."
 msgstr "Obsáhlejší výstup."
@@ -135,7 +135,7 @@ msgid "Jobs"
 msgstr "Úlohy"
 
 msgid "Log clean files"
-msgstr "Protokolovat i čisté soubory"
+msgstr "V záznamu protokolu uvádět i čisté soubory"
 
 msgid "Log clean files. This drastically increases the log size."
 msgstr "Zaznamenávat do protokolu i čisté soubory. Pozor - opravdu výrazně zvětší velikost souboru s protokolem."
@@ -153,7 +153,7 @@ msgid "Month"
 msgstr "Měsíc"
 
 msgid "Multiscan"
-msgstr "Multiscan"
+msgstr "Souběžné skenování více souborů/složek naráz"
 
 msgid "Number of database update checks per day. Set to 0 to disable."
 msgstr "Kolikrát za den aktualizovat databázi. Nastavení na 0 (nula) zakáže samočinnou aktualizaci."

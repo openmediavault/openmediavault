@@ -1,3 +1,10 @@
+openmediavault-forkeddaapd (2.0) stable; urgency=low
+
+  * Update locales.
+  * Adapt WebGUI to Sencha ExtJS 5.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 01 Jun 2015 21:46:10 +0200
+
 openmediavault-forkeddaapd (1.2) stable; urgency=low
 
   * Update locales.

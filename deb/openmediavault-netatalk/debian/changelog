@@ -1,3 +1,10 @@
+openmediavault-netatalk (2.0) stable; urgency=low
+
+  * Update locales.
+  * Adapt WebGUI to Sencha ExtJS 5.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 01 Jun 2015 21:48:37 +0200
+
 openmediavault-netatalk (1.5) stable; urgency=low
 
   * Update locales.

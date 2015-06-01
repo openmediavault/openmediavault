@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# songming <by@songming.me>, 2013-2014
+# songming <by@songming.me>, 2013-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-06 14:07+0200\n"
-"PO-Revision-Date: 2015-04-06 12:07+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-04-18 02:53+0000\n"
+"Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,16 +28,16 @@ msgid "Enable"
 msgstr "启用"
 
 msgid "Enable PAM"
-msgstr ""
+msgstr "启用 "
 
 msgid "Enable SSL/TLS"
-msgstr ""
+msgstr "启用SSL/TLS"
 
 msgid "Enable secure connection."
-msgstr ""
+msgstr "启用安全连接。"
 
 msgid "Extra client options"
-msgstr ""
+msgstr "附加选项"
 
 msgid "Extra options"
 msgstr "扩展选项"
@@ -57,7 +57,7 @@ msgstr "密码"
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/ldap.conf' "
 "target='_blank'>manual page</a> for more details."
-msgstr ""
+msgstr "详情请看 <a href='http://linux.die.net/man/5/ldap.conf' target='_blank'>手册</a>。"
 
 msgid ""
 "Please check the <a href='http://linux.die.net/man/5/nss_ldap' "
@@ -98,7 +98,7 @@ msgstr "服务器的FQDN或IP地址。"
 msgid ""
 "Use LDAP for authentication system-wide along with other authentication "
 "sources."
-msgstr ""
+msgstr "使用LDAP身份认证系统或其它来源认证系统。"
 
 msgid "Users suffix"
 msgstr "用户后缀"

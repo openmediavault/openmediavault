@@ -1,5 +1,6 @@
 openmediavault (2.0.11) stable; urgency=low
 
+  * Update locales.
   * Use 'deadline' I/O scheduler for non-rotating devices.
   * Mantis 0001342: Unable to save firewall rules.
   * Mantis 0001344: Add support to mount ISO9660 file systems. Only works

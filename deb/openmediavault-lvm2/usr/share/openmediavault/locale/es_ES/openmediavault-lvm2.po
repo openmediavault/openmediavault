@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-22 15:12+0000\n"
-"Last-Translator: Raul Fernandez Garcia <raulfg3@gmail.com>\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-01 19:40+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Spanish (Spain) (http://www.transifex.com/projects/p/openmediavault/language/es_ES/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,6 +61,9 @@ msgstr "¿Está seguro de que quiere crear el volumen físico?"
 msgid "Do you really want to create the volume group?"
 msgstr "¿Está seguro de que quiere crear el grupo de volúmenes?"
 
+msgid "Do you really want to resize the selected physical volume?"
+msgstr ""
+
 msgid "Edit logical volume"
 msgstr "Editar volumen lógico"
 
@@ -76,6 +79,27 @@ msgstr "Ampliar volumen lógico"
 msgid "Extend volume group"
 msgstr "Ampliar grupo de volúmenes"
 
+msgid "Failed to create logical volume: %s"
+msgstr ""
+
+msgid "Failed to create physical volume: %s"
+msgstr ""
+
+msgid "Failed to create volume group: %s"
+msgstr ""
+
+msgid "Failed to extend logical volume: %s"
+msgstr ""
+
+msgid "Failed to extend volume group: %s"
+msgstr ""
+
+msgid "Failed to reduce logical volume: %s"
+msgstr ""
+
+msgid "Failed to reduce volume group: %s"
+msgstr ""
+
 msgid "Failed to remove logical volume: %s"
 msgstr "Fallo al borrar el volúmen lógico: %s"
 
@@ -84,6 +108,15 @@ msgstr "Fallo al borrar el volúmen físico: %s"
 
 msgid "Failed to remove volume group: %s"
 msgstr "Fallo al borrar el grupo de volúmenes: %s"
+
+msgid "Failed to rename logical volume: %s"
+msgstr ""
+
+msgid "Failed to rename volume group: %s"
+msgstr ""
+
+msgid "Failed to resize physical volume: %s"
+msgstr ""
 
 msgid "Free"
 msgstr "Libre"
@@ -120,6 +153,9 @@ msgstr "Reducir"
 
 msgid "Reduce volume group"
 msgstr "Reducir grupo de volúmenes"
+
+msgid "Resize"
+msgstr ""
 
 msgid "Select a volume group ..."
 msgstr "Seleccione un grupo de volúmenes ..."

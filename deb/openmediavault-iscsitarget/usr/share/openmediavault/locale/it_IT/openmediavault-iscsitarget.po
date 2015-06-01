@@ -4,13 +4,13 @@
 # 
 # Translators:
 # maurorulli <mauro.rulli@gmail.com>, 2012
-# Paolo Velati <paolo.velati@gmail.com>, 2013
+# Paolo Velati <paolo.velati@gmail.com>, 2013,2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2013-11-19 16:30+0000\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-05-25 17:27+0000\n"
 "Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"

@@ -4,13 +4,13 @@
 # 
 # Translators:
 # maurorulli <mauro.rulli@gmail.com>, 2012
-# Paolo Velati <paolo.velati@gmail.com>, 2013-2014
+# Paolo Velati <paolo.velati@gmail.com>, 2013-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-06 16:30+0200\n"
-"PO-Revision-Date: 2014-10-13 22:12+0000\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-05-25 17:24+0000\n"
 "Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -23,19 +23,19 @@ msgid "Add share"
 msgstr "Aggiungi condivisione"
 
 msgid "Advanced settings"
-msgstr "Impostazioni Avanzate"
+msgstr "Impostazioni avanzate"
 
 msgid "Allow guest login."
-msgstr "Permetti accesso guest."
+msgstr "Permetti accesso ospite."
 
 msgid "Allow guests to create or modify files."
-msgstr "Permetti agli utenti guest di creare o modificare file."
+msgstr "Permetti agli utenti ospiti di creare o modificare file."
 
 msgid "Allow logins with passwords transmitted in the clear."
 msgstr "Consenti autenticazioni con la trasmissione in chiaro delle password."
 
 msgid "Allow plain passwords"
-msgstr "Consenti passowrd in chiaro"
+msgstr "Consenti password in chiaro"
 
 msgid "Apple Filing"
 msgstr "Apple Filing"
@@ -65,7 +65,7 @@ msgid "Enable Time Machine support for this share."
 msgstr "Abilita il supporto Time Machine per questa condivisione"
 
 msgid "Enable user home directories."
-msgstr "Abilita directory user home."
+msgstr "Abilita directory home per l'utente."
 
 msgid "Extra options"
 msgstr "Opzioni extra"
@@ -77,19 +77,19 @@ msgid "General settings"
 msgstr "Impostazioni generali"
 
 msgid "Guest login"
-msgstr "Accesso guest"
+msgstr "Accesso ospite"
 
 msgid "Guest permissions"
-msgstr "Permessi Ospite"
+msgstr "Permessi ospite"
 
 msgid "Guests only have read access by default."
-msgstr "Gli utenti guest hanno l'accesso alla lettura come privilegio predefinito."
+msgstr "Gli utenti ospite hanno l'accesso alla lettura come privilegio predefinito."
 
 msgid "Hide dot files"
 msgstr "Nascondi file puntati"
 
 msgid "Home directories"
-msgstr "Home direcotry"
+msgstr "Directory Home"
 
 msgid ""
 "If this option is set, then a password is required to access the share."
@@ -147,7 +147,7 @@ msgstr "Il nome della condivisione."
 
 msgid ""
 "This forces filenames to be restricted to the character set used by Windows."
-msgstr "Questo forza i nomi dei file ad essere ristretti ai soli caratteri usati dal set di caratteri di windows."
+msgstr "Questo forza i nomi dei file ad essere ristretti ai soli caratteri usati dal set di caratteri di Windows."
 
 msgid "This option handles, if the case of filenames should be changed."
 msgstr "Gestisce se le maiuscole/minuscole dei nomi dei file devono essere modificate."
@@ -170,7 +170,7 @@ msgstr "Usa punti"
 msgid ""
 "When this option gets set, certain file names become illegal. These are "
 ".Parent and anything that starts with .Apple."
-msgstr "Se attiva alcuni nomi di file diventano illegali. Questi sono .Parent e tutti quelli che iniziano per .Apple."
+msgstr "Se attiva alcuni nomi di file diventano inutilizzabili, quali .Parent e tutti quelli che iniziano per .Apple."
 
 msgid "n/a"
-msgstr "n/c"
+msgstr "n/d"

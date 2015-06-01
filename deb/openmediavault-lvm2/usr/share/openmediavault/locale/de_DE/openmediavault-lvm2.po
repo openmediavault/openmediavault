@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-08-06 14:36+0000\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-01 19:40+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -61,6 +61,9 @@ msgstr "Wollen Sie das Physical Volume wirklich erzeugen?"
 msgid "Do you really want to create the volume group?"
 msgstr "Wollen Sie die Volumegruppe wirklich erzeugen?"
 
+msgid "Do you really want to resize the selected physical volume?"
+msgstr ""
+
 msgid "Edit logical volume"
 msgstr "Logical Volume ändern"
 
@@ -76,6 +79,27 @@ msgstr "Logical Volume erweitern"
 msgid "Extend volume group"
 msgstr "Volumegruppe erweitern"
 
+msgid "Failed to create logical volume: %s"
+msgstr ""
+
+msgid "Failed to create physical volume: %s"
+msgstr ""
+
+msgid "Failed to create volume group: %s"
+msgstr ""
+
+msgid "Failed to extend logical volume: %s"
+msgstr ""
+
+msgid "Failed to extend volume group: %s"
+msgstr ""
+
+msgid "Failed to reduce logical volume: %s"
+msgstr ""
+
+msgid "Failed to reduce volume group: %s"
+msgstr ""
+
 msgid "Failed to remove logical volume: %s"
 msgstr "Das Logical Volume konnte nicht entfernt werden: %s"
 
@@ -84,6 +108,15 @@ msgstr "Das Physical Volume konnte nicht entfernt werden: %s"
 
 msgid "Failed to remove volume group: %s"
 msgstr "Die Volume Group konnte nicht entfernt werden: %s"
+
+msgid "Failed to rename logical volume: %s"
+msgstr ""
+
+msgid "Failed to rename volume group: %s"
+msgstr ""
+
+msgid "Failed to resize physical volume: %s"
+msgstr ""
 
 msgid "Free"
 msgstr "Frei"
@@ -120,6 +153,9 @@ msgstr "Reduzieren"
 
 msgid "Reduce volume group"
 msgstr "Volumegruppe reduzieren"
+
+msgid "Resize"
+msgstr ""
 
 msgid "Select a volume group ..."
 msgstr "Volumegruppe auswählen ..."

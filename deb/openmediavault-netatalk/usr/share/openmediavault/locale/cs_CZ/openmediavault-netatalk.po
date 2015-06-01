@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Pavel Borecki <pavel.borecki@gmail.com>, 2014
+# Pavel Borecki <pavel.borecki@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-06 16:30+0200\n"
-"PO-Revision-Date: 2014-12-31 10:40+0000\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-04-26 20:24+0000\n"
 "Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -92,7 +92,7 @@ msgstr "Domovské složky"
 
 msgid ""
 "If this option is set, then a password is required to access the share."
-msgstr "Je-li tato volba nastavena, pak je pro přístup ke sdílení vyžadováno heslo."
+msgstr "Je-li tato volba nastavena, je pro přístup ke sdílení vyžadováno heslo."
 
 msgid ""
 "If this option is set, then users may not create or modify files in the "

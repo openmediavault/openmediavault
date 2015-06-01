@@ -74,12 +74,6 @@ msgstr ""
 msgid "Failed to get filesystems"
 msgstr ""
 
-msgid "Failed to get storage device file from '%s'"
-msgstr ""
-
-msgid "Filesystem '%s' not found"
-msgstr ""
-
 msgid "From external storage to shared folder"
 msgstr ""
 

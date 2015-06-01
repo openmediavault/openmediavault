@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-09-16 11:40+0000\n"
-"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-01 19:40+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,6 +60,9 @@ msgstr "Quer mesmo criar um volume físico?"
 msgid "Do you really want to create the volume group?"
 msgstr "Quer mesmo criar um volume de grupo?"
 
+msgid "Do you really want to resize the selected physical volume?"
+msgstr ""
+
 msgid "Edit logical volume"
 msgstr "Editar volume lógico"
 
@@ -75,6 +78,27 @@ msgstr "Expandir volume lógico"
 msgid "Extend volume group"
 msgstr "Expandir volume de grupo"
 
+msgid "Failed to create logical volume: %s"
+msgstr ""
+
+msgid "Failed to create physical volume: %s"
+msgstr ""
+
+msgid "Failed to create volume group: %s"
+msgstr ""
+
+msgid "Failed to extend logical volume: %s"
+msgstr ""
+
+msgid "Failed to extend volume group: %s"
+msgstr ""
+
+msgid "Failed to reduce logical volume: %s"
+msgstr ""
+
+msgid "Failed to reduce volume group: %s"
+msgstr ""
+
 msgid "Failed to remove logical volume: %s"
 msgstr "Erro ao remover o volume logico: %s"
 
@@ -83,6 +107,15 @@ msgstr "Erro ao remover volume físico: %s"
 
 msgid "Failed to remove volume group: %s"
 msgstr "Falha a remover grupo de volume: %s"
+
+msgid "Failed to rename logical volume: %s"
+msgstr ""
+
+msgid "Failed to rename volume group: %s"
+msgstr ""
+
+msgid "Failed to resize physical volume: %s"
+msgstr ""
 
 msgid "Free"
 msgstr "Livre"
@@ -119,6 +152,9 @@ msgstr "Reduzir"
 
 msgid "Reduce volume group"
 msgstr "Reduzir volume de grupo"
+
+msgid "Resize"
+msgstr ""
 
 msgid "Select a volume group ..."
 msgstr "Selecionar um volume de grupo..."

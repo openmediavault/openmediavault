@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-08-25 22:54+0200\n"
-"PO-Revision-Date: 2014-08-25 20:54+0000\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-01 19:40+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -78,12 +78,6 @@ msgstr "Додаткові опції"
 
 msgid "Failed to get filesystems"
 msgstr "Не вдалося отримати файлові системи"
-
-msgid "Failed to get storage device file from '%s'"
-msgstr ""
-
-msgid "Filesystem '%s' not found"
-msgstr "Файлова система '%s' не знайдена"
 
 msgid "From external storage to shared folder"
 msgstr "Із зовнішнього накопичувача до спільної теки"

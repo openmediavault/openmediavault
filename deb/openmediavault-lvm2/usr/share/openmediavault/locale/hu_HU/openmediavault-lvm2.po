@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-19 19:17+0200\n"
-"PO-Revision-Date: 2014-05-20 09:18+0000\n"
-"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-06-01 19:40+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,6 +61,9 @@ msgstr "Valóban létre szeretnéd hozni a fizikai kötetet?"
 msgid "Do you really want to create the volume group?"
 msgstr "Valóban létre szeretnéd hozni a kötet csoportot?"
 
+msgid "Do you really want to resize the selected physical volume?"
+msgstr ""
+
 msgid "Edit logical volume"
 msgstr "Logikai kötet szerkesztése"
 
@@ -76,6 +79,27 @@ msgstr "Logikai kötet kiterjesztése"
 msgid "Extend volume group"
 msgstr "Kötet csoport kiterjesztése"
 
+msgid "Failed to create logical volume: %s"
+msgstr ""
+
+msgid "Failed to create physical volume: %s"
+msgstr ""
+
+msgid "Failed to create volume group: %s"
+msgstr ""
+
+msgid "Failed to extend logical volume: %s"
+msgstr ""
+
+msgid "Failed to extend volume group: %s"
+msgstr ""
+
+msgid "Failed to reduce logical volume: %s"
+msgstr ""
+
+msgid "Failed to reduce volume group: %s"
+msgstr ""
+
 msgid "Failed to remove logical volume: %s"
 msgstr "Nem sikerült eltávolítani a logikai kötetet: %s"
 
@@ -84,6 +108,15 @@ msgstr "Nem sikerült eltávolítani a fizikai kötetet: %s"
 
 msgid "Failed to remove volume group: %s"
 msgstr "Nem sikerült eltávolítani a kotet csoportot: %s"
+
+msgid "Failed to rename logical volume: %s"
+msgstr ""
+
+msgid "Failed to rename volume group: %s"
+msgstr ""
+
+msgid "Failed to resize physical volume: %s"
+msgstr ""
 
 msgid "Free"
 msgstr "Szabad"
@@ -120,6 +153,9 @@ msgstr "Csökkentés"
 
 msgid "Reduce volume group"
 msgstr "Kötet csoport csökkentése"
+
+msgid "Resize"
+msgstr ""
 
 msgid "Select a volume group ..."
 msgstr "Válassz ki egy kötet csoportot ..."

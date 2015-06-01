@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-24 10:02+0200\n"
-"PO-Revision-Date: 2015-05-24 08:02+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2015-06-01 21:40+0200\n"
+"PO-Revision-Date: 2015-05-29 18:22+0000\n"
+"Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -198,19 +198,19 @@ msgid "Add"
 msgstr "Ekle"
 
 msgid "Add VLAN connection"
-msgstr ""
+msgstr "VLAN bağlantısı ekle"
 
 msgid "Add Wi-Fi connection"
-msgstr ""
+msgstr "Wi-Fi bağlantısı ekle"
 
 msgid "Add bond connection"
-msgstr ""
+msgstr "Birleştirilmiş bağlantı ekle"
 
 msgid "Add devices to RAID device"
 msgstr "RAID aygıtına ekle"
 
 msgid "Add ethernet connection"
-msgstr ""
+msgstr "Ethernet bağlantısı ekle"
 
 msgid "Add firewall rule"
 msgstr "Güvenlik duvarı kuralı ekle"
@@ -975,7 +975,7 @@ msgid "Domain name"
 msgstr "Alan adı"
 
 msgid "Domains used when resolving host names."
-msgstr ""
+msgstr "Domain ler bilgisayar isimlerini çözümlerken kullanılır. "
 
 msgid "Dominica"
 msgstr "Dominik"
@@ -1025,16 +1025,16 @@ msgid "Edit SSL certificate"
 msgstr "SSL sertifikasını düzenle"
 
 msgid "Edit VLAN connection"
-msgstr ""
+msgstr "VLAN bağlantısını düzenle"
 
 msgid "Edit Wi-Fi connection"
-msgstr ""
+msgstr "Wi-Fi bağlantısını düzenle"
 
 msgid "Edit bond connection"
-msgstr ""
+msgstr "Birleştirilmiş bağlantıyı düzenle"
 
 msgid "Edit ethernet connection"
-msgstr ""
+msgstr "Ethernet bağlantısını düzenle"
 
 msgid "Edit firewall rule"
 msgstr "Güvenlik duvarı kuralını düzenle"
@@ -1195,7 +1195,7 @@ msgid "Estonia"
 msgstr "Estonya"
 
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 msgid "Ethiopia"
 msgstr "Etiyopya"
@@ -1522,7 +1522,7 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IP addresses of domain name servers used to resolve host names."
-msgstr ""
+msgstr "Alan adı sunucularının IP adresleri, bilgisayar adlarını çözümlerken kullanılır."
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -2105,10 +2105,10 @@ msgid "Network"
 msgstr "Ağ"
 
 msgid "Network interface '%s' (type=%s) already exists"
-msgstr ""
+msgstr "Ağ arabirimi '%s' (tip=%s) zaten mevcut"
 
 msgid "Network interfaces"
-msgstr ""
+msgstr "Ağ arabirimleri"
 
 msgid "Neutral Zone"
 msgstr "Tarafsız Bölge"
@@ -2776,7 +2776,7 @@ msgid "SSH public key"
 msgstr "SSH açık anahtarı"
 
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3933,7 +3933,7 @@ msgid "WINS support"
 msgstr "WINS desteği"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "Wake Island"
 msgstr "Wake Adası"
@@ -3980,7 +3980,7 @@ msgid "When failed"
 msgstr "Hata oluşunca"
 
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 msgid "Wipe"
 msgstr "Sil"
