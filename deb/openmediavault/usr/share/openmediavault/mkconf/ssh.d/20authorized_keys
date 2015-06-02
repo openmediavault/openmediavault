@@ -1,0 +1,52 @@
+#!/bin/sh
+#
+# This file is part of OpenMediaVault.
+#
+# @license   http://www.gnu.org/licenses/gpl.html GPL Version 3
+# @author    Volker Theile <volker.theile@openmediavault.org>
+# @copyright Copyright (c) 2009-2015 Volker Theile
+#
+# OpenMediaVault is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# any later version.
+#
+# OpenMediaVault is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with OpenMediaVault. If not, see <http://www.gnu.org/licenses/>.
+
+# Documentation/Howto:
+# http://linuxwiki.de/OpenSSH
+# https://help.ubuntu.com/community/SSH/OpenSSH/Configuring
+
+set -e
+
+. /etc/default/openmediavault
+. /usr/share/openmediavault/scripts/helper-functions
+
+OMV_SSHD_AUTHORIZEDKEYSFILE_DIR=${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR:-"/var/lib/openmediavault/ssh/authorized_keys"}
+OMV_SSHD_AUTHORIZEDKEYSFILE_MASK=${OMV_SSHD_AUTHORIZEDKEYSFILE_MASK:-"600"}
+
+# Create the users authorized_keys files.
+rm -f ${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR}/*
+xmlstarlet sel -t \
+  -m "//system/usermanagement/users/user[string-length(sshpubkey) > 0]" \
+	-v uuid \
+	-i "position() != last()" -n -b \
+  -b \
+  ${OMV_CONFIG_FILE} | xmlstarlet unesc |
+  while read uuid; do
+	  name=$(omv_config_get "//system/usermanagement/users/user[uuid='${uuid}']/name")
+	  filename="${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR}/${name}"
+	  xmlstarlet sel -t -m "//system/usermanagement/users/user[uuid='${uuid}']" \
+	    -v sshpubkey \
+		${OMV_CONFIG_FILE} | xmlstarlet unesc >"${filename}.tmp"
+	  ssh-keygen -i -f "${filename}.tmp" >"${filename}"
+	  rm -f "${filename}.tmp"
+	  chmod ${OMV_SSHD_AUTHORIZEDKEYSFILE_MASK} "${filename}"
+	  chown "${name}" "${filename}"
+  done
