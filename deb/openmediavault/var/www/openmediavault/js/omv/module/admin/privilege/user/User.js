@@ -236,6 +236,68 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
 });
 
 /**
+ * @class OMV.module.admin.privilege.user.user.SshPubKeys
+ * @derived OMV.workspace.grid.Panel
+ */
+Ext.define("OMV.module.admin.privilege.user.user.SshPubKeys", {
+	extend: "OMV.workspace.grid.Panel",
+	uses: [
+		"OMV.data.Store",
+		"OMV.data.Model",
+		"OMV.data.reader.RpcArray"
+	],
+
+	title: _("Public keys"),
+	hideEditButton: true,
+	hidePagingToolbar: true,
+	mode: "local",
+	columns: [{
+		text: _("Public key"),
+		dataIndex: "sshpubkey",
+		sortable: false,
+		flex: 1,
+		renderer: function(value) {
+			return value.replace(/\n/g, "<br>");
+		}
+	}],
+
+	initComponent: function() {
+		var me = this;
+		Ext.apply(me, {
+			store: Ext.create("OMV.data.Store", {
+				autoLoad: false,
+				model: OMV.data.Model.createImplicit({
+					identifier: "uuid", // Populate 'id' field automatically.
+					idProperty: "id",
+					fields: [
+						{ name: "id", type: "string", persist: false },
+						{ name: "sshpubkey", type: "string", mapping: 0 }
+					]
+				}),
+				proxy: {
+					type: "memory",
+					reader: "rpcarray"
+				},
+				data: []
+			})
+		});
+		me.callParent(arguments);
+	},
+
+	setValues: function(values) {
+		var me = this;
+		var data = [];
+		Ext.Array.push(data, values.sshpubkey);
+		me.store.loadRawData(data);
+		return data;
+	},
+
+	getValues: function() {
+		return {};
+	}
+});
+
+/**
  * @class OMV.module.admin.privilege.user.User
  * @derived OMV.workspace.window.Tab
  */
@@ -243,7 +305,8 @@ Ext.define("OMV.module.admin.privilege.user.User", {
 	extend: "OMV.workspace.window.Tab",
 	uses: [
 		"OMV.module.admin.privilege.user.user.General",
-		"OMV.module.admin.privilege.user.user.Groups"
+		"OMV.module.admin.privilege.user.user.Groups",
+//		"OMV.module.admin.privilege.user.user.SshPubKeys"
 	],
 
 	rpcService: "UserMgmt",
@@ -259,7 +322,8 @@ Ext.define("OMV.module.admin.privilege.user.User", {
 			Ext.create("OMV.module.admin.privilege.user.user.General", {
 				displayMode: displayMode
 			}),
-			Ext.create("OMV.module.admin.privilege.user.user.Groups")
+			Ext.create("OMV.module.admin.privilege.user.user.Groups"),
+//			Ext.create("OMV.module.admin.privilege.user.user.SshPubKeys")
 		];
 	}
 });

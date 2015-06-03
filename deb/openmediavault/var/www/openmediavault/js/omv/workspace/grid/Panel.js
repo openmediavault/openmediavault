@@ -678,5 +678,13 @@ Ext.define("OMV.workspace.grid.Panel", {
 			// Process the button itself.
 			fn.call(this, item);
 		}, me);
+	},
+
+	/**
+	 * Reject the grid changes.
+	 */
+	reset: function() {
+		var me = this;
+		me.store.rejectChanges();
 	}
 });
