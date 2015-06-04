@@ -152,9 +152,7 @@ Ext.define("OMV.module.admin.privilege.group.Import", {
 			hideLabel: true,
 			allowBlank: false,
 			value: "# <name>;<gid>;<comment>",
-			fieldStyle: {
-				border: "0px"
-			}
+			cls: Ext.baseCSSPrefix + "form-textarea-monospaced"
 		};
 	}
 });

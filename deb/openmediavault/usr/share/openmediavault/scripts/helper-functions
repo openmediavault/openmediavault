@@ -421,6 +421,32 @@ omv_config_rename() {
 	rm -f -- "${tmpconfig}"
 }
 
+# void omv_config_move (char *xpath1, char *xpath2)
+# Move the given XPath to another one in the configuration file.
+# @param xpath1 The source XPath to use.
+# @param xpath2 The destination XPath to use.
+# @return None
+omv_config_move() {
+	local tmpconfig xpath1 xpath2
+
+	tmpconfig=$(tempfile)
+	xpath1=$1
+	xpath2=$2
+
+	# !Attention! It is necessary to redirect the modified XML data to another
+	# file because xmlstarlet does not like to use the same file
+	# for input and output in a pipe like xmlstarlet ... file > file
+	xmlstarlet edit -P -m "${xpath1}" "${xpath2}" "${OMV_CONFIG_FILE}" | \
+	  tee "${tmpconfig}" >/dev/null
+
+	# Copy temporary file content to config file. Note, the config file
+	# permissions must be kept.
+	cat "${tmpconfig}" | tee "${OMV_CONFIG_FILE}" >/dev/null
+
+	# Remove temporary file.
+	rm -f -- "${tmpconfig}"
+}
+
 # void omv_config_update (char *xpath, char *value)
 # Update the elements at the given XPath in the configuration file.
 # @param xpath The XPath to use

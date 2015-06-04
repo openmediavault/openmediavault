@@ -82,6 +82,9 @@ div#headerrlogo {
 	background-image: url("/images/header_rlogo.png");
 	display: none;
 }
+.x-monospaced {
+	font-family: monospace;
+}
 .x-text-center {
 	text-align: center;
 }

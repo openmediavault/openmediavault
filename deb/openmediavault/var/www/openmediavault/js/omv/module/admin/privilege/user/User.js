@@ -256,7 +256,8 @@ Ext.define("OMV.module.admin.privilege.user.user.SshPubKeys", {
 		dataIndex: "sshpubkey",
 		sortable: false,
 		flex: 1,
-		renderer: function(value) {
+		renderer: function(value, metaData) {
+			metaData.tdCls += " x-monospaced";
 			return value.replace(/\n/g, "<br>");
 		}
 	}],
@@ -267,10 +268,8 @@ Ext.define("OMV.module.admin.privilege.user.user.SshPubKeys", {
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: false,
 				model: OMV.data.Model.createImplicit({
-					identifier: "uuid", // Populate 'id' field automatically.
-					idProperty: "id",
+					idProperty: "sshpubkey",
 					fields: [
-						{ name: "id", type: "string", persist: false },
 						{ name: "sshpubkey", type: "string", mapping: 0 }
 					]
 				}),
@@ -286,10 +285,8 @@ Ext.define("OMV.module.admin.privilege.user.user.SshPubKeys", {
 
 	setValues: function(values) {
 		var me = this;
-		var data = [];
-		Ext.Array.push(data, values.sshpubkey);
-		me.store.loadRawData(data);
-		return data;
+		me.store.loadRawData(values.sshpubkeys);
+		return values.sshpubkeys;
 	},
 
 	getValues: function() {
@@ -365,10 +362,7 @@ Ext.define("OMV.module.admin.privilege.user.Import", {
 			name: "csv",
 			hideLabel: true,
 			allowBlank: false,
-			value: "# <name>;<uid>;<comment>;<email>;<password>;<group,group,...>;<disallowusermod>",
-			fieldStyle: {
-				border: "0px"
-			}
+			value: "# <name>;<uid>;<comment>;<email>;<password>;<group,group,...>;<disallowusermod>"
 		};
 	}
 });
