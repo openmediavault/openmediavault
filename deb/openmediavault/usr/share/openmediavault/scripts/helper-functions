@@ -807,6 +807,18 @@ require_once("openmediavault/module.inc");
 EOF
 }
 
+# void omv_module_is_dirty (void)
+# Check if any modules are marked as dirty.
+omv_module_is_dirty() {
+	local _dirty
+	_dirty=$(php5 -c /etc/openmediavault -r \
+	  "require_once('openmediavault/module.inc'); \
+	  \$moduleMgr = &OMVModuleMgr::getInstance(); \
+	  \$dirtyModules = \$moduleMgr->getDirtyModules(); \
+	  !empty(\$dirtyModules) ? print 0 : print 1;")
+	return ${_dirty}
+}
+
 # char omv_product_info (char *attrib)
 # Helper function to get information about the product.
 # @param attrib The name of the requested information. This can be<ul>
