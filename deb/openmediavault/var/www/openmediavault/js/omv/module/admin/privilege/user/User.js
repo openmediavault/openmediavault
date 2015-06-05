@@ -362,7 +362,8 @@ Ext.define("OMV.module.admin.privilege.user.Import", {
 			name: "csv",
 			hideLabel: true,
 			allowBlank: false,
-			value: "# <name>;<uid>;<comment>;<email>;<password>;<group,group,...>;<disallowusermod>"
+			value: "# <name>;<uid>;<comment>;<email>;<password>;<group,group,...>;<disallowusermod>",
+			cls: Ext.baseCSSPrefix + "form-textarea-monospaced"
 		};
 	}
 });
