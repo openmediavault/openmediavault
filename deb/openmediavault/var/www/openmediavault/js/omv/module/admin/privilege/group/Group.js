@@ -22,6 +22,7 @@
 // require("js/omv/workspace/grid/Panel.js")
 // require("js/omv/workspace/window/Form.js")
 // require("js/omv/workspace/window/Grid.js")
+// require("js/omv/workspace/window/TextArea.js")
 // require("js/omv/form/field/CheckboxGrid.js")
 // require("js/omv/grid/PrivilegesByRole.js")
 // require("js/omv/util/Format.js")
@@ -116,10 +117,10 @@ Ext.define("OMV.module.admin.privilege.group.Group", {
 
 /**
  * @class OMV.module.admin.privilege.group.Import
- * @derived OMV.workspace.window.Form
+ * @derived OMV.workspace.window.TextArea
  */
 Ext.define("OMV.module.admin.privilege.group.Import", {
-	extend: "OMV.workspace.window.Form",
+	extend: "OMV.workspace.window.TextArea",
 
 	title: _("Import groups"),
 	width: 580,
@@ -130,30 +131,41 @@ Ext.define("OMV.module.admin.privilege.group.Import", {
 	rpcSetPollStatus: true,
 	autoLoadData: false,
 	submitMsg: _("Importing groups ..."),
+	hideOkButton: false,
 	okButtonText: _("Import"),
+	readOnly: false,
 
-	getFormConfig: function() {
+	initComponent: function() {
+		var me = this;
+		me.callParent(arguments);
+		// Add the tip toolbar at the bottom of the window.
+		me.addDocked({
+			xtype: "tiptoolbar",
+			dock: "bottom",
+			ui: "footer",
+			cls: Ext.baseCSSPrefix + "toolbar-tip-bottom",
+			text: _("Each line represents one group.")
+		});
+	},
+
+	getTextAreaConfig: function() {
 		return {
-			layout: "fit",
-			bodyPadding: "",
-			dockedItems: [{
-				xtype: "tiptoolbar",
-				dock: "bottom",
-				ui: "footer",
-				text: _("Each line represents one group.")
-			}]
+			allowBlank: false,
+			value: "# <name>;<gid>;<comment>"
 		};
 	},
 
-	getFormItems: function() {
+	getValues: function() {
+		var me = this;
+		var values = me.callParent(arguments);
 		return {
-			xtype: "textarea",
-			name: "csv",
-			hideLabel: true,
-			allowBlank: false,
-			value: "# <name>;<gid>;<comment>",
-			cls: Ext.baseCSSPrefix + "form-textarea-monospaced"
+			csv: values
 		};
+	},
+
+	setValues: function(values) {
+		var me = this;
+		return me.setValues(values.cvs);
 	}
 });
 

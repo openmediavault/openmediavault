@@ -25,6 +25,8 @@
  * @derived Ext.toolbar.Toolbar
  * @param text The text to display.
  * @param icon The icon to display. Defaults to INFO.
+ * @param cls The CSS class that will be added to this component's
+ *   element. Defaults to 'x-toolbar-tip'.
  */
 Ext.define("OMV.toolbar.Tip", {
 	extend: "Ext.toolbar.Toolbar",
@@ -40,13 +42,13 @@ Ext.define("OMV.toolbar.Tip", {
 		QUESTION: Ext.baseCSSPrefix + "message-box-question",
 	},
 
+	cls: Ext.baseCSSPrefix + "toolbar-tip",
 	iconHeight: 35,
 	iconWidth: 35,
 
 	initComponent: function() {
 		var me = this;
 		Ext.apply(me, {
-			cls: Ext.baseCSSPrefix + "toolbar-tip",
 			items: [{
 				xtype: "tbitem",
 				height: me.iconHeight,

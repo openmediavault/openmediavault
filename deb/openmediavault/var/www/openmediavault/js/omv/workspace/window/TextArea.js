@@ -43,32 +43,55 @@ Ext.define("OMV.workspace.window.TextArea", {
 
 	getWindowItems: function() {
 		var me = this;
-		return [{
-			id: me.getId() + "-content",
+		me.ta = Ext.create(Ext.apply({
 			xtype: "textarea",
 			readOnly: me.readOnly,
 			cls: Ext.baseCSSPrefix + "form-textarea-monospaced",
 			fieldStyle: {
 				border: "0px"
 			}
-		}];
+		}, me.getTextAreaConfig(me)));
+		return me.ta;
+	},
+
+	/**
+	 * Returns additional textarea configuration options.
+	 * @param c This component object.
+	 * @return The textarea configuration object.
+	 */
+	getTextAreaConfig: function(c) {
+		return this.textAreaConfig;
+	},
+
+	/**
+	 * Returns the tab panel.
+	 * @return The tab panel object.
+	 */
+	getTextArea: function() {
+		return this.ta;
 	},
 
 	getValues: function() {
 		var me = this;
-		var value = "";
-		// Get the text area component and get the displayed content.
-		var cmp = me.queryById(me.getId() + "-content");
-		if (Ext.isObject(cmp) && cmp.isFormField)
-			value = cmp.getValue();
-		return value;
+		return me.getTextArea().getValue();
 	},
 
 	setValues: function(values) {
 		var me = this;
-		// Get the text area component and set the given content.
-		var cmp = me.queryById(me.getId() + "-content");
-		if (Ext.isObject(cmp) && cmp.isFormField)
-			cmp.setValue(values);
+		return me.getTextArea().setValue(values);
+	},
+
+	/**
+	 * Checks if any fields in this window have changed from their original
+	 * values. If the values have been loaded into the window then these are
+	 * the original ones.
+	 * @return Returns TRUE if any fields in this window have changed from
+	 *   their original values.
+	 */
+	isDirty: function() {
+		var me = this;
+		if (true === me.readOnly)
+			return false;
+		return me.getTextArea().isDirty();
 	}
 });

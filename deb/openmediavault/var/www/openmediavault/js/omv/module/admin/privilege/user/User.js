@@ -23,6 +23,7 @@
 // require("js/omv/workspace/window/Form.js")
 // require("js/omv/workspace/window/Grid.js")
 // require("js/omv/workspace/window/Tab.js")
+// require("js/omv/workspace/window/TextArea.js")
 // require("js/omv/form/Panel.js")
 // require("js/omv/form/field/CheckboxGrid.js")
 // require("js/omv/form/field/Password.js")
@@ -327,10 +328,10 @@ Ext.define("OMV.module.admin.privilege.user.User", {
 
 /**
  * @class OMV.module.admin.privilege.user.Import
- * @derived OMV.workspace.window.Form
+ * @derived OMV.workspace.window.TextArea
  */
 Ext.define("OMV.module.admin.privilege.user.Import", {
-	extend: "OMV.workspace.window.Form",
+	extend: "OMV.workspace.window.TextArea",
 
 	title: _("Import users"),
 	width: 580,
@@ -341,30 +342,41 @@ Ext.define("OMV.module.admin.privilege.user.Import", {
 	rpcSetPollStatus: true,
 	autoLoadData: false,
 	submitMsg: _("Importing users ..."),
+	hideOkButton: false,
 	okButtonText: _("Import"),
+	readOnly: false,
 
-	getFormConfig: function() {
+	initComponent: function() {
+		var me = this;
+		me.callParent(arguments);
+		// Add the tip toolbar at the bottom of the window.
+		me.addDocked({
+			xtype: "tiptoolbar",
+			dock: "bottom",
+			ui: "footer",
+			cls: Ext.baseCSSPrefix + "toolbar-tip-bottom",
+			text: _("Each line represents one user. Note, the password must be entered in plain text.")
+		});
+	},
+
+	getTextAreaConfig: function() {
 		return {
-			layout: "fit",
-			bodyPadding: "",
-			dockedItems: [{
-				xtype: "tiptoolbar",
-				dock: "bottom",
-				ui: "footer",
-				text: _("Each line represents one user. Note, the password must be entered in plain text.")
-			}]
+			allowBlank: false,
+			value: "# <name>;<uid>;<comment>;<email>;<password>;<group,group,...>;<disallowusermod>"
 		};
 	},
 
-	getFormItems: function() {
+	getValues: function() {
+		var me = this;
+		var values = me.callParent(arguments);
 		return {
-			xtype: "textarea",
-			name: "csv",
-			hideLabel: true,
-			allowBlank: false,
-			value: "# <name>;<uid>;<comment>;<email>;<password>;<group,group,...>;<disallowusermod>",
-			cls: Ext.baseCSSPrefix + "form-textarea-monospaced"
+			csv: values
 		};
+	},
+
+	setValues: function(values) {
+		var me = this;
+		return me.setValues(values.cvs);
 	}
 });
 
