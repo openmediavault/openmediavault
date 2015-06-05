@@ -116,17 +116,6 @@ Ext.define("OMV.module.admin.privilege.user.user.General", {
 				displayField: "path",
 				value: "/bin/dash"
 			},{
-				xtype: "textarea",
-				name: "sshpubkey",
-				fieldLabel: _("SSH public key"),
-				cls: "x-form-textarea-monospaced",
-				allowBlank: true,
-				flex: 1,
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("The public key in RFC 4716 SSH public key file format.")
-				}]
-			},{
 				xtype: "checkbox",
 				name: "disallowusermod",
 				fieldLabel: _("Modify account"),
@@ -237,6 +226,38 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
 });
 
 /**
+ * @class OMV.module.admin.privilege.user.user.sshpubkeys.PubKey
+ * @derived OMV.workspace.window.TextArea
+ */
+Ext.define("OMV.module.admin.privilege.user.user.sshpubkeys.PubKey", {
+	extend: "OMV.workspace.window.TextArea",
+
+	width: 500,
+	height: 250,
+	hideOkButton: false,
+	mode: "local",
+	readOnly: false,
+
+	initComponent: function() {
+		var me = this;
+		me.callParent(arguments);
+		// Add the tip toolbar at the bottom of the window.
+		me.addDocked({
+			xtype: "tiptoolbar",
+			dock: "bottom",
+			ui: "footer",
+			text: _("The public key in RFC 4716 SSH public key file format.")
+		});
+	},
+
+	getTextAreaConfig: function(c) {
+		return {
+			allowBlank: false
+		};
+	}
+});
+
+/**
  * @class OMV.module.admin.privilege.user.user.SshPubKeys
  * @derived OMV.workspace.grid.Panel
  */
@@ -245,7 +266,8 @@ Ext.define("OMV.module.admin.privilege.user.user.SshPubKeys", {
 	uses: [
 		"OMV.data.Store",
 		"OMV.data.Model",
-		"OMV.data.reader.RpcArray"
+		"OMV.data.reader.RpcArray",
+		"OMV.module.admin.privilege.user.user.sshpubkeys.PubKey"
 	],
 
 	title: _("Public keys"),
@@ -284,6 +306,19 @@ Ext.define("OMV.module.admin.privilege.user.user.SshPubKeys", {
 		me.callParent(arguments);
 	},
 
+	onAddButton: function() {
+		var me = this;
+		Ext.create("OMV.module.admin.privilege.user.user.sshpubkeys.PubKey", {
+			title: _("Add public key"),
+			listeners: {
+				scope: me,
+				submit: function(c, values) {
+					me.store.addRawData([ values ]);
+				}
+			}
+		}).show();
+	},
+
 	setValues: function(values) {
 		var me = this;
 		me.store.loadRawData(values.sshpubkeys);
@@ -291,7 +326,14 @@ Ext.define("OMV.module.admin.privilege.user.user.SshPubKeys", {
 	},
 
 	getValues: function() {
-		return {};
+		var me = this;
+		var sshpubkeys = [];
+		me.store.each(function(record) {
+			Ext.Array.push(sshpubkeys, record.get("sshpubkey"));
+		});
+		return {
+			sshpubkeys: sshpubkeys
+		};
 	}
 });
 
@@ -304,14 +346,14 @@ Ext.define("OMV.module.admin.privilege.user.User", {
 	uses: [
 		"OMV.module.admin.privilege.user.user.General",
 		"OMV.module.admin.privilege.user.user.Groups",
-//		"OMV.module.admin.privilege.user.user.SshPubKeys"
+		"OMV.module.admin.privilege.user.user.SshPubKeys"
 	],
 
 	rpcService: "UserMgmt",
 	rpcSetMethod: "setUser",
 
 	width: 420,
-	height: 350,
+	height: 300,
 
 	getTabItems: function() {
 		var me = this;
@@ -321,7 +363,7 @@ Ext.define("OMV.module.admin.privilege.user.User", {
 				displayMode: displayMode
 			}),
 			Ext.create("OMV.module.admin.privilege.user.user.Groups"),
-//			Ext.create("OMV.module.admin.privilege.user.user.SshPubKeys")
+			Ext.create("OMV.module.admin.privilege.user.user.SshPubKeys")
 		];
 	}
 });

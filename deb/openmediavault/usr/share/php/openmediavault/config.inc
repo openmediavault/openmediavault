@@ -39,7 +39,7 @@ class OMVConfigEngine extends OMVObject {
 	// These fields must be handled as arrays.
 	private $enums = array(
 		// Usermanagement
-		"user", "group",
+		"user", "group", "sshpubkey",
 		// Network interfaces
 		"interface", "interfaceref",
 		// Iptables

@@ -31,10 +31,11 @@ set -e
 OMV_SSHD_AUTHORIZEDKEYSFILE_DIR=${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR:-"/var/lib/openmediavault/ssh/authorized_keys"}
 OMV_SSHD_AUTHORIZEDKEYSFILE_MASK=${OMV_SSHD_AUTHORIZEDKEYSFILE_MASK:-"600"}
 
-# Create the users authorized_keys files.
+# Remove all existing authorized_keys files.
 rm -f ${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR}/*
+# Create the users authorized_keys files.
 xmlstarlet sel -t \
-  -m "//system/usermanagement/users/user[string-length(sshpubkey) > 0]" \
+  -m "//system/usermanagement/users/user" \
 	-v uuid \
 	-i "position() != last()" -n -b \
   -b \
@@ -42,11 +43,16 @@ xmlstarlet sel -t \
   while read uuid; do
 	  name=$(omv_config_get "//system/usermanagement/users/user[uuid='${uuid}']/name")
 	  filename="${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR}/${name}"
-	  xmlstarlet sel -t -m "//system/usermanagement/users/user[uuid='${uuid}']" \
-	    -v sshpubkey \
-		${OMV_CONFIG_FILE} | xmlstarlet unesc >"${filename}.tmp"
-	  ssh-keygen -i -f "${filename}.tmp" >"${filename}"
-	  rm -f "${filename}.tmp"
+	  index=$(omv_config_get_count "//system/usermanagement/users/user[uuid='${uuid}']/sshpubkeys/sshpubkey")
+	  touch "${filename}"
 	  chmod ${OMV_SSHD_AUTHORIZEDKEYSFILE_MASK} "${filename}"
 	  chown "${name}" "${filename}"
+	  while [ ${index} -gt 0 ]; do
+		  xmlstarlet sel -t -m "//system/usermanagement/users/user[uuid='${uuid}']/sshpubkeys" \
+			-v "sshpubkey[position()=${index}]" \
+			${OMV_CONFIG_FILE} | xmlstarlet unesc >"${filename}.tmp"
+		  ssh-keygen -i -f "${filename}.tmp" >>"${filename}"
+		  rm -f "${filename}.tmp"
+		  index=$(( ${index} - 1 ))
+	  done
   done

@@ -491,6 +491,19 @@ Ext.apply(Ext.data.Store.prototype, {
 		return me.add(data);
 	},
 
+	addRawData: function(data) {
+		var me = this;
+		var session = me.getSession();
+		var result = me.getProxy().getReader().read(data, session ? {
+			  recordCreator: session.recordCreator
+		  } : undefined);
+		var records = result.getRecords();
+		var success = result.getSuccess();
+		if (!success)
+			return [];
+		return me.add(records);
+	},
+
 	/**
 	 * Inserts data into the store at the given index. The model instance
 	 * will be created automatically.

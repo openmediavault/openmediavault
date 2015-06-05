@@ -368,7 +368,8 @@ finish:
 				$userv['email'] = $object['email'];
 				$userv['disallowusermod'] = boolvalEx(
 				  $object['disallowusermod']);
-				$userv['sshpubkey'] = $object['sshpubkey'];
+				$userv['sshpubkeys'] = empty($object['sshpubkeys']) ?
+				  array() : $object['sshpubkeys']['sshpubkey'];
 			}
 		}
 		// Filter result.
@@ -421,7 +422,7 @@ finish:
 			"groups" => $user->getGroups(),
 			"email" => "",
 			"disallowusermod" => FALSE,
-			"sshpubkey" => ""
+			"sshpubkeys" => array()
 		);
 		// Get additional user information stored in database.
 		$xpath = sprintf("//system/usermanagement/users/user[name='%s']",
@@ -430,7 +431,8 @@ finish:
 		if (!is_null($object)) {
 			$result['email'] = $object['email'];
 			$result['disallowusermod'] = boolvalEx($object['disallowusermod']);
-			$result['sshpubkey'] = $object['sshpubkey'];
+			$result['sshpubkeys'] = empty($object['sshpubkeys']) ?
+			  array() : $object['sshpubkeys']['sshpubkey'];
 		}
 		return $result;
 	}
@@ -441,7 +443,7 @@ finish:
 	 * @param params The method parameters.
 	 * @param context The context of the caller.
 	 * @return The result object contains the fields \em name, \em comment,
-	 *   \em email, \em sshpubkey and the internal field \em _readonly.
+	 *   \em email, \em sshpubkeys and the internal field \em _readonly.
 	 */
 	function getUserByContext($params, $context) {
 		// Validate the RPC caller context.
@@ -456,7 +458,7 @@ finish:
 			  "name" => $object['name'],
 			  "comment" => $object['comment'],
 			  "email" => $object['email'],
-			  "sshpubkey" => $object['sshpubkey'],
+			  "sshpubkeys" => $object['sshpubkeys'],
 			  // Hijack the '_readonly' flag to set the form to read-only.
 			  "_readonly" => $object['disallowusermod']
 		  );
@@ -475,7 +477,7 @@ finish:
 	 *   \em comment Any text string. This field is optional.
 	 *   \em disallowusermod Set to FALSE to disallow the user to modify his
 	 *     account.
-	 *   \em sshpubkey The users SSH public key.
+	 *   \em sshpubkeys The users SSH public keys.
 	 * @param context The context of the caller.
 	 * @return The stored configuration object.
 	 * @throw E_CONFIG_SET_OBJECT_FAILED
@@ -506,7 +508,12 @@ finish:
 				  "email":{'.$GLOBALS['OMV_JSONSCHEMA_EMAIL'].'},
 				  "comment":{"type":"string","optional":true},
 				  "disallowusermod":{"type":"boolean"},
-				  "sshpubkey":{"type":"string"}
+				  "sshpubkeys":{
+					  "type":"array",
+					  "items":{
+						  "type":"string"
+					  }
+				  }
 			  }
 		  }');
 		// Do not allow to modify user 'root' via RPC.
@@ -528,7 +535,8 @@ finish:
 				"email" => $params['email'],
 				"disallowusermod" => array_boolval($params,
 				  "disallowusermod"),
-				"sshpubkey" => $params['sshpubkey']
+				"sshpubkeys" => empty($params['sshpubkeys']) ?
+				  array() : array("sshpubkey" => $params['sshpubkeys'])
 			);
 			// Append new configuration object.
 			$success = $xmlConfig->set("//system/usermanagement/users",
@@ -537,7 +545,8 @@ finish:
 			$object['email'] = $params['email'];
 			$object['disallowusermod'] = array_boolval($params,
 			  "disallowusermod");
-			$object['sshpubkey'] = $params['sshpubkey'];
+			$object['sshpubkeys'] = empty($params['sshpubkeys']) ?
+			  array() : array("sshpubkey" => $params['sshpubkeys']);
 			// Update existing configuration object.
 			$success = $xmlConfig->replace($xpath, $object);
 		}
@@ -625,7 +634,6 @@ finish:
 	 *   \em password The password. Empty passwords are ignored.
 	 *   \em email The email address.
 	 *   \em comment The comment.
-	 *   \em sshpubkey The users SSH public key.
 	 * @param context The context of the caller.
 	 * @return None.
 	 */
@@ -640,22 +648,20 @@ finish:
 				"properties":{
 					"password":{"type":"string"},
 					"email":{'.$GLOBALS['OMV_JSONSCHEMA_EMAIL'].'},
-					"comment":{"type":"string"},
-					"sshpubkey":{"type":"string"}
+					"comment":{"type":"string"}
 				}
 			}');
 		// Get the user configuration object.
 		$object = $this->callMethod("getUser", array(
 		  "name" => $context['username']), $this->getAdminContext());
-		// Update the user configuration.
-		return $this->callMethod("setUser", array(
-		  "name" => $object['name'],
-		  "disallowusermod" => $object['disallowusermod'],
-		  "groups" => $object['groups'],
+		// Append the given values.
+		$object = array_merge($object, array(
 		  "comment" => $params['comment'],
 		  "email" => $params['email'],
-		  "sshpubkey" => $params['sshpubkey'],
-		  "password" => $params['password']), $this->getAdminContext());
+		  "password" => $params['password']));
+		// Update the user configuration.
+		return $this->callMethod("setUser", $object,
+		  $this->getAdminContext());
 	}
 
 	/**
@@ -761,7 +767,7 @@ finish:
 					"groups" => explode(",", $matches[6]),
 					"disallowusermod" => boolvalEx($matches[7]),
 					"shell" => "/bin/dash",
-					"sshpubkey" => ""
+					"sshpubkeys" => array()
 				);
 				if(!empty($matches[2]) && is_numeric($matches[2]))
 					$object['uid'] = intval($matches[2]);

@@ -155,7 +155,9 @@
 					<name>xxx</name>
 					<email>xxx</email>
 					<disallowusermod>0</disallowusermod>
-					<sshpubkey>|xxx</sshpubkey>
+					<sshpubkeys>
+						<sshpubkey>|xxx</sshpubkey>
+					</sshpubkeys>
 				</user>
 				-->
 			</users>

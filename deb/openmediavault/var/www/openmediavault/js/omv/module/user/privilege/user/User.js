@@ -73,16 +73,6 @@ Ext.define("OMV.module.user.privilege.user.User", {
 				fieldLabel: _("Confirm password"),
 				allowBlank: true,
 				submitValue: false
-			},{
-				xtype: "textarea",
-				name: "sshpubkey",
-				fieldLabel: _("SSH public key"),
-				cls: "x-form-textarea-monospaced",
-				allowBlank: true,
-				plugins: [{
-					ptype: "fieldinfo",
-					text: _("The public key in RFC 4716 SSH public key file format.")
-				}]
 			}]
 		}];
 	},
