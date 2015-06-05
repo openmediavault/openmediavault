@@ -46,10 +46,7 @@ Ext.define("OMV.workspace.window.TextArea", {
 		me.ta = Ext.create(Ext.apply({
 			xtype: "textarea",
 			readOnly: me.readOnly,
-			cls: Ext.baseCSSPrefix + "form-textarea-monospaced",
-			fieldStyle: {
-				border: "0px"
-			}
+			cls: Ext.baseCSSPrefix + "form-textarea-monospaced"
 		}, me.getTextAreaConfig(me)));
 		return me.ta;
 	},

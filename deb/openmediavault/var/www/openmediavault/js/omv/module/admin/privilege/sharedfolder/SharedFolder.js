@@ -265,6 +265,18 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.Privileges", {
 	width: 550,
 	height: 350,
 
+	initComponent: function() {
+		var me = this;
+		me.callParent(arguments);
+		// Add the tip toolbar at the bottom of the window.
+		me.addDocked({
+			xtype: "tiptoolbar",
+			dock: "bottom",
+			ui: "footer",
+			text: _("These settings are used by the services to configure the user access rights. Please note that these settings have no effect on file system permissions.")
+		});
+	},
+
 	getGridConfig: function() {
 		var me = this;
 		return {
@@ -272,13 +284,7 @@ Ext.define("OMV.module.admin.privilege.sharedfolder.Privileges", {
 			stateful: true,
 			stateId: "474eacf4-cadb-4ae4-b545-4f7f47d7aed9",
 			readOnly: me.readOnly,
-			uuid: me.uuid,
-			dockedItems: [{
-				xtype: "tiptoolbar",
-				dock: "bottom",
-				ui: "footer",
-				text: _("These settings are used by the services to configure the user access rights. Please note that these settings have no effect on file system permissions.")
-			}]
+			uuid: me.uuid
 		};
 	},
 

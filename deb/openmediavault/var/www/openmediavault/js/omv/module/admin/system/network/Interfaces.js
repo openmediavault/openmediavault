@@ -799,16 +799,17 @@ Ext.define("OMV.module.admin.system.network.interface.Identify", {
 	hideResetButton: true,
 	mode: "local",
 
-	getFormConfig: function() {
-		return {
-			dockedItems: [{
-				xtype: "tiptoolbar",
-				dock: "bottom",
-				ui: "footer",
-				icon: OMV.toolbar.Tip.WARNING,
-				text: _("Please note that no communication with the system is possible during this test.")
-			}]
-		};
+	initComponent: function() {
+		var me = this;
+		me.callParent(arguments);
+		// Add the tip toolbar at the bottom of the window.
+		me.addDocked({
+			xtype: "tiptoolbar",
+			dock: "bottom",
+			ui: "footer",
+			icon: OMV.toolbar.Tip.WARNING,
+			text: _("Please note that no communication with the system is possible during this test.")
+		});
 	},
 
 	getFormItems: function() {

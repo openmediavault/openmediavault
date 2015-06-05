@@ -240,18 +240,8 @@ div#headerrlogo {
 	background-size: 16px 16px;
 }
 /* Tip toolbar */
-.x-toolbar-tip, .x-toolbar-tip-bottom, .x-toolbar-tip-top {
+.x-toolbar-tip {
 	background: #ffeb99
-}
-.x-toolbar-tip-bottom {
-	border-bottom-width: 1px;
-	border-left-width: 1px;
-	border-right-width: 1px;
-}
-.x-toolbar-tip-top {
-	border-top-width: 1px;
-	border-left-width: 1px;
-	border-right-width: 1px;
 }
 /* Configuration activation toolbar */
 .x-toolbar-applycfg {

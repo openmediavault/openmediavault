@@ -143,7 +143,6 @@ Ext.define("OMV.module.admin.privilege.group.Import", {
 			xtype: "tiptoolbar",
 			dock: "bottom",
 			ui: "footer",
-			cls: Ext.baseCSSPrefix + "toolbar-tip-bottom",
 			text: _("Each line represents one group.")
 		});
 	},
@@ -195,6 +194,18 @@ Ext.define("OMV.module.admin.privilege.group.SharedFolderPrivileges", {
 	 * @param roleName The name of the group. Required.
 	 */
 
+	initComponent: function() {
+		var me = this;
+		me.callParent(arguments);
+		// Add the tip toolbar at the bottom of the window.
+		me.addDocked({
+			xtype: "tiptoolbar",
+			dock: "bottom",
+			ui: "footer",
+			text: _("These settings are used by the services to configure the user access rights. Please note that these settings have no effect on file system permissions.")
+		});
+	},
+
 	getGridConfig: function() {
 		var me = this;
 		return {
@@ -202,13 +213,7 @@ Ext.define("OMV.module.admin.privilege.group.SharedFolderPrivileges", {
 			stateful: true,
 			stateId: "970b4908-1192-11e4-aacb-0002b3a176b4",
 			roleType: "group",
-			roleName: me.roleName,
-			dockedItems: [{
-				xtype: "tiptoolbar",
-				dock: "bottom",
-				ui: "footer",
-				text: _("These settings are used by the services to configure the user access rights. Please note that these settings have no effect on file system permissions.")
-			}]
+			roleName: me.roleName
 		};
 	},
 

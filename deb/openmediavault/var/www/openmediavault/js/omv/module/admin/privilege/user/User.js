@@ -354,7 +354,6 @@ Ext.define("OMV.module.admin.privilege.user.Import", {
 			xtype: "tiptoolbar",
 			dock: "bottom",
 			ui: "footer",
-			cls: Ext.baseCSSPrefix + "toolbar-tip-bottom",
 			text: _("Each line represents one user. Note, the password must be entered in plain text.")
 		});
 	},
@@ -406,6 +405,18 @@ Ext.define("OMV.module.admin.privilege.user.SharedFolderPrivileges", {
 	 * @param roleName The name of the user. Required.
 	 */
 
+	initComponent: function() {
+		var me = this;
+		me.callParent(arguments);
+		// Add the tip toolbar at the bottom of the window.
+		me.addDocked({
+			xtype: "tiptoolbar",
+			dock: "bottom",
+			ui: "footer",
+			text: _("These settings are used by the services to configure the user access rights. Please note that these settings have no effect on file system permissions.")
+		});
+	},
+
 	getGridConfig: function() {
 		var me = this;
 		return {
@@ -413,13 +424,7 @@ Ext.define("OMV.module.admin.privilege.user.SharedFolderPrivileges", {
 			stateful: true,
 			stateId: "41e79486-1192-11e4-baab-0002b3a176b4",
 			roleType: "user",
-			roleName: me.roleName,
-			dockedItems: [{
-				xtype: "tiptoolbar",
-				dock: "bottom",
-				ui: "footer",
-				text: _("These settings are used by the services to configure the user access rights. Please note that these settings have no effect on file system permissions.")
-			}]
+			roleName: me.roleName
 		};
 	},
 
