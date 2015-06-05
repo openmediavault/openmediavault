@@ -70,6 +70,7 @@
 				<monitfilesystems>1</monitfilesystems>
 				<mdadm>1</mdadm>
 				<smartmontools>1</smartmontools>
+				<cronapt>1</cronapt>
 			</notifications>
 		</notification>
 		<certificates>
