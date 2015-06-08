@@ -207,6 +207,9 @@ class OMVRpcServiceRaidMgmt extends OMVRpcServiceAbstract {
 			$sd = OMVStorageDeviceFactory::get($devv);
 			if (is_null($sd) || !$sd->exists())
 				continue;
+			// Skip read-only devices like CDROM.
+			if (TRUE === $sd->isReadOnly())
+				continue;
 			// Check if device is referenced/used by a plugin.
 			$xpath = sprintf("//services/devicefile[contains(.,'%s')]",
 			  $sd->getDeviceFile());
