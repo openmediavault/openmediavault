@@ -106,7 +106,7 @@ Ext.define("OMV.module.admin.dashboard.view.NetworkInterfaces", {
 					stateId: "speed",
 					renderer: function(value) {
 						if (-1 == value)
-							return _("n/a");
+							return _("-");
 						return Ext.String.format("{0} Mbits/sec", value);
 					},
 					flex: 1
