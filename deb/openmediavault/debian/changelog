@@ -1,5 +1,6 @@
 openmediavault (2.0.12) stable; urgency=low
 
+  * Update locales.
   * Various code improvements
   * Send a daily report to the administrator if there are pending
     configuration changes.
