@@ -510,9 +510,7 @@ finish:
 				  "disallowusermod":{"type":"boolean"},
 				  "sshpubkeys":{
 					  "type":"array",
-					  "items":{
-						  "type":"string"
-					  }
+					  "items":{'.$GLOBALS['OMV_JSONSCHEMA_SSHPUBKEY_RFC4716'].'}
 				  }
 			  }
 		  }');

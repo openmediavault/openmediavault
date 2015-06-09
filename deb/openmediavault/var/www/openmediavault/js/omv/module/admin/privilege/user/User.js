@@ -252,7 +252,8 @@ Ext.define("OMV.module.admin.privilege.user.user.sshpubkeys.PubKey", {
 
 	getTextAreaConfig: function(c) {
 		return {
-			allowBlank: false
+			allowBlank: false,
+			vtype: "sshPubKeyRFC4716"
 		};
 	}
 });
@@ -312,8 +313,9 @@ Ext.define("OMV.module.admin.privilege.user.user.SshPubKeys", {
 			title: _("Add public key"),
 			listeners: {
 				scope: me,
-				submit: function(c, values) {
-					me.store.addRawData([ values ]);
+				submit: function(c, value) {
+					value = Ext.String.rtrim(value, " \n");
+					me.store.addRawData([ value ]);
 				}
 			}
 		}).show();
