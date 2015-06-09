@@ -804,6 +804,34 @@ Ext.apply(Ext.Object, {
 });
 
 ////////////////////////////////////////////////////////////////////////////////
+// Ext.String
+////////////////////////////////////////////////////////////////////////////////
+
+Ext.apply(Ext.String, {
+	/**
+	 * Strip whitespace or other characters from the beginning of a string.
+	 * @param s The original string.
+	 * @param chars The characters to be stripped.
+	 */
+	ltrim: function(s, chars) {
+	    chars = chars.replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:])/g, "\\$1") ||
+		  " \\s";
+	    return s.replace(new RegExp("^[" + chars + "]+", "g"), "");
+	},
+
+	/**
+	 * Strip whitespace or other from the end of a string.
+	 * @param s The original string.
+	 * @param chars The characters to be stripped.
+	 */
+	rtrim: function(s, chars) {
+	    chars = chars.replace(/([\[\]\(\)\.\?\/\*\{\}\+\$\^\:])/g, "\\$1") ||
+		  " \\s";
+	    return s.replace(new RegExp("[" + chars + "]+$", "g"), "");
+	}
+});
+
+////////////////////////////////////////////////////////////////////////////////
 // Additional helper functions
 ////////////////////////////////////////////////////////////////////////////////
 
