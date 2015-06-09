@@ -1,13 +1,13 @@
 openmediavault (2.0.13) stable; urgency=low
 
-  *
+  * Various improvements.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Tue, 09 Jun 2015 00:14:43 +0200
 
 openmediavault (2.0.12) stable; urgency=low
 
   * Update locales.
-  * Various code improvements
+  * Various improvements.
   * Send a daily report to the administrator if there are pending
     configuration changes.
   * Add ability to set multiple SSH public keys per user. The user can not
