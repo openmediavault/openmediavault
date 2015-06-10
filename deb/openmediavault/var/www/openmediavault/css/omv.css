@@ -373,3 +373,13 @@ div#headerrlogo {
 	background-image: url("../images/page-refresh.png");
 	background-image: url("../images/page-refresh.svg"), none;
 }
+
+/******************************************************************************/
+/* Bugfixes/Workarounds
+/******************************************************************************/
+
+/* https://www.sencha.com/forum/showthread.php?301380 */
+/* https://code.google.com/p/chromium/issues/detail?id=489875 */
+.x-chrome .x-form-text {
+	display: inherit !important;
+}
