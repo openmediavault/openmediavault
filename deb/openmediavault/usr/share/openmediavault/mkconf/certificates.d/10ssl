@@ -28,8 +28,8 @@ OMV_SSL_CERTIFICATE_DIR=${OMV_SSL_CERTIFICATE_DIR:-"/etc/ssl"}
 OMV_SSL_CERTIFICATE_PREFIX=${OMV_SSL_CERTIFICATE_PREFIX:-"openmediavault-"}
 
 # Remove all certificate files.
-rm -f "${OMV_SSL_CERTIFICATE_DIR}/certs/${OMV_SSL_CERTIFICATE_PREFIX}*.crt"
-rm -f "${OMV_SSL_CERTIFICATE_DIR}/private/${OMV_SSL_CERTIFICATE_PREFIX}*.key"
+rm -f ${OMV_SSL_CERTIFICATE_DIR}/certs/${OMV_SSL_CERTIFICATE_PREFIX}*.crt
+rm -f ${OMV_SSL_CERTIFICATE_DIR}/private/${OMV_SSL_CERTIFICATE_PREFIX}*.key
 
 # Create the certificate files.
 xmlstarlet sel -t -m "//system/certificates/sslcertificate" \
