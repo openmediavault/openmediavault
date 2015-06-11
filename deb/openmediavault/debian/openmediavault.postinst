@@ -485,6 +485,8 @@ case "$1" in
 		if dpkg --compare-versions "$2" lt-nl "2.0.14"; then
 			omv_set_default "OMV_SSL_CERTIFICATE_DIR" "/etc/ssl"
 			omv_set_default "OMV_SSL_CERTIFICATE_PREFIX" "openmediavault-"
+			omv_set_default "OMV_SSH_KEYS_DIR" "/var/lib/openmediavault/ssh/keys"
+			omv_set_default "OMV_SSH_KEY_PREFIX" "openmediavault-"
 		fi
 	;;
 

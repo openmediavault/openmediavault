@@ -25,10 +25,10 @@ set -e
 . /usr/share/openmediavault/scripts/helper-functions
 
 OMV_SSH_KEYS_DIR=${OMV_SSH_KEYS_DIR:-"/var/lib/openmediavault/ssh/keys"}
-OMV_SSH_KEY_PREFIX=${OMV_SSH_KEY_PREFIX:-"openmediavault-id_rsa-"}
+OMV_SSH_KEY_PREFIX=${OMV_SSH_KEY_PREFIX:-"openmediavault-"}
 
 # Remove all certificate files.
-rm -f "${OMV_SSH_KEYS_DIR}*"
+rm -f "${OMV_SSH_KEYS_DIR}/${OMV_SSH_KEY_PREFIX}*"
 
 # Create the certificate files.
 xmlstarlet sel -t -m "//system/certificates/sshcertificate" \
