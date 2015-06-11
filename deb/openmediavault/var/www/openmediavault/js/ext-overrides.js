@@ -382,7 +382,13 @@ Ext.apply(Ext.form.field.VTypes, {
 		  "((\n|\r|\f).+)*)(\n|\r|\f)---- END SSH2 PUBLIC KEY ----$").test(v);
 	},
 	sshPubKeyRFC4716Text: _("Invalid SSH public key (RFC 4716)"),
-	sshPubKeyRFC4716Mask: /[a-zA-Z0-9+/=\- ]/
+	sshPubKeyRFC4716Mask: /[a-zA-Z0-9+/=\- ]/,
+
+	sshPubKeyOpenSSH: function(v) {
+		return /^ssh-rsa AAAA[0-9A-Za-z+/]+[=]{0,3}\s*([^@]+@[^@]+|.+)*$/.test(v);
+	},
+	sshPubKeyOpenSSHText: _("Invalid SSH public key"),
+	sshPubKeyOpenSSHMask: /[a-zA-Z0-9@+/=\- ]/
 });
 
 ////////////////////////////////////////////////////////////////////////////////

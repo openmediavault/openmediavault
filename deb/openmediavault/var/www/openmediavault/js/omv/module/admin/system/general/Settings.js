@@ -20,7 +20,7 @@
  */
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/form/Panel.js")
-// require("js/omv/form/field/CertificateComboBox.js")
+// require("js/omv/form/field/SslCertificateComboBox.js")
 
 /**
  * @class OMV.module.admin.system.general.Settings
@@ -29,7 +29,7 @@
 Ext.define("OMV.module.admin.system.general.Settings", {
 	extend: "OMV.workspace.form.Panel",
 	requires: [
-		"OMV.form.field.CertificateComboBox"
+		"OMV.form.field.SslCertificateComboBox"
 	],
 
 	rpcService: "WebGui",
@@ -98,7 +98,7 @@ Ext.define("OMV.module.admin.system.general.Settings", {
 				checked: false,
 				boxLabel: _("Enable secure connection.")
 			},{
-				xtype: "certificatecombo",
+				xtype: "sslcertificatecombo",
 				name: "sslcertificateref",
 				fieldLabel: _("Certificate"),
 				allowNone: true,

@@ -147,10 +147,13 @@ $GLOBALS['OMV_JSONSCHEMA_DEVICEFILE_LIST'] = '"type":"string","format":"regex",'
 $GLOBALS['OMV_JSONSCHEMA_EMAIL'] = '"type":"string","format":"regex","pattern":'.
   '"\/^(\\\w+)([-+.\'][\\\w]+)*@(\\\w[-\\\w]*\\\.){1,5}([A-Za-z]){2,6}|$\/"';
 $GLOBALS['OMV_JSONSCHEMA_SSHPUBKEY_OPENSSH'] = '"type":"string","format":"regex",'.
-  '"pattern":"\/^ssh-rsa AAAA[0-9A-Za-z+\\\/]+[=]{0,3}\\\s*([^@]+@[^@]+)*$\/"';
+  '"pattern":"\/^ssh-rsa AAAA[0-9A-Za-z+\\\/]+[=]{0,3}\\\s*([^@]+@[^@]+|.+)*$\/"';
 $GLOBALS['OMV_JSONSCHEMA_SSHPUBKEY_RFC4716'] = '"type":"string","format":"regex",'.
   '"pattern":"\/^---- BEGIN SSH2 PUBLIC KEY ----(\\\n|\\\r|\\\f)(.+)'.
   '(\\\n|\\\r|\\\f)---- END SSH2 PUBLIC KEY ----$\/sm"';
+$GLOBALS['OMV_JSONSCHEMA_SSHPRIVKEY_RSA'] = '"type":"string","format":"regex",'.
+  '"pattern":"\/^-----BEGIN RSA PRIVATE KEY-----(\\\n|\\\r|\\\f)(.+)'.
+  '(\\\n|\\\r|\\\f)-----END RSA PRIVATE KEY-----$\/sm"';
 
 // JSON schema describing a file system UUID.
 // EXT(2|3|4)/JFS/XFS: 7725c816-00d8-11e1-ad4c-00221568ca88

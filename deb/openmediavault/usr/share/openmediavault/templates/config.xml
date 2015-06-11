@@ -81,6 +81,12 @@
 				<privatekey>xxx</privatekey>
 				<comment>xxx</comment>
 			</sslcertificate>
+			<sshcertificate>
+				<uuid>xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx</uuid>
+				<publickey>xxx</publickey>
+				<privatekey>xxx</privatekey>
+				<comment>xxx</comment>
+			</sshcertificate>
 			-->
 		</certificates>
 		<network>

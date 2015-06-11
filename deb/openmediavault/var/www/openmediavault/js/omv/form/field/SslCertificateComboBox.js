@@ -22,20 +22,20 @@
 // require("js/omv/data/Model.js")
 // require("js/omv/data/proxy/Rpc.js")
 // require("js/omv/data/identifier/Empty.js")
-// require("js/omv/module/admin/system/certificate/Certificate.js")
+// require("js/omv/workspace/window/TextArea.js")
 
 /**
  * @ingroup webgui
- * @class OMV.form.CertificateComboBox
+ * @class OMV.form.SslCertificateComboBox
  * @derived Ext.form.field.ComboBox
- * Display all existing certificates in a combobox control.
+ * Display all existing SSL certificates in a combobox control.
  * @param allowNone Set to TRUE to display the 'None' list entry.
  *   Defaults to FALSE.
  * @param noneText The text of the 'None' list entry.
  */
-Ext.define("OMV.form.field.CertificateComboBox", {
+Ext.define("OMV.form.field.SslCertificateComboBox", {
 	extend: "Ext.form.field.ComboBox",
-	alias: "widget.certificatecombo",
+	alias: [ "widget.sslcertificatecombo" ],
 	requires: [
 		"OMV.data.Store",
 		"OMV.data.Model",
@@ -43,7 +43,7 @@ Ext.define("OMV.form.field.CertificateComboBox", {
 		"OMV.data.identifier.Empty"
 	],
 	uses: [
-		"OMV.module.admin.system.certificate.Detail"
+		"OMV.workspace.window.TextArea"
 	],
 
 	allowNone: false,
@@ -117,15 +117,20 @@ Ext.define("OMV.form.field.CertificateComboBox", {
 
 	onTrigger2Click: function() {
 		var me = this;
-		if(me.disabled)
+		if (me.disabled)
 			return;
 		var uuid = me.getValue();
-		if(!Ext.isUUID(uuid))
+		if (!Ext.isUUID(uuid))
 			return;
-		Ext.create("OMV.module.admin.system.certificate.Detail", {
+		Ext.create("OMV.workspace.window.TextArea", {
+			rpcService: "CertificateMgmt",
+			rpcGetMethod: "getDetail",
 			rpcGetParams: {
 				uuid: uuid
-			}
+			},
+			title: _("Certificate details"),
+			width: 600,
+			height: 400
 		}).show();
 	},
 

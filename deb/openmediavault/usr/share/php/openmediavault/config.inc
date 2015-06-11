@@ -53,7 +53,8 @@ class OMVConfigEngine extends OMVObject {
 		// Shared folder
 		"sharedfolder", "privilege", "share",
 		// Miscellaneous
-		"job", "module", "sslcertificate", "service", "device"
+		"job", "module", "sslcertificate", "sshcertificate",
+		"service", "device"
 	);
 
 	/**
