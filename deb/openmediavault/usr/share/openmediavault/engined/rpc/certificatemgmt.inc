@@ -547,6 +547,12 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 				  "comment":{"type":"string"}
 			  }
 		  }');
+		// Validate the keys.
+		if (!($privatekey = openssl_pkey_get_private($params['privatekey']))) {
+			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+			  sprintf("Invalid private key: %s", openssl_error_string()));
+		}
+		openssl_pkey_free($privatekey);
 		// Prepare configuration data.
 		$object = array(
 			"uuid" => ($params['uuid'] == $GLOBALS['OMV_UUID_UNDEFINED']) ?
