@@ -51,6 +51,10 @@ class OMVModuleCertificateMgmt extends OMVModuleServiceAbstract
 		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
 		  "org.openmediavault.system.certificates.sslcertificate",
 		  array($this, "setDirty"));
+		$dispatcher->addListener(
+		  OMV_NOTIFY_CREATE | OMV_NOTIFY_MODIFY,
+		  "org.openmediavault.system.certificates.sshcertificate",
+		  array($this, "setDirty"));
     }
 }
 

@@ -36,7 +36,7 @@ OMV_SSHD_AUTHORIZEDKEYSFILE_DIR=${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR:-"/var/lib/ope
 OMV_SSHD_AUTHORIZEDKEYSFILE_MASK=${OMV_SSHD_AUTHORIZEDKEYSFILE_MASK:-"600"}
 
 # Remove all existing authorized_keys files.
-rm -f ${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR}/*
+rm -f "${OMV_SSHD_AUTHORIZEDKEYSFILE_DIR}/*"
 # Create the users authorized_keys files.
 xmlstarlet sel -t \
   -m "//system/usermanagement/users/user" \

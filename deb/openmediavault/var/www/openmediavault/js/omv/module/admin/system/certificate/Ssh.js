@@ -200,6 +200,7 @@ Ext.define("OMV.module.admin.system.certificate.ssh.Certificates", {
 				title: "Create SSH certificate",
 				mode: "local",
 				hideResetButton: true,
+				closeIfNotDirty: false,
 				formItems: [{
 					xtype: "textfield",
 					name: "comment",

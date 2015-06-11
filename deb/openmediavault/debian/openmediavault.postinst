@@ -482,6 +482,10 @@ case "$1" in
 			omv_config_add_element "/config/system/network/interfaces/vlaniface" "type" "vlan"
 			omv_config_rename "/config/system/network/interfaces/*[name()='iface' or name()='bondiface' or name()='vlaniface']" "interface"
 		fi
+		if dpkg --compare-versions "$2" lt-nl "2.0.14"; then
+			omv_set_default "OMV_SSL_CERTIFICATE_DIR" "/etc/ssl"
+			omv_set_default "OMV_SSL_CERTIFICATE_PREFIX" "openmediavault-"
+		fi
 	;;
 
 	triggered)
