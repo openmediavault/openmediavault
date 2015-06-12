@@ -48,7 +48,8 @@ Ext.define("OMV.data.Download", {
 	 */
 	request: function(service, method, params) {
 		var me = this;
-		var form = me.iframe.dom.contentDocument.forms[0];
+		var form = Ext.DomQuery.selectNode("form",
+		  me.iframe.dom.contentDocument);
 		form.service.setAttribute("value", service);
 		form.method.setAttribute("value", method);
 		// Additional parameters must be encoded as string because they are
