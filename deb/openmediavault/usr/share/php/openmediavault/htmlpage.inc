@@ -341,7 +341,9 @@ class OMVWebGui extends OMVHtmlPageAbstract {
 			Ext.state.Manager.setProvider(provider);
 			// Create the viewport if the page is ready.
 			Ext.onReady(function() {
-				Ext.tip.QuickTipManager.init();
+				Ext.tip.QuickTipManager.init(true, {
+					dismissDelay: 0
+				});
 				OMV.viewport = Ext.create("OMV.workspace.Workspace");
 			});
 		</script>
@@ -369,7 +371,9 @@ class OMVWebGuiLogin extends OMVHtmlPageAbstract {
 		<a title='{$prd->getName()}' href='{$prd->getURL()}' target='_blank'><div id="projectlogo"></div></a>
 		<script type="application/javascript">
 			Ext.onReady(function() {
-				Ext.tip.QuickTipManager.init();
+				Ext.tip.QuickTipManager.init(true, {
+					dismissDelay: 0
+				});
 				Ext.create("OMV.window.Login", {
 					listeners: {
 						login: function(wnd, response) {
