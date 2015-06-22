@@ -20,7 +20,7 @@
  */
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/form/Panel.js")
-// require("js/omv/form/field/CertificateComboBox.js")
+// require("js/omv/form/field/SslCertificateComboBox.js")
 // require("js/omv/form/field/SharedFolderComboBox.js")
 
 /**
@@ -30,7 +30,7 @@
 Ext.define("OMV.module.admin.service.owncloud.Settings", {
 	extend: "OMV.workspace.form.Panel",
 	requires: [
-		"OMV.form.field.CertificateComboBox",
+		"OMV.form.field.SslCertificateComboBox",
 		"OMV.form.field.SharedFolderComboBox"
 	],
 
@@ -105,7 +105,7 @@ Ext.define("OMV.module.admin.service.owncloud.Settings", {
 					text: _("The port which is used to access the ownCloud web interface.")
 				}]
 			},{
-				xtype: "certificatecombo",
+				xtype: "sslcertificatecombo",
 				name: "sslcertificateref",
 				fieldLabel: _("Certificate"),
 				allowNone: true,
