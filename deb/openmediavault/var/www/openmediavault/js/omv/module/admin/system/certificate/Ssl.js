@@ -477,11 +477,10 @@ Ext.define("OMV.module.admin.system.certificate.ssl.Edit", {
 				text: _("Paste a RSA certificate in X.509 PEM format here.")
 			}]
 		},{
-			xtype: "textarea",
+			xtype: "textfield",
 			name: "comment",
 			fieldLabel: _("Comment"),
-			allowBlank: false,
-			flex: 1
+			allowBlank: false
 		}];
 	}
 });

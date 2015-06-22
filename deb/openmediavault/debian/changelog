@@ -3,7 +3,10 @@ openmediavault (2.0.14) stable; urgency=low
   * Various improvements.
   * Add temporary workaround to fix rendering bug in Chrome 43.
     See https://code.google.com/p/chromium/issues/detail?id=489875.
-  * Add support to create/import SSL certificates.
+  * Add support to create/import SSL certificates. This feature can be
+    used by plugins.
+  * Improve ShareMgmt::setFileACL RPC to support a large number of
+    users/groups.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Wed, 10 Jun 2015 03:14:11 +0200
 

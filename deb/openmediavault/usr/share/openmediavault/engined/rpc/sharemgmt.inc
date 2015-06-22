@@ -1060,6 +1060,7 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 	 * @return The name of the background process status file.
 	 * @throw E_RPC_SERVICE_METHOD_INVALID_PARAMS
 	 * @throw E_EXEC_FAILED
+	 * @throw E_MISC_FAILURE
 	 */
 	public function setFileACL($params, $context) {
 		global $xmlConfig;
@@ -1129,28 +1130,30 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			  "uuid" => $params['uuid']), $context);
 			// Build the ACL specifications.
 			$aclspec = array();
+			$aclspecFile = tempnam(sys_get_temp_dir(), "setfacl");
 			// Set permissions of a named users and groups.
-			foreach(array("user", "group") as $typek => $typev) {
+			foreach (array("user", "group") as $typek => $typev) {
 				foreach($params["{$typev}s"] as $entryk => $entryv) {
-					$aclspec[] = sprintf("default:%s:%s:%d,%s:%s:%d",
-					  $typev, $entryv['name'], $entryv['perms'],
-					  $typev, $entryv['name'], $entryv['perms']);
+					$aclspec[] = sprintf("default:%s:%s:%d", $typev,
+					  $entryv['name'], $entryv['perms']);
+					$aclspec[] = sprintf("%s:%s:%d", $typev,
+					  $entryv['name'], $entryv['perms']);
 				}
 			}
 			// Set default owner permissions.
-			if(array_key_exists("userperms", $params)) {
-				$aclspec[] = sprintf("default:user::%d,user::%d",
-				  $params['userperms'], $params['userperms']);
+			if (array_key_exists("userperms", $params)) {
+				$aclspec[] = sprintf("default:user::%d", $params['userperms']);
+				$aclspec[] = sprintf("user::%d", $params['userperms']);
 			}
 			// Set default owning group permissions.
-			if(array_key_exists("groupperms", $params)) {
-				$aclspec[] = sprintf("default:group::%d,group::%d",
-				  $params['groupperms'], $params['groupperms']);
+			if (array_key_exists("groupperms", $params)) {
+				$aclspec[] = sprintf("default:group::%d", $params['groupperms']);
+				$aclspec[] = sprintf("group::%d", $params['groupperms']);
 			}
 			// Set default permissions of others.
-			if(array_key_exists("otherperms", $params)) {
-				$aclspec[] = sprintf("default:other::%d,other::%d",
-				  $params['otherperms'], $params['otherperms']);
+			if (array_key_exists("otherperms", $params)) {
+				$aclspec[] = sprintf("default:other::%d", $params['otherperms']);
+				$aclspec[] = sprintf("other::%d", $params['otherperms']);
 			}
 			// Build the command arguments.
 			$cmdargs = array();
@@ -1160,9 +1163,16 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 			if (TRUE === boolvalEx($params['recursive'])) {
 				$cmdargs[] = "--recursive";
 			}
-			if(!empty($aclspec)) {
-				$cmdargs[] = sprintf("-m %s", escapeshellarg(
-				  implode(",", $aclspec)));
+			if (!empty($aclspec)) {
+				if (FALSE === file_put_contents($aclspecFile, implode("\n",
+				  $aclspec))) {
+					throw new OMVException(OMVErrorMsg::E_MISC_FAILURE,
+					  "Failed to write ACL entries to file");
+				}
+				// Read the ACL entries from file. The CLI argument list
+				// is limited which will cause an error if the user/group
+				// list is too large.
+				$cmdargs[] = sprintf("-M %s", escapeshellarg($aclspecFile));
 			}
 			// Execute command to set the file access control lists.
 			$cmd = sprintf("export LANG=C; setfacl %s -- %s 2>&1",
@@ -1173,6 +1183,8 @@ class OMVRpcServiceShareMgmt extends OMVRpcServiceAbstract {
 				  $cmd, implode("\n", $output));
 			}
 			$this->finalizeBgProcStatus($bgStatusFilename, $output);
+			// Cleanup ACL entries file.
+			unlink($aclspecFile);
 			exit(0);
 		} catch(Exception $e) {
 			$this->finalizeBgProcStatus($bgStatusFilename, "", $e);
