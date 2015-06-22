@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-05-24 08:16+0000\n"
+"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"PO-Revision-Date: 2015-06-12 07:56+0000\n"
 "Last-Translator: songming <by@songming.me>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/projects/p/openmediavault/language/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -224,6 +224,9 @@ msgstr "添加热备/恢复RAID阵列"
 
 msgid "Add module"
 msgstr "添加模块"
+
+msgid "Add public key"
+msgstr "添加公钥"
 
 msgid "Add rsync job"
 msgstr "添加rsync任务"
@@ -1022,6 +1025,9 @@ msgstr "厄瓜多尔"
 msgid "Edit"
 msgstr "编辑"
 
+msgid "Edit SSH certificate"
+msgstr "编辑SSH证书"
+
 msgid "Edit SSL certificate"
 msgstr "编辑SSL证书"
 
@@ -1596,6 +1602,9 @@ msgstr "隐式SSL"
 msgid "Import"
 msgstr "导入"
 
+msgid "Import SSH certificate"
+msgstr "导入SSH证书"
+
 msgid "Import SSL certificate"
 msgstr "导入SSL证书"
 
@@ -1672,6 +1681,9 @@ msgstr "安装更新中 ..."
 
 msgid "Interfaces"
 msgstr "接口"
+
+msgid "Invalid SSH public key (RFC 4716)"
+msgstr "无效SSH公钥(RFC 4716)"
 
 msgid "Invalid domain name"
 msgstr "无效域名"
@@ -2530,8 +2542,14 @@ msgstr "协议"
 msgid "Public"
 msgstr "公开"
 
+msgid "Public key"
+msgstr "公钥"
+
 msgid "Public key authentication"
 msgstr "公钥认证"
+
+msgid "Public keys"
+msgstr "公钥"
 
 msgid "Puerto Rico"
 msgstr "波多黎各"
@@ -2773,11 +2791,11 @@ msgstr "SNMP版本3"
 msgid "SSH"
 msgstr "SSH"
 
-msgid "SSH public key"
-msgstr "SSH公钥"
-
 msgid "SSID"
 msgstr " SSID"
+
+msgid "SSL"
+msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2853,6 +2871,9 @@ msgstr "安全连接"
 
 msgid "Security level"
 msgstr "安全级别"
+
+msgid "Select a SSH certificate ..."
+msgstr "选择SSH证书 ..."
 
 msgid "Select a SSL certificate ..."
 msgstr "选择SSL证书 ..."
@@ -3284,6 +3305,9 @@ msgstr "NT描述字段。"
 msgid "The RSA key length."
 msgstr "RSA密钥长度。"
 
+msgid "The RSA public key in OpenSSH format."
+msgstr "OpenSSH格式的RSA公钥。"
+
 msgid "The SSL certificate."
 msgstr "SSL证书。"
 
@@ -3381,6 +3405,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "新文件和目录的权限一般是由创建掩码和目录掩码决定，但权限继承会复写它们。当系统有许多用户使用单一共享时这种方案会很灵活。"
+
+msgid "The private RSA key in X.509 PEM format."
+msgstr "X.509 PEM格式的RSA私钥。"
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr "RFC 4716格式的SSH公钥。"

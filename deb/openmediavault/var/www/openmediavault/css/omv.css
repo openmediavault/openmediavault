@@ -27,15 +27,17 @@ body#login-page {
 }
 div#projectlogo {
 	position: absolute;
-	width: 304px;
-	height: 43px;
+	width: 330px;
+	height: 42px;
 	right: 20px;
 	bottom: 20px;
 	background: url("/images/header_logo.png");
+	background: url("/images/header_logo.svg"), none;
+	background-size: 100% 100%;
 	background-attachment: scroll;
 	background-repeat: no-repeat;
 	background-color: transparent;
-	background-position: bottom;
+	background-position: bottom right;
 }
 /******************************************************************************/
 /* Shutdown page                                                                 */
@@ -70,10 +72,16 @@ div#header {
 }
 div#headerlogo {
 	float: left;
+	width: 330px;
+	height: 42px;
+	margin-top: 20px;
 	margin-left: 20px;
-	height: 100%;
-	width: 304px;
-	background: url("/images/header_logo.png") center left no-repeat;
+	background: url("/images/header_logo.png");
+	background: url("/images/header_logo.svg"), none;
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-position: center left;
 }
 div#headerrlogo {
 	float: right;

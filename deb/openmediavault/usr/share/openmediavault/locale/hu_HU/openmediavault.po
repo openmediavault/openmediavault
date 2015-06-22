@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-05-24 08:02+0000\n"
+"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"PO-Revision-Date: 2015-06-11 20:38+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
@@ -224,6 +224,9 @@ msgstr "Tartalék kapacitás hozzáadása / RAID tömb helyreállítása"
 
 msgid "Add module"
 msgstr "Modul hozzáadása"
+
+msgid "Add public key"
+msgstr ""
 
 msgid "Add rsync job"
 msgstr "Rsync feladat hozzáadása"
@@ -1022,6 +1025,9 @@ msgstr "Ecuador"
 msgid "Edit"
 msgstr "Szerkesztés"
 
+msgid "Edit SSH certificate"
+msgstr ""
+
 msgid "Edit SSL certificate"
 msgstr "SSL tanúsítvány szerkesztése"
 
@@ -1596,6 +1602,9 @@ msgstr "Közvetett SSL"
 msgid "Import"
 msgstr "Importálás"
 
+msgid "Import SSH certificate"
+msgstr ""
+
 msgid "Import SSL certificate"
 msgstr "SSL tanúsítvány importálása"
 
@@ -1672,6 +1681,9 @@ msgstr "Frissítések telepítése ..."
 
 msgid "Interfaces"
 msgstr "Interfészek"
+
+msgid "Invalid SSH public key (RFC 4716)"
+msgstr ""
 
 msgid "Invalid domain name"
 msgstr "Érvénytelen tartománynév"
@@ -2530,8 +2542,14 @@ msgstr "Protokoll"
 msgid "Public"
 msgstr "Nyilvános"
 
+msgid "Public key"
+msgstr ""
+
 msgid "Public key authentication"
 msgstr "Nyilvános kulcs hitelesítés"
+
+msgid "Public keys"
+msgstr ""
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"
@@ -2773,10 +2791,10 @@ msgstr "SNMP verzió 3"
 msgid "SSH"
 msgstr "SSH"
 
-msgid "SSH public key"
-msgstr "SSH nyilvános kulcs"
-
 msgid "SSID"
+msgstr ""
+
+msgid "SSL"
 msgstr ""
 
 msgid "SSL/TLS"
@@ -2853,6 +2871,9 @@ msgstr "Biztonságos kapcsolat"
 
 msgid "Security level"
 msgstr "Biztonsági szint"
+
+msgid "Select a SSH certificate ..."
+msgstr ""
 
 msgid "Select a SSL certificate ..."
 msgstr "Válassz ki egy SSL tanúsítványt ..."
@@ -3284,6 +3305,9 @@ msgstr "NT leírás mező."
 msgid "The RSA key length."
 msgstr "Az RSA kulcs hossza."
 
+msgid "The RSA public key in OpenSSH format."
+msgstr ""
+
 msgid "The SSL certificate."
 msgstr "Az SSL tanúsítvány."
 
@@ -3381,6 +3405,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "A jogosultságok új fájlokon és könyvtárakon általában szabályozva vannak létrehozó maszk és könyvtár maszk által, de az örökölt jogosultságok paraméterei felülírják ezt. Ez különösen hasznos lehet több felhasználós rendszereknél, hogy egy megosztás rugalmasan használható legyen az egyes felhasználóknak."
+
+msgid "The private RSA key in X.509 PEM format."
+msgstr ""
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr ""

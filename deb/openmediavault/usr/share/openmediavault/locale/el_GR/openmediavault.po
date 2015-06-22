@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-05-24 08:02+0000\n"
+"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"PO-Revision-Date: 2015-06-11 20:38+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
@@ -223,6 +223,9 @@ msgstr "Προσθήκη εφεδρείας / ανάρρωση συστοιχί�
 
 msgid "Add module"
 msgstr "Προσθήκη μονάδας"
+
+msgid "Add public key"
+msgstr ""
 
 msgid "Add rsync job"
 msgstr "Προσθήκη εργασίας συγχρονισμού"
@@ -1021,6 +1024,9 @@ msgstr "Ecuador"
 msgid "Edit"
 msgstr "Αλλαγή"
 
+msgid "Edit SSH certificate"
+msgstr ""
+
 msgid "Edit SSL certificate"
 msgstr "Αλλαγή"
 
@@ -1595,6 +1601,9 @@ msgstr "Σίγουρα SSL"
 msgid "Import"
 msgstr "Εισαγωγή"
 
+msgid "Import SSH certificate"
+msgstr ""
+
 msgid "Import SSL certificate"
 msgstr "Εισαγωγή πιστοποιητικού SSL"
 
@@ -1671,6 +1680,9 @@ msgstr "Εγκατατάσταση ενημερώσεων ..."
 
 msgid "Interfaces"
 msgstr "Διεπαφές"
+
+msgid "Invalid SSH public key (RFC 4716)"
+msgstr ""
 
 msgid "Invalid domain name"
 msgstr "Άκυρο όνομα τομέα"
@@ -2529,8 +2541,14 @@ msgstr "Πρωτόκολο"
 msgid "Public"
 msgstr "Δημόσιο"
 
+msgid "Public key"
+msgstr ""
+
 msgid "Public key authentication"
 msgstr "Πιστοποίηση με δημόσιο κλειδί"
+
+msgid "Public keys"
+msgstr ""
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"
@@ -2772,10 +2790,10 @@ msgstr "SNMP έκδοση 3"
 msgid "SSH"
 msgstr "SSH"
 
-msgid "SSH public key"
-msgstr "Δημόσιο κλειδί SSH"
-
 msgid "SSID"
+msgstr ""
+
+msgid "SSL"
 msgstr ""
 
 msgid "SSL/TLS"
@@ -2852,6 +2870,9 @@ msgstr "Ασφαλής σύνδεση"
 
 msgid "Security level"
 msgstr "Επίπεδο ασφάλειας"
+
+msgid "Select a SSH certificate ..."
+msgstr ""
 
 msgid "Select a SSL certificate ..."
 msgstr "Επιλογή πιστοποιητικού SSL ..."
@@ -3283,6 +3304,9 @@ msgstr "Το πεδίο περιγραφής ΝΤ."
 msgid "The RSA key length."
 msgstr "Το μήκος του κλειδιού RSA."
 
+msgid "The RSA public key in OpenSSH format."
+msgstr ""
+
 msgid "The SSL certificate."
 msgstr "Το πιστοποιητικό SSL."
 
@@ -3380,6 +3404,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Οι άδειες σε καινούργια αρχεία και φακέλους ρυθμίζονται κανονικά από την μάσκα δημιουργίας και φακέλου, αλλά η κληρονομικότητα το παρακάμπτει αυτό. Ιδιαίτερα χρήσιμο σε συστήματα με πολλούς χρήστες, καθώς τους προσφέρει ευελιξία."
+
+msgid "The private RSA key in X.509 PEM format."
+msgstr ""
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr ""

@@ -9,9 +9,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-05-24 08:02+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"PO-Revision-Date: 2015-06-16 16:16+0000\n"
+"Last-Translator: Nelson Rosado <nelsontrosado@gmail.com>\n"
 "Language-Team: Portuguese (Portugal) (http://www.transifex.com/projects/p/openmediavault/language/pt_PT/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -199,19 +199,19 @@ msgid "Add"
 msgstr "Adicionar"
 
 msgid "Add VLAN connection"
-msgstr ""
+msgstr "Adicionar Ligações VLAN"
 
 msgid "Add Wi-Fi connection"
-msgstr ""
+msgstr "Adicionar Ligação Wi-Fi"
 
 msgid "Add bond connection"
-msgstr ""
+msgstr "Adicionar ligações de entrada"
 
 msgid "Add devices to RAID device"
 msgstr "Adicionar dispositivos ao dispositivo RAID"
 
 msgid "Add ethernet connection"
-msgstr ""
+msgstr "Adicionar ligações de rede"
 
 msgid "Add firewall rule"
 msgstr "Adicionar uma regra ao firewall"
@@ -224,6 +224,9 @@ msgstr "Adicionar peças de reposição / recuperação de dispositivo RAID"
 
 msgid "Add module"
 msgstr "Adicionar modulos"
+
+msgid "Add public key"
+msgstr "Adicionar chave pública"
 
 msgid "Add rsync job"
 msgstr "Adicionar tarefa RSync"
@@ -503,7 +506,7 @@ msgid "Bolivia"
 msgstr "Bolívia"
 
 msgid "Bond"
-msgstr ""
+msgstr "Ligação"
 
 msgid "Boot"
 msgstr "Arranque"
@@ -773,7 +776,7 @@ msgid "DHCP"
 msgstr "DHCP"
 
 msgid "DNS servers"
-msgstr ""
+msgstr "Servidores DNS"
 
 msgid "Daemon"
 msgstr "Daemon"
@@ -976,7 +979,7 @@ msgid "Domain name"
 msgstr "Nome de domínio"
 
 msgid "Domains used when resolving host names."
-msgstr ""
+msgstr "Domínios utilizados na resolução de nomes de host."
 
 msgid "Dominica"
 msgstr "Dominica"
@@ -1022,20 +1025,23 @@ msgstr "Equador"
 msgid "Edit"
 msgstr "Editar"
 
+msgid "Edit SSH certificate"
+msgstr "Editar certificado SSH"
+
 msgid "Edit SSL certificate"
 msgstr "Editar certificado SSL"
 
 msgid "Edit VLAN connection"
-msgstr ""
+msgstr "Editar ligação VLAN"
 
 msgid "Edit Wi-Fi connection"
-msgstr ""
+msgstr "Editar ligação Wi-Fi"
 
 msgid "Edit bond connection"
-msgstr ""
+msgstr "Editar ligação de entrada"
 
 msgid "Edit ethernet connection"
-msgstr ""
+msgstr "Editar ligação de rede"
 
 msgid "Edit firewall rule"
 msgstr "Editar regra da firewall"
@@ -1196,7 +1202,7 @@ msgid "Estonia"
 msgstr "Estónia"
 
 msgid "Ethernet"
-msgstr ""
+msgstr "Rede"
 
 msgid "Ethiopia"
 msgstr "Etiópia"
@@ -1270,7 +1276,7 @@ msgid "Failed to get list of network interface devices"
 msgstr "Falha ao obter a lista de dispositivos de interface de rede"
 
 msgid "Failed to get list of unused network interface devices"
-msgstr ""
+msgstr "Falha ao obter a lista de dispositivos de interface de rede"
 
 msgid "Failed to get list of users."
 msgstr "Falha ao obter a lista de utilizadores."
@@ -1523,7 +1529,7 @@ msgid "ID"
 msgstr "ID"
 
 msgid "IP addresses of domain name servers used to resolve host names."
-msgstr ""
+msgstr "Endereços de IP de domínios utilizados na resolução de nomes de host"
 
 msgid "IPv4"
 msgstr "IPv4"
@@ -1595,6 +1601,9 @@ msgstr "SSL Implicito"
 
 msgid "Import"
 msgstr "Importar"
+
+msgid "Import SSH certificate"
+msgstr "Importar certificado SSH"
 
 msgid "Import SSL certificate"
 msgstr "Importar certificado SSL"
@@ -1673,6 +1682,9 @@ msgstr "Instalar atualizações..."
 msgid "Interfaces"
 msgstr "Interfaces"
 
+msgid "Invalid SSH public key (RFC 4716)"
+msgstr "Importar chave pública (RFC 4716) SSH"
+
 msgid "Invalid domain name"
 msgstr "Nome de domínio inválido"
 
@@ -1683,7 +1695,7 @@ msgid "Invalid group name"
 msgstr "Nome de grupo inválido"
 
 msgid "Invalid host name"
-msgstr ""
+msgstr "Nome de máquina inválido"
 
 msgid "Invalid line: %s"
 msgstr "Linha inválida: %s"
@@ -2106,10 +2118,10 @@ msgid "Network"
 msgstr "Rede"
 
 msgid "Network interface '%s' (type=%s) already exists"
-msgstr ""
+msgstr "Interface de rede '%s' (type=%s) já existe"
 
 msgid "Network interfaces"
-msgstr ""
+msgstr "Dispositivo de rede"
 
 msgid "Neutral Zone"
 msgstr "Zona Neutra"
@@ -2301,7 +2313,7 @@ msgid "Paraguay"
 msgstr "Paraguai"
 
 msgid "Parent interface"
-msgstr ""
+msgstr "Dispositivo parente"
 
 msgid "Passive FTP"
 msgstr "FTP Passivo"
@@ -2331,7 +2343,7 @@ msgid "Perform a trial run with no changes made"
 msgstr "Execute um teste sem alterações"
 
 msgid "Performance statistics"
-msgstr ""
+msgstr "Estatísticas de performance"
 
 msgid "Period of validity"
 msgstr "Período de validade"
@@ -2421,7 +2433,7 @@ msgstr "Primeiro selecione o volume."
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
 "are allowed."
-msgstr ""
+msgstr "Por favor, certifique-se de que a pasta compartilhada é gravável publicamente se novos arquivos são permitidos."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2530,8 +2542,14 @@ msgstr "Protocolo"
 msgid "Public"
 msgstr "Publico"
 
+msgid "Public key"
+msgstr "Chave pública"
+
 msgid "Public key authentication"
 msgstr "Chave pública de autenticação"
+
+msgid "Public keys"
+msgstr "Chaves públicas"
 
 msgid "Puerto Rico"
 msgstr "Porto Rico"
@@ -2558,10 +2576,10 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
 msgstr "RAID 4"
@@ -2648,7 +2666,7 @@ msgid "Remove"
 msgstr "Remover"
 
 msgid "Remove devices from RAID device"
-msgstr ""
+msgstr "Remover dispositivo do RAID"
 
 msgid "Replace"
 msgstr "Substituir"
@@ -2773,11 +2791,11 @@ msgstr "SNMP versão 3"
 msgid "SSH"
 msgstr "SSH"
 
-msgid "SSH public key"
-msgstr "Chave pública SSH"
-
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
+
+msgid "SSL"
+msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2834,7 +2852,7 @@ msgid "Scheduling"
 msgstr "Agendamento"
 
 msgid "Search domains"
-msgstr ""
+msgstr "Domínios de pesquisa"
 
 msgid "Secondary email"
 msgstr "Email secundário"
@@ -2853,6 +2871,9 @@ msgstr "Ligação segura"
 
 msgid "Security level"
 msgstr "Nível de segurança"
+
+msgid "Select a SSH certificate ..."
+msgstr "Selecionar certificado SSL..."
 
 msgid "Select a SSL certificate ..."
 msgstr "Selecionar certificado SSL..."
@@ -2879,10 +2900,10 @@ msgid "Select a language ..."
 msgstr "Selecionar idioma..."
 
 msgid "Select a parent interface ..."
-msgstr ""
+msgstr "Selecionar dispositivo parente..."
 
 msgid "Select a primary interface ..."
-msgstr ""
+msgstr "Selecionar um dispositivo primário..."
 
 msgid "Select a protocol ..."
 msgstr "Selecionar um protocolo..."
@@ -2903,7 +2924,7 @@ msgid "Select devices to be added to the RAID device"
 msgstr "Selecionar dispositivos para serem adicionados ao dispositivo RAID"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Selecionar dispositivos para serem removidos do dispositivo RAID"
 
 msgid "Select or enter a user name ..."
 msgstr "Selecione ou escreva o nome de um utilizador..."
@@ -3148,7 +3169,7 @@ msgstr "Especifica se é permitido fazer o login como superusuário."
 msgid ""
 "Specifies whether the system performance statistics are collected "
 "periodically."
-msgstr ""
+msgstr "Especifica se as estatísticas de desempenho do sistema são recolhidas periodicamente."
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
@@ -3159,7 +3180,7 @@ msgid "Specifies which slave is the primary device."
 msgstr "Especifica qual o secundário que será o primeiro dispositivo."
 
 msgid "Speed"
-msgstr ""
+msgstr "Velocidade"
 
 msgid "Spindown time"
 msgstr "Tempo Spindown"
@@ -3284,6 +3305,9 @@ msgstr "O campo de descrição NT."
 msgid "The RSA key length."
 msgstr "O comprimento de chave RSA."
 
+msgid "The RSA public key in OpenSSH format."
+msgstr "A chave pública RSA no formato OpenSSH."
+
 msgid "The SSL certificate."
 msgstr "O certificado SSL."
 
@@ -3382,8 +3406,11 @@ msgid ""
 "single share to be used flexibly by each user."
 msgstr "As permissões de novos ficheiros e diretorias são normalmente regidas para criar mascaras e diretórios mascarados, mas as permissões herdadas substituem essas. Isto pode ser particularmente útil em sistemas com muitos utilizadores para permitir que uma unica partilha seja usada flexivelmente por outro utilizador."
 
+msgid "The private RSA key in X.509 PEM format."
+msgstr "A chave privada RSA no formato X.509 PEM."
+
 msgid "The public key in RFC 4716 SSH public key file format."
-msgstr ""
+msgstr "A chave pública no formato de arquivo de chave pública RFC4716 SSH."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3471,27 +3498,27 @@ msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Este campo deve ser um endereço de rede IPv6 na notação CIDR"
 
 msgid "This field should be a domain name or an IP address"
-msgstr ""
+msgstr "Este campo deve ser um nome de domínio ou um endereço IP"
 
 msgid "This field should be a domain name or an IPv4 address"
-msgstr ""
+msgstr "Este campo deverá ser um nome de domínio ou um endereço IPv4"
 
 msgid "This field should be a host name or an IP address"
-msgstr ""
+msgstr "Este campo deve ser um nome de host ou um endereço IP"
 
 msgid "This field should be a host name or an IPv4 address"
-msgstr ""
+msgstr "Este campo deve ser um nome de uma máquina ou um endereço IPv4"
 
 msgid "This field should be a list of domain names or IP addresses"
-msgstr ""
+msgstr "Este campo deve ser uma lista de nomes do domínio ou endereços IP"
 
 msgid ""
 "This field should be a list of domain names or IP addresses seperated by <,>"
 " or <;>"
-msgstr ""
+msgstr "Este campo deve ser uma lista de nomes do domínio ou endereços IP separados por <,> ou <;>"
 
 msgid "This field should be a list of host names or IP addresses"
-msgstr ""
+msgstr "Este campo deve ser uma lista de nomes de host ou endereços IP"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3682,7 +3709,7 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Transfer log"
 msgstr "Log de transferência"
@@ -3889,10 +3916,10 @@ msgid "Uzbekistan"
 msgstr "Uzebequistão"
 
 msgid "VLAN"
-msgstr ""
+msgstr "VLAN"
 
 msgid "VLAN id"
-msgstr ""
+msgstr "VLAN id"
 
 msgid "Valid to"
 msgstr "Valido para"
@@ -3919,7 +3946,7 @@ msgid "Vietnam"
 msgstr "Vietname"
 
 msgid "VirtIO device"
-msgstr ""
+msgstr "Dispositivo VirtIO"
 
 msgid "Volume"
 msgstr "Volume"
@@ -3934,7 +3961,7 @@ msgid "WINS support"
 msgstr "Suporte WINS"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "Wake Island"
 msgstr "Wake Island"
@@ -3981,7 +4008,7 @@ msgid "When failed"
 msgstr "Quando falha"
 
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 msgid "Wipe"
 msgstr "Limpar"

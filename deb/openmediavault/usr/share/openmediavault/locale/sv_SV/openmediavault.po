@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-05-24 08:02+0000\n"
+"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"PO-Revision-Date: 2015-06-11 20:38+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Swedish (http://www.transifex.com/projects/p/openmediavault/language/sv/)\n"
 "MIME-Version: 1.0\n"
@@ -223,6 +223,9 @@ msgstr "Lägg till 'hot-spares' / reparera RAID-enhet"
 
 msgid "Add module"
 msgstr "Lägg till modul"
+
+msgid "Add public key"
+msgstr ""
 
 msgid "Add rsync job"
 msgstr "Lägg till rsync-jobb"
@@ -1021,6 +1024,9 @@ msgstr "Ecuador"
 msgid "Edit"
 msgstr "Redigera"
 
+msgid "Edit SSH certificate"
+msgstr ""
+
 msgid "Edit SSL certificate"
 msgstr "Redigera SSL-certifikat"
 
@@ -1595,6 +1601,9 @@ msgstr "Implicit SSL"
 msgid "Import"
 msgstr "Importera"
 
+msgid "Import SSH certificate"
+msgstr ""
+
 msgid "Import SSL certificate"
 msgstr "Importera SSL-certifikat"
 
@@ -1671,6 +1680,9 @@ msgstr ""
 
 msgid "Interfaces"
 msgstr "Gränssnitt"
+
+msgid "Invalid SSH public key (RFC 4716)"
+msgstr ""
 
 msgid "Invalid domain name"
 msgstr "Ogiltigt domännamn"
@@ -2529,7 +2541,13 @@ msgstr "Protokoll"
 msgid "Public"
 msgstr "Publik"
 
+msgid "Public key"
+msgstr ""
+
 msgid "Public key authentication"
+msgstr ""
+
+msgid "Public keys"
 msgstr ""
 
 msgid "Puerto Rico"
@@ -2772,10 +2790,10 @@ msgstr "SNMP version 3"
 msgid "SSH"
 msgstr "SSH"
 
-msgid "SSH public key"
+msgid "SSID"
 msgstr ""
 
-msgid "SSID"
+msgid "SSL"
 msgstr ""
 
 msgid "SSL/TLS"
@@ -2852,6 +2870,9 @@ msgstr "Säker anslutning"
 
 msgid "Security level"
 msgstr "Säkerhetsnivå"
+
+msgid "Select a SSH certificate ..."
+msgstr ""
 
 msgid "Select a SSL certificate ..."
 msgstr "Välj ett SSL certifikat ..."
@@ -3283,6 +3304,9 @@ msgstr "Beskrivning av NT-fältet."
 msgid "The RSA key length."
 msgstr "RSA nyckellängd."
 
+msgid "The RSA public key in OpenSSH format."
+msgstr ""
+
 msgid "The SSL certificate."
 msgstr "SSL certifikat."
 
@@ -3380,6 +3404,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Behörigheter för nya filer och kataloger styrs normalt av att skapa-mask och katalog-mask men ärva behörigheter-parametern åsidosätter detta. Detta kan vara särskilt användbart på system med många användare att tillåta att en enda delning används flexibelt av varje användare."
+
+msgid "The private RSA key in X.509 PEM format."
+msgstr ""
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr ""

@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-05-24 08:02+0000\n"
+"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"PO-Revision-Date: 2015-06-11 20:38+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Czech (Czech Republic) (http://www.transifex.com/projects/p/openmediavault/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
@@ -224,6 +224,9 @@ msgstr "Přidat pohotovostní náhradní jednotku / opravit RAID pole"
 
 msgid "Add module"
 msgstr "Přidat modul"
+
+msgid "Add public key"
+msgstr ""
 
 msgid "Add rsync job"
 msgstr "Přidat úlohu rsync"
@@ -1022,6 +1025,9 @@ msgstr "Ekvádor"
 msgid "Edit"
 msgstr "Upravit"
 
+msgid "Edit SSH certificate"
+msgstr ""
+
 msgid "Edit SSL certificate"
 msgstr "Upravit SSL certifikát"
 
@@ -1596,6 +1602,9 @@ msgstr "Výslovné SSL"
 msgid "Import"
 msgstr "Importovat"
 
+msgid "Import SSH certificate"
+msgstr ""
+
 msgid "Import SSL certificate"
 msgstr "Importovat SSL certifikát"
 
@@ -1672,6 +1681,9 @@ msgstr "Instalace aktualizací ..."
 
 msgid "Interfaces"
 msgstr "Síťová rozhraní"
+
+msgid "Invalid SSH public key (RFC 4716)"
+msgstr ""
 
 msgid "Invalid domain name"
 msgstr "Neplatný doménový název"
@@ -2530,8 +2542,14 @@ msgstr "Protokol"
 msgid "Public"
 msgstr "Veřejné"
 
+msgid "Public key"
+msgstr ""
+
 msgid "Public key authentication"
 msgstr "Ověřování pomocí kryptografie s veřejným klíčem"
+
+msgid "Public keys"
+msgstr ""
 
 msgid "Puerto Rico"
 msgstr "Portoriko"
@@ -2773,10 +2791,10 @@ msgstr "SNMP verze 3"
 msgid "SSH"
 msgstr "SSH"
 
-msgid "SSH public key"
-msgstr "Veřejná část SSH klíče"
-
 msgid "SSID"
+msgstr ""
+
+msgid "SSL"
 msgstr ""
 
 msgid "SSL/TLS"
@@ -2853,6 +2871,9 @@ msgstr "Zabezpečené spojení"
 
 msgid "Security level"
 msgstr "Úroveň zabezpečení"
+
+msgid "Select a SSH certificate ..."
+msgstr ""
 
 msgid "Select a SSL certificate ..."
 msgstr "Vyberte SSL certifikát …"
@@ -3284,6 +3305,9 @@ msgstr "Pole popisu NT."
 msgid "The RSA key length."
 msgstr "Délka RSA klíče."
 
+msgid "The RSA public key in OpenSSH format."
+msgstr ""
+
 msgid "The SSL certificate."
 msgstr "SSL certifikát."
 
@@ -3381,6 +3405,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Oprávnění pro nově vytvářené soubory a složky jsou běžně řízeny maskou pro vytváření a maskou složky, ale parametr pro přebírání oprávnění toto přebíjí. Užitečné zejména na systémech, sloužících mnoha uživatelům, kdy je třeba, aby sdílení mohla být pružně používána každým z uživatelů."
+
+msgid "The private RSA key in X.509 PEM format."
+msgstr ""
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr ""

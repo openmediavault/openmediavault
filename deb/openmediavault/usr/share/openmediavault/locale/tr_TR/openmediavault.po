@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-05-29 18:22+0000\n"
+"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"PO-Revision-Date: 2015-06-14 21:31+0000\n"
 "Last-Translator: Serhat SUT <serhat.sut@gmail.com>\n"
 "Language-Team: Turkish (Turkey) (http://www.transifex.com/projects/p/openmediavault/language/tr_TR/)\n"
 "MIME-Version: 1.0\n"
@@ -223,6 +223,9 @@ msgstr "RAID aygıtına yedek ekle / kurtar"
 
 msgid "Add module"
 msgstr "Modül ekle"
+
+msgid "Add public key"
+msgstr "Açık anahtar ekle"
 
 msgid "Add rsync job"
 msgstr "Rsync görevi ekle"
@@ -1021,6 +1024,9 @@ msgstr "Ekvator"
 msgid "Edit"
 msgstr "Düzenleme"
 
+msgid "Edit SSH certificate"
+msgstr "SSL sertifikasını düzenle"
+
 msgid "Edit SSL certificate"
 msgstr "SSL sertifikasını düzenle"
 
@@ -1595,6 +1601,9 @@ msgstr "Kesin SSL"
 msgid "Import"
 msgstr "İçeri aktarmak"
 
+msgid "Import SSH certificate"
+msgstr "SSH sertifikasını içeri aktar"
+
 msgid "Import SSL certificate"
 msgstr "SSl sertifikasını içeri aktar"
 
@@ -1671,6 +1680,9 @@ msgstr "Güncellemeler kuruluyor ..."
 
 msgid "Interfaces"
 msgstr "Arabirim"
+
+msgid "Invalid SSH public key (RFC 4716)"
+msgstr "Geçersiz SSH açık anahtarı (RFC 4716)"
 
 msgid "Invalid domain name"
 msgstr "Geçersiz alan adı"
@@ -2529,8 +2541,14 @@ msgstr "Protokol"
 msgid "Public"
 msgstr "Herkese açık"
 
+msgid "Public key"
+msgstr "Açık anahtar"
+
 msgid "Public key authentication"
 msgstr "Açık anahtar doğrulaması"
+
+msgid "Public keys"
+msgstr "Açık anahtarlar"
 
 msgid "Puerto Rico"
 msgstr "Porto Riko"
@@ -2772,11 +2790,11 @@ msgstr "SNMP sürüm 3"
 msgid "SSH"
 msgstr "SSH"
 
-msgid "SSH public key"
-msgstr "SSH açık anahtarı"
-
 msgid "SSID"
 msgstr "SSID"
+
+msgid "SSL"
+msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2852,6 +2870,9 @@ msgstr "Güvenli bağlantı"
 
 msgid "Security level"
 msgstr "Güvenlik seviyesi"
+
+msgid "Select a SSH certificate ..."
+msgstr "SSH sertifikası seçiniz ..."
 
 msgid "Select a SSL certificate ..."
 msgstr "SSL sertifikası seçiniz ..."
@@ -3283,6 +3304,9 @@ msgstr "NT tanımlama alanı."
 msgid "The RSA key length."
 msgstr "RSA anahtar uzunluğu."
 
+msgid "The RSA public key in OpenSSH format."
+msgstr "OpenSSH biçeminde RSA açık anahtarı."
+
 msgid "The SSL certificate."
 msgstr "SSL sertifikası."
 
@@ -3380,6 +3404,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Yeni dosya ve klasörler üzerindeki yetkiler normalde oluşturma kalıbı ve klasör kalıbı ile düzenlenir fakat aktarılan yetkiler bu parametreleri geçersiz kılar. Bu özellikle çok kullanıcılı sistemlerde her bir kullanıcının tek bir paylaşımı rahatça kullanabilmesine imkan sağlar."
+
+msgid "The private RSA key in X.509 PEM format."
+msgstr " X.509 PEM biöeminde özel RSA anahtarı."
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr "RFC 4716 SSH daki açık anahtar, açık anahtarlama dosya biçimindedir."

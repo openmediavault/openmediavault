@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-05-26 07:24+0000\n"
-"Last-Translator: Stefan Thrane Overby <stoverby@gmail.com>\n"
+"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"PO-Revision-Date: 2015-06-11 20:38+0000\n"
+"Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Danish (http://www.transifex.com/projects/p/openmediavault/language/da/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -223,6 +223,9 @@ msgstr "Tilføj hot spare / genskab RAID enhed"
 
 msgid "Add module"
 msgstr "Tilføj modul"
+
+msgid "Add public key"
+msgstr ""
 
 msgid "Add rsync job"
 msgstr "Tilføj rsync opgave"
@@ -1021,6 +1024,9 @@ msgstr "Ecuador"
 msgid "Edit"
 msgstr "Rediger"
 
+msgid "Edit SSH certificate"
+msgstr ""
+
 msgid "Edit SSL certificate"
 msgstr "Rediger SSL certifikat"
 
@@ -1595,6 +1601,9 @@ msgstr "Indirekte SSL"
 msgid "Import"
 msgstr "Importer"
 
+msgid "Import SSH certificate"
+msgstr ""
+
 msgid "Import SSL certificate"
 msgstr "Importer SSL certifikat"
 
@@ -1671,6 +1680,9 @@ msgstr "Installer opdateringer ..."
 
 msgid "Interfaces"
 msgstr "Interfaces"
+
+msgid "Invalid SSH public key (RFC 4716)"
+msgstr ""
 
 msgid "Invalid domain name"
 msgstr "Ugyldig domænenavn"
@@ -2529,8 +2541,14 @@ msgstr "Protokol"
 msgid "Public"
 msgstr "Offentlig"
 
+msgid "Public key"
+msgstr ""
+
 msgid "Public key authentication"
 msgstr "Offentlig nøgle godkendelse"
+
+msgid "Public keys"
+msgstr ""
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"
@@ -2772,11 +2790,11 @@ msgstr "SNMP version 3"
 msgid "SSH"
 msgstr "SSH"
 
-msgid "SSH public key"
-msgstr "SSH offentlig nøgle"
-
 msgid "SSID"
 msgstr "SSID"
+
+msgid "SSL"
+msgstr ""
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2852,6 +2870,9 @@ msgstr "Sikker forbindelse"
 
 msgid "Security level"
 msgstr "Sikkerhedsniveau"
+
+msgid "Select a SSH certificate ..."
+msgstr ""
 
 msgid "Select a SSL certificate ..."
 msgstr "Vælg et SSL certifikat ..."
@@ -3283,6 +3304,9 @@ msgstr "NT beskrivelses felt."
 msgid "The RSA key length."
 msgstr "RSA nøgle længde."
 
+msgid "The RSA public key in OpenSSH format."
+msgstr ""
+
 msgid "The SSL certificate."
 msgstr "SSL certifikat."
 
@@ -3380,6 +3404,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Rettighederne på nye filer og mapper er normalt styret af oprette-maske og biblioteks-maske, men nedarv tilladelser parameteren tilsidesætter dette. Dette kan være særligt nyttigt på systemer med mange brugere for at tillade en enkelt deling i at blive anvendt fleksibelt af hver enkelt bruger."
+
+msgid "The private RSA key in X.509 PEM format."
+msgstr ""
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr "Den offentlige nøgle i RFC 4716 SSH offentlig nøgle filformat."

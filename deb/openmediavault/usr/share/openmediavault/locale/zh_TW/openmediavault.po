@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-05-24 23:51+0000\n"
+"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"PO-Revision-Date: 2015-06-12 02:47+0000\n"
 "Last-Translator: kochin <kochinc@outlook.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/projects/p/openmediavault/language/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -224,6 +224,9 @@ msgstr "新增熱備用 / 復原 RAID 裝置"
 
 msgid "Add module"
 msgstr "新增模組"
+
+msgid "Add public key"
+msgstr "新增公鑰"
 
 msgid "Add rsync job"
 msgstr "新增 rsync 工作"
@@ -1022,6 +1025,9 @@ msgstr "厄瓜多爾"
 msgid "Edit"
 msgstr "編輯"
 
+msgid "Edit SSH certificate"
+msgstr "編輯 SSL 證書"
+
 msgid "Edit SSL certificate"
 msgstr "編輯 SSL 證書"
 
@@ -1596,6 +1602,9 @@ msgstr "隱式 SSL"
 msgid "Import"
 msgstr "匯入"
 
+msgid "Import SSH certificate"
+msgstr "匯入 SSL 證書"
+
 msgid "Import SSL certificate"
 msgstr "匯入 SSL 證書"
 
@@ -1672,6 +1681,9 @@ msgstr "安裝更新中 ..."
 
 msgid "Interfaces"
 msgstr "介面"
+
+msgid "Invalid SSH public key (RFC 4716)"
+msgstr "無效 SSH 公鑰 (RFC 4716)"
 
 msgid "Invalid domain name"
 msgstr "不合法的網域名稱"
@@ -2530,8 +2542,14 @@ msgstr "通訊協定"
 msgid "Public"
 msgstr "公開"
 
+msgid "Public key"
+msgstr "公鑰"
+
 msgid "Public key authentication"
 msgstr "公鑰驗證"
+
+msgid "Public keys"
+msgstr "公鑰"
 
 msgid "Puerto Rico"
 msgstr "波多黎各"
@@ -2773,11 +2791,11 @@ msgstr "SNMP 第 3 版"
 msgid "SSH"
 msgstr "SSH"
 
-msgid "SSH public key"
-msgstr "SSH 公鑰"
-
 msgid "SSID"
 msgstr "SSID"
+
+msgid "SSL"
+msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2853,6 +2871,9 @@ msgstr "安全連線"
 
 msgid "Security level"
 msgstr "安全性層級"
+
+msgid "Select a SSH certificate ..."
+msgstr "選擇一份 SSL 證書 ..."
 
 msgid "Select a SSL certificate ..."
 msgstr "選擇一份 SSL 證書 ..."
@@ -3284,6 +3305,9 @@ msgstr "NT 的敘述欄位。"
 msgid "The RSA key length."
 msgstr "RSA 密鑰的長度。"
 
+msgid "The RSA public key in OpenSSH format."
+msgstr "RSA 公鑰用的是 OpenSSH 格式。"
+
 msgid "The SSL certificate."
 msgstr "SSL 證書。"
 
@@ -3381,6 +3405,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "新檔案和目錄的權限通常是由創建掩碼和目錄掩碼來控制，但繼承權限參數會蓋換它們。當系統上有許多用戶，並允許單一共享有彈性地被每一用戶使用時，這會特別有用處。"
+
+msgid "The private RSA key in X.509 PEM format."
+msgstr "RSA 密鑰用的是 X.509 PEM 格式。"
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr "公鑰用的是 RFC 4716 SSH 公鑰檔案格式。"

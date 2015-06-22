@@ -15,9 +15,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-05-24 08:02+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"PO-Revision-Date: 2015-06-16 09:21+0000\n"
+"Last-Translator: артур Мудрых <arturmon82@gmail.com>\n"
 "Language-Team: Russian (Russia) (http://www.transifex.com/projects/p/openmediavault/language/ru_RU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -208,7 +208,7 @@ msgid "Add VLAN connection"
 msgstr "Добавить соединение VLAN "
 
 msgid "Add Wi-Fi connection"
-msgstr ""
+msgstr "Добавить Wi-Fi соединение"
 
 msgid "Add bond connection"
 msgstr "Добавить bond соединение"
@@ -217,7 +217,7 @@ msgid "Add devices to RAID device"
 msgstr "Добавить устройство в RAID массив"
 
 msgid "Add ethernet connection"
-msgstr ""
+msgstr "Добавить ethernet соединение"
 
 msgid "Add firewall rule"
 msgstr "Добавить правило в брандмауэр"
@@ -230,6 +230,9 @@ msgstr "Добавить устройство резервирования/во�
 
 msgid "Add module"
 msgstr "Добавить модуль"
+
+msgid "Add public key"
+msgstr "Добавить открытый ключ"
 
 msgid "Add rsync job"
 msgstr "Добавить задание Rsync"
@@ -1028,6 +1031,9 @@ msgstr "Эквадор"
 msgid "Edit"
 msgstr "Редактировать"
 
+msgid "Edit SSH certificate"
+msgstr "Редактировать SSH сертификат"
+
 msgid "Edit SSL certificate"
 msgstr "Редактировать SSL сертификат"
 
@@ -1202,7 +1208,7 @@ msgid "Estonia"
 msgstr "Эстония"
 
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 msgid "Ethiopia"
 msgstr "Эфиопия"
@@ -1556,7 +1562,7 @@ msgid ""
 "If 'Guests allowed' is selected and no login credential is provided, then "
 "access as guest. Always access as guest when 'Only guests' is selecting; in "
 "this case no password is required to connect to the share."
-msgstr ""
+msgstr "Если выбранно 'Гости разрешены' и не предусмотрено учетных пользователей, то доступ как гость. Всегда доступ в качестве гостя, когда выбранно «только гости»; в этом случае пароль не требуется для подключения к акции."
 
 msgid ""
 "If set then the client will be challenged to supply a username and password "
@@ -1582,7 +1588,7 @@ msgid ""
 "attribute, before mapping DOS attributes to UNIX permission bits. When set, "
 "DOS attributes will be stored onto an extended attribute in the UNIX file "
 "system, associated with the file or directory."
-msgstr ""
+msgstr "Если этот параметр установлен, Самба пытается сначала прочитать DOS атрибуты (системный, скрытый, архив или только для чтения) с расширенных атрибутов файловой системы, прежде, чем сопоставлять DOS атрибуты UNIX расширениям. При установке, DOS атрибуты будут сохранены в расширенных атрибутах файловой системы UNIX, связанных с файлом или каталогом."
 
 msgid ""
 "If this parameter is set, then users may not create or modify files in the "
@@ -1601,6 +1607,9 @@ msgstr "Неявный SSL"
 
 msgid "Import"
 msgstr "Импортировать"
+
+msgid "Import SSH certificate"
+msgstr "Импортировать SSH сертификат"
 
 msgid "Import SSL certificate"
 msgstr "Импортировать SSL сертификат"
@@ -1678,6 +1687,9 @@ msgstr "Установка обновлений ..."
 
 msgid "Interfaces"
 msgstr "Интерфейсы"
+
+msgid "Invalid SSH public key (RFC 4716)"
+msgstr "Неверный открытый ключ SSH (RFC 4716)"
 
 msgid "Invalid domain name"
 msgstr "Неверное имя домена"
@@ -2115,7 +2127,7 @@ msgid "Network interface '%s' (type=%s) already exists"
 msgstr "Сетевой интерфейс '%s' (type=%s) уже существует"
 
 msgid "Network interfaces"
-msgstr ""
+msgstr "Сетевые интерфейсы"
 
 msgid "Neutral Zone"
 msgstr "Нейтральная зона"
@@ -2536,8 +2548,14 @@ msgstr "Протокол"
 msgid "Public"
 msgstr "Опубликованный"
 
+msgid "Public key"
+msgstr "Открытый ключ"
+
 msgid "Public key authentication"
 msgstr "Аутентификации с открытым ключом"
+
+msgid "Public keys"
+msgstr "Открытые ключи"
 
 msgid "Puerto Rico"
 msgstr "Пуэрто-Рико"
@@ -2779,11 +2797,11 @@ msgstr "SNMP версия 3"
 msgid "SSH"
 msgstr "SSH"
 
-msgid "SSH public key"
-msgstr "Открытый ключ SSH"
-
 msgid "SSID"
 msgstr "SSID"
+
+msgid "SSL"
+msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2859,6 +2877,9 @@ msgstr "Безопасное соединение"
 
 msgid "Security level"
 msgstr "Уровень безопасности"
+
+msgid "Select a SSH certificate ..."
+msgstr "Выберите SSH сертификат..."
 
 msgid "Select a SSL certificate ..."
 msgstr "Выберите SSL сертификат..."
@@ -3290,6 +3311,9 @@ msgstr "Поле описания NT."
 msgid "The RSA key length."
 msgstr "Длина RSA ключа"
 
+msgid "The RSA public key in OpenSSH format."
+msgstr "Открытый ключ RSA в формате OpenSSH."
+
 msgid "The SSL certificate."
 msgstr "Сертификат SSL."
 
@@ -3387,6 +3411,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "Разрешения на новые файлы и каталоги обычно регулируются маской, но параметр наследования имеет более высокий приоритет. Это позволяет гибко организовать совместное использование многими пользователями одного общего ресурса."
+
+msgid "The private RSA key in X.509 PEM format."
+msgstr "Закрытый ключ RSA в формате X.509 PEM."
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr "Открытый ключ в RFC 4716 SSH в формате открытых ключей."
@@ -3940,7 +3967,7 @@ msgid "WINS support"
 msgstr "Поддержка WINS"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "Wake Island"
 msgstr "Атолл Уэйк"

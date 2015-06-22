@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-05-26 07:39+0000\n"
+"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"PO-Revision-Date: 2015-06-15 00:30+0000\n"
 "Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
@@ -223,6 +223,9 @@ msgstr "ホットスペア/RAIDのリカバリ領域の追加"
 
 msgid "Add module"
 msgstr "モジュールの追加"
+
+msgid "Add public key"
+msgstr "公開鍵の追加"
 
 msgid "Add rsync job"
 msgstr "Rsyncのジョブを追加"
@@ -1021,6 +1024,9 @@ msgstr "エクアドル"
 msgid "Edit"
 msgstr "編集"
 
+msgid "Edit SSH certificate"
+msgstr "SSH証明書の編集"
+
 msgid "Edit SSL certificate"
 msgstr "SSL証明書の編集"
 
@@ -1595,6 +1601,9 @@ msgstr "暗黙のSSL"
 msgid "Import"
 msgstr "インポート"
 
+msgid "Import SSH certificate"
+msgstr "SSH証明書のインポート"
+
 msgid "Import SSL certificate"
 msgstr "SSL証明書のインポート"
 
@@ -1671,6 +1680,9 @@ msgstr "アップデートをインストールしています ..."
 
 msgid "Interfaces"
 msgstr "インタフェース"
+
+msgid "Invalid SSH public key (RFC 4716)"
+msgstr "無効なSSH公開鍵 (RFC 4716)"
 
 msgid "Invalid domain name"
 msgstr "無効なドメイン名"
@@ -2529,8 +2541,14 @@ msgstr "プロトコル"
 msgid "Public"
 msgstr "パブリック"
 
+msgid "Public key"
+msgstr "公開鍵"
+
 msgid "Public key authentication"
 msgstr "公開鍵認証"
+
+msgid "Public keys"
+msgstr "公開鍵"
 
 msgid "Puerto Rico"
 msgstr "プエルトリコ"
@@ -2772,11 +2790,11 @@ msgstr "SNMP version 3"
 msgid "SSH"
 msgstr "SSH"
 
-msgid "SSH public key"
-msgstr "SSH公開鍵"
-
 msgid "SSID"
 msgstr "SSID"
+
+msgid "SSL"
+msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2852,6 +2870,9 @@ msgstr "セキュアコネクション"
 
 msgid "Security level"
 msgstr "セキュリティレベル"
+
+msgid "Select a SSH certificate ..."
+msgstr "SSH証明書を選択 ..."
 
 msgid "Select a SSL certificate ..."
 msgstr "SSL証明書を選択 ..."
@@ -3283,6 +3304,9 @@ msgstr "NTの説明フィールド。"
 msgid "The RSA key length."
 msgstr "RSAキーの長さ。"
 
+msgid "The RSA public key in OpenSSH format."
+msgstr "OpenSSH形式でのRSA公開鍵。"
+
 msgid "The SSL certificate."
 msgstr "SSL証明書。"
 
@@ -3380,6 +3404,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "新しいファイルとディレクトリのパーミッションは通常、Create mask と Directory mask によって制御されていますが、パーミッションパラメータはこれを無効にします。これは、1つの共有が各ユーザによって柔軟に利用される事を可能にし、多くのユーザとシステムで有益です。"
+
+msgid "The private RSA key in X.509 PEM format."
+msgstr "X.509 PEM形式でのプライベートRSA鍵。"
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr "RFC4716 SSH公開鍵ファイル形式での公開鍵。"

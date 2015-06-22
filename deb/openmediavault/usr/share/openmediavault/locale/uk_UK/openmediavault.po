@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-05-24 08:02+0000\n"
+"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"PO-Revision-Date: 2015-06-11 20:38+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Ukrainian (http://www.transifex.com/projects/p/openmediavault/language/uk/)\n"
 "MIME-Version: 1.0\n"
@@ -225,6 +225,9 @@ msgstr "Додати пристрій резервування/відновле�
 
 msgid "Add module"
 msgstr "Додати модуль"
+
+msgid "Add public key"
+msgstr ""
 
 msgid "Add rsync job"
 msgstr "Додати завдання rsync"
@@ -1023,6 +1026,9 @@ msgstr "Еквадор"
 msgid "Edit"
 msgstr "Редагувати"
 
+msgid "Edit SSH certificate"
+msgstr ""
+
 msgid "Edit SSL certificate"
 msgstr "Редагувати SSL сертифікат"
 
@@ -1597,6 +1603,9 @@ msgstr "Наявний SSL"
 msgid "Import"
 msgstr "Імпорт"
 
+msgid "Import SSH certificate"
+msgstr ""
+
 msgid "Import SSL certificate"
 msgstr "Імпортувати SSL-сертифікат"
 
@@ -1673,6 +1682,9 @@ msgstr ""
 
 msgid "Interfaces"
 msgstr "Інтерфейси"
+
+msgid "Invalid SSH public key (RFC 4716)"
+msgstr ""
 
 msgid "Invalid domain name"
 msgstr "Невірна назва домену"
@@ -2531,7 +2543,13 @@ msgstr "Протокол"
 msgid "Public"
 msgstr ""
 
+msgid "Public key"
+msgstr ""
+
 msgid "Public key authentication"
+msgstr ""
+
+msgid "Public keys"
 msgstr ""
 
 msgid "Puerto Rico"
@@ -2774,10 +2792,10 @@ msgstr "SNMP version 3"
 msgid "SSH"
 msgstr "SSH"
 
-msgid "SSH public key"
+msgid "SSID"
 msgstr ""
 
-msgid "SSID"
+msgid "SSL"
 msgstr ""
 
 msgid "SSL/TLS"
@@ -2854,6 +2872,9 @@ msgstr "Безпечне з'єднання"
 
 msgid "Security level"
 msgstr "Рівень безпеки"
+
+msgid "Select a SSH certificate ..."
+msgstr ""
 
 msgid "Select a SSL certificate ..."
 msgstr "Оберіть сертифікат SSL ..."
@@ -3285,6 +3306,9 @@ msgstr ""
 msgid "The RSA key length."
 msgstr "Довжина ключа RSA."
 
+msgid "The RSA public key in OpenSSH format."
+msgstr ""
+
 msgid "The SSL certificate."
 msgstr "Сертифікат SSL."
 
@@ -3381,6 +3405,9 @@ msgid ""
 " mask and directory mask but the inherit permissions parameter overrides "
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
+msgstr ""
+
+msgid "The private RSA key in X.509 PEM format."
 msgstr ""
 
 msgid "The public key in RFC 4716 SSH public key file format."

@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-05-25 17:41+0000\n"
+"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"PO-Revision-Date: 2015-06-11 21:25+0000\n"
 "Last-Translator: Paolo Velati <paolo.velati@gmail.com>\n"
 "Language-Team: Italian (http://www.transifex.com/projects/p/openmediavault/language/it/)\n"
 "MIME-Version: 1.0\n"
@@ -228,6 +228,9 @@ msgstr "Aggiungi hot spare / ripristina dispositivo RAID"
 
 msgid "Add module"
 msgstr "Aggiungi modulo"
+
+msgid "Add public key"
+msgstr "Aggiungi chiave pubblica"
 
 msgid "Add rsync job"
 msgstr "Agguingi processo rsync"
@@ -1026,6 +1029,9 @@ msgstr "Ecuador"
 msgid "Edit"
 msgstr "Modifica"
 
+msgid "Edit SSH certificate"
+msgstr "Modifica il certificato SSH"
+
 msgid "Edit SSL certificate"
 msgstr "Modifica il certificato SSL"
 
@@ -1600,6 +1606,9 @@ msgstr "SSL implicito"
 msgid "Import"
 msgstr "Importa"
 
+msgid "Import SSH certificate"
+msgstr "Importa certificato SSH"
+
 msgid "Import SSL certificate"
 msgstr "Importa certificato SSL"
 
@@ -1676,6 +1685,9 @@ msgstr "Installazione aggiornamenti..."
 
 msgid "Interfaces"
 msgstr "Interfacce"
+
+msgid "Invalid SSH public key (RFC 4716)"
+msgstr "Chiave pubblica SSH (RFC 4716) non valida"
 
 msgid "Invalid domain name"
 msgstr "Domain name non valido"
@@ -2534,8 +2546,14 @@ msgstr "Protocollo"
 msgid "Public"
 msgstr "Pubblico"
 
+msgid "Public key"
+msgstr "Chiave pubblica"
+
 msgid "Public key authentication"
 msgstr "Autenticazione tramite chiave pubblica"
+
+msgid "Public keys"
+msgstr "Chiavi pubbliche"
 
 msgid "Puerto Rico"
 msgstr "Porto Rico"
@@ -2777,11 +2795,11 @@ msgstr "SNMP versione 3"
 msgid "SSH"
 msgstr "SSH"
 
-msgid "SSH public key"
-msgstr "Chiave pubblica SSH"
-
 msgid "SSID"
 msgstr "SSID"
+
+msgid "SSL"
+msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2857,6 +2875,9 @@ msgstr "Connessione sicura"
 
 msgid "Security level"
 msgstr "Livello di sicurezza"
+
+msgid "Select a SSH certificate ..."
+msgstr "Scegli un certificato SSH ..."
 
 msgid "Select a SSL certificate ..."
 msgstr "Scegli un certificato SSL ..."
@@ -3288,6 +3309,9 @@ msgstr "Il campo descrizione di NT."
 msgid "The RSA key length."
 msgstr "La lunghezza della chiave RSA."
 
+msgid "The RSA public key in OpenSSH format."
+msgstr "La chiave pubblica RSA nel formato OpenSSH."
+
 msgid "The SSL certificate."
 msgstr "Il certificato SSL."
 
@@ -3385,6 +3409,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "I permessi sui nuovi file e directory sono normalmente impostati dal create mask e directory mask ma i parametri dei permessi ereditati li sovrascrivono. Questo può essere particolarmente utile sui sistemi con molti utenti per usare una singola condivisione con flessibilità da ogni utente."
+
+msgid "The private RSA key in X.509 PEM format."
+msgstr "La chiave privata RSA nel formato X.509."
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr "Il formato file della chiave pubblica nella RFC 4716."

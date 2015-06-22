@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-05-24 08:02+0000\n"
+"POT-Creation-Date: 2015-06-11 22:38+0200\n"
+"PO-Revision-Date: 2015-06-11 20:38+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/openmediavault/language/nl_NL/)\n"
 "MIME-Version: 1.0\n"
@@ -226,6 +226,9 @@ msgstr "Hot spares toevoegen / RAID-apparaat herstellen"
 
 msgid "Add module"
 msgstr "Een module toevoegen"
+
+msgid "Add public key"
+msgstr ""
 
 msgid "Add rsync job"
 msgstr "Een rsync-taak toevoegen"
@@ -1024,6 +1027,9 @@ msgstr "Ecuador"
 msgid "Edit"
 msgstr "Aanpassen"
 
+msgid "Edit SSH certificate"
+msgstr ""
+
 msgid "Edit SSL certificate"
 msgstr "SSL-certificaat aanpassen"
 
@@ -1598,6 +1604,9 @@ msgstr "Stilzwijgend SSL"
 msgid "Import"
 msgstr "Importeren"
 
+msgid "Import SSH certificate"
+msgstr ""
+
 msgid "Import SSL certificate"
 msgstr "SSL-certificaat importeren"
 
@@ -1674,6 +1683,9 @@ msgstr "Updates installeren ..."
 
 msgid "Interfaces"
 msgstr "Interfaces"
+
+msgid "Invalid SSH public key (RFC 4716)"
+msgstr ""
 
 msgid "Invalid domain name"
 msgstr "Ongeldige domeinnaam"
@@ -2532,8 +2544,14 @@ msgstr "Protocol"
 msgid "Public"
 msgstr "Publiek"
 
+msgid "Public key"
+msgstr ""
+
 msgid "Public key authentication"
 msgstr "Public key authentication"
+
+msgid "Public keys"
+msgstr ""
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"
@@ -2775,10 +2793,10 @@ msgstr "SNMP-versie 3"
 msgid "SSH"
 msgstr "SSH"
 
-msgid "SSH public key"
-msgstr "SSH public key"
-
 msgid "SSID"
+msgstr ""
+
+msgid "SSL"
 msgstr ""
 
 msgid "SSL/TLS"
@@ -2855,6 +2873,9 @@ msgstr "Veilige verbinding"
 
 msgid "Security level"
 msgstr "Veiligheidsniveau"
+
+msgid "Select a SSH certificate ..."
+msgstr ""
 
 msgid "Select a SSL certificate ..."
 msgstr "Kies een SSL-certificaat ..."
@@ -3286,6 +3307,9 @@ msgstr "Het veld met NT beschrijving."
 msgid "The RSA key length."
 msgstr "De RSA-sleutellengte."
 
+msgid "The RSA public key in OpenSSH format."
+msgstr ""
+
 msgid "The SSL certificate."
 msgstr "Het SSL-certificaat"
 
@@ -3383,6 +3407,9 @@ msgid ""
 "this. This can be particularly useful on systems with many users to allow a "
 "single share to be used flexibly by each user."
 msgstr "De rechten op nieuwe bestanden en mappen worden normaal toegekend door het aanmaak- en mapmasker, maar de parameter voor het erven van rechten overschrijft dit. Dit is in het bijzonder handig voor het flexibel gebruik van een gedeelde bron op een systeem met veel gebruikers."
+
+msgid "The private RSA key in X.509 PEM format."
+msgstr ""
 
 msgid "The public key in RFC 4716 SSH public key file format."
 msgstr ""

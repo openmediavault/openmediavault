@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="93.242828mm"
+   height="11.853333mm"
+   viewBox="0 0 330.38798 42"
+   id="svg4578"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="big_logo_v3.svg"
+   inkscape:export-filename="/home/vot/Development/svn/openmediavault/trunk/images/big_logo_v3.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4580" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#98b7cf"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="-82.208242"
+     inkscape:cy="-9.4692383"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1417"
+     inkscape:window-height="777"
+     inkscape:window-x="373"
+     inkscape:window-y="324"
+     inkscape:window-maximized="0"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata4583">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Ebene 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-130.69566,-591.14819)">
+    <g
+       id="g5150"
+       transform="matrix(1.0575552,0,0,1.0948476,-7.5053018,-60.040068)">
+      <g
+         transform="matrix(0.95714687,0,0,0.95714687,116.86284,596.49379)"
+         id="g2832-5-48-0-2-3">
+        <g
+           id="g3896-0-5-1-3-2">
+          <rect
+             style="fill:none;stroke:#ffffff;stroke-width:1.97775292;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+             id="rect3772-1-2-9-1-9"
+             width="43.398762"
+             height="38.101261"
+             x="15.42431"
+             y="-0.80660182"
+             ry="1.7717168" />
+          <rect
+             ry="1.630414"
+             y="9.36234"
+             x="20.835588"
+             height="3.260828"
+             width="33.271832"
+             id="rect3603-5-4-7-6-8"
+             style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+          <rect
+             inkscape:export-ydpi="90"
+             inkscape:export-xdpi="90"
+             inkscape:export-filename="/home/vot/Development/svn/corenas/trunk/deb/corenas/var/www/corenas/images/header_logo.png"
+             style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="rect3705-4-6-8-6-4"
+             width="33.271832"
+             height="3.260828"
+             x="20.835588"
+             y="24.392752"
+             ry="1.630414" />
+          <rect
+             style="fill:#ffffff;fill-opacity:1;stroke:#808080;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+             id="rect3705-0-2-97-9-5-2"
+             width="33.271832"
+             height="3.260828"
+             x="20.870064"
+             y="16.881268"
+             ry="1.630414" />
+        </g>
+      </g>
+      <text
+         inkscape:export-ydpi="90"
+         inkscape:export-xdpi="90"
+         transform="scale(1.0020361,0.99796803)"
+         sodipodi:linespacing="125%"
+         id="text33556-6-48-4-5-3"
+         y="631.68011"
+         x="215.85513"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10.09414959px;line-height:125%;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L Book';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none"
+         xml:space="preserve"><tspan
+           y="631.68011"
+           x="215.85513"
+           id="tspan33558-92-9-6-9-3"
+           sodipodi:role="line"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:10px;font-family:Sans;-inkscape-font-specification:Sans">The open network attached storage solution</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32.5px;line-height:125%;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none"
+         x="179.06104"
+         y="620.03217"
+         id="text5056-8-4-1-5-1"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan5058-1-3-7-1-6"
+           x="179.06104"
+           y="620.03217"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32.5px;line-height:125%;font-family:'URW Gothic L';-inkscape-font-specification:'URW Gothic L, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1">openmediavault</tspan></text>
+    </g>
+  </g>
+</svg>
