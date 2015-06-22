@@ -180,25 +180,25 @@ Ext.define("OMV.window.MessageBox", {
 			items: [{
 				xtype: "container",
 				layout: "hbox",
+				padding: 10,
 				style: {
-					padding: "10px",
 					overflow: "hidden"
 				},
 				items: [{
-					xtype: "container",
-					cls: me.baseCls + "-icon " + this.ERROR,
-					width: 50,
-					height: me.iconHeight
+					xtype: "component",
+					cls: Ext.baseCSSPrefix + "message-box-icon " +
+					  Ext.baseCSSPrefix + "dlg-icon " + me.ERROR
 				},{
 					xtype: "container",
 					flex: 1,
 					layout: {
-						type: "anchor"
+						type: "vbox",
+                        align: "stretch"
 					},
 					items: [{
-						xtype: "displayfield",
+						xtype: "component",
 						cls: me.baseCls + "-text",
-						value: (Ext.isEmpty(error.message) ?
+						html: (Ext.isEmpty(error.message) ?
 						  _("An error has occured") :
 						  Ext.util.Format.htmlDecode(error.message))
 					}]
