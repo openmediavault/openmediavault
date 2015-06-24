@@ -296,9 +296,9 @@ Ext.define("OMV.window.Execute", {
 							  // message in the output window.
 							  var message = Ext.String.format(
 								"\n" +
-								"================= Error =================\n" +
+								">>> *************** Error ***************\n" +
 								"{0}\n" +
-								"=========================================\n",
+								"<<< *************************************\n",
 								response.message);
 							  this.appendValue(message);
 							  // Enable 'Close' button to be able to close the
