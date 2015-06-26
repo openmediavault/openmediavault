@@ -30,6 +30,9 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
+OMV_SSL_CERTIFICATE_DIR=${OMV_SSL_CERTIFICATE_DIR:-"/etc/ssl"}
+OMV_SSL_CERTIFICATE_PREFIX=${OMV_SSL_CERTIFICATE_PREFIX:-"openmediavault-"}
+
 OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR=${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR:-"/etc/nginx/openmediavault-webgui.d"}
 
 OMV_NGINX_SITE_OWNCLOUD_CONFIG=${OMV_NGINX_SITE_OWNCLOUD_CONFIG:-"/etc/nginx/sites-enabled/openmediavault-owncloud"}
@@ -51,8 +54,8 @@ datadirectory=$(omv_get_sharedfolder_path "${sfref}")
 xmlstarlet sel -t -m "//services/owncloud" \
   -o "server {" -n \
   -v "concat('    listen [::]:',port,' default_server ipv6only=off ssl deferred;')" -n \
-  -v "concat('    ssl_certificate ${OMV_CERTIFICATE_DIR}/certs/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.crt;')" -n \
-  -v "concat('    ssl_certificate_key ${OMV_CERTIFICATE_DIR}/private/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.key;')" -n \
+  -v "concat('    ssl_certificate ${OMV_SSL_CERTIFICATE_DIR}/certs/${OMV_SSL_CERTIFICATE_PREFIX}',sslcertificateref,'.crt;')" -n \
+  -v "concat('    ssl_certificate_key ${OMV_SSL_CERTIFICATE_DIR}/private/${OMV_SSL_CERTIFICATE_PREFIX}',sslcertificateref,'.key;')" -n \
   -o "    server_name ${OMV_NGINX_SITE_OWNCLOUD_SERVERNAME};" -n \
   -o "    root ${OMV_NGINX_SITE_OWNCLOUD_DOCUMENTROOT};" -n \
   -o "    index index.php;" -n \

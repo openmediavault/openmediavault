@@ -29,8 +29,8 @@ set -e
 . /etc/default/openmediavault
 . /usr/share/openmediavault/scripts/helper-functions
 
-OMV_CERTIFICATE_DIR=${OMV_CERTIFICATE_DIR:-"/etc/ssl"}
-OMV_CERTIFICATE_PREFIX=${OMV_CERTIFICATE_PREFIX:-"openmediavault-"}
+OMV_SSL_CERTIFICATE_DIR=${OMV_SSL_CERTIFICATE_DIR:-"/etc/ssl"}
+OMV_SSL_CERTIFICATE_PREFIX=${OMV_SSL_CERTIFICATE_PREFIX:-"openmediavault-"}
 
 OMV_NGINX_SITE_WEBGUI_LOG_DIR=${OMV_NGINX_SITE_WEBGUI_LOG_DIR:-"/var/log/nginx"}
 OMV_NGINX_SITE_WEBGUI_SERVERNAME=${OMV_NGINX_SITE_WEBGUI_SERVERNAME:-"openmediavault-webgui"}
@@ -98,8 +98,8 @@ xmlstarlet sel -t -m "//webadmin" \
     -i "${ipv6enabled} = 1" \
       -v "concat('    listen [::]:',sslport,' default_server ipv6only=off ssl deferred;')" -n \
     -b \
-    -v "concat('    ssl_certificate ${OMV_CERTIFICATE_DIR}/certs/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.crt;')" -n \
-    -v "concat('    ssl_certificate_key ${OMV_CERTIFICATE_DIR}/private/${OMV_CERTIFICATE_PREFIX}',sslcertificateref,'.key;')" -n \
+    -v "concat('    ssl_certificate ${OMV_SSL_CERTIFICATE_DIR}/certs/${OMV_SSL_CERTIFICATE_PREFIX}',sslcertificateref,'.crt;')" -n \
+    -v "concat('    ssl_certificate_key ${OMV_SSL_CERTIFICATE_DIR}/private/${OMV_SSL_CERTIFICATE_PREFIX}',sslcertificateref,'.key;')" -n \
   -b \
   -o "    include ${OMV_NGINX_SITE_WEBGUI_INCLUDE_DIR}/*.conf;" -n \
   -o "}" \

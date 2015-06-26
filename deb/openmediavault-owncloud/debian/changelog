@@ -1,3 +1,10 @@
+openmediavault-owncloud (2.0.2) stable; urgency=low
+
+  * Use the correct environment variables OMV_SSL_CERTIFICATE_DIR
+    and OMV_SSL_CERTIFICATE_PREFIX.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Fri, 26 Jun 2015 15:01:38 +0200
+
 openmediavault-owncloud (2.0.1) stable; urgency=low
 
   * Update locales.
