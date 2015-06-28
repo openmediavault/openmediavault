@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-11 20:38+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-06-25 15:15+0000\n"
+"Last-Translator: Grawens <szabolcs.szanyi@gmail.com>\n"
 "Language-Team: Hungarian (Hungary) (http://www.transifex.com/projects/p/openmediavault/language/hu_HU/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -199,19 +199,19 @@ msgid "Add"
 msgstr "Hozzáadás"
 
 msgid "Add VLAN connection"
-msgstr ""
+msgstr "VLAN kapcsolat hozzáadás"
 
 msgid "Add Wi-Fi connection"
-msgstr ""
+msgstr "Wi-Fi kapcsolat hozzáadás"
 
 msgid "Add bond connection"
-msgstr ""
+msgstr "Kötegelt kapcsolat hozzáadás"
 
 msgid "Add devices to RAID device"
 msgstr "Meghajtó hozzáadása a RAID tömbhöz"
 
 msgid "Add ethernet connection"
-msgstr ""
+msgstr "Ethernet kapcsolat hozzáadás"
 
 msgid "Add firewall rule"
 msgstr "Tűzfal szabály hozzáadása"
@@ -226,7 +226,7 @@ msgid "Add module"
 msgstr "Modul hozzáadása"
 
 msgid "Add public key"
-msgstr ""
+msgstr "Nyilvános kulcs hozzáadás"
 
 msgid "Add rsync job"
 msgstr "Rsync feladat hozzáadása"
@@ -1026,22 +1026,22 @@ msgid "Edit"
 msgstr "Szerkesztés"
 
 msgid "Edit SSH certificate"
-msgstr ""
+msgstr "SSH tanúsítvány módosítás"
 
 msgid "Edit SSL certificate"
 msgstr "SSL tanúsítvány szerkesztése"
 
 msgid "Edit VLAN connection"
-msgstr ""
+msgstr "VLAN kapcsolat módosítás"
 
 msgid "Edit Wi-Fi connection"
-msgstr ""
+msgstr "Wi.Fi kapcsolat módosítás"
 
 msgid "Edit bond connection"
-msgstr ""
+msgstr "Kötegelt kapcsolat módosítás"
 
 msgid "Edit ethernet connection"
-msgstr ""
+msgstr "Ethernet kapcsolat módosítás"
 
 msgid "Edit firewall rule"
 msgstr "Tűzfal szabály szerkesztése"
@@ -1202,7 +1202,7 @@ msgid "Estonia"
 msgstr "Észtország"
 
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 msgid "Ethiopia"
 msgstr "Etiópia"
@@ -1276,7 +1276,7 @@ msgid "Failed to get list of network interface devices"
 msgstr "Hálózati eszközök listájának lekérdezése sikertelen."
 
 msgid "Failed to get list of unused network interface devices"
-msgstr ""
+msgstr "Hálózati interfész eszközök listájának lekérdezése sikertelen"
 
 msgid "Failed to get list of users."
 msgstr "A felhasználók listájának lekérése sikertelen."
@@ -1603,7 +1603,7 @@ msgid "Import"
 msgstr "Importálás"
 
 msgid "Import SSH certificate"
-msgstr ""
+msgstr "SSH tanúsítvány importálás"
 
 msgid "Import SSL certificate"
 msgstr "SSL tanúsítvány importálása"
@@ -1683,7 +1683,7 @@ msgid "Interfaces"
 msgstr "Interfészek"
 
 msgid "Invalid SSH public key (RFC 4716)"
-msgstr ""
+msgstr "Érvénytelen SSH nyilvános kulcs (RFC 4716)"
 
 msgid "Invalid domain name"
 msgstr "Érvénytelen tartománynév"
@@ -1695,7 +1695,7 @@ msgid "Invalid group name"
 msgstr "Érvénytelen csoport név"
 
 msgid "Invalid host name"
-msgstr ""
+msgstr "Érvénytelen hosztnév"
 
 msgid "Invalid line: %s"
 msgstr "Érvénytelen sor: %s"
@@ -2118,10 +2118,10 @@ msgid "Network"
 msgstr "Hálózat"
 
 msgid "Network interface '%s' (type=%s) already exists"
-msgstr ""
+msgstr "'%s' (type=%s) hálózati interfész már létezik"
 
 msgid "Network interfaces"
-msgstr ""
+msgstr "Hálózati interfészek"
 
 msgid "Neutral Zone"
 msgstr "Semleges övezet"
@@ -2313,7 +2313,7 @@ msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent interface"
-msgstr ""
+msgstr "Szülő interfész"
 
 msgid "Passive FTP"
 msgstr "Passzív FTP"
@@ -2343,7 +2343,7 @@ msgid "Perform a trial run with no changes made"
 msgstr "Kipróbálás változások nélkül"
 
 msgid "Performance statistics"
-msgstr ""
+msgstr "Teljesítmény statisztikák"
 
 msgid "Period of validity"
 msgstr "Érvényesség ideje"
@@ -2543,13 +2543,13 @@ msgid "Public"
 msgstr "Nyilvános"
 
 msgid "Public key"
-msgstr ""
+msgstr "Nyilvános kulcs"
 
 msgid "Public key authentication"
 msgstr "Nyilvános kulcs hitelesítés"
 
 msgid "Public keys"
-msgstr ""
+msgstr "Nyilvános kulcsok"
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"
@@ -2666,7 +2666,7 @@ msgid "Remove"
 msgstr "Eltávolítás"
 
 msgid "Remove devices from RAID device"
-msgstr ""
+msgstr "Eszköz eltávolítása a RAID tömbből"
 
 msgid "Replace"
 msgstr "Eltávolítás"
@@ -2792,10 +2792,10 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2852,7 +2852,7 @@ msgid "Scheduling"
 msgstr "Ütemezés"
 
 msgid "Search domains"
-msgstr ""
+msgstr "Domainek keresése"
 
 msgid "Secondary email"
 msgstr "Másodlagos e-mail cím"
@@ -2873,7 +2873,7 @@ msgid "Security level"
 msgstr "Biztonsági szint"
 
 msgid "Select a SSH certificate ..."
-msgstr ""
+msgstr "Válassz ki egy SSH tanúsítványt ..."
 
 msgid "Select a SSL certificate ..."
 msgstr "Válassz ki egy SSL tanúsítványt ..."
@@ -2900,10 +2900,10 @@ msgid "Select a language ..."
 msgstr "Válassz ki egy nyelvet ..."
 
 msgid "Select a parent interface ..."
-msgstr ""
+msgstr "Válaszd ki a szülő interfészt ..."
 
 msgid "Select a primary interface ..."
-msgstr ""
+msgstr "Válaszd ki az elsődleges interfészt ..."
 
 msgid "Select a protocol ..."
 msgstr "Válassz ki egy protokollt ..."
@@ -2924,7 +2924,7 @@ msgid "Select devices to be added to the RAID device"
 msgstr "Kiválasztott meghajtók hozzáadása a RAID tömbhöz"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Kiválasztott meghajtók eltávolítása a RAID tömbből"
 
 msgid "Select or enter a user name ..."
 msgstr "Válassz ki vagy írj be egy felhasználó nevet"
@@ -3169,7 +3169,7 @@ msgstr "Rendszergazdaként való bejelentkezés engedélyezése."
 msgid ""
 "Specifies whether the system performance statistics are collected "
 "periodically."
-msgstr ""
+msgstr "Rendszeres teljesítmény statisztikák gyűjtése."
 
 msgid ""
 "Specifies whether to monitor the system status and select the most "
@@ -3306,7 +3306,7 @@ msgid "The RSA key length."
 msgstr "Az RSA kulcs hossza."
 
 msgid "The RSA public key in OpenSSH format."
-msgstr ""
+msgstr "Az RSA nyilvános kulcs OpenSSH formátumban."
 
 msgid "The SSL certificate."
 msgstr "Az SSL tanúsítvány."
@@ -3407,10 +3407,10 @@ msgid ""
 msgstr "A jogosultságok új fájlokon és könyvtárakon általában szabályozva vannak létrehozó maszk és könyvtár maszk által, de az örökölt jogosultságok paraméterei felülírják ezt. Ez különösen hasznos lehet több felhasználós rendszereknél, hogy egy megosztás rugalmasan használható legyen az egyes felhasználóknak."
 
 msgid "The private RSA key in X.509 PEM format."
-msgstr ""
+msgstr "A privát RSA kulcs a X.509 PEM formátumban."
 
 msgid "The public key in RFC 4716 SSH public key file format."
-msgstr ""
+msgstr "A nyilvános kulcs az RFC 4716 SSH nyilvános kulcs fájlformátumban."
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3498,19 +3498,19 @@ msgid "This field should be a IPv6 network address in CIDR notation"
 msgstr "Ennek a mezőnek egy IPv6 hálózati címnek kell lennie CIDR jelölésben"
 
 msgid "This field should be a domain name or an IP address"
-msgstr ""
+msgstr "Ennek a mezőnek egy tartománynévnek vagy egy IP címnek kell lennie"
 
 msgid "This field should be a domain name or an IPv4 address"
-msgstr ""
+msgstr "Ennek a mezőnek egy tartománynévnek vagy egy IPv4 címnek kell lennie"
 
 msgid "This field should be a host name or an IP address"
-msgstr ""
+msgstr "Ennek a mezőnek hosztnévnek vagy egy IP címnek kell lennie"
 
 msgid "This field should be a host name or an IPv4 address"
-msgstr ""
+msgstr "Ennek a mezőnek hosztnévnek vagy egy IPv4 címnek kell lennie"
 
 msgid "This field should be a list of domain names or IP addresses"
-msgstr ""
+msgstr "Ennek a mezőnek egy tartománynév listának vagy egy IP címnek kell lennie"
 
 msgid ""
 "This field should be a list of domain names or IP addresses seperated by <,>"
@@ -3518,7 +3518,7 @@ msgid ""
 msgstr ""
 
 msgid "This field should be a list of host names or IP addresses"
-msgstr ""
+msgstr "Ennek a mezőnek hosztnév listának vagy egy IP címnek kell lennie"
 
 msgid ""
 "This field should be a netmask within the range 128.0.0.0 - 255.255.255.252"
@@ -3709,7 +3709,7 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Total"
-msgstr ""
+msgstr "Teljes"
 
 msgid "Transfer log"
 msgstr "Átviteli napló"
@@ -3946,7 +3946,7 @@ msgid "Vietnam"
 msgstr "Vietnám"
 
 msgid "VirtIO device"
-msgstr ""
+msgstr "VirtIO eszköz"
 
 msgid "Volume"
 msgstr "Kötet"
@@ -3961,7 +3961,7 @@ msgid "WINS support"
 msgstr "WINS támogatás"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "Wake Island"
 msgstr "Wake-sziget"
@@ -4008,7 +4008,7 @@ msgid "When failed"
 msgstr "Mikor sikertelen"
 
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 msgid "Wipe"
 msgstr "Törlés"
