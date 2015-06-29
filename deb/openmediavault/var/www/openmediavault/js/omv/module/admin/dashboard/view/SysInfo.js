@@ -57,19 +57,17 @@ Ext.define("OMV.module.admin.dashboard.view.SysInfo", {
 					stateId: "name",
 					width: 150,
 					tdCls: Ext.baseCSSPrefix + "grid-cell-gray",
-					renderer: function(value, metaData, record, rowIndex,
-					  colIndex, store, view) {
+					renderer: function(value, metaData, record) {
 						return _(value);
 					}
 				},{
 					dataIndex: "value",
 					stateId: "value",
 					flex: 1,
-					renderer: function(value, metaData, record, rowIndex,
-					  colIndex, store, view) {
+					renderer: function(value, metaData, record) {
 						var me = this;
 						var result = value;
-						switch(record.get("type")) {
+						switch (record.get("type")) {
 						case "time":
 							var renderer = OMV.util.Format.localeTimeRenderer();
 							result = renderer.apply(me, arguments);

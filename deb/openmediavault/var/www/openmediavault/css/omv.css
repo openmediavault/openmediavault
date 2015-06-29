@@ -204,6 +204,14 @@ div#headerrlogo {
 	font-size: large;
 	text-align: center;
 }
+/* Grid */
+.x-grid-cell-boolean-icon {
+	text-align: center;
+	vertical-align: middle;
+}
+.x-grid-cell-gray {
+	background-color: #eee;
+}
 /* Tree */
 .x-tree-icon, .x-tree-elbow-img {
 	opacity: 0.7;

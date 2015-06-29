@@ -65,7 +65,7 @@ Ext.define("OMV.module.admin.system.plugin.Plugins", {
 		stateId: "installed",
 		resizable: false,
 		width: 80,
-		align: "center"
+		tdCls: Ext.baseCSSPrefix + "grid-cell-boolean-icon"
 	},{
 		text: _("Package information"),
 		sortable: true,
