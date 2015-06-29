@@ -1,3 +1,11 @@
+openmediavault-lvm2 (2.1) stable; urgency=low
+
+  * Update locales.
+  * Do not list read-only devices as physical volume candidates.
+  * Fix bug in logical volume dialog.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Mon, 29 Jun 2015 22:47:43 +0200
+
 openmediavault-lvm2 (2.0) stable; urgency=low
 
   * Update locales.

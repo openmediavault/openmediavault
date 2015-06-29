@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Volker <votdev@gmx.de>, 2014
+# Volker <votdev@gmx.de>, 2014-2015
 # Volker <votdev@gmx.de>, 2012
 # warhog <warhog@gmx.de>, 2012
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-01 19:40+0000\n"
+"PO-Revision-Date: 2015-06-12 11:44+0000\n"
 "Last-Translator: Volker <votdev@gmx.de>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/openmediavault/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -62,7 +62,7 @@ msgid "Do you really want to create the volume group?"
 msgstr "Wollen Sie die Volumegruppe wirklich erzeugen?"
 
 msgid "Do you really want to resize the selected physical volume?"
-msgstr ""
+msgstr "Wollen Sie die Größe des Physical Volume wirklich ändern?"
 
 msgid "Edit logical volume"
 msgstr "Logical Volume ändern"
@@ -80,25 +80,25 @@ msgid "Extend volume group"
 msgstr "Volumegruppe erweitern"
 
 msgid "Failed to create logical volume: %s"
-msgstr ""
+msgstr "Das Logical Volume konnte nicht erstellt werden: %s"
 
 msgid "Failed to create physical volume: %s"
-msgstr ""
+msgstr "Das Physical Volume konnte nicht erstellt werden: %s"
 
 msgid "Failed to create volume group: %s"
-msgstr ""
+msgstr "Die Volume Group konnte nicht erstellt werden: %s"
 
 msgid "Failed to extend logical volume: %s"
-msgstr ""
+msgstr "Das Logical Volume konnte nicht vergrößert werden: %s"
 
 msgid "Failed to extend volume group: %s"
-msgstr ""
+msgstr "Die Volume Group konnte nicht vergrößert werden: %s"
 
 msgid "Failed to reduce logical volume: %s"
-msgstr ""
+msgstr "Das Logical Volume konnte nicht verkleinert werden: %s"
 
 msgid "Failed to reduce volume group: %s"
-msgstr ""
+msgstr "Die Volume Group konnte nicht verkleinert werden: %s"
 
 msgid "Failed to remove logical volume: %s"
 msgstr "Das Logical Volume konnte nicht entfernt werden: %s"
@@ -110,13 +110,13 @@ msgid "Failed to remove volume group: %s"
 msgstr "Die Volume Group konnte nicht entfernt werden: %s"
 
 msgid "Failed to rename logical volume: %s"
-msgstr ""
+msgstr "Das Logical Volume konnte nicht umbenannt werden: %s"
 
 msgid "Failed to rename volume group: %s"
-msgstr ""
+msgstr "Die Volume Group konnte nicht umbenannt werden: %s"
 
 msgid "Failed to resize physical volume: %s"
-msgstr ""
+msgstr "Die Größe des Physical Volume konnte nicht geändert werden: %s"
 
 msgid "Free"
 msgstr "Frei"
@@ -155,7 +155,7 @@ msgid "Reduce volume group"
 msgstr "Volumegruppe reduzieren"
 
 msgid "Resize"
-msgstr ""
+msgstr "Größe ändern"
 
 msgid "Select a volume group ..."
 msgstr "Volumegruppe auswählen ..."

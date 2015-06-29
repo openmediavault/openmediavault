@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# Toshihiro Kan <kansuke4649@gmail.com>, 2014
+# Toshihiro Kan <kansuke4649@gmail.com>, 2014-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-01 19:40+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-06-03 03:30+0000\n"
+"Last-Translator: Toshihiro Kan <kansuke4649@gmail.com>\n"
 "Language-Team: Japanese (Japan) (http://www.transifex.com/projects/p/openmediavault/language/ja_JP/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -60,7 +60,7 @@ msgid "Do you really want to create the volume group?"
 msgstr "ボリュームグループを作成してもよろしいですか？"
 
 msgid "Do you really want to resize the selected physical volume?"
-msgstr ""
+msgstr "選択した物理ボリュームをリサイズしてもよろしいですか？"
 
 msgid "Edit logical volume"
 msgstr "論理ボリュームの編集"
@@ -78,25 +78,25 @@ msgid "Extend volume group"
 msgstr "ボリュームグループの拡張"
 
 msgid "Failed to create logical volume: %s"
-msgstr ""
+msgstr "論理ボリュームの作成に失敗しました: %s"
 
 msgid "Failed to create physical volume: %s"
-msgstr ""
+msgstr "物理ボリュームの作成に失敗しました: %s"
 
 msgid "Failed to create volume group: %s"
-msgstr ""
+msgstr "ボリュームグループの作成に失敗しました: %s"
 
 msgid "Failed to extend logical volume: %s"
-msgstr ""
+msgstr "論理ボリュームの拡張に失敗しました: %s"
 
 msgid "Failed to extend volume group: %s"
-msgstr ""
+msgstr "ボリュームグループの拡張にしっぱいしました: %s"
 
 msgid "Failed to reduce logical volume: %s"
-msgstr ""
+msgstr "論理ボリュームの縮小に失敗しました: %s"
 
 msgid "Failed to reduce volume group: %s"
-msgstr ""
+msgstr "ボリュームグループの縮小に失敗しました: %s"
 
 msgid "Failed to remove logical volume: %s"
 msgstr "論理ボリュームの削除に失敗しました: %s"
@@ -108,13 +108,13 @@ msgid "Failed to remove volume group: %s"
 msgstr "ボリュームグループの削除に失敗しました: %s"
 
 msgid "Failed to rename logical volume: %s"
-msgstr ""
+msgstr "論理ボリュームのリネームに失敗しました: %s"
 
 msgid "Failed to rename volume group: %s"
-msgstr ""
+msgstr "ボリュームグループのリネームに失敗しました: %s"
 
 msgid "Failed to resize physical volume: %s"
-msgstr ""
+msgstr "物理ボリュームのリサイズに失敗しました: %s"
 
 msgid "Free"
 msgstr "空き"
@@ -153,7 +153,7 @@ msgid "Reduce volume group"
 msgstr "ボリュームグループの縮小"
 
 msgid "Resize"
-msgstr ""
+msgstr "リサイズ"
 
 msgid "Select a volume group ..."
 msgstr "ボリュームグループの選択 ..."

@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013
-# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013-2014
+# Miguel Anxo Bouzada <mbouzada@gmail.com>, 2013-2015
 msgid ""
 msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-01 21:40+0200\n"
-"PO-Revision-Date: 2015-06-01 19:40+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
+"PO-Revision-Date: 2015-06-04 11:44+0000\n"
+"Last-Translator: Miguel Anxo Bouzada <mbouzada@gmail.com>\n"
 "Language-Team: Galician (http://www.transifex.com/projects/p/openmediavault/language/gl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -61,7 +61,7 @@ msgid "Do you really want to create the volume group?"
 msgstr "Confirma que quere crear un grupo de volumes?"
 
 msgid "Do you really want to resize the selected physical volume?"
-msgstr ""
+msgstr "Confirma que quere modificar o tamaño do volume físico seleccionado?"
 
 msgid "Edit logical volume"
 msgstr "Editar un volume lóxico"
@@ -79,25 +79,25 @@ msgid "Extend volume group"
 msgstr "Estender un grupo de volumes"
 
 msgid "Failed to create logical volume: %s"
-msgstr ""
+msgstr "Fallou ao crear o volume lóxico: %s"
 
 msgid "Failed to create physical volume: %s"
-msgstr ""
+msgstr "Fallou ao crear o volume físico: %s"
 
 msgid "Failed to create volume group: %s"
-msgstr ""
+msgstr "Fallou ao crear o grupo de volumes: %s"
 
 msgid "Failed to extend logical volume: %s"
-msgstr ""
+msgstr "Fallou ao estender o volume lóxico: %s"
 
 msgid "Failed to extend volume group: %s"
-msgstr ""
+msgstr "Fallou ao estender o grupo de volumes: %s"
 
 msgid "Failed to reduce logical volume: %s"
-msgstr ""
+msgstr "Fallou ao reducir o volume lóxico: %s"
 
 msgid "Failed to reduce volume group: %s"
-msgstr ""
+msgstr "Fallou ao reducir o grupo de volumes: %s"
 
 msgid "Failed to remove logical volume: %s"
 msgstr "Fallou ao retirar o volume lóxico: %s"
@@ -109,13 +109,13 @@ msgid "Failed to remove volume group: %s"
 msgstr "Fallou ao retirar o grupo de volumes: %s"
 
 msgid "Failed to rename logical volume: %s"
-msgstr ""
+msgstr "Fallou ao renomear o volume lóxico: %s"
 
 msgid "Failed to rename volume group: %s"
-msgstr ""
+msgstr "Fallou ao renomear o grupo de volumes: %s"
 
 msgid "Failed to resize physical volume: %s"
-msgstr ""
+msgstr "Fallou ao modificar o tamaño do volume físico: %s"
 
 msgid "Free"
 msgstr "Libre"
@@ -154,7 +154,7 @@ msgid "Reduce volume group"
 msgstr "Reducir un grupo de volumes"
 
 msgid "Resize"
-msgstr ""
+msgstr "Modificar o tamaño"
 
 msgid "Select a volume group ..."
 msgstr "Seleccionar un grupo de volumes ..."

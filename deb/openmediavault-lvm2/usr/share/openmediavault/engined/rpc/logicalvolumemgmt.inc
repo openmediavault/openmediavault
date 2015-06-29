@@ -153,24 +153,27 @@ class OMVRpcServiceLogicalVolumeMgmt extends OMVRpcServiceAbstract {
 			  "role" => OMV_ROLE_ADMINISTRATOR
 		  ));
 		// Get a list of all potential usable devices.
-		if(FALSE === ($devs = OMVStorageDevices::enumerateUnused())) {
+		if (FALSE === ($devs = OMVStorageDevices::enumerateUnused())) {
 			throw new OMVException(OMVErrorMsg::E_EXEC_MISC,
 			  "Failed to get list of devices");
 		}
 		// Prepare the result list.
 		$result = array();
-		foreach($devs as $devk => $devv) {
+		foreach ($devs as $devk => $devv) {
 			// Get the object that implements the given storage device.
 			$sd = OMVStorageDeviceFactory::get($devv);
-			if(is_null($sd) || !$sd->exists())
+			if (is_null($sd) || !$sd->exists())
+				continue;
+			// Skip read-only devices like CDROM.
+			if (TRUE === $sd->isReadOnly())
 				continue;
 			// Check if device is referenced/used by a plugin.
 			$xpath = sprintf("//services/devicefile[contains(.,'%s')]",
 			  $sd->getDeviceFile());
-			if(TRUE === $xmlConfig->exists($xpath))
+			if (TRUE === $xmlConfig->exists($xpath))
 				continue;
 			// Does this device already contain a filesystem?
-			if(FALSE !== OMVFilesystem::hasFileSystem($sd->getDeviceFile()))
+			if (FALSE !== OMVFilesystem::hasFileSystem($sd->getDeviceFile()))
 				continue;
 			// The device is a potential candidate to be used as a
 			// physical volume.

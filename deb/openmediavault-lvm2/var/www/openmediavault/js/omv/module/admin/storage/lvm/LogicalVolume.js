@@ -101,13 +101,12 @@ Ext.define("OMV.module.admin.storage.lvm.lv.Create", {
 			triggerAction: "all",
 			listeners: {
 				scope: me,
-				select: function(combo, records) {
+				select: function(combo, record) {
 					var disabled = false;
-					var record = records[0];
 					var free = parseInt(record.get("free"));
 					// Update the 'Size' slider control.
 					field = this.findField("sizeslider");
-					if(0 >= free) {
+					if (0 >= free) {
 						disabled = true;
 						OMV.MessageBox.info(null, _("No free space available to create a logical volume."));
 					} else {
