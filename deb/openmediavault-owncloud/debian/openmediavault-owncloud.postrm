@@ -32,7 +32,7 @@ case "$1" in
 		# Remove the configuration data.
 		omv_config_delete "/config/services/owncloud"
 		# Remove the ownCloud webserver configuration.
-		nginx_dissite openmediavault-owncloud
+		nginx_dissite openmediavault-owncloud || :
 		rm -f ${OMV_NGINX_SITE_OWNCLOUD_REDIRECT_CONFIG}
 		# Reload webserver configuration.
 		invoke-rc.d php5-fpm reload
