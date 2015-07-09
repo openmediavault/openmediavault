@@ -1,6 +1,8 @@
 openmediavault (2.1.1) stable; urgency=low
 
   * Fix some minor issues in the WebGUI.
+  * Display the navigation bar again on tablet and touch devices
+    because of sime display problems.
 
  -- Volker Theile <volker.theile@openmediavault.org>  Mon, 29 Jun 2015 22:12:31 +0200
 
