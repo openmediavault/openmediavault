@@ -515,7 +515,7 @@ finish:
 			  }
 		  }');
 		// Do not allow to modify user 'root' via RPC.
-		if(0 == strcasecmp("root", $params['name'])) {
+		if (0 == strcasecmp("root", $params['name'])) {
 			throw new OMVException(OMVErrorMsg::E_MISC_FAILURE, sprintf(
 			  gettext("Operation not allowed for user '%s'."),
 			  $params['name']));
@@ -652,14 +652,18 @@ finish:
 		// Get the user configuration object.
 		$object = $this->callMethod("getUser", array(
 		  "name" => $context['username']), $this->getAdminContext());
-		// Append the given values.
-		$object = array_merge($object, array(
-		  "comment" => $params['comment'],
-		  "email" => $params['email'],
-		  "password" => $params['password']));
 		// Update the user configuration.
-		return $this->callMethod("setUser", $object,
-		  $this->getAdminContext());
+		return $this->callMethod("setUser", array(
+			  "name" => $object['name'],
+			  "uid" => $object['uid'],
+			  "groups" => $object['groups'],
+			  "shell" => $object['shell'],
+			  "password" => $params['password'],
+			  "email" => $params['password'],
+			  "comment" => $params['comment'],
+			  "disallowusermod" => $object['disallowusermod'],
+			  "sshpubkeys" => $object['sshpubkeys']
+		  ), $this->getAdminContext());
 	}
 
 	/**
