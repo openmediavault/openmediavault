@@ -96,7 +96,7 @@ class OMVRpcServiceLogFile extends OMVRpcServiceAbstract {
 			$object = array(
 				"rownum" => $rowNum++
 			);
-			foreach($logfile->getColumns() as $columnk => $columnv) { 
+			foreach($logfile->getColumns() as $columnk => $columnv) {
 				// Execute user defined function, e.g. to convert
 				// column content?
 				if(is_array($columnv)) {
