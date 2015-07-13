@@ -63,10 +63,10 @@ require_once("openmediavault/htmlpage.inc");
 switch ('$1') {
 case 'admin':
 case 'user':
-	\$page = new OMVWebGui('$1');
+	\$page = new OMVControlPanel('$1');
 	break;
 case 'login':
-	\$page = new OMVWebGuiLogin();
+	\$page = new OMVLoginPage();
 	break;
 }
 chdir(\$GLOBALS['OMV_DOCUMENTROOT_DIR']);

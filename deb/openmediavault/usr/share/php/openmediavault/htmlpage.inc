@@ -245,7 +245,7 @@ EOF;
 /**
  * @ingroup api
  */
-class OMVWebGui extends OMVHtmlPageAbstract {
+class OMVControlPanel extends OMVHtmlPageAbstract {
 	const MODE_ADMINISTRATOR = "admin";
 	const MODE_USER = "user";
 
@@ -256,12 +256,12 @@ class OMVWebGui extends OMVHtmlPageAbstract {
 	 * @param mode The mode of the WebGUI, e.g. MODE_ADMINISTRATOR or
 	 *   MODE_USER.
 	 */
-	public function __construct($mode = OMVWebGui::MODE_USER) {
+	public function __construct($mode = OMVControlPanel::MODE_USER) {
 		$this->setMode($mode);
 	}
 
 	/**
-	 * Set the WebGUI mode.
+	 * Set the control panel mode.
 	 * @param mode The mode of the WebGUI, e.g. MODE_ADMINISTRATOR or
 	 *   MODE_USER.
 	 */
@@ -354,7 +354,7 @@ EOF;
 /**
  * @ingroup api
  */
-class OMVWebGuiLogin extends OMVHtmlPageAbstract {
+class OMVLoginPage extends OMVHtmlPageAbstract {
 	public function getJavascriptIncludes() {
 		$incList = array();
 		$this->scanFiles("js/omv/window/Login.js", $incList);

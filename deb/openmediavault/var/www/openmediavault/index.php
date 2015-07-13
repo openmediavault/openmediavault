@@ -31,13 +31,13 @@ try {
 		$session->validate();
 		$session->updateLastAccess();
 
-		$page = new OMVWebGui(($session->getRole() === OMV_ROLE_USER) ?
-		  OMVWebGui::MODE_USER : OMVWebGui::MODE_ADMINISTRATOR);
+		$page = new OMVControlPanel(($session->getRole() === OMV_ROLE_USER) ?
+		  OMVControlPanel::MODE_USER : OMVControlPanel::MODE_ADMINISTRATOR);
 		$page->render();
 	} else {
 		$session->destroy();
 
-		$page = new OMVWebGuiLogin();
+		$page = new OMVLoginPage();
 		$page->render();
 	}
 } catch(Exception $e) {
