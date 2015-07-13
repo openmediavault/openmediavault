@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-11 20:38+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: Greek (Greece) (http://www.transifex.com/projects/p/openmediavault/language/el_GR/)\n"
+"PO-Revision-Date: 2015-07-10 17:01+0000\n"
+"Last-Translator: Kostas Moho <kgounaris@hotmail.com>\n"
+"Language-Team: Greek (Greece) (http://www.transifex.com/p/openmediavault/language/el_GR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -198,19 +198,19 @@ msgid "Add"
 msgstr "Προσθήκη"
 
 msgid "Add VLAN connection"
-msgstr ""
+msgstr "Προσθήκη σύνδεσης VLAN"
 
 msgid "Add Wi-Fi connection"
-msgstr ""
+msgstr "Προσθήκη σύνδεσης Wi-Fi"
 
 msgid "Add bond connection"
-msgstr ""
+msgstr "Προσθήκη ομαδικής σύνδεσης"
 
 msgid "Add devices to RAID device"
 msgstr "Προσθήκη συσκευών σε συστοιχία RAID"
 
 msgid "Add ethernet connection"
-msgstr ""
+msgstr "Προσθήκη ενσύρματης σύνδεσης"
 
 msgid "Add firewall rule"
 msgstr "Προσθήκη κανόνα ασφαλείας"
@@ -225,7 +225,7 @@ msgid "Add module"
 msgstr "Προσθήκη μονάδας"
 
 msgid "Add public key"
-msgstr ""
+msgstr "Προσθήκη δημόσιου κλειδιού"
 
 msgid "Add rsync job"
 msgstr "Προσθήκη εργασίας συγχρονισμού"
@@ -775,7 +775,7 @@ msgid "DHCP"
 msgstr "DHCP"
 
 msgid "DNS servers"
-msgstr ""
+msgstr "Διακομιστές DNS"
 
 msgid "Daemon"
 msgstr "Δαίμονας"
@@ -1025,22 +1025,22 @@ msgid "Edit"
 msgstr "Αλλαγή"
 
 msgid "Edit SSH certificate"
-msgstr ""
+msgstr "Επεξεργασία πιστοποιητικού SSH"
 
 msgid "Edit SSL certificate"
 msgstr "Αλλαγή"
 
 msgid "Edit VLAN connection"
-msgstr ""
+msgstr "Επεξεργασία σύνδεσης VLAN"
 
 msgid "Edit Wi-Fi connection"
-msgstr ""
+msgstr "Επεξεργασία σύνδεσης Wi-Fi"
 
 msgid "Edit bond connection"
-msgstr ""
+msgstr "Επεξεργασία ομαδικής σύνδεσης"
 
 msgid "Edit ethernet connection"
-msgstr ""
+msgstr "Επεξεργασία ενσύρματης σύνδεσης"
 
 msgid "Edit firewall rule"
 msgstr "Επεξεργασία κανονισμού ασφαλείας"
@@ -1201,7 +1201,7 @@ msgid "Estonia"
 msgstr "Estonia"
 
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 msgid "Ethiopia"
 msgstr "Ethiopia"
@@ -1275,7 +1275,7 @@ msgid "Failed to get list of network interface devices"
 msgstr "Απέτυχε η λήψη της λίστας των συσκευών δικτύου"
 
 msgid "Failed to get list of unused network interface devices"
-msgstr ""
+msgstr "Απέτυχε η λήψη της λίστας των διαθέσιμων συσκευών δικτύου"
 
 msgid "Failed to get list of users."
 msgstr "Απέτυχε η λήψη της λίστας των χρηστών."
@@ -1602,7 +1602,7 @@ msgid "Import"
 msgstr "Εισαγωγή"
 
 msgid "Import SSH certificate"
-msgstr ""
+msgstr "Εισαγωγή πιστοποιητικού SSH"
 
 msgid "Import SSL certificate"
 msgstr "Εισαγωγή πιστοποιητικού SSL"
@@ -1682,7 +1682,7 @@ msgid "Interfaces"
 msgstr "Διεπαφές"
 
 msgid "Invalid SSH public key (RFC 4716)"
-msgstr ""
+msgstr "Μη αποδεκτό δημόσιο κλειδί SSH (RFC 4716)"
 
 msgid "Invalid domain name"
 msgstr "Άκυρο όνομα τομέα"
@@ -1694,7 +1694,7 @@ msgid "Invalid group name"
 msgstr "Άκυρη ονομασία ομάδας"
 
 msgid "Invalid host name"
-msgstr ""
+msgstr "Άκυρο όνομα συστήματος"
 
 msgid "Invalid line: %s"
 msgstr "Άκυρη γραμμή : %s"
@@ -2117,10 +2117,10 @@ msgid "Network"
 msgstr "Δίκτυο"
 
 msgid "Network interface '%s' (type=%s) already exists"
-msgstr ""
+msgstr "Η επαφή δικτύου '%s' (τύπου=%s) υπάρχει ήδη"
 
 msgid "Network interfaces"
-msgstr ""
+msgstr "Επαφές δικτύου"
 
 msgid "Neutral Zone"
 msgstr "Ουδέτερη ζώνη"
@@ -2312,7 +2312,7 @@ msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent interface"
-msgstr ""
+msgstr "Αρχική επαφή"
 
 msgid "Passive FTP"
 msgstr "Παθητικό FTP"
@@ -2342,7 +2342,7 @@ msgid "Perform a trial run with no changes made"
 msgstr "Δοκιμαστική εκτέλεση χωρίς έλευση αλλαγών"
 
 msgid "Performance statistics"
-msgstr ""
+msgstr "Στατιστικά επιδόσεων"
 
 msgid "Period of validity"
 msgstr "Περίοδος ισχύως"
@@ -2432,7 +2432,7 @@ msgstr "Πρώτα πρέπει να επιλεχθεί ένας τόμος."
 msgid ""
 "Please make sure that the shared folder is publicly writable if new files "
 "are allowed."
-msgstr ""
+msgstr "Βεβαιωθείτε πως ο κοινόχρηστος φάκελος είναι δημόσια εγγράψιμος αν επιτρέπονται νέα αρχεία."
 
 msgid ""
 "Please note that no communication with the system is possible during this "
@@ -2542,13 +2542,13 @@ msgid "Public"
 msgstr "Δημόσιο"
 
 msgid "Public key"
-msgstr ""
+msgstr "Δημόσιο κλειδί"
 
 msgid "Public key authentication"
 msgstr "Πιστοποίηση με δημόσιο κλειδί"
 
 msgid "Public keys"
-msgstr ""
+msgstr "Δημόσια κλειδιά"
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"
@@ -2575,10 +2575,10 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
 msgstr "RAID 4"
@@ -2665,7 +2665,7 @@ msgid "Remove"
 msgstr "Αφαίρεση"
 
 msgid "Remove devices from RAID device"
-msgstr ""
+msgstr "Αφαίρεση συσκευών από συστοιχία RAID"
 
 msgid "Replace"
 msgstr "Αντικατάσταση"
@@ -2791,10 +2791,10 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -3708,7 +3708,7 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Total"
-msgstr ""
+msgstr "Σύνολο"
 
 msgid "Transfer log"
 msgstr "Καταγραφή μεταφορών"
@@ -3915,10 +3915,10 @@ msgid "Uzbekistan"
 msgstr "Uzbekistan"
 
 msgid "VLAN"
-msgstr ""
+msgstr "VLAN"
 
 msgid "VLAN id"
-msgstr ""
+msgstr "VLAN id"
 
 msgid "Valid to"
 msgstr "Ισχύει εώς"
@@ -3945,7 +3945,7 @@ msgid "Vietnam"
 msgstr "Vietnam"
 
 msgid "VirtIO device"
-msgstr ""
+msgstr "VirtIO device"
 
 msgid "Volume"
 msgstr "Τόμος"
@@ -3960,7 +3960,7 @@ msgid "WINS support"
 msgstr "Υποστήριξη WINS"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "Wake Island"
 msgstr "Wake Island"
@@ -4007,7 +4007,7 @@ msgid "When failed"
 msgstr "Αποτυχία"
 
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 msgid "Wipe"
 msgstr "Εκκένωση (διαγραφή)"

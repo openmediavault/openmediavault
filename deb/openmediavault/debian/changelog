@@ -1,5 +1,6 @@
 openmediavault (2.1.1) stable; urgency=low
 
+  * Update locales.
   * Fix some minor issues in the WebGUI.
   * Display the navigation bar again on tablet and touch devices
     because of sime display problems.

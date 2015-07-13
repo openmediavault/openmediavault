@@ -13,9 +13,9 @@ msgstr ""
 "Project-Id-Version: openmediavault\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-06-11 22:38+0200\n"
-"PO-Revision-Date: 2015-06-11 20:38+0000\n"
-"Last-Translator: Volker <votdev@gmx.de>\n"
-"Language-Team: Polish (Poland) (http://www.transifex.com/projects/p/openmediavault/language/pl_PL/)\n"
+"PO-Revision-Date: 2015-07-01 06:25+0000\n"
+"Last-Translator: Cyryl Sochacki <cyrylsochacki@gmail.com>\n"
+"Language-Team: Polish (Poland) (http://www.transifex.com/p/openmediavault/language/pl_PL/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -202,19 +202,19 @@ msgid "Add"
 msgstr "Dodaj"
 
 msgid "Add VLAN connection"
-msgstr ""
+msgstr "Dodaj połączenie VLAN"
 
 msgid "Add Wi-Fi connection"
-msgstr ""
+msgstr "Dodaj połączenie Wi-Fi"
 
 msgid "Add bond connection"
-msgstr ""
+msgstr "Dodaj połączenie redundantne"
 
 msgid "Add devices to RAID device"
 msgstr "Dodaj urządzenia do RAID"
 
 msgid "Add ethernet connection"
-msgstr ""
+msgstr "Dodaj połączenie ethernetowe"
 
 msgid "Add firewall rule"
 msgstr "Dodaj regułę firewalla"
@@ -229,7 +229,7 @@ msgid "Add module"
 msgstr "Dodaj moduł"
 
 msgid "Add public key"
-msgstr ""
+msgstr "Dodaj publiczny klucz"
 
 msgid "Add rsync job"
 msgstr "Dodaj zadanie rsync"
@@ -509,7 +509,7 @@ msgid "Bolivia"
 msgstr "Bolivia"
 
 msgid "Bond"
-msgstr ""
+msgstr "redundantne"
 
 msgid "Boot"
 msgstr "Ładuj"
@@ -779,7 +779,7 @@ msgid "DHCP"
 msgstr "DHCP"
 
 msgid "DNS servers"
-msgstr ""
+msgstr "Serwery DNS"
 
 msgid "Daemon"
 msgstr "Demon"
@@ -1029,22 +1029,22 @@ msgid "Edit"
 msgstr "Edytuj"
 
 msgid "Edit SSH certificate"
-msgstr ""
+msgstr "Edytuj certyfikat SSH"
 
 msgid "Edit SSL certificate"
 msgstr "Edytuj certyfikat SSL"
 
 msgid "Edit VLAN connection"
-msgstr ""
+msgstr "Edytuj połączenie VLAN"
 
 msgid "Edit Wi-Fi connection"
-msgstr ""
+msgstr "Edytuj połączenie Wi-Fi"
 
 msgid "Edit bond connection"
-msgstr ""
+msgstr "Edytuj redundantne połączenie"
 
 msgid "Edit ethernet connection"
-msgstr ""
+msgstr "Edytuj połączenie ethernetowe"
 
 msgid "Edit firewall rule"
 msgstr "Edytuj regułę firewall-a"
@@ -1205,7 +1205,7 @@ msgid "Estonia"
 msgstr "Estonia"
 
 msgid "Ethernet"
-msgstr ""
+msgstr "Ethernet"
 
 msgid "Ethiopia"
 msgstr "Ethiopia"
@@ -1606,7 +1606,7 @@ msgid "Import"
 msgstr "Import"
 
 msgid "Import SSH certificate"
-msgstr ""
+msgstr "Importuj certyfikat SSH"
 
 msgid "Import SSL certificate"
 msgstr "Importuj certyfikat SSL"
@@ -1686,7 +1686,7 @@ msgid "Interfaces"
 msgstr "Interfejsy"
 
 msgid "Invalid SSH public key (RFC 4716)"
-msgstr ""
+msgstr "Nieprawidłowy publiczny klucz SSH (RFC 4716)"
 
 msgid "Invalid domain name"
 msgstr "Nieprawidłowa nazwa domeny"
@@ -1698,7 +1698,7 @@ msgid "Invalid group name"
 msgstr "Nieprawidłowa nazwa grupy"
 
 msgid "Invalid host name"
-msgstr ""
+msgstr "Nieprawidłowa nazwa hosta"
 
 msgid "Invalid line: %s"
 msgstr "Nieprawidłowa linia: %s"
@@ -2031,7 +2031,7 @@ msgid "Minute"
 msgstr "Minuta"
 
 msgid "Mirror"
-msgstr "Lustro"
+msgstr "RAID 1"
 
 msgid "Missing"
 msgstr "Brak"
@@ -2121,10 +2121,10 @@ msgid "Network"
 msgstr "Sieć"
 
 msgid "Network interface '%s' (type=%s) already exists"
-msgstr ""
+msgstr "Interfejs sieciowy '%s' (type=%s) już istnieje"
 
 msgid "Network interfaces"
-msgstr ""
+msgstr "Interfejsy sieciowe"
 
 msgid "Neutral Zone"
 msgstr "Neutral Zone"
@@ -2316,7 +2316,7 @@ msgid "Paraguay"
 msgstr "Paraguay"
 
 msgid "Parent interface"
-msgstr ""
+msgstr "Nadrzędny interfejs"
 
 msgid "Passive FTP"
 msgstr "Pasywny FTP"
@@ -2346,7 +2346,7 @@ msgid "Perform a trial run with no changes made"
 msgstr "Wykonaj próby bez zmian"
 
 msgid "Performance statistics"
-msgstr ""
+msgstr "Statystyki wydajności"
 
 msgid "Period of validity"
 msgstr "Okres ważnośći"
@@ -2546,13 +2546,13 @@ msgid "Public"
 msgstr "Publiczny"
 
 msgid "Public key"
-msgstr ""
+msgstr "Klucz publiczny"
 
 msgid "Public key authentication"
 msgstr "Publiczny klucz uwierzytelniania"
 
 msgid "Public keys"
-msgstr ""
+msgstr "Publiczne klucze"
 
 msgid "Puerto Rico"
 msgstr "Puerto Rico"
@@ -2579,10 +2579,10 @@ msgid "RAID 10"
 msgstr "RAID 10"
 
 msgid "RAID 2"
-msgstr ""
+msgstr "RAID 2"
 
 msgid "RAID 3"
-msgstr ""
+msgstr "RAID 3"
 
 msgid "RAID 4"
 msgstr "RAID 4"
@@ -2669,7 +2669,7 @@ msgid "Remove"
 msgstr "Usuń"
 
 msgid "Remove devices from RAID device"
-msgstr ""
+msgstr "Usuń dyski z macierzy RAID"
 
 msgid "Replace"
 msgstr "Zastąp"
@@ -2795,10 +2795,10 @@ msgid "SSH"
 msgstr "SSH"
 
 msgid "SSID"
-msgstr ""
+msgstr "SSID"
 
 msgid "SSL"
-msgstr ""
+msgstr "SSL"
 
 msgid "SSL/TLS"
 msgstr "SSL/TLS"
@@ -2855,7 +2855,7 @@ msgid "Scheduling"
 msgstr "Planowanie"
 
 msgid "Search domains"
-msgstr ""
+msgstr "Szukaj domeny"
 
 msgid "Secondary email"
 msgstr "Drugi email"
@@ -2876,7 +2876,7 @@ msgid "Security level"
 msgstr "Poziom bezpieczeństwa"
 
 msgid "Select a SSH certificate ..."
-msgstr ""
+msgstr "Wybierz certyfikat SSH ..."
 
 msgid "Select a SSL certificate ..."
 msgstr "Wybierz certyfikat SSL ..."
@@ -2903,10 +2903,10 @@ msgid "Select a language ..."
 msgstr "Wybierz język"
 
 msgid "Select a parent interface ..."
-msgstr ""
+msgstr "Wybierz nadrzędny interfejs ..."
 
 msgid "Select a primary interface ..."
-msgstr ""
+msgstr "Wybierz podstawowy interfejs ..."
 
 msgid "Select a protocol ..."
 msgstr "Wybierz protokół ..."
@@ -2927,7 +2927,7 @@ msgid "Select devices to be added to the RAID device"
 msgstr "Wybierz urządzenia, które mają być dodane do urządzenia RAID"
 
 msgid "Select devices to be removed from the RAID device."
-msgstr ""
+msgstr "Wybierz dyski, które mają być usunięte z macieży RAID"
 
 msgid "Select or enter a user name ..."
 msgstr "Wybierz lub wprowadź nazwę użytkownika..."
@@ -3183,7 +3183,7 @@ msgid "Specifies which slave is the primary device."
 msgstr "Określa, który slave jest podstawowym urządzeniem."
 
 msgid "Speed"
-msgstr ""
+msgstr "Prędkość"
 
 msgid "Spindown time"
 msgstr "Czas SPINDOWN"
@@ -3219,7 +3219,7 @@ msgid "Store DOS attributes"
 msgstr "Atrybuty magazynu DOS"
 
 msgid "Stripe"
-msgstr "Pasek"
+msgstr "RAID 0"
 
 msgid "Success"
 msgstr "Sukces"
@@ -3309,7 +3309,7 @@ msgid "The RSA key length."
 msgstr "Długość klucza RSA"
 
 msgid "The RSA public key in OpenSSH format."
-msgstr ""
+msgstr "Publiczny klucz SSH w formacie OpenSSH"
 
 msgid "The SSL certificate."
 msgstr "Certyfikat SSL"
@@ -3410,10 +3410,10 @@ msgid ""
 msgstr "Uprawnienia na nowe pliki i katalogi są zazwyczaj regulowane przez tworzenie maski i katalogu maski ale dziedziczyć uprawnienia parametr zastępuje to. Może to być szczególnie przydatne w systemach z wieloma użytkownikami pozwalając na jeden udział, by elastycznie użytkować przez każdego użytkownika."
 
 msgid "The private RSA key in X.509 PEM format."
-msgstr ""
+msgstr "Prywatny klucz RSA w formacie X.509 PEM"
 
 msgid "The public key in RFC 4716 SSH public key file format."
-msgstr ""
+msgstr "Publiczny klucz SSH w formacie RFC 4716"
 
 msgid ""
 "The repository will be checked for new, removed or upgraded software "
@@ -3712,7 +3712,7 @@ msgid "Tonga"
 msgstr "Tonga"
 
 msgid "Total"
-msgstr ""
+msgstr "Ogółem"
 
 msgid "Transfer log"
 msgstr "Logi transferu"
@@ -3919,10 +3919,10 @@ msgid "Uzbekistan"
 msgstr "Uzbekistan"
 
 msgid "VLAN"
-msgstr ""
+msgstr "VLAN"
 
 msgid "VLAN id"
-msgstr ""
+msgstr "VLAN id"
 
 msgid "Valid to"
 msgstr "Ważne do"
@@ -3949,7 +3949,7 @@ msgid "Vietnam"
 msgstr "Vietnam"
 
 msgid "VirtIO device"
-msgstr ""
+msgstr "Urządzenie VirtIO"
 
 msgid "Volume"
 msgstr "Objętość"
@@ -3964,7 +3964,7 @@ msgid "WINS support"
 msgstr "Wsparcie WINS"
 
 msgid "WOL"
-msgstr ""
+msgstr "WOL"
 
 msgid "Wake Island"
 msgstr "Wake Island"
@@ -4011,7 +4011,7 @@ msgid "When failed"
 msgstr "Gdy niepowodzenie"
 
 msgid "Wi-Fi"
-msgstr ""
+msgstr "Wi-Fi"
 
 msgid "Wipe"
 msgstr "Czyść"
