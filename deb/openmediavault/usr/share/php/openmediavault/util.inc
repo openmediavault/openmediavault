@@ -421,4 +421,3 @@ class OMVToplogicalSort {
 		return $sorted;
 	}
 }
-?>

@@ -626,4 +626,3 @@ class OMVRpcServiceCertificateMgmt extends OMVRpcServiceAbstract {
 // Register the RPC service.
 $rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
 $rpcServiceMgr->registerService(new OMVRpcServiceCertificateMgmt());
-?>

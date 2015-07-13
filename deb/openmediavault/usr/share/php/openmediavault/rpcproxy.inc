@@ -327,4 +327,3 @@ foreach(new DirectoryIterator($rpcServiceDir) as $item) {
 }
 $rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
 $rpcServiceMgr->initializeServices();
-?>

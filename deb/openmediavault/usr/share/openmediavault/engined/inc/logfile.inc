@@ -129,4 +129,3 @@ OMVLogFile::registerType("boot", array(
 	  ),
 	  "message" => 2
   )));
-?>

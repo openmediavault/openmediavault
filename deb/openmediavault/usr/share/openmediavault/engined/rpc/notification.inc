@@ -318,4 +318,3 @@ class OMVRpcServiceEmailNotification extends OMVRpcServiceAbstract {
 $rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
 $rpcServiceMgr->registerService(new OMVRpcServiceNotification());
 $rpcServiceMgr->registerService(new OMVRpcServiceEmailNotification());
-?>

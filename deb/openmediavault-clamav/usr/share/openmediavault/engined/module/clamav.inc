@@ -156,4 +156,3 @@ OMVLogFile::registerType("clamav", array(
 	  ),
 	  "message" => 2
   )));
-?>

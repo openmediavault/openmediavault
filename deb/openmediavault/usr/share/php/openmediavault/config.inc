@@ -577,4 +577,3 @@ if (FALSE === $xmlConfig->load()) {
 	throw new OMVException(OMVErrorMsg::E_CONFIG_LOAD_FAILED,
 	  $xmlConfig->getLastError());
 }
-?>

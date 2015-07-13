@@ -141,4 +141,3 @@ OMVLogFile::registerType("smartd", array(
 	  ),
 	  "message" => 3
   )));
-?>

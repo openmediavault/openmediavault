@@ -478,4 +478,3 @@ function inet_getnetmask($bits, $forceipv6 = FALSE) {
 	$inaddr = pack("H*", base_convert($binNetmask, 2, 16));
 	return inet_ntop($inaddr);
 }
-?>

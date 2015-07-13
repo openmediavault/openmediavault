@@ -61,4 +61,3 @@ class OMVModuleWebadmin extends OMVModuleAbstract
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleWebadmin());
-?>

@@ -110,4 +110,3 @@ class OMVRpcServiceFolderBrowser extends OMVRpcServiceAbstract {
 // Register the RPC service.
 $rpcServiceMgr = &OMVRpcServiceMgr::getInstance();
 $rpcServiceMgr->registerService(new OMVRpcServiceFolderBrowser());
-?>

@@ -110,4 +110,3 @@ OMVLogFile::registerType("rsync", array(
 	  ),
 	  "message" => 2
   )));
-?>

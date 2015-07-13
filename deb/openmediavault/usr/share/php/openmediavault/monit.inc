@@ -163,4 +163,3 @@ class OMVMonit extends OMVObject {
 		return strtolower($status);
 	}
 }
-?>

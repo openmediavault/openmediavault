@@ -35,4 +35,3 @@ if(!is_null($object)) {
 		  $object['timezone']));
 	}
 }
-?>

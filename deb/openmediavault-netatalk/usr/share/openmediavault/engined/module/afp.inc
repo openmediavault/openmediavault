@@ -196,4 +196,3 @@ class OMVModuleAFP extends OMVModuleServiceAbstract
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleAFP());
-?>

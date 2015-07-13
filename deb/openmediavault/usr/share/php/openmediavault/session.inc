@@ -184,4 +184,3 @@ class OMVSession extends OMVObject {
 		  ), TRUE));
 	}
 }
-?>

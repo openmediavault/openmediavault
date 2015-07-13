@@ -142,4 +142,3 @@ class OMVModuleTftp extends OMVModuleServiceAbstract
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleTftp());
-?>

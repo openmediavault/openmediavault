@@ -167,4 +167,3 @@ class OMVModuleForkedDaapd extends OMVModuleServiceAbstract
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleForkedDaapd());
-?>

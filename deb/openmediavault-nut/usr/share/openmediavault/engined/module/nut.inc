@@ -206,4 +206,3 @@ OMVLogFile::registerType("nut", array(
 	  "pid" => 5,
 	  "message" => 6
   )));
-?>

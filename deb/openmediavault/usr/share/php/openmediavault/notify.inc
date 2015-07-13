@@ -155,4 +155,3 @@ interface OMVINotifyListener {
 	 */
 	function bindListeners(OMVNotifyDispatcher $dispatcher);
 }
-?>

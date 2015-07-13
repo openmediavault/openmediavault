@@ -390,4 +390,3 @@ class OMVModuleMgr extends OMVObject {
 		}
 	}
 }
-?>

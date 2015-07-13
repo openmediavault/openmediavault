@@ -757,4 +757,3 @@ class OMVRpcBgStatus extends OMVObject {
 		return $this->get($key);
 	}
 }
-?>

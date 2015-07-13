@@ -623,4 +623,3 @@ class OMVLvmVolumeGroup extends OMVObject {
 		return TRUE;
 	}
 }
-?>

@@ -5903,4 +5903,3 @@ OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendBridge);
 OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendWireless);
 OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendVirtual);
 OMVNetworkInterfaces::registerBackend(new OMVNetworkInterfaceBackendLoopback);
-?>

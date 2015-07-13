@@ -195,4 +195,3 @@ if(posix_access($GLOBALS['OMV_DEFAULT_FILE'], POSIX_F_OK | POSIX_R_OK)) {
   }
   unset($lines);
 }
-?>

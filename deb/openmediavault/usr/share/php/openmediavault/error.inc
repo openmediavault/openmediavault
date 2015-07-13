@@ -169,4 +169,3 @@ class OMVException2 extends Exception {
 		return $this->trace;
 	}
 }
-?>

@@ -159,4 +159,3 @@ $xmlConfig->addEnum("target");
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleIscsiTarget());
-?>

@@ -223,4 +223,3 @@ OMVLogFile::registerType("proftpd_xferlog", array(
 	  "authenticateduserid" => 13,
 	  "completionstatus" => 14
   )));
-?>

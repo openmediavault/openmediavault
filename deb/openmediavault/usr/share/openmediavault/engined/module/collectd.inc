@@ -128,4 +128,3 @@ class OMVModuleCollectd extends OMVModuleServiceAbstract
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleCollectd());
-?>

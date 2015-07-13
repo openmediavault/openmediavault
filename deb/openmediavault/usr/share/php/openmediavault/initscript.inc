@@ -199,4 +199,3 @@ class OMVSysVInitScript extends OMVObject {
 		return $result;
 	}
 }
-?>

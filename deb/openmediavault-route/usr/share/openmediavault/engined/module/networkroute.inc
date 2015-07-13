@@ -121,4 +121,3 @@ $xmlConfig->addEnum("route");
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleNetworkRoute());
-?>

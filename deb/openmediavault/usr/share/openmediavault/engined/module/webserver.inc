@@ -98,4 +98,3 @@ class OMVModuleWebserver extends OMVModuleNginxAbstract
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleWebserver());
-?>

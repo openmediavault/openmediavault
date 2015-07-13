@@ -339,4 +339,3 @@ OMVLogFile::registerType("smbdaudit", array(
 	  "result" => 9,
 	  "filename" => 10
   )));
-?>

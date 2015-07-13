@@ -83,4 +83,3 @@ class OMVModuleUsbBackup extends OMVModuleServiceAbstract
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModuleUsbBackup());
-?>

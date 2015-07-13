@@ -93,4 +93,3 @@ class OMVModulePostfix extends OMVModuleServiceAbstract
 // Register module.
 $moduleMgr = &OMVModuleMgr::getInstance();
 $moduleMgr->registerModule(new OMVModulePostfix());
-?>

@@ -120,4 +120,3 @@ class OMVLogFile extends OMVObject {
 		return $type['columns'];
 	}
 }
-?>

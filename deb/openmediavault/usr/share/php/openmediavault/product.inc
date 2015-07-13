@@ -137,4 +137,3 @@ class OMVProduct extends OMVObject {
 		return $this->info['packagename'];
 	}
 }
-?>
