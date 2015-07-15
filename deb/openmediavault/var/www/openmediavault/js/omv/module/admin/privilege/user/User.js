@@ -178,6 +178,7 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
 				flex: 1,
 				store: Ext.create("OMV.data.Store", {
 					autoLoad: true,
+					groupField: "system",
 					model: OMV.data.Model.createImplicit({
 						idProperty: "name",
 						fields: [
@@ -216,6 +217,27 @@ Ext.define("OMV.module.admin.privilege.user.user.Groups", {
 						align: "center",
 						hidden: true,
 						flex: 1
+					}],
+					features: [{
+						ftype: "grouping",
+						groupHeaderTpl: Ext.create("Ext.XTemplate",
+							"{[this.renderValue(values)]}", {
+							renderValue: function(values) {
+								var result;
+								switch (values.groupField) {
+								case "system":
+									result = values.groupValue ?
+									  _("System accounts") :
+									  _("User accounts");
+									break;
+								default:
+									result = Ext.String.format("{0}: {1}",
+									  values.columnName, values.name);
+									break;
+								}
+								return result;
+							}
+						})
 					}]
 				},
 				value: [ "users" ]

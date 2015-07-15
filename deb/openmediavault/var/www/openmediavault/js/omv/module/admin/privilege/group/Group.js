@@ -80,10 +80,12 @@ Ext.define("OMV.module.admin.privilege.group.Group", {
 			flex: 1,
 			store: Ext.create("OMV.data.Store", {
 				autoLoad: true,
+				groupField: "system",
 				model: OMV.data.Model.createImplicit({
 					idProperty: "name",
 					fields: [
-						{ name: "name", type: "string" }
+						{ name: "name", type: "string" },
+						{ name: "system", type: "boolean" }
 					]
 				}),
 				proxy: {
@@ -91,7 +93,7 @@ Ext.define("OMV.module.admin.privilege.group.Group", {
 					appendSortParams: false,
 					rpcData: {
 						service: "UserMgmt",
-						method: "enumerateUsers"
+						method: "enumerateAllUsers"
 					}
 				},
 				sorters: [{
@@ -102,11 +104,41 @@ Ext.define("OMV.module.admin.privilege.group.Group", {
 			gridConfig: {
 				stateful: true,
 				stateId: "e03fffb6-b1ed-11e2-b01b-00221568ca88",
+				features: [{
+					ftype: "grouping",
+					groupHeaderTpl: Ext.create("Ext.XTemplate",
+						"{[this.renderValue(values)]}", {
+						renderValue: function(values) {
+							var result;
+							switch (values.groupField) {
+							case "system":
+								result = values.groupValue ?
+								  _("System accounts") :
+								  _("User accounts");
+								break;
+							default:
+								result = Ext.String.format("{0}: {1}",
+								  values.columnName, values.name);
+								break;
+							}
+							return result;
+						}
+					})
+				}],
 				columns: [{
 					text: _("Name"),
 					sortable: true,
 					dataIndex: "name",
 					stateId: "name",
+					flex: 1
+				},{
+					xtype: "booleantextcolumn",
+					text: _("System"),
+					sortable: true,
+					dataIndex: "system",
+					stateId: "system",
+					align: "center",
+					hidden: true,
 					flex: 1
 				}]
 			},

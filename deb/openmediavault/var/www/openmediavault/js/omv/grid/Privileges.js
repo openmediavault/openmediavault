@@ -61,8 +61,8 @@ Ext.define("OMV.grid.Privileges", {
 				var result;
 				switch (values.groupField) {
 				case "system":
-					result = values.groupValue ? _("System users/groups") :
-					  _("General users/groups");
+					result = values.groupValue ? _("System accounts") :
+					  _("User accounts");
 					break;
 				default:
 					result = Ext.String.format("{0}: {1}", values.columnName,
