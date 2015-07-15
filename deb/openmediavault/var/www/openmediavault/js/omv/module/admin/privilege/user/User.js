@@ -20,7 +20,6 @@
  */
 // require("js/omv/WorkspaceManager.js")
 // require("js/omv/workspace/grid/Panel.js")
-// require("js/omv/workspace/window/Form.js")
 // require("js/omv/workspace/window/Grid.js")
 // require("js/omv/workspace/window/Tab.js")
 // require("js/omv/workspace/window/TextArea.js")
@@ -28,6 +27,7 @@
 // require("js/omv/form/field/CheckboxGrid.js")
 // require("js/omv/form/field/Password.js")
 // require("js/omv/grid/PrivilegesByRole.js")
+// require("js/omv/grid/column/BooleanText.js")
 // require("js/omv/util/Format.js")
 // require("js/omv/Rpc.js")
 // require("js/omv/data/Store.js")
@@ -38,6 +38,8 @@
 /**
  * @class OMV.module.admin.privilege.user.user.General
  * @derived OMV.form.Panel
+ * @param editMode Set to TRUE if the dialog is in edit mode. Defaults
+ *   to FALSE.
  */
 Ext.define("OMV.module.admin.privilege.user.user.General", {
 	extend: "OMV.form.Panel",
@@ -48,6 +50,8 @@ Ext.define("OMV.module.admin.privilege.user.user.General", {
 		"OMV.data.reader.RpcArray",
 		"OMV.form.field.Password"
 	],
+
+	editMode: false,
 
 	title: _("General"),
 	bodyPadding: "5 5 0",
@@ -61,7 +65,7 @@ Ext.define("OMV.module.admin.privilege.user.user.General", {
 				fieldLabel: _("Name"),
 				allowBlank: false,
 				vtype: "username",
-				readOnly: "edit" == me.displayMode
+				readOnly: me.editMode
 			},{
 				xtype: "textfield",
 				name: "comment",
@@ -78,12 +82,12 @@ Ext.define("OMV.module.admin.privilege.user.user.General", {
 				xtype: "passwordfield",
 				name: "password",
 				fieldLabel: _("Password"),
-				allowBlank: "edit" == me.displayMode
+				allowBlank: me.editMode
 			},{
 				xtype: "passwordfield",
 				name: "passwordconf",
 				fieldLabel: _("Confirm password"),
-				allowBlank: "edit" == me.displayMode,
+				allowBlank: me.editMode,
 				submitValue: false
 			},{
 				xtype: "combo",
@@ -148,102 +152,140 @@ Ext.define("OMV.module.admin.privilege.user.user.General", {
 
 /**
  * @class OMV.module.admin.privilege.user.user.Groups
- * @derived OMV.form.Panel
+ * @derived OMV.grid.Panel
  */
 Ext.define("OMV.module.admin.privilege.user.user.Groups", {
-	extend: "OMV.form.Panel",
+	extend: "OMV.grid.Panel",
 	uses: [
+		"Ext.XTemplate",
+		"Ext.grid.feature.Grouping",
 		"OMV.data.Store",
 		"OMV.data.Model",
 		"OMV.data.proxy.Rpc",
-		"OMV.form.field.CheckboxGrid"
+		"OMV.grid.column.BooleanText"
 	],
 
+	border: false,
 	title: _("Groups"),
-	bodyPadding: "5 5 0",
-	layout: {
-		type: "vbox",
-		align: "stretch"
-	},
+	selType: "checkboxmodel",
+	stateful: true,
+	stateId: "e44f12ea-b1ed-11e2-9a57-00221568ca88",
+	features: [{
+		ftype: "grouping",
+		groupHeaderTpl: Ext.create("Ext.XTemplate",
+			"{[this.renderValue(values)]}", {
+			renderValue: function(values) {
+				var result;
+				switch (values.groupField) {
+				case "system":
+					result = values.groupValue ? _("System accounts") :
+					  _("User accounts");
+					break;
+				default:
+					result = Ext.String.format("{0}: {1}", values.columnName,
+					  values.name);
+					break;
+				}
+				return result;
+			}
+		})
+	}],
+	columns: [{
+		text: _("Name"),
+		sortable: true,
+		dataIndex: "name",
+		stateId: "name",
+		flex: 2
+	},{
+		xtype: "booleantextcolumn",
+		text: _("System"),
+		sortable: true,
+		groupable: true,
+		width: 60,
+		hidden: true,
+		dataIndex: "system",
+		stateId: "system",
+		align: "center",
+		flex: 1
+	}],
 
 	initComponent: function() {
 		var me = this;
 		Ext.apply(me, {
-			items: [{
-				xtype: "checkboxgridfield",
-				name: "groups",
-				fieldLabel: _("Groups"),
-				hideLabel: true,
-				valueField: "name",
-				flex: 1,
-				store: Ext.create("OMV.data.Store", {
-					autoLoad: true,
-					groupField: "system",
-					model: OMV.data.Model.createImplicit({
-						idProperty: "name",
-						fields: [
-							{ name: "name", type: "string" },
-							{ name: "system", type: "boolean" }
-						]
-					}),
-					proxy: {
-						type: "rpc",
-						appendSortParams: false,
-						rpcData: {
-							service: "UserMgmt",
-							method: "enumerateAllGroups"
-						}
-					},
-					sorters: [{
-						direction: "ASC",
-						property: "name"
-					}]
+			store: Ext.create("OMV.data.Store", {
+				autoLoad: true,
+				groupField: "system",
+				model: OMV.data.Model.createImplicit({
+					idProperty: "name",
+					fields: [
+						{ name: "name", type: "string" },
+						{ name: "system", type: "boolean" }
+					]
 				}),
-				gridConfig: {
-					stateful: true,
-					stateId: "e44f12ea-b1ed-11e2-9a57-00221568ca88",
-					columns: [{
-						text: _("Name"),
-						sortable: true,
-						dataIndex: "name",
-						stateId: "name",
-						flex: 2
-					},{
-						xtype: "booleantextcolumn",
-						text: _("System"),
-						sortable: true,
-						dataIndex: "system",
-						stateId: "system",
-						align: "center",
-						hidden: true,
-						flex: 1
-					}],
-					features: [{
-						ftype: "grouping",
-						groupHeaderTpl: Ext.create("Ext.XTemplate",
-							"{[this.renderValue(values)]}", {
-							renderValue: function(values) {
-								var result;
-								switch (values.groupField) {
-								case "system":
-									result = values.groupValue ?
-									  _("System accounts") :
-									  _("User accounts");
-									break;
-								default:
-									result = Ext.String.format("{0}: {1}",
-									  values.columnName, values.name);
-									break;
-								}
-								return result;
-							}
-						})
-					}]
+				proxy: {
+					type: "rpc",
+					appendSortParams: false,
+					rpcData: {
+						service: "UserMgmt",
+						method: "enumerateAllGroups"
+					}
 				},
-				value: [ "users" ]
-			}]
+				sorters: [{
+					direction: "ASC",
+					property: "name"
+				}],
+				listeners: {
+					scope: me,
+					load: function(store, records) {
+						// Always select the 'users' group.
+						var record = store.findRecord("name", "users");
+						if (Ext.isObject(record) && record.isModel)
+							me.getSelectionModel().select(record, true, true);
+					}
+				}
+			})
 		});
 		me.callParent(arguments);
+		// Mark the store as dirty whenever the selection has
+		// been changed.
+		me.on("selectionchange", function(c, selected) {
+			me.store.markDirty();
+		});
+	},
+
+	setValues: function(values) {
+		var me = this;
+		// Ensure the store is loaded to select the given groups.
+		if (me.store.isLoading() || !me.store.isLoaded()) {
+			var fn = Ext.Function.bind(me.setValues, me, arguments);
+			me.store.on({
+				single: true,
+				load: fn
+			});
+			return false;
+		}
+		// Select the given groups.
+		var records = [];
+		me.getSelectionModel().deselectAll(true);
+		Ext.Array.each(values.groups, function(name) {
+			var record = me.store.findRecord("name", name);
+			if (Ext.isObject(record) && record.isModel)
+				Ext.Array.push(records, [ record ]);
+		});
+		me.getSelectionModel().select(records, true, true);
+		return values.groups;
+	},
+
+	getValues: function() {
+		var me = this;
+		var groups = [];
+		var records = me.getSelection();
+		Ext.Array.each(records, function(record) {
+			groups.push(record.get("name"));
+		});
+		return {
+			groups: groups
+		};
 	}
 });
 
@@ -381,10 +423,9 @@ Ext.define("OMV.module.admin.privilege.user.User", {
 
 	getTabItems: function() {
 		var me = this;
-		var displayMode = Ext.isDefined(me.rpcGetMethod) ? "edit" : "add";
 		return [
 			Ext.create("OMV.module.admin.privilege.user.user.General", {
-				displayMode: displayMode
+				editMode: Ext.isDefined(me.rpcGetMethod)
 			}),
 			Ext.create("OMV.module.admin.privilege.user.user.Groups"),
 			Ext.create("OMV.module.admin.privilege.user.user.SshPubKeys")
