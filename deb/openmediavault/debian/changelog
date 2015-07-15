@@ -1,3 +1,9 @@
+openmediavault (2.1.2) stable; urgency=low
+
+  * Mantis 0001368: User password changes field 'E-Mail'.
+
+ -- Volker Theile <volker.theile@openmediavault.org>  Wed, 15 Jul 2015 07:14:16 +0200
+
 openmediavault (2.1.1) stable; urgency=low
 
   * Update locales.

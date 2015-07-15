@@ -659,7 +659,7 @@ finish:
 			  "groups" => $object['groups'],
 			  "shell" => $object['shell'],
 			  "password" => $params['password'],
-			  "email" => $params['password'],
+			  "email" => $params['email'],
 			  "comment" => $params['comment'],
 			  "disallowusermod" => $object['disallowusermod'],
 			  "sshpubkeys" => $object['sshpubkeys']
